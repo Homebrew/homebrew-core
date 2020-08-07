@@ -3,6 +3,7 @@ class Rav1e < Formula
   homepage "https://github.com/xiph/rav1e"
   url "https://github.com/xiph/rav1e/archive/v0.3.3.tar.gz"
   sha256 "a091f3387055e472b6e028aa013cf0f37fb5acce9f4db2605d929bbffb448d01"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any

@@ -1,15 +1,15 @@
 class I686ElfGcc < Formula
   desc "The GNU compiler collection for i686-elf"
   homepage "https://gcc.gnu.org"
-  url "https://ftp.gnu.org/gnu/gcc/gcc-10.1.0/gcc-10.1.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gcc/gcc-10.1.0/gcc-10.1.0.tar.xz"
-  sha256 "b6898a23844b656f1b68691c5c012036c2e694ac4b53a8918d4712ad876e7ea2"
+  url "https://ftp.gnu.org/gnu/gcc/gcc-10.2.0/gcc-10.2.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gcc/gcc-10.2.0/gcc-10.2.0.tar.xz"
+  sha256 "b8dd4368bb9c7f0b98188317ee0254dd8cc99d1e3a18d0ff146c855fe16c1d8c"
   license "GPL-2.0"
 
   bottle do
-    sha256 "885c670f1284e93080919fa84bffe146d747c99cecf2c9f6f4e45fc457013141" => :catalina
-    sha256 "96bb7e4a8a16695feb1824adb6f1947ee6c25425c77c557ba125553eedbf029b" => :mojave
-    sha256 "e7c1d55d8f4f017cb270f5e8ee6354825da5eca941988b44dbe2555de9b7daa7" => :high_sierra
+    sha256 "8e258af70b398807c115631de8a1dc8c6ebdb3be870fe26410c14e91a7659a58" => :catalina
+    sha256 "4c14d4308435c164f92de628f8e1b97a63692fb0b3ff083c083a64fed1c72870" => :mojave
+    sha256 "c8d9a65d529d5c9219b451dfd724c7df0275df5f9c6138eb3db173b783c07372" => :high_sierra
   end
 
   depends_on "gmp"

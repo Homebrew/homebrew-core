@@ -2,15 +2,15 @@ class K6 < Formula
   desc "Modern load testing tool, using Go and JavaScript"
   homepage "https://k6.io"
   url "https://github.com/loadimpact/k6.git",
-    tag:      "v0.27.0",
-    revision: "6fa889d0011729fbac4c3365361610d9bf019d4d"
+    tag:      "v0.27.1",
+    revision: "4ee1ca9624bdd9fa68a0d534be11ac22328f1821"
   license "AGPL-3.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "704661df647ee6e48ca4f48c4bfc582ac0b1e369cd22b1c41d00aaa99e579727" => :catalina
-    sha256 "dab5a85c3803da27d927f1e64d5dd52b17ffce12bdfb86e1ddfa28bb38b28d35" => :mojave
-    sha256 "7fadfa731dcc0f851df436506c4600ffb833ea1fa80d205c6392261847a0c338" => :high_sierra
+    sha256 "afa071cb66ffb37e6718ee52be4b58b707b935765f6527415da7dc15c2297658" => :catalina
+    sha256 "78bad35beeaa7d16a8f55aa2f9980b74c07fdec191c7ca52085ff0a2f8aa476c" => :mojave
+    sha256 "8f66f1625d3e95c011ead1d2fdfc3aed6102d9f9a475f9ec093cb50fa40503c4" => :high_sierra
   end
 
   depends_on "dep" => :build

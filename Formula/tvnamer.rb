@@ -1,16 +1,16 @@
 class Tvnamer < Formula
   desc "Automatic TV episode file renamer that uses data from thetvdb.com"
   homepage "https://github.com/dbr/tvnamer"
-  url "https://files.pythonhosted.org/packages/8f/a5/c5cef0f433d92c5b6108d390f7dd3fdfba02b591e1dbfe9a3a2c5e8f2ca2/tvnamer-2.5.1.tar.gz"
-  sha256 "ba181a947dcfe20c860825b3580d2a6f1a896cf9b5fef093b8c3f00640581a1f"
+  url "https://files.pythonhosted.org/packages/46/3e/9cb20c0231b10cd87964e0efe03ce964f91ebe3ddca27d5953d8a702cf55/tvnamer-3.0.tar.gz"
+  sha256 "00ae7354dec9cca8e652139eba9cf6945371321cdf05ee903a6a59f6d31cef6b"
   license "Unlicense"
   head "https://github.com/dbr/tvnamer.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b03c31d1d4d46357e64a1e579e7a64286ea92c05db2edcb13b25c370173e5984" => :catalina
-    sha256 "b03c31d1d4d46357e64a1e579e7a64286ea92c05db2edcb13b25c370173e5984" => :mojave
-    sha256 "b03c31d1d4d46357e64a1e579e7a64286ea92c05db2edcb13b25c370173e5984" => :high_sierra
+    sha256 "ba762f3b04d2dfc8d534741e30b13eeeb4ac0b74740fb3be24b8aa9ec23e1ac5" => :catalina
+    sha256 "75d1c2f29687b8d7073b86a80c31ceed3d64a362c93b15b97cc8b0a48c7592b5" => :mojave
+    sha256 "ba762f3b04d2dfc8d534741e30b13eeeb4ac0b74740fb3be24b8aa9ec23e1ac5" => :high_sierra
   end
 
   depends_on "python@3.8"
@@ -41,13 +41,13 @@ class Tvnamer < Formula
   end
 
   resource "tvdb-api" do
-    url "https://files.pythonhosted.org/packages/ba/c5/abcff2dd75e63daae3466fffd05a28428e57828f8b878125571a8e8343a8/tvdb_api-2.0.tar.gz"
-    sha256 "b1de28a5100121d91b1f6a8ec7e86f2c4bdf48fb22fab3c6fe21e7fb7346bf8f"
+    url "https://files.pythonhosted.org/packages/78/11/48e28a81dc6478179423ea17a5963967ecca7a48d83dd63165fc3748974c/tvdb_api-3.0.2.tar.gz"
+    sha256 "6a0135815cb680da38d78121d4d659d8e54a25f4db2816cd86d62916b92f23b2"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/05/8c/40cd6949373e23081b3ea20d5594ae523e681b6f472e600fbc95ed046a36/urllib3-1.25.9.tar.gz"
-    sha256 "3018294ebefce6572a474f0604c2021e33b3fd8006ecd11d62107a5d2a963527"
+    url "https://files.pythonhosted.org/packages/81/f4/87467aeb3afc4a6056e1fe86626d259ab97e1213b1dfec14c7cb5f538bf0/urllib3-1.25.10.tar.gz"
+    sha256 "91056c15fa70756691db97756772bb1eb9678fa585d9184f24534b100dc60f4a"
   end
 
   def install

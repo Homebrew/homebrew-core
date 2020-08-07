@@ -3,16 +3,16 @@ class Conan < Formula
 
   desc "Distributed, open source, package manager for C/C++"
   homepage "https://github.com/conan-io/conan"
-  url "https://github.com/conan-io/conan/archive/1.27.1.tar.gz"
-  sha256 "614b8ff912e7699a0fab3ce223073bd7669852fc37d2bb26b44501cd973c286d"
+  url "https://github.com/conan-io/conan/archive/1.28.0.tar.gz"
+  sha256 "49c2d33ad7d85f3cffebcdd10d24b2df87fcf61fa779cfbafc6998066f4d54e6"
   license "MIT"
   head "https://github.com/conan-io/conan.git"
 
   bottle do
     cellar :any
-    sha256 "c0f0e14ad1b3831e31ac2c1c0cbe1b80424ca03047c956c4263e7068aa3f9b9a" => :catalina
-    sha256 "db8bc0eded3544aa54fd9c28280dd2db23e565fc0483340e165a08341cceed67" => :mojave
-    sha256 "80645c4aa1e555d0e50518b745ac10ae120d6ebc4ac8cc24168d9fea2c54c05a" => :high_sierra
+    sha256 "78167ed66cfb7405d7be36bd2a566bc5b14a5c7e7daf23f6e53658c81031bd0e" => :catalina
+    sha256 "500635cfd011d6ac4b486a6ff1e0da5de0d12ede6145c962472ba26731269836" => :mojave
+    sha256 "a2aa80831870e30bffebbda5b5a4bfeeaa2efe022485066e1fa8030cc2100381" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -21,8 +21,8 @@ class Conan < Formula
   depends_on "python@3.8"
 
   resource "asn1crypto" do
-    url "https://files.pythonhosted.org/packages/9f/3d/8beae739ed8c1c8f00ceac0ab6b0e97299b42da869e24cf82851b27a9123/asn1crypto-1.3.0.tar.gz"
-    sha256 "5a215cb8dc12f892244e3a113fe05397ee23c5c4ca7a69cd6e69811755efc42d"
+    url "https://files.pythonhosted.org/packages/6b/b4/42f0e52ac2184a8abb31f0a6f98111ceee1aac0b473cee063882436e0e09/asn1crypto-1.4.0.tar.gz"
+    sha256 "f4f6e119474e58e04a2b1af817eb585b4fd72bdd89b998624712b5c99be7641c"
   end
 
   resource "bottle" do
@@ -36,8 +36,8 @@ class Conan < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/05/54/3324b0c46340c31b909fcec598696aaec7ddc8c18a63f2db352562d3354c/cffi-1.14.0.tar.gz"
-    sha256 "2d384f4a127a15ba701207f7639d94106693b6cd64173d6c8988e2c25f3ac2b6"
+    url "https://files.pythonhosted.org/packages/54/1d/15eae71ab444bd88a1d69f19592dcf32b9e3166ecf427dd9243ef0d3b7bc/cffi-1.14.1.tar.gz"
+    sha256 "b2a2b0d276a136146e012154baefaea2758ef1f56ae9f4e01c612b0831e0bd2f"
   end
 
   resource "chardet" do
@@ -111,8 +111,8 @@ class Conan < Formula
   end
 
   resource "pluginbase" do
-    url "https://files.pythonhosted.org/packages/6e/f4/1db0a26c1c7fad81a1214ad1b02839a7bd98d8ba68f782f6edcc3d343441/pluginbase-0.7.tar.gz"
-    sha256 "c0abe3218b86533cca287e7057a37481883c07acef7814b70583406938214cc8"
+    url "https://files.pythonhosted.org/packages/3d/3c/fe974b4f835f83cc46966e04051f8708b7535bac28fbc0dcca1ee0c237b8/pluginbase-1.0.0.tar.gz"
+    sha256 "497894df38d0db71e1a4fbbfaceb10c3ef49a3f95a0582e11b75f8adaa030005"
   end
 
   resource "pycparser" do
@@ -161,13 +161,13 @@ class Conan < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/3c/17/229e06a959dc41b85be2e372096b2637e51de5f84afc58b3e588f1826c80/tqdm-4.47.0.tar.gz"
-    sha256 "63ef7a6d3eb39f80d6b36e4867566b3d8e5f1fe3d6cb50c5e9ede2b3198ba7b7"
+    url "https://files.pythonhosted.org/packages/71/6c/6530032ec26dddd47bb9e052781bcbbcaa560f05d10cdaf365ecb990d220/tqdm-4.48.0.tar.gz"
+    sha256 "6baa75a88582b1db6d34ce4690da5501d2a1cb65c34664840a456b2c9f794d29"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/05/8c/40cd6949373e23081b3ea20d5594ae523e681b6f472e600fbc95ed046a36/urllib3-1.25.9.tar.gz"
-    sha256 "3018294ebefce6572a474f0604c2021e33b3fd8006ecd11d62107a5d2a963527"
+    url "https://files.pythonhosted.org/packages/81/f4/87467aeb3afc4a6056e1fe86626d259ab97e1213b1dfec14c7cb5f538bf0/urllib3-1.25.10.tar.gz"
+    sha256 "91056c15fa70756691db97756772bb1eb9678fa585d9184f24534b100dc60f4a"
   end
 
   def install

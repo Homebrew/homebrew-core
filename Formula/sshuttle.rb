@@ -6,6 +6,7 @@ class Sshuttle < Formula
   url "https://github.com/sshuttle/sshuttle.git",
       tag:      "v1.0.3",
       revision: "c5dcc918db666dfd1b30afc72cc198abfb3b3aa9"
+  license "LGPL-2.0"
   head "https://github.com/sshuttle/sshuttle.git"
 
   bottle do

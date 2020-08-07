@@ -1,6 +1,6 @@
 class Uwsgi < Formula
   desc "Full stack for building hosting services"
-  homepage "https://uwsgi-docs.readthedocs.org/en/latest/"
+  homepage "https://uwsgi-docs.readthedocs.io/en/latest/"
   revision 4
   head "https://github.com/unbit/uwsgi.git"
 

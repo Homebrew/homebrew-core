@@ -7,7 +7,10 @@ class Giter8 < Formula
 
   bottle :unneeded
 
-  depends_on java: "1.8+"
+  # Pulls in unversioned dependencies at runtime
+  disable!
+
+  depends_on "openjdk"
 
   def install
     bin.install "giter8-bootstrap_2.12-#{version}.sh" => "g8"

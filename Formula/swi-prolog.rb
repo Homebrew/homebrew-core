@@ -3,6 +3,7 @@ class SwiProlog < Formula
   homepage "https://www.swi-prolog.org/"
   url "https://www.swi-prolog.org/download/stable/src/swipl-8.2.1.tar.gz"
   sha256 "331bc5093d72af0c9f18fc9ed83b88ef9ddec0c8d379e6c49fa43739c8bda2fb"
+  license "BSD-2-Clause"
   head "https://github.com/SWI-Prolog/swipl-devel.git"
 
   bottle do

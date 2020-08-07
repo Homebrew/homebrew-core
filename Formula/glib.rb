@@ -6,12 +6,12 @@ class Glib < Formula
   url "https://download.gnome.org/sources/glib/2.64/glib-2.64.4.tar.xz"
   sha256 "f7e0b325b272281f0462e0f7fff25a833820cac19911ff677251daf6d87bce50"
   license "LGPL-2.1"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "5b4079bc14d3e16b745686b6cc7a3bca8877ac914f4ea11b82cda7e5af21c51c" => :catalina
-    sha256 "64fd37a69bcafc9cc7995e00d7851c91283ba9e6dcf2064be99e66a8694fc460" => :mojave
-    sha256 "66301047c7acc3002533fc2682433906013b1eb24d9f1accb6d0bcbe2233ae67" => :high_sierra
+    sha256 "288fc814fdcc2b48b4296d700ce59468ae3a79bc11fa7978ca4de715afe88619" => :catalina
+    sha256 "0f0caafe83c71689fadef8bfd71339bbec3647101dfa623e98e566b0bda33b00" => :mojave
+    sha256 "60d204b976de73876d740a691f00e4c3d6af0255d5e8ee4787a93bf523ff84b4" => :high_sierra
   end
 
   depends_on "meson" => :build
@@ -38,8 +38,16 @@ class Glib < Formula
   # Can be removed in the next release.
   # https://gitlab.gnome.org/GNOME/glib/-/merge_requests/1566
   patch do
-    url "https://gitlab.gnome.org/GNOME/glib/-/merge_requests/1566.patch"
+    url "https://gitlab.gnome.org/GNOME/glib/-/commit/c60d6599c9182ce44fdfaa8dde2955f55fc0d628.patch"
     sha256 "9e3de41571edaa4bce03959abf885aad4edd069a622a5b642bf40294d748792e"
+  end
+
+  # Enables G_GNUC_FALLTHROUGH on clang.
+  # Necessary for pango to build on recent versions of clang.
+  # Will be in the next release.
+  patch do
+    url "https://gitlab.gnome.org/GNOME/glib/-/commit/5f38ae5ffca3213addc5b279a46d537792d031db.patch"
+    sha256 "12128966a693dd45d2e20286437aea13b1fe554aed0907cbc33131d3b76be890"
   end
 
   def install

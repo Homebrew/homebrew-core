@@ -3,6 +3,7 @@ class Sqlcipher < Formula
   homepage "https://www.zetetic.net/sqlcipher/"
   url "https://github.com/sqlcipher/sqlcipher/archive/v4.4.0.tar.gz"
   sha256 "0924b2ae1079717954498bda78a30de20ce2a6083076b16214a711567821d148"
+  license "BSD-3-Clause"
   head "https://github.com/sqlcipher/sqlcipher.git"
 
   bottle do

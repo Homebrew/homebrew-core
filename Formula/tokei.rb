@@ -3,6 +3,7 @@ class Tokei < Formula
   homepage "https://github.com/XAMPPRocky/tokei"
   url "https://github.com/XAMPPRocky/tokei/archive/v12.0.4.tar.gz"
   sha256 "031dabbe1253af53fea8258e11eeb352371b6cf0c790db573ca7be33f761c733"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

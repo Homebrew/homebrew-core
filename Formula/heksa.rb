@@ -2,16 +2,16 @@ class Heksa < Formula
   desc "CLI hex dumper with colors"
   homepage "https://github.com/raspi/heksa"
   url "https://github.com/raspi/heksa.git",
-      tag:      "v1.12.1",
-      revision: "54a68a2910a87b8b9cfcda28b8693e18dd9e2463"
+      tag:      "v1.13.0",
+      revision: "4342bec6160ca58e90890e87f276044e7aca3831"
   license "Apache-2.0"
   head "https://github.com/raspi/heksa.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "346f10b8cfc84fe37619e925372c27b7787beecd3d240a3f381fdca629da117e" => :catalina
-    sha256 "481e0b181ff88978df7804ff8f657821b7802a9c2fe3937bb949b723e55a4369" => :mojave
-    sha256 "cf17ed8f9f50e1c4c1864b8847e456bf6a93a89bb9bcb76416393effbcf4d441" => :high_sierra
+    sha256 "771946a21e72b9d5eea465ca9fd213615b0eba272820691905522bea993ce6a3" => :catalina
+    sha256 "7592f466b87e68f8e4f4762bc0ed6cf14ac92a127ef6fdd0cfbe3d4fdb550b05" => :mojave
+    sha256 "14394cbe0fe767fd205e96ec62b27e7223ad48231f61d30271b5516bc99e652a" => :high_sierra
   end
 
   depends_on "go" => :build

@@ -1,16 +1,16 @@
 class Babl < Formula
   desc "Dynamic, any-to-any, pixel format translation library"
   homepage "http://www.gegl.org/babl/"
-  url "https://download.gimp.org/pub/babl/0.1/babl-0.1.78.tar.xz"
-  sha256 "17d5493633bff5585d9f375bc4df5925157cd1c70ccd7c22a635be75c172523a"
+  url "https://download.gimp.org/pub/babl/0.1/babl-0.1.80.tar.xz"
+  sha256 "f75ccc39af42585099bcb4731071dc5316b7542c5e232f63e278cd1ea2c04f8e"
   license "LGPL-3.0"
   # Use GitHub instead of GNOME's git. The latter is unreliable.
   head "https://github.com/GNOME/babl.git"
 
   bottle do
-    sha256 "d163bc0d4cd1f816df3ec00ed7facadbf95946f1650bf9aa4dce2f37c2ef815c" => :catalina
-    sha256 "50a1461b22dcef2951014ac2b5162c90a97b784d8f03310e35dac0ba60c3c4cf" => :mojave
-    sha256 "d6b0c2274b044725b9a4fa63c9264f16077407fe9b424277399837e539e2386a" => :high_sierra
+    sha256 "1ee23d8d10b4d302534a0bbcbef29d9d132b369c93927fad502a4c18248fb5a4" => :catalina
+    sha256 "123339d245f11cdf1b46d1bc433fe080b4c83ebca98b15ddcc5fc26989a0acfd" => :mojave
+    sha256 "8c7f2364960a45e4058f621941feb6014b8a5ce76447b8f22bc94e8e05c33710" => :high_sierra
   end
 
   depends_on "glib" => :build # for gobject-introspection

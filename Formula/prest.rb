@@ -1,23 +1,25 @@
 class Prest < Formula
   desc "Serve a RESTful API from any PostgreSQL database"
   homepage "https://github.com/prest/prest"
-  url "https://github.com/prest/prest/archive/v0.3.5.tar.gz"
-  sha256 "35aa1faaa33a47526cb836562ab095bcf610dbc3da4a569eebcbab0a8dd92e7a"
+  url "https://github.com/prest/prest/archive/v1.0.1.tar.gz"
+  sha256 "edb86fa7c799ec5c38526cb04a81c113b8180e18d3687044f7751d4caea6e50b"
   license "MIT"
   head "https://github.com/prest/prest.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "42403c1b7e35b043d8accb88602e28657a32eb2caeeebe42876b9c6989da0c4a" => :catalina
-    sha256 "c9fc93350a2e7321625083a2fd5507c4f06382c2bf1155af6a48093575d7ad2c" => :mojave
-    sha256 "e5421d3a1b82910dd798cb43e7fcb5a8bc37978c782814cb786df786c04f9a08" => :high_sierra
+    sha256 "194d431f1723c23f8a074753447159e6cfda53e7312a554e28952b7742dd6895" => :catalina
+    sha256 "b9278e8a7863a8e63e2f9bbdbf50aa7d97f354d54c421bf6442c6c7ffaec8522" => :mojave
+    sha256 "d2ad5f27bac070fb8a4113c67accb6cf1f4280c03623577aa87e28bfed139f17" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args, "-ldflags",
-           "-s -w -X github.com/prest/helpers.PrestVersionNumber=#{version}"
+    cd "cmd/prestd" do
+      system "go", "build", *std_go_args, "-ldflags",
+            "-s -w -X github.com/prest/helpers.PrestVersionNumber=#{version}"
+    end
   end
 
   test do

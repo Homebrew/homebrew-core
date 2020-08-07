@@ -2,15 +2,15 @@ class Argocd < Formula
   desc "GitOps Continuous Delivery for Kubernetes"
   homepage "https://argoproj.io"
   url "https://github.com/argoproj/argo-cd.git",
-      tag:      "v1.6.1",
-      revision: "159674ee844a378fb98fe297006bf7b83a6e32d2"
+      tag:      "v1.6.2",
+      revision: "3d1f37b0c53f4c75864dc7339e2831c6e6a947e0"
   license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c988b2c0db76ae062803b59bd258fe8617700d942802db2e541a19686e46b6e8" => :catalina
-    sha256 "9f02374c7445563bb5212f05e4341e6700a5c392f10bc4a763cdae4d2308b736" => :mojave
-    sha256 "091dd790ed68a02fca4a2b36aa1df68840e190b7ff6f58bc13a732bf584b68f3" => :high_sierra
+    sha256 "6ff9ddcc4367721f53c625479e09c3531ffe8bfc77a144f1407889aa0c63bd37" => :catalina
+    sha256 "da7b4efbf979da5832f27e24c38fedf192357e429bf0a5a48719b080bc35d59d" => :mojave
+    sha256 "dc35bb46d71cbb4a735c79e838de6df370c14a647045fb024d0205397719ef9e" => :high_sierra
   end
 
   depends_on "go" => :build

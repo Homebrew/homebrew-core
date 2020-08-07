@@ -3,15 +3,15 @@ class Litecli < Formula
 
   desc "CLI for SQLite Databases with auto-completion and syntax highlighting"
   homepage "https://github.com/dbcli/litecli"
-  url "https://files.pythonhosted.org/packages/01/39/a973a8111ff73275f47b1ef287ae0562d737d530ac87b702d30e1decdee0/litecli-1.3.2.tar.gz"
-  sha256 "97261512b53cf572ad2270f18e73ae8b0b1eba07a1ed2e90ea785a69b83bdd2d"
+  url "https://files.pythonhosted.org/packages/03/08/a124a13cf2a7b85e1bce3def574a451b761f0546a391142c5d2426a6bdc4/litecli-1.4.1.tar.gz"
+  sha256 "1404568ed6d2e738bf5d00f201522652602b2e3f31013cf58d9e239d715dab5c"
   license "BSD-3-Clause"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2c79502cd84f73df3dbf201917a3bdc091091d3d0fb0ae2f7cc7ca1c0e055f9b" => :catalina
-    sha256 "b4ea02b71598cbf830cc48daae3478ffb8bcdf045423945bd06805b6e1a0a273" => :mojave
-    sha256 "4ecaf830402a79f5b1f5cb8e3437288978b4c42920764604b370a2476d3f2ab7" => :high_sierra
+    sha256 "a5c32ad08cf648a27f4227a318fcaa0703ae5997b0eb305ff1b5922825e114df" => :catalina
+    sha256 "dad4c2dc18b9bd8d9902e021fc28772947e1fb99179edffa32218091ca330671" => :mojave
+    sha256 "eb2ebf6ab934ad00fe09c41be58e5bbd6fb347d0f2a79fdf3108587b5a0db639" => :high_sierra
   end
 
   depends_on "python@3.8"
@@ -19,8 +19,8 @@ class Litecli < Formula
   uses_from_macos "sqlite" => :test
 
   resource "cli-helpers" do
-    url "https://files.pythonhosted.org/packages/54/c5/d660b7d34ef5fe558142e397310393a39ecd6568480f12d8b0ddfad5cffc/cli_helpers-2.0.1.tar.gz"
-    sha256 "18f7d8c5a22d85fc685d56a9f301d8b9f7f0d7d4e9033a27563b066c2ab41833"
+    url "https://files.pythonhosted.org/packages/3f/3f/6ecd0ddf2394b698dd82ff3ddbcda235f8d6dadf124af6222eff49b32e87/cli_helpers-2.1.0.tar.gz"
+    sha256 "dd6f164310f7d86fa3da1f82043a9c784e44a02ad49be932a80624261e56979b"
   end
 
   resource "click" do

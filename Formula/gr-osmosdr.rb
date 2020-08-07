@@ -1,16 +1,16 @@
 class GrOsmosdr < Formula
+  include Language::Python::Virtualenv
+
   desc "Osmocom GNU Radio Blocks"
   homepage "https://osmocom.org/projects/sdr/wiki/GrOsmoSDR"
-  url "https://github.com/osmocom/gr-osmosdr/archive/v0.1.4.tar.gz"
-  sha256 "bcf9a9b1760e667c41a354e8cd41ef911d0929d5e4a18e0594ccb3320d735066"
+  url "https://github.com/osmocom/gr-osmosdr/archive/v0.2.0.tar.gz"
+  sha256 "9812429d97bc54f0a8917b880ca9e7e2421c66aeaac8ce5608161a8ae7007122"
   license "GPL-3.0"
-  revision 10
 
   bottle do
-    cellar :any
-    sha256 "65570c9ef4058f8ace042beeed7672b445e7d7c069ca9c6b28c535bbe0a2b711" => :catalina
-    sha256 "971a785a7acf94c36761047326a56ce5e375bf9d5e633b24df196cef4c0035e6" => :mojave
-    sha256 "0a79c514b8da09932af265cf6582789edb8fd1b87cef0796e10dab7b847779bb" => :high_sierra
+    sha256 "75db466ce0d982bfd23dae1966bcd5ec847b2f54318dec6f3ed12ebc4f87ccdb" => :catalina
+    sha256 "c94499d9a5921f56011cf5786ff8e81adc11106d307273901f3d13df6922683d" => :mojave
+    sha256 "10c202c381db513e27868669165fd7fa603c8db68189aca7a14be954cb6796cf" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -20,22 +20,39 @@ class GrOsmosdr < Formula
   depends_on "gnuradio"
   depends_on "hackrf"
   depends_on "librtlsdr"
-  depends_on :macos # gnuradio uses Python 2
   depends_on "uhd"
 
   resource "Cheetah" do
-    url "https://files.pythonhosted.org/packages/cd/b0/c2d700252fc251e91c08639ff41a8a5203b627f4e0a2ae18a6b662ab32ea/Cheetah-2.4.4.tar.gz"
-    sha256 "be308229f0c1e5e5af4f27d7ee06d90bb19e6af3059794e5fd536a6f29a9b550"
+    url "https://files.pythonhosted.org/packages/4e/72/e6a7d92279e3551db1b68fd336fd7a6e3d2f2ec742bf486486e6150d77d2/Cheetah3-3.2.4.tar.gz"
+    sha256 "caabb9c22961a3413ac85cd1e5525ec9ca80daeba6555f4f60802b6c256e252b"
+  end
+
+  resource "Mako" do
+    url "https://files.pythonhosted.org/packages/b0/3c/8dcd6883d009f7cae0f3157fb53e9afb05a0d3d33b3db1268ec2e6f4a56b/Mako-1.1.0.tar.gz"
+    sha256 "a36919599a9b7dc5d86a7a8988f23a9a3a3d083070023bab23d64f7f1d1e0a4b"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
+    sha256 "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
+  end
+
+  # Fix for Boost 1.73.0
+  # https://github.com/osmocom/gr-osmosdr/pull/19
+  patch do
+    url "https://github.com/osmocom/gr-osmosdr/commit/5646d55f4f8b47b4602dad60d24385e393a47f61.patch?full_index=1"
+    sha256 "2cc914dc1aea0e2258e2642c1173c6d11173bf64b1221af7cab9ceebd5f3f517"
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
+    venv_root = libexec/"venv"
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_create_path "PYTHONPATH", "#{venv_root}/lib/python#{xy}/site-packages"
+    venv = virtualenv_create(venv_root, "python3")
 
-    resource("Cheetah").stage do
-      system "python", *Language::Python.setup_install_args(libexec/"vendor")
-    end
+    venv.pip_install resources
 
-    system "cmake", ".", *std_cmake_args
+    system "cmake", ".", *std_cmake_args, "-DPYTHON_EXECUTABLE=#{venv_root}/bin/python"
     system "make", "install"
   end
 

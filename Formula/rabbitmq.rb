@@ -3,6 +3,7 @@ class Rabbitmq < Formula
   homepage "https://www.rabbitmq.com"
   url "https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.8.3/rabbitmq-server-generic-unix-3.8.3.tar.xz"
   sha256 "5a2739ed1dba77f88316b4c63393d8037fc4acf51881ba922470453e891875b6"
+  license "MPL-2.0"
 
   bottle :unneeded
 

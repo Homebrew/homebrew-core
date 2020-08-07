@@ -3,6 +3,7 @@ class Task < Formula
   homepage "https://taskwarrior.org/"
   url "https://taskwarrior.org/download/task-2.5.1.tar.gz"
   sha256 "d87bcee58106eb8a79b850e9abc153d98b79e00d50eade0d63917154984f2a15"
+  license "MIT"
   head "https://github.com/GothenburgBitFactory/taskwarrior.git", branch: "2.6.0", shallow: false
 
   bottle do

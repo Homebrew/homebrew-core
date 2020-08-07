@@ -5,6 +5,7 @@ class Tarsnapper < Formula
   homepage "https://github.com/miracle2k/tarsnapper"
   url "https://github.com/miracle2k/tarsnapper/archive/0.4.tar.gz"
   sha256 "94ac22c3ed72e6321596f7d229b34fd21b59a00035162c5b22f2a1ee64dc6d01"
+  license "BSD-2-Clause"
   revision 2
 
   bottle do

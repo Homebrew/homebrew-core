@@ -1,15 +1,13 @@
 class Pioneers < Formula
   desc "Settlers of Catan clone"
   homepage "https://pio.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/pio/Source/pioneers-15.5.tar.gz"
-  sha256 "3ee1415e7c48dc144fbdb99105a6ef8a818e67ed34e9d0f8e01224c3636cef0c"
-  revision 1
+  url "https://downloads.sourceforge.net/project/pio/Source/pioneers-15.6.tar.gz"
+  sha256 "9a358d88548e3866e14c46c2707f66c98f8040a7857d47965e1ed9805aeb631d"
 
   bottle do
-    sha256 "6b991f3c68a368a205f15742f65273ab9aef56d06a5918a05a7312513f8c7dbf" => :catalina
-    sha256 "6dc8e606ea4f6264f662d0516cb67bbf04f661adab74406f34d4b908faf1c91a" => :mojave
-    sha256 "a7e66d500a9a0787038c1449da19471f451e350d35a1a4035e84144820c2c8df" => :high_sierra
-    sha256 "b58b5deb27c32495b244527947330028e1d69b1000b6453727dab16ff7572b09" => :sierra
+    sha256 "c2462078e412d1e2b60108f317550690b28675da5a248de69856a558fa4e07d4" => :catalina
+    sha256 "47ca43b992b0590f90758d9eef7894361c510dce5279a602decdf8ec019086f4" => :mojave
+    sha256 "fdd30d2f45b5b1f701b2f358c09a79ce04cea9793383f959811141617f3a4fc0" => :high_sierra
   end
 
   depends_on "intltool" => :build

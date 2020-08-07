@@ -3,14 +3,14 @@ class Jupyterlab < Formula
 
   desc "Interactive environments for writing and running code"
   homepage "https://jupyter.org/"
-  url "https://files.pythonhosted.org/packages/da/ec/8534d40acb69bfa2df5b88604210a62ccd21ab4d45d2db89ed932b3597d2/jupyterlab-2.2.0.tar.gz"
-  sha256 "c76f27475374b11634ee1616da14d3dd22be04bc604057858ae878df20e40f7e"
+  url "https://files.pythonhosted.org/packages/1b/6f/970535cc7ba86688f61c8361fff043daec529f9e31badd8d43fe8e6a7f48/jupyterlab-2.2.2.tar.gz"
+  sha256 "8aa9bc4b5020e7b9ec6e006d516d48bddf7d2528680af65840464ee722d59db3"
 
   bottle do
     cellar :any
-    sha256 "1ff17e1d3cdff03991167dae02e9064e098a40dc0556224716751c1a1b5c51ff" => :catalina
-    sha256 "df67d9b5a934748326f23d89dc4e981974124ff1ad9ef1c8e20dacb370011b54" => :mojave
-    sha256 "4c6096d55e0fcf2f39fcdf197a59c52940f729a17c11e310f4730362599ff8ee" => :high_sierra
+    sha256 "69225c3fcfc4d4afed8267f08eb4b5ca827c63de80c486ef4b1f13e929871fd5" => :catalina
+    sha256 "bb353b9247fe5e1296ef1868e871ff41d9726d54b1fdc75f99d368168a64ba6c" => :mojave
+    sha256 "9b106fe55200a982a30f6f0523c018d10b57b2f052b0c712263c77359f56385e" => :high_sierra
   end
 
   depends_on "ipython"
@@ -72,8 +72,8 @@ class Jupyterlab < Formula
   end
 
   resource "ipykernel" do
-    url "https://files.pythonhosted.org/packages/f8/50/65b2d779ca6985e2b166cb3ef0326a5267c886a0f420c7c1b476b41e7741/ipykernel-5.3.2.tar.gz"
-    sha256 "89dc4bd19c7781f6d7eef0e666c59ce57beac56bb39b511544a71397b7b31cbb"
+    url "https://files.pythonhosted.org/packages/fc/fd/a0ba26eef615a14c54285b4a62d5e906e0c53000b662e2e4c0b2df7cf004/ipykernel-5.3.4.tar.gz"
+    sha256 "9b2652af1607986a1b231c62302d070bc0534f564c393a5d9d130db9abbbe89d"
   end
 
   resource "ipython" do
@@ -87,8 +87,8 @@ class Jupyterlab < Formula
   end
 
   resource "jedi" do
-    url "https://files.pythonhosted.org/packages/2e/86/3ea824e61de521b2abd9ada9a080375c01721e66266ccc8ba8b3576ad88a/jedi-0.17.1.tar.gz"
-    sha256 "807d5d4f96711a2bcfdd5dfa3b1ae6d09aa53832b182090b222b5efb81f52f63"
+    url "https://files.pythonhosted.org/packages/39/67/50d1653038dafe06ca2cc55c4598c5f8318d519c12a7a288d7826280ee22/jedi-0.17.2.tar.gz"
+    sha256 "86ed7d9b750603e4ba582ea8edc678657fb4007894a12bcf6f4bb97892f31d20"
   end
 
   resource "Jinja2" do
@@ -157,8 +157,8 @@ class Jupyterlab < Formula
   end
 
   resource "parso" do
-    url "https://files.pythonhosted.org/packages/fe/24/c30eb4be8a24b965cfd6e2e6b41180131789b44042112a16f9eb10c80f6e/parso-0.7.0.tar.gz"
-    sha256 "908e9fae2144a076d72ae4e25539143d40b8e3eafbaeae03c1bfe226f4cdf12c"
+    url "https://files.pythonhosted.org/packages/40/01/e0b8d2168fb299af90a78a5919257f821e5c21399bf0906c14c9e573db3f/parso-0.7.1.tar.gz"
+    sha256 "caba44724b994a8a5e086460bb212abc5a8bc46951bf4a9a1210745953622eb9"
   end
 
   resource "pexpect" do
@@ -247,8 +247,8 @@ class Jupyterlab < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/05/8c/40cd6949373e23081b3ea20d5594ae523e681b6f472e600fbc95ed046a36/urllib3-1.25.9.tar.gz"
-    sha256 "3018294ebefce6572a474f0604c2021e33b3fd8006ecd11d62107a5d2a963527"
+    url "https://files.pythonhosted.org/packages/81/f4/87467aeb3afc4a6056e1fe86626d259ab97e1213b1dfec14c7cb5f538bf0/urllib3-1.25.10.tar.gz"
+    sha256 "91056c15fa70756691db97756772bb1eb9678fa585d9184f24534b100dc60f4a"
   end
 
   resource "wcwidth" do

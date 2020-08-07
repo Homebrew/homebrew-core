@@ -3,6 +3,7 @@ class Scrypt < Formula
   homepage "https://www.tarsnap.com/scrypt.html"
   url "https://www.tarsnap.com/scrypt/scrypt-1.3.0.tgz"
   sha256 "263034edd4d1e117d4051d9a9260c74dedb0efaf4491c5152b738978b3f32748"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any

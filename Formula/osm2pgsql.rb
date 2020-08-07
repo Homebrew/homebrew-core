@@ -1,15 +1,15 @@
 class Osm2pgsql < Formula
   desc "OpenStreetMap data to PostgreSQL converter"
   homepage "https://wiki.openstreetmap.org/wiki/Osm2pgsql"
-  url "https://github.com/openstreetmap/osm2pgsql/archive/1.2.2.tar.gz"
-  sha256 "fc386fc996f24e67cbfb4963de438b2a80c82c9a46f6ca17ade69c7d562d8680"
-  license "GPL-2.0"
+  url "https://github.com/openstreetmap/osm2pgsql/archive/1.3.0.tar.gz"
+  sha256 "1c0f229047491cf7d054c6f8fcb846eb3163c336340fa82035e19cc2bb7f0179"
+  license "GPL-2.0-only"
   head "https://github.com/openstreetmap/osm2pgsql.git"
 
   bottle do
-    sha256 "4780322e6a538730d945e40f3be991101a33e7326d4e0c847f0bd86237ae78b1" => :catalina
-    sha256 "d2a2fb8456cc3f62e16ea412c27beef6681036ea64a33a0eb3b6a70e0b4069b9" => :mojave
-    sha256 "4154c1bd9f91b7f72df47570a36208b5ae3b233c7b200dce4d4ce5a99d05a3a0" => :high_sierra
+    sha256 "324bdc79fb0fabceb5f605982b13fca817eecd0017736e77481246be2f793015" => :catalina
+    sha256 "cacdde87d5fc923df8cd9f6d366d3840facdeea335741b2c82a68d526d59f2e6" => :mojave
+    sha256 "9d7c59f529112c64bee0083a28fdc5791a43390b4761ccabf50578abaa6a0da3" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -24,8 +24,8 @@ class Osm2pgsql < Formula
     # This is essentially a CMake disrespects superenv problem
     # rather than an upstream issue to handle.
     lua_version = Formula["lua"].version.to_s.match(/\d\.\d/)
-    inreplace "cmake/FindLua.cmake", "LUA_VERSIONS5 5.3 5.2 5.1 5.0",
-                                     "LUA_VERSIONS5 #{lua_version}"
+    inreplace "cmake/FindLua.cmake", /set\(LUA_VERSIONS5( \d\.\d)+\)/,
+                                     "set(LUA_VERSIONS5 #{lua_version})"
 
     # Use Proj 6.0.0 compatibility headers
     # https://github.com/openstreetmap/osm2pgsql/issues/922

@@ -4,6 +4,7 @@ class Simh < Formula
   url "https://github.com/simh/simh/archive/v3.11-1.tar.gz"
   version "3.11.1"
   sha256 "c8a2fc62bfa9369f75935950512a4cac204fd813ce6a9a222b2c6a76503befdb"
+  license "MIT"
   head "https://github.com/simh/simh.git"
 
   bottle do

@@ -4,6 +4,7 @@ class Rack < Formula
   url "https://github.com/rackspace/rack.git",
       tag:      "1.2",
       revision: "09c14b061f4a115c8f1ff07ae6be96d9b11e08df"
+  license "Apache-2.0"
   head "https://github.com/rackspace/rack.git"
 
   bottle do

@@ -3,15 +3,15 @@ class Jrnl < Formula
 
   desc "Command-line note taker"
   homepage "https://jrnl.sh/"
-  url "https://files.pythonhosted.org/packages/f5/e9/286e27e7d1f1136f7487ef42345b8841320442c031f535a2f224f49200df/jrnl-2.4.4.tar.gz"
-  sha256 "ec0d15cbfe3f003bfdf6e0829cf04006a23c830da3a304506b727e880f81cd62"
+  url "https://files.pythonhosted.org/packages/be/56/20e494eb2a7be914f05c43048ed1e42bc3eb34515319aa1a72e5fabb7d98/jrnl-2.4.5.tar.gz"
+  sha256 "a5f069efcaa3f5d95cc7712178b3f92915f67eed4034e5f257cc063c6b0e74d9"
   license "GPL-3.0"
 
   bottle do
     cellar :any
-    sha256 "e1ad8309f6e5a7d6efaf5ac4acd8f319910d3c7dd788e13719526e0177dff7d5" => :catalina
-    sha256 "b288379f31e5ebf4868a82702d73f4a5fbc8df0a2a280088db4d9be75276a960" => :mojave
-    sha256 "71e27f6d7488d3a1c237fc9056b776685cf019cc1d274a0f6fc3b2fee9edfbd1" => :high_sierra
+    sha256 "fb6d2b1efb05d963283fd9dc09789aaf65f9d8856e04e248e0ac735edfc43613" => :catalina
+    sha256 "0b78d9c9d59b85e3499f19eb2d53999c6cac8f1b6636e4edffdbacb62bc838b4" => :mojave
+    sha256 "807b86ba7af383a7f75d41a1cc4125f8c7c5c1fece598ff30df42098259b4b79" => :high_sierra
   end
 
   depends_on "python@3.8"
@@ -33,8 +33,8 @@ class Jrnl < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/05/54/3324b0c46340c31b909fcec598696aaec7ddc8c18a63f2db352562d3354c/cffi-1.14.0.tar.gz"
-    sha256 "2d384f4a127a15ba701207f7639d94106693b6cd64173d6c8988e2c25f3ac2b6"
+    url "https://files.pythonhosted.org/packages/54/1d/15eae71ab444bd88a1d69f19592dcf32b9e3166ecf427dd9243ef0d3b7bc/cffi-1.14.1.tar.gz"
+    sha256 "b2a2b0d276a136146e012154baefaea2758ef1f56ae9f4e01c612b0831e0bd2f"
   end
 
   resource "colorama" do
@@ -53,8 +53,8 @@ class Jrnl < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/65/37/83e3f492eb52d771e2820e88105f605335553fe10422cba9d256faeb1702/packaging-20.3.tar.gz"
-    sha256 "3c292b474fda1671ec57d46d739d072bfd495a4f51ad01a055121d81e952b7a3"
+    url "https://files.pythonhosted.org/packages/55/fd/fc1aca9cf51ed2f2c11748fa797370027babd82f87829c7a8e6dbe720145/packaging-20.4.tar.gz"
+    sha256 "4357f74f47b9c12db93624a82154e9b120fa8293699949152b22065d556079f8"
   end
 
   resource "parsedatetime" do
@@ -70,6 +70,11 @@ class Jrnl < Formula
   resource "pycparser" do
     url "https://files.pythonhosted.org/packages/0f/86/e19659527668d70be91d0369aeaa055b4eb396b0f387a4f92293a20035bd/pycparser-2.20.tar.gz"
     sha256 "2d475327684562c3a96cc71adf7dc8c4f0565175cf86b6d7a404ff4c771f15f0"
+  end
+
+  resource "pyparsing" do
+    url "https://files.pythonhosted.org/packages/c1/47/dfc9c342c9842bbe0036c7f763d2d6686bcf5eb1808ba3e170afdb282210/pyparsing-2.4.7.tar.gz"
+    sha256 "c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"
   end
 
   resource "python-dateutil" do

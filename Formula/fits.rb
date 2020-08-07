@@ -7,7 +7,7 @@ class Fits < Formula
 
   bottle :unneeded
 
-  depends_on java: "1.7+"
+  depends_on "openjdk"
 
   uses_from_macos "zlib"
 

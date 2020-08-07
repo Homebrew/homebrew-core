@@ -3,6 +3,7 @@ class Ripgrep < Formula
   homepage "https://github.com/BurntSushi/ripgrep"
   url "https://github.com/BurntSushi/ripgrep/archive/12.1.1.tar.gz"
   sha256 "2513338d61a5c12c8fea18a0387b3e0651079ef9b31f306050b1f0aaa926271e"
+  license "Unlicense"
   head "https://github.com/BurntSushi/ripgrep.git"
 
   bottle do

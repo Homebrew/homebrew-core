@@ -3,17 +3,18 @@ class Pipgrip < Formula
 
   desc "Lightweight pip dependency resolver"
   homepage "https://github.com/ddelange/pipgrip"
-  url "https://files.pythonhosted.org/packages/3f/d4/8abe6a21a78ed5ac2bcbb0afa52085912c74a0b5c635340875f8eca99159/pipgrip-0.5.1.tar.gz"
-  sha256 "78a97a5552e4a513f566c8118d8e1e1a52630603d4c93d9ded85536c8072d0b0"
+  url "https://files.pythonhosted.org/packages/8a/fd/308a624ebeba713523b52402e492238cfb09200b1818b06be18a16cdbd77/pipgrip-0.6.0.tar.gz"
+  sha256 "f7d31f63708a9f6403d315324c43b80904e864028578d34e2b6351907212266e"
   license "BSD-3-Clause"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1d8ecc0e925f2262c99654110658b3e406f4587001c050f7f41ddcd485a8d57f" => :catalina
-    sha256 "70feb6d401e6dbc1c35b47e5bcf7a43cc5c14b8254b7b0e4fc545808e7976600" => :mojave
-    sha256 "835b91fd72ee87d4949cb3a1690fea974edca4b44d8a39d4605b406b0752a6ce" => :high_sierra
+    sha256 "0a5dbaff192f2dab80d62b99510df7f67156a72fa6ab2097fa904410c53f9566" => :catalina
+    sha256 "34eda1c5b41ae45fd81e8b86ac551eb4a0e465cd05b370885e0bdba1b2371a04" => :mojave
+    sha256 "945c6ae070f7781192d00b5cedb84b2e36b1f7fd85e9074278fd80936bc565bf" => :high_sierra
   end
 
+  depends_on "gcc"
   depends_on "python@3.8"
 
   resource "anytree" do
@@ -47,10 +48,19 @@ class Pipgrip < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
+    venv.pip_install resources
+    venv.pip_install buildpath
+
+    gcc_path = Formula["gcc"].opt_bin
+    gcc_version = Formula["gcc"].version.to_s.split(".").first
+    (bin/"pipgrip").write_env_script(libexec/"bin/pipgrip",
+                                     { CC: gcc_path/"gcc-#{gcc_version}", CXX: gcc_path/"g++-#{gcc_version}" })
   end
 
   test do
-    assert_match "pipgrip==#{version}", shell_output("#{bin}/pipgrip pipgrip -v --no-cache-dir")
+    assert_match "pipgrip==#{version}", shell_output("#{bin}/pipgrip pipgrip --no-cache-dir")
+    # Test gcc dependency
+    assert_match "dxpy==", shell_output("#{bin}/pipgrip dxpy --no-cache-dir")
   end
 end

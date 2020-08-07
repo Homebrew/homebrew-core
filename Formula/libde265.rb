@@ -13,11 +13,15 @@ class Libde265 < Formula
   end
 
   def install
+    extra_args = []
+    extra_args << "--build=aarch64-apple-darwin#{`uname -r`.chomp}" if Hardware::CPU.arm?
+
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--disable-sherlock265",
                           "--disable-dec265",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          *extra_args
     system "make", "install"
 
     # Install the test-related executables in libexec.

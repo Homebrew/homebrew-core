@@ -3,15 +3,15 @@ class Dxpy < Formula
 
   desc "DNAnexus toolkit utilities and platform API bindings for Python"
   homepage "https://github.com/dnanexus/dx-toolkit"
-  url "https://files.pythonhosted.org/packages/3d/1a/46c00205e2ee4d01e3d923c838f1b770b9af09f4147a4cd3e3dad1102b8b/dxpy-0.297.1.tar.gz"
-  sha256 "7cc680c5e2f44b80fb6ffd392eaffafd8b6ade722bf7e5c8d253c389b6602a64"
+  url "https://files.pythonhosted.org/packages/27/0d/4849e89891e1dc49681018d203b736073919dd9933738d78487a70e341d8/dxpy-0.298.1.tar.gz"
+  sha256 "280fe87450d0357d7d677c3732ac2a95b2ec7364cd6bea19db1f92738c1bdd37"
   license "Apache-2.0"
 
   bottle do
     cellar :any
-    sha256 "aa5a1c497f8557a577e5001eb989485b60d78afb2d573946a8bdf5dc186da6c1" => :catalina
-    sha256 "01012fa76f0cddcdd63621c789c874471138e4a42f9d348b0ae19b509cf176bb" => :mojave
-    sha256 "707298265b029d8c29ba72e627be4cd0582388e78038eee652744d886717f971" => :high_sierra
+    sha256 "46d7e740cf19129fc6db45e8357616bfa741be271295f455cc7abc33485b2276" => :catalina
+    sha256 "237ff96373225e86c608bfdc37631c28ea92fe25d4a65c79f7af1727c9de04e2" => :mojave
+    sha256 "7a944b896cb3279b95dd52cff3e33b06a1e8ea07ef8b548142187ccea701068a" => :high_sierra
   end
 
   depends_on "python@3.8"
@@ -36,8 +36,8 @@ class Dxpy < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/05/54/3324b0c46340c31b909fcec598696aaec7ddc8c18a63f2db352562d3354c/cffi-1.14.0.tar.gz"
-    sha256 "2d384f4a127a15ba701207f7639d94106693b6cd64173d6c8988e2c25f3ac2b6"
+    url "https://files.pythonhosted.org/packages/54/1d/15eae71ab444bd88a1d69f19592dcf32b9e3166ecf427dd9243ef0d3b7bc/cffi-1.14.1.tar.gz"
+    sha256 "b2a2b0d276a136146e012154baefaea2758ef1f56ae9f4e01c612b0831e0bd2f"
   end
 
   resource "chardet" do
@@ -49,6 +49,8 @@ class Dxpy < Formula
     url "https://files.pythonhosted.org/packages/56/3b/78c6816918fdf2405d62c98e48589112669f36711e50158a0c15d804c30d/cryptography-2.9.2.tar.gz"
     sha256 "a0c30272fb4ddda5f5ffc1089d7405b7a71b0b0f51993cb4e5dbb4590b2fc229"
   end
+
+  # "gnureadline" is not needed as `readline` dependnecy is added seprately
 
   resource "idna" do
     url "https://files.pythonhosted.org/packages/ea/b7/e0e3c1c467636186c39925827be42f16fee389dc404ac29e930e9136be70/idna-2.10.tar.gz"
@@ -76,8 +78,8 @@ class Dxpy < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/da/67/672b422d9daf07365259958912ba533a0ecab839d4084c487a5fe9a5405f/requests-2.24.0.tar.gz"
-    sha256 "b3559a131db72c33ee969480840fff4bb6dd111de7dd27c8ee1f820f4f00231b"
+    url "https://files.pythonhosted.org/packages/f5/4f/280162d4bd4d8aad241a21aecff7a6e46891b905a4341e7ab549ebaf7915/requests-2.23.0.tar.gz"
+    sha256 "b3f43d496c6daba4493e7c431722aeb7dbc6288f52a6e04e7b6023b0247817e6"
   end
 
   resource "six" do

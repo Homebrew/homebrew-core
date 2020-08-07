@@ -4,15 +4,15 @@ class Snapcraft < Formula
   desc "Package any app for every Linux desktop, server, cloud or device"
   homepage "https://snapcraft.io/"
   url "https://github.com/snapcore/snapcraft.git",
-      tag:      "4.1.2",
-      revision: "e4e08797fb4e2d5110504d46bed39ee00382a653"
+      tag:      "4.1.3",
+      revision: "e6ef1ce1138d90e6ddbd6bab4f825ad38b2e310e"
   license "GPL-3.0"
 
   bottle do
     cellar :any
-    sha256 "ebbe44bd4f0ec4315118a004bea1bba5af82fb5ccece3ac080bb5fd7fa7154c8" => :catalina
-    sha256 "a1d80e78457d57dd0439c2c669852126658996ab25fb75d5504adacfd12bf4a4" => :mojave
-    sha256 "7e12c282a312072be1e2f18fd44eb8b7ab9771572e5c7fadf4a06451860334c5" => :high_sierra
+    sha256 "f94cbaeeb3ab6422aa3b1a5f6fc59de80075f2de3a65ad593404b4362963f2c3" => :catalina
+    sha256 "94f6c90dca9290dcfaba605ac4bd8203bb785099dbceee7759671d5f56906de8" => :mojave
+    sha256 "b24928cee79a9c9eea2c933aaf0005f4a0d9164dc22599c7e0fcc64a67bbbc8e" => :high_sierra
   end
 
   depends_on "libsodium"

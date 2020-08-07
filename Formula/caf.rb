@@ -3,15 +3,16 @@ class Caf < Formula
   desc "Implementation of the Actor Model for C++"
   homepage "https://actor-framework.org/"
   url "https://github.com/actor-framework/actor-framework/archive/0.17.6.tar.gz"
-  sha256 "2a39beed5b10a7632b9501317d16d9460da8dc303a4c3e7a30cb72f87b612440"
+  sha256 "e2bf5bd243f08bb7d8adde197cfe3e6d71314ed3378fe0692f8932f4c3b3928c"
   license "BSD-3-Clause"
   head "https://github.com/actor-framework/actor-framework.git"
 
   bottle do
     cellar :any
-    sha256 "144ef86163a9ceddf619a52b45efbafd97444dcabb51fb4c1d762591d6bec413" => :catalina
-    sha256 "44d2e722c9516148df874443bf0edd52f6299d474d176116b8c81e855e0587cb" => :mojave
-    sha256 "677f6278037b120831d689d73d4b32f5f9ffc91db42f30a5eb7b90c72498cde3" => :high_sierra
+    rebuild 1
+    sha256 "131af3b3422867d6cb4c9e46d773e7b102e2dd9209be5d844cbbe99a1a7c6883" => :catalina
+    sha256 "20b60e3ee9f2953ac5453aeb1c5d724b1141f5b90be8b2b2d611f9f0938ff913" => :mojave
+    sha256 "be54ecedb3968591490e165d7260b0b8c19745e44d125fde2a5cd209fa71fc16" => :high_sierra
   end
 
   depends_on "cmake" => :build

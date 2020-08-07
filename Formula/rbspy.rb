@@ -3,6 +3,7 @@ class Rbspy < Formula
   homepage "https://rbspy.github.io/"
   url "https://github.com/rbspy/rbspy/archive/v0.3.10.tar.gz"
   sha256 "db675284c1275e30f7f99968f44896d3ebe35df65c1290d94418f6787e625821"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

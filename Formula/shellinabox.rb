@@ -3,6 +3,7 @@ class Shellinabox < Formula
   homepage "https://github.com/shellinabox/shellinabox"
   url "https://github.com/shellinabox/shellinabox/archive/v2.20.tar.gz"
   sha256 "27a5ec6c3439f87aee238c47cc56e7357a6249e5ca9ed0f044f0057ef389d81e"
+  license "GPL-2.0"
   revision 1
 
   bottle do

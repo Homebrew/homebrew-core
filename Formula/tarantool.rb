@@ -3,6 +3,7 @@ class Tarantool < Formula
   homepage "https://tarantool.org/"
   url "https://hb.bizmrg.com/tarantool.2.3.src/tarantool-2.3.2.81.tar.gz"
   sha256 "312ee4b68a0834e01a84df0fa1eb34dd7484a5590f68e1184599ed4dd5c575a4"
+  license "BSD-2-Clause"
   head "https://github.com/tarantool/tarantool.git", branch: "2.3", shallow: false
 
   bottle do

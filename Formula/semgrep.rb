@@ -2,7 +2,7 @@ class Semgrep < Formula
   include Language::Python::Virtualenv
 
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
-  homepage "https://semgrep.live"
+  homepage "https://semgrep.dev"
   url "https://github.com/returntocorp/semgrep.git",
     tag:      "v0.17.0",
     revision: "382620ccaa12d6fbd64776346e21d800db789ebf"

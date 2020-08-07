@@ -13,9 +13,10 @@ class X264 < Formula
 
   bottle do
     cellar :any
-    sha256 "0f3e8fbc5399231cc48770114071190d8fc7c598aedde207ee11eabce5e32b19" => :catalina
-    sha256 "5d1392936e7a8ca6008e918d876eb0851c0357d1b7f40b9417c147448dcb9fc2" => :mojave
-    sha256 "fa6457de45c2d97b1b258a11bfb5c1b2b36427ecc82ddb76c50db685b620adb3" => :high_sierra
+    rebuild 1
+    sha256 "ba7da48fdd2dc85d18cf8ab11563bc9bfc04493a65a9909c5f70c84433ce5a7c" => :catalina
+    sha256 "309008e3a647544faf6fd640ab8d91a30082b1d100126b8afbea3912ba32ffa3" => :mojave
+    sha256 "5e03addc818d8631053aea74bf121de8aa885991646082a1dd2dd0cc57b00ef3" => :high_sierra
   end
 
   depends_on "nasm" => :build
@@ -25,6 +26,14 @@ class X264 < Formula
     # https://code.videolan.org/videolan/x264/-/commit/b5bc5d69c580429ff716bafcd43655e855c31b02
     depends_on "gcc"
     fails_with :clang
+  end
+
+  # update config.* and configure: add Apple Silicon support.
+  # upstream PR https://code.videolan.org/videolan/x264/-/merge_requests/35
+  # Can be removed once it gets merged into stable branch
+  patch do
+    url "https://code.videolan.org/videolan/x264/-/commit/eb95c2965299ba5b8598e2388d71b02e23c9fba7.diff?full_index=1"
+    sha256 "7cdc60cffa8f3004837ba0c63c8422fbadaf96ccedb41e505607ead2691d49b9"
   end
 
   def install

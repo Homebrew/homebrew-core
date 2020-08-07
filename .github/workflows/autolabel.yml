@@ -36,5 +36,60 @@ jobs:
                     "label": "formula disabled",
                     "path": "Formula/.+",
                     "content": "\n  disable!\n"
+                }, {
+                    "label": "legacy",
+                    "path": "Formula/.+@.+"
+                }, {
+                    "label": "missing license",
+                    "path": "Formula/.+",
+                    "missing_content": "\n  license .+\n"
+                }, {
+                    "label": "go",
+                    "path": "Formula/.+",
+                    "content": "depends_on \"go(?:@[0-9.]+)?\""
+                }, {
+                    "label": "haskell",
+                    "path": "Formula/.+",
+                    "content": "depends_on \"(?:ghc@?|haskell-stack).+"
+                }, {
+                    "label": "java",
+                    "path": "Formula/.+",
+                    "content": "depends_on \"?(?:java|openjdk@?).+"
+                }, {
+                    "label": "lua",
+                    "path": "Formula/.+",
+                    "content": "depends_on \"lua(?:@[0-9.]+|jit)?\""
+                }, {
+                    "label": "nodejs",
+                    "path": "Formula/.+",
+                    "content": "depends_on \"node(?:@\\d+)?\""
+                }, {
+                    "label": "ocaml",
+                    "path": "Formula/.+",
+                    "content": "depends_on \"ocaml\""
+                }, {
+                    "label": "perl",
+                    "path": "Formula/.+",
+                    "content": "(?:depends_on|uses_from_macos) \"perl@?.+"
+                }, {
+                    "label": "php",
+                    "path": "Formula/.+",
+                    "content": "(?:depends_on|uses_from_macos) \"php@?.+"
+                }, {
+                    "label": "python",
+                    "path": "Formula/.+",
+                    "content": "(?:depends_on|uses_from_macos) \"python@?.+"
+                }, {
+                    "label": "ruby",
+                    "path": "Formula/.+",
+                    "content": "(?:depends_on|uses_from_macos) \"ruby@?.+"
+                }, {
+                    "label": "rust",
+                    "path": "Formula/.+",
+                    "content": "depends_on \"rust\""
+                }, {
+                    "label": "swift",
+                    "path": "Formula/.+",
+                    "content": "system \"swift\", \"build\""
                 }
             ]

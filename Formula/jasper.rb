@@ -1,15 +1,14 @@
 class Jasper < Formula
   desc "Library for manipulating JPEG-2000 images"
   homepage "https://www.ece.uvic.ca/~frodo/jasper/"
-  url "https://github.com/jasper-software/jasper/archive/version-2.0.17.tar.gz"
-  sha256 "9a3524aa17795ea10f476d7071e27dd9fc0077d9ffbf2ea49b9f18de0bfe7fa1"
+  url "https://github.com/mdadams/jasper/archive/version-2.0.19.tar.gz"
+  sha256 "b9d16162a088617ada36450f2374d72165377cb64b33ed197c200bcfb73ec76c"
   license "JasPer-2.0"
 
   bottle do
-    rebuild 1
-    sha256 "537ddcc7b31d400aa7c7e636b1d2710b8327ba4f2a2ee886c04224f3ed8ab17b" => :catalina
-    sha256 "251ae8361f61929a9f69592cdd94b8fe456b526d9c205de087bd60cb47ffba9e" => :mojave
-    sha256 "efd316074421556b39f0325bf7d9108236780ab9add71a41aab290033fc86dc6" => :high_sierra
+    sha256 "6e08d9c308ba24cc512801f4f9ae9b06353ab3d10139c3679410f0e038e217b1" => :catalina
+    sha256 "93402fee0d364ee6538c48af922705a47ac751b9929d58d1f2961a54963c952d" => :mojave
+    sha256 "27d5d3e6ef809625d76755c043ad226f28d85d8dcf65c3449edbdfbfe96d9e62" => :high_sierra
   end
 
   depends_on "cmake" => :build

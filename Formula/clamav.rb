@@ -5,11 +5,12 @@ class Clamav < Formula
   mirror "https://fossies.org/linux/misc/clamav-0.102.4.tar.gz"
   sha256 "eebd426a68020ecad0d2084b8c763e6898ccfd5febcae833d719640bb3ff391b"
   license "GPL-2.0"
+  revision 1
 
   bottle do
-    sha256 "6ca687f707713bf0d5bd4898add75c98ba5b7b53067856e368373b309554ae2b" => :catalina
-    sha256 "9f63cb3bbee311cc564fb913ed458210910ebc48c1ef848e8872bc72626c59cb" => :mojave
-    sha256 "845de365f44b2e892fbf14536f3ee496fd527bfdee7be7055dd4234a964e7ca3" => :high_sierra
+    sha256 "13d069ee3878c43b869ab6771037db93442fc6ed6c676640770b4923543bcbea" => :catalina
+    sha256 "a9822db4e330faf6aeec34eba16f55f0253eb411b6eb7efbc0ce02e5c02d8d21" => :mojave
+    sha256 "12f3d120164f7a4e3405b3fd19e31faf9a69f9283f38ba6184d715488c19517f" => :high_sierra
   end
 
   head do
@@ -23,6 +24,7 @@ class Clamav < Formula
   depends_on "pkg-config" => :build
   depends_on "json-c"
   depends_on "libiconv"
+  depends_on "libtool"
   depends_on "openssl@1.1"
   depends_on "pcre2"
   depends_on "yara"
@@ -68,5 +70,11 @@ class Clamav < Formula
 
   test do
     system "#{bin}/clamav-config", "--version"
+    (testpath/"freshclam.conf").write <<~EOS
+      DNSDatabaseInfo current.cvd.clamav.net
+      DatabaseMirror database.clamav.net
+    EOS
+    system "#{bin}/freshclam", "--datadir=#{testpath}", "--config-file=#{testpath}/freshclam.conf"
+    system "#{bin}/clamscan", "--database=#{testpath}", testpath
   end
 end

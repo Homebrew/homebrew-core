@@ -1,15 +1,15 @@
 class Hebcal < Formula
   desc "Perpetual Jewish calendar for the command-line"
   homepage "https://github.com/hebcal/hebcal"
-  url "https://github.com/hebcal/hebcal/archive/v4.20.tar.gz"
-  sha256 "61021362e72f21bd7faacb5ff65605762344c1d7eea99bf362b566a4556e222a"
+  url "https://github.com/hebcal/hebcal/archive/v4.21.tar.gz"
+  sha256 "6295bc183d8a9694f2546100909fb0b1943f0acc55c9743937f435f17d47ddbc"
   license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ce90a45b81d9339bcc51c84905d58b406b489d0a52ab5c1ad250ae75822ec7c2" => :catalina
-    sha256 "38f782313236f406e78c8cfd8c65145da3bfce221580b1c5f5d26cdc1655d23c" => :mojave
-    sha256 "76cf4ff0475218d4d51e4fbbf1a8ee36df7b5e64c8d9cde524083b35b5e4e4a3" => :high_sierra
+    sha256 "d9a509892c033c03341ea04daa4c763818653ebb4e0d921cd67784c9d6aeae74" => :catalina
+    sha256 "ff1b1f27fcaeb762bbff51f7dce52d874d439680eb11de2ab867fb3f08682322" => :mojave
+    sha256 "219e4100f05a5c856781d0d85e091327453fffd69140ecaa318ef27eb904ec4a" => :high_sierra
   end
 
   depends_on "autoconf" => :build
@@ -21,6 +21,7 @@ class Hebcal < Formula
   end
 
   test do
-    system "#{bin}/hebcal"
+    output = shell_output("#{bin}/hebcal 01 01 2020").chomp
+    assert_equal output, "1/1/2020 4th of Tevet, 5780"
   end
 end

@@ -1,10 +1,19 @@
 class Mosh < Formula
   desc "Remote terminal application"
   homepage "https://mosh.org"
-  url "https://mosh.org/mosh-1.3.2.tar.gz"
-  sha256 "da600573dfa827d88ce114e0fed30210689381bbdcff543c931e4d6a2e851216"
   license "GPL-3.0"
   revision 11
+
+  stable do
+    url "https://mosh.org/mosh-1.3.2.tar.gz"
+    sha256 "da600573dfa827d88ce114e0fed30210689381bbdcff543c931e4d6a2e851216"
+
+    # Fix mojave build.
+    patch do
+      url "https://github.com/mobile-shell/mosh/commit/e5f8a826ef9ff5da4cfce3bb8151f9526ec19db0.patch?full_index=1"
+      sha256 "022bf82de1179b2ceb7dc6ae7b922961dfacd52fbccc30472c527cb7c87c96f0"
+    end
+  end
 
   bottle do
     cellar :any
@@ -26,14 +35,6 @@ class Mosh < Formula
 
   uses_from_macos "ncurses"
 
-  # Fix mojave build.
-  unless build.head?
-    patch do
-      url "https://github.com/mobile-shell/mosh/commit/e5f8a826ef9ff5da4cfce3bb8151f9526ec19db0.patch?full_index=1"
-      sha256 "022bf82de1179b2ceb7dc6ae7b922961dfacd52fbccc30472c527cb7c87c96f0"
-    end
-  end
-
   def install
     ENV.cxx11
 
@@ -43,7 +44,6 @@ class Mosh < Formula
 
     system "./autogen.sh" if build.head?
     system "./configure", "--prefix=#{prefix}", "--enable-completion"
-    system "make", "check"
     system "make", "install"
   end
 

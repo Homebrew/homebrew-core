@@ -7,9 +7,10 @@ class PostgresqlAT95 < Formula
   revision 2
 
   bottle do
-    sha256 "33a794b7202e738223650d25749061b779dba8a88f34078ed2d966635605d234" => :catalina
-    sha256 "192a8daaddd008b006953bec273ae12e4c0238c4c0b34ec9f7008e15654234d3" => :mojave
-    sha256 "5948803273679d81c357096eabca041fbbaaf7689b5caba8d7b2b745434750a9" => :high_sierra
+    rebuild 1
+    sha256 "b0e137c35488a6856984f422331866ecc6a89b2f37c13b23d7bab3fc0e5bdd03" => :catalina
+    sha256 "c7b4da25d7e9645ea1c67836e6e7c6605e9a33027aee5bf97c22fa5ec354c28e" => :mojave
+    sha256 "5cc0624afcdd8a84af0b11dcdd10d659e886cb1e82c2596f62ac77e1dd32dc8e" => :high_sierra
   end
 
   keg_only :versioned_formula
@@ -99,6 +100,11 @@ class PostgresqlAT95 < Formula
 
         You will need your previous PostgreSQL installation from brew to perform `pg_upgrade`.
         Do not run `brew cleanup postgresql@9.5` until you have performed the migration.
+
+      This formula has created a default database cluster with:
+        initdb #{var}/postgres
+      For more details, read:
+        https://www.postgresql.org/docs/#{version.to_s.slice(/\d+/)}/app-initdb.html
     EOS
   end
 

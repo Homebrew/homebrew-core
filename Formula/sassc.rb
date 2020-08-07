@@ -4,6 +4,7 @@ class Sassc < Formula
   url "https://github.com/sass/sassc.git",
       tag:      "3.6.1",
       revision: "46748216ba0b60545e814c07846ca10c9fefc5b6"
+  license "MIT"
   head "https://github.com/sass/sassc.git"
 
   bottle do

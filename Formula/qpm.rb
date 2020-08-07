@@ -4,6 +4,7 @@ class Qpm < Formula
   url "https://github.com/Cutehacks/qpm.git",
       tag:      "v0.11.0",
       revision: "fc340f20ddcfe7e09f046fd22d2af582ff0cd4ef"
+  license "Artistic-2.0"
 
   bottle do
     cellar :any_skip_relocation

@@ -3,6 +3,7 @@ class Simg2img < Formula
   homepage "https://github.com/anestisb/android-simg2img"
   url "https://github.com/anestisb/android-simg2img/archive/1.1.4.tar.gz"
   sha256 "cbd32490c1e29d9025601b81089b5aec1707cb62020dfcecd8747af4fde6fecd"
+  license "Apache-2.0"
   head "https://github.com/anestisb/android-simg2img.git"
 
   bottle do

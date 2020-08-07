@@ -1,16 +1,16 @@
 class Flint < Formula
   desc "C library for number theory"
   homepage "http://flintlib.org"
-  url "http://flintlib.org/flint-2.6.1.tar.gz"
-  sha256 "0d9dc2f3264e0c1d7c9b30fa058a14a3ac4d4ab01e95674c62966ea5aaafbf99"
+  url "http://flintlib.org/flint-2.6.2.tar.gz"
+  sha256 "5f9b45113c3b50c10564a04e9dd929eb8ad96488b5eb901db5723cd21bbae1da"
   license "LGPL-2.1"
   head "https://github.com/wbhart/flint2.git", branch: "trunk"
 
   bottle do
     cellar :any
-    sha256 "ca222082491f3251aeaadb567d690ea95969e8168ee04c635186d3a28cb276f5" => :catalina
-    sha256 "4d6b8511625c7cd25964e1f63c4418e0dbcc2c0fc67350e4edbf7a345f1eb6a0" => :mojave
-    sha256 "947f0abc0fa3342e1085ca9d78424b3f8beb2e5e172b7f2a49f946b4106842d3" => :high_sierra
+    sha256 "ae209ece8e2b1dac05c3df9cc9d486153b5d7e0982c26a811a6038628c46d4d1" => :catalina
+    sha256 "827a4a202b966ebea8e4fec9ef76ee221e3f32303af5a07e238c81bd820d1336" => :mojave
+    sha256 "ea7193e4401bd3de54e9cb7b3ab4c86d58077e54fe830302b577cdc2ac05e5d4" => :high_sierra
   end
 
   depends_on "gmp"

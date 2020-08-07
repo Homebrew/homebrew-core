@@ -1,6 +1,6 @@
 class Fades < Formula
   desc "Automatically handle virtualenvs for python scripts"
-  homepage "https://fades.readthedocs.org/"
+  homepage "https://fades.readthedocs.io/"
   url "https://files.pythonhosted.org/packages/cd/b0/381b14139b36dcbd317349ce7c2bd2e2a66bfc772d13e568d71f3d98d977/fades-9.0.tar.gz"
   sha256 "77192b76efbd08dfabce65fe6012805a2383ec1b893c12091efe35fbfd9677f6"
   license "GPL-3.0"

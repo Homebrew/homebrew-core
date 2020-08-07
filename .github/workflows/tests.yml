@@ -3,64 +3,22 @@ on:
   push:
     branches: master
   pull_request: []
+env:
+  HOMEBREW_DEVELOPER: 1
+  HOMEBREW_GITHUB_ACTIONS: 1
+  HOMEBREW_NO_AUTO_UPDATE: 1
 jobs:
   tap_syntax:
     if: github.repository == 'Homebrew/homebrew-core'
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macOS-latest]
+    runs-on: ubuntu-latest
     steps:
     - name: Set up Homebrew
       id: set-up-homebrew
-      run: |
-        if which brew &>/dev/null; then
-          HOMEBREW_PREFIX="$(brew --prefix)"
-          HOMEBREW_REPOSITORY="$HOMEBREW_PREFIX/Homebrew"
-          brew update-reset "$HOMEBREW_REPOSITORY"
-
-          HOMEBREW_CORE_REPOSITORY="$HOMEBREW_REPOSITORY/Library/Taps/homebrew/homebrew-core"
-          git -C "$HOMEBREW_CORE_REPOSITORY" remote set-url origin "https://github.com/$GITHUB_REPOSITORY"
-        else
-          HOMEBREW_PREFIX=/home/linuxbrew/.linuxbrew
-          HOMEBREW_REPOSITORY="$HOMEBREW_PREFIX/Homebrew"
-          sudo mkdir -p "$HOMEBREW_PREFIX"
-          sudo git clone --depth=1 https://github.com/Homebrew/brew "$HOMEBREW_REPOSITORY"
-
-          HOMEBREW_CORE_REPOSITORY="$HOMEBREW_REPOSITORY/Library/Taps/homebrew/homebrew-core"
-          sudo mkdir -p "$HOMEBREW_CORE_REPOSITORY"
-          git -C "$HOMEBREW_CORE_REPOSITORY" init
-          git -C "$HOMEBREW_CORE_REPOSITORY" remote add origin "https://github.com/$GITHUB_REPOSITORY"
-
-          cd "$HOMEBREW_PREFIX"
-          sudo mkdir -p bin etc include lib opt sbin share var/homebrew/linked Cellar
-          sudo ln -sf ../Homebrew/bin/brew "$HOMEBREW_PREFIX/bin/"
-          cd -
-        fi
-
-        export PATH="$HOMEBREW_PREFIX/bin:$PATH"
-        echo "::add-path::$HOMEBREW_PREFIX/bin"
-
-        GEMS_PATH="$HOMEBREW_REPOSITORY/Library/Homebrew/vendor/bundle/ruby/"
-        echo "::set-output name=gems-path::$GEMS_PATH"
-        GEMS_HASH=$(shasum -a 256 "$HOMEBREW_REPOSITORY/Library/Homebrew/Gemfile.lock" | cut -f1 -d' ')
-        echo "::set-output name=gems-hash::$GEMS_HASH"
-
-        cd "$HOMEBREW_CORE_REPOSITORY"
-        rm -rf "$GITHUB_WORKSPACE"
-        ln -s "$HOMEBREW_CORE_REPOSITORY" "$GITHUB_WORKSPACE"
-        git fetch origin "${{github.sha}}"
-        git checkout --force -B master FETCH_HEAD
-        cd -
-
-        if [ "$RUNNER_OS" = "Linux" ]; then
-          sudo chown -R "$USER" "$HOMEBREW_PREFIX"
-          sudo chmod -R g-w,o-w "$HOMEBREW_CORE_REPOSITORY"
-        fi
+      uses: Homebrew/actions/setup-homebrew@master
 
     - name: Cache Bundler RubyGems
       id: cache
-      uses: actions/cache@v1
+      uses: actions/cache@main
       with:
         path: ${{ steps.set-up-homebrew.outputs.gems-path }}
         key: ${{ runner.os }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}
@@ -70,17 +28,12 @@ jobs:
       if: steps.cache.outputs.cache-hit != 'true'
       run: brew install-bundler-gems
 
-    - name: Install taps
-      run: |
-        export HOMEBREW_NO_AUTO_UPDATE=1
-        brew tap homebrew/test-bot
-
     - name: Run brew test-bot --only-tap-syntax
       run: brew test-bot --only-tap-syntax
 
   tests:
     needs: tap_syntax
-    if: github.event_name == 'pull_request'
+    if: github.event_name == 'pull_request' && ! contains(github.event.pull_request.labels.*.name, 'CI-syntax-only')
     strategy:
       matrix:
         version: [10.15, 10.14, 10.13]
@@ -88,26 +41,14 @@ jobs:
     runs-on: ${{ matrix.version }}
     timeout-minutes: 4320
     env:
-      HOMEBREW_GIT_NAME: BrewTestBot
-      HOMEBREW_GIT_EMAIL: 'homebrew-test-bot@lists.sfconservancy.org'
       PATH: '/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin'
       HOMEBREW_DEVELOPER: 1
-      HOMEBREW_NO_ANALYTICS: 1
-      HOMEBREW_NO_AUTO_UPDATE: 1
       GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED: 1
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
     steps:
-      - name: Update Homebrew
-        run: brew update-reset
-
-      - name: Set up Git repository
-        run: |
-          cd $(brew --repo ${{github.repository}})
-          git clean -ffdx
-          git fetch --prune --force origin master
-          git fetch --prune --force origin ${{github.sha}}
-          git checkout --force ${{github.sha}}
-          git log -1
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
 
       - name: Run brew test-bot --only-cleanup-before
         run: brew test-bot --only-cleanup-before
@@ -117,7 +58,6 @@ jobs:
 
       - name: Run brew test-bot --only-formulae
         run: |
-          rm -rf bottles
           mkdir bottles
           cd bottles
           brew test-bot --only-formulae
@@ -130,7 +70,7 @@ jobs:
 
       - name: Upload logs
         if: failure()
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@main
         with:
           name: logs (${{ matrix.version }})
           path: bottles/logs
@@ -138,8 +78,8 @@ jobs:
       - name: Delete logs and home
         if: always()
         run: |
-          rm -rf bottles/logs
-          rm -rf bottles/home
+          rm -rvf bottles/logs
+          rm -rvf bottles/home
 
       - name: Count bottles
         id: bottles
@@ -152,7 +92,7 @@ jobs:
 
       - name: Upload bottles
         if: always() && steps.bottles.outputs.count > 0
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@main
         with:
           name: bottles
           path: bottles
@@ -161,8 +101,6 @@ jobs:
         if: always()
         run: brew test-bot --only-cleanup-after
 
-      - name: Cleanup
+      - name: Post Cleanup
         if: always()
-        run: |
-          find .
-          rm -rf *
+        run: rm -rvf bottles

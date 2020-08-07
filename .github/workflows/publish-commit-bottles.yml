@@ -6,17 +6,15 @@ on:
       pull_request:
         description: Pull request number
         required: true
-
+env:
+  HOMEBREW_COLOR: 1
+  HOMEBREW_DEVELOPER: 1
+  HOMEBREW_FORCE_HOMEBREW_ON_LINUX: 1
+  HOMEBREW_NO_AUTO_UPDATE: 1
+  HOMEBREW_NO_PATCHELF_RB: 1
 jobs:
   upload:
     runs-on: ubuntu-latest
-    env:
-      HOMEBREW_COLOR: 1
-      HOMEBREW_DEVELOPER: 1
-      HOMEBREW_FORCE_HOMEBREW_ON_LINUX: 1
-      HOMEBREW_NO_ANALYTICS: 1
-      HOMEBREW_NO_AUTO_UPDATE: 1
-      HOMEBREW_NO_PATCHELF_RB: 1
     steps:
       - name: Post comment once started
         uses: Homebrew/actions/post-comment@master
@@ -27,23 +25,11 @@ jobs:
           bot_body: ':robot: A scheduled task has [triggered a merge](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}}).'
           bot: BrewTestBot
 
-      - name: Update Homebrew
-        run: brew update-reset $(brew --repo)
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
 
-      - name: Setup tap
-        run: |
-          cd ..
-          rmdir ${{github.workspace}}
-          ln -s $(brew --repo ${{github.repository}}) ${{github.workspace}}
-
-      - name: Checkout tap
-        run: |
-          git remote set-url origin ${{github.event.repository.clone_url}}
-          git fetch --prune --force origin master
-          git reset --hard origin/master
-          git log -1
-
-      - name: Setup git
+      - name: Configure Git user
         uses: Homebrew/actions/git-user-config@master
 
       - name: Pull bottles
@@ -75,4 +61,3 @@ jobs:
           token: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
           pr: ${{github.event.inputs.pull_request}}
           message: 'bottle publish failed'
-

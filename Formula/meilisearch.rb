@@ -1,15 +1,15 @@
 class Meilisearch < Formula
   desc "Ultra relevant, instant and typo-tolerant full-text search API"
   homepage "https://docs.meilisearch.com/"
-  url "https://github.com/meilisearch/MeiliSearch/archive/v0.12.0.tar.gz"
-  sha256 "69dc0492083b26c365954b9d65d8c3f601b6b4b11a45f789a70e2413b82a8429"
+  url "https://github.com/meilisearch/MeiliSearch/archive/v0.13.0.tar.gz"
+  sha256 "e6614c48c252360254a9fc1e8ae820e9b7821e4a0b1a8d829de045ef64921f8b"
   license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e4da6b5e4f556b575af454d45e5879e2138c70424ad57aa28092a4b61c013ff9" => :catalina
-    sha256 "cc03a32a747f4a592cc674b70076c7aa8b3562b5e245e50c8725495d14d8c5aa" => :mojave
-    sha256 "1b436742cf77b5ba7bfce1ff772e0642a9015b2f057c0fc32a3603ebe2f1a80a" => :high_sierra
+    sha256 "3a9ae8698ac75e6b52a0a2580d9b7e6073526a86a6b22cf97c3fa53487189446" => :catalina
+    sha256 "74e058feab45714a55ca2bedc2cf599ec6506b52e0c19f2e9f2e57e057ad053c" => :mojave
+    sha256 "72ab2620fa3eed8fe4f5f464b567d7ce495d4b0311ed59fe908c9a4277b9ee0e" => :high_sierra
   end
 
   depends_on "rust" => :build

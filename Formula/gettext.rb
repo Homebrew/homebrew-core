@@ -1,16 +1,15 @@
 class Gettext < Formula
   desc "GNU internationalization (i18n) and localization (l10n) library"
   homepage "https://www.gnu.org/software/gettext/"
-  url "https://ftp.gnu.org/gnu/gettext/gettext-0.20.2.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gettext/gettext-0.20.2.tar.xz"
-  sha256 "b22b818e644c37f6e3d1643a1943c32c3a9bff726d601e53047d2682019ceaba"
+  url "https://ftp.gnu.org/gnu/gettext/gettext-0.21.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gettext/gettext-0.21.tar.xz"
+  sha256 "d20fcbb537e02dcf1383197ba05bd0734ef7bf5db06bdb241eb69b7d16b73192"
   license "GPL-3.0"
-  revision 1
 
   bottle do
-    sha256 "71f4ded03e8258b5e6896eebb00d26ed48307fbebece1a884b17ca3fb40e3121" => :catalina
-    sha256 "52067198cab528f05fdc0b06f7b9711f7614f60a7361f1e764c4f46d3342ff22" => :mojave
-    sha256 "4a999c75dcc53cbc711e3ac6545db69ab3aeca6c29c1cb6b21c353f237342457" => :high_sierra
+    sha256 "cdea54f52b7c36ebcb5fe26a1cf736d7cd6fd5f2fd016dd8357a8624ffd6b5f8" => :catalina
+    sha256 "99707d4dcc731faf980333365a694e9500f2f012f84c0bcb6d8cb5d620c2ce08" => :mojave
+    sha256 "5ac5783e31205b92907b46bfaaa142620aea7ee3fc4d996876b0913fd2315695" => :high_sierra
   end
 
   uses_from_macos "ncurses"
