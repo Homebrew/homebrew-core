@@ -1,9 +1,8 @@
 class Hey < Formula
   desc "HTTP load generator, ApacheBench (ab) replacement"
   homepage "https://github.com/rakyll/hey"
-  url "https://github.com/rakyll/hey.git",
-    tag:      "v0.1.3",
-    revision: "36f181ad99713ffd70c09a021ea8a689b8fb43d3"
+  url "https://github.com/rakyll/hey/archive/v0.1.4.tar.gz"
+  sha256 "944097e62dd0bd5012d3b355d9fe2e7b7afcf13cc0b2c06151e0f4c2babfc279"
   license "Apache-2.0"
 
   bottle do
@@ -16,8 +15,7 @@ class Hey < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"hey"
-    prefix.install_metafiles
+    system "go", "build", *std_go_args
   end
 
   test do
