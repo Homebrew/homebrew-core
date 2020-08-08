@@ -2,8 +2,8 @@ class Grpc < Formula
   desc "Next generation open source RPC library and framework"
   homepage "https://grpc.io/"
   url "https://github.com/grpc/grpc.git",
-    tag:      "v1.30.2",
-    revision: "de6defa6fff08de20e36f9168f5b277e292daf46",
+    tag:      "v1.31.0",
+    revision: "56ad644c329d90c0742a02462b2bd365ff759158",
     shallow:  false
   license "Apache-2.0"
   head "https://github.com/grpc/grpc.git"
@@ -21,25 +21,44 @@ class Grpc < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "cmake" => :build
   depends_on "libtool" => :build
+  depends_on "abseil"
   depends_on "c-ares"
   depends_on "gflags"
   depends_on "openssl@1.1"
   depends_on "protobuf"
 
-  resource "gtest" do
-    url "https://github.com/google/googletest/archive/release-1.10.0.tar.gz"
-    sha256 "9dc9157a9a1551ec7a7e43daea9a694a0bb5fb8bec81235d8a1e6ef64c716dcb"
-  end
-
   def install
-    system "make", "install", "prefix=#{prefix}"
+    mkdir "cmake/build" do
+      args = %w[
+        ../..
+        -DBUILD_SHARED_LIBS=ON
+        -DgRPC_BUILD_TESTS=OFF
+        -DgRPC_INSTALL=ON
+        -DgRPC_ABSL_PROVIDER=package
+        -DgRPC_CARES_PROVIDER=package
+        -DgRPC_PROTOBUF_PROVIDER=package
+        -DgRPC_SSL_PROVIDER=package
+        -DgRPC_ZLIB_PROVIDER=package
+      ] + std_cmake_args
 
-    system "make", "install-plugins", "prefix=#{prefix}"
+      system "cmake", *args
+      system "make", "install"
 
-    (buildpath/"third_party/googletest").install resource("gtest")
-    system "make", "grpc_cli", "prefix=#{prefix}"
-    bin.install "bins/opt/grpc_cli"
+      args = %w[
+        ../..
+        -DCMAKE_EXE_LINKER_FLAGS=-lgflags
+        -DCMAKE_SHARED_LINKER_FLAGS=-lgflags
+        -DBUILD_SHARED_LIBS=ON
+        -DgRPC_BUILD_TESTS=ON
+        -DgRPC_GFLAGS_PROVIDER=package
+      ] + std_cmake_args
+      system "cmake", *args
+      system "make", "grpc_cli"
+      bin.install "grpc_cli"
+      lib.install Dir["libgrpc++_test_config*.dylib"]
+    end
   end
 
   test do
