@@ -1,13 +1,9 @@
-require "language/haskell"
-
 class HopenpgpTools < Formula
-  include Language::Haskell::Cabal
-
   desc "Command-line tools for OpenPGP-related operations"
   homepage "https://hackage.haskell.org/package/hopenpgp-tools"
   url "https://hackage.haskell.org/package/hopenpgp-tools-0.23.1/hopenpgp-tools-0.23.1.tar.gz"
   sha256 "b28ac66343a0bf78b3bfb22cc87f85355909fcd49d9ba5ad43e5a0c38e8b014b"
-  revision 1
+  revision 2
   head "https://salsa.debian.org/clint/hOpenPGP.git"
 
   bottle do
@@ -28,7 +24,8 @@ class HopenpgpTools < Formula
   end
 
   def install
-    install_cabal_package using: ["alex", "happy", "c2hs"]
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
   end
 
   test do
