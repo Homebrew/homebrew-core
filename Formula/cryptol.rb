@@ -1,13 +1,10 @@
-require "language/haskell"
-
 class Cryptol < Formula
-  include Language::Haskell::Cabal
-
   desc "Domain-specific language for specifying cryptographic algorithms"
   homepage "https://www.cryptol.net/"
   url "https://hackage.haskell.org/package/cryptol-2.9.0/cryptol-2.9.0.tar.gz"
   sha256 "2bcbf4ad6c1679a17f47467bf6eab250deea8e5125c53535c44afa4af525bd2f"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/GaloisInc/cryptol.git"
 
   bottle do
@@ -25,7 +22,8 @@ class Cryptol < Formula
   uses_from_macos "zlib"
 
   def install
-    install_cabal_package using: ["alex", "happy"]
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
   end
 
   test do
