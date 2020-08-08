@@ -1,13 +1,10 @@
-require "language/haskell"
-
 class Allureofthestars < Formula
-  include Language::Haskell::Cabal
-
   desc "Near-future Sci-Fi roguelike and tactical squad combat game"
   homepage "https://www.allureofthestars.com/"
   url "https://hackage.haskell.org/package/Allure-0.9.5.0/Allure-0.9.5.0.tar.gz"
   sha256 "8180fe070633bfa5515de8f7443421044e7ad4ee050f0a92c048cec5f2c88132"
   license "AGPL-3.0"
+  revision 1
   head "https://github.com/AllureOfTheStars/Allure.git"
 
   bottle do
@@ -24,7 +21,8 @@ class Allureofthestars < Formula
   depends_on "sdl2_ttf"
 
   def install
-    install_cabal_package using: ["happy", "alex"]
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
   end
 
   test do
