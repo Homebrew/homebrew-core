@@ -1,8 +1,8 @@
 class TreCommand < Formula
   desc "Tree command, improved"
   homepage "https://github.com/dduan/tre"
-  url "https://github.com/dduan/tre/archive/v0.3.1.tar.gz"
-  sha256 "3d7a7784ed85dd5301f350a3d05eca839f24846997eb0a44b749467f0f4dd032"
+  url "https://github.com/dduan/tre/archive/v0.3.2.tar.gz"
+  sha256 "7773cd958c9f7cf2747a7526d879de6034ba0287e161a698ec61ba7bd2ed91bb"
   license "MIT"
   head "https://github.com/dduan/tre.git"
 
@@ -17,6 +17,7 @@ class TreCommand < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+    man1.install "manual/tre.1"
   end
 
   test do
