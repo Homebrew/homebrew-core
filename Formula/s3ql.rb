@@ -15,6 +15,10 @@ class S3ql < Formula
     sha256 "4d5df651fa2f880a5341b3945ca29190fe798cfddc0f80973b4c6bd0ea31753f" => :high_sierra
   end
 
+  # disable due to osxfuse API is with fuse2
+  # logged an issue, https://github.com/s3ql/s3ql/issues/192
+  disable!
+
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
   depends_on :osxfuse
