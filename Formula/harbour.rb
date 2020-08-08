@@ -8,7 +8,7 @@ class Harbour < Formula
   # deleted sometime after Harbour 3.0.0 release.
   stable do
     patch :DATA
-    url "https://downloads.sourceforge.net/harbour-project/source/3.0.0/harbour-3.0.0.tar.bz2"
+    url "https://downloads.sourceforge.net/project/harbour-project/source/3.0.0/harbour-3.0.0.tar.bz2"
     sha256 "4e99c0c96c681b40c7e586be18523e33db24baea68eb4e394989a3b7a6b5eaad"
   end
 
