@@ -1,12 +1,8 @@
-require "language/haskell"
-
 class Cedille < Formula
-  include Language::Haskell::Cabal
-
   desc "Language based on the Calculus of Dependent Lambda Eliminations"
   homepage "https://cedille.github.io/"
   license "MIT"
-  revision 3
+  revision 4
 
   stable do
     url "https://github.com/cedille/cedille/archive/v1.1.2.tar.gz"
@@ -46,19 +42,10 @@ class Cedille < Formula
   def install
     resource("ial").stage buildpath/"ial"
 
-    cabal_sandbox do
-      # build tools
-      cabal_install_tools "alex", "happy", "cpphs"
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
 
-      # build dependencies
-      cabal_install "ieee754"
-
-      # use the sandbox when building with Agda
-      ENV["GHC_PACKAGE_PATH"] = "#{buildpath/Dir[".cabal-sandbox/*packages.conf.d/"].first}:"
-
-      # build
-      system "make", "core/cedille-core", "cedille-mac"
-    end
+    system "make", "core/cedille-core", "cedille-mac"
 
     # binaries and elisp
     bin.install "core/cedille-core"
