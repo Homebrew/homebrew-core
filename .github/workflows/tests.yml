@@ -28,8 +28,7 @@ jobs:
       if: steps.cache.outputs.cache-hit != 'true'
       run: brew install-bundler-gems
 
-    - name: Run brew test-bot --only-tap-syntax
-      run: brew test-bot --only-tap-syntax
+    - run: brew test-bot --only-tap-syntax
 
   tests:
     needs: tap_syntax
@@ -50,11 +49,9 @@ jobs:
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
 
-      - name: Run brew test-bot --only-cleanup-before
-        run: brew test-bot --only-cleanup-before
+      - run: brew test-bot --only-cleanup-before
 
-      - name: Run brew test-bot --only-setup
-        run: brew test-bot --only-setup
+      - run: brew test-bot --only-setup
 
       - name: Run brew test-bot --only-formulae
         run: |
@@ -97,9 +94,8 @@ jobs:
           name: bottles
           path: bottles
 
-      - name: Run brew test-bot --only-cleanup-after
+      - run: brew test-bot --only-cleanup-after
         if: always()
-        run: brew test-bot --only-cleanup-after
 
       - name: Post Cleanup
         if: always()
