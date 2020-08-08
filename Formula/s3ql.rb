@@ -17,7 +17,7 @@ class S3ql < Formula
 
   # disable due to osxfuse API is with fuse2
   # logged an issue, https://github.com/s3ql/s3ql/issues/192
-  disable!
+  deprecate!
 
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
