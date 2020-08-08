@@ -4,6 +4,7 @@ class Coturn < Formula
   url "http://turnserver.open-sys.org/downloads/v4.5.1.3/turnserver-4.5.1.3.tar.gz"
   sha256 "408bf7fde455d641bb2a23ba2df992ea0ae87b328de74e66e167ef58d8e9713a"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 "027e54c623df2dca0cb5b281123a01b5ab4625d277d7a1f7ac2bd998df790b01" => :catalina
