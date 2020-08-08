@@ -1,12 +1,9 @@
-require "language/haskell"
-
 class GitAnnex < Formula
-  include Language::Haskell::Cabal
-
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
   url "https://hackage.haskell.org/package/git-annex-8.20200720.1/git-annex-8.20200720.1.tar.gz"
   sha256 "d6252697151ab01cc8f7a492dc5eb4b4e773c0d48771df360c82a7cca7a39c3c"
+  revision 1
   head "git://git-annex.branchable.com/"
 
   bottle do
@@ -24,10 +21,8 @@ class GitAnnex < Formula
   depends_on "quvi"
 
   def install
-    install_cabal_package "--constraint", "http-conduit>=2.3",
-                          "--constraint", "network>=2.6.3.0",
-                          using: ["alex", "happy", "c2hs"],
-                          flags: ["s3", "webapp"]
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
     bin.install_symlink "git-annex" => "git-annex-shell"
   end
 
