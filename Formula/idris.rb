@@ -1,13 +1,10 @@
-require "language/haskell"
-
 class Idris < Formula
-  include Language::Haskell::Cabal
-
   desc "Pure functional programming language with dependent types"
   homepage "https://www.idris-lang.org/"
   url "https://github.com/idris-lang/Idris-dev/archive/v1.3.3.tar.gz"
   sha256 "ad693614cc61a92bf51a33f5dc74f90b2eba91fd89064ec0580525e220556113"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/idris-lang/Idris-dev.git"
 
   bottle do
@@ -24,7 +21,9 @@ class Idris < Formula
   def install
     args = ["-f", "FFI"]
     args << "-f" << "release" if build.stable?
-    install_cabal_package(*args)
+
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
   end
 
   test do
