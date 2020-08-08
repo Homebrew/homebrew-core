@@ -1,13 +1,10 @@
-require "language/haskell"
-
 class PandocCrossref < Formula
-  include Language::Haskell::Cabal
-
   desc "Pandoc filter for numbering and cross-referencing"
   homepage "https://github.com/lierdakil/pandoc-crossref"
   url "https://hackage.haskell.org/package/pandoc-crossref-0.3.7.0/pandoc-crossref-0.3.7.0.tar.gz"
   sha256 "467d2470fa66885179284e54d8757ae1a9b442b6ff8af33bd177870f285b85d7"
   license "GPL-2.0"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -21,7 +18,8 @@ class PandocCrossref < Formula
   depends_on "pandoc"
 
   def install
-    install_cabal_package
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
   end
 
   test do
