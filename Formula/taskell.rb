@@ -1,13 +1,10 @@
-require "language/haskell"
-
 class Taskell < Formula
-  include Language::Haskell::Cabal
-
   desc "Command-line Kanban board/task manager with support for Trello"
   homepage "https://taskell.app"
   url "https://github.com/smallhadroncollider/taskell/archive/1.10.0.tar.gz"
   sha256 "c78c74c2d3cc1c0608014f32fc788f03cae79e0761aeea8e6701101d75526101"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -25,7 +22,8 @@ class Taskell < Formula
 
   def install
     system "hpack"
-    install_cabal_package
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
   end
 
   test do
