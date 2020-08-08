@@ -1,13 +1,10 @@
-require "language/haskell"
-
 class PandocCiteproc < Formula
-  include Language::Haskell::Cabal
-
   desc "Library and executable for using citeproc with pandoc"
   homepage "https://github.com/jgm/pandoc-citeproc"
   url "https://hackage.haskell.org/package/pandoc-citeproc-0.17.0.2/pandoc-citeproc-0.17.0.2.tar.gz"
   sha256 "0b8846ca37547004a6a165ff7f47f58a07f783b01da32c8bf5740272fe37e1f2"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/jgm/pandoc-citeproc.git"
 
   bottle do
@@ -23,7 +20,8 @@ class PandocCiteproc < Formula
   uses_from_macos "unzip" => :build
 
   def install
-    install_cabal_package
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
   end
 
   test do
