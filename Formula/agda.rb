@@ -1,8 +1,4 @@
-require "language/haskell"
-
 class Agda < Formula
-  include Language::Haskell::Cabal
-
   desc "Dependently typed functional programming language"
   homepage "https://wiki.portal.chalmers.se/agda/"
   license "BSD-3-Clause"
@@ -40,18 +36,15 @@ class Agda < Formula
   uses_from_macos "zlib"
 
   def install
-    # install Agda core
-    install_cabal_package using: ["alex", "happy", "cpphs"]
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
 
     resource("stdlib").stage lib/"agda"
 
     # generate the standard library's bytecode
     cd lib/"agda" do
-      cabal_sandbox home: buildpath, keep_lib: true do
-        cabal_install "--only-dependencies"
-        cabal_install
-        system "GenerateEverything"
-      end
+      system "cabal", "v2-update"
+      system "cabal", "v2-install", *std_cabal_v2_args
     end
 
     # generate the standard library's documentation and vim highlighting files
