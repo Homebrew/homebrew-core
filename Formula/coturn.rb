@@ -4,6 +4,7 @@ class Coturn < Formula
   url "http://turnserver.open-sys.org/downloads/v4.5.1.3/turnserver-4.5.1.3.tar.gz"
   sha256 "408bf7fde455d641bb2a23ba2df992ea0ae87b328de74e66e167ef58d8e9713a"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url "http://turnserver.open-sys.org/downloads/"
