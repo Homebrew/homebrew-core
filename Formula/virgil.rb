@@ -2,8 +2,8 @@ class Virgil < Formula
   desc "CLI tool to manage your Virgil account and applications"
   homepage "https://github.com/VirgilSecurity/virgil-cli"
   url "https://github.com/VirgilSecurity/virgil-cli.git",
-     tag:      "v5.2.5",
-     revision: "2c58884a984643530c7cd71b74c9f490f1821b92"
+     tag:      "v5.2.6",
+     revision: "5b1f02259660a71f7bcfea6567ef44cb2651a34a"
   license "BSD-3-Clause"
   head "https://github.com/VirgilSecurity/virgil-cli.git"
 
