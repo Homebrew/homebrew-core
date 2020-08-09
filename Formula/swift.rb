@@ -1,9 +1,11 @@
 class Swift < Formula
   desc "High-performance system programming language"
   homepage "https://swift.org"
+  # Note: Keep version in sync with resources below
   url "https://github.com/apple/swift/archive/swift-5.2.5-RELEASE.tar.gz"
   sha256 "2353bb00dada11160945729a33af94150b7cf0a6a38fbe975774a6e244dbc548"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 "46a8fe5334749039cca2b04a20e1f0e94977ada7490cacbe50c92c355d7f4164" => :catalina
@@ -22,33 +24,33 @@ class Swift < Formula
   uses_from_macos "icu4c"
 
   resource "llvm-project" do
-    url "https://github.com/apple/llvm-project/archive/swift-5.2.4-RELEASE.tar.gz"
-    sha256 "e36edc6c19e013a81b9255e329e9d6ffe7dfd89e8f8f23e1d931464c5f717d3a"
+    url "https://github.com/apple/llvm-project/archive/swift-5.2.5-RELEASE.tar.gz"
+    sha256 "f3e6bf2657edf7c290befdfc9d534ed776c0f344c0df373ccecc60ab2c928a51"
   end
 
   resource "cmark" do
-    url "https://github.com/apple/swift-cmark/archive/swift-5.2.4-RELEASE.tar.gz"
-    sha256 "d5f656777961390987ed04de2120e73e032713bbd7b616b5e43eb3ae6e209cb5"
+    url "https://github.com/apple/swift-cmark/archive/swift-5.2.5-RELEASE.tar.gz"
+    sha256 "71ef5641ebbb60ddd609320bdbf4d378cdcd89941b6f17f658ee5be40c98a232"
   end
 
   resource "llbuild" do
-    url "https://github.com/apple/swift-llbuild/archive/swift-5.2.4-RELEASE.tar.gz"
-    sha256 "66b5374a15998a80cd72e7c1312766a8cbfe427a850f7b97d39b5d0508306e6c"
+    url "https://github.com/apple/swift-llbuild/archive/swift-5.2.5-RELEASE.tar.gz"
+    sha256 "07db561275697634f4790d9cd7d817272ffa37ebd7a69e0abc5de51bcdb4efb7"
   end
 
   resource "swiftpm" do
-    url "https://github.com/apple/swift-package-manager/archive/swift-5.2.4-RELEASE.tar.gz"
-    sha256 "383bf75f6dea96c4d48b2242bd3116154365e0e032aa3dce968f2c434732446c"
+    url "https://github.com/apple/swift-package-manager/archive/swift-5.2.5-RELEASE.tar.gz"
+    sha256 "f7197556bf299f4fc7b88e63fed78797fd85f94bf590f34e3de845ad5e62afbe"
   end
 
   resource "indexstore-db" do
-    url "https://github.com/apple/indexstore-db/archive/swift-5.2.4-RELEASE.tar.gz"
-    sha256 "f1a96c7c9182e6c4f43b04db4a3236b0ff3306132de305fafbdcfd36f2081da2"
+    url "https://github.com/apple/indexstore-db/archive/swift-5.2.5-RELEASE.tar.gz"
+    sha256 "cefe69f9b63869acee0564d38d8eb98f449647db9c8df7cd1c59538f506e7f1e"
   end
 
   resource "sourcekit-lsp" do
-    url "https://github.com/apple/sourcekit-lsp/archive/swift-5.2.4-RELEASE.tar.gz"
-    sha256 "6bbc728aa852a969fcab25a4ab0e1016823a0c7ec606ef3d61d0a442cfba02db"
+    url "https://github.com/apple/sourcekit-lsp/archive/swift-5.2.5-RELEASE.tar.gz"
+    sha256 "2cb2dffc585a068cefa3bf33d873394f3bccddf8e5e7269889d6960f387ddcfc"
   end
 
   def install
