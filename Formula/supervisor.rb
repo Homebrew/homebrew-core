@@ -26,15 +26,22 @@ class Supervisor < Formula
 
     virtualenv_install_with_resources
 
-    etc.install buildpath/"supervisor/skel/sample.conf" => "supervisord.ini"
+    etc.install buildpath/"supervisor/skel/sample.conf" => "supervisord.conf"
   end
 
   def post_install
     (var/"run").mkpath
     (var/"log").mkpath
+    conf_warn = <<~EOS
+      The default location for supervisor's config file is now:
+        #{etc}/supervisord.conf
+      Please move your config file to this location and restart supervisor.
+    EOS
+    old_conf = etc/"supervisord.ini"
+    opoo conf_warn if old_conf.exist?
   end
 
-  plist_options manual: "supervisord -c #{HOMEBREW_PREFIX}/etc/supervisord.ini"
+  plist_options manual: "supervisord"
 
   def plist
     <<~EOS
@@ -53,7 +60,7 @@ class Supervisor < Formula
           <array>
             <string>#{opt_bin}/supervisord</string>
             <string>-c</string>
-            <string>#{etc}/supervisord.ini</string>
+            <string>#{etc}/supervisord.conf</string>
             <string>--nodaemon</string>
           </array>
         </dict>
