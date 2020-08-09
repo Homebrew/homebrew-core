@@ -44,6 +44,10 @@ jobs:
                     "path": "Formula/.+",
                     "missing_content": "\n  license .+\n"
                 }, {
+                    "label": "resource updates needed",
+                    "path": "Formula/.+",
+                    "content": "\n +resource .+\n"
+                }, {
                     "label": "go",
                     "path": "Formula/.+",
                     "content": "depends_on \"go(?:@[0-9.]+)?\""
