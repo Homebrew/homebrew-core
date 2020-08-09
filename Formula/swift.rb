@@ -16,7 +16,7 @@ class Swift < Formula
   depends_on "ninja" => :build
 
   # Has strict requirements on the minimum version of Xcode
-  # https://github.com/apple/swift#system-requirements
+  # https://github.com/apple/swift/tree/swift-#{version}-RELEASE#system-requirements
   depends_on xcode: ["11.2", :build]
 
   uses_from_macos "icu4c"
