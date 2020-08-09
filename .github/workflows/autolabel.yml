@@ -78,7 +78,7 @@ jobs:
                 }, {
                     "label": "python",
                     "path": "Formula/.+",
-                    "content": "(?:depends_on|uses_from_macos) \"python@?.+"
+                    "content": "(?:depends_on|uses_from_macos) \"python@?(?:(?!:build).)+\n"
                 }, {
                     "label": "ruby",
                     "path": "Formula/.+",
