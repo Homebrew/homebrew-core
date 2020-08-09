@@ -5,10 +5,9 @@ class Ghc < Formula
 
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
-  url "https://downloads.haskell.org/~ghc/8.10.1/ghc-8.10.1-src.tar.xz"
-  sha256 "4e3b07f83a266b3198310f19f71e371ebce97c769b14f0d688f4cbf2a2a1edf5"
+  url "https://downloads.haskell.org/~ghc/8.10.2/ghc-8.10.2-src.tar.xz"
+  sha256 "9c573a4621a78723950617c223559bdc325ea6a3409264aedf68f05510b0880b"
   license "BSD-3-Clause"
-  revision 1
 
   livecheck do
     url :stable
