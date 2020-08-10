@@ -3,6 +3,7 @@ class Dict < Formula
   homepage "http://www.dict.org/"
   url "https://downloads.sourceforge.net/project/dict/dictd/dictd-1.13.0/dictd-1.13.0.tar.gz"
   sha256 "eeba51af77e87bb1b166c6bc469aad463632d40fb2bdd65e6675288d8e1a81e4"
+  # Deprecated license
   license "GPL-2.0"
 
   bottle do
