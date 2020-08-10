@@ -44,6 +44,10 @@ jobs:
                     "path": "Formula/.+",
                     "missing_content": "\n  license .+\n"
                 }, {
+                    "label": "deprecated license",
+                    "path": "Formula/.+",
+                    "content": "license .*\"(GPL|LGPL|AGPL|GFDL)-\d\.\d\+?\".*"
+                }, {
                     "label": "go",
                     "path": "Formula/.+",
                     "content": "depends_on \"go(?:@[0-9.]+)?\""
