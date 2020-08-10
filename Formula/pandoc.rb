@@ -3,7 +3,7 @@ class Pandoc < Formula
   homepage "https://pandoc.org/"
   url "https://hackage.haskell.org/package/pandoc-2.10.1/pandoc-2.10.1.tar.gz"
   sha256 "938a4c9b0a7ed3de886c73af4052913b0ac9e4aa12b435bd2afd09670bd3229a"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   head "https://github.com/jgm/pandoc.git"
 
   bottle do
