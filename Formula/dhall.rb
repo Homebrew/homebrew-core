@@ -3,6 +3,7 @@ class Dhall < Formula
   homepage "https://dhall-lang.org/"
   url "https://hackage.haskell.org/package/dhall-1.34.0/dhall-1.34.0.tar.gz"
   sha256 "0dbc61611d465f744aec13fd3114a9d75bbaa434f1aaa3de7e49c385d9fe1b67"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any_skip_relocation
