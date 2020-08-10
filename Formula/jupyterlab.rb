@@ -5,6 +5,7 @@ class Jupyterlab < Formula
   homepage "https://jupyter.org/"
   url "https://files.pythonhosted.org/packages/b6/6a/d4ad207b17c0861a8c0e829a2284e97ecc182649b408fc7ece05181e64bb/jupyterlab-2.2.4.tar.gz"
   sha256 "e9d26c4c1cf4f7760dfa9ccd3fd5ea5027ae2767f22c7766dbb2fbb5e5dfcd4b"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any
