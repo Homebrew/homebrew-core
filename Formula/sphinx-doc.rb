@@ -3,8 +3,8 @@ class SphinxDoc < Formula
 
   desc "Tool to create intelligent and beautiful documentation"
   homepage "https://www.sphinx-doc.org/"
-  url "https://files.pythonhosted.org/packages/4b/2b/84e00ab4c6103ebe38b3c1f0d574d46a7b8fb1dccb4d41a6ec0b9d15aacd/Sphinx-3.1.2.tar.gz"
-  sha256 "b9daeb9b39aa1ffefc2809b43604109825300300b987a24f45976c001ba1a8fd"
+  url "https://files.pythonhosted.org/packages/d6/a3/3c0e0cb802d118f7797df93ef9d456aef9b6942c59f951483b3a5f482875/Sphinx-3.2.0.tar.gz"
+  sha256 "cf2d5bc3c6c930ab0a1fbef3ad8a82994b1bf4ae923f8098a05c7e5516f07177"
   license "BSD-2-Clause"
 
   bottle do
@@ -67,11 +67,6 @@ class SphinxDoc < Formula
     sha256 "29872e92839765e546828bb7754a68c418d927cd064fd4708fab9fe9c8bb116b"
   end
 
-  resource "numpydoc" do
-    url "https://files.pythonhosted.org/packages/3d/fb/a70f636102045fc646656f2221c7fcdf92f7a9d71ba7c9875a949a58b3e8/numpydoc-1.1.0.tar.gz"
-    sha256 "c36fd6cb7ffdc9b4e165a43f67bf6271a7b024d0bb6b00ac468c9e2bfc76448e"
-  end
-
   resource "packaging" do
     url "https://files.pythonhosted.org/packages/55/fd/fc1aca9cf51ed2f2c11748fa797370027babd82f87829c7a8e6dbe720145/packaging-20.4.tar.gz"
     sha256 "4357f74f47b9c12db93624a82154e9b120fa8293699949152b22065d556079f8"
@@ -85,11 +80,6 @@ class SphinxDoc < Formula
   resource "pyparsing" do
     url "https://files.pythonhosted.org/packages/c1/47/dfc9c342c9842bbe0036c7f763d2d6686bcf5eb1808ba3e170afdb282210/pyparsing-2.4.7.tar.gz"
     sha256 "c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"
-  end
-
-  resource "python-docs-theme" do
-    url "https://files.pythonhosted.org/packages/fa/63/759ff01d90ad08fbec19954c71f474c0c0e613850a6419b4b6a4ea79f5e9/python-docs-theme-2020.1.tar.gz"
-    sha256 "29c33ba393bdb9377910116a0c1cc329573a4e040227c58a3293d27928d8262a"
   end
 
   resource "pytz" do
@@ -143,8 +133,8 @@ class SphinxDoc < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/05/8c/40cd6949373e23081b3ea20d5594ae523e681b6f472e600fbc95ed046a36/urllib3-1.25.9.tar.gz"
-    sha256 "3018294ebefce6572a474f0604c2021e33b3fd8006ecd11d62107a5d2a963527"
+    url "https://files.pythonhosted.org/packages/81/f4/87467aeb3afc4a6056e1fe86626d259ab97e1213b1dfec14c7cb5f538bf0/urllib3-1.25.10.tar.gz"
+    sha256 "91056c15fa70756691db97756772bb1eb9678fa585d9184f24534b100dc60f4a"
   end
 
   def install
