@@ -4,6 +4,7 @@ class K3d < Formula
   url "https://github.com/rancher/k3d/archive/v3.0.0.tar.gz"
   sha256 "939fae09600ae7edb5e92ecab5c25ac2adec5be432c8a7ee34a14e01a0245b11"
   license "MIT"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -20,6 +21,15 @@ class K3d < Formula
            "-ldflags", "-s -w -X github.com/rancher/k3d/v3/version.Version=v#{version}"\
            " -X github.com/rancher/k3d/v3/version.K3sVersion=latest",
            "-trimpath", "-o", bin/"k3d"
+
+    # Install bash completion
+    output = Utils.safe_popen_read("#{bin}/k3d", "completion", "bash")
+    (bash_completion/"k3d").write output
+
+    # Install zsh completion
+    output = Utils.safe_popen_read("#{bin}/k3d", "completion", "zsh")
+    (zsh_completion/"_k3d").write output
+
     prefix.install_metafiles
   end
 
