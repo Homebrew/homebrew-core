@@ -1,8 +1,8 @@
 class Kubeaudit < Formula
   desc "Helps audit your Kubernetes clusters against common security controls"
   homepage "https://github.com/Shopify/kubeaudit"
-  url "https://github.com/Shopify/kubeaudit/archive/v0.9.1.tar.gz"
-  sha256 "e5a3b73780ed90660e45e268669fc648bc90bbba59713b1594dbbde76646970a"
+  url "https://github.com/Shopify/kubeaudit/archive/v0.10.0.tar.gz"
+  sha256 "f1d7b5f864d84140faebb7521e632cffb515b86f31913c3508740a73f2cdbaaa"
   license "MIT"
   head "https://github.com/Shopify/kubeaudit.git"
 
