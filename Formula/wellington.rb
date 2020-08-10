@@ -3,10 +3,21 @@ require "language/go"
 class Wellington < Formula
   desc "Project-focused tool to manage Sass and spriting"
   homepage "https://getwt.io/"
-  url "https://github.com/wellington/wellington/archive/v1.0.4.tar.gz"
-  sha256 "ef92d6c2b11fe36f66b88612e7a9cfff3ea6f81f29f4c21481d358f474a191d6"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/wellington/wellington.git"
+
+  stable do
+    url "https://github.com/wellington/wellington/archive/v1.0.4.tar.gz"
+    sha256 "ef92d6c2b11fe36f66b88612e7a9cfff3ea6f81f29f4c21481d358f474a191d6"
+    # Fix godep issue.
+    # upstream PR https://github.com/wellington/wellington/pull/217
+    # could remove this on next release
+    patch do
+      url "https://github.com/wellington/wellington/commit/d9c094c4d0e98f39aee58ca996cb0d6d8bce35a8.patch?full_index=1"
+      sha256 "a19067c20712036e094f32e2e866b3509fd1a665d0a9118ad337d1d69bbcd1b3"
+    end
+  end
 
   bottle do
     cellar :any_skip_relocation
