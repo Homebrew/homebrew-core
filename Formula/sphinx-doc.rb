@@ -5,6 +5,7 @@ class SphinxDoc < Formula
   homepage "https://www.sphinx-doc.org/"
   url "https://files.pythonhosted.org/packages/4b/2b/84e00ab4c6103ebe38b3c1f0d574d46a7b8fb1dccb4d41a6ec0b9d15aacd/Sphinx-3.1.2.tar.gz"
   sha256 "b9daeb9b39aa1ffefc2809b43604109825300300b987a24f45976c001ba1a8fd"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any_skip_relocation
