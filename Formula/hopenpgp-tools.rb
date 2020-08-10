@@ -7,8 +7,9 @@ class HopenpgpTools < Formula
   homepage "https://hackage.haskell.org/package/hopenpgp-tools"
   url "https://hackage.haskell.org/package/hopenpgp-tools-0.23.1/hopenpgp-tools-0.23.1.tar.gz"
   sha256 "b28ac66343a0bf78b3bfb22cc87f85355909fcd49d9ba5ad43e5a0c38e8b014b"
+  license "AGPL-3.0-only"
   revision 1
-  head "https://salsa.debian.org/clint/hOpenPGP.git"
+  head "https://salsa.debian.org/clint/hopenpgp-tools.git"
 
   bottle do
     cellar :any_skip_relocation
