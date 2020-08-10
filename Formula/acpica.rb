@@ -3,6 +3,7 @@ class Acpica < Formula
   homepage "https://www.acpica.org/"
   url "https://acpica.org/sites/acpica/files/acpica-unix-20200717.tar.gz"
   sha256 "cb99903ef240732f395af40c23b9b19c7899033f48840743544eebb6da72a828"
+  license ["Intel-ACPI", "GPL-2.0-only", "BSD-3-Clause"]
   head "https://github.com/acpica/acpica.git"
 
   bottle do
