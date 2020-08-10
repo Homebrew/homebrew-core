@@ -16,9 +16,10 @@ class Dashing < Formula
   depends_on "go" => :build
 
   # Use ruby docs just as dummy documentation to test with
+  # DO NOT USE https or find a better host, certificate has expired
   resource "ruby_docs_tarball" do
-    url "https://ruby-doc.com/downloads/ruby_2_6_5_core_rdocs.tgz"
-    sha256 "9b5fc2814e4ce33701b3f6614a3309b8ed7a229e8b9b87cc5e75d5d4dbda1e12"
+    url "http://ruby-doc.com/downloads/ruby_2_6_5_core_rdocs.tgz"
+    sha256 "f9f74cf85c84e934d7127c2e86f4c3b0b70380a92c400decdc8a77ac977097fe"
   end
 
   def install
