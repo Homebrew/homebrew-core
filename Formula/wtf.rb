@@ -3,6 +3,7 @@ class Wtf < Formula
   homepage "https://sourceforge.net/projects/bsdwtf/"
   url "https://downloads.sourceforge.net/project/bsdwtf/wtf-20200809.tar.gz"
   sha256 "0ba20f31ba88ac7fa24dd734e4cbbb25be3b868e6b414abfa406e8529b85644b"
+  license :public_domain
 
   bottle :unneeded
 
