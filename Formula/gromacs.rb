@@ -25,8 +25,8 @@ class Gromacs < Formula
                                                              "/usr/bin/ld"
 
     args = std_cmake_args + %W[
-      -DCMAKE_C_COMPILER=gcc-#{Formula["gcc"].version_suffix}
-      -DCMAKE_CXX_COMPILER=g++-#{Formula["gcc"].version_suffix}
+      -DCMAKE_C_COMPILER=gcc-#{Formula["gcc"].installed_version.major}
+      -DCMAKE_CXX_COMPILER=g++-#{Formula["gcc"].installed_version.major}
     ]
 
     mkdir "build" do
