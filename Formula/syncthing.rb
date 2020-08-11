@@ -1,9 +1,8 @@
 class Syncthing < Formula
   desc "Open source continuous file synchronization application"
   homepage "https://syncthing.net/"
-  url "https://github.com/syncthing/syncthing.git",
-      tag:      "v1.7.1",
-      revision: "d57694dc042ee24d7f76a3ed9743ea02f01e456d"
+  url "https://github.com/syncthing/syncthing/archive/v1.8.0.tar.gz"
+  sha256 "915a3ac5faf40aea3e5f17c20b7287b7f4108e22157961cf0ca3133fd1dbef9a"
   license "MPL-2.0"
   head "https://github.com/syncthing/syncthing.git"
 
@@ -17,18 +16,12 @@ class Syncthing < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
+    system "go", "run", "build.go", "--no-upgrade", "tar"
+    bin.install "syncthing"
 
-    src = buildpath/"src/github.com/syncthing/syncthing"
-    src.install buildpath.children
-    src.cd do
-      system "go", "run", "build.go", "--no-upgrade", "tar"
-      bin.install "syncthing"
-      man1.install Dir["man/*.1"]
-      man5.install Dir["man/*.5"]
-      man7.install Dir["man/*.7"]
-      prefix.install_metafiles
-    end
+    man1.install Dir["man/*.1"]
+    man5.install Dir["man/*.5"]
+    man7.install Dir["man/*.7"]
   end
 
   plist_options manual: "syncthing"
