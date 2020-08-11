@@ -7,8 +7,7 @@ class SqlTranslator < Formula
   homepage "https://github.com/dbsrgits/sql-translator/"
   url "https://cpan.metacpan.org/authors/id/M/MS/MSTROUT/SQL-Translator-1.61.tar.gz"
   sha256 "840e3c77cd48b47e1343c79ae8ef4fca46d036356d143d33528900740416dfe8"
-  # license ["Artistic-1.0", "GPL-1.0"] - pending https://github.com/Homebrew/brew/pull/7953
-  license "Artistic-1.0"
+  license ["Artistic-1.0", "GPL-1.0"]
 
   bottle do
     cellar :any_skip_relocation
