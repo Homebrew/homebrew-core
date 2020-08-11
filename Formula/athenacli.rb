@@ -3,8 +3,8 @@ class Athenacli < Formula
 
   desc "CLI tool for AWS Athena service"
   homepage "https://athenacli.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/7b/d8/8e3525213c209cb6de70ef9074fe356bada9e8871b6b85fcd860d571071b/athenacli-1.4.1.tar.gz"
-  sha256 "ad70993238d718a8eae5b573b12af83574ceb85ae694daa5c2e98215f89a5423"
+  url "https://files.pythonhosted.org/packages/17/fb/645836b65d26808fc936b7dec83e763078f8ababd27bfcdebd0a6ce19844/athenacli-1.5.0.tar.gz"
+  sha256 "696a4141e88ea16d7ca4f6bfad0da25f61f974bb0cc32bdee1f3915dfacdfcdd"
   license "BSD-3-Clause"
 
   bottle do
@@ -17,13 +17,13 @@ class Athenacli < Formula
   depends_on "python@3.8"
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/89/0d/14c10b914aaafa8d33a18ef6da7c630225a88350aef8ee3c974521424efe/boto3-1.14.33.tar.gz"
-    sha256 "35553b05b47fb6b3494bc447428342ca840348ede485e586d002399a32cae0a3"
+    url "https://files.pythonhosted.org/packages/4c/71/410d956522a03b331e339813dbd0871bb941f1118a49227617e1c97943d9/boto3-1.14.39.tar.gz"
+    sha256 "b81e5f672ba66e85a0037baae8c73fcc8fca90b94a0bd591cc9e6dc25a1364fe"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/40/e6/c60c666ec41bc35fed1dccb7a4c749f96d0a9a8e4b4c2a4d79b53a2cad42/botocore-1.17.33.tar.gz"
-    sha256 "273dbd8e26d4faa568e4cd4ca3180890b59ff0e3e8df7fb352796796c6808527"
+    url "https://files.pythonhosted.org/packages/f8/c1/840d1cc498e0708267752a497383c048bbb63d6f4d8fdc49e9d607177009/botocore-1.17.39.tar.gz"
+    sha256 "fd1c42436a4271fbcc8bc53357171ff01d9a1bea8efc4c8a00e58a531efdcb31"
   end
 
   resource "cli-helpers" do
