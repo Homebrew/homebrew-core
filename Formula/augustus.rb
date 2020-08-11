@@ -40,7 +40,7 @@ class Augustus < Formula
     # to upstream in 2016 (see https://github.com/nextgenusfs/funannotate/issues/3).
     # See also https://github.com/Gaius-Augustus/Augustus/issues/64
     cd "src" do
-      with_env("HOMEBREW_CC" => Formula["gcc"].opt_bin/"gcc-#{Formula["gcc"].linked_version.to_s.slice(/\d+/)}") do
+      with_env("HOMEBREW_CC" => Formula["gcc"].opt_bin/"gcc-#{Formula["gcc"].installed_version.major}") do
         system "make"
       end
     end
