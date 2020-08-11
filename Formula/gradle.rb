@@ -3,6 +3,7 @@ class Gradle < Formula
   homepage "https://www.gradle.org/"
   url "https://services.gradle.org/distributions/gradle-6.6-all.zip"
   sha256 "83fa7c3e5ab84c3c5c4a04fb16947338209efa9aab1f6bf09a5d0e3d2ed87742"
+  license "Apache-2.0"
 
   bottle :unneeded
 
