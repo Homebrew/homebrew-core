@@ -17,8 +17,8 @@ class Kahip < Formula
   depends_on "open-mpi"
 
   def install
-    ENV["CC"] = Formula["gcc"].opt_bin/"gcc-#{Formula["gcc"].version_suffix}"
-    ENV["CXX"] = Formula["gcc"].opt_bin/"g++-#{Formula["gcc"].version_suffix}"
+    ENV["CC"] = Formula["gcc"].opt_bin/"gcc-#{Formula["gcc"].installed_version.major}"
+    ENV["CXX"] = Formula["gcc"].opt_bin/"g++-#{Formula["gcc"].installed_version.major}"
     mkdir "build" do
       system "cmake", *std_cmake_args, ".."
       system "make", "install"
