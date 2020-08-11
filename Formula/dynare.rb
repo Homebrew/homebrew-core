@@ -63,7 +63,7 @@ class Dynare < Formula
                           "--disable-doc"
     # Octave hardcodes its paths which causes problems on GCC minor version bumps
     gcc = Formula["gcc"]
-    flibs = "-L#{gcc.lib/"gcc"/gcc.version_suffix} -lgfortran -lquadmath -lm"
+    flibs = "-L#{gcc.lib/"gcc"/gcc.installed_version.major} -lgfortran -lquadmath -lm"
     system "make", "install", "FLIBS=#{flibs}"
   end
 
