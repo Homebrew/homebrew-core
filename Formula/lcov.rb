@@ -55,8 +55,8 @@ class Lcov < Formula
   end
 
   test do
-    gcc = Formula["gcc"].opt_bin/"gcc-#{Formula["gcc"].version_suffix}"
-    gcov = Formula["gcc"].opt_bin/"gcov-#{Formula["gcc"].version_suffix}"
+    gcc = Formula["gcc"].opt_bin/"gcc-#{Formula["gcc"].installed_version.major}"
+    gcov = Formula["gcc"].opt_bin/"gcov-#{Formula["gcc"].installed_version.major}"
 
     (testpath/"hello.c").write <<~EOS
       #include <stdio.h>
