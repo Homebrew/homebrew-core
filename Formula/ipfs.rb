@@ -4,8 +4,7 @@ class Ipfs < Formula
   url "https://github.com/ipfs/go-ipfs.git",
       tag:      "v0.6.0",
       revision: "d6e036a888ba95c15ce243a45c0cacb4a5bb8ee4"
-  # license ["Apache-2.0", "MIT"] - pending https://github.com/Homebrew/brew/pull/7953
-  license "Apache-2.0"
+  license ["Apache-2.0", "MIT"]
   head "https://github.com/ipfs/go-ipfs.git"
 
   bottle do
