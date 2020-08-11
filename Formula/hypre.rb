@@ -3,8 +3,7 @@ class Hypre < Formula
   homepage "https://computation.llnl.gov/casc/hypre/software.html"
   url "https://github.com/hypre-space/hypre/archive/v2.19.0.tar.gz"
   sha256 "466b19d8a86c69989a237f6f03f20d35c0c63a818776d2cd071b0a084cffeba5"
-  # license ["MIT", "Apache-2.0"] - pending https://github.com/Homebrew/brew/pull/7953
-  license "MIT"
+  license ["MIT", "Apache-2.0"]
   head "https://github.com/hypre-space/hypre.git"
 
   bottle do
