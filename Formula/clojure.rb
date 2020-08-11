@@ -4,6 +4,7 @@ class Clojure < Formula
   url "https://download.clojure.org/install/clojure-tools-1.10.1.561.tar.gz"
   sha256 "46c193d09f8fce9c0e5e530c2463586cec9717593cdee2f57199d278ed104e2d"
   license "EPL-1.0"
+  version_scheme 1
 
   bottle :unneeded
 
