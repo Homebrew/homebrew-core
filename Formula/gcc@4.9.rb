@@ -86,7 +86,7 @@ class GccAT49 < Formula
     # Build dependencies in-tree, to avoid having versioned formulas
     resources.each { |r| r.stage(buildpath/r.name) }
 
-    version_suffix = version.to_s.slice(/\d\.\d/)
+    version_suffix = version.major_minor.to_s
 
     args = [
       "--build=x86_64-apple-darwin#{osmajor}",
@@ -162,7 +162,7 @@ class GccAT49 < Formula
         return 0;
       }
     EOS
-    system bin/"gcc-4.9", "-o", "hello-c", "hello-c.c"
+    system bin/"gcc-#{version.major_minor}", "-o", "hello-c", "hello-c.c"
     assert_equal "Hello, world!\n", `./hello-c`
   end
 end
