@@ -4,9 +4,9 @@ class ImagemagickAT6 < Formula
   # Please always keep the Homebrew mirror as the primary URL as the
   # ImageMagick site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://dl.bintray.com/homebrew/mirror/imagemagick%406-6.9.11-26.tar.xz"
-  mirror "https://www.imagemagick.org/download/releases/ImageMagick-6.9.11-26.tar.xz"
-  sha256 "39946e1b8170202468b6329b0d6898b7ac2dd4e0166c54de0a42e093e0013b01"
+  url "https://dl.bintray.com/homebrew/mirror/imagemagick%406-6.9.11-27.tar.xz"
+  mirror "https://www.imagemagick.org/download/releases/ImageMagick-6.9.11-27.tar.xz"
+  sha256 "54e21345a258aa366b0dd2f7680ed271cb0865f899fe2e2de6a22334804e78be"
   license "ImageMagick"
   head "https://github.com/imagemagick/imagemagick6.git"
 
@@ -37,7 +37,7 @@ class ImagemagickAT6 < Formula
     inreplace Dir["**/*-config.in"], "@PKG_CONFIG@", Formula["pkg-config"].opt_bin/"pkg-config"
 
     args = %W[
-      --disable-osx-universal-binary
+      --enable-osx-universal-binary=no
       --prefix=#{prefix}
       --disable-dependency-tracking
       --disable-silent-rules
