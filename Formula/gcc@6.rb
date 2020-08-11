@@ -44,7 +44,7 @@ class GccAT6 < Formula
     # C, C++, ObjC, Fortran compilers are always built
     languages = %w[c c++ objc obj-c++ fortran]
 
-    version_suffix = version.to_s.slice(/\d/)
+    version_suffix = version.major.to_s
 
     # Even when suffixes are appended, the info pages conflict when
     # install-info is run so pretend we have an outdated makeinfo
@@ -124,7 +124,7 @@ class GccAT6 < Formula
         return 0;
       }
     EOS
-    system "#{bin}/gcc-6", "-o", "hello-c", "hello-c.c"
+    system "#{bin}/gcc-#{version.major}", "-o", "hello-c", "hello-c.c"
     assert_equal "Hello, world!\n", `./hello-c`
 
     (testpath/"hello-cc.cc").write <<~EOS
@@ -135,7 +135,7 @@ class GccAT6 < Formula
         return 0;
       }
     EOS
-    system "#{bin}/g++-6", "-o", "hello-cc", "hello-cc.cc"
+    system "#{bin}/g++-#{version.major}", "-o", "hello-cc", "hello-cc.cc"
     assert_equal "Hello, world!\n", `./hello-cc`
 
     fixture = <<~EOS
@@ -150,7 +150,7 @@ class GccAT6 < Formula
       end
     EOS
     (testpath/"in.f90").write(fixture)
-    system "#{bin}/gfortran-6", "-o", "test", "in.f90"
+    system "#{bin}/gfortran-#{version.major}", "-o", "test", "in.f90"
     assert_equal "done", `./test`.strip
   end
 end
