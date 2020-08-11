@@ -29,7 +29,7 @@ class Imake < Formula
     ENV.deparallelize
 
     # imake runtime is broken when used with clang's cpp
-    cpp_program = Formula["gcc"].opt_bin/"cpp-#{Formula["gcc"].version_suffix}"
+    cpp_program = Formula["gcc"].opt_bin/"cpp-#{Formula["gcc"].installed_version.major}"
     inreplace "imakemdep.h", /::CPPCMD::/, cpp_program
     inreplace "imake.man", /__cpp__/, cpp_program
 
@@ -52,7 +52,7 @@ class Imake < Formula
   test do
     # Use pipe_output because the return code is unimportant here.
     output = pipe_output("#{bin}/imake -v -s/dev/null -f/dev/null -T/dev/null 2>&1")
-    gcc_major_ver = Formula["gcc"].version_suffix
+    gcc_major_ver = Formula["gcc"].installed_version.major
     assert_match "#{Formula["gcc"].opt_bin}/cpp-#{gcc_major_ver}", output
   end
 end
