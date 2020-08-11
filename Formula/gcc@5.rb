@@ -75,7 +75,7 @@ class GccAT5 < Formula
     # C, C++, ObjC and Fortran compilers are always built
     languages = %w[c c++ fortran objc obj-c++]
 
-    version_suffix = version.to_s.slice(/\d/)
+    version_suffix = version.major.to_s
 
     # Even when suffixes are appended, the info pages conflict when
     # install-info is run so pretend we have an outdated makeinfo
@@ -153,7 +153,7 @@ class GccAT5 < Formula
         return 0;
       }
     EOS
-    system bin/"gcc-5", "-o", "hello-c", "hello-c.c"
+    system bin/"gcc-#{version.major}", "-o", "hello-c", "hello-c.c"
     assert_equal "Hello, world!\n", `./hello-c`
   end
 end
