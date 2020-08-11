@@ -1,10 +1,25 @@
 class Dash < Formula
   desc "POSIX-compliant descendant of NetBSD's ash (the Almquist SHell)"
   homepage "http://gondor.apana.org.au/~herbert/dash/"
-  url "http://gondor.apana.org.au/~herbert/dash/files/dash-0.5.10.2.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/dash-0.5.10.2.tar.gz"
-  sha256 "3c663919dc5c66ec991da14c7cf7e0be8ad00f3db73986a987c118862b5f6071"
-  revision 1
+  license "BSD-3-Clause"
+
+  stable do
+    url "http://gondor.apana.org.au/~herbert/dash/files/dash-0.5.11.1.tar.gz"
+    sha256 "73c881f146e329ac54962766760fd62cb8bdff376cd6c2f5772eecc1570e1611"
+
+    # Fix compilation on MacOS
+    # See https://www.mail-archive.com/dash@vger.kernel.org/msg01963.html thread
+    # and https://www.mail-archive.com/dash@vger.kernel.org/msg01966.html thread
+    #
+    # Should be remove on the next release (along with autoconf and automake dependencies for stable)
+    patch do
+      url "https://raw.githubusercontent.com/NixOS/nixpkgs/3020abe5b591d201cc6b760f3a9c6e4b94cfca2d/pkgs/shells/dash/0001-fix-dirent64-et-al-on-darwin.patch"
+      sha256 "4295bf45f85b8b738e488a8d3d9e91e2a70a4c5464a74f5e7fc47badd9406c13"
+    end
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
 
   bottle do
     cellar :any_skip_relocation
