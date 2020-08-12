@@ -20,6 +20,11 @@ class Icu4c < Formula
 
   keg_only :provided_by_macos, "macOS provides libicucore.dylib (but nothing else)"
 
+  patch :p2 do
+    url "https://github.com/unicode-org/icu/commit/715d254a02b0b22681cb6f861b0921ae668fa7d6.patch?full_index=1"
+    sha256 "a87e1b9626ec5803b1220489c0d6cc544a5f293f1c5280e3b27871780c4ecde8"
+  end
+
   def install
     args = %W[
       --prefix=#{prefix}
