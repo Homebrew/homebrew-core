@@ -1,8 +1,8 @@
 class Openttd < Formula
   desc "Simulation game based upon Transport Tycoon Deluxe"
   homepage "https://www.openttd.org/"
-  url "https://cdn.openttd.org/openttd-releases/1.10.2/openttd-1.10.2-source.tar.xz"
-  sha256 "939c55d259fb13cb47dfb3244e8f7b9e2f723883ebb2119410d8a282724eb6f5"
+  url "https://cdn.openttd.org/openttd-releases/1.10.3/openttd-1.10.3-source.tar.xz"
+  sha256 "c11601ef547eb1f6d4f9a035bd19e0a760b47872ce7d9b4117aaa45ac377b53b"
   license "GPL-2.0"
   head "https://github.com/OpenTTD/OpenTTD.git"
 
