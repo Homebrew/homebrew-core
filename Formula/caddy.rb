@@ -4,6 +4,7 @@ class Caddy < Formula
   url "https://github.com/caddyserver/caddy/archive/v2.1.1.tar.gz"
   sha256 "77beb13b39b670bfe9e0cc1c71b720d5b037cca60e1426a9a485bbfae34ba8d2"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/caddyserver/caddy.git"
 
   bottle do
@@ -14,7 +15,7 @@ class Caddy < Formula
     sha256 "96b8d15646c1396a1a28b583a7c13a2311bad789cd50e70c5499b74be7c4bd8e" => :high_sierra
   end
 
-  depends_on "go" => :build
+  depends_on "go@1.14" => :build
 
   resource "xcaddy" do
     url "https://github.com/caddyserver/xcaddy/archive/v0.1.3.tar.gz"
