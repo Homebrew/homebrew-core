@@ -3,7 +3,7 @@ class Bettercap < Formula
   homepage "https://www.bettercap.org/"
   url "https://github.com/bettercap/bettercap/archive/v2.28.tar.gz"
   sha256 "5bde85117679c6ed8b5469a5271cdd5f7e541bd9187b8d0f26dee790c37e36e9"
-  license "GPL-3.0"
+  license "GPL-3.0-only"
 
   bottle do
     cellar :any
@@ -32,6 +32,6 @@ class Bettercap < Formula
   end
 
   test do
-    assert_match "bettercap", shell_output("#{bin}/bettercap -help 2>&1", 2)
+    assert_match "Operation not permitted", shell_output("#{bin}/bettercap 2>&1", 1)
   end
 end
