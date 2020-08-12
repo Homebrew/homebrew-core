@@ -4,6 +4,7 @@ class Syncthing < Formula
   url "https://github.com/syncthing/syncthing/archive/v1.8.0.tar.gz"
   sha256 "915a3ac5faf40aea3e5f17c20b7287b7f4108e22157961cf0ca3133fd1dbef9a"
   license "MPL-2.0"
+  revision 1
   head "https://github.com/syncthing/syncthing.git"
 
   bottle do
@@ -13,7 +14,7 @@ class Syncthing < Formula
     sha256 "c283826a65b061d3636177def458b784c63457a099f511fba9de25a41eeb967e" => :high_sierra
   end
 
-  depends_on "go" => :build
+  depends_on "go@1.14" => :build
 
   def install
     system "go", "run", "build.go", "--no-upgrade", "tar"
