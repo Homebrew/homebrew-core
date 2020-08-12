@@ -1,8 +1,8 @@
 class Smimesign < Formula
   desc "S/MIME signing utility for use with Git"
   homepage "https://github.com/github/smimesign"
-  url "https://github.com/github/smimesign/archive/v0.0.13.tar.gz"
-  sha256 "baf3e1c0a64ca1d49be8a4e99640679ba2b2870e907e88be1e9c7f1566d0f206"
+  url "https://github.com/github/smimesign/archive/v0.1.0.tar.gz"
+  sha256 "b01443a54354c0ceab2501403b67b76e3cf2b12dcd9f0474e18a22c66099e589"
   license "MIT"
 
   bottle do
@@ -14,16 +14,9 @@ class Smimesign < Formula
   end
 
   depends_on "go" => :build
-  depends_on macos: :sierra
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/github/smimesign").install buildpath.children
-
-    cd "src/github.com/github/smimesign" do
-      system "go", "build", "-o", bin/"smimesign", "-ldflags", "-X main.versionString=#{version}"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args, "-ldflags", "-X main.versionString=#{version}"
   end
 
   test do
