@@ -35,7 +35,5 @@ class Awsweeper < Formula
 
     assert_match "failed to initialize Terraform AWS Providers",
       shell_output("#{bin}/awsweeper --dry-run #{testpath}/filter.yml 2>&1", 1)
-
-    assert_match "Delete AWS resources via a YAML filter", shell_output("#{bin}/awsweeper --help 2>&1", 2)
   end
 end
