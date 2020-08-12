@@ -14,6 +14,8 @@ class GoAT113 < Formula
 
   keg_only :versioned_formula
 
+  deprecate! date: "2020-08-11"
+
   depends_on macos: :el_capitan
 
   resource "gotools" do
