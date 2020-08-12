@@ -6,6 +6,7 @@ class Ipfs < Formula
       revision: "d6e036a888ba95c15ce243a45c0cacb4a5bb8ee4"
   # license ["Apache-2.0", "MIT"] - pending https://github.com/Homebrew/brew/pull/7953
   license "Apache-2.0"
+  revision 1
   head "https://github.com/ipfs/go-ipfs.git"
 
   bottle do
@@ -15,7 +16,7 @@ class Ipfs < Formula
     sha256 "7efd7e625d8eeb59c6d8ac3c4a582b77024c7f64f46809996404bb7fd9f2be5a" => :high_sierra
   end
 
-  depends_on "go" => :build
+  depends_on "go@1.14" => :build
 
   def install
     ENV["GOPATH"] = buildpath
