@@ -1,10 +1,13 @@
+require "language/perl"
+
 class Lcov < Formula
+  include Language::Perl::Shebang
+
   desc "Graphical front-end for GCC's coverage testing tool (gcov)"
   homepage "https://github.com/linux-test-project/lcov"
-  url "https://github.com/linux-test-project/lcov/releases/download/v1.14/lcov-1.14.tar.gz"
-  sha256 "14995699187440e0ae4da57fe3a64adc0a3c5cf14feab971f8db38fb7d8f071a"
-  license "GPL-2.0"
-  revision 2
+  url "https://github.com/linux-test-project/lcov/releases/download/v1.15/lcov-1.15.tar.gz"
+  sha256 "c1cda2fa33bec9aa2c2c73c87226cfe97de0831887176b45ee523c5e30f8053a"
+  license "GPL-2.0-or-later"
   head "https://github.com/linux-test-project/lcov.git"
 
   bottle do
@@ -28,18 +31,6 @@ class Lcov < Formula
     sha256 "4848679a3f201e3f3b0c5f6f9526e602af52923ffa471a2a3657db786bd3bdc5"
   end
 
-  # The following 2 patches fix compatibiliry with gcc-9
-  # Remove in the next release
-  patch do
-    url "https://github.com/linux-test-project/lcov/commit/ebfeb3e179e450c69c3532f98cd5ea1fbf6ccba7.patch?full_index=1"
-    sha256 "83d380e753eda054d73da08774e9ca01aa642440ffb93a0f8f3d1ac81e35d006"
-  end
-
-  patch do
-    url "https://github.com/linux-test-project/lcov/commit/75fbae1cfc5027f818a0bb865bf6f96fab3202da.patch?full_index=1"
-    sha256 "72cf3f356a4ac0ff98a66ef7bc085b5be3b41f155decc9ef4eca8ec140840e7f"
-  end
-
   def install
     ENV.prepend_create_path "PERL5LIB", libexec+"lib/perl5"
 
@@ -58,8 +49,7 @@ class Lcov < Formula
     # Disable dynamic selection of perl which may cause segfault when an
     # incompatible perl is picked up.
     # https://github.com/Homebrew/homebrew-core/issues/4936
-    perl_files = Dir["#{bin}/*"]
-    inreplace perl_files, "#!/usr/bin/env perl", "#!/usr/bin/perl"
+    bin.find { |f| rewrite_shebang detected_perl_shebang, f }
 
     bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
   end
