@@ -5,8 +5,6 @@ class Txr < Formula
   sha256 "4b5085d37c9a9ce2af38c6fb09a2c3e8200cc4f7672c3ad364f5b1fbe182c43f"
   license "BSD-2-Clause"
 
-  disable!
-
   bottle do
     cellar :any_skip_relocation
     sha256 "2fb63dd53592222c6052cbf181e8fc76b0bd3b628b69d53b603240d265db320e" => :catalina
