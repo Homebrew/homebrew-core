@@ -4,6 +4,7 @@ class Algernon < Formula
   url "https://github.com/xyproto/algernon/archive/1.12.8.tar.gz"
   sha256 "562d6f1145980d5e4c8eaefc2780801b163d228720599f22165135182018d6bf"
   license "MIT"
+  revision 1
   version_scheme 1
   head "https://github.com/xyproto/algernon.git"
 
@@ -14,7 +15,7 @@ class Algernon < Formula
     sha256 "fcc2b783a77662cc1831dec57d1895cc078746ecaf4dc618b7df1e165254979d" => :high_sierra
   end
 
-  depends_on "go" => :build
+  depends_on "go@1.14" => :build
 
   def install
     system "go", "build", "-trimpath", "-mod=vendor", "-o", bin/"algernon"
