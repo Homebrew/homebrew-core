@@ -1,8 +1,8 @@
 class ChooseRust < Formula
   desc "Human-friendly and fast alternative to cut and (sometimes) awk"
   homepage "https://github.com/theryangeary/choose"
-  url "https://github.com/theryangeary/choose/archive/v1.3.0.tar.gz"
-  sha256 "95889215c57e3be9ea14b929f8a09858c740b1e78c608c2096812ce420eb099a"
+  url "https://github.com/theryangeary/choose/archive/v1.3.1.tar.gz"
+  sha256 "6c44170f456f410370ba31d59bfad1f54a71ba80a79b87debbe235672a2ea0dd"
   license "GPL-3.0"
 
   bottle do
