@@ -3,8 +3,8 @@ class Pipenv < Formula
 
   desc "Python dependency management tool"
   homepage "https://pipenv.pypa.io/"
-  url "https://files.pythonhosted.org/packages/2f/e2/434a35cde4ebcb4588e452ea6a59634098f521eb996874f3fe8411dea839/pipenv-2020.6.2.tar.gz"
-  sha256 "7dd49a7345fa5da7843907bab42a996dece474e45dd309dbd7619739dc60478b"
+  url "https://files.pythonhosted.org/packages/cc/0a/ed147c6bb2245ac9b275ef28db37b338181f1afe696317e0372786b57107/pipenv-2020.8.13.tar.gz"
+  sha256 "eff0e10eadb330f612edfa5051d3d8e775e9e0e918c3c50361da703bd0daa035"
   license "MIT"
 
   bottle do
@@ -22,13 +22,13 @@ class Pipenv < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/b8/e2/a3a86a67c3fc8249ed305fc7b7d290ebe5e4d46ad45573884761ef4dea7b/certifi-2020.4.5.1.tar.gz"
-    sha256 "51fcb31174be6e6664c5f69e3e1691a2d72a1a12e90f872cbdb1567eb47b6519"
+    url "https://files.pythonhosted.org/packages/40/a7/ded59fa294b85ca206082306bba75469a38ea1c7d44ea7e1d64f5443d67a/certifi-2020.6.20.tar.gz"
+    sha256 "5930595817496dd21bb8dc35dad090f1c2cd0adfaf21204bf6732ca5d8ee34d3"
   end
 
   resource "distlib" do
-    url "https://files.pythonhosted.org/packages/7d/29/694a3a4d7c0e1aef76092e9167fbe372e0f7da055f5dcf4e1313ec21d96a/distlib-0.3.0.zip"
-    sha256 "2e166e231a26b36d6dfe35a48c4464346620f8645ed0ace01ee31822b288de21"
+    url "https://files.pythonhosted.org/packages/2f/83/1eba07997b8ba58d92b3e51445d5bf36f9fba9cb8166bcae99b9c3464841/distlib-0.3.1.zip"
+    sha256 "edf6116872c863e1aa9d5bb7cb5e05a022c519a4594dc703843343a9ddd9bff1"
   end
 
   resource "filelock" do
@@ -42,8 +42,8 @@ class Pipenv < Formula
   end
 
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/55/67/beb3ecfa973181a52fad76fc959b745631b258c5387348ae1e06c8ca7a81/virtualenv-20.0.21.tar.gz"
-    sha256 "a116629d4e7f4d03433b8afa27f43deba09d48bc48f5ecefa4f015a178efb6cf"
+    url "https://files.pythonhosted.org/packages/fb/f8/5a5fd05ee4b85b819bc7c11d287a32f6925a970fe2f867eac1889b8760ed/virtualenv-20.0.30.tar.gz"
+    sha256 "7b54fd606a1b85f83de49ad8d80dbec08e983a2d2f96685045b262ebc7481ee5"
   end
 
   resource "virtualenv-clone" do
