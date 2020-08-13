@@ -3,8 +3,8 @@ class Dvc < Formula
 
   desc "Git for data science projects"
   homepage "https://dvc.org"
-  url "https://github.com/iterative/dvc/archive/1.4.0.tar.gz"
-  sha256 "87e585ff5fa39259fe1cd2813cc69c231c8fe4987a336c36a5f1c7b13a2e1cdb"
+  url "https://github.com/iterative/dvc/archive/1.5.0.tar.gz"
+  sha256 "73de46d8cf1eaaa9c431e5f18ea102a669e375f5bd67d813bca950b16c1400e8"
   license "Apache-2.0"
 
   bottle do
@@ -139,11 +139,6 @@ class Dvc < Formula
     sha256 "00c7c1aaa88358b9c765b6d3000c6eec0ba42abca5351b095321aef446081da3"
   end
 
-  resource "pprintpp" do
-    url "https://files.pythonhosted.org/packages/06/1a/7737e7a0774da3c3824d654993cf57adc915cb04660212f03406334d8c0b/pprintpp-0.4.0.tar.gz"
-    sha256 "ea826108e2c7f49dc6d66c752973c3fc9749142a798d6b254e1e301cfdbc6403"
-  end
-
   resource "pyasn1" do
     url "https://files.pythonhosted.org/packages/a4/db/fffec68299e6d7bad3d504147f9094830b704527a7fc098b721d38cc7fa7/pyasn1-0.4.8.tar.gz"
     sha256 "aef77c9fb94a3ac588e87841208bdec464471d9871bd5050a287cc9a475cd0ba"
@@ -180,8 +175,8 @@ class Dvc < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/a9/0e/288ab875887e9b2dce24b4156201e07ebd7871872a304060efb34cf4b096/rich-5.0.0.tar.gz"
-    sha256 "e094404fd60299d6261a1194dc2f4208ba481bdcc703be5b2217be9b58fff65a"
+    url "https://files.pythonhosted.org/packages/6a/57/2a4c28e5b364865156d80bdebe82f7c97107a18dedaa3266a42437fcfb78/rich-5.1.2.tar.gz"
+    sha256 "f93b4380ac6f37367b36bcf515c770e10ed2c6e54513a0f0151f80c54f4133d3"
   end
 
   resource "ruamel.yaml" do
