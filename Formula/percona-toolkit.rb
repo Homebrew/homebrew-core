@@ -3,7 +3,7 @@ require "language/perl"
 class PerconaToolkit < Formula
   include Language::Perl::Shebang
 
-  desc "Percona Toolkit for MySQL"
+  desc "Command-line tools for MySQL, MariaDB and system tasks"
   homepage "https://www.percona.com/software/percona-toolkit/"
   url "https://www.percona.com/downloads/percona-toolkit/3.2.1/source/tarball/percona-toolkit-3.2.1.tar.gz"
   sha256 "92da0d3712533205f283515ff47ce68521fc2de20989c45b4c65a9743d0f7487"

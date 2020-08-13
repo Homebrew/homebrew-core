@@ -1,5 +1,5 @@
 class DockerMachineParallels < Formula
-  desc "Docker Machine Parallels Driver"
+  desc "Parallels Driver for Docker Machine"
   homepage "https://github.com/Parallels/docker-machine-parallels"
   url "https://github.com/Parallels/docker-machine-parallels/archive/v1.4.0.tar.gz"
   sha256 "2c0615f015c7d686050625f1f68c5f62b10e0f924f6126c4d31a56c17be2ef47"

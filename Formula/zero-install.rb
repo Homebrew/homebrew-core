@@ -1,5 +1,5 @@
 class ZeroInstall < Formula
-  desc "Zero Install is a decentralised software installation system"
+  desc "Decentralised cross-platform software installation system"
   homepage "https://0install.net/"
   url "https://github.com/0install/0install.git",
       tag:      "v2.17",

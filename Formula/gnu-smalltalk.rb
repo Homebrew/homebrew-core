@@ -1,5 +1,5 @@
 class GnuSmalltalk < Formula
-  desc "GNU Smalltalk interpreter and image"
+  desc "Implementation of the Smalltalk language"
   homepage "https://www.gnu.org/software/smalltalk/"
   url "https://ftp.gnu.org/gnu/smalltalk/smalltalk-3.2.5.tar.xz"
   mirror "https://ftpmirror.gnu.org/smalltalk/smalltalk-3.2.5.tar.xz"

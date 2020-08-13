@@ -1,5 +1,5 @@
 class GambitScheme < Formula
-  desc "Gambit Scheme is an implementation of the Scheme Language"
+  desc "Implementation of the Scheme Language"
   homepage "https://github.com/gambit/gambit"
   url "https://github.com/gambit/gambit/archive/v4.9.3.tar.gz"
   sha256 "a5e4e5c66a99b6039fa7ee3741ac80f3f6c4cff47dc9e0ff1692ae73e13751ca"

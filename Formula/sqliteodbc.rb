@@ -1,5 +1,5 @@
 class Sqliteodbc < Formula
-  desc "SQLite ODBC driver"
+  desc "ODBC driver for SQLite"
   homepage "https://ch-werner.homepage.t-online.de/sqliteodbc/"
   url "https://ch-werner.homepage.t-online.de/sqliteodbc/sqliteodbc-0.9998.tar.gz"
   mirror "https://dl.bintray.com/homebrew/mirror/sqliteodbc-0.9998.tar.gz"

@@ -1,5 +1,5 @@
 class NestopiaUe < Formula
-  desc "Nestopia UE (Undead Edition): NES emulator"
+  desc "NES emulator"
   homepage "http://0ldsk00l.ca/nestopia/"
   url "https://github.com/0ldsk00l/nestopia/archive/1.50.tar.gz"
   sha256 "f0274f8b033852007c67237897c69725b811c0df8a6d0120f39c23e990662aae"

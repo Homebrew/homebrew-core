@@ -1,5 +1,5 @@
 class GnuShogi < Formula
-  desc "GNU Shogi (Japanese Chess)"
+  desc "Japanese Chess"
   homepage "https://www.gnu.org/software/gnushogi/"
   url "https://ftp.gnu.org/gnu/gnushogi/gnushogi-1.4.2.tar.gz"
   mirror "https://ftpmirror.gnu.org/gnushogi/gnushogi-1.4.2.tar.gz"
