@@ -2,9 +2,9 @@ class Minio < Formula
   desc "High Performance, Kubernetes Native Object Storage"
   homepage "https://min.io"
   url "https://github.com/minio/minio.git",
-      tag:      "RELEASE.2020-08-04T23-10-51Z",
-      revision: "0b8255529a6f74df81f975869b6f2b93ff4b4dda"
-  version "20200804231051"
+      tag:      "RELEASE.2020-08-13T02-39-50Z",
+      revision: "b32d0a5b600ddc0f7eef22789475f6d215587443"
+  version "20200813023950"
   license "Apache-2.0"
   head "https://github.com/minio/minio.git"
 
@@ -77,6 +77,12 @@ class Minio < Formula
   end
 
   test do
-    system "#{bin}/minio", "--version"
+    assert_match "minio server - start object storage server",
+      shell_output("#{bin}/minio server --help 2>&1")
+
+    assert_match "minio gateway - start object storage gateway",
+      shell_output("#{bin}/minio gateway 2>&1")
+    assert_match "ERROR Unable to validate credentials",
+      shell_output("#{bin}/minio gateway s3 2>&1", 1)
   end
 end
