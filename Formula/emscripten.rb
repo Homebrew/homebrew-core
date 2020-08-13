@@ -3,42 +3,18 @@ require "language/node"
 class Emscripten < Formula
   desc "LLVM bytecode to JavaScript compiler"
   homepage "https://emscripten.org/"
+  url "https://github.com/emscripten-core/emscripten/archive/2.0.0.tar.gz"
+  sha256 "a3e443c58db1320d2928a9e8e2b74d484adc3412a332fa4493e3cd0022e4632e"
   # Emscripten is available under 2 licenses, the MIT license and the
   # University of Illinois/NCSA Open Source License.
   license "MIT"
-
-  stable do
-    url "https://github.com/emscripten-core/emscripten/archive/1.40.1.tar.gz"
-    sha256 "e15ad7ffa1cce35c25cac7c797d6daa0c5868905eaaf5ed1431a8228b8803dfc"
-
-    resource "fastcomp" do
-      url "https://github.com/emscripten-core/emscripten-fastcomp/archive/1.40.1.tar.gz"
-      sha256 "c34868ab566e9f073df319d9872608cef47ed1ea74852acacb12a22fd7c99a4c"
-    end
-
-    resource "fastcomp-clang" do
-      url "https://github.com/emscripten-core/emscripten-fastcomp-clang/archive/1.40.1.tar.gz"
-      sha256 "9ce4612df39684348d78acb711ec10bee98ad4ac136fb0dcb70d4c884b8bb6b3"
-    end
-  end
+  head "https://github.com/emscripten-core/emscripten.git", branch: "incoming"
 
   bottle do
     cellar :any
     sha256 "ac8892b0aba032f395821b0141c58ca952499df9b05902ec64dacfd4b4be8831" => :catalina
     sha256 "4915b3e0d93807bf0cbe42dfd9ddf6b6df93441c7560fd7857515e3bb8948fc0" => :mojave
     sha256 "e6b1f5a22fa597b045cdd52bf16a49892c227a27a84a0f16adfa4745b662ac6a" => :high_sierra
-  end
-
-  head do
-    url "https://github.com/emscripten-core/emscripten.git", branch: "incoming"
-
-    resource "fastcomp" do
-      url "https://github.com/emscripten-core/emscripten-fastcomp.git", branch: "incoming"
-    end
-
-    resource "fastcomp-clang" do
-      url "https://github.com/emscripten-core/emscripten-fastcomp-clang.git", branch: "incoming"
-    end
   end
 
   depends_on "cmake" => :build
