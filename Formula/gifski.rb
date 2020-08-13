@@ -3,7 +3,7 @@ class Gifski < Formula
   homepage "https://gif.ski/"
   url "https://github.com/ImageOptim/gifski/archive/1.2.0.tar.gz"
   sha256 "6571ad379a39604ecd7688f32841a8d76465af0f637cdcfe6d10b7ed8e6a3d6a"
-  license "AGPL-3.0"
+  license "AGPL-3.0-only"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,9 +14,10 @@ class Gifski < Formula
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
+  depends_on "ffmpeg"
 
   def install
-    system "cargo", "install", *std_cargo_args
+    system "cargo", "install", "--features=video", *std_cargo_args
   end
 
   test do
