@@ -3,8 +3,9 @@ class Mmctl < Formula
   homepage "https://github.com/mattermost/mmctl"
   url "https://github.com/mattermost/mmctl.git",
       tag:      "v5.26.0",
-      revision: "a8957423bc2b38519b49e8ee54f729fb8c3f1965"
+      revision: "1dc9cda2e80757ff8fc694f32efc7ea76e327635"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/mattermost/mmctl.git"
 
   bottle do
