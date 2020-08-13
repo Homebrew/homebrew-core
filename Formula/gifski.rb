@@ -1,8 +1,8 @@
 class Gifski < Formula
   desc "Highest-quality GIF encoder based on pngquant"
   homepage "https://gif.ski/"
-  url "https://github.com/ImageOptim/gifski/archive/0.10.4.tar.gz"
-  sha256 "0fd4b6beb880bb7719a3fb707f8f42678a62c8cf9bbb90f369f043864bbcc5ed"
+  url "https://github.com/ImageOptim/gifski/archive/1.2.0.tar.gz"
+  sha256 "6571ad379a39604ecd7688f32841a8d76465af0f637cdcfe6d10b7ed8e6a3d6a"
   license "AGPL-3.0"
 
   bottle do
