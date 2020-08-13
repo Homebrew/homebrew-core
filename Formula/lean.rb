@@ -1,10 +1,10 @@
 class Lean < Formula
   desc "Theorem prover"
-  homepage "https://leanprover.github.io/"
-  url "https://github.com/leanprover/lean/archive/v3.4.2.tar.gz"
-  sha256 "ec4488be8473577666f38dec81123d0f7b26476139d3caa2e175a571f6c00d87"
+  homepage "https://leanprover-community.github.io/"
+  url "https://github.com/leanprover-community/lean/archive/v3.18.4.tar.gz"
+  sha256 "9b7c88e5a6c56ccd9674de96a4806db40e67b96cc13b7382cce497b9b4a738e2"
   license "Apache-2.0"
-  head "https://github.com/leanprover/lean.git"
+  head "https://github.com/leanprover-community/lean.git"
 
   bottle do
     cellar :any
