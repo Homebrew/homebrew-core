@@ -4,6 +4,7 @@ class Flint < Formula
   url "http://flintlib.org/flint-2.6.3.tar.gz"
   sha256 "ce1a750a01fa53715cad934856d4b2ed76f1d1520bac0527ace7d5b53e342ee3"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/wbhart/flint2.git", branch: "trunk"
 
   bottle do
@@ -15,9 +16,17 @@ class Flint < Formula
 
   depends_on "gmp"
   depends_on "mpfr"
+  depends_on "ntl"
 
   def install
-    system "./configure", "--prefix=#{prefix}"
+    ENV.cxx11
+    args = %W[
+      --with-gmp=#{Formula["gmp"].prefix}
+      --with-mpfr=#{Formula["mpfr"].prefix}
+      --with-ntl=#{Formula["ntl"].prefix}
+      --prefix=#{prefix}
+    ]
+    system "./configure", *args
     system "make"
     system "make", "install"
   end
