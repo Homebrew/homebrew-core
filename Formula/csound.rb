@@ -4,7 +4,7 @@ class Csound < Formula
   url "https://github.com/csound/csound.git",
     tag:      "6.15.0",
     revision: "18c2c7897425f462b9a7743cee157cb410c88198"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
   head "https://github.com/csound/csound.git", branch: "develop"
 
   bottle do
