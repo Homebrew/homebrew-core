@@ -15,6 +15,12 @@ class Physfs < Formula
 
   depends_on "cmake" => :build
 
+  uses_from_macos "zip" => :test
+
+  on_linux do
+    depends_on "readline"
+  end
+
   def install
     mkdir "macbuild" do
       args = std_cmake_args
