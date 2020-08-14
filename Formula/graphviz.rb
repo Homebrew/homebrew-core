@@ -24,6 +24,10 @@ class Graphviz < Formula
 
   uses_from_macos "flex" => :build
 
+  on_linux do
+    depends_on "byacc" => :build
+  end
+
   # See https://github.com/Homebrew/homebrew-core/pull/57132
   # Fixes:
   # groff -Tps -man cdt.3 >cdt.3.ps
