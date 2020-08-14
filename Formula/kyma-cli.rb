@@ -5,6 +5,7 @@ class KymaCli < Formula
       tag:      "1.14.0",
       revision: "6e3d444dcfac01e8e45e419970f48cf122d26af2"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/kyma-project/cli.git"
 
   bottle do
@@ -15,7 +16,7 @@ class KymaCli < Formula
     sha256 "9bf1ba980a81a6788a689bdca5c7a605e42b6175ec283eb5b8947d074a15cce4" => :high_sierra
   end
 
-  depends_on "go" => :build
+  depends_on "go@1.14" => :build
 
   def install
     system "make", "build-darwin"
