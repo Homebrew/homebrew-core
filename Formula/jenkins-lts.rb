@@ -3,6 +3,7 @@ class JenkinsLts < Formula
   homepage "https://jenkins.io/index.html#stable"
   url "http://mirrors.jenkins.io/war-stable/2.235.4/jenkins.war"
   sha256 "e5688a8f07cc3d79ba3afa3cab367d083dd90daab77cebd461ba8e83a1e3c177"
+  license "MIT"
 
   bottle :unneeded
 
