@@ -2,8 +2,8 @@ class Inlets < Formula
   desc "Expose your local endpoints to the Internet"
   homepage "https://github.com/inlets/inlets"
   url "https://github.com/inlets/inlets.git",
-      tag:      "2.7.3",
-      revision: "2934c3c247ea28996ebb50889403befced94b29a"
+      tag:      "2.7.4",
+      revision: "dbf188f70991a5aa8fabad07fcd7d97dc51ae06a"
   license "MIT"
 
   livecheck do
@@ -23,16 +23,10 @@ class Inlets < Formula
   uses_from_macos "ruby" => :test
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/inlets/inlets").install buildpath.children
-    cd "src/github.com/inlets/inlets" do
-      commit = Utils.safe_popen_read("git", "rev-parse", "HEAD").chomp
-      system "go", "build", "-ldflags",
-             "-s -w -X main.GitCommit=#{commit} -X main.Version=#{version}",
-             "-a",
-             "-installsuffix", "cgo", "-o", bin/"inlets"
-      prefix.install_metafiles
-    end
+    commit = Utils.safe_popen_read("git", "rev-parse", "HEAD").chomp
+    system "go", "build", *std_go_args,
+            "-ldflags", "-s -w -X main.GitCommit=#{commit} -X main.Version=#{version}",
+            "-a", "-installsuffix", "cgo"
   end
 
   def cleanup(name, pid)
