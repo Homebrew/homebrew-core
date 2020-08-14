@@ -3,6 +3,7 @@ class Dovecot < Formula
   homepage "https://dovecot.org/"
   url "https://dovecot.org/releases/2.3/dovecot-2.3.10.1.tar.gz"
   sha256 "6642e62f23b1b23cfac235007ca6e21cb67460cca834689fad450724456eb10c"
+  license "LGPL-2.1-or-later"
 
   bottle do
     sha256 "e8d7b6bf587b5673826b467c3a30b148a191ed94246797609fcdad42e3ad40e4" => :catalina
