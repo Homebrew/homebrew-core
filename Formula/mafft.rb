@@ -1,8 +1,9 @@
 class Mafft < Formula
   desc "Multiple alignments with fast Fourier transforms"
   homepage "https://mafft.cbrc.jp/alignment/software/"
-  url "https://mafft.cbrc.jp/alignment/software/mafft-7.471-with-extensions-src.tgz"
-  sha256 "2c4993e9ebdaf4dcc6ea2b0daf30f58cbbe98fdba3e2cfcb46145bb2c62e94ef"
+  url "https://github.com/macvim-dev/macvim/archive/snapshot-164.tar.gz"
+  version "8.2-164"
+  sha256 "00005bf1fd97e1b06486b58c2716049d72838310f0810f65620b69e66d03c343"
 
   bottle do
     cellar :any_skip_relocation
