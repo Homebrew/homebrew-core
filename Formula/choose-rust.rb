@@ -3,7 +3,7 @@ class ChooseRust < Formula
   homepage "https://github.com/theryangeary/choose"
   url "https://github.com/theryangeary/choose/archive/v1.3.1.tar.gz"
   sha256 "6c44170f456f410370ba31d59bfad1f54a71ba80a79b87debbe235672a2ea0dd"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   bottle do
     cellar :any_skip_relocation
