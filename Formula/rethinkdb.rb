@@ -1,8 +1,8 @@
 class Rethinkdb < Formula
   desc "The open-source database for the realtime web"
   homepage "https://rethinkdb.com/"
-  url "https://download.rethinkdb.com/repository/raw/dist/rethinkdb-2.4.0.tgz"
-  sha256 "bfb0708710595c6762f42e25613adec692cf568201cd61da74c254f49fa9ee4c"
+  url "https://download.rethinkdb.com/repository/raw/dist/rethinkdb-2.4.1.tgz"
+  sha256 "5f1786c94797a0f8973597796e22545849dc214805cf1962ef76969e0b7d495b"
   license "Apache-2.0"
   head "https://github.com/rethinkdb/rethinkdb.git", branch: "next"
 
@@ -26,13 +26,13 @@ class Rethinkdb < Formula
 
   uses_from_macos "curl"
 
-  def install
-    args = ["--prefix=#{prefix}"]
-    args += ["--allow-fetch"] if build.head?
+  patch :DATA
 
+  def install
     # rethinkdb requires that protobuf be linked against libc++
     # but brew's protobuf is sometimes linked against libstdc++
-    args += ["--fetch", "protobuf"]
+    args = %W[--prefix=#{prefix} --fetch protobuf]
+    args << "--allow-fetch" if build.head?
 
     system "./configure", *args
     system "make"
@@ -81,3 +81,35 @@ class Rethinkdb < Formula
     assert File.read("test/metadata").start_with?("RethinkDB")
   end
 end
+__END__
+diff --git a/src/rdb_protocol/datum.cc b/src/rdb_protocol/datum.cc
+index 31e0a72..24fa9b7 100644
+--- a/src/rdb_protocol/datum.cc
++++ b/src/rdb_protocol/datum.cc
+@@ -12,7 +12,7 @@
+ #include <iterator>
+ 
+ #include "errors.hpp"
+-#include <boost/detail/endian.hpp>
++#include <boost/predef/other/endian.h>
+ 
+ #include "arch/runtime/coroutines.hpp"
+ #include "cjson/json.hpp"
+@@ -1122,7 +1122,7 @@ std::string datum_t::encode_tag_num(uint64_t tag_num) {
+             "tag_size constant is assumed to be the size of a uint64_t.");
+ #if defined(__s390x__)
+     tag_num = __builtin_bswap64(tag_num);
+-#elif !defined(BOOST_LITTLE_ENDIAN)
++#elif !defined(BOOST_ENDIAN_LITTLE_BYTE)
+     static_assert(false, "This piece of code will break on big-endian systems.");
+ #endif
+     return std::string(reinterpret_cast<const char *>(&tag_num), tag_size);
+@@ -1251,7 +1251,7 @@ components_t parse_secondary(const std::string &key) THROWS_NOTHING {
+         uint64_t t = *reinterpret_cast<const uint64_t *>(tag_str.data());
+ #if defined(__s390x__)
+         t = __builtin_bswap64(t);
+-#elif !defined(BOOST_LITTLE_ENDIAN)
++#elif !defined(BOOST_ENDIAN_LITTLE_BYTE)
+         static_assert(false, "This piece of code will break on big endian systems.");
+ #endif
+         tag_num.set(t);
