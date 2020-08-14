@@ -1,8 +1,8 @@
 class Sile < Formula
   desc "Modern typesetting system inspired by TeX"
   homepage "https://www.sile-typesetter.org"
-  url "https://github.com/sile-typesetter/sile/releases/download/v0.10.9/sile-0.10.9.tar.xz"
-  sha256 "44eaaf286b059b46eb51f28ef813d149538b06f4541c1eb7fb6faef26d60a564"
+  url "https://github.com/sile-typesetter/sile/releases/download/v0.10.10/sile-0.10.10.tar.xz"
+  sha256 "efc0be18118e20fa5cbde330850b3f65d0835c05a75ad45d4ee85f8ff8f6fe54"
   license "MIT"
   head "https://github.com/sile-typesetter/sile.git", shallow: false
 
@@ -90,8 +90,8 @@ class Sile < Formula
   end
 
   resource "penlight" do
-    url "https://github.com/Tieske/Penlight/archive/1.7.0.tar.gz"
-    sha256 "5b793fc93fa7227190e191e5b24a8f0ce9dd5958ccebe7a53842a58b5d46057f"
+    url "https://github.com/Tieske/Penlight/archive/1.8.0.tar.gz"
+    sha256 "a1a41c5ec82c0459bc0508a0fb1cb56dfaa83a1dd7754d7174b336ad65420d3d"
   end
 
   resource "stdlib" do
