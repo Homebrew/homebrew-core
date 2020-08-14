@@ -31,6 +31,7 @@ class Mosh < Formula
 
   depends_on "pkg-config" => :build
   depends_on "tmux" => :build
+  depends_on "openssl@1.1"
   depends_on "protobuf"
 
   uses_from_macos "ncurses"
