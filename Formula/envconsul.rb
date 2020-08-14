@@ -2,8 +2,8 @@ class Envconsul < Formula
   desc "Launch process with environment variables from Consul and Vault"
   homepage "https://github.com/hashicorp/envconsul"
   url "https://github.com/hashicorp/envconsul.git",
-    tag:      "v0.9.3",
-    revision: "1729aafafcc96929db40400eaf10bc0d70840480"
+    tag:      "v0.10.0",
+    revision: "1835ce900c68f8bf37e384fb65d8e4763e78ab5a"
   license "MPL-2.0"
 
   bottle do
@@ -18,7 +18,6 @@ class Envconsul < Formula
 
   def install
     system "go", "build", "-ldflags", "-s -w", *std_go_args
-    prefix.install_metafiles
   end
 
   test do
