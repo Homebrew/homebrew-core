@@ -1,8 +1,8 @@
 class Cointop < Formula
   desc "Interactive terminal based UI application for tracking cryptocurrencies"
   homepage "https://cointop.sh"
-  url "https://github.com/miguelmota/cointop/archive/1.4.8.tar.gz"
-  sha256 "3f2038849b45c5f7eba70532ec0a62c69ec54d029e2984178a1bdd995b531807"
+  url "https://github.com/miguelmota/cointop/archive/v1.5.2.tar.gz"
+  sha256 "556dba09374f9a7847e9a8d18afa5240f97e2ab7dd3b0d1ba6397f885b20b3ff"
   license "Apache-2.0"
 
   bottle do
