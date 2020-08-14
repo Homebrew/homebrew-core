@@ -15,6 +15,10 @@ class Graphite2 < Formula
 
   depends_on "cmake" => :build
 
+  on_linux do
+    depends_on "freetype" => :build
+  end
+
   resource "testfont" do
     url "https://scripts.sil.org/pub/woff/fonts/Simple-Graphite-Font.ttf"
     sha256 "7e573896bbb40088b3a8490f83d6828fb0fd0920ac4ccdfdd7edb804e852186a"
