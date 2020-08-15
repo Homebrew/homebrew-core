@@ -4,6 +4,7 @@ class Opencv < Formula
   url "https://github.com/opencv/opencv/archive/4.4.0.tar.gz"
   sha256 "bb95acd849e458be7f7024d17968568d1ccd2f0681d47fd60d34ffb4b8c52563"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 "7524401992a83c2a5ad655a27a153b027b9fc1a72bdc564842a4b9e32eb27201" => :catalina
