@@ -4,6 +4,7 @@ class Imlib2 < Formula
   url "https://downloads.sourceforge.net/project/enlightenment/imlib2-src/1.7.0/imlib2-1.7.0.tar.bz2"
   sha256 "1976ca3db48cbae79cd0fc737dabe39cc81494fc2560e1d22821e7dc9c22b37d"
   license "Imlib2"
+  revision 1
 
   bottle do
     sha256 "460c1523b721a0a2d14d46ea95a4fb7a07ca6b177a4e7d0b0d54d00801bb289e" => :catalina
@@ -17,7 +18,6 @@ class Imlib2 < Formula
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
-  depends_on :x11
 
   def install
     args = %W[
@@ -25,6 +25,7 @@ class Imlib2 < Formula
       --prefix=#{prefix}
       --enable-amd64=no
       --without-id3
+      --without-x
     ]
 
     system "./configure", *args
