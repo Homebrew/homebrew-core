@@ -4,7 +4,7 @@ class Mailutils < Formula
   url "https://ftp.gnu.org/gnu/mailutils/mailutils-3.10.tar.gz"
   mirror "https://ftpmirror.gnu.org/mailutils/mailutils-3.10.tar.gz"
   sha256 "1a4025280f504ff56269f0fc25859cfea20a39dd45d12abfffe1f89ee54e708a"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   bottle do
     sha256 "35f9c47a5686e1d32fbb262cfe107713724968c1803ff514c9af42cc2d0b4814" => :catalina
