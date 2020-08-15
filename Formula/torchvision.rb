@@ -4,6 +4,7 @@ class Torchvision < Formula
   url "https://github.com/pytorch/vision/archive/v0.7.0.tar.gz"
   sha256 "fa0a6f44a50451115d1499b3f2aa597e0092a07afce1068750260fa7dd2c85cb"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     cellar :any
