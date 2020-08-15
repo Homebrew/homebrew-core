@@ -1,9 +1,8 @@
 class Influxdb < Formula
   desc "Time series, events, and metrics database"
   homepage "https://influxdata.com/time-series-platform/influxdb/"
-  url "https://github.com/influxdata/influxdb.git",
-      tag:      "v1.8.1",
-      revision: "af0237819ab9c5997c1c0144862dc762b9d8fc25"
+  url "https://github.com/influxdata/influxdb/archive/v1.8.2.tar.gz"
+  sha256 "59ee1d3bc591d932acad918f3a46b07207beed9c0e717ee28da8c9565e646eda"
   license "MIT"
   head "https://github.com/influxdata/influxdb.git"
 
@@ -17,30 +16,17 @@ class Influxdb < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    influxdb_path = buildpath/"src/github.com/influxdata/influxdb"
-    influxdb_path.install Dir["*"]
-    revision = `git rev-parse HEAD`.strip
-    version = `git describe --tags`.strip
+    ENV["GOBIN"] = buildpath
 
-    cd influxdb_path do
-      system "go", "install",
-             "-ldflags", "-X main.version=#{version} -X main.commit=#{revision} -X main.branch=master-1.x",
-             "./..."
-    end
+    system "go", "install", "-ldflags", "-X main.version=#{version}", "./..."
+    bin.install %w[influxd influx influx_tsm influx_stress influx_inspect]
 
-    inreplace influxdb_path/"etc/config.sample.toml" do |s|
+    etc.install "etc/config.sample.toml" => "influxdb.conf"
+    inreplace etc/"influxdb.conf" do |s|
       s.gsub! "/var/lib/influxdb/data", "#{var}/influxdb/data"
       s.gsub! "/var/lib/influxdb/meta", "#{var}/influxdb/meta"
       s.gsub! "/var/lib/influxdb/wal", "#{var}/influxdb/wal"
     end
-
-    bin.install "bin/influxd"
-    bin.install "bin/influx"
-    bin.install "bin/influx_tsm"
-    bin.install "bin/influx_stress"
-    bin.install "bin/influx_inspect"
-    etc.install influxdb_path/"etc/config.sample.toml" => "influxdb.conf"
 
     (var/"influxdb/data").mkpath
     (var/"influxdb/meta").mkpath
