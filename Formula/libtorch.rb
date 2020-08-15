@@ -7,6 +7,7 @@ class Libtorch < Formula
       tag:      "v1.6.0",
       revision: "b31f58de6fa8bbda5353b3c77d9be4914399724d"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     cellar :any
