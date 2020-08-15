@@ -6,7 +6,7 @@ class Shogun < Formula
       revision: "ab274e7ab6bf24dd598c1daf1e626cb686d6e1cc"
   sha256 "57169dc8c05b216771c567b2ee2988f14488dd13f7d191ebc9d0703bead4c9e6"
   license "BSD-3-Clause"
-  revision 7
+  revision 8
 
   bottle do
     sha256 "8c607b82b6ae66098c5bbdfb899cd9016e29396cff31bfd4c08e74729915e425" => :catalina
