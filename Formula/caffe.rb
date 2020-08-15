@@ -4,7 +4,7 @@ class Caffe < Formula
   url "https://github.com/BVLC/caffe/archive/1.0.tar.gz"
   sha256 "71d3c9eb8a183150f965a465824d01fe82826c22505f7aa314f700ace03fa77f"
   license "BSD-2-Clause"
-  revision 24
+  revision 25
 
   bottle do
     sha256 "4a7874768a55e36db9e988a7060eec013aade446d1f9262c5b1f8122f4066da0" => :catalina
