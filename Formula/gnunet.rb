@@ -4,7 +4,7 @@ class Gnunet < Formula
   url "https://ftp.gnu.org/gnu/gnunet/gnunet-0.13.2.tar.gz"
   mirror "https://ftpmirror.gnu.org/gnunet/gnunet-0.13.2.tar.gz"
   sha256 "b615702e701b4569663767a9da72f33c9778bc853b20d1c811b25ec8fb328a2c"
-  license "AGPL-3.0"
+  license "AGPL-3.0-or-later"
 
   bottle do
     cellar :any
