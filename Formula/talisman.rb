@@ -1,9 +1,8 @@
 class Talisman < Formula
   desc "Tool to detect and prevent secrets from getting checked in"
   homepage "https://thoughtworks.github.io/talisman/"
-  url "https://github.com/thoughtworks/talisman.git",
-      tag:      "v1.4.0",
-      revision: "b821169359bf96c6923e00732e68ec44e62949c1"
+  url "https://github.com/thoughtworks/talisman/archive/v1.6.0.tar.gz"
+  sha256 "7128a81725cc10471d3c4fd94a02f104d6e0590a7abd002cab6ce3e0f479b392"
   license "MIT"
 
   bottle do
@@ -14,11 +13,9 @@ class Talisman < Formula
   end
 
   depends_on "go" => :build
-  depends_on "gox" => :build
 
   def install
-    system "./build"
-    bin.install "./talisman_darwin_amd64" => "talisman"
+    system "go", "build", *std_go_args, "-ldflags", "-X main.Version=#{version}"
   end
 
   test do
