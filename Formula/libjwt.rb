@@ -3,7 +3,7 @@ class Libjwt < Formula
   homepage "https://github.com/benmcollins/libjwt"
   url "https://github.com/benmcollins/libjwt/archive/v1.12.0.tar.gz"
   sha256 "eaf5d8b31d867c02dde767efa2cf494840885a415a3c9a62680bf870a4511bee"
-  license "LGPL-3.0"
+  license "MPL-2.0"
 
   bottle do
     cellar :any
