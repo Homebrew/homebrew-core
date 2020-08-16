@@ -3,6 +3,7 @@ class Eigen < Formula
   homepage "https://eigen.tuxfamily.org/"
   url "https://gitlab.com/libeigen/eigen/-/archive/3.3.7/eigen-3.3.7.tar.bz2"
   sha256 "685adf14bd8e9c015b78097c1dc22f2f01343756f196acdc76a678e1ae352e11"
+  license "MPL-2.0"
   head "https://gitlab.com/libeigen/eigen"
 
   bottle do
@@ -14,6 +15,8 @@ class Eigen < Formula
   end
 
   depends_on "cmake" => :build
+
+  conflicts_with "freeling", because: "freeling ships its own copy of eigen"
 
   def install
     mkdir "eigen-build" do

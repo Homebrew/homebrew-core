@@ -15,6 +15,8 @@ class Dynet < Formula
   depends_on "cmake" => :build
   depends_on "eigen"
 
+  conflicts_with "freeling", because: "freeling ships its own copy of dynet"
+
   def install
     mkdir "build" do
       system "cmake", "..", *std_cmake_args,
