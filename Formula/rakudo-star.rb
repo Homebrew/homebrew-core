@@ -1,5 +1,5 @@
 class RakudoStar < Formula
-  desc "Perl 6 compiler"
+  desc "Rakudo compiler and commonly used packages"
   homepage "https://rakudo.org/"
   url "https://rakudo.org/dl/star/rakudo-star-2020.01.tar.gz"
   sha256 "f1696577670d4ff5b464e572b1b0b8c390e6571e1fb8471cbf369fa39712c668"
@@ -16,6 +16,7 @@ class RakudoStar < Formula
   depends_on "icu4c"
   depends_on "libffi"
   depends_on "pcre"
+  depends_on "readline"
 
   conflicts_with "moarvm", "nqp", because: "rakudo-star currently ships with moarvm and nqp included"
   conflicts_with "parrot"
