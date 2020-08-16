@@ -49,7 +49,6 @@ class GoAT110 < Formula
 
     cd "go/src" do
       ENV["GOROOT_FINAL"] = libexec
-      ENV["GOOS"]         = "darwin"
       system "./make.bash", "--no-clean"
     end
 

@@ -29,8 +29,6 @@ class Go < Formula
     end
   end
 
-  depends_on macos: :sierra
-
   # Don't update this unless this version cannot bootstrap the new version.
   resource "gobootstrap" do
     on_macos do
@@ -50,7 +48,6 @@ class Go < Formula
 
     cd "src" do
       ENV["GOROOT_FINAL"] = libexec
-      ENV["GOOS"]         = "darwin"
       system "./make.bash", "--no-clean"
     end
 
