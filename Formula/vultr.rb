@@ -1,8 +1,8 @@
 class Vultr < Formula
   desc "Command-line tool for Vultr"
   homepage "https://jamesclonk.github.io/vultr"
-  url "https://github.com/JamesClonk/vultr/archive/v2.0.1.tar.gz"
-  sha256 "928f6c3caf8149f836a609ec43a3d031f0206a8cba095e026535c33c390c1157"
+  url "https://github.com/JamesClonk/vultr/archive/v2.0.2.tar.gz"
+  sha256 "bb60e6f82a2900fdcf025362a29efed64806e58a3e2e8251e4e5f5e6f076b763"
   license "MIT"
   head "https://github.com/JamesClonk/vultr.git"
 
