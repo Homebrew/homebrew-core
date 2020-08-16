@@ -4,6 +4,7 @@ class Terraform < Formula
   url "https://github.com/hashicorp/terraform/archive/v0.13.0.tar.gz"
   sha256 "b531255bd4e1dbbc7fc5e01729b77f8781cc0f369833d01211048f0667e56cee"
   license "MPL-2.0"
+  revision 1
   head "https://github.com/hashicorp/terraform.git"
 
   bottle do
@@ -13,7 +14,7 @@ class Terraform < Formula
     sha256 "4ff5b12ae74bad7014c5b3d516535d12f34af1a9af000b0a2353fb9ed6b7cb23" => :high_sierra
   end
 
-  depends_on "go@1.13" => :build
+  depends_on "go@1.14" => :build
 
   conflicts_with "tfenv", because: "tfenv symlinks terraform binaries"
 
