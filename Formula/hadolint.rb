@@ -13,6 +13,7 @@ class Hadolint < Formula
     sha256 "9c8ea84c521ab94e4f78d73b67593738760cb437e6e050e0e6f81be62c944440" => :high_sierra
   end
 
+  depends_on "ghc" => :build
   depends_on "haskell-stack" => :build
 
   uses_from_macos "xz"
