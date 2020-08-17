@@ -1,8 +1,8 @@
 class Osm < Formula
   desc "Open Service Mesh (OSM)"
   homepage "https://openservicemesh.io/"
-  url "https://github.com/openservicemesh/osm/archive/v0.1.0.tar.gz"
-  sha256 "2074040e13b78022b5cf041c7c0102eb19c16c5924273c46ac376561e2ac0c65"
+  url "https://github.com/openservicemesh/osm/archive/v0.3.0.tar.gz"
+  sha256 "d4b9fa2789fd8dfadae9df5a8a80d3e6db24cca7629a52b0d61608761ae70d73"
   license "MIT"
 
   bottle do
@@ -20,7 +20,6 @@ class Osm < Formula
   end
 
   test do
-    assert_match "No checks run", shell_output("#{bin}/osm check 2>&1")
     assert_match "Error: Error fetching kubeconfig", shell_output("#{bin}/osm namespace list 2>&1", 1)
   end
 end
