@@ -1,8 +1,8 @@
 class Immudb < Formula
   desc "Lightweight, high-speed immutable database"
   homepage "https://www.codenotary.io"
-  url "https://github.com/codenotary/immudb/archive/v0.6.1.tar.gz"
-  sha256 "313f09b82f89208705daaf0be16238e1a4f90e590edd038c1719d181ce0ed653"
+  url "https://github.com/codenotary/immudb/archive/v0.7.1.tar.gz"
+  sha256 "5f112d17ad62f0c6e33d83b7c88c2920e1785cef250b8bbed3e4b068bbc51350"
   license "Apache-2.0"
 
   bottle do
@@ -16,32 +16,20 @@ class Immudb < Formula
 
   def install
     system "make", "all"
-    bin.install %w[immudb immuclient immugw immuadmin]
+    bin.install %w[immudb immuclient immuadmin]
   end
 
   test do
     immudb_port = free_port
-    fork do
-      exec bin/"immudb", "-p", immudb_port.to_s
-    end
-    sleep 3
 
-    immugw_port = free_port
     fork do
-      exec bin/"immugw", "-p", immugw_port.to_s, "-j", immudb_port.to_s
+      exec bin/"immudb", "--auth=false", "-p", immudb_port.to_s
     end
     sleep 3
 
     system bin/"immuclient", "safeset", "hello", "world", "-p", immudb_port.to_s
     assert_match "world", shell_output("#{bin}/immuclient safeget hello -p #{immudb_port}")
 
-    command = %W[
-      curl -s -XPOST -d '#{JSON.generate({ "key" => Base64.encode64("hello") })}'
-      http://localhost:#{immugw_port}/v1/immurestproxy/item/safe/get
-    ]
-    response = shell_output(command.join(" "))
-    assert_equal "world", Base64.decode64(JSON.parse(response)["value"])
-
-    assert_match "Uptime", shell_output("#{bin}/immuadmin stats -t -p #{immudb_port}")
+    assert_match "OK", shell_output("#{bin}/immuadmin status -p #{immudb_port}")
   end
 end
