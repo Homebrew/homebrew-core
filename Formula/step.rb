@@ -7,17 +7,17 @@ class Step < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "06c2f7096c892c7837219eece548e9e68a557eb3d3565d3bf61dafa42db38fe1" => :catalina
-    sha256 "0d77ed803200baa2ea2ced7ea2de0527e4894948ea4ad25b3f88b412b104b7c0" => :mojave
-    sha256 "198c2d497bdea01999d23b589d508c9220c9725817a27a18ce6acae50cc92197" => :high_sierra
+    sha256 "80d845481bf877d844932d6bffc7ab9e5a112d0ec49ac4d72d8fc8101f6cc130" => :catalina
+    sha256 "dc77928f410bedf55dd7a46815967370bca27a7e9e9c656b2a78e7dac4dcb681" => :mojave
+    sha256 "69e447fe7be29374129d1b47de9855dace8c9166b96549c7464f30f184572c26" => :high_sierra
   end
 
   depends_on "dep" => :build
   depends_on "go" => :build
 
   resource "certificates" do
-    url "https://github.com/smallstep/certificates/releases/download/v0.14.6/step-certificates_0.14.6.tar.gz"
-    sha256 "54d116f5a32e8a3afb75d3791467789412a9d291e236130a226103e5fe4281d4"
+    url "https://github.com/smallstep/certificates/releases/download/v0.15.0/step-certificates_0.15.0.tar.gz"
+    sha256 "dac1ade4f5970870c3478cb302aff2239d0f2eb3e87a4b0f11dd9d8d47639dde"
   end
 
   def install
