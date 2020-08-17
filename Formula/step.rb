@@ -1,8 +1,8 @@
 class Step < Formula
   desc "Crypto and x509 Swiss-Army-Knife"
   homepage "https://smallstep.com"
-  url "https://github.com/smallstep/cli/releases/download/v0.14.6/step-cli_0.14.6.tar.gz"
-  sha256 "625c1439805130ff016b269bd116453429c5f15cc4c460ca3e8587b11c2515ab"
+  url "https://github.com/smallstep/cli/releases/download/v0.15.0/step-cli_0.15.0.tar.gz"
+  sha256 "3b7d8ec9b8a32cf40d1cd859a56283295d4e3b0417c590b31fc7e1a0ab42f6ed"
   license "Apache-2.0"
 
   bottle do
