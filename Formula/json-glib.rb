@@ -3,7 +3,7 @@ class JsonGlib < Formula
   homepage "https://wiki.gnome.org/Projects/JsonGlib"
   url "https://download.gnome.org/sources/json-glib/1.4/json-glib-1.4.4.tar.xz"
   sha256 "720c5f4379513dc11fd97dc75336eb0c0d3338c53128044d9fabec4374f4bc47"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "643ce68e84c094e77597f2f1b83678d3675b74b1a2e11c43804290d30fa456e6" => :catalina
@@ -13,7 +13,7 @@ class JsonGlib < Formula
   end
 
   depends_on "gobject-introspection" => :build
-  depends_on "meson-internal" => :build
+  depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
