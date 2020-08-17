@@ -3,6 +3,7 @@ class Fpc < Formula
   homepage "https://www.freepascal.org/"
   url "https://downloads.sourceforge.net/project/freepascal/Source/3.2.0/fpc-3.2.0.source.tar.gz"
   sha256 "d595b72de7ed9e53299694ee15534e5046a62efa57908314efa02d5cc3b1cf75"
+  license "GPL-2.0-or-later"
 
   bottle do
     cellar :any
