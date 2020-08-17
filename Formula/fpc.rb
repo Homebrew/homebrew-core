@@ -18,8 +18,6 @@ class Fpc < Formula
     sha256 "56b870fbce8dc9b098ecff3c585f366ad3e156ca32a6bf3b20091accfb252616"
   end
 
-  depends_on "subversion" => :build if MacOS.version >= :catalina
-
   # Help fpc find the startup files (crt1.o and friends) with 10.14 SDK
   patch :DATA
 
