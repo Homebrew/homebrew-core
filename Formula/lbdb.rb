@@ -21,7 +21,6 @@ class Lbdb < Formula
   end
 
   test do
-    ver = version.to_s.split(".")
-    assert_match "#{ver[0]}.#{ver[1]}", shell_output("#{bin}/lbdbq -v")
+    assert_match version.major_minor.to_s, shell_output("#{bin}/lbdbq -v")
   end
 end
