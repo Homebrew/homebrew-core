@@ -4,6 +4,7 @@ class Libgxps < Formula
   url "https://download.gnome.org/sources/libgxps/0.3/libgxps-0.3.1.tar.xz"
   sha256 "1a939fc8fcea9471b7eca46b1ac90cff89a30d26f65c7c9a375a4bf91223fa94"
   license "LGPL-2.1"
+  revision 1
 
   bottle do
     sha256 "74f4662c40830e4697255a05447171637c749ce28a6aa7262ab29cbfca32d642" => :catalina
@@ -17,7 +18,7 @@ class Libgxps < Formula
   end
 
   depends_on "gobject-introspection" => :build
-  depends_on "meson-internal" => :build
+  depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
