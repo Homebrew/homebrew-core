@@ -80,7 +80,7 @@ class Itk < Formula
       }
     EOS
 
-    v = version.to_s.split(".")[0..1].join(".")
+    v = version.major_minor
     # Build step
     system ENV.cxx, "-std=c++11", "-isystem", "#{include}/ITK-#{v}", "-o", "test.cxx.o", "-c", "test.cxx"
     # Linking step
