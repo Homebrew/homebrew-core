@@ -20,6 +20,7 @@ class Texmath < Formula
     jobs = ENV.make_jobs
     ENV.deparallelize
 
+    system "stack", "init"
     system "stack", "-j#{jobs}", "build"
     system "stack", "-j#{jobs}", "--local-bin-path=#{bin}", "install"
   end
