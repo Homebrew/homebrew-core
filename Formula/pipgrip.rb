@@ -53,7 +53,7 @@ class Pipgrip < Formula
     venv.pip_install buildpath
 
     gcc_path = Formula["gcc"].opt_bin
-    gcc_version = Formula["gcc"].version.to_s.split(".").first
+    gcc_version = Formula["gcc"].installed_version.major
     (bin/"pipgrip").write_env_script(libexec/"bin/pipgrip",
                                      { CC: gcc_path/"gcc-#{gcc_version}", CXX: gcc_path/"g++-#{gcc_version}" })
   end
