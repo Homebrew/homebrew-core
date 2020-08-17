@@ -13,12 +13,15 @@ class Texmath < Formula
     sha256 "c73f655501e17551219bf6bd028aedaa09b40464b3706db4d1a0d12b673c824e" => :high_sierra
   end
 
-  depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "haskell-stack" => :build
 
   def install
-    system "cabal", "v2-update"
-    system "cabal", "v2-install", *std_cabal_v2_args
+    # Let `stack` handle its own parallelization
+    jobs = ENV.make_jobs
+    ENV.deparallelize
+
+    system "stack", "-j#{jobs}", "build"
+    system "stack", "-j#{jobs}", "--local-bin-path=#{bin}", "install"
   end
 
   test do
