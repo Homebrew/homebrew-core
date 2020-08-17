@@ -88,7 +88,7 @@ class PostgresqlAT94 < Formula
       This formula has created a default database cluster with:
         initdb #{var}/postgres
       For more details, read:
-        https://www.postgresql.org/docs/#{version.to_s.slice(/\d+/)}/app-initdb.html
+        https://www.postgresql.org/docs/#{version.major}/app-initdb.html
     EOS
   end
 
