@@ -4,6 +4,7 @@ class FsUae < Formula
   url "https://fs-uae.net/stable/3.0.5/fs-uae-3.0.5.tar.gz"
   sha256 "f26ec42e03cf1a7b53b6ce0d9845aa45bbf472089b5ec046b3eb784ec6859fe3"
   license "GPL-2.0"
+  revision 1
 
   livecheck do
     url "https://fs-uae.net/download"
