@@ -23,7 +23,7 @@ class GitlabRunner < Formula
     cd dir do
       proj = "gitlab.com/gitlab-org/gitlab-runner"
       commit = Utils.safe_popen_read("git", "rev-parse", "--short=8", "HEAD").chomp
-      branch = version.to_s.split(".")[0..1].join("-") + "-stable"
+      branch = "#{version.major}-#{version.minor}-stable"
       built = Time.new.strftime("%Y-%m-%dT%H:%M:%S%:z")
       system "go", "build", "-ldflags", <<~EOS
         -X #{proj}/common.NAME=gitlab-runner
