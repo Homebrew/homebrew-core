@@ -5,6 +5,7 @@ class Ppsspp < Formula
       tag:      "v1.10.3",
       revision: "087de849bdc74205dd00d8e6e11ba17a591213ab"
   license all_of: ["GPL-2.0-or-later", "BSD-3-Clause"]
+  revision 1
   head "https://github.com/hrydgard/ppsspp.git"
 
   bottle do
