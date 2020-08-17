@@ -27,10 +27,9 @@ class Jmxtrans < Formula
 
     cd "jmxtrans" do
       # Point JAR_FILE into Cellar where we've installed the jar file
-      vers = version.to_s.split("-").last
       inreplace "jmxtrans.sh", "$( cd \"$( dirname \"${BASH_SOURCE[0]}\" )/../lib\" "\
                 ">/dev/null && pwd )/jmxtrans-all.jar",
-                libexec/"target/jmxtrans-#{vers}-all.jar"
+                libexec/"target/jmxtrans-#{version}-all.jar"
 
       # Exec java to avoid forking the server into a new process
       inreplace "jmxtrans.sh", "${JAVA} -server", "exec ${JAVA} -server"
