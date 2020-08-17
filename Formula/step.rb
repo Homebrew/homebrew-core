@@ -4,6 +4,7 @@ class Step < Formula
   url "https://github.com/smallstep/cli/releases/download/v0.15.0/step-cli_0.15.0.tar.gz"
   sha256 "3b7d8ec9b8a32cf40d1cd859a56283295d4e3b0417c590b31fc7e1a0ab42f6ed"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -16,8 +17,8 @@ class Step < Formula
   depends_on "go" => :build
 
   resource "certificates" do
-    url "https://github.com/smallstep/certificates/releases/download/v0.14.6/step-certificates_0.14.6.tar.gz"
-    sha256 "54d116f5a32e8a3afb75d3791467789412a9d291e236130a226103e5fe4281d4"
+    url "https://github.com/smallstep/certificates/releases/download/v0.15.0/step-certificates_0.15.0.tar.gz"
+    sha256 "dac1ade4f5970870c3478cb302aff2239d0f2eb3e87a4b0f11dd9d8d47639dde"
   end
 
   def install
