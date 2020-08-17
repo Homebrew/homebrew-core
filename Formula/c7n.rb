@@ -102,8 +102,7 @@ class C7n < Formula
 
   test do
     # trim last decimal point version to match semver returned from version command
-    cli_version = version.to_s.split(".")[0..2].join(".")
-    assert_match cli_version, shell_output("#{bin}/custodian version")
+    assert_match version.major_minor_patch.to_s, shell_output("#{bin}/custodian version")
 
     (testpath/"good-policy.yml").write <<~EOF
       policies:
