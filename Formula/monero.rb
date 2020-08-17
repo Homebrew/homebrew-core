@@ -5,6 +5,7 @@ class Monero < Formula
       tag:      "v0.16.0.3",
       revision: "7bd1ed03dd29d1f194503b6fdce6588306328b72"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     cellar :any
