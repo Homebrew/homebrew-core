@@ -1,8 +1,8 @@
 class Opa < Formula
   desc "Open source, general-purpose policy engine"
   homepage "https://www.openpolicyagent.org"
-  url "https://github.com/open-policy-agent/opa/archive/v0.22.0.tar.gz"
-  sha256 "5347fc727fc0485a221582a41c7aabd1a541fc399a65b5b7b36e7db6b7563193"
+  url "https://github.com/open-policy-agent/opa/archive/v0.23.0.tar.gz"
+  sha256 "b7e1ffc8927e41e5bfbc16081245b6e27ed6afa1b22f3a7792a4732d040db235"
   license "Apache-2.0"
   head "https://github.com/open-policy-agent/opa.git"
 
@@ -16,11 +16,10 @@ class Opa < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-o", bin/"opa", "-trimpath", "-ldflags",
-                 "-X github.com/open-policy-agent/opa/version.Version=#{version}"
+    system "go", "build", *std_go_args,
+              "-ldflags", "-X github.com/open-policy-agent/opa/version.Version=#{version}"
     system "./build/gen-man.sh", "man1"
     man.install "man1"
-    prefix.install_metafiles
   end
 
   test do
