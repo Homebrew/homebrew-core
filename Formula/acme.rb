@@ -3,6 +3,7 @@ class Acme < Formula
   homepage "https://sourceforge.net/projects/acme-crossass/"
   url "https://svn.code.sf.net/p/acme-crossass/code-0/trunk", revision: "266"
   version "0.97"
+  license "GPL-2.0-or-later"
 
   bottle do
     cellar :any_skip_relocation
