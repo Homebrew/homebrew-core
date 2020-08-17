@@ -1,9 +1,9 @@
 class Siril < Formula
   desc "Astronomical image processing tool"
   homepage "https://www.siril.org"
-  url "https://free-astro.org/download/siril-0.9.12.tar.bz2"
-  sha256 "9fb7f8a10630ea028137e8f213727519ae9916ea1d88cd8d0cc87f336d8d53b1"
-  revision 8
+  url "https://free-astro.org/download/siril-0.99.4.tar.bz2"
+  sha256 "80c0fcd750c034608464dfd443685ee51096df8b0b495d1743e6284d22f45f38"
+  license "GPL-3.0-or-later"
   head "https://gitlab.com/free-astro/siril.git"
 
   bottle do
@@ -19,6 +19,7 @@ class Siril < Formula
   depends_on "pkg-config" => :build
   depends_on "adwaita-icon-theme"
   depends_on "cfitsio"
+  depends_on "exiv2"
   depends_on "ffms2"
   depends_on "fftw"
   depends_on "gnuplot"
@@ -40,6 +41,7 @@ class Siril < Formula
     ENV.append_to_cflags "-I#{HOMEBREW_PREFIX}/include -Xpreprocessor -fopenmp -lomp"
 
     system "./autogen.sh", "--prefix=#{prefix}"
+    system "make"
     system "make", "install"
   end
 
