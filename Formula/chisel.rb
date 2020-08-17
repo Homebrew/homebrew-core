@@ -1,8 +1,8 @@
 class Chisel < Formula
   desc "Collection of LLDB commands to assist debugging iOS apps"
   homepage "https://github.com/facebook/chisel"
-  url "https://github.com/facebook/chisel/archive/2.0.0.tar.gz"
-  sha256 "e2ededa84fbe68904f01ff12f2c9607a87626e33c17ed35989278f15c3543385"
+  url "https://github.com/facebook/chisel/archive/2.0.1.tar.gz"
+  sha256 "6f019d5e7ab5eb06542a9eccbbe29e7d26165d3676828a32e143575ff102d5f9"
   license "MIT"
   head "https://github.com/facebook/chisel.git"
 
@@ -30,7 +30,7 @@ class Chisel < Formula
   def caveats
     <<~EOS
       Add the following line to ~/.lldbinit to load chisel when Xcode launches:
-        command script import #{opt_libexec}/fblldb.py
+        command script import #{opt_libexec}/fbchisellldb.py
     EOS
   end
 
@@ -38,6 +38,6 @@ class Chisel < Formula
     xcode_path = `xcode-select --print-path`.strip
     lldb_rel_path = "Contents/SharedFrameworks/LLDB.framework/Resources/Python"
     ENV["PYTHONPATH"] = "#{xcode_path}/../../#{lldb_rel_path}"
-    system "python", "#{libexec}/fblldb.py"
+    system "python", "#{libexec}/fbchisellldb.py"
   end
 end
