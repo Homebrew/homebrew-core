@@ -16,12 +16,11 @@ class Doctl < Formula
   depends_on "go" => :build
 
   def install
-    doctl_version = version.to_s.split(/\./)
     base_flag = "-X github.com/digitalocean/doctl"
     ldflags = %W[
-      #{base_flag}.Major=#{doctl_version[0]}
-      #{base_flag}.Minor=#{doctl_version[1]}
-      #{base_flag}.Patch=#{doctl_version[2]}
+      #{base_flag}.Major=#{version.major}
+      #{base_flag}.Minor=#{version.minor}
+      #{base_flag}.Patch=#{version.patch}
       #{base_flag}.Label=release
     ].join(" ")
 
