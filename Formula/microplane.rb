@@ -1,8 +1,8 @@
 class Microplane < Formula
   desc "CLI tool to make git changes across many repos"
   homepage "https://github.com/Clever/microplane"
-  url "https://github.com/Clever/microplane/archive/v0.0.22.tar.gz"
-  sha256 "64b85bc54f952dfb7269890e7b17f3da363e5f102e75c312baa0a6981928652c"
+  url "https://github.com/Clever/microplane/archive/v0.0.23.tar.gz"
+  sha256 "0243aa58559b8a43f5fa7324eee05d490899aa73294737e47451d1fc994769f5"
   license "Apache-2.0"
   head "https://github.com/Clever/microplane.git"
 
