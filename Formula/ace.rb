@@ -3,6 +3,7 @@ class Ace < Formula
   homepage "https://www.dre.vanderbilt.edu/~schmidt/ACE.html"
   url "https://github.com/DOCGroup/ACE_TAO/releases/download/ACE%2BTAO-6_5_11/ACE-6.5.11.tar.bz2"
   sha256 "8bfa251186d9ed1ce48d8936bdace4bc11a49f5fa216f8c1d0be7a65bcf66b39"
+  license "DOC"
 
   bottle do
     cellar :any
