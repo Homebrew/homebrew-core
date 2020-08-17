@@ -2,7 +2,7 @@ class ArxLibertatis < Formula
   desc "Cross-platform, open source port of Arx Fatalis"
   homepage "https://arx-libertatis.org/"
   license "GPL-3.0"
-  revision 1
+  revision 2
 
   stable do
     url "https://arx-libertatis.org/files/arx-libertatis-1.1.2.tar.xz"
