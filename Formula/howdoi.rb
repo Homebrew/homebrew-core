@@ -3,8 +3,8 @@ class Howdoi < Formula
 
   desc "Instant coding answers via the command-line"
   homepage "https://github.com/gleitz/howdoi"
-  url "https://files.pythonhosted.org/packages/73/67/bdb4df8e650de07445586fb44ea4f856d03f129afefe507a4ec6d7f5754e/howdoi-2.0.4.tar.gz"
-  sha256 "4f4be01bdf930cf129c4f1904c7dbe6964c2a95b6ec62aa25cccdf0a7c5c0543"
+  url "https://files.pythonhosted.org/packages/24/24/667a7ec7a5b9ff3d4f6c201426267ba9431d2ecbe79bf9a8ff28b0cb6564/howdoi-2.0.5.tar.gz"
+  sha256 "8e4d048ae7ca6182d648f62a66d07360cca2504fe46649c32748b6ef2735f7f4"
   license "MIT"
 
   bottle do
@@ -70,8 +70,8 @@ class Howdoi < Formula
   end
 
   resource "PyGithub" do
-    url "https://files.pythonhosted.org/packages/9c/5c/03e2a39c556a58fe0d77873bb508acc7bfd56cb34db16fe415da289a2ea7/PyGithub-1.52.tar.gz"
-    sha256 "fc11a182ca3d88dde6ab2fbbd07e3441685cc8b738f7813fcbfc18be28c1d8ed"
+    url "https://files.pythonhosted.org/packages/0e/15/f0f3d504640d2726c017c0c2ae0d21ba2560942ff797f97d3bd6c8535298/PyGithub-1.53.tar.gz"
+    sha256 "776befaddab9d8fddd525d52a6ca1ac228cf62b5b1e271836d766f4925e1452e"
   end
 
   resource "Pygments" do
