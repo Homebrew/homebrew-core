@@ -6,6 +6,8 @@ class Zinc < Formula
 
   bottle :unneeded
 
+  deprecate!
+
   def install
     rm_f Dir["bin/ng/{linux,win}*"]
     libexec.install Dir["*"]
