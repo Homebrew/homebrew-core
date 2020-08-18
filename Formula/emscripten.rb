@@ -10,16 +10,6 @@ class Emscripten < Formula
   stable do
     url "https://github.com/emscripten-core/emscripten/archive/2.0.0.tar.gz"
     sha256 "a3e443c58db1320d2928a9e8e2b74d484adc3412a332fa4493e3cd0022e4632e"
-
-    resource "fastcomp" do
-      url "https://github.com/emscripten-core/emscripten-fastcomp/archive/1.40.1.tar.gz"
-      sha256 "c34868ab566e9f073df319d9872608cef47ed1ea74852acacb12a22fd7c99a4c"
-    end
-
-    resource "fastcomp-clang" do
-      url "https://github.com/emscripten-core/emscripten-fastcomp-clang/archive/1.40.1.tar.gz"
-      sha256 "9ce4612df39684348d78acb711ec10bee98ad4ac136fb0dcb70d4c884b8bb6b3"
-    end
   end
 
   bottle do
@@ -31,14 +21,6 @@ class Emscripten < Formula
 
   head do
     url "https://github.com/emscripten-core/emscripten.git", branch: "incoming"
-
-    resource "fastcomp" do
-      url "https://github.com/emscripten-core/emscripten-fastcomp.git", branch: "incoming"
-    end
-
-    resource "fastcomp-clang" do
-      url "https://github.com/emscripten-core/emscripten-fastcomp-clang.git", branch: "incoming"
-    end
   end
 
   depends_on "cmake" => :build
