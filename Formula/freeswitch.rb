@@ -18,6 +18,7 @@ class Freeswitch < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "spandsp" => :build
   depends_on "yasm" => :build
   depends_on "ffmpeg"
   depends_on "jpeg"
