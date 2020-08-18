@@ -3,8 +3,8 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://github.com/jbarlow83/OCRmyPDF"
-  url "https://files.pythonhosted.org/packages/be/94/a304ae959e4c7a4a2de381217ba983365ef475e82c6a9b7831bd5fdb4ebb/ocrmypdf-11.0.0.tar.gz"
-  sha256 "2b3bee805e139185f24d18a159c4040fb74eea01913a9af137e15747e438fa1a"
+  url "https://files.pythonhosted.org/packages/03/27/a1d9147b8d4feed8d3de1eb4c0c6c16a15ff6820e2fa57a72fa1977fb111/ocrmypdf-11.0.1.tar.gz"
+  sha256 "26600d326eb0e12c45fa96f48955021adf90a25e0bfc800e6f10c1d780c5c36a"
   license "MPL-2.0"
 
   bottle do
@@ -34,8 +34,8 @@ class Ocrmypdf < Formula
   uses_from_macos "zlib"
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/54/1d/15eae71ab444bd88a1d69f19592dcf32b9e3166ecf427dd9243ef0d3b7bc/cffi-1.14.1.tar.gz"
-    sha256 "b2a2b0d276a136146e012154baefaea2758ef1f56ae9f4e01c612b0831e0bd2f"
+    url "https://files.pythonhosted.org/packages/f7/09/88bbe20b76ca76be052c366fe77aa5e3cd6e5f932766e5597fecdd95b2a8/cffi-1.14.2.tar.gz"
+    sha256 "ae8f34d50af2c2154035984b8b5fc5d9ed63f32fe615646ab435b05b132ca91b"
   end
 
   resource "chardet" do
@@ -59,8 +59,8 @@ class Ocrmypdf < Formula
   end
 
   resource "img2pdf" do
-    url "https://files.pythonhosted.org/packages/65/12/6ee1a77614df6decefd88f781cf95b73acf93f0cc9eb03bd5042d116b85d/img2pdf-0.3.6.tar.gz"
-    sha256 "8cd5509a60b75f4442b897bad3d593e25ebd314105f3034a8f17def396a4a0fb"
+    url "https://files.pythonhosted.org/packages/80/ed/5167992abaf268f5a5867e974d9d36a8fa4802800898ec711f4e1942b4f5/img2pdf-0.4.0.tar.gz"
+    sha256 "eaee690ab8403dd1a9cb4db10afee41dd3e6c7ed63bdace02a0121f9feadb0c9"
   end
 
   resource "lxml" do
@@ -74,8 +74,8 @@ class Ocrmypdf < Formula
   end
 
   resource "pikepdf" do
-    url "https://files.pythonhosted.org/packages/6a/10/db6a2f3a1725ea66afc4e46eaac02e377bb11c1d2bfd2cc3dcd631707767/pikepdf-1.18.0.tar.gz"
-    sha256 "4d0840a5c16b535f9b6e56fb4421a43f88760e6cabcf7fd44bdd0436107b61dc"
+    url "https://files.pythonhosted.org/packages/1f/09/4b374a0d0bf1750e18a005c77be62cf5148a7b87535ffb2c20670c5fcc5f/pikepdf-1.19.0.tar.gz"
+    sha256 "7eeff4fee3080cbe938480ca35a5e1f813e7ff221277124c6f9d8cc2d6e44b62"
   end
 
   resource "Pillow" do
@@ -94,8 +94,8 @@ class Ocrmypdf < Formula
   end
 
   resource "reportlab" do
-    url "https://files.pythonhosted.org/packages/11/36/8b01d3b6c2d44bbfc013ab6b61e876d576a38edc96b4bd508dcefe1b6e80/reportlab-3.5.47.tar.gz"
-    sha256 "45b2a7aa65e082bf481eea9994cdc00292698f8dc9e4a8c0ecfc6be90548803f"
+    url "https://files.pythonhosted.org/packages/33/24/f12ff0143b9251ffcd930a8516ea59c7ea5048feb3a7bde66cf6354a5f15/reportlab-3.5.48.tar.gz"
+    sha256 "0bfe3fe6e1bd1d922f83683eae2ba1d2d29de94e25fb115eacca9530b4b02f76"
   end
 
   resource "six" do
