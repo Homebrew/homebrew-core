@@ -3,8 +3,8 @@ class Howdoi < Formula
 
   desc "Instant coding answers via the command-line"
   homepage "https://github.com/gleitz/howdoi"
-  url "https://files.pythonhosted.org/packages/bc/6c/bae579224a13944a45c4785b195cae233b7bc4728fc898c0bec9c9885393/howdoi-2.0.3.tar.gz"
-  sha256 "ed8acb75779f598a831224f33fa991c51764872574a128e9b2f11b83fcace010"
+  url "https://files.pythonhosted.org/packages/73/67/bdb4df8e650de07445586fb44ea4f856d03f129afefe507a4ec6d7f5754e/howdoi-2.0.4.tar.gz"
+  sha256 "4f4be01bdf930cf129c4f1904c7dbe6964c2a95b6ec62aa25cccdf0a7c5c0543"
   license "MIT"
 
   bottle do
@@ -25,8 +25,8 @@ class Howdoi < Formula
   end
 
   resource "cachelib" do
-    url "https://files.pythonhosted.org/packages/0a/ce/50a08e17ae057b4afc3ef997a9846a9c335490e8137129d1d9213b7c5fe0/cachelib-0.1.1.tar.gz"
-    sha256 "47e95a67d68c729cbad63285a790a06f0e0d27d71624c6e44c1ec3456bb4476f"
+    url "https://files.pythonhosted.org/packages/e6/5b/39d1f9071e95123a4ae6d8bdeb53416d1af601f662641eac9b0d7c844dba/cachelib-0.1.tar.gz"
+    sha256 "8b889b509d372095357b8705966e1282d40835c4126d7c2b07fd414514d8ae8d"
   end
 
   resource "certifi" do
@@ -70,8 +70,8 @@ class Howdoi < Formula
   end
 
   resource "PyGithub" do
-    url "https://files.pythonhosted.org/packages/90/9a/1cdf86346b3f18a064b783ccbef734ca3d82f47f3c3373f3c6f4ecd429eb/PyGithub-1.51.tar.gz"
-    sha256 "d2d17d1e3f4474e070353f201164685a95b5a92f5ee0897442504e399c7bc249"
+    url "https://files.pythonhosted.org/packages/9c/5c/03e2a39c556a58fe0d77873bb508acc7bfd56cb34db16fe415da289a2ea7/PyGithub-1.52.tar.gz"
+    sha256 "fc11a182ca3d88dde6ab2fbbd07e3441685cc8b738f7813fcbfc18be28c1d8ed"
   end
 
   resource "Pygments" do
