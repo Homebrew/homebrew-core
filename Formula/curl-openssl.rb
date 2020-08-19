@@ -31,6 +31,7 @@ class CurlOpenssl < Formula
   depends_on "openldap"
   depends_on "openssl@1.1"
   depends_on "rtmpdump"
+  depends_on "zstd"
 
   def install
     system "./buildconf" if build.head?
