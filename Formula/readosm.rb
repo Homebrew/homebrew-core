@@ -3,6 +3,7 @@ class Readosm < Formula
   homepage "https://www.gaia-gis.it/fossil/readosm/index"
   url "https://www.gaia-gis.it/gaia-sins/readosm-1.1.0a.tar.gz"
   sha256 "4cb2a1200fda1275446dac11a1b02ce3870046174eb16dc1d94ce22bcab8667f"
+  license ["MPL-1.1", "GPL-2.0", "LGPL-2.1"]
 
   bottle do
     cellar :any
