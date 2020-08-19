@@ -29,7 +29,7 @@ class Nettle < Formula
     end
 
     args = []
-    args << "--build=aarch64-apple-darwin#{`uname -r`.chomp}" if Hardware::CPU.arm?
+    args << "--build=aarch64-apple-darwin#{OS.kernel_version}" if Hardware::CPU.arm?
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
