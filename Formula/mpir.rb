@@ -18,7 +18,7 @@ class Mpir < Formula
 
   def install
     args = %W[--disable-silent-rules --prefix=#{prefix} --enable-cxx]
-    args << "--build=#{Hardware.oldest_cpu}-apple-darwin#{`uname -r`.to_i}"
+    args << "--build=#{Hardware.oldest_cpu}-apple-darwin#{OS.kernel_version.major}"
     system "./configure", *args
     system "make", "install"
   end
