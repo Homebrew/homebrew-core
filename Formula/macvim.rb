@@ -6,6 +6,7 @@ class Macvim < Formula
   version "8.2-165"
   sha256 "83b80b87dbd269d4e70d05f9327dc550585d1712331f266c7c10f2ac6cc3745a"
   license "Vim"
+  revision 1
   head "https://github.com/macvim-dev/macvim.git"
 
   bottle do
@@ -17,6 +18,7 @@ class Macvim < Formula
 
   depends_on xcode: :build
   depends_on "cscope"
+  depends_on "gettext"
   depends_on "lua"
   depends_on "python@3.8"
   depends_on "ruby"
@@ -63,6 +65,7 @@ class Macvim < Formula
   test do
     output = shell_output("#{bin}/mvim --version")
     assert_match "+ruby", output
+    assert_match "+gettext", output
 
     # Simple test to check if MacVim was linked to Homebrew's Python 3
     py3_exec_prefix = shell_output(Formula["python@3.8"].opt_bin/"python3-config --exec-prefix")
