@@ -1,7 +1,7 @@
 class Pypy3 < Formula
   desc "Implementation of Python 3 in Python"
   homepage "https://pypy.org/"
-  url "https://bitbucket.org/pypy/pypy/downloads/pypy3.6-v7.3.1-src.tar.bz2"
+  url "https://downloads.python.org/pypy/pypy3.6-v7.3.1-src.tar.bz2"
   sha256 "0c2cc3229da36c6984baee128c8ff8bb4516d69df1d73275dc4622bf249afa83"
   license "MIT"
   revision 1
