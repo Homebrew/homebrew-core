@@ -6,7 +6,7 @@ class Semgrep < Formula
   url "https://github.com/returntocorp/semgrep.git",
     tag:      "v0.20.0",
     revision: "1e89dcc5d1e88d447397b663d5de7ce2a38976c0"
-  license "LGPL-2.1"
+  license "LGPL-2.1-only"
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
   bottle do
