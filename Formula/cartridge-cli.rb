@@ -2,8 +2,8 @@ class CartridgeCli < Formula
   desc "Tarantool Cartridge command-line utility"
   homepage "https://tarantool.org/"
   url "https://github.com/tarantool/cartridge-cli.git",
-      tag:      "2.2.0",
-      revision: "f7bef3cc404c57ccac95a5d0c6f07dfde88b13c6"
+      tag:      "2.2.1",
+      revision: "b1463509ed21c1ddc6a2e83287110e3631491761"
   license "BSD-2-Clause"
 
   bottle do
@@ -25,6 +25,10 @@ class CartridgeCli < Formula
     ]
 
     system "go", "build", "-o", bin/"cartridge", "-ldflags", ldflags.join(" "), "cli/main.go"
+    system bin/"cartridge", "gen", "completion"
+
+    bash_completion.install "completion/bash/cartridge"
+    zsh_completion.install "completion/zsh/_cartridge"
   end
 
   test do
