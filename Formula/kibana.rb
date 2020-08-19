@@ -1,9 +1,9 @@
 class Kibana < Formula
   desc "Analytics and search dashboard for Elasticsearch"
-  homepage "https://www.elastic.co/products/kibana"
+  homepage "https://www.elastic.co/kibana"
   url "https://github.com/elastic/kibana.git",
-      tag:      "v7.8.1",
-      revision: "5db9c677ea993ff3df503df03d03f5657fcea42e"
+      tag:      "v7.9.0",
+      revision: "095c1cec623b89c03306ef46becbc230597c0e47"
   license "Apache-2.0"
   head "https://github.com/elastic/kibana.git"
 
@@ -21,6 +21,10 @@ class Kibana < Formula
   def install
     # remove non open source files
     rm_rf "x-pack"
+
+    # fix `Error: Cannot find module '../../../../x-pack/plugins/reporting/server/browsers/install'` issue
+    inreplace "src/dev/build/tasks/index.ts", "export { InstallChromium } from './install_chromium';", ""
+    inreplace "src/dev/build/build_distributables.ts", "await run(Tasks.InstallChromium);", ""
 
     inreplace "package.json", /"node": "10\.\d+\.\d+"/, %Q("node": "#{Formula["node@10"].version}")
     system "yarn", "kbn", "bootstrap"
