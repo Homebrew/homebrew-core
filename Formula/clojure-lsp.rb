@@ -3,9 +3,9 @@ class ClojureLsp < Formula
   homepage "https://github.com/snoe/clojure-lsp"
   # Switch to use git tag/revision as needed by `lein-git-version`
   url "https://github.com/snoe/clojure-lsp.git",
-    tag:      "release-20200817T204951",
-    revision: "0e5385f42ab2fd5043b49b4b792ba03d6c78128e"
-  version "20200817T204951"
+    tag:      "release-20200819T134828",
+    revision: "090d60cbacc7b7f996fac10c06985ae35a5f7de6"
+  version "20200819T134828"
   license "MIT"
   head "https://github.com/snoe/clojure-lsp.git"
 
