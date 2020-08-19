@@ -44,6 +44,7 @@ class CurlOpenssl < Formula
       --enable-ares=#{Formula["c-ares"].opt_prefix}
       --with-ca-bundle=#{openssl.pkgetc}/cert.pem
       --with-ca-path=#{openssl.pkgetc}/certs
+      --with-brotli
       --with-gssapi
       --with-libidn2
       --with-libmetalink
