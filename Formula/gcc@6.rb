@@ -51,10 +51,8 @@ class GccAT6 < Formula
     # to prevent their build.
     ENV["gcc_cv_prog_makeinfo_modern"] = "no"
 
-    osmajor = `uname -r`.chomp
-
     args = [
-      "--build=x86_64-apple-darwin#{osmajor}",
+      "--build=x86_64-apple-darwin#{OS.kernel_version}",
       "--prefix=#{prefix}",
       "--libdir=#{lib}/gcc/#{version_suffix}",
       "--enable-languages=#{languages.join(",")}",
