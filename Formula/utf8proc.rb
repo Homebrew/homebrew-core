@@ -3,6 +3,7 @@ class Utf8proc < Formula
   homepage "https://juliastrings.github.io/utf8proc/"
   url "https://github.com/JuliaStrings/utf8proc/archive/v2.5.0.tar.gz"
   sha256 "d4e8dfc898cfd062493cb7f42d95d70ccdd3a4cd4d90bec0c71b47cca688f1be"
+  license all_of: ["MIT", "Unicode-DFS-2015"]
 
   bottle do
     cellar :any
