@@ -3,6 +3,7 @@ class Telnetd < Formula
   homepage "https://opensource.apple.com/"
   url "https://opensource.apple.com/tarballs/remote_cmds/remote_cmds-63.tar.gz"
   sha256 "13858ef1018f41b93026302840e832c2b65289242225c5a19ce5e26f84607f15"
+  license all_of: ["BSD-4-Clause-UC", "BSD-3-Clause"]
 
   bottle do
     cellar :any_skip_relocation
