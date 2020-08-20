@@ -3,7 +3,7 @@ class Sheldon < Formula
   homepage "https://rossmacarthur.github.io/sheldon"
   url "https://github.com/rossmacarthur/sheldon/archive/0.5.4.tar.gz"
   sha256 "2707f05f59ce3df7e572f8a098d6f0d675b0b351695d04ba8d159d5a7eee8562"
-  license ["Apache-2.0", "MIT"]
+  # license any_of: ["Apache-2.0", "MIT"] - pending next Homebrew/brew release
   head "https://github.com/rossmacarthur/sheldon.git"
 
   bottle do
