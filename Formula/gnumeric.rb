@@ -3,7 +3,7 @@ class Gnumeric < Formula
   homepage "https://projects.gnome.org/gnumeric/"
   url "https://download.gnome.org/sources/gnumeric/1.12/gnumeric-1.12.48.tar.xz"
   sha256 "57cce33a41d34db81292e9eebae8b5046f30e5d919d848256fbb75bfc132a590"
-  license ["GPL-3.0-only", "GPL-2.0-only"]
+  # license any_of: ["GPL-3.0-only", "GPL-2.0-only"] - pending next Homebrew/brew release
 
   bottle do
     sha256 "d9edd4ae0d044bfe837cc94adfb5f2cc812ae5706b0e7f8a96a0c7b2f9dae63b" => :catalina
