@@ -3,7 +3,7 @@ class Libfabric < Formula
   homepage "https://ofiwg.github.io/libfabric/"
   url "https://github.com/ofiwg/libfabric/releases/download/v1.11.0/libfabric-1.11.0.tar.bz2"
   sha256 "9938abf628e7ea8dcf60a94a4b62d499fbc0dbc6733478b6db2e6a373c80d58f"
-  license ["BSD-2-Clause", "GPL-2.0-only"]
+  # license any_of: ["BSD-2-Clause", "GPL-2.0-only"] - pending next Homebrew/brew release
   head "https://github.com/ofiwg/libfabric.git"
 
   bottle do
