@@ -5,7 +5,7 @@ class OciCli < Formula
   homepage "https://docs.cloud.oracle.com/iaas/Content/API/Concepts/cliconcepts.htm"
   url "https://github.com/oracle/oci-cli/archive/v2.12.8.tar.gz"
   sha256 "c15832ecf35222650183ec239d2664f776c7f5d830e4dc280569f6cc2f332ed7"
-  license ["UPL-1.0", "Apache-2.0"]
+  # license any_of: ["UPL-1.0", "Apache-2.0"] - pending next Homebrew/brew release
   head "https://github.com/oracle/oci-cli.git"
 
   bottle do
