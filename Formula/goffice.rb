@@ -3,7 +3,7 @@ class Goffice < Formula
   homepage "https://developer.gnome.org/goffice/"
   url "https://download.gnome.org/sources/goffice/0.10/goffice-0.10.48.tar.xz"
   sha256 "a439162fa26a0e58117e07b82b37000a7f421088ad379eb1f6a1cdee101ecefc"
-  license ["GPL-3.0-only", "GPL-2.0-only"]
+  # license any_of: ["GPL-3.0-only", "GPL-2.0-only"] - pending next Homebrew/brew release
 
   bottle do
     sha256 "3e05167a37c42bfa01acf4be7055a52e3c2a03c990536ae5562b2c0aa4812e42" => :catalina
