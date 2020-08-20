@@ -1,10 +1,20 @@
 class Terraformer < Formula
   desc "CLI tool to generate terraform files from existing infrastructure"
   homepage "https://github.com/GoogleCloudPlatform/terraformer"
-  url "https://github.com/GoogleCloudPlatform/terraformer/archive/0.8.8.tar.gz"
-  sha256 "a9cabe0889ebf823abb552f6e24276a8bf7667923918814623fe5129c34f47f0"
   license "Apache-2.0"
   head "https://github.com/GoogleCloudPlatform/terraformer.git"
+
+  stable do
+    url "https://github.com/GoogleCloudPlatform/terraformer/archive/0.8.8.tar.gz"
+    sha256 "a9cabe0889ebf823abb552f6e24276a8bf7667923918814623fe5129c34f47f0"
+
+    # fix version check, remove in next release
+    # https://github.com/GoogleCloudPlatform/terraformer/pull/535
+    patch do
+      url "https://github.com/GoogleCloudPlatform/terraformer/commit/3f75098f9e85e9630af5c4e0baa6529e52b0efb5.patch?full_index=1"
+      sha256 "477581bc9a3be36427e181d2ccdcefcbf13b9230b8ddf5e9eea64de9357a6274"
+    end
+  end
 
   bottle do
     cellar :any_skip_relocation
@@ -14,13 +24,6 @@ class Terraformer < Formula
   end
 
   depends_on "go" => :build
-
-  # fix version check, remove in next release
-  # https://github.com/GoogleCloudPlatform/terraformer/pull/535
-  patch do
-    url "https://github.com/GoogleCloudPlatform/terraformer/commit/3f75098f9e85e9630af5c4e0baa6529e52b0efb5.patch?full_index=1"
-    sha256 "477581bc9a3be36427e181d2ccdcefcbf13b9230b8ddf5e9eea64de9357a6274"
-  end
 
   def install
     system "go", "build", *std_go_args
