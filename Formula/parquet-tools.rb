@@ -2,8 +2,8 @@ class ParquetTools < Formula
   desc "Apache Parquet command-line tools and utilities"
   homepage "https://parquet.apache.org/"
   url "https://github.com/apache/parquet-mr.git",
-      tag:      "apache-parquet-1.10.0",
-      revision: "031a6654009e3b82020012a18434c582bd74c73a"
+      tag:      "apache-parquet-1.11.1",
+      revision: "765bd5cd7fdef2af1cecd0755000694b992bfadd"
   license "Apache-2.0"
   head "https://github.com/apache/parquet-mr.git"
 
@@ -17,6 +17,13 @@ class ParquetTools < Formula
   end
 
   depends_on "maven" => :build
+  depends_on "openjdk"
+
+  # based on https://github.com/apache/parquet-mr/pull/809
+  patch do
+    url "https://github.com/apache/parquet-mr/commit/b6d07ae0744ba47aa9a8868ef2d7cbb232a60b22.patch?full_index=1"
+    sha256 "200999012f743454cd525572bf848cd48b26051916a2d468474823a0aa2ccf61"
+  end
 
   def install
     cd "parquet-tools" do
