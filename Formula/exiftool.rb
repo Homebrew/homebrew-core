@@ -5,6 +5,7 @@ class Exiftool < Formula
   # https://exiftool.org/history.html
   url "https://exiftool.org/Image-ExifTool-12.00.tar.gz"
   sha256 "d0792cc94ab58a8b3d81b18ccdb8b43848c8fb901b5b7caecdcb68689c6c855a"
+  license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
 
   livecheck do
     url "https://exiftool.org/history.html"
