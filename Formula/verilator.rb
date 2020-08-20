@@ -3,7 +3,7 @@ class Verilator < Formula
   homepage "https://www.veripool.org/wiki/verilator"
   url "https://www.veripool.org/ftp/verilator-4.040.tgz"
   sha256 "6e1574924083922a4eb80ff22eedc866f4ce54e5fd6a34101b6af7aa29e5c0e3"
-  license ["LGPL-3.0-only", "Artistic-2.0"]
+  # license any_of: ["LGPL-3.0-only", "Artistic-2.0"] - pending next Homebrew/brew release
 
   bottle do
     sha256 "f4f7abca35a5479c05aecdab7cd1a0e693a1e6a731663c175ade7b61dc017d10" => :catalina
