@@ -1,8 +1,8 @@
 class Glslviewer < Formula
   desc "Live-coding console tool that renders GLSL Shaders"
   homepage "http://patriciogonzalezvivo.com/2015/glslViewer/"
-  url "https://github.com/patriciogonzalezvivo/glslViewer/archive/1.6.6.tar.gz"
-  sha256 "10bd34b535e495358ed8f2ae709840965cdc2a4dedee794e795d59ae3ec33518"
+  url "https://github.com/patriciogonzalezvivo/glslViewer/archive/1.6.8.tar.gz"
+  sha256 "3792984457c9487cd1f87374b7698f3b66f4480b3eeac7d940a2ecf9e74dee3e"
   license "BSD-3-Clause"
   head "https://github.com/patriciogonzalezvivo/glslViewer.git"
 
