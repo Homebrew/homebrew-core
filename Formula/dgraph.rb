@@ -6,6 +6,7 @@ class Dgraph < Formula
   # Source code in this repository is variously licensed under the Apache Public License 2.0 (APL)
   # and the Dgraph Community License (DCL). A copy of each license can be found in the licenses directory.
   license "Apache-2.0"
+  head "https://github.com/dgraph-io/dgraph.git"
 
   bottle do
     cellar :any_skip_relocation
