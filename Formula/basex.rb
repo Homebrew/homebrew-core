@@ -4,6 +4,7 @@ class Basex < Formula
   url "https://files.basex.org/releases/9.4.2/BaseX942.zip"
   version "9.4.2"
   sha256 "e58dfc425c88ab8f4d45c0c9ea64684a298205b5947c7586f40286c23fcf6976"
+  license "BSD-3-Clause"
 
   bottle :unneeded
 
