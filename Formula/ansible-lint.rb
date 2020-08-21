@@ -3,8 +3,8 @@ class AnsibleLint < Formula
 
   desc "Checks ansible playbooks for practices and behaviour"
   homepage "https://github.com/ansible/ansible-lint/"
-  url "https://files.pythonhosted.org/packages/fe/bf/881d754f2dd68ac3b08b47293c2fbf4365890db7e4e7da1a1fe98d71389f/ansible-lint-4.3.0.tar.gz"
-  sha256 "9f311c1f94057a8231c5d7b890bb9b8a15034d26c61d69b4e730fe105073ed49"
+  url "https://files.pythonhosted.org/packages/82/88/7a7875c8f4bef22357a966ea85eaa31dc5b239eb509a5c8c5ee71b757d75/ansible-lint-4.3.1.tar.gz"
+  sha256 "f7de0972436ae43d2881c7c235d908e726e14647177b2439064075276279f8c4"
   license "MIT"
 
   bottle do
@@ -35,6 +35,16 @@ class AnsibleLint < Formula
     sha256 "ae8f34d50af2c2154035984b8b5fc5d9ed63f32fe615646ab435b05b132ca91b"
   end
 
+  resource "colorama" do
+    url "https://files.pythonhosted.org/packages/82/75/f2a4c0c94c85e2693c229142eb448840fba0f9230111faa889d1f541d12d/colorama-0.4.3.tar.gz"
+    sha256 "e96da0d330793e2cb9485e9ddfd918d456036c7149416295932478192f4436a1"
+  end
+
+  resource "commonmark" do
+    url "https://files.pythonhosted.org/packages/60/48/a60f593447e8f0894ebb7f6e6c1f25dafc5e89c5879fdc9360ae93ff83f0/commonmark-0.9.1.tar.gz"
+    sha256 "452f9dc859be7f06631ddcb328b6919c67984aca654e5fefb3914d54691aed60"
+  end
+
   resource "cryptography" do
     url "https://files.pythonhosted.org/packages/bf/ac/552fc8729d90393845cc3a2062facf4a89dcbe206fa78771d60ddaae7554/cryptography-3.0.tar.gz"
     sha256 "8e924dbc025206e97756e8903039662aa58aa9ba357d8e1d8fc29e3092322053"
@@ -55,9 +65,19 @@ class AnsibleLint < Formula
     sha256 "2d475327684562c3a96cc71adf7dc8c4f0565175cf86b6d7a404ff4c771f15f0"
   end
 
+  resource "Pygments" do
+    url "https://files.pythonhosted.org/packages/6e/4d/4d2fe93a35dfba417311a4ff627489a947b01dc0cc377a3673c00cf7e4b2/Pygments-2.6.1.tar.gz"
+    sha256 "647344a061c249a3b74e230c739f434d7ea4d8b1d5f3721bc0f3558049b38f44"
+  end
+
   resource "PyYAML" do
     url "https://files.pythonhosted.org/packages/64/c2/b80047c7ac2478f9501676c988a5411ed5572f35d1beff9cae07d321512c/PyYAML-5.3.1.tar.gz"
     sha256 "b8eac752c5e14d3eca0e6dd9199cd627518cb5ec06add0de9d32baeee6fe645d"
+  end
+
+  resource "rich" do
+    url "https://files.pythonhosted.org/packages/3e/53/3cbb5388424c384c1e8177c4734f4e8e2ef684cf83eef1dceb1dcc0fc55a/rich-5.2.1.tar.gz"
+    sha256 "d791263dc505b635b75249dfc1991510d7eabb27047652e3209e98384365c9c9"
   end
 
   resource "ruamel.yaml" do
@@ -73,6 +93,11 @@ class AnsibleLint < Formula
   resource "six" do
     url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
     sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
+  end
+
+  resource "typing-extensions" do
+    url "https://files.pythonhosted.org/packages/6a/28/d32852f2af6b5ead85d396249d5bdf450833f3a69896d76eb480d9c5e406/typing_extensions-3.7.4.2.tar.gz"
+    sha256 "79ee589a3caca649a9bfd2a8de4709837400dfa00b6cc81962a1e6a1815969ae"
   end
 
   def install
