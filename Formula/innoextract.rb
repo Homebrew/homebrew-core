@@ -1,20 +1,10 @@
 class Innoextract < Formula
   desc "Tool to unpack installers created by Inno Setup"
   homepage "https://constexpr.org/innoextract/"
+  url "https://constexpr.org/innoextract/files/innoextract-1.9.tar.gz"
+  sha256 "6344a69fc1ed847d4ed3e272e0da5998948c6b828cb7af39c6321aba6cf88126"
   license "Zlib"
   head "https://github.com/dscharrer/innoextract.git"
-
-  stable do
-    url "https://constexpr.org/innoextract/files/innoextract-1.8.tar.gz"
-    sha256 "5e78f6295119eeda08a54dcac75306a1a4a40d0cb812ff3cd405e9862c285269"
-
-    # Boost 1.70+ compatibility. Remove with next release. b47f46 is
-    # already in master.
-    patch do
-      url "https://github.com/dscharrer/innoextract/commit/b47f46102bccf1d813ca159230029b0cd820ceff.patch?full_index=1"
-      sha256 "92d321d552a65e16ae6df992a653839fb19de79aa77388c651bf57b3c582d546"
-    end
-  end
 
   bottle do
     cellar :any
@@ -28,8 +18,11 @@ class Innoextract < Formula
   depends_on "xz"
 
   def install
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
+      system "make"
+      system "make", "install"
+    end
   end
 
   test do
