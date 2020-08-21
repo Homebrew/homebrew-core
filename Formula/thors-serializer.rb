@@ -2,8 +2,8 @@ class ThorsSerializer < Formula
   desc "Declarative serialization library (JSON/YAML) for C++"
   homepage "https://github.com/Loki-Astari/ThorsSerializer"
   url "https://github.com/Loki-Astari/ThorsSerializer.git",
-      tag:      "1.15.1",
-      revision: "89ee7d6ae390547054c2c8603d8654dbfeff85e4"
+      tag:      "2.0.15",
+      revision: "a3105857c3c12365a61c79d96e3a938b1942c385"
   license "MIT"
 
   bottle do
@@ -13,13 +13,13 @@ class ThorsSerializer < Formula
     sha256 "df5bfe38925f7bf7abdd136a55079e024a641e79ebb6fdf76cf89dd40fd8445f" => :high_sierra
   end
 
+  depends_on "boost" => :build
   depends_on "libyaml"
 
   def install
     ENV["COV"] = "gcov"
 
-    system "./configure", "--disable-binary",
-                          "--disable-vera",
+    system "./configure", "--disable-vera",
                           "--prefix=#{prefix}"
     system "make"
     system "make", "install"
@@ -33,22 +33,22 @@ class ThorsSerializer < Formula
       #include <iostream>
       #include <string>
 
-      struct Block
+      struct HomeBrewBlock
       {
           std::string             key;
           int                     code;
       };
-      ThorsAnvil_MakeTrait(Block, key, code);
+      ThorsAnvil_MakeTrait(HomeBrewBlock, key, code);
 
       int main()
       {
-          using ThorsAnvil::Serialize::jsonImport;
-          using ThorsAnvil::Serialize::jsonExport;
+          using ThorsAnvil::Serialize::jsonImporter;
+          using ThorsAnvil::Serialize::jsonExporter;
 
           std::stringstream   inputData(R"({"key":"XYZ","code":37373})");
 
-          Block    object;
-          inputData >> jsonImport(object);
+          HomeBrewBlock    object;
+          inputData >> jsonImporter(object);
 
           if (object.key != "XYZ" || object.code != 37373) {
               std::cerr << "Fail";
@@ -58,7 +58,8 @@ class ThorsSerializer < Formula
           return 0;
       }
     EOS
-    system ENV.cxx, "-std=c++14", "test.cpp", "-o", "test",
+    system ENV.cxx, "-std=c++17", "test.cpp", "-o", "test",
+           "-I#{Formula["boost"].opt_include}",
            "-I#{include}", "-L#{lib}", "-lThorSerialize17"
     system "./test"
   end
