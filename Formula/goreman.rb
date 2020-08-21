@@ -1,9 +1,10 @@
 class Goreman < Formula
   desc "Foreman clone written in Go"
   homepage "https://github.com/mattn/goreman"
-  url "https://github.com/mattn/goreman/archive/v0.3.5.tar.gz"
-  sha256 "ceae7f2b71098799982928f35174df91e301fd5792af12b97a9ece943d260b9e"
+  url "https://github.com/mattn/goreman/archive/v0.3.7.tar.gz"
+  sha256 "424dde6592c99468dce19c1302222a15ccc2367f0c908ee2147709398ce6497b"
   license "MIT"
+  head "https://github.com/mattn/goreman.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,7 +18,6 @@ class Goreman < Formula
 
   def install
     system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"goreman"
-    prefix.install_metafiles
   end
 
   test do
