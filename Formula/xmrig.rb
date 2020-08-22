@@ -3,7 +3,7 @@ class Xmrig < Formula
   homepage "https://github.com/xmrig/xmrig"
   url "https://github.com/xmrig/xmrig/archive/v6.3.2.tar.gz"
   sha256 "495d93f26f1bc24c35a366d33d7a4fffa25a4b5c1f0396f42d282c67aca90984"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
   head "https://github.com/xmrig/xmrig.git"
 
   bottle do
