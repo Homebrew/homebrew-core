@@ -1,8 +1,8 @@
 class Zrepl < Formula
   desc "One-stop ZFS backup & replication solution"
   homepage "https://zrepl.github.io"
-  url "https://github.com/zrepl/zrepl/archive/v0.2.1.tar.gz"
-  sha256 "df474e70f5a51d84816ee8a06038ded167a7548e547e2d2822c313f088eeeafd"
+  url "https://github.com/zrepl/zrepl/archive/v0.3.0.tar.gz"
+  sha256 "669b59ca524f487a76145f7153b9c048442cd1b96a293e0dc18048f5024a2997"
   license "MIT"
   head "https://github.com/zrepl/zrepl.git"
 
@@ -13,7 +13,6 @@ class Zrepl < Formula
     sha256 "d480d224d1cfd259622de17f60d7f619f439e9cf37337a0a136fba827daa36d2" => :high_sierra
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   resource "sample_config" do
@@ -22,24 +21,8 @@ class Zrepl < Formula
   end
 
   def install
-    contents = Dir["{*,.git,.gitignore}"]
-    gopath = buildpath/"gopath"
-    (gopath/"src/github.com/zrepl/zrepl").install contents
-
-    ENV["GOPATH"] = gopath
-    ENV["GOOS"]   = "darwin"
-    ENV["GOARCH"] = "amd64"
-
-    ENV.prepend_create_path "PATH", gopath/"bin"
-    cd gopath/"src/github.com/zrepl/zrepl" do
-      system "go", "build", "-o", "'$GOPATH/bin/stringer'", "golang.org/x/tools/cmd/stringer"
-      system "go", "build", "-o", "'$GOPATH/bin/protoc-gen-go'", "github.com/golang/protobuf/protoc-gen-go"
-      system "go", "build", "-o", "'$GOPATH/bin/enumer'", "github.com/alvaroloes/enumer"
-      system "go", "build", "-o", "'$GOPATH/bin/goimports'", "golang.org/x/tools/cmd/goimports"
-      system "go", "build", "-o", "'$GOPATH/bin/golangci-lint'", "github.com/golangci/golangci-lint/cmd/golangci-lint"
-      system "make", "ZREPL_VERSION=#{version}"
-      bin.install "artifacts/zrepl-darwin-amd64" => "zrepl"
-    end
+    system "go", "build", *std_go_args,
+      "-ldflags", "-X github.com/zrepl/zrepl/version.zreplVersion=#{version}"
   end
 
   def post_install
