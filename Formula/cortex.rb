@@ -1,8 +1,8 @@
 class Cortex < Formula
   desc "Long term storage for Prometheus"
   homepage "https://cortexmetrics.io/"
-  url "https://github.com/cortexproject/cortex/archive/v1.2.0.tar.gz"
-  sha256 "24079157bdc8cbf721378e01b79b08998dfb5e40c4d519cd2c8c22a94f67f6fc"
+  url "https://github.com/cortexproject/cortex/archive/v1.3.0.tar.gz"
+  sha256 "5354cbed3670e566b8f01609fc8e160640a66d034ccad144c77b8e315feadea8"
   license "Apache-2.0"
 
   bottle do
