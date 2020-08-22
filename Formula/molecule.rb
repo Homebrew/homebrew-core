@@ -3,8 +3,8 @@ class Molecule < Formula
 
   desc "Automated testing for Ansible roles"
   homepage "https://molecule.readthedocs.io"
-  url "https://files.pythonhosted.org/packages/af/dc/4c2cbece71e480d09b8e8f6fd6c6c8849e7b65a591a7cd7a3e66085630d1/molecule-3.0.6.tar.gz"
-  sha256 "b83d73b3e34ad9bc7cc62f1869a2c9e4c4cc5e5c5a2d9de963e838d5f37fb47b"
+  url "https://files.pythonhosted.org/packages/a0/a4/f6f0676de9fde9426015d1aaa860444cd3ff6098cbec36aeab8cf1022579/molecule-3.0.8.tar.gz"
+  sha256 "42d0c661b52074b00a620466df367ddab9c3682875e6d685bfc93487ef0479cc"
   license "MIT"
 
   bottle do
@@ -28,18 +28,18 @@ class Molecule < Formula
   #  python-vagrant
 
   resource "ansible" do
-    url "https://files.pythonhosted.org/packages/03/4f/cccab1ec2e0ecb05120184088e00404b38854809cf35aa76889406fbcbad/ansible-2.9.10.tar.gz"
-    sha256 "0866f1432db1698758ca5753f2c1c2a8048823cc6f9ab4b7d03162c44febcacd"
+    url "https://files.pythonhosted.org/packages/4b/69/c8aef60ce070fe6872e27db65f588bd0ffe8892a980cd3f4d844d8b72152/ansible-2.9.12.tar.gz"
+    sha256 "7e95ddf719190b068fafc7d7c7877c218054cc5da4f6d9d794faf7bc66dab774"
   end
 
   resource "arrow" do
-    url "https://files.pythonhosted.org/packages/3f/e5/ddd9d095abbd249c2a610e6676c806a5f156c943677b30c2904f4c18f1b9/arrow-0.15.7.tar.gz"
-    sha256 "3f1a92b25bbee5f80cc8f6bdecfeade9028219229137c559c37335b4f574a292"
+    url "https://files.pythonhosted.org/packages/a5/c1/f933a144f4916ed79c19671ed47575ce201dd49baa58c4e80dcc5b4ab750/arrow-0.15.8.tar.gz"
+    sha256 "edc31dc051db12c95da9bac0271cd1027b8e36912daf6d4580af53b23e62721a"
   end
 
   resource "bcrypt" do
-    url "https://files.pythonhosted.org/packages/fa/aa/025a3ab62469b5167bc397837c9ffc486c42a97ef12ceaa6699d8f5a5416/bcrypt-3.1.7.tar.gz"
-    sha256 "0b0069c752ec14172c5f78208f1863d7ad6755a6fae6fe76ec2c80d13be41e42"
+    url "https://files.pythonhosted.org/packages/d8/ba/21c475ead997ee21502d30f76fd93ad8d5858d19a3fad7cd153de698c4dd/bcrypt-3.2.0.tar.gz"
+    sha256 "5b93c1726e50a93a033c36e5ca7fdcd29a5c7395af50a6892f5d9e7c6cfbfb29"
   end
 
   resource "binaryornot" do
@@ -58,8 +58,8 @@ class Molecule < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/05/54/3324b0c46340c31b909fcec598696aaec7ddc8c18a63f2db352562d3354c/cffi-1.14.0.tar.gz"
-    sha256 "2d384f4a127a15ba701207f7639d94106693b6cd64173d6c8988e2c25f3ac2b6"
+    url "https://files.pythonhosted.org/packages/f7/09/88bbe20b76ca76be052c366fe77aa5e3cd6e5f932766e5597fecdd95b2a8/cffi-1.14.2.tar.gz"
+    sha256 "ae8f34d50af2c2154035984b8b5fc5d9ed63f32fe615646ab435b05b132ca91b"
   end
 
   resource "chardet" do
@@ -93,13 +93,8 @@ class Molecule < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/56/3b/78c6816918fdf2405d62c98e48589112669f36711e50158a0c15d804c30d/cryptography-2.9.2.tar.gz"
-    sha256 "a0c30272fb4ddda5f5ffc1089d7405b7a71b0b0f51993cb4e5dbb4590b2fc229"
-  end
-
-  resource "distro" do
-    url "https://files.pythonhosted.org/packages/a6/a4/75064c334d8ae433445a20816b788700db1651f21bdb0af33db2aab142fe/distro-1.5.0.tar.gz"
-    sha256 "0e58756ae38fbd8fc3020d54badb8eae17c5b9dcbed388b17bb55b8a5928df92"
+    url "https://files.pythonhosted.org/packages/bf/ac/552fc8729d90393845cc3a2062facf4a89dcbe206fa78771d60ddaae7554/cryptography-3.0.tar.gz"
+    sha256 "8e924dbc025206e97756e8903039662aa58aa9ba357d8e1d8fc29e3092322053"
   end
 
   resource "docker-py" do
@@ -207,11 +202,6 @@ class Molecule < Formula
     sha256 "b3559a131db72c33ee969480840fff4bb6dd111de7dd27c8ee1f820f4f00231b"
   end
 
-  resource "selinux" do
-    url "https://files.pythonhosted.org/packages/1a/f1/5755b134895bb9b29d6937cae52d0f58140bb97df0f72c33231345294e80/selinux-0.2.1.tar.gz"
-    sha256 "d435f514e834e3fdc0941f6a29d086b80b2ea51b28112aee6254bd104ee42a74"
-  end
-
   resource "sh" do
     url "https://files.pythonhosted.org/packages/c9/3b/2c9a22bf1c48ced7ff3a11d4a862682c21d825c35f9d025811ad9808d263/sh-1.13.1.tar.gz"
     sha256 "97a3d2205e3c6a842d87ebbc9ae93acae5a352b1bc4609b428d0fd5bb9e286a3"
@@ -243,8 +233,8 @@ class Molecule < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/05/8c/40cd6949373e23081b3ea20d5594ae523e681b6f472e600fbc95ed046a36/urllib3-1.25.9.tar.gz"
-    sha256 "3018294ebefce6572a474f0604c2021e33b3fd8006ecd11d62107a5d2a963527"
+    url "https://files.pythonhosted.org/packages/81/f4/87467aeb3afc4a6056e1fe86626d259ab97e1213b1dfec14c7cb5f538bf0/urllib3-1.25.10.tar.gz"
+    sha256 "91056c15fa70756691db97756772bb1eb9678fa585d9184f24534b100dc60f4a"
   end
 
   resource "websocket_client" do
@@ -253,8 +243,8 @@ class Molecule < Formula
   end
 
   resource "yamllint" do
-    url "https://files.pythonhosted.org/packages/d2/29/c94cb1ddb4e8f06a2ecef4edfc6419809c44d079e020f5b632711d91ec9a/yamllint-1.23.0.tar.gz"
-    sha256 "59f3ff77f44e7f46be6aecdb985830f73a1c51e290b7082a7d38c2ae1940f4a9"
+    url "https://files.pythonhosted.org/packages/4e/8a/a92aef0d807d75bb9df244c8fae36844035370b7431d6338def14abf4bc6/yamllint-1.24.2.tar.gz"
+    sha256 "40b68de6bacdccec1585dbd54072731b10da7fc2f9cfd96517a71f066208b61f"
   end
 
   # Plugins
