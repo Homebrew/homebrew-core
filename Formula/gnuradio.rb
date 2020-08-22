@@ -1,12 +1,11 @@
 class Gnuradio < Formula
   include Language::Python::Virtualenv
 
-  desc "SDK providing the signal processing runtime and processing blocks"
+  desc "SDK for signal processing blocks to implement software radios"
   homepage "https://gnuradio.org/"
-  url "https://github.com/gnuradio/gnuradio/releases/download/v3.8.1.0/gnuradio-3.8.1.0.tar.gz"
-  sha256 "e15311e7da9fe2bb790cc36321d7eb2d93b9dfa0c1552fa5d534dd99d22873be"
-  license "GPL-3.0"
-  revision 1
+  url "https://github.com/gnuradio/gnuradio/releases/download/v3.8.2.0/gnuradio-3.8.2.0.tar.gz"
+  sha256 "3e293541a9ac8d78660762bae8b80c0f6195b3494e1c50c01a9fd79cc60bb624"
+  license "GPL-3.0-or-later"
   head "https://github.com/gnuradio/gnuradio.git"
 
   bottle do
@@ -33,16 +32,17 @@ class Gnuradio < Formula
   depends_on "qt"
   depends_on "qwt"
   depends_on "uhd"
+  depends_on "volk"
   depends_on "zeromq"
 
   resource "Cheetah" do
-    url "https://files.pythonhosted.org/packages/4e/72/e6a7d92279e3551db1b68fd336fd7a6e3d2f2ec742bf486486e6150d77d2/Cheetah3-3.2.4.tar.gz"
-    sha256 "caabb9c22961a3413ac85cd1e5525ec9ca80daeba6555f4f60802b6c256e252b"
+    url "https://files.pythonhosted.org/packages/50/d5/34b30f650e889d0d48e6ea9337f7dcd6045c828b9abaac71da26b6bdc543/Cheetah3-3.2.5.tar.gz"
+    sha256 "ececc9ca7c58b9a86ce71eb95594c4619949e2a058d2a1af74c7ae8222515eb1"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/f8/5c/f60e9d8a1e77005f664b76ff8aeaee5bc05d0a91798afd7f53fc998dbc47/Click-7.0.tar.gz"
-    sha256 "5b94b49521f6456670fdb30cd82a4eca9412788a93fa6dd6df72c94d5a8ff2d7"
+    url "https://files.pythonhosted.org/packages/27/6f/be940c8b1f1d69daceeb0032fee6c34d7bd70e3e649ccac0951500b4720e/click-7.1.2.tar.gz"
+    sha256 "d2b5255c7c6349bc1bd1e59e08cd12acbbd63ce649f2588755783aa94dfb6b1a"
   end
 
   resource "click-plugins" do
@@ -51,18 +51,18 @@ class Gnuradio < Formula
   end
 
   resource "Mako" do
-    url "https://files.pythonhosted.org/packages/b0/3c/8dcd6883d009f7cae0f3157fb53e9afb05a0d3d33b3db1268ec2e6f4a56b/Mako-1.1.0.tar.gz"
-    sha256 "a36919599a9b7dc5d86a7a8988f23a9a3a3d083070023bab23d64f7f1d1e0a4b"
+    url "https://files.pythonhosted.org/packages/72/89/402d2b4589e120ca76a6aed8fee906a0f5ae204b50e455edd36eda6e778d/Mako-1.1.3.tar.gz"
+    sha256 "8195c8c1400ceb53496064314c6736719c6f25e7479cd24c77be3d9361cddc27"
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
-    sha256 "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
+    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
+    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/e3/e8/b3212641ee2718d556df0f23f78de8303f068fe29cdaa7a91018849582fe/PyYAML-5.1.2.tar.gz"
-    sha256 "01adf0b6c6f61bd11af6e10ca52b7d4057dd0be0343eb9283c878cf3af56aee4"
+    url "https://files.pythonhosted.org/packages/64/c2/b80047c7ac2478f9501676c988a5411ed5572f35d1beff9cae07d321512c/PyYAML-5.3.1.tar.gz"
+    sha256 "b8eac752c5e14d3eca0e6dd9199cd627518cb5ec06add0de9d32baeee6fe645d"
   end
 
   resource "cppzmq" do
@@ -73,8 +73,8 @@ class Gnuradio < Formula
   # patch for boost 1.73.0, remove after next release
   # https://github.com/gnuradio/gnuradio/pull/3566
   patch do
-    url "https://github.com/gnuradio/gnuradio/commit/5752be31d17be80203d9fc44a73661712542bfe1.patch?full_index=1"
-    sha256 "8e50a04dbe12accd133a9db7d3bde6d704e805ae4f6acf734182608e306975d6"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/0d2af1812716a874d1e49268e999ea1a8ca9fc3c/gnuradio/boost-1.73.0.patch"
+    sha256 "7e4abd08210d242d65807b7e2419f163a58b4630027a3beaff0e325d044266d7"
   end
 
   # Add -undefined dynamic_lookup linker flag back for macOS
@@ -100,7 +100,7 @@ class Gnuradio < Formula
     end
 
     # Avoid references to the Homebrew shims directory
-    inreplace ["CMakeLists.txt", "volk/lib/CMakeLists.txt"] do |s|
+    inreplace "CMakeLists.txt" do |s|
       s.gsub! "${CMAKE_C_COMPILER}", ENV.cc
       s.gsub! "${CMAKE_CXX_COMPILER}", ENV.cxx
     end
@@ -118,6 +118,7 @@ class Gnuradio < Formula
       -DCMAKE_PREFIX_PATH=#{Formula["qt"].opt_lib}
       -DQT_BINARY_DIR=#{Formula["qt"].opt_bin}
       -DENABLE_TESTING=OFF
+      -DENABLE_INTERNAL_VOLK=OFF
     ]
 
     enabled = %w[GNURADIO_RUNTIME GR_ANALOG GR_AUDIO GR_BLOCKS GRC
