@@ -3,7 +3,7 @@ class Darcs < Formula
   homepage "http://darcs.net/"
   url "https://hackage.haskell.org/package/darcs-2.16.2/darcs-2.16.2.tar.gz"
   sha256 "161752851d910fb8d2168cb49b3b9bbe0571e0b622cd1d36d1ea174aa25255db"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
     cellar :any_skip_relocation
