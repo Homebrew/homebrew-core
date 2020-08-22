@@ -4,7 +4,7 @@ class Wolfssl < Formula
   url "https://github.com/wolfSSL/wolfssl.git",
       tag:      "v4.5.0-stable",
       revision: "0fa5af9929ce2ee99e8789996a3048f41a99830e"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   head "https://github.com/wolfSSL/wolfssl.git"
 
   bottle do
