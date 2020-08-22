@@ -1,6 +1,7 @@
 class SaneBackends < Formula
   desc "Backends for scanner access"
   homepage "http://www.sane-project.org/"
+  revision 1
   head "https://gitlab.com/sane-project/backends.git"
 
   stable do
