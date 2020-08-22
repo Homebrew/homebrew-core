@@ -3,7 +3,7 @@ class Ncmpc < Formula
   homepage "https://www.musicpd.org/clients/ncmpc/"
   url "https://www.musicpd.org/download/ncmpc/0/ncmpc-0.39.tar.xz"
   sha256 "64ebe320c2fbe4dfbff4461ceae730001841d06d48c4882d69f320912a0f11a8"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
     cellar :any
