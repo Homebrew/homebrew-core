@@ -3,8 +3,8 @@ class PreCommit < Formula
 
   desc "Framework for managing multi-language pre-commit hooks"
   homepage "https://pre-commit.com/"
-  url "https://github.com/pre-commit/pre-commit/archive/v2.7.0.tar.gz"
-  sha256 "b1eabb33382a0b00fa91b78cc1c0f6fe597b619e91b20aea2e31b94d0a64b482"
+  url "https://github.com/pre-commit/pre-commit/archive/v2.7.1.tar.gz"
+  sha256 "b6ca162ba902dac6b0567d5b2ed3a7cc479ead512bdad5579e35a6836b8c1b0e"
   license "MIT"
 
   bottle do
@@ -43,8 +43,8 @@ class PreCommit < Formula
   end
 
   resource "nodeenv" do
-    url "https://files.pythonhosted.org/packages/3e/8f/5cc2a548f8992eba34328788ae09acf1432f3cec65bcb95f1e45c655a487/nodeenv-1.4.0.tar.gz"
-    sha256 "26941644654d8dd5378720e38f62a3bac5f9240811fb3b8913d2663a17baa91c"
+    url "https://files.pythonhosted.org/packages/2f/15/d1eb0d2664e57da61622a815efe7a88db68c7a593fb86bd7cc629fc31c76/nodeenv-1.5.0.tar.gz"
+    sha256 "ab45090ae383b716c4ef89e690c41ff8c2b257b85b309f01f3654df3d084bd7c"
   end
 
   resource "PyYAML" do
