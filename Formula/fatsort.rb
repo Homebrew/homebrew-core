@@ -4,7 +4,7 @@ class Fatsort < Formula
   url "https://downloads.sourceforge.net/project/fatsort/fatsort-1.6.3.622.tar.xz"
   version "1.6.3"
   sha256 "481c94ea08f6faaafe67594726d70fb3e3d5ac9672745f0034e55134ea5256fc"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
     cellar :any_skip_relocation
