@@ -1,10 +1,9 @@
 class Ettercap < Formula
   desc "Multipurpose sniffer/interceptor/logger for switched LAN"
   homepage "https://ettercap.github.io/ettercap/"
-  url "https://github.com/Ettercap/ettercap/archive/v0.8.3.tar.gz"
-  sha256 "d561a554562e447f4d7387a9878ba745e1aa8c4690cc4e9faaa779cfdaa61fbb"
+  url "https://github.com/Ettercap/ettercap/archive/v0.8.3.1.tar.gz"
+  sha256 "d0c3ef88dfc284b61d3d5b64d946c1160fd04276b448519c1ae4438a9cdffaf3"
   license "GPL-2.0"
-  revision 4
   head "https://github.com/Ettercap/ettercap.git"
 
   bottle do
