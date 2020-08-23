@@ -3,8 +3,8 @@ class Gdbgui < Formula
 
   desc "Modern, browser-based frontend to gdb (gnu debugger)"
   homepage "https://www.gdbgui.com/"
-  url "https://files.pythonhosted.org/packages/86/de/8ed396df4cdd1d8d103d90fe138fb0f5f20491e0316fb35dd8a4c6f2f8b1/gdbgui-0.13.2.1.tar.gz"
-  sha256 "305003b719cf5c850e027d75fffb8dd6c38da1f7999cd2ab22f6a27a48e4c57e"
+  url "https://files.pythonhosted.org/packages/8a/2e/312578e89423a483303d9e24cfee47ece0454a508f7090dcf5ead57e230e/gdbgui-0.14.0.0.tar.gz"
+  sha256 "a14a59828a36016928d9bdf8423e6902266daa2ccab3df0142c6388afe3fe7bc"
   license "GPL-3.0"
 
   bottle do
@@ -88,8 +88,8 @@ class Gdbgui < Formula
   end
 
   resource "pygdbmi" do
-    url "https://files.pythonhosted.org/packages/b1/06/f60cce2f9acb5ac4278cb1eedb7bb1a7bb52777b7ae74cd222c0068302fd/pygdbmi-0.9.0.3.tar.gz"
-    sha256 "5bdf2f072e8f2f6471f19f8dcd87d6425c5d8069d47c0a5ffe8d0eff48cb171e"
+    url "https://files.pythonhosted.org/packages/5d/3e/ccd97d572f9b80851742a3d30551bc8b11be203b43545418afffbcf2cd59/pygdbmi-0.10.0.0b0.tar.gz"
+    sha256 "8a02cec223e4ed8bead9c4a5859017df822eb2fa80e90d59a463749336139bff"
   end
 
   resource "Pygments" do
@@ -98,8 +98,8 @@ class Gdbgui < Formula
   end
 
   resource "python-engineio" do
-    url "https://files.pythonhosted.org/packages/88/31/5b57e795c509f7312ea2b24ee23812981dbac616a5a8e41a2e48e5137ec7/python-engineio-3.13.1.tar.gz"
-    sha256 "133bdb5fb89f43a53f8612fb1ddbb3a453318713dea18a9ecf5346ed0c0f793c"
+    url "https://files.pythonhosted.org/packages/e7/f5/64651d4ef2fc8921de33c010a8531916a5bdabd87cd0da66ea6b56c52239/python-engineio-3.13.2.tar.gz"
+    sha256 "36b33c6aa702d9b6a7f527eec6387a2da1a9a24484ec2f086d76576413cef04b"
   end
 
   resource "python-socketio" do
@@ -118,7 +118,6 @@ class Gdbgui < Formula
   end
 
   def install
-    virtualenv_create(libexec, "python3")
     virtualenv_install_with_resources
   end
 
