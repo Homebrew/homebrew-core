@@ -3,8 +3,7 @@ class PerlBuild < Formula
   homepage "https://github.com/tokuhirom/Perl-Build"
   url "https://github.com/tokuhirom/Perl-Build/archive/1.30.tar.gz"
   sha256 "30585889bf7ba9979233d30cfd32686790833f0317ce8d796878dca996fab9bb"
-  # license ["Artistic-1.0", "GPL-1.0"] - pending https://github.com/Homebrew/brew/pull/7953
-  license "Artistic-1.0"
+  license any_of: ["Artistic-1.0", "GPL-1.0-or-later"]
   head "https://github.com/tokuhirom/perl-build.git"
 
   bottle do

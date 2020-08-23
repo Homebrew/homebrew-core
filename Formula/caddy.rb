@@ -9,9 +9,10 @@ class Caddy < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8f3398b95caa379dccc4b1001a463534812dd91d3bbe6252673423669c476dc4" => :catalina
-    sha256 "167d9e4ecd48c8f0bd3b8bfb62ec7b1532e15fd909b1a43f86e5fec228e5b729" => :mojave
-    sha256 "7acc38c07d9ba7e0e8f265a6c7d250b23116800794420be9c9565efe75485b8d" => :high_sierra
+    rebuild 1
+    sha256 "847028dd3f176fb48afa9006530d98df57f355ff6bdb5a985d274b7ff45882f5" => :catalina
+    sha256 "002970585ed938b177d25c97828246f85ca2a591381c13d0f4c41a7f0fdb6bad" => :mojave
+    sha256 "db60499319ccada5f3a2a0c16b8ea86c00369b876a7491ba62c7b011db54e526" => :high_sierra
   end
 
   depends_on "go@1.14" => :build
@@ -25,7 +26,9 @@ class Caddy < Formula
     revision = build.head? ? version.commit : "v#{version}"
 
     resource("xcaddy").stage do
-      system "go", "run", "cmd/xcaddy/main.go", "build", revision, "--output", bin/"caddy"
+      system "go", "run", "cmd/xcaddy/main.go", "build", revision,
+                                                "--with", "github.com/caddyserver/caddy/v2=#{buildpath}",
+                                                "--output", bin/"caddy"
     end
   end
 

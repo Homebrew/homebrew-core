@@ -7,7 +7,6 @@ on:
     - cron: '*/60 * * * *'
 
 env:
-  HOMEBREW_COLOR: 1
   HOMEBREW_FORCE_HOMEBREW_ON_LINUX: 1
 
 jobs:

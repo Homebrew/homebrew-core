@@ -19,10 +19,10 @@ class Agda < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 "a7a95a514b445fcb561ac0ed5be267327c111507f367add5d726c0a6b96afa7b" => :catalina
-    sha256 "b617423569007baea1876abe6c34f4c5524ad050a8c93185f815f62e968d1750" => :mojave
-    sha256 "7808d30de9683ed16057e9c5508587db60e7fbcd5a7d7674afc51016c5f68327" => :high_sierra
+    rebuild 2
+    sha256 "c2d27dd1e42cee97bd2d4d19d38e027e627df890025265dceab6454d662a3b3e" => :catalina
+    sha256 "664bd4405aebb3eab9c982257425e439a1e03514053f9ddbda08e4257cc2a4d3" => :mojave
+    sha256 "f3d520dba93d25d02aeb32b4493aab265e41ef70d161777745a25d203d1dd1e5" => :high_sierra
   end
 
   head do
@@ -147,18 +147,13 @@ class Agda < Formula
     system bin/"agda", "--js", simpletest
 
     # test the GHC backend
-    cabal_sandbox do
-      cabal_install "ieee754"
-      dbpath = Dir["#{testpath}/.cabal-sandbox/*-packages.conf.d"].first
-      dbopt = "--ghc-flag=-package-db=#{dbpath}"
-
-      # compile and run a simple program
-      system bin/"agda", "-c", dbopt, iotest
-      assert_equal "", shell_output(testpath/"IOTest")
-
-      # compile and run a program that uses the standard library
-      system bin/"agda", "-c", "-i", lib/"agda"/"src", dbopt, stdlibiotest
-      assert_equal "Hello, world!", shell_output(testpath/"StdlibIOTest")
-    end
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", "ieee754", "--lib", *std_cabal_v2_args
+    # compile and run a simple program
+    system bin/"agda", "-c", iotest
+    assert_equal "", shell_output(testpath/"IOTest")
+    # compile and run a program that uses the standard library
+    system bin/"agda", "-c", "-i", lib/"agda"/"src", stdlibiotest
+    assert_equal "Hello, world!", shell_output(testpath/"StdlibIOTest")
   end
 end

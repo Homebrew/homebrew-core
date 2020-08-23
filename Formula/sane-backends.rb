@@ -1,6 +1,7 @@
 class SaneBackends < Formula
   desc "Backends for scanner access"
   homepage "http://www.sane-project.org/"
+  revision 1
   head "https://gitlab.com/sane-project/backends.git"
 
   stable do
@@ -16,9 +17,9 @@ class SaneBackends < Formula
   end
 
   bottle do
-    sha256 "4d9b0e82a282fc75379e56de828da1601a63bdc49afe7be8a0e685a1ec5f2f6a" => :catalina
-    sha256 "52405560cb01a2b2cc6afdcc813d2ef57386b09790f36df3126a0764ece0005b" => :mojave
-    sha256 "9911d3ac5aebaa5c7313d2076ddb355b4f9d4475fb94b774373445ef97313297" => :high_sierra
+    sha256 "7dfb3ca74bc32f87a8126bcdb29950d7781882caa2e3175a777e892db69bbd38" => :catalina
+    sha256 "c5751d3247be66a5b2019ab23fb3eca1bb4bca86ef051e830bb7fbc27647e9da" => :mojave
+    sha256 "b80391595e2dd773f1bf0a093befbf3727801c7110bedfed68f295772399e2b7" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

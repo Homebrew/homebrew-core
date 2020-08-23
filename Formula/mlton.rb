@@ -1,16 +1,16 @@
 class Mlton < Formula
   desc "Whole-program, optimizing compiler for Standard ML"
   homepage "http://mlton.org"
-  url "https://downloads.sourceforge.net/project/mlton/mlton/20200722/mlton-20200722.src.tgz"
-  sha256 "b65ac4a674a1c427c960d4bc067c9ce200c90b6e01294f146d429225e9d26d63"
+  url "https://downloads.sourceforge.net/project/mlton/mlton/20200817/mlton-20200817.src.tgz"
+  sha256 "8a700589b99d49346a0d1f51529cac682a7fef7a259762d5a007069e1948499f"
   license "HPND"
   head "https://github.com/MLton/mlton.git"
 
   bottle do
     cellar :any
-    sha256 "7bda06d08d43eb4c2417c9b4e69b9ab8925dbe320b4e9960450d596207abad6a" => :catalina
-    sha256 "8f1f91096c4acd761162942a66f37011b1df0836b2cc3f577808649ea2c0483e" => :mojave
-    sha256 "3c8688c9ba18d0662fd095a59e14e6b40ae41f4cf2c6387902aa9c18fdb069c4" => :high_sierra
+    sha256 "c6592a2929936bbb063d5c40b192ebb28c95231d8e0f777daadadd1633ee2c51" => :catalina
+    sha256 "dc4bcb4293360832715e606aec8b226cce1c91dbe6cbcf599fd6b620619b2fff" => :mojave
+    sha256 "f51e8a9a125cbf917fb6feae2fbe78c7a04ecfeeaaf1f5719e782dcc7d320ce4" => :high_sierra
   end
 
   depends_on "autoconf" => :build
@@ -21,15 +21,15 @@ class Mlton < Formula
   resource "bootstrap" do
     on_macos do
       # https://github.com/Homebrew/homebrew-core/pull/58438#issuecomment-665375929
-      # new `mlton-20200722-1.amd64-darwin-17.7.gmp-static.tgz` artifact
+      # new `mlton-20200817-1.amd64-darwin-17.7.gmp-static.tgz` artifact
       # used here for bootraping all homebrew versions
-      url "https://downloads.sourceforge.net/project/mlton/mlton/20200722/mlton-20200722-1.amd64-darwin-17.7.gmp-static.tgz"
-      sha256 "dbfeb325427d1d19b259b8054d5a85ffc2681b42df00cc8340809761dcc5120b"
+      url "https://downloads.sourceforge.net/project/mlton/mlton/20200817/mlton-20200817-1.amd64-darwin-17.7.gmp-static.tgz"
+      sha256 "3cd12d5d3db047270b6e678c3488063c3179294a8d4907fa11be2f7327459c27"
     end
 
     on_linux do
-      url "https://downloads.sourceforge.net/project/mlton/mlton/20200722/mlton-20200722-1.amd64-linux.tgz"
-      sha256 "2829b0d138a6664022c14b0814aae82f68fba3f8443dd454737697ad6cce4b92"
+      url "https://downloads.sourceforge.net/project/mlton/mlton/20200817/mlton-20200817-1.amd64-linux.tgz"
+      sha256 "8adab32d37e9c9c2986a0cfeba0aa4e29541d0e6a19178e7393797feaf32db40"
     end
   end
 

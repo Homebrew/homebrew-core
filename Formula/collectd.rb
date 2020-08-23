@@ -4,11 +4,12 @@ class Collectd < Formula
   url "https://collectd.org/files/collectd-5.11.0.tar.bz2"
   sha256 "37b10a806e34aa8570c1cafa6006c604796fae13cc2e1b3e630d33dcba9e5db2"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 "6b1fc316e7cab7aa33cfb8034a4e7485798ef2ceb477ceee88c212af480a1d3d" => :catalina
-    sha256 "0a3e17f5f67372dfb30d24f1a3253f53d20d22304f061d90d48a4f7cdd38bbb2" => :mojave
-    sha256 "380302d441ea46e334793feb602e788fe93fdaf13356bf8acc4ef8914d8005bb" => :high_sierra
+    sha256 "91ad88cc03bbad441eb6a8e0fa72b8b839dfdf1e406adc14a2a8369ada3930f4" => :catalina
+    sha256 "7a6bddae3c0bdce448f00f98027ca866c13507a73476ce4ac5285dbb1158175a" => :mojave
+    sha256 "6e7d683bf66c7a1a12e7af41d2558af85ff48589d82c8457acd44be773819228" => :high_sierra
   end
 
   head do

@@ -1,16 +1,16 @@
 class Gostatic < Formula
   desc "Fast static site generator"
   homepage "https://github.com/piranha/gostatic"
-  url "https://github.com/piranha/gostatic/archive/2.21.tar.gz"
-  sha256 "5749c03d7854cb6479ad765993cb032ad04675d18f92c1f55566b1bb2146f6a2"
+  url "https://github.com/piranha/gostatic/archive/2.22.tar.gz"
+  sha256 "df32e6cd145c7e20c7b0e64aecfcca5f3c4c76a672d396e432d62e6814b3e306"
   license "ISC"
   head "https://github.com/piranha/gostatic.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9442534f628490c837ad638025a327654fbe9ea32181ac282fb50e375833b8a7" => :catalina
-    sha256 "d9ccf0db837ffdec144e6d0e96b3bd0b00ec5862f99b378a39d32befa52da708" => :mojave
-    sha256 "bacddb091bd43d5ed7d4d0fce06fbceb79bdbcbfbaf44134eff09731de835490" => :high_sierra
+    sha256 "97751a617808925424f60170c9e374d10281b1207d216ca023e7b53b4b478d83" => :catalina
+    sha256 "11c508db4cfa065cabcfba271bb0645613edd7d769c936e53dae397627227a3b" => :mojave
+    sha256 "837b41d0db64e687af41d35b84c7c0f48fb421cac8999a83264b38cf71c6aaf5" => :high_sierra
   end
 
   depends_on "go" => :build

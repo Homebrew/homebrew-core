@@ -1,17 +1,16 @@
 class Fatsort < Formula
   desc "Sorts FAT16 and FAT32 partitions"
   homepage "https://fatsort.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/fatsort/fatsort-1.5.0.456.tar.xz"
-  version "1.5.0"
-  sha256 "a835b47814fd30d5bad464b839e9fc404bc1a6f5a5b1f6ed760ce9744915de95"
-  license "GPL-2.0"
+  url "https://downloads.sourceforge.net/project/fatsort/fatsort-1.6.3.622.tar.xz"
+  version "1.6.3"
+  sha256 "481c94ea08f6faaafe67594726d70fb3e3d5ac9672745f0034e55134ea5256fc"
+  license "GPL-2.0-or-later"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ace9262fe6a7ba67ae184d01e192ea94089c241448034aad9c0e3ebd56db3b92" => :catalina
-    sha256 "30317b1edc9c062183ca98bf20baca935bf129405e15fc89056659968e33a83b" => :mojave
-    sha256 "d9e23a82a00b9747f24e78e2fc11f40ea8bebadfafa41fa7d5c2e6838d6514b7" => :high_sierra
-    sha256 "fd941f1bc940edcd9d23860ce723355be2249e330ecc8bbab4c5713525c78963" => :sierra
+    sha256 "c3e2a36f45f08826087b89279cb36c9156024d4ecc0e02a1218dd28d27c6d8b7" => :catalina
+    sha256 "3f70bababd3108670a3752056ed24b76187df9d82beae1581645b91945cdde2d" => :mojave
+    sha256 "fdecaa643274a1e780ff530801c88cb92a66a49639ced214b29c4703389e0dd7" => :high_sierra
   end
 
   depends_on "help2man"
