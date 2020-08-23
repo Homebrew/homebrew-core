@@ -25,7 +25,9 @@ class Caddy < Formula
     revision = build.head? ? version.commit : "v#{version}"
 
     resource("xcaddy").stage do
-      system "go", "run", "cmd/xcaddy/main.go", "build", revision, "--output", bin/"caddy"
+      system "go", "run", "cmd/xcaddy/main.go", "build", revision,
+                                                "--with", "github.com/caddyserver/caddy/v2=#{buildpath}",
+                                                "--output", bin/"caddy"
     end
   end
 
