@@ -4,6 +4,7 @@ class Ddrescue < Formula
   url "https://ftp.gnu.org/gnu/ddrescue/ddrescue-1.25.tar.lz"
   mirror "https://ftpmirror.gnu.org/ddrescue/ddrescue-1.25.tar.lz"
   sha256 "ce538ebd26a09f45da67d3ad3f7431932428231ceec7a2d255f716fa231a1063"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

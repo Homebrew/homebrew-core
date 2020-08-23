@@ -1,17 +1,20 @@
 class Check < Formula
   desc "C unit testing framework"
   homepage "https://libcheck.github.io/check/"
-  url "https://github.com/libcheck/check/releases/download/0.14.0/check-0.14.0.tar.gz"
-  sha256 "bd0f0ca1be65b70238b32f8e9fe5d36dc2fbf7a759b7edf28e75323a7d74f30b"
+  url "https://github.com/libcheck/check/releases/download/0.15.2/check-0.15.2.tar.gz"
+  sha256 "a8de4e0bacfb4d76dd1c618ded263523b53b85d92a146d8835eb1a52932fa20a"
+  license "LGPL-2.1"
 
   bottle do
     cellar :any
-    sha256 "c6adc313137a97331bebce862758d1235f590c37bfc855920f953edf858c8d85" => :catalina
-    sha256 "244b4b72dfed2d2950e3f3183e8d3a1207fef62470643097402dbf34b5223303" => :mojave
-    sha256 "b61bb914f053c31a8dcb86394d10d3e3b77b2d71ebe2c4f21585f05f15594d8e" => :high_sierra
+    sha256 "83176da74de92f8ae589d98726f97466f7ccfa91e2b0b58603c4f909d8ce50a4" => :catalina
+    sha256 "a54f974e1f874c0912d97d91b61b4ec411d6c9f74417a5c541a7fa1b4bdf7705" => :mojave
+    sha256 "9613aefb32a1efad74a6ea90d58dfe7d68c2767a0e155d0afed3b3d5b8d40206" => :high_sierra
   end
 
-  uses_from_macos "gawk"
+  on_linux do
+    depends_on "gawk"
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking",

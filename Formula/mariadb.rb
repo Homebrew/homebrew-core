@@ -1,14 +1,14 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.com/MariaDB/mariadb-10.4.11/source/mariadb-10.4.11.tar.gz"
-  sha256 "4c076232b99433b09eb3c6d62f607192b3474d022703699b8f6aef4e79de3fb9"
+  url "https://downloads.mariadb.com/MariaDB/mariadb-10.5.5/source/mariadb-10.5.5.tar.gz"
+  sha256 "cf6b2c061754c07bbb1d20b29ae111bf2d098297c9b8c321b810638a179088a4"
+  license "GPL-2.0-only"
 
   bottle do
-    rebuild 1
-    sha256 "7b70bcd73699b29eed5a8b630dd671afaa282368fc327097fb442161af588a83" => :catalina
-    sha256 "ee2a568d42883f6b3e0366fc8c8f741736216dd64e2199de9aeed04566de241b" => :mojave
-    sha256 "16906503386e1e8cbfe510d5b3b890822a9c814a5a52381a67aea34474cedede" => :high_sierra
+    sha256 "df8622183262cb4871480d909e3144fa767a0dba995929e5ddb72d310d1f6ffa" => :catalina
+    sha256 "ba7afe3313015e58b9ca9c9b17178ebbbb6b804239b31957cfaead678e31aa86" => :mojave
+    sha256 "66dfcb470c80d0b7d0b56985e84ee36af5bb4c0c488fe02327f560cdb713785e" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -22,10 +22,9 @@ class Mariadb < Formula
   uses_from_macos "zlib"
 
   conflicts_with "mysql", "percona-server",
-    :because => "mariadb, mysql, and percona install the same binaries"
-  conflicts_with "mytop", :because => "both install `mytop` binaries"
-  conflicts_with "mariadb-connector-c",
-    :because => "both install plugins"
+    because: "mariadb, mysql, and percona install the same binaries"
+  conflicts_with "mytop", because: "both install `mytop` binaries"
+  conflicts_with "mariadb-connector-c", because: "both install `mariadb_config`"
 
   def install
     # Set basedir and ldata so that mysql_install_db can find the server
@@ -127,7 +126,7 @@ class Mariadb < Formula
     EOS
   end
 
-  plist_options :manual => "mysql.server start"
+  plist_options manual: "mysql.server start"
 
   def plist
     <<~EOS

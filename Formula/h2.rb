@@ -4,6 +4,7 @@ class H2 < Formula
   url "https://www.h2database.com/h2-2019-10-14.zip"
   version "1.4.200"
   sha256 "a72f319f1b5347a6ee9eba42718e69e2ae41e2f846b3475f9292f1e3beb59b01"
+  license "MPL-2.0"
 
   bottle :unneeded
 
@@ -33,7 +34,7 @@ class H2 < Formula
     (bin+"h2").write script
   end
 
-  plist_options :manual => "h2"
+  plist_options manual: "h2"
 
   def plist
     <<~EOS

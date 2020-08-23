@@ -1,6 +1,7 @@
 class Libcapn < Formula
   desc "C library to send push notifications to Apple devices"
   homepage "https://web.archive.org/web/20181220090839/libcapn.org/"
+  license "MIT"
   revision 1
   head "https://github.com/adobkin/libcapn.git"
 
@@ -10,7 +11,7 @@ class Libcapn < Formula
 
     resource "jansson" do
       url "https://github.com/akheron/jansson.git",
-        :revision => "8f067962f6442bda65f0a8909f589f2616a42c5a"
+        revision: "8f067962f6442bda65f0a8909f589f2616a42c5a"
     end
   end
 
@@ -25,9 +26,14 @@ class Libcapn < Formula
   depends_on "openssl@1.1"
 
   # Compatibility with OpenSSL 1.1
+  # Original: https://github.com/adobkin/libcapn/pull/46.diff?full_index=1
   patch do
-    url "https://github.com/adobkin/libcapn/pull/46.diff?full_index=1"
-    sha256 "9d90edd1c8e3fa479554f48fe9f92afd771e5852ced595e7f66f6174d805530b"
+    url "https://github.com/adobkin/libcapn/commit/d5e7cd219b7a82156de74d04bc3668a07ec96629.diff?full_index=1"
+    sha256 "18db4435c4417cbb3052714808f50f32827effbd7f03f9ae37ab7659af53050f"
+  end
+  patch do
+    url "https://github.com/adobkin/libcapn/commit/5fde3a8faa6ce0da0bfe67834bec684a9c6fc992.diff?full_index=1"
+    sha256 "d0c87b4ffb514fa1f8a1930a73e53b76e6512b39d69fc02ed74456307c3521ae"
   end
 
   def install

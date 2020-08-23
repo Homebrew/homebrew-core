@@ -1,26 +1,24 @@
-require "language/haskell"
-
 class Hpack < Formula
-  include Language::Haskell::Cabal
-
   desc "Modern format for Haskell packages"
   homepage "https://github.com/sol/hpack"
-  url "https://github.com/sol/hpack/archive/0.33.0.tar.gz"
-  sha256 "954b02fd01ee3e1bc5fddff7ec625839ee4b64bef51efa02306fbcf33008081e"
+  url "https://github.com/sol/hpack/archive/0.34.2.tar.gz"
+  sha256 "1c23f0a14ca32c92a2b6522d047757850ae89be2b344b19a2df668607f5f72e7"
+  license "MIT"
   head "https://github.com/sol/hpack.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "07e202936d3d52f9a70975d879115876b667daf26af468500c5117e1c235aedd" => :catalina
-    sha256 "43ce8ac6c6f0b1642b3912c875f3c1f47732994411beae48819aa105bd97a55e" => :mojave
-    sha256 "f4de8c3939a1fbc917740d0694dc729619f706962d7015af9f931d7291c952bd" => :high_sierra
+    sha256 "e230f0684178727141cfb242d235de3f062a056816c06c1e882ad3c2caf34c35" => :catalina
+    sha256 "cc6b80c259ea44fdb961fc758c9472264b48ce481f5c9d436c325493d7d13c0a" => :mojave
+    sha256 "197fe924cebba40e09bf85adb60beeb889e576cc8600b1e92361f20a5e9c0a04" => :high_sierra
   end
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
 
   def install
-    install_cabal_package
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
   end
 
   # Testing hpack is complicated by the fact that it is not guaranteed
@@ -53,6 +51,6 @@ class Hpack < Formula
     system "#{bin}/hpack"
 
     # Skip the first lines because they contain the hpack version number.
-    assert_equal expected, (testpath/"homebrew.cabal").read.lines[8..-1].join
+    assert_equal expected, (testpath/"homebrew.cabal").read.lines[6..].join
   end
 end

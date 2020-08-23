@@ -3,13 +3,13 @@ class Ext2fuse < Formula
   homepage "https://sourceforge.net/projects/ext2fuse"
   url "https://downloads.sourceforge.net/project/ext2fuse/ext2fuse/0.8.1/ext2fuse-src-0.8.1.tar.gz"
   sha256 "431035797b2783216ec74b6aad5c721b4bffb75d2174967266ee49f0a3466cd9"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "91a5c2561402f51502aa651b44426cd9fd2e8b22962a1d27d8e514ab1828fdb8" => :catalina
-    sha256 "3eb552c79cbee064d7227b55b390beede8469c5c2f18491e031d7f0306f0c2cf" => :mojave
-    sha256 "754488298c713b74d28b91a67b2adb082c290344d1490319e485f420cb402a02" => :high_sierra
+    sha256 "41c770edbb267f3d8d1fe591d947148e7c190adec47940f7d0d6dd1516b6592c" => :catalina
+    sha256 "541b0787069c0bf37607392a9789ed4e3b2f21ebe214b3274ec27023aa03335f" => :mojave
+    sha256 "0b8e89292e91a8fbe00430ae16a3ebbfdbba1017f6dee4801bcf8e63d238962f" => :high_sierra
   end
 
   depends_on "e2fsprogs"

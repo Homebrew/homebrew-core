@@ -1,14 +1,14 @@
 class Ipmiutil < Formula
   desc "IPMI server management utility"
   homepage "https://ipmiutil.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/ipmiutil/ipmiutil-3.1.5.tar.gz"
-  sha256 "58ccdbd5755d7dd72478756715af09e9c73330dfad2b91dbf03d2ac504b301a3"
+  url "https://downloads.sourceforge.net/project/ipmiutil/ipmiutil-3.1.6.tar.gz"
+  sha256 "8814828c6c245140a5c867d8def8e88a72e90f67c79282008303de1c1d598e4a"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e2ea930b55754e8e0b27b675ebabdf2c12a73ddd0c8d994484c8b7e351350ec5" => :catalina
-    sha256 "c1d4a86dae7aae9e8ce807741c42e91884156eda9b9004ab2f151e2cfda6b74d" => :mojave
-    sha256 "9e4ae6d909010bcff31df4fcef39a9cb0de2083aded6b960483db942c9e18f0f" => :high_sierra
+    sha256 "d9c1f45ad31e61093e3ba002c3494d61e762666733c6f5d03c53e6860e9aaf14" => :catalina
+    sha256 "e1862f31ab6cc95f37dda09ff7250e8b7f84750b075428e517779d37066f3c01" => :mojave
+    sha256 "e6d9bf95fd37500104f94fb640f6ac71d922227190b05b4ccbbf70abc942612c" => :high_sierra
   end
 
   depends_on "autoconf" => :build
@@ -16,7 +16,7 @@ class Ipmiutil < Formula
   depends_on "libtool" => :build
   depends_on "openssl@1.1"
 
-  conflicts_with "renameutils", :because => "both install `icmd` binaries"
+  conflicts_with "renameutils", because: "both install `icmd` binaries"
 
   def install
     # Darwin does not exist only on PowerPC

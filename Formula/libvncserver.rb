@@ -1,15 +1,15 @@
 class Libvncserver < Formula
   desc "VNC server and client libraries"
   homepage "https://libvnc.github.io"
-  url "https://github.com/LibVNC/libvncserver/archive/LibVNCServer-0.9.12.tar.gz"
-  sha256 "33cbbb4e15bb390f723c311b323cef4a43bcf781984f92d92adda3243a116136"
+  url "https://github.com/LibVNC/libvncserver/archive/LibVNCServer-0.9.13.tar.gz"
+  sha256 "0ae5bb9175dc0a602fe85c1cf591ac47ee5247b87f2bf164c16b05f87cbfa81a"
+  license "GPL-2.0"
 
   bottle do
     cellar :any
-    sha256 "04df93f6dc6f250dd215a6276192a541ab782d7794d723a8c5e3a74751c137cd" => :catalina
-    sha256 "eb46c752190ababd6214df10185386988e6bf7822264c7f3cf0fd8a82a8ee920" => :mojave
-    sha256 "5488af95ef114b62f63a389d35988bb74c4ee31673d1226c1b7818ad0dfed75e" => :high_sierra
-    sha256 "0780be062ffd9d420539a01b23cd591cef537d4d3256294574812ca5593b342e" => :sierra
+    sha256 "c667ff09ee40d2ab0e8db25a51697ae62edd14496c1075f07015bf0ed372695e" => :catalina
+    sha256 "7e5799814cd2077d39c8d4c95806fa23c408d8a26c92140ba64f852b6a53567f" => :mojave
+    sha256 "f331a9fc3ba043f0febe78df7551630a5a28f9adb362a58384901192476dff89" => :high_sierra
   end
 
   depends_on "cmake" => :build

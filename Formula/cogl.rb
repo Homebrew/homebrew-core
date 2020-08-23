@@ -1,31 +1,24 @@
 class Cogl < Formula
   desc "Low level OpenGL abstraction library developed for Clutter"
   homepage "https://developer.gnome.org/cogl/"
-  url "https://download.gnome.org/sources/cogl/1.22/cogl-1.22.6.tar.xz"
-  sha256 "6d134bd3e48c067507167c001200b275997fb9c68b08b48ff038211c8c251b75"
+  url "https://download.gnome.org/sources/cogl/1.22/cogl-1.22.8.tar.xz"
+  sha256 "a805b2b019184710ff53d0496f9f0ce6dcca420c141a0f4f6fcc02131581d759"
 
   bottle do
-    sha256 "380a30aa14058b080ecde8b31c6ed9d2f6635655898d4d084cae08858a3e9c44" => :catalina
-    sha256 "2554edab8c0f870b34541e0fc2340e60b2a00b51c645669d1bb7dfb872137fc5" => :mojave
-    sha256 "fe8dcd5fc1ee71065255fe642e929db8248ca9c937dd04b3a2729c71d48a6650" => :high_sierra
+    sha256 "37fdd46a2845adf0e8f4ce85d5a80384ea235e435ef5f42167622f5224e4e51f" => :catalina
+    sha256 "eb37baaa178631afac43c8bb1c93cdf9b78dd7d44862c63dec598d54a51b201e" => :mojave
+    sha256 "46de52386a1123e828d94598279a99a88e3819d8f1dac1a51f39850a321ff7f2" => :high_sierra
   end
 
   head do
     url "https://gitlab.gnome.org/GNOME/cogl.git"
   end
 
-  # The tarball contains a malfunctioning GNU Autotools setup
-  # Running autoreconf is necessary to fix the build
-  # Reported upstream at https://gitlab.gnome.org/GNOME/cogl/issues/8
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
   depends_on "gobject-introspection" => :build
-  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "gdk-pixbuf"
   depends_on "glib"
-  depends_on "gtk-doc"
   depends_on "pango"
 
   def install
@@ -42,10 +35,8 @@ class Cogl < Formula
       --without-x
     ]
 
-    system "autoreconf", "-fi"
     system "./configure", *args
     system "make", "install"
-    doc.install "examples"
   end
   test do
     (testpath/"test.c").write <<~EOS

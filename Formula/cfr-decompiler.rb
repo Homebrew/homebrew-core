@@ -1,15 +1,17 @@
 class CfrDecompiler < Formula
   desc "Yet Another Java Decompiler"
   homepage "https://www.benf.org/other/cfr/"
-  url "https://github.com/leibnitz27/cfr/archive/0.149.tar.gz"
-  sha256 "6d1883710ed1585cc4b675bc0d56b87351aff14dfc74270790b7bb3ff8f79743"
+  url "https://github.com/leibnitz27/cfr.git",
+      tag:      "0.150",
+      revision: "1361cd7fa74f25f30a6bbf72c825d83647d2cdaf"
+  license "MIT"
   head "https://github.com/leibnitz27/cfr.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "35b88d41ddbd0229f956d06a3b98e05dd6ab679bf54de808a9df272a8c2d133b" => :catalina
-    sha256 "f8fb1fa876f5fe62e99cd86d9adbfd618640ff6e1a7018bce7098669f6869802" => :mojave
-    sha256 "74d5486e47c43e6e58c007f6f2f7144b50ece8da29dd259645e9bc021fb433cb" => :high_sierra
+    sha256 "05d1bff6093077a4f9789606c7b8d77d26f66f341aa491a9412da3e85669c932" => :catalina
+    sha256 "0235b4a3204736079b3790db8de5bb02f99162318bff390aea45168f2bd1ea48" => :mojave
+    sha256 "c6866f8e6b6c8e849936d2b5a45c3827dda9acacfe49ca2e831041e633617ac5" => :high_sierra
   end
 
   depends_on "maven" => :build

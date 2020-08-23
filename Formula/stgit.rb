@@ -1,15 +1,16 @@
 class Stgit < Formula
-  desc "Push/pop utility built on top of Git"
-  homepage "https://github.com/ctmarinas/stgit"
-  url "https://github.com/ctmarinas/stgit/releases/download/v0.22/stgit-0.22.tar.gz"
-  sha256 "394438e7f7de9fac2532632bd3e202137f9f8b6b91ad3667e467766571551bd0"
-  head "https://github.com/ctmarinas/stgit.git"
+  desc "Manage Git commits as a stack of patches"
+  homepage "https://stacked-git.github.io"
+  url "https://github.com/stacked-git/stgit/releases/download/v0.23/stgit-0.23.tar.gz"
+  sha256 "17c2b2e02341468f4d5f8d4d79c36f7fdb7febe18177277ca472502f673c50fd"
+  license "GPL-2.0"
+  head "https://github.com/stacked-git/stgit.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1a965a4f7b50412601a6517d5b7ea2faf62ab2ac1cb0dc5049b42dc595d517d4" => :catalina
-    sha256 "1a965a4f7b50412601a6517d5b7ea2faf62ab2ac1cb0dc5049b42dc595d517d4" => :mojave
-    sha256 "1a965a4f7b50412601a6517d5b7ea2faf62ab2ac1cb0dc5049b42dc595d517d4" => :high_sierra
+    sha256 "a99d7f5ad5fbc099095f3579faa5f7356f180469aff11546c45caf37823afee9" => :catalina
+    sha256 "a99d7f5ad5fbc099095f3579faa5f7356f180469aff11546c45caf37823afee9" => :mojave
+    sha256 "a99d7f5ad5fbc099095f3579faa5f7356f180469aff11546c45caf37823afee9" => :high_sierra
   end
 
   depends_on "asciidoc" => :build

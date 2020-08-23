@@ -3,6 +3,7 @@ class Mp3blaster < Formula
   homepage "https://mp3blaster.sourceforge.io"
   url "https://downloads.sourceforge.net/project/mp3blaster/mp3blaster/mp3blaster-3.2.6/mp3blaster-3.2.6.tar.gz"
   sha256 "43d9f656367d16aaac163f93dc323e9843c3dd565401567edef3e1e72b9e1ee0"
+  license "GPL-2.0"
 
   bottle do
     sha256 "5345ef5c262adc849318b2ee1cb092d794be9b9b952ebf23b0dbf666f8a5f460" => :catalina

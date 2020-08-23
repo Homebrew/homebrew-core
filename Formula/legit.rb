@@ -6,7 +6,8 @@ class Legit < Formula
   url "https://files.pythonhosted.org/packages/cb/e4/8cc5904c486241bf2edc4dd84f357fa96686dc85f48eedb835af65f821bf/legit-1.2.0.post0.tar.gz"
   version "1.2.0.post0"
   sha256 "949396b68029a8af405ab20c901902341ef6bd55c7fec6dab71141d63d406b11"
-  head "https://github.com/frostming/legit.git", :branch => "master"
+  license "BSD-3-Clause"
+  head "https://github.com/frostming/legit.git", branch: "master"
 
   bottle do
     cellar :any_skip_relocation

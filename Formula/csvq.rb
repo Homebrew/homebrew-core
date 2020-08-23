@@ -1,21 +1,21 @@
 class Csvq < Formula
   desc "SQL-like query language for csv"
   homepage "https://mithrandie.github.io/csvq"
-  url "https://github.com/mithrandie/csvq/archive/v1.12.4.tar.gz"
-  sha256 "4633acb904301099bc421a23a6be2272e9a9d09a4a9045385a6ce4fd808ae6ab"
+  url "https://github.com/mithrandie/csvq/archive/v1.13.3.tar.gz"
+  sha256 "3242f1dd4b1d36794642356610a8709dbcb257e9bf5fdb287222694c93853242"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "772132b006351c51fec495f20344af840f8534df356ac56d4171eb82fab808da" => :catalina
-    sha256 "595b84cd1c608b8f97b81f8ec333dcc53c62a77b982269056080787a200b0b59" => :mojave
-    sha256 "e51a1858bd778e50fccab97f0632bc481ddc9d7d7f0cf4ef00e8a235aeb601db" => :high_sierra
+    sha256 "f12b5af1956393fe1c7eb3c8a66af0395a57ca1fabce3fa46ec9abbc42d4c98f" => :catalina
+    sha256 "515f33d52a7f0aadd4fe25263cd1f9b48d93a2cfcd56642437b478e12d806568" => :mojave
+    sha256 "098d117004b545984482edb34ecc8961dd7d230afa950306669197d668d23182" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    system "make"
-    bin.install "csvq"
+    system "go", "build", *std_go_args
   end
 
   test do

@@ -3,6 +3,7 @@ class Mtr < Formula
   homepage "https://www.bitwizard.nl/mtr/"
   url "https://github.com/traviscross/mtr/archive/v0.93.tar.gz"
   sha256 "3a1ab330104ddee3135af3cfa567b9608001c5deecbf200c08b545ed6d7a4c8f"
+  license "GPL-2.0"
   revision 1
   head "https://github.com/traviscross/mtr.git"
 
@@ -21,7 +22,7 @@ class Mtr < Formula
 
   # Pull request submitted upstream as https://github.com/traviscross/mtr/pull/315
   patch do
-    url "https://github.com/traviscross/mtr/pull/315.patch?full_index=1"
+    url "https://github.com/traviscross/mtr/commit/a60f1085287fa8f7634ff0bef88568296a8660e5.patch?full_index=1"
     sha256 "c67b455198d4ad8269de56464366ed2bbbc5b363ceda0285ee84be40e4893668"
   end
 

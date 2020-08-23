@@ -1,15 +1,15 @@
 class Dropbear < Formula
   desc "Small SSH server/client for POSIX-based system"
   homepage "https://matt.ucc.asn.au/dropbear/dropbear.html"
-  url "https://matt.ucc.asn.au/dropbear/releases/dropbear-2019.78.tar.bz2"
-  sha256 "525965971272270995364a0eb01f35180d793182e63dd0b0c3eb0292291644a4"
+  url "https://matt.ucc.asn.au/dropbear/releases/dropbear-2020.80.tar.bz2"
+  sha256 "d927941b91f2da150b2033f1a88b6a47999bf0afb1493a73e9216cffdb5d7949"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "79774d3d1443ba9e55da281832fdf29c03f7ddf1784de64bc3606c6c36f644d4" => :catalina
-    sha256 "0d7b0c71af63164d1024f4b2b21696a32a3e830de04647bec5bd4d8b602b82a4" => :mojave
-    sha256 "e8d134ecfb0b2d07d2ec0fe45bf0196b07795d4e96e87d97eda85f67e012c185" => :high_sierra
-    sha256 "705e3d23cb78f0dcd9f7bef085d9887823133f1f1e219a6af544a09d339c8616" => :sierra
+    sha256 "50a692b78c1958e54c5d5654cebc76c35df05f85d9b5d214caa1a95547f7a90d" => :catalina
+    sha256 "8586e9012826a288865fab45cc08a0445fdee283680a24e2253f9854051a3510" => :mojave
+    sha256 "371fd2eef7a59d0bf6fb8a35ce0f03f269af567e1ad31d5111be1cb846c93b6a" => :high_sierra
   end
 
   head do

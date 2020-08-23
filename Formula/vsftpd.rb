@@ -46,7 +46,7 @@ class Vsftpd < Formula
     EOS
   end
 
-  plist_options :startup => true, :manual => "sudo vsftpd"
+  plist_options startup: true, manual: "sudo vsftpd"
 
   def plist
     <<~EOS

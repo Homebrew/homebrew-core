@@ -5,6 +5,7 @@ class Charm < Formula
   homepage "https://github.com/juju/charmstore-client"
   url "https://github.com/juju/charmstore-client/archive/v2.4.0.tar.gz"
   sha256 "02f5b9c5211467353dbcf9589ecf70d6e7debf16e3a8b85fa870084525466731"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation
@@ -18,22 +19,22 @@ class Charm < Formula
 
   go_resource "github.com/kisielk/gotool" do
     url "https://github.com/kisielk/gotool.git",
-        :revision => "80517062f582ea3340cd4baf70e86d539ae7d84d"
+        revision: "80517062f582ea3340cd4baf70e86d539ae7d84d"
   end
 
   go_resource "github.com/pelletier/go-toml" do
     url "https://github.com/pelletier/go-toml.git",
-        :revision => "603baefff989777996bf283da430d693e78eba3a"
+        revision: "603baefff989777996bf283da430d693e78eba3a"
   end
 
   go_resource "golang.org/x/tools" do
     url "https://go.googlesource.com/tools.git",
-        :revision => "fd2d2c45eb2dff7b87eab4303a1016b4dbf95e81"
+        revision: "fd2d2c45eb2dff7b87eab4303a1016b4dbf95e81"
   end
 
   go_resource "github.com/rogpeppe/godeps" do
     url "https://github.com/rogpeppe/godeps.git",
-        :revision => "404a7e748cd352bb0d7449dedc645546eebbfc6e"
+        revision: "404a7e748cd352bb0d7449dedc645546eebbfc6e"
   end
 
   def install

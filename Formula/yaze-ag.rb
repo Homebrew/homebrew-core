@@ -4,6 +4,7 @@ class YazeAg < Formula
   url "http://www.mathematik.uni-ulm.de/users/ag/yaze-ag/devel/yaze-ag-2.40.5_with_keytrans.tar.gz"
   version "2.40.5"
   sha256 "d46c861eb0725b87dd5567062f277860b98d538fca477d8686f17b36ef39d9bd"
+  license "GPL-2.0"
 
   bottle do
     sha256 "f250f5ad984f31c1f96c744b81195c96bdccce6f74dd7548ceed19ba1172c117" => :catalina

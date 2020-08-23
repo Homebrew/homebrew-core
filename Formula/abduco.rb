@@ -3,6 +3,7 @@ class Abduco < Formula
   homepage "https://www.brain-dump.org/projects/abduco"
   url "https://github.com/martanne/abduco/releases/download/v0.6/abduco-0.6.tar.gz"
   sha256 "c90909e13fa95770b5afc3b59f311b3d3d2fdfae23f9569fa4f96a3e192a35f4"
+  license "ISC"
   head "https://github.com/martanne/abduco.git"
 
   bottle do

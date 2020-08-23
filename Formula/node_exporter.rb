@@ -1,16 +1,16 @@
 class NodeExporter < Formula
   desc "Prometheus exporter for machine metrics"
   homepage "https://prometheus.io/"
-  url "https://github.com/prometheus/node_exporter/archive/v0.18.1.tar.gz"
-  sha256 "9ddf187c462f2681ab4516410ada0e6f0f03097db6986686795559ea71a07694"
-  revision 1
+  url "https://github.com/prometheus/node_exporter/archive/v1.0.1.tar.gz"
+  sha256 "a841bf3e236376840be9e1d8e6c4a38196be6f3957b0982d1c7970a5e416b0ad"
+  license "Apache-2.0"
+  head "https://github.com/prometheus/node_exporter.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "ff1a0c237371d710a60ae7692eb08fa96259840e7565f6345ed50821db2d27aa" => :catalina
-    sha256 "9ab6e123c1862749886247564ea64dede482a6cb9efb19c611e2a5a5b4595237" => :mojave
-    sha256 "5de4df63394055e449580b4b583f4411237f84096042eef63d3423b39f75ff2e" => :high_sierra
+    sha256 "7b68d39007278906d3a749370131c4ee7026f410350c48de3f65eeb4bd0c9310" => :catalina
+    sha256 "1ff2d6c27e863565b9b6415ee406d8f2585366c855f7ff9d64577043dec78b7e" => :mojave
+    sha256 "3d902e39d3d2be664928596a6a1af176af4a73194d3714341c6e365be3894d86" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -23,22 +23,24 @@ class NodeExporter < Formula
     system "go", "build", "-ldflags", ldflags.join(" "), "-trimpath",
            "-o", bin/"node_exporter"
     prefix.install_metafiles
+
+    touch etc/"node_exporter.args"
+
+    (bin/"node_exporter_brew_services").write <<~EOS
+      #!/bin/bash
+      exec #{bin}/node_exporter $(<#{etc}/node_exporter.args)
+    EOS
   end
 
   def caveats
     <<~EOS
-      When used with `brew services`, node_exporter's configuration is stored as command line flags in
+      When run from `brew services`, `node_exporter` is run from
+      `node_exporter_brew_services` and uses the flags in:
         #{etc}/node_exporter.args
-
-      Example configuration:
-        echo --web.listen-address :9101 > #{etc}/node_exporter.args
-
-      For the full list of options, execute
-        node_exporter -h
     EOS
   end
 
-  plist_options :manual => "node_exporter"
+  plist_options manual: "node_exporter"
 
   def plist
     <<~EOS
@@ -50,9 +52,7 @@ class NodeExporter < Formula
           <string>#{plist_name}</string>
           <key>ProgramArguments</key>
           <array>
-            <string>sh</string>
-            <string>-c</string>
-            <string>#{opt_bin}/node_exporter $(&lt; #{etc}/node_exporter.args)</string>
+            <string>#{opt_bin}/node_exporter_brew_services</string>
           </array>
           <key>RunAtLoad</key>
           <true/>
@@ -69,13 +69,9 @@ class NodeExporter < Formula
 
   test do
     assert_match /node_exporter/, shell_output("#{bin}/node_exporter --version 2>&1")
-    begin
-      pid = fork { exec bin/"node_exporter" }
-      sleep 2
-      assert_match "# HELP", shell_output("curl -s localhost:9100/metrics")
-    ensure
-      Process.kill("SIGINT", pid)
-      Process.wait(pid)
-    end
+
+    fork { exec bin/"node_exporter" }
+    sleep 2
+    assert_match "# HELP", shell_output("curl -s localhost:9100/metrics")
   end
 end

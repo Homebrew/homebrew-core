@@ -4,6 +4,7 @@ class Dex2jar < Formula
   url "https://downloads.sourceforge.net/project/dex2jar/dex2jar-2.0.zip"
   mirror "https://bitbucket.org/pxb1988/dex2jar/downloads/dex2jar-2.0.zip"
   sha256 "7907eb4d6e9280b6e17ddce7ee0507eae2ef161ee29f70a10dbc6944fdca75bc"
+  license "Apache-2.0"
 
   bottle :unneeded
 

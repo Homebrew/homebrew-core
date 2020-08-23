@@ -1,13 +1,15 @@
 class Gtksourceview4 < Formula
   desc "Text view with syntax, undo/redo, and text marks"
   homepage "https://projects.gnome.org/gtksourceview/"
-  url "https://download.gnome.org/sources/gtksourceview/4.6/gtksourceview-4.6.0.tar.xz"
-  sha256 "4c13e30ab2e602abdc56f55d35f43c1142a79b1cd77aa8839d2fc85e966d9a85"
+  url "https://download.gnome.org/sources/gtksourceview/4.6/gtksourceview-4.6.1.tar.xz"
+  sha256 "63f487a7ab59612ffa9e7be1883dbd274ab1016afcede3239b93b0fc384df874"
+  license "LGPL-2.1"
+  revision 1
 
   bottle do
-    sha256 "53694c32854d016633b2c8a197afddbf1393a62c49815455517f00448c5c0056" => :catalina
-    sha256 "d56cac91c06d4cc30df0c1887376c6134533545906b8a09628a55f0b1412964d" => :mojave
-    sha256 "57b7985de12473c23a05b4fc7451cda98bc36547aec1e684474e7c9c4c7ed8a1" => :high_sierra
+    sha256 "3372d364163e22dcbd3306835788a6cb6578bd8e6828a456f4d89bc8779aa756" => :catalina
+    sha256 "e0653a0d167b7daaf1642f322d4c3b40e4e068958328cefa0b5f473e0797bb00" => :mojave
+    sha256 "9ac5ec8943202490a696877b8df00395588f14cf9331c7badda0f316c8de6d97" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build
@@ -18,8 +20,7 @@ class Gtksourceview4 < Formula
   depends_on "gtk+3"
 
   def install
-    args = %W[
-      --prefix=#{prefix}
+    args = std_meson_args + %w[
       -Dgir=true
       -Dvapi=true
     ]

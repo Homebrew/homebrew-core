@@ -1,7 +1,7 @@
 class Uwsgi < Formula
   desc "Full stack for building hosting services"
-  homepage "https://uwsgi-docs.readthedocs.org/en/latest/"
-  revision 2
+  homepage "https://uwsgi-docs.readthedocs.io/en/latest/"
+  revision 4
   head "https://github.com/unbit/uwsgi.git"
 
   stable do
@@ -17,15 +17,15 @@ class Uwsgi < Formula
   end
 
   bottle do
-    sha256 "a918ea316ed8408dae9257ee12ad3df6db84996be08a2e657efab291a688d702" => :catalina
-    sha256 "d7d6455c84e3a0f02ba2843f2a0c05a8433ce12042b54024048fb30457f24035" => :mojave
-    sha256 "5064635530307154b9d08a912ed246b1c0049f9a8bcf1e7e9b9994160be09069" => :high_sierra
+    sha256 "6c82bba2d7564bd3409867d304c578c7823d7c1db019d8b4c8223ae569a5f247" => :catalina
+    sha256 "2a3b1c26400d68491409b8625f56c730a2f69bbb5acc2596c80ea4cba3435fad" => :mojave
+    sha256 "2c511739e0317173b7c82b15a87a0eade429ed88be667801b477c95dc2affd72" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
   depends_on "pcre"
-  depends_on "python"
+  depends_on "python@3.8"
   depends_on "yajl"
 
   uses_from_macos "curl"
@@ -38,7 +38,6 @@ class Uwsgi < Formula
     # /usr/lib/system/libsystem_darwin.dylib on 10.11 and 10.12, respectively
     ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra || MacOS.version == :el_capitan
 
-    ENV.append %w[CFLAGS LDFLAGS], "-arch #{MacOS.preferred_arch}"
     openssl = Formula["openssl@1.1"]
     ENV.prepend "CFLAGS", "-I#{openssl.opt_include}"
     ENV.prepend "LDFLAGS", "-L#{openssl.opt_lib}"
@@ -83,7 +82,7 @@ class Uwsgi < Formula
     bin.install "uwsgi"
   end
 
-  plist_options :manual => "uwsgi"
+  plist_options manual: "uwsgi"
 
   def plist
     <<~EOS
@@ -126,13 +125,15 @@ class Uwsgi < Formula
         return [b"Hello World"]
     EOS
 
+    port = free_port
+
     pid = fork do
-      exec "#{bin}/uwsgi --http-socket 127.0.0.1:8080 --protocol=http --plugin python3 -w helloworld"
+      exec "#{bin}/uwsgi --http-socket 127.0.0.1:#{port} --protocol=http --plugin python3 -w helloworld"
     end
     sleep 2
 
     begin
-      assert_match "Hello World", shell_output("curl localhost:8080")
+      assert_match "Hello World", shell_output("curl localhost:#{port}")
     ensure
       Process.kill("SIGINT", pid)
       Process.wait(pid)

@@ -3,6 +3,7 @@ class Gputils < Formula
   homepage "https://gputils.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/gputils/gputils/1.5.0/gputils-1.5.0-1.tar.bz2"
   sha256 "6f88a018e85717b57a22f27a0ca41b2157633a82351f7755be92e2d7dc40bb14"
+  license "GPL-2.0"
 
   bottle do
     sha256 "66500b5fe160a363d47dd326ff7e983e33f81d25a457f0304ada80de72d61ac8" => :catalina

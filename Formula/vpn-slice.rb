@@ -3,18 +3,24 @@ class VpnSlice < Formula
 
   desc "Vpnc-script replacement for easy and secure split-tunnel VPN setup"
   homepage "https://github.com/dlenski/vpn-slice"
-  url "https://github.com/dlenski/vpn-slice/archive/v0.13.tar.gz"
-  sha256 "08f62c688b8e5f0a1f643593bd6d29c38ab92e3714a5108bfde762a3cdaf33df"
+  url "https://github.com/dlenski/vpn-slice/archive/v0.14.2.tar.gz"
+  sha256 "cae69cfe2994fea487f563edb601f7ef8a59b5059baa104349121764da9d37a2"
+  license "GPL-3.0"
   head "https://github.com/dlenski/vpn-slice.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d3f73c709b76bf6352d6bc96e1dbff36c9b78e46e55f98919ad0eeda9e09a557" => :catalina
-    sha256 "8f71031401771af299feb50f010a7d8ad1e7baefcdbef7a6b159f52aba2f0c81" => :mojave
-    sha256 "12f88ce821b7c462a6c80d6f72b396251662dfa20df6797b0aae1801665fb277" => :high_sierra
+    sha256 "350f4032091eaf9e5daeae9bc4232e7eb6f873dc0fd2cd838bdb5feed820ec1a" => :catalina
+    sha256 "b8057aa360ec68539ec028a0f30a883440bcf7cb2d72e62159594e5ec4146017" => :mojave
+    sha256 "7f6c4cb4440b65b6579bd3796591ee95a7caeda748f40c82aea386b089d2898b" => :high_sierra
   end
 
   depends_on "python@3.8"
+
+  resource "dnspython" do
+    url "https://files.pythonhosted.org/packages/ec/c5/14bcd63cb6d06092a004793399ec395405edf97c2301dfdc146dfbd5beed/dnspython-1.16.0.zip"
+    sha256 "36c5e8e38d4369a08b6780b7f27d790a292b2b08eea01607865bf0936c558e01"
+  end
 
   resource "setproctitle" do
     url "https://files.pythonhosted.org/packages/5a/0d/dc0d2234aacba6cf1a729964383e3452c52096dc695581248b548786f2b3/setproctitle-1.1.10.tar.gz"

@@ -4,6 +4,7 @@ class Mesos < Formula
   url "https://www.apache.org/dyn/closer.lua?path=mesos/1.8.1/mesos-1.8.1.tar.gz"
   mirror "https://archive.apache.org/dist/mesos/1.8.1/mesos-1.8.1.tar.gz"
   sha256 "583f2ad0de36c3e3ce08609a6df1a3ef1145e84f453b3d56fd8332767c3a84e7"
+  license "Apache-2.0"
   revision 1
 
   bottle do
@@ -14,13 +15,12 @@ class Mesos < Formula
 
   depends_on "maven" => :build
   depends_on "apr-util"
-  depends_on :java => "1.8"
+  depends_on java: "1.8"
+  depends_on :macos # Due to Python 2
   depends_on "subversion"
 
-  uses_from_macos "python@2"
-
-  conflicts_with "nanopb-generator", :because => "they depend on an incompatible version of protobuf"
-  conflicts_with "rapidjson", :because => "mesos installs a copy of rapidjson headers"
+  conflicts_with "nanopb-generator", because: "they depend on an incompatible version of protobuf"
+  conflicts_with "rapidjson", because: "mesos installs a copy of rapidjson headers"
 
   resource "protobuf" do
     url "https://files.pythonhosted.org/packages/1b/90/f531329e628ff34aee79b0b9523196eb7b5b6b398f112bb0c03b24ab1973/protobuf-3.6.1.tar.gz"

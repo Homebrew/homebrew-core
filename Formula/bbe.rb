@@ -3,6 +3,7 @@ class Bbe < Formula
   homepage "https://sourceforge.net/projects/bbe-/"
   url "https://downloads.sourceforge.net/project/bbe-/bbe/0.2.2/bbe-0.2.2.tar.gz"
   sha256 "baaeaf5775a6d9bceb594ea100c8f45a677a0a7d07529fa573ba0842226edddb"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

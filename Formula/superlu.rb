@@ -1,7 +1,7 @@
 class Superlu < Formula
   desc "Solve large, sparse nonsymmetric systems of equations"
-  homepage "https://crd-legacy.lbl.gov/~xiaoye/SuperLU/"
-  url "https://crd-legacy.lbl.gov/~xiaoye/SuperLU/superlu_5.2.1.tar.gz"
+  homepage "https://portal.nersc.gov/project/sparse/superlu/"
+  url "https://portal.nersc.gov/project/sparse/superlu/superlu_5.2.1.tar.gz"
   sha256 "28fb66d6107ee66248d5cf508c79de03d0621852a0ddeba7301801d3d859f463"
   revision 4
 

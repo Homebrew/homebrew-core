@@ -3,6 +3,7 @@ class Qrencode < Formula
   homepage "https://fukuchi.org/works/qrencode/index.html.en"
   url "https://fukuchi.org/works/qrencode/qrencode-4.0.2.tar.gz"
   sha256 "dbabe79c07614625d1f74d8c0ae2ee5358c4e27eab8fd8fe31f9365f821a3b1d"
+  license "LGPL-2.1"
 
   bottle do
     cellar :any

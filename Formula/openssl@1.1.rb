@@ -1,21 +1,20 @@
 class OpensslAT11 < Formula
   desc "Cryptography and SSL/TLS Toolkit"
   homepage "https://openssl.org/"
-  url "https://www.openssl.org/source/openssl-1.1.1d.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/openssl@1.1--1.1.1d.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.1d.tar.gz"
-  sha256 "1e3a91bc1f9dfce01af26026f856e064eab4c8ee0a8f457b5ae30b40b8b711f2"
+  url "https://www.openssl.org/source/openssl-1.1.1g.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.1.1g.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.1g.tar.gz"
+  sha256 "ddb04774f1e32f0c49751e21b67216ac87852ceb056b75209af2443400636d46"
+  license "OpenSSL"
   version_scheme 1
 
   bottle do
-    sha256 "d7f992ebfd78f80828051f6dc6a1a99aed405f86b0f39ea651fd0afeadd1b0f4" => :catalina
-    sha256 "104ef018b7bb8fcc49f57e5a60359a28a02d480d85a959e6141394b0571cbb28" => :mojave
-    sha256 "c7681ee40cb3680cd9fafcdb092bde153b9d4903907d67858baa5f19025f927b" => :high_sierra
-    sha256 "a95d756e9aa3a8d118833f9083112048bf635f20c33943de04163bdcf7412328" => :sierra
+    sha256 "1926679569c6af5337de812d86f4dad2b21ff883ad3a5d2cd9e8836ac5ac7ffe" => :catalina
+    sha256 "5c9d113393ff3efc95e5509175305fc9304fba35390a61915ed2864941c423f2" => :mojave
+    sha256 "eebad96faa46489dc8bf8502b16ec0192f5ff9d803794c9744ad50352bfca0f7" => :high_sierra
   end
 
-  keg_only :provided_by_macos,
-    "openssl/libressl is provided by macOS so don't link an incompatible version"
+  keg_only :shadowed_by_macos, "macOS provides LibreSSL"
 
   # SSLv2 died with 1.1.0, so no-ssl2 no longer required.
   # SSLv3 & zlib are off by default with 1.1.0 but this may not
@@ -41,6 +40,9 @@ class OpensslAT11 < Formula
     ENV["PERL"] = Formula["perl"].opt_bin/"perl" if which("perl") == Formula["perl"].opt_bin/"perl"
 
     arch_args = %w[darwin64-x86_64-cc enable-ec_nistp_64_gcc_128]
+    # Remove `no-asm` workaround when upstream releases a fix
+    # See also: https://github.com/openssl/openssl/issues/12254
+    arch_args << "no-asm" if Hardware::CPU.arm?
 
     ENV.deparallelize
     system "perl", "./Configure", *(configure_args + arch_args)
@@ -89,7 +91,7 @@ class OpensslAT11 < Formula
 
   test do
     # Make sure the necessary .cnf file exists, otherwise OpenSSL gets moody.
-    assert_predicate HOMEBREW_PREFIX/"etc/openssl@1.1/openssl.cnf", :exist?,
+    assert_predicate pkgetc/"openssl.cnf", :exist?,
             "OpenSSL requires the .cnf file for some functionality"
 
     # Check OpenSSL itself functions as expected.

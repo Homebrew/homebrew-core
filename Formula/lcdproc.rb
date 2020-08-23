@@ -3,6 +3,7 @@ class Lcdproc < Formula
   homepage "http://www.lcdproc.org/"
   url "https://github.com/lcdproc/lcdproc/releases/download/v0.5.9/lcdproc-0.5.9.tar.gz"
   sha256 "d48a915496c96ff775b377d2222de3150ae5172bfb84a6ec9f9ceab962f97b83"
+  license "GPL-2.0"
 
   bottle do
     sha256 "73cd6420af4af10ee768e8aa5e9fd17621d9216d55a3cb9d3b96a94955166a16" => :catalina

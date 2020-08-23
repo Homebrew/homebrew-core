@@ -1,18 +1,18 @@
 class Libomp < Formula
   desc "LLVM's OpenMP runtime library"
   homepage "https://openmp.llvm.org/"
-  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-9.0.1/openmp-9.0.1.src.tar.xz"
-  sha256 "5c94060f846f965698574d9ce22975c0e9f04c9b14088c3af5f03870af75cace"
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0.1/openmp-10.0.1.src.tar.xz"
+  sha256 "d19f728c8e04fb1e94566c8d76aef50ec926cd2f95ef3bf1e0a5de4909b28b44"
+  license "MIT"
 
   bottle do
     cellar :any
-    sha256 "a8e25c1cb3c210b9be41aa4e93da1723d420138e8ff1ebffc3ac93c55cf8865e" => :catalina
-    sha256 "6aca3210c348307206043e772c9d98527337e7c42e38b4981534a2baccf25591" => :mojave
-    sha256 "a6f0785589272c07d40703d14404da79e880fdceb4e49dc2095fb05fd0054c0d" => :high_sierra
+    sha256 "8545af588b2b210708b56669365cea97eb80941fe455e69f54ad85f3bb5bc18c" => :catalina
+    sha256 "d410b199fed539dbd15de8f8fe98efc47067beca8d4271c0874ddc404567f65c" => :mojave
+    sha256 "549d7af3d026fa160c96adfbda70b2ce4cd5f21710041d78bce4c1946b9bc2ec" => :high_sierra
   end
 
   depends_on "cmake" => :build
-  depends_on :macos => :yosemite
 
   def install
     # Disable LIBOMP_INSTALL_ALIASES, otherwise the library is installed as

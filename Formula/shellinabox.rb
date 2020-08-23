@@ -3,13 +3,15 @@ class Shellinabox < Formula
   homepage "https://github.com/shellinabox/shellinabox"
   url "https://github.com/shellinabox/shellinabox/archive/v2.20.tar.gz"
   sha256 "27a5ec6c3439f87aee238c47cc56e7357a6249e5ca9ed0f044f0057ef389d81e"
+  license "GPL-2.0"
   revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bbed6a113c24f9780c55d18e9fe4e487a004acbcfd4ed39dc52245164c6921bb" => :catalina
-    sha256 "be4a272fb621880a3357ec3661eb9e455c965200bcaa338a07a1610a651c9f3a" => :mojave
-    sha256 "941b62ffa692c9b233ed65803a4572d0012cd925971abd1e529d256566dcc05a" => :sierra
+    rebuild 1
+    sha256 "54a87f3514eb39cbbb1c4c127127d6b3eccd69d67f7ea26c32084218cb7d7d96" => :catalina
+    sha256 "364588ed44513d77da920c1dfa722b8bd6351f72b2f18f2e7ec4edcc808fe9d7" => :mojave
+    sha256 "78a08258706eec184d42977bda76175e827a909389a70627f6eed67a10c78d45" => :high_sierra
   end
 
   depends_on "autoconf" => :build
@@ -18,18 +20,28 @@ class Shellinabox < Formula
   depends_on "openssl@1.1"
 
   # Upstream (Debian) patch for OpenSSL 1.1 compatibility
+  # Original patch cluster: https://github.com/shellinabox/shellinabox/pull/467
   patch do
-    url "https://github.com/shellinabox/shellinabox/pull/467.diff?full_index=1"
-    sha256 "3962166490c5769e450e46d40f577bf4042ac593440944f701fd64ee50d607d8"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/219cf2f/shellinabox/2.20.patch"
+    sha256 "86c2567f8f4d6c3eb6c39577ad9025dbc0d797565d6e642786e284ac8b66bd39"
   end
 
   def install
+    # Force use of native ptsname_r(), to work around a weird XCode issue on 10.13
+    ENV.append_to_cflags "-DHAVE_PTSNAME_R=1" if MacOS.version == :high_sierra
     system "autoreconf", "-fiv"
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
 
   test do
-    system "#{bin}/shellinaboxd", "--version"
+    port = free_port
+    pid = fork do
+      system bin/"shellinaboxd", "--port=#{port}", "--disable-ssl", "--localhost-only"
+    end
+    sleep 1
+    assert_match /ShellInABox - Make command line applications available as AJAX web applications/,
+                 shell_output("curl -s http://localhost:#{port}")
+    Process.kill "TERM", pid
   end
 end

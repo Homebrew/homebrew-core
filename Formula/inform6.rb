@@ -1,17 +1,17 @@
 class Inform6 < Formula
   desc "Design system for interactive fiction"
   homepage "https://inform-fiction.org/inform6.html"
-  url "https://ifarchive.org/if-archive/infocom/compilers/inform6/source/old/inform-6.33-6.12.1.tar.gz"
-  version "6.33-6.12.1"
-  sha256 "9170d6a0283aa65e1205621e89f78d674c8df978ee9c0b1c67f8b1aea4722a77"
-  revision 1
+  url "https://ifarchive.org/if-archive/infocom/compilers/inform6/source/inform-6.34-6.12.2.tar.gz"
+  mirror "https://ifarchive.org/if-archive/infocom/compilers/inform6/source/old/inform-6.34-6.12.2.tar.gz"
+  version "6.34-6.12.2"
+  sha256 "c149f143f2c29a4cb071e578afef8097647cc9e823f7fcfab518ac321d9d259f"
   head "https://gitlab.com/DavidGriffith/inform6unix.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "451af7c99925f78d66fff29b745b6607710b3e03282ba498a82277d00cd49d9c" => :catalina
-    sha256 "b423cc4b764b8ffda3d2f95aa2ec0a1f917455ca7fbb2969dd6aecdf818ed3c5" => :mojave
-    sha256 "0755c9d4c5994a6f4ebe4c74f8bb1e93665de66ae65c89c85120396edc85550d" => :high_sierra
+    sha256 "961725b635b0a0bec6c5ee2de80485cc2ae54c6704692095bf73afb45d4934a0" => :catalina
+    sha256 "be06ad010ef37eb03a5ec804cd6547087772350ccc1c03d6854cd4bebd8a5b9d" => :mojave
+    sha256 "087ee415674833ac532a1fe70c30d8d84015d91e1eeab76273707e7754ef8be4" => :high_sierra
   end
 
   resource "Adventureland.inf" do

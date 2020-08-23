@@ -4,6 +4,7 @@ class Udptunnel < Formula
   url "https://web.archive.org/web/20161224191851/www.cs.columbia.edu/~lennox/udptunnel/udptunnel-1.1.tar.gz"
   mirror "https://ftp.nsysu.edu.tw/FreeBSD/ports/local-distfiles/leeym/udptunnel-1.1.tar.gz"
   sha256 "45c0e12045735bc55734076ebbdc7622c746d1fe4e6f7267fa122e2421754670"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any_skip_relocation

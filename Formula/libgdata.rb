@@ -3,13 +3,12 @@ class Libgdata < Formula
   homepage "https://wiki.gnome.org/Projects/libgdata"
   url "https://download.gnome.org/sources/libgdata/0.16/libgdata-0.16.1.tar.xz"
   sha256 "8740e071ecb2ae0d2a4b9f180d2ae5fdf9dc4c41e7ff9dc7e057f62442800827"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 "3a231d1efc876f659a3ac123ac14a5e89632d5ac27f1a48c1ed31654e70f31c6" => :catalina
-    sha256 "7f94b356b1893b2c1870be3d5798af1a04eb405ef1ae0800293fd98b573df52f" => :mojave
-    sha256 "e6d45d94b108ab0eb008ae03a751fab8c32690d31728ec1886ef8978aef1d53a" => :high_sierra
-    sha256 "e71114ddb9b3944980a83d92c5b8521a79d52b9719746126aa0865a4986b146a" => :sierra
+    sha256 "c93f83c348b673c9768be22ae9e1119d5eb86ff94bd28e95976c2dca47f5defe" => :catalina
+    sha256 "e84e22686408f68d77b239d0cdc476f33e677f8aa66405ba4506513e31eafe2c" => :mojave
+    sha256 "0320d28747a36cf8451eff40a16bc25c9735e287888177c2c1f1ec93a835cf56" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build

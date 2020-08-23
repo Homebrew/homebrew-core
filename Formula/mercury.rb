@@ -1,14 +1,14 @@
 class Mercury < Formula
   desc "Logic/functional programming language"
   homepage "https://mercurylang.org/"
-  url "https://dl.mercurylang.org/release/mercury-srcdist-20.01.1.tar.gz"
-  sha256 "579cf00fa485d3918dbf9e50bb8057662b66fb82f69b3b824542e42a814bb76f"
+  url "https://dl.mercurylang.org/release/mercury-srcdist-20.06.tar.gz"
+  sha256 "b9c6965d41af49b4218d2444440c4860630d6f50c18dc6f1f4f8374d114f79be"
 
   bottle do
     cellar :any
-    sha256 "c6871399da6751d5407e22221a78e439d98b64c3826a2a98862561f013baa379" => :catalina
-    sha256 "4735a23f1f6d8d1c9d828e37cb62068c459c922262ea20e8c6daac000d7cf268" => :mojave
-    sha256 "e01491987cf0aaa54e733bc68b4f81ba02fbbfcff07c61b15b8224d31ed2b4b6" => :high_sierra
+    sha256 "8a643b7f50072e004089659525f9e08b05fdecbc031db32d591dbd4aa1fa110d" => :catalina
+    sha256 "f343d99ebc86c3eecff969e744fbea6e90400884650781bda85984978dfb6848" => :mojave
+    sha256 "6ec1305a6b2c81e8bc0c8c57aaeeace93a600e01913794d83ac3420c69959456" => :high_sierra
   end
 
   depends_on "openjdk"

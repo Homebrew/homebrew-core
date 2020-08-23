@@ -1,20 +1,21 @@
 class Bandwhich < Formula
   desc "Terminal bandwidth utilization tool"
   homepage "https://github.com/imsnif/bandwhich"
-  url "https://github.com/imsnif/bandwhich/archive/0.12.0.tar.gz"
-  sha256 "195693dccff3f5104376c2aa83340583440ac2c40c4f4289fe07b6948ca5d363"
+  url "https://github.com/imsnif/bandwhich/archive/0.16.0.tar.gz"
+  sha256 "fcb3ccc68e4ee86657940e879f23d122b7d8857472587e6864007c02a3cc9aa4"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "310b4b97575f46da8bff2e4e7362c9931f2e29c4e02de76ab81bc304cc3d736d" => :catalina
-    sha256 "3a8e1969176673037b44961f650ad659df0214b801210e310a7e245072fbeb1a" => :mojave
-    sha256 "62eac4e3da9092103f95e0a43a76959263978df0018f70430eb3f695391143cf" => :high_sierra
+    sha256 "b5d748211d1b21b8d7f15514d817f6693b3d196146a4a969d103e41be4e1546a" => :catalina
+    sha256 "672e16c6fb86958d26ade135782d30d60e378b6caf48026e3ad6888996bf5f8e" => :mojave
+    sha256 "bd2cec70b421902c3c2d5b5697fff2f8da6991e068d1d05cc87b108ae8e43eab" => :high_sierra
   end
 
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", *std_cargo_args
   end
 
   test do

@@ -1,14 +1,15 @@
 class Nrpe < Formula
   desc "Nagios remote plugin executor"
   homepage "https://www.nagios.org/"
-  url "https://downloads.sourceforge.net/project/nagios/nrpe-4.x/nrpe-4.0.0.tar.gz"
-  sha256 "a3d0a7ac5385421dfcc29afce7eeade13ca10d8d9115ca5c2962b72946c88a1e"
+  url "https://downloads.sourceforge.net/project/nagios/nrpe-4.x/nrpe-4.0.3/nrpe-4.0.3.tar.gz"
+  sha256 "f907ba15381adfc6eef211508abd027f8e1973116080faa4534a1191211c0340"
+  license "GPL-2.0"
 
   bottle do
     cellar :any
-    sha256 "eb75e8cbf609bf4a2d514fc03341bb33144d7cde87fcc174abc160ccd15f8683" => :catalina
-    sha256 "34c54f47ac9a79e2e698df0cf693e3b99e3aedbfb193ab626febb8eb21a1e30f" => :mojave
-    sha256 "169a4d77296cd0abd2b048faa223eab53fd3cbd44911c3a394dc28103d1ab71a" => :high_sierra
+    sha256 "6ef7387202f3b9afda335fd77f16a268a82bed7a9f6ef856faa83741b308d8f2" => :catalina
+    sha256 "90463f41b64e1ac2149dd917d536e406ed22ba9cef8a27e06618bab53c4e673e" => :mojave
+    sha256 "e109e63ca7f6f5386eae058d19e510c5d3a5deb2633f8ef014df1ac24d414cb9" => :high_sierra
   end
 
   depends_on "nagios-plugins"
@@ -45,7 +46,7 @@ class Nrpe < Formula
     (var/"run").mkpath
   end
 
-  plist_options :manual => "nrpe -n -c #{HOMEBREW_PREFIX}/etc/nrpe.cfg -d"
+  plist_options manual: "nrpe -n -c #{HOMEBREW_PREFIX}/etc/nrpe.cfg -d"
 
   def plist
     <<~EOS

@@ -3,6 +3,7 @@ class Tmpwatch < Formula
   homepage "https://pagure.io/tmpwatch"
   url "https://releases.pagure.org/tmpwatch/tmpwatch-2.11.tar.bz2"
   sha256 "93168112b2515bc4c7117e8113b8d91e06b79550d2194d62a0c174fe6c2aa8d4"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

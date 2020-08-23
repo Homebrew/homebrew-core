@@ -1,13 +1,14 @@
 class Sbcl < Formula
   desc "Steel Bank Common Lisp system"
   homepage "http://www.sbcl.org/"
-  url "https://downloads.sourceforge.net/project/sbcl/sbcl/2.0.2/sbcl-2.0.2-source.tar.bz2"
-  sha256 "4864046e3b8bc0d0af7523491cf0e2be6155518864e63cf2e6f8326865fbfe1e"
+  url "https://downloads.sourceforge.net/project/sbcl/sbcl/2.0.7/sbcl-2.0.7-source.tar.bz2"
+  sha256 "f596eed82c50abdf48dee5aba0bc39f62d158be29d2e1306f2b0b804219c617c"
 
   bottle do
-    sha256 "6a149417139c1362d10c67ae9c2e7d291ceabe34396c0f2c257f8f1835f58124" => :catalina
-    sha256 "19a197ed405cae8f2e960b53bf5de11a36a85dba390788f33d4d07e6b6801ad2" => :mojave
-    sha256 "b75c6c62b12ff6a8daaaee8115ddece7ff5a4c7827ac2688b598b246f1b2c043" => :high_sierra
+    cellar :any_skip_relocation
+    sha256 "07d7dfed05a86aec933840d64ec534dc581cc0059f10b389d120044219515510" => :catalina
+    sha256 "ec883b7f67545d74f517055fa49864eba2158ea2fc66791151f5c44fde642d4c" => :mojave
+    sha256 "54364f8aa91c03efced4f014618360ffd4cc9627ca0a9757faa4019703476e8c" => :high_sierra
   end
 
   uses_from_macos "zlib"
@@ -19,7 +20,7 @@ class Sbcl < Formula
   end
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c5ffdb11/sbcl/patch-make-doc.diff"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c5ffdb1118ce0c125c42ab396fa244a7aa01f863/sbcl/patch-make-doc.diff"
     sha256 "7c21c89fd6ec022d4f17670c3253bd33a4ac2784744e4c899c32fbe27203d87e"
   end
 
@@ -33,7 +34,7 @@ class Sbcl < Formula
     end
 
     tmpdir = Pathname.new(Dir.mktmpdir)
-    tmpdir.install resource("bootstrap64")
+    resource("bootstrap64").unpack tmpdir
 
     command = "#{tmpdir}/src/runtime/sbcl"
     core = "#{tmpdir}/output/sbcl.core"
@@ -54,7 +55,9 @@ class Sbcl < Formula
     system "sh", "install.sh"
 
     # Install sources
-    bin.env_script_all_files(libexec/"bin", :SBCL_SOURCE_ROOT => pkgshare/"src")
+    bin.env_script_all_files libexec/"bin",
+                             SBCL_SOURCE_ROOT: pkgshare/"src",
+                             SBCL_HOME:        lib/"sbcl"
     pkgshare.install %w[contrib src]
     (lib/"sbcl/sbclrc").write <<~EOS
       (setf (logical-pathname-translations "SYS")

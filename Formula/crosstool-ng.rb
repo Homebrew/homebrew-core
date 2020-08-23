@@ -3,6 +3,7 @@ class CrosstoolNg < Formula
   homepage "https://crosstool-ng.github.io/"
   url "http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-1.24.0.tar.xz"
   sha256 "804ced838ea7fe3fac1e82f0061269de940c82b05d0de672e7d424af98f22d2d"
+  license "LGPL-2.1"
   revision 1
   head "https://github.com/crosstool-ng/crosstool-ng.git"
 
@@ -30,8 +31,16 @@ class CrosstoolNg < Formula
   depends_on "lzip"
   depends_on "m4"
   depends_on "make"
-  depends_on "ncurses" if DevelopmentTools.clang_build_version >= 1000
+  depends_on "ncurses"
   depends_on "xz"
+
+  uses_from_macos "flex" => :build
+  uses_from_macos "texinfo" => :build
+  uses_from_macos "unzip" => :build
+
+  on_linux do
+    depends_on "gperf" => :build
+  end
 
   def install
     system "./bootstrap" if build.head?

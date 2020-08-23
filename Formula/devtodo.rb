@@ -14,7 +14,7 @@ class Devtodo < Formula
 
   depends_on "readline"
 
-  conflicts_with "todoman", :because => "both install a `todo` binary"
+  conflicts_with "todoman", because: "both install a `todo` binary"
 
   # Fix invalid regex. See https://web.archive.org/web/20090205000308/swapoff.org/ticket/54
   patch :DATA

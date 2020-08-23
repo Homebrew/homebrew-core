@@ -1,7 +1,7 @@
 class Streamripper < Formula
   desc "Separate tracks via Shoutcasts title-streaming"
   homepage "https://streamripper.sourceforge.io/"
-  url "https://downloads.sourceforge.net/sourceforge/streamripper/streamripper-1.64.6.tar.gz"
+  url "https://downloads.sourceforge.net/project/streamripper/streamripper%20%28current%29/1.64.6/streamripper-1.64.6.tar.gz"
   sha256 "c1d75f2e9c7b38fd4695be66eff4533395248132f3cc61f375196403c4d8de42"
   revision 1
 

@@ -1,14 +1,15 @@
 class GitTrim < Formula
   desc "Trim your git remote tracking branches that are merged or gone"
   homepage "https://github.com/foriequal0/git-trim"
-  url "https://github.com/foriequal0/git-trim/archive/v0.2.4.tar.gz"
-  sha256 "7c3c386cdca7eeec8a8a3d959e80ec088be9db5300d9db21d639878b725cf64f"
+  url "https://github.com/foriequal0/git-trim/archive/v0.3.2.tar.gz"
+  sha256 "08c65f0e821b12f5e512034df22723be9289e42102d478dae759f57905554f25"
+  license "MIT"
 
   bottle do
     cellar :any
-    sha256 "43c93225e3bced1921b69adf6d503bed99909c57945859a69a63b86c7d5b8c1f" => :catalina
-    sha256 "d0a4dd74552c09184e17bad80436c180697415482fc8487d6cf3cf6c0ac4101a" => :mojave
-    sha256 "78d5690223b4a6124946b5e51aab51190f854a8033d488942484fc38aeb2be82" => :high_sierra
+    sha256 "291284c8fc2191487bcc55ea41a0de621e705b3ae141f91226cb843b5be408af" => :catalina
+    sha256 "a41fdd1acd98185e906be41cb1ca658e50e32fc3461a9d5ef5d10a1aed9c7e11" => :mojave
+    sha256 "e0c2c87d6d4aad24751f3dded41c6e8f68300eaef2a9721eea92508bb9ccc32c" => :high_sierra
   end
 
   depends_on "rust" => :build
@@ -16,9 +17,13 @@ class GitTrim < Formula
 
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
+
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
-    man1.install "docs/git-trim.md.1" => "git-trim.1"
+    system "cargo", "install", *std_cargo_args
+    man1.install "docs/git-trim.man" => "git-trim.1"
   end
 
   test do

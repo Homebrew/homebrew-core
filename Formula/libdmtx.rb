@@ -3,6 +3,7 @@ class Libdmtx < Formula
   homepage "https://libdmtx.sourceforge.io"
   url "https://github.com/dmtx/libdmtx/archive/v0.7.5.tar.gz"
   sha256 "be0c5275695a732a5f434ded1fcc232aa63b1a6015c00044fe87f3a689b75f2e"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any

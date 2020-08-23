@@ -1,13 +1,14 @@
 class PostgresqlAT11 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v11.7/postgresql-11.7.tar.bz2"
-  sha256 "324ae93a8846fbb6a25d562d271bc441ffa8794654c5b2839384834de220a313"
+  url "https://ftp.postgresql.org/pub/source/v11.9/postgresql-11.9.tar.bz2"
+  sha256 "35618aa72e0372091f923c42389c6febd07513157b4fbb9408371706afbb6635"
+  license "PostgreSQL"
 
   bottle do
-    sha256 "d9c41a81b4314a10ba40636a2eddf2c48f15c2563754a6fcfd75a20914c817a4" => :catalina
-    sha256 "22d88398ddb8518e83514bf443b1386b43849fdbec7a3adc8f66de1c215bb4b6" => :mojave
-    sha256 "3afdfea6d5a5af7cf4c4484cddffd8b9e97082e28a9f103c0383195deffb6747" => :high_sierra
+    sha256 "6ae4d48f4eb3af904ff8bb4a4cd6194500272847636261a049559059a312ac10" => :catalina
+    sha256 "816c4f41cc68aa079c3b8840a414ace69006bff6914160a8bfe86d5365cf84eb" => :mojave
+    sha256 "01b6df74f7598494a9d31a6c017bbc7b17e78c6606603387766006705a7914d7" => :high_sierra
   end
 
   keg_only :versioned_formula
@@ -21,10 +22,11 @@ class PostgresqlAT11 < Formula
   uses_from_macos "libxslt"
   uses_from_macos "perl"
 
-  def install
-    # avoid adding the SDK library directory to the linker search path
-    ENV["XML2_CONFIG"] = "xml2-config --exec-prefix=/usr"
+  on_linux do
+    depends_on "util-linux"
+  end
 
+  def install
     ENV.prepend "LDFLAGS", "-L#{Formula["openssl@1.1"].opt_lib} -L#{Formula["readline"].opt_lib}"
     ENV.prepend "CPPFLAGS", "-I#{Formula["openssl@1.1"].opt_include} -I#{Formula["readline"].opt_include}"
 
@@ -46,15 +48,13 @@ class PostgresqlAT11 < Formula
       --with-openssl
       --with-pam
       --with-perl
+      --with-tcl
       --with-uuid=e2fs
     ]
 
-    # The CLT is required to build Tcl support on 10.7 and 10.8 because
-    # tclConfig.sh is not part of the SDK
-    args << "--with-tcl"
-    if File.exist?("#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework/tclConfig.sh")
-      args << "--with-tclconfig=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework"
-    end
+    # PostgreSQL by default uses xcodebuild internally to determine this,
+    # which does not work on CLT-only installs.
+    args << "PG_SYSROOT=#{MacOS.sdk_path}" if MacOS.sdk_root_needed?
 
     system "./configure", *args
     system "make"
@@ -68,6 +68,8 @@ class PostgresqlAT11 < Formula
   end
 
   def post_install
+    return if ENV["CI"]
+
     (var/"log").mkpath
     (var/name).mkpath
     unless File.exist? "#{var}/#{name}/PG_VERSION"
@@ -79,10 +81,15 @@ class PostgresqlAT11 < Formula
     <<~EOS
       To migrate existing data from a previous major version of PostgreSQL run:
         brew postgresql-upgrade-database
+
+      This formula has created a default database cluster with:
+        initdb --locale=C -E UTF-8 #{var}/postgres
+      For more details, read:
+        https://www.postgresql.org/docs/#{version.major}/app-initdb.html
     EOS
   end
 
-  plist_options :manual => "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgresql@11 start"
+  plist_options manual: "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgresql@11 start"
 
   def plist
     <<~EOS
@@ -114,7 +121,7 @@ class PostgresqlAT11 < Formula
   end
 
   test do
-    system "#{bin}/initdb", testpath/"test"
+    system "#{bin}/initdb", testpath/"test" unless ENV["CI"]
     assert_equal opt_pkgshare.to_s, shell_output("#{bin}/pg_config --sharedir").chomp
     assert_equal opt_lib.to_s, shell_output("#{bin}/pg_config --libdir").chomp
     assert_equal opt_lib.to_s, shell_output("#{bin}/pg_config --pkglibdir").chomp

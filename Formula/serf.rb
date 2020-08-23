@@ -2,37 +2,29 @@ class Serf < Formula
   desc "Service orchestration and management tool"
   homepage "https://serfdom.io/"
   url "https://github.com/hashicorp/serf.git",
-      :tag      => "v0.9.0",
-      :revision => "cd08d5c62353f383882b630bf238a77b4d5ef73b"
+      tag:      "v0.9.4",
+      revision: "5383e2044544e9b33ced96fe75d157604c09be86"
+  license "MPL-2.0"
   head "https://github.com/hashicorp/serf.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e305c7030488bdd5b875bfb0a1fe65297ed1571b85971249001e37971341f99c" => :catalina
-    sha256 "125b3e7bb154a472bbaf465b98a66f5a353473d22e41c0b1994ea262c901d8fc" => :mojave
-    sha256 "5aede7f9c0a33b1db1ab0ed80373474d96227d2b6db87bda0c2f680a016a3233" => :high_sierra
+    sha256 "7b232e24a80e1c0199e2b1b368f7c55e1f51ff840b450eb826b2688a2c6fab03" => :catalina
+    sha256 "04d4ea4e4c299ac0899a59f96381a7f382b91b16d6cc4b7eb69d97c446e66343" => :mojave
+    sha256 "22a8592c825ec0adb0e790be20dd0e24a8d5afb2b326d17df22a5266197a4148" => :high_sierra
   end
 
   depends_on "go" => :build
-  depends_on "govendor" => :build
-  depends_on "gox" => :build
+
+  uses_from_macos "zip" => :build
 
   def install
-    contents = Dir["*"]
-    gopath = buildpath/"gopath"
-    (gopath/"src/github.com/hashicorp/serf").install contents
+    ldflags = %W[
+      -X github.com/hashicorp/serf/version.Version=#{version}
+      -X github.com/hashicorp/serf/version.VersionPrerelease=
+    ].join(" ")
 
-    ENV["GOPATH"] = gopath
-    ENV["XC_ARCH"] = "amd64"
-    ENV["XC_OS"] = "darwin"
-
-    (gopath/"bin").mkpath
-
-    cd gopath/"src/github.com/hashicorp/serf" do
-      system "make", "bin"
-      bin.install "bin/serf"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args, "-ldflags", ldflags, "./cmd/serf"
   end
 
   test do

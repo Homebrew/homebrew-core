@@ -3,6 +3,7 @@ class Sxiv < Formula
   homepage "https://github.com/muennich/sxiv"
   url "https://github.com/muennich/sxiv/archive/v26.tar.gz"
   sha256 "a382ad57734243818e828ba161fc0357b48d8f3a7f8c29cac183492b46b58949"
+  license "GPL-2.0"
   head "https://github.com/muennich/sxiv.git"
 
   bottle do

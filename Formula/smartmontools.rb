@@ -3,6 +3,7 @@ class Smartmontools < Formula
   homepage "https://www.smartmontools.org/"
   url "https://downloads.sourceforge.net/project/smartmontools/smartmontools/7.1/smartmontools-7.1.tar.gz"
   sha256 "3f734d2c99deb1e4af62b25d944c6252de70ca64d766c4c7294545a2e659b846"
+  license "GPL-2.0"
 
   bottle do
     sha256 "cc34524c76ff39abb4afc6794fe404e257cf04816c1d2c33f8edd158e5677239" => :catalina

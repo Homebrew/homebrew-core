@@ -15,7 +15,7 @@ class MonitoringPlugins < Formula
 
   depends_on "openssl@1.1"
 
-  conflicts_with "nagios-plugins", :because => "nagios-plugins ships their plugins to the same folder."
+  conflicts_with "nagios-plugins", because: "both install their plugins to the same folder"
 
   def install
     args = %W[

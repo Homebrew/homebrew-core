@@ -3,9 +3,14 @@ class Akka < Formula
   homepage "https://github.com/akka/akka"
   url "https://downloads.typesafe.com/akka/akka_2.11-2.4.20.zip"
   sha256 "6f6af368672640512f8e0099a5d88277f4ac64de7d4edd151411e6a80cc78d0f"
+  license "Apache-2.0"
   revision 1
 
   bottle :unneeded
+
+  # Recommended to use Akka with a build tool
+  # https://github.com/akka/akka/issues/25046
+  deprecate!
 
   depends_on "openjdk"
 
@@ -25,7 +30,7 @@ class Akka < Formula
 
     libexec.install Dir["*"]
     bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files libexec/"bin", :JAVA_HOME => Formula["openjdk"].opt_prefix
+    bin.env_script_all_files libexec/"bin", JAVA_HOME: Formula["openjdk"].opt_prefix
   end
 
   test do

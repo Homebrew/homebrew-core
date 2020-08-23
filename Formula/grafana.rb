@@ -1,20 +1,28 @@
 class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases"
   homepage "https://grafana.com"
-  url "https://github.com/grafana/grafana/archive/v6.6.2.tar.gz"
-  sha256 "e11e5971d08e45e277b55e060c0ce3cf25ca0ba144367c53b4836f2d133ed9b8"
+  url "https://github.com/grafana/grafana/archive/v7.1.4.tar.gz"
+  sha256 "dcd62b6b4f1154caacea23c0351a098dcb90f888e1142d2878ea5918b734e2a9"
+  license "Apache-2.0"
   head "https://github.com/grafana/grafana.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3705d73b5d54f8838a3cd782db2aafc673358f1d6f3dc47f75f459d9bbd798fb" => :catalina
-    sha256 "dd8ce5edf6aeca7c874b31261446d4136046cf50981f49e9154e0932ec6dc8e9" => :mojave
-    sha256 "5682cd5abedc2684ae004685756aef4a19752d1b0276066e456b734d55c709b9" => :high_sierra
+    sha256 "40018fe1b06d68f60916042bf4d749d77285d1e6756243655b7068e6720144d0" => :catalina
+    sha256 "88f5c98ff3c14a3a886bbe97e32b262b87f86fe5e7a129300e082c6aa8a1a3fe" => :mojave
+    sha256 "a93b4a99ad2e4f3465e16828b3ca0a2739a95494f0e399dc41f0b0567ea457dd" => :high_sierra
   end
 
   depends_on "go" => :build
-  depends_on "node@10" => :build
+  depends_on "node" => :build
   depends_on "yarn" => :build
+
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "fontconfig"
+    depends_on "freetype"
+  end
 
   def install
     ENV["GOPATH"] = buildpath
@@ -34,7 +42,7 @@ class Grafana < Formula
       cp("conf/sample.ini", "conf/grafana.ini.example")
       etc.install "conf/sample.ini" => "grafana/grafana.ini"
       etc.install "conf/grafana.ini.example" => "grafana/grafana.ini.example"
-      pkgshare.install "conf", "public", "tools", "vendor"
+      pkgshare.install "conf", "public", "tools"
       prefix.install_metafiles
     end
   end
@@ -44,7 +52,7 @@ class Grafana < Formula
     (var/"lib/grafana/plugins").mkpath
   end
 
-  plist_options :manual => "grafana-server --config=#{HOMEBREW_PREFIX}/etc/grafana/grafana.ini --homepath #{HOMEBREW_PREFIX}/share/grafana --packaging=brew cfg:default.paths.logs=#{HOMEBREW_PREFIX}/var/log/grafana cfg:default.paths.data=#{HOMEBREW_PREFIX}/var/lib/grafana cfg:default.paths.plugins=#{HOMEBREW_PREFIX}/var/lib/grafana/plugins"
+  plist_options manual: "grafana-server --config=#{HOMEBREW_PREFIX}/etc/grafana/grafana.ini --homepath #{HOMEBREW_PREFIX}/share/grafana --packaging=brew cfg:default.paths.logs=#{HOMEBREW_PREFIX}/var/log/grafana cfg:default.paths.data=#{HOMEBREW_PREFIX}/var/lib/grafana cfg:default.paths.plugins=#{HOMEBREW_PREFIX}/var/lib/grafana/plugins"
 
   def plist
     <<~EOS
@@ -116,10 +124,10 @@ class Grafana < Formula
     w = res[1]
     pid = res[2]
 
-    listening = Timeout.timeout(5) do
+    listening = Timeout.timeout(10) do
       li = false
       r.each do |l|
-        if /Initializing HTTPServer/.match?(l)
+        if /HTTP Server Listen/.match?(l)
           li = true
           break
         end

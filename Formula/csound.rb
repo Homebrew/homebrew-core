@@ -1,15 +1,17 @@
 class Csound < Formula
   desc "Sound and music computing system"
   homepage "https://csound.com"
-  url "https://github.com/csound/csound/archive/6.14.0.tar.gz"
-  sha256 "bef349c5304b2d3431ef417933b4c9e9469c0a408a4fa4a98acf0070af360a22"
-  revision 2
-  head "https://github.com/csound/csound.git", :branch => "develop"
+  url "https://github.com/csound/csound.git",
+    tag:      "6.15.0",
+    revision: "18c2c7897425f462b9a7743cee157cb410c88198"
+  license "LGPL-2.1-or-later"
+  revision 1
+  head "https://github.com/csound/csound.git", branch: "develop"
 
   bottle do
-    sha256 "2e175c39f1333e2edce7a8bad013ea80cf6788d298f06e154a77a7fe48253f03" => :catalina
-    sha256 "f93d84a03a568ebd085ec42aee528d125f86ed2cad11add631636fa3a573fbcb" => :mojave
-    sha256 "312d951ea184c95f9a96f399b6908ebca09071dd0a546178a476acb70c0f4537" => :high_sierra
+    sha256 "d0d9f99b5afdecb3df96968a547b907862c721c6ef903d4681df0036d1f5ac07" => :catalina
+    sha256 "b78a4d843e44cb5fa29122647abf2fa544e944b22e3b6637dc8e665e17db14d5" => :mojave
+    sha256 "9393b139b0ca4bcef998414750066c8539bc37aa299d962407f5e5cf5c712511" => :high_sierra
   end
 
   depends_on "asio" => :build
@@ -26,6 +28,7 @@ class Csound < Formula
   depends_on "libpng"
   depends_on "libsamplerate"
   depends_on "libsndfile"
+  depends_on :macos # Due to Python 2
   depends_on "numpy"
   depends_on "openjdk"
   depends_on "portaudio"
@@ -36,11 +39,10 @@ class Csound < Formula
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "curl"
-  uses_from_macos "python@2"
   uses_from_macos "zlib"
 
-  conflicts_with "libextractor", :because => "both install `extract` binaries"
-  conflicts_with "pkcrack", :because => "both install `extract` binaries"
+  conflicts_with "libextractor", because: "both install `extract` binaries"
+  conflicts_with "pkcrack", because: "both install `extract` binaries"
 
   resource "ableton-link" do
     url "https://github.com/Ableton/link/archive/Link-3.0.2.tar.gz"
@@ -48,13 +50,12 @@ class Csound < Formula
   end
 
   resource "getfem" do
-    url "https://download.savannah.gnu.org/releases/getfem/stable/getfem-5.3.tar.gz"
-    sha256 "9d10a1379fca69b769c610c0ee93f97d3dcb236d25af9ae4cadd38adf2361749"
+    url "https://download.savannah.gnu.org/releases/getfem/stable/getfem-5.4.1.tar.gz"
+    sha256 "6b58cc960634d0ecf17679ba12f8e8cfe4e36b25a5fa821925d55c42ff38a64e"
   end
 
   def install
-    ENV["JAVA_HOME"] = Formula["openjdk"].opt_libexec/"openjdk.jdk/Contents/Home"
-    ENV.prepend "CFLAGS", "-DH5_USE_110_API -DH5Oget_info_vers=1"
+    ENV["JAVA_HOME"] = Formula["openjdk"].libexec/"openjdk.jdk/Contents/Home"
 
     resource("ableton-link").stage { cp_r "include/ableton", buildpath }
     resource("getfem").stage { cp_r "src/gmm", buildpath }
@@ -82,7 +83,7 @@ class Csound < Formula
 
     libexec.install buildpath/"interfaces/ctcsound.py"
 
-    python_version = Language::Python.major_minor_version "python3"
+    python_version = Language::Python.major_minor_version Formula["python@3.8"].bin/"python3"
     (lib/"python#{python_version}/site-packages/homebrew-csound.pth").write <<~EOS
       import site; site.addsitedir('#{libexec}')
     EOS
@@ -94,10 +95,10 @@ class Csound < Formula
         export DYLD_FRAMEWORK_PATH="$DYLD_FRAMEWORK_PATH:#{opt_frameworks}"
 
       To use the Java bindings, you may need to add to #{shell_profile}:
-        export CLASSPATH='#{opt_libexec}/csnd6.jar:.'
+        export CLASSPATH="#{opt_libexec}/csnd6.jar:."
       and link the native shared library into your Java Extensions folder:
         mkdir -p ~/Library/Java/Extensions
-        ln -s '#{opt_libexec}/lib_jcsound6.jnilib' ~/Library/Java/Extensions
+        ln -s "#{opt_libexec}/lib_jcsound6.jnilib" ~/Library/Java/Extensions
     EOS
   end
 
@@ -115,6 +116,7 @@ class Csound < Formula
       instr 1
           a_, a_, a_ chuap 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
           a_signal STKPlucked 440, 1
+          a_, a_ hrtfstat a_signal, 0, 0, sprintf("hrtf-%d-left.dat", sr), sprintf("hrtf-%d-right.dat", sr), 9, sr
           hdf5write "test.h5", a_signal
           out a_signal
       endin
@@ -127,6 +129,7 @@ class Csound < Formula
 
     ENV["OPCODE6DIR64"] = frameworks/"CsoundLib64.framework/Resources/Opcodes64"
     ENV["RAWWAVE_PATH"] = Formula["stk"].pkgshare/"rawwaves"
+    ENV["SADIR"] = frameworks/"CsoundLib64.framework/Versions/Current/samples"
 
     output = shell_output "#{bin}/csound test.orc test.sco 2>&1"
     assert_match /^hello, world$/, output
@@ -144,9 +147,9 @@ class Csound < Formula
     EOS
     system bin/"csound", "--orc", "--syntax-check-only", "opcode-existence.orc"
 
-    ENV["DYLD_FRAMEWORK_PATH"] = frameworks
-    system "python3", "-c", "import ctcsound"
-    ENV.delete("DYLD_FRAMEWORK_PATH")
+    with_env("DYLD_FRAMEWORK_PATH" => frameworks) do
+      system Formula["python@3.8"].bin/"python3", "-c", "import ctcsound"
+    end
 
     (testpath/"test.java").write <<~EOS
       import csnd6.*;
@@ -156,8 +159,8 @@ class Csound < Formula
           }
       }
     EOS
-    system "#{Formula["openjdk"].bin}/javac", "-classpath", "#{libexec}/csnd6.jar", "test.java"
-    system "#{Formula["openjdk"].bin}/java", "-classpath", "#{libexec}/csnd6.jar:.",
-                                             "-Djava.library.path=#{libexec}", "test"
+    system Formula["openjdk"].bin/"javac", "-classpath", "#{libexec}/csnd6.jar", "test.java"
+    system Formula["openjdk"].bin/"java", "-classpath", "#{libexec}/csnd6.jar:.",
+                                          "-Djava.library.path=#{libexec}", "test"
   end
 end

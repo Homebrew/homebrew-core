@@ -3,6 +3,7 @@ class Juise < Formula
   homepage "https://github.com/Juniper/juise/wiki"
   url "https://github.com/Juniper/juise/releases/download/0.9.0/juise-0.9.0.tar.gz"
   sha256 "7eb7985944b7322fe290f4e5a080a4018ed84bf576e23b8a32e3f94eb13f4c27"
+  license "BSD-3-Clause"
 
   bottle do
     sha256 "fdc8151a4937275308e7d353b0f42007e5a371a58551c2609351ac9ae0647bbb" => :catalina

@@ -3,14 +3,15 @@ class Nginx < Formula
   homepage "https://nginx.org/"
   # Use "mainline" releases only (odd minor version number), not "stable"
   # See https://www.nginx.com/blog/nginx-1-12-1-13-released/ for why
-  url "https://nginx.org/download/nginx-1.17.9.tar.gz"
-  sha256 "7dd65d405c753c41b7fdab9415cfb4bdbaf093ec6d9f7432072d52cb7bcbb689"
-  head "https://hg.nginx.org/nginx/", :using => :hg
+  url "https://nginx.org/download/nginx-1.19.2.tar.gz"
+  sha256 "7c1f7bb13e79433ee930c597d272a64bc6e30c356a48524f38fd34fa88d62473"
+  license "BSD-2-Clause"
+  head "https://hg.nginx.org/nginx/", using: :hg
 
   bottle do
-    sha256 "bbfea4efeecb097256a93ccedfe592ed6fc3a3d8d7cb348ea8ef0dc11052c866" => :catalina
-    sha256 "d96a65f612fba7bd7982fadb2469b965dfc9d406c948c9a15c6407d22b64f510" => :mojave
-    sha256 "865acfbcf15641757a278127cb3a70ed500f3220b4708e10ecafc4f87192016a" => :high_sierra
+    sha256 "fb98bfedf3fa373c005273461cd91cc4ccb852fdc5f0da105afc8deee5f29fe6" => :catalina
+    sha256 "4e41e59e1c6754f8dee0e982153580bca315bccd8056ed4a94c5740b6bf00965" => :mojave
+    sha256 "10fa8750a01867ebd75fd2f4f1df06eb0613f9810900b7830a0f0a71b1187027" => :high_sierra
   end
 
   depends_on "openssl@1.1"
@@ -131,7 +132,7 @@ class Nginx < Formula
     EOS
   end
 
-  plist_options :manual => "nginx"
+  plist_options manual: "nginx"
 
   def plist
     <<~EOS

@@ -2,16 +2,16 @@ class Mage < Formula
   desc "Make/rake-like build tool using Go"
   homepage "https://magefile.org"
   url "https://github.com/magefile/mage.git",
-      :tag      => "v1.9.0",
-      :revision => "1c36bf78a98209d91af71354deb001cca75e11fc"
+      tag:      "v1.10.0",
+      revision: "9a10961401323a8a888d46e35d5a59d7433e092b"
   sha256 "e8fdfa30f68c8a90fcadd4e82f49c9136011accabff55e073ea26f5ee4280cf0"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4b908f4975776815efc1fb7e019ecec36a58e597575f1597fad536ad382c6fa3" => :catalina
-    sha256 "ac88cd06d100522e8a7af513dd4169706c28f1742dfcf237bf1135836ab045a5" => :mojave
-    sha256 "4cd5deec2b988ba21b372214ece919ea3cbb0e5bb7413ce7e372b21d34e3dbb1" => :high_sierra
-    sha256 "568bb7334e6f30d467fdd6d136284dbda53e2ad70279e8f22f5ba99feffdbb34" => :sierra
+    sha256 "515be0f1647600a652fb18c7ca2eae45683e9e22f22ef7a8cfa0257e05ef6024" => :catalina
+    sha256 "d785e2a6fb3cb2a03db1a83ea1f5f2105b6dd0b254d868b7b8950ceb8910c97a" => :mojave
+    sha256 "743f8a5be5aa6dc79dbbd7f44b5cfe1726862c865042d22183d522c863994e7f" => :high_sierra
   end
 
   depends_on "go"

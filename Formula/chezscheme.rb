@@ -3,6 +3,7 @@ class Chezscheme < Formula
   homepage "https://cisco.github.io/ChezScheme/"
   url "https://github.com/cisco/ChezScheme/archive/v9.5.2.tar.gz"
   sha256 "3a370fdf2ffd67d6a0ccbb993dfab1cbaf4a0a97983c869cfaab40528c33c48b"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,7 +13,7 @@ class Chezscheme < Formula
     sha256 "e26d93d7b1c4bfefa3238809c81cfe6b30a3d0fd57e716bb712a1258cb05d5f9" => :sierra
   end
 
-  depends_on :x11 => :build
+  depends_on x11: :build
   uses_from_macos "ncurses"
 
   def install

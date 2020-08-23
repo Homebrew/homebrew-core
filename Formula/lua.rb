@@ -3,6 +3,7 @@ class Lua < Formula
   homepage "https://www.lua.org/"
   url "https://www.lua.org/ftp/lua-5.3.5.tar.gz"
   sha256 "0c2eed3f960446e1a3e4b9a1ca2f3ff893b6ce41942cf54d5dd59ab4b3b058ac"
+  license "MIT"
   revision 1
 
   bottle do
@@ -12,6 +13,12 @@ class Lua < Formula
     sha256 "fcf36c0a4785ed9f515a1a18d8e158ad806c8ff92a5359959fbfa1b84bc52454" => :high_sierra
     sha256 "17947facfc289e35fc19a1c4091f4d26387bdc254150df75e0aa95d881e58135" => :sierra
     sha256 "b6e9699312e768aaa800d06e1f1e445f1bed64c8eb614083915c60e0a2e3d746" => :el_capitan
+  end
+
+  uses_from_macos "unzip" => :build
+
+  on_linux do
+    depends_on "readline"
   end
 
   # Be sure to build a dylib, or else runtime modules will pull in another static copy of liblua = crashy

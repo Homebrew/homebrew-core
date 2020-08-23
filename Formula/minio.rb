@@ -1,37 +1,37 @@
 class Minio < Formula
-  desc "Amazon S3 compatible object storage server"
-  homepage "https://github.com/minio/minio"
+  desc "High Performance, Kubernetes Native Object Storage"
+  homepage "https://min.io"
   url "https://github.com/minio/minio.git",
-      :tag      => "RELEASE.2020-03-14T02-21-58Z",
-      :revision => "2e9fed1a14e5640219c3fc5ef51b30b937f42c0c"
-  version "20200314022158"
+      tag:      "RELEASE.2020-08-18T19-41-00Z",
+      revision: "e4a44f6224c02fc2e178f7ba550e64c35840ed03"
+  version "20200818194100"
+  license "Apache-2.0"
+  head "https://github.com/minio/minio.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7e7b3b3b014c467ceef8961b1e71b99fabfe5012e1f193baf05ca9b6a153e5c7" => :catalina
-    sha256 "04d55a605ee0cc721ab6eef4ef9dc990eea14d7d2016bf2e253d9b8571706480" => :mojave
-    sha256 "77c153346843f3cc36c65b1935e361aebfaa7b4c8cc39f80550a5942a7e7797b" => :high_sierra
+    sha256 "60d4ea5528f39b332662a727939b7859d90dae77086a9f26ca43c878252c47e3" => :catalina
+    sha256 "1b877e87cfbf6eb535c5b1ab6c5fea721d82c66008417890b365e16112fee189" => :mojave
+    sha256 "7707897416807459215564ed7a370ff246f7373c9bb06bb1a6344bacc9370f27" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
     if build.head?
-      system "go", "build", "-trimpath", "-o", bin/"minio"
+      system "go", "build", *std_go_args
     else
       release = `git tag --points-at HEAD`.chomp
-      version = release.gsub(/RELEASE\./, "").chomp.gsub(/T(\d+)\-(\d+)\-(\d+)Z/, 'T\1:\2:\3Z')
+      version = release.gsub(/RELEASE\./, "").chomp.gsub(/T(\d+)-(\d+)-(\d+)Z/, 'T\1:\2:\3Z')
       commit = `git rev-parse HEAD`.chomp
       proj = "github.com/minio/minio"
 
-      system "go", "build", "-trimpath", "-o", bin/"minio", "-ldflags", <<~EOS
+      system "go", "build", *std_go_args, "-ldflags", <<~EOS
         -X #{proj}/cmd.Version=#{version}
         -X #{proj}/cmd.ReleaseTag=#{release}
         -X #{proj}/cmd.CommitID=#{commit}
       EOS
     end
-
-    prefix.install_metafiles
   end
 
   def post_install
@@ -39,7 +39,7 @@ class Minio < Formula
     (etc/"minio").mkpath
   end
 
-  plist_options :manual => "minio server"
+  plist_options manual: "minio server"
 
   def plist
     <<~EOS
@@ -77,6 +77,12 @@ class Minio < Formula
   end
 
   test do
-    system "#{bin}/minio", "--version"
+    assert_match "minio server - start object storage server",
+      shell_output("#{bin}/minio server --help 2>&1")
+
+    assert_match "minio gateway - start object storage gateway",
+      shell_output("#{bin}/minio gateway 2>&1")
+    assert_match "ERROR Unable to validate credentials",
+      shell_output("#{bin}/minio gateway s3 2>&1", 1)
   end
 end

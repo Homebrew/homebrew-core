@@ -3,20 +3,20 @@ class Creduce < Formula
   homepage "https://embed.cs.utah.edu/creduce/"
   url "https://embed.cs.utah.edu/creduce/creduce-2.10.0.tar.gz"
   sha256 "db1c0f123967f24d620b040cebd53001bf3dcf03e400f78556a2ff2e11fea063"
+  license "BSD-3-Clause"
+  revision 1
   head "https://github.com/csmith-project/creduce.git"
 
   bottle do
     cellar :any
-    sha256 "73d556c64d5e48c3f98fde3b8bf11a930ad768a2940d23a7bc3d34b966568da2" => :catalina
-    sha256 "55e4516a29a95dfea7347c1a4bf41137fc19e1146b137e119bae8094ac1d74e5" => :mojave
-    sha256 "446ef6482cdea11babd544762c96d8774a6a2007b9c418f2822286e5f77b16e1" => :high_sierra
-    sha256 "146bf9ec3d7e5ca0bf20600687e6833208be8af614b571bfe50137e0c98d84f1" => :sierra
+    sha256 "d460655f84c09cc178e1d678bf0efc517dd10d1a0d8ad3d1c4688d94dac35bde" => :catalina
+    sha256 "4af71fc62c556bb79a9013e23769d307a70df3db07b8f96b51870be05791b238" => :mojave
+    sha256 "04a55dcc4bb5ff291e902317955fa5bb5de5c9aab603d917851cdbd1288bdb11" => :high_sierra
   end
 
   depends_on "astyle"
-  depends_on "clang-format"
   depends_on "delta"
-  depends_on "llvm"
+  depends_on "llvm@9"
 
   resource "Exporter::Lite" do
     url "https://cpan.metacpan.org/authors/id/N/NE/NEILB/Exporter-Lite-0.08.tar.gz"
@@ -43,11 +43,25 @@ class Creduce < Formula
     sha256 "5a645878dc570ac33661581fbb090ff24ebce17d43ea53fd22e105a856a47290"
   end
 
+  resource "URI::Escape" do
+    on_linux do
+      url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/URI-1.72.tar.gz"
+      sha256 "35f14431d4b300de4be1163b0b5332de2d7fbda4f05ff1ed198a8e9330d40a32"
+    end
+  end
+
+  # Use shared libraries.
+  # Remove with the next release.
+  patch do
+    url "https://github.com/csmith-project/creduce/commit/e9bb8686c5ef83a961f63744671c5e70066cba4e.patch?full_index=1"
+    sha256 "d5878a2c8fb6ebc5a43ad25943a513ff5226e42b842bb84f466cdd07d7bd626a"
+  end
+
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
 
     # Avoid ending up with llvm's Cellar path hard coded.
-    ENV["CLANG_FORMAT"] = Formula["llvm"].opt_bin/"clang-format"
+    ENV["CLANG_FORMAT"] = Formula["llvm@9"].opt_bin/"clang-format"
 
     resources.each do |r|
       r.stage do
@@ -63,7 +77,7 @@ class Creduce < Formula
     system "make"
     system "make", "install"
 
-    (bin/"creduce").write_env_script("#{libexec}/creduce", :PERL5LIB => ENV["PERL5LIB"])
+    (bin/"creduce").write_env_script("#{libexec}/creduce", PERL5LIB: ENV["PERL5LIB"])
   end
 
   test do

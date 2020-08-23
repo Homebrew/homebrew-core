@@ -3,6 +3,7 @@ class Lizard < Formula
   homepage "https://github.com/inikep/lizard"
   url "https://github.com/inikep/lizard/archive/v2.0.tar.gz"
   sha256 "85456b7274c9f0e477ff8e3f06dbc2f8ee8619d737a73c730c8a1adacb45f6da"
+  license "GPL-2.0"
 
   bottle do
     cellar :any

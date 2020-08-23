@@ -3,6 +3,7 @@ class Aldo < Formula
   homepage "https://www.nongnu.org/aldo/"
   url "https://savannah.nongnu.org/download/aldo/aldo-0.7.7.tar.bz2"
   sha256 "f1b8849d09267fff3c1f5122097d90fec261291f51b1e075f37fad8f1b7d9f92"
+  license "GPL-3.0"
 
   bottle do
     cellar :any

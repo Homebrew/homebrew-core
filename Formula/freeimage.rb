@@ -4,6 +4,7 @@ class Freeimage < Formula
   url "https://downloads.sourceforge.net/project/freeimage/Source%20Distribution/3.18.0/FreeImage3180.zip"
   version "3.18.0"
   sha256 "f41379682f9ada94ea7b34fe86bf9ee00935a3147be41b6569c9605a53e438fd"
+  license "FreeImage"
 
   bottle do
     cellar :any

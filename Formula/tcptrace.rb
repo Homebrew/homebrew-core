@@ -1,6 +1,8 @@
 class Tcptrace < Formula
+  # The tcptrace.org site has a history of going down sometimes, which is why
+  # we're using mirrors even though the first-party site may be available.
   desc "Analyze tcpdump output"
-  homepage "http://www.tcptrace.org/" # site is currently offline
+  homepage "http://www.tcptrace.org/"
   url "https://www.mirrorservice.org/sites/distfiles.macports.org/tcptrace/tcptrace-6.6.7.tar.gz"
   mirror "https://distfiles.macports.org/tcptrace/tcptrace-6.6.7.tar.gz"
   sha256 "63380a4051933ca08979476a9dfc6f959308bc9f60d45255202e388eb56910bd"

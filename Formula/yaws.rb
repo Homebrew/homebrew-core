@@ -1,22 +1,33 @@
 class Yaws < Formula
   desc "Webserver for dynamic content (written in Erlang)"
   homepage "http://yaws.hyber.org"
-  url "https://github.com/klacke/yaws/archive/yaws-2.0.7.tar.gz"
-  sha256 "083b1b6be581fdfb66d77a151bbb2fc3897b1b0497352ff6c93c2256ef2b08f6"
-  head "https://github.com/klacke/yaws.git"
+  license "BSD-3-Clause"
+  revision 2
+  head "https://github.com/erlyaws/yaws.git"
+
+  stable do
+    url "https://github.com/erlyaws/yaws/archive/yaws-2.0.7.tar.gz"
+    sha256 "083b1b6be581fdfb66d77a151bbb2fc3897b1b0497352ff6c93c2256ef2b08f6"
+
+    # Erlang 23 compatibility
+    # Remove with the next release. Also remove `WARNINGS_AS_ERRORS=` flag from `make install` call
+    patch do
+      url "https://github.com/erlyaws/yaws/compare/c0fd79f17d52628fcec527da7fa3e788c283c445..28eecfd1c65c369de5b4b99cea9407205bbe8f8e.patch?full_index=1"
+      sha256 "0dbcb92e961ae9dc9d6613436f5d39e0c1b675635cfbeef888e1d2b487add413"
+    end
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "19204b2fa23e47ec817e447331111a8f64750e44ec04f2ee61a514fe43fac495" => :catalina
-    sha256 "251c2a89b97ccc6429991e24e2b3cefda0edb5a06fa33728f3a8e3e86870c02c" => :mojave
-    sha256 "5320541b42c2d241771b92e721cb8296b04e6c71f71551cfcd41be17742067c3" => :high_sierra
-    sha256 "9e93be437c866a3a674374443d4898fc94b7cd5be5d522843924f92294493c51" => :sierra
+    sha256 "09997293c21d6a547bd35e3c6384eae48376665729e02e9008d3fe59e2436c4d" => :catalina
+    sha256 "bb522ea70a11984cb30b10ad4a0fe6a8140d4a6b55916ded173fb44732d185e4" => :mojave
+    sha256 "627c282c11101b0f7b036e52ddff6e33db668540bb8c94a7ba9e45ab510f46f4" => :high_sierra
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "erlang@20"
+  depends_on "erlang"
 
   # the default config expects these folders to exist
   skip_clean "var/log/yaws"
@@ -27,8 +38,9 @@ class Yaws < Formula
     system "autoreconf", "-fvi"
     system "./configure", "--prefix=#{prefix}",
                           # Ensure pam headers are found on Xcode-only installs
-                          "--with-extrainclude=#{MacOS.sdk_path}/usr/include/security"
-    system "make", "install"
+                          "--with-extrainclude=#{MacOS.sdk_path}/usr/include/security",
+                          "SED=/usr/bin/sed"
+    system "make", "install", "WARNINGS_AS_ERRORS="
 
     cd "applications/yapp" do
       system "make"
@@ -46,6 +58,39 @@ class Yaws < Formula
   end
 
   test do
-    system bin/"yaws", "--version"
+    user = "user"
+    password = "password"
+    port = free_port
+
+    (testpath/"www/example.txt").write <<~EOS
+      Hello World!
+    EOS
+
+    (testpath/"yaws.conf").write <<~EOS
+      logdir = #{mkdir(testpath/"log").first}
+      ebin_dir = #{mkdir(testpath/"ebin").first}
+      include_dir = #{mkdir(testpath/"include").first}
+
+      <server localhost>
+        port = #{port}
+        listen = 127.0.0.1
+        docroot = #{testpath}/www
+        <auth>
+                realm = foobar
+                dir = /
+                user = #{user}:#{password}
+        </auth>
+      </server>
+    EOS
+    fork do
+      exec bin/"yaws", "-c", testpath/"yaws.conf", "--erlarg", "-noshell"
+    end
+    sleep 3
+
+    output = shell_output("curl --silent localhost:#{port}/example.txt")
+    assert_match "401 authentication needed", output
+
+    output = shell_output("curl --user #{user}:#{password} --silent localhost:#{port}/example.txt")
+    assert_equal "Hello World!\n", output
   end
 end

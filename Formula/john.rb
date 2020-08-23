@@ -3,56 +3,46 @@ class John < Formula
   homepage "https://www.openwall.com/john/"
   url "https://www.openwall.com/john/k/john-1.9.0.tar.xz"
   sha256 "0b266adcfef8c11eed690187e71494baea539efbd632fe221181063ba09508df"
+  revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "775f6a757aa829e874edb00b184a6c8cff028506f971d5b220b36194feb0c6eb" => :catalina
-    sha256 "3a5ccc4400712b8b3ceeb47ac563cc1fa3fa7b4bb60937d3c1d3218cf51f2e4a" => :mojave
-    sha256 "7e7f9960b5594da1e110c16613c9271e428d035ca468c3ae48ec4231b45aa2f1" => :high_sierra
-    sha256 "a92418e262ea3ca50d92e5677dd2755207d936a31c8042041955235a2907298d" => :sierra
+    sha256 "bc61b94c66cd5e711cfb069f2f7dc8f448d717cd1179cbe2fed954f0786a0023" => :catalina
+    sha256 "6bc29b809b272d370240703ab20715a7e57c651cdcf27b918a49cc9232c386eb" => :mojave
+    sha256 "96fad56c615dad3f07b2c4babf9e03a0dce6533e3e4cc11e7c37e99ef9379253" => :high_sierra
   end
 
-  conflicts_with "john-jumbo", :because => "both install the same binaries"
+  conflicts_with "john-jumbo", because: "both install the same binaries"
 
-  patch :DATA # Taken from MacPorts, tells john where to find runtime files
+  # Backport of official patch from jumbo fork (https://www.openwall.com/lists/john-users/2016/01/04/1)
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/cd039571f9a3e9ecabbe68bdfb443e3abaae6270/john/1.9.0.patch"
+    sha256 "3137169c7f3c25bf58a4f4db46ddf250e49737fc2816a72264dfe87a7f89b6a1"
+  end
 
   def install
+    inreplace "src/params.h" do |s|
+      s.gsub! /#define JOHN_SYSTEMWIDE[[:space:]]*0/, "#define JOHN_SYSTEMWIDE 1"
+      s.gsub! /#define JOHN_SYSTEMWIDE_EXEC.*/, "#define JOHN_SYSTEMWIDE_EXEC \"#{pkgshare}\""
+      s.gsub! /#define JOHN_SYSTEMWIDE_HOME.*/, "#define JOHN_SYSTEMWIDE_HOME \"#{pkgshare}\""
+    end
+
     ENV.deparallelize
 
     system "make", "-C", "src", "clean", "CC=#{ENV.cc}", "macosx-x86-64"
 
     prefix.install "doc/README"
     doc.install Dir["doc/*"]
+    %w[john unafs unique unshadow].each do |b|
+      bin.install "run/#{b}"
+    end
+    pkgshare.install Dir["run/*"]
+  end
 
-    # Only symlink the binary into bin
-    libexec.install Dir["run/*"]
-    bin.install_symlink libexec/"john"
-
-    # Source code defaults to 'john.ini', so rename
-    mv libexec/"john.conf", libexec/"john.ini"
+  test do
+    (testpath/"passwd").write <<~EOS
+      root:$1$brew$dOoH2.7QsPufgT8T.pihw/:0:0:System Administrator:/var/root:/bin/sh
+    EOS
+    system "john", "--wordlist=#{pkgshare}/password.lst", "passwd"
+    assert_match /snoopy/, shell_output("john --show passwd")
   end
 end
-
-
-__END__
---- a/src/params.h	2012-08-30 13:24:18.000000000 -0500
-+++ b/src/params.h	2012-08-30 13:25:13.000000000 -0500
-@@ -70,15 +70,15 @@
-  * notes above.
-  */
- #ifndef JOHN_SYSTEMWIDE
--#define JOHN_SYSTEMWIDE			0
-+#define JOHN_SYSTEMWIDE			1
- #endif
- 
- #if JOHN_SYSTEMWIDE
- #ifndef JOHN_SYSTEMWIDE_EXEC /* please refer to the notes above */
--#define JOHN_SYSTEMWIDE_EXEC		"/usr/libexec/john"
-+#define JOHN_SYSTEMWIDE_EXEC		"HOMEBREW_PREFIX/share/john"
- #endif
- #ifndef JOHN_SYSTEMWIDE_HOME
--#define JOHN_SYSTEMWIDE_HOME		"/usr/share/john"
-+#define JOHN_SYSTEMWIDE_HOME		"HOMEBREW_PREFIX/share/john"
- #endif
- #define JOHN_PRIVATE_HOME		"~/.john"
- #endif

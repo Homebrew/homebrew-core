@@ -1,34 +1,26 @@
 class JsonC < Formula
   desc "JSON parser for C"
   homepage "https://github.com/json-c/json-c/wiki"
-  url "https://github.com/json-c/json-c/archive/json-c-0.13.1-20180305.tar.gz"
-  version "0.13.1"
-  sha256 "5d867baeb7f540abe8f3265ac18ed7a24f91fe3c5f4fd99ac3caba0708511b90"
+  url "https://github.com/json-c/json-c/archive/json-c-0.15-20200726.tar.gz"
+  version "0.15"
+  sha256 "4ba9a090a42cf1e12b84c64e4464bb6fb893666841d5843cc5bef90774028882"
+  license "MIT"
+  head "https://github.com/json-c/json-c.git"
 
   bottle do
     cellar :any
-    sha256 "40a0c602bbc055eabd9a8be69fbf43f7e5b83a7b3b346581574f20e0b97e558a" => :catalina
-    sha256 "9282e683104df6ee6cf495821de87a9badab080dfdcace1e631e518328e302d9" => :mojave
-    sha256 "4f51e5ad713e467d1df189c8b594c7e9ae279ed4fc2b0a8d1b328a3c258135d7" => :high_sierra
-    sha256 "279d88326f2f6aff9faf0c593ae4173c058e07ba0523f73107dfcbef3b54bd45" => :sierra
-    sha256 "724bffe043ecc73611fb4e7b2fcefbe35cb8b3a64aabf5cec92d43938b8e02d3" => :el_capitan
+    sha256 "60d15ece3fb1fdc8722785de8243c2261222f674e998509375522a1de75497ea" => :catalina
+    sha256 "6ab7f776315184769ed74115f614996401eae4577c36144ba4cdd1d41427d0cf" => :mojave
+    sha256 "a211a34a52b452386cf6e23f8f27cc9d088e64d2793bae7a4b3a7a069d31a88a" => :high_sierra
   end
 
-  head do
-    url "https://github.com/json-c/json-c.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
+  depends_on "cmake" => :build
 
   def install
-    system "./autogen.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
-    ENV.deparallelize
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
+      system "make", "install"
+    end
   end
 
   test do

@@ -1,15 +1,15 @@
 class BashCompletionAT2 < Formula
-  desc "Programmable completion for Bash 4.1+"
+  desc "Programmable completion for Bash 4.2+"
   homepage "https://github.com/scop/bash-completion"
-  url "https://github.com/scop/bash-completion/releases/download/2.10/bash-completion-2.10.tar.xz"
-  sha256 "123c17998e34b937ce57bb1b111cd817bc369309e9a8047c0bcf06ead4a3ec92"
-  revision 1
+  url "https://github.com/scop/bash-completion/releases/download/2.11/bash-completion-2.11.tar.xz"
+  sha256 "73a8894bad94dee83ab468fa09f628daffd567e8bef1a24277f1e9a0daf911ac"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b162bc315662861c84f428b262c9883d34ff7eab80ddff09148f81aef4d5d7ff" => :catalina
-    sha256 "b162bc315662861c84f428b262c9883d34ff7eab80ddff09148f81aef4d5d7ff" => :mojave
-    sha256 "b162bc315662861c84f428b262c9883d34ff7eab80ddff09148f81aef4d5d7ff" => :high_sierra
+    sha256 "3fe7e4021769be9a92eac055496e6189996c3527270db1dfdd4b0eb8cd7b4192" => :catalina
+    sha256 "3fe7e4021769be9a92eac055496e6189996c3527270db1dfdd4b0eb8cd7b4192" => :mojave
+    sha256 "3fe7e4021769be9a92eac055496e6189996c3527270db1dfdd4b0eb8cd7b4192" => :high_sierra
   end
 
   head do
@@ -21,7 +21,8 @@ class BashCompletionAT2 < Formula
 
   depends_on "bash"
 
-  conflicts_with "bash-completion", :because => "Differing version of same formula"
+  conflicts_with "bash-completion",
+    because: "each are different versions of the same formula"
 
   def install
     inreplace "bash_completion" do |s|

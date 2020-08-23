@@ -1,8 +1,9 @@
 class Neo4j < Formula
   desc "Robust (fully ACID) transactional property graph database"
   homepage "https://neo4j.com/"
-  url "https://neo4j.com/artifact.php?name=neo4j-community-3.5.14-unix.tar.gz"
-  sha256 "fb435b11494cde475f748f057a192bcbd8580c7445b380afe9ff52311f334bfe"
+  url "https://neo4j.com/artifact.php?name=neo4j-community-4.1.1-unix.tar.gz"
+  sha256 "4f663a520bec40dfd0b1972feb3cf93af321c230b448adb6dc917717e67a1271"
+  license "GPL-3.0"
 
   bottle :unneeded
 
@@ -11,7 +12,9 @@ class Neo4j < Formula
   # https://github.com/neo4j/neo4j/issues/11728#issuecomment-387038804
   # https://github.com/neo4j/neo4j-browser/issues/671#issuecomment-346224754
   # https://github.com/Homebrew/homebrew-core/issues/31090
-  depends_on :java => "1.8"
+  # As of v4.1.0, neo4j still needs to build with java 1.8
+  # https://github.com/neo4j/neo4j/issues/12516
+  depends_on java: "1.8"
 
   def install
     ENV["NEO4J_HOME"] = libexec
@@ -23,7 +26,7 @@ class Neo4j < Formula
 
     # Symlink binaries
     bin.install Dir["#{libexec}/bin/neo4j{,-shell,-import,-shared.sh,-admin}", "#{libexec}/bin/cypher-shell"]
-    bin.env_script_all_files(libexec/"bin", :NEO4J_HOME => ENV["NEO4J_HOME"])
+    bin.env_script_all_files(libexec/"bin", NEO4J_HOME: ENV["NEO4J_HOME"])
 
     # Adjust UDC props
     # Suppress the empty, focus-stealing java gui.
@@ -40,7 +43,7 @@ class Neo4j < Formula
     (var/"neo4j").mkpath
   end
 
-  plist_options :manual => "neo4j start"
+  plist_options manual: "neo4j start"
 
   def plist
     <<~EOS

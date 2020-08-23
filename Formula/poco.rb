@@ -3,7 +3,8 @@ class Poco < Formula
   homepage "https://pocoproject.org/"
   url "https://pocoproject.org/releases/poco-1.10.1/poco-1.10.1-all.tar.gz"
   sha256 "7f5931e0bb06bc2880a0f3867053a2fddf6c0d3e5dd96342a665460301fc34ca"
-  head "https://github.com/pocoproject/poco.git", :branch => "develop"
+  license "BSL-1.0"
+  head "https://github.com/pocoproject/poco.git", branch: "develop"
 
   bottle do
     cellar :any

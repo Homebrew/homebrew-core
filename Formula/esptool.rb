@@ -5,6 +5,7 @@ class Esptool < Formula
   homepage "https://github.com/espressif/esptool"
   url "https://github.com/espressif/esptool/archive/v2.8.tar.gz"
   sha256 "f6187ab0467e05bff6ef4e777bde5ee8eb57a74154865d30491ebb42b228c617"
+  license "GPL-2.0"
   revision 2
 
   bottle do

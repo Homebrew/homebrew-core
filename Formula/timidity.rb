@@ -3,12 +3,12 @@ class Timidity < Formula
   homepage "https://timidity.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/timidity/TiMidity++/TiMidity++-2.15.0/TiMidity++-2.15.0.tar.bz2"
   sha256 "161fc0395af16b51f7117ad007c3e434c825a308fa29ad44b626ee8f9bb1c8f5"
+  revision 1
 
   bottle do
-    sha256 "3af812745e3ce97091362541143f4f019d39c30fba5adef4922bddd146671063" => :catalina
-    sha256 "9fbf48450ffbdc5920914f0b1ba2b845504b0621b9bf76f3e21ec4cd0fe97da8" => :mojave
-    sha256 "f8ce899eb5c5d67e78e713ec18bdc385ce388b43b425bd05bc9ebedf86be36ef" => :high_sierra
-    sha256 "53406bf74847960d1c1871975a76175638e906225c28e40e0b930a557ceabb52" => :sierra
+    sha256 "4ebc752f9ca4fcfa88ade5f6806037678d855d97470adb5507c1290527fe6260" => :catalina
+    sha256 "2cae56b69dc38af0de2d80816539ac5d6c78da535d20d63a2103dcf907ec9b80" => :mojave
+    sha256 "563d4ffe26aff2b7b4453d5cb159cc596bae4f804cc977978cb01856184ed9c7" => :high_sierra
   end
 
   depends_on "flac"
@@ -23,8 +23,7 @@ class Timidity < Formula
   end
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
+    system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}",
                           "--enable-audio=darwin,vorbis,flac,speex,ao"

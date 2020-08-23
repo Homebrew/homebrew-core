@@ -3,6 +3,7 @@ class Jp < Formula
   homepage "https://github.com/sgreben/jp"
   url "https://github.com/sgreben/jp/archive/1.1.12.tar.gz"
   sha256 "8c9cddf8b9d9bfae72be448218ca0e18d24e755d36c915842b12398fefdc7a64"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

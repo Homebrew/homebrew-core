@@ -1,15 +1,15 @@
 class Javacc < Formula
   desc "Parser generator for use with Java applications"
   homepage "https://javacc.org/"
-  url "https://github.com/javacc/javacc/archive/7.0.5.tar.gz"
-  sha256 "d1502f8a7ed607de17427a1f33e490a33b0c2d5612879e812126bf95e7ed11f4"
-  revision 1
+  url "https://github.com/javacc/javacc/archive/javacc-7.0.9.tar.gz"
+  sha256 "8f16103c741761f8fb6b9caef1c941ba9dd2d0cca01fd0bee26cdadf19a5af14"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9761db5815a3cad526876b7385e61c353a287620dbd160a4f8d880dea4ccc573" => :catalina
-    sha256 "7cdce912a379ca72671e0c8590adf35d97931943a7e75d7f15c08a3f2994d832" => :mojave
-    sha256 "f08bee3c211b72483fdb6666a71eff1f0c98f645e21f83c97a1cda78ad99fd9d" => :high_sierra
+    sha256 "6eebc2e971b6ec0bd1fd0010541833623c24b4d6f2fb6f83026b927a209f0bc1" => :catalina
+    sha256 "73510c8870303d486394d2ec540a2f1c48432da6ed795de25b13f2d4f079c16e" => :mojave
+    sha256 "e1bd0b87cb040d9d7d07be29fc66b4c0b82a530cff669a620009d4bc739281d3" => :high_sierra
   end
 
   depends_on "ant" => :build

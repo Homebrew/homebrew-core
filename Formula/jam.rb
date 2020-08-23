@@ -1,6 +1,6 @@
 class Jam < Formula
   desc "Make-like build tool"
-  homepage "https://www.perforce.com/resources/documentation/jam"
+  homepage "https://www.perforce.com/documentation/jam-documentation"
   url "https://swarm.workshop.perforce.com/projects/perforce_software-jam/download/main/jam-2.6.1.zip"
   sha256 "72ea48500ad3d61877f7212aa3d673eab2db28d77b874c5a0b9f88decf41cb73"
 
@@ -11,7 +11,7 @@ class Jam < Formula
     sha256 "2927cebface8a3cbc00a23e7badb9e1676fda9bae282e78a1772b99aafba5014" => :high_sierra
   end
 
-  conflicts_with "ftjam", :because => "both install a `jam` binary"
+  conflicts_with "ftjam", because: "both install a `jam` binary"
 
   def install
     system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}", "LOCATE_TARGET=bin"

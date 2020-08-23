@@ -3,6 +3,7 @@ class Cvsutils < Formula
   homepage "https://www.red-bean.com/cvsutils/"
   url "https://www.red-bean.com/cvsutils/releases/cvsutils-0.2.6.tar.gz"
   sha256 "174bb632c4ed812a57225a73ecab5293fcbab0368c454d113bf3c039722695bb"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

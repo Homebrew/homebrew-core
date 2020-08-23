@@ -4,6 +4,7 @@ class AuroraCli < Formula
   url "https://www.apache.org/dyn/closer.lua?path=aurora/0.22.0/apache-aurora-0.22.0.tar.gz"
   mirror "https://archive.apache.org/dist/aurora/0.22.0/apache-aurora-0.22.0.tar.gz"
   sha256 "d3c20a09dcc62cac98cb83889099e845ce48a1727ca562d80b9a9274da2cfa12"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,7 +13,11 @@ class AuroraCli < Formula
     sha256 "0a1b506e5d75c9fa8d587bfc9945e78c9cb5342c17a4062d18aafb942e111eca" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.7"
+
+  # Does not build on catalina anymore
+  # Has been moved to the appache attic: https://github.com/apache/attic-aurora
+  disable!
 
   def install
     # No pants yet for Mojave, so we force High Sierra binaries there

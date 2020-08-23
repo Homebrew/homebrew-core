@@ -4,6 +4,7 @@ class SubversionAT18 < Formula
   url "https://www.apache.org/dyn/closer.lua?path=subversion/subversion-1.8.19.tar.bz2"
   mirror "https://archive.apache.org/dist/subversion/subversion-1.8.19.tar.bz2"
   sha256 "56e869b0db59519867f7077849c9c0962c599974f1412ea235eab7f98c20e6be"
+  license "Apache-2.0"
   revision 1
 
   bottle do
@@ -63,18 +64,6 @@ class SubversionAT18 < Formula
 
       system "scons", *args
       system "scons", "install"
-    end
-
-    if build.include? "unicode-path"
-      raise <<~EOS
-        The --unicode-path patch is not supported on Subversion 1.8.
-
-        Upgrading from a 1.7 version built with this patch is not supported.
-
-        You should stay on 1.7, install 1.7 from homebrew-versions, or
-          brew rm subversion && brew install subversion
-        to build a new version of 1.8 without this patch.
-      EOS
     end
 
     # Use existing system zlib

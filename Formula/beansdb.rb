@@ -3,6 +3,7 @@ class Beansdb < Formula
   homepage "https://github.com/douban/beansdb"
   url "https://github.com/douban/beansdb/archive/v0.7.1.4.tar.gz"
   sha256 "c89f267484dd47bab272b985ba0a9b9196ca63a9201fdf86963b8ed04f52ccdb"
+  license "BSD-3-Clause"
   head "https://github.com/douban/beansdb.git"
 
   bottle do
@@ -28,7 +29,7 @@ class Beansdb < Formula
     (var/"log").mkpath
   end
 
-  plist_options :manual => "beansdb"
+  plist_options manual: "beansdb"
 
   def plist
     <<~EOS

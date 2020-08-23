@@ -23,6 +23,7 @@ class Nethacked < Formula
   homepage "https://nethacked.github.io/"
   url "https://github.com/nethacked/nethacked/archive/1.0.tar.gz"
   sha256 "4e3065a7b652d5fc21577e0b7ac3a60513cd30f4ee81c7f11431a71185b609aa"
+  license "NGPL"
 
   bottle do
     sha256 "619034420b0ce7a657824a14c45af647132ac8263839b9a56fc0b64ff100aa64" => :catalina

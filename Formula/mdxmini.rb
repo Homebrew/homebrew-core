@@ -3,6 +3,7 @@ class Mdxmini < Formula
   homepage "https://clogging.web.fc2.com/psp/"
   url "https://github.com/mistydemeo/mdxmini/archive/v1.0.0.tar.gz"
   sha256 "5a407203f35d873c3cd5977213b0c33a1ce283d6b14483e9d434de79b05ca4e2"
+  license "GPL-2.0"
 
   bottle do
     cellar :any

@@ -5,23 +5,19 @@ class Pius < Formula
   homepage "https://www.phildev.net/pius/"
   url "https://github.com/jaymzh/pius/archive/v3.0.0.tar.gz"
   sha256 "3454ade5540687caf6d8b271dd18eb773a57ab4f5503fc71b4769cc3c5f2b572"
+  license "GPL-2.0"
+  revision 1
   head "https://github.com/jaymzh/pius.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e9ba4374fb3a68bd4b0c9dab7fb3bdc7591fb742af79859f83f6df69ca774913" => :catalina
-    sha256 "b90078fc6aeda02b140a97c534ec19d587465e4f8425ae492fb2988ac28b7f05" => :mojave
-    sha256 "a157ec03fd571b4cf8e732e42dd4a48c5a0c5117a0164fe49261ed445a367415" => :high_sierra
-    sha256 "a29676721817a3f58d8f03683f7d3ed55780b476f3fc6d4f6de7156422423e76" => :sierra
+    sha256 "e94572eadd5e0adeda1fb16cb05f44afd486b9ba3667c0139ec5588e7f947775" => :catalina
+    sha256 "499e1c8b31c8c1930cc8b6a7d187854302890ba51585fdba92515f0f014069ff" => :mojave
+    sha256 "d0b7237e06c967976ff74ccdf110afe9712cda1b2e0dd870f43599eb337d2eb9" => :high_sierra
   end
 
   depends_on "gnupg"
-  depends_on "python"
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
-    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
-  end
+  depends_on "python@3.8"
 
   def install
     # Replace hardcoded gpg path (WONTFIX)

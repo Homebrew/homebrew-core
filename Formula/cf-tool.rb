@@ -3,6 +3,7 @@ class CfTool < Formula
   homepage "https://github.com/xalanq/cf-tool"
   url "https://github.com/xalanq/cf-tool/archive/v1.0.0.tar.gz"
   sha256 "6671392df969e7decf9bf6b89a43a93c2bde978e005e99ddb7fd84b0c513df9f"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

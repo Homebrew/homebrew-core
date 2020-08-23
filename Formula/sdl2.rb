@@ -3,20 +3,32 @@ class Sdl2 < Formula
   homepage "https://www.libsdl.org/"
   url "https://libsdl.org/release/SDL2-2.0.12.tar.gz"
   sha256 "349268f695c02efbc9b9148a70b85e58cefbbf704abd3e91be654db7f1e2c863"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "f01b56251f8798f687fc536546a66e18688dc7c1189e83324951e5638ae33657" => :catalina
-    sha256 "9e82713279fc1fb81059f1c1070e60ffa6e3f085adc604aaf889a10222a1a7cb" => :mojave
-    sha256 "40682e8ed7520c51b598833fd0600b7a0a3c4d027d01ec1ea54a1f119a286b52" => :high_sierra
+    sha256 "4dcd635465d16372ca7a7bb2b94221aa21de02f681a22e9239d095b66fb00c63" => :catalina
+    sha256 "8733b127dd4ba6179e6ad9e6336418df9dbad8eb13f05597c05e6916f2ff0543" => :mojave
+    sha256 "b71346aebd499ed30f6de2f58a333c50575bc3bf73fbba6dcaef5a04c58282c5" => :high_sierra
   end
 
   head do
-    url "https://hg.libsdl.org/SDL", :using => :hg
+    url "https://hg.libsdl.org/SDL", using: :hg
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
+  end
+
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
+
+  # Fix library extension in CMake config file.
+  # https://bugzilla.libsdl.org/show_bug.cgi?id=5039
+  patch do
+    url "https://bugzilla.libsdl.org/attachment.cgi?id=4263"
+    sha256 "07ea066e805f82d85e6472e767ba75d265cb262053901ac9a9e22c5f8ff187a5"
   end
 
   def install

@@ -1,54 +1,39 @@
 class Influxdb < Formula
   desc "Time series, events, and metrics database"
   homepage "https://influxdata.com/time-series-platform/influxdb/"
-  url "https://github.com/influxdata/influxdb.git",
-      :tag      => "v1.7.9",
-      :revision => "23bc63d43a8dc05f53afa46e3526ebb5578f3d88"
+  url "https://github.com/influxdata/influxdb/archive/v1.8.2.tar.gz"
+  sha256 "59ee1d3bc591d932acad918f3a46b07207beed9c0e717ee28da8c9565e646eda"
+  license "MIT"
   head "https://github.com/influxdata/influxdb.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "43172c67fa138aaed080a19dca1311ad8b4beccc0b70bce8bf10703328806f10" => :catalina
-    sha256 "68d9383fb468504f40c8d9992cae8f4ec8dbda502ca4073f0249daa6cfde9a87" => :mojave
-    sha256 "fd216a7b67395f3a7ab19affcc51a3dcb71e978f5295daeda871933601dfe6be" => :high_sierra
+    sha256 "85487c01ca5b011374652ddb0dd4396d7f60cbc0227c8acef71caefea59d49d0" => :catalina
+    sha256 "84de2bb9137efe42a18464023160dbc620053aa43bfb7dc03aa5234a7d337bd3" => :mojave
+    sha256 "791fb60441f7ff352f0e4e929d02b7d472af56b200630ff90d42c195865fec5a" => :high_sierra
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    influxdb_path = buildpath/"src/github.com/influxdata/influxdb"
-    influxdb_path.install Dir["*"]
-    revision = `git rev-parse HEAD`.strip
-    version = `git describe --tags`.strip
+    ENV["GOBIN"] = buildpath
 
-    cd influxdb_path do
-      system "dep", "ensure", "-vendor-only"
-      system "go", "install",
-             "-ldflags", "-X main.version=#{version} -X main.commit=#{revision} -X main.branch=master",
-             "./..."
-    end
+    system "go", "install", "-ldflags", "-X main.version=#{version}", "./..."
+    bin.install %w[influxd influx influx_tsm influx_stress influx_inspect]
 
-    inreplace influxdb_path/"etc/config.sample.toml" do |s|
+    etc.install "etc/config.sample.toml" => "influxdb.conf"
+    inreplace etc/"influxdb.conf" do |s|
       s.gsub! "/var/lib/influxdb/data", "#{var}/influxdb/data"
       s.gsub! "/var/lib/influxdb/meta", "#{var}/influxdb/meta"
       s.gsub! "/var/lib/influxdb/wal", "#{var}/influxdb/wal"
     end
-
-    bin.install "bin/influxd"
-    bin.install "bin/influx"
-    bin.install "bin/influx_tsm"
-    bin.install "bin/influx_stress"
-    bin.install "bin/influx_inspect"
-    etc.install influxdb_path/"etc/config.sample.toml" => "influxdb.conf"
 
     (var/"influxdb/data").mkpath
     (var/"influxdb/meta").mkpath
     (var/"influxdb/wal").mkpath
   end
 
-  plist_options :manual => "influxd -config #{HOMEBREW_PREFIX}/etc/influxdb.conf"
+  plist_options manual: "influxd -config #{HOMEBREW_PREFIX}/etc/influxdb.conf"
 
   def plist
     <<~EOS
@@ -103,7 +88,7 @@ class Influxdb < Formula
       output = shell_output("curl -Is localhost:8086/ping")
       assert_match /X-Influxdb-Version:/, output
     ensure
-      Process.kill("SIGINT", pid)
+      Process.kill("SIGTERM", pid)
       Process.wait(pid)
     end
   end

@@ -3,15 +3,15 @@ class Supervisor < Formula
 
   desc "Process Control System"
   homepage "http://supervisord.org/"
-  url "https://github.com/Supervisor/supervisor/archive/4.1.0.tar.gz"
-  sha256 "e4e87a309d34c1356b77d1dfd300191b2a7c314e050d7b3853e5b91ef166c2f2"
-  revision 2
+  url "https://github.com/Supervisor/supervisor/archive/4.2.0.tar.gz"
+  sha256 "05031f36ad15cad47fb56f01d8e075f952ae39ba8ce492ea790ebb310e3f0368"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "51effbdc862aa25784afe39cf8bc8d8c00cec6e2b16666a6f29ca8834119731b" => :catalina
-    sha256 "0462b3c5acf4292902d25aa6d2706c1803696fbfea3a74b3eac6e5b65dc44228" => :mojave
-    sha256 "d842313361e1c465bcd8813c490aefcb19071bf55629414f0117c74c92d7c2b3" => :high_sierra
+    rebuild 1
+    sha256 "baf24c9b9b0ce2463148d676f1f985d090edde2b5393417cce8e4d9df93d3523" => :catalina
+    sha256 "8987e771d53dea6bee2955f83a1fd4255af39cca86bb02ae518bc1a7daca2f6b" => :mojave
+    sha256 "7a13e792368a2fbba5c426860206f7acf18b5625312f33a97d1cc97e9c5f71c4" => :high_sierra
   end
 
   depends_on "python@3.8"
@@ -27,15 +27,22 @@ class Supervisor < Formula
 
     virtualenv_install_with_resources
 
-    etc.install buildpath/"supervisor/skel/sample.conf" => "supervisord.ini"
+    etc.install buildpath/"supervisor/skel/sample.conf" => "supervisord.conf"
   end
 
   def post_install
     (var/"run").mkpath
     (var/"log").mkpath
+    conf_warn = <<~EOS
+      The default location for supervisor's config file is now:
+        #{etc}/supervisord.conf
+      Please move your config file to this location and restart supervisor.
+    EOS
+    old_conf = etc/"supervisord.ini"
+    opoo conf_warn if old_conf.exist?
   end
 
-  plist_options :manual => "supervisord -c #{HOMEBREW_PREFIX}/etc/supervisord.ini"
+  plist_options manual: "supervisord"
 
   def plist
     <<~EOS
@@ -54,7 +61,7 @@ class Supervisor < Formula
           <array>
             <string>#{opt_bin}/supervisord</string>
             <string>-c</string>
-            <string>#{etc}/supervisord.ini</string>
+            <string>#{etc}/supervisord.conf</string>
             <string>--nodaemon</string>
           </array>
         </dict>

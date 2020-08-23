@@ -1,16 +1,15 @@
 class Gpsd < Formula
   desc "Global Positioning System (GPS) daemon"
   homepage "http://catb.org/gpsd/"
-  url "https://download.savannah.gnu.org/releases/gpsd/gpsd-3.17.tar.gz"
-  sha256 "68e0dbecfb5831997f8b3d6ba48aed812eb465d8c0089420ab68f9ce4d85e77a"
+  url "https://download.savannah.gnu.org/releases/gpsd/gpsd-3.21.tar.xz"
+  mirror "https://download-mirror.savannah.gnu.org/releases/gpsd/gpsd-3.21.tar.xz"
+  sha256 "5512a7d3c2e86be83c5555652e5b4cc9049e8878a4320be7f039eb1a7203e5f0"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "22814a24acec9db78a5a0a13aa2d73773e15c648f3dd008bcbd4f088515c28ac" => :catalina
-    sha256 "000a6985fc4a8f295c2729a04cf0662f68370401afb573c62b051a1b2495da7f" => :mojave
-    sha256 "8259d06ad29227d59f70b9c4d84d20c764486fd7e6217bbf023fd003d3afe897" => :high_sierra
-    sha256 "a1840e937a0abdcd847abb9a3c9d735650fcb77088c97189c72abb2470dacdad" => :sierra
+    sha256 "e41f44df2cf96b33b2f62e65ff2ef9154d872bc8fac88b3bdaeb503246d77c2b" => :catalina
+    sha256 "caafc4aea3632fdbe8df1ce265c025430a816d2ad7c26f973c254887ec6a2a8f" => :mojave
+    sha256 "bc0775e450c0129fd71a4abd163a7645ac9b3e1698009b2735fafeb838e09e79" => :high_sierra
   end
 
   depends_on "scons" => :build
@@ -29,7 +28,7 @@ class Gpsd < Formula
     EOS
   end
 
-  plist_options :manual => "#{HOMEBREW_PREFIX}/sbin/gpsd -N -F #{HOMEBREW_PREFIX}/var/gpsd.sock /dev/tty.usbserial-XYZ"
+  plist_options manual: "#{HOMEBREW_PREFIX}/sbin/gpsd -N -F #{HOMEBREW_PREFIX}/var/gpsd.sock /dev/tty.usbserial-XYZ"
 
   def plist
     <<~EOS

@@ -1,7 +1,7 @@
 class Fuego < Formula
   desc "Collection of C++ libraries for the game of Go"
   homepage "https://fuego.sourceforge.io/"
-  url "https://svn.code.sf.net/p/fuego/code/trunk", :revision => 1981
+  url "https://svn.code.sf.net/p/fuego/code/trunk", revision: 1981
   version "1.1.SVN"
   revision 2
   head "https://svn.code.sf.net/p/fuego/code/trunk"

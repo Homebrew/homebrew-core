@@ -1,14 +1,14 @@
 class Sonarqube < Formula
   desc "Manage code quality"
   homepage "https://www.sonarqube.org/"
-  url "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.2.0.32929.zip"
-  sha256 "6a46cc9cb29898ae6b062ef40ce72688dc8bd47dc2b68ed016eeef521268dd88"
+  url "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.4.1.35646.zip"
+  sha256 "8fd4fb072a499036416227482209c0db346c900abde8558d94f866542ad8be04"
 
   bottle :unneeded
 
   depends_on "openjdk"
 
-  conflicts_with "sonarqube-lts", :because => "both install the same binaries"
+  conflicts_with "sonarqube-lts", because: "both install the same binaries"
 
   def install
     # Delete native bin directories for other systems
@@ -17,10 +17,10 @@ class Sonarqube < Formula
     libexec.install Dir["*"]
 
     (bin/"sonar").write_env_script libexec/"bin/macosx-universal-64/sonar.sh",
-      :JAVA_HOME => Formula["openjdk"].opt_prefix
+      JAVA_HOME: Formula["openjdk"].opt_prefix
   end
 
-  plist_options :manual => "sonar console"
+  plist_options manual: "sonar console"
 
   def plist
     <<~EOS

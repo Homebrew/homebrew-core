@@ -3,6 +3,7 @@ class Libde265 < Formula
   homepage "https://github.com/strukturag/libde265"
   url "https://github.com/strukturag/libde265/releases/download/v1.0.5/libde265-1.0.5.tar.gz"
   sha256 "e3f277d8903408615a5cc34718b391b83c97c646faea4f41da93bac5ee08a87f"
+  license "LGPL-3.0"
 
   bottle do
     cellar :any
@@ -12,11 +13,15 @@ class Libde265 < Formula
   end
 
   def install
+    extra_args = []
+    extra_args << "--build=aarch64-apple-darwin#{`uname -r`.chomp}" if Hardware::CPU.arm?
+
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--disable-sherlock265",
                           "--disable-dec265",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          *extra_args
     system "make", "install"
 
     # Install the test-related executables in libexec.

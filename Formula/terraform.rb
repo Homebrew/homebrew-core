@@ -1,41 +1,30 @@
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
-  url "https://github.com/hashicorp/terraform/archive/v0.12.23.tar.gz"
-  sha256 "fad34a55e4643313fe50168472e39c9468b7a4a37f8e81d9507adee210ea8e4b"
+  url "https://github.com/hashicorp/terraform/archive/v0.13.0.tar.gz"
+  sha256 "b531255bd4e1dbbc7fc5e01729b77f8781cc0f369833d01211048f0667e56cee"
+  license "MPL-2.0"
+  revision 1
   head "https://github.com/hashicorp/terraform.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "28e6b6a9a1a536285aed20f7db5793afa7da8cd21bb33be6ab3a8a38cce9f2f4" => :catalina
-    sha256 "5a457cf5473f4b6a1d5adacc9cfe3a66dbc07b442725db86c561888c98b66cb6" => :mojave
-    sha256 "64378d7139315e7a8e2c8aae27b56e0d91448a31f3a9e15bb5790033ae383d49" => :high_sierra
+    sha256 "42c43a72642e4ffc22443f3521cf396b745ee1c15435799f844bc0eaed0f0531" => :catalina
+    sha256 "42c43a72642e4ffc22443f3521cf396b745ee1c15435799f844bc0eaed0f0531" => :mojave
+    sha256 "42c43a72642e4ffc22443f3521cf396b745ee1c15435799f844bc0eaed0f0531" => :high_sierra
   end
 
-  depends_on "go@1.13" => :build
-  depends_on "gox" => :build
+  depends_on "go@1.14" => :build
 
-  conflicts_with "tfenv", :because => "tfenv symlinks terraform binaries"
+  conflicts_with "tfenv", because: "tfenv symlinks terraform binaries"
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV.prepend_create_path "PATH", buildpath/"bin"
+    # v0.6.12 - source contains tests which fail if these environment variables are set locally.
+    ENV.delete "AWS_ACCESS_KEY"
+    ENV.delete "AWS_SECRET_KEY"
 
-    dir = buildpath/"src/github.com/hashicorp/terraform"
-    dir.install buildpath.children - [buildpath/".brew_home"]
-
-    cd dir do
-      # v0.6.12 - source contains tests which fail if these environment variables are set locally.
-      ENV.delete "AWS_ACCESS_KEY"
-      ENV.delete "AWS_SECRET_KEY"
-
-      ENV["XC_OS"] = "darwin"
-      ENV["XC_ARCH"] = "amd64"
-      system "make", "tools", "bin"
-
-      bin.install "pkg/darwin_amd64/terraform"
-      prefix.install_metafiles
-    end
+    ENV["CGO_ENABLED"] = "0"
+    system "go", "build", *std_go_args, "-ldflags", "-s -w", "-mod=vendor"
   end
 
   test do

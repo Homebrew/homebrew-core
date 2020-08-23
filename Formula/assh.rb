@@ -1,30 +1,35 @@
 class Assh < Formula
   desc "Advanced SSH config - Regex, aliases, gateways, includes and dynamic hosts"
-  homepage "https://github.com/moul/advanced-ssh-config"
-  url "https://github.com/moul/advanced-ssh-config/archive/v2.8.0.tar.gz"
-  sha256 "e04de57ab048f1abee75e9e739514c4f47e6cbb8acacb9d58a6e2892df30dc42"
-  head "https://github.com/moul/advanced-ssh-config.git"
+  homepage "https://manfred.life/assh"
+  url "https://github.com/moul/assh/archive/v2.10.0.tar.gz"
+  sha256 "7cc2ff54c5fc04d2b5cbe0b073ef2fef112e5b3ef9185408b708625e572c83c1"
+  license "MIT"
+  head "https://github.com/moul/assh.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bea473073d77ae8be2329b1c868242b6d5098c46516a6e16669752b8742d56b2" => :mojave
-    sha256 "7e48c5089af70b883059a68a4e8be6b3a4a973306067d16983bc1130e23979fc" => :high_sierra
-    sha256 "0087bab708bd409d1cd00dcaba1ed40c4ad9e4f11f3b6db275a827fe2ff69011" => :sierra
-    sha256 "f791dad7d95875ae19db21305c2d5d3632ebfb7783c837d212a08099d15c4d7a" => :el_capitan
+    sha256 "e12956db15a33133390f2317143315710f6692aad3e5b36fafa3934e43ab3241" => :catalina
+    sha256 "2507b79a656698c02c1fb678ebe280ba44326a9f8ec17d4fd355a3843b60253b" => :mojave
+    sha256 "359270a9985af3faba8cfe637027d2a4d44ed3b0ce129bd5eb22354eb000bf45" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/moul/advanced-ssh-config").install Dir["*"]
-    cd "src/github.com/moul/advanced-ssh-config/cmd/assh" do
-      system "go", "build", "-o", bin/"assh"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"assh"
+    prefix.install_metafiles
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/assh --version")
+    assh_config = testpath/"assh.yml"
+    assh_config.write <<~EOS
+      hosts:
+        hosta:
+          Hostname: 127.0.0.1
+      asshknownhostfile: /dev/null
+    EOS
+
+    output = "hosta assh ping statistics"
+    assert_match output, shell_output("#{bin}/assh --config #{assh_config} ping -c 4 hosta 2>&1")
   end
 end

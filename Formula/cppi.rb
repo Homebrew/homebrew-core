@@ -4,6 +4,7 @@ class Cppi < Formula
   url "https://ftp.gnu.org/gnu/cppi/cppi-1.18.tar.xz"
   mirror "https://ftpmirror.gnu.org/cppi/cppi-1.18.tar.xz"
   sha256 "12a505b98863f6c5cf1f749f9080be3b42b3eac5a35b59630e67bea7241364ca"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation

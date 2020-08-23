@@ -3,6 +3,7 @@ class Libchewing < Formula
   homepage "http://chewing.im/"
   url "https://github.com/chewing/libchewing/releases/download/v0.5.1/libchewing-0.5.1.tar.bz2"
   sha256 "9708c63415fa6034435c0f38100e7d30d0e1bac927f67bec6dfeb3fef016172b"
+  license "LGPL-2.1"
 
   bottle do
     cellar :any

@@ -4,6 +4,7 @@ class Figlet < Formula
   url "http://ftp.figlet.org/pub/figlet/program/unix/figlet-2.2.5.tar.gz"
   mirror "https://fossies.org/linux/misc/figlet-2.2.5.tar.gz"
   sha256 "bf88c40fd0f077dab2712f54f8d39ac952e4e9f2e1882f1195be9e5e4257417d"
+  license "BSD-3-Clause"
 
   bottle do
     sha256 "b0ecddfbf1d1e1d45ff1d3cb1be1977fd80a7924c27a73d995435de9aff5ca66" => :catalina

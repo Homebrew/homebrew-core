@@ -1,181 +1,44 @@
-require "language/go"
-
 class Acmetool < Formula
   desc "Automatic certificate acquisition tool for ACME (Let's Encrypt)"
-  homepage "https://github.com/hlandau/acme"
-  url "https://github.com/hlandau/acme.git",
-      :tag      => "v0.0.67",
-      :revision => "221ea15246f0bbcf254b350bee272d43a1820285"
+  homepage "https://github.com/hlandau/acmetool"
+  url "https://github.com/hlandau/acmetool.git",
+      tag:      "v0.0.67",
+      revision: "221ea15246f0bbcf254b350bee272d43a1820285"
+  license "MIT"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "859ddcc717399c6724283beece51c0a93497e00be685d3f1cfb7153506cbd9bb" => :catalina
-    sha256 "fd6d5e67865a1038fef6f4b183c255e42e4eb6470d5847e804639197f226da6b" => :mojave
-    sha256 "62ec2c87880494488a50d78c36104f75eb97bb160ddf316387ab116e51ace2fd" => :high_sierra
+    sha256 "91cc3e92638a60e46cc4f003330acea39eb78fe66e5a813e86b96a2b2d43e1e1" => :catalina
+    sha256 "150d06d622b88104ac60f6eaf914e9c250cc42916e61c94378e1bea58da406bf" => :mojave
+    sha256 "60e99c7778fae7fff51852ade8fb55d679eef47198eb891d59f07a4ccb3e171f" => :high_sierra
   end
+
+  # See: https://community.letsencrypt.org/t/end-of-life-plan-for-acmev1/88430
+  deprecate! date: "2020-06-01"
 
   depends_on "go" => :build
+  uses_from_macos "libpcap"
 
-  go_resource "github.com/alecthomas/template" do
-    url "https://github.com/alecthomas/template.git",
-        :revision => "a0175ee3bccc567396460bf5acd36800cb10c49c"
-  end
-
-  go_resource "github.com/alecthomas/units" do
-    url "https://github.com/alecthomas/units.git",
-        :revision => "2efee857e7cfd4f3d0138cc3cbb1b4966962b93a"
-  end
-
-  go_resource "github.com/coreos/go-systemd" do
-    url "https://github.com/coreos/go-systemd.git",
-        :revision => "cc4f39464dc797b91c8025330de585294c2a6950"
-  end
-
-  go_resource "github.com/hlandau/buildinfo" do
-    url "https://github.com/hlandau/buildinfo.git",
-        :revision => "337a29b5499734e584d4630ce535af64c5fe7813"
-  end
-
-  go_resource "github.com/hlandau/dexlogconfig" do
-    url "https://github.com/hlandau/dexlogconfig.git",
-        :revision => "244f29bd260884993b176cd14ef2f7631f6f3c18"
-  end
-
-  go_resource "github.com/hlandau/goutils" do
-    url "https://github.com/hlandau/goutils.git",
-        :revision => "0cdb66aea5b843822af6fdffc21286b8fe8379c4"
-  end
-
-  go_resource "github.com/hlandau/xlog" do
-    url "https://github.com/hlandau/xlog.git",
-        :revision => "197ef798aed28e08ed3e176e678fda81be993a31"
-  end
-
-  go_resource "github.com/jmhodges/clock" do
-    url "https://github.com/jmhodges/clock.git",
-        :revision => "880ee4c335489bc78d01e4d0a254ae880734bc15"
-  end
-
-  go_resource "github.com/mattn/go-isatty" do
-    url "https://github.com/mattn/go-isatty.git",
-        :revision => "6ca4dbf54d38eea1a992b3c722a76a5d1c4cb25c"
-  end
-
-  go_resource "github.com/mattn/go-runewidth" do
-    url "https://github.com/mattn/go-runewidth.git",
-        :revision => "97311d9f7767e3d6f422ea06661bc2c7a19e8a5d"
-  end
-
-  go_resource "github.com/mitchellh/go-wordwrap" do
-    url "https://github.com/mitchellh/go-wordwrap.git",
-        :revision => "ad45545899c7b13c020ea92b2072220eefad42b8"
-  end
-
-  go_resource "github.com/ogier/pflag" do
-    url "https://github.com/ogier/pflag.git",
-        :revision => "45c278ab3607870051a2ea9040bb85fcb8557481"
-  end
-
-  go_resource "github.com/peterhellberg/link" do
-    url "https://github.com/peterhellberg/link.git",
-        :revision => "8768c6d4dc563b4a09f58ecda04997024452c057"
-  end
-
-  go_resource "github.com/satori/go.uuid" do
-    url "https://github.com/satori/go.uuid.git",
-        :revision => "36e9d2ebbde5e3f13ab2e25625fd453271d6522e"
-  end
-
-  go_resource "github.com/shiena/ansicolor" do
-    url "https://github.com/shiena/ansicolor.git",
-        :revision => "a422bbe96644373c5753384a59d678f7d261ff10"
-  end
-
-  go_resource "golang.org/x/crypto" do
-    url "https://go.googlesource.com/crypto.git",
-        :revision => "a6600008915114d9c087fad9f03d75087b1a74df"
-  end
-
-  go_resource "golang.org/x/net" do
-    url "https://go.googlesource.com/net.git",
-        :revision => "5ccada7d0a7ba9aeb5d3aca8d3501b4c2a509fec"
-  end
-
-  go_resource "golang.org/x/sys" do
-    url "https://go.googlesource.com/sys.git",
-        :revision => "2c42eef0765b9837fbdab12011af7830f55f88f0"
-  end
-
-  go_resource "golang.org/x/text" do
-    url "https://go.googlesource.com/text.git",
-        :revision => "e19ae1496984b1c655b8044a65c0300a3c878dd3"
-  end
-
-  go_resource "gopkg.in/alecthomas/kingpin.v2" do
-    url "https://gopkg.in/alecthomas/kingpin.v2.git",
-        :revision => "947dcec5ba9c011838740e680966fd7087a71d0d"
-  end
-
-  go_resource "gopkg.in/cheggaaa/pb.v1" do
-    url "https://gopkg.in/cheggaaa/pb.v1.git",
-        :revision => "43d64de27312b32812ca7e994fa0bb03ccf08fdf"
-  end
-
-  go_resource "gopkg.in/hlandau/configurable.v1" do
-    url "https://gopkg.in/hlandau/configurable.v1.git",
-        :revision => "41496864a1fe3e0fef2973f22372b755d2897402"
-  end
-
-  go_resource "gopkg.in/hlandau/easyconfig.v1" do
-    url "https://gopkg.in/hlandau/easyconfig.v1.git",
-        :revision => "7589cb96edce2f94f8c1e6eb261f8c2b06220fe7"
-  end
-
-  go_resource "gopkg.in/hlandau/service.v2" do
-    url "https://gopkg.in/hlandau/service.v2.git",
-        :revision => "b64b3467ebd16f64faec1640c25e318efc0c0d7b"
-  end
-
-  go_resource "gopkg.in/hlandau/svcutils.v1" do
-    url "https://gopkg.in/hlandau/svcutils.v1.git",
-        :revision => "c25dac49e50cbbcbef8c81b089f56156f4067729"
-  end
-
-  go_resource "gopkg.in/square/go-jose.v1" do
-    url "https://gopkg.in/square/go-jose.v1.git",
-        :revision => "aa2e30fdd1fe9dd3394119af66451ae790d50e0d"
-  end
-
-  go_resource "gopkg.in/tylerb/graceful.v1" do
-    url "https://gopkg.in/tylerb/graceful.v1.git",
-        :revision => "4654dfbb6ad53cb5e27f37d99b02e16c1872fbbb"
-  end
-
-  go_resource "gopkg.in/yaml.v2" do
-    url "https://gopkg.in/yaml.v2.git",
-        :revision => "d670f9405373e636a5a2765eea47fac0c9bc91a4"
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/f782e15/acmetool/stable-gomod.diff"
+    sha256 "1cd4871cbb885abd360f9060dd660f8e678d1143a182f3bb63bddba84f6ec982"
   end
 
   def install
-    ENV["GOPATH"] = buildpath
+    # https://github.com/hlandau/acmetool/blob/221ea15246f0bbcf254b350bee272d43a1820285/_doc/PACKAGING-PATHS.md
+    buildinfo = Utils.safe_popen_read("(echo acmetool Homebrew version #{version} \\($(uname -mrs)\\);
+                                      go list -m all | sed '1d') | base64 | tr -d '\\n'")
+    ldflags = %W[
+      -X github.com/hlandau/acme/storage.RecommendedPath=#{var}/lib/acmetool
+      -X github.com/hlandau/acme/hooks.DefaultPath=#{lib}/hooks
+      -X github.com/hlandau/acme/responder.StandardWebrootPath=#{var}/run/acmetool/acme-challenge
+      -X github.com/hlandau/buildinfo.RawBuildInfo=#{buildinfo}
+    ].join(" ")
 
-    (buildpath/"src/github.com/hlandau").mkpath
-    ln_sf buildpath, buildpath/"src/github.com/hlandau/acme"
-    Language::Go.stage_deps resources, buildpath/"src"
+    system "go", "build", "-ldflags", ldflags, "-trimpath", "-o", bin/"acmetool", buildpath/"cmd/acmetool"
 
-    cd "cmd/acmetool" do
-      # https://github.com/hlandau/acme/blob/master/_doc/PACKAGING-PATHS.md
-      ldflags = %W[
-        -X github.com/hlandau/acme/storage.RecommendedPath=#{var}/lib/acmetool
-        -X github.com/hlandau/acme/hooks.DefaultPath=#{lib}/hooks
-        -X github.com/hlandau/acme/responder.StandardWebrootPath=#{var}/run/acmetool/acme-challenge
-        #{Utils.popen_read("#{buildpath}/src/github.com/hlandau/buildinfo/gen")}
-      ]
-      system "go", "build", "-o", bin/"acmetool", "-ldflags", ldflags.join(" ")
-    end
-
-    (man8/"acmetool.8").write Utils.popen_read(bin/"acmetool", "--help-man")
+    (man8/"acmetool.8").write Utils.safe_popen_read(bin/"acmetool", "--help-man")
 
     doc.install Dir["_doc/*"]
   end
@@ -183,6 +46,13 @@ class Acmetool < Formula
   def post_install
     (var/"lib/acmetool").mkpath
     (var/"run/acmetool").mkpath
+  end
+
+  def caveats
+    <<~EOS
+      This version is deprecated and will stop working by June 2021. For details, see:
+        https://github.com/hlandau/acmetool/issues/322
+    EOS
   end
 
   test do

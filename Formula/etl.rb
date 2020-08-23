@@ -3,6 +3,7 @@ class Etl < Formula
   homepage "https://synfig.org"
   url "https://downloads.sourceforge.net/project/synfig/releases/1.2.2/source/ETL-1.2.2.tar.gz"
   sha256 "0dc19c5a6c9e964054ca3af6dacd6ab0c198d78071cfab2aebac178afe454d8b"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation

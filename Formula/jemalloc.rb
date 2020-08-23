@@ -1,22 +1,31 @@
 class Jemalloc < Formula
-  desc "malloc implementation emphasizing fragmentation avoidance"
+  desc "Implementation of malloc emphasizing fragmentation avoidance"
   homepage "http://jemalloc.net/"
   url "https://github.com/jemalloc/jemalloc/releases/download/5.2.1/jemalloc-5.2.1.tar.bz2"
   sha256 "34330e5ce276099e2e8950d9335db5a875689a4c6a56751ef3b1d8c537f887f6"
+  license "BSD-2-Clause"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "13080a13f5e1a0699adaed5ba9906616850c2e8a75a829f8be6a2e6183fb16e5" => :catalina
-    sha256 "9fbc2052929cedb26b55bf21d0ac539d8ec153d138fde9dbd57e8bf9ed943b81" => :mojave
-    sha256 "8da348f2bc2a3d90e55fb0121b75e3581212e776e5f088f67be1005164917b55" => :high_sierra
-    sha256 "5bf32c065113e0b07db53b73a800516a4ad8ee655cbc50596a1016101c57ec14" => :sierra
+    sha256 "b1b211e5bead798c236d478dd74310a97a7b59470f607b608c07222648b08bf5" => :catalina
+    sha256 "d3f6f85e74b08c8c97448e289734df484f884af35cd10ce9d9db43cf721fbf94" => :mojave
+    sha256 "8080c98844153da08346431fe0a0592f6f718cb7a17525f9ffb909c395bc0b6d" => :high_sierra
   end
 
   head do
-    url "https://github.com/jemalloc/jemalloc.git", :branch => "dev"
+    url "https://github.com/jemalloc/jemalloc.git", branch: "dev"
 
     depends_on "autoconf" => :build
     depends_on "docbook-xsl" => :build
+  end
+
+  # Fixes an issue where jemalloc's types conflict with the system
+  # types, preventing their use. Merged upstream.
+  # https://github.com/jemalloc/jemalloc/commit/3b4a03b92b2e415415a08f0150fdb9eeb659cd52
+  patch do
+    url "https://github.com/Homebrew/formula-patches/raw/d3d5ad2b5683c1a435a185eec9c593749c7ca41a/jemalloc/fix_nothrow_type.patch"
+    sha256 "d79f5c8767695059ff541f291db3fbc57c9b67299dc129848dd365c2f51b214a"
   end
 
   def install

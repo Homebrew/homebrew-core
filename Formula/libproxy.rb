@@ -3,25 +3,26 @@ class Libproxy < Formula
   homepage "https://libproxy.github.io/libproxy/"
   url "https://github.com/libproxy/libproxy/archive/0.4.15.tar.gz"
   sha256 "18f58b0a0043b6881774187427ead158d310127fc46a1c668ad6d207fb28b4e0"
-  revision 1
+  license "LGPL-2.1"
+  revision 2
   head "https://github.com/libproxy/libproxy.git"
 
   bottle do
-    sha256 "85c0981635696e9160b6f69ed4396609a4542ad478fdd3ac6b5b43b3c25bee07" => :catalina
-    sha256 "2bd92529540425a786f17b2b2cc10423394c53a6120bbfa7a8d1df29b0617818" => :mojave
-    sha256 "1da068be3ea931eda7ac2f58c8db57d9169d299bc5d57c70b8a455decd351931" => :high_sierra
-    sha256 "e848c71f0cdd15d30a2f8003188883f4cf395034447d8b8db4909db5d51904ea" => :sierra
+    sha256 "fbb6b461e2abfbd8f3c117c64410827fac0759cefab76cbccd4051f9d5b98d9c" => :catalina
+    sha256 "74b3f2231eaaaf6ca8cbcb7868b0cb71a62ed4228b1c6fb81ce1b9548819cdb6" => :mojave
+    sha256 "bf36cc90d464f46a70aca6407df2ea7c7b1b325d29346de3813298016cd0c324" => :high_sierra
   end
 
   depends_on "cmake" => :build
-  depends_on "python"
+  depends_on "python@3.8"
 
   uses_from_macos "perl"
 
   def install
+    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
     args = std_cmake_args + %W[
       ..
-      -DPYTHON3_SITEPKG_DIR=#{lib}/python2.7/site-packages
+      -DPYTHON3_SITEPKG_DIR=#{lib}/python#{xy}/site-packages
       -DWITH_PERL=OFF
       -DWITH_PYTHON2=OFF
     ]

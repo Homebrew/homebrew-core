@@ -1,14 +1,14 @@
 class Psqlodbc < Formula
   desc "Official PostgreSQL ODBC driver"
   homepage "https://odbc.postgresql.org"
-  url "https://ftp.postgresql.org/pub/odbc/versions/src/psqlodbc-12.01.0000.tar.gz"
-  sha256 "fdbb3edfcc9730787bb84d76e61fcf7584ced1913d7bfccea0bcbf5a150a5f74"
+  url "https://ftp.postgresql.org/pub/odbc/versions/src/psqlodbc-12.02.0000.tar.gz"
+  sha256 "7b00d99ee729c06cfc784ab43deb7dee77761b667dd62122c2cb0cd7b043ba67"
 
   bottle do
     cellar :any
-    sha256 "3b1ddc35e6778cad2cda6bcb9a4bec0eee15c60c50f7940b49af343363e27457" => :catalina
-    sha256 "9070cf9b4b8d2826e2979e4a50b73c16584961ad19c7ec3a38f59e6bc8599021" => :mojave
-    sha256 "af640c08e54e2bd684a75b246a25b3ad2ed7a0ddaf3c38d8ca9b60117e620ec4" => :high_sierra
+    sha256 "6ecd918abfb4e8bc95299a8efaeb2d9b2d772caee48d14108a6eeb9781f84776" => :catalina
+    sha256 "34900a66170b407b00a65824165fb0ddb2bc6d585ef4c9bba75729d73ee32775" => :mojave
+    sha256 "3cb37c6a2885d5abbd75b74167b0e6a93f29edbd1d36ad074bdf438bd7d1cb39" => :high_sierra
   end
 
   head do

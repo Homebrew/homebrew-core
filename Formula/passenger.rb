@@ -1,28 +1,23 @@
 class Passenger < Formula
   desc "Server for Ruby, Python, and Node.js apps via Apache/NGINX"
   homepage "https://www.phusionpassenger.com/"
-  url "https://github.com/phusion/passenger/releases/download/release-6.0.4/passenger-6.0.4.tar.gz"
-  sha256 "ec1e4b555c176642c1c316897177d54b6f7d369490280e8ee3e54644e40b250b"
-  revision 5
-  head "https://github.com/phusion/passenger.git", :branch => "stable-6.0"
+  url "https://github.com/phusion/passenger/releases/download/release-6.0.6/passenger-6.0.6.tar.gz"
+  sha256 "fbf89ebfacc079bdf6466567eabc9eb741a5abd8f230133311f7a40fff763842"
+  license "MIT"
+  revision 1
+  head "https://github.com/phusion/passenger.git", branch: "stable-6.0"
 
   bottle do
     cellar :any
-    sha256 "9d7dc612f7ed8a6ccf8f6656125495316fea033408be13c8887aa6a59897e6fd" => :catalina
-    sha256 "6cb8fa498753ea841058ac85034c8a97ba896f7fef801a4451515bcf1cc8090c" => :mojave
-    sha256 "75b8403329a81e17ef3a626decdf8deaebce29093dfc671d7182d827c6bb35a8" => :high_sierra
+    sha256 "2b8b8c8f7ef364c40d725fd057abc72de46caf47aae2e335fe4847be06a66abe" => :catalina
+    sha256 "f70a4f4516952932a995125f82f1fc53c4fa6f786329469c584963dbd1931969" => :mojave
+    sha256 "e23f613dee905e37d82202fb8da2d8fd8097b92f1d322b43dec6cdaf704829a7" => :high_sierra
   end
 
   # to build nginx module
   depends_on "nginx" => [:build, :test]
   depends_on "openssl@1.1"
   depends_on "pcre"
-
-  # Enables setting temp path to avoid sandbox violations, already merged upstream
-  patch do
-    url "https://github.com/phusion/passenger/commit/e512231f.patch?full_index=1"
-    sha256 "9f39f5c1c8b68516f7bac0ba07921144a5de30b6a72ef2423ea83a77d512bea8"
-  end
 
   def install
     if MacOS.version >= :mojave && MacOS::CLT.installed?
@@ -62,7 +57,7 @@ class Passenger < Formula
                          passenger.gemspec build bin doc images dev src
                          resources buildout]
 
-    cp_r necessary_files, libexec, :preserve => true
+    cp_r necessary_files, libexec, preserve: true
 
     # Allow Homebrew to create symlinks for the Phusion Passenger commands.
     bin.install_symlink Dir["#{libexec}/bin/*"]
@@ -80,7 +75,7 @@ class Passenger < Formula
       "--ruby", ruby_libdir, *Dir[libexec/"bin/*"]
 
     system "./bin/passenger-config", "compile-nginx-engine"
-    cp Dir["buildout/support-binaries/nginx*"], libexec/"buildout/support-binaries", :preserve => true
+    cp Dir["buildout/support-binaries/nginx*"], libexec/"buildout/support-binaries", preserve: true
 
     nginx_addon_dir.gsub!(/^#{Regexp.escape Dir.pwd}/, libexec)
     system "./dev/install_scripts_bootstrap_code.rb",

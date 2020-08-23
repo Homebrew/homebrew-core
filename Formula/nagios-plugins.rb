@@ -3,6 +3,7 @@ class NagiosPlugins < Formula
   homepage "https://www.nagios-plugins.org/"
   url "https://www.nagios-plugins.org/download/nagios-plugins-2.3.3.tar.gz"
   sha256 "07859071632ded58c5135d613438137022232da75f8bdc1687f3f75da2fe597f"
+  license "GPL-3.0"
   head "https://github.com/nagios-plugins/nagios-plugins.git"
 
   bottle do
@@ -16,7 +17,7 @@ class NagiosPlugins < Formula
   depends_on "automake" => :build
   depends_on "openssl@1.1"
 
-  conflicts_with "monitoring-plugins", :because => "monitoring-plugins ships their plugins to the same folder."
+  conflicts_with "monitoring-plugins", because: "both install their plugins to the same folder"
 
   def install
     args = %W[

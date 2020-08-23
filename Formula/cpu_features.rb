@@ -3,6 +3,7 @@ class CpuFeatures < Formula
   homepage "https://github.com/google/cpu_features"
   url "https://github.com/google/cpu_features/archive/v0.4.1.tar.gz"
   sha256 "b7b6b27f759410f73f15f935ae646f30c9c6742731dc354416399677bd418156"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

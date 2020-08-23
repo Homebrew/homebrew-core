@@ -18,7 +18,7 @@ class ScalaAT212 < Formula
     share.install "man"
     libexec.install "bin", "lib"
     bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files libexec/"bin", :JAVA_HOME => "${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
+    bin.env_script_all_files libexec/"bin", JAVA_HOME: "${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
 
     # Set up an IntelliJ compatible symlink farm in 'idea'
     idea = prefix/"idea"

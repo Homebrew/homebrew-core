@@ -1,23 +1,24 @@
 class S6 < Formula
   desc "Small & secure supervision software suite"
   homepage "https://skarnet.org/software/s6/"
-  url "https://skarnet.org/software/s6/s6-2.9.1.0.tar.gz"
-  sha256 "05e259532c6db8cb23f5f79938669cee30152008ac9e792ff4acb26db9a01ff7"
+  url "https://skarnet.org/software/s6/s6-2.9.2.0.tar.gz"
+  sha256 "363db72af8fffba764b775c872b0749d052805b893b07888168f59a841e9dddd"
+  license "ISC"
 
   bottle do
-    sha256 "14e7c8e7cdec7dce8de18d5aa0a651b67aef5891ab82ed5feffc0e93768b4c8e" => :catalina
-    sha256 "cdb4b89814cbc5f59cfe0ea536a29a8e93d13abeb727f78a829c7e44b00ebb34" => :mojave
-    sha256 "9d5d57b1f781d6cda6a4358be131244eeb292158cba2af1ab50e4b1408ddedd1" => :high_sierra
+    sha256 "94906378d458e78a0909dc89bd5672ca8d33645b1b070be4974ac7ebe0f3aa15" => :catalina
+    sha256 "e4024234358147987f7f6f599b73ddfd9bbe5e5fd414efcbc53577045a1dbb78" => :mojave
+    sha256 "d6be4dd0697c711c1e35fe25e4f1365bcb1c198ab8fc8c3f3d7169b29ccb4372" => :high_sierra
   end
 
   resource "skalibs" do
-    url "https://skarnet.org/software/skalibs/skalibs-2.9.2.0.tar.gz"
-    sha256 "e4c36e91ddb8f94f7bb61479bb3a5fbdaa423772ba7583151a03ce30003f2dc5"
+    url "https://skarnet.org/software/skalibs/skalibs-2.9.2.1.tar.gz"
+    sha256 "250b99b53dd413172db944b31c1b930aa145ac79fe6c5d7e6869ef804228c539"
   end
 
   resource "execline" do
-    url "https://skarnet.org/software/execline/execline-2.6.0.0.tar.gz"
-    sha256 "5415f5b98c8e3edb8e94fa9c9d42de1cdb86a8977e9b4212c9122bdcb9dad7d4"
+    url "https://skarnet.org/software/execline/execline-2.6.1.0.tar.gz"
+    sha256 "a24c76f097ff44fe50b63b89bcde5d6ba9a481aecddbe88ee01b0e5a7b314556"
   end
 
   def install
@@ -53,9 +54,9 @@ class S6 < Formula
     system "make", "install"
 
     # Some S6 tools expect execline binaries to be on the path
-    bin.env_script_all_files(libexec/"bin", :PATH => "#{libexec}/execline:$PATH")
-    sbin.env_script_all_files(libexec/"sbin", :PATH => "#{libexec}/execline:$PATH")
-    (bin/"execlineb").write_env_script libexec/"execline/execlineb", :PATH => "#{libexec}/execline:$PATH"
+    bin.env_script_all_files(libexec/"bin", PATH: "#{libexec}/execline:$PATH")
+    sbin.env_script_all_files(libexec/"sbin", PATH: "#{libexec}/execline:$PATH")
+    (bin/"execlineb").write_env_script libexec/"execline/execlineb", PATH: "#{libexec}/execline:$PATH"
   end
 
   test do

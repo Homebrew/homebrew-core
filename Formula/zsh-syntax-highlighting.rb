@@ -2,8 +2,9 @@ class ZshSyntaxHighlighting < Formula
   desc "Fish shell like syntax highlighting for zsh"
   homepage "https://github.com/zsh-users/zsh-syntax-highlighting"
   url "https://github.com/zsh-users/zsh-syntax-highlighting.git",
-      :tag      => "0.7.1",
-      :revision => "932e29a0c75411cb618f02995b66c0a4a25699bc"
+      tag:      "0.7.1",
+      revision: "932e29a0c75411cb618f02995b66c0a4a25699bc"
+  license "BSD-3-Clause"
   head "https://github.com/zsh-users/zsh-syntax-highlighting.git"
 
   bottle do

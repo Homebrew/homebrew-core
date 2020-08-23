@@ -17,27 +17,31 @@ class TerraformProvisionerAnsible < Formula
     sha256 "2b9f182b17571e29b4b6767db5974e39d3b5e2e5e1bb87b83b6cf1f28f855a10" => :yosemite
   end
 
+  # Does not have any license
+  # https://github.com/jonmorehouse/terraform-provisioner-ansible/issues/41
+  disable!
+
   depends_on "go" => :build
   depends_on "terraform"
 
   go_resource "github.com/hashicorp/terraform" do
     url "https://github.com/hashicorp/terraform.git",
-        :revision => "fa6a83ebdc323f2b415779786e102e69ddbf9a48"
+        revision: "fa6a83ebdc323f2b415779786e102e69ddbf9a48"
   end
 
   go_resource "github.com/mitchellh/mapstructure" do
     url "https://github.com/mitchellh/mapstructure.git",
-        :revision => "f3009df150dadf309fdee4a54ed65c124afad715"
+        revision: "f3009df150dadf309fdee4a54ed65c124afad715"
   end
 
   go_resource "github.com/mitchellh/go-homedir" do
     url "https://github.com/mitchellh/go-homedir.git",
-        :revision => "756f7b183b7ab78acdbbee5c7f392838ed459dda"
+        revision: "756f7b183b7ab78acdbbee5c7f392838ed459dda"
   end
 
   go_resource "github.com/mitchellh/go-linereader" do
     url "https://github.com/mitchellh/go-linereader.git",
-        :revision => "07bab5fdd9580500aea6ada0e09df4aa28e68abd"
+        revision: "07bab5fdd9580500aea6ada0e09df4aa28e68abd"
   end
 
   def install

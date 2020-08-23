@@ -1,0 +1,17 @@
+# Note that the naming of this file is incorrect for our case: these people do not "own" the provided files but are
+# people with write-access to this repository (i.e. @Homebrew/core) who wish to be notified of changes to these
+# files.
+#
+# Their review is not required to merge PRs that change these files but just an indication that they wish to follow
+# along changes to these files without having to "watch" this repository on GitHub.
+#
+# To be explicit: we will never accept changes to this file adding people from outside the Homebrew GitHub
+# organisation. If you are not a Homebrew maintainer: you do not personally "own" or "maintain" any formulae.
+
+CODEOWNERS            @MikeMcQuaid
+CONTRIBUTING.md       @MikeMcQuaid
+tap_migrations.json   @MikeMcQuaid
+.github/              @MikeMcQuaid
+cmd/                  @MikeMcQuaid
+
+LICENSE.txt           @Homebrew/plc @MikeMcQuaid

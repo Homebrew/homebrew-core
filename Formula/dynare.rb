@@ -3,13 +3,14 @@ class Dynare < Formula
   homepage "https://www.dynare.org/"
   url "https://www.dynare.org/release/source/dynare-4.5.7.tar.xz"
   sha256 "9224ec5279d79d55d91a01ed90022e484f66ce93d56ca6d52933163f538715d4"
-  revision 11
+  license "GPL-3.0"
+  revision 13
 
   bottle do
     cellar :any
-    sha256 "0b9d3e559598201348db583e8a494cd197bb71a728c178c882614b8276fe2699" => :catalina
-    sha256 "9df710e826814a7dab1b82514f39e5abddc28a5e2476ae8e348613c66ebc0d92" => :mojave
-    sha256 "3bdd90dc2c325f0e744929de97aab3196d0aebeb520ab676d911eabfaff7b041" => :high_sierra
+    sha256 "405340f12c76b7d99b39663e88f0c379b304f6e8548cb8c7d985f96857653769" => :catalina
+    sha256 "b08d5deb853d4aade3ddc1c65c32ed67a07bd85234f2fe07b16e1c6460767abb" => :mojave
+    sha256 "bd22eddfc2a888987210f5d4736457a1e3b3a7b410f90f4116775a4d8a9d7136" => :high_sierra
   end
 
   head do
@@ -48,7 +49,7 @@ class Dynare < Formula
       system "make", "lib", "OPTS=-fPIC -fdefault-integer-8",
              "FORTRAN=gfortran", "LOADER=gfortran",
              "SLICOTLIB=../libslicot64_pic.a"
-      (buildpath/"slicot").install "libslicot_pic.a", "libslicot64_pic.a"
+      (buildpath/"slicot/lib").install "libslicot_pic.a", "libslicot64_pic.a"
     end
 
     system "autoreconf", "-fvi" if build.head?
@@ -57,8 +58,13 @@ class Dynare < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
                           "--disable-matlab",
-                          "--with-slicot=#{buildpath}/slicot"
-    system "make", "install"
+                          "--with-slicot=#{buildpath}/slicot",
+                          "--with-boost=#{Formula["boost"].prefix}",
+                          "--disable-doc"
+    # Octave hardcodes its paths which causes problems on GCC minor version bumps
+    gcc = Formula["gcc"]
+    flibs = "-L#{gcc.lib/"gcc"/gcc.installed_version.major} -lgfortran -lquadmath -lm"
+    system "make", "install", "FLIBS=#{flibs}"
   end
 
   def caveats

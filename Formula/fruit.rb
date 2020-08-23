@@ -1,15 +1,15 @@
 class Fruit < Formula
   desc "Dependency injection framework for C++"
   homepage "https://github.com/google/fruit/wiki"
-  url "https://github.com/google/fruit/archive/v3.4.0.tar.gz"
-  sha256 "0f3793ee5e437437c3d6360a037866429a7f1975451fd60d740f9d2023e92034"
+  url "https://github.com/google/fruit/archive/v3.6.0.tar.gz"
+  sha256 "b35b9380f3affe0b3326f387505fa80f3584b0d0a270362df1f4ca9c39094eb5"
+  license "Apache-2.0"
 
   bottle do
     cellar :any
-    sha256 "e635411e7c64117269f45dc3ea642fa6bb7460b206490d31c481ee66a2d61b0c" => :catalina
-    sha256 "8f356a4344088d420b1f1b3b4bcd2cc922ba5e24e6b0a4f3665d670fd75f4410" => :mojave
-    sha256 "913b406c8a33b0b02726f6ffbe1f234b7889c0125655b223d81c4c5234f3b7de" => :high_sierra
-    sha256 "a148ef9a9b71fb8c038d4a2fe16f92bfb6c2c7220d63eab2f9959e5d24688dcc" => :sierra
+    sha256 "10f1081e14b11a547b36020cdfa75486fac42036389b37d2df831f586fc78429" => :catalina
+    sha256 "fc0a6e56340a21a4548f589d38df7b52bd6edabb483e6c6e0a9fe8605a373a8f" => :mojave
+    sha256 "73e0c030fb7984d5b3b72d11410ca2f30c4e5a66ba183070fc3ae8a919ea5094" => :high_sierra
   end
 
   depends_on "cmake" => :build

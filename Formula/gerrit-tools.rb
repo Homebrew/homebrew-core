@@ -3,6 +3,7 @@ class GerritTools < Formula
   homepage "https://github.com/indirect/gerrit-tools"
   url "https://github.com/indirect/gerrit-tools/archive/v1.0.0.tar.gz"
   sha256 "c3a84af2ddb0f17b7a384e5dbc797329fb94d2499a75b6d8f4c8ed06a4a482dd"
+  license "Apache-2.0"
   head "https://github.com/indirect/gerrit-tools.git"
 
   bottle :unneeded

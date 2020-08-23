@@ -3,12 +3,12 @@ class KimApi < Formula
   homepage "https://openkim.org"
   url "https://s3.openkim.org/kim-api/kim-api-2.1.3.txz"
   sha256 "88a5416006c65a2940d82fad49de0885aead05bfa8b59f87d287db5516b9c467"
+  revision 1
 
   bottle do
-    sha256 "ae59f45bf8d539f1b633120cdb942c2a0a0f1880eee4ee91981f268792e1b1c4" => :catalina
-    sha256 "f652b6fac2383753b53c16f22b4cd64ca96adaf5b61906e8a51d893fb453588a" => :mojave
-    sha256 "05e8711131862fa14cc38277d33694be33d488bbcb5efc9e59a54c67ca1df2ea" => :high_sierra
-    sha256 "31502a90222cdeffb15c7b1ad820fcae8780c6db807634e23917bd182691c0ee" => :sierra
+    sha256 "585be65f52b6c5dd3b9c5ea0da1af889e24ef085f8174485d9256b84d9b01d84" => :catalina
+    sha256 "29743babbc332f529773cba2962512e3d29c0e269675bbb033effedbe1f92da3" => :mojave
+    sha256 "8f64683177ac688908e33c98ca57ae3b2c3c59215e70b77296b40843b6e69a0f" => :high_sierra
   end
 
   depends_on "cmake" => :build

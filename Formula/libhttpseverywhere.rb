@@ -3,18 +3,18 @@ class Libhttpseverywhere < Formula
   homepage "https://github.com/gnome/libhttpseverywhere"
   url "https://download.gnome.org/sources/libhttpseverywhere/0.8/libhttpseverywhere-0.8.3.tar.xz"
   sha256 "1c006f5633842a2b131c1cf644ab929556fc27968a60da55c00955bd4934b6ca"
-  revision 2
+  license "LGPL-3.0-or-later"
+  revision 4
 
   bottle do
     cellar :any
-    sha256 "f329514bd9a5b50bde27abe0a914072c5c32db02a3df1f76e5e6a02256493547" => :catalina
-    sha256 "7ed8d7cc4934185649bb1d3efc00f0ffac955310085db2cf44434cdf476a7e8d" => :mojave
-    sha256 "109e95eba0ebfe5a6d3c358055bc07861e2dce33e2376aa33843e73fba9a52eb" => :high_sierra
-    sha256 "f161a27096199a9810416b47d93c1bbf95b3948641ab009a7cfb049e5264a76f" => :sierra
+    sha256 "c8cc1d294949af9676e54f9a32c4dbe782dfc5d103f92bbee68acd2ccb5ff728" => :catalina
+    sha256 "2835c48e21e0a96730893f96319736e55d29d8b224fcc0915e319bcbc3b521c2" => :mojave
+    sha256 "9c7c9397a0ebe56b82ffa6d8daeb9e645e94d14ed4fd25aedbe313c603e0b9b5" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build
-  depends_on "meson-internal" => :build
+  depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
@@ -33,7 +33,7 @@ class Libhttpseverywhere < Formula
 
   def install
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", ".."
+      system "meson", *std_meson_args, ".."
       system "ninja"
       system "ninja", "install"
     end

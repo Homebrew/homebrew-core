@@ -2,9 +2,10 @@ class LSmash < Formula
   desc "Tool for working with MP4 files"
   homepage "https://l-smash.github.io/l-smash/"
   url "https://github.com/l-smash/l-smash.git",
-      :shallow  => false,
-      :tag      => "v2.9.1",
-      :revision => "4cea08d264933634db5bc06da9d8d88fb5ddae07"
+      shallow:  false,
+      tag:      "v2.9.1",
+      revision: "4cea08d264933634db5bc06da9d8d88fb5ddae07"
+  license "ISC"
   head "https://github.com/l-smash/l-smash.git"
 
   bottle do
@@ -17,6 +18,10 @@ class LSmash < Formula
     sha256 "3703bdeb1dfe66aef898e60a990f4e64f0ab3c1fe26a49cf824b3c6998acaacc" => :yosemite
     sha256 "78c5c52a90e1609694b43a45240126515f97be8a1d129a57215d4a7ba9e3717f" => :mavericks
   end
+
+  # failed to upgrade since 02-11-2018
+  # upstream patch never got merged, https://github.com/l-smash/l-smash/issues/80
+  disable!
 
   def install
     system "./configure", "--prefix=#{prefix}", "--enable-shared"

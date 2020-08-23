@@ -18,7 +18,7 @@ class Schroedinger < Formula
   end
 
   head do
-    url "lp:schroedinger", :using => :bzr
+    url "lp:schroedinger", using: :bzr
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

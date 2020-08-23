@@ -1,19 +1,20 @@
 class Yq < Formula
   desc "Process YAML documents from the CLI"
   homepage "https://github.com/mikefarah/yq"
-  url "https://github.com/mikefarah/yq/archive/3.2.1.tar.gz"
-  sha256 "91aad8002532f6dc236fb6edf3a200e37fb1efc038a880606fe96927e3a64fc4"
+  url "https://github.com/mikefarah/yq/archive/3.3.2.tar.gz"
+  sha256 "28b34199aadafe0eef1e7becc6953675ad516383b31637a42080940e1c9318fb"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8cbb0eda1f9d8c20342c41979e2cca5440e6215e85c36a3f29983f567557449a" => :catalina
-    sha256 "da0fed59609ef76d81b7b206a82f202827db2b19a2110b1978e0a2468c3a9e93" => :mojave
-    sha256 "40499ec3e93128d1a049f75bb43dc20bd256f3135b4b06b54b5c62f446f01c46" => :high_sierra
+    sha256 "1cd476d249fd7a11034e3e8581a099cc8dfff09cc1ff40c79b819a5562399137" => :catalina
+    sha256 "7b33668ea6670cc65b4ef92d640c0066d9fc0c54f7bea4136cd326d8b59d37e8" => :mojave
+    sha256 "d59fe8d26fa97d6fc26bfff73315d90d361e456bdecf1fdfc10084c3cadedd30" => :high_sierra
   end
 
   depends_on "go" => :build
 
-  conflicts_with "python-yq", :because => "both install `yq` executables"
+  conflicts_with "python-yq", because: "both install `yq` executables"
 
   def install
     ENV["GOPATH"] = buildpath

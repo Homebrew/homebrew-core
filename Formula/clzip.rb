@@ -3,6 +3,7 @@ class Clzip < Formula
   homepage "https://www.nongnu.org/lzip/clzip.html"
   url "https://download.savannah.gnu.org/releases/lzip/clzip/clzip-1.11.tar.gz"
   sha256 "d9d51212afa80371dc2546d278ef8ebbb3cd57c06fdd761b7b204497586d24c0"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

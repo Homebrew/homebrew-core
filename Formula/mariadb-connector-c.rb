@@ -1,13 +1,15 @@
 class MariadbConnectorC < Formula
   desc "MariaDB database connector for C applications"
   homepage "https://downloads.mariadb.org/connector-c/"
-  url "https://downloads.mariadb.org/f/connector-c-3.1.7/mariadb-connector-c-3.1.7-src.tar.gz"
-  sha256 "64f7bc8f5df3200ba6e3080f68ee4942382a33e8371baea8ca4b9242746df59a"
+  url "https://downloads.mariadb.org/f/connector-c-3.1.9/mariadb-connector-c-3.1.9-src.tar.gz"
+  sha256 "108d99bf2add434dcb3bd9526ba1d89a2b9a943b62dcd9d0a41fcbef8ffbf2c7"
+  license "LGPL-2.1"
+  head "https://github.com/mariadb-corporation/mariadb-connector-c.git"
 
   bottle do
-    sha256 "b45cc1f8d53b6d24fdbf588d7120de36f9bcd315860dab27768c9a752f6ad333" => :catalina
-    sha256 "4ae4e9fd1fd1d054393d641576ce4bf122937d79aa52cb0e185fe94d02345752" => :mojave
-    sha256 "93981e72f4b5054c5bdb74706bcf7795da5011c0267773c7789b381a1ada0132" => :high_sierra
+    sha256 "830dec16151d5d8f7d2c4e3925f9fba5b911d7fe3b9ec07eec23079e0b85293b" => :catalina
+    sha256 "3ce47f04785021838696176ba2da5b79cf5ed5bd7870531701efc47d2e20cbc4" => :mojave
+    sha256 "330e6d5f322494e9deaefd46ec3a8604509b5880b08bc125f6e1a164e01933de" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -15,8 +17,7 @@ class MariadbConnectorC < Formula
 
   uses_from_macos "curl"
 
-  conflicts_with "mariadb",
-                 :because => "both install mariadb_config"
+  conflicts_with "mariadb", because: "both install `mariadb_config`"
 
   def install
     args = std_cmake_args

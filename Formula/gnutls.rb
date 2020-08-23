@@ -1,14 +1,15 @@
 class Gnutls < Formula
   desc "GNU Transport Layer Security (TLS) Library"
   homepage "https://gnutls.org/"
-  url "https://www.gnupg.org/ftp/gcrypt/gnutls/v3.6/gnutls-3.6.12.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.6/gnutls-3.6.12.tar.xz"
-  sha256 "bfacf16e342949ffd977a9232556092c47164bd26e166736cf3459a870506c4b"
+  url "https://www.gnupg.org/ftp/gcrypt/gnutls/v3.6/gnutls-3.6.14.tar.xz"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.6/gnutls-3.6.14.tar.xz"
+  sha256 "5630751adec7025b8ef955af4d141d00d252a985769f51b4059e5affa3d39d63"
+  license "LGPL-2.1"
 
   bottle do
-    sha256 "3368ca58ab6284e849a47ac03c5634b799d550f6348b9dd0794d68bc747c6ca6" => :catalina
-    sha256 "f05a5a764d462c533d5f0777d3bedb3c26847255ce246c6b4eb8b6b2dfd18e15" => :mojave
-    sha256 "323964700f54c32854c860baef7f310a8a8c6b886912c22cff6503cc42f5e224" => :high_sierra
+    sha256 "ed76b5d22e195a797c2d01ab2f4a8e769a023b056b17e86f11cb6b9af200babe" => :catalina
+    sha256 "d57c7537ca0565e8c8fdf13beb4b082548f87a0df2295469596f1cfe3067faae" => :mojave
+    sha256 "2773c249c2a71f299261889185bda3950ed15150ff09529a71f88c30d68ff26f" => :high_sierra
   end
 
   depends_on "autoconf" => :build
@@ -22,6 +23,10 @@ class Gnutls < Formula
   depends_on "p11-kit"
   depends_on "unbound"
 
+  on_linux do
+    depends_on "autogen" => :build
+  end
+
   def install
     args = %W[
       --disable-dependency-tracking
@@ -29,7 +34,7 @@ class Gnutls < Formula
       --disable-static
       --prefix=#{prefix}
       --sysconfdir=#{etc}
-      --with-default-trust-store-file=#{etc}/openssl/cert.pem
+      --with-default-trust-store-file=#{pkgetc}/cert.pem
       --disable-guile
       --disable-heartbeat-support
       --with-p11-kit
@@ -39,7 +44,9 @@ class Gnutls < Formula
     args << "gl_cv_func_ftello_works=yes"
 
     system "./configure", *args
-    system "make", "install"
+    # Adding LDFLAGS= to allow the build on Catalina 10.15.4
+    # See https://gitlab.com/gnutls/gnutls/-/issues/966
+    system "make", "LDFLAGS=", "install"
 
     # certtool shadows the macOS certtool utility
     mv bin/"certtool", bin/"gnutls-certtool"
@@ -63,9 +70,8 @@ class Gnutls < Formula
       $CHILD_STATUS.success?
     end
 
-    openssldir = etc/"openssl"
-    openssldir.mkpath
-    (openssldir/"cert.pem").atomic_write(valid_certs.join("\n"))
+    pkgetc.mkpath
+    (pkgetc/"cert.pem").atomic_write(valid_certs.join("\n"))
   end
 
   test do

@@ -7,22 +7,24 @@ class Allureofthestars < Formula
   homepage "https://www.allureofthestars.com/"
   url "https://hackage.haskell.org/package/Allure-0.9.5.0/Allure-0.9.5.0.tar.gz"
   sha256 "8180fe070633bfa5515de8f7443421044e7ad4ee050f0a92c048cec5f2c88132"
+  license "AGPL-3.0"
   head "https://github.com/AllureOfTheStars/Allure.git"
 
   bottle do
-    rebuild 1
-    sha256 "d568c44d9f158ac188d690a0366950923b565aebf3c82a6b718c52d8584b29e5" => :catalina
-    sha256 "81f6960b26c310bea1b253768edfc00c8c38b84d2651a6d3b9e0dc3434b7cd04" => :mojave
-    sha256 "893be6de189e97cb416e0e0f8ee8b73ce663a57fa4593a32c76ac69f987f64ab" => :high_sierra
+    rebuild 3
+    sha256 "cdcc579293d895e65bdfd907c2ab4d66db89e0389f78df9acaf1ea556ea47c63" => :catalina
+    sha256 "4b18f47a9ade6d260030488503b5bb3021ae523cf3b54960c8092495f0ffd47c" => :mojave
+    sha256 "2a056d85e8a4794158435ca324f7bc81d8dcb098770ec1d3d288dfcc77553c47" => :high_sierra
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@8.8" => :build
   depends_on "pkg-config" => :build
+  depends_on "gmp"
   depends_on "sdl2_ttf"
 
   def install
-    install_cabal_package :using => ["happy", "alex"]
+    install_cabal_package using: ["happy", "alex"]
   end
 
   test do

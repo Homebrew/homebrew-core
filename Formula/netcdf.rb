@@ -1,15 +1,17 @@
 class Netcdf < Formula
   desc "Libraries and data formats for array-oriented scientific data"
   homepage "https://www.unidata.ucar.edu/software/netcdf"
-  url "https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-c-4.7.3.tar.gz"
-  sha256 "8e8c9f4ee15531debcf83788594744bd6553b8489c06a43485a15c93b4e0448b"
-  revision 2
+  url "https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-c-4.7.4.tar.gz"
+  mirror "https://www.gfd-dennou.org/arch/netcdf/unidata-mirror/netcdf-c-4.7.4.tar.gz"
+  sha256 "0e476f00aeed95af8771ff2727b7a15b2de353fb7bb3074a0d340b55c2bd4ea8"
+  license "BSD-3-Clause"
+  revision 1
   head "https://github.com/Unidata/netcdf-c.git"
 
   bottle do
-    sha256 "703321203044c02b598b0fbda76c03cda10eae5a3bd3dd0d8e832584b454b40e" => :catalina
-    sha256 "6cf5bfdaef12190efcb61ea63e0f0c4e50141cc8cbdfdddb6f64defec462fc56" => :mojave
-    sha256 "77f627820d46b6f3a7598d043e9b25d92f0d0a0ec24772bdbaa962c3dbb9a116" => :high_sierra
+    sha256 "0ae7c27bd0ac68071faecbd09f67fb2ce91d86b030b92488dca64851e6d40de0" => :catalina
+    sha256 "db149e5597eab59a0a908c48efc35df09735ddc8bac006c94b6a02a644822814" => :mojave
+    sha256 "c1704dcf4cd4d59e48b5e71e752c44220cc098810e67d49aaa8985cc09b5724b" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -19,8 +21,9 @@ class Netcdf < Formula
   uses_from_macos "curl"
 
   resource "cxx" do
-    url "https://github.com/Unidata/netcdf-cxx4/archive/v4.3.0.tar.gz"
-    sha256 "25da1c97d7a01bc4cee34121c32909872edd38404589c0427fefa1301743f18f"
+    url "https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-cxx4-4.3.1.tar.gz"
+    mirror "https://www.gfd-dennou.org/arch/netcdf/unidata-mirror/netcdf-cxx4-4.3.1.tar.gz"
+    sha256 "6a1189a181eed043b5859e15d5c080c30d0e107406fbb212c8fb9814e90f3445"
   end
 
   resource "cxx-compat" do
@@ -72,6 +75,10 @@ class Netcdf < Formula
 
     fortran_args = args.dup
     fortran_args << "-DENABLE_TESTS=OFF"
+
+    # Fix for netcdf-fortran with GCC 10, remove with next version
+    ENV.prepend "FFLAGS", "-fallow-argument-mismatch"
+
     resource("fortran").stage do
       mkdir "build-fortran" do
         system "cmake", "..", "-DBUILD_SHARED_LIBS=ON", *fortran_args

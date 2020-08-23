@@ -3,16 +3,20 @@ class Dynet < Formula
   homepage "https://github.com/clab/dynet"
   url "https://github.com/clab/dynet/archive/2.1.tar.gz"
   sha256 "72d5c2a0c7dece6b91426f02993f640297f6c5f7de1907d4eb587796e97022bc"
+  license "Apache-2.0"
 
   bottle do
     cellar :any
-    sha256 "2e0c6026d6a047f6c1885779da5e72f2503568b711fc1f7c0c00322814cb1213" => :catalina
-    sha256 "06482cc7dee2e337482c31e935e9384cbec243a6c407e9e35aeb02f08361e450" => :mojave
-    sha256 "f6603f28e5bf6209808e58ffbe27b7c8841a3bc00be1bc98d9aff6b4f8bf4f37" => :high_sierra
+    rebuild 1
+    sha256 "500a9235a348147fb8aa6b07f9618e9ae45d1a88c42504facc384f50cf0d1943" => :catalina
+    sha256 "40496e31ece215e6f1faffc56eb8d674195f0f946cc100222d1d4a9762fd59c6" => :mojave
+    sha256 "6d1bc8d99dfaff753f6bbea2d3da485de1c7494eec8b7eba85a9ea376eccfbcd" => :high_sierra
   end
 
   depends_on "cmake" => :build
   depends_on "eigen"
+
+  conflicts_with "freeling", because: "freeling ships its own copy of dynet"
 
   def install
     mkdir "build" do

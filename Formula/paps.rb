@@ -3,6 +3,7 @@ class Paps < Formula
   homepage "https://github.com/dov/paps"
   url "https://github.com/dov/paps/archive/v0.7.1.tar.gz"
   sha256 "b8cbd16f8dd5832ecfa9907d31411b35a7f12d81a5ec472a1555d00a8a205e0e"
+  license "LGPL-2.0"
 
   bottle do
     cellar :any

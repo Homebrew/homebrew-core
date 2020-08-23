@@ -4,20 +4,18 @@ class Falcon < Formula
   url "https://mirrorservice.org/sites/distfiles.macports.org/falcon/Falcon-0.9.6.8.tgz"
   mirror "https://src.fedoraproject.org/repo/pkgs/Falcon/Falcon-0.9.6.8.tgz/8435f6f2fe95097ac2fbe000da97c242/Falcon-0.9.6.8.tgz"
   sha256 "f4b00983e7f91a806675d906afd2d51dcee048f12ad3af4b1dadd92059fa44b9"
+  revision 1
 
   bottle do
     cellar :any
-    rebuild 2
-    sha256 "e998792c7ba5da0388b9a9a91a7a44acce6c7cf27fbf3d12f8f2014f0ad885cc" => :catalina
-    sha256 "94681bc26ac1bbbddf90d54c67f337a84de45518dbbaa9cb67aaa82bc8a21ccd" => :mojave
-    sha256 "f8edafd8956d07da4bd1fec890415d1b8ca972877db1721d9c4ce014c36de9d9" => :high_sierra
+    sha256 "0fdfed49f1ba12e66db6a7d9f315677280600f6db52afd52c91e6e66235c3053" => :catalina
+    sha256 "d87b0664e797106f23bd5167c32988a7154d177955c2f612803999ebc4306fd9" => :mojave
+    sha256 "670ae92a7f950558ea95001b45a848ef6d3f98d5fa414ba3549032d07badca47" => :high_sierra
   end
 
   depends_on "cmake" => :build
-  depends_on "pcre"
-
-  conflicts_with "sdl",
-    :because => "Falcon optionally depends on SDL and then the build breaks. Fix it!"
+  depends_on "mysql@5.7" => :build
+  depends_on "pcre" => :build
 
   def install
     args = std_cmake_args + %W[
@@ -25,9 +23,9 @@ class Falcon < Formula
       -DFALCON_LIB_DIR=#{lib}
       -DFALCON_MAN_DIR=#{man1}
       -DFALCON_WITH_EDITLINE=OFF
-      -DFALCON_WITH_FEATHERS=NO
       -DFALCON_WITH_INTERNAL_PCRE=OFF
-      -DFALCON_WITH_MANPAGES=ON
+      -DFALCON_BUILD_FEATHERS=OFF
+      -DFALCON_BUILD_SDL=OFF
     ]
 
     system "cmake", *args

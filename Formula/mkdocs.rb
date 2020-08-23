@@ -3,15 +3,15 @@ class Mkdocs < Formula
 
   desc "Project documentation with Markdown"
   homepage "https://www.mkdocs.org/"
-  url "https://github.com/mkdocs/mkdocs/archive/1.0.4.tar.gz"
-  sha256 "c9a0e1637c1e92b663d290a74ed1370ee7d50c6af165f49215df3a0c10b5bafa"
-  revision 3
+  url "https://files.pythonhosted.org/packages/78/a3/ec98a4eab53b7adf435df6c17765e1d7b603e1487ad6ab7c824d5488bf5c/mkdocs-1.1.2.tar.gz"
+  sha256 "f0b61e5402b99d7789efa032c7a74c90a20220a9c81749da06dbfbcbd52ffb39"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0c09ad3efe25fbf040db6b5028311a1f63d84f326dba2583a4564a9be69783fe" => :catalina
-    sha256 "7a7c7bf5645567cb775a90156da26705f31ed7b4f3981e91dda8266dd2137c31" => :mojave
-    sha256 "7395cd3eea2efb8a58c42bd5b53fb2debb0b263f9874d62c9818b46ed2797227" => :high_sierra
+    sha256 "3f45e40b1f8cb82988b294a9a44c57b33fcfcc718b4130b2aa684ba6b95fa08f" => :catalina
+    sha256 "456b37b9de877e5bf5836337075add02d844169aa28dd39c3d42c69b04b887a0" => :mojave
+    sha256 "9f8fbedf9f950579f4c6496807ff8de30d47b117ea76877ada80133f9fd795ee" => :high_sierra
   end
 
   depends_on "python@3.8"
@@ -37,8 +37,8 @@ class Mkdocs < Formula
   end
 
   resource "lunr" do
-    url "https://files.pythonhosted.org/packages/38/0d/7246e257d4b6013047b46b2ab97b148fe076df1a6ca0c55c70688490565f/lunr-0.5.6.tar.gz"
-    sha256 "7be69d7186f65784a4f2adf81e5c58efd6a9921aa95966babcb1f2f2ada75c20"
+    url "https://files.pythonhosted.org/packages/ad/c0/431b92d6707a4bf7692ea76bcfb00aa0f1db737cd3daf4b4f6a85e2b9d6c/lunr-0.5.8.tar.gz"
+    sha256 "c4fb063b98eff775dd638b3df380008ae85e6cb1d1a24d1cd81a10ef6391c26e"
   end
 
   resource "Markdown" do
@@ -57,8 +57,8 @@ class Mkdocs < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/3d/d9/ea9816aea31beeadccd03f1f8b625ecf8f645bd66744484d162d84803ce5/PyYAML-5.3.tar.gz"
-    sha256 "e9f45bd5b92c7974e59bcd2dcc8631a6b6cc380a904725fce7bc08872e691615"
+    url "https://files.pythonhosted.org/packages/64/c2/b80047c7ac2478f9501676c988a5411ed5572f35d1beff9cae07d321512c/PyYAML-5.3.1.tar.gz"
+    sha256 "b8eac752c5e14d3eca0e6dd9199cd627518cb5ec06add0de9d32baeee6fe645d"
   end
 
   resource "six" do

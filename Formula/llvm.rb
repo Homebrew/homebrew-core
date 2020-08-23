@@ -1,63 +1,65 @@
 class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
+  # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
+  license "Apache-2.0"
+  head "https://github.com/llvm/llvm-project.git"
 
   stable do
-    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-9.0.1/llvm-9.0.1.src.tar.xz"
-    sha256 "00a1ee1f389f81e9979f3a640a01c431b3021de0d42278f6508391a2f0b81c9a"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0.1/llvm-10.0.1.src.tar.xz"
+    sha256 "c5d8e30b57cbded7128d78e5e8dad811bff97a8d471896812f57fa99ee82cdf3"
 
     resource "clang" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-9.0.1/clang-9.0.1.src.tar.xz"
-      sha256 "5778512b2e065c204010f88777d44b95250671103e434f9dc7363ab2e3804253"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0.1/clang-10.0.1.src.tar.xz"
+      sha256 "f99afc382b88e622c689b6d96cadfa6241ef55dca90e87fc170352e12ddb2b24"
     end
 
-    resource "clang-extra-tools" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-9.0.1/clang-tools-extra-9.0.1.src.tar.xz"
-      sha256 "b26fd72a78bd7db998a26270ec9ec6a01346651d88fa87b4b323e13049fb6f07"
+    resource "clang-tools-extra" do
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0.1/clang-tools-extra-10.0.1.src.tar.xz"
+      sha256 "d093782bcfcd0c3f496b67a5c2c997ab4b85816b62a7dd5b27026634ccf5c11a"
     end
 
     resource "compiler-rt" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-9.0.1/compiler-rt-9.0.1.src.tar.xz"
-      sha256 "c2bfab95c9986318318363d7f371a85a95e333bc0b34fbfa52edbd3f5e3a9077"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0.1/compiler-rt-10.0.1.src.tar.xz"
+      sha256 "d90dc8e121ca0271f0fd3d639d135bfaa4b6ed41e67bd6eb77808f72629658fa"
     end
 
     resource "libcxx" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-9.0.1/libcxx-9.0.1.src.tar.xz"
-      sha256 "0981ff11b862f4f179a13576ab0a2f5530f46bd3b6b4a90f568ccc6a62914b34"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0.1/libcxx-10.0.1.src.tar.xz"
+      sha256 "def674535f22f83131353b3c382ccebfef4ba6a35c488bdb76f10b68b25be86c"
     end
 
     resource "libunwind" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-9.0.1/libunwind-9.0.1.src.tar.xz"
-      sha256 "535a106a700889274cc7b2f610b2dcb8fc4b0ea597c3208602d7d037141460f1"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0.1/libunwind-10.0.1.src.tar.xz"
+      sha256 "741903ec1ebff2253ff19d803629d88dc7612598758b6e48bea2da168de95e27"
     end
 
     resource "lld" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-9.0.1/lld-9.0.1.src.tar.xz"
-      sha256 "86262bad3e2fd784ba8c5e2158d7aa36f12b85f2515e95bc81d65d75bb9b0c82"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0.1/lld-10.0.1.src.tar.xz"
+      sha256 "591449e0aa623a6318d5ce2371860401653c48bb540982ccdd933992cb88df7a"
     end
 
     resource "lldb" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-9.0.1/lldb-9.0.1.src.tar.xz"
-      sha256 "8a7b9fd795c31a3e3cba6ce1377a2ae5c67376d92888702ce27e26f0971beb09"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0.1/lldb-10.0.1.src.tar.xz"
+      sha256 "07abe87c25876aa306e73127330f5f37d270b6b082d50cc679e31b4fc02a3714"
     end
 
     resource "openmp" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-9.0.1/openmp-9.0.1.src.tar.xz"
-      sha256 "5c94060f846f965698574d9ce22975c0e9f04c9b14088c3af5f03870af75cace"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0.1/openmp-10.0.1.src.tar.xz"
+      sha256 "d19f728c8e04fb1e94566c8d76aef50ec926cd2f95ef3bf1e0a5de4909b28b44"
     end
 
     resource "polly" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-9.0.1/polly-9.0.1.src.tar.xz"
-      sha256 "9a4ac69df923230d13eb6cd0d03f605499f6a854b1dc96a9b72c4eb075040fcf"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0.1/polly-10.0.1.src.tar.xz"
+      sha256 "d2fb0bb86b21db1f52402ba231da7c119c35c21dfb843c9496fe901f2d6aa25a"
     end
   end
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "ded898b5800305985074c1196d79452a92ed2f006a12a99c8cbb727537f36daf" => :catalina
-    sha256 "2c728a1080f7d8816287690e4ce2833a5cbf407f3d01e5a4021eb707ed90fb70" => :mojave
-    sha256 "627f4f1959f9287eecec7abf337058eee08edc10006fe1d82d9ce689eb90da53" => :high_sierra
+    sha256 "e3ec9fda84756750ac0b5620ff34da04ba5035c8276af1bebfe76e012bb0b14a" => :catalina
+    sha256 "bb8ede510e2a5664761281f1e7e6f2c01758229bdc49e19a9557ced5e4cb7717" => :mojave
+    sha256 "d39ebc8d856f0b5ef3709625cfdd3dc02299d2648431852d50577d5d839fd6aa" => :high_sierra
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -66,67 +68,49 @@ class Llvm < Formula
     satisfy { MacOS::CLT.installed? }
   end
 
-  head do
-    url "https://git.llvm.org/git/llvm.git"
-
-    resource "clang" do
-      url "https://git.llvm.org/git/clang.git"
-    end
-
-    resource "clang-extra-tools" do
-      url "https://git.llvm.org/git/clang-tools-extra.git"
-    end
-
-    resource "compiler-rt" do
-      url "https://git.llvm.org/git/compiler-rt.git"
-    end
-
-    resource "libcxx" do
-      url "https://git.llvm.org/git/libcxx.git"
-    end
-
-    resource "libunwind" do
-      url "https://git.llvm.org/git/libunwind.git"
-    end
-
-    resource "lld" do
-      url "https://git.llvm.org/git/lld.git"
-    end
-
-    resource "lldb" do
-      url "https://git.llvm.org/git/lldb.git"
-    end
-
-    resource "openmp" do
-      url "https://git.llvm.org/git/openmp.git"
-    end
-
-    resource "polly" do
-      url "https://git.llvm.org/git/polly.git"
-    end
-  end
-
   keg_only :provided_by_macos
 
   # https://llvm.org/docs/GettingStarted.html#requirement
+  # We intentionally use Make instead of Ninja.
+  # See: Homebrew/homebrew-core/issues/35513
   depends_on "cmake" => :build
-  depends_on :xcode => :build
+  depends_on "python@3.8" => :build
   depends_on "libffi"
-  depends_on "swig"
+
+  uses_from_macos "libedit"
+  uses_from_macos "libxml2"
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
 
   def install
+    projects = %w[
+      clang
+      clang-tools-extra
+      lld
+      lldb
+      polly
+    ]
+    # OpenMP currently fails to build on ARM
+    # https://github.com/Homebrew/brew/issues/7857#issuecomment-661484670
+    projects << "openmp" unless Hardware::CPU.arm?
+    runtimes = %w[
+      compiler-rt
+      libcxx
+      libunwind
+    ]
+    # Can likely be added to the base runtimes array when 11.0.0 is released.
+    runtimes << "libcxxabi" if build.head?
+
+    llvmpath = buildpath/"llvm"
+    unless build.head?
+      llvmpath.install buildpath.children - [buildpath/".brew_home"]
+      (projects + runtimes).each { |p| resource(p).stage(buildpath/p) }
+    end
+
+    py_ver = "3.8"
+
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
-
-    (buildpath/"tools/clang").install resource("clang")
-    (buildpath/"tools/clang/tools/extra").install resource("clang-extra-tools")
-    (buildpath/"projects/openmp").install resource("openmp")
-    (buildpath/"projects/libcxx").install resource("libcxx")
-    (buildpath/"projects/libunwind").install resource("libunwind")
-    (buildpath/"tools/lld").install resource("lld")
-    (buildpath/"tools/lldb").install resource("lldb")
-    (buildpath/"tools/polly").install resource("polly")
-    (buildpath/"projects/compiler-rt").install resource("compiler-rt")
 
     # compiler-rt has some iOS simulator features that require i386 symbols
     # I'm assuming the rest of clang needs support too for 32-bit compilation
@@ -136,55 +120,55 @@ class Llvm < Formula
     ENV.permit_arch_flags
 
     args = %W[
-      -DLIBOMP_ARCH=x86_64
-      -DLINK_POLLY_INTO_TOOLS=ON
+      -DLLVM_ENABLE_PROJECTS=#{projects.join(";")}
+      -DLLVM_ENABLE_RUNTIMES=#{runtimes.join(";")}
+      -DLLVM_POLLY_LINK_INTO_TOOLS=ON
       -DLLVM_BUILD_EXTERNAL_COMPILER_RT=ON
-      -DLLVM_BUILD_LLVM_DYLIB=ON
+      -DLLVM_LINK_LLVM_DYLIB=ON
+      -DLLVM_BUILD_LLVM_C_DYLIB=ON
       -DLLVM_ENABLE_EH=ON
       -DLLVM_ENABLE_FFI=ON
       -DLLVM_ENABLE_LIBCXX=ON
       -DLLVM_ENABLE_RTTI=ON
       -DLLVM_INCLUDE_DOCS=OFF
+      -DLLVM_INCLUDE_TESTS=OFF
       -DLLVM_INSTALL_UTILS=ON
+      -DLLVM_ENABLE_Z3_SOLVER=OFF
       -DLLVM_OPTIMIZED_TABLEGEN=ON
       -DLLVM_TARGETS_TO_BUILD=all
-      -DWITH_POLLY=ON
       -DFFI_INCLUDE_DIR=#{Formula["libffi"].opt_lib}/libffi-#{Formula["libffi"].version}/include
       -DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}
-      -DLLVM_CREATE_XCODE_TOOLCHAIN=ON
+      -DLLVM_CREATE_XCODE_TOOLCHAIN=#{MacOS::Xcode.installed? ? "ON" : "OFF"}
       -DLLDB_USE_SYSTEM_DEBUGSERVER=ON
-      -DLLDB_DISABLE_PYTHON=1
+      -DLLDB_ENABLE_PYTHON=OFF
+      -DLLDB_ENABLE_LUA=OFF
+      -DLLDB_ENABLE_LZMA=OFF
       -DLIBOMP_INSTALL_ALIASES=OFF
+      -DCLANG_PYTHON_BINDINGS_VERSIONS=#{py_ver}
     ]
 
-    mkdir "build" do
-      if MacOS.version >= :mojave
-        sdk_path = MacOS::CLT.installed? ? "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk" : MacOS.sdk_path
-        args << "-DDEFAULT_SYSROOT=#{sdk_path}"
-      end
+    sdk = MacOS.sdk_path_if_needed
+    args << "-DDEFAULT_SYSROOT=#{sdk}" if sdk
 
+    if MacOS.version == :mojave && MacOS::CLT.installed?
+      # Mojave CLT linker via software update is older than Xcode.
+      # Use it to retain compatibility.
+      args << "-DCMAKE_LINKER=/Library/Developer/CommandLineTools/usr/bin/ld"
+    end
+
+    mkdir llvmpath/"build" do
       system "cmake", "-G", "Unix Makefiles", "..", *(std_cmake_args + args)
       system "make"
       system "make", "install"
-      system "make", "install-xcode-toolchain"
+      system "make", "install-xcode-toolchain" if MacOS::Xcode.installed?
     end
 
-    (share/"clang/tools").install Dir["tools/clang/tools/scan-{build,view}"]
-    (share/"cmake").install "cmake/modules"
-    inreplace "#{share}/clang/tools/scan-build/bin/scan-build", "$RealBin/bin/clang", "#{bin}/clang"
-    bin.install_symlink share/"clang/tools/scan-build/bin/scan-build", share/"clang/tools/scan-view/bin/scan-view"
-    man1.install_symlink share/"clang/tools/scan-build/man/scan-build.1"
+    # Install LLVM Python bindings
+    # Clang Python bindings are installed by CMake
+    (lib/"python#{py_ver}/site-packages").install llvmpath/"bindings/python/llvm"
 
-    # install llvm python bindings
-    (lib/"python2.7/site-packages").install buildpath/"bindings/python/llvm"
-    (lib/"python2.7/site-packages").install buildpath/"tools/clang/bindings/python/clang"
-
-    # install emacs modes
-    elisp.install Dir["utils/emacs/*.el"] + %w[
-      tools/clang/tools/clang-format/clang-format.el
-      tools/clang/tools/clang-rename/clang-rename.el
-      tools/clang/tools/extra/clang-include-fixer/tool/clang-include-fixer.el
-    ]
+    # Install Emacs modes
+    elisp.install Dir[llvmpath/"utils/emacs/*.el"] + Dir[share/"clang/*.el"]
   end
 
   def caveats
@@ -255,12 +239,11 @@ class Llvm < Formula
     # Testing Command Line Tools
     if MacOS::CLT.installed?
       toolchain_path = "/Library/Developer/CommandLineTools"
-      sdk_path = "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk"
       system "#{bin}/clang++", "-v",
-             "-isysroot", sdk_path,
+             "-isysroot", MacOS::CLT.sdk_path,
              "-isystem", "#{toolchain_path}/usr/include/c++/v1",
              "-isystem", "#{toolchain_path}/usr/include",
-             "-isystem", "#{sdk_path}/usr/include",
+             "-isystem", "#{MacOS::CLT.sdk_path}/usr/include",
              "-std=c++11", "test.cpp", "-o", "testCLT++"
       assert_includes MachO::Tools.dylibs("testCLT++"), "/usr/lib/libc++.1.dylib"
       assert_equal "Hello World!", shell_output("./testCLT++").chomp
@@ -271,10 +254,10 @@ class Llvm < Formula
     # Testing Xcode
     if MacOS::Xcode.installed?
       system "#{bin}/clang++", "-v",
-             "-isysroot", MacOS.sdk_path,
+             "-isysroot", MacOS::Xcode.sdk_path,
              "-isystem", "#{MacOS::Xcode.toolchain_path}/usr/include/c++/v1",
              "-isystem", "#{MacOS::Xcode.toolchain_path}/usr/include",
-             "-isystem", "#{MacOS.sdk_path}/usr/include",
+             "-isystem", "#{MacOS::Xcode.sdk_path}/usr/include",
              "-std=c++11", "test.cpp", "-o", "testXC++"
       assert_includes MachO::Tools.dylibs("testXC++"), "/usr/lib/libc++.1.dylib"
       assert_equal "Hello World!", shell_output("./testXC++").chomp

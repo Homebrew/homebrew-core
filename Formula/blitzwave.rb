@@ -3,6 +3,7 @@ class Blitzwave < Formula
   homepage "https://oschulz.github.io/blitzwave"
   url "https://github.com/oschulz/blitzwave/archive/v0.8.0.tar.gz"
   sha256 "edb0b708a0587e77b8e0aa3387b44f4e838855c17e896a8277bb80fbe79b9a63"
+  license "GPL-2.0"
 
   bottle do
     cellar :any

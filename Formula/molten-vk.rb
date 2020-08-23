@@ -1,20 +1,22 @@
 class MoltenVk < Formula
   desc "Implementation of the Vulkan graphics and compute API on top of Metal"
   homepage "https://github.com/KhronosGroup/MoltenVK"
-  url "https://github.com/KhronosGroup/MoltenVK/archive/v1.0.40.tar.gz"
-  sha256 "970d49682f30e7bffba5d4b2ea70ae9e86781d6dbfdd3af4d1aa0c8a68f9646a"
+  url "https://github.com/KhronosGroup/MoltenVK/archive/v1.0.41.tar.gz"
+  sha256 "a11208f3bc2eb5cd6cfebbc0bc09ac2af8ecbe5cc3e57cde817bc8bc96d2cc33"
+  license "Apache-2.0"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "a4bebfdffac3b756cf7cee2e8a72870ffebb7fb742dc18a1ca707c99c3beab02" => :catalina
-    sha256 "182a30cf86e6b47613e1abd7a958f7ba5bcecc92b9bc7c50ff3cdddb6df7e8fc" => :mojave
+    sha256 "1ec7cccd793a59f616a1e30cdfc31a4ee6013b22bf9c7e2c45dbec3f7ad9a34f" => :catalina
+    sha256 "519cedaddc397cc3a1234a61c5c25e5a7df589e097871e24d61fb9a15da64feb" => :mojave
   end
 
   depends_on "cmake" => :build
-  depends_on "python" => :build
-  depends_on :xcode => ["11.0", :build]
+  depends_on "python@3.8" => :build
+  depends_on xcode: ["11.0", :build]
   # Requires IOSurface/IOSurfaceRef.h.
-  depends_on :macos => :sierra
+  depends_on macos: :sierra
 
   # MoltenVK depends on very specific revisions of its dependencies.
   # For each resource the path to the file describing the expected
@@ -22,49 +24,49 @@ class MoltenVk < Formula
   resource "cereal" do
     # ExternalRevisions/cereal_repo_revision
     url "https://github.com/USCiLab/cereal.git",
-        :revision => "51cbda5f30e56c801c07fe3d3aba5d7fb9e6cca4"
+        revision: "51cbda5f30e56c801c07fe3d3aba5d7fb9e6cca4"
   end
 
   resource "Vulkan-Headers" do
     # ExternalRevisions/Vulkan-Headers_repo_revision
     url "https://github.com/KhronosGroup/Vulkan-Headers.git",
-        :revision => "881bbb347a08d1b5aa77f61a52a30b506de9f2bf"
+        revision: "fb7f9c9bcd1d1544ea203a1f3d4253d0e90c5a90"
   end
 
   resource "Vulkan-Portability" do
     # ExternalRevisions/Vulkan-Portability_repo_revision
     url "https://github.com/KhronosGroup/Vulkan-Portability.git",
-        :revision => "53be040f04ce55463d0e5b25fd132f45f003e903"
+        revision: "53be040f04ce55463d0e5b25fd132f45f003e903"
   end
 
   resource "SPIRV-Cross" do
     # ExternalRevisions/SPIRV-Cross_repo_revision
     url "https://github.com/KhronosGroup/SPIRV-Cross.git",
-        :revision => "f9818f0804e6e73ec8afcc523b7e7f8bfc362632"
+        revision: "e58e8d5dbe03ea2cc755dbaf43ffefa1b8d77bef"
   end
 
   resource "glslang" do
     # ExternalRevisions/glslang_repo_revision
     url "https://github.com/KhronosGroup/glslang.git",
-        :revision => "4fc7a33910fb8e40b970d160e1b38ab3f67fe0f3"
+        revision: "e157435c1e777aa1052f446dafed162b4a722e03"
   end
 
   resource "SPIRV-Tools" do
     # External/glslang/known_good.json
     url "https://github.com/KhronosGroup/SPIRV-Tools.git",
-        :revision => "323a81fc5e30e43a04e5e22af4cba98ca2a161e6"
+        revision: "fd8e130510a6b002b28eee5885a9505040a9bdc9"
   end
 
   resource "SPIRV-Headers" do
     # External/glslang/known_good.json
     url "https://github.com/KhronosGroup/SPIRV-Headers.git",
-        :revision => "204cd131c42b90d129073719f2766293ce35c081"
+        revision: "f8bf11a0253a32375c32cad92c841237b96696c0"
   end
 
   resource "Vulkan-Tools" do
     # ExternalRevisions/Vulkan-Tools_repo_revision
     url "https://github.com/KhronosGroup/Vulkan-Tools.git",
-        :revision => "4792a6854238ba3f6d10b8c7fcd11c102cae4ca6"
+        revision: "7844b9b4e180612c7ca35bcb07ce7f86610b22c4"
   end
 
   def install

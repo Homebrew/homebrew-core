@@ -1,20 +1,22 @@
 class Clp < Formula
   desc "Linear programming solver"
   homepage "https://github.com/coin-or/Clp"
-  url "https://github.com/coin-or/Clp/archive/releases/1.17.5.tar.gz"
-  sha256 "7e2856ef7cab4bc1a439756cf101d5184a7af09d2921452a22a459ac8f949b7b"
+  url "https://github.com/coin-or/Clp/archive/releases/1.17.6.tar.gz"
+  sha256 "afff465b1620cfcbb7b7c17b5d331d412039650ff471c4160c7eb24ae01284c9"
+  license "EPL-1.0"
   revision 1
 
   bottle do
     cellar :any
-    sha256 "de6acb93eae4ed1e3226df1e4d65b9d555ef73117e50cfd15515484be616d159" => :catalina
-    sha256 "2360151579138d91675ccd46e7d4166601f4e52c11d87ab942cd950014f8ed79" => :mojave
-    sha256 "b05e706d730b7d2293856e4793661d0bc95096222ef84ca0be7b48f9da987ac7" => :high_sierra
+    sha256 "b68e1b527f9bd8a10c391f49835f379e973c4ad12fb68993d72e49604e4a21bb" => :catalina
+    sha256 "db3e0b70a5a5435d2c01b8c25c54615288d15dd0aef1606bc6812099b7feb052" => :mojave
+    sha256 "b279c98add833139bbdd65122391805109371eae1c2e99fbd35cbf9993e45ee5" => :high_sierra
   end
 
   depends_on "pkg-config" => [:build, :test]
   depends_on "coinutils"
   depends_on "openblas"
+  depends_on "osi"
 
   resource "coin-or-tools-data-sample-p0033-mps" do
     url "https://raw.githubusercontent.com/coin-or-tools/Data-Sample/releases/1.2.11/p0033.mps"

@@ -15,7 +15,7 @@ class Kawa < Formula
     inreplace "bin/kawa", "thisfile=`command -v $0`",
                           "thisfile=#{libexec}/bin/kawa"
     libexec.install "bin", "lib"
-    (bin/"kawa").write_env_script libexec/"bin/kawa", :JAVA_HOME => Formula["openjdk"].opt_prefix
+    (bin/"kawa").write_env_script libexec/"bin/kawa", JAVA_HOME: Formula["openjdk"].opt_prefix
     doc.install Dir["doc/*"]
   end
 

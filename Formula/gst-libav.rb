@@ -3,6 +3,7 @@ class GstLibav < Formula
   homepage "https://gstreamer.freedesktop.org/"
   url "https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.16.2.tar.xz"
   sha256 "c724f612700c15a933c7356fbeabb0bb9571fb5538f8b1b54d4d2d94188deef2"
+  license "GPL-2.0"
 
   bottle do
     cellar :any

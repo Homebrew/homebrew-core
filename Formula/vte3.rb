@@ -1,13 +1,14 @@
 class Vte3 < Formula
   desc "Terminal emulator widget used by GNOME terminal"
   homepage "https://developer.gnome.org/vte/"
-  url "https://download.gnome.org/sources/vte/0.60/vte-0.60.0.tar.xz"
-  sha256 "72d1955eb40b4475b858892813a79545cee34409bac2af470606fb4b4d193a1b"
+  url "https://download.gnome.org/sources/vte/0.60/vte-0.60.3.tar.xz"
+  sha256 "feb76e1181a357d86112d447a08d127e2081438df76ece83243b18609dd9822a"
+  revision 1
 
   bottle do
-    sha256 "0068be54d9a4eecbba7ef4f3f4cedabcc737cb993d65677bf298d5cbe9d7133c" => :catalina
-    sha256 "cd8686e10607c1f57dfbd84008de5e1dfd266e5f388b9e377ad70dcb565c015c" => :mojave
-    sha256 "7ca6d880fb40f9b2bed5fc257ef64ed613cbfc1b1eaec918e2980dbe5814a09c" => :high_sierra
+    sha256 "783483804a85b6616bea1754e8c9f7695938eb34ce5ea86723b23221e508fcf2" => :catalina
+    sha256 "69ecc587660a67fa8138063a7152af533fa6dd9841a8b84021f78099380f043f" => :mojave
+    sha256 "a06d9e99ed510244171aaee721971bb9b7a2ac33c4dcfa354ec0b68e56b7bd2e" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build
@@ -26,13 +27,12 @@ class Vte3 < Formula
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
-    args = [
-      "--prefix=#{prefix}",
-      "-Dgir=true",
-      "-Dgtk3=true",
-      "-Dgnutls=true",
-      "-Dvapi=true",
-      "-D_b_symbolic_functions=false",
+    args = std_meson_args + %w[
+      -Dgir=true
+      -Dgtk3=true
+      -Dgnutls=true
+      -Dvapi=true
+      -D_b_symbolic_functions=false
     ]
 
     mkdir "build" do

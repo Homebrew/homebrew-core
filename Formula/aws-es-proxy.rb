@@ -1,31 +1,22 @@
 class AwsEsProxy < Formula
   desc "Small proxy between HTTP client and AWS Elasticsearch"
   homepage "https://github.com/abutaha/aws-es-proxy"
-  url "https://github.com/abutaha/aws-es-proxy/archive/v0.9.tar.gz"
-  sha256 "c5a2943c79737874b7fc84ee298925e33aeece58fcf0e2b8b7d2f416bc872491"
+  url "https://github.com/abutaha/aws-es-proxy/archive/1.1.tar.gz"
+  sha256 "290ec4ef5186b94e1f416550fe8a842fce04ed10937fd0d5580470e1552d5be8"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3a2b9b87d015af49e5061556d2ab93d901831aef4c2331624f573a451a9620d2" => :catalina
-    sha256 "35421935cd1cdb758564d9fb6328aea304d2d1850539e5e407e2496f3963842c" => :mojave
-    sha256 "f8f4c0fc627d3a2319b4ddd51c692040f97fae904a3c4840890740a0a3a0d3ff" => :high_sierra
-    sha256 "a7909d452eae3f5f34f982f98af35be8c814d9b9476c3c7a2f479fa6f5e9f631" => :sierra
+    sha256 "dc7b61f5e22fb14108c697fd16d8e10f1dc7c25ba4e198aea9048d5a1ab49380" => :catalina
+    sha256 "04072658dc075c931b5090ed0fc8a7d918388f3352c2752e03eb22f8cda48cb6" => :mojave
+    sha256 "12e316705d1c4730b83f9a7a31559b7968f4c3bace93569902db6a57da0b6966" => :high_sierra
   end
 
-  depends_on "glide" => :build
   depends_on "go" => :build
 
   def install
-    ENV["GLIDE_HOME"] = buildpath/"glide_home"
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/abutaha/aws-es-proxy").install buildpath.children
-    cd "src/github.com/abutaha/aws-es-proxy" do
-      system "glide", "install"
-      system "go", "build", "-o", "aws-es-proxy"
-
-      bin.install "aws-es-proxy"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args
+    prefix.install_metafiles
   end
 
   def caveats
@@ -38,15 +29,14 @@ class AwsEsProxy < Formula
   end
 
   test do
-    begin
-      io = IO.popen("#{bin}/aws-es-proxy -endpoint https://dummy-host.eu-west-1.es.amazonaws.com",
-                    :err => [:child, :out])
-      sleep 2
-    ensure
-      Process.kill("SIGINT", io.pid)
-      Process.wait(io.pid)
-    end
+    address = "127.0.0.1:#{free_port}"
+    endpoint = "https://dummy-host.eu-west-1.es.amazonaws.com"
 
-    assert_match "Listening on", io.read
+    fork { exec "#{bin}/aws-es-proxy", "-listen=#{address}", "-endpoint=#{endpoint}" }
+    sleep 2
+
+    output = shell_output("curl --silent #{address}")
+    assert_match endpoint, output
+    assert_match "no such host", output
   end
 end

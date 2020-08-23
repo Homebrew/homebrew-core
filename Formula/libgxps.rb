@@ -3,12 +3,14 @@ class Libgxps < Formula
   homepage "https://wiki.gnome.org/Projects/libgxps"
   url "https://download.gnome.org/sources/libgxps/0.3/libgxps-0.3.1.tar.xz"
   sha256 "1a939fc8fcea9471b7eca46b1ac90cff89a30d26f65c7c9a375a4bf91223fa94"
+  license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
-    sha256 "74f4662c40830e4697255a05447171637c749ce28a6aa7262ab29cbfca32d642" => :catalina
-    sha256 "f2a0b5d1e9d85ad84ab041381c3c0bdd8f6f98d2be8586cdf48958e4a85aab27" => :mojave
-    sha256 "ef0b670a2dcbbbc2e42e6dd9ada96353fad1d039c42d8a41ef5271b8370bdd25" => :high_sierra
-    sha256 "949980a659fa2c301992af86c54a91e47a9721e372348bb1e5b49891d55b5285" => :sierra
+    cellar :any
+    sha256 "dd6c63cf7f8af07a9ea8bbe4ee902d55a834652f4100780affab11dd38a3deb0" => :catalina
+    sha256 "a71f1a595fe620805393786fe14dedc8fe3fb6f75a812536ba5acc00e9ec9c07" => :mojave
+    sha256 "ed21a1e2b30b473883f54fa09c7a1707eb6ae2a78946ecbb1d1d11f5f340154a" => :high_sierra
   end
 
   head do
@@ -16,7 +18,7 @@ class Libgxps < Formula
   end
 
   depends_on "gobject-introspection" => :build
-  depends_on "meson-internal" => :build
+  depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
@@ -26,7 +28,7 @@ class Libgxps < Formula
 
   def install
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", ".."
+      system "meson", *std_meson_args, ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end

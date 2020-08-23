@@ -5,6 +5,7 @@ class Ykman < Formula
   homepage "https://developers.yubico.com/yubikey-manager/"
   url "https://developers.yubico.com/yubikey-manager/Releases/yubikey-manager-3.1.1.tar.gz"
   sha256 "68ef41ac3cd2e891019e755a492427ecdd63d8816525d05f2f32c37b8c440cfa"
+  license "BSD-2-Clause"
   revision 1
   head "https://github.com/Yubico/yubikey-manager.git"
 
@@ -20,6 +21,13 @@ class Ykman < Formula
   depends_on "openssl@1.1"
   depends_on "python@3.8"
   depends_on "ykpers"
+
+  uses_from_macos "libffi"
+
+  on_linux do
+    depends_on "pkg-config" => :build
+    depends_on "pcsc-lite"
+  end
 
   resource "cffi" do
     url "https://files.pythonhosted.org/packages/2d/bf/960e5a422db3ac1a5e612cb35ca436c3fc985ed4b7ed13a1b4879006f450/cffi-1.13.2.tar.gz"

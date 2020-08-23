@@ -3,14 +3,13 @@ class Fastme < Formula
   homepage "http://www.atgc-montpellier.fr/fastme/"
   url "https://gite.lirmm.fr/atgc/FastME/raw/v2.1.6.1/tarball/fastme-2.1.6.1.tar.gz"
   sha256 "ac05853bc246ccb3d88b8bc075709a82cfe096331b0f4682b639f37df2b30974"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "2d77addf56ac300c3b219b1716b81d1fe1a04ee1759a79cab4d59aeee676a4ec" => :catalina
-    sha256 "65bfd93ee6bdc21881fe342dd289a4c0808a3eb0abb1e04e174c32fd43a0bc77" => :mojave
-    sha256 "eac83026ed4ce4b30511c1f7b79ff032e9c3c607a52d63881951937e210d663c" => :high_sierra
-    sha256 "1a04d48b4a33ad3c854a4d45724f339438455f47e20d870c265b070ec75db08b" => :sierra
+    sha256 "ef8226e09481486fa3e047ee5145cfc0dc370fceaa702095b835ad701eebf9fe" => :catalina
+    sha256 "517b3f8d0fe9b403b9de35ebca8af530f859a66ae788ee779e21b9d62e9c5c6f" => :mojave
+    sha256 "25cf8eb54ef7416842036f83c99eebb5a5881267d642f4a2c84c94fb5892a511" => :high_sierra
   end
 
   depends_on "gcc"

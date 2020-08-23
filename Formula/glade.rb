@@ -1,18 +1,18 @@
 class Glade < Formula
   desc "RAD tool for the GTK+ and GNOME environment"
   homepage "https://glade.gnome.org/"
-  url "https://download.gnome.org/sources/glade/3.22/glade-3.22.2.tar.xz"
-  sha256 "edefa6eb24b4d15bd52589121dc109bc08c286157c41288deb74dd9cc3f26a21"
+  url "https://download.gnome.org/sources/glade/3.36/glade-3.36.0.tar.xz"
+  sha256 "19b546b527cc46213ccfc8022d49ec57e618fe2caa9aa51db2d2862233ea6f08"
+  revision 1
 
   bottle do
-    sha256 "27f88ef0f2e6d8eb6a0431786f8a3b314a3ecfdeee7fe760d9257827f1c1fdc5" => :catalina
-    sha256 "91a3f27f611b2571469b7876f28f6ece6c73df75c801075b2da431966218ec1d" => :mojave
-    sha256 "3a49959c858a0a041014aa51311fb2152acfd75fb3f27c005709bc56f2bc40ec" => :high_sierra
+    sha256 "9131bb138ba8e7b7b2f3d593342846fdabebd28b33c755ae0feaba4f52a39ab9" => :catalina
+    sha256 "2c95e5cb5f386fbacf1fb4ca17b2dc9ad6c6b2d83b9d0891460905f87cb608c4" => :mojave
+    sha256 "89b48942bd5c136dae47bf534e6f99d425aebd9165432c07411ce341d210cda9" => :high_sierra
   end
 
   depends_on "docbook-xsl" => :build
   depends_on "gobject-introspection" => :build
-  depends_on "intltool" => :build
   depends_on "itstool" => :build
   depends_on "pkg-config" => :build
   depends_on "adwaita-icon-theme"
@@ -26,18 +26,21 @@ class Glade < Formula
     # Find our docbook catalog
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
+    # Disable icon-cache update
+    ENV["DESTDIR"] = "/"
+
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--enable-gladeui",
                           "--enable-introspection"
-    # objective-c is needed for glade-registration.c.
-    # unfortunately build fails if -x objective-c is added to global CFLAGS.
-    # Bugreport Upstream: https://bugzilla.gnome.org/show_bug.cgi?id=768032
-    inreplace "src/Makefile", "-c -o glade-glade-registration.o", "-x objective-c -c -o glade-glade-registration.o"
 
     system "make" # separate steps required
     system "make", "install"
+  end
+
+  def post_install
+    system "#{Formula["gtk+3"].opt_bin}/gtk3-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
   end
 
   test do

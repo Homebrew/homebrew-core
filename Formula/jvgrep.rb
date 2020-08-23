@@ -1,22 +1,22 @@
 class Jvgrep < Formula
   desc "Grep for Japanese users of Vim"
   homepage "https://github.com/mattn/jvgrep"
-  url "https://github.com/mattn/jvgrep/archive/v5.8.5.tar.gz"
-  sha256 "82470a9852b5cb2f093bcdbcb7c66f3d2e1ab7a8f3680e90d6944a0990a11f3d"
+  url "https://github.com/mattn/jvgrep/archive/v5.8.8.tar.gz"
+  sha256 "dc3b5f77189bf8f91d7c8f48e3908dcf4dfea9fd12cd23e71deb54e3ea64d724"
+  license "MIT"
   head "https://github.com/mattn/jvgrep.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d1060a9bafbdaa653573e89cacc6df443f72368cf1314398a11e4509203604bc" => :catalina
-    sha256 "d1060a9bafbdaa653573e89cacc6df443f72368cf1314398a11e4509203604bc" => :mojave
-    sha256 "d1060a9bafbdaa653573e89cacc6df443f72368cf1314398a11e4509203604bc" => :high_sierra
+    sha256 "fa73d4fa22c06a91abae4fb577d8000897a95687de102fa09258a2f726801791" => :catalina
+    sha256 "fa73d4fa22c06a91abae4fb577d8000897a95687de102fa09258a2f726801791" => :mojave
+    sha256 "fa73d4fa22c06a91abae4fb577d8000897a95687de102fa09258a2f726801791" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"jvgrep"
-    prefix.install_metafiles
+    system "go", "build", *std_go_args
   end
 
   test do

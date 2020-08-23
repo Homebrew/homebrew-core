@@ -10,6 +10,7 @@ class Isl < Formula
   url "http://isl.gforge.inria.fr/isl-0.22.1.tar.xz"
   mirror "https://deb.debian.org/debian/pool/main/i/isl/isl_0.22.1.orig.tar.xz"
   sha256 "28658ce0f0bdb95b51fd2eb15df24211c53284f6ca2ac5e897acc3169e55b60f"
+  license "MIT"
 
   bottle do
     cellar :any

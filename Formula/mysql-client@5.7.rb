@@ -1,13 +1,13 @@
 class MysqlClientAT57 < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/5.7/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.28.tar.gz"
-  sha256 "f16399315212117c08f9bdf8a0d682728b2ce82d691bcfbf25a770f413b6f2da"
+  url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.29.tar.gz"
+  sha256 "00f514124de2bad1ba7b380cbbd46e316cae7fc7bc3a5621456cabf352f27978"
 
   bottle do
-    sha256 "8004b19b71ab02e1424f1641744d4b9cce92c2d30149bc6b6b0eb94350e24f32" => :catalina
-    sha256 "8d878f87dcef2a2bbf5c5b6a3dfa9b275dd5473261f7c9c6d5aa15f48f12dee2" => :mojave
-    sha256 "97a2d7da651e0b6fb762a39acc2586783444da6911efec3f858972165f32cda7" => :high_sierra
+    sha256 "f6708680504eee30c923cd496380cd75e6e90b8b48c4b5fc76497e26d012d2b0" => :catalina
+    sha256 "a10197d6594410082510efcb27ab460265a1235ae9e7c8b8c3b604396cf9ef0c" => :mojave
+    sha256 "d1c843f81568ad49b6856d76b04d96069f9ddafcfe27162dee92ea0e7373cc97" => :high_sierra
   end
 
   keg_only :versioned_formula

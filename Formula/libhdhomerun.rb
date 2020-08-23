@@ -1,14 +1,15 @@
 class Libhdhomerun < Formula
   desc "C library for controlling SiliconDust HDHomeRun TV tuners"
   homepage "https://www.silicondust.com/support/linux/"
-  url "https://download.silicondust.com/hdhomerun/libhdhomerun_20200225.tgz"
-  sha256 "f6493e4a643a4ba9c3b2424b7f491186efc2ba5fd93d2285d65b7c5aca676cf9"
+  url "https://download.silicondust.com/hdhomerun/libhdhomerun_20200521.tgz"
+  sha256 "a61038f0a78c5dcab3508927ba47ac6ec47840f3d42a2df2b02034cfd7400668"
+  license "LGPL-2.1"
 
   bottle do
     cellar :any
-    sha256 "022b83d3c1cf86313b2b782034d21dca95321df3b0ffb1f36806650159963183" => :catalina
-    sha256 "d8cb4211790fe521593e4832ec4512f43457cdae21437df08f83a948b0adeb30" => :mojave
-    sha256 "8f73bd04733497f8d261da3487197a409d11765341eb030282017f3d6945e820" => :high_sierra
+    sha256 "f2ae936a544ec2f145195db79b83760aae0fd47045e7e255b17dc19acf4b0b98" => :catalina
+    sha256 "32e8a587fe7df2e274d02261178bcdb4a1575bfd43bbb8f0f97cf9d11fb0d9d3" => :mojave
+    sha256 "5532b7fbba3fb88fb3733b12cd2e173575c57bc9ca85e4a8db79639d4786d713" => :high_sierra
   end
 
   def install

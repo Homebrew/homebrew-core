@@ -1,19 +1,17 @@
 class Avfs < Formula
   desc "Virtual file system that facilitates looking inside archives"
   homepage "https://avf.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/avf/avfs/1.1.1/avfs-1.1.1.tar.bz2"
-  sha256 "c83eef7f8676db6fed0a18373c433e0ff55af1651246303ebe1181e8ef8bbf3b"
-  revision 1
+  url "https://downloads.sourceforge.net/project/avf/avfs/1.1.3/avfs-1.1.3.tar.bz2"
+  sha256 "4f4ec1e8c0d5da94949e3dab7500ee29fa3e0dda723daf8e7d60e5f3ce4450df"
 
   bottle do
-    sha256 "f060170581f703385397ce01f126fb01edf74f97fc3a5a2d889ecfb6464f403c" => :catalina
-    sha256 "e9f048f1f3f156b62c0650d07b51e82020a896538a51fdffd2ae06bf2d661380" => :mojave
-    sha256 "4ca7d845c2b2e3c066c2441490b7e9588ef727ab0815aee57c5321ad826435df" => :high_sierra
-    sha256 "9dd4c35adcc1c1350b48f0a37130414370b38c63a886a0b1824838da34a16c97" => :sierra
+    sha256 "6f496a30b6bd1c8eba1005e4bc0da26b53353effab3f447cf8d43a669ad7a6b5" => :catalina
+    sha256 "1e75ce4753a0d9a9af12e4a718537a9e2398fd535413b72505dd126a33610fe6" => :mojave
+    sha256 "690fbe0161f0c5ce4ec737e67624b54bfcd7825efa8b554e1773691365dcd6ed" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
-  depends_on :macos => :sierra # needs clock_gettime
+  depends_on macos: :sierra # needs clock_gettime
   depends_on "openssl@1.1"
   depends_on :osxfuse
   depends_on "xz"

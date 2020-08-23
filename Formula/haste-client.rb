@@ -1,6 +1,7 @@
 class HasteClient < Formula
   desc "CLI client for haste-server"
   homepage "https://hastebin.com/"
+  license "MIT"
   revision 5
   head "https://github.com/seejohnrun/haste-client.git"
 
@@ -53,7 +54,7 @@ class HasteClient < Formula
     system "gem", "build", "haste.gemspec"
     system "gem", "install", "--ignore-dependencies", "haste-#{version}.gem"
     bin.install libexec/"bin/haste"
-    bin.env_script_all_files(libexec/"bin", :GEM_HOME => ENV["GEM_HOME"])
+    bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"])
   end
 
   test do

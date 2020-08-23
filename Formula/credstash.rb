@@ -3,35 +3,35 @@ class Credstash < Formula
 
   desc "Little utility for managing credentials in the cloud"
   homepage "https://github.com/fugue/credstash"
-  url "https://github.com/fugue/credstash/archive/v1.16.2.tar.gz"
-  sha256 "b84c08b3cb6d6b7d107812aa803cdad3f9ec4f32a98f897cd7c8a59269154a54"
+  url "https://github.com/fugue/credstash/releases/download/v1.17.1/credstash-1.17.1.tar.gz"
+  sha256 "6c04e8734ef556ab459018da142dd0b244093ef176b3be5583e582e9a797a120"
+  license "Apache-2.0"
   head "https://github.com/fugue/credstash.git"
 
   bottle do
     cellar :any
-    sha256 "4cec509471fc98a77af1ee473594d8423d5044337452a54cf616b65f2bd13c6a" => :catalina
-    sha256 "721498bc88a7647c21943848cd4f4bbb09599b3ca603264e23d19c8d0b175975" => :mojave
-    sha256 "659fa456a1506e79e230ad71ddc7e0c49fe457d39524900e5d1e757457e26eea" => :high_sierra
+    sha256 "1a3850180efec6b674ec067a0368fb02e4d6e4c24c3b47102be54d4c23e7c1c7" => :catalina
+    sha256 "be020fc56818a3f17b978b50d666107cfbd67e1f91140fdc1bf800e4a25be785" => :mojave
+    sha256 "a36fac918c07dd8551a33c276b172bedab2df1953d0bb6d4c696710cdbccae74" => :high_sierra
   end
 
   depends_on "openssl@1.1"
-  depends_on "python"
+  depends_on "python@3.8"
 
   uses_from_macos "libffi"
 
-  resource "asn1crypto" do
-    url "https://files.pythonhosted.org/packages/9f/3d/8beae739ed8c1c8f00ceac0ab6b0e97299b42da869e24cf82851b27a9123/asn1crypto-1.3.0.tar.gz"
-    sha256 "5a215cb8dc12f892244e3a113fe05397ee23c5c4ca7a69cd6e69811755efc42d"
+  on_linux do
+    depends_on "pkg-config" => :build
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/7e/16/f07e426420979f1126443c08874fb39fe753df95a15c4d066ab936fb2e6f/boto3-1.12.12.tar.gz"
-    sha256 "f191e02140e9691e91fac8cb87d74ad111015a1c98c3b99a24bba9982dc5ae7e"
+    url "https://files.pythonhosted.org/packages/2e/ed/c78be6e55442756a53c3dafe086e3c72534bfe7904e683ecca3678521f9b/boto3-1.12.39.tar.gz"
+    sha256 "970bd7b332e73d7b51077ed36772c634811b38c81b0cc6ed0f910e50d7ebadf8"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/c1/89/03a043aee3d12fabf102367252de48a3752b7db6d628e503e408989f49d0/botocore-1.15.12.tar.gz"
-    sha256 "f12dd27c759992460b8ce70bfeed600437829b0293e6a08211237f11757678e5"
+    url "https://files.pythonhosted.org/packages/87/9e/8c548fc924e2ebee4d2723705c557234550af6872bc6d9e505d05b0eeee9/botocore-1.15.39.tar.gz"
+    sha256 "94232b44e1540b7e043e220bd43f855400d0a243e926b26b3fb72994e971d518"
   end
 
   resource "cffi" do
@@ -40,8 +40,8 @@ class Credstash < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/be/60/da377e1bed002716fb2d5d1d1cab720f298cb33ecff7bf7adea72788e4e4/cryptography-2.8.tar.gz"
-    sha256 "3cda1f0ed8747339bbdf71b9f38ca74c7b592f24f65cdb3ab3765e4b02871651"
+    url "https://files.pythonhosted.org/packages/9d/0a/d7060601834b1a0a84845d6ae2cd59be077aafa2133455062e47c9733024/cryptography-2.9.tar.gz"
+    sha256 "0cacd3ef5c604b8e5f59bf2582c076c98a37fe206b31430d0cd08138aff0986e"
   end
 
   # docutils<0.16,>=0.10
@@ -56,8 +56,8 @@ class Credstash < Formula
   end
 
   resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/68/9e/49196946aee219aead1290e00d1e7fdeab8567783e83e1b9ab5585e6206a/pycparser-2.19.tar.gz"
-    sha256 "a988718abfad80b6b157acce7bf130a30876d27603738ac39f140993246b25b3"
+    url "https://files.pythonhosted.org/packages/0f/86/e19659527668d70be91d0369aeaa055b4eb396b0f387a4f92293a20035bd/pycparser-2.20.tar.gz"
+    sha256 "2d475327684562c3a96cc71adf7dc8c4f0565175cf86b6d7a404ff4c771f15f0"
   end
 
   resource "python-dateutil" do

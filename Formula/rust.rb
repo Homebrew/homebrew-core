@@ -1,23 +1,25 @@
 class Rust < Formula
   desc "Safe, concurrent, practical language"
   homepage "https://www.rust-lang.org/"
+  # license ["Apache-2.0", "MIT"] - pending https://github.com/Homebrew/brew/pull/7953
+  license "Apache-2.0"
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.41.1-src.tar.gz"
-    sha256 "38c93d016e6d3e083aa15e8f65511d3b4983072c0218a529f5ee94dd1de84573"
+    url "https://static.rust-lang.org/dist/rustc-1.45.2-src.tar.gz"
+    sha256 "b7a3fc1e3ee367260ef945da867da0957f8983705f011ba2a73715375e50e308"
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
-          :tag      => "0.42.0",
-          :revision => "626f0f40efd32e6b3dbade50cd53fdfaa08446ba"
+          tag:      "0.46.1",
+          revision: "f242df6edb897f6f69d393a22bb257f5af0f52d0"
     end
   end
 
   bottle do
     cellar :any
-    sha256 "cb6f748139b5a6b36cb859840183bbe295734d11cdfa4bf91f2f4b213aa706cf" => :catalina
-    sha256 "8e02732d6b8337d03422c206c8644975ae3e31caa41686c1e298494d0e45ccc2" => :mojave
-    sha256 "0b7a0246cbb9364eae54df7e182bcfbb35542c3feb5f3c166ba1535ffcf58432" => :high_sierra
+    sha256 "5c7983be67e13ea795d651c5268109cac23fd05c54e30bf0f6581ea124fcc6a8" => :catalina
+    sha256 "f7e9f667d371dff2adf49e5d2a7faf4a7509d1672e6523d01ad0645231e8bfee" => :mojave
+    sha256 "b6c65cebb30e0370cff74ef0d4bd1556ce7843db0e969cb9bb130d3fe50ee065" => :high_sierra
   end
 
   head do
@@ -34,14 +36,21 @@ class Rust < Formula
   depends_on "openssl@1.1"
   depends_on "pkg-config"
 
-  uses_from_macos "binutils"
   uses_from_macos "curl"
   uses_from_macos "zlib"
 
   resource "cargobootstrap" do
-    # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
-    url "https://static.rust-lang.org/dist/2019-12-19/cargo-0.41.0-x86_64-apple-darwin.tar.gz"
-    sha256 "1ef77a6be5e697bb7dde40854651fc67e91f119d5a9ddf747a25e30c1179fbe1"
+    on_macos do
+      # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
+      url "https://static.rust-lang.org/dist/2020-06-04/cargo-0.45.0-x86_64-apple-darwin.tar.gz"
+      sha256 "3a618459c8a22773a299d683e4ea0355e615372ae573300933caf6d00019bdd3"
+    end
+
+    on_linux do
+      # From: https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
+      url "https://static.rust-lang.org/dist/2020-06-04/cargo-0.45.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "f9dec7c4f5af57e400cc90bb791e7dcf4dd8d11c65336ffe27a6e2516c6f371f"
+    end
   end
 
   def install
@@ -80,7 +89,11 @@ class Rust < Formula
 
     resource("cargo").stage do
       ENV["RUSTC"] = bin/"rustc"
-      system "cargo", "install", "--root", prefix, "--path", ".", "--features", "curl-sys/force-system-lib-on-osx"
+      args = %W[--root #{prefix} --path . --features curl-sys/force-system-lib-on-osx]
+      system "cargo", "install", *args
+      man1.install Dir["src/etc/man/*.1"]
+      bash_completion.install "src/etc/cargo.bashcomp.sh"
+      zsh_completion.install "src/etc/_cargo"
     end
 
     rm_rf prefix/"lib/rustlib/uninstall.sh"

@@ -3,6 +3,7 @@ class AircrackNg < Formula
   homepage "https://aircrack-ng.org/"
   url "https://download.aircrack-ng.org/aircrack-ng-1.6.tar.gz"
   sha256 "4f0bfd486efc6ea7229f7fbc54340ff8b2094a0d73e9f617e0a39f878999a247"
+  license "GPL-2.0"
 
   bottle do
     sha256 "1b5ecf42ef840c108536eac5107cf63c514ca2f3d7e8c4f32e5b301f088729c1" => :catalina

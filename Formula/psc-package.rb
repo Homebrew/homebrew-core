@@ -1,18 +1,16 @@
-require "language/haskell"
-
 class PscPackage < Formula
-  include Language::Haskell::Cabal
-
   desc "Package manager for PureScript based on package sets"
   homepage "https://psc-package.readthedocs.io"
   url "https://github.com/purescript/psc-package/archive/v0.6.2.tar.gz"
   sha256 "96c3bf2c65d381c61eff3d16d600eadd71ac821bbe7db02acec1d8b3b6dbecfc"
+  license "BSD-3-Clause"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6cb82e86e3345b771e1cefa7ddc19f0a2cdad2708b9c313c0d6939d6935f68ee" => :catalina
-    sha256 "bea963bcef4f13b0b43118ee5230ccc3df88fea815fcf55e455360406d5ae9a6" => :mojave
-    sha256 "2254f260a569baeb84999bf42cf2ae5563dae197039a7c4c9ee6862996f2523c" => :high_sierra
+    sha256 "f5baac6c49a67991b2ed0f2a2ba34898317e9cfd6864e8b446fb159f80ae04ec" => :catalina
+    sha256 "e6cd795e5eade3414e2149f4fe4d529468293b122659ed5bd8b2b4df716c77cf" => :mojave
+    sha256 "0b0411dfd516bac15b2e99cba163dbc3c77742eae9e09038ac85ef1793ce767c" => :high_sierra
   end
 
   depends_on "cabal-install" => :build
@@ -20,7 +18,8 @@ class PscPackage < Formula
   depends_on "purescript"
 
   def install
-    install_cabal_package
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
   end
 
   test do

@@ -3,6 +3,7 @@ class Newt < Formula
   homepage "https://pagure.io/newt"
   url "https://pagure.io/releases/newt/newt-0.52.21.tar.gz"
   sha256 "265eb46b55d7eaeb887fca7a1d51fe115658882dfe148164b6c49fccac5abb31"
+  license "LGPL-2.0"
 
   bottle do
     cellar :any

@@ -1,17 +1,18 @@
 class Iblinter < Formula
   desc "Linter tool for Interface Builder"
   homepage "https://github.com/IBDecodable/IBLinter"
-  url "https://github.com/IBDecodable/IBLinter/archive/0.4.22.tar.gz"
-  sha256 "0f95b874c1a61fee5dc55da25429790490fcdd20667a3a9065dbd53641374971"
+  url "https://github.com/IBDecodable/IBLinter/archive/0.4.24.tar.gz"
+  sha256 "03a210e3adf22f93b3501ee5b69ead2e127e161e5ae8c4cec0aefd970aef958e"
+  license "MIT"
   head "https://github.com/IBDecodable/IBLinter.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5ee99a2dd2bbce3b730fd000746ec47973c4dfbef780fc42405e670f7a3d0453" => :catalina
-    sha256 "7e9aef055cb5d110fe273e786dbdaceefb0cec1178368c1bacbf3db62739faf1" => :mojave
+    sha256 "9c1ef57667d9068b21544871f750357897b123e3d6e329982ad06f96affb2c15" => :catalina
+    sha256 "0a7c93d98d2f992934b88700d3ee0a203d575c65cd58786163fdab9fd209c0a0" => :mojave
   end
 
-  depends_on :xcode => ["10.2", :build]
+  depends_on xcode: ["10.2", :build]
 
   def install
     system "make", "install", "PREFIX=#{prefix}"

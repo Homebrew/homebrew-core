@@ -3,6 +3,7 @@ class Blockhash < Formula
   homepage "https://github.com/commonsmachinery/blockhash"
   url "https://github.com/commonsmachinery/blockhash/archive/v0.3.1.tar.gz"
   sha256 "56e8d2fecf2c7658c9f8b32bfb2d29fdd0d0535ddb3082e44b45a5da705aca86"
+  license "MIT"
   revision 1
   head "https://github.com/commonsmachinery/blockhash.git"
 
@@ -15,7 +16,7 @@ class Blockhash < Formula
 
   depends_on "pkg-config" => :build
   depends_on "imagemagick"
-  uses_from_macos "python@2"
+  depends_on :macos # Due to Python 2
 
   resource "testdata" do
     url "https://raw.githubusercontent.com/commonsmachinery/blockhash/ce08b465b658c4e886d49ec33361cee767f86db6/testdata/clipper_ship.jpg"

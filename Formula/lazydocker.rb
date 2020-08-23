@@ -2,14 +2,15 @@ class Lazydocker < Formula
   desc "The lazier way to manage everything docker"
   homepage "https://github.com/jesseduffield/lazydocker"
   url "https://github.com/jesseduffield/lazydocker.git",
-      :tag      => "v0.8",
-      :revision => "cea67bc570daaa757a886813ff3c2763189efef6"
+      tag:      "v0.9.1",
+      revision: "10617da5608990bf4911142745d31566bac6964a"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "024db9b510e170cb389420f3aadcaa9814b6e8580b84d63bcc9cb610c779773b" => :catalina
-    sha256 "5a6a4732f4260c7ae53f1153772bd0d15a350142a7f15e9cfb0f2b99bcf69a7b" => :mojave
-    sha256 "da3b8b84547a247bfe92c5b4e0741e7991ba1eba723b460ff097dce1652cf2ad" => :high_sierra
+    sha256 "0a32a3111697ccba3b9f1d959f206c23a6b2fdc2fdb968f5eed12575c67e56b4" => :catalina
+    sha256 "efe1cebae9966e4cbe0b55cfd28f6625d37b821827c7954168e80fc932ec57e2" => :mojave
+    sha256 "79c56a22d891d09ce3b08ef1c400768dc68f2c5244b9a33070aae6f33e3d1e7b" => :high_sierra
   end
 
   depends_on "go" => :build

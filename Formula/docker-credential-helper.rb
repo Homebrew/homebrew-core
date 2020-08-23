@@ -3,6 +3,7 @@ class DockerCredentialHelper < Formula
   homepage "https://github.com/docker/docker-credential-helpers"
   url "https://github.com/docker/docker-credential-helpers/archive/v0.6.3.tar.gz"
   sha256 "441684cf1d2434aa1024aa2f8455e11502c44858e93ea171b19caa656dd2b2e2"
+  license "MIT"
   head "https://github.com/docker/docker-credential-helpers.git"
 
   bottle do

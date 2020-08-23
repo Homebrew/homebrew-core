@@ -3,6 +3,7 @@ class Libgda < Formula
   homepage "https://www.gnome-db.org/"
   url "https://download.gnome.org/sources/libgda/5.2/libgda-5.2.9.tar.xz"
   sha256 "59caed8ca72b1ac6437c9844f0677f8a296d52cfd1c0049116026abfb1d87d9b"
+  license "GPL-2.0"
   revision 2
 
   bottle do

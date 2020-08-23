@@ -1,23 +1,26 @@
 class Yara < Formula
   desc "Malware identification and classification tool"
   homepage "https://github.com/VirusTotal/yara/"
-  url "https://github.com/VirusTotal/yara/archive/v3.11.0.tar.gz"
-  sha256 "de8c54028c848751c06f5acc3b749c3ef6b111090b39f6ff991295af44bd4633"
+  url "https://github.com/VirusTotal/yara/archive/v4.0.2.tar.gz"
+  sha256 "05ad88eac9a9f0232432fd14516bdaeda14349d6cf0cac802d76e369abcee001"
+  license "BSD-3-Clause"
   head "https://github.com/VirusTotal/yara.git"
 
   bottle do
     cellar :any
-    sha256 "c7d54d25d34ed9a0bf41e4cbe686f36ca6b0e62c7f5a68e450c033de5841128f" => :catalina
-    sha256 "7165e59093cd50672889121ead42ff8fc5082d2bbde7d7dc52e314f409dda9a6" => :mojave
-    sha256 "3c49cc1dd56a8633294439dab8e6c68ae1021e1060238fa4658b44f59a070b26" => :high_sierra
+    sha256 "e0a9565366bfa84e65ebc338c7862848aac15345570433c632311c5e0c1b7811" => :catalina
+    sha256 "9a376923b39660a19777e4d5ecad48251a8510309c69291dc877b75e97d91d66" => :mojave
+    sha256 "769d58809bcba97950e18d7f9c1e8e45e113abe8b7c21c7f0f56674e0ac2f7d1" => :high_sierra
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
   depends_on "jansson"
   depends_on "libmagic"
   depends_on "openssl@1.1"
+  depends_on "protobuf-c"
 
   def install
     system "./bootstrap.sh"

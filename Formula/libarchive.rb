@@ -1,15 +1,14 @@
 class Libarchive < Formula
   desc "Multi-format archive and compression library"
   homepage "https://www.libarchive.org"
-  url "https://www.libarchive.org/downloads/libarchive-3.4.2.tar.xz"
-  sha256 "d8e10494b4d3a15ae9d67a130d3ab869200cfd60b2ab533b391b0a0d5500ada1"
-  revision 1
+  url "https://www.libarchive.org/downloads/libarchive-3.4.3.tar.xz"
+  sha256 "0bfc3fd40491768a88af8d9b86bf04a9e95b6d41a94f9292dbc0ec342288c05f"
 
   bottle do
     cellar :any
-    sha256 "fea6de0e1c64faa83966a1bb23dc15275766940d9d25057bfd2d5bb9993792f3" => :catalina
-    sha256 "ba1e2a44af82b21ad9ddcc906bb9b6f0073797b79a1a2d41758d253609c95628" => :mojave
-    sha256 "b881cb42a16895795baea1137e3313de8ed632d8db241e0e4d2c361fbc5fc8bd" => :high_sierra
+    sha256 "ec29541614dd1acd7189e69c6e6a689f959d25e1fb52acf06e52b9a4c38166c4" => :catalina
+    sha256 "5cdfab0da88b4a1141cd2f512ad2815f69191bf7d9adc49e0cb9c814af286688" => :mojave
+    sha256 "df697f70e6100533afeffb949ec2c22c7fcdf23821a2a76c460977cecfbb01b8" => :high_sierra
   end
 
   keg_only :provided_by_macos
@@ -21,7 +20,6 @@ class Libarchive < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "expat"
-  uses_from_macos "iconv"
   uses_from_macos "zlib"
 
   def install

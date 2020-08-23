@@ -3,6 +3,7 @@ class Gaffitter < Formula
   homepage "https://gaffitter.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/gaffitter/gaffitter/1.0.0/gaffitter-1.0.0.tar.gz"
   sha256 "c85d33bdc6c0875a7144b540a7cce3e78e7c23d2ead0489327625549c3ab23ee"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation

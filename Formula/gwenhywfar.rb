@@ -1,23 +1,23 @@
 class Gwenhywfar < Formula
   desc "Utility library required by aqbanking and related software"
   homepage "https://www.aquamaniac.de/"
-  url "https://www.aquamaniac.de/rdm/attachments/download/108/gwenhywfar-4.20.2.tar.gz"
-  sha256 "0f4fd92351c8a11f053aa482fc5c459499db3dc78dd8bb469e878890ef3d3270"
+  url "https://www.aquamaniac.de/rdm/attachments/download/331/gwenhywfar-5.4.0.tar.gz"
+  sha256 "e59fed9873c0e4880f5cf43748498df9ff4ff67cb5061157d21a55d16bb97489"
 
   bottle do
-    sha256 "ec5063e1ac5176d5b43f03adea1cc550f98a74ad2148fd18aff41db918ebdb17" => :catalina
-    sha256 "43fbdfc140f948cac62e00c6468b310856797b3bd732e8e7db2dee4983ec2787" => :mojave
-    sha256 "b14e191f6863b0bd133367cd1e5e22a0785550edbf3637930b5d16ec2a83ecd9" => :high_sierra
-    sha256 "a006e0b29c726b480bcdcfc40192d776c7ce2e8e44196122d7aabf3884857c5f" => :sierra
+    sha256 "5bef8974fffb05b11aa019bc1a541753e60f6d9ffb385ccaf73a655ee105e325" => :catalina
+    sha256 "1cdd978aa9a8be025d4cea29b7e8ed1a619718c1707419c0e847c575811c68eb" => :mojave
+    sha256 "c683f99d5a7082b155717c0f77ee4f9d384a140f589d1dc0e8cac6af64a99f58" => :high_sierra
   end
 
-  depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "gnutls"
   depends_on "libgcrypt"
   depends_on "openssl@1.1"
+  depends_on "pkg-config" # gwenhywfar-config needs pkg-config for execution
 
   def install
+    inreplace "gwenhywfar-config.in.in", "@PKG_CONFIG@", "pkg-config"
     system "autoreconf", "-fiv" if build.head?
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
@@ -36,7 +36,7 @@ class Gwenhywfar < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-I#{include}/gwenhywfar4", "-L#{lib}", "-lgwenhywfar", "-o", "test"
+    system ENV.cc, "test.c", "-I#{include}/gwenhywfar5", "-L#{lib}", "-lgwenhywfar", "-o", "test"
     system "./test"
   end
 end

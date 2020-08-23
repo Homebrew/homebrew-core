@@ -3,6 +3,7 @@ class Bmon < Formula
   homepage "https://github.com/tgraf/bmon"
   url "https://github.com/tgraf/bmon/releases/download/v4.0/bmon-4.0.tar.gz"
   sha256 "02fdc312b8ceeb5786b28bf905f54328f414040ff42f45c83007f24b76cc9f7a"
+  license "BSD-2-Clause"
   revision 2
 
   bottle do

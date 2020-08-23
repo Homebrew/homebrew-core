@@ -4,21 +4,22 @@ require "json"
 class Webpack < Formula
   desc "Bundler for JavaScript and friends"
   homepage "https://webpack.js.org/"
-  url "https://registry.npmjs.org/webpack/-/webpack-4.42.0.tgz"
-  sha256 "ac9d26d38622b700d7e67210c5f9ea2f9a76945276047119768480aadd7912b0"
+  url "https://registry.npmjs.org/webpack/-/webpack-4.44.1.tgz"
+  sha256 "73c5f5f5a19953e688e07b2791369d6712369475314e64729d18b73426032579"
+  license "MIT"
   head "https://github.com/webpack/webpack.git"
 
   bottle do
-    sha256 "4ba58513ac1bfac6f66980900315d28d11b18dfd252f4a9928bd00c74b4e390d" => :catalina
-    sha256 "c9e1f66e09607b5b5abe5288892ae402b0d5531f34cfabb954ff05123026f78d" => :mojave
-    sha256 "6527065bcc8bd04568013e434669ed7ff43dae7cd395f4c31426678351daf181" => :high_sierra
+    sha256 "79dcf8247c523e9779a8ff0e365f05434735ba15febd70ed6afeb572bea3b553" => :catalina
+    sha256 "d21cb7bc4a736e64c233a9a01b89bbdc0b5510d61a16865e011c7d0cadee0683" => :mojave
+    sha256 "f10502eff29f4885e15cbda864f3c603a01a57d2e417992bb2db6198e0926785" => :high_sierra
   end
 
   depends_on "node"
 
   resource "webpack-cli" do
-    url "https://registry.npmjs.org/webpack-cli/-/webpack-cli-3.3.11.tgz"
-    sha256 "dace2e99dc7b819b4695c69c327a0da9f56f799f15d20346b22a6cc22c5fb794"
+    url "https://registry.npmjs.org/webpack-cli/-/webpack-cli-3.3.12.tgz"
+    sha256 "f0267a453af2f55aef74de7c72136c2aabf162b15e488da1c7eac9b0b55a3cb1"
   end
 
   def install

@@ -3,11 +3,12 @@ class GstPluginsBad < Formula
   homepage "https://gstreamer.freedesktop.org/"
   url "https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.16.2.tar.xz"
   sha256 "f1cb7aa2389569a5343661aae473f0a940a90b872001824bc47fa8072a041e74"
+  revision 3
 
   bottle do
-    sha256 "63f81fed651c70e685fcf9c861696d24a0bac6423f5aa3735ea018a32ac6caab" => :catalina
-    sha256 "90b329e830c751c20fe9b201944513d1ef0f27387f946121ef6f7bb291867422" => :mojave
-    sha256 "8309b54a20894146c48601f9d72a9b778eae5b45fa9c262b2c66e4fb429ed0b4" => :high_sierra
+    sha256 "c1031cef7c790bbdf27ffe3eee51ccd128cd28c7309e9da6814ec8cf87682c9d" => :catalina
+    sha256 "d390095d1b6cd82eec7c6133fe11c5d944cf63ffe783ce65e7cf0900aedb1100" => :mojave
+    sha256 "76524f6b5d72948656e52c06d9dc20b0bb534fe016ee33086aac12ea8d1bbfae" => :high_sierra
   end
 
   head do
@@ -27,6 +28,8 @@ class GstPluginsBad < Formula
   depends_on "jpeg"
   depends_on "libmms"
   depends_on "libnice"
+  depends_on "libusrsctp"
+  depends_on "musepack"
   depends_on "openssl@1.1"
   depends_on "opus"
   depends_on "orc"
@@ -42,6 +45,9 @@ class GstPluginsBad < Formula
       --disable-dependency-tracking
       --enable-introspection=yes
     ]
+
+    # The apple media plug-in uses API that was added in Mojave
+    args << "--disable-apple_media" if MacOS.version <= :high_sierra
 
     if build.head?
       # autogen is invoked in "stable" build because we patch configure.ac

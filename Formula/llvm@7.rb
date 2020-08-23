@@ -3,13 +3,14 @@ class LlvmAT7 < Formula
   homepage "https://llvm.org/"
   url "https://releases.llvm.org/7.1.0/llvm-7.1.0.src.tar.xz"
   sha256 "1bcc9b285074ded87b88faaedddb88e6b5d6c331dfcfb57d7f3393dd622b3764"
-  revision 1
+  license "NCSA"
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "3db0aaac0de7c0e664288f14d051c69afb9294c1c7ceca616040ad662022c049" => :catalina
-    sha256 "50d86b01a2f722cc7570193e22ba852e640f90c781d31af6b4feb94643a87585" => :mojave
-    sha256 "b3786a0bb86a273e0c4b2f6591462dde29a634bc7978960b31752e9910730bd4" => :high_sierra
+    sha256 "400bb0bb43849d1f118d93a1647de6e9636934e941c43a6f4866258f764f42b3" => :catalina
+    sha256 "564f25a86c519b737a795de441da6c6c14e9f026813a73149b7939c986241ba6" => :mojave
+    sha256 "4170d8e522ce8aea22450c818bb68b6142671f4239262395d8f09d82621ee343" => :high_sierra
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -22,7 +23,7 @@ class LlvmAT7 < Formula
 
   # https://llvm.org/docs/GettingStarted.html#requirement
   depends_on "cmake" => :build
-  depends_on :xcode => :build
+  depends_on xcode: :build
   depends_on "libffi"
 
   resource "clang" do

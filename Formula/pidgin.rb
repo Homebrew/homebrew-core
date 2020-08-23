@@ -1,26 +1,24 @@
 class Pidgin < Formula
   desc "Multi-protocol chat client"
   homepage "https://pidgin.im/"
-  url "https://downloads.sourceforge.net/project/pidgin/Pidgin/2.13.0/pidgin-2.13.0.tar.bz2"
-  sha256 "2747150c6f711146bddd333c496870bfd55058bab22ffb7e4eb784018ec46d8f"
-  revision 3
+  url "https://downloads.sourceforge.net/project/pidgin/Pidgin/2.14.1/pidgin-2.14.1.tar.bz2"
+  sha256 "f132e18d551117d9e46acce29ba4f40892a86746c366999166a3862b51060780"
+  license "GPL-2.0"
 
   bottle do
-    rebuild 1
-    sha256 "8a3f1b5f6bbe3b68064460deb492a76cdd94640def0ea85b2bb3d13c631ba0e7" => :catalina
-    sha256 "5447d58ebdfdbb28a8488c9fa0d77e4aee6787955826e2674cf53ba903268638" => :mojave
-    sha256 "735db47d591766486801549430960db2e83651ee373add2901ef71333eefea75" => :high_sierra
-    sha256 "f862f996bd1a302d21b13182cc9ac2ba4a00b6a87b63f0a78c9d6a7c2f293b6a" => :sierra
+    sha256 "4634da7bc606d00dcdc9e3ea42f00d33a9764d6d231b6a7baef0c7a3ef451e74" => :catalina
+    sha256 "a549ae59ccff2482dd02c9eea51db80fb831ab7e720f7f2ec7df37c60eb7f1d8" => :mojave
+    sha256 "99708561a57b3e47d603b8b46b9f3a7dd8fc7f6bb08746ce996130c10ef13784" => :high_sierra
   end
 
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "gettext"
-  depends_on "glib"
   depends_on "gnutls"
   depends_on "gtk+"
   depends_on "libgcrypt"
+  depends_on "libgnt"
   depends_on "libidn"
   depends_on "libotr"
   depends_on "pango"
@@ -53,6 +51,14 @@ class Pidgin < Formula
     ]
 
     ENV["ac_cv_func_perl_run"] = "yes" if MacOS.version == :high_sierra
+
+    # patch pidgin to read plugins and allow them to live in separate formulae which can
+    # all install their symlinks into these directories. See:
+    #   https://github.com/Homebrew/homebrew-core/pull/53557
+    inreplace "finch/finch.c", "LIBDIR", "\"#{HOMEBREW_PREFIX}/lib/finch\""
+    inreplace "libpurple/plugin.c", "LIBDIR", "\"#{HOMEBREW_PREFIX}/lib/purple-2\""
+    inreplace "pidgin/gtkmain.c", "LIBDIR", "\"#{HOMEBREW_PREFIX}/lib/pidgin\""
+    inreplace "pidgin/gtkutils.c", "DATADIR", "\"#{HOMEBREW_PREFIX}/share\""
 
     system "./configure", *args
     system "make", "install"

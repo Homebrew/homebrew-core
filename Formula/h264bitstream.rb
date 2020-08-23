@@ -3,6 +3,7 @@ class H264bitstream < Formula
   homepage "https://h264bitstream.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/h264bitstream/h264bitstream/0.2.0/h264bitstream-0.2.0.tar.gz"
   sha256 "94912cb07ef67da762be9c580b325fd8957ad400793c9030f3fb6565c6d263a7"
+  license "LGPL-2.1"
 
   bottle do
     cellar :any

@@ -2,24 +2,24 @@ class ThorsSerializer < Formula
   desc "Declarative serialization library (JSON/YAML) for C++"
   homepage "https://github.com/Loki-Astari/ThorsSerializer"
   url "https://github.com/Loki-Astari/ThorsSerializer.git",
-      :tag      => "1.13.8",
-      :revision => "30961b11a014649f5609199467efcf8147791f49"
+      tag:      "2.0.15",
+      revision: "a3105857c3c12365a61c79d96e3a938b1942c385"
+  license "MIT"
 
   bottle do
     cellar :any
-    sha256 "ef0908820acc388838e8cccc7f0ff2ee386c2e53d5cc2c5c36be15c97245e763" => :catalina
-    sha256 "3d011528fed969a558de8ab2e934a2dd3ebc5d214be7a4b349402e62c7f79dc0" => :mojave
-    sha256 "8cb508500dca074ad4a887342eb58742ee105469ba026840becf458a32b448f0" => :high_sierra
-    sha256 "410b0132998dd4954fc452f62fad535b572ca39a6cf0e18baeab78242523a07a" => :sierra
+    sha256 "b03bf969cade0d22b86d88ad9c7414ee49c585bed65b3aed18dc28c24bd5ddf4" => :catalina
+    sha256 "eddf2665dbf5da0f54b4ad942a4b78214afa0242f22106b91a55e6868bb5a2a5" => :mojave
+    sha256 "8649be65f46b9cbde2fadc93962d4ad4a4e06478ead0469505ba6c5fa4ea36c4" => :high_sierra
   end
 
+  depends_on "boost" => :build
   depends_on "libyaml"
 
   def install
     ENV["COV"] = "gcov"
 
-    system "./configure", "--disable-binary",
-                          "--disable-vera",
+    system "./configure", "--disable-vera",
                           "--prefix=#{prefix}"
     system "make"
     system "make", "install"
@@ -33,22 +33,22 @@ class ThorsSerializer < Formula
       #include <iostream>
       #include <string>
 
-      struct Block
+      struct HomeBrewBlock
       {
           std::string             key;
           int                     code;
       };
-      ThorsAnvil_MakeTrait(Block, key, code);
+      ThorsAnvil_MakeTrait(HomeBrewBlock, key, code);
 
       int main()
       {
-          using ThorsAnvil::Serialize::jsonImport;
-          using ThorsAnvil::Serialize::jsonExport;
+          using ThorsAnvil::Serialize::jsonImporter;
+          using ThorsAnvil::Serialize::jsonExporter;
 
           std::stringstream   inputData(R"({"key":"XYZ","code":37373})");
 
-          Block    object;
-          inputData >> jsonImport(object);
+          HomeBrewBlock    object;
+          inputData >> jsonImporter(object);
 
           if (object.key != "XYZ" || object.code != 37373) {
               std::cerr << "Fail";
@@ -58,7 +58,8 @@ class ThorsSerializer < Formula
           return 0;
       }
     EOS
-    system ENV.cxx, "-std=c++14", "test.cpp", "-o", "test",
+    system ENV.cxx, "-std=c++17", "test.cpp", "-o", "test",
+           "-I#{Formula["boost"].opt_include}",
            "-I#{include}", "-L#{lib}", "-lThorSerialize17"
     system "./test"
   end

@@ -1,7 +1,7 @@
 class Vtk < Formula
   desc "Toolkit for 3D computer graphics, image processing, and visualization"
   homepage "https://www.vtk.org/"
-  revision 8
+  revision 10
   head "https://github.com/Kitware/VTK.git"
 
   stable do
@@ -13,12 +13,18 @@ class Vtk < Formula
       url "https://gitlab.kitware.com/vtk/vtk/commit/ca3b5a50d945b6e65f0e764b3138cad17bd7eb8d.diff"
       sha256 "b9f7a3ebf3c29f3cad4327eb15844ac0ee849755b148b60fef006314de8e822e"
     end
+
+    # Python 3.8 compatibility
+    patch do
+      url "https://gitlab.kitware.com/vtk/vtk/commit/257b9d7b18d5f3db3fe099dc18f230e23f7dfbab.diff"
+      sha256 "572c06a4ba279a133bfdcf0190fec2eff5f330fa85ad6a2a0b0f6dfdea01ca69"
+    end
   end
 
   bottle do
-    sha256 "f599579a67dd14daf7021338888a149f8953d4753ee2583993eb31d71bb131d3" => :catalina
-    sha256 "82e6bb1ddd01bcec0487ebe917f8b35504bd5a44f715502b83309115c8a581dc" => :mojave
-    sha256 "3943bb648fbd484dec3a0dea7ba49644336fb957172aa308217af49234c685df" => :high_sierra
+    sha256 "37a13865cbf0c68db548b85f9577242b95a14c148db1c81548d82aac578fbf25" => :catalina
+    sha256 "4dee6ecbb7543786a57b9624df0b7bbe3bfe9686746a33d24c9233bfd7463d72" => :mojave
+    sha256 "d238bb0dbe69516d187cd31295d86c070ade51f4efae7c9bc41bdbe6f2e4d99b" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -30,12 +36,11 @@ class Vtk < Formula
   depends_on "libtiff"
   depends_on "netcdf"
   depends_on "pyqt"
-  depends_on "python"
+  depends_on "python@3.8"
   depends_on "qt"
 
   def install
     pyver = Language::Python.major_minor_version "python3"
-    py_prefix = Formula["python3"].opt_frameworks/"Python.framework/Versions/#{pyver}"
     args = std_cmake_args + %W[
       -DBUILD_SHARED_LIBS=ON
       -DBUILD_TESTING=OFF
@@ -56,9 +61,7 @@ class Vtk < Formula
       -DVTK_USE_SYSTEM_ZLIB=ON
       -DVTK_WRAP_PYTHON=ON
       -DVTK_PYTHON_VERSION=3
-      -DPYTHON_EXECUTABLE=#{Formula["python"].opt_bin}/python3
-      -DPYTHON_INCLUDE_DIR=#{py_prefix}/include/python#{pyver}m
-      -DPYTHON_LIBRARY=#{py_prefix}/lib/libpython#{pyver}.dylib
+      -DPYTHON_EXECUTABLE=#{Formula["python@3.8"].opt_bin}/python3
       -DVTK_INSTALL_PYTHON_MODULE_DIR=#{lib}/python#{pyver}/site-packages
       -DVTK_QT_VERSION:STRING=5
       -DVTK_Group_Qt=ON

@@ -3,6 +3,7 @@ class Lesspipe < Formula
   homepage "https://www-zeuthen.desy.de/~friebel/unix/lesspipe.html"
   url "https://github.com/wofr06/lesspipe/archive/1.84.tar.gz"
   sha256 "5eb4811cc8ded108e98448bd83057e730906f643ad689ccd695828f2a46c4410"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

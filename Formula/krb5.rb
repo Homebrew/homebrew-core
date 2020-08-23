@@ -1,13 +1,13 @@
 class Krb5 < Formula
   desc "Network authentication protocol"
   homepage "https://web.mit.edu/kerberos/"
-  url "https://kerberos.org/dist/krb5/1.18/krb5-1.18.tar.gz"
-  sha256 "73913934d711dcf9d5f5605803578edb44b9a11786df3c1b2711f4e1752f2c88"
+  url "https://kerberos.org/dist/krb5/1.18/krb5-1.18.2.tar.gz"
+  sha256 "c6e4c9ec1a98141c3f5d66ddf1a135549050c9fab4e9a4620ee9b22085873ae0"
 
   bottle do
-    sha256 "d71c0a4c545daa56558c27a7073d0c9a44825374136c68b9089bd4f137912cc6" => :catalina
-    sha256 "88fb8afbea9dee3d4deb76f6d3059e1782a503ec587a3fffb62ebcb4d92d3b48" => :mojave
-    sha256 "197acc476020f30796fa8651a7382edb63a40bbf2a4907dc726e0a4185287a5a" => :high_sierra
+    sha256 "db39e4570abab6459fb857cb41fdd0a375810d25a4c712f4504585255397d150" => :catalina
+    sha256 "e35ce1f9da67683b70fa075f4317a476c8356860c0a1c935d6a56eaee6716e8e" => :mojave
+    sha256 "972a37782e92d2dec91a9f6cd90d2a98f4004101268579e1a1d6c3650014bed4" => :high_sierra
   end
 
   keg_only :provided_by_macos
@@ -18,6 +18,15 @@ class Krb5 < Formula
 
   def install
     cd "src" do
+      # Newer versions of clang are very picky about missing includes.
+      # One configure test fails because it doesn't #include the header needed
+      # for some functions used in the rest. The test isn't actually testing
+      # those functions, just using them for the feature they're
+      # actually testing. Adding the include fixes this.
+      # https://krbdev.mit.edu/rt/Ticket/Display.html?id=8928
+      inreplace "configure", "void foo1() __attribute__((constructor));",
+                             "#include <unistd.h>\nvoid foo1() __attribute__((constructor));"
+
       system "./configure", "--disable-debug",
                             "--disable-dependency-tracking",
                             "--disable-silent-rules",

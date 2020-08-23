@@ -4,6 +4,7 @@ class Make < Formula
   url "https://ftp.gnu.org/gnu/make/make-4.3.tar.lz"
   mirror "https://ftpmirror.gnu.org/make/make-4.3.tar.lz"
   sha256 "de1a441c4edf952521db30bfca80baae86a0ff1acd0a00402999344f04c45e82"
+  license "GPL-3.0"
 
   bottle do
     sha256 "b2cbb6b854495469de4d065825c94540ad3053a1ff7c1832f4eb7781ee6b8231" => :catalina

@@ -3,6 +3,7 @@ class Scc < Formula
   homepage "https://github.com/boyter/scc/"
   url "https://github.com/boyter/scc/archive/v2.12.0.tar.gz"
   sha256 "48baba45e76ef02bb23ded3d1d904fed7e19297066a47b7e6b46baadc50c1eb1"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

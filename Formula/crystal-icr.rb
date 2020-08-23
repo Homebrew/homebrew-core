@@ -3,6 +3,7 @@ class CrystalIcr < Formula
   homepage "https://github.com/crystal-community/icr"
   url "https://github.com/crystal-community/icr/archive/v0.8.0.tar.gz"
   sha256 "8c7825dd035bbb4bc6499873d4bd125185a01cae10dc8dd6f98e6e013def381c"
+  license "MIT"
 
   bottle do
     sha256 "22389822712ed2a634ba8d32817a29e0930eb53669d4c931f740b5c895de9ed4" => :catalina

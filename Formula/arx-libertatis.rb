@@ -1,6 +1,7 @@
 class ArxLibertatis < Formula
   desc "Cross-platform, open source port of Arx Fatalis"
   homepage "https://arx-libertatis.org/"
+  license "GPL-3.0"
   revision 1
 
   stable do
@@ -39,7 +40,7 @@ class ArxLibertatis < Formula
   depends_on "innoextract"
   depends_on "sdl"
 
-  conflicts_with "rnv", :because => "both install `arx` binaries"
+  conflicts_with "rnv", because: "both install `arx` binaries"
 
   def install
     args = std_cmake_args

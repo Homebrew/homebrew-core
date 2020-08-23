@@ -3,14 +3,15 @@ require "language/node"
 class Triton < Formula
   desc "Joyent Triton CLI"
   homepage "https://www.npmjs.com/package/triton"
-  url "https://registry.npmjs.org/triton/-/triton-7.7.1.tgz"
-  sha256 "707dc14d86e5f2ef70bfd3821fde4dbcee9c26b2b6f6b88e125336b3d432077a"
+  url "https://registry.npmjs.org/triton/-/triton-7.11.0.tgz"
+  sha256 "42a49cb112ae91015116b360a3d75da509d459d6f03d3c5b4c38ed20b6436294"
+  license "MPL-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "daa2bdaf7312d926f69ce66ca768593dea9cfb94e0e6eda9568d700e99e0b005" => :catalina
-    sha256 "a0943d1584dd4abe73b409b260db8c830c1b14f5c97845f8d79fcc35aa16cb02" => :mojave
-    sha256 "9b656ba4c57181766a04da5ccc8a0fb4a24849ba3b97729e3d62c9890759b6ec" => :high_sierra
+    sha256 "c641a16f691b80643d5d9bf68056953dba80044956b87bef3269f008433bbb0d" => :catalina
+    sha256 "64bf5b0274d9fd434c6d8d80489fd13ebebd1e2f1bd7acaed285fc2a4749b36d" => :mojave
+    sha256 "0893698205caab0e12f9a75291649de97d2e409e850fec41eac0373d3ea05964" => :high_sierra
   end
 
   depends_on "node"

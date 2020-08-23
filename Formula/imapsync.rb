@@ -1,19 +1,25 @@
 class Imapsync < Formula
   desc "Migrate or backup IMAP mail accounts"
   homepage "https://imapsync.lamiral.info/"
-  url "https://imapsync.lamiral.info/dist2/imapsync-1.945.tgz"
+  url "https://imapsync.lamiral.info/dist2/imapsync-1.977.tgz"
   # Note the mirror will return 404 until the version becomes outdated.
-  sha256 "38c8bceea28ff9a4f533d67e945ef5c0025d81a1d312239c17f38234971ce529"
+  sha256 "1ce601150568a6b13a5d8730bee07fdc05b35f3f4e35775f1b471ba221940c2a"
+  license "NLPL"
   head "https://github.com/imapsync/imapsync.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "790bd48d5b6108a257e9453aa3a2c60474805457b40b9794ff7ef97999a59b20" => :catalina
-    sha256 "82488e74500a8fc45342246ce67b65b386e82118a10848409c9baa1058f01210" => :mojave
-    sha256 "ecabb7fc517a6f3b558fba82711c3c00334cebdc2aa120fd634fe46f07f0fe00" => :high_sierra
+    sha256 "6c1a1bed4c3ad926f34a5efe6b6bfe5d2776ed4ee0d000679b21679c47ff81cb" => :catalina
+    sha256 "5b259d1a7096a887af61eef5a379122c8e94e71f912b2670a35031e6c159351c" => :mojave
+    sha256 "fa0a19bf66b24d332f6e0f4f827b2abdff2b904b483c4927f2ed7d6d944ab261" => :high_sierra
   end
 
   uses_from_macos "perl"
+
+  resource "Encode::IMAPUTF7" do
+    url "https://cpan.metacpan.org/authors/id/P/PM/PMAKHOLM/Encode-IMAPUTF7-1.05.tar.gz"
+    sha256 "470305ddc37483cfe8d3c16d13770a28011f600bf557acb8c3e07739997c37e1"
+  end
 
   resource "Unicode::String" do
     url "https://cpan.metacpan.org/authors/id/G/GA/GAAS/GAAS/Unicode-String-2.10.tar.gz"
@@ -110,9 +116,10 @@ class Imapsync < Formula
 
     system "perl", "-c", "imapsync"
     system "pod2man", "imapsync", "imapsync.1"
+    inreplace "imapsync", "#!/usr/bin/env perl", "#!/usr/bin/perl"
     bin.install "imapsync"
     man1.install "imapsync.1"
-    bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
+    bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
   end
 
   test do

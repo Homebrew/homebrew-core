@@ -1,8 +1,9 @@
 class MingwW64 < Formula
   desc "Minimalist GNU for Windows and GCC cross-compilers"
-  homepage "http://mingw-w64.org/"
+  homepage "https://sourceforge.net/projects/mingw-w64/"
   url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v7.0.0.tar.bz2"
   sha256 "aa20dfff3596f08a7f427aab74315a6cb80c2b086b4a107ed35af02f9496b628"
+  license "ZPL-2.1"
   revision 2
 
   bottle do
@@ -101,9 +102,10 @@ class MingwW64 < Formula
         --prefix=#{arch_dir}/#{target}
       ]
 
-      if arch == "i686"
+      case arch
+      when "i686"
         args << "--enable-lib32" << "--disable-lib64"
-      elsif arch == "x86_64"
+      when "x86_64"
         args << "--disable-lib32" << "--enable-lib64"
       end
 

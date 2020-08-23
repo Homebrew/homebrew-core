@@ -3,13 +3,14 @@ class Libxc < Formula
   homepage "https://tddft.org/programs/libxc/"
   url "https://gitlab.com/libxc/libxc/-/archive/4.3.4/libxc-4.3.4.tar.bz2"
   sha256 "0efe8b33d151de8787e33c4ba8e2161ffb9da978753f3bd12c5c0a018e7d3ef5"
+  license "MPL-2.0"
+  revision 1
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "072df8c5f3e00bf045f4e062993ecb08e324872daf3503b8f2bacef866a3de14" => :catalina
-    sha256 "7727321091982306464ad87e055074b2675d83ee3c8416cf6b0681a4db31bc85" => :mojave
-    sha256 "c8f820ca8dce64220c8c1e60002a13c4ed21d5decfd6b1189b6d286ca5c47ab4" => :high_sierra
+    sha256 "77bb1192676ef031b3254e36f443b48163c2e6926afc959feaa84b4952a5b642" => :catalina
+    sha256 "069042e1d8511e2025e289cb3daec98728304df3a7521aced7103581686d74c8" => :mojave
+    sha256 "e84708fbaa5746ef8d25b57d34a5127501096ffacaa448b17d5b87ad4e81ae0b" => :high_sierra
   end
 
   depends_on "autoconf" => :build

@@ -1,9 +1,9 @@
 class VaultCli < Formula
   desc "Subversion-like utility to work with Jackrabbit FileVault"
   homepage "https://jackrabbit.apache.org/filevault/index.html"
-  url "https://search.maven.org/remotecontent?filepath=org/apache/jackrabbit/vault/vault-cli/3.4.2/vault-cli-3.4.2-bin.tar.gz"
-  sha256 "316052e9f6bf22f35f3b4b477d46ce6c6e17ff9de6d6788b82eba61506088f75"
-  revision 1
+  url "https://search.maven.org/remotecontent?filepath=org/apache/jackrabbit/vault/vault-cli/3.4.6/vault-cli-3.4.6-bin.tar.gz"
+  sha256 "0a5a6fcb0dd40abe716dada3d86f1123b780e62324a9452af6718b1c989a3325"
+  license "Apache-2.0"
   head "https://github.com/apache/jackrabbit-filevault.git"
 
   bottle :unneeded
@@ -16,7 +16,7 @@ class VaultCli < Formula
 
     libexec.install Dir["*"]
     bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", :JAVA_HOME => Formula["openjdk"].opt_prefix)
+    bin.env_script_all_files(libexec/"bin", JAVA_HOME: Formula["openjdk"].opt_prefix)
   end
 
   test do

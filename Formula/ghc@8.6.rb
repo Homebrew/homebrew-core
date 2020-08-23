@@ -7,17 +7,19 @@ class GhcAT86 < Formula
   homepage "https://haskell.org/ghc/"
   url "https://downloads.haskell.org/~ghc/8.6.5/ghc-8.6.5-src.tar.xz"
   sha256 "4d4aa1e96f4001b934ac6193ab09af5d6172f41f5a5d39d8e43393b9aafee361"
+  license "BSD-3-Clause"
   revision 1
 
   bottle do
-    sha256 "1167f06250256e73d147e8fc0d83e08915f38997792f7afb03a6a292be76b20b" => :catalina
-    sha256 "93501010b8272059bbcf1d3c0c5ca32150466e8756773198d39c3810e9103889" => :mojave
-    sha256 "1a9d50a816fc2c795f4fe2b55540b7c9b04ba3d9b72cf345f7294a044e2b8250" => :high_sierra
+    rebuild 1
+    sha256 "3c2e2f8d8e4661dd7e53ad5af08489e926bec111e0d16a12397bb22a73b12997" => :catalina
+    sha256 "831a6537953f467724c4c3c45b16cc3e5ff944aa02f1e9b3b77e9bdbfcdfb9d2" => :mojave
+    sha256 "945069d9d94b4fb657e6d9c3a2d516ec551aea7535824b029c8c0632329f40cf" => :high_sierra
   end
 
   keg_only :versioned_formula
 
-  depends_on "python" => :build
+  depends_on "python@3.8" => :build
   depends_on "sphinx-doc" => :build
 
   resource "gmp" do
@@ -30,8 +32,15 @@ class GhcAT86 < Formula
   # https://www.haskell.org/ghc/download_ghc_8_6_5#macosx_x86_64
   # "This is a distribution for Mac OS X, 10.7 or later."
   resource "binary" do
-    url "https://downloads.haskell.org/~ghc/8.6.5/ghc-8.6.5-x86_64-apple-darwin.tar.xz"
-    sha256 "dfc1bdb1d303a87a8552aa17f5b080e61351f2823c2b99071ec23d0837422169"
+    on_macos do
+      url "https://downloads.haskell.org/~ghc/8.6.5/ghc-8.6.5-x86_64-apple-darwin.tar.xz"
+      sha256 "dfc1bdb1d303a87a8552aa17f5b080e61351f2823c2b99071ec23d0837422169"
+    end
+
+    on_linux do
+      url "https://downloads.haskell.org/~ghc/8.6.5/ghc-8.6.5-x86_64-deb8-linux.tar.xz"
+      sha256 "c419fd0aa9065fe4d2eb9a248e323860c696ddf3859749ca96a84938aee49107"
+    end
   end
 
   # Fix for Catalina compatibility https://gitlab.haskell.org/ghc/ghc/issues/17353
@@ -40,6 +49,7 @@ class GhcAT86 < Formula
   def install
     ENV["CC"] = ENV.cc
     ENV["LD"] = "ld"
+    ENV["PYTHON"] = Formula["python@3.8"].opt_bin/"python3"
 
     # Build a static gmp rather than in-tree gmp, otherwise all ghc-compiled
     # executables link to Homebrew's GMP.

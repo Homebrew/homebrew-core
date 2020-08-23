@@ -1,14 +1,15 @@
 class Gssdp < Formula
   desc "GUPnP library for resource discovery and announcement over SSDP"
   homepage "https://wiki.gnome.org/GUPnP/"
-  url "https://download.gnome.org/sources/gssdp/1.2/gssdp-1.2.2.tar.xz"
-  sha256 "cabb9e3b456b8354a55e23eb0207545d974643cda6d623523470ebbc4188b0a4"
+  url "https://download.gnome.org/sources/gssdp/1.2/gssdp-1.2.3.tar.xz"
+  sha256 "a263dcb6730e3b3dc4bbbff80cf3fab4cd364021981d419db6dd5a8e148aa7e8"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "a034241f5bf93797110bbad30222dcce724c7c93db341e2196bf21c89e941db9" => :catalina
-    sha256 "09d7829d9e394bc02fded8018460470750221d195d06b636f095e0474a33ec62" => :mojave
-    sha256 "578aa551636198f669c67902cc37ddee65bc1d295f477e95bf8a49f1413b5894" => :high_sierra
+    sha256 "9cda1333eede84e831da2553e50989bd5721460b0ab046c95414305c11e29adc" => :catalina
+    sha256 "de497cd6d3225d91ce49ef33b23928bb8af0d5cdebea072e06c8cf022a7a5dda" => :mojave
+    sha256 "c6c767ccfe0b7220929d94ce06d3c4d5f8f172ab03e2a65900d96e1f2b151595" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build
@@ -21,7 +22,7 @@ class Gssdp < Formula
 
   def install
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", "-Dsniffer=false", ".."
+      system "meson", *std_meson_args, "-Dsniffer=false", ".."
       system "ninja"
       system "ninja", "install"
     end

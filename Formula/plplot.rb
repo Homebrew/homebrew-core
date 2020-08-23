@@ -3,13 +3,12 @@ class Plplot < Formula
   homepage "https://plplot.sourceforge.io"
   url "https://downloads.sourceforge.net/project/plplot/plplot/5.15.0%20Source/plplot-5.15.0.tar.gz"
   sha256 "b92de4d8f626a9b20c84fc94f4f6a9976edd76e33fb1eae44f6804bdcc628c7b"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "1af2cdd1abeb3fe3bf9d47877c06a75552c6bc0faec6c73aaa7e43eab55c038a" => :catalina
-    sha256 "c9787b7555f0ccf504bdf2a457fb52699b03ecdacf09bd743f1b69158e556f75" => :mojave
-    sha256 "c359058b80b9607c1dcae070f96f2fde9c080bdc7ba9903f9afcdb16a6388c77" => :high_sierra
-    sha256 "bf4193d1d8f9beee8beb8163612df7a997b206dd8a97c5ab56265351d2ad84b4" => :sierra
+    sha256 "c37878dbf7a1805da137aa6b9f1222050b6b62eebd36834597279b8f58f5f4d6" => :catalina
+    sha256 "c647d868b1fd01db2a760965665d9ff22192fefc0ad02641a2f89c4ccf35a37f" => :mojave
+    sha256 "bc07655baabc8c4faf3f76def152ad8f55a92670cd289a0d10fd33ae550f537a" => :high_sierra
   end
 
   depends_on "cmake" => :build

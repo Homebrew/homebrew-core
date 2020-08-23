@@ -3,12 +3,13 @@ class Dartsim < Formula
   homepage "https://dartsim.github.io/"
   url "https://github.com/dartsim/dart/archive/v6.9.2.tar.gz"
   sha256 "7d46d23c04d74d3b78331f9fa7deb5ab32fd4b0c03b93548cd84a2d67771d816"
-  revision 5
+  license "BSD-2-Clause"
+  revision 8
 
   bottle do
-    sha256 "ee3c0dbaa4cb4d94e471c0cd22e14a896461a36b8c9b64a04feaaef48d96e9c9" => :catalina
-    sha256 "e398796449d4ee45200a8c39a0a23bcf4d026eead21aa2641360b81c9d4b7fe0" => :mojave
-    sha256 "70f764a63ed36e19410527e9e2cc3d3ba30245bc2e5434a9ed64f29e0ba21515" => :high_sierra
+    sha256 "bccbbcb136d0c77f46de622359c8085ad10436431deca27424bb894e01fb3d1c" => :catalina
+    sha256 "0af0f8332b0bfbcb384d1b467c3184ac5e72cdbc6571d2994c68d6ce33372687" => :mojave
+    sha256 "d1b8457d283fe9a28887f1d6dcd999fd09d5f7a58bc5d671e2e9353ace43df85" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -34,6 +35,9 @@ class Dartsim < Formula
     system "cmake", ".", "-DGLUT_glut_LIBRARY=/System/Library/Frameworks/GLUT.framework",
                          *std_cmake_args
     system "make", "install"
+
+    # Clean up the build file garbage that has been installed.
+    rm_r Dir["#{share}/doc/dart/**/CMakeFiles/"]
   end
 
   test do

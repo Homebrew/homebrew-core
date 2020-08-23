@@ -3,6 +3,7 @@ class NeopopSdl < Formula
   homepage "https://nih.at/NeoPop-SDL/"
   url "https://nih.at/NeoPop-SDL/NeoPop-SDL-0.2.tar.bz2"
   sha256 "2df1b717faab9e7cb597fab834dc80910280d8abf913aa8b0dcfae90f472352e"
+  license "GPL-2.0"
 
   bottle do
     cellar :any
@@ -15,7 +16,7 @@ class NeopopSdl < Formula
   end
 
   head do
-    url "https://hg.nih.at/NeoPop-SDL/", :using => :hg
+    url "https://hg.nih.at/NeoPop-SDL/", using: :hg
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "pkg-config" => :build

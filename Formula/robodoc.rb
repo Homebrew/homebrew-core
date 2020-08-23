@@ -3,6 +3,7 @@ class Robodoc < Formula
   homepage "https://www.xs4all.nl/~rfsber/Robo/index.html"
   url "https://rfsber.home.xs4all.nl/Robo/archives/robodoc-4.99.43.tar.bz2"
   sha256 "3d826424a3957502caacf39951f7805f1d72bb374c0533de7ca1036f306afdc7"
+  license "GPL-3.0"
 
   bottle do
     rebuild 1

@@ -3,6 +3,7 @@ class Gcovr < Formula
   homepage "https://gcovr.com/"
   url "https://github.com/gcovr/gcovr/archive/4.2.tar.gz"
   sha256 "589d5cb7164c285192ed0837d3cc17001ba25211e24933f0ba7cb9cf38b8a30e"
+  license "BSD-3-Clause"
   head "https://github.com/gcovr/gcovr.git"
 
   bottle do
@@ -45,7 +46,7 @@ class Gcovr < Formula
     system "python3", *Language::Python.setup_install_args(libexec)
 
     bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
   end
 
   test do

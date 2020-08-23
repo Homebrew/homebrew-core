@@ -2,28 +2,22 @@ class Packer < Formula
   desc "Tool for creating identical machine images for multiple platforms"
   homepage "https://packer.io"
   url "https://github.com/hashicorp/packer.git",
-      :tag      => "v1.5.4",
-      :revision => "30aa6a0cb45e38638479a9d9c1889e9086b686c4"
+      tag:      "v1.6.1",
+      revision: "4c32875c3f8daf1366bf64dd0a8da190ad6f2f06"
+  license "MPL-2.0"
   head "https://github.com/hashicorp/packer.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "92f840c0aa8c41bb864a604beb3891b33b240565fef2c5fa26c5ea1c05d916c8" => :catalina
-    sha256 "f7872d2bdb8401611b9036c1f03fac33e9edcceed2469d45ef49cafa216145a6" => :mojave
-    sha256 "ec718102d4d98ac9499167169bcbafb0cc356e3fdeb6eff018ae84fade86fee0" => :high_sierra
+    sha256 "3c3c872d788b90c1d614a9a9c788274f45b5cf5cf4a6088681558e1dc3f14fe8" => :catalina
+    sha256 "230da0bbb296224a712305cfd36b4d4b2f4d8a2022183c21846e67203b62762f" => :mojave
+    sha256 "378c692911ac1b286a171af43fd9485ecc4d480b73b981a4d4e85a6a67138ac3" => :high_sierra
   end
 
-  depends_on "coreutils" => :build
   depends_on "go" => :build
 
   def install
-    (buildpath/"bin").mkpath
-    if build.head?
-      system "make", "bin"
-    else
-      system "make", "releasebin"
-    end
-    bin.install buildpath/"bin/packer"
+    system "go", "build", *std_go_args
     zsh_completion.install "contrib/zsh-completion/_packer"
     prefix.install_metafiles
   end

@@ -3,6 +3,7 @@ class Geographiclib < Formula
   homepage "https://geographiclib.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/geographiclib/distrib/GeographicLib-1.50.1.tar.gz"
   sha256 "d1765009e068b8cc5e76957e5d6be45ce6cff08c4aad8e5995e84a28354385f1"
+  license "MIT"
 
   bottle do
     cellar :any

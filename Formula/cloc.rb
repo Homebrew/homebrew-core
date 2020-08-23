@@ -1,16 +1,16 @@
 class Cloc < Formula
   desc "Statistics utility to count lines of code"
   homepage "https://github.com/AlDanial/cloc/"
-  url "https://github.com/AlDanial/cloc/archive/1.84.tar.gz"
-  sha256 "b88a3adc669c15a9a32975095090708ba4eee5a73b8498369fae14be5b8a37d4"
+  url "https://github.com/AlDanial/cloc/archive/1.86.tar.gz"
+  sha256 "55460851de0a59a770fa9fff45b9d0f40a87d5e7e64834a34a6b2ace4806d4cf"
+  license "GPL-2.0"
   head "https://github.com/AlDanial/cloc.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "efc3757be2925b654cc317cc7f28dd3b8a7af83898cba21ce2dd48e47a3d642b" => :catalina
-    sha256 "d3ef73f5832515c2b6500815826e1f5ac172a62c2079e503dd9fee92433b236d" => :mojave
-    sha256 "0eedafaa2a69493f39b0ea619ecbb5193a55a3519a0c5c914fc75700510b2394" => :high_sierra
+    sha256 "e4ae9366fde0331f1c3e03f8d86c110d25afce7153d6972a0118148d9b368cfa" => :catalina
+    sha256 "824cc150f418d0a1c19dc33cc619da314e553bcd0d42c97ac1cb24394c19ef24" => :mojave
+    sha256 "d8a0fda0a037a1268e61ece760e6d09ce02ad769985142bf997d84d61960baa5" => :high_sierra
   end
 
   resource "Regexp::Common" do
@@ -34,8 +34,8 @@ class Cloc < Formula
   end
 
   resource "Moo::Role" do
-    url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/Moo-2.003006.tar.gz"
-    sha256 "bcb2092ab18a45005b5e2e84465ebf3a4999d8e82a43a09f5a94d859ae7f2472"
+    url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/Moo-2.004000.tar.gz"
+    sha256 "323240d000394cf38ec42e865b05cb8928f625c82c9391cd2cdc72b33c51b834"
   end
 
   resource "Module::Runtime" do
@@ -46,6 +46,20 @@ class Cloc < Formula
   resource "Role::Tiny" do
     url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/Role-Tiny-2.001004.tar.gz"
     sha256 "92ba5712850a74102c93c942eb6e7f62f7a4f8f483734ed289d08b324c281687"
+  end
+
+  resource "Devel::GlobalDestruction" do
+    on_linux do
+      url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/Devel-GlobalDestruction-0.14.tar.gz"
+      sha256 "34b8a5f29991311468fe6913cadaba75fd5d2b0b3ee3bb41fe5b53efab9154ab"
+    end
+  end
+
+  resource "Sub::Exporter::Progressive" do
+    on_linux do
+      url "https://cpan.metacpan.org/authors/id/F/FR/FREW/Sub-Exporter-Progressive-0.001013.tar.gz"
+      sha256 "d535b7954d64da1ac1305b1fadf98202769e3599376854b2ced90c382beac056"
+    end
   end
 
   def install
@@ -64,7 +78,7 @@ class Cloc < Formula
 
     system "make", "-C", "Unix", "prefix=#{libexec}", "install"
     bin.install libexec/"bin/cloc"
-    bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
+    bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
     man1.install libexec/"share/man/man1/cloc.1"
   end
 

@@ -3,6 +3,7 @@ class Draco < Formula
   homepage "https://google.github.io/draco/"
   url "https://github.com/google/draco/archive/1.3.6.tar.gz"
   sha256 "80eaa54ef5fc687c9aeebb9bd24d936d3e6d2c6048f358be8b83fa088ef4b2cb"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

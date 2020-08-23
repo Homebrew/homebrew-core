@@ -3,6 +3,7 @@ class Lnav < Formula
   homepage "https://lnav.org/"
   url "https://github.com/tstack/lnav/releases/download/v0.8.5/lnav-0.8.5.tar.gz"
   sha256 "bb809bc8198d8f7395f3de76efdc1a08a5c2c97dc693040faee38802c38945de"
+  license "BSD-2-Clause"
   revision 1
 
   bottle do

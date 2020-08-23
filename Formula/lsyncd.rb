@@ -3,13 +3,14 @@ class Lsyncd < Formula
   homepage "https://github.com/axkibe/lsyncd"
   url "https://github.com/axkibe/lsyncd/archive/release-2.2.3.tar.gz"
   sha256 "7bcd0f4ae126040bb078c482ff856c87e61c22472c23fa3071798dcb1dc388dd"
+  license "GPL-2.0"
 
   bottle do
     cellar :any
-    rebuild 2
-    sha256 "37feb9c288332b31a161ab6ac246c7c596713313728bf0cb943f5f92561d12d1" => :catalina
-    sha256 "e4362d2f1e8b295efa92887cff6b3278d705e583d5b1df020f74efc17b15081f" => :mojave
-    sha256 "d0bf0e91103959dff8d10cd8ba68d0f875e09099617e0fcf530076fb8b955bfd" => :high_sierra
+    rebuild 3
+    sha256 "0debd8aa085f8cf12d26130566cc529db249898beabace826983703c6f0cce6d" => :catalina
+    sha256 "227ed2454a78e615514adfe0abf8958c05ebf15e4e276a628ead4b182b111ba0" => :mojave
+    sha256 "d99630522e8cff9064be87cc4539854c02b75eedf76f866e8d41e59afa6a8423" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -67,19 +68,22 @@ class Lsyncd < Formula
     "10.14.3" => ["xnu-4903.241.1.tar.gz",  "6de5253718f93401dc752eb69d08b6253c7abcd9a60349f7e0617776eeda1924"],
     "10.14.4" => ["xnu-4903.241.1.tar.gz",  "6de5253718f93401dc752eb69d08b6253c7abcd9a60349f7e0617776eeda1924"],
     "10.14.5" => ["xnu-4903.241.1.tar.gz",  "6de5253718f93401dc752eb69d08b6253c7abcd9a60349f7e0617776eeda1924"],
-    "10.14.6" => ["xnu-4903.241.1.tar.gz",  "6de5253718f93401dc752eb69d08b6253c7abcd9a60349f7e0617776eeda1924"],
+    "10.14.6" => ["xnu-4903.270.47.tar.gz", "126856fa7a1aaa5f5480034855bd58d4c7f60693397b8279aaac2c83a502a552"],
     "10.15"   => ["xnu-6153.11.26.tar.gz",  "ec75b9ec8aaed5619cc81836f09fac9aa2c26d5ffda8444d4ae0edbb10bac574"],
-    "10.15.1" => ["xnu-6153.11.26.tar.gz",  "ec75b9ec8aaed5619cc81836f09fac9aa2c26d5ffda8444d4ae0edbb10bac574"],
-    "10.15.2" => ["xnu-6153.11.26.tar.gz",  "ec75b9ec8aaed5619cc81836f09fac9aa2c26d5ffda8444d4ae0edbb10bac574"],
-    "10.15.3" => ["xnu-6153.11.26.tar.gz",  "ec75b9ec8aaed5619cc81836f09fac9aa2c26d5ffda8444d4ae0edbb10bac574"],
+    "10.15.1" => ["xnu-6153.41.3.tar.gz",   "a1a8c57cf26a987760be3fe982a16d32714cc8eb49435704ef16f6160d549762"],
+    "10.15.2" => ["xnu-6153.41.3.tar.gz",   "a1a8c57cf26a987760be3fe982a16d32714cc8eb49435704ef16f6160d549762"],
+    "10.15.3" => ["xnu-6153.41.3.tar.gz",   "a1a8c57cf26a987760be3fe982a16d32714cc8eb49435704ef16f6160d549762"],
+    "10.15.4" => ["xnu-6153.41.3.tar.gz",   "a1a8c57cf26a987760be3fe982a16d32714cc8eb49435704ef16f6160d549762"],
   }
 
-  if xnu_headers.key? MacOS.full_version
-    tarball, checksum = xnu_headers.fetch(MacOS.full_version)
-    resource "xnu" do
-      url "https://opensource.apple.com/tarballs/xnu/#{tarball}"
-      sha256 checksum
-    end
+  tarball, checksum = if xnu_headers.key? MacOS.full_version
+    xnu_headers.fetch(MacOS.full_version)
+  else
+    xnu_headers.values.last # Fallback
+  end
+  resource "xnu" do
+    url "https://opensource.apple.com/tarballs/xnu/#{tarball}"
+    sha256 checksum
   end
 
   def install

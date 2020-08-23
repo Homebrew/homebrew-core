@@ -1,6 +1,7 @@
 class Bash < Formula
   desc "Bourne-Again SHell, a UNIX command interpreter"
   homepage "https://www.gnu.org/software/bash/"
+  license "GPL-3.0-or-later"
   head "https://git.savannah.gnu.org/git/bash.git"
 
   stable do
@@ -9,7 +10,7 @@ class Bash < Formula
     mirror "https://mirrors.kernel.org/gnu/bash/bash-5.0.tar.gz"
     mirror "https://mirrors.ocf.berkeley.edu/gnu/bash/bash-5.0.tar.gz"
     sha256 "b4a80f2ac66170b2913efbfb9f2594f1f76c7b1afd11f799e22035d63077fb4d"
-    version "5.0.16"
+    version "5.0.18"
 
     %w[
       001 f2fe9e1f0faddf14ab9bfa88d450a75e5d028fedafad23b88716bd657c737289
@@ -28,6 +29,8 @@ class Bash < Formula
       014 5d6eee6514ee6e22a87bba8d22be0a8621a0ae119246f1c5a9a35db1f72af589
       015 a517df2dda93b26d5cbf00effefea93e3a4ccd6652f152f4109170544ebfa05e
       016 ffd1d7a54a99fa7f5b1825e4f7e95d8c8876bc2ca151f150e751d429c650b06d
+      017 4cf3b9fafb8a66d411dd5fc9120032533a4012df1dc6ee024c7833373e2ddc31
+      018 7c314e375a105a6642e8ed44f3808b9def89d15f7492fe2029a21ba9c0de81d3
     ].each_slice(2) do |p, checksum|
       patch :p0 do
         url "https://ftp.gnu.org/gnu/bash/bash-5.0-patches/bash50-#{p}"
@@ -40,9 +43,9 @@ class Bash < Formula
   end
 
   bottle do
-    sha256 "a124202b5a5c0896ab93c8603eefae655ef622d34f9e15e4d4aa77f1cd314c1d" => :catalina
-    sha256 "dd9c4711dc1be6d54ea74143b224b21ab0d165fca090fbcb921efaa0c0bb2f12" => :mojave
-    sha256 "d8c36b430ff928f72b33bad666f1ae2170802e85b8b51594c953e583fd4f11be" => :high_sierra
+    sha256 "c6e7b7a521a1cfb21f2872bde253bfd40150bd4ba36ada62c05fcdb73ae094c6" => :catalina
+    sha256 "ba0617f6d3f4e691f9863e2f73596da94671f4c0ca21a95b99f19eced315f2d4" => :mojave
+    sha256 "46023d0bafe68b838ada45ff6a66e63f7eac814eeb84e15a09d4b84a790ef49d" => :high_sierra
   end
 
   def install

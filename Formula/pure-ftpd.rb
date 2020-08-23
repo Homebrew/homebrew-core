@@ -32,7 +32,7 @@ class PureFtpd < Formula
     system "make", "install"
   end
 
-  plist_options :manual => "pure-ftpd"
+  plist_options manual: "pure-ftpd"
 
   def plist
     <<~EOS

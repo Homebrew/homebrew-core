@@ -1,17 +1,15 @@
 class Trafficserver < Formula
   desc "HTTP/1.1 compliant caching proxy server"
   homepage "https://trafficserver.apache.org/"
-
-  stable do
-    url "https://www.apache.org/dyn/closer.lua?path=trafficserver/trafficserver-8.0.6.tar.bz2"
-    mirror "https://archive.apache.org/dist/trafficserver/trafficserver-8.0.6.tar.bz2"
-    sha256 "0e3dd9302056b5a643e0fe521244622e12df5f09e5ea2db7a53aee2c67f7c9d4"
-  end
+  url "https://www.apache.org/dyn/closer.lua?path=trafficserver/trafficserver-8.0.8.tar.bz2"
+  mirror "https://archive.apache.org/dist/trafficserver/trafficserver-8.0.8.tar.bz2"
+  sha256 "dfe88d21897ea667d14e0813df47af78c19d5d299a5f5ab029a02e63f724ceb0"
+  license "Apache-2.0"
 
   bottle do
-    sha256 "ad4d24ba38b3d4b3901221e9b06d103c44266529619bd5381a1ccfea94db0066" => :catalina
-    sha256 "6c5338fa30ff0f5494bfb74714d14ecfc8135fcd947ebd1ab6c2e3f488afa5c8" => :mojave
-    sha256 "5ca0277101665a2366019d960f1365c418f7a4f4032b9c277362e36e587547e5" => :high_sierra
+    sha256 "e2c32121b821376d98605fec5672a8cf73fc32dbcf0943e2fa9a69927db522dd" => :catalina
+    sha256 "3b1b5d2b654752a6eb8026efb5fe31d69fe8be31b0def51e5a3840defc074b66" => :mojave
+    sha256 "77ec9fe39ba93643af26b0299d8486956c2e351c8fe2b3cad63a387decc8c93e" => :high_sierra
   end
 
   head do

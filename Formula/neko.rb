@@ -3,15 +3,15 @@ class Neko < Formula
   homepage "https://nekovm.org/"
   url "https://github.com/HaxeFoundation/neko/archive/v2-3-0/neko-2.3.0.tar.gz"
   sha256 "850e7e317bdaf24ed652efeff89c1cb21380ca19f20e68a296c84f6bad4ee995"
-  revision 1
+  license "MIT"
+  revision 2
   head "https://github.com/HaxeFoundation/neko.git"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "85b136ca63c944258f90bb2c429e0d698f26c1f18e4061b775f8499ec5dc5bf7" => :catalina
-    sha256 "9fa6b1793f214b603e14a557521d22f7fabb1fea0a4794f2272269791431f744" => :mojave
-    sha256 "0a3ce8e9c8caaa2cd0d3e32f7fd43d68f17240de051222f8c0090e2b2e4ce161" => :high_sierra
+    sha256 "a2c2e95b27fbe6a15ce0efc03a40655e2a283e3be08acdb0cc398a9367ec76a2" => :catalina
+    sha256 "bb0f7ece136bfa89ac5d690f936f3ba0b34bd8e3a256f73260297e2a5f8e67eb" => :mojave
+    sha256 "7697cb00ffbca3583c0633d042959beda280c6a5e9c3b802d0c14883a1cead88" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -23,6 +23,10 @@ class Neko < Formula
   depends_on "pcre"
 
   def install
+    inreplace "libs/mysql/CMakeLists.txt",
+              %r{https://downloads.mariadb.org/f/},
+              "https://downloads.mariadb.com/Connectors/c/"
+
     # Let cmake download its own copy of MariaDBConnector during build and statically link it.
     # It is because there is no easy way to define we just need any one of mariadb, mariadb-connector-c,
     # mysql, and mysql-client.
@@ -45,5 +49,8 @@ class Neko < Formula
   test do
     ENV["NEKOPATH"] = "#{HOMEBREW_PREFIX}/lib/neko"
     system "#{bin}/neko", "-version"
+    (testpath/"hello.neko").write '$print("Hello world!\n");'
+    system "#{bin}/nekoc", "hello.neko"
+    assert_equal "Hello world!\n", shell_output("#{bin}/neko hello")
   end
 end

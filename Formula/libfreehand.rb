@@ -3,14 +3,13 @@ class Libfreehand < Formula
   homepage "https://wiki.documentfoundation.org/DLP/Libraries/libfreehand"
   url "https://dev-www.libreoffice.org/src/libfreehand/libfreehand-0.1.2.tar.xz"
   sha256 "0e422d1564a6dbf22a9af598535425271e583514c0f7ba7d9091676420de34ac"
-  revision 3
+  revision 5
 
   bottle do
     cellar :any
-    sha256 "f78c71119dfe8c1944fd2f57031911b07ec852a2ac14c32dfbe789c28128f9bd" => :catalina
-    sha256 "edc93ba58727c751dab54b7c496c5632db8249156bde7655d9578437ecd3672d" => :mojave
-    sha256 "28c50d6910679e0b0f3dc669fd1d69c339dd6c480a3ebb16804bedb3f1067f69" => :high_sierra
-    sha256 "bc08405897e33b8fc6237e6c0a3c638535c65b568013a037875de87f20c9a451" => :sierra
+    sha256 "337aeb3f1454487fc132f9d67e3662dc6c3f0ba40a38a9a9c58d9f0b9bfc1955" => :catalina
+    sha256 "b2e7566024327688b13ce6ba4a2bc93108d61d46923b0e6f59a6bc577ccc4eb9" => :mojave
+    sha256 "fed031e8bfce818f39ea578792a3ed1f1b74c9f86192f37b372e1c4fc493bc90" => :high_sierra
   end
 
   depends_on "boost" => :build
@@ -18,6 +17,12 @@ class Libfreehand < Formula
   depends_on "icu4c"
   depends_on "librevenge"
   depends_on "little-cms2"
+
+  # remove with version >=0.1.3
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/7bb2149f314dd174f242a76d4dde8d95d20cbae0/libfreehand/0.1.2.patch"
+    sha256 "abfa28461b313ccf3c59ce35d0a89d0d76c60dd2a14028b8fea66e411983160e"
+  end
 
   def install
     system "./configure", "--without-docs",

@@ -2,8 +2,9 @@ class Landscaper < Formula
   desc "Manage the application landscape in a Kubernetes cluster"
   homepage "https://github.com/Eneco/landscaper"
   url "https://github.com/Eneco/landscaper.git",
-      :tag      => "v1.0.24",
-      :revision => "1199b098bcabc729c885007d868f38b2cf8d2370"
+      tag:      "v1.0.24",
+      revision: "1199b098bcabc729c885007d868f38b2cf8d2370"
+  license "Apache-2.0"
   revision 1
   head "https://github.com/Eneco/landscaper.git"
 
@@ -30,7 +31,7 @@ class Landscaper < Formula
       system "make", "bootstrap"
       system "make", "build"
       bin.install "build/landscaper"
-      bin.env_script_all_files(libexec/"bin", :PATH => "#{Formula["helm@2"].opt_bin}:$PATH")
+      bin.env_script_all_files(libexec/"bin", PATH: "#{Formula["helm@2"].opt_bin}:$PATH")
       prefix.install_metafiles
     end
   end

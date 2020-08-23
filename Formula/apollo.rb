@@ -1,9 +1,10 @@
 class Apollo < Formula
   desc "Multi-protocol messaging broker based on ActiveMQ"
-  homepage "https://activemq.apache.org/apollo"
+  homepage "https://activemq.apache.org/"
   url "https://www.apache.org/dyn/closer.lua?path=activemq/activemq-apollo/1.7.1/apache-apollo-1.7.1-unix-distro.tar.gz"
   mirror "https://archive.apache.org/dist/activemq/activemq-apollo/1.7.1/apache-apollo-1.7.1-unix-distro.tar.gz"
   sha256 "74577339a1843995a5128d14c68b21fb8f229d80d8ce1341dd3134f250ab689d"
+  license "Apache-2.0"
   revision 1
 
   bottle do
@@ -28,6 +29,8 @@ class Apollo < Formula
     sha256 "2795caacbc6086c7de46b588d11a78edbf8272acb7d9da3fb329cb34fcb8783f"
   end
 
+  deprecate! date: "2019-03-11" # https://github.com/apache/activemq-apollo/commit/049d68bf3f94cdf62ded5426d3cad4ef3e3c56ca
+
   def install
     prefix.install_metafiles
     prefix.install %w[docs examples]
@@ -36,7 +39,7 @@ class Apollo < Formula
     (libexec/"lib").install resource("bdb-je")
     (libexec/"lib").install resource("mqtt")
 
-    (bin/"apollo").write_env_script libexec/"bin/apollo", :JAVA_HOME => Formula["openjdk"].opt_prefix
+    (bin/"apollo").write_env_script libexec/"bin/apollo", JAVA_HOME: Formula["openjdk"].opt_prefix
   end
 
   def caveats
@@ -46,7 +49,7 @@ class Apollo < Formula
     EOS
   end
 
-  plist_options :manual => "#{HOMEBREW_PREFIX}/var/apollo/bin/apollo-broker run"
+  plist_options manual: "#{HOMEBREW_PREFIX}/var/apollo/bin/apollo-broker run"
 
   def plist
     <<~EOS

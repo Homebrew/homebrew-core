@@ -1,14 +1,14 @@
 class Gxml < Formula
   desc "GObject-based XML DOM API"
   homepage "https://wiki.gnome.org/GXml"
-  url "https://download.gnome.org/sources/gxml/0.18/gxml-0.18.1.tar.xz"
-  sha256 "bac5bc82c39423c1dbbfd89235f4a9b03b69cfcd3188905359ce81747b6400ed"
+  url "https://download.gnome.org/sources/gxml/0.20/gxml-0.20.0.tar.xz"
+  sha256 "0a0fc4f305ba9ea2f1f76aadfd660fd50febdc7a5e151f9559c81b2bd362d87b"
+  license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 "4eb68617f73471be697746b879fe118fb3e116a1e911a2f95541982a77cd4714" => :catalina
-    sha256 "b9bb621d776f10dc1c3a9bde25964bd26847bf49cdee49ada1c0407f5fb14dbb" => :mojave
-    sha256 "4253e9a1bd9ce221e2287e5d53d39342c65fd06aa63028aa56effae2514854b4" => :high_sierra
-    sha256 "47042a94c013db905170cc0c373b8f7000d77e9c75d2d17dbacad6cd658e6b56" => :sierra
+    sha256 "7ac6b48935cda53013a788e02cb0169fd609589beac7b1af2ad6b3b64e3045a2" => :catalina
+    sha256 "656bfa0f89deba237c40af306b141291c548befeadd268d7aaca198db78afe91" => :mojave
+    sha256 "c206e3ea69e32dce78804db3d9e0ab2d10a441a4677614324fd46e1e53bdb5e7" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build
@@ -22,7 +22,7 @@ class Gxml < Formula
 
   def install
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", "-Dintrospection=true", ".."
+      system "meson", *std_meson_args, "-Dintrospection=true", "-Ddocs=false", ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end
@@ -46,7 +46,7 @@ class Gxml < Formula
       -I#{libxml2.opt_include}/libxml2
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include
-      -I#{include}/gxml-0.18
+      -I#{include}/gxml-0.20
       -I#{libgee.opt_include}/gee-0.8
       -D_REENTRANT
       -L#{gettext.opt_lib}
@@ -58,7 +58,7 @@ class Gxml < Formula
       -lgio-2.0
       -lglib-2.0
       -lgobject-2.0
-      -lgxml-0.18
+      -lgxml-0.20
       -lintl
       -lxml2
     ]

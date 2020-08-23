@@ -38,6 +38,14 @@ class Zbar < Formula
   depends_on "ufraw"
   depends_on "xz"
 
+  on_linux do
+    # Avoid function naming conflict
+    patch do
+      url "https://salsa.debian.org/debian/zbar/raw/debian/0.10+doc-11/debian/patches/0005-src-Replace-dprintf-macro-with-zbar_dprintf-to-avoid.patch"
+      sha256 "e9a1aab8150f244c7b092a03f16ad8997b26575149b7c86ea8b453199e8916d0"
+    end
+  end
+
   def install
     if build.head?
       inreplace "configure.ac", "-Werror", ""

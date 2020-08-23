@@ -3,6 +3,7 @@ class Archiver < Formula
   homepage "https://github.com/mholt/archiver"
   url "https://github.com/mholt/archiver/archive/v3.3.0.tar.gz"
   sha256 "c8e88340e80b428c1a1c9734084395b473c9458fcea8b8b5126a9db96ae45844"
+  license "MIT"
   head "https://github.com/mholt/archiver.git"
 
   bottle do

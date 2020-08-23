@@ -3,13 +3,15 @@ class Ssdb < Formula
   homepage "http://ssdb.io/"
   url "https://github.com/ideawu/ssdb/archive/1.9.7.tar.gz"
   sha256 "ef7c1c048c48671b039fee4c557bcd0150cbab8f3814fdfb782b7aeec9f071ec"
+  license "BSD-3-Clause"
   head "https://github.com/ideawu/ssdb.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "adc9b1c421a96f617d53eb9b2750730a2f94470b96bbbffd42171034b42f50e3" => :catalina
-    sha256 "17baf0ab0b2d11d987ff8bf3b9de6a19bf6839a4b23bcd76d01a0d62421141d9" => :mojave
-    sha256 "5ab4ecd6c2d2df8996fc71477e4abe970a48b53999ddc291ceeb06b261ae21d0" => :high_sierra
+    rebuild 1
+    sha256 "648dad2645bc14dcc8aed45a6345d6a691a816d30aaf36848912807b3d2923e3" => :catalina
+    sha256 "b6d12c008d3b1b1b74dc149f78984039ffcdccdb30a4bf4b7d43960c02a121e0" => :mojave
+    sha256 "a09b9360d1cae859fdc035dab88b4f58e6c495fb428457e470fb37cecdaeee01" => :high_sierra
   end
 
   depends_on "autoconf" => :build
@@ -44,7 +46,7 @@ class Ssdb < Formula
     etc.install "ssdb_slave.conf"
   end
 
-  plist_options :manual => "ssdb-server #{HOMEBREW_PREFIX}/etc/ssdb.conf"
+  plist_options manual: "ssdb-server #{HOMEBREW_PREFIX}/etc/ssdb.conf"
 
   def plist
     <<~EOS
@@ -80,7 +82,7 @@ class Ssdb < Formula
   test do
     pid = fork do
       Signal.trap("TERM") do
-        system("#{bin}/ssdb-server -d #{HOMEBREW_PREFIX}/etc/ssdb.conf")
+        system("#{bin}/ssdb-server", "-d", "#{HOMEBREW_PREFIX}/etc/ssdb.conf")
         exit
       end
     end

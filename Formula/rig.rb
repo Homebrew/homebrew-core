@@ -3,6 +3,7 @@ class Rig < Formula
   homepage "https://rig.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/rig/rig/1.11/rig-1.11.tar.gz"
   sha256 "00bfc970d5c038c1e68bc356c6aa6f9a12995914b7d4fda69897622cb5b77ab8"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

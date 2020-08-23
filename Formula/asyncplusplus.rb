@@ -1,15 +1,15 @@
 class Asyncplusplus < Formula
   desc "Concurrency framework for C++11"
   homepage "https://github.com/Amanieu/asyncplusplus"
-  url "https://github.com/Amanieu/asyncplusplus/archive/v1.0.tar.gz"
-  sha256 "eb2b7a900435ef10fcb62a1d364aa7b4c2ef092ebe2b6a83d0ec80904e22514d"
+  url "https://github.com/Amanieu/asyncplusplus/archive/v1.1.tar.gz"
+  sha256 "d160d3a433a1e08f51c785742843182c2b81a7bc872766f57bf5f3108377b858"
+  license "MIT"
 
   bottle do
     cellar :any
-    sha256 "b82364488e395452869e09a902ca4c79ee61cd241f8d5dae689545aedf6146f2" => :catalina
-    sha256 "fd9a043e4c813883327b16d2ab53d44eaa0edfe97a90ada246a1ba57d46ab38b" => :mojave
-    sha256 "a2c84fd99324e27a45366a41cbcc775376eeff3043f357dca2ca810fda236e1a" => :high_sierra
-    sha256 "eaf0d777a614ff9a8effe1899c4468ab149c5625d8c16353415f1df24b17a311" => :sierra
+    sha256 "8116d1e5d9aefd7de88cb70633fdc91181460f7f0279bcc356f8d020a590510b" => :catalina
+    sha256 "805297c643ba0c1fe0d774ea606f6e0925112b1a364b74122c877d51f1e729fb" => :mojave
+    sha256 "ac6212a38c5aa391ee1eb547879615437a830967444deb15674e748c63f0b5b1" => :high_sierra
   end
 
   depends_on "cmake" => :build

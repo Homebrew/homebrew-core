@@ -11,8 +11,8 @@ class Discount < Formula
     sha256 "c929af7cff8c87b6dcdf651009894659d3ca9ef7c21b1d935cf0889654b20a7b" => :high_sierra
   end
 
-  conflicts_with "markdown", :because => "both install `markdown` binaries"
-  conflicts_with "multimarkdown", :because => "both install `markdown` binaries"
+  conflicts_with "markdown", because: "both install `markdown` binaries"
+  conflicts_with "multimarkdown", because: "both install `markdown` binaries"
 
   def install
     args = %W[

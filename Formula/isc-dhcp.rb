@@ -3,6 +3,7 @@ class IscDhcp < Formula
   homepage "https://www.isc.org/software/dhcp"
   url "https://ftp.isc.org/isc/dhcp/4.4.2/dhcp-4.4.2.tar.gz"
   sha256 "1a7ccd64a16e5e68f7b5e0f527fd07240a2892ea53fe245620f4f5f607004521"
+  license "MPL-2.0"
 
   bottle do
     sha256 "26591c29130891dfe5a7ebe686c800bda76fdf5113885a801c3a30730a119130" => :catalina
@@ -90,7 +91,7 @@ class IscDhcp < Formula
     EOS
   end
 
-  plist_options :startup => true
+  plist_options startup: true
 
   def plist
     <<~EOS

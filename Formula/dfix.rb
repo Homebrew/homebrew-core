@@ -2,9 +2,10 @@ class Dfix < Formula
   desc "Auto-upgrade tool for D source code"
   homepage "https://github.com/dlang-community/dfix"
   url "https://github.com/dlang-community/dfix.git",
-      :tag      => "v0.3.5",
-      :revision => "5265a8db4b0fdc54a3d0837a7ddf520ee94579c4"
-  head "https://github.com/dlang-community/dfix.git", :shallow => false
+      tag:      "v0.3.5",
+      revision: "5265a8db4b0fdc54a3d0837a7ddf520ee94579c4"
+  license "BSL-1.0"
+  head "https://github.com/dlang-community/dfix.git", shallow: false
 
   bottle do
     cellar :any_skip_relocation

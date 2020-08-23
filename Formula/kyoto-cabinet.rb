@@ -3,6 +3,7 @@ class KyotoCabinet < Formula
   homepage "https://fallabs.com/kyotocabinet/"
   url "https://fallabs.com/kyotocabinet/pkg/kyotocabinet-1.2.77.tar.gz"
   sha256 "56899329384cc6f0f1f8aa3f1b41001071ca99c1d79225086a7f3575c0209de6"
+  license "GPL-3.0"
 
   bottle do
     sha256 "444a9c86b36b081cc9ad31ef68d8c4e03f0861b9f0603a7fe5c99780cdab3926" => :catalina

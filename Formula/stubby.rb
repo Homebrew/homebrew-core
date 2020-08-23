@@ -3,12 +3,14 @@ class Stubby < Formula
   homepage "https://dnsprivacy.org/wiki/display/DP/DNS+Privacy+Daemon+-+Stubby"
   url "https://github.com/getdnsapi/stubby/archive/v0.3.0.tar.gz"
   sha256 "b37a0e0ec2b7cfcdcb596066a6fd6109e91a2766b17a42c47d3703d9be41d000"
-  head "https://github.com/getdnsapi/stubby.git", :branch => "develop"
+  license "BSD-3-Clause"
+  head "https://github.com/getdnsapi/stubby.git", branch: "develop"
 
   bottle do
-    sha256 "ad68e436a7243e41453e644529964001b45602473326fba37e7dbfe57be20686" => :catalina
-    sha256 "581ab7f709c5736d868fa394a91a3e917a97d518eadbb06525bae1b448bc8908" => :mojave
-    sha256 "d929b09280c4f602e6b81b9f39f31574199221bf6b48f163da677295a2ebfb2c" => :high_sierra
+    rebuild 1
+    sha256 "aaa2e665539768e5095b04cdbbf61b8b865334770e4608f144096f010631d47c" => :catalina
+    sha256 "be2d27bc1ceb52f5728c34b179ba4b57593ded2e66c87c4ab26fa6e89ac26ece" => :mojave
+    sha256 "437687f0eebd8218424dbefd61988a5ebb9c2a4487c779c36a329deaf2c2ad92" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -17,11 +19,12 @@ class Stubby < Formula
   depends_on "libyaml"
 
   def install
-    system "cmake", ".", *std_cmake_args
+    system "cmake", "-DCMAKE_INSTALL_RUNSTATEDIR=#{HOMEBREW_PREFIX}/var/run/", \
+                    "-DCMAKE_INSTALL_SYSCONFDIR=#{HOMEBREW_PREFIX}/etc", ".", *std_cmake_args
     system "make", "install"
   end
 
-  plist_options :startup => true, :manual => "sudo stubby -C #{HOMEBREW_PREFIX}/etc/stubby/stubby.yml"
+  plist_options startup: true, manual: "sudo stubby -C #{HOMEBREW_PREFIX}/etc/stubby/stubby.yml"
 
   def plist
     <<~EOS
@@ -64,16 +67,13 @@ class Stubby < Formula
     EOS
     output = shell_output("#{bin}/stubby -i -C stubby_test.yml")
     assert_match "bindata for 145.100.185.15", output
-    pid = fork do
+
+    fork do
       exec "#{bin}/stubby", "-C", testpath/"stubby_test.yml"
     end
-    begin
-      sleep 2
-      output = shell_output("dig @127.0.0.1 -p 5553 getdnsapi.net")
-      assert_match "status: NOERROR", output
-    ensure
-      Process.kill 9, pid
-      Process.wait pid
-    end
+    sleep 2
+
+    output = shell_output("dig @127.0.0.1 -p 5553 getdnsapi.net")
+    assert_match "status: NOERROR", output
   end
 end

@@ -3,12 +3,14 @@ class Tectonic < Formula
   homepage "https://tectonic-typesetting.github.io/"
   url "https://github.com/tectonic-typesetting/tectonic/archive/v0.1.12.tar.gz"
   sha256 "30d2e0fe31145a10097368f11a00540ba201be43d28e7ad580699f47bfa70bf4"
+  license "MIT"
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "724623104de46afb7438c933ef55f5afd749672757112dba0783d0e25f725b90" => :catalina
-    sha256 "463857e34de7b19f3b866176e4d93be42cc7c80dde7226023ad226d937816b4e" => :mojave
-    sha256 "a7487f280ffdd80bdca699800db3a9771d51233629d2ff9d11b6c1b53929f0f0" => :high_sierra
+    sha256 "bd48e4e17779696ca1e647b1809ffbe65821e6387e1c787acf0ab1168bd6c059" => :catalina
+    sha256 "b01e0fad7b78afa074addd3e4e423211a4c66b327a6365639fb1f70b20af2f1e" => :mojave
+    sha256 "1a9f68211f8f9e8268652eb367d1cbafcab3bfcd5779a0be9d71ef456b326de9" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -29,7 +31,7 @@ class Tectonic < Formula
     # https://crates.io/crates/openssl#manual-configuration
     ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
 
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", *std_cargo_args
   end
 
   test do

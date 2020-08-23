@@ -1,15 +1,16 @@
 class Citus < Formula
   desc "PostgreSQL-based distributed RDBMS"
   homepage "https://www.citusdata.com"
-  url "https://github.com/citusdata/citus/archive/v9.2.2.tar.gz"
-  sha256 "8992ceaaaa1a2c1fa0fb25c9e32f5f4ec02e329681029c297004b786c6a05d87"
+  url "https://github.com/citusdata/citus/archive/v9.4.0.tar.gz"
+  sha256 "7d298ef2efc4e3ead22a137382cdac5c466a78f996c508d68db5d3851bd8265a"
+  license "AGPL-3.0"
   head "https://github.com/citusdata/citus.git"
 
   bottle do
     cellar :any
-    sha256 "821d25f1a2ce6cea994417caaec8a3f5f4eb7cb0945234b062c73c0b42802ba0" => :catalina
-    sha256 "8ece14a7552aa4206f3e4da10df8c6b9dbda042b9b7da5f8d396b05ec3879399" => :mojave
-    sha256 "872e2e9f2348a0c70d67b8c9db8e326ee921b41ec4009566c69b5c63074f50a3" => :high_sierra
+    sha256 "2708119b4035feac70b0d3d7a7023afca7e8ac007b2ec81569b526db6fe2dacf" => :catalina
+    sha256 "f6f98ed1107634d244af332a9611d061a16c511c6108dfd62b4440649b6581cc" => :mojave
+    sha256 "6f4588aaa2dd493cd26de199d6e69e150a38d2ac33879cbfaca180a33c5b1e7e" => :high_sierra
   end
 
   depends_on "postgresql"
@@ -35,6 +36,8 @@ class Citus < Formula
   end
 
   test do
+    return if ENV["CI"]
+
     pg_bin = Formula["postgresql"].opt_bin
     pg_port = "55561"
     system "#{pg_bin}/initdb", testpath/"test"

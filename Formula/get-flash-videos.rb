@@ -3,6 +3,7 @@ class GetFlashVideos < Formula
   homepage "https://github.com/monsieurvideo/get-flash-videos"
   url "https://github.com/monsieurvideo/get-flash-videos/archive/1.25.99.03.tar.gz"
   sha256 "37267b41c7b0c240d99ed1f5e7ba04d00f98a8daff82ac9edd2b12c3bca83d73"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
@@ -65,7 +66,7 @@ class GetFlashVideos < Formula
     (lib/"perl5").install "blib/lib/FlashVideo"
 
     bin.install "bin/get_flash_videos"
-    bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
+    bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
     chmod 0755, libexec/"bin/get_flash_videos"
 
     man1.install "blib/man1/get_flash_videos.1"

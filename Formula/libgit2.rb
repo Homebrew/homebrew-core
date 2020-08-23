@@ -1,15 +1,16 @@
 class Libgit2 < Formula
   desc "C library of Git core methods that is re-entrant and linkable"
   homepage "https://libgit2.github.com/"
-  url "https://github.com/libgit2/libgit2/archive/v0.28.4.tar.gz"
-  sha256 "30f3877469d09f2e4a21be933b4e2800560d16646028dd800744dc5f7fb0c749"
+  url "https://github.com/libgit2/libgit2/archive/v1.0.1.tar.gz"
+  sha256 "1775427a6098f441ddbaa5bd4e9b8a043c7401e450ed761e69a415530fea81d2"
+  license "GPL-2.0"
   head "https://github.com/libgit2/libgit2.git"
 
   bottle do
     cellar :any
-    sha256 "87e6974b3a960f25b05f03f3e5d8e4cdbb280d637c98a9125d70f697e7668284" => :catalina
-    sha256 "50a790265b670987229ef99b4519926631f2faf6350f65fb0eaa8f19a8b40643" => :mojave
-    sha256 "709376382fec08680fae85ba1751ad8a2beb677a1cd24653636a242a3a228056" => :high_sierra
+    sha256 "e6456b9dde3c5ed975cc6a106e721ce63a84e37e71762889c360920c999f2b12" => :catalina
+    sha256 "2187f1fd84786573d62180909d1f319c58700fa6fe662a2de93092dbde76bd16" => :mojave
+    sha256 "c7c5dbf3884b241c0350404858ba4f63d640921bee6ff8142c2e214533e42761" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -25,11 +26,7 @@ class Libgit2 < Formula
       system "cmake", "..", *args
       system "make", "install"
       cd "examples" do
-        (pkgshare/"examples").install "add", "blame", "cat-file", "cgit2",
-                                      "describe", "diff", "for-each-ref",
-                                      "general", "init", "log", "remote",
-                                      "rev-list", "rev-parse", "showindex",
-                                      "status", "tag"
+        (pkgshare/"examples").install "lg2"
       end
       system "make", "clean"
       system "cmake", "..", "-DBUILD_SHARED_LIBS=OFF", *args

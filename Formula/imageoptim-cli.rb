@@ -5,6 +5,7 @@ class ImageoptimCli < Formula
   homepage "https://jamiemason.github.io/ImageOptim-CLI/"
   url "https://github.com/JamieMason/ImageOptim-CLI/archive/3.0.2.tar.gz"
   sha256 "957261d38fa85e0ec377efb2eceae695e3d87b621bae64853f9f5163efd3594b"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

@@ -1,14 +1,15 @@
 class Scdoc < Formula
   desc "Small man page generator"
   homepage "https://git.sr.ht/~sircmpwn/scdoc/"
-  url "https://git.sr.ht/~sircmpwn/scdoc/archive/1.10.1.tar.gz"
-  sha256 "80e021c732cca2cd6659dccf3306d46f59eecbf8fbaa4dabdb502f537278a78f"
+  url "https://git.sr.ht/~sircmpwn/scdoc/archive/1.11.0.tar.gz"
+  sha256 "8ac3e7e08fdfab0d75a312b1abcb6eafbd9114a5deaafbaba0fe5ec7e880929d"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d4a577f0a76e9c1d731163daec2596a6fbee94fddbfc94e2a6b07c7be9ae09b6" => :catalina
-    sha256 "752b2cab0f59547dd2abae83399f5e23fa9bae18e27a087e89dc5c0dd80966ea" => :mojave
-    sha256 "dcee18bf4f3d6ffa25fed921cbd71de0d31a097e9ec9d3cd707e1ccd02663e70" => :high_sierra
+    sha256 "cd14869a1ee30fb2cbb096f9a9f73438448fad68fbd048a4eed46394695f62ca" => :catalina
+    sha256 "12f800d4af4950f91eceba248a2576dfc2eb6100d35e400ffcd043d0c6885a82" => :mojave
+    sha256 "d6913f7e41d5e6f000a7b0e83d86d9d6975cd0d98769e73e88c0248be3b48685" => :high_sierra
   end
 
   def install

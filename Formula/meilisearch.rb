@@ -1,24 +1,61 @@
 class Meilisearch < Formula
   desc "Ultra relevant, instant and typo-tolerant full-text search API"
   homepage "https://docs.meilisearch.com/"
-  url "https://github.com/meilisearch/MeiliSearch/archive/v0.8.4.tar.gz"
-  sha256 "a45e128248bc911e9c4358b44e8afc0e29bbb8dd7b79fd9384c11b8a215256e6"
+  url "https://github.com/meilisearch/MeiliSearch/archive/v0.13.0.tar.gz"
+  sha256 "e6614c48c252360254a9fc1e8ae820e9b7821e4a0b1a8d829de045ef64921f8b"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4c0cf2771d4f20ac3d1e48e92c5d5e8e2ef9306b0d3689b45e87c2db064dfddd" => :catalina
-    sha256 "dc832f214ea74897de8b6713bc6fa0e037209af0823770f3c6a7e5206c3394a4" => :mojave
-    sha256 "f1e152cd4e0856051e2227ae869ff37b11181f645b5c544ffce00c035d8ce252" => :high_sierra
+    sha256 "3a9ae8698ac75e6b52a0a2580d9b7e6073526a86a6b22cf97c3fa53487189446" => :catalina
+    sha256 "74e058feab45714a55ca2bedc2cf599ec6506b52e0c19f2e9f2e57e057ad053c" => :mojave
+    sha256 "72ab2620fa3eed8fe4f5f464b567d7ce495d4b0311ed59fe908c9a4277b9ee0e" => :high_sierra
   end
 
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "meilisearch-http"
+    cd "meilisearch-http" do
+      system "cargo", "install", *std_cargo_args
+    end
+  end
+
+  plist_options manual: "meilisearch"
+
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>KeepAlive</key>
+          <false/>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/meilisearch</string>
+            <string>--db-path</string>
+            <string>#{var}/meilisearch/data.ms</string>
+          </array>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>WorkingDirectory</key>
+          <string>#{var}</string>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/meilisearch.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/meilisearch.log</string>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do
-    output = shell_output("#{bin}/meilisearch --version")
-    assert_match(/^meilisearch-http [0-9]*[.][0-9]*[.][0-9]*/, output)
+    port = free_port
+    fork { exec bin/"meilisearch", "--http-addr", "127.0.0.1:#{port}" }
+    sleep(3)
+    output = shell_output("curl -s 127.0.0.1:#{port}/version")
+    assert_match version.to_s, output
   end
 end

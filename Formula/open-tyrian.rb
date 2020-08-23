@@ -1,17 +1,16 @@
 class OpenTyrian < Formula
   desc "Open-source port of Tyrian"
-  homepage "https://bitbucket.org/opentyrian/opentyrian"
+  homepage "https://github.com/opentyrian/opentyrian"
   url "https://www.camanis.net/opentyrian/releases/opentyrian-2.1.20130907-src.tar.gz"
   sha256 "f54b6b3cedcefa187c9f605d6164aae29ec46a731a6df30d351af4c008dee45f"
-  head "https://bitbucket.org/opentyrian/opentyrian", :using => :hg
+  license "GPL-2.0"
+  head "https://github.com/opentyrian/opentyrian.git"
 
   bottle do
-    sha256 "6f880409157ba2da97e9753177aae05c5ad64bcb7f55f02f11b99e19f68763fe" => :catalina
-    sha256 "2b3baee271c7575088df18c5172ef15ee9f7a38e87adffeb2769aad70bce0b6d" => :mojave
-    sha256 "d6e606749fa4e1a9d1fea42ede8d2a195677f112c20f3c23cd3b0bb86988b84f" => :high_sierra
-    sha256 "4f55db177b78370597bc596797cfb9f08c3a7249ce3e53130fc349d4b4fdb6d5" => :sierra
-    sha256 "90612b1c31262d8e0ae681842197370d278b51fdb46cce6a0a40e2595a4c831a" => :el_capitan
-    sha256 "6c3ebd2d00d744211373e8457a3df645a5d402e521b40f7c46139cc9e4c33dc6" => :yosemite
+    rebuild 1
+    sha256 "5e66ea919c426dcce63be043164439b258a22a906ece3b3b1ec1e41147ac0b76" => :catalina
+    sha256 "f49d2282ee86031f1c1442b6d1eb2fb2753286cb89207b63f03ee98e51e9221f" => :mojave
+    sha256 "541d2f9a00f4a56b9464c44994c94da0afeab340c1b3809b61a0c437fda69b7f" => :high_sierra
   end
 
   depends_on "sdl"

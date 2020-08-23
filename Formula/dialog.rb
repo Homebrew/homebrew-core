@@ -1,20 +1,22 @@
 class Dialog < Formula
   desc "Display user-friendly message boxes from shell scripts"
   homepage "https://invisible-island.net/dialog/"
-  url "https://invisible-mirror.net/archives/dialog/dialog-1.3-20200228.tgz"
-  sha256 "9ff8c41d1eee9e15d14fde3109d4612b1fe6dbe71fe2c3e743bcfff5e25c1fd9"
+  url "https://invisible-mirror.net/archives/dialog/dialog-1.3-20200327.tgz"
+  sha256 "466163e8b97c2b7709d00389199add3156bd813f60ccb0335d0a30f2d4a17f99"
+  license "LGPL-2.1"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1b84e68cf11a65f5dd43728d9d033cc9c17f8c048f9f3a77d11d597bb9a6e665" => :catalina
-    sha256 "b1d0a994bc49f8ad224e7b1da1373eaa4080824e3e48887335630a4d4dcc726d" => :mojave
-    sha256 "d056b71ba4f33ddb8556e946a2fa076ce31b126b8fd7c337f85a8d978c3bb891" => :high_sierra
+    rebuild 1
+    sha256 "35e1f4c9beb789e9f6db97089f5c0d41032cf72f79ebf2aa1fd804d6d5d62240" => :catalina
+    sha256 "2de067bc267ae01c09b826e55a2ab8626fb9f04e15aeb30189653c731db890db" => :mojave
+    sha256 "0e979958393b4d5db87aea2408ed1ac385db8b999ee38b882da96ed0e32beb19" => :high_sierra
   end
 
   uses_from_macos "ncurses"
 
   def install
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}", "--with-ncurses"
     system "make", "install-full"
   end
 

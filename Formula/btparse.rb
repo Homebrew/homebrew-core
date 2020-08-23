@@ -3,6 +3,7 @@ class Btparse < Formula
   homepage "https://metacpan.org/pod/distribution/Text-BibTeX/btparse/doc/btparse.pod"
   url "https://cpan.metacpan.org/authors/id/A/AM/AMBS/btparse/btparse-0.35.tar.gz"
   sha256 "631bf1b79dfd4c83377b416a12c349fe88ee37448dc82e41424b2f364a99477b"
+  license "GPL-2.0"
 
   bottle do
     cellar :any

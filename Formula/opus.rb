@@ -3,17 +3,18 @@ class Opus < Formula
   homepage "https://www.opus-codec.org/"
   url "https://archive.mozilla.org/pub/opus/opus-1.3.1.tar.gz"
   sha256 "65b58e1e25b2a114157014736a3d9dfeaad8d41be1c8179866f144a2fb44ff9d"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any
-    sha256 "4e444558492eff0e4d82646c868d76b63eb2aeb6e35a26712a3cdf17655b17bd" => :catalina
-    sha256 "787bf9b6d56f63cc3d0cf0f7f17affeb85b6496b32bf9a200f57431c886ae4a5" => :mojave
-    sha256 "187884409b33deb371002701b6ffb790c1832fecbe6b8e79e437039dae87aff8" => :high_sierra
-    sha256 "e547bc31c413575fdf2ae68a8e29d1c3835bac45d8ea629f3a194b397c48e581" => :sierra
+    rebuild 1
+    sha256 "5cb191f66da0ef2b8d03985c79cb18a59506aaba8a01cc0b1a821c293e88d576" => :catalina
+    sha256 "21fa4c22a63bccc5e188dabb9c85af63a57d19582c4f616716bccb063e2befec" => :mojave
+    sha256 "8b45ac09baae56bdc2c7ee224d5a1ae68efb826a9aec2220e0b27e8ce633b8aa" => :high_sierra
   end
 
   head do
-    url "https://git.xiph.org/opus.git"
+    url "https://gitlab.xiph.org/xiph/opus.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

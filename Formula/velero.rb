@@ -1,14 +1,15 @@
 class Velero < Formula
   desc "Disaster recovery for Kubernetes resources and persistent volumes"
   homepage "https://github.com/vmware-tanzu/velero"
-  url "https://github.com/vmware-tanzu/velero/archive/v1.3.1.tar.gz"
-  sha256 "ff49dda812137befe0e33c130a06862d07bf5c62268ea23b0f5092d0ea144858"
+  url "https://github.com/vmware-tanzu/velero/archive/v1.4.2.tar.gz"
+  sha256 "83677c307d207156aca1e1f9010b10de7bfde24751bab76a86d55b10abd6deaa"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6d1dea3e2e1dd72480f81bb001e203bc0f68bc74aa522c6bf64cfd8c62d09f31" => :catalina
-    sha256 "8593735a54b607680be528a35b0fc35475e5396bf86d19e0ec72907a749f50ff" => :mojave
-    sha256 "1b4982f30e72daea127667c86080679bfa1c8b499afd90762ba5dc758d116eb7" => :high_sierra
+    sha256 "43f34e8aa73e955b28de5f571b34515354da24439d4109102844e99e6e03257e" => :catalina
+    sha256 "9f475940b9dd4efc10b9a729aea4b7e9fc48115e3cea08ddb7c50eb3587e8298" => :mojave
+    sha256 "a77a77035798f2f3155a073850b5eac02e3de413c7273b3e97cb9f1d6d92e8a8" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -25,11 +26,11 @@ class Velero < Formula
                    "./cmd/velero"
 
       # Install bash completion
-      output = Utils.popen_read("#{bin}/velero completion bash")
+      output = Utils.safe_popen_read("#{bin}/velero", "completion", "bash")
       (bash_completion/"velero").write output
 
       # Install zsh completion
-      output = Utils.popen_read("#{bin}/velero completion zsh")
+      output = Utils.safe_popen_read("#{bin}/velero", "completion", "zsh")
       (zsh_completion/"_velero").write output
 
       prefix.install_metafiles

@@ -3,6 +3,7 @@ class Privoxy < Formula
   homepage "https://www.privoxy.org/"
   url "https://downloads.sourceforge.net/project/ijbswa/Sources/3.0.28%20%28stable%29/privoxy-3.0.28-stable-src.tar.gz"
   sha256 "b5d78cc036aaadb3b7cf860e9d598d7332af468926a26e2d56167f1cb6f2824a"
+  license "GPL-2.0"
 
   bottle do
     cellar :any
@@ -33,7 +34,7 @@ class Privoxy < Formula
     system "make", "install"
   end
 
-  plist_options :manual => "privoxy #{HOMEBREW_PREFIX}/etc/privoxy/config"
+  plist_options manual: "privoxy #{HOMEBREW_PREFIX}/etc/privoxy/config"
 
   def plist
     <<~EOS
@@ -63,7 +64,7 @@ class Privoxy < Formula
   end
 
   test do
-    bind_address = "127.0.0.1:8118"
+    bind_address = "127.0.0.1:#{free_port}"
     (testpath/"config").write("listen-address #{bind_address}\n")
     begin
       server = IO.popen("#{sbin}/privoxy --no-daemon #{testpath}/config")

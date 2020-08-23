@@ -3,6 +3,7 @@ class Openmotif < Formula
   homepage "https://motif.ics.com/motif"
   url "https://downloads.sourceforge.net/project/motif/Motif%202.3.8%20Source%20Code/motif-2.3.8.tar.gz"
   sha256 "859b723666eeac7df018209d66045c9853b50b4218cecadb794e2359619ebce7"
+  license "LGPL-2.1"
 
   bottle do
     sha256 "a997ddf37cc71329a09ca6616cbf0ef63bbe1a477a65a94781fdb72d8ec15822" => :catalina
@@ -20,7 +21,7 @@ class Openmotif < Formula
   depends_on :x11
 
   conflicts_with "lesstif",
-    :because => "Lesstif and Openmotif are complete replacements for each other"
+    because: "both Lesstif and Openmotif are complete replacements for each other"
 
   def install
     system "./configure", "--prefix=#{prefix}",

@@ -4,8 +4,9 @@ class Spidermonkey < Formula
   url "https://archive.mozilla.org/pub/mozilla.org/js/js185-1.0.0.tar.gz"
   version "1.8.5"
   sha256 "5d12f7e1f5b4a99436685d97b9b7b75f094d33580227aa998c406bbae6f2a687"
+  license "MPL-1.1"
   revision 3
-  head "https://hg.mozilla.org/mozilla-central", :using => :hg
+  head "https://hg.mozilla.org/mozilla-central", using: :hg
 
   bottle do
     cellar :any
@@ -18,7 +19,7 @@ class Spidermonkey < Formula
   depends_on "nspr"
   depends_on "readline"
 
-  conflicts_with "narwhal", :because => "both install a js binary"
+  conflicts_with "narwhal", because: "both install a js binary"
 
   def install
     cd "js/src" do

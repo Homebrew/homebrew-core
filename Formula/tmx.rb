@@ -1,18 +1,20 @@
 class Tmx < Formula
   desc "Portable C library to load tiled maps in your games"
   homepage "https://github.com/baylej/tmx"
-  url "https://github.com/baylej/tmx/archive/tmx_1.0.0.tar.gz"
-  sha256 "ba184b722a838a97f514fb7822c1243dbb7be8535b006ef1c5b9f928e295519b"
+  url "https://github.com/baylej/tmx/archive/tmx_1.1.0.tar.gz"
+  sha256 "79a9a72fea3c512969e8262a6abbb5886ad39eefe2762b3554f7538c59be6b74"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any
-    sha256 "846228b02676e378a400f4ca3b4d2ac343faf222c34e654cef66e4e8b3aa8f6c" => :catalina
-    sha256 "e84b8ed8574cbd3c67fca475d1172fc7e51a7a6707ea0d5e109f79479b655c27" => :mojave
-    sha256 "a0583aec000dcda5738acc799591da7a8495c81bfffa0ee988428191f6840d47" => :high_sierra
-    sha256 "591bf5f7712d4406b505c52dc62949b793961a944f0e38b1336a3333d16b0161" => :sierra
+    sha256 "e751f5545befe34c2e3b531c6c1adb6b256539ed613c1cd4bd3c44be05d5a3a3" => :catalina
+    sha256 "20b8c3c1335eb81aace022bbf1086faaaff0aa5aa4e6d6f8858ec62a834e702a" => :mojave
+    sha256 "71310fb31b83e16bd21269c8a4c7f396f8e47eda535ede4fc01b61108867c9a6" => :high_sierra
   end
 
   depends_on "cmake" => :build
+
+  uses_from_macos "libxml2"
 
   def install
     system "cmake", ".", "-DBUILD_SHARED_LIBS=on", *std_cmake_args
@@ -38,14 +40,13 @@ class Tmx < Formula
     EOS
     (testpath/"test.c").write <<-EOS
       #include <tmx.h>
-      #include <tsx.h>
 
       int main(void) {
         tmx_map *map = tmx_load("test.tmx");
         tmx_map_free(map);
 
-        tmx_tileset_manager *ts_mgr = tmx_make_tileset_manager();
-        tmx_free_tileset_manager(ts_mgr);
+        tmx_resource_manager *rc_mgr = tmx_make_resource_manager();
+        tmx_free_resource_manager(rc_mgr);
 
         return 0;
       }

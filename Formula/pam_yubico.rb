@@ -3,13 +3,14 @@ class PamYubico < Formula
   homepage "https://developers.yubico.com/yubico-pam/"
   url "https://developers.yubico.com/yubico-pam/Releases/pam_yubico-2.26.tar.gz"
   sha256 "2de96495963fefd72b98243952ca5d5ec513e702c596e54bc667ef6b5e252966"
+  license "BSD-2-Clause"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "bb57ab33d7b79a6461648cd510d5524ea636db738c46bba5aa8f1fe8451c4e49" => :mojave
-    sha256 "a9a21d8b84d95c76d13118d1c525b93f9bbdf5c49b8aae5304df966d1a1ea669" => :high_sierra
-    sha256 "7b0027b330f0f2bb6da798a7b405d80e09db71892c403206ba6c31bed5a3c804" => :sierra
-    sha256 "102680d53f9ef736089e1e4a4eeaab60962fbbf4156c1fb3e77d82f425b0eed7" => :el_capitan
+    sha256 "6e4eb4afca28e15098998d561b21ab65930ab57898fcf26ed0ba657263d2f130" => :catalina
+    sha256 "3679137d1149195219a4cc36154356f8d749b757d47ec7ab75850ae9eace84e8" => :mojave
+    sha256 "a321eb909c66465f67e0a25e9e38df33cc2d76c6e9ac9c834cb7ba17b247597f" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

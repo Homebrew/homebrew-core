@@ -1,13 +1,13 @@
 class Dovecot < Formula
   desc "IMAP/POP3 server"
   homepage "https://dovecot.org/"
-  url "https://dovecot.org/releases/2.3/dovecot-2.3.10.tar.gz"
-  sha256 "473184723d854a4d1dbd99c11a7b9f65156ca5fe6ecf85d9a44b5127e6f871c5"
+  url "https://dovecot.org/releases/2.3/dovecot-2.3.10.1.tar.gz"
+  sha256 "6642e62f23b1b23cfac235007ca6e21cb67460cca834689fad450724456eb10c"
 
   bottle do
-    sha256 "d0e4a64a1d2d60a141c7fbeab8f9808dca2d5b6f22582847c687b05f0ce00e49" => :catalina
-    sha256 "3c94becbfd50b025af08f9674772db2d847d598ff66da72b124b501aec7dfeff" => :mojave
-    sha256 "84ae5d350e57a7060fb90423e109e26bb968f236198a29344d79a009950bf0b2" => :high_sierra
+    sha256 "e8d7b6bf587b5673826b467c3a30b148a191ed94246797609fcdad42e3ad40e4" => :catalina
+    sha256 "3b05663fc50f7669b2f16f6b55821f6fb2abf54fea8a858301ed7d5dbf7de7b5" => :mojave
+    sha256 "3f35d37650ccc397e11584b5a31ef13157e63b7db3b4886a5f3b7c4fb73a3e7b" => :high_sierra
   end
 
   depends_on "openssl@1.1"
@@ -56,7 +56,7 @@ class Dovecot < Formula
     EOS
   end
 
-  plist_options :startup => true
+  plist_options startup: true
 
   def plist
     <<~EOS

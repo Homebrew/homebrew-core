@@ -5,6 +5,7 @@ class Dockward < Formula
   homepage "https://github.com/abiosoft/dockward"
   url "https://github.com/abiosoft/dockward/archive/0.0.4.tar.gz"
   sha256 "b96244386ae58aefb16177837d7d6adf3a9e6d93b75eea3308a45eb8eb9f4116"
+  license "Apache-2.0"
   head "https://github.com/abiosoft/dockward.git"
 
   bottle do
@@ -21,32 +22,32 @@ class Dockward < Formula
 
   go_resource "github.com/Sirupsen/logrus" do
     url "https://github.com/Sirupsen/logrus.git",
-        :revision => "61e43dc76f7ee59a82bdf3d71033dc12bea4c77d"
+        revision: "61e43dc76f7ee59a82bdf3d71033dc12bea4c77d"
   end
 
   go_resource "github.com/docker/distribution" do
     url "https://github.com/docker/distribution.git",
-        :revision => "7a0972304e201e2a5336a69d00e112c27823f554"
+        revision: "7a0972304e201e2a5336a69d00e112c27823f554"
   end
 
   go_resource "github.com/docker/engine-api" do
     url "https://github.com/docker/engine-api.git",
-        :revision => "4290f40c056686fcaa5c9caf02eac1dde9315adf"
+        revision: "4290f40c056686fcaa5c9caf02eac1dde9315adf"
   end
 
   go_resource "github.com/docker/go-connections" do
     url "https://github.com/docker/go-connections.git",
-        :revision => "eb315e36415380e7c2fdee175262560ff42359da"
+        revision: "eb315e36415380e7c2fdee175262560ff42359da"
   end
 
   go_resource "github.com/docker/go-units" do
     url "https://github.com/docker/go-units.git",
-        :revision => "e30f1e79f3cd72542f2026ceec18d3bd67ab859c"
+        revision: "e30f1e79f3cd72542f2026ceec18d3bd67ab859c"
   end
 
   go_resource "golang.org/x/net" do
     url "https://go.googlesource.com/net.git",
-        :revision => "f2499483f923065a842d38eb4c7f1927e6fc6e6d"
+        revision: "f2499483f923065a842d38eb4c7f1927e6fc6e6d"
   end
 
   def install

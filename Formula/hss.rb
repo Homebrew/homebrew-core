@@ -3,6 +3,7 @@ class Hss < Formula
   homepage "https://github.com/six-ddc/hss"
   url "https://github.com/six-ddc/hss/archive/1.8.tar.gz"
   sha256 "60481274403c551f5b717599c813d619877a009832c4a8a84fcead18e39382fa"
+  license "MIT"
 
   bottle do
     cellar :any
@@ -20,10 +21,9 @@ class Hss < Formula
   end
 
   test do
-    require "socket"
+    port = free_port
     begin
-      server = TCPServer.new(0)
-      port = server.addr[1]
+      server = TCPServer.new(port)
       accept_pid = fork do
         msg = server.accept.gets
         assert_match "SSH", msg
@@ -31,7 +31,7 @@ class Hss < Formula
       hss_read, hss_write = IO.pipe
       hss_pid = fork do
         exec "#{bin}/hss", "-H", "-p #{port} 127.0.0.1", "-u", "root", "true",
-          :out => hss_write
+          out: hss_write
       end
       server.close
       msg = hss_read.gets

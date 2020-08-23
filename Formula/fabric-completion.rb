@@ -2,7 +2,7 @@ class FabricCompletion < Formula
   desc "Bash completion for Fabric"
   homepage "https://github.com/kbakulin/fabric-completion"
   url "https://github.com/kbakulin/fabric-completion.git",
-    :revision => "5b5910492046e6335af0e88550176d2583d9a510"
+    revision: "5b5910492046e6335af0e88550176d2583d9a510"
   version "1"
   head "https://github.com/kbakulin/fabric-completion.git"
 

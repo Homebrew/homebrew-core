@@ -1,15 +1,15 @@
 class Libplctag < Formula
   desc "Portable and simple API for accessing AB PLC data over Ethernet"
   homepage "https://github.com/kyle-github/libplctag"
-  url "https://github.com/kyle-github/libplctag/archive/v1.6.3.tar.gz"
-  sha256 "cad1d497d479ccfdfd92147a42b3fd431cadfe246a3c7cac63e2c7b6bcb67e2f"
+  url "https://github.com/kyle-github/libplctag/archive/v2.1.11.tar.gz"
+  sha256 "3b26054cf24f17ce8257172aee07f9f8a85dccfa061869dfab1924e7002887e1"
+  license "LGPL-2.0"
 
   bottle do
     cellar :any
-    sha256 "2d642c0747005cc75a585407b7dec83e7077dc960de8ebffabee6b0bd50bc852" => :catalina
-    sha256 "16f8ab350a1c91f79f72ded512c4c4255aceae2163f90e6c54740edec4c353fd" => :mojave
-    sha256 "76aef0cc92daeac867f30286c24384827aff6bb17866a5381e05dcbe43f0c8d3" => :high_sierra
-    sha256 "00ccfb0c08bf8f5b351ac26b116ef108b219cdec64f2ff0bd77b9b90ad8f3f8e" => :sierra
+    sha256 "e7ec3a0ac838e6129951d86e8b44b3d5b2073573e0904069ccb3a3a69a9d5085" => :catalina
+    sha256 "bc6689ac25d424e181cfae19f16b39d6982f15427d4c41c85fedbfce8d2b269f" => :mojave
+    sha256 "a1750c6395f496fd27783a5de308702ac21a2e5eda5a027d80b39efdfc276f7f" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -25,7 +25,7 @@ class Libplctag < Formula
       #include <libplctag.h>
 
       int main(int argc, char **argv) {
-        plc_tag tag = plc_tag_create("protocol=ab_eip&gateway=192.168.1.42&path=1,0&cpu=LGX&elem_size=4&elem_count=10&name=myDINTArray");
+        int32_t tag = plc_tag_create("protocol=ab_eip&gateway=192.168.1.42&path=1,0&cpu=LGX&elem_size=4&elem_count=10&name=myDINTArray", 1);
         if (!tag) abort();
         plc_tag_destroy(tag);
         return 0;

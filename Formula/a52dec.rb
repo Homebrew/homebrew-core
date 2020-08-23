@@ -3,6 +3,7 @@ class A52dec < Formula
   homepage "https://liba52.sourceforge.io/"
   url "https://liba52.sourceforge.io/files/a52dec-0.7.4.tar.gz"
   sha256 "a21d724ab3b3933330194353687df82c475b5dfb997513eef4c25de6c865ec33"
+  license "GPL-2.0"
 
   bottle do
     cellar :any

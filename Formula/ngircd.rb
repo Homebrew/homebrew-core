@@ -1,20 +1,21 @@
 class Ngircd < Formula
   desc "Lightweight Internet Relay Chat server"
   homepage "https://ngircd.barton.de/"
-  url "https://ngircd.barton.de/pub/ngircd/ngircd-25.tar.gz"
-  mirror "https://ngircd.sourceforge.io/pub/ngircd/ngircd-25.tar.gz"
-  sha256 "51915780519bae43da3798807e3bed60d887e4eaa728354aa6bb61cdbcda49ba"
-  revision 1
+  url "https://ngircd.barton.de/pub/ngircd/ngircd-26.tar.gz"
+  mirror "http://ngircd.sourceforge.net/pub/ngircd/ngircd-26.tar.gz"
+  sha256 "128441256c489f67a63c6d8459b97f0106959526ccd70b513eba2508dfbac651"
 
   bottle do
-    sha256 "19f2aae10f51901688ab282af2a5227d82c36ae4a3013661a56d823aae1c3868" => :catalina
-    sha256 "0fd70a8662655bd45398d69f5ea38304baa96b84bc44980ba4ad6eebb6246f24" => :mojave
-    sha256 "a85e43607f7e2a52fed2187508d1dbcf8dae25dae9e4704d58a76f3c751032a0" => :high_sierra
-    sha256 "48e83fcdd8462a77cd8855ff1ca69fe17e4f6796e465dc5a3784e4653f59db54" => :sierra
+    rebuild 1
+    sha256 "129bf331b86f1d54735cf773a36b402323af0667afc1e2a1da4554899d05e8e3" => :catalina
+    sha256 "7fdce95437555b6de33aa1b0c9d3e3441405b5d3c9ec2f728a7b28f35983402d" => :mojave
+    sha256 "b58cacea0c009487e46b48d7220623001e49ad31722704ee805fd7029313f5d6" => :high_sierra
   end
 
   depends_on "libident"
   depends_on "openssl@1.1"
+
+  uses_from_macos "zlib"
 
   def install
     system "./configure", "--disable-dependency-tracking",

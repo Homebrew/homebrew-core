@@ -1,27 +1,25 @@
 class Graphene < Formula
   desc "Thin layer of graphic data types"
   homepage "https://ebassi.github.io/graphene/"
-  url "https://download.gnome.org/sources/graphene/1.10/graphene-1.10.0.tar.xz"
-  sha256 "406d97f51dd4ca61e91f84666a00c3e976d3e667cd248b76d92fdb35ce876499"
+  url "https://download.gnome.org/sources/graphene/1.10/graphene-1.10.2.tar.xz"
+  sha256 "e97de8208f1aac4f913d4fa71ab73a7034e807186feb2abe55876e51c425a7f6"
 
   bottle do
     cellar :any
-    sha256 "34bbd2f5b245e2c6bd7205cbd72f9c42b4410c515d526239340b1d62b7d9c1cd" => :catalina
-    sha256 "3d50bdcd26cee560b210108fa71abbea9cc5e747ea733fa327d23835ed2f78fb" => :mojave
-    sha256 "d5d25240fa183463100d935d5500a54a82a80d09c60b5066093ad5b34c9dd0b9" => :high_sierra
-    sha256 "faedb0110f39db296ce897ee2b043ce10a24317e2a70f2c533b3cb33ca0c2f46" => :sierra
+    sha256 "d8519d2811ee796969121cd0b087fb7a5e96c2952c69bb2dfe206f3efc299e31" => :catalina
+    sha256 "0e7e238034cfcd390b8bd0e49bd6ba3c23dcdbff7c9a1cea5e626b34a3381acb" => :mojave
+    sha256 "7bcd5ab83e1509ddeec6b710ba2a69c99bb92438344694423b1c886346fd44c2" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python" => :build
   depends_on "glib"
 
   def install
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", ".."
+      system "meson", *std_meson_args, ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end

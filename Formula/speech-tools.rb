@@ -13,7 +13,7 @@ class SpeechTools < Formula
     sha256 "a0794d1d7f424833d2fe92726d26b6ebcc8dcf63b7f9700b19e1119ed7e2ca62" => :el_capitan
   end
 
-  conflicts_with "align", :because => "both install `align` binaries"
+  conflicts_with "align", because: "both install `align` binaries"
 
   def install
     ENV.deparallelize

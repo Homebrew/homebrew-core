@@ -1,17 +1,17 @@
 class Monetdb < Formula
   desc "Column-store database"
   homepage "https://www.monetdb.org/"
-  url "https://www.monetdb.org/downloads/sources/Nov2019-SP3/MonetDB-11.35.19.tar.xz"
-  sha256 "eaca588936532f189e6d3d0be4079f195ee5be20e2f8c5738566b75aa86c8f75"
+  url "https://www.monetdb.org/downloads/sources/Jun2020-SP1/MonetDB-11.37.11.tar.xz"
+  sha256 "3cadb3ea42aa6205678dd532756f5e9b6f47650f18463db83f16c8dc55a4325c"
 
   bottle do
-    sha256 "cae9fb599fc184c773d9b14f25f2e914ea41693562f1ec394e8f764fce425010" => :catalina
-    sha256 "6468a9874db95f65c7f607281c9494c5a184fe8d79382e9c4f4f6b4bce353e4a" => :mojave
-    sha256 "007f74508914b133980a4eef667ef15e12d6be2245ea028f217431da86ebd5df" => :high_sierra
+    sha256 "21b3726ec5e83c3ebd0089c0ffba9b612bf282569e46b4b8006d5c1d7da04ca5" => :catalina
+    sha256 "e7271dc72a2fbc95257db4d770bd6f2b764a60120d39137cdd0580183f97d2ea" => :mojave
+    sha256 "b2b72d85df319b66f74bbfefd3d47ca81ce0a76cd085344a0f9732ece2004451" => :high_sierra
   end
 
   head do
-    url "https://dev.monetdb.org/hg/MonetDB", :using => :hg
+    url "https://dev.monetdb.org/hg/MonetDB", using: :hg
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -42,6 +42,8 @@ class Monetdb < Formula
   end
 
   test do
-    assert_match "Usage", shell_output("#{bin}/mclient --help 2>&1")
+    # assert_match "Usage", shell_output("#{bin}/mclient --help 2>&1")
+    system("#{bin}/monetdbd", "create", "#{testpath}/dbfarm")
+    assert_predicate testpath/"dbfarm", :exist?
   end
 end

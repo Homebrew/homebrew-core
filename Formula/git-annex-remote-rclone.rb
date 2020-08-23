@@ -3,6 +3,7 @@ class GitAnnexRemoteRclone < Formula
   homepage "https://github.com/DanielDent/git-annex-remote-rclone"
   url "https://github.com/DanielDent/git-annex-remote-rclone/archive/v0.6.tar.gz"
   sha256 "fb9bb77c6dd30dad4966926af87f63be92ef442cfeabcfd02202c657f40439d0"
+  license "GPL-3.0"
 
   bottle :unneeded
 

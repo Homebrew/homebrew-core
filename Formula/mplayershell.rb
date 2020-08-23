@@ -3,6 +3,7 @@ class Mplayershell < Formula
   homepage "https://github.com/donmelton/MPlayerShell"
   url "https://github.com/donmelton/MPlayerShell/archive/0.9.3.tar.gz"
   sha256 "a1751207de9d79d7f6caa563a3ccbf9ea9b3c15a42478ff24f5d1e9ff7d7226a"
+  license "MIT"
   head "https://github.com/donmelton/MPlayerShell.git"
 
   bottle do
@@ -16,7 +17,7 @@ class Mplayershell < Formula
     sha256 "a95437813704c56c3e52bd1b17974bec24c209e26df8e9dfe07af45d51ecaf49" => :mavericks
   end
 
-  depends_on :xcode => :build
+  depends_on xcode: :build
 
   depends_on "mplayer"
 

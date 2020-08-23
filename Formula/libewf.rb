@@ -4,6 +4,7 @@ class Libewf < Formula
   # The main libewf repository is currently "experimental".
   url "https://github.com/libyal/libewf-legacy/releases/download/20140808/libewf-20140808.tar.gz"
   sha256 "dfe29b5f2f1841ff1fe11979780d710a660dbc4727af82ec391f398e6b49e5fd"
+  license "LGPL-3.0"
 
   bottle do
     cellar :any

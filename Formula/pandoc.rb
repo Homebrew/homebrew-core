@@ -1,19 +1,17 @@
-require "language/haskell"
-
 class Pandoc < Formula
-  include Language::Haskell::Cabal
-
   desc "Swiss-army knife of markup format conversion"
   homepage "https://pandoc.org/"
-  url "https://hackage.haskell.org/package/pandoc-2.9.2/pandoc-2.9.2.tar.gz"
-  sha256 "320d76bdaaafc88aa71167e527e79158b2184482cdc712aca66d30b33f5f3cb9"
+  url "https://hackage.haskell.org/package/pandoc-2.10.1/pandoc-2.10.1.tar.gz"
+  sha256 "938a4c9b0a7ed3de886c73af4052913b0ac9e4aa12b435bd2afd09670bd3229a"
+  license "GPL-2.0"
   head "https://github.com/jgm/pandoc.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "949ccbac7e6449b1a46e5127e584ff5523f5ec0c7a813a82d42c222597326dfd" => :catalina
-    sha256 "bbe146924e557a77da1cf14022460da030cb6cce0151f1830f4d4373049758cb" => :mojave
-    sha256 "a319ffdeeec5b1630a35c7cc61ae69337eb39ad735d1b6665a5cf8e6ab8783f6" => :high_sierra
+    rebuild 1
+    sha256 "720d055d2bdafbe818f50e186e710f7a8178719b56cfafa1d1948af16df7d7ea" => :catalina
+    sha256 "7174b62811cd4d4116bcb5edcfb55793f733e39ad79d8e8914a8b5e2c71f2b78" => :mojave
+    sha256 "ef823fe9876a5a6c3fe25db6b8dbca7b372320f7e6f5c5b224a7696acf5c397b" => :high_sierra
   end
 
   depends_on "cabal-install" => :build
@@ -23,9 +21,8 @@ class Pandoc < Formula
   uses_from_macos "zlib"
 
   def install
-    cabal_sandbox do
-      install_cabal_package :flags => ["embed_data_files"]
-    end
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
     (bash_completion/"pandoc").write `#{bin}/pandoc --bash-completion`
     man1.install "man/pandoc.1"
   end

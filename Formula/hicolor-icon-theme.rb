@@ -3,6 +3,7 @@ class HicolorIconTheme < Formula
   homepage "https://wiki.freedesktop.org/www/Software/icon-theme/"
   url "https://icon-theme.freedesktop.org/releases/hicolor-icon-theme-0.17.tar.xz"
   sha256 "317484352271d18cbbcfac3868eab798d67fff1b8402e740baa6ff41d588a9d8"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

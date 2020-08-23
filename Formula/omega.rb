@@ -1,15 +1,17 @@
 class Omega < Formula
   desc "Packaged search engine for websites, built on top of Xapian"
   homepage "https://xapian.org/"
-  url "https://oligarchy.co.uk/xapian/1.4.15/xapian-omega-1.4.15.tar.xz"
-  sha256 "c3112b920809a42a3b63ccaa17425b9a2f55f9a06a5091c402455fcf347fc3d2"
+  url "https://oligarchy.co.uk/xapian/1.4.16/xapian-omega-1.4.16.tar.xz"
+  sha256 "b4fbeb9922d84af42ba80c0258cd07d103fd7f56c719f147049aa84598557694"
+  license "GPL-2.0"
 
   bottle do
-    sha256 "74c6765d98613554c318770837e011e15ddb3ac9c0ab89ea9daf5222cadfb442" => :catalina
-    sha256 "b63722eb7af499fbf5a9d18000e73140f6e678f6b74b392ba211a28d9c927537" => :mojave
-    sha256 "fea9fe989568f59aeedd52eb6b0c39c26cb15f01eeb1b3013a79e14c0dee7c1f" => :high_sierra
+    sha256 "21def29541640883bd956e842a3370d9ac7dde45bd166add19ca83013f86189f" => :catalina
+    sha256 "5625e477813a8c7bd720e17416b6dd80faf959f5d7210c3262031ba30c3e1f6e" => :mojave
+    sha256 "ff44c076ce6ad71238f2293e35ad7c8fed610dfeb5eb15e8a52c0e68d9a0b62d" => :high_sierra
   end
 
+  depends_on "pkg-config" => :build
   depends_on "libmagic"
   depends_on "pcre"
   depends_on "xapian"

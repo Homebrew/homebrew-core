@@ -3,6 +3,7 @@ class GitOctopus < Formula
   homepage "https://github.com/lesfurets/git-octopus"
   url "https://github.com/lesfurets/git-octopus/archive/v1.4.tar.gz"
   sha256 "e2800eea829c6fc74da0d3f3fcb3f7d328d1ac8fbb7b2eca8c651c0c903a50c3"
+  license "LGPL-3.0"
 
   bottle do
     cellar :any_skip_relocation
@@ -31,6 +32,6 @@ class GitOctopus < Formula
     system "git", "add", "."
     system "git", "commit", "--message", "brewing"
 
-    assert_equal "", shell_output("#{bin}/git-octopus 2>&1", 0).strip
+    assert_equal "", shell_output("#{bin}/git-octopus 2>&1").strip
   end
 end

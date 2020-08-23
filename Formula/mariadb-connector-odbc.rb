@@ -1,14 +1,14 @@
 class MariadbConnectorOdbc < Formula
   desc "Database driver using the industry standard ODBC API"
   homepage "https://downloads.mariadb.org/connector-odbc/"
-  url "https://downloads.mariadb.org/f/connector-odbc-3.1.6/mariadb-connector-odbc-3.1.6-ga-src.tar.gz"
-  sha256 "fbad8430cc728609f4c6b0aac5acb27d0b0a1315be45fb697f9e16919b3cbb71"
+  url "https://downloads.mariadb.org/f/connector-odbc-3.1.9/mariadb-connector-odbc-3.1.9-ga-src.tar.gz"
+  sha256 "5ead3f69ccde539fd7e3de6f4b8f0e6f9f6c32b4b4f082adf0e2ff110971fe1e"
+  license "LGPL-2.1"
 
   bottle do
-    cellar :any
-    sha256 "5fd19dc3d304d20bfe9c20e57880eb07d5a687206c3ac02828bb6dc42f29b2a0" => :catalina
-    sha256 "31c692b9b55d557f35c9d543b8ff9d40bc1b7e251d03de00f0797cadb2d9cd9f" => :mojave
-    sha256 "641e2bd8da691dfa203fa925a3d89feaca715d724bd4cf75323b76a0675b1828" => :high_sierra
+    sha256 "339b4c5fa7121936bd5ed68e5d6c507400e43445bc46b63f6cea6212e047c66f" => :catalina
+    sha256 "4ba2a2852289ab5843bba747e84188d0c663d39129be4bb57ef23307ffc93261" => :mojave
+    sha256 "49f91ee3450c6650885b90efa9c07ca5d23f72fdd8a37387302cdf5c0ad548a9" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -33,7 +33,7 @@ class MariadbConnectorOdbc < Formula
   end
 
   test do
-    output = shell_output("#{Formula["unixodbc"].opt_bin}/dltest #{lib}/libmaodbc.dylib")
-    assert_equal "SUCCESS: Loaded #{lib}/libmaodbc.dylib", output.chomp
+    output = shell_output("#{Formula["unixodbc"].opt_bin}/dltest #{lib}/mariadb/libmaodbc.dylib")
+    assert_equal "SUCCESS: Loaded #{lib}/mariadb/libmaodbc.dylib", output.chomp
   end
 end

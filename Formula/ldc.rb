@@ -3,7 +3,8 @@ class Ldc < Formula
   homepage "https://wiki.dlang.org/LDC"
   url "https://github.com/ldc-developers/ldc/releases/download/v1.20.1/ldc-1.20.1-src.tar.gz"
   sha256 "2b21dfffb6efd2c2158bc83422765335aae34b709ebdc406bb026c21967a1aaf"
-  head "https://github.com/ldc-developers/ldc.git", :shallow => false
+  license "BSD-3-Clause"
+  head "https://github.com/ldc-developers/ldc.git", shallow: false
 
   bottle do
     sha256 "122d9a37cccbd671d223a2ce683ad141489633d2f11fa8f662635f6ba4a49027" => :catalina
@@ -14,6 +15,12 @@ class Ldc < Formula
   depends_on "cmake" => :build
   depends_on "libconfig" => :build
   depends_on "llvm"
+
+  uses_from_macos "libxml2" => :build
+
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
 
   resource "ldc-bootstrap" do
     url "https://github.com/ldc-developers/ldc/releases/download/v1.20.1/ldc2-1.20.1-osx-x86_64.tar.xz"

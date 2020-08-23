@@ -2,15 +2,17 @@ class Openrct2 < Formula
   desc "Open source re-implementation of RollerCoaster Tycoon 2"
   homepage "https://openrct2.io/"
   url "https://github.com/OpenRCT2/OpenRCT2.git",
-      :tag      => "v0.2.4",
-      :revision => "d645338752fbda54bed2cf2a4183ae8b44be6e95"
-  head "https://github.com/OpenRCT2/OpenRCT2.git", :branch => "develop"
+      tag:      "v0.2.6",
+      revision: "6c3c857dfa5cd0d267b89a9d70930fbacdfbaea4"
+  license "GPL-3.0"
+  revision 2
+  head "https://github.com/OpenRCT2/OpenRCT2.git", branch: "develop"
 
   bottle do
     cellar :any
-    sha256 "40527c354be56c735286b5a9a5e8f7d58de0d510190e0a1da09da552a44f877a" => :catalina
-    sha256 "0aba8b54f6f4d5022c3a2339bbb12dd8bd3ada5894e9bdc0a2cfeb973facca63" => :mojave
-    sha256 "6065b8ac863f4634f38d51dc444c2b68a361b1e9135b959c1be23321976f821d" => :high_sierra
+    sha256 "b77f8f232b8af2d615734f94c43b60bebc656c3dacdd1ad50a3b31b7f3e945e0" => :catalina
+    sha256 "2f9f44ee3c1f9b60b32a60cb40b8a1eabbcddad89d8a3c6c37a04fa41c799493" => :mojave
+    sha256 "50f6ea68a2265b15ee444ffe1ed624d3ff3cfee98fc914cac148d42b6232d920" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -20,20 +22,20 @@ class Openrct2 < Formula
   depends_on "jansson"
   depends_on "libpng"
   depends_on "libzip"
-  depends_on :macos => :high_sierra # "missing: Threads_FOUND" on Sierra
+  depends_on macos: :high_sierra # "missing: Threads_FOUND" on Sierra
   depends_on "openssl@1.1"
   depends_on "sdl2"
   depends_on "sdl2_ttf"
   depends_on "speexdsp"
 
   resource "title-sequences" do
-    url "https://github.com/OpenRCT2/title-sequences/releases/download/v0.1.2a/title-sequence-v0.1.2a.zip"
-    sha256 "7536dbd7c8b91554306e5823128f6bb7e94862175ef09d366d25e4bce573d155"
+    url "https://github.com/OpenRCT2/title-sequences/releases/download/v0.1.2c/title-sequences.zip"
+    sha256 "5284333fa501270835b5f0cf420cb52155742335f5658d7889ea35d136b52517"
   end
 
   resource "objects" do
-    url "https://github.com/OpenRCT2/objects/releases/download/v1.0.10/objects.zip"
-    sha256 "4f261964f1c01a04b7600d3d082fb4d3d9ec0d543c4eb66a819eb2ad01417aa0"
+    url "https://github.com/OpenRCT2/objects/releases/download/v1.0.14/objects.zip"
+    sha256 "574477ddcdfdd4d827ce1a0fbc4971cbb56df561dcfff7151c62a9878d3bbb54"
   end
 
   def install

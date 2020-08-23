@@ -1,19 +1,19 @@
 class Ghostscript < Formula
   desc "Interpreter for PostScript and PDF"
   homepage "https://www.ghostscript.com/"
-  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs951/ghostpdl-9.51.tar.gz"
-  sha256 "f0a6aab8c10f681f499b77dc2827978d2a0f93437f2b50f2b101a0eb9ee8bc28"
-  revision 1
+  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs952/ghostpdl-9.52.tar.gz"
+  sha256 "8f6e48325c106ae033bbae3e55e6c0b9ee5c6b57e54f7cd24fb80a716a93b06a"
+  license "AGPL-3.0"
 
   bottle do
-    sha256 "d41745337c5e65765a65db3d9695fc1da7b268780a4907c9b455b71ae99b5973" => :catalina
-    sha256 "265140d1033ea66ec8442b156e7b223c2d4c2cb5a90314c53e5e244f7781a80c" => :mojave
-    sha256 "c098b0d348b448ca0232811b4c3d76a61ace904628a699c23534b8d13a1c8082" => :high_sierra
+    sha256 "8cd0efa1e5525f849be3ee1e50e1635b99667cb4d1eb6c3002a45378346882f4" => :catalina
+    sha256 "8906a4dbf2513963a4710f351e3426622c259bd888c760e4c08a9436860b4014" => :mojave
+    sha256 "cd5e55d0429d7e88ba2d580e79934c157d5bd2981d71a7f40db4573abe79af67" => :high_sierra
   end
 
   head do
     # Can't use shallow clone. Doing so = fatal errors.
-    url "https://git.ghostscript.com/ghostpdl.git", :shallow => false
+    url "https://git.ghostscript.com/ghostpdl.git", shallow: false
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -23,6 +23,11 @@ class Ghostscript < Formula
   depends_on "pkg-config" => :build
   depends_on "libtiff"
 
+  on_linux do
+    depends_on "fontconfig"
+    depends_on "libidn"
+  end
+
   # https://sourceforge.net/projects/gs-fonts/
   resource "fonts" do
     url "https://downloads.sourceforge.net/project/gs-fonts/gs-fonts/8.11%20%28base%2035%2C%20GPL%29/ghostscript-fonts-std-8.11.tar.gz"
@@ -30,18 +35,6 @@ class Ghostscript < Formula
   end
 
   patch :DATA # Uncomment macOS-specific make vars
-
-  # This patch fixes a regression that seems to occur when Ghostscript is told
-  # to render a subset of PDF pages as images, such as with the arguments
-  # -dFirstPage and -dLastPage. Programs that use Ghostscript as a PDF backend
-  # often use these arguments. If not applied, there will be seg faults,
-  # floating point exceptions and other undefined behavior.
-  # This should be removed in Ghostscript 9.52, as we are cherrypicking this
-  # from the master branch of changes that will appear in 9.52.
-  patch do
-    url "https://git.ghostscript.com/?p=ghostpdl.git;a=patch;h=aaf5edb15fceaae962569bae30eb4633480c1d15"
-    sha256 "bdf9741c7b8a069a523e9a7f2736af21469989b8332148a8bd3682085346c662"
-  end
 
   def install
     args = %W[

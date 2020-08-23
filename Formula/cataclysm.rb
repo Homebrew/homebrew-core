@@ -1,25 +1,23 @@
 class Cataclysm < Formula
   desc "Fork/variant of Cataclysm Roguelike"
   homepage "https://github.com/CleverRaven/Cataclysm-DDA"
-  url "https://github.com/CleverRaven/Cataclysm-DDA/archive/0.D.tar.gz"
-  version "0.D"
-  sha256 "6cc97b3e1e466b8585e8433a6d6010931e9a073f6ec060113161b38052d82882"
-  revision 1
+  url "https://github.com/CleverRaven/Cataclysm-DDA/archive/0.E.tar.gz"
+  version "0.E"
+  sha256 "b0af9a9292929e17332edcea770bca9a91f1d08ea47726d78a47e09281a42fa3"
+  license "CC-BY-SA-3.0"
   head "https://github.com/CleverRaven/Cataclysm-DDA.git"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "e4709c4d9b01f108913de4c3cf8c3dafe0cdd490dbfa54f623755f98d6464bb3" => :catalina
-    sha256 "192f052d4474364cf61fdb920329dbd5ac1ca2a81f8f8d10be2dad22bd41d96b" => :mojave
-    sha256 "68a5e83bc0ff554b9b74d5062b93ad9a313c2e9e448ef1a02c1c2799eb8a9134" => :high_sierra
+    sha256 "bbd96abbc2ac1ddfabb2ab2febff1b0653d95210b84e6ea8a1dec73a530d8647" => :catalina
+    sha256 "c2c44f2a965153e4258c8c3daf6772bd7f5c9935320d2e1975cb63fb6909f095" => :mojave
+    sha256 "1eb07ba0e992116ae94d8b380d520139d686997e6700834f2db4bb1cded1401f" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "libogg"
   depends_on "libvorbis"
-  depends_on "lua" unless build.head?
   depends_on "sdl2"
   depends_on "sdl2_image"
   depends_on "sdl2_mixer"
@@ -39,13 +37,11 @@ class Cataclysm < Formula
     ]
 
     args << "CLANG=1" if ENV.compiler == :clang
-    args << "LUA=1" if build.stable?
 
     system "make", *args
 
     # no make install, so we have to do it ourselves
     libexec.install "cataclysm-tiles", "data", "gfx"
-    libexec.install "lua" if build.stable?
 
     inreplace "cataclysm-launcher" do |s|
       s.change_make_var! "DIR", libexec

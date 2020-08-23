@@ -3,6 +3,7 @@ class Mawk < Formula
   homepage "https://invisible-island.net/mawk/"
   url "https://invisible-mirror.net/archives/mawk/mawk-1.3.4-20200120.tgz"
   sha256 "7fd4cd1e1fae9290fe089171181bbc6291dfd9bca939ca804f0ddb851c8b8237"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

@@ -3,6 +3,7 @@ class MecabKoDic < Formula
   homepage "https://bitbucket.org/eunjeon/mecab-ko-dic"
   url "https://bitbucket.org/eunjeon/mecab-ko-dic/downloads/mecab-ko-dic-1.6.1-20140814.tar.gz"
   sha256 "251fb141f2e96d34ea62f557c146ab0615dea67502cce8811d408309f182cfb7"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

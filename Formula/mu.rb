@@ -1,19 +1,18 @@
 # Note that odd release numbers indicate unstable releases.
-# Please only submit PRs for [x.x.even] version numbers:
+# Please only submit PRs for [x.even.x] version numbers:
 # https://github.com/djcb/mu/commit/23f4a64bdcdee3f9956a39b9a5a4fd0c5c2370ba
 class Mu < Formula
   desc "Tool for searching e-mail messages stored in the maildir-format"
   homepage "https://www.djcbsoftware.nl/code/mu/"
-  url "https://github.com/djcb/mu/releases/download/1.2/mu-1.2.0.tar.xz"
-  sha256 "f634c7f244dc6844ff71dc3c3e1893e48e193caa9e0e747eba616309775f053a"
-  revision 1
+  url "https://github.com/djcb/mu/archive/1.4.13.tar.gz"
+  sha256 "8856465501dccd9101eda1a29bedada010e6ff828c9d922f1abe86b152a2741b"
+  license "GPL-3.0-or-later"
 
   bottle do
     cellar :any
-    sha256 "c2b2f55ab9d1743afcece35be56a8dece9dbc8a970c19fdd15c36da2c5581dc9" => :catalina
-    sha256 "a8c766c5cfa0951ea3a683ddac460e2c66daa231fb586c2b73f91ddabccdb798" => :mojave
-    sha256 "b005381a23edee1bd9a7f02d5dae3cf4bb4e3bdfb494c17e0b44a817af40dd3a" => :high_sierra
-    sha256 "3cdc7db8c5adafc23cdce44aa0592afe203d770d4c1e226a5bf9e6243b9ed3ff" => :sierra
+    sha256 "c2db643c69aaae50c5127dafd2018de2239c344c2b3a1cacb80cdb77d3710469" => :catalina
+    sha256 "c547ba5d0d7272e92a75c0c4476979b4e56066c6e1c5b98eff408bc5f87f7d8a" => :mojave
+    sha256 "a7f8c294053aa05cfe1942361471f4f27cf0c2631940952d44ebe1c6455adab0" => :high_sierra
   end
 
   head do
@@ -33,6 +32,8 @@ class Mu < Formula
   depends_on "gmime"
   depends_on "xapian"
 
+  uses_from_macos "texinfo" => :build
+
   def install
     system "autoreconf", "-ivf"
     system "./configure", "--disable-dependency-tracking",
@@ -40,14 +41,6 @@ class Mu < Formula
                           "--with-lispdir=#{elisp}"
     system "make"
     system "make", "install"
-  end
-
-  def caveats
-    <<~EOS
-      Existing mu users are recommended to run the following after upgrading:
-
-        mu index --rebuild
-    EOS
   end
 
   # Regression test for:
@@ -76,12 +69,10 @@ class Mu < Formula
       This used to happen outdoors. It was more fun then.
     EOS
 
-    system "#{bin}/mu", "index",
-                        "--muhome",
-                        testpath,
-                        "--maildir=#{testpath}"
+    system "#{bin}/mu", "init", "--muhome=#{testpath}", "--maildir=#{testpath}"
+    system "#{bin}/mu", "index", "--muhome=#{testpath}"
 
-    mu_find = "#{bin}/mu find --muhome #{testpath} "
+    mu_find = "#{bin}/mu find --muhome=#{testpath} "
     find_message = "#{mu_find} msgid:2222222222@example.com"
     find_message_and_related = "#{mu_find} --include-related msgid:2222222222@example.com"
 

@@ -1,23 +1,21 @@
 class Ultralist < Formula
   desc "Simple GTD-style task management for the command-line"
   homepage "https://ultralist.io"
-  url "https://github.com/ultralist/ultralist/archive/0.9.4.tar.gz"
-  sha256 "fde0d3c7b1ba398944b01b55eddd16c2163d61c3c478528c4c36abd643fe76ad"
+  url "https://github.com/ultralist/ultralist/archive/1.2.tar.gz"
+  sha256 "6681e614f9accb9e49ff3bf5a868596e1a84a4f73ca3f33de5ce6a56e3165805"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3b1cdeef18209fcd4b3c45cfe91443416a9c21aa94b0b5125fc27716ae775c81" => :catalina
-    sha256 "1a25d3fa74c7e6fbb282e605f0f8017f4e511e2a4a49dccfc3621aa515b2deee" => :mojave
-    sha256 "78bc87822af37101d4697b1cafcfb1e089f5d4ab8b14bd850144ce16e971cd13" => :high_sierra
+    sha256 "4f61abba8aa23b0f0f19f0c83f587e1272cf460d64853f37ffacb88781456362" => :catalina
+    sha256 "bfaa61ef4c225b7b6f753aa7c25c2d4cda54c7e79aaad43cacf5e1b930951f88" => :mojave
+    sha256 "f86a874044ccbd3e33f4ee60786501f09c48c46f7c45a2e91ca22497b3dc981a" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/ultralist/").mkpath
-    ln_s buildpath, buildpath/"src/github.com/ultralist/ultralist"
-    system "go", "build", "-o", bin/"ultralist", "./src/github.com/ultralist/ultralist"
+    system "go", "build", *std_go_args
   end
 
   test do

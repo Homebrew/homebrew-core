@@ -3,6 +3,7 @@ class Sickle < Formula
   homepage "https://github.com/najoshi/sickle"
   url "https://github.com/najoshi/sickle/archive/v1.33.tar.gz"
   sha256 "eab271d25dc799e2ce67c25626128f8f8ed65e3cd68e799479bba20964624734"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
@@ -28,6 +29,6 @@ class Sickle < Formula
       IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII0000000000
     EOS
     cmd = "#{bin}/sickle se -f test.fastq -t sanger -o /dev/stdout"
-    assert_equal "GTGTC\n", shell_output(cmd).lines[1][-6..-1]
+    assert_equal "GTGTC\n", shell_output(cmd).lines[1][-6..]
   end
 end

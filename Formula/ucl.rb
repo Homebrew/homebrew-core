@@ -3,6 +3,7 @@ class Ucl < Formula
   homepage "https://www.oberhumer.com/opensource/ucl/"
   url "https://www.oberhumer.com/opensource/ucl/download/ucl-1.03.tar.gz"
   sha256 "b865299ffd45d73412293369c9754b07637680e5c826915f097577cd27350348"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation
@@ -25,7 +26,7 @@ class Ucl < Formula
   test do
     (testpath/"test.c").write <<~EOS
       // simplified version of
-      // https://github.com/korczis/ucl/blob/master/examples/simple.c
+      // https://github.com/korczis/ucl/blob/HEAD/examples/simple.c
       #include <stdio.h>
       #include <ucl/ucl.h>
       #include <ucl/uclconf.h>

@@ -4,6 +4,7 @@ class M4 < Formula
   url "https://ftp.gnu.org/gnu/m4/m4-1.4.18.tar.xz"
   mirror "https://ftpmirror.gnu.org/m4/m4-1.4.18.tar.xz"
   sha256 "f2c1e86ca0a404ff281631bdc8377638992744b175afb806e25871a24a934e07"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation

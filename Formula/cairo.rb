@@ -3,17 +3,17 @@ class Cairo < Formula
   homepage "https://cairographics.org/"
   url "https://cairographics.org/releases/cairo-1.16.0.tar.xz"
   sha256 "5e7b29b3f113ef870d1e3ecf8adf21f923396401604bda16d44be45e66052331"
-  revision 2
+  license "LGPL-2.1"
+  revision 3
 
   bottle do
-    sha256 "5fb8b876c66a0b1aaa7f3faedde3803ff4de43c0f5f9244c7d433b43ead1196c" => :catalina
-    sha256 "fcda779381271541f623470a74b8b0164f1e83c9154b7b7f4ed23038aac3f5d6" => :mojave
-    sha256 "e9d0d9800f39390a379a2a8b86ab2222c6e21b03fe8b08a3ca6c493c2577255d" => :high_sierra
-    sha256 "77b1e651611de729ee08eb29037b8909e67603f3ab420a54ece1a893d4d449f5" => :sierra
+    sha256 "6a23a68837269a8410a54950fdc8883feda091f221118370f1bfd3adbf5ee89c" => :catalina
+    sha256 "0984045234fb22fa3e54a337137e9e43a1bf997f5d77692ed02249dfdee2b1bf" => :mojave
+    sha256 "5c383ad4625fb1bd15e44e99fba1201490fa478b26178abaca5abb0fdb51510e" => :high_sierra
   end
 
   head do
-    url "https://anongit.freedesktop.org/git/cairo", :using => :git
+    url "https://anongit.freedesktop.org/git/cairo.git"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
@@ -26,6 +26,8 @@ class Cairo < Formula
   depends_on "libpng"
   depends_on "lzo"
   depends_on "pixman"
+
+  uses_from_macos "zlib"
 
   def install
     if build.head?

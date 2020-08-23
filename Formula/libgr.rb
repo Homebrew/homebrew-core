@@ -1,16 +1,17 @@
 class Libgr < Formula
   desc "GR framework: a graphics library for visualisation applications"
   homepage "https://gr-framework.org/"
-  url "https://github.com/sciapp/gr/archive/v0.48.0.tar.gz"
-  sha256 "05c45dc79f5089268fd524925d5a7950cc95f86f05b2c13e66ebe65e5ae53c51"
+  url "https://github.com/sciapp/gr/archive/v0.51.2.tar.gz"
+  sha256 "e6a3d0ed911f6e59cc2293b5694ee18a0620849e666143870a9eda71c02bb833"
+  license "MIT"
 
   bottle do
-    sha256 "007cfa90b2680c0cf8d33c20203b60605c0c832247301028ccfb75b98ddfa525" => :catalina
-    sha256 "17d7971225ff673c89a59f09bca3ce453e10982371c99b1e2a267486db6df4a4" => :mojave
-    sha256 "666b0a38c38adb0ea17f0d81c89f0dc92efd97b641854b1a0f98f1e35b017925" => :high_sierra
+    sha256 "ac5472cbb7e312c22bc5048b472cd763c271866ad3e4c369bdb9b822e3b1dd92" => :catalina
+    sha256 "941e72407cdbc7e193cfa6eaeb9bf6e0a497fed2b853df2d5537042776bba298" => :mojave
+    sha256 "923de166a7fbf4bf8d15a85eac94f795cd6a5563c3a3d0acaf157823d65539f1" => :high_sierra
   end
 
-  depends_on :xcode => :build
+  depends_on xcode: :build
   depends_on "cairo"
   depends_on "glfw"
   depends_on "libtiff"

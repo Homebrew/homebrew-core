@@ -65,11 +65,12 @@ class Cppcms < Formula
       }
     EOS
 
+    port = free_port
     (testpath/"config.json").write <<~EOS
       {
           "service" : {
               "api" : "http",
-              "port" : 8080,
+              "port" : #{port},
               "worker_threads": 1
           },
           "daemon" : {
@@ -86,7 +87,7 @@ class Cppcms < Formula
 
     sleep 1 # grace time for server start
     begin
-      assert_match(/Hello World/, shell_output("curl http://127.0.0.1:8080/hello"))
+      assert_match(/Hello World/, shell_output("curl http://127.0.0.1:#{port}/hello"))
     ensure
       Process.kill 9, pid
       Process.wait pid

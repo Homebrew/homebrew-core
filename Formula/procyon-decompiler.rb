@@ -9,6 +9,9 @@ class ProcyonDecompiler < Formula
 
   depends_on "openjdk"
 
+  # bitbucket repo was removed
+  disable!
+
   def install
     libexec.install "procyon-decompiler-#{version}.jar"
     (bin/"procyon-decompiler").write <<~EOS

@@ -17,7 +17,7 @@ class Gtkx < Formula
   end
 
   head do
-    url "https://gitlab.gnome.org/GNOME/gtk.git", :branch => "gtk-2-24"
+    url "https://gitlab.gnome.org/GNOME/gtk.git", branch: "gtk-2-24"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

@@ -3,6 +3,7 @@ class Wapm < Formula
   homepage "https://wapm.io/"
   url "https://github.com/wasmerio/wapm-cli/archive/v0.5.0.tar.gz"
   sha256 "7731d476585105fbb0ac5766661b4b68f1680b7071635654042bdaeef3b66987"
+  license "MIT"
   head "https://github.com/wasmerio/wapm-cli.git"
 
   bottle do
@@ -16,7 +17,7 @@ class Wapm < Formula
   depends_on "wasmer" => :test
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", *std_cargo_args
   end
 
   test do

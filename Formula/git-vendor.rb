@@ -3,6 +3,7 @@ class GitVendor < Formula
   homepage "https://brettlangdon.github.io/git-vendor"
   url "https://github.com/brettlangdon/git-vendor/archive/v1.1.2.tar.gz"
   sha256 "1ae2c12ae535669d0f65d297f5ff79d36d37dabf372feb6bda3f7856cf14ef97"
+  license "MIT"
   head "https://github.com/brettlangdon/git-vendor.git"
 
   bottle do

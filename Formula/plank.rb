@@ -3,6 +3,8 @@ class Plank < Formula
   homepage "https://pinterest.github.io/plank/"
   url "https://github.com/pinterest/plank/archive/v1.6.tar.gz"
   sha256 "6a233120905ff371b5c06a23b3fc7dd67e96355dd4d992a58ac087db22c500ef"
+  license "Apache-2.0"
+  head "https://github.com/pinterest/plank.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -10,7 +12,7 @@ class Plank < Formula
     sha256 "04d2dddb094914fa219304fea8f6e5aa3315c2e51b63ef4077fcf25a54c8b268" => :mojave
   end
 
-  depends_on :xcode => ["11.3", :build]
+  depends_on xcode: ["11.3", :build]
 
   def install
     system "make", "install", "PREFIX=#{prefix}"

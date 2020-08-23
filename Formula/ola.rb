@@ -3,13 +3,14 @@ class Ola < Formula
   homepage "https://www.openlighting.org/ola/"
   url "https://github.com/OpenLightingProject/ola/releases/download/0.10.7/ola-0.10.7.tar.gz"
   sha256 "8a65242d95e0622a3553df498e0db323a13e99eeb1accc63a8a2ca8913ab31a0"
-  revision 3
+  license "GPL-2.0"
+  revision 4
   head "https://github.com/OpenLightingProject/ola.git"
 
   bottle do
-    sha256 "c79b3dbe1896a6b78241401fbef0383d11259a67119d59cc6f8da4244e931c4c" => :catalina
-    sha256 "7bfdb6292c1902de7307dc331948ea6de67e54ff38ebb0377dd75cebc4a8be94" => :mojave
-    sha256 "ccbca5c750d2726eef78b4aa34a20c0c9f88f9b8a9f2840d6e6f12654de0e340" => :high_sierra
+    sha256 "350f7200c8bf51cc0d71e6088142a14104b4574f1968faa61acf3a0fa56ac267" => :catalina
+    sha256 "56e441f86ce6fc1a13281ceed57d02083704f68a5cbae19df80ac96e9f685f2e" => :mojave
+    sha256 "27661bfe7dcc570ba2eee7fc92be48c8bb740daed4aa4e7a4dfda395a141c99f" => :high_sierra
   end
 
   depends_on "autoconf" => :build
@@ -21,7 +22,7 @@ class Ola < Formula
   depends_on "libusb"
   depends_on "numpy"
   depends_on "protobuf@3.6"
-  depends_on "python"
+  depends_on "python@3.8"
 
   # remove in version 0.11
   patch do
@@ -30,8 +31,9 @@ class Ola < Formula
   end
 
   def install
-    protobuf_pth = Formula["protobuf@3.6"].opt_lib/"python3.7/site-packages/homebrew-protobuf.pth"
-    (buildpath/".brew_home/Library/Python/3.7/lib/python/site-packages").install_symlink protobuf_pth
+    xy = Language::Python.major_minor_version Formula["python@3.8"].bin/"python3"
+    protobuf_pth = Formula["protobuf@3.6"].opt_lib/"python#{xy}/site-packages/homebrew-protobuf.pth"
+    (buildpath/".brew_home/Library/Python/#{xy}/lib/python/site-packages").install_symlink protobuf_pth
 
     args = %W[
       --disable-fatal-warnings
@@ -43,7 +45,7 @@ class Ola < Formula
       --enable-rdm-tests
     ]
 
-    ENV["PYTHON"] = "python3"
+    ENV["PYTHON"] = Formula["python@3.8"].bin/"python3"
     system "autoreconf", "-fvi"
     system "./configure", *args
     system "make", "install"

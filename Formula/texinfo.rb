@@ -4,6 +4,7 @@ class Texinfo < Formula
   url "https://ftp.gnu.org/gnu/texinfo/texinfo-6.7.tar.xz"
   mirror "https://ftpmirror.gnu.org/texinfo/texinfo-6.7.tar.xz"
   sha256 "988403c1542d15ad044600b909997ba3079b10e03224c61188117f3676b02caa"
+  license "GPL-3.0"
 
   bottle do
     sha256 "0686381d97b0448c10d11eaba59722c029d17c8423c17ad524b76ec086790f44" => :catalina
@@ -13,13 +14,10 @@ class Texinfo < Formula
 
   depends_on "gettext" if MacOS.version <= :high_sierra
 
+  keg_only :provided_by_macos
+
   uses_from_macos "ncurses"
   uses_from_macos "perl"
-
-  keg_only :provided_by_macos, <<~EOS
-    software that uses TeX, such as lilypond and octave, require a newer
-    version of these files
-  EOS
 
   def install
     system "./configure", "--disable-dependency-tracking",

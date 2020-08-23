@@ -1,18 +1,17 @@
 class Pachi < Formula
   desc "Software for the Board Game of Go/Weiqi/Baduk"
   homepage "https://pachi.or.cz/"
-  url "https://github.com/pasky/pachi/archive/pachi-12.40.tar.gz"
-  sha256 "f523d23aa855f78a171df334b9712bca540d3ef4ef69b7306b84e4c35446d097"
+  url "https://github.com/pasky/pachi/archive/pachi-12.50.tar.gz"
+  sha256 "62c8d44bd4610fe9534a1f21bb092da209c9fb8dcb8d39558d79adabe31e740a"
+  license "GPL-2.0"
   head "https://github.com/pasky/pachi.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "68178d442f276e166ee301a8e92531c9dc13e338af3f1cf7ec645287a015cef1" => :catalina
-    sha256 "eb9d538220d7b2e18242db23ef2ab568d4e139b57c6d4ee1ac1f0b63a2c58f50" => :mojave
-    sha256 "f8e699003d58a6b8da8401ba6ed75228448b7922c0de6f1fc23db655cd61e2f0" => :high_sierra
+    sha256 "e1cac19564a176a50d27f08b4e395a53ff4144dc17fd93dcaa013adfc8cca83a" => :catalina
+    sha256 "76edc1b521dfb93e8c6573b689c8bc5a01103888f2f7310fd46aa53d8b6ea0dc" => :mojave
+    sha256 "476509041b907edfd0380bc91a3fd4fc41b359bae58524ab4ab8017df4f61fe0" => :high_sierra
   end
-
-  fails_with :clang if MacOS.version == :mavericks
 
   resource "patterns" do
     url "https://sainet-dist.s3.amazonaws.com/pachi_patterns.zip"
@@ -27,6 +26,11 @@ class Pachi < Formula
   def install
     ENV["MAC"] = "1"
     ENV["DOUBLE_FLOATING"] = "1"
+
+    # Work around Xcode 11 clang bug
+    if DevelopmentTools.clang_build_version >= 1010
+      inreplace "Makefile", "CFLAGS       :=", "CFLAGS := -fno-stack-check"
+    end
 
     # https://github.com/pasky/pachi/issues/78
     inreplace "Makefile", "build.h: .git/HEAD .git/index", "build.h:"

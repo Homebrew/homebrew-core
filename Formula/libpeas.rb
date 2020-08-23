@@ -3,11 +3,12 @@ class Libpeas < Formula
   homepage "https://developer.gnome.org/libpeas/stable/"
   url "https://download.gnome.org/sources/libpeas/1.26/libpeas-1.26.0.tar.xz"
   sha256 "a976d77e20496479a8e955e6a38fb0e5c5de89cf64d9f44e75c2213ee14f7376"
+  revision 2
 
   bottle do
-    sha256 "ca5e8f34c01f0978fb82601876a7e673fde22286cff4ab74dda6ab90774fe38a" => :catalina
-    sha256 "c71f368ce3be0f671cf37f461fba6a7ace93afb62e33b9a43efe8543d2f1e486" => :mojave
-    sha256 "c9fcb8d322d5479a50fb13b943c367518b99d5f66d1719df527295988f160af0" => :high_sierra
+    sha256 "814ed5d3d4c27c2d831c5e2f4cd632283707e9e558d80bc61770a441abd8da0b" => :catalina
+    sha256 "e31b60a59aa04040766e6220bf732532e843e048fe197a87e82d217e79ac77b7" => :mojave
+    sha256 "ec9c9f97d99a774219e1cb280592264d90ceee1b4294c602d90df05f6694711b" => :high_sierra
   end
 
   depends_on "meson" => :build
@@ -18,11 +19,10 @@ class Libpeas < Formula
   depends_on "gobject-introspection"
   depends_on "gtk+3"
   depends_on "pygobject3"
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
-    args = %W[
-      --prefix=#{prefix}
+    args = std_meson_args + %w[
       -Dpython3=true
       -Dintrospection=true
       -Dvapi=true

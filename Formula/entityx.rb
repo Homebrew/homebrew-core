@@ -3,6 +3,7 @@ class Entityx < Formula
   homepage "https://github.com/alecthomas/entityx"
   url "https://github.com/alecthomas/entityx/archive/1.3.0.tar.gz"
   sha256 "2cd56d4fc5c553b786b8caf0b5bd9231434f21d43ca0e963d3bc5ee503a06222"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

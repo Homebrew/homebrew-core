@@ -4,6 +4,7 @@ class Lzop < Formula
   url "https://dl.bintray.com/homebrew/mirror/lzop-1.04.tar.gz"
   mirror "https://www.lzop.org/download/lzop-1.04.tar.gz"
   sha256 "7e72b62a8a60aff5200a047eea0773a8fb205caf7acbe1774d95147f305a2f41"
+  license "GPL-2.0"
 
   bottle do
     cellar :any

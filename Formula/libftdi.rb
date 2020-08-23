@@ -1,20 +1,20 @@
 class Libftdi < Formula
   desc "Library to talk to FTDI chips"
   homepage "https://www.intra2net.com/en/developer/libftdi"
-  url "https://www.intra2net.com/en/developer/libftdi/download/libftdi1-1.4.tar.bz2"
-  sha256 "ec36fb49080f834690c24008328a5ef42d3cf584ef4060f3a35aa4681cb31b74"
-  revision 2
+  url "https://www.intra2net.com/en/developer/libftdi/download/libftdi1-1.5.tar.bz2"
+  sha256 "7c7091e9c86196148bd41177b4590dccb1510bfe6cea5bf7407ff194482eb049"
 
   bottle do
     cellar :any
-    sha256 "6bac331af0d1516b3f5cd2b27f8b4ae78647f371f3903b9b9f89aad29963ef1f" => :catalina
-    sha256 "31f0705e5764462ac4e447966bf295db5655fd5b032ad984538883a2f952d4eb" => :mojave
-    sha256 "40aa8fcdecc3af1859fd3fba4bd344b26d8b9746712d6cbc1291a2518451d2fb" => :high_sierra
+    sha256 "2ac29fc67dacd7c6e2c73e93114019d0df07aaeac7678c74402289d91d128d00" => :catalina
+    sha256 "e267d6e573aad2f1372f5731bf2be30177d5b4feb6c30b0ac96b8933f545983a" => :mojave
+    sha256 "5610431987b6b03db32ebed2c24b5007ffad77343cee35bfd23ed93470539846" => :high_sierra
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "swig" => :build
+  depends_on "confuse"
   depends_on "libusb"
 
   def install

@@ -3,6 +3,7 @@ class MysqlAT56 < Formula
   homepage "https://dev.mysql.com/doc/refman/5.6/en/"
   url "https://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.47.tar.gz"
   sha256 "0919096705784c62af831bb607e99345083edd76967c8c65966728742a9127fe"
+  license "GPL-2.0"
 
   bottle do
     sha256 "3ae76dae15820186fc74aef54f6365a55e19abc7c6d7826db5a1c774b9d9c759" => :catalina
@@ -107,7 +108,7 @@ class MysqlAT56 < Formula
     EOS
   end
 
-  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/mysql@5.6/bin/mysql.server start"
+  plist_options manual: "#{HOMEBREW_PREFIX}/opt/mysql@5.6/bin/mysql.server start"
 
   def plist
     <<~EOS
@@ -139,12 +140,13 @@ class MysqlAT56 < Formula
     system bin/"mysql_install_db", "--user=#{ENV["USER"]}",
     "--basedir=#{prefix}", "--datadir=#{dir}", "--tmpdir=#{dir}"
 
+    port = free_port
     pid = fork do
-      exec bin/"mysqld", "--datadir=#{dir}"
+      exec bin/"mysqld", "--datadir=#{dir}", "--port=#{port}"
     end
     sleep 2
 
-    output = shell_output("curl 127.0.0.1:3306")
+    output = shell_output("curl 127.0.0.1:#{port}")
     output.force_encoding("ASCII-8BIT") if output.respond_to?(:force_encoding)
     assert_match version.to_s, output
   ensure

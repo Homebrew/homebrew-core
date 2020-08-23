@@ -3,6 +3,7 @@ class NetSnmp < Formula
   homepage "http://www.net-snmp.org/"
   url "https://downloads.sourceforge.net/project/net-snmp/net-snmp/5.8/net-snmp-5.8.tar.gz"
   sha256 "b2fc3500840ebe532734c4786b0da4ef0a5f67e51ef4c86b3345d697e4976adf"
+  license "Net-SNMP"
   revision 1
 
   bottle do

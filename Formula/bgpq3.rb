@@ -3,6 +3,7 @@ class Bgpq3 < Formula
   homepage "http://snar.spb.ru/prog/bgpq3/"
   url "https://github.com/snar/bgpq3/archive/v0.1.35.tar.gz"
   sha256 "571b99dc4186618ad3c77317eef2c20a8e601ce665a6b0f1ffca6e3d8d804cde"
+  license "BSD-2-Clause"
   head "https://github.com/snar/bgpq3.git"
 
   bottle do

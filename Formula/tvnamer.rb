@@ -1,23 +1,23 @@
 class Tvnamer < Formula
   desc "Automatic TV episode file renamer that uses data from thetvdb.com"
   homepage "https://github.com/dbr/tvnamer"
-  url "https://files.pythonhosted.org/packages/ed/93/f8fbe119844c79ea488332b9ff43702be674332672ea84e9361321985fbd/tvnamer-2.5.tar.gz"
-  sha256 "75e38454757c77060ad3782bd071682d6d316de86f9aec1c2042d236f93aec7b"
+  url "https://files.pythonhosted.org/packages/46/3e/9cb20c0231b10cd87964e0efe03ce964f91ebe3ddca27d5953d8a702cf55/tvnamer-3.0.tar.gz"
+  sha256 "00ae7354dec9cca8e652139eba9cf6945371321cdf05ee903a6a59f6d31cef6b"
+  license "Unlicense"
   head "https://github.com/dbr/tvnamer.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "396199028f01f60d88de32606846eb14f25e5cdd111dc38903bc65ba87aac008" => :catalina
-    sha256 "814a6e99cf86b86f340bf7333633de96105ba2bccb32c1024268ddf06b7fd106" => :mojave
-    sha256 "c7da87bc4aa276737a8eab77838c6c170ac3cf556ab87405ee2c12e3658fa26a" => :high_sierra
-    sha256 "d23c45235d0015e646c77d5d46ef6f43dbe73ebccfb5f822c2de740c6974d5f8" => :sierra
+    sha256 "ba762f3b04d2dfc8d534741e30b13eeeb4ac0b74740fb3be24b8aa9ec23e1ac5" => :catalina
+    sha256 "75d1c2f29687b8d7073b86a80c31ceed3d64a362c93b15b97cc8b0a48c7592b5" => :mojave
+    sha256 "ba762f3b04d2dfc8d534741e30b13eeeb4ac0b74740fb3be24b8aa9ec23e1ac5" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/c5/67/5d0548226bcc34468e23a0333978f0e23d28d0b3f0c71a151aef9c3f7680/certifi-2019.6.16.tar.gz"
-    sha256 "945e3ba63a0b9f577b1395204e13c3a231f9bc0223888be653286534e5873695"
+    url "https://files.pythonhosted.org/packages/40/a7/ded59fa294b85ca206082306bba75469a38ea1c7d44ea7e1d64f5443d67a/certifi-2020.6.20.tar.gz"
+    sha256 "5930595817496dd21bb8dc35dad090f1c2cd0adfaf21204bf6732ca5d8ee34d3"
   end
 
   resource "chardet" do
@@ -26,28 +26,28 @@ class Tvnamer < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/ad/13/eb56951b6f7950cadb579ca166e448ba77f9d24efc03edd7e55fa57d04b7/idna-2.8.tar.gz"
-    sha256 "c357b3f628cf53ae2c4c05627ecc484553142ca23264e593d327bcde5e9c3407"
+    url "https://files.pythonhosted.org/packages/ea/b7/e0e3c1c467636186c39925827be42f16fee389dc404ac29e930e9136be70/idna-2.10.tar.gz"
+    sha256 "b307872f855b18632ce0c21c5e45be78c0ea7ae4c15c828c20788b26921eb3f6"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/01/62/ddcf76d1d19885e8579acb1b1df26a852b03472c0e46d2b959a714c90608/requests-2.22.0.tar.gz"
-    sha256 "11e007a8a2aa0323f5a921e9e6a2d7e4e67d9877e85773fba9ba6419025cbeb4"
+    url "https://files.pythonhosted.org/packages/da/67/672b422d9daf07365259958912ba533a0ecab839d4084c487a5fe9a5405f/requests-2.24.0.tar.gz"
+    sha256 "b3559a131db72c33ee969480840fff4bb6dd111de7dd27c8ee1f820f4f00231b"
   end
 
   resource "requests-cache" do
-    url "https://files.pythonhosted.org/packages/ce/de/2b0cd21915d7c266793cd8bf652c9015f6cb31a8baa5c0f3a8b852596dbf/requests-cache-0.5.0.tar.gz"
-    sha256 "6822f788c5ee248995c4bfbd725de2002ad710182ba26a666e85b64981866060"
+    url "https://files.pythonhosted.org/packages/0c/d4/bdc22aad6979ceeea2638297f213108aeb5e25c7b103fa02e4acbe43992e/requests-cache-0.5.2.tar.gz"
+    sha256 "813023269686045f8e01e2289cc1e7e9ae5ab22ddd1e2849a9093ab3ab7270eb"
   end
 
-  resource "tvdb_api" do
-    url "https://files.pythonhosted.org/packages/ba/c5/abcff2dd75e63daae3466fffd05a28428e57828f8b878125571a8e8343a8/tvdb_api-2.0.tar.gz"
-    sha256 "b1de28a5100121d91b1f6a8ec7e86f2c4bdf48fb22fab3c6fe21e7fb7346bf8f"
+  resource "tvdb-api" do
+    url "https://files.pythonhosted.org/packages/78/11/48e28a81dc6478179423ea17a5963967ecca7a48d83dd63165fc3748974c/tvdb_api-3.0.2.tar.gz"
+    sha256 "6a0135815cb680da38d78121d4d659d8e54a25f4db2816cd86d62916b92f23b2"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/4c/13/2386233f7ee40aa8444b47f7463338f3cbdf00c316627558784e3f542f07/urllib3-1.25.3.tar.gz"
-    sha256 "dbe59173209418ae49d485b87d1681aefa36252ee85884c31346debd19463232"
+    url "https://files.pythonhosted.org/packages/81/f4/87467aeb3afc4a6056e1fe86626d259ab97e1213b1dfec14c7cb5f538bf0/urllib3-1.25.10.tar.gz"
+    sha256 "91056c15fa70756691db97756772bb1eb9678fa585d9184f24534b100dc60f4a"
   end
 
   def install
@@ -62,7 +62,7 @@ class Tvnamer < Formula
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
     system "python3", *Language::Python.setup_install_args(libexec)
     bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
   end
 
   test do

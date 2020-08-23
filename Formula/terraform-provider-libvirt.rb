@@ -1,14 +1,15 @@
 class TerraformProviderLibvirt < Formula
   desc "Terraform provisioning with Linux KVM using libvirt"
   homepage "https://github.com/dmacvicar/terraform-provider-libvirt"
-  url "https://github.com/dmacvicar/terraform-provider-libvirt/archive/v0.6.1.tar.gz"
-  sha256 "3562070c22bda0f38c44fbef88f345e08a22a567bccc56f7a25eaecc6400ee36"
+  url "https://github.com/dmacvicar/terraform-provider-libvirt/archive/v0.6.2.tar.gz"
+  sha256 "2bdb5e013b0f4ff576c4c023c02fb8936661bde766f42fd07221cd2c9210c633"
+  license "Apache-2.0"
 
   bottle do
     cellar :any
-    sha256 "7b458aace029d7bbdf3eee429253a3ae8259372a24c6fc4a069f2088cf6d18cf" => :catalina
-    sha256 "ff697a12beb2941a68bbeb641ac13ce9acbff6f8380521e41370f3727bb26ae9" => :mojave
-    sha256 "e853e165d278c60fce1287fbf4207802ae4f57280cc90cec2cef3b55ca587bc1" => :high_sierra
+    sha256 "a554630fc5120ecfd2c9d95cde9b5d86c245c56fda9a388664633d61ff20dd5b" => :catalina
+    sha256 "106d4cefd9b03629bb1b5576208b5f19b911a10a0e6ef50e29d498ef56461b59" => :mojave
+    sha256 "0c3d7bace6f2fc3c76bcbb3f4972402446e9fcb5a40d2d99d04f5eacedfb7943" => :high_sierra
   end
 
   depends_on "go" => :build

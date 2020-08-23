@@ -4,23 +4,21 @@ class Vdirsyncer < Formula
   desc "Synchronize calendars and contacts"
   homepage "https://github.com/pimutils/vdirsyncer"
   url "https://github.com/pimutils/vdirsyncer.git",
-      :tag      => "0.16.7",
-      :revision => "dcf5f701b7b5c21a8f4e8c80243db3e0baff1313"
+      tag:      "0.16.8",
+      revision: "b5dd0929d009b7b07f72903dd6fb82815f45bdd8"
   head "https://github.com/pimutils/vdirsyncer.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "37dd9ebb3b0a3c41efa99f6e39e37dfac0c0ba3f22555ab64d02546a69bf8d6a" => :catalina
-    sha256 "2c40f6ad53b8a558ed7503b5fe2413ae86850ea74f6ab41b560c3019185719fc" => :mojave
-    sha256 "89f7e1832a262681843b223527d96c5f6a587ded3b2884df9a87204c463f1911" => :high_sierra
-    sha256 "57510d02d159de632f3fdb98d7de88aba5ea01d375b4f096d6d367c976e355bc" => :sierra
-    sha256 "81eaa19b3cbc91007a0a5cfe9979cca1f207b2ac2a72b87aabca41ae019838f7" => :el_capitan
+    sha256 "68a313f863d08adfb913b5530606ef32c85c2e9ce20dfac6d42185b0d18e4670" => :catalina
+    sha256 "ef27647042f45a65bf2f8ebb0170cea3b124f98ce4a9200d5a6f82b50a2a7de4" => :mojave
+    sha256 "d9f144fba5c2de241806ade0e5141a2ed13cd17aaa00233e2f2397315f65f47e" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, "python3.8")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
                               "--ignore-installed", "requests-oauthlib",
                               buildpath

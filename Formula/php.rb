@@ -2,13 +2,15 @@ class Php < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-7.4.3.tar.xz"
-  sha256 "cf1f856d877c268124ded1ede40c9fb6142b125fdaafdc54f855120b8bc6982a"
+  url "https://www.php.net/distributions/php-7.4.9.tar.xz"
+  mirror "https://fossies.org/linux/www/php-7.4.9.tar.xz"
+  sha256 "23733f4a608ad1bebdcecf0138ebc5fd57cf20d6e0915f98a9444c3f747dc57b"
+  license "PHP-3.01"
 
   bottle do
-    sha256 "9370af1b117049783f81968fc800d1710224581cb8d9f396c38d9eef8aedf3ac" => :catalina
-    sha256 "364332e23b489c53fe9efddc881bd9fa8366df5ea66f9e69c9c843d6ec64518d" => :mojave
-    sha256 "c0c2fa82be5609534d3fdf875515e0d98ea17ed4de4f27aece8e275c840e889b" => :high_sierra
+    sha256 "d9fab3b015bed719b2a9ece221a6c813cfcc50b0e5f133e4dbb1a19da25a7d6d" => :catalina
+    sha256 "9e7433b038f67fae0a1508ea01b14747f1b6d69d16b484f11a90dc94938d3e67" => :mojave
+    sha256 "bfa9026aab3df2add7087b803a700eb106096387af0f12128abd5a09a3b4e03f" => :high_sierra
   end
 
   head do
@@ -27,31 +29,29 @@ class Php < Formula
   depends_on "autoconf"
   depends_on "curl-openssl"
   depends_on "freetds"
-  depends_on "freetype"
+  depends_on "gd"
   depends_on "gettext"
   depends_on "glib"
   depends_on "gmp"
   depends_on "icu4c"
-  depends_on "jpeg"
+  depends_on "krb5"
   depends_on "libffi"
-  depends_on "libpng"
   depends_on "libpq"
   depends_on "libsodium"
   depends_on "libzip"
   depends_on "oniguruma"
   depends_on "openldap"
   depends_on "openssl@1.1"
+  depends_on "pcre2"
   depends_on "sqlite"
   depends_on "tidy-html5"
   depends_on "unixodbc"
-  depends_on "webp"
 
   uses_from_macos "xz" => :build
   uses_from_macos "bzip2"
   uses_from_macos "libedit"
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
-  uses_from_macos "krb5"
   uses_from_macos "zlib"
 
   # PHP build system incorrectly links system libraries
@@ -87,7 +87,7 @@ class Php < Formula
 
     inreplace "sapi/fpm/php-fpm.conf.in", ";daemonize = yes", "daemonize = no"
 
-    config_path = etc/"php/#{php_version}"
+    config_path = etc/"php/#{version.major_minor}"
     # Prevent system pear config from inhibiting pear install
     (config_path/"pear.conf").delete if (config_path/"pear.conf").exist?
 
@@ -95,12 +95,8 @@ class Php < Formula
     ENV["lt_cv_path_SED"] = "sed"
 
     # system pkg-config missing
-    ENV["KERBEROS_CFLAGS"] = " "
-    ENV["KERBEROS_LIBS"] = "-lkrb5"
     ENV["SASL_CFLAGS"] = "-I#{MacOS.sdk_path_if_needed}/usr/include/sasl"
     ENV["SASL_LIBS"] = "-lsasl2"
-    ENV["EDIT_CFLAGS"] = " "
-    ENV["EDIT_LIBS"] = "-ledit"
 
     # Each extension that is built on Mojave needs a direct reference to the
     # sdk path or it won't find the headers
@@ -139,14 +135,14 @@ class Php < Formula
       --with-apxs2=#{Formula["httpd"].opt_bin}/apxs
       --with-bz2#{headers_path}
       --with-curl
+      --with-external-gd
+      --with-external-pcre
       --with-ffi
       --with-fpm-user=_www
       --with-fpm-group=_www
-      --with-freetype
       --with-gettext=#{Formula["gettext"].opt_prefix}
       --with-gmp=#{Formula["gmp"].opt_prefix}
       --with-iconv#{headers_path}
-      --with-jpeg
       --with-kerberos
       --with-layout=GNU
       --with-ldap=#{Formula["openldap"].opt_prefix}
@@ -171,7 +167,6 @@ class Php < Formula
       --with-sqlite3
       --with-tidy=#{Formula["tidy-html5"].opt_prefix}
       --with-unixODBC
-      --with-webp
       --with-xmlrpc
       --with-xsl
       --with-zip
@@ -183,17 +178,18 @@ class Php < Formula
     system "make", "install"
 
     # Allow pecl to install outside of Cellar
-    extension_dir = Utils.popen_read("#{bin}/php-config --extension-dir").chomp
+    extension_dir = Utils.safe_popen_read("#{bin}/php-config", "--extension-dir").chomp
     orig_ext_dir = File.basename(extension_dir)
     inreplace bin/"php-config", lib/"php", prefix/"pecl"
     inreplace "php.ini-development", %r{; ?extension_dir = "\./"},
       "extension_dir = \"#{HOMEBREW_PREFIX}/lib/php/pecl/#{orig_ext_dir}\""
 
     # Use OpenSSL cert bundle
+    openssl = Formula["openssl@1.1"]
     inreplace "php.ini-development", /; ?openssl\.cafile=/,
-      "openssl.cafile = \"#{etc}/openssl@1.1/cert.pem\""
+      "openssl.cafile = \"#{openssl.pkgetc}/cert.pem\""
     inreplace "php.ini-development", /; ?openssl\.capath=/,
-      "openssl.capath = \"#{etc}/openssl@1.1/certs\""
+      "openssl.capath = \"#{openssl.pkgetc}/certs\""
 
     config_files = {
       "php.ini-development"   => "php.ini",
@@ -234,7 +230,7 @@ class Php < Formula
     # Custom location for extensions installed via pecl
     pecl_path = HOMEBREW_PREFIX/"lib/php/pecl"
     ln_s pecl_path, prefix/"pecl" unless (prefix/"pecl").exist?
-    extension_dir = Utils.popen_read("#{bin}/php-config --extension-dir").chomp
+    extension_dir = Utils.safe_popen_read("#{bin}/php-config", "--extension-dir").chomp
     php_basename = File.basename(extension_dir)
     php_ext_dir = opt_prefix/"lib/php"/php_basename
 
@@ -242,7 +238,7 @@ class Php < Formula
     pear_path = HOMEBREW_PREFIX/"share/pear"
     cp_r pkgshare/"pear/.", pear_path
     {
-      "php_ini"  => etc/"php/#{php_version}/php.ini",
+      "php_ini"  => etc/"php/#{version.major_minor}/php.ini",
       "php_dir"  => pear_path,
       "doc_dir"  => pear_path/"doc",
       "ext_dir"  => pecl_path/php_basename,
@@ -263,7 +259,7 @@ class Php < Formula
     %w[
       opcache
     ].each do |e|
-      ext_config_path = etc/"php/#{php_version}/conf.d/ext-#{e}.ini"
+      ext_config_path = etc/"php/#{version.major_minor}/conf.d/ext-#{e}.ini"
       extension_type = (e == "opcache") ? "zend_extension" : "extension"
       if ext_config_path.exist?
         inreplace ext_config_path,
@@ -290,15 +286,11 @@ class Php < Formula
           DirectoryIndex index.php index.html
 
       The php.ini and php-fpm.ini file can be found in:
-          #{etc}/php/#{php_version}/
+          #{etc}/php/#{version.major_minor}/
     EOS
   end
 
-  def php_version
-    version.to_s.split(".")[0..1].join(".")
-  end
-
-  plist_options :manual => "php-fpm"
+  plist_options manual: "php-fpm"
 
   def plist
     <<~EOS
@@ -340,14 +332,8 @@ class Php < Formula
     assert_no_match /^snmp$/, shell_output("#{bin}/php -m"),
       "SNMP extension doesn't work reliably with Homebrew on High Sierra"
     begin
-      require "socket"
-
-      server = TCPServer.new(0)
-      port = server.addr[1]
-      server_fpm = TCPServer.new(0)
-      port_fpm = server_fpm.addr[1]
-      server.close
-      server_fpm.close
+      port = free_port
+      port_fpm = free_port
 
       expected_output = /^Hello world!$/
       (testpath/"index.php").write <<~EOS

@@ -1,21 +1,20 @@
 class Bochs < Formula
   desc "Open source IA-32 (x86) PC emulator written in C++"
   homepage "https://bochs.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/bochs/bochs/2.6.9/bochs-2.6.9.tar.gz"
-  sha256 "ee5b677fd9b1b9f484b5aeb4614f43df21993088c0c0571187f93acb0866e98c"
-  revision 2
+  url "https://downloads.sourceforge.net/project/bochs/bochs/2.6.11/bochs-2.6.11.tar.gz"
+  sha256 "63897b41fbbbdfb1c492d3c4dee1edb4224282a07bbdf442a4a68c19bcc18862"
 
   bottle do
-    rebuild 1
-    sha256 "5a86a2dd7612402c22d0d1383123c69bdcdea2a108976e43b65910b97ea0dd83" => :catalina
-    sha256 "e891728542536430a5d04c6fcd645e53fe3521d9a4f0aa4f3ba7eff175b1066b" => :mojave
-    sha256 "2c21df2f382582ab435e1f9534aea7609a59c080d581ca0b1963f0e1720cdc66" => :high_sierra
-    sha256 "5a80b2f0e3447bebc7c29ba7f3b19b1038e84409f5c33766fb029a49ea64ad5a" => :sierra
+    sha256 "b6d43a6a60360e0d84ebd2ad9ae7724c413a1f2332c59065fb09c2004d76b723" => :catalina
+    sha256 "74fb37178645c4d2b52eec5684931ca215dc2f75794e1cf45b3f6e2b85263819" => :mojave
+    sha256 "f8c79923292849eebece21d9c5ed1028db729d4d25dc1e045a7c8e0f0dcf450b" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "libtool"
   depends_on "sdl2"
+
+  uses_from_macos "ncurses"
 
   # Fix pointer cast issue
   # https://sourceforge.net/p/bochs/patches/537/
@@ -34,6 +33,7 @@ class Bochs < Formula
       --enable-alignment-check
       --enable-all-optimizations
       --enable-avx
+      --enable-evex
       --enable-cdrom
       --enable-clgd54xx
       --enable-cpu-level=6
@@ -49,7 +49,6 @@ class Bochs < Formula
       --enable-plugins
       --enable-readline
       --enable-show-ips
-      --enable-smp
       --enable-usb
       --enable-vmx=2
       --enable-x86-64

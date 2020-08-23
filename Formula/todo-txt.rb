@@ -1,8 +1,9 @@
 class TodoTxt < Formula
   desc "Minimal, todo.txt-focused editor"
   homepage "http://todotxt.org/"
-  url "https://github.com/todotxt/todo.txt-cli/releases/download/v2.11.0/todo.txt_cli-2.11.0.tar.gz"
-  sha256 "5fe723bea3e3a1e697484cba92b46e90f13150ee1a444c4a9408c2cd28ea5255"
+  url "https://github.com/todotxt/todo.txt-cli/releases/download/v2.12.0/todo.txt_cli-2.12.0.tar.gz"
+  sha256 "e6da9b2c8022658c514a0b1613b3eae52f6240bf2b3494a83dae713ea445d13e"
+  license "GPL-3.0-only"
   head "https://github.com/todotxt/todo.txt-cli.git"
 
   bottle :unneeded

@@ -3,6 +3,7 @@ class Cc65 < Formula
   homepage "https://cc65.github.io/cc65/"
   url "https://github.com/cc65/cc65/archive/V2.18.tar.gz"
   sha256 "d14a22fb87c7bcbecd8a83d5362d5d317b19c6ce2433421f2512f28293a6eaab"
+  license "Zlib"
   head "https://github.com/cc65/cc65.git"
 
   bottle do
@@ -12,7 +13,7 @@ class Cc65 < Formula
     sha256 "e4bf2981ea6489e414bf2166f6e591612b2e589aa30a3beaab1fd0d7a2ca1207" => :sierra
   end
 
-  conflicts_with "grc", :because => "both install `grc` binaries"
+  conflicts_with "grc", because: "both install `grc` binaries"
 
   def install
     system "make", "PREFIX=#{prefix}"

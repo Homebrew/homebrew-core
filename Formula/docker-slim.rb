@@ -1,14 +1,15 @@
 class DockerSlim < Formula
   desc "Minify and secure Docker images"
   homepage "https://dockersl.im"
-  url "https://github.com/docker-slim/docker-slim/archive/1.29.0.tar.gz"
-  sha256 "538f623dde86d1cfeef4e645cf05260677dfc1f434c9596e54b0409669a4f1c5"
+  url "https://github.com/docker-slim/docker-slim/archive/1.31.0.tar.gz"
+  sha256 "1088437116f752203001ab21d355ee4b3f781d716a4068c4e3a13697520fc67c"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a38712870dab03f740f73860a7aaab80e6957975554d45a0a271842c07a133f6" => :catalina
-    sha256 "a38712870dab03f740f73860a7aaab80e6957975554d45a0a271842c07a133f6" => :mojave
-    sha256 "a38712870dab03f740f73860a7aaab80e6957975554d45a0a271842c07a133f6" => :high_sierra
+    sha256 "1cac22eb1edd2f532d7778c8dbe61e0f77f0d86c80454aafeb9a36d8898bd564" => :catalina
+    sha256 "1cac22eb1edd2f532d7778c8dbe61e0f77f0d86c80454aafeb9a36d8898bd564" => :mojave
+    sha256 "1cac22eb1edd2f532d7778c8dbe61e0f77f0d86c80454aafeb9a36d8898bd564" => :high_sierra
   end
 
   depends_on "go" => :build

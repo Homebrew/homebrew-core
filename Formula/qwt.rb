@@ -1,14 +1,13 @@
 class Qwt < Formula
   desc "Qt Widgets for Technical Applications"
   homepage "https://qwt.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/qwt/qwt/6.1.4/qwt-6.1.4.tar.bz2"
-  sha256 "1529215329e51fc562e0009505a838f427919a18b362afff441f035b2d9b5bd9"
+  url "https://downloads.sourceforge.net/project/qwt/qwt/6.1.5/qwt-6.1.5.tar.bz2"
+  sha256 "4076de63ec2b5e84379ddfebf27c7b29b8dc9074f3db7e2ca61d11a1d8adc041"
 
   bottle do
-    sha256 "7c6d650a357ff7131f9c079008f6f92ab698673a1b87f43c6617c1be8d9c8d1f" => :catalina
-    sha256 "bbc1c7842159419ae1946cec3dcaa4e4eb645c37ee63249a93ffab255b6eeb25" => :mojave
-    sha256 "290203526a7fb210f43d53301597908172abc107d8b3260b36b1b24f73805c9f" => :high_sierra
-    sha256 "5737738dca1f1c423c45d43440baa652fc87183d6fdffa960f3df9b6b7c40a83" => :sierra
+    sha256 "1890f28117b4bc819d39359bfe70af5993d735a9bf4e8b5121992e3681287801" => :catalina
+    sha256 "79dfcceaa6ad17084d8997201d22de70a19b8228e626094ed1d4a6787c3324f7" => :mojave
+    sha256 "22baeaa7b5cbaade938f80ab01845e8fb8516389b82cfd2ca8180aeeb676289f" => :high_sierra
   end
 
   depends_on "qt"

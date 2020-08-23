@@ -3,21 +3,22 @@ class Sloccount < Formula
   homepage "https://www.dwheeler.com/sloccount/"
   url "https://www.dwheeler.com/sloccount/sloccount-2.26.tar.gz"
   sha256 "fa7fa2bbf2f627dd2d0fdb958bd8ec4527231254c120a8b4322405d8a4e3d12b"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d3469469e7bd68ebb15f62d33d9562133c726790571f0d9d3d28fb1ad1bed8d4" => :catalina
-    sha256 "4131346005c6344f672049de9b783fd67476c66e68d3881e9918f2a42904b48d" => :mojave
-    sha256 "cb8c077fa71631f7a2d3a9041f5aeea519835cf18406398953aaa1f340d8b439" => :high_sierra
-    sha256 "c6ae6d6442fc33e0aa5302fc99535ad79507067960226533a64e8332a1aaeaae" => :sierra
-    sha256 "9fe12539b280711faac5e0950b617ed91f35942311aab112607850645b5696bd" => :el_capitan
-    sha256 "8ee5aab0e8aba23cb6d949c84760fa775473b32b6ce3e245ccb5acfd715f8d68" => :yosemite
-    sha256 "16433612bab2bc3fd6d3b804210c1d71980756b02e5e034aa9402c8229e1c968" => :mavericks
+    rebuild 1
+    sha256 "11a3ecc7f2a5bbc0f2bb4836e03c799049b3bada8438220dcd827ca37fd2a200" => :catalina
+    sha256 "b9a52de5de2a1be5fd606412ab8db8a55279da49d79f9812d59294a587aaa7c4" => :mojave
+    sha256 "04a4c12a83cb655a8f2f69178905af19e2786927ef7a4e9d0020e870ce35fcbd" => :high_sierra
   end
 
-  depends_on "md5sha1sum"
-
   uses_from_macos "flex" => :build
+
+  patch do
+    url "https://sourceforge.net/p/sloccount/patches/21/attachment/sloccount-suppress-exec-warnings.patch"
+    sha256 "4e68a7d9c61d62d4b045d1e5d099c6853456d15f874d659f3ab473e7fc40d565"
+  end
 
   patch :DATA
 

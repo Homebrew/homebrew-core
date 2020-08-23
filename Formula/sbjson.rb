@@ -3,6 +3,7 @@ class Sbjson < Formula
   homepage "https://github.com/stig/json-framework"
   url "https://github.com/stig/json-framework/archive/v5.0.3.tar.gz"
   sha256 "9a03f6643b42a82300f4aefcfb6baf46cc2c519f1bb7db3028f338d6d1c56f1b"
+  license "BSD-3-Clause"
   head "https://github.com/stig/json-framework.git"
 
   bottle do
@@ -12,7 +13,7 @@ class Sbjson < Formula
     sha256 "649463e051c03596a72400a04b95f993222f5ba6d42a879241291660fef8605c" => :high_sierra
   end
 
-  depends_on :xcode => :build
+  depends_on xcode: :build
 
   def install
     xcodebuild "-project", "SBJson5.xcodeproj",

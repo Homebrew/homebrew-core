@@ -1,16 +1,14 @@
 class Afflib < Formula
   desc "Advanced Forensic Format"
   homepage "https://github.com/sshock/AFFLIBv3"
-  url "https://github.com/sshock/AFFLIBv3/archive/v3.7.18.tar.gz"
-  sha256 "5481cd5d8dbacd39d0c531a68ae8afcca3160c808770d66dcbf5e9b5be3e8199"
-  revision 2
+  url "https://github.com/sshock/AFFLIBv3/archive/v3.7.19.tar.gz"
+  sha256 "d358b07153dd08df3f35376bab0202c6103808686bab5e8486c78a18b24e2665"
 
   bottle do
     cellar :any
-    sha256 "d755c6c85ac762ab789d95d93f2ec5c34f8267ccab2e043e5c999868ddc261ca" => :catalina
-    sha256 "be3ae1c09576d63d8a9fbe6b76ae5bdf5d41d6dd8f0d477736878804fb6a8af7" => :mojave
-    sha256 "14f7321c3bb680c0410728900fd4dd9fc5a967aed144482fad403d9df1c01393" => :high_sierra
-    sha256 "f412d6e0ae58fb1225efe89b9453586fa7cff3ec7bfd8291bd9cda36dd630b02" => :sierra
+    sha256 "4cc737d25010d916fee5998d5409ac803e2051876008602af9e4df5446b820c8" => :catalina
+    sha256 "3e533865a44b9cbea70f9e5268fa48828abeb2b8ad864b8b1e3ab8e16c44ce13" => :mojave
+    sha256 "09ee4859a479fb096ffa391a21f3e0db65ae16b5953f4a5749ed49219bf51449" => :high_sierra
   end
 
   depends_on "autoconf" => :build
@@ -18,12 +16,14 @@ class Afflib < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
-  depends_on "python"
+  depends_on "python@3.8"
 
   uses_from_macos "curl"
   uses_from_macos "expat"
 
   def install
+    ENV["PYTHON"] = Formula["python@3.8"].opt_bin/"python3"
+
     args = %w[
       --enable-s3
       --enable-python

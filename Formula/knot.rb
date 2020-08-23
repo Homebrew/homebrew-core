@@ -1,13 +1,14 @@
 class Knot < Formula
   desc "High-performance authoritative-only DNS server"
   homepage "https://www.knot-dns.cz/"
-  url "https://secure.nic.cz/files/knot-dns/knot-2.9.3.tar.xz"
-  sha256 "f2adf137d70955a4a20df90c5409e10be8e1127204a98b27d626ac090531a07e"
+  url "https://secure.nic.cz/files/knot-dns/knot-2.9.5.tar.xz"
+  sha256 "1109a8ba212ff8ddfdbaf44a6f8fc13a2b880a98a9e54c19112ba72a1aacbf76"
+  license "GPL-3.0"
 
   bottle do
-    sha256 "c5de8c5074e1f09b4b4deadfc9510c673d556c98a6cb637be71e8d44f7171e9e" => :catalina
-    sha256 "76ce20dd866c1189fbd660e48c498c7119fdc90b8c7bbc3282da579d52396d2b" => :mojave
-    sha256 "94113b40854b70f3ffd33077b6585ee78aa90666a05a1f281b5ef15f2a6c39ce" => :high_sierra
+    sha256 "1f2c208e2bd5f7451865d8f923e68a21ff023e87349f51d710432d25056b8a6c" => :catalina
+    sha256 "10cff141d8b38bb6b06426f08cb85eb8ce67035b5da7ed222cf9edcdb6d1d661" => :mojave
+    sha256 "47a8b4bfaab5f1db40e72c552ebf274242f804b84672e040580f37c50ba0451a" => :high_sierra
   end
 
   head do
@@ -23,7 +24,6 @@ class Knot < Formula
   depends_on "fstrm"
   depends_on "gnutls"
   depends_on "libidn2"
-  depends_on :macos => :yosemite # due to AT_REMOVEDIR
   depends_on "protobuf-c"
   depends_on "userspace-rcu"
 
@@ -71,7 +71,7 @@ class Knot < Formula
     EOS
   end
 
-  plist_options :startup => true
+  plist_options startup: true
 
   def plist
     <<~EOS

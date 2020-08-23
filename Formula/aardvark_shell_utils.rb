@@ -3,6 +3,7 @@ class AardvarkShellUtils < Formula
   homepage "http://www.laffeycomputer.com/shellutils.html"
   url "https://web.archive.org/web/20170106105512/downloads.laffeycomputer.com/current_builds/shellutils/aardvark_shell_utils-1.0.tar.gz"
   sha256 "aa2b83d9eea416aa31dd1ce9b04054be1a504e60e46426225543476c0ebc3f67"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,7 +16,8 @@ class AardvarkShellUtils < Formula
     sha256 "e8e8b6fd4ee85d8a6ae267fbd20160c1aeddeb6c8e302793b12a807131ef4b27" => :mavericks
   end
 
-  conflicts_with "coreutils", :because => "both install `realpath` binaries"
+  conflicts_with "coreutils", because: "both install `realpath` binaries"
+  conflicts_with "uutils-coreutils", because: "both install `realpath` binaries"
 
   def install
     system "./configure", "--disable-debug",

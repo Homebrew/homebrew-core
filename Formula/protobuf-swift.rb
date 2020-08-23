@@ -3,6 +3,7 @@ class ProtobufSwift < Formula
   homepage "https://github.com/alexeyxo/protobuf-swift"
   url "https://github.com/alexeyxo/protobuf-swift/archive/4.0.6.tar.gz"
   sha256 "598d9e459b4ac74bfbcf22857c7e8fda8f5219c10caac0aa18aea7d8710cce22"
+  license "Apache-2.0"
   revision 2
 
   bottle do
@@ -12,13 +13,16 @@ class ProtobufSwift < Formula
     sha256 "42327634f717f0f9276d61af56df6a4595eea57f17d779f405703fdecae55bed" => :sierra
   end
 
+  # https://github.com/Homebrew/homebrew-core/pull/54471#issuecomment-627430555
+  disable!
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "protobuf@3.7"
 
   conflicts_with "swift-protobuf",
-    :because => "both install `protoc-gen-swift` binaries"
+    because: "both install `protoc-gen-swift` binaries"
 
   def install
     ENV.cxx11

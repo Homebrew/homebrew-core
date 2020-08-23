@@ -4,6 +4,7 @@ class Gsl < Formula
   url "https://ftp.gnu.org/gnu/gsl/gsl-2.6.tar.gz"
   mirror "https://ftpmirror.gnu.org/gsl/gsl-2.6.tar.gz"
   sha256 "b782339fc7a38fe17689cb39966c4d821236c28018b6593ddb6fd59ee40786a8"
+  license "GPL-3.0"
 
   bottle do
     cellar :any

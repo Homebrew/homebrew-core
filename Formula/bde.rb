@@ -1,14 +1,15 @@
 class Bde < Formula
   desc "Basic Development Environment: foundational C++ libraries used at Bloomberg"
   homepage "https://github.com/bloomberg/bde"
-  url "https://github.com/bloomberg/bde/archive/3.39.0.0.tar.gz"
-  sha256 "e16f0821e925f23de279f72cfd2b2ff23ae344979a4b285d9d63abd4f759f329"
+  url "https://github.com/bloomberg/bde/archive/3.61.0.0.tar.gz"
+  sha256 "46dcdcf06f3cf582170848721dd6d8ca9c993f9cfa34445103d3cee34a5d6dda"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5fe57437f986a42e494df5eff06be60371cac212be241bb72e4c4c98fd3a031a" => :catalina
-    sha256 "0928ef24f2fa7b32810365b6dfa52737562017acb3b18c3359ca2a33841355bf" => :mojave
-    sha256 "9544ca69a703818f4a7762d38da5382f6b463afc995ae50c1a3603f2dab2fd2c" => :high_sierra
+    sha256 "b11a948d232e02bf0ceaee439451f94ce48cc024b7737400b5ca21fbfe0aafb5" => :catalina
+    sha256 "5915ea6038ff06703afa39cd989f62aa69cb3d0a0021acffb759a5a306312c78" => :mojave
+    sha256 "7690286795f26cc1fe240355e75a6cea19c8dddbb441e3a3e905c3a276f44191" => :high_sierra
   end
 
   depends_on "cmake" => :build

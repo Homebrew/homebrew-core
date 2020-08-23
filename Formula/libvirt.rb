@@ -1,15 +1,15 @@
 class Libvirt < Formula
   desc "C virtualization API"
   homepage "https://www.libvirt.org"
-  url "https://libvirt.org/sources/libvirt-6.1.0.tar.xz"
-  sha256 "167c185be45560e73dd3e14ed375778b555c01455192de2dafc4d0f74fabebc0"
-  revision 1
+  url "https://libvirt.org/sources/libvirt-6.6.0.tar.xz"
+  sha256 "94e52ddd2d71b650e1a7eb5ab7e651f9607ecee207891216714020b8ff081ef9"
+  license "LGPL-2.1"
   head "https://github.com/libvirt/libvirt.git"
 
   bottle do
-    sha256 "28037d70773c71c23f91109280927d500d4fe90b83f00a57c53dcd6584beda50" => :catalina
-    sha256 "f1071e61f11bc08feec031f4351675e3dcdf31824dde2b0ba39b234911cd92d7" => :mojave
-    sha256 "0bdb416af45261fb6781ffc0da447dbb0ea4e23a253afb50297df8851fe7c601" => :high_sierra
+    sha256 "48241043ff81ccd226d4303b11034ccdc636fd72aec2c5ba56398ef0191667d3" => :catalina
+    sha256 "e76fd3f6fb11397c8963d6d92f8f6b56d19dc86ffcfdffb45663b50239f89a93" => :mojave
+    sha256 "466948b3ed952a7ed22a41284ada218b5c007013670c799a54c23eff9ab15482" => :high_sierra
   end
 
   depends_on "docutils" => :build
@@ -47,23 +47,17 @@ class Libvirt < Formula
     # Work around a gnulib issue with macOS Catalina
     args << "gl_cv_func_ftello_works=yes"
 
-    system "./autogen.sh" if build.head?
     mkdir "build" do
+      system "../autogen.sh" if build.head?
       system "../configure", *args
 
       # Compilation of docs doesn't get done if we jump straight to "make install"
       system "make"
       system "make", "install"
     end
-
-    # Update the libvirt daemon config file to reflect the Homebrew prefix
-    inreplace "#{etc}/libvirt/libvirtd.conf" do |s|
-      s.gsub! "/etc/", "#{etc}/"
-      s.gsub! "/var/", "#{var}/"
-    end
   end
 
-  plist_options :manual => "libvirtd"
+  plist_options manual: "libvirtd"
 
   def plist
     <<~EOS
@@ -81,6 +75,8 @@ class Libvirt < Formula
           <key>ProgramArguments</key>
           <array>
             <string>#{sbin}/libvirtd</string>
+            <string>-f</string>
+            <string>#{etc}/libvirt/libvirtd.conf</string>
           </array>
           <key>KeepAlive</key>
           <true/>

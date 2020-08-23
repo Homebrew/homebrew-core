@@ -4,6 +4,7 @@ class XalanC < Formula
   url "https://www.apache.org/dyn/closer.lua?path=xalan/xalan-c/sources/xalan_c-1.11-src.tar.gz"
   mirror "https://archive.apache.org/dist/xalan/xalan-c/sources/xalan_c-1.11-src.tar.gz"
   sha256 "4f5e7f75733d72e30a2165f9fdb9371831cf6ff0d1997b1fb64cdd5dc2126a28"
+  license "Apache-2.0"
   revision 1
 
   bottle do

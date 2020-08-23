@@ -1,14 +1,15 @@
 class Monolith < Formula
   desc "CLI tool for saving complete web pages as a single HTML file"
   homepage "https://github.com/Y2Z/monolith"
-  url "https://github.com/Y2Z/monolith/archive/v2.1.2.tar.gz"
-  sha256 "eecd0f56ea98a5217016a99a8342d9d6bc369f5a08744b8cdefac381635e86e3"
+  url "https://github.com/Y2Z/monolith/archive/v2.3.1.tar.gz"
+  sha256 "b99fdc2cff81488f7ddb52bfc505697f76ac494c6d261704b98d3e1432d66645"
+  license "Unlicense"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4c4be4f5892ea22c682e1ba1718fb07fefb947940f92bedcf5487cbf64971fe1" => :catalina
-    sha256 "9373e186198995ef3988713bd6801737547323c4363d3e77709e02f241c0721b" => :mojave
-    sha256 "cb4ffccdbac34210b44f957aef456505db3d6eac2695adaded14ab9a4818bac0" => :high_sierra
+    sha256 "d3dc3a9d7415b6599f7b2d8405b54f5af8aaff550d0536cef47817cd4cc134fb" => :catalina
+    sha256 "5244b390e2a4465b4d9e882353fbf0b7ecb01a03011f4268a8fa4b066bcda42b" => :mojave
+    sha256 "1f6f354e4b427036593fa4c7a93f8b1d551455f8a423f0e9f73550a230978b35" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -16,7 +17,7 @@ class Monolith < Formula
   depends_on "openssl@1.1"
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", *std_cargo_args
   end
 
   test do

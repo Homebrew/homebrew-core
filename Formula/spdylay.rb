@@ -3,6 +3,7 @@ class Spdylay < Formula
   homepage "https://github.com/tatsuhiro-t/spdylay"
   url "https://github.com/tatsuhiro-t/spdylay/archive/v1.4.0.tar.gz"
   sha256 "31ed26253943b9d898b936945a1c68c48c3e0974b146cef7382320a97d8f0fa0"
+  license "MIT"
   revision 3
 
   bottle do
@@ -12,6 +13,9 @@ class Spdylay < Formula
     sha256 "c89edde9d9229dbe524d28b661265349af72a2dac0b85f066751d4716effe1ab" => :high_sierra
     sha256 "2f24051eb854a2345e88a1e023aa76fa6c2cb7522ec0fd7644af15694b456f27" => :sierra
   end
+
+  # The SPDY protocol itself is deprecated and most websites no longer support it
+  deprecate!
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -36,6 +40,6 @@ class Spdylay < Formula
   test do
     # Check here for popular websites using SPDY:
     # https://w3techs.com/technologies/details/ce-spdy/all/all
-    system "#{bin}/spdycat", "-ns", "https://www.twitter.com/"
+    system "#{bin}/spdycat", "-ns", "https://www.academia.edu/"
   end
 end

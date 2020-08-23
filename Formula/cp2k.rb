@@ -3,13 +3,13 @@ class Cp2k < Formula
   homepage "https://www.cp2k.org/"
   url "https://github.com/cp2k/cp2k/releases/download/v6.1.0/cp2k-6.1.tar.bz2"
   sha256 "af803558e0a6b9e9d9ce8a3ab955ba32bacd179922455424e061c82c9fefa34b"
-  revision 1
+  license "GPL-2.0"
+  revision 2
 
   bottle do
-    rebuild 1
-    sha256 "247b28b0c8d0e08cc57d9b16a5fd8c9c41a152438c85a8efcd635ee341c30737" => :catalina
-    sha256 "76d87db4b212df1bed6f182dcd153e992f6867931a9301c0476dad7779e58f40" => :mojave
-    sha256 "17e86c6091ddd949b6b637a545e030244f5e4cc3b45b5b5bcadcc5d44830b383" => :high_sierra
+    sha256 "1b442188cb4e82050da9d26b142cc570a0288c1719069b5d9ef66905aa02631f" => :catalina
+    sha256 "9dbb645d7b80d68cfff8f4bb53c3bcbadc9e82980517eaa2f12bb8ec2ad60258" => :mojave
+    sha256 "dc335861ca941065e722412473da3644d5e92e9f55f17424c7d9190693e32f6c" => :high_sierra
   end
 
   depends_on "fftw"
@@ -25,6 +25,13 @@ class Cp2k < Formula
     sha256 "31d7dd553c7b1a773863fcddc15ba9358bdcc58f5962c9fcee1cd24f309c4198"
   end
 
+  # Upstream fix for GCC 10, remove in next version
+  # https://github.com/cp2k/dbcsr/commit/fe71e6fe
+  patch do
+    url "https://github.com/Homebrew/formula-patches/raw/0c086813/cp2k/gcc10.diff"
+    sha256 "dfaa319c999d49faae86cafe58ddb3b696f72a89f7cc85acd47b3288c6b9ac89"
+  end
+
   def install
     resource("libint").stage do
       system "./configure", "--prefix=#{libexec}"
@@ -32,9 +39,12 @@ class Cp2k < Formula
       ENV.deparallelize { system "make", "install" }
     end
 
+    # -fallow-argument-mismatch should be removed when the issue is fixed:
+    # https://github.com/cp2k/cp2k/issues/969
     fcflags = %W[
       -I#{Formula["fftw"].opt_include}
       -I#{libexec}/include
+      -fallow-argument-mismatch
     ]
 
     libs = %W[

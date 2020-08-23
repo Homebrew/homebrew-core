@@ -3,6 +3,7 @@ class JdnssecTools < Formula
   homepage "https://github.com/dblacka/jdnssec-tools"
   url "https://github.com/dblacka/jdnssec-tools/releases/download/v0.15/jdnssec-tools-0.15.tar.gz"
   sha256 "1d4905652639b8b23084366eb2e2b33d5f534bf29fbf9b4becbf9e29f9b39fdf"
+  license "LGPL-2.1"
   revision 1
   head "https://github.com/dblacka/jdnssec-tools.git"
 
@@ -18,7 +19,7 @@ class JdnssecTools < Formula
   def install
     inreplace Dir["bin/*"], /basedir=.*/, "basedir=#{libexec}"
     bin.install Dir["bin/*"]
-    bin.env_script_all_files libexec/"bin", :JAVA_HOME => Formula["openjdk"].opt_prefix
+    bin.env_script_all_files libexec/"bin", JAVA_HOME: Formula["openjdk"].opt_prefix
     (libexec/"lib").install Dir["lib/*"]
   end
 

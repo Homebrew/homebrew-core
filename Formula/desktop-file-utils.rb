@@ -1,25 +1,31 @@
 class DesktopFileUtils < Formula
   desc "Command-line utilities for working with desktop entries"
   homepage "https://wiki.freedesktop.org/www/Software/desktop-file-utils/"
-  url "https://www.freedesktop.org/software/desktop-file-utils/releases/desktop-file-utils-0.24.tar.xz"
-  sha256 "a1de5da60cbdbe91e5c9c10ac9afee6c3deb019e0cee5fdb9a99dddc245f83d9"
+  url "https://www.freedesktop.org/software/desktop-file-utils/releases/desktop-file-utils-0.26.tar.xz"
+  sha256 "b26dbde79ea72c8c84fb7f9d870ffd857381d049a86d25e0038c4cef4c747309"
+  license "GPL-2.0"
 
   bottle do
-    sha256 "7d96376b59d36fa9a7b7be5a116ec0ebaef113624d0f1b91fdd77bdabfca9286" => :catalina
-    sha256 "2e57d92d8b0385a97a55d6aa32b191a144b329c1b73f85f7465f7c2ab0f2c40f" => :mojave
-    sha256 "12281d3b3e388bb2f9149ec6b229d44b8b1e65a01e5ecfbde482c7ebb9cec6b9" => :high_sierra
-    sha256 "16405a7ca997e90c3448d86f291b8d8793cf413ccd95090f64e05bfbb10cb7e9" => :sierra
+    sha256 "fba87a1749b744c74510df1a49ed7627615ab10a2398922eac1389f4e35a5cb8" => :catalina
+    sha256 "2e6548daf5b3fd3f038205986130d39390fd4b22955ed07ad06f6378d5e6e5f2" => :mojave
+    sha256 "12e7bfe0f9a579f826f7c74f5a67d41ed4dee469f1cf0f3b4be89ef9e884996e" => :high_sierra
   end
 
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--with-lispdir=#{elisp}"
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args, ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+
+      # fix lisp file install location
+      mkdir_p share/"emacs/site-lisp/desktop-file-utils"
+      mv share/"emacs/site-lisp/desktop-entry-mode.el", share/"emacs/site-lisp/desktop-file-utils"
+    end
   end
 
   test do

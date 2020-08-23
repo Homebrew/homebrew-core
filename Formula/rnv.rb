@@ -17,7 +17,7 @@ class Rnv < Formula
 
   depends_on "expat"
 
-  conflicts_with "arx-libertatis", :because => "both install `arx` binaries"
+  conflicts_with "arx-libertatis", because: "both install `arx` binaries"
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",

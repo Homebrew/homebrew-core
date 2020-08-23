@@ -1,22 +1,22 @@
 class Offlineimap < Formula
   desc "Synchronizes emails between two repositories"
   homepage "https://www.offlineimap.org/"
-  url "https://github.com/OfflineIMAP/offlineimap/archive/v7.3.2.tar.gz"
-  sha256 "d47b564858c3e9fc7726ef58c9a4ee518d2958c5de3dcad6cd78b7cfe0a6bdef"
+  url "https://files.pythonhosted.org/packages/40/41/5c9fae40b32ced68ad09e12f967be6e41309d63359948c6518d4c42de4a4/offlineimap-7.3.3.tar.gz"
+  sha256 "ce7642e30e00a93d81d1990ec68debc7548b575b66424b79977bc685657c1862"
+  license "GPL-2.0"
   head "https://github.com/OfflineIMAP/offlineimap.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a9f7c26d77e5b5f117847fb068a5bdd9c4d691c73fa8c94aae12bec425953816" => :catalina
-    sha256 "843997b39d0b652700a5c6ccb2ce1a7efe76c32577018d792e25690c4166bb12" => :mojave
-    sha256 "843997b39d0b652700a5c6ccb2ce1a7efe76c32577018d792e25690c4166bb12" => :high_sierra
+    sha256 "2d21d8216b9d9ad3197181632dd8583d8bd15f46851365e906d9581ae67ff30e" => :catalina
+    sha256 "ff922fc76e1e5571628d7ecb4bd436180895352768979c2cd9bcfee048b5d0f4" => :mojave
+    sha256 "ff922fc76e1e5571628d7ecb4bd436180895352768979c2cd9bcfee048b5d0f4" => :high_sierra
   end
 
+  depends_on :macos # Due to Python 2 (Will never support Python 3)
+  # https://github.com/OfflineIMAP/offlineimap/issues/616#issuecomment-491003691
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
-  # Will never support Python 3
-  # https://github.com/OfflineIMAP/offlineimap/issues/616#issuecomment-491003691
-  uses_from_macos "python@2"
 
   resource "rfc6555" do
     url "https://files.pythonhosted.org/packages/58/a8/1dfba2db1f744657065562386069e547eefea9432d3f520d4af5b5fabd28/rfc6555-0.0.0.tar.gz"
@@ -29,8 +29,8 @@ class Offlineimap < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/94/3e/edcf6fef41d89187df7e38e868b2dd2182677922b600e880baad7749c865/six-1.13.0.tar.gz"
-    sha256 "30f610279e8b2578cab6db20741130331735c781b56053c59c4076da27f06b66"
+    url "https://files.pythonhosted.org/packages/21/9f/b251f7f8a76dec1d6651be194dfba8fb8d7781d10ab3987190de8391d08e/six-1.14.0.tar.gz"
+    sha256 "236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a"
   end
 
   def install
@@ -51,7 +51,7 @@ class Offlineimap < Formula
     libexec.install "bin/offlineimap" => "offlineimap.py"
     libexec.install "offlineimap"
     (bin/"offlineimap").write_env_script(libexec/"offlineimap.py",
-      :PYTHONPATH => ENV["PYTHONPATH"])
+      PYTHONPATH: ENV["PYTHONPATH"])
   end
 
   def caveats
@@ -65,7 +65,7 @@ class Offlineimap < Formula
     EOS
   end
 
-  plist_options :manual => "offlineimap"
+  plist_options manual: "offlineimap"
 
   def plist
     <<~EOS

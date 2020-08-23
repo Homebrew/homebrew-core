@@ -1,24 +1,34 @@
 class CartridgeCli < Formula
   desc "Tarantool Cartridge command-line utility"
   homepage "https://tarantool.org/"
-  url "https://github.com/tarantool/cartridge-cli/archive/1.4.2.tar.gz"
-  sha256 "d698506da5c4b8c3ef67fa54b8c75b5c9d9d338696b7c43deb9b1840d3f0c3a2"
-  head "https://github.com/tarantool/cartridge-cli.git"
+  url "https://github.com/tarantool/cartridge-cli.git",
+      tag:      "2.2.1",
+      revision: "b1463509ed21c1ddc6a2e83287110e3631491761"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "023a5a02dd786d18587dca83115643772257463cd2886c7fd90dbafe7a0773af" => :catalina
-    sha256 "023a5a02dd786d18587dca83115643772257463cd2886c7fd90dbafe7a0773af" => :mojave
-    sha256 "023a5a02dd786d18587dca83115643772257463cd2886c7fd90dbafe7a0773af" => :high_sierra
+    sha256 "08645b29f4bf81b24d4aa17e98707ee21556e687dfe8496410a6ee6a57e1eaea" => :catalina
+    sha256 "1d14735ddd85b022fb414eabfc5cfc5fa140538c6d525113758d844604b54a81" => :mojave
+    sha256 "016c1858d75fb0534100ce7135348b5c71458e46049af35e2ed0adb73bc661cb" => :high_sierra
   end
 
-  depends_on "cmake" => :build
-  depends_on "tarantool"
+  depends_on "go" => :build
 
   def install
-    system "cmake", ".", *std_cmake_args, "-DVERSION=#{version}"
-    system "make"
-    system "make", "install"
+    commit = Utils.safe_popen_read("git", "rev-parse", "--short", "HEAD").chomp
+
+    ldflags = %W[
+      -s -w
+      -X github.com/tarantool/cartridge-cli/cli/version.gitTag=#{version}
+      -X github.com/tarantool/cartridge-cli/cli/version.gitCommit=#{commit}
+    ]
+
+    system "go", "build", "-o", bin/"cartridge", "-ldflags", ldflags.join(" "), "cli/main.go"
+    system bin/"cartridge", "gen", "completion"
+
+    bash_completion.install "completion/bash/cartridge"
+    zsh_completion.install "completion/zsh/_cartridge"
   end
 
   test do

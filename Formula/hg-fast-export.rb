@@ -5,6 +5,7 @@ class HgFastExport < Formula
   homepage "https://repo.or.cz/fast-export.git"
   url "https://github.com/frej/fast-export/archive/v200213.tar.gz"
   sha256 "358f501ab301c31525f23f29e94708fe361ed53e99b5fb9c77fbca81ff1a2b76"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,7 +14,7 @@ class HgFastExport < Formula
     sha256 "1da8e73f749516b112815209ab914d1929820004db9d91170d99666f993e15a8" => :high_sierra
   end
 
-  uses_from_macos "python@2" # does not support Python 3
+  depends_on :macos # Due to Python 2
 
   # mercurial 5.3 support will be added in the next release
   # Ref https://github.com/frej/fast-export/pull/197
@@ -32,7 +33,7 @@ class HgFastExport < Formula
 
     bins = %w[hg-fast-export.py hg-fast-export.sh hg-reset.py hg-reset.sh hg2git.py]
     bins.each do |f|
-      (bin / f).write_env_script(libexec / f, :PYTHONPATH => ENV["PYTHONPATH"])
+      (bin / f).write_env_script(libexec / f, PYTHONPATH: ENV["PYTHONPATH"])
     end
   end
 

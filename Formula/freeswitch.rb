@@ -2,15 +2,15 @@ class Freeswitch < Formula
   desc "Telephony platform to route various communication protocols"
   homepage "https://freeswitch.org"
   url "https://github.com/signalwire/freeswitch.git",
-      :tag      => "v1.10.1",
-      :revision => "f9990221e6094886066ec2bf9685648135bd405a"
-  revision 1
+      tag:      "v1.10.3",
+      revision: "129de34d845098b7864a49281f3eb946e0b50314"
+  license "MPL-1.1"
   head "https://github.com/signalwire/freeswitch.git"
 
   bottle do
-    sha256 "15f93a7e8af7fceb8672f6b4acb59275f4bfe73c5da393c919d7f78042ee0ca9" => :catalina
-    sha256 "c5a35c9f13162d1fd8e59cafad54c9c4e90abdf106a5938d576ed43a6d601e4d" => :mojave
-    sha256 "9b58c46d2d5111230b9e9193fc8f89ea94473bc14eba115d93a9960139e2e9c5" => :high_sierra
+    sha256 "e8e37ac077a81b0194ebfcf995d60a9135db73f99e280de0699e22cd62b96ac6" => :catalina
+    sha256 "63fa94a3a25cfe4d0942b76143be5a53685292000ca94b0b1bd734a14cb6aa35" => :mojave
+    sha256 "f5e6f7a40d0b6582fb0e2b41e0e76681723df812c1fc5c6e3315c46ce2a6158d" => :high_sierra
   end
 
   depends_on "apr-util" => :build
@@ -32,6 +32,13 @@ class Freeswitch < Formula
   depends_on "speex"
   depends_on "speexdsp"
   depends_on "sqlite"
+
+  uses_from_macos "libedit"
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "util-linux"
+  end
 
   # https://github.com/Homebrew/homebrew/issues/42865
 
@@ -123,7 +130,7 @@ class Freeswitch < Formula
     end
   end
 
-  plist_options :manual => "freeswitch -nc -nonat"
+  plist_options manual: "freeswitch -nc -nonat"
 
   def plist
     <<~EOS

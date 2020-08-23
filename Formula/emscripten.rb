@@ -1,45 +1,50 @@
+require "language/node"
+
 class Emscripten < Formula
   desc "LLVM bytecode to JavaScript compiler"
   homepage "https://emscripten.org/"
+  # Emscripten is available under 2 licenses, the MIT license and the
+  # University of Illinois/NCSA Open Source License.
+  license "MIT"
 
   stable do
-    url "https://github.com/emscripten-core/emscripten/archive/1.39.10.tar.gz"
-    sha256 "63c40e3c01eb416d48f1d46b7a180f7fcac67bd6cef23999457a1a6f9c7ba645"
+    url "https://github.com/emscripten-core/emscripten/archive/1.40.1.tar.gz"
+    sha256 "e15ad7ffa1cce35c25cac7c797d6daa0c5868905eaaf5ed1431a8228b8803dfc"
 
     resource "fastcomp" do
-      url "https://github.com/emscripten-core/emscripten-fastcomp/archive/1.39.10.tar.gz"
-      sha256 "12335fcdbaca1d13fb48b754cd34c1b0d641208bc26b9716d2d15132980b1a84"
+      url "https://github.com/emscripten-core/emscripten-fastcomp/archive/1.40.1.tar.gz"
+      sha256 "c34868ab566e9f073df319d9872608cef47ed1ea74852acacb12a22fd7c99a4c"
     end
 
     resource "fastcomp-clang" do
-      url "https://github.com/emscripten-core/emscripten-fastcomp-clang/archive/1.39.10.tar.gz"
-      sha256 "d9f6be46eb7fbd34b55cdf55f24d88a207bff0e2a3d14e50a184723ec5071604"
+      url "https://github.com/emscripten-core/emscripten-fastcomp-clang/archive/1.40.1.tar.gz"
+      sha256 "9ce4612df39684348d78acb711ec10bee98ad4ac136fb0dcb70d4c884b8bb6b3"
     end
   end
 
   bottle do
     cellar :any
-    sha256 "2bc9f9f717a831304ea899dd0fcd4ddf91fb24a14cc48887706c7e46ba12e49c" => :catalina
-    sha256 "e9e21e75970ddb6580d4d55587354359f038c703fc4b6dfe0f08350cff1d81a6" => :mojave
-    sha256 "ca9bfa9a945f817ff84b9f6a3488c3d1cff7128ef2c4cd02e0eda409ed2546a7" => :high_sierra
+    sha256 "ac8892b0aba032f395821b0141c58ca952499df9b05902ec64dacfd4b4be8831" => :catalina
+    sha256 "4915b3e0d93807bf0cbe42dfd9ddf6b6df93441c7560fd7857515e3bb8948fc0" => :mojave
+    sha256 "e6b1f5a22fa597b045cdd52bf16a49892c227a27a84a0f16adfa4745b662ac6a" => :high_sierra
   end
 
   head do
-    url "https://github.com/emscripten-core/emscripten.git", :branch => "incoming"
+    url "https://github.com/emscripten-core/emscripten.git", branch: "incoming"
 
     resource "fastcomp" do
-      url "https://github.com/emscripten-core/emscripten-fastcomp.git", :branch => "incoming"
+      url "https://github.com/emscripten-core/emscripten-fastcomp.git", branch: "incoming"
     end
 
     resource "fastcomp-clang" do
-      url "https://github.com/emscripten-core/emscripten-fastcomp-clang.git", :branch => "incoming"
+      url "https://github.com/emscripten-core/emscripten-fastcomp-clang.git", branch: "incoming"
     end
   end
 
   depends_on "cmake" => :build
   depends_on "binaryen"
   depends_on "node"
-  depends_on "python"
+  depends_on "python@3.8"
   depends_on "yuicompressor"
 
   def install
@@ -71,9 +76,14 @@ class Emscripten < Formula
       system "make", "install"
     end
 
+    cd libexec do
+      system "npm", "install", *Language::Node.local_npm_install_args
+      rm_f "node_modules/ws/builderror.log" # Avoid references to Homebrew shims
+    end
+
     %w[em++ em-config emar emcc emcmake emconfigure emlink.py emmake
        emranlib emrun emscons].each do |emscript|
-      bin.install_symlink libexec/emscript
+      (bin/emscript).write_env_script libexec/emscript, PYTHON: Formula["python@3.8"].opt_bin/"python3"
     end
   end
 

@@ -3,6 +3,7 @@ class OpenalSoft < Formula
   homepage "https://openal-soft.org/"
   url "https://openal-soft.org/openal-releases/openal-soft-1.20.1.tar.bz2"
   sha256 "b6ceb051325732c23f5c8b6d37dbd89534517e6439a87e970882b447c3025d6d"
+  license "LGPL-2.0"
   head "https://github.com/kcat/openal-soft.git"
 
   bottle do
@@ -12,7 +13,7 @@ class OpenalSoft < Formula
     sha256 "26dbb8819cd991e4a901f3f90f0cc2339c9e4220330329dcf7caa37b14d048d7" => :high_sierra
   end
 
-  keg_only :provided_by_macos, "macOS provides OpenAL.framework"
+  keg_only :shadowed_by_macos, "macOS provides OpenAL.framework"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build

@@ -3,6 +3,7 @@ class Dtach < Formula
   homepage "https://dtach.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/dtach/dtach/0.9/dtach-0.9.tar.gz"
   sha256 "32e9fd6923c553c443fab4ec9c1f95d83fa47b771e6e1dafb018c567291492f3"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

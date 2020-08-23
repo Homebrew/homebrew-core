@@ -5,7 +5,8 @@ class Cedille < Formula
 
   desc "Language based on the Calculus of Dependent Lambda Eliminations"
   homepage "https://cedille.github.io/"
-  revision 2
+  license "MIT"
+  revision 3
 
   stable do
     url "https://github.com/cedille/cedille/archive/v1.1.2.tar.gz"
@@ -18,9 +19,9 @@ class Cedille < Formula
   end
 
   bottle do
-    sha256 "af1b087e82b262424780239acd95518da9619ff369ed516a5960ddb2a0aca521" => :catalina
-    sha256 "4725ad14b9f90f69c5a311f858e759eeb640182cfb3181e8f8e8dcdb2d6245a4" => :mojave
-    sha256 "b86f90724908cc565b544980180ec294417f3d2e0b70fd9301fecd17697b1504" => :high_sierra
+    sha256 "f35c0eb5cfe557eea19c757244345a8761354ab34b59cba492f40b997b246ffa" => :catalina
+    sha256 "31cbfd570e8ec6a98991f5fe66b2b3b5865f1fbfcffa7cf6ba7d8509fc904eee" => :mojave
+    sha256 "fdffd4669a910e9435e09c7dbef6c85694cbd107e07c945c808ff2bdef3eee3b" => :high_sierra
   end
 
   head do
@@ -33,7 +34,14 @@ class Cedille < Formula
 
   depends_on "agda" => :build
   depends_on "cabal-install" => :build
-  depends_on "ghc"
+  depends_on "ghc@8.8"
+
+  # needed to build with agda 2.6.1
+  # taken from https://github.com/cedille/cedille/pull/144/files
+  # but added at the bottom to apply cleanly on v1.1.2
+  # remove once this is merged into cedille, AND formula updated to
+  # a release that contains it
+  patch :DATA
 
   def install
     resource("ial").stage buildpath/"ial"
@@ -122,3 +130,21 @@ class Cedille < Formula
     system bin/"cedille", cedilletest
   end
 end
+__END__
+diff --git a/src/to-string.agda b/src/to-string.agda
+index 2505942..051a2da 100644
+--- a/src/to-string.agda
++++ b/src/to-string.agda
+@@ -100,9 +100,9 @@ no-parens {TK} _ _ _ = tt
+ no-parens {QUALIF} _ _ _ = tt
+ no-parens {ARG} _ _ _ = tt
+
+-pattern ced-ops-drop-spine = cedille-options.options.mk-options _ _ _ _ ff _ _ _ ff _
+-pattern ced-ops-conv-arr = cedille-options.options.mk-options _ _ _ _ _ _ _ _ ff _
+-pattern ced-ops-conv-abs = cedille-options.options.mk-options _ _ _ _ _ _ _ _ tt _
++pattern ced-ops-drop-spine = cedille-options.mk-options _ _ _ _ ff _ _ _ ff _
++pattern ced-ops-conv-arr = cedille-options.mk-options _ _ _ _ _ _ _ _ ff _
++pattern ced-ops-conv-abs = cedille-options.mk-options _ _ _ _ _ _ _ _ tt _
+
+ drop-spine : cedille-options.options → {ed : exprd} → ctxt → ⟦ ed ⟧ → ⟦ ed ⟧
+ drop-spine ops @ ced-ops-drop-spine = h

@@ -1,18 +1,15 @@
 class Darkice < Formula
   desc "Live audio streamer"
   homepage "http://www.darkice.org/"
-  url "https://downloads.sourceforge.net/project/darkice/darkice/1.3/darkice-1.3.tar.gz"
-  sha256 "2c0d0faaa627c0273b2ce8b38775a73ef97e34ef866862a398f660ad8f6e9de6"
-  revision 1
+  url "https://github.com/rafael2k/darkice/releases/download/v1.4/darkice-1.4.tar.gz"
+  sha256 "e6a8ec2b447cf5b4ffaf9b62700502b6bdacebf00b476f4e9bf9f9fe1e3dd817"
+  license "GPL-3.0"
 
   bottle do
     cellar :any
-    sha256 "11c09659a5e54a2c66ef162946d4103b6c9677cdf4c91ff372448d06819692a9" => :catalina
-    sha256 "a35885863f951a6660c82a09158195172df5e8e29b1c02005e8627275a38d080" => :mojave
-    sha256 "e07c9c9beafe2a9fae19ae6570181ef838da42755b9d9677535f8410768c1e7e" => :high_sierra
-    sha256 "f5acac754cda3888160930ff630d33d5a7f134e455b21ad21a40b41150e12f49" => :sierra
-    sha256 "a3a9604162e1dd71c1ec69cfec895e0a92329e57f478a01131a2a00a3c495544" => :el_capitan
-    sha256 "64c3ebd7486589b3e9a216a4be8158ad94b1ceafac15934f97b4b3f3d684ad05" => :yosemite
+    sha256 "c312949cef4bec0b37951d4e9f3b9211a0a0c04d8666cb14bfde0a9f6c85ad5e" => :catalina
+    sha256 "b41dd758dcda3daa8bcde6c5f161fb73d9268bef1bd68940e320fe0374b8272e" => :mojave
+    sha256 "a8b0c02c6b00f614c9eac9d05fa17aee233021879edf7abc8cd81d1de34881e4" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -24,12 +21,6 @@ class Darkice < Formula
   depends_on "two-lame"
 
   def install
-    # Fixes  "invalid conversion from 'const float*' to 'float*' [-fpermissive]"
-    # Upstream issue Oct 25, 2016 https://github.com/rafael2k/darkice/issues/119
-    # Suggested fix  Oct 25, 2016 https://github.com/rafael2k/darkice/pull/120
-    ["aacPlusEncoder.cpp", "FaacEncoder.cpp", "OpusLibEncoder.cpp", "VorbisLibEncoder.cpp"].each do |f|
-      inreplace "src/#{f}", ", converterData.data_in", ", const_cast<float*>( converterData.data_in )"
-    end
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}",

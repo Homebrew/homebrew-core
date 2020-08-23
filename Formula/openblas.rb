@@ -1,19 +1,20 @@
 class Openblas < Formula
   desc "Optimized BLAS library"
   homepage "https://www.openblas.net/"
-  url "https://github.com/xianyi/OpenBLAS/archive/v0.3.9.tar.gz"
-  sha256 "17d4677264dfbc4433e97076220adc79b050e4f8a083ea3f853a53af253bc380"
-  head "https://github.com/xianyi/OpenBLAS.git", :branch => "develop"
+  url "https://github.com/xianyi/OpenBLAS/archive/v0.3.10.tar.gz"
+  sha256 "0484d275f87e9b8641ff2eecaa9df2830cbe276ac79ad80494822721de6e1693"
+  license "BSD-3-Clause"
+  revision 1
+  head "https://github.com/xianyi/OpenBLAS.git", branch: "develop"
 
   bottle do
     cellar :any
-    sha256 "7f61aa85ee83058e3ac4898f74b6721009f83d09caca7f6c772a3aa4874a1248" => :catalina
-    sha256 "15116c0a8d1f359f83761de72835021cbad6a814cf7fd53cc93428b522f06dda" => :mojave
-    sha256 "b92397b5ddaefbba91b6a40bce8a5afd55529e25f711abc5ed6c3fb501484b50" => :high_sierra
+    sha256 "dcffce6b09f1710f3b620122c67a31aea99073ef036a9abf2e8261a999c5cbb5" => :catalina
+    sha256 "cf345fcf861d1a699832126476a7385b9cc212dc5b1b985749e219481473e836" => :mojave
+    sha256 "09e6222e227fccb3d1a86aa0b0ac77fec3e512ba9266ecf72f235c58c6795009" => :high_sierra
   end
 
-  keg_only :provided_by_macos,
-           "macOS provides BLAS and LAPACK in the Accelerate framework"
+  keg_only :shadowed_by_macos, "macOS provides BLAS in Accelerate.framework"
 
   depends_on "gcc" # for gfortran
   fails_with :clang

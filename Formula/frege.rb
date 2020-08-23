@@ -3,7 +3,8 @@ class Frege < Formula
   homepage "https://github.com/Frege/frege/"
   url "https://github.com/Frege/frege/releases/download/3.24public/frege3.24.405.jar"
   sha256 "f5a6e40d1438a676de85620e3304ada4760878879e02dbb7c723164bd6087fc4"
-  revision 2
+  license "BSD-3-Clause"
+  revision 3
 
   bottle :unneeded
 
@@ -11,10 +12,7 @@ class Frege < Formula
 
   def install
     libexec.install "frege#{version}.jar"
-    (bin/"fregec").write <<~EOS
-      #!/bin/bash
-      exec "#{Formula["openjdk"].opt_bin}/java" -jar "#{libexec}/frege#{version}.jar" "$@"
-    EOS
+    bin.write_jar_script libexec/"frege#{version}.jar", "fregec"
   end
 
   test do

@@ -3,6 +3,7 @@ class Shmcat < Formula
   homepage "https://shmcat.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/shmcat/shmcat-1.9.tar.xz"
   sha256 "831f1671e737bed31de3721b861f3796461ebf3b05270cf4c938749120ca8e5b"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

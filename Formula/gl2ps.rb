@@ -1,21 +1,23 @@
 class Gl2ps < Formula
   desc "OpenGL to PostScript printing library"
   homepage "https://www.geuz.org/gl2ps/"
-  url "https://geuz.org/gl2ps/src/gl2ps-1.4.0.tgz"
-  sha256 "03cb5e6dfcd87183f3b9ba3b22f04cd155096af81e52988cc37d8d8efe6cf1e2"
+  url "https://geuz.org/gl2ps/src/gl2ps-1.4.2.tgz"
+  sha256 "8d1c00c1018f96b4b97655482e57dcb0ce42ae2f1d349cd6d4191e7848d9ffe9"
+  license "GL2PS"
 
   bottle do
     cellar :any
-    sha256 "133504d232a0804e896b831a90a81e9e96cf6f95deabd2f8b0de12a63b271c3e" => :catalina
-    sha256 "7bf3019a9fb17682cbe1c62be79fd48b5e46dd5fdeeb93dab65f10509f0da011" => :mojave
-    sha256 "58ccd9856c162d924115146e1ff050d364e6302d20cb7003645724e9418bedb5" => :high_sierra
-    sha256 "4481d5e37838c2189005dd2eadbc37f45e0a1189ea9565ab8dee60d010b96036" => :sierra
-    sha256 "e3a68d4e95ce16e3e144e42bc7c81282e7e495971cea02b0c8f39663425d2017" => :el_capitan
-    sha256 "c1131b4a3053bff982689fa05c75b97e612f4b1501900187c60481a5e51a382d" => :yosemite
+    sha256 "dbdfe5d8458e1224941d6e5707b725ab6872333112dc408dbf35202eddbc8d15" => :catalina
+    sha256 "bc857ec44c73448acf748dea7a699e1018a874196dec19659a63aa70a7b5e970" => :mojave
+    sha256 "6c36dc780b0579f44057cadddb9e1a2e369e2ba9205b68d6c81ebd79defc45b4" => :high_sierra
   end
 
   depends_on "cmake" => :build
   depends_on "libpng"
+
+  on_linux do
+    depends_on "freeglut"
+  end
 
   def install
     # Prevent linking against X11's libglut.dylib when it's present

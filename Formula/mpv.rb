@@ -3,17 +3,20 @@ class Mpv < Formula
   homepage "https://mpv.io"
   url "https://github.com/mpv-player/mpv/archive/v0.32.0.tar.gz"
   sha256 "9163f64832226d22e24bbc4874ebd6ac02372cd717bef15c28a0aa858c5fe592"
+  license "GPL-2.0"
+  revision 5
   head "https://github.com/mpv-player/mpv.git"
 
   bottle do
-    sha256 "dd0fe84dea1268524e18d210595e31b295906e334ae8114124b94a94d130de60" => :catalina
-    sha256 "22c3aa2fb8ec77b5125c836badf0ad7889b512280f54f310c5a6ab8e77099fa6" => :mojave
-    sha256 "0477b20f9a166d746d84c2a7d0b191159c6825512fe66c38ddf9ca6c43403d97" => :high_sierra
+    sha256 "b5ee75305e024dda4255af1c113e22c9dcafa7d3c3979f90ddf99a042335a1f2" => :catalina
+    sha256 "10dc99da93819fb90252d5e28fc89cbefaa670274fec72f87f6c4d64876142b0" => :mojave
+    sha256 "59ed6368c7afcd763040459c00f0bc985ee1df86fcd0857279ff5fede14c30fc" => :high_sierra
   end
 
   depends_on "docutils" => :build
   depends_on "pkg-config" => :build
-  depends_on "python" => :build
+  depends_on "python@3.8" => :build
+  depends_on xcode: :build
 
   depends_on "ffmpeg"
   depends_on "jpeg"
@@ -21,7 +24,6 @@ class Mpv < Formula
   depends_on "libass"
   depends_on "little-cms2"
   depends_on "lua@5.1"
-
   depends_on "mujs"
   depends_on "uchardet"
   depends_on "vapoursynth"
@@ -32,6 +34,9 @@ class Mpv < Formula
     # or getdefaultlocale in docutils. Force the default c/posix locale since
     # that's good enough for building the manpage.
     ENV["LC_ALL"] = "C"
+
+    # libarchive is keg-only
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libarchive"].opt_lib/"pkgconfig"
 
     args = %W[
       --prefix=#{prefix}
@@ -46,14 +51,16 @@ class Mpv < Formula
       --mandir=#{man}
       --docdir=#{doc}
       --zshdir=#{zsh_completion}
+      --lua=51deb
     ]
 
-    system "python3", "bootstrap.py"
-    system "python3", "waf", "configure", *args
-    system "python3", "waf", "install"
+    system Formula["python@3.8"].opt_bin/"python3", "bootstrap.py"
+    system Formula["python@3.8"].opt_bin/"python3", "waf", "configure", *args
+    system Formula["python@3.8"].opt_bin/"python3", "waf", "install"
   end
 
   test do
     system bin/"mpv", "--ao=null", test_fixtures("test.wav")
+    assert_match "vapoursynth", shell_output(bin/"mpv --vf=help")
   end
 end

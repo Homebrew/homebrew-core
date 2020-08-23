@@ -3,7 +3,8 @@ class Blastem < Formula
   homepage "https://www.retrodev.com/blastem/"
   url "https://www.retrodev.com/repos/blastem/archive/v0.6.2.tar.gz"
   sha256 "d460632eff7e2753a0048f6bd18e97b9d7c415580c358365ff35ac64af30a452"
-  head "https://www.retrodev.com/repos/blastem", :using => :hg
+  license "GPL-3.0"
+  head "https://www.retrodev.com/repos/blastem", using: :hg
 
   bottle do
     cellar :any
@@ -17,8 +18,8 @@ class Blastem < Formula
   depends_on "libpng" => :build # for xcftools
   depends_on "pkg-config" => :build
   depends_on "glew"
+  depends_on :macos # Due to Python 2
   depends_on "sdl2"
-  uses_from_macos "python@2"
 
   resource "Pillow" do
     url "https://files.pythonhosted.org/packages/5b/bb/cdc8086db1f15d0664dd22a62c69613cdc00f1dd430b5b19df1bea83f2a3/Pillow-6.2.1.tar.gz"

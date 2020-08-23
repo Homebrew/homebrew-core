@@ -1,28 +1,29 @@
 class Minetest < Formula
   desc "Free, open source voxel game engine and game"
   homepage "https://www.minetest.net/"
+  license "LGPL-2.1"
 
   stable do
-    url "https://github.com/minetest/minetest/archive/5.1.1.tar.gz"
-    sha256 "65d483bce244827de174edcb30f7e453b06a7590da6cdeb7a2237ff6180c090b"
+    url "https://github.com/minetest/minetest/archive/5.3.0.tar.gz"
+    sha256 "65dc2049f24c93fa544500f310a61e289c1b8fa47bf60877b746a2c27a7238d6"
 
     resource "minetest_game" do
-      url "https://github.com/minetest/minetest_game/archive/5.1.1.tar.gz"
-      sha256 "89dbb7cad2a1cec1ca0cdaa0f0eafc5699676bcd6880891c7720a10dfe7f6af9"
+      url "https://github.com/minetest/minetest_game/archive/5.3.0.tar.gz"
+      sha256 "06c6c1d4b97af211dd0fa518a3e68a205f594e9816a4b2477e48d4d21d278e2d"
     end
   end
 
   bottle do
-    sha256 "6c6d62a96e916fd3640206508547e326e1d39e97a51c3abb36c7a921ed1c2e56" => :catalina
-    sha256 "bf3ca399f4349eaefdf0435577c747e5adf10aaf881797d9eba5837dee80a92c" => :mojave
-    sha256 "a79e3ee2648769f1d14b5f1c88e2f98154e3ea58355682018c8b6467c171d68b" => :high_sierra
+    sha256 "4442b3b3093e256ba969209a654394ca82de909b1f2b182ff690b543741277c6" => :catalina
+    sha256 "e00fbd45f80e2527940738850f7841c0627704f05bfb15ca8cc02e1fa16d3b34" => :mojave
+    sha256 "f75c155307545d8627d676182c4b175dfeaeeeda87d50e893f50b58feedbdfeb" => :high_sierra
   end
 
   head do
     url "https://github.com/minetest/minetest.git"
 
     resource "minetest_game" do
-      url "https://github.com/minetest/minetest_game.git", :branch => "master"
+      url "https://github.com/minetest/minetest_game.git", branch: "master"
     end
   end
 

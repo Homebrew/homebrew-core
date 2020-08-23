@@ -1,16 +1,22 @@
 class Flawfinder < Formula
+  include Language::Python::Shebang
+
   desc "Examines code and reports possible security weaknesses"
   homepage "https://www.dwheeler.com/flawfinder/"
   url "https://www.dwheeler.com/flawfinder/flawfinder-2.0.11.tar.gz"
   sha256 "9b4929fca5c6703880d95f201e470b7f19262ff63e991b3ac4ea3257f712f5ec"
-  head "https://git.code.sf.net/p/flawfinder/code.git"
+  license "GPL-2.0"
+  revision 1
+  head "https://github.com/david-a-wheeler/flawfinder.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a790a4d58403cf16cdba7c243621ddfc5f7b20e47d786d8aceb08598803d2264" => :catalina
-    sha256 "a790a4d58403cf16cdba7c243621ddfc5f7b20e47d786d8aceb08598803d2264" => :mojave
-    sha256 "a790a4d58403cf16cdba7c243621ddfc5f7b20e47d786d8aceb08598803d2264" => :high_sierra
+    sha256 "834e8b598e411e3722bb5955348293cc9ef833400ee0a45357525c91c13a29c6" => :catalina
+    sha256 "834e8b598e411e3722bb5955348293cc9ef833400ee0a45357525c91c13a29c6" => :mojave
+    sha256 "834e8b598e411e3722bb5955348293cc9ef833400ee0a45357525c91c13a29c6" => :high_sierra
   end
+
+  depends_on "python@3.8"
 
   resource "flaws" do
     url "https://www.dwheeler.com/flawfinder/test.c"
@@ -18,6 +24,7 @@ class Flawfinder < Formula
   end
 
   def install
+    rewrite_shebang detected_python_shebang, "flawfinder"
     system "make", "prefix=#{prefix}", "install"
   end
 

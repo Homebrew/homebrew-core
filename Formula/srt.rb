@@ -3,6 +3,7 @@ class Srt < Formula
   homepage "https://www.srtalliance.org/"
   url "https://github.com/Haivision/srt/archive/v1.4.1.tar.gz"
   sha256 "e80ca1cd0711b9c70882c12ec365cda1ba852e1ce8acd43161a21a04de0cbf14"
+  license "MPL-2.0"
   head "https://github.com/Haivision/srt.git"
 
   bottle do

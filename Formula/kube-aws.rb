@@ -2,27 +2,23 @@ class KubeAws < Formula
   desc "Command-line tool to declaratively manage Kubernetes clusters on AWS"
   homepage "https://kubernetes-incubator.github.io/kube-aws/"
   url "https://github.com/kubernetes-incubator/kube-aws.git",
-      :tag      => "v0.15.2",
-      :revision => "372f6e9038b22d85bf4189317d140b046aeb5100"
+      tag:      "v0.16.2",
+      revision: "4c8ca963a4af9c4f1f0bde0e29eb39a9b4455f99"
+  license "Apache-2.0"
   head "https://github.com/kubernetes-incubator/kube-aws.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "db6fd1c57883d20e770f2caace08955a78e6aaa9590d18d7626b888e0734bee3" => :catalina
-    sha256 "060c49234996b0b49d3816cdc769272ebd89880bcc48332a0165b1cf259a3167" => :mojave
-    sha256 "0e81cd7a496635c3a4a5eb9e2dde6d78a117f0f792e0559a25336d851af63b29" => :high_sierra
+    sha256 "15bd23749f4ee8eee545263c9a22962f7cdf7c22bbc8c44d2fa8e396947d03fb" => :catalina
+    sha256 "048147da6c013e2f5a3d589c17188a3bf5b54bc7aef8ef3b887bb19521c1d16d" => :mojave
+    sha256 "248c00b9ccc58108d71da68e1ff8a077b3f5d88dcace6bf1fd8439a4b7a73bfc" => :high_sierra
   end
 
   depends_on "go" => :build
+  depends_on "packr" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/github.com/kubernetes-incubator/kube-aws"
-    dir.install buildpath.children - [buildpath/".brew_home"]
-    cd dir do
-      system "make", "OUTPUT_PATH=#{bin}/kube-aws"
-      prefix.install_metafiles
-    end
+    system "make", "OUTPUT_PATH=#{bin}/kube-aws"
   end
 
   test do

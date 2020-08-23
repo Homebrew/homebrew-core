@@ -1,17 +1,17 @@
 class Wolfssl < Formula
   desc "Embedded SSL Library written in C"
-  homepage "https://www.wolfssl.com/wolfSSL/Home.html"
+  homepage "https://www.wolfssl.com"
   url "https://github.com/wolfSSL/wolfssl.git",
-      :tag      => "v4.3.0-stable",
-      :revision => "3f13b49fa318fbd3216d7da36d942e7c276d3413"
-  sha256 "4e15f494604e41725499f8b708798f8ddc2fcaa8f39b4369bcd000b3cab482d8"
+      tag:      "v4.5.0-stable",
+      revision: "0fa5af9929ce2ee99e8789996a3048f41a99830e"
+  license "GPL-2.0-or-later"
   head "https://github.com/wolfSSL/wolfssl.git"
 
   bottle do
     cellar :any
-    sha256 "640adc750bb5f9bbb83c4750255a8451f3800911feb29f4b40bc9c05d6496a87" => :catalina
-    sha256 "45cb9c47a12a04ba87b263063b0c9d5ef41df63c23b9e0c2c71fefdc6419ce67" => :mojave
-    sha256 "d517858cb06ac4acfb74cf89957a51f3bfc80ffa49eba97406e81b7030f3190e" => :high_sierra
+    sha256 "65dc4e927eadda0948058bdbb2dbd93ad3e0949dd5f3ec4a40a13147166fab07" => :catalina
+    sha256 "fb1db5f016b181902c78dd438136b881b2fbc4c361caaaa9cf173f18e3420e95" => :mojave
+    sha256 "4ec178ea428a5045b73a076f1342535a6b38ca06511638bb83c7fe7559ae8039" => :high_sierra
   end
 
   depends_on "autoconf" => :build
@@ -19,10 +19,6 @@ class Wolfssl < Formula
   depends_on "libtool" => :build
 
   def install
-    # https://github.com/Homebrew/homebrew-core/pull/1046
-    # https://github.com/Homebrew/brew/pull/251
-    ENV.delete("SDKROOT")
-
     args = %W[
       --disable-silent-rules
       --disable-dependency-tracking
@@ -78,7 +74,7 @@ class Wolfssl < Formula
     ]
 
     # Extra flag is stated as a needed for the Mac platform.
-    # https://wolfssl.com/wolfSSL/Docs-wolfssl-manual-2-building-wolfssl.html
+    # https://www.wolfssl.com/docs/wolfssl-manual/ch2/
     # Also, only applies if fastmath is enabled.
     ENV.append_to_cflags "-mdynamic-no-pic"
 

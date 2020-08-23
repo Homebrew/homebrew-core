@@ -3,6 +3,7 @@ class Nq < Formula
   homepage "https://github.com/chneukirchen/nq"
   url "https://github.com/chneukirchen/nq/archive/v0.3.1.tar.gz"
   sha256 "8897a747843fe246a6f8a43e181ae79ef286122a596214480781a02ef4ea304b"
+  license "CC0-1.0"
   head "https://github.com/chneukirchen/nq.git"
 
   bottle do
@@ -13,8 +14,6 @@ class Nq < Formula
     sha256 "0e8d6557f7713be4c1e5074ea909d36cd12e2e17d85a1c0a1141ac64f06953d3" => :sierra
     sha256 "67374f5db8a35f877a16e0fdbd313276fb269db81ce49e7654fb61fa865417cd" => :el_capitan
   end
-
-  depends_on :macos => :yosemite
 
   def install
     system "make", "all", "PREFIX=#{prefix}"

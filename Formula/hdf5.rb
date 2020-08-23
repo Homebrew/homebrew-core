@@ -3,12 +3,13 @@ class Hdf5 < Formula
   homepage "https://www.hdfgroup.org/HDF5"
   url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.12/hdf5-1.12.0/src/hdf5-1.12.0.tar.bz2"
   sha256 "97906268640a6e9ce0cde703d5a71c9ac3092eded729591279bf2e3ca9765f61"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "6c68f33613e960a0c9efec780d07d34c2ce9c0795d723af7027ee6b88219abbf" => :catalina
-    sha256 "77cf2db15c52c69da64ca5535eb03e44ec2bd953cbb2166996580739db467241" => :mojave
-    sha256 "88a4048d5d26ccea95574726fd874d8b69409301ed6a0f36d9c695168b3fc144" => :high_sierra
+    sha256 "e0990f7a52f3f66fd8d546ff1e1d26d4a0cec5ebc9a45ec21fb5335359d6878a" => :catalina
+    sha256 "3b681a12f21a576b4c80d84d52dbe8ff9380ecc517f9b742dbe26faf5ffc289a" => :mojave
+    sha256 "331f9a49fb5abb3344a6dc7ff626e37d799418d8de507487c30aff91e2b22265" => :high_sierra
   end
 
   depends_on "autoconf" => :build

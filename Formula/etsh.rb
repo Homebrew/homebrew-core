@@ -11,7 +11,7 @@ class Etsh < Formula
     sha256 "dbe3c9f5881aa417660aec6e9469123dde475b33551f7207cb3cb7aaade8c16d" => :high_sierra
   end
 
-  conflicts_with "teleport", :because => "both install `tsh` binaries"
+  conflicts_with "teleport", because: "both install `tsh` binaries"
 
   def install
     system "./configure"

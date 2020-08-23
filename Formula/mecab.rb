@@ -14,7 +14,7 @@ class Mecab < Formula
     sha256 "03df92bdd092065a7cbca5953a0e352c16cadfff5c9f186bbe1ee882258e56d3" => :el_capitan
   end
 
-  conflicts_with "mecab-ko", :because => "both install mecab binaries"
+  conflicts_with "mecab-ko", because: "both install mecab binaries"
 
   def install
     system "./configure", "--disable-dependency-tracking",

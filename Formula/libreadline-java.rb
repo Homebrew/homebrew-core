@@ -13,7 +13,7 @@ class LibreadlineJava < Formula
     sha256 "784fc9cb94f45ccaf91af932f35d6ac3570326914c4a4da866c9e34e173238a2" => :sierra
   end
 
-  depends_on :java => "1.8"
+  depends_on java: "1.8"
   depends_on "readline"
 
   # Fix "non-void function should return a value"-Error

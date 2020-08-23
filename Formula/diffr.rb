@@ -1,21 +1,22 @@
 class Diffr < Formula
   desc "LCS based diff highlighting tool to ease code review from your terminal"
   homepage "https://github.com/mookid/diffr"
-  url "https://github.com/mookid/diffr/archive/v0.1.3.tar.gz"
-  sha256 "7fd8c078a1b94140624a5a021eef059a916f79cdf21cfba7489f83be8fadfaa2"
+  url "https://github.com/mookid/diffr/archive/v0.1.4.tar.gz"
+  sha256 "2613b57778df4466a20349ef10b9e022d0017b4aee9a47fb07e78779f444f8cb"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7e01bf74ad7621aabeb9b3aaeb24d8482bc50919537378c43484f8cc86a80ffb" => :catalina
-    sha256 "3f491387e259786609728ae103154e3d04ba31756bd142f8a088b17530343a23" => :mojave
-    sha256 "4a9dc80b940b8f312b116509cbb79810e7ea829187669b4cc2e13e26d2cc98c1" => :high_sierra
+    sha256 "95c977ef5f56699e0007be2b869e12007afec6fabdd84b003825e04e66d52d74" => :catalina
+    sha256 "b3d54c3e09b5b8a5a6de7b1d8c4511b4ff1d0b835250738343a45e3e872a0d08" => :mojave
+    sha256 "4b0ac077f6fd419d00c67dbfa100b8822dc041a8b12925cbda7a4d87a2c470fc" => :high_sierra
   end
 
   depends_on "rust" => :build
   depends_on "diffutils" => :test
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", *std_cargo_args
   end
 
   test do

@@ -1,20 +1,21 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-0.16.0/apache-arrow-0.16.0.tar.gz"
-  mirror "https://archive.apache.org/dist/arrow/arrow-0.16.0/apache-arrow-0.16.0.tar.gz"
-  sha256 "261992de4029a1593195ff4000501503bd403146471b3168bd2cc414ad0fb7f5"
+  url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-1.0.1/apache-arrow-1.0.1.tar.gz"
+  mirror "https://archive.apache.org/dist/arrow/arrow-1.0.1/apache-arrow-1.0.1.tar.gz"
+  sha256 "149ca6aa969ac5742f3b30d1f69a6931a533fd1db8b96712e60bf386a26dc75c"
+  license "Apache-2.0"
   head "https://github.com/apache/arrow.git"
 
   bottle do
     cellar :any
-    sha256 "d523f37a5332bd67dfbb7517d30c5bcf762c96c0157425d966628616de961317" => :catalina
-    sha256 "9a1a351efcec6de325196c7692e03637efcd3557f8b0fc8847e0bb2af7b586c4" => :mojave
-    sha256 "b3b2e0681cff1188e6da5bc741a173740a218c1fde467379345a7dd6501b010c" => :high_sierra
+    sha256 "02de039dba50f1d877fc1a1985556c6dc567e394c70b81792984b811056592f6" => :catalina
+    sha256 "3b182187486e7df8b750bac60c08b5a74f10394e2e82c2dce824a95d93f8e847" => :mojave
+    sha256 "006e8ade39d21f9da3cd4b52c83ad4458df52fe74d405d5d696c8075036cadc2" => :high_sierra
   end
 
+  depends_on "boost" => :build
   depends_on "cmake" => :build
-  depends_on "boost"
   depends_on "brotli"
   depends_on "glog"
   depends_on "grpc"
@@ -22,7 +23,7 @@ class ApacheArrow < Formula
   depends_on "numpy"
   depends_on "openssl@1.1"
   depends_on "protobuf"
-  depends_on "python"
+  depends_on "python@3.8"
   depends_on "rapidjson"
   depends_on "snappy"
   depends_on "thrift"
@@ -32,7 +33,7 @@ class ApacheArrow < Formula
     ENV.cxx11
     args = %W[
       -DARROW_FLIGHT=ON
-      -DARROW_JEMALLOC=OFF
+      -DARROW_JEMALLOC=ON
       -DARROW_ORC=ON
       -DARROW_PARQUET=ON
       -DARROW_PLASMA=ON
@@ -45,7 +46,7 @@ class ApacheArrow < Formula
       -DARROW_WITH_SNAPPY=ON
       -DARROW_WITH_BROTLI=ON
       -DARROW_INSTALL_NAME_RPATH=OFF
-      -DPYTHON_EXECUTABLE=#{Formula["python"].bin/"python3"}
+      -DPYTHON_EXECUTABLE=#{Formula["python@3.8"].bin/"python3"}
     ]
 
     mkdir "build"

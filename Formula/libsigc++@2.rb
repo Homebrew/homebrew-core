@@ -1,15 +1,15 @@
 class LibsigcxxAT2 < Formula
   desc "Callback framework for C++"
   homepage "https://libsigcplusplus.github.io/libsigcplusplus/"
-  url "https://download.gnome.org/sources/libsigc++/2.10/libsigc++-2.10.2.tar.xz"
-  sha256 "b1ca0253379596f9c19f070c83d362b12dfd39c0a3ea1dd813e8e21c1a097a98"
+  url "https://download.gnome.org/sources/libsigc++/2.10/libsigc++-2.10.3.tar.xz"
+  sha256 "0b68dfc6313c6cc90ac989c6d722a1bf0585ad13846e79746aa87cb265904786"
+  license "LGPL-2.1"
 
   bottle do
     cellar :any
-    sha256 "03c0627d1d5cfd7c84cae86c7536e6ad43f2ad73bdf6d92258ec68b12ef81e59" => :catalina
-    sha256 "cfb591da46f83d5242f860533bb509e4966b32f45d96abd1aebe60ccce536de6" => :mojave
-    sha256 "81130d69dd341e31f941f9d457745bbefb4eb59427a81c014e5cf6c1c8b861ad" => :high_sierra
-    sha256 "d9c71c15b7d4d244aa74aa319a14f0bba110ca97160abe035a461409b2b1630b" => :sierra
+    sha256 "bcf678faa58639056292bb201143fe4add755d9f6da6a65f4b7d10cff0ccfe17" => :catalina
+    sha256 "034cb3a54d796e4b9ec4619a15612fc64fc7e7cbddf189f71bb5342f7b631a3d" => :mojave
+    sha256 "c8cccc56cfb07d96e339af416c7a2449673c5303f15f99c5f668fc4c5f792695" => :high_sierra
   end
 
   uses_from_macos "m4" => :build

@@ -1,13 +1,14 @@
 class PythonAT38 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.8.2/Python-3.8.2.tar.xz"
-  sha256 "2646e7dc233362f59714c6193017bb2d6f7b38d6ab4a0cb5fbac5c36c4d845df"
+  url "https://www.python.org/ftp/python/3.8.5/Python-3.8.5.tar.xz"
+  sha256 "e3003ed57db17e617acb382b0cade29a248c6026b1bd8aad1f976e9af66a83b0"
+  license "Python-2.0"
 
   bottle do
-    sha256 "4bd9406b5d69313fcef3e572f85398ff9d7e2ab34eaf40c087bd0b4e87439ea8" => :catalina
-    sha256 "511b4f2c3993f000516938ed0700936c8a7d8c054b5171fa733ac7d344291c30" => :mojave
-    sha256 "86652428afa471b42ddba7028de02767d933f35f55e538b362c9cc219e972405" => :high_sierra
+    sha256 "3f0592dfdf6bf38c25870b57ba3e71b5b47e6c5a5ddb76aaafcbffe67eff8354" => :catalina
+    sha256 "c663ffeac543b83aeae1ca13700fcb039edd57b3f0579b78fed1c2c4836ae54f" => :mojave
+    sha256 "089e6eb9f410d2b8c975734df1633b847e6738f193a999f2d1f6cce82aa260b6" => :high_sierra
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -20,8 +21,6 @@ class PythonAT38 < Formula
     EOS
     satisfy { MacOS::CLT.installed? }
   end
-
-  keg_only :versioned_formula
 
   depends_on "pkg-config" => :build
   depends_on "gdbm"
@@ -40,19 +39,42 @@ class PythonAT38 < Formula
   skip_clean "bin/easy_install3", "bin/easy_install-3.4", "bin/easy_install-3.5", "bin/easy_install-3.6",
              "bin/easy_install-3.7", "bin/easy_install-3.8"
 
+  link_overwrite "bin/2to3"
+  link_overwrite "bin/idle3"
+  link_overwrite "bin/pip3"
+  link_overwrite "bin/pydoc3"
+  link_overwrite "bin/python3"
+  link_overwrite "bin/python3-config"
+  link_overwrite "bin/wheel3"
+  link_overwrite "share/man/man1/python3.1"
+  link_overwrite "lib/pkgconfig/python3.pc"
+  link_overwrite "Frameworks/Python.framework/Headers"
+  link_overwrite "Frameworks/Python.framework/Python"
+  link_overwrite "Frameworks/Python.framework/Resources"
+  link_overwrite "Frameworks/Python.framework/Versions/Current"
+
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/df/ed/bea598a87a8f7e21ac5bbf464102077c7102557c07db9ff4e207bd9f7806/setuptools-46.0.0.zip"
-    sha256 "2f00f25b780fbfd0787e46891dcccd805b08d007621f24629025f48afef444b5"
+    url "https://files.pythonhosted.org/packages/2f/8e/38259f4a44944a92068d5ff77230511a4c685604b47a81318f9e5cf2cc24/setuptools-49.2.0.zip"
+    sha256 "afe9e81fee0270d3f60d52608549cc8ec4c46dada8c95640c1a00160f577acf2"
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/8e/76/66066b7bc71817238924c7e4b448abdb17eb0c92d645769c223f9ace478f/pip-20.0.2.tar.gz"
-    sha256 "7db0c8ea4c7ea51c8049640e8e6e7fde949de672bfa4949920675563a5a6967f"
+    url "https://files.pythonhosted.org/packages/08/25/f204a6138dade2f6757b4ae99bc3994aac28a5602c97ddb2a35e0e22fbc4/pip-20.1.1.tar.gz"
+    sha256 "27f8dc29387dd83249e06e681ce087e6061826582198a425085e0bf4c1cf3a55"
   end
 
   resource "wheel" do
     url "https://files.pythonhosted.org/packages/75/28/521c6dc7fef23a68368efefdcd682f5b3d1d58c2b90b06dc1d0b805b51ae/wheel-0.34.2.tar.gz"
     sha256 "8788e9155fe14f54164c1b9eb0a319d98ef02c160725587ad60f14ddc57b6f96"
+  end
+
+  # Remove this block when upstream adds arm64 compatibility
+  if Hardware::CPU.arm?
+    # Upstream PRs #20171, #21114, #21224 and #21249
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/113aa84/python/3.8.3.patch"
+      sha256 "9c0d7c28c33c6036860457bd9c5a03026c71bd034907b77fbf861ff5fe216ed0"
+    end
   end
 
   def install
@@ -223,7 +245,7 @@ class PythonAT38 < Formula
     end
 
     # post_install happens after link
-    %W[pip#{xy} easy_install-#{xy}].each do |e|
+    %W[pip3 pip#{xy} easy_install-#{xy} wheel3].each do |e|
       (HOMEBREW_PREFIX/"bin").install_symlink bin/e
     end
 
@@ -290,12 +312,16 @@ class PythonAT38 < Formula
     end
     <<~EOS
       Python has been installed as
-        #{opt_bin}/python3
+        #{HOMEBREW_PREFIX}/bin/python3
+
+      Unversioned symlinks `python`, `python-config`, `pip` etc. pointing to
+      `python3`, `python3-config`, `pip3` etc., respectively, have been installed into
+        #{opt_libexec}/bin
 
       You can install Python packages with
-        #{opt_bin}/pip3 install <package>
+        pip3 install <package>
       They will install into the site-package directory
-        #{prefix/"Frameworks/Python.framework/Versions/#{xy}/lib/python#{xy}/site-packages"}
+        #{HOMEBREW_PREFIX/"lib/python#{xy}/site-packages"}
 
       See: https://docs.brew.sh/Homebrew-and-Python
     EOS

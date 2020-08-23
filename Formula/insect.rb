@@ -5,6 +5,7 @@ class Insect < Formula
   homepage "https://insect.sh/"
   url "https://registry.npmjs.org/insect/-/insect-5.4.0.tgz"
   sha256 "c810e50c473439b04b2b3b7e580e6a2781f1c8747eb4261c262e413d6a145c2c"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

@@ -4,6 +4,7 @@ class AprUtil < Formula
   url "https://www.apache.org/dyn/closer.lua?path=apr/apr-util-1.6.1.tar.bz2"
   mirror "https://archive.apache.org/dist/apr/apr-util-1.6.1.tar.bz2"
   sha256 "d3e12f7b6ad12687572a3a39475545a072608f4ba03a6ce8a3778f607dd0035b"
+  license "Apache-2.0"
   revision 3
 
   bottle do
@@ -13,10 +14,18 @@ class AprUtil < Formula
     sha256 "16e812e4be2247d8e8f4f8a68ba6765ceb5a98e22a08dda288eb99dff2e41ae0" => :sierra
   end
 
-  keg_only :provided_by_macos, "Apple's CLT package contains apr"
+  keg_only :shadowed_by_macos, "Apple's CLT provides apr (but not apr-util)"
 
   depends_on "apr"
   depends_on "openssl@1.1"
+
+  uses_from_macos "expat"
+  uses_from_macos "sqlite"
+
+  on_linux do
+    depends_on "mawk"
+    depends_on "unixodbc"
+  end
 
   def install
     # Install in libexec otherwise it pollutes lib with a .exp file.

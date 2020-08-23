@@ -3,6 +3,7 @@ class WpCli < Formula
   homepage "https://wp-cli.org/"
   url "https://github.com/wp-cli/wp-cli/releases/download/v2.4.0/wp-cli-2.4.0.phar"
   sha256 "139dcc86ed39ef751679efbdaf57a53528f1afda972c4e3622667cc27397b540"
+  license "MIT"
 
   bottle :unneeded
 

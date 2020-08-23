@@ -3,6 +3,7 @@ class Samtools < Formula
   homepage "https://www.htslib.org/"
   url "https://github.com/samtools/samtools/releases/download/1.10/samtools-1.10.tar.bz2"
   sha256 "7b9ec5f05d61ec17bd9a82927e45d8ef37f813f79eb03fe06c88377f1bd03585"
+  license "MIT"
 
   bottle do
     cellar :any

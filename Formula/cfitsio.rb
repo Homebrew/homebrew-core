@@ -1,15 +1,15 @@
 class Cfitsio < Formula
   desc "C access to FITS data files with optional Fortran wrappers"
   homepage "https://heasarc.gsfc.nasa.gov/docs/software/fitsio/fitsio.html"
-  url "https://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/cfitsio-3.47.tar.gz"
-  version "3.470"
-  sha256 "418516f10ee1e0f1b520926eeca6b77ce639bed88804c7c545e74f26b3edf4ef"
+  url "https://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/cfitsio-3.49.tar.gz"
+  version "3.490"
+  sha256 "5b65a20d5c53494ec8f638267fca4a629836b7ac8dd0ef0266834eab270ed4b3"
 
   bottle do
     cellar :any
-    sha256 "60f903aaeaa52557c810add80ab3771f8ac4b29e8839c6463ad94d7f412f367e" => :catalina
-    sha256 "8b726717e06bde963e9935a5e8d3abaf8e77107afdeff90e2550997dc689b7c7" => :mojave
-    sha256 "ae27f5c7b1886a7380c043f2df0c9ed02af35802c901dc0c8d6b4f6f710afddd" => :high_sierra
+    sha256 "2abc3263aed574298efd50d60dd5fa07e69c5a39ed87772e3edaa727a293506a" => :catalina
+    sha256 "07c4d1610f3e5d90cbedb238939f588f09150edfe006f41c5072d2fb4e01980a" => :mojave
+    sha256 "ec8feab397612c13da91dd9c8e2c91289973ec1e7e10bf07f17023cf5db26745" => :high_sierra
   end
 
   def install

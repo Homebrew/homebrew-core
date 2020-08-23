@@ -3,6 +3,7 @@ class Fontconfig < Formula
   homepage "https://wiki.freedesktop.org/www/Software/fontconfig/"
   url "https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.13.1.tar.bz2"
   sha256 "f655dd2a986d7aa97e052261b36aa67b0a64989496361eca8d604e6414006741"
+  license "MIT"
 
   bottle do
     sha256 "64ff208b28613dfe2a65b9d74fd9b0129f3ca7e423db78329144cdaf51b36f70" => :catalina
@@ -20,10 +21,11 @@ class Fontconfig < Formula
   end
 
   head do
-    url "https://anongit.freedesktop.org/git/fontconfig", :using => :git
+    url "https://anongit.freedesktop.org/git/fontconfig.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
+    depends_on "gettext" => :build
     depends_on "libtool" => :build
   end
 
@@ -32,6 +34,20 @@ class Fontconfig < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "expat"
+
+  on_linux do
+    depends_on "gperf" => :build
+    depends_on "gettext" => :build
+    depends_on "json-c" => :build
+    depends_on "util-linux"
+  end
+
+  # Fix crash issues on arm64.
+  # Remove with the next release.
+  patch do
+    url "https://github.com/freedesktop/fontconfig/commit/6def66164a36eed968aae872d76acfac3173d44a.patch?full_index=1"
+    sha256 "1dbe6247786c75f2b3f5a7e21133a3f9c09189f59fff08b2df7cb15389b0e405"
+  end
 
   def install
     font_dirs = %w[

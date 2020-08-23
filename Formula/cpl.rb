@@ -3,20 +3,20 @@ class Cpl < Formula
   homepage "https://www.eso.org/sci/software/cpl/index.html"
   url "ftp://ftp.eso.org/pub/dfs/pipelines/libraries/cpl/cpl-7.1.2.tar.gz"
   sha256 "b6d20752420e2333e86d9a08c24a08057351a9fef97c32f5894e63fbfece463a"
-  revision 4
+  revision 6
 
   bottle do
     cellar :any
-    sha256 "06b23f3fed234e018af9df86077cdaf16e2c3e60e509067c26c872c762bc8e52" => :catalina
-    sha256 "6bd5f0bbd133fac5d7196cdeb9d0002b747cd03d978410b22001797d76c99939" => :mojave
-    sha256 "3bed418a92c92292a0583f5ea1401fdea4e0d860c179f1f9f7d54cfeb013aa76" => :high_sierra
+    sha256 "4585413a3561eea4a3443b1214dd1759e82853ca5273929e202a2c38ad526add" => :catalina
+    sha256 "d9410e5fc7b4e1466f88233e8e5e925133257d3f33953a8ce91aee780d53db33" => :mojave
+    sha256 "7a810f03ee554b573832fd30285a2fad70be6b9ad6b0e9936300130396f151cd" => :high_sierra
   end
 
   depends_on "cfitsio"
   depends_on "fftw"
   depends_on "wcslib"
 
-  conflicts_with "gdal", :because => "both install cpl_error.h"
+  conflicts_with "gdal", because: "both install cpl_error.h"
 
   def install
     system "./configure", "--disable-debug",

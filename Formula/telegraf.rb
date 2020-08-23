@@ -1,31 +1,23 @@
 class Telegraf < Formula
   desc "Server-level metric gathering agent for InfluxDB"
-  homepage "https://influxdata.com"
-  url "https://github.com/influxdata/telegraf/archive/1.13.4.tar.gz"
-  sha256 "a3015fb339e050d048c6d3df97827b257700211ce33e9403a5663d27c1f9b0fb"
+  homepage "https://www.influxdata.com/"
+  url "https://github.com/influxdata/telegraf/archive/v1.15.2.tar.gz"
+  sha256 "2cc5392e9b035bce3255693b718d9e4bdd54fe16f5dc728b933113cfdaa93360"
+  license "MIT"
   head "https://github.com/influxdata/telegraf.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b48c8fe40ed0a22ef9df8e1dc1d35505d637606af8cd138f85945975d0fcc522" => :catalina
-    sha256 "68f9cabd61411f1ab1f8bae0653d23c5236e88293c9f60b82581d6d197a004f6" => :mojave
-    sha256 "f6e3fa528f5ce82fc898ad815aed6b801443246ac5879d8bbd0dd2c7c0522584" => :high_sierra
+    sha256 "7df245171b2f9b7791e86e21496494f1a31fa38e77ba5c97d656d6c0df82a820" => :catalina
+    sha256 "358500c7190955a7f471070d91063bc89a1d9ed0b9978c066264ca05ea082903" => :mojave
+    sha256 "194c317ad592aaa314ff28bf4751352093922835ecf2b651771e480351bf2369" => :high_sierra
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/github.com/influxdata/telegraf"
-    dir.install buildpath.children
-    cd dir do
-      system "dep", "ensure", "-vendor-only"
-      system "go", "install", "-ldflags", "-X main.version=#{version}", "./..."
-      prefix.install_metafiles
-    end
-    bin.install "bin/telegraf"
-    etc.install dir/"etc/telegraf.conf" => "telegraf.conf"
+    system "go", "build", *std_go_args, "-ldflags", "-X main.version=#{version}", "./cmd/telegraf"
+    etc.install "etc/telegraf.conf" => "telegraf.conf"
   end
 
   def post_install
@@ -33,7 +25,7 @@ class Telegraf < Formula
     (etc/"telegraf.d").mkpath
   end
 
-  plist_options :manual => "telegraf -config #{HOMEBREW_PREFIX}/etc/telegraf.conf"
+  plist_options manual: "telegraf -config #{HOMEBREW_PREFIX}/etc/telegraf.conf"
 
   def plist
     <<~EOS

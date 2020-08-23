@@ -3,7 +3,7 @@ class Graphicsmagick < Formula
   homepage "http://www.graphicsmagick.org/"
   url "https://downloads.sourceforge.net/project/graphicsmagick/graphicsmagick/1.3.35/GraphicsMagick-1.3.35.tar.xz"
   sha256 "188a8d6108fea87a0208723e8d206ec1d4d7299022be8ce5d0a9720509250250"
-  head "http://hg.code.sf.net/p/graphicsmagick/code", :using => :hg
+  head "http://hg.code.sf.net/p/graphicsmagick/code", using: :hg
 
   bottle do
     sha256 "e5517b416b979debeafdf4fc7a408e09f77c2a8f93b76051d6707f2a6750d0c2" => :catalina

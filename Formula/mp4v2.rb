@@ -17,7 +17,7 @@ class Mp4v2 < Formula
   end
 
   conflicts_with "bento4",
-    :because => "both install `mp4extract` and `mp4info` binaries"
+    because: "both install `mp4extract` and `mp4info` binaries"
 
   def install
     system "./configure", "--disable-debug", "--prefix=#{prefix}"

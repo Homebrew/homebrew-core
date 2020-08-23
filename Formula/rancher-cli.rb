@@ -1,28 +1,28 @@
 class RancherCli < Formula
   desc "The Rancher CLI is a unified tool to manage your Rancher server"
   homepage "https://github.com/rancher/cli"
-  url "https://github.com/rancher/cli/archive/v2.3.2.tar.gz"
-  sha256 "18a3b3e816c0e59cd36cbe836cb373d0390ce9ee74bcc58820cdd5affd9cfbdf"
+  url "https://github.com/rancher/cli/archive/v2.4.5.tar.gz"
+  sha256 "538152806b030a27d81824fe1319203d0ff27f7c3487faf0cbdec2097aec6909"
+  license "Apache-2.0"
+  head "https://github.com/rancher/cli.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8529a27ad17d294661b1ea1e2c4d2da90149681419aff1382a4cd802613c1dca" => :catalina
-    sha256 "07140cb6d3b0208e53bb879fd8db1ffa2db5f9911835fb907f77d4b4b4d987a9" => :mojave
-    sha256 "66297b3b6fea84eab42e5c568bcd433a9fa774e357e97b4ac278b61c6f60a50e" => :high_sierra
+    sha256 "fc15fd956ef932aca1ea71f708e3825426d72d4d1de22f792f635f23fd7d58b2" => :catalina
+    sha256 "a02a7621b1dc51132808e15af97ad598dcaf10b0aa20c9c140adf2b7e1a9eca6" => :mojave
+    sha256 "1de5ece489498a95029d1740daba354fee2da5f955561fc67804ffcfc629b7d6" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/rancher/cli/").install Dir["*"]
-    system "go", "build", "-ldflags",
-           "-w -X github.com/rancher/cli/version.VERSION=#{version}",
-           "-o", "#{bin}/rancher",
-           "-v", "github.com/rancher/cli/"
+    system "go", "build", "-mod=vendor", "-ldflags",
+           "-w -X main.VERSION=#{version}",
+           "-trimpath", "-o", bin/"rancher"
   end
 
   test do
-    system bin/"rancher", "help"
+    assert_match "Failed to parse SERVERURL", shell_output("#{bin}/rancher login localhost -t foo 2>&1", 1)
+    assert_match "invalid token", shell_output("#{bin}/rancher login https://127.0.0.1 -t foo 2>&1", 1)
   end
 end

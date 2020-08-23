@@ -1,13 +1,14 @@
 class MysqlAT57 < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/5.7/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.29.tar.gz"
-  sha256 "00f514124de2bad1ba7b380cbbd46e316cae7fc7bc3a5621456cabf352f27978"
+  url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.31.tar.gz"
+  sha256 "85bd222e61846313d7ad7c095ad664c89ca8f52dd9c21b7ac343ead62d701200"
+  license "GPL-2.0"
 
   bottle do
-    sha256 "bf0cdc294df996455c8abad3e03b6691f2145a4036085ad2570ec6c993e6b9c0" => :catalina
-    sha256 "88cf1f9f07a84694654f790507da937909eee1b16a0e47d473b2fc45e19c9ec1" => :mojave
-    sha256 "b4bf218448de13e40027117d3813d9a7a72d3205deb9658da16b85f74ad390af" => :high_sierra
+    sha256 "14ae8121e150830abdf81c06028a0aeeeae3051e5571a0f60fe54ba60fcc0586" => :catalina
+    sha256 "6f20c9723f4765e3abd3c968a210059c2fdae7618c2c667cd18b071b9e8de446" => :mojave
+    sha256 "08b3e7c7b9304c59efb712b1960f62c2c89d23c93b9a7e846dcccd41d39fcd55" => :high_sierra
   end
 
   keg_only :versioned_formula
@@ -16,6 +17,10 @@ class MysqlAT57 < Formula
   depends_on "openssl@1.1"
 
   uses_from_macos "libedit"
+
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
 
   def datadir
     var/"mysql"
@@ -105,7 +110,7 @@ class MysqlAT57 < Formula
     s
   end
 
-  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/mysql@5.7/bin/mysql.server start"
+  plist_options manual: "#{HOMEBREW_PREFIX}/opt/mysql@5.7/bin/mysql.server start"
 
   def plist
     <<~EOS
@@ -137,12 +142,13 @@ class MysqlAT57 < Formula
     system bin/"mysqld", "--initialize-insecure", "--user=#{ENV["USER"]}",
     "--basedir=#{prefix}", "--datadir=#{dir}", "--tmpdir=#{dir}"
 
+    port = free_port
     pid = fork do
-      exec bin/"mysqld", "--bind-address=127.0.0.1", "--datadir=#{dir}"
+      exec bin/"mysqld", "--bind-address=127.0.0.1", "--datadir=#{dir}", "--port=#{port}"
     end
     sleep 2
 
-    output = shell_output("curl 127.0.0.1:3306")
+    output = shell_output("curl 127.0.0.1:#{port}")
     output.force_encoding("ASCII-8BIT") if output.respond_to?(:force_encoding)
     assert_match version.to_s, output
   ensure

@@ -3,6 +3,7 @@ class TesseractLang < Formula
   homepage "https://github.com/tesseract-ocr/tessdata_fast/"
   url "https://github.com/tesseract-ocr/tessdata_fast/archive/4.0.0.tar.gz"
   sha256 "f1b71e97f27bafffb6a730ee66fd9dc021afc38f318fdc80a464a84a519227fe"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

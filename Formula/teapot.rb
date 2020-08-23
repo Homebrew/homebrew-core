@@ -3,6 +3,7 @@ class Teapot < Formula
   homepage "https://www.syntax-k.de/projekte/teapot/"
   url "https://www.syntax-k.de/projekte/teapot/teapot-2.3.0.tar.gz"
   sha256 "580e0cb416ae3fb3df87bc6e92e43bf72929d47b65ea2b50bc09acea3bff0b65"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation

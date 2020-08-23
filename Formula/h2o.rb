@@ -3,6 +3,7 @@ class H2o < Formula
   homepage "https://github.com/h2o/h2o/"
   url "https://github.com/h2o/h2o/archive/v2.2.6.tar.gz"
   sha256 "f8cbc1b530d85ff098f6efc2c3fdbc5e29baffb30614caac59d5c710f7bda201"
+  license "MIT"
   revision 1
 
   bottle do
@@ -37,11 +38,11 @@ class H2o < Formula
   end
 
   # This is simplified from examples/h2o/h2o.conf upstream.
-  def conf_example
+  def conf_example(port = 8080)
     <<~EOS
-      listen: 8080
+      listen: #{port}
       hosts:
-        "127.0.0.1.xip.io:8080":
+        "127.0.0.1.xip.io:#{port}":
           paths:
             /:
               file.dir: #{var}/h2o/
@@ -56,7 +57,7 @@ class H2o < Formula
     EOS
   end
 
-  plist_options :manual => "h2o"
+  plist_options manual: "h2o"
 
   def plist
     <<~EOS
@@ -82,16 +83,13 @@ class H2o < Formula
   end
 
   test do
-    pid = fork do
-      exec "#{bin}/h2o -c #{etc}/h2o/h2o.conf"
+    port = free_port
+    (testpath/"h2o.conf").write conf_example(port)
+    fork do
+      exec "#{bin}/h2o -c #{testpath}/h2o.conf"
     end
     sleep 2
 
-    begin
-      assert_match "Welcome to H2O", shell_output("curl localhost:8080")
-    ensure
-      Process.kill("SIGINT", pid)
-      Process.wait(pid)
-    end
+    assert_match "Welcome to H2O", shell_output("curl localhost:#{port}")
   end
 end

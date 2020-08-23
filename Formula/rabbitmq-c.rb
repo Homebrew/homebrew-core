@@ -3,6 +3,7 @@ class RabbitmqC < Formula
   homepage "https://github.com/alanxz/rabbitmq-c"
   url "https://github.com/alanxz/rabbitmq-c/archive/v0.10.0.tar.gz"
   sha256 "6455efbaebad8891c59f274a852b75b5cc51f4d669dfc78d2ae7e6cc97fcd8c0"
+  license "MIT"
   head "https://github.com/alanxz/rabbitmq-c.git"
 
   bottle do

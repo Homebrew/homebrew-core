@@ -1,9 +1,10 @@
 class Tomcat < Formula
   desc "Implementation of Java Servlet and JavaServer Pages"
   homepage "https://tomcat.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=tomcat/tomcat-9/v9.0.33/bin/apache-tomcat-9.0.33.tar.gz"
-  mirror "https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.33/bin/apache-tomcat-9.0.33.tar.gz"
-  sha256 "d5cd9463492f4552229295a9a8c00615748f85e9de36434847d495e95b0ef796"
+  url "https://www.apache.org/dyn/closer.lua?path=tomcat/tomcat-9/v9.0.37/bin/apache-tomcat-9.0.37.tar.gz"
+  mirror "https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.37/bin/apache-tomcat-9.0.37.tar.gz"
+  sha256 "8fb4cfa459a3f027b855334fbdc7197fa5378e504853a98009281d8e149b1bc7"
+  license "Apache-2.0"
 
   bottle :unneeded
 
@@ -16,10 +17,10 @@ class Tomcat < Formula
     # Install files
     prefix.install %w[NOTICE LICENSE RELEASE-NOTES RUNNING.txt]
     libexec.install Dir["*"]
-    (bin/"catalina").write_env_script "#{libexec}/bin/catalina.sh", :JAVA_HOME => Formula["openjdk"].opt_prefix
+    (bin/"catalina").write_env_script "#{libexec}/bin/catalina.sh", JAVA_HOME: Formula["openjdk"].opt_prefix
   end
 
-  plist_options :manual => "catalina run"
+  plist_options manual: "catalina run"
 
   def plist
     <<~EOS

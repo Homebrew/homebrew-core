@@ -4,6 +4,7 @@ class Atasm < Formula
   url "https://atari.miribilist.com/atasm/atasm107d.zip"
   version "1.07d"
   sha256 "24a165506346029fbe05ed99b22900ae50f91f5a8c5d38ebad6a92a5c53f3d99"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

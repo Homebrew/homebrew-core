@@ -1,17 +1,18 @@
 class Libsigcxx < Formula
   desc "Callback framework for C++"
   homepage "https://libsigcplusplus.github.io/libsigcplusplus/"
-  url "https://download.gnome.org/sources/libsigc++/3.0/libsigc++-3.0.2.tar.xz"
-  sha256 "4b77676de1e74774ec456bcc6ac6f04a2791a12cc1fe07f8305d4c3c86e2f339"
+  url "https://download.gnome.org/sources/libsigc++/3.0/libsigc++-3.0.3.tar.xz"
+  sha256 "e4f4866a894bdbe053e4fb22ccc6bc4b6851fd31a4746fdd20b2cf6e87c6edb6"
+  license "LGPL-3.0"
 
   bottle do
     cellar :any
-    sha256 "793bb22cf3d7566a5ee346dd110fd2eba97b1ac91c16a9846ffb54af59cc43aa" => :catalina
-    sha256 "02ea0ed1876ad347cdc1a4b0223066f6fb5ced0dd955373834aa2da68404aad7" => :mojave
-    sha256 "ab541bdf6cb5d8c223213796054db86e8896c11fe3a68c79a2a179d85b019751" => :high_sierra
+    sha256 "77bf9858cb60a1842d970bbbc020a5379536806acbc4114afa56d8c941013765" => :catalina
+    sha256 "7ae9cb9a4d6a645574c6cf5aba8a9cfbbab44349545374f604073393c67f6f50" => :mojave
+    sha256 "e2c75abf2675c7830fd19aa268472aeee8b5c42cd9355147585bad9be7c3059a" => :high_sierra
   end
 
-  depends_on :macos => :high_sierra # needs C++17
+  depends_on macos: :high_sierra # needs C++17
 
   def install
     ENV.cxx11

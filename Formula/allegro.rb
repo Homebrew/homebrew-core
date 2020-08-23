@@ -3,6 +3,7 @@ class Allegro < Formula
   homepage "https://liballeg.org/"
   url "https://github.com/liballeg/allegro5/releases/download/5.2.6.0/allegro-5.2.6.0.tar.gz"
   sha256 "5de8189ec051e1865f359654f86ec68e2a12a94edd00ad06d1106caa5ff27763"
+  license "Zlib"
   head "https://github.com/liballeg/allegro5.git"
 
   bottle do

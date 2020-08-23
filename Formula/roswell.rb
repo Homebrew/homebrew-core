@@ -1,14 +1,15 @@
 class Roswell < Formula
   desc "Lisp installer and launcher for major environments"
   homepage "https://github.com/roswell/roswell"
-  url "https://github.com/roswell/roswell/archive/v20.01.14.104.tar.gz"
-  sha256 "798b96fdcb8c89445b36692b31570bb99882d83719d6310d969ccfcb2a35a1d4"
+  url "https://github.com/roswell/roswell/archive/v20.06.14.107.tar.gz"
+  sha256 "fc3fd46c55a50e2b76aba60ebbfeab393f345cdca7f2a87a6772c8b4fce3c2e4"
+  license "MIT"
   head "https://github.com/roswell/roswell.git"
 
   bottle do
-    sha256 "cfc2b1162cb943801344f8938873b8717095f045300ccd42eeb4f649197a949e" => :catalina
-    sha256 "92a71c326eaf2dbfee8da1579d85dae1d181d538b65c3b1757cb632267d92fa2" => :mojave
-    sha256 "f68424fef64462de12fbed01d0380655887a505f7b1f3f4c633649749ffaea1a" => :high_sierra
+    sha256 "dcd9cf15c21d13724f36fd736529faba40dc0c2af2008c970b94049796d6d171" => :catalina
+    sha256 "2d28ef4f1a1cbf94fba0132f7e1f05abb87854af6ce65f70c71877c7152d5622" => :mojave
+    sha256 "a6d5d3ddafc4afefbb84d077b2157a1e7101c5c057bc7fe25714c19b83659017" => :high_sierra
   end
 
   depends_on "autoconf" => :build

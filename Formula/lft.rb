@@ -1,15 +1,14 @@
 class Lft < Formula
   desc "Layer Four Traceroute (LFT), an advanced traceroute tool"
   homepage "https://pwhois.org/lft/"
-  url "https://pwhois.org/dl/index.who?file=lft-3.8.tar.gz"
-  version "3.80"
-  sha256 "10f427e77b0f8207817329bd8ef0310078434612620073369264d15e6f97e990"
+  url "https://pwhois.org/dl/index.who?file=lft-3.91.tar.gz"
+  sha256 "aad13e671adcfc471ab99417161964882d147893a54664f3f465ec5c8398e6af"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ed9f4ee60ea875c0e06b873dc3f5a13a7b5f981966a10425418da459fbe3c0d3" => :catalina
-    sha256 "b58a621bacbdeaf1e126368f30dcd7231fb4dc1b8313d922786b7fb535cafb3d" => :mojave
-    sha256 "efc3dea6a94cc6976ba95d1931ade0768a5a8f6ab277a369601954c44f54b213" => :high_sierra
+    sha256 "c0b69000709a507f2ec0cc2ff286910e6f2629169367828cfdc26e184654f787" => :catalina
+    sha256 "83d6fa2b78fb9780fecb9287407825d1731f1c91da30bb75b15f26e632e0720b" => :mojave
+    sha256 "e0370a6053bedd5c24f62583c2d19c3d0d2fab2fa5cf9003561e60694dad8642" => :high_sierra
   end
 
   def install

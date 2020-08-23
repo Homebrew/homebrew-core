@@ -4,6 +4,7 @@ class Rush < Formula
   url "https://ftp.gnu.org/gnu/rush/rush-2.1.tar.xz"
   mirror "https://ftpmirror.gnu.org/rush/rush-2.1.tar.xz"
   sha256 "c2ff487d44ce3d14854d0269eb0aa4c0f98bcca35390fad5ea52da75d9e4abdf"
+  license "GPL-3.0"
 
   bottle do
     sha256 "a818df5c93d76a0a53c47108af3009a6d8265722d132204a636e29460693ac0d" => :catalina

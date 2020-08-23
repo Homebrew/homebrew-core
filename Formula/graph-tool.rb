@@ -3,13 +3,13 @@ class GraphTool < Formula
 
   desc "Efficient network analysis for Python 3"
   homepage "https://graph-tool.skewed.de/"
-  url "https://downloads.skewed.de/graph-tool/graph-tool-2.29.tar.bz2"
-  sha256 "6c0c4336bed6e2f79c91ace6d6914145ee03d0bd5025473b5918aec2b0657f7a"
-  revision 3
+  url "https://downloads.skewed.de/graph-tool/graph-tool-2.33.tar.bz2"
+  sha256 "f07025160a8cb376551508c6d8aa5fd05a146c67c4706ea4635d2766aa5c9fcb"
+  license "GPL-3.0"
 
   bottle do
-    sha256 "53ad78ad86d6939a94214c80b57c204c337fa57e97f6ea36a94bff4f329fb193" => :catalina
-    sha256 "aa273480061b9800a0088d06543f75db9769417905841033e5696993869258f4" => :mojave
+    sha256 "c87595bb20ff5868ca1b32ee16baf7cad07c08124b4bb209bf9fb275821cb661" => :catalina
+    sha256 "04e48635f2b6d233525a3df163acbe1fc9b6ee5859892c2a2d46afa631ae8fd3" => :mojave
   end
 
   depends_on "autoconf" => :build
@@ -23,11 +23,11 @@ class GraphTool < Formula
   depends_on "google-sparsehash"
   depends_on "gtk+3"
   depends_on "librsvg"
-  depends_on :macos => :mojave # for C++17
+  depends_on macos: :mojave # for C++17
   depends_on "numpy"
   depends_on "py3cairo"
   depends_on "pygobject3"
-  depends_on "python"
+  depends_on "python@3.8"
   depends_on "scipy"
 
   resource "Cycler" do
@@ -65,23 +65,10 @@ class GraphTool < Formula
     sha256 "30f610279e8b2578cab6db20741130331735c781b56053c59c4076da27f06b66"
   end
 
-  # Fix ForwardIterator error
-  # Remove when next version releases
-  patch do
-    url "https://git.skewed.de/count0/graph-tool/commit/ab7952170aa4a5022e9cbe6b19483c6303a24f02.diff"
-    sha256 "f03072db108d69aaadaf41ae433501d517cc4a02d4108f37de99d81480ea3a94"
-  end
-
-  # Patch for CGAL-5.0. Look here for related issue : https://git.skewed.de/count0/graph-tool/issues/625
-  patch do
-    url "https://cgal.geometryfactory.com/~mgimeno/graph-tool-for-cgal.diff"
-    sha256 "c45330ed6117a02204e356695f5784192258a37a9263d3ca887a9d89248590b8"
-  end
-
   def install
     system "autoreconf", "-fiv"
-    xy = Language::Python.major_minor_version "python3"
-    venv = virtualenv_create(libexec, "python3")
+    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
+    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
 
     resources.each do |r|
       venv.pip_install_and_link r
@@ -118,6 +105,6 @@ class GraphTool < Formula
       assert g.num_edges() == 1
       assert g.num_vertices() == 2
     EOS
-    system "python3", "test.py"
+    system Formula["python@3.8"].opt_bin/"python3", "test.py"
   end
 end

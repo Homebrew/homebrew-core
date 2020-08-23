@@ -5,6 +5,7 @@ class CashCli < Formula
   homepage "https://github.com/xxczaki/cash-cli"
   url "https://registry.npmjs.org/cash-cli/-/cash-cli-4.2.1.tgz"
   sha256 "593e2b02aab0e4369225a2c78a895d511ee491a1708e44d7aba63d9a897b000e"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

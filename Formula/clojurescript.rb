@@ -1,8 +1,9 @@
 class Clojurescript < Formula
   desc "Clojure to JS compiler"
   homepage "https://github.com/clojure/clojurescript"
-  url "https://github.com/clojure/clojurescript/releases/download/r1.10.597/cljs.jar"
-  sha256 "f861a9b36b67287ac667a57abe930721bff9f83c19bb07982a05ef09a94208a7"
+  url "https://github.com/clojure/clojurescript/releases/download/r1.10.758/cljs.jar"
+  sha256 "dcc98e103d281d4eab21ca94fba11728e9f587c3aa09c8ffc3b96cff210adcce"
+  license "EPL-1.0"
   revision 1
   head "https://github.com/clojure/clojurescript.git"
 
@@ -12,11 +13,7 @@ class Clojurescript < Formula
 
   def install
     libexec.install "cljs.jar"
-    (bin/"cljsc").write <<~EOS
-      #!/bin/bash
-      export JAVA_HOME="${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
-      exec "${JAVA_HOME}/bin/java" -jar "#{libexec}/cljs.jar" "$@"
-    EOS
+    bin.write_jar_script libexec/"cljs.jar", "cljsc"
   end
 
   def caveats

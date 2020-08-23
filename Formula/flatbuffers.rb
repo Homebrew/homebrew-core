@@ -3,6 +3,7 @@ class Flatbuffers < Formula
   homepage "https://google.github.io/flatbuffers"
   url "https://github.com/google/flatbuffers/archive/v1.12.0.tar.gz"
   sha256 "62f2223fb9181d1d6338451375628975775f7522185266cd5296571ac152bc45"
+  license "Apache-2.0"
   head "https://github.com/google/flatbuffers.git"
 
   bottle do

@@ -1,18 +1,19 @@
 class Qscintilla2 < Formula
   desc "Port to Qt of the Scintilla editing component"
   homepage "https://www.riverbankcomputing.com/software/qscintilla/intro"
-  url "https://www.riverbankcomputing.com/static/Downloads/QScintilla/2.11.4/QScintilla-2.11.4.tar.gz"
-  sha256 "723f8f1d1686d9fc8f204cd855347e984322dd5cd727891d324d0d7d187bee20"
+  url "https://www.riverbankcomputing.com/static/Downloads/QScintilla/2.11.5/QScintilla-2.11.5.tar.gz"
+  sha256 "9361e26fd7fb7b5819a7eb92c5c1880a18de9bd3ed9dd2eb008e57388696716b"
+  license "GPL-3.0"
 
   bottle do
     cellar :any
-    sha256 "889b907f0384a161d9bb30d11c02e12f23dadb48b68bfcadcd5a6a42f994954e" => :catalina
-    sha256 "889b907f0384a161d9bb30d11c02e12f23dadb48b68bfcadcd5a6a42f994954e" => :mojave
-    sha256 "72baf9be5f0709256faaac3363d152f63153aae6e2b2679e2c13b532a9bb775b" => :high_sierra
+    sha256 "ad21b9c248d85d8c76c34c504d5c6e8a3cf0091034c50f916cb8c50e1ca83c28" => :catalina
+    sha256 "67b316a64f594a424c77ba50f31fc4724856fb8c8f247de60de98e5a311170ad" => :mojave
+    sha256 "ce35dfa9a500a78cd89bf7bade336304434c99e4de972af80ed4fbed1f6d7318" => :high_sierra
   end
 
   depends_on "pyqt"
-  depends_on "python"
+  depends_on "python@3.8"
   depends_on "qt"
   depends_on "sip"
 
@@ -44,9 +45,9 @@ class Qscintilla2 < Formula
 
     cd "Python" do
       (share/"sip").mkpath
-      version = Language::Python.major_minor_version "python3"
+      version = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
       pydir = "#{lib}/python#{version}/site-packages/PyQt5"
-      system "python3", "configure.py", "-o", lib, "-n", include,
+      system Formula["python@3.8"].opt_bin/"python3", "configure.py", "-o", lib, "-n", include,
                         "--apidir=#{prefix}/qsci",
                         "--destdir=#{pydir}",
                         "--stubsdir=#{pydir}",
@@ -70,6 +71,6 @@ class Qscintilla2 < Formula
       assert("QsciLexer" in dir(PyQt5.Qsci))
     EOS
 
-    system "python3", "test.py"
+    system Formula["python@3.8"].opt_bin/"python3", "test.py"
   end
 end

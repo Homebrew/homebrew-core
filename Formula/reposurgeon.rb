@@ -2,24 +2,25 @@ class Reposurgeon < Formula
   desc "Edit version-control repository history"
   homepage "http://www.catb.org/esr/reposurgeon/"
   url "https://gitlab.com/esr/reposurgeon.git",
-      :tag      => "3.48",
-      :revision => "911d5c1168f7839855b577ea43971c7c35cacef8"
+    tag:      "4.17",
+    revision: "00147d3ac750882f82ec5751beb6249bcbd6981a"
+  license "BSD-2-Clause"
   head "https://gitlab.com/esr/reposurgeon.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "aba7163a5984e3fb606b59b70e6c4233cf3d0aa69e400bad156c2a41c4800f3e" => :catalina
-    sha256 "7e3c1b86b32535b698098ffc82231ce1cde18512ffce1ea21cc7b70d0a85a535" => :mojave
-    sha256 "22f79c6f4746a5fcffe63be2247c748e5335082384a9309bdba061ff686813d0" => :high_sierra
+    sha256 "f2e2edf15cf9b71ee26df6b878d5178a8b9d748f3d0c07e10c574074baf9267e" => :catalina
+    sha256 "dd26bcd8e10850bd9f55db41bc5d5d98757eb1a857d87be3c81737755a480a8c" => :mojave
+    sha256 "9d534aae13973bbe43fcf5464da33ff32cc6a211e12ec635ad175884e552009c" => :high_sierra
   end
 
-  depends_on "asciidoc" => :build
+  depends_on "asciidoctor" => :build
   depends_on "go" => :build
-  depends_on "xmlto" => :build
-  depends_on "pypy"
+  depends_on "git" # requires >= 2.19.2
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
+    system "make"
     system "make", "install", "prefix=#{prefix}"
     elisp.install "reposurgeon-mode.el"
   end

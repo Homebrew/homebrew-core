@@ -4,27 +4,35 @@ class GoAT19 < Formula
   url "https://dl.google.com/go/go1.9.7.src.tar.gz"
   mirror "https://fossies.org/linux/misc/go1.9.7.src.tar.gz"
   sha256 "582814fa45e8ecb0859a208e517b48aa0ad951e3b36c7fff203d834e0ef27722"
+  license "BSD-3-Clause"
 
   bottle do
-    rebuild 1
-    sha256 "6820e19509cbcdd77f30cb8c16a4ca9e67aa3e9eb6e4c2da33c9f9a7dc223840" => :catalina
-    sha256 "74df95ba98388a1617c604e3a439b61c785ac74dc653d2d06da8be2b88e77084" => :mojave
-    sha256 "02584ef8cae5f91f3c4fda26a946c09de1635854782e1c1f1201f35b680df61b" => :high_sierra
-    sha256 "2f837e2b6745a970e4d3bd9b3f5ea0ed1ebb827ade2cfa38793f0b9a5232ed9e" => :sierra
+    rebuild 2
+    sha256 "c34c669ba94287eb0485513ad03416d531f0d4fb58908df4984ed85fd2c41b1e" => :catalina
+    sha256 "358e06f98931f9f9f2238e59c9ec40a4cc8526e518b8828c8b72543f6d40d9b0" => :mojave
+    sha256 "be1bd13af09e6bf2ee698f98d80fbd99ac86858337d90fce6e2e86ecfd67b19f" => :high_sierra
   end
 
   keg_only :versioned_formula
 
+  deprecate! date: "2018-08-04"
+
   resource "gotools" do
     url "https://go.googlesource.com/tools.git",
-        :branch => "release-branch.go1.9"
+        branch: "release-branch.go1.9"
   end
 
   # Don't update this unless this version cannot bootstrap the new version.
   resource "gobootstrap" do
-    url "https://storage.googleapis.com/golang/go1.7.darwin-amd64.tar.gz"
-    version "1.7"
-    sha256 "51d905e0b43b3d0ed41aaf23e19001ab4bc3f96c3ca134b48f7892485fc52961"
+    on_macos do
+      url "https://storage.googleapis.com/golang/go1.7.darwin-amd64.tar.gz"
+      sha256 "51d905e0b43b3d0ed41aaf23e19001ab4bc3f96c3ca134b48f7892485fc52961"
+    end
+
+    on_linux do
+      url "https://storage.googleapis.com/golang/go1.7.linux-amd64.tar.gz"
+      sha256 "702ad90f705365227e902b42d91dd1a40e48ca7f67a2f4b2fd052aaa4295cd95"
+    end
   end
 
   # Backports the following commit from 1.10/1.11:
@@ -48,7 +56,6 @@ class GoAT19 < Formula
 
     cd "src" do
       ENV["GOROOT_FINAL"] = libexec
-      ENV["GOOS"]         = "darwin"
       system "./make.bash", "--no-clean"
     end
 

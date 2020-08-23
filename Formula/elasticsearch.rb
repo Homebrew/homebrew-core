@@ -1,63 +1,60 @@
 class Elasticsearch < Formula
   desc "Distributed search & analytics engine"
   homepage "https://www.elastic.co/products/elasticsearch"
-  url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-oss-6.8.7.tar.gz"
-  sha256 "40a5c303030615fafe04142e2d44195c5f158e5176bd1b06b33e9c91506aa9c1"
+  url "https://github.com/elastic/elasticsearch/archive/v7.8.1.tar.gz"
+  sha256 "e222d4165fb4145222491e1ed33dad15acc7b56334ca6589202e2ee761900c78"
+  license "Apache-2.0"
 
-  head do
-    url "https://github.com/elasticsearch/elasticsearch.git"
-    depends_on "gradle" => :build
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "6cef7f769428a47c864edccc30b043153fa239fc5c5545b661975b7cef17efe7" => :catalina
+    sha256 "812838714ceb91031ae6ccc4b762a42fc2f52a8f43dbb9b74e3222a2a6c2b6cd" => :mojave
+    sha256 "666d9a971e6f8a603a96feac7afaaf95e6d88eabf4ecc3d6f1b1f02ff928fa3e" => :high_sierra
   end
 
-  bottle :unneeded
-
-  depends_on :java => "1.8"
+  depends_on "gradle" => :build
+  depends_on "openjdk"
 
   def cluster_name
     "elasticsearch_#{ENV["USER"]}"
   end
 
   def install
-    if build.head?
-      # Build the package from source
-      system "gradle", "clean", ":distribution:tar:assemble"
+    system "gradle", ":distribution:archives:oss-no-jdk-darwin-tar:assemble"
+
+    mkdir "tar" do
       # Extract the package to the tar directory
-      mkdir "tar"
-      cd "tar"
       system "tar", "--strip-components=1", "-xf",
-        Dir["../distribution/tar/build/distributions/elasticsearch-*.tar.gz"].first
+        Dir["../distribution/archives/oss-no-jdk-darwin-tar/build/distributions/elasticsearch-oss-*.tar.gz"].first
+
+      # Install into package directory
+      libexec.install "bin", "lib", "modules"
+
+      # Set up Elasticsearch for local development:
+      inreplace "config/elasticsearch.yml" do |s|
+        # 1. Give the cluster a unique name
+        s.gsub!(/#\s*cluster\.name: .*/, "cluster.name: #{cluster_name}")
+
+        # 2. Configure paths
+        s.sub!(%r{#\s*path\.data: /path/to.+$}, "path.data: #{var}/lib/elasticsearch/")
+        s.sub!(%r{#\s*path\.logs: /path/to.+$}, "path.logs: #{var}/log/elasticsearch/")
+      end
+
+      inreplace "config/jvm.options", %r{logs/gc.log}, "#{var}/log/elasticsearch/gc.log"
+
+      # Move config files into etc
+      (etc/"elasticsearch").install Dir["config/*"]
     end
-
-    # Remove Windows files
-    rm_f Dir["bin/*.bat"]
-    rm_f Dir["bin/*.exe"]
-
-    # Install everything else into package directory
-    libexec.install "bin", "config", "lib", "modules"
 
     inreplace libexec/"bin/elasticsearch-env",
               "if [ -z \"$ES_PATH_CONF\" ]; then ES_PATH_CONF=\"$ES_HOME\"/config; fi",
               "if [ -z \"$ES_PATH_CONF\" ]; then ES_PATH_CONF=\"#{etc}/elasticsearch\"; fi"
 
-    # Set up Elasticsearch for local development:
-    inreplace "#{libexec}/config/elasticsearch.yml" do |s|
-      # 1. Give the cluster a unique name
-      s.gsub!(/#\s*cluster\.name\: .*/, "cluster.name: #{cluster_name}")
-
-      # 2. Configure paths
-      s.sub!(%r{#\s*path\.data: /path/to.+$}, "path.data: #{var}/lib/elasticsearch/")
-      s.sub!(%r{#\s*path\.logs: /path/to.+$}, "path.logs: #{var}/log/elasticsearch/")
-    end
-
-    # Move config files into etc
-    (etc/"elasticsearch").install Dir[libexec/"config/*"]
-    (libexec/"config").rmtree
-
     bin.install libexec/"bin/elasticsearch",
                 libexec/"bin/elasticsearch-keystore",
                 libexec/"bin/elasticsearch-plugin",
-                libexec/"bin/elasticsearch-translog"
-    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
+                libexec/"bin/elasticsearch-shard"
+    bin.env_script_all_files(libexec/"bin", JAVA_HOME: Formula["openjdk"].opt_prefix)
   end
 
   def post_install
@@ -72,17 +69,15 @@ class Elasticsearch < Formula
   end
 
   def caveats
-    s = <<~EOS
+    <<~EOS
       Data:    #{var}/lib/elasticsearch/
       Logs:    #{var}/log/elasticsearch/#{cluster_name}.log
       Plugins: #{var}/elasticsearch/plugins/
       Config:  #{etc}/elasticsearch/
     EOS
-
-    s
   end
 
-  plist_options :manual => "elasticsearch"
+  plist_options manual: "elasticsearch"
 
   def plist
     <<~EOS
@@ -115,47 +110,18 @@ class Elasticsearch < Formula
   end
 
   test do
-    assert_includes(stable.url, "-oss-")
-    require "socket"
-
-    server = TCPServer.new(0)
-    port = server.addr[1]
-    server.close
+    port = free_port
+    (testpath/"data").mkdir
+    (testpath/"logs").mkdir
+    fork do
+      exec bin/"elasticsearch", "-Ehttp.port=#{port}",
+                                "-Epath.data=#{testpath}/data",
+                                "-Epath.logs=#{testpath}/logs"
+    end
+    sleep 20
+    output = shell_output("curl -s -XGET localhost:#{port}/")
+    assert_equal "oss", JSON.parse(output)["version"]["build_flavor"]
 
     system "#{bin}/elasticsearch-plugin", "list"
-    pid = testpath/"pid"
-    begin
-      system "#{bin}/elasticsearch", "-d", "-p", pid, "-Epath.data=#{testpath}/data", "-Ehttp.port=#{port}"
-      sleep 10
-      system "curl", "-XGET", "localhost:#{port}/"
-    ensure
-      Process.kill(9, pid.read.to_i)
-    end
-
-    server = TCPServer.new(0)
-    port = server.addr[1]
-    server.close
-
-    (testpath/"config/elasticsearch.yml").write <<~EOS
-      path.data: #{testpath}/data
-      path.logs: #{testpath}/logs
-      node.name: test-es-path-conf
-      http.port: #{port}
-    EOS
-
-    cp etc/"elasticsearch/jvm.options", "config"
-    cp etc/"elasticsearch/log4j2.properties", "config"
-
-    ENV["ES_PATH_CONF"] = testpath/"config"
-    pid = testpath/"pid"
-    begin
-      system "#{bin}/elasticsearch", "-d", "-p", pid
-      sleep 10
-      system "curl", "-XGET", "localhost:#{port}/"
-      output = shell_output("curl -s -XGET localhost:#{port}/_cat/nodes")
-      assert_match "test-es-path-conf", output
-    ensure
-      Process.kill(9, pid.read.to_i)
-    end
   end
 end

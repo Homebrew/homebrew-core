@@ -3,22 +3,22 @@ class Khard < Formula
 
   desc "Console carddav client"
   homepage "https://github.com/scheibler/khard/"
-  url "https://files.pythonhosted.org/packages/38/41/e54a6ef446701a4ba723df8850189f62e9e9a320de9ff2b1accadd589cc6/khard-0.15.1.tar.gz"
-  sha256 "5ca8e678133e08fa4861cc31aedf9f30b4f8e3958ed66ede025c23ec5e176aa1"
-  revision 2
+  url "https://files.pythonhosted.org/packages/a3/4e/e9cbcb281d371c355f251e5d9ca58b7e0d02dffd2bf4938888068fbc2def/khard-0.17.0.tar.gz"
+  sha256 "164e1aee9264735ec0473a74a38842e6272bbb814d949a66084c6a373bd95618"
+  license "GPL-3.0"
 
   bottle do
-    cellar :any
-    sha256 "e52491d70166c2919a0ddf1d31cdb29c68aa66950e2b6b0338ea168b7b85cad8" => :catalina
-    sha256 "ddf64becc35493212418f1855bfdcad659b1fe3e541f4a2dca49528afe3c8a67" => :mojave
-    sha256 "9978c59849d3f400b89596318010908b9d5d41970d0b9870afa556d6157dde81" => :high_sierra
+    cellar :any_skip_relocation
+    sha256 "b6b9d1ae7f58b1ab29621e13e77d7a2398d1f50c71f7f2b97adaa93b41059396" => :catalina
+    sha256 "63573b091cc8660f1308dda5e4425225267002b2a018bbdb7631938a5b27c232" => :mojave
+    sha256 "6537fec116f6876fba671646b41cecc32cc4599cbd58b194225d3a60800cdef7" => :high_sierra
   end
 
   depends_on "python@3.8"
 
   resource "atomicwrites" do
-    url "https://files.pythonhosted.org/packages/ec/0f/cd484ac8820fed363b374af30049adc8fd13065720fd4f4c6be8a2309da7/atomicwrites-1.3.0.tar.gz"
-    sha256 "75a9445bac02d8d058d5e1fe689654ba5a6556a1dfd8ce6ec55a0ed79866cfa6"
+    url "https://files.pythonhosted.org/packages/55/8d/74a75635f2c3c914ab5b3850112fd4b0c8039975ecb320e4449aa363ba54/atomicwrites-1.4.0.tar.gz"
+    sha256 "ae70396ad1a434f9c7046fd2dd196fc04b12f9e91ffb859164193be8b6168a7a"
   end
 
   resource "configobj" do
@@ -31,14 +31,9 @@ class Khard < Formula
     sha256 "73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c"
   end
 
-  resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/8d/c9/e5be955a117a1ac548cdd31e37e8fd7b02ce987f9655f5c7563c656d5dcb/PyYAML-5.2.tar.gz"
-    sha256 "c0ee8eca2c582d29c3c2ec6e2c4f703d1b7f1fb10bc72317355a746057e7346c"
-  end
-
   resource "ruamel.yaml" do
-    url "https://files.pythonhosted.org/packages/de/76/cf97d739365eff258e2af0457a150bf2818f3eaa460328610eafeed0894a/ruamel.yaml-0.16.5.tar.gz"
-    sha256 "412a6f5cfdc0525dee6a27c08f5415c7fd832a7afcb7a0ed7319628aed23d408"
+    url "https://files.pythonhosted.org/packages/16/8b/54a26c1031595e5edd0e616028b922d78d8ffba8bc775f0a4faeada846cc/ruamel.yaml-0.16.10.tar.gz"
+    sha256 "099c644a778bf72ffa00524f78dd0b6476bca94a1da344130f4bf3381ce5b954"
   end
 
   resource "ruamel.yaml.clib" do
@@ -47,8 +42,8 @@ class Khard < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/94/3e/edcf6fef41d89187df7e38e868b2dd2182677922b600e880baad7749c865/six-1.13.0.tar.gz"
-    sha256 "30f610279e8b2578cab6db20741130331735c781b56053c59c4076da27f06b66"
+    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
+    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
   end
 
   resource "Unidecode" do
@@ -63,7 +58,7 @@ class Khard < Formula
 
   def install
     virtualenv_install_with_resources
-    (etc/"khard").install "misc/khard/khard.conf.example"
+    (etc/"khard").install "doc/source/examples/khard.conf.example"
     zsh_completion.install "misc/zsh/_khard"
     pkgshare.install (buildpath/"misc").children - [buildpath/"misc/zsh"]
   end

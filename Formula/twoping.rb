@@ -1,16 +1,16 @@
 class Twoping < Formula
   desc "Ping utility to determine directional packet loss"
   homepage "https://www.finnie.org/software/2ping/"
-  url "https://www.finnie.org/software/2ping/2ping-4.3.tar.gz"
-  sha256 "d729c021ed5bcd29137da520a465632e19cf4c4339e0426546593379a570327e"
-  revision 1
-  head "https://github.com/rfinnie/2ping.git"
+  url "https://www.finnie.org/software/2ping/2ping-4.5.tar.gz"
+  sha256 "867009928bf767d36279f90ff8f891855804c0004849f9554ac77fcd7f0fdb7b"
+  license "GPL-2.0"
+  head "https://github.com/rfinnie/2ping.git", branch: "main"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8d8ff40ccff243a282ebd2b342f1546a99ea439aed1dae81abc25926fb8185a2" => :catalina
-    sha256 "8d8ff40ccff243a282ebd2b342f1546a99ea439aed1dae81abc25926fb8185a2" => :mojave
-    sha256 "8d8ff40ccff243a282ebd2b342f1546a99ea439aed1dae81abc25926fb8185a2" => :high_sierra
+    sha256 "2e76c2949b024e9d3bb26d2f2861b859a51d3f8b0508f5ba8f76d1b2e1d63f3e" => :catalina
+    sha256 "2e76c2949b024e9d3bb26d2f2861b859a51d3f8b0508f5ba8f76d1b2e1d63f3e" => :mojave
+    sha256 "2e76c2949b024e9d3bb26d2f2861b859a51d3f8b0508f5ba8f76d1b2e1d63f3e" => :high_sierra
   end
 
   depends_on "python@3.8"
@@ -22,10 +22,10 @@ class Twoping < Formula
     man1.install "doc/2ping.1"
     man1.install_symlink "2ping.1" => "2ping6.1"
     bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
   end
 
-  plist_options :manual => "2ping --listen", :startup => true
+  plist_options manual: "2ping --listen", startup: true
 
   def plist
     <<~EOS
@@ -57,6 +57,9 @@ class Twoping < Formula
   end
 
   test do
-    system bin/"2ping", "-c", "5", "test.2ping.net"
+    assert_match "OK 2PING", shell_output(
+      "#{bin}/2ping --count=10 --interval=0.2 --port=-1 --interface-address=127.0.0.1 "\
+      "--listen --nagios=1000,5%,1000,5% 127.0.0.1",
+    )
   end
 end

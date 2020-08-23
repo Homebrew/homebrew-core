@@ -3,39 +3,35 @@ class Linkerd < Formula
   homepage "https://linkerd.io"
 
   url "https://github.com/linkerd/linkerd2.git",
-    :tag      => "stable-2.7.0",
-    :revision => "b9caae0cd9c28abe9542c77a2883ce1ef524e7b8"
+    tag:      "stable-2.8.1",
+    revision: "83ae0ccf0f1aad636764fd0e606ac577e426d3f9"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "70d055275c280f4bdfd62aa95b79a1d3e68ec87de26fda2927d1902edb16dc90" => :catalina
-    sha256 "689913101115c9ad74e97cba76160e68ba92bb58d7384cf7e42d0faa23533bd3" => :mojave
-    sha256 "588139f4dc9bc11cb7f4230d44a154c9a50ce924f2a36b556ad90a5b0c5ce714" => :high_sierra
+    rebuild 1
+    sha256 "e7935ba4364476f17408883ee28616ef184313141b3bf867741909abcd350715" => :catalina
+    sha256 "5e68a496869ae3c8aef8c99331f573e2a49c7fa831584737f133e5efa7784a69" => :mojave
+    sha256 "341c693291213280a51bf4ad81281e8428a3c264301be1074ae09395b1b09e66" => :high_sierra
   end
 
-  depends_on "go@1.12" => :build
+  depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
     ENV["CI_FORCE_CLEAN"] = "1"
 
-    srcpath = buildpath/"src/github.com/linkerd/linkerd2"
-    srcpath.install buildpath.children - [buildpath/".brew_home"]
+    system "bin/build-cli-bin"
+    bin.install "target/cli/darwin/linkerd"
 
-    cd srcpath do
-      system "bin/build-cli-bin"
-      bin.install "target/cli/darwin/linkerd"
+    # Install bash completion
+    output = Utils.safe_popen_read("#{bin}/linkerd", "completion", "bash")
+    (bash_completion/"linkerd").write output
 
-      # Install bash completion
-      output = Utils.popen_read("#{bin}/linkerd completion bash")
-      (bash_completion/"linkerd").write output
+    # Install zsh completion
+    output = Utils.safe_popen_read("#{bin}/linkerd", "completion", "zsh")
+    (zsh_completion/"linkerd").write output
 
-      # Install zsh completion
-      output = Utils.popen_read("#{bin}/linkerd completion zsh")
-      (zsh_completion/"linkerd").write output
-
-      prefix.install_metafiles
-    end
+    prefix.install_metafiles
   end
 
   test do

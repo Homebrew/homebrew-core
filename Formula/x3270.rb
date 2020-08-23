@@ -1,13 +1,14 @@
 class X3270 < Formula
   desc "IBM 3270 terminal emulator for the X Window System and Windows"
   homepage "http://x3270.bgp.nu/"
-  url "https://downloads.sourceforge.net/project/x3270/x3270/3.6ga9/suite3270-3.6ga9-src.tgz"
-  sha256 "674689a12d09ed9097d9d62a2422e65bf6d40c06dd217f0d618fb7e3673b7568"
+  url "http://x3270.bgp.nu/download/04.00/suite3270-4.0ga10-src.tgz"
+  sha256 "05db34a7508a0d61c95a43563472e61d0f7fa12ce0d5f3ed3e5f88e966d8d98c"
+  license "BSD-3-Clause"
 
   bottle do
-    sha256 "4a688250d91e04d91aa9c0983f630fe0b682d35769387e4fa490f03f977be7fb" => :catalina
-    sha256 "c5448a7a24aa77b54c9473ea62b4aeac4c87930e79bc7a229dea02427d87c1fe" => :mojave
-    sha256 "962a25eb052b7f3f2a8c01fd1f2d0e90c5e70fd91ac7c63a038a4fd710661557" => :high_sierra
+    sha256 "c6fe40f28c1b0e20cb3ee10280f324ac272f5b4b4fc77209660bf2a095d855a3" => :catalina
+    sha256 "6b56b9d4bee80297a4e2ee4e18e1ca50efab5b5870445e7741a2c446732d237d" => :mojave
+    sha256 "7de587f8dd4eb24ddd2c2d9ab48b82aa9ca2097cf5797bb8a33c35494acd8840" => :high_sierra
   end
 
   depends_on "readline"

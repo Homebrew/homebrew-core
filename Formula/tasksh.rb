@@ -3,7 +3,8 @@ class Tasksh < Formula
   homepage "https://tasktools.org/projects/tasksh.html"
   url "https://taskwarrior.org/download/tasksh-1.2.0.tar.gz"
   sha256 "6e42f949bfd7fbdde4870af0e7b923114cc96c4344f82d9d924e984629e21ffd"
-  head "https://github.com/GothenburgBitFactory/taskshell.git", :branch => "1.3.0"
+  license "MIT"
+  head "https://github.com/GothenburgBitFactory/taskshell.git", branch: "1.3.0"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,6 +17,10 @@ class Tasksh < Formula
 
   depends_on "cmake" => :build
   depends_on "task"
+
+  on_linux do
+    depends_on "readline"
+  end
 
   def install
     system "cmake", ".", *std_cmake_args

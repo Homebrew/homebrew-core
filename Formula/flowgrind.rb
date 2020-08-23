@@ -3,13 +3,13 @@ class Flowgrind < Formula
   homepage "https://launchpad.net/flowgrind"
   url "https://launchpad.net/flowgrind/trunk/flowgrind-0.8.0/+download/flowgrind-0.8.0.tar.bz2"
   sha256 "2e8b58fc919bb1dae8f79535e21931336355b4831d8b5bf75cf43eacd1921d04"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "6f553df17bf8ca8bd2310d7cbe39f69a0e84d340f38a670dbed8e03b86557faf" => :mojave
-    sha256 "754e48c27b802daade1c09ccf26ca7cb86f087291143733b421a3fc4817cabe0" => :high_sierra
-    sha256 "2f1c5c10ceae40a7fd7c377a1d2d76f28942728f7b7224ff05c6bab00b01231b" => :sierra
+    sha256 "e598d94bf046253c93bfb394d532584bca417b69e63b70b851f0ab4f9adf3089" => :catalina
+    sha256 "652a07d073f21ae8158fed8b7a34c739a88a0e594c32408a83d48e80a93df944" => :mojave
+    sha256 "4b723ca4f7f92a354bf8226d67fd8537a13c07223ff5d05ebd9da82491cb546a" => :high_sierra
   end
 
   depends_on "gsl"

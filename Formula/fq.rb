@@ -3,6 +3,7 @@ class Fq < Formula
   homepage "https://github.com/circonus-labs/fq"
   url "https://github.com/circonus-labs/fq/archive/v0.13.0.tar.gz"
   sha256 "01fb729a0a2257c944e6489718ce6d334f3dd3639cb8d604592c291d1bd017ea"
+  license "MIT"
   head "https://github.com/circonus-labs/fq.git"
 
   bottle do

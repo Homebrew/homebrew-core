@@ -3,6 +3,7 @@ class Csvprintf < Formula
   homepage "https://github.com/archiecobbs/csvprintf"
   url "https://github.com/archiecobbs/csvprintf/archive/1.0.4.tar.gz"
   sha256 "022188ced570203d6084e6eab68f7ad96054a4ab8aa54db1857a8fd076280568"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

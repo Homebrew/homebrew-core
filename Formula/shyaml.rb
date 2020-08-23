@@ -5,22 +5,23 @@ class Shyaml < Formula
   homepage "https://github.com/0k/shyaml"
   url "https://files.pythonhosted.org/packages/bc/ca/d8c47fad7a6ce01ddd2b7093673433dbfae414015f971ea7ffda56da125f/shyaml-0.6.1.tar.gz"
   sha256 "3a57e380f66043c661d417106a0f101f8068c80caa2afef57c90447b88526c3d"
+  license "BSD-2-Clause"
+  revision 1
   head "https://github.com/0k/shyaml.git"
 
   bottle do
     cellar :any
-    sha256 "1b2fac099650ddce3b321c848d052cde2ddea11323572491b8fc534ae6b345fc" => :catalina
-    sha256 "6aa2db7ebec7ea9a269c90e6c63491bad0f419570790b717ce4e6db3e382ea74" => :mojave
-    sha256 "a985968768985ec82d27b9b2e4d409fe965a1b610e12f31086175417eafa8ffb" => :high_sierra
-    sha256 "82bf65013962514ea7e9f9decadfc063f528902a0cea281e7dbf3f3a30c42515" => :sierra
+    sha256 "510026ded6fc62625ee9bd2cab4d94d03155e94270ae0aa38947b894282c2808" => :catalina
+    sha256 "c850436b06215814c879e02db80331c3b94e63ccfa03df8bd25915ef4dfac668" => :mojave
+    sha256 "d52705a99a5f376d41d2ead578d73f5eb309b0efa595215364ea42cb4191eed6" => :high_sierra
   end
 
   depends_on "libyaml"
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/9f/2c/9417b5c774792634834e730932745bc09a7d36754ca00acf1ccd1ac2594d/PyYAML-5.1.tar.gz"
-    sha256 "436bc774ecf7c103814098159fbb84c2715d25980175292c648f2da143909f95"
+    url "https://files.pythonhosted.org/packages/64/c2/b80047c7ac2478f9501676c988a5411ed5572f35d1beff9cae07d321512c/PyYAML-5.3.1.tar.gz"
+    sha256 "b8eac752c5e14d3eca0e6dd9199cd627518cb5ec06add0de9d32baeee6fe645d"
   end
 
   def install

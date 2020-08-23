@@ -5,6 +5,7 @@ class Autorest < Formula
   homepage "https://github.com/Azure/autorest"
   url "https://registry.npmjs.org/autorest/-/autorest-3.0.6187.tgz"
   sha256 "57b243a0dc543d55085503d33679f662a3cc3ea050ec502f155381d9cf61163f"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

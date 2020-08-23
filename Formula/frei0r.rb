@@ -3,6 +3,7 @@ class Frei0r < Formula
   homepage "https://frei0r.dyne.org/"
   url "https://files.dyne.org/frei0r/releases/frei0r-plugins-1.7.0.tar.gz"
   sha256 "1b1ff8f0f9bc23eed724e94e9a7c1d8f0244bfe33424bb4fe68e6460c088523a"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

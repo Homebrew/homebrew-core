@@ -4,16 +4,17 @@ class Octave < Formula
   url "https://ftp.gnu.org/gnu/octave/octave-5.2.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/octave/octave-5.2.0.tar.xz"
   sha256 "2757b5cc1854c9326d6c99d2900c7cec2909ac7ed500212d170d0df592bfd26b"
-  revision 4
+  license "GPL-3.0"
+  revision 9
 
   bottle do
-    sha256 "4b3b18acdb6acc3ef9584bf4c58a8cf3c70b50a674f295f9811085a9204c0747" => :catalina
-    sha256 "c92e4dd7a90017781b28a87d98cf1dd341b0f19b65cd3d3010c8c820c1c874f7" => :mojave
-    sha256 "de6afbcb205a9b3c038c006b4156861859d878de1fe7399c9f701093bb36d6ac" => :high_sierra
+    sha256 "5c9af6d3f0f61cd764067c1f66997b0044788dc76e8ddc28c6f64194a275d09c" => :catalina
+    sha256 "37389123fb6ec5bda0ef8874596231b6e22a20d60ce9cb792a97c18bff7f307f" => :mojave
+    sha256 "e44de6cb9315e2f125ea516733513c048b38fd9c77719eb270717daff43360a6" => :high_sierra
   end
 
   head do
-    url "https://hg.savannah.gnu.org/hgweb/octave", :branch => "default", :using => :hg
+    url "https://hg.savannah.gnu.org/hgweb/octave", branch: "default", using: :hg
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

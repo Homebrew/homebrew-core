@@ -3,6 +3,7 @@ class MoonBuggy < Formula
   homepage "https://www.seehuhn.de/pages/moon-buggy.html"
   url "https://m.seehuhn.de/programs/moon-buggy-1.0.tar.gz"
   sha256 "f8296f3fabd93aa0f83c247fbad7759effc49eba6ab5fdd7992f603d2d78e51a"
+  license "GPL-3.0"
 
   bottle do
     sha256 "65bae44959589316ec4762947051a3f737ea8545d0b93e696d0c251ef38285dc" => :catalina

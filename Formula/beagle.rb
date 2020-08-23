@@ -3,6 +3,7 @@ class Beagle < Formula
   homepage "https://github.com/beagle-dev/beagle-lib"
   url "https://github.com/beagle-dev/beagle-lib/archive/v3.1.2.tar.gz"
   sha256 "dd872b484a3a9f0bce369465e60ccf4e4c0cd7bd5ce41499415366019f236275"
+  license "LGPL-3.0"
   revision 1
 
   bottle do

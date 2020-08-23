@@ -1,15 +1,15 @@
 class Qd < Formula
   desc "C++/Fortran-90 double-double and quad-double package"
-  homepage "https://crd.lbl.gov/~dhbailey/mpdist/"
-  url "https://crd.lbl.gov/~dhbailey/mpdist/qd-2.3.22.tar.gz"
+  homepage "https://www.davidhbailey.com/dhbsoftware/"
+  url "https://www.davidhbailey.com/dhbsoftware/qd-2.3.22.tar.gz"
   sha256 "30c1ffe46b95a0e9fa91085949ee5fca85f97ff7b41cd5fe79f79bab730206d3"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "381d4980019ee68eb91b62aeea98bc75d481597ec69c05b2d3790eda84b2d979" => :catalina
-    sha256 "686b9051338bcc167bf940beb8d6fbde45a47d5a9051ae61c80567ba998f35f8" => :mojave
-    sha256 "669c57dbb78a65de4fb0001ea0ad5e6a95d506bdf3651d38880901ef691659c3" => :high_sierra
+    rebuild 2
+    sha256 "9700e6163692f31c736ddd74f535305fef730e021c4ca9f85b5860926397e330" => :catalina
+    sha256 "53e4efc8ab2d1c18b1c4198bed031eb1b97b4431b1c0a4e8e4195c9b01659098" => :mojave
+    sha256 "0ff67d07426a90d2897f0f69da0bd91bedb8a40ea52c0201c80225dd6c22510d" => :high_sierra
   end
 
   depends_on "gcc" # for gfortran

@@ -37,7 +37,7 @@ class Opencascade < Formula
                     *std_cmake_args
     system "make", "install"
 
-    bin.env_script_all_files(libexec/"bin", :CASROOT => prefix)
+    bin.env_script_all_files(libexec/"bin", CASROOT: prefix)
 
     # Some apps expect resources in legacy ${CASROOT}/src directory
     prefix.install_symlink pkgshare/"resources" => "src"

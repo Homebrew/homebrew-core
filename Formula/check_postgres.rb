@@ -3,6 +3,7 @@ class CheckPostgres < Formula
   homepage "https://bucardo.org/wiki/Check_postgres"
   url "https://bucardo.org/downloads/check_postgres-2.25.0.tar.gz"
   sha256 "11b52f86c44d6cc26e9a4129e67c2589071dbe1b8ac1f8895761517491c6e44b"
+  license "BSD-2-Clause"
   head "https://github.com/bucardo/check_postgres.git"
 
   bottle do

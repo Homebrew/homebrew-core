@@ -1,16 +1,16 @@
 class Aha < Formula
   desc "ANSI HTML adapter"
   homepage "https://github.com/theZiz/aha"
-  url "https://github.com/theZiz/aha/archive/0.5.tar.gz"
-  sha256 "6f8b044bee9760a1a85dffbc362e532d7dd91bb20b7ed4f241ff1119ad74758f"
+  url "https://github.com/theZiz/aha/archive/0.5.1.tar.gz"
+  sha256 "6aea13487f6b5c3e453a447a67345f8095282f5acd97344466816b05ebd0b3b1"
+  license "LGPL-2.1"
   head "https://github.com/theZiz/aha.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6492a70a68055bd7034820fc1a8dd951797ebde44515ffcd9d4416da732eeeb6" => :catalina
-    sha256 "b22a64305a6e2b05dfbc534169d4536d34dcb5ed81be53dbf57f7dd640a6b9bf" => :mojave
-    sha256 "be1915be3aebd7fdccc3e0d694351b29c9e5af4093492154dbf46ddb5d506a2b" => :high_sierra
-    sha256 "2625fabfb62878a3123448e5dbe56e18efbd0d90f1b4dcf3dc1619274ecb7c08" => :sierra
+    sha256 "bcd5f7ea0e30795e05719351823769f9a7ac434e57bf09cb738eeef50c0f0f85" => :catalina
+    sha256 "b8def8fe2809928ffbf3ae5746f1157bacfef12e720d0eef798b4d77902d8f4f" => :mojave
+    sha256 "9de609b23501a93b6fc39422bc51f4b79c31eba3c39272a06f2710aa7e2d6a3f" => :high_sierra
   end
 
   def install

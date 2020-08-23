@@ -3,14 +3,14 @@ class Libfreefare < Formula
   homepage "https://github.com/nfc-tools/libfreefare"
   url "https://github.com/nfc-tools/libfreefare/releases/download/libfreefare-0.4.0/libfreefare-0.4.0.tar.bz2"
   sha256 "bfa31d14a99a1247f5ed49195d6373de512e3eb75bf1627658b40cf7f876bc64"
-  revision 2
+  license "LGPL-3.0"
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "e9432f6847992d848ab9ff220e5f7309672933a857987b1f49d5533c0c998af5" => :catalina
-    sha256 "cb3dedfc77ded9e44680a7c7f68ab9fc20d7cb2042bde58494968f011354eb74" => :mojave
-    sha256 "d3d40b88ac6049ea3eb2f3afc96dee6608425bd46526b5e15f264c9b9c8fba99" => :high_sierra
-    sha256 "4f75161d80be443a364a7d594dd9c627d6c253edbb856241dff1f9b73af3fec3" => :sierra
+    sha256 "5019ddb58b52c0ef766c331273c73ca4a374e87d5288d7357cd7e965150b43c4" => :catalina
+    sha256 "a039acfcd35d2763313e47dd0175474975ffdecba60f6c6af714f7b0f0630144" => :mojave
+    sha256 "5ae1a6b59880a6ae25ce53cfe9727be4cdf5a9cd5fe28c06f7bbc0e3d1342939" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

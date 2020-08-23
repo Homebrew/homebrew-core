@@ -5,16 +5,18 @@ class Peru < Formula
   homepage "https://github.com/buildinspace/peru"
   url "https://files.pythonhosted.org/packages/14/ef/9226d6a47f34afacb241b3d8acf25e5cd958a17f7bdb9f24d3b284aa59e0/peru-1.2.0.tar.gz"
   sha256 "5bcf70b49fd5a6b089a23d49d93fd6deb05bde560219704de53ae5e48cb49acb"
+  license "MIT"
+  revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "021031ea720c6e741fc11ce1c647dda83d85eb6c5f6cb6841c0f1317e800dfeb" => :catalina
-    sha256 "eb1e744ad4162d35a84ea7e2eb53450bcad6acf803dc874093b96e3c81f85c3f" => :mojave
-    sha256 "785a37bcc0a2d972b62946d989226eb35d72896439c27c4ce8c34fa3c65b6e91" => :high_sierra
-    sha256 "2344e0f5c3f03c8aab73eec642082f4a5913cbda9370483689b1cc154648666d" => :sierra
+    cellar :any
+    sha256 "0cdd82ec6457445261cafdf0a64f626f1c5f64a49313bcc6f9b2694e644d4ab3" => :catalina
+    sha256 "9095dd68d7702875b8138efb6b1ba49a84e9c0ba60a7d8be56019acc5422c466" => :mojave
+    sha256 "0e543115564fbebe21054c2b05913efb76b03ecceb41b12d8b2081b575459e39" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "libyaml"
+  depends_on "python@3.8"
 
   resource "docopt" do
     url "https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz"
@@ -22,11 +24,16 @@ class Peru < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"
-    sha256 "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf"
+    url "https://files.pythonhosted.org/packages/64/c2/b80047c7ac2478f9501676c988a5411ed5572f35d1beff9cae07d321512c/PyYAML-5.3.1.tar.gz"
+    sha256 "b8eac752c5e14d3eca0e6dd9199cd627518cb5ec06add0de9d32baeee6fe645d"
   end
 
   def install
+    # Fix plugins (executed like an executable) looking for Python outside the virtualenv
+    Dir["peru/resources/plugins/**/*.py"].each do |f|
+      inreplace f, "#! /usr/bin/env python3", "#!#{libexec}/bin/python3.8"
+    end
+
     virtualenv_install_with_resources
   end
 

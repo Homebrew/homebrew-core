@@ -3,6 +3,7 @@ class Ndiff < Formula
   homepage "https://www.math.utah.edu/~beebe/software/ndiff/"
   url "http://ftp.math.utah.edu/pub/misc/ndiff-2.00.tar.gz"
   sha256 "f2bbd9a2c8ada7f4161b5e76ac5ebf9a2862cab099933167fe604b88f000ec2c"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,7 +16,7 @@ class Ndiff < Formula
     sha256 "7451587f9747af6e7ffd0e5dbacd337a72cd9b7f3c45a1240c2033e0731d5d46" => :mavericks
   end
 
-  conflicts_with "nmap", :because => "both install `ndiff` binaries"
+  conflicts_with "nmap", because: "both install `ndiff` binaries"
 
   def install
     ENV.deparallelize

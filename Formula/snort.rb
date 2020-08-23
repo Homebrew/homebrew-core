@@ -1,17 +1,16 @@
 class Snort < Formula
   desc "Flexible Network Intrusion Detection System"
   homepage "https://www.snort.org"
-  url "https://www.snort.org/downloads/snort/snort-2.9.12.tar.gz"
-  mirror "https://distfiles.macports.org/snort/snort-2.9.12.tar.gz"
-  sha256 "7b02e11987c6cb4f6d79d72799ca9ad2b4bd59cc1d96bb7d6c91549f990d99d0"
-  revision 1
+  url "https://www.snort.org/downloads/snort/snort-2.9.16.1.tar.gz"
+  mirror "https://fossies.org/linux/misc/snort-2.9.16.1.tar.gz"
+  sha256 "e3ac45a1a3cc2c997d52d19cd92f1adf5641c3a919387adab47a4d13a9dc9f8e"
+  license "GPL-2.0-only"
 
   bottle do
     cellar :any
-    rebuild 2
-    sha256 "21333e3b46c2a9e9b64661a891a0d16558c888d9b260b1a713a7583d98e8999c" => :catalina
-    sha256 "a900ea0646b89f1152f16dd0e86df4a5f8bd8de73269653bc4b6629110467bc0" => :mojave
-    sha256 "a69f95c8452769835680ea5410db5c853749539758ebdb7aa38ed5ec1dde2a02" => :high_sierra
+    sha256 "c2c2c0cb2b5e84c5d893aa6a34e14ac10622a3c5bdc87c9c86420741e54a0267" => :catalina
+    sha256 "f6fad9ce8ce49e23902d98ee6414ff0659beb0aee755ee143f5e6ff2817640be" => :mojave
+    sha256 "028b03acd6446eee8fd8ba19ab54302f0b8a27d8315036bf6d80ca68fe191797" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -54,8 +53,11 @@ class Snort < Formula
     system "./configure", *args
     system "make", "install"
 
+    # Currently configuration files in etc have strange permissions which causes postinstall to fail
+    # Reported to upstream: https://lists.snort.org/pipermail/snort-devel/2020-April/011466.html
+    (buildpath/"etc").children.each { |f| chmod 0644, f }
     rm Dir[buildpath/"etc/Makefile*"]
-    (etc/"snort").install Dir[buildpath/"etc/*"]
+    (etc/"snort").install (buildpath/"etc").children
   end
 
   def caveats

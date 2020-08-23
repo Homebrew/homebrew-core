@@ -1,15 +1,16 @@
 class Nomad < Formula
   desc "Distributed, Highly Available, Datacenter-Aware Scheduler"
   homepage "https://www.nomadproject.io"
-  url "https://github.com/hashicorp/nomad/archive/v0.10.4.tar.gz"
-  sha256 "8f216520622da094327caa5b6e27e0298bbd68778c7b99f436a16d6391110f99"
+  url "https://github.com/hashicorp/nomad/archive/v0.12.3.tar.gz"
+  sha256 "0c9f8d96cef6a32c63e174c748f16d648c9fc1fbea62e66140937ffac4e8313e"
+  license "MPL-2.0"
   head "https://github.com/hashicorp/nomad.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c187e3f96403347c4c269493ad41408902572af7019e7ddf6d4eb8ba5d9819a6" => :catalina
-    sha256 "4675264244cd456751a363874c4ed427cadf7930cbc024a53b1abcb8818e2eee" => :mojave
-    sha256 "fa3f349e642ecc9c15b94668844e78cb39fd18390b2603d8c79cf39d21d72952" => :high_sierra
+    sha256 "d5d76c0f53f4c14a949b57c78039f626ff15ee59b6eb8f130b611e2b3ea62e74" => :catalina
+    sha256 "f919e77628dcf597a8cd465cef74c2cf3541c0d90b3e757bd14e720e4e58ca96" => :mojave
+    sha256 "229e936740406abd824f5b1b0e56159d9cf69bc22b6383cea24c3a0cc6ad9a08" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -24,7 +25,7 @@ class Nomad < Formula
     end
   end
 
-  plist_options :manual => "nomad agent -dev"
+  plist_options manual: "nomad agent -dev"
 
   def plist
     <<~EOS

@@ -13,13 +13,13 @@ class Bazaar < Formula
     sha256 "cb1c0c8b5f19abef4043195d8cbd19f363a78581596de1ddcc763621964335b3" => :high_sierra
   end
 
-  uses_from_macos "python@2"
+  depends_on :macos # Due to Python 2
 
   # CVE-2017-14176
   # https://bugs.launchpad.net/brz/+bug/1710979
   patch do
-    url "https://deb.debian.org/debian/pool/main/b/bzr/bzr_2.7.0+bzr6622-16.debian.tar.xz"
-    sha256 "e9b155ff03d37c3ae1f8cd8fede884c74f8c4c88b4051db17fbf9e2060cb9dbf"
+    url "https://deb.debian.org/debian/pool/main/b/bzr/bzr_2.7.0+bzr6622-15.debian.tar.xz"
+    sha256 "d2198b93059cc9d37c551f7bfda19a199c18f4c9c6104a8c40ccd6d0c65e6fd3"
     apply "patches/27_fix_sec_ssh"
   end
 
@@ -37,7 +37,7 @@ class Bazaar < Formula
     inreplace "bzr", "#! /usr/bin/env python", "#!/usr/bin/python"
     libexec.install "bzr", "bzrlib"
 
-    (bin/"bzr").write_env_script(libexec/"bzr", :BZR_PLUGIN_PATH => "+user:#{HOMEBREW_PREFIX}/share/bazaar/plugins")
+    (bin/"bzr").write_env_script(libexec/"bzr", BZR_PLUGIN_PATH: "+user:#{HOMEBREW_PREFIX}/share/bazaar/plugins")
   end
 
   test do

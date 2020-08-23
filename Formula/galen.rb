@@ -3,6 +3,7 @@ class Galen < Formula
   homepage "http://galenframework.com/"
   url "https://github.com/galenframework/galen/releases/download/galen-2.4.4/galen-bin-2.4.4.zip"
   sha256 "b89ed0ccef4e5ea310563ab3220965f72d5fc182e89e6faadf44780f1c43b88d"
+  license "Apache-2.0"
   revision 1
 
   bottle :unneeded

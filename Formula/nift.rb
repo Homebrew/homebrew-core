@@ -1,14 +1,15 @@
 class Nift < Formula
   desc "Cross-platform open source framework for managing and generating websites"
   homepage "https://nift.cc/"
-  url "https://github.com/nifty-site-manager/nsm/archive/v2.1.tar.gz"
-  sha256 "cf96fb9738afddd97d7ea24cbd4e890600db69b7eb7a743a8dbb73ec20eb1348"
+  url "https://github.com/nifty-site-manager/nsm/archive/v2.3.10.tar.gz"
+  sha256 "ef4410d423fca8dfb67a349a188a0a46bec67f7eb0157d146ae2fbb28f2f2295"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4b571771eff85f1d7538318e583a757c578b8ff82513e06470d782eeb64b26b4" => :catalina
-    sha256 "b562c11a322faff160e8c67afd7de5582db549d480eaa8f0e4493904da331579" => :mojave
-    sha256 "b70e9a89d4dcd17e91a6a52e4a6a3344d38a08b0e9863d9556c42e42e5f2247a" => :high_sierra
+    sha256 "f08a936baa0f3e81ec0aa8343fb4970c39a7c73b308bad8df4e21fd665320ade" => :catalina
+    sha256 "56e8f7ea837fbff3d3a887bd57134364c55f352c0c4e9a5bf38301dbb7e4bdda" => :mojave
+    sha256 "ad7c89b1c61ba4659dff5fb3b021b3283f253e158ed72830b0598afdc33198c8" => :high_sierra
   end
 
   def install

@@ -3,6 +3,7 @@ class Bashish < Formula
   homepage "https://bashish.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/bashish/bashish/2.2.4/bashish-2.2.4.tar.gz"
   sha256 "3de48bc1aa69ec73dafc7436070e688015d794f22f6e74d5c78a0b09c938204b"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

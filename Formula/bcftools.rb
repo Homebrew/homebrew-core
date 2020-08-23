@@ -3,6 +3,7 @@ class Bcftools < Formula
   homepage "https://www.htslib.org/"
   url "https://github.com/samtools/bcftools/releases/download/1.10.2/bcftools-1.10.2.tar.bz2"
   sha256 "f57301869d0055ce3b8e26d8ad880c0c1989bf25eaec8ea5db99b60e31354e2c"
+  license "MIT"
 
   bottle do
     sha256 "6d232b149d6f1edc21116002d675d1f62ab0bf73158e67802ecb94091fa1ceaa" => :catalina

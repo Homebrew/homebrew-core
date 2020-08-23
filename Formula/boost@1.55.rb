@@ -3,6 +3,7 @@ class BoostAT155 < Formula
   homepage "https://www.boost.org"
   url "https://downloads.sourceforge.net/project/boost/boost/1.55.0/boost_1_55_0.tar.bz2"
   sha256 "fff00023dd79486d444c8e29922f4072e1d451fc5a4d2b6075852ead7f2b7b52"
+  license "BSL-1.0"
   revision 1
 
   bottle do
@@ -36,6 +37,13 @@ class BoostAT155 < Formula
   patch :p2 do
     url "https://github.com/boostorg/chrono/commit/143260d.diff?full_index=1"
     sha256 "96ba2f3a028df323e9bdffb400cc7c30c0c67e3d681c8c5a867c40ae0549cb62"
+  end
+
+  # Fix build on Xcode 11.4
+  patch :p2 do
+    url "https://github.com/boostorg/build/commit/b3a59d265929a213f02a451bb63cea75d668a4d9.patch?full_index=1"
+    sha256 "04a4df38ed9c5a4346fbb50ae4ccc948a1440328beac03cb3586c8e2e241be08"
+    directory "tools/build/v2"
   end
 
   def install

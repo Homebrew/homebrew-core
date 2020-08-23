@@ -3,6 +3,7 @@ class Cdrdao < Formula
   homepage "https://cdrdao.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/cdrdao/cdrdao-1.2.4.tar.bz2"
   sha256 "358d9cb83370ceaecdc60564cbf14c2ea2636eac60a966e2461c011ba09853b4"
+  license "GPL-2.0"
 
   bottle do
     sha256 "81acc38e0a51134c0eeebf20e76dcee4e80eabfac72f0ec890e448271a96792c" => :catalina

@@ -3,6 +3,7 @@ class Vnstat < Formula
   homepage "https://humdi.net/vnstat/"
   url "https://humdi.net/vnstat/vnstat-2.6.tar.gz"
   sha256 "89276e0a7281943edb554b874078278ad947dc312938a2451e03eb80679f7ff7"
+  license "GPL-2.0"
   head "https://github.com/vergoh/vnstat.git"
 
   bottle do
@@ -45,7 +46,7 @@ class Vnstat < Formula
     EOS
   end
 
-  plist_options :startup => true, :manual => "#{HOMEBREW_PREFIX}/opt/vnstat/bin/vnstatd --nodaemon --config #{HOMEBREW_PREFIX}/etc/vnstat.conf"
+  plist_options startup: true, manual: "#{HOMEBREW_PREFIX}/opt/vnstat/bin/vnstatd --nodaemon --config #{HOMEBREW_PREFIX}/etc/vnstat.conf"
 
   def plist
     <<~EOS

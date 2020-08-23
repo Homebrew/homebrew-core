@@ -1,20 +1,21 @@
 class Grex < Formula
   desc "Command-line tool for generating regular expressions"
   homepage "https://github.com/pemistahl/grex"
-  url "https://github.com/pemistahl/grex/archive/v1.0.0.tar.gz"
-  sha256 "ff83e1a30ec6153b3b707f1afda60d24a5d6058e924ce536ef71aad1dc8fccf2"
+  url "https://github.com/pemistahl/grex/archive/v1.1.0.tar.gz"
+  sha256 "52a9d5ddc15c7fb227c87147d991bfabe2aae1fbef8169893a9111dcd3aa641f"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "90050fb3e32743d9d3f2ed89e04942b11996d1de1dbc9cf16ac68d0556b1429b" => :catalina
-    sha256 "2f0e00fd6bcea11069e26d0079dc326b5111319630c54132816f401d532ddce0" => :mojave
-    sha256 "3d31d46adb5eb71ee68095f80e619b4890eff95d024be8934bd27373ed6de12f" => :high_sierra
+    sha256 "a6a2e903b81404d8637492fdbdea4bd2bafc5b9e2ead89e565ed64ca27a8a9ad" => :catalina
+    sha256 "add77eeff9facb30f56b579ab893bcfafcae43699e629b3780f67b560fb59ad2" => :mojave
+    sha256 "b09e46aabadbb7742e60b942386f994795fcfca48a2834b2dbc4bc7fdb500dcc" => :high_sierra
   end
 
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", *std_cargo_args
   end
 
   test do

@@ -1,18 +1,17 @@
 class Libffi < Formula
   desc "Portable Foreign Function Interface library"
   homepage "https://sourceware.org/libffi/"
-  url "https://sourceware.org/pub/libffi/libffi-3.2.1.tar.gz"
-  mirror "https://deb.debian.org/debian/pool/main/libf/libffi/libffi_3.2.1.orig.tar.gz"
-  sha256 "d06ebb8e1d9a22d19e38d63fdb83954253f39bedc5d46232a05645685722ca37"
+  url "https://sourceware.org/pub/libffi/libffi-3.3.tar.gz"
+  mirror "https://deb.debian.org/debian/pool/main/libf/libffi/libffi_3.3.orig.tar.gz"
+  mirror "https://github.com/libffi/libffi/releases/download/v3.3/libffi-3.3.tar.gz"
+  sha256 "72fba7922703ddfa7a028d513ac15a85c8d54c8d67f55fa5a4802885dc652056"
+  license "MIT"
 
   bottle do
     cellar :any
-    sha256 "010ee87b8cfe2351092044a48663462410fb49872ef70ebe44d933cd9bd70901" => :catalina
-    sha256 "8d9b153f501fcc5103bb96b00be9a1aea6a0c09e5d61b9acfb998546c3301582" => :mojave
-    sha256 "c63fbf004a3c314b7af3bd6b8fc50dc33c06730235cf7e245cb206307dca0933" => :high_sierra
-    sha256 "13836da147e311ac2920df5a1d0f04b672ce89204334b5e0233b428572860483" => :sierra
-    sha256 "82e5176c758030c4d7571ebd7b412624eed28b8379069c27e366952569168bda" => :el_capitan
-    sha256 "9047ca06422e869790ec80adf37cedb3eff6e422094bde0371e24d9bb18dc3f0" => :yosemite
+    sha256 "dd94d39946f53a8f11f78e998f22e46be9666bb265f80bb4714d5d63c1e16a68" => :catalina
+    sha256 "d6e5efd7521676dfc58fcba567514b898091c8580df4d6253f5dd40a7ee67c82" => :mojave
+    sha256 "7065f0d426921fa069c2494beded9de61e8720954f3f346103c8f871daa4ff8b" => :high_sierra
   end
 
   head do
@@ -22,12 +21,17 @@ class Libffi < Formula
     depends_on "libtool" => :build
   end
 
-  keg_only :provided_by_macos, "some formulae require a newer version of libffi"
+  keg_only :provided_by_macos
 
   def install
+    # This can be removed in the future when libffi properly detects the CPU on ARM.
+    # https://github.com/libffi/libffi/issues/571#issuecomment-655223391
+    extra_args = []
+    extra_args << "--build=aarch64-apple-darwin#{`uname -r`.chomp}" if Hardware::CPU.arm?
+
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}", *extra_args
     system "make", "install"
   end
 
@@ -81,7 +85,7 @@ class Libffi < Formula
       }
     EOS
 
-    flags = ["-L#{lib}", "-lffi", "-I#{lib}/libffi-#{version}/include"]
+    flags = ["-L#{lib}", "-lffi", "-I#{include}"]
     system ENV.cc, "-o", "closure", "closure.c", *(flags + ENV.cflags.to_s.split)
     system "./closure"
   end

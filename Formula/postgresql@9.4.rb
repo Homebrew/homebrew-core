@@ -3,20 +3,28 @@ class PostgresqlAT94 < Formula
   homepage "https://www.postgresql.org/"
   url "https://ftp.postgresql.org/pub/source/v9.4.26/postgresql-9.4.26.tar.bz2"
   sha256 "f5c014fc4a5c94e8cf11314cbadcade4d84213cfcc82081c9123e1b8847a20b9"
+  license "PostgreSQL"
 
   bottle do
-    sha256 "708f31b60651088de5c546f3c5f893d4f1a5b77716b9faeb362a3ce457dc408c" => :catalina
-    sha256 "d9d654cbe9943f14744238c071a0a52c5a80616e05e007ae776c35d49a5f2740" => :mojave
-    sha256 "eade79680eefce8f954c2d3348453f6c7dd2ae3bd7d7560f3a50a283af45d8d1" => :high_sierra
+    rebuild 3
+    sha256 "15217a46087cd4bef0227f5ca941ed843a4e024aafa4e7c7a3ebf746ca8a1344" => :catalina
+    sha256 "4d24193f0f0931c246a86407d3d8208a48b514b8969dc4567b7d62de2becc3ec" => :mojave
+    sha256 "2e09355d0bf2f70b5ea9c202f15aadee823902caad5cf35b64c882e4b969e70f" => :high_sierra
   end
 
   keg_only :versioned_formula
+
+  deprecate! date: "2020-02-13"
 
   depends_on "openssl@1.1"
   depends_on "readline"
 
   uses_from_macos "libxslt"
   uses_from_macos "perl"
+
+  on_linux do
+    depends_on "util-linux"
+  end
 
   def install
     # Fix "configure: error: readline library not found"
@@ -55,6 +63,8 @@ class PostgresqlAT94 < Formula
   end
 
   def post_install
+    return if ENV["CI"]
+
     (var/"log").mkpath
     (var/name).mkpath
     system "#{bin}/initdb", "#{var}/#{name}" unless File.exist? "#{var}/#{name}/PG_VERSION"
@@ -74,10 +84,15 @@ class PostgresqlAT94 < Formula
 
       To install gems without sudo, see the Homebrew documentation:
         https://docs.brew.sh/Gems,-Eggs-and-Perl-Modules
+
+      This formula has created a default database cluster with:
+        initdb #{var}/postgres
+      For more details, read:
+        https://www.postgresql.org/docs/#{version.major}/app-initdb.html
     EOS
   end
 
-  plist_options :manual => "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgresql@9.4 start"
+  plist_options manual: "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgresql@9.4 start"
 
   def plist
     <<~EOS
@@ -107,6 +122,6 @@ class PostgresqlAT94 < Formula
   end
 
   test do
-    system "#{bin}/initdb", testpath/"test"
+    system "#{bin}/initdb", testpath/"test" unless ENV["CI"]
   end
 end

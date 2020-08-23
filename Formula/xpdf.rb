@@ -3,6 +3,7 @@ class Xpdf < Formula
   homepage "https://www.xpdfreader.com/"
   url "https://xpdfreader-dl.s3.amazonaws.com/xpdf-4.02.tar.gz"
   sha256 "52d51dc943b9614b8da66e8662b3031a3c82dc25bfc792eac6b438aa36d549a4"
+  license "GPL-2.0"
 
   bottle do
     cellar :any
@@ -16,8 +17,8 @@ class Xpdf < Formula
   depends_on "freetype"
   depends_on "qt"
 
-  conflicts_with "pdf2image", "poppler",
-    :because => "xpdf, pdf2image, and poppler install conflicting executables"
+  conflicts_with "pdf2image", "pdftohtml", "poppler",
+    because: "poppler, pdftohtml, pdf2image, and xpdf install conflicting executables"
 
   def install
     system "cmake", ".", *std_cmake_args

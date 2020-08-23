@@ -8,6 +8,11 @@ class Aacgain < Formula
   url "https://aacgain.altosdesign.com/alvarez/aacgain-1.8.tar.bz2"
   sha256 "2bb8e27aa8f8434a4861fdbc70adb9cb4b47e1dfe472910d62d6042cb80a2ee1"
 
+  livecheck do
+    url "https://aacgain.altosdesign.com/alvarez/"
+    regex(/href=.*?aacgain[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "a8ec07d22279b4bdd471ee7a307e6d365a906432ef49533afeca2de53add8d55" => :catalina

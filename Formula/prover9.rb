@@ -4,6 +4,7 @@ class Prover9 < Formula
   url "https://www.cs.unm.edu/~mccune/prover9/download/LADR-2009-11A.tar.gz"
   version "2009-11A"
   sha256 "c32bed5807000c0b7161c276e50d9ca0af0cb248df2c1affb2f6fc02471b51d0"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

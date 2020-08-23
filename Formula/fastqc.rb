@@ -12,7 +12,7 @@ class Fastqc < Formula
   def install
     libexec.install Dir["*"]
     chmod 0755, libexec/"fastqc"
-    (bin/"fastqc").write_env_script libexec/"fastqc", :JAVA_HOME => Formula["openjdk"].opt_prefix
+    (bin/"fastqc").write_env_script libexec/"fastqc", JAVA_HOME: Formula["openjdk"].opt_prefix
   end
 
   test do

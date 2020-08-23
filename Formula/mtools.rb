@@ -1,19 +1,19 @@
 class Mtools < Formula
   desc "Tools for manipulating MSDOS files"
   homepage "https://www.gnu.org/software/mtools/"
-  url "https://ftp.gnu.org/gnu/mtools/mtools-4.0.23.tar.gz"
-  mirror "https://ftpmirror.gnu.org/mtools/mtools-4.0.23.tar.gz"
-  sha256 "110881884bb447b6243471dab4def937a344267a05ccc60a13503065ac992c39"
+  url "https://ftp.gnu.org/gnu/mtools/mtools-4.0.24.tar.gz"
+  mirror "https://ftpmirror.gnu.org/mtools/mtools-4.0.24.tar.gz"
+  sha256 "3483bdf233e77d0cf060de31df8e9f624c4bf26bd8a38ef22e06ca799d60c74e"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2ac51535ed5eafba74ec14886735ea2cd79768d72c688d97fc1a49d8f5b73fce" => :catalina
-    sha256 "541d3f5c8c8059dade3f91871f71c97c9ceff2987e97c95f4fefb57a8b55fc44" => :mojave
-    sha256 "402e30be30bc720b3bc8249da0ce56e7378f6e6f62ea68ddae27d558e438bca7" => :high_sierra
-    sha256 "c3fea7a5246d365ef2d4466b0722102afaf39a362b5127ffbe084de03b7afcf0" => :sierra
+    sha256 "a5229fbfcd666abf4c79cd065be6a58801228460f999319a0234319ccb8aba3a" => :catalina
+    sha256 "3a9d80e7a7e9a6dd377d0030a5fbc29e509ca6dd598e24943b36169ed1512670" => :mojave
+    sha256 "ebed9be10002c3a8a68089ff43702b24f1f2c451be9e14778eaece3ad4e0cdc0" => :high_sierra
   end
 
-  conflicts_with "multimarkdown", :because => "both install `mmd` binaries"
+  conflicts_with "multimarkdown", because: "both install `mmd` binaries"
 
   def install
     # Prevents errors such as "mainloop.c:89:15: error: expected ')'"

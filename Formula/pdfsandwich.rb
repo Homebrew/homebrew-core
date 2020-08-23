@@ -3,14 +3,14 @@ class Pdfsandwich < Formula
   homepage "http://www.tobias-elze.de/pdfsandwich/"
   url "https://downloads.sourceforge.net/project/pdfsandwich/pdfsandwich%200.1.7/pdfsandwich-0.1.7.tar.bz2"
   sha256 "9795ffea84b9b6b501f38d49a4620cf0469ddf15aac31bac6dbdc9ec1716fa39"
+  revision 1
   head "https://svn.code.sf.net/p/pdfsandwich/code/trunk/src"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0b298e9deb1b4b62ebfe4eca95b678aff27f9ed76b6f0b13dd6ff9679768cba2" => :mojave
-    sha256 "2471d2ff0242228e150a825e08b051803ffa96442c2949155d89aa5ab0163e0c" => :high_sierra
-    sha256 "55481ac412ee714452c1ef754718e28a215c395106fac5eb25c07d5908c38603" => :sierra
-    sha256 "af5eaeb89d1e89eb0fb48d2e1661ddfdc21c3f35f08cbfb4fb3aff594b4ab1da" => :el_capitan
+    sha256 "f02f16a0b4762dd522dcfc633727e3f68dca40966e34d9c89015dc896d47cacc" => :catalina
+    sha256 "1c11166775d495add7143bce32ef70def752462bfd91a54ff5f69ff671324259" => :mojave
+    sha256 "d7397999d8b60f0f74956cf53c20994ee565db95d501b7143cc5efe48c3759ae" => :high_sierra
   end
 
   depends_on "gawk" => :build
@@ -28,7 +28,7 @@ class Pdfsandwich < Formula
                           "--prefix=#{prefix}"
     system "make"
     system "make", "install"
-    bin.env_script_all_files(libexec/"bin", :PATH => "#{Formula["poppler"].opt_bin}:$PATH")
+    bin.env_script_all_files(libexec/"bin", PATH: "#{Formula["poppler"].opt_bin}:$PATH")
   end
 
   test do

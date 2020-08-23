@@ -4,6 +4,7 @@ class JohnJumbo < Formula
   url "https://openwall.com/john/k/john-1.9.0-jumbo-1.tar.xz"
   version "1.9.0"
   sha256 "f5d123f82983c53d8cc598e174394b074be7a77756f5fb5ed8515918c81e7f3b"
+  license "GPL-2.0"
 
   bottle do
     rebuild 1
@@ -17,7 +18,7 @@ class JohnJumbo < Formula
   depends_on "gmp"
   depends_on "openssl@1.1"
 
-  conflicts_with "john", :because => "both install the same binaries"
+  conflicts_with "john", because: "both install the same binaries"
 
   # https://github.com/magnumripper/JohnTheRipper/blob/bleeding-jumbo/doc/INSTALL#L133-L143
   fails_with :gcc do
@@ -34,8 +35,16 @@ class JohnJumbo < Formula
   # Fixed setup of openssl@1.1 over series of patches
   # See details for example from here: https://github.com/magnumripper/JohnTheRipper/pull/4101
   patch do
-    url "https://github.com/magnumripper/JohnTheRipper/pull/4101.diff?full_index=1"
-    sha256 "c21ba72b1267752c8fe70b6f48baf6a36bf4f4796a58e5b2f5998a3a42f96126"
+    url "https://github.com/magnumripper/JohnTheRipper/commit/4844c79bf43dbdbb6ae3717001173355b3de5517.diff?full_index=1"
+    sha256 "4182358c8d36234b7e933ccff160d46e5bd1d9a0250e136758a7c40c9b65a8fa"
+  end
+  patch do
+    url "https://github.com/magnumripper/JohnTheRipper/commit/26750d4cff0e650f836974dc3c9c4d446f3f8d0e.diff?full_index=1"
+    sha256 "b548c206226d92a0933697168a5e2ff630182615503207c148972d6fd5c63505"
+  end
+  patch do
+    url "https://github.com/magnumripper/JohnTheRipper/commit/f03412b789d905b1a8d50f5f4b76d158b01c81c1.diff?full_index=1"
+    sha256 "070ef86671e3bb5ed0af39f6908bf1fecf82ee88213673d1c51ff8df6bfa51c4"
   end
 
   def install
@@ -66,7 +75,7 @@ class JohnJumbo < Formula
 
   test do
     touch "john2.pot"
-    (testpath/"test").write "dave:#{`printf secret | /usr/bin/openssl md5`}"
+    (testpath/"test").write "dave:#{`printf secret | /usr/bin/openssl md5 -r | cut -d' ' -f1`}"
     assert_match(/secret/, shell_output("#{bin}/john --pot=#{testpath}/john2.pot --format=raw-md5 test"))
     assert_match(/secret/, (testpath/"john2.pot").read)
   end

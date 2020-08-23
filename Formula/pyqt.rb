@@ -1,22 +1,23 @@
 class Pyqt < Formula
   desc "Python bindings for v5 of Qt"
   homepage "https://www.riverbankcomputing.com/software/pyqt/download5"
-  url "https://files.pythonhosted.org/packages/7c/5b/e760ec4f868cb77cee45b4554bf15d3fe6972176e89c4e3faac941213694/PyQt5-5.14.0.tar.gz"
-  sha256 "0145a6b7de15756366decb736c349a0cb510d706c83fda5b8cd9e0557bc1da72"
+  url "https://files.pythonhosted.org/packages/8c/90/82c62bbbadcca98e8c6fa84f1a638de1ed1c89e85368241e9cc43fcbc320/PyQt5-5.15.0.tar.gz"
+  sha256 "c6f75488ffd5365a65893bc64ea82a6957db126fbfe33654bcd43ae1c30c52f9"
+  license "GPL-3.0"
 
   bottle do
     cellar :any
-    sha256 "e2abbfd19a3b2e9c52f2c1c4fb84cc752f832b616a89c1138ab74cad96d95584" => :catalina
-    sha256 "5026dd96d99bb8866d2a2b3bf1bc55d66f9ddbd39e9180ee7c921481b49f39b9" => :mojave
-    sha256 "32f1de6e98558bbf79e31771cfa6bce4206bac12108f384324006c1a18209dfc" => :high_sierra
+    sha256 "a17f79ba93b629d68857864a9b35130b4cd56c650f4c80226fb9c983d40ef199" => :catalina
+    sha256 "6bc5f85f905eb25f9bfc9e23da8af4d23ba77745ace301fe4d3e8b93ad9a27b7" => :mojave
+    sha256 "6a823bc3eedf914192f63d8d21d4fc66ee32399100cb9b79b044dfd60fa401bb" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
   depends_on "qt"
   depends_on "sip"
 
   def install
-    version = Language::Python.major_minor_version "python3"
+    version = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
     args = ["--confirm-license",
             "--bindir=#{bin}",
             "--destdir=#{lib}/python#{version}/site-packages",
@@ -29,9 +30,10 @@ class Pyqt < Formula
             "QMAKE_MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}",
             "--designer-plugindir=#{pkgshare}/plugins",
             "--qml-plugindir=#{pkgshare}/plugins",
+            "--pyuic5-interpreter=#{Formula["python@3.8"].opt_bin}/python3",
             "--verbose"]
 
-    system "python3", "configure.py", *args
+    system Formula["python@3.8"].opt_bin/"python3", "configure.py", *args
     system "make"
     ENV.deparallelize { system "make", "install" }
   end
@@ -40,7 +42,7 @@ class Pyqt < Formula
     system "#{bin}/pyuic5", "--version"
     system "#{bin}/pylupdate5", "-version"
 
-    system "python3", "-c", "import PyQt5"
+    system Formula["python@3.8"].opt_bin/"python3", "-c", "import PyQt5"
     %w[
       Gui
       Location
@@ -50,6 +52,6 @@ class Pyqt < Formula
       Svg
       Widgets
       Xml
-    ].each { |mod| system "python3", "-c", "import PyQt5.Qt#{mod}" }
+    ].each { |mod| system Formula["python@3.8"].opt_bin/"python3", "-c", "import PyQt5.Qt#{mod}" }
   end
 end

@@ -1,14 +1,15 @@
 class Sleuthkit < Formula
   desc "Forensic toolkit"
   homepage "https://www.sleuthkit.org/"
-  url "https://github.com/sleuthkit/sleuthkit/releases/download/sleuthkit-4.8.0/sleuthkit-4.8.0.tar.gz"
-  sha256 "f584b46c882693bcbd819fb58f75e9be45ac8abdbf605c190f87ef1122f28f6c"
+  url "https://github.com/sleuthkit/sleuthkit/releases/download/sleuthkit-4.9.0/sleuthkit-4.9.0.tar.gz"
+  sha256 "7bc5ee9130b1ed8d645e446e0f63bd34ad018a93c1275688fa38cfda28bde9d0"
+  license "GPL-2.0"
 
   bottle do
     cellar :any
-    sha256 "a295524b0f1cacd5e67084eec862dae99f1c2787035f2322189982840b37fd73" => :catalina
-    sha256 "02ad0263a10f422f630205b332a5361921f4d33d943fe099afeee98feb5ef1bd" => :mojave
-    sha256 "97657fb6014fa5bde41bbdc79a31ba911a782531cc3b9ac1f01125fe1951d751" => :high_sierra
+    sha256 "e3bb514d3df5d19a066b27a455f04066dbaefbf0bfd80f3a10d5cbf73f7549f5" => :catalina
+    sha256 "9f912c67f95edfa547d9fcc03d63920d3b47964aeb5e8f548d2df5e2635ef0ed" => :mojave
+    sha256 "1234854d9ae4a77d083d94d9a1d0f21891d479bf80a87191f6df68076506de2d" => :high_sierra
   end
 
   depends_on "ant" => :build
@@ -20,14 +21,15 @@ class Sleuthkit < Formula
   uses_from_macos "sqlite"
 
   conflicts_with "ffind",
-    :because => "both install a 'ffind' executable."
+    because: "both install a `ffind` executable"
 
   def install
     ENV["JAVA_HOME"] = Formula["openjdk"].opt_libexec/"openjdk.jdk/Contents/Home"
+    ENV["ANT_FOUND"]=Formula["ant"].opt_bin/"ant"
+    ENV["SED"]="/usr/bin/sed"
     ENV.append_to_cflags "-DNDEBUG"
 
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
-    system "make"
     system "make", "install"
 
     cd "bindings/java" do

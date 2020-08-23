@@ -3,10 +3,11 @@ class BashSnippets < Formula
   homepage "https://github.com/alexanderepstein/Bash-Snippets"
   url "https://github.com/alexanderepstein/Bash-Snippets/archive/v1.23.0.tar.gz"
   sha256 "59b784e714ba34a847b6a6844ae1703f46db6f0a804c3e5f2de994bbe8ebe146"
+  license "MIT"
 
   bottle :unneeded
 
-  conflicts_with "cheat", :because => "Both install a `cheat` executable"
+  conflicts_with "cheat", because: "both install a `cheat` executable"
 
   def install
     system "./install.sh", "--prefix=#{prefix}", "all"

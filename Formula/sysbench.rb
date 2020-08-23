@@ -1,14 +1,15 @@
 class Sysbench < Formula
   desc "System performance benchmark tool"
   homepage "https://github.com/akopytov/sysbench"
-  url "https://github.com/akopytov/sysbench/archive/1.0.19.tar.gz"
-  sha256 "39cde56b58754d97b2fe6a1688ffc0e888d80c262cf66daee19acfb2997f9bdd"
+  url "https://github.com/akopytov/sysbench/archive/1.0.20.tar.gz"
+  sha256 "e8ee79b1f399b2d167e6a90de52ccc90e52408f7ade1b9b7135727efe181347f"
+  license "GPL-2.0"
 
   bottle do
     cellar :any
-    sha256 "6b71a2ae66e021e31ac79c3924fffeec0dffa9f3aeeea073cc47005bd1ef2c4f" => :catalina
-    sha256 "ae9b590957ecca03a87614dfb0cf8ba70d0645d2b105cd259955b5353858ab45" => :mojave
-    sha256 "793f35c8eb8db96af5f54d8fdda7590cfb6c592b0d3f2cd384e74ff75c5f4fdc" => :high_sierra
+    sha256 "2ca0e854823e63ecf84b27d81d0ea722aeae784fed39b436fed738fcd4450489" => :catalina
+    sha256 "ec55acf85be8a3cfbd57a72f1d67aad2104e545ec32464010d673c205075c809" => :mojave
+    sha256 "84363a4b7267f936a6e168fb4ed30fa21970ff1483bb81a5fba2bbe25d611cfc" => :high_sierra
   end
 
   depends_on "autoconf" => :build

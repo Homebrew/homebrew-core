@@ -1,26 +1,21 @@
 class Grpcurl < Formula
   desc "Like cURL, but for gRPC"
   homepage "https://github.com/fullstorydev/grpcurl"
-  url "https://github.com/fullstorydev/grpcurl/archive/v1.5.0.tar.gz"
-  sha256 "7bd62197429da0865d88b1a9aa22e7dfac68073e5274bb49d9528787f761f8d8"
+  url "https://github.com/fullstorydev/grpcurl/archive/v1.7.0.tar.gz"
+  sha256 "0999aa1516deb2575bdc1d11d3a5dd8494a5aa25fa899e6afc245c3ccc2bbeb5"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7f7f6d9e80f75adfaf051590b1476abb815557ae8db105cd48930618af5203ef" => :catalina
-    sha256 "7f46a463a4ccfdd698d5ab95930b8abe3e192269dc4515ac9ffbde9be8a10c7b" => :mojave
-    sha256 "39e5de8eef5dc83992ce90b7ede25463fc184065bd2d53e92bcbed60d00d5041" => :high_sierra
+    sha256 "b141489fbe726a3f534d86a0f53af867a7b4bff1a92c1c8305e73d5e0fb6f87a" => :catalina
+    sha256 "99121cc3d5c1b521dc69511609d1214b4c297a136902e08384161418ceb320dd" => :mojave
+    sha256 "c62f76f233dfa5686d3018b351436d469ce142c5714cbe67960478c2a5e4f640" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
-    (buildpath/"src/github.com/fullstorydev/grpcurl").install buildpath.children
-    cd "src/github.com/fullstorydev/grpcurl/cmd" do
-      system "go", "build", "-ldflags", "-X main.version=#{version}",
-             "-o", bin/"grpcurl", "./..."
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args, "-ldflags", "-X main.version=#{version}", "./cmd/grpcurl"
   end
 
   test do

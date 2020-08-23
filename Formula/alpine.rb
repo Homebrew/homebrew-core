@@ -1,14 +1,15 @@
 class Alpine < Formula
   desc "News and email agent"
   homepage "http://alpine.x10host.com/alpine/release/"
-  url "http://alpine.x10host.com/alpine/release/src/alpine-2.22.tar.xz"
-  sha256 "849567c1b6f71fde3aaa1c97cf0577b12a525d9e22c0ea47797c4bf1cd2bbfdb"
+  url "http://alpine.x10host.com/alpine/release/src/alpine-2.23.tar.xz"
+  sha256 "793a61215c005b5fcffb48f642f125915276b7ec7827508dd9e83d4c4da91f7b"
+  license "Apache-2.0"
   head "https://repo.or.cz/alpine.git"
 
   bottle do
-    sha256 "d9f2c103746223a50f9bd17cc113e33b058a801a9c69f0cde9613f0120b6dc68" => :catalina
-    sha256 "3061917e8f114d875869a3beb88da6c091a774dd657841052b97d054f10298f9" => :mojave
-    sha256 "8d4a1d7a99103583a2b8e01639e2204b2d6c1c7e028c8d78ce39f82465ab3799" => :high_sierra
+    sha256 "3e775bad34dc730ad9c15e3df30e753842ee542695172362cc648ead05e4d151" => :catalina
+    sha256 "5492f86a14779b434ebb069bcef8ae551c93dc8835106d6144699e54191de3bd" => :mojave
+    sha256 "f7b9f13b015de8e08ec73b1e4784abc64e5cf01785ef722ffa3d80441248a640" => :high_sierra
   end
 
   depends_on "openssl@1.1"

@@ -1,15 +1,16 @@
 class Fossil < Formula
   desc "Distributed software configuration management"
   homepage "https://www.fossil-scm.org/"
-  url "https://www.fossil-scm.org/index.html/uv/fossil-src-2.10.tar.gz"
-  sha256 "d8a3776d2ce77385ed5ff20a2776d13bb534fb2508e87351e14e94f91cd12b10"
-  head "https://www.fossil-scm.org/", :using => :fossil
+  url "https://www.fossil-scm.org/index.html/uv/fossil-src-2.12.1.tar.gz"
+  sha256 "822326ffcfed3748edaf4cfd5ab45b23225dea840304f765d1d55d2e6c7d6603"
+  license "BSD-2-Clause"
+  head "https://www.fossil-scm.org/", using: :fossil
 
   bottle do
     cellar :any
-    sha256 "16afbe0d2eb0df60423b5274e368fd002bd9ab5af565c96535e0bae2c966f85c" => :catalina
-    sha256 "901b5ea0ef15aa3cbe195dc33c925a6e6dbca03b2ff012ee1bfca800e58eca5f" => :mojave
-    sha256 "6ae2eb58d9c1bfb35371a60a43a546fe619dd73350395ac4d11976bb5bebf486" => :high_sierra
+    sha256 "79dddedf515aa4c145161b6511f99f8864656f19cd3935be77cf92bac60e1eb0" => :catalina
+    sha256 "0366a7a4642f1805d593fd8c357df989cb811280afbef101bbc07fdcec4391d7" => :mojave
+    sha256 "87006ce88d4bc52e452b06f2a10f8151930af1e0b6c14bace7eeb486505fd5b9" => :high_sierra
   end
 
   depends_on "openssl@1.1"

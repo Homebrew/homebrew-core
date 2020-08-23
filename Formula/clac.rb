@@ -3,6 +3,7 @@ class Clac < Formula
   homepage "https://github.com/soveran/clac"
   url "https://github.com/soveran/clac/archive/0.3.3.tar.gz"
   sha256 "e751e31bd2d3cdf6daa80da0ea7761630767aa22df6954df35997d1fcc5fa8ae"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any_skip_relocation

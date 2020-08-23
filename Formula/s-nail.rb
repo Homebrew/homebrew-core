@@ -1,13 +1,13 @@
 class SNail < Formula
   desc "Fork of Heirloom mailx"
   homepage "https://www.sdaoden.eu/code.html"
-  url "https://www.sdaoden.eu/downloads/s-nail-14.9.17.tar.gz"
-  sha256 "f94eeb64a9e9e83a36f103377a1ef315070ea6388a8aaef4a5a943fd2660df26"
+  url "https://www.sdaoden.eu/downloads/s-nail-14.9.19.tar.xz"
+  sha256 "84f249a233a4592cf0c0bda9644c5b2d12e63a4807c0e292c13ef5068d3ca2bd"
 
   bottle do
-    sha256 "ade61071f416cb8714d5f19e140edf9b1a690a4a5971e1b2231b84e9ae4391a4" => :catalina
-    sha256 "35e4528d24bb3837f54f824138385537ac58b91acc10b1e5780130cfaa6e498e" => :mojave
-    sha256 "0a362c6e60a40878c01e745bec5ae54d01c8e3a06066fe35af8c0104d7b875c5" => :high_sierra
+    sha256 "8884e726df98985c8e48a64f7ba54396a15c28f4018b9a00c40c05e42eb706c9" => :catalina
+    sha256 "a49ee56f5b20d5d40a4c1575032402c51ef1fb111d138aeec0d046ba85600c0d" => :mojave
+    sha256 "130bbb9f47467f2b3d5def07ef845eee58a63a2308f13fab71c57ed7d76bb56a" => :high_sierra
   end
 
   depends_on "awk" => :build
@@ -28,8 +28,8 @@ class SNail < Formula
   test do
     ENV["SOURCE_DATE_EPOCH"] = "844221007"
 
-    date1 = Utils.popen_read("date", "-r", "844221007", "+%a %b %e %T %Y")
-    date2 = Utils.popen_read("date", "-r", "844221007", "+%a, %d %b %Y %T %z")
+    date1 = shell_output("date -r 844221007 '+%a %b %e %T %Y'")
+    date2 = shell_output("date -r 844221007 '+%a, %d %b %Y %T %z'")
 
     expected = <<~EOS
       From reproducible_build #{date1.chomp}

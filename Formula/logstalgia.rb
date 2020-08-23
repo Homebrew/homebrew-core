@@ -3,6 +3,7 @@ class Logstalgia < Formula
   homepage "https://logstalgia.io/"
   url "https://github.com/acaudwell/Logstalgia/releases/download/logstalgia-1.1.2/logstalgia-1.1.2.tar.gz"
   sha256 "ed3f4081e401f4a509761a7204bdbd7c34f8f1aff9dcb030348885fb3995fca9"
+  license "GPL-3.0"
 
   bottle do
     sha256 "150fc1973c74bc9b7e7afe25cb59b26af3bcfc04b7f47babec8fcd24af58591a" => :catalina

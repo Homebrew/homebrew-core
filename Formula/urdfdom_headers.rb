@@ -1,15 +1,14 @@
 class UrdfdomHeaders < Formula
   desc "Headers for Unified Robot Description Format (URDF) parsers"
   homepage "https://wiki.ros.org/urdfdom_headers/"
-  url "https://github.com/ros/urdfdom_headers/archive/1.0.4.tar.gz"
-  sha256 "2b3040a5f4d1e421b32d80540dd1d09fa0ef46c1d4152210ca8753c462b90e31"
+  url "https://github.com/ros/urdfdom_headers/archive/1.0.5.tar.gz"
+  sha256 "76a68657c38e54bb45bddc4bd7d823a3b04edcd08064a56d8e7d46b9912035ac"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b46332ee7c9d7efb6a9ea01b885a8342d77899d9ec92d8bc55893d70aebbfadd" => :catalina
-    sha256 "a39d21ec585536f3d512f7be56ea1e0139aacaea9875847c758a850067f6309f" => :mojave
-    sha256 "a39d21ec585536f3d512f7be56ea1e0139aacaea9875847c758a850067f6309f" => :high_sierra
-    sha256 "14f2851e93c174aa2632d7e69abb9522e52a2b8d040f3d4826c8c15517150525" => :sierra
+    sha256 "c6840c3177042a718ae29bc8238e5ec20dbcde4f9269b3042f8eed1a2aa6292c" => :catalina
+    sha256 "c6840c3177042a718ae29bc8238e5ec20dbcde4f9269b3042f8eed1a2aa6292c" => :mojave
+    sha256 "c6840c3177042a718ae29bc8238e5ec20dbcde4f9269b3042f8eed1a2aa6292c" => :high_sierra
   end
 
   depends_on "cmake" => :build

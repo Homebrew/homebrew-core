@@ -1,18 +1,15 @@
 class Chadwick < Formula
   desc "Tools for parsing Retrosheet MLB play-by-play files"
   homepage "https://chadwick.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/chadwick/chadwick-0.6/chadwick-0.6.5/chadwick-0.6.5.tar.gz"
-  sha256 "fed87dee762eb8550253ac86b42e5ffcd5abbd87509b708e523fffed105ab547"
+  url "https://downloads.sourceforge.net/project/chadwick/chadwick-0.7/chadwick-0.7.2/chadwick-0.7.2.tar.gz"
+  sha256 "f7b3af15281106e101e2ccc4cb182a3f15dbdc3327f2bcb045bfc486a8fda46e"
+  license "GPL-2.0"
 
   bottle do
     cellar :any
-    sha256 "e1f71c9335585e6fd99ea1973aaaa740c00bb17006a853fb108af5e9c1764efe" => :catalina
-    sha256 "1fef298b5a3cfdeea069b05a4cffd3df89627374ac3d3f161e7295db8976cdb8" => :mojave
-    sha256 "9696854624d829ac76b9185425c9d123495f4905ad40d9a82cf25908cab66c0c" => :high_sierra
-    sha256 "9e861062afe571d353e11df00146c5eafb3bad33cc747bc0b63b2441f1d52d10" => :sierra
-    sha256 "9b62dbf5675819d3ba2f770ab04086702d22054133c37096582a744624c41fce" => :el_capitan
-    sha256 "3975fe87dde078bf3fe1bfa23738e81dc2da185f8ea021a536e653749e33f944" => :yosemite
-    sha256 "f1d8a2d60be50146451c1581e536e5f22929c8846d8c6e625ee9ee2910348a35" => :mavericks
+    sha256 "693c6ee0980401936a83453bdbc398aeb0eb06ba9bb8e101046508b14edfdc98" => :catalina
+    sha256 "a068fd25b1e8b3d6f9a56a8a1d4ac18a49f07f82450b1ab3f3766b86fb0a362a" => :mojave
+    sha256 "427b5c0fca10b23b66c56bda3537080df2ba467edea59a9dfd2f0fba56f50f9b" => :high_sierra
   end
 
   def install
@@ -30,9 +27,9 @@ class Chadwick < Formula
     date_xml_slug = date_xml.delete "/"
 
     # game_id and attributes for the retrosheet "team file"
-    attr = { :game_id => "ATL#{date_xml_slug}0", :home => "ATL", :home_name => "Braves",
-             :home_city => "Atlanta", :visitor => "NYN", :visitor_name => "Mets",
-             :visitor_city => "New York" }
+    attr = { game_id: "ATL#{date_xml_slug}0", home: "ATL", home_name: "Braves",
+             home_city: "Atlanta", visitor: "NYN", visitor_name: "Mets",
+             visitor_city: "New York" }
 
     # retrosheet "event file" name, chadwick's xml name?, our value
     attr_map_info = [
@@ -47,9 +44,9 @@ class Chadwick < Formula
     ]
 
     # expected (computed) score related data in chadwick's output
-    exp_linescore = { :away_runs => "1", :away_hits => "1", :away_errors => "0",
-                      :home_runs => "0", :home_hits => "3", :home_errors => "0" }
-    exp_ing_ln_score = { :away => ["0", "0", "1"], :home => ["0", "0", "0"] }
+    exp_linescore = { away_runs: "1", away_hits: "1", away_errors: "0",
+                      home_runs: "0", home_hits: "3", home_errors: "0" }
+    exp_ing_ln_score = { away: ["0", "0", "1"], home: ["0", "0", "0"] }
     exp_innings_cnt = exp_ing_ln_score.values[0].size
     exp_tmplayers_cnt = 9 # expected player count for each team
 

@@ -1,25 +1,22 @@
-require "language/haskell"
-
 class Dhall < Formula
-  include Language::Haskell::Cabal
-
   desc "Interpreter for the Dhall language"
   homepage "https://dhall-lang.org/"
-  url "https://hackage.haskell.org/package/dhall-1.30.0/dhall-1.30.0.tar.gz"
-  sha256 "f2be9599ddd88602c1577b0ca57849c9827c9e700e105102cecc17c56b7c4a81"
+  url "https://hackage.haskell.org/package/dhall-1.34.0/dhall-1.34.0.tar.gz"
+  sha256 "0dbc61611d465f744aec13fd3114a9d75bbaa434f1aaa3de7e49c385d9fe1b67"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2cf53e50cd33a995c71fe729f8eda3e8b8018be4322df8ccdd177ec86d6c8826" => :catalina
-    sha256 "af3459e6845fc27e062a8c5f61cd914c598973c3d51df1e3da15dc82ef58f67e" => :mojave
-    sha256 "f3d50a80445c28b3a1a748007ef2775b1d15b990057f2d11e7de8aa8bf6db847" => :high_sierra
+    sha256 "4fe8913cd2e0274a2e64cabfd86cf3566aea96a8da7b464183defc31fa4a68ef" => :catalina
+    sha256 "bf824346343183b124f99640d4f59d2344d77801e62857c846a03010e09c9eed" => :mojave
+    sha256 "ac41e39b2357eb6067aabe05f0bebd84058d4b04ff99dc6b598b3c586eb9496f" => :high_sierra
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@8.6" => :build
+  depends_on "ghc" => :build
 
   def install
-    install_cabal_package
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
   end
 
   test do

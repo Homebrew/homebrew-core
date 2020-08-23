@@ -1,13 +1,15 @@
 class OpenMpi < Formula
   desc "High performance message passing library"
   homepage "https://www.open-mpi.org/"
-  url "https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.3.tar.bz2"
-  sha256 "1402feced8c3847b3ab8252165b90f7d1fa28c23b6b2ca4632b6e4971267fd03"
+  url "https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.4.tar.bz2"
+  sha256 "47e24eb2223fe5d24438658958a313b6b7a55bb281563542e1afc9dec4a31ac4"
+  license "BSD-3-Clause"
+  revision 1
 
   bottle do
-    sha256 "3b143cf02a5345bb0d4df0777d3a34f806ff7fb66dc5d21993b8c4f218722ac7" => :catalina
-    sha256 "1600986b4774f6081191fe616cc70690d0174c4a32f4d7f280285ddc39970437" => :mojave
-    sha256 "71df1f5047b812b68f8b28f7a6c713f42389691b2269408c8d839f1922ab9e5c" => :high_sierra
+    sha256 "d0fff667ea8857e586804896e548941e21b164a6967ef5b5d4e6f19023e27370" => :catalina
+    sha256 "2a7c4fccb0807f159fa0f5b4021214385e7a38cd573a3f0ae8ea59aa96734e58" => :mojave
+    sha256 "6ca3b12ced550f1ecf9ba0440a86474d1415691cd14e84e949466c82732a72f2" => :high_sierra
   end
 
   head do
@@ -21,11 +23,28 @@ class OpenMpi < Formula
   depends_on "hwloc"
   depends_on "libevent"
 
-  conflicts_with "mpich", :because => "both install MPI compiler wrappers"
+  conflicts_with "mpich", because: "both install MPI compiler wrappers"
 
   def install
     # otherwise libmpi_usempi_ignore_tkr gets built as a static library
     ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
+
+    # Avoid references to the Homebrew shims directory
+    %w[
+      ompi/tools/ompi_info/param.c
+      orte/tools/orte-info/param.c
+      oshmem/tools/oshmem_info/param.c
+      opal/mca/pmix/pmix3x/pmix/src/tools/pmix_info/support.c
+    ].each do |fname|
+      inreplace fname, /(OPAL|PMIX)_CC_ABSOLUTE/, "\"#{ENV.cc}\""
+    end
+
+    %w[
+      ompi/tools/ompi_info/param.c
+      oshmem/tools/oshmem_info/param.c
+    ].each do |fname|
+      inreplace fname, "OMPI_CXX_ABSOLUTE", "\"#{ENV.cxx}\""
+    end
 
     ENV.cxx11
 

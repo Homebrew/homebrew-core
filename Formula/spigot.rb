@@ -12,6 +12,10 @@ class Spigot < Formula
     sha256 "043c9efcd99db4dbac2c10573e573f326b13ca1b411d1e2492411fa327741972" => :high_sierra
   end
 
+  on_linux do
+    depends_on "gmp"
+  end
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",

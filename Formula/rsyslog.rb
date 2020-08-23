@@ -1,13 +1,14 @@
 class Rsyslog < Formula
   desc "Enhanced, multi-threaded syslogd"
   homepage "https://www.rsyslog.com/"
-  url "https://www.rsyslog.com/files/download/rsyslog/rsyslog-8.2002.0.tar.gz"
-  sha256 "fe86c14d860da1202c76616feac0539ea5a40a4ad182d74b7d6d2419cc2381f8"
+  url "https://www.rsyslog.com/files/download/rsyslog/rsyslog-8.2006.0.tar.gz"
+  sha256 "d9589e64866f2fdc5636af4cae9d60ebf1e3257bb84b81ee953ede6a05878e97"
+  license "GPL-3.0"
 
   bottle do
-    sha256 "303b469ac3cf428da388635d354f6814e5b2a2e86f63379c4e41f81d27836f65" => :catalina
-    sha256 "ecc15313299515848fed850ca55c1f89c7dd6ffbb4bfb1b9cce88ef868ef6af8" => :mojave
-    sha256 "f21ca13358222274057d8392207e0449c3229c583a28f12422ab1726bab7f0e2" => :high_sierra
+    sha256 "6e2da2c80153db338ae7acb282ee690fa888e11e3f2bc0c5d7cd86640e1d5264" => :catalina
+    sha256 "a6292acf708905547dbaea460f92c59e5d1924506293afc751a349f8734a787b" => :mojave
+    sha256 "fd426af7ddbe1611be30da51a5850f05d3496713b80c8f313e6763e9a245a2dd" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -50,7 +51,7 @@ class Rsyslog < Formula
     mkdir_p var/"run"
   end
 
-  plist_options :manual => "rsyslogd -f #{HOMEBREW_PREFIX}/etc/rsyslog.conf -i #{HOMEBREW_PREFIX}/var/run/rsyslogd.pid"
+  plist_options manual: "rsyslogd -f #{HOMEBREW_PREFIX}/etc/rsyslog.conf -i #{HOMEBREW_PREFIX}/var/run/rsyslogd.pid"
 
   def plist
     <<~EOS

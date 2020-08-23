@@ -3,6 +3,7 @@ class NumpyAT116 < Formula
   homepage "https://www.numpy.org/"
   url "https://github.com/numpy/numpy/releases/download/v1.16.6/numpy-1.16.6.zip"
   sha256 "e5cf3fdf13401885e8eea8170624ec96225e2174eb0c611c6f26dd33b489e3ff"
+  license "BSD-3-Clause"
   revision 1
 
   bottle do
@@ -13,9 +14,8 @@ class NumpyAT116 < Formula
   end
 
   depends_on "gcc" => :build # for gfortran
+  depends_on :macos # Due to Python 2
   depends_on "openblas"
-
-  uses_from_macos "python@2"
 
   resource "Cython" do
     url "https://files.pythonhosted.org/packages/d9/82/d01e767abb9c4a5c07a6a1e6f4d5a8dfce7369318d31f48a52374094372e/Cython-0.29.15.tar.gz"

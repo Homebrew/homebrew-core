@@ -2,14 +2,15 @@ class Mavsdk < Formula
   desc "API and library for MAVLink compatible systems written in C++11"
   homepage "https://mavsdk.mavlink.io"
   url "https://github.com/mavlink/MAVSDK.git",
-    :tag      => "v0.24.0",
-    :revision => "38ec5f6ee52190f2e1f6e14e8d371caec5341009"
+    tag:      "v0.29.0",
+    revision: "a1e83140a6a090ed77f3a79f2dada8237aedaedb"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any
-    sha256 "2dd542f036c298a7b96fb05a2d99ad2434e7d4ef38d44b2cfc3895575877a1e4" => :catalina
-    sha256 "efe55369ba19e122fb6e37807441eff614511391c4a5fcfd5835c7b9be899448" => :mojave
-    sha256 "f15e2683f4851c4fca3fbd10b2c664711401bff00f20c4f151c0213bda145d0d" => :high_sierra
+    sha256 "81b3ee66efc405426517c352894353d3d5ceda3a97c9f09db9eba8e30419c695" => :catalina
+    sha256 "b9daf9f2c7c8362ce5e244d87f14eac5646e9c966f343dc273dcbdabb0e14fd6" => :mojave
+    sha256 "2f6b680375d0e50a5a468287db92ba249bf0895132cce9d7e28192d9be9272d1" => :high_sierra
   end
 
   depends_on "cmake" => :build

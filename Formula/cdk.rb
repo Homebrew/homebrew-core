@@ -1,15 +1,15 @@
 class Cdk < Formula
   desc "Curses development kit provides predefined curses widget for apps"
   homepage "https://invisible-island.net/cdk/"
-  url "https://invisible-mirror.net/archives/cdk/cdk-5.0-20191231.tgz"
-  version "5.0.20191231"
-  sha256 "66ed08f35fa82c837177a55fa245287e8b81fc55cb8c6c40d26b041088a72b26"
+  url "https://invisible-mirror.net/archives/cdk/cdk-5.0-20200228.tgz"
+  version "5.0.20200228"
+  sha256 "b23b55e2f21b4f1a2d6275e0ee017f4acfd5654f9c318080193ea71b7727b3cc"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b93ccd51c65c1f964fdee69c23888b35a629c8f24f04b989612130eb2165971c" => :catalina
-    sha256 "7590d2bae6079fe756348b41989a9a15ed96506c81ca238517b2c8efaa628a85" => :mojave
-    sha256 "a6d01b9dcc46b224a83a4e232a74af179bee8b97db0fe0e2a08692cc5e104336" => :high_sierra
+    sha256 "f6af3de91a67f7bec4481770831733635e80467dde908806b7f236c4a367fec1" => :catalina
+    sha256 "d14ec66c67dd3cfeea5679661a1c6341ac1efa6d5090bbe72def80529051d9b4" => :mojave
+    sha256 "c3576b57b44eba4148477a0e987197c9f7d766ba6652280aa915989dcee441ad" => :high_sierra
   end
 
   uses_from_macos "ncurses"

@@ -3,29 +3,29 @@ class Dashing < Formula
   homepage "https://github.com/technosophos/dashing"
   url "https://github.com/technosophos/dashing/archive/0.4.0.tar.gz"
   sha256 "81b21acae83c144f10d9eea05a0b89f0dcdfa694c3760c2a25bd4eab72a2a3b9"
+  license "MIT"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "625182262193e91eea994e43c6f7b6568a29473f920d82c4ede06f007c3d62ed" => :catalina
-    sha256 "1cf3f2332b9ed58fe688a1a3bd69c21641c370a9338f9f0661526434997b852e" => :mojave
-    sha256 "f1a3f3bdd8a8709c8ad5abac6da916455eb957680973131925378d7ceedad2c0" => :high_sierra
+    sha256 "cdfb4329ae48807046deb40bb2adb9969afda47a25502cedb374cf21a6a605ee" => :catalina
+    sha256 "79874bca8f27064c16aa81b398131d7ed3558bd5987913e344d0075859d9f7c7" => :mojave
+    sha256 "8c34e42f44271bfea4aecbb5dedb18deecfc4b8d0d0564344efa861bb816e8d4" => :high_sierra
   end
 
   depends_on "go" => :build
 
   # Use ruby docs just as dummy documentation to test with
+  # DO NOT USE https or find a better host, certificate has expired
   resource "ruby_docs_tarball" do
-    url "https://ruby-doc.com/downloads/ruby_2_6_5_core_rdocs.tgz"
-    sha256 "1ef2923161031789a88ac40630c93b7c4feb74147b47fd14c0dfe53559dc6622"
+    url "http://ruby-doc.com/downloads/ruby_2_6_5_core_rdocs.tgz"
+    sha256 "f9f74cf85c84e934d7127c2e86f4c3b0b70380a92c400decdc8a77ac977097fe"
   end
 
   def install
-    (buildpath/"src/github.com/technosophos/dashing").install buildpath.children
-    cd "src/github.com/technosophos/dashing" do
-      system "go", "build", "-o", bin/"dashing", "-ldflags",
+    system "go", "build", "-o", bin/"dashing", "-ldflags",
              "-X main.version=#{version}"
-      prefix.install_metafiles
-    end
+    prefix.install_metafiles
   end
 
   test do

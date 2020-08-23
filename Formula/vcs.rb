@@ -1,16 +1,14 @@
 class Vcs < Formula
   desc "Creates video contact sheets (previews) of videos"
   homepage "https://p.outlyer.net/vcs/"
-  url "https://p.outlyer.net/vcs/files/vcs-1.13.2.tar.gz"
-  sha256 "fc2a2b3994d5ffb5d87fb3dceaa5f6855aca7a89c58533b12fd11b8fb5b623af"
+  url "https://p.outlyer.net/files/vcs/vcs-1.13.4.tar.gz"
+  sha256 "dc1d6145e10eeed61d16c3591cfe3496a6ac392c9c2f7c2393cbdb0cf248544b"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 2
-    sha256 "761c580c6fda988dc80fa4c8bb258d66e73686ff97e412db9a07887c8aa5b9a8" => :catalina
-    sha256 "e515c6075a49bce03427fc1daf665796567e42c2e8c7e3b71a97159cb9152161" => :mojave
-    sha256 "d9b28e21e6a073749b6420104ba6ea6966c3d4833a69d6dbc60683a14564b82a" => :high_sierra
-    sha256 "d9b28e21e6a073749b6420104ba6ea6966c3d4833a69d6dbc60683a14564b82a" => :sierra
+    sha256 "d93ff1a5972e0f9e961bf66ee8bbd99e6037505de83d73f22e69f8683d0ad1b6" => :catalina
+    sha256 "d93ff1a5972e0f9e961bf66ee8bbd99e6037505de83d73f22e69f8683d0ad1b6" => :mojave
+    sha256 "0873f5c80cc698e7b2ce6d653a43bb51ef363c5e0325997565b30d540e87cb86" => :high_sierra
   end
 
   depends_on "ffmpeg"

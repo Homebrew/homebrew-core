@@ -1,38 +1,30 @@
 class SpoofMac < Formula
+  include Language::Python::Virtualenv
+
   desc "Spoof your MAC address in macOS"
   homepage "https://github.com/feross/SpoofMAC"
   url "https://files.pythonhosted.org/packages/9c/59/cc52a4c5d97b01fac7ff048353f8dc96f217eadc79022f78455e85144028/SpoofMAC-2.1.1.tar.gz"
   sha256 "48426efe033a148534e1d4dc224c4f1b1d22299c286df963c0b56ade4c7dc297"
-  revision 1
+  license "MIT"
+  revision 2
   head "https://github.com/feross/SpoofMAC.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f51ae0414f795510d718fa2f754b21bb66f20f5157b2bcf2dafacf78c262c12e" => :catalina
-    sha256 "18ea6ecd4ef0b23a9272795ae3991f02f41e964cf76f32d305a4091b3111567c" => :mojave
-    sha256 "51eb8c3a59a45e6db0feabfe73c661bd1c082a4d5777cefe3f54767749e01733" => :high_sierra
-    sha256 "51eb8c3a59a45e6db0feabfe73c661bd1c082a4d5777cefe3f54767749e01733" => :sierra
+    sha256 "2b2a5048aef69d8e5535d78f619297d7290e34c209100ebe748ac040e1a9f130" => :catalina
+    sha256 "f5b08954f87cd1625179a4f608e221462eb39cbf05099b82590835e0aa2e6774" => :mojave
+    sha256 "96a6e3e0ea4b2eb07521dc4dfa887dd9fd9b4d1583da8ea3cddf503ca6113322" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "docopt" do
-    url "https://files.pythonhosted.org/packages/source/d/docopt/docopt-0.6.2.tar.gz"
+    url "https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz"
     sha256 "49b3a825280bd66b3aa83585ef59c4a8c82f2c8a522dbe754a8bc8d08c85c491"
   end
 
   def install
-    xy = Language::Python.major_minor_version "python3"
-    ENV["PYTHONPATH"] = libexec/"lib/python#{xy}/site-packages"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
-
-    resources.each do |r|
-      r.stage { system "python3", *Language::Python.setup_install_args(libexec/"vendor") }
-    end
-
-    system "python3", *Language::Python.setup_install_args(libexec)
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   def caveats
@@ -50,7 +42,7 @@ class SpoofMac < Formula
     EOS
   end
 
-  plist_options :startup => true, :manual => "spoof-mac"
+  plist_options startup: true, manual: "spoof-mac"
 
   def plist
     <<~EOS

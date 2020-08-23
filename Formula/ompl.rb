@@ -1,29 +1,36 @@
 class Ompl < Formula
   desc "Open Motion Planning Library consists of many motion planning algorithms"
   homepage "https://ompl.kavrakilab.org/"
-  url "https://bitbucket.org/ompl/ompl/downloads/ompl-1.4.2-Source.tar.gz"
-  sha256 "03d5a661061928ced63bb945055579061665634ef217559b1f47fef842e1fa85"
+  url "https://github.com/ompl/ompl/archive/1.5.0.tar.gz"
+  sha256 "a7df8611b7823ef44c731f02897571adfc23551e85c6618d926e7720004267a5"
+  license "BSD-3-Clause"
+  head "https://github.com/ompl/ompl.git"
 
   bottle do
-    rebuild 1
-    sha256 "9402582e9dba3b47fb91bd36dec50086fd36effaf4cf5734c44c4d71362729eb" => :catalina
-    sha256 "14033d9549ebd3086e84cd058ab2df19e90acfc6c1e3c1b4d62f4a6b8c8058d6" => :mojave
-    sha256 "961b2a574fdf47d8fd0e74e9755bfb3009147807a316869fa2444d61f9b4123f" => :high_sierra
+    sha256 "f58fc1ff49aeac3a38aa2629385019ad854e9624b4c6e3a3f9051456494984f9" => :catalina
+    sha256 "9d66bb50880af5db4f3fc3a1d85140170643518fc72e78ccc6b7b7814261d198" => :mojave
+    sha256 "b11650509f65bcf45ea04acdd7fe4bebaff22f829c512d73c308e75476f0a94a" => :high_sierra
   end
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "eigen"
-
-  # fix for Boost 1.71
-  patch do
-    url "https://github.com/ompl/ompl/commit/962961fb.diff?full_index=1"
-    sha256 "56adf06b5bdc12823c04e96e764618c48a912fd01422138f15cc578f2464177a"
-  end
+  depends_on "flann"
+  depends_on "ode"
 
   def install
     ENV.cxx11
-    system "cmake", ".", *std_cmake_args
+    args = std_cmake_args + %w[
+      -DOMPL_REGISTRATION=OFF
+      -DOMPL_BUILD_DEMOS=OFF
+      -DOMPL_BUILD_TESTS=OFF
+      -DOMPL_BUILD_PYBINDINGS=OFF
+      -DOMPL_BUILD_PYTESTS=OFF
+      -DCMAKE_DISABLE_FIND_PACKAGE_spot=ON
+      -DCMAKE_DISABLE_FIND_PACKAGE_Triangle=ON
+    ]
+    system "cmake", ".", *args
     system "make", "install"
   end
 
@@ -39,7 +46,7 @@ class Ompl < Formula
       }
     EOS
 
-    system ENV.cxx, "test.cpp", "-L#{lib}", "-lompl", "-o", "test"
+    system ENV.cxx, "test.cpp", "-I#{include}/ompl-1.5", "-L#{lib}", "-lompl", "-o", "test"
     system "./test"
   end
 end

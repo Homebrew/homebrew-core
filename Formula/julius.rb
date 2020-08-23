@@ -3,6 +3,7 @@ class Julius < Formula
   homepage "https://github.com/julius-speech/julius"
   url "https://github.com/julius-speech/julius/archive/v4.5.tar.gz"
   sha256 "d6a087a8c55b656c018638b4d2f7e58c534d4aa87b4dda4dd8a200232dbd0161"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any

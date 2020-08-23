@@ -6,18 +6,14 @@ class Theora < Formula
 
   bottle do
     cellar :any
-    rebuild 2
-    sha256 "463a4a0e66b05ba6e485dedb4a3ce7f9e1f3da92f68c3cdc717fb9ecc9d8808c" => :catalina
-    sha256 "0423b3f4858072285691307877ef1899e62e67b67fad2f871e7937d7db572836" => :mojave
-    sha256 "8398d6af4942b4201329dffe526d91223ed2f03d39b99c59f16b58907b26b2d2" => :high_sierra
-    sha256 "899a793d64a16ea5a18bfe984c8a97966b6c027c258abb026b7d77443849eeca" => :sierra
-    sha256 "03b63a91812185120355da8292b40a2afd8377dcd8e3825eb9cbc217a3f4bc79" => :el_capitan
-    sha256 "ab9dd77803ec6885cb9701859de9b1b8ff6b85cb7cef24400dec6adb4b8c6378" => :yosemite
-    sha256 "58be26743e23be63aee48186bfa9cd8a982de957efb040a6ab3030aa62753977" => :mavericks
+    rebuild 3
+    sha256 "69f9b7922ddae2c007ad5329d53067838e2208051f3a54926f8cb46a7753b1a3" => :catalina
+    sha256 "243d34cb232ae0f7b45d7e2973c247ae68a57d8a4c50a2ee9e2bc7aeeabe5c78" => :mojave
+    sha256 "4b5021649d047cbd556387ca6a8bd535cd8f9129be0a48f2d21bde8fb957a3b1" => :high_sierra
   end
 
   head do
-    url "https://git.xiph.org/theora.git"
+    url "https://gitlab.xiph.org/xiph/theora.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

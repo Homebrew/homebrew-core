@@ -1,23 +1,36 @@
 class CargoC < Formula
   desc "Helper program to build and install c-like libraries"
   homepage "https://github.com/lu-zero/cargo-c"
-  url "https://github.com/lu-zero/cargo-c/archive/v0.5.2.tar.gz"
-  sha256 "815fa1d94d2a22a70e556546b60a0f4ce89e920c3cbc3bcbf1961fed3397ebcd"
+  url "https://github.com/lu-zero/cargo-c/archive/v0.6.10.tar.gz"
+  sha256 "3e0f6c70291e48b09f936a5918656159b1d840d7a3b010316d0fc61e9b048bca"
+  license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c87212322a29fd6c5361b0b923ecf7e40cf1d68eefc4466d5b31200428f9a4a3" => :catalina
-    sha256 "ec1e3fff4f0cf880419cbb8b2be8797addc5d54395232cd55bc57191706f1b07" => :mojave
-    sha256 "2d3111c60b16b3050c5188032347d0a014006706328d9caaa80f9e6366c6c5a5" => :high_sierra
+    cellar :any
+    sha256 "0a309cfabc5077f0b9d86d1f964afc57a8e541d11f14492a08fec3bc7983f01e" => :catalina
+    sha256 "288f0722b00b073196f1f8ebe2a89d8ed8ef2684ebcc9329175e3266945ac2d7" => :mojave
+    sha256 "2bdfb189d7aa1a95d09a283c5f3b42acf4dacd823365022cd6f591f8f391f0dd" => :high_sierra
   end
 
-  depends_on "rust" => [:build, :test]
+  depends_on "rust" => :build
+  depends_on "libgit2"
+  depends_on "libssh2"
+  depends_on "openssl@1.1"
+
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    ENV["LIBGIT2_SYS_USE_PKG_CONFIG"] = "1"
+    ENV["LIBSSH2_SYS_USE_PKG_CONFIG"] = "1"
+
+    system "cargo", "install", *std_cargo_args
   end
 
   test do
-    system "cargo", "cinstall", "--version"
+    cargo_error = "could not find `Cargo.toml`"
+    assert_match cargo_error, shell_output("#{bin}/cargo-cinstall cinstall 2>&1", 1)
+    assert_match cargo_error, shell_output("#{bin}/cargo-cbuild cbuild 2>&1", 1)
   end
 end

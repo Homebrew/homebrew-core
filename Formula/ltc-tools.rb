@@ -3,6 +3,7 @@ class LtcTools < Formula
   homepage "https://github.com/x42/ltc-tools"
   url "https://github.com/x42/ltc-tools/archive/v0.7.0.tar.gz"
   sha256 "5b7a2ab7f98bef6c99bafbbc5605a3364e01c9c19fe81411ddea0e1a01cd6287"
+  license "GPL-2.0"
   head "https://github.com/x42/ltc-tools.git"
 
   bottle do

@@ -1,14 +1,15 @@
 class Uni < Formula
   desc "Unicode database query tool for the command-line"
   homepage "https://github.com/arp242/uni"
-  url "https://github.com/arp242/uni/archive/v1.0.0.tar.gz"
-  sha256 "04edf69aca7b086328fa1a7bd8e06617ba074eaec041eda6bdad7a1ba0a00dee"
+  url "https://github.com/arp242/uni/archive/v1.1.1.tar.gz"
+  sha256 "d29fdd8f34f726e6752e87f554d8ea73e324b7729afaf4bd52fcae04c7638757"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4d9879ec4fb327d59a3b7104afa9bfdd449033f057d7d75ba1c3b7fbd56f731b" => :catalina
-    sha256 "332214062ecf45642b0c4e15a03fd81b413cba778b45426d4a23ac3585e92bf0" => :mojave
-    sha256 "b5aead139e53529995ed5cec83ee38e1146640249dca86e7cf66c293890f9e30" => :high_sierra
+    sha256 "d6a995e94c8bc6f9b74a1eb370b5aa348a7377e9170453820400da83641cef66" => :catalina
+    sha256 "1a2f04a3dd21f6d2c2ea16d3683f936e1d8310dd4b2d503aa8a60d67b6f24367" => :mojave
+    sha256 "e4b8e98523d14eb9cba3991946deb0cea86c09acfb65d175c04d4233ec32eceb" => :high_sierra
   end
 
   depends_on "go" => :build

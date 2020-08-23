@@ -3,6 +3,7 @@ class Qstat < Formula
   homepage "https://github.com/multiplay/qstat"
   url "https://github.com/multiplay/qstat/archive/v2.14.tar.gz"
   sha256 "ae906b74d4cce8057b5a265b76859101da8104c2a07c05f11a51f7c9f033ef8b"
+  license "Artistic-2.0"
 
   bottle do
     sha256 "5bc0a1ad5cab40a918bddf42ffc58283177914ceca264b2cfd1e0687a033185f" => :catalina

@@ -3,12 +3,13 @@ class GeocodeGlib < Formula
   homepage "https://developer.gnome.org/geocode-glib"
   url "https://download.gnome.org/sources/geocode-glib/3.26/geocode-glib-3.26.2.tar.xz"
   sha256 "01fe84cfa0be50c6e401147a2bc5e2f1574326e2293b55c69879be3e82030fd1"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "0e79392bb60a588eaa86cbf4e756cad668cbf6ac6fd86606827874415e3e89fb" => :catalina
-    sha256 "ba3f2db7d23a1985abbcf09871cb98991fbc65f1935711dd6a2bc4d90bddeb10" => :mojave
-    sha256 "0ab0e0ed8f43285b66a27ccb0309fa719887298a9bcc95c8178ee07c84441a09" => :high_sierra
+    sha256 "52ce343c52ad20417f87bde9889b0086768b657874d94fd39eb54141f20fcedd" => :catalina
+    sha256 "e7d30594593bc5fcc430f548d304ec88ff053ab5eebcd6f4bd696fd8b0c4acc7" => :mojave
+    sha256 "74d7d13e5d99f9d4f07674faa262d68b57d86b550e0504dbf0797e84de9e52fa" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build
@@ -21,7 +22,7 @@ class GeocodeGlib < Formula
 
   def install
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", "-Denable-installed-tests=false", "-Denable-gtk-doc=false", ".."
+      system "meson", *std_meson_args, "-Denable-installed-tests=false", "-Denable-gtk-doc=false", ".."
       system "ninja"
       system "ninja", "install"
     end

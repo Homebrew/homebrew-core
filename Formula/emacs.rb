@@ -4,6 +4,7 @@ class Emacs < Formula
   url "https://ftp.gnu.org/gnu/emacs/emacs-26.3.tar.xz"
   mirror "https://ftpmirror.gnu.org/emacs/emacs-26.3.tar.xz"
   sha256 "4d90e6751ad8967822c6e092db07466b9d383ef1653feb2f95c93e7de66d3485"
+  license "GPL-3.0"
 
   bottle do
     sha256 "9ab33f4386ca5f7326a8c28da1324556ec990f682a7ca88641203da0b42dbdae" => :catalina
@@ -25,6 +26,10 @@ class Emacs < Formula
 
   uses_from_macos "libxml2"
   uses_from_macos "ncurses"
+
+  on_linux do
+    depends_on "jpeg"
+  end
 
   def install
     args = %W[
@@ -57,7 +62,7 @@ class Emacs < Formula
     (man1/"ctags.1.gz").unlink
   end
 
-  plist_options :manual => "emacs"
+  plist_options manual: "emacs"
 
   def plist
     <<~EOS

@@ -3,6 +3,7 @@ class Hdt < Formula
   homepage "https://github.com/rdfhdt/hdt-cpp"
   url "http://srvgal80.deri.ie/~pabtor/hdt/hdt-1.3.3.tar.gz"
   sha256 "ac624802909ce04cbc046f00173496fb44768b45157d284d258d394477ae23b9"
+  license "LGPL-2.1"
 
   bottle do
     cellar :any

@@ -14,7 +14,7 @@ class Irrlicht < Formula
     sha256 "d2236f351b11847d960909fa0e96d83ab0448228de30cd21014fea47a2c636a5" => :sierra
   end
 
-  depends_on :xcode => :build
+  depends_on xcode: :build
 
   def install
     # Fix "error: cannot initialize a parameter of type

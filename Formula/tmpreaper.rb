@@ -3,6 +3,7 @@ class Tmpreaper < Formula
   homepage "https://packages.debian.org/sid/tmpreaper"
   url "https://deb.debian.org/debian/pool/main/t/tmpreaper/tmpreaper_1.6.14.tar.gz"
   sha256 "4acb93745ceb8b8c5941313bbba78ceb2af0c3914f1afea0e0ae1f7950d6bdae"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

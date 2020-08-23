@@ -3,6 +3,7 @@ class Libantlr3c < Formula
   homepage "https://www.antlr3.org/"
   url "https://www.antlr3.org/download/C/libantlr3c-3.4.tar.gz"
   sha256 "ca914a97f1a2d2f2c8e1fca12d3df65310ff0286d35c48b7ae5f11dcc8b2eb52"
+  license "BSD-3-Clause"
   revision 1
 
   bottle do

@@ -2,8 +2,9 @@ class Terraforming < Formula
   desc "Export existing AWS resources to Terraform style (tf, tfstate)"
   homepage "https://terraforming.dtan4.net/"
   url "https://github.com/dtan4/terraforming.git",
-      :tag      => "v0.18.0",
-      :revision => "67cb9299f283bc16bd70c197f25edc419bee280f"
+      tag:      "v0.18.0",
+      revision: "67cb9299f283bc16bd70c197f25edc419bee280f"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
@@ -114,7 +115,7 @@ class Terraforming < Formula
     system "gem", "install", "--ignore-dependencies",
            "terraforming-#{version}.gem"
     bin.install libexec/"bin/terraforming"
-    bin.env_script_all_files(libexec/"bin", :GEM_HOME => ENV["GEM_HOME"])
+    bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"])
   end
 
   test do

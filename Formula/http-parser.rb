@@ -1,14 +1,15 @@
 class HttpParser < Formula
   desc "HTTP request/response parser for c"
   homepage "https://github.com/nodejs/http-parser"
-  url "https://github.com/nodejs/http-parser/archive/v2.9.3.tar.gz"
-  sha256 "8fa0ab8770fd8425a9b431fdbf91623c4d7a9cdb842b9339289bd2b0b01b0d3d"
+  url "https://github.com/nodejs/http-parser/archive/v2.9.4.tar.gz"
+  sha256 "467b9e30fd0979ee301065e70f637d525c28193449e1b13fbcb1b1fab3ad224f"
+  license "MIT"
 
   bottle do
     cellar :any
-    sha256 "5553b0b22087bb034e3a1f938d1e3702d978a0d10f23276b614ab44dc9b7fb06" => :catalina
-    sha256 "6cc277c477616992456130af984a71e32d0ac28881e9d7110323d5eb234e7911" => :mojave
-    sha256 "55293e78decc0e7c3d1c98a942b96eaebf4c0af33973df4269a647c79cc783d3" => :high_sierra
+    sha256 "f03615a5ecb9e65d4bd7b302a8429ba9130012b092f3f42e0afd85df2bf47453" => :catalina
+    sha256 "b36ae811b2b72823cea4c7ab445ee2a5f628255aa169f0bc453fda1d3d520fbb" => :mojave
+    sha256 "0c6b69289fa4a8dd7ad532fcefb0848af229dcb5a64df981c03e99af2ce3acd8" => :high_sierra
   end
 
   depends_on "coreutils" => :build

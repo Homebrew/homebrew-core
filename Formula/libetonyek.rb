@@ -6,17 +6,17 @@ class Libetonyek < Formula
   revision 1
 
   bottle do
-    cellar :any
-    sha256 "c646035faf6b7213d1aa15a2e37478607f30ec3743b9af7fc4a83190f40b1941" => :catalina
-    sha256 "833ea6922b7e7eadd5446a9a1c8b6fe73fe49e4025703a63a90b8c4be966cb71" => :mojave
-    sha256 "7fdf62c11f4874c487d132fb24307e7a3ede2b03cfb231afff8872ae9c230c06" => :high_sierra
+    rebuild 1
+    sha256 "fe426f3577057ac3a73b9527b01124e5f916872b505f12e8224674d72a700c5b" => :catalina
+    sha256 "b51d5847f87fba35e67703d248f0552a4e03eb6fc4e35ba5a180f41fec68fdeb" => :mojave
+    sha256 "d86fef6a245db1b767d8965362eae4782af35b2c2b14e819ae7d436790f909cd" => :high_sierra
   end
 
   depends_on "boost" => :build
+  depends_on "glm" => :build
+  depends_on "mdds" => :build
   depends_on "pkg-config" => :build
-  depends_on "glm"
   depends_on "librevenge"
-  depends_on "mdds"
 
   uses_from_macos "libxml2"
 

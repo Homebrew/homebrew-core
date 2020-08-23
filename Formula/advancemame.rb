@@ -3,6 +3,7 @@ class Advancemame < Formula
   homepage "https://www.advancemame.it/"
   url "https://github.com/amadvance/advancemame/releases/download/v3.9/advancemame-3.9.tar.gz"
   sha256 "3e4628e1577e70a1dbe104f17b1b746745b8eda80837f53fbf7b091c88be8c2b"
+  license "GPL-2.0"
 
   bottle do
     sha256 "7530ca2e37ac45b53164ae54ab6669f1796ea0af88541a85a93a74c155fb0029" => :catalina
@@ -18,7 +19,7 @@ class Advancemame < Formula
   uses_from_macos "expat"
   uses_from_macos "ncurses"
 
-  conflicts_with "advancemenu", :because => "both install `advmenu` binaries"
+  conflicts_with "advancemenu", because: "both install `advmenu` binaries"
 
   def install
     ENV.delete "SDKROOT" if MacOS.version == :yosemite

@@ -2,62 +2,68 @@ class V8 < Formula
   desc "Google's JavaScript engine"
   homepage "https://github.com/v8/v8/wiki"
   # Track V8 version from Chrome stable: https://omahaproxy.appspot.com
-  url "https://github.com/v8/v8/archive/8.0.426.27.tar.gz"
-  sha256 "de34a09d47074345fab2fcb2920f732b6d44bff028dbb81329fe1fa7556a96fd"
+  url "https://github.com/v8/v8/archive/8.4.371.23.tar.gz"
+  sha256 "54e70cbf4e8e7580aa2ed7c22f961a98933897d2bbcf5efeed912db1af5792a8"
 
   bottle do
     cellar :any
-    sha256 "1bc2bd2ad9751f37b6a147dc6d50c0df75cad06e0cfcd61263052a79b0bdaff6" => :catalina
-    sha256 "c44b9711d8cefdbcbc286d8f50cb81547e3f99ccd3bb7059c547200ec1e4a311" => :mojave
-    sha256 "f398c1d86ed4af0d2ee558d157c01ed448734828d4df05308a60dd95444476f3" => :high_sierra
+    sha256 "cf712f090f0fd05f690c0042d670b06785b350b21720ed1bb1edb0e397876f73" => :catalina
+    sha256 "140c9c139ec19557fee75da97225cdecbe947c78889ef74be219d84a4f9acac3" => :mojave
+    sha256 "6c54d75da50f74d1bc5d11f09fb8adaa795656443372d40c7d99029c45c4392f" => :high_sierra
   end
 
-  depends_on "llvm" => :build if DevelopmentTools.clang_build_version < 1100
+  depends_on "llvm" => :build
   depends_on "ninja" => :build
 
-  depends_on :xcode => ["10.0", :build] # required by v8
+  depends_on xcode: ["10.0", :build] # required by v8
 
   # Look up the correct resource revisions in the DEP file of the specific releases tag
   # e.g. for CIPD dependency gn: https://github.com/v8/v8/blob/7.6.303.27/DEPS#L15
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-      :revision => "ad9e442d92dcd9ee73a557428cfc336b55cbd533"
+      revision: "5ed3c9cc67b090d5e311e4bd2aba072173e82db9"
   end
 
   # e.g.: https://github.com/v8/v8/blob/7.6.303.27/DEPS#L60 for the revision of build for v8 7.6.303.27
   resource "v8/build" do
     url "https://chromium.googlesource.com/chromium/src/build.git",
-      :revision => "e35470d98289c1f82179839d7657d45b59e982c9"
+      revision: "1b904cc30093c25d5fd48389bd58e3f7409bcf80"
+
+    # revert usage of unsuported libtool option -D (fixes High Sierra support)
+    patch do
+      url "https://github.com/denoland/chromium_build/commit/56551e71dc0281cc1d9471caf6a02d02f18c830e.patch?full_index=1"
+      sha256 "46fea09483c8b5699f47ae5886d933b61bed11bb3cda88212a7467767db0be3c"
+    end
   end
 
   resource "v8/third_party/icu" do
     url "https://chromium.googlesource.com/chromium/deps/icu.git",
-      :revision => "dbd3825b31041d782c5b504c59dcfb5ac7dda08c"
+      revision: "f2223961702f00a8833874b0560d615a2cc42738"
   end
 
   resource "v8/base/trace_event/common" do
     url "https://chromium.googlesource.com/chromium/src/base/trace_event/common.git",
-      :revision => "5e4fce17a9d2439c44a7b57ceecef6df9287ec2f"
+      revision: "dab187b372fc17e51f5b9fad8201813d0aed5129"
   end
 
   resource "v8/third_party/googletest/src" do
     url "https://chromium.googlesource.com/external/github.com/google/googletest.git",
-      :revision => "5395345ca4f0c596110188688ed990e0de5a181c"
+      revision: "a09ea700d32bab83325aff9ff34d0582e50e3997"
   end
 
   resource "v8/third_party/jinja2" do
     url "https://chromium.googlesource.com/chromium/src/third_party/jinja2.git",
-      :revision => "b41863e42637544c2941b574c7877d3e1f663e25"
+      revision: "3f90fa05c85718505e28c9c3426c1ba52843b9b7"
   end
 
   resource "v8/third_party/markupsafe" do
     url "https://chromium.googlesource.com/chromium/src/third_party/markupsafe.git",
-      :revision => "8f45f5cfa0009d2a70589bcda0349b8cb2b72783"
+      revision: "8f45f5cfa0009d2a70589bcda0349b8cb2b72783"
   end
 
   resource "v8/third_party/zlib" do
     url "https://chromium.googlesource.com/chromium/src/third_party/zlib.git",
-      :revision => "e77e1c06c8881abff0c7418368d147ff4a474d08"
+      revision: "90fc47e6eed7bd1a59ad1603761303ef24705593"
   end
 
   def install
@@ -79,21 +85,21 @@ class V8 < Formula
 
     # Enter the v8 checkout
     gn_args = {
-      :is_debug                     => false,
-      :is_component_build           => true,
-      :v8_use_external_startup_data => false,
-      :v8_enable_i18n_support       => true,        # enables i18n support with icu
-      :clang_base_path              => "\"/usr/\"", # uses Apples system clang instead of Google's custom one
-      :clang_use_chrome_plugins     => false,       # disable the usage of Google's custom clang plugins
-      :use_custom_libcxx            => false,       # uses system libc++ instead of Google's custom one
-      :treat_warnings_as_errors     => false,
+      is_debug:                     false,
+      is_component_build:           true,
+      v8_use_external_startup_data: false,
+      v8_enable_i18n_support:       true, # enables i18n support with icu
+      # uses homebrew llvm clang instead of Google's custom one
+      clang_base_path:              "\"#{Formula["llvm"].prefix}\"",
+      clang_use_chrome_plugins:     false, # disable the usage of Google's custom clang plugins
+      use_custom_libcxx:            false, # uses system libc++ instead of Google's custom one
+      treat_warnings_as_errors:     false,
     }
 
-    # use clang from homebrew llvm formula on <= Mojave, because the system clang is to old for V8
-    if DevelopmentTools.clang_build_version < 1100
-      ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib # but link against system libc++
-      gn_args[:clang_base_path] = "\"#{Formula["llvm"].prefix}\""
-    end
+    # overwrite Chromium minimum sdk version of 10.15
+    ENV["FORCE_MAC_SDK_MIN"] = "10.13"
+    # link against system libc++ instead of llvm provided libc++
+    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
 
     # Transform to args string
     gn_args_string = gn_args.map { |k, v| "#{k}=#{v}" }.join(" ")

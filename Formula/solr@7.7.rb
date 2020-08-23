@@ -1,10 +1,10 @@
 class SolrAT77 < Formula
   desc "Enterprise search platform from the Apache Lucene project"
   homepage "https://lucene.apache.org/solr/"
-  url "https://www.apache.org/dyn/closer.lua?path=lucene/solr/7.7.2/solr-7.7.2.tgz"
-  mirror "https://archive.apache.org/dist/lucene/solr/7.7.2/solr-7.7.2.tgz"
-  sha256 "eb8ee4038f25364328355de3338e46961093e39166c9bcc28b5915ae491320df"
-  revision 2
+  url "https://www.apache.org/dyn/closer.lua?path=lucene/solr/7.7.3/solr-7.7.3.tgz"
+  mirror "https://archive.apache.org/dist/lucene/solr/7.7.3/solr-7.7.3.tgz"
+  sha256 "3ec67fa430afa5b5eb43bb1cd4a659e56ee9f8541e0116d6080c0d783870baee"
+  license "Apache-2.0"
 
   bottle :unneeded
 
@@ -19,10 +19,10 @@ class SolrAT77 < Formula
     libexec.install "bin"
     bin.install [libexec/"bin/solr", libexec/"bin/post", libexec/"bin/oom_solr.sh"]
     bin.env_script_all_files libexec,
-      :JAVA_HOME     => Formula["openjdk"].opt_prefix,
-      :SOLR_HOME     => var/"lib/solr",
-      :SOLR_LOGS_DIR => var/"log/solr",
-      :SOLR_PID_DIR  => var/"run/solr"
+      JAVA_HOME:     Formula["openjdk"].opt_prefix,
+      SOLR_HOME:     var/"lib/solr",
+      SOLR_LOGS_DIR: var/"log/solr",
+      SOLR_PID_DIR:  var/"run/solr"
     (libexec/"bin").rmtree
   end
 
@@ -31,7 +31,7 @@ class SolrAT77 < Formula
     (var/"log/solr").mkpath
   end
 
-  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/solr@7.7/bin/solr start"
+  plist_options manual: "#{HOMEBREW_PREFIX}/opt/solr@7.7/bin/solr start"
 
   def plist
     <<~EOS
@@ -59,11 +59,7 @@ class SolrAT77 < Formula
   end
 
   test do
-    require "socket"
-
-    server = TCPServer.new(0)
-    port = server.addr[1]
-    server.close
+    port = free_port
 
     # Info detects no Solr node => exit code 3
     shell_output(bin/"solr -i", 3)

@@ -1,7 +1,8 @@
 class Watchman < Formula
   desc "Watch files and take action when they change"
   homepage "https://github.com/facebook/watchman"
-  revision 3
+  license "Apache-2.0"
+  revision 4
   head "https://github.com/facebook/watchman.git"
 
   stable do
@@ -16,20 +17,18 @@ class Watchman < Formula
   end
 
   bottle do
-    sha256 "7c01f1d4e6e8c15ec4d3625520b7e43e245d22f33ce7319dc962b7cb0b9b3d5d" => :catalina
-    sha256 "a9b3039561abdde021ba080ee1e37984f7f56184476a4ffee1db476561f92d83" => :mojave
-    sha256 "158a3dcce76f01446c9264a6f623a1c6be339118760ce61d88a9d38e2676ad45" => :high_sierra
-    sha256 "013faefc9001613c58680e5626b36fe943ca943649882054fbfbefccf4796415" => :sierra
+    sha256 "7840f564c11d33425c9eb8985f9156e782e66ef2a3578329dba83ee15a9bf0be" => :catalina
+    sha256 "ba2338b0f23c8b8817fd7bfa92466b7a97ab416e93ec6c3a400041aef013de86" => :mojave
+    sha256 "150468653b5c5a8e4eb92a3ecf420f157ed0e4772513ee93425bb3f635964dad" => :high_sierra
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on :macos => :yosemite # older versions don't support fstatat(2)
   depends_on "openssl@1.1"
   depends_on "pcre"
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
     system "./autogen.sh"
@@ -43,13 +42,14 @@ class Watchman < Formula
     system "make", "install"
 
     # Homebrew specific python application installation
-    xy = Language::Python.major_minor_version "python3"
+    python3 = Formula["python@3.8"].opt_bin/"python3"
+    xy = Language::Python.major_minor_version python3
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
     cd "python" do
-      system "python3", *Language::Python.setup_install_args(libexec)
+      system python3, *Language::Python.setup_install_args(libexec)
     end
     bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
   end
 
   def post_install

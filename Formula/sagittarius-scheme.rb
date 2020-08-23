@@ -1,24 +1,24 @@
 class SagittariusScheme < Formula
   desc "Free Scheme implementation supporting R6RS and R7RS"
   homepage "https://bitbucket.org/ktakashi/sagittarius-scheme/wiki/Home"
-  url "https://bitbucket.org/ktakashi/sagittarius-scheme/downloads/sagittarius-0.9.6.tar.gz"
-  sha256 "b946b168fca70f84d922bcfa2125e2e64ad5fb8cf67e4204deb43dd2dcdedb0e"
+  url "https://bitbucket.org/ktakashi/sagittarius-scheme/downloads/sagittarius-0.9.7.tar.gz"
+  sha256 "a8517ef342aadf9fb964e03fd03d4eb13287e5686406ba60d93d6e5c9c91f2a2"
+  license "BSD-2-Clause"
 
   bottle do
-    cellar :any
-    sha256 "a361faf84c92724338658d2bfe40ae6a35e9654628bb2386e83d1cbf13f4ede8" => :catalina
-    sha256 "e260d068e0494dfc4a6e02bdf24731fe1c8b0d6391958413a276a38d81a9bf01" => :mojave
-    sha256 "1b1890495faa84c7e3d7fb8aa664963a46efa14f70adbe3fdb1c36b114e91b59" => :high_sierra
-    sha256 "a2c30e62b8ed18be2db099222966f71efbb54eed1e901716df76edd3d4edd8a2" => :sierra
+    sha256 "7199d76824cd0de62da70f2eff3db66f0944c2851e4ee868359b7bdbe4685994" => :catalina
+    sha256 "d350853fda37321efe29a14f988b3039126559e489b2fb93a41ca538ca7a2f29" => :mojave
+    sha256 "8824ccf2baa439cc953d8b373010e5f00fabb51dd6837f68323993b69549bb84" => :high_sierra
   end
 
   depends_on "cmake" => :build
   depends_on "bdw-gc"
   depends_on "libffi"
   depends_on "openssl@1.1"
+  depends_on "unixodbc"
 
   def install
-    system "cmake", ".", *std_cmake_args
+    system "cmake", ".", *std_cmake_args, "-DODBC_LIBRARIES=odbc"
     system "make", "install"
   end
 

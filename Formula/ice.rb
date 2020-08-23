@@ -1,14 +1,15 @@
 class Ice < Formula
   desc "Comprehensive RPC framework"
   homepage "https://zeroc.com"
-  url "https://github.com/zeroc-ice/ice/archive/v3.7.3.tar.gz"
-  sha256 "7cbfac83684a7434499f165e784a7a7bb5b89140717537067d7b969eccc111eb"
+  url "https://github.com/zeroc-ice/ice/archive/v3.7.4.tar.gz"
+  sha256 "57f200bd2916799bce12960e579d9f9e5b6a9801addaf93d97bb4ce15c760a44"
+  license "GPL-2.0"
 
   bottle do
     cellar :any
-    sha256 "3fdec454548d572b2f8524b326570a404c227e546ec4040d302ddb46f7949f07" => :catalina
-    sha256 "6a0804cfa9537a78d77b4c0304fb8ade3238795c3b152ddf2b5f86f05c770205" => :mojave
-    sha256 "5eced597ad649064bb8386c1b5a19e43f4774ae56587f280eb988fd10cd2d9a1" => :high_sierra
+    sha256 "ed026c50e889b8eab856b8310d9b57a5a09487775b85e0fd3a745c3703234aa3" => :catalina
+    sha256 "d8ddc0c493286e78174f61eb8feb7af105c6c4b33580435f6df4515aefa56b0a" => :mojave
+    sha256 "d80dfe41a72184cfb820940e926acd8204d5338327b0ff1007fe77e7662a8164" => :high_sierra
   end
 
   depends_on "lmdb"

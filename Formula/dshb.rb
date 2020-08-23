@@ -3,6 +3,7 @@ class Dshb < Formula
   homepage "https://github.com/beltex/dshb"
   url "https://github.com/beltex/dshb/releases/download/v0.2.0/dshb-0.2.0-source.zip"
   sha256 "b2d512e743d2973ae4cddfead2c5b251c45e5f5d64baff0955bee88e94035c33"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,7 +13,7 @@ class Dshb < Formula
     sha256 "e0aa0f64ac02e9244fc59773a966d1ac5755dc4a4c91c0dbcd92633c4330f14b" => :el_capitan
   end
 
-  depends_on :xcode => ["8.0", :build]
+  depends_on xcode: ["8.0", :build]
 
   def install
     system "make", "release"

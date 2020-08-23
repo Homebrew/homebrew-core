@@ -5,19 +5,29 @@ class LiterateGit < Formula
   homepage "https://github.com/bennorth/literate-git"
   url "https://github.com/bennorth/literate-git/archive/v0.3.1.tar.gz"
   sha256 "f1dec77584236a5ab2bcee9169e16b5d976e83cd53d279512136bdc90b04940a"
-  revision 1
+  license "GPL-3.0"
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "9178197fb25710c7a75643218dd8089a042d6bb4a9f7aa5559807d62d451d723" => :catalina
-    sha256 "13e3bfb78683ef24b7eb6bade4986fb92a1934cf9f976c5c561b1c05589da241" => :mojave
-    sha256 "a9c03c8bbc4aab6043f663ca9dcc78c8fa94d080080625fbe22b2341ef8b50d9" => :high_sierra
+    sha256 "b704c927f102c0ce4fac2a02d6e0e3a93569179af257a0922b7b14b326d0bbe1" => :catalina
+    sha256 "6f82567697db68d8ff88fd5c493717cbba18869904252319daa4cfe26cc80b42" => :mojave
+    sha256 "237597cd7d2517d3b34144ba0eacd21a9d50d32e6bbe0ce496eaf8d1b9c9dab7" => :high_sierra
   end
 
   depends_on "libgit2"
   depends_on "python@3.8"
 
   uses_from_macos "libffi"
+
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
+
+  resource "cached-property" do
+    url "https://files.pythonhosted.org/packages/57/8e/0698e10350a57d46b3bcfe8eff1d4181642fd1724073336079cb13c5cf7f/cached-property-1.5.1.tar.gz"
+    sha256 "9217a59f14a5682da7c4b8829deadbfc194ac22e9908ccf7c8820234e80a1504"
+  end
 
   resource "cffi" do
     url "https://files.pythonhosted.org/packages/05/54/3324b0c46340c31b909fcec598696aaec7ddc8c18a63f2db352562d3354c/cffi-1.14.0.tar.gz"
@@ -50,8 +60,8 @@ class LiterateGit < Formula
   end
 
   resource "pygit2" do
-    url "https://files.pythonhosted.org/packages/cd/18/c674c9389aef8c940393e0507f9fe9437efd8e56ff1efa837d3fbfcd1d42/pygit2-1.0.3.tar.gz"
-    sha256 "de6c170dc09878e98424430ed6ba2934c01d811fedbc4cdfd71ec1dcd98487e2"
+    url "https://files.pythonhosted.org/packages/1d/c4/e0ba65178512a724a86b39565d7f9286c16d7f8e45e2f665973065c4a495/pygit2-1.1.1.tar.gz"
+    sha256 "9255d507d5d87bf22dfd57997a78908010331fc21f9a83eca121a53f657beb3c"
   end
 
   resource "Pygments" do

@@ -3,33 +3,27 @@ class Opencolorio < Formula
   homepage "https://opencolorio.org/"
   url "https://github.com/imageworks/OpenColorIO/archive/v1.1.1.tar.gz"
   sha256 "c9b5b9def907e1dafb29e37336b702fff22cc6306d445a13b1621b8a754c14c8"
-  revision 1
+  license "BSD-3-Clause"
+  revision 2
   head "https://github.com/imageworks/OpenColorIO.git"
 
   bottle do
     cellar :any
-    sha256 "5f0934f3f79e043ed2e49307d251743ef74efeaf105ae45a6bd93fea62f4f28c" => :catalina
-    sha256 "f21ad137b2e3536ed54e05909e3d9b4ee1da8ec2acbe97e7dc5e0bc696735b52" => :mojave
-    sha256 "6aa5426be3f5d36134c981eda604f81a89e9c88ad1ff93fc164a9726031c50b0" => :high_sierra
-    sha256 "6a75c5efd60a5b6a5fba4f8ee1dbd2fba1f262026240d0fb97650f561ec878b6" => :sierra
+    sha256 "d47e35411a692bf51624ecd4958d48a24788d1e1ec0d0ceefa7b86120d7d3a0d" => :catalina
+    sha256 "8f8c1e02c9f4006463476b5dc870c3decc945e3df78fad43cfe93c4b5d1ec35e" => :mojave
+    sha256 "be544d7630cd26c9694474393de260c0114435b3bb1a7dd85b0379f49673c66b" => :high_sierra
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "little-cms2"
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
-    py3_config = `python3-config --configdir`.chomp
-    py3_include = `python3 -c "import distutils.sysconfig as s; print(s.get_python_inc())"`.chomp
-    py3_version = Language::Python.major_minor_version "python3"
-
     args = std_cmake_args + %W[
       -DCMAKE_VERBOSE_MAKEFILE=OFF
       -DPYTHON=python3
-      -DPYTHON_EXECUTABLE=#{which "python3"}
-      -DPYTHON_LIBRARY=#{py3_config}/libpython#{py3_version}.dylib
-      -DPYTHON_INCLUDE_DIR=#{py3_include}
+      -DPYTHON_EXECUTABLE=#{Formula["python@3.8"].opt_bin}/"python3"
     ]
 
     mkdir "macbuild" do

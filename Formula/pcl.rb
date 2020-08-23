@@ -1,15 +1,16 @@
 class Pcl < Formula
   desc "Library for 2D/3D image and point cloud processing"
-  homepage "http://www.pointclouds.org/"
+  homepage "https://pointclouds.org/"
   url "https://github.com/PointCloudLibrary/pcl/archive/pcl-1.9.1.tar.gz"
   sha256 "0add34d53cd27f8c468a59b8e931a636ad3174b60581c0387abb98a9fc9cddb6"
-  revision 6
+  license "BSD-3-Clause"
+  revision 9
   head "https://github.com/PointCloudLibrary/pcl.git"
 
   bottle do
-    sha256 "fd83edf5799fe877047a8a566bf741e8ada701332845c8efa6f16ec1c3d6020a" => :catalina
-    sha256 "96db828e46c37b2fc1de201db8123c9b2e6712285726a8f9a9a549b01e955fff" => :mojave
-    sha256 "d23eacbc3d2ec17015d0c52218c190f5fc9605cf78366205de2e0d7980e9e565" => :high_sierra
+    sha256 "f7a89d9b04578cbfcf21160d5ebd78fa6feeab3ded876678b7bfc23f989a8f2e" => :catalina
+    sha256 "593a588bbdce10f083057cb56a2c66abd632f066ab90f35c40facf6b152ee5b9" => :mojave
+    sha256 "d14889b636e81d1427a7d0300c028b571ac038e54b3760eba8900a7175d210c1" => :high_sierra
   end
 
   depends_on "cmake" => :build

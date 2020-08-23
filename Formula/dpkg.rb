@@ -4,20 +4,23 @@ class Dpkg < Formula
   # Please always keep the Homebrew mirror as the primary URL as the
   # dpkg site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://dl.bintray.com/homebrew/mirror/dpkg-1.20.0.tar.xz"
-  mirror "https://deb.debian.org/debian/pool/main/d/dpkg/dpkg_1.20.0.tar.xz"
-  sha256 "b633cc2b0e030efb61e11029d8a3fb1123f719864c9992da2e52b471c96d0900"
+  url "https://dl.bintray.com/homebrew/mirror/dpkg-1.20.5.tar.xz"
+  mirror "https://deb.debian.org/debian/pool/main/d/dpkg/dpkg_1.20.5.tar.xz"
+  sha256 "f2f23f3197957d89e54b87cf8fc42ab00e1b74f3a32090efe9acd08443f3e0dd"
+  license "GPL-2.0"
 
   bottle do
-    sha256 "41dcad707b4741c74282184d8eda0e2d02121dd5cb52ad4ef816bfb842725994" => :catalina
-    sha256 "f1c7f9c37c420dee585d634fe0c29fb968d9d379a5be4f56d94a48b51666bcd4" => :mojave
-    sha256 "de1c3a3f1f2042699e6df4e9a793fb1e0fff1d194e2eff56c37d9cf4d24ab025" => :high_sierra
+    sha256 "32ae6083fd4207f4cecd58087b68afc43a22d6020bd7a89184a0af20ecc9a2fb" => :catalina
+    sha256 "ec0d8e85f436bc6394de1f261c1c0e791ed72797d7ae20e6fb8f1cda016a7b43" => :mojave
+    sha256 "483c5e48a18dd401638399670aff9fd1a2800a243a37f208235777e9fc140986" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
+  depends_on "gettext"
   depends_on "gnu-tar"
   depends_on "gpatch"
   depends_on "perl"
+  depends_on "po4a"
   depends_on "xz" # For LZMA
 
   uses_from_macos "bzip2"
@@ -55,7 +58,7 @@ class Dpkg < Formula
     bin.install Dir[libexec/"bin/*"]
     man.install Dir[libexec/"share/man/*"]
     (lib/"pkgconfig").install_symlink Dir[libexec/"lib/pkgconfig/*.pc"]
-    bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
+    bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
 
     (buildpath/"dummy").write "Vendor: dummy\n"
     (etc/"dpkg/origins").install "dummy"

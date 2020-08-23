@@ -1,14 +1,15 @@
 class TransmissionCli < Formula
   desc "Lightweight BitTorrent client"
   homepage "https://www.transmissionbt.com/"
-  url "https://github.com/transmission/transmission-releases/raw/dc77bea/transmission-2.94.tar.xz"
-  sha256 "35442cc849f91f8df982c3d0d479d650c6ca19310a994eccdaa79a4af3916b7d"
-  revision 2
+  url "https://github.com/transmission/transmission-releases/raw/d5ccf14/transmission-3.00.tar.xz"
+  sha256 "9144652fe742f7f7dd6657716e378da60b751aaeda8bef8344b3eefc4db255f2"
+  # license ["GPL-2.0", "GPL-3.0"] - pending https://github.com/Homebrew/brew/pull/7953
+  license "GPL-2.0"
 
   bottle do
-    sha256 "9b8fbc3736ab6996736d0d53622f4e05399db8f53d3f8323c8d203d84886e753" => :catalina
-    sha256 "2bba4f2cf7ffde53a658897f3855100ae0e3b795f231ed33a06eb9941b90793b" => :mojave
-    sha256 "2e81c3beb940cf1d8ffe15fcfea9361109ba2538fb176f91a4f51da8824bf24c" => :high_sierra
+    sha256 "576f0f5017a86da149292b6da4fde251ad7a77bd9a88e82639ed4fc586cb08e7" => :catalina
+    sha256 "d56c90e32e206cdcf5ec8591fcb79de80c9b41483946c354fac4b9f09020c236" => :mojave
+    sha256 "d8ded603c8aae8b4eaf59c1c078dfdfb44b97191d4ce42439f6b02984ccf16b3" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -48,7 +49,7 @@ class TransmissionCli < Formula
     EOS
   end
 
-  plist_options :manual => "transmission-daemon --foreground"
+  plist_options manual: "transmission-daemon --foreground"
 
   def plist
     <<~EOS

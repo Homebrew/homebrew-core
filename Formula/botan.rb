@@ -1,20 +1,22 @@
 class Botan < Formula
   desc "Cryptographic algorithms and formats library in C++"
   homepage "https://botan.randombit.net/"
-  url "https://botan.randombit.net/releases/Botan-2.13.0.tar.xz"
-  sha256 "f57ae42a41e1091bca58f44f41addebd9a390b651603952c881ec89d50187e90"
+  url "https://botan.randombit.net/releases/Botan-2.15.0.tar.xz"
+  sha256 "d88af1307f1fefac79aa4f2f524699478d69ce15a857cf2d0a90ac6bf2a50009"
+  license "BSD-2-Clause"
+  revision 1
   head "https://github.com/randombit/botan.git"
 
   bottle do
-    sha256 "287dfed529e8e3318f53f8b7c15bb28d824ce7d37cc9d0efc31359758b816b34" => :catalina
-    sha256 "39b24feecd714f011916d659770f5fbc11cb652b530d6828c066112a4a58283b" => :mojave
-    sha256 "a21833781daf9b3c2f227dd71975b787e6e4047756d24adbe897360a40dc3c87" => :high_sierra
+    sha256 "eadcaecf6012c8e8a79f867ae1f71dbf25064b1134034c132b359677fbcf85ee" => :catalina
+    sha256 "a0974f73218cea782cab67f747ed4d355790d99ea8abba58ccdc651a2f755ca1" => :mojave
+    sha256 "3ac585173960885e4dabb36db032e0d651e6a2b567575b27e24b01ec352ff055" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl@1.1"
+  depends_on "python@3.8"
+  depends_on "sqlite"
 
-  uses_from_macos "python@2" => :build
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
@@ -24,12 +26,12 @@ class Botan < Formula
     args = %W[
       --prefix=#{prefix}
       --docdir=share/doc
-      --cpu=#{MacOS.preferred_arch}
       --cc=#{ENV.compiler}
       --os=darwin
-      --with-openssl
       --with-zlib
       --with-bzip2
+      --with-sqlite3
+      --with-python-versions=3.8
     ]
 
     system "./configure.py", *args
@@ -38,7 +40,7 @@ class Botan < Formula
 
   test do
     (testpath/"test.txt").write "Homebrew"
-    (testpath/"testout.txt").write Utils.popen_read("#{bin}/botan base64_enc test.txt")
+    (testpath/"testout.txt").write shell_output("#{bin}/botan base64_enc test.txt")
     assert_match "Homebrew", shell_output("#{bin}/botan base64_dec testout.txt")
   end
 end

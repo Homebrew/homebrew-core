@@ -2,16 +2,20 @@ class PhpAT73 < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-7.3.15.tar.xz"
-  sha256 "de7ae7cf3d1dbb2824975b26b32991dac2b732886ec22075b8c53b261b018166"
+  url "https://www.php.net/distributions/php-7.3.21.tar.xz"
+  mirror "https://fossies.org/linux/www/php-7.3.21.tar.xz"
+  sha256 "4c8b065746ef776d84b7ae47908c21a79e3d4704b86b60d816716b8697c58ce9"
+  license "PHP-3.01"
 
   bottle do
-    sha256 "b295b4b4e41af78c68196b98efcebe972b246e426db5158c86b2bd664d64b86a" => :catalina
-    sha256 "eee0d531ce4152f6e0cfa8c43de0965173c1c4249972ea4a12c3dc0f43a83551" => :mojave
-    sha256 "18ea5a2304edd524ad47e30672035c1b75d7158213468f3d89248655d9baea91" => :high_sierra
+    sha256 "f01790fd07586e4f2c70c645d26a3a7b57c94169556eb45a1baf77bbf2a28cfb" => :catalina
+    sha256 "1b4b707f41f7fbad0d6c99b922b169a4955badb48fe2609ddbc6a4c556d69cbc" => :mojave
+    sha256 "3de94dfefc838ab5ef60984d81f5341b66a1dfba16bfd5391ae334f5a81867c6" => :high_sierra
   end
 
   keg_only :versioned_formula
+
+  deprecate! date: "2021-12-06"
 
   depends_on "httpd" => [:build, :test]
   depends_on "pkg-config" => :build
@@ -84,7 +88,7 @@ class PhpAT73 < Formula
     # Required due to icu4c dependency
     ENV.cxx11
 
-    config_path = etc/"php/#{php_version}"
+    config_path = etc/"php/#{version.major_minor}"
     # Prevent system pear config from inhibiting pear install
     (config_path/"pear.conf").delete if (config_path/"pear.conf").exist?
 
@@ -175,17 +179,18 @@ class PhpAT73 < Formula
     system "make", "install"
 
     # Allow pecl to install outside of Cellar
-    extension_dir = Utils.popen_read("#{bin}/php-config --extension-dir").chomp
+    extension_dir = Utils.safe_popen_read("#{bin}/php-config", "--extension-dir").chomp
     orig_ext_dir = File.basename(extension_dir)
     inreplace bin/"php-config", lib/"php", prefix/"pecl"
     inreplace "php.ini-development", %r{; ?extension_dir = "\./"},
       "extension_dir = \"#{HOMEBREW_PREFIX}/lib/php/pecl/#{orig_ext_dir}\""
 
     # Use OpenSSL cert bundle
+    openssl = Formula["openssl@1.1"]
     inreplace "php.ini-development", /; ?openssl\.cafile=/,
-      "openssl.cafile = \"#{etc}/openssl@1.1/cert.pem\""
+      "openssl.cafile = \"#{openssl.pkgetc}/cert.pem\""
     inreplace "php.ini-development", /; ?openssl\.capath=/,
-      "openssl.capath = \"#{etc}/openssl@1.1/certs\""
+      "openssl.capath = \"#{openssl.pkgetc}/certs\""
 
     # php 7.3 known bug
     # SO discussion: https://stackoverflow.com/a/53709484/791609
@@ -231,15 +236,15 @@ class PhpAT73 < Formula
     # Custom location for extensions installed via pecl
     pecl_path = HOMEBREW_PREFIX/"lib/php/pecl"
     ln_s pecl_path, prefix/"pecl" unless (prefix/"pecl").exist?
-    extension_dir = Utils.popen_read("#{bin}/php-config --extension-dir").chomp
+    extension_dir = Utils.safe_popen_read("#{bin}/php-config", "--extension-dir").chomp
     php_basename = File.basename(extension_dir)
     php_ext_dir = opt_prefix/"lib/php"/php_basename
 
     # fix pear config to install outside cellar
-    pear_path = HOMEBREW_PREFIX/"share/pear@#{php_version}"
+    pear_path = HOMEBREW_PREFIX/"share/pear@#{version.major_minor}"
     cp_r pkgshare/"pear/.", pear_path
     {
-      "php_ini"  => etc/"php/#{php_version}/php.ini",
+      "php_ini"  => etc/"php/#{version.major_minor}/php.ini",
       "php_dir"  => pear_path,
       "doc_dir"  => pear_path/"doc",
       "ext_dir"  => pecl_path/php_basename,
@@ -260,7 +265,7 @@ class PhpAT73 < Formula
     %w[
       opcache
     ].each do |e|
-      ext_config_path = etc/"php/#{php_version}/conf.d/ext-#{e}.ini"
+      ext_config_path = etc/"php/#{version.major_minor}/conf.d/ext-#{e}.ini"
       extension_type = (e == "opcache") ? "zend_extension" : "extension"
       if ext_config_path.exist?
         inreplace ext_config_path,
@@ -287,15 +292,11 @@ class PhpAT73 < Formula
           DirectoryIndex index.php index.html
 
       The php.ini and php-fpm.ini file can be found in:
-          #{etc}/php/#{php_version}/
+          #{etc}/php/#{version.major_minor}/
     EOS
   end
 
-  def php_version
-    version.to_s.split(".")[0..1].join(".")
-  end
-
-  plist_options :manual => "php-fpm"
+  plist_options manual: "php-fpm"
 
   def plist
     <<~EOS
@@ -337,14 +338,8 @@ class PhpAT73 < Formula
     assert_no_match /^snmp$/, shell_output("#{bin}/php -m"),
       "SNMP extension doesn't work reliably with Homebrew on High Sierra"
     begin
-      require "socket"
-
-      server = TCPServer.new(0)
-      port = server.addr[1]
-      server_fpm = TCPServer.new(0)
-      port_fpm = server_fpm.addr[1]
-      server.close
-      server_fpm.close
+      port = free_port
+      port_fpm = free_port
 
       expected_output = /^Hello world!$/
       (testpath/"index.php").write <<~EOS

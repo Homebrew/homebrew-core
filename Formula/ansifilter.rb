@@ -3,6 +3,7 @@ class Ansifilter < Formula
   homepage "http://www.andre-simon.de/doku/ansifilter/ansifilter.html"
   url "http://www.andre-simon.de/zip/ansifilter-2.16.tar.bz2"
   sha256 "7fcd2fa3520bce2bd3834c299f533cbfb43a29a095c83e8fea372a383dfbbaf2"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation

@@ -1,21 +1,21 @@
 class PythonYq < Formula
   desc "Command-line YAML and XML processor that wraps jq"
   homepage "https://kislyuk.github.io/yq/"
-  url "https://files.pythonhosted.org/packages/c7/3d/79eef9b78f2245a28446196c43d3744163b5e1783904f6bad2adb6cb4154/yq-2.10.0.tar.gz"
-  sha256 "abaf2c0728f1c38dee852e976b0a6def5ab660d67430ee5af76b7a37072eba46"
-  revision 1
+  url "https://files.pythonhosted.org/packages/b5/b6/84cf7ea7f30c340f8bb40e29ff4b154f787d0fdacf2d47a7c180e3d2b256/yq-2.10.1.tar.gz"
+  sha256 "f6252a0757d0c2a9e55b4402e176a7e41a99e0e6dd5be4f9d5a4d651eeb4d6c0"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7a1d00a6c2df1f69d52ba4e5514897cb8499214555e707112f03dd4544d9ab6f" => :catalina
-    sha256 "7a1d00a6c2df1f69d52ba4e5514897cb8499214555e707112f03dd4544d9ab6f" => :mojave
-    sha256 "7a1d00a6c2df1f69d52ba4e5514897cb8499214555e707112f03dd4544d9ab6f" => :high_sierra
+    sha256 "01134f6bc2acd0c2cc57c572e8d17e31f16ec258f442a87c43a86a2e40839bc7" => :catalina
+    sha256 "01134f6bc2acd0c2cc57c572e8d17e31f16ec258f442a87c43a86a2e40839bc7" => :mojave
+    sha256 "01134f6bc2acd0c2cc57c572e8d17e31f16ec258f442a87c43a86a2e40839bc7" => :high_sierra
   end
 
   depends_on "jq"
   depends_on "python@3.8"
 
-  conflicts_with "yq", :because => "both install `yq` executables"
+  conflicts_with "yq", because: "both install `yq` executables"
 
   resource "argcomplete" do
     url "https://files.pythonhosted.org/packages/84/44/ad7f3fc9483b776dcee11d0a1dcadb6e55c456e06ae611073b82bc8d63d2/argcomplete-1.11.0.tar.gz"
@@ -63,8 +63,8 @@ class PythonYq < Formula
 
     bin.install Dir[libexec/"bin/*"]
     env = {
-      :PATH       => "#{Formula["jq"].opt_bin}:$PATH",
-      :PYTHONPATH => ENV["PYTHONPATH"],
+      PATH:       "#{Formula["jq"].opt_bin}:$PATH",
+      PYTHONPATH: ENV["PYTHONPATH"],
     }
     bin.env_script_all_files(libexec/"bin", env)
   end

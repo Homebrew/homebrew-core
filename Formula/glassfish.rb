@@ -3,12 +3,13 @@ class Glassfish < Formula
   homepage "https://github.com/eclipse-ee4j/glassfish"
   url "https://www.eclipse.org/downloads/download.php?file=/glassfish/glassfish-5.1.0.zip&r=1"
   sha256 "26f3fa6463d24c5ed3956e4cab24a97e834ca37d7a23d341aadaa78d9e0093ce"
+  license "EPL-2.0"
 
   bottle :unneeded
 
-  depends_on :java => "1.8"
+  depends_on java: "1.8"
 
-  conflicts_with "payara", :because => "both install the same scripts"
+  conflicts_with "payara", because: "both install the same scripts"
 
   def install
     rm_rf Dir["bin/*.bat"]
@@ -37,16 +38,14 @@ class Glassfish < Formula
     domaindir_arg = "--domaindir=#{domains_path}"
 
     # tell glassfish to use Java 8
-    java8_home = Utils.popen_read(Language::Java.java_home_cmd("1.8")).chomp
+    java8_home = Language::Java.java_home("1.8")
     File.open(asenv_conf_path, "a") { |file| file.puts "AS_JAVA=\"#{java8_home}\"" }
 
-    server = TCPServer.new(0)
-    port = server.addr[1]
-    server.close
+    port = free_port
 
     # assign port to glassfish admin console
     text = File.read(domain_xml_path)
-    new_contents = text.gsub(/port\=\"4848\"/, "port=\"#{port}\"")
+    new_contents = text.gsub(/port="4848"/, "port=\"#{port}\"")
     File.open(domain_xml_path, "w") { |file| file.puts new_contents }
 
     fork do

@@ -3,13 +3,16 @@ class Coinutils < Formula
   homepage "https://github.com/coin-or/CoinUtils"
   url "https://github.com/coin-or/CoinUtils/archive/releases/2.11.4.tar.gz"
   sha256 "d4effff4452e73356eed9f889efd9c44fe9cd68bd37b608a5ebb2c58bd45ef81"
+  license "EPL-1.0"
   revision 1
+  head "https://github.com/coin-or/CoinUtils.git"
 
   bottle do
     cellar :any
-    sha256 "d62fac6d9dbda55ac6e058f9e7b48cfa812cf03b9e08882d9092d87ce3ace1e0" => :catalina
-    sha256 "89d72ec3af0e21ed24a8335eb1102e0ac956bab679fb1f1eca2cf3e8d1b5207e" => :mojave
-    sha256 "2ecf56e6beb9ac656b25aae2cfc0a4eb0e309d57cb7ce2ce888a1fee7e76abc0" => :high_sierra
+    rebuild 1
+    sha256 "ec360d8c70a2f54dc6ab4cbabedf3e7f801bc1ae85e630ef9884d0a79ad706f0" => :catalina
+    sha256 "eb85ec2e02aed09292625122dc05fbcf64b85d7f82cc6d001975eed43cfc1de1" => :mojave
+    sha256 "f7bfde6c8c42b6f7d3925de0577d10bcef5b171b3337ea4c70b08a8ec20c026a" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

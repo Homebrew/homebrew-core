@@ -3,12 +3,12 @@ class Pulseaudio < Formula
   homepage "https://wiki.freedesktop.org/www/Software/PulseAudio/"
   url "https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-13.0.tar.xz"
   sha256 "961b23ca1acfd28f2bc87414c27bb40e12436efcf2158d29721b1e89f3f28057"
+  revision 1
 
   bottle do
-    sha256 "a638afdb2e14989110a52ab860804ec0c005461d80398b736a641a678371bc3d" => :catalina
-    sha256 "819cb5b8dd86715db2285f647b1742611dd2a802447aea637f05adae33a6056b" => :mojave
-    sha256 "a5c5442b2118b9e3e3b2cbd8a8a700a121e9264b11c7096a3b3c42ce780a7a0b" => :high_sierra
-    sha256 "bc42617a58074e5631eae20559f6a043ee87c8dcfd9944ac45b47467a3cdca66" => :sierra
+    sha256 "0e9445dd8d49abd299324e93f00231605e993f791674997d9d2c35b88efec528" => :catalina
+    sha256 "ae68dfdb8ad584bf3f602ea7fb36d9bc1e4540e6905986a7129e45c6170d8d95" => :mojave
+    sha256 "687c4c646487eb8a9988303e279dc2ee542b6404504cb54fcfce1d6d6bcf949f" => :high_sierra
   end
 
   head do
@@ -54,7 +54,7 @@ class Pulseaudio < Formula
     system "make", "install"
   end
 
-  plist_options :manual => "pulseaudio"
+  plist_options manual: "pulseaudio"
 
   def plist
     <<~EOS

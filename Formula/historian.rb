@@ -3,6 +3,7 @@ class Historian < Formula
   homepage "https://github.com/jcsalterego/historian"
   url "https://github.com/jcsalterego/historian/archive/0.0.2.tar.gz"
   sha256 "691b131290ddf06142a747755412115fec996cb9cc2ad8e8f728118788b3fe05"
+  license "BSD-2-Clause"
 
   bottle :unneeded
 

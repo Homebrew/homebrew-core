@@ -1,13 +1,14 @@
 class MariadbAT101 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.org/f/mariadb-10.1.44/source/mariadb-10.1.44.tar.gz"
-  sha256 "21f203d361ee8c6e0f5050f3d0c06f3c5a2b87ac28f39e9503b851084a335039"
+  url "https://downloads.mariadb.org/f/mariadb-10.1.46/source/mariadb-10.1.46.tar.gz"
+  sha256 "cde355a750fcbe7a3956576b2a410dd1f7ed8c0f35de3676de8708782725ae15"
+  license "GPL-2.0-only"
 
   bottle do
-    sha256 "e2e7b689e5c699bf6540ed3d4abaeef8e25c6cc48243994a8c047d869ec68ca3" => :catalina
-    sha256 "2e4b6bd4f6cb49fc7f9446825dd02a4d62188a066a8964e1ac4414167dc3f901" => :mojave
-    sha256 "cfc3d9a17a66fc2bbe05881645c4026c2847744e14d4e669bd0abc6552c504a2" => :high_sierra
+    sha256 "d04c52b6893eb344ec10995bba0fbfb1251616b825fee35ec67309b38505e844" => :catalina
+    sha256 "8fce602507981a0d15cffb608311edce3bd20d1e0279f05c7bc84d97dc8ef4f1" => :mojave
+    sha256 "68e17082d5a251d5daf3a01af1b62b9a353f7decf883eae34473a5e89a140f2d" => :high_sierra
   end
 
   keg_only :versioned_formula
@@ -56,6 +57,9 @@ class MariadbAT101 < Formula
     system "cmake", ".", *std_cmake_args, *args
     system "make"
     system "make", "install"
+
+    # Avoid references to the Homebrew shims directory
+    inreplace bin/"mysqlbug", HOMEBREW_SHIMS_PATH/"mac/super/", ""
 
     # Fix my.cnf to point to #{etc} instead of /etc
     (etc/"my.cnf.d").mkpath
@@ -124,7 +128,7 @@ class MariadbAT101 < Formula
     EOS
   end
 
-  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/mariadb@10.1/bin/mysql.server start"
+  plist_options manual: "#{HOMEBREW_PREFIX}/opt/mariadb@10.1/bin/mysql.server start"
 
   def plist
     <<~EOS

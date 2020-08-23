@@ -3,6 +3,7 @@ class Align < Formula
   homepage "https://www.cs.indiana.edu/~kinzler/align/"
   url "https://www.cs.indiana.edu/~kinzler/align/align-1.7.5.tgz"
   sha256 "cc692fb9dee0cc288757e708fc1a3b6b56ca1210ca181053a371cb11746969dd"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,7 +16,7 @@ class Align < Formula
     sha256 "f903cb30e079f56c5743e2ca22a168c61d7a7c57b2cf6bc3c6492ed214a296a3" => :mavericks
   end
 
-  conflicts_with "speech-tools", :because => "both install `align` binaries"
+  conflicts_with "speech-tools", because: "both install `align` binaries"
 
   def install
     system "make", "install", "BINDIR=#{bin}"

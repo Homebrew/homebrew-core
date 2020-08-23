@@ -3,6 +3,7 @@ class Wskdeploy < Formula
   homepage "https://openwhisk.apache.org/"
   url "https://github.com/apache/openwhisk-wskdeploy/archive/1.0.0.tar.gz"
   sha256 "74c02e8118a123cfad113dc75d5e7d256b18fb80ad9e27b2b95eb74b8677e483"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

@@ -3,12 +3,12 @@ class Visp < Formula
   homepage "https://visp.inria.fr/"
   url "https://gforge.inria.fr/frs/download.php/latestfile/475/visp-3.3.0.tar.gz"
   sha256 "f2ed11f8fee52c89487e6e24ba6a31fa604b326e08fb0f561a22c877ebdb640d"
-  revision 2
+  revision 7
 
   bottle do
-    sha256 "98a4bd39c93b0f398a20064073126b8231beaf72826a9ca5b447e1cca3cd90c0" => :catalina
-    sha256 "50b7fbdd5ceb9aa1debda7949481dcac60964666da769a730d31da5c327cb9ff" => :mojave
-    sha256 "8e5d38d0d3d56b4122a34bd12ee6fb21311dee4bf66bd229a3f6d25b7b6eac46" => :high_sierra
+    sha256 "2a55095a34c32590a766b11f47a750671cf1c058cdf8bd6e04b8b28a21bc8af5" => :catalina
+    sha256 "9a699785f7953b29c7d194f1516db2150ba038463c6bd934a1dee9834ef7353d" => :mojave
+    sha256 "75fc159fded2e0613dbaa134efae40e167289493a3b1025ac4efcd19b56ac897" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -22,10 +22,24 @@ class Visp < Formula
   depends_on "pcl"
   depends_on "zbar"
 
+  # Fixes build on OpenCV >= 4.4.0
+  # Extracted from https://github.com/lagadic/visp/pull/795
+  patch :DATA
+
   def install
     ENV.cxx11
 
     sdk = MacOS::CLT.installed? ? "" : MacOS.sdk_path
+
+    # Avoid superenv shim references
+    inreplace "CMakeLists.txt" do |s|
+      s.sub! /CMake build tool:"\s+\${CMAKE_BUILD_TOOL}/,
+             "CMake build tool:            gmake\""
+      s.sub! /C\+\+ Compiler:"\s+\${VISP_COMPILER_STR}/,
+             "C++ Compiler:                clang++\""
+      s.sub! /C Compiler:"\s+\${CMAKE_C_COMPILER}/,
+             "C Compiler:                  clang\""
+    end
 
     system "cmake", ".", "-DBUILD_DEMOS=OFF",
                          "-DBUILD_EXAMPLES=OFF",
@@ -86,3 +100,26 @@ class Visp < Formula
     assert_equal version.to_s, shell_output("./test").chomp
   end
 end
+__END__
+diff --git a/modules/vision/src/key-point/vpKeyPoint.cpp b/modules/vision/src/key-point/vpKeyPoint.cpp
+index dd5cabf..23ed382 100644
+--- a/modules/vision/src/key-point/vpKeyPoint.cpp
++++ b/modules/vision/src/key-point/vpKeyPoint.cpp
+@@ -2269,7 +2269,7 @@ void vpKeyPoint::initDetector(const std::string &detectorName)
+ 
+   if (detectorNameTmp == "SIFT") {
+ #ifdef VISP_HAVE_OPENCV_XFEATURES2D
+-    cv::Ptr<cv::FeatureDetector> siftDetector = cv::xfeatures2d::SIFT::create();
++    cv::Ptr<cv::FeatureDetector> siftDetector = cv::SIFT::create();
+     if (!usePyramid) {
+       m_detectors[detectorNameTmp] = siftDetector;
+     } else {
+@@ -2447,7 +2447,7 @@ void vpKeyPoint::initExtractor(const std::string &extractorName)
+ #else
+   if (extractorName == "SIFT") {
+ #ifdef VISP_HAVE_OPENCV_XFEATURES2D
+-    m_extractors[extractorName] = cv::xfeatures2d::SIFT::create();
++    m_extractors[extractorName] = cv::SIFT::create();
+ #else
+     std::stringstream ss_msg;
+     ss_msg << "Fail to initialize the extractor: SIFT. OpenCV version  " << std::hex << VISP_HAVE_OPENCV_VERSION

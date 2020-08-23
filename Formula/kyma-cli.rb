@@ -2,18 +2,20 @@ class KymaCli < Formula
   desc "Kyma command-line interface"
   homepage "https://kyma-project.io"
   url "https://github.com/kyma-project/cli.git",
-      :tag      => "1.10.0",
-      :revision => "c0ed9588f020e897a0838eb51741ab4960bc3f74"
+      tag:      "1.14.0",
+      revision: "6e3d444dcfac01e8e45e419970f48cf122d26af2"
+  license "Apache-2.0"
+  revision 1
   head "https://github.com/kyma-project/cli.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c6db45421ca3ed01046a246b28b1a84da8dfaf9ba301c21af42f13855821d4d1" => :catalina
-    sha256 "f781f98216ae26fe03183765f76ad8dd501511a45011571245d6a4d982500a7e" => :mojave
-    sha256 "d2179d272381682d3c0f3b850b8a57da669f3c5d9b1b808b3569fb5dafa7f6a8" => :high_sierra
+    sha256 "e7b1991137eb437e19ea6c762a229624ca059fdfbb1019aa73a6b79b40fd18c3" => :catalina
+    sha256 "1e805ffd81b1ebd8ce6cdbb35070927eb43ee6ead2e18f94422374b7655fad39" => :mojave
+    sha256 "7aaeb534aff89029902fbb8134cd71c99742c21a5360098771f51d2a8209a323" => :high_sierra
   end
 
-  depends_on "go" => :build
+  depends_on "go@1.14" => :build
 
   def install
     system "make", "build-darwin"
@@ -21,12 +23,6 @@ class KymaCli < Formula
   end
 
   test do
-    assert_match "Kyma is a flexible and easy way to connect and extend enterprise applications",
-      shell_output("#{bin}/kyma --help")
-
-    assert_match "Kyma CLI version",
-      shell_output("#{bin}/kyma version --client")
-
     touch testpath/"kubeconfig"
     assert_match "invalid configuration",
       shell_output("#{bin}/kyma install --kubeconfig ./kubeconfig 2>&1", 1)

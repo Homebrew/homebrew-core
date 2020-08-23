@@ -1,36 +1,28 @@
 class Nyx < Formula
+  include Language::Python::Virtualenv
+
   desc "Command-line monitor for Tor"
   homepage "https://nyx.torproject.org/"
   url "https://files.pythonhosted.org/packages/f4/da/68419425cb0f64f996e2150045c7043c2bb61f77b5928c2156c26a21db88/nyx-2.1.0.tar.gz"
   sha256 "88521488d1c9052e457b9e66498a4acfaaa3adf3adc5a199892632f129a5390b"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a92eabd02b2b59ac8f71aa0b6669b8ec6a8123b46a0eca100e20bc9661b90e48" => :catalina
-    sha256 "e45539c22cd0a63392fc06b83824094917c40f6bcbb2d3e05b95dfb2210f8556" => :mojave
-    sha256 "e45539c22cd0a63392fc06b83824094917c40f6bcbb2d3e05b95dfb2210f8556" => :high_sierra
-    sha256 "1becd20ec7f74fe0fb05655320ab0329562fdd119a8f29acfd3c80a3594d1564" => :sierra
+    sha256 "606f92ecc381c9d319537d607305fdaae230de8e426e6d5df41fc0c878f2a0d1" => :catalina
+    sha256 "21ed9b2f6e986b53916eedad3e5d69a8d3c32fedfd61824e78381d68ec7b548d" => :mojave
+    sha256 "61f9d689b22252460f42ec83b59a425f6d3a77d308d741360afa6435c429ed62" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "stem" do
-    url "https://files.pythonhosted.org/packages/7f/71/d82f4204e88be00220cc54eedb2972fd05081cb0e5ebdc537d8940b064ea/stem-1.7.1.tar.gz"
-    sha256 "c9eaf3116cb60c15995cbd3dec3a5cbc50e9bb6e062c4d6d42201e566f498ca2"
+    url "https://files.pythonhosted.org/packages/71/bd/ab05ffcbfe74dca704e860312e00c53ef690b1ddcb23be7a4d9ea4f40260/stem-1.8.0.tar.gz"
+    sha256 "a0b48ea6224e95f22aa34c0bc3415f0eb4667ddeae3dfb5e32a6920c185568c2"
   end
 
   def install
-    xy = Language::Python.major_minor_version "python3"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
-    resource("stem").stage do
-      system "python3", *Language::Python.setup_install_args(libexec/"vendor")
-    end
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
-    system "python3", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   test do

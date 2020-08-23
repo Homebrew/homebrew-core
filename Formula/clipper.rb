@@ -3,6 +3,7 @@ class Clipper < Formula
   homepage "https://wincent.com/products/clipper"
   url "https://github.com/wincent/clipper/archive/2.0.0.tar.gz"
   sha256 "9c9fa0b198d11513777d40c88e2529b2f2f84d7045a500be5946976a5cdcfe83"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any_skip_relocation
@@ -18,7 +19,7 @@ class Clipper < Formula
     system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"clipper", "clipper.go"
   end
 
-  plist_options :manual => "clipper"
+  plist_options manual: "clipper"
 
   def plist
     <<~EOS

@@ -1,11 +1,13 @@
 class Rabbitmq < Formula
   desc "Messaging broker"
   homepage "https://www.rabbitmq.com"
-  url "https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.8.3/rabbitmq-server-generic-unix-3.8.3.tar.xz"
-  sha256 "5a2739ed1dba77f88316b4c63393d8037fc4acf51881ba922470453e891875b6"
+  url "https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.8.7/rabbitmq-server-generic-unix-3.8.7.tar.xz"
+  sha256 "7b36e4d3e9359185d9da477b68f01d07321288288bcc45198f4ffe0242d76287"
+  license "MPL-2.0"
 
   bottle :unneeded
 
+  depends_on "python@3.8" => :build
   depends_on "erlang"
 
   uses_from_macos "unzip" => :build
@@ -22,7 +24,6 @@ class Rabbitmq < Formula
     erlang = Formula["erlang"]
     inreplace sbin/"rabbitmq-defaults" do |s|
       s.gsub! "SYS_PREFIX=${RABBITMQ_HOME}", "SYS_PREFIX=#{HOMEBREW_PREFIX}"
-      s.gsub! /^ERL_DIR=$/, "ERL_DIR=#{erlang.opt_bin}/"
       s.gsub! "CLEAN_BOOT_FILE=start_clean", "CLEAN_BOOT_FILE=#{erlang.opt_lib/"erlang/bin/start_clean"}"
       s.gsub! "SASL_BOOT_FILE=start_sasl", "SASL_BOOT_FILE=#{erlang.opt_lib/"erlang/bin/start_clean"}"
     end
@@ -50,7 +51,7 @@ class Rabbitmq < Formula
 
     sbin.install "rabbitmqadmin"
     (sbin/"rabbitmqadmin").chmod 0755
-    (bash_completion/"rabbitmqadmin.bash").write Utils.popen_read("#{sbin}/rabbitmqadmin --bash-completion")
+    (bash_completion/"rabbitmqadmin.bash").write Utils.safe_popen_read("#{sbin}/rabbitmqadmin", "--bash-completion")
   end
 
   def caveats
@@ -68,7 +69,7 @@ class Rabbitmq < Formula
     EOS
   end
 
-  plist_options :manual => "rabbitmq-server"
+  plist_options manual: "rabbitmq-server"
 
   def plist
     <<~EOS
@@ -103,8 +104,8 @@ class Rabbitmq < Formula
 
   test do
     ENV["RABBITMQ_MNESIA_BASE"] = testpath/"var/lib/rabbitmq/mnesia"
-    system sbin/"rabbitmq-server", "-detached"
-    sleep 5
+    pid = fork { exec sbin/"rabbitmq-server" }
+    system sbin/"rabbitmq-diagnostics", "wait", "--pid", pid
     system sbin/"rabbitmqctl", "status"
     system sbin/"rabbitmqctl", "stop"
   end

@@ -3,6 +3,7 @@ class Corkscrew < Formula
   homepage "https://packages.debian.org/sid/corkscrew"
   url "https://deb.debian.org/debian/pool/main/c/corkscrew/corkscrew_2.0.orig.tar.gz"
   sha256 "0d0fcbb41cba4a81c4ab494459472086f377f9edb78a2e2238ed19b58956b0be"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation
@@ -31,7 +32,7 @@ class Corkscrew < Formula
     require "webrick/httpproxy"
 
     pid = fork do
-      proxy = WEBrick::HTTPProxyServer.new :Port => 8080
+      proxy = WEBrick::HTTPProxyServer.new Port: 8080
       proxy.start
     end
 

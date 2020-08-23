@@ -7,14 +7,14 @@ class Blazegraph < Formula
   bottle :unneeded
 
   # dependnecy can be lifted in the upcoming release, > 2.1.5
-  depends_on :java => "1.8"
+  depends_on java: "1.8"
 
   def install
     libexec.install "blazegraph.jar"
-    bin.write_jar_script libexec/"blazegraph.jar", "blazegraph", :java_version => "1.8"
+    bin.write_jar_script libexec/"blazegraph.jar", "blazegraph", java_version: "1.8"
   end
 
-  plist_options :startup => "true", :manual => "blazegraph start"
+  plist_options startup: "true", manual: "blazegraph start"
 
   def plist
     <<~EOS

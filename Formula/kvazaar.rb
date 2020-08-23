@@ -1,16 +1,16 @@
 class Kvazaar < Formula
   desc "Ultravideo HEVC encoder"
   homepage "https://github.com/ultravideo/kvazaar"
-  url "https://github.com/ultravideo/kvazaar/archive/v1.3.0.tar.gz"
-  sha256 "f694fe71cc6e3e6f583a9faf380825ea93b2635c4db8d1d3121b9ebcf736ac1c"
+  url "https://github.com/ultravideo/kvazaar/archive/v2.0.0.tar.gz"
+  sha256 "213edca448f127f9c6d194cdfd21593d10331f9061d95751424e1001bae60b5d"
+  license "LGPL-2.1"
   head "https://github.com/ultravideo/kvazaar.git"
 
   bottle do
     cellar :any
-    sha256 "6dc4f02c325317fbe04c1311495ada2cada0a76a3337404a98cca57021908033" => :catalina
-    sha256 "bd3d6122ef8a4dcc079b1fb86a0fd5fac658ab39910a08e9aa07115d165fd5db" => :mojave
-    sha256 "05a3d65ec220510434711ef1840a045661fba804cc9843d63c9d04f943ead15b" => :high_sierra
-    sha256 "455b8355658cba100fafa8cd8f60c353a6b56da81fb0420171e04893f329d339" => :sierra
+    sha256 "75467ab21cc9bb1a3f81f41949a0312300f9d470b4547e827111379b94a237d8" => :catalina
+    sha256 "d146e6aa5dda30a3353f72bae18356622fe613e1a7a43ae6d5d5e2fa8bfc2aba" => :mojave
+    sha256 "50723e7fbe1dfb25f2ba39b84f4059b208bed481ae0832d00f24c7221bdde905" => :high_sierra
   end
 
   depends_on "autoconf" => :build

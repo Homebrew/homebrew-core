@@ -3,6 +3,7 @@ class Lhasa < Formula
   homepage "https://fragglet.github.io/lhasa/"
   url "https://github.com/fragglet/lhasa/archive/v0.3.1.tar.gz"
   sha256 "ad76d763c7e91f47fde455a1baef4bfb0d1debba424039eabe0140fa8f115c5e"
+  license "ISC"
   head "https://github.com/fragglet/lhasa.git"
 
   bottle do
@@ -21,7 +22,7 @@ class Lhasa < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
 
-  conflicts_with "lha", :because => "both install a `lha` binary"
+  conflicts_with "lha", because: "both install a `lha` binary"
 
   def install
     system "./autogen.sh", "--prefix=#{prefix}"

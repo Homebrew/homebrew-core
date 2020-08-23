@@ -1,21 +1,27 @@
 class Abook < Formula
   desc "Address book with mutt support"
   homepage "https://abook.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/abook/abook/0.5.6/abook-0.5.6.tar.gz"
-  sha256 "0646f6311a94ad3341812a4de12a5a940a7a44d5cb6e9da5b0930aae9f44756e"
-  revision 2
+  url "http://abook.sourceforge.net/devel/abook-0.6.1.tar.gz"
+  sha256 "f0a90df8694fb34685ecdd45d97db28b88046c15c95e7b0700596028bd8bc0f9"
+  license "GPL-2.0"
   head "https://git.code.sf.net/p/abook/git.git"
 
   bottle do
-    sha256 "8bd83f518b01cdb21cabd04bb9fd28351d571c3bc3dfb44911a2d39532756967" => :catalina
-    sha256 "c1b909e5047e584971993e46ac28956479f1aca7edd28822df6de649fdb17bce" => :mojave
-    sha256 "6dd4fd8e2f57239376ccbe02bc606829d0b976b18f94ae6e5204a7d546ae9a04" => :high_sierra
-    sha256 "b078b7af5c5fca8c97e693b70a0700ab91d9bed44bdccbf037ed5eb800c32d7b" => :sierra
+    sha256 "09e77aa3db2cf8a702effbebbbf83f7a2f860b0d5db6bcf37549edb7db5438a7" => :catalina
+    sha256 "a6ab99c751a03e11e2ace660ad9325a9fe4262598f284c0fb87626778383e29d" => :mojave
+    sha256 "a0461ecc678e5cb65a901bd39dbd7f0f8015a29ed605e6cf28f1315d5c347ecb" => :high_sierra
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "gettext"
   depends_on "readline"
 
   def install
+    # fix "undefined symbols" error caused by C89 inline behaviour
+    inreplace "database.c", "inline int", "int"
+
+    system "autoreconf", "-ivf"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",

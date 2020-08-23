@@ -2,8 +2,9 @@ class Gobuster < Formula
   desc "Directory/file & DNS busting tool written in Go"
   homepage "https://github.com/OJ/gobuster"
   url "https://github.com/OJ/gobuster.git",
-      :tag      => "v3.0.1",
-      :revision => "9ef3642d170d71fd79093c0aa0c23b6f2a4c1c64"
+      tag:      "v3.0.1",
+      revision: "9ef3642d170d71fd79093c0aa0c23b6f2a4c1c64"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

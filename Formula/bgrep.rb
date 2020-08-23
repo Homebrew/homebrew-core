@@ -3,6 +3,7 @@ class Bgrep < Formula
   homepage "https://github.com/tmbinc/bgrep"
   url "https://github.com/tmbinc/bgrep/archive/bgrep-0.2.tar.gz"
   sha256 "24c02393fb436d7a2eb02c6042ec140f9502667500b13a59795388c1af91f9ba"
+  license "BSD-2-Clause"
   head "https://github.com/tmbinc/bgrep.git"
 
   bottle do

@@ -1,14 +1,14 @@
 class NodeAT12 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v12.16.1/node-v12.16.1.tar.gz"
-  sha256 "4fe8c3454f9bee5bbe72d44aa25cd931859b3037b7a9473081b3b2bd1b465b95"
+  url "https://nodejs.org/dist/v12.18.3/node-v12.18.3.tar.xz"
+  sha256 "71158026579487422fd13cc2553b34cddb76519098aa6030faab52f88c6e0d0e"
 
   bottle do
     cellar :any
-    sha256 "afad657312117b64406caa7fda445aaa2a6d42f6c67aa7cf434f3b239ccb70b8" => :catalina
-    sha256 "3dee3426e2ea8928d0724a801591ad3ad465a5b581b90981e773bb83cd0bda95" => :mojave
-    sha256 "43abdcbfc002ca7764eb4982d7b939ec94a18a8d9cbfa4a5253a5219a47629a3" => :high_sierra
+    sha256 "8371625cae6cd2efa83e52a49d3c2e389e8d6be8261a0c80a710750e89ddf7d8" => :catalina
+    sha256 "f410b99756e3247145b43f2775d4ad00b99dcdf4366fac74c05daef7c771cb60" => :mojave
+    sha256 "5de456604c237daac3f9d3dd8b03cb13ce8d7c3efacf644093a4a3da4f8f1a53" => :high_sierra
   end
 
   keg_only :versioned_formula

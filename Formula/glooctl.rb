@@ -2,28 +2,23 @@ class Glooctl < Formula
   desc "Envoy-Powered API Gateway"
   homepage "https://docs.solo.io/gloo/latest/"
   url "https://github.com/solo-io/gloo.git",
-      :tag      => "v1.3.14",
-      :revision => "b89cb1edfa4ce1fa0eeddc0d4015116c4e7f2a8d"
+      tag:      "v1.4.11",
+      revision: "6020c4e1f18e20cf149eb8168bee3c69b5b9e780"
+  license "Apache-2.0"
   head "https://github.com/solo-io/gloo.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6b135eba41367dd4da29e1c294d3bd466902fd9c3b688a564e6ce38a8c803456" => :catalina
-    sha256 "ac13cfceb62fcf9fb862c5939bc4df3f9c9c0c2f2bdab60f9bea73c0d3b9569a" => :mojave
-    sha256 "ad3010009e0fa77436246de2dbccb989944275b0bceef4e1b9f7f4bfe7674889" => :high_sierra
+    sha256 "f8d47873da40a998ef39893b6115b3040c28afb6a19bb78d7b308662236f84d7" => :catalina
+    sha256 "d1842bbdc97ac1efc7c04a369dfcceb180374c3758c084176a9f77a9d1a973ff" => :mojave
+    sha256 "882491ecdedcf3200dd958c4e79f370357fc713d260c9f493fbef0ec0a933808" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/github.com/solo-io/gloo"
-    dir.install buildpath.children - [buildpath/".brew_home"]
-
-    cd dir do
-      system "make", "glooctl", "TAGGED_VERSION=v#{version}"
-      bin.install "_output/glooctl"
-    end
+    system "make", "glooctl", "TAGGED_VERSION=v#{version}"
+    bin.install "_output/glooctl"
   end
 
   test do

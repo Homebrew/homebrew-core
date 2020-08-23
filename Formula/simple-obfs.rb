@@ -2,8 +2,9 @@ class SimpleObfs < Formula
   desc "Simple obfusacting plugin of shadowsocks-libev"
   homepage "https://github.com/shadowsocks/simple-obfs"
   url "https://github.com/shadowsocks/simple-obfs.git",
-      :tag      => "v0.0.5",
-      :revision => "a9c43588e4cb038e6ac02f050e4cab81f8228dff"
+      tag:      "v0.0.5",
+      revision: "a9c43588e4cb038e6ac02f050e4cab81f8228dff"
+  license "GPL-3.0"
   revision 1
 
   bottle do

@@ -4,6 +4,7 @@ class Simutrans < Formula
   url "https://downloads.sourceforge.net/project/simutrans/simutrans/121-0/simutrans-src-121-0.zip"
   version "121.0"
   sha256 "69fd95989761a013729106b48135f772f59126398cd93ada072f963c4d1e86b8"
+  license "Artistic-1.0"
   head "https://github.com/aburch/simutrans.git"
 
   bottle do

@@ -3,22 +3,22 @@ class Hashpump < Formula
   homepage "https://github.com/bwall/HashPump"
   url "https://github.com/bwall/HashPump/archive/v1.2.0.tar.gz"
   sha256 "d002e24541c6604e5243e5325ef152e65f9fcd00168a9fa7a06ad130e28b811b"
-  revision 3
+  license "MIT"
+  revision 4
 
   bottle do
     cellar :any
-    sha256 "5137114b347ef2c2cd42ce982c0b8d6fa261d6b7105b4735a6e8e8c5c6154448" => :catalina
-    sha256 "ddd00b7f11649d0ad36bdc9bfa724daee15e135687a1d71c5f043aa758b15399" => :mojave
-    sha256 "dd22c32a8a2c4ade6b45e573b61d09d91f56c60a74c7fd9265fb75e8dc60be5f" => :high_sierra
-    sha256 "91dd089a608636170ad9ba63f5095f254773d510e0eaf48735aa35c3cf6d9bf2" => :sierra
+    sha256 "117ca0966fcc664caacd251d564dbebde369b0a5b6c9a35242c898f5b12f232e" => :catalina
+    sha256 "71b04dff8cc052944d44566bd79385236db3af53fea647381e587d13503bb148" => :mojave
+    sha256 "e7dc1492f0177f7e186deebccb47428861cd2525bbb352959a2b69608f86de3f" => :high_sierra
   end
 
   depends_on "openssl@1.1"
-  depends_on "python"
+  depends_on "python@3.8"
 
   # Remove on next release
   patch do
-    url "https://github.com/bwall/HashPump/pull/14.patch?full_index=1"
+    url "https://github.com/bwall/HashPump/commit/1d76a269d18319ea3cc9123901ea8cf240f7cc34.patch?full_index=1"
     sha256 "ffc978cbc07521796c0738df77a3e40d79de0875156f9440ef63eca06b2e2779"
   end
 

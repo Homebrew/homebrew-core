@@ -1,15 +1,14 @@
 class Libmaa < Formula
   desc "Low-level data structures including hash tables, sets, lists"
   homepage "http://www.dict.org/"
-  url "https://downloads.sourceforge.net/project/dict/libmaa/libmaa-1.4.4/libmaa-1.4.4.tar.gz"
-  sha256 "fbd739e8467c4b7213594b172cfe3059443127313f8365224aa9c269498869e2"
+  url "https://downloads.sourceforge.net/project/dict/libmaa/libmaa-1.4.7/libmaa-1.4.7.tar.gz"
+  sha256 "4e01a9ebc5d96bc9284b6706aa82bddc2a11047fa9bd02e94cf8753ec7dcb98e"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "5757c82d8ed00653ffb4aeb7d0d2135956a492b370afd111a4b4c090f65e7bdb" => :catalina
-    sha256 "efa8b4dfc03e50cba2515de399973f7e42ff4ddc0fb4c0725da950e10517b151" => :mojave
-    sha256 "90298d5a26e12f69c3ebbe6bae052e07e736e77bb690994825b6bf2004b3b753" => :high_sierra
+    sha256 "d9ad37a60f4f1f2eac61cf6a5b85ea1948eda86c65adb26a82c11f8abf70bb0c" => :catalina
+    sha256 "5f06991bd6aa87dbd9c82db5d7cf701cb6431dcf8debd7404dfb611fa07a5e69" => :mojave
+    sha256 "5741f3bb649eeb3b6371eaa13dcda342227d8b2f86bc547d1a0abe97561f8521" => :high_sierra
   end
 
   depends_on "bmake" => :build

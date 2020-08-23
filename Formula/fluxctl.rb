@@ -1,15 +1,16 @@
 class Fluxctl < Formula
   desc "Command-line tool to access Weave Flux, the Kubernetes GitOps operator"
-  homepage "https://github.com/weaveworks/flux"
-  url "https://github.com/weaveworks/flux.git",
-      :tag      => "1.18.0",
-      :revision => "32a60f735385d570243f8c15f5b2b5ff460845fa"
+  homepage "https://github.com/fluxcd/flux"
+  url "https://github.com/fluxcd/flux.git",
+      tag:      "1.20.2",
+      revision: "a35b978174606c7290a3a64438b8bb3eeb3fd6ea"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c5ad883cfc41d1e6a4c92f89856ada73a1cf0fb20a1f5a54f6d5bdc151d10e23" => :catalina
-    sha256 "8c4dcb4cd50455cc9928f13fe9151df3daafe631c80d2ab843f3cc3080060532" => :mojave
-    sha256 "163c3fbf008299ca24c3997c3c7e5499faf1d580b4db0e555bccbcb9d86d18e6" => :high_sierra
+    sha256 "b731245d5b42da469ecf3d70081318f08c2cbf3ae52e5528843d038c3a937de3" => :catalina
+    sha256 "c2971b5466e75550d245f3ba2fa452ba739f90d987353d59f07ba62a17bc0545" => :mojave
+    sha256 "92797cd1fbd6d1c0b31a2f3366ed8199224f6d8f042cd854ce681e632c76c30d" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -17,7 +18,6 @@ class Fluxctl < Formula
   def install
     cd buildpath/"cmd/fluxctl" do
       system "go", "build", "-ldflags", "-s -w -X main.version=#{version}", "-trimpath", "-o", bin/"fluxctl"
-      prefix.install_metafiles
     end
   end
 
@@ -33,7 +33,7 @@ class Fluxctl < Formula
     # about a missing .kube/config file.
     require "pty"
     require "timeout"
-    r, _w, pid = PTY.spawn("#{bin}/fluxctl sync", :err=>:out)
+    r, _w, pid = PTY.spawn("#{bin}/fluxctl sync", err: :out)
     begin
       Timeout.timeout(5) do
         assert_match "Error: Could not load kubernetes configuration file", r.gets.chomp

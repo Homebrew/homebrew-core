@@ -1,18 +1,18 @@
 class VertX < Formula
   desc "Toolkit for building reactive applications on the JVM"
   homepage "https://vertx.io/"
-  url "https://bintray.com/vertx/downloads/download_file?file_path=vert.x-3.8.5-full.tar.gz"
-  sha256 "ce21b4846f1ad485cdba76cc65690be9ec254c5db12cd57bab2cc8ee73ab9806"
-  revision 1
+  url "https://bintray.com/vertx/downloads/download_file?file_path=vert.x-3.9.2-full.zip"
+  sha256 "3f257bae643e31804816e5723ac39e5f8fe08fcb73034b74d4cc7ccb4e9e5a84"
 
   bottle :unneeded
+
   depends_on "openjdk"
 
   def install
     rm_f Dir["bin/*.bat"]
     libexec.install %w[bin conf lib]
     (bin/"vertx").write_env_script "#{libexec}/bin/vertx",
-      :JAVA_HOME => "${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
+      JAVA_HOME: "${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
   end
 
   test do

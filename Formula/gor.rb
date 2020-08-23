@@ -2,15 +2,16 @@ class Gor < Formula
   desc "Real-time HTTP traffic replay tool written in Go"
   homepage "https://gortool.com"
   url "https://github.com/buger/goreplay.git",
-      :tag      => "v1.0.0",
-      :revision => "a8cfaa75812ac176b253ffe1d11eb9bbc7be7522"
+    tag:      "v1.1.0",
+    revision: "5cbb5ea85fcb33c40b314d8baf84cac65a623098"
+  license "LGPL-3.0"
   head "https://github.com/buger/goreplay.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "73d9b114ff0abf11cd8f0dcde83df1c2db1921c1db8519060c9e5aec722e4b00" => :mojave
-    sha256 "7ac5b35b06c5121f377b5c2e22f4c171dc245932eff1813b89af96a00eb4b42d" => :high_sierra
-    sha256 "829149868a0fb7862c1ebb2d6db864e6e4730e3d7e138e638577aa8753334116" => :sierra
+    sha256 "a36b70bcd45188693395cea5faec7fbc59641f2aac7918e16042560064d28ad0" => :catalina
+    sha256 "ad78a27ea91f8731573e633bcb3490a62fb8d1330292544da37876fb8d8805a5" => :mojave
+    sha256 "b8c6106bc0ef1b1defc163d9e3e477a8d0462ab65b9b3f409a8a79debf96ba85" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -18,17 +19,16 @@ class Gor < Formula
   uses_from_macos "libpcap"
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "on"
-
-    (buildpath/"src/github.com/buger/goreplay").install buildpath.children
-    cd "src/github.com/buger/goreplay" do
-      system "go", "build", "-o", bin/"gor", "-ldflags", "-X main.VERSION=#{version}"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-ldflags", "-X main.VERSION=#{version}", *std_go_args
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/gor", 1)
+    test_port = free_port
+    fork do
+      exec bin/"gor", "file-server", ":#{test_port}"
+    end
+
+    sleep 2
+    system "nc", "-z", "localhost", test_port
   end
 end

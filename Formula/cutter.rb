@@ -3,6 +3,7 @@ class Cutter < Formula
   homepage "https://cutter.osdn.jp/"
   url "https://osdn.mirror.constant.com/cutter/71616/cutter-1.2.7.tar.gz"
   sha256 "4d80feb16f8f4d8eed62bca40194f8896e70bdac06305bf612b41601e659cae6"
+  license "LGPL-3.0"
   head "https://github.com/clear-code/cutter.git"
 
   bottle do

@@ -3,6 +3,7 @@ class Jump < Formula
   homepage "https://github.com/gsamokovarov/jump"
   url "https://github.com/gsamokovarov/jump/archive/v0.30.1.tar.gz"
   sha256 "76d6453246c047b49e669499dc1b6a7e4c4520653627461d84ad40c6afb45562"
+  license "MIT"
   head "https://github.com/gsamokovarov/jump.git"
 
   bottle do

@@ -1,15 +1,15 @@
 class GtkDoc < Formula
   desc "GTK+ documentation tool"
-  homepage "https://www.gtk.org/gtk-doc/"
+  homepage "https://gitlab.gnome.org/GNOME/gtk-doc"
   url "https://download.gnome.org/sources/gtk-doc/1.32/gtk-doc-1.32.tar.xz"
   sha256 "de0ef034fb17cb21ab0c635ec730d19746bce52984a6706e7bbec6fb5e0b907c"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c2a37977def6cbd8225e422533ff471908c76a5cea619f8e92fa2c625e7d7cbf" => :catalina
-    sha256 "79d3ef58493e71bfa4782d7ac1a4a19500f085b2b3fc348880b5f5645a10fe7e" => :mojave
-    sha256 "79d3ef58493e71bfa4782d7ac1a4a19500f085b2b3fc348880b5f5645a10fe7e" => :high_sierra
-    sha256 "62a6648f580ec06ba130accd90bb5bf178780d84fc338b98f05acf59e67423e1" => :sierra
+    sha256 "2e0c508a1f6fe8ab48a03ab83f8471c3153ce937099437dad6bbbd1dd36a42ce" => :catalina
+    sha256 "2e0c508a1f6fe8ab48a03ab83f8471c3153ce937099437dad6bbbd1dd36a42ce" => :mojave
+    sha256 "2e0c508a1f6fe8ab48a03ab83f8471c3153ce937099437dad6bbbd1dd36a42ce" => :high_sierra
   end
 
   depends_on "itstool" => :build
@@ -18,7 +18,7 @@ class GtkDoc < Formula
   depends_on "docbook-xsl"
   depends_on "gettext"
   depends_on "libxml2"
-  depends_on "python"
+  depends_on "python@3.8"
   depends_on "source-highlight"
 
   uses_from_macos "libxslt"
@@ -29,10 +29,10 @@ class GtkDoc < Formula
   end
 
   def install
-    xy = Language::Python.major_minor_version "python3"
+    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
     resource("Pygments").stage do
-      system "python3", *Language::Python.setup_install_args(libexec/"vendor")
+      system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
     end
 
     system "./configure", "--disable-debug",
@@ -43,7 +43,7 @@ class GtkDoc < Formula
     system "make"
     system "make", "install"
 
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
   end
 
   test do

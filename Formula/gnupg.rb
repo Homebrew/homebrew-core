@@ -1,17 +1,17 @@
 class Gnupg < Formula
   desc "GNU Pretty Good Privacy (PGP) package"
   homepage "https://gnupg.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.19.tar.bz2"
-  sha256 "242554c0e06f3a83c420b052f750b65ead711cc3fddddb5e7274fcdbb4e9dec0"
+  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.21.tar.bz2"
+  sha256 "61e83278fb5fa7336658a8b73ab26f379d41275bb1c7c6e694dd9f9a6e8e76ec"
+  license "GPL-3.0"
 
   bottle do
-    sha256 "db2ff50cbb6d0c9da3ce2f692c96f776ba7043c8ba7bbbc5d026f1a11a008eba" => :catalina
-    sha256 "5e23d28a490125c271558817155b80d8f3d762afcb9391d47ded71db6b17b306" => :mojave
-    sha256 "f35cd016d9734dc5f4dcd5d43939570f3b61f4aa7b61ade1e0cd970d0916ed16" => :high_sierra
+    sha256 "a42991eca1ff5cc8bd25bdd700c8104c50f09a207b1599c8552662b67a95e36a" => :catalina
+    sha256 "a6f32a714e777b8949f5197e2f70744352c1f3f6785e5813c390af1f45cb5e1c" => :mojave
+    sha256 "191e614ac845a540c5973f522e2edd7d5d48e2e3f3399cafaf95ef2754a987d3" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
-  depends_on "sqlite" => :build if MacOS.version == :mavericks
   depends_on "adns"
   depends_on "gettext"
   depends_on "gnutls"

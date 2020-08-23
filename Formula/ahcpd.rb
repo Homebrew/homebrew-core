@@ -3,6 +3,7 @@ class Ahcpd < Formula
   homepage "https://www.irif.univ-paris-diderot.fr/~jch/software/ahcp/"
   url "https://www.irif.univ-paris-diderot.fr/~jch/software/files/ahcpd-0.53.tar.gz"
   sha256 "a4622e817d2b2a9b878653f085585bd57f3838cc546cca6028d3b73ffcac0d52"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

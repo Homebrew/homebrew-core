@@ -1,16 +1,16 @@
 class Healpix < Formula
   desc "Hierarchical Equal Area isoLatitude Pixelization of a sphere"
   homepage "https://healpix.jpl.nasa.gov"
-  url "https://downloads.sourceforge.net/project/healpix/Healpix_3.50/Healpix_3.50_2018Dec10.tar.gz"
-  version "3.50"
-  sha256 "ec9378888ef8365f9a83fa82e3ef3b4e411ed6a63aca33b74a6917c05334bf4f"
-  revision 1
+  url "https://downloads.sourceforge.net/project/healpix/Healpix_3.70/Healpix_3.70_2020Jul23.tar.gz"
+  version "3.70"
+  sha256 "8841f171f1e22e75ea130e12e5cdc5bcf85dbec79f9f67dd1bf27e99fd20b6d1"
+  license "GPL-2.0-or-later"
 
   bottle do
     cellar :any
-    sha256 "15b3b3d37de957c018e56ccfdc87c5d44cbb658b3d197f90b660b194f44d7b54" => :catalina
-    sha256 "2c255d6791ca868a7a6568f609bcf7d9e52350dafa615ecabad0adb924863c34" => :mojave
-    sha256 "5a1d7d01df7445395df8475a2cb2c2e7d5200c73a3702f57109566a7f8698fa3" => :high_sierra
+    sha256 "59fd161e08ea1758ed4bbc524d8f9008954ea6bb8e38131b7834ca36e719a9f5" => :catalina
+    sha256 "dd732e1a1d931be08b90dd7ba7676d77a929b1f431a1a937ab4d91a32d52c4cf" => :mojave
+    sha256 "f18787c3cf20536ee93762580b2537318da0601fd9cde0f28295363b59ee8a0a" => :high_sierra
   end
 
   depends_on "autoconf" => :build
@@ -20,21 +20,26 @@ class Healpix < Formula
   depends_on "cfitsio"
 
   def install
-    configure_args = %W[
+    configure_args = %w[
       --disable-dependency-tracking
       --disable-silent-rules
-      --prefix=#{prefix}
     ]
 
     cd "src/C/autotools" do
       system "autoreconf", "--install"
-      system "./configure", *configure_args
+      system "./configure", "--prefix=#{prefix}", *configure_args
       system "make", "install"
     end
 
-    cd "src/cxx/autotools" do
-      system "autoreconf", "--install"
-      system "./configure", *configure_args
+    cd "src/common_libraries/libsharp" do
+      system "./configure", "--prefix=#{prefix}", *configure_args
+      system "make", "install"
+    end
+
+    cd "src/cxx" do
+      ENV["SHARP_CFLAGS"] = "-I#{include}"
+      ENV["SHARP_LIBS"] = "-L#{lib} -lsharp"
+      system "./configure", "--prefix=#{prefix}", *configure_args
       system "make", "install"
     end
   end

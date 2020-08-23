@@ -3,6 +3,7 @@ class Sparkey < Formula
   homepage "https://github.com/spotify/sparkey/"
   url "https://github.com/spotify/sparkey/archive/sparkey-1.0.0.tar.gz"
   sha256 "d607fb816d71d97badce6301dd56e2538ef2badb6530c0a564b1092788f8f774"
+  license "Apache-2.0"
   revision 1
 
   bottle do

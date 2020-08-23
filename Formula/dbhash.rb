@@ -1,15 +1,16 @@
 class Dbhash < Formula
   desc "Computes the SHA1 hash of schema and content of a SQLite database"
   homepage "https://www.sqlite.org/dbhash.html"
-  url "https://sqlite.org/2020/sqlite-src-3310100.zip"
-  version "3.31.1"
-  sha256 "f2dc2382855d99a960c363c1e5ae72b49da4c55d49154aa6d100e5970a1fee58"
+  url "https://www.sqlite.org/2020/sqlite-src-3330000.zip"
+  version "3.33.0"
+  sha256 "90bf7604a5aa26deece551af7a665fd4ce3d854ea809899c0e4bb19a69d609b8"
+  license "blessing"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7296d5d4f3bccdb153c6a312c0ea65a9868cda646ee4028606ea8a46476d86e1" => :catalina
-    sha256 "f569d04c603f101d0bedbe4aeaa36ab5fb964978bb247589693778e488806e29" => :mojave
-    sha256 "881d1f7bebd40c356fc343029a1deadebdd67086f8da86621403837d3f703228" => :high_sierra
+    sha256 "286b4a753cd443251a2b9b27d2ff813faf384a3c78940c2bded450d391ba7a66" => :catalina
+    sha256 "f9f1001a4e2a887070762636737a144d13e53f00dfa39278c9535cc448b6f91c" => :mojave
+    sha256 "7e973140b25ac83fb8d8dd77a2b7b4ee5cf13f4b10d1a27b92c1ad4180cf71e8" => :high_sierra
   end
 
   uses_from_macos "tcl-tk" => :build

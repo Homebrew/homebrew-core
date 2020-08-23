@@ -5,6 +5,7 @@ class Readline < Formula
   mirror "https://ftpmirror.gnu.org/readline/readline-8.0.tar.gz"
   version "8.0.4"
   sha256 "e339f51971478d369f8a053a330a190781acb9864cf4c541060f12078948e461"
+  license "GPL-3.0"
 
   %w[
     001 d8e5e98933cf5756f862243c0601cb69d3667bb33f2c7b751fe4e40b2c3fd069
@@ -19,8 +20,6 @@ class Readline < Formula
     end
   end
 
-  uses_from_macos "ncurses"
-
   bottle do
     cellar :any
     sha256 "6ae1c8e7c783f32bd22c6085caa4d838fed7fb386da7e40ca47b87ec9b1237d6" => :catalina
@@ -28,11 +27,9 @@ class Readline < Formula
     sha256 "896a3d50ce8962ba56e853bdd590fadeabc00ab36475d143d6c2bea5cc15bb28" => :high_sierra
   end
 
-  keg_only :shadowed_by_macos, <<~EOS
-    macOS provides the BSD libedit library, which shadows libreadline.
-    In order to prevent conflicts when programs look for libreadline we are
-    defaulting this GNU Readline installation to keg-only
-  EOS
+  keg_only :shadowed_by_macos, "macOS provides BSD libedit"
+
+  uses_from_macos "ncurses"
 
   def install
     system "./configure", "--prefix=#{prefix}"

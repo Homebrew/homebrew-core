@@ -4,6 +4,7 @@ class Ocrad < Formula
   url "https://ftp.gnu.org/gnu/ocrad/ocrad-0.27.tar.lz"
   mirror "https://ftpmirror.gnu.org/ocrad/ocrad-0.27.tar.lz"
   sha256 "a9bfe67e9a040907aff5640dca56392476b6a89e48e37dc94ba846c5b6733b36"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

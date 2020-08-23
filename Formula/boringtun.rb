@@ -1,28 +1,28 @@
 class Boringtun < Formula
   desc "Userspace WireGuard implementation in Rust"
   homepage "https://github.com/cloudflare/boringtun"
-  url "https://github.com/cloudflare/boringtun/archive/v0.2.0.tar.gz"
-  sha256 "544c72fc482b636e7f6460bfee205adafc55de534067819e4e4914980f0d1350"
+  url "https://github.com/cloudflare/boringtun/archive/v0.3.0.tar.gz"
+  sha256 "1107b0170a33769db36876334261924edc71dfc1eb00f9b464c7d2ad6d5743d3"
+  license "BSD-3-Clause"
   head "https://github.com/cloudflare/boringtun.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "e092fc5870f6f58840da66d1e2a00b9768c2ccef9cb8a07d48d9fd3ee3c77160" => :catalina
-    sha256 "9d4c270b1a0a5864fc45ebb5fcf0517546cb39b8dbe8ab5d85298fd4b2616090" => :mojave
-    sha256 "9c069ca90fed17c4eba1731a1b5bd28b3a0c2736111dc522347d4ff64e48eda6" => :high_sierra
+    sha256 "dd119327645c4905c39a4b0e6f65472690d619e127088e62573b5a0c454cbb01" => :catalina
+    sha256 "c871b547c950e928ee065ce5dbe1442a41d65213b840654bb9e6922b7dedae0f" => :mojave
+    sha256 "7e6fc1a3b6458d9df1b0c15ee53d14f0ea04e85494f306034fd8531d2ff4277c" => :high_sierra
   end
 
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", *std_cargo_args
   end
 
   test do
     system "#{bin}/boringtun", "--help"
     assert_match "boringtun " + version.to_s, shell_output("#{bin}/boringtun -V").chomp
-    assert_match /failed to start/, shell_output("#{bin}/boringtun utun --log #{testpath}/boringtun.log")
+    shell_output("#{bin}/boringtun utun -v --log #{testpath}/boringtun.log", 1)
     assert_predicate testpath/"boringtun.log", :exist?
     boringtun_log = File.read(testpath/"boringtun.log")
     assert_match /Success, daemonized/, boringtun_log.split("/n").first

@@ -3,6 +3,7 @@ class Noti < Formula
   homepage "https://github.com/variadico/noti"
   url "https://github.com/variadico/noti/archive/3.4.0.tar.gz"
   sha256 "8fcf494084ea6eacac2e55dfcaf978452e1af0139205cd23fce71bfb20dd17fe"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

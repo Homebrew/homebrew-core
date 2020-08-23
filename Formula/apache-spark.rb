@@ -1,15 +1,16 @@
 class ApacheSpark < Formula
   desc "Engine for large-scale data processing"
   homepage "https://spark.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=spark/spark-2.4.5/spark-2.4.5-bin-hadoop2.7.tgz"
-  mirror "https://archive.apache.org/dist/spark/spark-2.4.5/spark-2.4.5-bin-hadoop2.7.tgz"
-  version "2.4.5"
-  sha256 "020be52524e4df366eb974d41a6e18fcb6efcaba9a51632169e917c74267dd81"
+  url "https://www.apache.org/dyn/closer.lua?path=spark/spark-3.0.0/spark-3.0.0-bin-hadoop3.2.tgz"
+  mirror "https://archive.apache.org/dist/spark/spark-3.0.0/spark-3.0.0-bin-hadoop3.2.tgz"
+  version "3.0.0"
+  sha256 "3c9bef2d002d706b5331415884d3f890ecfdd7c6a692f36ed7a981ad120b2482"
+  license "Apache-2.0"
   head "https://github.com/apache/spark.git"
 
   bottle :unneeded
 
-  depends_on :java => "1.8"
+  depends_on "openjdk@11"
 
   def install
     # Rename beeline to distinguish it from hive's beeline
@@ -18,7 +19,7 @@ class ApacheSpark < Formula
     rm_f Dir["bin/*.cmd"]
     libexec.install Dir["*"]
     bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
+    bin.env_script_all_files(libexec/"bin", JAVA_HOME: Formula["openjdk@11"].opt_prefix)
   end
 
   test do

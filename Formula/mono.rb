@@ -1,19 +1,21 @@
 class Mono < Formula
   desc "Cross platform, open source .NET development framework"
   homepage "https://www.mono-project.com/"
-  url "https://download.mono-project.com/sources/mono/mono-6.8.0.105.tar.xz"
-  sha256 "578799c44c3c86a9eb5daf6dec6c60a24341940fd376371956d4a46cf8612178"
+  url "https://download.mono-project.com/sources/mono/mono-6.8.0.123.tar.xz"
+  sha256 "e2e42d36e19f083fc0d82f6c02f7db80611d69767112af353df2f279744a2ac5"
+  license "MIT"
 
   bottle do
-    sha256 "b60510ffecafb1ccd127a8179324a631bfcd23f4e6bbb6aa3ebd94c908ea4c37" => :catalina
-    sha256 "406fa52ae8748b58cfecefccc180b1227e98e16de28f7e2442898a6d9d256195" => :mojave
-    sha256 "f7c961d63e628703c661ac3cd2922c1e92c7d78941221acd51439a7fc0d9c331" => :high_sierra
+    sha256 "5d9418923f6bc1705af86db81c56beff8b3a3d12c15e99ecbc7dffc2306817e1" => :catalina
+    sha256 "c7e8edb593056e88bbf9e2e2bf990045f1400ed72d77ebcfcd90818d07f4ecce" => :mojave
+    sha256 "7fcbbda42e4f412d8849ac21c070ccc2333e086049efe17a03703413952ddd8f" => :high_sierra
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on :macos # Due to Python 2
 
-  conflicts_with "xsd", :because => "both install `xsd` binaries"
+  conflicts_with "xsd", because: "both install `xsd` binaries"
 
   # xbuild requires the .exe files inside the runtime directories to
   # be executable
@@ -28,15 +30,15 @@ class Mono < Formula
 
   resource "fsharp" do
     url "https://github.com/fsharp/fsharp.git",
-        :tag      => "10.2.3",
-        :revision => "e31bc96e8a5e5742af1c6c45d55d5cc06bb524cb"
+        tag:      "10.2.3",
+        revision: "e31bc96e8a5e5742af1c6c45d55d5cc06bb524cb"
   end
 
   # When upgrading Mono, make sure to use the revision from
   # https://github.com/mono/mono/blob/mono-#{version}/packaging/MacSDK/msbuild.py
   resource "msbuild" do
     url "https://github.com/mono/msbuild.git",
-        :revision => "ad9c9926a76e3db0d2b878a24d44446d73640d19"
+        revision: "ad9c9926a76e3db0d2b878a24d44446d73640d19"
   end
 
   def install

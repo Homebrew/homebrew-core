@@ -1,20 +1,28 @@
 class BoostPython < Formula
   desc "C++ library for C++/Python2 interoperability"
   homepage "https://www.boost.org/"
-  url "https://dl.bintray.com/boostorg/release/1.72.0/source/boost_1_72_0.tar.bz2"
-  sha256 "59c9b274bc451cf91a9ba1dd2c7fdcaf5d60b1b3aa83f2c9fa143417cc660722"
+  url "https://dl.bintray.com/boostorg/release/1.73.0/source/boost_1_73_0.tar.bz2"
+  mirror "https://dl.bintray.com/homebrew/mirror/boost_1_73_0.tar.bz2"
+  sha256 "4eb3b8d442b426dc35346235c8733b5ae35ba431690e38c6a8263dce9fcbb402"
+  license "BSL-1.0"
   head "https://github.com/boostorg/boost.git"
 
   bottle do
     cellar :any
-    sha256 "c15c8bf03d5ca454c93782648f700c1149c164bec8334561ef3727eee0f0435a" => :catalina
-    sha256 "12e538b3468eff6e1afe41cbe595a389473ad37972fbc1ea69a5abc37ead890e" => :mojave
-    sha256 "d0ff391db5f8864d6025e654708a84629aba54d59bdf7b366a6eb7cdca808918" => :high_sierra
+    sha256 "04fb7370e7cae6e4fda40545eaf8624576253ba72d6ed405debc0d48da4e6821" => :catalina
+    sha256 "9709be9548489de159a5a756fee04b8a3807a7f135c08b1ebce82ae363f49269" => :mojave
+    sha256 "b0773fe6e6125e6a45966aa5ef9e078a02c77c86d16f3fd6f7c50df4c23d7c78" => :high_sierra
   end
 
   depends_on "boost"
+  depends_on :macos # Due to Python 2
 
-  uses_from_macos "python@2"
+  # Fix build on Xcode 11.4
+  patch do
+    url "https://github.com/boostorg/build/commit/b3a59d265929a213f02a451bb63cea75d668a4d9.patch?full_index=1"
+    sha256 "04a4df38ed9c5a4346fbb50ae4ccc948a1440328beac03cb3586c8e2e241be08"
+    directory "tools/build"
+  end
 
   def install
     # "layout" should be synchronized with boost
@@ -71,8 +79,8 @@ class BoostPython < Formula
     EOS
 
     pyprefix = `python-config --prefix`.chomp
-    pyincludes = Utils.popen_read("python-config --includes").chomp.split(" ")
-    pylib = Utils.popen_read("python-config --ldflags").chomp.split(" ")
+    pyincludes = Utils.popen_read("python-config", "--includes").chomp.split(" ")
+    pylib = Utils.popen_read("python-config", "--ldflags").chomp.split(" ")
 
     system ENV.cxx, "-shared", "hello.cpp", "-L#{lib}", "-lboost_python27",
                     "-o", "hello.so", "-I#{pyprefix}/include/python2.7",

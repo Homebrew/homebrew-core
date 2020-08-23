@@ -1,20 +1,21 @@
 class Arangodb < Formula
   desc "The Multi-Model NoSQL Database"
   homepage "https://www.arangodb.com/"
-  url "https://github.com/arangodb/arangodb/archive/v3.6.2.tar.gz"
-  sha256 "2bfc406e4985eb432a5f83f2f3ca1ebee61792dad972024183408c2f8b148dbe"
+  url "https://download.arangodb.com/Source/ArangoDB-3.6.5.tar.gz"
+  sha256 "e5edc1af5f186dda485f06aeeaba0e621a479f145eaa9d1b411be0bba9c3b547"
+  license "Apache-2.0"
   revision 1
-  head "https://github.com/arangodb/arangodb.git", :branch => "devel"
+  head "https://github.com/arangodb/arangodb.git", branch: "devel"
 
   bottle do
-    sha256 "fb38b29106260f79903967a18c775912ee0cb14024c691975e00dd0db556d063" => :catalina
-    sha256 "0727b80f9d27bd6590bd955bf77696d0a5fb2f1c91d751956a228e40db1af374" => :mojave
+    sha256 "ed9d2b1660c2139b851f1cd6c94d2262e29d9aafc61dbffdd5aec7513dfcf69c" => :catalina
+    sha256 "58d6e3f65971d7cf0204706463898645f5910c69d34c5b17c5db7306372db4d4" => :mojave
   end
 
   depends_on "ccache" => :build
   depends_on "cmake" => :build
   depends_on "go@1.13" => :build
-  depends_on :macos => :mojave
+  depends_on macos: :mojave
   depends_on "openssl@1.1"
 
   # the ArangoStarter is in a separate github repository;
@@ -22,25 +23,29 @@ class Arangodb < Formula
   # with a unified CLI
   resource "starter" do
     url "https://github.com/arangodb-helper/arangodb.git",
-      :revision => "598e7d7794ad4a98024548dd9061e03782542ecd"
+      tag:      "0.14.15",
+      revision: "e32307e9ae5a0046214cb066355a8577e6fc4148"
   end
 
   def install
     ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
 
     resource("starter").stage do
-      ENV.append "GOPATH", Dir.pwd + "/.gobuild"
-      ENV.append "DOCKERCLI", ""
-      system "make", "deps"
+      ENV["GO111MODULE"] = "on"
+      ENV["DOCKERCLI"] = ""
       # use commit-id as projectBuild
       commit = `git rev-parse HEAD`.chomp
-      system "go", "build", "-ldflags", "-X main.projectVersion=0.14.14 -X main.projectBuild=#{commit}",
-                            "-o", "arangodb",
-                            "github.com/arangodb-helper/arangodb"
-      bin.install "arangodb"
+      system "make", "deps"
+      ldflags = %W[
+        -s -w
+        -X main.projectVersion=#{resource("starter").version}
+        -X main.projectBuild=#{commit}
+      ]
+      system "go", "build", *std_go_args, "-ldflags", ldflags.join(" "), "github.com/arangodb-helper/arangodb"
     end
 
     mkdir "build" do
+      openssl = Formula["openssl@1.1"]
       args = std_cmake_args + %W[
         -DHOMEBREW=ON
         -DCMAKE_BUILD_TYPE=RelWithDebInfo
@@ -48,8 +53,8 @@ class Arangodb < Formula
         -DUSE_JEMALLOC=Off
         -DCMAKE_SKIP_RPATH=On
         -DOPENSSL_USE_STATIC_LIBS=On
-        -DCMAKE_LIBRARY_PATH=#{prefix}/opt/openssl@1.1/lib
-        -DOPENSSL_ROOT_DIR=#{prefix}/opt/openssl@1.1/lib
+        -DCMAKE_LIBRARY_PATH=#{openssl.opt_lib}
+        -DOPENSSL_ROOT_DIR=#{openssl.opt_lib}
         -DCMAKE_OSX_DEPLOYMENT_TARGET=#{MacOS.version}
         -DTARGET_ARCHITECTURE=nehalem
         -DUSE_CATCH_TESTS=Off
@@ -57,7 +62,7 @@ class Arangodb < Formula
         -DCMAKE_INSTALL_LOCALSTATEDIR=#{var}
       ]
 
-      ENV.append "V8_CXXFLAGS", "-O3 -g -fno-delete-null-pointer-checks" if ENV.compiler == "gcc-6"
+      ENV["V8_CXXFLAGS"] = "-O3 -g -fno-delete-null-pointer-checks" if ENV.compiler == "gcc-6"
 
       system "cmake", "..", *args
       system "make", "install"
@@ -70,15 +75,13 @@ class Arangodb < Formula
   end
 
   def caveats
-    s = <<~EOS
+    <<~EOS
       An empty password has been set. Please change it by executing
         #{opt_sbin}/arango-secure-installation
     EOS
-
-    s
   end
 
-  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/arangodb/sbin/arangod"
+  plist_options manual: "#{HOMEBREW_PREFIX}/opt/arangodb/sbin/arangod"
 
   def plist
     <<~EOS

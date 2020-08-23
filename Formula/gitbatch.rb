@@ -3,6 +3,7 @@ class Gitbatch < Formula
   homepage "https://github.com/isacikgoz/gitbatch"
   url "https://github.com/isacikgoz/gitbatch/archive/v0.5.0.tar.gz"
   sha256 "b1781bb1a0f16545d8980d4f854cb4685c289b222d141197889fc387524aa515"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

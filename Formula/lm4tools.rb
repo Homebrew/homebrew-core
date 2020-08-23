@@ -3,6 +3,7 @@ class Lm4tools < Formula
   homepage "https://github.com/utzig/lm4tools"
   url "https://github.com/utzig/lm4tools/archive/v0.1.3.tar.gz"
   sha256 "e8064ace3c424b429b7e0b50e58b467d8ed92962b6a6dfa7f6a39942416b1627"
+  license "GPL-2.0"
 
   bottle do
     cellar :any

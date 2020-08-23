@@ -2,9 +2,10 @@ class Krew < Formula
   desc "Package manager for kubectl plugins"
   homepage "https://sigs.k8s.io/krew/"
   url "https://github.com/kubernetes-sigs/krew.git",
-      :tag      => "v0.3.4",
-      :revision => "324f5ed8fa7c2469ed6cd5a3dadbcbc0ce1d8b97"
+      tag:      "v0.3.4",
+      revision: "324f5ed8fa7c2469ed6cd5a3dadbcbc0ce1d8b97"
   sha256 "d63e0ccc08f32bfc314b3bc574f20842041e2f58ab89ddc88a24cb25c1caee38"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,7 +18,7 @@ class Krew < Formula
   depends_on "kubernetes-cli"
 
   def install
-    commit = Utils.popen_read("git", "rev-parse", "--short=8", "HEAD").chomp
+    commit = Utils.safe_popen_read("git", "rev-parse", "--short=8", "HEAD").chomp
     ENV["CGO_ENABLED"] = "0"
     # build in local dir to avoid this error:
     # go build: cannot write multiple packages to non-directory /usr/local/Cellar/krew/0.3.2/bin/krew

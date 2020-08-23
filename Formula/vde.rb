@@ -3,6 +3,7 @@ class Vde < Formula
   homepage "https://vde.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/vde/vde2/2.3.2/vde2-2.3.2.tar.gz"
   sha256 "22df546a63dac88320d35d61b7833bbbcbef13529ad009c7ce3c5cb32250af93"
+  license "GPL-2.0"
 
   bottle do
     sha256 "141613f09143ec306b51817ff4b205462a95f5272099b3500486cc5b6926ab27" => :catalina

@@ -1,27 +1,25 @@
 class Vegeta < Formula
   desc "HTTP load testing tool and library"
   homepage "https://github.com/tsenart/vegeta"
-  url "https://github.com/tsenart/vegeta.git",
-      :tag      => "v12.8.1",
-      :revision => "19b74586217105bbde8ded6077c70095e97146bf"
+  url "https://github.com/tsenart/vegeta/archive/v12.8.3.tar.gz"
+  sha256 "2e6326b2fe0ef273ae784600e2181e32d307b62beb29cc84ffc8ddd0d5352df9"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "11fc785f649354761d2d4060f311e29ab5dcc7217b3fe6c1dc0c0b932dc6ea60" => :catalina
-    sha256 "ebcff7033c06c152bdf9b2e58d71e67450aed726130d05e37e2f74462b2e3538" => :mojave
-    sha256 "cd5cedfa3aebbabadbaaebdf2963fd97df4073fb6033ddcd284691e9e1d4ae35" => :high_sierra
+    sha256 "f93a70561ffc7d97fb58638e1555148058036f1b65ee3b0891352346a256c8d5" => :catalina
+    sha256 "f3496b02858387a32051d015677ca417c04251b2a98b6d36d8611836908dd23e" => :mojave
+    sha256 "d03417e5f8bf936b8fa726f6ec25607809db1e284a4ca98ebf884fea3825ec49" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    commit = Utils.popen_read("git rev-parse --short HEAD").chomp
-    build_time = Utils.popen_read("date -u +'%Y-%m-%dT%H:%M:%SZ' 2> /dev/null").chomp
+    build_time = Utils.safe_popen_read("date -u +'%Y-%m-%dT%H:%M:%SZ' 2> /dev/null").chomp
 
     ldflags = %W[
       -s -w
       -X main.Version=#{version}
-      -X main.Commit=#{commit}
       -X main.Date=#{build_time}
     ]
 

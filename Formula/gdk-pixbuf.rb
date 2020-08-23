@@ -3,22 +3,26 @@ class GdkPixbuf < Formula
   homepage "https://gtk.org"
   url "https://download.gnome.org/sources/gdk-pixbuf/2.40/gdk-pixbuf-2.40.0.tar.xz"
   sha256 "1582595099537ca8ff3b99c6804350b4c058bb8ad67411bbaae024ee7cead4e6"
+  revision 1
 
   bottle do
-    sha256 "bb817292ab8e01a155b663ece6a1b887bb3340c7bfabf567b83b55c7e1b84bd6" => :catalina
-    sha256 "9d9602f291e4023873a0f76cbff3e6c0de7456567ade57a178fad4939904043d" => :mojave
-    sha256 "9cfc180931b123287962d66652d847b404bda76ac4c75333b4145cfa145fc87f" => :high_sierra
+    sha256 "d70823971bb0c34d1ca997233471c9727dc7fe487ffbda050fad35a873a2b909" => :catalina
+    sha256 "e2599d42eb2cdf08f3784575778ea782e9bd5dfefbf15f7aea5408d8f653a6be" => :mojave
+    sha256 "3e95bd4ea1b357022809c86a104e0e971a264ffc69888026f261d74507abea00" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python" => :build
   depends_on "glib"
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
+
+  on_linux do
+    depends_on "shared-mime-info"
+  end
 
   # gdk-pixbuf has an internal version number separate from the overall
   # version number that specifies the location of its module and cache
@@ -37,8 +41,7 @@ class GdkPixbuf < Formula
               "-DGDK_PIXBUF_LIBDIR=\"@0@\"'.format(gdk_pixbuf_libdir)",
               "-DGDK_PIXBUF_LIBDIR=\"@0@\"'.format('#{HOMEBREW_PREFIX}/lib')"
 
-    args = %W[
-      --prefix=#{prefix}
+    args = std_meson_args + %w[
       -Dx11=false
       -Ddocs=false
       -Dgir=true

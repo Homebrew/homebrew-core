@@ -1,20 +1,20 @@
 class GetIplayer < Formula
   desc "Utility for downloading TV and radio programmes from BBC iPlayer"
   homepage "https://github.com/get-iplayer/get_iplayer"
-  url "https://github.com/get-iplayer/get_iplayer/archive/v3.25.tar.gz"
-  sha256 "2ae278a812494d6289224e6d347c8761ec815ad84f4daf41fd0a4f62832b7d63"
-  head "https://github.com/get-iplayer/get_iplayer.git", :branch => "develop"
+  url "https://github.com/get-iplayer/get_iplayer/archive/v3.26.tar.gz"
+  sha256 "2ec105ccb47910d7f3ff7124ecaa839a8778837c12881358e627a132ba027b06"
+  license "GPL-3.0"
+  head "https://github.com/get-iplayer/get_iplayer.git", branch: "develop"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "039b49cd5c543dfa6d6a72ca1102aad3b1524b8d4a48cba0253c513bddbc1129" => :catalina
-    sha256 "4f46d21efe29329f06b853e744609a45acb64074376777ba5661ef4f925c95f5" => :mojave
-    sha256 "447f3960eb18c8b0779d98c93e187b3e9009995466b0c228ef6157a45115bdaf" => :high_sierra
+    sha256 "a3e2df4c8d889ff6230f0ef2bdace24455d15de97a0442b19139f7b8502dbf28" => :catalina
+    sha256 "574a33ef3208092d42fb8640da5ec55dd33b8114207f871329dfdd04813f77e1" => :mojave
+    sha256 "7cb313cecc47bd886b3fa782cc90d790ba75af34567b6bd29af84a218abcec40" => :high_sierra
   end
 
   depends_on "atomicparsley"
   depends_on "ffmpeg"
-  depends_on :macos => :yosemite
 
   uses_from_macos "libxml2"
   uses_from_macos "perl"
@@ -56,7 +56,7 @@ class GetIplayer < Formula
     end
 
     bin.install "get_iplayer", "get_iplayer.cgi"
-    bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
+    bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
     man1.install "get_iplayer.1"
   end
 

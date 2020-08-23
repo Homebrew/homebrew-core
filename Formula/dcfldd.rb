@@ -3,6 +3,7 @@ class Dcfldd < Formula
   homepage "https://dcfldd.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/dcfldd/dcfldd/1.3.4-1/dcfldd-1.3.4-1.tar.gz"
   sha256 "f5143a184da56fd5ac729d6d8cbcf9f5da8e1cf4604aa9fb97c59553b7e6d5f8"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

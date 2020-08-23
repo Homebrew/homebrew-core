@@ -3,6 +3,7 @@ class Iperf3 < Formula
   homepage "https://github.com/esnet/iperf"
   url "https://github.com/esnet/iperf/archive/3.7.tar.gz"
   sha256 "c349924a777e8f0a70612b765e26b8b94cc4a97cc21a80ed260f65e9823c8fc5"
+  license "BSD-3-Clause"
   revision 1
 
   bottle do

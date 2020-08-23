@@ -3,13 +3,12 @@ class Imake < Formula
   homepage "https://xorg.freedesktop.org"
   url "https://xorg.freedesktop.org/releases/individual/util/imake-1.0.8.tar.bz2"
   sha256 "b8d2e416b3f29cd6482bcffaaf19286d32917a164d07102a0e531ccd41a2a702"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "1a574a4c8ceca83d91e73ab77b92c591443dab31822cda9f81e71bde30181a68" => :catalina
-    sha256 "ac21eb715eb1287107b2ce1a17b1603f84621f763e7fcbbb9a570c5591afcd79" => :mojave
-    sha256 "393c0d8de751664235eb1683351bf78dec4a65d731ffdff2afd544ad854b3ebb" => :high_sierra
-    sha256 "3a08e1b5dc7b24286dc06a10ef792c09c7ce2b9f588418c180ee67d57bf2874f" => :sierra
+    sha256 "9397e56fac8b92243e8dbd73e9bf96d6bb932832a4571e8b571098ea251eb1e2" => :catalina
+    sha256 "857384a54365558b10ca72836f6367027f28eb7ce480c5bb3266f5630bb3530f" => :mojave
+    sha256 "ad17ed4504f421c25c474e005e9595745719f4448f55cbfdee0c3fd42ad44b76" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -30,7 +29,7 @@ class Imake < Formula
     ENV.deparallelize
 
     # imake runtime is broken when used with clang's cpp
-    cpp_program = Formula["gcc"].opt_bin/"cpp-#{Formula["gcc"].version_suffix}"
+    cpp_program = Formula["gcc"].opt_bin/"cpp-#{Formula["gcc"].installed_version.major}"
     inreplace "imakemdep.h", /::CPPCMD::/, cpp_program
     inreplace "imake.man", /__cpp__/, cpp_program
 
@@ -53,7 +52,7 @@ class Imake < Formula
   test do
     # Use pipe_output because the return code is unimportant here.
     output = pipe_output("#{bin}/imake -v -s/dev/null -f/dev/null -T/dev/null 2>&1")
-    gcc_major_ver = Formula["gcc"].version_suffix
+    gcc_major_ver = Formula["gcc"].installed_version.major
     assert_match "#{Formula["gcc"].opt_bin}/cpp-#{gcc_major_ver}", output
   end
 end

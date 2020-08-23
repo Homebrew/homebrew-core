@@ -3,6 +3,7 @@ class Fail2ban < Formula
   homepage "https://www.fail2ban.org/"
   url "https://github.com/fail2ban/fail2ban/archive/0.11.1.tar.gz"
   sha256 "71d2a52b66bb0f87ac3812246bdd3819ec561913cd44afd39130a342f043aa6d"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation
@@ -76,7 +77,7 @@ class Fail2ban < Formula
     end
 
     bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
     man1.install Dir["man/*.1"]
     man5.install "man/jail.conf.5"
   end
@@ -108,7 +109,7 @@ class Fail2ban < Formula
     EOS
   end
 
-  plist_options :startup => true
+  plist_options startup: true
 
   def plist
     <<~EOS

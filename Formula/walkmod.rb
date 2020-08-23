@@ -13,7 +13,7 @@ class Walkmod < Formula
     # Remove windows files
     rm_f Dir["bin/*.bat"]
     libexec.install Dir["*"]
-    (bin/"walkmod").write_env_script libexec/"bin/walkmod", :JAVA_HOME => Formula["openjdk"].opt_prefix
+    (bin/"walkmod").write_env_script libexec/"bin/walkmod", JAVA_HOME: Formula["openjdk"].opt_prefix
   end
 
   test do

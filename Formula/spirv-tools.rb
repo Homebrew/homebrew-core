@@ -1,35 +1,36 @@
 class SpirvTools < Formula
   desc "API and commands for processing SPIR-V modules"
   homepage "https://github.com/KhronosGroup/SPIRV-Tools"
-  url "https://github.com/KhronosGroup/SPIRV-Tools/archive/v2020.1.tar.gz"
-  sha256 "1eaa5e09c638d7113b60d825e6ce44406b35031be68db894a016b5faf45de568"
+  url "https://github.com/KhronosGroup/SPIRV-Tools/archive/v2020.3.tar.gz"
+  sha256 "8b538a1cb2a4275ef9617abcb047d54e8292f975ac1d93323d5dd1e19c85280b"
+  license "Apache-2.0"
 
   bottle do
     cellar :any
-    sha256 "15a96dc1514bf38d8621de8fa619aa50ebf487f107af0e3ec9a6030386a6b571" => :catalina
-    sha256 "fcd6571cf56d07414adca48bf8c6353562f2ad02b411f5987af5cc2849279ec9" => :mojave
-    sha256 "85d4d47f7e9cd46575538dd46c43045346888e3044d9ea53f5195117943a33d8" => :high_sierra
+    sha256 "eb2e8acb244d040f0bbc586c037650a13672c32b5894fbe54be1531eb649ee35" => :catalina
+    sha256 "5874ff4a3b024d83c6b203e75087717951b571352bf1a25a59aeb4e58e5194fc" => :mojave
+    sha256 "f9f5ffdf2de7a2650b251aad002e94b27d16818172f2a168ca51cda8b80bf74a" => :high_sierra
   end
 
   depends_on "cmake" => :build
-  depends_on "python" => :build
+  depends_on "python@3.8" => :build
 
   resource "re2" do
     # revision number could be found in ./DEPS
     url "https://github.com/google/re2.git",
-        :revision => "5bd613749fd530b576b890283bfb6bc6ea6246cb"
+        revision: "5bd613749fd530b576b890283bfb6bc6ea6246cb"
   end
 
   resource "effcee" do
     # revision number could be found in ./DEPS
     url "https://github.com/google/effcee.git",
-        :revision => "cd25ec17e9382f99a895b9ef53ff3c277464d07d"
+        revision: "cd25ec17e9382f99a895b9ef53ff3c277464d07d"
   end
 
   resource "spirv-headers" do
     # revision number could be found in ./DEPS
     url "https://github.com/KhronosGroup/SPIRV-Headers.git",
-        :revision => "dc77030acc9c6fe7ca21fff54c5a9d7b532d7da6"
+        revision: "f8bf11a0253a32375c32cad92c841237b96696c0"
   end
 
   def install

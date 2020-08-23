@@ -1,16 +1,17 @@
 class Mint < Formula
   desc "Dependency manager that installs and runs Swift command-line tool packages"
   homepage "https://github.com/yonaskolb/Mint"
-  url "https://github.com/yonaskolb/Mint/archive/0.14.1.tar.gz"
-  sha256 "f6d1c67bab54d337ba2c1b2ab520bf1a4b24e47539d272cdf00a447b41ddd15c"
+  url "https://github.com/yonaskolb/Mint/archive/0.14.2.tar.gz"
+  sha256 "0ed7107159ee00fbc3f69b3325363406e868bdd0dd23ee50670eca8f14622ef5"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c904d521d18720a27a6eccdddd7747f2a680b7e9e87c309ebfc15c13b05e3def" => :catalina
-    sha256 "449bdbdd101b36b678348588a372b9af7118bdbaa8ac73b826e4f86b706009fd" => :mojave
+    sha256 "cc7a17ee517fe97f12852c71252896c9ca30dfe8236f816f2990b2d0553ff5b3" => :catalina
+    sha256 "f70e96558839243a845c67f15defbd8718ad5a9e094ae1c1b998ac9faf4399b0" => :mojave
   end
 
-  depends_on :xcode => ["10.2", :build]
+  depends_on xcode: ["10.2", :build]
 
   def install
     system "make", "install", "PREFIX=#{prefix}"

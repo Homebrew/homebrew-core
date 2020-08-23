@@ -1,17 +1,15 @@
 class Chordii < Formula
   desc "Text file to music sheet converter"
   homepage "https://www.vromans.org/johan/projects/Chordii/"
-  url "https://downloads.sourceforge.net/project/chordii/chordii/4.5/chordii-4.5.3.tar.gz"
-  sha256 "140d24a8bc8c298e8db1b9ca04cf02890951aa048a656adb7ee7212c42ce8d06"
+  url "https://downloads.sourceforge.net/project/chordii/chordii/4.5/chordii-4.5.3b.tar.gz"
+  sha256 "edb19be9de456366e592a75a5ce1c0a75352a55d5b4e5f282c953c7e7f2d87b5"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1611b19a86188ebf0adb51613db08e33decc24a0d80616cef4475c28c0dba03e" => :catalina
-    sha256 "d43e4f2dacabc0c4caeeaeff753d68616a4e5113def336afc9a4d599f3a9f87f" => :mojave
-    sha256 "92b70657704a64aa528b4d0171f2e67e57046969b61aeee6c70b174e6d7cc89b" => :high_sierra
-    sha256 "5eed38c2781095a1ea852e8407d791ee09c87f06e8d596e49e3abb685f8234ad" => :sierra
-    sha256 "99c022cf0741bca48fd78d1bc5b5f0488e720321133a1357412d2342527a1dd8" => :el_capitan
-    sha256 "02cca7ec07939f7b29f1f2c844d250caaa9b7ba7d19e51f9e3eeb636d51b72d4" => :yosemite
+    sha256 "ed1f635a737973af4b9f4f784757cdf0ddbb3f946cb285917c171392a9b59d4a" => :catalina
+    sha256 "def6b665fba55dfb8fa30269966e059b0a827f62a2338f73ea89c47a42fa7de7" => :mojave
+    sha256 "1901080a06bb4728ec9858e4e548f68e044534b9d65dee1996f0590b56abc1a9" => :high_sierra
   end
 
   def install

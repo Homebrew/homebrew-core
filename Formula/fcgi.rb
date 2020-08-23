@@ -2,26 +2,23 @@ class Fcgi < Formula
   desc "Protocol for interfacing interactive programs with a web server"
   # Last known good original homepage: https://web.archive.org/web/20080906064558/www.fastcgi.com/
   homepage "https://fastcgi-archives.github.io/"
-  url "https://downloads.sourceforge.net/project/slackbuildsdirectlinks/fcgi/fcgi-2.4.0.tar.gz"
-  mirror "https://fossies.org/linux/www/old/fcgi-2.4.0.tar.gz"
-  mirror "https://ftp.gwdg.de/pub/linux/gentoo/distfiles/fcgi-2.4.0.tar.gz"
-  sha256 "66fc45c6b36a21bf2fbbb68e90f780cc21a9da1fffbae75e76d2b4402d3f05b9"
+  url "https://github.com/FastCGI-Archives/fcgi2/archive/2.4.2.tar.gz"
+  sha256 "1fe83501edfc3a7ec96bb1e69db3fd5ea1730135bd73ab152186fd0b437013bc"
+  license "OML"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "54cfcdd18d640c947dca6c7d02eec6ef996ed6abd1cce93ec6d2265da7c56415" => :catalina
-    sha256 "022ad3910de37e2713d9795bff3fc89d4562e4eeea218e9985023515478b980f" => :mojave
-    sha256 "e3916280d172a68bd76bb57d6799e7557a5b0933949403cefd35ec722da89889" => :high_sierra
+    sha256 "3905f7f3dec32a296b831f224a4f2cc75089c60b8a0137ce0b25e37466ffba8a" => :catalina
+    sha256 "a43c52588cc652fcc1d9be4d89393212875732349bd4dbdda4068f985db10628" => :mojave
+    sha256 "3ee3183f46dd8f38eee932f685e8d6a52fd0c0c2a1797bb25d62ad973b1405ed" => :high_sierra
   end
 
-  # Fixes "dyld: Symbol not found: _environ"
-  # Affects programs linking this library. Reported at
-  # https://fastcgi-developers.fastcgi.narkive.com/Kowew8bW/patch-for-symbol-not-found-environ-on-mac-os-x
-  # https://trac.macports.org/browser/trunk/dports/www/fcgi/files/patch-libfcgi-fcgi_stdio.c.diff
-  patch :DATA
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
 
   def install
+    system "./autogen.sh"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
@@ -40,20 +37,3 @@ class Fcgi < Formula
     assert_match "Request number 1 running on host", shell_output("./testfile")
   end
 end
-
-__END__
---- a/libfcgi/fcgi_stdio.c
-+++ b/libfcgi/fcgi_stdio.c
-@@ -40,7 +40,12 @@
-
- #ifndef _WIN32
-
-+#if defined(__APPLE__)
-+#include <crt_externs.h>
-+#define environ (*_NSGetEnviron())
-+#else
- extern char **environ;
-+#endif
-
- #ifdef HAVE_FILENO_PROTO
- #include <stdio.h>

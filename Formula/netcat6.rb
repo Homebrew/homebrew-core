@@ -3,6 +3,7 @@ class Netcat6 < Formula
   homepage "https://www.deepspace6.net/projects/netcat6.html"
   url "https://deb.debian.org/debian/pool/main/n/nc6/nc6_1.0.orig.tar.gz"
   sha256 "db7462839dd135ff1215911157b666df8512df6f7343a075b2f9a2ef46fe5412"
+  license "GPL-2.0"
 
   bottle do
     rebuild 1

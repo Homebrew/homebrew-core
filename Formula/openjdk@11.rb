@@ -1,20 +1,24 @@
 class OpenjdkAT11 < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://hg.openjdk.java.net/jdk-updates/jdk11u/archive/jdk-11.0.6+10.tar.bz2"
-  version "11.0.6+10"
-  sha256 "b42915ad92d8b23dfe40faed00096cec0b303447869766292aa86f22b0c67601"
+  url "https://hg.openjdk.java.net/jdk-updates/jdk11u/archive/jdk-11.0.8-ga.tar.bz2"
+  sha256 "0c10838f708a5987d2980aee56c5c50c02637e21387215f3e13358b93d107192"
+  license "GPL-2.0"
 
   bottle do
     cellar :any
-    sha256 "985e0fc09118eeabd6d4542c7dd129baaebf240b1ee71d00f0617e8aa1d97cca" => :catalina
-    sha256 "9946a2c9f65a38e2b6e49c08c6da80947e7d18654bd5c68c4fdca4d3b4c0091b" => :mojave
-    sha256 "54f064ad1a7ee8a0c9d42270ebce38941b1aa80989fc2fa09b07d59322c1b6f4" => :high_sierra
+    sha256 "5cf17a69c7f88b8f721959391d89eafcf1dc6ebcbe5f1496b99448ac9fce0c1d" => :catalina
+    sha256 "a575ebd198211a770bf0fce657c2393c19064d13621dfc88fc6104cadb205250" => :mojave
+    sha256 "ebbda44a7ef9c6d4af36185b8fbdbc16f403c9705696b49b2bd477110d7900ad" => :high_sierra
   end
 
   keg_only :versioned_formula
 
   depends_on "autoconf" => :build
+
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
 
   resource "boot-jdk" do
     url "https://download.java.net/java/GA/jdk10/10.0.2/19aef61b38124481863b1413dce1855f/13/openjdk-10.0.2_osx-x64_bin.tar.gz"
@@ -27,7 +31,7 @@ class OpenjdkAT11 < Formula
     boot_jdk = boot_jdk_dir/"Contents/Home"
     java_options = ENV.delete("_JAVA_OPTIONS")
 
-    short_version, _, build = version.to_s.rpartition("+")
+    _, _, build = version.to_s.rpartition("+")
 
     chmod 0755, "configure"
     system "./configure", "--without-version-pre",
@@ -45,7 +49,7 @@ class OpenjdkAT11 < Formula
     ENV["MAKEFLAGS"] = "JOBS=#{ENV.make_jobs}"
     system "make", "images"
 
-    jdk = "build/macosx-x86_64-normal-server-release/images/jdk-bundle/jdk-#{short_version}.jdk"
+    jdk = Dir["build/*/images/jdk-bundle/*"].first
     libexec.install jdk => "openjdk.jdk"
     bin.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/bin/*"]
     include.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/include/*.h"]

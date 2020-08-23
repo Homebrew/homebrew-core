@@ -1,36 +1,83 @@
-name: 'New CI Testing (Ignore Failures)'
-
+name: GitHub Actions CI
 on:
-  pull_request: []
-
+  push:
+    branches: master
+  pull_request:
+env:
+  HOMEBREW_DEVELOPER: 1
+  HOMEBREW_GITHUB_ACTIONS: 1
+  HOMEBREW_NO_AUTO_UPDATE: 1
 jobs:
+  tap_syntax:
+    if: github.repository == 'Homebrew/homebrew-core'
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set up Homebrew
+      id: set-up-homebrew
+      uses: Homebrew/actions/setup-homebrew@master
+
+    - name: Cache Bundler RubyGems
+      id: cache
+      uses: actions/cache@v1
+      with:
+        path: ${{ steps.set-up-homebrew.outputs.gems-path }}
+        key: ${{ runner.os }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}
+        restore-keys: ${{ runner.os }}-rubygems-
+
+    - name: Install Bundler RubyGems
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: brew install-bundler-gems
+
+    - run: brew test-bot --only-tap-syntax
+
   tests:
+    needs: tap_syntax
+    if: github.event_name == 'pull_request' && ! contains(github.event.pull_request.labels.*.name, 'CI-syntax-only')
     strategy:
       matrix:
         version: [10.15, 10.14, 10.13]
+      fail-fast: false
     runs-on: ${{ matrix.version }}
+    timeout-minutes: 4320
     env:
-      HOMEBREW_GIT_NAME: BrewTestBot
-      HOMEBREW_GIT_EMAIL: 'homebrew-test-bot@lists.sfconservancy.org'
       PATH: '/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin'
       HOMEBREW_DEVELOPER: 1
-      HOMEBREW_NO_ANALYTICS: 1
-      HOMEBREW_NO_AUTO_UPDATE: 1
       GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED: 1
+      GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
     steps:
-      - name: Checkout repository
-        run: |
-          cd $(brew --repo ${{github.repository}})
-          git clean -ffdx
-          git fetch --prune --force origin master
-          git fetch --prune --force origin ${{github.sha}}
-          git checkout --force ${{github.sha}}
-          git log -1
-      - name: Build bottles
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - run: brew test-bot --only-cleanup-before
+
+      - run: brew test-bot --only-setup
+
+      - name: Run brew test-bot --only-formulae
         run: |
           mkdir bottles
           cd bottles
-          brew test-bot
+          brew test-bot --only-formulae
+
+      - name: Output brew test-bot --only-formulae failures
+        if: always()
+        run: |
+          cat bottles/steps_output.txt
+          rm bottles/steps_output.txt
+
+      - name: Upload logs
+        if: failure()
+        uses: actions/upload-artifact@main
+        with:
+          name: logs (${{ matrix.version }})
+          path: bottles/logs
+
+      - name: Delete logs and home
+        if: always()
+        run: |
+          rm -rvf bottles/logs
+          rm -rvf bottles/home
+
       - name: Count bottles
         id: bottles
         if: always()
@@ -39,14 +86,17 @@ jobs:
           count=$(ls *.json | wc -l | xargs echo -n)
           echo "$count bottles"
           echo "::set-output name=count::$count"
+
       - name: Upload bottles
-        if: steps.bottles.outputs.count > 0
-        uses: actions/upload-artifact@v1
+        if: always() && steps.bottles.outputs.count > 0
+        uses: actions/upload-artifact@main
         with:
           name: bottles
           path: bottles
-      - name: Cleanup
+
+      - run: brew test-bot --only-cleanup-after
         if: always()
-        run: |
-          find .
-          rm -rf *
+
+      - name: Post Cleanup
+        if: always()
+        run: rm -rvf bottles

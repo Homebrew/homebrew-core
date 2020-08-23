@@ -3,6 +3,7 @@ class Hello < Formula
   homepage "https://www.gnu.org/software/hello/"
   url "https://ftp.gnu.org/gnu/hello/hello-2.10.tar.gz"
   sha256 "31e066137a962676e89f69d1b65382de95a7ef7d914b8cb956f41ea72e0f516b"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,7 +16,7 @@ class Hello < Formula
     sha256 "c80495cb6d1ad8f2c3a64c22c9dcee9d0117ca25fa6426f20a6acca275cd6c56" => :mavericks
   end
 
-  conflicts_with "camlistore", :because => "both install `hello` binaries"
+  conflicts_with "perkeep", because: "both install `hello` binaries"
 
   def install
     system "./configure", "--disable-debug",

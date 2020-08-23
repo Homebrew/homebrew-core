@@ -1,23 +1,24 @@
 class Treefrog < Formula
   desc "High-speed C++ MVC Framework for Web Application"
   homepage "https://www.treefrogframework.org/"
-  url "https://github.com/treefrogframework/treefrog-framework/archive/v1.24.0.tar.gz"
-  sha256 "4060736e96bb3c84fe3d0a251cf140baf29724d4cb50212cee4dbf1d491982ed"
+  url "https://github.com/treefrogframework/treefrog-framework/archive/v1.29.0.tar.gz"
+  sha256 "e5c0dbd6e317d27289bd9f500fae3bd84c74c1e982b914ae193b279c35e1bc0f"
+  license "BSD-3-Clause"
   head "https://github.com/treefrogframework/treefrog-framework.git"
 
   bottle do
-    sha256 "d0c424e40d84fcef8d35bb792f8d3adaf6ebdee2118213c8b13b0e3c57cdea7c" => :catalina
-    sha256 "bbf06535ab64a86ae25ddaf3e2ac066ec48143aa44dc358cd63651c60d9d5cb3" => :mojave
-    sha256 "22653f1d3be2a7dfae678d4d8d9be1b14be167ffc1f3d1cc040e9c3cf1368475" => :high_sierra
-    sha256 "19cc929312e7be589ec943cc4d12a1a34bd4f0b37a008202ff4e551df5c076b1" => :sierra
+    sha256 "b60083bd0a5e7ae3d938d10fd44b22ec00a49efdf984294f02cfd88fd859af52" => :catalina
+    sha256 "e87f7b1ff88ed2cff824039ac6acbf1437e9adcc4599cd0dc6162194fc861733" => :mojave
+    sha256 "a690eac1c340e7695a25b2f561d86b33cb5d2c970f6b6961799257787af89a65" => :high_sierra
   end
 
-  depends_on :xcode => ["8.0", :build]
-  depends_on :macos => :el_capitan
+  depends_on xcode: ["8.0", :build]
+  depends_on macos: :el_capitan
+  depends_on "mongo-c-driver"
   depends_on "qt"
 
   def install
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}", "--enable-shared-mongoc"
 
     cd "src" do
       system "make"

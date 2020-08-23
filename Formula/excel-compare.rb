@@ -3,6 +3,7 @@ class ExcelCompare < Formula
   homepage "https://github.com/na-ka-na/ExcelCompare"
   url "https://github.com/na-ka-na/ExcelCompare/releases/download/0.6.1/ExcelCompare-0.6.1.zip"
   sha256 "9da80954db03f23ebcb6571fdd24520a020a0ea05f46fbe4aba8e2af54c6048c"
+  license "MIT"
 
   bottle :unneeded
 

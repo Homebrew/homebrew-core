@@ -3,6 +3,7 @@ class Pcb < Formula
   homepage "http://pcb.geda-project.org/"
   url "https://downloads.sourceforge.net/project/pcb/pcb/pcb-4.2.2/pcb-4.2.2.tar.gz"
   sha256 "1ceeaf1bdbe0508b9b140ca421eb600836579114c04dee939341c5d594f36e5d"
+  license "GPL-2.0"
   version_scheme 1
 
   bottle do
@@ -26,7 +27,7 @@ class Pcb < Formula
   depends_on "gtk+"
   depends_on "gtkglext"
 
-  conflicts_with "gts", :because => "both install a `gts.h` header"
+  conflicts_with "gts", because: "both install a `gts.h` header"
 
   def install
     system "./autogen.sh" if build.head?

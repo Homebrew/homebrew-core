@@ -3,6 +3,7 @@ class SpacemanDiff < Formula
   homepage "https://github.com/holman/spaceman-diff"
   url "https://github.com/holman/spaceman-diff/archive/v1.0.3.tar.gz"
   sha256 "347bf7d32d6c2905f865b90c5e6f4ee2cd043159b61020381f49639ed5750fdf"
+  license "MIT"
   head "https://github.com/holman/spaceman-diff.git"
 
   bottle :unneeded

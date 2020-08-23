@@ -3,24 +3,29 @@ class PerlAT518 < Formula
   homepage "https://www.perl.org/"
   url "https://www.cpan.org/src/5.0/perl-5.18.4.tar.gz"
   sha256 "01a4e11a9a34616396c4a77b3cef51f76a297e1a2c2c490ae6138bf0351eb29f"
+  license "Artistic-1.0-Perl"
+  revision 1
 
   bottle do
-    sha256 "bdfac28ec4bf1ea1859b23564e0e4fd80ffe5ec5f7b54efc21cf8f1c47b396b8" => :high_sierra
-    sha256 "a73a2bbb48200827c3cca867b2145808735e5f250af55a01580fffd875da983e" => :sierra
-    sha256 "a4400e07a3930625832082f113abbd9069f818dc22c1bac17b23e99edaff66ff" => :el_capitan
+    sha256 "45b388773570fd4ef892caa7a0bb0312fd05dfcb3f73245a03eed16bf9187cc9" => :catalina
+    sha256 "3e80537039afd47db55b42a09f34c2b1e6fc2a24581c16d09d76b5ad85997ed6" => :mojave
+    sha256 "4ebffdb24ede27bf2fb4f844c87f4adc962942d399c6762b3c6cf90b929fa50a" => :high_sierra
   end
 
   keg_only :versioned_formula
 
   def install
-    args = [
-      "-des",
-      "-Dprefix=#{prefix}",
-      "-Dman1dir=#{man1}",
-      "-Dman3dir=#{man3}",
-      "-Duseshrplib",
-      "-Duselargefiles",
-      "-Dusethreads",
+    ENV.deparallelize if MacOS.version >= :catalina
+
+    args = %W[
+      -des
+      -Dprefix=#{prefix}
+      -Dman1dir=#{man1}
+      -Dman3dir=#{man3}
+      -Duseshrplib
+      -Duselargefiles
+      -Dusethreads
+      -Dsed=/usr/bin/sed
     ]
 
     system "./Configure", *args

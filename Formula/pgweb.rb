@@ -3,6 +3,7 @@ class Pgweb < Formula
   homepage "https://sosedoff.github.io/pgweb/"
   url "https://github.com/sosedoff/pgweb/archive/v0.11.6.tar.gz"
   sha256 "8d692a1220a85884f231c3480e0da305678d86660e795a5eb510d076945adf65"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
@@ -29,11 +30,7 @@ class Pgweb < Formula
   end
 
   test do
-    require "socket"
-
-    server = TCPServer.new(0)
-    port = server.addr[1]
-    server.close
+    port = free_port
 
     begin
       pid = fork do

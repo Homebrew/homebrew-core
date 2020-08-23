@@ -3,12 +3,16 @@ class Gradio < Formula
   homepage "https://github.com/haecker-felix/Gradio"
   url "https://github.com/haecker-felix/Gradio/archive/v7.3.tar.gz"
   sha256 "5c5afed83fceb9a9f8bc7414b8a200128b3317ccf1ed50a0e7321ca15cf19412"
+  license "GPL-3.0"
+  revision 1
 
   bottle do
-    sha256 "51fcbc324b7f1a95ce0b98c9382053d7f035db79f74f1d560f2a5452d2d081df" => :catalina
-    sha256 "7d4f0372797621d23eb0e85f6d5ed2ae884703b57960c1586c09687d9d1055eb" => :mojave
-    sha256 "5c3f745ad431c61ef3d19b4a2a03d6f24eb99dd47768178e6d1810edba4f12fa" => :high_sierra
+    sha256 "80de210e71cbf7bd18f125ed1b74c58939046418905bbbbe03892b1b7d4dc8ca" => :catalina
+    sha256 "afed2590e43bb873751bf147da70228edf518aaa4da9a47a8e74a339385e7407" => :mojave
+    sha256 "772bc7cd809b085f9eaf2419ae9ddae50e80cbaaace480fe1f3d23c26bd8f164" => :high_sierra
   end
+
+  deprecate! date: "2019-11-16"
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
@@ -23,13 +27,13 @@ class Gradio < Formula
   depends_on "hicolor-icon-theme"
   depends_on "json-glib"
   depends_on "libsoup"
-  depends_on "python"
+  depends_on "python@3.7"
 
   def install
     # stop meson_post_install.py from doing what needs to be done in the post_install step
     ENV["DESTDIR"] = "/"
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", ".."
+      system "meson", *std_meson_args, ".."
       system "ninja"
       system "ninja", "install"
     end

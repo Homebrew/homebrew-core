@@ -3,6 +3,7 @@ class Libbi < Formula
   homepage "https://libbi.org/"
   url "https://github.com/lawmurray/LibBi/archive/1.4.5.tar.gz"
   sha256 "af2b6d30e1502f99a3950d63ceaf7d7275a236f4d81eff337121c24fbb802fbe"
+  license "GPL-2.0"
   revision 2
   head "https://github.com/lawmurray/LibBi.git"
 
@@ -134,7 +135,7 @@ class Libbi < Formula
     system "make", "install"
 
     pkgshare.install "Test.bi", "test.conf"
-    bin.env_script_all_files(libexec+"bin", :PERL5LIB => ENV["PERL5LIB"])
+    bin.env_script_all_files(libexec+"bin", PERL5LIB: ENV["PERL5LIB"])
   end
 
   test do

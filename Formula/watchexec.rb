@@ -1,26 +1,29 @@
 class Watchexec < Formula
   desc "Execute commands when watched files change"
   homepage "https://github.com/watchexec/watchexec"
-  url "https://github.com/watchexec/watchexec/archive/1.12.0.tar.gz"
-  sha256 "e1e64c2334ab7d867e04f823c26350a8148045afd6261fd631504b2a73af53e0"
+  url "https://github.com/watchexec/watchexec/archive/1.14.0.tar.gz"
+  sha256 "605f58028adf7a9fac42e992633e6291503eefbbbef056607b4b90ed71931f2b"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "68d7edc0ee04c4ca08da96bbb33039343481bfc5cd0bc7a2fe79170477ead26e" => :catalina
-    sha256 "70ba21650ecee850450f952746dde08b1dd9db7efd2ae83803c2e60684263576" => :mojave
-    sha256 "becd5c5c29c12b4f962b416b0428caece88d221ce2086e11faa73318c6ba396b" => :high_sierra
+    sha256 "d9fde64c4686cb698694de2a08b007248859d7bd80b20ce539dfaf9d5d403acf" => :catalina
+    sha256 "e16c18b5a3f0b853b5e966aa29e274c6da83b528c76843fbff558dd216974b94" => :mojave
+    sha256 "69a4a23a68b64e2bc1b5796b4a30f8a6cd1abcff70209d87cf3165c99b7438bc" => :high_sierra
   end
 
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", *std_cargo_args
     man1.install "doc/watchexec.1"
   end
 
   test do
-    o = IO.popen("#{bin}/watchexec -- echo 'saw file change'")
-    sleep 0.1
+    o = IO.popen("#{bin}/watchexec -1 --postpone -- echo 'saw file change'")
+    sleep 1
+    touch "test"
+    sleep 1
     Process.kill("INT", o.pid)
     assert_match "saw file change", o.read
   end

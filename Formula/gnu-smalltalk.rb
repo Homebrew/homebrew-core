@@ -1,17 +1,17 @@
 class GnuSmalltalk < Formula
   desc "GNU Smalltalk interpreter and image"
-  homepage "http://smalltalk.gnu.org/"
+  homepage "https://www.gnu.org/software/smalltalk/"
   url "https://ftp.gnu.org/gnu/smalltalk/smalltalk-3.2.5.tar.xz"
   mirror "https://ftpmirror.gnu.org/smalltalk/smalltalk-3.2.5.tar.xz"
   sha256 "819a15f7ba8a1b55f5f60b9c9a58badd6f6153b3f987b70e7b167e7755d65acc"
-  revision 8
+  license "GPL-2.0"
+  revision 9
   head "https://github.com/gnu-smalltalk/smalltalk.git"
 
   bottle do
-    sha256 "077386aefae2031f572520483582af1b187f7a7ffa47ca47ed417c5bf795eaf3" => :catalina
-    sha256 "15f6824f01f91295ba8d35b3020cae12134bb948dc9fde573ac178ce4fda62c4" => :mojave
-    sha256 "612a100c68c820fd67e05c39f5574589a7fb8803d93fc15ae50f1f343ca577a5" => :high_sierra
-    sha256 "ce5e9408786fee4e48bc2b7413de7e62c0c6f192f754a1403044687c1767f89d" => :sierra
+    sha256 "8a00e81f1a751efeec308de2bbf2e75a1173a636a29c27cec440c121208f0fe6" => :catalina
+    sha256 "0f569ca28ff2eaa54b36780c278a7170be42ef25e6d305852323952390be7270" => :mojave
+    sha256 "2f369eed3ac62fbe0c4c257cefa0c9477ce0a806859a18d65ba565fbfdc76786" => :high_sierra
   end
 
   depends_on "autoconf" => :build

@@ -2,8 +2,9 @@ class Goad < Formula
   desc "AWS Lambda powered, highly distributed, load testing tool built in Go"
   homepage "https://goad.io/"
   url "https://github.com/goadapp/goad.git",
-      :tag      => "2.0.4",
-      :revision => "e015a55faa940cde2bc7b38af65709d52235eaca"
+      tag:      "2.0.4",
+      revision: "e015a55faa940cde2bc7b38af65709d52235eaca"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,6 +18,8 @@ class Goad < Formula
 
   depends_on "go" => :build
   depends_on "go-bindata" => :build
+
+  uses_from_macos "zip" => :build
 
   def install
     ENV["GOPATH"] = buildpath

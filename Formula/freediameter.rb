@@ -1,16 +1,15 @@
 class Freediameter < Formula
   desc "Open source Diameter (Authentication) protocol implementation"
   homepage "http://www.freediameter.net"
-  url "http://www.freediameter.net/hg/freeDiameter/archive/1.3.2.tar.gz"
-  sha256 "ce05b4bf2a04cd2f472e77ba4b86fbfca690bfc83e51da8ce0e575804b763eda"
-  head "http://www.freediameter.net/hg/freeDiameter", :using => :hg
+  url "http://www.freediameter.net/hg/freeDiameter/archive/1.4.0.tar.gz"
+  sha256 "7a537401bd110c606594b7c6be71b993f0ccc73ae151ad68040979286ba4e50e"
+  head "http://www.freediameter.net/hg/freeDiameter", using: :hg
 
   bottle do
     cellar :any
-    sha256 "8c60c4c5831c6d3a538a130a7aea101b6dc8d2f0351c6c1cd418b534cb97f366" => :catalina
-    sha256 "aacb7d5749e234dd8937365b3b493b593a4fc1be5d70c9aed95596b8b238f46d" => :mojave
-    sha256 "e194caf5035629cf10d8872e0c21ca86b8b4f4ae6665ce2d4a424ee2ea5794fb" => :high_sierra
-    sha256 "0f1a491d96a02003555ee8101b6e8d25e580bc8416bb1cdb4f877950dd0a3986" => :sierra
+    sha256 "f63eb43c09115ecc506fb8a3f0cccc4293ee21d8b408a745508cb8a5dadb935f" => :catalina
+    sha256 "f41db0f291fcbbafecd7325c440dbaa2f61df4a250d9a18b216606130df020bc" => :mojave
+    sha256 "66df7c67d2a5f4c18a907df28d115004e1ad016e60af64f2e138356e90458bca" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -49,7 +48,7 @@ class Freediameter < Formula
     EOS
   end
 
-  plist_options :startup => true
+  plist_options startup: true
 
   def plist
     <<~EOS

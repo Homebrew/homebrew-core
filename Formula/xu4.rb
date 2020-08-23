@@ -1,8 +1,9 @@
 class Xu4 < Formula
   desc "Remake of Ultima IV"
   homepage "https://xu4.sourceforge.io/"
-  url "https://svn.code.sf.net/p/xu4/code/trunk/u4", :revision => "3088"
+  url "https://svn.code.sf.net/p/xu4/code/trunk/u4", revision: "3088"
   version "1.0beta4+r3088"
+  license "GPL-2.0"
   head "https://svn.code.sf.net/p/xu4/code/trunk/u4"
 
   bottle do
@@ -20,13 +21,13 @@ class Xu4 < Formula
   depends_on "sdl_mixer"
 
   resource "ultima4" do
-    url "https://www.thatfleminggent.com/ultima/ultima4.zip", :using => :nounzip
+    url "https://www.thatfleminggent.com/ultima/ultima4.zip", using: :nounzip
     sha256 "94aa748cfa1d0e7aa2e518abebb994f3c18acf7edb78c3bd37cd0a4404e6ba74"
   end
 
   resource "u4upgrad" do
     url "https://downloads.sourceforge.net/project/xu4/Ultima%204%20VGA%20Upgrade/1.3/u4upgrad.zip",
-      :using => :nounzip
+      using: :nounzip
     sha256 "400ac37311f3be74c1b2d7836561b2ead2b146f5162586865b0f4881225cca58"
   end
 

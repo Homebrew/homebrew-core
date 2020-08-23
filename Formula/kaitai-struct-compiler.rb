@@ -12,7 +12,7 @@ class KaitaiStructCompiler < Formula
   def install
     libexec.install Dir["*"]
     (bin/"kaitai-struct-compiler").write_env_script libexec/"bin/kaitai-struct-compiler",
-                                                    :JAVA_HOME => Formula["openjdk"].opt_prefix
+                                                    JAVA_HOME: Formula["openjdk"].opt_prefix
   end
 
   test do

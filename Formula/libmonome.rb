@@ -3,6 +3,7 @@ class Libmonome < Formula
   homepage "https://monome.org/"
   url "https://github.com/monome/libmonome/archive/v1.4.2.tar.gz"
   sha256 "d8f87fc8240214c2ca433f4b185eb3ddbace2065f95487e5d9ac0ab60220393d"
+  license "ISC"
   head "https://github.com/monome/libmonome.git"
 
   bottle do

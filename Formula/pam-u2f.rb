@@ -3,14 +3,15 @@ class PamU2f < Formula
   homepage "https://developers.yubico.com/pam-u2f/"
   url "https://developers.yubico.com/pam-u2f/Releases/pam_u2f-1.0.8.tar.gz"
   sha256 "52a203a6fab6160e06c1369ff104afed62007ca3ffbb40c297352232fa975c99"
+  license "BSD-2-Clause"
+  revision 1
   head "https://github.com/Yubico/pam-u2f.git"
 
   bottle do
     cellar :any
-    sha256 "bf854539fa332aaa19f524dec3603f1cdbdfccb714081147b0c6845a6a9cfe24" => :catalina
-    sha256 "5284e43e79ed3e1031484265ef76eb5f02dfd4782de5752f336927feae235750" => :mojave
-    sha256 "07e3f722d932e932de1af8e871940b90fe1340c1332274d1cbc6cceb2e981bda" => :high_sierra
-    sha256 "aba234dff72d3e2c9f51484e294776ca51bc7e03fe390f80539aa5b3e759d1a1" => :sierra
+    sha256 "879e5ac58f8b3dbf4eed7fb075cee4683fae3e9a121000539eb810146c87f0d6" => :catalina
+    sha256 "7967b151cd1ca9c32c61515c0921ec1bc265ae3a5f6a9681c342872974c139b7" => :mojave
+    sha256 "82c61c7cc3d348e81b3669e3d3c1832ac7b97e34840a46f28a213c9052ad1df5" => :high_sierra
   end
 
   depends_on "asciidoc" => :build

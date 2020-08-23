@@ -1,20 +1,21 @@
 class PowerlineGo < Formula
   desc "Beautiful and useful low-latency prompt for your shell"
   homepage "https://github.com/justjanne/powerline-go"
-  url "https://github.com/justjanne/powerline-go/archive/v1.15.0.tar.gz"
-  sha256 "25d54855473c13348423d56406ebd0edc9318b3d4518d151994d90e49f496cb8"
+  url "https://github.com/justjanne/powerline-go/archive/v1.17.0.tar.gz"
+  sha256 "d7825168044159dfdd3983519ea26cf8753f24c3d8c0600ce494c4a6db7a015f"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "765011e80c868376faeba4cbba86085a66e2165cac4931013acd4c0ba63c46d5" => :catalina
-    sha256 "3360d1be2880b36dccac481f62f4bb9034d30f0ca2c77d9d75dcdb4f9ce9f1c2" => :mojave
-    sha256 "f14489bb9af622dbe2cbd3c05fa4f5523dba74a619ea8875a455dd4c5ced07d0" => :high_sierra
+    sha256 "85b3fb674ef3946a25e14c89239effff331e6fd9de986932537066d42e62072f" => :catalina
+    sha256 "789998f2e911d299619dc48ef5065daa6c376ac79ecae129c7fa34bd1b5b95e8" => :mojave
+    sha256 "48fb69d4fc789942392ee92d5c284c819cd02d50d101739f30a8f2a2506f16af" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-o", "#{bin}/#{name}"
+    system "go", "build", "-ldflags", "-s -w", *std_go_args
   end
 
   test do

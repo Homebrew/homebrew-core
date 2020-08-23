@@ -3,6 +3,7 @@ class Twtxt < Formula
   homepage "https://github.com/buckket/twtxt"
   url "https://github.com/buckket/twtxt/archive/v1.2.3.tar.gz"
   sha256 "73b9d4988f96cc969c0c50ece0e9df12f7385735db23190e40c0d5e16f7ccd8c"
+  license "MIT"
   revision 4
 
   bottle do
@@ -82,11 +83,11 @@ class Twtxt < Formula
     system "python3", *Language::Python.setup_install_args(libexec)
 
     bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
   end
 
   # If the test needs to be updated, more users can be found here:
-  # https://github.com/mdom/we-are-twtxt/blob/master/we-are-twtxt.txt
+  # https://github.com/mdom/we-are-twtxt/blob/HEAD/we-are-twtxt.txt
   test do
     ENV["LC_ALL"] = "en_US.UTF-8"
     ENV["LANG"] = "en_US.UTF-8"

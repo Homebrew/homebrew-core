@@ -1,14 +1,15 @@
 class Cppcheck < Formula
   desc "Static analysis of C and C++ code"
   homepage "https://sourceforge.net/projects/cppcheck/"
-  url "https://github.com/danmar/cppcheck/archive/1.90.tar.gz"
-  sha256 "c4864d3e09359214efdd503b52e241f4f56ba7ce26f8c11939fd9dcfac1fd105"
+  url "https://github.com/danmar/cppcheck/archive/2.1.tar.gz"
+  sha256 "447d44bbaa555fa78b89dd2cb0203fd4c6f18269db8a78638b968ba7c72cb02e"
+  license "GPL-3.0"
   head "https://github.com/danmar/cppcheck.git"
 
   bottle do
-    sha256 "4f48c99a90e92048ad0a86b8cbd9666705c6d3befc5cbf17ba3ed366be624737" => :catalina
-    sha256 "4cb4dd593b0532859e6f946315b5e944dd6cb24d9c98b613eed04f6a0f13fde1" => :mojave
-    sha256 "2bd9cd492ab6ac7f6c7cba2e4bc7acc097169326d5aac3253bceab317dcc4933" => :high_sierra
+    sha256 "ddc02ed55b089565973fc8936be8a0ae23829827d0bb8730f2dad2582ad68450" => :catalina
+    sha256 "416cb05e0dbd7f6b4a8c63a8dfe3a6c1d6d24c7c5d121842a4fab38bc70177f8" => :mojave
+    sha256 "4ea4c94f96f842874d9b07e5fd267df48d638c186ea26ee17715c1b130a0248b" => :high_sierra
   end
 
   depends_on "python@3.8" => :test

@@ -3,6 +3,7 @@ class Slackcat < Formula
   homepage "https://github.com/vektorlab/slackcat"
   url "https://github.com/vektorlab/slackcat/archive/v1.6.tar.gz"
   sha256 "e5c8f98f3048cccc3f8e49c0449435a839a18c7f12426643ac80731b63b829a9"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

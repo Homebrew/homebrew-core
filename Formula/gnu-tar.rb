@@ -4,6 +4,7 @@ class GnuTar < Formula
   url "https://ftp.gnu.org/gnu/tar/tar-1.32.tar.gz"
   mirror "https://ftpmirror.gnu.org/tar/tar-1.32.tar.gz"
   sha256 "b59549594d91d84ee00c99cf2541a3330fed3a42c440503326dab767f2fbb96c"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation

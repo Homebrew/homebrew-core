@@ -3,15 +3,14 @@ class Wxpython < Formula
 
   desc "Python bindings for wxWidgets"
   homepage "https://www.wxwidgets.org/"
-  url "https://files.pythonhosted.org/packages/b9/8b/31267dd6d026a082faed35ec8d97522c0236f2e083bf15aff64d982215e1/wxPython-4.0.7.post2.tar.gz"
-  version "4.0.7.post2"
-  sha256 "5a229e695b64f9864d30a5315e0c1e4ff5e02effede0a07f16e8d856737a0c4e"
+  url "https://files.pythonhosted.org/packages/cb/4f/1e21d3c079c973ba862a18f3be73c2bbe2e6bc25c96d94df605b5cbb494d/wxPython-4.1.0.tar.gz"
+  sha256 "2e2475cb755ac8d93d2f9335c39c060b4d17ecb5d4e0e86626d1e2834b64a48b"
 
   bottle do
     cellar :any
-    sha256 "efbbe3dbd7c67ee29154ea478760322c8bfd78d6f47b3bd0cb7e60444393d5c0" => :catalina
-    sha256 "ec81f44d7a30fd52f1fbdf2493a124c22e225cd1a4042489fcac5605599c9597" => :mojave
-    sha256 "5a487d33cdd6493079b0e937a38565c7af94bcbe653f23d1b9e5411cb9539856" => :high_sierra
+    sha256 "c00e5a4248024ff9528f3b99f6c3f16f34f66bd84dc8573333bf986e0016b7d0" => :catalina
+    sha256 "16ecec9c2da446443644964dea15098743e22d53965b28eb7f513cbea4bd90d2" => :mojave
+    sha256 "1146036d785708cfb9f5ea97f3a7ea01583278ccea4cffbfd408c5cb22b067de" => :high_sierra
   end
 
   depends_on "freetype"
@@ -19,39 +18,46 @@ class Wxpython < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "numpy"
-  depends_on "python"
+  depends_on "python@3.8"
+
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "pkg-config" => :build
+    depends_on "gtk+3"
+  end
 
   resource "Pillow" do
-    url "https://files.pythonhosted.org/packages/5b/bb/cdc8086db1f15d0664dd22a62c69613cdc00f1dd430b5b19df1bea83f2a3/Pillow-6.2.1.tar.gz"
-    sha256 "bf4e972a88f8841d8fdc6db1a75e0f8d763e66e3754b03006cbc3854d89f1cb1"
+    url "https://files.pythonhosted.org/packages/3e/02/b09732ca4b14405ff159c470a612979acfc6e8645dc32f83ea0129709f7a/Pillow-7.2.0.tar.gz"
+    sha256 "97f9e7953a77d5a70f49b9a48da7776dc51e9b738151b22dacf101641594a626"
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/94/3e/edcf6fef41d89187df7e38e868b2dd2182677922b600e880baad7749c865/six-1.13.0.tar.gz"
-    sha256 "30f610279e8b2578cab6db20741130331735c781b56053c59c4076da27f06b66"
-  end
-
-  # Fix build for 10.15 SDK (WebKit errors).
-  # Fixed in 4.1.x.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/20da70f67040d40f8420bd7d543c875739261e24/wxpython/10.15-sdk.patch"
-    sha256 "c54f2bb97532f483219c63a3c9e463d4aeda759bee2fff1f07820f3c752f68f1"
+    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
+    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
   end
 
   def install
-    # Fix build of included wxwidgets
-    # see https://github.com/wxWidgets/Phoenix/issues/1247
-    inreplace "buildtools/build_wxwidgets.py",
-              /^( +)(wxpy_configure_opts.append\("--disable-qtkit"\))/,
-              "\\1\\2\n\\1wxpy_configure_opts.append(\"--disable-precomp-headers\")"
+    # Fix build of included wxwidgets:
+    # https://github.com/wxWidgets/Phoenix/issues/1247
+    # https://github.com/Homebrew/homebrew-core/pull/58988
+    inreplace "buildtools/build_wxwidgets.py" do |s|
+      s.gsub! "#wxpy_configure_opts.append(\"--enable-monolithic\")",
+              "wxpy_configure_opts.append(\"--disable-precomp-headers\")"
+      s.gsub! "--with-macosx-version-min=10.9",
+              "--with-macosx-version-min=#{MacOS.version}"
+    end
 
-    venv = virtualenv_create(libexec, "python3")
+    inreplace "wscript", "MACOSX_DEPLOYMENT_TARGET = \"10.6\"",
+                         "MACOSX_DEPLOYMENT_TARGET = \"#{MacOS.version}\""
+
+    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
 
     resource("Pillow").stage do
       inreplace "setup.py" do |s|
         sdkprefix = MacOS.sdk_path_if_needed ? MacOS.sdk_path : ""
-        s.gsub! "openjpeg.h",
-          "probably_not_a_header_called_this_eh.h"
+        s.gsub! "openjpeg.h", "probably_not_a_header_called_this_eh.h"
+        s.gsub! "xcb.h", "probably_not_a_header_called_this_eh.h"
         s.gsub! "ZLIB_ROOT = None",
           "ZLIB_ROOT = ('#{sdkprefix}/usr/lib', '#{sdkprefix}/usr/include')"
         s.gsub! "JPEG_ROOT = None",
@@ -76,10 +82,10 @@ class Wxpython < Formula
   end
 
   test do
-    xy = Language::Python.major_minor_version "python3"
+    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
     ENV.prepend_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
 
-    output = shell_output("python3 -c 'import wx ; print(wx.__version__)'")
+    output = shell_output("#{Formula["python@3.8"].opt_bin}/python3 -c 'import wx ; print(wx.__version__)'")
     assert_match version.to_s, output
   end
 end

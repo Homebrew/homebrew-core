@@ -2,15 +2,16 @@ class ZeroInstall < Formula
   desc "Zero Install is a decentralised software installation system"
   homepage "https://0install.net/"
   url "https://github.com/0install/0install.git",
-      :tag      => "v2.15.1",
-      :revision => "e67df8585bbe75654a1d5aec60d8e46a4688b5e6"
+      tag:      "v2.17",
+      revision: "4a837bd638d93905b96d073c28c644894f8d4a0b"
+  license "LGPL-2.1"
   head "https://github.com/0install/0install.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "670a096307222ef611ea885ac9c1389ffe34c69a220def618e22f14941113737" => :catalina
-    sha256 "a77fcd995618cefc919fd89e38b644be27618c89120f2296555be21674776ec4" => :mojave
-    sha256 "a699dbf8f06b7f392c8dd5cb28c8e24ed6ca6f7aff51226d3abf72afdcc53e53" => :high_sierra
+    sha256 "4306ae5d0ca339a7f5ecd9c7ba6a3a192a1d176883d49dda9d31aad78bc390fd" => :catalina
+    sha256 "73b04cd9560f78c799599fc4f9fba0de2b072c56e2195ef0522bb23e6eeb376b" => :mojave
+    sha256 "4fb5867d432bd3e22525b95682521a12a3279dd4fb7f8b0df3cb6664a6959835" => :high_sierra
   end
 
   depends_on "ocaml" => :build

@@ -1,14 +1,17 @@
 class Mosquitto < Formula
   desc "Message broker implementing the MQTT protocol"
   homepage "https://mosquitto.org/"
-  url "https://mosquitto.org/files/source/mosquitto-1.6.9.tar.gz"
-  sha256 "412979b2db0a0020bd02fa64f0a0de9e7000b84462586e32b67f29bb1f6c1685"
+  url "https://mosquitto.org/files/source/mosquitto-1.6.12.tar.gz"
+  sha256 "548d73d19fb787dd0530334e398fd256ef3a581181678488a741a995c4f007fb"
+  # dual-licensed under EPL-1.0 and EDL-1.0 (Eclipse Distribution License v1.0),
+  # EDL-1.0 is not in the SPDX list
+  license "EPL-1.0"
 
   bottle do
     cellar :any
-    sha256 "fcbdbcbd2f8abdb5880c6468a0c840a3c058d0b743c1200cd70c17d3e84d1271" => :catalina
-    sha256 "2c18ef97e5ce7f83a2a7227ce9acf53381ec83ef5321ca78d6e58e377ef5d940" => :mojave
-    sha256 "a7c9b071b2961adb291a217b13d21d286defa28d067798865dd2fd3ba5973909" => :high_sierra
+    sha256 "385bec6fa5729c75da5f86e33be78f38d675fa9fd5a95b5065305fda0253cef0" => :catalina
+    sha256 "e2c98b06302c46381e05f7b16bb52cfff9f04555ca4b9f5987764e0429018874" => :mojave
+    sha256 "32fbadbfcbc5a741c650559e056d1d61e0cdc869abc76674e7df5b1f08879e5f" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -16,9 +19,12 @@ class Mosquitto < Formula
   depends_on "libwebsockets"
   depends_on "openssl@1.1"
 
+  on_linux do
+    depends_on "util-linux"
+  end
+
   def install
-    system "cmake", ".", *std_cmake_args, "-DWITH_WEBSOCKETS=ON",
-      "-DWITH_BUNDLED_DEPS=ON"
+    system "cmake", ".", *std_cmake_args, "-DWITH_WEBSOCKETS=ON"
     system "make", "install"
   end
 
@@ -34,7 +40,7 @@ class Mosquitto < Formula
     EOS
   end
 
-  plist_options :manual => "mosquitto -c #{HOMEBREW_PREFIX}/etc/mosquitto/mosquitto.conf"
+  plist_options manual: "mosquitto -c #{HOMEBREW_PREFIX}/etc/mosquitto/mosquitto.conf"
 
   def plist
     <<~EOS

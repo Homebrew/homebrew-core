@@ -3,6 +3,7 @@ class Mpegdemux < Formula
   homepage "http://www.hampa.ch/mpegdemux/"
   url "http://www.hampa.ch/mpegdemux/mpegdemux-0.1.4.tar.gz"
   sha256 "0067c31398ed08d3a4f62713bbcc6e4a83591290a599c66cdd8f5a3e4c410419"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

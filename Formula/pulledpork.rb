@@ -3,18 +3,20 @@ class Pulledpork < Formula
   homepage "https://github.com/shirkdog/pulledpork"
   url "https://github.com/shirkdog/pulledpork/archive/v0.7.3.tar.gz"
   sha256 "48c66dc9abb7545186d4fba497263c1d1b247c0ea7f0953db4d515e7898461a2"
-  revision 2
+  license "GPL-2.0"
+  revision 3
   head "https://github.com/shirkdog/pulledpork.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "addf133e8e7c55f1ef9ecfe045693b90f94bdea684eecd670880faff709e2ab1" => :catalina
-    sha256 "090fa5e477bbb0ff2335db1c18416c9dc42108ff9c7c3b402f67f44dd8a4bd2b" => :mojave
-    sha256 "fd5427bcedfb95ccc79eb984e96b044727ae82bea91ef9c255a0cdb197d867fd" => :high_sierra
-    sha256 "51e5d134f6e9e6ac2085ffb014257b18edce15e2570553ef0ec9167a59d90169" => :sierra
+    sha256 "5b7202182f284a0f71563981e9a0fe833338f85141d1b798996bc5fa91c070b2" => :catalina
+    sha256 "a58bf34832bfb17003541e1bc081314be348dc2710742143297d7feaab304a64" => :mojave
+    sha256 "9374159d0d80d83e20c4afb1dbb293d038dac84292ab73fb51155e4cf8c825f5" => :high_sierra
   end
 
   depends_on "openssl@1.1"
+
+  uses_from_macos "perl"
 
   resource "Switch" do
     url "https://cpan.metacpan.org/authors/id/C/CH/CHORNY/Switch-2.17.tar.gz"
@@ -31,9 +33,11 @@ class Pulledpork < Formula
       end
     end
 
+    inreplace "pulledpork.pl", "#!/usr/bin/env perl", "#!/usr/bin/perl"
+
     chmod 0755, "pulledpork.pl"
     bin.install "pulledpork.pl"
-    bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
+    bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
     doc.install Dir["doc/*"]
     (etc/"pulledpork").install Dir["etc/*"]
   end

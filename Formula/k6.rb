@@ -2,14 +2,15 @@ class K6 < Formula
   desc "Modern load testing tool, using Go and JavaScript"
   homepage "https://k6.io"
   url "https://github.com/loadimpact/k6.git",
-    :tag      => "v0.26.2",
-    :revision => "459da79ef51b37e5eaba4575c9065d9e592e5c49"
+    tag:      "v0.27.1",
+    revision: "4ee1ca9624bdd9fa68a0d534be11ac22328f1821"
+  license "AGPL-3.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "70f6f2d4386f07c89b1139a5d3feedeea8eba9a443ff6c9ac88b6d88d7120416" => :catalina
-    sha256 "6f70e79b736f65282837f018405e5a414d87cb8bcb49e7d1b852ad5d3771fece" => :mojave
-    sha256 "a809b4232be33515a8d5038745daac93caa94141ab8787772fd034df392378fe" => :high_sierra
+    sha256 "afa071cb66ffb37e6718ee52be4b58b707b935765f6527415da7dc15c2297658" => :catalina
+    sha256 "78bad35beeaa7d16a8f55aa2f9980b74c07fdec191c7ca52085ff0a2f8aa476c" => :mojave
+    sha256 "8f66f1625d3e95c011ead1d2fdfc3aed6102d9f9a475f9ec093cb50fa40503c4" => :high_sierra
   end
 
   depends_on "dep" => :build
@@ -29,8 +30,13 @@ class K6 < Formula
   end
 
   test do
-    output = "Test finished"
-    assert_match output, shell_output("#{bin}/k6 run github.com/loadimpact/k6/samples/http_get.js 2>&1")
+    (testpath/"whatever.js").write <<~EOS
+      export default function() {
+        console.log("whatever");
+      }
+    EOS
+
+    assert_match "whatever", shell_output("#{bin}/k6 run whatever.js 2>&1")
     assert_match version.to_s, shell_output("#{bin}/k6 version")
   end
 end

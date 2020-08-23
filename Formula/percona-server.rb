@@ -1,15 +1,13 @@
 class PerconaServer < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com"
-  url "https://www.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.17-8/source/tarball/percona-server-8.0.17-8.tar.gz"
-  sha256 "0a96de68a71acce0c3c57cdd554b63a8f7c3026bd5aec88a384f76ce9ff4fced"
-  revision 1
+  url "https://www.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.19-10/source/tarball/percona-server-8.0.19-10.tar.gz"
+  sha256 "b819d81b9cdef497dd5fd1044ddb033d222b986cf610cb5d4bb1fa5010dba580"
 
   bottle do
-    rebuild 1
-    sha256 "1d185a20987cc90ddadf67b3a0bfa99c65b5e903c04cbf5618c6840d0e5c2c52" => :catalina
-    sha256 "698a9e8aeb74952720a1ec7173504ac81e1bedb37df33bcdbdc73c6406f43258" => :mojave
-    sha256 "e1ef93655f32e10839745355c8b54801eb5400df0e3095bf6a77db217a648c20" => :high_sierra
+    sha256 "c6ad05c52e82f419f65a46bd627c784fec43dfb8545e68fb4939995fb5fefed2" => :catalina
+    sha256 "cae8782ea16aa5fdfebe4ccac3189d2e7fbdc0d6290c0b8fda6ab46792f956eb" => :mojave
+    sha256 "30719045c2ee376f8cf269e12fcd307f7d0313338b59b6e1c24861207177b287" => :high_sierra
   end
 
   pour_bottle? do
@@ -18,15 +16,12 @@ class PerconaServer < Formula
   end
 
   depends_on "cmake" => :build
-
-  # https://github.com/Homebrew/homebrew-core/issues/1475
-  # Needs at least Clang 3.3, which shipped alongside Lion.
-  # Note: MySQL themselves don't support anything below Sierra.
-  depends_on :macos => :yosemite
   depends_on "openssl@1.1"
 
   conflicts_with "mariadb", "mysql",
-    :because => "percona, mariadb, and mysql install the same binaries."
+    because: "percona, mariadb, and mysql install the same binaries"
+  conflicts_with "protobuf",
+    because: "both install libprotobuf(-lite) libraries"
 
   # https://bugs.mysql.com/bug.php?id=86711
   # https://github.com/Homebrew/homebrew-core/pull/20538
@@ -36,8 +31,8 @@ class PerconaServer < Formula
   end
 
   resource "boost" do
-    url "https://downloads.sourceforge.net/project/boost/boost/1.69.0/boost_1_69_0.tar.bz2"
-    sha256 "8f32d4617390d1c2d16f26a27ab60d97807b35440d45891fa340fc2648b04406"
+    url "https://dl.bintray.com/boostorg/release/1.70.0/source/boost_1_70_0.tar.bz2"
+    sha256 "430ae8354789de4fd19ee52f3b1f739e1fba576f0aded0897c3c2bc00fb38778"
   end
 
   # Where the database files should be located. Existing installs have them
@@ -142,7 +137,7 @@ class PerconaServer < Formula
     s
   end
 
-  plist_options :manual => "mysql.server start"
+  plist_options manual: "mysql.server start"
 
   def plist
     <<~EOS

@@ -1,7 +1,7 @@
 class Gauche < Formula
   desc "R7RS Scheme implementation, developed to be a handy script interpreter"
   homepage "https://practical-scheme.net/gauche/"
-  url "https://downloads.sourceforge.net/gauche/Gauche/Gauche-0.9.9.tgz"
+  url "https://downloads.sourceforge.net/project/gauche/Gauche/Gauche-0.9.9.tgz"
   sha256 "4ca9325322a7efadb9680d156eb7b53521321c9ca4955c4cbe738bc2e1d7f7fb"
 
   bottle do

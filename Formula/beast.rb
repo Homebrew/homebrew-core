@@ -3,6 +3,7 @@ class Beast < Formula
   homepage "https://beast.community/"
   url "https://github.com/beast-dev/beast-mcmc/archive/v1.10.4.tar.gz"
   sha256 "6e28e2df680364867e088acd181877a5d6a1d664f70abc6eccc2ce3a34f3c54a"
+  license "LGPL-2.1"
   revision 1
   head "https://github.com/beast-dev/beast-mcmc.git"
 
@@ -23,7 +24,7 @@ class Beast < Formula
     libexec.install Dir["release/Linux/BEASTv*/*"]
     pkgshare.install_symlink libexec/"examples"
     bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files libexec/"bin", :JAVA_HOME => ENV["JAVA_HOME"]
+    bin.env_script_all_files libexec/"bin", JAVA_HOME: ENV["JAVA_HOME"]
   end
 
   test do

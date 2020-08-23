@@ -3,8 +3,9 @@ class Nzbget < Formula
   homepage "https://nzbget.net/"
   url "https://github.com/nzbget/nzbget/releases/download/v21.0/nzbget-21.0-src.tar.gz"
   sha256 "65a5d58eb8f301e62cf086b72212cbf91de72316ffc19182ae45119ddd058d53"
+  license "GPL-2.0"
   revision 1
-  head "https://github.com/nzbget/nzbget.git", :branch => "develop"
+  head "https://github.com/nzbget/nzbget.git", branch: "develop"
 
   bottle do
     sha256 "d44d1a8dbd26f5cdb307c08f3294bd381ca79d51c48f51df98ae10a19272397e" => :catalina
@@ -14,7 +15,6 @@ class Nzbget < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "gcc" if MacOS.version == :mavericks
   depends_on "openssl@1.1"
 
   uses_from_macos "libxml2"
@@ -46,7 +46,7 @@ class Nzbget < Formula
     etc.install "nzbget.conf"
   end
 
-  plist_options :manual => "nzbget"
+  plist_options manual: "nzbget"
 
   def plist
     <<~EOS

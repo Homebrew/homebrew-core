@@ -3,6 +3,7 @@ class SignifyOsx < Formula
   homepage "https://man.openbsd.org/signify.1"
   url "https://github.com/jpouellet/signify-osx/archive/1.4.tar.gz"
   sha256 "5aa954fe6c54f2fc939771779e5bb64298e46d0a4ae3d08637df44c7ed8d2897"
+  license "ISC"
   head "https://github.com/jpouellet/signify-osx.git"
 
   bottle do

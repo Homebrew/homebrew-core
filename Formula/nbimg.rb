@@ -3,6 +3,7 @@ class Nbimg < Formula
   homepage "https://github.com/poliva/nbimg"
   url "https://github.com/poliva/nbimg/archive/v1.2.1.tar.gz"
   sha256 "f72846656bb8371564c245ab34550063bd5ca357fe8a22a34b82b93b7e277680"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation

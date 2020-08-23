@@ -3,6 +3,7 @@ class Aptly < Formula
   homepage "https://www.aptly.info/"
   url "https://github.com/aptly-dev/aptly/archive/v1.4.0.tar.gz"
   sha256 "4172d54613139f6c34d5a17396adc9675d7ed002e517db8381731d105351fbe5"
+  license "MIT"
   revision 1
   head "https://github.com/aptly-dev/aptly.git"
 

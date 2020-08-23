@@ -4,6 +4,7 @@ class Httptunnel < Formula
   url "https://ftp.gnu.org/gnu/httptunnel/httptunnel-3.3.tar.gz"
   mirror "https://ftpmirror.gnu.org/httptunnel/httptunnel-3.3.tar.gz"
   sha256 "142f82b204876c2aa90f19193c7ff78d90bb4c2cba99dfd4ef625864aed1c556"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

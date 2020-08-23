@@ -3,14 +3,13 @@ class Fftw < Formula
   homepage "http://www.fftw.org"
   url "http://fftw.org/fftw-3.3.8.tar.gz"
   sha256 "6113262f6e92c5bd474f2875fa1b01054c4ad5040f6b0da7c03c98821d9ae303"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "271f7a5febd92b8757948c86fa24546aca9025087406056b7cf4036ca97b29e4" => :catalina
-    sha256 "fafc0d1b43619cf3ac63946a4380782747903378dfb4f7b21387c40131ad2d59" => :mojave
-    sha256 "da4329aec211bdc19e9404b35318517d8a3d029dde6e0e28dac646330a7554c4" => :high_sierra
-    sha256 "eb140060084d40bc484f8e7048b516b7afe92902c6da04f9e283bfa83f271551" => :sierra
+    sha256 "e021f210b7f8a785b86b82fe191408d783def6e6baec192e8133d703c51bf0de" => :catalina
+    sha256 "d4af1ee10e2eb5784874cac832f10d3e8d3010962e31102df7c6bffc34783d92" => :mojave
+    sha256 "64d050b8736eed9b127f175d39d4acc93c1ec960b096aee756bbb5ea906b6b82" => :high_sierra
   end
 
   depends_on "gcc"

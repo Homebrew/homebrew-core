@@ -1,15 +1,15 @@
 class Notmuch < Formula
   desc "Thread-based email index, search, and tagging"
   homepage "https://notmuchmail.org/"
-  url "https://notmuchmail.org/releases/notmuch-0.29.3.tar.xz"
-  sha256 "d5f704b9a72395e43303de9b1f4d8e14dd27bf3646fdbb374bb3dbb7d150dc35"
-  head "https://git.notmuchmail.org/git/notmuch", :using => :git
+  url "https://notmuchmail.org/releases/notmuch-0.30.tar.xz"
+  sha256 "5e3baa6fe11d65c67e26ae488be11b320bae04e336acc9c64621f7e3449096fa"
+  head "https://git.notmuchmail.org/git/notmuch", using: :git
 
   bottle do
     cellar :any
-    sha256 "7abcdbcd0cb0bb8769038d6d5071605fe3b30cf92a2cb02fe99b021ae3258a25" => :catalina
-    sha256 "e8b7c72755336b60de167c3735347124141afa70e2bc5b67cc5d986a7ee6a459" => :mojave
-    sha256 "0b3af768a7e46d41285220c422ef60c729353d45774b0af609c7e3260506b71b" => :high_sierra
+    sha256 "5a49517024f99e8c7a76cacf5a3ea51f1c565aa3fa97cd1844345431173aa009" => :catalina
+    sha256 "82ea94e5bd97640dc1b5fe8aacf69f2a2bfce2127d76551e6344961ca698ebdb" => :mojave
+    sha256 "680188d9c38ceb1f571ec4166d9d47b558797fac156de1f89f6296c469bb1311" => :high_sierra
   end
 
   depends_on "doxygen" => :build
@@ -29,16 +29,24 @@ class Notmuch < Formula
       --mandir=#{man}
       --emacslispdir=#{elisp}
       --emacsetcdir=#{elisp}
+      --bashcompletiondir=#{bash_completion}
+      --zshcompletiondir=#{zsh_completion}
       --without-ruby
     ]
 
-    ENV.append_path "PYTHONPATH", Formula["sphinx-doc"].opt_libexec/"lib/python3.7/site-packages"
+    ENV.append_path "PYTHONPATH", Formula["sphinx-doc"].opt_libexec/"lib/python3.8/site-packages"
 
     system "./configure", *args
     system "make", "V=1", "install"
 
+    bash_completion.install "completion/notmuch-completion.bash"
+
+    (prefix/"vim/plugin").install "vim/notmuch.vim"
+    (prefix/"vim/doc").install "vim/notmuch.txt"
+    (prefix/"vim").install "vim/syntax"
+
     cd "bindings/python" do
-      system "python3", *Language::Python.setup_install_args(prefix)
+      system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
     end
   end
 

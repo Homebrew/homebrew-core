@@ -3,6 +3,7 @@ class SoundTouch < Formula
   homepage "https://www.surina.net/soundtouch/"
   url "https://gitlab.com/soundtouch/soundtouch/-/archive/2.1.2/soundtouch-2.1.2.tar.gz"
   sha256 "2826049e2f34efbc4c8a47d00c93649822b0c14e1f29f5569835704814590732"
+  license "LGPL-2.1"
 
   bottle do
     cellar :any

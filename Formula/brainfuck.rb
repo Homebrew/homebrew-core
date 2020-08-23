@@ -3,6 +3,7 @@ class Brainfuck < Formula
   homepage "https://github.com/fabianishere/brainfuck"
   url "https://github.com/fabianishere/brainfuck/archive/2.7.1.tar.gz"
   sha256 "06534de715dbc614f08407000c2ec6d497770069a2d7c84defd421b137313d71"
+  license "Apache-2.0"
   head "https://github.com/fabianishere/brainfuck.git"
 
   bottle do

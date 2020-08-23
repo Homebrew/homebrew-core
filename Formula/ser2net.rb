@@ -1,38 +1,52 @@
 class Ser2net < Formula
   desc "Allow network connections to serial ports"
   homepage "https://ser2net.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/ser2net/ser2net/ser2net-3.5.1.tar.gz"
-  sha256 "02f5dd0abbef5a17b80836b0de1ef0588e257106fb5e269b86822bfd001dc862"
+  url "https://downloads.sourceforge.net/project/ser2net/ser2net/ser2net-4.2.1.tar.gz"
+  sha256 "a0d84c71a6bc75d73737461708f964084c6bbfe0cc1ef4725b4cd9cc35de14c0"
+  license "GPL-2.0-only"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "212684df3012508da810e7cd273f1418debf734aacb39949b54aca7b592b1a76" => :catalina
-    sha256 "83435a03046d3e3db9461ae4dcf9357f6809290bf91560f2f3d722cac22ee6ce" => :mojave
-    sha256 "9be8a962e23275a1400a60f94b5e98fc311cf9c917320b5c03d13edcebe40f67" => :high_sierra
-    sha256 "8b4c2e80e4fd884c9761a18684191f5d508c858330989a492922fdb231e1ea5d" => :sierra
+    cellar :any
+    sha256 "ae75303b4163f8f89366652ef7fafea5af5e158cb8f38b60ba11d71802f5b437" => :catalina
+    sha256 "05f13e77292479fa8f605d854fe853d57b078b3afee2038c1bdf12470e670664" => :mojave
+    sha256 "5888f6158084ff46d3d863ad468dd0a776bc84116a7100a85e5b9fbbfc781291" => :high_sierra
   end
 
-  depends_on :macos => :sierra # needs clock_gettime
+  depends_on "libyaml"
+
+  resource "gensio" do
+    url "https://downloads.sourceforge.net/project/ser2net/ser2net/gensio-2.1.4.tar.gz"
+    sha256 "1f5a29aabfb35886893cfda5cd78192db67e96de796dbf9758dbecd4077a3fd8"
+  end
 
   def install
+    resource("gensio").stage do
+      system "./configure", "--with-python=no",
+                            "--disable-dependency-tracking",
+                            "--prefix=#{libexec}/gensio"
+      system "make", "install"
+    end
+
+    ENV.append_path "PKG_CONFIG_PATH", "#{libexec}/gensio/lib/pkgconfig"
+    ENV.append_path "CFLAGS", "-I#{libexec}/gensio/include"
+    ENV.append_path "LDFLAGS", "-L#{libexec}/gensio/lib"
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}"
 
-    # LIBS is set to "-lpthread -lrt" but librt doesn't exist on macOS
-    # https://github.com/cminyard/ser2net/issues/3
-    system "make", "install", "LIBS=-lpthread"
+    system "make", "install"
 
-    etc.install "ser2net.conf"
+    (etc/"ser2net").install "ser2net.yaml"
   end
 
   def caveats
     <<~EOS
-      To configure ser2net, edit the example configuration in #{etc}/ser2net.conf
+      To configure ser2net, edit the example configuration in #{etc}/ser2net/ser2net.yaml
     EOS
   end
 
-  plist_options :manual => "ser2net -p 12345"
+  plist_options manual: "ser2net -p 12345"
 
   def plist
     <<~EOS
@@ -58,6 +72,7 @@ class Ser2net < Formula
       </plist>
     EOS
   end
+
   test do
     assert_match version.to_s, shell_output("#{sbin}/ser2net -v")
   end

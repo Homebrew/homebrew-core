@@ -1,23 +1,24 @@
 class Go < Formula
   desc "Open source programming language to build simple/reliable/efficient software"
   homepage "https://golang.org"
+  license "BSD-3-Clause"
 
   stable do
-    url "https://dl.google.com/go/go1.14.src.tar.gz"
-    mirror "https://fossies.org/linux/misc/go1.14.src.tar.gz"
-    sha256 "6d643e46ad565058c7a39dac01144172ef9bd476521f42148be59249e4b74389"
+    url "https://golang.org/dl/go1.15.src.tar.gz"
+    mirror "https://fossies.org/linux/misc/go1.15.src.tar.gz"
+    sha256 "69438f7ed4f532154ffaf878f3dfd83747e7a00b70b3556eddabf7aaee28ac3a"
 
-    go_version = version.to_s.split(".")[0..1].join(".")
+    go_version = version.major_minor
     resource "gotools" do
       url "https://go.googlesource.com/tools.git",
-          :branch => "release-branch.go#{go_version}"
+          branch: "release-branch.go#{go_version}"
     end
   end
 
   bottle do
-    sha256 "a4e81b1025b77af039a34888545ce0f4a3a332b1ed6358ca8107e878d25e46aa" => :catalina
-    sha256 "998c9c9f95091a3567d9ac27def2d3d4d33aeae06e621d78bf76f3f4f4a2a793" => :mojave
-    sha256 "c26d2ecb7e2c53a78fa0cca9b7117355f953ebf1b4bd31eef04ebe4e576a174b" => :high_sierra
+    sha256 "36ef2e4cc3ecc84e0c1e98580a63f8d417efc8831f0c59b0a7e13d517c61353b" => :catalina
+    sha256 "ea373dd668c31caa9816a5028028694425635cc3871783709381d872906fa78e" => :mojave
+    sha256 "a29ea808ffac13d3967dee44f30a9f72709b941f7e82836715f939970e6cb222" => :high_sierra
   end
 
   head do
@@ -28,12 +29,17 @@ class Go < Formula
     end
   end
 
-  depends_on :macos => :el_capitan
-
   # Don't update this unless this version cannot bootstrap the new version.
   resource "gobootstrap" do
-    url "https://storage.googleapis.com/golang/go1.7.darwin-amd64.tar.gz"
-    sha256 "51d905e0b43b3d0ed41aaf23e19001ab4bc3f96c3ca134b48f7892485fc52961"
+    on_macos do
+      url "https://storage.googleapis.com/golang/go1.7.darwin-amd64.tar.gz"
+      sha256 "51d905e0b43b3d0ed41aaf23e19001ab4bc3f96c3ca134b48f7892485fc52961"
+    end
+
+    on_linux do
+      url "https://storage.googleapis.com/golang/go1.7.linux-amd64.tar.gz"
+      sha256 "702ad90f705365227e902b42d91dd1a40e48ca7f67a2f4b2fd052aaa4295cd95"
+    end
   end
 
   def install
@@ -42,7 +48,6 @@ class Go < Formula
 
     cd "src" do
       ENV["GOROOT_FINAL"] = libexec
-      ENV["GOOS"]         = "darwin"
       system "./make.bash", "--no-clean"
     end
 

@@ -1,15 +1,15 @@
 class Lgogdownloader < Formula
   desc "Unofficial downloader for GOG.com games"
   homepage "https://sites.google.com/site/gogdownloader/"
-  url "https://sites.google.com/site/gogdownloader/lgogdownloader-3.5.tar.gz"
-  sha256 "eeeaad098929a71b5fb42d14e1ca87c73fc08010ab168687bab487a763782ada"
-  revision 6
+  url "https://sites.google.com/site/gogdownloader/lgogdownloader-3.7.tar.gz"
+  sha256 "984859eb2e0802cfe6fe76b1fe4b90e7354e95d52c001b6b434e0a9f5ed23bf0"
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "18fa3023183d52fda887d8718e752117cc8d5b290dd324257aa3ccf4bf3408e5" => :catalina
-    sha256 "e5011ad88bd93373966c069cf5eef1dc127d4fbb22fdad7b0b8a474123b1b700" => :mojave
-    sha256 "c91d528e4ed9306ccd1f2558676e947671c366868b55387fe457437afb5fb3f9" => :high_sierra
+    sha256 "88fff1ac2d05e20e302ad14f31ac73871b3ff26d2b54c781da39dc0a97f4cd52" => :catalina
+    sha256 "76aea029305b9895f01a1caf899323f728a9a97c3c7274c8574ad3acd83b00e7" => :mojave
+    sha256 "82185cd04819b89b35d6b7736c75fb07d12edb269ba08d7df7bfa2a15000d040" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -23,7 +23,8 @@ class Lgogdownloader < Formula
   depends_on "tinyxml2"
 
   def install
-    system "cmake", ".", *std_cmake_args
+    system "cmake", ".", *std_cmake_args, "-DJSONCPP_INCLUDE_DIR=#{Formula["jsoncpp"].opt_include}"
+
     system "make", "install"
   end
 

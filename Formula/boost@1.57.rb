@@ -3,6 +3,7 @@ class BoostAT157 < Formula
   homepage "https://www.boost.org"
   url "https://downloads.sourceforge.net/project/boost/boost/1.57.0/boost_1_57_0.tar.bz2"
   sha256 "910c8c022a33ccec7f088bd65d4f14b466588dda94ba2124e78b8c57db264967"
+  license "BSL-1.0"
 
   bottle do
     cellar :any
@@ -15,6 +16,13 @@ class BoostAT157 < Formula
   end
 
   keg_only :versioned_formula
+
+  # Fix build on Xcode 11.4
+  patch do
+    url "https://github.com/boostorg/build/commit/b3a59d265929a213f02a451bb63cea75d668a4d9.patch?full_index=1"
+    sha256 "04a4df38ed9c5a4346fbb50ae4ccc948a1440328beac03cb3586c8e2e241be08"
+    directory "tools/build"
+  end
 
   def install
     # Force boost to compile with the desired compiler

@@ -2,11 +2,15 @@ class ImapUw < Formula
   # imap-uw is unmaintained software; the author has passed away and there is
   # no active successor project.
   desc "University of Washington IMAP toolkit"
-  homepage "https://www.washington.edu/imap/"
+  homepage "https://web.archive.org/web/20191028114408/https://www.washington.edu/imap/"
   url "https://mirrorservice.org/sites/ftp.cac.washington.edu/imap/imap-2007f.tar.gz"
   mirror "https://fossies.org/linux/misc/old/imap-2007f.tar.gz"
   sha256 "53e15a2b5c1bc80161d42e9f69792a3fa18332b7b771910131004eb520004a28"
   revision 1
+
+  livecheck do
+    skip "Not maintained"
+  end
 
   bottle do
     cellar :any

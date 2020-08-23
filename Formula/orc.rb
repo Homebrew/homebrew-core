@@ -16,7 +16,7 @@ class Orc < Formula
 
   def install
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", "-Dgtk_doc=disabled", ".."
+      system "meson", *std_meson_args, "-Dgtk_doc=disabled", ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end

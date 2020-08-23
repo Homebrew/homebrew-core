@@ -3,6 +3,7 @@ class Tcpflow < Formula
   homepage "https://github.com/simsong/tcpflow"
   url "https://digitalcorpora.org/downloads/tcpflow/tcpflow-1.5.0.tar.gz"
   sha256 "20abe3353a49a13dcde17ad318d839df6312aa6e958203ea710b37bede33d988"
+  license "GPL-3.0"
   revision 1
 
   bottle do

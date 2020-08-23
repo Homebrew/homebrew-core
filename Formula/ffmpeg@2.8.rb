@@ -1,14 +1,16 @@
 class FfmpegAT28 < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-2.8.15.tar.bz2"
-  sha256 "35647f6c1f6d4a1719bc20b76bf4c26e4ccd665f46b5676c0e91c5a04622ee21"
-  revision 9
+  url "https://ffmpeg.org/releases/ffmpeg-2.8.17.tar.xz"
+  sha256 "d0734fec613fe12bee0b5a84f917779b854c1ede7882793f618490e6bbf0c148"
+  # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
+  # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
+  license "GPL-2.0"
 
   bottle do
-    sha256 "74a510628d121c10ebd22f3a65cbd74eb28f46464d6d985bcb162e21760af452" => :catalina
-    sha256 "b4f820fce31600bcf3f863918204962f20756406dc568df3f87edda82527ee4d" => :mojave
-    sha256 "703e6862dff3b5a48fd18dad1d8d3015098028d70a5c28a31d60ca638ccb9565" => :high_sierra
+    sha256 "f0d50cafeb730343feabdbe5226875104e1d11d31bb33d3e03ad5d05dcd8be2c" => :catalina
+    sha256 "65555478eb8b748324a2a37a079693d449bc15022c88a8ee4360c5de558d0a8c" => :mojave
+    sha256 "5323c85c6cab5c3e549ea62b42dabea2e54e39d00e7a0d497f0d181862742f02" => :high_sierra
   end
 
   keg_only :versioned_formula
@@ -81,7 +83,7 @@ class FfmpegAT28 < Formula
     # prevents GCC from building VDA support. GCC has no problems on
     # 10.9 and earlier.
     # See: https://github.com/Homebrew/homebrew/issues/33741
-    args << if MacOS.version < :yosemite || ENV.compiler == :clang
+    args << if ENV.compiler == :clang
       "--enable-vda"
     else
       "--disable-vda"
@@ -103,8 +105,8 @@ class FfmpegAT28 < Formula
 
   test do
     # Create an example mp4 file
-    system "#{bin}/ffmpeg", "-y", "-filter_complex",
-        "testsrc=rate=1:duration=1", "#{testpath}/video.mp4"
-    assert_predicate testpath/"video.mp4", :exist?
+    mp4out = testpath/"video.mp4"
+    system bin/"ffmpeg", "-y", "-filter_complex", "testsrc=rate=1:duration=1", mp4out
+    assert_predicate mp4out, :exist?
   end
 end

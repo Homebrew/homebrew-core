@@ -4,6 +4,7 @@ class Pssh < Formula
   homepage "https://code.google.com/archive/p/parallel-ssh/"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/parallel-ssh/pssh-2.3.1.tar.gz"
   sha256 "539f8d8363b722712310f3296f189d1ae8c690898eca93627fc89a9cb311f6b4"
+  license "BSD-3-Clause"
   revision 2
 
   bottle do
@@ -15,7 +16,7 @@ class Pssh < Formula
 
   depends_on "python@3.8"
 
-  conflicts_with "putty", :because => "both install `pscp` binaries"
+  conflicts_with "putty", because: "both install `pscp` binaries"
 
   # Fix for Python 3 compatibility
   # https://bugs.archlinux.org/task/46571

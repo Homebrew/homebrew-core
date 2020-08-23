@@ -2,24 +2,26 @@ class AwsIamAuthenticator < Formula
   desc "Use AWS IAM credentials to authenticate to Kubernetes"
   homepage "https://github.com/kubernetes-sigs/aws-iam-authenticator"
   url "https://github.com/kubernetes-sigs/aws-iam-authenticator.git",
-    :tag      => "v0.5.0",
-    :revision => "1cfe2a90f68381eacd7b6dcfa2bf689e76eb8b4b"
+    tag:      "v0.5.1",
+    revision: "d7c0b2e9131faabb2b09dd804a35ee03822f8447"
   sha256 "d077ce973e5917fab7cbad46bc2d19264e8d0ae23321afd97b1bc481075a31fa"
+  license "Apache-2.0"
   head "https://github.com/kubernetes-sigs/aws-iam-authenticator.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9009147f0817116c801357d6d8bc082d1f320971a81b7c00051e0d43c8066a60" => :catalina
-    sha256 "c475da0533c8bc809525e65a99410bcd39a8a4331216537e55a5c55a8599ebfe" => :mojave
-    sha256 "152fe875fe64835efb1e13d088b7e2ca6cf2aa826333465047e8c90bb91e0dc7" => :high_sierra
+    rebuild 1
+    sha256 "82bd2279cb53c5343d73da2db1ec715b991f805bf67e76bbb2c2958a926f17a5" => :catalina
+    sha256 "c754eb2b9da4ec648a9f3d33a480387438d4216fd191118ee932222087fc0198" => :mojave
+    sha256 "16400cd25292b76959d9636b34afaf15d3c3e71ad21ae1409a110925efc6d058" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
     # project = "github.com/kubernetes-sigs/aws-iam-authenticator"
-    revision = Utils.popen_read("git", "rev-parse", "HEAD").strip
-    version = Utils.popen_read("git describe --tags").strip
+    revision = Utils.safe_popen_read("git", "rev-parse", "HEAD").strip
+    version = Utils.safe_popen_read("git", "describe", "--tags").strip
     ldflags = ["-s", "-w",
                "-X main.version=#{version}",
                "-X main.commit=#{revision}"]

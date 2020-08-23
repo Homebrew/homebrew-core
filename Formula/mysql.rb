@@ -1,30 +1,27 @@
 class Mysql < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/8.0/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.19.tar.gz"
-  sha256 "3622d2a53236ed9ca62de0616a7e80fd477a9a3f862ba09d503da188f53ca523"
+  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.21.tar.gz"
+  sha256 "37231a123372a95f409857364dc1deb196b6f2c0b1fe60cc8382c7686b487f11"
+  license "GPL-2.0"
+  revision 1
 
   bottle do
-    rebuild 2
-    sha256 "22e86de2d5b0b2bfd7c1157c2bb3619f4a38a2cb1385fa4d1ec3aa0f2295dfbd" => :catalina
-    sha256 "233aa7bfef136a19a02d443b9b2d8525f84ffa04aebce0de21fda9ee42c825b1" => :mojave
-    sha256 "2fe3b8b24f829746f145e7c6b0bc8b10ca54b8fd91b3ece0d2bea34904e68631" => :high_sierra
+    sha256 "81e92d0df39edaff415e7d52f8d24db15db4469e99a7fbc915c92671a77e1374" => :catalina
+    sha256 "2383f7243ac47f28be988c66253251d8a71b51c1583d3550e6a9e1ab2931e951" => :mojave
+    sha256 "92bde22c4e13a0c888e7b7b9e62003e227a72a331c13a35cac98d9e7936ae387" => :high_sierra
   end
 
   depends_on "cmake" => :build
   # GCC is not supported either, so exclude for El Capitan.
-  depends_on :macos => :sierra if DevelopmentTools.clang_build_version == 800
-  # https://github.com/Homebrew/homebrew-core/issues/1475
-  # Needs at least Clang 3.6, which shipped alongside Yosemite.
-  # Note: MySQL themselves don't support anything below Sierra.
-  depends_on :macos => :yosemite
+  depends_on macos: :sierra if DevelopmentTools.clang_build_version == 800
   depends_on "openssl@1.1"
   depends_on "protobuf"
 
   uses_from_macos "libedit"
 
   conflicts_with "mariadb", "percona-server",
-    :because => "mysql, mariadb, and percona install the same binaries."
+    because: "mysql, mariadb, and percona install the same binaries"
 
   # https://bugs.mysql.com/bug.php?id=86711
   # https://github.com/Homebrew/homebrew-core/pull/20538
@@ -129,7 +126,7 @@ class Mysql < Formula
     s
   end
 
-  plist_options :manual => "mysql.server start"
+  plist_options manual: "mysql.server start"
 
   def plist
     <<~EOS
@@ -161,12 +158,13 @@ class Mysql < Formula
     system bin/"mysqld", "--initialize-insecure", "--user=#{ENV["USER"]}",
     "--basedir=#{prefix}", "--datadir=#{dir}", "--tmpdir=#{dir}"
 
+    port = free_port
     pid = fork do
-      exec bin/"mysqld", "--bind-address=127.0.0.1", "--datadir=#{dir}"
+      exec bin/"mysqld", "--bind-address=127.0.0.1", "--datadir=#{dir}", "--port=#{port}"
     end
     sleep 2
 
-    output = shell_output("curl 127.0.0.1:3306")
+    output = shell_output("curl 127.0.0.1:#{port}")
     output.force_encoding("ASCII-8BIT") if output.respond_to?(:force_encoding)
     assert_match version.to_s, output
   ensure

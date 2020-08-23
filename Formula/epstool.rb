@@ -1,19 +1,16 @@
 class Epstool < Formula
   desc "Edit preview images and fix bounding boxes in EPS files"
   homepage "http://www.ghostgum.com.au/software/epstool.htm"
-  url "https://src.fedoraproject.org/repo/pkgs/epstool/epstool-3.08.tar.gz/465a57a598dbef411f4ecbfbd7d4c8d7/epstool-3.08.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/epstool-3.08.tar.gz"
-  sha256 "f3f14b95146868ff3f93c8720d5539deef3b6531630a552165664c7ee3c2cfdd"
+  url "https://deb.debian.org/debian/pool/main/e/epstool/epstool_3.09.orig.tar.xz"
+  mirror "https://dl.bintray.com/homebrew/mirror/epstool-3.09.tar.xz"
+  sha256 "1e85249d1a44f9418b1f95a3aebd8b0784dab8e49deb6417ac9b996ca08f6011"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c4c73d7a9d89779c9b7bba39531f0c7605caabb5dc17dc390f5a440719ec4e7f" => :catalina
-    sha256 "99cd88b7e087c3f55b3a0fc49ef08901a9e79745191e5ce551f268148a011dd1" => :mojave
-    sha256 "4e41615a63d60d963029768b0618d43e29142e5495fb693a7f5844d2cb6f0d6b" => :high_sierra
-    sha256 "d53d1f3d353d0f68f52b87603a67ca97942fb714f766a54636c142550568cbd0" => :sierra
-    sha256 "92efa66cd268f0447dc52c14e9da04ae8af01b1691ec8eec3df61bbeb947b713" => :el_capitan
-    sha256 "bb2aefa17b699127f2f6ed65004c9acbf7e5e5122f6f4b920d1e03fb9bd87b2e" => :yosemite
-    sha256 "ae3c4b14dd19d3ac43947eff025a0fa3eabbe832333922359f9f74e0fe5e1d3d" => :mavericks
+    sha256 "3ef026d6cc575da86e43741df6a9f5419269bea22e8db6c6296811112678c690" => :catalina
+    sha256 "497608077aea90c569aab7929a8a9ea19d91ba70f4743d982bcb63c1d3a48d7b" => :mojave
+    sha256 "47ab226f0e5d93a3b91b43d519de370d046410946e280958ef9106fdbc4ef115" => :high_sierra
   end
 
   depends_on "ghostscript"

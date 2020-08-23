@@ -3,6 +3,7 @@ class Plustache < Formula
   homepage "https://github.com/mrtazz/plustache"
   url "https://github.com/mrtazz/plustache/archive/0.4.0.tar.gz"
   sha256 "83960c412a7c176664c48ba4d718e72b5d39935b24dc13d7b0f0840b98b06824"
+  license "MIT"
 
   bottle do
     cellar :any

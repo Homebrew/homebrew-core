@@ -3,13 +3,14 @@ class Sdl2Ttf < Formula
   homepage "https://www.libsdl.org/projects/SDL_ttf/"
   url "https://www.libsdl.org/projects/SDL_ttf/release/SDL2_ttf-2.0.15.tar.gz"
   sha256 "a9eceb1ad88c1f1545cd7bd28e7cbc0b2c14191d40238f531a15b01b1b22cd33"
+  head "https://hg.libsdl.org/SDL_ttf", using: :hg
 
   bottle do
     cellar :any
-    sha256 "745d9593a0e07a70b617ace17d92b6a6555825484e47e569130eba8b05e82f2b" => :catalina
-    sha256 "b69ec46685ef188e9776592355447ec566a9f21979e7cb1cf24e9ce2d34e5383" => :mojave
-    sha256 "c16d01a44651ad3976b32dc34a6e9b002627c9b10742be62cf341db841cd700f" => :high_sierra
-    sha256 "c56396c440997b65897427479e84bc07ac4efb0b796aebe223ffc61b07b16b0e" => :sierra
+    rebuild 1
+    sha256 "413959be382ea92bd59af9a29e5909d40db69c571447e2f0dec821cbff612d80" => :catalina
+    sha256 "74582129be8cfea5e556efa95411f9fc2eebf111c7b4f9affc80a7e05fa19cd9" => :mojave
+    sha256 "1867ff73485eaa12fc00def01be8e388443ac6c226065218bb435558fdb8bb22" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

@@ -4,6 +4,7 @@ class GnuSed < Formula
   url "https://ftp.gnu.org/gnu/sed/sed-4.8.tar.xz"
   mirror "https://ftpmirror.gnu.org/sed/sed-4.8.tar.xz"
   sha256 "f79b0cfea71b37a8eeec8490db6c5f7ae7719c35587f21edb0617f370eeff633"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,7 +13,7 @@ class GnuSed < Formula
     sha256 "865abe618c67037a4a419a05e0df2c6814fb3abdd6f631ea546aeba0aaf8eb78" => :high_sierra
   end
 
-  conflicts_with "ssed", :because => "both install share/info/sed.info"
+  conflicts_with "ssed", because: "both install share/info/sed.info"
 
   def install
     args = %W[

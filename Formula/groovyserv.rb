@@ -15,7 +15,7 @@ class Groovyserv < Formula
 
   depends_on "go" => :build
   depends_on "groovy"
-  depends_on :java => "1.8"
+  depends_on java: "1.8"
 
   def install
     # Sandbox fix to stop it ignoring our temporary $HOME variable.

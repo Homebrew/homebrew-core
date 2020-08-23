@@ -3,6 +3,7 @@ class Exiftran < Formula
   homepage "https://www.kraxel.org/blog/linux/fbida/"
   url "https://www.kraxel.org/releases/fbida/fbida-2.14.tar.gz"
   sha256 "95b7c01556cb6ef9819f358b314ddfeb8a4cbe862b521a3ed62f03d163154438"
+  license "GPL-2.0"
 
   bottle do
     cellar :any

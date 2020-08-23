@@ -3,6 +3,7 @@ class Nload < Formula
   homepage "http://www.roland-riegel.de/nload/"
   url "http://www.roland-riegel.de/nload/nload-0.7.4.tar.gz"
   sha256 "c1c051e7155e26243d569be5d99c744d8620e65fa8a7e05efcf84d01d9d469e5"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

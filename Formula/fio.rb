@@ -1,14 +1,15 @@
 class Fio < Formula
   desc "I/O benchmark and stress test"
   homepage "https://github.com/axboe/fio"
-  url "https://github.com/axboe/fio/archive/fio-3.18.tar.gz"
-  sha256 "7f84b1670f2ee78deead97b26d836c0e7b46823bb1c776e8fe7ce28cc794869f"
+  url "https://github.com/axboe/fio/archive/fio-3.19.tar.gz"
+  sha256 "809963b1d023dbc9ac7065557af8129aee17b6895e0e8c5ca671b0b14285f404"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7cdd4229f4ff2a6667e8f988060f3329b86fee7a248c2cd6621cda98d7cbbbb1" => :catalina
-    sha256 "cd198b83837dfe8eb61ffcdd81bace6ea8eb233af0b9dcea711a3491c0953fcc" => :mojave
-    sha256 "1be63b9cabc31f619226bf5d7e653366f05ff3bc9beba15731654e9fe5e77579" => :high_sierra
+    sha256 "252dd7cba1c767568b9ecb13fbbd891e1ffe47f590ed126cfea8214ff20333f5" => :catalina
+    sha256 "2b4b3372f9ad040eb974ba38ecdde11c08b0328fae71d785e5d0b88c77ecffc3" => :mojave
+    sha256 "89e47c70a1cca2e1acf29b97720da6b968348ea93a5e417fdca7ad86d670114d" => :high_sierra
   end
 
   uses_from_macos "zlib"

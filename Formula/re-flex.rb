@@ -1,17 +1,17 @@
 class ReFlex < Formula
   desc "The regex-centric, fast and flexible scanner generator for C++"
   homepage "https://www.genivia.com/doc/reflex/html"
-  url "https://github.com/Genivia/RE-flex/archive/v1.6.2.tar.gz"
-  sha256 "28b253c54add41c6cbb53d3b0f801061edd5d59efaa7732141060d28d57a8611"
+  url "https://github.com/Genivia/RE-flex/archive/v2.1.3.tar.gz"
+  sha256 "09cd7101a4d09e7e88b971fa310b78a15e8c8e2635a22a3169ef872aa834862c"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "159e3a513fc2be997b15647eced2eca0054860eea6494b3242e5769eecc7c2a4" => :catalina
-    sha256 "35c239d558c4cb7ee7d8b8562f968011909c4993c1610b466e5d5b407680b985" => :mojave
-    sha256 "0f3c5359e904914ab5b31daa51c23d8009eb850b2fd7ac41f933e235141e5bde" => :high_sierra
+    sha256 "3e8011102f27d9811bf1aacc7766ea22380759c5cf84b166e008bc8f410dd1ef" => :catalina
+    sha256 "93bb912cf8af0a002b45df76bbf71e35059366a7faf610727cd5bc8d72b182b3" => :mojave
+    sha256 "9c754ca9c993c65d8a158b28a2db4b8e45fe2e4b4fd382b34c2b973dc07c7a72" => :high_sierra
   end
 
-  depends_on "boost"
   depends_on "pcre2"
 
   def install

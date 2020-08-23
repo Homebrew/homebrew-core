@@ -1,15 +1,16 @@
 class Broot < Formula
   desc "New way to see and navigate directory trees"
-  homepage "https://dystroy.org/broot"
-  url "https://github.com/Canop/broot/archive/v0.13.4.tar.gz"
-  sha256 "fd9af3df87f61dbce01c262c71d07cd11221602da7662c321501772eb9a68fff"
+  homepage "https://dystroy.org/broot/"
+  url "https://github.com/Canop/broot/archive/v0.20.2.tar.gz"
+  sha256 "8398e8147c3d476010264a007ec00d0503a88b6b7382421a8f912d38a3f0afbc"
+  license "MIT"
   head "https://github.com/Canop/broot.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "021434c2352da97a183a70dbdf82ccca86eb46f552d8ec5dc1a127c95f1ae01f" => :catalina
-    sha256 "f8565c22874e3afb0c525ff101939f5c03696f972710e8f3f81f003216a923ea" => :mojave
-    sha256 "1d029f5e322b1516ecda366e1265a5e86a4088400cc94ea506097690db95abf4" => :high_sierra
+    sha256 "b5bace7b6742c062645ab06313fee65da33200104a2c12128cb2c2a3744a9a3d" => :catalina
+    sha256 "72a2074ce071792898b27370cd8798b6824c7b66d12fc5ad7e975e94391d61da" => :mojave
+    sha256 "5fc3f923e70df53434fb737ee18f40f080c2b1a974621b8ef9b1205b74b2e242" => :high_sierra
   end
 
   depends_on "rust" => :build
@@ -17,17 +18,15 @@ class Broot < Formula
   uses_from_macos "zlib"
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", *std_cargo_args
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/broot --version")
-
-    assert_match "BFS", shell_output("#{bin}/broot --help 2>&1")
+    assert_match "A tree explorer and a customizable launcher", shell_output("#{bin}/broot --help 2>&1")
 
     require "pty"
     require "io/console"
-    PTY.spawn(bin/"broot", "--cmd", ":pt", "--no-style", "--out", testpath/"output.txt", :err => :out) do |r, w, pid|
+    PTY.spawn(bin/"broot", "--cmd", ":pt", "--no-style", "--out", testpath/"output.txt", err: :out) do |r, w, pid|
       r.winsize = [20, 80] # broot dependency termimad requires width > 2
       w.write "n\r"
       assert_match "New Configuration file written in", r.read

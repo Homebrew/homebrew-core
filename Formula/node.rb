@@ -1,35 +1,39 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v13.11.0/node-v13.11.0.tar.xz"
-  sha256 "e5402183e68806785b3c40c2cb0a6b6aa43bb61aee1cec5efde9c65825ef291f"
+  url "https://nodejs.org/dist/v14.8.0/node-v14.8.0.tar.xz"
+  sha256 "9b9e68e4e641ab099b3fe2d49308c65820eebe60ed733b5f8b07c67adef9f06d"
+  license "MIT"
   head "https://github.com/nodejs/node.git"
 
   bottle do
     cellar :any
-    sha256 "a9ac14b6c22203e4f3dd3fd5e53f85b3328112895062a61e7cd7000086b1a0fd" => :catalina
-    sha256 "fd551f34feb2fe9b4a2c5d4004eb442e34647a9dfc3937d41199da881dafd089" => :mojave
-    sha256 "27ece592611f84f56af9e4cf143081116bc250f5cc848734f8365f7f43b4a7ea" => :high_sierra
+    sha256 "ec85b0f1a6b5ab229ee1445ca604f6455e15dfa632efdb79839296e5c2fc6631" => :catalina
+    sha256 "5e2de72f9e1fc18df29226a40ae6efe39bff083f1f91d765c5dbd9db308613ae" => :mojave
+    sha256 "7129555cbbde75ed026b19506fb6f5184545a0ac30121cce63ab92d4310b99a3" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python" => :build
+  depends_on "python@3.8" => :build
   depends_on "icu4c"
 
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-6.13.7.tgz"
-    sha256 "6adf71c198d61a5790cf0e057f4ab72c6ef6c345d72bed8bb7212cb9db969494"
+    url "https://registry.npmjs.org/npm/-/npm-6.14.7.tgz"
+    sha256 "510091d3b42b60ab75c9d46cebb769ee5204d58d948a61bf913455437fa768c5"
   end
 
   def install
     # make sure subprocesses spawned by make are using our Python 3
-    ENV["PYTHON"] = Formula["python"].opt_bin/"python3"
+    ENV["PYTHON"] = Formula["python@3.8"].opt_bin/"python3"
 
     # Never install the bundled "npm", always prefer our
     # installation from tarball for better packaging control.
     args = %W[--prefix=#{prefix} --without-npm --with-intl=system-icu]
+    # Remove `--openssl-no-asm` workaround when upstream releases a fix
+    # See also: https://github.com/nodejs/node/issues/34043
+    args << "--openssl-no-asm" if Hardware::CPU.arm?
     args << "--tag=head" if build.head?
 
     system "./configure", *args

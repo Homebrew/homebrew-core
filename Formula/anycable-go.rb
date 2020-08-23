@@ -1,32 +1,41 @@
 class AnycableGo < Formula
   desc "Anycable Go WebSocket Server"
   homepage "https://github.com/anycable/anycable-go"
-  url "https://github.com/anycable/anycable-go/archive/v0.6.4.tar.gz"
-  sha256 "dbcfccdedc7d28d2d70e12a6c2aff77be28a65dcaa27386d3b65465849fff162"
+  url "https://github.com/anycable/anycable-go/archive/v1.0.0.tar.gz"
+  sha256 "66c6039ad96433cb0a4851f30c917050a1062d269594259bb1665ee03c23e7e9"
+  license "MIT"
   head "https://github.com/anycable/anycable-go.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "7b15a2340fa1fb7ecf97079a1cedbdef0c1f1cf7379f847e70b3f44f08b141e0" => :catalina
-    sha256 "12e069a770ebdd191bc1d6ffbe5de94242e5d54c1e4d8b46600d133fc4d92871" => :mojave
-    sha256 "0ca4a9b558458aa15fbf81ff5aeabff78102fb6031a5c8295b65c2d9f6c558df" => :high_sierra
+    sha256 "158a7e9917bcdc099b664996e081dd2b020d2036a22e92f351bc9df43a33995d" => :catalina
+    sha256 "698707ba2032a713055be8a35b6c8ea2baa3df3d90502ac2458996150940716f" => :mojave
+    sha256 "d16176f21d70123a5c709b1a69214acdeb2825dfd50d038e8db815afe62d6a11" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-ldflags", "-s -w -X main.version=#{version}",
-                          "-trimpath", "-o", "#{bin}/anycable-go",
+    ldflags = %w[
+      -s -w
+    ]
+    ldflags << if build.head?
+      "-X github.com/anycable/anycable-go/utils.sha=#{version.commit}"
+    else
+      "-X github.com/anycable/anycable-go/utils.version=#{version}"
+    end
+
+    system "go", "build", "-mod=vendor", "-ldflags", ldflags.join(" "), *std_go_args,
                           "-v", "github.com/anycable/anycable-go/cmd/anycable-go"
   end
 
   test do
+    port = free_port
     pid = fork do
-      exec "#{bin}/anycable-go"
+      exec "#{bin}/anycable-go --port=#{port}"
     end
     sleep 1
-    output = shell_output("curl -sI http://localhost:8080/health")
+    output = shell_output("curl -sI http://localhost:#{port}/health")
     assert_match(/200 OK/m, output)
   ensure
     Process.kill("HUP", pid)

@@ -1,16 +1,16 @@
 class Scipy < Formula
   desc "Software for mathematics, science, and engineering"
   homepage "https://www.scipy.org"
-  url "https://files.pythonhosted.org/packages/04/ab/e2eb3e3f90b9363040a3d885ccc5c79fe20c5b8a3caa8fe3bf47ff653260/scipy-1.4.1.tar.gz"
-  sha256 "dee1bbf3a6c8f73b6b218cb28eed8dd13347ea2f87d572ce19b289d6fd3fbc59"
-  revision 1
+  url "https://files.pythonhosted.org/packages/53/10/776750d57ade26522478a92a2e14035868624a6a62f4157b0cc5abd4a980/scipy-1.5.2.tar.gz"
+  sha256 "066c513d90eb3fd7567a9e150828d39111ebd88d3e924cdfc9f8ce19ab6f90c9"
+  license "BSD-3-Clause"
   head "https://github.com/scipy/scipy.git"
 
   bottle do
     cellar :any
-    sha256 "d273e077bd3afeb31c8a8f1537171d45effd5cfbeace38fcddc3f6f48ef6abcc" => :catalina
-    sha256 "f8d80b91aece4696e4ef3d78c12518f76b04a480b1b7a926b92d04d9905b6012" => :mojave
-    sha256 "5cf8f476a5386c653fc2c933678eb588e044d7fe34bd4c6937a195516a4bb583" => :high_sierra
+    sha256 "0d42cbfdf53a94f5f437f20a4d8789d0092ebd45da4cc399f822f78578b5cfcd" => :catalina
+    sha256 "32666539824b3b8d23b5357eb8f19b1139c3d4bc16359b805271a3a1ea4f1e36" => :mojave
+    sha256 "5890c48fe6a148b3813c3a9a86062cef66ad73fda87381235b092d73f576a3c6" => :high_sierra
   end
 
   depends_on "swig" => :build
@@ -18,7 +18,7 @@ class Scipy < Formula
   depends_on "numpy"
   depends_on "openblas"
   depends_on "pybind11"
-  depends_on "python"
+  depends_on "python@3.8"
 
   cxxstdlib_check :skip
 
@@ -39,11 +39,11 @@ class Scipy < Formula
 
     Pathname("site.cfg").write config
 
-    version = Language::Python.major_minor_version "python3"
+    version = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
     ENV["PYTHONPATH"] = Formula["numpy"].opt_lib/"python#{version}/site-packages"
     ENV.prepend_create_path "PYTHONPATH", lib/"python#{version}/site-packages"
-    system "python3", "setup.py", "build", "--fcompiler=gnu95"
-    system "python3", *Language::Python.setup_install_args(prefix)
+    system Formula["python@3.8"].opt_bin/"python3", "setup.py", "build", "--fcompiler=gnu95"
+    system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
   end
 
   # cleanup leftover .pyc files from previous installs which can cause problems
@@ -53,6 +53,6 @@ class Scipy < Formula
   end
 
   test do
-    system "python3", "-c", "import scipy"
+    system Formula["python@3.8"].opt_bin/"python3", "-c", "import scipy"
   end
 end

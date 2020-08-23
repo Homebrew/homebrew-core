@@ -3,6 +3,7 @@ class Augeas < Formula
   homepage "https://augeas.net/"
   url "http://download.augeas.net/augeas-1.12.0.tar.gz"
   sha256 "321942c9cc32185e2e9cb72d0a70eea106635b50269075aca6714e3ec282cb87"
+  license "LGPL-2.1"
 
   bottle do
     sha256 "00a45b8b446df0a95c2c45cbe608410df2d7be7787247f4b3a8fc1c2c19b41b6" => :catalina

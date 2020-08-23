@@ -3,6 +3,7 @@ class RbenvDefaultGems < Formula
   homepage "https://github.com/sstephenson/rbenv-default-gems"
   url "https://github.com/sstephenson/rbenv-default-gems/archive/v1.0.0.tar.gz"
   sha256 "8271d58168ab10f0ace285dc4c394e2de8f2d1ccc24032e6ed5924f38dc24822"
+  license "MIT"
   revision 1
   head "https://github.com/sstephenson/rbenv-default-gems.git"
 

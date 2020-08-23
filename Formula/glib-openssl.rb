@@ -3,14 +3,12 @@ class GlibOpenssl < Formula
   homepage "https://launchpad.net/glib-networking"
   url "https://download.gnome.org/sources/glib-openssl/2.50/glib-openssl-2.50.8.tar.xz"
   sha256 "869f08e4e9a719c1df411c2fb5554400f6b24a9db0cb94c4359db8dad18d185f"
-  revision 2
+  revision 3
 
   bottle do
-    cellar :any
-    rebuild 1
-    sha256 "b2e75859c8bb44299d9a871d3193508fe5ea41c0ef0204fc570ea4d809a00513" => :catalina
-    sha256 "8eefefc726dbee8d4c50bf5302a1f318ac1a79e27f5a5a182ee56a137cd35088" => :mojave
-    sha256 "e96140eb3a6066a9256dfe771b8d35aa80961313034f0a20e5414d17061da051" => :high_sierra
+    sha256 "d3e3d452515afbf8ab39555e7c9e4add50f28aa89252321bee6ca021c7cb88a9" => :catalina
+    sha256 "10b207a9c340bc6710e1df7f47ef4a0dba5a941c0cdb3330255718cf1884276c" => :mojave
+    sha256 "04107ac3e021e4dd11feb50a3ac4024f3c73dd2b805f171ccfc22c1d7e3a665e" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -24,7 +22,7 @@ class GlibOpenssl < Formula
                           "--disable-silent-rules",
                           "--disable-static",
                           "--prefix=#{prefix}",
-                          "--with-ca-certificates=#{etc}/openssl/cert.pem"
+                          "--with-ca-certificates=#{Formula["openssl@1.1"].pkgetc}/cert.pem"
     system "make", "install"
 
     # Delete the cache, will regenerate it in post_install

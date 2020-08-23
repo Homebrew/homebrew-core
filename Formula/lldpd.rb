@@ -42,7 +42,7 @@ class Lldpd < Formula
     (var/"run").mkpath
   end
 
-  plist_options :startup => true
+  plist_options startup: true
 
   def plist
     <<~EOS

@@ -1,22 +1,31 @@
 class Flint < Formula
   desc "C library for number theory"
   homepage "http://flintlib.org"
-  url "http://flintlib.org/flint-2.5.2.tar.gz"
-  sha256 "cbf1fe0034533c53c5c41761017065f85207a1b770483e98b2392315f6575e87"
-  head "https://github.com/wbhart/flint2.git", :branch => "trunk"
+  url "http://flintlib.org/flint-2.6.3.tar.gz"
+  sha256 "ce1a750a01fa53715cad934856d4b2ed76f1d1520bac0527ace7d5b53e342ee3"
+  license "LGPL-2.1-or-later"
+  revision 1
+  head "https://github.com/wbhart/flint2.git", branch: "trunk"
 
   bottle do
-    cellar :any
-    sha256 "f6df4b3a018320efc58b97580af06979ade00007812c6deb83ba150911f1bff9" => :catalina
-    sha256 "464d909acc9801c865e85023ab33db1abea9e9a28f81808979d7650370d67417" => :mojave
-    sha256 "952ffcbee931dc8554a69b2828b6ac0293e3981223762eeff0dabab42e365d0a" => :high_sierra
+    sha256 "8f03bf2f3e4054c196b5d7a593b5d3e18b85a0482a9b919ec3939db9a0712ef1" => :catalina
+    sha256 "af9627560e4128bf27fd088400890595d886dcc52cb6f752ecfe44738ab893bc" => :mojave
+    sha256 "072f386f8b52bf213fb7782c562ee92b179ceb304b83e18a208e762fcbc8dd1f" => :high_sierra
   end
 
   depends_on "gmp"
   depends_on "mpfr"
+  depends_on "ntl"
 
   def install
-    system "./configure", "--prefix=#{prefix}"
+    ENV.cxx11
+    args = %W[
+      --with-gmp=#{Formula["gmp"].prefix}
+      --with-mpfr=#{Formula["mpfr"].prefix}
+      --with-ntl=#{Formula["ntl"].prefix}
+      --prefix=#{prefix}
+    ]
+    system "./configure", *args
     system "make"
     system "make", "install"
   end

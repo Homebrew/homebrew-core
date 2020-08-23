@@ -1,19 +1,14 @@
 class Libcmph < Formula
   desc "C minimal perfect hashing library"
   homepage "https://cmph.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/cmph/cmph/cmph-2.0.tar.gz"
-  sha256 "ad6c9a75ff3da1fb1222cac0c1d9877f4f2366c5c61c92338c942314230cba76"
+  url "https://downloads.sourceforge.net/project/cmph/v2.0.2/cmph-2.0.2.tar.gz"
+  sha256 "365f1e8056400d460f1ee7bfafdbf37d5ee6c78e8f4723bf4b3c081c89733f1e"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "7b90b50689d32eb6a2d3647bd19863c47aa327b26e5a8f02df1f6b8e61e112a1" => :catalina
-    sha256 "e8163bd5b5de8d4faa7c797432abd2d5d5f411e78d0d23cb851d7bca82b3c24f" => :mojave
-    sha256 "31113e8e40d7f6b1c95976b83e74bb46b1fb2f927eb32adf5aac3a3aafb15811" => :high_sierra
-    sha256 "925bfc37517acf2e0284e3d70280848104107b5aa1c6dd3402b3d4b1f03ab59a" => :sierra
-    sha256 "583c5008fe59058f8bd9166660462acfb583feee646472d546587e3e326059cb" => :el_capitan
-    sha256 "4dba37edbd9ec4f32fcb911cbec5cbd457001c3f6a26f14a3ff88a412a42f017" => :yosemite
-    sha256 "ba56f5d7f7c750329312dbf4d43d5d937320082ab32fe35ec84b05aecff125ee" => :mavericks
+    sha256 "c38019c153c728a28acbfe340cc86764285ec24edbdba5234b0593f83d355c22" => :catalina
+    sha256 "d02c761bd6b52424528bfdcd56b8d469d7cdd2e55f625c719229edb7f011889c" => :mojave
+    sha256 "abffeaf075db6387e636d43eb8fda9b76f02091bdb5533368306f899a46406c1" => :high_sierra
   end
 
   def install

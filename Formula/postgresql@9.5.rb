@@ -1,13 +1,14 @@
 class PostgresqlAT95 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v9.5.21/postgresql-9.5.21.tar.bz2"
-  sha256 "7eb56e4fa877243c2df78adc5a0ef02f851060c282682b4bb97b854100fb732c"
+  url "https://ftp.postgresql.org/pub/source/v9.5.23/postgresql-9.5.23.tar.bz2"
+  sha256 "e314fa7e3355c4b8a35e94eeb8e58a6cf46adf49a2f9afa0c15cbc39980c8366"
+  license "PostgreSQL"
 
   bottle do
-    sha256 "6bf4e2ebeeba9aed6717e6f5db24c618573c63d7d1d090bb28a9f9ecf3a3b0e2" => :catalina
-    sha256 "6c8b49985bf1b4bb8d4cb1c8a72744ec858571ef1e6b4c57af53ad7327d88f44" => :mojave
-    sha256 "64a03752aabc7dc24c3486469c36513d1bac3d58181fd73e229d214834f4d3b4" => :high_sierra
+    sha256 "69659c35cc5a4d662cca1737f04bea2c64e55aaa91e660f4dd9abfe0d0545a64" => :catalina
+    sha256 "f8cf1f4bf66f44d7e4939e5885c02dc5c01f07036ef8d86c3be33d9f35eba26f" => :mojave
+    sha256 "7b0ade2c3d1e0a690dcfa83e897b39f73d032aab2526708606f255d6983ff8f3" => :high_sierra
   end
 
   keg_only :versioned_formula
@@ -17,6 +18,10 @@ class PostgresqlAT95 < Formula
 
   uses_from_macos "libxslt"
   uses_from_macos "perl"
+
+  on_linux do
+    depends_on "util-linux"
+  end
 
   def install
     ENV.prepend "LDFLAGS", "-L#{Formula["openssl@1.1"].opt_lib} -L#{Formula["readline"].opt_lib}"
@@ -41,31 +46,13 @@ class PostgresqlAT95 < Formula
       --with-openssl
       --with-pam
       --with-perl
+      --with-tcl
       --with-uuid=e2fs
     ]
 
-    # The CLT is required to build Tcl support on 10.7 and 10.8 because
-    # tclConfig.sh is not part of the SDK
-    args << "--with-tcl"
-    if File.exist?("#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework/tclConfig.sh")
-      args << "--with-tclconfig=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework"
-    end
-
-    # As of Xcode/CLT 10.x the Perl headers were moved from /System
-    # to inside the SDK, so we need to use `-iwithsysroot` instead
-    # of `-I` to point to the correct location.
-    # https://www.postgresql.org/message-id/153558865647.1483.573481613491501077%40wrigleys.postgresql.org
-    if DevelopmentTools.clang_build_version >= 1000
-      inreplace "configure",
-                "-I$perl_archlibexp/CORE",
-                "-iwithsysroot $perl_archlibexp/CORE"
-      inreplace "contrib/hstore_plperl/Makefile",
-                "$(perl_archlibexp)/CORE",
-                "-iwithsysroot $(perl_archlibexp)/CORE"
-      inreplace "src/pl/plperl/GNUmakefile",
-                "$(perl_archlibexp)/CORE",
-                "-iwithsysroot $(perl_archlibexp)/CORE"
-    end
+    # PostgreSQL by default uses xcodebuild internally to determine this,
+    # which does not work on CLT-only installs.
+    args << "PG_SYSROOT=#{MacOS.sdk_path}" if MacOS.sdk_root_needed?
 
     system "./configure", *args
     system "make"
@@ -90,6 +77,8 @@ class PostgresqlAT95 < Formula
   end
 
   def post_install
+    return if ENV["CI"]
+
     (var/"log").mkpath
     (var/name).mkpath
     system "#{bin}/initdb", "#{var}/#{name}" unless File.exist? "#{var}/#{name}/PG_VERSION"
@@ -109,10 +98,15 @@ class PostgresqlAT95 < Formula
 
         You will need your previous PostgreSQL installation from brew to perform `pg_upgrade`.
         Do not run `brew cleanup postgresql@9.5` until you have performed the migration.
+
+      This formula has created a default database cluster with:
+        initdb #{var}/postgres
+      For more details, read:
+        https://www.postgresql.org/docs/#{version.major}/app-initdb.html
     EOS
   end
 
-  plist_options :manual => "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgresql@9.5 start"
+  plist_options manual: "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgresql@9.5 start"
 
   def plist
     <<~EOS
@@ -142,7 +136,7 @@ class PostgresqlAT95 < Formula
   end
 
   test do
-    system "#{bin}/initdb", testpath/"test"
+    system "#{bin}/initdb", testpath/"test" unless ENV["CI"]
     assert_equal pkgshare.to_s, shell_output("#{bin}/pg_config --sharedir").chomp
     assert_equal lib.to_s, shell_output("#{bin}/pg_config --libdir").chomp
     assert_equal lib.to_s, shell_output("#{bin}/pg_config --pkglibdir").chomp

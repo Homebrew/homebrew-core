@@ -3,6 +3,7 @@ class Hexedit < Formula
   homepage "http://rigaux.org/hexedit.html"
   url "https://github.com/pixel/hexedit/archive/1.4.2.tar.gz"
   sha256 "c81ffb36af9243aefc0887e33dd8e41c4b22d091f1f27d413cbda443b0440d66"
+  license "GPL-2.0"
   head "https://github.com/pixel/hexedit.git"
 
   bottle do

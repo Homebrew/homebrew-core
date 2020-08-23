@@ -1,22 +1,26 @@
 class Libnice < Formula
   desc "GLib ICE implementation"
   homepage "https://wiki.freedesktop.org/nice/"
-  url "https://nice.freedesktop.org/releases/libnice-0.1.16.tar.gz"
-  sha256 "06b678066f94dde595a4291588ed27acd085ee73775b8c4e8399e28c01eeefdf"
-  revision 1
+  url "https://nice.freedesktop.org/releases/libnice-0.1.17.tar.gz"
+  sha256 "1952a0dec58b5c9ccc3f25193df4e2d1244cb382cac611b71e25afcd7b069526"
+  # license ["LGPL-2.1", "MPL-1.1"] - pending https://github.com/Homebrew/brew/pull/7953
+  license "LGPL-2.1"
 
   bottle do
     cellar :any
-    sha256 "1acb2fe5a7fd6b337c67a2e4d3543708f01b22c3ee56894aa57e8b72cedb0a63" => :catalina
-    sha256 "a5ef1e08fe29a17e47670e854e946b15c7c4c62bab5638df797fd315863b5bdb" => :mojave
-    sha256 "2c27b6b47ed04298c57ef98e1e639cd29ba98e634a7be954fc7d4ed06c96f82b" => :high_sierra
-    sha256 "d0c005749a7f6c923e1e704a92229c40cae62d3f20ddc60c999557a3c5e09a5a" => :sierra
+    sha256 "1ebb405afa6b66fddbf4c90ab97f3d9e528f1ce3a11c571bc4d5f10c97a812e6" => :catalina
+    sha256 "0d2f05d15e8e188b56758da0c7aaa05109bb85a6c3088e0f9b863d2c10a76961" => :mojave
+    sha256 "7851630de0b1da7adf67c514f4d6df037c05ba4e1a426d22029ac8aa20d38877" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "gnutls"
   depends_on "gstreamer"
+
+  on_linux do
+    depends_on "intltool" => :build
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking",
@@ -26,7 +30,7 @@ class Libnice < Formula
   end
 
   test do
-    # Based on https://github.com/libnice/libnice/blob/master/examples/simple-example.c
+    # Based on https://github.com/libnice/libnice/blob/HEAD/examples/simple-example.c
     (testpath/"test.c").write <<~EOS
       #include <agent.h>
       int main(int argc, char *argv[]) {

@@ -3,16 +3,16 @@ class LastpassCli < Formula
   homepage "https://github.com/lastpass/lastpass-cli"
   url "https://github.com/lastpass/lastpass-cli/releases/download/v1.3.3/lastpass-cli-1.3.3.tar.gz"
   sha256 "b94f591627e06c9fed3bc38007b1adc6ea77127e17c7175c85d497096768671b"
+  license "GPL-2.0"
   revision 1
   head "https://github.com/lastpass/lastpass-cli.git"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "58009ea3abc56153d7ef9036454858ca6e40f8bbf21c729ce89b5893ddd3c1dd" => :catalina
-    sha256 "a24ff2d326dd4f445f492c788d7d8a28d3b3a853be9454c6418f340ed85505d8" => :mojave
-    sha256 "34fa4da7396fd076d9b0c02b1ea092701c3a2fe09447f818718eb66bb4c389d9" => :high_sierra
-    sha256 "508c481d28158c3e2f2f7aa69cc8b4048d56417a157d990208f2393297b60dc7" => :sierra
+    rebuild 2
+    sha256 "3739dcc590577eaeaecf182f3d6b354173f4dbda632a3b34b7fb35c16831b65c" => :catalina
+    sha256 "2edb88e5308ec6f93a5c23d4cf85263a65fe5cde36e9d2c9c524441c6917ac6f" => :mojave
+    sha256 "ccd3658c9ae5b54e1c9584971de3c47fbe399a3032c3db878317c1b853d7f22a" => :high_sierra
   end
 
   depends_on "asciidoc" => :build
@@ -29,7 +29,7 @@ class LastpassCli < Formula
 
     mkdir "build" do
       system "cmake", "..", *std_cmake_args, "-DCMAKE_INSTALL_MANDIR:PATH=#{man}"
-      system "make", "all", "lpass-test", "test", "install", "install-doc"
+      system "make", "install", "install-doc"
     end
 
     bash_completion.install "contrib/lpass_bash_completion"
@@ -38,6 +38,7 @@ class LastpassCli < Formula
   end
 
   test do
-    system "#{bin}/lpass", "--version"
+    assert_equal("Error: Could not find decryption key. Perhaps you need to login with `#{bin}/lpass login`.",
+      shell_output("#{bin}/lpass passwd 2>&1", 1).chomp)
   end
 end

@@ -1,15 +1,15 @@
 class Conserver < Formula
   desc "Allows multiple users to watch a serial console at the same time"
   homepage "https://www.conserver.com/"
-  url "https://github.com/conserver/conserver/releases/download/v8.2.4/conserver-8.2.4.tar.gz"
-  sha256 "a591eabb4abb632322d2f3058a2f0bd6502754069a99a153efe2d6d05bd97f6f"
+  url "https://github.com/conserver/conserver/releases/download/v8.2.5/conserver-8.2.5.tar.gz"
+  sha256 "7db192f304126d7e5c15421c4c83cd5c08039f2f2b3c61b2998e71881ae47eea"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0543221000d5bc2022b45939bdad3b736931b3a5dc7e15c47a78d18e5cca2395" => :catalina
-    sha256 "cc5c46b8adeeb4eb949f8abeedee67fce87dd1b17677622963619a496b511289" => :mojave
-    sha256 "45f059778b3e32bb6cdcba3f52bb4ad99d3c2271ef0adfb61fc28a0299d3d8a2" => :high_sierra
-    sha256 "972900dc19aeb2beb11371bc9dba0c241c842328dd573d449535529dc5f560ad" => :sierra
+    sha256 "ce9d095a9e435480fe4a8eb2e73c0732fe0d7eda89aafc98e0599453eaa8f626" => :catalina
+    sha256 "70283393748aaf6397ea4b0bcdda5f7192597da2093e8fe0c21fcbc89cd5e900" => :mojave
+    sha256 "e5de5fdc13fd75c8ab4cb11f0a86408b63b2683ac9aacf573d7df0500dc38210" => :high_sierra
   end
 
   def install

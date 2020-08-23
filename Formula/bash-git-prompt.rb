@@ -3,6 +3,7 @@ class BashGitPrompt < Formula
   homepage "https://github.com/magicmonty/bash-git-prompt"
   url "https://github.com/magicmonty/bash-git-prompt/archive/2.7.1.tar.gz"
   sha256 "5e5fc6f5133b65760fede8050d4c3bc8edb8e78bc7ce26c16db442aa94b8a709"
+  license "BSD-2-Clause"
   head "https://github.com/magicmonty/bash-git-prompt.git"
 
   bottle :unneeded

@@ -29,7 +29,7 @@ class Automysqlbackup < Formula
     EOS
   end
 
-  plist_options :manual => "automysqlbackup"
+  plist_options manual: "automysqlbackup"
 
   def plist
     <<~EOS

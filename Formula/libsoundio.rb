@@ -3,6 +3,7 @@ class Libsoundio < Formula
   homepage "http://libsound.io"
   url "https://github.com/andrewrk/libsoundio/archive/2.0.0.tar.gz"
   sha256 "67a8fc1c9bef2b3704381bfb3fb3ce99e3952bc4fea2817729a7180fddf4a71e"
+  license "MIT"
 
   bottle do
     cellar :any
@@ -13,9 +14,6 @@ class Libsoundio < Formula
   end
 
   depends_on "cmake" => :build
-
-  # fatal error: 'stdatomic.h' file not found
-  depends_on :macos => :yosemite
 
   def install
     system "cmake", ".", *std_cmake_args

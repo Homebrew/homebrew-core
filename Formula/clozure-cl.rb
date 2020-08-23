@@ -1,22 +1,23 @@
 class ClozureCl < Formula
   desc "Common Lisp implementation with a long history"
   homepage "https://ccl.clozure.com"
-  url "https://github.com/Clozure/ccl/archive/v1.11.6.tar.gz"
-  sha256 "6a496d35e05dc3e6e7637884552b1f14c82296525546f28337b222e4c3d7d50b"
+  url "https://github.com/Clozure/ccl/archive/v1.12.tar.gz"
+  sha256 "774a06b4fb6dc4b51dfb26da8e1cc809c605e7706c12180805d1be6f2885bd52"
+  license "Apache-2.0"
   head "https://github.com/Clozure/ccl.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8725b08fc19b2330d25b78d56d06564b01f8c70ec09763a5a6823db05b81d928" => :mojave
-    sha256 "06426d4b5d6f5875734eac8d6bac1e1a99e37b6ca26696d458274eb36b23e8b0" => :high_sierra
-    sha256 "f4bbb8190f307cfc272e80879e88c51e1ca8bf9382fcf93b0cc628e7169fe522" => :sierra
+    sha256 "44532f82d79ee308886614d8a8ccafd65e049a8621cc7a54a6af15d9985486e7" => :catalina
+    sha256 "b17d10463b8101707ad7385a896e3252e6ffd4231c0334ac25aa7967c689226f" => :mojave
+    sha256 "3e2a8e6263055e8e21ae373b0def8f4ad5aebaa4e64df12d67b148bbb3fde177" => :high_sierra
   end
 
-  depends_on :xcode => :build
+  depends_on xcode: :build
 
   resource "bootstrap" do
-    url "https://github.com/Clozure/ccl/releases/download/v1.11.5/ccl-1.11.5-darwinx86.tar.gz"
-    sha256 "5adbea3d8b4a2e29af30d141f781c6613844f468c0ccfa11bae908c3e9641939"
+    url "https://github.com/Clozure/ccl/releases/download/v1.12/darwinx86.tar.gz"
+    sha256 "9434fb5ebc01fc923625ad56726fdd217009e2d3c107cfa3c5435cb7692ba7ca"
   end
 
   def install
@@ -25,7 +26,16 @@ class ClozureCl < Formula
     buildpath.install tmpdir/"dx86cl64.image"
     buildpath.install tmpdir/"darwin-x86-headers64"
     cd "lisp-kernel/darwinx8664" do
-      system "make"
+      args = []
+
+      if DevelopmentTools.clang_build_version == 1100 && MacOS::CLT.installed?
+        # Xcode 11.0-11.3 assembler is broken. Try the CLT in case it is older.
+        # https://github.com/Clozure/ccl/issues/271
+        # Note: ccl NEEDS the system assembler - it is not compatible with Clang's
+        args << "AS=/Library/Developer/CommandLineTools/usr/bin/as"
+      end
+
+      system "make", *args
     end
 
     ENV["CCL_DEFAULT_DIRECTORY"] = buildpath
@@ -41,7 +51,7 @@ class ClozureCl < Formula
     doc.install Dir["doc/*"]
     libexec.install Dir["*"]
     bin.install Dir["#{libexec}/scripts/ccl64"]
-    bin.env_script_all_files(libexec/"bin", :CCL_DEFAULT_DIRECTORY => libexec)
+    bin.env_script_all_files(libexec/"bin", CCL_DEFAULT_DIRECTORY: libexec)
   end
 
   test do

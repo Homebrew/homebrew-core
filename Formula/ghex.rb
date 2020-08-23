@@ -3,19 +3,18 @@ class Ghex < Formula
   homepage "https://wiki.gnome.org/Apps/Ghex"
   url "https://download.gnome.org/sources/ghex/3.18/ghex-3.18.4.tar.xz"
   sha256 "c2d9c191ff5bce836618779865bee4059db81a3a0dff38bda3cc7a9e729637c0"
-  revision 1
+  revision 3
 
   bottle do
-    sha256 "74ef6e73cc29bce3ee6d7a8a97eb54b54d5794fbfe7e924c85d8cfdde0431d45" => :catalina
-    sha256 "7cbce6d7454244b0fb038dcae2ff4a73c687676205478f7c61ac5dd42cb96bd4" => :mojave
-    sha256 "30ba8e80ca6e3ff26752a8c2127ed6ed46d3b31d19c63c4ef8b737dfac7d9c23" => :high_sierra
+    sha256 "b152b5f03f5bc0d7a50a834fef582ea7fb477dd7560afb4a0b1f4df88e229970" => :catalina
+    sha256 "c2e68caac31470d6dbc66050b2dc42333b3dfc6956ee7453fba9032b5cf894a4" => :mojave
+    sha256 "4de4a0a7ee3f81c7f7b36d7368380b2ff2a063c5d444302cd5979ee33727fb1c" => :high_sierra
   end
 
   depends_on "itstool" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python" => :build
   depends_on "gtk+3"
   depends_on "hicolor-icon-theme"
 
@@ -27,7 +26,7 @@ class Ghex < Formula
     ENV["DESTDIR"] = "/"
 
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", ".."
+      system "meson", *std_meson_args, ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end

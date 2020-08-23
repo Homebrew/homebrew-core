@@ -3,6 +3,7 @@ class Fastjar < Formula
   homepage "https://savannah.nongnu.org/projects/fastjar"
   url "https://download.savannah.nongnu.org/releases/fastjar/fastjar-0.98.tar.gz"
   sha256 "f156abc5de8658f22ee8f08d7a72c88f9409ebd8c7933e9466b0842afeb2f145"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

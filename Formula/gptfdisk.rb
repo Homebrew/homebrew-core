@@ -3,6 +3,7 @@ class Gptfdisk < Formula
   homepage "https://www.rodsbooks.com/gdisk/"
   url "https://downloads.sourceforge.net/project/gptfdisk/gptfdisk/1.0.5/gptfdisk-1.0.5.tar.gz"
   sha256 "0e7d3987cd0488ecaf4b48761bc97f40b1dc089e5ff53c4b37abe30bc67dcb2f"
+  license "GPL-2.0"
 
   bottle do
     cellar :any

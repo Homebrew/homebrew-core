@@ -3,7 +3,8 @@ class ShairportSync < Formula
   homepage "https://github.com/mikebrady/shairport-sync"
   url "https://github.com/mikebrady/shairport-sync/archive/3.3.6.tar.gz"
   sha256 "a8382affd25c473fa38ead5690148c6c3902098f359f9c881eefe139e1f49f49"
-  head "https://github.com/mikebrady/shairport-sync.git", :branch => "development"
+  license "MIT"
+  head "https://github.com/mikebrady/shairport-sync.git", branch: "development"
 
   bottle do
     sha256 "3c2a973fbbe200704e35737226fd4e7ed6edad9f389253602fe5d14c50bb171e" => :catalina

@@ -3,13 +3,13 @@ class Pike < Formula
   homepage "https://pike.lysator.liu.se/"
   url "https://pike.lysator.liu.se/pub/pike/latest-stable/Pike-v8.0.702.tar.gz"
   sha256 "c47aad2e4f2c501c0eeea5f32a50385b46bda444f922a387a5c7754302f12a16"
+  revision 1
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "f299725be9679d3be3abcb580dc81c6512ae66e1a1a3b2034e329212899cfcff" => :catalina
-    sha256 "f588f3ad79e59c90e7339fba213f67102b7040bb42fad2437ec4d3094e636295" => :mojave
-    sha256 "5d67e09c9bb49b77a1a670591d6d2c1f8f039efe4b2b18c50e0f8941c072e976" => :high_sierra
+    sha256 "ae20ba3c7fd69c026892555798559bd2da90d53dc3cf07eb5d7423af505082d5" => :catalina
+    sha256 "ff1e2f11d0beec51cc41d9eb566a80cbf53b51933158c6083054e3b91dfa251c" => :mojave
+    sha256 "10eb373d72d3c178dc1f560a7e1c35f8b6dc51412d7eb4f4cf4f751109d4fd9d" => :high_sierra
   end
 
   depends_on "gmp"

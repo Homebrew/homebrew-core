@@ -3,6 +3,7 @@ class Libgig < Formula
   homepage "https://www.linuxsampler.org/libgig/"
   url "https://download.linuxsampler.org/packages/libgig-4.2.0.tar.bz2"
   sha256 "16229a46138b101eb9eda042c66d2cd652b1b3c9925a7d9577d52f2282f745ff"
+  license "GPL-2.0"
 
   bottle do
     cellar :any

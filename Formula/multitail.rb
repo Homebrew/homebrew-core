@@ -3,6 +3,7 @@ class Multitail < Formula
   homepage "https://vanheusden.com/multitail/"
   url "https://vanheusden.com/multitail/multitail-6.5.0.tgz"
   sha256 "b29d5e77dfc663c7500f78da67de5d82d35d9417a4741a89a18ce9ee7bdba9ed"
+  license "GPL-2.0"
   head "https://github.com/flok99/multitail.git"
 
   bottle do

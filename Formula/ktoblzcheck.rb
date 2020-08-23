@@ -1,14 +1,14 @@
 class Ktoblzcheck < Formula
   desc "Library for German banks"
   homepage "https://ktoblzcheck.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/ktoblzcheck/ktoblzcheck-1.52.tar.gz"
-  sha256 "e433da63af7161a6ce8b1e0c9f0b25bd59ad6d81bc4069e9277c97c1320a3ac4"
-  revision 1
+  url "https://downloads.sourceforge.net/project/ktoblzcheck/ktoblzcheck-1.53.tar.gz"
+  sha256 "18b9118556fe83240f468f770641d2578f4ff613cdcf0a209fb73079ccb70c55"
+  license "LGPL-2.1"
 
   bottle do
-    sha256 "fe801d5a372699c9a84f63476eb332004cd09461118d019a919c7f3fb1884fe9" => :catalina
-    sha256 "75ffa5ac1e50aee72355cfb41419d88354954f4fd8e9414261037ef7e00a3474" => :mojave
-    sha256 "5c6397edbca81abcd841366fdcb1f8df042376c6f8e996005f2c71bd6ba2b0f0" => :high_sierra
+    sha256 "93495421d21c635d04637865d68c922d70ed0112b01929d113d21cd533afabc1" => :catalina
+    sha256 "447d1889a2350c704d8c4d276c8122f8ecd24b906f5b4944e39bdbb77bf39962" => :mojave
+    sha256 "242eca7d985cf7d70b78a2838d96a7b91b1e67b68ca7376919296bc253a99540" => :high_sierra
   end
 
   depends_on "cmake" => :build

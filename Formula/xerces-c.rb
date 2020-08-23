@@ -1,17 +1,16 @@
 class XercesC < Formula
   desc "Validating XML parser"
   homepage "https://xerces.apache.org/xerces-c/"
-  url "https://www.apache.org/dyn/closer.lua?path=xerces/c/3/sources/xerces-c-3.2.2.tar.gz"
-  mirror "https://archive.apache.org/dist/xerces/c/3/sources/xerces-c-3.2.2.tar.gz"
-  sha256 "dd6191f8aa256d3b4686b64b0544eea2b450d98b4254996ffdfe630e0c610413"
+  url "https://www.apache.org/dyn/closer.lua?path=xerces/c/3/sources/xerces-c-3.2.3.tar.gz"
+  mirror "https://archive.apache.org/dist/xerces/c/3/sources/xerces-c-3.2.3.tar.gz"
+  sha256 "fb96fc49b1fb892d1e64e53a6ada8accf6f0e6d30ce0937956ec68d39bd72c7e"
+  license "Apache-2.0"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "8bcc9b20b0b3df89ec53900e0b3b09ea1bbc3159b4cffc4b8ef4f62413621924" => :catalina
-    sha256 "fab62b22422c24b0218cae42f7f81ad736db316d9bde4218272cdf7b174c313f" => :mojave
-    sha256 "e62fba2c06fd03edf0491b54f753d10c4ca9e73e97c24389b749e655f9199b50" => :high_sierra
-    sha256 "8390cdf10fcc8b65a1f295eacf8b3fec34776d18219b8a8ce565592ee3b03372" => :sierra
+    sha256 "8bcfddab9276b6f09c9af5bd8be60d500cd5107795c25495b53ef5e0734ae617" => :catalina
+    sha256 "502d34b51931ead6b1db27ca1a71eed465ecd4da5dbdeaa51c0ae77e77dc25ea" => :mojave
+    sha256 "8b30ad6819fc3628b706a18193d45b96c13749e7d1e27f5392cf91e48fe7d63b" => :high_sierra
   end
 
   depends_on "cmake" => :build

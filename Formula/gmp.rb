@@ -4,6 +4,7 @@ class Gmp < Formula
   url "https://gmplib.org/download/gmp/gmp-6.2.0.tar.xz"
   mirror "https://ftp.gnu.org/gnu/gmp/gmp-6.2.0.tar.xz"
   sha256 "258e6cd51b3fbdfc185c716d55f82c08aff57df0c6fbd143cf6ed561267a1526"
+  license "GPL-3.0"
 
   bottle do
     cellar :any
@@ -14,10 +15,34 @@ class Gmp < Formula
 
   uses_from_macos "m4" => :build
 
+  patch do
+    # Remove when upstream fix is released
+    # https://gmplib.org/list-archives/gmp-bugs/2020-July/004837.html
+    # arm64-darwin patch
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c53834b4/gmp/6.2.0-arm.patch"
+    sha256 "4c5b926f47c78f9cc6f900130d020e7f3aa6f31a6e84246e8886f6da04f7424c"
+  end
+
+  if Hardware::CPU.arm?
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   def install
+    # Work around macOS Catalina / Xcode 11 code generation bug
+    # (test failure t-toom53, due to wrong code in mpn/toom53_mul.o)
+    ENV.append_to_cflags "-fno-stack-check"
+
     # Enable --with-pic to avoid linking issues with the static library
     args = %W[--prefix=#{prefix} --enable-cxx --with-pic]
-    args << "--build=#{Hardware.oldest_cpu}-apple-darwin#{`uname -r`.to_i}"
+
+    if Hardware::CPU.arm?
+      args << "--build=aarch64-apple-darwin#{`uname -r`.to_i}"
+      system "autoreconf", "-fiv"
+    else
+      args << "--build=#{Hardware.oldest_cpu}-apple-darwin#{`uname -r`.to_i}"
+    end
     system "./configure", *args
     system "make"
     system "make", "check"

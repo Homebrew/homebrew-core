@@ -1,14 +1,14 @@
 class Pgbouncer < Formula
   desc "Lightweight connection pooler for PostgreSQL"
   homepage "https://www.pgbouncer.org/"
-  url "https://www.pgbouncer.org/downloads/files/1.12.0/pgbouncer-1.12.0.tar.gz"
-  sha256 "1b3c6564376cafa0da98df3520f0e932bb2aebaf9a95ca5b9fa461e9eb7b273e"
+  url "https://www.pgbouncer.org/downloads/files/1.14.0/pgbouncer-1.14.0.tar.gz"
+  sha256 "a0c13d10148f557e36ff7ed31793abb7a49e1f8b09aa2d4695d1c28fa101fee7"
 
   bottle do
     cellar :any
-    sha256 "e01f2d531e6ef62c29614c8eb435d311733e44206d7da4e78e6853ddb339bb07" => :catalina
-    sha256 "1c9de5a71cf7c54d92802adefe2ce68ef0db48bc6619b06e2cf2741164330927" => :mojave
-    sha256 "387cf0cf1819be2442ed9b3acd89815b4c5b3bc6a3386641568a70eaa62c6100" => :high_sierra
+    sha256 "eaecbb143f281ccc047d7a63488038c2d53de7ffaf56b56e532dce7089e30106" => :catalina
+    sha256 "c86c7f6b7fa11965e9427aeb36bc334b6f7f31323d826350736813187622844f" => :mojave
+    sha256 "4e098f2929939ba16d03e194310df111929dd861e02e89f075ce726f8f67b49d" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -39,7 +39,7 @@ class Pgbouncer < Formula
     EOS
   end
 
-  plist_options :manual => "pgbouncer -q #{HOMEBREW_PREFIX}/etc/pgbouncer.ini"
+  plist_options manual: "pgbouncer -q #{HOMEBREW_PREFIX}/etc/pgbouncer.ini"
 
   def plist
     <<~EOS

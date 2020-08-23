@@ -3,6 +3,7 @@ class Dssim < Formula
   homepage "https://github.com/kornelski/dssim"
   url "https://github.com/kornelski/dssim/archive/2.10.0.tar.gz"
   sha256 "1bc9abec552fc64d3951340d95f68212d30e6473a93694db25cf16a0baa9d854"
+  license "AGPL-3.0"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,7 +16,7 @@ class Dssim < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--root", prefix, "--path", "."
+    system "cargo", "install", *std_cargo_args
   end
 
   test do

@@ -1,15 +1,16 @@
 class Kafka < Formula
   desc "Publish-subscribe messaging rethought as a distributed commit log"
   homepage "https://kafka.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=kafka/2.4.1/kafka_2.12-2.4.1.tgz"
-  mirror "https://archive.apache.org/dist/kafka/2.4.1/kafka_2.12-2.4.1.tgz"
-  sha256 "2177cbd14118999e1d76fec628ca78ace7e6f841219dbc6035027c796bbe1a2a"
+  url "https://www.apache.org/dyn/closer.lua?path=kafka/2.6.0/kafka_2.13-2.6.0.tgz"
+  mirror "https://archive.apache.org/dist/kafka/2.6.0/kafka_2.13-2.6.0.tgz"
+  sha256 "7c789adaa89654d935a5558d0dacff7466e2cfec9620cb8177cec141e7b0fb92"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "af2e8113b36f680291fb199f0554ba45d14e67fe733cdc1d18682c0a9fb7fc21" => :catalina
-    sha256 "af2e8113b36f680291fb199f0554ba45d14e67fe733cdc1d18682c0a9fb7fc21" => :mojave
-    sha256 "af2e8113b36f680291fb199f0554ba45d14e67fe733cdc1d18682c0a9fb7fc21" => :high_sierra
+    sha256 "a00316528e00fe0a5ff2771d1883f25f186481d77de8a79dfaf491be076de3ee" => :catalina
+    sha256 "027a1d06325c8b98cca97cc2922fdbf7d980fb52917d1791861032cd501e5428" => :mojave
+    sha256 "027a1d06325c8b98cca97cc2922fdbf7d980fb52917d1791861032cd501e5428" => :high_sierra
   end
 
   # Related to https://issues.apache.org/jira/browse/KAFKA-2034
@@ -20,8 +21,10 @@ class Kafka < Formula
     satisfy { quiet_system("/usr/libexec/java_home --version 1.8 --failfast") }
   end
 
-  depends_on :java => "1.8"
+  depends_on java: "1.8"
   depends_on "zookeeper"
+
+  conflicts_with "confluent-platform", because: "both install identically named Kafka related executables"
 
   def install
     data = var/"lib"
@@ -48,7 +51,7 @@ class Kafka < Formula
     (var+"log/kafka").mkpath
   end
 
-  plist_options :manual => "zookeeper-server-start #{HOMEBREW_PREFIX}/etc/kafka/zookeeper.properties & kafka-server-start #{HOMEBREW_PREFIX}/etc/kafka/server.properties"
+  plist_options manual: "zookeeper-server-start #{HOMEBREW_PREFIX}/etc/kafka/zookeeper.properties & kafka-server-start #{HOMEBREW_PREFIX}/etc/kafka/server.properties"
 
   def plist
     <<~EOS

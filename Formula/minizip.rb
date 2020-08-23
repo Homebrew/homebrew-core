@@ -20,7 +20,7 @@ class Minizip < Formula
   uses_from_macos "zlib"
 
   conflicts_with "minizip2",
-    :because => "both install a `libminizip.a` library"
+    because: "both install a `libminizip.a` library"
 
   def install
     system "./configure", "--prefix=#{prefix}"

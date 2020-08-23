@@ -4,6 +4,7 @@ class Csfml < Formula
   homepage "https://www.sfml-dev.org/"
   url "https://github.com/SFML/CSFML/archive/2.5.tar.gz"
   sha256 "d49ddfbe9c14dbca60dd524d10bca7922142dc32a07a5dfbbd209cda7caad860"
+  license "Zlib"
   head "https://github.com/SFML/CSFML.git"
 
   bottle do

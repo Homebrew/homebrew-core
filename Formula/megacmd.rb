@@ -3,6 +3,7 @@ class Megacmd < Formula
   homepage "https://github.com/t3rm1n4l/megacmd"
   url "https://github.com/t3rm1n4l/megacmd/archive/0.016.tar.gz"
   sha256 "def4cda692860c85529c8de9b0bdb8624a30f57d265f7e70994fc212e5da7e40"
+  license "MIT"
   head "https://github.com/t3rm1n4l/megacmd.git"
 
   bottle do

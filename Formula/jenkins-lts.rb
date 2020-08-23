@@ -1,18 +1,19 @@
 class JenkinsLts < Formula
   desc "Extendable open-source CI server"
   homepage "https://jenkins.io/index.html#stable"
-  url "http://mirrors.jenkins.io/war-stable/2.204.5/jenkins.war"
-  sha256 "94c73fa5b72e0a4eb52c5c99c08351f85a51d138f3dbaff6f64e4406353f839c"
+  url "http://mirrors.jenkins.io/war-stable/2.235.5/jenkins.war"
+  sha256 "c786f7b18fd3fc1bafce85b3b9bc5d8c5f09e3a313cfd618bae8c1d920b6f70b"
+  license "MIT"
 
   bottle :unneeded
 
-  depends_on :java => "1.8"
+  depends_on "openjdk@11"
 
   def install
-    system "jar", "xvf", "jenkins.war"
-    libexec.install "jenkins.war", "WEB-INF/jenkins-cli.jar"
-    bin.write_jar_script libexec/"jenkins.war", "jenkins-lts", :java_version => "1.8"
-    bin.write_jar_script libexec/"jenkins-cli.jar", "jenkins-lts-cli", :java_version => "1.8"
+    system "#{Formula["openjdk@11"].opt_bin}/jar", "xvf", "jenkins.war"
+    libexec.install "jenkins.war", "WEB-INF/lib/cli-#{version}.jar"
+    bin.write_jar_script libexec/"jenkins.war", "jenkins-lts", java_version: "11"
+    bin.write_jar_script libexec/"cli-#{version}.jar", "jenkins-lts-cli", java_version: "11"
   end
 
   def caveats
@@ -21,7 +22,7 @@ class JenkinsLts < Formula
     EOS
   end
 
-  plist_options :manual => "jenkins-lts"
+  plist_options manual: "jenkins-lts"
 
   def plist
     <<~EOS
@@ -33,11 +34,7 @@ class JenkinsLts < Formula
           <string>#{plist_name}</string>
           <key>ProgramArguments</key>
           <array>
-            <string>/usr/libexec/java_home</string>
-            <string>-v</string>
-            <string>1.8</string>
-            <string>--exec</string>
-            <string>java</string>
+            <string>#{Formula["openjdk@11"].opt_bin}/java</string>
             <string>-Dmail.smtp.starttls.enable=true</string>
             <string>-jar</string>
             <string>#{opt_libexec}/jenkins.war</string>
@@ -53,19 +50,15 @@ class JenkinsLts < Formula
 
   test do
     ENV["JENKINS_HOME"] = testpath
-    ENV.append "_JAVA_OPTIONS", "-Djava.io.tmpdir=#{testpath}"
+    ENV.prepend "_JAVA_OPTIONS", "-Djava.io.tmpdir=#{testpath}"
 
-    pid = fork do
-      exec "#{bin}/jenkins-lts"
+    port = free_port
+    fork do
+      exec "#{bin}/jenkins-lts --httpPort=#{port}"
     end
     sleep 60
 
-    begin
-      output = shell_output("curl localhost:8080/")
-      assert_match(/Welcome to Jenkins!|Unlock Jenkins|Authentication required/, output)
-    ensure
-      Process.kill("SIGINT", pid)
-      Process.wait(pid)
-    end
+    output = shell_output("curl localhost:#{port}/")
+    assert_match /Welcome to Jenkins!|Unlock Jenkins|Authentication required/, output
   end
 end

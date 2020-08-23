@@ -1,23 +1,21 @@
 class X8664ElfBinutils < Formula
-  desc "FSF Binutils for x86_64-elf cross development"
+  desc "GNU Binutils for x86_64-elf cross development"
   homepage "https://www.gnu.org/software/binutils/"
-  url "https://ftp.gnu.org/gnu/binutils/binutils-2.34.tar.gz"
-  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.34.tar.gz"
-  sha256 "53537d334820be13eeb8acb326d01c7c81418772d626715c7ae927a7d401cab3"
+  url "https://ftp.gnu.org/gnu/binutils/binutils-2.35.tar.gz"
+  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.35.tar.gz"
+  sha256 "a3ac62bae4f339855b5449cfa9b49df90c635adbd67ecb8a0e7f3ae86a058da6"
 
   bottle do
-    sha256 "57141264369389b9c50019aac6bb0f6dcf19935f20ea8fab57b56d4c4451066a" => :catalina
-    sha256 "2fa4917e60d82c29d70b90a5a725ecb26a29aa5cf148af16e73af045ee431c59" => :mojave
-    sha256 "ed28927581eb4e2a8bfd10134eec40e1b1055161a5fb26580453943fb3bffe72" => :high_sierra
+    sha256 "4aa6103fb091ca890f96fc4bd32ede47ea00180190ce7af74c3ef6d2a33efd01" => :catalina
+    sha256 "3fbbd0397080012c98d274499dcaf3ca6c510f9d18adc9040d725ec82c7ab31c" => :mojave
+    sha256 "000600460decf639019762f1eafaf6c353b6974b2bca17a42786361014aff54e" => :high_sierra
   end
 
   def install
     system "./configure", "--target=x86_64-elf",
-                          "--enable-targets=all",
-                          "--enable-multilib",
-                          "--enable-64-bit-bfd",
-                          "--disable-werror",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "--infodir=#{info}/x86_64-elf-binutils",
+                          "--disable-nls"
     system "make"
     system "make", "install"
   end
@@ -34,6 +32,6 @@ class X8664ElfBinutils < Formula
     EOS
     system "#{bin}/x86_64-elf-as", "--64", "-o", "test-s.o", "test-s.s"
     assert_match "file format elf64-x86-64",
-      shell_output("#{Formula["x86_64-elf-binutils"].bin}/x86_64-elf-objdump -a test-s.o")
+      shell_output("#{bin}/x86_64-elf-objdump -a test-s.o")
   end
 end

@@ -3,6 +3,7 @@ class Assimp < Formula
   homepage "https://www.assimp.org/"
   url "https://github.com/assimp/assimp/archive/v5.0.1.tar.gz"
   sha256 "11310ec1f2ad2cd46b95ba88faca8f7aaa1efe9aa12605c55e3de2b977b3dbfc"
+  license "LGPL-3.0"
   head "https://github.com/assimp/assimp.git"
 
   bottle do
@@ -15,15 +16,6 @@ class Assimp < Formula
   depends_on "cmake" => :build
 
   uses_from_macos "zlib"
-
-  # Fix "unzip.c:150:11: error: unknown type name 'z_crc_t'"
-  # Upstream PR from 12 Dec 2017 "unzip: fix build with older zlib"
-  if MacOS.version <= :el_capitan
-    patch do
-      url "https://github.com/assimp/assimp/pull/1634.patch?full_index=1"
-      sha256 "79b93f785ee141dc2f56d557b2b8ee290eed0afc7dd373ad84715c6c9aa23460"
-    end
-  end
 
   def install
     args = std_cmake_args

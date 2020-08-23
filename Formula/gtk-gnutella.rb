@@ -1,13 +1,14 @@
 class GtkGnutella < Formula
   desc "Share files in a peer-to-peer (P2P) network"
   homepage "https://gtk-gnutella.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/gtk-gnutella/gtk-gnutella/1.1.15/gtk-gnutella-1.1.15.tar.xz"
-  sha256 "2931fab394b6d36c14a6bbc3b0ff584af5550f2eeb03f78bb19743c47767c1b7"
+  url "https://downloads.sourceforge.net/project/gtk-gnutella/gtk-gnutella/1.2.0/gtk-gnutella-1.2.0.tar.xz"
+  sha256 "9608f28706f75423ac6b0d8f260506f1cf0f345a6f04de7cac1232b2504d94c9"
+  license "GPL-2.0"
 
   bottle do
-    sha256 "9fb121eec5c3e0f3e8750464148488870056596b59068e5765991c3851e85316" => :catalina
-    sha256 "1ab6b18c2ec8cd720a7024e471ceba5b9c8397c8c589b4eebbb371a2dc390f24" => :mojave
-    sha256 "dc0cab460a17691ee852300b90f014eeaa7871c59859cf92e887aa882b032ed0" => :high_sierra
+    sha256 "88c016e26d7b8d48bb7f1be67c5b84fadc6af0c58f3d258928f3d7a62c4d7e57" => :catalina
+    sha256 "573fef65f5e1766416cfd94f715e2bffe39c6adf3108232d0f80fe76b0711348" => :mojave
+    sha256 "c270c4e7d01b10b80a0dac8fc0b91981769c77186f975c5d1ba69a772aae6470" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

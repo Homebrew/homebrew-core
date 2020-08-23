@@ -2,8 +2,9 @@ class Rtags < Formula
   desc "Source code cross-referencer like ctags with a clang frontend"
   homepage "https://github.com/Andersbakken/rtags"
   url "https://github.com/Andersbakken/rtags.git",
-      :tag      => "v2.38",
-      :revision => "9687ccdb9e539981e7934e768ea5c84464a61139"
+      tag:      "v2.38",
+      revision: "9687ccdb9e539981e7934e768ea5c84464a61139"
+  license "GPL-3.0"
   head "https://github.com/Andersbakken/rtags.git"
 
   bottle do
@@ -36,7 +37,7 @@ class Rtags < Formula
     end
   end
 
-  plist_options :manual => "#{HOMEBREW_PREFIX}/bin/rdm --verbose --inactivity-timeout=300 --log-file=#{HOMEBREW_PREFIX}/var/log/rtags.log"
+  plist_options manual: "#{HOMEBREW_PREFIX}/bin/rdm --verbose --inactivity-timeout=300 --log-file=#{HOMEBREW_PREFIX}/var/log/rtags.log"
 
   def plist
     <<~EOS

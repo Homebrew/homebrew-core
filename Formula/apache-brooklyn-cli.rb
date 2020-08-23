@@ -1,37 +1,31 @@
 class ApacheBrooklynCli < Formula
   desc "Apache Brooklyn command-line interface"
   homepage "https://brooklyn.apache.org"
-  url "https://github.com/apache/brooklyn-client/archive/rel/apache-brooklyn-0.12.0.tar.gz"
-  sha256 "1d0975252a41f1fd65268b915778d4974a0eff2a8a315280e3dedc0e39ef486f"
+  url "https://github.com/apache/brooklyn-client/archive/rel/apache-brooklyn-1.0.0.tar.gz"
+  sha256 "9eb52ac3cd76adf219b66eb8b5a7899c86e25736294bca666a5b4e24d34e911b"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bc1c638f30c4036519eff703b605de6d22313970e585576bcf16183381f59247" => :high_sierra
-    sha256 "b2ad53984d4e98ef3d37622ff0ff9dd987f4ecc2614e251f3df60de13d96b6c2" => :sierra
-    sha256 "39f56956e1ed81dfae64401caa333f910b70312d6e45950ac5e2bb3c0db59cfe" => :el_capitan
+    sha256 "7769a15fc55f1a6943165e78c0cc3c9677815686b935a888c3db708fbaf2b8dd" => :catalina
+    sha256 "1b73cb46bdd10be0d426298ec972fd37362352b28fadb484374e701619d3a1dc" => :mojave
+    sha256 "b64f20e59f179c2a359d180be65931e06743aea8c62295f58d1afdbd967871d9" => :high_sierra
   end
 
-  depends_on "glide" => :build
   depends_on "go" => :build
 
   def install
-    ENV["XC_OS"] = "darwin"
-    ENV["XC_ARCH"] = "amd64"
     ENV["GOPATH"] = buildpath
-    ENV["GOBIN"] = bin
-    ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
     (buildpath/"src/github.com/apache/brooklyn-client").install "cli"
     cd "src/github.com/apache/brooklyn-client/cli" do
-      system "glide", "install"
-      system "go", "install", ".../br"
+      system "go", "build", "-o", bin/"br", ".../br"
       prefix.install_metafiles
     end
   end
 
   test do
-    require "socket"
-
-    server = TCPServer.new("localhost", 0)
+    port = free_port
+    server = TCPServer.new("localhost", port)
     pid_mock_brooklyn = fork do
       loop do
         socket = server.accept
@@ -47,7 +41,7 @@ class ApacheBrooklynCli < Formula
     end
 
     begin
-      mock_brooklyn_url = "http://localhost:#{server.addr[1]}"
+      mock_brooklyn_url = "http://localhost:#{port}"
       assert_equal "Connected to Brooklyn version 1.2.3 at #{mock_brooklyn_url}\n",
         shell_output("#{bin}/br login #{mock_brooklyn_url} username password")
     ensure

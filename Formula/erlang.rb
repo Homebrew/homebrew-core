@@ -2,35 +2,31 @@ class Erlang < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url "https://github.com/erlang/otp/archive/OTP-22.3.tar.gz"
-  sha256 "886e6dbe1e4823c7e8d9c9c1ba8315075a1a9f7717f5a1eaf3b98345ca6c798e"
+  url "https://github.com/erlang/otp/archive/OTP-23.0.3.tar.gz"
+  sha256 "ed3c25742a2b76407dbb83d40cb95211caad5ab0969681f585a674e2e54840ac"
+  license "Apache-2.0"
   head "https://github.com/erlang/otp.git"
 
   bottle do
     cellar :any
-    sha256 "aeb18f87b3059b6256aba36957d3fb5c475f628c07aee49263003eccba4772f6" => :catalina
-    sha256 "86d816fcf632c71da3575edb78ef51e2160d39044a42203a011b0d193fe1a290" => :mojave
-    sha256 "5d10a00f5c377afd12975ad5c3e552fd1b94054bfa4168b137196488e4ab838a" => :high_sierra
+    sha256 "cc5b720aa2ef96e1d4f29620f2cc1243008bf450ef6451140ab6ab0679877916" => :catalina
+    sha256 "aa084f0363c2abb1d71c9d63893957bab7eecd477f83a612bf530e11936c7491" => :mojave
+    sha256 "650d6c0d29313257ea3a663b1ee9ed599c7945c15022bf04da15ded6c040a314" => :high_sierra
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "fop" => :build
   depends_on "libtool" => :build
   depends_on "openssl@1.1"
   depends_on "wxmac" # for GUI apps like observer
 
   uses_from_macos "m4" => :build
 
-  resource "man" do
-    url "https://www.erlang.org/download/otp_doc_man_22.2.tar.gz"
-    mirror "https://fossies.org/linux/misc/otp_doc_man_22.2.tar.gz"
-    sha256 "aad7e3795a44091aa33a460e3fdc94efe8757639caeba0b5ba7d79bd91c972b3"
-  end
-
   resource "html" do
-    url "https://www.erlang.org/download/otp_doc_html_22.2.tar.gz"
-    mirror "https://fossies.org/linux/misc/otp_doc_html_22.2.tar.gz"
-    sha256 "09d41810d79fafde293feb48ebb249940eca6f9f5733abb235e37d06b8f482e3"
+    url "https://www.erlang.org/download/otp_doc_html_23.0.tar.gz"
+    mirror "https://fossies.org/linux/misc/otp_doc_html_23.0.tar.gz"
+    sha256 "4da19f0de96d1c516d91c621a5ddf20837303cc25695b944e263e3ea46dd31da"
   end
 
   def install
@@ -64,7 +60,10 @@ class Erlang < Formula
     system "make"
     system "make", "install"
 
-    (lib/"erlang").install resource("man").files("man")
+    # Build the doc chunks (manpages are also built by default)
+    system "make", "docs", "DOC_TARGETS=chunks"
+    system "make", "install-docs"
+
     doc.install resource("html")
   end
 
@@ -79,5 +78,30 @@ class Erlang < Formula
 
   test do
     system "#{bin}/erl", "-noshell", "-eval", "crypto:start().", "-s", "init", "stop"
+    (testpath/"factorial").write <<~EOS
+      #!#{bin}/escript
+      %% -*- erlang -*-
+      %%! -smp enable -sname factorial -mnesia debug verbose
+      main([String]) ->
+          try
+              N = list_to_integer(String),
+              F = fac(N),
+              io:format("factorial ~w = ~w\n", [N,F])
+          catch
+              _:_ ->
+                  usage()
+          end;
+      main(_) ->
+          usage().
+
+      usage() ->
+          io:format("usage: factorial integer\n").
+
+      fac(0) -> 1;
+      fac(N) -> N * fac(N-1).
+    EOS
+    chmod 0755, "factorial"
+    assert_match "usage: factorial integer", shell_output("./factorial")
+    assert_match "factorial 42 = 1405006117752879898543142606244511569936384000000000", shell_output("./factorial 42")
   end
 end

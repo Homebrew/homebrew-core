@@ -3,6 +3,7 @@ class Cbmbasic < Formula
   homepage "https://github.com/mist64/cbmbasic"
   url "https://downloads.sourceforge.net/project/cbmbasic/cbmbasic/1.0/cbmbasic-1.0.tgz"
   sha256 "2735dedf3f9ad93fa947ad0fb7f54acd8e84ea61794d786776029c66faf64b04"
+  license "BSD-2-Clause"
   head "https://github.com/mist64/cbmbasic.git"
 
   bottle do

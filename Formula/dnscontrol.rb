@@ -1,28 +1,22 @@
 class Dnscontrol < Formula
   desc "It is system for maintaining DNS zones"
   homepage "https://github.com/StackExchange/dnscontrol"
-  url "https://github.com/StackExchange/dnscontrol/archive/v2.11.tar.gz"
-  sha256 "6570391bb58b6188ad613fb0aef23da988c48e6cea2d697c61aaefe149ddc539"
+  url "https://github.com/StackExchange/dnscontrol/archive/v3.2.0.tar.gz"
+  sha256 "911a31e4a3131f3ecc9c44bc6f1a30aa1259028de504116265bbf516510cd931"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4d5b2d3f3a58c4fa17a5d05d900cf964f55d79fa33154feb6ea31748073359b8" => :catalina
-    sha256 "2bdcefeda90832c5a1726f0f9002692d2aa609d70e2b0ce9dc1cdda6423794ff" => :mojave
-    sha256 "00f3cd3611e52eadea634d3300c41f5f529dcbc3ae4127a96c5419e5dc9da956" => :high_sierra
+    sha256 "11902a795449df78e2ce8174379731bdb4de50cc33db13572f4fb2b69d26bc60" => :catalina
+    sha256 "824126b2be00c26cab160969986e4087e009770a21f137c30a5a21fec6abfab5" => :mojave
+    sha256 "79ba6c6fc6bca016d55960d7746a8b6fd29477eeec4b37d88ae2630d2989f2f2" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    srcpath = buildpath/"src/github.com/StackExchange/dnscontrol"
-    srcpath.install buildpath.children
-
-    cd srcpath do
-      system "go", "build", "-o", bin/"dnscontrol"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args
+    prefix.install_metafiles
   end
 
   test do

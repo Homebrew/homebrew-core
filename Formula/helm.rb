@@ -2,42 +2,34 @@ class Helm < Formula
   desc "The Kubernetes package manager"
   homepage "https://helm.sh/"
   url "https://github.com/helm/helm.git",
-      :tag      => "v3.1.2",
-      :revision => "d878d4d45863e42fd5cff6743294a11d28a9abce"
-  revision 1
+      tag:      "v3.3.0",
+      revision: "8a4aeec08d67a7b84472007529e8097ec3742105"
+  license "Apache-2.0"
   head "https://github.com/helm/helm.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9204dc532c352ea7cb1a05d8d9d0cdfd8f6ef0f35638c0bb3e3513f19a41abf0" => :catalina
-    sha256 "d1357b2635d0fb7cd9b4f4bc75236e7e6de4de18255d8eaf870353bdd29d2453" => :mojave
-    sha256 "508018eceefe9a91ecbd0be678ddac8d12699c52864ae698f7b1354e6498f04a" => :high_sierra
+    sha256 "a36d0524ff309a3f1358b253e48ed5520748731be49c199295873d84ce0c28f0" => :catalina
+    sha256 "ca2ff6a1c536a3233f288aee49574fcfcac22986cd847fa871e6bbb6bcbd2c89" => :mojave
+    sha256 "07a7e666e95982b057ac5b6934ec7aebb8074706abd17f01cc6055e3dcc138fa" => :high_sierra
   end
 
-  depends_on "go@1.13" => :build
+  depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
-    ENV.prepend_create_path "PATH", buildpath/"bin"
-    ENV["TARGETS"] = "darwin/amd64"
-    dir = buildpath/"src/helm.sh/helm"
-    dir.install buildpath.children - [buildpath/".brew_home"]
+    system "make", "build"
+    bin.install "bin/helm"
 
-    cd dir do
-      system "make", "build"
-
-      bin.install "bin/helm"
-      man1.install Dir["docs/man/man1/*"]
-
-      output = Utils.popen_read("SHELL=bash #{bin}/helm completion bash")
-      (bash_completion/"helm").write output
-
-      output = Utils.popen_read("SHELL=zsh #{bin}/helm completion zsh")
-      (zsh_completion/"_helm").write output
-
-      prefix.install_metafiles
+    mkdir "man1" do
+      system bin/"helm", "docs", "--type", "man"
+      man1.install Dir["*"]
     end
+
+    output = Utils.safe_popen_read({ "SHELL" => "bash" }, bin/"helm", "completion", "bash")
+    (bash_completion/"helm").write output
+
+    output = Utils.safe_popen_read({ "SHELL" => "zsh" }, bin/"helm", "completion", "zsh")
+    (zsh_completion/"_helm").write output
   end
 
   test do
@@ -45,7 +37,7 @@ class Helm < Formula
     assert File.directory? "#{testpath}/foo/charts"
 
     version_output = shell_output("#{bin}/helm version 2>&1")
-    assert_match "GitTreeState:\"clean\"", version_output
+    assert_match "Version:\"v#{version}\"", version_output
     if build.stable?
       assert_match stable.instance_variable_get(:@resource).instance_variable_get(:@specs)[:revision], version_output
     end

@@ -18,8 +18,8 @@ class Libftdi0 < Formula
 
   depends_on "libusb-compat"
 
-  conflicts_with "cspice", :because => "both install `simple` binaries"
-  conflicts_with "openhmd", :because => "both install `simple` binaries"
+  conflicts_with "cspice", because: "both install `simple` binaries"
+  conflicts_with "openhmd", because: "both install `simple` binaries"
 
   def install
     mkdir "libftdi-build" do

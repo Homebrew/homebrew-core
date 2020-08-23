@@ -1,13 +1,14 @@
 class MidnightCommander < Formula
   desc "Terminal-based visual file manager"
   homepage "https://www.midnight-commander.org/"
-  url "https://www.midnight-commander.org/downloads/mc-4.8.24.tar.xz"
-  sha256 "859f1cc070450bf6eb4d319ffcb6a5ac29deb0ac0d81559fb2e71242b1176d46"
+  url "https://www.midnight-commander.org/downloads/mc-4.8.25.tar.xz"
+  sha256 "ffc19617f20ebb23330acd3998b7fd559a042d172fa55746d53d246697b2548a"
+  license "GPL-3.0"
 
   bottle do
-    sha256 "c6adcb70e949c89ba12ba91fffb89ad00c55e8c3a063ae6d01954a02a84512f2" => :catalina
-    sha256 "2e3e95bd852f0edd7069b09ff24e897e94bb495f3b852230f7cc3400acfc2d9a" => :mojave
-    sha256 "2e888d8d8cec7a0c881d0df09f5662080494f89e1871fbcccf30e9a0cc18aa1b" => :high_sierra
+    sha256 "2c36f252c47b8ecff2fa4afb4191a963af7c3d30a8aeb267a40f967873a01643" => :catalina
+    sha256 "224d6aa6577e51952833ee65888bb99eacb89508dc9ac2f82a0e679b4635d7e3" => :mojave
+    sha256 "79c2208b2097941cf3a792f47ad1f280ddbc3add7bd631084484163b7ba14ae9" => :high_sierra
   end
 
   head do
@@ -24,7 +25,7 @@ class MidnightCommander < Formula
   depends_on "openssl@1.1"
   depends_on "s-lang"
 
-  conflicts_with "minio-mc", :because => "Both install a `mc` binary"
+  conflicts_with "minio-mc", because: "both install an `mc` binary"
 
   def install
     args = %W[

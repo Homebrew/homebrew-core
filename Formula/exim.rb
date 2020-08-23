@@ -1,14 +1,15 @@
 class Exim < Formula
   desc "Complete replacement for sendmail"
   homepage "https://exim.org"
-  url "https://ftp.exim.org/pub/exim/exim4/fixes/exim-4.93.0.4.tar.xz"
-  mirror "https://dl.bintray.com/homebrew/mirror/exim-4.93.0.4.tar.xz"
-  sha256 "537d366ee18ed357656f54f255f8f9e11bde9684fcaaecaaa56f84cdbcd3e405"
+  url "https://ftp.exim.org/pub/exim/exim4/exim-4.94.tar.xz"
+  mirror "https://dl.bintray.com/homebrew/mirror/exim-4.94.tar.xz"
+  sha256 "f77ee8faf04f5db793243c3ae81c1f4e452cd6ad7dd515a80edf755c4b144bdb"
+  license "GPL-2.0"
 
   bottle do
-    sha256 "f31d37d1402ba863051e37097c8450f6459dcd1fffb080c437af587cb0ef106d" => :catalina
-    sha256 "6dc2283760c7196639cb9ad90a4fd73bb0a869969aa3b22799c5a430295228fd" => :mojave
-    sha256 "0dcca0007f092e720db484159cca69f1d00d86dcbc8a45e59252b135611c691c" => :high_sierra
+    sha256 "74e195304b29ce8ce47fbccc2c58e468a677482a94efecc1cfd9dcc0210c07d1" => :catalina
+    sha256 "bae912aa71182fd91e5e65b38cba3ea162f7d63d4dc4b4b365ef6532c4329a7a" => :mojave
+    sha256 "230f63be05a2dde5fcb4487e7159db758abe984cbc70d495a697c209107fc284" => :high_sierra
   end
 
   depends_on "berkeley-db@4"

@@ -1,11 +1,11 @@
 class Languagetool < Formula
   desc "Style and grammar checker"
   homepage "https://www.languagetool.org/"
-  url "https://languagetool.org/download/LanguageTool-4.8.zip"
-  sha256 "b4775e88fd90d6389f86023600c4c0e16a9cc00cfe8f093bf1f0c2bbf2a1904d"
-  revision 1
+  url "https://languagetool.org/download/LanguageTool-5.0.zip"
+  sha256 "212eb275cf9df8b6f49d8ce2bb386246081be7f01d907577fbd09a9f27055628"
 
   bottle :unneeded
+
   depends_on "openjdk"
 
   def install

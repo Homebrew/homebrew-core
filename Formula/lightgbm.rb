@@ -3,6 +3,7 @@ class Lightgbm < Formula
   homepage "https://github.com/microsoft/LightGBM"
   url "https://github.com/microsoft/LightGBM/archive/v2.3.1.tar.gz"
   sha256 "b2b8ed5e06be21444c4e9defd66877510d1800a650543f75bfc1b28f77745b84"
+  license "MIT"
 
   bottle do
     cellar :any
@@ -16,16 +17,7 @@ class Lightgbm < Formula
 
   def install
     mkdir "build" do
-      libomp = Formula["libomp"]
-      args = std_cmake_args
-      args << "-DOpenMP_C_FLAGS=\"-Xpreprocessor -fopenmp -I#{libomp.opt_include}\""
-      args << "-DOpenMP_C_LIB_NAMES=omp"
-      args << "-DOpenMP_CXX_FLAGS=\"-Xpreprocessor -fopenmp -I#{libomp.opt_include}\""
-      args << "-DOpenMP_CXX_LIB_NAMES=omp"
-      args << "-DOpenMP_omp_LIBRARY=#{libomp.opt_lib}/libomp.dylib"
-      args << "-DAPPLE_OUTPUT_DYLIB=ON"
-
-      system "cmake", *args, ".."
+      system "cmake", *std_cmake_args, "-DAPPLE_OUTPUT_DYLIB=ON", ".."
       system "make"
       system "make", "install"
     end

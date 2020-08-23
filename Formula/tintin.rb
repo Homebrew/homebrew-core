@@ -1,24 +1,19 @@
 class Tintin < Formula
   desc "MUD client"
   homepage "https://tintin.mudhalla.net/"
-  url "https://github.com/scandum/tintin/releases/download/2.02.01/tintin-2.02.01.tar.gz"
-  sha256 "decc933d18f91e0d890e13325d8e9e60eff4238bdf3f431a647dac0c9ad15295"
+  url "https://github.com/scandum/tintin/releases/download/2.02.03/tintin-2.02.03.tar.gz"
+  sha256 "e44c88b1c97283525062ce15efdddebf5067e84ea37491903bcd8c8824f26f79"
+  license "GPL-3.0"
 
   bottle do
     cellar :any
-    sha256 "4f08321d1f4ad35d1ad4eb635527ecd48321eea3c0346ac639d702ed917f63fe" => :catalina
-    sha256 "884e881629347145c24b34887ead7ecb59d5f82c80d35f5003d3aa8507ed47b7" => :mojave
-    sha256 "07cfe88a3b77d6788ed0afa72ac65dbc3b86db90eac39e6ceaabc1d1b758bb9f" => :high_sierra
+    sha256 "5655e2bfaf4fb9932f2b9317745f97b73162bd12d926a8fd9783002449d8ed3a" => :catalina
+    sha256 "b10d78dd09e94adac5f9a4aaeddc756b7ee578e9a77ef9f81f8c4f1941f90c3c" => :mojave
+    sha256 "9f4a88c8da68bde84fc56b34ef86b53e1691d33a59e340c54aa18b50c7c88f46" => :high_sierra
   end
 
   depends_on "gnutls"
   depends_on "pcre"
-
-  # fix for https://github.com/scandum/tintin/pull/7, included in next version
-  patch do
-    url "https://github.com/scandum/tintin/commit/259d33ae40c601dc2fd2ce23c10928b08a9b1c15.diff?full_index=1"
-    sha256 "85b9f6f263b16836cd1619d22f039aa37da4e4661c167d5aff020475868d5354"
-  end
 
   def install
     # find Homebrew's libpcre
@@ -34,6 +29,6 @@ class Tintin < Formula
   end
 
   test do
-    shell_output("#{bin}/tt++ -e \"#nop; #info system; #end;\"")
+    assert_match version.to_s, shell_output("#{bin}/tt++ -V", 1)
   end
 end

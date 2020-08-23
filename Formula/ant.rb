@@ -1,9 +1,10 @@
 class Ant < Formula
   desc "Java build tool"
   homepage "https://ant.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=ant/binaries/apache-ant-1.10.7-bin.tar.xz"
-  mirror "https://archive.apache.org/dist/ant/binaries/apache-ant-1.10.7-bin.tar.xz"
-  sha256 "925fa954d82b6edf5cfd51fc66659d6e02cf1a6a082c3c41fe83f604c2d17c02"
+  url "https://www.apache.org/dyn/closer.lua?path=ant/binaries/apache-ant-1.10.8-bin.tar.xz"
+  mirror "https://archive.apache.org/dist/ant/binaries/apache-ant-1.10.8-bin.tar.xz"
+  sha256 "8be685aacf2bfe8515a1249fbebb0ccd861dfe05ee2c027c89fd7912c1ce2c2a"
+  license "Apache-2.0"
   revision 1
   head "https://git-wip-us.apache.org/repos/asf/ant.git"
 
@@ -18,9 +19,9 @@ class Ant < Formula
   end
 
   resource "bcel" do
-    url "https://www.apache.org/dyn/closer.lua?path=commons/bcel/binaries/bcel-6.4.0-bin.tar.gz"
-    mirror "https://archive.apache.org/dist/commons/bcel/binaries/bcel-6.4.0-bin.tar.gz"
-    sha256 "2e7d3c24fabc5a24c482ddc77c031d9f5978c5aa918bae68ad7adcf3e9167d04"
+    url "https://www.apache.org/dyn/closer.lua?path=commons/bcel/binaries/bcel-6.4.1-bin.tar.gz"
+    mirror "https://archive.apache.org/dist/commons/bcel/binaries/bcel-6.4.1-bin.tar.gz"
+    sha256 "1621dfa6418c6c2df83ea4da5eda9eb84955a3332c8e2580dd96e2db95fd8085"
   end
 
   def install

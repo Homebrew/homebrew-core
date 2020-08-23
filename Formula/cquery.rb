@@ -3,8 +3,9 @@ class Cquery < Formula
   homepage "https://github.com/cquery-project/cquery"
   # pull from git tag to get submodules
   url "https://github.com/cquery-project/cquery.git",
-      :tag      => "v20180718",
-      :revision => "b523aa928acf8ffb3de6b22c79db7366a9672489"
+      tag:      "v20180718",
+      revision: "b523aa928acf8ffb3de6b22c79db7366a9672489"
+  license "MIT"
   head "https://github.com/cquery-project/cquery.git"
 
   bottle do
@@ -18,7 +19,7 @@ class Cquery < Formula
   depends_on "llvm"
 
   # error: 'shared_timed_mutex' is unavailable: introduced in macOS 10.12
-  depends_on :macos => :sierra
+  depends_on macos: :sierra
 
   def install
     system "cmake", ".", "-DSYSTEM_CLANG=ON", *std_cmake_args

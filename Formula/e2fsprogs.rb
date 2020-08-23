@@ -1,14 +1,21 @@
 class E2fsprogs < Formula
   desc "Utilities for the ext2, ext3, and ext4 file systems"
   homepage "https://e2fsprogs.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/e2fsprogs/e2fsprogs/v1.45.5/e2fsprogs-1.45.5.tar.gz"
-  sha256 "91e72a2f6fee21b89624d8ece5a4b3751a17b28775d32cd048921050b4760ed9"
+  url "https://downloads.sourceforge.net/project/e2fsprogs/e2fsprogs/v1.45.6/e2fsprogs-1.45.6.tar.gz"
+  sha256 "5f64ac50a2b60b8e67c5b382bb137dec39344017103caffc3a61554424f2d693"
+  # This package, the EXT2 filesystem utilities, are made available under
+  # the GNU Public License version 2, with the exception of the lib/ext2fs
+  # and lib/e2p libraries, which are made available under the GNU Library
+  # General Public License Version 2, the lib/uuid library which is made
+  # available under a BSD-style license and the lib/et and lib/ss
+  # libraries which are made available under an MIT-style license.
+  license "GPL-2.0"
   head "https://git.kernel.org/pub/scm/fs/ext2/e2fsprogs.git"
 
   bottle do
-    sha256 "6cdc9af84e3ddcb65e4992bc3aa9b6da7a3a18fae82371ee0d2fd93334b1e6b9" => :catalina
-    sha256 "915bb98703fa35bfe6ac6c3a5799c8c482d71a9b318858e6ac0c37370fcada55" => :mojave
-    sha256 "1f365047c69fc772a23c37712b49062b016181c0c32dbc47a9c930f3fbf611dd" => :high_sierra
+    sha256 "bf44ad4af62150e9f29827532fced8640fdfcd9ef77e890347ce3eda288be30a" => :catalina
+    sha256 "2986dc8e3be65b03e27990226e78ba8bcd2d512381836bb09223f04c94974837" => :mojave
+    sha256 "0cdfcb50d1b1046d90d56ece1c4d1c7e624adf4c8b7f19587285bf77b10b7ec7" => :high_sierra
   end
 
   keg_only "this installs several executables which shadow macOS system commands"
@@ -17,6 +24,10 @@ class E2fsprogs < Formula
   depends_on "gettext"
 
   def install
+    # Fix "unknown type name 'loff_t'" issue
+    inreplace "lib/ext2fs/imager.c", "loff_t", "off_t"
+    inreplace "misc/e2fuzz.c", "loff_t", "off_t"
+
     # Enforce MKDIR_P to work around a configure bug
     # see https://github.com/Homebrew/homebrew-core/pull/35339
     # and https://sourceforge.net/p/e2fsprogs/discussion/7053/thread/edec6de279/

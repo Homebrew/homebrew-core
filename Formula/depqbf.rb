@@ -3,6 +3,7 @@ class Depqbf < Formula
   homepage "https://lonsing.github.io/depqbf/"
   url "https://github.com/lonsing/depqbf/archive/version-6.03.tar.gz"
   sha256 "9684bb1562bfe14559007401f52975554373546d3290a19618ee71d709bce76e"
+  license "GPL-3.0"
   head "https://github.com/lonsing/depqbf.git"
 
   bottle do

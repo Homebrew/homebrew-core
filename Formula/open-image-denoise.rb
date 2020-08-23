@@ -1,20 +1,22 @@
 class OpenImageDenoise < Formula
   desc "High-performance denoising library for ray tracing"
   homepage "https://openimagedenoise.github.io"
-  url "https://github.com/OpenImageDenoise/oidn/releases/download/v1.1.0/oidn-1.1.0.src.tar.gz"
-  sha256 "4dd484abea8a0b3d12d346343fcb1ab7abef8f94318d8c537f69a20c2a75c4eb"
+  url "https://github.com/OpenImageDenoise/oidn/releases/download/v1.2.2/oidn-1.2.2.src.tar.gz"
+  sha256 "da30dfb8daa21663525124d7e44804251ba578f8c13d2024cdb92bfdda7d8121"
+  license "Apache-2.0"
 
   bottle do
     cellar :any
-    sha256 "b7f6f3c03baed6abdb8ce8940013c100f8a08fed919b283a6b46d038f8656eed" => :catalina
-    sha256 "c59673b0dd7f810cf1d7114f9f8b17849fa61cd6311b2ba17e6ccd6442723f8d" => :mojave
-    sha256 "ae4f4112755a30e5350e6546616b1ca6ee25eb9d832158a2e21d0419c0a13f1b" => :high_sierra
+    sha256 "406ce42f0c495827f99546bd757e4186c2d841805a3b9f88b3ce875fb968725f" => :catalina
+    sha256 "a288d6dd4ce6f0b5b80d181f00be19b83c1eae84d51dd5b6dcf35735f7b7d2ab" => :mojave
+    sha256 "437aba3f7b6da6bff5a81280dbe7ca5af45309992cbddee8df3f6b562b4fec48" => :high_sierra
   end
 
   depends_on "cmake" => :build
+  depends_on "ispc" => :build
   # clang: error: unknown argument: '-fopenmp-simd'
   # https://github.com/OpenImageDenoise/oidn/issues/35
-  depends_on :macos => :high_sierra
+  depends_on macos: :high_sierra
   depends_on "tbb"
 
   def install

@@ -3,17 +3,19 @@ class Bwctl < Formula
   homepage "https://software.internet2.edu/bwctl/"
   url "https://software.internet2.edu/sources/bwctl/bwctl-1.5.4.tar.gz"
   sha256 "e6dca6ca30c8ef4d68e6b34b011a9ff7eff3aba4a84efc19d96e3675182e40ef"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8f6eb5925710fc5a26c37e5dcec3abcbd2a637b8affaafb68f038058e6bde781" => :catalina
-    sha256 "fbde1025f5c75ec448c07252cdaea22bcc62fa6f1247c46631c8400045bc4083" => :mojave
-    sha256 "6b2ff7de11ab2b22180d8f59349b403f74c5d5321c60e44cb1f493fa25a5e786" => :high_sierra
-    sha256 "23f32c2e2b5203c4b4fecfb33e2152e5d732305e60ef5b02e4bbf1a9f7355c73" => :sierra
-    sha256 "ac9e615919ebd84515022f9650f42194d9ad4b1c1f5f97509e1293962a96e943" => :el_capitan
-    sha256 "c8890647536e60b3ed8599eb3239ee59fde0382e9df8b7585ee7eeb20275fc39" => :yosemite
-    sha256 "f10efbf8f41f526130340cc6087ce3dfad83b71b69d21e0b01c11b3169d88bdd" => :mavericks
+    rebuild 1
+    sha256 "125c3592d5a34d3913dde26356ee894136716f6b224ab1d8bc14ab487fbd2633" => :catalina
+    sha256 "b4e91dbfca063d51a0280dffde519e9d4e5d66d0e0a301936dbbe86239e295a3" => :mojave
+    sha256 "2d326aaaa5c9031fd668569cbd68627d84884389b4883282d82259af152b12c3" => :high_sierra
   end
+
+  # https://software.internet2.edu/bwctl/
+  # The use of BWCTL became deprecated with the release of pScheduler in perfSONAR 4.0 in April, 2017.
+  deprecate! date: "2017-04-01"
 
   depends_on "i2util" => :build
 

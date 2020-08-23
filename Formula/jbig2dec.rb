@@ -3,6 +3,7 @@ class Jbig2dec < Formula
   homepage "https://jbig2dec.com/"
   url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs951/jbig2dec-0.18.tar.gz"
   sha256 "9e19775237350e299c422b7b91b0c045e90ffa4ba66abf28c8fb5eb005772f5e"
+  license "AGPL-3.0"
 
   bottle do
     cellar :any

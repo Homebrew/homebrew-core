@@ -1,14 +1,15 @@
 class Helib < Formula
   desc "Implementation of homomorphic encryption"
   homepage "https://github.com/homenc/HElib"
-  url "https://github.com/homenc/HElib/archive/v1.0.0.tar.gz"
-  sha256 "5b917a6ba1555be580db4c102a339abe124c284007f0044d637892ec85877214"
+  url "https://github.com/homenc/HElib/archive/v1.0.2.tar.gz"
+  sha256 "b907eaa8381af3d001d7fb8383273f4c652415b3320c11d5be2ad8f19757c998"
+  license "Apache-2.0"
 
   bottle do
     cellar :any
-    sha256 "ad8926ac577b4adb2ce1cce23769e3a3d31027ed7264c99aa42099e238525fe4" => :catalina
-    sha256 "3ffb80af12a8fd92b03292a375a3ca30c24ae61281b1dd81e5022fe363e39b8f" => :mojave
-    sha256 "c0fed1980b3e977ab565b6bea93d885c3a697881d20ecd812640f3d0a869b6d2" => :high_sierra
+    sha256 "457cfdab05d0634453d4ddcbf84853f354a7ff7d83a4a5cad8d79edc3e1a3ee5" => :catalina
+    sha256 "b74a96fd7b94f1411015de28e8fb1dec5627cb5d8f63f3c7a0fcbd084eae13fe" => :mojave
+    sha256 "677d399ee0d241b206d026aea134812570256a6ca6f33ff809d68c2bff26440d" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -23,11 +24,12 @@ class Helib < Formula
   end
 
   test do
-    cp (pkgshare/"examples/BGV_general_example/BGV_general_example.cpp"), testpath/"test.cpp"
+    cp pkgshare/"examples/BGV_database_lookup/BGV_database_lookup.cpp", testpath/"test.cpp"
+    mkdir "build"
     system ENV.cxx, "-std=c++14", "-L#{lib}", "-L#{Formula["ntl"].opt_lib}",
-                    "-lhelib", "-lntl", "test.cpp", "-o", "test"
-    # 2*(n^2) from 0 to 23
-    expected = "0 2 8 18 32 50 72 98 128 162 200 242 288 338 392 450 512 578 648 722 800 882 968 1058"
-    assert_match expected, shell_output("./test")
+                    "-lhelib", "-lntl", "test.cpp", "-o", "build/BGV_database_lookup"
+
+    cp pkgshare/"examples/BGV_database_lookup/runtest.sh", testpath/"runtest.sh"
+    system "./runtest.sh"
   end
 end

@@ -3,13 +3,15 @@ class TemporalTables < Formula
   homepage "https://pgxn.org/dist/temporal_tables/"
   url "https://github.com/arkhipov/temporal_tables/archive/v1.2.0.tar.gz"
   sha256 "e6d1b31a124e8597f61b86f08b6a18168f9cd9da1db77f2a8dd1970b407b7610"
+  license "BSD-2-Clause"
   revision 2
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f14e32d2cdfce897921c89c095434368d45dfb8a44bb1a1ec63d54cf6b09f4d4" => :catalina
-    sha256 "47877bef13fbc76962b1429bfc91ec976fdd9abe35d56ce2a6959887497d89aa" => :mojave
-    sha256 "e77b879de622561f9f508a33ec30f00ab290f13f087773f7391ac8c65f3eb174" => :high_sierra
+    rebuild 1
+    sha256 "6003cd60f9e85afa2dbb6a6a3e07dbfff6bba2a5df8fe9b6d3452907cd7d16f6" => :catalina
+    sha256 "2700d10e8b75bb9daec60112aeaaf52878de609d8e2b7e8efcc1b02db2144939" => :mojave
+    sha256 "86291d5a0cdee29beae607f70436c61db901c6483a6f9eaab63c1c4385a4112c" => :high_sierra
   end
 
   depends_on "postgresql"
@@ -41,6 +43,8 @@ class TemporalTables < Formula
   end
 
   test do
+    return if ENV["CI"]
+
     pg_bin = Formula["postgresql"].opt_bin
     pg_port = "55562"
     system "#{pg_bin}/initdb", testpath/"test"

@@ -3,6 +3,7 @@ class FdkAacEncoder < Formula
   homepage "https://github.com/nu774/fdkaac"
   url "https://github.com/nu774/fdkaac/archive/1.0.0.tar.gz"
   sha256 "1cb1a245d3b230d9c772e69aea091e6195073cbd8cc7d63e684af7d69b495365"
+  license "Zlib"
   revision 1
 
   bottle do

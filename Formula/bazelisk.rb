@@ -2,29 +2,43 @@ class Bazelisk < Formula
   desc "User-friendly launcher for Bazel"
   homepage "https://github.com/bazelbuild/bazelisk/"
   url "https://github.com/bazelbuild/bazelisk.git",
-      :tag      => "v1.3.0",
-      :revision => "24b8784d71096f3dfa38d6533a770f45a49cda43"
+      tag:      "v1.6.1",
+      revision: "6f5ce4b2ec4110bbaa9a43ec1b054af7504887d5"
+  license "Apache-2.0"
   head "https://github.com/bazelbuild/bazelisk.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e9a394c4e1f686f37b62040be9e8fcc7571bfd32d8c9ff9a43e6c59905053a4c" => :catalina
-    sha256 "e9a394c4e1f686f37b62040be9e8fcc7571bfd32d8c9ff9a43e6c59905053a4c" => :mojave
-    sha256 "e9a394c4e1f686f37b62040be9e8fcc7571bfd32d8c9ff9a43e6c59905053a4c" => :high_sierra
+    sha256 "a12a97c1d1092c7411b965d7f58962853f7599ff986d923ba87e237b1f00d3ba" => :catalina
+    sha256 "1df6a3ae85d691e38a1ce4964b94c1fc429e41eaf2d25d0d666a43293ab5097c" => :mojave
+    sha256 "0a3870c3f3eeb7f71b67b0001a0605380113001ff63d53bec9dbf92bc4ad5415" => :high_sierra
   end
 
-  depends_on "bazel" => :build
+  depends_on "go" => :build
+
+  conflicts_with "bazel", because: "Bazelisk replaces the bazel binary"
+
+  resource "bazel_zsh_completion" do
+    url "https://raw.githubusercontent.com/bazelbuild/bazel/3.4.1/scripts/zsh_completion/_bazel"
+    sha256 "4094dc84add2f23823bc341186adf6b8487fbd5d4164bd52d98891c41511eba4"
+  end
 
   def install
-    rm_f ".bazelversion" # Homebrew uses the latest bazel
-    system "bazel", "build", "--config=release", "//:bazelisk-darwin"
+    ENV["GOOS"] = "darwin"
+    ENV["GOARCH"] = "amd64"
 
-    bin.install "bazel-bin/bazelisk-darwin_amd64" => "bazelisk"
+    system "go", "build", *std_go_args, "-ldflags", "-X main.BazeliskVersion=#{version}"
+
+    bin.install_symlink "bazelisk" => "bazel"
+
+    resource("bazel_zsh_completion").stage do
+      zsh_completion.install "_bazel"
+    end
   end
 
   test do
     ENV["USE_BAZEL_VERSION"] = Formula["bazel"].version
-    assert_match /v#{version}/, shell_output("#{bin}/bazelisk version")
+    assert_match /Bazelisk version: #{version}/, shell_output("#{bin}/bazelisk version")
 
     # This is an older than current version, so that we can test that bazelisk
     # will target an explicit version we specify. This version shouldn't need to

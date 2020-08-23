@@ -2,15 +2,17 @@ class Caf < Formula
   # Renamed from libccpa
   desc "Implementation of the Actor Model for C++"
   homepage "https://actor-framework.org/"
-  url "https://github.com/actor-framework/actor-framework/archive/0.17.4.tar.gz"
-  sha256 "b5a1d80b16561edd3fa13dcda91ad00ae0a2c57b9d839a975c441f7ce63b4d1e"
+  url "https://github.com/actor-framework/actor-framework/archive/0.17.6.tar.gz"
+  sha256 "e2bf5bd243f08bb7d8adde197cfe3e6d71314ed3378fe0692f8932f4c3b3928c"
+  license "BSD-3-Clause"
   head "https://github.com/actor-framework/actor-framework.git"
 
   bottle do
     cellar :any
-    sha256 "7381c914063cfdf1bf8bae87db703cd08852d4c4404a1bda1aed0ff61f6e73bf" => :catalina
-    sha256 "62bd03d54ab09b73df5ded4472ef155a010cddce1127cc6e36ba26a766016617" => :mojave
-    sha256 "a7bf159890ed0df47fb59a94ee5d196187cc5ee18a2488516afe0ccb9fc2b948" => :high_sierra
+    rebuild 1
+    sha256 "131af3b3422867d6cb4c9e46d773e7b102e2dd9209be5d844cbbe99a1a7c6883" => :catalina
+    sha256 "20b60e3ee9f2953ac5453aeb1c5d724b1141f5b90be8b2b2d611f9f0938ff913" => :mojave
+    sha256 "be54ecedb3968591490e165d7260b0b8c19745e44d125fde2a5cd209fa71fc16" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -38,8 +40,7 @@ class Caf < Formula
       }
       CAF_MAIN()
     EOS
-    ENV.cxx11
-    system ENV.cxx, "test.cpp", "-L#{lib}", "-lcaf_core", "-o", "test"
+    system ENV.cxx, "-std=c++11", "test.cpp", "-L#{lib}", "-lcaf_core", "-o", "test"
     system "./test"
   end
 end

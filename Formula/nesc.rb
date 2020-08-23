@@ -3,6 +3,7 @@ class Nesc < Formula
   homepage "https://github.com/tinyos/nesc"
   url "https://github.com/tinyos/nesc/archive/v1.4.0.tar.gz"
   sha256 "ea9a505d55e122bf413dff404bebfa869a8f0dd76a01a8efc7b4919c375ca000"
+  license "GPL-2.0"
   revision 2
 
   bottle do

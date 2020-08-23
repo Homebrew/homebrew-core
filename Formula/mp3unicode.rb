@@ -3,6 +3,7 @@ class Mp3unicode < Formula
   homepage "https://mp3unicode.sourceforge.io/"
   url "https://github.com/downloads/alonbl/mp3unicode/mp3unicode-1.2.1.tar.bz2"
   sha256 "375b432ce784407e74fceb055d115bf83b1bd04a83b95256171e1a36e00cfe07"
+  license "GPL-2.0"
 
   bottle do
     cellar :any

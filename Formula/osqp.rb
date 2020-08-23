@@ -3,6 +3,7 @@ class Osqp < Formula
   homepage "https://osqp.org/"
   url "https://github.com/oxfordcontrol/osqp/archive/v0.6.0.tar.gz"
   sha256 "6e00d11d1f88c1e32a4419324b7539b89e8f9cbb1c50afe69f375347c989ba2b"
+  license "Apache-2.0"
 
   bottle do
     cellar :any
@@ -49,7 +50,7 @@ class Osqp < Formula
       add_executable(osqp_demo_static osqp_demo.c)
       target_link_libraries(osqp_demo_static PRIVATE osqp::osqpstatic)
     EOS
-    # from https://github.com/oxfordcontrol/osqp/blob/master/tests/demo/test_demo.h
+    # from https://github.com/oxfordcontrol/osqp/blob/HEAD/tests/demo/test_demo.h
     (testpath/"osqp_demo.c").write <<~EOS
       #include <assert.h>
       #include <osqp.h>

@@ -3,6 +3,7 @@ class Bowtie2 < Formula
   homepage "https://bowtie-bio.sourceforge.io/bowtie2/"
   url "https://github.com/BenLangmead/bowtie2/archive/v2.4.1.tar.gz"
   sha256 "9fb25513886bf294217dd9c5ca26d18dd5e02e0ae999935ac7ba5700befc492e"
+  license "GPL-3.0"
 
   bottle do
     cellar :any

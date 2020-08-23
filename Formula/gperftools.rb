@@ -1,16 +1,15 @@
 class Gperftools < Formula
   desc "Multi-threaded malloc() and performance analysis tools"
   homepage "https://github.com/gperftools/gperftools"
-  url "https://github.com/gperftools/gperftools/releases/download/gperftools-2.7/gperftools-2.7.tar.gz"
-  sha256 "1ee8c8699a0eff6b6a203e59b43330536b22bbcbe6448f54c7091e5efb0763c9"
+  url "https://github.com/gperftools/gperftools/releases/download/gperftools-2.8/gperftools-2.8.tar.gz"
+  sha256 "240deacdd628b6459671b83eb0c4db8e97baadf659f25b92e9a078d536bd513e"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any
-    sha256 "5a3c26d487216682867033e5a54f098978ff376b0ec4b5a2cdfc13ce10243c5b" => :catalina
-    sha256 "ebc68c4f401b6a77f8256a5ae84054803248b0e1ef1403f879893653ffd74cee" => :mojave
-    sha256 "cd47308eb2e44e527b749b392bebfa17613afacd202285e95954fa00590f44d7" => :high_sierra
-    sha256 "214a23363df0fe8d64260af6e86a891d3fb01452dbd2522f6c9451b21ab6e451" => :sierra
-    sha256 "a1f10be5627404a571fa448e7f3f15f522348f89f642e097ba04cd0c584d2b3b" => :el_capitan
+    sha256 "61a7c4f6c446b4ade0be332854baa8320a9cc193b00d89e39a0d3c18183aa8e3" => :catalina
+    sha256 "efcfaff363bbb0508a50d2987f04cbe8dfa21bfb75e8d6388516ffefc0a74bff" => :mojave
+    sha256 "55470b74d7c7567ca44429a1c1621cc2077dcadd2c6a8b4067f3812c3124f82c" => :high_sierra
   end
 
   head do

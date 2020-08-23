@@ -1,14 +1,15 @@
 class Libupnp < Formula
   desc "Portable UPnP development kit"
   homepage "https://pupnp.sourceforge.io/"
-  url "https://github.com/pupnp/pupnp/releases/download/release-1.12.0/libupnp-1.12.0.tar.bz2"
-  sha256 "1bda3939976a9a2901382233db39379ce993b59a0e7fd0dd781212a44a9b44a2"
+  url "https://github.com/pupnp/pupnp/releases/download/release-1.14.0/libupnp-1.14.0.tar.bz2"
+  sha256 "ecb23d4291968c8a7bdd4eb16fc2250dbacc16b354345a13342d67f571d35ceb"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any
-    sha256 "64f8a5b5aba6881e7729c1648a548aac8eed1b15dc3efb6cd8b610dde0cb4e96" => :catalina
-    sha256 "eac1001e055b7c658748548812ff917b466cd48722058c853a332cbff19201cb" => :mojave
-    sha256 "8b94bfb79baec4a60f7a0645938e58fff59067531ad80bb00381c73453435c56" => :high_sierra
+    sha256 "f687168c37ba09bb0ee06b2d0d373c6de2f8d5511c563191788e45282fd104af" => :catalina
+    sha256 "b7e3d1d7fc0a4011e093f040f71578f549e06b7702d9ec29c9595fb11fa206f6" => :mojave
+    sha256 "70340bed620fd9c537881d58a6b0f720689fbf0ebf9dbfa9acfdb846190e9c69" => :high_sierra
   end
 
   def install

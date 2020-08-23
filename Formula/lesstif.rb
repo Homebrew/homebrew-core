@@ -3,23 +3,20 @@ class Lesstif < Formula
   homepage "https://lesstif.sourceforge.io"
   url "https://downloads.sourceforge.net/project/lesstif/lesstif/0.95.2/lesstif-0.95.2.tar.bz2"
   sha256 "eb4aa38858c29a4a3bcf605cfe7d91ca41f4522d78d770f69721e6e3a4ecf7e3"
+  license "GPL-2.0"
 
   bottle do
-    rebuild 1
-    sha256 "7f9c7fcc2d0313e6b9d2c9e73ddc2f6ee4e25f67f1e4dcd56135b8900e369398" => :catalina
-    sha256 "4c7d5c15896694afd346ed12b62b8bfc7a7241d0067238ce546838014fcfdf67" => :mojave
-    sha256 "1691f111917e5dcc96f5cc3faf77743d9ac135c16b4a1c2bf7c4f8e55cd26dbf" => :high_sierra
-    sha256 "d3c4ea1fe9c0e12a88f9a35dbdd4903d93b69bf89b570e9b1a0e15c8d1104275" => :sierra
-    sha256 "bc26ea0e27740c5b3a045b776737ff94ea0bc68b833fc013b92177511271bbcd" => :el_capitan
-    sha256 "a9c9a7fe8261ddbf4830655e6a1a3baa8849669064b990d04338c7bcfb57e6c3" => :yosemite
-    sha256 "b5650ec87b85ac2b36f8e9cb53a452af1ed28f939cf007b209b458773d0634a6" => :mavericks
+    rebuild 2
+    sha256 "c38e2d072aeade356f5bab6e974fbbeb910259c1fe9d2ed8c352f7b67ca5bd0c" => :catalina
+    sha256 "a7b26f9ad83bbca9c88de347bc96c616eee9c6d5f0a68caca19b4cffa1347def" => :mojave
+    sha256 "bb253ab1835a89928a7c9edb904416b75876cedd50f62647e2d6044fcb55f4f4" => :high_sierra
   end
 
   depends_on "freetype"
   depends_on :x11
 
   conflicts_with "openmotif",
-    :because => "Lesstif and Openmotif are complete replacements for each other"
+    because: "both Lesstif and Openmotif are complete replacements for each other"
 
   def install
     # LessTif does naughty, naughty, things by assuming we want autoconf macros
@@ -45,5 +42,18 @@ class Lesstif < Formula
     # try to make the same directory and `mkdir` will fail.
     ENV.deparallelize
     system "make", "install"
+
+    # LessTif ships Core.3, which causes a conflict with CORE.3 from
+    # Perl in case-insensitive file systems. Rename it to LessTifCore.3
+    # to avoid this problem.
+    mv man3/"Core.3", man3/"LessTifCore.3"
+  end
+
+  def caveats
+    <<~EOS
+      The man page for Core.3 has been renamed to LessTifCore.3 to 
+      avoid conflicts with CORE.3 from Perl in case-insensitive file 
+      systems. Please use "man LessTifCore" instead.
+    EOS
   end
 end

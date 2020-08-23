@@ -3,6 +3,7 @@ class GitWhenMerged < Formula
   homepage "https://github.com/mhagger/git-when-merged"
   url "https://github.com/mhagger/git-when-merged/archive/v1.2.0.tar.gz"
   sha256 "3fb3ee2f186103c2dae1e4a2e104bc37199641f4ffdb38d85ca612cf16636982"
+  license "GPL-2.0"
 
   bottle :unneeded
 

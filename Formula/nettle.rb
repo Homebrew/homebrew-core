@@ -1,16 +1,17 @@
 class Nettle < Formula
   desc "Low-level cryptographic library"
   homepage "https://www.lysator.liu.se/~nisse/nettle/"
-  url "https://ftp.gnu.org/gnu/nettle/nettle-3.4.1.tar.gz"
-  mirror "https://ftpmirror.gnu.org/nettle/nettle-3.4.1.tar.gz"
-  sha256 "f941cf1535cd5d1819be5ccae5babef01f6db611f9b5a777bae9c7604b8a92ad"
+  url "https://ftp.gnu.org/gnu/nettle/nettle-3.6.tar.gz"
+  mirror "https://ftpmirror.gnu.org/nettle/nettle-3.6.tar.gz"
+  sha256 "d24c0d0f2abffbc8f4f34dcf114b0f131ec3774895f3555922fe2f40f3d5e3f1"
+  # license ["GPL-2.0", "GPL-3.0", "LGPL-3.0"] - pending https://github.com/Homebrew/brew/pull/7953
+  license "GPL-2.0"
 
   bottle do
     cellar :any
-    sha256 "338da826ad5127a98f1658c01f2bd128aa9383b3581c9beebc0f0ebc88b0d089" => :catalina
-    sha256 "9e7f78a4cc96ca57f75ca1d37cc12c11655b7e0aa7109da4becd0408a1e2ed6b" => :mojave
-    sha256 "4327e8e4c4760653113f0bc4a7b0bada37b2d820f6c3ba759832e59ed553cb9a" => :high_sierra
-    sha256 "4624e3b0964d695408cf45330bab8cda2536002834f96202f7a37007407123fd" => :sierra
+    sha256 "7ac7677ba653dbef81dd83ed8cde3dfcb7b464d04442886c396179932f4f9faa" => :catalina
+    sha256 "d378b026725d8d449ca6497ce2158b93c991a0e0326921a5f914bc4847da3a92" => :mojave
+    sha256 "07c65cb4d172b05065dcceb702b41ca3408b31b6154690c7a4cfa430b2de074d" => :high_sierra
   end
 
   depends_on "gmp"
@@ -18,9 +19,6 @@ class Nettle < Formula
   uses_from_macos "m4" => :build
 
   def install
-    # macOS doesn't use .so libs. Emailed upstream 04/02/2016.
-    inreplace "testsuite/dlopen-test.c", "libnettle.so", "libnettle.dylib"
-
     # The LLVM shipped with Xcode/CLT 10+ compiles binaries/libraries with
     # ___chkstk_darwin, which upsets nettle's expected symbol check.
     # https://github.com/Homebrew/homebrew-core/issues/28817#issuecomment-396762855
@@ -30,9 +28,13 @@ class Nettle < Formula
                                           "get_pc_thunk|(_*chkstk_darwin)"
     end
 
+    args = []
+    args << "--build=aarch64-apple-darwin#{`uname -r`.chomp}" if Hardware::CPU.arm?
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--enable-shared"
+                          "--enable-shared",
+                          *args
     system "make"
     system "make", "install"
     system "make", "check"

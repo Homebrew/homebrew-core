@@ -3,18 +3,20 @@ class ArcadeLearningEnvironment < Formula
   homepage "https://github.com/mgbellemare/Arcade-Learning-Environment"
   url "https://github.com/mgbellemare/Arcade-Learning-Environment/archive/v0.6.1.tar.gz"
   sha256 "8059a4087680da03878c1648a8ceb0413a341032ecaa44bef4ef1f9f829b6dde"
+  license "GPL-2.0"
+  revision 1
   head "https://github.com/mgbellemare/Arcade-Learning-Environment.git"
 
   bottle do
     cellar :any
-    sha256 "7c00ddc0d9693ceaba062b77fb94e2a7aea2e6ccdfd16bb877c00c24e1ceaa48" => :catalina
-    sha256 "1ccf63b1ee913ffeffcbc28d36e75bfc6c28f5afac6b51ff31e28d0dd06f51fd" => :mojave
-    sha256 "bf91e1153dcc19178f77faa72b1761a5dcb284626cf16065196011d7b7d7ef6d" => :high_sierra
+    sha256 "dc3acdec1e0fa77c0989f669df73ac9260611e3542db9cd371d27260276037a9" => :catalina
+    sha256 "9fbb8f0997a3ca959a1e2a6e972c4100069b88bbf0450d3ed099a6b344238ca0" => :mojave
+    sha256 "bb28107f88fe1615bd737c5fa76d195e27625e5d9139fd7e9168045952926d22" => :high_sierra
   end
 
   depends_on "cmake" => :build
   depends_on "numpy"
-  depends_on "python"
+  depends_on "python@3.8"
   depends_on "sdl"
 
   def install
@@ -24,7 +26,7 @@ class ArcadeLearningEnvironment < Formula
     ]
     system "cmake", ".", *args
     system "make", "install"
-    system "python3", *Language::Python.setup_install_args(prefix)
+    system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
   end
 
   test do
@@ -34,6 +36,6 @@ class ArcadeLearningEnvironment < Formula
       from ale_python_interface import ALEInterface;
       ale = ALEInterface();
     EOS
-    assert_match "ale.cfg", shell_output("python3 test.py 2>&1")
+    assert_match "ale.cfg", shell_output("#{Formula["python@3.8"].opt_bin}/python3 test.py 2>&1")
   end
 end

@@ -4,6 +4,7 @@ class Tcpstat < Formula
   url "https://github.com/jtt/tcpstat/archive/rel-0-1.tar.gz"
   version "0.1"
   sha256 "366a221950759015378775862a7499aaf727a3a9de67b15463b0991c2362fdaf"
+  license "BSD-2-Clause"
   head "https://github.com/jtt/tcpstat.git"
 
   bottle do

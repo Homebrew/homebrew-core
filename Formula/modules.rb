@@ -1,19 +1,18 @@
 class Modules < Formula
   desc "Dynamic modification of a user's environment via modulefiles"
   homepage "https://modules.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/modules/Modules/modules-4.4.1/modules-4.4.1.tar.bz2"
-  sha256 "f4dc6b7055897382d6b655506c1a74d9ff33e9831d64082d03acdff4ba8521fa"
+  url "https://downloads.sourceforge.net/project/modules/Modules/modules-4.5.2/modules-4.5.2.tar.bz2"
+  sha256 "9366a2c6230f7ce4b5861a0629db10867f39144e382d209681619fe273950655"
 
   bottle do
     cellar :any
-    sha256 "0c7b11dae0311e6f6f4f97981f01baf80086d1ec1101a045ae834b8410002038" => :catalina
-    sha256 "300b211f01eb7db1ae80bd74f5de3711ac4b856159dacb1de2758ea6f831710f" => :mojave
-    sha256 "86e28621fc7fb9b35fb9b4f82616ec31190ba7bbbb0a096d288ae79cd485c01c" => :high_sierra
+    sha256 "a2ad130312c85f33d18a50e31c4461f3cee080169aa29e00481fc51a8353b3f3" => :catalina
+    sha256 "055020e7d4050da4c501aab2aaf7c71e3999bf497558488ff02b877a029cf2e2" => :mojave
+    sha256 "e7684dbd641f7aaaab506df008d1c4caa41aa73f1a28631a461e0c671d23f5d9" => :high_sierra
   end
 
   def install
     args = %W[
-      --disable-dependency-tracking
       --prefix=#{prefix}
       --datarootdir=#{share}
       --with-tcl=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework

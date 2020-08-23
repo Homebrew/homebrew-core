@@ -3,6 +3,7 @@ class Autojump < Formula
   homepage "https://github.com/wting/autojump"
   url "https://github.com/wting/autojump/archive/release-v22.5.3.tar.gz"
   sha256 "00daf3698e17ac3ac788d529877c03ee80c3790472a85d0ed063ac3a354c37b1"
+  license "GPL-3.0"
   head "https://github.com/wting/autojump.git"
 
   bottle do
@@ -13,7 +14,7 @@ class Autojump < Formula
     sha256 "c95107719bd784e0e348be6dbfb3a780240d96f8d76710271c3642335babbd8f" => :sierra
   end
 
-  uses_from_macos "python@2"
+  depends_on :macos # Due to Python 2
 
   def install
     system "./install.py", "-d", prefix, "-z", zsh_completion

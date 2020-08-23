@@ -5,6 +5,7 @@ class Awscurl < Formula
   homepage "https://github.com/okigan/awscurl"
   url "https://github.com/okigan/awscurl/archive/v0.20.tar.gz"
   sha256 "3ce06d105067b42398cf0bb6696742b790258e16487d5e5afa025b7c3ca983e4"
+  license "MIT"
   revision 1
   head "https://github.com/okigan/awscurl.git"
 
@@ -18,6 +19,10 @@ class Awscurl < Formula
   depends_on "python@3.8"
 
   uses_from_macos "libffi"
+
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/41/bf/9d214a5af07debc6acf7f3f257265618f1db242a3f8e49a9b516f24523a6/certifi-2019.11.28.tar.gz"

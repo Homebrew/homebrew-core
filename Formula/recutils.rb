@@ -4,6 +4,7 @@ class Recutils < Formula
   url "https://ftp.gnu.org/gnu/recutils/recutils-1.8.tar.gz"
   mirror "https://ftpmirror.gnu.org/gnu/recutils/recutils-1.8.tar.gz"
   sha256 "df8eae69593fdba53e264cbf4b2307dfb82120c09b6fab23e2dad51a89a5b193"
+  license "GPL-3.0"
 
   bottle do
     cellar :any

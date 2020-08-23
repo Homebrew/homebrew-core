@@ -3,6 +3,7 @@ class Ascii < Formula
   homepage "http://www.catb.org/~esr/ascii/"
   url "http://www.catb.org/~esr/ascii/ascii-3.18.tar.gz"
   sha256 "728422d5f4da61a37a17b4364d06708e543297de0a5f70305243236d80df072d"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any_skip_relocation

@@ -3,15 +3,17 @@ class Lapack < Formula
   homepage "https://www.netlib.org/lapack/"
   url "https://github.com/Reference-LAPACK/lapack/archive/v3.9.0.tar.gz"
   sha256 "106087f1bb5f46afdfba7f569d0cbe23dacb9a07cd24733765a0e89dbe1ad573"
+  license "BSD-3-Clause"
+  revision 1
   head "https://github.com/Reference-LAPACK/lapack.git"
 
   bottle do
-    sha256 "c5f8a726a57ffe294cfc488752ed2ad9f15e76ab211be020834df4f196b81b59" => :catalina
-    sha256 "47760f1eba02ad2c66f536acfff97e4bafaff4c6088822c8547f7df35a92fb33" => :mojave
-    sha256 "25833d6cbc3e54bb2c055727865ddd3ab74ffb53bf5a7fb285e73f9f5737ad05" => :high_sierra
+    sha256 "be00d33447ab0bb47a05f89517640c984cafb7723fd6fff9749de773c304f2df" => :catalina
+    sha256 "ad84de82af78dc5ee4b305c76a79a3fc18420beeac2be72d1c262936d5a9110e" => :mojave
+    sha256 "fd360d9073e8a483e88a0bca6c8dc96a8159488fa3a6009bb8cbe03747f20f4f" => :high_sierra
   end
 
-  keg_only :provided_by_macos
+  keg_only :shadowed_by_macos, "macOS provides LAPACK in Accelerate.framework"
 
   depends_on "cmake" => :build
   depends_on "gcc" # for gfortran

@@ -12,7 +12,7 @@ class Tin < Formula
 
   depends_on "gettext"
 
-  conflicts_with "mutt", :because => "both install mmdf.5 and mbox.5 man pages"
+  conflicts_with "mutt", because: "both install mmdf.5 and mbox.5 man pages"
 
   def install
     system "./configure", "--disable-debug",

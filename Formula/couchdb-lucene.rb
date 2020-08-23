@@ -3,18 +3,19 @@ class CouchdbLucene < Formula
   homepage "https://github.com/rnewson/couchdb-lucene"
   url "https://github.com/rnewson/couchdb-lucene/archive/v2.1.0.tar.gz"
   sha256 "8297f786ab9ddd86239565702eb7ae8e117236781144529ed7b72a967224b700"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f3e85424a41a44baaf289687576b1d2bf39ae76e68d504d6260f90fb2ab08594" => :mojave
-    sha256 "7e921fbcc3d95efef140e77283d8f6a2627f70afdcc02c7202f1c3a8d1042477" => :high_sierra
-    sha256 "772001fc7739ea21f359763b35125e4de4b2739872b7bba8fc933d1f59d25a18" => :sierra
-    sha256 "cd92c8cd8f4759a2525c02b54fbefccde7e15afd071f7bd9d3c2b1ef5dd00fef" => :el_capitan
+    rebuild 1
+    sha256 "56e618fa1e535e061171d52dde83b617f4793b17654c4cc9adf1fc125607e096" => :catalina
+    sha256 "03b37461aeb2eb4172ee4ff18a44c9074d9b486bec0d3192a37bb22262e078c6" => :mojave
+    sha256 "2081b4665600643fd02deaac5b2177622d91729b6aec56197087b81412ecae35" => :high_sierra
   end
 
   depends_on "maven" => :build
   depends_on "couchdb"
-  depends_on :java => "1.8"
+  depends_on java: "1.8"
 
   def install
     system "mvn"
@@ -64,7 +65,7 @@ class CouchdbLucene < Formula
     EOS
   end
 
-  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/couchdb-lucene/bin/cl_run"
+  plist_options manual: "#{HOMEBREW_PREFIX}/opt/couchdb-lucene/bin/cl_run"
 
   def plist
     <<~EOS
@@ -103,11 +104,16 @@ class CouchdbLucene < Formula
     cp_r Dir[opt_prefix/"*"], testpath
     inreplace "bin/cl_run", "CL_BASEDIR=#{libexec}/bin",
                             "CL_BASEDIR=#{testpath}/libexec/bin"
+    port = free_port
+    inreplace "libexec/conf/couchdb-lucene.ini", "port=5985", "port=#{port}"
 
-    io = IO.popen("#{testpath}/bin/cl_run")
-    sleep 2
-    Process.kill("SIGINT", io.pid)
-    Process.wait(io.pid)
-    io.read !~ /Exception/
+    fork do
+      exec "#{testpath}/bin/cl_run"
+    end
+    sleep 5
+
+    output = JSON.parse shell_output("curl --silent localhost:#{port}")
+    assert_equal "Welcome", output["couchdb-lucene"]
+    assert_equal version, output["version"]
   end
 end

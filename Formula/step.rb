@@ -1,22 +1,24 @@
 class Step < Formula
   desc "Crypto and x509 Swiss-Army-Knife"
   homepage "https://smallstep.com"
-  url "https://github.com/smallstep/cli/releases/download/v0.13.3/step-cli_0.13.3.tar.gz"
-  sha256 "9890cf5143139c4107136caeb2e81901cdad84dc2573fb22bba52d143cbd909e"
+  url "https://github.com/smallstep/cli/releases/download/v0.15.0/step-cli_0.15.0.tar.gz"
+  sha256 "3b7d8ec9b8a32cf40d1cd859a56283295d4e3b0417c590b31fc7e1a0ab42f6ed"
+  license "Apache-2.0"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "82fa51961b992f9dfdfcd5091ef253a06c89c4a234748e785f143eada1d342b3" => :catalina
-    sha256 "2ffbc394977ac7f7a9dab3af0d39be9ecdddc9b79391047f59785bddedf4baa6" => :mojave
-    sha256 "6c94999c9bf97cbad55329617737458da2f15037602775c01158b36b646fe2af" => :high_sierra
+    sha256 "18ec2fc111691562508a7b5015aa13e0321481b11489f944194e7506c62c036b" => :catalina
+    sha256 "eea7d0b3bfb096e504ddcd2b4016283eb6b9103931db78ff0581e28721a0865f" => :mojave
+    sha256 "37b7407320bb337a92aca5752d6ec9a0fd4bbd6b00a09f2626fd5d20daaeac8f" => :high_sierra
   end
 
   depends_on "dep" => :build
   depends_on "go" => :build
 
   resource "certificates" do
-    url "https://github.com/smallstep/certificates/releases/download/v0.13.3/step-certificates_0.13.3.tar.gz"
-    sha256 "a198e0853f36c775392fbb37da1e986e66572270800413dd70d76b31a963158c"
+    url "https://github.com/smallstep/certificates/releases/download/v0.15.0/step-certificates_0.15.0.tar.gz"
+    sha256 "dac1ade4f5970870c3478cb302aff2239d0f2eb3e87a4b0f11dd9d8d47639dde"
   end
 
   def install
@@ -88,15 +90,16 @@ class Step < Formula
 
     begin
       pid = fork do
-        exec "#{bin}/step-ca", "--password-file", "#{testpath}/password.txt", "#{steppath}/config/ca.json"
+        exec "#{bin}/step-ca", "--password-file", "#{testpath}/password.txt",
+          "#{steppath}/config/ca.json"
       end
+
       sleep 2
       shell_output("#{bin}/step ca health > health_response.txt")
       assert_match(/^ok$/, File.read(testpath/"health_response.txt"))
 
-      shell_output(
-        "#{bin}/step ca token --password-file #{testpath}/password.txt homebrew-smallstep-leaf > token.txt",
-      )
+      shell_output("#{bin}/step ca token --password-file #{testpath}/password.txt " \
+"homebrew-smallstep-leaf > token.txt")
       token = File.read(testpath/"token.txt")
       system "#{bin}/step", "ca", "certificate", "--token", token,
           "homebrew-smallstep-leaf", "brew.crt", "brew.key"

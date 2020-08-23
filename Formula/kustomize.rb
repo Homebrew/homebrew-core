@@ -2,22 +2,22 @@ class Kustomize < Formula
   desc "Template-free customization of Kubernetes YAML manifests"
   homepage "https://github.com/kubernetes-sigs/kustomize"
   url "https://github.com/kubernetes-sigs/kustomize.git",
-      :tag      => "kustomize/v3.5.4",
-      :revision => "3af514fa9f85430f0c1557c4a0291e62112ab026"
+      tag:      "kustomize/v3.8.1",
+      revision: "0b359d0ef0272e6545eda0e99aacd63aef99c4d0"
+  license "Apache-2.0"
   head "https://github.com/kubernetes-sigs/kustomize.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "e7e4728e65df26734f4815f517940b47d5a1d3cf6e0ce709772a76da4905c053" => :catalina
-    sha256 "ae5b7fa548e13b5d191ef95499b50a469ca29b840b086848d608bf9cc27c2e2f" => :mojave
-    sha256 "9cc7948af53b2711ef41d539032544ce472237c3466702bd5ac0d40370292148" => :high_sierra
+    sha256 "c3b6b0048d3adf6f9d35bf100767fcc2272bcee774faf02344c1a81d8c95e82d" => :catalina
+    sha256 "ee33783d479e3224e0d67142f349833f5cf1f0ec8b4b008cdd87b709391cb640" => :mojave
+    sha256 "8af188e8b832df5df7073b5065c1c869a832897d7e438b6e437e96d8da3bc138" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    revision = Utils.popen_read("git", "rev-parse", "HEAD").strip
+    revision = Utils.safe_popen_read("git", "rev-parse", "HEAD").strip
 
     cd "kustomize" do
       ldflags = %W[

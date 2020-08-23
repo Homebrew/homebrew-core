@@ -3,6 +3,8 @@ class PerlBuild < Formula
   homepage "https://github.com/tokuhirom/Perl-Build"
   url "https://github.com/tokuhirom/Perl-Build/archive/1.30.tar.gz"
   sha256 "30585889bf7ba9979233d30cfd32686790833f0317ce8d796878dca996fab9bb"
+  # license ["Artistic-1.0", "GPL-1.0"] - pending https://github.com/Homebrew/brew/pull/7953
+  license "Artistic-1.0"
   head "https://github.com/tokuhirom/perl-build.git"
 
   bottle do
@@ -121,7 +123,7 @@ class PerlBuild < Formula
     system "./Build", "install"
 
     %w[perl-build plenv-install plenv-uninstall].each do |cmd|
-      (bin/cmd).write_env_script(libexec/"bin/#{cmd}", :PERL5LIB => ENV["PERL5LIB"])
+      (bin/cmd).write_env_script(libexec/"bin/#{cmd}", PERL5LIB: ENV["PERL5LIB"])
     end
   end
 

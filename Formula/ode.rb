@@ -1,15 +1,15 @@
 class Ode < Formula
   desc "Simulating articulated rigid body dynamics"
   homepage "https://www.ode.org/"
-  url "https://bitbucket.org/odedevs/ode/downloads/ode-0.16.1.tar.gz"
-  sha256 "b228acad81f33781d53eaf313437cc5d6f66aec5a4e56c515fc1b2d51e6e8eba"
-  head "https://bitbucket.org/odedevs/ode/", :using => :hg
+  url "https://bitbucket.org/odedevs/ode/downloads/ode-0.16.2.tar.gz"
+  sha256 "b26aebdcb015e2d89720ef48e0cb2e8a3ca77915f89d853893e7cc861f810f22"
+  head "https://bitbucket.org/odedevs/ode.git"
 
   bottle do
     cellar :any
-    sha256 "52166ed37f90857e9709d01acf6f3584583ea744572fc3e75edce902515e2575" => :catalina
-    sha256 "709bab4820a1c67a426e89e3fdc2839c04f57350260c783c6ceb05f2af6c23ea" => :mojave
-    sha256 "b5d9873c81f9c5ad4ebae396568dfb4476d688a94df04b7cb53b80646ed07357" => :high_sierra
+    sha256 "b033d3a8ddb92602728fbe921f5f421fed220c1d5293333d43801bf259a16cd5" => :catalina
+    sha256 "0967cc5799fe66b3afff2c1fb9832e6d4ee7dde03f1388818de9d4b87581b4f8" => :mojave
+    sha256 "7c794395db9cbb9d8d8c7a60d787c0747c527c4a177ef975e4bd6d4a8da1eb32" => :high_sierra
   end
 
   depends_on "autoconf" => :build

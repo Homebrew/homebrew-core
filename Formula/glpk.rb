@@ -4,6 +4,7 @@ class Glpk < Formula
   url "https://ftp.gnu.org/gnu/glpk/glpk-4.65.tar.gz"
   mirror "https://ftpmirror.gnu.org/glpk/glpk-4.65.tar.gz"
   sha256 "4281e29b628864dfe48d393a7bedd781e5b475387c20d8b0158f329994721a10"
+  license "GPL-3.0"
 
   bottle do
     cellar :any

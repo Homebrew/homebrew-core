@@ -3,6 +3,7 @@ class Armor < Formula
   homepage "https://github.com/labstack/armor"
   url "https://github.com/labstack/armor/archive/v0.4.14.tar.gz"
   sha256 "bcaee0eaa1ef29ef439d5235b955516871c88d67c3ec5191e3421f65e364e4b8"
+  license "MIT"
   head "https://github.com/labstack/armor.git"
 
   bottle do
@@ -16,18 +17,16 @@ class Armor < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"armor", "cmd/armor/main.go"
+    system "go", "build", *std_go_args, "-ldflags", "-s -w", "cmd/armor/main.go"
     prefix.install_metafiles
   end
 
   test do
-    pid = fork do
-      exec "#{bin}/armor"
+    port = free_port
+    fork do
+      exec "#{bin}/armor --port #{port}"
     end
     sleep 1
-    output = shell_output("curl -sI http://localhost:8080")
-    assert_match(/200 OK/m, output)
-  ensure
-    Process.kill("HUP", pid)
+    assert_match /200 OK/, shell_output("curl -sI http://localhost:#{port}")
   end
 end

@@ -3,6 +3,8 @@ class Awk < Formula
   homepage "https://www.cs.princeton.edu/~bwk/btl.mirror/"
   url "https://github.com/onetrueawk/awk/archive/20180827.tar.gz"
   sha256 "c9232d23410c715234d0c26131a43ae6087462e999a61f038f1790598ce4807f"
+  # https://fedoraproject.org/wiki/Licensing:MIT?rd=Licensing/MIT#Standard_ML_of_New_Jersey_Variant
+  license "MIT"
   head "https://github.com/onetrueawk/awk.git"
 
   bottle do
@@ -15,7 +17,7 @@ class Awk < Formula
   end
 
   conflicts_with "gawk",
-    :because => "both install awk executables."
+    because: "both install an `awk` executable"
 
   def install
     ENV.O3 # Docs recommend higher optimization

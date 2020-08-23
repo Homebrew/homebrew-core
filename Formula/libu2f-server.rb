@@ -3,14 +3,14 @@ class Libu2fServer < Formula
   homepage "https://developers.yubico.com/libu2f-server/"
   url "https://developers.yubico.com/libu2f-server/Releases/libu2f-server-1.1.0.tar.xz"
   sha256 "8dcd3caeacebef6e36a42462039fd035e45fa85653dcb2013f45e15aad49a277"
-  revision 2
+  license "BSD-2-Clause"
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "35ef1eeeb2a02eb66a48bd70269cbaa22e1f92a4d94ef1d11891d23bc5ae3cb3" => :catalina
-    sha256 "732660807115af952d552524130daa4bf0e4314eebf2f94eade5e2b8229ad678" => :mojave
-    sha256 "f947cf956060d05e1ccf80d21e5f8e0efcc26144cdc15998fb26235bde0b184c" => :high_sierra
-    sha256 "e507b37b71477f7315eeae089473689bc6fbf05466a402ffd48df80c26985ddd" => :sierra
+    sha256 "3a5038a64a9820c04a4ad1067ebcf8076936474cc5c18a0d93f7c986adcf0169" => :catalina
+    sha256 "a1d26284fa87629ecf5bf965433cd6eeba9eb151e064e22a47ca42a115d5e15c" => :mojave
+    sha256 "03e06751297ad4aab253d7b1f742fd5c2ad8d79b35836eb132c3c82c20b485e6" => :high_sierra
   end
 
   depends_on "check" => :build
@@ -19,6 +19,12 @@ class Libu2fServer < Formula
   depends_on "pkg-config" => :build
   depends_on "json-c"
   depends_on "openssl@1.1"
+
+  # Compatibility with json-c 0.14. Remove with the next release.
+  patch do
+    url "https://github.com/Yubico/libu2f-server/commit/f7c4983b31909299c47bf9b2627c84b6bfe225de.patch?full_index=1"
+    sha256 "012d1d759604ea80f6075b74dc9c7d8a864e4e5889fb82a222db93a6bd72cd1b"
+  end
 
   def install
     ENV["LIBSSL_LIBS"] = "-lssl -lcrypto -lz"

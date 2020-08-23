@@ -4,6 +4,7 @@ class Lynx < Formula
   url "https://invisible-mirror.net/archives/lynx/tarballs/lynx2.8.9rel.1.tar.bz2"
   version "2.8.9rel.1"
   sha256 "387f193d7792f9cfada14c60b0e5c0bff18f227d9257a39483e14fa1aaf79595"
+  license "GPL-2.0"
   revision 1
 
   bottle do
@@ -18,6 +19,9 @@ class Lynx < Formula
   uses_from_macos "ncurses"
 
   def install
+    # Using --with-screen=ncurses to due to behaviour change in Big Sur
+    # https://github.com/Homebrew/homebrew-core/pull/58019
+
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}",
@@ -26,7 +30,9 @@ class Lynx < Formula
                           "--with-zlib",
                           "--with-bzlib",
                           "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}",
-                          "--enable-ipv6"
+                          "--enable-ipv6",
+                          "--with-screen=ncurses",
+                          "--disable-config-info"
     system "make", "install"
   end
 

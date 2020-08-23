@@ -2,8 +2,9 @@ class Dcadec < Formula
   desc "DTS Coherent Acoustics decoder with support for HD extensions"
   homepage "https://github.com/foo86/dcadec"
   url "https://github.com/foo86/dcadec.git",
-      :tag      => "v0.2.0",
-      :revision => "0e074384c9569e921f8facfe3863912cdb400596"
+      tag:      "v0.2.0",
+      revision: "0e074384c9569e921f8facfe3863912cdb400596"
+  license "LGPL-2.1"
   head "https://github.com/foo86/dcadec.git"
 
   bottle do

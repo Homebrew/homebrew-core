@@ -1,23 +1,26 @@
 class Ephemeralpg < Formula
   desc "Run tests on an isolated, temporary Postgres database"
   homepage "https://eradman.com/ephemeralpg/"
-  url "https://eradman.com/ephemeralpg/code/ephemeralpg-2.9.tar.gz"
-  sha256 "09314fe7d7ba2c26fb02864b9ddc92a538bc53674200363e77bb53a2fc1c17be"
+  url "https://eradman.com/ephemeralpg/code/ephemeralpg-3.0.tar.gz"
+  sha256 "70ef314e31c5547f353ea7b2787faafa07adc32dcfaea6f4f1475512c23b0fc8"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c02e04cf822d9a12c30126152a1003c2fe545e6c0dbda9c893ef5d165a342722" => :catalina
-    sha256 "b880f6d03f12cc1c0f0c9b4a4726bbc0870cfa2c14e4eacc8a62f8a7ddfa0082" => :mojave
-    sha256 "b3c09234c2cfd5739e55758c0ff0516b4776213fbe0b157b25a7f60010977bb2" => :high_sierra
+    sha256 "c57037299f11da6b4560707c9380bfdbb8708f379bf8fccae6bf0069d4dedd8a" => :catalina
+    sha256 "61a09eb4b62f4fd794ceb1af70f21198840598cd859a40c59c0be8799132ff86" => :mojave
+    sha256 "6889ddcf36023c982fe421ea8660445b416989968cc9a64b0a5156dd9f01cdfe" => :high_sierra
   end
 
   depends_on "postgresql"
 
   def install
+    system "make"
     system "make", "PREFIX=#{prefix}", "MANPREFIX=#{man}", "install"
   end
 
   test do
+    return if ENV["CI"]
+
     system "#{bin}/pg_tmp", "selftest"
   end
 end

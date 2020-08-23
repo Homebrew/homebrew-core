@@ -3,6 +3,7 @@ class Fileicon < Formula
   homepage "https://github.com/mklement0/fileicon"
   url "https://github.com/mklement0/fileicon/archive/v0.2.4.tar.gz"
   sha256 "c7a2996bf41b5cdd8d3a256f2b97724775c711a1a413fd53b43409ef416db35a"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

@@ -3,15 +3,15 @@ class Mdv < Formula
 
   desc "Styled terminal markdown viewer"
   homepage "https://github.com/axiros/terminal_markdown_viewer"
-  url "https://github.com/axiros/terminal_markdown_viewer/archive/1.6.3.tar.gz"
-  sha256 "58dbdf8c051a2d7f8c00e4dc13c655c335cbc2bc96851dd0388d73a21c4507b6"
-  revision 3
+  url "https://files.pythonhosted.org/packages/70/6d/831e188f8079c9793eac4f62ae55d04a93d90979fd2d8271113687605380/mdv-1.7.4.tar.gz"
+  sha256 "1534f477c85d580352c82141436f6fdba79d329af8a5ee7e329fea14424a660d"
+  license "BSD-3-Clause"
 
   bottle do
-    cellar :any
-    sha256 "890a4b74e721fb435e1d4ef0ff0c8f5b6e3571bf36e0d57562d720ef197524ef" => :catalina
-    sha256 "b9570e94bcc659b48b3c3629e16e03f12f484f0d9212108ebae958c5464294ab" => :mojave
-    sha256 "89ca2ef413cebd689db91754227919ebbc28934558fadd81dde681bccabe99a7" => :high_sierra
+    cellar :any_skip_relocation
+    sha256 "ba336eac38af86dd98d74dbba06226d13b0bc8af719e1e40a863f9f394da4de8" => :catalina
+    sha256 "ecb421e63e0278668ae2d570c8095186cb3e4695c5ba9891f20d16c2ba3c6e6c" => :mojave
+    sha256 "3b9847a65d7c9820148cd848687efdb598193cc76abb031c1f71841bad2ec60d" => :high_sierra
   end
 
   depends_on "python@3.8"
@@ -34,6 +34,11 @@ class Mdv < Formula
   resource "PyYAML" do
     url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"
     sha256 "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf"
+  end
+
+  resource "tabulate" do
+    url "https://files.pythonhosted.org/packages/57/6f/213d075ad03c84991d44e63b6516dd7d185091df5e1d02a660874f8f7e1e/tabulate-0.8.7.tar.gz"
+    sha256 "db2723a20d04bcda8522165c73eea7c300eda74e0ce852d9022e0159d7895007"
   end
 
   def install

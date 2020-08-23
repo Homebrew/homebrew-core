@@ -1,15 +1,15 @@
 class Dafny < Formula
   desc "Verification-aware programming language"
-  homepage "https://www.microsoft.com/en-us/research/project/dafny-a-language-and-program-verifier-for-functional-correctness"
+  homepage "https://github.com/dafny-lang/dafny/blob/master/README.md"
   url "https://github.com/dafny-lang/dafny/archive/v2.3.0.tar.gz"
   sha256 "ea7ae310282c922772a46a9a85e2b4213043283038b74d012047b5294687d168"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "743b75dd6ac3dde62485b8b8183fcc5c27096613f21db7e526f2666849750442" => :catalina
-    sha256 "0900c998ff8f541fdfacef7876f0bf69a4f654ab4177d54028776cb8010f867a" => :mojave
-    sha256 "c4552aa63db9846dfa540682245f8d8b73557e7686e401b11ab8f26d29c59dba" => :high_sierra
+    sha256 "00cfdeb5892e2834b144a6e4c816a50d594440882327e65a771f9e72cd13f82d" => :catalina
+    sha256 "4b0bb8f5e2385b99318cc85ff38496e87814d5658f5dd4054fdc7d2a0a8ebc07" => :mojave
+    sha256 "4b64f7c46ab2fdfb997ca918c81e0d423609f565bdd405eaa9a2d7e848295ab7" => :high_sierra
   end
 
   depends_on "mono-libgdiplus" => :build
@@ -19,7 +19,7 @@ class Dafny < Formula
 
   resource "boogie" do
     url "https://github.com/boogie-org/boogie.git",
-      :revision => "9e74c3271f430adb958908400c6f6fce5b59000a"
+      revision: "9e74c3271f430adb958908400c6f6fce5b59000a"
   end
 
   def install
@@ -31,7 +31,11 @@ class Dafny < Formula
     system "msbuild", "Source/Dafny.sln"
 
     libexec.install Dir["Binaries/*"]
-    (libexec/"z3/bin").install_symlink Formula["z3"].opt_bin/"z3"
+
+    # We don't want to resolve opt_bin here.
+    dst_z3_bin = libexec/"z3/bin"
+    dst_z3_bin.mkpath
+    ln_sf (Formula["z3"].opt_bin/"z3").relative_path_from(dst_z3_bin), dst_z3_bin/"z3"
 
     (bin/"dafny").write <<~EOS
       #!/bin/bash

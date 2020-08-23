@@ -3,11 +3,12 @@ class Libsoup < Formula
   homepage "https://wiki.gnome.org/Projects/libsoup"
   url "https://download.gnome.org/sources/libsoup/2.70/libsoup-2.70.0.tar.xz"
   sha256 "54b020f74aefa438918d8e53cff62e2b1e59efe2de53e06b19a4b07b1f4d5342"
+  revision 1
 
   bottle do
-    sha256 "9e6e892abfa0a22b50003cee17dd14cae4c342aa526a0fe96c8e55263b94d98a" => :catalina
-    sha256 "3f2ec087d62e7432327d5992202b8dfd77fe881dd65fbf67a2304ada8b8edefb" => :mojave
-    sha256 "182f411f04a42407f15cdf11ccfe4b32af9ba05243568bd2b7e01c5ab25d8f5f" => :high_sierra
+    sha256 "700a5b47306f17374042b19bae4054938039201202fdbd23055a39ac0657c12a" => :catalina
+    sha256 "c80a1c0a215aaa56e1390291652c24abfbf57ec42f07737269a4735ed7411ba6" => :mojave
+    sha256 "97967cc53fff8e05e33672c56005a0f7dde31cc7c83d960e19cfbd6d41da33e2" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build
@@ -17,13 +18,15 @@ class Libsoup < Formula
   depends_on "glib-networking"
   depends_on "gnutls"
   depends_on "libpsl"
+  depends_on :macos # Due to Python 2
   depends_on "vala"
 
+  uses_from_macos "krb5"
   uses_from_macos "libxml2"
 
   def install
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", ".."
+      system "meson", *std_meson_args, ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end

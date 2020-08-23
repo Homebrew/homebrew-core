@@ -3,22 +3,23 @@ class Libepoxy < Formula
   homepage "https://github.com/anholt/libepoxy"
   url "https://download.gnome.org/sources/libepoxy/1.5/libepoxy-1.5.4.tar.xz"
   sha256 "0bd2cc681dfeffdef739cb29913f8c3caa47a88a451fd2bc6e606c02997289d2"
+  license "MIT"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "96e139bc93053e6bb0a03201169e16c6112ef0ab27cdc648d35a26f2d786855c" => :catalina
-    sha256 "c2f968269360ad31b30d6635d234cdc82e926fd109f3ac3aa4eb2a71f27f3ceb" => :mojave
-    sha256 "3ed4dbf8d3715738c5226c0466b7ace7a57b4a49dc838d3260d5d8acd82c1a07" => :high_sierra
+    sha256 "9f58a2eab6aafcc95ade6893bde8d878ab422284353e22c11d04c3a6f3a1e7cb" => :catalina
+    sha256 "e42a0410e6f94fa419f785c5b0901eea1506242b1729f97b672f25b463ce3d4e" => :mojave
+    sha256 "95cbc3ce1fc94931e0259f9e55a25d9dcacacd70713ae3e59cba28f3d7ff2a3a" => :high_sierra
   end
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python" => :build
 
   def install
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", ".."
+      system "meson", *std_meson_args, ".."
       system "ninja"
       system "ninja", "install"
     end

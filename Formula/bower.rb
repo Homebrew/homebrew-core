@@ -6,6 +6,7 @@ class Bower < Formula
   # Use Github tarball to avoid bowers npm 4+ incompatible bundled dep usage
   url "https://github.com/bower/bower/archive/v1.8.8.tar.gz"
   sha256 "3faf6c6ba0f96a8ee7ca7329911e683131198cbdd9a25ee4976b46f90357d481"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

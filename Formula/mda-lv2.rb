@@ -3,6 +3,7 @@ class MdaLv2 < Formula
   homepage "https://drobilla.net/software/mda-lv2/"
   url "https://download.drobilla.net/mda-lv2-1.2.4.tar.bz2"
   sha256 "a81a00e19594881174526cd6ee7a3e301236e0ca25191982f5c9af5eb8d96ca8"
+  license "GPL-3.0"
 
   bottle do
     cellar :any

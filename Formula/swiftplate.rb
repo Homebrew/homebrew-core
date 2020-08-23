@@ -3,6 +3,7 @@ class Swiftplate < Formula
   homepage "https://github.com/JohnSundell/SwiftPlate"
   url "https://github.com/JohnSundell/SwiftPlate/archive/1.4.0.tar.gz"
   sha256 "13c6e9d2204c24ed95ad26f3e8266b8c62e709db626acf5e511ced23de9b9143"
+  license "MIT"
   head "https://github.com/JohnSundell/SwiftPlate.git"
 
   bottle do
@@ -13,7 +14,7 @@ class Swiftplate < Formula
     sha256 "73c1b35ad98f1d4872bc467b1a027dad41815e336c0c86aebb0d09d9562ddde5" => :el_capitan
   end
 
-  depends_on :xcode => "8.2"
+  depends_on xcode: "8.2"
 
   def install
     xcodebuild "-project",

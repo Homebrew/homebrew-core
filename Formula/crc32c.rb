@@ -1,8 +1,9 @@
 class Crc32c < Formula
-  desc "CRC32C implementation with CPU-specific acceleration"
+  desc "Implementation of CRC32C with CPU-specific acceleration"
   homepage "https://github.com/google/crc32c"
   url "https://github.com/google/crc32c/archive/1.1.1.tar.gz"
   sha256 "a6533f45b1670b5d59b38a514d82b09c6fb70cc1050467220216335e873074e8"
+  license "BSD-3-Clause"
   head "https://github.com/google/crc32c.git"
 
   bottle do

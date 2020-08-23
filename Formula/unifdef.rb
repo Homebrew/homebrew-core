@@ -12,7 +12,7 @@ class Unifdef < Formula
     sha256 "74ec90a8fc2467e8d613f2a6347d973dcd6387fdd9734bc66088a64ace7e0d4d" => :high_sierra
   end
 
-  keg_only :provided_by_macos, "the unifdef provided by Xcode cannot compile gevent"
+  keg_only :provided_by_macos
 
   def install
     system "make", "prefix=#{prefix}", "install"

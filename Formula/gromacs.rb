@@ -1,13 +1,13 @@
 class Gromacs < Formula
   desc "Versatile package for molecular dynamics calculations"
   homepage "http://www.gromacs.org/"
-  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2020.1.tar.gz"
-  sha256 "e1666558831a3951c02b81000842223698016922806a8ce152e8f616e29899cf"
+  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2020.3.tar.gz"
+  sha256 "903183691132db14e55b011305db4b6f4901cc4912d2c56c131edfef18cc92a9"
 
   bottle do
-    sha256 "72d49c0e34e42499f3f415d2eb0945a6a92446237b7175b385e546c3534e5b98" => :catalina
-    sha256 "bfab3f87481535fbfbfb6c03b22b0ffd27ebebf98fef1b3dba88fe5d36394f1d" => :mojave
-    sha256 "159631826837201f2d33cd1e6b018928c5e2fe82a3973439ed9e62a4f461da6e" => :high_sierra
+    sha256 "88bd44a6a167f4f2acc57dc9cb9eff739131cd1249da2e390ebbb51e0b28e18d" => :catalina
+    sha256 "d2b0f9fc2b1a360ee1e9786a54ac1815f450479173c497a3993719d4878ca7e8" => :mojave
+    sha256 "b9243cffdace751366a94db0fbee1c19db7c7aa2637268d95dbae8915bd167ff" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -20,9 +20,13 @@ class Gromacs < Formula
     inreplace "scripts/CMakeLists.txt", "CMAKE_INSTALL_BINDIR",
                                         "CMAKE_INSTALL_DATADIR"
 
-    args = std_cmake_args + %w[
-      -DCMAKE_C_COMPILER=gcc-9
-      -DCMAKE_CXX_COMPILER=g++-9
+    # Avoid superenv shim reference
+    inreplace "src/gromacs/gromacs-toolchain.cmake.cmakein", "@CMAKE_LINKER@",
+                                                             "/usr/bin/ld"
+
+    args = std_cmake_args + %W[
+      -DCMAKE_C_COMPILER=gcc-#{Formula["gcc"].installed_version.major}
+      -DCMAKE_CXX_COMPILER=g++-#{Formula["gcc"].installed_version.major}
     ]
 
     mkdir "build" do

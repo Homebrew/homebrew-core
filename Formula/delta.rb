@@ -1,6 +1,6 @@
 class Delta < Formula
   desc "Programatically minimize files to isolate features of interest"
-  homepage "http://delta.tigris.org/"
+  homepage "https://web.archive.org/web/20170805142100/delta.tigris.org/"
   url "https://deb.debian.org/debian/pool/main/d/delta/delta_2006.08.03.orig.tar.gz"
   sha256 "38184847a92b01b099bf927dbe66ef88fcfbe7d346a7304eeaad0977cb809ca0"
 
@@ -15,6 +15,8 @@ class Delta < Formula
     sha256 "d3374cc3e84c93bb84615b1669503ea8b708ab65baf629ee0be9a728b12b10bc" => :yosemite
     sha256 "04102ae55ffc2cc4351816b010544b854c21f1c5e2a462a6af0e57ec2f57b501" => :mavericks
   end
+
+  conflicts_with "git-delta", because: "both install a `delta` binary"
 
   def install
     system "make"

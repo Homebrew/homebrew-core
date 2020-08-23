@@ -2,8 +2,9 @@ class DockerMachineDriverHyperkit < Formula
   desc "Docker Machine driver for hyperkit"
   homepage "https://github.com/machine-drivers/docker-machine-driver-hyperkit"
   url "https://github.com/machine-drivers/docker-machine-driver-hyperkit.git",
-      :tag      => "v1.0.0",
-      :revision => "88bae774eacefa283ef549f6ea6bc202d97ca07a"
+      tag:      "v1.0.0",
+      revision: "88bae774eacefa283ef549f6ea6bc202d97ca07a"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,7 +18,6 @@ class DockerMachineDriverHyperkit < Formula
   depends_on "dep" => :build
   depends_on "go" => :build
   depends_on "docker-machine"
-  depends_on :macos => :yosemite
 
   def install
     ENV["GOPATH"] = buildpath

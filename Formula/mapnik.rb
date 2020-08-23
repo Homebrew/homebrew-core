@@ -1,15 +1,17 @@
 class Mapnik < Formula
   desc "Toolkit for developing mapping applications"
   homepage "https://mapnik.org/"
-  url "https://github.com/mapnik/mapnik/releases/download/v3.0.22/mapnik-v3.0.22.tar.bz2"
-  sha256 "930612ad9e604b6a29b9cea1bc1de85cf7cf2b2b8211f57ec8b6b94463128ab9"
-  revision 1
+  url "https://github.com/mapnik/mapnik/releases/download/v3.0.23/mapnik-v3.0.23.tar.bz2"
+  sha256 "4b1352e01f7ce25ab099e586d7ae98e0b74145a3bf94dd365cb0a2bdab3b9dc2"
+  license "LGPL-2.1"
+  revision 3
   head "https://github.com/mapnik/mapnik.git"
 
   bottle do
     cellar :any
-    sha256 "5b2b7057f5f2028f3b824f9d1c3b6339c424f859c58a11dda275095b96fa17fa" => :mojave
-    sha256 "170678415472ba2586eae111ca11bac9c25a3166c1056e7d437c460287d84037" => :sierra
+    sha256 "ba583ea99a13377783c2dabc25c55ccc2d1a296cfb1f52e9a4a08dc82a0b0576" => :catalina
+    sha256 "5c6ebca702fb213f0ca8a678726a57c54d1b97a48d88d61b90ccfb6bd2b0d605" => :mojave
+    sha256 "ef6e65090ed5b627874c66ab30e5365ffcd90c7c9b4f810b318113c014b7a528" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

@@ -3,6 +3,7 @@ class OsrmBackend < Formula
   homepage "http://project-osrm.org/"
   url "https://github.com/Project-OSRM/osrm-backend/archive/v5.22.0.tar.gz"
   sha256 "df0987a04bcf65d74f9c4e18f34a01982bf3bb97aa47f9d86cfb8b35f17a6a55"
+  license "BSD-2-Clause"
   revision 2
   head "https://github.com/Project-OSRM/osrm-backend.git"
 
@@ -23,7 +24,7 @@ class OsrmBackend < Formula
 
   # "invalid use of non-static data member 'offset'"
   # https://github.com/Project-OSRM/osrm-backend/issues/3719
-  depends_on :macos => :el_capitan
+  depends_on macos: :el_capitan
 
   depends_on "tbb"
 

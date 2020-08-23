@@ -3,7 +3,7 @@ class Id3lib < Formula
   homepage "https://id3lib.sourceforge.io/"
   revision 1
   head ":pserver:anonymous:@id3lib.cvs.sourceforge.net:/cvsroot/id3lib",
-    :using => :cvs, :module => "id3lib-devel"
+    using: :cvs, module: "id3lib-devel"
 
   stable do
     url "https://downloads.sourceforge.net/project/id3lib/id3lib/3.8.3/id3lib-3.8.3.tar.gz"

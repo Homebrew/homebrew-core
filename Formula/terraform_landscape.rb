@@ -3,6 +3,7 @@ class TerraformLandscape < Formula
   homepage "https://github.com/coinbase/terraform-landscape"
   url "https://github.com/coinbase/terraform-landscape/archive/v0.3.3.tar.gz"
   sha256 "8594948ebfc0d4f311a2f0a2261a0397b190500f33492c5bf647b3e07b8b625d"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
@@ -53,7 +54,7 @@ class TerraformLandscape < Formula
     system "gem", "build", "terraform_landscape.gemspec"
     system "gem", "install", "--ignore-dependencies", "terraform_landscape-#{version}.gem"
     bin.install libexec/"bin/landscape"
-    bin.env_script_all_files(libexec/"bin", :GEM_HOME => ENV["GEM_HOME"])
+    bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"])
   end
 
   test do

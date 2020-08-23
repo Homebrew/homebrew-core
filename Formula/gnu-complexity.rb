@@ -4,6 +4,7 @@ class GnuComplexity < Formula
   url "https://ftp.gnu.org/gnu/complexity/complexity-1.10.tar.xz"
   mirror "https://ftpmirror.gnu.org/complexity/complexity-1.10.tar.xz"
   sha256 "6d378a3ef9d68938ada2610ce32f63292677d3b5c427983e8d72702167a22053"
+  license "GPL-3.0"
 
   bottle do
     cellar :any
@@ -13,14 +14,9 @@ class GnuComplexity < Formula
     sha256 "3ea1d968a1eaa2ce6655fa8e33b721af3cd631075f960c6595ca68aecd0972c7" => :sierra
     sha256 "89b7043d1f51fc6ff7a1e96f8ed23bbac73bbb7196a04851a2cf29475b0803f7" => :el_capitan
     sha256 "35a8ac468a12565af95b82c75d6b45c9c55c27fa769244f0bd87ec69b10742b1" => :yosemite
-    sha256 "5aba079cba5a07f3e754019cd11ed767ab65cd6c4dcef33eea9e94b94bae19eb" => :mavericks
   end
 
   depends_on "autogen"
-  depends_on "gcc" if MacOS.version == :mavericks
-
-  # error: use of undeclared identifier '__noreturn__'
-  fails_with :clang if MacOS.version == :mavericks
 
   def install
     system "./configure", "--disable-dependency-tracking",

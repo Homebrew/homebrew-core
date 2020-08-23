@@ -3,6 +3,7 @@ class Whatmask < Formula
   homepage "http://www.laffeycomputer.com/whatmask.html"
   url "https://web.archive.org/web/20170107110521/downloads.laffeycomputer.com/current_builds/whatmask/whatmask-1.2.tar.gz"
   sha256 "7dca0389e22e90ec1b1c199a29838803a1ae9ab34c086a926379b79edb069d89"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

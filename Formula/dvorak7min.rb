@@ -4,6 +4,7 @@ class Dvorak7min < Formula
   url "https://deb.debian.org/debian/pool/main/d/dvorak7min/dvorak7min_1.6.1+repack.orig.tar.gz"
   version "1.6.1"
   sha256 "4cdef8e4c8c74c28dacd185d1062bfa752a58447772627aded9ac0c87a3b8797"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

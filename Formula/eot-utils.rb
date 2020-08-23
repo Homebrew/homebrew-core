@@ -3,6 +3,7 @@ class EotUtils < Formula
   homepage "https://www.w3.org/Tools/eot-utils/"
   url "https://www.w3.org/Tools/eot-utils/eot-utilities-1.1.tar.gz"
   sha256 "4eed49dac7052e4147deaddbe025c7dfb404fc847d9fe71e1c42eba5620e6431"
+  license "W3C"
 
   bottle do
     cellar :any_skip_relocation

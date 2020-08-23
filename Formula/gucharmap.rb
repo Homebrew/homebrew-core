@@ -3,13 +3,12 @@ class Gucharmap < Formula
   homepage "https://wiki.gnome.org/Apps/Gucharmap"
   url "https://download.gnome.org/sources/gucharmap/12.0/gucharmap-12.0.1.tar.xz"
   sha256 "39de8aad9d7f0af33c29db1a89f645e76dad2fce00d1a0f7c8a689252a2c2155"
-  revision 1
+  revision 3
 
   bottle do
-    sha256 "02bf0a815ddc6b3cf366c2a4fee899e1dba4c72d2952c4e9df87a52fcf658d5b" => :catalina
-    sha256 "9c965568b01c23bb6ef12d997fa2f7335298ac6cba1acfb1ca0680b85a93e198" => :mojave
-    sha256 "644ffd53ce114c7790c97183807812121fb681aeb308303dcedbb5c2a889c5de" => :high_sierra
-    sha256 "b939644d0bb0ea2f732242acd4bca679a538dd18c8bd2d9ef23cdb37afb5043f" => :sierra
+    sha256 "732ed6b19cd29d595941397082369c61c35a4e960ca0b36e4dd306cc7a97b06e" => :catalina
+    sha256 "a01bf4f29277930ae3376a8d6a69c762d95ba0d1e2807af55f7ec8e3c41866cb" => :mojave
+    sha256 "9c3fbd03c494d4dfa3f126d070e033529aa71d1902674d1b70c1c2ccb73f5835" => :high_sierra
   end
 
   depends_on "coreutils" => :build
@@ -17,11 +16,11 @@ class Gucharmap < Formula
   depends_on "intltool" => :build
   depends_on "itstool" => :build
   depends_on "pkg-config" => :build
-  depends_on "python" => :build
+  depends_on "python@3.8" => :build
   depends_on "gtk+3"
 
   def install
-    xy = Language::Python.major_minor_version "python3"
+    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
     ENV.append_path "PYTHONPATH", "#{Formula["libxml2"].opt_lib}/python#{xy}/site-packages"
     ENV["WGET"] = "curl"
 

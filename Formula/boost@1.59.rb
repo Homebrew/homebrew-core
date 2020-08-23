@@ -3,6 +3,7 @@ class BoostAT159 < Formula
   homepage "https://www.boost.org"
   url "https://downloads.sourceforge.net/project/boost/boost/1.59.0/boost_1_59_0.tar.bz2"
   sha256 "727a932322d94287b62abb1bd2d41723eec4356a7728909e38adb65ca25241ca"
+  license "BSL-1.0"
 
   bottle do
     cellar :any
@@ -21,15 +22,22 @@ class BoostAT159 < Formula
   # formatting_ostream. Fixed https://svn.boost.org/trac/boost/ticket/11549
   # from https://github.com/boostorg/log/commit/7da193f.patch
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/2ccb6715b3/boost/boost159-questionable-operator.patch"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/2ccb6715b3727a5ec4d2582dc8931cd46cbefbf1/boost/boost159-questionable-operator.patch"
     sha256 "a49fd7461d9f3b478d2bddac19adca93fe0fabab71ee67e8f140cbd7d42d6870"
   end
 
   # Fixed missing symbols in libboost_log_setup (on mac/clang)
   # from https://github.com/boostorg/log/commit/870284ed31792708a6139925d00a0aadf46bf09f
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/2ccb6715b3/boost/boost159-missing-symbols.patch"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/2ccb6715b3727a5ec4d2582dc8931cd46cbefbf1/boost/boost159-missing-symbols.patch"
     sha256 "2c3a3bae1691df5f8fce8fbd4e5727d57bd4dd813748b70d7471c855c4f19d1c"
+  end
+
+  # Fix build on Xcode 11.4
+  patch do
+    url "https://github.com/boostorg/build/commit/b3a59d265929a213f02a451bb63cea75d668a4d9.patch?full_index=1"
+    sha256 "04a4df38ed9c5a4346fbb50ae4ccc948a1440328beac03cb3586c8e2e241be08"
+    directory "tools/build"
   end
 
   def install

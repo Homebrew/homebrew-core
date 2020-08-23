@@ -20,7 +20,7 @@ class Cdrtools < Formula
   depends_on "smake" => :build
 
   conflicts_with "dvdrtools",
-    :because => "both dvdrtools and cdrtools install binaries by the same name"
+    because: "both dvdrtools and cdrtools install binaries by the same name"
 
   patch do
     url "https://downloads.sourceforge.net/project/cdrtools/cdrtools-3.01-fix-20151126-mkisofs-isoinfo.patch"

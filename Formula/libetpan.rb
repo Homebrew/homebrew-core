@@ -3,7 +3,8 @@ class Libetpan < Formula
   homepage "https://www.etpan.org/libetpan.html"
   url "https://github.com/dinhviethoa/libetpan/archive/1.9.4.tar.gz"
   sha256 "82ec8ea11d239c9967dbd1717cac09c8330a558e025b3e4dc6a7594e80d13bb1"
-  head "https://github.com/dinhviethoa/libetpan.git", :branch => "master"
+  license "BSD-3-Clause"
+  head "https://github.com/dinhviethoa/libetpan.git", branch: "master"
 
   bottle do
     cellar :any
@@ -12,7 +13,7 @@ class Libetpan < Formula
     sha256 "6a2f29f42a39d9d3eee7bca1974118fdd8d44a745f61af686aa40c449157b733" => :high_sierra
   end
 
-  depends_on :xcode => :build
+  depends_on xcode: :build
 
   def install
     xcodebuild "-project", "build-mac/libetpan.xcodeproj",

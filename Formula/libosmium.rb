@@ -1,14 +1,16 @@
 class Libosmium < Formula
   desc "Fast and flexible C++ library for working with OpenStreetMap data"
   homepage "https://osmcode.org/libosmium/"
-  url "https://github.com/osmcode/libosmium/archive/v2.15.4.tar.gz"
-  sha256 "402247f7764bc20c061fa7d9fad15fc85459b7ce4f420274de78c94d05ddf260"
+  url "https://github.com/osmcode/libosmium/archive/v2.15.6.tar.gz"
+  sha256 "55879b9da0f3756f3216f9fb857f35afb3b01294b5f18e0d1719334e7d4f5ac9"
+  license "BSL-1.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5f28c305b9a1f40e5967de56a4a4dd02822e3edf4c08f78f30516e1c163244ce" => :catalina
-    sha256 "5f28c305b9a1f40e5967de56a4a4dd02822e3edf4c08f78f30516e1c163244ce" => :mojave
-    sha256 "5f28c305b9a1f40e5967de56a4a4dd02822e3edf4c08f78f30516e1c163244ce" => :high_sierra
+    rebuild 1
+    sha256 "dadd63f6645e8f030f245083218f5a6bfd60bf97a6fa7e8a212010a934fa0b1a" => :catalina
+    sha256 "dadd63f6645e8f030f245083218f5a6bfd60bf97a6fa7e8a212010a934fa0b1a" => :mojave
+    sha256 "dadd63f6645e8f030f245083218f5a6bfd60bf97a6fa7e8a212010a934fa0b1a" => :high_sierra
   end
 
   depends_on "boost" => :build
@@ -17,8 +19,8 @@ class Libosmium < Formula
   uses_from_macos "expat"
 
   resource "protozero" do
-    url "https://github.com/mapbox/protozero/archive/v1.6.8.tar.gz"
-    sha256 "019a0f3789ad29d7e717cf2e0a7475b36dc180508867fb47e8c519885b431706"
+    url "https://github.com/mapbox/protozero/archive/v1.7.0.tar.gz"
+    sha256 "beffbdfab060854fd770178a8db9c028b5b6ee4a059a2fed82c46390a85f3f31"
   end
 
   def install

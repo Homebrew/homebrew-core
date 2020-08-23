@@ -1,41 +1,43 @@
 class CassandraAT22 < Formula
   desc "Eventually consistent, distributed key-value db"
   homepage "https://cassandra.apache.org"
-  url "https://www.apache.org/dyn/closer.lua?path=cassandra/2.2.15/apache-cassandra-2.2.15-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/cassandra/2.2.15/apache-cassandra-2.2.15-bin.tar.gz"
-  sha256 "7109f50a5a12f62b41e692521622344ba1e79381d713fc578e60e554f7c83334"
+  url "https://www.apache.org/dyn/closer.lua?path=cassandra/2.2.17/apache-cassandra-2.2.17-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/cassandra/2.2.17/apache-cassandra-2.2.17-bin.tar.gz"
+  sha256 "85bd0e19e0b7a83394968ebbadfebf2a595f71741d7f93fb5c063b8ed4841b0b"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "efe044b667e3479966bb5a29802a1fcca724d36d07f1eddc29baf59b9f887d0b" => :catalina
-    sha256 "b969cfce702ad4dd02f6495abee2370a3ababd44cc82a567169b8af930fab85e" => :mojave
-    sha256 "1a2aa9db7744896b53bf01ffca7214cc2cd0ef5f026546873c9c02f4bb7471fe" => :high_sierra
+    sha256 "831471b06c1c1ca6b694badca02bf2a3e57798945083a8cc4c03842258f23594" => :catalina
+    sha256 "bdf3b77d8a62333ee58d5135552453df4e78051005ebc152255fc8eccb5a4283" => :mojave
+    sha256 "4d88dab4c355c49b3e0977241a02fb74cd2ca4623b0baa1864e3a0379d3396ea" => :high_sierra
   end
 
   keg_only :versioned_formula
 
   depends_on "cython" => :build
-  uses_from_macos "python@2" # does not support Python 3.7
+  depends_on :macos # Due to Python 2 (does not support Python 3)
 
   # Only >=Yosemite has new enough setuptools for successful compile of the below deps.
+  # Python 2 needs setuptools < 45.0.0 (https://github.com/pypa/setuptools/issues/2094)
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/a4/c8/9a7a47f683d54d83f648d37c3e180317f80dc126a304c45dc6663246233a/setuptools-36.5.0.zip"
-    sha256 "ce2007c1cea3359870b80657d634253a0765b0c7dc5a988d77ba803fc86f2c64"
+    url "https://files.pythonhosted.org/packages/b2/40/4e00501c204b457f10fe410da0c97537214b2265247bc9a5bc6edd55b9e4/setuptools-44.1.1.zip"
+    sha256 "c67aa55db532a0dadc4d2e20ba9961cbd3ccc84d544e9029699822542b5a476b"
   end
 
   resource "futures" do
-    url "https://files.pythonhosted.org/packages/cc/26/b61e3a4eb50653e8a7339d84eeaa46d1e93b92951978873c220ae64d0733/futures-3.1.1.tar.gz"
-    sha256 "51ecb45f0add83c806c68e4b06106f90db260585b25ef2abfcda0bd95c0132fd"
+    url "https://files.pythonhosted.org/packages/47/04/5fc6c74ad114032cd2c544c575bffc17582295e9cd6a851d6026ab4b2c00/futures-3.3.0.tar.gz"
+    sha256 "7e033af76a5e35f58e56da7a91e687706faf4e7bdfb2cbc3f2cca6b9bcda9794"
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
-    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
+    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
+    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
   end
 
   resource "thrift" do
-    url "https://files.pythonhosted.org/packages/a3/ea/84a41e03f1ab14fb314c8bcf1c451090efa14c5cdfb9797d1079f502b54e/thrift-0.10.0.zip"
-    sha256 "b7f6c09155321169af03f9fb20dc15a4a0c7481e7c334a5ba8f7f0d864633209"
+    url "https://files.pythonhosted.org/packages/ae/58/35e3f0cd290039ff862c2c9d8ae8a76896665d70343d833bdc2f748b8e55/thrift-0.9.3.tar.gz"
+    sha256 "dfbc3d3bd19d396718dab05abaf46d93ae8005e2df798ef02e32793cd963877e"
   end
 
   resource "cql" do
@@ -44,8 +46,8 @@ class CassandraAT22 < Formula
   end
 
   resource "cassandra-driver" do
-    url "https://files.pythonhosted.org/packages/5a/96/a5b2458a0483d3cefdf13064d40119754c1552ea34b7f0e8c6e03e66eb0a/cassandra-driver-3.11.0.tar.gz"
-    sha256 "643bed0fac08ee91630f0f35556bb62c3b4b007c20d4e6e8d349f769ea648150"
+    url "https://files.pythonhosted.org/packages/cd/22/7bf65cfd5d60f3c916ed57c88705803fac30928696f2a300d9ee3751b390/cassandra-driver-3.24.0.tar.gz"
+    sha256 "83ec8d9a5827ee44bb1c0601a63696a8a9086beaf0151c8255556299246081bd"
   end
 
   def install
@@ -102,10 +104,10 @@ class CassandraAT22 < Formula
 
     bin.write_exec_script Dir["#{libexec}/bin/*"]
     rm bin/"cqlsh" # Remove existing exec script
-    (bin/"cqlsh").write_env_script libexec/"bin/cqlsh", :PYTHONPATH => pypath
+    (bin/"cqlsh").write_env_script libexec/"bin/cqlsh", PYTHONPATH: pypath
   end
 
-  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/cassandra@2.2/bin/cassandra -f"
+  plist_options manual: "#{HOMEBREW_PREFIX}/opt/cassandra@2.2/bin/cassandra -f"
 
   def plist
     <<~EOS

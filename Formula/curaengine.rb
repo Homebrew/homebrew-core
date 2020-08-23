@@ -1,24 +1,46 @@
 class Curaengine < Formula
   desc "C++ 3D printing GCode generator"
   homepage "https://github.com/Ultimaker/CuraEngine"
-  url "https://github.com/Ultimaker/CuraEngine/archive/15.04.6.tar.gz"
-  sha256 "4f2e3c5e74001b39cf5894a1e3f436a7724be0ae9ee30cd02bd2e3fd676ca4b1"
+  url "https://github.com/Ultimaker/CuraEngine/archive/4.6.2.tar.gz"
+  sha256 "17ad1dffbfa0526f2a255c1979d36dcc9b63166304be271556d9a2fd31a37e07"
+  license "AGPL-3.0"
+  version_scheme 1
   head "https://github.com/Ultimaker/CuraEngine.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d8208f9fc4937de054b71fe33eabcaa9b8463453e09491c60473c390a18557cb" => :catalina
-    sha256 "03459dc8fd06bc5522b8d0084ac2dd05f238316f009e8fa792f5e55218f5852e" => :mojave
-    sha256 "b29d96d522832565490392c1945bec5be2fe5b48f2331fd121f706e06d7b6912" => :high_sierra
-    sha256 "2f2c5d334057a9e99ef969f7f2cb66d357ab0c98e501a22103b4c53faa0ca8e8" => :sierra
+    sha256 "5da353ffcd1e618d614092acb41d96ca86d632ab4cb4ee0597fc54d52f1c70db" => :catalina
+    sha256 "ebd004514df2d15c48ab82353f67d11291270ee9e720eb99c11cb7da8180ba81" => :mojave
+    sha256 "51e2edf06313599f125cb2e45631dc61b2abb2dd3229d3130dd051a23b84d1d9" => :high_sierra
+  end
+
+  depends_on "cmake" => :build
+
+  # The version tag in these resources (e.g., `/1.2.3/`) should be changed as
+  # part of updating this formula to a new version.
+  resource "fdmextruder_defaults" do
+    url "https://raw.githubusercontent.com/Ultimaker/Cura/4.6.2/resources/definitions/fdmextruder.def.json"
+    sha256 "9f4f7d17dd4aa4dc0653193b990d0a79fe23d1d205ebe2ed0c2e6be10f56e03a"
+  end
+
+  resource "fdmprinter_defaults" do
+    url "https://raw.githubusercontent.com/Ultimaker/Cura/4.6.2/resources/definitions/fdmprinter.def.json"
+    sha256 "b3efe2ade1ccbdf3742068120fca0a5a3027933c0e58591ce32771ede6ac32de"
   end
 
   def install
-    system "make", "VERSION=#{version}"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args,
+                            "-DCMAKE_INSTALL_PREFIX=#{libexec}",
+                            "-DENABLE_ARCUS=OFF"
+      system "make", "install"
+    end
     bin.install "build/CuraEngine"
   end
 
   test do
+    testpath.install resource("fdmextruder_defaults")
+    testpath.install resource("fdmprinter_defaults")
     (testpath/"t.stl").write <<~EOS
       solid t
         facet normal 0 -1 0
@@ -31,6 +53,6 @@ class Curaengine < Formula
       endsolid Star
     EOS
 
-    system "#{bin}/CuraEngine", "#{testpath}/t.stl"
+    system "#{bin}/CuraEngine", "slice", "-j", "fdmprinter.def.json", "-l", "#{testpath}/t.stl"
   end
 end

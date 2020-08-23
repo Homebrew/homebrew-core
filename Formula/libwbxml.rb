@@ -1,17 +1,16 @@
 class Libwbxml < Formula
   desc "Library and tools to parse and encode WBXML documents"
-  homepage "https://sourceforge.net/projects/libwbxml/"
-  url "https://downloads.sourceforge.net/project/libwbxml/libwbxml/0.11.6/libwbxml-0.11.6.tar.bz2"
-  sha256 "2f5ffe6f59986b34f9032bfbf013e32cabf426e654c160d208a99dc1b6284d29"
-  revision 1
+  homepage "https://github.com/libwbxml/libwbxml"
+  url "https://github.com/libwbxml/libwbxml/archive/libwbxml-0.11.7.tar.gz"
+  sha256 "35e2cf033066edebc0d96543c0bdde87273359e4f4e59291299d41e103bd6338"
+  license "LGPL-2.1"
   head "https://github.com/libwbxml/libwbxml.git"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "2c363ea6c4504c817ba8d2c5b5cd8da9e261dff223bb2c0c5356c05013f55a46" => :catalina
-    sha256 "90fce3d25a436373feee3fd99b19596c00bab30cdf89303018a111190896aab0" => :mojave
-    sha256 "026c871094433f113060870998649acdd8dd8b863a1d21e79e1fd100d45cc287" => :high_sierra
+    sha256 "4adbd8447466f7d3cbad72d5aff2730a87539dacd0638180cd39a9eaee11e174" => :catalina
+    sha256 "9077d1c9669a92c39590de8280678cbe3d50853e76d69fda6a476ba88d170845" => :mojave
+    sha256 "051a666b16d73e92e4910f40559d2bb5681ae4b5028a7f86959ad5f6bdb4e55a" => :high_sierra
   end
 
   depends_on "cmake" => :build

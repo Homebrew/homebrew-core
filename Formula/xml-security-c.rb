@@ -4,6 +4,7 @@ class XmlSecurityC < Formula
   url "https://www.apache.org/dyn/closer.lua?path=santuario/c-library/xml-security-c-2.0.2.tar.bz2"
   mirror "https://archive.apache.org/dist/santuario/c-library/xml-security-c-2.0.2.tar.bz2"
   sha256 "39e963ab4da477b7bda058f06db37228664c68fe68902d86e334614dd06e046b"
+  license "Apache-2.0"
   revision 1
 
   bottle do

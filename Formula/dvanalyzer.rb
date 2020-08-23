@@ -2,7 +2,6 @@ class Dvanalyzer < Formula
   desc "Quality control tool for examining tape-to-file DV streams"
   homepage "https://mediaarea.net/DVAnalyzer"
   url "https://mediaarea.net/download/binary/dvanalyzer/1.4.2/DVAnalyzer_CLI_1.4.2_GNU_FromSource.tar.bz2"
-  version "1.4.2"
   sha256 "d2f3fdd98574f7db648708e1e46b0e2fa5f9e6e12ca14d2dfaa77c13c165914c"
 
   bottle do

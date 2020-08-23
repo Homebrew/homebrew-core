@@ -1,15 +1,15 @@
 class Pixman < Formula
   desc "Low-level library for pixel manipulation"
   homepage "https://cairographics.org/"
-  url "https://cairographics.org/releases/pixman-0.38.4.tar.gz"
-  sha256 "da66d6fd6e40aee70f7bd02e4f8f76fc3f006ec879d346bae6a723025cfbdde7"
+  url "https://cairographics.org/releases/pixman-0.40.0.tar.gz"
+  sha256 "6d200dec3740d9ec4ec8d1180e25779c00bc749f94278c8b9021f5534db223fc"
+  license "LGPL-2.1"
 
   bottle do
     cellar :any
-    sha256 "3b56eb903b40382b7f52a82b811d07e80d316d855963aeff3b977d8225df26a4" => :catalina
-    sha256 "3990b771ee29451c8a9bcb6cb077205ae08adc0d5af2faebf29197d13c36a51a" => :mojave
-    sha256 "d383ddee57685391ea55033e6fccdca0352a898cbc4c75be40d7b5dc7c312916" => :high_sierra
-    sha256 "005ab5564c93b757494692b1f0e52d50414058ba4674b4e3e4d9fdd30f8ee8f2" => :sierra
+    sha256 "1862e6826a4bedb97af8dcb9ab849c69754226ed92e5ee19267fa33ee96f94f8" => :catalina
+    sha256 "70a476e6b14fdfa42188d3df2797f8c13f25bd633528164b0d42c5fb70dfb431" => :mojave
+    sha256 "e5b78e3dca71370ccc06a013ebda8b9f1c2b89a238e2f3ef11a8086560e3c07b" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

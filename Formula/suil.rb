@@ -3,6 +3,7 @@ class Suil < Formula
   homepage "https://drobilla.net/software/suil/"
   url "https://download.drobilla.net/suil-0.10.6.tar.bz2"
   sha256 "06fc70abaa33bd7089dd1051af46f89d378e8465d170347a3190132e6f009b7c"
+  license "ISC"
 
   bottle do
     sha256 "588d837f629e7850d05a28f561852bd990229623748baf8c13be9337dc5d8e2a" => :catalina

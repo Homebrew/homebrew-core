@@ -1,20 +1,20 @@
 class FileRoller < Formula
   desc "GNOME archive manager"
   homepage "https://wiki.gnome.org/Apps/FileRoller"
-  url "https://download.gnome.org/sources/file-roller/3.36/file-roller-3.36.0.tar.xz"
-  sha256 "b9144de8f536f583ec29d703c2c170bf2d00c6c166cd5e3f7efabda551f10478"
+  url "https://download.gnome.org/sources/file-roller/3.36/file-roller-3.36.3.tar.xz"
+  sha256 "0959e10a5d7a7442809624be9879d95db462ca76e8c66ad6299310e6acdb81b7"
+  license "GPL-2.0"
 
   bottle do
-    sha256 "aedbff97f1b074de0bea4ccd5717695c7d6ca00fe80a187b1b386952d791da1a" => :catalina
-    sha256 "404b85fa90759193b42355d01aa22d83cf552d9f9802c6bb4555e842ac30fd1c" => :mojave
-    sha256 "c128d93fa4886cfe7ecdb497546827a662ba40b25c36c24dc83c6392da1af98e" => :high_sierra
+    sha256 "cb5891624ee410f126068ff1e6ebae88c86d98b50d094c9e348262f5e2e4a622" => :catalina
+    sha256 "7e67ba40959e65fa8253acf762fc3430e27f054f35947cc54cc320ca8306cd2d" => :mojave
+    sha256 "7f6d54ab8c0e99d1516661386e841199ad4627522bbbe5485c2acd0f64f94270" => :high_sierra
   end
 
   depends_on "itstool" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python" => :build
   depends_on "adwaita-icon-theme"
   depends_on "gtk+3"
   depends_on "hicolor-icon-theme"
@@ -29,7 +29,7 @@ class FileRoller < Formula
     # stop meson_post_install.py from doing what needs to be done in the post_install step
     ENV["DESTDIR"] = ""
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", "-Dpackagekit=false", ".."
+      system "meson", *std_meson_args, "-Dpackagekit=false", ".."
       system "ninja"
       system "ninja", "install"
     end

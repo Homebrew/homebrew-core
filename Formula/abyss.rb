@@ -3,12 +3,14 @@ class Abyss < Formula
   homepage "https://www.bcgsc.ca/resources/software/abyss"
   url "https://github.com/bcgsc/abyss/releases/download/2.2.4/abyss-2.2.4.tar.gz"
   sha256 "f064a8c5ad152a37963d9001df6c89d744370f7ec5a387307747c4647360a47c"
+  license "GPL-3.0"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "800aa54afd53c585943f86d701ca58a95059577181fdb4a47bf9f08b249e230e" => :catalina
-    sha256 "03e6dc19bfb76f35b4b35c5fb65c88ea4fa28b3c3e112727465a7a5e2fd5ee09" => :mojave
-    sha256 "9ce078498ce23f6a894ca79dd21bee8c6c7e24aeb0ae95d3ccd7091fc55091a2" => :high_sierra
+    sha256 "0fa7a8feaadb399933d3322c5df54136f47681481a26ec68ad535ff13cbd1f81" => :catalina
+    sha256 "54adf813fa79009c9e6f942dfbd0bc4f0e4d76f04bd140fc1a9649df2ad23d6f" => :mojave
+    sha256 "56eeaa001afb778129143c25566bf17f33e49099e2a1a08748444a6a77fed168" => :high_sierra
   end
 
   head do

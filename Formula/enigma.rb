@@ -3,6 +3,7 @@ class Enigma < Formula
   homepage "https://www.nongnu.org/enigma/"
   url "https://downloads.sourceforge.net/project/enigma-game/Release%201.21/enigma-1.21.tar.gz"
   sha256 "d872cf067d8eb560d3bb1cb17245814bc56ac3953ae1f12e2229c8eb6f82ce01"
+  license "GPL-2.0"
   revision 4
 
   bottle do
@@ -45,8 +46,8 @@ class Enigma < Formula
 
     inreplace "configure" do |s|
       s.gsub! /-framework (SDL(_(mixer|image|ttf))?)/, '-l\1'
-      s.gsub! %r{\${\w+//\\"/}/lib(freetype|png|xerces-c)\.a}, '-l\1'
-      s.gsub! %r{(LIBINTL)="\${with_libintl_prefix}/lib/lib(intl)\.a"}, '\1=-l\2'
+      s.gsub! %r{\$\{\w+//\\"/\}/lib(freetype|png|xerces-c)\.a}, '-l\1'
+      s.gsub! %r{(LIBINTL)="\$\{with_libintl_prefix\}/lib/lib(intl)\.a"}, '\1=-l\2'
       s.gsub! /^\s+LIBENET_CFLAGS\n.*LIBENET.*\n\s+LIBENET_LIBS\n.*LIBENET.*$/, ""
     end
     inreplace "src/Makefile.in" do |s|

@@ -1,13 +1,15 @@
 class RubyAT26 < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.5.tar.xz"
-  sha256 "d5d6da717fd48524596f9b78ac5a2eeb9691753da5c06923a6c31190abe01a62"
+  url "https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.6.tar.xz"
+  sha256 "5db187882b7ac34016cd48d7032e197f07e4968f406b0690e20193b9b424841f"
+  license "Ruby"
+  revision 1
 
   bottle do
-    sha256 "29d29d42dd35f2d70fa457851d65c3a8ea6c840c55cac5fd8edd864c6caca34d" => :catalina
-    sha256 "9b4559ee1ab60bd338636361a7f278280a458913b623a5db83e33e8289a2f6de" => :mojave
-    sha256 "758f99bb654673ff0881eddea47d9b94a23743f836d4c3e6686e4062a0fc9f61" => :high_sierra
+    sha256 "b9618a3e2b84a8364e2a9db594c8def107996030155908d1d2f932c97720ef46" => :catalina
+    sha256 "e14b839ac8de2cbca1b7f67803a2cfd085159045102c2c073d8d90e7bbeaf81d" => :mojave
+    sha256 "6be9583785d94e62384bb4642a5dd514653dbaab7acf77a6873b4e654c355ce9" => :high_sierra
   end
 
   keg_only :versioned_formula
@@ -42,6 +44,9 @@ class RubyAT26 < Formula
       --without-gmp
     ]
     args << "--disable-dtrace" unless MacOS::CLT.installed?
+
+    # Correct MJIT_CC to not use superenv shim
+    args << "MJIT_CC=/usr/bin/clang"
 
     system "./configure", *args
 

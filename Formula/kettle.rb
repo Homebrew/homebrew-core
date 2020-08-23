@@ -1,10 +1,12 @@
 class Kettle < Formula
   desc "Pentaho Data Integration software"
   homepage "https://community.hitachivantara.com/docs/DOC-1009931-downloads"
-  url "https://downloads.sourceforge.net/project/pentaho/Pentaho%208.2/client-tools/pdi-ce-8.2.0.0-342.zip"
-  sha256 "9189d6303088c17b803dda6585c4ce9862c04494797182815c79734f3fa640ca"
+  url "https://downloads.sourceforge.net/project/pentaho/Pentaho%209.0/client-tools/pdi-ce-9.0.0.0-423.zip"
+  sha256 "05adf26c8b51fb14d1ea75e73579a7718d881228f502a4be5d1ce3a27d5c7997"
 
   bottle :unneeded
+
+  depends_on java: "1.8"
 
   def install
     rm_rf Dir["*.{bat}"]
@@ -17,12 +19,13 @@ class Kettle < Formula
     (var+"log/kettle").mkpath
 
     # We don't assume that carte, kitchen or pan are in anyway unique command names so we'll prepend "pdi"
+    env = { BASEDIR: libexec, JAVA_HOME: Language::Java.java_home("1.8") }
     %w[carte kitchen pan].each do |command|
-      (bin+"pdi#{command}").write_env_script libexec+"#{command}.sh", :BASEDIR => libexec
+      (bin+"pdi#{command}").write_env_script libexec+"#{command}.sh", env
     end
   end
 
-  plist_options :manual => "pdicarte #{HOMEBREW_PREFIX}/etc/kettle/carte-config.xml"
+  plist_options manual: "pdicarte #{HOMEBREW_PREFIX}/etc/kettle/carte-config.xml"
 
   def plist
     <<~EOS

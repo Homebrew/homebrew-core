@@ -1,14 +1,16 @@
 class Odpi < Formula
   desc "Oracle Database Programming Interface for Drivers and Applications"
   homepage "https://oracle.github.io/odpi/"
-  url "https://github.com/oracle/odpi/archive/v3.3.0.tar.gz"
-  sha256 "113349161c95e6a896fafed6f1f4160547435848b8fe06fce9659738a7c5e8f5"
+  url "https://github.com/oracle/odpi/archive/v4.0.1.tar.gz"
+  sha256 "7e4b9f09607e80f9836990678cd45a542eaedf99c3334e1c6f8956ffc5d88c02"
+  # license ["Apache-2.0", "UPL-1.0"] - pending https://github.com/Homebrew/brew/pull/7953
+  license "Apache-2.0"
 
   bottle do
     cellar :any
-    sha256 "72b2a344080349aaf5f6aaa6167f43df59e5dd7da3d8912d60eb989058e35624" => :catalina
-    sha256 "7505b4d90a69f0fca41be9316063e4eeb858fd7c9b8b795274532eb3b5248b25" => :mojave
-    sha256 "fa3483646ef433386054229455ffe1a0109d6bb007cdaa8693c9d97ebd82f301" => :high_sierra
+    sha256 "e5694f2aaf70a12bd5c4706baf2a245f9a263b8c397bf2d072d1d3a8a487787b" => :catalina
+    sha256 "7290f588c312521a1468696d8f6d463fdc804655c385292fbde07808c5929343" => :mojave
+    sha256 "64a67b0695f49cebf4d21495278752babdc34ab44639fec64c645cf08fdfd112" => :high_sierra
   end
 
   def install

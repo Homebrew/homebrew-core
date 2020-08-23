@@ -2,9 +2,10 @@ class Ooniprobe < Formula
   include Language::Python::Virtualenv
 
   desc "Network interference detection tool"
-  homepage "https://ooni.torproject.org/"
+  homepage "https://ooni.org/"
   url "https://files.pythonhosted.org/packages/d8/c0/b4a2ae442dd95160a75251110313d1f9b22834a76ef9bd8f70603b4a867a/ooniprobe-2.3.0.tar.gz"
   sha256 "b4c4a5665d37123b1a30f26ffb37b8c06bc722f7b829cf83f6c3300774b7acb6"
+  license "BSD-2-Clause"
   revision 3
 
   bottle do
@@ -14,13 +15,16 @@ class Ooniprobe < Formula
     sha256 "3e13549c0175e9f3167f24526ed0c45bd7096b84c0360042654be9b4dff980f7" => :high_sierra
   end
 
+  # Unmaintained. Last PyPI release on 2018-02-18
+  # Use https://github.com/ooni/probe-cli instead
+  deprecate! date: "2018-02-18"
+
   depends_on "geoip"
   depends_on "libdnet"
   depends_on "libyaml"
+  depends_on :macos # Due to Python 2 (Unmaintained, use https://github.com/ooni/probe-cli once out of pre-release)
   depends_on "openssl@1.1"
   depends_on "tor"
-  # Does not support python 3, will be replaced by https://github.com/ooni/probe-cli once out of pre-release
-  uses_from_macos "python@2"
 
   # these 4 need to come first or else cryptography will let setuptools
   # easy_install them (which is bad)
@@ -143,7 +147,7 @@ class Ooniprobe < Formula
     # Adds support for the new CLT SDK with the 10.x
     # series of development tools.
     patch do
-      url "https://github.com/pynetwork/pypcap/pull/79.patch?full_index=1"
+      url "https://github.com/pynetwork/pypcap/commit/7c2a570823eeb45b0daf69960867d498faa6dd87.patch?full_index=1"
       sha256 "cb0c9b271d293e49e504793bed296e0fa73cca546dbc2814e0ea01351e66d9b2"
     end
   end
@@ -231,7 +235,7 @@ class Ooniprobe < Formula
     EOS
   end
 
-  plist_options :startup => "true", :manual => "ooniprobe -i #{HOMEBREW_PREFIX}/share/ooniprobe/current.deck"
+  plist_options startup: "true", manual: "ooniprobe -i #{HOMEBREW_PREFIX}/share/ooniprobe/current.deck"
 
   def plist
     <<~EOS

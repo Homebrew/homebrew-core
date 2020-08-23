@@ -1,8 +1,8 @@
 class Lynis < Formula
   desc "Security and system auditing tool to harden systems"
   homepage "https://cisofy.com/lynis/"
-  url "https://downloads.cisofy.com/lynis/lynis-2.7.5.tar.gz"
-  sha256 "3d27ade73a5c1248925ad9c060024940ce5d2029f40aaa901f43314888fe324d"
+  url "https://downloads.cisofy.com/lynis/lynis-3.0.0.tar.gz"
+  sha256 "3cc165f9007ba41de6d0b693a1167dbaf0179085f9506dcba64b4b8e37e1bda2"
 
   bottle :unneeded
 

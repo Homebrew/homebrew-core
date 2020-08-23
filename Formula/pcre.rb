@@ -4,6 +4,7 @@ class Pcre < Formula
   url "https://ftp.pcre.org/pub/pcre/pcre-8.44.tar.bz2"
   mirror "https://www.mirrorservice.org/sites/ftp.exim.org/pub/pcre/pcre-8.44.tar.bz2"
   sha256 "19108658b23b3ec5058edc9f66ac545ea19f9537234be1ec62b714c84399366d"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any
@@ -35,7 +36,7 @@ class Pcre < Formula
       --enable-pcregrep-libz
       --enable-pcregrep-libbz2
     ]
-    args << "--enable-jit" if MacOS.version >= :sierra
+    args << "--enable-jit" if MacOS.version >= :sierra && Hardware::CPU.arch == :x86_64
 
     system "./autogen.sh" if build.head?
     system "./configure", *args

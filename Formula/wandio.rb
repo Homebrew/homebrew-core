@@ -1,15 +1,15 @@
 class Wandio < Formula
   desc "Transparently read from and write to zip, bzip2, lzma or zstd archives"
   homepage "https://research.wand.net.nz/software/libwandio.php"
-  url "https://research.wand.net.nz/software/wandio/wandio-4.2.2.tar.gz"
-  sha256 "1196f3a4fc36cc886e71dcd13f542d3648dad989dbe53bc81ec35da19cc8fbbc"
+  url "https://research.wand.net.nz/software/wandio/wandio-4.2.3.tar.gz"
+  sha256 "78c781ce2c3783b85d894e29005b7e98fc246b33f94616047de3bb4d11d4d823"
+  license "GPL-3.0"
 
   bottle do
     cellar :any
-    sha256 "dc91ef0f03bfc027c7921a132c92ef7b9e768307050742b6ff9543998a786f6b" => :catalina
-    sha256 "02cce1059503c0fa2051661ab8075e62c279aeb8a761d408ef2dd4ab7545a6b6" => :mojave
-    sha256 "0dbb3e5ddd4fc6de440174d2667d8453f3f4136d6dba0d3f6cc58f15537ff9d7" => :high_sierra
-    sha256 "98922801f17e30f8aa0685ba4fd2b4a21b46ab53ad1a71f7f39f28fa7cbc2186" => :sierra
+    sha256 "028d07a97370b37fc28a2f2045bf3e4a9241d9c49f5eea2e635960ced7b6453c" => :catalina
+    sha256 "a16a370f4bd6d2acd415f305fb99b2bfba1b86f666c68877d01bd90ddcb7522b" => :mojave
+    sha256 "29602aec2851811108e97397e6310f091f5e5fe0844f9cfcd6657193d9c53ff4" => :high_sierra
   end
 
   def install

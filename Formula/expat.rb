@@ -3,6 +3,7 @@ class Expat < Formula
   homepage "https://libexpat.github.io/"
   url "https://github.com/libexpat/libexpat/releases/download/R_2_2_9/expat-2.2.9.tar.xz"
   sha256 "1ea6965b15c2106b6bbe883397271c80dfa0331cdf821b2c319591b55eadc0a4"
+  license "MIT"
 
   bottle do
     cellar :any
@@ -20,8 +21,6 @@ class Expat < Formula
   end
 
   keg_only :provided_by_macos
-
-  uses_from_macos "libbsd"
 
   def install
     cd "expat" if build.head?

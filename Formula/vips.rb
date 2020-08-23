@@ -1,14 +1,15 @@
 class Vips < Formula
   desc "Image processing library"
   homepage "https://github.com/libvips/libvips"
-  url "https://github.com/libvips/libvips/releases/download/v8.9.1/vips-8.9.1.tar.gz"
-  sha256 "45633798877839005016c9d3494e98dee065f5cb9e20f4552d3b315b8e8bce91"
+  url "https://github.com/libvips/libvips/releases/download/v8.10.0/vips-8.10.0.tar.gz"
+  sha256 "1299d3a98213ae477f0180817ec79afd36803a5b8434f48068e75a721d23b6f9"
+  license "LGPL-2.1-or-later"
   revision 1
 
   bottle do
-    sha256 "829e61bb95814efc2623bbf356b431dc9447f880548181e9474c2da352ebf28f" => :catalina
-    sha256 "fa36c68fe16fde6b40d99e6f092a6b2879cae656816ae0aa97b9b757c8c02601" => :mojave
-    sha256 "22d7ff71d95b6def2d3651d1097e58f23313f5aa4e7400becd6029bc7e4106f1" => :high_sierra
+    sha256 "aed63961ae3f7557f222ec9d9d89fcaecf30d5bd3ced9f90c4fae07a8386d7f8" => :catalina
+    sha256 "9863f39f9f517efca31cc15a53fcbaa4bfbcf5db889fad52ae9146d48388a414" => :mojave
+    sha256 "348c759b286d9c71e79d0da66f8432f3a700f84df865b01a5db11a7480309c34" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -26,6 +27,7 @@ class Vips < Formula
   depends_on "libmatio"
   depends_on "libpng"
   depends_on "librsvg"
+  depends_on "libspng"
   depends_on "libtiff"
   depends_on "little-cms2"
   depends_on "mozjpeg"
@@ -36,7 +38,11 @@ class Vips < Formula
   depends_on "poppler"
   depends_on "webp"
 
-  uses_from_macos "curl"
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "gobject-introspection"
+  end
 
   def install
     # mozjpeg needs to appear before libjpeg, otherwise it's not used

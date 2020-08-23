@@ -1,29 +1,38 @@
 class GoAT113 < Formula
   desc "Go programming environment (1.13)"
   homepage "https://golang.org"
-  url "https://dl.google.com/go/go1.13.8.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.13.8.src.tar.gz"
-  sha256 "b13bf04633d4d8cf53226ebeaace8d4d2fd07ae6fa676d0844a688339debec34"
+  url "https://golang.org/dl/go1.13.15.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go1.13.15.src.tar.gz"
+  sha256 "5fb43171046cf8784325e67913d55f88a683435071eef8e9da1aa8a1588fcf5d"
+  license "BSD-3-Clause"
 
   bottle do
-    sha256 "647f72f84425166b67839eb251402c870e5448a9d6c04ef9210d198c8813a0e5" => :catalina
-    sha256 "0f5f5cdeef29173a7152c250bc55a81693a097434fd0454a59b61e70bd47ce84" => :mojave
-    sha256 "cfa1d0e7b34a96f2f184ee56f58079c724a996830aec5df329eae8c3e94a14e6" => :high_sierra
+    rebuild 1
+    sha256 "4c728bf1466cdd0d9fa6f9ed3a565e4a2203717730603189d8b5f2675a008c88" => :catalina
+    sha256 "d994ff2b27c191bb74dd44a373e254ef92472c1cb13e381cf6bf9d3d118bdaef" => :mojave
+    sha256 "4c62c487e96657aabebc01f662c2506724e123a08bdf3ead0715945c9838429c" => :high_sierra
   end
 
   keg_only :versioned_formula
 
-  depends_on :macos => :el_capitan
+  deprecate! date: "2020-08-11"
 
   resource "gotools" do
     url "https://go.googlesource.com/tools.git",
-        :branch => "release-branch.go1.13"
+        branch: "release-branch.go1.13"
   end
 
   # Don't update this unless this version cannot bootstrap the new version.
   resource "gobootstrap" do
-    url "https://storage.googleapis.com/golang/go1.7.darwin-amd64.tar.gz"
-    sha256 "51d905e0b43b3d0ed41aaf23e19001ab4bc3f96c3ca134b48f7892485fc52961"
+    on_macos do
+      url "https://storage.googleapis.com/golang/go1.7.darwin-amd64.tar.gz"
+      sha256 "51d905e0b43b3d0ed41aaf23e19001ab4bc3f96c3ca134b48f7892485fc52961"
+    end
+
+    on_linux do
+      url "https://storage.googleapis.com/golang/go1.7.linux-amd64.tar.gz"
+      sha256 "702ad90f705365227e902b42d91dd1a40e48ca7f67a2f4b2fd052aaa4295cd95"
+    end
   end
 
   def install
@@ -32,7 +41,6 @@ class GoAT113 < Formula
 
     cd "src" do
       ENV["GOROOT_FINAL"] = libexec
-      ENV["GOOS"]         = "darwin"
       system "./make.bash", "--no-clean"
     end
 

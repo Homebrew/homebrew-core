@@ -3,6 +3,7 @@ class Transcrypt < Formula
   homepage "https://github.com/elasticdog/transcrypt"
   url "https://github.com/elasticdog/transcrypt/archive/v2.0.0.tar.gz"
   sha256 "12b891bcee50c71f5ee00c3c3e992c591ad6146ece3d3c5efa065d966a010d65"
+  license "MIT"
   head "https://github.com/elasticdog/transcrypt.git"
 
   bottle :unneeded

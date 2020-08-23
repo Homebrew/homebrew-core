@@ -5,18 +5,20 @@ class Passpie < Formula
   homepage "https://github.com/marcwebbie/passpie"
   url "https://files.pythonhosted.org/packages/c8/2e/db84fa9d33c9361024343411875835143dc7b73eb3320b41c4f543b40ad6/passpie-1.6.1.tar.gz"
   sha256 "eec50eabb9f4c9abd9a1d89794f86afe3956e1ba9f6c831d04b164fd4fc0ad02"
+  license "MIT"
+  revision 1
   head "https://github.com/marcwebbie/passpie.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "b2f672d9946464659d5bb0f76684a2acb46386fa5f8dde617dae26af46e0c308" => :catalina
-    sha256 "8d0bea708df6b337834af0eff5e387a2f134001233171210f854a48b4b53bbbe" => :mojave
-    sha256 "864bb80f52775b4941847c929922169fafebce6642ee7301f198e74acd6b0817" => :high_sierra
-    sha256 "619b05a27170c7fd8881e1922a7836625175b984ecc1a2cdadb5103bff7a8b58" => :sierra
+    cellar :any
+    sha256 "29a24482b5c955a6d14b7a285d6937c04ab89a53f110c8343221d2ccef2cb508" => :catalina
+    sha256 "9f524fdab59188aab2b53fe7c3e5084ecdc27149dd742abffdfb13af074ba0ee" => :mojave
+    sha256 "acac2254266a3c741c15e28403482e67517d447dc4a4c0411934ec93ab902945" => :high_sierra
   end
 
   depends_on "gnupg"
-  depends_on "python"
+  depends_on "libyaml"
+  depends_on "python@3.8"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/7a/00/c14926d8232b36b08218067bcd5853caefb4737cda3f0a47437151344792/click-6.6.tar.gz"
@@ -24,8 +26,8 @@ class Passpie < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/75/5e/b84feba55e20f8da46ead76f14a3943c8cb722d40360702b2365b91dec00/PyYAML-3.11.tar.gz"
-    sha256 "c36c938a872e5ff494938b33b14aaa156cb439ec67548fcab3535bb78b0846e8"
+    url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"
+    sha256 "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf"
   end
 
   resource "rstr" do
@@ -44,6 +46,9 @@ class Passpie < Formula
   end
 
   def install
+    # PyYAML 3.11 cannot be compiled on Python 3.7+
+    inreplace "setup.py", "PyYAML==3.11", "PyYAML==3.13"
+
     virtualenv_install_with_resources
   end
 

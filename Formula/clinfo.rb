@@ -3,6 +3,8 @@ class Clinfo < Formula
   homepage "https://github.com/Oblomov/clinfo"
   url "https://github.com/Oblomov/clinfo/archive/2.2.18.04.06.tar.gz"
   sha256 "f77021a57b3afcdebc73107e2254b95780026a9df9aa4f8db6aff11c03f0ec6c"
+  license "CC0-1.0"
+  head "https://github.com/Oblomov/clinfo.git"
 
   bottle do
     cellar :any_skip_relocation

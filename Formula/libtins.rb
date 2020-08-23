@@ -3,6 +3,7 @@ class Libtins < Formula
   homepage "https://libtins.github.io/"
   url "https://github.com/mfontanini/libtins/archive/v4.2.tar.gz"
   sha256 "a9fed73e13f06b06a4857d342bb30815fa8c359d00bd69547e567eecbbb4c3a1"
+  license "BSD-2-Clause"
   revision 1
   head "https://github.com/mfontanini/libtins.git"
 

@@ -2,8 +2,9 @@ class Kubespy < Formula
   desc "Tools for observing Kubernetes resources in realtime"
   homepage "https://github.com/pulumi/kubespy"
   url "https://github.com/pulumi/kubespy.git",
-      :tag      => "v0.5.1",
-      :revision => "438edbfd5a9a72992803d45addb1f45b10a0b62f"
+      tag:      "v0.5.1",
+      revision: "438edbfd5a9a72992803d45addb1f45b10a0b62f"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

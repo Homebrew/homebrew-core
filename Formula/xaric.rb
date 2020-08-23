@@ -3,6 +3,7 @@ class Xaric < Formula
   homepage "https://xaric.org/"
   url "https://xaric.org/software/xaric/releases/xaric-0.13.7.tar.gz"
   sha256 "fd8cd677e2403e44ff525eac7c239cd8d64b7448aaf56a1272d1b0c53df1140c"
+  license "GPL-2.0"
 
   bottle do
     rebuild 2

@@ -1,14 +1,15 @@
 class Xtensor < Formula
   desc "Multi-dimensional arrays with broadcasting and lazy computing"
   homepage "https://xtensor.readthedocs.io/en/latest/"
-  url "https://github.com/xtensor-stack/xtensor/archive/0.21.4.tar.gz"
-  sha256 "143ef2536f1671e1c7c7834de4a040f1694112e23222fcd2ae59b0f5e5124b57"
+  url "https://github.com/xtensor-stack/xtensor/archive/0.21.5.tar.gz"
+  sha256 "30cb896b6686683ddaefb12c98bf1109fdfe666136dd027aba1a1e9aa825c241"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "391eee2fb8fb1562f809e1879b267a9f26f3979ccd24bab69e59ea4636497a13" => :catalina
-    sha256 "391eee2fb8fb1562f809e1879b267a9f26f3979ccd24bab69e59ea4636497a13" => :mojave
-    sha256 "391eee2fb8fb1562f809e1879b267a9f26f3979ccd24bab69e59ea4636497a13" => :high_sierra
+    sha256 "885a150c2923a6b90f592284e406b39b2b7fc736ea3ba83ac1d2486f48ef440e" => :catalina
+    sha256 "885a150c2923a6b90f592284e406b39b2b7fc736ea3ba83ac1d2486f48ef440e" => :mojave
+    sha256 "885a150c2923a6b90f592284e406b39b2b7fc736ea3ba83ac1d2486f48ef440e" => :high_sierra
   end
 
   depends_on "cmake" => :build
