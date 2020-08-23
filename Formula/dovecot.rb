@@ -10,7 +10,11 @@ class Dovecot < Formula
     sha256 "3f35d37650ccc397e11584b5a31ef13157e63b7db3b4886a5f3b7c4fb73a3e7b" => :high_sierra
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "openssl@1.1"
+
   uses_from_macos "bzip2"
   uses_from_macos "sqlite"
 
