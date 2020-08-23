@@ -1,8 +1,8 @@
 class PerlBuild < Formula
   desc "Perl builder"
   homepage "https://github.com/tokuhirom/Perl-Build"
-  url "https://github.com/tokuhirom/Perl-Build/archive/1.30.tar.gz"
-  sha256 "30585889bf7ba9979233d30cfd32686790833f0317ce8d796878dca996fab9bb"
+  url "https://github.com/tokuhirom/Perl-Build/archive/1.31.tar.gz"
+  sha256 "9e4961ad03f920687b60fecef473f524fc8697e10ad4bff87825f8357a6ed6a0"
   license any_of: ["Artistic-1.0", "GPL-1.0-or-later"]
   head "https://github.com/tokuhirom/perl-build.git"
 
@@ -41,8 +41,8 @@ class PerlBuild < Formula
   end
 
   resource "HTTP::Tinyish" do
-    url "https://cpan.metacpan.org/authors/id/M/MI/MIYAGAWA/HTTP-Tinyish-0.15.tar.gz"
-    sha256 "5d65f0ee20a9e4744acdb3ef12edae78c121f53dcbc9cf00867c5725c4513aa5"
+    url "https://cpan.metacpan.org/authors/id/M/MI/MIYAGAWA/HTTP-Tinyish-0.17.tar.gz"
+    sha256 "47bd111e474566d733c41870e2374c81689db5e0b5a43adc48adb665d89fb067"
   end
 
   resource "CPAN::Perl::Releases" do
