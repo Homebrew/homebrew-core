@@ -3,7 +3,7 @@ class IosDeploy < Formula
   homepage "https://github.com/ios-control/ios-deploy"
   url "https://github.com/ios-control/ios-deploy/archive/1.11.1.tar.gz"
   sha256 "638c90ae7ec71bc89ed0f2e9a464b9db8f2b312a20802c782873f82675d41048"
-  # license all_of: ["GPL-3.0-or-later", "BSD-3-Clause"], waiting for next brew release
+  license all_of: ["GPL-3.0-or-later", "BSD-3-Clause"]
   head "https://github.com/ios-control/ios-deploy.git"
 
   bottle do
