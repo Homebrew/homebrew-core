@@ -33,6 +33,9 @@ class Biosig < Formula
                           "--prefix=#{prefix}"
     system "make"
     system "make", "install"
+
+    # remove non-executables
+    rm_f %w[bin/bin2rec bin/save2scp bin/save2aecg bin/rec2bin]
   end
 
   test do
