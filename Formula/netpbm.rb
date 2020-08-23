@@ -15,7 +15,6 @@ class Netpbm < Formula
     sha256 "cd6bde5ae0be1518e7413f5304433635ab6cc30179565b6ed58182081408cf94" => :high_sierra
   end
 
-  depends_on "subversion" => :build, :since => :catalina
   depends_on "jasper"
   depends_on "jpeg"
   depends_on "libpng"
