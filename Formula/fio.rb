@@ -1,8 +1,8 @@
 class Fio < Formula
   desc "I/O benchmark and stress test"
   homepage "https://github.com/axboe/fio"
-  url "https://github.com/axboe/fio/archive/fio-3.19.tar.gz"
-  sha256 "809963b1d023dbc9ac7065557af8129aee17b6895e0e8c5ca671b0b14285f404"
+  url "https://github.com/axboe/fio/archive/fio-3.22.tar.gz"
+  sha256 "d40f2a632f84866478b666a553204239145f8883f6dca545ceb3ac4c3fbedc82"
   license "GPL-2.0"
 
   bottle do
