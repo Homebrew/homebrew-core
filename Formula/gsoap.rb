@@ -3,7 +3,7 @@ class Gsoap < Formula
   homepage "https://www.genivia.com/products.html"
   url "https://downloads.sourceforge.net/project/gsoap2/gsoap-2.8/gsoap_2.8.106.zip"
   sha256 "4e74838baf5437e95ae17aa3efb48bd0621f483bff4424f6255fcf327ff80765"
-  license "GPL-2.0"
+  license any_of: ["GPL-2.0-or-later", "gSOAP-1.3b"]
 
   bottle do
     sha256 "0512965f3153e3669a52135cd1a9506b72ef3e9492b79386e028cc7ac16d9770" => :catalina
