@@ -1,10 +1,9 @@
 class Gopass < Formula
   desc "The slightly more awesome Standard Unix Password Manager for Teams"
   homepage "https://github.com/gopasspw/gopass"
-  url "https://github.com/gopasspw/gopass/releases/download/v1.9.2/gopass-1.9.2.tar.gz"
-  sha256 "1017264678d3a2cdc862fc81e3829f390facce6c4a334cb314192ff321837bf5"
+  url "https://github.com/gopasspw/gopass/releases/download/v1.10.0/gopass-1.10.0.tar.gz"
+  sha256 "ed9709b4499659dd015839ebe4638ac0148ed3b5d4be0a8c300495a133799e5e"
   license "MIT"
-  revision 2
   head "https://github.com/gopasspw/gopass.git"
 
   bottle do
@@ -19,11 +18,18 @@ class Gopass < Formula
   depends_on "terminal-notifier"
 
   def install
-    ENV["PREFIX"] = prefix
-    system "make", "install"
+    ENV["GOBIN"] = bin
 
-    output = Utils.safe_popen_read("#{bin}/gopass", "completion", "bash")
-    (bash_completion/"gopass-completion").write output
+    system "go", "install", "-ldflags", "-s -w -X main.version=#{version}", "./..."
+
+    output = Utils.safe_popen_read({ "SHELL" => "bash" }, "#{bin}/gopass", "completion", "bash")
+    (bash_completion/"gopass").write output
+
+    output = Utils.safe_popen_read({ "SHELL" => "zsh" }, "#{bin}/gopass", "completion", "zsh")
+    (zsh_completion/"_gopass").write output
+
+    output = Utils.safe_popen_read({ "SHELL" => "fish" }, "#{bin}/gopass", "completion", "fish")
+    (fish_completion/"gopass.fish").write output
   end
 
   test do
@@ -43,9 +49,9 @@ class Gopass < Formula
     begin
       system Formula["gnupg"].opt_bin/"gpg", "--batch", "--gen-key", "batch.gpg"
 
-      system bin/"gopass", "init", "--rcs", "noop", "testing@foo.bar"
+      system bin/"gopass", "init", "--path", testpath, "noop", "testing@foo.bar"
       system bin/"gopass", "generate", "Email/other@foo.bar", "15"
-      assert_predicate testpath/".password-store/Email/other@foo.bar.gpg", :exist?
+      assert_predicate testpath/"Email/other@foo.bar.gpg", :exist?
     ensure
       system Formula["gnupg"].opt_bin/"gpgconf", "--kill", "gpg-agent"
       system Formula["gnupg"].opt_bin/"gpgconf", "--homedir", "keyrings/live",
