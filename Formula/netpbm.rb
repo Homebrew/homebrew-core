@@ -5,6 +5,7 @@ class Netpbm < Formula
   # for stable versions and matching revisions.
   url "https://svn.code.sf.net/p/netpbm/code/stable", revision: 3870
   version "10.86.15"
+  license "GPL-3.0-or-later"
   version_scheme 1
   head "https://svn.code.sf.net/p/netpbm/code/trunk"
 
