@@ -4,7 +4,6 @@ class Solarus < Formula
   url "https://gitlab.com/solarus-games/solarus.git",
       tag:      "v1.6.4",
       revision: "6d2a11ddd1d07d21695ab7304c3ddd462fd37c26"
-  sha256 "d800fdf388f860732f2d40c8dd635c34fd1c452857f75bf9b3a421e3ef5ee751"
 
   bottle do
     cellar :any
