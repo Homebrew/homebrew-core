@@ -4,7 +4,6 @@ class AwsIamAuthenticator < Formula
   url "https://github.com/kubernetes-sigs/aws-iam-authenticator.git",
     tag:      "v0.5.1",
     revision: "d7c0b2e9131faabb2b09dd804a35ee03822f8447"
-  sha256 "d077ce973e5917fab7cbad46bc2d19264e8d0ae23321afd97b1bc481075a31fa"
   license "Apache-2.0"
   head "https://github.com/kubernetes-sigs/aws-iam-authenticator.git"
 
