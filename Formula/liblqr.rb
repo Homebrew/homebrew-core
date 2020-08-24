@@ -1,6 +1,6 @@
 class Liblqr < Formula
   desc "C/C++ seam carving library"
-  homepage "http://liblqr.wikidot.com/"
+  homepage "https://liblqr.wikidot.com/"
   url "https://github.com/carlobaldassi/liblqr/archive/v0.4.2.tar.gz"
   sha256 "1019a2d91f3935f1f817eb204a51ec977a060d39704c6dafa183b110fd6280b0"
   license "LGPL-3.0"
