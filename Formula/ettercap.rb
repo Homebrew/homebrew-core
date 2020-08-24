@@ -3,7 +3,7 @@ class Ettercap < Formula
   homepage "https://ettercap.github.io/ettercap/"
   url "https://github.com/Ettercap/ettercap/archive/v0.8.3.1.tar.gz"
   sha256 "d0c3ef88dfc284b61d3d5b64d946c1160fd04276b448519c1ae4438a9cdffaf3"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   head "https://github.com/Ettercap/ettercap.git"
 
   bottle do
