@@ -3,8 +3,8 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/6e/a5/46cd0d05e971430cfa39570a7fbc63fe1c9dc9da205e151c22ff649c50ad/snakemake-5.22.1.tar.gz"
-  sha256 "bcc2763f54a864d0973b417a7797791fba83097af52c8c42850e2dd369cc400d"
+  url "https://files.pythonhosted.org/packages/a8/a0/e71e14c46f03718402f2b653400bfd8669fad5d621b1a475b0bf509b15a3/snakemake-5.23.0.tar.gz"
+  sha256 "d8bbde85fa8d93bd6312cae5d39247b316ead0589022aa7b48760374b1994b79"
   license "MIT"
   head "https://github.com/snakemake/snakemake.git"
 
@@ -15,7 +15,13 @@ class Snakemake < Formula
     sha256 "15e563d0686a3be008bc4fe82924317124310bb17a36daf36472b6e44a5f837d" => :high_sierra
   end
 
+  depends_on "cbc"
   depends_on "python@3.8"
+
+  resource "amply" do
+    url "https://files.pythonhosted.org/packages/7f/11/33cb09557ac838d9488779b79e05a2a3c1f3ce9747cd242ba68332736778/amply-0.1.2.tar.gz"
+    sha256 "6e5d53af62772790ba82a989a3de72b8ce5c1cd809613c06f7cb061f7ec34dc8"
+  end
 
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/d7/d8/05696357e0311f5b5c316d7b95f46c669dd9c15aaeecbb48c7d0aeb88c40/appdirs-1.4.4.tar.gz"
@@ -23,8 +29,8 @@ class Snakemake < Formula
   end
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/98/c3/2c227e66b5e896e15ccdae2e00bbc69aa46e9a8ce8869cc5fa96310bf612/attrs-19.3.0.tar.gz"
-    sha256 "f7b7ce16570fe9965acd6d30101a28f62fb4a7f9e926b3bbc9b61f8b04247e72"
+    url "https://files.pythonhosted.org/packages/c4/d4/c2b5232ecfc0783c697a81c13efc53a4fe285d4e2c00e0d8aed90495fade/attrs-20.1.0.tar.gz"
+    sha256 "0ef97238856430dcf9228e07f316aefc17e8939fc8507e18c6501b761ef1a42a"
   end
 
   resource "certifi" do
@@ -95,6 +101,16 @@ class Snakemake < Formula
   resource "psutil" do
     url "https://files.pythonhosted.org/packages/aa/3e/d18f2c04cf2b528e18515999b0c8e698c136db78f62df34eee89cee205f1/psutil-5.7.2.tar.gz"
     sha256 "90990af1c3c67195c44c9a889184f84f5b2320dce3ee3acbd054e3ba0b4a7beb"
+  end
+
+  resource "PuLP" do
+    url "https://files.pythonhosted.org/packages/84/9b/5bbd50471fa9749e6f1ee9c88ea276b5357b358820a92e340a1160bb851d/PuLP-2.3.tar.gz"
+    sha256 "9d8ecf532868cc31fa9ff59ee5d5b2049600c5c902c18c794a2bad677c1f92e5"
+  end
+
+  resource "pyparsing" do
+    url "https://files.pythonhosted.org/packages/c1/47/dfc9c342c9842bbe0036c7f763d2d6686bcf5eb1808ba3e170afdb282210/pyparsing-2.4.7.tar.gz"
+    sha256 "c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"
   end
 
   resource "pyrsistent" do
