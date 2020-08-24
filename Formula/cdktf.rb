@@ -16,7 +16,7 @@ class Cdktf < Formula
   end
 
   test do
-    assert_match "Cannot initialize a project in a non-empty directory",
-      shell_output("#{bin}/cdktf init python-app 2>&1", 1)
+    assert_match "ERROR: Cannot initialize a project in a non-empty directory",
+      shell_output("#{bin}/cdktf init --template='python' 2>&1", 1)
   end
 end
