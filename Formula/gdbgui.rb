@@ -5,7 +5,7 @@ class Gdbgui < Formula
   homepage "https://www.gdbgui.com/"
   url "https://files.pythonhosted.org/packages/8a/2e/312578e89423a483303d9e24cfee47ece0454a508f7090dcf5ead57e230e/gdbgui-0.14.0.0.tar.gz"
   sha256 "a14a59828a36016928d9bdf8423e6902266daa2ccab3df0142c6388afe3fe7bc"
-  license "GPL-3.0"
+  license "GPL-3.0-only"
 
   bottle do
     cellar :any_skip_relocation
