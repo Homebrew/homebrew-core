@@ -1,6 +1,6 @@
 class Webfs < Formula
   desc "HTTP server for purely static content"
-  homepage "http://linux.bytesex.org/misc/webfs.html"
+  homepage "https://linux.bytesex.org/misc/webfs.html"
   url "https://www.kraxel.org/releases/webfs/webfs-1.21.tar.gz"
   sha256 "98c1cb93473df08e166e848e549f86402e94a2f727366925b1c54ab31064a62a"
   revision 1
