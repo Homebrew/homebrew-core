@@ -1,6 +1,6 @@
 class SuiteSparse < Formula
   desc "Suite of Sparse Matrix Software"
-  homepage "http://faculty.cse.tamu.edu/davis/suitesparse.html"
+  homepage "https://people.engr.tamu.edu/davis/suitesparse.html"
   url "https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v5.8.1.tar.gz"
   sha256 "06726e471fbaa55f792578f9b4ab282ea9d008cf39ddcc3b42b73400acddef40"
 
