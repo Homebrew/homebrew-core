@@ -1,6 +1,6 @@
 class Snow < Formula
   desc "Whitespace steganography: coded messages using whitespace"
-  homepage "http://www.darkside.com.au/snow/"
+  homepage "https://web.archive.org/web/20200701063014/www.darkside.com.au/snow/"
   # The upstream website seems to be rejecting curl connections.
   # Consistently returns "HTTP/1.1 406 Not Acceptable".
   url "https://dl.bintray.com/homebrew/mirror/snow-20130616.tar.gz"
