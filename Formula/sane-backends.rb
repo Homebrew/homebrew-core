@@ -3,6 +3,7 @@ class SaneBackends < Formula
   homepage "http://www.sane-project.org/"
   url "https://gitlab.com/sane-project/backends/uploads/8bf1cae2e1803aefab9e5331550e5d5d/sane-backends-1.0.31.tar.gz"
   sha256 "4a3b10fcb398ed854777d979498645edfe66fcac2f2fd2b9117a79ff45e2a5aa"
+  license "GPL-2.0-or-later"
   head "https://gitlab.com/sane-project/backends.git"
 
   bottle do
