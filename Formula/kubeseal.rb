@@ -4,7 +4,6 @@ class Kubeseal < Formula
   url "https://github.com/bitnami-labs/sealed-secrets.git",
       tag:      "v0.12.5",
       revision: "d87216185aac8920641a432f9f4ae50a3dfc2612"
-  sha256 "753f9084a0bf5dfccfe84dff036e87b899a3be921c1d33a497a4b44ac582f00d"
   license "Apache-2.0"
 
   bottle do
