@@ -4,7 +4,7 @@ class Openrct2 < Formula
   url "https://github.com/OpenRCT2/OpenRCT2.git",
       tag:      "v0.3.0",
       revision: "135cc10b4766085ce35097b5830f612e36b47ba0"
-  license "GPL-3.0"
+  license "GPL-3.0-only"
   head "https://github.com/OpenRCT2/OpenRCT2.git", branch: "develop"
 
   bottle do
