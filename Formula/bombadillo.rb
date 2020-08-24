@@ -1,6 +1,6 @@
 class Bombadillo < Formula
   desc "Non-web browser, designed for a growing list of protocols"
-  homepage "http://bombadillo.colorfield.space"
+  homepage "https://bombadillo.colorfield.space/"
   url "https://tildegit.org/sloum/bombadillo/archive/2.3.1.tar.gz"
   sha256 "e8076493e924bd5860d3e17884b0675ea514eea75e7b4e96da1c79ab9805731f"
   license "GPL-3.0"
