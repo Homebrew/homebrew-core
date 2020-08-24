@@ -3,8 +3,8 @@ class Jupyterlab < Formula
 
   desc "Interactive environments for writing and running code"
   homepage "https://jupyter.org/"
-  url "https://files.pythonhosted.org/packages/9c/a3/146fb067d43ecd54117770014346866d017cd54011e0b4f79d9ad3b8f9f8/jupyterlab-2.2.5.tar.gz"
-  sha256 "f7d669b33192e89c499b884994a9194175981d586631ced2a0793950238eef81"
+  url "https://files.pythonhosted.org/packages/f2/88/dca2c1beab58db5663f65a930714f18d0a870d0347ac75b12e79603205e6/jupyterlab-2.2.6.tar.gz"
+  sha256 "6554b022d2cd120100e165ec537c6511d70de7f89e253b3c667ea28f2a9263ff"
   license "BSD-3-Clause"
 
   bottle do
@@ -33,8 +33,8 @@ class Jupyterlab < Formula
   end
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/98/c3/2c227e66b5e896e15ccdae2e00bbc69aa46e9a8ce8869cc5fa96310bf612/attrs-19.3.0.tar.gz"
-    sha256 "f7b7ce16570fe9965acd6d30101a28f62fb4a7f9e926b3bbc9b61f8b04247e72"
+    url "https://files.pythonhosted.org/packages/c4/d4/c2b5232ecfc0783c697a81c13efc53a4fe285d4e2c00e0d8aed90495fade/attrs-20.1.0.tar.gz"
+    sha256 "0ef97238856430dcf9228e07f316aefc17e8939fc8507e18c6501b761ef1a42a"
   end
 
   resource "backcall" do
