@@ -18,7 +18,7 @@ class Dashing < Formula
   # Use ruby docs just as dummy documentation to test with
   # DO NOT USE https or find a better host, certificate has expired
   resource "ruby_docs_tarball" do
-    url "http://ruby-doc.com/downloads/ruby_2_6_5_core_rdocs.tgz"
+    url "https://ruby-doc.com/downloads/ruby_2_6_5_core_rdocs.tgz"
     sha256 "f9f74cf85c84e934d7127c2e86f4c3b0b70380a92c400decdc8a77ac977097fe"
   end
 
