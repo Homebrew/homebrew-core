@@ -5,7 +5,7 @@ class Cdktf < Formula
   homepage "https://github.com/hashicorp/terraform-cdk"
   url "https://registry.npmjs.org/cdktf-cli/-/cdktf-cli-0.0.16.tgz"
   sha256 "3b6eff02a32783ef6bccda828a04fa9996e8ac0164ab423260c3bc6e50abcb2f"
-  license "Apache-2.0"
+  license "MPL-2.0"
 
   depends_on "node"
   depends_on "terraform"
