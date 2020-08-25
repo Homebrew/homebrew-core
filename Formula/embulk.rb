@@ -4,8 +4,8 @@ class Embulk < Formula
   # https://www.embulk.org/articles/2020/03/13/embulk-v0.10.html
   # v0.10.* is a "development" series, not for your production use.
   # In your production, keep using v0.9.*.
-  url "https://bintray.com/artifact/download/embulk/maven/embulk-0.9.23.jar"
-  sha256 "153977fad482bf52100dd96f47e897c87b48de4fb13bccd6b3101475d3a5ebb9"
+  url "https://github.com/embulk/embulk/releases/download/v0.10.12/embulk-0.10.12.jar"
+  sha256 "6cea493414400f3a04dba304a31f55d47e0faaeb8b4f4b1758bfb52db5af6677"
 
   bottle :unneeded
 
