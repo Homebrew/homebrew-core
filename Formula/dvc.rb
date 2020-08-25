@@ -3,8 +3,8 @@ class Dvc < Formula
 
   desc "Git for data science projects"
   homepage "https://dvc.org"
-  url "https://github.com/iterative/dvc/archive/1.6.0.tar.gz"
-  sha256 "bc01d3aa873aa9a14e67a854e7b632e3e784bea52121e8805f21a3d998827e4c"
+  url "https://github.com/iterative/dvc/archive/1.6.1.tar.gz"
+  sha256 "939f497a64833725ce435a42ed583d91712aa61a8006eb2a24c62c5bc15c018d"
   license "Apache-2.0"
 
   bottle do
@@ -57,6 +57,11 @@ class Dvc < Formula
   resource "decorator" do
     url "https://files.pythonhosted.org/packages/da/93/84fa12f2dc341f8cf5f022ee09e109961055749df2d0c75c5f98746cfe6c/decorator-4.4.2.tar.gz"
     sha256 "e3a62f0520172440ca0dcc823749319382e377f37f140a0b99ef45fecb84bfe7"
+  end
+
+  resource "dictdiffer" do
+    url "https://files.pythonhosted.org/packages/08/bf/9e878ffc50cbe57b63b46dee9f7689c8e1d6fa1c6b65f18a582c3e1a5ebd/dictdiffer-0.8.1.tar.gz"
+    sha256 "1adec0d67cdf6166bda96ae2934ddb5e54433998ceab63c984574d187cc563d2"
   end
 
   resource "distro" do
@@ -164,19 +169,14 @@ class Dvc < Formula
     sha256 "c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"
   end
 
-  resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/64/c2/b80047c7ac2478f9501676c988a5411ed5572f35d1beff9cae07d321512c/PyYAML-5.3.1.tar.gz"
-    sha256 "b8eac752c5e14d3eca0e6dd9199cd627518cb5ec06add0de9d32baeee6fe645d"
-  end
-
   resource "requests" do
     url "https://files.pythonhosted.org/packages/da/67/672b422d9daf07365259958912ba533a0ecab839d4084c487a5fe9a5405f/requests-2.24.0.tar.gz"
     sha256 "b3559a131db72c33ee969480840fff4bb6dd111de7dd27c8ee1f820f4f00231b"
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/0f/29/09e9653a651fd898d9fc7f9f11f380cf4d08210b3dffb007fda17fb19fb3/rich-5.2.0.tar.gz"
-    sha256 "b81a05326735c7611678f67d2350845ab2f0fd6f1f235089adddfc770e60f40a"
+    url "https://files.pythonhosted.org/packages/3e/53/3cbb5388424c384c1e8177c4734f4e8e2ef684cf83eef1dceb1dcc0fc55a/rich-5.2.1.tar.gz"
+    sha256 "d791263dc505b635b75249dfc1991510d7eabb27047652e3209e98384365c9c9"
   end
 
   resource "ruamel.yaml" do
@@ -225,8 +225,8 @@ class Dvc < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/6a/28/d32852f2af6b5ead85d396249d5bdf450833f3a69896d76eb480d9c5e406/typing_extensions-3.7.4.2.tar.gz"
-    sha256 "79ee589a3caca649a9bfd2a8de4709837400dfa00b6cc81962a1e6a1815969ae"
+    url "https://files.pythonhosted.org/packages/16/06/0f7367eafb692f73158e5c5cbca1aec798cdf78be5167f6415dd4205fa32/typing_extensions-3.7.4.3.tar.gz"
+    sha256 "99d4073b617d30288f569d3f13d2bd7548c3a7e4c8de87db09a9d29bb3a4a60c"
   end
 
   resource "urllib3" do
