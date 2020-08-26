@@ -16,6 +16,7 @@ class ApacheArrow < Formula
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
+  depends_on "llvm"  => :build
   depends_on "brotli"
   depends_on "glog"
   depends_on "grpc"
@@ -29,10 +30,20 @@ class ApacheArrow < Formula
   depends_on "thrift"
   depends_on "zstd"
 
+  # Fix to not install jemalloc in parallel
+  # https://github.com/apache/arrow/pull/7995
+  patch do
+    url "https://github.com/apache/arrow/commit/ae60bad1c2e28bd67cdaeaa05f35096ae193e43a.patch?full_index=1"
+    sha256 "7a793ca3c98a803c652757faa802667e6d19dbc436cedb942c76346771c9e16f"
+  end
+
   def install
     ENV.cxx11
+    # link against system libc++ instead of llvm provided libc++
+    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
     args = %W[
       -DARROW_FLIGHT=ON
+      -DARROW_GANDIVA=ON
       -DARROW_JEMALLOC=ON
       -DARROW_ORC=ON
       -DARROW_PARQUET=ON
