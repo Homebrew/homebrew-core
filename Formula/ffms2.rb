@@ -1,13 +1,13 @@
 class Ffms2 < Formula
   desc "Libav/ffmpeg based source library and Avisynth plugin"
   homepage "https://github.com/FFMS/ffms2"
-  url "https://github.com/FFMS/ffms2/archive/2.23.tar.gz"
-  mirror "https://deb.debian.org/debian/pool/main/f/ffms2/ffms2_2.23.orig.tar.gz"
-  sha256 "b09b2aa2b1c6f87f94a0a0dd8284b3c791cbe77f0f3df57af99ddebcd15273ed"
+  url "https://github.com/FFMS/ffms2/archive/2.40.tar.gz"
+  mirror "https://deb.debian.org/debian/pool/main/f/ffms2/ffms2_2.40.orig.tar.gz"
+  sha256 "82e95662946f3d6e1b529eadbd72bed196adfbc41368b2d50493efce6e716320"
   # The FFMS2 source is licensed under the MIT license, but its binaries
   # are licensed under the GPL because GPL components of FFmpeg are used.
   license "GPL-2.0"
-  revision 6
+  head "https://github.com/FFMS/ffms2.git"
 
   bottle do
     cellar :any
@@ -17,13 +17,8 @@ class Ffms2 < Formula
     sha256 "2b6276dac329bdc9d06d85bba4781cc49035bfb2de3038d12ba6ade29d6f6d64" => :high_sierra
   end
 
-  head do
-    url "https://github.com/FFMS/ffms2.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-  end
-
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "pkg-config" => :build
   depends_on "ffmpeg"
 
@@ -43,12 +38,7 @@ class Ffms2 < Formula
       --prefix=#{prefix}
     ]
 
-    if build.head?
-      system "./autogen.sh", *args
-    else
-      system "./configure", *args
-    end
-
+    system "./autogen.sh", *args
     system "make", "install"
   end
 
