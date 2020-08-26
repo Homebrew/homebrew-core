@@ -1,11 +1,10 @@
 class Osquery < Formula
   desc "SQL powered operating system instrumentation and analytics"
   homepage "https://osquery.io"
-  url "https://github.com/facebook/osquery/archive/3.3.2.tar.gz"
-  sha256 "74280181f45046209053a3e15114d93adc80929a91570cc4497931cfb87679e4"
+  url "https://github.com/facebook/osquery/archive/4.4.0.tar.gz"
+  sha256 "cc6be66f21d63e6f4f85ddc794887c4df69a4cdbaa2c7a53eb68deabe251633b"
   # license ["Apache-2.0", "GPL-2.0-only"] - pending https://github.com/Homebrew/brew/pull/7953
   license "Apache-2.0"
-  revision 16
 
   bottle do
     cellar :any
