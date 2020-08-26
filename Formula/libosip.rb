@@ -1,9 +1,9 @@
 class Libosip < Formula
   desc "Implementation of the eXosip2 stack"
   homepage "https://www.gnu.org/software/osip/"
-  url "https://ftp.gnu.org/gnu/osip/libosip2-5.1.1.tar.gz"
-  mirror "https://ftpmirror.gnu.org/osip/libosip2-5.1.1.tar.gz"
-  sha256 "61bb28317221a630e47f65389d5ff3e4693996d3128e9e0d5d1399e4feebf64d"
+  url "https://ftp.gnu.org/gnu/osip/libosip2-5.1.2.tar.gz"
+  mirror "https://ftpmirror.gnu.org/osip/libosip2-5.1.2.tar.gz"
+  sha256 "2bc0400f21a64cf4f2cbc9827bf8bdbb05a9b52ecc8e791b4ec0f1f9410c1291"
 
   bottle do
     cellar :any
