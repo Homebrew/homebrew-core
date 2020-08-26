@@ -2,8 +2,8 @@ class Argocd < Formula
   desc "GitOps Continuous Delivery for Kubernetes"
   homepage "https://argoproj.io"
   url "https://github.com/argoproj/argo-cd.git",
-      tag:      "v1.6.2",
-      revision: "3d1f37b0c53f4c75864dc7339e2831c6e6a947e0"
+      tag:      "v1.7.0",
+      revision: "24b93197e05d02e31f6b788e53b529cadcf2ccd4"
   license "Apache-2.0"
 
   bottle do
@@ -18,7 +18,7 @@ class Argocd < Formula
   def install
     # this needs to be remove to prevent multiple 'operation not permitted' errors
     inreplace "Makefile", "CGO_ENABLED=0", ""
-    system "make", "cli"
+    system "make", "cli-local"
     bin.install "dist/argocd"
   end
 
