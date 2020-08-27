@@ -3,7 +3,7 @@ class Wolfmqtt < Formula
   homepage "https://github.com/wolfSSL/wolfMQTT"
   url "https://github.com/wolfSSL/wolfMQTT/releases/download/v1.7/wolfmqtt-1.7.0.tar.gz"
   sha256 "fd9aa74e4c7ad4fec8f2d4c40ce32785b5bb55d7c013c5acc846062583f09a9c"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
     cellar :any
