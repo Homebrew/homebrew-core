@@ -2,8 +2,8 @@ class Xgboost < Formula
   desc "Scalable, Portable and Distributed Gradient Boosting Library"
   homepage "https://xgboost.ai/"
   url "https://github.com/dmlc/xgboost.git",
-      tag:      "v1.1.1",
-      revision: "34408a7fdcebc0e32142ed2f52156ea65d813400"
+      tag:      "v1.2.0",
+      revision: "738786680b65b6f7716e9db2ae60161c6121926f"
   license "Apache-2.0"
 
   bottle do
@@ -15,6 +15,16 @@ class Xgboost < Formula
 
   depends_on "cmake" => :build
   depends_on "libomp"
+
+  resource "numpy" do
+    url "https://files.pythonhosted.org/packages/2c/2f/7b4d0b639a42636362827e611cfeba67975ec875ae036dd846d459d52652/numpy-1.19.1.zip"
+    sha256 "b8456987b637232602ceb4d663cb34106f7eb780e247d51a260b84760fd8f491"
+  end
+
+  resource "scipy" do
+    url "https://files.pythonhosted.org/packages/53/10/776750d57ade26522478a92a2e14035868624a6a62f4157b0cc5abd4a980/scipy-1.5.2.tar.gz"
+    sha256 "066c513d90eb3fd7567a9e150828d39111ebd88d3e924cdfc9f8ce19ab6f90c9"
+  end
 
   def install
     mkdir "build" do
