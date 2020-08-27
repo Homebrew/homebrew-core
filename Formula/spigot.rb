@@ -4,6 +4,7 @@ class Spigot < Formula
   url "https://www.chiark.greenend.org.uk/~sgtatham/spigot/spigot-20200826.216f4ca.tar.gz"
   version "20200826"
   sha256 "932d6243739cdaa15270922ca01fa9ca1b48bc11f7931281d5ac00e6fab5596d"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
