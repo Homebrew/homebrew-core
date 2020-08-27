@@ -3,6 +3,7 @@ class Hevea < Formula
   homepage "http://hevea.inria.fr/"
   url "http://hevea.inria.fr/old/hevea-2.34.tar.gz"
   sha256 "3ad08a0dce6675df3caa912ec1497d8019ce10733263092bbb7482c4fbd7fedf"
+  revision 1
 
   bottle do
     sha256 "34fd968c75f335330d256da9ad1b3e39b65b4286deb36810f898a6a729794b41" => :catalina
