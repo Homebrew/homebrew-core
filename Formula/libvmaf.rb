@@ -13,6 +13,7 @@ class Libvmaf < Formula
   end
 
   depends_on "meson" => :build
+  depends_on "nasm" => :build
   depends_on "ninja" => :build
 
   def install
