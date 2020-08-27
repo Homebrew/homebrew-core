@@ -1,9 +1,9 @@
 class Libde265 < Formula
   desc "Open h.265 video codec implementation"
   homepage "https://github.com/strukturag/libde265"
-  url "https://github.com/strukturag/libde265/releases/download/v1.0.5/libde265-1.0.5.tar.gz"
-  sha256 "e3f277d8903408615a5cc34718b391b83c97c646faea4f41da93bac5ee08a87f"
-  license "LGPL-3.0"
+  url "https://github.com/strukturag/libde265/releases/download/v1.0.6/libde265-1.0.6.tar.gz"
+  sha256 "e2a34ca3934a826d0893e966ee93bc2d207f505253be94ad38fb40ca98cceb5f"
+  license "LGPL-3.0-or-later"
 
   bottle do
     cellar :any
