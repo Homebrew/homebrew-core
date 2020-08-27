@@ -18,7 +18,6 @@ class Borgbackup < Formula
   depends_on "libb2"
   depends_on "lz4"
   depends_on "openssl@1.1"
-  depends_on :osxfuse
   depends_on "python@3.8"
   depends_on "zstd"
 
