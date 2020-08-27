@@ -1,8 +1,8 @@
 class Promtail < Formula
   desc "Log agent for Loki"
   homepage "https://grafana.com/loki"
-  url "https://github.com/grafana/loki/archive/v1.6.0.tar.gz"
-  sha256 "6e83ac7b436c5721e914d23b56a8cff41118f81dda40b57d92aa8d8b2cf11834"
+  url "https://github.com/grafana/loki/archive/v1.6.1.tar.gz"
+  sha256 "25d130f47aa4408ea9def4096253a37d4df4e0c44bdd59aa7e9a69f81e6fbd17"
   license "Apache-2.0"
 
   bottle do
