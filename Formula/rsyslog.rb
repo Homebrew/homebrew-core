@@ -1,8 +1,8 @@
 class Rsyslog < Formula
   desc "Enhanced, multi-threaded syslogd"
   homepage "https://www.rsyslog.com/"
-  url "https://www.rsyslog.com/files/download/rsyslog/rsyslog-8.2006.0.tar.gz"
-  sha256 "d9589e64866f2fdc5636af4cae9d60ebf1e3257bb84b81ee953ede6a05878e97"
+  url "https://www.rsyslog.com/files/download/rsyslog/rsyslog-8.2008.0.tar.gz"
+  sha256 "09d2b6c8bc2f016598aed2bb719e03f822bb01d720c61e4d6e725e00dca1b650"
   license "GPL-3.0"
 
   bottle do
