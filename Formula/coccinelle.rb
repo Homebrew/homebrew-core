@@ -5,6 +5,7 @@ class Coccinelle < Formula
       tag:      "1.0.8",
       revision: "d678c34afc0cfb479ad34f2225c57b1b8d3ebeae"
   license "GPL-2.0"
+  revision 1
   head "https://github.com/coccinelle/coccinelle.git"
 
   bottle do
