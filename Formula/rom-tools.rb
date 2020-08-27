@@ -4,7 +4,7 @@ class RomTools < Formula
   url "https://github.com/mamedev/mame/archive/mame0224.tar.gz"
   version "0.224"
   sha256 "3518e71ec20fbeac8ebe93f8ec856078b8288e19f0d7cb38959d4bde30cd2810"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
   head "https://github.com/mamedev/mame.git"
 
   bottle do
