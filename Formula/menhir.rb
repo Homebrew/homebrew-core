@@ -3,6 +3,7 @@ class Menhir < Formula
   homepage "http://cristal.inria.fr/~fpottier/menhir"
   url "https://gitlab.inria.fr/fpottier/menhir/-/archive/20200624/menhir-20200624.tar.bz2"
   sha256 "2c436b29f2374566f5e63cb32033a47106c37b625ce45be8ade6857ee6ef0130"
+  revision 1
 
   bottle do
     cellar :any
