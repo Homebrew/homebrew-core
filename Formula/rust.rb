@@ -1,8 +1,7 @@
 class Rust < Formula
   desc "Safe, concurrent, practical language"
   homepage "https://www.rust-lang.org/"
-  # license ["Apache-2.0", "MIT"] - pending https://github.com/Homebrew/brew/pull/7953
-  license "Apache-2.0"
+  license any_of: ["Apache-2.0", "MIT"]
 
   stable do
     url "https://static.rust-lang.org/dist/rustc-1.45.2-src.tar.gz"
