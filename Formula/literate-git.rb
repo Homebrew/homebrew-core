@@ -5,7 +5,7 @@ class LiterateGit < Formula
   homepage "https://github.com/bennorth/literate-git"
   url "https://github.com/bennorth/literate-git/archive/v0.3.1.tar.gz"
   sha256 "f1dec77584236a5ab2bcee9169e16b5d976e83cd53d279512136bdc90b04940a"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
   revision 3
 
   bottle do
