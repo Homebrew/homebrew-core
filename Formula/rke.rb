@@ -1,9 +1,8 @@
 class Rke < Formula
   desc "Rancher Kubernetes Engine, a Kubernetes installer that works everywhere"
   homepage "https://rancher.com/docs/rke/latest/en/"
-  url "https://github.com/rancher/rke.git",
-      tag:      "v1.1.4",
-      revision: "28e4dbae8ded43f494ce2f40280d4a3ff3b9f313"
+  url "https://github.com/rancher/rke/archive/v1.1.6.tar.gz"
+  sha256 "487bd248ba0b4ee09ab643ef8ad476055c5d045b37f356ada6e22f3261da82aa"
   license "Apache-2.0"
 
   bottle do
@@ -16,15 +15,9 @@ class Rke < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/rancher/rke").install buildpath.children
-
-    cd "src/github.com/rancher/rke" do
-      system "go", "build", "-ldflags",
-             "-w -X main.VERSION=v#{version}",
-             "-o", bin/"rke"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-ldflags",
+            "-w -X main.VERSION=v#{version}",
+            "-o", bin/"rke"
   end
 
   test do
