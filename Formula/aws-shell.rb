@@ -8,6 +8,10 @@ class AwsShell < Formula
   license "Apache-2.0"
   revision 2
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "80649fd9dfb5ef9c0506db4f74e0a4ff275617a718249cbc12d2c62efb46657f" => :catalina
