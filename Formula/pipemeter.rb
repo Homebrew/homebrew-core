@@ -5,6 +5,10 @@ class Pipemeter < Formula
   sha256 "1ff952cb2127476ca9879f4b28fb92d6dabb0cc02db41f657025f7782fd50aaf"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "fe84476d7d258a2e5f02df94a90e59faafdcc8ed4b1277c6a4347c1de85114f7" => :catalina
