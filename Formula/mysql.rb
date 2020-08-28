@@ -6,6 +6,11 @@ class Mysql < Formula
   license "GPL-2.0"
   revision 1
 
+  livecheck do
+    url "https://dev.mysql.com/downloads/mysql/"
+    regex(/href=.*?mysql[._-]v?(\d+.\d+.\d+)-/i)
+  end
+
   bottle do
     sha256 "81e92d0df39edaff415e7d52f8d24db15db4469e99a7fbc915c92671a77e1374" => :catalina
     sha256 "2383f7243ac47f28be988c66253251d8a71b51c1583d3550e6a9e1ab2931e951" => :mojave
