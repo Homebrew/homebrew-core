@@ -5,6 +5,10 @@ class Ocamlsdl < Formula
   sha256 "abfb295b263dc11e97fffdd88ea1a28b46df8cc2b196777093e4fe7f509e4f8f"
   revision 14
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "8ccd0c9f59b9fad6fe084e57e726cd20d0f26497e71e4be94ff7f603512cbef8" => :catalina
