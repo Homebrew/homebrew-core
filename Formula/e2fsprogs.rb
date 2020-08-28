@@ -12,6 +12,11 @@ class E2fsprogs < Formula
   license "GPL-2.0"
   head "https://git.kernel.org/pub/scm/fs/ext2/e2fsprogs.git"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/e2fsprogs[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     sha256 "bf44ad4af62150e9f29827532fced8640fdfcd9ef77e890347ce3eda288be30a" => :catalina
     sha256 "2986dc8e3be65b03e27990226e78ba8bcd2d512381836bb09223f04c94974837" => :mojave
