@@ -6,6 +6,11 @@ class Lzop < Formula
   sha256 "7e72b62a8a60aff5200a047eea0773a8fb205caf7acbe1774d95147f305a2f41"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://www.lzop.org/download/"
+    regex(/href=.*?lzop[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "3aa57a50254d383c0fe0e4d0d0585e1525d50d0cd30f87390d087523348044a0" => :catalina
