@@ -6,6 +6,10 @@ class Imlib2 < Formula
   license "Imlib2"
   revision 2
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "3b036ab0c372688bdd116674d463f85b7a1fc900dcb71deddbfa5aa28fca0be1" => :catalina
     sha256 "ab1f7ef9cd4c1b7eced2f47f20bed71d724d09c48907675e4144ae039a10d297" => :mojave
