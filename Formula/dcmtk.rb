@@ -5,6 +5,11 @@ class Dcmtk < Formula
   sha256 "a05178665f21896dbb0974106dba1ad144975414abd760b4cf8f5cc979f9beb9"
   head "https://git.dcmtk.org/dcmtk.git"
 
+  livecheck do
+    url "https://dicom.offis.de/download/dcmtk/release/"
+    regex(/href=.*?dcmtk[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "5b49e8b8d34cd1472f5091fc4d6e4b4a05133ac3cd85f6f428aef6c1013234b0" => :catalina
     sha256 "3d149b4aa7f6d76df7ddda09d845c4c43a0aa0617800b9ea25602183e213f5b0" => :mojave
