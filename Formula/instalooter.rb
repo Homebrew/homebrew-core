@@ -7,6 +7,10 @@ class Instalooter < Formula
   sha256 "fb9b4a948702361a161cc42e58857e3a6c9dafd9e22568b07bc0d0b09c3c34a9"
   license "GPL-3.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "0dd79c703d6348809dd3d2ad5af9cc78c73793df7a79659902499bd097d4053c" => :catalina
