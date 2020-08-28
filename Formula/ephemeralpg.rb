@@ -4,6 +4,11 @@ class Ephemeralpg < Formula
   url "https://eradman.com/ephemeralpg/code/ephemeralpg-3.0.tar.gz"
   sha256 "70ef314e31c5547f353ea7b2787faafa07adc32dcfaea6f4f1475512c23b0fc8"
 
+  livecheck do
+    url "https://eradman.com/ephemeralpg/code/"
+    regex(/href=.*?ephemeralpg[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "c57037299f11da6b4560707c9380bfdbb8708f379bf8fccae6bf0069d4dedd8a" => :catalina
