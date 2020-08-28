@@ -5,6 +5,11 @@ class Dvdrtools < Formula
   sha256 "053d0f277f69b183f9c8e8c8b09b94d5bb4a1de6d9b122c0e6c00cc6593dfb46"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://download.savannah.gnu.org/releases/dvdrtools/"
+    regex(/href=.*?dvdrtools[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "40f565db4f098c70bed700dc88edd45951e58a7f7c64583d52db81afcdbde704" => :catalina
