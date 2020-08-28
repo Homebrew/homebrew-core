@@ -6,6 +6,10 @@ class ArmLinuxGnueabihfBinutils < Formula
   sha256 "a3ac62bae4f339855b5449cfa9b49df90c635adbd67ecb8a0e7f3ae86a058da6"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "743bac0fdd042088a61631b9fca121fd89d0bab810a6814448a0b70897adc84c" => :catalina
     sha256 "470b88640a1bbfafbb2bf219a9e8942ee9a0a376fa9b178a25d7edf52db63a87" => :mojave
