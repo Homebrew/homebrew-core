@@ -7,6 +7,10 @@ class Whistle < Formula
   sha256 "8b719b9e64f6d3cfc948cb38b99dfdaacbfc3fedcfa6008ecfec0d2d0d7e0dff"
   license "MIT"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "0be5076469b5e823f29bb356232a34757aa891251dcca60bcd290c4c63e759ce" => :catalina
