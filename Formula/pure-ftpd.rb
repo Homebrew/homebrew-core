@@ -5,6 +5,11 @@ class PureFtpd < Formula
   sha256 "767bf458c70b24f80c0bb7a1bbc89823399e75a0a7da141d30051a2b8cc892a5"
   revision 1
 
+  livecheck do
+    url "https://download.pureftpd.org/pub/pure-ftpd/releases/"
+    regex(/href=.*?pure-ftpd[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "aa0a342b50ae3761120370fc0e6605241e03545441c472d778ef030239784454" => :catalina
