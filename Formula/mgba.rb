@@ -6,6 +6,11 @@ class Mgba < Formula
   license "MPL-2.0"
   head "https://github.com/mgba-emu/mgba.git"
 
+  livecheck do
+    url "https://github.com/mgba-emu/mgba/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     sha256 "c50ed180ffa0e36df07915aa62fecfa586c5ba2225be460fbd84ff09a8842803" => :catalina
     sha256 "fc0c39c89c6c6dddc8dff172371264c55968c8ea7436da91352f98e558e8bb90" => :mojave
