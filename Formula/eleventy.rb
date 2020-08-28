@@ -8,6 +8,10 @@ class Eleventy < Formula
   license "MIT"
   head "https://github.com/11ty/eleventy.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "46d20c5bec31be5785cd494a3925e2b3f8231800d865e98e025bf637e131ea86" => :catalina
