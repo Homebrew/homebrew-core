@@ -4,6 +4,11 @@ class Tivodecode < Formula
   url "https://downloads.sourceforge.net/project/tivodecode/tivodecode/0.2pre4/tivodecode-0.2pre4.tar.gz"
   sha256 "788839cc4ad66f5b20792e166514411705e8564f9f050584c54c3f1f452e9cdf"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/tivodecode[._-]v?(\d+(?:\.\d+)+(?:pre\d+)?)\.t}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "153d8b8e152ccf3c87041ff40739a80952da5ad06c572d7febb9b222b16069e1" => :catalina
