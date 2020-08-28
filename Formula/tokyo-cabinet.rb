@@ -6,6 +6,11 @@ class TokyoCabinet < Formula
   sha256 "a003f47c39a91e22d76bc4fe68b9b3de0f38851b160bbb1ca07a4f6441de1f90"
   license "LGPL-2.1"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?tokyocabinet[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 "23694919d46c474b8c12d69d2e980d08f96f6bface62a74be7b8554de532e871" => :catalina
