@@ -6,6 +6,11 @@ class Msdl < Formula
   sha256 "0297e87bafcab885491b44f71476f5d5bfc648557e7d4ef36961d44dd430a3a1"
   license "GPL-3.0"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/msdl[._-]v?(\d+(?:\.\d+)+(?:-r\d+)?)\.t}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "71fb71cf2c24085221ee1d24c57fbe07f1b6cc437d84385d22231a4723771207" => :catalina
