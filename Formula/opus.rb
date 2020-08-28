@@ -5,6 +5,11 @@ class Opus < Formula
   sha256 "65b58e1e25b2a114157014736a3d9dfeaad8d41be1c8179866f144a2fb44ff9d"
   license "BSD-3-Clause"
 
+  livecheck do
+    url "https://archive.mozilla.org/pub/opus/"
+    regex(%r{href=(?:["']?|.*?/)opus[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     rebuild 1
