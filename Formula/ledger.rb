@@ -7,6 +7,11 @@ class Ledger < Formula
   revision 1
   head "https://github.com/ledger/ledger.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 "9389b112e1243aeeba892aa4159fade1d4cddaf6f9e9cd134f7ae4e5c48949b6" => :catalina
     sha256 "c6296f9a1093aea18b386efc82ed8c3a5c870560c1c32b189639644dd396f5ea" => :mojave
