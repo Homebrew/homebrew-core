@@ -5,6 +5,11 @@ class Log4cpp < Formula
   sha256 "2cbbea55a5d6895c9f0116a9a9ce3afb86df383cd05c9d6c1a4238e5e5c8f51d"
   license "LGPL-2.1"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/log4cpp[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "3e08cff5384ae60222e67b63aadfda07534daa4d962b66167c5ffd8c1a55edf7" => :catalina
