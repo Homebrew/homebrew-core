@@ -5,6 +5,11 @@ class Txr < Formula
   sha256 "e03a6c7311912306abf393df5fa7c387707576d32af96dbbba3f9b80a29d8a41"
   license "BSD-2-Clause"
 
+  livecheck do
+    url "http://www.kylheku.com/cgit/txr"
+    regex(/href=.*?txr[._-]v?(\d+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "777da7fdcbfd3949b8766044bb41ca2d182585eaded277fc8f5fc033957c3529" => :catalina
