@@ -6,6 +6,11 @@ class TransmissionCli < Formula
   # license ["GPL-2.0", "GPL-3.0"] - pending https://github.com/Homebrew/brew/pull/7953
   license "GPL-2.0"
 
+  livecheck do
+    url "https://github.com/transmission/transmission-releases/"
+    regex(/href=.*?transmission[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "576f0f5017a86da149292b6da4fde251ad7a77bd9a88e82639ed4fc586cb08e7" => :catalina
     sha256 "d56c90e32e206cdcf5ec8591fcb79de80c9b41483946c354fac4b9f09020c236" => :mojave
