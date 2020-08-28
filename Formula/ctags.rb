@@ -15,6 +15,11 @@ class Ctags < Formula
     end
   end
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/ctags[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 2
