@@ -5,6 +5,10 @@ class Gxml < Formula
   sha256 "0a0fc4f305ba9ea2f1f76aadfd660fd50febdc7a5e151f9559c81b2bd362d87b"
   license "LGPL-2.1-or-later"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "7ac6b48935cda53013a788e02cb0169fd609589beac7b1af2ad6b3b64e3045a2" => :catalina
     sha256 "656bfa0f89deba237c40af306b141291c548befeadd268d7aaca198db78afe91" => :mojave
