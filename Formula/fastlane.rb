@@ -6,6 +6,11 @@ class Fastlane < Formula
   license "MIT"
   head "https://github.com/fastlane/fastlane.git"
 
+  livecheck do
+    url :head
+    regex(/^([\d.]+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "f0446083b955d00115808fb4c726cebed35fac6dba5365a76e597021f0aa4453" => :catalina
