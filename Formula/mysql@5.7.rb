@@ -5,6 +5,11 @@ class MysqlAT57 < Formula
   sha256 "85bd222e61846313d7ad7c095ad664c89ca8f52dd9c21b7ac343ead62d701200"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://dev.mysql.com/downloads/mysql/5.7.html"
+    regex(/href=.*?mysql[._-]v?(\d+.\d+.\d+)-/i)
+  end
+
   bottle do
     sha256 "14ae8121e150830abdf81c06028a0aeeeae3051e5571a0f60fe54ba60fcc0586" => :catalina
     sha256 "6f20c9723f4765e3abd3c968a210059c2fdae7618c2c667cd18b071b9e8de446" => :mojave
