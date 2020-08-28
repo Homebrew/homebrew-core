@@ -8,6 +8,11 @@ class Cppad < Formula
   version_scheme 1
   head "https://github.com/coin-or/CppAD.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "4ef0d734cddee5d7dfde8398b8b295cc35100424639db041816459636de3087f" => :catalina
