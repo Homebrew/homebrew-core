@@ -5,6 +5,10 @@ class Gptfdisk < Formula
   sha256 "0e7d3987cd0488ecaf4b48761bc97f40b1dc089e5ff53c4b37abe30bc67dcb2f"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "7764d3c435876ddc2d8c2fc67ac033f1fae3343967844254deaa3854adf62285" => :catalina
