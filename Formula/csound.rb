@@ -8,6 +8,11 @@ class Csound < Formula
   revision 1
   head "https://github.com/csound/csound.git", branch: "develop"
 
+  livecheck do
+    url "https://github.com/csound/csound/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     sha256 "d0d9f99b5afdecb3df96968a547b907862c721c6ef903d4681df0036d1f5ac07" => :catalina
     sha256 "b78a4d843e44cb5fa29122647abf2fa544e944b22e3b6637dc8e665e17db14d5" => :mojave
