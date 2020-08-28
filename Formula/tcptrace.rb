@@ -7,6 +7,14 @@ class Tcptrace < Formula
   mirror "https://distfiles.macports.org/tcptrace/tcptrace-6.6.7.tar.gz"
   sha256 "63380a4051933ca08979476a9dfc6f959308bc9f60d45255202e388eb56910bd"
 
+  # This site has a history of going down for periods of time, which is why the
+  # formula uses mirrors. This is something to be aware of if livecheck is
+  # unable to find versions.
+  livecheck do
+    url "http://www.tcptrace.org/download.shtml"
+    regex(/href=.*?tcptrace[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "a1a61bd690da912afedd38f62eac7d5a1724c1ce68c68e7bcd8576e3fb86d956" => :catalina
