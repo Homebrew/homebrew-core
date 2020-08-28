@@ -4,6 +4,11 @@ class Silk < Formula
   url "https://tools.netsa.cert.org/releases/silk-3.19.1.tar.gz"
   sha256 "b287de07502c53d51e9ccdcc17a46d8a4d7a59db9e5ae7add7b82458a9da45a7"
 
+  livecheck do
+    url :homepage
+    regex(%r{".*?/silk[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     sha256 "4a88b111ce742a948b91b9441f2bbc7e821ffd3691673086ff46e8e27fbda31e" => :catalina
     sha256 "923bc8b774f207d23073195b49befba72e378e79846b6809066f55f3df87c329" => :mojave
