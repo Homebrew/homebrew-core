@@ -12,7 +12,7 @@ class Sonarqube < Formula
 
   bottle :unneeded
 
-  depends_on "openjdk"
+  depends_on "openjdk@11"
 
   conflicts_with "sonarqube-lts", because: "both install the same binaries"
 
@@ -23,7 +23,7 @@ class Sonarqube < Formula
     libexec.install Dir["*"]
 
     (bin/"sonar").write_env_script libexec/"bin/macosx-universal-64/sonar.sh",
-      JAVA_HOME: Formula["openjdk"].opt_prefix
+      JAVA_HOME: Formula["openjdk@11"].opt_prefix
   end
 
   plist_options manual: "sonar console"
