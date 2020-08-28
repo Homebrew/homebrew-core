@@ -8,6 +8,10 @@ class TwinePypi < Formula
   license "Apache-2.0"
   head "https://github.com/pypa/twine.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "6a39af0a3905556400c68636ea2cf39658ac8b3b85bfd1d4bd23d5bf29ce075d" => :catalina
