@@ -5,6 +5,10 @@ class Orbit < Formula
   sha256 "55c900a905482992730f575f3eef34d50bda717c197c97c08fa5a6eafd857550"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     rebuild 1
     sha256 "a604838d3a9e9690eceefb5f798aa5c02a6d46b5e1f1cbb50bbc5cc95df451e9" => :catalina
