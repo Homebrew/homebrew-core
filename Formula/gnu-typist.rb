@@ -6,6 +6,10 @@ class GnuTypist < Formula
   sha256 "c13af40b12479f8219ffa6c66020618c0ce305ad305590fde02d2c20eb9cf977"
   revision 2
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "2a824f3fad3871cbf43f15009c23563aa03872597f22e823f9e2551d35fe1e26" => :catalina
     sha256 "9f0fcdd42b9a041408b132882778db2eb479749a7169b82f2caf1f4fd486b599" => :mojave
