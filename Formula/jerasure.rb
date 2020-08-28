@@ -5,6 +5,10 @@ class Jerasure < Formula
   sha256 "f736646c1844c4e50dfe41ebd63c7d7b30c6e66a4aa7d3beea244871b0e43b9d"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "9e653391281dc30c18579c7a6158744a025a9aab8861454bafe221ebfc652c0b" => :catalina
