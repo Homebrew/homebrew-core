@@ -6,6 +6,11 @@ class Memcached < Formula
   license "BSD-3-Clause"
   head "https://github.com/memcached/memcached.git"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?memcached[._-]v?(\d+(?:\.\d+){2,})\./i)
+  end
+
   bottle do
     cellar :any
     sha256 "e942aa7a5eb09af40e100d242a5f65a7caffa077b7aecd2b94b4e81ce5f9c3ff" => :catalina
