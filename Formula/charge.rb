@@ -8,6 +8,10 @@ class Charge < Formula
   license "MIT"
   head "https://github.com/brandonweiss/charge.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "b6b02c7658ca9d8c8211554a74d399f5a9188f516e152fb7eee5a2b879d050d3" => :catalina
