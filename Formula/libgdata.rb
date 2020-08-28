@@ -5,6 +5,10 @@ class Libgdata < Formula
   sha256 "8740e071ecb2ae0d2a4b9f180d2ae5fdf9dc4c41e7ff9dc7e057f62442800827"
   revision 3
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "c93f83c348b673c9768be22ae9e1119d5eb86ff94bd28e95976c2dca47f5defe" => :catalina
     sha256 "e84e22686408f68d77b239d0cdc476f33e677f8aa66405ba4506513e31eafe2c" => :mojave
