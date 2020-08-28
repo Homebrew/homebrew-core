@@ -8,6 +8,10 @@ class Prettier < Formula
   license "MIT"
   head "https://github.com/prettier/prettier.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "1ea6631eafa826bbf238e3d36c62c206371bba3beec95589090b7310d8572f83" => :catalina
