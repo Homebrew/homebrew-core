@@ -5,6 +5,11 @@ class Dialog < Formula
   sha256 "466163e8b97c2b7709d00389199add3156bd813f60ccb0335d0a30f2d4a17f99"
   license "LGPL-2.1"
 
+  livecheck do
+    url "http://www.invisible-mirror.net/archives/dialog/"
+    regex(/href=.*?dialog[._-]v?(\d+(?:\.\d+)+-\d{6,8})\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 1
