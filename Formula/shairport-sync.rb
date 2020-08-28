@@ -6,6 +6,11 @@ class ShairportSync < Formula
   license "MIT"
   head "https://github.com/mikebrady/shairport-sync.git", branch: "development"
 
+  livecheck do
+    url "https://github.com/mikebrady/shairport-sync/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     sha256 "3c2a973fbbe200704e35737226fd4e7ed6edad9f389253602fe5d14c50bb171e" => :catalina
     sha256 "afe30af9e783c581888b525d7e3aab13e09e9812e9f717ad258c9cbb996da8a4" => :mojave
