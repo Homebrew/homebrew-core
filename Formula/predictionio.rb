@@ -6,6 +6,10 @@ class Predictionio < Formula
   sha256 "049c9147ad9a6e2beddc2befcac5c73071845b2150c05a71118164c975de6ed7"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle :unneeded
 
   depends_on "apache-spark"
