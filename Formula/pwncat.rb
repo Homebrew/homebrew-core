@@ -6,6 +6,10 @@ class Pwncat < Formula
   url "https://files.pythonhosted.org/packages/31/8a/efc45ecc5e91afc76de9c56f89de99af01d575529fead6ee24331a3fddf2/pwncat-0.1.0.tar.gz"
   sha256 "4f711c3d0f22650e20ad1429a7f0c9116b930be04435e7f690746ca0e1c5cd69"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "effc23c8094a031f9bc1964adf5f5ab050500b86726c948f81fe67d35f5e700d" => :catalina
