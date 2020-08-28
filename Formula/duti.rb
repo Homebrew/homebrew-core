@@ -7,6 +7,11 @@ class Duti < Formula
   revision 1
   head "https://github.com/moretension/duti.git"
 
+  livecheck do
+    url :head
+    regex(/^duti[._-]v?(\d+(?:[.-]\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "5fe04375afd229149721ce8a0cd66fe7a372fa5a5dce11084616d2a979aa47fe" => :catalina
