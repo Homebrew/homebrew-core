@@ -5,6 +5,11 @@ class Omniorb < Formula
   sha256 "28c01cd0df76c1e81524ca369dc9e6e75f57dc70f30688c99c67926e4bdc7a6f"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/omniORB[._-]v?(\d+(?:\.\d+)+(?:-\d+)?)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "a467b416e7657794555b547ee7caf8f0395e67ecf7501b393d29c620598af535" => :catalina
