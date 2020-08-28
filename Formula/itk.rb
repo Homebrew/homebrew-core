@@ -6,6 +6,11 @@ class Itk < Formula
   license "Apache-2.0"
   head "https://github.com/InsightSoftwareConsortium/ITK.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 "a164746cce8e23e169a967bae3c8b455f63674ee3e74f677d7e1214253db3975" => :catalina
     sha256 "e633ca1823a1f35e0d2e025a4f2ce7e1cad26342d934e9a41a29396e0808f374" => :mojave
