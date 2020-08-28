@@ -6,6 +6,11 @@ class Coredns < Formula
   license "Apache-2.0"
   head "https://github.com/coredns/coredns.git"
 
+  livecheck do
+    url "https://github.com/coredns/coredns/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "717eb60a8e16116051725b2717cad72aa288038c08087981a4afdbf707bbec7f" => :catalina
