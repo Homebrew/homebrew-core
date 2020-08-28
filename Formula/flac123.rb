@@ -5,6 +5,10 @@ class Flac123 < Formula
   sha256 "1976efd54a918eadd3cb10b34c77cee009e21ae56274148afa01edf32654e47d"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "e9d6f0e34bf00197859eb997f353123f67a75d644ed9a3dba400207a83a18d6b" => :catalina
