@@ -5,6 +5,11 @@ class Cloog < Formula
   sha256 "325adf3710ce2229b7eeb9e84d3b539556d093ae860027185e7af8a8b00a750e"
   revision 3
 
+  livecheck do
+    url "http://www.bastoul.net/cloog/download.php"
+    regex(/href=.*?cloog[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "4f21a763ea566aa97203b1823a659047c165df9b9d3144ed6df8e3038c054273" => :catalina
