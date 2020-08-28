@@ -5,6 +5,10 @@ class Bittwist < Formula
   sha256 "8954462ac9e21376d9d24538018d1225ef19ddcddf9d27e0e37fe7597e408eaa"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "784d96d15ae2ba653dcf4289cfbc58d16359e32bbb9e178a346d2dd6ee62c18a" => :catalina
