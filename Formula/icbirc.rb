@@ -4,6 +4,11 @@ class Icbirc < Formula
   url "https://www.benzedrine.ch/icbirc-2.1.tar.gz"
   sha256 "6839344d93c004da97ec6bb5d805a1db7e0a79efc3870445788043627162bbb1"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?icbirc[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "c1a639673100e6c8f2f5116b11c4c7a8b38cc0af73841c4d13e611f7605a8c1e" => :catalina
