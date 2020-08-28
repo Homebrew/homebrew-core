@@ -6,6 +6,11 @@ class Widelands < Formula
   sha256 "601e0e4c6f91b3fb0ece2cd1b83ecfb02344a1b9194fbb70ef3f70e06994e357"
   revision 1
 
+  livecheck do
+    url :stable
+    regex(%r{<div class="version">\s*Latest version is [^<]*?v?(\d+(?:\.\d+)*)\s*</div>}i)
+  end
+
   bottle do
     sha256 "f41944d59a82424ef8242035d60db6ad270bc101f628b299e7d27a345b9a9c33" => :catalina
     sha256 "2ad3c807fe568617432f7f0e542553c23d8ee49db6da9ec5a494bf7ce1f7e04a" => :mojave
