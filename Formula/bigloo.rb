@@ -6,6 +6,11 @@ class Bigloo < Formula
   sha256 "43363cb968c57925f402117ff8ec4b47189e2747b02350805a34fa617d9f618a"
   revision 1
 
+  livecheck do
+    url :homepage
+    regex(/>\s*?version v?(\d+(?:\.\d+)+[a-z]?)\s*?</i)
+  end
+
   bottle do
     sha256 "06c2d3728e778db36954a6fca8ecc8cb663d90122a884cfb0fc96ce1de36663a" => :catalina
     sha256 "5de69de8a1afee85a7b6af5d024c80ff3ceb7acc8e391c20fd24398122cfad9a" => :mojave
