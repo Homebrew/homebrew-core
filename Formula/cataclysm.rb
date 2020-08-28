@@ -7,6 +7,11 @@ class Cataclysm < Formula
   license "CC-BY-SA-3.0"
   head "https://github.com/CleverRaven/Cataclysm-DDA.git"
 
+  livecheck do
+    url "https://github.com/CleverRaven/Cataclysm-DDA/releases/latest"
+    regex(%r{href=.*?/tag/([^"' >]+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "bbd96abbc2ac1ddfabb2ab2febff1b0653d95210b84e6ea8a1dec73a530d8647" => :catalina
