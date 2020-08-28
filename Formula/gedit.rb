@@ -6,6 +6,10 @@ class Gedit < Formula
   license "GPL-2.0"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "938865fa21884073086f325085bc9d46be2a606728f075d94ff7f6993b15a6e0" => :catalina
     sha256 "a0ada6ab87a9a50d30dcfeb515e4db89779046a3cb3d8ece7d32b8b91eaf00bb" => :mojave
