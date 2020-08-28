@@ -6,6 +6,10 @@ class Mycli < Formula
   url "https://files.pythonhosted.org/packages/67/51/89811ac28b7ae365be43359e7612d19c4342a12483880d7a963e6d31193a/mycli-1.22.2.tar.gz"
   sha256 "fb2e5dc74a8ec75049ebf02c0d7f14238a279a7eacb31138ac6d8f524aea02d3"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "4108a77b1152c559a28687bf762cd9a1d20b2a99b4ed7c2dd4a828f0b3731fa6" => :catalina
