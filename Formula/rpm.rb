@@ -6,6 +6,11 @@ class Rpm < Formula
   revision 1
   version_scheme 1
 
+  livecheck do
+    url "https://github.com/rpm-software-management/rpm.git"
+    regex(/rpm[._-]v?(\d+(?:\.\d+)+)-release/i)
+  end
+
   bottle do
     sha256 "e5d398daca37da278add441d2cb0825c019fed8bcfb33bd4abb01dad3dce42e0" => :catalina
     sha256 "0b5556d33614062b0b9d39cc8d3f4046d562cbaa9b03498cf4b11c57debb38fe" => :mojave
