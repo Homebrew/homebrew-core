@@ -8,6 +8,11 @@ class Grpc < Formula
   license "Apache-2.0"
   head "https://github.com/grpc/grpc.git"
 
+  livecheck do
+    url "https://github.com/grpc/grpc/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     sha256 "19bbcb825bfd65ec65bfb7a2750f5ad828bf74c1287c5684bbf13a1c188e7cc4" => :catalina
     sha256 "92f88af6c076c6511938565ed7ab786da4417027ff12936f82de327d7a66d671" => :mojave
