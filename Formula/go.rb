@@ -15,6 +15,11 @@ class Go < Formula
     end
   end
 
+  livecheck do
+    url "https://golang.org/dl/"
+    regex(/href=.*?go[._-]?v?(\d+(?:\.\d+)+)[._-]src\.t/i)
+  end
+
   bottle do
     sha256 "36ef2e4cc3ecc84e0c1e98580a63f8d417efc8831f0c59b0a7e13d517c61353b" => :catalina
     sha256 "ea373dd668c31caa9816a5028028694425635cc3871783709381d872906fa78e" => :mojave
