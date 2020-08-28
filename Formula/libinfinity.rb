@@ -6,6 +6,11 @@ class Libinfinity < Formula
   license "LGPL-2.1"
   revision 2
 
+  livecheck do
+    url "http://releases.0x539.de/libinfinity/"
+    regex(/href=.*?libinfinity[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "4d367978cb9ee0612c37947080939b3006c5bb7972673cc2c6175242c5809c28" => :catalina
     sha256 "8c9bdd8c7cfb58b1f8c9ce451881c620d574ac749ff0f40e4efa87c0faebba26" => :mojave
