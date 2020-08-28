@@ -4,6 +4,11 @@ class Ngspice < Formula
   url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/32/ngspice-32.tar.gz"
   sha256 "3cd90c4e94516d87c5b4d02a3a6405b1136b25d05c871d4fee1fd7c4c0d03ef2"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/ngspice[._-]v?(\d+(?:\.\d+)*)\.t}i)
+  end
+
   bottle do
     sha256 "924b787c656fc7062bd5e3c96b0a2b33f458013d27c1aa55cd85f56218ac7a8e" => :catalina
     sha256 "7a93fe4be3e1508b76d1549ee9d749fbcadb801dc0d2333d0d3042880044ad96" => :mojave
