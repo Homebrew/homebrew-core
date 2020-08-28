@@ -6,6 +6,10 @@ class Ccm < Formula
   license "Apache-2.0"
   head "https://github.com/pcmanus/ccm.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "1301713c60ca83ef5a2b1d5b0df50fcb73d57574ce1fb9f34091e549ba969815" => :catalina
