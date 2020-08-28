@@ -6,6 +6,11 @@ class Squirrel < Formula
   sha256 "4845a7fb82e4740bde01b0854112e3bb92a0816ad959c5758236e73f4409d0cb"
   license "MIT"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/squirrel[._-]v?(\d+(?:[-_]\d+)+).stable\.t}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 1
