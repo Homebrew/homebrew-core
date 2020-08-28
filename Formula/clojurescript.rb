@@ -7,6 +7,11 @@ class Clojurescript < Formula
   revision 1
   head "https://github.com/clojure/clojurescript.git"
 
+  livecheck do
+    url "https://github.com/clojure/clojurescript/releases/latest"
+    regex(%r{href=.*?/tag/r?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
