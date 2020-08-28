@@ -7,6 +7,10 @@ class Unrtf < Formula
   license "GPL-3.0"
   head "https://hg.savannah.gnu.org/hgweb/unrtf/", using: :hg
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "90361817069fa7149b201a0caf5e65abd872d10f8fdda154ff450511debf1d99" => :catalina
     sha256 "b038c53ba7341cc9365db6cf9d46c6f7c3feba843643168e24a12856a29a6dbb" => :mojave
