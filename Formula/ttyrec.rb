@@ -5,6 +5,11 @@ class Ttyrec < Formula
   sha256 "ef5e9bf276b65bb831f9c2554cd8784bd5b4ee65353808f82b7e2aef851587ec"
   revision 1
 
+  livecheck do
+    url :homepage
+    regex(/href=["']?ttyrec[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "6d893647087afa85234f60103507a5a878360d018816c557534d469c4edf7bf9" => :catalina
