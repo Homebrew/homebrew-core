@@ -7,6 +7,11 @@ class Beast < Formula
   revision 1
   head "https://github.com/beast-dev/beast-mcmc.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "5f4b312595410d83df9099dc15657241dc4cb758d58a5836565127275a6fb912" => :catalina
