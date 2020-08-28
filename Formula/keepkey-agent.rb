@@ -8,6 +8,10 @@ class KeepkeyAgent < Formula
   license "LGPL-3.0"
   revision 3
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "d63b20fa73ca477c96862ff34e60bd54ff52ba88408212960dd4a772e8fa5643" => :catalina
