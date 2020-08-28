@@ -6,6 +6,11 @@ class Logstash < Formula
   license "Apache-2.0"
   head "https://github.com/elastic/logstash.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle :unneeded
 
   depends_on java: "1.8"
