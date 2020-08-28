@@ -5,6 +5,11 @@ class Abcmidi < Formula
   sha256 "8509c6e6909d193028d38a3a0a9a301e26bdee32ef3dacde0fa1dca9c3a54b65"
   license "GPL-2.0-or-later"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?abcMIDI[._-]v?(\d{4}(?:\.\d+)+)\.zip/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "886d3fb55c973886038503454f569f492cf88f93771e1933a02b3a7dbebbf24d" => :catalina
