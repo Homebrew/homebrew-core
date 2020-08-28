@@ -6,6 +6,11 @@ class SaneBackends < Formula
   license "GPL-2.0-or-later"
   head "https://gitlab.com/sane-project/backends.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 "7b263e24809b81b27db7d43c4ce92e6c09c003055e3da0874b7d7282fb3a35c8" => :catalina
     sha256 "2bd03a03d1807d5d0e56695d567b1598696dc0e8e29ada67517665043854865b" => :mojave
