@@ -5,6 +5,11 @@ class Libdiscid < Formula
   sha256 "f9e443ac4c0dd4819c2841fcc82169a46fb9a626352cdb9c7f65dd3624cd31b9"
   license "LGPL-2.1"
 
+  livecheck do
+    url "http://ftp.musicbrainz.org/pub/musicbrainz/libdiscid/"
+    regex(/href=.*?libdiscid[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "74dd7ef5362b91818107ef3c8c3edab443faf8a17662294a24573e5f476110c7" => :catalina
