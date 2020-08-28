@@ -4,6 +4,11 @@ class Dwarfutils < Formula
   url "https://www.prevanders.net/libdwarf-20200825.tar.gz"
   sha256 "c42786a085bf244c8a1b0238b57f42f6cfc582baebe5e174ea62eb1a81f32103"
 
+  livecheck do
+    url :homepage
+    regex(%r{href=(?:["']?|.*?/)libdwarf[._-]v?(\d{6,8})\.t}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "e0327be931c95af4ec48f26ea7074b845a22519fb5b77d85a4d998f5eb41a9b8" => :catalina
