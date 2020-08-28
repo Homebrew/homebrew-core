@@ -6,6 +6,11 @@ class Allegro < Formula
   license "Zlib"
   head "https://github.com/liballeg/allegro5.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "9e71511f6c8faa8449dd06bc30bd74497ee832e3e0ca7f3eb02bcef263ab4b3f" => :catalina
