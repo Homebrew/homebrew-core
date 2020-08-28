@@ -6,6 +6,11 @@ class Exiv2 < Formula
   license "GPL-2.0"
   head "https://github.com/Exiv2/exiv2.git"
 
+  livecheck do
+    url "https://www.exiv2.org/builds/"
+    regex(/href=.*?exiv2[._-]v?(\d+(?:\.\d+)+)-Source\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "607f8322cba23a92185541c3b8ee245e7ff339becda5364e1ea6c2168015375c" => :catalina
