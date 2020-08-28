@@ -7,6 +7,10 @@ class Idutils < Formula
   license "GPL-3.0"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     rebuild 1
     sha256 "5df54c76ae786e54f6994c1c65821adaa746c8a6b1aecbafbe3cd9f4f77f7c62" => :catalina
