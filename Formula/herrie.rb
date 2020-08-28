@@ -6,6 +6,10 @@ class Herrie < Formula
   license "BSD-2-Clause"
   revision 1
 
+  livecheck do
+    url "https://github.com/EdSchouten/herrie"
+  end
+
   bottle do
     sha256 "ceb3bb01f7cc36c3d55d785ff6d06706708ce11e81bd9da29b4dcdaaa6476f9a" => :catalina
     sha256 "689038931cdc86fee22b0e4217bdb4eccc5c7591254c67300aade0637ae1dc5e" => :mojave
