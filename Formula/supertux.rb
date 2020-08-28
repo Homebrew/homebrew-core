@@ -6,6 +6,11 @@ class Supertux < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/SuperTux/supertux.git"
 
+  livecheck do
+    url "https://github.com/SuperTux/supertux/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "671a6a888ace25b1cd8adfafea895a7bb259bee92be354e7ed4b4fbd63841f92" => :catalina
