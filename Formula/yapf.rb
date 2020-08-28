@@ -7,6 +7,10 @@ class Yapf < Formula
   sha256 "3000abee4c28daebad55da6c85f3cd07b8062ce48e2e9943c8da1b9667d48427"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "d01c7c5f1bf9e9aa845dc219215902089bd4840058207b886699b6aaffa89e95" => :catalina
