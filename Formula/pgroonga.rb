@@ -4,6 +4,11 @@ class Pgroonga < Formula
   url "https://packages.groonga.org/source/pgroonga/pgroonga-2.2.6.tar.gz"
   sha256 "799bb56468d66e3e736759f1e19c0deb8368e07d354932f06979302309efd42a"
 
+  livecheck do
+    url "https://packages.groonga.org/source/pgroonga/"
+    regex(/href=.*?pgroonga[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "9fd0decbb8035c8b86a85a9a18c69cc18ca80343aa79142437ebc085d2e92c0c" => :catalina
