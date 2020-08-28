@@ -9,6 +9,11 @@ class Semgrep < Formula
   license "LGPL-2.1-only"
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "a990e86e4d499c8f114ff644c29e6ee85d93c58cd52c277d67300188f49bf6a3" => :catalina
