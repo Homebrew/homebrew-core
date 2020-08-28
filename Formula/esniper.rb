@@ -6,6 +6,10 @@ class Esniper < Formula
   sha256 "a93d4533e31640554f2e430ac76b43e73a50ed6d721511066020712ac8923c12"
   license "BSD-2-Clause"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "609f0b7d7331c4e61d274a83cbfc7157394d905a5840c6df7547140b5b0a44da" => :catalina
