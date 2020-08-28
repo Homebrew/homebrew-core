@@ -6,6 +6,11 @@ class Pass < Formula
   license "GPL-2.0"
   head "https://git.zx2c4.com/password-store.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 2
