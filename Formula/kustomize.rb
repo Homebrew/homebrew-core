@@ -7,6 +7,11 @@ class Kustomize < Formula
   license "Apache-2.0"
   head "https://github.com/kubernetes-sigs/kustomize.git"
 
+  livecheck do
+    url :head
+    regex(%r{kustomize/v?(\d+(?:\.\d+)+)$}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "c3b6b0048d3adf6f9d35bf100767fcc2272bcee774faf02344c1a81d8c95e82d" => :catalina
