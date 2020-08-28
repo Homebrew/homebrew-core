@@ -5,6 +5,11 @@ class Traildb < Formula
   sha256 "f73515fe56c547f861296cf8eecc98b8e8bf00d175ad9fb7f4b981ad7cf8b67c"
   license "MIT"
 
+  livecheck do
+    url "https://github.com/traildb/traildb.git"
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "d838c36b8e7fd566e034374e1fe05e5a2db41940229f7324fec53a2e7387db48" => :catalina
