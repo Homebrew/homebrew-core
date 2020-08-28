@@ -7,6 +7,10 @@ class Hy < Formula
   sha256 "3a5a1d76ddeb2f1d5de71ad1b1167799850db955b5eb0258e351fb182b2e6016"
   license "MIT"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "dde477be6e4a681568b5cbc06e5c3ce042f2043ca2572610df998a851468d131" => :catalina
