@@ -9,6 +9,11 @@ class Ykman < Formula
   revision 1
   head "https://github.com/Yubico/yubikey-manager.git"
 
+  livecheck do
+    url "https://developers.yubico.com/yubikey-manager/Releases/"
+    regex(/href=.*?yubikey-manager[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "c06a8cb44d6cd76c638c88ef5812e4c2dcce922f30014f875eaf61bf63ae7404" => :catalina
