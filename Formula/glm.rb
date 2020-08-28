@@ -7,6 +7,11 @@ class Glm < Formula
   license "MIT"
   head "https://github.com/g-truc/glm.git"
 
+  livecheck do
+    url "https://github.com/g-truc/glm/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "9b661be1f704c2e946dbd4d4f96d58ae82427824ef88d7dd9f0f0cfc3fae2233" => :catalina
