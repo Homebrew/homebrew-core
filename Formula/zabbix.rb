@@ -5,6 +5,16 @@ class Zabbix < Formula
   sha256 "34fcbc6bdc95c618a7903ca17434cfeb1ad12f0cdebbc75d35990975d37283b5"
   license "GPL-2.0-or-later"
 
+  # As of writing, the Zabbix SourceForge repository is missing the latest
+  # version (4.4.8), so we have to check for the newest version on the Zabbix
+  # CDN index page instead. Unfortunately, the versions are separated into
+  # folders for a given major/minor version, so this will quietly stop being
+  # a proper check sometime in the future and need to be updated.
+  livecheck do
+    url "https://cdn.zabbix.com/zabbix/sources/stable/5.0/"
+    regex(/href=.*?zabbix[._-](\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "9f45e84d2ca99fa5dc3db84b88da30b7be4764cca82ce40bac3515b392935f3c" => :catalina
     sha256 "245166bc2e16916f2d916b89ba9521c803538b4e9d8f598888ef4574e3888731" => :mojave
