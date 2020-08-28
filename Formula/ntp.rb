@@ -5,6 +5,11 @@ class Ntp < Formula
   version "4.2.8p15"
   sha256 "f65840deab68614d5d7ceb2d0bb9304ff70dcdedd09abb79754a87536b849c19"
 
+  livecheck do
+    url "http://www.ntp.org/downloads.html"
+    regex(/href=.*?ntp[._-]v?(\d+(?:\.\d+)+(?:p\d+)?)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "3c6a8893b0e76b8af1a4fd19ab664279b5409c1129062bf1feee4643318236b3" => :catalina
