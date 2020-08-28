@@ -5,6 +5,13 @@ class Fortune < Formula
   mirror "https://src.fedoraproject.org/repo/pkgs/fortune-mod/fortune-mod-9708.tar.gz/81a87a44f9d94b0809dfc2b7b140a379/fortune-mod-9708.tar.gz"
   sha256 "1a98a6fd42ef23c8aec9e4a368afb40b6b0ddfb67b5b383ad82a7b78d8e0602a"
 
+  # The URL below should be modified to use HTTPS again after the upstream
+  # server fixes their SSL certificate issue.
+  livecheck do
+    url "http://www.ibiblio.org/pub/linux/games/amusements/fortune/"
+    regex(/href=.*?fortune-mod[._-]v?(\d+(?:\.\d+)*)\.t/i)
+  end
+
   bottle do
     rebuild 3
     sha256 "bde8e2f3f2e9e65c18b72b647cd8aad7658251592fae03717e7d90f4428464de" => :catalina
