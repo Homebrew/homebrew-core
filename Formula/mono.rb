@@ -5,6 +5,11 @@ class Mono < Formula
   sha256 "e2e42d36e19f083fc0d82f6c02f7db80611d69767112af353df2f279744a2ac5"
   license "MIT"
 
+  livecheck do
+    url "https://www.mono-project.com/download/stable/"
+    regex(/href=.*?(\d+(?:\.\d+)+)[._-]macos/i)
+  end
+
   bottle do
     sha256 "5d9418923f6bc1705af86db81c56beff8b3a3d12c15e99ecbc7dffc2306817e1" => :catalina
     sha256 "c7e8edb593056e88bbf9e2e2bf990045f1400ed72d77ebcfcd90818d07f4ecce" => :mojave
