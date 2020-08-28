@@ -6,6 +6,10 @@ class TomcatAT8 < Formula
   sha256 "2615839daf1899cd705f9b82f2df6bd21adb29a93a05afdea0a6192ce54025c4"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle :unneeded
 
   keg_only :versioned_formula
