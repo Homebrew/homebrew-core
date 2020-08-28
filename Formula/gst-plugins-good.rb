@@ -8,6 +8,11 @@ class GstPluginsGood < Formula
     sha256 "40bb3bafda25c0b739c8fc36e48380fccf61c4d3f83747e97ac3f9b0171b1319"
   end
 
+  livecheck do
+    url "https://gstreamer.freedesktop.org/src/gst-plugins-good/"
+    regex(/href=.*?gst-plugins-good[._-]v?(\d+\.\d*[02468](?:\.\d+)*)\.t/i)
+  end
+
   bottle do
     sha256 "4ea6d0ea1dcc6c20afbd0976006a84d57067b83926aa74bd28a0d21b4afa1aa9" => :catalina
     sha256 "5bab7c207014dad9b950247148d930251fba89458f97527b9fb076a1a5a843ca" => :mojave
