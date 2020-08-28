@@ -7,6 +7,11 @@ class PamU2f < Formula
   revision 1
   head "https://github.com/Yubico/pam-u2f.git"
 
+  livecheck do
+    url "https://developers.yubico.com/pam-u2f/Releases/"
+    regex(/href=.*?pam_u2f[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "879e5ac58f8b3dbf4eed7fb075cee4683fae3e9a121000539eb810146c87f0d6" => :catalina
