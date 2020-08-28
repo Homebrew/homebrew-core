@@ -7,6 +7,10 @@ class Flume < Formula
   license "Apache-2.0"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle :unneeded
 
   depends_on "hadoop"
