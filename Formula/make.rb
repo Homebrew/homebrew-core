@@ -6,6 +6,10 @@ class Make < Formula
   sha256 "de1a441c4edf952521db30bfca80baae86a0ff1acd0a00402999344f04c45e82"
   license "GPL-3.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "b2cbb6b854495469de4d065825c94540ad3053a1ff7c1832f4eb7781ee6b8231" => :catalina
     sha256 "50ac9c7185e08349c35531d8ee30e755713aec340229cab2008ba1a2ceac15c9" => :mojave
