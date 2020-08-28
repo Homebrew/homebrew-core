@@ -6,6 +6,11 @@ class Genders < Formula
   sha256 "c176045a7dd125313d44abcb7968ded61826028fe906028a2967442426229894"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://github.com/chaos/genders/releases/latest"
+    regex(%r{href=.*?/tag/genders[._-]v?(\d+(?:[.-]\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "e1bbeeb4bc32d8655ea35718825175dc1293a1cebd059437cf2fcc9001d159e2" => :catalina
