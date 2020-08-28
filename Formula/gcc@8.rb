@@ -6,6 +6,11 @@ class GccAT8 < Formula
   sha256 "e30a6e52d10e1f27ed55104ad233c30bd1e99cfb5ff98ab022dc941edd1b2dd4"
   revision 1
 
+  livecheck do
+    url :stable
+    regex(%r{href=.*?gcc[._-]v?(8(?:\.\d+)+)(?:/?["' >]|\.t)}i)
+  end
+
   bottle do
     sha256 "55525171b1a90425dab69799f3730492cd3f04b2755242340472925794104962" => :catalina
     sha256 "3321d929ae429e3ccf8b4c4e265e20e6302d361d5c444f4b7a5217771b8d0b01" => :mojave
