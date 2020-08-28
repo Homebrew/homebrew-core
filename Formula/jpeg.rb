@@ -7,6 +7,11 @@ class Jpeg < Formula
   sha256 "99cb50e48a4556bc571dadd27931955ff458aae32f68c4d9c39d624693f69c32"
   license "IJG"
 
+  livecheck do
+    url "https://www.ijg.org/files/"
+    regex(/href=.*?jpegsrc[._-]v?(\d+[a-z]?)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "8f7b82a952fb3937889c7f22da1403e5338cd320495917eb26b0c5b2e614791c" => :catalina
