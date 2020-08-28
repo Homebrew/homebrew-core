@@ -7,6 +7,11 @@ class Qhull < Formula
   license "Qhull"
   head "https://github.com/qhull/qhull.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d{4}(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "45f8b6efc0a77e4fd613ef527d6c55545908f860106d4355bd753ad07a934bd1" => :catalina
