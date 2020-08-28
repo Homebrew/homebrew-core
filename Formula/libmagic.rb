@@ -4,6 +4,11 @@ class Libmagic < Formula
   url "https://astron.com/pub/file/file-5.39.tar.gz"
   sha256 "f05d286a76d9556243d0cb05814929c2ecf3a5ba07963f8f70bfaaa70517fad1"
 
+  livecheck do
+    url "https://astron.com/pub/file/"
+    regex(/href=.*?file[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "90b17cb74e853804227abdd32c6810ff535fb98e8862f946c49860b697faece0" => :catalina
     sha256 "f32eb14fbef470d28a041ddefec932e8d96870b4a13dbac3f61d8c6de6e50f29" => :mojave
