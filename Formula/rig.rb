@@ -5,6 +5,10 @@ class Rig < Formula
   sha256 "00bfc970d5c038c1e68bc356c6aa6f9a12995914b7d4fda69897622cb5b77ab8"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "e75fa428f9833207c6fa53e005e32c8d3af48206e08ded637d9633c2af1e0643" => :catalina
