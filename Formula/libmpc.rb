@@ -5,6 +5,10 @@ class Libmpc < Formula
   mirror "https://ftpmirror.gnu.org/mpc/mpc-1.2.0.tar.gz"
   sha256 "e90f2d99553a9c19911abdb4305bf8217106a957e3994436428572c8dfe8fda6"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "94f1002674d74f582bf3d87079c2b3ddbb4b6add13d4bd7b522acd7bda419bba" => :catalina
