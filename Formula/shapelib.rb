@@ -4,6 +4,11 @@ class Shapelib < Formula
   url "https://download.osgeo.org/shapelib/shapelib-1.5.0.tar.gz"
   sha256 "1fc0a480982caef9e7b9423070b47750ba34cd0ba82668f2e638fab1d07adae1"
 
+  livecheck do
+    url "https://download.osgeo.org/shapelib/"
+    regex(/href=.*?shapelib[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "9800e87eaeeca3eca0d59c3bca555c0211df96f021735251964981ac2b16bd90" => :catalina
