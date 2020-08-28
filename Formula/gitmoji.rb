@@ -7,6 +7,10 @@ class Gitmoji < Formula
   sha256 "1c95ffe5c96f8dcba4fc45f10d4cec4e8b737889708644f07b43deaf4719ef6b"
   license "MIT"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "3bc51deec77805917251ad49cc8f9b8627e6e7d99e160bf3baf7f6a1610b1c24" => :catalina
