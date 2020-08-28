@@ -7,6 +7,11 @@ class Dfix < Formula
   license "BSL-1.0"
   head "https://github.com/dlang-community/dfix.git", shallow: false
 
+  livecheck do
+    url "https://code.dlang.org/packages/dfix"
+    regex(%r{"badge">v?(\d+(?:\.\d+)+)</strong>}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 1
