@@ -4,6 +4,11 @@ class Composer < Formula
   url "https://getcomposer.org/download/1.10.10/composer.phar"
   sha256 "8f16aa77b1236ed40855d8d141c0a939d108a939c8e73f9f32eadd3f05f181b9"
 
+  livecheck do
+    url "https://github.com/composer/composer.git"
+    regex(/^[\d.]+$/i)
+  end
+
   bottle :unneeded
 
   def install
