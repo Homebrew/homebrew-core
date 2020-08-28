@@ -6,6 +6,11 @@ class NodeBuild < Formula
   license "MIT"
   head "https://github.com/nodenv/node-build.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle :unneeded
 
   depends_on "autoconf"
