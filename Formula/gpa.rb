@@ -6,6 +6,11 @@ class Gpa < Formula
   sha256 "95dbabe75fa5c8dc47e3acf2df7a51cee096051e5a842b4c9b6d61e40a6177b1"
   revision 1
 
+  livecheck do
+    url "https://gnupg.org/ftp/gcrypt/gpa/"
+    regex(/href=.*?gpa[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "296e517c02d381101befecef3700d17c12a9542dd0b105912f304846a7d54fb2" => :catalina
     sha256 "183d889ae94650931d7ed470ec643a9e5b02843e037a97de2669f2d48076e996" => :mojave
