@@ -8,6 +8,11 @@ class Kamel < Formula
   license "Apache-2.0"
   head "https://github.com/apache/camel-k.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "6569f6598d32c5a0de2174002877cc4c6793bfe63d900195521c6e6239bc51a3" => :catalina
