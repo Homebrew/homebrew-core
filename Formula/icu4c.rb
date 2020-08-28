@@ -6,6 +6,11 @@ class Icu4c < Formula
   sha256 "94a80cd6f251a53bd2a997f6f1b5ac6653fe791dfab66e1eb0227740fb86d5dc"
   license "ICU"
 
+  livecheck do
+    url "https://github.com/unicode-org/icu/releases/latest"
+    regex(%r{href=.*?/tag/release[._-]v?(\d+(?:[.-]\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "2d1e91b5127f66e7941790c004817c94c892725c88f84f1e4c37297fcbc0c72f" => :catalina
