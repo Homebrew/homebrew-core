@@ -5,6 +5,11 @@ class Icoutils < Formula
   sha256 "17abe02d043a253b68b47e3af69c9fc755b895db68fdc8811786125df564c6e0"
   license "GPL-3.0"
 
+  livecheck do
+    url "https://download.savannah.gnu.org/releases/icoutils/"
+    regex(/href=.*?icoutils[._-](\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "67e11f8966ff949902c637dccea47ee5ee341128519050f31f6c87eb74264d99" => :catalina
