@@ -7,6 +7,10 @@ class CloudformationCli < Formula
   sha256 "b683ac89ac70368a48875405755278e3852c827aeeaf5c948d281e5b13e569ca"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "ed16d529ca9590ca3931809e30004c0b4258d5e102371deb565edf8eba4223cb" => :catalina
