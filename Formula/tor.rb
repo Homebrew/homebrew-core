@@ -5,6 +5,11 @@ class Tor < Formula
   mirror "https://www.torservers.net/mirrors/torproject.org/dist/tor-0.4.3.6.tar.gz"
   sha256 "6a2d0637d4e514be2ec574723a05065245cce51da78a21cec1dc831be5ccac62"
 
+  livecheck do
+    url "https://dist.torproject.org/"
+    regex(/href=.*?tor[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "7f07cd0e69483d81b3636560cd2e7bb29e6668fc8d79d39cf59b0a045deeeb43" => :catalina
     sha256 "c1cc1390986796c956016c7b8350bf5021072529917181eba9be4b4264ba47ea" => :mojave
