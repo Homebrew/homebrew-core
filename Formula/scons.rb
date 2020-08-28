@@ -7,6 +7,10 @@ class Scons < Formula
   mirror "https://downloads.sourceforge.net/project/scons/scons/4.0.1/scons-4.0.1.tar.gz"
   sha256 "722ed104b5c624ecdc89bd4e02b094d2b14d99d47b5d0501961e47f579a2007c"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "304947ac78f6fb291360bca97c7ba495a82f999511fb3d3860c135ad73ca47d3" => :catalina
