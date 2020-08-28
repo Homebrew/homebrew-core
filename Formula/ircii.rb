@@ -6,6 +6,11 @@ class Ircii < Formula
   sha256 "10316f0a3723e4ce3d67fd5a7df10e6bcf30dd0750fb96d5437cacb16b0e9617"
   revision 1
 
+  livecheck do
+    url "https://ircii.warped.com/"
+    regex(/href=.*?ircii[._-]v?(\d{6,8})\.t/i)
+  end
+
   bottle do
     sha256 "fea5e21aa100bda1104f1d4947376e9af68be118caf89d8b9468b51cbd2059b4" => :catalina
     sha256 "95424df7e321088386df0d493fdc9a29c0f1955201ce0ce6ba9640a6c9678a9e" => :mojave
