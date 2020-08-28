@@ -6,6 +6,11 @@ class PkgConfig < Formula
   sha256 "6fc69c01688c9458a57eb9a1664c9aba372ccda420a02bf4429fe610e7e7d591"
   revision 3
 
+  livecheck do
+    url "https://pkg-config.freedesktop.org/releases/"
+    regex(/href=.*?pkg-config[._-]v?(\d+(?:\.\d+)+)\./i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "80f141e695f73bd058fd82e9f539dc67471666ff6800c5e280b5af7d3050f435" => :catalina
