@@ -5,6 +5,11 @@ class Xrootd < Formula
   sha256 "6f2ca1accc8d49d605706bb556777c753860bf46d845b1ee11393a5cb5987f15"
   head "https://github.com/xrootd/xrootd.git"
 
+  livecheck do
+    url "http://xrootd.org/dload.html"
+    regex(/href=.*?xrootd[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "197ab8bf8564530157d3956408bc15a95ab3b7dc3616ee312292ce325cec655f" => :catalina
