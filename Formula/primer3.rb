@@ -5,6 +5,11 @@ class Primer3 < Formula
   sha256 "6d537640c86e2b4656ae77f75b6ad4478fd0ca43985a56cce531fb9fc0431c47"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/primer3[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "34845e20a0946fd5bc34d281766abddf173a836b492048e20488af58647904d7" => :catalina
