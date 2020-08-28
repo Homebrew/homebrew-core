@@ -5,6 +5,11 @@ class Timidity < Formula
   sha256 "161fc0395af16b51f7117ad007c3e434c825a308fa29ad44b626ee8f9bb1c8f5"
   revision 1
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/TiMidity%2B%2B[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     sha256 "4ebc752f9ca4fcfa88ade5f6806037678d855d97470adb5507c1290527fe6260" => :catalina
     sha256 "2cae56b69dc38af0de2d80816539ac5d6c78da535d20d63a2103dcf907ec9b80" => :mojave
