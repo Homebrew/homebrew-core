@@ -6,6 +6,10 @@ class GnuUnits < Formula
   sha256 "4262136bdfc152b63ff5a9b93a7d80ce18b5e8bebdcffddc932dda769e306556"
   license "GPL-3.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "cb6d07ccc60529a687f7e175c982ae065aa56a580bc13ba5a53949c058c072d7" => :catalina
     sha256 "ea90fe5d92832bd8491f3adcb5f01c67cd12eba112485f8e03b252909a019a68" => :mojave
