@@ -5,6 +5,10 @@ class Gtkdatabox < Formula
   sha256 "d04938d969d5458bd0df1b4fa22f647fb2eeeef75555a71f967e6c039fb4bde5"
   license "LGPL-2.1"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "e85124ef7180c8803f8700e9269a47d3b5841c1cdace25e6914a50a0b7389dd1" => :catalina
