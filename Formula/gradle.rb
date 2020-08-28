@@ -5,6 +5,11 @@ class Gradle < Formula
   sha256 "11657af6356b7587bfb37287b5992e94a9686d5c8a0a1b60b87b9928a2decde5"
   license "Apache-2.0"
 
+  livecheck do
+    url "https://services.gradle.org/distributions/"
+    regex(/href=.*?gradle[._-]v?(\d+(?:\.\d+)+)-all\.(?:[tz])/i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
