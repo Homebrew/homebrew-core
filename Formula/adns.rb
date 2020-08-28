@@ -6,6 +6,11 @@ class Adns < Formula
   license "GPL-3.0"
   head "git://git.chiark.greenend.org.uk/~ianmdlvl/adns.git"
 
+  livecheck do
+    url "https://www.chiark.greenend.org.uk/~ian/adns/ftp/"
+    regex(/href=.*?adns[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "d9cc50eec8ac243148a121049c236cba06af4a0b1156ab397d0a2850aa79c137" => :catalina
