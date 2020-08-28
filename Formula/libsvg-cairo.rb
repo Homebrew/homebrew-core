@@ -6,6 +6,11 @@ class LibsvgCairo < Formula
   license "LGPL-2.1"
   revision 2
 
+  livecheck do
+    url "https://cairographics.org/snapshots/"
+    regex(/href=.*?libsvg-cairo[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "91b325120c82295bea226193e0c0e0a26ffc7a4e6dc07c41bc474676c3aa302c" => :catalina
