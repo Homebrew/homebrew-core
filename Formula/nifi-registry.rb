@@ -6,6 +6,10 @@ class NifiRegistry < Formula
   sha256 "6e4ac84a60bdb49adeaa6e21c2c2eb95909efe9bb3d1e1e9c8738ef0599d7364"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle :unneeded
 
   def install
