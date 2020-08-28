@@ -6,6 +6,11 @@ class Opencv < Formula
   license "BSD-3-Clause"
   revision 1
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 "7e5f2e99bd7b733490015a38fdabce0aa4513cafa05c4efe6d2781dbbdbbb9f3" => :catalina
     sha256 "6bb48854ad1afe61da1aa7db998bd974a0dd9436484564226977cb2f9ba38cc5" => :mojave
