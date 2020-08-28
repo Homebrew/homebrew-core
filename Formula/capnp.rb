@@ -6,6 +6,11 @@ class Capnp < Formula
   license "MIT"
   head "https://github.com/capnproto/capnproto.git"
 
+  livecheck do
+    url "https://capnproto.org/install.html"
+    regex(/href=.*?capnproto-c\+\+[._-]v?(\d+(\.\d+)*)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "741c2079361cdb5881a60684190bc4aa98ff9cc6f8d29aa46880e809ac1b06c3" => :catalina
