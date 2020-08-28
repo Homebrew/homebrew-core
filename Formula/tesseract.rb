@@ -6,6 +6,11 @@ class Tesseract < Formula
   license "Apache-2.0"
   head "https://github.com/tesseract-ocr/tesseract.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "81ff467946d9c85151c86819034cd183a983b4a3fa10374c7f039a5ec3ef0d82" => :catalina
