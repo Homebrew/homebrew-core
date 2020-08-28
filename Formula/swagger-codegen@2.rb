@@ -5,6 +5,11 @@ class SwaggerCodegenAT2 < Formula
   sha256 "11991be490abcdba1051372b584ceeb5ded58d93098e2f13fd2fd89fef9d11e7"
   license "Apache-2.0"
 
+  livecheck do
+    url "https://github.com/swagger-api/swagger-codegen.git"
+    regex(/^v?(2(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "1149ef4ed6c67c5b5724ae4deb2beaef231cb339c3d776ca2c7229b874d4eca6" => :catalina
