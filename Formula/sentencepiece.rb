@@ -6,6 +6,11 @@ class Sentencepiece < Formula
   license "Apache-2.0"
   head "https://github.com/google/sentencepiece.git"
 
+  livecheck do
+    url "https://github.com/google/sentencepiece/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     sha256 "c169b40d2a856514440b4fdfa7f461b9f1b2bc8c7d5e6603c3e42e8e62f90c0f" => :catalina
     sha256 "c144cb6375e447c1aee9616ab22250830892aa7bfdf230b3edc0c0a41a0bfa96" => :mojave
