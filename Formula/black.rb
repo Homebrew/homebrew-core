@@ -7,6 +7,11 @@ class Black < Formula
   sha256 "c2edb73a08e9e0e6f65a0e6af18b059b8b1cdd5bef997d7a0b181df93dc81539"
   revision 3
 
+  livecheck do
+    url :stable
+    regex(%r{href=.*?/packages.*?/black[._-]v?(\d+(?:\.\d+)*(?:[a-z]\d+)?)\.t}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "868f4480634c6571a0d958fee56dce581a51e491f91b759667b9425033a496dd" => :catalina
