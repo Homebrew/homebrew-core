@@ -5,6 +5,11 @@ class Dps8m < Formula
   sha256 "bb0106d0419afd75bc615006bd9e3f1ff93e12649346feb19820b73c92d06f0d"
   head "https://gitlab.com/dps8m/dps8m.git"
 
+  livecheck do
+    url :head
+    regex(/^R?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "d9d967a0c7dad0b63ea6327102cb5d83345ff6b0bcdbf754398c1a5cdb0b0916" => :catalina
