@@ -5,6 +5,11 @@ class Conserver < Formula
   sha256 "7db192f304126d7e5c15421c4c83cd5c08039f2f2b3c61b2998e71881ae47eea"
   license "BSD-3-Clause"
 
+  livecheck do
+    url "https://github.com/conserver/conserver/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "ce9d095a9e435480fe4a8eb2e73c0732fe0d7eda89aafc98e0599453eaa8f626" => :catalina
