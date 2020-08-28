@@ -5,6 +5,11 @@ class Libomp < Formula
   sha256 "d19f728c8e04fb1e94566c8d76aef50ec926cd2f95ef3bf1e0a5de4909b28b44"
   license "MIT"
 
+  livecheck do
+    url "https://llvm.org/"
+    regex(/LLVM (\d+.\d+.\d+)/i)
+  end
+
   bottle do
     cellar :any
     sha256 "8545af588b2b210708b56669365cea97eb80941fe455e69f54ad85f3bb5bc18c" => :catalina
