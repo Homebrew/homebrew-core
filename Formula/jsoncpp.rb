@@ -6,6 +6,11 @@ class Jsoncpp < Formula
   license "MIT"
   head "https://github.com/open-source-parsers/jsoncpp.git"
 
+  livecheck do
+    url "https://github.com/open-source-parsers/jsoncpp/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "0e937647ccad5ed68b70aa059027e367f120f7b6ad8657bfbd17ab4835a134a8" => :catalina
