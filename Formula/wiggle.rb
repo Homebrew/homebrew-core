@@ -5,6 +5,11 @@ class Wiggle < Formula
   sha256 "31375badb76a4a586f2113e49d13486dbc64844962ae80976a81c6542e901622"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://neil.brown.name/wiggle/"
+    regex(/href=.*?wiggle[._-](\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "ebf56026e29b37067218ad4ee2340de46df5b454b46848a0fe2ac117442cfce1" => :catalina
