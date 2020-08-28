@@ -5,6 +5,11 @@ class Testdisk < Formula
   sha256 "1413c47569e48c5b22653b943d48136cb228abcbd6f03da109c4df63382190fe"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://www.cgsecurity.org/wiki/TestDisk_Download"
+    regex(/href=.*?testdisk[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "66c4088c77794a244fd5b38fa39216eb8d6a09b9e4efd5e68a249e9b5df65606" => :catalina
