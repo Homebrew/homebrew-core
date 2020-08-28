@@ -6,6 +6,10 @@ class GnuShogi < Formula
   sha256 "1ecc48a866303c63652552b325d685e7ef5e9893244080291a61d96505d52b29"
   license "GPL-3.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "6c559fdfcd24543c1f83f681fe3337048783d17649804b642fb0063dee88d7c8" => :catalina
     sha256 "c52d5743a6b9b6aeff9ba4b87104fa7adb58e7752683420e2c038f0216a2447d" => :mojave
