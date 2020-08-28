@@ -5,6 +5,11 @@ class Netdata < Formula
   sha256 "e7d6691fdce893b5a341fc2ee11b3b4f951e7b426031fae4178e669066c264c0"
   license "GPL-3.0-or-later"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 "5149d410991d69f6930956a4559cf5672296baee357aa4a3e762086ffbdc2e26" => :catalina
     sha256 "881b6fcd86834263b11dd450e1a16fd19e39408c14f70c2b50d6b759ddad30d3" => :mojave
