@@ -6,6 +6,11 @@ class AmplMp < Formula
   license "MIT"
   revision 3
 
+  livecheck do
+    url "https://github.com/ampl/mp.git"
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "c111c501330b3ff8e3bde1a7e679f162bea1038df07de96810ea5cbe34775740" => :catalina
