@@ -5,6 +5,11 @@ class Neon < Formula
   mirror "https://fossies.org/linux/www/neon-0.31.2.tar.gz"
   sha256 "cf1ee3ac27a215814a9c80803fcee4f0ede8466ebead40267a9bd115e16a8678"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?neon[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "4cb9cac535f8d40ca71c0bb04fe2baa24f929685d06caf71311d285933ac0828" => :catalina
