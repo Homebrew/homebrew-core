@@ -25,6 +25,11 @@ class Nethacked < Formula
   sha256 "4e3065a7b652d5fc21577e0b7ac3a60513cd30f4ee81c7f11431a71185b609aa"
   license "NGPL"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 "619034420b0ce7a657824a14c45af647132ac8263839b9a56fc0b64ff100aa64" => :catalina
     sha256 "77cec385d3ab1ba8c9d4ef1234d25a42a7aff77c9db2158fad7820f677a67cc0" => :mojave
