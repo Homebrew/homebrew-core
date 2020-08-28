@@ -6,6 +6,11 @@ class Cmake < Formula
   license "BSD-3-Clause"
   head "https://gitlab.kitware.com/cmake/cmake.git"
 
+  livecheck do
+    url "https://cmake.org/download/"
+    regex(/Latest Release \(v?(\d+(?:\.\d+)+)\)/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "76c373c703198dd3b079c43f42ff0b043de2676d2e34a43695a917be51a42d54" => :catalina
