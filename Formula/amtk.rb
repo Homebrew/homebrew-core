@@ -6,6 +6,10 @@ class Amtk < Formula
   license "LGPL-2.1"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "539876f4666d5338b21594ab5e2de55cf8d13813cd5525713cc08e46f2e42a90" => :catalina
     sha256 "dba9b06ac527c556fca194606ed68ebad20d3fdf7d6b809d547f9edec00c99cd" => :mojave
