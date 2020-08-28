@@ -5,6 +5,11 @@ class Bcpp < Formula
   mirror "https://dl.bintray.com/homebrew/mirror/bcpp-20180401.tgz"
   sha256 "3fee78476833a8d6c647f0b9f6ad85209cdb104a538349bc24538c7f7aede81f"
 
+  livecheck do
+    url "https://invisible-island.net/bcpp/CHANGES.html"
+    regex(/id=.*?t(\d{6,8})["' >]/im)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "cc81540bae3c797979fdd5246a97479b685683ed4ec611f5e9a1f691147356af" => :catalina
