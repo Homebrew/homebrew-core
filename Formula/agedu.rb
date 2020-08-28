@@ -6,6 +6,11 @@ class Agedu < Formula
   sha256 "432dd9602df326088956b3e4f5efe656ad09777873d38695e0d68810899941c2"
   head "https://git.tartarus.org/simon/agedu.git"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?agedu[._-]v?(\d+)(?:\.[\da-z]+)?\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "d5b1ceb8b45632543c913d12641cb820335b0e99fd823c9404222f0e087edef4" => :catalina
