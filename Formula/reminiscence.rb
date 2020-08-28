@@ -4,6 +4,11 @@ class Reminiscence < Formula
   url "http://cyxdown.free.fr/reminiscence/REminiscence-0.4.6.tar.bz2"
   sha256 "a1738ca7df64cd34e75a0ada3110e70ed495260fda813bc9d8722b521fc6fee0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?REminiscence[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     rebuild 1
