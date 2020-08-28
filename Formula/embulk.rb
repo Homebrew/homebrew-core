@@ -7,6 +7,11 @@ class Embulk < Formula
   url "https://bintray.com/artifact/download/embulk/maven/embulk-0.9.23.jar"
   sha256 "153977fad482bf52100dd96f47e897c87b48de4fb13bccd6b3101475d3a5ebb9"
 
+  livecheck do
+    url "https://github.com/embulk/embulk.git"
+    regex(/^v?(0\.9(?:\.\d+)+)$/i)
+  end
+
   bottle :unneeded
 
   depends_on java: "1.8"
