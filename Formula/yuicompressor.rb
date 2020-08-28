@@ -6,6 +6,11 @@ class Yuicompressor < Formula
   license "BSD-3-Clause"
   revision 1
 
+  livecheck do
+    url "https://github.com/yui/yuicompressor/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
