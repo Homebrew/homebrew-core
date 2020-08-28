@@ -5,6 +5,11 @@ class Dynamips < Formula
   sha256 "08587589db2c3fc637e6345aebf4f9706825c12f45d9e2cf40d4189c604656d2"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://github.com/GNS3/dynamips/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "ecf536589504e42389e91865495faa4eb30ba20adad56bc865c0481e80abefe4" => :catalina
