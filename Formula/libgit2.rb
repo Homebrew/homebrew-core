@@ -6,6 +6,11 @@ class Libgit2 < Formula
   license "GPL-2.0"
   head "https://github.com/libgit2/libgit2.git"
 
+  livecheck do
+    url "https://github.com/libgit2/libgit2/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "e6456b9dde3c5ed975cc6a106e721ce63a84e37e71762889c360920c999f2b12" => :catalina
