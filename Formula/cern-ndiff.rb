@@ -6,6 +6,11 @@ class CernNdiff < Formula
   sha256 "b4853e231b510b6153968190aedfe95a2b0de058324a2b9bcc70b795d73c304d"
   head "https://github.com/MethodicalAcceleratorDesign/MAD-X.git"
 
+  livecheck do
+    url :head
+    regex(/^(?:mad-?X.)?v?(\d+(?:[._]\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "df835dc6cedc8d04c6113667fbc6344d5a16c900524b9c8b99011d83c43c50ce" => :catalina
