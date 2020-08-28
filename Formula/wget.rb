@@ -5,6 +5,10 @@ class Wget < Formula
   sha256 "31cccfc6630528db1c8e3a06f6decf2a370060b982841cfab2b8677400a5092e"
   revision 2
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "ef65c759c5097a36323fa9c77756468649e8d1980a3a4e05695c05e39568967c" => :catalina
     sha256 "28f4090610946a4eb207df102d841de23ced0d06ba31cb79e040d883906dcd4f" => :mojave
