@@ -5,6 +5,11 @@ class Plzip < Formula
   sha256 "edafae3c15142ac0ebd84c2231ff81da4f68db58359a737e750f2780686c3612"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://download.savannah.gnu.org/releases/lzip/plzip/"
+    regex(/href=.*?plzip[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "9cae6af29d979ef1e9ed1869f8a5013fe188f6c65ca138bed9a5f76ce178c881" => :catalina
