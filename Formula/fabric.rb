@@ -9,6 +9,11 @@ class Fabric < Formula
   revision 4
   head "https://github.com/fabric/fabric.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "2604897f853a67a5cde05ab79bda786818b433c0c7d94f859c4184044568a0b4" => :catalina
