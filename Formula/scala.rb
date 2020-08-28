@@ -7,6 +7,11 @@ class Scala < Formula
   sha256 "c9f3731bccf26cf39ac5413172fb41646cb19f63b8a2bb75f38e89675ce2697f"
   license "Apache-2.0"
 
+  livecheck do
+    url "https://www.scala-lang.org/files/archive"
+    regex(/href=.*?scala[._-]v?(\d+(?:\.\d+)+)(?:.final)?\.t/i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
