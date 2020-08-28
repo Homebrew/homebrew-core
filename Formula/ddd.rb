@@ -6,6 +6,10 @@ class Ddd < Formula
   sha256 "3ad6cd67d7f4b1d6b2d38537261564a0d26aaed077bf25c51efc1474d0e8b65c"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     rebuild 1
     sha256 "a2d1ceeadc2055223cea7c3e3776393dfc01bd0f2946ed82dda8226fe11ccb29" => :catalina
