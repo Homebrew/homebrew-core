@@ -6,6 +6,11 @@ class CheckPostgres < Formula
   license "BSD-2-Clause"
   head "https://github.com/bucardo/check_postgres.git"
 
+  livecheck do
+    url "https://bucardo.org/check_postgres/"
+    regex(/latest version.*?v?(\d+(?:\.\d+)+)/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "2f164aefe3706e144350278db4e9246359a8a58bba1f16fae289344553e33b64" => :catalina
