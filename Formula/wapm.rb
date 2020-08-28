@@ -6,6 +6,11 @@ class Wapm < Formula
   license "MIT"
   head "https://github.com/wasmerio/wapm-cli.git"
 
+  livecheck do
+    url "https://github.com/wasmerio/wapm-cli/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "4f1c18ce08a6f4a483a50888ad9769898a203bd826b992f877010f38a80ca710" => :catalina
