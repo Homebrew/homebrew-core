@@ -5,6 +5,11 @@ class Bzip2 < Formula
   sha256 "ab5a03176ee106d3f0fa90e381da478ddae405918153cca248e682cd0c4a2269"
   license "bzip2-1.0.6"
 
+  livecheck do
+    url "https://sourceware.org/pub/bzip2/"
+    regex(/href=.*?bzip2[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "b4fd6d4e72285e422d385623273ccd7967f4a3f475335cd49aa61e22c3e7d3d6" => :catalina
