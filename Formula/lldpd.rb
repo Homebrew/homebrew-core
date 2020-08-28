@@ -4,6 +4,10 @@ class Lldpd < Formula
   url "https://media.luffy.cx/files/lldpd/lldpd-1.0.5.tar.gz"
   sha256 "2dd3b212f4dbabfcbb2794c0010b245f9f8e74b387984e757be6243a74c6cb99"
 
+  livecheck do
+    url "https://github.com/vincentbernat/lldpd.git"
+  end
+
   bottle do
     sha256 "f37abc384f5435813515146bfa157d53d07611bce4b1b177ddc3d3410416b0b5" => :catalina
     sha256 "578f07789b6d8f8d0ab98d64707ec14a1879005a06bfe88f9d0447d474e7f2cf" => :mojave
