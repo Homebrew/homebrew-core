@@ -4,6 +4,11 @@ class Qd < Formula
   url "https://www.davidhbailey.com/dhbsoftware/qd-2.3.22.tar.gz"
   sha256 "30c1ffe46b95a0e9fa91085949ee5fca85f97ff7b41cd5fe79f79bab730206d3"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?qd[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     rebuild 2
