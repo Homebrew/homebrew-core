@@ -5,6 +5,11 @@ class Expat < Formula
   sha256 "1ea6965b15c2106b6bbe883397271c80dfa0331cdf821b2c319591b55eadc0a4"
   license "MIT"
 
+  livecheck do
+    url "https://github.com/libexpat/libexpat/releases/latest"
+    regex(/href=.*?expat[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "202ebb6d7a1eb01066263128fe34ebbbc806e5ee35b283510fa1074b674c3739" => :catalina
