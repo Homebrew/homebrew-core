@@ -6,6 +6,11 @@ class Blast < Formula
   sha256 "110729decf082f69b90b058c0cabaea38f771983a564308ae19cb30a68ce7b86"
   license "LGPL-2.1"
 
+  livecheck do
+    url "https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/"
+    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
+
   bottle do
     sha256 "652c133a61840c1a1f69de4f5827bd358434f3d7caa7886c273b3bab034e0721" => :catalina
     sha256 "b544b1e6e510c0c72b82b581a17eb8704ad53e46e9574d4dfd24bef8f5044148" => :mojave
