@@ -6,6 +6,11 @@ class SeleniumServerStandalone < Formula
   license "Apache-2.0"
   revision 2
 
+  livecheck do
+    url "https://www.selenium.dev/downloads/"
+    regex(/href=.*?selenium-server-standalone[._-]v?(\d+(?:\.\d+)+)\.jar/i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
