@@ -6,6 +6,10 @@ class Mailutils < Formula
   sha256 "1a4025280f504ff56269f0fc25859cfea20a39dd45d12abfffe1f89ee54e708a"
   license "GPL-3.0-or-later"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "2a0c02530447ce4edeeaab7b84cec370e342b02a5606eb36b6ab611d6a308eb9" => :catalina
     sha256 "dbdbd2b06de4ad016feaf7f89f3bd4536b205489476daac87e8a7e60e8350fd6" => :mojave
