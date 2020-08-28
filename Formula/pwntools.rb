@@ -7,6 +7,10 @@ class Pwntools < Formula
   sha256 "0d3768b436ad3d8aca01e8ae84fda6f1a6f43c4b96fa8c09b1dbb1cc13d607ba"
   license "MIT"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "cf14eb0499f5bfee521b9cbaecb583e238418e9b50de44f708c7d929353c28a2" => :catalina
