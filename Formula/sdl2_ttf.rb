@@ -5,6 +5,11 @@ class Sdl2Ttf < Formula
   sha256 "a9eceb1ad88c1f1545cd7bd28e7cbc0b2c14191d40238f531a15b01b1b22cd33"
   head "https://hg.libsdl.org/SDL_ttf", using: :hg
 
+  livecheck do
+    url :homepage
+    regex(/SDL2_ttf[._-]v?(\d+(?:\.\d+)*)/i)
+  end
+
   bottle do
     cellar :any
     rebuild 1
