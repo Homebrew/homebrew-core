@@ -4,6 +4,11 @@ class Mockserver < Formula
   url "https://oss.sonatype.org/content/repositories/releases/org/mock-server/mockserver-netty/5.11.1/mockserver-netty-5.11.1-brew-tar.tar"
   sha256 "9ceacc0be86fcbd24fe3bdc1e0160d15228e8adabc866aa73887a2cc24a72a6a"
 
+  livecheck do
+    url "https://oss.sonatype.org/content/repositories/releases/org/mock-server/mockserver-netty/"
+    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
