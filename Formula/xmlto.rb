@@ -5,6 +5,11 @@ class Xmlto < Formula
   sha256 "1130df3a7957eb9f6f0d29e4aa1c75732a7dfb6d639be013859b5c7ec5421276"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://releases.pagure.org/xmlto/?C=M&O=D"
+    regex(/href=.*?xmlto[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 1
