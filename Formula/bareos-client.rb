@@ -5,6 +5,11 @@ class BareosClient < Formula
   sha256 "694ccf3ce5e84800335fda1d20bc681fcab77ab746f70c072b7c37b5b9f71a44"
   license "AGPL-3.0"
 
+  livecheck do
+    url "https://github.com/bareos/bareos.git"
+    regex(%r{^Release/(\d+(?:\.\d+)+)$}i)
+  end
+
   bottle do
     sha256 "9d23bb8c20bc022d7426df495d12f79f49dc57c1b7cf0779c1be3d763e5e87fc" => :catalina
     sha256 "f75f72d5c4a2758e5ea68c9eeba4688e523db15aa5c0a4120fcb094199200036" => :mojave
