@@ -6,6 +6,11 @@ class RancherCli < Formula
   license "Apache-2.0"
   head "https://github.com/rancher/cli.git"
 
+  livecheck do
+    url "https://github.com/rancher/cli/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "949cbf3440dffdf14e161139aff69e2966d68719174e43a68b4c3e6e44d7df8b" => :catalina
