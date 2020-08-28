@@ -6,6 +6,10 @@ class GnuApl < Formula
   sha256 "144f4c858a0d430ce8f28be90a35920dd8e0951e56976cb80b55053fa0d8bbcb"
   license "GPL-3.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "2a7717b6b60567eade10b30f473771f563ebd6a009c91e0522eab6497516e892" => :catalina
     sha256 "9df4d2bfcfda74e10451b132d0c274265bb1e550a9d7829402913d7798a83c46" => :mojave
