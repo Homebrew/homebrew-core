@@ -6,6 +6,12 @@ class Abook < Formula
   license "GPL-2.0"
   head "https://git.code.sf.net/p/abook/git.git"
 
+  livecheck do
+    url "http://abook.sourceforge.net/"
+    strategy :page_match
+    regex(/href=.*?abook[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "09e77aa3db2cf8a702effbebbbf83f7a2f860b0d5db6bcf37549edb7db5438a7" => :catalina
     sha256 "a6ab99c751a03e11e2ace660ad9325a9fe4262598f284c0fb87626778383e29d" => :mojave
