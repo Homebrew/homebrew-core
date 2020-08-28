@@ -5,6 +5,11 @@ class Ats2Postiats < Formula
   sha256 "03f4bf7205f76732624c32a4bf0b346ddace23fdb5a1cde25c378d33043aaa3c"
   license "GPL-3.0"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/ATS2-Postiats[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "31e2f0c1a4e5e24ff4dfe3249f3713ef233c9440e4f14919faec3d330f8442c6" => :catalina
