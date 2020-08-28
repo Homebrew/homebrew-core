@@ -6,6 +6,11 @@ class PipesSh < Formula
   license "MIT"
   head "https://github.com/pipeseroni/pipes.sh.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "68d379998c00ca3662db8047c1c6e649491d65d851af264e04ce7cbdb7cbd2e2" => :catalina
