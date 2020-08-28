@@ -6,6 +6,11 @@ class Clog < Formula
   license "MIT"
   head "https://github.com/GothenburgBitFactory/clog.git", branch: "1.4.0", shallow: false
 
+  livecheck do
+    url "https://gothenburgbitfactory.org"
+    regex(/href=.*?clog[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "0a5985eee7c41d2199e64105cb0d32b8e065b57257841f48b2eb36a3a662bc7b" => :catalina
