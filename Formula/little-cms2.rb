@@ -8,6 +8,15 @@ class LittleCms2 < Formula
   license "MIT"
   version_scheme 1
 
+  # The Little CMS website has been redesigned and there's no longer a
+  # "Download" page we can check for releases. As of writing this, checking the
+  # "Releases" blog posts seems to be our best option and we just have to hope
+  # that the post URLs, headings, etc. maintain a consistent format.
+  livecheck do
+    url "http://www.littlecms.com/categories/releases/"
+    regex(%r{href=.*lcms2[._-]v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "b0fe7486871b0fb0e34012f48bce09e96229e5e2985d64e7a0164c2847e41975" => :catalina
