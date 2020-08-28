@@ -6,6 +6,11 @@ class Liblwgeom < Formula
   revision 1
   head "https://git.osgeo.org/gitea/postgis/postgis"
 
+  livecheck do
+    url "https://download.osgeo.org/postgis/source/"
+    regex(/href=.*?postgis[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "3b3992a15950249f302da1a43243e68c1a67d7e6e2c0643bb32b5a0c6bcff62d" => :catalina
