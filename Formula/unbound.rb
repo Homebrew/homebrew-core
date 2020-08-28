@@ -6,6 +6,14 @@ class Unbound < Formula
   license "BSD-3-Clause"
   head "https://github.com/NLnetLabs/unbound.git"
 
+  # We check the GitHub repo tags instead of
+  # https://nlnetlabs.nl/downloads/unbound/ since the first-party site has a
+  # tendency to lead to an `execution expired` error.
+  livecheck do
+    url :head
+    regex(/^(?:release-)?v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 "7e5335d2a33ade460682fd38c9b401921dcdacf151e5d16ecb5b0ee4ef522794" => :catalina
     sha256 "4a08f87a4d17bb7c6dc83eae148347e9e9bcffd8424f2d7b4b28fcbef218af17" => :mojave
