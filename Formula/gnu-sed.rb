@@ -6,6 +6,10 @@ class GnuSed < Formula
   sha256 "f79b0cfea71b37a8eeec8490db6c5f7ae7719c35587f21edb0617f370eeff633"
   license "GPL-3.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "726be75d6d7155820b408a10e5c1a5ba1406374a7fc167af62524a4f4bbbc099" => :catalina
