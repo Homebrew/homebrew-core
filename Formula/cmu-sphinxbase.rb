@@ -5,6 +5,11 @@ class CmuSphinxbase < Formula
   sha256 "55708944872bab1015b8ae07b379bf463764f469163a8fd114cbb16c5e486ca8"
   license "BSD-2-Clause"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/sphinxbase[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     rebuild 1
