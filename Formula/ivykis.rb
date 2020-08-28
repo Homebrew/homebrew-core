@@ -5,6 +5,11 @@ class Ivykis < Formula
   sha256 "b724516d6734f4d5c5f86ad80bde8fc7213c5a70ce2d46b9a2d86e8d150402b5"
   license "LGPL-2.1"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)(?:[._-]trunk)?$/i)
+  end
+
   bottle do
     cellar :any
     rebuild 1
