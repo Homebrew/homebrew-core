@@ -6,6 +6,10 @@ class M4 < Formula
   sha256 "f2c1e86ca0a404ff281631bdc8377638992744b175afb806e25871a24a934e07"
   license "GPL-3.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "7a8429bfaf8bac7bd0e31d77ba1344b8ec54edb2c462444febfcc5811d44424c" => :catalina
