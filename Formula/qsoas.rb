@@ -6,6 +6,11 @@ class Qsoas < Formula
   license "GPL-2.0"
   revision 1
 
+  livecheck do
+    url "http://bip.cnrs-mrs.fr/bip06/qsoas/downloads.html"
+    regex(/href=.*?qsoas[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "0792b9b5e0b57820e9bc0865815e2daef3de3a97a625f06080877bebcffd1d7f" => :catalina
