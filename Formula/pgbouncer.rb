@@ -4,6 +4,10 @@ class Pgbouncer < Formula
   url "https://www.pgbouncer.org/downloads/files/1.14.0/pgbouncer-1.14.0.tar.gz"
   sha256 "a0c13d10148f557e36ff7ed31793abb7a49e1f8b09aa2d4695d1c28fa101fee7"
 
+  livecheck do
+    url "https://github.com/pgbouncer/pgbouncer"
+  end
+
   bottle do
     cellar :any
     sha256 "eaecbb143f281ccc047d7a63488038c2d53de7ffaf56b56e532dce7089e30106" => :catalina
