@@ -9,6 +9,10 @@ class Proselint < Formula
   revision 3
   head "https://github.com/amperser/proselint.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "16677bb488b626f2a5ebab9c85b52e5aa34501861aaf146dd093fdeab9c8d7af" => :catalina
