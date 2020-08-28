@@ -5,6 +5,11 @@ class Empty < Formula
   sha256 "2fccd0faa1b3deaec1add679cbde3f34250e45872ad5df463badd4bb4edeb797"
   license "BSD-3-Clause"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/empty[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "8eac558272ccf2338a374ea2e7158a4b0cf9008cc0111fefa8c85a80cfab2ee1" => :catalina
