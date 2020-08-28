@@ -5,6 +5,11 @@ class Jansson < Formula
   sha256 "f4f377da17b10201a60c1108613e78ee15df6b12016b116b6de42209f47a474f"
   license "MIT"
 
+  livecheck do
+    url "https://digip.org/jansson/releases/"
+    regex(/href=.*?jansson[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "e6a942f77821fd65810d4bc20e6938364a5e40cd7c8510c4b090731573bd0088" => :catalina
