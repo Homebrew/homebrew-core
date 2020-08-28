@@ -5,6 +5,11 @@ class Aubio < Formula
   sha256 "d48282ae4dab83b3dc94c16cf011bcb63835c1c02b515490e1883049c3d1f3da"
   revision 1
 
+  livecheck do
+    url "https://aubio.org/pub/"
+    regex(/href=.*?aubio[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "933eeaef88547341ec684e7aa422dc92e6864a06caa211d8d988608da577a4b1" => :catalina
