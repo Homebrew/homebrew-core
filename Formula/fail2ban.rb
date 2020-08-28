@@ -5,6 +5,11 @@ class Fail2ban < Formula
   sha256 "71d2a52b66bb0f87ac3812246bdd3819ec561913cd44afd39130a342f043aa6d"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://github.com/fail2ban/fail2ban/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "74818c094f3afe181c5f6870331822d4bb32d99258f31f2dc30cfea89d111051" => :catalina
