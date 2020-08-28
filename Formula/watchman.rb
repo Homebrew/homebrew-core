@@ -16,6 +16,13 @@ class Watchman < Formula
     end
   end
 
+  # The Git repo contains a few tags like `2020.05.18.00`, so we have to
+  # restrict matching to versions with two to three parts (e.g., 1.2, 1.2.3).
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+){,2})$/i)
+  end
+
   bottle do
     sha256 "7840f564c11d33425c9eb8985f9156e782e66ef2a3578329dba83ee15a9bf0be" => :catalina
     sha256 "ba2338b0f23c8b8817fd7bfa92466b7a97ab416e93ec6c3a400041aef013de86" => :mojave
