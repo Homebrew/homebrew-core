@@ -6,6 +6,11 @@ class Nanomsg < Formula
   license "MIT"
   head "https://github.com/nanomsg/nanomsg.git"
 
+  livecheck do
+    url "https://github.com/nanomsg/nanomsg/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     sha256 "81cd453e3fdf65da66a54fda36c84248a1eb923ac92125fd14bdf68989aeb9b7" => :catalina
     sha256 "95609047c54b0207587db3a5b3cc8985b35fc922fe8785c63d4d2a44a78ff57f" => :mojave
