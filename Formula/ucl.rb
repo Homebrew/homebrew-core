@@ -5,6 +5,11 @@ class Ucl < Formula
   sha256 "b865299ffd45d73412293369c9754b07637680e5c826915f097577cd27350348"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://www.oberhumer.com/opensource/ucl/download/"
+    regex(/href=.*?ucl[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "5de2305d5da25469e7bf27d2e776a6e22b20806940ad1dea16d18b39a1125f7e" => :catalina
