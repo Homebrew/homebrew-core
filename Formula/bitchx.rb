@@ -5,6 +5,10 @@ class Bitchx < Formula
   sha256 "2d270500dd42b5e2b191980d584f6587ca8a0dbda26b35ce7fadb519f53c83e2"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "9e24f64d188be8be36054aad67ead05bffd2f1b5a7c6bef6bc9f98f7ea92fb87" => :catalina
     sha256 "52939d589b5697402b6b5c658ab065651ac1943e8c7c7c9798aca5f76790be00" => :mojave
