@@ -5,6 +5,11 @@ class Fcrackzip < Formula
   sha256 "4a58c8cb98177514ba17ee30d28d4927918bf0bdc3c94d260adfee44d2d43850"
   license "GPL-2.0"
 
+  livecheck do
+    url "http://oldhome.schmorp.de/marc/data/"
+    regex(/href=.*?fcrackzip[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "553e2ed7eb76dcf4a216bf214e0ceed63a72bda2e7fe9f5fb5f2ed86d8e7bfb8" => :catalina
