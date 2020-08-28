@@ -5,6 +5,11 @@ class Unar < Formula
   sha256 "40967014a505b7a27864c49dc3b5d30b98ae4e6d4873783b2ef9ef9215fd092b"
   license "LGPL-2.1"
 
+  livecheck do
+    url "https://wakaba.c3.cx/releases/TheUnarchiver/"
+    regex(/unarv?(\d+(?:\.\d+)+)_src/i)
+  end
+
   bottle do
     cellar :any
     rebuild 1
