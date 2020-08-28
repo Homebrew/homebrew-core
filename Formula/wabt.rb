@@ -6,6 +6,11 @@ class Wabt < Formula
     revision: "cd5ff133f84854f0b269f5cb06193ad8205f05d3"
   license "Apache-2.0"
 
+  livecheck do
+    url "https://github.com/WebAssembly/wabt/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "60d464680e3e70f9db8e079d1e6cb4d45f9c9994025cb3ba0f2b3a98c422f132" => :catalina
