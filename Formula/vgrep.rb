@@ -5,6 +5,11 @@ class Vgrep < Formula
   sha256 "062145687d4c33f66b35be15633ff60cd24fd467bf2791f1a8c3ffb069935aa4"
   license "GPL-3.0"
 
+  livecheck do
+    url "https://github.com/vrothberg/vgrep/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "5006d83eb22993f4cedcfce32b20b59e74526431bc44ea129b11f112f181c9a9" => :catalina
