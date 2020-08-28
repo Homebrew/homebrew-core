@@ -5,6 +5,10 @@ class FileRoller < Formula
   sha256 "0959e10a5d7a7442809624be9879d95db462ca76e8c66ad6299310e6acdb81b7"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "cb5891624ee410f126068ff1e6ebae88c86d98b50d094c9e348262f5e2e4a622" => :catalina
     sha256 "7e67ba40959e65fa8253acf762fc3430e27f054f35947cc54cc320ca8306cd2d" => :mojave
