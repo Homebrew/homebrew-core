@@ -4,6 +4,11 @@ class Gwenhywfar < Formula
   url "https://www.aquamaniac.de/rdm/attachments/download/331/gwenhywfar-5.4.0.tar.gz"
   sha256 "e59fed9873c0e4880f5cf43748498df9ff4ff67cb5061157d21a55d16bb97489"
 
+  livecheck do
+    url "https://www.aquamaniac.de/rdm/projects/gwenhywfar/files"
+    regex(/href=.*?gwenhywfar[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "5bef8974fffb05b11aa019bc1a541753e60f6d9ffb385ccaf73a655ee105e325" => :catalina
     sha256 "1cdd978aa9a8be025d4cea29b7e8ed1a619718c1707419c0e847c575811c68eb" => :mojave
