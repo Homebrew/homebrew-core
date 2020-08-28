@@ -6,6 +6,11 @@ class Ninja < Formula
   license "Apache-2.0"
   head "https://github.com/ninja-build/ninja.git"
 
+  livecheck do
+    url "https://github.com/ninja-build/ninja/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "d43c3811eef40b2ed82f7629a3cb8acab313f8459778e506de39d95b3cd0e5e3" => :catalina
