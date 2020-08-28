@@ -5,6 +5,11 @@ class Ncftp < Formula
   mirror "https://fossies.org/linux/misc/ncftp-3.2.6-src.tar.gz"
   sha256 "129e5954850290da98af012559e6743de193de0012e972ff939df9b604f81c23"
 
+  livecheck do
+    url "https://www.ncftp.com/download/"
+    regex(/href=.*?ncftp[._-]v?(\d+(?:\.\d+)+)(?:-src)?\.t/i)
+  end
+
   bottle do
     sha256 "4082ca1bf2427d1780e0ebcf96b1d90d78630544a318ef94808ba003bfb49f47" => :catalina
     sha256 "3f7f108352b84b36c6d2174e4cc71c9b5b3632ac79b2aa8293205ea322541ba0" => :mojave
