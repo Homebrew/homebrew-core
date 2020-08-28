@@ -6,6 +6,11 @@ class Libassuan < Formula
   sha256 "91bcb0403866b4e7c4bc1cc52ed4c364a9b5414b3994f718c70303f7f765e702"
   license "GPL-3.0"
 
+  livecheck do
+    url "https://gnupg.org/ftp/gcrypt/libassuan/"
+    regex(/href=.*?libassuan[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "fdb97ce031f3a56e224954c61e8e9f52698c04647ca0251f8ffe54ae27610a23" => :catalina
