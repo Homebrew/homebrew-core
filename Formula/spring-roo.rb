@@ -5,6 +5,11 @@ class SpringRoo < Formula
   version "2.0.0"
   sha256 "37819adf23b221a4544a7b1e6853b67f695fb915f5a1d433760e04fb4b5d7263"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?spring-roo[._-]v?(\d+(?:\.\d+)+)\.RELEASE\.zip/i)
+  end
+
   bottle :unneeded
 
   def install
