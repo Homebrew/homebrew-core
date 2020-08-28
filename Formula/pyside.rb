@@ -4,6 +4,11 @@ class Pyside < Formula
   url "https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.15.0-src/pyside-setup-opensource-src-5.15.0.tar.xz"
   sha256 "f1cdee53de3b76e22c1117a014a91ed95ac16e4760776f4f12dc38cd5a7b6b68"
 
+  livecheck do
+    url "https://download.qt.io/official_releases/QtForPython/pyside2/"
+    regex(%r{href=.*?PySide2[._-]v?(\d+(?:\.\d+)+)-src/}i)
+  end
+
   bottle do
     sha256 "e57b255441e9cd1aeeb0af012c69d54829b6f6fb0306bfa91e46ad4cebe33817" => :catalina
     sha256 "926963a98a1d3490ccd21e91428edeef3fb13bd1a9062142625a94a69f1e0991" => :mojave
