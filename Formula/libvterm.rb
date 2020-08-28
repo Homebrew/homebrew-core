@@ -6,6 +6,11 @@ class Libvterm < Formula
   license "MIT"
   version_scheme 1
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?libvterm[._-]v?(\d+(?:\.\d+)+)\./i)
+  end
+
   bottle do
     cellar :any
     sha256 "b62a78631bca9a723eb25dd924853ced974718df0847820c7c38f7f0d7fdc43c" => :catalina
