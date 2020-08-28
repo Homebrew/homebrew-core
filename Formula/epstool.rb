@@ -6,6 +6,11 @@ class Epstool < Formula
   sha256 "1e85249d1a44f9418b1f95a3aebd8b0784dab8e49deb6417ac9b996ca08f6011"
   license "GPL-2.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?epstool[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "3ef026d6cc575da86e43741df6a9f5419269bea22e8db6c6296811112678c690" => :catalina
