@@ -6,6 +6,11 @@ class Synfig < Formula
   revision 4
   head "https://svn.code.sf.net/p/synfig/code/"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/synfig[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     sha256 "6d117163a9f6842aacaf99fcbb72ba7b4af4a69ee7d39dcd76837fb24f79319a" => :catalina
     sha256 "b955e3352a86133f4175d8de262089638eb79bc59c6342c5addf5958fcf6fbc8" => :mojave
