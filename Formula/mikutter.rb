@@ -6,6 +6,11 @@ class Mikutter < Formula
   license "MIT"
   head "git://mikutter.hachune.net/mikutter.git", branch: "develop"
 
+  livecheck do
+    url "https://mikutter.hachune.net/download"
+    regex(/href=.*?mikutter.?v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "cb4bba033f7a9e68459cdb2bbb8a3a19a3d6d174784b227f4f2da1fba6978725" => :catalina
