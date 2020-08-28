@@ -6,6 +6,11 @@ class R < Formula
   license "GPL-2.0"
   revision 1
 
+  livecheck do
+    url "https://cran.rstudio.com/banner.shtml"
+    regex(%r{href=(?:["']?|.*?/)R[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     sha256 "4d2073c7d93e1117cc35fcc375f6eb112f16c311cc4400d703a805d57f0de71a" => :catalina
     sha256 "e337fd3411cd1dffc9be88c1e116d87acac55021b3a5c70af0feba1b1a2c7259" => :mojave
