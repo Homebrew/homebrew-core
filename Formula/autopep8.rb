@@ -7,6 +7,10 @@ class Autopep8 < Formula
   sha256 "d21d3901cb0da6ebd1e83fc9b0dfbde8b46afc2ede4fe32fbda0c7c6118ca094"
   license "MIT"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "7a1af51be88ece857ffbee3b688ab5c76ac465dfe482e08d5db715f167348607" => :catalina
