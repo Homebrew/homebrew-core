@@ -5,6 +5,11 @@ class Visp < Formula
   sha256 "f2ed11f8fee52c89487e6e24ba6a31fa604b326e08fb0f561a22c877ebdb640d"
   revision 7
 
+  livecheck do
+    url "https://visp.inria.fr/download/"
+    regex(/href=.*?visp[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "2a55095a34c32590a766b11f47a750671cf1c058cdf8bd6e04b8b28a21bc8af5" => :catalina
     sha256 "9a699785f7953b29c7d194f1516db2150ba038463c6bd934a1dee9834ef7353d" => :mojave
