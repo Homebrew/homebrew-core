@@ -5,6 +5,11 @@ class StressNg < Formula
   sha256 "a50b753f00a9c880eda4f9d72bb82e37149ac24fab4265212e101926a1c20868"
   license "GPL-2.0-or-later"
 
+  livecheck do
+    url "https://kernel.ubuntu.com/~cking/tarballs/stress-ng/"
+    regex(/href=.*?stress-ng[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "9de0e024c08012409f6656408e634d25022fa74921372032daa0800d68976a13" => :catalina
