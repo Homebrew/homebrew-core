@@ -5,6 +5,11 @@ class Knock < Formula
   sha256 "9938479c321066424f74c61f6bee46dfd355a828263dc89561a1ece3f56578a4"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://www.zeroflux.org/projects/knock"
+    regex(%r{The current version of knockd is <strong>v?(\d+(?:\.\d+)+)</strong>}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "d6d7e20fa46d9587c9e8f6f80cef047cb21997f9bd914f5999c02d345255e760" => :catalina
