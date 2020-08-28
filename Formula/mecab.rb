@@ -5,6 +5,11 @@ class Mecab < Formula
   url "https://deb.debian.org/debian/pool/main/m/mecab/mecab_0.996.orig.tar.gz"
   sha256 "e073325783135b72e666145c781bb48fada583d5224fb2490fb6c1403ba69c59"
 
+  livecheck do
+    url :homepage
+    regex(/mecab[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 3
     sha256 "dba6306bcd5ddb9a824cb366b5432a036889440f2253634c99410fbb0abe0047" => :catalina
