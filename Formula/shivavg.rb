@@ -5,6 +5,10 @@ class Shivavg < Formula
   sha256 "9735079392829f7aaf79e02ed84dd74f5c443c39c02ff461cfdd19cfc4ae89c4"
   license "LGPL-2.1"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "b7c8f247b6db49cd1cabd2efd39d034c25d727f27bce09a329d9cc3c8e36a621" => :catalina
