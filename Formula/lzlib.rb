@@ -4,6 +4,11 @@ class Lzlib < Formula
   url "https://download.savannah.gnu.org/releases/lzip/lzlib/lzlib-1.11.tar.gz"
   sha256 "6c5c5f8759d1ab7c4c3c53788ea2d9daad04aeddcf338226893f8ff134914d36"
 
+  livecheck do
+    url "https://download.savannah.gnu.org/releases/lzip/lzlib/"
+    regex(/href=.*?lzlib[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "8d43e434cb121e5fd9c1be9adfc0ff6c8afa8f51c786a5b855117eb6f3e9e2dd" => :catalina
