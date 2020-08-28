@@ -5,6 +5,11 @@ class Libfreehand < Formula
   sha256 "0e422d1564a6dbf22a9af598535425271e583514c0f7ba7d9091676420de34ac"
   revision 5
 
+  livecheck do
+    url "https://dev-www.libreoffice.org/src/"
+    regex(/href=["']?libfreehand[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "337aeb3f1454487fc132f9d67e3662dc6c3f0ba40a38a9a9c58d9f0b9bfc1955" => :catalina
