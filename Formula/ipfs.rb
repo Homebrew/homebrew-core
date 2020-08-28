@@ -9,6 +9,11 @@ class Ipfs < Formula
   revision 1
   head "https://github.com/ipfs/go-ipfs.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "0a54783b7614037349b7c378897bd9da2212db9bf43db160a94a5e463dd1ee33" => :catalina
