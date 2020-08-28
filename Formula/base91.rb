@@ -5,6 +5,10 @@ class Base91 < Formula
   sha256 "02cfae7322c1f865ca6ce8f2e0bb8d38c8513e76aed67bf1c94eab1343c6c651"
   license "BSD-3-Clause"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "239a9f51f67e7b1de09d10c838dffd2c34ce0f6f58641269e2278d6478b36542" => :catalina
