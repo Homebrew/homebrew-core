@@ -5,6 +5,11 @@ class Rav1e < Formula
   sha256 "a091f3387055e472b6e028aa013cf0f37fb5acce9f4db2605d929bbffb448d01"
   license "BSD-2-Clause"
 
+  livecheck do
+    url :stable
+    regex(/v([\d.]+)/i)
+  end
+
   bottle do
     cellar :any
     sha256 "b8c0b0614f67553f771f709f0849479a9aa86883d5b7c5d59df60fc6544a9a11" => :catalina
