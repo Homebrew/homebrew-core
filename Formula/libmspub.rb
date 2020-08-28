@@ -5,6 +5,11 @@ class Libmspub < Formula
   sha256 "ef36c1a1aabb2ba3b0bedaaafe717bf4480be2ba8de6f3894be5fd3702b013ba"
   revision 6
 
+  livecheck do
+    url "https://dev-www.libreoffice.org/src/"
+    regex(/href=["']?libmspub[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "704fcbb77c0ac89235fab6ed93549c23b9b29ad58e68ba2383af41c96cac4577" => :catalina
