@@ -7,6 +7,11 @@ class Libxml2 < Formula
   license "MIT"
   revision 1
 
+  livecheck do
+    url "http://xmlsoft.org/sources"
+    regex(/href=.*?libxml2[._-]v?([\d.]+\.[\d.]+\.[\d.]+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "bab6280370d9e7171d34e79ed1c1caa9b0b772ef7a1568f448a654255a505d5e" => :catalina
