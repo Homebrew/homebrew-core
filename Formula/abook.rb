@@ -1,13 +1,13 @@
 class Abook < Formula
   desc "Address book with mutt support"
   homepage "https://abook.sourceforge.io/"
-  url "http://abook.sourceforge.net/devel/abook-0.6.1.tar.gz"
+  url "https://abook.sourceforge.io/devel/abook-0.6.1.tar.gz"
   sha256 "f0a90df8694fb34685ecdd45d97db28b88046c15c95e7b0700596028bd8bc0f9"
   license "GPL-2.0"
   head "https://git.code.sf.net/p/abook/git.git"
 
   livecheck do
-    url "http://abook.sourceforge.net/"
+    url :homepage
     strategy :page_match
     regex(/href=.*?abook[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
