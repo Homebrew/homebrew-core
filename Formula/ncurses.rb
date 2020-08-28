@@ -6,6 +6,10 @@ class Ncurses < Formula
   sha256 "30306e0c76e0f9f1f0de987cf1c82a5c21e1ce6568b9227f7da5b71cbea86c9d"
   license "MIT"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "eae51ad3391edafe3d6c649ba44f607ee1464b4b5d9ee48770e9817ee5f0ccdd" => :catalina
     sha256 "1771e0ce821cf8cbe38d0ce8d1843fd559532923222edc5dbf5b31fcf24fed90" => :mojave
