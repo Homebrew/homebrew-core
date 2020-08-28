@@ -8,6 +8,11 @@ class OpensslAT11 < Formula
   license "OpenSSL"
   version_scheme 1
 
+  livecheck do
+    url "https://www.openssl.org/source/"
+    regex(/href=.*?openssl[._-]v?(1\.1(?:\.\d+)+[a-z]?)\.t/i)
+  end
+
   bottle do
     sha256 "1926679569c6af5337de812d86f4dad2b21ff883ad3a5d2cd9e8836ac5ac7ffe" => :catalina
     sha256 "5c9d113393ff3efc95e5509175305fc9304fba35390a61915ed2864941c423f2" => :mojave
