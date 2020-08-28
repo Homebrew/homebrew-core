@@ -6,6 +6,11 @@ class Opencascade < Formula
   sha256 "655da7717dac3460a22a6a7ee68860c1da56da2fec9c380d8ac0ac0349d67676"
   revision 1
 
+  livecheck do
+    url "https://www.opencascade.com/content/latest-release"
+    regex(/href=.*?opencascade[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "c40f93c6b10493d4bba40d037128e7babd92beeb7881f21e79c307d8f5691be7" => :catalina
