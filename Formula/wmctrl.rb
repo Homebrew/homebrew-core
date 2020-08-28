@@ -5,6 +5,11 @@ class Wmctrl < Formula
   sha256 "d78a1efdb62f18674298ad039c5cbdb1edb6e8e149bb3a8e3a01a4750aa3cca9"
   revision 1
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?wmctrl[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "7fffdc3399b2af15b638dfb642e44e0c148df088828f307c1f9440e38049cd5a" => :catalina
