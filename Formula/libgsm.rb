@@ -4,6 +4,11 @@ class Libgsm < Formula
   url "http://www.quut.com/gsm/gsm-1.0.19.tar.gz"
   sha256 "4903652f68a8c04d0041f0d19b1eb713ddcd2aa011c5e595b3b8bca2755270f6"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?gsm[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "9a3eaa556cd1a5429c458ee11c29b5c757ee6f32fbc334355110a37622357dc4" => :catalina
