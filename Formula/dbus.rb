@@ -6,6 +6,11 @@ class Dbus < Formula
   mirror "https://deb.debian.org/debian/pool/main/d/dbus/dbus_1.12.20.orig.tar.gz"
   sha256 "f77620140ecb4cdc67f37fb444f8a6bea70b5b6461f12f1cbe2cec60fa7de5fe"
 
+  livecheck do
+    url :head
+    regex(/^dbus[._-]v?(\d+\.\d*?[02468](?:\.\d+)*)$/i)
+  end
+
   bottle do
     sha256 "23513ea5d75203fe4374ab37cc4226f23f34ec604449ef572fd6a2b48a612ff3" => :catalina
     sha256 "912da7c3211a981762dc45e4f67fbedd1afd379459a40244340c83caa4134382" => :mojave
