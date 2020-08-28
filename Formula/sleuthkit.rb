@@ -5,6 +5,11 @@ class Sleuthkit < Formula
   sha256 "7bc5ee9130b1ed8d645e446e0f63bd34ad018a93c1275688fa38cfda28bde9d0"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://github.com/sleuthkit/sleuthkit/releases/latest"
+    regex(%r{href=.*?/tag/sleuthkit[._-]v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "e3bb514d3df5d19a066b27a455f04066dbaefbf0bfd80f3a10d5cbf73f7549f5" => :catalina
