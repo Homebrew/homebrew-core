@@ -7,6 +7,11 @@ class Php < Formula
   sha256 "23733f4a608ad1bebdcecf0138ebc5fd57cf20d6e0915f98a9444c3f747dc57b"
   license "PHP-3.01"
 
+  livecheck do
+    url "https://www.php.net/releases/feed.php"
+    regex(/PHP (\d+(?:\.\d+)+) /i)
+  end
+
   bottle do
     sha256 "d9fab3b015bed719b2a9ece221a6c813cfcc50b0e5f133e4dbb1a19da25a7d6d" => :catalina
     sha256 "9e7433b038f67fae0a1508ea01b14747f1b6d69d16b484f11a90dc94938d3e67" => :mojave
