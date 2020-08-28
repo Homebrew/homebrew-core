@@ -4,6 +4,11 @@ class Faac < Formula
   url "https://downloads.sourceforge.net/project/faac/faac-src/faac-1.29/faac-1.29.9.2.tar.gz"
   sha256 "d45f209d837c49dae6deebcdd87b8cc3b04ea290880358faecf5e7737740c771"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/faac[._-]v?(\d+(?:\.\d+)*)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "5687b72d43334c52e8b4daa4eda547d9541812807bf7b89d63be9a1e487ae78f" => :catalina
