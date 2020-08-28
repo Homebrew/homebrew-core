@@ -4,6 +4,11 @@ class Dtc < Formula
   url "https://www.kernel.org/pub/software/utils/dtc/dtc-1.6.0.tar.xz"
   sha256 "10503b0217e1b07933e29e8d347a00015b2431bea5f59afe0bed3af30340c82d"
 
+  livecheck do
+    url "https://mirrors.edge.kernel.org/pub/software/utils/dtc/"
+    regex(/href=.*?dtc[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "3cbdb48bb892f6cce39b9cc381f60a9ad8a785ad3582a4f324be8ec4caed7423" => :catalina
