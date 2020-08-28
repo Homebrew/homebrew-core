@@ -5,6 +5,10 @@ class Pbzip2 < Formula
   sha256 "8fd13eaaa266f7ee91f85c1ea97c86d9c9cc985969db9059cdebcb1e1b7bdbe6"
   license "bzip2-1.0.6"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "57c1c1065cd29ee37187b87705adfb73b84d114fc46408d4690024f3a29ac837" => :catalina
