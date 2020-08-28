@@ -6,6 +6,10 @@ class AutoconfArchive < Formula
   sha256 "17195c833098da79de5778ee90948f4c5d90ed1a0cf8391b4ab348e2ec511e3f"
   license "GPL-3.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "f793582f781bede0afc9b807ceaefe811114fb2248cf7fb87d770b8ded1bfdff" => :catalina
