@@ -5,6 +5,11 @@ class LinkGrammar < Formula
   sha256 "ad65a6b47ca0665b814430a5a8ff4de51f4805f7fb76642ced90297b4e7f16ed"
   license "LGPL-2.1"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?link-grammar[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "e38c9f157ec985be94ed5e792442f5d81c00b71d0b84164ed146d8ab3fbb46dd" => :catalina
     sha256 "4e9b86a609145b67983faa850c0918500cdcb1da5ab5f1ecb945cabdc8533b74" => :mojave
