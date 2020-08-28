@@ -6,6 +6,11 @@ class LittleCms < Formula
   license "MIT"
   revision 1
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/lcms[._-]v?(1(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "73cda76fd98e9466e570243f5190e68b45ffeeea2073185a51dd14dbde11a21a" => :catalina
