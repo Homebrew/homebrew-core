@@ -5,6 +5,11 @@ class Scalariform < Formula
   sha256 "59d7c26f26c13bdbc27e3011da244f01001d55741058062f49e4626862b7991e"
   license "MIT"
 
+  livecheck do
+    url "https://github.com/scala-ide/scalariform/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   head do
     url "https://github.com/scala-ide/scalariform.git"
     depends_on "sbt" => :build
