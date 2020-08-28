@@ -5,6 +5,11 @@ class GerbilScheme < Formula
   sha256 "1157d4ef60dab6a0f7c4986d5c938391973045093c470a03ffe02266c4d3e119"
   license "Apache-2.0"
 
+  livecheck do
+    url "https://github.com/vyzo/gerbil.git"
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 "2e58cb74f57dd09a84bfed13aa1d44a1f1f8f5c057c59d2a27a338950c53ce82" => :catalina
     sha256 "119570c624e9fb56e17df10263434eb0ba94ba3cdbcf5942c10cac9b26161318" => :mojave
