@@ -6,6 +6,10 @@ class Libchamplain < Formula
   license "LGPL-2.1"
   revision 2
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "cb5f211f8fa37e711a6e8888e4dfc873599defae9bad26f2d4310d798d0df98f" => :catalina
