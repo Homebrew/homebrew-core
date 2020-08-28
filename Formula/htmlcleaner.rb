@@ -6,6 +6,10 @@ class Htmlcleaner < Formula
   license "BSD-3-Clause"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "d32d3ccb0c576385b2fcbd5111f0e896097e2053be0a3abf4b76a2b5abbec890" => :catalina
