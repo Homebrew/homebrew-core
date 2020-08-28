@@ -5,6 +5,10 @@ class Lci < Formula
   sha256 "204f1ca5e2f56247d71ab320246811c220ed511bf08c9cb7f305cf180a93948e"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "a666107791ca81169da0ef403abeb77f5081baa97347d589c49c41c36650db7e" => :catalina
     sha256 "b2bf5e93bb4fdf90b6169b03fe046500fbc196c6d13068160bc92585e66384b3" => :mojave
