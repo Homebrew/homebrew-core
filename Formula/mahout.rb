@@ -7,6 +7,10 @@ class Mahout < Formula
   license "Apache-2.0"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   head do
     url "https://github.com/apache/mahout.git"
     depends_on "maven" => :build
