@@ -6,6 +6,11 @@ class SdlSound < Formula
   sha256 "3999fd0bbb485289a52be14b2f68b571cb84e380cc43387eadf778f64c79e6df"
   revision 1
 
+  livecheck do
+    url "https://icculus.org/SDL_sound/downloads/"
+    regex(/href=.*?SDL_sound[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "b8ac8b382c94d4a92032a8bc9c93d777fac1367851bd3df382089f747c347f05" => :catalina
