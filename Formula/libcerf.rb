@@ -6,6 +6,11 @@ class Libcerf < Formula
   license "MIT"
   head "https://jugit.fz-juelich.de/mlz/libcerf.git"
 
+  livecheck do
+    url "https://jugit.fz-juelich.de/api/v4/projects/269/releases"
+    regex(/libcerf[._-]v?(\d+(?:\.\d+)+)/i)
+  end
+
   bottle do
     cellar :any
     sha256 "d1be9525402c49ed718ae3192d0990be1964428f740dd76812db78cbc7225037" => :catalina
