@@ -7,6 +7,11 @@ class Simgrid < Formula
   sha256 "0b5dcdde64f1246f3daa7673eb1b5bd87663c0a37a2c5dcd43f976885c6d0b46"
   revision 1
 
+  livecheck do
+    url "https://framagit.org/simgrid/simgrid.git"
+    regex(/^v?(\d+(?:[._]\d+)+)$/i)
+  end
+
   bottle do
     sha256 "5f6acdf27e6f658a180026c72c52b36de25ee08d9eac609f762358277613ae0b" => :catalina
     sha256 "66357d6bbddedef44f1f35db0870592b1d4a1786d4f7ff87417ce0a88e1f0486" => :mojave
