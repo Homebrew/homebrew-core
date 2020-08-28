@@ -5,6 +5,11 @@ class Tmux < Formula
   sha256 "d93f351d50af05a75fe6681085670c786d9504a5da2608e481c47cf5e1486db9"
   license "ISC"
 
+  livecheck do
+    url "https://github.com/tmux/tmux/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+[a-z]?)["' >]}i)
+  end
+
   bottle do
     cellar :any
     rebuild 1
