@@ -6,6 +6,11 @@ class Mavsdk < Formula
     revision: "a1e83140a6a090ed77f3a79f2dada8237aedaedb"
   license "BSD-3-Clause"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "81b3ee66efc405426517c352894353d3d5ceda3a97c9f09db9eba8e30419c695" => :catalina
