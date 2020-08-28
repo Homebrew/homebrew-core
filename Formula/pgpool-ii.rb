@@ -4,6 +4,11 @@ class PgpoolIi < Formula
   url "https://www.pgpool.net/mediawiki/images/pgpool-II-4.1.3.tar.gz"
   sha256 "9749f3a4ca7d89376bc41932f4a267e0ca8d73db6757b16d92d8fed947734fb7"
 
+  livecheck do
+    url "https://www.pgpool.net/mediawiki/index.php/Downloads"
+    regex(/href=.*?pgpool-II[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "acdc49a0a74c10dbbc4453648eddee60d14adef61bd263801e37343720c5d22e" => :catalina
     sha256 "978b0b467d99e69292fc6f724ea2991256abef98584b2f4a9027c60c8e13e82b" => :mojave
