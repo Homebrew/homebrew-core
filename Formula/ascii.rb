@@ -5,6 +5,11 @@ class Ascii < Formula
   sha256 "728422d5f4da61a37a17b4364d06708e543297de0a5f70305243236d80df072d"
   license "BSD-2-Clause"
 
+  livecheck do
+    url :homepage
+    regex(/ascii[._-]v?(\d+(?:\.\d+)+)/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "2c106e2d3ce3534f09a5ce147f6fc0778e884d06f15e7c272ee99ccabaf947bd" => :catalina
