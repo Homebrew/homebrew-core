@@ -5,6 +5,11 @@ class Libdnet < Formula
   sha256 "83b33039787cf99990e977cef7f18a5d5e7aaffc4505548a83d31bd3515eb026"
   license "BSD-3-Clause"
 
+  livecheck do
+    url :homepage
+    regex(/^libdnet[._-]v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     rebuild 4
