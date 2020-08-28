@@ -6,6 +6,11 @@ class SwiProlog < Formula
   license "BSD-2-Clause"
   head "https://github.com/SWI-Prolog/swipl-devel.git"
 
+  livecheck do
+    url "https://www.swi-prolog.org/download/stable/src"
+    regex(/href=.*?swipl[._-]v?(\d+\.\d+\.\d+)\.t/i)
+  end
+
   bottle do
     sha256 "ff0b739f559d250bd0452f5567fa4484f8152145de2fc6d4854f74851bbbcd40" => :catalina
     sha256 "2f6c8c976324d9afea6fcf4683ed4a953eb4fb14b168de03c7f00399db9707d0" => :mojave
