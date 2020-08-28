@@ -6,6 +6,10 @@ class Mvnvm < Formula
   license "Apache-2.0"
   head "https://bitbucket.org/mjensen/mvnvm.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
