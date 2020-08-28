@@ -5,7 +5,7 @@ class Bcrypt < Formula
   sha256 "b9c1a7c0996a305465135b90123b0c63adbb5fa7c47a24b3f347deb2696d417d"
 
   livecheck do
-    url "http://bcrypt.sourceforge.net"
+    url :homepage
     strategy :page_match
     regex(/href=.*?bcrypt[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
