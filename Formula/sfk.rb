@@ -5,6 +5,11 @@ class Sfk < Formula
   version "1.9.7.0"
   sha256 "67009fd73d53c800302de58067dee2ceb64c5a43c10d32de30ab886efdd59399"
 
+  livecheck do
+    url :stable
+    regex(%r{url.*?swissfileknife/v?(\d+(?:\.\d+)+)/}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "008d880b4b2a3d06e60fb28bc9950d2774de8e1430c99922779ea3f81b8b3fd9" => :catalina
