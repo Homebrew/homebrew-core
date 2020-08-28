@@ -7,6 +7,10 @@ class Gdbgui < Formula
   sha256 "a14a59828a36016928d9bdf8423e6902266daa2ccab3df0142c6388afe3fe7bc"
   license "GPL-3.0-only"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "2eb005f159e9ca80ae77045bfa4b6239a60465d1f285d216ef97a22cbf231065" => :catalina
