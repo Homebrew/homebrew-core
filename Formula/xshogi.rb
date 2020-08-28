@@ -6,6 +6,10 @@ class Xshogi < Formula
   sha256 "2e2f1145e3317143615a764411178f538bd54945646b14fc2264aaeaa105dab6"
   license "GPL-3.0-or-later"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "09ccace2697472b65f34ca8ae2e770dd2cab177936541fbb7229ccbbcb5dfd04" => :catalina
