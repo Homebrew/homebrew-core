@@ -7,6 +7,11 @@ class Gnutls < Formula
   # license "LGPL-2.1-or-later AND GPL-3.0-only" - review syntax after resolving https://github.com/Homebrew/brew/pull/8260
   license "GPL-3.0-only"
 
+  livecheck do
+    url "https://www.gnupg.org/ftp/gcrypt/gnutls/v3.6/"
+    regex(/href=.*?gnutls[._-]v?(\d+(?:\.\d+)*)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 "0375c70651fb5aa4f6b1d8bcb1f0a5f280eb297d8989967ca22922761f86c290" => :catalina
