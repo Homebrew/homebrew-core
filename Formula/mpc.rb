@@ -5,6 +5,11 @@ class Mpc < Formula
   sha256 "4f40ccbe18f5095437283cfc525a97815e983cbfd3a29e48ff610fa4f1bf1296"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://www.musicpd.org/download/mpc/0/"
+    regex(/href=.*?mpc[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "341a4c3cef23004a47f37fa299047e63baedceb07405813d6fc112c9ad7d4ff2" => :catalina
