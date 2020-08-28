@@ -5,6 +5,11 @@ class KimApi < Formula
   sha256 "88a5416006c65a2940d82fad49de0885aead05bfa8b59f87d287db5516b9c467"
   revision 1
 
+  livecheck do
+    url "https://openkim.org/kim-api/previous-versions/"
+    regex(/href=.*?kim-api[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "585be65f52b6c5dd3b9c5ea0da1af889e24ef085f8174485d9256b84d9b01d84" => :catalina
     sha256 "29743babbc332f529773cba2962512e3d29c0e269675bbb033effedbe1f92da3" => :mojave
