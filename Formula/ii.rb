@@ -6,6 +6,11 @@ class Ii < Formula
   license "MIT"
   head "https://git.suckless.org/ii", using: :git
 
+  livecheck do
+    url "https://dl.suckless.org/tools/"
+    regex(/href=.*?ii[._-]v?(\d+(?:\.\d+)*)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 1
