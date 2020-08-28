@@ -6,6 +6,11 @@ class Irssi < Formula
   license "GPL-2.0"
   revision 1
 
+  livecheck do
+    url "https://irssi.org/download/"
+    regex(%r{<p>Latest release version: <strong>v?(\d+(?:\.\d+)+)</strong>}i)
+  end
+
   bottle do
     rebuild 1
     sha256 "a8d0caa726da8abaa3942e154ea6d6501df46ea3ae7c24d3583d3a229fd92727" => :catalina
