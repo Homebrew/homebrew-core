@@ -55,6 +55,11 @@ class Llvm < Formula
     end
   end
 
+  livecheck do
+    url :homepage
+    regex(/LLVM (\d+.\d+.\d+)/i)
+  end
+
   bottle do
     cellar :any
     sha256 "e3ec9fda84756750ac0b5620ff34da04ba5035c8276af1bebfe76e012bb0b14a" => :catalina
