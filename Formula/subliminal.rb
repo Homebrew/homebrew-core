@@ -8,6 +8,10 @@ class Subliminal < Formula
   license "MIT"
   head "https://github.com/Diaoul/subliminal.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "acb2c64ce2c6bebcedda7841217ad4e3d2c3f7c0818da57dd6d881236e97f573" => :catalina
