@@ -8,6 +8,11 @@ class Weboob < Formula
   sha256 "fc8be1f77ad3a53285cef8b20a8b747960c163fad729c56838043d8ddcdfc9b0"
   revision 1
 
+  livecheck do
+    url "https://git.weboob.org/weboob/weboob.git"
+    regex(/^v?(\d+(?:\.(?:\d+|[a-z])+))$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "b0258a8a3e10541d81b2eb546f42e650437d0bccdf9625cdac309ec9e374aa2a" => :catalina
