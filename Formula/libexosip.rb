@@ -6,6 +6,11 @@ class Libexosip < Formula
   sha256 "abdee47383ee0763a198b97441d5be189a72083435b5d73627e22d8fff5beaba"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://download.savannah.gnu.org/releases/exosip/"
+    regex(/href=.*?libexosip2[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "7fddfd2e60d8a14273dff40805d6b453317923aab3150fe1d48a809532eac6a0" => :catalina
