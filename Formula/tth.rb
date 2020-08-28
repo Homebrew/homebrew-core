@@ -4,6 +4,11 @@ class Tth < Formula
   url "http://hutchinson.belmont.ma.us/tth/tth_distribution/tth_4.14.tgz"
   sha256 "47aa3631496522aab68f9c7e860ad76c0a5445491a32a2bb7ca4089a9d1665e0"
 
+  livecheck do
+    url "http://hutchinson.belmont.ma.us/tth/Version"
+    regex(/"v?(\d+(?:\.\d+)+)"/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "795276a9b4c2cdf1373585d536d7df254966ecc16463b0f5579465cf76a052c8" => :catalina
