@@ -4,6 +4,11 @@ class Htpdate < Formula
   url "http://www.vervest.org/htp/archive/c/htpdate-1.2.2.tar.xz"
   sha256 "5f1f959877852abb3153fa407e8532161a7abe916aa635796ef93f8e4119f955"
 
+  livecheck do
+    url "http://www.vervest.org/htp/archive/c/?C=M&O=D"
+    regex(/href=.*?htpdate[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "ed41231b1e7d1760603e39f3e161be7cf817abc978f70c0dcbaec3bb206d9d8d" => :catalina
