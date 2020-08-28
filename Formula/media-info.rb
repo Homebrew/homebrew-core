@@ -5,6 +5,11 @@ class MediaInfo < Formula
   sha256 "4e400b80870c144d549d65c845e0e745050d9512cbf21d1c2f53d70f60492c0c"
   license "BSD-2-Clause"
 
+  livecheck do
+    url "https://mediaarea.net/download/binary/mediainfo/"
+    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "14b8e57b2773a7ebbf442d7778c1ac1405a3911d991349d3b14f5f2afc094edf" => :catalina
