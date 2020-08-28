@@ -5,6 +5,11 @@ class Dsh < Formula
   sha256 "520031a5474c25c6b3f9a0840e06a4fea4750734043ab06342522f533fa5b4d0"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://www.netfort.gr.jp/~dancer/software/downloads/"
+    regex(/href=.*?dsh[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "e978724605a216f2e3ffc5df3ba12bb53e3150aa63b7d18779723e563a35f867" => :mojave
     sha256 "5d553941319eae8d839a53063057fff05b359eb13e53da2d7313c3d41fae88b0" => :high_sierra
