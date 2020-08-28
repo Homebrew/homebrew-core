@@ -5,6 +5,11 @@ class Arpoison < Formula
   sha256 "63571633826e413a9bdaab760425d0fab76abaf71a2b7ff6a00d1de53d83e741"
   revision 1
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?arpoison[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "550588e02ce0eb78b47d2d2f9e8b863c29761667aca72e4ad0c0810b13682d9b" => :catalina
