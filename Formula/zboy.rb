@@ -6,6 +6,11 @@ class Zboy < Formula
   license "GPL-3.0"
   head "https://svn.code.sf.net/p/zboy/code/trunk"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/zboy[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "9e143e9227bc22e48d66f7e9f3239374d4d22edc4d0867ffe50f8f60180d27db" => :catalina
