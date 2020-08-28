@@ -7,6 +7,10 @@ class Lensfun < Formula
   sha256 "82c29c833c1604c48ca3ab8a35e86b7189b8effac1b1476095c0529afb702808"
   revision 2
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "66ab460c11f7476a85c31f9941d2b2f35a416d1f2db9a75b029ed038ff63cf0c" => :catalina
     sha256 "913b9cebd837443975420bf43b32076b6cd52ca3358599f5ea05229f08e4cc9e" => :mojave
