@@ -6,6 +6,11 @@ class Freetype < Formula
   sha256 "1543d61025d2e6312e0a1c563652555f17378a204a61e99928c9fcef030a2d8b"
   license "FTL"
 
+  livecheck do
+    url :stable
+    regex(/url=.*?freetype[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "16500bbd77b8bbeb9a4ad432c795df313c8ac108f31a28119b794000d2ba05f2" => :catalina
