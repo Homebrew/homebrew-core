@@ -7,6 +7,11 @@ class Coccinelle < Formula
   license "GPL-2.0"
   head "https://github.com/coccinelle/coccinelle.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "cc2f0b1ff9f45f48c91f136b1b88ac6c7d2e34b475d77d1c0e418f1a47e691b2" => :catalina
