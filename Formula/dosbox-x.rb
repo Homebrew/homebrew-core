@@ -7,6 +7,11 @@ class DosboxX < Formula
   version_scheme 1
   head "https://github.com/joncampbell123/dosbox-x.git"
 
+  livecheck do
+    url :head
+    regex(/^dosbox-x[._-]v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "1c82f41f94e7edd7436dacdf757711c6610b422601c8ce5a0678e73238cfdea2" => :catalina
