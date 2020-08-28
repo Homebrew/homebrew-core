@@ -6,6 +6,11 @@ class S2geometry < Formula
   license "Apache-2.0"
   revision 1
 
+  livecheck do
+    url :homepage
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "69e0912c7a35acdcd926fa997e0c7e37ee1b8908f113b0d5a6ccc80c1bbe020c" => :catalina
