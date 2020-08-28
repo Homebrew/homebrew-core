@@ -5,6 +5,11 @@ class Gputils < Formula
   sha256 "6f88a018e85717b57a22f27a0ca41b2157633a82351f7755be92e2d7dc40bb14"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/gputils[._-]v?(\d+(?:\.\d+)+(?:-\d+)?)\.t}i)
+  end
+
   bottle do
     sha256 "66500b5fe160a363d47dd326ff7e983e33f81d25a457f0304ada80de72d61ac8" => :catalina
     sha256 "94ddaac79ac5d6cfdddbd588fbb2ccd8be3f5a62662fe64d19a63828d8b6d305" => :mojave
