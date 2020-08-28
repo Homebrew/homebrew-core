@@ -5,6 +5,11 @@ class Knot < Formula
   sha256 "1109a8ba212ff8ddfdbaf44a6f8fc13a2b880a98a9e54c19112ba72a1aacbf76"
   license "GPL-3.0"
 
+  livecheck do
+    url "https://secure.nic.cz/files/knot-dns/"
+    regex(/href=.*?knot[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "1f2c208e2bd5f7451865d8f923e68a21ff023e87349f51d710432d25056b8a6c" => :catalina
     sha256 "10cff141d8b38bb6b06426f08cb85eb8ce67035b5da7ed222cf9edcdb6d1d661" => :mojave
