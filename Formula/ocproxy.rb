@@ -7,6 +7,11 @@ class Ocproxy < Formula
   revision 1
   head "https://github.com/cernekee/ocproxy.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d{1,3})+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "53016c9f83444b015e71e2f1678b1aab1e7914f42a8c5d8de1ab581fca130ef8" => :catalina
