@@ -6,6 +6,11 @@ class Npth < Formula
   sha256 "1393abd9adcf0762d34798dc34fdcf4d0d22a8410721e76f1e3afcd1daa4e2d1"
   license "LGPL-2.1"
 
+  livecheck do
+    url "https://gnupg.org/ftp/gcrypt/npth/"
+    regex(/href=.*?npth[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "ecb35292b1cbcf24e42f9dd0691dc9030345e8b8b1b7f9c9a865fca2fb25932c" => :catalina
