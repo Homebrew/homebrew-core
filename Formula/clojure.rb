@@ -6,6 +6,11 @@ class Clojure < Formula
   license "EPL-1.0"
   version_scheme 1
 
+  livecheck do
+    url "https://raw.githubusercontent.com/clojure/homebrew-tools/master/Formula/clojure.rb"
+    regex(/url ".*?clojure-tools-v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
