@@ -5,6 +5,11 @@ class Mpgtx < Formula
   sha256 "8815e73e98b862f12ba1ef5eaaf49407cf211c1f668c5ee325bf04af27f8e377"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/mpgtx[._-]v?(\d+(?:\.\d+)+(?:-\d+)?)(?:-src)?\.t}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "116812d4c0401a6ceeae3bd8bd0bc3f4870c0cac7f9ec166ceb97f5279c10d32" => :catalina
