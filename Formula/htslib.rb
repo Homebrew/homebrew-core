@@ -6,6 +6,11 @@ class Htslib < Formula
   license "MIT"
   revision 1
 
+  livecheck do
+    url "https://github.com/samtools/htslib/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "15811a81a76e9245f555614843c079350f2e11ab7a043dde180a4b21e19f76a1" => :catalina
