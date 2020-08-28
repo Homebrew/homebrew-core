@@ -6,6 +6,11 @@ class Backupninja < Formula
   sha256 "abe444d0c7520ede7847b9497da4b1253a49579f59293b043c47b1dd9833280a"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://sourcearchive.raspbian.org/main/b/backupninja/"
+    regex(/href=.*?backupninja[._-]v?(\d+(?:\.\d+)+)\.orig\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "10006896f517296c2a62d1f510d3795afa2777f24d401206cfb69ce06bdf5d3c" => :catalina
