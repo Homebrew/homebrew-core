@@ -6,6 +6,11 @@ class Poppler < Formula
   license "GPL-2.0"
   head "https://anongit.freedesktop.org/git/poppler/poppler.git"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?poppler[._-]v?(\d+(?:\.\d+)*)\.t/i)
+  end
+
   bottle do
     sha256 "da177ae8a0478d5886e2ee2ea6db51d22affaf9aac400d636b28c65e780176fd" => :catalina
     sha256 "c00b51e54bbaecba8c74aa4df838614bdd72e73269e4152eaceba062c835cfbf" => :mojave
