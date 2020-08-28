@@ -6,6 +6,11 @@ class Pcb < Formula
   license "GPL-2.0"
   version_scheme 1
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/pcb[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     sha256 "a1dca0926d6752943013906f21eb4f1d14156fcbb3dfc9906953df52ab7e7b51" => :catalina
     sha256 "0f598ed594a62cf96451a20635e186967957db8a536c20398285d26d88505772" => :mojave
