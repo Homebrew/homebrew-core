@@ -6,6 +6,13 @@ class Lean < Formula
   license "Apache-2.0"
   head "https://github.com/leanprover-community/lean.git"
 
+  # The Lean 3 repository (https://github.com/leanprover/lean/) is archived
+  # and there won't be any new releases. Lean 4 is being developed but is still
+  # a work in progress: https://github.com/leanprover/lean4
+  livecheck do
+    skip "Lean 3 is archived; add a new check once Lean 4 is stable"
+  end
+
   bottle do
     cellar :any
     sha256 "60bf9be856f7c4158d18717387bd9a74e1e8036fb4ecdb285b3d410e82fec907" => :catalina
