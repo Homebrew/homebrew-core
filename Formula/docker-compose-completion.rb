@@ -7,6 +7,11 @@ class DockerComposeCompletion < Formula
   revision 1
   head "https://github.com/docker/compose.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle :unneeded
 
   conflicts_with "docker-compose",
