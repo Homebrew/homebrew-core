@@ -5,6 +5,10 @@ class Clutter < Formula
   sha256 "8b48fac159843f556d0a6be3dbfc6b083fc6d9c58a20a49a6b4919ab4263c4e6"
   license "LGPL-2.1"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "ccec39ce9c941de753798e466b8cfc2a69612319d8b5a422f6e4bde49db305b1" => :catalina
     sha256 "43da6f50107059a3c9b215e77d29724f9e71a17fd89f5e72a200cd021e32f471" => :mojave
