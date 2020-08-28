@@ -4,6 +4,11 @@ class Libxmlsec1 < Formula
   url "https://www.aleksey.com/xmlsec/download/xmlsec1-1.2.30.tar.gz"
   sha256 "2d84360b03042178def1d9ff538acacaed2b3a27411db7b2874f1612ed71abc8"
 
+  livecheck do
+    url "https://www.aleksey.com/xmlsec/download/"
+    regex(/href=.*?xmlsec1[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "4214643458e159a5de8d558ac93c0f9a96c862cde71bc4f14a794d797304bd31" => :catalina
