@@ -4,6 +4,10 @@ class WrkTrello < Formula
   url "https://github.s3.amazonaws.com/downloads/blangel/wrk/wrk-1.0.1.tar.gz"
   sha256 "85aea066c49fd52ad3e30f3399ba1a5e60ec18c10909c5061f68b09d80f5befe"
 
+  livecheck do
+    skip "Not actively developed or maintained"
+  end
+
   bottle :unneeded
 
   conflicts_with "wrk", because: "both install `wrk` binaries"
