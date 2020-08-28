@@ -6,6 +6,11 @@ class Libu2fServer < Formula
   license "BSD-2-Clause"
   revision 3
 
+  livecheck do
+    url "https://developers.yubico.com/libu2f-server/Releases/"
+    regex(/href=.*?libu2f-server[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "3a5038a64a9820c04a4ad1067ebcf8076936474cc5c18a0d93f7c986adcf0169" => :catalina
