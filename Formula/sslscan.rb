@@ -6,6 +6,11 @@ class Sslscan < Formula
   license "GPL-3.0"
   head "https://github.com/rbsec/sslscan.git"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)(?:-rbsec)?$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "0949543e58e7665068a56a31d977de39d2c092489a05766321ac8297296f79d9" => :catalina
