@@ -5,6 +5,11 @@ class Groovy < Formula
   sha256 "f7ffaed8aa63611bf68bef0db512ab979926c6e8778393fe573c553b9bd39e10"
   license "Apache-2.0"
 
+  livecheck do
+    url "https://dl.bintray.com/groovy/maven/"
+    regex(/href=.*?groovy-binary[._-]v?([\d.]+)\.zip/i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
