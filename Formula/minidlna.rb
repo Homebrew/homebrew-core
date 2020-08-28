@@ -5,6 +5,10 @@ class Minidlna < Formula
   sha256 "67388ba23ab0c7033557a32084804f796aa2a796db7bb2b770fb76ac2a742eec"
   revision 3
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "200ede8d7a76a0ddf22978ec19f464e7716ae1e33c0c01b17877de7fcf0a0ea9" => :catalina
