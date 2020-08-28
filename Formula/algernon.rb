@@ -8,6 +8,11 @@ class Algernon < Formula
   version_scheme 1
   head "https://github.com/xyproto/algernon.git"
 
+  livecheck do
+    url "https://github.com/xyproto/algernon/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "86789f00d6b8d3469c5d3df5087149a72d1673cb7f2b7e31360672a6193e4eb2" => :catalina
