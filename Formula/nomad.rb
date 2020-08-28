@@ -6,6 +6,11 @@ class Nomad < Formula
   license "MPL-2.0"
   head "https://github.com/hashicorp/nomad.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "d5d76c0f53f4c14a949b57c78039f626ff15ee59b6eb8f130b611e2b3ea62e74" => :catalina
