@@ -5,6 +5,11 @@ class Mawk < Formula
   sha256 "7fd4cd1e1fae9290fe089171181bbc6291dfd9bca939ca804f0ddb851c8b8237"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://invisible-mirror.net/archives/mawk/?C=M&O=D"
+    regex(/href=.*?mawk[._-]v?(\d+(?:\.\d+)+(?:-\d+)?)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "03f9aa87a079b35b6f93813e4016e85d102c578d8b65f2f967b0b7c5c5d869ad" => :catalina
