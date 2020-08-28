@@ -6,6 +6,11 @@ class Stress < Formula
   sha256 "057e4fc2a7706411e1014bf172e4f94b63a12f18412378fca8684ca92408825b"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://deb.debian.org/debian/pool/main/s/stress/"
+    regex(/href=.*?stress[._-]v?(\d+(?:\.\d+)+)\.orig\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "ca9674089210d1cac7af47b5f8402ce41bcbc8348892a72f226bb4d29587b349" => :catalina
