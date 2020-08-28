@@ -5,6 +5,11 @@ class Megatools < Formula
   sha256 "8dc1ca348633fd49de7eb832b323e8dc295f1c55aefb484d30e6475218558bdb"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://megatools.megous.com/builds/"
+    regex(/href=.*?megatools[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "88c7b8cf60517507c7d6e7d9709b53bca671d949c7363c117e27ffb7d860f855" => :catalina
