@@ -8,6 +8,10 @@ class Ant < Formula
   revision 1
   head "https://git-wip-us.apache.org/repos/asf/ant.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
