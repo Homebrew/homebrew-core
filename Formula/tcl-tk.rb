@@ -6,6 +6,11 @@ class TclTk < Formula
   sha256 "5196dbf6638e3df8d5c87b5815c8c2b758496eb6f0e41446596c9a4e638d87ed"
   license "TCL"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/(?:tcl|tk).?v?(\d+(?:\.\d+)+)[._-]src\.t}i)
+  end
+
   bottle do
     rebuild 1
     sha256 "4740b30b97f0308ecc59c1308945c38ddca5d3da528d779f38199a2dad905fa1" => :catalina
