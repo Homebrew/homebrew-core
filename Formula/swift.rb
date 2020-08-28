@@ -7,6 +7,11 @@ class Swift < Formula
   license "Apache-2.0"
   revision 1
 
+  livecheck do
+    url "https://swift.org/download/"
+    regex(/Releases<.*?>Swift v?(\d+(?:\.\d+)+)</im)
+  end
+
   bottle do
     sha256 "26e59645661eaeea4b9c59deea4dd5591dedce7c74b20c772f2e82ab3450d678" => :catalina
     sha256 "b49fe185bb64ab86515c9b51d43046aad807fa70e49668a403385a72cc4a70b7" => :mojave
