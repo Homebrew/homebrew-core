@@ -7,6 +7,10 @@ class AnsibleLint < Formula
   sha256 "9f311c1f94057a8231c5d7b890bb9b8a15034d26c61d69b4e730fe105073ed49"
   license "MIT"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "0087cb6e32949132978d4c57b2f89a56587f4aa0c020220e54028c2a586f35fa" => :catalina
