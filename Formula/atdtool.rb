@@ -8,6 +8,10 @@ class Atdtool < Formula
   license "BSD-3-Clause"
   revision 3
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "f02a78aa9dbb19e8ca8670a6890f3d51949d014e6890ba5039fd9695bc1f46ce" => :catalina
