@@ -7,6 +7,11 @@ class OsrmBackend < Formula
   revision 2
   head "https://github.com/Project-OSRM/osrm-backend.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     rebuild 1
