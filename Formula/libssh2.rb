@@ -6,6 +6,11 @@ class Libssh2 < Formula
   license "BSD-3-Clause"
   revision 1
 
+  livecheck do
+    url "https://libssh2.org/download/"
+    regex(/href=.*?libssh2[._-]v?(\d+(?:\.\d+)+)\./i)
+  end
+
   bottle do
     cellar :any
     sha256 "2c4dcf8149663f9a133deac5bc42ce308d1ced90227cac391ca30b0ab2d381f9" => :catalina
