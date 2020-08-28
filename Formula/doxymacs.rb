@@ -5,6 +5,10 @@ class Doxymacs < Formula
   sha256 "a23fd833bc3c21ee5387c62597610941e987f9d4372916f996bf6249cc495afa"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "48298f0f0b797c18f3af78a77a0f09f9db3880dc9d85771794894da348aedf1c" => :mojave
