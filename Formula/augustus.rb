@@ -7,6 +7,11 @@ class Augustus < Formula
   revision 1
   head "https://github.com/Gaius-Augustus/Augustus.git"
 
+  livecheck do
+    url "http://bioinf.uni-greifswald.de/augustus/binaries/"
+    regex(/href=.*?augustus[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "9e6fc1d57f48cf314fa418059a9d619a8451d7e65ed8234225e52f311673cf6d" => :catalina
