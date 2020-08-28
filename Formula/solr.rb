@@ -6,6 +6,10 @@ class Solr < Formula
   sha256 "8fe0fb4470a75ee78db8fd3c34878355585f1bf6a69df877acec3e6eb5fc4637"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
