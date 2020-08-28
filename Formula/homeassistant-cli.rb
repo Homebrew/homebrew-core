@@ -8,6 +8,10 @@ class HomeassistantCli < Formula
   license "Apache-2.0"
   head "https://github.com/home-assistant/home-assistant-cli.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "147e080fb5b9377766c8788a371ac336da5568e960b6857468a94c2410d8ff15" => :catalina
