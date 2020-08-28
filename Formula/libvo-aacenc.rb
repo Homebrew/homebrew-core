@@ -5,6 +5,11 @@ class LibvoAacenc < Formula
   sha256 "e51a7477a359f18df7c4f82d195dab4e14e7414cbd48cf79cc195fc446850f36"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/vo-aacenc[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "144e0c345d0567a74aba09cfec49fba8f409e2db5abcee96b598127cc5d722ad" => :catalina
