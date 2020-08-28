@@ -5,6 +5,11 @@ class Libp11 < Formula
   sha256 "639ea43c3341e267214b712e1e5e12397fd2d350899e673dd1220f3c6b8e3db4"
   license "LGPL-2.1"
 
+  livecheck do
+    url :head
+    regex(/^libp11[._-]v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "6b02a04559e7c4559dafde0dd6b44fbb22680c469381a9da1dc8cd3111abf939" => :catalina
