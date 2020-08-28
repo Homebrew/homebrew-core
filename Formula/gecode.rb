@@ -5,6 +5,10 @@ class Gecode < Formula
   sha256 "27d91721a690db1e96fa9bb97cec0d73a937e9dc8062c3327f8a4ccb08e951fd"
   license "MIT"
 
+  livecheck do
+    url "https://github.com/Gecode/gecode"
+  end
+
   bottle do
     cellar :any
     sha256 "de386e8ea3dcdbce6d35fe62e0f38f0bf51c6844db35eb7a2f81aa5501fa9c0d" => :catalina
