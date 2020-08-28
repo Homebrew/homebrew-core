@@ -5,6 +5,10 @@ class Bvi < Formula
   sha256 "3035255ca79e0464567d255baa5544f7794e2b7eb791dcc60cc339cf1aa01e28"
   license "GPL-3.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "83cfa7a1fe8848d8eab7f01da94a32e75eb7c57221854a3f3f06a05417975977" => :catalina
     sha256 "567e9512dfd4fcf7768c442a6e609f7b798b887e4cdd59c1b38970940b9c528f" => :mojave
