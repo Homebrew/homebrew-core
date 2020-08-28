@@ -7,6 +7,11 @@ class Kapacitor < Formula
   license "MIT"
   head "https://github.com/influxdata/kapacitor.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "45d4043ba983183baffd30a4316cc18f0da3c2b432be37e542c9d15de49dcfa4" => :catalina
