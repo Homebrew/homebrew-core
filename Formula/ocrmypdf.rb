@@ -7,6 +7,10 @@ class Ocrmypdf < Formula
   sha256 "26600d326eb0e12c45fa96f48955021adf90a25e0bfc800e6f10c1d780c5c36a"
   license "MPL-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "1a138523edd74db5503a0a21a1ddce66843103804549dc67e826b7e385517a42" => :catalina
