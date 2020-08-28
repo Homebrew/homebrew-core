@@ -4,6 +4,11 @@ class Cppcms < Formula
   url "https://downloads.sourceforge.net/project/cppcms/cppcms/1.2.1/cppcms-1.2.1.tar.bz2"
   sha256 "10fec7710409c949a229b9019ea065e25ff5687103037551b6f05716bf6cac52"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/cppcms[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     rebuild 1
