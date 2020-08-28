@@ -7,6 +7,10 @@ class GimmeAwsCreds < Formula
   sha256 "a9cf1c816c9d0f8401832bca7f1ae05061edc0632a37853f3de9d942ad5d60d6"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "736faae3b3e9f48ea386933bc68de1cb64a293e13e5ae4111d437997964386ec" => :catalina
