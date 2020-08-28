@@ -4,6 +4,11 @@ class Sonarqube < Formula
   url "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.4.1.35646.zip"
   sha256 "8fd4fb072a499036416227482209c0db346c900abde8558d94f866542ad8be04"
 
+  livecheck do
+    url "https://binaries.sonarsource.com/Distribution/sonarqube/"
+    regex(/href=.*?sonarqube[._-]v?(\d+(?:\.\d+)+)\.zip/i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
