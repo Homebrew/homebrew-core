@@ -7,6 +7,10 @@ class Couchdb < Formula
   license "Apache-2.0"
   revision 2
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "0e3d1fa0ce2afb1e38f3b141b8d7cb66211823bd57f8b72733f0261c76cf8795" => :catalina
