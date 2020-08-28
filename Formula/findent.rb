@@ -4,6 +4,11 @@ class Findent < Formula
   url "https://downloads.sourceforge.net/project/findent/findent-3.1.7.tar.gz"
   sha256 "42bbf3fd80c14bb44fd18fa73aa53596829f4fb2bacabe57733eb8a9e4f00bb2"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/findent[._-]v?(\d+(?:\.\d+)+)\.(?:t|zip)}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "24a8f26724d9e49ca1fcd4b87bccb4bc1f120205e54fbc8806a654683020ba3a" => :catalina
