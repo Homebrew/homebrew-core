@@ -5,6 +5,11 @@ class Di < Formula
   sha256 "19d549feb59ccde7ff1cd2c48fea7b9ba99fa2285da81424603e23d8b5db3b33"
   license "Zlib"
 
+  livecheck do
+    url :homepage
+    regex(%r{<p>Current Version: v?(\d+(?:\.\d+)+)</p>}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "c49db9fca46dd848d4cf5badc22524ab66f8169c6368a7839023b3593969f451" => :catalina
