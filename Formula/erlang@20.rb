@@ -6,6 +6,11 @@ class ErlangAT20 < Formula
   sha256 "dce78b60938a48b887317e5222cff946fd4af36666153ab2f0f022aa91755813"
   license "Apache-2.0"
 
+  livecheck do
+    url "https://github.com/erlang/otp.git"
+    regex(/OTP[._-]v?(20(?:\.\d+)+)/i)
+  end
+
   bottle do
     cellar :any
     sha256 "130019a8e459654a92e7267b60932867c8c27957d5bd5b791e358407e6d2755b" => :catalina
