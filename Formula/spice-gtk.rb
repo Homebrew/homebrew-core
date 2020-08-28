@@ -5,6 +5,11 @@ class SpiceGtk < Formula
   sha256 "1f28b706472ad391cda79a93fd7b4c7a03e84b88fc46ddb35dddbe323c923bb7"
   revision 4
 
+  livecheck do
+    url "https://www.spice-space.org/download/gtk/"
+    regex(/href=.*?spice-gtk[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "0e79a73e33dd941c0011d5dab31fd330bd7fe7833d4a16f3d66ebf0fa431a2c3" => :catalina
     sha256 "429a96412033c4c47ce892cbac6a43b7e9ad8523438f6d0ad532d8c8d3ee53ce" => :mojave
