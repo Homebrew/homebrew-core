@@ -6,6 +6,11 @@ class Launch < Formula
   license "BSD-3-Clause"
   head "https://github.com/nriley/launch.git"
 
+  livecheck do
+    url "https://sabi.net/nriley/software/"
+    regex(/href=.*?launch[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "e6e543dda95bf0eea6d817e5df484f91493f84bc49bedf5d73420be8452f3f05" => :catalina
