@@ -4,6 +4,11 @@ class Ballerina < Formula
   url "https://dist.ballerina.io/downloads/1.2.7/ballerina-1.2.7.zip"
   sha256 "4fefd5a38432b8b6abc68ea9f9211ade9b174f415586320ed7c5b227042c7e9c"
 
+  livecheck do
+    url "https://ballerina.io/learn/installing-ballerina/"
+    regex(/href=.*?ballerina[._-]v?(\d+(?:\.\d+)+)/i)
+  end
+
   bottle :unneeded
 
   depends_on java: "1.8"
