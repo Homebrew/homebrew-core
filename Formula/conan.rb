@@ -8,6 +8,11 @@ class Conan < Formula
   license "MIT"
   head "https://github.com/conan-io/conan.git"
 
+  livecheck do
+    url "https://github.com/conan-io/conan/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "f167b27643f41a68e5c77a4d543a20e0abdebea61f53aa02c7d59f5496bd0b79" => :catalina
