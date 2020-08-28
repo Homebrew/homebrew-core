@@ -6,6 +6,11 @@ class Ddclient < Formula
   license "GPL-2.0"
   head "https://github.com/wimpunk/ddclient.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "d4e32d3e5c88ea3d8b77caccd50e1a291e44934542279289f6e8e13203496214" => :catalina
