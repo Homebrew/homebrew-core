@@ -4,6 +4,11 @@ class Libmikmod < Formula
   url "https://downloads.sourceforge.net/project/mikmod/libmikmod/3.3.11.1/libmikmod-3.3.11.1.tar.gz"
   sha256 "ad9d64dfc8f83684876419ea7cd4ff4a41d8bcd8c23ef37ecb3a200a16b46d19"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/libmikmod[._-](\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "2151c9e70ca92a911af8cf769c18541c5d107df349b44987f716909c67216c59" => :catalina
