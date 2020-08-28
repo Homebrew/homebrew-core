@@ -6,6 +6,10 @@ class Wdiff < Formula
   sha256 "34ff698c870c87e6e47a838eeaaae729fa73349139fc8db12211d2a22b78af6b"
   revision 2
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "cd316e673c68a54b9be013a7a0fb96beba13648bd0048f7f1fd8b7a8b07ab821" => :catalina
     sha256 "89e0de3859b91c4dcdc4a9ac2ae4569f72cd472658e6d3dfa82e6acc919c68a1" => :mojave
