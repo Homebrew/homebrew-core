@@ -10,6 +10,11 @@ class Qt < Formula
 
   head "https://code.qt.io/qt/qt5.git", branch: "dev", shallow: false
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "c1094fb3e2c5efa2580f4ad36f240a83b08a5118aa8f12a526f08fca27e6d6c7" => :catalina
