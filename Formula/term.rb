@@ -5,6 +5,10 @@ class Term < Formula
   version "2.1"
   sha256 "a0a430f024ff330c6225fe52e3ed9278fccf8a9cd2be9023282481dacfdffb3c"
 
+  livecheck do
+    skip "Cannot reliably check for new releases upstream"
+  end
+
   bottle :unneeded
 
   def install
