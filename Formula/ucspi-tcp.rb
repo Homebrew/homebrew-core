@@ -4,6 +4,11 @@ class UcspiTcp < Formula
   url "https://cr.yp.to/ucspi-tcp/ucspi-tcp-0.88.tar.gz"
   sha256 "4a0615cab74886f5b4f7e8fd32933a07b955536a3476d74ea087a3ea66a23e9c"
 
+  livecheck do
+    url "https://cr.yp.to/ucspi-tcp/install.html"
+    regex(/href=.*?ucspi-tcp[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "7daae5b06fc2d2d42c1fcfc02368bf84e565d0557de006c14c2a31cc91cd25ee" => :catalina
