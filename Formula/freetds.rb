@@ -6,7 +6,7 @@ class Freetds < Formula
   license "LGPL-2.0"
 
   livecheck do
-    url "http://www.freetds.org/files/stable/"
+    url "https://www.freetds.org/files/stable/"
     regex(/href=.*?freetds[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
