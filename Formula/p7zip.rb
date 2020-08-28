@@ -7,6 +7,10 @@ class P7zip < Formula
   license "LGPL-2.1"
   revision 2
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "b9f5fb1321ce5738d0129b3c48f51fc36a947bd84450f95ce9caa90e767fbd1b" => :catalina
