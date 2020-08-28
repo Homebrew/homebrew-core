@@ -3,6 +3,7 @@ class SonarqubeLts < Formula
   homepage "https://www.sonarqube.org/"
   url "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-7.9.4.zip"
   sha256 "67fd0e9b2f4a1cf481ac9c5487173e4b1aa05381e6219428f53de510c8f2289d"
+  license "LGPL-3.0-or-later"
 
   # The regex below should only match the LTS release archive on the Sonarqube
   # downloads page. This is necessary because the usual index page for releases
