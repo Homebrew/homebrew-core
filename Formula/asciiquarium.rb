@@ -6,6 +6,11 @@ class Asciiquarium < Formula
   license "GPL-2.0"
   revision 1
 
+  livecheck do
+    url "https://robobunny.com/projects/asciiquarium/"
+    regex(/href=.*?asciiquarium[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "9bf092861aad33c28e8f753d79032eb9af48521508dbee0a5ec6dc3646e6cc89" => :catalina
