@@ -5,6 +5,11 @@ class Ckan < Formula
   sha256 "2486d98e06c247a61a94e583c202b8a4c74a439de3ea271b769d041aa78d21cd"
   license "MIT"
 
+  livecheck do
+    url "https://github.com/KSP-CKAN/CKAN/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle :unneeded
 
   depends_on "mono"
