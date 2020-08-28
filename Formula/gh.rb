@@ -6,6 +6,11 @@ class Gh < Formula
     revision: "58bd549de5db008e9dd92cb6673b9ed85449d778"
   license "MIT"
 
+  livecheck do
+    url "https://github.com/cli/cli/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "8c407d1a98c582f12b7830c854b1c29e706a4215b5d5fae94cdf85b1929a9dfe" => :catalina
