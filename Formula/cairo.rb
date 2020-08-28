@@ -6,6 +6,11 @@ class Cairo < Formula
   license "LGPL-2.1"
   revision 3
 
+  livecheck do
+    url "https://cairographics.org/releases/?C=M&O=D"
+    regex(%r{href=(?:["']?|.*?/)cairo[._-]v?(\d+\.\d*[02468](?:\.\d+)*)\.t}i)
+  end
+
   bottle do
     sha256 "6a23a68837269a8410a54950fdc8883feda091f221118370f1bfd3adbf5ee89c" => :catalina
     sha256 "0984045234fb22fa3e54a337137e9e43a1bf997f5d77692ed02249dfdee2b1bf" => :mojave
