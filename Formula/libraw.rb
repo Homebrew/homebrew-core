@@ -5,6 +5,11 @@ class Libraw < Formula
   sha256 "1f0a383da2ce9f409087facd28261decbf6be72cc90c78cd003b0766e4d694a3"
   license any_of: ["LGPL-2.1-only", "CDDL-1.0"]
 
+  livecheck do
+    url "https://www.libraw.org/download/"
+    regex(/href=.*?LibRaw[._-]v?(\d+(?:\.\d+)*)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "b1ca92d6627af7e3f7eb67683da5d5e911298b2e3c45c20d233e9beaa0ab8d44" => :catalina
