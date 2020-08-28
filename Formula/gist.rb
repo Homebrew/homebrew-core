@@ -1,8 +1,8 @@
 class Gist < Formula
   desc "Command-line utility for uploading Gists"
   homepage "https://github.com/defunkt/gist"
-  url "https://github.com/defunkt/gist/archive/v5.1.0.tar.gz"
-  sha256 "843cea035c137d23d786965688afc9ee70610ac6c3d6f6615cb958d6c792fbb2"
+  url "https://github.com/defunkt/gist/archive/v6.0.0.tar.gz"
+  sha256 "ddfb33c039f8825506830448a658aa22685fc0c25dbe6d0240490982c4721812"
   license "MIT"
   head "https://github.com/defunkt/gist.git"
 
