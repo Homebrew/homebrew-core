@@ -5,6 +5,11 @@ class Curl < Formula
   sha256 "ad91970864102a59765e20ce16216efc9d6ad381471f7accceceab7d905703ef"
   license "curl"
 
+  livecheck do
+    url "https://curl.haxx.se/download/"
+    regex(/href=.*?curl[._-]v?(.*?)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "cf0b3a7fa1d1608caad2c0a9c9a8336f354e5376c827205d65cd17768dea62d8" => :catalina
