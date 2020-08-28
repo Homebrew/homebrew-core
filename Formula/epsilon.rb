@@ -5,6 +5,11 @@ class Epsilon < Formula
   sha256 "5421a15969d4d7af0ac0a11d519ba8d1d2147dc28d8c062bf0c52f3a0d4c54c4"
   license "GPL-3.0"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/epsilon[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "62d1ce5e34b79a09f68f079ec79768e85677ab5d6f3c13caedae9bd41399e052" => :catalina
