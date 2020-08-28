@@ -14,7 +14,7 @@ class Mhonarc < Formula
 
   depends_on "perl"
 
-  # Apply a bugfix for syntax. http://savannah.nongnu.org/bugs/?49997
+  # Apply a bugfix for syntax. https://savannah.nongnu.org/bugs/?49997
   patch do
     url "https://file.savannah.gnu.org/file/monharc.patch?file_id=39391"
     sha256 "723ef1779474c6728fbc88b1f6e9a4ca2c22d76a8adc4d3bd8838793852e60c4"
