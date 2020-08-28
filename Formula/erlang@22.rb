@@ -6,6 +6,11 @@ class ErlangAT22 < Formula
   sha256 "ba12911c731d914edcfcb5f10dd7df8deb1e3aa5ecf222802f644620dffb2db4"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    regex(/^OTP[._-]v?(22(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "2ce59891a295d8e9bde00e94a7b4e6df0757e56fe00f7b15423b003d9d429d4e" => :catalina
