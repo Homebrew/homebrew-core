@@ -4,6 +4,11 @@ class Stunnel < Formula
   url "https://www.stunnel.org/downloads/stunnel-5.56.tar.gz"
   sha256 "7384bfb356b9a89ddfee70b5ca494d187605bb516b4fff597e167f97e2236b22"
 
+  livecheck do
+    url "https://www.stunnel.org/downloads.html"
+    regex(/href=.*?stunnel[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "90d65b410dfcabbc5d4b586449ae92b23cbe3f9e087a7075ec66b81807c17b7b" => :catalina
