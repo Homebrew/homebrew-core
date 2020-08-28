@@ -5,6 +5,11 @@ class Rabbitmq < Formula
   sha256 "7b36e4d3e9359185d9da477b68f01d07321288288bcc45198f4ffe0242d76287"
   license "MPL-2.0"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle :unneeded
 
   depends_on "python@3.8" => :build
