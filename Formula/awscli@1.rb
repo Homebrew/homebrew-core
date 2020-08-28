@@ -8,6 +8,11 @@ class AwscliAT1 < Formula
   sha256 "21bc80ba44dcaccc00ac1449a03cb8cc8af1bf9f72284ef01d1a1e0364c08483"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    regex(/^v?(1(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "b9ad0825aaa6d73857528ece6c2353999782daceb481a3e16b26377fad387bb1" => :catalina
