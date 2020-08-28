@@ -6,6 +6,11 @@ class SdlImage < Formula
   license "Zlib"
   revision 7
 
+  livecheck do
+    url "https://www.libsdl.org/projects/SDL_image/release/"
+    regex(/href=.*?SDL_image[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "af782fa2905042005df213106578123c7fd1d6d3111af8bd16e1ec63e273bb8d" => :catalina
