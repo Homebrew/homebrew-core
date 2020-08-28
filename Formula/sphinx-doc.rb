@@ -7,6 +7,10 @@ class SphinxDoc < Formula
   sha256 "cf2d5bc3c6c930ab0a1fbef3ad8a82994b1bf4ae923f8098a05c7e5516f07177"
   license "BSD-2-Clause"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "dccf6509a8d77fd0b97cf246529467d2886fe73c3d674d9cdbc4ffac5c19fbec" => :catalina
