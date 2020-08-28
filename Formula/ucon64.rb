@@ -6,6 +6,11 @@ class Ucon64 < Formula
   license "GPL-2.0"
   head "https://svn.code.sf.net/p/ucon64/svn/trunk/ucon64"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/ucon64[._-]v?(\d+(?:\.\d+)+)-src\.t}i)
+  end
+
   bottle do
     sha256 "f0bf36d7828e138e2fe1068b4b5bf1b9e70f80cef564c186950a30ab2cb1df85" => :catalina
     sha256 "893570e77b17c3400f391fc0a710958b3599d5ad0c5971897d84c7e4552e2ca6" => :mojave
