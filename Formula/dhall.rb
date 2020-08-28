@@ -4,6 +4,10 @@ class Dhall < Formula
   url "https://hackage.haskell.org/package/dhall-1.34.0/dhall-1.34.0.tar.gz"
   sha256 "0dbc61611d465f744aec13fd3114a9d75bbaa434f1aaa3de7e49c385d9fe1b67"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "4fe8913cd2e0274a2e64cabfd86cf3566aea96a8da7b464183defc31fa4a68ef" => :catalina
