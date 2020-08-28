@@ -5,6 +5,10 @@ class Guile < Formula
   mirror "https://ftpmirror.gnu.org/guile/guile-3.0.4.tar.xz"
   sha256 "6b7947dc2e3d115983846a268b8f5753c12fd5547e42fbf2b97d75a3b79f0d31"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     rebuild 1
     sha256 "82d5ae8de3a1c8bf11e35b53487d6dbd14536376d04b9939df052f2eac66f0f0" => :catalina
