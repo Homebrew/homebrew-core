@@ -7,6 +7,12 @@ class Sqoop < Formula
   sha256 "64111b136dbadcb873ce17e09201f723d4aea81e5e7c843e400eb817bb26f235"
   license "Apache-2.0"
 
+  # The regex here avoids x.99 releases, as they're pre-release versions.
+  livecheck do
+    url :stable
+    regex(%r{href=["']?v?((?!\d+\.9\d+)\d+(?:\.\d+)+)/?["' >]}i)
+  end
+
   bottle :unneeded
 
   depends_on "coreutils"
