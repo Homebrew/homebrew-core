@@ -5,6 +5,10 @@ class Vte3 < Formula
   sha256 "feb76e1181a357d86112d447a08d127e2081438df76ece83243b18609dd9822a"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "783483804a85b6616bea1754e8c9f7695938eb34ce5ea86723b23221e508fcf2" => :catalina
     sha256 "69ecc587660a67fa8138063a7152af533fa6dd9841a8b84021f78099380f043f" => :mojave
