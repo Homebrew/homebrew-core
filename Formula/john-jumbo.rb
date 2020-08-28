@@ -6,6 +6,11 @@ class JohnJumbo < Formula
   sha256 "f5d123f82983c53d8cc598e174394b074be7a77756f5fb5ed8515918c81e7f3b"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://github.com/magnumripper/JohnTheRipper.git"
+    regex(/^v?(\d+(?:\.\d+)+)-jumbo-\d$/i)
+  end
+
   bottle do
     rebuild 1
     sha256 "e7a19321df5d635dab8f7049d96ee032c7536f1f2bf41b2b1d032e1665bfd127" => :catalina
