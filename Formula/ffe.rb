@@ -5,6 +5,11 @@ class Ffe < Formula
   sha256 "78bab8fa1068a62600c3de153122b8fc9252080ddbc521f71b938b5dbd9afb0d"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/ffe[._-]v?(\d+(?:\.\d+)+(?:-\d+)?)\.t}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "59d1950fc3b1ed9baccaa08b100a4768e1a5dd21895623d1bbb99077218426fb" => :catalina
