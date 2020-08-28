@@ -5,6 +5,10 @@ class GupnpTools < Formula
   sha256 "41da7ff5ba8e2425adcb64ca5e04c81f57ca20ec6fdb84923939fdad42c6a18d"
   revision 4
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "4100de40650880fa3ad8023c65e07c651aaf1286da8865a3e865f55016eb330e" => :catalina
     sha256 "6a4d56ae6c680111619ad67125ffe3ee96944404771bbfdf7cdf6db0322a5379" => :mojave
