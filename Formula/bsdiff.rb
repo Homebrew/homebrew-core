@@ -4,6 +4,15 @@ class Bsdiff < Formula
   url "https://www.daemonology.net/bsdiff/bsdiff-4.3.tar.gz"
   sha256 "18821588b2dc5bf159aa37d3bcb7b885d85ffd1e19f23a0c57a58723fea85f48"
 
+  # We use the HTTP URL for the homepage here because the site redirects this
+  # from HTTPS to HTTP, which makes open-uri give a "redirection forbidden"
+  # error. The site supports HTTPS, it just doesn't want to use it for the
+  # bsdiff page, for whatever reason.
+  livecheck do
+    url "http://www.daemonology.net/bsdiff"
+    regex(/href=.*?bsdiff[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "648a52a8af8e8f17feb9e34168dd0f00abfc98e9f0f3aa7fd88fb1458a782098" => :catalina
