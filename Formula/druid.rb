@@ -4,6 +4,11 @@ class Druid < Formula
   url "http://static.druid.io/artifacts/releases/druid-0.12.3-bin.tar.gz"
   sha256 "807581d54fa4c5a90eec2a230e2a7fc4c6daf18eb8136009bf36a775d793d6f6"
 
+  livecheck do
+    url "https://druid.apache.org/downloads.html"
+    regex(/href=.*?druid[._-]v?(\d+(?:\.\d+)+)-bin\.t/i)
+  end
+
   bottle :unneeded
 
   depends_on java: "1.8"
