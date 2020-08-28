@@ -4,6 +4,11 @@ class Tnftp < Formula
   url "https://ftp.netbsd.org/pub/NetBSD/misc/tnftp/tnftp-20200705.tar.gz"
   sha256 "ba4a92b693d04179664524eef0801c8eed4447941c9855f377f98f119f221c03"
 
+  livecheck do
+    url "https://ftp.netbsd.org/pub/NetBSD/misc/tnftp/"
+    regex(/href=.*?tnftp[._-]v?(\d+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "1411f5fe465b0952891ff141431a5d09140c7d53bb3cf689054a2580bd1031fc" => :catalina
