@@ -5,6 +5,13 @@ class Ssldump < Formula
   sha256 "6422c16718d27c270bbcfcc1272c4f9bd3c0799c351f1d6dd54fdc162afdab1e"
   revision 2
 
+  # This regex intentionally matches unstable versions, as only a beta version
+  # (0.9b3) is available at the time of writing.
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/ssldump/([^/]+)/[^/]+\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "4227a45957205b7e183b9f66f4ad2cd57abd7eda44db220d0feadf4de03b5778" => :catalina
