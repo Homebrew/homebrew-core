@@ -7,6 +7,11 @@ class Mpich < Formula
   license "mpich2"
   revision 1
 
+  livecheck do
+    url "https://www.mpich.org/static/downloads/"
+    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "3927047d7322310cef941a5e790c43b858a29716bea54d493bd1901b8d0bcb3d" => :catalina
