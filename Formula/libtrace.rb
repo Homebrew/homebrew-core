@@ -5,6 +5,11 @@ class Libtrace < Formula
   sha256 "2d8df99f8d3d9fafd24cc3a5b8a6cd6133d6dd31edd49e0b14dd9c495b90144f"
   license "GPL-3.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?libtrace[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "ade688eb09d01f62406d206ca2ca19a286e34ccb39dbaa1fe4a64d767273ea62" => :catalina
