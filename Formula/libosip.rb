@@ -5,6 +5,11 @@ class Libosip < Formula
   mirror "https://ftpmirror.gnu.org/osip/libosip2-5.1.2.tar.gz"
   sha256 "2bc0400f21a64cf4f2cbc9827bf8bdbb05a9b52ecc8e791b4ec0f1f9410c1291"
 
+  livecheck do
+    url :stable
+    regex(/href=.*?libosip2[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "b965f0c2b0b623a011a7e3e4e0f9b08f96eb7483355bc7e64f658ababaec3b79" => :catalina
