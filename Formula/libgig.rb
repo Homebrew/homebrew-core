@@ -5,6 +5,11 @@ class Libgig < Formula
   sha256 "16229a46138b101eb9eda042c66d2cd652b1b3c9925a7d9577d52f2282f745ff"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://download.linuxsampler.org/packages/"
+    regex(/href=.*?libgig[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "538a70194a691a8a8bd09095736f6aba4c6de6ed4f03bed512726372e41bd7a4" => :catalina
