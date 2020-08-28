@@ -6,6 +6,11 @@ class Ykpers < Formula
   license "BSD-2-Clause"
   revision 1
 
+  livecheck do
+    url "https://developers.yubico.com/yubikey-personalization/Releases/"
+    regex(/href=.*?ykpers[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "f5615ed1ad958e10d5908c16feb53bc706fd42f7721d0e8cfd3ea8dd4658a221" => :catalina
