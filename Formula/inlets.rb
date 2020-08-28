@@ -6,6 +6,11 @@ class Inlets < Formula
       revision: "2934c3c247ea28996ebb50889403befced94b29a"
   license "MIT"
 
+  livecheck do
+    url "https://github.com/inlets/inlets/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "8706b38a917c0acfa8343479db33c206a78132d01992834a39816400d65949f9" => :catalina
