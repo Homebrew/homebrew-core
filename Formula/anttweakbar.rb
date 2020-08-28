@@ -5,6 +5,10 @@ class Anttweakbar < Formula
   version "1.16"
   sha256 "fbceb719c13ceb13b9fd973840c2c950527b6e026f9a7a80968c14f76fcf6e7c"
 
+  livecheck do
+    skip "Not maintained"
+  end
+
   bottle do
     cellar :any
     rebuild 1
