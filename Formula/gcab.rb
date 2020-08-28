@@ -5,6 +5,13 @@ class Gcab < Formula
   sha256 "67a5fa9be6c923fbc9197de6332f36f69a33dadc9016a2b207859246711c048f"
   revision 1
 
+  # We use a common regex because gcab doesn't use GNOME's "even-numbered minor
+  # is stable" version scheme.
+  livecheck do
+    url :stable
+    regex(/gcab[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "7ed919ea9c7d4ec04f9d5f361f8628936e016318475fec26fdf6ef5ea56491cc" => :catalina
     sha256 "c9ef02142502a47b006db735b87fe7d55611d46ecc087c697d3142ce8bd9c27a" => :mojave
