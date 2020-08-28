@@ -6,6 +6,11 @@ class Pgrouting < Formula
   license "GPL-2.0"
   head "https://github.com/pgRouting/pgrouting.git"
 
+  livecheck do
+    url "https://github.com/pgRouting/pgrouting/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "b3aa8eceb62d44771da5531da4510686e3fde40ce094bc3499a39444ffaacb46" => :catalina
