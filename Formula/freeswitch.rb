@@ -7,6 +7,11 @@ class Freeswitch < Formula
   license "MPL-1.1"
   head "https://github.com/signalwire/freeswitch.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 "e8e37ac077a81b0194ebfcf995d60a9135db73f99e280de0699e22cd62b96ac6" => :catalina
     sha256 "63fa94a3a25cfe4d0942b76143be5a53685292000ca94b0b1bd734a14cb6aa35" => :mojave
