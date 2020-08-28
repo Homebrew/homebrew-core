@@ -6,6 +6,11 @@ class Fizmo < Formula
   license "BSD-3-Clause"
   revision 1
 
+  livecheck do
+    url "https://fizmo.spellbreaker.org/download/"
+    regex(%r{href=.*?/fizmo[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     sha256 "a4eb5a9297a54cc301764b7fbbd059080a140916088e60cd4992bc1966fd2a6b" => :mojave
     sha256 "5bc934e9ac29637cc4a533ffbac0d3e1807d6f70797920eeb80e2e0a9c0cae20" => :high_sierra
