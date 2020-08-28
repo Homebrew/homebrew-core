@@ -5,6 +5,11 @@ class Makedepend < Formula
   sha256 "d558a52e8017d984ee59596a9582c8d699a1962391b632bec3bb6804bf4d501c"
   license "MIT"
 
+  livecheck do
+    url "https://xorg.freedesktop.org/releases/individual/util/"
+    regex(/href=.*?makedepend[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "afe76789b5f01ccfee8cc0d4ffa308015fb5d8791a1d7ce6b2dc1ee4bf2a020f" => :catalina
