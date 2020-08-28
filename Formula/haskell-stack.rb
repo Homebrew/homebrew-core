@@ -6,6 +6,11 @@ class HaskellStack < Formula
   license "BSD-3-Clause"
   head "https://github.com/commercialhaskell/stack.git"
 
+  livecheck do
+    url "https://github.com/commercialhaskell/stack/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "0e72e5dcc47ad2a71d842bde6aa742a0ae87d68d5fc22c948db6585d2be400da" => :catalina
