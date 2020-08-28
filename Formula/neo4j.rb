@@ -5,6 +5,12 @@ class Neo4j < Formula
   sha256 "4f663a520bec40dfd0b1972feb3cf93af321c230b448adb6dc917717e67a1271"
   license "GPL-3.0"
 
+  livecheck do
+    url "https://neo4j.com/download-center/"
+    regex(/href=.*?edition=community[^"' >]+release=v?(\d+(?:\.\d+)+)[&"' >]
+          |href=.*?release=v?(\d+(?:\.\d+)+)[^"' >]+edition=community/ix)
+  end
+
   bottle :unneeded
 
   # Upstream does not intend to provide Java 8+ support until 4.0
