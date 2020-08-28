@@ -6,6 +6,11 @@ class Cracklib < Formula
   license "LGPL-2.1"
   revision 1
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "6b22a44df4e1602edc9d248bd1ef58a638c1d04cfdfcbc745f331d05ea91d8ac" => :catalina
