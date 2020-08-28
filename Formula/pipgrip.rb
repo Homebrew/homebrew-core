@@ -7,6 +7,10 @@ class Pipgrip < Formula
   sha256 "b2dcd453e509185fba95ba36c14955ed27c81f5ab8f620818a21b8d7c5909737"
   license "BSD-3-Clause"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "f1900bb48ed969bb4b9b104eba2fdb244c29c03d5c39d14c1633c0690198e985" => :catalina
