@@ -8,6 +8,10 @@ class AnimeDownloader < Formula
   license "Unlicense"
   head "https://github.com/vn-ki/anime-downloader.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "f72af53be1b91169b613617cbbf597e10ca77b8df5c97619ac5beb9ae993ca05" => :catalina
