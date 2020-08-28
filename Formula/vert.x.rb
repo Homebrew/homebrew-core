@@ -5,6 +5,11 @@ class VertX < Formula
   sha256 "3f257bae643e31804816e5723ac39e5f8fe08fcb73034b74d4cc7ccb4e9e5a84"
   license any_of: ["EPL-2.0", "Apache-2.0"]
 
+  livecheck do
+    url "https://vertx.io/download/"
+    regex(/href=.*?vert\.x[._-]v?(\d+(?:\.\d+)+)-full\.t/i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
