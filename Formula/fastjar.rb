@@ -5,6 +5,11 @@ class Fastjar < Formula
   sha256 "f156abc5de8658f22ee8f08d7a72c88f9409ebd8c7933e9466b0842afeb2f145"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://download.savannah.nongnu.org/releases/fastjar/"
+    regex(/href=.*?fastjar[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "ee758c76cb694c96ea30cb9e6ac204f2797c78be36610dcdf36c2a75301b5835" => :catalina
