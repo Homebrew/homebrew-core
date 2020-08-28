@@ -6,6 +6,10 @@ class CabalInstall < Formula
   license "BSD-3-Clause"
   head "https://github.com/haskell/cabal.git", branch: "3.2"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "7fbdab393a7e9c70d4da3246152d852eb919f1fb6fd45eda6ab9b0326b3516fe" => :catalina
