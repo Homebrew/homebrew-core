@@ -7,6 +7,11 @@ class Simutrans < Formula
   license "Artistic-1.0"
   head "https://github.com/aburch/simutrans.git"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/simutrans-src[._-]v?(\d+(?:[-_.]\d+)+)\.(?:t|zip)}i)
+  end
+
   bottle do
     cellar :any
     sha256 "c2c9d281769baf57a160d47af3a8e0575912f8823f11e305e0f42c380759c7d6" => :catalina
