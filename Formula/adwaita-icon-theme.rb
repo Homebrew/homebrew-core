@@ -4,6 +4,10 @@ class AdwaitaIconTheme < Formula
   url "https://download.gnome.org/sources/adwaita-icon-theme/3.36/adwaita-icon-theme-3.36.1.tar.xz"
   sha256 "e498518627044dfd7db7d79a5b3d437848caf1991ef4ef036a2d3a2ac2c1f14d"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "68833a3f5aff79bdf75c2e761a8451750b93e8a955e49356a78a2a3f0e1fbcd8" => :catalina
