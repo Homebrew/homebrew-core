@@ -4,6 +4,11 @@ class Markdown < Formula
   url "https://daringfireball.net/projects/downloads/Markdown_1.0.1.zip"
   sha256 "6520e9b6a58c5555e381b6223d66feddee67f675ed312ec19e9cee1b92bc0137"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?Markdown[._-]v?(\d+(?:\.\d+)+)\.zip/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "35864422386d1390de813462b697b604813bc3a7caac7bf3fd172335e25b2a55" => :catalina
