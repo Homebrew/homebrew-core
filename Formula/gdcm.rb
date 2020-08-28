@@ -5,6 +5,11 @@ class Gdcm < Formula
   sha256 "e00881f0a93d2db4a686231d5f1092a4bc888705511fe5d90114f2226147a18d"
   license "BSD-3-Clause"
 
+  livecheck do
+    url "https://github.com/malaterre/GDCM/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     rebuild 1
     sha256 "b4fcbfc9a2dd14f8d5b0cc1fd1f5900465b469a1f05fbae51f09bc209a578dac" => :catalina
