@@ -6,6 +6,11 @@ class Fossil < Formula
   license "BSD-2-Clause"
   head "https://www.fossil-scm.org/", using: :fossil
 
+  livecheck do
+    url "https://www.fossil-scm.org/index.html/uv/download.js"
+    regex(/"title": *?"Version (\d+(?:\.\d+)+)/i)
+  end
+
   bottle do
     cellar :any
     sha256 "79dddedf515aa4c145161b6511f99f8864656f19cd3935be77cf92bac60e1eb0" => :catalina
