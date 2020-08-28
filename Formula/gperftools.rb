@@ -5,6 +5,11 @@ class Gperftools < Formula
   sha256 "240deacdd628b6459671b83eb0c4db8e97baadf659f25b92e9a078d536bd513e"
   license "BSD-3-Clause"
 
+  livecheck do
+    url "https://github.com/gperftools/gperftools/releases/latest"
+    regex(%r{href=.*?/tag/gperftools[._-]v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "61a7c4f6c446b4ade0be332854baa8320a9cc193b00d89e39a0d3c18183aa8e3" => :catalina
