@@ -6,6 +6,11 @@ class Mupdf < Formula
   license "AGPL-3.0"
   head "https://git.ghostscript.com/mupdf.git"
 
+  livecheck do
+    url "https://mupdf.com/downloads/archive/"
+    regex(/href=.*?mupdf[._-]v?(\d+(?:\.\d+)+)-source\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "473cb909d61450baa808fab50f18342811665f4e9e31f26a21e03f6bc5e70363" => :catalina
