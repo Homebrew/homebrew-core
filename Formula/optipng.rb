@@ -5,6 +5,10 @@ class Optipng < Formula
   sha256 "4f32f233cef870b3f95d3ad6428bfe4224ef34908f1b42b0badf858216654452"
   head "http://hg.code.sf.net/p/optipng/mercurial", using: :hg
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "093c6a64c408594726d3bbf646394d1bec0ff05e95e8a71b7ca244afb67929ee" => :catalina
