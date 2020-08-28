@@ -6,6 +6,11 @@ class Libsvg < Formula
   license "LGPL-2.1"
   revision 1
 
+  livecheck do
+    url "https://cairographics.org/snapshots/"
+    regex(/href=.*?libsvg[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     rebuild 1
