@@ -6,6 +6,10 @@ class Tepl < Formula
   license "LGPL-2.1"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "a2d1a1d30b9016bc41d778bfd7aa01a71c63fbd2131c7c783a693c33c290260e" => :catalina
     sha256 "4a8c3e0c79c27b2abb1043caf8984d452307cd9b4814b6996f040eaeec53ab75" => :mojave
