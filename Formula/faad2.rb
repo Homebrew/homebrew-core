@@ -4,6 +4,11 @@ class Faad2 < Formula
   url "https://downloads.sourceforge.net/project/faac/faad2-src/faad2-2.8.0/faad2-2.8.8.tar.gz"
   sha256 "985c3fadb9789d2815e50f4ff714511c79c2710ac27a4aaaf5c0c2662141426d"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/faad2[._-]v?(\d+(?:\.\d+)*)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "f12e1d6b2b8bb7e49bbb681711c5da2a45ad7d3957c72105ab6b13c194d9e33d" => :catalina
