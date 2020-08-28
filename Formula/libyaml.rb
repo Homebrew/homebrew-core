@@ -5,6 +5,11 @@ class Libyaml < Formula
   sha256 "fa240dbf262be053f3898006d502d514936c818e422afdcf33921c63bed9bf2e"
   license "MIT"
 
+  livecheck do
+    url "https://github.com/yaml/libyaml/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "56d3549b342cffb181e3eb05356697bbb362b9733c73e0eeff9b637ecf92cd23" => :catalina
