@@ -4,6 +4,11 @@ class Tin < Formula
   url "https://www.nic.funet.fi/pub/unix/news/tin/v2.4/tin-2.4.4.tar.xz"
   sha256 "9ff12cecf6005be4d150a26403cb736668bcedbc97fe7d6e6846559ea490ff02"
 
+  livecheck do
+    url :homepage
+    regex(%r{tin-current\.t.*?>TIN v?(\d+(?:\.\d+)+)</A>.*?stable}i)
+  end
+
   bottle do
     sha256 "78c9d679c6669f6e9579c1de58e1769f8d5fdf0de54664aaeba49888811d33a5" => :catalina
     sha256 "2fb85a878a4930f0d48a35fd3628621d5d0f3009d8283066ddfdc17a950153b8" => :mojave
