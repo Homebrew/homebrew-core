@@ -5,6 +5,11 @@ class JenkinsLts < Formula
   sha256 "c786f7b18fd3fc1bafce85b3b9bc5d8c5f09e3a313cfd618bae8c1d920b6f70b"
   license "MIT"
 
+  livecheck do
+    url "http://mirrors.jenkins-ci.org/war-stable/"
+    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk@11"
