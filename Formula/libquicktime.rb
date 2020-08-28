@@ -5,6 +5,10 @@ class Libquicktime < Formula
   sha256 "1c53359c33b31347b4d7b00d3611463fe5e942cae3ec0fefe0d2fd413fd47368"
   revision 5
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "33d7a1146846e30e48e637ddd64f3e7541728df03becf8175e798a8fd3eb3bab" => :catalina
     sha256 "56165e3b70f7e444bca93369b3fa4602eefb1aa4b9624ed1ecbaa4741eb7c245" => :mojave
