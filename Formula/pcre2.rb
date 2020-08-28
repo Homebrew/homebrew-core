@@ -6,6 +6,11 @@ class Pcre2 < Formula
   license "BSD-3-Clause"
   head "svn://vcs.exim.org/pcre2/code/trunk"
 
+  livecheck do
+    url "https://ftp.pcre.org/pub/pcre/"
+    regex(/href=.*?pcre2[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "6a1e59a5db23d684f92d2bf695601d1b466f3e9d5407f704ba4679d885d13cef" => :catalina
