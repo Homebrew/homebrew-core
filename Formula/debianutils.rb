@@ -5,6 +5,11 @@ class Debianutils < Formula
   sha256 "8be869f19c55c18d53d9f0414b68bb966a068b2154e9fbbfc6193827d6af983c"
   license "GPL-2.0-or-later"
 
+  livecheck do
+    url "https://packages.qa.debian.org/d/debianutils.html"
+    regex(/href=.*?debianutils[._-]v?(\d+(?:.\d+)+).dsc/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "9467ace428a54b279c5c69472a1d83f4c2f62ba7adcf04222546a3f763e396b7" => :catalina
