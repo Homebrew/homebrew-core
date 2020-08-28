@@ -4,6 +4,10 @@ class Bogofilter < Formula
   url "https://downloads.sourceforge.net/project/bogofilter/bogofilter-stable/bogofilter-1.2.5.tar.xz"
   sha256 "3248a1373bff552c500834adbea4b6caee04224516ae581fb25a4c6a6dee89ea"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "2f2d4c414683f922e687d054e71619a0455560aac2522484132099fbddcc6a77" => :catalina
