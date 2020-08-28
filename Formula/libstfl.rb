@@ -5,6 +5,11 @@ class Libstfl < Formula
   sha256 "d4a7aa181a475aaf8a8914a8ccb2a7ff28919d4c8c0f8a061e17a0c36869c090"
   revision 10
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?stfl[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "a72700193b9de0b12b5886043e39da52c71f6159c38477d8c63ec552ba42f4e9" => :catalina
