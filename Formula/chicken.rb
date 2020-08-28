@@ -5,6 +5,11 @@ class Chicken < Formula
   sha256 "819149c8ce7303a9b381d3fdc1d5765c5f9ac4dee6f627d1652f47966a8780fa"
   head "https://code.call-cc.org/git/chicken-core.git"
 
+  livecheck do
+    url "https://code.call-cc.org/releases/current/"
+    regex(/href=.*?chicken[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "674b9d864481f15a5b406c1ef2e1dfce8ee584a100edf2501a096afee44ad396" => :catalina
     sha256 "3d35a95b8296a8e37c5bbaf5d77188684adcccc7f3f3d77e73c6c3e9ac566f86" => :mojave
