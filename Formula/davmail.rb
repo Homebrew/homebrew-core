@@ -5,6 +5,10 @@ class Davmail < Formula
   version "5.5.1"
   sha256 "34dfd350e7142227cdceb267666b5886ce94564b6395fa0e6098d868c110a48e"
 
+  livecheck do
+    url :stable
+  end
+
   bottle :unneeded
 
   def install
