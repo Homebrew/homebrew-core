@@ -6,6 +6,11 @@ class Clp < Formula
   license "EPL-1.0"
   revision 1
 
+  livecheck do
+    url :stable
+    regex(%r{^(?:releases/)?v?(\d+(?:\.\d+)+)$}i)
+  end
+
   bottle do
     cellar :any
     sha256 "b68e1b527f9bd8a10c391f49835f379e973c4ad12fb68993d72e49604e4a21bb" => :catalina
