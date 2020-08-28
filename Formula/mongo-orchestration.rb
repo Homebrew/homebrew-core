@@ -8,6 +8,10 @@ class MongoOrchestration < Formula
   license "Apache-2.0"
   head "https://github.com/10gen/mongo-orchestration.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "33576a232a292049ed59ff028ce32bfd14e770742d2156cc04ee26cf20cb45ff" => :catalina
