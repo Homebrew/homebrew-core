@@ -5,6 +5,11 @@ class YubicoPivTool < Formula
   sha256 "733aee13c22bb86a2d31f59c2f4c1f446f0bca2791f866de46bf71ddd7ebc1b3"
   license "BSD-2-Clause"
 
+  livecheck do
+    url "https://developers.yubico.com/yubico-piv-tool/Releases/"
+    regex(/href=.*?yubico-piv-tool[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "13da151129e6ae4bf5dbdc013890d5d8ce5b1328461716b454cc904cb21bb78b" => :catalina
     sha256 "ace3c2ecf7edae27f22f836edab9f1d6dd3527c2442284e9acb85eca88294a42" => :mojave
