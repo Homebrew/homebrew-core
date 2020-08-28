@@ -7,6 +7,10 @@ class Cdk8s < Formula
   sha256 "77010866c1e04f3c4ef09bd9076b3adb32c8585f4580acebf7599d2834be861b"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "f12ffcea2c703bd98a750c242710177cca5d802328703e413672c693c690e7b5" => :catalina
