@@ -28,6 +28,11 @@ class Sdl < Formula
     end
   end
 
+  livecheck do
+    url "https://www.libsdl.org/release/"
+    regex(/href=.*?SDL[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     rebuild 1
