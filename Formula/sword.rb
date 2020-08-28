@@ -4,6 +4,11 @@ class Sword < Formula
   url "https://www.crosswire.org/ftpmirror/pub/sword/source/v1.8/sword-1.8.1.tar.gz"
   sha256 "ce9aa8f721a737f406115d35ff438bd07c829fce1605f0d6dcdabc4318bc5e93"
 
+  livecheck do
+    url "https://www.crosswire.org/ftpmirror/pub/sword/source/"
+    regex(%r{href=.*?sword[._-]v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
+
   bottle do
     sha256 "3c4fd6972c16470479e43a43ef097a053ed6543b6e3d2cdfb1c15ff7416dbae1" => :catalina
     sha256 "ab228fd2df3f45e696e50224872a2fd80d24fcebc92f2b6ba5ff6e36d8534bc6" => :mojave
