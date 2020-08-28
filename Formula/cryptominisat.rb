@@ -8,6 +8,11 @@ class Cryptominisat < Formula
   license "MIT"
   revision 1
 
+  livecheck do
+    url "https://github.com/msoos/cryptominisat.git"
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 "6de78ffbfa1ae394f9e0ce868ae7a49412014d63fcaccb22dfefc8909564a18b" => :catalina
     sha256 "f1120dbb776e906bfc0773dd4088df95cbc845d5ca5d26d375dfba9187c00656" => :mojave
