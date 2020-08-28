@@ -5,6 +5,11 @@ class FsUae < Formula
   sha256 "f26ec42e03cf1a7b53b6ce0d9845aa45bbf472089b5ec046b3eb784ec6859fe3"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://fs-uae.net/download"
+    regex(/href=.*?fs-uae[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "124950f0053e117fa271e182e705b2c9bee21f2572e371c1ff18f106ad777c5a" => :catalina
