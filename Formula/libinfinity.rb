@@ -27,7 +27,7 @@ class Libinfinity < Formula
   # libinfinity is only used by gobby
   # latest 0.7.1 does not work with gobby 0.5.0 due to open issue, https://github.com/gobby/gobby/issues/143
   # gobby is disbled per #57501
-  disable!
+  disable! because: "is only used by gobby (which has been disabled)"
 
   # MacPorts patch to fix pam include. This is still applicable to 0.6.4.
   patch :p0 do
