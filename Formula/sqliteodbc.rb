@@ -5,6 +5,11 @@ class Sqliteodbc < Formula
   mirror "https://dl.bintray.com/homebrew/mirror/sqliteodbc-0.9998.tar.gz"
   sha256 "fabcbec73f98d1a34911636c02c29fc64147d27516b142e8e132c68c05a6065b"
 
+  livecheck do
+    url "http://www.ch-werner.de/sqliteodbc/"
+    regex(/href=.*?sqliteodbc[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "d0105cc73d44561e636923adb520710cdd7e0db835c6b31f151fe8a66a1b4fcc" => :catalina
