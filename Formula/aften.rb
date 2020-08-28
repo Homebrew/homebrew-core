@@ -5,6 +5,14 @@ class Aften < Formula
   sha256 "87cc847233bb92fbd5bed49e2cdd6932bb58504aeaefbfd20ecfbeb9532f0c0a"
   license "LGPL-2.1"
 
+  # Aften has moved from a version scheme like 0.07 to 0.0.8. We restrict
+  # matching to versions with three parts, since a version like 0.07 is parsed
+  # as 0.7 and seen as newer than 0.0.8.
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/aften[._-]v?(\d+(?:\.\d+){2,})\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "c1f3497bae95d7cd92f28b1a22d2dcfc06c0c7342c6c2993b6f564110f6e8f99" => :catalina
