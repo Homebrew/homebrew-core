@@ -6,6 +6,10 @@ class Pandoc < Formula
   license "GPL-2.0"
   head "https://github.com/jgm/pandoc.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 1
