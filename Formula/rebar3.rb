@@ -5,6 +5,11 @@ class Rebar3 < Formula
   sha256 "e14cdc1f5b7d363a238a9f555f89e878bc4fc836c970571b41b90ee947f91505"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "a3e0d373e2dd244b89478b684292c13653f70a88e1e808d2f636d8050504c6f5" => :catalina
