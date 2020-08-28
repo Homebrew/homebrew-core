@@ -7,6 +7,10 @@ class NodeSass < Formula
   sha256 "c4eaec5fce24d37920d9b537df3e699fcf356981193695eb000115b03f56be5f"
   license "MIT"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "12168b49fff68e0dd1b80baddfedae78f87285fef8377ecab846d0c00c60e3e1" => :catalina
