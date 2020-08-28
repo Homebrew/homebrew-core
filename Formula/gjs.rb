@@ -4,6 +4,10 @@ class Gjs < Formula
   url "https://download.gnome.org/sources/gjs/1.64/gjs-1.64.4.tar.xz"
   sha256 "a3cc3a8eda87074b2c363ffe28b29a5202d7f12914b6973f199acf2d1816d44c"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "48ab51876b8cb4b93914f6ec9f97134d19883a3aecdf0fceeb39ba4565820c84" => :catalina
     sha256 "3605114b6a6168aac10d3544cb44a8c543b94d1938f22edfe3b898e1f967136c" => :mojave
