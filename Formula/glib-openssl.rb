@@ -5,6 +5,10 @@ class GlibOpenssl < Formula
   sha256 "869f08e4e9a719c1df411c2fb5554400f6b24a9db0cb94c4359db8dad18d185f"
   revision 3
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "d3e3d452515afbf8ab39555e7c9e4add50f28aa89252321bee6ca021c7cb88a9" => :catalina
     sha256 "10b207a9c340bc6710e1df7f47ef4a0dba5a941c0cdb3330255718cf1884276c" => :mojave
