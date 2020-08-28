@@ -5,6 +5,11 @@ class Squid < Formula
   sha256 "6891a0f540e60779b4f24f1802a302f813c6f473ec7336a474ed68c3e2e53ee0"
   license "GPL-2.0"
 
+  livecheck do
+    url "http://www.squid-cache.org/Versions/v4/"
+    regex(/href=.*?squid[._-]v?(\d+(?:\.\d+)+)-RELEASENOTES\.html/i)
+  end
+
   bottle do
     sha256 "9993d7d8c41a778163e0bdcd13a882125269784fce9969b3f6a4c723daa8b750" => :catalina
     sha256 "cab7176b8938750b08ec079ff5bd2b37408dace0a1823f61fc2e913d08afe377" => :mojave
