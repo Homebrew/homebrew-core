@@ -4,6 +4,11 @@ class ExVi < Formula
   url "https://downloads.sourceforge.net/project/ex-vi/ex-vi/050325/ex-050325.tar.bz2"
   sha256 "da4be7cf67e94572463b19e56850aa36dc4e39eb0d933d3688fe8574bb632409"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/ex[._-]v?(\d+)\.t}i)
+  end
+
   bottle do
     sha256 "843fceed3514fe1506e32619c15c092441d45d553a809b315f38e1b749623492" => :catalina
     sha256 "112fa443488e178fd67fe600de3e56ad40179e8aeb73314c1286cea827df3220" => :mojave
