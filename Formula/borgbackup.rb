@@ -14,11 +14,11 @@ class Borgbackup < Formula
     sha256 "6bc8fd5091f705e9843a77d3f87cd7b722b84243a68e99d8d15d8f8ae20d0b03" => :high_sierra
   end
 
+  depends_on osxfuse: :build
   depends_on "pkg-config" => :build
   depends_on "libb2"
   depends_on "lz4"
   depends_on "openssl@1.1"
-  depends_on :osxfuse
   depends_on "python@3.8"
   depends_on "zstd"
 
@@ -29,6 +29,13 @@ class Borgbackup < Formula
 
   def install
     virtualenv_install_with_resources
+  end
+
+  def caveats
+    <<~EOS
+      To use `borg mount`, install osxfuse with Homebrew Cask:
+        brew cask install osxfuse
+    EOS
   end
 
   test do
