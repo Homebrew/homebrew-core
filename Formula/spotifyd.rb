@@ -6,6 +6,11 @@ class Spotifyd < Formula
   license "GPL-3.0"
   head "https://github.com/Spotifyd/spotifyd.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "3f51d6a45bdb965dcc88e34411949006b21050b7dfde5482e46cc6d74de41fa8" => :catalina
