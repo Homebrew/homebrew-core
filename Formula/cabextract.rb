@@ -5,6 +5,11 @@ class Cabextract < Formula
   sha256 "afc253673c8ef316b4d5c29cc4aa8445844bee14afffbe092ee9469405851ca7"
   license "GPL-3.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?cabextract[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "d60179c028ac5fb69580f2f01cd9f59c1d1544c8f6d84a230a7dd3587f3c27e0" => :catalina
