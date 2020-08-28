@@ -5,6 +5,11 @@ class Libgcrypt < Formula
   sha256 "0cba2700617b99fc33864a0c16b1fa7fdf9781d9ed3509f5d767178e5fd7b975"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://gnupg.org/ftp/gcrypt/libgcrypt/"
+    regex(/libgcrypt[._-]v?(\d+\.\d+\.\d+)/i)
+  end
+
   bottle do
     cellar :any
     sha256 "bc8f0fdc3dccd598c6bc332e6e2f7add94812bef84db722e878c5a85dcf43565" => :catalina
