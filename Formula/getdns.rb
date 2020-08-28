@@ -6,6 +6,14 @@ class Getdns < Formula
   license "BSD-3-Clause"
   head "https://github.com/getdnsapi/getdns.git", branch: "develop"
 
+  # We check the GitHub releases instead of https://getdnsapi.net/releases/,
+  # since the aforementioned first-party URL has a tendency to lead to an
+  # `execution expired` error.
+  livecheck do
+    url "https://github.com/getdnsapi/getdns/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "e921bc22b5d49af0cf93a3daf035828b286cf28faf4e3916c863214c58cb100d" => :catalina
