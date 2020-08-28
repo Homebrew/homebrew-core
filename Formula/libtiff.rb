@@ -6,6 +6,11 @@ class Libtiff < Formula
   sha256 "5d29f32517dadb6dbcd1255ea5bbc93a2b54b94fbf83653b4d65c7d6775b8634"
   license "libtiff"
 
+  livecheck do
+    url "https://download.osgeo.org/libtiff/"
+    regex(/href=.*?tiff[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "449bd9123e73e4c4eab85b77322d769cc9df0f6adab05e9b9319b012d1215a68" => :catalina
