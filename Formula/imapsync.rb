@@ -7,6 +7,11 @@ class Imapsync < Formula
   license "NLPL"
   head "https://github.com/imapsync/imapsync.git"
 
+  livecheck do
+    url "https://imapsync.lamiral.info/dist2/"
+    regex(/href=.*?imapsync[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "6c1a1bed4c3ad926f34a5efe6b6bfe5d2776ed4ee0d000679b21679c47ff81cb" => :catalina
