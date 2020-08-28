@@ -7,6 +7,10 @@ class Terrahub < Formula
   sha256 "81daeccf312d53c045a70a4d18178c1cf1eaf95a39d4bfddce1237a5b2f45573"
   license "MPL-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "a39fbab6315372412a7a26b02ee9e7365e2ed1f1c52359c943f94065ee236cd3" => :catalina
