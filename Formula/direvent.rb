@@ -6,6 +6,10 @@ class Direvent < Formula
   sha256 "239822cdda9ecbbbc41a69181b34505b2d3badd4df5367e765a0ceb002883b55"
   license "GPL-3.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "5aa186d6c50f9865450430bd7641c2be32380ab3eaa3f67e8fe4803cd2139b8d" => :catalina
