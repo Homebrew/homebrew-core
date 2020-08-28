@@ -4,6 +4,11 @@ class Haproxy < Formula
   url "https://www.haproxy.org/download/2.2/src/haproxy-2.2.2.tar.gz"
   sha256 "391c705a46c6208a63a67ea842c6600146ca24618531570c89c7915b0c6a54d6"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?haproxy[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "865f798fe6012ec2b9badf0446e264a14354cec95cbf9e0cb93dde58f3052d69" => :catalina
