@@ -5,6 +5,11 @@ class Quvi < Formula
   sha256 "1f4e40c14373cb3d358ae1b14a427625774fd09a366b6da0c97d94cb1ff733c3"
   license "LGPL-2.1"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/quvi[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "403d1157a64341c76067353225c6acbe1c0f3e9c0b69634ed80f0bb6400c4c7c" => :mojave
