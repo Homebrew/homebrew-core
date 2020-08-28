@@ -4,6 +4,10 @@ class XmlrpcC < Formula
   url "https://downloads.sourceforge.net/project/xmlrpc-c/Xmlrpc-c%20Super%20Stable/1.51.06/xmlrpc-c-1.51.06.tgz"
   sha256 "06dcd87d9c88374559369ffbe83b3139cf41418c1a2d03f20e08808085f89fd0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "f7d6a12c5e57d9ceb97b88dba518a6bae79e41e95343395a3f3c94bc168c92ab" => :catalina
