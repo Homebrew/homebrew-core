@@ -5,6 +5,10 @@ class Libiptcdata < Formula
   sha256 "79f63b8ce71ee45cefd34efbb66e39a22101443f4060809b8fc29c5eebdcee0e"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "1dbcf1dd89b05f7f1fdc1a15d9c56b7e726f7296d8096ccae22fed9adf36790a" => :catalina
     sha256 "78dc7bb6b1e5bcccc1c0c9ef158b8d423f782aa455b1b10c3eebb29de6e7fa58" => :mojave
