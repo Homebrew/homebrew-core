@@ -6,6 +6,11 @@ class Gpsim < Formula
   license "GPL-2.0"
   head "https://svn.code.sf.net/p/gpsim/code/trunk"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/gpsim[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "7f92c6ae94438c73050aea08fa41c56b93efa9464855b3b0861b0bb3c6a08621" => :catalina
