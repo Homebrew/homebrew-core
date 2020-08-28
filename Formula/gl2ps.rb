@@ -5,6 +5,11 @@ class Gl2ps < Formula
   sha256 "8d1c00c1018f96b4b97655482e57dcb0ce42ae2f1d349cd6d4191e7848d9ffe9"
   license "GL2PS"
 
+  livecheck do
+    url "http://geuz.org/gl2ps/src/"
+    regex(/href=.*?gl2ps[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "dbdfe5d8458e1224941d6e5707b725ab6872333112dc408dbf35202eddbc8d15" => :catalina
