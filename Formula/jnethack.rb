@@ -10,6 +10,11 @@ class Jnethack < Formula
   version "3.4.3-0.11"
   sha256 "bb39c3d2a9ee2df4a0c8fdde708fbc63740853a7608d2f4c560b488124866fe4"
 
+  livecheck do
+    url "https://osdn.net/projects/jnethack/releases/rss"
+    regex(%r{url=.*?/jnethack[._-]v?(\d+(?:\.\d+)+(?:-\d+(?:\.\d+)+)?)\.}i)
+  end
+
   bottle do
     sha256 "22c77a0b903452c595e324b04dc5cf09d37fa56af922fc438e8aad3e4899082d" => :catalina
     sha256 "54890df9ae6c932ed1ec36deb7892e5ddd28857e3740dd0c36f9d20f231caf3d" => :mojave
