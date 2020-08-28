@@ -7,6 +7,10 @@ class Livestreamer < Formula
   sha256 "ef3e743d0cabc27d8ad906c356e74370799e25ba46c94d3b8d585af77a258de0"
   revision 2
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "23a5d9a062d09bbdb506daf64a8d57ffc621f8d62823f049a54233772dc2049f" => :catalina
