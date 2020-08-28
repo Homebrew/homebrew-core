@@ -7,6 +7,11 @@ class Mapnik < Formula
   revision 3
   head "https://github.com/mapnik/mapnik.git"
 
+  livecheck do
+    url "https://github.com/mapnik/mapnik/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "ba583ea99a13377783c2dabc25c55ccc2d1a296cfb1f52e9a4a08dc82a0b0576" => :catalina
