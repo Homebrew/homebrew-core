@@ -21,6 +21,11 @@ class ClangFormat < Formula
     end
   end
 
+  livecheck do
+    url "https://github.com/llvm/llvm-project/releases/latest"
+    regex(%r{href=.*?/tag/llvmorg[._-]v?(\d+(?:\.\d+)+)}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "65667bcca091df96d9f27b56a7726a41c9998ebbcd3b10bc2eb2d43aa871c216" => :catalina
