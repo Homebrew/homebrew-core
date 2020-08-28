@@ -5,6 +5,10 @@ class Mp3splt < Formula
   sha256 "3ec32b10ddd8bb11af987b8cd1c76382c48d265d0ffda53041d9aceb1f103baa"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "d2a1ca7bd32f12b0cb152031cf812ab5af2fcef906f4a5d4fc1939f5d6b37e12" => :catalina
     sha256 "fb9ec207370028ac673f0f4e067dbae93d19e567ca80ab46e9e49d895262ac81" => :mojave
