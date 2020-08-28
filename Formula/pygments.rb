@@ -9,6 +9,10 @@ class Pygments < Formula
 
   head "https://github.com/pygments/pygments.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "509010be01f39644658904cd9396824b6cee202083b4659d8dd7e03e7f8afd17" => :catalina
