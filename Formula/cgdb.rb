@@ -5,6 +5,11 @@ class Cgdb < Formula
   sha256 "bb723be58ec68cb59a598b8e24a31d10ef31e0e9c277a4de07b2f457fe7de198"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://cgdb.me/files/"
+    regex(/href=.*?cgdb[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "50abc3a292d69a3a121f3ed7d54d72f4528eb1285faa7f842bb96588a463dc88" => :catalina
     sha256 "8f361fcad59ddf4825f4d42b516a099ba75bfffc0b885d42aeb875dbd1b2a1d4" => :mojave
