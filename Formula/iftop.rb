@@ -7,6 +7,14 @@ class Iftop < Formula
   sha256 "f733eeea371a7577f8fe353d86dd88d16f5b2a2e702bd96f5ffb2c197d9b4f97"
   license "GPL-2.0"
 
+  # We have to allow the regex to match prerelease versions (e.g., 1.0pre4)
+  # until there's a new stable version. The newest version was released on
+  # 2014-01-19, so it could be a while.
+  livecheck do
+    url "https://www.ex-parrot.com/pdw/iftop/download/"
+    regex(/href=.*?iftop[._-]v?(\d+(?:\.\d+)+(?:pre\d+)?)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "8f40152f928f5f63f777b7dd1780951d451defffb30517f657b1850448a2f5ab" => :catalina
