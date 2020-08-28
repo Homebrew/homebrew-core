@@ -5,6 +5,10 @@ class OpenOcd < Formula
   sha256 "7312e7d680752ac088b8b8f2b5ba3ff0d30e0a78139531847be4b75c101316ae"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     rebuild 2
     sha256 "73738a0c3bfffa98beea25c441d5eddfd743dc5c7c79418685519354975bb840" => :catalina
