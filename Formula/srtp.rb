@@ -6,6 +6,11 @@ class Srtp < Formula
   license "BSD-3-Clause"
   head "https://github.com/cisco/libsrtp.git"
 
+  livecheck do
+    url "https://github.com/cisco/libsrtp/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "b96d4c3bb159a6f43d5bdd9cc0be0d8deecb06c95df19f2d9cc1f517ffc64ad6" => :catalina
