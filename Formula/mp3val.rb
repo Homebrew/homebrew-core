@@ -5,6 +5,10 @@ class Mp3val < Formula
   sha256 "95a16efe3c352bb31d23d68ee5cb8bb8ebd9868d3dcf0d84c96864f80c31c39f"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "c08b493f2f59730486c427b795112ea1c730fb9bb7dcbc0bc9158c2c28a30c51" => :catalina
