@@ -6,6 +6,11 @@ class Uhd < Formula
   revision 1
   head "https://github.com/EttusResearch/uhd.git"
 
+  livecheck do
+    url "https://github.com/EttusResearch/uhd/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     sha256 "b0988b31234da20fde7aceb5656316fccc3def16516391e5fcb818bd9d9cb563" => :catalina
     sha256 "eff5ec072e00e4ed6b7ccdceda1fdd68a672f8cea36a64046c4e4c348b361146" => :mojave
