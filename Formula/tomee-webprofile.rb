@@ -6,6 +6,10 @@ class TomeeWebprofile < Formula
   sha256 "ff9921913c0a6e24514a139703db066e90d2e51c37cfde948595c7d5d5e4168b"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle :unneeded
 
   def install
