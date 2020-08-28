@@ -5,6 +5,11 @@ class Fox < Formula
   sha256 "c517e5fcac0e6b78ca003cc167db4f79d89e230e5085334253e1d3f544586cb2"
   revision 1
 
+  livecheck do
+    url "http://www.fox-toolkit.org/news.html"
+    regex(/FOX STABLE v?(\d+(?:\.\d+)+)/i)
+  end
+
   bottle do
     cellar :any
     sha256 "c6697be294c9a0458580564d59f8db32791beb5e67a05a6246e0b969ffc068bc" => :catalina
