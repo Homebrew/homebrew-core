@@ -5,6 +5,11 @@ class GnustepMake < Formula
   sha256 "9fce2942dd945c103df37d668dd5fff650b23351b25a650428f6f59133f5ca5d"
   license "GPL-3.0"
 
+  livecheck do
+    url "http://ftpmain.gnustep.org/pub/gnustep/core/"
+    regex(/href=.*?gnustep-make[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "0112f9b5cc350a2e8efc7eff2ea1b3e0b13e62877ce02592eac34052b33de00f" => :catalina
