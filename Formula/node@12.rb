@@ -4,6 +4,11 @@ class NodeAT12 < Formula
   url "https://nodejs.org/dist/v12.18.3/node-v12.18.3.tar.xz"
   sha256 "71158026579487422fd13cc2553b34cddb76519098aa6030faab52f88c6e0d0e"
 
+  livecheck do
+    url "https://nodejs.org/dist/"
+    regex(%r{href=["']?v?(12(?:\.\d+)+)/?["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "8371625cae6cd2efa83e52a49d3c2e389e8d6be8261a0c80a710750e89ddf7d8" => :catalina
