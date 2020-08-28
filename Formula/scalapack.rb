@@ -6,6 +6,11 @@ class Scalapack < Formula
   license "BSD-3-Clause"
   revision 2
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?scalapack[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "281e3d5317f1616e8d5a6a3b9c37fbe6ee29a03b2abe14055854902a6c009a87" => :catalina
