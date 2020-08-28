@@ -5,6 +5,11 @@ class Wandio < Formula
   sha256 "78c781ce2c3783b85d894e29005b7e98fc246b33f94616047de3bb4d11d4d823"
   license "GPL-3.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?wandio[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "028d07a97370b37fc28a2f2045bf3e4a9241d9c49f5eea2e635960ced7b6453c" => :catalina
