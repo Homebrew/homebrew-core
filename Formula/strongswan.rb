@@ -4,6 +4,11 @@ class Strongswan < Formula
   url "https://download.strongswan.org/strongswan-5.9.0.tar.bz2"
   sha256 "72b47a385da5d1532b816d9fe04c50d074c29ed42ea3f0878fbd66335917bb66"
 
+  livecheck do
+    url "https://download.strongswan.org/"
+    regex(/href=.*?strongswan[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t/i)
+  end
+
   bottle do
     sha256 "99c553658a5410e74a836b248b6a4fecadc08c40faef552f4bca7eed4d7ad60c" => :catalina
     sha256 "3d1b72f69ac954e32acd44720259dcea17fafd64003bb6482aeb6b8713fe6d52" => :mojave
