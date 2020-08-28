@@ -6,6 +6,11 @@ class Pjproject < Formula
   license "GPL-2.0"
   head "https://github.com/pjsip/pjproject.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     rebuild 1
