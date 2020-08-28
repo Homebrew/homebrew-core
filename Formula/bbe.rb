@@ -5,6 +5,10 @@ class Bbe < Formula
   sha256 "baaeaf5775a6d9bceb594ea100c8f45a677a0a7d07529fa573ba0842226edddb"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "16ec8602703755894016b9ecd47ca9875a97c66ba259cdb8d7fa8902a17dd8d3" => :catalina
