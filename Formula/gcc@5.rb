@@ -10,6 +10,11 @@ class GccAT5 < Formula
   sha256 "530cea139d82fe542b358961130c69cfde8b3d14556370b65823d2f91f0ced87"
   revision 4
 
+  livecheck do
+    url :stable
+    regex(%r{href=.*?gcc[._-]v?(5(?:\.\d+)+)(?:/?["' >]|\.t)}i)
+  end
+
   bottle do
     sha256 "7fc31bed73398ba401db3107151a3b0ae301ddc60e017a45bd3d69ac1b400235" => :high_sierra
   end
