@@ -5,6 +5,11 @@ class Usbredir < Formula
   sha256 "87bc9c5a81c982517a1bec70dc8d22e15ae197847643d58f20c0ced3c38c5e00"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://www.spice-space.org/download/usbredir/"
+    regex(/href=.*?usbredir[._-]v?([\d.]+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "c7182aed390cc4cf96e9a99a728129367714b954062b7f92471a6e3864aed244" => :catalina
