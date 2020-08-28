@@ -5,6 +5,11 @@ class Biosig < Formula
   sha256 "2b2b5d0cdb7a886b7c390d000bb9210b9b6e03f790c6443730dab96496926928"
   license "GPL-3.0"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/(?:biosig|biosig4c[^-]*?)[._-]v?(\d+(?:\.\d+)+)\.src\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "7faee142a4545ee3bcfcd393b9c748b3cfa788a35a410e0299e562a58a026426" => :catalina
