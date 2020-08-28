@@ -6,6 +6,11 @@ class Unzip < Formula
   sha256 "036d96991646d0449ed0aa952e4fbe21b476ce994abc276e49d30e686708bd37"
   revision 6
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?(?:%20)?v?(\d+(?:\.\d+)+)/unzip\d+\.t}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "178cea56554b0e6b74856203340554c7615c6ed2e122059c78370e35c896f0ce" => :catalina
