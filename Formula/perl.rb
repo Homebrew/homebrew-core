@@ -6,6 +6,11 @@ class Perl < Formula
   license "Artistic-1.0-Perl"
   head "https://github.com/perl/perl5.git", branch: "blead"
 
+  livecheck do
+    url "https://www.cpan.org/src/"
+    regex(/href=.*?perl[._-]v?(\d+\.\d*[02468](?:\.\d+)*)\.t/i)
+  end
+
   bottle do
     sha256 "bc6c97521b6edf723c8ee0742aebb1954b5c8fec81bf2d96861c3f8bcc4e404d" => :catalina
     sha256 "f09b3fefe2175b36e590ee13e7aa84d28ebcbce3ef8e252e24a0aebb752405ab" => :mojave
