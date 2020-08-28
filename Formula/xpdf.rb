@@ -5,6 +5,11 @@ class Xpdf < Formula
   sha256 "52d51dc943b9614b8da66e8662b3031a3c82dc25bfc792eac6b438aa36d549a4"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://www.xpdfreader.com/download.html"
+    regex(/href=.*?xpdf[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "ed4f85ea9e8246acb38d96b12013b66a8dfb21346a7de192fd7904c91c0a4898" => :catalina
