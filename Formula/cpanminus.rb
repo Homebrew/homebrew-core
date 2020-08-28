@@ -7,6 +7,11 @@ class Cpanminus < Formula
   license "GPL-1.0"
   head "https://github.com/miyagawa/cpanminus.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle :unneeded
 
   def install
