@@ -6,6 +6,14 @@ class PgTop < Formula
   sha256 "c48d726e8cd778712e712373a428086d95e2b29932e545ff2a948d043de5a6a2"
   revision 3
 
+  # We're currently checking the pg_top GitLab repository, since there are new
+  # 4.0.0 prerelease versions there that aren't at the existing stable source
+  # (i.e., https://ftp.postgresql.org/pub/projects/pgFoundry/ptop/pg_top/).
+  livecheck do
+    url "https://gitlab.com/pg_top/pg_top.git"
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "a8bd95ff06d4f746e3763933fee8f4118b5ae6e3d16c4a8e2ff1bc675bd4091a" => :catalina
