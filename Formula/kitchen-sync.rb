@@ -6,6 +6,11 @@ class KitchenSync < Formula
   license "MIT"
   head "https://github.com/willbryant/kitchen_sync.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "8c3c2ba6fb38f6370e67d1e918a3ca4f5713fec820dd6c137249bcec03a5723b" => :catalina
