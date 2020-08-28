@@ -5,6 +5,11 @@ class GstLibav < Formula
   sha256 "c724f612700c15a933c7356fbeabb0bb9571fb5538f8b1b54d4d2d94188deef2"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://gstreamer.freedesktop.org/src/gst-libav/"
+    regex(/href=.*?gst-libav[._-]v?(\d+\.\d*[02468](?:\.\d+)*)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "dce5e4261059fa2fc2e14eb4db2f43cfdf749eee11140539b3f1c3c74af25198" => :catalina
