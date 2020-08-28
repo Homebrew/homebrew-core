@@ -7,6 +7,10 @@ class Urh < Formula
   revision 1
   head "https://github.com/jopohl/urh.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "9bc7cf512fa5a3e231485ba92e3fa3c8d0d3c88fa2ab91c4c827735706ad0eeb" => :catalina
