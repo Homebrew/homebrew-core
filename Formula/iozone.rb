@@ -4,6 +4,11 @@ class Iozone < Formula
   url "http://www.iozone.org/src/current/iozone3_490.tar"
   sha256 "5eadb4235ae2a956911204c50ebf2d8d8d59ddcd4a2841a1baf42f3145ad4fed"
 
+  livecheck do
+    url "http://www.iozone.org/src/current"
+    regex(/href=.*?iozone[._-]?v?(\d+(?:[._]\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "129e22fb6b081c7deaf445510f8f0d93e6c8d1a9ae695ad3dcee41d5fcf381ab" => :catalina
