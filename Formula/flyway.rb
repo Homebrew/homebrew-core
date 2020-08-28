@@ -5,6 +5,11 @@ class Flyway < Formula
   sha256 "b6a5809ae91cc8acf9c11312967d732937d9ce3810584f729b54b354f3a3803c"
   license "Apache-2.0"
 
+  livecheck do
+    url :homepage
+    regex(/Get Started with Flyway\s+v?(\d+(?:\.\d+)+) </im)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
