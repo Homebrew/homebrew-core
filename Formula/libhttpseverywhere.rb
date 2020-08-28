@@ -6,6 +6,10 @@ class Libhttpseverywhere < Formula
   license "LGPL-3.0-or-later"
   revision 4
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "c8cc1d294949af9676e54f9a32c4dbe782dfc5d103f92bbee68acd2ccb5ff728" => :catalina
