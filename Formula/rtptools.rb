@@ -4,6 +4,10 @@ class Rtptools < Formula
   url "https://web.archive.org/web/20190714051650/www.cs.columbia.edu/irt/software/rtptools/download/rtptools-1.22.tar.gz"
   sha256 "2c76b2a423fb943820c91194372133a44cbdc456ebf69c51616ec50eeb068c28"
 
+  livecheck do
+    url "https://github.com/columbia-irt/rtptools.git"
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 1
