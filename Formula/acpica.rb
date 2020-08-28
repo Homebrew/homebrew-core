@@ -6,6 +6,11 @@ class Acpica < Formula
   license any_of: ["Intel-ACPI", "GPL-2.0-only", "BSD-3-Clause"]
   head "https://github.com/acpica/acpica.git"
 
+  livecheck do
+    url "https://acpica.org/downloads"
+    regex(/current release of ACPICA is version <strong>v?(\d{6,8}) </i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "e32d0376e072bbe080c114842b0a19b300ad8bd844a046fdd4eeb3894363672f" => :catalina
