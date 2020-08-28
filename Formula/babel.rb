@@ -8,6 +8,10 @@ class Babel < Formula
   sha256 "e471ae013e691c2d7088c4a001ef03c8b5cb85c9c2ea06f04768a05fa126d497"
   license "MIT"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "3823028884c32087ac82203fe0c9335f00dcb1a4b91a8cc0fbf128eba1d88482" => :catalina
     sha256 "96ba8b759ba61a6724df9b8015104eb992bf1543591f57c0e4178864854aef49" => :mojave
