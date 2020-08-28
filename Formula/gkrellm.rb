@@ -5,6 +5,11 @@ class Gkrellm < Formula
   sha256 "1ee0643ed9ed99f88c1504c89d9ccb20780cf29319c904b68e80a8e7c8678c06"
   revision 2
 
+  livecheck do
+    url "http://gkrellm.srcbox.net/releases/"
+    regex(/href=.*?gkrellm[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "17b040897e4feebebcca29a8d8f69fdf0cd789f07a3e479b0fe5f5f172436289" => :catalina
     sha256 "641f4e27054dacd25dd91dc2f6d8d608918321ae06cf06eb17f2d62132125e7a" => :mojave
