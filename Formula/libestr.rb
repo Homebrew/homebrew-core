@@ -5,6 +5,11 @@ class Libestr < Formula
   sha256 "46632b2785ff4a231dcf241eeb0dcb5fc0c7d4da8ee49cf5687722cdbe8b2024"
   license "LGPL-2.1"
 
+  livecheck do
+    url "https://libestr.adiscon.com/download/"
+    regex(/href=.*?libestr[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "f539c76e3acdd0a93def55a0e82ecf45c53de65dc6dc18fd123efe815d8a65cd" => :catalina
