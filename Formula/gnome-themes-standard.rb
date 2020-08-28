@@ -5,6 +5,10 @@ class GnomeThemesStandard < Formula
   sha256 "61dc87c52261cfd5b94d65e8ffd923ddeb5d3944562f84942eeeb197ab8ab56a"
   revision 2
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "6fb1066c6af0428fee29272851b4d7fbf10bac3bec4ed48ce6cffb780a3175f1" => :catalina
