@@ -4,6 +4,11 @@ class Libmaa < Formula
   url "https://downloads.sourceforge.net/project/dict/libmaa/libmaa-1.4.7/libmaa-1.4.7.tar.gz"
   sha256 "4e01a9ebc5d96bc9284b6706aa82bddc2a11047fa9bd02e94cf8753ec7dcb98e"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/libmaa[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "d9ad37a60f4f1f2eac61cf6a5b85ea1948eda86c65adb26a82c11f8abf70bb0c" => :catalina
