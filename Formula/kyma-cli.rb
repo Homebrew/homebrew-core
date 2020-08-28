@@ -2,10 +2,9 @@ class KymaCli < Formula
   desc "Kyma command-line interface"
   homepage "https://kyma-project.io"
   url "https://github.com/kyma-project/cli.git",
-      tag:      "1.14.0",
-      revision: "6e3d444dcfac01e8e45e419970f48cf122d26af2"
+      tag:      "1.15.0",
+      revision: "31ee12fdc214124aabb70be036d27e76ee8b9ad9"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/kyma-project/cli.git"
 
   bottle do
