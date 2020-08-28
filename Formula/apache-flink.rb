@@ -8,6 +8,10 @@ class ApacheFlink < Formula
   license "Apache-2.0"
   head "https://github.com/apache/flink.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle :unneeded
 
   depends_on java: "1.8"
