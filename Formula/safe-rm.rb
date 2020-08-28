@@ -5,6 +5,10 @@ class SafeRm < Formula
   sha256 "1c9d3113591e249301fd00fff51152069ab71cd518b32bfcf6848a8d6c3054e2"
   head "https://repo.or.cz/safe-rm.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle :unneeded
 
   def install
