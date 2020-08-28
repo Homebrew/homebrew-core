@@ -6,6 +6,11 @@ class CdogsSdl < Formula
   license "GPL-2.0"
   head "https://github.com/cxong/cdogs-sdl.git"
 
+  livecheck do
+    url "https://github.com/cxong/cdogs-sdl/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     sha256 "66687e6a3548b98f7fd709efd02c8b859720366ae4cce99a5bbd7912fbaeefaa" => :catalina
     sha256 "268d71dc819666f503df8baf456e8c67ae656120325c220cbf61c24180ba539d" => :mojave
