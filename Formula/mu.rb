@@ -8,6 +8,14 @@ class Mu < Formula
   sha256 "8856465501dccd9101eda1a29bedada010e6ff828c9d922f1abe86b152a2741b"
   license "GPL-3.0-or-later"
 
+  # We restrict matching to versions with an even-numbered minor version number,
+  # as an odd-numbered minor version number indicates a development version:
+  # https://github.com/djcb/mu/commit/23f4a64bdcdee3f9956a39b9a5a4fd0c5c2370ba
+  livecheck do
+    url :head
+    regex(/^v?(\d+\.\d*[02468](?:\.\d+)*)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "c2db643c69aaae50c5127dafd2018de2239c344c2b3a1cacb80cdb77d3710469" => :catalina
