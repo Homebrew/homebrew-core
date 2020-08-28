@@ -8,6 +8,10 @@ class Csvtomd < Formula
   license "MIT"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "a095eb1747bdc18b737a5a1a090486cd0b694f33283163007f19b3b9e0abfade" => :catalina
