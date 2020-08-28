@@ -5,6 +5,11 @@ class Ptex < Formula
       tag:      "v2.3.2",
       revision: "1b8bc985a71143317ae9e4969fa08e164da7c2e5"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     rebuild 1
