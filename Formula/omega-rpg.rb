@@ -5,6 +5,11 @@ class OmegaRpg < Formula
   sha256 "60164319de90b8b5cae14f2133a080d5273e5de3d11c39df080a22bbb2886104"
   revision 1
 
+  livecheck do
+    url :homepage
+    regex(/latest.*?>v?(\d+(?:\.\d+)+)</i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 1
