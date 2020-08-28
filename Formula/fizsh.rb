@@ -6,6 +6,11 @@ class Fizsh < Formula
   license "BSD-3-Clause"
   head "https://github.com/zsh-users/fizsh", using: :git
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/fizsh[._-]v?(\d+(?:\.\d+)+(?:-\d+)?)\.t}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "c1cb674d5a7219ea4c41f3becd0997cf55dfd26a06a17d739f14a3d59da7df75" => :catalina
