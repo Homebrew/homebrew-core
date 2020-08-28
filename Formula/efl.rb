@@ -6,6 +6,11 @@ class Efl < Formula
   license all_of: ["GPL-2.0-only", "LGPL-2.1-only", "BSD-2-Clause", "FTL", "zlib-acknowledgement"]
   revision 1
 
+  livecheck do
+    url "https://download.enlightenment.org/rel/libs/efl/"
+    regex(/href=.*?efl[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "c6c382171fc3f184ff172d2c096cdddd24fdf13fe4edc92312638d19ee53228e" => :catalina
     sha256 "85df6d2e5fe9d36c84e21a07686bb000c874e84be4ccf312be619d4ab3d633d8" => :mojave
