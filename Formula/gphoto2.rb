@@ -5,6 +5,11 @@ class Gphoto2 < Formula
   sha256 "df87092100e7766c9d0a4323217c91908a9c891c0d3670ebf40b76903be458d1"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/gphoto2[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "41373d501ce514558ba5ef0ba1511a4e1b340157eb900adc50c27c3712f479e5" => :catalina
