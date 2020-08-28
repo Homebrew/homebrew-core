@@ -8,6 +8,11 @@ class Openimageio < Formula
   revision 1
   head "https://github.com/OpenImageIO/oiio.git"
 
+  livecheck do
+    url "https://github.com/OpenImageIO/oiio/releases/latest"
+    regex(%r{href=.*?/tag/Release[._-]v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     sha256 "38683156e032d0dd6314399ebcc1ad4b59135e6b221f39fef74fd027fc040990" => :catalina
     sha256 "e2b1b3d5ca05a0a8cd87675a046e2b9ff25f3096b8c1fd736a1b5431dd6c1be8" => :mojave
