@@ -5,6 +5,10 @@ class Glade < Formula
   sha256 "19b546b527cc46213ccfc8022d49ec57e618fe2caa9aa51db2d2862233ea6f08"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "9131bb138ba8e7b7b2f3d593342846fdabebd28b33c755ae0feaba4f52a39ab9" => :catalina
     sha256 "2c95e5cb5f386fbacf1fb4ca17b2dc9ad6c6b2d83b9d0891460905f87cb608c4" => :mojave
