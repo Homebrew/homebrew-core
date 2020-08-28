@@ -5,6 +5,11 @@ class Dterm < Formula
   sha256 "94533be79f1eec965e59886d5f00a35cb675c5db1d89419f253bb72f140abddb"
   license "GPL-2.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?dterm[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "0ee11ec243e1d9038a5f8d0ef86a00e5bf07af59be0497e8b8b677bf032bdc2b" => :catalina
