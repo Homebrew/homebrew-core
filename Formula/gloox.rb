@@ -4,6 +4,11 @@ class Gloox < Formula
   url "https://camaya.net/download/gloox-1.0.23.tar.bz2"
   sha256 "97cb6a0c07e320ffa4a7c66e8ab06b2361086271dc87ed2398befef4e8435f8a"
 
+  livecheck do
+    url :homepage
+    regex(/Latest stable version.*?href=.*?gloox[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "ae614fa73c886d568e4bb6916438affd3b081bccfc4904fef4a4110417f41e9d" => :catalina
