@@ -5,6 +5,12 @@ class Acme < Formula
   version "0.97"
   license "GPL-2.0-or-later"
 
+  livecheck do
+    url "https://sourceforge.net/p/acme-crossass/code-0/HEAD/tree/trunk/docs/Changes.txt?format=raw"
+    strategy :page_match
+    regex(/New in release v?(\d+(?:\.\d+)+)/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "54080f9a08a3f958c5a024fd536c2308c392521a4a4092afb115f368b3256fd2" => :catalina
