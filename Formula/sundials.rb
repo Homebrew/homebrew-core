@@ -5,6 +5,11 @@ class Sundials < Formula
   sha256 "88dff7e11a366853d8afd5de05bf197a8129a804d9d4461fb64297f1ef89bca7"
   revision 1
 
+  livecheck do
+    url "https://computation.llnl.gov/projects/sundials/sundials-software"
+    regex(/href=.*?sundials[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "fff1df3841c80eb3c2a6471e53ad2e8f29f97eb1e8498f8e85dc919616c68d0f" => :catalina
