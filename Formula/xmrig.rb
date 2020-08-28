@@ -6,6 +6,11 @@ class Xmrig < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/xmrig/xmrig.git"
 
+  livecheck do
+    url "https://github.com/xmrig/xmrig/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     sha256 "849927e31bf9602ddf9474c46bf40e62e9b1c607a7a06b8151990f1270f54da7" => :catalina
     sha256 "ad643ec1cf6c35848c640b3154998b5526b51c9dd930598796503f37637b8b94" => :mojave
