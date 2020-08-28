@@ -5,6 +5,13 @@ class Aalib < Formula
   sha256 "fbddda9230cf6ee2a4f5706b4b11e2190ae45f5eda1f0409dc4f99b35e0a70ee"
   revision 1
 
+  # The latest version in the formula is a release candidate, so we have to
+  # allow matching of unstable versions.
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/aalib[._-]v?(\d+(?:\.\d+)+.*?)\.t}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "306da4a8cb39ef81eed8b81a7d1c1c7bd47405d8270d036dde9c07c630fa4ea3" => :catalina
