@@ -6,6 +6,10 @@ class Trafficserver < Formula
   sha256 "dfe88d21897ea667d14e0813df47af78c19d5d299a5f5ab029a02e63f724ceb0"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "e2c32121b821376d98605fec5672a8cf73fc32dbcf0943e2fa9a69927db522dd" => :catalina
     sha256 "3b1b5d2b654752a6eb8026efb5fe31d69fe8be31b0def51e5a3840defc074b66" => :mojave
