@@ -4,6 +4,11 @@ class Bmake < Formula
   url "http://www.crufty.net/ftp/pub/sjg/bmake-20200710.tar.gz"
   sha256 "6538fc4319ef79d178dca76d3b869f7aa93a9bb7b510df08a7d872c01a56b76c"
 
+  livecheck do
+    url "http://www.crufty.net/ftp/pub/sjg/"
+    regex(/href=.*?bmake[._-]v?(\d{6,8})\.t/i)
+  end
+
   bottle do
     sha256 "2fa5a8cd06e9fc40e2478133bc6edf197aa360bec442ce2bff281e675fa2c0a5" => :catalina
     sha256 "d3933ebbaf5ea9e688c7beee9af8052ae959bc484581f011fc14a07de18f0c42" => :mojave
