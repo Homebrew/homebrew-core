@@ -6,6 +6,11 @@ class Unison < Formula
   license "GPL-3.0"
   head "https://github.com/bcpierce00/unison.git", branch: "master"
 
+  livecheck do
+    url "https://github.com/bcpierce00/unison/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+(?:v\d+)?)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 1
