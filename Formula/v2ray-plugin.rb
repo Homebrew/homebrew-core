@@ -6,6 +6,11 @@ class V2rayPlugin < Formula
   license "MIT"
   head "https://github.com/shadowsocks/v2ray-plugin.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "891f541e150a393ff20caa78eb79ef12f60929fb9e5b35826e2e639c46a61dc2" => :catalina
