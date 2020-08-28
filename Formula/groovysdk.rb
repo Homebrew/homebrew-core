@@ -4,6 +4,11 @@ class Groovysdk < Formula
   url "https://dl.bintray.com/groovy/maven/apache-groovy-sdk-3.0.5.zip"
   sha256 "22537785771c58f31ab7e32e7fdb4b96b8d15f1bb7bff4b0e211b0d904d3f623"
 
+  livecheck do
+    url "https://dl.bintray.com/groovy/maven/"
+    regex(/href=.*?apache-groovy-sdk[._-]v?([\d.]+)\.zip/i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
