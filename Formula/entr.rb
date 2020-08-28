@@ -6,6 +6,11 @@ class Entr < Formula
   license "ISC"
   head "https://github.com/eradman/entr.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "21b69b1e641551d2022f5b261fd03d43e16e54d7eb09528890d122968de12460" => :catalina
