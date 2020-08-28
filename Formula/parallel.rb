@@ -10,6 +10,10 @@ class Parallel < Formula
   version_scheme 1
   head "https://git.savannah.gnu.org/git/parallel.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 1
