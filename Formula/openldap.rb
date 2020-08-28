@@ -5,6 +5,11 @@ class Openldap < Formula
   sha256 "f490775ea4c6506b7210ee55a102c8f4aacfe9d1c8eaa633c7316d33a714be62"
   license "OLDAP-2.8"
 
+  livecheck do
+    url "https://www.openldap.org/software/download/OpenLDAP/openldap-release/"
+    regex(/href=.*?openldap[._-]v?(\d+(?:\.\d+)*)\.t/i)
+  end
+
   bottle do
     sha256 "26db6176077e01a879f2ff302ea0b48974a15a410ad03cb69b6a27275d436e86" => :catalina
     sha256 "8ebb1a0d4c6d3249643aef4e47999b8d6219fa9aca5612a0b72021e824b70e3e" => :mojave
