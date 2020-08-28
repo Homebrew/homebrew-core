@@ -6,6 +6,11 @@ class Geeqie < Formula
   license "GPL-2.0"
   revision 1
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?geeqie[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "5d344202876e8d095f69c10241a7018a97d4033f1e6c5fabc8db0f8152dc4d1c" => :catalina
     sha256 "80074bcd449427974fafe01f1292d3d77111bb380eac0b94f91797a4802a2108" => :mojave
