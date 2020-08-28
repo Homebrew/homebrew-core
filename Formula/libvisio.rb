@@ -5,6 +5,11 @@ class Libvisio < Formula
   sha256 "8faf8df870cb27b09a787a1959d6c646faa44d0d8ab151883df408b7166bea4c"
   revision 2
 
+  livecheck do
+    url "https://dev-www.libreoffice.org/src/"
+    regex(/href=["']?libvisio[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "a32916487b500b927b22b2e3cbd0f3ec5de65a56dd5306472ee6dc09080c7a38" => :catalina
