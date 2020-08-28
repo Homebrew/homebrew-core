@@ -6,6 +6,11 @@ class Gcviewer < Formula
   license "LGPL-2.1"
   revision 1
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/gcviewer[._-]v?(\d+(?:\.\d+)+)\.jar}i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
