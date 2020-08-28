@@ -7,6 +7,10 @@ class Joplin < Formula
   sha256 "d4292ee33a108dd917d951644d0be7fe63b50d8108504758b1ad7c0b798c0539"
   license "MIT"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "b1db2009b91e989c0fef249e97cd6510061bc76d7deb4156c5b0ff48cf1b25f6" => :catalina
     sha256 "db19b4eaf3006ab2d5854cfe40385f5786f67038f593fa8f250ad62af9326c0d" => :mojave
