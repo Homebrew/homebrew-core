@@ -4,6 +4,11 @@ class UBootTools < Formula
   url "https://ftp.denx.de/pub/u-boot/u-boot-2020.07.tar.bz2"
   sha256 "c1f5bf9ee6bb6e648edbf19ce2ca9452f614b08a9f886f1a566aa42e8cf05f6a"
 
+  livecheck do
+    url "https://ftp.denx.de/pub/u-boot/"
+    regex(/href=.*?u-boot[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "9667b7cc022e686187b978537d79497c7b9b99057317feb5aa7ecd72a3de4db6" => :catalina
