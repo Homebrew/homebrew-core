@@ -8,6 +8,11 @@ class Rtmpdump < Formula
   revision 1
   head "https://git.ffmpeg.org/rtmpdump.git", shallow: false
 
+  livecheck do
+    url "https://cdn-aws.deb.debian.org/debian/pool/main/r/rtmpdump/"
+    regex(/href=.*?rtmpdump[._-]v?(\d.\d\+\d*).*.orig\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "f39d714005d28ed61728832877433a68dd256796bc225bac68b505b2c1d97ef4" => :catalina
