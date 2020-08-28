@@ -7,6 +7,10 @@ class Borgmatic < Formula
   sha256 "31459e5573c34b7b9e53ad54012be6d367e2f23c0612fd5a315593ebf23074c5"
   license "GPL-3.0-or-later"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "1779e107b6760355c7fd974356e687d680e0c03d34c39617cca6408f142e0b2f" => :catalina
