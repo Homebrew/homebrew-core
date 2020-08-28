@@ -4,6 +4,11 @@ class Deployer < Formula
   url "https://deployer.org/releases/v6.8.0/deployer.phar"
   sha256 "25f639561cb7ebe5c2231b05cb10a0cf62f83469faf6b9248dfa6b7f94e3bd26"
 
+  livecheck do
+    url "https://deployer.org/download"
+    regex(%r{href=.*?/releases/v?(\d+(?:\.\d+)+)/deployer.phar}i)
+  end
+
   bottle :unneeded
 
   depends_on "php"
