@@ -5,6 +5,11 @@ class Atool < Formula
   sha256 "aaf60095884abb872e25f8e919a8a63d0dabaeca46faeba87d12812d6efc703b"
   license "GPL-3.0"
 
+  livecheck do
+    url "https://download.savannah.gnu.org/releases/atool/"
+    regex(/href=.*?atool[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 2
