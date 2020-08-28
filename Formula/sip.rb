@@ -6,6 +6,11 @@ class Sip < Formula
   license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
   head "https://www.riverbankcomputing.com/hg/sip", using: :hg
 
+  livecheck do
+    url "https://riverbankcomputing.com/software/sip/download"
+    regex(/href=.*?sip[._-]v?(\d+(\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "27b5d4e78eee2d5cba8154d292b334e111a1d1e7c718bde664c352a542e15426" => :catalina
