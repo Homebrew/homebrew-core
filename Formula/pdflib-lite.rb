@@ -7,6 +7,11 @@ class PdflibLite < Formula
   version "7.0.5p3"
   sha256 "e5fb30678165d28b2bf066f78d5f5787e73a2a28d4902b63e3e07ce1678616c9"
 
+  # PDFlib Lite reached its end of life in 2011 and is no longer supported.
+  livecheck do
+    skip "No longer supported"
+  end
+
   bottle do
     cellar :any
     rebuild 2
