@@ -4,6 +4,11 @@ class Theora < Formula
   url "https://downloads.xiph.org/releases/theora/libtheora-1.1.1.tar.bz2"
   sha256 "b6ae1ee2fa3d42ac489287d3ec34c5885730b1296f0801ae577a35193d3affbc"
 
+  livecheck do
+    url "https://www.theora.org/downloads/"
+    regex(/href=.*?libtheora[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     rebuild 3
