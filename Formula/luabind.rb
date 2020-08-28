@@ -6,6 +6,10 @@ class Luabind < Formula
   license "MIT"
   revision 2
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "aa095d38915e09287c86d11d65871b5a4e6604799a961f0e055c9bf526ba403b" => :mojave
