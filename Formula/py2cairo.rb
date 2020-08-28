@@ -6,6 +6,11 @@ class Py2cairo < Formula
   license "LGPL-2.1"
   revision 1
 
+  livecheck do
+    url :stable
+    regex(/^v?(1\.18(?:\.\d+)*)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "78ab70984d612ac9feba4d673615e3918110aebc4aa0b360a854e81fc7ac0ea7" => :catalina
