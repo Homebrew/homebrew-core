@@ -6,6 +6,13 @@ class GtkMacIntegration < Formula
   license "LGPL-2.1"
   revision 4
 
+  # We use a common regex because gtk-mac-integration doesn't use GNOME's
+  # "even-numbered minor is stable" version scheme.
+  livecheck do
+    url :stable
+    regex(/gtk-mac-integration[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "f3aa06585602da10d89507059ece018889dbb0054118791015d22c65fec76cde" => :catalina
     sha256 "a49e16175a868344c82613a7e23755bc6fc5da89c12e8ee6385c94c02da477cc" => :mojave
