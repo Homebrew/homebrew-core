@@ -5,6 +5,11 @@ class Paperkey < Formula
   sha256 "a245fd13271a8d2afa03dde979af3a29eb3d4ebb1fbcad4a9b52cf67a27d05f7"
   license "GPL-2.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?paperkey[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "12be9f841cfb0d4069be3e461cd5e783ba4ea11195507a13763f90ccc026f31e" => :catalina
