@@ -6,6 +6,11 @@ class Asio < Formula
   license "BSL-1.0"
   head "https://github.com/chriskohlhoff/asio.git"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?Stable.*?/asio[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "89dff3c575014d571875ebaf43772705c605f95ed9424a235a7755b13d523c37" => :catalina
