@@ -6,6 +6,11 @@ class Freeciv < Formula
   license "GPL-2.0"
   revision 1
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/freeciv[._-]v?(\d+(?:\.\d+)+)\.(?:t|zip)/}i)
+  end
+
   bottle do
     sha256 "ef6d245c1c9e7deae7ac7f7e76df10e7b6a8d49968bebc0b99f14729ceee290f" => :catalina
     sha256 "3b488924c498bfd515785b3ce42f9b9fc75b82fa799fff77fd58c1b42038c2bb" => :mojave
