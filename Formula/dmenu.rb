@@ -6,6 +6,11 @@ class Dmenu < Formula
   license "MIT"
   head "https://git.suckless.org/dmenu/", using: :git
 
+  livecheck do
+    url "https://dl.suckless.org/tools/"
+    regex(/href=.*?dmenu[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "6d5bd66279c7595ce553efc719503205af487e300623fce212e1155db370f6b5" => :catalina
