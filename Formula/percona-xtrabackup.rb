@@ -5,6 +5,11 @@ class PerconaXtrabackup < Formula
   sha256 "760f556e85ad55bd54019ad78b1064557c68e31b6e37dc4f4ce1f0065b911f71"
   revision 1
 
+  livecheck do
+    url "https://github.com/percona/percona-xtrabackup.git"
+    regex(/^percona-xtrabackup[._-]v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 "2f35a444086da15b1e05ec9ac225f153376abb81546db4490fbf34b4096ec6c0" => :catalina
     sha256 "a4f1233ebde9ab66010214fa21c739ae9f97cffcb739bdd51fe542511d5571e1" => :mojave
