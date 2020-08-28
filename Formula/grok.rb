@@ -7,6 +7,11 @@ class Grok < Formula
   revision 2
   head "https://github.com/jordansissel/grok.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+\.\d{,3}(\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "8e3f44420143e731799d52290c9823a42a1833c4bc51906af59d4cd7c284f391" => :catalina
