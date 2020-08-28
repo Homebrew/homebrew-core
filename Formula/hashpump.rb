@@ -6,6 +6,11 @@ class Hashpump < Formula
   license "MIT"
   revision 4
 
+  livecheck do
+    url "https://github.com/bwall/HashPump/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "117ca0966fcc664caacd251d564dbebde369b0a5b6c9a35242c898f5b12f232e" => :catalina
