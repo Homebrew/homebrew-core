@@ -6,6 +6,11 @@ class Poco < Formula
   license "BSL-1.0"
   head "https://github.com/pocoproject/poco.git", branch: "develop"
 
+  livecheck do
+    url "https://pocoproject.org/releases"
+    regex(%r{href=.*?poco[._-]v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "0755dff1346ea80aa6202ce3e8269c608960abd4bf0a4566e56075cc99364b57" => :catalina
