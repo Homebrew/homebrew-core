@@ -6,6 +6,11 @@ class Elektra < Formula
   license "BSD-3-Clause"
   head "https://github.com/ElektraInitiative/libelektra.git"
 
+  livecheck do
+    url "https://www.libelektra.org/ftp/elektra/releases/"
+    regex(/href=.*?elektra[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "e621021dfaf81727f50302993a94b0f06eaccfc0c4d57c6879bbb0d3d5a42368" => :catalina
     sha256 "761e2bc6bbda33e08a6aebe9ea36d490d05b6bf0ec6e4d1bf3d9dc92ceb72ac0" => :mojave
