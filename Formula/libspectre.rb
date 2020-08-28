@@ -5,6 +5,11 @@ class Libspectre < Formula
   sha256 "49ae9c52b5af81b405455c19fe24089d701761da2c45d22164a99576ceedfbed"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://libspectre.freedesktop.org/releases/"
+    regex(/href=.*?libspectre[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "a5ebee9481527fc2e9fb217ac3d017435c77c36beb0d82a1722df463df7bdaaf" => :catalina
