@@ -6,6 +6,11 @@ class AnycableGo < Formula
   license "MIT"
   head "https://github.com/anycable/anycable-go.git"
 
+  livecheck do
+    url "https://github.com/anycable/anycable-go/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "158a7e9917bcdc099b664996e081dd2b020d2036a22e92f351bc9df43a33995d" => :catalina
