@@ -4,6 +4,11 @@ class Sdl2Gfx < Formula
   url "https://www.ferzkopp.net/Software/SDL2_gfx/SDL2_gfx-1.0.4.tar.gz"
   sha256 "63e0e01addedc9df2f85b93a248f06e8a04affa014a835c2ea34bfe34e576262"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?SDL2_gfx[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "9db41c0f2fd4897456594769a4a549b5261c3027dde8fc6da7160faf7db0a539" => :catalina
