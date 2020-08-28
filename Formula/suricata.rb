@@ -5,6 +5,11 @@ class Suricata < Formula
   sha256 "34413ecdad2ff2452526dbcd22f1279afd0935151916c0ff9cface4b0b5665db"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://suricata-ids.org/download/"
+    regex(/href=.*?suricata[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "ce6e9acf117b139febc73ae854aa279c1bab29981c107524ee3ff7c1b3c780a8" => :catalina
     sha256 "033c282b979418b4356b4f208781bcea7fd9100c62e4981a8980b396424aefc9" => :mojave
