@@ -5,6 +5,11 @@ class Argus < Formula
   sha256 "ca4e3bd5b9d4a8ff7c01cc96d1bffd46dbd6321237ec94c52f8badd51032eeff"
   license "GPL-3.0"
 
+  livecheck do
+    url "https://qosient.com/argus/src/"
+    regex(/href=.*?argus[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "8deffdef21a05cf61e3b134532439173966ec8748f1988c4048c3173d6788d2e" => :catalina
