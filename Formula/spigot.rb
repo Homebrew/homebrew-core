@@ -6,6 +6,11 @@ class Spigot < Formula
   sha256 "932d6243739cdaa15270922ca01fa9ca1b48bc11f7931281d5ac00e6fab5596d"
   license "MIT"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?spigot[._-]v?(\d+)(?:\.[\da-z]+)?\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "dbfdfe6cb12e1bcf76cbc774a48a074e2a0637ccebee39874dbbb5c783a779dd" => :catalina
