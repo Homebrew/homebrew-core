@@ -4,6 +4,11 @@ class Baresip < Formula
   url "http://www.creytiv.com/pub/baresip-0.6.5.tar.gz"
   sha256 "2b035bd8b2121c72bec674768579a3bdcc5d1d567ecb0a84125864d69807b18d"
 
+  livecheck do
+    url "http://www.creytiv.com/pub/"
+    regex(/href=.*?baresip[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "dd71d2ba58f82dd58b4da6c350b2d52ff4e04fe64679a446778615550dfb95b8" => :catalina
     sha256 "ec2fb4cba298c281b40a0929c227b563508ecaf5564e9381872c14469fb73ef9" => :mojave
