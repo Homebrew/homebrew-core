@@ -5,6 +5,10 @@ class Gpp < Formula
   sha256 "49eb99d22af991e7f4efe2b21baa1196e9ab98c05b4b7ed56524a612c47b8fd3"
   license "GPL-3.0"
 
+  livecheck do
+    url "https://github.com/logological/gpp.git"
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "f6dcf32a23b4dfab4c9fa231757f87a9eb8f4ea2fcd4e8146a02e8afe22b38cc" => :catalina
