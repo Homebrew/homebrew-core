@@ -9,6 +9,11 @@ class Flawfinder < Formula
   revision 1
   head "https://github.com/david-a-wheeler/flawfinder.git"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?flawfinder[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "834e8b598e411e3722bb5955348293cc9ef833400ee0a45357525c91c13a29c6" => :catalina
