@@ -4,6 +4,10 @@ class Clpbar < Formula
   url "https://downloads.sourceforge.net/project/clpbar/clpbar/bar-1.11.1/bar_1.11.1.tar.gz"
   sha256 "fa0f5ec5c8400316c2f4debdc6cdcb80e186e668c2e4471df4fec7bfcd626503"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "86aefc9d1110a945b62a9dbd9d1efe2a1c4ebaade84ad56d00084857439914a8" => :catalina
