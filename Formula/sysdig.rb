@@ -5,6 +5,11 @@ class Sysdig < Formula
   sha256 "a67f97b2620e3d9c5d48d07932604c938a5a6d3b625d7a23bfb2eb9802024b52"
   license "Apache-2.0"
 
+  livecheck do
+    url "https://github.com/draios/sysdig/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     sha256 "592586c570869dabe8da4ed4d81c280a1db9c0e9dd4ca813af30e4a313c611ea" => :catalina
     sha256 "95c565cd53a705937b4036c794b439c3707177fc02527ad3f1ad1439d838df85" => :mojave
