@@ -5,6 +5,11 @@ class Libofx < Formula
   sha256 "e95c14e09fc37b331af3ef4ef7bea29eb8564a06982959fbd4bca7e331816144"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/libofx[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     sha256 "aa4c73d9fe09d54bc4fb0a1dde14bd927949f4d0ce100dae987f03df79236958" => :catalina
     sha256 "9b731e873dee237f2723fd05aa7f88b0e64f29197297c33e9def68112d7c2fc8" => :mojave
