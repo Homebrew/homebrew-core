@@ -6,6 +6,11 @@ class DnscryptProxy < Formula
   license "ISC"
   head "https://github.com/DNSCrypt/dnscrypt-proxy.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "7da6a093ba0eb0f91a5e0395c9d59c312ae0ba7ad4d768571084bf9910d4b89e" => :catalina
