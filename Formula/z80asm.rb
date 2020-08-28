@@ -4,6 +4,11 @@ class Z80asm < Formula
   url "https://download.savannah.gnu.org/releases/z80asm/z80asm-1.8.tar.gz"
   sha256 "67fba9940582cddfa70113235818fb52d81e5be3db483dfb0816acb330515f64"
 
+  livecheck do
+    url "https://download.savannah.gnu.org/releases/z80asm/"
+    regex(/href=.*?z80asm[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "0e7b29aa5927fcf70d1f704cdc4d0b73477c39d2f624fff4264ab08a6675959d" => :catalina
