@@ -7,6 +7,10 @@ class Pylint < Formula
   sha256 "7dd78437f2d8d019717dbf287772d0b2dbdfd13fc016aa7faa08d67bccc46adc"
   license "GPL-2.0-or-later"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "0276d309ef75310c6f769fd57bd1c0326c42ad167fada9985d9a18c5219111a8" => :catalina
