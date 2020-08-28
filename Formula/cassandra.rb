@@ -6,6 +6,10 @@ class Cassandra < Formula
   sha256 "b9c0d5b08ae2660810227b1881e8b7b5bc9ae0549cb8efb866b99884ad7346e2"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "faa06a0b2ef7f257a29c57f2e772256e8b4be0ddd9617f0f4d2b3edca4432281" => :catalina
