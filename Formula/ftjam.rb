@@ -4,6 +4,14 @@ class Ftjam < Formula
   url "https://downloads.sourceforge.net/project/freetype/ftjam/2.5.2/ftjam-2.5.2.tar.bz2"
   sha256 "e89773500a92912de918e9febffabe4b6bce79d69af194435f4e032b8a6d66a3"
 
+  # We check the "ftjam" directory page since versions aren't present in the
+  # RSS feed as of writing.
+  livecheck do
+    url "https://sourceforge.net/projects/freetype/files/ftjam/"
+    strategy :page_match
+    regex(%r{href=.*?/v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "4440e1baa7919c2a6b7190b31f12067c20d1a532249bd22f842d84a821c3f8a8" => :catalina
