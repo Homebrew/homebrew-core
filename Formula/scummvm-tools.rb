@@ -6,6 +6,11 @@ class ScummvmTools < Formula
   license "GPL-2.0"
   head "https://github.com/scummvm/scummvm-tools.git"
 
+  livecheck do
+    url "https://www.scummvm.org/downloads/"
+    regex(/href=.*?scummvm-tools[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "821010b2b6e9756d7207a5dd61cdac53c82b780ca9a17a8ae313f82501cfa5fb" => :catalina
