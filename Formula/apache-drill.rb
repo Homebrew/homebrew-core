@@ -6,6 +6,10 @@ class ApacheDrill < Formula
   sha256 "a3d2d544bcc32b915fb53fced0f982670bd6fe2abd764423e566a5f6b54debf1"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle :unneeded
 
   depends_on java: "1.8"
