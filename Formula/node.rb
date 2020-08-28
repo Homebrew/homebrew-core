@@ -6,6 +6,11 @@ class Node < Formula
   license "MIT"
   head "https://github.com/nodejs/node.git"
 
+  livecheck do
+    url "https://nodejs.org/dist/"
+    regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "df9d87a46dfa38140b2742ab1b00121825b92aabbcd98be2b8c7b4900752f749" => :catalina
