@@ -8,6 +8,10 @@ class Watson < Formula
   license "MIT"
   head "https://github.com/TailorDev/Watson.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "583a25260198299269ba64f89afa737eb99afbd7ab36796b714c893bae7975be" => :catalina
