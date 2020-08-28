@@ -4,6 +4,11 @@ class Smpeg2 < Formula
   url "svn://svn.icculus.org/smpeg/tags/release_2_0_0/", revision: "408"
   head "svn://svn.icculus.org/smpeg/trunk"
 
+  livecheck do
+    url "http://svn.icculus.org/smpeg/tags/"
+    regex(%r{href=.*?release[._-]v?(2(?:[._]\d+)+)/}i)
+  end
+
   bottle do
     cellar :any
     sha256 "97d4ca204752184752822f6c4bbbff2e044d110917f6a0ce30c3c472d6cb622c" => :catalina
