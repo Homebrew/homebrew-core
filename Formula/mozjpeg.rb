@@ -6,6 +6,11 @@ class Mozjpeg < Formula
   license "BSD-3-Clause"
   revision 1
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "ef7d5b06f03e05a4babab7b464bb83475a9a3fedbaa78e1ceedf23f051828e4c" => :catalina
