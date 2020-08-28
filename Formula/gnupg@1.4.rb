@@ -6,6 +6,11 @@ class GnupgAT14 < Formula
   sha256 "c9462f17e651b6507848c08c430c791287cd75491f8b5a8b50c6ed46b12678ba"
   revision 1
 
+  livecheck do
+    url "https://gnupg.org/ftp/gcrypt/gnupg/"
+    regex(/href=.*?gnupg[._-]v?(1\.4(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "3796803df0956a54dfc5ed26f17a92791622c4ddc6b0dfa6b8fabc0f65afdd0d" => :catalina
     sha256 "32f23f8ceec79b8073f8b69a2c7f1278adf9020c00d78d2cd9d07c1e5f3bdb89" => :mojave
