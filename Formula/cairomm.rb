@@ -6,6 +6,11 @@ class Cairomm < Formula
   license "LGPL-2.0"
   revision 1
 
+  livecheck do
+    url "https://cairographics.org/releases/?C=M&O=D"
+    regex(/href=.*?cairomm[._-]v?(\d+\.\d*[02468](?:\.\d+)*)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "58ce00547bc4f0210b0236b3e3df344b372e801bc129ba32091a5396334af7f8" => :catalina
