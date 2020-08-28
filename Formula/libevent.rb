@@ -5,6 +5,11 @@ class Libevent < Formula
   sha256 "7180a979aaa7000e1264da484f712d403fcf7679b1e9212c4e3d09f5c93efc24"
   license "BSD-3-Clause"
 
+  livecheck do
+    url :homepage
+    regex(/libevent[._-]v?(\d+(?:\.\d+)+)-stable/i)
+  end
+
   bottle do
     cellar :any
     sha256 "b5f5e7607d76b9b41ecac6df72ab5797079a9367055bb305514917595e63a323" => :catalina
