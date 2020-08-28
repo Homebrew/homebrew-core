@@ -7,6 +7,10 @@ class Openstackclient < Formula
   sha256 "dcbdc95f6f577f621fc2b3862a3e1143dedd7d8a95e6ed08bd953d95aa24a1cf"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "286bfe5a812dabcd8517bb5ccb9fc742985763cead4c54ac32db0e3c18deea12" => :catalina
