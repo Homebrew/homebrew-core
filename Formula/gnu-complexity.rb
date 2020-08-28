@@ -6,6 +6,10 @@ class GnuComplexity < Formula
   sha256 "6d378a3ef9d68938ada2610ce32f63292677d3b5c427983e8d72702167a22053"
   license "GPL-3.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "8a83c1ada362279b8fbe66addd9fb0d646cb90f8c936959c7923a546f9cd0770" => :catalina
