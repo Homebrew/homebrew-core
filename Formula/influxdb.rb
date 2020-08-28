@@ -6,6 +6,11 @@ class Influxdb < Formula
   license "MIT"
   head "https://github.com/influxdata/influxdb.git"
 
+  livecheck do
+    url "https://github.com/influxdata/influxdb/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "85487c01ca5b011374652ddb0dd4396d7f60cbc0227c8acef71caefea59d49d0" => :catalina
