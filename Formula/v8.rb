@@ -5,6 +5,11 @@ class V8 < Formula
   url "https://github.com/v8/v8/archive/8.4.371.23.tar.gz"
   sha256 "54e70cbf4e8e7580aa2ed7c22f961a98933897d2bbcf5efeed912db1af5792a8"
 
+  livecheck do
+    url "https://omahaproxy.appspot.com/all.json?os=mac&channel=stable"
+    regex(/"v8_version": "v?(\d+(?:\.\d+)+)"/i)
+  end
+
   bottle do
     cellar :any
     sha256 "cf712f090f0fd05f690c0042d670b06785b350b21720ed1bb1edb0e397876f73" => :catalina
