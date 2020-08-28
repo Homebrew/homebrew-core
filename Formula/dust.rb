@@ -6,6 +6,11 @@ class Dust < Formula
   license "Apache-2.0"
   head "https://github.com/bootandy/dust.git"
 
+  livecheck do
+    url :head
+    regex(/v([\d.]+)/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "0f66a74fbd7def9b4bf0bdb77f2179caa0b61b18ad22cd401e4ff85c5a7d6bb4" => :catalina
