@@ -5,6 +5,10 @@ class Mp3blaster < Formula
   sha256 "43d9f656367d16aaac163f93dc323e9843c3dd565401567edef3e1e72b9e1ee0"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "5345ef5c262adc849318b2ee1cb092d794be9b9b952ebf23b0dbf666f8a5f460" => :catalina
     sha256 "8d7c349befa2a093cee2b1fea30ece26393069c19508defb4582a5f7e8200dda" => :mojave
