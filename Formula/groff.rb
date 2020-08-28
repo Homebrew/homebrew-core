@@ -6,6 +6,10 @@ class Groff < Formula
   sha256 "e78e7b4cb7dec310849004fa88847c44701e8d133b5d4c13057d876c1bad0293"
   license "GPL-3.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "a7c425eec2e56f10e06978b393c0cf53269d27f20e801856fd6d2ba91df81136" => :catalina
     sha256 "1ee2ce419f4d59f098f0804e1dea42524ef72a88b69ce891c42f13d5f19be5f9" => :mojave
