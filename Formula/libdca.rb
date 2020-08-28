@@ -5,6 +5,11 @@ class Libdca < Formula
   sha256 "3a0b13815f582c661d2388ffcabc2f1ea82f471783c400f765f2ec6c81065f6a"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://download.videolan.org/pub/videolan/libdca/"
+    regex(%r{href=.*?v?(\d+(?:\.\d+)+)[/"'>]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "d9c4b3a350744867f5782db738d25d1212b9be89449030492083364574f914d7" => :catalina
