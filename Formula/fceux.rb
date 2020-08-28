@@ -5,6 +5,10 @@ class Fceux < Formula
   sha256 "4be6dda9a347f941809a3c4a90d21815b502384adfdd596adaa7b2daf088823e"
   revision 4
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "7c7550b97011321d5d48f8f689c7158223aee5054698a6c707a185404e469e35" => :catalina
