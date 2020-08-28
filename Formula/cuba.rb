@@ -5,6 +5,11 @@ class Cuba < Formula
   sha256 "da4197a194f7a79465dfb2c06c250caa8e76d731e9d6bdfd2dd6e81c8fc005e0"
   license "LGPL-3.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?Cuba[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "dd3e744e7357b51f502a8241360df6f29ecfe74a8d33dad2503ab64528e99573" => :catalina
