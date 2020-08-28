@@ -6,6 +6,11 @@ class Grace < Formula
   license "GPL-2.0"
   revision 2
 
+  livecheck do
+    url "https://deb.debian.org/debian/pool/main/g/grace/"
+    regex(/href=.*?grace[._-]v?(\d+(?:\.\d+)+)\.orig\.t/i)
+  end
+
   bottle do
     sha256 "7629c4a481667d3acbbb5813789d885beece9f063e41826546b68b5f7170360b" => :catalina
     sha256 "919ed10debaca3045266712e6927d410c152ec92e44f403efc91c11a322652d4" => :mojave
