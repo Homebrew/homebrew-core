@@ -5,6 +5,12 @@ class Pulseaudio < Formula
   sha256 "961b23ca1acfd28f2bc87414c27bb40e12436efcf2158d29721b1e89f3f28057"
   revision 1
 
+  # The regex here avoids x.99 releases, as they're pre-release versions.
+  livecheck do
+    url :stable
+    regex(/href=["']?pulseaudio[._-]v?((?!\d+\.9\d+)\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "0e9445dd8d49abd299324e93f00231605e993f791674997d9d2c35b88efec528" => :catalina
     sha256 "ae68dfdb8ad584bf3f602ea7fb36d9bc1e4540e6905986a7129e45c6170d8d95" => :mojave
