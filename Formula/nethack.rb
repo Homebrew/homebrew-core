@@ -9,6 +9,11 @@ class Nethack < Formula
   license "NGPL"
   head "https://github.com/NetHack/NetHack.git"
 
+  livecheck do
+    url :head
+    regex(/^NetHack[._-]v?(\d+(?:\.\d+)+)_Released?$/i)
+  end
+
   bottle do
     sha256 "69418bfcba43b656118140a7e50992772567c4c2ab4827ce0af343892a149945" => :catalina
     sha256 "4d186d190dcab9cc719a3868aa73a6c311407f8c1510e1d3bfd185a8070177bc" => :mojave
