@@ -7,6 +7,10 @@ class EgExamples < Formula
   sha256 "ac9827824c2c9aee0fd0a54ca57440021a0a87868b503b215c2c273a035bef59"
   license "MIT"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "66b8e36ffd66967947c4c31ac1c111210030bbb6072fa79a18f86ad75422b5d2" => :catalina
