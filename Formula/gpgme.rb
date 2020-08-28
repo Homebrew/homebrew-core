@@ -4,6 +4,11 @@ class Gpgme < Formula
   url "https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.14.0.tar.bz2"
   sha256 "cef1f710a6b0d28f5b44242713ad373702d1466dcbe512eb4e754d7f35cd4307"
 
+  livecheck do
+    url "https://gnupg.org/ftp/gcrypt/gpgme/"
+    regex(/href=.*?gpgme[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "9adeee9e826faf7e4955cf5e7da6a3c17b6c31a8c96b27eb486201db01fae024" => :catalina
