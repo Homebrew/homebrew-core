@@ -7,6 +7,11 @@ class Oniguruma < Formula
   license "BSD-2-Clause"
   head "https://github.com/kkos/oniguruma.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+(?:.(?:mark|rev)\d+)?)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "15241cccbb727a11200b6eb7398500795057bb065784a3af6ec9c98cd6ce7686" => :catalina
