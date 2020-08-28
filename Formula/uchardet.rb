@@ -5,6 +5,10 @@ class Uchardet < Formula
   sha256 "3fc79408ae1d84b406922fa9319ce005631c95ca0f34b205fad867e8b30e45b1"
   head "https://anongit.freedesktop.org/git/uchardet/uchardet.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "34bd4791834a762da961de136a3cad253800a98deea2d1dededf8efb465f215d" => :catalina
