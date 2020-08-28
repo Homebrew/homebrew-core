@@ -10,6 +10,11 @@ class PerconaToolkit < Formula
   license any_of: ["GPL-2.0-only", "Artistic-1.0-Perl"]
   head "lp:percona-toolkit", using: :bzr
 
+  livecheck do
+    url "https://www.percona.com/downloads/percona-toolkit/LATEST/"
+    regex(%r{value=.*?percona-toolkit/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "9cb6acc2c62ea3d71fe9d5974fea8da69141226411a41cab50bd0e490e7fb6ca" => :catalina
