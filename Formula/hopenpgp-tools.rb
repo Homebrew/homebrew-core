@@ -6,6 +6,10 @@ class HopenpgpTools < Formula
   revision 2
   head "https://salsa.debian.org/clint/hOpenPGP.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "399bf10f33cdbcefaee7a2afb513778b81f50b6620abdcd0901a9ad161a9f3cb" => :catalina
