@@ -5,6 +5,10 @@ class Libglademm < Formula
   sha256 "38543c15acf727434341cc08c2b003d24f36abc22380937707fc2c5c687a2bc3"
   revision 6
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "d123ccbbf9e8e599a6b889e3b02214b7556b9b205d1835cabb4259bf1520738d" => :catalina
