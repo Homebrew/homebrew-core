@@ -7,6 +7,11 @@ class GitlabRunner < Formula
   license "MIT"
   head "https://gitlab.com/gitlab-org/gitlab-runner.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "a4d1bdf384502a8fc90dde912c47126ef87219f18f39fdb41f906081cd3c0eb0" => :catalina
