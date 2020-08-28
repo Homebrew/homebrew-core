@@ -5,6 +5,11 @@ class DitaOt < Formula
   sha256 "dffe64576fd78c14cd011b6cabcd022a2fe900a415c7fbe1e6f4f8fd921607b4"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
