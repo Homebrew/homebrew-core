@@ -6,6 +6,10 @@ class H2 < Formula
   sha256 "a72f319f1b5347a6ee9eba42718e69e2ae41e2f846b3475f9292f1e3beb59b01"
   license "MPL-2.0"
 
+  livecheck do
+    url "https://github.com/h2database/h2database.git"
+  end
+
   bottle :unneeded
 
   def script
