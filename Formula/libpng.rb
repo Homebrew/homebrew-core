@@ -6,6 +6,11 @@ class Libpng < Formula
   sha256 "505e70834d35383537b6491e7ae8641f1a4bed1876dbfe361201fc80868d88ca"
   license "libpng-2.0"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/libpng[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "c8e74da602c21f978cd7ee3d489979b4fc6681e71f678a1d99012943ee3a909f" => :catalina
