@@ -5,6 +5,11 @@ class DfuProgrammer < Formula
   sha256 "1db4d36b1aedab2adc976e8faa5495df3cf82dc4bf883633dc6ba71f7c4af995"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/dfu-programmer[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "5ff077a2c2198fc345e429246a560ca4a13fea2a9dbb9a0feb6fe4cbdfa46a4a" => :catalina
