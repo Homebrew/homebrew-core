@@ -6,6 +6,11 @@ class WirouterKeyrec < Formula
   sha256 "3e59138f35502b32b47bd91fe18c0c232921c08d32525a2ae3c14daec09058d4"
   license "GPL-3.0"
 
+  livecheck do
+    url :homepage
+    regex(%r{href=.*?/WiRouter_KeyRec[._-]v?(\d+(?:\.\d+)+)\.zip}i)
+  end
+
   bottle do
     sha256 "907d4ed63f0f9c13217a9120749b12521ad773d310d554534a507ca9714d2dd7" => :catalina
     sha256 "ca8371cae9a6a4ce5ce4541a811d17260d877695426b16777e4b89d0fb912332" => :mojave
