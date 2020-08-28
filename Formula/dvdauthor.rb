@@ -5,6 +5,11 @@ class Dvdauthor < Formula
   sha256 "3020a92de9f78eb36f48b6f22d5a001c47107826634a785a62dfcd080f612eb7"
   revision 2
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/dvdauthor[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "669b5fe5348ceb668f9ff55c4942c240f585eb5167e2dfbe1142442fcf7b776b" => :catalina
