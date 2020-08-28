@@ -4,6 +4,10 @@ class Jrtplib < Formula
   url "https://research.edm.uhasselt.be/jori/jrtplib/jrtplib-3.11.2.tar.bz2"
   sha256 "2c01924c1f157fb1a4616af5b9fb140acea39ab42bfb28ac28d654741601b04c"
 
+  livecheck do
+    skip "No longer developed"
+  end
+
   bottle do
     cellar :any
     sha256 "05fc5e0747f7d5f725f9dda22cf39d414e8ee751829d14e9c32fa12279834cfc" => :catalina
