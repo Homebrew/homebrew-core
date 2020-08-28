@@ -7,6 +7,10 @@ class Breezy < Formula
   sha256 "1eff207403f48898fa3b3ffa7a4275197c6c58fec105ef267caf1f5fd5a6c7be"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 1
