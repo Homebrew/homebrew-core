@@ -4,6 +4,10 @@ class Soci < Formula
   url "https://downloads.sourceforge.net/project/soci/soci/soci-4.0.0/soci-4.0.0.zip"
   sha256 "c7fffa74867182d9559e20c6e8d291936c3bd8cfa8c7d0c13bb2eeb09e0f318b"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "b25ecdd8f098dc48dc20195cd8852533e47e12fe6cbac8bccb31db99854d9c5b" => :catalina
     sha256 "0dc4c5223dcefeefbdbc647dc7827adf7fc01fe52a23f3bd325d6cf32624e532" => :mojave
