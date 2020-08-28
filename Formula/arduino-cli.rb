@@ -7,6 +7,11 @@ class ArduinoCli < Formula
   license "GPL-3.0"
   head "https://github.com/arduino/arduino-cli.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "cee001376951036fc6dba3ca7d5988846074a57d8992c3e600485d8c69d13d48" => :catalina
