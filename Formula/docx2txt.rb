@@ -5,6 +5,10 @@ class Docx2txt < Formula
   sha256 "b297752910a404c1435e703d5aedb4571222bd759fa316c86ad8c8bbe58c6d1b"
   license "GPL-3.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "5fd07512b1396d0cda3b025352da258523470374318723c5d0bdf41a7d174e8c" => :catalina
