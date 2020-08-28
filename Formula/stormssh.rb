@@ -7,6 +7,10 @@ class Stormssh < Formula
   revision 3
   head "https://github.com/emre/storm.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "ea320fc79f2b33f81f123833bcd77212cca1a2fb93fd4094ddc4b175f31fdaed" => :catalina
