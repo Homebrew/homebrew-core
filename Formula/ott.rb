@@ -7,6 +7,11 @@ class Ott < Formula
   revision 1
   head "https://github.com/ott-lang/ott.git"
 
+  livecheck do
+    url "https://github.com/ott-lang/ott/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "22f441ac37e494c9b667838b43e87f820dcf2fe090c4794db7eb0cc3cbd514a6" => :catalina
