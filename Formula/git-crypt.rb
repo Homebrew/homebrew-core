@@ -5,6 +5,11 @@ class GitCrypt < Formula
   sha256 "6d30fcd99442d50f4b3c8d554067ff1d980cdf9f3120ee774131172dba98fd6f"
   revision 1
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?git-crypt[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "f38bb645c3eff62cfb43802199370d85e4785fcf10c063e4d7453e032788bcba" => :catalina
