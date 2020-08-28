@@ -6,6 +6,10 @@ class Libffcall < Formula
   sha256 "ebfa37f97b6c94fac24ecf3193f9fc829517cf81aee9ac2d191af993d73cb747"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "02b522baa2d0f38a85e3a2bee8adb79644e8c834c486737b81a62945b9ec73d4" => :catalina
