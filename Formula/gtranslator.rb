@@ -5,6 +5,10 @@ class Gtranslator < Formula
   sha256 "2daa1d3b59b4a35ef54df087345b03e1703e725081f9dac543539228a715add3"
   revision 4
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "4ccb72c556347cbfe159eddd9688eab723a632130ae82325b317544e7c87b381" => :catalina
     sha256 "fc6c448bb1c7be26d4bce14995bb2946d65950445fdd44875790d223aed1d2e7" => :mojave
