@@ -10,6 +10,11 @@ class OpenshiftCli < Formula
   head "https://github.com/openshift/origin.git",
       shallow: false
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "bd72706773e6bb0620c90731c955d5b1f97e724493d9844210bb2fa06a1bd2d0" => :catalina
