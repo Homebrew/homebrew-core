@@ -5,6 +5,11 @@ class Pdnsrec < Formula
   sha256 "0bbc481d10806233579712a1e4d5f5ee27ca9860e10aa6e1ec317f032bea1508"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://downloads.powerdns.com/releases/"
+    regex(/href=.*?pdns-recursor[._-]v?(\d+(?:\.\d+)*)\.t/i)
+  end
+
   bottle do
     sha256 "7959929b5bc6059799909b9af6d222c2aba4744a8f78e344697dceb26fc3c485" => :catalina
     sha256 "24fe989bb5960ce4bb0900d3e29d4ebcaa68475e5953ca8173c55ebc8c2ce92e" => :mojave
