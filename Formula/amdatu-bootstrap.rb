@@ -4,6 +4,11 @@ class AmdatuBootstrap < Formula
   url "https://bitbucket.org/amdatuadm/amdatu-bootstrap/downloads/bootstrap-bin-r9.zip"
   sha256 "937ef932a740665439ea0118ed417ff7bdc9680b816b8b3c81ecfd6d0fc4773b"
 
+  livecheck do
+    url "https://bitbucket.org/amdatuadm/amdatu-bootstrap/downloads/"
+    regex(/href=.*?bootstrap[._-]v?(?:bin-)?r(\d+(?:\.\d+)*)(?:-bin)?\./i)
+  end
+
   bottle :unneeded
 
   depends_on java: "1.8"
