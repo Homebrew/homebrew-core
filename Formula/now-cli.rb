@@ -7,6 +7,10 @@ class NowCli < Formula
   sha256 "471d4fb8507b64d1caefa5a5a1433432ccf26b1a2965d9c47e88da3934320b96"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "3f66497bf1bc30dd257998e5a6859d850dba71986bc026e76a2c61b4e5b89065" => :catalina
