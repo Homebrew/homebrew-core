@@ -8,6 +8,11 @@ class Gtkx < Formula
     sha256 "b6c8a93ddda5eabe3bfee1eb39636c9a03d2a56c7b62828b359bf197943c582e"
   end
 
+  livecheck do
+    url :stable
+    regex(/gtk\+[._-]v?(2\.([0-8]\d*?)?[02468](?:\.\d+)*?)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 "09e223d16f3e891d2a4184c66fecbf0a777e70e23680ac794dd8c44e4a63d5cf" => :catalina
