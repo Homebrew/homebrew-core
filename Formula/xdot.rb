@@ -7,6 +7,10 @@ class Xdot < Formula
   revision 1
   head "https://github.com/jrfonseca/xdot.py.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "a92e47d64ecc06ba29af228325bb6ca78f063e410a26a5458e016660a600b3b4" => :catalina
