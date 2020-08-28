@@ -5,6 +5,13 @@ class AardvarkShellUtils < Formula
   sha256 "aa2b83d9eea416aa31dd1ce9b04054be1a504e60e46426225543476c0ebc3f67"
   license "GPL-2.0"
 
+  # This regex is multiline since there's a line break between `href=` and the
+  # attribute value on the homepage.
+  livecheck do
+    url :homepage
+    regex(/href=.*?aardvark_shell_utils[._-]v?(\d+(?:\.\d+)+)\.t/im)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "df44cfc6ab0cf9b275f806ab72b47ab47475e35ca3faabbcbbe2054d65f6aa4e" => :catalina
