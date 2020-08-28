@@ -6,6 +6,11 @@ class Tcpflow < Formula
   license "GPL-3.0"
   revision 1
 
+  livecheck do
+    url "http://downloads.digitalcorpora.org/downloads/tcpflow/"
+    regex(/href=.*?tcpflow[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "ee9e12b090ff836bf8bd39024f7c8d075e03357bb7c4eca504838e118d06fd6d" => :catalina
