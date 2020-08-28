@@ -6,6 +6,11 @@ class Exa < Formula
   license "MIT"
   head "https://github.com/ogham/exa.git"
 
+  livecheck do
+    url "https://github.com/ogham/exa/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "cc484e7deb12cdae4ede810258be0ca069d7db395897e9d3fbadd501fb075743" => :catalina
