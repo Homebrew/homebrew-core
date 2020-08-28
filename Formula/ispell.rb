@@ -5,6 +5,11 @@ class Ispell < Formula
   mirror "https://deb.debian.org/debian/pool/main/i/ispell/ispell_3.4.00.orig.tar.gz"
   sha256 "5dc42e458635f218032d3ae929528e5587b1e7247564f0e9f9d77d5ccab7aec2"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?ispell[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "c4a726692b88e792bd82ee0b4cd527e8f69ab0a244f839486087e2b291947afe" => :catalina
     sha256 "5e4a1b0bd20714be296012b2b90c7bb92bfa01b997a4d4efccc369b9553a8eb8" => :mojave
