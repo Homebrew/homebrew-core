@@ -7,6 +7,10 @@ class Ipmitool < Formula
   license "BSD-3-Clause"
   revision 3
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "926d5c49a0a1b9411e45c54e412403003266c27127059edb50b40e07adaf2260" => :catalina
