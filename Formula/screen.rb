@@ -16,6 +16,10 @@ class Screen < Formula
     end
   end
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "f3787a0e1c889106ab14d89c4f1bed001716ce1eb79e44e56b20e71b7448e172" => :catalina
     sha256 "30dfe7b1bc6c74d64be57224852e50ebd5d4c6d4939872eaceac5f06d9935208" => :mojave
