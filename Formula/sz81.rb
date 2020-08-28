@@ -6,6 +6,10 @@ class Sz81 < Formula
   license "GPL-2.0"
   head "https://svn.code.sf.net/p/sz81/code/sz81"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "97f54508894d2dca7948b2798d0c76164a1ebea685a14f8be12e992883348455" => :catalina
     sha256 "b90dc9986a1f3f6fa93967745f331d55d4e8837e05e47b9b28d3ee9245e561d3" => :mojave
