@@ -5,6 +5,11 @@ class Libhid < Formula
   sha256 "f6809ab3b9c907cbb05ceba9ee6ca23a705f85fd71588518e14b3a7d9f2550e5"
   license "GPL-2.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?libhid[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     rebuild 1
