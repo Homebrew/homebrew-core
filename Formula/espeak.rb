@@ -5,6 +5,11 @@ class Espeak < Formula
   sha256 "bf9a17673adffcc28ff7ea18764f06136547e97bbd9edf2ec612f09b207f0659"
   revision 1
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/espeak[._-]v?(\d+(?:\.\d+)+)(?:-source)?\.(?:t|zip)}i)
+  end
+
   bottle do
     rebuild 1
     sha256 "9e3a743f118a7ca9d177d005d260814d576fc9c72f5cad369204a8c42c54ffb4" => :catalina
