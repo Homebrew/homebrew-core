@@ -8,6 +8,11 @@ class Z < Formula
   version_scheme 1
   head "https://github.com/rupa/z.git"
 
+  livecheck do
+    url "https://github.com/rupa/z/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle :unneeded
 
   def install
