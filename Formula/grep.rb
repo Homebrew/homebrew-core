@@ -6,6 +6,10 @@ class Grep < Formula
   sha256 "58e6751c41a7c25bfc6e9363a41786cff3ba5709cf11d5ad903cf7cce31cc3fb"
   license "GPL-3.0-or-later"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "52fb744dfc1f2766b41d90bc4126bc6101663d12c3e31446719ef723b7883266" => :catalina
