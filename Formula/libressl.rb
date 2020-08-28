@@ -7,6 +7,11 @@ class Libressl < Formula
   sha256 "414c149c9963983f805a081db5bd3aec146b5f82d529bb63875ac941b25dcbb6"
   license "OpenSSL"
 
+  livecheck do
+    url :homepage
+    regex(/latest stable release is (\d+(?:\.\d+)+)/i)
+  end
+
   bottle do
     sha256 "77d556189abc30c257d3a138ad0d119ce16eab9da05c3950976dee7a7018ffe3" => :catalina
     sha256 "77bfe70048abc4c22558790066f77173258325aff1e8ec53798d10b83154abf2" => :mojave
