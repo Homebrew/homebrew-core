@@ -6,7 +6,7 @@ class Gl2ps < Formula
   license "GL2PS"
 
   livecheck do
-    url "http://geuz.org/gl2ps/src/"
+    url "https://geuz.org/gl2ps/src/"
     regex(/href=.*?gl2ps[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
