@@ -10,6 +10,10 @@ class Allureofthestars < Formula
   license "AGPL-3.0"
   head "https://github.com/AllureOfTheStars/Allure.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     rebuild 3
     sha256 "cdcc579293d895e65bdfd907c2ab4d66db89e0389f78df9acaf1ea556ea47c63" => :catalina
