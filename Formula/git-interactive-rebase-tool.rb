@@ -5,6 +5,11 @@ class GitInteractiveRebaseTool < Formula
   sha256 "8df32f209d481580c3365a065882e40343ecc42d9e4ed593838092bb6746a197"
   license "GPL-3.0"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "ab2feae40a1c22695f88383fc0d25bd1ce90499cf74004719fbaf7540a673f09" => :catalina
