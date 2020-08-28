@@ -5,6 +5,10 @@ class Aravis < Formula
   sha256 "e36cae575f2afdb416d56437baf8740717a59ef0364f79f33181e87762fe2dcf"
   license "LGPL-2.1-or-later"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "604d55cc8bf4d12d598d6a306e75d38e3986202e6971838b42ec1e770a0cd8ed" => :catalina
     sha256 "083b7c5f1b7a4b7e068119ebd37858c891ada5148f5a8a41884cca286d8f8cdf" => :mojave
