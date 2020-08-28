@@ -14,6 +14,11 @@ class Burp < Formula
     end
   end
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/burp[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     sha256 "a028ea604ba4bbb5abe2d9985e94ece9f673cf33e35191063eb91e356923e982" => :catalina
     sha256 "f45062f56a6cc3bc9ba09b84d9f44e599015387d6d31b0ae8a289fa74a904021" => :mojave
