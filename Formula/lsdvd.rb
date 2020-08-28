@@ -5,6 +5,10 @@ class Lsdvd < Formula
   sha256 "7d2c5bd964acd266b99a61d9054ea64e01204e8e3e1a107abe41b1274969e488"
   revision 3
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "63e52d4264e765ca6095153de37b08dee02d59676ae98b2f0c36b29c0fdae48e" => :catalina
