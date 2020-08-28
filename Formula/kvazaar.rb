@@ -6,6 +6,11 @@ class Kvazaar < Formula
   license "LGPL-2.1"
   head "https://github.com/ultravideo/kvazaar.git"
 
+  livecheck do
+    url "https://github.com/ultravideo/kvazaar/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "75467ab21cc9bb1a3f81f41949a0312300f9d470b4547e827111379b94a237d8" => :catalina
