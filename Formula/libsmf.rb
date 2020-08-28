@@ -5,6 +5,10 @@ class Libsmf < Formula
   sha256 "d3549f15de94ac8905ad365639ac6a2689cb1b51fdfa02d77fa6640001b18099"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "fa858ef4b6b179d578663bbdb0d5c7490ea75a3921713e577a7f848faa99b601" => :catalina
