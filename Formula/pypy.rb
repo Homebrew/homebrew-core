@@ -7,6 +7,11 @@ class Pypy < Formula
   revision 1
   head "https://foss.heptapod.net/pypy/pypy", using: :hg
 
+  livecheck do
+    url "https://downloads.python.org/pypy/"
+    regex(/href=.*?pypy2(?:\.\d+)*[._-]v?(\d+(?:\.\d+)+)-src\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "61e8cfe37e26b93cd72b7fa8d758d71c52181bc1e2a04f6221811018237bade1" => :catalina
