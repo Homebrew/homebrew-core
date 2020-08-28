@@ -7,6 +7,11 @@ class Libsass < Formula
   license "MIT"
   head "https://github.com/sass/libsass.git"
 
+  livecheck do
+    url "https://github.com/sass/libsass/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "a674d8155125a1659499c689b2c3ecc4d37c8196667a93b4463f65dfa77a686c" => :catalina
