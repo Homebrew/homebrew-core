@@ -5,6 +5,11 @@ class Le < Formula
   sha256 "1cbe081eba31e693363c9b8a8464af107e4babfd2354a09a17dc315b3605af41"
   license "GPL-3.0"
 
+  livecheck do
+    url "https://github.com/lavv17/le/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     sha256 "704e7762fb13634aa7b2fe4cc271747894d8ffcf5028abd0d27497bceb6bc378" => :catalina
     sha256 "aa1144661f13ab5fbe4eb132415da66785ab1b903c8d517df03f40826d08632f" => :mojave
