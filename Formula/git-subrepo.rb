@@ -6,6 +6,11 @@ class GitSubrepo < Formula
   license "MIT"
   head "https://github.com/ingydotnet/git-subrepo.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "499beadca28680001847d8ee797f15595b629017a4b434e775ae4d3309277002" => :catalina
