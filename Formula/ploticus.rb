@@ -5,6 +5,10 @@ class Ploticus < Formula
   sha256 "3f29e4b9f405203a93efec900e5816d9e1b4381821881e241c08cab7dd66e0b0"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "5b23a77e8f83f384d8b3da9af8d1bd89832099a5dec99f1711a72f50a4d682fe" => :catalina
     sha256 "b9ba4732a13508d6aba81b81c31a71ca65543fbcda431d57263f28255072087f" => :mojave
