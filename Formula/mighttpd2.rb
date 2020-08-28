@@ -6,6 +6,10 @@ class Mighttpd2 < Formula
   license "BSD-3-Clause"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "bcea435a9feba47df19b64d9fac972a1df8f580647204b07a73b2ade2e14c479" => :catalina
