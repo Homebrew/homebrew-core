@@ -26,6 +26,10 @@ class Devil < Formula
     end
   end
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "8d4739b13ed6e20bc9f87c7f5e06ae2742df94386a80ebae30a9eddf1c70c140" => :catalina
