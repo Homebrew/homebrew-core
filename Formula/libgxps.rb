@@ -6,6 +6,11 @@ class Libgxps < Formula
   license "LGPL-2.1-or-later"
   revision 1
 
+  livecheck do
+    url :stable
+    regex(/libgxps[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "dd6c63cf7f8af07a9ea8bbe4ee902d55a834652f4100780affab11dd38a3deb0" => :catalina
