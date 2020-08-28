@@ -6,6 +6,11 @@ class GnupgPkcs11Scd < Formula
   license "BSD-3-Clause"
   revision 1
 
+  livecheck do
+    url "https://github.com/alonbl/gnupg-pkcs11-scd/releases/latest"
+    regex(%r{href=.*?/tag/gnupg-pkcs11-scd[._-]v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "78f09618378fd89be78ff9e10af2e1d33ac5dc06fcca6474994662434b7b3dc1" => :catalina
