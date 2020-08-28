@@ -6,6 +6,11 @@ class Mairix < Formula
   license "GPL-2.0"
   head "https://github.com/rc0/mairix.git"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/mairix[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "3c74d81ccb04da6f3fa9f0f734861738f6dcc924bde12dc8055fd73ea1be68ce" => :catalina
