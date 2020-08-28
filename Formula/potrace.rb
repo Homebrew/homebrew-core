@@ -5,6 +5,12 @@ class Potrace < Formula
   sha256 "be8248a17dedd6ccbaab2fcc45835bb0502d062e40fbded3bc56028ce5eb7acc"
   license "GPL-2.0"
 
+  livecheck do
+    url "http://potrace.sourceforge.net/"
+    strategy :page_match
+    regex(/href=.*?potrace[._-]v?(\d+(?:\.\d+)*)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "c3f357a8bd6460384400acd00dab0d8571ad0b1543a81e5b9d5ff49d1ece4fa1" => :catalina
