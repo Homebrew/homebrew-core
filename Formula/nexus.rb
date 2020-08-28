@@ -5,6 +5,11 @@ class Nexus < Formula
   version "2.14.18-01"
   sha256 "350af8b270bec7fda5861a15b8a5b7870fd8903d0b9a210754113d5a966ce6a6"
 
+  livecheck do
+    url "https://help.sonatype.com/repomanager2/download/download-archives---repository-manager-oss"
+    regex(/href=.*?nexus[._-]v?(\d+(?:\.\d+)+(?:-\d+)?)(?:-bundle)?\.t/i)
+  end
+
   bottle :unneeded
 
   def install
