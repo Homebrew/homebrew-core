@@ -7,6 +7,11 @@ class GstValidate < Formula
   sha256 "4861ccb9326200e74d98007e316b387d48dd49f072e0b78cb9d3303fdecfeeca"
   revision 1
 
+  livecheck do
+    url "https://gstreamer.freedesktop.org/src/gst-validate/"
+    regex(/href=.*?gst-validate[._-]v?(\d+\.\d*[02468](?:\.\d+)*)\.t/i)
+  end
+
   bottle do
     sha256 "44ac302a258e77061adf3b5e87542ef2c2d1e6a4399554198f8e54c16a501491" => :catalina
     sha256 "602b5e8cfc4749ead0dba6866b12487742488de6cc59555758284c1c8bc9f4b0" => :mojave
