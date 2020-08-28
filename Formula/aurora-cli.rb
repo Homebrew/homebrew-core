@@ -19,9 +19,7 @@ class AuroraCli < Formula
 
   depends_on "python@3.7"
 
-  # Does not build on catalina anymore
-  # Has been moved to the appache attic: https://github.com/apache/attic-aurora
-  disable!
+  disable! because: "does not build on Catalina, moved to the Apache Attic"
 
   def install
     # No pants yet for Mojave, so we force High Sierra binaries there
