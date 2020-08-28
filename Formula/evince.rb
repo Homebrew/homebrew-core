@@ -6,6 +6,10 @@ class Evince < Formula
   license "GPL-2.0"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     rebuild 1
     sha256 "6b0be18965aa27c500abf52cd0e1c5092eb304e8f3eb981031b0c9a98ff4f2b2" => :catalina
