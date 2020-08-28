@@ -5,6 +5,11 @@ class WpCli < Formula
   sha256 "139dcc86ed39ef751679efbdaf57a53528f1afda972c4e3622667cc27397b540"
   license "MIT"
 
+  livecheck do
+    url "https://github.com/wp-cli/wp-cli/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle :unneeded
 
   def install
