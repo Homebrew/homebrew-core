@@ -4,6 +4,11 @@ class Krb5 < Formula
   url "https://kerberos.org/dist/krb5/1.18/krb5-1.18.2.tar.gz"
   sha256 "c6e4c9ec1a98141c3f5d66ddf1a135549050c9fab4e9a4620ee9b22085873ae0"
 
+  livecheck do
+    url :homepage
+    regex(/Current release: .*?>krb5[._-]v?(\d+(?:\.\d+)+)</i)
+  end
+
   bottle do
     sha256 "db39e4570abab6459fb857cb41fdd0a375810d25a4c712f4504585255397d150" => :catalina
     sha256 "e35ce1f9da67683b70fa075f4317a476c8356860c0a1c935d6a56eaee6716e8e" => :mojave
