@@ -5,6 +5,11 @@ class Advancemame < Formula
   sha256 "3e4628e1577e70a1dbe104f17b1b746745b8eda80837f53fbf7b091c88be8c2b"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://github.com/amadvance/advancemame/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     sha256 "7530ca2e37ac45b53164ae54ab6669f1796ea0af88541a85a93a74c155fb0029" => :catalina
     sha256 "95f2cdff91ff98c3c9f65a0751d7948cefb3829d96e1977b5b8869163eba0790" => :mojave
