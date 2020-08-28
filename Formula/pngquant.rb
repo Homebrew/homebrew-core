@@ -6,6 +6,11 @@ class Pngquant < Formula
   license "GPL-3.0"
   head "https://github.com/kornelski/pngquant.git"
 
+  livecheck do
+    url "https://pngquant.org/releases.html"
+    regex(%r{href=.*?/pngquant[._-]v?(\d+(?:\.\d+)+)-src\.t}i)
+  end
+
   bottle do
     cellar :any
     rebuild 1
