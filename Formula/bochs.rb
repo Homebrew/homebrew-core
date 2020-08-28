@@ -4,6 +4,10 @@ class Bochs < Formula
   url "https://downloads.sourceforge.net/project/bochs/bochs/2.6.11/bochs-2.6.11.tar.gz"
   sha256 "63897b41fbbbdfb1c492d3c4dee1edb4224282a07bbdf442a4a68c19bcc18862"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "b6d43a6a60360e0d84ebd2ad9ae7724c413a1f2332c59065fb09c2004d76b723" => :catalina
     sha256 "74fb37178645c4d2b52eec5684931ca215dc2f75794e1cf45b3f6e2b85263819" => :mojave
