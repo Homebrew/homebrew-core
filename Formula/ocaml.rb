@@ -18,6 +18,11 @@ class Ocaml < Formula
   license "LGPL-2.1"
   head "https://github.com/ocaml/ocaml.git", branch: "trunk"
 
+  livecheck do
+    url "https://ocaml.org/releases"
+    regex(/href=.*?v?(\d+(?:\.\d+)+)\.html/i)
+  end
+
   bottle do
     cellar :any
     sha256 "0870fc3042b3725fb2c6f131c4d6f78aec9f19d553e054ba4890773ef69e45a7" => :catalina
