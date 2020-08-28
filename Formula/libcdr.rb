@@ -5,6 +5,11 @@ class Libcdr < Formula
   sha256 "01cd00b04a030977e544433c2d127c997205332cd9b8e35ec0ee17110da7f861"
   revision 2
 
+  livecheck do
+    url "https://dev-www.libreoffice.org/src/"
+    regex(/href=["']?libcdr[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "8c07a139f24c7548cfd8eb6b5bba59ab643d0030d05fb52eb2baf7a825a232fa" => :catalina
