@@ -6,6 +6,10 @@ class Prefixsuffix < Formula
   license "GPL-2.0"
   revision 5
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "24dc25fc90c2e0187c5ac94ea89856516c3a10573821c0f72f4154ce5694285a" => :catalina
     sha256 "cae14def9ca8939d6fc3dcf5c249c7a8e6af3d1bfd9f790157b52dae7b09e901" => :mojave
