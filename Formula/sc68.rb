@@ -5,6 +5,11 @@ class Sc68 < Formula
   sha256 "d7371f0f406dc925debf50f64df1f0700e1d29a8502bb170883fc41cc733265f"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/sc68[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     sha256 "1d06595617862cdb67d49f8bc8389e7e6cb4bd6f6ac81adf20969c68bbe80434" => :catalina
     sha256 "45e1df25bd1394d7e1985b5fdd96a1090ff82d245f3b26bdc5055ec6c80807dd" => :mojave
