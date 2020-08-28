@@ -7,6 +7,10 @@ class Flintrock < Formula
   sha256 "29635ba045ee4b966094d40ddadb0b2298ab0e3495fddf05a9a8b1060f6e4776"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "57c3fa611d0f0cf16ad4c8f0e6d7ecd402aa1b75ebd5a8b7e341da11dd7c5af8" => :catalina
