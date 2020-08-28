@@ -8,6 +8,10 @@ class Awslogs < Formula
   license "BSD-3-Clause"
   head "https://github.com/jorgebastida/awslogs.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "3439948e27c2759b26d54fc48d556379bb3e0cdd194f7762bc845d58315753bb" => :catalina
