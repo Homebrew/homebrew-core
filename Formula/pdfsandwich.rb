@@ -6,6 +6,10 @@ class Pdfsandwich < Formula
   revision 1
   head "https://svn.code.sf.net/p/pdfsandwich/code/trunk/src"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "f02f16a0b4762dd522dcfc633727e3f68dca40966e34d9c89015dc896d47cacc" => :catalina
