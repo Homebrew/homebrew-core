@@ -6,6 +6,11 @@ class Tcpdump < Formula
   license "BSD-3-Clause"
   head "https://github.com/the-tcpdump-group/tcpdump.git"
 
+  livecheck do
+    url "https://www.tcpdump.org/release/"
+    regex(/href=.*?tcpdump[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "d4a3781175e0ce1d1a1048a3e211b8775dcec91e362fb51b3384e7404be3b4b6" => :catalina
