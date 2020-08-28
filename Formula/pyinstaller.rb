@@ -9,6 +9,10 @@ class Pyinstaller < Formula
 
   head "https://github.com/pyinstaller/pyinstaller.git", branch: "develop"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "ab6c283c0c560a084c663c61b84b1bedc256096ccea394d6499be25b06cc4c4b" => :catalina
