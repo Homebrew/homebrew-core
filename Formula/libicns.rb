@@ -6,6 +6,10 @@ class Libicns < Formula
   sha256 "335f10782fc79855cf02beac4926c4bf9f800a742445afbbf7729dab384555c2"
   revision 3
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "33e4b9bf7de81d160ba9f8802c24e89c90903e6be9a3103c7e296536b1fe1511" => :catalina
