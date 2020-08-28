@@ -6,6 +6,10 @@ class Cppi < Formula
   sha256 "12a505b98863f6c5cf1f749f9080be3b42b3eac5a35b59630e67bea7241364ca"
   license "GPL-3.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "24e10e144f6a86bb893f886cb631b9f57a3c3073fc19a0829e512c87db465ef0" => :catalina
