@@ -5,6 +5,10 @@ class Qwtpolar < Formula
   sha256 "6168baa9dbc8d527ae1ebf2631313291a1d545da268a05f4caa52ceadbe8b295"
   revision 3
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     rebuild 1
     sha256 "29e8dcae83fabafd75613c3299482b3d126ade4837b6c312d882994726fe3667" => :catalina
