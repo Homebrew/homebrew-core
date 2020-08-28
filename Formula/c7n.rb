@@ -7,6 +7,11 @@ class C7n < Formula
   sha256 "f875fb72a827a2e088018f4b58fa1553e1e1325d9b57b9bbfb79e51ef13c31ec"
   license "Apache-2.0"
 
+  livecheck do
+    url "https://github.com/cloud-custodian/cloud-custodian/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "c48133a39b5fb930c9c9dc3bb9ee6700e70f6f962adde471404617a097b8c8a3" => :catalina
