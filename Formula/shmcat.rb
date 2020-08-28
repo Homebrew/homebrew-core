@@ -5,6 +5,11 @@ class Shmcat < Formula
   sha256 "831f1671e737bed31de3721b861f3796461ebf3b05270cf4c938749120ca8e5b"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/shmcat[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "f86090c36d839092913667dcfc924f76c71d318a03434a1e608b3960b1df7807" => :catalina
