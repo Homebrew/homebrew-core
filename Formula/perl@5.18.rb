@@ -6,6 +6,11 @@ class PerlAT518 < Formula
   license "Artistic-1.0-Perl"
   revision 1
 
+  livecheck do
+    url "https://www.cpan.org/src/5.0/"
+    regex(/href=.*?perl[._-]v?(5\.18(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "45b388773570fd4ef892caa7a0bb0312fd05dfcb3f73245a03eed16bf9187cc9" => :catalina
     sha256 "3e80537039afd47db55b42a09f34c2b1e6fc2a24581c16d09d76b5ad85997ed6" => :mojave
