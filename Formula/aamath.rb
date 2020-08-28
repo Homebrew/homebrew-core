@@ -5,6 +5,11 @@ class Aamath < Formula
   sha256 "9843f4588695e2cd55ce5d8f58921d4f255e0e65ed9569e1dcddf3f68f77b631"
   license "GPL-2.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?aamath[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "1ac1413ef0322b280ae5bd5663373ed959ee54d28dbdd3261fc4da6e57abf44c" => :catalina
