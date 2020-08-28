@@ -5,6 +5,11 @@ class Automysqlbackup < Formula
   version "3.0-rc6"
   sha256 "889e064d086b077e213da11e937ea7242a289f9217652b9051c157830dc23cc0"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/automysqlbackup[._-]v?(\d+(?:\.\d+)+(?:[._-]?rc\d+)?)\.t}i)
+  end
+
   bottle :unneeded
 
   def install
