@@ -7,6 +7,10 @@ class AprUtil < Formula
   license "Apache-2.0"
   revision 3
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "425955a21c3fec8e78f365cd7fc4c6c4ec95d074f720a9b24e8237af90cc4dcc" => :catalina
     sha256 "b3b8376d8f481164a34b891b926ab22acdc2903e77c4cfbc04c0ba6363ca7597" => :mojave
