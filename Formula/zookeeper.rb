@@ -7,6 +7,10 @@ class Zookeeper < Formula
   license "Apache-2.0"
   head "https://gitbox.apache.org/repos/asf/zookeeper.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "4526d63e4c1d7afcba6a507c1c741e854c3d73cb7ba556941891add904d317f8" => :catalina
