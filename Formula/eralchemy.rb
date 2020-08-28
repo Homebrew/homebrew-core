@@ -8,6 +8,10 @@ class Eralchemy < Formula
   license "Apache-2.0"
   revision 3
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "197e6d329a91625abe5dfab2858c4e4677e97415a17abcaea18102f252b2ab5b" => :catalina
