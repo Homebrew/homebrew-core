@@ -7,6 +7,11 @@ class Libgit2Glib < Formula
   revision 1
   head "https://github.com/GNOME/libgit2-glib.git"
 
+  livecheck do
+    url :stable
+    regex(/libgit2-glib[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "a5297beb6c9ab0602847472ec08fbd2eddad7e91ca3c78db15f4a8175912feea" => :catalina
     sha256 "ffff80b61a3dd453796abdd059803d887c6de603d501c65a153571a0c04be5ce" => :mojave
