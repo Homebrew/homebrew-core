@@ -5,6 +5,10 @@ class Dict < Formula
   sha256 "eeba51af77e87bb1b166c6bc469aad463632d40fb2bdd65e6675288d8e1a81e4"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "cd01d30024209e614bbe8614f4e7ef1c468a8994c3f8f13df618ba115b7749cb" => :catalina
     sha256 "f1887f0f6cf6acaf113f393938f09dc50a7b9ac2b01b0e3689d1c7241f3e4d08" => :mojave
