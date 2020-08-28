@@ -5,6 +5,10 @@ class Swig < Formula
   sha256 "d53be9730d8d58a16bf0cbd1f8ac0c0c3e1090573168bfa151b01eb47fa906fc"
   license "GPL-3.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "530e80b7e7dcd28469b52fc3b668683a97b72642ebf2b6d4e6708d14f05e7286" => :catalina
     sha256 "50afb5930cb37af2e400f0369f6da15b1d4922c1f72f45d13e7e3f8bd9d6d27b" => :mojave
