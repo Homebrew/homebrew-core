@@ -9,6 +9,10 @@ class Webpack < Formula
   license "MIT"
   head "https://github.com/webpack/webpack.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "79dcf8247c523e9779a8ff0e365f05434735ba15febd70ed6afeb572bea3b553" => :catalina
     sha256 "d21cb7bc4a736e64c233a9a01b89bbdc0b5510d61a16865e011c7d0cadee0683" => :mojave
