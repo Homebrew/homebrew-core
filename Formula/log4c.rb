@@ -6,6 +6,11 @@ class Log4c < Formula
   license "LGPL-2.1"
   head "https://git.code.sf.net/p/log4c/log4c.git"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/log4c[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     sha256 "25859511ac3302318ca6eed1eaa89c5a9b1e91b611da4233604e443d9c016dec" => :catalina
     sha256 "8e35c261de43e25fe934f9f77875ff9c5fa6bdc4297fd0dd2fc657a5acd680ae" => :mojave
