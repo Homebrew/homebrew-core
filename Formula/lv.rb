@@ -7,6 +7,13 @@ class Lv < Formula
   license "GPL-2.0"
   revision 1
 
+  # The first-party website is no longer available (as of 2016) and there are no
+  # alternatives. The current release of this software is from 2004-01-16, so
+  # it's safe to say this is no longer actively developed or maintained.
+  livecheck do
+    skip "No available sources to check for versions"
+  end
+
   bottle do
     sha256 "74f154bdfaabb2819bfab9969a88addff7e0b08cca3aafe3ea13805fa588e68d" => :catalina
     sha256 "491aa872d9c617f7d323aa368498f25728d25bbdf1e60fde272e62b149831c99" => :mojave
