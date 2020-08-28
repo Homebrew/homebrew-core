@@ -4,6 +4,11 @@ class Libarchive < Formula
   url "https://www.libarchive.org/downloads/libarchive-3.4.3.tar.xz"
   sha256 "0bfc3fd40491768a88af8d9b86bf04a9e95b6d41a94f9292dbc0ec342288c05f"
 
+  livecheck do
+    url "https://libarchive.org/downloads/"
+    regex(/href=.*?libarchive[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "ec29541614dd1acd7189e69c6e6a689f959d25e1fb52acf06e52b9a4c38166c4" => :catalina
