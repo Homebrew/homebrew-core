@@ -6,6 +6,11 @@ class Terraform < Formula
   license "MPL-2.0"
   head "https://github.com/hashicorp/terraform.git"
 
+  livecheck do
+    url "https://releases.hashicorp.com/terraform/"
+    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "cfe7702b6b8d0f41367fd3f04156d45b9dcb159318c7dec576f0afe2221fb895" => :catalina
