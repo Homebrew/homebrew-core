@@ -12,6 +12,11 @@ class Isl < Formula
   sha256 "28658ce0f0bdb95b51fd2eb15df24211c53284f6ca2ac5e897acc3169e55b60f"
   license "MIT"
 
+  livecheck do
+    url "http://isl.gforge.inria.fr/"
+    regex(/href=.*?isl[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "b5319e3bbbb36ef3536d841999b7497b3dce4bf9e07fb04f6b0db716e087896d" => :catalina
