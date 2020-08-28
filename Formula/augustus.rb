@@ -8,7 +8,7 @@ class Augustus < Formula
   head "https://github.com/Gaius-Augustus/Augustus.git"
 
   livecheck do
-    url "http://bioinf.uni-greifswald.de/augustus/binaries/"
+    url "https://bioinf.uni-greifswald.de/augustus/binaries/"
     regex(/href=.*?augustus[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
