@@ -6,6 +6,10 @@ class Gettext < Formula
   sha256 "d20fcbb537e02dcf1383197ba05bd0734ef7bf5db06bdb241eb69b7d16b73192"
   license "GPL-3.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "cdea54f52b7c36ebcb5fe26a1cf736d7cd6fd5f2fd016dd8357a8624ffd6b5f8" => :catalina
     sha256 "99707d4dcc731faf980333365a694e9500f2f012f84c0bcb6d8cb5d620c2ce08" => :mojave
