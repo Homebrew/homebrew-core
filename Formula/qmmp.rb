@@ -6,6 +6,11 @@ class Qmmp < Formula
   license "GPL-2.0"
   head "https://svn.code.sf.net/p/qmmp-dev/code/branches/qmmp-1.4/"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/qmmp[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     sha256 "6ccc06e859af7def4f7f3a1ebcdfb845a489b2877cd5ea689cc1f2cb56bf6d9b" => :catalina
     sha256 "95257781b7f40d183b3df114d04bfb3a764c5c88c73d09527c749b56fad8d5cc" => :mojave
