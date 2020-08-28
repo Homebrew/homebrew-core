@@ -7,6 +7,10 @@ class Enscript < Formula
   revision 1
   head "https://git.savannah.gnu.org/git/enscript.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "3611a6a01c76502ae6d4b1ff13d802acc5b2a2a3f2cf647e6b9323b7e40bde7e" => :catalina
     sha256 "a8bbba8f7d64eed40dd59a9db980b049ec786e148d31a0aeb92556959b4ad0b0" => :mojave
