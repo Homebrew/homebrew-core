@@ -4,6 +4,11 @@ class Swaks < Formula
   url "https://www.jetmore.org/john/code/swaks/files/swaks-20190914.0.tar.gz"
   sha256 "5733a51a5c3f74f62274c17dc825f177c22ed52703c97c3b23a5354d7ec15c89"
 
+  livecheck do
+    url "http://www.jetmore.org/john/code/swaks/versions.html"
+    regex(/href=.*?swaks[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle :unneeded
 
   def install
