@@ -6,6 +6,12 @@ class MitScheme < Formula
   sha256 "03a6df3b9d4c2472b9db7ad92010ea06423d81b018b12d0231d4241b57c80d54"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/?C=M&O=D"
+    strategy :page_match
+    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
+
   bottle do
     sha256 "5ae123ef4a76b34e2b927873991a823b0ab68a5518d1543f1e76bf9d3c36e589" => :catalina
     sha256 "7f74120df838cc2f4542c73f20b7f3e3473f23a775d249e2b8170e6acfd43ed1" => :mojave
