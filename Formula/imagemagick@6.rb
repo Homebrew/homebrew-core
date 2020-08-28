@@ -10,6 +10,11 @@ class ImagemagickAT6 < Formula
   license "ImageMagick"
   head "https://github.com/imagemagick/imagemagick6.git"
 
+  livecheck do
+    url "https://www.imagemagick.org/download/"
+    regex(/href=.*?ImageMagick[._-]v?(6(?:\.\d+)+(?:-\d+)?)\.t/i)
+  end
+
   bottle do
     sha256 "efecb8353b70242aaaa64a8b44f8c704a52e88565706689362c55091d65ebaac" => :catalina
     sha256 "bc112d0df43fcbe1ceb2f525b0406b6d0df6e368248341374abdbf4bc32f0d38" => :mojave
