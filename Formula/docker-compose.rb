@@ -8,6 +8,11 @@ class DockerCompose < Formula
   license "Apache-2.0"
   head "https://github.com/docker/compose.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     rebuild 1
