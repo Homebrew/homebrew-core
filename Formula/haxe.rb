@@ -6,6 +6,11 @@ class Haxe < Formula
       revision: "c7d2c7aac5f8d280d694e46fc1c9de52e218b9c6"
   head "https://github.com/HaxeFoundation/haxe.git", branch: "development"
 
+  livecheck do
+    url "https://github.com/HaxeFoundation/haxe/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "53d69a9f8c0c0a757f7626260200a47c25bed78438fd675f7c1bd1c3da5276bc" => :catalina
