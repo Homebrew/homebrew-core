@@ -6,6 +6,10 @@ class Libmwaw < Formula
   # license ["LGPL-2.1", "MPL-2.0"] - pending https://github.com/Homebrew/brew/pull/7953
   license "LGPL-2.1"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "c911649b2829547fe591010dcb908593de7b084c5ec88487cde17a654e84ee5f" => :catalina
