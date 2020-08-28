@@ -6,6 +6,11 @@ class Astyle < Formula
   license "MIT"
   head "https://svn.code.sf.net/p/astyle/code/trunk/AStyle"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/astyle[._-]v?(\d+(?:\.\d+)+)_}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "8bffda383a58eb65c458e00a9cc7dcb3b852a1b5e89a830df7e6eeb594a92f3c" => :catalina
