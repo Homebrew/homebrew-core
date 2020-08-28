@@ -4,6 +4,11 @@ class NanopbGenerator < Formula
   url "https://jpa.kapsi.fi/nanopb/download/nanopb-0.4.2.tar.gz"
   sha256 "3fae3a8efb61cf06124732fc775088389f259f0c8d85f1ca3330da295282f912"
 
+  livecheck do
+    url "https://jpa.kapsi.fi/nanopb/download/"
+    regex(/href=.*?nanopb[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "42459566535f189ab887bc2d8f2a2cb0bdc6b262b56ba9306434d410d2af8c38" => :catalina
