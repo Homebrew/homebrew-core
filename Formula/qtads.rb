@@ -33,6 +33,11 @@ class Qtads < Formula
     end
   end
 
+  livecheck do
+    url "https://github.com/realnc/qtads/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "ddc00587ac0d9f3ebcd6f0bac9e8a4207f9ae930a6646e4f3ce60d186abdc832" => :catalina
