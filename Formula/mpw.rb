@@ -8,6 +8,11 @@ class Mpw < Formula
   revision 2
   head "https://gitlab.com/MasterPassword/MasterPassword.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+.?cli.?\d+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "2f275d762a9c73bd6b3f2e5a7f3f13a9c99ddfc3e2f89a2ededa07ba89b6de40" => :catalina
