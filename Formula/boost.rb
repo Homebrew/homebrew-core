@@ -7,6 +7,11 @@ class Boost < Formula
   license "BSL-1.0"
   head "https://github.com/boostorg/boost.git"
 
+  livecheck do
+    url "https://www.boost.org/feed/downloads.rss"
+    regex(/>Version v?(\d+(?:\.\d+)+)</i)
+  end
+
   bottle do
     cellar :any
     sha256 "d2cbb9cee2af7c3f62513979030413e9fdb3a6b4cae69241fc36f33e36d3781d" => :catalina
