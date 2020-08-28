@@ -5,6 +5,11 @@ class Wwwoffle < Formula
   sha256 "b16dd2549dd47834805343025638c06a0d67f8ea7022101c0ce2b6847ba011c6"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://www.gedanken.org.uk/software/wwwoffle/download/"
+    regex(/href=.*?wwwoffle[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "5e01196bd5b95300b944ac6c5bd7cf10999a3ec9cb24f2f2a09b97b0256b87f9" => :catalina
