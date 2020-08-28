@@ -4,6 +4,11 @@ class Igv < Formula
   url "https://data.broadinstitute.org/igv/projects/downloads/2.8/IGV_2.8.10.zip"
   sha256 "8f14a42d025db68fcf63d92d6d9f0c754e7ea46ecb09499c647a13a1ce214a6e"
 
+  livecheck do
+    url "https://software.broadinstitute.org/software/igv/download"
+    regex(/href=.*?IGV[._-]v?(\d+(?:\.\d+)+)\.zip/i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
