@@ -7,6 +7,11 @@ class Puzzles < Formula
   sha256 "6e50becfe22f5b48d463293145a1b6dc8f7e7eb89de44c3cfe2165750e0b2d67"
   head "https://git.tartarus.org/simon/puzzles.git"
 
+  livecheck do
+    url "https://www.freshports.org/games/sgt-puzzles"
+    regex(/puzzles[._-]v?(\d{6,8})\..*?\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "ceafdd23c80d3b19927950e42b87589c577842e0617771cf3cda4696215ad201" => :catalina
