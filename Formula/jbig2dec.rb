@@ -5,6 +5,11 @@ class Jbig2dec < Formula
   sha256 "9e19775237350e299c422b7b91b0c045e90ffa4ba66abf28c8fb5eb005772f5e"
   license "AGPL-3.0"
 
+  livecheck do
+    url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/latest"
+    regex(%r{href=.*?/jbig2dec[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "fcf5e2f4d25c553c6cdada4364e37d08850eea59cda5e2177503d8eb7ecf0aef" => :catalina
