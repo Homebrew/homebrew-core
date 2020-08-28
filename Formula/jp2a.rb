@@ -11,6 +11,10 @@ class Jp2a < Formula
   revision 1
   version_scheme 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     rebuild 1
