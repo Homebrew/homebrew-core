@@ -7,6 +7,10 @@ class Gupnp < Formula
   sha256 "f7a0307ea51f5e44d1b832f493dd9045444a3a4e211ef85dfd9aa5dd6eaea7d1"
   license "LGPL-2.0-or-later"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "054503ec95766bbf5ef2fa8b15415898b2386d0659417cade2d615cf635235b3" => :catalina
