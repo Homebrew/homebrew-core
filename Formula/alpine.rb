@@ -6,6 +6,11 @@ class Alpine < Formula
   license "Apache-2.0"
   head "https://repo.or.cz/alpine.git"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?alpine[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "3e775bad34dc730ad9c15e3df30e753842ee542695172362cc648ead05e4d151" => :catalina
     sha256 "5492f86a14779b434ebb069bcef8ae551c93dc8835106d6144699e54191de3bd" => :mojave
