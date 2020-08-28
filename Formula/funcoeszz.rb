@@ -4,6 +4,11 @@ class Funcoeszz < Formula
   url "https://funcoeszz.net/download/funcoeszz-18.3.sh"
   sha256 "c1348fbaf79e7ac97568785674edee602077c3a747d3a1bfa4cf63af343c4352"
 
+  livecheck do
+    url "https://funcoeszz.net/download/"
+    regex(/href=.*?funcoeszz[._-]v?(\d+(?:\.\d+)+)\.sh/i)
+  end
+
   bottle :unneeded
 
   depends_on "bash"
