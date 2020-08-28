@@ -5,6 +5,11 @@ class Libpst < Formula
   sha256 "4ca98fed8ba208d902c954d82eaf2bf5e071c609df695ec4eb34af110f719987"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://www.five-ten-sg.com/libpst/packages/"
+    regex(/href=.*?libpst[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "5c106b4d8bab127e674d0d2c8d69b60431b0eda93ef9c6efcd46f3aeb8aabd11" => :catalina
