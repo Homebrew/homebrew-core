@@ -5,6 +5,10 @@ class CsvFix < Formula
   sha256 "32982aa0daa933140e1ea5a667fb71d8adc731cc96068de3a8e83815be62c52b"
   license "MIT"
 
+  livecheck do
+    skip "Bitbucket repository is missing"
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "3cc10313342650c680f23241e19ff8ec6b64df8fcc2123c5161b15e992c8973b" => :catalina
