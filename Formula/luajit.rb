@@ -13,6 +13,11 @@ class Luajit < Formula
     patch :DATA
   end
 
+  livecheck do
+    url "https://luajit.org/download.html"
+    regex(/class="downname">LuaJIT[._-]v?([\d.]+)</i)
+  end
+
   bottle do
     cellar :any
     rebuild 3
