@@ -4,6 +4,11 @@ class Kettle < Formula
   url "https://downloads.sourceforge.net/project/pentaho/Pentaho%209.0/client-tools/pdi-ce-9.0.0.0-423.zip"
   sha256 "05adf26c8b51fb14d1ea75e73579a7718d881228f502a4be5d1ce3a27d5c7997"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/pdi-ce[._-]v?(\d+(?:\.\d+)+(?:-\d+)?)\.(?:t|zip)}i)
+  end
+
   bottle :unneeded
 
   depends_on java: "1.8"
