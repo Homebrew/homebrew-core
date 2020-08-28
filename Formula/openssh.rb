@@ -7,6 +7,11 @@ class Openssh < Formula
   sha256 "f2befbe0472fe7eb75d23340eb17531cb6b3aac24075e2066b41f814e12387b2"
   license "SSH-OpenSSH"
 
+  livecheck do
+    url "https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/"
+    regex(/href=.*?openssh[._-]v?(\d+(?:\.\d+)+(?:p\d+)?)\.t/i)
+  end
+
   bottle do
     sha256 "3f5a9e5b5bbf82235fb47f893b71f514b10adc344c7d3c0f57b3837cfa50458f" => :catalina
     sha256 "d7b58684502abed77b364c5742ea4a1682e29e2df08d86a1ff6f249409e4b085" => :mojave
