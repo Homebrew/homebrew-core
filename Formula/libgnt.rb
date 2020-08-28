@@ -5,6 +5,11 @@ class Libgnt < Formula
   sha256 "6b7ea2030c9755ad9756ab4b1d3396dccaef4a712eccce34d3990042bb4b3abf"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/libgnt[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "0ddf1b6ebd64e3989ee3e2c1482d3f852a3f44f6c196586d1d9c4e839927087a" => :catalina
