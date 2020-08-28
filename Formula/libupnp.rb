@@ -5,6 +5,11 @@ class Libupnp < Formula
   sha256 "ecb23d4291968c8a7bdd4eb16fc2250dbacc16b354345a13342d67f571d35ceb"
   license "BSD-3-Clause"
 
+  livecheck do
+    url :stable
+    regex(/^release[._-]v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "f687168c37ba09bb0ee06b2d0d373c6de2f8d5511c563191788e45282fd104af" => :catalina
