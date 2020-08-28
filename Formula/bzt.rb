@@ -9,6 +9,10 @@ class Bzt < Formula
   revision 2
   head "https://github.com/Blazemeter/taurus.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "0e7eb79ad2178176c18c2709c5d190c47d680d7cee79e115009149892094c193" => :catalina
