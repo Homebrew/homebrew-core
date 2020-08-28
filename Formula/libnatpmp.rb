@@ -4,6 +4,11 @@ class Libnatpmp < Formula
   url "http://miniupnp.free.fr/files/download.php?file=libnatpmp-20150609.tar.gz"
   sha256 "e1aa9c4c4219bc06943d6b2130f664daee213fb262fcb94dd355815b8f4536b0"
 
+  livecheck do
+    url "http://miniupnp.free.fr/files/"
+    regex(/href=.*?libnatpmp[._-]v?(\d{6,8})\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "69bd0b362260f89b76113fbfec36235ec6265434c365d18790e8bb1a4988ae67" => :catalina
