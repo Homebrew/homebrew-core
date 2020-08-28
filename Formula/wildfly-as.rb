@@ -4,6 +4,11 @@ class WildflyAs < Formula
   url "https://download.jboss.org/wildfly/20.0.1.Final/wildfly-20.0.1.Final.tar.gz"
   sha256 "63ced690c05149f444e8d0418c1d76ab82941d1e3763ef4c49b0c43de5f95ae7"
 
+  livecheck do
+    url "https://wildfly.org/downloads/"
+    regex(/href=.*?wildfly[._-]v?(\d+(?:\.\d+)+)\.Final\.t/i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
