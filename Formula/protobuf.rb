@@ -5,6 +5,11 @@ class Protobuf < Formula
   sha256 "465fd9367992a9b9c4fba34a549773735da200903678b81b25f367982e8df376"
   license "BSD-3-Clause"
 
+  livecheck do
+    url "https://github.com/protocolbuffers/protobuf/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "af2990ba0a6e5588ef2afbe2ea3378d3ef0ccb287bca040607b40b5628801113" => :catalina
