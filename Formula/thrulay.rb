@@ -4,6 +4,10 @@ class Thrulay < Formula
   url "https://downloads.sourceforge.net/project/thrulay/thrulay/0.9/thrulay-0.9.tar.gz"
   sha256 "373d5613dfe371f6b4f48fc853f6c27701b2981ba4100388c9881cb802d1780d"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "fa6da453412e97cf222c12f7c2aaa7ef3e2db5d58dc98538c364b377ece63c62" => :catalina
