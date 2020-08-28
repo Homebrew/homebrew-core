@@ -8,6 +8,10 @@ class Pympress < Formula
   license "GPL-2.0"
   head "https://github.com/Cimbali/pympress.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "0882199094438644ae2af8e60ea55f02272990cca88b4ae0cbcfbabc9a68465b" => :catalina
