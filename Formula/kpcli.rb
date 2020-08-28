@@ -8,6 +8,11 @@ class Kpcli < Formula
   url "https://downloads.sourceforge.net/project/kpcli/kpcli-3.4.pl"
   sha256 "403e5d73cc4685722a5e4207c5fcbdad8e30475434cfba151c095e13a2658668"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/kpcli[._-]v?(\d+(?:\.\d+)+)\.pl}i)
+  end
+
   bottle do
     cellar :any
     sha256 "efd9da40a0733bc1da58ab3ba12149743cc4bf034b1e91bb4cc00d09e8532552" => :catalina
