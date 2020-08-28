@@ -6,6 +6,10 @@ class Ophcrack < Formula
   sha256 "048a6df57983a3a5a31ac7c4ec12df16aa49e652a29676d93d4ef959d50aeee0"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "47361d9c18591930ce871fa3c7ab36eaa43003a8a5339238648787cdd748d962" => :catalina
