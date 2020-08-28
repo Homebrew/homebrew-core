@@ -7,6 +7,11 @@ class BoostBuild < Formula
   version_scheme 1
   head "https://github.com/boostorg/build.git"
 
+  livecheck do
+    url :head
+    regex(/^boost[._-]v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "f6bb502b7848e98f4b184c2bf2604cc005e4bad599b1078a35119c2e8a2dccf1" => :catalina
