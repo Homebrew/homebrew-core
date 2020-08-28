@@ -7,6 +7,10 @@ class Dxpy < Formula
   sha256 "280fe87450d0357d7d677c3732ac2a95b2ec7364cd6bea19db1f92738c1bdd37"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "46d7e740cf19129fc6db45e8357616bfa741be271295f455cc7abc33485b2276" => :catalina
