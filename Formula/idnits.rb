@@ -4,6 +4,11 @@ class Idnits < Formula
   url "https://tools.ietf.org/tools/idnits/idnits-2.16.04.tgz"
   sha256 "1eef34b131d9c0b45090192f972db0b5dae15047271a7962959c8019dd8cc06b"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?idnits[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle :unneeded
 
   resource "test" do
