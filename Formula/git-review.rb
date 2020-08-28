@@ -9,6 +9,10 @@ class GitReview < Formula
   revision 2
   head "https://opendev.org/opendev/git-review.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "8bb267cb74c37af45200381f60f84dc49af52a0d2eed65c23db6e582d0d407b9" => :catalina
