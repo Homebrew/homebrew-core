@@ -6,6 +6,10 @@ class AuroraCli < Formula
   sha256 "d3c20a09dcc62cac98cb83889099e845ce48a1727ca562d80b9a9274da2cfa12"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "b3b61ca0da323c10be32bfb19af28a48b7cf393729076c3ce6608c69d79bff7d" => :catalina
