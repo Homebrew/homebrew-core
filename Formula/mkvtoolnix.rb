@@ -5,6 +5,11 @@ class Mkvtoolnix < Formula
   sha256 "9de7936d398581872ef572f0c8b6948966de6ec7791ac04340996ee0155bc75a"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://mkvtoolnix.download/sources/"
+    regex(/href=.*?mkvtoolnix[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "aa49b43a8e5fb6d9bb213d65f2b50820aecb09ef963adaeab44e2e84f94809aa" => :catalina
