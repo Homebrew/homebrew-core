@@ -5,7 +5,7 @@ class I2util < Formula
   sha256 "3b704cdb88e83f7123f3cec0fe3283b0681cc9f80c426c3f761a0eefd1d72c59"
 
   livecheck do
-    url "http://software.internet2.edu/sources/I2util/"
+    url "https://software.internet2.edu/sources/I2util/"
     regex(/href=.*?I2util[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
