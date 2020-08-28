@@ -5,6 +5,10 @@ class GeocodeGlib < Formula
   sha256 "01fe84cfa0be50c6e401147a2bc5e2f1574326e2293b55c69879be3e82030fd1"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "52ce343c52ad20417f87bde9889b0086768b657874d94fd39eb54141f20fcedd" => :catalina
