@@ -6,6 +6,11 @@ class TinyFugue < Formula
   sha256 "3750a114cf947b1e3d71cecbe258cb830c39f3186c369e368d4662de9c50d989"
   revision 2
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/tf[._-]v?(\d+(?:\.\d+)*(?:[a-z]\d+?)?)\.t}i)
+  end
+
   bottle do
     sha256 "d10777dd98ae76a048caed1179f7a65f8ee59256dcb94cfcd89ac1da0e135209" => :catalina
     sha256 "ea162f2b1644a44d95a2847ec34133661008fff66306e3eda790a25f253f2165" => :mojave
