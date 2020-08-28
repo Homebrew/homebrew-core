@@ -4,6 +4,11 @@ class Byacc < Formula
   url "https://invisible-mirror.net/archives/byacc/byacc-20200330.tgz"
   sha256 "e099e2dd8a684d739ac6b9a0e43d468314a5bc34fd21466502d120b18df51fb0"
 
+  livecheck do
+    url "https://invisible-mirror.net/archives/byacc/"
+    regex(/href=.*?byacc[._-]v?(\d{6,8})\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "720be331b73d9d96ab6132e804413990c6ce224322071972634b4175d2289188" => :catalina
