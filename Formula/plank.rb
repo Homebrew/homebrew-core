@@ -6,6 +6,11 @@ class Plank < Formula
   license "Apache-2.0"
   head "https://github.com/pinterest/plank.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "fc6838079a8a975c9bb77d17a050aa722d8446fcf9f62ca9fe09c8822d8651b4" => :catalina
