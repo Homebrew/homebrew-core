@@ -7,6 +7,11 @@ class Bluepill < Formula
   license "BSD-2-Clause"
   head "https://github.com/linkedin/bluepill.git"
 
+  livecheck do
+    url "https://github.com/linkedin/bluepill/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "695be1e8867ff14019e9604f7350ba90be43dc7f7794fdc830ee3311595f6a6d" => :catalina
