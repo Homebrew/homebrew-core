@@ -5,6 +5,11 @@ class OpencoreAmr < Formula
   sha256 "2c006cb9d5f651bfb5e60156dbff6af3c9d35c7bbcc9015308c0aff1e14cd341"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/opencore-amr[._-]v?([\d.]+)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "424d294d95aa7539842f1c2402a0be6ba558fa22680a0f5681998b12cf45a152" => :catalina
