@@ -5,6 +5,10 @@ class Cpptest < Formula
   sha256 "7c258936a407bcd1635a9b7719fbdcd6c6e044b5d32f53bbf6fbf6f205e5e429"
   license "LGPL-2.1"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "531646bba9e8aedff87216058a90e2fdc245b11ef55ad3f5c3aaaf717fd998cb" => :catalina
