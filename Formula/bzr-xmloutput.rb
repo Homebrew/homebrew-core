@@ -4,6 +4,10 @@ class BzrXmloutput < Formula
   url "https://launchpad.net/bzr-xmloutput/trunk/0.8.8/+download/bzr-xmloutput-0.8.8.tar.gz"
   sha256 "73b9b2f6ce4d9910031df7fd153d56d14f833c20a106f099bee5a33463f73b36"
 
+  livecheck do
+    url :stable
+  end
+
   bottle :unneeded
 
   depends_on "bazaar"
