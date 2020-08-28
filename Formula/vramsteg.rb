@@ -5,6 +5,11 @@ class Vramsteg < Formula
   sha256 "9cc82eb195e4673d9ee6151373746bd22513033e96411ffc1d250920801f7037"
   head "https://github.com/GothenburgBitFactory/vramsteg.git", branch: "1.1.1"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "a6f6f99e3b12dca8a56919d1144b10e43a9059e7691d56dfdf8aab330e6febe8" => :catalina
