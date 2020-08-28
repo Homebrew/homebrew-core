@@ -7,6 +7,11 @@ class Gcc < Formula
   license "GPL-3.0"
   head "https://gcc.gnu.org/git/gcc.git"
 
+  livecheck do
+    url :stable
+    regex(%r{href=.*?gcc[._-]v?(\d+(?:\.\d+)+)(?:/?["' >]|\.t)}i)
+  end
+
   bottle do
     sha256 "8dbccea194c20b1037b7e8180986e98a8ee3e37eaac12c7d223c89be3deaac6a" => :catalina
     sha256 "79d2293ce912dc46af961f30927b31eb06844292927be497015496f79ac41557" => :mojave
