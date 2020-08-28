@@ -8,6 +8,10 @@ class S3cmd < Formula
   license "GPL-2.0"
   head "https://github.com/s3tools/s3cmd.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "ea18ab2445955c20de54537447b5930de60cf8e927fe291f662760d50c0df8db" => :catalina
