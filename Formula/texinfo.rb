@@ -6,6 +6,10 @@ class Texinfo < Formula
   sha256 "988403c1542d15ad044600b909997ba3079b10e03224c61188117f3676b02caa"
   license "GPL-3.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "0686381d97b0448c10d11eaba59722c029d17c8423c17ad524b76ec086790f44" => :catalina
     sha256 "419fccc89f850de008e954984c65eea9b7f82940178f7ee439e42c2c892a2e52" => :mojave
