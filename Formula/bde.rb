@@ -5,6 +5,11 @@ class Bde < Formula
   sha256 "46dcdcf06f3cf582170848721dd6d8ca9c993f9cfa34445103d3cee34a5d6dda"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "b11a948d232e02bf0ceaee439451f94ce48cc024b7737400b5ca21fbfe0aafb5" => :catalina
