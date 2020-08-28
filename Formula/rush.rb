@@ -6,6 +6,10 @@ class Rush < Formula
   sha256 "c2ff487d44ce3d14854d0269eb0aa4c0f98bcca35390fad5ea52da75d9e4abdf"
   license "GPL-3.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "a818df5c93d76a0a53c47108af3009a6d8265722d132204a636e29460693ac0d" => :catalina
     sha256 "5cdc9e464c7086e99e26063787dfefafd4805d90b0ea5aa40044b81f23d10db1" => :mojave
