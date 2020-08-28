@@ -6,6 +6,10 @@ class Dc3dd < Formula
   sha256 "c4e325e5cbdae49e3855b0849ea62fed17d553428724745cea53fe6d91fd2b7f"
   revision 2
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "da27e2227f7fac70c613c4677ec597255c13b1253bc7c79cf58f7321a0a6427e" => :mojave
     sha256 "b906b2d7009282e22eb97a1ad07982f3e4545fa4791cb2bc2eaf1e0c101ebaed" => :high_sierra
