@@ -5,6 +5,11 @@ class Libtrng < Formula
   sha256 "6acff0a6136e41cbf0b265ae1f4392c8f4394ecfe9803bc98255e9e8d926f3d8"
   license "BSD-3-Clause"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?trng[._-]v?(\d+(?:\.\d+)+)\.t.*?latest/i)
+  end
+
   bottle do
     cellar :any
     sha256 "b0e5af117a32d265de30662de4d7ef61e412853f262949e86ac1ff91dfd69875" => :catalina
