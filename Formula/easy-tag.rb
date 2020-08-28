@@ -5,6 +5,10 @@ class EasyTag < Formula
   sha256 "fc51ee92a705e3c5979dff1655f7496effb68b98f1ada0547e8cbbc033b67dd5"
   revision 4
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "6fda43462f5a0942e376131e368c1bbf77ce073342bbaa2b78287f96761ab062" => :catalina
     sha256 "7740222af438d4b9a7dc9b176d0bc3f76a96e523b041ed48a6e4d542fc660684" => :mojave
