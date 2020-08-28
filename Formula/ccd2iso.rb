@@ -5,6 +5,10 @@ class Ccd2iso < Formula
   sha256 "f874b8fe26112db2cdb016d54a9f69cf286387fbd0c8a55882225f78e20700fc"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "741bb587861701e9900ede511e2db1e73815428eb2f0f2c697313dad70609853" => :catalina
