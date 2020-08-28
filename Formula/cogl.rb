@@ -4,6 +4,10 @@ class Cogl < Formula
   url "https://download.gnome.org/sources/cogl/1.22/cogl-1.22.8.tar.xz"
   sha256 "a805b2b019184710ff53d0496f9f0ce6dcca420c141a0f4f6fcc02131581d759"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "37fdd46a2845adf0e8f4ce85d5a80384ea235e435ef5f42167622f5224e4e51f" => :catalina
     sha256 "eb37baaa178631afac43c8bb1c93cdf9b78dd7d44862c63dec598d54a51b201e" => :mojave
