@@ -1,10 +1,7 @@
 class Concurrencykit < Formula
   desc "Aid design and implementation of concurrent systems"
-  homepage "http://concurrencykit.org"
-  # latest release on github is 0.7.0
-  # release on concurrencykit.org is 0.6.0
+  homepage "http://concurrencykit.org/"
   url "https://github.com/concurrencykit/ck/archive/0.7.0.tar.gz"
-  mirror "http://concurrencykit.org/releases/ck-0.7.0.tar.gz"
   sha256 "e730cb448fb0ecf9d19bf4c7efe9efc3c04dd9127311d87d8f91484742b0da24"
   license "BSD-2-Clause"
   head "https://github.com/concurrencykit/ck.git"
