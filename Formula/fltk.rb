@@ -5,6 +5,11 @@ class Fltk < Formula
   mirror "https://dl.bintray.com/homebrew/mirror/fltk-1.3.5.tar.gz"
   sha256 "8729b2a055f38c1636ba20f749de0853384c1d3e9d1a6b8d4d1305143e115702"
 
+  livecheck do
+    url "https://www.fltk.org/software.php"
+    regex(/href=.*?fltk[._-]v?(\d+(?:\.\d+)+(?:-\d+)?)-source\.t/i)
+  end
+
   bottle do
     sha256 "d0ff3728a8da506e399b094b0e2a94ffef5a32805308d73fd2fb5fd0e402c88b" => :catalina
     sha256 "3ea6ccc2fec9151f3ed0f20761794b9fe0477d168dbc4e83ba88b3f3d16c530b" => :mojave
