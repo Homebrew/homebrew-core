@@ -5,6 +5,11 @@ class Voldemort < Formula
   sha256 "8bd41b53c3b903615d281e7277d5a9225075c3d00ea56c6e44d73f6327c73d55"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    regex(/(?:release-)?v?(\d+(?:\.\d+)+)(?:-cutoff)?/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "cf54d4426d88d2cff21c465a7df3bbe25b6079610be947eb0613fa0760c3372b" => :catalina
