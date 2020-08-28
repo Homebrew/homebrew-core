@@ -3,6 +3,11 @@ class Smpeg < Formula
   homepage "https://icculus.org/smpeg/"
   url "svn://svn.icculus.org/smpeg/tags/release_0_4_5/", revision: "399"
 
+  livecheck do
+    url "http://svn.icculus.org/smpeg/tags/"
+    regex(%r{href=.*?release[._-]v?([01](?:[._]\d+)+)/}i)
+  end
+
   bottle do
     cellar :any
     rebuild 1
