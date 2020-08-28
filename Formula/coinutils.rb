@@ -7,6 +7,11 @@ class Coinutils < Formula
   revision 1
   head "https://github.com/coin-or/CoinUtils.git"
 
+  livecheck do
+    url :homepage
+    regex(%r{^(?:releases/)?(\d+(?:\.\d+)+)$}i)
+  end
+
   bottle do
     cellar :any
     rebuild 1
