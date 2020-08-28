@@ -7,6 +7,10 @@ class Mkdocs < Formula
   sha256 "f0b61e5402b99d7789efa032c7a74c90a20220a9c81749da06dbfbcbd52ffb39"
   license "BSD-2-Clause"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "3f45e40b1f8cb82988b294a9a44c57b33fcfcc718b4130b2aa684ba6b95fa08f" => :catalina
