@@ -9,6 +9,11 @@ class Abcl < Formula
   revision 1
   head "https://abcl.org/svn/trunk/abcl/", using: :svn
 
+  livecheck do
+    url "https://abcl.org/releases/"
+    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "bf6e2009b77b8e23c1140be6043bc51096180bd9cb8d00888caa9750eb9d1a89" => :catalina
