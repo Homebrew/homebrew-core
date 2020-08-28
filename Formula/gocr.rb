@@ -5,6 +5,11 @@ class Gocr < Formula
   sha256 "df906463105f5f4273becc2404570f187d4ea52bd5769d33a7a8661a747b8686"
   revision 1
 
+  livecheck do
+    url "https://wasd.urz.uni-magdeburg.de/jschulen/ocr/download.html"
+    regex(%r{href=(?:["']?|.*?/)gocr[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "d0408f223b941c6d81c0edd843ab5916475a4ea4b94892b548da6403e4c3af2a" => :catalina
