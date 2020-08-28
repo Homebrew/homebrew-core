@@ -6,6 +6,11 @@ class Jsonnet < Formula
   license "Apache-2.0"
   head "https://github.com/google/jsonnet.git"
 
+  livecheck do
+    url "https://github.com/google/jsonnet/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "af01487239fc6947ef6c27d9b4b18772d2b7773393d7e48704001bf09d380e5b" => :catalina
