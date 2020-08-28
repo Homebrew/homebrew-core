@@ -4,6 +4,11 @@ class MinimalRacket < Formula
   url "https://mirror.racket-lang.org/installers/7.8/racket-minimal-7.8-src-builtpkgs.tgz"
   sha256 "69b22b7f2054d5adb557fde42e6a3cf2f730bbc705ae7b8e5cba8c867f66c700"
 
+  livecheck do
+    url "https://download.racket-lang.org/all-versions.html"
+    regex(/>Version ([\d.]+)/i)
+  end
+
   bottle do
     cellar :any
     sha256 "7bbc4358faae0aeb94e88a87016b4ecb899b9e188c5e318afabc151eb68f4300" => :catalina
