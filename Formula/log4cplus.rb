@@ -6,6 +6,11 @@ class Log4cplus < Formula
   # license ["Apache-2.0", "BSD-2-Clause"] - pending https://github.com/Homebrew/brew/pull/7953
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    regex(/url=.*?log4cplus-stable.*?log4cplus[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "1559e20cf8d6a6cbf66545ef391ab2979bbebd2cafdf4b71ab547d8daa472e01" => :catalina
