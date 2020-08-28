@@ -4,6 +4,11 @@ class Mkvalidator < Formula
   url "https://downloads.sourceforge.net/project/matroska/mkvalidator/mkvalidator-0.5.2.tar.bz2"
   sha256 "2e2a91062f6bf6034e8049646897095b5fc7a1639787d5fe0fcef1f1215d873b"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/mkvalidator[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "ee45e5e5abe82cd60c970947d680a93f6987ee879b0f504ebff40c150b0a58dd" => :catalina
