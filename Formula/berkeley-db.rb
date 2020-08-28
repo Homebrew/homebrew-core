@@ -7,6 +7,12 @@ class BerkeleyDb < Formula
   sha256 "fa1fe7de9ba91ad472c25d026f931802597c29f28ae951960685cde487c8d654"
   revision 1
 
+  livecheck do
+    url "https://www.oracle.com/technetwork/database/" \
+    "database-technologies/berkeleydb/downloads/index.html"
+    regex(%r{href=.*?/berkeley-db/db[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "f2fc006ecf0cddfeaf94af43572ca4cebc6654d8a87f3ebfdb55329174596887" => :catalina
