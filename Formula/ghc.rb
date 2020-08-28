@@ -10,6 +10,10 @@ class Ghc < Formula
   license "BSD-3-Clause"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "a7bb4f707d08e220f4c94a48eebb142c59061eef0bb059cd01bed8d4aed7a775" => :catalina
     sha256 "f37c3a131aa50e5a60ec3377ae3fabcfeb1e6b5aa9596061c4f264b586dde49a" => :mojave
