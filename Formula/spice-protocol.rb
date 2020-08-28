@@ -5,6 +5,11 @@ class SpiceProtocol < Formula
   sha256 "8f3a63c8b68300dffe36f2e75eac57afa1e76d5d80af760fd138a0b3f44cf1e9"
   license "BSD-3-Clause"
 
+  livecheck do
+    url "https://www.spice-space.org/download/releases/"
+    regex(/href=.*?spice-protocol[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "e1ade135b57cc78000d754e20b86ac2ce39f3a6bb466095995cc1dd1b57f7e96" => :catalina
