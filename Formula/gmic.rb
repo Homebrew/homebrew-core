@@ -6,6 +6,11 @@ class Gmic < Formula
   license "CECILL-2.1"
   head "https://github.com/dtschump/gmic.git"
 
+  livecheck do
+    url "https://gmic.eu/files/source/"
+    regex(/href=.*?gmic[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "183c99cebc7e117f17d258c875e859aad64f0d2b4837386fb76be23341f9ff95" => :catalina
