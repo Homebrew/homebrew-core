@@ -6,6 +6,10 @@ class Jmeter < Formula
   sha256 "d0611b46268c4e24220fed56e76d770077713ff863665c271ed6521046f2f0d0"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "e3f6544d4e7485525fa4cf8fd377f00ce7f7350fdbeeb1cfaba3b9539a6c1a88" => :catalina
