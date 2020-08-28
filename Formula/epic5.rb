@@ -6,6 +6,11 @@ class Epic5 < Formula
   sha256 "5e41cf00f924e79e3503dd456ecd9b1dd93ac447c2573d4fa7da03b8bd19dbad"
   head "http://git.epicsol.org/epic5.git"
 
+  livecheck do
+    url "http://ftp.epicsol.org/pub/epic/EPIC5-PRODUCTION/"
+    regex(/href=.*?epic5[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "c9aceac94f6264f34f915b36cd0787a636fea6487ecd1795530800b98861160a" => :catalina
     sha256 "41bc8ef329eec3234db4b238933e4d1048ca27519ad0464683a79a8038c8e646" => :mojave
