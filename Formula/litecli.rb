@@ -7,6 +7,10 @@ class Litecli < Formula
   sha256 "1404568ed6d2e738bf5d00f201522652602b2e3f31013cf58d9e239d715dab5c"
   license "BSD-3-Clause"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "a5c32ad08cf648a27f4227a318fcaa0703ae5997b0eb305ff1b5922825e114df" => :catalina
