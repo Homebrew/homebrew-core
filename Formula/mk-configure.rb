@@ -4,6 +4,11 @@ class MkConfigure < Formula
   url "https://downloads.sourceforge.net/project/mk-configure/mk-configure/mk-configure-0.34.2/mk-configure-0.34.2.tar.gz"
   sha256 "7ca9b577e2521ea79cf0a7c95e4339e5b49e9fe852777220687995529ace7cbf"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/mk-configure[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "6953adbce89d8a07e95d89431881dbc3bf100e5de24ade46c409740db728fe8b" => :catalina
