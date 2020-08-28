@@ -6,6 +6,11 @@ class Lablgtk < Formula
   license "LGPL-2.1"
   revision 1
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "e544b612c7067d60de3c58df5cc48f08ac32266dce56ef72a50b4895a841d21f" => :catalina
