@@ -6,6 +6,10 @@ class AvroC < Formula
   sha256 "3ee583d4c370ca6176e9d74f8a6f51ce97edff9b9c7146a8e23bfae31f33051e"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "44708472b87d7d9375ed156ad510f1884b050d4cc345bfef49e6e9f2bc7a756c" => :catalina
     sha256 "971102fc6b294cb8b98759edba3e390d376d7660eb49c6ed9063e03cf0cf2067" => :mojave
