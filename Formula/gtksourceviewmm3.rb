@@ -5,6 +5,11 @@ class Gtksourceviewmm3 < Formula
   sha256 "51081ae3d37975dae33d3f6a40621d85cb68f4b36ae3835eec1513482aacfb39"
   revision 5
 
+  livecheck do
+    url :stable
+    regex(/gtksourceviewmm[._-]v?(3\.([0-8]\d*?)?[02468](?:\.\d+)*?)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "d35b302c510fb00351509ce3e0be7b9987e5e85f82ce081c193c7ede8e23222c" => :catalina
