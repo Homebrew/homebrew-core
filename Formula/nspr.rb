@@ -5,6 +5,11 @@ class Nspr < Formula
   sha256 "63defc8e19a80b6f98fcc7d5a89e84ea703c0b50aa6bc13bf7ad071adf433b56"
   license "MPL-2.0"
 
+  livecheck do
+    url "https://ftp.mozilla.org/pub/nspr/releases/"
+    regex(/v(\d+(?:\.\d+)*)/i)
+  end
+
   bottle do
     cellar :any
     sha256 "2ffd322e6891ff5f1dd608f0f71af699bffed06a6fa6f2a098bd64b2964e7e51" => :catalina
