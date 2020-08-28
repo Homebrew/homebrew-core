@@ -4,6 +4,10 @@ class Atk < Formula
   url "https://download.gnome.org/sources/atk/2.36/atk-2.36.0.tar.xz"
   sha256 "fb76247e369402be23f1f5c65d38a9639c1164d934e40f6a9cf3c9e96b652788"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "1065293046ab2984940dfa0b9c9e724439838e63f685c932d508ccd74bcf921b" => :catalina
