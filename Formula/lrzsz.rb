@@ -6,6 +6,11 @@ class Lrzsz < Formula
   sha256 "c28b36b14bddb014d9e9c97c52459852f97bd405f89113f30bee45ed92728ff1"
   revision 1
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?lrzsz[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "e8d2badf80013a07d43d89b2a2e2f99c2feb3abd2b6eeb579a52f01b39a9dd49" => :catalina
