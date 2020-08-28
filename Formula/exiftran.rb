@@ -5,6 +5,11 @@ class Exiftran < Formula
   sha256 "95b7c01556cb6ef9819f358b314ddfeb8a4cbe862b521a3ed62f03d163154438"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://www.kraxel.org/releases/fbida/"
+    regex(/href=.*?fbida[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "155e492e4c82c7e06be60966dcf343832e456bbc47cd1293ec1805dd3e47e42c" => :high_sierra
