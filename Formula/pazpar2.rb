@@ -6,6 +6,11 @@ class Pazpar2 < Formula
   license "GPL-2.0"
   revision 2
 
+  livecheck do
+    url "http://ftp.indexdata.dk/pub/pazpar2/"
+    regex(/href=.*?pazpar2[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "6341978a6229069f3078497aa242dfacfb265fdd54c22a8864a516906c83921d" => :catalina
