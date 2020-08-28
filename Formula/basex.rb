@@ -6,6 +6,11 @@ class Basex < Formula
   sha256 "e58dfc425c88ab8f4d45c0c9ea64684a298205b5947c7586f40286c23fcf6976"
   license "BSD-3-Clause"
 
+  livecheck do
+    url "http://files.basex.org/releases/"
+    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
