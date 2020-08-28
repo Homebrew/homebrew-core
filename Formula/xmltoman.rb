@@ -5,6 +5,10 @@ class Xmltoman < Formula
   sha256 "948794a316aaecd13add60e17e476beae86644d066cb60171fc6b779f2df14b0"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "547b65d2c4e637b2331382f907a1a9602864d7e1e579404ae96e765dc8a4f378" => :catalina
