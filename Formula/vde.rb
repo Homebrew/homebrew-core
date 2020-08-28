@@ -5,6 +5,11 @@ class Vde < Formula
   sha256 "22df546a63dac88320d35d61b7833bbbcbef13529ad009c7ce3c5cb32250af93"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/vde\d*?[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     sha256 "141613f09143ec306b51817ff4b205462a95f5272099b3500486cc5b6926ab27" => :catalina
     sha256 "a0cf184ec7804a4984607e3e7d311395514390235241d7844e31aafeb40d48cb" => :mojave
