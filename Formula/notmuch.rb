@@ -5,6 +5,11 @@ class Notmuch < Formula
   sha256 "5e3baa6fe11d65c67e26ae488be11b320bae04e336acc9c64621f7e3449096fa"
   head "https://git.notmuchmail.org/git/notmuch", using: :git
 
+  livecheck do
+    url "https://notmuchmail.org/releases/"
+    regex(/href=.*?notmuch[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "5a49517024f99e8c7a76cacf5a3ea51f1c565aa3fa97cd1844345431173aa009" => :catalina
