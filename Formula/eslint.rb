@@ -7,6 +7,10 @@ class Eslint < Formula
   sha256 "ba07f1b38b995c5a9fb05794cc894d88c0ca707c23b062b3aa63b3d2caab58ce"
   license "MIT"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "2174ccc91acb2621f20322b72be72d3eb3e533577665f01485e5878d9f21d988" => :catalina
