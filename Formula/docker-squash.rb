@@ -8,6 +8,10 @@ class DockerSquash < Formula
   license "MIT"
   revision 2
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "acf125fff4af17093f168aa89c5e1d5842970435f1016749e4250d37d5653552" => :catalina
