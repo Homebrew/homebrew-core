@@ -5,6 +5,11 @@ class Libmetalink < Formula
   sha256 "86312620c5b64c694b91f9cc355eabbd358fa92195b3e99517504076bf9fe33a"
   license "MIT"
 
+  livecheck do
+    url :stable
+    regex(%r{<div class="version">\s*Latest version is libmetalink[._-]v?(\d+(?:\.\d+)+)\s*</div>}i)
+  end
+
   bottle do
     cellar :any
     sha256 "a18e6199b4d775a32693aa38b80551d547eb1de58c5d7c788f706276ce296d5e" => :catalina
