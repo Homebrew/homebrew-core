@@ -7,6 +7,11 @@ class Lynx < Formula
   license "GPL-2.0"
   revision 1
 
+  livecheck do
+    url "https://invisible-mirror.net/archives/lynx/tarballs/?C=M&O=D"
+    regex(/href=.*?lynx[._-]?v?(\d+(?:\.\d+)+(?:rel\.?\d+))\.t/i)
+  end
+
   bottle do
     sha256 "b7b36f0697736fc1744026c18968bec4d5c1433356678e853d734406f9dc3612" => :catalina
     sha256 "3b4c3a636d19106a2fea571889a4159fd49b82fbd2694c206d4851b15281fddd" => :mojave
