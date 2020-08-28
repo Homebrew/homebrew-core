@@ -9,6 +9,10 @@ class Bagit < Formula
   version_scheme 1
   head "https://github.com/LibraryOfCongress/bagit-python.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "e0be67c1d5a4b305daacc9589d5230ecebc106ccbd74ad668ce5b10d4a600039" => :catalina
