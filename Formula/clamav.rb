@@ -7,6 +7,11 @@ class Clamav < Formula
   license "GPL-2.0"
   revision 1
 
+  livecheck do
+    url "https://www.clamav.net/downloads"
+    regex(/href=.*?clamav[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "13d069ee3878c43b869ab6771037db93442fc6ed6c676640770b4923543bcbea" => :catalina
     sha256 "a9822db4e330faf6aeec34eba16f55f0253eb411b6eb7efbc0ce02e5c02d8d21" => :mojave
