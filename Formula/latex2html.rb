@@ -5,6 +5,11 @@ class Latex2html < Formula
   sha256 "09f2d7f086fee9538523fd5074ada8ebadbdbc2227ca11d9d36189e698e5cfaf"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)*)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "f5448ddd27e175bc6cf388581f3332a188bc52a15c69d41b8002cc5303471cf4" => :catalina
