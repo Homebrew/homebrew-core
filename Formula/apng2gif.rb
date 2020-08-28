@@ -4,6 +4,10 @@ class Apng2gif < Formula
   url "https://downloads.sourceforge.net/project/apng2gif/1.8/apng2gif-1.8-src.zip"
   sha256 "9a07e386017dc696573cd7bc7b46b2575c06da0bc68c3c4f1c24a4b39cdedd4d"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     rebuild 1
