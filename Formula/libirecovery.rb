@@ -3,7 +3,11 @@ class Libirecovery < Formula
   homepage "https://www.libimobiledevice.org/"
   url "https://github.com/libimobiledevice/libirecovery/releases/download/1.0.0/libirecovery-1.0.0.tar.bz2"
   sha256 "cda0aba10a5b6fc2e1d83946b009e3e64d0be36912a986e35ad6d34b504ad9b4"
+<<<<<<< HEAD
   license "LGPL-2.1-only"
+=======
+  license "LGPL-2.1"
+>>>>>>> 9a93be2ee03b20eb88e536ecc6f2e15389726c8b
 
   head do
     url "https://git.libimobiledevice.org/libirecovery.git"
