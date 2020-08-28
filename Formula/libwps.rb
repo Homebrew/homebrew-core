@@ -4,6 +4,11 @@ class Libwps < Formula
   url "https://downloads.sourceforge.net/project/libwps/libwps/libwps-0.4.11/libwps-0.4.11.tar.xz"
   sha256 "a8fdaabc28654a975fa78c81873ac503ba18f0d1cdbb942f470a21d29284b4d1"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/libwps(?:/|[._-])v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "61b3ad745560c34d24735c1459f418ab083ea80aba8b0b6a64595fafd1916a4a" => :catalina
