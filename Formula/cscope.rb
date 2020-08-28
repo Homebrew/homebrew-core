@@ -4,6 +4,11 @@ class Cscope < Formula
   url "https://downloads.sourceforge.net/project/cscope/cscope/v15.9/cscope-15.9.tar.gz"
   sha256 "c5505ae075a871a9cd8d9801859b0ff1c09782075df281c72c23e72115d9f159"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/cscope[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "212b5f945f2a2eae2d07893bb08c490098f4f3e58ec8865499bec550882de29e" => :catalina
