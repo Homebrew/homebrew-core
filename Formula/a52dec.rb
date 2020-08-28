@@ -5,6 +5,12 @@ class A52dec < Formula
   sha256 "a21d724ab3b3933330194353687df82c475b5dfb997513eef4c25de6c865ec33"
   license "GPL-2.0"
 
+  livecheck do
+    url "http://liba52.sourceforge.net/downloads.html"
+    strategy :page_match
+    regex(/href=.*?a52dec[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "a40e7384a64c5d4e22209088af424eeb4a9de3eba4c5451f95a2a1b6732969f6" => :catalina
