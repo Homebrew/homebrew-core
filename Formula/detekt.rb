@@ -5,6 +5,11 @@ class Detekt < Formula
   sha256 "5882061e29077ccee52cb1b3cdeaeea5aab4023f1edc034b3ab61636c28f03ff"
   license "Apache-2.0"
 
+  livecheck do
+    url :homepage
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
