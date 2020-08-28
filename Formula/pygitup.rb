@@ -8,6 +8,10 @@ class Pygitup < Formula
   license "MIT"
   revision 2
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "8dff3146af82b507e97ba0305f76d4aa6296b53b1a094e6cb3ed8b5cd8a4608c" => :catalina
