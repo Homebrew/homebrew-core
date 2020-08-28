@@ -4,6 +4,10 @@ class Freeglut < Formula
   url "https://downloads.sourceforge.net/project/freeglut/freeglut/3.2.1/freeglut-3.2.1.tar.gz"
   sha256 "d4000e02102acaf259998c870e25214739d1f16f67f99cb35e4f46841399da68"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "48bb8108331861a7f4d1ce70472c53ee8a0f4aec75857f1bfc0ab56a59e53787" => :catalina
