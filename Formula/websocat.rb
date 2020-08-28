@@ -5,6 +5,11 @@ class Websocat < Formula
   sha256 "3f7e5e99d766b387292af56c8e4b39ce9a7f0da54ff558a6080ddc1024a33896"
   license "MIT"
 
+  livecheck do
+    url :stable
+    regex(/v([\d.]+$)/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "b9ec3480735006f0603df6a0f4ba123f3bf807f8b2c731070975263088b6cc8f" => :catalina
