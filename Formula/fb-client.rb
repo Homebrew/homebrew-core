@@ -6,6 +6,11 @@ class FbClient < Formula
   revision 2
   head "https://git.server-speed.net/users/flo/fb", using: :git
 
+  livecheck do
+    url :homepage
+    regex(%r{Latest release:.*?href=.*?/fb[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "45db897c3f383834be56906412e419c2d203f3fd8ce1ce2d6077358890c7116e" => :catalina
