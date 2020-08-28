@@ -5,6 +5,10 @@ class Wput < Formula
   sha256 "229d8bb7d045ca1f54d68de23f1bc8016690dc0027a16586712594fbc7fad8c7"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "77703d5dfb1bde183ccc207ee5e3f14b1a677acc697806a2b16f00c56cc0595e" => :catalina
