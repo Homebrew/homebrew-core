@@ -20,6 +20,11 @@ class Readline < Formula
     end
   end
 
+  livecheck do
+    url "http://www.ravenports.com/catalog/bucket_2D/readline/standard/"
+    regex(%r{<td id="pkgversion">v?(\d+(?:\.\d+)+)(?:_\d+)?</td>}i)
+  end
+
   bottle do
     cellar :any
     sha256 "6ae1c8e7c783f32bd22c6085caa4d838fed7fb386da7e40ca47b87ec9b1237d6" => :catalina
