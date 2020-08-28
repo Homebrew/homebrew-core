@@ -16,6 +16,10 @@ class Libdc1394 < Formula
     end
   end
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "57080908a5da9abb2c0d83d4ad25450a507de8140a812112d9e5751f4004e4d0" => :catalina
