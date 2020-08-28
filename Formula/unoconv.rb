@@ -7,6 +7,10 @@ class Unoconv < Formula
   revision 1
   head "https://github.com/dagwieers/unoconv.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "b8926bf449026133df038d3f6fa221803173193765a1de2de70da7b1e9ea4c7a" => :catalina
