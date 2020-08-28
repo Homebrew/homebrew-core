@@ -7,6 +7,10 @@ class Poetry < Formula
   sha256 "4b1b895d272d9bae22e1796dfe38d6122a75963709d7a909068e68aa6937a6f2"
   license "MIT"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "c9d89f1fbb192609392a891f1ad73913f6ad4f2cb641c346c09f1f5a9b31a56e" => :catalina
