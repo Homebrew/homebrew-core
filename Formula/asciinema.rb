@@ -9,6 +9,10 @@ class Asciinema < Formula
   revision 2
   head "https://github.com/asciinema/asciinema.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 1
