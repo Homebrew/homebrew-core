@@ -6,6 +6,11 @@ class AntAT19 < Formula
   sha256 "b91eb0c7412f7d4d7c205ea189cf3bfede4bed6a168144b2a222bcbc352edd79"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    regex(/href=.*?apache-ant[._-]v?(1\.9(?:\.\d+)*)(?:-bin)?\.t/i)
+  end
+
   bottle :unneeded
 
   keg_only :versioned_formula
