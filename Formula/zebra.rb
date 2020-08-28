@@ -5,6 +5,11 @@ class Zebra < Formula
   sha256 "f45b0461cf40fafddd97d447695a087be0ba0981c108bf509d4c11f6d1db1ae2"
   revision 4
 
+  livecheck do
+    url "https://www.indexdata.com/resources/software/zebra"
+    regex(%r{>Latest:</strong>.*?v?(\d+(?:\.\d+)+)<}i)
+  end
+
   bottle do
     sha256 "06034a1fa44ffa343907b961799909eb32556f300129109c05771ad9cc5ef82d" => :catalina
     sha256 "33810ebcbd8ce8a0b3e972a98a9be0a000d064122fc41b58ce748479fb286275" => :mojave
