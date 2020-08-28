@@ -5,6 +5,11 @@ class Dolt < Formula
   sha256 "2740903fd29458dba866a9bc2716843267d378ace589aaf58f7353ef703e091a"
   license "Apache-2.0"
 
+  livecheck do
+    url "https://github.com/liquidata-inc/dolt/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "c03cc532d5045fa090cb4e0f141883685de3765bf1d221e400c750b3ae89e328" => :catalina
