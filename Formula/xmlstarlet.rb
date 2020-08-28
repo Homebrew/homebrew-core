@@ -5,6 +5,10 @@ class Xmlstarlet < Formula
   sha256 "15d838c4f3375332fd95554619179b69e4ec91418a3a5296e7c631b7ed19e7ca"
   license "MIT"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "2a679570811f553e345748516fa37c2d4b529a75533bdb73316077aaed5ab8f6" => :catalina
