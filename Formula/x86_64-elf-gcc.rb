@@ -5,6 +5,10 @@ class X8664ElfGcc < Formula
   mirror "https://ftpmirror.gnu.org/gcc/gcc-10.2.0/gcc-10.2.0.tar.xz"
   sha256 "b8dd4368bb9c7f0b98188317ee0254dd8cc99d1e3a18d0ff146c855fe16c1d8c"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "fabfa58ff9baa00f65192dac31f63133e8c98b1b2bf4ef49ba451f6331ed2cc2" => :catalina
     sha256 "6775f752210fe04754eca0de749d7243e436da6a24118660faca5bbf62eedb16" => :mojave
