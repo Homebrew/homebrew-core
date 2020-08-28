@@ -6,6 +6,11 @@ class Flashrom < Formula
   license "GPL-2.0"
   head "https://review.coreboot.org/flashrom.git"
 
+  livecheck do
+    url "https://download.flashrom.org/releases/"
+    regex(/href=.*?flashrom[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     rebuild 1
