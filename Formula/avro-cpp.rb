@@ -7,6 +7,10 @@ class AvroCpp < Formula
   license "Apache-2.0"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "618662a57f5f58951082971df4fdd63331bf5fe932aea2533012968d98d32ed0" => :catalina
