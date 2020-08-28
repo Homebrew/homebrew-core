@@ -8,6 +8,10 @@ class FirebaseCli < Formula
   license "MIT"
   head "https://github.com/firebase/firebase-tools.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "9fc0c1d3051805b2324c019316d4a387da1cc933bdcb91556da6d816b212873b" => :catalina
