@@ -6,6 +6,10 @@ class Fuseki < Formula
   sha256 "8494b016db4cec3ba17460fde0e25bd12518c038603f09cdf8dc6ac93253ab21"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle :unneeded
 
   def install
