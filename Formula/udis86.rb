@@ -4,6 +4,11 @@ class Udis86 < Formula
   url "https://downloads.sourceforge.net/project/udis86/udis86/1.7/udis86-1.7.2.tar.gz"
   sha256 "9c52ac626ac6f531e1d6828feaad7e797d0f3cce1e9f34ad4e84627022b3c2f4"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/udis86[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "28f761b215237ed656359cce94fd4787be86a50057dc064589f6bbedbcf2fe06" => :catalina
