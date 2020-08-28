@@ -6,6 +6,11 @@ class Castxml < Formula
   license "Apache-2.0"
   head "https://github.com/CastXML/castxml.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "94306cb188a0ddd74b5bdae5f7b573f5f89223b564f82baf35399028316addda" => :catalina
