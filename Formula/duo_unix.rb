@@ -5,6 +5,10 @@ class DuoUnix < Formula
   sha256 "2fcba3e50fd477699d013c789ffc73a0b10c204d25c455abe7c81a2ecd886579"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://github.com/duosecurity/duo_unix.git"
+  end
+
   bottle do
     sha256 "67a6ff6605578e287fc862f6fb2ee9360dea7c22f8fbaa97a1bf18dd13db5ec0" => :catalina
     sha256 "753e3f0d60c4c0404a6e347d052bc1ed4bd1e66b43170675549a36d4fe736f25" => :mojave
