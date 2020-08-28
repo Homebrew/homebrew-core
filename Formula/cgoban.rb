@@ -5,6 +5,10 @@ class Cgoban < Formula
   sha256 "3b8a6fc0e989bf977fcd9a65a367aa18e34c6e25800e78dd8f0063fa549c9b62"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "6b8613fe9566746c60a0ec45830b5c687d54cbaa6107179906248fa6094e856d" => :catalina
