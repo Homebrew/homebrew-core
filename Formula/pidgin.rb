@@ -5,6 +5,11 @@ class Pidgin < Formula
   sha256 "f132e18d551117d9e46acce29ba4f40892a86746c366999166a3862b51060780"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/pidgin[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     sha256 "4634da7bc606d00dcdc9e3ea42f00d33a9764d6d231b6a7baef0c7a3ef451e74" => :catalina
     sha256 "a549ae59ccff2482dd02c9eea51db80fb831ab7e720f7f2ec7df37c60eb7f1d8" => :mojave
