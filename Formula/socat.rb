@@ -5,6 +5,11 @@ class Socat < Formula
   sha256 "d9ed2075abed7b3ec9730ed729b4c8e287c502181c806d4487020418a6e2fc36"
   license "GPL-2.0"
 
+  livecheck do
+    url "http://www.dest-unreach.org/socat/download/"
+    regex(/href=.*?socat[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "78e28a89b73b096849654b737ea66b730738cb24f8217c25acd71ba3cb75a70c" => :catalina
