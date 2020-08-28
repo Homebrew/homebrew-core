@@ -5,6 +5,11 @@ class Grails < Formula
   sha256 "2b1bbe93f931bf6eab468575c40e6582881e6c3a3b6b2fb4aee6ad685fa2dcb6"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk@11"
