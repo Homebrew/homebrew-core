@@ -5,6 +5,10 @@ class GnomeAutoar < Formula
   sha256 "0a34c377f8841abbf4c29bc848b301fbd8e4e20c03d7318c777c58432033657a"
   license "LGPL-2.1"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "e98e396441864f69d9866921363bbff8fe3a0e6e7048e9fcebfa98d0f8e3100c" => :catalina
