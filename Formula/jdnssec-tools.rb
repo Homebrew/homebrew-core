@@ -7,6 +7,11 @@ class JdnssecTools < Formula
   revision 1
   head "https://github.com/dblacka/jdnssec-tools.git"
 
+  livecheck do
+    url "https://github.com/dblacka/jdnssec-tools/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "c12eafadb12264e88ef14fe4e93cdb41f0afccbb24b8cff892e8747d8ad2d73b" => :catalina
