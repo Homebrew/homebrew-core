@@ -2,7 +2,7 @@ class Parallel < Formula
   desc "Shell command parallelization utility"
   homepage "https://savannah.gnu.org/projects/parallel/"
   # Version 20200822 is considered beta software on macOS
-  # See http://savannah.gnu.org/forum/forum.php?forum_id=9800
+  # See https://savannah.gnu.org/forum/forum.php?forum_id=9800
   url "https://ftp.gnu.org/gnu/parallel/parallel-20200722.tar.bz2"
   mirror "https://ftpmirror.gnu.org/parallel/parallel-20200722.tar.bz2"
   sha256 "4801d44f2f71eed26386a0623a6fb3cadd7fa7ec2b5a7bbc5b7b52e2a0450d6f"
