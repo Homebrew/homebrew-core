@@ -5,6 +5,10 @@ class Librest < Formula
   sha256 "0513aad38e5d3cedd4ae3c551634e3be1b9baaa79775e53b2dba9456f15b01c9"
   revision 3
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "fb2e698cdf400c3f413a707132acd9b55139e2aa26da2f405f5eaebeace6573b" => :catalina
     sha256 "dbaf452ac76dbc63e161ffc086aac7f6409614ca573c20fe02bd2e87d473e5b2" => :mojave
