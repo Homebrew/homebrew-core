@@ -5,6 +5,10 @@ class Ccrypt < Formula
   sha256 "b19c47500a96ee5fbd820f704c912f6efcc42b638c0a6aa7a4e3dc0a6b51a44f"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "e09c7818b7de98e36d433080334e169ac970e1a020114ddab1fdbbd54135ddbc" => :catalina
     sha256 "49054d9d502ab13e65ab873cc9d355ab75438372a7770c38c4c7c35c84c31e3a" => :mojave
