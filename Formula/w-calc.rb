@@ -5,6 +5,10 @@ class WCalc < Formula
   sha256 "0e2c17c20f935328dcdc6cb4c06250a6732f9ee78adf7a55c01133960d6d28ee"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "dfde02c6213c6eeeecaeae55d7ecaa7620ab5c86f346f9242c82899802901b8b" => :catalina
