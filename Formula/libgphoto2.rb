@@ -5,6 +5,11 @@ class Libgphoto2 < Formula
   sha256 "7c0e98f438c2b128186afe16ce7833a12fa36f87d01467e837b9d27e7a167f3a"
   license "LGPL-2.1"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/libgphoto2[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     sha256 "0609b72a67e2d6c45ede30bb4cfca8b4fc6b312d5873c4e647e292fdc1f227ff" => :catalina
     sha256 "5a1f7ec7d0146bb772a4c6fa2ef5ed53e6a6ac183fe1f916ca8b53b2a4c68ad9" => :mojave
