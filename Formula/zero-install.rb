@@ -7,6 +7,11 @@ class ZeroInstall < Formula
   license "LGPL-2.1-or-later"
   head "https://github.com/0install/0install.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "4306ae5d0ca339a7f5ecd9c7ba6a3a192a1d176883d49dda9d31aad78bc390fd" => :catalina
