@@ -5,6 +5,10 @@ class Libgnomecanvasmm < Formula
   sha256 "996577f97f459a574919e15ba7fee6af8cda38a87a98289e9a4f54752d83e918"
   revision 6
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "ea6c93668fcd91aecd935009e2925b0327b26caa979e2b2bdcb03e6caf013b40" => :catalina
