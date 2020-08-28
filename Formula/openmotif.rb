@@ -5,6 +5,10 @@ class Openmotif < Formula
   sha256 "859b723666eeac7df018209d66045c9853b50b4218cecadb794e2359619ebce7"
   license "LGPL-2.1"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "a997ddf37cc71329a09ca6616cbf0ef63bbe1a477a65a94781fdb72d8ec15822" => :catalina
     sha256 "f9eec7b02d0e04b8a41a5c7e3b8c0096c9156100fe888ee663742dca1298f7c5" => :mojave
