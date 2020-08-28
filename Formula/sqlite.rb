@@ -6,6 +6,11 @@ class Sqlite < Formula
   sha256 "106a2c48c7f75a298a7557bcc0d5f4f454e5b43811cc738b7ca294d6956bbb15"
   license "blessing"
 
+  livecheck do
+    url "https://sqlite.org/news.html"
+    regex(%r{v?(\d+(?:\.\d+)+)</h3>}i)
+  end
+
   bottle do
     cellar :any
     sha256 "78566572373e0010a52729c1b41f7503f4e86acc67e7a37bafe091a6ddc36147" => :catalina
