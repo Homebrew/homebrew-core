@@ -7,6 +7,10 @@ class Pgcli < Formula
   sha256 "4920225838e8004ae6d2ec42f566e0a8b99c4bd42bc2c876d0de8501da0a4082"
   license "BSD-3-Clause"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "33762e29fe9be52d07d9500b3bb497afca3494ba73b7729e82047f531fe347ca" => :catalina
