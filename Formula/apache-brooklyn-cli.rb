@@ -5,6 +5,11 @@ class ApacheBrooklynCli < Formula
   sha256 "9eb52ac3cd76adf219b66eb8b5a7899c86e25736294bca666a5b4e24d34e911b"
   license "Apache-2.0"
 
+  livecheck do
+    url "https://github.com/apache/brooklyn-client.git"
+    regex(%r{^(?:rel/)?apache-brooklyn[._-]v?(\d+(?:\.\d+)+)$}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "7769a15fc55f1a6943165e78c0cc3c9677815686b935a888c3db708fbaf2b8dd" => :catalina
