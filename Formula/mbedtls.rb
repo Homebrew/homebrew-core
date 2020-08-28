@@ -6,6 +6,11 @@ class Mbedtls < Formula
   license "Apache-2.0"
   head "https://github.com/ARMmbed/mbedtls.git", branch: "development"
 
+  livecheck do
+    url "https://github.com/ARMmbed/mbedtls/releases/latest"
+    regex(%r{href=.*?/tag/(?:mbedtls[._-])?v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "3b1d3f3b161a1cd7d570281baaec5412adf9ae1b2bf5eb842e04571f3bf17c4b" => :catalina
