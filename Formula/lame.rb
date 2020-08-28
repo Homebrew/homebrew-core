@@ -5,6 +5,11 @@ class Lame < Formula
   sha256 "ddfe36cab873794038ae2c1210557ad34857a4b6bdc515785d1da9e175b1da1e"
   license "LGPL-2.0"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/lame[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "02b6a2cbf9b902225308bc90c8314699761cbdcd13628271579f5345d8160af2" => :catalina
