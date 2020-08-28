@@ -4,6 +4,11 @@ class Artifactory < Formula
   url "https://dl.bintray.com/jfrog/artifactory/jfrog-artifactory-oss-6.21.0.zip"
   sha256 "b009cd8f1b4b07111c138172fcadfd89c559285b57dcb558baf1140351ee8ea8"
 
+  livecheck do
+    url "https://dl.bintray.com/jfrog/artifactory/"
+    regex(/href=.*?jfrog-artifactory-oss[._-]v?(\d+(?:\.\d+)+)\.zip/i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
