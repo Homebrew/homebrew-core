@@ -5,6 +5,11 @@ class Moarvm < Formula
   sha256 "3ede5e70352885e596b505a8ec6bd302513527578a077102886a5a5a3ef907bf"
   license "Artistic-2.0"
 
+  livecheck do
+    url "https://github.com/MoarVM/MoarVM.git"
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 "90f47968f3a270437bacdf0803de1d3aad9e9c6e50cd5cc8cd903d75b314294f" => :catalina
     sha256 "43f3eec7e9d9c58e695c3f8d6b47eaf469afb3cf02ec78ffbf7118cc65b0fb5e" => :mojave
