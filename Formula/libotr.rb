@@ -5,6 +5,11 @@ class Libotr < Formula
   sha256 "8b3b182424251067a952fb4e6c7b95a21e644fbb27fbd5f8af2b2ed87ca419f5"
   license "GPL-2.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?libotr[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "b841026a4752756107affe9f6016da14ea5a9a0a48b33ccd461eced5cd89b64a" => :catalina
