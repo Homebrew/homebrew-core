@@ -5,6 +5,11 @@ class Aldo < Formula
   sha256 "f1b8849d09267fff3c1f5122097d90fec261291f51b1e075f37fad8f1b7d9f92"
   license "GPL-3.0"
 
+  livecheck do
+    url "https://download.savannah.gnu.org/releases/aldo/"
+    regex(/href=.*?aldo[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     rebuild 1
