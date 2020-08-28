@@ -4,6 +4,11 @@ class Psqlodbc < Formula
   url "https://ftp.postgresql.org/pub/odbc/versions/src/psqlodbc-12.02.0000.tar.gz"
   sha256 "7b00d99ee729c06cfc784ab43deb7dee77761b667dd62122c2cb0cd7b043ba67"
 
+  livecheck do
+    url "https://ftp.postgresql.org/pub/odbc/versions/src/"
+    regex(/href=.*?psqlodbc[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "6ecd918abfb4e8bc95299a8efaeb2d9b2d772caee48d14108a6eeb9781f84776" => :catalina
