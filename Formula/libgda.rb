@@ -6,6 +6,10 @@ class Libgda < Formula
   license "GPL-2.0"
   revision 2
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     rebuild 1
     sha256 "1c2fa0318e26d0a3ae3789fa5ebc87514d0e7a7d5068146178f299b9804e8132" => :catalina
