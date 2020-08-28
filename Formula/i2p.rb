@@ -5,6 +5,11 @@ class I2p < Formula
   mirror "https://launchpad.net/i2p/trunk/0.9.46/+download/i2pinstall_0.9.46.jar"
   sha256 "bc8ec63e1df5eba7b22c57a143ff177a1fb208f793f07ecf249f3589029def1e"
 
+  livecheck do
+    url "https://geti2p.net/en/download"
+    regex(/href=.*?i2pinstall[._-]v?(\d+(?:\.\d+)+)\.jar/i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk@11"
