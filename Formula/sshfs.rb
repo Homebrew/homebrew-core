@@ -6,6 +6,11 @@ class Sshfs < Formula
   license "GPL-2.0"
   revision 2
 
+  livecheck do
+    url :stable
+    regex(/^sshfs[._-]v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "aceff3131dd0b098bdef8b5dda54d117b5dd5269ca146f7a5032ecde3c99b6d2" => :catalina
