@@ -6,6 +6,11 @@ class Ibex < Formula
   license "LGPL-3.0"
   head "https://github.com/ibex-team/ibex-lib.git"
 
+  livecheck do
+    url :head
+    regex(/^ibex[._-]v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "0de9cd95f329d455905ef0d562c4bf116b7a634adc70296830da39259b21130f" => :catalina
