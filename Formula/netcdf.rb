@@ -8,6 +8,11 @@ class Netcdf < Formula
   revision 1
   head "https://github.com/Unidata/netcdf-c.git"
 
+  livecheck do
+    url :head
+    regex(/^(?:netcdf-|v)?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 "0ae7c27bd0ac68071faecbd09f67fb2ce91d86b030b92488dca64851e6d40de0" => :catalina
     sha256 "db149e5597eab59a0a908c48efc35df09735ddc8bac006c94b6a02a644822814" => :mojave
