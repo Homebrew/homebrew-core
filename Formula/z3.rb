@@ -5,6 +5,11 @@ class Z3 < Formula
   sha256 "6962facdcdea287c5eeb1583debe33ee23043144d0e5308344e6a8ee4503bcff"
   head "https://github.com/Z3Prover/z3.git"
 
+  livecheck do
+    url "https://github.com/Z3Prover/z3/releases/latest"
+    regex(%r{href=.*?/tag/z3[._-]v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "06f1a289d9f846c31fd171ebcad05442eb03473b6aaf4bf1cbb1ca7c6e77d612" => :catalina
