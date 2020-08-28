@@ -5,6 +5,10 @@ class Pgdbf < Formula
   sha256 "e46f75e9ac5f500bd12c4542b215ea09f4ebee638d41dcfd642be8e9769aa324"
   license "GPL-3.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "ae8050a5d6a6f91f529a0985a5626981d22573094791274c7bc1759b2770c4c7" => :catalina
