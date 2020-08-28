@@ -4,6 +4,11 @@ class Gstreamer < Formula
   url "https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.16.2.tar.xz"
   sha256 "e3f044246783fd685439647373fa13ba14f7ab0b346eadd06437092f8419e94e"
 
+  livecheck do
+    url "https://gstreamer.freedesktop.org/src/gstreamer/"
+    regex(/href=.*?gstreamer[._-]v?(\d+\.\d*[02468](?:\.\d+)*)\.t/i)
+  end
+
   bottle do
     sha256 "3473eef6aadd51a378f722c08a399922c4b401f38d8d5bffe7e2cb0ba845f919" => :catalina
     sha256 "6427cd64ac1c541d35fc57f869dd1290e57aab8a2a9f5589b79f6e078e4432d5" => :mojave
