@@ -4,6 +4,11 @@ class Dovecot < Formula
   url "https://dovecot.org/releases/2.3/dovecot-2.3.10.1.tar.gz"
   sha256 "6642e62f23b1b23cfac235007ca6e21cb67460cca834689fad450724456eb10c"
 
+  livecheck do
+    url "https://dovecot.org/download"
+    regex(/href=.*?dovecot[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "e8d7b6bf587b5673826b467c3a30b148a191ed94246797609fcdad42e3ad40e4" => :catalina
     sha256 "3b05663fc50f7669b2f16f6b55821f6fb2abf54fea8a858301ed7d5dbf7de7b5" => :mojave
