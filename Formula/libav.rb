@@ -7,6 +7,11 @@ class Libav < Formula
   revision 4
   head "https://git.libav.org/libav.git"
 
+  livecheck do
+    url "https://libav.org/releases/"
+    regex(/href=.*?libav[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "c3ea574e97fceb61b05289b0e501d122ca1df7333b6ae888cef493ee43fa2f26" => :catalina
