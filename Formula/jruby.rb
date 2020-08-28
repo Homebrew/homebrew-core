@@ -5,6 +5,11 @@ class Jruby < Formula
   sha256 "73a8c241a162e644c87e864c3485c55adedeb82a6fd80fa3cb538fdacda7af58"
   license any_of: ["EPL-2.0", "GPL-2.0-only", "LGPL-2.1-only"]
 
+  livecheck do
+    url "http://jruby.org/download"
+    regex(%r{href=.*?/jruby-dist[._-]v?(\d+(?:\.\d+)+)-bin\.t}i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
