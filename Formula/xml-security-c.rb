@@ -7,6 +7,10 @@ class XmlSecurityC < Formula
   license "Apache-2.0"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "ce0f62697cff7004fa7498ebc0dcc917206be09847847fa2ec31285b81ed04ce" => :catalina
