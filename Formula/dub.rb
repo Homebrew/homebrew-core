@@ -7,6 +7,11 @@ class Dub < Formula
   version_scheme 1
   head "https://github.com/dlang/dub.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "b0d9a91c1eed292a083a19dbdc341170ffc3c7fc1fd059fb961188d368f27fcd" => :catalina
