@@ -10,6 +10,10 @@ class Codemod < Formula
   version_scheme 1
   head "https://github.com/facebook/codemod.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "3b32fef1fef317a4544225f6de58e0c1e970de6deb10258fe2d3f937116d5468" => :catalina
