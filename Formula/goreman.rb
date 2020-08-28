@@ -6,6 +6,11 @@ class Goreman < Formula
   license "MIT"
   head "https://github.com/mattn/goreman.git"
 
+  livecheck do
+    url :homepage
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "8985d410d3b9c56064ceb7a01be4fd448e46c414f0a0b8c3a4f6ec7374c2f5b6" => :catalina
