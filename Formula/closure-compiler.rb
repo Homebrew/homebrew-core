@@ -6,6 +6,11 @@ class ClosureCompiler < Formula
   license "Apache-2.0"
   revision 1
 
+  livecheck do
+    url "https://search.maven.org/remotecontent?filepath=com/google/javascript/closure-compiler/"
+    regex(/href=.*?v?(\d{8})/i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
