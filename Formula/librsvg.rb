@@ -5,6 +5,10 @@ class Librsvg < Formula
   sha256 "f480a325bbdf26d1874eb6fb330ebc5920ba64e3e08de61931bb4506dfef2692"
   license "LGPL-2.1"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "cca0be741d91cb6dc402ef77cffa673787df7e2304ec3f78bf7a1af9cecb54f3" => :catalina
     sha256 "9c8662f8b3b9ac49c3bb16f6677b204d8758440622ecece7c180a1e118c464de" => :mojave
