@@ -6,6 +6,10 @@ class Lightning < Formula
   sha256 "ed856b866dc6f68678dc1151579118fab1c65fad687cf847fc2d94ca045efdc9"
   license "GPL-3.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "543bb685d72b8e9b10b14f3dcd615d38f8f499d10e1d27e40604240fc3f65ac3" => :catalina
