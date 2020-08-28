@@ -6,6 +6,11 @@ class Gtksourceview4 < Formula
   license "LGPL-2.1"
   revision 1
 
+  livecheck do
+    url :stable
+    regex(/gtksourceview[._-]v?(4\.([0-8]\d*?)?[02468](?:\.\d+)*?)\.t/i)
+  end
+
   bottle do
     sha256 "3372d364163e22dcbd3306835788a6cb6578bd8e6828a456f4d89bc8779aa756" => :catalina
     sha256 "e0653a0d167b7daaf1642f322d4c3b40e4e068958328cefa0b5f473e0797bb00" => :mojave
