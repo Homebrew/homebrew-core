@@ -6,6 +6,10 @@ class XercesC < Formula
   sha256 "fb96fc49b1fb892d1e64e53a6ada8accf6f0e6d30ce0937956ec68d39bd72c7e"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "8bcfddab9276b6f09c9af5bd8be60d500cd5107795c25495b53ef5e0734ae617" => :catalina
