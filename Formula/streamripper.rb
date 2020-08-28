@@ -5,6 +5,11 @@ class Streamripper < Formula
   sha256 "c1d75f2e9c7b38fd4695be66eff4533395248132f3cc61f375196403c4d8de42"
   revision 1
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/streamripper[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "bdc01265cc82de8fdd17a432458a22ea22420839daed5d29234efe5c9cf459a2" => :catalina
