@@ -5,6 +5,10 @@ class Gitg < Formula
   sha256 "24a4aabf8a42aa2e783e1fb5996ebb3c2a82a01b9689269f1329517ef124ef5a"
   revision 5
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "ddbda9989373dd4d36950e681e9816e92eeadcf0dbe6f8cc93c2b608b4a28947" => :catalina
     sha256 "a9de95c66bb3f82a89a00646650aa356077b5546a6b666195f0328f9eb303a61" => :mojave
