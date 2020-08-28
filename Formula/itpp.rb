@@ -6,6 +6,11 @@ class Itpp < Formula
   license "GPL-3.0"
   head "https://git.code.sf.net/p/itpp/git.git"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/itpp[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "b2e1462473404d4c01645da0c7602e75395942a7478a337d70c969fa888c6dcd" => :catalina
