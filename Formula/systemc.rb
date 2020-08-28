@@ -5,6 +5,11 @@ class Systemc < Formula
   sha256 "a28eeee00189f0e39f51461dcd7dbed7fb38e4e07dbd9e723473000ce6ef73c5"
   license "Apache-2.0"
 
+  livecheck do
+    url "https://www.accellera.org/downloads/standards/systemc"
+    regex(/href=.*?systemc[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "514a49408461d311e27def414b559298e514df9be6461408e691aa2ba44ff0d5" => :catalina
