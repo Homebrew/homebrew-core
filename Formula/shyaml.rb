@@ -9,6 +9,10 @@ class Shyaml < Formula
   revision 1
   head "https://github.com/0k/shyaml.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "510026ded6fc62625ee9bd2cab4d94d03155e94270ae0aa38947b894282c2808" => :catalina
