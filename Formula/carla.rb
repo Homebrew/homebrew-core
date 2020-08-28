@@ -6,6 +6,11 @@ class Carla < Formula
   license "GPL-2.0"
   head "https://github.com/falkTX/Carla.git"
 
+  livecheck do
+    url "https://github.com/falkTX/Carla/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "9d9d212871ff2695aa40bd5bca4e412f0e0e02011c800b3517ffd72722095536" => :catalina
