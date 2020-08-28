@@ -6,6 +6,10 @@ class Gawk < Formula
   sha256 "cf5fea4ac5665fd5171af4716baab2effc76306a9572988d5ba1078f196382bd"
   license "GPL-3.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "581b48f781104f0c3233edc30c47628f4eec8c2f1f2e191151f367ce26ec538a" => :catalina
     sha256 "ddbb56c56d66f375147769a27301e2ffd099abdc07f5dfc16389af22028e185b" => :mojave
