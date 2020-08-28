@@ -7,6 +7,10 @@ class Notifiers < Formula
   sha256 "34625af405f4aa19293eaaefe145ccc92c6018ae9798f53a03a7fcc996e541aa"
   revision 2
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "627cae6d4d4620c83fe486beea84a42868880ba68aedbee156a23d4d9fa0047e" => :catalina
