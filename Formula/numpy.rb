@@ -6,6 +6,10 @@ class Numpy < Formula
   license "BSD-3-Clause"
   head "https://github.com/numpy/numpy.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "c457ff1ee5e3adf4c11c628aad45276db5bfd9cc18d245f8346ea9ed28d676a7" => :catalina
