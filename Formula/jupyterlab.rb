@@ -7,6 +7,10 @@ class Jupyterlab < Formula
   sha256 "6554b022d2cd120100e165ec537c6511d70de7f89e253b3c667ea28f2a9263ff"
   license "BSD-3-Clause"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "5b483e0ac8c5f9bf44d570d9b9ce2b56bae6b0fedd0633c5c88e8a106f6aaacb" => :catalina
