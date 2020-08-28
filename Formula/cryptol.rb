@@ -7,6 +7,10 @@ class Cryptol < Formula
   revision 1
   head "https://github.com/GaloisInc/cryptol.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "de12794d8334f69f857bb269a0e9dc4368e7f6a2968284d70854bad8e1247707" => :catalina
