@@ -5,6 +5,11 @@ class Armadillo < Formula
   sha256 "d78658c9442addf7f718eb05881150ee3ec25604d06dd3af4942422b3ce26d05"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/armadillo[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     rebuild 1
