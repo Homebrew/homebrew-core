@@ -5,6 +5,11 @@ class Libpq < Formula
   sha256 "bee93fbe2c32f59419cb162bcc0145c58da9a8644ee154a30b9a5ce47de606cc"
   license "PostgreSQL"
 
+  livecheck do
+    url "https://ftp.postgresql.org/pub/source/?C=M&O=A"
+    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
+
   bottle do
     sha256 "dae00b7442212f928e157405e8899c7fa912bb445bfeed07f52c1de94b04b2a2" => :catalina
     sha256 "79ec27aa6f8a41e00effcdaca158db7f18ed0f49958578a2ec4bdc09fec28f0b" => :mojave
