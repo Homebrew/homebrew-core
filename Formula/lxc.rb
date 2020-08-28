@@ -5,6 +5,11 @@ class Lxc < Formula
   sha256 "30cc4ea02ae8883900c052df017a0821003ca9b502d86e3cafce9ef2af16643a"
   license "Apache-2.0"
 
+  livecheck do
+    url "https://linuxcontainers.org/lxd/downloads/"
+    regex(/href=.*?lxd[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "747ff4bf00898a3364ec9ffcb5fce825d004db52fc82391ba77755f362a08deb" => :catalina
