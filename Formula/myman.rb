@@ -5,6 +5,10 @@ class Myman < Formula
   sha256 "bf69607eabe4c373862c81bf56756f2a96eecb8eaa8c911bb2abda78b40c6d73"
   head ":pserver:anonymous:@myman.cvs.sourceforge.net:/cvsroot/myman", using: :cvs
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     rebuild 2
     sha256 "90c5dee20ff2517495521e588b09678789462a8a63dc6a600da13a76cb5e86b0" => :catalina
