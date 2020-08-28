@@ -7,6 +7,10 @@ class Cppman < Formula
   sha256 "a34261da3186d4f13836fec72e32258b82b6fad7d25f353d54ca54e831dd8589"
   license "GPL-3.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "fdae58d79f577a45b067be37598b239ee07f339f0dbdce0ef206caed7c83f33b" => :catalina
