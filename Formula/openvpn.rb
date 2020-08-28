@@ -5,6 +5,11 @@ class Openvpn < Formula
   mirror "https://build.openvpn.net/downloads/releases/openvpn-2.4.9.tar.xz"
   sha256 "641f3add8694b2ccc39fd4fd92554e4f089ad16a8db6d2b473ec284839a5ebe2"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?openvpn[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "b4d2c905d810562fc11e83c226ed8572386482f1e856e0f8de3e5ff63ee00526" => :catalina
     sha256 "315e55c0f3b2cdbf4c3e8545c98702e1c4eeff20bc37dbf89921389494b3ef54" => :mojave
