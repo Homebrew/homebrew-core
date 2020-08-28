@@ -6,6 +6,11 @@ class Kops < Formula
   license "Apache-2.0"
   head "https://github.com/kubernetes/kops.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "cf93eac44851938efa7b70648b89e246582ae30decb15caf0e9fed02bddd7b8a" => :catalina
