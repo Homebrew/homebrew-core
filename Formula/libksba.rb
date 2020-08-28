@@ -5,6 +5,11 @@ class Libksba < Formula
   sha256 "bfe6a8e91ff0f54d8a329514db406667000cb207238eded49b599761bfca41b6"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://gnupg.org/ftp/gcrypt/libksba/"
+    regex(/href=.*?libksba[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "14b9bc72288c2fc4061ea49261427aa9e00738a383433302ff86ae18095b2f4a" => :catalina
