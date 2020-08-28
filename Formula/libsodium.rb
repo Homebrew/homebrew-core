@@ -6,6 +6,11 @@ class Libsodium < Formula
   license "ISC"
   revision 1
 
+  livecheck do
+    url "https://download.libsodium.org/libsodium/releases/"
+    regex(/href=.*?libsodium[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "db372521cd0b1861a5b578bee22426f3a1f4f7cb3c382be1f842da4715dc65bd" => :catalina
