@@ -6,6 +6,10 @@ class Kafka < Formula
   sha256 "7c789adaa89654d935a5558d0dacff7466e2cfec9620cb8177cec141e7b0fb92"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "a00316528e00fe0a5ff2771d1883f25f186481d77de8a79dfaf491be076de3ee" => :catalina
