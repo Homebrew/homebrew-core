@@ -27,6 +27,11 @@ class Geckodriver < Formula
     end
   end
 
+  livecheck do
+    url "https://github.com/mozilla/geckodriver.git"
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "bd5e9db1c72e65e9af516a5c8bc43c8896808b636b036b1467447418cb34a235" => :catalina
