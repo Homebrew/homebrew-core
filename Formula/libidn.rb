@@ -5,6 +5,10 @@ class Libidn < Formula
   mirror "https://ftpmirror.gnu.org/libidn/libidn-1.36.tar.gz"
   sha256 "14b67108344d81ba844631640df77c9071d9fb0659b080326ff5424e86b14038"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "1c1767101241edbd4141dc100e1c715b021be85e3fcf3657ea3bbdcb1fa884ec" => :catalina
