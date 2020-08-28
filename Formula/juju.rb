@@ -7,6 +7,11 @@ class Juju < Formula
   license "AGPL-3.0"
   version_scheme 1
 
+  livecheck do
+    url :stable
+    regex(/^juju[._-]v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 1
