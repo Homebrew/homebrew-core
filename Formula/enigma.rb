@@ -6,6 +6,10 @@ class Enigma < Formula
   license "GPL-2.0"
   revision 4
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "38e4eb761c8c03ec2ff3221d576335d60c60ecb5f369e69098d34740118d48e4" => :catalina
