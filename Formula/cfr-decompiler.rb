@@ -7,6 +7,11 @@ class CfrDecompiler < Formula
   license "MIT"
   head "https://github.com/leibnitz27/cfr.git"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?cfr[._-]v?(\d+(?:\.\d+)+)\.jar/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "05d1bff6093077a4f9789606c7b8d77d26f66f341aa491a9412da3e85669c932" => :catalina
