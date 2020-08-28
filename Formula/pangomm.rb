@@ -5,6 +5,10 @@ class Pangomm < Formula
   sha256 "14bf04939930870d5cfa96860ed953ad2ce07c3fd8713add4a1bfe585589f40f"
   license "LGPL-2.1"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "52e1c201a3967f61e5b3867c172f98cc44f169e60b03af47e00e487a67a53690" => :catalina
