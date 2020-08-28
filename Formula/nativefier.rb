@@ -7,6 +7,10 @@ class Nativefier < Formula
   sha256 "2d0964cbebde6a4a1fe1d8bb467677700c05f751b296ddd1181d1c93769f35d4"
   license "MIT"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "9af138aa796efacc377de35b1020091e48a7c3c1ffca3ca32b7ed603dba00a93" => :catalina
