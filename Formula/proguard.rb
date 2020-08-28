@@ -5,6 +5,11 @@ class Proguard < Formula
   sha256 "699f16644024000e90c2555083fa6f78a9cdf1d71f384535e82bf987d764f9fb"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://github.com/Guardsquare/proguard/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
