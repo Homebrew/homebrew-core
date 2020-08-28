@@ -4,6 +4,11 @@ class Libbpg < Formula
   url "https://bellard.org/bpg/libbpg-0.9.8.tar.gz"
   sha256 "c0788e23bdf1a7d36cb4424ccb2fae4c7789ac94949563c4ad0e2569d3bf0095"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?libbpg[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "559ad6131fbd040428bd8423047f78942aa772726af7d8e9707cad38ab167504" => :catalina
