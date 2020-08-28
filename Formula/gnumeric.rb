@@ -5,6 +5,10 @@ class Gnumeric < Formula
   sha256 "57cce33a41d34db81292e9eebae8b5046f30e5d919d848256fbb75bfc132a590"
   license any_of: ["GPL-3.0-only", "GPL-2.0-only"]
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "d9edd4ae0d044bfe837cc94adfb5f2cc812ae5706b0e7f8a96a0c7b2f9dae63b" => :catalina
     sha256 "43780a97ecfad5fc206241cebbb2d3f16ced32b36a2f095ea047ab6c27dee1c0" => :mojave
