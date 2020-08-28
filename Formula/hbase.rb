@@ -6,6 +6,10 @@ class Hbase < Formula
   sha256 "f082da6ba9b0fb8270d6a20ead96334590eba62bbfa960f8e74b312d7bc4c00f"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "fdf0eb89433c3c1d3b6432a5261f9a433dba0c1d128cba544d1a69861d931c07" => :catalina
     sha256 "cf38cab402d016cfed0c937b67ea84fc4faf620121f422a673b81b422fd2356f" => :mojave
