@@ -7,6 +7,10 @@ class Tox < Formula
   sha256 "17e61a93afe5c49281fb969ab71f7a3f22d7586d1c56f9a74219910f356fe7d3"
   license "MIT"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "8a5bc297a82da0e925f4361cb87fc8c6008ae25d60c82a1ef9723065e3846d09" => :catalina
