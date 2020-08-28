@@ -14,6 +14,13 @@ class Bind < Formula
   version_scheme 1
   head "https://gitlab.isc.org/isc-projects/bind9.git"
 
+  # BIND indicates stable releases with an even-numbered minor (e.g., x.2.x)
+  # and the regex below only matches these versions.
+  livecheck do
+    url "https://www.isc.org/downloads/"
+    regex(/href=.*?bind[._-]v?(\d+\.\d*[02468](?:\.\d+)*)\.t/i)
+  end
+
   bottle do
     sha256 "bd5c18f74b795db039f30bd3d46119ddcd50519cecf6ab7b652540f85300d556" => :catalina
     sha256 "2560da86e46a10d3829cdd135215df0a69e3c642594631a798a1c18a551738c6" => :mojave
