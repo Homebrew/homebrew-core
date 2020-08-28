@@ -5,6 +5,11 @@ class Dns2tcp < Formula
   sha256 "ea9ef59002b86519a43fca320982ae971e2df54cdc54cdb35562c751704278d9"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://deb.debian.org/debian/pool/main/d/dns2tcp/"
+    regex(/href=.*?dns2tcp[._-]v?(\d+(?:\.\d+)+)\.orig\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "f1517166d8e8e02dbefbb654214012a6bf089ab78a1a237c9ec7d86c356da97f" => :catalina
