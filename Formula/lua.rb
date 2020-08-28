@@ -6,6 +6,11 @@ class Lua < Formula
   license "MIT"
   revision 1
 
+  livecheck do
+    url "https://www.lua.org/ftp/"
+    regex(/href=.*?lua[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "56169dfd607a4e873d7b5ad619a179375b8b69007cfb527316865dbdcfe7f493" => :catalina
