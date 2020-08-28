@@ -5,6 +5,11 @@ class Renameutils < Formula
   sha256 "cbd2f002027ccf5a923135c3f529c6d17fabbca7d85506a394ca37694a9eb4a3"
   revision 3
 
+  livecheck do
+    url "https://download.savannah.gnu.org/releases/renameutils/"
+    regex(/href=.*?renameutils[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "2ec48c66fea9f53acf2b2ba3b726e6f7a9ff35778a3fb574fc59e7c6d01f681a" => :catalina
