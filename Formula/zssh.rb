@@ -5,6 +5,11 @@ class Zssh < Formula
   sha256 "a2e840f82590690d27ea1ea1141af509ee34681fede897e58ae8d354701ce71b"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/zssh[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "6b9bce24c13dd2e979cdae57892e1b595bfcbd1d342bb81419dda378b8439495" => :catalina
