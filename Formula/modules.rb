@@ -4,6 +4,11 @@ class Modules < Formula
   url "https://downloads.sourceforge.net/project/modules/Modules/modules-4.5.2/modules-4.5.2.tar.bz2"
   sha256 "9366a2c6230f7ce4b5861a0629db10867f39144e382d209681619fe273950655"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/modules[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "a2ad130312c85f33d18a50e31c4461f3cee080169aa29e00481fc51a8353b3f3" => :catalina
