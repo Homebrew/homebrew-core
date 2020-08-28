@@ -8,6 +8,10 @@ class Jinja2Cli < Formula
   license "BSD-2-Clause"
   revision 2
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "31848f994850d25890342ec76c1259e6b19738105cf7cb8d58eae1f3abb29252" => :catalina
