@@ -5,6 +5,11 @@ class Faiss < Formula
   sha256 "e1a41c159f0b896975fbb133e0240a233af5c9286c09a28fde6aefff5336e542"
   license "MIT"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "457e410d8e5b009bf12cb1b5881485f03461646ef18ff8afb69dbbc7113519b4" => :catalina
