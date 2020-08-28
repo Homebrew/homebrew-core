@@ -6,6 +6,11 @@ class FluentBit < Formula
   license "Apache-2.0"
   head "https://github.com/fluent/fluent-bit.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "6573c1c0dec7a13561cb1de47835c5637d574929f58d0e2612072c9a79217989" => :catalina
