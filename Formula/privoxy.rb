@@ -5,6 +5,11 @@ class Privoxy < Formula
   sha256 "b5d78cc036aaadb3b7cf860e9d598d7332af468926a26e2d56167f1cb6f2824a"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/privoxy[._-]v?(\d+(?:\.\d+)+)[._-]stable[._-]src\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "27fe56112d9fda97417f830b4c17a5066b4389f7831db250a702c91d8df62131" => :catalina
