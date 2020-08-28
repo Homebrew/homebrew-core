@@ -7,6 +7,10 @@ class BitwardenCli < Formula
   sha256 "05b8e98100b4b09cbe9947b590f287c23096ba2aa1cc7ee471d707de951a8982"
   license "GPL-3.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "51e8383bae9b679aab1fa6074bd937c5809217ef54ad08912cc6f1e35a6624c6" => :catalina
