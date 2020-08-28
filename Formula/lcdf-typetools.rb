@@ -5,6 +5,11 @@ class LcdfTypetools < Formula
   sha256 "fb09bf45d98fa9ab104687e58d6e8a6727c53937e451603662338a490cbbcb26"
   license "GPL-2.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?lcdf-typetools[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "e7ce2d4d16d2b79e482cb862231519653e6d3c09cd5e310573b04f804323e1e3" => :catalina
     sha256 "0fd983396dbcf027e560753e6f25797500d085762edcf59a1a2034cd55c24cfd" => :mojave
