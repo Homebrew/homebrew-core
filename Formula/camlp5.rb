@@ -8,6 +8,11 @@ class Camlp5 < Formula
   revision 1
   head "https://github.com/camlp5/camlp5.git"
 
+  livecheck do
+    url :homepage
+    regex(%r{The current distributed version is <b>v?(\d+(?:\.\d+)+)</b>}i)
+  end
+
   bottle do
     sha256 "0fc4737c1395d1ef602b2e8c39ea759717c2315f8978a6d59eff0486a7b6f5b1" => :catalina
     sha256 "873bd9b0c0155fd2eadcfaf021e6f0fc2667790aac60dc756efe3383795af0e2" => :mojave
