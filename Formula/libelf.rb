@@ -6,6 +6,16 @@ class Libelf < Formula
   license "LGPL-2.0"
   revision 1
 
+  # The formula uses archive.org for the homepage and a mirrored version of the
+  # last available archive. There seems to be some newer development in the
+  # ELF Tool Chain project (https://sourceforge.net/p/elftoolchain/wiki/Home/)
+  # but they don't create separate libelf releases. Altogether, there's nothing
+  # we can currently check for a new version, so we're skipping this until
+  # something changes.
+  livecheck do
+    skip "No version information available to check"
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "b7635245b64cc7d857c92191c40877cba96871d07f4749f620bc96c63cd2635e" => :catalina
