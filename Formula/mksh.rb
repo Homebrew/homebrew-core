@@ -6,6 +6,11 @@ class Mksh < Formula
   version "59b"
   sha256 "907ed1a9586e7f18bdefdd4a763aaa8397b755e15034aa54f4d753bfb272e0e6"
 
+  livecheck do
+    url "https://www.mirbsd.org/MirOS/dist/mir/mksh/"
+    regex(/href=.*?mksh-R?(\d+[a-z]?)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "e6b59cb6a1bb326e97bbbad191d735e85e39f899726a68225c01e137ea88066f" => :catalina
