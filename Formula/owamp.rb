@@ -5,6 +5,11 @@ class Owamp < Formula
   sha256 "059f0ab99b2b3d4addde91a68e6e3641c85ce3ae43b85fe9435841d950ee2fb3"
   license "Apache-2.0"
 
+  livecheck do
+    url "http://software.internet2.edu/sources/owamp/"
+    regex(/href=.*?owamp[._-]v?(\d+(?:\.\d+)+(?:-\d+)?)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 1
