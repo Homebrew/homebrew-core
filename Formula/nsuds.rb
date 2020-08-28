@@ -5,6 +5,11 @@ class Nsuds < Formula
   sha256 "6d9b3e53f3cf45e9aa29f742f6a3f7bc83a1290099a62d9b8ba421879076926e"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/nsuds[._-]v?(\d+(?:\.\d+)+[A-Z]?)\.t}i)
+  end
+
   bottle do
     sha256 "dcccae0ffd504a9a09ed57bfe0ac26127723c92513177eb862fa132e21c6968a" => :catalina
     sha256 "60d318290bb60415eb4abfdd7ffad468a24294892ac4ff90895cc0e589ea3da6" => :mojave
