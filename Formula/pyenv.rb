@@ -7,6 +7,11 @@ class Pyenv < Formula
   version_scheme 1
   head "https://github.com/pyenv/pyenv.git"
 
+  livecheck do
+    url "https://github.com/pyenv/pyenv/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "74e2f3a7cf6513948cbac05f3af8f3f2ae7df825dfc21a91759963afbb398420" => :catalina
