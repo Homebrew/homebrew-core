@@ -5,7 +5,7 @@ class Sipcalc < Formula
   sha256 "cfd476c667f7a119e49eb5fe8adcfb9d2339bc2e0d4d01a1d64b7c229be56357"
 
   livecheck do
-    url "http://www.routemeister.net/projects/sipcalc/download.html"
+    url "https://www.routemeister.net/projects/sipcalc/download.html"
     regex(/href=.*?sipcalc[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
