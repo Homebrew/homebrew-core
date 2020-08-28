@@ -7,6 +7,10 @@ class Diffoscope < Formula
   sha256 "5085d19bb9cc86f5aaed437c67e700202760198ff42f7379132513ff432987ef"
   license "GPL-3.0-or-later"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "aa59ec859a1665d7f03614e58626e565695c23f37f6c0bcb4723b28d1c8dd368" => :catalina
