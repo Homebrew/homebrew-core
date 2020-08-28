@@ -6,6 +6,11 @@ class PamYubico < Formula
   license "BSD-2-Clause"
   revision 1
 
+  livecheck do
+    url "https://developers.yubico.com/yubico-pam/Releases/"
+    regex(/href=.*?pam_yubico[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "6e4eb4afca28e15098998d561b21ab65930ab57898fcf26ed0ba657263d2f130" => :catalina
