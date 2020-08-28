@@ -6,6 +6,11 @@ class Colordiff < Formula
   sha256 "46e8c14d87f6c4b77a273cdd97020fda88d5b2be42cf015d5d84aca3dfff3b19"
   license "GPL-2.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?colordiff[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "f0433560a0417e350a57ad24a80d277cb3cc2665046a10d8db630ef432529603" => :catalina
