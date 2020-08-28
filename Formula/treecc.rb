@@ -5,6 +5,11 @@ class Treecc < Formula
   sha256 "5e9d20a6938e0c6fedfed0cabc7e9e984024e4881b748d076e8c75f1aeb6efe7"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://download.savannah.gnu.org/releases/dotgnu-pnet/"
+    regex(/href=.*?treecc[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "3a46948ef72e0801cab4767e1f0075d01ab8b7a8eb4b07a9a7e81d021c43e2fc" => :catalina
