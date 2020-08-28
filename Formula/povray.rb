@@ -6,6 +6,11 @@ class Povray < Formula
   license "AGPL-3.0"
   revision 1
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+\.\d{1,4})$/i)
+  end
+
   bottle do
     rebuild 1
     sha256 "a882f103b0ad016cbafa13cc1fd028046b337590feff3e6188bb574f1e328488" => :catalina
