@@ -20,6 +20,8 @@ class NowCli < Formula
 
   depends_on "node"
 
+  disable! date: "2021-01-31", because: "is not receiving updates upstream"
+
   def install
     rm Dir["dist/{*.exe,xsel}"]
     inreplace "dist/index.js", "t.default=getUpdateCommand",
