@@ -5,6 +5,11 @@ class Pike < Formula
   sha256 "c47aad2e4f2c501c0eeea5f32a50385b46bda444f922a387a5c7754302f12a16"
   revision 1
 
+  livecheck do
+    url "https://pike.lysator.liu.se/download/pub/pike/latest-stable/"
+    regex(/href=.*?Pike[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "ae20ba3c7fd69c026892555798559bd2da90d53dc3cf07eb5d7423af505082d5" => :catalina
