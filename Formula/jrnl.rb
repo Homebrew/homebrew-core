@@ -7,6 +7,10 @@ class Jrnl < Formula
   sha256 "a5f069efcaa3f5d95cc7712178b3f92915f67eed4034e5f257cc063c6b0e74d9"
   license "GPL-3.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "fb6d2b1efb05d963283fd9dc09789aaf65f9d8856e04e248e0ac735edfc43613" => :catalina
