@@ -6,6 +6,10 @@ class Nifi < Formula
   sha256 "e2ddbc1b57d88e1e154c40d2c533b42ff37275bed1d71a392eb2fa111511651b"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
