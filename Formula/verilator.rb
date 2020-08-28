@@ -5,6 +5,11 @@ class Verilator < Formula
   sha256 "6e1574924083922a4eb80ff22eedc866f4ce54e5fd6a34101b6af7aa29e5c0e3"
   license any_of: ["LGPL-3.0-only", "Artistic-2.0"]
 
+  livecheck do
+    url "https://github.com/verilator/verilator.git"
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 "f4f7abca35a5479c05aecdab7cd1a0e693a1e6a731663c175ade7b61dc017d10" => :catalina
     sha256 "a74987a1eea55449a79c828b3c140e16f2c8272eddeb12b2fd3080256ef0cccb" => :mojave
