@@ -5,6 +5,11 @@ class Apcupsd < Formula
   sha256 "db7748559b6b4c3784f9856561ef6ac6199ef7bd019b3edcd7e0a647bf8f9867"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/apcupsd%20-%20Stable/[^/]+/apcupsd[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     rebuild 3
     sha256 "6bdbc101891e5c10b8aead1e1c86ce8ed1560f38b4de96a6c804c73953ad3ac0" => :catalina
