@@ -6,6 +6,11 @@ class FreeradiusServer < Formula
   license "GPL-2.0"
   head "https://github.com/FreeRADIUS/freeradius-server.git"
 
+  livecheck do
+    url :head
+    regex(/^release[._-](\d+(?:[._]\d+)+)$/i)
+  end
+
   bottle do
     sha256 "c3174a08eaeabce252f16224d93fcb1503584ac6b2d7733a6e80eb558cfefee5" => :catalina
     sha256 "4c4dc47fe8af598594c4dd24184f7b5400e383e7649c6f6aa98f1663997b04ec" => :mojave
