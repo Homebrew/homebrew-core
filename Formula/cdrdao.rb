@@ -5,6 +5,10 @@ class Cdrdao < Formula
   sha256 "358d9cb83370ceaecdc60564cbf14c2ea2636eac60a966e2461c011ba09853b4"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "81acc38e0a51134c0eeebf20e76dcee4e80eabfac72f0ec890e448271a96792c" => :catalina
     sha256 "f8894deccbd18e7d5362ace73618666d9a79b233cea5dc6af367ab9e257332e0" => :mojave
