@@ -6,6 +6,11 @@ class Zlib < Formula
   sha256 "c3e5e9fdd5004dcb542feda5ee4f0ff0744628baf8ed2dd5d66f8ca1197cb1a1"
   license "Zlib"
 
+  livecheck do
+    url "https://github.com/madler/zlib.git"
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "8ec66cf6faa310712767efc3022fdd16568a79234439f64bf579acb628f893bc" => :catalina
