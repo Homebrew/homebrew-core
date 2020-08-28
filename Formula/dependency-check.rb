@@ -4,6 +4,11 @@ class DependencyCheck < Formula
   url "https://dl.bintray.com/jeremy-long/owasp/dependency-check-5.3.2-release.zip"
   sha256 "4c6f40cb596e335fd0cd816bd6c25773e1e029c3109979ce4c429f3b49850252"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?dependency-check[._-]v?(\d+(?:\.\d+)+)-release\.zip/i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
