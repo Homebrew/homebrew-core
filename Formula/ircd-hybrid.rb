@@ -5,6 +5,11 @@ class IrcdHybrid < Formula
   sha256 "b27823ee359dcdeeaf1cce3b81fb959a156fd776ab599092dd52fd79fa276df2"
   license "GPL-2.0-or-later"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/ircd-hybrid[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     sha256 "4141097277b2a5e1c28c4d6ac1bf0b01743c7e34fb371aca7267e480db8ec830" => :catalina
     sha256 "0a4639339b71b7b385a5f7a5bf0755d1b055a093db29ace3421d768f1aa6c4d9" => :mojave
