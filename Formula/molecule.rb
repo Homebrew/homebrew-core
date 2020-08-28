@@ -7,6 +7,10 @@ class Molecule < Formula
   sha256 "42d0c661b52074b00a620466df367ddab9c3682875e6d685bfc93487ef0479cc"
   license "MIT"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "d10ed0909fa01d10a4b3b1e38d37311ad1dd7960d2f8109215e51ab24b1f6260" => :catalina
