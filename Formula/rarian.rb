@@ -4,6 +4,11 @@ class Rarian < Formula
   url "https://rarian.freedesktop.org/Releases/rarian-0.8.1.tar.bz2"
   sha256 "aafe886d46e467eb3414e91fa9e42955bd4b618c3e19c42c773026b205a84577"
 
+  livecheck do
+    url "https://rarian.freedesktop.org/Releases/"
+    regex(/href=.*?rarian[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "6cd01a0bbc9d5168548c6735ddf1057ae3ef403d3868be499ff1ce3ba1cd6ab8" => :catalina
     sha256 "e727630f28efcdcb1a577f67525992f00a00c25ee1582277e1e91e2fa060187d" => :mojave
