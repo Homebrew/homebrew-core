@@ -5,6 +5,11 @@ class Atari800 < Formula
   sha256 "55cb5568229c415f1782130afd11df88c03bb6d81fa4aa60a4ac8a2f151f1359"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://github.com/atari800/atari800/releases/latest"
+    regex(%r{href=.*?/tag/ATARI800[._-]v?(\d+(?:[._]\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "5bc2d96418e21a76809abfa2513f630cb207848b0894f27cda34b2f55bace81c" => :catalina
