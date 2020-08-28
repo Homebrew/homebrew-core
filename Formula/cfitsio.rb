@@ -5,6 +5,11 @@ class Cfitsio < Formula
   version "3.490"
   sha256 "5b65a20d5c53494ec8f638267fca4a629836b7ac8dd0ef0266834eab270ed4b3"
 
+  livecheck do
+    url :homepage
+    regex(/Download the latest v?(\d+(?:\.\d+)+) version of CFITSIO/i)
+  end
+
   bottle do
     cellar :any
     sha256 "2abc3263aed574298efd50d60dd5fa07e69c5a39ed87772e3edaa727a293506a" => :catalina
