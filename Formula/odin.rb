@@ -7,6 +7,11 @@ class Odin < Formula
   revision 1
   head "https://github.com/odin-lang/Odin.git"
 
+  livecheck do
+    url "https://github.com/odin-lang/Odin/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "fa220553a803117a6da6b751710098c3bab7149548328d34fcc0e20d46a208ef" => :catalina
