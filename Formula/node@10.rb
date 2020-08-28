@@ -4,6 +4,11 @@ class NodeAT10 < Formula
   url "https://nodejs.org/dist/v10.22.0/node-v10.22.0.tar.xz"
   sha256 "e07575455cbb6670e3f30d2f846d3078ef2c181255ff0932089182529443e1db"
 
+  livecheck do
+    url "https://nodejs.org/dist/"
+    regex(%r{href=["']?v?(10(?:\.\d+)+)/?["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "c404f9b76f4bdaeb2bb9c43867d3c49be3fa80544046fa69b2749f1dfc673deb" => :catalina
