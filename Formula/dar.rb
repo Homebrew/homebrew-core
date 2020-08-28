@@ -5,6 +5,11 @@ class Dar < Formula
   sha256 "16a0b755c648c4ce6598e258ccf375f55d4f2f943448341ed41085ac7a27d2e7"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/dar[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "715d4c42deee8466b4c4ca1eb5c1eb0e353531f008162a1caa0ac3cebed80eea" => :catalina
