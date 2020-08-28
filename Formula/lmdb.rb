@@ -6,6 +6,11 @@ class Lmdb < Formula
   version_scheme 1
   head "https://git.openldap.org/openldap/openldap.git", branch: "mdb.master"
 
+  livecheck do
+    url :head
+    regex(/^LMDB[._-]v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "83f3500e1b1d6b1526149c0a71bd85c46467544ad9810e13e1056fd259ff72af" => :catalina
