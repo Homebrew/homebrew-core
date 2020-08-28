@@ -5,6 +5,10 @@ class Ghex < Formula
   sha256 "c2d9c191ff5bce836618779865bee4059db81a3a0dff38bda3cc7a9e729637c0"
   revision 3
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "b152b5f03f5bc0d7a50a834fef582ea7fb477dd7560afb4a0b1f4df88e229970" => :catalina
     sha256 "c2e68caac31470d6dbc66050b2dc42333b3dfc6956ee7453fba9032b5cf894a4" => :mojave
