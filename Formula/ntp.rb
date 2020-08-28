@@ -6,7 +6,7 @@ class Ntp < Formula
   sha256 "f65840deab68614d5d7ceb2d0bb9304ff70dcdedd09abb79754a87536b849c19"
 
   livecheck do
-    url "http://www.ntp.org/downloads.html"
+    url "https://www.ntp.org/downloads.html"
     regex(/href=.*?ntp[._-]v?(\d+(?:\.\d+)+(?:p\d+)?)\.t/i)
   end
 
