@@ -7,6 +7,11 @@ class Graphviz < Formula
   version_scheme 1
   head "https://gitlab.com/graphviz/graphviz.git"
 
+  livecheck do
+    url "https://www2.graphviz.org/Packages/stable/portable_source/"
+    regex(/href=.*?graphviz[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "e1cc69e09c92ac1507e461e374de9a0b2d7b01d15e29bf43808f8f458303c67f" => :catalina
     sha256 "facbce9f3c97e2ad4b0ebf7344da4937722d6ae03c2091853c0bdd4f0e313e08" => :mojave
