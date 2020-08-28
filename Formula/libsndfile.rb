@@ -8,6 +8,11 @@ class Libsndfile < Formula
   license "LGPL-2.1"
   revision 1
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?libsndfile[._-]v?([\d.]+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "8e192a4b76ad637395dfce818e2eec62e3a90722b33759fefcd4af389498bb9c" => :catalina
