@@ -6,6 +6,11 @@ class RakudoStar < Formula
   license "Artistic-2.0"
   revision 1
 
+  livecheck do
+    url "https://rakudo.org/dl/star/"
+    regex(/".*?rakudo-star[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 "3b278aad10dae56ebb623fecdc5cd8e044d1bb23021a48e4c4428554674cb89e" => :catalina
