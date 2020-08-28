@@ -9,6 +9,11 @@ class Spades < Formula
   license "GPL-2.0"
   revision 1
 
+  livecheck do
+    url "http://cab.spbu.ru/files/?C=M&O=D"
+    regex(%r{href=.*?release(\d+(?:\.\d+)+)/?["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "a6f57aca314cbe6d46554308a1b6a54c6c76bab341ac0813e9d0e68187428023" => :catalina
