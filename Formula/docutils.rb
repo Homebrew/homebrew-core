@@ -7,6 +7,10 @@ class Docutils < Formula
   sha256 "7d4e999cca74a52611773a42912088078363a30912e8822f7a3d38043b767573"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "ed4972eaa10a0be627db7bc83f75f7537b1a6b3507bb7b3331ffa6afcfcc8f44" => :catalina
