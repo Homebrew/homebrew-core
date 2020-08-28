@@ -4,6 +4,11 @@ class Abnfgen < Formula
   url "http://www.quut.com/abnfgen/abnfgen-0.20.tar.gz"
   sha256 "73ce23ab8f95d649ab9402632af977e11666c825b3020eb8c7d03fa4ca3e7514"
 
+  livecheck do
+    url :homepage
+    regex(%r{href=.*?/abnfgen[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "c1531bab58a352221fca0cc5b73db2d9f206e1b98272ff06a90d72aa9e991925" => :catalina
