@@ -6,6 +6,11 @@ class Qjackctl < Formula
   license "GPL-2.0"
   head "https://git.code.sf.net/p/qjackctl/code.git"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/qjackctl[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     sha256 "8e30b2f2b2587c3177287a8a47f785862d0f6201e92f8cfc90ea16e17e2e405c" => :catalina
     sha256 "902219e2f8d6e223a2375eeeb92470e0fefce0acb4d960b250a5c2ac5e5cef97" => :mojave
