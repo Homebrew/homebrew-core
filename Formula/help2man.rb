@@ -6,6 +6,10 @@ class Help2man < Formula
   sha256 "3ef8580c5b86e32ca092ce8de43df204f5e6f714b0cd32bc6237e6cd0f34a8f4"
   license "GPL-3.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "457a2b1ce094f9997ac5555a843d025eb9bc2267a54be0a1f2292b67a038de72" => :catalina
