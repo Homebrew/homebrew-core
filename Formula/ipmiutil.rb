@@ -4,6 +4,10 @@ class Ipmiutil < Formula
   url "https://downloads.sourceforge.net/project/ipmiutil/ipmiutil-3.1.6.tar.gz"
   sha256 "8814828c6c245140a5c867d8def8e88a72e90f67c79282008303de1c1d598e4a"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "d9c1f45ad31e61093e3ba002c3494d61e762666733c6f5d03c53e6860e9aaf14" => :catalina
