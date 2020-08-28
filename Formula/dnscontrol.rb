@@ -5,6 +5,11 @@ class Dnscontrol < Formula
   sha256 "911a31e4a3131f3ecc9c44bc6f1a30aa1259028de504116265bbf516510cd931"
   license "MIT"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "11902a795449df78e2ce8174379731bdb4de50cc33db13572f4fb2b69d26bc60" => :catalina
