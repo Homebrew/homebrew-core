@@ -6,6 +6,11 @@ class Clib < Formula
   license "MIT"
   head "https://github.com/clibs/clib.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "fd29b216886e47f1868b9ab39e42d516f51a513afc5b780c8f9e4899f459aa59" => :catalina
