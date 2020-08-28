@@ -5,6 +5,11 @@ class Aspectj < Formula
   sha256 "afec62c03fe154adeecf9cd599ce033fff258d1d373a82511e5df54f79ab03e2"
   revision 1
 
+  livecheck do
+    url "https://eclipse.org/aspectj/downloads.php"
+    regex(%r{Latest Stable Release.*?href=.*?/aspectj[._-]v?(\d+(?:\.\d+)+)\.jar}im)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
