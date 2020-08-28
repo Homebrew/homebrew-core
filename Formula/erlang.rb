@@ -7,6 +7,11 @@ class Erlang < Formula
   license "Apache-2.0"
   head "https://github.com/erlang/otp.git"
 
+  livecheck do
+    url :head
+    regex(/OTP[._-]v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "cc5b720aa2ef96e1d4f29620f2cc1243008bf450ef6451140ab6ab0679877916" => :catalina
