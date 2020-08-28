@@ -7,6 +7,11 @@ class Rsync < Formula
   sha256 "becc3c504ceea499f4167a260040ccf4d9f2ef9499ad5683c179a697146ce50e"
   license "GPL-3.0"
 
+  livecheck do
+    url "https://rsync.samba.org/ftp/rsync/?C=M&O=D"
+    regex(/href=.*?rsync[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "fd92045e16b9b83ab6c281a1e658e27731ef9af53fcb6bb7ce6b9533851e728e" => :catalina
