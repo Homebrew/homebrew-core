@@ -5,6 +5,11 @@ class Unixodbc < Formula
   sha256 "45f169ba1f454a72b8fcbb82abd832630a3bf93baa84731cf2949f449e1e3e77"
   license "LGPL-2.1"
 
+  livecheck do
+    url "http://www.unixodbc.org/download.html"
+    regex(/href=.*?unixODBC[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 "03ba378d971af98d07652f978548ffacb4c155ba11dd36af9d46af36e2d5674b" => :catalina
