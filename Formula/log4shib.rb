@@ -5,6 +5,11 @@ class Log4shib < Formula
   sha256 "d066e2f208bdf3ce28e279307ce7e23ed9c5226f6afde288cd429a0a46792222"
   license "LGPL-2.1"
 
+  livecheck do
+    url "https://shibboleth.net/downloads/log4shib/latest/"
+    regex(/href=.*?log4shib[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "8bba779ac511127d2893aa7f90e08fea86e49d54a002363edac8396143b53fd2" => :catalina
