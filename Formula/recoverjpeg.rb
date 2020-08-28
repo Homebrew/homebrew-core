@@ -5,6 +5,11 @@ class Recoverjpeg < Formula
   sha256 "db996231e3680bfaf8ed77b60e4027c665ec4b271648c71b00b76d8a627f3201"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://rfc1149.net/download/recoverjpeg/"
+    regex(/href=.*?recoverjpeg[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 1
