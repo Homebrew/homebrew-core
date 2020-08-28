@@ -5,6 +5,10 @@ class JsonrpcGlib < Formula
   sha256 "d1ceb24b503e49e7bfe6e44630c03abc65f2d047a68271eb62e332b13be90548"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "a51dd608adcefb9e3514534e49a5db64ad1e38b407b8d9349df7f3eb08bc5fe7" => :catalina
