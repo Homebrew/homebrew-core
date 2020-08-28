@@ -6,6 +6,10 @@ class Httptunnel < Formula
   sha256 "142f82b204876c2aa90f19193c7ff78d90bb4c2cba99dfd4ef625864aed1c556"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "992853ebe7a48e07cf6e129d68cab49aab670ce4231a4a984ded21ece64247c0" => :catalina
