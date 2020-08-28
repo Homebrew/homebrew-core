@@ -5,6 +5,11 @@ class Ghostscript < Formula
   sha256 "8f6e48325c106ae033bbae3e55e6c0b9ee5c6b57e54f7cd24fb80a716a93b06a"
   license "AGPL-3.0"
 
+  livecheck do
+    url :head
+    regex(/^ghostscript[._-]v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 "8cd0efa1e5525f849be3ee1e50e1635b99667cb4d1eb6c3002a45378346882f4" => :catalina
     sha256 "8906a4dbf2513963a4710f351e3426622c259bd888c760e4c08a9436860b4014" => :mojave
