@@ -6,6 +6,10 @@ class Tvnamer < Formula
   license "Unlicense"
   head "https://github.com/dbr/tvnamer.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "ba762f3b04d2dfc8d534741e30b13eeeb4ac0b74740fb3be24b8aa9ec23e1ac5" => :catalina
