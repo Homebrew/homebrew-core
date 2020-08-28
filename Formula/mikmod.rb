@@ -5,6 +5,11 @@ class Mikmod < Formula
   sha256 "dbb01bc36797ce25ffcab2b3bf625537b85b42534344e1808236ca612fbaa4cc"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/mikmod[._-](\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     sha256 "6d6794da1daf749a56cf55738f796fe5b6a7b337456730b21a5efba2fab60f38" => :catalina
     sha256 "6812f223d67d763208eaf21ab6e1ebfaf50e349852cb6820010010ed0524b2f2" => :mojave
