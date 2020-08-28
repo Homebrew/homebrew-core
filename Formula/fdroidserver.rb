@@ -7,6 +7,10 @@ class Fdroidserver < Formula
   sha256 "420904baf24c8a5b8485898f3a3d1f6c2c52b4599ef4df443ebc901fd2710754"
   license "AGPL-3.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "b6c78f576d5efc31e4094e61c13fb2ad8d374aa76a458e1bd309040f197c0526" => :catalina
