@@ -4,6 +4,11 @@ class Ftgl < Formula
   url "https://downloads.sourceforge.net/project/ftgl/FTGL%20Source/2.1.3~rc5/ftgl-2.1.3-rc5.tar.gz"
   sha256 "5458d62122454869572d39f8aa85745fc05d5518001bcefa63bd6cbb8d26565b"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/ftgl[._-]v?(\d+(?:\.\d+)+(?:-rc\d*)?)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "0f982773db625daa78a1c18c9e67315ede8c52850586d47d9b7a41ffcac91730" => :catalina
