@@ -7,6 +7,10 @@ class GruntCli < Formula
   sha256 "3b0a3c2aee71f1cb92984afd3fffa7882cbd40958825313946aa7f2938f67e93"
   license "MIT"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "374df04d2a7da96b2995552308258e637edebd304d09ca2cba49f9106b8324f3" => :catalina
