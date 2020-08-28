@@ -6,6 +6,11 @@ class Cgns < Formula
   license "BSD-3-Clause"
   head "https://github.com/CGNS/CGNS.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "4371c695cad1aa0bccbaaf0deccb9a8f5ddf7271dcbbddf6307b8d0bc254cec5" => :catalina
