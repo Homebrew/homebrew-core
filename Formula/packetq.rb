@@ -5,6 +5,11 @@ class Packetq < Formula
   sha256 "696cfcae6d341b910b86673baa428ffa09d00dd42a70d2d3ac57db13c6977122"
   license "GPL-3.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?packetq[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "f9838e0f004b12ca2b43feb321d4a90c5e2778a22fabd9b9b528b783c0ef98b4" => :catalina
