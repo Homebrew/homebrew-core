@@ -8,6 +8,10 @@ class Remarshal < Formula
   license "MIT"
   head "https://github.com/dbohdan/remarshal.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "ff34ba0168dc79cb1d3c060817d8bd13be31061f3883a2ba5d4ea0098c5a9f76" => :catalina
