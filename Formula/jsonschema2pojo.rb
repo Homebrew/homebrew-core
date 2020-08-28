@@ -6,6 +6,11 @@ class Jsonschema2pojo < Formula
   license "Apache-2.0"
   revision 2
 
+  livecheck do
+    url "https://github.com/joelittlejohn/jsonschema2pojo/releases/latest"
+    regex(%r{href=.*?/tag/jsonschema2pojo[._-]v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
