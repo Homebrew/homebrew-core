@@ -5,6 +5,10 @@ class X8664ElfBinutils < Formula
   mirror "https://ftpmirror.gnu.org/binutils/binutils-2.35.tar.gz"
   sha256 "a3ac62bae4f339855b5449cfa9b49df90c635adbd67ecb8a0e7f3ae86a058da6"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "4aa6103fb091ca890f96fc4bd32ede47ea00180190ce7af74c3ef6d2a33efd01" => :catalina
     sha256 "3fbbd0397080012c98d274499dcaf3ca6c510f9d18adc9040d725ec82c7ab31c" => :mojave
