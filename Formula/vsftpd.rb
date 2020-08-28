@@ -5,6 +5,11 @@ class Vsftpd < Formula
   mirror "https://fossies.org/linux/misc/vsftpd-3.0.3.tar.gz"
   sha256 "9d4d2bf6e6e2884852ba4e69e157a2cecd68c5a7635d66a3a8cf8d898c955ef7"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?vsftpd[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 2
     sha256 "43b17ac94b152a4922a915b7e2efc89c3da7ee53e00f860136c5c58489e2b782" => :catalina
