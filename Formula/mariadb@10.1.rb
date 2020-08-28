@@ -5,6 +5,11 @@ class MariadbAT101 < Formula
   sha256 "cde355a750fcbe7a3956576b2a410dd1f7ed8c0f35de3676de8708782725ae15"
   license "GPL-2.0-only"
 
+  livecheck do
+    url "https://downloads.mariadb.org/"
+    regex(/Download v?(10\.1(?:\.\d+)+) Stable Now/i)
+  end
+
   bottle do
     sha256 "d04c52b6893eb344ec10995bba0fbfb1251616b825fee35ec67309b38505e844" => :catalina
     sha256 "8fce602507981a0d15cffb608311edce3bd20d1e0279f05c7bc84d97dc8ef4f1" => :mojave
