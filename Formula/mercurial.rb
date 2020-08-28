@@ -7,6 +7,11 @@ class Mercurial < Formula
   sha256 "c1ed28e1534304a7a4981ed59905286d1c56acd5b75755eedd184171a4a782b4"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://www.mercurial-scm.org/release/"
+    regex(/href=.*?mercurial[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "99cd39e3f4bd9bbfc94b191d4c73276da4e174f0bd4043de96737c2b91c1bfe8" => :catalina
     sha256 "a0e0763833b37b8731e2555c99c7a96825df7ab2c978f912b4bb17b87d0f8bcd" => :mojave
