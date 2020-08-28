@@ -7,6 +7,10 @@ class Fx < Formula
   sha256 "3f71183462975f5b3a7fde39971384fe519ae55b256a6b6bae83ad03c359db3f"
   license "MIT"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "578129a00faa6be9ba743f231a2ca413b5e0071da074e7e240caa95ec950c215" => :catalina
