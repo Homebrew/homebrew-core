@@ -7,6 +7,11 @@ class Creduce < Formula
   revision 1
   head "https://github.com/csmith-project/creduce.git"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?creduce[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "d460655f84c09cc178e1d678bf0efc517dd10d1a0d8ad3d1c4688d94dac35bde" => :catalina
