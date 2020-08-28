@@ -17,6 +17,11 @@ class Upscaledb < Formula
     end
   end
 
+  livecheck do
+    url "http://files.upscaledb.com/dl/"
+    regex(/href=.*?upscaledb[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "16803511bcf21348ddd6c71d76367fef5961188d2b0f467a3ec05b044db5b3f7" => :catalina
