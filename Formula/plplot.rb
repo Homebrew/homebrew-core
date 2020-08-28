@@ -5,6 +5,10 @@ class Plplot < Formula
   sha256 "b92de4d8f626a9b20c84fc94f4f6a9976edd76e33fb1eae44f6804bdcc628c7b"
   revision 2
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "c37878dbf7a1805da137aa6b9f1222050b6b62eebd36834597279b8f58f5f4d6" => :catalina
     sha256 "c647d868b1fd01db2a760965665d9ff22192fefc0ad02641a2f89c4ccf35a37f" => :mojave
