@@ -4,6 +4,11 @@ class Telnet < Formula
   url "https://opensource.apple.com/tarballs/remote_cmds/remote_cmds-63.tar.gz"
   sha256 "13858ef1018f41b93026302840e832c2b65289242225c5a19ce5e26f84607f15"
 
+  livecheck do
+    url "https://opensource.apple.com/tarballs/remote_cmds/"
+    regex(/href=.*?remote_cmds[._-]v?(\d+(?:\.\d+)*)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "7435a9fd2515158762a85197a4ad7141e430383e185e002da169dbbb638c952f" => :catalina
