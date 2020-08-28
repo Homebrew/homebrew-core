@@ -6,6 +6,10 @@ class Fop < Formula
   sha256 "6a3c5f8915be5ef90fff202c818152d8252bb45b96d9c5d6550594903739e5ed"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
