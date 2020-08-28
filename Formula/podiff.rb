@@ -5,6 +5,11 @@ class Podiff < Formula
   sha256 "6902c10ceb9bb131d40cb2a7023ebb61df0ee7cf8abf1833129df65120244bd0"
   license "GPL-3.0"
 
+  livecheck do
+    url "https://download.gnu.org.ua/pub/release/podiff/"
+    regex(/href=.*?podiff[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "cdda50f296e87f84f828d09777f90217c98ca4578a00b09307df9dcd830424c2" => :catalina
