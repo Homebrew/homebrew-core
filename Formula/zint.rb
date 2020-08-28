@@ -6,6 +6,11 @@ class Zint < Formula
   license "GPL-3.0"
   head "https://git.code.sf.net/p/zint/code.git"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/zint[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "18c124be12f21675b75c0fffca89bc9b219ab275f95fcd50bf96ccd7ca55195e" => :catalina
