@@ -6,6 +6,10 @@ class Patchelf < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/NixOS/patchelf.git"
 
+  livecheck do
+    url "https://github.com/NixOS/patchelf.git"
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "91944c42c39963a6a4c39fa330062ed1d269b0a2be0b5010ae6bac61cff16e53" => :catalina
