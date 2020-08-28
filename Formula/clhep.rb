@@ -5,6 +5,11 @@ class Clhep < Formula
   sha256 "27c257934929f4cb1643aa60aeaad6519025d8f0a1c199bc3137ad7368245913"
   license "GPL-3.0"
 
+  livecheck do
+    url :homepage
+    regex(%r{atest release.*?<b>v?(\d+(?:\.\d+)+)</b>}im)
+  end
+
   bottle do
     cellar :any
     sha256 "8c8ce7164df92c63519e8d361f341ef848796cdd4087982e507f32d06952afbf" => :catalina
