@@ -8,6 +8,11 @@ class Duck < Formula
   revision 1
   head "https://svn.cyberduck.io/trunk/"
 
+  livecheck do
+    url "https://cyberduck.io/changelog/"
+    regex(/href=.*?Cyberduck[._-]v?(\d+(?:\.\d+)+)\.zip/i)
+  end
+
   bottle do
     cellar :any
     sha256 "774e7740a7ff3d0ad3abf1c19e5e081fee6c311bad1160487e77c90f89ef1894" => :catalina
