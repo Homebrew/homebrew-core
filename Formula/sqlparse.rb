@@ -7,6 +7,10 @@ class Sqlparse < Formula
   sha256 "e162203737712307dfe78860cc56c8da8a852ab2ee33750e33aeadf38d12c548"
   license "BSD-3-Clause"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "a886da74810f4112ac16b08840eac4ebd3ccd3daf5b7219ba1ad84d2981b8478" => :catalina
