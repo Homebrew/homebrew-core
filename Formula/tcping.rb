@@ -6,6 +6,11 @@ class Tcping < Formula
   license "MIT"
   head "https://github.com/mkirchner/tcping.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "2cf829fa6b3feab933a12f8fbc9fc1e8d585a304f31d918f26ba0d502f4772ab" => :catalina
