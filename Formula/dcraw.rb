@@ -5,6 +5,11 @@ class Dcraw < Formula
   mirror "https://mirrorservice.org/sites/distfiles.macports.org/dcraw/dcraw-9.28.0.tar.gz"
   sha256 "2890c3da2642cd44c5f3bfed2c9b2c1db83da5cec09cc17e0fa72e17541fb4b9"
 
+  livecheck do
+    url "https://distfiles.macports.org/dcraw/"
+    regex(/href=.*?dcraw[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "df26056a9b3374154b499b4dbdee4a1417a58a15cffe22ac40f095747ee1f8a7" => :catalina
