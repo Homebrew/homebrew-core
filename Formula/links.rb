@@ -5,6 +5,11 @@ class Links < Formula
   sha256 "285eed8591c7781ec26213df82786665aaa1b9286782e8a7a1a7e2a6e1630d63"
   license "GPL-2.0"
 
+  livecheck do
+    url "http://links.twibright.com/download.php"
+    regex(/Current version is v?(\d+(?:\.\d+)+)\. /i)
+  end
+
   bottle do
     cellar :any
     sha256 "c43cf180508872a2e5461af4c3c80a58d2d8824d1bb8b0c1a7d0f890aa12ef49" => :catalina
