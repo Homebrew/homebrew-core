@@ -4,6 +4,11 @@ class Libftdi0 < Formula
   url "https://www.intra2net.com/en/developer/libftdi/download/libftdi-0.20.tar.gz"
   sha256 "3176d5b5986438f33f5208e690a8bfe90941be501cc0a72118ce3d338d4b838e"
 
+  livecheck do
+    url "https://www.intra2net.com/en/developer/libftdi/download.php"
+    regex(/href=.*?libftdi[._-]v?(0(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     rebuild 2
