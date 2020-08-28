@@ -5,6 +5,10 @@ class Mdds < Formula
   sha256 "f1585c9cbd12f83a6d43d395ac1ab6a9d9d5d77f062c7b5f704e24ed72dae07d"
   license "MIT"
 
+  livecheck do
+    url :head
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 2
