@@ -18,6 +18,10 @@ class Agda < Formula
     end
   end
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     rebuild 2
     sha256 "c2d27dd1e42cee97bd2d4d19d38e027e627df890025265dceab6454d662a3b3e" => :catalina
