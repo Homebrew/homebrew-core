@@ -5,6 +5,11 @@ class Dos2unix < Formula
   mirror "https://fossies.org/linux/misc/dos2unix-7.4.1.tar.gz"
   sha256 "1cd58a60b03ed28fa39046102a185c5e88c4f7665e1e0417c25de7f8b9f78623"
 
+  livecheck do
+    url "https://waterlan.home.xs4all.nl/dos2unix/"
+    regex(/href=.*?dos2unix[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "e361c9877212a1666721d1b62348690d8dd24dadc94ef0f33b582c44b9650ab6" => :catalina
