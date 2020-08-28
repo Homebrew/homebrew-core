@@ -5,6 +5,10 @@ class SimpleScan < Formula
   sha256 "56af18291a7763f763da5f0eded247d2f8ebf9112c286ef89013374969fef525"
   license "GPL-3.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "4d96fe2a7b628fdbcb4e0133c84a345f6d46a83a17c228927cd78293389ca4ce" => :catalina
     sha256 "3a217de17627f5cacbf6026ad6727c261294a971c1a35d35964d792b74de656b" => :mojave
