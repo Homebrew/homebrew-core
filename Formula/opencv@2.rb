@@ -6,6 +6,11 @@ class OpencvAT2 < Formula
   license "BSD-3-Clause"
   revision 11
 
+  livecheck do
+    url "https://github.com/opencv/opencv.git"
+    regex(/^(2(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 "180d6d38c261fbb8d8a874fe21018c0ad1fa9e9a526e9234ff5645affe04512f" => :catalina
     sha256 "9beadffa6f23d7c7ea58a501d88e8512a67ac4f0848b8a9920209fc6430ab0ed" => :mojave
