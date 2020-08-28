@@ -9,6 +9,10 @@ class Passpie < Formula
   revision 1
   head "https://github.com/marcwebbie/passpie.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "29a24482b5c955a6d14b7a285d6937c04ab89a53f110c8343221d2ccef2cb508" => :catalina
