@@ -5,6 +5,11 @@ class Perltidy < Formula
   sha256 "757ac07bec59707845995aaafbb44b664120f57850ce932bc31f2d95e0c5df36"
   license "GPL-2.0-or-later"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/Perl-Tidy[._-]v?(\d+)\.t}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "83b5f90746f0da498b17d0fb86ac46e56699431e0e901477a7dc6a3f07e6d43c" => :catalina
