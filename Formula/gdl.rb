@@ -5,6 +5,10 @@ class Gdl < Formula
   sha256 "858b30f0cdce4c4cb3e8365a7d54ce57c388beff38ea583be5449bc78dda8d02"
   revision 2
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "5acba250d8c77d17be5ff312bf11d6aa33cb609c4c351b2a1cd1bf565e73e81a" => :catalina
     sha256 "2e2e04543eaf7ee02a791433fbab570d3b5f44651cec8dd56a40a519c2a38d24" => :mojave
