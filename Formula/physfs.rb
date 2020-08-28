@@ -5,6 +5,11 @@ class Physfs < Formula
   sha256 "304df76206d633df5360e738b138c94e82ccf086e50ba84f456d3f8432f9f863"
   head "https://hg.icculus.org/icculus/physfs/", using: :hg
 
+  livecheck do
+    url "https://icculus.org/physfs/downloads/"
+    regex(/href=.*?physfs[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "31693a34c610ea382a1b0832065db2b223db549ced6fe6a2f8c569d6b58bf19a" => :catalina
