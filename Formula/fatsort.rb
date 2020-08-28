@@ -6,6 +6,11 @@ class Fatsort < Formula
   sha256 "481c94ea08f6faaafe67594726d70fb3e3d5ac9672745f0034e55134ea5256fc"
   license "GPL-2.0-or-later"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/fatsort[._-]v?(\d+(?:\.\d+)+)\.\d+\.t}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "c3e2a36f45f08826087b89279cb36c9156024d4ecc0e02a1218dd28d27c6d8b7" => :catalina
