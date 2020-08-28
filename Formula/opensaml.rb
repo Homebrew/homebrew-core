@@ -4,6 +4,11 @@ class Opensaml < Formula
   url "https://shibboleth.net/downloads/c++-opensaml/3.1.0/opensaml-3.1.0.tar.bz2"
   sha256 "7b632d2cf6556b213e80ec1473b5298dbfa17f665cb3911f933c4ad5fe2983b0"
 
+  livecheck do
+    url "https://shibboleth.net/downloads/c++-opensaml/latest/"
+    regex(/href=.*?opensaml[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "fb766a10e4471cb65da1e9833ab752e360af38a598f50fe4190881950abed391" => :catalina
