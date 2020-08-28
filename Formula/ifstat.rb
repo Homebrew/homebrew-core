@@ -5,6 +5,11 @@ class Ifstat < Formula
   sha256 "8599063b7c398f9cfef7a9ec699659b25b1c14d2bc0f535aed05ce32b7d9f507"
   license "GPL-2.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=["']?ifstat[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "bc3d531dc3b4f6ff78a4acac901a9e6afc21a7994d7cbc3403839a5ae68b68b3" => :catalina
