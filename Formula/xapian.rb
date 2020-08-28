@@ -6,6 +6,11 @@ class Xapian < Formula
   license "GPL-2.0"
   version_scheme 1
 
+  livecheck do
+    url :homepage
+    regex(/latest stable version.*?is v?(\d+(?:\.\d+)+)</im)
+  end
+
   bottle do
     cellar :any
     sha256 "4712dbe3959cf4bb599d5c28a63b752de362d8201a68d4c2b73cce4e61d575e0" => :catalina
