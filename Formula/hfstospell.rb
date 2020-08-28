@@ -6,6 +6,11 @@ class Hfstospell < Formula
   license "Apache-2.0"
   revision 2
 
+  livecheck do
+    url "https://github.com/hfst/hfst-ospell/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "82553e62189a1eeb0a759f5a0dddc57c21c6545ee35f1b59338c3fb0efca765f" => :catalina
