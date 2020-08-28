@@ -13,6 +13,11 @@ class Zbar < Formula
     patch :DATA
   end
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/zbar[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "c67f6e8064b2c29e707529c211d90499452391ab05739da4774d922f643dd1a3" => :catalina
