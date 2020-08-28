@@ -6,6 +6,11 @@ class Rsstail < Formula
   license "GPL-2.0"
   head "https://github.com/flok99/rsstail.git"
 
+  livecheck do
+    url :homepage
+    regex(/Latest release.*href=.*?rsstail[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     rebuild 1
