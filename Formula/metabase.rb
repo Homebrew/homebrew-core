@@ -5,6 +5,11 @@ class Metabase < Formula
   sha256 "987a0e1b0cbf20e1f6e15dce45c153afeb5a4a0ef4c62e9344eaed14a310cecc"
   license "AGPL-3.0-only"
 
+  livecheck do
+    url "https://github.com/metabase/metabase/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   head do
     url "https://github.com/metabase/metabase.git"
 
