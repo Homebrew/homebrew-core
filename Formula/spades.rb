@@ -10,7 +10,7 @@ class Spades < Formula
   revision 1
 
   livecheck do
-    url "http://cab.spbu.ru/files/?C=M&O=D"
+    url "https://cab.spbu.ru/files/?C=M&O=D"
     regex(%r{href=.*?release(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
