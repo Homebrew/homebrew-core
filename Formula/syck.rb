@@ -6,6 +6,10 @@ class Syck < Formula
   # it is dual licensed, but the other license is not listed in SPDX
   license "MIT"
 
+  livecheck do
+    skip "Not maintained"
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "cc1bf3857c3d847854b54f45a25c5b1696c811f369c811521a07e2f5a4431e81" => :catalina
