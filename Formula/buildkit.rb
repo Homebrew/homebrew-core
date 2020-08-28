@@ -7,6 +7,11 @@ class Buildkit < Formula
   license "Apache-2.0"
   head "https://github.com/moby/buildkit.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "b3fb77472c881ebcdfbc72cbd1c0dd236c29bca54ea64551bf4f7bd5dfdf8e35" => :catalina
