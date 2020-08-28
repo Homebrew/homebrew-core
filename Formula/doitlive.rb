@@ -7,6 +7,10 @@ class Doitlive < Formula
   sha256 "4cb1030e082d8649f10a61d599d3ff3bcad7f775e08f0e68ee06882e06d0190f"
   revision 8
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "5434bf69eb3f7d608ef63faf1003dbacf2fb9faf39c45ad392e580f4e5809cc3" => :catalina
