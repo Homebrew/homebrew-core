@@ -7,6 +7,11 @@ class Pssh < Formula
   license "BSD-3-Clause"
   revision 2
 
+  livecheck do
+    url "https://www.googleapis.com/download/storage/v1/b/google-code-archive/o/v2%2Fcode.google.com%2Fparallel-ssh%2Fdownloads-page-1.json?&alt=media"
+    regex(/pssh[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "62460d1e1e69472684b09842c05d80e9b6da5f9510815b6d40b527a452067c3c" => :catalina
