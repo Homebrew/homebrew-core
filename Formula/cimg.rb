@@ -4,6 +4,11 @@ class Cimg < Formula
   url "https://cimg.eu/files/CImg_2.9.1.zip"
   sha256 "5b5b9e57e8920c3291c80d6a604c1a40d2e0e4a038ec04a6c07b39f176c13200"
 
+  livecheck do
+    url "https://cimg.eu/files/"
+    regex(/href=.*?CImg[._-]v?(\d+(?:\.\d+)+)\.zip/i)
+  end
+
   bottle :unneeded
 
   def install
