@@ -5,6 +5,10 @@ class Libmemcached < Formula
   sha256 "e22c0bb032fde08f53de9ffbc5a128233041d9f33b5de022c0978a2149885f82"
   revision 2
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     rebuild 1
