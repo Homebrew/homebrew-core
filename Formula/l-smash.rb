@@ -20,8 +20,8 @@ class LSmash < Formula
   end
 
   # failed to upgrade since 02-11-2018
-  # upstream patch never got merged, https://github.com/l-smash/l-smash/issues/80
-  disable!
+  # https://github.com/l-smash/l-smash/issues/80
+  disable! because: "is unable to be upgraded, necessary patches not merged upstream"
 
   def install
     system "./configure", "--prefix=#{prefix}", "--enable-shared"
