@@ -4,6 +4,16 @@ class Geoserver < Formula
   url "https://downloads.sourceforge.net/project/geoserver/GeoServer/2.17.2/geoserver-2.17.2-bin.zip"
   sha256 "2469c4f8735dea0604dabe975c37663bbaf9adc569cc888ce24b9e987dc06400"
 
+  # GeoServer releases contain a large number of files for each version, so the
+  # SourceForge RSS feed may only contain the most recent version (which may
+  # have a different major/minor version than the latest stable). We check the
+  # "GeoServer" directory page instead, since this is reliable.
+  livecheck do
+    url "https://sourceforge.net/projects/geoserver/files/GeoServer/"
+    strategy :page_match
+    regex(%r{href=(?:["']|.*?GeoServer/)?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
+
   bottle :unneeded
 
   def install
