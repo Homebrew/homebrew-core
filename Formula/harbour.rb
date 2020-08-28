@@ -12,6 +12,11 @@ class Harbour < Formula
     sha256 "4e99c0c96c681b40c7e586be18523e33db24baea68eb4e394989a3b7a6b5eaad"
   end
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/harbour[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     rebuild 2
