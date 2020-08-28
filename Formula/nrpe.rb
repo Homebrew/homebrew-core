@@ -5,6 +5,11 @@ class Nrpe < Formula
   sha256 "f907ba15381adfc6eef211508abd027f8e1973116080faa4534a1191211c0340"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/nrpe[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "6ef7387202f3b9afda335fd77f16a268a82bed7a9f6ef856faa83741b308d8f2" => :catalina
