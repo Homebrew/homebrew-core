@@ -5,6 +5,11 @@ class Sdl2 < Formula
   sha256 "349268f695c02efbc9b9148a70b85e58cefbbf704abd3e91be654db7f1e2c863"
   revision 1
 
+  livecheck do
+    url "https://www.libsdl.org/download-2.0.php"
+    regex(/SDL2[._-]v?(\d+(?:\.\d+)*)/i)
+  end
+
   bottle do
     cellar :any
     sha256 "4dcd635465d16372ca7a7bb2b94221aa21de02f681a22e9239d095b66fb00c63" => :catalina
