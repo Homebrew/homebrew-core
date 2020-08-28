@@ -7,6 +7,11 @@ class IcarusVerilog < Formula
   license "LGPL-2.1"
   head "https://github.com/steveicarus/iverilog.git"
 
+  livecheck do
+    url "https://ftp.openbsd.org/pub/OpenBSD/distfiles/"
+    regex(/href=.*?verilog[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "bf40a384b8432dfb72276e31e87d550b9b47515dc68bdfb25f0cde9becd4ac10" => :catalina
     sha256 "0237851e478bcb76567111f14c1e42fe79161a8cd28ca04127295fc40db14113" => :mojave
