@@ -7,6 +7,10 @@ class Txt2tags < Formula
   sha256 "27969387206d12b4e4a0eb13d0d5dd957d71dbb932451b0dceeab5e3dbb6178a"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "5417013a87fca45121b25df471e050f12d611fcab11594ee5b442543eff2c457" => :catalina
