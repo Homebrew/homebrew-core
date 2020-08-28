@@ -7,6 +7,10 @@ class Jc < Formula
   sha256 "45480ac3d399f70b57d8cc97a6795ea875a19863c55a56eae596c6e67303c5b8"
   license "MIT"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "7702ba20f9132d178d6b8a601ed0ae78df11a99df16453643d38c348d91ee053" => :catalina
