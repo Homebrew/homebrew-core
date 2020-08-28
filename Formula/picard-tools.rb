@@ -5,6 +5,11 @@ class PicardTools < Formula
   sha256 "0eae556a8f925d0790d9df2c94b7df323a0107eecdd6ac45866c391921888f23"
   license "MIT"
 
+  livecheck do
+    url "https://github.com/broadinstitute/picard/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
