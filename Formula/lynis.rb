@@ -4,6 +4,11 @@ class Lynis < Formula
   url "https://downloads.cisofy.com/lynis/lynis-3.0.0.tar.gz"
   sha256 "3cc165f9007ba41de6d0b693a1167dbaf0179085f9506dcba64b4b8e37e1bda2"
 
+  livecheck do
+    url "https://cisofy.com/downloads/lynis/"
+    regex(%r{href=.*?/lynis[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle :unneeded
 
   def install
