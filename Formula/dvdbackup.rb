@@ -5,6 +5,10 @@ class Dvdbackup < Formula
   sha256 "0a37c31cc6f2d3c146ec57064bda8a06cf5f2ec90455366cb250506bab964550"
   revision 2
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "d5f189809e233c9bd3aa990d2757bab405fa0f65edc4af1691477c74decd95b8" => :catalina
