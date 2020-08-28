@@ -5,6 +5,11 @@ class Libpagemaker < Formula
   sha256 "66adacd705a7d19895e08eac46d1e851332adf2e736c566bef1164e7a442519d"
   license "MPL-2.0"
 
+  livecheck do
+    url "https://dev-www.libreoffice.org/src/"
+    regex(/href=["']?libpagemaker[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "9759e3d26a09e7b99bbf3c49f05bfa7724334b639245f5791d9bada9df977d68" => :catalina
