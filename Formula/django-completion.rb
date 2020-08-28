@@ -6,6 +6,11 @@ class DjangoCompletion < Formula
   license "BSD-3-Clause"
   head "https://github.com/django/django.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle :unneeded
 
   def install
