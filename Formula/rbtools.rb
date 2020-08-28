@@ -8,6 +8,10 @@ class Rbtools < Formula
   license "MIT"
   head "https://github.com/reviewboard/rbtools.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "5a748911d650da054e85d6c78c208664b64c9c78a22c6a44ad33959317893b2c" => :catalina
