@@ -5,6 +5,11 @@ class K3d < Formula
   sha256 "bcf9cf273033a81a97698c37cbf29146c17997f4bf3bedcd9fcf55db106b8db2"
   license "MIT"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "ebb6a835a1ee1a138f1a1bdba89943c3141b661feca5493aa6f594787da5ebcf" => :catalina
