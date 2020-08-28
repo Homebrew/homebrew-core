@@ -5,6 +5,11 @@ class Logcheck < Formula
   sha256 "9fb6d02b933470d0b1d1efb54ea186e0d0d27336f9d146be592f65ce60dfb3e6"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://packages.debian.org/unstable/logcheck"
+    regex(/href=.*?logcheck[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "9e354b3fe568c0751443a702251949b5227a5ce09e3bbae4c28664aa1d7f0631" => :catalina
