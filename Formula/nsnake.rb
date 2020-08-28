@@ -6,6 +6,10 @@ class Nsnake < Formula
   license "GPL-3.0"
   head "https://github.com/alexdantas/nSnake.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 1
