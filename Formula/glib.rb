@@ -7,6 +7,10 @@ class Glib < Formula
   sha256 "9cbd5bd2715ead1c28d53c46f7b7b6ff6166f5887b772c1a9e3bf2910cfecc11"
   license "LGPL-2.1-or-later"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "6d8c705b5feee37976530563cac6c959bd3a028e8b94fb7417c44f59eebe360f" => :catalina
     sha256 "f20d990dd43d5732761adb780b9cf5a421a93337f81ddabdc9fc4a03f2f5537f" => :mojave
