@@ -7,6 +7,10 @@ class Pev < Formula
   revision 1
   head "https://github.com/merces/pev.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "594049ef545f762b9f6d3cad098fa23971c0b84a3623799004c83e62a7303779" => :catalina
     sha256 "e4d191b795eebb97ee0bb6a3122bf45f1c2f05c7b192381e712d96d71cd4ffb0" => :mojave
