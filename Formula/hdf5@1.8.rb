@@ -5,6 +5,11 @@ class Hdf5AT18 < Formula
   sha256 "e5b1b1dee44a64b795a91c3321ab7196d9e0871fe50d42969761794e3899f40d"
   revision 2
 
+  livecheck do
+    url "https://support.hdfgroup.org/ftp/HDF5/current18/src/"
+    regex(/href=.*?hdf5[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "cf26b031bb492997d0f6731eb563637d8c37c434ea82bced9e324a1bf40d9031" => :catalina
