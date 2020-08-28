@@ -5,6 +5,11 @@ class Qcachegrind < Formula
   sha256 "8fc5e0643bb826b07cb5d283b8bd6fd5da4979f6125b43b1db3a9db60b02a36a"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://download.kde.org/stable/applications"
+    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "0a16a588310bd7251602e330366a5abde440e1f8ae4ac564eb99ac9e69298c0c" => :catalina
