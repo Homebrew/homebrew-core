@@ -5,6 +5,11 @@ class Phpunit < Formula
   sha256 "388358e909b5824c9351cec477193b16f5b4004252df2f1b8736fd152d4265c5"
   license "BSD-3-Clause"
 
+  livecheck do
+    url "https://phar.phpunit.de/"
+    regex(/href=.*?phpunit[._-]v?(\d+(?:\.\d+)+)\.phar/i)
+  end
+
   bottle :unneeded
 
   depends_on "php" => :test
