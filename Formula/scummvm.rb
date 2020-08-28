@@ -6,6 +6,11 @@ class Scummvm < Formula
   license "GPL-2.0"
   head "https://github.com/scummvm/scummvm.git"
 
+  livecheck do
+    url "https://www.scummvm.org/frs/scummvm/"
+    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["']}i)
+  end
+
   bottle do
     rebuild 1
     sha256 "2d1de2f1efde7505ec7b06a2dfd90e287d6d816d5082f7a89ae2f44c6c25b9d8" => :catalina
