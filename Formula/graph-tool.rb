@@ -7,6 +7,11 @@ class GraphTool < Formula
   sha256 "f07025160a8cb376551508c6d8aa5fd05a146c67c4706ea4635d2766aa5c9fcb"
   license "GPL-3.0"
 
+  livecheck do
+    url "https://downloads.skewed.de/graph-tool/"
+    regex(/href=.*?graph-tool[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "c87595bb20ff5868ca1b32ee16baf7cad07c08124b4bb209bf9fb275821cb661" => :catalina
     sha256 "04e48635f2b6d233525a3df163acbe1fc9b6ee5859892c2a2d46afa631ae8fd3" => :mojave
