@@ -6,6 +6,11 @@ class Ldc < Formula
   license "BSD-3-Clause"
   head "https://github.com/ldc-developers/ldc.git", shallow: false
 
+  livecheck do
+    url "https://github.com/ldc-developers/ldc/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     sha256 "1c3b260fe74079e4da13db6bfbc7be9e87708b2a671677ec74528e4f79593e14" => :catalina
     sha256 "1375459c29bd65dac8dd45c474bfda0eb6a28b5ce1d4c331b99ce9322afe3988" => :mojave
