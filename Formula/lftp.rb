@@ -5,6 +5,10 @@ class Lftp < Formula
   sha256 "c517c4f4f9c39bd415d7313088a2b1e313b2d386867fe40b7692b83a20f0670d"
   license "GPL-3.0-or-later"
 
+  livecheck do
+    url "https://github.com/lavv17/lftp.git"
+  end
+
   bottle do
     sha256 "a388da5bb2e5beee32d122f71ae93a0d000af5d00b6ff40428d7e113ce123471" => :catalina
     sha256 "db1429c68ffecc6a300d1adbcb980425c95a3d92112d1f4b69a148fe09bad066" => :mojave
