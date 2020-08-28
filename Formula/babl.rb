@@ -7,6 +7,11 @@ class Babl < Formula
   # Use GitHub instead of GNOME's git. The latter is unreliable.
   head "https://github.com/GNOME/babl.git"
 
+  livecheck do
+    url "https://download.gimp.org/pub/babl/0.1/"
+    regex(/href=.*?babl[._-]v?(\d+(?:\.\d+)*)\.t/i)
+  end
+
   bottle do
     sha256 "1ee23d8d10b4d302534a0bbcbef29d9d132b369c93927fad502a4c18248fb5a4" => :catalina
     sha256 "123339d245f11cdf1b46d1bc433fe080b4c83ebca98b15ddcc5fc26989a0acfd" => :mojave
