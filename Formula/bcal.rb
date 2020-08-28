@@ -5,6 +5,11 @@ class Bcal < Formula
   sha256 "506d17d6df35fad636d3ced425afee5921cd2b21242099b78b369cfcb5716e23"
   license "GPL-3.0"
 
+  livecheck do
+    url "https://github.com/jarun/bcal/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "68c94f34b56865694b7229d0211f8c8c97c3ec809a260cf0c8764524cb76b8fa" => :catalina
