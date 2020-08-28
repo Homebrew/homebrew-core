@@ -5,6 +5,11 @@ class PostgresqlAT96 < Formula
   sha256 "61f93a94ccddbe0b2d1afaf03f04ba605d8af5b774ff9b830e5adeb50ab55cb0"
   license "PostgreSQL"
 
+  livecheck do
+    url "https://www.postgresql.org/docs/9.6/static/release.html"
+    regex(/Release v?(\d+(?:\.\d+)+)/i)
+  end
+
   bottle do
     sha256 "81b3a3ac4e549641e48fe4f291b32266603858cff2ceb6242f2725deb20bdd9a" => :catalina
     sha256 "b515085fd803628a5979a34402fa7296e95c437bc5805ec08acd69b43ac11c6a" => :mojave
