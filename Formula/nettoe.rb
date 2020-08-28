@@ -5,6 +5,10 @@ class Nettoe < Formula
   sha256 "dbc2c08e7e0f7e60236954ee19a165a350ab3e0bcbbe085ecd687f39253881cb"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "59cab1291f69cb1c35a269d18343a3d07eaf55d6f0d178c9548afb282497fc50" => :catalina
