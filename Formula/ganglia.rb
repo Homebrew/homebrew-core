@@ -6,6 +6,11 @@ class Ganglia < Formula
   license "BSD-3-Clause"
   revision 3
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/ganglia[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     sha256 "3201c7b103ad74ed63d7e4cda74da894a3e71443a8b2e79353dcf22874580c96" => :catalina
     sha256 "ff01d1a7d5457e2572273e61463a7a9c0da1b8a6c12a998b4c4da157163110c8" => :mojave
