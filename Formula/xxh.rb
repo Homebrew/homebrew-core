@@ -7,6 +7,10 @@ class Xxh < Formula
   sha256 "2ba8bbb5d75c77095580b3f2f5570b1700834a42f50e1caaf50a97de925d51bf"
   license "BSD-2-Clause"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "34a321ac28c031fdb427f866d04a3e5d8aa074e2050afb330edc1718147fa3d9" => :catalina
