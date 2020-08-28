@@ -4,6 +4,11 @@ class Libshout < Formula
   url "https://downloads.xiph.org/releases/libshout/libshout-2.4.3.tar.gz"
   sha256 "0d8af55d1141bf90710bcd41a768c9cc5adb251502a0af1dd22c8da215d40dfe"
 
+  livecheck do
+    url "https://ftp.osuosl.org/pub/xiph/releases/libshout/"
+    regex(/href=.*?libshout[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "c0a0c87887e331d2f4b174d956e974bae44d427f282024f6a7b36910da7dbe05" => :catalina
