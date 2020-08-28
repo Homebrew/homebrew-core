@@ -5,6 +5,11 @@ class Rsyslog < Formula
   sha256 "09d2b6c8bc2f016598aed2bb719e03f822bb01d720c61e4d6e725e00dca1b650"
   license all_of: ["Apache-2.0", "GPL-3.0-or-later", "LGPL-3.0-or-later"]
 
+  livecheck do
+    url :homepage
+    regex(/Current Version.+?v?(\d+(?:\.\d+)+)/im)
+  end
+
   bottle do
     sha256 "97381545007f27c0cfe29662eedb197aeea7c01a221e87f5553a0f45dfc8f1cf" => :catalina
     sha256 "95c46152ac156ee1bfff208092e41d64ab2bded77d25eff90390529ed37bba06" => :mojave
