@@ -5,6 +5,10 @@ class Dosbox < Formula
   sha256 "c0d13dd7ed2ed363b68de615475781e891cd582e8162b5c3669137502222260a"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "b204c9a07dce5bf4f476c9912f177481a69e8843045ab19d01f3e016d875dceb" => :catalina
