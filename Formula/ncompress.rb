@@ -6,6 +6,11 @@ class Ncompress < Formula
   license "Unlicense"
   head "https://github.com/vapier/ncompress.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "cc232677371ee83d7af62598553c028e11071e309d8620818965b94d2a43b9a4" => :catalina
