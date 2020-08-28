@@ -5,6 +5,11 @@ class Xvid < Formula
   sha256 "aeeaae952d4db395249839a3bd03841d6844843f5a4f84c271ff88f7aa1acff7"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://downloads.xvid.com/downloads/"
+    regex(/href=.*?xvidcore[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "ace5fea6272f3594b5c8fca6f1fe03c41c50a14af8599751571c5e44a49a5a53" => :catalina
