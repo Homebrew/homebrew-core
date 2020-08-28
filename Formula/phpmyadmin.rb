@@ -4,6 +4,11 @@ class Phpmyadmin < Formula
   url "https://files.phpmyadmin.net/phpMyAdmin/5.0.2/phpMyAdmin-5.0.2-all-languages.tar.gz"
   sha256 "8d5cb67de154262b6e51e6ac6967d0931d28ef39cdc7fbec44011d374eb432ae"
 
+  livecheck do
+    url "https://www.phpmyadmin.net/files/"
+    regex(/href=.*?phpMyAdmin[._-]v?(\d+(?:\.\d+)+)-all-languages\.zip["' >]/i)
+  end
+
   bottle :unneeded
 
   depends_on "php" => :test
