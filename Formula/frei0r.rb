@@ -5,6 +5,11 @@ class Frei0r < Formula
   sha256 "1b1ff8f0f9bc23eed724e94e9a7c1d8f0244bfe33424bb4fe68e6460c088523a"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://files.dyne.org/frei0r/releases/"
+    regex(/href=.*?frei0r-plugins[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "5076041b5f3d76b94866ab2b97ad34523ee40cfa314e6f7d2bf460ce304de872" => :catalina
