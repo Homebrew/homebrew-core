@@ -7,6 +7,11 @@ class Pkcs11Helper < Formula
   license "BSD-3-Clause"
   head "https://github.com/OpenSC/pkcs11-helper.git"
 
+  livecheck do
+    url "https://github.com/OpenSC/pkcs11-helper/releases/latest"
+    regex(%r{href=.*?/tag/pkcs11-helper[._-]v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "dc52806291729e3481bb2a90cabb9df77f21c30351ed2cc67213caaefed8c667" => :catalina
