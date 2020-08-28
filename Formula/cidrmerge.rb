@@ -5,6 +5,10 @@ class Cidrmerge < Formula
   sha256 "21b36fc8004d4fc4edae71dfaf1209d3b7c8f8f282d1a582771c43522d84f088"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "5828da34c41143336cced7cc8051efd63d525c1a1a4788c6c1235d4bc75cf3df" => :catalina
