@@ -4,6 +4,11 @@ class Libsoxr < Formula
   url "https://downloads.sourceforge.net/project/soxr/soxr-0.1.3-Source.tar.xz"
   sha256 "b111c15fdc8c029989330ff559184198c161100a59312f5dc19ddeb9b5a15889"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/soxr[._-]v?(\d+(?:\.\d+)+)(?:-Source)?\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "a6c8f1003e47e95e1653d617df2a228935fcea753bb578904687eb211d24d213" => :catalina
