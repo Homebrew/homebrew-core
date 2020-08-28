@@ -6,6 +6,11 @@ class DcosCli < Formula
   license "Apache-2.0"
   head "https://github.com/dcos/dcos-cli.git"
 
+  livecheck do
+    url "https://github.com/dcos/dcos-cli/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "f761361ad67f93ddb2e437ba807522ed6b6216f8bbc317d6eaa04981900019cd" => :catalina
