@@ -4,6 +4,11 @@ class Speex < Formula
   url "https://downloads.xiph.org/releases/speex/speex-1.2.0.tar.gz"
   sha256 "eaae8af0ac742dc7d542c9439ac72f1f385ce838392dc849cae4536af9210094"
 
+  livecheck do
+    url "https://ftp.osuosl.org/pub/xiph/releases/speex/?C=M&O=D"
+    regex(/href=.*?speex[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "0f83411cb7338f92a588672d127c902e0b45d1f7276befa2206bc870208d5bb0" => :catalina
