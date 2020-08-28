@@ -5,6 +5,10 @@ class Libsecret < Formula
   sha256 "4fcb3c56f8ac4ab9c75b66901fb0104ec7f22aa9a012315a14c0d6dffa5290e4"
   license "LGPL-2.1"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "6b63c9ade94d5428c76332662178a0ea47ea682478cc2a0d189acb5d9480b562" => :catalina
     sha256 "cf7e3aee821a63ef75f9ad9d33061d6dbd358b1bb07873d991f4b4e877842fef" => :mojave
