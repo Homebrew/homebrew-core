@@ -4,6 +4,11 @@ class PcscLite < Formula
   url "https://pcsclite.apdu.fr/files/pcsc-lite-1.9.0.tar.bz2"
   sha256 "0148d403137124552c5d0f10f8cdab2cbb8dfc7c6ce75e018faf667be34f2ef9"
 
+  livecheck do
+    url "https://pcsclite.apdu.fr/files/"
+    regex(/href=.*?pcsc-lite[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "650bd1cb922417a5ef04f6667261e9b11393ebbd24750f6332ed067716a5e192" => :catalina
