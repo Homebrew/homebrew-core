@@ -5,6 +5,11 @@ class Daq < Formula
   mirror "https://fossies.org/linux/misc/daq-2.0.7.tar.gz"
   sha256 "bdc4e5a24d1ea492c39ee213a63c55466a2e8114b6a9abed609927ae13a7705e"
 
+  livecheck do
+    url "https://www.snort.org/downloads"
+    regex(/id=["']?snort_stable_version["']?.*?href=.*?daq[._-]v?(\d+(?:\.\d+)+)\.t/im)
+  end
+
   bottle do
     cellar :any
     sha256 "3b1f25eab6e2c04f4b5e609a1d3e72c3eb55eb12d4a7acb61f43ae815bd10347" => :catalina
