@@ -4,6 +4,11 @@ class Ntl < Formula
   url "https://www.shoup.net/ntl/ntl-11.4.3.tar.gz"
   sha256 "b7c1ccdc64840e6a24351eb4a1e68887d29974f03073a1941c906562c0b83ad2"
 
+  livecheck do
+    url "https://www.shoup.net/ntl/download.html"
+    regex(/href=.*?ntl[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "fc44a358782565b05098a29f2694fe16100c2b5aa096c04875edd093adf78b5d" => :catalina
