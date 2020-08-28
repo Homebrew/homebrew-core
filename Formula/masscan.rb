@@ -6,6 +6,11 @@ class Masscan < Formula
   license "AGPL-3.0"
   head "https://github.com/robertdavidgraham/masscan.git"
 
+  livecheck do
+    url "https://github.com/robertdavidgraham/masscan/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "480e77a29b46bf529743f0d4e21a8e69d55e41d19bbb4e3b1665d329c8b3e94f" => :catalina
