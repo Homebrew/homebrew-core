@@ -6,6 +6,11 @@ class ClozureCl < Formula
   license "Apache-2.0"
   head "https://github.com/Clozure/ccl.git"
 
+  livecheck do
+    url "https://github.com/Clozure/ccl/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "44532f82d79ee308886614d8a8ccafd65e049a8621cc7a54a6af15d9985486e7" => :catalina
