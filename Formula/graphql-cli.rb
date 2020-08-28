@@ -7,6 +7,10 @@ class GraphqlCli < Formula
   sha256 "1517777bc00b35f3ca3cc7a5a0a639ee9562871e4f4ac3b67143cabc0b4e2222"
   license "MIT"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "5ecb75b7aa2887d2a7e81fe08b3cb18cb62e0dfe38d57eaa2cfa7fd636dab625" => :catalina
     sha256 "a9c8667aebd1344a6bfb265180054a6e063122da8a567fc62d54f05cd62f5ab9" => :mojave
