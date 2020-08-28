@@ -6,6 +6,10 @@ class Gtmess < Formula
   license "GPL-2.0"
   revision 2
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "3c8e2979b478bfe761e2baf263ce4bfdee03426d853ee10faaba353481a21420" => :catalina
     sha256 "9b5e2ecdb133c3a069305f572ec6d172dfaf10371459e44cc84574b08d2db19c" => :mojave
