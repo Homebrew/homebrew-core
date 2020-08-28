@@ -5,6 +5,11 @@ class Sord < Formula
   sha256 "b15998f4e7ad958201346009477d6696e90ee5d3e9aff25e7e9be074372690d7"
   license "ISC"
 
+  livecheck do
+    url "https://download.drobilla.net"
+    regex(/href=.*?sord[._-]v?(\d+.\d+.\d+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "8c1546cb6310b54955a6c0e4aa8a7a64a989ee4917bd299da9abf7bb8837461b" => :catalina
