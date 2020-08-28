@@ -7,6 +7,10 @@ class MagicWormhole < Formula
   sha256 "1b0fd8a334da978f3dd96b620fa9b9348cabedf26a87f74baac7a37052928160"
   license "MIT"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "2a7df1e4f3f866733c53a8dc8c6656eeb4634d57386ba8f75d49656582891225" => :catalina
