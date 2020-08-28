@@ -6,6 +6,11 @@ class NodeExporter < Formula
   license "Apache-2.0"
   head "https://github.com/prometheus/node_exporter.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "7b68d39007278906d3a749370131c4ee7026f410350c48de3f65eeb4bd0c9310" => :catalina
