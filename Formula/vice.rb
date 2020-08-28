@@ -6,6 +6,11 @@ class Vice < Formula
   revision 1
   head "https://svn.code.sf.net/p/vice-emu/code/trunk/vice"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/vice[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "b65fbef8066263ccd42679a2b9ed9f3d438ff75a5d8c097dcf04ffb5fa1b1e43" => :catalina
