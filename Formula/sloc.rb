@@ -7,6 +7,10 @@ class Sloc < Formula
   sha256 "fb56f1763b7dadfd0566f819665efc0725ba8dfbec13c75da3839edf309596e6"
   license "MIT"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "91254bb1e206f528b6b7d7a9afbdeec8390cfc54ad13d0850cc202d6242e08d0" => :catalina
