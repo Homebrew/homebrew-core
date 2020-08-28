@@ -6,6 +6,11 @@ class Deark < Formula
   url "https://entropymine.com/deark/releases/deark-1.5.5.tar.gz"
   sha256 "fea8ae40759d023baf39a89c5fdd157748d8d24591641c9d1b77106a28f1eb56"
 
+  livecheck do
+    url "https://entropymine.com/deark/releases/"
+    regex(/href=.*?deark[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "f8d53f955cfd1e3e506c9db344479771a29d4a59408a845dcf58fa3c13f21641" => :catalina
