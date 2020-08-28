@@ -5,6 +5,11 @@ class Clzip < Formula
   sha256 "d9d51212afa80371dc2546d278ef8ebbb3cd57c06fdd761b7b204497586d24c0"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://download.savannah.gnu.org/releases/lzip/clzip/"
+    regex(/href=.*?clzip[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "ae164ce5fd5a020988dc4e177a25cf19f924b282e561cdabf57577c88940ac2b" => :catalina
