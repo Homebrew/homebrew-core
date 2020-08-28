@@ -8,6 +8,11 @@ class RobotFramework < Formula
   license "Apache-2.0"
   head "https://github.com/robotframework/robotframework.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "bf2616c09938e74e4f02b6539c4e63ce5a930a367a624256f9cb236ec40332a1" => :catalina
