@@ -6,6 +6,10 @@ class DhallJson < Formula
   license "BSD-3-Clause"
   head "https://github.com/dhall-lang/dhall-haskell.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "f2f991304d825504e92d5fd7b55416f6ec1189ab7e5a28c389cad9f0e12e1655" => :catalina
