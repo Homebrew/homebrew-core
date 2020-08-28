@@ -5,6 +5,11 @@ class Nuttcp < Formula
   sha256 "7ead7a89e7aaa059d20e34042c58a198c2981cad729550d1388ddfc9036d3983"
   license "GPL-2.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?nuttcp[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "0f5e7a2b61f91360023ef643c0a77fa711855b34006ff07867f1283051aded5c" => :catalina
