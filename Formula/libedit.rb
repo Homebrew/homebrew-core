@@ -5,6 +5,11 @@ class Libedit < Formula
   version "20191231-3.1"
   sha256 "dbb82cb7e116a5f8025d35ef5b4f7d4a3cdd0a3909a146a39112095a2d229071"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?libedit[._-]v?(\d{4,}-\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "faa58f2e587c5b982af44765f7a034a27837fc1e94816e094ace3f408ab4a7bf" => :catalina
