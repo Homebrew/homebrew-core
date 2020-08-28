@@ -5,6 +5,10 @@ class Scrollkeeper < Formula
   sha256 "4a0bd3c3a2c5eca6caf2133a504036665485d3d729a16fc60e013e1b58e7ddad"
   revision 2
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "9bd348638b9e3492db3549c7ac0756975ca2c57303ec58685bb3e6694fff1dd1" => :catalina
     sha256 "0d7cbee6e25a46848d7c387ba07c4ee110ae2256953d2e5addd26f68e21c645d" => :mojave
