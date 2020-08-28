@@ -5,6 +5,10 @@ class GnomeRecipes < Formula
   sha256 "1be9d2fcb7404a97aa029d2409880643f15071c37039247a6a4320e7478cd5fb"
   revision 14
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "8525bf318111d8b1e5b8e1df89675c0994717820d6bf1da78f245ae80d571668" => :catalina
     sha256 "1dbaaf7bf99ef4f2e6f1a7ebbd092385661b0f8edbc174574d58024dd93fd2db" => :mojave
