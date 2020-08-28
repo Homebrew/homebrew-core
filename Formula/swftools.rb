@@ -5,6 +5,11 @@ class Swftools < Formula
   sha256 "bf6891bfc6bf535a1a99a485478f7896ebacbe3bbf545ba551298080a26f01f1"
   revision 1
 
+  livecheck do
+    url "http://www.swftools.org/download.html"
+    regex(/href=.*?swftools[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 "b0791e6725e6d07610847df7e4431e5839fcf72120cea34f1890b425f8e024c4" => :catalina
