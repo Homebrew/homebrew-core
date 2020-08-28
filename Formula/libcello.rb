@@ -6,6 +6,11 @@ class Libcello < Formula
   license "BSD-2-Clause"
   head "https://github.com/orangeduck/libCello.git"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?libCello[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "a6ad4a498c30ce4713cf0a76800cabe412f1471a4262459ce38a477f163354e9" => :catalina
