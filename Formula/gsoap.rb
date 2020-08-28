@@ -5,6 +5,11 @@ class Gsoap < Formula
   sha256 "4e74838baf5437e95ae17aa3efb48bd0621f483bff4424f6255fcf327ff80765"
   license any_of: ["GPL-2.0-or-later", "gSOAP-1.3b"]
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/gsoap[._-]v?(\d+(?:\.\d+)+)\.zip}i)
+  end
+
   bottle do
     sha256 "155b8a6caafea00e17d03f713dc450359c37d7c193deff91a19c25a4045cb1da" => :catalina
     sha256 "ade4c75fd5bc70122bb5925397161bd8dd4d39ea4bd3e30e7ca0ef8d0beef4aa" => :mojave
