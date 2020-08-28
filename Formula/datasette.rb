@@ -6,6 +6,10 @@ class Datasette < Formula
   sha256 "40f9b8b29d9b0962d33f657177484f6d3d5b51cc58588c508b57ce24e78d5e3b"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "cee3c858dc117818bd4a42e8ce8bd16ac3936a89042c813a3b37bab95f4986cf" => :catalina
