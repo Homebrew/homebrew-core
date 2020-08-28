@@ -4,6 +4,13 @@ class Mafft < Formula
   url "https://mafft.cbrc.jp/alignment/software/mafft-7.471-with-extensions-src.tgz"
   sha256 "2c4993e9ebdaf4dcc6ea2b0daf30f58cbbe98fdba3e2cfcb46145bb2c62e94ef"
 
+  # The regex below is intended to avoid releases with trailing "Experimental"
+  # text after the link for the archive.
+  livecheck do
+    url "https://mafft.cbrc.jp/alignment/software/source.html"
+    regex(%r{href=.*?mafft[._-]v?(\d+(?:\.\d+)+)-with-extensions-src\.t.+?</a>\s*?<(?:br[^>]*?|/li|/ul)>}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "47030809ef8372782fbf5770b2b95057f31bcbf81ead53cb06cb09e2ecbd2f87" => :catalina
