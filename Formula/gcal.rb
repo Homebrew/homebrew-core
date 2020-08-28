@@ -6,6 +6,10 @@ class Gcal < Formula
   sha256 "91b56c40b93eee9bda27ec63e95a6316d848e3ee047b5880ed71e5e8e60f61ab"
   license "GPL-3.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "4bb8c5727fb336106016d1158796e0a127fc82eb630ec9e2bccb6d70327aa531" => :catalina
