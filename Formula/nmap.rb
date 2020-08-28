@@ -7,6 +7,11 @@ class Nmap < Formula
   revision 1
   head "https://svn.nmap.org/nmap/"
 
+  livecheck do
+    url "https://nmap.org/dist/"
+    regex(/href=.*?nmap[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 "e1ba8b92c348e3d04c89f4ffc50800d480dd45ca34726a4f7e3fe7974b0bb651" => :catalina
