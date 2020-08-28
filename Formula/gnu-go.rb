@@ -7,6 +7,10 @@ class GnuGo < Formula
   revision 1
   head "https://git.savannah.gnu.org/git/gnugo.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "b756b9307e6ff0a0cb9c05eca13ae12b3a9f6ee44219fa4a899e5301fffa2483" => :catalina
