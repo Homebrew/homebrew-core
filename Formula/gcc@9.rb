@@ -5,6 +5,11 @@ class GccAT9 < Formula
   mirror "https://ftpmirror.gnu.org/gcc/gcc-9.3.0/gcc-9.3.0.tar.xz"
   sha256 "71e197867611f6054aa1119b13a0c0abac12834765fe2d81f35ac57f84f742d1"
 
+  livecheck do
+    url :stable
+    regex(%r{href=.*?gcc[._-]v?(9(?:\.\d+)+)(?:/?["' >]|\.t)}i)
+  end
+
   bottle do
     sha256 "68aa5249f09a70b9c46bd403a46ae42b64f6ea6b3a2af00603852ecaf77c72ce" => :catalina
     sha256 "445cf4a6a4f8f3da61c7e1e6aceaf6fe919a08c475126b2b1e159eae829617a4" => :mojave
