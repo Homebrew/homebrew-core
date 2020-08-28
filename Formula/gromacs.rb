@@ -29,9 +29,10 @@ class Gromacs < Formula
     inreplace "src/gromacs/gromacs-toolchain.cmake.cmakein", "@CMAKE_LINKER@",
                                                              "/usr/bin/ld"
 
+    gcc_major_ver = Formula["gcc"].any_installed_version.major
     args = std_cmake_args + %W[
-      -DCMAKE_C_COMPILER=gcc-#{Formula["gcc"].installed_version.major}
-      -DCMAKE_CXX_COMPILER=g++-#{Formula["gcc"].installed_version.major}
+      -DCMAKE_C_COMPILER=gcc-#{gcc_major_ver}
+      -DCMAKE_CXX_COMPILER=g++-#{gcc_major_ver}
     ]
 
     mkdir "build" do
