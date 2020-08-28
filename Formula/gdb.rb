@@ -8,6 +8,10 @@ class Gdb < Formula
   revision 1
   head "https://sourceware.org/git/binutils-gdb.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "fbfb5bb6a5f8d7edb33937ebd505fbfe5074db3d49a0403803edafcbcbde297f" => :catalina
     sha256 "64fdeef2403ae8dad106d4933dc6b5c555d560249a18dccc0a518c53f8ea26b1" => :mojave
