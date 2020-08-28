@@ -5,6 +5,11 @@ class Flowgrind < Formula
   sha256 "2e8b58fc919bb1dae8f79535e21931336355b4831d8b5bf75cf43eacd1921d04"
   revision 2
 
+  livecheck do
+    url :stable
+    regex(%r{<div class="version">\s*Latest version is flowgrind[._-]v?(\d+(?:\.\d+)+)\s*</div>})
+  end
+
   bottle do
     cellar :any
     sha256 "e598d94bf046253c93bfb394d532584bca417b69e63b70b851f0ab4f9adf3089" => :catalina
