@@ -4,6 +4,11 @@ class Checkbashisms < Formula
   url "https://deb.debian.org/debian/pool/main/d/devscripts/devscripts_2.20.4.tar.xz"
   sha256 "f94fe99c1e70443d9e2dcd58c1e530c182840a8b890c5f9a4f0d4af3bf521b9c"
 
+  livecheck do
+    url "https://deb.debian.org/debian/pool/main/d/devscripts/"
+    regex(/href=.*?devscripts[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle :unneeded
 
   def install
