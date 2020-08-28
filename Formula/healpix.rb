@@ -6,6 +6,10 @@ class Healpix < Formula
   sha256 "8841f171f1e22e75ea130e12e5cdc5bcf85dbec79f9f67dd1bf27e99fd20b6d1"
   license "GPL-2.0-or-later"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "59fd161e08ea1758ed4bbc524d8f9008954ea6bb8e38131b7834ca36e719a9f5" => :catalina
