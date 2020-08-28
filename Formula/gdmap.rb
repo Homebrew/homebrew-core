@@ -5,6 +5,10 @@ class Gdmap < Formula
   sha256 "a200c98004b349443f853bf611e49941403fce46f2335850913f85c710a2285b"
   revision 2
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "d465a02727acca541229325a9d3ffa79e1ef9693512da5b1d3a3b37437fbe00d" => :catalina
     sha256 "9c178f409b81ce7808efe356bf09d82804265de11d4527dcc1dea20948a76b16" => :mojave
