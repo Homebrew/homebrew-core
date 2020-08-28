@@ -5,6 +5,10 @@ class GnomeCommon < Formula
   sha256 "22569e370ae755e04527b76328befc4c73b62bfd4a572499fde116b8318af8cf"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "a2499bb22344a9d8da6807a7a3cb3ebbf525f954d2e6f028953cae230e040106" => :catalina
