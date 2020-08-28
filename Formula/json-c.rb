@@ -7,6 +7,11 @@ class JsonC < Formula
   license "MIT"
   head "https://github.com/json-c/json-c.git"
 
+  livecheck do
+    url :head
+    regex(/^json-c[._-](\d+(?:\.\d+)+)(?:[._-]\d{6,8})?$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "60d15ece3fb1fdc8722785de8243c2261222f674e998509375522a1de75497ea" => :catalina
