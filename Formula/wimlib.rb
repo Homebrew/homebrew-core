@@ -4,6 +4,11 @@ class Wimlib < Formula
   url "https://wimlib.net/downloads/wimlib-1.13.2.tar.gz"
   sha256 "7295be7ef00d265aef4090c9d26af82097db651c5f8399db9d44c60f47f5a945"
 
+  livecheck do
+    url "https://wimlib.net/downloads/"
+    regex(/href=.*?wimlib[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "9b1f59782b773025346f9e466926467035c3e007f54acc77caa332b73a9308bf" => :catalina
