@@ -5,6 +5,10 @@ class Ufraw < Formula
   sha256 "f7abd28ce587db2a74b4c54149bd8a2523a7ddc09bedf4f923246ff0ae09a25e"
   revision 3
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     rebuild 1
     sha256 "19a95667ecb2a9bab8a108e539ef229b945f727bca7e8651af80cca1d355a196" => :catalina
