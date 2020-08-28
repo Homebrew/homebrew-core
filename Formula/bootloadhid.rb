@@ -5,6 +5,11 @@ class Bootloadhid < Formula
   version "2012-12-08"
   sha256 "154e7e38629a3a2eec2df666edfa1ee2f2e9a57018f17d9f0f8f064cc20d8754"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?bootloadHID[._-]v?(\d{4}-\d{1,2}-\d{1,2})\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "aa0bc95a39610d6b5951d064d781d85b898ca2ebf230acbc60aa2f4e1f51e573" => :catalina
