@@ -7,6 +7,10 @@ class Twarc < Formula
   sha256 "db8d6f5fc4d786d9af3f9ca622e4e83175a34e93bda756923e5d6c546bca6c3e"
   license "MIT"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "74c4def26e79e513331d2a7aa2fd6c7edc115ca06124545707abd8f2d3031b98" => :catalina
