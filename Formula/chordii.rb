@@ -5,6 +5,11 @@ class Chordii < Formula
   sha256 "edb19be9de456366e592a75a5ce1c0a75352a55d5b4e5f282c953c7e7f2d87b5"
   license "GPL-3.0"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/chordii[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "ed1f635a737973af4b9f4f784757cdf0ddbb3f946cb285917c171392a9b59d4a" => :catalina
