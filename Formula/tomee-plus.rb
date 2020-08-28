@@ -6,6 +6,10 @@ class TomeePlus < Formula
   sha256 "5837e910f6095524ba9d31b0e78dc77779f4f1477c153df85263d8009bda06b8"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle :unneeded
 
   def install
