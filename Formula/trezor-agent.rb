@@ -8,6 +8,10 @@ class TrezorAgent < Formula
   license "LGPL-3.0"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "9482a60c735039a2c62c221e2976680a726e2d5fd3fe703486881a73f4206e3a" => :catalina
