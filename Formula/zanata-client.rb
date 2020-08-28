@@ -5,6 +5,11 @@ class ZanataClient < Formula
   sha256 "6d4bac8c5b908abf734ff23e0aca9b05f4bc13e66588c526448f241d90473132"
   revision 1
 
+  livecheck do
+    url "https://search.maven.org/remotecontent?filepath=org/zanata/zanata-cli/"
+    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
+
   bottle :unneeded
 
   depends_on java: "1.8"
