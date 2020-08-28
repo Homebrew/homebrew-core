@@ -6,6 +6,11 @@ class Redis < Formula
   license "BSD-3-Clause"
   head "https://github.com/redis/redis.git", branch: "unstable"
 
+  livecheck do
+    url "http://download.redis.io/releases/"
+    regex(/href=.*?redis[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "0559d97459fddbcbf882d30e3c73a00f4b77f7f75544a7cd9c5954ec9ffa1ff8" => :catalina
