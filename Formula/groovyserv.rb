@@ -4,6 +4,10 @@ class Groovyserv < Formula
   url "https://bitbucket.org/kobo/groovyserv-mirror/downloads/groovyserv-1.2.0-src.zip"
   sha256 "235b38c6bb70721fa41b2c2cc6224eeaac09721e4d04b504148b83c40ea0bb27"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "4f132f1b743be47df84dc7b581b86951379598b3ae260701259e784c516b1a6a" => :catalina
