@@ -5,6 +5,11 @@ class Tree < Formula
   sha256 "715d5d4b434321ce74706d0dd067505bb60c5ea83b5f0b3655dae40aa6f9b7c2"
   license "GPL-2.0"
 
+  livecheck do
+    url "http://mama.indstate.edu/users/ice/tree/src"
+    regex(/href=.*?tree[._-]v?(.*?)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "18f7984bdbab22251e9fc3c7832dbace5c7f7a77e8d63717bb0078385e2bf255" => :catalina
