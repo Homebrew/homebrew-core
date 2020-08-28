@@ -7,6 +7,11 @@ class FfmpegAT28 < Formula
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   license "GPL-2.0"
 
+  livecheck do
+    url "https://ffmpeg.org/download.html"
+    regex(/href=.*?ffmpeg[._-]v?(2\.8(?:\.\d+)*)\.t/i)
+  end
+
   bottle do
     sha256 "f0d50cafeb730343feabdbe5226875104e1d11d31bb33d3e03ad5d05dcd8be2c" => :catalina
     sha256 "65555478eb8b748324a2a37a079693d449bc15022c88a8ee4360c5de558d0a8c" => :mojave
