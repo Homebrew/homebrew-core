@@ -7,6 +7,10 @@ class Subversion < Formula
   license "Apache-2.0"
   revision 2
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     rebuild 1
     sha256 "84dfd162eaa16691be6605ae5b2aa30ede25483c2a3da54bf05ff0f6b5767864" => :catalina
