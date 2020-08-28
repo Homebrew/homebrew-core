@@ -5,6 +5,11 @@ class Librevenge < Formula
   mirror "https://downloads.sourceforge.net/project/libwpd/librevenge/librevenge-0.0.4/librevenge-0.0.4.tar.bz2"
   sha256 "c51601cd08320b75702812c64aae0653409164da7825fd0f451ac2c5dbe77cbf"
 
+  livecheck do
+    url "https://dev-www.libreoffice.org/src/"
+    regex(/href=["']?librevenge[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "42b53d00d39a37a0173cf227f8a72915b8ae15c90d527ed87344800f63ba865b" => :catalina
