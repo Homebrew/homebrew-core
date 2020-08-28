@@ -6,6 +6,11 @@ class Dcm2niix < Formula
   license "BSD-3-Clause"
   head "https://github.com/rordenlab/dcm2niix.git"
 
+  livecheck do
+    url "https://github.com/rordenlab/dcm2niix/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "d6087edcd6fc5bd534295bbb5d909764b0f83ecc50812e58923a8200a22f3b65" => :catalina
