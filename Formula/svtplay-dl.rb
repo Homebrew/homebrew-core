@@ -7,6 +7,10 @@ class SvtplayDl < Formula
   sha256 "bfe3b61c3294e01ee17fa670a10204e8369393fbc2d9f0c917fdc73026355761"
   revision 3
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "c1604b5e5ea983254d487160d36c58e25c7211c5d6093eba4b83e7446d0eba09" => :catalina
