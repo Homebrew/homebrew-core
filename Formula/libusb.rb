@@ -5,6 +5,11 @@ class Libusb < Formula
   sha256 "db11c06e958a82dac52cf3c65cb4dd2c3f339c8a988665110e0d24d19312ad8d"
   license "LGPL-2.1"
 
+  livecheck do
+    url "https://github.com/libusb/libusb/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     rebuild 1
