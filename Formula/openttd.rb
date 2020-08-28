@@ -6,6 +6,11 @@ class Openttd < Formula
   license "GPL-2.0"
   head "https://github.com/OpenTTD/OpenTTD.git"
 
+  livecheck do
+    url :homepage
+    regex(/Download stable \((\d+(\.\d+)+)\)/i)
+  end
+
   bottle do
     cellar :any
     sha256 "7958e9cf2b4ee62147a364893c4e2388f7a8e9ab95b2cd54fed6715da60c5be6" => :catalina
