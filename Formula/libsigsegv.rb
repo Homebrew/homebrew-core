@@ -6,6 +6,10 @@ class Libsigsegv < Formula
   sha256 "3ae1af359eebaa4ffc5896a1aee3568c052c99879316a1ab57f8fe1789c390b6"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "aae3e97886b24afb8daf0bafdf9dc02c5fa3d18392611cf68dfd88b663deb87b" => :catalina
