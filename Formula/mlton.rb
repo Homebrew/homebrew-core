@@ -6,6 +6,11 @@ class Mlton < Formula
   license "HPND"
   head "https://github.com/MLton/mlton.git"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/mlton[._-]v?(\d+(?:\.\d+)*(?:-\d+)?)[._-]src\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "c6592a2929936bbb063d5c40b192ebb28c95231d8e0f777daadadd1633ee2c51" => :catalina
