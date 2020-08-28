@@ -8,6 +8,11 @@ class EyeD3 < Formula
   license "GPL-3.0"
   revision 1
 
+  livecheck do
+    url "https://eyed3.nicfit.net/releases/"
+    regex(/href=.*?eyeD3[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "e6e2679d03c1f68674d39a5ba1b590432f1a8e7ea5660b8c40c7da18bc3d6621" => :catalina
