@@ -6,6 +6,11 @@ class Clinfo < Formula
   license "CC0-1.0"
   head "https://github.com/Oblomov/clinfo.git"
 
+  livecheck do
+    url :homepage
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "860a35b3f6e571b54f7d7292446b9c1365b72f9fe9cc4d402641207156a58e17" => :catalina
