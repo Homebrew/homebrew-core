@@ -6,6 +6,11 @@ class WireguardGo < Formula
   license "MIT"
   head "https://git.zx2c4.com/wireguard-go", using: :git
 
+  livecheck do
+    url :head
+    regex(/href=.*?wireguard-go[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "783b1eeb0aba2c336e91fe59ef9e8d5d449e51ef3a5ed313f96666c7d055fb02" => :catalina
