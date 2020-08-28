@@ -4,6 +4,11 @@ class Unrar < Formula
   url "https://www.rarlab.com/rar/unrarsrc-5.9.4.tar.gz"
   sha256 "3d010d14223e0c7a385ed740e8f046edcbe885e5c22c5ad5733d009596865300"
 
+  livecheck do
+    url "https://www.rarlab.com/rar_add.htm"
+    regex(/href=.*?unrarsrc[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "90e0f209046471dda292a622ded80ed410e237cb7fc8e1d2653f0d57c470fc6b" => :catalina
