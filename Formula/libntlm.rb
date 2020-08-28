@@ -5,6 +5,11 @@ class Libntlm < Formula
   sha256 "f2376b87b06d8755aa3498bb1226083fdb1d2cf4460c3982b05a9aa0b51d6821"
   license "LGPL-2.1"
 
+  livecheck do
+    url "https://www.nongnu.org/libntlm/releases/"
+    regex(/href=.*?libntlm[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "7e34bd216191b40a86075d825c98c929d4f61842be989b605caba169ac68c999" => :catalina
