@@ -5,6 +5,11 @@ class Mupen64plus < Formula
   sha256 "9c75b9d826f2d24666175f723a97369b3a6ee159b307f7cc876bbb4facdbba66"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://github.com/mupen64plus/mupen64plus-core/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     rebuild 1
