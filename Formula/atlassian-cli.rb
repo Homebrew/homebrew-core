@@ -4,6 +4,11 @@ class AtlassianCli < Formula
   url "https://bobswift.atlassian.net/wiki/download/attachments/16285777/atlassian-cli-9.3.0-distribution.zip"
   sha256 "5d6c3fd45b9ea25c8826c0d3dbeae51ab914ffae2fc38325b8ef15d3f36fbb83"
 
+  livecheck do
+    url "https://marketplace.atlassian.com/apps/10886/atlassian-command-line-interface-cli/version-history"
+    regex(/class="version">v?(\d+(?:\.\d+)+)</i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
