@@ -7,6 +7,10 @@ class GandiCli < Formula
   sha256 "a575be04fd373d4798ae16f6cbe03e8ed16255043788fb3de13bebfe7e621c84"
   revision 2
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "22779ab21e92c826c99ade2c24c9a8ebd7b8ab952fcf70b7c3ddd312e0419ee7" => :catalina
