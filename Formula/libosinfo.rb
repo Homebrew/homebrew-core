@@ -6,6 +6,11 @@ class Libosinfo < Formula
   license "LGPL-2.0-or-later"
   revision 3
 
+  livecheck do
+    url "https://releases.pagure.org/libosinfo/?C=M&O=D"
+    regex(/href=.*?libosinfo[._-]v?([\d.]+)\.t/i)
+  end
+
   bottle do
     sha256 "6a779d888f548649d3482452583ced807c9aceca45bb0989122b22822ec82316" => :catalina
     sha256 "60e18106b7dca908a79e1edf59cd090ecb3a11d611d84330806aa0941fedb035" => :mojave
