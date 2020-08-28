@@ -6,6 +6,10 @@ class Ddrescue < Formula
   sha256 "ce538ebd26a09f45da67d3ad3f7431932428231ceec7a2d255f716fa231a1063"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "517175b22fc4cc660059801b497484ffd7096ade308222c752e758f5036f570a" => :catalina
