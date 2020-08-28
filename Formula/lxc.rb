@@ -1,8 +1,8 @@
 class Lxc < Formula
   desc "CLI client for interacting with LXD"
   homepage "https://linuxcontainers.org"
-  url "https://linuxcontainers.org/downloads/lxd/lxd-4.4.tar.gz"
-  sha256 "30cc4ea02ae8883900c052df017a0821003ca9b502d86e3cafce9ef2af16643a"
+  url "https://linuxcontainers.org/downloads/lxd/lxd-4.5.tar.gz"
+  sha256 "394768da33298ccab33512080fab93c022957af1b32f796fb7774f643dfb5fdb"
   license "Apache-2.0"
 
   bottle do
@@ -13,6 +13,11 @@ class Lxc < Formula
   end
 
   depends_on "go" => :build
+
+  patch :p1 do
+    url "https://github.com/lxc/lxd/commit/4a25da23b978d2eacb145d710a9682cc12b74f88.diff?full_index=1"
+    sha256 "d3bd63cd2344e4ad2fc343cf85e8db0d80313f424eec0864a2d06786102b63ac"
+  end
 
   def install
     ENV["GOPATH"] = buildpath
