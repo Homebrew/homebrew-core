@@ -4,6 +4,11 @@ class Stk < Formula
   url "https://ccrma.stanford.edu/software/stk/release/stk-4.6.1.tar.gz"
   sha256 "e77ba3c80cdd93ca02c34098b9b7f918df3d648c87f1ed5d94fe854debd6d101"
 
+  livecheck do
+    url "https://ccrma.stanford.edu/software/stk/download.html"
+    regex(/href=.*?stk[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "3cbeef8a18f26bf9c0d988e40f1aea3fae9695e99644cd7253dd13ef340c37a5" => :catalina
