@@ -6,6 +6,11 @@ class Lz4 < Formula
   license "BSD-2-Clause"
   head "https://github.com/lz4/lz4.git"
 
+  livecheck do
+    url "https://github.com/lz4/lz4/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "7de6165d86c7a7ae01d254a5d0ea0a6d5876f90cffb63a2570942d46cca6373a" => :catalina
