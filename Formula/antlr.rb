@@ -6,6 +6,11 @@ class Antlr < Formula
   license "BSD-3-Clause"
   revision 1
 
+  livecheck do
+    url "https://www.antlr.org/download/"
+    regex(/href=.*?antlr[._-]v?(\d+(?:\.\d+)+)-complete\.jar/i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
