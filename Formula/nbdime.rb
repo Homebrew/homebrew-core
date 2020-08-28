@@ -6,6 +6,10 @@ class Nbdime < Formula
   url "https://files.pythonhosted.org/packages/92/84/6358505bef11c164fce3b747b4193ec9d9617cb2db9bb6c60c9f6d30109c/nbdime-2.0.0.tar.gz"
   sha256 "896f79a23557f190b73a3981fdceb128a2d24454701daef74d82aac2aa10715d"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "bc9d3b4ad550bd9f907b54e13a7879661da04102cd689abe87dc8f7e4a31b93b" => :catalina
