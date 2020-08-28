@@ -7,6 +7,11 @@ class Wxmac < Formula
   revision 1
   head "https://github.com/wxWidgets/wxWidgets.git"
 
+  livecheck do
+    url "https://github.com/wxWidgets/wxWidgets/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "110aa0b2134d8bff1647de0cd8500f160133794b347f789bba3e1894b991b788" => :catalina
