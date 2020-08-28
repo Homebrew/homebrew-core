@@ -6,6 +6,10 @@ class Cflow < Formula
   sha256 "34487b4116e9b7ecde142b24480ce036887921ed5defb2958068bb069c1fedd7"
   license "GPL-3.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "a8b7329845d3c42a17efc7af96025a1a2839ae129afd7126e977d0a245853f45" => :catalina
