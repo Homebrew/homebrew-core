@@ -5,6 +5,10 @@ class GlibNetworking < Formula
   sha256 "937a06b124052813bfc0b0b86bff42016ff01067582e1aca65bb6dbe0845a168"
   license "LGPL-2.1"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "52991dae042721d0bc9af98a7a777435b76fd6ef3a66ce8bf89928fd549537ee" => :catalina
     sha256 "1c26ff7e2f3dfc8b5fec714aef7c35a3c1a8b89228b8e62c8311a2e942ceec22" => :mojave
