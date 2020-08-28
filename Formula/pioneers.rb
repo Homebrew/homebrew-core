@@ -4,6 +4,10 @@ class Pioneers < Formula
   url "https://downloads.sourceforge.net/project/pio/Source/pioneers-15.6.tar.gz"
   sha256 "9a358d88548e3866e14c46c2707f66c98f8040a7857d47965e1ed9805aeb631d"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "c2462078e412d1e2b60108f317550690b28675da5a248de69856a558fa4e07d4" => :catalina
     sha256 "47ca43b992b0590f90758d9eef7894361c510dce5279a602decdf8ec019086f4" => :mojave
