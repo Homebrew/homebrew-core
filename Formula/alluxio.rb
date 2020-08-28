@@ -4,6 +4,11 @@ class Alluxio < Formula
   url "https://downloads.alluxio.io/downloads/files/1.8.2/alluxio-1.8.2-bin.tar.gz"
   sha256 "e927f80aabf80ac0b47d4491a4320058bcd15f554fccec1375e8f6dcf243ebb4"
 
+  livecheck do
+    url "https://downloads.alluxio.io/downloads/files/"
+    regex(%r{href=.*?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
+
   bottle :unneeded
 
   def default_alluxio_conf
