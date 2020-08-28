@@ -6,6 +6,11 @@ class Caffe < Formula
   license "BSD-2-Clause"
   revision 25
 
+  livecheck do
+    url "https://github.com/BVLC/caffe/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     sha256 "24c03ee0b8e90bd211634150982159df83ab34acd741e1bc732f925be63bc51b" => :catalina
     sha256 "b636cfcc0e0da8bb04362bdb574ef0a4c46e89dcb60ace2f0aad7f2c479db53d" => :mojave
