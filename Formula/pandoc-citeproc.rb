@@ -10,6 +10,10 @@ class PandocCiteproc < Formula
   license "BSD-3-Clause"
   head "https://github.com/jgm/pandoc-citeproc.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "518ed9646d3a165b413a4222d87d5148130891fc2505f2e71e20e05507131992" => :catalina
     sha256 "fbbe846a5843e8e0de7d7bafa3ff3af2600c4fbb8ee2e50a05286ac02de52f6e" => :mojave
