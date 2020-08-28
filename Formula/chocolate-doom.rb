@@ -5,6 +5,11 @@ class ChocolateDoom < Formula
   sha256 "d435d6177423491d60be706da9f07d3ab4fabf3e077ec2a3fc216e394fcfc8c7"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://www.chocolate-doom.org/downloads/"
+    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "91f8a622d0299afd99d6eb4768184100addb0d1a804683aa6486548ed5a14d8d" => :catalina
