@@ -5,6 +5,11 @@ class Siege < Formula
   sha256 "bfa75b3eaad372e7b89eee75d789cd6acbda34900a0c6e49030cf0f803b56df8"
   license "GPL-3.0"
 
+  livecheck do
+    url "http://download.joedog.org/siege/?C=M&O=D"
+    regex(/href=.*?siege[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "ccc545449c2a0bacb0054078faee630f23e4728d1bf137cba9c5d8aa82e02495" => :catalina
     sha256 "0704038a2995eec4ffacbb3554230b2825ebb21c3c9c612baae24999a620e183" => :mojave
