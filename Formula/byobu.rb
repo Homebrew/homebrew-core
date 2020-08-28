@@ -5,6 +5,10 @@ class Byobu < Formula
   sha256 "4d8ea48f8c059e56f7174df89b04a08c32286bae5a21562c5c6f61be6dab7563"
   license "GPL-3.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "39b468dabc1497338b4511f9f565f9adcdd058a99207de345da28b18a0826ae6" => :catalina
