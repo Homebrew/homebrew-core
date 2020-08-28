@@ -4,6 +4,13 @@ class Miniupnpc < Formula
   url "https://miniupnp.tuxfamily.org/files/download.php?file=miniupnpc-2.1.tar.gz"
   sha256 "e19fb5e01ea5a707e2a8cb96f537fbd9f3a913d53d804a3265e3aeab3d2064c6"
 
+  # We only match versions with only a major/minor since versions like 2.1 are
+  # stable and versions like 2.1.20191224 are unstable/development releases.
+  livecheck do
+    url "https://miniupnp.tuxfamily.org/files/"
+    regex(/href=.*?miniupnpc[._-]v?(\d+\.\d+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "de583006c4f55d9d085ac9bb94123bc55e769aba1e7f483fcb51f7a1db490c84" => :catalina
