@@ -5,6 +5,11 @@ class Bibutils < Formula
   sha256 "8656c042fa1371443aa4e1a58bcab5fcea0b236eb39182e4004fc348ce56e496"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/bibutils[._-]v?(\d+(?:\.\d+)+)[._-]src\.t}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "eeb586f94730c9030e089a45e4360c5cb3171c6e41ba738744fe4e5a30e31cb7" => :catalina
