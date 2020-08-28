@@ -5,6 +5,11 @@ class Rhino < Formula
   sha256 "59f074c3b2445381e4bb201eb65aa1e5f2afce021ebcad90003f32b480fbaaba"
   license "MPL-2.0"
 
+  livecheck do
+    url "https://github.com/mozilla/rhino/releases/latest"
+    regex(%r{href=.*?/tag/.*?>Rhino (\d+(?:\.\d+)+)<}i)
+  end
+
   bottle :unneeded
 
   conflicts_with "nut", because: "both install `rhino` binaries"
