@@ -6,6 +6,11 @@ class Disktype < Formula
   license "MIT"
   head "https://git.code.sf.net/p/disktype/disktype.git"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/disktype[._-]v?(\d+(?:\.\d+)*)\.t}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "6821d802c4418c949b8e3394893f03cf6152020881096b304ab0c87313fff2e3" => :catalina
