@@ -5,6 +5,11 @@ class Qscintilla2 < Formula
   sha256 "9361e26fd7fb7b5819a7eb92c5c1880a18de9bd3ed9dd2eb008e57388696716b"
   license "GPL-3.0"
 
+  livecheck do
+    url "https://www.riverbankcomputing.com/software/qscintilla/download"
+    regex(/href=.*?QScintilla(?:.gpl)?[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "ad21b9c248d85d8c76c34c504d5c6e8a3cf0091034c50f916cb8c50e1ca83c28" => :catalina
