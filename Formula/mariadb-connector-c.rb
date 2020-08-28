@@ -6,6 +6,11 @@ class MariadbConnectorC < Formula
   license "LGPL-2.1"
   head "https://github.com/mariadb-corporation/mariadb-connector-c.git"
 
+  livecheck do
+    url "https://downloads.mariadb.org/connector-c/+releases/"
+    regex(%r{href=.*?connector-c/v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
+
   bottle do
     sha256 "830dec16151d5d8f7d2c4e3925f9fba5b911d7fe3b9ec07eec23079e0b85293b" => :catalina
     sha256 "3ce47f04785021838696176ba2da5b79cf5ed5bd7870531701efc47d2e20cbc4" => :mojave
