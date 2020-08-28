@@ -6,6 +6,11 @@ class Quilt < Formula
   license "GPL-2.0"
   head "https://git.savannah.gnu.org/git/quilt.git"
 
+  livecheck do
+    url "https://download.savannah.gnu.org/releases/quilt/"
+    regex(/href=.*?quilt[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "b7304ce0125f31f6d38f8645d436de553f765b599e4c66f8f659478963bf33f6" => :catalina
