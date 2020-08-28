@@ -5,6 +5,11 @@ class Qrencode < Formula
   sha256 "dbabe79c07614625d1f74d8c0ae2ee5358c4e27eab8fd8fe31f9365f821a3b1d"
   license "LGPL-2.1"
 
+  livecheck do
+    url "https://fukuchi.org/works/qrencode/"
+    regex(/href=.*?qrencode[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "467f54a970d8ceaceaee214d3723aa4adea9277ecc7c5ccd575da3f7a918af77" => :catalina
