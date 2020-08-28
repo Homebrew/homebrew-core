@@ -6,6 +6,10 @@ class Binutils < Formula
   sha256 "1b11659fb49e20e18db460d44485f09442c8c56d5df165de9461eb09c8302f85"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "0493e76c9a163b6417716741bf01dc4e66f49c3e2a265a44042475aac43ab2c0" => :catalina
     sha256 "4a90201366ce8c935d9372d4b4f5438e6b3fdea3f738a3d6441ecf4946039601" => :mojave
