@@ -6,6 +6,10 @@ class Fades < Formula
   license "GPL-3.0"
   head "https://github.com/PyAr/fades.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "89d1989f379c15d5ad71b60fdb11422da663f371e6353028ec36df258d2aca72" => :catalina
