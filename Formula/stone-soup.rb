@@ -5,6 +5,11 @@ class StoneSoup < Formula
   sha256 "41ddf73543940a4d16a7f23c618e2f464dd6d3dd3affc999d2412d8af3f01126"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://crawl.develz.org/download.htm"
+    regex(/Stable.*?>v?(\d+(?:\.\d+)+)</i)
+  end
+
   bottle do
     sha256 "aed9973952598da0eec03689ab04b5133e6170ad2b3009da470191a2fbb0b3b6" => :catalina
     sha256 "3ca35a24927cb22726a0f187d794b90637e1b6c09151f507507e79156f6bc33c" => :mojave
