@@ -7,6 +7,10 @@ class Glew < Formula
   revision 1
   head "https://github.com/nigels-com/glew.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     rebuild 1
