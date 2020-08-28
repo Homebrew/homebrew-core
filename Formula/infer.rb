@@ -7,6 +7,11 @@ class Infer < Formula
       revision: "99464c01da5809e7159ed1a75ef10f60d34506a4"
   license "MIT"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     rebuild 1
