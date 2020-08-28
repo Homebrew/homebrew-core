@@ -4,6 +4,11 @@ class UserspaceRcu < Formula
   url "https://lttng.org/files/urcu/userspace-rcu-0.12.1.tar.bz2"
   sha256 "bbfaead0345642b97e0de90f889dfbab4b2643a6a5e5c6bb59cd0d26fc0bcd0e"
 
+  livecheck do
+    url "https://www.lttng.org/files/urcu/"
+    regex(/href=.*?userspace-rcu[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "ddb5e2f5e985cba860f36a5730d933d88b4b0e76b1a450a3e76b244a5a6f1935" => :catalina
