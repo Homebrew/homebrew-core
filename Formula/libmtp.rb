@@ -5,6 +5,10 @@ class Libmtp < Formula
   sha256 "f8a34cf52d9f9b9cb8c7f26b12da347d4af7eb904c13189602e4c6b62d1a79dc"
   license "LGPL-2.1"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "47ef836719d1fc0ddfc64528d93f1892a4b1db55cc73b025d5824a53956b8ff6" => :catalina
