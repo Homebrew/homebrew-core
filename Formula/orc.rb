@@ -4,6 +4,11 @@ class Orc < Formula
   url "https://gstreamer.freedesktop.org/src/orc/orc-0.4.31.tar.xz"
   sha256 "a0ab5f10a6a9ae7c3a6b4218246564c3bf00d657cbdf587e6d34ec3ef0616075"
 
+  livecheck do
+    url "https://gstreamer.freedesktop.org/src/orc/"
+    regex(/href=.*?orc[._-]v?([\d.]+\.[\d.]+\.[\d.]+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "c4a11fbf1e2d645b0bbcbabc467c6f7fe604282833ece90264b063806a1e4909" => :catalina
