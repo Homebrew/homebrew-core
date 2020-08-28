@@ -20,6 +20,10 @@ class Id3lib < Formula
     end
   end
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "914ff24e2ca015f81b5c58fbd39f1a059c10ecbca87d09cf7e77285435bd158e" => :catalina
