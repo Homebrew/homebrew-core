@@ -5,6 +5,11 @@ class S3Backer < Formula
   sha256 "7e73bb8378a4ccf7b1904a078fbc4731b07138951cbe1c20ce7aa0eb3e8da0d0"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://build.opensuse.org/package/view_file/openSUSE:Factory/s3backer/s3backer.spec"
+    regex(/Version:\s+v?(\d+(?:\.\d+)+)/i)
+  end
+
   bottle do
     cellar :any
     sha256 "81a2723bf9153259c910e49858bb49bd1aa26ef8a23e05a0ed7a8b01c6e8a032" => :catalina
