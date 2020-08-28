@@ -6,6 +6,11 @@ class DockerCredentialHelperEcr < Formula
       revision: "1a5791b236421b509fbc30502211b1de51ca8e30"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "d5e603dc272c983cfd10995ac0b39418308e26c791a28d1a56fc13282d5425bb" => :catalina
