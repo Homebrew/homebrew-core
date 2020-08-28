@@ -6,6 +6,11 @@ class TidyHtml5 < Formula
   license "Zlib"
   head "https://github.com/htacg/tidy-html5.git", branch: "next"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+\.\d*?[02468]\.\d+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "fb2134180fbdb92cc10f3fad33c769073adceb7796e465db7dbc3778f7d3547a" => :catalina
