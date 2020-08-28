@@ -6,6 +6,10 @@ class Freeimage < Formula
   sha256 "f41379682f9ada94ea7b34fe86bf9ee00935a3147be41b6569c9605a53e438fd"
   license "FreeImage"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "dd2d5bf49573e8285829a3d8e35b2c3932b7308731f3c07a663f90aac853c2cc" => :catalina
