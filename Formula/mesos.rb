@@ -7,6 +7,10 @@ class Mesos < Formula
   license "Apache-2.0"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "c128f8863bce7aa677dd4a5702c7133637336c9c8761c915e34a1eb3351e2cf1" => :catalina
     sha256 "8c2bd9e66b055b83b6acbfcde4664b06387691fccc35fdd46974fb68bc863163" => :mojave
