@@ -6,6 +6,10 @@ class TomcatNative < Formula
   sha256 "037f52f9a345e766a7dde8361c55b3b69045928f9a8068a406612b603819e76c"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "072a6a73319c167f14fbb3a91d2999fb050a537e8cbde3b878c7801fa46a308a" => :catalina
