@@ -6,6 +6,15 @@ class Ncview < Formula
   sha256 "e8badc507b9b774801288d1c2d59eb79ab31b004df4858d0674ed0d87dfc91be"
   revision 3
 
+  # The stable archive in the formula is fetched over FTP and the website for
+  # the software hasn't been updated to list the latest release (it has been
+  # years now). We're checking Debian for now because it's potentially better
+  # than having no check at all.
+  livecheck do
+    url "http://ftp.debian.org/debian/pool/main/n/ncview/"
+    regex(/href=.*?ncview[._-]v?(\d+(?:\.\d+)+)(?:\+ds)?\.orig\.t/i)
+  end
+
   bottle do
     sha256 "0a1594bb793189d1359cbd800e44d830cc9cf39b713d71128d41323b284e687a" => :catalina
     sha256 "d0b8e9fb871edf26633325c7309269689d0b4bd858f16a45527230dc16533abf" => :mojave
