@@ -5,6 +5,10 @@ class EasyrpgPlayer < Formula
   sha256 "681b7df9546f3fee52658d4262e295a8433d6a9bb9f1cd7597196f1015326ba9"
   license "GPL-3.0"
 
+  livecheck do
+    url "https://github.com/EasyRPG/Player.git"
+  end
+
   bottle do
     cellar :any
     sha256 "02c3ea8286c3a787332708c5a2ef99ea5e776a97976fa0da1d1b77eba2338515" => :catalina
