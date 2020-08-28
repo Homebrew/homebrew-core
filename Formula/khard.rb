@@ -7,6 +7,10 @@ class Khard < Formula
   sha256 "164e1aee9264735ec0473a74a38842e6272bbb814d949a66084c6a373bd95618"
   license "GPL-3.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "b6b9d1ae7f58b1ab29621e13e77d7a2398d1f50c71f7f2b97adaa93b41059396" => :catalina
