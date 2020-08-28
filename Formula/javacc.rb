@@ -5,6 +5,11 @@ class Javacc < Formula
   sha256 "8f16103c741761f8fb6b9caef1c941ba9dd2d0cca01fd0bee26cdadf19a5af14"
   license "BSD-3-Clause"
 
+  livecheck do
+    url "https://github.com/javacc/javacc/releases/latest"
+    regex(%r{href=.*?/tag/javacc[._-]v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "6eebc2e971b6ec0bd1fd0010541833623c24b4d6f2fb6f83026b927a209f0bc1" => :catalina
