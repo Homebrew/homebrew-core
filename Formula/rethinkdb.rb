@@ -6,6 +6,11 @@ class Rethinkdb < Formula
   license "Apache-2.0"
   head "https://github.com/rethinkdb/rethinkdb.git", branch: "next"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "1c2ef66f6bf7d2efdf55b377032955905186c74a0dacf1306665671931e1159c" => :catalina
