@@ -5,6 +5,10 @@ class Texi2html < Formula
   sha256 "e60edd2a9b8399ca615c6e81e06fa61946ba2f2406c76cd63eb829c91d3a3d7d"
   license "GPL-2.0"
 
+  livecheck do
+    skip "No longer developed or maintained"
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 2
