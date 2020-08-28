@@ -8,6 +8,11 @@ class Consul < Formula
   head "https://github.com/hashicorp/consul.git",
        shallow: false
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "6dcf0afd4db64bd5ed5ac19f65d9adae957a2562601be76757ee5a36a7c1cc15" => :catalina
