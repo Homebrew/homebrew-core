@@ -7,6 +7,10 @@ class XalanC < Formula
   license "Apache-2.0"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "6a6ac96e65ef391d660c295f6c3a5c349f11cfa0604a6d5111bc88fd0a017304" => :catalina
