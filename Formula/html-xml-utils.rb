@@ -5,6 +5,11 @@ class HtmlXmlUtils < Formula
   sha256 "d86ac96ea660316bef814c17b2a96d54cdf91c69e59614459865c2bfdaee433f"
   license "W3C"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?html-xml-utils[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "ef675b85f70efc449e2f64e28dae04434ea984214a1c3c4e92d78c8d21975878" => :catalina
