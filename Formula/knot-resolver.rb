@@ -5,6 +5,11 @@ class KnotResolver < Formula
   sha256 "caa4f941caf39080184554fb1310f383eba4b30d9c4c2215670d6b0a2de8f836"
   head "https://gitlab.labs.nic.cz/knot/knot-resolver.git"
 
+  livecheck do
+    url "https://secure.nic.cz/files/knot-resolver/"
+    regex(/href=.*?knot-resolver[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "341d13941123e359dc5f1cb6147e6058296691c95ea2cfe4a2a436d1125ae9e1" => :catalina
     sha256 "7a861d87a84b2e8572bb9b76fbd3768b516821dc046c1a34f1d27caa4b511748" => :mojave
