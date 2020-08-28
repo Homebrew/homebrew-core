@@ -5,6 +5,11 @@ class Tintin < Formula
   sha256 "e44c88b1c97283525062ce15efdddebf5067e84ea37491903bcd8c8824f26f79"
   license "GPL-3.0"
 
+  livecheck do
+    url "https://github.com/scandum/tintin/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "5655e2bfaf4fb9932f2b9317745f97b73162bd12d926a8fd9783002449d8ed3a" => :catalina
