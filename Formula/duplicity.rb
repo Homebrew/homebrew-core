@@ -7,6 +7,10 @@ class Duplicity < Formula
   sha256 "ac69ff68b88b6c15c222f8334bb447fbe529c6849a6c9ac33e4995d7eb31e4cd"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "a43147937e7e4817b8b491bd6ed56296ebadd42e799d43bfb7747e45d19cbbe5" => :catalina
