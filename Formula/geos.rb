@@ -5,6 +5,11 @@ class Geos < Formula
   sha256 "4258af4308deb9dbb5047379026b4cd9838513627cb943a44e16c40e42ae17f7"
   revision 1
 
+  livecheck do
+    url "https://download.osgeo.org/geos/"
+    regex(/href=.*?geos[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "96668ef5d3512c74d8b9c029d36d52171e1d26e90935f4a108f51101c34df313" => :catalina
