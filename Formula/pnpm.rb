@@ -7,6 +7,10 @@ class Pnpm < Formula
   sha256 "449182787e162b7aa5040fb303e622151f637249737d71737eb372d13cedcd63"
   license "MIT"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "79611bcde32f28f79d0ebfa9674e3d0a041b221b22c3a1c5b8798533d596b732" => :catalina
