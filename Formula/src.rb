@@ -5,6 +5,11 @@ class Src < Formula
   sha256 "ee448f17e0de07eed749188bf2b977211fc609314b079ebe6c23485ac72f79ba"
   license "BSD-2-Clause"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?src[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "312d165d1840e28a6c33df33248a7236dc2c524ee792b575b2774afe5597e446" => :catalina
