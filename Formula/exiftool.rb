@@ -6,6 +6,11 @@ class Exiftool < Formula
   url "https://exiftool.org/Image-ExifTool-12.00.tar.gz"
   sha256 "d0792cc94ab58a8b3d81b18ccdb8b43848c8fb901b5b7caecdcb68689c6c855a"
 
+  livecheck do
+    url "https://exiftool.org/history.html"
+    regex(/production release is.*?href=.*?Image[._-]ExifTool[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "94e6bea5ede141fec762e7c7e06e1434d84b90695388cf269787ae77ece01cda" => :catalina
