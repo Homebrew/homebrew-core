@@ -5,6 +5,10 @@ class Liboauth < Formula
   sha256 "0df60157b052f0e774ade8a8bac59d6e8d4b464058cc55f9208d72e41156811f"
   revision 2
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "1ce26c143029edc957263b3f7c64449c385a5b016e7adbfb1bf40018df08a319" => :catalina
