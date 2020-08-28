@@ -5,6 +5,11 @@ class Kotlin < Formula
   sha256 "590391d13b3c65ba52cba470f56efd5b14e2b1f5b9459f63aa12eb38ef52f161"
   license "Apache-2.0"
 
+  livecheck do
+    url "https://github.com/JetBrains/kotlin/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle :unneeded
 
   def install
