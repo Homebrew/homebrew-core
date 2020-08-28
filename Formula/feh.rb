@@ -5,6 +5,11 @@ class Feh < Formula
   sha256 "782463034ab0135bc8438515191f986db23a79d502154d23a7c07a7574907b7b"
   license "MIT-feh"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?feh[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "98b2f6ddf9c5c6a8125b21c61b26d0d3700ca162a93ec066a1561f5527a6a8e9" => :catalina
     sha256 "90542761b029fe82938b6394800471fc66b07feb6efc541662e734a8e607d66c" => :mojave
