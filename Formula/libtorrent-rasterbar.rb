@@ -5,6 +5,11 @@ class LibtorrentRasterbar < Formula
   sha256 "6c986225a1c2d9eb23c5b1ac0692d83208b721a05c968102a17ee3fde01bd709"
   license "BSD-3-Clause"
 
+  livecheck do
+    url :head
+    regex(/^libtorrent[._-]v?(\d+(?:[-_.]\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "0e6895cc08dbd61dfa24beaa432285b23625c57a2630a7ae0a8ea88bd2b8ed57" => :catalina
