@@ -4,6 +4,10 @@ class Libcmph < Formula
   url "https://downloads.sourceforge.net/project/cmph/v2.0.2/cmph-2.0.2.tar.gz"
   sha256 "365f1e8056400d460f1ee7bfafdbf37d5ee6c78e8f4723bf4b3c081c89733f1e"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "c38019c153c728a28acbfe340cc86764285ec24edbdba5234b0593f83d355c22" => :catalina
