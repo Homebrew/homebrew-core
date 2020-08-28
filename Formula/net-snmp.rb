@@ -5,6 +5,11 @@ class NetSnmp < Formula
   sha256 "04303a66f85d6d8b16d3cc53bde50428877c82ab524e17591dfceaeb94df6071"
   license "Net-SNMP"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/net-snmp[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     sha256 "46837a0296f9a9cb434371d7377800da0e0e06a09ef07a0d70bd79d8bbe3bfb2" => :catalina
     sha256 "57dc4d78d02ec37a30d822b40aca17afc187de70c15d87c62bd660c5cc17d211" => :mojave
