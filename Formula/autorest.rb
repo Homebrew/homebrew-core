@@ -7,6 +7,10 @@ class Autorest < Formula
   sha256 "57b243a0dc543d55085503d33679f662a3cc3ea050ec502f155381d9cf61163f"
   license "MIT"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "57c6f4f501c99c24ca7b35a09ef21663ab437470386c1c90033f0ef9e0612500" => :catalina
