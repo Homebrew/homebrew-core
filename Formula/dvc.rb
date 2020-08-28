@@ -7,6 +7,11 @@ class Dvc < Formula
   sha256 "939f497a64833725ce435a42ed583d91712aa61a8006eb2a24c62c5bc15c018d"
   license "Apache-2.0"
 
+  livecheck do
+    url "https://github.com/iterative/dvc.git"
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "a66f566251c04e2b0ac769ec4279a62f82a2d2ed67d5a9f95b154fde9596fa1c" => :catalina
