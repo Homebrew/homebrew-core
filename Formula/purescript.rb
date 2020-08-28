@@ -7,6 +7,10 @@ class Purescript < Formula
   revision 1
   head "https://github.com/purescript/purescript.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "3fd65800108e0e185468ca1779a8e6599e1834be1f9f1179da5d964221d82461" => :catalina
