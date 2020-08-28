@@ -6,6 +6,10 @@ class Jena < Formula
   sha256 "6ef65ab3e24948f6f8fa97281a936276d74a8732fb4a14c624c1aa9fa93adb30"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle :unneeded
 
   def shim_script(target)
