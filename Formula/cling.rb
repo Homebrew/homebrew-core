@@ -8,6 +8,11 @@ class Cling < Formula
   # "UI/NCSAOSL" and "LGPL".
   license "LGPL-2.1"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "9ab4ced2f1cda06858656f78b5ffb7fd1ab680d8b26680e353e71eb7b6c5601b" => :catalina
