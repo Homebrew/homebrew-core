@@ -6,6 +6,11 @@ class Gerbv < Formula
   sha256 "c5ee808c4230ce6be3ad10ab63c547098386d43022704de25ddb9378e62053b4"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+    regex(%r{/gerbv/gerbv[._-]v?(\d+(?:\.\d+)+)/}i)
+  end
+
   bottle do
     sha256 "eb27af6bcb6cfc6203297f617d88851e656c5b72fae84b10593429158d1861d6" => :catalina
     sha256 "5995b2ff9b132c129e9e2ca08eb205c58883f63e22eec11c4c53e24ec6dfd4e3" => :mojave
