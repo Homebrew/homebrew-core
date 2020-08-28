@@ -4,6 +4,11 @@ class Freexl < Formula
   url "https://www.gaia-gis.it/gaia-sins/freexl-sources/freexl-1.0.6.tar.gz"
   sha256 "3de8b57a3d130cb2881ea52d3aa9ce1feedb1b57b7daa4eb37f751404f90fc22"
 
+  livecheck do
+    url :homepage
+    regex(%r{current version is <b>v?(\d+(?:\.\d+)+)</b>}i)
+  end
+
   bottle do
     cellar :any
     sha256 "4bac859e3460476137f1596a36015e9c0d3e1d2b46a9aa47171cabf7af5f5d71" => :catalina
