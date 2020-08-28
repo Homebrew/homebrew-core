@@ -5,6 +5,11 @@ class Nasm < Formula
   sha256 "b0891d23aa083546e7845dfaa0a9109a03f1f57ad0740e7acd07f80df57876d8"
   license "BSD-2-Clause"
 
+  livecheck do
+    url "https://www.nasm.us/pub/nasm/releasebuilds/"
+    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "315f2a7e515fc7a3992ec97f25b0aa4dbb4d25fdf92799fa531e802bc1295794" => :catalina
