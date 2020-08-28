@@ -6,6 +6,11 @@ class Ethereum < Formula
   license "LGPL-3.0-or-later"
   head "https://github.com/ethereum/go-ethereum.git"
 
+  livecheck do
+    url "https://github.com/ethereum/go-ethereum/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "6dedced5cceeaf7f02be2278a208e590c0e09d14b3a342cc4ee9e73e69ca6ac1" => :catalina
