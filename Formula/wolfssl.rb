@@ -7,6 +7,11 @@ class Wolfssl < Formula
   license "GPL-2.0-or-later"
   head "https://github.com/wolfSSL/wolfssl.git"
 
+  livecheck do
+    url "https://github.com/wolfSSL/wolfssl/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)[._-]stable["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "65dc4e927eadda0948058bdbb2dbd93ad3e0949dd5f3ec4a40a13147166fab07" => :catalina
