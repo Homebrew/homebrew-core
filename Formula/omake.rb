@@ -6,6 +6,11 @@ class Omake < Formula
   license "GPL-2.0-only"
   head "https://github.com/ocaml-omake/omake.git"
 
+  livecheck do
+    url :stable
+    regex(/^(?:omake[._-])?v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 "21933568db9ed765a0bf8c1f04b9f38e5923b6a320372a570499b221fb2afe6d" => :catalina
     sha256 "f54a0498316969552424a646ef36b15c567162e689e04203c95a5f8a4536c589" => :mojave
