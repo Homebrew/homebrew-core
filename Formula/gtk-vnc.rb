@@ -4,6 +4,10 @@ class GtkVnc < Formula
   url "https://download.gnome.org/sources/gtk-vnc/1.0/gtk-vnc-1.0.0.tar.xz"
   sha256 "a81a1f1a79ad4618027628ffac27d3391524c063d9411c7a36a5ec3380e6c080"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "f6e79e525133ea8c72d4be4b0719299141a8b206b9f547fd27b882b06a817f01" => :catalina
     sha256 "1e932ef0f54e09e9cf107c6ef386ff49e1b1cfd107eca77e4d1c5569da71909d" => :mojave
