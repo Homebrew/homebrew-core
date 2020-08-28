@@ -6,6 +6,10 @@ class DejaGnu < Formula
   sha256 "0d0671e1b45189c5fc8ade4b3b01635fb9eeab45cf54f57db23e4c4c1a17d261"
   license "GPL-3.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "894df4a4de1df0698f3539db58615fa63bcee77f723eba6efd8d1700ce0bb827" => :catalina
