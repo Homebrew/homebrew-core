@@ -6,6 +6,11 @@ class Frege < Formula
   license "BSD-3-Clause"
   revision 3
 
+  livecheck do
+    url "https://github.com/Frege/frege/releases/latest"
+    regex(/href=.*?frege[._-]?(\d+(?:\.\d+)+)\.jar/i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
