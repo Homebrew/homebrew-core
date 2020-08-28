@@ -4,6 +4,11 @@ class Lft < Formula
   url "https://pwhois.org/dl/index.who?file=lft-3.91.tar.gz"
   sha256 "aad13e671adcfc471ab99417161964882d147893a54664f3f465ec5c8398e6af"
 
+  livecheck do
+    url :homepage
+    regex(/value=.*?lft[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "c0b69000709a507f2ec0cc2ff286910e6f2629169367828cfdc26e184654f787" => :catalina
