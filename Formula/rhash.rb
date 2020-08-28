@@ -6,6 +6,10 @@ class Rhash < Formula
   license "0BSD"
   head "https://github.com/rhash/RHash.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "3fc816254535e1ecf091161b96447efedf2748cdf25a38449f6de70ef652165d" => :catalina
     sha256 "89ae46bbd559e15e9aacb9010e4f4cff6ab402e8bd9eb301f8cf7aa745dbdde3" => :mojave
