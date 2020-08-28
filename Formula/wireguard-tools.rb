@@ -6,6 +6,10 @@ class WireguardTools < Formula
   license "GPL-2.0"
   head "https://git.zx2c4.com/wireguard-tools", using: :git
 
+  livecheck do
+    url "https://github.com/WireGuard/wireguard-tools"
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "ebfaa9ce7fb682918d20ed728ab58aef7f18ca6e8109acf8643c7553a4c8f80e" => :catalina
