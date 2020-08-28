@@ -7,6 +7,11 @@ class PyenvVirtualenv < Formula
   version_scheme 1
   head "https://github.com/pyenv/pyenv-virtualenv.git"
 
+  livecheck do
+    url "https://github.com/pyenv/pyenv-virtualenv/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle :unneeded
 
   depends_on "pyenv"
