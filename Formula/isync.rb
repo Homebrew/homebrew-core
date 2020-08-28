@@ -6,6 +6,10 @@ class Isync < Formula
   license "GPL-2.0"
   head "https://git.code.sf.net/p/isync/isync.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "e246ae47ad32253be95b4344e3a8c7ef2b586364944080d98beb7d9543ba7c9e" => :catalina
