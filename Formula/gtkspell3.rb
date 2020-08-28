@@ -5,6 +5,10 @@ class Gtkspell3 < Formula
   sha256 "b040f63836b347eb344f5542443dc254621805072f7141d49c067ecb5a375732"
   revision 3
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "b3b9eff2b9b11085e6b16cf50165031ab7446cd78aa125afd358747a67419bd8" => :catalina
     sha256 "1d41a37ab6c27e572e59bf7a0aaf1f66cfbbe587fffb5e9fdcc2749c24be4b26" => :mojave
