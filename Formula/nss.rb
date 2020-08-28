@@ -5,6 +5,11 @@ class Nss < Formula
   sha256 "f875e0e8ed3b5ce92d675be4a55aa25a8c1199789a4a01f69b5f2327e2048e9c"
   license "MPL-2.0"
 
+  livecheck do
+    url "https://ftp.mozilla.org/pub/security/nss/releases/"
+    regex(%r{href=.*?NSS[._-]v?(\d+(?:[._]\d+)+)[._-]RTM/?["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "d3faead2e2b077a5a86c856281f21a207ee309a2879a1c0f888a0263c5df810a" => :catalina
