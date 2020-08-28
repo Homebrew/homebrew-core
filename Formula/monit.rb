@@ -4,6 +4,11 @@ class Monit < Formula
   url "https://mmonit.com/monit/dist/monit-5.27.0.tar.gz"
   sha256 "d8c0deef624f193a952502fe9baabfa66e3d8d057df5738da43f9a37792afca4"
 
+  livecheck do
+    url "https://mmonit.com/monit/dist/"
+    regex(/href=.*?monit[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "244bbb87c88f90a08e157cf9fb50e501d15369a1c79cf66badb766bdd8de6fbb" => :catalina
