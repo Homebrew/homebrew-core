@@ -6,6 +6,11 @@ class Oclgrind < Formula
   license "BSD-3-Clause"
   revision 3
 
+  livecheck do
+    url :homepage
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "1fd792bb90fa78dd58cc2d7ffe824084b80caf2211363096b14a3d9a6f3411c9" => :catalina
