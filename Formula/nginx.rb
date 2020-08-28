@@ -8,6 +8,11 @@ class Nginx < Formula
   license "BSD-2-Clause"
   head "https://hg.nginx.org/nginx/", using: :hg
 
+  livecheck do
+    url :homepage
+    regex(%r{nginx[._-]v?(\d+(?:\.\d+)+)</a>\nmainline version has been released}i)
+  end
+
   bottle do
     sha256 "fb98bfedf3fa373c005273461cd91cc4ccb852fdc5f0da105afc8deee5f29fe6" => :catalina
     sha256 "4e41e59e1c6754f8dee0e982153580bca315bccd8056ed4a94c5740b6bf00965" => :mojave
