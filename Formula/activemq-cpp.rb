@@ -7,6 +7,10 @@ class ActivemqCpp < Formula
   license "Apache-2.0"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "c06d4253f9496b49b63c224637a97525b13ecb834884a3548adbdafe4dde0a73" => :catalina
