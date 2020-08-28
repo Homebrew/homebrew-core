@@ -4,6 +4,11 @@ class Gauche < Formula
   url "https://downloads.sourceforge.net/project/gauche/Gauche/Gauche-0.9.9.tgz"
   sha256 "4ca9325322a7efadb9680d156eb7b53521321c9ca4955c4cbe738bc2e1d7f7fb"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/Gauche[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     sha256 "0d2bc0fa954237af130845e904c6c1680018c52c0fe60ccdcbb25000ed5b5408" => :catalina
     sha256 "bb0bee61ddd5726151e4569d8ea2c7b5797a82543bb13e45a6fec66a521cdcae" => :mojave
