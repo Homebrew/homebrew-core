@@ -5,6 +5,10 @@ class Libgsf < Formula
   sha256 "d188ebd3787b5375a8fd38ee6f761a2007de5e98fa0cf5623f271daa67ba774d"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "82a2fce8b091d204302919c7541a0ad21a28a24fe8ad8a5d4ae7f50f3f190349" => :catalina
     sha256 "a051f21e80044277fafb60264c915cb79ce5f64059e9737f7a15795bc79ad3c8" => :mojave
