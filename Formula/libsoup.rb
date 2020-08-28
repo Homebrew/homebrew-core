@@ -5,6 +5,10 @@ class Libsoup < Formula
   sha256 "54b020f74aefa438918d8e53cff62e2b1e59efe2de53e06b19a4b07b1f4d5342"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "700a5b47306f17374042b19bae4054938039201202fdbd23055a39ac0657c12a" => :catalina
     sha256 "c80a1c0a215aaa56e1390291652c24abfbf57ec42f07737269a4735ed7411ba6" => :mojave
