@@ -6,6 +6,10 @@ class GnomeLatex < Formula
   license "GPL-3.0"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "df723e3dd919a9d020089e8e19dea1a65c9f621907519fd35e4330cb69d53c28" => :catalina
     sha256 "d82135bcbb899a686ef55bbbfea0eeecc1267da9e5bc075274a01b720ea9441d" => :mojave
