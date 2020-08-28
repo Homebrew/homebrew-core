@@ -7,6 +7,11 @@ class Vapoursynth < Formula
   revision 2
   head "https://github.com/vapoursynth/vapoursynth.git"
 
+  livecheck do
+    url :head
+    regex(/^R(\d+(?:\.\d+)*?)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "4874de1112cf9a5a6800756ba21ed78973b52ed0cd3628fad20266913ac3f6ce" => :catalina
