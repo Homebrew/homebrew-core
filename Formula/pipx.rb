@@ -6,6 +6,10 @@ class Pipx < Formula
   license "MIT"
   head "https://github.com/pipxproject/pipx.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "06464e5ef247436cba27fcf61bc100325cd758a1474dc4a362ee3c4197ea8268" => :catalina
