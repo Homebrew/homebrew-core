@@ -8,6 +8,10 @@ class Khal < Formula
   license "MIT"
   head "https://github.com/pimutils/khal.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "e96fbd39b7baeb9dcb49dafa8706c8757339530f310d71b9f4a59ae0818be3e2" => :catalina
