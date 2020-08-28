@@ -6,6 +6,11 @@ class Libsamplerate < Formula
   license "BSD-2-Clause"
   revision 1
 
+  livecheck do
+    url "http://www.mega-nerd.com/SRC/download.html"
+    regex(/href=.*?libsamplerate[._-]v?(\d+(?:\.\d+)+)\.t[^.]+(?:\.[^.]+)?["' >]/i)
+  end
+
   bottle do
     cellar :any
     sha256 "878cd51b32d4abcd57b10175a2162f5861581b5d2b041616556b3160ea489af9" => :catalina
