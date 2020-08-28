@@ -5,6 +5,11 @@ class Maxima < Formula
   sha256 "d93f5e48c4daf8f085d609cb3c7b0bdf342c667fd04cf750c846426874c9d2ec"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/maxima[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "f873f22d3e0540feb2a696cb2ec18ca7786742ae2a00faafcce968bbda56e5a9" => :catalina
