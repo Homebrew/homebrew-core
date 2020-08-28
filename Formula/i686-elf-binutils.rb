@@ -6,6 +6,10 @@ class I686ElfBinutils < Formula
   sha256 "a3ac62bae4f339855b5449cfa9b49df90c635adbd67ecb8a0e7f3ae86a058da6"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "bd767e1db00546bce96d34152ec795c22c2806b85d38a35ead97ff891a61df34" => :catalina
     sha256 "cb33e5097284b273a810efd58d3acfafb95a50de6237ba0fdc97b270e6395ac0" => :mojave
