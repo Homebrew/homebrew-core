@@ -6,6 +6,11 @@ class Cmockery2 < Formula
   license "Apache-2.0"
   head "https://github.com/lpabon/cmockery2.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "dc794b321aa10ede37917259ba4491dc59271826f2921c5b652b1d67e744b961" => :catalina
