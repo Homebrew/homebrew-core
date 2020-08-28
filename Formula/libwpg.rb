@@ -4,6 +4,11 @@ class Libwpg < Formula
   url "https://dev-www.libreoffice.org/src/libwpg-0.3.3.tar.xz"
   sha256 "99b3f7f8832385748582ab8130fbb9e5607bd5179bebf9751ac1d51a53099d1c"
 
+  livecheck do
+    url "https://dev-www.libreoffice.org/src/"
+    regex(/href=["']?libwpg[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "d12ae12e729a2d2e327f07fe927e02dd15151a987b7cab0a19ca94ee15f8cfde" => :catalina
