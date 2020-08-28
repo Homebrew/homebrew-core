@@ -6,6 +6,11 @@ class Kakoune < Formula
   license "Unlicense"
   head "https://github.com/mawww/kakoune.git"
 
+  livecheck do
+    url "https://github.com/mawww/kakoune/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "6d8ec70c697c45eddc871ded6f6b3a2dd2414e71f68927ee7ecd7b3fc7b61d65" => :catalina
