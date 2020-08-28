@@ -6,6 +6,10 @@ class Libcdio < Formula
   sha256 "8550e9589dbd594bfac93b81ecf129b1dc9d0d51e90f9696f1b2f9b2af32712b"
   license "GPL-3.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "3ec17ce98e129db74cb883941e429286b9ab762c740dcb6ee8c7ff077d6e3304" => :catalina
