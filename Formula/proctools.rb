@@ -4,6 +4,11 @@ class Proctools < Formula
   url "https://downloads.sourceforge.net/project/proctools/proctools/0.4pre1/proctools-0.4pre1.tar.gz"
   sha256 "4553b9c6eda959b12913bc39b6e048a8a66dad18f888f983697fece155ec5538"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/proctools/[^/]+/proctools[._-]v?(\d+(?:\.\d+)+(?:pre\d+)?)\.t}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "f0fe70530d22c270ac3d5a105f2dbbbb0dc6a664acd03f3ad7da3f86255fd548" => :catalina
