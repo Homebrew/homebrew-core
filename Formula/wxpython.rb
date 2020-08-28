@@ -6,6 +6,11 @@ class Wxpython < Formula
   url "https://files.pythonhosted.org/packages/cb/4f/1e21d3c079c973ba862a18f3be73c2bbe2e6bc25c96d94df605b5cbb494d/wxPython-4.1.0.tar.gz"
   sha256 "2e2475cb755ac8d93d2f9335c39c060b4d17ecb5d4e0e86626d1e2834b64a48b"
 
+  livecheck do
+    url :stable
+    regex(%r{href=.*?/packages.*?/wxpython[._-]v?(\d+(?:\.\d+)*(?:[._-]?post\d+)?)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "c00e5a4248024ff9528f3b99f6c3f16f34f66bd84dc8573333bf986e0016b7d0" => :catalina
