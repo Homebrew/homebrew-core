@@ -9,6 +9,11 @@ class Libtorch < Formula
   license "BSD-3-Clause"
   revision 1
 
+  livecheck do
+    url "https://github.com/pytorch/pytorch/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "639c902bc29a3d3bc3da276a36d2ca4a1b652c3500544a959e8854ff8bbb3d94" => :catalina
