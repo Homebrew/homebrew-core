@@ -7,6 +7,11 @@ class Pinentry < Formula
   license "GPL-2.0"
   revision 1
 
+  livecheck do
+    url "https://gnupg.org/ftp/gcrypt/pinentry/"
+    regex(/href=.*?pinentry[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "58dbcd3dc641fe0e14829d2d72be6bc5cadc9a5c26bf50678906866101d2589a" => :catalina
