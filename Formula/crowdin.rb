@@ -6,6 +6,11 @@ class Crowdin < Formula
   license "MIT"
   revision 1
 
+  livecheck do
+    url "https://github.com/crowdin/crowdin-cli.git"
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
