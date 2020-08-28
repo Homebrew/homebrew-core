@@ -4,6 +4,11 @@ class Petsc < Formula
   url "https://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.13.4.tar.gz"
   sha256 "8d470cba1ceb9638694550134a2f23aac85ed7249cb74992581210597d978b94"
 
+  livecheck do
+    url "https://www.mcs.anl.gov/petsc/download/index.html"
+    regex(/href=.*?petsc-lite[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "3f760c40cf293bf0ecbbcc8175599715d2640ed970d22ecca1abfd04c438bd57" => :catalina
     sha256 "1a167ce60cc801b9486f78ed3d223602394247cda9ab676806209c0571f57c72" => :mojave
