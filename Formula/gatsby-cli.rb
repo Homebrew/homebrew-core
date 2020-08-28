@@ -8,6 +8,10 @@ class GatsbyCli < Formula
   sha256 "2bc2c7644d1b63a2e0aa0d5deec0924a3ed095f4fcb027c02b6b5f8b03620e7c"
   license "MIT"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "4c1c54fd99ced82cd9fb2f854c2be68991e46f5d5063732666a29138b67778dd" => :catalina
