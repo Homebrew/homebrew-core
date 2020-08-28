@@ -6,6 +6,11 @@ class Librealsense < Formula
   license "Apache-2.0"
   head "https://github.com/IntelRealSense/librealsense.git"
 
+  livecheck do
+    url "https://github.com/IntelRealSense/librealsense/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "2c3155bb264ca81934c23c5269a4438a1ec93e598a596c09f5fda318975f43a7" => :catalina
