@@ -5,6 +5,11 @@ class Tta < Formula
   sha256 "1723424d75b3cda907ff68abf727bb9bc0c23982ea8f91ed1cc045804c1435c4"
   license "LGPL-3.0"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/libtta[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "af41c210ceddaa4957dc8bc4fec9dedb839157914c3d2d9fbb4bed63239cd9f1" => :catalina
