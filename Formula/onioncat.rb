@@ -5,6 +5,11 @@ class Onioncat < Formula
   sha256 "9564d10c64161408a573256ba8aece9296499a753cbdae6bfbc3544e72a1d63b"
   license "GPL-3.0"
 
+  livecheck do
+    url "https://www.cypherpunk.at/ocat/download/Source/current/"
+    regex(/href=.*?onioncat[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "18bca9a7fa0830c5efb83c8914923202b6a1ed0abadf5cc4755c04c54978e3eb" => :catalina
