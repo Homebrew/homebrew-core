@@ -8,6 +8,10 @@ class GitPlus < Formula
   license "Apache-2.0"
   head "https://github.com/tkrajina/git-plus.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "37e7a26aa4cca6a9b1fb8b2f87f84b4dac45c27a2393dd22100dd46a033cfc6c" => :catalina
