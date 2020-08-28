@@ -8,6 +8,11 @@ class Vdirsyncer < Formula
       revision: "b5dd0929d009b7b07f72903dd6fb82815f45bdd8"
   head "https://github.com/pimutils/vdirsyncer.git"
 
+  livecheck do
+    url "https://github.com/pimutils/vdirsyncer/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "68a313f863d08adfb913b5530606ef32c85c2e9ce20dfac6d42185b0d18e4670" => :catalina
