@@ -9,6 +9,12 @@ class Netpbm < Formula
   version_scheme 1
   head "https://svn.code.sf.net/p/netpbm/code/trunk"
 
+  livecheck do
+    url "https://sourceforge.net/p/netpbm/code/HEAD/tree/stable/"
+    strategy :page_match
+    regex(/Release v?(\d+(?:\.\d+)+)/i)
+  end
+
   bottle do
     cellar :any
     rebuild 2
