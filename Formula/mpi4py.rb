@@ -5,6 +5,10 @@ class Mpi4py < Formula
   sha256 "012d716c8b9ed1e513fcc4b18e5af16a8791f51e6d1716baccf988ad355c5a1f"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "f32637afaa7a9e9b1de6db1df8707faa1bf3b82f9184f1d4415154c80907fa2d" => :catalina
