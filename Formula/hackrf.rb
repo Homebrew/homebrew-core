@@ -6,6 +6,11 @@ class Hackrf < Formula
   license "GPL-2.0"
   head "https://github.com/mossmann/hackrf.git"
 
+  livecheck do
+    url "https://github.com/mossmann/hackrf/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "4004e867109e43fb7f9613c01a99ffd3d8dee0949d6f27232b06bf740d1e1776" => :catalina
