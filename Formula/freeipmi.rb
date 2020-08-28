@@ -6,6 +6,10 @@ class Freeipmi < Formula
   sha256 "61f2d6bc6c68f71701e7f3c725f43121705e54cfdc0c7800565d9443900e8ed9"
   license "GPL-3.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "b9f840759c2573e79707d7010217d1814fd96737857a76bc25c68cc4a9e7aff4" => :catalina
     sha256 "a0ca63ac6b49e9f0b09a513982e34f94f7c2aa7d7345fc1009459d9fd8dfbd5a" => :mojave
