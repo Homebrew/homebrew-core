@@ -4,6 +4,11 @@ class Librem < Formula
   url "http://www.creytiv.com/pub/rem-0.6.0.tar.gz"
   sha256 "417620da3986461598aef327c782db87ec3dd02c534701e68f4c255e54e5272c"
 
+  livecheck do
+    url "http://www.creytiv.com/pub/"
+    regex(/href=.*?rem[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "95862b3451f24c02dd50da1b7c5dfe798370431994f0b26f4418f6e68bc461ec" => :catalina
