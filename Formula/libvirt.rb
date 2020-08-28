@@ -6,6 +6,11 @@ class Libvirt < Formula
   license "LGPL-2.1"
   head "https://github.com/libvirt/libvirt.git"
 
+  livecheck do
+    url "https://libvirt.org/sources/"
+    regex(/href=.*?libvirt[._-]v?([\d.]+)\.t/i)
+  end
+
   bottle do
     sha256 "48241043ff81ccd226d4303b11034ccdc636fd72aec2c5ba56398ef0191667d3" => :catalina
     sha256 "e76fd3f6fb11397c8963d6d92f8f6b56d19dc86ffcfdffb45663b50239f89a93" => :mojave
