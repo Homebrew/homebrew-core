@@ -5,6 +5,10 @@ class Gspell < Formula
   sha256 "5ae514dd0216be069176accf6d0049d6a01cfa6a50df4bc06be85f7080b62de8"
   revision 2
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "491b662bd382e322b2041a255551dcd1a3ba6dbaa5a2fc825dc239241ac7a64a" => :catalina
     sha256 "d471894ee5c85f31be7a2a9c5a122382a3619852f4b9a36f1d2778e669ad4cb0" => :mojave
