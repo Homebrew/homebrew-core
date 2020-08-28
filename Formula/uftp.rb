@@ -5,6 +5,11 @@ class Uftp < Formula
   sha256 "562f71ea5a24b615eb491f5744bad01e9c2e58244c1d6252d5ae98d320d308e0"
   license "GPL-3.0"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/uftp[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "7df0c64b08cd3377837185003849b7d86d11021dc34546f78eedcac3e73a46c6" => :catalina
