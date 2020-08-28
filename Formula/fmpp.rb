@@ -6,6 +6,10 @@ class Fmpp < Formula
   license "Apache-2.0"
   revision 2
 
+  livecheck do
+    url :stable
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
