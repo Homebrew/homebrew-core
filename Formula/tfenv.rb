@@ -17,6 +17,11 @@ class Tfenv < Formula
     end
   end
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle :unneeded
 
   uses_from_macos "unzip"
