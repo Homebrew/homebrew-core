@@ -5,6 +5,11 @@ class GstPython < Formula
   sha256 "208df3148d73d9f416d016564737585d8ea763d91201732d44b5fe688c6288a8"
   revision 1
 
+  livecheck do
+    url "https://gstreamer.freedesktop.org/src/gst-python/"
+    regex(/href=.*?gst-python[._-]v?(\d+\.\d*[02468](?:\.\d+)*)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "c81ba537e1ffcf118f451c9bfd14316130b6fef8c4783200cab52a6b5eb494f9" => :catalina
