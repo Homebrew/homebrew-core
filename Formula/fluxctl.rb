@@ -6,6 +6,11 @@ class Fluxctl < Formula
       revision: "a35b978174606c7290a3a64438b8bb3eeb3fd6ea"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "b731245d5b42da469ecf3d70081318f08c2cbf3ae52e5528843d038c3a937de3" => :catalina
