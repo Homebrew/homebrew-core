@@ -6,6 +6,11 @@ class Exercism < Formula
   license "MIT"
   head "https://github.com/exercism/cli.git"
 
+  livecheck do
+    url "https://github.com/exercism/cli/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 2
