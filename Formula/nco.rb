@@ -5,6 +5,11 @@ class Nco < Formula
   sha256 "eade5b79f3814b11ae3f52c34159567e76a73f05f0ab141eccaac68f0ca94aee"
   license "BSD-3-Clause"
 
+  livecheck do
+    url "https://github.com/nco/nco/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "d5e36895012c95cd251850c78603e44e8abc31cc7f728046fbf49a3e29d6aac9" => :catalina
