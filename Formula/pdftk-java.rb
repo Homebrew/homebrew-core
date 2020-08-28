@@ -7,6 +7,11 @@ class PdftkJava < Formula
   revision 1
   head "https://gitlab.com/pdftk-java/pdftk.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "3eb4ac53b5e6f4603509e5eb785c3574a050df65252b1f6aeb6f9f7300604fd4" => :catalina
