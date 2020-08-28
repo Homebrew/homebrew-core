@@ -6,6 +6,11 @@ class Ruby < Formula
   license "Ruby"
   revision 2
 
+  livecheck do
+    url "https://www.ruby-lang.org/en/downloads/"
+    regex(/href=.*?ruby[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "c9ee36823a8dfe2686c6d7a3faf5061a032ed0b8e08d484f3ff2cda72d210a08" => :catalina
     sha256 "d597bee751f9419ea7b40d8125e4f58b2c1eb675b929fe85d8463a6e008b2250" => :mojave
