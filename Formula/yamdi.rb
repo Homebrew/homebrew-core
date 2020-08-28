@@ -4,6 +4,10 @@ class Yamdi < Formula
   url "https://downloads.sourceforge.net/project/yamdi/yamdi/1.9/yamdi-1.9.tar.gz"
   sha256 "4a6630f27f6c22bcd95982bf3357747d19f40bd98297a569e9c77468b756f715"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "6a3483a957ef3a480f5391d9483b0d3cf8adfce2ec2f6b48289f16733ce29771" => :catalina
