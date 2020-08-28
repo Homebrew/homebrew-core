@@ -6,6 +6,11 @@ class JvmMon < Formula
   license "Apache-2.0"
   revision 1
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle :unneeded
 
   depends_on java: "1.8"
