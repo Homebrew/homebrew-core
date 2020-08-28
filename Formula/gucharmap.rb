@@ -5,6 +5,10 @@ class Gucharmap < Formula
   sha256 "39de8aad9d7f0af33c29db1a89f645e76dad2fce00d1a0f7c8a689252a2c2155"
   revision 3
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "732ed6b19cd29d595941397082369c61c35a4e960ca0b36e4dd306cc7a97b06e" => :catalina
     sha256 "a01bf4f29277930ae3376a8d6a69c762d95ba0d1e2807af55f7ec8e3c41866cb" => :mojave
