@@ -5,6 +5,11 @@ class Newt < Formula
   sha256 "265eb46b55d7eaeb887fca7a1d51fe115658882dfe148164b6c49fccac5abb31"
   license "LGPL-2.0"
 
+  livecheck do
+    url "https://pagure.io/releases/newt/"
+    regex(/href=.*?newt[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "82ea49582f5bcf3bbaf6a39d4d6128c966889eaff682bf83601954c995ee1276" => :catalina
