@@ -4,6 +4,14 @@ class Cmuclmtk < Formula
   url "https://downloads.sourceforge.net/project/cmusphinx/cmuclmtk/0.7/cmuclmtk-0.7.tar.gz"
   sha256 "d23e47f00224667c059d69ac942f15dc3d4c3dd40e827318a6213699b7fa2915"
 
+  # We check the "cmuclmtk" directory page since versions aren't present in the
+  # RSS feed as of writing.
+  livecheck do
+    url "https://sourceforge.net/projects/cmusphinx/files/cmuclmtk/"
+    strategy :page_match
+    regex(%r{href=.*?/v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "fb552e12a3c59e2ca6a9dd89e9ec229e5b815edef28093c3902fc4ee54b52207" => :catalina
