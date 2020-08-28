@@ -5,6 +5,10 @@ class JenkinsJobBuilder < Formula
   sha256 "20efe98718e61ea7bd69b2178d93c5435bbf2e1ba78a47366632c84970e026c9"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "a8d6046d17bbfea9efaf1e721c551a97414c3a9b0c135c894cc9cb411e402608" => :catalina
