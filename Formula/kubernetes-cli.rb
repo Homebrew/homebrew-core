@@ -7,6 +7,11 @@ class KubernetesCli < Formula
   license "Apache-2.0"
   head "https://github.com/kubernetes/kubernetes.git"
 
+  livecheck do
+    url :head
+    regex(/^v([\d.]+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "46b7d96c97256a2a4a55fcbb8c72085a76ac6eac1b61a9d030d07ed7537f2c5c" => :catalina
