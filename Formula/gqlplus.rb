@@ -5,6 +5,10 @@ class Gqlplus < Formula
   sha256 "9e0071d6f8bc24b0b3623c69d9205f7d3a19c2cb32b5ac9cff133dc75814acdd"
   revision 2
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "2ffb1031a83fe666dc574d17d72b08781dd08e48f1dba88c5c67550472f819df" => :catalina
