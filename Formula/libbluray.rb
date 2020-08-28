@@ -5,6 +5,11 @@ class Libbluray < Formula
   sha256 "cd41ea06fd2512a77ebf63872873641908ef81ce2fe4e4c842f6035a47696c11"
   license "LGPL-2.1"
 
+  livecheck do
+    url "https://download.videolan.org/pub/videolan/libbluray/"
+    regex(%r{>([\d.]+)/<}i)
+  end
+
   bottle do
     cellar :any
     sha256 "ed5b295ee0b40b5c36ca2ceb289c106007f8fe9d475727288b61ea4dd5315bde" => :catalina
