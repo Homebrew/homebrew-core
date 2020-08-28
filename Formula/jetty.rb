@@ -5,6 +5,11 @@ class Jetty < Formula
   version "9.4.31.v20200723"
   sha256 "ddf4f4454df83c971c726acabbcfc0cbd443726a30b052ae8cb61f4933852dc8"
 
+  livecheck do
+    url "https://www.eclipse.org/jetty/download.html"
+    regex(/href=.*?jetty-distribution[._-]v?(\d+(?:\.\d+)+(?:\.v\d+)?)\.t/i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
