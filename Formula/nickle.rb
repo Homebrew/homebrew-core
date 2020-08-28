@@ -4,6 +4,11 @@ class Nickle < Formula
   url "https://www.nickle.org/release/nickle-2.86.tar.gz"
   sha256 "2dca6c8e8d1fc4100d94b87d243053afd3340dbc6d284b5b2e48ce5ea159b17c"
 
+  livecheck do
+    url "https://www.nickle.org/release/"
+    regex(/href=.*?nickle[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "d27c9f22a0526d8db09e27371181023ad120132f8a2ae63412b7d3b9e2564f0c" => :catalina
     sha256 "456ad0c96d0c02e44571cf8e24f4fbe9bc9a1a5296c896a0cfae05fea9e576d2" => :mojave
