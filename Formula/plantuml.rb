@@ -6,6 +6,11 @@ class Plantuml < Formula
   license "GPL-3.0-or-later"
   version_scheme 1
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/plantuml[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle :unneeded
 
   depends_on "graphviz"
