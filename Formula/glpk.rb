@@ -6,6 +6,10 @@ class Glpk < Formula
   sha256 "4281e29b628864dfe48d393a7bedd781e5b475387c20d8b0158f329994721a10"
   license "GPL-3.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "55bd72ce9a73c652c34616d09d8ca7d05028c089835c9f0e91db0868e626fc05" => :catalina
