@@ -5,6 +5,11 @@ class Fftw < Formula
   sha256 "6113262f6e92c5bd474f2875fa1b01054c4ad5040f6b0da7c03c98821d9ae303"
   revision 2
 
+  livecheck do
+    url "http://fftw.org/"
+    regex(%r{latest official release.*? <b>v?(\d+(?:\.\d+)+)</b>}i)
+  end
+
   bottle do
     cellar :any
     sha256 "e021f210b7f8a785b86b82fe191408d783def6e6baec192e8133d703c51bf0de" => :catalina
