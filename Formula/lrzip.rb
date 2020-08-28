@@ -5,6 +5,11 @@ class Lrzip < Formula
   sha256 "0d11e268d0d72310d6d73a8ce6bb3d85e26de3f34d8a713055f3f25a77226455"
   license "GPL-2.0"
 
+  livecheck do
+    url "http://ck.kolivas.org/apps/lrzip"
+    regex(/href=.*?lrzip[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "15f270984b1591a12a87dc8698edb9be86df691f8081f204307a6176325a2b96" => :catalina
