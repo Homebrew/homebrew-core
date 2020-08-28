@@ -5,6 +5,14 @@ class Fpc < Formula
   sha256 "d595b72de7ed9e53299694ee15534e5046a62efa57908314efa02d5cc3b1cf75"
   license "GPL-2.0-or-later"
 
+  # fpc releases involve so many files that the tarball is pushed out of the
+  # RSS feed and we can't rely on the SourceForge strategy.
+  livecheck do
+    url "https://sourceforge.net/projects/freepascal/files/Source/"
+    strategy :page_match
+    regex(%r{href=(?:["']|.*?Source/)?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
+
   bottle do
     cellar :any
     rebuild 1
