@@ -4,6 +4,13 @@ class Libart < Formula
   url "https://download.gnome.org/sources/libart_lgpl/2.3/libart_lgpl-2.3.21.tar.bz2"
   sha256 "fdc11e74c10fc9ffe4188537e2b370c0abacca7d89021d4d303afdf7fd7476fa"
 
+  # We use a common regex because libart doesn't use GNOME's "even-numbered
+  # minor is stable" version scheme.
+  livecheck do
+    url :stable
+    regex(/libart_lgpl[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "54ca46ebc37bba1fdc39e8b28c166202e7d488d93cc5b4acfb042a14adec84f9" => :catalina
