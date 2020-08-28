@@ -4,6 +4,10 @@ class Latex2rtf < Formula
   url "https://downloads.sourceforge.net/project/latex2rtf/latex2rtf-unix/2.3.18/latex2rtf-2.3.18.tar.gz"
   sha256 "c0b6a9f5877b3b24b1571c5f2c42afd22f0db5448448d4de7379e67d284ca0b1"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "be21a155b6d80c651312135de1348e1847ac57b1b1d612bf820e92fe663e9b10" => :catalina
     sha256 "7c933531921ef07cc2471938266c91380d2364761b01fad8680bc70648812b19" => :mojave
