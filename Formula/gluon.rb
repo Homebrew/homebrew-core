@@ -6,6 +6,11 @@ class Gluon < Formula
   license "MIT"
   head "https://github.com/gluon-lang/gluon.git"
 
+  livecheck do
+    url "https://github.com/gluon-lang/gluon/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "a33dc9492de59e81d955a15cc08683642a2b9212f634ac34b05dc655a3b78b0b" => :catalina
