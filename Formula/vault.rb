@@ -10,6 +10,11 @@ class Vault < Formula
   license "MPL-2.0"
   head "https://github.com/hashicorp/vault.git"
 
+  livecheck do
+    url "https://releases.hashicorp.com/vault/"
+    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "1c4977affbeb09fc0c348ffc733f9bdbeeb9ae5825d5a9de77df8b00406c249d" => :catalina
