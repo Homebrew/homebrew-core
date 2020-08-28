@@ -7,6 +7,11 @@ class Goenv < Formula
   version_scheme 1
   head "https://github.com/syndbg/goenv.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle :unneeded
 
   def install
