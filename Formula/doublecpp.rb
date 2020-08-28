@@ -5,6 +5,10 @@ class Doublecpp < Formula
   sha256 "232f8bf0d73795558f746c2e77f6d7cb54e1066cbc3ea7698c4fba80983423af"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "429cf6757b46b6f0289439d40db98e3a574a4bf0bde930f8b9ae25a55f4452cb" => :catalina
