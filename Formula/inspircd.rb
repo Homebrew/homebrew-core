@@ -5,6 +5,11 @@ class Inspircd < Formula
   sha256 "e77df17ed7f774fa0927cfce4412c2b6a3e4d5a9a8acab9753685c2aef22ea3b"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://github.com/inspircd/inspircd.git"
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 "224bfcd1dcc583280d917610dc35a2fcf6696e28911ce2b06fd07ae612761a37" => :catalina
     sha256 "fc06d01b383aeeba481e00aacba60ee3a2dbaf25c49cff1662a546d6a6df2135" => :mojave
