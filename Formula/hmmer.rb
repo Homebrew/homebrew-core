@@ -4,6 +4,11 @@ class Hmmer < Formula
   url "http://eddylab.org/software/hmmer/hmmer-3.3.1.tar.gz"
   sha256 "8ce66a6930869534ad84bc7c9a5a566fd57188d6726c74c12fcd39c3c9c99bd5"
 
+  livecheck do
+    url "http://eddylab.org/software/hmmer/"
+    regex(/href=.*?hmmer[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "438b4330b30b95486261d55bf3073bd2032842f3cd4acf64d295324440db7b6b" => :catalina
