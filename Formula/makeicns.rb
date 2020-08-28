@@ -5,6 +5,10 @@ class Makeicns < Formula
   sha256 "10e44b8d84cb33ed8d92b9c2cfa42f46514586d2ec11ae9832683b69996ddeb8"
   head "https://bitbucket.org/mkae/makeicns", using: :hg
 
+  livecheck do
+    skip "Bitbucket repository is missing"
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "c2a5afff3eee709316951ad70c8244fe5c628ae98fdb2e15ea607c7638733d63" => :catalina
