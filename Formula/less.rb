@@ -4,6 +4,11 @@ class Less < Formula
   url "http://www.greenwoodsoftware.com/less/less-551.tar.gz"
   sha256 "ff165275859381a63f19135a8f1f6c5a194d53ec3187f94121ecd8ef0795fe3d"
 
+  livecheck do
+    url :homepage
+    regex(/less[._-]v?(\d+).+?released.+?general use/i)
+  end
+
   bottle do
     cellar :any
     sha256 "a76b3f1fb43e1e0ab566a70eca5430afa744d6d87430b55e9a5b98160834c8b9" => :catalina
