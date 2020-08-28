@@ -6,6 +6,11 @@ class JettyRunner < Formula
   sha256 "70d8572a252017f2a97ddfde86d90b0d2d90ddd607bad8a75edaa27a05fb1e33"
   revision 1
 
+  livecheck do
+    url "https://www.eclipse.org/jetty/download.html"
+    regex(/href=.*?jetty-distribution[._-]v?(\d+(?:\.\d+)+(?:\.v\d+)?)\.t/i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
