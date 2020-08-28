@@ -6,6 +6,10 @@ class AvroTools < Formula
   sha256 "74c037354ba1bb43e07d336d46d95d54bc347f2d8073d7cf1087d447b5978a56"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle :unneeded
 
   def install
