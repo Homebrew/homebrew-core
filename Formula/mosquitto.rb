@@ -7,6 +7,11 @@ class Mosquitto < Formula
   # EDL-1.0 is not in the SPDX list
   license "EPL-1.0"
 
+  livecheck do
+    url "https://mosquitto.org/files/source/"
+    regex(/href=.*?mosquitto[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "385bec6fa5729c75da5f86e33be78f38d675fa9fd5a95b5065305fda0253cef0" => :catalina
