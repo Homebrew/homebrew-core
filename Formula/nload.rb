@@ -5,6 +5,11 @@ class Nload < Formula
   sha256 "c1c051e7155e26243d569be5d99c744d8620e65fa8a7e05efcf84d01d9d469e5"
   license "GPL-2.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?nload[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 1
