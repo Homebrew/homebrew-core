@@ -6,6 +6,11 @@ class NagiosPlugins < Formula
   license "GPL-3.0"
   head "https://github.com/nagios-plugins/nagios-plugins.git"
 
+  livecheck do
+    url "https://nagios-plugins.org/download/"
+    regex(/href=.*?nagios-plugins[._-]v?([\d.]+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "b90c6f268ed5a5310a797855d87730f016c5d5077fa7b131c929aee042a1ee6c" => :catalina
