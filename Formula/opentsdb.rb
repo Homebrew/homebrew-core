@@ -5,6 +5,11 @@ class Opentsdb < Formula
   sha256 "a2d6a34369612b3f91bf81bfab24ec573ab4118127dc1c0f0ed6fc57318d102c"
   license "LGPL-2.1"
 
+  livecheck do
+    url "https://github.com/OpenTSDB/opentsdb/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "31e57ba38c568eb7a41a6129a55aac5a9b443301578475702cdab5fb891faaa2" => :catalina
