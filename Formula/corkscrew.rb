@@ -5,6 +5,11 @@ class Corkscrew < Formula
   sha256 "0d0fcbb41cba4a81c4ab494459472086f377f9edb78a2e2238ed19b58956b0be"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://deb.debian.org/debian/pool/main/c/corkscrew/"
+    regex(/href=.*?corkscrew[._-]v?(\d+(?:\.\d+)+)\.orig\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "83db433b1d34ad662d310504a476bcd5848955b0cc78087203b8e25164e4c8a8" => :catalina
