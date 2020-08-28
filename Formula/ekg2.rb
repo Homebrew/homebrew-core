@@ -7,6 +7,11 @@ class Ekg2 < Formula
   license "GPL-2.0"
   revision 4
 
+  livecheck do
+    url :homepage
+    regex(/^ekg2[._-]v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 "e17ea1385008892e80e0d5e0d44e510f6ac30e5d86423b55c61465eccd348d36" => :catalina
     sha256 "78778e95338d2a0a61f7d4773716d927534d24e4d5867a04038401427b07c855" => :mojave
