@@ -7,6 +7,11 @@ class Nwchem < Formula
   license "ECL-2.0"
   revision 2
 
+  livecheck do
+    url "https://github.com/nwchemgit/nwchem.git"
+    regex(/^v?(\d+(?:\.\d+)+)-release$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "fb3cfb7f4fb39a67732ca6998eda76e6cc1c16e8bec2c6798d0f11f1551329a8" => :catalina
