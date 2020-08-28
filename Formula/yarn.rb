@@ -6,6 +6,11 @@ class Yarn < Formula
   sha256 "c664fb4692e4dfea750a37a533780834b40198c00cef4bbc5e8c14abab2ac141"
   license "BSD-2-Clause"
 
+  livecheck do
+    url "https://yarnpkg.com/en/"
+    regex(/Stable:.*?v?(\d+(?:\.\d+)+)/im)
+  end
+
   bottle :unneeded
 
   depends_on "node"
