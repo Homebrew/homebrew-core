@@ -5,6 +5,11 @@ class MecabKoDic < Formula
   sha256 "251fb141f2e96d34ea62f557c146ab0615dea67502cce8811d408309f182cfb7"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    regex(/href=.*?mecab-ko-dic[._-]v?(\d+(?:\.\d+)+-\d+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "5c3d0709fbddf74067362680d226f5ecf170ee903532f8d34399b731d188a13d" => :catalina
