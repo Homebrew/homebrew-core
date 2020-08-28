@@ -8,6 +8,10 @@ class Bison < Formula
   license "GPL-3.0"
   version_scheme 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "994ac8fcc6e0c291e3a512dc98ad2549aa7a79f13e4c114ea28d48221ec3d925" => :catalina
     sha256 "9a608f52daa7af288363bf07e5085d8403481fe9a8a516730c51f51a7bc08748" => :mojave
