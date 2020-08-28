@@ -5,6 +5,11 @@ class Ice < Formula
   sha256 "57f200bd2916799bce12960e579d9f9e5b6a9801addaf93d97bb4ce15c760a44"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://github.com/zeroc-ice/ice/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "ed026c50e889b8eab856b8310d9b57a5a09487775b85e0fd3a745c3703234aa3" => :catalina
