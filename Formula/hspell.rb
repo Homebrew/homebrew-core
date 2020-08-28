@@ -4,6 +4,11 @@ class Hspell < Formula
   url "http://hspell.ivrix.org.il/hspell-1.4.tar.gz"
   sha256 "7310f5d58740d21d6d215c1179658602ef7da97a816bc1497c8764be97aabea3"
 
+  livecheck do
+    url "http://hspell.ivrix.org.il/download.html"
+    regex(/href=.*?hspell[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "95b64e844560f948bdd487f1aa8a36fa6b54af18a278be1793b2f34614e08736" => :catalina
     sha256 "92fac64ac02e38e225184831bda82521c4136d480660d52f599c6a92f6647860" => :mojave
