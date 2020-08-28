@@ -5,6 +5,11 @@ class Chadwick < Formula
   sha256 "f7b3af15281106e101e2ccc4cb182a3f15dbdc3327f2bcb045bfc486a8fda46e"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/chadwick[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "693c6ee0980401936a83453bdbc398aeb0eb06ba9bb8e101046508b14edfdc98" => :catalina
