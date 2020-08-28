@@ -7,6 +7,10 @@ class GulpCli < Formula
   sha256 "0a5a76e5be9856edf019fb5be0ed8501a8d815da1beeb9c6effca07a93873ba4"
   license "MIT"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "231b635ddf8a704a3be4a6ba34611248ece69ed1de04fb82adfa6a20ac83fddb" => :catalina
