@@ -7,6 +7,10 @@ class Pulp < Formula
   sha256 "695da1581389d060810ed1a5962ab7e53696db8493b224fa7dc2358f255b8b53"
   license "LGPL-3.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 1
