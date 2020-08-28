@@ -6,6 +6,11 @@ class Root < Formula
   license "LGPL-2.1-or-later"
   head "https://github.com/root-project/root.git"
 
+  livecheck do
+    url "https://root.cern.ch/download/"
+    regex(/href=.*?root[._-]v?(\d+(?:\.\d*[02468])+)\.source\.t/i)
+  end
+
   bottle do
     sha256 "09c96ef6d340593421eea5f24b424b8fa4e72d4589220b15a4e20394acd0d814" => :catalina
     sha256 "b349ebf73a9b10fee9d7860c1a7cba429e21b61983ee51cebe70eebf586dad41" => :mojave
