@@ -6,6 +6,11 @@ class Figlet < Formula
   sha256 "bf88c40fd0f077dab2712f54f8d39ac952e4e9f2e1882f1195be9e5e4257417d"
   license "BSD-3-Clause"
 
+  livecheck do
+    url "http://ftp.figlet.org/pub/figlet/program/unix/"
+    regex(/href=.*?figlet[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "b0ecddfbf1d1e1d45ff1d3cb1be1977fd80a7924c27a73d995435de9aff5ca66" => :catalina
     sha256 "906556c44706889c0170f4dfe7d7427f27122cee425042c3911f7266f9fc2e4c" => :mojave
