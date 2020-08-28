@@ -9,6 +9,11 @@ class Dpkg < Formula
   sha256 "f2f23f3197957d89e54b87cf8fc42ab00e1b74f3a32090efe9acd08443f3e0dd"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://deb.debian.org/debian/pool/main/d/dpkg/"
+    regex(/href=.*?dpkg[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "32ae6083fd4207f4cecd58087b68afc43a22d6020bd7a89184a0af20ecc9a2fb" => :catalina
     sha256 "ec0d8e85f436bc6394de1f261c1c0e791ed72797d7ae20e6fb8f1cda016a7b43" => :mojave
