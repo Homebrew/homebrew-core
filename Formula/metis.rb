@@ -4,6 +4,11 @@ class Metis < Formula
   url "http://glaros.dtc.umn.edu/gkhome/fetch/sw/metis/metis-5.1.0.tar.gz"
   sha256 "76faebe03f6c963127dbb73c13eab58c9a3faeae48779f049066a21c087c5db2"
 
+  livecheck do
+    url "http://glaros.dtc.umn.edu/gkhome/metis/metis/download"
+    regex(%r{href=.*?/metis[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "b410b124973bf31beb58806d4050b8dda1fb3dca679fc3443514025200fd4a37" => :catalina
