@@ -25,8 +25,7 @@ class Gobby < Formula
   depends_on "libxml++"
 
   # open issue since 2017-04-23, https://github.com/gobby/gobby/issues/143
-  # no active release and maintenance since 2018-08-26
-  disable!
+  disable! because: "does not build, no releases or maintenance since 2018-08-26"
 
   # Necessary to remove mandatory gtk-mac-integration
   # it's badly broken as it depends on an ancient version of ige-mac-integration
