@@ -5,6 +5,11 @@ class SdlMixer < Formula
   sha256 "1644308279a975799049e4826af2cfc787cad2abb11aa14562e402521f86992a"
   revision 3
 
+  livecheck do
+    url "https://www.libsdl.org/projects/SDL_mixer/release/"
+    regex(/href=.*?SDL_mixer[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "a2555ba3d81dd01637f6407db77cd7cc5ed363fd887627d786d3475e79e960a0" => :catalina
