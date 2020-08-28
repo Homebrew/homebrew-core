@@ -4,6 +4,11 @@ class AescryptPacketizer < Formula
   url "https://www.aescrypt.com/download/v3/linux/aescrypt-3.14.tgz"
   sha256 "5051394529bf3f99c42b57f755b2269e6abaae8b0e3fd90869c4b0bb58f5f1c7"
 
+  livecheck do
+    url "https://www.aescrypt.com/download/"
+    regex(%r{href=.*?/linux/aescrypt[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "1615637765b9c2c4aa26bb5c858962d2b5614d7098aa45ebb8154c839fcde13a" => :catalina
