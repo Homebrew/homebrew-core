@@ -7,6 +7,10 @@ class Nyx < Formula
   sha256 "88521488d1c9052e457b9e66498a4acfaaa3adf3adc5a199892632f129a5390b"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "606f92ecc381c9d319537d607305fdaae230de8e426e6d5df41fc0c878f2a0d1" => :catalina
