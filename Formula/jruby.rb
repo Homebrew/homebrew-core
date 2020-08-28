@@ -6,7 +6,7 @@ class Jruby < Formula
   license any_of: ["EPL-2.0", "GPL-2.0-only", "LGPL-2.1-only"]
 
   livecheck do
-    url "http://jruby.org/download"
+    url "https://www.jruby.org/download"
     regex(%r{href=.*?/jruby-dist[._-]v?(\d+(?:\.\d+)+)-bin\.t}i)
   end
 
