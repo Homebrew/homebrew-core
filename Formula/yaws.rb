@@ -17,6 +17,11 @@ class Yaws < Formula
     end
   end
 
+  livecheck do
+    url "https://github.com/erlyaws/yaws/releases/latest"
+    regex(%r{href=.*?/tag/yaws[._-]v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "09997293c21d6a547bd35e3c6384eae48376665729e02e9008d3fe59e2436c4d" => :catalina
