@@ -5,7 +5,7 @@ class Smpeg2 < Formula
   head "svn://svn.icculus.org/smpeg/trunk"
 
   livecheck do
-    url "http://svn.icculus.org/smpeg/tags/"
+    url "https://svn.icculus.org/smpeg/tags/"
     regex(%r{href=.*?release[._-]v?(2(?:[._]\d+)+)/}i)
   end
 
