@@ -6,6 +6,10 @@ class PandocCrossref < Formula
   license "GPL-2.0"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "2d2ed664170754a7e59bf66e95676b03fcf4f9a834d7b5793fac4bbb5af5b745" => :catalina
