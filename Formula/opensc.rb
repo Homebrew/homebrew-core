@@ -6,6 +6,11 @@ class Opensc < Formula
   license "LGPL-2.1"
   head "https://github.com/OpenSC/OpenSC.git"
 
+  livecheck do
+    url "https://github.com/OpenSC/OpenSC/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     sha256 "38a3b5cb96dc21a68ecb7a5ec55cb4e16245718f43494442c43c7bf1dfbc9cbd" => :catalina
     sha256 "a4f9ffe8088a618dc349e74463ac7a846335dc847b8dc37c8037ec8c7e3244de" => :mojave
