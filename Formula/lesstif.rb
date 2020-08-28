@@ -5,6 +5,10 @@ class Lesstif < Formula
   sha256 "eb4aa38858c29a4a3bcf605cfe7d91ca41f4522d78d770f69721e6e3a4ecf7e3"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     rebuild 2
     sha256 "c38e2d072aeade356f5bab6e974fbbeb910259c1fe9d2ed8c352f7b67ca5bd0c" => :catalina
