@@ -4,6 +4,11 @@ class MysqlClient < Formula
   url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.21.tar.gz"
   sha256 "37231a123372a95f409857364dc1deb196b6f2c0b1fe60cc8382c7686b487f11"
 
+  livecheck do
+    url "https://github.com/mysql/mysql-server.git"
+    regex(/^mysql[._-]v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 "deb15cab290b8280b3a9f80c615f715b19004422092192c7f6966fcff0999cfd" => :catalina
     sha256 "778a703aa0c5a7f9f45a0fdff64af0d5b6069b51777dea8a4b0a8e1c316c4082" => :mojave
