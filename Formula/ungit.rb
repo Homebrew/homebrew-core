@@ -7,6 +7,10 @@ class Ungit < Formula
   sha256 "788102743a3766554d2a820d3aaf5cb7d88759199942e61e8ff7db6cb15e8dad"
   license "MIT"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "7dd44ea62872b6b74da4a37c831226621642dae6c6df9fe22023541807efe4ba" => :catalina
