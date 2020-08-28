@@ -4,6 +4,11 @@ class Pngxx < Formula
   url "https://download.savannah.gnu.org/releases/pngpp/png++-0.2.10.tar.gz"
   sha256 "998af216ab16ebb88543fbaa2dbb9175855e944775b66f2996fc945c8444eee1"
 
+  livecheck do
+    url "https://download.savannah.gnu.org/releases/pngpp/"
+    regex(/href=.*?png\+\+[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "c6377c5185e7ae53ff7ec9a133b8c12618a400f64d14b55ee751dc7c85cbc491" => :catalina
