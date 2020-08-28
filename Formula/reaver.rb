@@ -5,6 +5,11 @@ class Reaver < Formula
   sha256 "add3050a4a05fe0ab6bfb291ee2de8e9b8a85f1e64ced93ee27a75744954b22d"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://www.googleapis.com/download/storage/v1/b/google-code-archive/o/v2%2Fcode.google.com%2Freaver-wps%2Fdownloads-page-1.json?&alt=media"
+    regex(/reaver[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "73539f97836b5df80e030e429eb7f209dec3067c14b1bfd6753bcf7796c1f541" => :catalina
     sha256 "386ed8ae2562ae032f0d622d52d7302be2e99bbe671f1ca5ba3acb88b86f6417" => :mojave
