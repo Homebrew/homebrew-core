@@ -42,6 +42,11 @@ class Bash < Formula
     end
   end
 
+  livecheck do
+    url "http://www.ravenports.com/catalog/bucket_C8/bash/standard/"
+    regex(%r{<td id="pkgversion">v?(\d+(?:\.\d+)+)(?:_\d+)?</td>}i)
+  end
+
   bottle do
     sha256 "c6e7b7a521a1cfb21f2872bde253bfd40150bd4ba36ada62c05fcdb73ae094c6" => :catalina
     sha256 "ba0617f6d3f4e691f9863e2f73596da94671f4c0ca21a95b99f19eced315f2d4" => :mojave
