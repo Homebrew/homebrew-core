@@ -7,6 +7,10 @@ class Coconut < Formula
   sha256 "5053e876388faaa792154d3e86c27dcfa721d48a3611a8d9b94e7567e5652c0b"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "721657bf79238e4b65554edf1ae2559d2455223233af7376f3520cae9db0068d" => :catalina
