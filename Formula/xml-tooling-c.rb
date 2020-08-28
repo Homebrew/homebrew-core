@@ -4,6 +4,11 @@ class XmlToolingC < Formula
   url "https://shibboleth.net/downloads/c++-opensaml/3.1.0/xmltooling-3.1.0.tar.bz2"
   sha256 "722723cc2731a25db23c6acc5bc67e25a1554224e7039edd4e9ea5816e525d0e"
 
+  livecheck do
+    url "https://shibboleth.net/downloads/c++-opensaml/latest/"
+    regex(/href=.*?xmltooling[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "0608d8938278794d1101b96e70d7f408b3e12f270eccc9cb1a8595e2880ab934" => :catalina
