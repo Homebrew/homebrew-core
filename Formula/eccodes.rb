@@ -5,6 +5,11 @@ class Eccodes < Formula
   sha256 "d88943df0f246843a1a062796edbf709ef911de7269648eef864be259e9704e3"
   revision 1
 
+  livecheck do
+    url "https://software.ecmwf.int/wiki/display/ECC/Releases"
+    regex(/href=.*?eccodes[._-]v?(\d+(?:\.\d+)+)-Source\.t/i)
+  end
+
   bottle do
     sha256 "752b23e86c8c5c54d1870ff3cee3adbb4f2bd3eb552c6a87073ba3867107354f" => :catalina
     sha256 "7b0366448047c170843a0519611acb03a6cdf10c6f67df6b6813514a8f2d8854" => :mojave
