@@ -6,6 +6,10 @@ class Gnuplot < Formula
   license "gnuplot"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "07e87a593917fbb66d6eef8efe30ee04531bde21c5d4a45775bae98b5314b42d" => :catalina
     sha256 "221b581e96e34f346ef8de648e8e4ddadf66250ec1b1d5d9a894d12846c11f0a" => :mojave
