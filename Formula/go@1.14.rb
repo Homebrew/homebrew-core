@@ -6,6 +6,11 @@ class GoAT114 < Formula
   sha256 "064392433563660c73186991c0a315787688e7c38a561e26647686f89b6c30e3"
   license "BSD-3-Clause"
 
+  livecheck do
+    url "https://golang.org/dl/"
+    regex(/href=.*?go[._-]?v?(1\.14(?:\.\d+)*)[._-]src\.t/i)
+  end
+
   bottle do
     sha256 "8c78676c81b8a58af19fb2c32095729009ab773b7f7903c6a7acbf0fa99e4aaf" => :catalina
     sha256 "ab2f909bc79e1a5d4a06b121836f2f4fc564877528c59a64da582060b38eb3a1" => :mojave
