@@ -5,6 +5,10 @@ class Libgweather < Formula
   sha256 "de2709f0ee233b20116d5fa9861d406071798c4aa37830ca25f5ef2c0083e450"
   revision 2
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "46c6e704f4d42d0032888a87cd2d0ce2fd2ce0a9b8027123976857d242c1b0f3" => :catalina
     sha256 "b8db1057908c9723c708b919330b9a58cdbdb9e6a6c7b053242fb8c965171eff" => :mojave
