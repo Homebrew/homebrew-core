@@ -4,6 +4,10 @@ class Languagetool < Formula
   url "https://languagetool.org/download/LanguageTool-5.0.zip"
   sha256 "212eb275cf9df8b6f49d8ce2bb386246081be7f01d907577fbd09a9f27055628"
 
+  livecheck do
+    url "https://github.com/languagetool-org/languagetool.git"
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
