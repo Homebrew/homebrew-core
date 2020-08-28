@@ -5,6 +5,11 @@ class CAres < Formula
   sha256 "d08312d0ecc3bd48eee0a4cc0d2137c9f194e0a28de2028928c0f6cae85f86ce"
   license "MIT"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?c-ares[._-](\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "0ba43741f90d2529cf03785faf077ee38898124474bd147718ed8a9ccf0f68a5" => :catalina
