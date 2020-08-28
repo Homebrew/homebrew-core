@@ -5,6 +5,11 @@ class Libflowmanager < Formula
   sha256 "0866adfcdc223426ba17d6133a657d94928b4f8e12392533a27387b982178373"
   revision 1
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?libflowmanager[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "41c5f69289236b3362062b471654f0cc9446f93d90066c001a1bda56d9b9b4f3" => :catalina
