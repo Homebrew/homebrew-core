@@ -5,6 +5,11 @@ class Libuecc < Formula
   sha256 "0120aee869f56289204255ba81535369816655264dd018c63969bf35b71fd707"
   head "https://git.universe-factory.net/libuecc"
 
+  livecheck do
+    url :head
+    regex(/href=.*?libuecc[._-]v?(\d+(?:\.\d+)*)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "89acc7a04f910882b89d9e032a45e8c27dc98257d6d4e6b28f6c6a26c8c369ae" => :catalina
