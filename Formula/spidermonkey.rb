@@ -8,6 +8,11 @@ class Spidermonkey < Formula
   revision 3
   head "https://hg.mozilla.org/mozilla-central", using: :hg
 
+  livecheck do
+    url "https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/Releases"
+    regex(%r{href=.*?Releases/v?(\d+(?:\.\d+)*)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "747d9e19e27fbe0455e462c5cb1943d1120e02f05df6f964cf502b09db5975df" => :catalina
