@@ -5,6 +5,11 @@ class Hdf5 < Formula
   sha256 "97906268640a6e9ce0cde703d5a71c9ac3092eded729591279bf2e3ca9765f61"
   revision 1
 
+  livecheck do
+    url "https://www.hdfgroup.org/downloads/hdf5/"
+    regex(/Newsletter for HDF5[._-]v?(.*?) Release/i)
+  end
+
   bottle do
     cellar :any
     sha256 "e0990f7a52f3f66fd8d546ff1e1d26d4a0cec5ebc9a45ec21fb5335359d6878a" => :catalina
