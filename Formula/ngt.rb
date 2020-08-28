@@ -5,6 +5,11 @@ class Ngt < Formula
   sha256 "1fc8342c0f0568d2cb3b3b641bcc70893c4088166bd48145432bf6a045a15105"
   license "Apache-2.0"
 
+  livecheck do
+    url "https://github.com/yahoojapan/NGT/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "65cfc323a6f03bea0bc24a8cc1265e4320181a2786838f533103887424f2db42" => :catalina
