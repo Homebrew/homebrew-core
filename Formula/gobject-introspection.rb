@@ -7,6 +7,10 @@ class GobjectIntrospection < Formula
   sha256 "80beae6728c134521926affff9b2e97125749b38d38744dc901f4010ee3e7fa7"
   revision 2
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "4715d7cb549501fa75101266f6c49fe656666cb071a6e8f111b08cb3b74a2b15" => :catalina
     sha256 "e6f0eacacdda25019941d42dd600c478f22de8c57a8975b2e26c4a5cfb8f367c" => :mojave
