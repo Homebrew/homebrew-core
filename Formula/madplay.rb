@@ -4,6 +4,11 @@ class Madplay < Formula
   url "https://downloads.sourceforge.net/project/mad/madplay/0.15.2b/madplay-0.15.2b.tar.gz"
   sha256 "5a79c7516ff7560dffc6a14399a389432bc619c905b13d3b73da22fa65acede0"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/madplay[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t}i)
+  end
+
   bottle do
     sha256 "06320361fe8d3687b541149a2c26f78b9a251a813ef7ca1ecfe09e6dfd7ec1b9" => :catalina
     sha256 "04339d670f10b87819965e4bae0e5700840e97e1052313cc62dd5ae6d7e194ce" => :mojave
