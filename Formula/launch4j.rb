@@ -5,6 +5,10 @@ class Launch4j < Formula
   version "3.12"
   sha256 "754e557036ff4a469b4a24443c809113f85b9a0689a5ffdcf35a8a6e986c458f"
 
+  livecheck do
+    url :stable
+  end
+
   bottle :unneeded
 
   def install
