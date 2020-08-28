@@ -8,6 +8,10 @@ class Liquidctl < Formula
   license "GPL-3.0"
   head "https://github.com/jonasmalacofilho/liquidctl.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "2ac17a2c76c3e9573fa25446b3163d6d12971717a5fffe398a0bfed1b96cc0cb" => :catalina
