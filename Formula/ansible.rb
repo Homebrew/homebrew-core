@@ -8,6 +8,11 @@ class Ansible < Formula
   license "GPL-3.0"
   head "https://github.com/ansible/ansible.git", branch: "devel"
 
+  livecheck do
+    url "https://releases.ansible.com/ansible/"
+    regex(/href=.*?ansible[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "a34259e91253838f02bf51c987cccfc56e8b756b6035bf85221d973a49911efe" => :catalina
