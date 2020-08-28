@@ -5,6 +5,11 @@ class Bfg < Formula
   sha256 "bf22bab9dd42d4682b490d6bc366afdad6c3da99f97521032d3be8ba7526c8ce"
   revision 1
 
+  livecheck do
+    url "https://github.com/rtyley/bfg-repo-cleaner.git"
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
