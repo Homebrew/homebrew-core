@@ -4,6 +4,11 @@ class Eprover < Formula
   url "https://wwwlehre.dhbw-stuttgart.de/~sschulz/WORK/E_DOWNLOAD/V_2.5/E.tgz"
   sha256 "3a72cb5bcf24899134c84cb6c797c699d8d7ddfad0de7b5b654581bb17b3c814"
 
+  livecheck do
+    url "https://wwwlehre.dhbw-stuttgart.de/~sschulz/WORK/E_DOWNLOAD/"
+    regex(%r{href=.*?V?[._-]?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "224dffbf0f507dd756b45f8ab9f06ec65e963ecfeeea69dcf72e76cc95bf760d" => :catalina
