@@ -5,6 +5,10 @@ class Libxmlxx3 < Formula
   sha256 "b786fae7fd7820d356698069a787d107995c3efcbef50d8f4efd3766ab768e4f"
   license "LGPL-2.1"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "583c5345ed243a5cea2bbf82e71a130e85554110ebe3927183171c66225a7c26" => :catalina
