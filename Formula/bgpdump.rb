@@ -5,6 +5,11 @@ class Bgpdump < Formula
   sha256 "415692c173a84c48b1e927a6423a4f8fd3e6359bc3008c06b7702fe143a76223"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://github.com/RIPE-NCC/bgpdump.git"
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "f7c93574ccb3a6eaa05910009e26068f99f14082df78d3b2b0b84166488657e5" => :catalina
