@@ -6,6 +6,10 @@ class X265 < Formula
   license "GPL-2.0-only"
   head "https://bitbucket.org/multicoreware/x265_git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     rebuild 1
