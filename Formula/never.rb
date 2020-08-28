@@ -6,6 +6,11 @@ class Never < Formula
   license "MIT"
   head "https://github.com/never-lang/never.git"
 
+  livecheck do
+    url "https://github.com/never-lang/never/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "27edab01757524441aafd95606dd1bea9d75e3e59e45b5ddbed4887eb15f0e60" => :catalina
