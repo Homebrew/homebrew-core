@@ -9,6 +9,11 @@ class AzureCli < Formula
   license "MIT"
   head "https://github.com/Azure/azure-cli.git"
 
+  livecheck do
+    url "https://github.com/Azure/azure-cli/releases/latest"
+    regex(%r{href=.*?/tag/azure-cli[._-]v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "d9804ab11e28ae35a655d3942daf71451afb914012dd8400081d0e8979855d61" => :catalina
