@@ -6,7 +6,7 @@ class Zinc < Formula
 
   bottle :unneeded
 
-  deprecate!
+  deprecate! because: "has an archived upstream repository"
 
   def install
     rm_f Dir["bin/ng/{linux,win}*"]
