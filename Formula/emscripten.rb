@@ -35,14 +35,14 @@ class Emscripten < Formula
   end
 
   head do
-    url "https://github.com/emscripten-core/emscripten.git", branch: "incoming"
+    url "https://github.com/emscripten-core/emscripten.git"
 
     resource "fastcomp" do
-      url "https://github.com/emscripten-core/emscripten-fastcomp.git", branch: "incoming"
+      url "https://github.com/emscripten-core/emscripten-fastcomp.git"
     end
 
     resource "fastcomp-clang" do
-      url "https://github.com/emscripten-core/emscripten-fastcomp-clang.git", branch: "incoming"
+      url "https://github.com/emscripten-core/emscripten-fastcomp-clang.git"
     end
   end
 
