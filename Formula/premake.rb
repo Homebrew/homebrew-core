@@ -16,7 +16,7 @@ class Premake < Formula
   end
 
   # See: https://groups.google.com/g/premake-development/c/i1uA1Wk6zYM/m/kbp9q4Awu70J
-  deprecate! date: "2015-05-28"
+  deprecate! date: "2015-05-28", because: "is not supported upstream"
 
   def install
     if build.head?
