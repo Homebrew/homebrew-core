@@ -10,7 +10,7 @@ class Trace2html < Formula
   bottle :unneeded
 
   # https://github.com/google/trace-viewer/commit/5f708803
-  deprecate! date: "2015-09-03"
+  deprecate! date: "2015-09-03", because: "has moved upstream repositories"
 
   def install
     libexec.install Dir["*"]
