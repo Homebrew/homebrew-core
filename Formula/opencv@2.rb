@@ -18,7 +18,7 @@ class OpencvAT2 < Formula
   end
 
   # https://www.slideshare.net/EugeneKhvedchenya/opencv-30-latest-news-and-the-roadmap
-  deprecate! date: "2015-02-01"
+  deprecate! date: "2015-02-01", because: "is not supported upstream"
 
   keg_only :versioned_formula
 
