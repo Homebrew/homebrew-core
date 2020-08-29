@@ -29,7 +29,8 @@ class Apollo < Formula
     sha256 "2795caacbc6086c7de46b588d11a78edbf8272acb7d9da3fb329cb34fcb8783f"
   end
 
-  deprecate! date: "2019-03-11" # https://github.com/apache/activemq-apollo/commit/049d68bf3f94cdf62ded5426d3cad4ef3e3c56ca
+  # https://github.com/apache/activemq-apollo/commit/049d68bf3f94cdf62ded5426d3cad4ef3e3c56ca
+  deprecate! date: "2019-03-11", because: "is deprecated upstream"
 
   def install
     prefix.install_metafiles
