@@ -12,7 +12,7 @@ class Gradio < Formula
     sha256 "772bc7cd809b085f9eaf2419ae9ddae50e80cbaaace480fe1f3d23c26bd8f164" => :high_sierra
   end
 
-  deprecate! date: "2019-11-16"
+  deprecate! date: "2019-11-16", because: "has an archived upstream repository"
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
