@@ -15,7 +15,7 @@ class GoAT111 < Formula
 
   keg_only :versioned_formula
 
-  deprecate! date: "2019-09-03"
+  deprecate! date: "2019-09-03", because: "is not supported upstream"
 
   resource "gotools" do
     url "https://go.googlesource.com/tools.git",
