@@ -103,7 +103,6 @@ class Emscripten < Formula
   end
 
   test do
-    system bin/"emcc"
-    assert_predicate testpath/".emscripten", :exist?, "Failed to create sample config"
+    system "#{bin}/emcc", "--version"
   end
 end
