@@ -1,8 +1,8 @@
 class Hexedit < Formula
   desc "View and edit files in hexadecimal or ASCII"
   homepage "http://rigaux.org/hexedit.html"
-  url "https://github.com/pixel/hexedit/archive/1.4.2.tar.gz"
-  sha256 "c81ffb36af9243aefc0887e33dd8e41c4b22d091f1f27d413cbda443b0440d66"
+  url "https://github.com/pixel/hexedit/archive/1.5.tar.gz"
+  sha256 "27a2349f659e995d7731ad672450f61a2e950330049a6fb59b77490c5e0015ac"
   license "GPL-2.0"
   head "https://github.com/pixel/hexedit.git"
 
