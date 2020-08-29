@@ -7,7 +7,7 @@ class Liblas < Formula
   revision 3
   head "https://github.com/libLAS/libLAS.git"
 
-  deprecate! date: "2018-01-01"
+  deprecate! date: "2018-01-01", because: "is not supported upstream"
 
   bottle do
     sha256 "c63d0d75db5b8e129c13add1de8fe94b2a38d5c15d101b62d6a7f59b796f53a3" => :catalina
