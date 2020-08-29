@@ -7,8 +7,7 @@ class HomesickCompletion < Formula
 
   bottle :unneeded
 
-  # upstream repo archived
-  deprecate!
+  deprecate! because: "has an archived upstream repository"
 
   def install
     bash_completion.install "homesick"
