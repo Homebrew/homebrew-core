@@ -19,7 +19,7 @@ class ErlangAT20 < Formula
   end
 
   # Deprecated with OTP-23 release (https://erlang.org/pipermail/erlang-questions/2020-July/099747.html)
-  deprecate! date: "2020-05-13"
+  deprecate! date: "2020-05-13", because: "is not supported upstream"
 
   keg_only :versioned_formula
 
