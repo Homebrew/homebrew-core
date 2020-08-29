@@ -15,7 +15,7 @@ class RedisAT40 < Formula
 
   keg_only :versioned_formula
 
-  deprecate!
+  deprecate! because: "is a versioned formula"
 
   def install
     system "make", "install", "PREFIX=#{prefix}", "CC=#{ENV.cc}"
