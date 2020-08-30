@@ -1,14 +1,9 @@
-name: Label pull requests
+name: Label pull request
 
-on:
-  workflow_dispatch:
-  schedule:
-    # Once every 30 minutes
-    - cron: '*/30 * * * *'
+on: pull_request_target
 
 jobs:
-  autolabel:
-    if: github.repository == 'Homebrew/homebrew-core'
+  label:
     runs-on: ubuntu-latest
     steps:
       - name: Label
