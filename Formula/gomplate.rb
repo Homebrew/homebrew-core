@@ -1,8 +1,8 @@
 class Gomplate < Formula
   desc "Command-line Golang template processor"
   homepage "https://gomplate.hairyhenderson.ca/"
-  url "https://github.com/hairyhenderson/gomplate/archive/v3.7.0.tar.gz"
-  sha256 "cf4ca68c81894c6aae4a618f31fe8f09cbb86580c58c33729481194f3c4e2aab"
+  url "https://github.com/hairyhenderson/gomplate/archive/v3.8.0.tar.gz"
+  sha256 "d32817821a7b083b0aeadf29c2aea17e3384b6b619f3a6285150db1914b94c89"
   license "MIT"
   head "https://github.com/hairyhenderson/gomplate.git"
 
@@ -14,11 +14,10 @@ class Gomplate < Formula
   end
 
   depends_on "go" => :build
-  depends_on "upx" => :build
 
   def install
-    system "make", "compress", "VERSION=#{version}"
-    bin.install "bin/gomplate-slim" => "gomplate"
+    system "make", "build", "VERSION=#{version}"
+    bin.install "bin/gomplate" => "gomplate"
     prefix.install_metafiles
   end
 
