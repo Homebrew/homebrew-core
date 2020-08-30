@@ -1,8 +1,8 @@
 class Cadence < Formula
   desc "Resource-oriented smart contract programming language"
   homepage "https://github.com/onflow/cadence"
-  url "https://github.com/onflow/cadence/archive/v0.6.0.tar.gz"
-  sha256 "2e18cb91308794065a0242ca4c15d7584da9e6a08f78072c970f51db3a470412"
+  url "https://github.com/onflow/cadence/archive/v0.8.2.tar.gz"
+  sha256 "8691ad36cfa672e7f45f61b44159b949d5eae252d70a921190fc0aee48349587"
   license "Apache-2.0"
   head "https://github.com/onflow/cadence.git"
 
@@ -21,10 +21,10 @@ class Cadence < Formula
 
   test do
     (testpath/"hello.cdc").write <<~EOS
-      pub fun main() {
-        log("Hello, world!")
+      pub fun main(): Int {
+        return 0
       }
     EOS
-    assert_match "Hello, world!", shell_output("#{bin}/cadence hello.cdc")
+    system "#{bin}/cadence", "hello.cdc"
   end
 end
