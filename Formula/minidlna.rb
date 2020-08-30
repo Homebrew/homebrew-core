@@ -108,8 +108,9 @@ class Minidlna < Formula
 
     port = free_port
 
-    system sbin/"minidlnad", "-f", "minidlna.conf", "-p", port.to_s, "-P",
-                             testpath/"minidlna.pid"
+    fork do
+      exec "#{sbin}/minidlnad", "-d", "-f", "minidlna.conf", "-p", port.to_s, "-P", testpath/"minidlna.pid"
+    end
     sleep 2
 
     assert_match /MiniDLNA #{version}/, shell_output("curl localhost:#{port}")
