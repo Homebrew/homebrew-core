@@ -24,6 +24,8 @@ class Wownero < Formula
   depends_on "unbound"
   depends_on "zeromq"
 
+  conflicts_with "miniupnpc", because: "wownero ships its own copy of miniupnpc"
+
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"
