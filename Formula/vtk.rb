@@ -1,7 +1,8 @@
 class Vtk < Formula
   desc "Toolkit for 3D computer graphics, image processing, and visualization"
   homepage "https://www.vtk.org/"
-  revision 10
+  license "BSD-3-Clause"
+  revision 11
   head "https://github.com/Kitware/VTK.git"
 
   stable do
@@ -18,6 +19,12 @@ class Vtk < Formula
     patch do
       url "https://gitlab.kitware.com/vtk/vtk/commit/257b9d7b18d5f3db3fe099dc18f230e23f7dfbab.diff"
       sha256 "572c06a4ba279a133bfdcf0190fec2eff5f330fa85ad6a2a0b0f6dfdea01ca69"
+    end
+
+    # Qt 5.15 support
+    patch do
+      url "https://gitlab.kitware.com/vtk/vtk/-/commit/797f28697d5ba50c1fa2bc5596af626a3c277826.diff"
+      sha256 "cb3b3a0e6978889a9cb95be35f3d4a6928397d3b843ab72ecaaf96554c6d4fc7"
     end
   end
 
@@ -40,6 +47,9 @@ class Vtk < Formula
   depends_on "qt"
 
   def install
+    # Do not record compiler path because it references the shim directory
+    inreplace "Common/Core/vtkConfigure.h.in", "@CMAKE_CXX_COMPILER@", "clang++"
+
     pyver = Language::Python.major_minor_version "python3"
     args = std_cmake_args + %W[
       -DBUILD_SHARED_LIBS=ON
@@ -79,6 +89,13 @@ class Vtk < Formula
     inreplace Dir["#{lib}/cmake/**/vtkhdf5.cmake"].first,
               Formula["hdf5"].prefix.realpath,
               Formula["hdf5"].opt_prefix
+    # get rid of bad include paths on 10.14+
+    if MacOS.version >= :mojave
+      inreplace Dir["#{lib}/cmake/vtk-*/Modules/vtklibxml2.cmake"], %r{;/Library/Developer/CommandLineTools[^"]*}, ""
+      inreplace Dir["#{lib}/cmake/vtk-*/Modules/vtkexpat.cmake"], %r{;/Library/Developer/CommandLineTools[^"]*}, ""
+      inreplace Dir["#{lib}/cmake/vtk-*/Modules/vtkzlib.cmake"], %r{;/Library/Developer/CommandLineTools[^"]*}, ""
+      inreplace Dir["#{lib}/cmake/vtk-*/Modules/vtkpng.cmake"], %r{;/Library/Developer/CommandLineTools[^"]*}, ""
+    end
   end
 
   test do
