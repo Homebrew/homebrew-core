@@ -20,6 +20,8 @@ class Miniupnpc < Formula
     sha256 "b65b947374b703c4473c6f4daa74090181c7372e4b2d663a05890f988605eab9" => :el_capitan
   end
 
+  conflicts_with "wownero", because: "wownero ships its own copy of miniupnpc"
+
   def install
     system "make", "INSTALLPREFIX=#{prefix}", "install"
   end
