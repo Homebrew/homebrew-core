@@ -2,8 +2,8 @@ class CartridgeCli < Formula
   desc "Tarantool Cartridge command-line utility"
   homepage "https://tarantool.org/"
   url "https://github.com/tarantool/cartridge-cli.git",
-      tag:      "2.2.1",
-      revision: "b1463509ed21c1ddc6a2e83287110e3631491761"
+      tag:      "2.3.0",
+      revision: "06a5dadcf259200cc08bb195e35488bb1e161930"
   license "BSD-2-Clause"
 
   bottle do
