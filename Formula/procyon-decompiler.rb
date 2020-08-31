@@ -13,7 +13,7 @@ class ProcyonDecompiler < Formula
 
   depends_on "openjdk"
 
-  disable! because: "has a removed upstream bitbucket repository"
+  disable! because: :repo_removed
 
   def install
     libexec.install "procyon-decompiler-#{version}.jar"
