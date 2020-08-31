@@ -92,18 +92,28 @@ class Emscripten < Formula
     end
   end
 
-  def caveats
-    <<~EOS
-      Manually set LLVM_ROOT to
-        #{opt_libexec}/llvm/bin
-      and BINARYEN_ROOT to
-        #{Formula["binaryen"].opt_prefix}
-      in ~/.emscripten after running `emcc` for the first time.
-    EOS
+  def post_install
+    system bin/"emcc"
+    inreplace "#{libexec}/.emscripten" do |s|
+      s.gsub! /^(LLVM_ROOT.*)/, "#\\1\nLLVM_ROOT = \"#{opt_libexec}/llvm/bin\"\\2"
+      s.gsub! /^(BINARYEN_ROOT.*)/, "#\\1\nBINARYEN_ROOT = \"#{Formula["binaryen"].opt_prefix}\"\\2"
+    end
   end
 
   test do
-    system bin/"emcc"
-    assert_predicate testpath/".emscripten", :exist?, "Failed to create sample config"
+    # Fixes "Unsupported architecture" Xcode prepocessor error
+    ENV.delete "CPATH"
+
+    (testpath/"test.c").write <<~EOS
+      #include <stdio.h>
+      int main()
+      {
+        printf("Hello World!");
+        return 0;
+      }
+    EOS
+
+    system bin/"emcc", "test.c", "-o", "test.js", "-s", "NO_EXIT_RUNTIME=0"
+    assert_equal "Hello World!", shell_output("node test.js").chomp
   end
 end
