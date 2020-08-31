@@ -1,5 +1,5 @@
 class GnuChess < Formula
-  desc "GNU Chess"
+  desc "Chess-playing program"
   homepage "https://www.gnu.org/software/chess/"
   url "https://ftp.gnu.org/gnu/chess/gnuchess-6.2.7.tar.gz"
   mirror "https://ftpmirror.gnu.org/chess/gnuchess-6.2.7.tar.gz"
