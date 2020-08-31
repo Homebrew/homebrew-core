@@ -15,7 +15,7 @@ class PhpAT72 < Formula
 
   keg_only :versioned_formula
 
-  deprecate! date: "2020-11-30", because: "is a versioned formula"
+  deprecate! date: "2020-11-30", because: :versioned_formula
 
   depends_on "httpd" => [:build, :test]
   depends_on "pkg-config" => :build
