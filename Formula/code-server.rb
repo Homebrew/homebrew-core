@@ -1,10 +1,9 @@
 class CodeServer < Formula
   desc "Access VS Code through the browser"
   homepage "https://github.com/cdr/code-server"
-  url "https://registry.npmjs.org/code-server/-/code-server-3.4.1.tgz"
-  sha256 "38f14f7e9307e4fea7eeeaabdcbd7ff414c41136337a04530692207263101a2a"
+  url "https://registry.npmjs.org/code-server/-/code-server-3.5.0.tgz"
+  sha256 "070c59c9fd955f68441e12ac7adf39e4a96e7a287ab2c092ed39f864abc795d5"
   license "MIT"
-  revision 1
 
   livecheck do
     url :stable
@@ -71,6 +70,7 @@ class CodeServer < Formula
   test do
     system bin/"code-server", "--extensions-dir=.", "--install-extension", "ms-python.python"
     assert_equal "info  Using config file ~/.config/code-server/config.yaml\nms-python.python\n",
-      shell_output("#{bin/"code-server"} --extensions-dir=. --list-extensions")
+      # sed removes the leading timestamp here.
+      shell_output("#{bin/"code-server"} --extensions-dir=. --list-extensions | sed 's#[^ ]* \\(.*\\)#\\1#g'")
   end
 end
