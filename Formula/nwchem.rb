@@ -1,5 +1,5 @@
 class Nwchem < Formula
-  desc "NWChem: Open Source High-Performance Computational Chemistry"
+  desc "High-performance computational chemistry tools"
   homepage "http://www.nwchem-sw.org"
   url "https://github.com/nwchemgit/nwchem/releases/download/v7.0.0-release/nwchem-7.0.0-release.revision-2c9a1c7c-src.2020-02-26.tar.bz2"
   version "7.0.0"
