@@ -1,7 +1,7 @@
 class Openstackclient < Formula
   include Language::Python::Virtualenv
 
-  desc "OpenStack Client"
+  desc "Command-line client for OpenStack"
   homepage "https://openstack.org"
   url "https://files.pythonhosted.org/packages/84/19/e2453fa06c4f481beda7a6c2326e65884cd1c623177d13c8efc7850bc05e/python-openstackclient-5.3.1.tar.gz"
   sha256 "dcbdc95f6f577f621fc2b3862a3e1143dedd7d8a95e6ed08bd953d95aa24a1cf"
