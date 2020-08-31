@@ -1,5 +1,5 @@
 class Eksctl < Formula
-  desc "The official CLI for Amazon EKS"
+  desc "The official CLI for Amazon EKS (formula not officially supported by Weaveworks)"
   homepage "https://eksctl.io"
   url "https://github.com/weaveworks/eksctl.git",
       tag:      "0.26.0",
