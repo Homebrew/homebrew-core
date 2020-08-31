@@ -1,5 +1,5 @@
 class Genometools < Formula
-  desc "GenomeTools: The versatile open source genome analysis software"
+  desc "Versatile open source genome analysis software"
   homepage "http://genometools.org/"
   # genometools does not have source code on par with their binary dist on their website
   url "https://github.com/genometools/genometools/archive/v1.6.1.tar.gz"
