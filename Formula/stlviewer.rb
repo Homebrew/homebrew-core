@@ -16,7 +16,7 @@ class Stlviewer < Formula
   end
 
   # https://github.com/vishpat/stlviewer/issues/8
-  disable! because: "has no license"
+  disable! because: :no_license
 
   def install
     system "./compile.py"
