@@ -1,5 +1,5 @@
 class Progress < Formula
-  desc "Progress: Coreutils Progress Viewer"
+  desc "Coreutils progress viewer"
   homepage "https://github.com/Xfennec/progress"
   url "https://github.com/Xfennec/progress/archive/v0.15.tar.gz"
   sha256 "1ed0ac65a912ef1aa605d524eaddaacae92079cf71182096a7c65cbc61687d1b"
