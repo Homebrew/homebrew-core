@@ -9,7 +9,7 @@ class SonarCompletion < Formula
   bottle :unneeded
 
   # https://github.com/a1dutch/sonarqube-bash-completion/issues/1
-  disable! because: "has no license"
+  disable! because: :no_license
 
   def install
     bash_completion.install "etc/bash_completion.d/sonar"
