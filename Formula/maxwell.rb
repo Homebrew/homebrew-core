@@ -1,5 +1,5 @@
 class Maxwell < Formula
-  desc "Maxwell's daemon, a mysql-to-json kafka producer"
+  desc "Reads MySQL binlogs and writes row updates as JSON to Kafka"
   homepage "https://maxwells-daemon.io/"
   url "https://github.com/zendesk/maxwell/releases/download/v1.27.1/maxwell-1.27.1.tar.gz"
   sha256 "81aca4fe49bbe720c9b7706058d3793c22f9b3a718691ad384ba622a6bbb0d6b"
