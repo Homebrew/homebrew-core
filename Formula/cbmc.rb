@@ -1,5 +1,5 @@
 class Cbmc < Formula
-  desc "CBMC: The C Bounded Model Checker"
+  desc "C Bounded Model Checker"
   homepage "https://www.cprover.org/cbmc/"
   url "https://github.com/diffblue/cbmc.git",
       tag:      "cbmc-5.13.0",
