@@ -1,5 +1,5 @@
 class GnuGo < Formula
-  desc "GNU Go"
+  desc "Plays the game of Go"
   homepage "https://www.gnu.org/software/gnugo/gnugo.html"
   url "https://ftp.gnu.org/gnu/gnugo/gnugo-3.8.tar.gz"
   mirror "https://ftpmirror.gnu.org/gnugo/gnugo-3.8.tar.gz"
