@@ -21,6 +21,7 @@ class Moreutils < Formula
 
   conflicts_with "parallel", because: "both install a `parallel` executable"
   conflicts_with "pwntools", because: "both install an `errno` executable"
+  conflicts_with "sponge", because: "both install a `sponge` executable"
   conflicts_with "task-spooler", because: "both install a `ts` executable"
 
   resource "Time::Duration" do
