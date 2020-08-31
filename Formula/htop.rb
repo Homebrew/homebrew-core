@@ -1,10 +1,10 @@
 class Htop < Formula
   desc "Improved top (interactive process viewer)"
-  homepage "https://hisham.hm/htop/"
-  url "https://hisham.hm/htop/releases/2.2.0/htop-2.2.0.tar.gz"
-  sha256 "d9d6826f10ce3887950d709b53ee1d8c1849a70fa38e91d5896ad8cbc6ba3c57"
+  homepage "https://htop.dev/"
+  url "https://github.com/htop-dev/htop/archive/3.0.0.tar.gz"
+  sha256 "1c0661f0ae5f4e2874da250b60cd515e4ac4c041583221adfe95f10e18d1a4e6"
   license "GPL-2.0"
-  revision 1
+  head "https://github.com/htop-dev/htop.git"
 
   livecheck do
     url :head
@@ -19,19 +19,14 @@ class Htop < Formula
     sha256 "ed93b86f011de155c5d261b8c9cc9cb81fd0017667bf3ebe26ee090716bcd650" => :sierra
   end
 
-  head do
-    url "https://github.com/hishamhm/htop.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "ncurses" # enables mouse scroll
 
   def install
-    system "./autogen.sh" if build.head?
+    system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
