@@ -12,6 +12,8 @@ class Sponge < Formula
     sha256 "bfbb4be2239ab1e181d8e671e940c42d55784facb6ca9734e1d8569ede665c00" => :high_sierra
   end
 
+  conflicts_with "moreutils", because: "both install a `sponge` executable"
+
   def install
     system "make", "sponge"
     bin.install "sponge"
