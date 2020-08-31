@@ -16,7 +16,7 @@ class Rtv < Formula
     sha256 "2510e9e484f8eeff62d204b4ae4c21c1cacce11fba156eeb42d3450789b90452" => :high_sierra
   end
 
-  deprecate! date: "2019-06-02", because: "has an archived upstream repository"
+  deprecate! date: "2019-06-02", because: :repo_archived
 
   depends_on "python@3.8"
 
