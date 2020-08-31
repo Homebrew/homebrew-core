@@ -1,5 +1,5 @@
 class DroneCli < Formula
-  desc "Drone CLI"
+  desc "Command-line client for the Drone continuous integration server"
   homepage "https://drone.io"
   url "https://github.com/drone/drone-cli.git",
     tag:      "v1.2.2",
