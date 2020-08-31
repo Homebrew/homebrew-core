@@ -14,7 +14,7 @@ class LibpqxxAT6 < Formula
 
   keg_only :versioned_formula
 
-  deprecate! because: "is a versioned formula"
+  deprecate! because: :versioned_formula
 
   depends_on "pkg-config" => :build
   depends_on "python@3.8" => :build
