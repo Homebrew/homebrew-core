@@ -22,7 +22,8 @@ class Fceux < Formula
   depends_on "gtk+3"
   depends_on "sdl"
 
-  disable! because: "does not build: some build scripts rely on Python 2 syntax"
+  # Does not build: some build scripts rely on Python 2 syntax
+  disable! because: :does_not_build
 
   # Fix "error: ordered comparison between pointer and zero"
   if DevelopmentTools.clang_build_version >= 900
