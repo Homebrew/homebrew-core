@@ -3,8 +3,8 @@ class Dvc < Formula
 
   desc "Git for data science projects"
   homepage "https://dvc.org"
-  url "https://github.com/iterative/dvc/archive/1.6.4.tar.gz"
-  sha256 "16d6a057fd981cd4e5c645db397fb02a6508f5427476544aaeba488fd7798a24"
+  url "https://github.com/iterative/dvc/archive/1.6.6.tar.gz"
+  sha256 "4168c5b8c9cb659f4321dd1a14cd10c348a11d149d5693f0eeafb182b4dca7e4"
   license "Apache-2.0"
 
   livecheck do
@@ -79,9 +79,9 @@ class Dvc < Formula
     sha256 "bea06b5f4ff620a28dfc9848cf4d6b2bfeed34238edeb8ebe815c433b54eb1fa"
   end
 
-  resource "flatten-json" do
-    url "https://files.pythonhosted.org/packages/49/e1/02d1f28a0276c0018c5dbe09929b12953c7c6a6d6b887686492ce53278a1/flatten_json-0.1.7.tar.gz"
-    sha256 "06341ba64baf2fd9b960b4cacf3d3bab38e1e09a855d9902e79cfd2fe66fa29c"
+  resource "flatten-dict" do
+    url "https://files.pythonhosted.org/packages/7b/1c/52ee230b2008fd552e1b130d2696e98559ce9e2087fb49394bf71d23df3b/flatten-dict-0.3.0.tar.gz"
+    sha256 "0ccc43f15c7c84c5ef387ad19254f6769a32d170313a1bcbf4ce582089313d7e"
   end
 
   resource "flufl.lock" do
@@ -137,6 +137,11 @@ class Dvc < Formula
   resource "packaging" do
     url "https://files.pythonhosted.org/packages/55/fd/fc1aca9cf51ed2f2c11748fa797370027babd82f87829c7a8e6dbe720145/packaging-20.4.tar.gz"
     sha256 "4357f74f47b9c12db93624a82154e9b120fa8293699949152b22065d556079f8"
+  end
+
+  resource "pathlib2" do
+    url "https://files.pythonhosted.org/packages/94/d8/65c86584e7e97ef824a1845c72bbe95d79f5b306364fa778a3c3e401b309/pathlib2-2.3.5.tar.gz"
+    sha256 "6cd9a47b597b37cc57de1c05e56fb1a1c9cc9fab04fe78c29acd090418529868"
   end
 
   resource "pathspec" do
