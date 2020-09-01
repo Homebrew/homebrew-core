@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/returntocorp/semgrep.git",
-    tag:      "v0.21.0",
-    revision: "116f73ca6126f5839dde26c45b9c6676bedaace1"
+    tag:      "v0.22.0",
+    revision: "4e93c08bbef2e0f4d00b4946c2e50c1805222057"
   license "LGPL-2.1-only"
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
@@ -30,8 +30,8 @@ class Semgrep < Formula
   depends_on "python@3.8"
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/98/c3/2c227e66b5e896e15ccdae2e00bbc69aa46e9a8ce8869cc5fa96310bf612/attrs-19.3.0.tar.gz"
-    sha256 "f7b7ce16570fe9965acd6d30101a28f62fb4a7f9e926b3bbc9b61f8b04247e72"
+    url "https://files.pythonhosted.org/packages/c4/d4/c2b5232ecfc0783c697a81c13efc53a4fe285d4e2c00e0d8aed90495fade/attrs-20.1.0.tar.gz"
+    sha256 "0ef97238856430dcf9228e07f316aefc17e8939fc8507e18c6501b761ef1a42a"
   end
 
   resource "certifi" do
@@ -54,19 +54,9 @@ class Semgrep < Formula
     sha256 "b307872f855b18632ce0c21c5e45be78c0ea7ae4c15c828c20788b26921eb3f6"
   end
 
-  resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/e2/ae/0b037584024c1557e537d25482c306cf6327b5a09b6c4b893579292c1c38/importlib_metadata-1.7.0.tar.gz"
-    sha256 "90bb658cdbbf6d1735b6341ce708fc7024a3e14e99ffdc5783edea9f9b077f83"
-  end
-
   resource "jsonschema" do
     url "https://files.pythonhosted.org/packages/69/11/a69e2a3c01b324a77d3a7c0570faa372e8448b666300c4117a516f8b1212/jsonschema-3.2.0.tar.gz"
     sha256 "c8a85b28d377cc7737e46e2d9f2b4f44ee3c0e1deac6bf46ddefc7187d30797a"
-  end
-
-  resource "more-itertools" do
-    url "https://files.pythonhosted.org/packages/df/8c/c278395367a46c00d28036143fdc6583db8f98622b83875403f16473509b/more-itertools-8.1.0.tar.gz"
-    sha256 "c468adec578380b6281a114cb8a5db34eb1116277da92d7c46f904f0b52d3288"
   end
 
   resource "packaging" do
@@ -80,8 +70,8 @@ class Semgrep < Formula
   end
 
   resource "pyrsistent" do
-    url "https://files.pythonhosted.org/packages/8c/46/4e93ab8a379d7efe93f20a0fb8a27bdfe88942cc954ab0210c3164e783e0/pyrsistent-0.14.11.tar.gz"
-    sha256 "3ca82748918eb65e2d89f222b702277099aca77e34843c5eb9d52451173970e2"
+    url "https://files.pythonhosted.org/packages/9f/0d/cbca4d0bbc5671822a59f270e4ce3f2195f8a899c97d0d5abb81b191efb5/pyrsistent-0.16.0.tar.gz"
+    sha256 "28669905fe725965daa16184933676547c5bb40a5153055a8dee2a4bd7933ad3"
   end
 
   resource "requests" do
@@ -105,20 +95,14 @@ class Semgrep < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/71/6c/6530032ec26dddd47bb9e052781bcbbcaa560f05d10cdaf365ecb990d220/tqdm-4.48.0.tar.gz"
-    sha256 "6baa75a88582b1db6d34ce4690da5501d2a1cb65c34664840a456b2c9f794d29"
+    url "https://files.pythonhosted.org/packages/7c/a2/4cc95d7766a5d17ea2541d88da357d5905f75b6dbdfd17dfffd6c37647ae/tqdm-4.48.2.tar.gz"
+    sha256 "564d632ea2b9cb52979f7956e093e831c28d441c11751682f84c86fc46e4fd21"
   end
 
   resource "urllib3" do
     url "https://files.pythonhosted.org/packages/81/f4/87467aeb3afc4a6056e1fe86626d259ab97e1213b1dfec14c7cb5f538bf0/urllib3-1.25.10.tar.gz"
     sha256 "91056c15fa70756691db97756772bb1eb9678fa585d9184f24534b100dc60f4a"
   end
-
-  resource "zipp" do
-    url "https://files.pythonhosted.org/packages/d4/cd/ef86396dce8910413b6ca1ef31ec09367c47e15fc1a12def2cc8ae134dea/zipp-1.0.0.tar.gz"
-    sha256 "d38fbe01bbf7a3593a32bc35a9c4453c32bc42b98c377f9bff7e9f8da157786c"
-  end
-
   def install
     ENV.deparallelize
     Dir.mktmpdir("opamroot") do |opamroot|
@@ -127,6 +111,11 @@ class Semgrep < Formula
 
       # Used by semgrep-core for clang to find libtree-sitter.a
       ENV["LIBRARY_PATH"] = lib
+
+      # Officially suggested workaround for breaking change in setuptools v50.0.0
+      # See: https://sourceforge.net/p/ruamel-yaml/tickets/356/
+      # Relevant Issue: https://github.com/pypa/setuptools/issues/2355
+      ENV["SETUPTOOLS_USE_DISTUTILS"] = "stdlib"
 
       # Used by ocaml-tree-sitter to find tree-sitter/*.h headers
       ENV.append_path "PKG_CONFIG_PATH", "#{lib}/pkgconfig"
@@ -139,7 +128,6 @@ class Semgrep < Formula
       ENV.deparallelize { system "opam", "switch", "create", "ocaml-base-compiler.4.10.0" }
 
       system "opam", "exec", "--", "make", "setup"
-      system "opam", "install", "./pfff"
 
       # Install tree-sitter
       cd "ocaml-tree-sitter" do
