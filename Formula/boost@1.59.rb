@@ -17,6 +17,8 @@ class BoostAT159 < Formula
 
   keg_only :versioned_formula
 
+  disable! because: :versioned_formula
+
   # Fixed compilation of operator<< into a record ostream, when
   # the operator right hand argument is not directly supported by
   # formatting_ostream. Fixed https://svn.boost.org/trac/boost/ticket/11549
