@@ -18,7 +18,9 @@ class Netdata < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+
   depends_on "json-c"
   depends_on "libuv"
   depends_on "lz4"
@@ -27,6 +29,26 @@ class Netdata < Formula
   resource "judy" do
     url "https://downloads.sourceforge.net/project/judy/judy/Judy-1.0.5/Judy-1.0.5.tar.gz"
     sha256 "d2704089f85fdb6f2cd7e77be21170ced4b4375c03ef1ad4cf1075bd414a63eb"
+  end
+
+  # Requires pinned, vendored libwebsockets to support ACLK
+  # See https://github.com/netdata/netdata/issues/9061
+  resource "libwebsockets" do
+    # https://github.com/netdata/netdata/blob/v1.24.0/packaging/libwebsockets.version
+    url "https://github.com/warmcat/libwebsockets/archive/v3.2.2.tar.gz"
+
+    # https://github.com/netdata/netdata/blob/v1.24.0/packaging/libwebsockets.checksums
+    sha256 "166d6e17cab64bfc10c2a71799c298284540a1fa63f6ea3de5caccb34502243c"
+  end
+
+  # Requires patched libmosquitto to support ACLK
+  # See https://github.com/netdata/netdata/issues/9061
+  resource "mosquitto" do
+    # https://github.com/netdata/netdata/blob/master/packaging/mosquitto.version
+    url "https://github.com/netdata/mosquitto/archive/v.1.6.8_Netdata-4.tar.gz"
+
+    # https://github.com/netdata/netdata/blob/master/packaging/mosquitto.checksums
+    sha256 "6af837c388b1bcd459220936c422b70a987c60f4d5f88b09eada43d713529284"
   end
 
   def install
@@ -44,6 +66,31 @@ class Netdata < Formula
       end
     end
 
+    # We build a pinned verison of libwebsockets as static library
+    libwebsocketsprefix = "#{buildpath}/externaldeps/libwebsockets"
+
+    resource("libwebsockets").stage do
+      system "cmake", "-D", "LWS_WITH_SOCKS5:bool=ON",
+        "-DCMAKE_INSTALL_PREFIX=#{libwebsocketsprefix}",
+        "."
+
+      system "make", "install"
+      mv "#{libwebsocketsprefix}/lib/libwebsockets.a", "#{libwebsocketsprefix}/"
+    end
+
+    # We build a patched version of libmosquitto as static library
+    mosquittoprefix = "#{buildpath}/externaldeps/mosquitto"
+
+    resource("mosquitto").stage do
+      system "cmake", "-D", "WITH_STATIC_LIBRARIES:boolean=YES",
+        "-DCMAKE_INSTALL_PREFIX=#{mosquittoprefix}",
+        "-DCMAKE_INSTALL_LIBDIR='.'",
+        "-DCMAKE_INSTALL_INCLUDEDIR='.'",
+        "."
+      system "make", "-C", "lib", "install"
+      mv "#{mosquittoprefix}/libmosquitto_static.a", "#{mosquittoprefix}/libmosquitto.a"
+    end
+
     ENV["PREFIX"] = prefix
     ENV.append "CFLAGS", "-I#{judyprefix}/include"
     ENV.append "LDFLAGS", "-L#{judyprefix}/lib"
@@ -58,9 +105,11 @@ class Netdata < Formula
                           "--with-math",
                           "--with-zlib",
                           "--enable-dbengine",
+                          "--enable-cloud",
                           "--with-user=netdata",
                           "UUID_CFLAGS=-I/usr/include",
                           "UUID_LIBS=-lc"
+
     system "make", "clean"
     system "make", "install"
 
