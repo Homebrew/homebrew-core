@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 require "cli/parser"
-require "open-uri"
-require "resource"
 require "formula"
 
 module Homebrew

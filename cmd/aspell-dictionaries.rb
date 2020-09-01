@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "cli/parser"
-require "open-uri"
 require "resource"
 require "formula"
 
@@ -21,43 +20,40 @@ module Homebrew
   def aspell_dictionaries
     aspell_dictionaries_args.parse
 
-    dict_url    = "https://ftp.gnu.org/gnu/aspell/dict"
-    dict_mirror = "https://ftpmirror.gnu.org/aspell/dict"
+    dictionary_url = "https://ftp.gnu.org/gnu/aspell/dict"
+    dictionary_mirror = "https://ftpmirror.gnu.org/aspell/dict"
+    languages = {}
 
-    languages   = {}
+    index_output, = curl_output("#{dictionary_url}/0index.html")
+    index_output.split("<tr><td>").each do |line|
+      next unless line.start_with?("<a ")
 
-    URI.parse("#{dict_url}/0index.html").open do |content|
-      content.each_line do |line|
-        break if line.start_with?("</table")
-        next unless line.start_with?("<tr><td><a/")
-
-        fields = line.split('"')
-        lang = fields[1]
-        path = fields[3]
-        lang.tr!("-", "_")
-        languages[lang] = path
-      end
+      _, language, _, path, = line.split('"')
+      language.tr!("-", "_")
+      languages[language] = path
     end
 
-    resources = languages.map do |lang, path|
-      r = Resource.new(lang)
-      r.owner = Formulary.factory("aspell")
-      r.url "#{dict_url}/#{path}"
-      r.mirror "#{dict_mirror}/#{path}"
+    resources = languages.map do |language, path|
+      r = Resource.new(language)
+      r.owner = Formula["aspell"]
+      r.url "#{dictionary_url}/#{path}"
+      r.mirror "#{dictionary_mirror}/#{path}"
       r
     end
 
-    resources.each { |r| r.fetch(verify_download_integrity: false) }
+    output = resources.map do |resource|
+      resource.fetch(verify_download_integrity: false)
 
-    resources.each do |r|
-      puts <<-EOS
-        resource "#{r.name}" do
-          url "#{r.url}"
-          mirror "#{r.mirrors.first}"
-          sha256 "#{r.cached_download.sha256}"
+      <<-EOS
+        resource "#{resource.name}" do
+          url "#{resource.url}"
+          mirror "#{resource.mirrors.first}"
+          sha256 "#{resource.cached_download.sha256}"
         end
 
       EOS
     end
+
+    puts output
   end
 end
