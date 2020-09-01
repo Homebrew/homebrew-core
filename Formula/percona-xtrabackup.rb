@@ -1,9 +1,8 @@
 class PerconaXtrabackup < Formula
   desc "Open source hot backup tool for InnoDB and XtraDB databases"
   homepage "https://www.percona.com/software/mysql-database/percona-xtrabackup"
-  url "https://www.percona.com/downloads/Percona-XtraBackup-LATEST/Percona-XtraBackup-8.0.13/source/tarball/percona-xtrabackup-8.0.13.tar.gz"
-  sha256 "760f556e85ad55bd54019ad78b1064557c68e31b6e37dc4f4ce1f0065b911f71"
-  revision 1
+  url "https://www.percona.com/downloads/Percona-XtraBackup-LATEST/Percona-XtraBackup-8.0.14/source/tarball/percona-xtrabackup-8.0.14.tar.gz"
+  sha256 "db8d6d2c6a6b016bf24b4942582ebdbd55c09253ccc78daa6911217bd5a73d5d"
 
   livecheck do
     url "https://github.com/percona/percona-xtrabackup.git"
@@ -27,22 +26,25 @@ class PerconaXtrabackup < Formula
     because: "both install libprotobuf(-lite) libraries"
 
   resource "DBI" do
-    url "https://cpan.metacpan.org/authors/id/T/TI/TIMB/DBI-1.641.tar.gz"
-    sha256 "5509e532cdd0e3d91eda550578deaac29e2f008a12b64576e8c261bb92e8c2c1"
+    url "https://cpan.metacpan.org/authors/id/T/TI/TIMB/DBI-1.643.tar.gz"
+    sha256 "8a2b993db560a2c373c174ee976a51027dd780ec766ae17620c20393d2e836fa"
   end
 
   resource "DBD::mysql" do
-    url "https://cpan.metacpan.org/authors/id/C/CA/CAPTTOFU/DBD-mysql-4.046.tar.gz"
-    sha256 "6165652ec959d05b97f5413fa3dff014b78a44cf6de21ae87283b28378daf1f7"
+    url "https://cpan.metacpan.org/authors/id/C/CA/CAPTTOFU/DBD-mysql-4.047.tar.gz"
+    sha256 "9a56d1b93a9748c25be6486075a72c416d66f61b8bb6e54492fa6408f2fbb145"
   end
 
   resource "boost" do
-    url "https://downloads.sourceforge.net/project/boost/boost/1.70.0/boost_1_70_0.tar.bz2"
-    sha256 "430ae8354789de4fd19ee52f3b1f739e1fba576f0aded0897c3c2bc00fb38778"
+    # 1.72.0 specifically required. Detailed in cmake/boost.cmake
+    url "https://dl.bintray.com/boostorg/release/1.72.0/source/boost_1_72_0.tar.gz"
+    sha256 "c66e88d5786f2ca4dbebb14e06b566fb642a1a6947ad8cc9091f9f445134143f"
   end
 
   def install
-    cmake_args = %w[
+    (buildpath/"boost").install resource("boost")
+
+    args = %W[
       -DBUILD_CONFIG=xtrabackup_release
       -DCOMPILATION_COMMENT=Homebrew
       -DINSTALL_PLUGINDIR=lib/percona-xtrabackup/plugin
@@ -50,20 +52,15 @@ class PerconaXtrabackup < Formula
       -DWITH_MAN_PAGES=ON
       -DINSTALL_MYSQLTESTDIR=
       -DCMAKE_CXX_FLAGS="-DBOOST_NO_CXX11_HDR_ARRAY"
+      -DWITH_BOOST=#{buildpath}/boost
     ]
 
     # macOS has this value empty by default.
     # See https://bugs.python.org/issue18378#msg215215
     ENV["LC_ALL"] = "en_US.UTF-8"
 
-    # 1.70.0 specifically required. Detailed in cmake/boost.cmake
-    (buildpath/"boost_1_70_0").install resource("boost")
-    cmake_args << "-DWITH_BOOST=#{buildpath}/boost_1_70_0"
-
-    cmake_args.concat std_cmake_args
-
     mkdir "build" do
-      system "cmake", "..", *cmake_args
+      system "cmake", "..", *std_cmake_args, *args
       system "make"
       system "make", "install"
     end
