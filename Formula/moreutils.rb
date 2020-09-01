@@ -2,8 +2,12 @@ class Moreutils < Formula
   desc "Collection of tools that nobody wrote when UNIX was young"
   homepage "https://joeyh.name/code/moreutils/"
   url "https://git.joeyh.name/git/moreutils.git",
-      tag:      "0.63",
-      revision: "aeddd0f4caa9d10aaa691040773fa4764e12ff46"
+      tag:      "0.64",
+      revision: "859c6e47b53410dbdcdc714385516bcb81710075"
+  license all_of: [
+    "GPL-2.0-or-later",
+    { any_of: ["GPL-2.0-only", "Artistic-2.0"] },
+  ]
   head "https://git.joeyh.name/git/moreutils.git"
 
   bottle do
@@ -25,13 +29,13 @@ class Moreutils < Formula
   conflicts_with "task-spooler", because: "both install a `ts` executable"
 
   resource "Time::Duration" do
-    url "https://cpan.metacpan.org/authors/id/N/NE/NEILB/Time-Duration-1.20.tar.gz"
-    sha256 "458205b528818e741757b2854afac5f9af257f983000aae0c0b1d04b5a9cbbb8"
+    url "https://cpan.metacpan.org/authors/id/N/NE/NEILB/Time-Duration-1.21.tar.gz"
+    sha256 "fe340eba8765f9263694674e5dff14833443e19865e5ff427bbd79b7b5f8a9b8"
   end
 
   resource "IPC::Run" do
-    url "https://cpan.metacpan.org/authors/id/T/TO/TODDR/IPC-Run-0.94.tar.gz"
-    sha256 "2eb336c91a2b7ea61f98e5b2282d91020d39a484f16041e2365ffd30f8a5605b"
+    url "https://cpan.metacpan.org/authors/id/T/TO/TODDR/IPC-Run-20200505.0.tar.gz"
+    sha256 "816ebf217fa0df99c583d73c0acc6ced78ac773787c664c75cbf140bb7e4c901"
   end
 
   def install
@@ -52,7 +56,6 @@ class Moreutils < Formula
               "#{Formula["docbook-xsl"].opt_prefix}/docbook-xsl"
     end
     system "make", "all"
-    system "make", "check"
     system "make", "install", "PREFIX=#{prefix}"
     bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
   end
