@@ -22,5 +22,6 @@ class Gitleaks < Formula
   test do
     assert_match "remote repository is empty",
       shell_output("#{bin}/gitleaks -r https://github.com/gitleakstest/emptyrepo.git", 2)
+    assert_equal version, shell_output("#{bin}/gitleaks --version")
   end
 end
