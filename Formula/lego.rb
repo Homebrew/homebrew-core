@@ -2,8 +2,8 @@ class Lego < Formula
   desc "Let's Encrypt client"
   homepage "https://go-acme.github.io/lego/"
   url "https://github.com/go-acme/lego.git",
-    tag:      "v3.8.0",
-    revision: "bcb5be49c87bab63f9bab23823fd79c7f3d4390a"
+    tag:      "v3.9.0",
+    revision: "75c3a496344b89e2c75f4d5f282bfaf8b3657f24"
   license "MIT"
 
   bottle do
@@ -18,7 +18,6 @@ class Lego < Formula
   def install
     system "go", "build", "-ldflags", "-s -w -X main.version=#{version}", "-trimpath",
         "-o", bin/"lego", "cmd/lego/main.go"
-    prefix.install_metafiles
   end
 
   test do
