@@ -1,9 +1,9 @@
 class Cassandra < Formula
   desc "Eventually consistent, distributed key-value store"
   homepage "https://cassandra.apache.org"
-  url "https://www.apache.org/dyn/closer.lua?path=cassandra/3.11.7/apache-cassandra-3.11.7-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/cassandra/3.11.7/apache-cassandra-3.11.7-bin.tar.gz"
-  sha256 "b9c0d5b08ae2660810227b1881e8b7b5bc9ae0549cb8efb866b99884ad7346e2"
+  url "https://www.apache.org/dyn/closer.lua?path=cassandra/3.11.8/apache-cassandra-3.11.8-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/cassandra/3.11.8/apache-cassandra-3.11.8-bin.tar.gz"
+  sha256 "3d04e4b79c3f264cb491e1bc5127ec465102b55005a6c8f4af8548b32e74bf50"
   license "Apache-2.0"
 
   livecheck do
