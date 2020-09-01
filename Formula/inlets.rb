@@ -2,8 +2,8 @@ class Inlets < Formula
   desc "Expose your local endpoints to the Internet"
   homepage "https://github.com/inlets/inlets"
   url "https://github.com/inlets/inlets.git",
-      tag:      "2.7.3",
-      revision: "2934c3c247ea28996ebb50889403befced94b29a"
+      tag:      "2.7.4",
+      revision: "dbf188f70991a5aa8fabad07fcd7d97dc51ae06a"
   license "MIT"
 
   livecheck do
@@ -13,9 +13,9 @@ class Inlets < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8706b38a917c0acfa8343479db33c206a78132d01992834a39816400d65949f9" => :catalina
-    sha256 "20ee65ae593585ac381997df0862a2267383a216a14440e75f775373df9117fb" => :mojave
-    sha256 "43a486286ab55be362fd2c2a5c3a5764b00fd671fc93077d82b70b2719a62e5a" => :high_sierra
+    sha256 "2665dd5a147240033c67120a95284423d1f47a347377b81c0d71cf3bea1f5b85" => :catalina
+    sha256 "3add1c9d7ce619e937576a8f1b353cdc1a9c18d13cfe3cd600a2c24138f571a4" => :mojave
+    sha256 "aba2e2c5234909362bd382d56dc76ecd9024ece8c2eedc9f0c7832075935c4be" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -23,16 +23,10 @@ class Inlets < Formula
   uses_from_macos "ruby" => :test
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/inlets/inlets").install buildpath.children
-    cd "src/github.com/inlets/inlets" do
-      commit = Utils.safe_popen_read("git", "rev-parse", "HEAD").chomp
-      system "go", "build", "-ldflags",
-             "-s -w -X main.GitCommit=#{commit} -X main.Version=#{version}",
-             "-a",
-             "-installsuffix", "cgo", "-o", bin/"inlets"
-      prefix.install_metafiles
-    end
+    commit = Utils.safe_popen_read("git", "rev-parse", "HEAD").chomp
+    system "go", "build", *std_go_args,
+            "-ldflags", "-s -w -X main.GitCommit=#{commit} -X main.Version=#{version}",
+            "-a", "-installsuffix", "cgo"
   end
 
   def cleanup(name, pid)
