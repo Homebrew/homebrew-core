@@ -3,8 +3,8 @@ class CloudformationCli < Formula
 
   desc "CloudFormation Provider Development Toolkit"
   homepage "https://github.com/aws-cloudformation/cloudformation-cli/"
-  url "https://files.pythonhosted.org/packages/58/37/5314894aa8d90df60c0e6ac066045b071f0b0643ab8c79b19b424ab7c4b2/cloudformation-cli-0.1.7.tar.gz"
-  sha256 "b683ac89ac70368a48875405755278e3852c827aeeaf5c948d281e5b13e569ca"
+  url "https://files.pythonhosted.org/packages/73/27/9f145bc4f72359dfc912db63e78434b4feb6c5e868079581e3fcaf29a5a3/cloudformation-cli-0.1.8.tar.gz"
+  sha256 "b221d42d97069a32c7006768e859c91d649e8cb2c919c31ccf7e694fa4bd4054"
   license "Apache-2.0"
 
   livecheck do
@@ -24,18 +24,18 @@ class CloudformationCli < Formula
   uses_from_macos "expect" => :test
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/98/c3/2c227e66b5e896e15ccdae2e00bbc69aa46e9a8ce8869cc5fa96310bf612/attrs-19.3.0.tar.gz"
-    sha256 "f7b7ce16570fe9965acd6d30101a28f62fb4a7f9e926b3bbc9b61f8b04247e72"
+    url "https://files.pythonhosted.org/packages/c4/d4/c2b5232ecfc0783c697a81c13efc53a4fe285d4e2c00e0d8aed90495fade/attrs-20.1.0.tar.gz"
+    sha256 "0ef97238856430dcf9228e07f316aefc17e8939fc8507e18c6501b761ef1a42a"
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/44/90/45ced98af8786f41d7a93a95562e9c175306a3662fb11649e427460732da/boto3-1.14.34.tar.gz"
-    sha256 "781f5d1bbec6c2fe902e8855c1c8a576845eaa06630e817b0e422afa4788620e"
+    url "https://files.pythonhosted.org/packages/bb/8a/eff224d84467177305b8b0080d7501aeb2e533b2596d97a0984bec4e957e/boto3-1.14.54.tar.gz"
+    sha256 "4196b418598851ffd10cf9d1606694673cbfeca4ddf8b25d4e50addbd2fc60bf"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/80/8e/644892b4f5ec5c495f20e3d26c9a95aab64058d46b4445f37eac906948c3/botocore-1.17.34.tar.gz"
-    sha256 "ff39ec54893397df3c14dd516aedeaff12bb7c363051d8b9bd5fc86bc3e68231"
+    url "https://files.pythonhosted.org/packages/0b/d4/edb5b5a0ddc14bec3b572606f01892331215e9ccc4afc503a2857044c9e0/botocore-1.17.54.tar.gz"
+    sha256 "6fe05837646447d61acdaf1e3401b92cd9309f00b19c577a50d0ade7735a3403"
   end
 
   resource "certifi" do
@@ -54,8 +54,8 @@ class CloudformationCli < Formula
   end
 
   resource "cloudformation-cli-java-plugin" do
-    url "https://files.pythonhosted.org/packages/53/74/849b45a6b5871cea65e8157ac7872558fb84a0f5ba12ab496ff3c2b7c9f7/cloudformation-cli-java-plugin-2.0.1.tar.gz"
-    sha256 "85659fb8aabf9edf18f0c71b6a6c8a537cac564bdb25052e9c68191a094a76f6"
+    url "https://files.pythonhosted.org/packages/42/0d/b114a517b42a4c0dc8771720075f6524e2ba2195a936dd9e888947fe5634/cloudformation-cli-java-plugin-2.0.2.tar.gz"
+    sha256 "90f72cf405d6f484a34a7a6027137e5f91ecce01adb380f3acb960265c5dacc3"
   end
 
   resource "colorama" do
@@ -69,8 +69,8 @@ class CloudformationCli < Formula
   end
 
   resource "hypothesis" do
-    url "https://files.pythonhosted.org/packages/11/bb/183d813e38cfe9e30955986bd25e61f0f6a92506bdde4c53c8d0edb3baf2/hypothesis-5.23.9.tar.gz"
-    sha256 "1dc52986324802b1c5b2fe3edc96d22f58a0fb20aacfdb0ebe9d1038ca397485"
+    url "https://files.pythonhosted.org/packages/ba/99/4281802a23e0388d619380bca5e6496fb49a3bca2ad9b79cf86cc82ec706/hypothesis-5.30.0.tar.gz"
+    sha256 "d810af02dcb0edabb36dd77f3db01b89a4028098dad237bafeaf23060e1dd5be"
   end
 
   resource "idna" do
@@ -104,8 +104,8 @@ class CloudformationCli < Formula
   end
 
   resource "more-itertools" do
-    url "https://files.pythonhosted.org/packages/67/4a/16cb3acf64709eb0164e49ba463a42dc45366995848c4f0cf770f57b8120/more-itertools-8.4.0.tar.gz"
-    sha256 "68c70cc7167bdf5c7c9d8f6954a7837089c6a36bf565383919bb595efb8a17e5"
+    url "https://files.pythonhosted.org/packages/d6/03/37d7c431c4c1c17507fb7b89240ddb7be70f2027277960d525f1679363c1/more-itertools-8.5.0.tar.gz"
+    sha256 "6f83822ae94818eae2612063a5101a7311e68ae8002005b5e05f03fd74a86a20"
   end
 
   resource "packaging" do
