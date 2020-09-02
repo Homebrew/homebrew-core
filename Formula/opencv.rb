@@ -3,8 +3,9 @@ class Opencv < Formula
   homepage "https://opencv.org/"
   url "https://github.com/opencv/opencv/archive/4.4.0.tar.gz"
   sha256 "bb95acd849e458be7f7024d17968568d1ccd2f0681d47fd60d34ffb4b8c52563"
+  # watch for license change to Apache-2.0 with next release
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -39,6 +40,13 @@ class Opencv < Formula
   resource "contrib" do
     url "https://github.com/opencv/opencv_contrib/archive/4.4.0.tar.gz"
     sha256 "a69772f553b32427e09ffbfd0c8d5e5e47f7dab8b3ffc02851ffd7f912b76840"
+
+    # additional vtk 9 support, remove after next release
+    # upstream PR https://github.com/opencv/opencv_contrib/pull/2659
+    patch do
+      url "https://github.com/opencv/opencv_contrib/commit/aace65cc1269629f32874389b33e85fdb7819b02.diff?full_index=1"
+      sha256 "af98e588626cb79e5064995e6cf22f55e40518649cf3eed0d5bd6963f2a19e20"
+    end
   end
 
   def install
