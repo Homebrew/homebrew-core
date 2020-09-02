@@ -23,10 +23,11 @@ class Kustomize < Formula
 
   def install
     revision = Utils.safe_popen_read("git", "rev-parse", "HEAD").strip
+    tag = Utils.safe_popen_read("git", "tag", "--contains", "HEAD").strip
 
     cd "kustomize" do
       ldflags = %W[
-        -s -X sigs.k8s.io/kustomize/api/provenance.version=kustomize/v#{version}
+        -s -X sigs.k8s.io/kustomize/api/provenance.version=#{tag}
         -X sigs.k8s.io/kustomize/api/provenance.gitCommit=#{revision}
         -X sigs.k8s.io/kustomize/api/provenance.buildDate=#{Time.now.iso8601}
       ]
