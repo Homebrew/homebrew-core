@@ -3,6 +3,7 @@ class Sbcl < Formula
   homepage "http://www.sbcl.org/"
   url "https://downloads.sourceforge.net/project/sbcl/sbcl/2.0.8/sbcl-2.0.8-source.tar.bz2"
   sha256 "208d46f7b94d256d036f0efc9734e6b34a85c51bb03c3eb8bf39b7a3efe699f7"
+  license all_of: [:public_domain, "MIT", "Xerox", "BSD-3-Clause"]
 
   livecheck do
     url :stable
