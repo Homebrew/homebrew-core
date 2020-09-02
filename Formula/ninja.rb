@@ -20,7 +20,6 @@ class Ninja < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "re2c"
 
   # from https://github.com/ninja-build/ninja/pull/1836, remove in next release
   patch do
