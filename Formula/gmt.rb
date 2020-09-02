@@ -1,9 +1,9 @@
 class Gmt < Formula
   desc "Tools for manipulating and plotting geographic and Cartesian data"
   homepage "https://www.generic-mapping-tools.org/"
-  url "https://github.com/GenericMappingTools/gmt/releases/download/6.1.0/gmt-6.1.0-src.tar.xz"
-  mirror "https://mirrors.ustc.edu.cn/gmt/gmt-6.1.0-src.tar.xz"
-  sha256 "ad02780153c53a1116ae0cc7945b6f533f066af44c30d7f95ff138cfede1867c"
+  url "https://github.com/GenericMappingTools/gmt/releases/download/6.1.1/gmt-6.1.1-src.tar.xz"
+  mirror "https://mirrors.ustc.edu.cn/gmt/gmt-6.1.1-src.tar.xz"
+  sha256 "d476cba999340648146ef53ab4a3f64858cbd2f5511cdec9f7f06f3fb7896625"
   license "LGPL-3.0"
   head "https://github.com/GenericMappingTools/gmt.git"
 
