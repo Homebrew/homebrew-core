@@ -4,6 +4,7 @@ class Gdal < Formula
   url "https://download.osgeo.org/gdal/3.1.2/gdal-3.1.2.tar.xz"
   sha256 "767c8d0dfa20ba3283de05d23a1d1c03a7e805d0ce2936beaff0bb7d11450641"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://download.osgeo.org/gdal/CURRENT/"
@@ -58,6 +59,27 @@ class Gdal < Formula
   end
 
   conflicts_with "cpl", because: "both install cpl_error.h"
+
+  # Fix detection of Poppler version.
+  # Remove on next release.
+  # https://github.com/OSGeo/gdal/pull/2825
+  patch :p2 do
+    url "https://github.com/OSGeo/gdal/commit/2b863dbabdc2a7d724f9fdf3e6ff20a142b619f6.patch?full_index=1"
+    sha256 "f07af74558040e5a6c84139fdd384df039fbd8f15121d203db39e3bd98b3e433"
+  end
+
+  # Fix build with Jasper.
+  # Remove on next release.
+  # https://github.com/OSGeo/gdal/issues/2844
+  patch :p2 do
+    url "https://github.com/OSGeo/gdal/commit/ab72c4893e6d14d488dfed25745d79f11bee45b9.patch?full_index=1"
+    sha256 "54e10575646666f31fb2a87b7fc5b2831282fe2fa08642231e94fdee1fee8374"
+  end
+
+  patch :p2 do
+    url "https://github.com/OSGeo/gdal/commit/e236eeaed1be45a4af457565085e3db1f2fc489f.patch?full_index=1"
+    sha256 "5b582258a556d96712761932bf94dbd3343a7a0ac61bb53c6c83a7ba4c962fe5"
+  end
 
   def install
     args = [
