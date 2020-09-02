@@ -80,7 +80,7 @@ class Mutt < Formula
 
   def caveats
     <<~EOS
-      mutt_dotlock(1) has been installed, but does not have the permissions lock
+      mutt_dotlock(1) has been installed, but does not have the permissions to lock
       spool files in /var/mail. To grant the necessary permissions, run
 
         sudo chgrp mail #{bin}/mutt_dotlock
