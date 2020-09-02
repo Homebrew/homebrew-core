@@ -26,7 +26,7 @@ class Kustomize < Formula
 
     cd "kustomize" do
       ldflags = %W[
-        -s -X sigs.k8s.io/kustomize/api/provenance.version=#{version}
+        -s -X sigs.k8s.io/kustomize/api/provenance.version=kustomize/v#{version}
         -X sigs.k8s.io/kustomize/api/provenance.gitCommit=#{revision}
         -X sigs.k8s.io/kustomize/api/provenance.buildDate=#{Time.now.iso8601}
       ]
@@ -35,7 +35,7 @@ class Kustomize < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/kustomize version")
+    assert_match "kustomize/v#{version.to_s}", shell_output("#{bin}/kustomize version")
 
     (testpath/"kustomization.yaml").write <<~EOS
       resources:
