@@ -3,7 +3,7 @@ class PandocCrossref < Formula
   homepage "https://github.com/lierdakil/pandoc-crossref"
   url "https://hackage.haskell.org/package/pandoc-crossref-0.3.8.0/pandoc-crossref-0.3.8.0.tar.gz"
   sha256 "2d9fed490ea4e9cc617cf545e6035bebf2332843948767ad8d99b8dbda28e2b5"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :stable
