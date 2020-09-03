@@ -1,8 +1,8 @@
 class Cjson < Formula
   desc "Ultralightweight JSON parser in ANSI C"
   homepage "https://github.com/DaveGamble/cJSON"
-  url "https://github.com/DaveGamble/cJSON/archive/v1.7.13.tar.gz"
-  sha256 "d4e77a38f540f2c37f55758f2666655314f1f51c716fea5f279659940efdcf04"
+  url "https://github.com/DaveGamble/cJSON/archive/v1.7.14.tar.gz"
+  sha256 "fb50a663eefdc76bafa80c82bc045af13b1363e8f45cec8b442007aef6a41343"
   license "MIT"
 
   bottle do
