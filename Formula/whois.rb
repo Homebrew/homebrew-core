@@ -13,6 +13,8 @@ class Whois < Formula
     sha256 "79bc883f7bbf41fe2e28eb1edb319fa6f62a2dde5ca1308d653f160f1ecc0e25" => :high_sierra
   end
 
+  keg_only :provided_by_macos
+
   depends_on "pkg-config" => :build
   depends_on "libidn2"
 
@@ -23,13 +25,6 @@ class Whois < Formula
     bin.install "whois"
     man1.install "whois.1"
     man5.install "whois.conf.5"
-  end
-
-  def caveats
-    <<~EOS
-      Debian whois has been installed as `whois` and may shadow the
-      system binary of the same name.
-    EOS
   end
 
   test do
