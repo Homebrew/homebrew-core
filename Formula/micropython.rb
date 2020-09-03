@@ -2,10 +2,9 @@ class Micropython < Formula
   desc "Python implementation for microcontrollers and constrained systems"
   homepage "https://www.micropython.org/"
   url "https://github.com/micropython/micropython.git",
-      tag:      "v1.12",
-      revision: "1f371947309c5ea6023b6d9065415697cbc75578"
+      tag:      "v1.13",
+      revision: "b0932fcf2e2f9a81abf7737ed4b2573bd9ad4a49"
   license "MIT"
-  revision 2
 
   bottle do
     cellar :any
