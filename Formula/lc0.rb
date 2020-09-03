@@ -3,8 +3,8 @@ class Lc0 < Formula
   homepage "https://lczero.org/"
 
   url "https://github.com/LeelaChessZero/lc0.git",
-      tag:      "v0.26.1",
-      revision: "2520eb375d459c67e59edb11ca7be1726efef9c6"
+      tag:      "v0.26.2",
+      revision: "5869d48b5aa4d3ba2b26ebb00578d8dadcd3c5db"
   license "GPL-3.0"
 
   bottle do
