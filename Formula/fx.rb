@@ -3,8 +3,8 @@ require "language/node"
 class Fx < Formula
   desc "Command-line JSON processing tool"
   homepage "https://github.com/antonmedv/fx"
-  url "https://registry.npmjs.org/fx/-/fx-19.0.1.tgz"
-  sha256 "3f71183462975f5b3a7fde39971384fe519ae55b256a6b6bae83ad03c359db3f"
+  url "https://registry.npmjs.org/fx/-/fx-20.0.0.tgz"
+  sha256 "dd5d765cac1828dd1c7466d51d8eccf19255dc6c978530b2b8c85d5bba6b0549"
   license "MIT"
 
   livecheck do
