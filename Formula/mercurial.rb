@@ -5,7 +5,7 @@ class Mercurial < Formula
   homepage "https://mercurial-scm.org/"
   url "https://www.mercurial-scm.org/release/mercurial-5.5.1.tar.gz"
   sha256 "4f95ad8d575941835d67210e9f8700cc594a441e4fd0bd029c084923b4f40874"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://www.mercurial-scm.org/release/"
