@@ -1,21 +1,10 @@
 class Exodriver < Formula
   desc "Thin interface to LabJack devices"
   homepage "https://labjack.com/support/linux-and-mac-os-x-drivers"
+  url "https://github.com/labjack/exodriver/archive/v2.6.0.tar.gz"
+  sha256 "d2ccf992bf42b50e7c009ae3d9d3d3191a67bfc8a2027bd54ba4cbd4a80114b2"
   license "MIT"
-  revision 1
   head "https://github.com/labjack/exodriver.git"
-
-  stable do
-    url "https://github.com/labjack/exodriver/archive/v2.5.3.tar.gz"
-    sha256 "24cae64bbbb29dc0ef13f482f065a14d075d2e975b7765abed91f1f8504ac2a5"
-
-    # Fix "__dyld section not supported".
-    # Remove with the next release.
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/f33e3149628486cd4db494e259001f4ee59f8694/exodriver/2.5.3-dyld.patch"
-      sha256 "9098aabb25c65d4e9bafcab9640f3422e28a9000603c4d5c26525a51fe880bbb"
-    end
-  end
 
   bottle do
     cellar :any
