@@ -5,6 +5,7 @@ class Argocd < Formula
       tag:      "v1.7.3",
       revision: "b4c79ccb88173604c3786dcd34e83a9d7e8919a5"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -20,6 +21,11 @@ class Argocd < Formula
     inreplace "Makefile", "CGO_ENABLED=0", ""
     system "make", "cli-local"
     bin.install "dist/argocd"
+
+    output = Utils.safe_popen_read("#{bin}/argocd", "completion", "bash")
+    (bash_completion/"argocd").write output
+    output = Utils.safe_popen_read("#{bin}/argocd", "completion", "zsh")
+    (zsh_completion/"_argocd").write output
   end
 
   test do
