@@ -5,6 +5,7 @@ class Argo < Formula
       tag:      "v2.10.1",
       revision: "854444e47ac00d146cb83d174049bfbb2066bfb2"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -22,6 +23,11 @@ class Argo < Formula
     inreplace "Makefile", "CGO_ENABLED=0", ""
     system "make", "dist/argo"
     bin.install "dist/argo"
+
+    output = Utils.safe_popen_read("#{bin}/argo", "completion", "bash")
+    (bash_completion/"argo").write output
+    output = Utils.safe_popen_read("#{bin}/argo", "completion", "zsh")
+    (zsh_completion/"_argo").write output
   end
 
   test do
