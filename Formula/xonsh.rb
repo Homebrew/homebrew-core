@@ -3,8 +3,8 @@ class Xonsh < Formula
 
   desc "Python-ish, BASHwards-compatible shell language and command prompt"
   homepage "https://xon.sh/"
-  url "https://github.com/xonsh/xonsh/archive/0.9.20.tar.gz"
-  sha256 "f4f37e4162dc640868ad88155ad7a236079ec2a194e806415d32654bf882b99b"
+  url "https://github.com/xonsh/xonsh/archive/0.9.21.tar.gz"
+  sha256 "b6f6a0fc8b388480bbf7aa1900dc97edf63d100a7dd572be8e5031b754e1c9f5"
   license "BSD-2-Clause-Views"
   head "https://github.com/xonsh/xonsh.git"
 
