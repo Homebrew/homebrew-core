@@ -3,6 +3,7 @@ class GitAnnex < Formula
   homepage "https://git-annex.branchable.com/"
   url "https://hackage.haskell.org/package/git-annex-8.20200810/git-annex-8.20200810.tar.gz"
   sha256 "e631c9d52e440f80e9d305c95a078dcae71f200125bca91e49d5b8e2d864c6f3"
+  revision 1
   head "git://git-annex.branchable.com/"
 
   livecheck do
@@ -25,7 +26,8 @@ class GitAnnex < Formula
 
   def install
     system "cabal", "v2-update"
-    system "cabal", "v2-install", *std_cabal_v2_args
+    system "cabal", "v2-install", *std_cabal_v2_args,
+                    "--flags=+S3"
     bin.install_symlink "git-annex" => "git-annex-shell"
   end
 
