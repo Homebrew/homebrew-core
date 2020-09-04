@@ -1,8 +1,8 @@
 class Oil < Formula
   desc "Bash-compatible Unix shell with more consistent syntax and semantics"
   homepage "https://www.oilshell.org/"
-  url "https://www.oilshell.org/download/oil-0.7.0.tar.gz"
-  sha256 "da462387a467661cb9d0ec9b667aecd7be3f54ce662cfbb2292f4795fd3f7f20"
+  url "https://www.oilshell.org/download/oil-0.8.0.tar.gz"
+  sha256 "0ca934741aea5a86dceeb5febd61563f7d7fbd49f0c55dc0fdf6e71b8c87a590"
   license "Apache-2.0"
   head "https://github.com/oilshell/oil.git"
 
@@ -13,6 +13,8 @@ class Oil < Formula
   end
 
   def install
+    # Disable hardcoded HAVE_EPOLL, unsupported in macOS
+    inreplace "Python-2.7.13/pyconfig.h", /^(#define HAVE_EPOLL .*)$/, '/* \1 */'
     system "./configure", "--prefix=#{prefix}"
     system "make"
     system "./install"
