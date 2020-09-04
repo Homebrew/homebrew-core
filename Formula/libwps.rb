@@ -3,6 +3,7 @@ class Libwps < Formula
   homepage "https://libwps.sourceforge.io"
   url "https://downloads.sourceforge.net/project/libwps/libwps/libwps-0.4.12/libwps-0.4.12.tar.xz"
   sha256 "e21afb52a06d03b774c5a8c72679687ab64891b91ce0c3bdf2d3e97231534edb"
+  license any_of: ["LGPL-2.1-or-later", "MPL-2.0"]
 
   livecheck do
     url :stable
