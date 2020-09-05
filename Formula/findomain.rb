@@ -3,7 +3,7 @@ class Findomain < Formula
   homepage "https://github.com/Edu4rdSHL/findomain"
   url "https://github.com/Edu4rdSHL/findomain/archive/2.1.2.tar.gz"
   sha256 "163e672be05fc9cb598ccd4f2023735b05cebd1b39d21bec82b00ea86023b047"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   bottle do
     cellar :any_skip_relocation
