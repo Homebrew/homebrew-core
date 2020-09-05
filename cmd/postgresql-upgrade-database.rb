@@ -104,7 +104,7 @@ module Homebrew
         initdb_args += if setting == "server_encoding"
           ["-E #{value}"]
         else
-          ["--#{setting.tr!("_", "-")}=#{value}"]
+          ["--#{setting.tr("_", "-")}=#{value}"]
         end
       end
 
