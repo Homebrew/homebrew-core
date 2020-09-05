@@ -1,10 +1,9 @@
 class Libvirt < Formula
   desc "C virtualization API"
   homepage "https://www.libvirt.org"
-  url "https://libvirt.org/sources/libvirt-6.6.0.tar.xz"
-  sha256 "94e52ddd2d71b650e1a7eb5ab7e651f9607ecee207891216714020b8ff081ef9"
+  url "https://libvirt.org/sources/libvirt-6.7.0.tar.xz"
+  sha256 "655b9476c797cdd3bb12e2520acc37335e5299b2d56a5bb9ab3f55db40161342"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
-  revision 1
 
   livecheck do
     url "https://libvirt.org/sources/"
@@ -19,14 +18,10 @@ class Libvirt < Formula
 
   head do
     url "https://github.com/libvirt/libvirt.git"
-    depends_on "meson" => :build
-    depends_on "ninja" => :build
   end
-  # remove build deps autoconf/automake/libtool in v6.7.0+
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
   depends_on "docutils" => :build
-  depends_on "libtool" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "perl" => :build
   depends_on "pkg-config" => :build
   depends_on "python@3.8" => :build
@@ -35,49 +30,23 @@ class Libvirt < Formula
   depends_on "glib"
   depends_on "gnutls"
   depends_on "libgcrypt"
+  depends_on "libiscsi"
+  depends_on "libssh2"
   depends_on "yajl"
 
   def install
     mkdir "build" do
-      if build.head?
-        args = %W[
-          --localstatedir=#{var}
-          --mandir=#{man}
-          --sysconfdir=#{etc}
-          -Ddriver_esx=enabled
-          -Ddriver_qemu=enabled
-          -Dinit_script=none
-        ]
-        system "meson", *std_meson_args, *args, ".."
-        system "meson", "compile"
-        system "meson", "install"
-      else
-        args = %W[
-          --no-git
-          --prefix=#{prefix}
-          --localstatedir=#{var}
-          --mandir=#{man}
-          --sysconfdir=#{etc}
-          --with-esx
-          --with-init-script=none
-          --with-remote
-          --with-test
-          --with-vbox
-          --with-vmware
-          --with-qemu
-        ]
-
-        args << "ac_cv_path_RPCGEN=#{Formula["rpcgen"].opt_prefix}/bin/rpcgen"
-
-        # Work around a gnulib issue with macOS Catalina
-        args << "gl_cv_func_ftello_works=yes"
-
-        system "../autogen.sh", *args
-
-        # Compilation of docs doesn't get done if we jump straight to "make install"
-        system "make"
-        system "make", "install"
-      end
+      args = %W[
+        --localstatedir=#{var}
+        --mandir=#{man}
+        --sysconfdir=#{etc}
+        -Ddriver_esx=enabled
+        -Ddriver_qemu=enabled
+        -Dinit_script=none
+      ]
+      system "meson", *std_meson_args, *args, ".."
+      system "meson", "compile"
+      system "meson", "install"
     end
   end
 

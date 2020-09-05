@@ -3,7 +3,8 @@ class LibvirtGlib < Formula
   homepage "https://libvirt.org/"
   url "https://libvirt.org/sources/glib/libvirt-glib-3.0.0.tar.gz"
   sha256 "7fff8ca9a2b723dbfd04223b1c7624251c8bf79eb57ec27362a7301b2dd9ebfe"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
+  revision 1
 
   livecheck do
     url "https://libvirt.org/sources/glib/"
