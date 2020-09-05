@@ -3,8 +3,8 @@ class OciCli < Formula
 
   desc "Oracle Cloud Infrastructure CLI"
   homepage "https://docs.cloud.oracle.com/iaas/Content/API/Concepts/cliconcepts.htm"
-  url "https://github.com/oracle/oci-cli/archive/v2.12.8.tar.gz"
-  sha256 "c15832ecf35222650183ec239d2664f776c7f5d830e4dc280569f6cc2f332ed7"
+  url "https://github.com/oracle/oci-cli/archive/v2.12.9.tar.gz"
+  sha256 "f1fa5c35ac273532edc772733786cae2d4a6b3517dfcb0cebea2ce1186b91d84"
   license any_of: ["UPL-1.0", "Apache-2.0"]
   head "https://github.com/oracle/oci-cli.git"
 
@@ -48,13 +48,13 @@ class OciCli < Formula
   end
 
   resource "jmespath" do
-    url "https://files.pythonhosted.org/packages/2c/30/f0162d3d83e398c7a3b70c91eef61d409dea205fb4dc2b47d335f429de32/jmespath-0.9.4.tar.gz"
-    sha256 "bde2aef6f44302dfb30320115b17d030798de8c4110e28d5cf6cf91a7a31074c"
+    url "https://files.pythonhosted.org/packages/3c/56/3f325b1eef9791759784aa5046a8f6a1aff8f7c898a2e34506771d3b99d8/jmespath-0.10.0.tar.gz"
+    sha256 "b85d0567b8666149a93172712e68920734333c0ce7e89b78b3e987f71e5ed4f9"
   end
 
   resource "oci" do
-    url "https://files.pythonhosted.org/packages/7d/fc/fc4c397c152a98a20723d3e6516df76ebc1e70806377a690473518ccd66f/oci-2.21.1.tar.gz"
-    sha256 "c053a5f20f06b41ad106d24780403947dedbe864479241d11834be76bc9ba3df"
+    url "https://files.pythonhosted.org/packages/7c/6b/f7200106c373b52e2c51c64bf0cc65211ab0cb323384a6a6cce04a11d3b9/oci-2.21.2.tar.gz"
+    sha256 "89a4bdb55ced4d84ec4cd69fef1facfff68211e24576ebc4653152181dd30280"
   end
 
   resource "pycparser" do
