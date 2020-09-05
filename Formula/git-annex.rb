@@ -4,7 +4,7 @@ class GitAnnex < Formula
   url "https://hackage.haskell.org/package/git-annex-8.20200810/git-annex-8.20200810.tar.gz"
   sha256 "e631c9d52e440f80e9d305c95a078dcae71f200125bca91e49d5b8e2d864c6f3"
   license all_of: ["AGPL-3.0-or-later", "BSD-2-Clause", "BSD-3-Clause",
-                   "GPL-2.0-only", "GPL-3.0-or-later", "icon-license", "MIT"]
+                   "GPL-2.0-only", "GPL-3.0-or-later", "MIT"]
   revision 1
   head "git://git-annex.branchable.com/"
 
