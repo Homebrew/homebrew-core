@@ -3,6 +3,7 @@ class Bmake < Formula
   homepage "http://www.crufty.net/help/sjg/bmake.html"
   url "http://www.crufty.net/ftp/pub/sjg/bmake-20200902.tar.gz"
   sha256 "082c0442f03f2dbef8c3171000398c1936047aa0d5a2e1efc2c8474d69403bec"
+  license "BSD-3-Clause"
 
   livecheck do
     url "http://www.crufty.net/ftp/pub/sjg/"
