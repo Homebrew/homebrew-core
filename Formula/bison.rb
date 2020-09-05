@@ -5,7 +5,7 @@ class Bison < Formula
   url "https://ftp.gnu.org/gnu/bison/bison-3.7.2.tar.xz"
   mirror "https://ftpmirror.gnu.org/bison/bison-3.7.2.tar.xz"
   sha256 "7948d193104d979c0fb0294a1854c73c89d72ae41acfc081826142578a78a91b"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
   version_scheme 1
 
   livecheck do
