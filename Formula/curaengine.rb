@@ -1,8 +1,8 @@
 class Curaengine < Formula
   desc "C++ 3D printing GCode generator"
   homepage "https://github.com/Ultimaker/CuraEngine"
-  url "https://github.com/Ultimaker/CuraEngine/archive/4.7.0.tar.gz"
-  sha256 "97edb730f7fc625bccca0ca460c751fb388135c83e0e31e86f0ba21be1b1a713"
+  url "https://github.com/Ultimaker/CuraEngine/archive/4.7.1.tar.gz"
+  sha256 "7e1e408f269a604418f37575ba8ef5f69323bebc4dd7f3091c1c2e9b000ffcbf"
   license "AGPL-3.0-or-later"
   version_scheme 1
   head "https://github.com/Ultimaker/CuraEngine.git"
