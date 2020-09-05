@@ -2,13 +2,7 @@ class Watchman < Formula
   desc "Watch files and take action when they change"
   homepage "https://github.com/facebook/watchman"
   license "Apache-2.0"
-  revision 4
   head "https://github.com/facebook/watchman.git"
-
-  stable do
-    url "https://github.com/facebook/watchman/archive/v2020.08.31.00.tar.gz"
-    sha256 "4579d17fb109a4dabb6b3ef73b44ac506e80d81b57925c6a9d80d37ed931e54e"
-  end
 
   livecheck do
     url :head
