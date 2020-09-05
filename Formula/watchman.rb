@@ -2,8 +2,9 @@ class Watchman < Formula
   desc "Watch files and take action when they change"
   homepage "https://github.com/facebook/watchman"
   license "Apache-2.0"
-  head "https://github.com/facebook/watchman.git"
-
+  url "https://github.com/facebook/watchman.git"
+  version "v2020.08.31.00"
+  
   livecheck do
     url :head
     regex(/^v?(\d+(?:\.\d+){,4})$/i)
