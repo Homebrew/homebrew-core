@@ -3,6 +3,12 @@ class PgpoolIi < Formula
   homepage "https://www.pgpool.net/mediawiki/index.php/Main_Page"
   url "https://www.pgpool.net/mediawiki/images/pgpool-II-4.1.3.tar.gz"
   sha256 "9749f3a4ca7d89376bc41932f4a267e0ca8d73db6757b16d92d8fed947734fb7"
+  license all_of: [
+    "MIT-CMU",
+    "GPL-2.0-or-later",
+    "GPL-3.0-or-later",
+    "GPL-3.0-or-later" => { with: "Bison-exception-2.2" },
+  ]
 
   livecheck do
     url "https://www.pgpool.net/mediawiki/index.php/Downloads"
