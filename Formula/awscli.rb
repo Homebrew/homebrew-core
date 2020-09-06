@@ -3,8 +3,8 @@ class Awscli < Formula
 
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://github.com/aws/aws-cli/archive/2.0.45.tar.gz"
-  sha256 "51070145ba6340e5b92c76d1d32a7290445f1adb05ded4ee065bc4f58e6e4f49"
+  url "https://github.com/aws/aws-cli/archive/2.0.46.tar.gz"
+  sha256 "adfbfe0f8238ee0e8e613671cdb1e188cd26395b8c65fe81a21fac43e71282ad"
   license "Apache-2.0"
   head "https://github.com/aws/aws-cli.git", branch: "v2"
 
@@ -14,8 +14,6 @@ class Awscli < Formula
     sha256 "d2a3bbb47ca287d6529a25aaed6646c0b2220240a0d89702c9dfc4a97a2dbe40" => :high_sierra
   end
 
-  # Some AWS APIs require TLS1.2, which system Python doesn't have before High
-  # Sierra
   depends_on "python@3.8"
 
   uses_from_macos "groff"
