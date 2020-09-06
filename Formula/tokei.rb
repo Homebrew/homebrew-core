@@ -5,6 +5,11 @@ class Tokei < Formula
   sha256 "031dabbe1253af53fea8258e11eeb352371b6cf0c790db573ca7be33f761c733"
   license "Apache-2.0"
 
+  livecheck do
+    url "https://github.com/XAMPPRocky/tokei/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "c5864a5bcefee2ab0819cd07449839ab9189d04aa8ac3302c0bab85536b6c508" => :catalina
