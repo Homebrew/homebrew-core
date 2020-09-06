@@ -16,9 +16,38 @@ class GatewayGo < Formula
   depends_on "go" => :build
 
   def install
+    (etc/"gateway-go").mkpath
     system "go", "build", "-mod=vendor", "-ldflags",
              "-s -w -X main.version=#{version} -X main.commit=#{stable.specs[:revision]} -X main.builtBy=homebrew",
              *std_go_args
+    etc.install "gateway-go.yaml" => "gateway-go/gateway-go.yaml"
+  end
+
+  plist_options manual: "gateway-go -c #{HOMEBREW_PREFIX}/etc/gateway-go/gateway-go.yaml"
+
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>KeepAlive</key>
+          <true/>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/gateway-go</string>
+            <string>-c</string>
+            <string>#{etc}/gateway-go/gateway-go.yaml</string>
+          </array>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/gateway-go.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/gateway-go.log</string>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do
