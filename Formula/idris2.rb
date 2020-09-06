@@ -4,6 +4,7 @@ class Idris2 < Formula
   url "https://github.com/idris-lang/Idris2/archive/v0.2.1.tar.gz"
   sha256 "7be16253c9592802f0ab1ebb1b635bd3e254577205e1fd7d8139b1683732fcc7"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/idris-lang/Idris2.git"
 
   bottle do
