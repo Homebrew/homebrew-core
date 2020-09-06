@@ -1,13 +1,13 @@
 class Watchman < Formula
   desc "Watch files and take action when they change"
   homepage "https://github.com/facebook/watchman"
+  url "https://github.com/facebook/watchman/archive/v2020.08.31.00.tar.gz"
   license "Apache-2.0"
-  url "https://github.com/facebook/watchman.git"
-  version "v2020.08.31.00"
-  
+  version "2020.08.31.00"
+
   livecheck do
-    url :head
-    regex(/^v?(\d+(?:\.\d+){,4})$/i)
+    url "https://github.com/facebook/watchman/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
   end
 
   bottle do
