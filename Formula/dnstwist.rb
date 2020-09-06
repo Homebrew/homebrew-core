@@ -99,7 +99,8 @@ class Dnstwist < Formula
     output = shell_output("#{bin}/dnstwist -rsw --thread=1 brew.sh")
 
     assert_match version.to_s, output
-    assert_match "Fetching content from: http://brew.sh", output
+    assert_match "Fetching content from:", output
+    assert_match "//brew.sh", output
     assert_match /Processing \d+ permutations/, output
     assert_not_match /notice: missing module/, output
   end
