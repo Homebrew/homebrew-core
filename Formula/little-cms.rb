@@ -1,6 +1,6 @@
 class LittleCms < Formula
   desc "Version 1 of the Little CMS library"
-  homepage "http://www.littlecms.com/"
+  homepage "https://www.littlecms.com/"
   url "https://downloads.sourceforge.net/project/lcms/lcms/1.19/lcms-1.19.tar.gz"
   sha256 "80ae32cb9f568af4dc7ee4d3c05a4c31fc513fc3e31730fed0ce7378237273a9"
   license "MIT"
