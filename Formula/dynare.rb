@@ -14,7 +14,7 @@ class Dynare < Formula
   end
 
   head do
-    url "https://github.com/DynareTeam/dynare.git"
+    url "https://git.dynare.org/Dynare/dynare.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
