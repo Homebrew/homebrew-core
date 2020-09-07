@@ -1,8 +1,8 @@
 class Folly < Formula
   desc "Collection of reusable C++ library artifacts developed at Facebook"
   homepage "https://github.com/facebook/folly"
-  url "https://github.com/facebook/folly/archive/v2020.08.31.00.tar.gz"
-  sha256 "ff67bcfd539f2047e801836ac01c44976b185a63ee2e6dafadd3c4a88ba46909"
+  url "https://github.com/facebook/folly/archive/v2020.09.07.00.tar.gz"
+  sha256 "9ca4130f8dbe0632d95557f40afd3cc3389e48de563d29b9f885ba2006dc84b1"
   license "Apache-2.0"
   head "https://github.com/facebook/folly.git"
 
@@ -28,6 +28,12 @@ class Folly < Formula
   depends_on "snappy"
   depends_on "xz"
   depends_on "zstd"
+
+  # https://github.com/facebook/folly/pull/1439
+  patch do
+    url "https://github.com/facebook/folly/commit/a8fef9cd797c97efc4884fc1bee9b4d990be9efc.diff?full_index=1"
+    sha256 "be6eb1b6c669ba367d53cbbc7d66d5954b77961a716da9fbba44a1ef6a5e0472"
+  end
 
   def install
     mkdir "_build" do
