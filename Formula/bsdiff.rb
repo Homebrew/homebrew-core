@@ -1,6 +1,6 @@
 class Bsdiff < Formula
   desc "Generate and apply patches to binary files"
-  homepage "https://www.daemonology.net/bsdiff"
+  homepage "https://www.daemonology.net/bsdiff/"
   # Returns 403 (forbidden) for the canonical download URL:
   # "https://www.daemonology.net/bsdiff/bsdiff-4.3.tar.gz"
   url "https://deb.debian.org/debian/pool/main/b/bsdiff/bsdiff_4.3.orig.tar.gz"
