@@ -3,7 +3,8 @@ class SdlMixer < Formula
   homepage "https://www.libsdl.org/projects/SDL_mixer/"
   url "https://www.libsdl.org/projects/SDL_mixer/release/SDL_mixer-1.2.12.tar.gz"
   sha256 "1644308279a975799049e4826af2cfc787cad2abb11aa14562e402521f86992a"
-  revision 3
+  license "Zlib"
+  revision 4
 
   livecheck do
     url "https://www.libsdl.org/projects/SDL_mixer/release/"
@@ -20,6 +21,7 @@ class SdlMixer < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "flac"
   depends_on "libmikmod"
   depends_on "libogg"
   depends_on "libvorbis"
@@ -38,6 +40,7 @@ class SdlMixer < Formula
       --prefix=#{prefix}
       --disable-dependency-tracking
       --enable-music-ogg
+      --enable-music-flac
       --disable-music-ogg-shared
       --disable-music-mod-shared
     ]
