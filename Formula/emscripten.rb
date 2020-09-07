@@ -8,8 +8,8 @@ class Emscripten < Formula
   license "MIT"
 
   stable do
-    url "https://github.com/emscripten-core/emscripten/archive/1.40.1.tar.gz"
-    sha256 "e15ad7ffa1cce35c25cac7c797d6daa0c5868905eaaf5ed1431a8228b8803dfc"
+    url "https://github.com/emscripten-core/emscripten/archive/2.0.2.tar.gz"
+    sha256 "0753e2ae2724018b0df5939f9f2781289fc619934e16dd1a062ddb3435b859ee"
 
     resource "fastcomp" do
       url "https://github.com/emscripten-core/emscripten-fastcomp/archive/1.40.1.tar.gz"
