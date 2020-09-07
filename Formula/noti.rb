@@ -1,8 +1,8 @@
 class Noti < Formula
   desc "Trigger notifications when a process completes"
   homepage "https://github.com/variadico/noti"
-  url "https://github.com/variadico/noti/archive/3.4.0.tar.gz"
-  sha256 "8fcf494084ea6eacac2e55dfcaf978452e1af0139205cd23fce71bfb20dd17fe"
+  url "https://github.com/variadico/noti/archive/3.5.0.tar.gz"
+  sha256 "04183106921e3a6aa7c107c6dff6fa13273436e8a26d139e49f34c5d1eea348c"
   license "MIT"
 
   bottle do
