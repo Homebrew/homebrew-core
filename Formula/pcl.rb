@@ -4,6 +4,7 @@ class Pcl < Formula
   url "https://github.com/PointCloudLibrary/pcl/archive/pcl-1.11.1.tar.gz"
   sha256 "a61558e53abafbc909e0996f91cfd2d7a400fcadf6b8cfb0ea3172b78422c74e"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/PointCloudLibrary/pcl.git"
 
   bottle do
@@ -23,7 +24,7 @@ class Pcl < Formula
   depends_on "libpcap"
   depends_on "libusb"
   depends_on "qhull"
-  depends_on "vtk"
+  depends_on "vtk@8.2"
 
   def install
     args = std_cmake_args + %w[
