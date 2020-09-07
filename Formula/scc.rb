@@ -3,7 +3,7 @@ class Scc < Formula
   homepage "https://github.com/boyter/scc/"
   url "https://github.com/boyter/scc/archive/v2.13.0.tar.gz"
   sha256 "11e2e44ef25ef848de1b380c94cb096ed77d3d590466c99c9f1b5c2dc99609c2"
-  license "MIT"
+  license any_of: ["MIT", "Unlicense"]
 
   livecheck do
     url :homepage
