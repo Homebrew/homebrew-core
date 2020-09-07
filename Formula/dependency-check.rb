@@ -3,7 +3,8 @@ class DependencyCheck < Formula
   homepage "https://owasp.org/www-project-dependency-check/"
   url "https://dl.bintray.com/jeremy-long/owasp/dependency-check-6.0.0-release.zip"
   sha256 "cdf952ee974c120c71a8bee27ecdc5acefda3c28ea69477f43434938b91b9f57"
-
+  license "Apache-2.0"
+  
   livecheck do
     url :homepage
     regex(/href=.*?dependency-check[._-]v?(\d+(?:\.\d+)+)-release\.zip/i)
