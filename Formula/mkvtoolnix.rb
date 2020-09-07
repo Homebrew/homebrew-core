@@ -3,7 +3,7 @@ class Mkvtoolnix < Formula
   homepage "https://mkvtoolnix.download/"
   url "https://mkvtoolnix.download/sources/mkvtoolnix-50.0.0.tar.xz"
   sha256 "58a5d2c134e476386a1b391913d68d3e1c51dba70f6a33ca4b39c7b61c2e8824"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://mkvtoolnix.download/sources/"
