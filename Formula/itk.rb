@@ -4,6 +4,7 @@ class Itk < Formula
   url "https://github.com/InsightSoftwareConsortium/ITK/releases/download/v5.1.0/InsightToolkit-5.1.0.tar.gz"
   sha256 "121020a1611508cec8123eb5226215598cec07be627d843a2e6b6da891e61d13"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/InsightSoftwareConsortium/ITK.git"
 
   livecheck do
@@ -24,7 +25,7 @@ class Itk < Formula
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
-  depends_on "vtk"
+  depends_on "vtk@8.2" # needed for gdcm
 
   def install
     args = std_cmake_args + %W[
@@ -47,7 +48,6 @@ class Itk < Formula
       -DITK_USE_SYSTEM_TIFF=ON
       -DITK_USE_SYSTEM_GDCM=ON
       -DITK_LEGACY_REMOVE=ON
-      -DModule_ITKLevelSetsv4Visualization=ON
       -DModule_ITKReview=ON
       -DModule_ITKVtkGlue=ON
       -DITK_USE_GPU=ON
