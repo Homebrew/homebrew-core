@@ -1,10 +1,9 @@
 class Homebank < Formula
   desc "Manage your personal accounts at home"
   homepage "http://homebank.free.fr"
-  url "http://homebank.free.fr/public/homebank-5.4.2.tar.gz"
-  sha256 "c6ce84b421e7199ae545ea8b8d981f347af4d67b4cd5912b6789cf1450db722e"
+  url "http://homebank.free.fr/public/homebank-5.4.3.tar.gz"
+  sha256 "9222d7ed7cc44fcfff3f1fe20935a1b7fe91bb4d9f90003cb3c6f3b893298d0b"
   license "GPL-2.0"
-  revision 2
 
   livecheck do
     url "http://homebank.free.fr/public/"
