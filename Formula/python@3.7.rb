@@ -1,10 +1,14 @@
 class PythonAT37 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.7.8/Python-3.7.8.tar.xz"
-  sha256 "43a543404b363f0037f89df8478f19db2dbc0d6f3ffee310bc2997fa71854a63"
+  url "https://www.python.org/ftp/python/3.7.9/Python-3.7.9.tar.xz"
+  sha256 "91923007b05005b5f9bd46f3b9172248aea5abc1543e8a636d59e629c3331b01"
   license "Python-2.0"
-  revision 1
+
+  livecheck do
+    url "https://www.python.org/ftp/python/"
+    regex(%r{href=.*?v?(3\.7(?:\.\d+)*)/?["' >]}i)
+  end
 
   bottle do
     sha256 "820f16256e3e36b6ef99538edb4b825b223ca0a8a906dc6512a1e268b39c7b0a" => :catalina
