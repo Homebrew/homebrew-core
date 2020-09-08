@@ -18,7 +18,7 @@ class Syncthing < Formula
     sha256 "939315cfd61ea5ea0cad6daca2ec7d41c70632c88eb5f6d8671562f749067faa" => :high_sierra
   end
 
-  depends_on "go@1.14" => :build
+  depends_on "go" => :build
 
   def install
     system "go", "run", "build.go", "--no-upgrade", "tar"
