@@ -17,11 +17,13 @@ class GitTown < Formula
 
   def install
     system "go", "build", *std_go_args, "-ldflags",
-           "-X github.com/git-town/git-town/src/cmd.version=v7.4.0 "\
-           "-X github.com/git-town/git-town/src/cmd.buildDate=2020/07/05"
+           "-X github.com/git-town/git-town/src/cmd.version=v#{version} "\
+           "-X github.com/git-town/git-town/src/cmd.buildDate=#{Time.new.strftime("%Y/%m/%d")}"
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/git-town version")
+
     system "git", "init"
     touch "testing.txt"
     system "git", "add", "testing.txt"
