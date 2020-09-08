@@ -8,8 +8,8 @@ class Agda < Formula
   license "BSD-3-Clause"
 
   stable do
-    url "https://hackage.haskell.org/package/Agda-2.6.1/Agda-2.6.1.tar.gz"
-    sha256 "678f416af8f30d017825309f15fac41d239b07f66a4c40497e8435a6bdb7c129"
+    url "https://hackage.haskell.org/package/Agda-2.6.1.1/Agda-2.6.1.1.tar.gz"
+    sha256 "57f4eb8143535b097c166851da9a6b86d230964e04a3217e6682796e921d9234"
 
     resource "stdlib" do
       # version needed to build with ghc-8.10.1
