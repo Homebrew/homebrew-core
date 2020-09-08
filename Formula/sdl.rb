@@ -1,7 +1,8 @@
 class Sdl < Formula
   desc "Low-level access to audio, keyboard, mouse, joystick and graphics"
   homepage "https://www.libsdl.org/"
-  revision 1
+  license "LGPL-2.1-only"
+  revision 2
 
   stable do
     url "https://www.libsdl.org/release/SDL-1.2.15.tar.gz"
@@ -24,6 +25,14 @@ class Sdl < Formula
       patch do
         url "https://bugzilla-attachments.libsdl.org/attachment.cgi?id=3721"
         sha256 "954875a277d9246bcc444b4e067e75c29b7d3f3d2ace5318a6aab7d7a502f740"
+      end
+    end
+
+    # Fix display issues on 10.14+, https://bugzilla.libsdl.org/show_bug.cgi?id=4788
+    if MacOS.version >= :mojave
+      patch do
+        url "https://bugzilla-attachments.libsdl.org/attachment.cgi?id=4288"
+        sha256 "5a89ddce5deaf72348792d33e12b5f66d0dab4f9747718bb5021d3067bdab283"
       end
     end
   end
