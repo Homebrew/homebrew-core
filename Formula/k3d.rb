@@ -22,8 +22,8 @@ class K3d < Formula
   def install
     system "go", "build",
            "-mod", "vendor",
-           "-ldflags", "-s -w -X github.com/rancher/k3d/v3/version.Version=v#{version}"\
-           " -X github.com/rancher/k3d/v3/version.K3sVersion=latest",
+           "-ldflags", "-s -w -X github.com/rancher/k3d/v#{version.major}/version.Version=v#{version}"\
+           " -X github.com/rancher/k3d/v#{version.major}/version.K3sVersion=latest",
            "-trimpath", "-o", bin/"k3d"
 
     # Install bash completion
@@ -33,8 +33,6 @@ class K3d < Formula
     # Install zsh completion
     output = Utils.safe_popen_read("#{bin}/k3d", "completion", "zsh")
     (zsh_completion/"_k3d").write output
-
-    prefix.install_metafiles
   end
 
   test do
