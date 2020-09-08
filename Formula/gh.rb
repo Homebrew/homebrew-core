@@ -1,9 +1,8 @@
 class Gh < Formula
   desc "GitHub command-line tool"
   homepage "https://github.com/cli/cli"
-  url "https://github.com/cli/cli.git",
-    tag:      "v0.11.1",
-    revision: "58bd549de5db008e9dd92cb6673b9ed85449d778"
+  url "https://github.com/cli/cli/archive/v0.12.0.tar.gz"
+  sha256 "227031cc381555da2a406bde7d5bfdd631979f635cda22537f206b5362cf6fc1"
   license "MIT"
 
   livecheck do
@@ -21,6 +20,8 @@ class Gh < Formula
   depends_on "go" => :build
 
   def install
+    ENV["GH_VERSION"] = version.to_s
+    ENV["GO_LDFLAGS"] = "-s -w"
     system "make", "bin/gh", "manpages"
     bin.install "bin/gh"
     man1.install Dir["share/man/man1/gh*.1"]
