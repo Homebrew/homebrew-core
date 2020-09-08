@@ -3,8 +3,8 @@ class Certbot < Formula
 
   desc "Tool to obtain certs from Let's Encrypt and autoenable HTTPS"
   homepage "https://certbot.eff.org/"
-  url "https://github.com/certbot/certbot/archive/v1.7.0.tar.gz"
-  sha256 "8ea30851122c9b76836ba69cf127a1ab4eb2e305976408c69877c47e3808b153"
+  url "https://github.com/certbot/certbot/archive/v1.8.0.tar.gz"
+  sha256 "ce7381c0110d0876615a869c0b11d900ec4a84c316cc2a4d78d1bc6aaa2592cb"
   license "Apache-2.0"
   head "https://github.com/certbot/certbot.git"
 
@@ -26,14 +26,19 @@ class Certbot < Formula
     depends_on "pkg-config" => :build
   end
 
+  resource "acme" do
+    url "https://files.pythonhosted.org/packages/85/07/659705c6b18c77a0299edbf74bebcc7c02a31d979c0d9ff01d15125d4be7/acme-1.8.0.tar.gz"
+    sha256 "ad8d067d14258d73ad2643439d9365913362308c04e66cc3010e39c868c5002d"
+  end
+
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/40/a7/ded59fa294b85ca206082306bba75469a38ea1c7d44ea7e1d64f5443d67a/certifi-2020.6.20.tar.gz"
     sha256 "5930595817496dd21bb8dc35dad090f1c2cd0adfaf21204bf6732ca5d8ee34d3"
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/54/1d/15eae71ab444bd88a1d69f19592dcf32b9e3166ecf427dd9243ef0d3b7bc/cffi-1.14.1.tar.gz"
-    sha256 "b2a2b0d276a136146e012154baefaea2758ef1f56ae9f4e01c612b0831e0bd2f"
+    url "https://files.pythonhosted.org/packages/f7/09/88bbe20b76ca76be052c366fe77aa5e3cd6e5f932766e5597fecdd95b2a8/cffi-1.14.2.tar.gz"
+    sha256 "ae8f34d50af2c2154035984b8b5fc5d9ed63f32fe615646ab435b05b132ca91b"
   end
 
   resource "chardet" do
@@ -52,8 +57,8 @@ class Certbot < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/bf/ac/552fc8729d90393845cc3a2062facf4a89dcbe206fa78771d60ddaae7554/cryptography-3.0.tar.gz"
-    sha256 "8e924dbc025206e97756e8903039662aa58aa9ba357d8e1d8fc29e3092322053"
+    url "https://files.pythonhosted.org/packages/12/be/c9cc7d7ab71dbcc9e4e517ead0cdd48e8c9a48d7b8bdddb738e90d08279a/cryptography-3.1.tar.gz"
+    sha256 "26409a473cc6278e4c90f782cd5968ebad04d3911ed1c402fc86908c17633e08"
   end
 
   resource "distro" do
@@ -67,8 +72,8 @@ class Certbot < Formula
   end
 
   resource "josepy" do
-    url "https://files.pythonhosted.org/packages/92/4a/145b0c6d0984698ccb4debc0161e3f74d8db645ddd9573cacc2abbc22d55/josepy-1.3.0.tar.gz"
-    sha256 "c341ffa403399b18e9eae9012f804843045764d1390f9cb4648980a7569b1619"
+    url "https://files.pythonhosted.org/packages/0b/72/616c591e74eb5f9570dd636f91dfddd0d4613088ce43e581e80b826dc964/josepy-1.4.0.tar.gz"
+    sha256 "c37ff4b93606e6a452b72cdb992da5e0544be12912fac01b31ddbdd61f6d5bd0"
   end
 
   resource "parsedatetime" do
