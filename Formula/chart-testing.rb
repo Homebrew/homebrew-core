@@ -20,9 +20,9 @@ class ChartTesting < Formula
   def install
     commit = Utils.safe_popen_read("git", "rev-parse", "HEAD").chomp
     ldflags = %W[
-      -X github.com/helm/chart-testing/v3/ct/cmd.Version=#{version}
-      -X github.com/helm/chart-testing/v3/ct/cmd.GitCommit=#{commit}
-      -X github.com/helm/chart-testing/v3/ct/cmd.BuildDate=#{Date.today}
+      -X github.com/helm/chart-testing/v#{version.major}/ct/cmd.Version=#{version}
+      -X github.com/helm/chart-testing/v#{version.major}/ct/cmd.GitCommit=#{commit}
+      -X github.com/helm/chart-testing/v#{version.major}/ct/cmd.BuildDate=#{Date.today}
     ].join(" ")
     system "go", "build", *std_go_args, "-ldflags", ldflags, "-o", bin/"ct", "./ct/main.go"
     etc.install "etc" => "ct"
@@ -30,6 +30,7 @@ class ChartTesting < Formula
 
   test do
     assert_match "Lint and test", shell_output("#{bin}/ct --help")
+    assert_match /Version:\s+#{version}/, shell_output("#{bin}/ct version")
 
     # Lint an empty Helm chart that we create with `helm create`
     system "helm", "create", "testchart"
