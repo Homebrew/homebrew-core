@@ -7,7 +7,7 @@ class Gtkx3 < Formula
 
   livecheck do
     url :stable
-    regex(/gtk\+[._-](3\.([0-8]\d*?)?[02468](?:\.\d+)*?)\.t/)
+    regex(/gtk\+[._-](3\.([0-8]\d*?)?[02468](?:\.\d+)*?)\.t/i)
   end
 
   bottle do
