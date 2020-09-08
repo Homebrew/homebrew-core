@@ -7,7 +7,7 @@ class Flowgrind < Formula
 
   livecheck do
     url :stable
-    regex(%r{<div class="version">\s*Latest version is flowgrind[._-]v?(\d+(?:\.\d+)+)\s*</div>})
+    regex(%r{<div class="version">\s*Latest version is flowgrind[._-]v?(\d+(?:\.\d+)+)\s*</div>}i)
   end
 
   bottle do
