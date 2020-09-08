@@ -5,7 +5,7 @@ class Tnftp < Formula
   sha256 "ba4a92b693d04179664524eef0801c8eed4447941c9855f377f98f119f221c03"
 
   livecheck do
-    url "https://ftp.netbsd.org/pub/NetBSD/misc/tnftp/"
+    url :homepage
     regex(/href=.*?tnftp[._-]v?(\d+)\.t/i)
   end
 
