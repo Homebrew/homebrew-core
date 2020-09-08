@@ -58,6 +58,13 @@ class Couchdb < Formula
       If you want to migrate your data from 1.x to 2.x then follow this guide:
       https://docs.couchdb.org/en/stable/install/upgrading.html
 
+      If you are new to CouchDB 3.x, it now requires an admin password set before it can start up.
+      Add this to your #{prefix}/etc/local.ini before starting CouchDB:
+
+      ```
+      [admins]
+      admin = youradminpassword
+      ```
     EOS
   end
 
