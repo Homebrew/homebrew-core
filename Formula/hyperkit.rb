@@ -1,10 +1,9 @@
 class Hyperkit < Formula
   desc "Toolkit for embedding hypervisor capabilities in your application"
   homepage "https://github.com/moby/hyperkit"
-  url "https://github.com/moby/hyperkit/archive/v0.20200224.tar.gz"
-  sha256 "c0f9e0eb4cd9efdfa099a8cb5b35483b64688d6d1fc0c7a01e591abd4cf76413"
+  url "https://github.com/moby/hyperkit/archive/v0.20200908.tar.gz"
+  sha256 "e13bdb9dc5c18ca59ae6cd2b447d704d8d58f27cf4ae5a1f0a026deeb13bd0d7"
   license "BSD-2-Clause"
-  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -36,12 +35,10 @@ class Hyperkit < Formula
     ENV["OCAML_TOPLEVEL_PATH"] = "#{opam_dir}/system/lib/toplevel"
     ENV.prepend_path "PATH", "#{opam_dir}/system/bin"
 
-    ENV.deparallelize { system "opam", "switch", "create", "ocaml-base-compiler.4.07.1" }
-
     system "opam", "config", "exec", "--",
-           "opam", "install", "-y", "uri.1.9.7", "qcow.0.10.4", "conduit.1.0.0", "lwt.3.1.0",
-           "qcow-tool.0.10.5", "mirage-block-unix.2.9.0", "conf-libev.4-11", "logs.0.6.3", "fmt.0.8.6",
-           "mirage-unix.3.2.0", "prometheus-app.0.5", "cstruct-lwt.3.2.1"
+           "opam", "install", "-y", "uri.3.1.0", "qcow.0.11.0", "conduit.2.1.0", "lwt.5.3.0",
+           "qcow-tool.0.11.0", "mirage-block-unix.2.12.0", "conf-libev.4-11", "logs.0.7.0", "fmt.0.8.8",
+           "mirage-unix.4.0.0", "prometheus-app.0.7"
 
     args = []
     args << "GIT_VERSION=#{version}"
