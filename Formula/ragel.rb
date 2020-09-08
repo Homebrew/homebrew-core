@@ -5,10 +5,8 @@ class Ragel < Formula
   sha256 "5f156edb65d20b856d638dd9ee2dfb43285914d9aa2b6ec779dac0270cd56c3f"
   license "GPL-2.0"
 
-  # TODO: Return to using `url :homepage` once the SSL certificate verification
-  # issue is resolved on the upstream server.
   livecheck do
-    url "https://www.colm.net/open-source/ragel/"
+    url :homepage
     regex(/Stable.*?href=.*?ragel[._-]v?(\d+(?:\.\d+)+)\.t/im)
   end
 
