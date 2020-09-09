@@ -1,8 +1,8 @@
 class Awsweeper < Formula
   desc "CLI tool for cleaning your AWS account"
   homepage "https://github.com/jckuester/awsweeper/"
-  url "https://github.com/jckuester/awsweeper/archive/v0.10.1.tar.gz"
-  sha256 "0b97b127312d65ef4d08972a0f337d8ceb1550940160b50ada0d1aaa3c723d9c"
+  url "https://github.com/jckuester/awsweeper/archive/v0.10.2.tar.gz"
+  sha256 "9b9f1f68af14e582a752dfd5ceda79d22f3b3574ac68331b0e2c312e87acb5df"
   license "MPL-2.0"
   head "https://github.com/jckuester/awsweeper.git"
 
@@ -34,7 +34,7 @@ class Awsweeper < Formula
             Name: foo
     EOS
 
-    assert_match "failed to initialize Terraform AWS Providers",
+    assert_match "Error: failed to configure provider (name=aws",
       shell_output("#{bin}/awsweeper --dry-run #{testpath}/filter.yml 2>&1", 1)
   end
 end
