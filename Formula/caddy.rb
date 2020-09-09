@@ -27,7 +27,7 @@ class Caddy < Formula
 
     resource("xcaddy").stage do
       system "go", "run", "cmd/xcaddy/main.go", "build", revision,
-                                                "--with", "github.com/caddyserver/caddy/v2=#{buildpath}",
+                                                "--with", "github.com/caddyserver/caddy/v#{version.major}=#{buildpath}",
                                                 "--output", bin/"caddy"
     end
   end
@@ -84,5 +84,7 @@ class Caddy < Formula
     assert_match "\":#{port2}\"",
       shell_output("curl -s http://127.0.0.1:#{port1}/config/apps/http/servers/srv0/listen/0")
     assert_match "Hello, Caddy!", shell_output("curl -s http://127.0.0.1:#{port2}")
+
+    assert_match version.to_s, shell_output("#{bin}/caddy version")
   end
 end
