@@ -7,7 +7,7 @@ class Openfst < Formula
 
   livecheck do
     url "http://www.openfst.org/twiki/bin/view/FST/FstDownload"
-    regex /openfst-(\d(?:\.\d+)+).tar.gz/i
+    regex(/href=.*?openfst[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
