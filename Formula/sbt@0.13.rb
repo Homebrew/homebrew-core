@@ -22,7 +22,7 @@ class SbtAT013 < Formula
 
     (bin/"sbt").write <<~EOS
       #!/bin/sh
-      export JAVA_HOME=$(#{Language::Java.java_home_cmd("1.8")})
+      export JAVA_HOME="#{Language::Java.java_home("1.8")}"
       if [ -f "$HOME/.sbtconfig" ]; then
         echo "Use of ~/.sbtconfig is deprecated, please migrate global settings to #{etc}/sbtopts" >&2
         . "$HOME/.sbtconfig"
