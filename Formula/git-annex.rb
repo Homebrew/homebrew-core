@@ -1,11 +1,10 @@
 class GitAnnex < Formula
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
-  url "https://hackage.haskell.org/package/git-annex-8.20200810/git-annex-8.20200810.tar.gz"
-  sha256 "e631c9d52e440f80e9d305c95a078dcae71f200125bca91e49d5b8e2d864c6f3"
+  url "https://hackage.haskell.org/package/git-annex-8.20200908/git-annex-8.20200908.tar.gz"
+  sha256 "61719d57d9389716aac9e6e12931e41b3b8a157d5fa8959201953810a88d2384"
   license all_of: ["AGPL-3.0-or-later", "BSD-2-Clause", "BSD-3-Clause",
                    "GPL-2.0-only", "GPL-3.0-or-later", "MIT"]
-  revision 1
   head "git://git-annex.branchable.com/"
 
   livecheck do
@@ -75,7 +74,7 @@ class GitAnnex < Formula
     # make sure the various remotes were built
     assert_match shell_output("git annex version | grep 'remote types:'").chomp,
                  "remote types: git gcrypt p2p S3 bup directory rsync web bittorrent " \
-                 "webdav adb tahoe glacier ddar git-lfs hook external"
+                 "webdav adb tahoe glacier ddar git-lfs httpalso hook external"
 
     # The steps below are necessary to ensure the directory cleanly deletes.
     # git-annex guards files in a way that isn't entirely friendly of automatically
