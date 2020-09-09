@@ -7,6 +7,7 @@ class Aacgain < Formula
   # See: https://github.com/Homebrew/homebrew/issues/16838
   url "https://aacgain.altosdesign.com/alvarez/aacgain-1.8.tar.bz2"
   sha256 "2bb8e27aa8f8434a4861fdbc70adb9cb4b47e1dfe472910d62d6042cb80a2ee1"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://aacgain.altosdesign.com/alvarez/"
