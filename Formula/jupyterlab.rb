@@ -3,8 +3,8 @@ class Jupyterlab < Formula
 
   desc "Interactive environments for writing and running code"
   homepage "https://jupyter.org/"
-  url "https://files.pythonhosted.org/packages/f2/88/dca2c1beab58db5663f65a930714f18d0a870d0347ac75b12e79603205e6/jupyterlab-2.2.6.tar.gz"
-  sha256 "6554b022d2cd120100e165ec537c6511d70de7f89e253b3c667ea28f2a9263ff"
+  url "https://files.pythonhosted.org/packages/ce/1d/defe63e39a90c9f17cd4dd58dcf81d5ecf913fba0ade78966228cab37893/jupyterlab-2.2.7.tar.gz"
+  sha256 "a72ffd0d919cba03a5ef8422bc92c3332a957ff97b0490494209c83ad93826da"
   license "BSD-3-Clause"
 
   livecheck do
@@ -37,8 +37,8 @@ class Jupyterlab < Formula
   end
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/c4/d4/c2b5232ecfc0783c697a81c13efc53a4fe285d4e2c00e0d8aed90495fade/attrs-20.1.0.tar.gz"
-    sha256 "0ef97238856430dcf9228e07f316aefc17e8939fc8507e18c6501b761ef1a42a"
+    url "https://files.pythonhosted.org/packages/81/d0/641b698d05f0eaea4df4f9cebaff573d7a5276228ef6b7541240fe02f3ad/attrs-20.2.0.tar.gz"
+    sha256 "26b54ddbbb9ee1d34d5d3668dd37d6cf74990ab23c828c2888dccdceee395594"
   end
 
   resource "backcall" do
@@ -92,8 +92,8 @@ class Jupyterlab < Formula
   end
 
   resource "ipython" do
-    url "https://files.pythonhosted.org/packages/c2/7c/84c98d55b13f64b5c6a167ca344e4d5ca2afd14211a729e800e3731db0f4/ipython-7.17.0.tar.gz"
-    sha256 "b70974aaa2674b05eb86a910c02ed09956a33f2dd6c71afc60f0b128a77e7f28"
+    url "https://files.pythonhosted.org/packages/ed/c6/2c40e1fc10690dfbe891a948aa1b0dd4890fd2bce9d2eb29c97a84bb0fcb/ipython-7.18.1.tar.gz"
+    sha256 "a331e78086001931de9424940699691ad49dfb457cea31f5471eae7b78222d5e"
   end
 
   resource "ipython_genutils" do
@@ -122,8 +122,8 @@ class Jupyterlab < Formula
   end
 
   resource "jupyter-client" do
-    url "https://files.pythonhosted.org/packages/19/aa/a4b27bb6cdfe870cf56bc5821e9fa54afd80164dc2344fd47194a987f0e9/jupyter_client-6.1.6.tar.gz"
-    sha256 "b360f8d4638bc577a4656e93f86298db755f915098dc763f6fc05da0c5d7a595"
+    url "https://files.pythonhosted.org/packages/c3/7a/53e652fb8cbca92ae5f325cbd8b2ba123b57fbc1cc5e8a47ad1c62d75e93/jupyter_client-6.1.7.tar.gz"
+    sha256 "49e390b36fe4b4226724704ea28d9fb903f1a3601b6882ce3105221cd09377a1"
   end
 
   resource "jupyter-core" do
@@ -157,8 +157,8 @@ class Jupyterlab < Formula
   end
 
   resource "notebook" do
-    url "https://files.pythonhosted.org/packages/a9/86/7313fa3a401c9e0c068b2992ec50b7ec56abf3731f4ce3af17ed80f6c4b6/notebook-6.1.3.tar.gz"
-    sha256 "9990d51b9931a31e681635899aeb198b4c4b41586a9e87fbfaaed1a71d0a05b6"
+    url "https://files.pythonhosted.org/packages/0b/92/7e4ef9e4cbe56f289b86d9df5bd3f6bc24a1ed59da5a1d0d0c4fa7fb8771/notebook-6.1.4.tar.gz"
+    sha256 "687d01f963ea20360c0b904ee7a37c3d8cda553858c8d6e33fd0afd13e89de32"
   end
 
   resource "packaging" do
@@ -192,8 +192,8 @@ class Jupyterlab < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/c4/c6/03da4efaf73f0cb5a34957fdac12046eb8d8e81618bad6f60464215b829a/prompt_toolkit-3.0.6.tar.gz"
-    sha256 "7630ab85a23302839a0f26b31cc24f518e6155dea1ed395ea61b42c45941b6a6"
+    url "https://files.pythonhosted.org/packages/18/0f/ae4b350b969dc1d8ecfcbdc1060d59ff025336a23f153ece49aa662a1309/prompt_toolkit-3.0.7.tar.gz"
+    sha256 "822f4605f28f7d2ba6b0b09a31e25e140871e96364d1d377667b547bb3bf4489"
   end
 
   resource "ptyprocess" do
@@ -217,8 +217,8 @@ class Jupyterlab < Formula
   end
 
   resource "pyrsistent" do
-    url "https://files.pythonhosted.org/packages/9f/0d/cbca4d0bbc5671822a59f270e4ce3f2195f8a899c97d0d5abb81b191efb5/pyrsistent-0.16.0.tar.gz"
-    sha256 "28669905fe725965daa16184933676547c5bb40a5153055a8dee2a4bd7933ad3"
+    url "https://files.pythonhosted.org/packages/29/04/14e4b9f699222e671aff41460adcc6f67d8e8b68d03cbd278b11feddc496/pyrsistent-0.17.0.tar.gz"
+    sha256 "8690178e75460d3afe32d6222feed1ca1fdd4ef7317f6d8b42147bcce5f9ee75"
   end
 
   resource "python-dateutil" do
@@ -262,8 +262,8 @@ class Jupyterlab < Formula
   end
 
   resource "traitlets" do
-    url "https://files.pythonhosted.org/packages/75/b0/43deb021bc943f18f07cbe3dac1d681626a48997b7ffa1e7fb14ef922b21/traitlets-4.3.3.tar.gz"
-    sha256 "d023ee369ddd2763310e4c3eae1ff649689440d4ae59d7485eb4cfbbe3e359f7"
+    url "https://files.pythonhosted.org/packages/5e/3a/f510eeb8388cf4028c690faec22843176772f5e59c8d418e8268d71ebd7a/traitlets-5.0.4.tar.gz"
+    sha256 "86c9351f94f95de9db8a04ad8e892da299a088a64fd283f9f6f18770ae5eae1b"
   end
 
   resource "urllib3" do
