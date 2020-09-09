@@ -3,7 +3,7 @@ class Perl < Formula
   homepage "https://www.perl.org/"
   url "https://www.cpan.org/src/5.0/perl-5.32.0.tar.xz"
   sha256 "6f436b447cf56d22464f980fac1916e707a040e96d52172984c5d184c09b859b"
-  license "Artistic-1.0-Perl"
+  license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
   head "https://github.com/perl/perl5.git", branch: "blead"
 
   livecheck do
