@@ -5,6 +5,11 @@ class Openfst < Formula
   sha256 "9319aeb31d1e2950ae25449884e255cc2bc9dfaf987f601590763e61a10fbdde"
   license "Apache-2.0"
 
+  livecheck do
+    url "http://www.openfst.org/twiki/bin/view/FST/FstDownload"
+    regex /openfst-(\d(?:\.\d+)+).tar.gz/i
+  end
+
   bottle do
     cellar :any
     sha256 "b32fb6cb0eb43a7d8775d8bfc760c49471586eeb33797f3d44a8b53cd45dc792" => :catalina
