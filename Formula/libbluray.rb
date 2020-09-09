@@ -3,7 +3,7 @@ class Libbluray < Formula
   homepage "https://www.videolan.org/developers/libbluray.html"
   url "https://download.videolan.org/videolan/libbluray/1.2.0/libbluray-1.2.0.tar.bz2"
   sha256 "cd41ea06fd2512a77ebf63872873641908ef81ce2fe4e4c842f6035a47696c11"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
 
   livecheck do
     url "https://download.videolan.org/pub/videolan/libbluray/"
@@ -35,8 +35,7 @@ class Libbluray < Formula
 
   def install
     # Need to set JAVA_HOME manually since ant overrides 1.8 with 1.8+
-    cmd = Language::Java.java_home_cmd("1.8")
-    ENV["JAVA_HOME"] = Utils.safe_popen_read(cmd).chomp
+    ENV["JAVA_HOME"] = Language::Java.java_home("1.8")
 
     # https://mailman.videolan.org/pipermail/libbluray-devel/2014-April/001401.html
     ENV.append_to_cflags "-D_DARWIN_C_SOURCE"
