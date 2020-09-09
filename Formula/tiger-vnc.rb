@@ -3,7 +3,7 @@ class TigerVnc < Formula
   homepage "https://tigervnc.org/"
   url "https://github.com/TigerVNC/tigervnc/archive/v1.11.0.tar.gz"
   sha256 "3648eca472a92a4e8fe55b27cd397b1bf16bad0b24a3a1988661f44553f5e2c3"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 "c8dbfcd58649b918a6929d550d20237b8b19e32cbd27b8854e3780beb1eea22f" => :catalina
