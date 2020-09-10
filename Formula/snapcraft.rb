@@ -19,7 +19,7 @@ class Snapcraft < Formula
   depends_on "libyaml"
   depends_on "lxc"
   depends_on "python@3.8"
-  depends_on "squashfs"
+  depends_on "snap"
   depends_on "xdelta"
 
   resource "attrs" do
