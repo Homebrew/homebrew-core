@@ -3,6 +3,7 @@ on:
   pull_request:
     paths:
       - "Formula/libseccomp.rb"
+      - "Formula/singularity.rb"
 jobs:
   tests_linux:
     runs-on: ubuntu-latest
