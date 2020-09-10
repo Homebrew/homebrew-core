@@ -4,7 +4,7 @@ class Nushell < Formula
   url "https://github.com/nushell/nushell/archive/0.19.0.tar.gz"
   sha256 "18aefc280a51b2202daca4c5c27aa166f5c0049ebef16d9206fdd88616e8b2a0"
   license "MIT"
-  head "https://github.com/nushell/nushell.git"
+  head "https://github.com/nushell/nushell.git", branch: "main"
 
   bottle do
     cellar :any
