@@ -6,7 +6,7 @@ class Snapcraft < Formula
   url "https://github.com/snapcore/snapcraft.git",
       tag:      "4.1.3",
       revision: "e6ef1ce1138d90e6ddbd6bab4f825ad38b2e310e"
-  license "GPL-3.0"
+  license "GPL-3.0-only"
 
   bottle do
     cellar :any
