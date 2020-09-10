@@ -3,6 +3,7 @@ on:
   pull_request:
     paths:
       - "Formula/alsa-lib.rb"
+      - "Formula/ladspa-sdk.rb"
       - "Formula/libseccomp.rb"
 jobs:
   tests_linux:
