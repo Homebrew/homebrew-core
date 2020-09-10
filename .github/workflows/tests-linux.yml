@@ -2,6 +2,7 @@ name: GitHub Actions CI
 on:
   pull_request:
     paths:
+      - "Formula/alsa-lib.rb"
       - "Formula/libseccomp.rb"
 jobs:
   tests_linux:
