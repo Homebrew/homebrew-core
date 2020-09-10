@@ -3,7 +3,7 @@ class Sniffglue < Formula
   homepage "https://github.com/kpcyrd/sniffglue"
   url "https://github.com/kpcyrd/sniffglue/archive/v0.11.1.tar.gz"
   sha256 "f3d4a42ee12113ef82a8033bb0d64359af5425c821407a7469e99c7a5af3186d"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,6 +15,10 @@ class Sniffglue < Formula
   depends_on "rust" => :build
 
   uses_from_macos "libpcap"
+
+  on_linux do
+    depends_on "libseccomp"
+  end
 
   resource "testdata" do
     url "https://github.com/kpcyrd/sniffglue/raw/163ca299bab711fb0082de216d07d7089c176de6/pcaps/SkypeIRC.pcap"
