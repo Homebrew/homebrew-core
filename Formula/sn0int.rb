@@ -3,7 +3,7 @@ class Sn0int < Formula
   homepage "https://github.com/kpcyrd/sn0int"
   url "https://github.com/kpcyrd/sn0int/archive/v0.19.1.tar.gz"
   sha256 "4720736805bec49102f0622ba6b68cc63da0a023a029687140d5b4d2a4d637dc"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   bottle do
     cellar :any
@@ -18,6 +18,10 @@ class Sn0int < Formula
   depends_on "libsodium"
 
   uses_from_macos "sqlite"
+
+  on_linux do
+    depends_on "libseccomp"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args
