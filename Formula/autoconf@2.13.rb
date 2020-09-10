@@ -6,6 +6,10 @@ class AutoconfAT213 < Formula
   sha256 "f0611136bee505811e9ca11ca7ac188ef5323a8e2ef19cffd3edb3cf08fd791e"
   license "GPL-2.0"
 
+  livecheck do
+    skip "Versioned formula"
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 1
