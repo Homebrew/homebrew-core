@@ -1,8 +1,8 @@
 class Dhall < Formula
   desc "Interpreter for the Dhall language"
   homepage "https://dhall-lang.org/"
-  url "https://hackage.haskell.org/package/dhall-1.34.0/dhall-1.34.0.tar.gz"
-  sha256 "0dbc61611d465f744aec13fd3114a9d75bbaa434f1aaa3de7e49c385d9fe1b67"
+  url "https://hackage.haskell.org/package/dhall-1.35.0/dhall-1.35.0.tar.gz"
+  sha256 "834f5eb2986eaf05670b94b01d6335593870c94dbd937e55502d61dc9f5300a6"
 
   livecheck do
     url :stable
