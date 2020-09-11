@@ -17,7 +17,8 @@ class Devspace < Formula
   depends_on "kubernetes-cli"
 
   def install
-    system "go", "build", *std_go_args
+    system "go", "build", "-ldflags",
+    "-s -w -X main.commitHash=#{stable.specs[:revision]} -X main.version=#{stable.specs[:tag]}", *std_go_args
   end
 
   test do
