@@ -50,6 +50,7 @@ class Caddy < Formula
             <string>run</string>
             <string>--config</string>
             <string>#{etc}/Caddyfile</string>
+            <string>--resume</string>
           </array>
           <key>RunAtLoad</key>
           <true/>
