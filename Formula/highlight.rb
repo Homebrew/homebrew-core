@@ -3,7 +3,7 @@ class Highlight < Formula
   homepage "http://www.andre-simon.de/doku/highlight/en/highlight.php"
   url "http://www.andre-simon.de/zip/highlight-3.58.tar.bz2"
   sha256 "df80251be1f83adfc58aaad589fd9a8f9a3866b0d89b9f3c81b1696f07db45f8"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
   head "https://gitlab.com/saalen/highlight.git"
 
   bottle do
