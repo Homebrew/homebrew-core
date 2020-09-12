@@ -3,9 +3,9 @@ class GobjectIntrospection < Formula
 
   desc "Generate introspection data for GObject libraries"
   homepage "https://wiki.gnome.org/Projects/GObjectIntrospection"
-  url "https://download.gnome.org/sources/gobject-introspection/1.64/gobject-introspection-1.64.1.tar.xz"
-  sha256 "80beae6728c134521926affff9b2e97125749b38d38744dc901f4010ee3e7fa7"
-  revision 2
+  url "https://download.gnome.org/sources/gobject-introspection/1.66/gobject-introspection-1.66.0.tar.xz"
+  sha256 "3d66ea3aec7c3f8f1f83d89db3e78e18e36adc22b8bba45298119f0b3ea50060"
+  license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later", "MIT"]
 
   livecheck do
     url :stable
