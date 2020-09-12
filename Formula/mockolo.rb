@@ -1,8 +1,8 @@
 class Mockolo < Formula
   desc "Efficient Mock Generator for Swift"
   homepage "https://github.com/uber/mockolo"
-  url "https://github.com/uber/mockolo/archive/1.2.5.tar.gz"
-  sha256 "19ce43eab69b67b7b7d3d2f084c311bf2e04a5809965535dba48861e301257b7"
+  url "https://github.com/uber/mockolo/archive/1.2.8.tar.gz"
+  sha256 "a4505e5d9d2ad1697c3328cbcf25630204ec5769b4eda96a2efa13e3a7886d57"
   license "Apache-2.0"
 
   bottle do
@@ -36,10 +36,10 @@ class Mockolo < Formula
           self.num = num
       }
 
-      public var numSetCallCount = 0
+      public private(set) var numSetCallCount = 0
       public var num: Int = 0 { didSet { numSetCallCount += 1 } }
 
-      public var barCallCount = 0
+      public private(set) var barCallCount = 0
       public var barHandler: ((Float) -> (String))?
       public func bar(arg: Float) -> String {
           barCallCount += 1
