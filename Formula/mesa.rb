@@ -1,8 +1,8 @@
 class Mesa < Formula
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://mesa.freedesktop.org/archive/mesa-20.1.6.tar.xz"
-  sha256 "23bed40114b03ad640c95bfe72cc879ed2f941d0d481b77b5204a1fc567fa93c"
+  url "https://mesa.freedesktop.org/archive/mesa-20.1.7.tar.xz"
+  sha256 "4de9dd0cb2ca367606cada421db62fbf6d276dfd533e522bfab6001ff9aba288"
   license "MIT"
   head "https://gitlab.freedesktop.org/mesa/mesa.git"
 
