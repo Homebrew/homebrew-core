@@ -3,6 +3,7 @@ class KnotResolver < Formula
   homepage "https://www.knot-resolver.cz"
   url "https://secure.nic.cz/files/knot-resolver/knot-resolver-5.1.3.tar.xz"
   sha256 "20cd829027e39a9f7d993894e3640e886825b492d9ac1a744ac5616cc101458b"
+  license all_of: ["CC0-1.0", "GPL-3.0-or-later", "LGPL-2.1-or-later", "MIT"]
   head "https://gitlab.labs.nic.cz/knot/knot-resolver.git"
 
   livecheck do
