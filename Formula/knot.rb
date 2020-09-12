@@ -1,8 +1,8 @@
 class Knot < Formula
   desc "High-performance authoritative-only DNS server"
   homepage "https://www.knot-dns.cz/"
-  url "https://secure.nic.cz/files/knot-dns/knot-2.9.6.tar.xz"
-  sha256 "bf742883c6825b54f19f2dadca2c94fec1ff8bdcf0a52388e2e167937594b2e7"
+  url "https://secure.nic.cz/files/knot-dns/knot-3.0.0.tar.xz"
+  sha256 "f1c96aff6e873a2f9b1b8c2441d5a7801dd48d3abdb738a4d24b26c2a8fbe6c4"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -29,6 +29,7 @@ class Knot < Formula
   depends_on "fstrm"
   depends_on "gnutls"
   depends_on "libidn2"
+  depends_on "lmdb"
   depends_on "protobuf-c"
   depends_on "userspace-rcu"
 
