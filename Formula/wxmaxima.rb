@@ -1,9 +1,9 @@
 class Wxmaxima < Formula
   desc "Cross platform GUI for Maxima"
   homepage "https://wxmaxima-developers.github.io/wxmaxima/"
-  url "https://github.com/wxMaxima-developers/wxmaxima/archive/Version-20.07.0.tar.gz"
-  sha256 "0ab31006eb00e978ba8ecc840097272b401c294c0dbf69919ec8d6c02558e6f0"
-  license "GPL-2.0"
+  url "https://github.com/wxMaxima-developers/wxmaxima/archive/Version-20.09.0.tar.gz"
+  sha256 "a2ba6797642c7efa96c5dbb6249134a0ace246ebd390e42f7c227fa94609ef27"
+  license "GPL-2.0-or-later"
   head "https://github.com/wxMaxima-developers/wxmaxima.git"
 
   bottle do
@@ -18,8 +18,9 @@ class Wxmaxima < Formula
   depends_on "wxmac"
 
   def install
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    mkdir_p "../build-wxm"
+    system "cmake", "../build-wxm", *std_cmake_args
+    system "make", "-C", "../build-wxm", "install"
     prefix.install "src/wxMaxima.app"
     bin.write_exec_script "#{prefix}/wxMaxima.app/Contents/MacOS/wxmaxima"
 
