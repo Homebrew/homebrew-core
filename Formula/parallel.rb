@@ -11,7 +11,8 @@ class Parallel < Formula
   head "https://git.savannah.gnu.org/git/parallel.git"
 
   livecheck do
-    url :stable
+    url "https://savannah.gnu.org/projects/parallel/"
+    regex(/GNU Parallel v?(\d+).*released \[stable\]/i)
   end
 
   bottle do
