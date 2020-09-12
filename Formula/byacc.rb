@@ -3,6 +3,7 @@ class Byacc < Formula
   homepage "https://invisible-island.net/byacc/"
   url "https://invisible-mirror.net/archives/byacc/byacc-20200910.tgz"
   sha256 "0a5906073aeaf23ddc20aaac0ea61cb5ccc18572870b113375dec4ffe85ecf30"
+  license :public_domain
 
   livecheck do
     url "https://invisible-mirror.net/archives/byacc/"
