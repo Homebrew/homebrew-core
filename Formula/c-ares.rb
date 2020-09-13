@@ -4,6 +4,8 @@ class CAres < Formula
   url "https://c-ares.haxx.se/download/c-ares-1.16.1.tar.gz"
   sha256 "d08312d0ecc3bd48eee0a4cc0d2137c9f194e0a28de2028928c0f6cae85f86ce"
   license "MIT"
+  revision 1
+  head "https://github.com/bagder/c-ares.git"
 
   livecheck do
     url :homepage
@@ -17,20 +19,15 @@ class CAres < Formula
     sha256 "a2761fa50d7e565997a8c1f5fffdad4ad439b5f5245852b5bf6c431b85fe447a" => :high_sierra
   end
 
-  head do
-    url "https://github.com/bagder/c-ares.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
+  depends_on "cmake" => :build
+  depends_on "ninja" => :build
 
   def install
-    system "./buildconf" if build.head?
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-dependency-tracking",
-                          "--disable-debug"
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", "-GNinja", *std_cmake_args
+      system "ninja"
+      system "ninja", "install"
+    end
   end
 
   test do
