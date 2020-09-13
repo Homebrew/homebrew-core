@@ -24,6 +24,6 @@ class Minizinc < Formula
   end
 
   test do
-    system bin/"mzn2doc", share/"minizinc/std/all_different.mzn"
+    system bin/"mzn2doc", pkgshare/"std/all_different.mzn"
   end
 end
