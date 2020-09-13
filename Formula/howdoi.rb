@@ -3,8 +3,8 @@ class Howdoi < Formula
 
   desc "Instant coding answers via the command-line"
   homepage "https://github.com/gleitz/howdoi"
-  url "https://files.pythonhosted.org/packages/24/24/667a7ec7a5b9ff3d4f6c201426267ba9431d2ecbe79bf9a8ff28b0cb6564/howdoi-2.0.5.tar.gz"
-  sha256 "8e4d048ae7ca6182d648f62a66d07360cca2504fe46649c32748b6ef2735f7f4"
+  url "https://files.pythonhosted.org/packages/40/d2/398de8ab210d01f370faed2f7fd44ffe70cc40e5d3ce9ad846f0b7195bf1/howdoi-2.0.6.tar.gz"
+  sha256 "7e8a14a3839c6979081cc121deefc97d8356182066dd3f0ecfc9423c2c49cf3d"
   license "MIT"
 
   livecheck do
@@ -79,8 +79,8 @@ class Howdoi < Formula
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/6e/4d/4d2fe93a35dfba417311a4ff627489a947b01dc0cc377a3673c00cf7e4b2/Pygments-2.6.1.tar.gz"
-    sha256 "647344a061c249a3b74e230c739f434d7ea4d8b1d5f3721bc0f3558049b38f44"
+    url "https://files.pythonhosted.org/packages/5d/9d/208733ccc91b1d2c2af7270ffe3def197504bd8da875bc3fa1dc75039795/Pygments-2.7.0.tar.gz"
+    sha256 "2594e8fdb06fef91552f86f4fd3a244d148ab24b66042036e64f29a291515048"
   end
 
   resource "PyJWT" do
