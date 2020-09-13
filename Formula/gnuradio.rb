@@ -18,6 +18,7 @@ class Gnuradio < Formula
   depends_on "doxygen" => :build
   depends_on "pkg-config" => :build
   depends_on "swig" => :build
+  depends_on "adwaita-icon-theme"
   depends_on "boost"
   depends_on "fftw"
   depends_on "gmp"
