@@ -20,6 +20,9 @@ class HelmAT2 < Formula
 
   keg_only :versioned_formula
 
+  # https://github.com/helm/helm/issues/2466#issuecomment-691177445
+  deprecate! because: :unsupported
+
   depends_on "glide" => :build
   depends_on "go" => :build
 
