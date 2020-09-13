@@ -15,6 +15,9 @@ class Landscaper < Formula
     sha256 "68302c1748fe4eb063855df24420a8681a54b8ce484f2e030616bd4c4a812d52" => :high_sierra
   end
 
+  # also depends on helm@2 (which failed to build)
+  deprecate! date: "2020-07-26", because: :repo_archived
+
   depends_on "dep" => :build
   depends_on "go" => :build
   depends_on "helm@2"
