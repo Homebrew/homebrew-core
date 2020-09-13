@@ -3,7 +3,7 @@ class Cloc < Formula
   homepage "https://github.com/AlDanial/cloc/"
   url "https://github.com/AlDanial/cloc/archive/1.88.tar.gz"
   sha256 "e85c2d1b3ec389d892955cf20b3fa5c797e81136e231d9a09e4f4c62e272f8cd"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   head "https://github.com/AlDanial/cloc.git"
 
   bottle do
