@@ -1,10 +1,10 @@
 class Global < Formula
   desc "Source code tag system"
   homepage "https://www.gnu.org/software/global/"
-  url "https://ftp.gnu.org/gnu/global/global-6.6.4.tar.gz"
-  mirror "https://ftpmirror.gnu.org/global/global-6.6.4.tar.gz"
-  sha256 "987e8cb956c53f8ebe4453b778a8fde2037b982613aba7f3e8e74bcd05312594"
-  revision 1
+  url "https://ftp.gnu.org/gnu/global/global-6.6.5.tar.gz"
+  mirror "https://ftpmirror.gnu.org/global/global-6.6.5.tar.gz"
+  sha256 "9c3730bd9e975d94231f3402d5526b79c0b23cc665d624c9829c948dfad37b83"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url :stable
@@ -39,8 +39,8 @@ class Global < Formula
   skip_clean "lib/gtags"
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/cb/9f/27d4844ac5bf158a33900dbad7985951e2910397998e85712da03ce125f0/Pygments-2.5.2.tar.gz"
-    sha256 "98c8aa5a9f778fcd1026a17361ddaf7330d1b7c62ae97c3bb0ae73e0b9b6b0fe"
+    url "https://files.pythonhosted.org/packages/5d/9d/208733ccc91b1d2c2af7270ffe3def197504bd8da875bc3fa1dc75039795/Pygments-2.7.0.tar.gz"
+    sha256 "2594e8fdb06fef91552f86f4fd3a244d148ab24b66042036e64f29a291515048"
   end
 
   def install
