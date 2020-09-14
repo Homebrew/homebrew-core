@@ -4,6 +4,7 @@ class Wireshark < Formula
   url "https://www.wireshark.org/download/src/all-versions/wireshark-3.2.6.tar.xz"
   mirror "https://1.eu.dl.wireshark.org/src/all-versions/wireshark-3.2.6.tar.xz"
   sha256 "ebb1eebe39bcecee02195dc328dd25f6862fc9e9dea4c2e29eae50537d5eb4f2"
+  revision 1
   head "https://code.wireshark.org/review/wireshark", using: :git
 
   livecheck do
