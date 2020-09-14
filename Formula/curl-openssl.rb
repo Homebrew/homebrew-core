@@ -4,6 +4,7 @@ class CurlOpenssl < Formula
   url "https://curl.haxx.se/download/curl-7.72.0.tar.bz2"
   sha256 "ad91970864102a59765e20ce16216efc9d6ad381471f7accceceab7d905703ef"
   license "curl"
+  revision 1
 
   bottle do
     rebuild 1
