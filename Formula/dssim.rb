@@ -3,7 +3,7 @@ class Dssim < Formula
   homepage "https://github.com/kornelski/dssim"
   url "https://github.com/kornelski/dssim/archive/2.11.3.tar.gz"
   sha256 "fa254c8f625e3ffdf563e4e665ac1e345195073cb57415bc2034c6ad602a76cb"
-  license "AGPL-3.0"
+  license "AGPL-3.0-or-later"
 
   bottle do
     cellar :any_skip_relocation
