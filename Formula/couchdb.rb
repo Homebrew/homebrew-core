@@ -51,13 +51,6 @@ class Couchdb < Formula
 
   def caveats
     <<~EOS
-      If your upgrade from version 1.7.2_1 then your old database path is "/usr/local/var/lib/couchdb".
-
-      The database path of this installation: #{var}/couchdb/data".
-
-      If you want to migrate your data from 1.x to 2.x then follow this guide:
-      https://docs.couchdb.org/en/stable/install/upgrading.html
-
       CouchDB 3.x requires a set admin password set before startup.
       Add one to your #{etc}/local.ini before starting CouchDB e.g.:
         [admins]
