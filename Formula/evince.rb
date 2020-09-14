@@ -4,6 +4,7 @@ class Evince < Formula
   url "https://download.gnome.org/sources/evince/3.38/evince-3.38.0.tar.xz"
   sha256 "26df897a417545b476d2606b14731122e84278ae994bd64ea535449c3cf01948"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -45,6 +46,7 @@ class Evince < Formula
       -Dbrowser_plugin=false
       -Dgspell=enabled
       -Ddbus=false
+      -Dps=enabled
     ]
 
     mkdir "build" do
