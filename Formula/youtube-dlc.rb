@@ -9,7 +9,7 @@ class YoutubeDlc < Formula
   # depends_on "cmake" => :build
 
   def install
-    bin.install "youtube-dlc  "
+    bin.install "youtube-dlc"
   end
 
   test do
