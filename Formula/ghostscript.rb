@@ -1,13 +1,13 @@
 class Ghostscript < Formula
   desc "Interpreter for PostScript and PDF"
   homepage "https://www.ghostscript.com/"
-  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs952/ghostpdl-9.52.tar.gz"
-  sha256 "8f6e48325c106ae033bbae3e55e6c0b9ee5c6b57e54f7cd24fb80a716a93b06a"
-  license "AGPL-3.0"
+  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs9531/ghostpdl-9.53.1.tar.gz"
+  sha256 "9ffb112a316a6834b35d10fe1bf530da49575e53a856483617d0034c6a2db140"
+  license "AGPL-3.0-or-later"
 
   livecheck do
     url :head
-    regex(/^ghostscript[._-]v?(\d+(?:\.\d+)+)$/i)
+    regex(/^ghostpdl[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
@@ -49,7 +49,6 @@ class Ghostscript < Formula
       --disable-gtk
       --disable-fontconfig
       --without-libidn
-      --with-system-libtiff
       --without-x
     ]
 
