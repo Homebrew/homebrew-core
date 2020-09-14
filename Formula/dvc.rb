@@ -257,9 +257,12 @@ class Dvc < Formula
       # NOTE: we will uninstall Pillow anyway, so there is no need to build it
       # from source.
       "--only-binary", "Pillow",
-      # NOTE: building rich requires poetry, which is problematic.
-      # See https://github.com/Homebrew/homebrew-core/pull/58501
+      # NOTE: building rich and flatten-dict requires poetry, which is
+      # problematic. See
+      # https://github.com/Homebrew/homebrew-core/pull/58501
+      # https://github.com/Homebrew/homebrew-core/pull/61103
       "--only-binary", "rich",
+      "--only-binary", "flatten-dict",
       "--ignore-installed",
       # NOTE: pyarrow is already installed as a part of apache-arrow package,
       # so we don't need to specify `hdfs` option.
