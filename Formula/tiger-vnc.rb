@@ -16,6 +16,7 @@ class TigerVnc < Formula
   depends_on "gettext"
   depends_on "gnutls"
   depends_on "jpeg-turbo"
+  depends_on "pixman"
   depends_on :x11
 
   def install
