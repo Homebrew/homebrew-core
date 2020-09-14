@@ -4,6 +4,7 @@ class Termshark < Formula
   url "https://github.com/gcla/termshark/archive/v2.1.1.tar.gz"
   sha256 "c02a21e0a61b791b1287b85acc33834ccd3bb4efb40be52e5a74d2b989d51416"
   license "MIT"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
