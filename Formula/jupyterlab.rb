@@ -3,8 +3,8 @@ class Jupyterlab < Formula
 
   desc "Interactive environments for writing and running code"
   homepage "https://jupyter.org/"
-  url "https://files.pythonhosted.org/packages/ce/1d/defe63e39a90c9f17cd4dd58dcf81d5ecf913fba0ade78966228cab37893/jupyterlab-2.2.7.tar.gz"
-  sha256 "a72ffd0d919cba03a5ef8422bc92c3332a957ff97b0490494209c83ad93826da"
+  url "https://files.pythonhosted.org/packages/39/dc/a0d48fa885fce1efa8a7dcee9c86d52cf59aa312cc35fc78077c841ee411/jupyterlab-2.2.8.tar.gz"
+  sha256 "c8377bee30504919c1e79949f9fe35443ab7f5c4be622c95307e8108410c8b8c"
   license "BSD-3-Clause"
 
   livecheck do
@@ -34,6 +34,11 @@ class Jupyterlab < Formula
   resource "argon2-cffi" do
     url "https://files.pythonhosted.org/packages/74/fd/d78e003a79c453e8454197092fce9d1c6099445b7e7da0b04eb4fe1dbab7/argon2-cffi-20.1.0.tar.gz"
     sha256 "d8029b2d3e4b4cea770e9e5a0104dd8fa185c1724a0f01528ae4826a6d25f97d"
+  end
+
+  resource "async_generator" do
+    url "https://files.pythonhosted.org/packages/ce/b6/6fa6b3b598a03cba5e80f829e0dadbb49d7645f523d209b2fb7ea0bbb02a/async_generator-1.10.tar.gz"
+    sha256 "6ebb3d106c12920aaae42ccb6f787ef5eefdcdd166ea3d628fa8476abe712144"
   end
 
   resource "attrs" do
@@ -131,6 +136,11 @@ class Jupyterlab < Formula
     sha256 "394fd5dd787e7c8861741880bdf8a00ce39f95de5d18e579c74b882522219e7e"
   end
 
+  resource "jupyterlab-pygments" do
+    url "https://files.pythonhosted.org/packages/90/ee/b03c496e016d4edb1dd8a0370f511422403a46285206eb7c163f546fa5d9/jupyterlab_pygments-0.1.1.tar.gz"
+    sha256 "19a0ccde7daddec638363cd3d60b63a4f6544c9181d65253317b2fb492a797b9"
+  end
+
   resource "jupyterlab-server" do
     url "https://files.pythonhosted.org/packages/92/54/5f321ca4cebfb644ac59eb21601b46a2ff9831ffe1b4e5a588f2a7e98d48/jupyterlab_server-1.2.0.tar.gz"
     sha256 "5431d9dde96659364b7cc877693d5d21e7b80cea7ae3959ecc2b87518e5f5d8c"
@@ -146,14 +156,24 @@ class Jupyterlab < Formula
     sha256 "59a3429db53c50b5c6bcc8a07f8848cb00d7dc8bdb431a4ab41920d201d4756e"
   end
 
+  resource "nbclient" do
+    url "https://files.pythonhosted.org/packages/a8/e5/4824393a907854c46c77b03086e963fecfbbf0d7169a73b4cb33fc4861e6/nbclient-0.5.0.tar.gz"
+    sha256 "8ad52d27ba144fca1402db014857e53c5a864a2f407be66ca9d74c3a56d6591d"
+  end
+
   resource "nbconvert" do
-    url "https://files.pythonhosted.org/packages/04/f2/299fa4b15155ecbe2aefe7412249f0dd91f953b7a9b37c336317d564a1ca/nbconvert-5.6.1.tar.gz"
-    sha256 "21fb48e700b43e82ba0e3142421a659d7739b65568cc832a13976a77be16b523"
+    url "https://files.pythonhosted.org/packages/41/ec/29ed5e4a2610cc0414120f3d6ea780a9b7338a8152780157dc9e203c3979/nbconvert-6.0.2.tar.gz"
+    sha256 "4cb5c66d04737a42076536fa64fa951e97cddbf4c517c418591314a3d14013dc"
   end
 
   resource "nbformat" do
     url "https://files.pythonhosted.org/packages/95/8e/8ffd07ed059a6277fe2f72d1fa411b49a8e512ad62f2ed20b9c2438192dd/nbformat-5.0.7.tar.gz"
     sha256 "54d4d6354835a936bad7e8182dcd003ca3dc0cedfee5a306090e04854343b340"
+  end
+
+  resource "nest-asyncio" do
+    url "https://files.pythonhosted.org/packages/b5/bd/f4e28820a4e105680ecf02decf75282c8c3eeb7c66c776dd54c4837f93bb/nest_asyncio-1.4.0.tar.gz"
+    sha256 "5773054bbc14579b000236f85bc01ecced7ffd045ec8ca4a9809371ec65a59c8"
   end
 
   resource "notebook" do
@@ -207,8 +227,8 @@ class Jupyterlab < Formula
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/6e/4d/4d2fe93a35dfba417311a4ff627489a947b01dc0cc377a3673c00cf7e4b2/Pygments-2.6.1.tar.gz"
-    sha256 "647344a061c249a3b74e230c739f434d7ea4d8b1d5f3721bc0f3558049b38f44"
+    url "https://files.pythonhosted.org/packages/5d/9d/208733ccc91b1d2c2af7270ffe3def197504bd8da875bc3fa1dc75039795/Pygments-2.7.0.tar.gz"
+    sha256 "2594e8fdb06fef91552f86f4fd3a244d148ab24b66042036e64f29a291515048"
   end
 
   resource "pyparsing" do
@@ -217,8 +237,8 @@ class Jupyterlab < Formula
   end
 
   resource "pyrsistent" do
-    url "https://files.pythonhosted.org/packages/29/04/14e4b9f699222e671aff41460adcc6f67d8e8b68d03cbd278b11feddc496/pyrsistent-0.17.0.tar.gz"
-    sha256 "8690178e75460d3afe32d6222feed1ca1fdd4ef7317f6d8b42147bcce5f9ee75"
+    url "https://files.pythonhosted.org/packages/4d/70/fd441df751ba8b620e03fd2d2d9ca902103119616f0f6cc42e6405035062/pyrsistent-0.17.3.tar.gz"
+    sha256 "2e636185d9eb976a18a8a8e96efce62f2905fea90041958d8cc2a189756ebf3e"
   end
 
   resource "python-dateutil" do
@@ -333,7 +353,7 @@ class Jupyterlab < Formula
         "cells": []
       }
     EOS
-    system bin/"jupyter-nbconvert", "nbconvert.ipynb"
+    system bin/"jupyter-nbconvert", "nbconvert.ipynb", "--to", "html"
     assert_predicate testpath/"nbconvert.html", :exist?, "Failed to export HTML"
 
     assert_match "-F _jupyter",
