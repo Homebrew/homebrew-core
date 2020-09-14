@@ -5,6 +5,7 @@ class Imagemagick < Formula
   mirror "https://www.imagemagick.org/download/releases/ImageMagick-7.0.10-30.tar.xz"
   sha256 "1b550e051f4472a64943718b7366855cdbda1b2b256ba0ee34f6d3589775f81f"
   license "ImageMagick"
+  revision 1
   head "https://github.com/ImageMagick/ImageMagick.git"
 
   livecheck do
