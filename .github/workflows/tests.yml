@@ -141,6 +141,13 @@ jobs:
         run: |
           if grep -q 'Error: [[:digit:]]* failed steps!' */steps_output.txt; then
             echo "::set-output name=tests-failed::true"
+            if grep -q 'brew install' */steps_output.txt; then
+              echo "::set-output name=build-failure::true"
+            elif grep -q 'brew test' */steps_output.txt; then
+              echo "::set-output name=test-failure::true"
+            elif grep -q 'brew audit' */steps_output.txt; then
+              echo "::set-output name=audit-failure::true"
+            fi
           fi
 
       - name: Post comment on failure
@@ -158,3 +165,24 @@ jobs:
           token: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
           pr: ${{github.event.pull_request.number}}
           message: 'tests failed'
+
+      - name: Label build failure
+        if: steps.check-failures.outputs.build-failure
+        uses: actions-ecosystem/action-add-labels@v1
+        with:
+          github_token: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
+          labels: 'build failure'
+
+      - name: Label test failure
+        if: steps.check-failures.outputs.test-failure
+        uses: actions-ecosystem/action-add-labels@v1
+        with:
+          github_token: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
+          labels: 'test failure'
+
+      - name: Label audit failure
+        if: steps.check-failures.outputs.audit-failure
+        uses: actions-ecosystem/action-add-labels@v1
+        with:
+          github_token: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
+          labels: 'audit failure'
