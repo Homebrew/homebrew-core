@@ -4,6 +4,7 @@ class Knot < Formula
   url "https://secure.nic.cz/files/knot-dns/knot-3.0.0.tar.xz"
   sha256 "f1c96aff6e873a2f9b1b8c2441d5a7801dd48d3abdb738a4d24b26c2a8fbe6c4"
   license all_of: ["GPL-3.0-or-later", "0BSD", "BSD-3-Clause", "LGPL-2.0-or-later", "MIT"]
+  revision 1
 
   livecheck do
     url "https://secure.nic.cz/files/knot-dns/"
