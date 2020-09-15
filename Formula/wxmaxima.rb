@@ -1,9 +1,9 @@
 class Wxmaxima < Formula
   desc "Cross platform GUI for Maxima"
   homepage "https://wxmaxima-developers.github.io/wxmaxima/"
-  url "https://github.com/wxMaxima-developers/wxmaxima/archive/Version-20.07.0.tar.gz"
-  sha256 "0ab31006eb00e978ba8ecc840097272b401c294c0dbf69919ec8d6c02558e6f0"
-  license "GPL-2.0"
+  url "https://github.com/wxMaxima-developers/wxmaxima/archive/Version-20.09.0.tar.gz"
+  sha256 "a2ba6797642c7efa96c5dbb6249134a0ace246ebd390e42f7c227fa94609ef27"
+  license "GPL-2.0-or-later"
   head "https://github.com/wxMaxima-developers/wxmaxima.git"
 
   bottle do
@@ -14,16 +14,24 @@ class Wxmaxima < Formula
 
   depends_on "cmake" => :build
   depends_on "gettext" => :build
+  depends_on "ninja" => :build
   depends_on "maxima"
   depends_on "wxmac"
 
   def install
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
-    prefix.install "src/wxMaxima.app"
-    bin.write_exec_script "#{prefix}/wxMaxima.app/Contents/MacOS/wxmaxima"
+    # en_US.UTF8 is not a valid locale for macOS
+    # https://github.com/wxMaxima-developers/wxmaxima/issues/1402
+    inreplace "src/StreamUtils.cpp", "en_US.UTF8", "en_US.UTF-8"
+
+    mkdir "build-wxm" do
+      system "cmake", "..", "-GNinja", *std_cmake_args
+      system "ninja"
+      system "ninja", "install"
+      prefix.install "src/wxMaxima.app"
+    end
 
     bash_completion.install "data/wxmaxima"
+    bin.write_exec_script "#{prefix}/wxMaxima.app/Contents/MacOS/wxmaxima"
   end
 
   def caveats
