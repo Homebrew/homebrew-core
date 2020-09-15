@@ -5,7 +5,7 @@ class Octave < Formula
   mirror "https://ftpmirror.gnu.org/octave/octave-5.2.0.tar.xz"
   sha256 "2757b5cc1854c9326d6c99d2900c7cec2909ac7ed500212d170d0df592bfd26b"
   license "GPL-3.0"
-  revision 9
+  revision 10
 
   livecheck do
     url :stable
@@ -53,6 +53,7 @@ class Octave < Formula
   depends_on "pstoedit"
   depends_on "qhull"
   depends_on "qrupdate"
+  depends_on "qscintilla2"
   depends_on "qt"
   depends_on "readline"
   depends_on "suite-sparse"
