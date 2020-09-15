@@ -30,6 +30,7 @@ class Knot < Formula
   depends_on "gnutls"
   depends_on "libidn2"
   depends_on "lmdb"
+  depends_on "nghttp2"
   depends_on "protobuf-c"
   depends_on "userspace-rcu"
 
