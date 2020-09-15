@@ -5,6 +5,7 @@ class JujuWait < Formula
   homepage "https://launchpad.net/juju-wait"
   url "https://files.pythonhosted.org/packages/38/3a/f78817ea1f36b53864cec95f4ede230ac611812c76532d882ef493cf6ad2/juju-wait-2.8.3.tar.gz"
   sha256 "4a9fc3aaee9ae99f508d39b6ce5bba53eff8b409ed222f8920e02d0e80e94dc8"
+  license "GPL-3.0-only"
 
   livecheck do
     url :stable
