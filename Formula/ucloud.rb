@@ -24,7 +24,7 @@ class Ucloud < Formula
   end
 
   test do
-    system "#{bin}/ucloud", "config", "--project-id", "org-test", "--profile", "default"
+    system "#{bin}/ucloud", "config", "--project-id", "org-test", "--profile", "default", "--active", "true"
     config_json = (testpath/".ucloud/config.json").read
     assert_match '"project_id":"org-test"', config_json
     assert_match version.to_s, shell_output("#{bin}/ucloud --version")
