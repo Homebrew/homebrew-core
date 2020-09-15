@@ -2,8 +2,8 @@ class Datasette < Formula
   include Language::Python::Virtualenv
   desc "Open source multi-tool for exploring and publishing data"
   homepage "https://datasette.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/01/70/11734b4cb005a556f20e65e7f04df1c22a85f5ef731d86c9a63c2476ada3/datasette-0.48.tar.gz"
-  sha256 "40f9b8b29d9b0962d33f657177484f6d3d5b51cc58588c508b57ce24e78d5e3b"
+  url "https://files.pythonhosted.org/packages/a1/5e/c6c25da5133736c81547e23c6fc407e434daebb388ffebb6439257c0cbc5/datasette-0.49.tar.gz"
+  sha256 "481a6fd48828328d6d4f88c685743f6deaa0771457684db21900df79c78e8628"
   license "Apache-2.0"
 
   livecheck do
@@ -25,8 +25,8 @@ class Datasette < Formula
   end
 
   resource "asgi-csrf" do
-    url "https://files.pythonhosted.org/packages/e1/64/7ed484baad9fa6139260fe27ece6905e4746b59e9d2b70c7e2c48a4f1cf9/asgi-csrf-0.7.tar.gz"
-    sha256 "6cccf20390bb0990691f6a796c782cfb00d0d04485bd39fc988d14e8e6aea9d0"
+    url "https://files.pythonhosted.org/packages/02/fc/f3670d30faa648bb5e0774f45fdb5173ae06fd6f5ad9795ea4ee1d05928b/asgi-csrf-0.7.1.tar.gz"
+    sha256 "77bfb2a3311643fd2304d0f11f72160559acbbd1a35730a54208135ded3f21a3"
   end
 
   resource "asgiref" do
@@ -90,8 +90,8 @@ class Datasette < Formula
   end
 
   resource "Pint" do
-    url "https://files.pythonhosted.org/packages/8c/97/122b87ce55c3ba7b75b3b5e9b12a55b86d72aae4cb56d1d11c93a1ff0002/Pint-0.14.tar.gz"
-    sha256 "9aa450ebb9d722ed03fa9a450104cfd16c479b49f862d547c6f77320de597f72"
+    url "https://files.pythonhosted.org/packages/86/96/703560e8da5f56754b23e4eb5a493236d4023a8d665f15a39c447c5e4a0e/Pint-0.16.tar.gz"
+    sha256 "e437420e65fa72a2805f4036f986669c48d54944eeb0e47c8ba16f98cbdcd599"
   end
 
   resource "pluggy" do
