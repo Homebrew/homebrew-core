@@ -26,6 +26,10 @@ class Kind < Formula
     # Install zsh completion
     output = Utils.safe_popen_read("#{bin}/kind", "completion", "zsh")
     (zsh_completion/"_kind").write output
+
+    # Install fish completion
+    output = Utils.safe_popen_read("#{bin}/kind", "completion", "fish")
+    (fish_completion/"kind.fish").write output
   end
 
   test do
