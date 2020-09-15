@@ -20,6 +20,14 @@ class Libsoxr < Formula
 
   depends_on "cmake" => :build
 
+  # Fixes the build on 64-bit ARM macOS; the __arm__ define used in the
+  # code isn't defined on 64-bit Apple Silicon.
+  # Upstream pull request: https://sourceforge.net/p/soxr/code/merge-requests/5/
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/76868b36263be42440501d3692fd3a258f507d82/libsoxr/arm64_defines.patch"
+    sha256 "9df5737a21b9ce70cc136c302e195fad9f9f6c14418566ad021f14bb34bb022c"
+  end
+
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"
