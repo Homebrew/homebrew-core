@@ -17,6 +17,16 @@ class Libvidstab < Formula
 
   depends_on "cmake" => :build
 
+  # A bug in the FindSSE CMake script means that, if a variable is defined
+  # as an empty string without quoting, it doesn't get passed to a function
+  # and CMake throws an error. This only occurs on ARM, because the
+  # sysctl value being checked is always a non-empty string on Intel.
+  # Upstream PR: https://github.com/georgmartius/vid.stab/pull/93
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/5bf1a0e0cfe666ee410305cece9c9c755641bfdf/libvidstab/fix_cmake_quoting.patch"
+    sha256 "45c16a2b64ba67f7ca5335c2f602d8d5186c29b38188b3cc7aff5df60aecaf60"
+  end
+
   def install
     system "cmake", ".", "-DUSE_OMP=OFF", *std_cmake_args
     system "make", "install"
