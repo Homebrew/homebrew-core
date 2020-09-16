@@ -2,8 +2,8 @@ class Carthage < Formula
   desc "Decentralized dependency manager for Cocoa"
   homepage "https://github.com/Carthage/Carthage"
   url "https://github.com/Carthage/Carthage.git",
-      tag:      "0.35.0",
-      revision: "c7550f832f23d2c00bf0c014351719839593c641",
+      tag:      "0.35.1",
+      revision: "0d324cbd5d3a5b68ec69c84a05ae4a28af95e96f",
       shallow:  false
   license "MIT"
   head "https://github.com/Carthage/Carthage.git", shallow: false
@@ -16,13 +16,6 @@ class Carthage < Formula
   end
 
   depends_on xcode: ["10.0", :build]
-
-  patch do
-    # Fix erroneously re-throwing reduce (on Swift 5.3 pre-release)
-    # https://github.com/Carthage/Carthage/commit/a33d3483b31e28e0488ea51e3efb6b44025f1b5f
-    url "https://github.com/Carthage/Carthage/commit/a33d3483b31e28e0488ea51e3efb6b44025f1b5f.diff?full_index=1"
-    sha256 "75610a77cafbf447ea040d8dea1a4beb626944c577351ea5435ab5e8dda71b1c"
-  end
 
   def install
     system "make", "prefix_install", "PREFIX=#{prefix}"
