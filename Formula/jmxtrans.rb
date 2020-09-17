@@ -17,8 +17,7 @@ class Jmxtrans < Formula
   depends_on java: "1.8"
 
   def install
-    cmd = Language::Java.java_home_cmd("1.8")
-    ENV["JAVA_HOME"] = Utils.safe_popen_read(cmd).chomp
+    ENV["JAVA_HOME"] = Language::Java.java_home("1.8")
 
     system "mvn", "package", "-DskipTests=true",
                              "-Dmaven.javadoc.skip=true",
