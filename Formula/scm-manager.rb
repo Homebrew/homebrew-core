@@ -25,25 +25,13 @@ class ScmManager < Formula
 
     libexec.install Dir["*"]
 
-    (bin/"scm-server").write <<~EOS
-      #!/bin/bash
-      BASEDIR="#{libexec}"
-      REPO="#{libexec}/lib"
-      export JAVA_HOME=$(#{Language::Java.java_home_cmd("1.8")})
-      "#{libexec}/bin/scm-server" "$@"
-    EOS
-    chmod 0755, bin/"scm-server"
+    env = Language::Java.overridable_java_home_env("1.8")
+    env["BASEDIR"] = libexec
+    env["REPO"] = libexec/"lib"
+    (bin/"scm-server").write_env_script libexec/"bin/scm-server", env
 
-    tools = libexec/"tools"
-    tools.install resource("client")
-
-    scm_cli_client = bin/"scm-cli-client"
-    scm_cli_client.write <<~EOS
-      #!/bin/bash
-      export JAVA_HOME=$(#{Language::Java.java_home_cmd("1.8")})
-      java -jar "#{tools}/scm-cli-client-#{version}-jar-with-dependencies.jar" "$@"
-    EOS
-    chmod 0755, scm_cli_client
+    (libexec/"tools").install resource("client")
+    bin.write_jar_script libexec/"tools/scm-cli-client-#{version}-jar-with-dependencies.jar", "scm-cli-client", java_version: "1.8"
   end
 
   plist_options manual: "scm-server start"
