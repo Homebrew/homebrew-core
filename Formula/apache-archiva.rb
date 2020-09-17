@@ -1,5 +1,5 @@
 class ApacheArchiva < Formula
-  desc "The Build Artifact Repository Manager"
+  desc "Build Artifact Repository Manager"
   homepage "https://archiva.apache.org/"
   url "https://www.apache.org/dyn/closer.lua?path=archiva/2.2.5/binaries/apache-archiva-2.2.5-bin.tar.gz"
   mirror "https://archive.apache.org/dist/archiva/2.2.5/binaries/apache-archiva-2.2.5-bin.tar.gz"
