@@ -23,13 +23,11 @@ class SwaggerCodegenAT2 < Formula
   depends_on java: "1.8"
 
   def install
-    # Need to set JAVA_HOME manually since maven overrides 1.8 with 1.7+
-    cmd = Language::Java.java_home_cmd("1.8")
-    ENV["JAVA_HOME"] = Utils.safe_popen_read(cmd).chomp
+    ENV["JAVA_HOME"] = Language::Java.java_home("1.8")
 
     system "mvn", "clean", "package"
     libexec.install "modules/swagger-codegen-cli/target/swagger-codegen-cli.jar"
-    bin.write_jar_script libexec/"swagger-codegen-cli.jar", "swagger-codegen"
+    bin.write_jar_script libexec/"swagger-codegen-cli.jar", "swagger-codegen", java_version: "1.8"
   end
 
   test do
