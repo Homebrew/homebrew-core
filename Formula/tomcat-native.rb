@@ -2,7 +2,7 @@ class TomcatNative < Formula
   desc "Lets Tomcat use some native resources for performance"
   homepage "https://tomcat.apache.org/native-doc/"
   url "https://www.apache.org/dyn/closer.lua?path=tomcat/tomcat-connectors/native/1.2.24/source/tomcat-native-1.2.24-src.tar.gz"
-  mirror "https://archive.apache.org/dist/tomcat/tomcat-connectors/native/1.2.24/source/tomcat-native-1.2.24-src.tar.gz--sha256=037f52f9a345e766a7dde8361c55b3b69045928f9a8068a406612b603819e76c"
+  mirror "https://archive.apache.org/dist/tomcat/tomcat-connectors/native/1.2.24/source/tomcat-native-1.2.24-src.tar.gz"
   sha256 "037f52f9a345e766a7dde8361c55b3b69045928f9a8068a406612b603819e76c"
   license "Apache-2.0"
 
