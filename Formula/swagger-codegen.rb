@@ -14,12 +14,11 @@ class SwaggerCodegen < Formula
   end
 
   depends_on "maven" => :build
-  depends_on java: "1.8"
+  depends_on "openjdk"
 
   def install
     # Need to set JAVA_HOME manually since maven overrides 1.8 with 1.7+
-    cmd = Language::Java.java_home_cmd("1.8")
-    ENV["JAVA_HOME"] = Utils.safe_popen_read(cmd).chomp
+    ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
 
     system "mvn", "clean", "package"
     libexec.install "modules/swagger-codegen-cli/target/swagger-codegen-cli.jar"
