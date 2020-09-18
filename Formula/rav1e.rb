@@ -1,5 +1,5 @@
 class Rav1e < Formula
-  desc "The fastest and safest AV1 encoder"
+  desc "Fastest and safest AV1 video encoder"
   homepage "https://github.com/xiph/rav1e"
   url "https://github.com/xiph/rav1e/archive/v0.3.4.tar.gz"
   sha256 "797699359d594c929636ddd54474c99fe0577b545a21384514f864d68f67b98f"
