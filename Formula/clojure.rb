@@ -1,5 +1,5 @@
 class Clojure < Formula
-  desc "The Clojure Programming Language"
+  desc "Dynamic, general-purpose programming language"
   homepage "https://clojure.org"
   url "https://download.clojure.org/install/clojure-tools-1.10.1.561.tar.gz"
   sha256 "46c193d09f8fce9c0e5e530c2463586cec9717593cdee2f57199d278ed104e2d"
