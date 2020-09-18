@@ -1,5 +1,5 @@
 class Cling < Formula
-  desc "The cling C++ interpreter"
+  desc "C++ interpreter"
   homepage "https://root.cern.ch/cling"
   url "https://github.com/root-project/cling.git",
       tag:      "v0.6",
