@@ -1,5 +1,5 @@
 class Nest < Formula
-  desc "The Neural Simulation Tool (NEST) with Python3 bindings (PyNEST)"
+  desc "Neural Simulation Tool (NEST) with Python3 bindings (PyNEST)"
   homepage "https://www.nest-simulator.org/"
   url "https://github.com/nest/nest-simulator/archive/v2.20.0.tar.gz"
   sha256 "40e33187c22d6e843d80095b221fa7fd5ebe4dbc0116765a91fc5c425dd0eca4"
