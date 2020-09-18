@@ -1,5 +1,5 @@
 class Gedit < Formula
-  desc "The GNOME text editor"
+  desc "GNOME text editor"
   homepage "https://wiki.gnome.org/Apps/Gedit"
   url "https://download.gnome.org/sources/gedit/3.38/gedit-3.38.0.tar.xz"
   sha256 "46cf06806de58f6e5e95e34fd98ad0b2c0c50b3dae6d23ca57d16d5cc41856f8"
