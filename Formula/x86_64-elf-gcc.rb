@@ -1,5 +1,5 @@
 class X8664ElfGcc < Formula
-  desc "The GNU compiler collection for x86_64-elf"
+  desc "GNU compiler collection for x86_64-elf"
   homepage "https://gcc.gnu.org"
   url "https://ftp.gnu.org/gnu/gcc/gcc-10.2.0/gcc-10.2.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/gcc/gcc-10.2.0/gcc-10.2.0.tar.xz"
