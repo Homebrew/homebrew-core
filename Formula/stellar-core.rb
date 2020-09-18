@@ -1,5 +1,5 @@
 class StellarCore < Formula
-  desc "The backbone of the Stellar (XLM) network"
+  desc "Backbone of the Stellar (XLM) network"
   homepage "https://www.stellar.org/"
   url "https://github.com/stellar/stellar-core.git",
       tag:      "v14.0.0",
