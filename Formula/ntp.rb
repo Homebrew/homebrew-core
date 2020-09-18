@@ -1,5 +1,5 @@
 class Ntp < Formula
-  desc "The Network Time Protocol (NTP) Distribution"
+  desc "Network Time Protocol (NTP) Distribution"
   homepage "https://www.eecis.udel.edu/~mills/ntp/html/"
   url "https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p15.tar.gz"
   version "4.2.8p15"
