@@ -1,5 +1,5 @@
 class HelmAT2 < Formula
-  desc "The Kubernetes package manager"
+  desc "Kubernetes package manager"
   homepage "https://helm.sh/"
   url "https://github.com/helm/helm.git",
       tag:      "v2.16.11",
