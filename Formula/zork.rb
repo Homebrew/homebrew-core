@@ -1,5 +1,5 @@
 class Zork < Formula
-  desc "The Dungeon modified from FORTRAN to C"
+  desc "Dungeon modified from FORTRAN to C"
   homepage "https://github.com/devshane/zork"
   url "https://github.com/devshane/zork/archive/v1.0.2.tar.gz"
   sha256 "169e1848b1e3c503591c23ad4e66ce45e1d5ae617831634e1da9c8fca659e283"
