@@ -1,5 +1,5 @@
 class NewrelicCli < Formula
-  desc "The New Relic Command-line Interface"
+  desc "Command-line interface for New Relic"
   homepage "https://github.com/newrelic/newrelic-cli"
   url "https://github.com/newrelic/newrelic-cli/archive/v0.13.0.tar.gz"
   sha256 "1b308460bc6e558429f5d2b9ba916e6a1f57dea9f33492836c0e01f8432b9786"
