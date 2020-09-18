@@ -1,5 +1,5 @@
 class Lazydocker < Formula
-  desc "The lazier way to manage everything docker"
+  desc "Lazier way to manage everything docker"
   homepage "https://github.com/jesseduffield/lazydocker"
   url "https://github.com/jesseduffield/lazydocker.git",
       tag:      "v0.9.1",
