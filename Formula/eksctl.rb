@@ -1,5 +1,5 @@
 class Eksctl < Formula
-  desc "The official CLI for Amazon EKS"
+  desc "Simple command-line tool for creating clusters on Amazon EKS"
   homepage "https://eksctl.io"
   url "https://github.com/weaveworks/eksctl.git",
       tag:      "0.27.0",
