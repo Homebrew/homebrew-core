@@ -1,5 +1,5 @@
 class KimApi < Formula
-  desc "The Knowledgebase of Interatomic Models (KIM) API"
+  desc "Knowledgebase of Interatomic Models (KIM) API"
   homepage "https://openkim.org"
   url "https://s3.openkim.org/kim-api/kim-api-2.1.3.txz"
   sha256 "88a5416006c65a2940d82fad49de0885aead05bfa8b59f87d287db5516b9c467"
