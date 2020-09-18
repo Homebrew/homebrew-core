@@ -1,5 +1,5 @@
 class Airspy < Formula
-  desc "The usemode driver and associated tools for airspy"
+  desc "Driver and tools for a software-defined radio"
   homepage "https://airspy.com/"
   url "https://github.com/airspy/airspyone_host/archive/v1.0.9.tar.gz"
   sha256 "967ef256596d4527b81f007f77b91caec3e9f5ab148a8fec436a703db85234cc"
