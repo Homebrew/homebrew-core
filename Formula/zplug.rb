@@ -1,5 +1,5 @@
 class Zplug < Formula
-  desc "The next-generation plugin manager for zsh"
+  desc "Next-generation plugin manager for zsh"
   homepage "https://github.com/zplug/zplug/"
   url "https://github.com/zplug/zplug/archive/2.4.2.tar.gz"
   sha256 "82a51e8c388844acbfb64196623bede07eee2384f1fc30966eac880373aa9030"
