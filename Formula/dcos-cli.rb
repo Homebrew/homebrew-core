@@ -1,5 +1,5 @@
 class DcosCli < Formula
-  desc "The DC/OS command-line interface"
+  desc "Command-line interface for managing DC/OS clusters"
   homepage "https://docs.d2iq.com/mesosphere/dcos/latest/cli"
   url "https://github.com/dcos/dcos-cli/archive/1.2.0.tar.gz"
   sha256 "d75c4aae6571a7d3f5a2dad0331fe3adab05a79e2966c0715409d6a2be2c6105"
