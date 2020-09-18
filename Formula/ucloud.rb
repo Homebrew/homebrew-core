@@ -1,5 +1,5 @@
 class Ucloud < Formula
-  desc "The official tool to managment your ucloud services"
+  desc "Official tool for managing UCloud services"
   homepage "https://www.ucloud.cn"
   url "https://github.com/ucloud/ucloud-cli/archive/0.1.33.tar.gz"
   sha256 "cd488c6067c214c9e523d244bd27a054c6eac98c808609a0caf0f5b6fb24f497"
