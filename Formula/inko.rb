@@ -1,5 +1,5 @@
 class Inko < Formula
-  desc "The Inko programming language"
+  desc "Safe and concurrent object-oriented programming language"
   homepage "https://inko-lang.org/"
   url "https://gitlab.com/inko-lang/inko/-/archive/v0.7.0/inko-v0.7.0.tar.gz"
   sha256 "81a613b4d6bee524a8fe8e346466b7f277a42875b357ad61ba0ca3871750c1e3"
