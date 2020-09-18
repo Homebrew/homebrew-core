@@ -1,5 +1,5 @@
 class Wtfutil < Formula
-  desc "The personal information dashboard for your terminal"
+  desc "Personal information dashboard for your terminal"
   homepage "https://wtfutil.com"
   url "https://github.com/wtfutil/wtf.git",
     tag:      "v0.31.0",
