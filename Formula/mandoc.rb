@@ -1,5 +1,5 @@
 class Mandoc < Formula
-  desc "The mandoc UNIX manpage compiler toolset"
+  desc "UNIX manpage compiler toolset"
   homepage "https://mandoc.bsd.lv/"
   url "https://mandoc.bsd.lv/snapshots/mandoc-1.14.5.tar.gz"
   sha256 "8219b42cb56fc07b2aa660574e6211ac38eefdbf21f41b698d3348793ba5d8f7"
