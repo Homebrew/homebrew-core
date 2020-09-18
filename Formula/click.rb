@@ -1,5 +1,5 @@
 class Click < Formula
-  desc "The command-line interactive controller for Kubernetes"
+  desc "Command-line interactive controller for Kubernetes"
   homepage "https://github.com/databricks/click"
   url "https://github.com/databricks/click/archive/v0.5.3.tar.gz"
   sha256 "68feaa0d2a0c5b3a110eedd393949a89d6f80583eb25289161c0b91714097bed"
