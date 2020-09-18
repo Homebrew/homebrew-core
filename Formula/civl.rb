@@ -1,5 +1,5 @@
 class Civl < Formula
-  desc "The Concurrency Intermediate Verification Language"
+  desc "Concurrency Intermediate Verification Language"
   homepage "https://vsl.cis.udel.edu/civl/"
   url "https://vsl.cis.udel.edu/lib/sw/civl/1.20/r5259/release/CIVL-1.20_5259.tgz"
   version "1.20-5259"
