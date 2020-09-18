@@ -1,5 +1,5 @@
 class Ne < Formula
-  desc "The nice editor"
+  desc "Text editor based on the POSIX standard"
   homepage "https://github.com/vigna/ne"
   url "https://github.com/vigna/ne/archive/3.3.0.tar.gz"
   sha256 "77a0c8e8564a29cd18069eebf04cee4855fae183f1e8f25d5fbb0c2651f07e6c"
