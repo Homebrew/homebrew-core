@@ -1,7 +1,7 @@
 require "language/node"
 
 class NowCli < Formula
-  desc "The command-line interface for Now"
+  desc "Command-line interface for Now"
   homepage "https://zeit.co/now"
   url "https://registry.npmjs.org/now/-/now-20.0.0.tgz"
   sha256 "471d4fb8507b64d1caefa5a5a1433432ccf26b1a2965d9c47e88da3934320b96"
