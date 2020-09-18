@@ -13,6 +13,7 @@ class Nnn < Formula
     sha256 "5ec7be04b6cce16cf8b14bd365fce2628e6438e09233cd62311c34227631f2cd" => :high_sierra
   end
 
+  depends_on "gnu-sed"
   depends_on "readline"
 
   uses_from_macos "ncurses"
