@@ -1,5 +1,5 @@
 class Qp < Formula
-  desc "The query-pipe: command-line (ND)JSON querying"
+  desc "Command-line (ND)JSON querying"
   homepage "https://github.com/paybase/qp"
   url "https://github.com/paybase/qp/archive/1.0.1.tar.gz"
   sha256 "6ef12fd4494262899ee12cc1ac0361ec0dd7b67e29c6ac6899d1df21efc7642b"
