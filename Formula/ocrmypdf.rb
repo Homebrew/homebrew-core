@@ -3,8 +3,8 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://github.com/jbarlow83/OCRmyPDF"
-  url "https://files.pythonhosted.org/packages/e5/95/7a9a874ca183a0f61d30fc44d51d9ea42737514173aafc727e6eb325af4c/ocrmypdf-11.0.2.tar.gz"
-  sha256 "b9200f07a8b65472392d9aed04986e41c1b307011e51af6a727489ace426f662"
+  url "https://files.pythonhosted.org/packages/4e/64/995feab701b904054abb6bedf013c00737c9bccadd8977d8eea7b526cb1d/ocrmypdf-11.1.0.tar.gz"
+  sha256 "7252e73e901b696f94da5c4def03748f58e393d2d9236dceb50f43963e4222a0"
   license "MPL-2.0"
 
   livecheck do
@@ -38,8 +38,8 @@ class Ocrmypdf < Formula
   uses_from_macos "zlib"
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/f7/09/88bbe20b76ca76be052c366fe77aa5e3cd6e5f932766e5597fecdd95b2a8/cffi-1.14.2.tar.gz"
-    sha256 "ae8f34d50af2c2154035984b8b5fc5d9ed63f32fe615646ab435b05b132ca91b"
+    url "https://files.pythonhosted.org/packages/cb/ae/380e33d621ae301770358eb11a896a34c34f30db188847a561e8e39ee866/cffi-1.14.3.tar.gz"
+    sha256 "f92f789e4f9241cd262ad7a555ca2c648a98178a953af117ef7fad46aa1d5591"
   end
 
   resource "chardet" do
@@ -78,8 +78,8 @@ class Ocrmypdf < Formula
   end
 
   resource "pikepdf" do
-    url "https://files.pythonhosted.org/packages/4e/62/47ee84138503c58926947de4a2e08a35c45ffc51e3387fe43e8f9a727aaf/pikepdf-1.19.1.tar.gz"
-    sha256 "fffe9cb5e4f026216c0f6f9170c30a1f9093b061275d9562b39fd74d5156a2ae"
+    url "https://files.pythonhosted.org/packages/30/2b/3da17ebb6f3e9f165176a101848bd87bc3a15e68b9f12a93725cb309af43/pikepdf-1.19.3.tar.gz"
+    sha256 "78dd7990b049da841134b578537f190f00b42a80575903f8c9f59bd68dd8eabb"
   end
 
   resource "Pillow" do
@@ -113,8 +113,8 @@ class Ocrmypdf < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/7c/a2/4cc95d7766a5d17ea2541d88da357d5905f75b6dbdfd17dfffd6c37647ae/tqdm-4.48.2.tar.gz"
-    sha256 "564d632ea2b9cb52979f7956e093e831c28d441c11751682f84c86fc46e4fd21"
+    url "https://files.pythonhosted.org/packages/bc/03/2bc607a15e201058cb6b19784b9c217d7ff37a686ce4a2d8a37a638f3ba5/tqdm-4.49.0.tar.gz"
+    sha256 "faf9c671bd3fad5ebaeee366949d969dca2b2be32c872a7092a1e1a9048d105b"
   end
 
   def install
