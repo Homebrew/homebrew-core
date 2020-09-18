@@ -1,5 +1,5 @@
 class ClawsMail < Formula
-  desc "The user-friendly, lightweight, and fast email client"
+  desc "User-friendly, lightweight, and fast email client"
   homepage "https://www.claws-mail.org/"
   url "https://www.claws-mail.org/releases/claws-mail-3.17.6.tar.gz"
   sha256 "8577673a8c238dc5c4481ca2b10373907995a340d3b8826f77b598601afadc70"
