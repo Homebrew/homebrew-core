@@ -1,5 +1,5 @@
 class Bnd < Formula
-  desc "The Swiss Army Knife for OSGi bundles"
+  desc "Swiss Army Knife for OSGi bundles"
   homepage "https://bnd.bndtools.org/"
   url "https://search.maven.org/remotecontent?filepath=biz/aQute/bnd/biz.aQute.bnd/5.1.2/biz.aQute.bnd-5.1.2.jar"
   sha256 "dc94fa5b87c604d43205674af4a8e0af8c524ed29f92c59a401572174b99e273"
