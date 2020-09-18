@@ -1,5 +1,5 @@
 class Libosinfo < Formula
-  desc "The Operating System information database"
+  desc "Operating System information database"
   homepage "https://libosinfo.org/"
   url "https://releases.pagure.org/libosinfo/libosinfo-1.8.0.tar.xz"
   sha256 "49ff32be0d209f6c99480e28b94340ac3dd0158322ae4303adfbdfe973a108a5"
