@@ -1,5 +1,5 @@
 class OmegaRpg < Formula
-  desc "The classic Roguelike game"
+  desc "Classic Roguelike game"
   homepage "http://www.alcyone.com/max/projects/omega/"
   url "http://www.alcyone.com/binaries/omega/omega-0.80.2-src.tar.gz"
   sha256 "60164319de90b8b5cae14f2133a080d5273e5de3d11c39df080a22bbb2886104"
