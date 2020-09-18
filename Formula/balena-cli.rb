@@ -1,7 +1,7 @@
 require "language/node"
 
 class BalenaCli < Formula
-  desc "The official balena CLI tool"
+  desc "Command-line tool for interacting with the balenaCloud and balena API"
   homepage "https://www.balena.io/docs/reference/cli/"
   # balena-cli should only be updated every 10 releases on multiples of 10
   url "https://registry.npmjs.org/balena-cli/-/balena-cli-12.20.0.tgz"
