@@ -1,7 +1,7 @@
 require "language/node"
 
 class Tdkjs < Formula
-  desc "The TDK lets Tixte Developers Write Fast, Clean, and Human Readable Code"
+  desc "Tixte Development Kit"
   homepage "https://tdk.developer.tixte.com/"
   url "https://registry.npmjs.org/tdkjs/-/tdkjs-3.2.0.tgz"
   sha256 "6c0e28b22fdb50b8bfe8d113457d048364e8be7dbe09df84dbf4135a5a0c0665"
