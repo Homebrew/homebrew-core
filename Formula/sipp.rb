@@ -1,8 +1,8 @@
 class Sipp < Formula
   desc "Traffic generator for the SIP protocol"
   homepage "https://sipp.sourceforge.io/"
-  url "https://github.com/SIPp/sipp/releases/download/v3.6.0/sipp-3.6.0.tar.gz"
-  sha256 "e47e7b11fec0769cf76b30623a66390333bdb20323c66043ca535460858fa1bb"
+  url "https://github.com/SIPp/sipp/releases/download/v3.6.1/sipp-3.6.1.tar.gz"
+  sha256 "6a560e83aff982f331ddbcadfb3bd530c5896cd5b757dd6eb682133cc860ecb1"
   license "BSD-3-Clause"
 
   bottle do
@@ -13,10 +13,11 @@ class Sipp < Formula
     sha256 "79f72467ed25cb8c6db260a9fa3e8f130058424b980d9daa07f79fce77159296" => :sierra
   end
 
+  depends_on "cmake" => :build
+
   def install
-    system "./configure", "--with-pcap"
-    system "make", "DESTDIR=#{prefix}"
-    bin.install "sipp"
+    system "cmake", ".", *std_cmake_args
+    system "make", "install"
   end
 
   test do
