@@ -1,8 +1,8 @@
 class Ser2net < Formula
   desc "Allow network connections to serial ports"
   homepage "https://ser2net.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/ser2net/ser2net/ser2net-4.2.1.tar.gz"
-  sha256 "a0d84c71a6bc75d73737461708f964084c6bbfe0cc1ef4725b4cd9cc35de14c0"
+  url "https://downloads.sourceforge.net/project/ser2net/ser2net/ser2net-4.2.2.tar.gz"
+  sha256 "60e2aab04c4a346447a7e58e308a830fb74bac208a021229c113fc8ccc7bdfe6"
   license "GPL-2.0-only"
 
   livecheck do
