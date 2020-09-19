@@ -1,10 +1,9 @@
 class Odin < Formula
   desc "The Odin Programming Language"
   homepage "https://odin-lang.org/"
-  url "https://github.com/odin-lang/Odin/archive/v0.12.0.tar.gz"
-  sha256 "8356124c8cc7e08ac39872e5bb10593a412e67f81df621124097facd9b2b26cc"
+  url "https://github.com/odin-lang/Odin/archive/v0.13.0.tar.gz"
+  sha256 "ae88c4dcbb8fdf37f51abc701d94fb4b2a8270f65be71063e0f85a321d54cdf0"
   license "BSD-2-Clause"
-  revision 1
   head "https://github.com/odin-lang/Odin.git"
 
   livecheck do
