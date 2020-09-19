@@ -2,8 +2,8 @@ class FaasCli < Formula
   desc "CLI for templating and/or deploying FaaS functions"
   homepage "https://www.openfaas.com/"
   url "https://github.com/openfaas/faas-cli.git",
-      tag:      "0.12.9",
-      revision: "40555282492b1f7cfdb10d801fcdce251360ec25"
+      tag:      "0.12.13",
+      revision: "035617290e62b1cd40cd767c6f55d7f72002582d"
   license "MIT"
 
   bottle do
@@ -18,17 +18,12 @@ class FaasCli < Formula
   def install
     ENV["XC_OS"] = "darwin"
     ENV["XC_ARCH"] = "amd64"
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/openfaas/faas-cli").install buildpath.children
-    cd "src/github.com/openfaas/faas-cli" do
-      project = "github.com/openfaas/faas-cli"
-      commit = Utils.safe_popen_read("git", "rev-parse", "HEAD").chomp
-      system "go", "build", "-ldflags",
-             "-s -w -X #{project}/version.GitCommit=#{commit} -X #{project}/version.Version=#{version}", "-a",
-             "-installsuffix", "cgo", "-o", bin/"faas-cli"
-      bin.install_symlink "faas-cli" => "faas"
-      prefix.install_metafiles
-    end
+    project = "github.com/openfaas/faas-cli"
+    commit = Utils.safe_popen_read("git", "rev-parse", "HEAD").chomp
+    system "go", "build", "-ldflags",
+            "-s -w -X #{project}/version.GitCommit=#{commit} -X #{project}/version.Version=#{version}", "-a",
+            "-installsuffix", "cgo", "-o", bin/"faas-cli"
+    bin.install_symlink "faas-cli" => "faas"
   end
 
   test do
