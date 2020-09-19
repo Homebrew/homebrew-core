@@ -1,10 +1,9 @@
 class Libmwaw < Formula
   desc "Library for converting legacy Mac document formats"
   homepage "https://sourceforge.net/p/libmwaw/wiki/Home/"
-  url "https://downloads.sourceforge.net/project/libmwaw/libmwaw/libmwaw-0.3.16/libmwaw-0.3.16.tar.xz"
-  sha256 "0c639edba5297bde5575193bf5b5f2f469956beaff5c0206d91ce9df6bde1868"
-  # license ["LGPL-2.1", "MPL-2.0"] - pending https://github.com/Homebrew/brew/pull/7953
-  license "LGPL-2.1"
+  url "https://downloads.sourceforge.net/project/libmwaw/libmwaw/libmwaw-0.3.17/libmwaw-0.3.17.tar.xz"
+  sha256 "8e1537eb1de1b4714f4bf0a20478f342c5d71a65bf99307a694b1e9e30bb911c"
+  license any_of: ["LGPL-2.1-or-later", "MPL-2.0"]
 
   livecheck do
     url :stable
