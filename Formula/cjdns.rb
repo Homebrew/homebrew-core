@@ -3,7 +3,7 @@ class Cjdns < Formula
   homepage "https://github.com/cjdelisle/cjdns/"
   url "https://github.com/cjdelisle/cjdns/archive/cjdns-v21.tar.gz"
   sha256 "6dfb1fe18c9689324f36c8d33e660972aac5af4579fcaa9c4730179bc8d67c69"
-  license "GPL-3.0"
+  license all_of: ["GPL-3.0-or-later", "GPL-2.0-or-later", "BSD-3-Clause", "MIT"]
   head "https://github.com/cjdelisle/cjdns.git"
 
   bottle do
