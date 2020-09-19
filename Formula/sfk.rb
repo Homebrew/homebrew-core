@@ -4,6 +4,7 @@ class Sfk < Formula
   url "https://downloads.sourceforge.net/project/swissfileknife/1-swissfileknife/1.9.7.2/sfk-1.9.7.tar.gz"
   version "1.9.7.2"
   sha256 "d48c446ea849f0cfa1435dd2eb0d5678f7eb781ebfe2cbd155fe46bb2f8ca879"
+  license "BSD-2-Clause"
 
   livecheck do
     url :stable
