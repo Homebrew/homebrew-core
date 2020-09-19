@@ -2,8 +2,8 @@ class GitlabRunner < Formula
   desc "The official GitLab CI runner written in Go"
   homepage "https://gitlab.com/gitlab-org/gitlab-runner"
   url "https://gitlab.com/gitlab-org/gitlab-runner.git",
-      tag:      "v13.3.1",
-      revision: "738bbe5aacb497198e38630be0117033c075b09a"
+      tag:      "v13.4.0",
+      revision: "4e1f20da78e05b1188d270243c675e1d859b42d0"
   license "MIT"
   head "https://gitlab.com/gitlab-org/gitlab-runner.git"
 
