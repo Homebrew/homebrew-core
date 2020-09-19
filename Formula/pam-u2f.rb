@@ -1,10 +1,9 @@
 class PamU2f < Formula
   desc "Provides an easy way to use U2F-compliant authenticators with PAM"
   homepage "https://developers.yubico.com/pam-u2f/"
-  url "https://developers.yubico.com/pam-u2f/Releases/pam_u2f-1.0.8.tar.gz"
-  sha256 "52a203a6fab6160e06c1369ff104afed62007ca3ffbb40c297352232fa975c99"
+  url "https://developers.yubico.com/pam-u2f/Releases/pam_u2f-1.1.0.tar.gz"
+  sha256 "0dc3bf96ebb69c6e398b5f8991493b37a8ce1af792948af71e694f695d5edc05"
   license "BSD-2-Clause"
-  revision 1
   head "https://github.com/Yubico/pam-u2f.git"
 
   livecheck do
@@ -24,6 +23,7 @@ class PamU2f < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "libfido2"
   depends_on "libu2f-host"
   depends_on "libu2f-server"
 
