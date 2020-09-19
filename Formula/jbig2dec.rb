@@ -1,8 +1,8 @@
 class Jbig2dec < Formula
   desc "JBIG2 decoder and library (for monochrome documents)"
   homepage "https://jbig2dec.com/"
-  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs951/jbig2dec-0.18.tar.gz"
-  sha256 "9e19775237350e299c422b7b91b0c045e90ffa4ba66abf28c8fb5eb005772f5e"
+  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs9531/jbig2dec-0.19.tar.gz"
+  sha256 "279476695b38f04939aa59d041be56f6bade3422003a406a85e9792c27118a37"
   license "AGPL-3.0"
 
   livecheck do
