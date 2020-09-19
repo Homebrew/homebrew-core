@@ -1,9 +1,9 @@
 class Qhull < Formula
   desc "Computes convex hulls in n dimensions"
   homepage "http://www.qhull.org/"
-  url "http://www.qhull.org/download/qhull-2020-src-8.0.0.tgz"
-  version "2020.1"
-  sha256 "1ac92a5538f61e297c72aebe4d4ffd731ceb3e6045d6d15faf1c212713798df4"
+  url "http://www.qhull.org/download/qhull-2020-src-8.0.2.tgz"
+  version "2020.2"
+  sha256 "b5c2d7eb833278881b952c8a52d20179eab87766b00b865000469a45c1838b7e"
   license "Qhull"
   head "https://github.com/qhull/qhull.git"
 
