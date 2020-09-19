@@ -3,7 +3,7 @@ class Sdlpop < Formula
   homepage "https://github.com/NagyD/SDLPoP"
   url "https://github.com/NagyD/SDLPoP/archive/v1.21.tar.gz"
   sha256 "2d3111bd92f39a6ee203194cf058f59c9774b5cb38437ff245dfc876930d0f95"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   bottle do
     cellar :any
