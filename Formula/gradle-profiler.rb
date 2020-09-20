@@ -1,8 +1,8 @@
 class GradleProfiler < Formula
   desc "Profiling and benchmarking tool for Gradle builds"
   homepage "https://github.com/gradle/gradle-profiler/"
-  url "https://repo.gradle.org/gradle/ext-releases-local/org/gradle/profiler/gradle-profiler/0.13.0/gradle-profiler-0.13.0.zip"
-  sha256 "63fb8fbacf5725e05976a8094d0668a997d9c248f1997793cbfa24c2f3ce902a"
+  url "https://repo.gradle.org/gradle/ext-releases-local/org/gradle/profiler/gradle-profiler/0.14.0/gradle-profiler-0.14.0.zip"
+  sha256 "0a47504895eecff7cb89fd79efeff3c406f4ccb3d0af49a6749eecb1178e1c1a"
   license "Apache-2.0"
 
   bottle :unneeded
