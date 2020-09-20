@@ -1,8 +1,8 @@
 class Yeti < Formula
   desc "ML-style functional programming language that runs on the JVM"
   homepage "https://mth.github.io/yeti/"
-  url "https://github.com/mth/yeti/archive/v0.9.9.1.tar.gz"
-  sha256 "c552018993570724313fc0624d225e266cd95e993d121850b34aa706f04e3dfe"
+  url "https://github.com/mth/yeti/archive/v1.0.tar.gz"
+  sha256 "f1451a7c58cecaee41c46e886eb714a81e0dfe5557c10568421dcbd33ab9357c"
   head "https://github.com/mth/yeti.git"
 
   bottle do
@@ -22,7 +22,12 @@ class Yeti < Formula
   def install
     system "ant", "jar"
     libexec.install "yeti.jar"
-    bin.write_jar_script libexec/"yeti.jar", "yeti", "-server"
+
+    (bin/"yeti").write <<~EOS
+      #!/bin/bash
+      export JAVA_HOME="#{Language::Java.overridable_java_home_env("1.8")[:JAVA_HOME]}"
+      exec "${JAVA_HOME}/bin/java" -server -jar "#{libexec}/yeti.jar" "$@"
+    EOS
   end
 
   test do
