@@ -5,8 +5,8 @@ class Kpcli < Formula
 
   desc "Command-line interface to KeePass database files"
   homepage "https://kpcli.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/kpcli/kpcli-3.4.pl"
-  sha256 "403e5d73cc4685722a5e4207c5fcbdad8e30475434cfba151c095e13a2658668"
+  url "https://downloads.sourceforge.net/project/kpcli/kpcli-3.5.pl"
+  sha256 "bbe4fed616de87341100c903fad486dcf2640e4de4197c4e60bb41821d4a70c4"
 
   livecheck do
     url :stable
@@ -55,8 +55,8 @@ class Kpcli < Formula
   end
 
   resource "Clipboard" do
-    url "https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/Clipboard-0.22.tar.gz"
-    sha256 "9fdb4dfc2e9bc2f3990b5b71649094dfe83aa12172c5a1809cf7e8b3be295ca7"
+    url "https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/Clipboard-0.23.tar.gz"
+    sha256 "0ec64d9c443bb7f713dce841a00817be50758d43ad07154541b5be7053779264"
   end
 
   resource "Mac::Pasteboard" do
