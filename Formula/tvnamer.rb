@@ -1,8 +1,8 @@
 class Tvnamer < Formula
   desc "Automatic TV episode file renamer that uses data from thetvdb.com"
   homepage "https://github.com/dbr/tvnamer"
-  url "https://files.pythonhosted.org/packages/46/3e/9cb20c0231b10cd87964e0efe03ce964f91ebe3ddca27d5953d8a702cf55/tvnamer-3.0.tar.gz"
-  sha256 "00ae7354dec9cca8e652139eba9cf6945371321cdf05ee903a6a59f6d31cef6b"
+  url "https://files.pythonhosted.org/packages/2a/93/72434da887a3f70f88593d4df4c1a596d95dda0da72c5198d321ca53b5a2/tvnamer-3.0.1.tar.gz"
+  sha256 "5512cebb1e49103a1e4ea9629398092b4bbabef35a91007ae0dbed961ebe17dd"
   license "Unlicense"
   head "https://github.com/dbr/tvnamer.git"
 
