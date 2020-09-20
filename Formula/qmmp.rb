@@ -3,7 +3,7 @@ class Qmmp < Formula
   homepage "https://qmmp.ylsoftware.com/"
   url "https://downloads.sourceforge.net/project/qmmp-dev/qmmp/qmmp-1.4.2.tar.bz2"
   sha256 "cac9518c1fa7abd4558efb78cb8a8a637db065c66420e45f1b2f33902ce07fcf"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   head "https://svn.code.sf.net/p/qmmp-dev/code/branches/qmmp-1.4/"
 
   livecheck do
