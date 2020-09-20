@@ -1,8 +1,8 @@
 class Txr < Formula
   desc "Original, new programming language for convenient data munging"
   homepage "https://www.nongnu.org/txr/"
-  url "http://www.kylheku.com/cgit/txr/snapshot/txr-242.tar.bz2"
-  sha256 "e03a6c7311912306abf393df5fa7c387707576d32af96dbbba3f9b80a29d8a41"
+  url "http://www.kylheku.com/cgit/txr/snapshot/txr-243.tar.bz2"
+  sha256 "dcf5f478769f50f51797f44c56b49fb731f5114460eee78e12ad8619b86c62a3"
   license "BSD-2-Clause"
 
   livecheck do
