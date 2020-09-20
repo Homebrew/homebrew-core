@@ -7,8 +7,8 @@ class PassImport < Formula
   sha256 "14f6708df990b88c54b07e722686ed9e1a639300b33d2ff83dd87845e44779fc"
   license "GPL-3.0-only"
 
-  depends_on "pass"
   depends_on "gnupg"
+  depends_on "pass"
   depends_on "python@3.8"
 
   resource "pyaml" do
