@@ -1,10 +1,9 @@
 class Libtins < Formula
   desc "C++ network packet sniffing and crafting library"
   homepage "https://libtins.github.io/"
-  url "https://github.com/mfontanini/libtins/archive/v4.2.tar.gz"
-  sha256 "a9fed73e13f06b06a4857d342bb30815fa8c359d00bd69547e567eecbbb4c3a1"
+  url "https://github.com/mfontanini/libtins/archive/v4.3.tar.gz"
+  sha256 "c70bce5a41a27258bf0e3ad535d8238fb747d909a4b87ea14620f25dd65828fd"
   license "BSD-2-Clause"
-  revision 1
   head "https://github.com/mfontanini/libtins.git"
 
   bottle do
@@ -22,6 +21,9 @@ class Libtins < Formula
     system "cmake", ".", *std_cmake_args
     system "make", "install"
     doc.install "examples"
+
+    # Clean up the build file garbage that has been installed.
+    rm_r Dir["#{share}/doc/libtins/**/CMakeFiles/"]
   end
 
   test do
