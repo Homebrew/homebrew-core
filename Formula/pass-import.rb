@@ -22,7 +22,7 @@ class PassImport < Formula
   end
 
   def install
-    virtualenv_create(libexec, "python3")
+    system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
     virtualenv_install_with_resources
     bin.install "scripts/pimport"
     (lib/"password-store/extensions").install "scripts/import.bash"
