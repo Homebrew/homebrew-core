@@ -3,8 +3,7 @@ class Libstrophe < Formula
   homepage "https://strophe.im/libstrophe/"
   url "https://github.com/strophe/libstrophe/archive/0.10.0.tar.gz"
   sha256 "8d804e4c74cea1133203cc95a59a88f700fbdaead076e7959b495d734dd7936d"
-  # license ["GPL-3.0", "MIT"] - pending https://github.com/Homebrew/brew/pull/7953
-  license "MIT"
+  license any_of: ["GPL-3.0", "MIT"]
   head "https://github.com/strophe/libstrophe.git"
 
   bottle do
