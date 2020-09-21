@@ -3,7 +3,7 @@ class K6 < Formula
   homepage "https://k6.io"
   url "https://github.com/loadimpact/k6/archive/v0.28.0.tar.gz"
   sha256 "624efb820812b08f928f197c185d9fd1eda0c00c89171b417dd9820248564d7b"
-  license "AGPL-3.0"
+  license "AGPL-3.0-or-later"
 
   bottle do
     cellar :any_skip_relocation
