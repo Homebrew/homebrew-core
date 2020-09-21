@@ -1,10 +1,9 @@
 class Ipopt < Formula
   desc "Interior point optimizer"
   homepage "https://coin-or.github.io/Ipopt/"
-  url "https://github.com/coin-or/Ipopt/archive/releases/3.12.13.tar.gz"
-  sha256 "ab8b9457dc6c7240a45e74b4a3851821ccafc2927cfa5c8998e95941d67a94d0"
+  url "https://www.coin-or.org/download/source/Ipopt/Ipopt-3.13.3.tgz"
+  sha256 "86354b36c691e6cd6b8049218519923ab0ce8a6f0a432c2c0de605191f2d4a1c"
   license "EPL-1.0"
-  revision 9
   head "https://github.com/coin-or/Ipopt.git"
 
   bottle do
@@ -19,8 +18,8 @@ class Ipopt < Formula
   depends_on "openblas"
 
   resource "mumps" do
-    url "http://mumps.enseeiht.fr/MUMPS_5.2.1.tar.gz"
-    sha256 "d988fc34dfc8f5eee0533e361052a972aa69cc39ab193e7f987178d24981744a"
+    url "http://mumps.enseeiht.fr/MUMPS_5.3.5.tar.gz"
+    sha256 "9cf89fcb5232560e807b7b1cc2adb7d0c280cbdfd3aa480de1d0b431a87187d3"
 
     # MUMPS does not provide a Makefile.inc customized for macOS.
     patch do
