@@ -18,10 +18,10 @@ class Openrct2 < Formula
   depends_on "duktape"
   depends_on "freetype" # for sdl2_ttf
   depends_on "icu4c"
-  depends_on "jansson"
   depends_on "libpng"
   depends_on "libzip"
   depends_on macos: :mojave # `error: call to unavailable member function 'value': introduced in macOS 10.14`
+  depends_on "nlohmann-json"
   depends_on "openssl@1.1"
   depends_on "sdl2"
   depends_on "sdl2_ttf"
