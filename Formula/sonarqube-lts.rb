@@ -60,13 +60,13 @@ class SonarqubeLts < Formula
       end
 
       puts "pid: #{pid}"
-      sleep 45
 
-      # loop do
-      #   status = shell_output("#{bin}/sonar status")
-      #   break if status.match? 'is running'
-      #   sleep 5
-      # end
+      seconds = 0
+      loop do
+        status = shell_output("#{bin}/sonar status")
+        break if (status.match? 'is running' || (seconds += 5) > 60)
+        sleep 5
+      end
 
       assert_match "pong", shell_output("curl -s http://127.0.0.1:9000/api/system/ping")
     ensure
