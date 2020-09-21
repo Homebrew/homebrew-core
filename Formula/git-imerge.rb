@@ -5,7 +5,7 @@ class GitImerge < Formula
   homepage "https://github.com/mhagger/git-imerge"
   url "https://files.pythonhosted.org/packages/be/f6/ea97fb920d7c3469e4817cfbf9202db98b4a4cdf71d8740e274af57d728c/git-imerge-1.2.0.tar.gz"
   sha256 "df5818f40164b916eb089a004a47e5b8febae2b4471a827e3aaa4ebec3831a3f"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   head "https://github.com/mhagger/git-imerge.git"
 
   bottle do
