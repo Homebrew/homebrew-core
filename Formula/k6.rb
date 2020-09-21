@@ -1,9 +1,8 @@
 class K6 < Formula
   desc "Modern load testing tool, using Go and JavaScript"
   homepage "https://k6.io"
-  url "https://github.com/loadimpact/k6.git",
-    tag:      "v0.27.1",
-    revision: "4ee1ca9624bdd9fa68a0d534be11ac22328f1821"
+  url "https://github.com/loadimpact/k6/archive/v0.28.0.tar.gz"
+  sha256 "624efb820812b08f928f197c185d9fd1eda0c00c89171b417dd9820248564d7b"
   license "AGPL-3.0"
 
   bottle do
@@ -13,20 +12,10 @@ class K6 < Formula
     sha256 "8f66f1625d3e95c011ead1d2fdfc3aed6102d9f9a475f9ec093cb50fa40503c4" => :high_sierra
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    dir = buildpath/"src/github.com/loadimpact/k6"
-    dir.install buildpath.children
-
-    cd dir do
-      system "dep", "ensure", "-vendor-only"
-      system "go", "build", "-o", bin/"k6"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args
   end
 
   test do
