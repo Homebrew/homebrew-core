@@ -3,8 +3,8 @@ require "language/node"
 class Appium < Formula
   desc "Automation for Apps"
   homepage "https://appium.io/"
-  url "https://registry.npmjs.org/appium/-/appium-1.18.1.tgz"
-  sha256 "938783100df8be224cb85b5dbdcebeb91d164f003d4cdd2aa9c801480bd027b4"
+  url "https://registry.npmjs.org/appium/-/appium-1.18.2.tgz"
+  sha256 "c18ad1d179b1e274e79c1a751a8c4baf0643c1f398d2501d6322d41a86e9b38b"
   license "Apache-2.0"
   head "https://github.com/appium/appium.git"
 
