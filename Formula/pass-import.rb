@@ -5,7 +5,7 @@ class PassImport < Formula
   homepage "https://www.passwordstore.org/"
   url "https://github.com/roddhjav/pass-import/releases/download/v3.0/pass-import-3.0.tar.gz"
   sha256 "14f6708df990b88c54b07e722686ed9e1a639300b33d2ff83dd87845e44779fc"
-  license "GPL-3.0-only"
+  license "GPL-3.0-or-later"
 
   depends_on "gnupg"
   depends_on "pass"
