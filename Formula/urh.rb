@@ -1,10 +1,9 @@
 class Urh < Formula
   desc "Universal Radio Hacker"
   homepage "https://github.com/jopohl/urh"
-  url "https://files.pythonhosted.org/packages/ef/9c/b023e69e2de551fe2250d2e374a62e41719d6bb491f96c6bc9c689fb1d28/urh-2.8.8.tar.gz"
-  sha256 "8c05637f7090958a03b3c67cb824252fa8a3677622f0c9e60aac91f0d0af07ca"
+  url "https://files.pythonhosted.org/packages/08/6b/00fc66ea878a26ff054562552bb9b966fc5bec8d7df1fc52134b6431af76/urh-2.8.9.tar.gz"
+  sha256 "d3cdc2612f5039b40cfccfb99e2ae7311cd1cd27011c857e0aec99b150c93919"
   license "GPL-3.0"
-  revision 1
   head "https://github.com/jopohl/urh.git"
 
   livecheck do
@@ -26,8 +25,8 @@ class Urh < Formula
   depends_on "python@3.8"
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/c4/b8/3512f0e93e0db23a71d82485ba256071ebef99b227351f0f5540f744af41/psutil-5.7.0.tar.gz"
-    sha256 "685ec16ca14d079455892f25bd124df26ff9137664af445563c1bd36629b5e0e"
+    url "https://files.pythonhosted.org/packages/aa/3e/d18f2c04cf2b528e18515999b0c8e698c136db78f62df34eee89cee205f1/psutil-5.7.2.tar.gz"
+    sha256 "90990af1c3c67195c44c9a889184f84f5b2320dce3ee3acbd054e3ba0b4a7beb"
   end
 
   def install
