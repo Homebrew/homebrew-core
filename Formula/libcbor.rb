@@ -1,8 +1,8 @@
 class Libcbor < Formula
   desc "CBOR protocol implementation for C and others"
   homepage "http://libcbor.org/"
-  url "https://github.com/PJK/libcbor/archive/v0.7.0.tar.gz"
-  sha256 "fb731afe0a9980581d85e4b8d4ef128b175f782d92e0cd898935f3d26dd3dde7"
+  url "https://github.com/PJK/libcbor/archive/v0.8.0.tar.gz"
+  sha256 "618097166ea4a54499646998ccaa949a5816e6a665cf1d6df383690895217c8b"
   license "MIT"
 
   bottle do
@@ -16,7 +16,7 @@ class Libcbor < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", "-DWITH_EXAMPLES=OFF", *std_cmake_args
+      system "cmake", "..", "-DWITH_EXAMPLES=OFF", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
       system "make"
       system "make", "install"
     end
