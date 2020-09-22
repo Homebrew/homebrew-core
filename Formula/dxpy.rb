@@ -3,8 +3,8 @@ class Dxpy < Formula
 
   desc "DNAnexus toolkit utilities and platform API bindings for Python"
   homepage "https://github.com/dnanexus/dx-toolkit"
-  url "https://files.pythonhosted.org/packages/23/fa/759db833ce1809edbe75f6b686ca89bde371f4b841be8bf8f506b9f613b8/dxpy-0.299.0.tar.gz"
-  sha256 "8ab974e2d7e53e4d791fd98c636cb563f30be2028d932863550a9ba77b650213"
+  url "https://files.pythonhosted.org/packages/e5/05/62a8a89874ef02e7185592dc9cc31b33efb9c5fb9c19948ea9f21dcc654e/dxpy-0.301.1.tar.gz"
+  sha256 "664c9f01dffa49986c2ef791ccba884b0fad38c10ff804be92823bbae205a37f"
   license "Apache-2.0"
 
   livecheck do
@@ -40,8 +40,8 @@ class Dxpy < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/f7/09/88bbe20b76ca76be052c366fe77aa5e3cd6e5f932766e5597fecdd95b2a8/cffi-1.14.2.tar.gz"
-    sha256 "ae8f34d50af2c2154035984b8b5fc5d9ed63f32fe615646ab435b05b132ca91b"
+    url "https://files.pythonhosted.org/packages/cb/ae/380e33d621ae301770358eb11a896a34c34f30db188847a561e8e39ee866/cffi-1.14.3.tar.gz"
+    sha256 "f92f789e4f9241cd262ad7a555ca2c648a98178a953af117ef7fad46aa1d5591"
   end
 
   resource "chardet" do
