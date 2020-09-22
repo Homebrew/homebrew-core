@@ -25,6 +25,7 @@ class SonarqubeLts < Formula
 
     libexec.install Dir["*"]
 
+    inreplace "#{libexec}/conf/wrapper.conf", "wrapper.java.command=java", "wrapper.java.command=#{Formula["openjdk@11"].opt_bin}/java"
     (bin/"sonar").write_env_script libexec/"bin/macosx-universal-64/sonar.sh",
       JAVA_HOME: Formula["openjdk@11"].opt_prefix
   end
