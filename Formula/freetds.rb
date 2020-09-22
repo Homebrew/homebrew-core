@@ -1,8 +1,8 @@
 class Freetds < Formula
   desc "Libraries to talk to Microsoft SQL Server and Sybase databases"
   homepage "https://www.freetds.org/"
-  url "https://www.freetds.org/files/stable/freetds-1.2.4.tar.gz"
-  sha256 "e04de1411bb0459eb4a2514b0d3272898d84684edac9c2f702c0844f802ffa85"
+  url "https://www.freetds.org/files/stable/freetds-1.2.5.tar.gz"
+  sha256 "3e011a8fd46aab55af0ac1e02de9313f99e5122b85858edc17931c498e09abaf"
   license "LGPL-2.0-or-later"
 
   livecheck do
