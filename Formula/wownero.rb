@@ -2,8 +2,8 @@ class Wownero < Formula
   desc "Official wallet and node software for the Wownero cryptocurrency"
   homepage "https://wownero.org"
   url "https://git.wownero.com/wownero/wownero.git",
-    tag:      "v0.8.0.2",
-    revision: "7d1693b1601cb4b3d56191953f403c92a1c51f64"
+    tag:      "v0.9.0.0",
+    revision: "b303931b23206236f335bca16b38df8312216668"
   license "BSD-3-Clause"
 
   bottle do
@@ -30,6 +30,10 @@ class Wownero < Formula
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"
+
+    # Fix conflict with miniupnpc.
+    # This has been reported at https://github.com/monero-project/monero/issues/3862
+    rm lib/"libminiupnpc.a"
   end
 
   plist_options manual: "wownerod --non-interactive"
