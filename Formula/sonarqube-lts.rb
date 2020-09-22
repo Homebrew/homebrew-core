@@ -25,7 +25,8 @@ class SonarqubeLts < Formula
 
     libexec.install Dir["*"]
 
-    inreplace "#{libexec}/conf/wrapper.conf", "wrapper.java.command=java", "wrapper.java.command=#{Formula["openjdk@11"].opt_bin}/java"
+    inreplace "#{libexec}/conf/wrapper.conf", "wrapper.java.command=java",
+      "wrapper.java.command=#{Formula["openjdk@11"].opt_bin}/java"
     (bin/"sonar").write_env_script libexec/"bin/macosx-universal-64/sonar.sh",
       JAVA_HOME: Formula["openjdk@11"].opt_prefix
   end
@@ -65,7 +66,8 @@ class SonarqubeLts < Formula
       seconds = 0
       loop do
         status = shell_output("#{bin}/sonar status")
-        break if (status.match? 'is running' || (seconds += 5) > 60)
+        break if status.match?("is running") || (seconds += 5) > 60
+
         sleep 5
       end
 
