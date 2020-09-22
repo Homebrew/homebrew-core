@@ -4,6 +4,7 @@ class PamU2f < Formula
   url "https://developers.yubico.com/pam-u2f/Releases/pam_u2f-1.1.0.tar.gz"
   sha256 "0dc3bf96ebb69c6e398b5f8991493b37a8ce1af792948af71e694f695d5edc05"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/Yubico/pam-u2f.git"
 
   livecheck do
