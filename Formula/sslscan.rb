@@ -3,7 +3,7 @@ class Sslscan < Formula
   homepage "https://github.com/rbsec/sslscan"
   url "https://github.com/rbsec/sslscan/archive/2.0.1.tar.gz"
   sha256 "89208e59a8946f44e6d4e7c7d371ff3fdeb8db1f4c5324e1b42f4abd05ff28cc"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
   head "https://github.com/rbsec/sslscan.git"
 
   livecheck do
