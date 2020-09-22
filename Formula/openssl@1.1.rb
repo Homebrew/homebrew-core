@@ -1,10 +1,10 @@
 class OpensslAT11 < Formula
   desc "Cryptography and SSL/TLS Toolkit"
   homepage "https://openssl.org/"
-  url "https://www.openssl.org/source/openssl-1.1.1g.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.1.1g.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.1g.tar.gz"
-  sha256 "ddb04774f1e32f0c49751e21b67216ac87852ceb056b75209af2443400636d46"
+  url "https://www.openssl.org/source/openssl-1.1.1h.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.1.1h.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.1h.tar.gz"
+  sha256 "5c9ca8774bd7b03e5784f26ae9e9e6d749c9da2438545077e6b3d755a06595d9"
   license "OpenSSL"
   version_scheme 1
 
