@@ -3,8 +3,8 @@ class Dvc < Formula
 
   desc "Git for data science projects"
   homepage "https://dvc.org"
-  url "https://github.com/iterative/dvc/archive/1.7.2.tar.gz"
-  sha256 "d6a4c14917ce343d9f1086da5389238947adb9b099fb48955902d87b1aeade75"
+  url "https://github.com/iterative/dvc/archive/1.7.4.tar.gz"
+  sha256 "bcc4ee782d7b8a6a601238ad2b3591dbe8ebc5e2a48598a857f27446bd29bd5b"
   license "Apache-2.0"
 
   livecheck do
@@ -165,8 +165,8 @@ class Dvc < Formula
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/5d/9d/208733ccc91b1d2c2af7270ffe3def197504bd8da875bc3fa1dc75039795/Pygments-2.7.0.tar.gz"
-    sha256 "2594e8fdb06fef91552f86f4fd3a244d148ab24b66042036e64f29a291515048"
+    url "https://files.pythonhosted.org/packages/e2/07/25bd93c9c0175adfa5fb1513a20b25e7dd6c9a67c155e19b11b5f3662104/Pygments-2.7.1.tar.gz"
+    sha256 "926c3f319eda178d1bd90851e4317e6d8cdb5e292a3386aac9bd75eca29cf9c7"
   end
 
   resource "pygtrie" do
@@ -185,8 +185,8 @@ class Dvc < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/5a/6b/2b9f7d787b67e740dcb4a8f62f4879d05f408bc5eac8145e909680ce8024/rich-6.2.0.tar.gz"
-    sha256 "f99c877277906e1ff83b135c564920590ba31188f424dcdb5d1cae652a519b4b"
+    url "https://files.pythonhosted.org/packages/ed/0b/04bc93dbfc626bb4f235c12ce86a091b00ed4dac55977eb4330172a98800/rich-7.0.0.tar.gz"
+    sha256 "291700f5c09fae83676f44781d01a292c39efad9505dd4724899646b794f9afb"
   end
 
   resource "ruamel.yaml" do
@@ -245,8 +245,8 @@ class Dvc < Formula
   end
 
   resource "voluptuous" do
-    url "https://files.pythonhosted.org/packages/24/3b/fe531688c0d9e057fccc0bc9430c0a3d4b90e0d2f015326e659c2944e328/voluptuous-0.11.7.tar.gz"
-    sha256 "2abc341dbc740c5e2302c7f9b8e2e243194fb4772585b991931cb5b22e9bf456"
+    url "https://files.pythonhosted.org/packages/04/87/015fc3ccaa2e4c1a1d427ec27b12c144027acf55bdcba53634a6b69b9314/voluptuous-0.12.0.tar.gz"
+    sha256 "3a4ef294e16f6950c79de4cba88f31092a107e6e3aaa29950b43e2bb9e1bb2dc"
   end
 
   resource "zc.lockfile" do
