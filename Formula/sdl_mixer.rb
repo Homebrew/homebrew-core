@@ -3,6 +3,7 @@ class SdlMixer < Formula
   homepage "https://www.libsdl.org/projects/SDL_mixer/"
   url "https://www.libsdl.org/projects/SDL_mixer/release/SDL_mixer-1.2.12.tar.gz"
   sha256 "1644308279a975799049e4826af2cfc787cad2abb11aa14562e402521f86992a"
+  license "Zlib"
   revision 3
 
   livecheck do
@@ -29,6 +30,12 @@ class SdlMixer < Formula
   resource "playwave" do
     url "https://hg.libsdl.org/SDL_mixer/raw-file/a4e9c53d9c30/playwave.c"
     sha256 "92f686d313f603f3b58431ec1a3a6bf29a36e5f792fb78417ac3d5d5a72b76c9"
+  end
+
+  # Fix compilation in clang 12.0.0 https://bugzilla.libsdl.org/show_bug.cgi?id=5296
+  patch do
+    url "https://bugzilla-attachments.libsdl.org/attachment.cgi?id=4468"
+    sha256 "84851e0265e9674f544428aa2e82617e8a925a576d736ec33e09ea337fe7823c"
   end
 
   def install
