@@ -1,10 +1,9 @@
 class Efl < Formula
   desc "Enlightenment Foundation Libraries"
   homepage "https://www.enlightenment.org"
-  url "https://download.enlightenment.org/rel/libs/efl/efl-1.24.3.tar.xz"
-  sha256 "de95c6e673c170c1e21382918b122417c091c643e7dcaced89aa785529625c2a"
+  url "https://download.enlightenment.org/rel/libs/efl/efl-1.25.0.tar.xz"
+  sha256 "53941f910daf5d1b5162bfdb0dc66f1a04e55a0f2dd7760da0ad63713370956e"
   license all_of: ["GPL-2.0-only", "LGPL-2.1-only", "BSD-2-Clause", "FTL", "zlib-acknowledgement"]
-  revision 1
 
   livecheck do
     url "https://download.enlightenment.org/rel/libs/efl/"
