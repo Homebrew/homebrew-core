@@ -1,8 +1,8 @@
 class Diskonaut < Formula
   desc "Terminal visual disk space navigator"
   homepage "https://github.com/imsnif/diskonaut"
-  url "https://github.com/imsnif/diskonaut/archive/0.10.0.tar.gz"
-  sha256 "dd33580ffdfb145a9e199350a50d5bc752f2e4161ab32c824b2a9c25005f0e62"
+  url "https://github.com/imsnif/diskonaut/archive/0.11.0.tar.gz"
+  sha256 "355367dbc6119743d88bfffaa57ad4f308596165a57acc2694da1277c3025928"
   license "MIT"
 
   bottle do
@@ -19,7 +19,9 @@ class Diskonaut < Formula
   end
 
   test do
-    output = shell_output "#{bin}/diskonaut", 2
-    assert_match output, "Error:\ Failed\ to\ get\ stdout:\ are\ you\ trying\ to\ pipe\ 'diskonaut'\?\n"
+    output = shell_output "ls | #{bin}/diskonaut", 2
+    assert_match "Error: IO-error occurred", output
+
+    assert_match "diskonaut #{version}", shell_output("#{bin}/diskonaut --version")
   end
 end
