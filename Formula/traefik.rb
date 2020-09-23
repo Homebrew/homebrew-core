@@ -1,8 +1,8 @@
 class Traefik < Formula
   desc "Modern reverse proxy"
   homepage "https://traefik.io/"
-  url "https://github.com/containous/traefik/releases/download/v2.2.11/traefik-v2.2.11.src.tar.gz"
-  sha256 "7948a2f875cb8091c73d32d2dd6fe6de40be53edd092dad718b49e41f2ca7702"
+  url "https://github.com/traefik/traefik/releases/download/v2.3.0/traefik-v2.3.0.src.tar.gz"
+  sha256 "d64102ea39f1f701b81ef89bb895c15b45afe6b28ed76e35c5caccc75a6a0880"
   license "MIT"
   head "https://github.com/containous/traefik.git"
 
@@ -20,7 +20,7 @@ class Traefik < Formula
   def install
     system "go", "generate"
     system "go", "build",
-      "-ldflags", "-s -w -X github.com/containous/traefik/v#{version.major}/pkg/version.Version=#{version}",
+      "-ldflags", "-s -w -X github.com/traefik/traefik/v#{version.major}/pkg/version.Version=#{version}",
       "-trimpath", "-o", bin/"traefik", "./cmd/traefik"
   end
 
