@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/returntocorp/semgrep.git",
-    tag:      "v0.24.0",
-    revision: "d3ca0fd1192c0415a95c5962bd1a7e32237fd8f9"
+    tag:      "v0.25.0",
+    revision: "bf2aa3721d13a812b09a18be8fa3774473ae0799"
   license "LGPL-2.1-only"
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
@@ -57,6 +57,12 @@ class Semgrep < Formula
   resource "jsonschema" do
     url "https://files.pythonhosted.org/packages/69/11/a69e2a3c01b324a77d3a7c0570faa372e8448b666300c4117a516f8b1212/jsonschema-3.2.0.tar.gz"
     sha256 "c8a85b28d377cc7737e46e2d9f2b4f44ee3c0e1deac6bf46ddefc7187d30797a"
+  end
+
+  # only doing this because junit-xml source is not available in PyPI for v1.9
+  resource "junit-xml" do
+    url "https://github.com/kyrus/python-junit-xml.git",
+        revision: "4bd08a272f059998cedf9b7779f944d49eba13a6"
   end
 
   resource "packaging" do
