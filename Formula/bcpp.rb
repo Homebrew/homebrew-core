@@ -1,9 +1,9 @@
 class Bcpp < Formula
   desc "C(++) beautifier"
   homepage "https://invisible-island.net/bcpp/"
-  url "https://invisible-mirror.net/archives/bcpp/bcpp-20180401.tgz"
-  mirror "https://dl.bintray.com/homebrew/mirror/bcpp-20180401.tgz"
-  sha256 "3fee78476833a8d6c647f0b9f6ad85209cdb104a538349bc24538c7f7aede81f"
+  url "https://invisible-mirror.net/archives/bcpp/bcpp-20200922.tgz"
+  mirror "https://dl.bintray.com/homebrew/mirror/bcpp-20200922.tgz"
+  sha256 "ec29f91b46d217933abb13f077b4de05bc5cf21b26550623ab196f360cebf10e"
 
   livecheck do
     url "https://invisible-island.net/bcpp/CHANGES.html"
