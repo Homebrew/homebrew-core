@@ -3,7 +3,7 @@ class Faust < Formula
   homepage "https://faust.grame.fr"
   url "https://github.com/grame-cncm/faust/releases/download/2.27.2/faust-2.27.2.tar.gz"
   sha256 "c9b21de69253d5a02a779c2eed74491fc62209d86c24724b429f68098191c39c"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
     cellar :any
