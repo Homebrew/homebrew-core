@@ -58,7 +58,7 @@ class SonarqubeLts < Formula
 
     begin
       pid = fork do
-        exec bin/"sonar", "start"
+        exec bin/"sonar", "console"
       end
 
       puts "pid: #{pid}"
