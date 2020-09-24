@@ -16,8 +16,7 @@ class Libpostal < Formula
     system "./configure", "--datadir=#{prefix}/share/libpostal-data",
                           "--prefix=#{prefix}"
 
-    # {ENV.make_jobs} cannot be used as it only works with exactly 4
-    system "make", "-j4"
+    system "make", "-j#{ENV.make_jobs}"
     system "make install"
   end
 
