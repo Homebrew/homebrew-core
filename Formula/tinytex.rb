@@ -3,8 +3,8 @@ class Tinytex < Formula
   homepage "https://yihui.org/tinytex/"
   url "https://github.com/yihui/tinytex-releases/releases/download/v2020.09.19/TinyTeX-1-v2020.09.19.tgz"
   sha256 "fbd997f9827b5036573cb72453a9a09ee0250340bbbaedfe295306cb22aab0be"
-  head "https://yihui.org/tinytex/TinyTeX-1.tgz"
   license "GPL-2.0-or-later"
+  head "https://yihui.org/tinytex/TinyTeX-1.tgz"
 
   def install
     system "cd bin && ln -s */* ./"
