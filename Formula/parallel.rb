@@ -3,9 +3,9 @@ class Parallel < Formula
   homepage "https://savannah.gnu.org/projects/parallel/"
   # Version 20200822 is considered beta software on macOS
   # See https://savannah.gnu.org/forum/forum.php?forum_id=9800
-  url "https://ftp.gnu.org/gnu/parallel/parallel-20200722.tar.bz2"
-  mirror "https://ftpmirror.gnu.org/parallel/parallel-20200722.tar.bz2"
-  sha256 "4801d44f2f71eed26386a0623a6fb3cadd7fa7ec2b5a7bbc5b7b52e2a0450d6f"
+  url "https://ftp.gnu.org/gnu/parallel/parallel-20200922.tar.bz2"
+  mirror "https://ftpmirror.gnu.org/parallel/parallel-20200922.tar.bz2"
+  sha256 "2810412b616b59dcf6a6bd172f2b2561807cf370ccf93417aa1c8229f94c4172"
   license "GPL-3.0-or-later"
   version_scheme 1
   head "https://git.savannah.gnu.org/git/parallel.git"
