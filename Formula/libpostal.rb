@@ -13,7 +13,7 @@ class Libpostal < Formula
 
   def install
     system "./bootstrap.sh"
-    system "./configure", "--datadir=#{share}/libpostal-data",
+    system "./configure", "--datadir=#{prefix}/share/libpostal-data",
                           "--prefix=#{prefix}"
 
     # {ENV.make_jobs} cannot be used as it only works with exactly 4
