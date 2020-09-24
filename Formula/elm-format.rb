@@ -2,8 +2,8 @@ class ElmFormat < Formula
   desc "Elm source code formatter, inspired by gofmt"
   homepage "https://github.com/avh4/elm-format"
   url "https://github.com/avh4/elm-format.git",
-      tag:      "0.8.3",
-      revision: "b97e3593d564a1e069c0a022da8cbd98ca2c5a4b"
+      tag:      "0.8.4",
+      revision: "5bd4fbe591fe8b456160c180cb875ef60bc57890"
   license "BSD-3-Clause"
   head "https://github.com/avh4/elm-format.git"
 
@@ -15,7 +15,7 @@ class ElmFormat < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@8.6" => :build
+  depends_on "ghc@8.8" => :build
 
   def build_elm_format_conf
     <<~EOS
