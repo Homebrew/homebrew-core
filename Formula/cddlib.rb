@@ -3,7 +3,7 @@ class Cddlib < Formula
   homepage "https://www.inf.ethz.ch/personal/fukudak/cdd_home/"
   url "https://github.com/cddlib/cddlib/releases/download/0.94l/cddlib-0.94l.tar.gz"
   sha256 "1ef6b1ee44509a26d480cda699ca1a9a38ecc9a2aba5092dbd7390ca285769e0"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   version_scheme 1
 
   bottle do
