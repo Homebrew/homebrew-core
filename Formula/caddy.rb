@@ -14,7 +14,7 @@ class Caddy < Formula
     sha256 "bb225be8318a5c99d1cce3e776d2b9f49acd3ccb06739935bc50d5d7c2d182e2" => :high_sierra
   end
 
-  depends_on "go@1.14" => :build
+  depends_on "go" => :build
 
   resource "xcaddy" do
     url "https://github.com/caddyserver/xcaddy/archive/v0.1.3.tar.gz"
