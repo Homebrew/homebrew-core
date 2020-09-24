@@ -2,8 +2,8 @@ class Metricbeat < Formula
   desc "Collect metrics from your systems and services"
   homepage "https://www.elastic.co/beats/metricbeat"
   url "https://github.com/elastic/beats.git",
-      tag:      "v7.9.1",
-      revision: "ad823eca4cc74439d1a44351c596c12ab51054f5"
+      tag:      "v7.9.2",
+      revision: "2ab907f5ccecf9fd82fe37105082e89fd871f684"
   license "Apache-2.0"
   head "https://github.com/elastic/beats.git"
 
