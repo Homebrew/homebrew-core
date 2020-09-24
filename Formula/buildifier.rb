@@ -2,8 +2,8 @@ class Buildifier < Formula
   desc "Format bazel BUILD files with a standard convention"
   homepage "https://github.com/bazelbuild/buildtools"
   url "https://github.com/bazelbuild/buildtools.git",
-      tag:      "3.4.0",
-      revision: "b1667ff58f714d13c2bba6823d6c52214705508f"
+      tag:      "3.5.0",
+      revision: "10384511ce98d864faf064a8ed54cdf31b98ac04"
   license "Apache-2.0"
 
   bottle do
