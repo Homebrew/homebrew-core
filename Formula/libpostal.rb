@@ -21,6 +21,19 @@ class Libpostal < Formula
   end
 
   test do
-    File.exist?("#{include}/libpostal/libpostal.h")
+    (testpath/"test.c").write <<~EOS
+        #include <stdio.h>
+        #include <stdlib.h>
+        #include <libpostal/libpostal.h>
+        int main(int argc, char **argv) {
+            if (!libpostal_setup() || !libpostal_setup_parser()) {
+                exit(EXIT_FAILURE);
+            }
+        }
+      EOS
+
+      system ENV.cc, "test.c", "-I#{prefix}/include", "-L#{prefix}/lib", "-lpostal", "-o", "test"
+      output = shell_output "./test 2>&1", 1
+      assert output.match?(/Error loading transliteration module, dir=\(null\)/)
   end
 end
