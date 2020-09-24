@@ -1,8 +1,8 @@
 class Okteto < Formula
   desc "Build better apps by developing and testing code directly in Kubernetes"
   homepage "https://okteto.com"
-  url "https://github.com/okteto/okteto/archive/1.8.22.tar.gz"
-  sha256 "e74b989eafd0b8c8cc6f11d30b6bc2424e5fef4137806765d8a6c8e301bba188"
+  url "https://github.com/okteto/okteto/archive/1.9.0.tar.gz"
+  sha256 "3811ee7baf8d652feb38db4199a8d6c5dd6668e8ed883768e1431c515a755a2f"
   license "Apache-2.0"
 
   bottle do
@@ -28,9 +28,8 @@ class Okteto < Formula
       image: okteto/ruby:2
       command:
       - bash
-      workdir: /okteto
       sync:
-      - .:/okteto
+      - .:/usr/src/app
       forward:
       - 1234:1234
       - 8080:8080
