@@ -3,7 +3,7 @@ class Scamper < Formula
   homepage "https://www.caida.org/tools/measurement/scamper/"
   url "https://www.caida.org/tools/measurement/scamper/code/scamper-cvs-20200923.tar.gz"
   sha256 "dc9988d9a696152b5066f9d52dfc24cb898275b5c22a9f420cb901115901c324"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
 
   livecheck do
     url "https://www.caida.org/tools/measurement/scamper/code/?C=M&O=D"
