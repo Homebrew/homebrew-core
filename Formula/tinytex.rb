@@ -44,9 +44,5 @@ class Tinytex < Formula
     system "#{bin}/xelatex",  "test.tex"
     assert_predicate testpath/"test.pdf", :exist?, "Failed to compile to PDF via xelatex"
     rm "test.pdf"
-
-    system "#{bin}/lualatex", "test.tex"
-    assert_predicate testpath/"test.pdf", :exist?, "Failed to compile to PDF via lualatex"
-    rm "test.pdf"
   end
 end
