@@ -1,8 +1,8 @@
 class Ghostscript < Formula
   desc "Interpreter for PostScript and PDF"
   homepage "https://www.ghostscript.com/"
-  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs9531/ghostpdl-9.53.1.tar.gz"
-  sha256 "9ffb112a316a6834b35d10fe1bf530da49575e53a856483617d0034c6a2db140"
+  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs9532/ghostpdl-9.53.2.tar.gz"
+  sha256 "5559b2d094a6b977e7a71e7e9f587f1addc608137fdaae10c19faa332bc369ba"
   license "AGPL-3.0-or-later"
 
   livecheck do
