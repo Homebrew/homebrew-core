@@ -13,7 +13,7 @@ class Libpostal < Formula
 
   def install
     system "./bootstrap.sh"
-    system "./configure", "--datadir=#{prefix}/share/libpostal-data",
+    system "./configure", "--datadir=#{HOMEBREW_PREFIX}/share/libpostal-data",
                           "--prefix=#{prefix}"
 
     system "make", "-j#{ENV.make_jobs}"
