@@ -7,7 +7,6 @@ class WiimmsSzsTools < Formula
   head do
     url "https://github.com/Wiimm/wiimms-szs-tools.git"
   end
-  
   depends_on "libpng" => :build
   uses_from_macos "ncurses"
 
@@ -20,7 +19,7 @@ class WiimmsSzsTools < Formula
                        "setup.sh"
                      ]
       system "make"
-      system "/bin/sh", "install.sh", "--no-sudo" 
+      system "/bin/sh", "install.sh", "--no-sudo"
     end
   end
 
