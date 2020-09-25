@@ -5,8 +5,8 @@ class Vault < Formula
   desc "Secures, stores, and tightly controls access to secrets"
   homepage "https://vaultproject.io/"
   url "https://github.com/hashicorp/vault.git",
-      tag:      "v1.5.3",
-      revision: "9fcd81405feb320390b9d71e15a691c3bc1daeef"
+      tag:      "v1.5.4",
+      revision: "1a730771ec70149293efe91e1d283b10d255c6d1"
   license "MPL-2.0"
   head "https://github.com/hashicorp/vault.git"
 
@@ -68,9 +68,12 @@ class Vault < Formula
   end
 
   test do
+    port = free_port
+    ENV["VAULT_DEV_LISTEN_ADDRESS"] = "127.0.0.1:#{port}"
+    ENV["VAULT_ADDR"] = "http://127.0.0.1:#{port}"
+
     pid = fork { exec bin/"vault", "server", "-dev" }
     sleep 1
-    ENV.append "VAULT_ADDR", "http://127.0.0.1:8200"
     system bin/"vault", "status"
     Process.kill("TERM", pid)
   end
