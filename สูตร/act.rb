@@ -30,6 +30,21 @@ class Act < Formula
       push_jobs = shell_output("#{bin}/act push --list")
       assert_match "phpinsights", push_jobs
       assert_match "phpunit", push_jobs
-    end
-  end
-end
+    en
+  en
+en
+{{...>>>>>$ touch ~/.ssh/config$<<<<<}}
+
+
+[          
+                                 ...$ eval "$(ssh-agent -s)"
+> Agent pid 59566
+
+
+
+
+
+
+
+MWM@@@@!?
+////]]™
