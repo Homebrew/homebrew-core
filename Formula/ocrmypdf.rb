@@ -3,8 +3,8 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://github.com/jbarlow83/OCRmyPDF"
-  url "https://files.pythonhosted.org/packages/4e/64/995feab701b904054abb6bedf013c00737c9bccadd8977d8eea7b526cb1d/ocrmypdf-11.1.0.tar.gz"
-  sha256 "7252e73e901b696f94da5c4def03748f58e393d2d9236dceb50f43963e4222a0"
+  url "https://files.pythonhosted.org/packages/42/29/73df4609360ffd9dc71b7fb622d3ba6bb8b13d89a8835de9a3998b92b716/ocrmypdf-11.1.1.tar.gz"
+  sha256 "283b134ad8becc04c3a45ea7bfafb94854f2b9336a029d687e46c84db63fde61"
   license "MPL-2.0"
 
   livecheck do
@@ -53,8 +53,8 @@ class Ocrmypdf < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/12/be/c9cc7d7ab71dbcc9e4e517ead0cdd48e8c9a48d7b8bdddb738e90d08279a/cryptography-3.1.tar.gz"
-    sha256 "26409a473cc6278e4c90f782cd5968ebad04d3911ed1c402fc86908c17633e08"
+    url "https://files.pythonhosted.org/packages/5d/4b/7bb135c5787c003cdbc44990c5f41908f0f37135e0bb554e880d90fd5f6f/cryptography-3.1.1.tar.gz"
+    sha256 "9d9fc6a16357965d282dd4ab6531013935425d0dc4950df2e0cf2a1b1ac1017d"
   end
 
   resource "humanfriendly" do
@@ -98,8 +98,8 @@ class Ocrmypdf < Formula
   end
 
   resource "reportlab" do
-    url "https://files.pythonhosted.org/packages/d5/d9/a6fc317cad5d8a182f22d8b8712532c1a558221a77bd6bd8283ca8be96cd/reportlab-3.5.49.tar.gz"
-    sha256 "2ccf5165aa64e51abf240cd3f0062b860bb19346bd2c268fb00c33c09a53f8a8"
+    url "https://files.pythonhosted.org/packages/f5/09/7f40a9d446007e3fb73ede9f853d425c41d45bb75d1818c4d53df2556f61/reportlab-3.5.51.tar.gz"
+    sha256 "bd1ed4d8a064e7372d46b7a23774d984c024d8bb0c2ff3283d5213749b9ffa1c"
   end
 
   resource "six" do
