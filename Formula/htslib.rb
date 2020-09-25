@@ -23,14 +23,6 @@ class Htslib < Formula
   uses_from_macos "curl"
   uses_from_macos "zlib"
 
-  # patch to allow htslib to work with newer libcurls that are packaged by homebrew
-  # see https://github.com/samtools/htslib/pull/1105
-  # this patch should be deleted on next release of htslib
-  patch do
-    url "https://github.com/samtools/htslib/commit/c7c7fb56dba6f81a56a5ec5ea20b8ad81ce62a43.patch?full_index=1"
-    sha256 "2d0244d066c07774ab6e372d0bfdd259fd7f64a918eb9595eae6c201e66db594"
-  end
-
   def install
     system "./configure", "--prefix=#{prefix}", "--enable-libcurl"
     system "make", "install"
