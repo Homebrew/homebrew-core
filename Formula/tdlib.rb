@@ -4,6 +4,7 @@ class Tdlib < Formula
   url "https://github.com/tdlib/td/archive/v1.6.0.tar.gz"
   sha256 "9dce57a96f9d4bac8f99aab13ef5cbf6fed04b234a5d22dfa7ef7dce06ea43f8"
   license "BSL-1.0"
+  head "https://github.com/tdlib/td.git"
 
   bottle do
     cellar :any
