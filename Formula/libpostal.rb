@@ -17,7 +17,7 @@ class Libpostal < Formula
                           "--prefix=#{prefix}"
 
     system "make", "-j#{ENV.make_jobs}"
-    system "make install"
+    system "make", "install"
   end
 
   test do
