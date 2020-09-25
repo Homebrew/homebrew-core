@@ -1,11 +1,8 @@
-# Documentation: https://docs.brew.sh/Formula-Cookbook
-#                https://rubydoc.brew.sh/Formula
-
 class WiimmsSzsTools < Formula
-  desc "Wiimms SZS Toolset is a set of command line tools to manipulate SZS, U8, WBZ, WU8, PACK, BRRES, BREFF, BREFT, BMG, KCL, KMP, MDL, PAT, TEX, TPL, BTI, main.dol and StaticR.rel files of Mario Kart Wii."
+  desc "Wiimms SZS Toolset is a set of command-line tools to manipulate files of Mario Kart Wii"
   homepage "https://szs.wiimm.de/"
-  license "GPL-2.0-or-later"
   url "https://download.wiimm.de/source/wiimms-szs-tools/wiimms-szs-tools.source-2.19a.txz"
+  license "GPL-2.0-or-later"
 
   depends_on "libpng" => :build
   uses_from_macos "ncurses"
