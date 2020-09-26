@@ -27,6 +27,11 @@ class Itk < Formula
   depends_on "libtiff"
   depends_on "vtk@8.2" # needed for gdcm
 
+  on_linux do
+    depends_on "alsa-lib"
+    depends_on "unixodbc"
+  end
+
   def install
     args = std_cmake_args + %W[
       -DBUILD_SHARED_LIBS=ON
