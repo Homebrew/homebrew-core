@@ -23,6 +23,7 @@ class Freerdp < Formula
   depends_on :x11
 
   on_linux do
+    depends_on "alsa-lib"
     depends_on "ffmpeg"
     depends_on "glib"
   end
