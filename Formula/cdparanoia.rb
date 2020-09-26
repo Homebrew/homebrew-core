@@ -18,9 +18,13 @@ class Cdparanoia < Formula
   depends_on "autoconf" => :build
 
   # Patches via MacPorts
+  # osx_interface2.patch fix "implicit declaration of function ‘xxxx’ is invalid in C99" make error on 
+  # macOS 10.15.x Catalina or later
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/2a22152/cdparanoia/osx_interface.patch"
     sha256 "3eca8ff34d2617c460056f97457b5ac62db1983517525e5c73886a2dea9f06d9"
+    url "https://drive.google.com/uc?export=download&id=1Hxr7EB0kpSsB5z3Q7llxFXrk9CM1nZ_h"
+    sha256 "f38305f5ff4d7f3b6fe9a432d9faef572f8c284dd23a584db396bfca8b5f6615"
   end
 
   def install
