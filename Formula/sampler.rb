@@ -14,6 +14,10 @@ class Sampler < Formula
 
   depends_on "go" => :build
 
+  on_linux do
+    depends_on "alsa-lib"
+  end
+
   def install
     system "go", "build", "-o", bin/"sampler"
   end
