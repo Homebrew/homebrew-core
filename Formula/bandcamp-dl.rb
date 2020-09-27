@@ -3,12 +3,21 @@ class BandcampDl < Formula
 
   desc "Simple python script to download Bandcamp albums"
   homepage "https://github.com/iheanyi/bandcamp-dl"
-  url "https://github.com/iheanyi/bandcamp-dl/archive/v0.0.8-12.tar.gz"
-  version "0.0.8-12"
-  sha256 "3252f52780f280ba18818d40cda1c89bdb99ee33d7911320ec2ce4c374df2d6b"
   license "Unlicense"
-  revision 3
+  revision 4
   head "https://github.com/iheanyi/bandcamp-dl.git"
+
+  stable do
+    url "https://github.com/iheanyi/bandcamp-dl/archive/v0.0.8-12.tar.gz"
+    sha256 "3252f52780f280ba18818d40cda1c89bdb99ee33d7911320ec2ce4c374df2d6b"
+    version "0.0.8-12"
+    # upstream hotfix, https://github.com/iheanyi/bandcamp-dl/pull/167
+    # remove this in next release
+    patch do
+      url "https://github.com/iheanyi/bandcamp-dl/commit/3d3a524af27bac761bd2f8766c6f4951776c6c60.patch?full_index=1"
+      sha256 "f776b23beb1149d2449c2187bbdc3843933d063a79254a354bfc69ce4d644091"
+    end
+  end
 
   bottle do
     cellar :any_skip_relocation
