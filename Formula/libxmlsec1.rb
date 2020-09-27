@@ -3,6 +3,7 @@ class Libxmlsec1 < Formula
   homepage "https://www.aleksey.com/xmlsec/"
   url "https://www.aleksey.com/xmlsec/download/xmlsec1-1.2.30.tar.gz"
   sha256 "2d84360b03042178def1d9ff538acacaed2b3a27411db7b2874f1612ed71abc8"
+  license "MIT"
 
   livecheck do
     url "https://www.aleksey.com/xmlsec/download/"
@@ -17,6 +18,7 @@ class Libxmlsec1 < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on xcode: :build
   depends_on "gnutls" # Yes, it wants both ssl/tls variations
   depends_on "libgcrypt"
   depends_on "libxml2"
