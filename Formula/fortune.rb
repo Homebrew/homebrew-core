@@ -22,6 +22,9 @@ class Fortune < Formula
     ENV.deparallelize
 
     inreplace "Makefile" do |s|
+      # Don't install offensive quotes
+      s.change_make_var! "OFFENSIVE", "0"
+
       # Use our selected compiler
       s.change_make_var! "CC", ENV.cc
 
