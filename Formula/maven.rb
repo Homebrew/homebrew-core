@@ -1,3 +1,6 @@
+require "net/http"
+require "json"
+
 class Maven < Formula
   desc "Java-based project management"
   homepage "https://maven.apache.org/"
@@ -9,6 +12,32 @@ class Maven < Formula
 
   livecheck do
     url :stable
+  end
+
+  head do
+    def download_json(url)
+      response = Net::HTTP.get(URI(url))
+      JSON.parse(response)
+    end
+
+    def find_latest
+      jenkins_base_url = "https://ci-builds.apache.org/job/Maven/job/maven-box/job/maven/job/master/"
+
+      download_json("#{jenkins_base_url}/api/json")["builds"].each do |build|
+        build_details = download_json("#{jenkins_base_url}/#{build["number"]}/api/json")
+
+        next unless build_details["result"] == "SUCCESS"
+
+        build_details["artifacts"].each do |artifact|
+          next unless artifact["fileName"].match?(/^apache-maven-[^wrapper].*-bin\.tar\.gz$/)
+
+          return "#{jenkins_base_url}/#{build["number"]}/artifact/#{artifact["relativePath"]}"
+        end
+        raise "Expected to find an artifact named apache-maven * tar.gz, but it wasn't found"
+      end
+    end
+
+    url find_latest
   end
 
   bottle :unneeded
