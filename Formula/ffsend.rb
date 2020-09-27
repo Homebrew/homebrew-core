@@ -3,7 +3,7 @@ class Ffsend < Formula
   homepage "https://gitlab.com/timvisee/ffsend"
   url "https://github.com/timvisee/ffsend/archive/v0.2.67.tar.gz"
   sha256 "a2ae6816b9fd53d88cd2b866d9de7dee0ccd00ebb3cb14c35f975a28224e8ed1"
-  license "GPL-3.0"
+  license "GPL-3.0-only"
 
   bottle do
     cellar :any_skip_relocation
