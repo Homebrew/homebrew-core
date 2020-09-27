@@ -4,6 +4,7 @@ on:
     paths:
       - "Formula/alsa-lib.rb"
       - "Formula/ladspa-sdk.rb"
+      - "Formula/libnfnetlink.rb"
       - "Formula/libseccomp.rb"
 jobs:
   tests_linux:
