@@ -21,7 +21,7 @@ class Maven < Formula
     end
 
     def find_latest
-      jenkins_base_url = "https://ci-builds.apache.org/job/Maven/job/maven-box/job/maven/job/master/"
+      jenkins_base_url = "https://ci-builds.apache.org/job/Maven/job/maven-box/job/maven/job/master"
 
       download_json("#{jenkins_base_url}/api/json")["builds"].each do |build|
         build_details = download_json("#{jenkins_base_url}/#{build["number"]}/api/json")
