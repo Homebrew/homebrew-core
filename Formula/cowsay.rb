@@ -5,6 +5,7 @@ class Cowsay < Formula
   url "https://github.com/tnalpgge/rank-amateur-cowsay/archive/cowsay-3.04.tar.gz"
   sha256 "d8b871332cfc1f0b6c16832ecca413ca0ac14d58626491a6733829e3d655878b"
   license "GPL-3.0"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -18,6 +19,12 @@ class Cowsay < Formula
   end
 
   def install
+    # Remove offensive content
+    %w[cows/sodomized.cow cows/telebears.cow].each do |file|
+      rm file
+      inreplace "Files.base", file, ""
+    end
+
     system "/bin/sh", "install.sh", prefix
     mv prefix/"man", share
   end
