@@ -3,6 +3,7 @@ class Idnits < Formula
   homepage "https://tools.ietf.org/tools/idnits/"
   url "https://tools.ietf.org/tools/idnits/idnits-2.16.05.tgz"
   sha256 "9f30827e0cf7cf02245e248266ece9557886d33ec7a90cc704b450e70f2cead5"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :homepage
