@@ -25,6 +25,9 @@ class WiimmsSzsTools < Formula
   end
 
   test do
-    system "wszst", "TEST"
+    system "mkdir", "test_dir"
+    system "wszst", "CREATE", "test_dir"
+    system "rmdir", "test_dir"
+    system "rm", "test_dir.szs"
   end
 end
