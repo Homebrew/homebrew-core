@@ -6,6 +6,7 @@ on:
       - "Formula/libaio.rb"
       - "Formula/ladspa-sdk.rb"
       - "Formula/libmnl.rb"
+      - "Formula/libnetfilter-queue.rb"
       - "Formula/libnfnetlink.rb"
       - "Formula/libseccomp.rb"
 jobs:
