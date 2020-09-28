@@ -25,6 +25,13 @@ class Docbook2x < Formula
   uses_from_macos "libxslt"
   uses_from_macos "perl"
 
+  on_linux do
+    resource "XML::Parser" do
+      url "https://cpan.metacpan.org/authors/id/T/TO/TODDR/XML-Parser-2.44.tar.gz"
+      sha256 "1ae9d07ee9c35326b3d9aad56eae71a6730a73a116b9fe9e8a4758b7cc033216"
+    end
+  end
+
   def install
     inreplace "perl/db2x_xsltproc.pl", "http://docbook2x.sf.net/latest/xslt", "#{share}/docbook2X/xslt"
     inreplace "configure", "${prefix}", prefix
