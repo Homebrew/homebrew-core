@@ -1,8 +1,8 @@
 class Qrencode < Formula
   desc "QR Code generation"
   homepage "https://fukuchi.org/works/qrencode/index.html.en"
-  url "https://fukuchi.org/works/qrencode/qrencode-4.1.0.tar.gz"
-  sha256 "37ebf4c1ccaa7ddff045e882d8ea1071bc2850d69ee4f9f6da45bda777a48b99"
+  url "https://fukuchi.org/works/qrencode/qrencode-4.1.1.tar.gz"
+  sha256 "da448ed4f52aba6bcb0cd48cac0dd51b8692bccc4cd127431402fca6f8171e8e"
   license "LGPL-2.1-or-later"
 
   livecheck do
