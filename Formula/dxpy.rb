@@ -24,6 +24,11 @@ class Dxpy < Formula
     depends_on "readline"
   end
 
+  on_linux do
+    depends_on "pkg-config" => :build
+    depends_on "libffi"
+  end
+
   resource "argcomplete" do
     url "https://files.pythonhosted.org/packages/df/a0/3544d453e6b80792452d71fdf45aac532daf1c2b2d7fc6cb712e1c3daf11/argcomplete-1.12.0.tar.gz"
     sha256 "2fbe5ed09fd2c1d727d4199feca96569a5b50d44c71b16da9c742201f7cc295c"
