@@ -27,6 +27,11 @@ class Dnsviz < Formula
   depends_on "openssl@1.1"
   depends_on "python@3.8"
 
+  on_linux do
+    # Fix build error of m2crypto, see https://github.com/crocs-muni/roca/issues/1#issuecomment-336893096
+    depends_on "swig"
+  end
+
   resource "dnspython" do
     url "https://files.pythonhosted.org/packages/ec/c5/14bcd63cb6d06092a004793399ec395405edf97c2301dfdc146dfbd5beed/dnspython-1.16.0.zip"
     sha256 "36c5e8e38d4369a08b6780b7f27d790a292b2b08eea01607865bf0936c558e01"
