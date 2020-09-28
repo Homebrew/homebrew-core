@@ -12,7 +12,7 @@ class Bartycrouch < Formula
     sha256 "86f4e9f2e99b0e6c34756e73365228833f3ea39251cb082eff4f37b7a38dc42e" => :catalina
   end
 
-  depends_on xcode: ["11.4", :build]
+  depends_on xcode: ["12.0", :build]
 
   def install
     system "make", "install", "prefix=#{prefix}"
