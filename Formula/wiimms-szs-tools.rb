@@ -1,6 +1,7 @@
 class WiimmsSzsTools < Formula
   desc "Wiimms SZS Toolset is a set of command-line tools to manipulate Wii files"
   homepage "https://szs.wiimm.de/"
+  sha256 "db8b73e41c2bc80e71f6a8fc95513f9a4424800e55dbcfcf1ea4f103b6c61265"
   url "https://download.wiimm.de/source/wiimms-szs-tools/wiimms-szs-tools.source-2.19a.txz"
   license "GPL-2.0-or-later"
 
