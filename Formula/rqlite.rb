@@ -4,6 +4,7 @@ class Rqlite < Formula
   url "https://github.com/rqlite/rqlite/archive/v5.4.2.tar.gz"
   sha256 "9a78542b72883e6452029500d64e6234fc719aab4147e240476c3f7a4ce801a6"
   license "MIT"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
