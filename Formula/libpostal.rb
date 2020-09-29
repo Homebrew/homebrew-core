@@ -13,11 +13,22 @@ class Libpostal < Formula
 
   def install
     system "./bootstrap.sh"
-    system "./configure", "--datadir=#{HOMEBREW_PREFIX}/share/libpostal-data",
+    system "./configure", "--disable-data-download",
                           "--prefix=#{prefix}"
 
     system "make", "-j#{ENV.make_jobs}"
     system "make", "install"
+  end
+
+  def caveats
+    <<~EOS
+      libpostal requires training data to function.
+
+      To download the training data use:
+          libpostal_data download all <data_dir>
+
+      You may need to reinstall libpostal with --HEAD for this to work.
+    EOS
   end
 
   test do
