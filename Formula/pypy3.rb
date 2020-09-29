@@ -1,10 +1,9 @@
 class Pypy3 < Formula
   desc "Implementation of Python 3 in Python"
   homepage "https://pypy.org/"
-  url "https://downloads.python.org/pypy/pypy3.6-v7.3.1-src.tar.bz2"
-  sha256 "0c2cc3229da36c6984baee128c8ff8bb4516d69df1d73275dc4622bf249afa83"
+  url "https://downloads.python.org/pypy/pypy3.6-v7.3.2-src.tar.bz2"
+  sha256 "fd6175fed63ff9fccd7886068078853078948d98afae9bd4f5554c6f7873c10d"
   license "MIT"
-  revision 1
   head "https://foss.heptapod.net/pypy/pypy", using: :hg, branch: "py3.7"
 
   livecheck do
@@ -76,14 +75,6 @@ class Pypy3 < Formula
     ENV.prepend "CPPFLAGS", "-I#{prefix}/opt/tcl-tk/include"
     # Work around "dyld: Symbol not found: _utimensat"
     ENV.delete("SDKROOT") if MacOS.version == :sierra && MacOS::Xcode.version >= "9.0"
-
-    # Fix build on High Sierra
-    inreplace "lib_pypy/_tkinter/tklib_build.py" do |s|
-      s.gsub! "/System/Library/Frameworks/Tk.framework/Versions/Current/Headers/",
-              "#{prefix}/opt/tcl-tk/include"
-      s.gsub! "libdirs = []",
-              "libdirs = ['#{prefix}/opt/tcl-tk/lib']"
-    end
 
     # Having PYTHONPATH set can cause the build to fail if another
     # Python is present, e.g. a Homebrew-provided Python 2.x
