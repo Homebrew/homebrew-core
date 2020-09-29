@@ -23,7 +23,7 @@ class Infracost < Formula
   end
 
   test do
-    output = shell_output("#{bin}/infracost --no-color", result = 1)
+    output = shell_output("#{bin}/infracost --no-color", 1)
     assert_equal output.lines.first, "No INFRACOST_API_KEY environment variable is set.\n"
   end
 end
