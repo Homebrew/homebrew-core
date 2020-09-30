@@ -30,6 +30,13 @@ class Pssh < Formula
     sha256 "79c133072396e5d3d370ec254b7f7ed52abe1d09b5d398880f0e1cfaf988defa"
   end
 
+  # Fix for Python 3 compatibility
+  # https://bugs.archlinux.org/task/51533
+  patch do
+    url "https://bugs.archlinux.org/task/51533?getfile=14659"
+    sha256 "47c1af738d4ba252e9f35c5633da91bae2a2919a7b6b2bf425ee1f090d61c7fe"
+  end
+
   def install
     # Fixes import error with python3, see https://github.com/lilydjwg/pssh/issues/70
     # fixed in master, should be removed for versions > 2.3.1
