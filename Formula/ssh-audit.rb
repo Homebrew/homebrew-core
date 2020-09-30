@@ -18,7 +18,6 @@ class SshAudit < Formula
   end
 
   test do
-    output = shell_output("#{bin}/ssh-audit -h 2>&1", 1)
-    assert_match "force ssh version 1 only", output
+    assert_match "[exception]", shell_output("#{bin}/ssh-audit -nt 0 ssh.github.com", 1)
   end
 end
