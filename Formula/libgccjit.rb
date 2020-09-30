@@ -140,6 +140,7 @@ class Libgccjit < Formula
     gcclib = Formula["gcc"].lib
     tripple = `gcc -dumpmachine | grep -oE '[^.]+' | head -1`.strip
     system gcc.to_s, "-I#{include}", "test-libgccjit.c", "-o", "test", "-L#{lib}", "-lgccjit", "-lgcc_ext.10.5"
-    assert_equal "hello world\n", shell_output("LIBRARY_PATH=\"#{gcclib}/gcc/10/gcc/#{tripple}/10.2.0:/usr/local/Cellar/gcc/10.2.0/lib/gcc/10/\" ./test")
+    lib_path = "LIBRARY_PATH=\"#{gcclib}/gcc/10/gcc/#{tripple}/10.2.0:/usr/local/Cellar/gcc/10.2.0/lib/gcc/10/\""
+    assert_equal "hello world\n", shell_output("#{lib_path} ./test")
   end
 end
