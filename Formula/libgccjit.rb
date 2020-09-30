@@ -136,11 +136,10 @@ class Libgccjit < Formula
           return 0;
       }
     EOS
-    gcc = Formula["gcc"].bin/"gcc-10"
-    gcclib = Formula["gcc"].lib
+    gcc = Formula["gcc"].bin/"gcc-#{version.major}"
     tripple = `gcc -dumpmachine | grep -oE '[^.]+' | head -1`.strip
     system gcc.to_s, "-I#{include}", "test-libgccjit.c", "-o", "test", "-L#{lib}", "-lgccjit", "-lgcc_ext.10.5"
-    lib_path = "LIBRARY_PATH=\"#{gcclib}/gcc/10/gcc/#{tripple}/10.2.0:/usr/local/Cellar/gcc/10.2.0/lib/gcc/10/\""
+    lib_path = "LIBRARY_PATH=\"#{Formula["gcc"].lib}/gcc/#{version.major}/gcc/#{tripple}/#{version}:#{Formula["gcc"].opt_lib}/gcc/#{version.major}/\""
     assert_equal "hello world\n", shell_output("#{lib_path} ./test")
   end
 end
