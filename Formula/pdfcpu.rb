@@ -1,8 +1,8 @@
 class Pdfcpu < Formula
   desc "PDF processor written in Go"
   homepage "https://pdfcpu.io"
-  url "https://github.com/pdfcpu/pdfcpu/archive/v0.3.5.tar.gz"
-  sha256 "06e9f118bd49859ed25d178be2f9ca7e214d39b249845efec0bb3aa73e52d4ce"
+  url "https://github.com/pdfcpu/pdfcpu/archive/v0.3.6.tar.gz"
+  sha256 "59a9b1edf939b3b89b1a5e28cd54e7b0a5c9ce5fcc03db9eb43b1c28d7476033"
   license "Apache-2.0"
 
   bottle do
