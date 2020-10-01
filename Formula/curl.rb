@@ -52,8 +52,8 @@ class Curl < Formula
     system "make", "install"
     system "make", "install", "-C", "scripts"
     libexec.install "lib/mk-ca-bundle.pl"
-    
-    zsh_completion.install  "/usr/local/opt/curl/share/zsh/site-functions"  => "_curl"
+
+    zsh_completion.install "#{opt_prefix}/share/zsh/site-functions" => "_curl"
   end
 
   test do
