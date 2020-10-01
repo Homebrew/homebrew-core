@@ -3,6 +3,7 @@ class Geogram < Formula
   homepage "http://alice.loria.fr/software/geogram/doc/html/index.html"
   url "https://gforge.inria.fr/frs/download.php/file/38361/geogram_1.7.6.tar.gz"
   sha256 "4456d65baa014e9eb0352675f76eca260ed97eb386d23bc5c13af419dc2e8142"
+  license all_of: ["BSD-3-Clause", :public_domain, "LGPL-3.0-or-later", "MIT"]
 
   bottle do
     sha256 "35c53782912da99acd4b4e743d5a09a19116fc17ecd85403e84aafb1287bb718" => :catalina
