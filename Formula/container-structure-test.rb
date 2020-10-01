@@ -1,8 +1,8 @@
 class ContainerStructureTest < Formula
   desc "Validate the structure of your container images"
   homepage "https://github.com/GoogleContainerTools/container-structure-test"
-  url "https://github.com/GoogleContainerTools/container-structure-test/archive/v1.9.0.tar.gz"
-  sha256 "6a70b123a5a7781501109912249bc1209527d5dbee026e38777a25340b77a1df"
+  url "https://github.com/GoogleContainerTools/container-structure-test/archive/v1.9.1.tar.gz"
+  sha256 "dd324d329bc471bbd6f601b6ecc98c0184c1209fc57d274c43d9c9bb4c6460ea"
   license "Apache-2.0"
   head "https://github.com/GoogleContainerTools/container-structure-test.git"
 
@@ -23,14 +23,7 @@ class ContainerStructureTest < Formula
   end
 
   def install
-    ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/github.com/GoogleContainerTools/container-structure-test"
-    dir.install buildpath.children - [buildpath/".brew_home"]
-    cd dir do
-      system "make"
-      bin.install "out/container-structure-test"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args, "./cmd/container-structure-test"
   end
 
   test do
