@@ -2,9 +2,9 @@ class PhpAT73 < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-7.3.22.tar.xz"
-  mirror "https://fossies.org/linux/www/php-7.3.22.tar.xz"
-  sha256 "0e66606d3bdab5c2ae3f778136bfe8788e574913a3d8138695e54d98562f1fb5"
+  url "https://www.php.net/distributions/php-7.3.23.tar.xz"
+  mirror "https://fossies.org/linux/www/php-7.3.23.tar.xz"
+  sha256 "2bdd36176f318f451fb3942bf1e935aabb3c2786cac41a9080f084ad6390e034"
   license "PHP-3.01"
 
   bottle do
@@ -49,6 +49,13 @@ class PhpAT73 < Formula
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
   uses_from_macos "zlib"
+
+  # Fix build issues with Xcode 12.
+  # see https://bugs.php.net/bug.php?id=80171
+  patch do
+    url "https://github.com/php/php-src/commit/aa405b7da270595d349d0596ad31305a41d4b1c0.patch?full_index=1"
+    sha256 "4c51e35fd936a7f3f5613c72e6395b9afa8f569061c00849683e09e8fe986a0f"
+  end
 
   # PHP build system incorrectly links system libraries
   # see https://github.com/php/php-src/pull/3472
