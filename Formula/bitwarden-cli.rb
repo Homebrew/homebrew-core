@@ -3,8 +3,8 @@ require "language/node"
 class BitwardenCli < Formula
   desc "Secure and free password manager for all of your devices"
   homepage "https://bitwarden.com/"
-  url "https://registry.npmjs.org/@bitwarden/cli/-/cli-1.12.0.tgz"
-  sha256 "0397f1dd382e3577f1c550821124d91a45c46015537c2108343e59277e6d8ce3"
+  url "https://registry.npmjs.org/@bitwarden/cli/-/cli-1.12.1.tgz"
+  sha256 "8a6cdff8fa3a0c58cb35b031ef2db75c3004c7faeb4f4135693fa44e65e1ead8"
   license "GPL-3.0"
 
   livecheck do
