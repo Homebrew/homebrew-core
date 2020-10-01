@@ -3,8 +3,8 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/ee/c7/399b15e7cdf8a6975591f9dd354089802789bd64437be259e4354eb2a2d3/snakemake-5.25.0.tar.gz"
-  sha256 "6e9ba39038c0d64a6bba492e1646dda10f4826bd905a8b2aa93b18a6793b098b"
+  url "https://files.pythonhosted.org/packages/f3/e7/380c16954cb99dad8abe143b816a843e0ec348c70ceb0112bed23ff70553/snakemake-5.26.1.tar.gz"
+  sha256 "94cfed2f47f6441cca6cf9d53cffdc11eb78dd1758d96c0af9cd5e453247363e"
   license "MIT"
   head "https://github.com/snakemake/snakemake.git"
 
@@ -68,8 +68,8 @@ class Snakemake < Formula
   end
 
   resource "GitPython" do
-    url "https://files.pythonhosted.org/packages/63/c7/639d7965f5c860ba0fec323fd3b80ba57f7c3eb90e58ca5b4ea467e50ba9/GitPython-3.1.8.tar.gz"
-    sha256 "080bf8e2cf1a2b907634761c2eaefbe83b69930c94c66ad11b65a8252959f912"
+    url "https://files.pythonhosted.org/packages/72/ad/5cf16fd1307e0ec17fc2347475e732f64d396649c64ed358a29186f4ce74/GitPython-3.1.9.tar.gz"
+    sha256 "a03f728b49ce9597a6655793207c6ab0da55519368ff5961e4a74ae475b9fa8e"
   end
 
   resource "idna" do
