@@ -1,8 +1,8 @@
 class Bandwhich < Formula
   desc "Terminal bandwidth utilization tool"
   homepage "https://github.com/imsnif/bandwhich"
-  url "https://github.com/imsnif/bandwhich/archive/0.18.1.tar.gz"
-  sha256 "01df14a34176858bdd11973898049350e608157f315e6248107475e75b0cafbc"
+  url "https://github.com/imsnif/bandwhich/archive/0.19.0.tar.gz"
+  sha256 "82ad604e2b80d4434633860dd81a1d73cd59d54bde7241f4e86c95900912befc"
   license "MIT"
 
   bottle do
