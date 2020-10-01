@@ -1,8 +1,8 @@
 class Libwebsockets < Formula
   desc "C websockets server library"
   homepage "https://libwebsockets.org"
-  url "https://github.com/warmcat/libwebsockets/archive/v4.0.21.tar.gz"
-  sha256 "6ece1f422c6d38aabedec2476f2ac12e9aede8691b08137068ad85545ce3ff78"
+  url "https://github.com/warmcat/libwebsockets/archive/v4.1.2.tar.gz"
+  sha256 "f15a7189c5fe6109d260615dec8a0c6dfc962ed5931fb6f0fddd72fbe49f02b0"
   license "MIT"
   head "https://github.com/warmcat/libwebsockets.git"
 
@@ -25,6 +25,7 @@ class Libwebsockets < Formula
   uses_from_macos "zlib"
 
   def install
+    inreplace "plugins/protocol_lws_sshd_demo.c", "#include <lws-ssh.h>", "#include <lws-ssh.h>\n#include <fcntl.h>"
     system "cmake", ".", *std_cmake_args,
                     "-DLWS_IPV6=ON",
                     "-DLWS_WITH_HTTP2=ON",
