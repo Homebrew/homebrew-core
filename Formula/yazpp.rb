@@ -1,8 +1,9 @@
 class Yazpp < Formula
   desc "C++ API for the Yaz toolkit"
   homepage "https://www.indexdata.com/yazpp"
-  url "http://ftp.indexdata.dk/pub/yazpp/yazpp-1.6.5.tar.gz"
-  sha256 "802537484d4247706f31c121df78b29fc2f26126995963102e19ef378f3c39d2"
+  url "http://ftp.indexdata.dk/pub/yazpp/yazpp-1.7.1.tar.gz"
+  sha256 "8cf8b9a84cee6748013beaf8f79a432e4c65b9f04f4c80452bc2f3e93354294a"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any
