@@ -3,8 +3,8 @@ class Miniserve < Formula
   homepage "https://github.com/svenstaro/miniserve"
   # Bumpable only when it doesn't use features only available in Rust Nightly.
   # Check for resolution of https://github.com/svenstaro/miniserve/issues/291.
-  url "https://github.com/svenstaro/miniserve/archive/v0.3.0.tar.gz"
-  sha256 "80ee5d661730ddad14671f961b560467f3b3a9f0544b9b11dec65098eb4a1f7e"
+  url "https://github.com/svenstaro/miniserve/archive/v0.10.0.tar.gz"
+  sha256 "e04549e0a389c3b99d5c7e1aa5427cb752d0368e823b4e2f4ee47df045d80ffa"
   license "MIT"
 
   bottle do
