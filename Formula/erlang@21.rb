@@ -2,8 +2,8 @@ class ErlangAT21 < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url "https://github.com/erlang/otp/archive/OTP-21.3.8.17.tar.gz"
-  sha256 "ee2ab2be55adaeea3ffbe97141cd5f1729bc4d0aaf24f70d3aa8e4cbc40e4910"
+  url "https://github.com/erlang/otp/archive/OTP-21.3.8.18.tar.gz"
+  sha256 "3481a47503e1ac0c0296970b460d1936ee0432600f685a216608e04b2f608367"
   license "Apache-2.0"
 
   livecheck do
@@ -40,17 +40,19 @@ class ErlangAT21 < Formula
     sha256 "258b1e0ed1d07abbf08938f62c845450e90a32ec542e94455e5d5b7c333da362"
   end
 
-  # Fix build on Xcode 11.4
+  # Fix build on Xcode 11.4+ (https://bugs.erlang.org/browse/ERL-1205)
   patch do
     url "https://github.com/erlang/otp/commit/3edba0dad391431cbadad44a8bd15c75254fc239.patch?full_index=1"
     sha256 "0c82d9f3bdb668ba78025988c9447bebe91a2f6bb00daa7f0ae7bd1916cd9bfd"
   end
 
-  def install
-    # Work around Xcode 11 clang bug
-    # https://bitbucket.org/multicoreware/x265/issues/514/wrong-code-generated-on-macos-1015
-    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
+  # Fix build on Xcode 12+ (https://bugs.erlang.org/browse/ERL-1306)
+  patch do
+    url "https://github.com/erlang/otp/commit/388622e9b626039c1e403b4952c2c905af364a96.patch?full_index=1"
+    sha256 "85d3611fc071f06d421b9c7fae00b656fde054586bf69551aec38930d4086780"
+  end
 
+  def install
     # Unset these so that building wx, kernel, compiler and
     # other modules doesn't fail with an unintelligable error.
     %w[LIBS FLAGS AFLAGS ZFLAGS].each { |k| ENV.delete("ERL_#{k}") }
