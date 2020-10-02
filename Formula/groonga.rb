@@ -3,6 +3,7 @@ class Groonga < Formula
   homepage "https://groonga.org/"
   url "https://packages.groonga.org/source/groonga/groonga-10.0.7.tar.gz"
   sha256 "6ce49096129472d385c03836f169aa3b0a06f2ce2a5d75e6aed154258561be7b"
+  license "LGPL-2.1-or-later"
 
   livecheck do
     url :homepage
