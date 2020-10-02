@@ -1,8 +1,8 @@
 class Moarvm < Formula
   desc "Virtual machine for NQP and Rakudo Perl 6"
   homepage "https://moarvm.org"
-  url "https://github.com/MoarVM/MoarVM/releases/download/2020.08/MoarVM-2020.08.tar.gz"
-  sha256 "3ede5e70352885e596b505a8ec6bd302513527578a077102886a5a5a3ef907bf"
+  url "https://github.com/MoarVM/MoarVM/releases/download/2020.09/MoarVM-2020.09.tar.gz"
+  sha256 "48b21922f8843d53a3bf4c04ef357f1d9d2d8cd96f63c5eb59df72eceda6f922"
   license "Artistic-2.0"
 
   livecheck do
