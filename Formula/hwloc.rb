@@ -1,8 +1,8 @@
 class Hwloc < Formula
   desc "Portable abstraction of the hierarchical topology of modern architectures"
   homepage "https://www.open-mpi.org/projects/hwloc/"
-  url "https://www.open-mpi.org/software/hwloc/v2.2/downloads/hwloc-2.2.0.tar.bz2"
-  sha256 "ae70b893df272b84afd7068d351aae5c8c4fd79d40ca783b3e67554b873a2252"
+  url "https://www.open-mpi.org/software/hwloc/v2.3/downloads/hwloc-2.3.0.tar.bz2"
+  sha256 "b607f6097873f69ef6b4b01e66e0dcb45f9939e8979827284664bbf0d4018a64"
   license "BSD-3-Clause"
 
   bottle do
@@ -34,6 +34,9 @@ class Hwloc < Formula
     system "make", "install"
 
     pkgshare.install "tests"
+
+    # remove homebrew shims directory references
+    rm Dir[pkgshare/"tests/**/Makefile"]
   end
 
   test do
