@@ -1,8 +1,8 @@
 class Xtensor < Formula
   desc "Multi-dimensional arrays with broadcasting and lazy computing"
   homepage "https://xtensor.readthedocs.io/en/latest/"
-  url "https://github.com/xtensor-stack/xtensor/archive/0.21.6.tar.gz"
-  sha256 "7f634cc5d531992c96c310ea57ec5bca012391259e1b1d1da977e5a94783f09b"
+  url "https://github.com/QuantStack/xtensor/archive/0.21.7.tar.gz"
+  sha256 "03c517c1614fcef667150f436b387626d00c65bdd11c55a5da36e29cf849bfc0"
   license "BSD-3-Clause"
 
   bottle do
