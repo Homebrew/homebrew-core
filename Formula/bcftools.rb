@@ -1,8 +1,8 @@
 class Bcftools < Formula
   desc "Tools for BCF/VCF files and variant calling from samtools"
   homepage "https://www.htslib.org/"
-  url "https://github.com/samtools/bcftools/releases/download/1.10.2/bcftools-1.10.2.tar.bz2"
-  sha256 "f57301869d0055ce3b8e26d8ad880c0c1989bf25eaec8ea5db99b60e31354e2c"
+  url "https://github.com/samtools/bcftools/releases/download/1.11/bcftools-1.11.tar.bz2"
+  sha256 "3ceee47456ec481f34fa6c34beb6fe892b5b365933191132721fdf126e45a064"
   license "MIT"
 
   livecheck do
