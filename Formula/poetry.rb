@@ -3,8 +3,8 @@ class Poetry < Formula
 
   desc "Python package management tool"
   homepage "https://python-poetry.org/"
-  url "https://files.pythonhosted.org/packages/8e/f8/ee9590a110aa5f9de86e8de6b6f623f4bd5eb8610b719d21cea5d794fd98/poetry-1.0.10.tar.gz"
-  sha256 "4b1b895d272d9bae22e1796dfe38d6122a75963709d7a909068e68aa6937a6f2"
+  url "https://files.pythonhosted.org/packages/1b/e0/1f0edd3214986fb58ccda90acf43af763d31556499697b72f11186c5b1b1/poetry-1.1.0.tar.gz"
+  sha256 "0a05625681c530c1ba3ffe0ae5b612de3a0434fd0a043259481da01b48e9b24a"
   license "MIT"
 
   livecheck do
@@ -20,9 +20,9 @@ class Poetry < Formula
 
   depends_on "python@3.8"
 
-  resource "attrs" do
-    url "https://files.pythonhosted.org/packages/98/c3/2c227e66b5e896e15ccdae2e00bbc69aa46e9a8ce8869cc5fa96310bf612/attrs-19.3.0.tar.gz"
-    sha256 "f7b7ce16570fe9965acd6d30101a28f62fb4a7f9e926b3bbc9b61f8b04247e72"
+  resource "appdirs" do
+    url "https://files.pythonhosted.org/packages/d7/d8/05696357e0311f5b5c316d7b95f46c669dd9c15aaeecbb48c7d0aeb88c40/appdirs-1.4.4.tar.gz"
+    sha256 "7d5d0167b2b1ba821647616af46a749d1c653740dd0d2415100fe26e27afdf41"
   end
 
   resource "CacheControl" do
@@ -46,13 +46,28 @@ class Poetry < Formula
   end
 
   resource "cleo" do
-    url "https://files.pythonhosted.org/packages/99/d5/409b11936085c97ea7c9f596b7fcc3aac0cd9243bbba64be914bb9142bc2/cleo-0.7.6.tar.gz"
-    sha256 "99cf342406f3499cec43270fcfaf93c126c5164092eca201dfef0f623360b409"
+    url "https://files.pythonhosted.org/packages/a5/36/943c12bc9b56f5fc83661558c576a3d95df0d0f9c153f87ee4c19647025b/cleo-0.8.1.tar.gz"
+    sha256 "3d0e22d30117851b45970b6c14aca4ab0b18b1b53c8af57bed13208147e4069f"
   end
 
   resource "clikit" do
-    url "https://files.pythonhosted.org/packages/95/55/c9013126e2468e80a30f3aaec8fdb9b55772f4ab91f79ec8290f6426c60b/clikit-0.4.3.tar.gz"
-    sha256 "6e2d7e115e7c7b35bceb0209109935ab2f9ab50910e9ff2293f7fa0b7abf973e"
+    url "https://files.pythonhosted.org/packages/0b/07/27d700f8447c0ca81454a4acdb7eb200229a6d06fe0b1439acc3da49a53f/clikit-0.6.2.tar.gz"
+    sha256 "442ee5db9a14120635c5990bcdbfe7c03ada5898291f0c802f77be71569ded59"
+  end
+
+  resource "crashtest" do
+    url "https://files.pythonhosted.org/packages/08/3c/5ec13020a4693fab34e1f438fe6e96aed6551740e1f4a5cc66e8b84491ea/crashtest-0.3.1.tar.gz"
+    sha256 "42ca7b6ce88b6c7433e2ce47ea884e91ec93104a4b754998be498a8e6c3d37dd"
+  end
+
+  resource "distlib" do
+    url "https://files.pythonhosted.org/packages/2f/83/1eba07997b8ba58d92b3e51445d5bf36f9fba9cb8166bcae99b9c3464841/distlib-0.3.1.zip"
+    sha256 "edf6116872c863e1aa9d5bb7cb5e05a022c519a4594dc703843343a9ddd9bff1"
+  end
+
+  resource "filelock" do
+    url "https://files.pythonhosted.org/packages/14/ec/6ee2168387ce0154632f856d5cc5592328e9cf93127c5c9aeca92c8c16cb/filelock-3.0.12.tar.gz"
+    sha256 "18d82244ee114f543149c66a6e0c14e9c4f8a1044b5cdaadd0f82159d6a6ff59"
   end
 
   resource "html5lib" do
@@ -65,14 +80,9 @@ class Poetry < Formula
     sha256 "b307872f855b18632ce0c21c5e45be78c0ea7ae4c15c828c20788b26921eb3f6"
   end
 
-  resource "jsonschema" do
-    url "https://files.pythonhosted.org/packages/69/11/a69e2a3c01b324a77d3a7c0570faa372e8448b666300c4117a516f8b1212/jsonschema-3.2.0.tar.gz"
-    sha256 "c8a85b28d377cc7737e46e2d9f2b4f44ee3c0e1deac6bf46ddefc7187d30797a"
-  end
-
   resource "keyring" do
-    url "https://files.pythonhosted.org/packages/97/b5/983b219cc9288340b1a572dc85b1efd96938d807dae9ebc9355616e0db32/keyring-20.0.1.tar.gz"
-    sha256 "963bfa7f090269d30bdc5e25589e5fd9dad2cf2a7c6f176a7f2386910e5d0d8d"
+    url "https://files.pythonhosted.org/packages/3e/79/da95ce71b572ce01c268492957cc4c1055da6f683077a6caba10944dc4f2/keyring-21.4.0.tar.gz"
+    sha256 "9aeadd006a852b78f4b4ef7c7556c2774d2432bbef8ee538a3e9089ac8b11466"
   end
 
   resource "lockfile" do
@@ -85,9 +95,14 @@ class Poetry < Formula
     sha256 "9534d5cc480d4aff720233411a1f765be90885750b07df772380b34c10ecb5c0"
   end
 
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/55/fd/fc1aca9cf51ed2f2c11748fa797370027babd82f87829c7a8e6dbe720145/packaging-20.4.tar.gz"
+    sha256 "4357f74f47b9c12db93624a82154e9b120fa8293699949152b22065d556079f8"
+  end
+
   resource "pastel" do
-    url "https://files.pythonhosted.org/packages/c9/c8/aa23c18b1b811b1907f06b1556d39213982675dd2a2e72493d20fe2b6a57/pastel-0.2.0.tar.gz"
-    sha256 "46155fc523bdd4efcd450bbcb3f2b94a6e3b25edc0eb493e081104ad09e1ca36"
+    url "https://files.pythonhosted.org/packages/76/f1/4594f5e0fcddb6953e5b8fe00da8c317b8b41b547e2b3ae2da7512943c62/pastel-0.2.1.tar.gz"
+    sha256 "e6581ac04e973cac858828c6202c1e1e81fee1dc7de7683f3e1ffe0bfd8a573d"
   end
 
   resource "pexpect" do
@@ -98,6 +113,11 @@ class Poetry < Formula
   resource "pkginfo" do
     url "https://files.pythonhosted.org/packages/6c/04/fd6683d24581894be8b25bc8c68ac7a0a73bf0c4d74b888ac5fe9a28e77f/pkginfo-1.5.0.1.tar.gz"
     sha256 "7424f2c8511c186cd5424bbf31045b77435b37a8d604990b79d4e70d741148bb"
+  end
+
+  resource "poetry-core" do
+    url "https://files.pythonhosted.org/packages/42/21/5335c7eceff3dccb3b415018bb17db0c442b599f610fd5712021d5f9403f/poetry-core-1.0.0.tar.gz"
+    sha256 "6a664ff389b9f45382536f8fa1611a0cb4d2de7c5a5c885db1f0c600cd11fbd5"
   end
 
   resource "ptyprocess" do
@@ -115,25 +135,14 @@ class Poetry < Formula
     sha256 "c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"
   end
 
-  resource "pyrsistent" do
-    url "https://files.pythonhosted.org/packages/8c/46/4e93ab8a379d7efe93f20a0fb8a27bdfe88942cc954ab0210c3164e783e0/pyrsistent-0.14.11.tar.gz"
-    sha256 "3ca82748918eb65e2d89f222b702277099aca77e34843c5eb9d52451173970e2"
-  end
-
   resource "requests" do
     url "https://files.pythonhosted.org/packages/da/67/672b422d9daf07365259958912ba533a0ecab839d4084c487a5fe9a5405f/requests-2.24.0.tar.gz"
     sha256 "b3559a131db72c33ee969480840fff4bb6dd111de7dd27c8ee1f820f4f00231b"
   end
 
   resource "requests-toolbelt" do
-    url "https://files.pythonhosted.org/packages/86/f9/e80fa23edca6c554f1994040064760c12b51daff54b55f9e379e899cd3d4/requests-toolbelt-0.8.0.tar.gz"
-    sha256 "f6a531936c6fa4c6cfce1b9c10d5c4f498d16528d2a54a22ca00011205a187b5"
-  end
-
-  # sdist for 1.3.2 has no setup.py file
-  resource "shellingham" do
-    url "https://files.pythonhosted.org/packages/1b/82/52b4facd501d1cdfee1f2b3aa6092dc0ee6c07baf78692f9035adb1357da/shellingham-1.3.1.tar.gz"
-    sha256 "985b23bbd1feae47ca6a6365eacd314d93d95a8a16f8f346945074c28fe6f3e0"
+    url "https://files.pythonhosted.org/packages/28/30/7bf7e5071081f761766d46820e52f4b16c8a08fef02d2eb4682ca7534310/requests-toolbelt-0.9.1.tar.gz"
+    sha256 "968089d4584ad4ad7c171454f0a5c6dac23971e9472521ea3b6d49d610aa6fc0"
   end
 
   resource "six" do
@@ -142,18 +151,29 @@ class Poetry < Formula
   end
 
   resource "tomlkit" do
-    url "https://files.pythonhosted.org/packages/53/10/1f1186fcd453d10254450a7e947e92e6dbb0bf1418484aa4da2829be44f9/tomlkit-0.5.11.tar.gz"
-    sha256 "f044eda25647882e5ef22b43a1688fb6ab12af2fc50e8456cdfc751c873101cf"
+    url "https://files.pythonhosted.org/packages/64/e0/6c8c96024d118cb029a97752e9a6d70bd06e4fd4c8b00fd9446ad6178f1d/tomlkit-0.7.0.tar.gz"
+    sha256 "ac57f29693fab3e309ea789252fcce3061e19110085aa31af5446ca749325618"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/05/8c/40cd6949373e23081b3ea20d5594ae523e681b6f472e600fbc95ed046a36/urllib3-1.25.9.tar.gz"
-    sha256 "3018294ebefce6572a474f0604c2021e33b3fd8006ecd11d62107a5d2a963527"
+    url "https://files.pythonhosted.org/packages/81/f4/87467aeb3afc4a6056e1fe86626d259ab97e1213b1dfec14c7cb5f538bf0/urllib3-1.25.10.tar.gz"
+    sha256 "91056c15fa70756691db97756772bb1eb9678fa585d9184f24534b100dc60f4a"
+  end
+
+  resource "virtualenv" do
+    url "https://files.pythonhosted.org/packages/86/90/0d30f9cea58b9589016ec5cc33eec6a077d31b0f9bce092e925e528f4802/virtualenv-20.0.32.tar.gz"
+    sha256 "3d427459dfe5ec3241a6bad046b1d10c0e445940e013c81946458987c7c7e255"
   end
 
   resource "webencodings" do
     url "https://files.pythonhosted.org/packages/0b/02/ae6ceac1baeda530866a85075641cec12989bd8d31af6d5ab4a3e8c92f47/webencodings-0.5.1.tar.gz"
     sha256 "b36a1c245f2d304965eb4e0a82848379241dc04b865afcc4aab16748587e1923"
+  end
+
+  # sdist for 1.3.2 has no setup.py file
+  resource "shellingham" do
+    url "https://files.pythonhosted.org/packages/1b/82/52b4facd501d1cdfee1f2b3aa6092dc0ee6c07baf78692f9035adb1357da/shellingham-1.3.1.tar.gz"
+    sha256 "985b23bbd1feae47ca6a6365eacd314d93d95a8a16f8f346945074c28fe6f3e0"
   end
 
   def install
