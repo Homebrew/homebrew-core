@@ -3,8 +3,8 @@ class Bear < Formula
 
   desc "Generate compilation database for clang tooling"
   homepage "https://github.com/rizsotto/Bear"
-  url "https://github.com/rizsotto/Bear/archive/2.4.4.tar.gz"
-  sha256 "5e95c9fe24714bcb98b858f0f0437aff76ad96b1d998940c0684c3a9d3920e82"
+  url "https://github.com/rizsotto/Bear/archive/3.0.0.tar.gz"
+  sha256 "7b68aad69e887d945ad20f8e9f3a8c33cf2d59cc80da7e52d931d8c685fe2f79"
   license "GPL-3.0-or-later"
   head "https://github.com/rizsotto/Bear.git"
 
@@ -16,6 +16,8 @@ class Bear < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
+  depends_on "fmt"
   depends_on "python@3.8"
 
   def install
