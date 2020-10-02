@@ -3,6 +3,7 @@ class Groovysdk < Formula
   homepage "https://www.groovy-lang.org/"
   url "https://dl.bintray.com/groovy/maven/apache-groovy-sdk-3.0.6.zip"
   sha256 "decfe997a5a538a5439d6512f6676a22dd1ef74a02de398cff63f2cef25fb813"
+  license "Apache-2.0"
 
   livecheck do
     url "https://dl.bintray.com/groovy/maven/"
