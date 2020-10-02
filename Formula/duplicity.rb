@@ -3,8 +3,8 @@ class Duplicity < Formula
 
   desc "Bandwidth-efficient encrypted backup"
   homepage "https://launchpad.net/duplicity"
-  url "https://code.launchpad.net/duplicity/0.8-series/0.8.15/+download/duplicity-0.8.15.tar.gz"
-  sha256 "ac69ff68b88b6c15c222f8334bb447fbe529c6849a6c9ac33e4995d7eb31e4cd"
+  url "https://code.launchpad.net/duplicity/0.8-series/0.8.16/+download/duplicity-0.8.16.tar.gz"
+  sha256 "2cfcd212834979751310d9df1a954b949f86b084efd5ad1f97dd744780ef9d1b"
   license "GPL-2.0"
 
   livecheck do
