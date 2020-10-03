@@ -1,11 +1,10 @@
 class Mesos < Formula
   desc "Apache cluster manager"
   homepage "https://mesos.apache.org"
-  url "https://www.apache.org/dyn/closer.lua?path=mesos/1.8.1/mesos-1.8.1.tar.gz"
-  mirror "https://archive.apache.org/dist/mesos/1.8.1/mesos-1.8.1.tar.gz"
-  sha256 "583f2ad0de36c3e3ce08609a6df1a3ef1145e84f453b3d56fd8332767c3a84e7"
+  url "https://www.apache.org/dyn/closer.lua?path=mesos/1.10.0/mesos-1.10.0.tar.gz"
+  mirror "https://archive.apache.org/dist/mesos/1.10.0/mesos-1.10.0.tar.gz"
+  sha256 "f4b9e8a1e9f905334adf4d349a2ed33a4cfa43278381cd34fb4fc7e9df9e12a1"
   license "Apache-2.0"
-  revision 1
 
   livecheck do
     url :stable
@@ -17,6 +16,9 @@ class Mesos < Formula
     sha256 "b58e9a2208f2f018c4e54cd573ff43494bf653a72dd5bde269a5f84301d7369c" => :high_sierra
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "maven" => :build
   depends_on "apr-util"
   depends_on java: "1.8"
@@ -68,9 +70,6 @@ class Mesos < Formula
     # `--[disable|enable]-optimize`.
     ENV.O0 unless DevelopmentTools.clang_build_version >= 900
 
-    # work around to avoid `_clock_gettime` symbol not found error.
-    ENV["ac_have_clock_syscall"] = "no" if MacOS.version == "10.11" && MacOS::Xcode.version >= "8.0"
-
     # work around distutils abusing CC instead of using CXX
     # https://issues.apache.org/jira/browse/MESOS-799
     # https://github.com/Homebrew/legacy-homebrew/pull/37087
@@ -88,27 +87,14 @@ class Mesos < Formula
               "import ext_modules",
               native_patch
 
-    # skip build javadoc because Homebrew's setting user.home in _JAVA_OPTIONS
-    # would trigger maven-javadoc-plugin bug.
-    # https://issues.apache.org/jira/browse/MESOS-3482
-    maven_javadoc_patch = <<~EOS
-      <properties>
-        <maven.javadoc.skip>true</maven.javadoc.skip>
-      </properties>
-      \\0
-    EOS
-    inreplace "src/java/mesos.pom.in",
-              "<url>http://mesos.apache.org</url>",
-              maven_javadoc_patch
-
     ENV.cxx11
 
     system "./configure", "--prefix=#{prefix}",
                           "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
-                          "--with-svn=#{Formula["subversion"].opt_prefix}",
                           "--with-apr=#{Formula["apr"].opt_libexec}",
+                          "--with-svn=#{Formula["subversion"].opt_prefix}",
                           "--disable-python"
     system "make"
     system "make", "install"
@@ -121,8 +107,8 @@ class Mesos < Formula
                           "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
-                          "--with-svn=#{Formula["subversion"].opt_prefix}",
                           "--with-apr=#{Formula["apr"].opt_libexec}",
+                          "--with-svn=#{Formula["subversion"].opt_prefix}",
                           "--enable-python"
     ["native", "interface", "executor", "scheduler", "cli", ""].each do |p|
       cd "src/python/#{p}" do
