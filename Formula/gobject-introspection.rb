@@ -2,7 +2,7 @@ class GobjectIntrospection < Formula
   include Language::Python::Shebang
 
   desc "Generate introspection data for GObject libraries"
-  homepage "https://wiki.gnome.org/Projects/GObjectIntrospection"
+  homepage "https://gi.readthedocs.io/en/latest/"
   url "https://download.gnome.org/sources/gobject-introspection/1.66/gobject-introspection-1.66.0.tar.xz"
   sha256 "3d66ea3aec7c3f8f1f83d89db3e78e18e36adc22b8bba45298119f0b3ea50060"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later", "MIT"]
