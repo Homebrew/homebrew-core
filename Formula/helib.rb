@@ -1,8 +1,8 @@
 class Helib < Formula
   desc "Implementation of homomorphic encryption"
   homepage "https://github.com/homenc/HElib"
-  url "https://github.com/homenc/HElib/archive/v1.0.2.tar.gz"
-  sha256 "b907eaa8381af3d001d7fb8383273f4c652415b3320c11d5be2ad8f19757c998"
+  url "https://github.com/homenc/HElib/archive/v1.1.0.tar.gz"
+  sha256 "77a912ed3c86f8bde31b7d476321d0c2d810570c04a60fa95c4bd32a1955b5cf"
   license "Apache-2.0"
 
   bottle do
@@ -13,6 +13,7 @@ class Helib < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "bats-core" => :test
   depends_on "ntl"
 
   def install
@@ -24,12 +25,12 @@ class Helib < Formula
   end
 
   test do
-    cp pkgshare/"examples/BGV_database_lookup/BGV_database_lookup.cpp", testpath/"test.cpp"
+    cp pkgshare/"examples/BGV_country_db_lookup/BGV_country_db_lookup.cpp", testpath/"test.cpp"
     mkdir "build"
     system ENV.cxx, "-std=c++14", "-L#{lib}", "-L#{Formula["ntl"].opt_lib}",
-                    "-lhelib", "-lntl", "test.cpp", "-o", "build/BGV_database_lookup"
+                    "-lhelib", "-lntl", "test.cpp", "-o", "build/BGV_country_db_lookup"
 
-    cp pkgshare/"examples/BGV_database_lookup/runtest.sh", testpath/"runtest.sh"
-    system "./runtest.sh"
+    cp_r pkgshare/"examples/tests", testpath
+    system "bats", "."
   end
 end
