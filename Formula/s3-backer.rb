@@ -3,7 +3,7 @@ class S3Backer < Formula
   homepage "https://github.com/archiecobbs/s3backer"
   url "https://archie-public.s3.amazonaws.com/s3backer/s3backer-1.5.5.tar.gz"
   sha256 "060cccee550ce25fc3033a48f39f95a1f071d738b859ba6775bcd819ab32877b"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://build.opensuse.org/package/view_file/openSUSE:Factory/s3backer/s3backer.spec"
