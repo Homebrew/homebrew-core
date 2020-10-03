@@ -3,6 +3,7 @@ class Libshout < Formula
   homepage "https://icecast.org/"
   url "https://downloads.xiph.org/releases/libshout/libshout-2.4.4.tar.gz"
   sha256 "8ce90c5d05e7ad1da4c12f185837e8a867c22df2d557b0125afaba4b1438e6c3"
+  license "LGPL-2.0-or-later"
 
   livecheck do
     url "https://ftp.osuosl.org/pub/xiph/releases/libshout/"
