@@ -1,8 +1,8 @@
 class Pyqt < Formula
   desc "Python bindings for v5 of Qt"
   homepage "https://www.riverbankcomputing.com/software/pyqt/download5"
-  url "https://files.pythonhosted.org/packages/8c/90/82c62bbbadcca98e8c6fa84f1a638de1ed1c89e85368241e9cc43fcbc320/PyQt5-5.15.0.tar.gz"
-  sha256 "c6f75488ffd5365a65893bc64ea82a6957db126fbfe33654bcd43ae1c30c52f9"
+  url "https://files.pythonhosted.org/packages/1d/31/896dc3dfb6c81c70164019a6cbba6ab037e3af7653d9ca60ccc874ee4c27/PyQt5-5.15.1.tar.gz"
+  sha256 "d9a76b850246d08da9863189ecb98f6c2aa9b4d97a3e85e29330a264aed0f9a1"
   license "GPL-3.0"
 
   livecheck do
@@ -19,6 +19,11 @@ class Pyqt < Formula
   depends_on "python@3.8"
   depends_on "qt"
   depends_on "sip"
+
+  resource "PyQt5-sip" do
+    url "https://files.pythonhosted.org/packages/73/8c/c662b7ebc4b2407d8679da68e11c2a2eb275f5f2242a92610f6e5024c1f2/PyQt5_sip-12.8.1.tar.gz"
+    sha256 "30e944db9abee9cc757aea16906d4198129558533eb7fadbe48c5da2bd18e0bd"
+  end
 
   def install
     version = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
