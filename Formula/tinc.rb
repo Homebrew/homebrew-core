@@ -3,6 +3,7 @@ class Tinc < Formula
   homepage "https://www.tinc-vpn.org/"
   url "https://tinc-vpn.org/packages/tinc-1.0.36.tar.gz"
   sha256 "40f73bb3facc480effe0e771442a706ff0488edea7a5f2505d4ccb2aa8163108"
+  license "GPL-2.0-or-later"
 
   bottle do
     cellar :any
