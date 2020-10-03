@@ -3,7 +3,7 @@ class Pyqt < Formula
   homepage "https://www.riverbankcomputing.com/software/pyqt/download5"
   url "https://files.pythonhosted.org/packages/1d/31/896dc3dfb6c81c70164019a6cbba6ab037e3af7653d9ca60ccc874ee4c27/PyQt5-5.15.1.tar.gz"
   sha256 "d9a76b850246d08da9863189ecb98f6c2aa9b4d97a3e85e29330a264aed0f9a1"
-  license "GPL-3.0"
+  license "GPL-3.0-only"
 
   livecheck do
     url :stable
