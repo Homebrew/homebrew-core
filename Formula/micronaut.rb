@@ -1,8 +1,8 @@
 class Micronaut < Formula
   desc "Modern JVM-based framework for building modular microservices"
   homepage "https://micronaut.io/"
-  url "https://github.com/micronaut-projects/micronaut-starter/archive/v2.0.3.tar.gz"
-  sha256 "5681487eb53272636424366b6c1a690c50dc01bc6d2ed1d8eaa06337d3446c22"
+  url "https://github.com/micronaut-projects/micronaut-starter/archive/v2.1.0.tar.gz"
+  sha256 "4ecb873b8bba327a33c9d9bd75d86ad6a8a44dbf1573ef6cd5b9a658b3799c35"
   license "Apache-2.0"
 
   livecheck do
@@ -18,7 +18,7 @@ class Micronaut < Formula
   end
 
   depends_on "gradle" => :build
-  depends_on "openjdk"
+  depends_on "openjdk@11" # Will be switched to openjdk in https://github.com/Homebrew/homebrew-core/pull/61226
 
   def install
     system "gradle", "micronaut-cli:assemble", "-x", "test"
@@ -28,7 +28,7 @@ class Micronaut < Formula
     mv "starter-cli/build/exploded/lib", libexec/"lib"
 
     bash_completion.install "starter-cli/build/exploded/bin/mn_completion"
-    (bin/"mn").write_env_script libexec/"bin/mn", Language::Java.overridable_java_home_env
+    (bin/"mn").write_env_script libexec/"bin/mn", Language::Java.overridable_java_home_env("11")
   end
 
   test do
