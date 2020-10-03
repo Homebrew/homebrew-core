@@ -16,11 +16,6 @@ class Archey < Formula
     end
   end
 
-  livecheck do
-    url :head
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
-  end
-
   bottle :unneeded
 
   deprecate! date: "2017-04-28", because: :repo_archived
