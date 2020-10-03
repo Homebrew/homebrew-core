@@ -1,8 +1,8 @@
 class Libshout < Formula
   desc "Data and connectivity library for the icecast server"
   homepage "https://icecast.org/"
-  url "https://downloads.xiph.org/releases/libshout/libshout-2.4.3.tar.gz"
-  sha256 "0d8af55d1141bf90710bcd41a768c9cc5adb251502a0af1dd22c8da215d40dfe"
+  url "https://downloads.xiph.org/releases/libshout/libshout-2.4.4.tar.gz"
+  sha256 "8ce90c5d05e7ad1da4c12f185837e8a867c22df2d557b0125afaba4b1438e6c3"
 
   livecheck do
     url "https://ftp.osuosl.org/pub/xiph/releases/libshout/"
