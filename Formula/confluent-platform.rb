@@ -12,6 +12,8 @@ class ConfluentPlatform < Formula
 
   bottle :unneeded
 
+  disable! because: "does not have an OSI license"
+
   depends_on java: "1.8"
 
   conflicts_with "kafka", because: "kafka also ships with identically named Kafka related executables"
