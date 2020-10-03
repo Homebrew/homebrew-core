@@ -1,10 +1,8 @@
 class Nmap < Formula
   desc "Port scanning utility for large networks"
   homepage "https://nmap.org/"
-  url "https://nmap.org/dist/nmap-7.80.tar.bz2"
-  sha256 "fcfa5a0e42099e12e4bf7a68ebe6fde05553383a682e816a7ec9256ab4773faa"
-  license "GPL-2.0"
-  revision 1
+  url "https://nmap.org/dist/nmap-7.90.tar.bz2"
+  sha256 "5557c3458275e8c43e1d0cfa5dad4e71dd39e091e2029a293891ad54098a40e8"
   head "https://svn.nmap.org/nmap/"
 
   livecheck do
@@ -26,13 +24,6 @@ class Nmap < Formula
   uses_from_macos "zlib"
 
   conflicts_with "ndiff", because: "both install `ndiff` binaries"
-
-  # Remove for > 7.80
-  # Big Sur fix; see also: https://github.com/nmap/nmap/pull/2085
-  patch do
-    url "https://github.com/nmap/nmap/commit/05763b620d4c92a7fe4afee649f3b317894f5ca6.patch?full_index=1"
-    sha256 "3efed6ca33f7a529053c8f913c62966014ebcc1b0ef406fe0c251767e1300d37"
-  end
 
   def install
     ENV.deparallelize
