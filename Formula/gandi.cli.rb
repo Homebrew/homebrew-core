@@ -5,6 +5,7 @@ class GandiCli < Formula
   homepage "https://cli.gandi.net/"
   url "https://files.pythonhosted.org/packages/cf/00/ff5acd1c9a0cfbb1a81a9f44ef4a745f31bb413869ae93295f8f5778cc4c/gandi.cli-1.6.tar.gz"
   sha256 "af59bf81a5a434dd3a5bc728a9475d80491ed73ce4343f2c1f479cbba09266c0"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url :stable
