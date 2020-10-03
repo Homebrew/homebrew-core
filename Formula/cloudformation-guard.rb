@@ -1,8 +1,8 @@
 class CloudformationGuard < Formula
   desc "Checks CloudFormation templates for compliance using a declarative syntax"
   homepage "https://github.com/aws-cloudformation/cloudformation-guard"
-  url "https://github.com/aws-cloudformation/cloudformation-guard/archive/v0.7.0.tar.gz"
-  sha256 "f285c76ca32ca671380f254d0ce01dc6e5e3d91ef7d6e4c7fc2d6abeb7520e79"
+  url "https://github.com/aws-cloudformation/cloudformation-guard/archive/1.0.0.tar.gz"
+  sha256 "1d4c057a9c076f0311409603291dadad0063159a8bed6b5576accec2dc3a4e7b"
   license "Apache-2.0"
 
   bottle do
