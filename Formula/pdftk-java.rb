@@ -3,7 +3,7 @@ class PdftkJava < Formula
   homepage "https://gitlab.com/pdftk-java/pdftk"
   url "https://gitlab.com/pdftk-java/pdftk/-/archive/v3.2.0/pdftk-v3.2.0.tar.gz"
   sha256 "f61f544ac139ee50ad177a51edede2ca259488d7435e37bf33b823bb2d43d626"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   head "https://gitlab.com/pdftk-java/pdftk.git"
 
   livecheck do
