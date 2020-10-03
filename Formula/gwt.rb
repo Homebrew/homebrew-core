@@ -3,6 +3,7 @@ class Gwt < Formula
   homepage "http://www.gwtproject.org/"
   url "https://storage.googleapis.com/gwt-releases/gwt-2.9.0.zip"
   sha256 "253911e3be63c19628ffef5c1082258704e7896f81b855338c6a036f524fbd42"
+  license "Apache-2.0"
 
   livecheck do
     url "https://github.com/gwtproject/gwt.git"
