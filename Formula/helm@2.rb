@@ -6,11 +6,6 @@ class HelmAT2 < Formula
       revision: "47f0b88409e71fd9ca272abc7cd762a56a1c613e"
   license "Apache-2.0"
 
-  livecheck do
-    url :stable
-    regex(/^v?(2(?:\.\d+)+)$/i)
-  end
-
   bottle do
     cellar :any_skip_relocation
     sha256 "f842166eae515ed30c9f91c0ad27994640332b889fb490c2fe2f4ef818501dac" => :catalina
