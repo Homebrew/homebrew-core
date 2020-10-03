@@ -6,6 +6,9 @@ on:
       pull_request:
         description: Pull request number
         required: true
+      args:
+        description: 'Extra arguments to `brew pr-pull`'
+        default: ''
 
 env:
   HOMEBREW_FORCE_HOMEBREW_ON_LINUX: 1
@@ -35,7 +38,7 @@ jobs:
           HOMEBREW_GITHUB_API_TOKEN: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
           HOMEBREW_BINTRAY_USER: brewtestbot
           HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
-        run: brew pr-pull --debug ${{github.event.inputs.pull_request}}
+        run: brew pr-pull --debug ${{github.event.inputs.args}} ${{github.event.inputs.pull_request}}
 
       - name: Push commits
         uses: Homebrew/actions/git-try-push@master
