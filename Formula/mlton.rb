@@ -1,8 +1,8 @@
 class Mlton < Formula
   desc "Whole-program, optimizing compiler for Standard ML"
   homepage "http://mlton.org"
-  url "https://downloads.sourceforge.net/project/mlton/mlton/20200817/mlton-20200817.src.tgz"
-  sha256 "8a700589b99d49346a0d1f51529cac682a7fef7a259762d5a007069e1948499f"
+  url "https://downloads.sourceforge.net/project/mlton/mlton/20201002/mlton-20201002.src.tgz"
+  sha256 "ec189157de69e4d1fd6413452b7386c6622696c01200632176a08904f98be9e6"
   license "HPND"
   head "https://github.com/MLton/mlton.git"
 
@@ -26,15 +26,15 @@ class Mlton < Formula
   resource "bootstrap" do
     on_macos do
       # https://github.com/Homebrew/homebrew-core/pull/58438#issuecomment-665375929
-      # new `mlton-20200817-1.amd64-darwin-17.7.gmp-static.tgz` artifact
+      # new `mlton-20201002-1.amd64-darwin-17.7.gmp-static.tgz` artifact
       # used here for bootraping all homebrew versions
-      url "https://downloads.sourceforge.net/project/mlton/mlton/20200817/mlton-20200817-1.amd64-darwin-17.7.gmp-static.tgz"
-      sha256 "3cd12d5d3db047270b6e678c3488063c3179294a8d4907fa11be2f7327459c27"
+      url "https://downloads.sourceforge.net/project/mlton/mlton/20201002/mlton-20201002-1.amd64-darwin-17.7.gmp-static.tgz"
+      sha256 "737adc5590b9d010ba3654344103418bf6c70aebc66d98849f7e0f37ef386114"
     end
 
     on_linux do
-      url "https://downloads.sourceforge.net/project/mlton/mlton/20200817/mlton-20200817-1.amd64-linux.tgz"
-      sha256 "8adab32d37e9c9c2986a0cfeba0aa4e29541d0e6a19178e7393797feaf32db40"
+      url "https://downloads.sourceforge.net/project/mlton/mlton/20201002/mlton-20201002-1.amd64-linux.tgz"
+      sha256 "8d4bd9358fda1ecb8eeee1414866bf730aa5d7fe5425ef24635c45daf5277a0b"
     end
   end
 
