@@ -5,6 +5,7 @@ class Frpc < Formula
       tag:      "v0.34.1",
       revision: "e0c45a1aca2bf8e2a081d4a40bbbe2585c4134be"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
