@@ -3,7 +3,7 @@ class Carla < Formula
   homepage "https://kxstudio.linuxaudio.org/Applications:Carla"
   url "https://github.com/falkTX/Carla/archive/v2.2.0.tar.gz"
   sha256 "4bf08511257db88979eccc002f10c153ff2a14f5143291c2be39cadd69ce10e1"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   head "https://github.com/falkTX/Carla.git"
 
   livecheck do
