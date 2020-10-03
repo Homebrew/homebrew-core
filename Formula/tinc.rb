@@ -23,6 +23,41 @@ class Tinc < Formula
     system "make", "install"
   end
 
+  plist_options manual: "tincd"
+
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{sbin}/tincd</string>
+            <string>-D</string>
+            <string>--pidfile</string>
+            <string>#{var}/tincd.pid</string>
+          </array>
+          <key>KeepAlive</key>
+          <dict>
+            <key>NetworkState</key>
+            <true/>
+            <key>Crashed</key>
+            <true/>
+            <key>SuccessfulExit</key>
+            <false/>
+          </dict>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/tincd.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/tincd.log</string>
+        </dict>
+      </plist>
+    EOS
+  end
+
   test do
     assert_match version.to_s, shell_output("#{sbin}/tincd --version")
   end
