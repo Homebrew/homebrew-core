@@ -28,13 +28,11 @@ class ErlangAT20 < Formula
 
   resource "man" do
     url "https://www.erlang.org/download/otp_doc_man_20.3.tar.gz"
-    mirror "https://fossies.org/linux/misc/legacy/otp_doc_man_20.3.tar.gz"
     sha256 "17e0b2f94f11576a12526614a906ecad629b8804c25e6c18523f7c4346607112"
   end
 
   resource "html" do
     url "https://www.erlang.org/download/otp_doc_html_20.3.tar.gz"
-    mirror "https://fossies.org/linux/misc/legacy/otp_doc_html_20.3.tar.gz"
     sha256 "8099b62e9fa24b3f90eaeda151fa23ae729c8297e7d3fd8adaca865b35a3125d"
   end
 
