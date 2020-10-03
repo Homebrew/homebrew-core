@@ -4,6 +4,7 @@ class Nexus < Formula
   url "https://sonatype-download.global.ssl.fastly.net/repository/downloads-prod-group/oss/nexus-2.14.19-01-bundle.tar.gz"
   version "2.14.19-01"
   sha256 "5bf321e40b219756441fbdb9fa0d270493a25640af67076111ccd151ab007b7e"
+  license "EPL-1.0"
 
   livecheck do
     url "https://help.sonatype.com/repomanager2/download/download-archives---repository-manager-oss"
