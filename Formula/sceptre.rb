@@ -5,6 +5,7 @@ class Sceptre < Formula
   homepage "https://sceptre.cloudreach.com"
   url "https://files.pythonhosted.org/packages/93/34/d577860860c42f135953f2b3ae693c70d7c9d4e9a726b27c9d4d49fe10b3/sceptre-2.4.0.tar.gz"
   sha256 "2f01aeaee89cb8b72ffca4caa2861a8f4d33ba93d0ca5e79997b52e954110e5a"
+  license "Apache-2.0"
 
   livecheck do
     url :stable
