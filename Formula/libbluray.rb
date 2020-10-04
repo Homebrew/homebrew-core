@@ -27,7 +27,7 @@ class Libbluray < Formula
   end
 
   depends_on "ant" => :build
-  depends_on java: ["1.8", :build]
+  depends_on "openjdk" => :build
   depends_on "pkg-config" => :build
   depends_on "fontconfig"
   depends_on "freetype"
@@ -35,17 +35,10 @@ class Libbluray < Formula
   uses_from_macos "libxml2"
 
   def install
-    # Need to set JAVA_HOME manually since ant overrides 1.8 with 1.8+
-    ENV["JAVA_HOME"] = Language::Java.java_home("1.8")
+    # Build system doesn't detect Java version if this is set
+    ENV.delete "_JAVA_OPTIONS"
 
-    # https://mailman.videolan.org/pipermail/libbluray-devel/2014-April/001401.html
-    ENV.append_to_cflags "-D_DARWIN_C_SOURCE"
-
-    # Work around Xcode 11 clang bug
-    # https://code.videolan.org/videolan/libbluray/issues/20
-    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
-
-    args = %W[--prefix=#{prefix} --disable-dependency-tracking]
+    args = %W[--prefix=#{prefix} --disable-dependency-tracking --disable-silent-rules]
 
     system "./bootstrap" if build.head?
     system "./configure", *args
