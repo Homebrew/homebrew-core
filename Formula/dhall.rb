@@ -3,6 +3,7 @@ class Dhall < Formula
   homepage "https://dhall-lang.org/"
   url "https://hackage.haskell.org/package/dhall-1.35.0/dhall-1.35.0.tar.gz"
   sha256 "834f5eb2986eaf05670b94b01d6335593870c94dbd937e55502d61dc9f5300a6"
+  license "BSD-3-Clause"
 
   livecheck do
     url :stable
