@@ -14,6 +14,7 @@ class Libice < Formula
 
   depends_on "pkg-config" => :build
   depends_on "xtrans" => :build
+  depends_on "libx11"=> :test
   depends_on "xorgproto"
 
   def install
