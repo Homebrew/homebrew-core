@@ -3,8 +3,8 @@ class Remarshal < Formula
 
   desc "Convert between TOML, YAML and JSON"
   homepage "https://github.com/dbohdan/remarshal"
-  url "https://files.pythonhosted.org/packages/a2/98/8becf6a4ead798c1a517715fddfb73a8867ac58d833179a30f0dfc3dadf0/remarshal-0.12.0.tar.gz"
-  sha256 "1df0016b3ad47e78e0d4d016a0e0cc7ad5cd6a60232e8dcbc89af4ccc42eb172"
+  url "https://files.pythonhosted.org/packages/24/37/1f167687b2d9f3bac3e7e73508f86c7e6c1bf26a37ca5443182c8f596625/remarshal-0.14.0.tar.gz"
+  sha256 "16425aa1575a271dd3705d812b06276eeedc3ac557e7fd28e06822ad14cd0667"
   license "MIT"
   head "https://github.com/dbohdan/remarshal.git"
 
@@ -24,18 +24,8 @@ class Remarshal < Formula
   conflicts_with "msgpack-tools", because: "both install 'json2msgpack' binary"
 
   resource "cbor2" do
-    url "https://files.pythonhosted.org/packages/ee/80/bc617b7fd89855649e48eb8242e09535e1b75371ec8389313fa0f97e2a70/cbor2-5.1.0.tar.gz"
-    sha256 "43ce11e8c2fe4971d386d1a60cf83bfa0a4a667b97668ba76acbf5e6398821aa"
-  end
-
-  resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/64/c2/b80047c7ac2478f9501676c988a5411ed5572f35d1beff9cae07d321512c/PyYAML-5.3.1.tar.gz"
-    sha256 "b8eac752c5e14d3eca0e6dd9199cd627518cb5ec06add0de9d32baeee6fe645d"
-  end
-
-  resource "pytoml" do
-    url "https://files.pythonhosted.org/packages/f4/ba/98ee2054a2d7b8bebd367d442e089489250b6dc2aee558b000e961467212/pytoml-0.1.21.tar.gz"
-    sha256 "8eecf7c8d0adcff3b375b09fe403407aa9b645c499e5ab8cac670ac4a35f61e7"
+    url "https://files.pythonhosted.org/packages/02/15/f4d7fb47753099fcd9d7f7c81920d422a3ab2e710400ec0f4a1b511b51ae/cbor2-5.2.0.tar.gz"
+    sha256 "a33aa2e5534fd74401ac95686886e655e3b2ce6383b3f958199b6e70a87c94bf"
   end
 
   resource "python-dateutil" do
@@ -43,14 +33,24 @@ class Remarshal < Formula
     sha256 "73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c"
   end
 
+  resource "PyYAML" do
+    url "https://files.pythonhosted.org/packages/64/c2/b80047c7ac2478f9501676c988a5411ed5572f35d1beff9cae07d321512c/PyYAML-5.3.1.tar.gz"
+    sha256 "b8eac752c5e14d3eca0e6dd9199cd627518cb5ec06add0de9d32baeee6fe645d"
+  end
+
   resource "six" do
-    url "https://files.pythonhosted.org/packages/21/9f/b251f7f8a76dec1d6651be194dfba8fb8d7781d10ab3987190de8391d08e/six-1.14.0.tar.gz"
-    sha256 "236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a"
+    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
+    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
+  end
+
+  resource "tomlkit" do
+    url "https://files.pythonhosted.org/packages/64/e0/6c8c96024d118cb029a97752e9a6d70bd06e4fd4c8b00fd9446ad6178f1d/tomlkit-0.7.0.tar.gz"
+    sha256 "ac57f29693fab3e309ea789252fcce3061e19110085aa31af5446ca749325618"
   end
 
   resource "u-msgpack-python" do
-    url "https://files.pythonhosted.org/packages/75/c4/d9404382d0f7d9be27b5d13498d033a4faa83f325b3893e1c29a0faa83b9/u-msgpack-python-2.5.2.tar.gz"
-    sha256 "09c85a8af77376034396681e76bf30c249a4fd8e5ebb239f8a468d3655f210d0"
+    url "https://files.pythonhosted.org/packages/c5/2e/af1a0964bf3cb31559852ba0e82944bf3bdb70630480d49f262e5bf6e264/u-msgpack-python-2.7.0.tar.gz"
+    sha256 "996e4c4454771f0ff0fd2a7566b1a159d305d3611cd755addf444e3533e2bc54"
   end
 
   def install
