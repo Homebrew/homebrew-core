@@ -1,8 +1,8 @@
 class SonarScanner < Formula
   desc "Launcher to analyze a project with SonarQube"
   homepage "https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner"
-  url "https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.4.0.2170.zip"
-  sha256 "b24c19e948f152a4ea8dc43d037253234add639503d42194f6175869693ff058"
+  url "https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.5.0.2216.zip"
+  sha256 "a271a933d14da6e8705d58996d30afd0b4afc93c0bfe957eb377bed808c4fa89"
   license "LGPL-3.0"
   head "https://github.com/SonarSource/sonar-scanner-cli.git"
 
