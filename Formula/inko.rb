@@ -1,8 +1,8 @@
 class Inko < Formula
   desc "Safe and concurrent object-oriented programming language"
   homepage "https://inko-lang.org/"
-  url "https://gitlab.com/inko-lang/inko/-/archive/v0.7.0/inko-v0.7.0.tar.gz"
-  sha256 "81a613b4d6bee524a8fe8e346466b7f277a42875b357ad61ba0ca3871750c1e3"
+  url "https://releases.inko-lang.org/0.8.1.tar.gz"
+  sha256 "02201fd6203d45e0920c849b91aae0adc459d654a27fb3405d181da275365ef5"
   license "MPL-2.0"
   head "https://gitlab.com/inko-lang/inko.git"
 
@@ -13,20 +13,18 @@ class Inko < Formula
     sha256 "49de93ab54879a2a48bc4e3dce4f2bc52a5912085583de9290895eadae4b119e" => :high_sierra
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
   depends_on "coreutils" => :build
-  depends_on "libtool" => :build
   depends_on "make" => :build
   depends_on "rust" => :build
+  depends_on "libffi"
 
   uses_from_macos "ruby", since: :sierra
 
   def install
     make = Formula["make"].opt_bin/"gmake"
+    system make, "build", "PREFIX=#{libexec}", "FEATURES=libinko/libffi-system"
     system make, "install", "PREFIX=#{libexec}"
     bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files libexec/"bin", INKOC_HOME: libexec/"lib/inko"
   end
 
   test do
