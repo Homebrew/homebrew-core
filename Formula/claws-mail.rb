@@ -3,6 +3,7 @@ class ClawsMail < Formula
   homepage "https://www.claws-mail.org/"
   url "https://www.claws-mail.org/releases/claws-mail-3.17.7.tar.gz"
   sha256 "47e634fcea55f08bd401849c7a3827f8a4a277fda15788961ff0aac5d59ecc38"
+  license "GPL-3.0-or-later"
 
   bottle do
     sha256 "7777390cfea96a30277ebb79738341f0944bae3dcfd18a7befd2748ea4671356" => :catalina
