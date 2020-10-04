@@ -5,7 +5,7 @@ class Internetarchive < Formula
   homepage "https://github.com/jjjake/internetarchive"
   url "https://files.pythonhosted.org/packages/54/83/77dc7412c8627c9e7be962575a88fa159fdc714a6205e0eadf2d30dec7ed/internetarchive-1.9.5.tar.gz"
   sha256 "759053685c75e6e969d690043b82643c4016500abcbbc44e4daf52ec097a9a15"
-  license "AGPL-3.0"
+  license "AGPL-3.0-or-later"
 
   livecheck do
     url :stable
