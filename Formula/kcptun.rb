@@ -1,8 +1,8 @@
 class Kcptun < Formula
   desc "Stable & Secure Tunnel based on KCP with N:M multiplexing and FEC"
   homepage "https://github.com/xtaci/kcptun"
-  url "https://github.com/xtaci/kcptun/archive/v20200930.tar.gz"
-  sha256 "90d0851e96ff723d4bcd7fd00795e926418ce5cf17c841e1e0185b0770b84874"
+  url "https://github.com/xtaci/kcptun/archive/v20201004.tar.gz"
+  sha256 "35d33bda5b643f07fab8b211cc1181298e27781e558bfc94b77491ea6abe61af"
   license "MIT"
   head "https://github.com/xtaci/kcptun.git"
 
@@ -14,13 +14,6 @@ class Kcptun < Formula
   end
 
   depends_on "go" => :build
-
-  # fix outdated vendored dependencies issue
-  # remove in next release
-  patch do
-    url "https://github.com/chenrui333/kcptun/commit/3a2d679.patch?full_index=1"
-    sha256 "ff985884cd20a8e91af61ba1426e5bd21f553c1b42f64a9207e9ae75c38f7217"
-  end
 
   def install
     system "go", "build", "-ldflags", "-X main.VERSION=#{version} -s -w",
