@@ -1,9 +1,9 @@
 class Manticoresearch < Formula
   desc "Open source text search engine"
   homepage "https://www.manticoresearch.com"
-  url "https://repo.manticoresearch.com/repository/manticoresearch_source/release/manticore-3.5.0-200722-1d34c49-release-source.tar.gz"
-  version "3.5.0"
-  sha256 "00d65103d7f07d52b953731566c1015d5f668dd35e8709eeca10cc0fbedb9a66"
+  url "https://repo.manticoresearch.com/repository/manticoresearch_source/release/manticore-3.5.2-201002-8b2c175-release-source.tar.gz"
+  version "3.5.2"
+  sha256 "9eb41e68d422a9e0043415ffc5e2f6d39e8d94eae9c843b4b55b54eacc33a517"
   license "GPL-2.0"
   version_scheme 1
   head "https://github.com/manticoresoftware/manticoresearch.git"
@@ -19,7 +19,6 @@ class Manticoresearch < Formula
   depends_on "icu4c" => :build
   depends_on "libpq" => :build
   depends_on "mysql" => :build
-  depends_on "unixodbc" => :build
   depends_on "openssl@1.1"
 
   conflicts_with "sphinx", because: "manticoresearch is a fork of sphinx"
@@ -29,6 +28,7 @@ class Manticoresearch < Formula
       -DCMAKE_INSTALL_LOCALSTATEDIR=#{var}
       -DDISTR_BUILD=macosbrew
       -DBoost_NO_BOOST_CMAKE=ON
+      -DWITH_ODBC=OFF
     ]
     mkdir "build" do
       system "cmake", "..", *std_cmake_args, *args
