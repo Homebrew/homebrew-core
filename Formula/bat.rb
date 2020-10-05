@@ -24,6 +24,7 @@ class Bat < Formula
     assets_dir = Dir["target/release/build/bat-*/out/assets"].first
     man1.install "#{assets_dir}/manual/bat.1"
     fish_completion.install "#{assets_dir}/completions/bat.fish"
+    zsh_completion.install "#{assets_dir}/completions/bat.zsh" => "_bat"
   end
 
   test do
