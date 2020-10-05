@@ -1,19 +1,12 @@
 name: Cancel previous runs
 
-on:
-  workflow_dispatch:
-  schedule:
-    # Once every 15 minutes
-    - cron: '*/15 * * * *'
+on: pull_request_target
 
 jobs:
-  autocancel:
-    if: github.repository == 'Homebrew/homebrew-core'
+  cancel:
     runs-on: ubuntu-latest
     steps:
       - name: Cancel
         uses: Homebrew/actions/cancel-previous-runs@master
         with:
           token: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
-          workflow: tests.yml
-          event: pull_request
