@@ -38,6 +38,7 @@ class Libepoxy < Formula
       #include <epoxy/gl.h>
       #include <OpenGL/CGLContext.h>
       #include <OpenGL/CGLTypes.h>
+      #include <OpenGL/OpenGL.h>
       int main()
       {
           CGLPixelFormatAttribute attribs[] = {0};
