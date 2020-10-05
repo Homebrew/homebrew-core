@@ -30,7 +30,6 @@ class Gdal < Formula
   depends_on "geos"
   depends_on "giflib"
   depends_on "hdf5"
-  depends_on "jasper"
   depends_on "jpeg"
   depends_on "json-c"
   depends_on "libdap"
@@ -42,6 +41,7 @@ class Gdal < Formula
   depends_on "libxml2"
   depends_on "netcdf"
   depends_on "numpy"
+  depends_on "openjpeg"
   depends_on "pcre"
   depends_on "poppler"
   depends_on "proj"
@@ -97,7 +97,7 @@ class Gdal < Formula
       "--with-cfitsio=#{Formula["cfitsio"].opt_prefix}",
       "--with-hdf5=#{Formula["hdf5"].opt_prefix}",
       "--with-netcdf=#{Formula["netcdf"].opt_prefix}",
-      "--with-jasper=#{Formula["jasper"].opt_prefix}",
+      "--with-openjpeg",
       "--with-xerces=#{Formula["xerces-c"].opt_prefix}",
       "--with-odbc=#{Formula["unixodbc"].opt_prefix}",
       "--with-dods-root=#{Formula["libdap"].opt_prefix}",
