@@ -43,7 +43,7 @@ class Libxcomposite < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-I#{include}", "-L#{lib}", "-lXcomposite", "test.c"
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lXcomposite"
     assert_equal 0, $CHILD_STATUS.exitstatus
   end
 end
