@@ -31,11 +31,12 @@ class Freexl < Formula
 
   test do
     (testpath/"test.c").write <<~EOS
+      #include <stdio.h>
       #include "freexl.h"
 
       int main()
       {
-          printf(freexl_version());
+          printf("%s", freexl_version());
           return 0;
       }
     EOS
