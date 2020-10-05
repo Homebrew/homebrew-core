@@ -3,7 +3,7 @@ class Cppcheck < Formula
   homepage "https://sourceforge.net/projects/cppcheck/"
   url "https://github.com/danmar/cppcheck/archive/2.2.tar.gz"
   sha256 "ad96290a1842c5934bf9c4268cb270953f3078d4ce33a9a53922d6cb6daf61aa"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
   head "https://github.com/danmar/cppcheck.git"
 
   bottle do
