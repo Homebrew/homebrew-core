@@ -10,10 +10,9 @@ class OoniCli < Formula
   conflicts_with "ooniprobe", because: "old version of the client, installs binary with the same name"
 
   def install
-    system "go", "build", "-ldflags",
-            "-s -w", "-tags", "DISABLE_QUIC",
-            "./cmd/ooniprobe"
-    bin.install "ooniprobe" => "ooniprobe"
+    system "go", "build", "-o", "#{bin}/ooniprobe",
+           "-ldflags", "-s -w", "-tags", "DISABLE_QUIC",
+           "./cmd/ooniprobe"
   end
 
   test do
