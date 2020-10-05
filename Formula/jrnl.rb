@@ -138,9 +138,6 @@ class Jrnl < Formula
   end
 
   def install
-    # Avoid error "ModuleNotFoundError: No module named 'clikit'", which is only used in Poetry build process
-    rm_f "pyproject.toml"
-
     virtualenv_install_with_resources
   end
 
