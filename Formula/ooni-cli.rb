@@ -7,6 +7,8 @@ class OoniCli < Formula
 
   depends_on "go" => :build
 
+  conflicts_with "ooniprobe", because: "old version of the client, installs binary with the same name"
+
   def install
     system "go", "build", "-ldflags",
             "-s -w", "-tags", "DISABLE_QUIC",

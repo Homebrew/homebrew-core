@@ -30,6 +30,8 @@ class Ooniprobe < Formula
   depends_on "openssl@1.1"
   depends_on "tor"
 
+  conflicts_with "ooni-cli", because: "new version of the client, installs binary with the same name"
+
   # these 4 need to come first or else cryptography will let setuptools
   # easy_install them (which is bad)
   resource "cffi" do
