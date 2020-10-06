@@ -1,6 +1,6 @@
 class Skaffold < Formula
   desc "Easy and Repeatable Kubernetes Development"
-  homepage "https://github.com/GoogleContainerTools/skaffold"
+  homepage "https://skaffold.dev/"
   url "https://github.com/GoogleContainerTools/skaffold.git",
       tag:      "v1.15.0",
       revision: "c4dce04b0d692dce61051d14cf4a2c04c8c688bd"
