@@ -3,7 +3,8 @@ class Zim < Formula
   homepage "https://zim-wiki.org/"
   url "https://github.com/jaap-karssenberg/zim-desktop-wiki/archive/0.73.2.tar.gz"
   sha256 "f002e63d7c131e317225c2912d5cc2065da90448f7ebd330ad4931a57fa45eda"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
+  revision 1
   head "https://github.com/jaap-karssenberg/zim-desktop-wiki.git"
 
   bottle do
@@ -19,7 +20,7 @@ class Zim < Formula
   depends_on "gtk+3"
   depends_on "gtksourceview3"
   depends_on "pygobject3"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "pyxdg" do
     url "https://files.pythonhosted.org/packages/47/6e/311d5f22e2b76381719b5d0c6e9dc39cd33999adae67db71d7279a6d70f4/pyxdg-0.26.tar.gz"
