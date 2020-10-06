@@ -6,7 +6,7 @@ class Atdtool < Formula
   url "https://files.pythonhosted.org/packages/83/d1/55150f2dd9afda92e2f0dcb697d6f555f8b1f578f1df4d685371e8b81089/atdtool-1.3.3.tar.gz"
   sha256 "a83f50e7705c65e7ba5bc339f1a0624151bba9f7cdec7fb1460bb23e9a02dab9"
   license "BSD-3-Clause"
-  revision 3
+  revision 4
 
   livecheck do
     url :stable
@@ -19,7 +19,7 @@ class Atdtool < Formula
     sha256 "0f301757a596e02344c15171a834557e19e4c4145fd440cd9e960b72993e459a" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
     virtualenv_install_with_resources
