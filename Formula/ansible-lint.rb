@@ -6,6 +6,7 @@ class AnsibleLint < Formula
   url "https://files.pythonhosted.org/packages/86/d0/f5e50fbaf775baf0f930445f53005b305c782a668336ddf2946969660a36/ansible-lint-4.3.5.tar.gz"
   sha256 "bec230cf5fcc4d976246d4170da3ae289715f99185529ca8bba4b3c173035656"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -21,7 +22,7 @@ class AnsibleLint < Formula
   depends_on "pkg-config" => :build
   depends_on "libyaml"
   depends_on "openssl@1.1"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "libffi"
 
