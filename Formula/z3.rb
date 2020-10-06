@@ -4,6 +4,7 @@ class Z3 < Formula
   url "https://github.com/Z3Prover/z3/archive/z3-4.8.9.tar.gz"
   sha256 "c9fd04b9b33be74fffaac3ec2bc2c320d1a4cc32e395203c55126b12a14ff3f4"
   license "MIT"
+  revision 1
   head "https://github.com/Z3Prover/z3.git"
 
   livecheck do
@@ -20,10 +21,10 @@ class Z3 < Formula
 
   # Has Python bindings but are supplementary to the main library
   # which does not need Python.
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
 
   def install
-    python3 = Formula["python@3.8"].opt_bin/"python3"
+    python3 = Formula["python@3.9"].opt_bin/"python3"
     xy = Language::Python.major_minor_version python3
     system python3, "scripts/mk_make.py",
                      "--prefix=#{prefix}",
