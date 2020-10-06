@@ -26,8 +26,7 @@ class Okteto < Formula
     expected = <<~EOS
       name: #{Pathname.getwd.basename}
       image: okteto/ruby:2
-      command:
-      - bash
+      command: bash
       sync:
       - .:/usr/src/app
       forward:
