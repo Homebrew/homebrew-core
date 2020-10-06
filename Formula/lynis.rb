@@ -3,6 +3,7 @@ class Lynis < Formula
   homepage "https://cisofy.com/lynis/"
   url "https://github.com/CISOfy/lynis/archive/3.0.1.tar.gz"
   sha256 "476aa45d6ade0e9624093db13909ecaf670ff8c4f1b372197e400e34f506ce1f"
+  license "GPL-3.0-only"
 
   livecheck do
     url "https://cisofy.com/downloads/lynis/"
