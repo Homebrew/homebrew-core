@@ -21,6 +21,8 @@ class AutoconfArchive < Formula
   # autoconf-archive is useless without autoconf
   depends_on "autoconf"
 
+  conflicts_with "gnome-common", because: "both install ax_check_enable_debug.m4 and ax_code_coverage.m4"
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
