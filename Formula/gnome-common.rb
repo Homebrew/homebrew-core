@@ -20,6 +20,8 @@ class GnomeCommon < Formula
     sha256 "a96e5dedc2888b6caa326da0abd8eb7d3f1426407e8bef82a6ba0f41adb7016a" => :mavericks
   end
 
+  conflicts_with "autoconf-archive", because: "both install ax_check_enable_debug.m4 and ax_code_coverage.m4"
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
