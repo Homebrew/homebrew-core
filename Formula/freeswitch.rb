@@ -1,11 +1,41 @@
 class Freeswitch < Formula
   desc "Telephony platform to route various communication protocols"
   homepage "https://freeswitch.org"
-  url "https://github.com/signalwire/freeswitch.git",
-      tag:      "v1.10.3",
-      revision: "129de34d845098b7864a49281f3eb946e0b50314"
   license "MPL-1.1"
   head "https://github.com/signalwire/freeswitch.git"
+
+  stable do
+    url "https://github.com/signalwire/freeswitch.git",
+      tag:      "v1.10.5",
+      revision: "25569c16311afb3fe04a445830a8ab5c88488a5e"
+
+    # Fix find_if_index
+    # see https://github.com/signalwire/freeswitch/issues/859 and https://github.com/signalwire/freeswitch/pull/863
+    #
+    # remove this in next release
+    patch do
+      url "https://github.com/signalwire/freeswitch/commit/611377d40b560402f21ec5bd5a23f32ef09c9d1d.patch?full_index=1"
+      sha256 "95323626a7720e16e3f35e2889d5925fdc6c2c2efbe37f6fe5ab6e8733e3ae4d"
+    end
+
+    # Fix mod_spandsp
+    # see https://github.com/signalwire/freeswitch/pull/812
+    #
+    # remove this in next release
+    patch do
+      url "https://github.com/signalwire/freeswitch/commit/61368b24c16d7f9509fe7f5b1895d8404e23cd50.patch?full_index=1"
+      sha256 "f03fe3f8ae993af045ee7910c6a7446f84c29f8bea936ab4c0f700344f3d5afb"
+    end
+
+    # Fix mod_gsmopen
+    # see https://github.com/signalwire/freeswitch/pull/812
+    #
+    # remove this in next release
+    patch do
+      url "https://github.com/signalwire/freeswitch/commit/51fba83ed3ed2d9753d8e6b13e13001aca50b493.patch?full_index=1"
+      sha256 "1c5332127af09cddd3cba3b71d02de5deb025d552cc93b1f383874d89566956e"
+    end
+  end
 
   livecheck do
     url :head
@@ -18,9 +48,9 @@ class Freeswitch < Formula
     sha256 "f5e6f7a40d0b6582fb0e2b41e0e76681723df812c1fc5c6e3315c46ce2a6158d" => :high_sierra
   end
 
-  depends_on "apr-util" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "cmake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "yasm" => :build
@@ -37,6 +67,7 @@ class Freeswitch < Formula
   depends_on "speex"
   depends_on "speexdsp"
   depends_on "sqlite"
+  depends_on "util-linux"
 
   uses_from_macos "libedit"
   uses_from_macos "zlib"
@@ -102,10 +133,68 @@ class Freeswitch < Formula
 
   #------------------------ End sound file resources --------------------------
 
+  # There's no tags for now https://github.com/freeswitch/spandsp/issues/13
+  resource "spandsp" do
+    url "https://github.com/freeswitch/spandsp.git",
+      revision: "6351b1824a7634853bf963c0ec399e783e35d4d1"
+  end
+
+  # There's no tags for now https://github.com/freeswitch/sofia-sip/issues/24
+  resource "sofia-sip" do
+    url "https://github.com/freeswitch/sofia-sip.git",
+      revision: "f6f29b483e9c31ce8d3e87419ec3deea8679312d"
+  end
+
+  resource "libks" do
+    url "https://github.com/signalwire/libks.git",
+      tag:      "1.6.0",
+      revision: "637e0e3db192a6d73a248cf0e794a4b03424805b"
+  end
+
+  resource "signalwire-c" do
+    url "https://github.com/signalwire/signalwire-c.git",
+      tag:      "1.3.0",
+      revision: "e2f3abf59c800c6d39234e9f0a85fb15d1486d8d"
+  end
+
   def install
-    # avoid libks and signalwire-client-c dependencies
-    inreplace "build/modules.conf.in", "applications/mod_signalwire",
-                                       "#applications/mod_signalwire"
+    resource("spandsp").stage do
+      system "./bootstrap.sh"
+      system "./configure", "--disable-debug",
+                            "--disable-dependency-tracking",
+                            "--disable-silent-rules",
+                            "--prefix=#{libexec}/spandsp"
+      system "make"
+      ENV.deparallelize { system "make", "install" }
+
+      ENV.append_path "PKG_CONFIG_PATH", "#{libexec}/spandsp/lib/pkgconfig"
+    end
+
+    resource("sofia-sip").stage do
+      system "./bootstrap.sh"
+      system "./configure", "--disable-debug",
+                            "--disable-dependency-tracking",
+                            "--disable-silent-rules",
+                            "--prefix=#{libexec}/sofia-sip"
+      system "make", "install"
+
+      ENV.append_path "PKG_CONFIG_PATH", "#{libexec}/sofia-sip/lib/pkgconfig"
+    end
+
+    resource("libks").stage do
+      system "cmake", ".", *std_cmake_args, "-DCMAKE_INSTALL_PREFIX=#{libexec}/libks"
+      system "make", "install"
+
+      ENV.append_path "PKG_CONFIG_PATH", "#{libexec}/libks/lib/pkgconfig"
+      ENV.append "CFLAGS", "-I#{libexec}/libks/include"
+    end
+
+    resource("signalwire-c").stage do
+      system "cmake", ".", *std_cmake_args, "-DCMAKE_INSTALL_PREFIX=#{libexec}/signalwire-c"
+      system "make", "install"
+
+      ENV.append_path "PKG_CONFIG_PATH", "#{libexec}/signalwire-c/lib/pkgconfig"
+    end
 
     system "./bootstrap.sh", "-j"
 
