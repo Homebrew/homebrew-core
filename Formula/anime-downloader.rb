@@ -3,8 +3,8 @@ class AnimeDownloader < Formula
 
   desc "Download your favourite anime"
   homepage "https://github.com/vn-ki/anime-downloader"
-  url "https://files.pythonhosted.org/packages/93/af/4b7bd9021632951e0e944ee0a9101b63a2207fdd976dd3fd7964c11dc4c6/anime-downloader-4.6.5.tar.gz"
-  sha256 "e011f53a4656f1b64f112d4c42e81e56e585a67ec63b035ae825344a0b00a434"
+  url "https://files.pythonhosted.org/packages/75/ca/1a312247353743ce30d0e9d7a2482b2e41946fa1757ba5db91ab0755a8b5/anime-downloader-4.6.6.tar.gz"
+  sha256 "d0b69f104c0759405669338b19a17f8f4086c99944b3e1e51ad6ae6623c4a29a"
   license "Unlicense"
   head "https://github.com/vn-ki/anime-downloader.git"
 
@@ -24,8 +24,8 @@ class AnimeDownloader < Formula
   depends_on "python@3.8"
 
   resource "beautifulsoup4" do
-    url "https://files.pythonhosted.org/packages/c6/62/8a2bef01214eeaa5a4489eca7104e152968729512ee33cb5fbbc37a896b7/beautifulsoup4-4.9.1.tar.gz"
-    sha256 "73cc4d115b96f79c7d77c1c7f7a0a8d4c57860d1041df407dd1aae7f07a77fd7"
+    url "https://files.pythonhosted.org/packages/6b/c3/d31704ae558dcca862e4ee8e8388f357af6c9d9acb0cad4ba0fbbd350d9a/beautifulsoup4-4.9.3.tar.gz"
+    sha256 "84729e322ad1d5b4d25f805bfa05b902dd96450f43842c4e99067d5e1369eb25"
   end
 
   resource "certifi" do
@@ -74,8 +74,8 @@ class AnimeDownloader < Formula
   end
 
   resource "pySmartDL" do
-    url "https://files.pythonhosted.org/packages/26/ce/c728a2b6f08ef07cc12c69769fa54f60936cd9b4ef1bbaea3c0d53750f67/pySmartDL-1.3.3.tar.gz"
-    sha256 "7cf106f8aae69c322aa99b8d9a8174e6bb4df0bd9f6425843cb077e8fe8348a3"
+    url "https://files.pythonhosted.org/packages/5a/4c/ed073b2373f115094a4a612431abe25b58e542bebd951557dcc881999ef9/pySmartDL-1.3.4.tar.gz"
+    sha256 "35275d1694f3474d33bdca93b27d3608265ffd42f5aeb28e56f38b906c0c35f4"
   end
 
   resource "requests" do
