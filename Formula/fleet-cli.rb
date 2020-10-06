@@ -15,7 +15,7 @@ class FleetCli < Formula
 
   def install
     commit = Utils.safe_popen_read("git", "rev-parse", "--short", "HEAD").chomp
-    system "go", "build", "-ldflags",
+    system "go", "build", *std_go_args, "-ldflags",
            "-X github.com/rancher/fleet/pkg/version.Version=#{version} -X github.com/rancher/fleet/pkg/version.GitCommit=#{commit}",
            "-o", bin/"fleet"
   end
