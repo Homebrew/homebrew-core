@@ -27,7 +27,7 @@ class CeresSolver < Formula
                     "-DMETIS_LIBRARY=#{Formula["metis"].opt_lib}/libmetis.dylib",
                     "-DGLOG_INCLUDE_DIR_HINTS=#{Formula["glog"].opt_include}",
                     "-DGLOG_LIBRARY_DIR_HINTS=#{Formula["glog"].opt_lib}",
-                    "-DTBB=OFF"
+                    "-DTBB=OFF", "-DBUILD_EXAMPLES=OFF"
     system "make"
     system "make", "install"
     pkgshare.install "examples", "data"
