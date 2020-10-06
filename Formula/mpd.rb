@@ -34,9 +34,9 @@ class Mpd < Formula
   depends_on "libshout"
   depends_on "libupnp"
   depends_on "libvorbis"
+  depends_on macos: :mojave # requires C++17 features unavailable in High Sierra
   depends_on "opus"
   depends_on "sqlite"
-  depends_on macos: :mojave # requires C++17 features unavailable in High Sierra
 
   def install
     # mpd specifies -std=gnu++0x, but clang appears to try to build
