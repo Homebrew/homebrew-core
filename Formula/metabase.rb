@@ -4,6 +4,7 @@ class Metabase < Formula
   url "https://downloads.metabase.com/v0.36.6/metabase.jar"
   sha256 "fc008711a0c25f8535daeff11349264fe5622659aa15435102a67465abcee742"
   license "AGPL-3.0-only"
+  revision 1
 
   livecheck do
     url "https://github.com/metabase/metabase/releases/latest"
@@ -20,7 +21,9 @@ class Metabase < Formula
 
   bottle :unneeded
 
-  depends_on "openjdk"
+  # metabase uses jdk.nashorn.api.scripting.JSObject
+  # which is removed in Java 15
+  depends_on "openjdk@11"
 
   def install
     if build.head?
@@ -30,7 +33,7 @@ class Metabase < Formula
       libexec.install "metabase.jar"
     end
 
-    bin.write_jar_script libexec/"metabase.jar", "metabase"
+    bin.write_jar_script libexec/"metabase.jar", "metabase", java_version: "11"
   end
 
   plist_options startup: true, manual: "metabase"
