@@ -3,7 +3,8 @@ class Blastem < Formula
   homepage "https://www.retrodev.com/blastem/"
   url "https://www.retrodev.com/repos/blastem/archive/v0.6.2.tar.gz"
   sha256 "d460632eff7e2753a0048f6bd18e97b9d7c415580c358365ff35ac64af30a452"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
+  revision 1
   head "https://www.retrodev.com/repos/blastem", using: :hg
 
   bottle do
@@ -14,21 +15,23 @@ class Blastem < Formula
   end
 
   depends_on "freetype" => :build
+  depends_on "gettext" => :build
   depends_on "jpeg" => :build
-  depends_on "libpng" => :build # for xcftools
+  depends_on "libpng" => :build
+  depends_on "openjpeg" => :build
   depends_on "pkg-config" => :build
   depends_on "glew"
   depends_on :macos # Due to Python 2
   depends_on "sdl2"
 
   resource "Pillow" do
-    url "https://files.pythonhosted.org/packages/5b/bb/cdc8086db1f15d0664dd22a62c69613cdc00f1dd430b5b19df1bea83f2a3/Pillow-6.2.1.tar.gz"
-    sha256 "bf4e972a88f8841d8fdc6db1a75e0f8d763e66e3754b03006cbc3854d89f1cb1"
+    url "https://files.pythonhosted.org/packages/b3/d0/a20d8440b71adfbf133452d4f6e0fe80de2df7c2578c9b498fb812083383/Pillow-6.2.2.tar.gz"
+    sha256 "db9ff0c251ed066d367f53b64827cc9e18ccea001b986d08c265e53625dab950"
   end
 
   resource "vasm" do
-    url "https://server.owl.de/~frank/tags/vasm1_8f.tar.gz"
-    sha256 "9a97952951912b070a1b9118a466a3cd8024775be45266ede3f78b2f99ecc1f2"
+    url "http://phoenix.owl.de/tags/vasm1_8i.tar.gz"
+    sha256 "9ae0b37bca11cae5cf00e4d47e7225737bdaec4028e4db2a501b4eca7df8639d"
   end
 
   resource "xcftools" do
@@ -79,12 +82,11 @@ class Blastem < Formula
       # https://anonscm.debian.org/cgit/collab-maint/xcftools.git/commit/?id=c40088b82c6a788792aae4068ddc8458de313a9b
       inreplace "xcf2png.c", /png_(voidp|error_ptr)_NULL/, "NULL"
 
-      system "./configure"
+      system "./configure", "LIBS=-lintl"
 
       # Avoid `touch` error from empty MANLINGUAS when building without NLS
-      ENV.deparallelize
       touch "manpo/manpages.pot"
-      system "make", "manpo/manpages.pot"
+      ENV.deparallelize { system "make", "manpo/manpages.pot" }
       touch "manpo/manpages.pot"
       system "make"
       (buildpath/"tool").install "xcf2png"
