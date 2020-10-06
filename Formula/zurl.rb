@@ -3,8 +3,8 @@ class Zurl < Formula
   homepage "https://github.com/fanout/zurl"
   url "https://dl.bintray.com/fanout/source/zurl-1.11.0.tar.bz2"
   sha256 "18aa3b077aefdba47cc46c5bca513ca2e20f2564715be743f70e4efa4fdccd7a"
-  license "GPL-3.0"
-  revision 1
+  license "GPL-3.0-or-later"
+  revision 2
 
   bottle do
     cellar :any
@@ -14,7 +14,7 @@ class Zurl < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.8" => :test
+  depends_on "python@3.9" => :test
   depends_on "qt"
   depends_on "zeromq"
 
@@ -37,7 +37,7 @@ class Zurl < Formula
     runfile = testpath/"test.py"
 
     resource("pyzmq").stage do
-      system Formula["python@3.8"].opt_bin/"python3",
+      system Formula["python@3.9"].opt_bin/"python3",
       *Language::Python.setup_install_args(testpath/"vendor")
     end
 
@@ -96,9 +96,9 @@ class Zurl < Formula
     end
 
     begin
-      xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
+      xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
       ENV["PYTHONPATH"] = testpath/"vendor/lib/python#{xy}/site-packages"
-      system Formula["python@3.8"].opt_bin/"python3", runfile
+      system Formula["python@3.9"].opt_bin/"python3", runfile
     ensure
       Process.kill("TERM", pid)
       Process.wait(pid)
