@@ -6,6 +6,7 @@ class SvtplayDl < Formula
   url "https://files.pythonhosted.org/packages/f2/7d/d78f5bfb5578bd5c936aa61e8e4b2b9346d2315e45af6a0e6af76dd48882/svtplay-dl-2.6.tar.gz"
   sha256 "8287042f6f46b1e38d11882df5a2620461e30e11a74e6355857c586b4211a860"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -19,7 +20,7 @@ class SvtplayDl < Formula
   end
 
   depends_on "openssl@1.1"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "six" do
     url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
