@@ -6,6 +6,7 @@ class Pyinstaller < Formula
   url "https://files.pythonhosted.org/packages/82/96/21ba3619647bac2b34b4996b2dbbea8e74a703767ce24192899d9153c058/pyinstaller-4.0.tar.gz"
   sha256 "970beb07115761d5e4ec317c1351b712fd90ae7f23994db914c633281f99bab0"
   license "GPL-2.0"
+  revision 1
 
   head "https://github.com/pyinstaller/pyinstaller.git", branch: "develop"
 
@@ -20,7 +21,7 @@ class Pyinstaller < Formula
     sha256 "be06967b424605aab0bc04193c0057f2fe16ebbb35b476718f7ce75f65b84a9f" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "altgraph" do
     url "https://files.pythonhosted.org/packages/22/5a/ac50b52581bbf0d8f6fd50ad77d20faac19a2263b43c60e7f3af8d1ec880/altgraph-0.17.tar.gz"
@@ -42,7 +43,7 @@ class Pyinstaller < Formula
   end
 
   test do
-    xy = Language::Python.major_minor_version "python3.8"
+    xy = Language::Python.major_minor_version "python3.9"
     system bin/"pyinstaller", "-F", "--distpath=#{testpath}/dist", "--workpath=#{testpath}/build",
                               libexec/"lib/python#{xy}/site-packages/easy_install.py"
     assert_predicate testpath/"dist/easy_install", :exist?
