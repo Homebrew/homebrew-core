@@ -6,6 +6,7 @@ class Hy < Formula
   url "https://files.pythonhosted.org/packages/e2/a8/d2118cf14aab7652d54283e6a9a199177f528610348e3712509a8596c0d0/hy-0.19.0.tar.gz"
   sha256 "3a5a1d76ddeb2f1d5de71ad1b1167799850db955b5eb0258e351fb182b2e6016"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -18,7 +19,7 @@ class Hy < Formula
     sha256 "7b73de653a54d353ccc18f7e31b34275b6e7931b9f3c21f1b18cfb48a870199c" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/d7/d8/05696357e0311f5b5c316d7b95f46c669dd9c15aaeecbb48c7d0aeb88c40/appdirs-1.4.4.tar.gz"
@@ -53,6 +54,6 @@ class Hy < Formula
     (testpath/"test.hy").write "(print (+ 2 2))"
     assert_match "4", shell_output("#{bin}/hy test.hy")
     (testpath/"test.py").write shell_output("#{bin}/hy2py test.hy")
-    assert_match "4", shell_output("#{Formula["python@3.8"].bin}/python3 test.py")
+    assert_match "4", shell_output("#{Formula["python@3.9"].bin}/python3 test.py")
   end
 end
