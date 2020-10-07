@@ -4,6 +4,7 @@ class Ctemplate < Formula
   url "https://github.com/OlafvdSpek/ctemplate/archive/ctemplate-2.4.tar.gz"
   sha256 "ccc4105b3dc51c82b0f194499979be22d5a14504f741115be155bd991ee93cfa"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/olafvdspek/ctemplate.git"
 
   bottle do
@@ -16,7 +17,7 @@ class Ctemplate < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
 
   def install
     system "./autogen.sh"
