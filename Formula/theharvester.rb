@@ -6,7 +6,7 @@ class Theharvester < Formula
   url "https://github.com/laramies/theHarvester/archive/V3.1.tar.gz"
   sha256 "5157f61bdd8fa2a7e5f4c055709e251a1664a86b0265450e5a68d2cdf8c55c13"
   license "GPL-2.0"
-  revision 1
+  revision 2
   head "https://github.com/laramies/theHarvester.git"
 
   bottle do
@@ -17,7 +17,7 @@ class Theharvester < Formula
   end
 
   depends_on "libyaml"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "PyYAML" do
     url "https://files.pythonhosted.org/packages/e3/e8/b3212641ee2718d556df0f23f78de8303f068fe29cdaa7a91018849582fe/PyYAML-5.1.2.tar.gz"
