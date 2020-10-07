@@ -5,6 +5,7 @@ class I386ElfGdb < Formula
   mirror "https://ftpmirror.gnu.org/gdb/gdb-9.2.tar.xz"
   sha256 "360cd7ae79b776988e89d8f9a01c985d0b1fa21c767a4295e5f88cb49175c555"
   license "GPL-2.0"
+  revision 1
   head "https://sourceware.org/git/binutils-gdb.git"
 
   livecheck do
@@ -17,7 +18,7 @@ class I386ElfGdb < Formula
     sha256 "8dad06d6eea6ec145763819d982916d590edd45b40e4c91e328bba76f0aac0bf" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "xz" # required for lzma support
 
   conflicts_with "gdb", because: "both install include/gdb, share/gdb and share/info"
@@ -29,7 +30,7 @@ class I386ElfGdb < Formula
       --disable-debug
       --disable-dependency-tracking
       --with-lzma
-      --with-python=#{Formula["python@3.8"].opt_bin}/python3
+      --with-python=#{Formula["python@3.9"].opt_bin}/python3
       --disable-binutils
     ]
 
