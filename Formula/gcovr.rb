@@ -4,6 +4,7 @@ class Gcovr < Formula
   url "https://github.com/gcovr/gcovr/archive/4.2.tar.gz"
   sha256 "589d5cb7164c285192ed0837d3cc17001ba25211e24933f0ba7cb9cf38b8a30e"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/gcovr/gcovr.git"
 
   bottle do
@@ -13,7 +14,7 @@ class Gcovr < Formula
     sha256 "182bbf76588334f06561c759dfdd7ded755f913293eb5da0fa2d7a9b53e6ee86" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
