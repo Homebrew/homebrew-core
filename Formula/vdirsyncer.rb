@@ -6,6 +6,7 @@ class Vdirsyncer < Formula
   url "https://github.com/pimutils/vdirsyncer.git",
       tag:      "0.16.8",
       revision: "b5dd0929d009b7b07f72903dd6fb82815f45bdd8"
+  revision 1
   head "https://github.com/pimutils/vdirsyncer.git"
 
   livecheck do
@@ -20,10 +21,10 @@ class Vdirsyncer < Formula
     sha256 "d9f144fba5c2de241806ade0e5141a2ed13cd17aaa00233e2f2397315f65f47e" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
-    venv = virtualenv_create(libexec, "python3.8")
+    venv = virtualenv_create(libexec, "python3.9")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
                               "--ignore-installed", "requests-oauthlib",
                               buildpath
