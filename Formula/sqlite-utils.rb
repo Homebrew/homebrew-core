@@ -5,6 +5,7 @@ class SqliteUtils < Formula
   url "https://files.pythonhosted.org/packages/6a/9d/42871b729018c48ecdf9f14f14e5f6fc99416a088b6040b32ce494528ddb/sqlite-utils-2.21.tar.gz"
   sha256 "fdb3ac8a2ce7da4253a04d9e57b7a1bbb4c2d756416fd9ae5c4459002453edc7"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -13,7 +14,7 @@ class SqliteUtils < Formula
     sha256 "cc9ae55c0bb95ce9c0a4f38dd649fd6d6ab9e337beeab334f7bacd97a4489c66" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/27/6f/be940c8b1f1d69daceeb0032fee6c34d7bd70e3e649ccac0951500b4720e/click-7.1.2.tar.gz"
