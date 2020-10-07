@@ -6,6 +6,7 @@ class Pwntools < Formula
   url "https://files.pythonhosted.org/packages/13/a2/9659165ab6511afc1fde31205f463c394d3080058135ab86a275cfd733f9/pwntools-4.2.1.tar.gz"
   sha256 "0d3768b436ad3d8aca01e8ae84fda6f1a6f43c4b96fa8c09b1dbb1cc13d607ba"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -19,7 +20,7 @@ class Pwntools < Formula
   end
 
   depends_on "openssl@1.1"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "libffi"
 
