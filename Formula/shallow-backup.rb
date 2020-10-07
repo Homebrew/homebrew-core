@@ -6,6 +6,7 @@ class ShallowBackup < Formula
   url "https://github.com/alichtman/shallow-backup/archive/v5.0.1.tar.gz"
   sha256 "a4f2e2702ca656d43852b26a85e7ae0056f7c89297b1288b11c0526449c62f8e"
   license "MIT"
+  revision 1
   head "https://github.com/alichtman/shallow-backup.git"
 
   bottle do
@@ -15,7 +16,7 @@ class ShallowBackup < Formula
     sha256 "bf8b92d72f9e051d036ad04386ecf753191732342f92618b7b80238c8f00738b" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "blessed" do
     url "https://files.pythonhosted.org/packages/20/6b/80d2704532134a0acf513a2804d342686a66a779d28822eb48346dc2a861/blessed-1.17.6.tar.gz"
