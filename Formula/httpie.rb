@@ -6,6 +6,7 @@ class Httpie < Formula
   url "https://files.pythonhosted.org/packages/37/6c/0d050f49e3b2bac589367d0c3aee9c078e23c6914b0210ffc0117218bdaf/httpie-2.2.0.tar.gz"
   sha256 "31ac28088ee6a0b6f3ba7a53379000c4d1910c1708c9ff768f84b111c14405a0"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/jakubroztocil/httpie.git"
 
   livecheck do
@@ -19,7 +20,7 @@ class Httpie < Formula
     sha256 "e638b750ffdce34252f3f6b361f588f210aad1850de84d85c34e8f1c34cfb670" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "Pygments" do
     url "https://files.pythonhosted.org/packages/6e/4d/4d2fe93a35dfba417311a4ff627489a947b01dc0cc377a3673c00cf7e4b2/Pygments-2.6.1.tar.gz"
