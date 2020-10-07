@@ -6,6 +6,7 @@ class Jc < Formula
   url "https://files.pythonhosted.org/packages/e3/b9/7878a4f71c873c7d67f39615086f1c8315740534b25eddc1a4f75f314832/jc-1.13.4.tar.gz"
   sha256 "45480ac3d399f70b57d8cc97a6795ea875a19863c55a56eae596c6e67303c5b8"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -18,7 +19,7 @@ class Jc < Formula
     sha256 "d41d6e5ab5e6b58bb8850d84f2c93dac3903ac7955b80d1c9edcde9d6316236e" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "Pygments" do
     url "https://files.pythonhosted.org/packages/6e/4d/4d2fe93a35dfba417311a4ff627489a947b01dc0cc377a3673c00cf7e4b2/Pygments-2.6.1.tar.gz"
