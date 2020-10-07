@@ -6,6 +6,7 @@ class Liquidctl < Formula
   url "https://files.pythonhosted.org/packages/7d/92/5f6eb3f70e4de0241301927593a12e4622e89a9445f5e87bdbb19ddd5a62/liquidctl-1.4.1.tar.gz"
   sha256 "59a3bc65b3f3e71a5714224401fe6e95dfdee591a1d6f4392bc4e6d6ad72ff8d"
   license "GPL-3.0"
+  revision 1
   head "https://github.com/jonasmalacofilho/liquidctl.git"
 
   livecheck do
@@ -20,7 +21,7 @@ class Liquidctl < Formula
   end
 
   depends_on "libusb"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "docopt" do
     url "https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz"
