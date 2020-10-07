@@ -6,6 +6,7 @@ class Khard < Formula
   url "https://files.pythonhosted.org/packages/a3/4e/e9cbcb281d371c355f251e5d9ca58b7e0d02dffd2bf4938888068fbc2def/khard-0.17.0.tar.gz"
   sha256 "164e1aee9264735ec0473a74a38842e6272bbb814d949a66084c6a373bd95618"
   license "GPL-3.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -18,7 +19,7 @@ class Khard < Formula
     sha256 "6537fec116f6876fba671646b41cecc32cc4599cbd58b194225d3a60800cdef7" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "atomicwrites" do
     url "https://files.pythonhosted.org/packages/55/8d/74a75635f2c3c914ab5b3850112fd4b0c8039975ecb320e4449aa363ba54/atomicwrites-1.4.0.tar.gz"
