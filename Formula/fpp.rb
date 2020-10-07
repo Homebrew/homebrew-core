@@ -4,12 +4,12 @@ class Fpp < Formula
   url "https://github.com/facebook/PathPicker/releases/download/0.9.2/fpp.0.9.2.tar.gz"
   sha256 "f2b233b1e18bdafb1cd1728305e926aabe217406e65091f1e58589e6157e1952"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/facebook/pathpicker.git"
 
   bottle :unneeded
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
     # we need to copy the bash file and source python files
