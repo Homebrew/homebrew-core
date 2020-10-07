@@ -6,6 +6,7 @@ class AwsGoogleAuth < Formula
   url "https://github.com/cevoaustralia/aws-google-auth/archive/0.0.36.tar.gz"
   sha256 "c880633b2813b3fd2312fd1301a8927ebc7b13c3405932bd0ec760cecfb7c780"
   license "MIT"
+  revision 1
   head "https://github.com/cevoaustralia/aws-google-auth.git"
 
   bottle do
@@ -17,7 +18,7 @@ class AwsGoogleAuth < Formula
 
   depends_on "freetype"
   depends_on "jpeg"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "libffi"
   uses_from_macos "libxml2"
