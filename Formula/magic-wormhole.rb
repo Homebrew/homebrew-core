@@ -6,6 +6,7 @@ class MagicWormhole < Formula
   url "https://files.pythonhosted.org/packages/d4/62/5e4a86f7c4b111e016577f1b304063ebe604f430db15465ac58b13993608/magic-wormhole-0.12.0.tar.gz"
   sha256 "1b0fd8a334da978f3dd96b620fa9b9348cabedf26a87f74baac7a37052928160"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -20,7 +21,7 @@ class MagicWormhole < Formula
 
   depends_on "libsodium"
   depends_on "openssl@1.1"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "libffi"
 
