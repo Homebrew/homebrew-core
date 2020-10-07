@@ -6,6 +6,7 @@ class ZabbixCli < Formula
   url "https://github.com/unioslo/zabbix-cli/archive/2.2.1.tar.gz"
   sha256 "884ecd2a4a4c7f68a080bb7e0936dd208c813284ec3ed60b948ce90a1be7c828"
   license "GPL-3.0"
+  revision 1
   head "https://github.com/unioslo/zabbix-cli.git"
 
   bottle do
@@ -15,7 +16,7 @@ class ZabbixCli < Formula
     sha256 "6158e91d1699b5117714310bdf8850e185eb9b358c70d3a89a6d0fefd7856482" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   ## direct dependencies
 
