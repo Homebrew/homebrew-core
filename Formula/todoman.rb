@@ -6,6 +6,7 @@ class Todoman < Formula
   url "https://files.pythonhosted.org/packages/08/b2/eabf212b6279f4e9d3ea215b76f9475e94e777820655f98ca4ce0d036acc/todoman-3.8.0.tar.gz"
   sha256 "8bdbefa8b190c19cc01a57396ce9d0264ee10ec8ce96703fb72d69b8867107ab"
   license "ISC"
+  revision 1
   head "https://github.com/pimutils/todoman.git"
 
   livecheck do
@@ -19,7 +20,7 @@ class Todoman < Formula
     sha256 "e22d61bf9b21f362883d704c952fb54b4b1d37ecb12ba0227a6fb9bd17c120ed" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   conflicts_with "devtodo", because: "both install a `todo` binary"
 
