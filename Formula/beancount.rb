@@ -6,6 +6,7 @@ class Beancount < Formula
   url "https://files.pythonhosted.org/packages/34/16/41f47df1a7929addab1c75a0f8905890827f00694d4de9d10c83bd5799ff/beancount-2.3.2.tar.gz"
   sha256 "0d6205a0882c3f9bc3ebfd642b329659412e10b36a3e0c7e2648410d9670d7f1"
   license "GPL-2.0"
+  revision 1
   head "https://github.com/beancount/beancount.git"
 
   livecheck do
@@ -19,7 +20,7 @@ class Beancount < Formula
     sha256 "dedb54aead11e33a9a29ef57273f1fa3042e52fd2cb27990afcaee2363c6da7d" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/81/d0/641b698d05f0eaea4df4f9cebaff573d7a5276228ef6b7541240fe02f3ad/attrs-20.2.0.tar.gz"
