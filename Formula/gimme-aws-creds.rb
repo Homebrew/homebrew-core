@@ -6,6 +6,7 @@ class GimmeAwsCreds < Formula
   url "https://files.pythonhosted.org/packages/bc/44/306b41996e0cf62082c4ff5bc4863cc488d8475ae7d8c6ce5db8b26137c5/gimme%20aws%20creds-2.3.4.tar.gz"
   sha256 "a9cf1c816c9d0f8401832bca7f1ae05061edc0632a37853f3de9d942ad5d60d6"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -18,7 +19,7 @@ class GimmeAwsCreds < Formula
     sha256 "d2e420d0a093b64c25f766c8a79bae90d5504324829bea3a0f50add60b7f1839" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "libffi"
 
