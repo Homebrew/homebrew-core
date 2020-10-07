@@ -6,7 +6,7 @@ class AwsShell < Formula
   url "https://files.pythonhosted.org/packages/46/5a/c01bbff96fcbe8051e0b59e6191e07f5917f7f2cf667557c7dcbb85f62c3/aws-shell-0.2.1.tar.gz"
   sha256 "2044b0ef78c7542c392f2cee4b74a4439545c63dda0a3e28b712fff53e8e5823"
   license "Apache-2.0"
-  revision 2
+  revision 3
 
   livecheck do
     url :stable
@@ -19,7 +19,7 @@ class AwsShell < Formula
     sha256 "e59a26cea8549c99c0f6586db2f85d9400b53911902ec9ebdac1e6379d2518ac" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "awscli" do
     url "https://files.pythonhosted.org/packages/71/2f/8f9a58eac96d48bb1496596e64bebada636b0178b8f117498d313b13b0a2/awscli-1.16.313.tar.gz"
