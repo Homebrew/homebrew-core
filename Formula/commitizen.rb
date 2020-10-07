@@ -6,6 +6,7 @@ class Commitizen < Formula
   url "https://github.com/commitizen-tools/commitizen/archive/v2.4.1.tar.gz"
   sha256 "b50e1f0f9c9d6e06c20ac39c07f62e9ec9e38081dd856513f2565ad2a270b6bf"
   license "MIT"
+  revision 1
   head "https://github.com/commitizen-tools/commitizen.git"
 
   bottle do
@@ -15,7 +16,7 @@ class Commitizen < Formula
     sha256 "0aa03b3bfb92eaac4f6016a2168f6111044133fe4afb3f3c3bfcb9f92ad5c0df" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "colorama" do
     url "https://files.pythonhosted.org/packages/82/75/f2a4c0c94c85e2693c229142eb448840fba0f9230111faa889d1f541d12d/colorama-0.4.3.tar.gz"
