@@ -6,6 +6,7 @@ class PreCommit < Formula
   url "https://github.com/pre-commit/pre-commit/archive/v2.7.1.tar.gz"
   sha256 "b6ca162ba902dac6b0567d5b2ed3a7cc479ead512bdad5579e35a6836b8c1b0e"
   license "MIT"
+  revision 1
 
   bottle do
     cellar :any
@@ -15,7 +16,7 @@ class PreCommit < Formula
   end
 
   depends_on "libyaml"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/d7/d8/05696357e0311f5b5c316d7b95f46c669dd9c15aaeecbb48c7d0aeb88c40/appdirs-1.4.4.tar.gz"
