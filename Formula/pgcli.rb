@@ -6,6 +6,7 @@ class Pgcli < Formula
   url "https://files.pythonhosted.org/packages/33/d0/646dcdd819f6313c5b534bb41e2970968a1cbccba39e5f969a65858d0bb4/pgcli-3.0.0.tar.gz"
   sha256 "4920225838e8004ae6d2ec42f566e0a8b99c4bd42bc2c876d0de8501da0a4082"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -20,7 +21,7 @@ class Pgcli < Formula
 
   depends_on "libpq"
   depends_on "openssl@1.1"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "cli-helpers" do
     url "https://files.pythonhosted.org/packages/43/36/ba00975df9d393c0ccc3b1bf1610227bc4c4d611a5c69249b57be8ba6253/cli_helpers-1.2.1.tar.gz"
