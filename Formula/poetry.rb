@@ -3,10 +3,9 @@ class Poetry < Formula
 
   desc "Python package management tool"
   homepage "https://python-poetry.org/"
-  url "https://files.pythonhosted.org/packages/1b/e0/1f0edd3214986fb58ccda90acf43af763d31556499697b72f11186c5b1b1/poetry-1.1.0.tar.gz"
-  sha256 "0a05625681c530c1ba3ffe0ae5b612de3a0434fd0a043259481da01b48e9b24a"
+  url "https://files.pythonhosted.org/packages/94/6d/5dd4b17416b5b15fac19d37ad9ef969df0299ef7fc68f30842caf2b80fe8/poetry-1.1.2.tar.gz"
+  sha256 "acb153b63ebcf01ccc1b42ff2d20e6c8d07cb4aa4914fededcdbbd7546150408"
   license "MIT"
-  revision 1
 
   livecheck do
     url :stable
@@ -162,8 +161,8 @@ class Poetry < Formula
   end
 
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/86/90/0d30f9cea58b9589016ec5cc33eec6a077d31b0f9bce092e925e528f4802/virtualenv-20.0.32.tar.gz"
-    sha256 "3d427459dfe5ec3241a6bad046b1d10c0e445940e013c81946458987c7c7e255"
+    url "https://files.pythonhosted.org/packages/85/3e/6c3abf78b2207f3565ebadd0b99d1945f4ff18abdc6879617a4f6d939e41/virtualenv-20.0.33.tar.gz"
+    sha256 "a5e0d253fe138097c6559c906c528647254f437d1019af9d5a477b09bfa7300f"
   end
 
   resource "webencodings" do
