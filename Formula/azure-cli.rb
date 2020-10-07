@@ -7,6 +7,7 @@ class AzureCli < Formula
   version "2.12.1"
   sha256 "12aa412261b10cf341c29f70314a703b047cdae7045584a98237d14e8381deab"
   license "MIT"
+  revision 1
   head "https://github.com/Azure/azure-cli.git"
 
   livecheck do
@@ -22,7 +23,7 @@ class AzureCli < Formula
   end
 
   depends_on "openssl@1.1"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "libffi"
 
