@@ -6,6 +6,7 @@ class C7n < Formula
   url "https://github.com/cloud-custodian/cloud-custodian/archive/0.9.6.0.tar.gz"
   sha256 "0b4d68a92645ab86e56ee57079f3739c32a852ebaca23dd5e86e6b3fb33b3fe2"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://github.com/cloud-custodian/cloud-custodian/releases/latest"
@@ -19,7 +20,7 @@ class C7n < Formula
     sha256 "46f21faaea2347228671a719bc9e2348f9f501a725eb80c73c9cf792d626d551" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "argcomplete" do
     url "https://files.pythonhosted.org/packages/df/a0/3544d453e6b80792452d71fdf45aac532daf1c2b2d7fc6cb712e1c3daf11/argcomplete-1.12.0.tar.gz"
