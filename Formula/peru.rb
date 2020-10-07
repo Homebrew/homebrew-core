@@ -6,7 +6,7 @@ class Peru < Formula
   url "https://files.pythonhosted.org/packages/14/ef/9226d6a47f34afacb241b3d8acf25e5cd958a17f7bdb9f24d3b284aa59e0/peru-1.2.0.tar.gz"
   sha256 "5bcf70b49fd5a6b089a23d49d93fd6deb05bde560219704de53ae5e48cb49acb"
   license "MIT"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -20,7 +20,7 @@ class Peru < Formula
   end
 
   depends_on "libyaml"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "docopt" do
     url "https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz"
@@ -35,7 +35,7 @@ class Peru < Formula
   def install
     # Fix plugins (executed like an executable) looking for Python outside the virtualenv
     Dir["peru/resources/plugins/**/*.py"].each do |f|
-      inreplace f, "#! /usr/bin/env python3", "#!#{libexec}/bin/python3.8"
+      inreplace f, "#! /usr/bin/env python3", "#!#{libexec}/bin/python3.9"
     end
 
     virtualenv_install_with_resources
