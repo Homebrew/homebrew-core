@@ -6,6 +6,7 @@ class Localstack < Formula
   url "https://files.pythonhosted.org/packages/c1/ed/9c7caa9d68bc80aaa9bb7f84f225d15ff28fa42c4314befe9b92fa430dd0/localstack-0.11.5.tar.gz"
   sha256 "f3280a21aab8d6e99c139b331ca716240201f4d6e60acbe55a52d4993c326c62"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -15,7 +16,7 @@ class Localstack < Formula
   end
 
   depends_on "docker" => :test
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "boto3" do
     url "https://files.pythonhosted.org/packages/34/cf/6d11d4ec66f4c290fb58e9ce04441681714c3b8c76a35fe2d97a3ab423d0/boto3-1.14.63.tar.gz"
