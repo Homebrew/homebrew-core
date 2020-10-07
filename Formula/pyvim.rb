@@ -6,6 +6,7 @@ class Pyvim < Formula
   url "https://files.pythonhosted.org/packages/7b/7c/4c44b77642e866bbbe391584433c11977aef5d1dc05da879d3e8476cab10/pyvim-3.0.2.tar.gz"
   sha256 "da94f7a8e8c4b2b4611196987c3ca2840b0011cc399618793e551f7149f26c6a"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -18,7 +19,7 @@ class Pyvim < Formula
     sha256 "b2c764a4186e90c37d43af45fe31432f74ea12566af67a7a9a1103d388fd168c" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "docopt" do
     url "https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz"
