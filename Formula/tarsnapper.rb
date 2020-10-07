@@ -6,7 +6,7 @@ class Tarsnapper < Formula
   url "https://github.com/miracle2k/tarsnapper/archive/0.4.tar.gz"
   sha256 "94ac22c3ed72e6321596f7d229b34fd21b59a00035162c5b22f2a1ee64dc6d01"
   license "BSD-2-Clause"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -16,7 +16,7 @@ class Tarsnapper < Formula
   end
 
   depends_on "libyaml"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "tarsnap"
 
   resource "argparse" do
