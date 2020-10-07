@@ -4,6 +4,7 @@ class JenkinsJobBuilder < Formula
   url "https://files.pythonhosted.org/packages/ba/14/999a397eea25509ffe39743fa90d15b252da2cdfc6fccb2cadd7862063df/jenkins-job-builder-3.6.0.tar.gz"
   sha256 "7c2a3ba43d4e0c5d13a9897901843748bf65a7dab4bf1b7f440a016b3e9382a4"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -16,7 +17,7 @@ class JenkinsJobBuilder < Formula
     sha256 "1357d919b09de265741046c94f994cec46a36a0032640b0b5749ffed1366308d" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/40/a7/ded59fa294b85ca206082306bba75469a38ea1c7d44ea7e1d64f5443d67a/certifi-2020.6.20.tar.gz"
