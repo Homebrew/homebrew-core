@@ -6,7 +6,7 @@ class Awscurl < Formula
   url "https://github.com/okigan/awscurl/archive/v0.20.tar.gz"
   sha256 "3ce06d105067b42398cf0bb6696742b790258e16487d5e5afa025b7c3ca983e4"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/okigan/awscurl.git"
 
   bottle do
@@ -16,7 +16,7 @@ class Awscurl < Formula
     sha256 "38ad9e69f5e0d14d4c8007d059b8faf61cec1f6a6ec9f61cf2e25fc19ba3d005" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "libffi"
 
