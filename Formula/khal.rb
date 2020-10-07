@@ -6,6 +6,7 @@ class Khal < Formula
   url "https://files.pythonhosted.org/packages/fc/21/e9d15ede629b2b167eecf08a8c506abbdf00191e2aa366aa48573475782a/khal-0.10.2.tar.gz"
   sha256 "494f215c3d1cb7a1f8d756b440809d255bd20e2937f98bd0b5d44e42d4cb1087"
   license "MIT"
+  revision 1
   head "https://github.com/pimutils/khal.git"
 
   livecheck do
@@ -19,7 +20,7 @@ class Khal < Formula
     sha256 "40044701772609c9af1981f2d9708cde8147621e69827e6107feb769cb8d3d0e" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "atomicwrites" do
     url "https://files.pythonhosted.org/packages/55/8d/74a75635f2c3c914ab5b3850112fd4b0c8039975ecb320e4449aa363ba54/atomicwrites-1.4.0.tar.gz"
