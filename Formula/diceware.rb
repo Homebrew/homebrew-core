@@ -6,7 +6,7 @@ class Diceware < Formula
   url "https://github.com/ulif/diceware/archive/v0.9.6.tar.gz"
   sha256 "ff55832e725abff212dec1a2cb6e1c3545ae782b5f49ec91ec870a2b50e1f0e8"
   license "GPL-3.0"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any_skip_relocation
@@ -15,7 +15,7 @@ class Diceware < Formula
     sha256 "a5838d0d6d69978d1bd9d56699ae4256af9a56bd5636614e783b4e4379c8365f" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
     virtualenv_install_with_resources
