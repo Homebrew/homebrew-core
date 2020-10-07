@@ -6,6 +6,7 @@ class Nbdime < Formula
   url "https://files.pythonhosted.org/packages/d8/55/34e050f939e37b79c1a6283ea6c8b411cfda21a12e5d492da32fbdac23d5/nbdime-2.1.0.tar.gz"
   sha256 "4e3efdcfda31c3074cb565cd8e76e2e5421b1c4560c3a00c56f8679dd15590e5"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -18,7 +19,7 @@ class Nbdime < Formula
     sha256 "bdeebd6e06b0e11e0b8a46f6243ed1e91bef2aa3cbe272850d8c09d047144f69" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "appnope" do
     url "https://files.pythonhosted.org/packages/26/34/0f3a5efac31f27fabce64645f8c609de9d925fe2915304d1a40f544cff0e/appnope-0.1.0.tar.gz"
