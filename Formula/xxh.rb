@@ -6,6 +6,7 @@ class Xxh < Formula
   url "https://files.pythonhosted.org/packages/d1/8d/04404b4edc1f6dc1fdad61ea5ea84e233d1fc05baf653c3d94ca67d14302/xxh-xxh-0.8.6.tar.gz"
   sha256 "c35f828c937a34d0ca98797984ac8457a4906ab75dbb38a1ab8843142ff765de"
   license "BSD-2-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -18,7 +19,7 @@ class Xxh < Formula
     sha256 "eeac1b46050b2af2f0795a88796a2cac3837ec08cd5904b4e399a5b7702fc51b" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "pexpect" do
     url "https://files.pythonhosted.org/packages/e5/9b/ff402e0e930e70467a7178abb7c128709a30dfb22d8777c043e501bc1b10/pexpect-4.8.0.tar.gz"
