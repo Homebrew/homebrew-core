@@ -6,7 +6,7 @@ class TrezorAgent < Formula
   url "https://files.pythonhosted.org/packages/f1/a7/8989377dfce48abf9115055baf6d2cfba55102929a7c5f3e5b9c8e8b5c18/trezor_agent-0.11.0.tar.gz"
   sha256 "139d917d6495bf290bcc21da457f84ccd2e74c78b4d59a649e0cdde4288cd20c"
   license "LGPL-3.0"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -20,7 +20,7 @@ class TrezorAgent < Formula
   end
 
   depends_on "libusb"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   # Gather dependencies for trezor-agent, ledger-agent & keepkey-agent
 
