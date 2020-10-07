@@ -6,6 +6,7 @@ class CloudformationCli < Formula
   url "https://files.pythonhosted.org/packages/00/85/e0596b6e9fd75e0cc97b5ef83e82015712b519fdc770da78b60194cccf1d/cloudformation-cli-0.1.11.tar.gz"
   sha256 "39ef453372f5f56fed92e738a8b58af7b471a9c442e4c514f629c218debc5199"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -19,7 +20,7 @@ class CloudformationCli < Formula
   end
 
   depends_on "go" => :test
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "expect" => :test
 
