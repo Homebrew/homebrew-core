@@ -6,6 +6,7 @@ class Ddgr < Formula
   url "https://github.com/jarun/ddgr/archive/v1.9.tar.gz"
   sha256 "3dfe82fab649f1cec904a1de63f78692be329a3b6928c1615f22c76f6e21c36f"
   license "GPL-3.0"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -14,7 +15,7 @@ class Ddgr < Formula
     sha256 "08367098555c6cd274eee9906f0f9092742c9c182c3f54bcc6673fdfd32ac319" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
     rewrite_shebang detected_python_shebang, "ddgr"
