@@ -4,10 +4,11 @@ class Ydiff < Formula
   url "https://github.com/ymattw/ydiff/archive/1.2.tar.gz"
   sha256 "0a0acf326b1471b257f51d63136f3534a41c0f9a405a1bbbd410457cebfdd6a1"
   license "BSD-3-Clause"
+  revision 1
 
   bottle :unneeded
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
     xy = Language::Python.major_minor_version "python3"
