@@ -6,6 +6,7 @@ class Cppman < Formula
   url "https://files.pythonhosted.org/packages/e4/a0/6c8af0f95dc7fe418f2cf812a8704780f83295235c7f32b12e87e77a79e4/cppman-0.5.1.tar.gz"
   sha256 "a34261da3186d4f13836fec72e32258b82b6fad7d25f353d54ca54e831dd8589"
   license "GPL-3.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -18,7 +19,7 @@ class Cppman < Formula
     sha256 "df16ad64a2749394e0d105be9ddad4ddf782d5db56648577bf2d2568d5bd800b" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "beautifulsoup4" do
     url "https://files.pythonhosted.org/packages/c6/62/8a2bef01214eeaa5a4489eca7104e152968729512ee33cb5fbbc37a896b7/beautifulsoup4-4.9.1.tar.gz"
