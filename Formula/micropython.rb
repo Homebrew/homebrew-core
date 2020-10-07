@@ -5,6 +5,7 @@ class Micropython < Formula
       tag:      "v1.13",
       revision: "b0932fcf2e2f9a81abf7737ed4b2573bd9ad4a49"
   license "MIT"
+  revision 1
 
   bottle do
     cellar :any
@@ -15,7 +16,7 @@ class Micropython < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libffi" # Requires libffi v3 closure API; macOS version is too old
-  depends_on "python@3.8" # Requires python3 executable
+  depends_on "python@3.9" # Requires python3 executable
 
   def install
     # Build mpy-cross before building the rest of micropython. Build process expects executable at
