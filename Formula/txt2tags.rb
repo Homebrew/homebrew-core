@@ -5,7 +5,7 @@ class Txt2tags < Formula
   homepage "https://txt2tags.org/"
   url "https://files.pythonhosted.org/packages/0e/80/dc4215b549ddbe1d1251bc4cd47ad6f4a65e1f9803815997817ff297d22e/txt2tags-3.7.tar.gz"
   sha256 "27969387206d12b4e4a0eb13d0d5dd957d71dbb932451b0dceeab5e3dbb6178a"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -18,7 +18,7 @@ class Txt2tags < Formula
     sha256 "8aa1a28a1d6697d6b247e360afd13079635404805d31ff9b83afaab9bb23a0b3" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
     virtualenv_install_with_resources
