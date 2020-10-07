@@ -6,6 +6,7 @@ class CfnLint < Formula
   url "https://files.pythonhosted.org/packages/29/f5/93257b28a1b0fc1164a557b46313d8d99ca11a81f6789ea51cafb7a28c20/cfn-lint-0.37.0.tar.gz"
   sha256 "5178595b7ccbbafb8b2b6fe9d3bc6215007387145ddf29812ecee70bb8500801"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -18,7 +19,7 @@ class CfnLint < Formula
     sha256 "7c7598d23d7b53551dccc4dfa9ae2a81319903f81c6d3b2eedef0b2a6fb6c744" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/81/d0/641b698d05f0eaea4df4f9cebaff573d7a5276228ef6b7541240fe02f3ad/attrs-20.2.0.tar.gz"
