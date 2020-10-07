@@ -4,6 +4,7 @@ class XcbProto < Formula
   url "https://xcb.freedesktop.org/dist/xcb-proto-1.13.tar.bz2"
   sha256 "7b98721e669be80284e9bbfeab02d2d0d54cd11172b72271e47a2fe875e2bde1"
   license "MIT"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -13,7 +14,7 @@ class XcbProto < Formula
   end
 
   depends_on "pkg-config" => [:build, :test]
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
 
   def install
     args = %W[
