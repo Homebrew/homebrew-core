@@ -4,6 +4,7 @@ class Ccm < Formula
   url "https://files.pythonhosted.org/packages/f1/12/091e82033d53b3802e1ead6b16045c5ecfb03374f8586a4ae4673a914c1a/ccm-3.1.5.tar.gz"
   sha256 "f07cc0a37116d2ce1b96c0d467f792668aa25835c73beb61639fa50a1954326c"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/pcmanus/ccm.git"
 
   livecheck do
@@ -17,7 +18,7 @@ class Ccm < Formula
     sha256 "6f301f55003b0542009458f90cebed245edb4f38abac9a0755552380f2174d12" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "PyYAML" do
     url "https://files.pythonhosted.org/packages/3d/d9/ea9816aea31beeadccd03f1f8b625ecf8f645bd66744484d162d84803ce5/PyYAML-5.3.tar.gz"
