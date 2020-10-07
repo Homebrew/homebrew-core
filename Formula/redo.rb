@@ -6,6 +6,7 @@ class Redo < Formula
   url "https://github.com/apenwarr/redo/archive/redo-0.42c.tar.gz"
   sha256 "6f1600c82d00bdfa75445e1e161477f876bd2615eb4371eb1bcf0a7e252dc79f"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -14,7 +15,7 @@ class Redo < Formula
     sha256 "78615055158a19503f04f1ef8698b4dc9cf7f61753b9f5bc59bd3fe99c2c11d9" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "Markdown" do
     url "https://files.pythonhosted.org/packages/44/30/cb4555416609a8f75525e34cbacfc721aa5b0044809968b2cf553fd879c7/Markdown-3.2.2.tar.gz"
@@ -27,7 +28,7 @@ class Redo < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
+    venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
     venv.pip_install resources
     # Set the interpreter so that ./do install can find the pip installed
     # resources
