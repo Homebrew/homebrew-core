@@ -6,7 +6,7 @@ class Binwalk < Formula
   url "https://github.com/ReFirmLabs/binwalk/archive/v2.2.0.tar.gz"
   sha256 "f5495f0e4c5575023d593f7c087c367675df6aeb7f4d9a2966e49763924daa27"
   license "MIT"
-  revision 2
+  revision 3
   head "https://github.com/ReFirmLabs/binwalk.git"
 
   bottle do
@@ -21,7 +21,7 @@ class Binwalk < Formula
   depends_on "freetype"
   depends_on "libpng"
   depends_on "p7zip"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "ssdeep"
   depends_on "xz"
 
