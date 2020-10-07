@@ -6,6 +6,7 @@ class Mdv < Formula
   url "https://files.pythonhosted.org/packages/70/6d/831e188f8079c9793eac4f62ae55d04a93d90979fd2d8271113687605380/mdv-1.7.4.tar.gz"
   sha256 "1534f477c85d580352c82141436f6fdba79d329af8a5ee7e329fea14424a660d"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -18,7 +19,7 @@ class Mdv < Formula
     sha256 "3b9847a65d7c9820148cd848687efdb598193cc76abb031c1f71841bad2ec60d" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "docopt" do
     url "https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz"
