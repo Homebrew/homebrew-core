@@ -4,7 +4,7 @@ class Libtcod < Formula
   url "https://github.com/libtcod/libtcod/archive/1.15.1.tar.gz"
   sha256 "2713d8719be53db7a529cbf53064e5bc9f3adf009db339d3a81b50d471bc306f"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -17,7 +17,7 @@ class Libtcod < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
   depends_on :macos # Due to Python 2
   depends_on "sdl2"
 
