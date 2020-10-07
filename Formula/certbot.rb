@@ -6,6 +6,7 @@ class Certbot < Formula
   url "https://github.com/certbot/certbot/archive/v1.8.0.tar.gz"
   sha256 "ce7381c0110d0876615a869c0b11d900ec4a84c316cc2a4d78d1bc6aaa2592cb"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/certbot/certbot.git"
 
   bottle do
@@ -18,7 +19,7 @@ class Certbot < Formula
   depends_on "augeas"
   depends_on "dialog"
   depends_on "openssl@1.1"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "libffi"
 
