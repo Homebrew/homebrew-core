@@ -6,6 +6,7 @@ class Fava < Formula
   url "https://files.pythonhosted.org/packages/5e/42/d9f234080d5c48cd59ac0dc85b492188f2d7316b6a1790edaa65807a32bb/fava-1.15.tar.gz"
   sha256 "ff691c328cc524fb752c20b5c4ad2f23817caa2e0d9ec791f00a47e96a84ee0c"
   license "MIT"
+  revision 1
   head "https://github.com/beancount/fava.git"
 
   livecheck do
@@ -19,7 +20,7 @@ class Fava < Formula
     sha256 "96471a458d497ccd045661125f1ed4fb49a923084480f11463684e212c5f72d0" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/98/c3/2c227e66b5e896e15ccdae2e00bbc69aa46e9a8ce8869cc5fa96310bf612/attrs-19.3.0.tar.gz"
