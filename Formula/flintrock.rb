@@ -6,6 +6,7 @@ class Flintrock < Formula
   url "https://files.pythonhosted.org/packages/e6/18/3b45899e69e6ee24928f8c975b6bf575918029a19fc097de5d4ccbf6e3e7/Flintrock-1.0.0.tar.gz"
   sha256 "29635ba045ee4b966094d40ddadb0b2298ab0e3495fddf05a9a8b1060f6e4776"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -18,7 +19,7 @@ class Flintrock < Formula
     sha256 "348170a071d3f4852dd551774d5ebe17137384cd5c16d874a5f278baab7a41c8" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "asn1crypto" do
     url "https://files.pythonhosted.org/packages/9f/3d/8beae739ed8c1c8f00ceac0ab6b0e97299b42da869e24cf82851b27a9123/asn1crypto-1.3.0.tar.gz"
