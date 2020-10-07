@@ -7,6 +7,7 @@ class Sslmate < Formula
   homepage "https://sslmate.com"
   url "https://packages.sslmate.com/other/sslmate-1.7.1.tar.gz"
   sha256 "454e19338910363189b349cfe3477351a20c34c6fda0f312ad143b1688faa6c4"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -15,7 +16,7 @@ class Sslmate < Formula
     sha256 "39df7966fbc2d8ddf054fca99456e3f5837b78c849bacc25fd40a0ae9e48bb60" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "perl"
 
@@ -27,7 +28,7 @@ class Sslmate < Formula
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"vendor/lib/perl5"
 
-    python3 = Formula["python@3.8"].opt_bin/"python3"
+    python3 = Formula["python@3.9"].opt_bin/"python3"
     xy = Language::Python.major_minor_version python3
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
 
