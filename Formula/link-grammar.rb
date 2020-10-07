@@ -4,6 +4,7 @@ class LinkGrammar < Formula
   url "https://www.abisource.com/downloads/link-grammar/5.8.0/link-grammar-5.8.0.tar.gz"
   sha256 "ad65a6b47ca0665b814430a5a8ff4de51f4805f7fb76642ced90297b4e7f16ed"
   license "LGPL-2.1"
+  revision 1
 
   livecheck do
     url :homepage
@@ -22,7 +23,7 @@ class LinkGrammar < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
 
   uses_from_macos "sqlite"
 
