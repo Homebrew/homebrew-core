@@ -6,6 +6,7 @@ class VpnSlice < Formula
   url "https://github.com/dlenski/vpn-slice/archive/v0.14.2.tar.gz"
   sha256 "cae69cfe2994fea487f563edb601f7ef8a59b5059baa104349121764da9d37a2"
   license "GPL-3.0"
+  revision 1
   head "https://github.com/dlenski/vpn-slice.git"
 
   bottle do
@@ -15,7 +16,7 @@ class VpnSlice < Formula
     sha256 "7f6c4cb4440b65b6579bd3796591ee95a7caeda748f40c82aea386b089d2898b" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "dnspython" do
     url "https://files.pythonhosted.org/packages/ec/c5/14bcd63cb6d06092a004793399ec395405edf97c2301dfdc146dfbd5beed/dnspython-1.16.0.zip"
