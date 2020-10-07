@@ -6,6 +6,7 @@ class Streamlink < Formula
   url "https://github.com/streamlink/streamlink/releases/download/1.6.0/streamlink-1.6.0.tar.gz"
   sha256 "f7857a54ec55e32d6e90ebd770c9d5d1318791d8ecd8270e104a8b1968a308ab"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -14,7 +15,7 @@ class Streamlink < Formula
     sha256 "f256ce18d4d0d3eceb969922ee48607ecfbaf6a81c0d4f7cd9414812cf2106b4" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "libffi"
 
