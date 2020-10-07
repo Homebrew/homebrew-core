@@ -6,6 +6,7 @@ class TwinePypi < Formula
   url "https://files.pythonhosted.org/packages/14/54/2fc5732362649f4b6f4c245c17dc5a526148b1fb2c3a89176a2ef950628a/twine-3.2.0.tar.gz"
   sha256 "34352fd52ec3b9d29837e6072d5a2a7c6fe4290e97bba46bb8d478b5c598f7ab"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/pypa/twine.git"
 
   livecheck do
@@ -19,7 +20,7 @@ class TwinePypi < Formula
     sha256 "2928900b6410e78fc1bca1e2f7a5eca6fa1fd705085aa0226a25cee70775ff15" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "bleach" do
     url "https://files.pythonhosted.org/packages/a9/ac/dc881fca3ac66d6f2c4c3ac46633af4e9c05ed5a0aa2e7e36dc096687dd7/bleach-3.1.5.tar.gz"
