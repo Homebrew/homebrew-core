@@ -6,6 +6,7 @@ class Legit < Formula
   url "https://files.pythonhosted.org/packages/cb/e4/8cc5904c486241bf2edc4dd84f357fa96686dc85f48eedb835af65f821bf/legit-1.2.0.post0.tar.gz"
   sha256 "949396b68029a8af405ab20c901902341ef6bd55c7fec6dab71141d63d406b11"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/frostming/legit.git", branch: "master"
 
   livecheck do
@@ -20,7 +21,7 @@ class Legit < Formula
     sha256 "cec24c2e497d9b8c162a06fb867778da3ecb08fe8ff7299a386c8abf1a03f895" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "args" do
     url "https://files.pythonhosted.org/packages/e5/1c/b701b3f4bd8d3667df8342f311b3efaeab86078a840fb826bd204118cc6b/args-0.1.0.tar.gz"
