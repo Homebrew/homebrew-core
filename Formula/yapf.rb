@@ -6,6 +6,7 @@ class Yapf < Formula
   url "https://files.pythonhosted.org/packages/65/44/c2aa8743cada222eaede6b9bd4b644e84f04eaa6dede2258ec7562b705d3/yapf-0.30.0.tar.gz"
   sha256 "3000abee4c28daebad55da6c85f3cd07b8062ce48e2e9943c8da1b9667d48427"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -18,7 +19,7 @@ class Yapf < Formula
     sha256 "0827bfff5c9ea969e54f97302298d4fb2861d91b6baae4f8c4cf3f6e84f44cc2" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
     virtualenv_install_with_resources
