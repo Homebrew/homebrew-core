@@ -6,7 +6,7 @@ class Deheader < Formula
   url "http://www.catb.org/~esr/deheader/deheader-1.7.tar.gz"
   sha256 "6856e4fa3efa664a0444b81c2e1f0209103be3b058455625c79abe65cf8db70d"
   license "BSD-2-Clause"
-  revision 1
+  revision 2
   head "https://gitlab.com/esr/deheader.git"
 
   bottle do
@@ -17,7 +17,7 @@ class Deheader < Formula
   end
 
   depends_on "xmlto" => :build
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   on_linux do
     depends_on "libarchive" => :build
