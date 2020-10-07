@@ -2,7 +2,7 @@ class Ponysay < Formula
   desc "Cowsay but with ponies"
   homepage "https://github.com/erkin/ponysay/"
   license "GPL-3.0"
-  revision 5
+  revision 6
   head "https://github.com/erkin/ponysay.git"
 
   stable do
@@ -25,7 +25,7 @@ class Ponysay < Formula
 
   depends_on "gzip" => :build
   depends_on "coreutils"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "texinfo" => :build
 
@@ -35,7 +35,7 @@ class Ponysay < Formula
            "--prefix=#{prefix}",
            "--cache-dir=#{prefix}/var/cache",
            "--sysconf-dir=#{prefix}/etc",
-           "--with-custom-env-python=#{Formula["python@3.8"].opt_bin}/python3",
+           "--with-custom-env-python=#{Formula["python@3.9"].opt_bin}/python3",
            "install"
   end
 
