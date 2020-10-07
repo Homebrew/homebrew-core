@@ -6,6 +6,7 @@ class Trailscraper < Formula
   url "https://github.com/flosell/trailscraper/archive/0.6.4.tar.gz"
   sha256 "4cc20f257c8167ca0f48aab3f0f2e29e60bd8ab5316d3f16e88a35e5eab039cc"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -14,7 +15,7 @@ class Trailscraper < Formula
     sha256 "51d3136645481a1692b49bbc3f1c428d55e52e7fc6fe54e1e3006dcdaa821d31" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "boto3" do
     url "https://files.pythonhosted.org/packages/2b/56/09a936e798a8b6b8ba1006f14b438dc1ec5791d7780e46a5a0749c7fc198/boto3-1.14.14.tar.gz"
