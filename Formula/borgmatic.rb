@@ -6,6 +6,7 @@ class Borgmatic < Formula
   url "https://files.pythonhosted.org/packages/3a/ef/de134b945ec2a73eeaea23efc9d8ff4f2c8ab23b14208d6c7b5e2a8b8137/borgmatic-1.5.10.tar.gz"
   sha256 "31459e5573c34b7b9e53ad54012be6d367e2f23c0612fd5a315593ebf23074c5"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -19,7 +20,7 @@ class Borgmatic < Formula
   end
 
   depends_on "libyaml"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/40/a7/ded59fa294b85ca206082306bba75469a38ea1c7d44ea7e1d64f5443d67a/certifi-2020.6.20.tar.gz"
