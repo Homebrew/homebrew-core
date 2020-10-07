@@ -6,6 +6,7 @@ class DockerCompose < Formula
   url "https://files.pythonhosted.org/packages/4a/b1/a1fdbc631212d9e27cc462d6b01a7ec50eed32ce1b5de80b2eb690b382c8/docker-compose-1.27.4.tar.gz"
   sha256 "5a5690f24c27d4b43dcbe6b3fae91ba680713208e99ee863352b3bae37bcaa83"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/docker/compose.git"
 
   livecheck do
@@ -21,7 +22,7 @@ class DockerCompose < Formula
   end
 
   depends_on "libyaml"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "libffi"
 
