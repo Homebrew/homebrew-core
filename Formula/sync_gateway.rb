@@ -5,6 +5,7 @@ class SyncGateway < Formula
       tag:      "2.7.3",
       revision: "33d352f97798e45360155b63c022e8a39485134e"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/couchbase/sync_gateway.git"
 
   bottle do
@@ -18,7 +19,7 @@ class SyncGateway < Formula
   depends_on "gnupg" => :build
   depends_on "go" => :build
   depends_on "repo" => :build
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
     # Cache the vendored Go dependencies gathered by depot_tools' `repo` command
