@@ -4,7 +4,7 @@ class BandcampDl < Formula
   desc "Simple python script to download Bandcamp albums"
   homepage "https://github.com/iheanyi/bandcamp-dl"
   license "Unlicense"
-  revision 5
+  revision 6
   head "https://github.com/iheanyi/bandcamp-dl.git"
 
   stable do
@@ -32,7 +32,7 @@ class BandcampDl < Formula
     sha256 "334ec76c821cc7cbcc3971717e1a2bc35ebc37492167b4e0c2f2f073c7eb5d35" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "Unidecode" do
     url "https://files.pythonhosted.org/packages/9d/36/49d0ee152b6a1631f03a541532c6201942430060aa97fe011cf01a2cce64/Unidecode-1.0.22.tar.gz"
