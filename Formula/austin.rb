@@ -4,6 +4,7 @@ class Austin < Formula
   url "https://github.com/P403n1x87/austin/archive/v1.0.1.tar.gz"
   sha256 "f86804f777f2f466ddede5d530d3ca67582b2a1467d000662d81272d6e9c5639"
   license "GPL-3.0"
+  revision 1
   head "https://github.com/P403n1x87/austin.git"
 
   bottle do
@@ -15,7 +16,7 @@ class Austin < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "python@3.8" => :test
+  depends_on "python@3.9" => :test
 
   def install
     system "autoreconf", "--install"
@@ -26,6 +27,6 @@ class Austin < Formula
   end
 
   test do
-    shell_output("#{bin}/austin #{Formula["python@3.8"].opt_bin}/python3 -c \"print('Test')\"", 33)
+    shell_output("#{bin}/austin #{Formula["python@3.9"].opt_bin}/python3 -c \"print('Test')\"", 33)
   end
 end
