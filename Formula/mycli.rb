@@ -5,6 +5,7 @@ class Mycli < Formula
   homepage "https://www.mycli.net/"
   url "https://files.pythonhosted.org/packages/67/51/89811ac28b7ae365be43359e7612d19c4342a12483880d7a963e6d31193a/mycli-1.22.2.tar.gz"
   sha256 "fb2e5dc74a8ec75049ebf02c0d7f14238a279a7eacb31138ac6d8f524aea02d3"
+  revision 1
 
   livecheck do
     url :stable
@@ -18,7 +19,7 @@ class Mycli < Formula
   end
 
   depends_on "openssl@1.1"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   on_linux do
     depends_on "pkg-config" => :build
