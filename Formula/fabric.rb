@@ -6,7 +6,7 @@ class Fabric < Formula
   url "https://github.com/fabric/fabric/archive/2.5.0.tar.gz"
   sha256 "4b3f4c79bcc372de575e7756b50c89373ce1acb8565902a5e406b5e78c41389c"
   license "BSD-2-Clause"
-  revision 4
+  revision 5
   head "https://github.com/fabric/fabric.git"
 
   livecheck do
@@ -22,7 +22,7 @@ class Fabric < Formula
   end
 
   depends_on "openssl@1.1"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "bcrypt" do
     url "https://files.pythonhosted.org/packages/fa/aa/025a3ab62469b5167bc397837c9ffc486c42a97ef12ceaa6699d8f5a5416/bcrypt-3.1.7.tar.gz"
