@@ -6,7 +6,7 @@ class ReconNg < Formula
   url "https://github.com/lanmaster53/recon-ng/archive/v5.1.1.tar.gz"
   sha256 "470e293e931c23a0dc76e6915098e04db7f2e254a0639bb2c0383e0758c4fbc2"
   license "GPL-3.0"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -16,7 +16,7 @@ class ReconNg < Formula
   end
 
   depends_on "libyaml"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
