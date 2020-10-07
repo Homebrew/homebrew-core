@@ -6,6 +6,7 @@ class AwsElasticbeanstalk < Formula
   url "https://files.pythonhosted.org/packages/3e/72/18aae8bbfdb7d9ed8ff509f4c5274af86da45b0647b834d50589547ee9dd/awsebcli-3.19.0.tar.gz"
   sha256 "35fc8417a37c9234789947d40b6f66b49a115d06d0dd9f6ce0bebd617df60202"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -18,7 +19,7 @@ class AwsElasticbeanstalk < Formula
     sha256 "ca0d168e38d332f2fa8855756fc26151052c6328a8cfc92643aa1847e0526d3f" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "libffi"
 
