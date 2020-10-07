@@ -6,7 +6,7 @@ class Pyinvoke < Formula
   url "https://github.com/pyinvoke/invoke/archive/1.4.1.tar.gz"
   sha256 "ac5880fb5d21f06cc1b29f89736cb8a43b85abea9204b4bb4277458ae025d0b7"
   license "BSD-2-Clause"
-  revision 1
+  revision 2
   head "https://github.com/pyinvoke/invoke.git"
 
   bottle do
@@ -16,7 +16,7 @@ class Pyinvoke < Formula
     sha256 "44224c0c6d1c175ddccf9bc20dcc6a0b3c48bd7ab72a30fde8f40db055406eee" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
     virtualenv_install_with_resources
