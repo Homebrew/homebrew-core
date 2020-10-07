@@ -6,6 +6,7 @@ class Howdoi < Formula
   url "https://files.pythonhosted.org/packages/34/b6/cb3f602a42b54f2992b970135b9c781cc7a69ed9a21ab0fc9c391c9be129/howdoi-2.0.7.tar.gz"
   sha256 "09362f7390119dffd83c61a942801ad4d19aee499340ef7e8d5871167391d3d6"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -18,7 +19,7 @@ class Howdoi < Formula
     sha256 "85fd34e660eb5d04c1c4084175c8d568e35e8b16f0d3de944d7a0d449d1cc8d7" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
