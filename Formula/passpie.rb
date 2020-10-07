@@ -6,7 +6,7 @@ class Passpie < Formula
   url "https://files.pythonhosted.org/packages/c8/2e/db84fa9d33c9361024343411875835143dc7b73eb3320b41c4f543b40ad6/passpie-1.6.1.tar.gz"
   sha256 "eec50eabb9f4c9abd9a1d89794f86afe3956e1ba9f6c831d04b164fd4fc0ad02"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/marcwebbie/passpie.git"
 
   livecheck do
@@ -22,7 +22,7 @@ class Passpie < Formula
 
   depends_on "gnupg"
   depends_on "libyaml"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/7a/00/c14926d8232b36b08218067bcd5853caefb4737cda3f0a47437151344792/click-6.6.tar.gz"
