@@ -6,6 +6,7 @@ class Tox < Formula
   url "https://files.pythonhosted.org/packages/b2/2c/579c4ad3d0c050770ee3b3bf42305606107ea42abb88ec8c5ce24c055a3f/tox-3.20.0.tar.gz"
   sha256 "eb629ddc60e8542fd4a1956b2462e3b8771d49f1ff630cecceacaa0fbfb7605a"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -18,7 +19,7 @@ class Tox < Formula
     sha256 "5dfbdc2baf27f811043a180a3ba475b58c6982a7092634064f1aed2ee6fe0ded" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/d7/d8/05696357e0311f5b5c316d7b95f46c669dd9c15aaeecbb48c7d0aeb88c40/appdirs-1.4.4.tar.gz"
@@ -88,7 +89,7 @@ class Tox < Formula
 
   test do
     ENV["LC_ALL"] = "en_US.UTF-8"
-    pyver = Language::Python.major_minor_version("python3.8").to_s.delete(".")
+    pyver = Language::Python.major_minor_version("python3.9").to_s.delete(".")
     (testpath/"tox.ini").write <<~EOS
       [tox]
       envlist=py#{pyver}
