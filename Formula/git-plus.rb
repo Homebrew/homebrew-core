@@ -6,6 +6,7 @@ class GitPlus < Formula
   url "https://files.pythonhosted.org/packages/73/b5/6cf7f0513fd1ef42b5a3ac0e342b3c4176551f60ad17fc5dbe52329f2b58/git-plus-v0.4.6.tar.gz"
   sha256 "bcf3a83a2730e8b6f5bc106db00b7b6be5df534cb9543ba7ecc506c535c5158b"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/tkrajina/git-plus.git"
 
   livecheck do
@@ -19,7 +20,7 @@ class GitPlus < Formula
     sha256 "8b2e2b84a5525f199a20dafc0e1d4726ce53352eeb9e21479741b2331910afac" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
     virtualenv_install_with_resources
