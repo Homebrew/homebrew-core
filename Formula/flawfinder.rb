@@ -6,7 +6,7 @@ class Flawfinder < Formula
   url "https://www.dwheeler.com/flawfinder/flawfinder-2.0.11.tar.gz"
   sha256 "9b4929fca5c6703880d95f201e470b7f19262ff63e991b3ac4ea3257f712f5ec"
   license "GPL-2.0"
-  revision 1
+  revision 2
   head "https://github.com/david-a-wheeler/flawfinder.git"
 
   livecheck do
@@ -21,7 +21,7 @@ class Flawfinder < Formula
     sha256 "834e8b598e411e3722bb5955348293cc9ef833400ee0a45357525c91c13a29c6" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "flaws" do
     url "https://www.dwheeler.com/flawfinder/test.c"
