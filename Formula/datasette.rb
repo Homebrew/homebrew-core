@@ -5,6 +5,7 @@ class Datasette < Formula
   url "https://files.pythonhosted.org/packages/f6/37/73cbc9aaa7f83ec75d49439a76d56c730c14449977edeb177205cf08e18e/datasette-0.49.1.tar.gz"
   sha256 "21366cb40c2daf35bd6716c5a06eca3159fc2b67312a8e9fd849d6ffabcd3abf"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -17,7 +18,7 @@ class Datasette < Formula
     sha256 "cee5a157f3293a7834942eb5c7d56db0c50dd37bc1c0c552906da075534c8b50" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "aiofiles" do
     url "https://files.pythonhosted.org/packages/2b/64/437053d6a4ba3b3eea1044131a25b458489320cb9609e19ac17261e4dc9b/aiofiles-0.5.0.tar.gz"
