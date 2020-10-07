@@ -4,7 +4,7 @@ class Stormssh < Formula
   url "https://files.pythonhosted.org/packages/0a/18/85d12be676ae0c1d98173b07cc289bbf9e0c67d6c7054b8df3e1003bf992/stormssh-0.7.0.tar.gz"
   sha256 "8d034dcd9487fa0d280e0ec855d08420f51d5f9f2249f932e3c12119eaa53453"
   license "MIT"
-  revision 3
+  revision 4
   head "https://github.com/emre/storm.git"
 
   livecheck do
@@ -18,7 +18,7 @@ class Stormssh < Formula
     sha256 "e69de64df1e5e1285fbd26ac1651d2ab1ad964237531151de7b3e05dbd23161e" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "libffi"
 
