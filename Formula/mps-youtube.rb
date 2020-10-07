@@ -6,7 +6,7 @@ class MpsYoutube < Formula
   url "https://github.com/mps-youtube/mps-youtube/archive/v0.2.8.tar.gz"
   sha256 "d5f2c4bc1f57f0566242c4a0a721a5ceaa6d6d407f9d6dd29009a714a0abec74"
   license "GPL-3.0"
-  revision 10
+  revision 11
 
   bottle do
     cellar :any_skip_relocation
@@ -16,7 +16,7 @@ class MpsYoutube < Formula
   end
 
   depends_on "mplayer"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "pafy" do
     url "https://files.pythonhosted.org/packages/7e/02/b70f4d2ad64bbc7d2a00018c6545d9b9039208553358534e73e6dd5bbaf6/pafy-0.5.5.tar.gz"
@@ -29,7 +29,7 @@ class MpsYoutube < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.8")
+    venv = virtualenv_create(libexec, "python3")
 
     %w[youtube_dl pafy].each do |r|
       venv.pip_install resource(r)
