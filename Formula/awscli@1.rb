@@ -7,6 +7,7 @@ class AwscliAT1 < Formula
   url "https://github.com/aws/aws-cli/archive/1.18.150.tar.gz"
   sha256 "1c916fd6b70231e96be3e2f9d4386b70ba414577a7905399c3ee430c91a27f6c"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -24,7 +25,7 @@ class AwscliAT1 < Formula
 
   # Some AWS APIs require TLS1.2, which system Python doesn't have before High
   # Sierra
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "groff"
 
