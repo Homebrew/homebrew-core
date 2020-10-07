@@ -5,7 +5,7 @@ class Pssh < Formula
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/parallel-ssh/pssh-2.3.1.tar.gz"
   sha256 "539f8d8363b722712310f3296f189d1ae8c690898eca93627fc89a9cb311f6b4"
   license "BSD-3-Clause"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://www.googleapis.com/download/storage/v1/b/google-code-archive/o/v2%2Fcode.google.com%2Fparallel-ssh%2Fdownloads-page-1.json?&alt=media"
@@ -19,7 +19,7 @@ class Pssh < Formula
     sha256 "c06b726eead0f61a02e2c0a8f6fcdf8cf78f437deb841112b08447829b828e90" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   conflicts_with "putty", because: "both install `pscp` binaries"
 
