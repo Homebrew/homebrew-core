@@ -6,6 +6,7 @@ class Dnstwist < Formula
   url "https://github.com/elceef/dnstwist/archive/20200916.tar.gz"
   sha256 "5c4923db1873449dda3447f5fe8e5699732fbe1fd0a6b8f581e890ed07a7b192"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     cellar :any
@@ -15,7 +16,7 @@ class Dnstwist < Formula
   end
 
   depends_on "geoip"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "ssdeep"
 
   uses_from_macos "libffi"
@@ -88,7 +89,7 @@ class Dnstwist < Formula
   def install
     ENV.append "CPPFLAGS", "-I#{MacOS.sdk_path_if_needed}/usr/include/ffi"
 
-    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
+    venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
     venv.pip_install resources
 
     (libexec/"bin").install "dnstwist.py" => "dnstwist"
