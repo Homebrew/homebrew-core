@@ -5,6 +5,7 @@ class Pwncat < Formula
   homepage "https://pwncat.org"
   url "https://files.pythonhosted.org/packages/31/8a/efc45ecc5e91afc76de9c56f89de99af01d575529fead6ee24331a3fddf2/pwncat-0.1.0.tar.gz"
   sha256 "4f711c3d0f22650e20ad1429a7f0c9116b930be04435e7f690746ca0e1c5cd69"
+  revision 1
 
   livecheck do
     url :stable
@@ -17,10 +18,10 @@ class Pwncat < Formula
     sha256 "cc5dcb70ed1762f24f7d0511b74b2f119403f2bf8bc463aec844b8701682e2f2" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
-    ENV.prepend_path "PATH", Formula["python@3.8"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
     virtualenv_install_with_resources
   end
 
