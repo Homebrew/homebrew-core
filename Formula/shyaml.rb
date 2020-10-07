@@ -6,7 +6,7 @@ class Shyaml < Formula
   url "https://files.pythonhosted.org/packages/bc/ca/d8c47fad7a6ce01ddd2b7093673433dbfae414015f971ea7ffda56da125f/shyaml-0.6.1.tar.gz"
   sha256 "3a57e380f66043c661d417106a0f101f8068c80caa2afef57c90447b88526c3d"
   license "BSD-2-Clause"
-  revision 1
+  revision 2
   head "https://github.com/0k/shyaml.git"
 
   livecheck do
@@ -21,7 +21,7 @@ class Shyaml < Formula
   end
 
   depends_on "libyaml"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "PyYAML" do
     url "https://files.pythonhosted.org/packages/64/c2/b80047c7ac2478f9501676c988a5411ed5572f35d1beff9cae07d321512c/PyYAML-5.3.1.tar.gz"
