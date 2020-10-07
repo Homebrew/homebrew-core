@@ -6,6 +6,7 @@ class B2Tools < Formula
   url "https://github.com/Backblaze/B2_Command_Line_Tool/archive/v2.0.2.tar.gz"
   sha256 "1ac04158c73fa40734e8f206757aced0b1668c8f3433975361fa9d100ea85e68"
   license "MIT"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -14,12 +15,12 @@ class B2Tools < Formula
     sha256 "50f86e78975ab3401e41ddcc6259e94eced3782df36c978b4b4ef7c169fc83dc" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   conflicts_with "boost-build", because: "both install `b2` binaries"
 
   def install
-    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
+    venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
                               "--ignore-installed", buildpath
     system libexec/"bin/pip", "uninstall", "-y", "b2"
