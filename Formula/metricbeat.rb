@@ -5,6 +5,7 @@ class Metricbeat < Formula
       tag:      "v7.9.2",
       revision: "2ab907f5ccecf9fd82fe37105082e89fd871f684"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/elastic/beats.git"
 
   bottle do
@@ -15,7 +16,7 @@ class Metricbeat < Formula
   end
 
   depends_on "go" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
 
   def install
     # remove non open source files
