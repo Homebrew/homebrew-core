@@ -5,6 +5,7 @@ class Vim < Formula
   url "https://github.com/vim/vim/archive/v8.2.1800.tar.gz"
   sha256 "230ab1f0b194eba70ddd329bf0e0f6aebd92de9a2c6b9cd6137044448ebf2f9c"
   license "Vim"
+  revision 1
   head "https://github.com/vim/vim.git"
 
   bottle do
@@ -16,7 +17,7 @@ class Vim < Formula
   depends_on "gettext"
   depends_on "lua"
   depends_on "perl"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "ruby"
 
   uses_from_macos "ncurses"
@@ -28,7 +29,7 @@ class Vim < Formula
     because: "vim and macvim both install vi* binaries"
 
   def install
-    ENV.prepend_path "PATH", Formula["python@3.8"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
 
     # https://github.com/Homebrew/homebrew-core/pull/1046
     ENV.delete("SDKROOT")
