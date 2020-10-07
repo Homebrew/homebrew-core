@@ -6,6 +6,7 @@ class Snakemake < Formula
   url "https://files.pythonhosted.org/packages/f3/e7/380c16954cb99dad8abe143b816a843e0ec348c70ceb0112bed23ff70553/snakemake-5.26.1.tar.gz"
   sha256 "94cfed2f47f6441cca6cf9d53cffdc11eb78dd1758d96c0af9cd5e453247363e"
   license "MIT"
+  revision 1
   head "https://github.com/snakemake/snakemake.git"
 
   livecheck do
@@ -20,7 +21,7 @@ class Snakemake < Formula
   end
 
   depends_on "cbc"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "amply" do
     url "https://files.pythonhosted.org/packages/7f/11/33cb09557ac838d9488779b79e05a2a3c1f3ce9747cd242ba68332736778/amply-0.1.2.tar.gz"
