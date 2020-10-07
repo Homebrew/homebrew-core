@@ -7,6 +7,7 @@ class Sshuttle < Formula
       tag:      "v1.0.4",
       revision: "abb48f199656f776be0f05601ff5746f36df3370"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/sshuttle/sshuttle.git"
 
   bottle do
@@ -16,7 +17,7 @@ class Sshuttle < Formula
     sha256 "323c8b112631584ca559e5a588d7822b61af3d3e8eda30a3b0699710d627af0a" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
     # Building the docs requires installing
