@@ -4,6 +4,7 @@ class YleDl < Formula
   url "https://github.com/aajanki/yle-dl/archive/20200807.tar.gz"
   sha256 "9821e6cbe15a59aec78a0eff5fd63b0d5bb3eda9bab445812c213d73edb330fe"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/aajanki/yle-dl.git"
 
   bottle do
@@ -13,7 +14,7 @@ class YleDl < Formula
     sha256 "93c6a339da1aab813fbbdfaa094252259d2350d880faecd12b762b949bd63f03" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "rtmpdump"
 
   uses_from_macos "libxslt"
