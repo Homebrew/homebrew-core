@@ -6,6 +6,7 @@ class Subliminal < Formula
   url "https://files.pythonhosted.org/packages/dd/3a/ac02011988ad013f24a11cb6123a7ff9e17a75369964c7edd9f64bfea80f/subliminal-2.1.0.tar.gz"
   sha256 "c6439cc733a4f37f01f8c14c096d44fd28d75d1f6f6e2d1d1003b1b82c65628b"
   license "MIT"
+  revision 1
   head "https://github.com/Diaoul/subliminal.git"
 
   livecheck do
@@ -19,7 +20,7 @@ class Subliminal < Formula
     sha256 "a3bb9afb7a47164726675b04a85b50263f2a771e9b53ae833eccf44c63ad1c02" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/48/69/d87c60746b393309ca30761f8e2b49473d43450b150cb08f3c6df5c11be5/appdirs-1.4.3.tar.gz"
