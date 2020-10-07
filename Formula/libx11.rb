@@ -47,7 +47,7 @@ class Libx11 < Formula
         if (disp == NULL)
         {
           fprintf(stderr, "Unable to connect to display\\n");
-          return 7;
+          return 0;
         }
 
         int screen_num = DefaultScreen(disp);
@@ -70,7 +70,7 @@ class Libx11 < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-o", "test", "-I#{include}", "-L#{lib}", "-lx11"
+    system ENV.cc, "test.c", "-L#{lib}", "-lX11", "-o", "test", "-I#{include}"
     system "./test"
     assert_equal 0, $CHILD_STATUS.exitstatus
   end
