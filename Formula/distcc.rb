@@ -4,7 +4,7 @@ class Distcc < Formula
   url "https://github.com/distcc/distcc/releases/download/v3.3.3/distcc-3.3.3.tar.gz"
   sha256 "bead25471d5a53ecfdf8f065a6fe48901c14d5008956c318c700e56bc87bf0bc"
   license "GPL-2.0"
-  revision 2
+  revision 3
   head "https://github.com/distcc/distcc.git"
 
   bottle do
@@ -15,11 +15,17 @@ class Distcc < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "libiberty" do
     url "https://deb.debian.org/debian/pool/main/libi/libiberty/libiberty_20200409.orig.tar.xz"
     sha256 "1807b6d4c70040d71d5c93abdbcb2c05c9ad4f64ed1802583d1107fcdfc2c722"
+  end
+
+  # Xcode 12 patch
+  patch do
+    url "https://github.com/distcc/distcc/pull/398.diff?full_index=1"
+    sha256 "38898d1997c9e2d81ab198ec44718eedebb05a91b93441eaa60b9dccd366d349"
   end
 
   def install
