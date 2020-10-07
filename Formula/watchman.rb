@@ -2,7 +2,7 @@ class Watchman < Formula
   desc "Watch files and take action when they change"
   homepage "https://github.com/facebook/watchman"
   license "Apache-2.0"
-  revision 4
+  revision 5
   head "https://github.com/facebook/watchman.git"
 
   stable do
@@ -35,7 +35,7 @@ class Watchman < Formula
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
   depends_on "pcre"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
     system "./autogen.sh"
@@ -49,7 +49,7 @@ class Watchman < Formula
     system "make", "install"
 
     # Homebrew specific python application installation
-    python3 = Formula["python@3.8"].opt_bin/"python3"
+    python3 = Formula["python@3.9"].opt_bin/"python3"
     xy = Language::Python.major_minor_version python3
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
     cd "python" do
