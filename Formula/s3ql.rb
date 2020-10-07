@@ -6,7 +6,7 @@ class S3ql < Formula
   url "https://github.com/s3ql/s3ql/releases/download/release-3.3.2/s3ql-3.3.2.tar.bz2"
   sha256 "72b310052752e281a17468a8bbe9006db7fa1f0184b83b38c5667239dfd59e73"
   license "GPL-3.0"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -23,7 +23,7 @@ class S3ql < Formula
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
   depends_on :osxfuse
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "libffi"
 
@@ -83,8 +83,8 @@ class S3ql < Formula
   end
 
   resource "llfuse" do
-    url "https://files.pythonhosted.org/packages/75/b4/5248459ec0e7e1608814915479cb13e5baf89034b572e3d74d5c9219dd31/llfuse-1.3.6.tar.bz2"
-    sha256 "31a267f7ec542b0cd62e0f1268e1880fdabf3f418ec9447def99acfa6eff2ec9"
+    url "https://files.pythonhosted.org/packages/8f/73/d35aaf5f650250756b40c1e718ee6a2d552700729476dee24c9837608e1b/llfuse-1.3.8.tar.gz"
+    sha256 "b9b573108a840fbaa5c8f037160cc541f21b8cbdc15c5c8a39d5ac8c1b6c4cbc"
   end
 
   resource "oauthlib" do
