@@ -6,6 +6,7 @@ class Conan < Formula
   url "https://files.pythonhosted.org/packages/a7/f6/c437f320b4c998ef3f77b0823018078081cb615f88c7eed37a5523d70c0b/conan-1.30.0.tar.gz"
   sha256 "465e3fde8414e9abdaf6d8b8d2f501c88e6b4a79fcd4eb62541792746a2574e2"
   license "MIT"
+  revision 1
   head "https://github.com/conan-io/conan.git"
 
   livecheck do
@@ -23,7 +24,7 @@ class Conan < Formula
   depends_on "pkg-config" => :build
   depends_on "libffi"
   depends_on "openssl@1.1"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "asn1crypto" do
     url "https://files.pythonhosted.org/packages/6b/b4/42f0e52ac2184a8abb31f0a6f98111ceee1aac0b473cee063882436e0e09/asn1crypto-1.4.0.tar.gz"
