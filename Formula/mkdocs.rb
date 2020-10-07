@@ -6,6 +6,7 @@ class Mkdocs < Formula
   url "https://files.pythonhosted.org/packages/78/a3/ec98a4eab53b7adf435df6c17765e1d7b603e1487ad6ab7c824d5488bf5c/mkdocs-1.1.2.tar.gz"
   sha256 "f0b61e5402b99d7789efa032c7a74c90a20220a9c81749da06dbfbcbd52ffb39"
   license "BSD-2-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -18,7 +19,7 @@ class Mkdocs < Formula
     sha256 "9f8fbedf9f950579f4c6496807ff8de30d47b117ea76877ada80133f9fd795ee" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/4e/ab/5d6bc3b697154018ef196f5b17d958fac3854e2efbc39ea07a284d4a6a9b/click-7.1.1.tar.gz"
