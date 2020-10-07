@@ -6,6 +6,7 @@ class Osc < Formula
   url "https://github.com/openSUSE/osc/archive/0.170.0.tar.gz"
   sha256 "137d199fd2dad149eda2263155a800459f8553a5162fd7aaa947175e399272df"
   license "GPL-2.0"
+  revision 1
   head "https://github.com/openSUSE/osc.git"
 
   bottle do
@@ -17,7 +18,7 @@ class Osc < Formula
 
   depends_on "swig" => :build
   depends_on "openssl@1.1"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "curl"
 
