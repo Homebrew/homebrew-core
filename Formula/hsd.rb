@@ -6,6 +6,7 @@ class Hsd < Formula
   url "https://github.com/handshake-org/hsd/archive/v2.2.0.tar.gz"
   sha256 "44baccfd4940131a1ef97d4fb4632a9c3f59a081b2f08e89a0c8e171052fc9d3"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 "1313e41c8cc2c88a884e39cead4de454d30a688a69102357f39f12d40d4cd005" => :catalina
@@ -13,7 +14,7 @@ class Hsd < Formula
     sha256 "96d2753d93d0ec184fcbf821c71d1517710cdeb28219198bcc730ab9b6748490" => :high_sierra
   end
 
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
   depends_on "node@10"
   depends_on "unbound"
 
