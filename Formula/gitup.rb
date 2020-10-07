@@ -7,7 +7,7 @@ class Gitup < Formula
       tag:      "v0.5.1",
       revision: "b502b2eaa46a6a10d9db228209f984bb235444a7"
   license "MIT"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any_skip_relocation
@@ -16,7 +16,7 @@ class Gitup < Formula
     sha256 "63c2169d68aed5aca9a91bba014cdb96238b61316267691dd7c63ef566b89fc8" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "colorama" do
     url "https://files.pythonhosted.org/packages/e6/76/257b53926889e2835355d74fec73d82662100135293e17d382e2b74d1669/colorama-0.3.9.tar.gz"
