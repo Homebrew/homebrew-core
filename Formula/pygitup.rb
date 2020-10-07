@@ -6,6 +6,7 @@ class Pygitup < Formula
   url "https://files.pythonhosted.org/packages/6b/d6/177fc6cea5f34653fb9931e763d7b441ce35b0d7fbb95d5ac0e5e28f7a18/git-up-2.0.1.post1.tar.gz"
   sha256 "43d463199449cd6e3e80d2cef83a8e68f735f03fc33c94310e83b2241db9d73f"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -18,7 +19,7 @@ class Pygitup < Formula
     sha256 "d9613ae27a6ee79a837cfb05668631d2da067651dd2240426c476bd07191983c" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/27/6f/be940c8b1f1d69daceeb0032fee6c34d7bd70e3e649ccac0951500b4720e/click-7.1.2.tar.gz"
