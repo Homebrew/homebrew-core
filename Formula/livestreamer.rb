@@ -5,7 +5,7 @@ class Livestreamer < Formula
   homepage "https://livestreamer.io/"
   url "https://files.pythonhosted.org/packages/ee/d6/efbe3456160a2c62e3dd841c5d9504d071c94449a819148bb038b50d862a/livestreamer-1.12.2.tar.gz"
   sha256 "ef3e743d0cabc27d8ad906c356e74370799e25ba46c94d3b8d585af77a258de0"
-  revision 2
+  revision 3
 
   livecheck do
     url :stable
@@ -18,7 +18,7 @@ class Livestreamer < Formula
     sha256 "c5e389be81bbd2736c8edcfcb7e725c321c188a057ce43e195cdbb96223dd76f" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/b8/e2/a3a86a67c3fc8249ed305fc7b7d290ebe5e4d46ad45573884761ef4dea7b/certifi-2020.4.5.1.tar.gz"
