@@ -6,7 +6,7 @@ class Awsume < Formula
   url "https://github.com/trek10inc/awsume/archive/4.4.1.tar.gz"
   sha256 "66d698b4716a1dc7c927778a8fe124a6ac2d99334aff2be5dac6b13598b4e08f"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/trek10inc/awsume.git"
 
   bottle do
@@ -17,7 +17,7 @@ class Awsume < Formula
   end
 
   depends_on "openssl@1.1"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   uses_from_macos "sqlite"
 
   resource "boto3" do
