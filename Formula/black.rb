@@ -6,6 +6,7 @@ class Black < Formula
   url "https://files.pythonhosted.org/packages/dc/7b/5a6bbe89de849f28d7c109f5ea87b65afa5124ad615f3419e71beb29dc96/black-20.8b1.tar.gz"
   sha256 "1c02557aa099101b9d21496f8a914e9ed2222ef70336404eeeac8edba836fbea"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -19,7 +20,7 @@ class Black < Formula
     sha256 "391101f3b0adb19980fdfe90d851a9323f6ff4e342fe317cd1bc12f9e00699a8" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "aiohttp" do
     url "https://files.pythonhosted.org/packages/00/94/f9fa18e8d7124d7850a5715a0b9c0584f7b9375d331d35e157cee50f27cc/aiohttp-3.6.2.tar.gz"
