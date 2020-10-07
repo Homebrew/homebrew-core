@@ -5,6 +5,8 @@ class YouGet < Formula
   homepage "https://you-get.org/"
   url "https://github.com/soimort/you-get/archive/v0.4.1456.tar.gz"
   sha256 "619e2f5ae4b801dc196a2fe75d518cedd2f9e811db0fde7433de645a97898318"
+  license "MIT"
+  revision 1
   head "https://github.com/soimort/you-get.git", branch: "develop"
 
   bottle do
@@ -14,7 +16,7 @@ class YouGet < Formula
     sha256 "95e8eb0367df79f532e351c44a1eb7e710f5c26af769e2065dd09dd8399c3489" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "rtmpdump"
 
   resource "PySocks" do
