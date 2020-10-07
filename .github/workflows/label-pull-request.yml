@@ -80,6 +80,10 @@ jobs:
                     "path": "Formula/.+",
                     "content": "(?:depends_on|uses_from_macos) \"python@?.+"
                 }, {
+                    "label": "python-3.9-migration",
+                    "path": "Formula/.+",
+                    "content": "depends_on \"python@3.9\""
+                }, {
                     "label": "ruby",
                     "path": "Formula/.+",
                     "content": "(?:depends_on|uses_from_macos) \"ruby@?.+"
