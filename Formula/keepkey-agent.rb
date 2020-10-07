@@ -6,7 +6,7 @@ class KeepkeyAgent < Formula
   url "https://files.pythonhosted.org/packages/65/72/4bf47a7bc8dc93d2ac21672a0db4bc58a78ec5cee3c4bcebd0b4092a9110/keepkey_agent-0.9.0.tar.gz"
   sha256 "47c85de0c2ffb53c5d7bd2f4d2230146a416e82511259fad05119c4ef74be70c"
   license "LGPL-3.0"
-  revision 3
+  revision 4
 
   livecheck do
     url :stable
@@ -19,7 +19,7 @@ class KeepkeyAgent < Formula
     sha256 "90f8bed92a8c541ae0d3b4ba75f03094249d2081abd92be51a90feb4dbf2e401" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "backports.shutil_which" do
     url "https://files.pythonhosted.org/packages/dd/ea/715dc80584207a0ff4a693a73b03c65f087d8ad30842832b9866fe18cb2f/backports.shutil_which-3.5.1.tar.gz"
