@@ -6,7 +6,7 @@ class Restview < Formula
   url "https://github.com/mgedmin/restview/archive/2.9.2.tar.gz"
   sha256 "155a5744111d3d1f9e7903f4445ff41c04b42c0be29705f57fb98b3d33b283bd"
   license "GPL-3.0"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any_skip_relocation
@@ -15,7 +15,7 @@ class Restview < Formula
     sha256 "d91b7a7a04bd5bac8b29cb581bab4929488d0b1f3cbb084ceaf9b49996913099" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "bleach" do
     url "https://files.pythonhosted.org/packages/a9/ac/dc881fca3ac66d6f2c4c3ac46633af4e9c05ed5a0aa2e7e36dc096687dd7/bleach-3.1.5.tar.gz"
@@ -63,7 +63,7 @@ class Restview < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.8")
+    venv = virtualenv_create(libexec, "python3.9")
 
     res = resources.reject { |r| r.name == "sample" }
     venv.pip_install res
