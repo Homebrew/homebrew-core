@@ -4,6 +4,7 @@ class PythonYq < Formula
   url "https://files.pythonhosted.org/packages/50/4b/65a4e82636c21b8ffb96550191b463c6c56b99cc2db3c80f414ff2df5c75/yq-2.11.1.tar.gz"
   sha256 "74f64e3784a34d8a18efd8addc83cf5ca3478a0a69517d70fd9158a3809f99e0"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -17,7 +18,7 @@ class PythonYq < Formula
   end
 
   depends_on "jq"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   conflicts_with "yq", because: "both install `yq` executables"
 
