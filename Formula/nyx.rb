@@ -5,7 +5,7 @@ class Nyx < Formula
   homepage "https://nyx.torproject.org/"
   url "https://files.pythonhosted.org/packages/f4/da/68419425cb0f64f996e2150045c7043c2bb61f77b5928c2156c26a21db88/nyx-2.1.0.tar.gz"
   sha256 "88521488d1c9052e457b9e66498a4acfaaa3adf3adc5a199892632f129a5390b"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -18,7 +18,7 @@ class Nyx < Formula
     sha256 "61f9d689b22252460f42ec83b59a425f6d3a77d308d741360afa6435c429ed62" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "stem" do
     url "https://files.pythonhosted.org/packages/71/bd/ab05ffcbfe74dca704e860312e00c53ef690b1ddcb23be7a4d9ea4f40260/stem-1.8.0.tar.gz"
