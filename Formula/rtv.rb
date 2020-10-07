@@ -6,7 +6,7 @@ class Rtv < Formula
   url "https://github.com/michael-lazar/rtv/archive/v1.27.0.tar.gz"
   sha256 "c57a6cbb2525160b6aaa9180aec0293962b6969675f8ac0f2cfacff3cbd00d7c"
   license "MIT"
-  revision 3
+  revision 4
   head "https://github.com/michael-lazar/rtv.git"
 
   bottle do
@@ -18,7 +18,7 @@ class Rtv < Formula
 
   deprecate! date: "2019-06-02", because: :repo_archived
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "beautifulsoup4" do
     url "https://files.pythonhosted.org/packages/c6/62/8a2bef01214eeaa5a4489eca7104e152968729512ee33cb5fbbc37a896b7/beautifulsoup4-4.9.1.tar.gz"
