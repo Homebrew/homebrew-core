@@ -6,7 +6,7 @@ class FbiServefiles < Formula
   url "https://github.com/Steveice10/FBI/archive/2.6.0.tar.gz"
   sha256 "4948d4c53d754cc411b51edbf35c609ba514ae21d9d0e8f4b66a26d5c666be68"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
@@ -15,10 +15,10 @@ class FbiServefiles < Formula
     sha256 "b0aae581bf9247f6e282df341dfcffed362587539e7a443433d376319837961f" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
-    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
+    venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
     venv.pip_install_and_link buildpath/"servefiles"
   end
 
