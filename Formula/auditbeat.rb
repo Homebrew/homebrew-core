@@ -5,6 +5,7 @@ class Auditbeat < Formula
       tag:      "v7.9.2",
       revision: "2ab907f5ccecf9fd82fe37105082e89fd871f684"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/elastic/beats.git"
 
   bottle do
@@ -15,7 +16,7 @@ class Auditbeat < Formula
   end
 
   depends_on "go" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
 
   resource "virtualenv" do
     url "https://files.pythonhosted.org/packages/d4/0c/9840c08189e030873387a73b90ada981885010dd9aea134d6de30cd24cb8/virtualenv-15.1.0.tar.gz"
@@ -40,7 +41,7 @@ class Auditbeat < Formula
     ENV.prepend_create_path "PYTHONPATH", buildpath/"vendor/lib/python#{xy}/site-packages"
 
     resource("virtualenv").stage do
-      system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(buildpath/"vendor")
+      system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(buildpath/"vendor")
     end
 
     ENV.prepend_path "PATH", buildpath/"vendor/bin" # for virtualenv
