@@ -6,6 +6,7 @@ class Remarshal < Formula
   url "https://files.pythonhosted.org/packages/24/37/1f167687b2d9f3bac3e7e73508f86c7e6c1bf26a37ca5443182c8f596625/remarshal-0.14.0.tar.gz"
   sha256 "16425aa1575a271dd3705d812b06276eeedc3ac557e7fd28e06822ad14cd0667"
   license "MIT"
+  revision 1
   head "https://github.com/dbohdan/remarshal.git"
 
   livecheck do
@@ -19,7 +20,7 @@ class Remarshal < Formula
     sha256 "aa911ba1eaabf543282c7b672a6fedd2aae24fd4d6801c95569fb7333b7cba82" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   conflicts_with "msgpack-tools", because: "both install 'json2msgpack' binary"
 
