@@ -6,6 +6,7 @@ class Platformio < Formula
   url "https://files.pythonhosted.org/packages/38/6e/81a76ed61366ae04c2090ddac25e43c503f216912d582e81279e724ed0ff/platformio-5.0.1.tar.gz"
   sha256 "0251dd03d31c7ec89d30e5da582b7cad0f4332d9ec20648b672f26c623f885fc"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -18,7 +19,7 @@ class Platformio < Formula
     sha256 "b794ec831a9a8a8b5c4629d3fc3f3575369c99c9b57fec3585a11209a2d84bdc" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "bottle" do
     url "https://files.pythonhosted.org/packages/d9/4f/57887a07944140dae0d039d8bc270c249fc7fc4a00744effd73ae2cde0a9/bottle-0.12.18.tar.gz"
