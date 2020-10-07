@@ -6,6 +6,7 @@ class Pipgrip < Formula
   url "https://files.pythonhosted.org/packages/23/ae/2fd700b44b86f4bfbb0943be60043e92a35c73e96f3b075ba295cf687d34/pipgrip-0.6.1.tar.gz"
   sha256 "b2dcd453e509185fba95ba36c14955ed27c81f5ab8f620818a21b8d7c5909737"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -19,7 +20,7 @@ class Pipgrip < Formula
   end
 
   depends_on "gcc"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "anytree" do
     url "https://files.pythonhosted.org/packages/d8/45/de59861abc8cb66e9e95c02b214be4d52900aa92ce34241a957dcf1d569d/anytree-2.8.0.tar.gz"
@@ -52,7 +53,7 @@ class Pipgrip < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
+    venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
     venv.pip_install resources
     venv.pip_install buildpath
 
