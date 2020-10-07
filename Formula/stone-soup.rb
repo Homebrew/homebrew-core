@@ -4,6 +4,7 @@ class StoneSoup < Formula
   url "https://github.com/crawl/crawl/archive/0.25.1.tar.gz"
   sha256 "41ddf73543940a4d16a7f23c618e2f464dd6d3dd3affc999d2412d8af3f01126"
   license "GPL-2.0"
+  revision 1
 
   livecheck do
     url "https://crawl.develz.org/download.htm"
@@ -17,7 +18,7 @@ class StoneSoup < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
   depends_on "lua@5.1"
   depends_on "pcre"
   depends_on "sqlite"
@@ -29,7 +30,7 @@ class StoneSoup < Formula
 
   def install
     ENV.cxx11
-    ENV.prepend_path "PATH", Formula["python@3.8"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
     xy = Language::Python.major_minor_version "python3"
     ENV.prepend_create_path "PYTHONPATH", buildpath/"vendor/lib/python#{xy}/site-packages"
 
