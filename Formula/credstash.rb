@@ -6,6 +6,7 @@ class Credstash < Formula
   url "https://github.com/fugue/credstash/releases/download/v1.17.1/credstash-1.17.1.tar.gz"
   sha256 "6c04e8734ef556ab459018da142dd0b244093ef176b3be5583e582e9a797a120"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/fugue/credstash.git"
 
   bottle do
@@ -16,7 +17,7 @@ class Credstash < Formula
   end
 
   depends_on "openssl@1.1"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "libffi"
 
