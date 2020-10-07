@@ -4,6 +4,7 @@ class Cppcheck < Formula
   url "https://github.com/danmar/cppcheck/archive/2.2.tar.gz"
   sha256 "ad96290a1842c5934bf9c4268cb270953f3078d4ce33a9a53922d6cb6daf61aa"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/danmar/cppcheck.git"
 
   bottle do
@@ -12,7 +13,7 @@ class Cppcheck < Formula
     sha256 "419c210db1ba83e80fbb9f78f3aad467e5d8eb5221d03074badf0917bd23fa81" => :high_sierra
   end
 
-  depends_on "python@3.8" => :test
+  depends_on "python@3.9" => :test
   depends_on "pcre"
 
   def install
@@ -80,7 +81,7 @@ class Cppcheck < Formula
 
     sample_addon_file = testpath/"sampleaddon.py"
     sample_addon_file.write <<~EOS
-      #!/usr/bin/env #{Formula["python@3.8"].opt_bin}/python3
+      #!/usr/bin/env #{Formula["python@3.9"].opt_bin}/python3
       """A simple test addon for #{name}, prints function names and token count"""
       import sys
       from importlib import machinery, util
@@ -105,7 +106,7 @@ class Cppcheck < Formula
     system "#{bin}/cppcheck", "--dump", test_cpp_file
     test_cpp_file_dump = "#{test_cpp_file}.dump"
     assert_predicate testpath/test_cpp_file_dump, :exist?
-    output = shell_output(Formula["python@3.8"].opt_bin/"python3 #{sample_addon_file} #{test_cpp_file_dump}")
+    output = shell_output(Formula["python@3.9"].opt_bin/"python3 #{sample_addon_file} #{test_cpp_file_dump}")
     assert_match "#{expect_function_names}\n#{expect_token_count}", output
   end
 end
