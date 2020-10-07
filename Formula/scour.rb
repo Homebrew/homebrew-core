@@ -6,6 +6,7 @@ class Scour < Formula
   url "https://github.com/scour-project/scour/archive/v038.1.tar.gz"
   sha256 "0d2f88170305d54b143410276ff84da98e3ae9c36abe52430d9c2b510fa77884"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/scour-project/scour.git"
 
   bottle do
@@ -15,7 +16,7 @@ class Scour < Formula
     sha256 "8c4bdb7c969bdb4452baa576ead7293e7dd48cb494447eff0b6264d934f5bee2" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "six" do
     url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
