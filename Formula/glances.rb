@@ -4,6 +4,7 @@ class Glances < Formula
   url "https://github.com/nicolargo/glances/archive/v3.1.4.1.tar.gz"
   sha256 "0347a0b949451fd0022c0f22e54092fe526120a776af1f2bde1ea7ba61d6b792"
   license "LGPL-3.0"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -12,7 +13,7 @@ class Glances < Formula
     sha256 "27db703a8a6fd3decc1d96ebed0c0d991c41a74e5a25d1c708a843671be072fd" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "bernhard" do
     url "https://files.pythonhosted.org/packages/51/d4/b2701097f9062321262c4d4e3488fdf127887502b2619e8fd1ae13955a36/bernhard-0.2.6.tar.gz"
