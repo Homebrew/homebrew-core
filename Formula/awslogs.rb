@@ -6,6 +6,7 @@ class Awslogs < Formula
   url "https://files.pythonhosted.org/packages/96/7b/20bff9839d6679e25d989f94ca4320466ec94f3441972aadaafbad50560f/awslogs-0.14.0.tar.gz"
   sha256 "1b249f87fa2adfae39b9867f3066ac00b9baf401f4783583ab28fcdea338f77e"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/jorgebastida/awslogs.git"
 
   livecheck do
@@ -19,7 +20,7 @@ class Awslogs < Formula
     sha256 "b58eb7be4a8671da93a2e3a91cd451f9af82f9df0be1c7c29b303490eeda0258" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "zlib"
 
