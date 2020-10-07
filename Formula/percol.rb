@@ -4,7 +4,7 @@ class Percol < Formula
   url "https://github.com/mooz/percol/archive/v0.2.1.tar.gz"
   sha256 "75056ba1fe190ae4c728e68df963c0e7d19bfe5a85649e51ae4193d4011042f9"
   license "MIT"
-  revision 2
+  revision 3
   head "https://github.com/mooz/percol.git"
 
   bottle do
@@ -14,7 +14,7 @@ class Percol < Formula
     sha256 "e09b635ba6745c7beacd38c6a48d3d8637d0894618fc4e4ce1fdd8113d227cea" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "six" do
     url "https://files.pythonhosted.org/packages/94/3e/edcf6fef41d89187df7e38e868b2dd2182677922b600e880baad7749c865/six-1.13.0.tar.gz"
