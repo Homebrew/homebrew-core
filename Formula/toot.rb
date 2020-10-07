@@ -5,6 +5,7 @@ class Toot < Formula
   url "https://github.com/ihabunek/toot/releases/download/0.27.0/toot-0.27.0.tar.gz"
   sha256 "1dfdba9acc8555fa3b4db903cbf806a639bf43c7855d324233041c655fc5cbd5"
   license "GPL-3.0"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -13,7 +14,7 @@ class Toot < Formula
     sha256 "f8e4e2f82a44d0c9f054264d2cb9e0cd01f3f25cea91d7c861689bad7814add0" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "beautifulsoup4" do
     url "https://files.pythonhosted.org/packages/c6/62/8a2bef01214eeaa5a4489eca7104e152968729512ee33cb5fbbc37a896b7/beautifulsoup4-4.9.1.tar.gz"
