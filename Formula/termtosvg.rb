@@ -6,7 +6,9 @@ class Termtosvg < Formula
   url "https://github.com/nbedos/termtosvg/archive/1.1.0.tar.gz"
   sha256 "53e9ad5976978684699d14b83cac37bf173d76c787f1b849859ad8aef55f22d2"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
+
+  deprecate! date: "2020-10-08", because: :repo_archived
 
   bottle do
     cellar :any_skip_relocation
@@ -15,7 +17,7 @@ class Termtosvg < Formula
     sha256 "6cb7b9688575469970762f3ecdee882a30051a4b6d42f41af0e6aed159d97b0b" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
