@@ -6,6 +6,7 @@ class Internetarchive < Formula
   url "https://files.pythonhosted.org/packages/54/83/77dc7412c8627c9e7be962575a88fa159fdc714a6205e0eadf2d30dec7ed/internetarchive-1.9.5.tar.gz"
   sha256 "759053685c75e6e969d690043b82643c4016500abcbbc44e4daf52ec097a9a15"
   license "AGPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -18,7 +19,7 @@ class Internetarchive < Formula
     sha256 "779df67d147b476085cef9420f00e48ebff89d8a7775a08bef39985936272766" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/40/a7/ded59fa294b85ca206082306bba75469a38ea1c7d44ea7e1d64f5443d67a/certifi-2020.6.20.tar.gz"
