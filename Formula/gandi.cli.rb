@@ -6,6 +6,7 @@ class GandiCli < Formula
   url "https://files.pythonhosted.org/packages/cf/00/ff5acd1c9a0cfbb1a81a9f44ef4a745f31bb413869ae93295f8f5778cc4c/gandi.cli-1.6.tar.gz"
   sha256 "af59bf81a5a434dd3a5bc728a9475d80491ed73ce4343f2c1f479cbba09266c0"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -18,7 +19,7 @@ class GandiCli < Formula
     sha256 "3888020e1fd0042fdb57bc82340d8d34eb39f098e2748cedb0e423b5f47f7924" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/40/a7/ded59fa294b85ca206082306bba75469a38ea1c7d44ea7e1d64f5443d67a/certifi-2020.6.20.tar.gz"
