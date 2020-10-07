@@ -6,7 +6,7 @@ class Csvtomd < Formula
   url "https://files.pythonhosted.org/packages/9d/59/ea3c8b102f9c72e5d276a169f7f343432213441c39a6eac7a8f444c66681/csvtomd-0.3.0.tar.gz"
   sha256 "a1fbf1db86d4b7b62a75dc259807719b2301ed01db5d1d7d9bb49c4a8858778b"
   license "MIT"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -19,7 +19,7 @@ class Csvtomd < Formula
     sha256 "c7ec7a2ff12f6d5707bb51b14bd078c2401840108cf1f6c4a774d04ffedf427b" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
     virtualenv_install_with_resources
