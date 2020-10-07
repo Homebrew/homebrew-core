@@ -3,6 +3,7 @@ class Jailkit < Formula
   homepage "https://olivier.sessink.nl/jailkit/"
   url "https://olivier.sessink.nl/jailkit/jailkit-2.21.tar.bz2"
   sha256 "db3bb090a4fffdef59b5eafd594478d576cacf84306f9929d0dfbed090cf3687"
+  revision 1
 
   bottle do
     rebuild 1
@@ -11,10 +12,10 @@ class Jailkit < Formula
     sha256 "dd348dd5721fc813bb1556f13b196b684f5ef805f3c03c2bab1e3df4eef41376" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
-    ENV["PYTHONINTERPRETER"] = Formula["python@3.8"].opt_bin/"python3"
+    ENV["PYTHONINTERPRETER"] = Formula["python@3.9"].opt_bin/"python3"
 
     system "./configure", "--prefix=#{prefix}", "--disable-debug", "--disable-dependency-tracking"
     system "make", "install"
