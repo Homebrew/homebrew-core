@@ -4,6 +4,7 @@ class Twoping < Formula
   url "https://www.finnie.org/software/2ping/2ping-4.5.tar.gz"
   sha256 "867009928bf767d36279f90ff8f891855804c0004849f9554ac77fcd7f0fdb7b"
   license "GPL-2.0"
+  revision 1
   head "https://github.com/rfinnie/2ping.git", branch: "main"
 
   bottle do
@@ -13,7 +14,7 @@ class Twoping < Formula
     sha256 "2e76c2949b024e9d3bb26d2f2861b859a51d3f8b0508f5ba8f76d1b2e1d63f3e" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
     pyver = Language::Python.major_minor_version "python3"
