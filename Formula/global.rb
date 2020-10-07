@@ -4,7 +4,7 @@ class Global < Formula
   url "https://ftp.gnu.org/gnu/global/global-6.6.4.tar.gz"
   mirror "https://ftpmirror.gnu.org/global/global-6.6.4.tar.gz"
   sha256 "987e8cb956c53f8ebe4453b778a8fde2037b982613aba7f3e8e74bcd05312594"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -28,7 +28,7 @@ class Global < Formula
   end
 
   depends_on "ctags"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "ncurses"
 
@@ -57,6 +57,9 @@ class Global < Formula
       --sysconfdir=#{etc}
       --with-exuberant-ctags=#{Formula["ctags"].opt_bin}/ctags
     ]
+
+    # Fix detection of realpath() with Xcode >= 12
+    ENV.append_to_cflags "-Wno-error=implicit-function-declaration"
 
     system "./configure", *args
     system "make", "install"
