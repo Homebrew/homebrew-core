@@ -4,6 +4,7 @@ class Tvnamer < Formula
   url "https://files.pythonhosted.org/packages/2a/93/72434da887a3f70f88593d4df4c1a596d95dda0da72c5198d321ca53b5a2/tvnamer-3.0.1.tar.gz"
   sha256 "5512cebb1e49103a1e4ea9629398092b4bbabef35a91007ae0dbed961ebe17dd"
   license "Unlicense"
+  revision 1
   head "https://github.com/dbr/tvnamer.git"
 
   livecheck do
@@ -17,7 +18,7 @@ class Tvnamer < Formula
     sha256 "9debf12baae8344d58357f8be1a9e788e221ef3ecbfb95956d069456bb70bb1d" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/40/a7/ded59fa294b85ca206082306bba75469a38ea1c7d44ea7e1d64f5443d67a/certifi-2020.6.20.tar.gz"
