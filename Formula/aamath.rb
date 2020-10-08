@@ -3,7 +3,7 @@ class Aamath < Formula
   homepage "http://fuse.superglue.se/aamath/"
   url "http://fuse.superglue.se/aamath/aamath-0.3.tar.gz"
   sha256 "9843f4588695e2cd55ce5d8f58921d4f255e0e65ed9569e1dcddf3f68f77b631"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
 
   livecheck do
     url :homepage
