@@ -1,8 +1,8 @@
 class Cutter < Formula
   desc "Unit Testing Framework for C and C++"
   homepage "https://cutter.osdn.jp/"
-  url "https://osdn.mirror.constant.com/cutter/71616/cutter-1.2.7.tar.gz"
-  sha256 "4d80feb16f8f4d8eed62bca40194f8896e70bdac06305bf612b41601e659cae6"
+  url "https://osdn.mirror.constant.com/cutter/73761/cutter-1.2.8.tar.gz"
+  sha256 "bd5fcd6486855e48d51f893a1526e3363f9b2a03bac9fc23c157001447bc2a23"
   license "LGPL-3.0"
   head "https://github.com/clear-code/cutter.git"
 
