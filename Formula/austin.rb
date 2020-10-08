@@ -3,7 +3,7 @@ class Austin < Formula
   homepage "https://github.com/P403n1x87/austin"
   url "https://github.com/P403n1x87/austin/archive/v2.0.0.tar.gz"
   sha256 "95d40608bac22b965712dc929143ebc994d44b2eb4782b99ba58a2deb1e38aa1"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
   head "https://github.com/P403n1x87/austin.git"
 
   bottle do
