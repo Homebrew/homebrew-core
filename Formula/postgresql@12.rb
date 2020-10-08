@@ -1,15 +1,11 @@
-class Postgresql < Formula
+class PostgresqlAT12 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v13.0/postgresql-13.0.tar.bz2"
-  sha256 "80e750be8d436b54197636a02636f8fd3263ba6779bf865b04832495ea592296"
+  url "https://ftp.postgresql.org/pub/source/v12.4/postgresql-12.4.tar.bz2"
+  sha256 "bee93fbe2c32f59419cb162bcc0145c58da9a8644ee154a30b9a5ce47de606cc"
   license "PostgreSQL"
-  head "https://github.com/postgres/postgres.git"
 
-  livecheck do
-    url "https://www.postgresql.org/docs/current/static/release.html"
-    regex(/Release v?(\d+(?:\.\d+)*)/i)
-  end
+  keg_only :versioned_formula
 
   depends_on "pkg-config" => :build
   depends_on "icu4c"
