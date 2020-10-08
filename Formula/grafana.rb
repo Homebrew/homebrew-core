@@ -1,8 +1,8 @@
 class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases"
   homepage "https://grafana.com"
-  url "https://github.com/grafana/grafana/archive/v7.2.0.tar.gz"
-  sha256 "76dc219f79b5a892458bb7bd4f2ff649b1671a0a9761cc8998395ef2946f7244"
+  url "https://github.com/grafana/grafana/archive/v7.2.1.tar.gz"
+  sha256 "12184dfcd317608c916386358a8f9defd1b2e1a77be3f648456fc618087d5732"
   license "Apache-2.0"
   head "https://github.com/grafana/grafana.git"
 
@@ -25,26 +25,19 @@ class Grafana < Formula
   end
 
   def install
-    ENV["GOPATH"] = buildpath
-    grafana_path = buildpath/"src/github.com/grafana/grafana"
-    grafana_path.install buildpath.children
+    system "go", "run", "build.go", "build"
 
-    cd grafana_path do
-      system "go", "run", "build.go", "build"
+    system "yarn", "install", "--ignore-engines"
 
-      system "yarn", "install", "--ignore-engines"
+    system "node_modules/grunt-cli/bin/grunt", "build"
 
-      system "node_modules/grunt-cli/bin/grunt", "build"
-
-      bin.install "bin/darwin-amd64/grafana-cli"
-      bin.install "bin/darwin-amd64/grafana-server"
-      (etc/"grafana").mkpath
-      cp("conf/sample.ini", "conf/grafana.ini.example")
-      etc.install "conf/sample.ini" => "grafana/grafana.ini"
-      etc.install "conf/grafana.ini.example" => "grafana/grafana.ini.example"
-      pkgshare.install "conf", "public", "tools"
-      prefix.install_metafiles
-    end
+    bin.install "bin/darwin-amd64/grafana-cli"
+    bin.install "bin/darwin-amd64/grafana-server"
+    (etc/"grafana").mkpath
+    cp("conf/sample.ini", "conf/grafana.ini.example")
+    etc.install "conf/sample.ini" => "grafana/grafana.ini"
+    etc.install "conf/grafana.ini.example" => "grafana/grafana.ini.example"
+    pkgshare.install "conf", "public", "tools"
   end
 
   def post_install
