@@ -6,6 +6,7 @@ class Pipenv < Formula
   url "https://files.pythonhosted.org/packages/cc/0a/ed147c6bb2245ac9b275ef28db37b338181f1afe696317e0372786b57107/pipenv-2020.8.13.tar.gz"
   sha256 "eff0e10eadb330f612edfa5051d3d8e775e9e0e918c3c50361da703bd0daa035"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -18,7 +19,7 @@ class Pipenv < Formula
     sha256 "c1d7054bcac7369353d537e86bee0553a0c1dc14248ea1c4e7b9746257cef2af" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/d7/d8/05696357e0311f5b5c316d7b95f46c669dd9c15aaeecbb48c7d0aeb88c40/appdirs-1.4.4.tar.gz"
