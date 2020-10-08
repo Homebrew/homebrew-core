@@ -1,9 +1,8 @@
 class FbClient < Formula
   desc "Shell-script client for https://paste.xinu.at"
   homepage "https://paste.xinu.at"
-  url "https://paste.xinu.at/data/client/fb-2.0.4.tar.gz"
-  sha256 "330c9593afd2b2480162786992d0bfb71be25faf105f3c24c71d514b58ee0cd3"
-  revision 3
+  url "https://paste.xinu.at/data/client/fb-2.1.0.tar.gz"
+  sha256 "4c5eff822244271b9b189a8e279fd87b23b3c3ae02b895b763e3313cdc088353"
   head "https://git.server-speed.net/users/flo/fb", using: :git
 
   livecheck do
