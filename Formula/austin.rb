@@ -1,10 +1,9 @@
 class Austin < Formula
   desc "Python frame stack sampler for CPython"
   homepage "https://github.com/P403n1x87/austin"
-  url "https://github.com/P403n1x87/austin/archive/v1.0.1.tar.gz"
-  sha256 "f86804f777f2f466ddede5d530d3ca67582b2a1467d000662d81272d6e9c5639"
+  url "https://github.com/P403n1x87/austin/archive/v2.0.0.tar.gz"
+  sha256 "95d40608bac22b965712dc929143ebc994d44b2eb4782b99ba58a2deb1e38aa1"
   license "GPL-3.0"
-  revision 1
   head "https://github.com/P403n1x87/austin.git"
 
   bottle do
@@ -23,7 +22,7 @@ class Austin < Formula
     system "./configure", "--prefix=#{prefix}"
     system "make"
     system "make", "install"
-    man1.install "debian/austin.1"
+    man1.install "src/austin.1"
   end
 
   test do
