@@ -2,8 +2,8 @@ class Swiftgen < Formula
   desc "Swift code generator for assets, storyboards, Localizable.strings, …"
   homepage "https://github.com/SwiftGen/SwiftGen"
   url "https://github.com/SwiftGen/SwiftGen.git",
-      tag:      "6.3.0",
-      revision: "f79fa84e7088cdcadf43c69cd1f4e96d996ce171"
+      tag:      "6.4.0",
+      revision: "0c67b63f43814a8d7eb71f685f0bf504b03223f3"
   license "MIT"
   head "https://github.com/SwiftGen/SwiftGen.git", branch: "develop"
 
@@ -13,7 +13,7 @@ class Swiftgen < Formula
   end
 
   depends_on "ruby" => :build if MacOS.version <= :sierra
-  depends_on xcode: ["11.4", :build]
+  depends_on xcode: ["12.0", :build]
 
   def install
     # Disable swiftlint build phase to avoid build errors if versions mismatch
