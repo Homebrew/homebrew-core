@@ -3,7 +3,8 @@ class Sslyze < Formula
 
   desc "SSL scanner"
   homepage "https://github.com/nabla-c0d3/sslyze"
-  license "AGPL-3.0"
+  license "AGPL-3.0-or-later"
+  revision 1
 
   stable do
     url "https://github.com/nabla-c0d3/sslyze/archive/3.0.8.tar.gz"
@@ -34,7 +35,7 @@ class Sslyze < Formula
   depends_on arch: :x86_64
   depends_on "libffi"
   depends_on "openssl@1.1"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "cffi" do
     url "https://files.pythonhosted.org/packages/05/54/3324b0c46340c31b909fcec598696aaec7ddc8c18a63f2db352562d3354c/cffi-1.14.0.tar.gz"
@@ -62,7 +63,7 @@ class Sslyze < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.8")
+    venv = virtualenv_create(libexec, "python3.9")
 
     res = resources.map(&:name).to_set
     res -= %w[nassl]
@@ -73,7 +74,7 @@ class Sslyze < Formula
 
     resource("nassl").stage do
       nassl_path = Pathname.pwd
-      inreplace "Pipfile", 'python_version = "3.7"', 'python_version = "3.8"'
+      inreplace "Pipfile", 'python_version = "3.7"', 'python_version = "3.9"'
       system "pipenv", "install", "--dev"
       system "pipenv", "run", "invoke", "build.all"
       venv.pip_install nassl_path
