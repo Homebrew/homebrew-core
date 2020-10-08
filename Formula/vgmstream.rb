@@ -1,10 +1,11 @@
 class Vgmstream < Formula
   desc "Library for playing streamed audio formats from video games"
   homepage "https://hcs64.com/vgmstream.html"
-  url "https://github.com/losnoco/vgmstream/archive/r1050-3264-g86fbfffd.tar.gz"
-  version "r1050-3264-g86fbfffd"
-  sha256 "c7cb968c734b02dcfce46a3abf3486be494a599c238d77c1103c302e91763d11"
-  head "https://github.com/kode54/vgmstream.git"
+  url "https://github.com/losnoco/vgmstream.git",
+      tag:      "r1050-3280-gba405509",
+      revision: "ba405509cc3bb9fe1a6389d6d268475e2d567545"
+  license "ISC"
+  head "https://github.com/losnoco/vgmstream.git"
 
   bottle do
     cellar :any
@@ -13,16 +14,20 @@ class Vgmstream < Formula
     sha256 "c70ca3ae85b5138dbb8d97cadaf459e77633e0b022c2f8c210be05cd2881544b" => :high_sierra
   end
 
+  depends_on "cmake" => :build
+  depends_on "ffmpeg"
   depends_on "libao"
   depends_on "libvorbis"
   depends_on "mpg123"
 
   def install
+    system "cmake", "-DBUILD_AUDACIOUS:BOOL=OFF", "."
     system "make", "vgmstream_cli"
     system "make", "vgmstream123"
-    bin.install "cli/vgmstream-cli"
+    bin.install "cli/vgmstream_cli"
+    bin.install_symlink "vgmstream_cli" => "vgmstream-cli"
     bin.install "cli/vgmstream123"
-    lib.install "src/libvgmstream.a"
+    lib.install "src/liblibvgmstream.a"
   end
 
   test do
