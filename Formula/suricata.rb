@@ -3,7 +3,7 @@ class Suricata < Formula
   homepage "https://suricata-ids.org/"
   url "https://www.openinfosecfoundation.org/download/suricata-6.0.0.tar.gz"
   sha256 "3c175a6dee9071141391f64828502cfb6e48dc1a20833e1411fb45be5368923b"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
 
   livecheck do
     url "https://suricata-ids.org/download/"
