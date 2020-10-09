@@ -4,6 +4,7 @@ class Xapian < Formula
   url "https://oligarchy.co.uk/xapian/1.4.17/xapian-core-1.4.17.tar.xz"
   sha256 "b5eb8556dea1b0cad4167a66223522e66d670ec1eba16c7fdc844ed6b652572e"
   license "GPL-2.0"
+  revision 1
   version_scheme 1
 
   livecheck do
@@ -19,7 +20,7 @@ class Xapian < Formula
   end
 
   depends_on "sphinx-doc" => :build
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "zlib"
 
@@ -35,7 +36,7 @@ class Xapian < Formula
   end
 
   def install
-    python = Formula["python@3.8"].opt_bin/"python3"
+    python = Formula["python@3.9"].opt_bin/"python3"
     ENV["PYTHON"] = python
 
     system "./configure", "--disable-dependency-tracking",
@@ -62,6 +63,6 @@ class Xapian < Formula
 
   test do
     system bin/"xapian-config", "--libs"
-    system Formula["python@3.8"].opt_bin/"python3", "-c", "import xapian"
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "import xapian"
   end
 end
