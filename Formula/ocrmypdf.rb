@@ -6,6 +6,7 @@ class Ocrmypdf < Formula
   url "https://files.pythonhosted.org/packages/8e/51/9b300c3ef8aa155f0a296561c0e53097789fdc8988b110408ad5d6db0c4e/ocrmypdf-11.2.1.tar.gz"
   sha256 "8f773a64979c4e5def6c08a7ee0895895ac1f1a5a176f1df1522b8603975c006"
   license "MPL-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -27,7 +28,7 @@ class Ocrmypdf < Formula
   depends_on "libpng"
   depends_on "pngquant"
   depends_on "pybind11"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "qpdf"
   depends_on "tesseract"
   depends_on "unpaper"
@@ -118,7 +119,7 @@ class Ocrmypdf < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, Formula["python@3.8"].bin/"python3")
+    venv = virtualenv_create(libexec, Formula["python@3.9"].bin/"python3")
 
     resource("Pillow").stage do
       inreplace "setup.py" do |s|
