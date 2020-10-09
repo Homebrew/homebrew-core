@@ -4,6 +4,7 @@ class Mbedtls < Formula
   url "https://github.com/ARMmbed/mbedtls/archive/mbedtls-2.24.0.tar.gz"
   sha256 "b5a779b5f36d5fc4cba55faa410685f89128702423ad07b36c5665441a06a5f3"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/ARMmbed/mbedtls.git", branch: "development"
 
   livecheck do
@@ -19,7 +20,7 @@ class Mbedtls < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
 
   def install
     inreplace "include/mbedtls/config.h" do |s|
@@ -30,7 +31,7 @@ class Mbedtls < Formula
     end
 
     system "cmake", "-DUSE_SHARED_MBEDTLS_LIBRARY=On",
-      "-DPython3_EXECUTABLE=#{Formula["python@3.8"].opt_bin}/python3",
+      "-DPython3_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3",
       *std_cmake_args
     system "make"
     system "make", "install"
