@@ -6,6 +6,7 @@ class Diffoscope < Formula
   url "https://files.pythonhosted.org/packages/47/19/c28e4ddd0ebf5601725939b74b6aa1463523ef65e8e0753c695ced871155/diffoscope-160.tar.gz"
   sha256 "f164b5e74cc11f6238ad8d62c92d3a819fa4c8b618683fc0533e04f21acae6b2"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -21,7 +22,7 @@ class Diffoscope < Formula
   depends_on "gnu-tar"
   depends_on "libarchive"
   depends_on "libmagic"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   # Use resources from diffoscope[cmdline]
   resource "argcomplete" do
@@ -45,7 +46,7 @@ class Diffoscope < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
+    venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
     venv.pip_install resources
     venv.pip_install buildpath
 
