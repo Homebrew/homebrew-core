@@ -5,7 +5,7 @@ class Openimageio < Formula
   version "2.1.18"
   sha256 "e2cf54f5b28e18fc88e76e1703f2e39bf144c88378334527e4a1246974659a85"
   license "BSD-3-Clause"
-  revision 2
+  revision 3
   head "https://github.com/OpenImageIO/oiio.git"
 
   livecheck do
@@ -34,7 +34,7 @@ class Openimageio < Formula
   depends_on "libtiff"
   depends_on "opencolorio"
   depends_on "openexr"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "webp"
 
   def install
@@ -51,9 +51,9 @@ class Openimageio < Formula
       -DUSE_QT=OFF
     ]
 
-    # CMake picks up the system's python shared library, even if we have a brewed one.
-    py3ver = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
-    py3prefix = Formula["python@3.8"].opt_frameworks/"Python.framework/Versions/#{py3ver}"
+    # CMake picks up the system's python dylib, even if we have a brewed one.
+    py3ver = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    py3prefix = Formula["python@3.9"].opt_frameworks/"Python.framework/Versions/#{py3ver}"
 
     ENV["PYTHONPATH"] = lib/"python#{py3ver}/site-packages"
 
@@ -87,6 +87,6 @@ class Openimageio < Formula
       import OpenImageIO
       print(OpenImageIO.VERSION_STRING)
     EOS
-    assert_match version.to_s, pipe_output(Formula["python@3.8"].opt_bin/"python3", output, 0)
+    assert_match version.to_s, pipe_output(Formula["python@3.9"].opt_bin/"python3", output, 0)
   end
 end
