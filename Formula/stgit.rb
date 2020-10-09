@@ -4,6 +4,7 @@ class Stgit < Formula
   url "https://github.com/stacked-git/stgit/releases/download/v0.23/stgit-0.23.tar.gz"
   sha256 "17c2b2e02341468f4d5f8d4d79c36f7fdb7febe18177277ca472502f673c50fd"
   license "GPL-2.0"
+  revision 1
   head "https://github.com/stacked-git/stgit.git"
 
   bottle do
@@ -15,10 +16,10 @@ class Stgit < Formula
 
   depends_on "asciidoc" => :build
   depends_on "xmlto" => :build
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
-    ENV["PYTHON"] = Formula["python@3.8"].opt_bin/"python3"
+    ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
     system "make", "prefix=#{prefix}", "all"
     system "make", "prefix=#{prefix}", "install"
