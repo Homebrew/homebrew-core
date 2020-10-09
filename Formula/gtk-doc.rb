@@ -3,7 +3,7 @@ class GtkDoc < Formula
   homepage "https://gitlab.gnome.org/GNOME/gtk-doc"
   url "https://download.gnome.org/sources/gtk-doc/1.32/gtk-doc-1.32.tar.xz"
   sha256 "de0ef034fb17cb21ab0c635ec730d19746bce52984a6706e7bbec6fb5e0b907c"
-  revision 1
+  revision 2
 
   # We use a common regex because gtk-doc doesn't use GNOME's "even-numbered
   # minor is stable" version scheme.
@@ -25,7 +25,7 @@ class GtkDoc < Formula
   depends_on "docbook-xsl"
   depends_on "gettext"
   depends_on "libxml2"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "source-highlight"
 
   uses_from_macos "libxslt"
@@ -36,10 +36,10 @@ class GtkDoc < Formula
   end
 
   def install
-    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
+    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
     resource("Pygments").stage do
-      system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
+      system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
     end
 
     system "./configure", "--disable-debug",
