@@ -7,7 +7,7 @@ class Cxxtest < Formula
   mirror "https://deb.debian.org/debian/pool/main/c/cxxtest/cxxtest_4.4.orig.tar.gz"
   sha256 "1c154fef91c65dbf1cd4519af7ade70a61d85a923b6e0c0b007dc7f4895cf7d8"
   license "LGPL-3.0"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
@@ -16,10 +16,10 @@ class Cxxtest < Formula
     sha256 "99b1ea9c495bf4ee03b88aadb33a5ae964741bcd387d678c6dcc5a18c925ad12" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
-    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
+    venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
     venv.pip_install_and_link buildpath/"python"
 
     include.install "cxxtest"
