@@ -3,7 +3,7 @@ class Talloc < Formula
   homepage "https://talloc.samba.org/"
   url "https://www.samba.org/ftp/talloc/talloc-2.3.1.tar.gz"
   sha256 "ef4822d2fdafd2be8e0cabc3ec3c806ae29b8268e932c5e9a4cd5585f37f9f77"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://www.samba.org/ftp/talloc/"
@@ -17,7 +17,7 @@ class Talloc < Formula
     sha256 "91ece067e0ac677d93fa1bdfa3e7db825e2950dd1feae0ee031d8e2522260155" => :high_sierra
   end
 
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
 
   def install
     system "./configure", "--prefix=#{prefix}",
