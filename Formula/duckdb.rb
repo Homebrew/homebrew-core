@@ -5,6 +5,7 @@ class Duckdb < Formula
       tag:      "v0.2.1",
       revision: "d9bceddc7209a7e0b5c0402958d1191e19a491e7"
   license "MIT"
+  revision 1
 
   bottle do
     cellar :any
@@ -14,11 +15,11 @@ class Duckdb < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
 
   def install
     mkdir "build/amalgamation"
-    system Formula["python@3.8"].opt_bin/"python3", "scripts/amalgamation.py"
+    system Formula["python@3.9"].opt_bin/"python3", "scripts/amalgamation.py"
     cd "build/amalgamation" do
       system "cmake", "../..", *std_cmake_args, "-DAMALGAMATION_BUILD=ON"
       system "make"
