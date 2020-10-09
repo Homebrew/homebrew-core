@@ -4,7 +4,7 @@ class Cmark < Formula
   url "https://github.com/commonmark/cmark/archive/0.29.0.tar.gz"
   sha256 "2558ace3cbeff85610de3bda32858f722b359acdadf0c4691851865bb84924a6"
   license "BSD-2-Clause"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -14,7 +14,7 @@ class Cmark < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
 
   def install
     mkdir "build" do
