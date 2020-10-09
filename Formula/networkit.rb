@@ -7,6 +7,7 @@ class Networkit < Formula
       tag:      "7.1",
       revision: "4c6dcc4367b51005a34221242048609c357ffbd6"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 "9ad19c9b34c80145ae33780156942bb83a092d7bc7c91701c75ae38d849fd867" => :catalina
@@ -18,19 +19,19 @@ class Networkit < Formula
   depends_on "cython" => :build
   depends_on "libnetworkit"
   depends_on "numpy"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "scipy"
 
   def install
-    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
+    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     rpath_addons = Formula["libnetworkit"].opt_lib
 
     ENV.prepend_create_path "PYTHONPATH", libexec+"lib/python#{xy}/site-packages/"
     ENV.append_path "PYTHONPATH", Formula["cython"].opt_libexec/"lib/python#{xy}/site-packages"
-    system Formula["python@3.8"].opt_bin/"python3", "setup.py", "build_ext",
+    system Formula["python@3.9"].opt_bin/"python3", "setup.py", "build_ext",
           "--networkit-external-core",
            "--rpath=@loader_path;#{rpath_addons}"
-    system Formula["python@3.8"].opt_bin/"python3", "setup.py", "install",
+    system Formula["python@3.9"].opt_bin/"python3", "setup.py", "install",
            "--single-version-externally-managed",
            "--record=installed.txt",
            "--prefix=#{libexec}"
@@ -40,7 +41,7 @@ class Networkit < Formula
   end
 
   test do
-    system Formula["python@3.8"].opt_bin/"python3", "-c", <<~EOS
+    system Formula["python@3.9"].opt_bin/"python3", "-c", <<~EOS
       import networkit as nk
       G = nk.graph.Graph(3)
       G.addEdge(0,1)
