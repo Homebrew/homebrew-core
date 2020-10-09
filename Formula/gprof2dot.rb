@@ -6,7 +6,7 @@ class Gprof2dot < Formula
   url "https://files.pythonhosted.org/packages/fd/77/3158821acc45cc26d5815d4250275d03c254572ff53c0388af8df168ce78/gprof2dot-2019.11.30.tar.gz"
   sha256 "b43fe04ebb3dfe181a612bbfc69e90555b8957022ad6a466f0308ed9c7f22e99"
   license "LGPL-3.0"
-  revision 1
+  revision 2
   head "https://github.com/jrfonseca/gprof2dot.git"
 
   livecheck do
@@ -21,7 +21,7 @@ class Gprof2dot < Formula
   end
 
   depends_on "graphviz"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   on_linux do
     depends_on "libx11"
