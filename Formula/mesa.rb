@@ -6,6 +6,7 @@ class Mesa < Formula
   url "https://mesa.freedesktop.org/archive/mesa-20.2.1.tar.xz"
   sha256 "d1a46d9a3f291bc0e0374600bdcb59844fa3eafaa50398e472a36fc65fd0244a"
   license "MIT"
+  revision 1
   head "https://gitlab.freedesktop.org/mesa/mesa.git"
 
   livecheck do
@@ -22,7 +23,7 @@ class Mesa < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
   depends_on "freeglut" => :test
   depends_on "expat"
   depends_on "gettext"
@@ -38,7 +39,7 @@ class Mesa < Formula
   end
 
   def install
-    ENV.prepend_path "PATH", Formula["python@3.8"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
 
     venv_root = libexec/"venv"
     venv = virtualenv_create(venv_root, "python3")
