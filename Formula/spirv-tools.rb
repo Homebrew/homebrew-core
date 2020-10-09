@@ -4,6 +4,7 @@ class SpirvTools < Formula
   url "https://github.com/KhronosGroup/SPIRV-Tools/archive/v2020.3.tar.gz"
   sha256 "8b538a1cb2a4275ef9617abcb047d54e8292f975ac1d93323d5dd1e19c85280b"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,7 +14,7 @@ class SpirvTools < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
 
   resource "re2" do
     # revision number could be found in ./DEPS
