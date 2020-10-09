@@ -5,7 +5,7 @@ class Genometools < Formula
   url "https://github.com/genometools/genometools/archive/v1.6.1.tar.gz"
   sha256 "528ca143a7f1d42af8614d60ea1e5518012913a23526d82e434f0dad2e2d863f"
   license "ISC"
-  revision 1
+  revision 2
   head "https://github.com/genometools/genometools.git"
 
   bottle do
@@ -18,7 +18,7 @@ class Genometools < Formula
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "pango"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   conflicts_with "libslax", because: "both install `bin/gt`"
 
@@ -39,6 +39,6 @@ class Genometools < Formula
 
   test do
     system "#{bin}/gt", "-test"
-    system Formula["python@3.8"].opt_bin/"python3", "-c", "import gt"
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "import gt"
   end
 end
