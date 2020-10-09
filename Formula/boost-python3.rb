@@ -5,6 +5,7 @@ class BoostPython3 < Formula
   mirror "https://dl.bintray.com/homebrew/mirror/boost_1_74_0.tar.bz2"
   sha256 "83bfc1507731a0906e387fc28b7ef5417d591429e51e788417fe9ff025e116b1"
   license "BSL-1.0"
+  revision 1
   head "https://github.com/boostorg/boost.git"
 
   bottle do
@@ -16,7 +17,7 @@ class BoostPython3 < Formula
 
   depends_on "numpy" => :build
   depends_on "boost"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
     # "layout" should be synchronized with boost
@@ -40,8 +41,8 @@ class BoostPython3 < Formula
     # user-config.jam below.
     inreplace "bootstrap.sh", "using python", "#using python"
 
-    pyver = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
-    py_prefix = Formula["python@3.8"].opt_frameworks/"Python.framework/Versions/#{pyver}"
+    pyver = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    py_prefix = Formula["python@3.9"].opt_frameworks/"Python.framework/Versions/#{pyver}"
 
     # Force boost to compile with the desired compiler
     (buildpath/"user-config.jam").write <<~EOS
@@ -81,9 +82,9 @@ class BoostPython3 < Formula
       }
     EOS
 
-    pyincludes = shell_output("#{Formula["python@3.8"].opt_bin}/python3-config --includes").chomp.split(" ")
-    pylib = shell_output("#{Formula["python@3.8"].opt_bin}/python3-config --ldflags --embed").chomp.split(" ")
-    pyver = Language::Python.major_minor_version(Formula["python@3.8"].opt_bin/"python3").to_s.delete(".")
+    pyincludes = shell_output("#{Formula["python@3.9"].opt_bin}/python3-config --includes").chomp.split(" ")
+    pylib = shell_output("#{Formula["python@3.9"].opt_bin}/python3-config --ldflags --embed").chomp.split(" ")
+    pyver = Language::Python.major_minor_version(Formula["python@3.9"].opt_bin/"python3").to_s.delete(".")
 
     system ENV.cxx, "-shared", "hello.cpp", "-L#{lib}", "-lboost_python#{pyver}", "-o",
            "hello.so", *pyincludes, *pylib
@@ -92,6 +93,6 @@ class BoostPython3 < Formula
       import hello
       print(hello.greet())
     EOS
-    assert_match "Hello, world!", pipe_output(Formula["python@3.8"].opt_bin/"python3", output, 0)
+    assert_match "Hello, world!", pipe_output(Formula["python@3.9"].opt_bin/"python3", output, 0)
   end
 end
