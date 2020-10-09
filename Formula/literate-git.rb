@@ -6,7 +6,7 @@ class LiterateGit < Formula
   url "https://github.com/bennorth/literate-git/archive/v0.3.1.tar.gz"
   sha256 "f1dec77584236a5ab2bcee9169e16b5d976e83cd53d279512136bdc90b04940a"
   license "GPL-3.0-or-later"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
@@ -16,7 +16,7 @@ class LiterateGit < Formula
   end
 
   depends_on "libgit2"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "libffi"
 
