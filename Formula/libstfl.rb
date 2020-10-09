@@ -3,7 +3,7 @@ class Libstfl < Formula
   homepage "http://www.clifford.at/stfl/"
   url "http://www.clifford.at/stfl/stfl-0.24.tar.gz"
   sha256 "d4a7aa181a475aaf8a8914a8ccb2a7ff28919d4c8c0f8a061e17a0c36869c090"
-  revision 10
+  revision 11
 
   livecheck do
     url :homepage
@@ -18,13 +18,13 @@ class Libstfl < Formula
   end
 
   depends_on "swig" => :build
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "ruby"
 
   uses_from_macos "perl"
 
   def install
-    ENV.prepend_path "PATH", Formula["python@3.8"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
 
     ENV.append "LDLIBS", "-liconv"
     ENV.append "LIBS", "-lncurses -liconv -lruby"
@@ -47,7 +47,7 @@ class Libstfl < Formula
     end
 
     xy = "3.8"
-    python_config = Formula["python@3.8"].opt_libexec/"bin/python-config"
+    python_config = Formula["python@3.9"].opt_libexec/"bin/python-config"
 
     inreplace "python/Makefile.snippet" do |s|
       # Install into the site-packages in the Cellar (so uninstall works)
