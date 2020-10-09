@@ -5,7 +5,7 @@ class Subversion < Formula
   mirror "https://archive.apache.org/dist/subversion/subversion-1.14.0.tar.bz2"
   sha256 "6ba8e218f9f97a83a799e58a3c6da1221d034b18d9d8cbbcb6ec52ab11722102"
   license "Apache-2.0"
-  revision 2
+  revision 3
 
   livecheck do
     url :stable
@@ -28,7 +28,7 @@ class Subversion < Formula
 
   depends_on "openjdk" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
   depends_on "scons" => :build # For Serf
   depends_on "swig" => :build
   depends_on "apr"
@@ -114,7 +114,7 @@ class Subversion < Formula
       --without-gpg-agent
       --enable-javahl
       --without-jikes
-      PYTHON=#{Formula["python@3.8"].opt_bin}/python3
+      PYTHON=#{Formula["python@3.9"].opt_bin}/python3
       RUBY=/usr/bin/ruby
     ]
 
@@ -133,7 +133,7 @@ class Subversion < Formula
 
     system "make", "swig-py"
     system "make", "install-swig-py"
-    (lib/"python3.8/site-packages").install_symlink Dir["#{lib}/svn-python/*"]
+    (lib/"python3.9/site-packages").install_symlink Dir["#{lib}/svn-python/*"]
 
     # Java and Perl support don't build correctly in parallel:
     # https://github.com/Homebrew/homebrew/issues/20415
