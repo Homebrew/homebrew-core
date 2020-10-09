@@ -6,6 +6,7 @@ class Yamllint < Formula
   url "https://github.com/adrienverge/yamllint/archive/v1.25.0.tar.gz"
   sha256 "995b69c880bc1ba9368ed13be3421ae7de221e6e886aa6dc4ac52a780a87034a"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     cellar :any
@@ -15,7 +16,7 @@ class Yamllint < Formula
   end
 
   depends_on "libyaml"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "PyYAML" do
     url "https://files.pythonhosted.org/packages/64/c2/b80047c7ac2478f9501676c988a5411ed5572f35d1beff9cae07d321512c/PyYAML-5.3.1.tar.gz"
