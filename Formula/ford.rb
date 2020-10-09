@@ -6,7 +6,7 @@ class Ford < Formula
   url "https://github.com/cmacmackin/ford/archive/v6.0.0.tar.gz"
   sha256 "45fd53c7e5263fea2e751c436de6a1513d250647e98e32668b9965677974309e"
   license "GPL-3.0"
-  revision 2
+  revision 3
   head "https://github.com/cmacmackin/ford.git"
 
   bottle do
@@ -17,7 +17,7 @@ class Ford < Formula
   end
 
   depends_on "graphviz"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
