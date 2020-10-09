@@ -3,7 +3,7 @@ class Sslyze < Formula
 
   desc "SSL scanner"
   homepage "https://github.com/nabla-c0d3/sslyze"
-  license "AGPL-3.0-or-later"
+  license "AGPL-3.0-only"
   revision 1
 
   stable do
