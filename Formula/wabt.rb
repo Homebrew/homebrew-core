@@ -5,6 +5,7 @@ class Wabt < Formula
     tag:      "1.0.19",
     revision: "cd5ff133f84854f0b269f5cb06193ad8205f05d3"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://github.com/WebAssembly/wabt/releases/latest"
@@ -19,7 +20,7 @@ class Wabt < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
 
   def install
     mkdir "build" do
