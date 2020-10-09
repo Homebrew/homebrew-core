@@ -6,6 +6,7 @@ class Mitmproxy < Formula
   url "https://github.com/mitmproxy/mitmproxy/archive/v5.2.tar.gz"
   sha256 "976974cb89affd7971cf04566c60c0ef64a0830cce8ea9ae6c2869755c310b87"
   license "MIT"
+  revision 1
   head "https://github.com/mitmproxy/mitmproxy.git"
 
   bottle do
@@ -17,7 +18,7 @@ class Mitmproxy < Formula
 
   depends_on "openssl@1.1"
   depends_on "protobuf"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "libffi"
 
@@ -188,6 +189,13 @@ class Mitmproxy < Formula
   resource "zstandard" do
     url "https://files.pythonhosted.org/packages/b1/3d/b95e8beb3b2d165726c6105a728a1f59ae88d6bf1e3dc66375fbe149afcd/zstandard-0.13.0.tar.gz"
     sha256 "e5cbd8b751bd498f275b0582f449f92f14e64f4e03b5bf51c571240d40d43561"
+  end
+
+  # Python 3.9.0 compatibility, remove in next version
+  # https://github.com/mitmproxy/mitmproxy/pull/4179
+  patch do
+    url "https://github.com/mitmproxy/mitmproxy/commit/8e5e43de.patch?full_index=1"
+    sha256 "44ed7c842128692a57a9cbd27f57935f0cb9436e6497b6c315c78e567afb65c0"
   end
 
   def install
