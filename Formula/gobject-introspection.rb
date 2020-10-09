@@ -6,6 +6,7 @@ class GobjectIntrospection < Formula
   url "https://download.gnome.org/sources/gobject-introspection/1.66/gobject-introspection-1.66.1.tar.xz"
   sha256 "dd44a55ee5f426ea22b6b89624708f9e8d53f5cc94e5485c15c87cb30e06161d"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later", "MIT"]
+  revision 1
 
   livecheck do
     url :stable
@@ -24,7 +25,7 @@ class GobjectIntrospection < Formula
   depends_on "glib"
   depends_on "libffi"
   depends_on "pkg-config"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "flex"
 
@@ -42,7 +43,7 @@ class GobjectIntrospection < Formula
 
     mkdir "build" do
       system "meson", *std_meson_args,
-        "-Dpython=#{Formula["python@3.8"].opt_bin}/python3", ".."
+        "-Dpython=#{Formula["python@3.9"].opt_bin}/python3", ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
       bin.find { |f| rewrite_shebang detected_python_shebang, f }
