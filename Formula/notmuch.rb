@@ -3,6 +3,7 @@ class Notmuch < Formula
   homepage "https://notmuchmail.org/"
   url "https://notmuchmail.org/releases/notmuch-0.31.tar.xz"
   sha256 "571fa0e1539c86612b1f2b2c80a398e08ecfef52e27ef7e48cf8e3b84fa18394"
+  revision 1
   head "https://git.notmuchmail.org/git/notmuch", using: :git
 
   livecheck do
@@ -23,7 +24,7 @@ class Notmuch < Formula
   depends_on "sphinx-doc" => :build
   depends_on "glib"
   depends_on "gmime"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "talloc"
   depends_on "xapian"
   depends_on "zlib"
@@ -39,7 +40,7 @@ class Notmuch < Formula
       --without-ruby
     ]
 
-    ENV.append_path "PYTHONPATH", Formula["sphinx-doc"].opt_libexec/"lib/python3.8/site-packages"
+    ENV.append_path "PYTHONPATH", Formula["sphinx-doc"].opt_libexec/"lib/python3.9/site-packages"
 
     system "./configure", *args
     system "make", "V=1", "install"
@@ -51,7 +52,7 @@ class Notmuch < Formula
     (prefix/"vim").install "vim/syntax"
 
     cd "bindings/python" do
-      system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
+      system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
     end
   end
 
