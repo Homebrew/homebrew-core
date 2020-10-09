@@ -6,7 +6,7 @@ class Gitless < Formula
   url "https://github.com/gitless-vcs/gitless/archive/v0.8.8.tar.gz"
   sha256 "470aab13d51baec2ab54d7ceb6d12b9a2937f72d840516affa0cb34a6360523c"
   license "MIT"
-  revision 4
+  revision 5
 
   bottle do
     cellar :any
@@ -16,7 +16,7 @@ class Gitless < Formula
   end
 
   depends_on "libgit2"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "libffi"
 
