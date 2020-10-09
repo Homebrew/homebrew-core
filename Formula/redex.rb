@@ -2,7 +2,7 @@ class Redex < Formula
   desc "Bytecode optimizer for Android apps"
   homepage "https://fbredex.com"
   license "MIT"
-  revision 5
+  revision 6
   head "https://github.com/facebook/redex.git"
 
   stable do
@@ -27,7 +27,7 @@ class Redex < Formula
   depends_on "libtool" => :build
   depends_on "boost"
   depends_on "jsoncpp"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "test_apk" do
     url "https://raw.githubusercontent.com/facebook/redex/fa32d542d4074dbd485584413d69ea0c9c3cbc98/test/instr/redex-test.apk"
