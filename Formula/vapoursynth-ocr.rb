@@ -4,6 +4,7 @@ class VapoursynthOcr < Formula
   url "https://github.com/vapoursynth/vapoursynth/archive/R50.tar.gz"
   sha256 "b9dc7ce904c6a3432df7491b7052bc4cf09ccf1e7a703053f8079a2267522f97"
   license "LGPL-2.1"
+  revision 1
   head "https://github.com/vapoursynth/vapoursynth.git"
 
   bottle do
@@ -39,8 +40,8 @@ class VapoursynthOcr < Formula
   end
 
   test do
-    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
+    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     ENV.prepend_path "PYTHONPATH", lib/"python#{xy}/site-packages"
-    system Formula["python@3.8"].opt_bin/"python3", "-c", "from vapoursynth import core; core.ocr"
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "from vapoursynth import core; core.ocr"
   end
 end
