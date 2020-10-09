@@ -4,6 +4,7 @@ class Zim < Formula
   url "https://github.com/jaap-karssenberg/zim-desktop-wiki/archive/0.73.3.tar.gz"
   sha256 "19605ce38cc12078bf5311ba99d3113dbf0d985b3d9b1ca12bb6c315961e6ec9"
   license "GPL-2.0"
+  revision 1
   head "https://github.com/jaap-karssenberg/zim-desktop-wiki.git"
 
   bottle do
@@ -19,7 +20,7 @@ class Zim < Formula
   depends_on "gtk+3"
   depends_on "gtksourceview3"
   depends_on "pygobject3"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "pyxdg" do
     url "https://files.pythonhosted.org/packages/47/6e/311d5f22e2b76381719b5d0c6e9dc39cd33999adae67db71d7279a6d70f4/pyxdg-0.26.tar.gz"
@@ -27,14 +28,14 @@ class Zim < Formula
   end
 
   def install
-    python_version = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
+    python_version = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{python_version}/site-packages"
     resource("pyxdg").stage do
-      system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
+      system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
     end
     ENV["XDG_DATA_DIRS"] = libexec/"share"
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{python_version}/site-packages"
-    system Formula["python@3.8"].opt_bin/"python3", "./setup.py", "install", "--prefix=#{libexec}"
+    system Formula["python@3.9"].opt_bin/"python3", "./setup.py", "install", "--prefix=#{libexec}"
     bin.install Dir[libexec/"bin/*"]
     bin.env_script_all_files libexec/"bin",
       PYTHONPATH:    ENV["PYTHONPATH"],
