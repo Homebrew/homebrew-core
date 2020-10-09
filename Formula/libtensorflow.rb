@@ -6,6 +6,7 @@ class Libtensorflow < Formula
   url "https://github.com/tensorflow/tensorflow/archive/v2.3.1.tar.gz"
   sha256 "ee534dd31a811f7a759453567257d1e643f216d8d55a25c32d2fbfff8153a1ac"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     cellar :any
@@ -16,7 +17,7 @@ class Libtensorflow < Formula
 
   depends_on "bazel" => :build
   depends_on "numpy" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
 
   resource "test-model" do
     url "https://github.com/tensorflow/models/raw/v1.13.0/samples/languages/java/training/model/graph.pb"
@@ -27,7 +28,7 @@ class Libtensorflow < Formula
     # Allow tensorflow to use current version of bazel
     (buildpath / ".bazelversion").atomic_write Formula["bazel"].version
 
-    ENV["PYTHON_BIN_PATH"] = Formula["python@3.8"].opt_bin/"python3"
+    ENV["PYTHON_BIN_PATH"] = Formula["python@3.9"].opt_bin/"python3"
     ENV["CC_OPT_FLAGS"] = "-march=native"
     ENV["TF_IGNORE_MAX_BAZEL_VERSION"] = "1"
     ENV["TF_NEED_JEMALLOC"] = "1"
