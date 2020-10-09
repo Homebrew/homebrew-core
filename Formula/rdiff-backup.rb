@@ -4,6 +4,7 @@ class RdiffBackup < Formula
   url "https://github.com/rdiff-backup/rdiff-backup/releases/download/v2.0.5/rdiff-backup-2.0.5.tar.gz"
   sha256 "2bb7837b4a9712b6efaebfa7da8ed6348ffcb02fcecff0e19d8fff732e933b87"
   license "GPL-2.0"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,7 +14,7 @@ class RdiffBackup < Formula
   end
 
   depends_on "librsync"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
     ENV["ARCHFLAGS"] = "-arch x86_64"
