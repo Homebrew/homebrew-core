@@ -5,7 +5,7 @@ class Lensfun < Formula
   homepage "https://lensfun.github.io/"
   url "https://downloads.sourceforge.net/project/lensfun/0.3.95/lensfun-0.3.95.tar.gz"
   sha256 "82c29c833c1604c48ca3ab8a35e86b7189b8effac1b1476095c0529afb702808"
-  revision 2
+  revision 3
 
   livecheck do
     url :stable
@@ -22,7 +22,7 @@ class Lensfun < Formula
   depends_on "gettext"
   depends_on "glib"
   depends_on "libpng"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
     system "cmake", ".", *std_cmake_args
