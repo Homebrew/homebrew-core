@@ -5,7 +5,7 @@ class Libxml2 < Formula
   mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/libxml2/libxml2-2.9.10.tar.gz"
   sha256 "aafee193ffb8fe0c82d4afef6ef91972cbaf5feea100edc2f262750611b4be1f"
   license "MIT"
-  revision 1
+  revision 2
 
   livecheck do
     url "http://xmlsoft.org/sources"
@@ -30,7 +30,7 @@ class Libxml2 < Formula
 
   keg_only :provided_by_macos
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "readline"
 
   uses_from_macos "zlib"
@@ -54,6 +54,13 @@ class Libxml2 < Formula
     sha256 "c755e6e17c02584bfbfc8889ffc652384b010c0bd71879d7ff121ca60a218fcd"
   end
 
+  # Fix compatibility with Python 3.9
+  # https://gitlab.gnome.org/GNOME/libxml2/-/issues/149
+  patch do
+    url "https://gitlab.gnome.org/nwellnhof/libxml2/-/commit/e4fb36841800038c289997432ca547c9bfef9db1.patch"
+    sha256 "c3fa874b78d76b8de8afbbca9f83dc94e9a0da285eaf6ee1f6976ed4cd41e367"
+  end
+
   def install
     system "autoreconf", "-fiv" if build.head?
 
@@ -68,7 +75,7 @@ class Libxml2 < Formula
       # We need to insert our include dir first
       inreplace "setup.py", "includes_dir = [",
                             "includes_dir = ['#{include}', '#{MacOS.sdk_path}/usr/include',"
-      system Formula["python@3.8"].opt_bin/"python3", "setup.py", "install", "--prefix=#{prefix}"
+      system Formula["python@3.9"].opt_bin/"python3", "setup.py", "install", "--prefix=#{prefix}"
     end
   end
 
@@ -90,8 +97,8 @@ class Libxml2 < Formula
     system ENV.cc, *args
     system "./test"
 
-    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
+    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     ENV.prepend_path "PYTHONPATH", lib/"python#{xy}/site-packages"
-    system Formula["python@3.8"].opt_bin/"python3", "-c", "import libxml2"
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "import libxml2"
   end
 end
