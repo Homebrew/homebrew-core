@@ -6,6 +6,7 @@ class Volk < Formula
   url "https://github.com/gnuradio/volk/releases/download/v2.3.0/volk-2.3.0.tar.xz"
   sha256 "40645886d713ed23295d7fb3e69734b5173a22259886b1a4abdad229a44123b9"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 "7b05c83dbd7c17a7cff668ca91e19f12ffe0815a0af792a1da61a4fc0ab5e624" => :catalina
@@ -17,7 +18,7 @@ class Volk < Formula
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "orc"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "Mako" do
     url "https://files.pythonhosted.org/packages/72/89/402d2b4589e120ca76a6aed8fee906a0f5ae204b50e455edd36eda6e778d/Mako-1.1.3.tar.gz"
