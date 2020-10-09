@@ -5,7 +5,7 @@ class CmarkGfm < Formula
   version "0.29.0.gfm.0"
   sha256 "6a94aeaa59a583fadcbf28de81dea8641b3f56d935dda5b2447a3c8df6c95fea"
   license "BSD-2-Clause"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -15,7 +15,7 @@ class CmarkGfm < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
 
   conflicts_with "cmark", because: "both install a `cmark.h` header"
 
