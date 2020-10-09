@@ -4,6 +4,7 @@ class Pushpin < Formula
   url "https://dl.bintray.com/fanout/source/pushpin-1.30.0.tar.bz2"
   sha256 "927d83919d193e19e03d9217ece495c1a5c22bfcc344b19a6e948d206c3e1ddc"
   license "AGPL-3.0"
+  revision 1
   head "https://github.com/fanout/pushpin.git"
 
   bottle do
@@ -14,7 +15,7 @@ class Pushpin < Formula
 
   depends_on "pkg-config" => :build
   depends_on "mongrel2"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "qt"
   depends_on "zeromq"
   depends_on "zurl"
@@ -83,7 +84,7 @@ class Pushpin < Formula
 
     begin
       sleep 3 # make sure pushpin processes have started
-      system Formula["python@3.8"].opt_bin/"python3", runfile
+      system Formula["python@3.9"].opt_bin/"python3", runfile
     ensure
       Process.kill("TERM", pid)
       Process.wait(pid)
