@@ -4,6 +4,7 @@ class Libxcb < Formula
   url "https://xcb.freedesktop.org/dist/libxcb-1.13.1.tar.bz2"
   sha256 "a89fb7af7a11f43d2ce84a844a4b38df688c092bf4b67683aef179cdf2a647c4"
   license "MIT"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,7 +14,7 @@ class Libxcb < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
   depends_on "xcb-proto" => :build
   depends_on "libpthread-stubs"
   depends_on "libxau"
