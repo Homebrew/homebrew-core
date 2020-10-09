@@ -6,7 +6,7 @@ class Ykman < Formula
   url "https://developers.yubico.com/yubikey-manager/Releases/yubikey-manager-3.1.1.tar.gz"
   sha256 "68ef41ac3cd2e891019e755a492427ecdd63d8816525d05f2f32c37b8c440cfa"
   license "BSD-2-Clause"
-  revision 1
+  revision 2
   head "https://github.com/Yubico/yubikey-manager.git"
 
   livecheck do
@@ -24,7 +24,7 @@ class Ykman < Formula
   depends_on "swig" => :build
   depends_on "libusb"
   depends_on "openssl@1.1"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "ykpers"
 
   uses_from_macos "libffi"
