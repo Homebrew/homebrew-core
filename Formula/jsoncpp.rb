@@ -4,6 +4,7 @@ class Jsoncpp < Formula
   url "https://github.com/open-source-parsers/jsoncpp/archive/1.9.4.tar.gz"
   sha256 "e34a628a8142643b976c7233ef381457efad79468c67cb1ae0b83a33d7493999"
   license "MIT"
+  revision 1
   head "https://github.com/open-source-parsers/jsoncpp.git"
 
   livecheck do
@@ -20,11 +21,11 @@ class Jsoncpp < Formula
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
 
   def install
     mkdir "build" do
-      system "meson", *std_meson_args, "-Dpython=#{Formula["python@3.8"].opt_bin}/python3", ".."
+      system "meson", *std_meson_args, "-Dpython=#{Formula["python@3.9"].opt_bin}/python3", ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end
