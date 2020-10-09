@@ -6,6 +6,7 @@ class GstDevtools < Formula
   url "https://gstreamer.freedesktop.org/src/gst-devtools/gst-devtools-1.18.0.tar.xz"
   sha256 "82337141b5654f11c440f783892ba9d9498b3b6b98c2286b000f96dce6945f16"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://anongit.freedesktop.org/git/gstreamer/gst-devtools.git"
 
   bottle do
@@ -22,7 +23,7 @@ class GstDevtools < Formula
   depends_on "gst-plugins-base"
   depends_on "gstreamer"
   depends_on "json-glib"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
     args = std_meson_args + %w[
