@@ -4,6 +4,7 @@ class VtkAT82 < Formula
   url "https://www.vtk.org/files/release/8.2/VTK-8.2.0.tar.gz"
   sha256 "34c3dc775261be5e45a8049155f7228b6bd668106c72a3c435d95730d17d57bb"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 "37d86d6f6021aece7811709f2efddaf1146b49b46e4ce35fe831561f2465f462" => :catalina
@@ -24,7 +25,7 @@ class VtkAT82 < Formula
   depends_on "libtiff"
   depends_on "netcdf"
   depends_on "pyqt"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "qt"
 
   # Fix compile issues on Mojave and later
@@ -70,7 +71,7 @@ class VtkAT82 < Formula
       -DVTK_USE_SYSTEM_ZLIB=ON
       -DVTK_WRAP_PYTHON=ON
       -DVTK_PYTHON_VERSION=3
-      -DPYTHON_EXECUTABLE=#{Formula["python@3.8"].opt_bin}/python3
+      -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
       -DVTK_INSTALL_PYTHON_MODULE_DIR=#{lib}/python#{pyver}/site-packages
       -DVTK_QT_VERSION:STRING=5
       -DVTK_Group_Qt=ON
