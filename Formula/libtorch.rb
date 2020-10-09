@@ -7,7 +7,7 @@ class Libtorch < Formula
       tag:      "v1.6.0",
       revision: "b31f58de6fa8bbda5353b3c77d9be4914399724d"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://github.com/pytorch/pytorch/releases/latest"
@@ -22,7 +22,7 @@ class Libtorch < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
   depends_on "eigen"
   depends_on "libomp"
   depends_on "libyaml"
@@ -40,7 +40,7 @@ class Libtorch < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
+    venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
     venv.pip_install resources
 
     args = %W[
