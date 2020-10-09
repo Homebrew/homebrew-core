@@ -41,13 +41,6 @@ class Infer < Formula
   uses_from_macos "xz"
   uses_from_macos "zlib"
 
-  # Remove camlp4 dependency, which is deprecated
-  # Addressed in 0.18.x
-  patch do
-    url "https://github.com/facebook/infer/commit/f52b5fc981c692776210d7eb9681c2b8c3117c93.patch?full_index=1"
-    sha256 "5487b9b39607c94821bede8d4f0ec2a0ed08d5213d5f048b1344819dac53b2f5"
-  end
-
   def install
     # needed to build clang
     ENV.permit_arch_flags
