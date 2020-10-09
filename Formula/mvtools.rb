@@ -4,6 +4,7 @@ class Mvtools < Formula
   url "https://github.com/dubhater/vapoursynth-mvtools/archive/v23.tar.gz"
   sha256 "3b5fdad2b52a2525764510a04af01eab3bc5e8fe6a02aba44b78955887a47d44"
   license "GPL-2.0"
+  revision 1
   head "https://github.com/dubhater/vapoursynth-mvtools.git"
 
   bottle do
@@ -44,6 +45,6 @@ class Mvtools < Formula
       core.std.LoadPlugin(path="#{lib}/#{shared_library("libmvtools")}")
     EOS
 
-    system Formula["python@3.8"].opt_bin/"python3", "-c", script
+    system Formula["python@3.9"].opt_bin/"python3", "-c", script
   end
 end
