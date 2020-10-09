@@ -4,6 +4,7 @@ class Pyqt < Formula
   url "https://files.pythonhosted.org/packages/1d/31/896dc3dfb6c81c70164019a6cbba6ab037e3af7653d9ca60ccc874ee4c27/PyQt5-5.15.1.tar.gz"
   sha256 "d9a76b850246d08da9863189ecb98f6c2aa9b4d97a3e85e29330a264aed0f9a1"
   license "GPL-3.0-only"
+  revision 1
 
   livecheck do
     url :stable
@@ -16,7 +17,7 @@ class Pyqt < Formula
     sha256 "4af6c3d6b8c2a874b5bfec4dfd530d43dffc45f20222bfaf1e7e9b94489a84c2" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "qt"
   depends_on "sip"
 
@@ -26,7 +27,7 @@ class Pyqt < Formula
   end
 
   def install
-    version = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
+    version = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     args = ["--confirm-license",
             "--bindir=#{bin}",
             "--destdir=#{lib}/python#{version}/site-packages",
@@ -39,10 +40,10 @@ class Pyqt < Formula
             "QMAKE_MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}",
             "--designer-plugindir=#{pkgshare}/plugins",
             "--qml-plugindir=#{pkgshare}/plugins",
-            "--pyuic5-interpreter=#{Formula["python@3.8"].opt_bin}/python3",
+            "--pyuic5-interpreter=#{Formula["python@3.9"].opt_bin}/python3",
             "--verbose"]
 
-    system Formula["python@3.8"].opt_bin/"python3", "configure.py", *args
+    system Formula["python@3.9"].opt_bin/"python3", "configure.py", *args
     system "make"
     ENV.deparallelize { system "make", "install" }
   end
@@ -51,7 +52,7 @@ class Pyqt < Formula
     system "#{bin}/pyuic5", "--version"
     system "#{bin}/pylupdate5", "-version"
 
-    system Formula["python@3.8"].opt_bin/"python3", "-c", "import PyQt5"
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "import PyQt5"
     %w[
       Gui
       Location
@@ -61,6 +62,6 @@ class Pyqt < Formula
       Svg
       Widgets
       Xml
-    ].each { |mod| system Formula["python@3.8"].opt_bin/"python3", "-c", "import PyQt5.Qt#{mod}" }
+    ].each { |mod| system Formula["python@3.9"].opt_bin/"python3", "-c", "import PyQt5.Qt#{mod}" }
   end
 end
