@@ -6,7 +6,7 @@ class Vit < Formula
   url "https://github.com/scottkosty/vit/archive/v2.0.0.tar.gz"
   sha256 "0c8739c16b5922880e762bd38f887240923d16181b2f85bb88c4f9f6faf38d6d"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/scottkosty/vit.git", branch: "2.x"
 
   bottle do
@@ -16,7 +16,7 @@ class Vit < Formula
     sha256 "3498a07d7d7ebc8011585ca12a60657e97f28712f77b2d35ccd54bf6acc79a5c" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "task"
 
   resource "pytz" do
