@@ -4,6 +4,7 @@ class Varnish < Formula
   url "https://varnish-cache.org/_downloads/varnish-6.5.1.tgz"
   sha256 "11964c688f9852237c99c1e327d54dc487549ddb5f0f5aa7996e521333d7cdb5"
   license "BSD-2-Clause"
+  revision 1
 
   livecheck do
     url "https://varnish-cache.org/releases/"
@@ -19,12 +20,12 @@ class Varnish < Formula
   depends_on "docutils" => :build
   depends_on "graphviz" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
   depends_on "sphinx-doc" => :build
   depends_on "pcre"
 
   def install
-    ENV["PYTHON"] = Formula["python@3.8"].opt_bin/"python3"
+    ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
