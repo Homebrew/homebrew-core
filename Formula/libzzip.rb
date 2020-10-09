@@ -4,6 +4,7 @@ class Libzzip < Formula
   url "https://github.com/gdraheim/zziplib/archive/v0.13.71.tar.gz"
   sha256 "2ee1e0fbbb78ec7cc46bde5b62857bc51f8d665dd265577cf93584344b8b9de2"
   license "LGPL-2.0"
+  revision 1
 
   bottle do
     cellar :any
@@ -14,7 +15,7 @@ class Libzzip < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
 
   def install
     mkdir "build" do
