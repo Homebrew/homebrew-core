@@ -3,8 +3,8 @@ class Kamel < Formula
   homepage "https://camel.apache.org/"
 
   url "https://github.com/apache/camel-k.git",
-    tag:      "v1.1.1",
-    revision: "b7b785db55faf33a95e4c3c337e248192510ce85"
+    tag:      "v1.2.0",
+    revision: "ab1a566458962b18fef1a1b594efe7d269fb85af"
   license "Apache-2.0"
   head "https://github.com/apache/camel-k.git"
 
@@ -41,10 +41,10 @@ class Kamel < Formula
     assert_match "Apache Camel K is a lightweight", run_output
 
     help_output = shell_output("echo $(#{bin}/kamel help 2>&1)")
-    assert_match "Error: cannot get command client: could not locate a kubeconfig", help_output.chomp
+    assert_match "Error: cannot get command client: invalid configuration", help_output.chomp
 
     get_output = shell_output("echo $(#{bin}/kamel get 2>&1)")
-    assert_match "Error: cannot get command client: could not locate a kubeconfig", get_output
+    assert_match "Error: cannot get command client: invalid configuration", get_output
 
     version_output = shell_output("echo $(#{bin}/kamel version 2>&1)")
     assert_match version.to_s, version_output
@@ -56,7 +56,7 @@ class Kamel < Formula
     assert_match "Error: cannot read file None.java", run_none_output
 
     reset_output = shell_output("echo $(#{bin}/kamel reset 2>&1)")
-    assert_match "Error: cannot get command client: could not locate a kubeconfig", reset_output
+    assert_match "Error: cannot get command client: invalid configuration", reset_output
 
     rebuild_output = shell_output("echo $(#{bin}/kamel rebuild 2>&1)")
     assert_match "Config not found", rebuild_output
