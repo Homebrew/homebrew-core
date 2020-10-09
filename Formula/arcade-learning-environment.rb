@@ -4,7 +4,7 @@ class ArcadeLearningEnvironment < Formula
   url "https://github.com/mgbellemare/Arcade-Learning-Environment/archive/v0.6.1.tar.gz"
   sha256 "8059a4087680da03878c1648a8ceb0413a341032ecaa44bef4ef1f9f829b6dde"
   license "GPL-2.0"
-  revision 1
+  revision 2
   head "https://github.com/mgbellemare/Arcade-Learning-Environment.git"
 
   bottle do
@@ -16,7 +16,7 @@ class ArcadeLearningEnvironment < Formula
 
   depends_on "cmake" => :build
   depends_on "numpy"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "sdl"
 
   def install
@@ -26,7 +26,7 @@ class ArcadeLearningEnvironment < Formula
     ]
     system "cmake", ".", *args
     system "make", "install"
-    system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
+    system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
   end
 
   test do
@@ -36,6 +36,6 @@ class ArcadeLearningEnvironment < Formula
       from ale_python_interface import ALEInterface;
       ale = ALEInterface();
     EOS
-    assert_match "ale.cfg", shell_output("#{Formula["python@3.8"].opt_bin}/python3 test.py 2>&1")
+    assert_match "ale.cfg", shell_output("#{Formula["python@3.9"].opt_bin}/python3 test.py 2>&1")
   end
 end
