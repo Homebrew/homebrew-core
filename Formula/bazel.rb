@@ -4,6 +4,7 @@ class Bazel < Formula
   url "https://github.com/bazelbuild/bazel/releases/download/3.7.0/bazel-3.7.0-dist.zip"
   sha256 "63873623917c756d1be49ff4d5fc23049736180e6b9a7d5236c6f204eddae3cc"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -12,7 +13,7 @@ class Bazel < Formula
     sha256 "6e4ef79a29ddf83cb63fd15b3358069593d13911f9369b9e9b2c4f4ec9db4e86" => :high_sierra
   end
 
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
   depends_on "openjdk@11"
 
   uses_from_macos "zip"
