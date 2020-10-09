@@ -4,7 +4,7 @@ class Ola < Formula
   url "https://github.com/OpenLightingProject/ola/releases/download/0.10.7/ola-0.10.7.tar.gz"
   sha256 "8a65242d95e0622a3553df498e0db323a13e99eeb1accc63a8a2ca8913ab31a0"
   license "GPL-2.0"
-  revision 4
+  revision 5
   head "https://github.com/OpenLightingProject/ola.git"
 
   bottle do
@@ -23,7 +23,7 @@ class Ola < Formula
   depends_on "libusb"
   depends_on "numpy"
   depends_on "protobuf@3.6"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   # remove in version 0.11
   patch do
@@ -39,7 +39,7 @@ class Ola < Formula
   end
 
   def install
-    xy = Language::Python.major_minor_version Formula["python@3.8"].bin/"python3"
+    xy = Language::Python.major_minor_version Formula["python@3.9"].bin/"python3"
     protobuf_pth = Formula["protobuf@3.6"].opt_lib/"python#{xy}/site-packages/homebrew-protobuf.pth"
     (buildpath/".brew_home/Library/Python/#{xy}/lib/python/site-packages").install_symlink protobuf_pth
 
@@ -53,7 +53,7 @@ class Ola < Formula
       --enable-rdm-tests
     ]
 
-    ENV["PYTHON"] = Formula["python@3.8"].bin/"python3"
+    ENV["PYTHON"] = Formula["python@3.9"].bin/"python3"
     system "autoreconf", "-fvi"
     system "./configure", *args
     system "make", "install"
