@@ -4,7 +4,7 @@ class Gdal < Formula
   url "https://download.osgeo.org/gdal/3.1.3/gdal-3.1.3.tar.xz"
   sha256 "161cf55371a143826f1d76ce566db1f0a666496eeb4371aed78b1642f219d51d"
   license "MIT"
-  revision 3
+  revision 4
 
   livecheck do
     url "https://download.osgeo.org/gdal/CURRENT/"
@@ -46,7 +46,7 @@ class Gdal < Formula
   depends_on "pcre"
   depends_on "poppler"
   depends_on "proj"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "sqlite" # To ensure compatibility with SpatiaLite
   depends_on "unixodbc" # macOS version is not complete enough
   depends_on "webp"
@@ -151,7 +151,7 @@ class Gdal < Formula
 
     # Build Python bindings
     cd "swig/python" do
-      system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
+      system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
     end
     bin.install Dir["swig/python/scripts/*.py"]
 
@@ -167,6 +167,6 @@ class Gdal < Formula
     system "#{bin}/gdalinfo", "--formats"
     system "#{bin}/ogrinfo", "--formats"
 
-    system Formula["python@3.8"].opt_bin/"python3", "-c", "import gdal"
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "import gdal"
   end
 end
