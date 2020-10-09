@@ -3,7 +3,7 @@ class EasyTag < Formula
   homepage "https://projects.gnome.org/easytag"
   url "https://download.gnome.org//sources/easytag/2.4/easytag-2.4.3.tar.xz"
   sha256 "fc51ee92a705e3c5979dff1655f7496effb68b98f1ada0547e8cbbc033b67dd5"
-  revision 4
+  revision 5
 
   livecheck do
     url :stable
@@ -18,7 +18,7 @@ class EasyTag < Formula
   depends_on "intltool" => :build
   depends_on "itstool" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
   depends_on "adwaita-icon-theme"
   depends_on "flac"
   depends_on "gtk+3"
@@ -35,7 +35,7 @@ class EasyTag < Formula
   patch :DATA
 
   def install
-    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
+    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     ENV.append_path "PYTHONPATH", "#{Formula["libxml2"].opt_lib}/python#{xy}/site-packages"
 
     system "./configure", "--disable-dependency-tracking",
