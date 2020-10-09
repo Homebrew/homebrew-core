@@ -4,6 +4,7 @@ class Libpeas < Formula
   url "https://download.gnome.org/sources/libpeas/1.28/libpeas-1.28.0.tar.xz"
   sha256 "42d91993b46ed50f16add6d9577ecc22beb8e2dffa7101e2232c2b63733b8b15"
   license "LGPL-2.1-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -23,7 +24,7 @@ class Libpeas < Formula
   depends_on "gobject-introspection"
   depends_on "gtk+3"
   depends_on "pygobject3"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
     args = std_meson_args + %w[
