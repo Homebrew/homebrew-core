@@ -5,6 +5,7 @@ class Mftrace < Formula
   mirror "https://dl.bintray.com/homebrew/mirror/mftrace-1.2.20.tar.gz"
   sha256 "626b7a9945a768c086195ba392632a68d6af5ea24ef525dcd0a4a8b199ea5f6f"
   license "GPL-2.0"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -20,7 +21,7 @@ class Mftrace < Formula
 
   depends_on "fontforge"
   depends_on "potrace"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "t1utils"
 
   # Fixed in https://github.com/hanwen/mftrace/pull/14
