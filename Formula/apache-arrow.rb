@@ -5,6 +5,7 @@ class ApacheArrow < Formula
   mirror "https://archive.apache.org/dist/arrow/arrow-1.0.1/apache-arrow-1.0.1.tar.gz"
   sha256 "149ca6aa969ac5742f3b30d1f69a6931a533fd1db8b96712e60bf386a26dc75c"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/apache/arrow.git"
 
   livecheck do
@@ -29,7 +30,7 @@ class ApacheArrow < Formula
   depends_on "numpy"
   depends_on "openssl@1.1"
   depends_on "protobuf"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "rapidjson"
   depends_on "re2"
   depends_on "snappy"
@@ -64,7 +65,7 @@ class ApacheArrow < Formula
       -DARROW_WITH_SNAPPY=ON
       -DARROW_WITH_BROTLI=ON
       -DARROW_INSTALL_NAME_RPATH=OFF
-      -DPYTHON_EXECUTABLE=#{Formula["python@3.8"].bin/"python3"}
+      -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].bin/"python3"}
     ]
 
     mkdir "build" do
