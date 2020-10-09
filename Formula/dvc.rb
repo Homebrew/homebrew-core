@@ -6,6 +6,7 @@ class Dvc < Formula
   url "https://github.com/iterative/dvc/archive/1.8.4.tar.gz"
   sha256 "71e9d1acc3ad5ce6fc94a7b3d3e4390e1754f8adfe484daa9a251b03e874353f"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://github.com/iterative/dvc.git"
@@ -22,7 +23,7 @@ class Dvc < Formula
   depends_on "pkg-config" => :build
   depends_on "apache-arrow"
   depends_on "openssl@1.1"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/d7/d8/05696357e0311f5b5c316d7b95f46c669dd9c15aaeecbb48c7d0aeb88c40/appdirs-1.4.4.tar.gz"
@@ -255,7 +256,7 @@ class Dvc < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
+    venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
 
     system libexec/"bin/pip", "install",
       "--no-binary", ":all:",
