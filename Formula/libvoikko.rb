@@ -3,7 +3,7 @@ class Libvoikko < Formula
   homepage "https://voikko.puimula.org/"
   url "https://www.puimula.org/voikko-sources/libvoikko/libvoikko-4.3.tar.gz"
   sha256 "e843df002fcea2a90609d87e4d6c28f8a0e23332d3b42979ab1793e18f839307"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -14,7 +14,7 @@ class Libvoikko < Formula
 
   depends_on "foma" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
   depends_on "hfstospell"
 
   resource "voikko-fi" do
