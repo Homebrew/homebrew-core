@@ -1,11 +1,11 @@
 class Nwchem < Formula
   desc "High-performance computational chemistry tools"
-  homepage "http://www.nwchem-sw.org"
-  url "https://github.com/nwchemgit/nwchem/releases/download/v7.0.0-release/nwchem-7.0.0-release.revision-2c9a1c7c-src.2020-02-26.tar.bz2"
-  version "7.0.0"
-  sha256 "1046e13a4c7f95860c8e8fac2b4d80657900ecd07a8242943d564048ce303514"
+  homepage "http://nwchemgit.github.io"
+  url "https://github.com/nwchemgit/nwchem/releases/download/v7.0.1-release/nwchem-7.0.1-release.revision-9d9840c2-src.2020-10-08.tar.bz2"
+  version "7.0.1"
+  sha256 "8cb3f8cf2710b4f6f6f1d63f66e299d1dbd390dc600927e45f29e4e67f4de271"
   license "ECL-2.0"
-  revision 2
+  revision 1
 
   livecheck do
     url "https://github.com/nwchemgit/nwchem.git"
