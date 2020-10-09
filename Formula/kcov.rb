@@ -4,6 +4,7 @@ class Kcov < Formula
   url "https://github.com/SimonKagstrom/kcov/archive/38.tar.gz"
   sha256 "b37af60d81a9b1e3b140f9473bdcb7975af12040feb24cc666f9bb2bb0be68b4"
   license "GPL-2.0"
+  revision 1
   head "https://github.com/SimonKagstrom/kcov.git"
 
   bottle do
@@ -15,7 +16,7 @@ class Kcov < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
   depends_on :macos # Due to Python 2
 
   def install
