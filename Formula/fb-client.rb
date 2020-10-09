@@ -3,6 +3,7 @@ class FbClient < Formula
   homepage "https://paste.xinu.at"
   url "https://paste.xinu.at/data/client/fb-2.1.1.tar.gz"
   sha256 "8fbcffc853b298a8497ab0f66b254c0c9ae4cbd31ab9889912a44a8c5c7cef0e"
+  revision 1
   head "https://git.server-speed.net/users/flo/fb", using: :git
 
   livecheck do
@@ -19,7 +20,7 @@ class FbClient < Formula
 
   depends_on "pkg-config" => :build
   depends_on "curl-openssl"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   conflicts_with "findbugs", because: "findbugs and fb-client both install a `fb` binary"
 
@@ -37,22 +38,22 @@ class FbClient < Formula
     # avoid pycurl error about compile-time and link-time curl version mismatch
     ENV.delete "SDKROOT"
 
-    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
+    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
 
     # avoid error about libcurl link-time and compile-time ssl backend mismatch
     resource("pycurl").stage do
-      system Formula["python@3.8"].opt_bin/"python3",
+      system Formula["python@3.9"].opt_bin/"python3",
              *Language::Python.setup_install_args(libexec/"vendor"),
              "--curl-config=#{Formula["curl-openssl"].opt_bin}/curl-config"
     end
 
     resource("pyxdg").stage do
-      system Formula["python@3.8"].opt_bin/"python3",
+      system Formula["python@3.9"].opt_bin/"python3",
              *Language::Python.setup_install_args(libexec/"vendor")
     end
 
-    inreplace "fb", "#!/usr/bin/env python", "#!#{Formula["python@3.8"].opt_bin}/python3"
+    inreplace "fb", "#!/usr/bin/env python", "#!#{Formula["python@3.9"].opt_bin}/python3"
 
     system "make", "PREFIX=#{prefix}", "install"
     bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
