@@ -6,6 +6,7 @@ class Bear < Formula
   url "https://github.com/rizsotto/Bear/archive/2.4.4.tar.gz"
   sha256 "5e95c9fe24714bcb98b858f0f0437aff76ad96b1d998940c0684c3a9d3920e82"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/rizsotto/Bear.git"
 
   bottle do
@@ -16,11 +17,11 @@ class Bear < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
     args = std_cmake_args + %W[
-      -DPYTHON_EXECUTABLE=#{Formula["python@3.8"].opt_bin}/python3
+      -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
     ]
     system "cmake", ".", *args
     system "make", "install"
