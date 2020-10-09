@@ -4,6 +4,7 @@ class LibpqxxAT6 < Formula
   url "https://github.com/jtv/libpqxx/archive/6.4.7.tar.gz"
   sha256 "3fe9f38df1f0f9b72c8fe1b4bc0185cf14b4ed801a9c783189b735404361ce7f"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     cellar :any
@@ -17,12 +18,12 @@ class LibpqxxAT6 < Formula
   deprecate! because: :versioned_formula
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
   depends_on "xmlto" => :build
   depends_on "libpq"
 
   def install
-    ENV.prepend_path "PATH", Formula["python@3.8"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
     ENV["PG_CONFIG"] = Formula["libpq"].opt_bin/"pg_config"
 
     system "./configure", "--prefix=#{prefix}", "--enable-shared"
