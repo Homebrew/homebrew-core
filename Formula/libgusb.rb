@@ -4,7 +4,7 @@ class Libgusb < Formula
   desc "GObject wrappers for libusb1"
   homepage "https://github.com/hughsie/libgusb"
   license "LGPL-2.1-only"
-  revision 1
+  revision 2
   head "https://github.com/hughsie/libgusb.git"
 
   stable do
@@ -29,7 +29,7 @@ class Libgusb < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
   depends_on "vala" => :build
   depends_on "glib"
   depends_on "libusb"
