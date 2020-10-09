@@ -4,6 +4,7 @@ class Mat2 < Formula
   url "https://0xacab.org/jvoisin/mat2/-/archive/0.11.0/mat2-0.11.0.tar.gz"
   sha256 "c37be119f4bc6226257cd72048bba4eaf3bb24a62fd38c2a34d9b937e6bd36b7"
   license "LGPL-3.0"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -19,7 +20,7 @@ class Mat2 < Formula
   depends_on "poppler"
   depends_on "py3cairo"
   depends_on "pygobject3"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "mutagen" do
     url "https://files.pythonhosted.org/packages/96/9f/280220926cabbf4822f80e094a5190fb3df245209648e169c8bcf708697b/mutagen-1.44.0.tar.gz"
@@ -27,7 +28,7 @@ class Mat2 < Formula
   end
 
   def install
-    version = Language::Python.major_minor_version Formula["python@3.8"].bin/"python3"
+    version = Language::Python.major_minor_version Formula["python@3.9"].bin/"python3"
     pygobject3 = Formula["pygobject3"]
     ENV["PYTHONPATH"] = lib/"python#{version}/site-packages"
     ENV.append_path "PYTHONPATH", pygobject3.opt_lib+"python#{version}/site-packages"
@@ -35,11 +36,11 @@ class Mat2 < Formula
 
     resources.each do |r|
       r.stage do
-        system Formula["python@3.8"].bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
+        system Formula["python@3.9"].bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
 
-    system Formula["python@3.8"].bin/"python3", *Language::Python.setup_install_args(prefix)
+    system Formula["python@3.9"].bin/"python3", *Language::Python.setup_install_args(prefix)
 
     bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
   end
