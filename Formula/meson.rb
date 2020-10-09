@@ -4,6 +4,7 @@ class Meson < Formula
   url "https://github.com/mesonbuild/meson/releases/download/0.55.3/meson-0.55.3.tar.gz"
   sha256 "6bed2a25a128bbabe97cf40f63165ebe800e4fcb46db8ab7ef5c2b5789f092a5"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/mesonbuild/meson.git"
 
   bottle do
@@ -14,13 +15,13 @@ class Meson < Formula
   end
 
   depends_on "ninja"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
-    version = Language::Python.major_minor_version Formula["python@3.8"].bin/"python3"
+    version = Language::Python.major_minor_version Formula["python@3.9"].bin/"python3"
     ENV["PYTHONPATH"] = lib/"python#{version}/site-packages"
 
-    system Formula["python@3.8"].bin/"python3", *Language::Python.setup_install_args(prefix)
+    system Formula["python@3.9"].bin/"python3", *Language::Python.setup_install_args(prefix)
 
     bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
   end
