@@ -28,6 +28,7 @@ class Awscli < Formula
                               "--ignore-installed", buildpath
     system libexec/"bin/pip", "uninstall", "-y", "awscli"
     venv.pip_install_and_link buildpath
+    system libexec/"bin/pip", "uninstall", "-y", "pyinstaller"
     pkgshare.install "awscli/examples"
 
     rm Dir["#{bin}/{aws.cmd,aws_bash_completer,aws_zsh_completer.sh}"]
