@@ -4,7 +4,7 @@ class Uhd < Formula
   url "https://github.com/EttusResearch/uhd/archive/v3.15.0.0.tar.gz"
   sha256 "eed4a77d75faafff56be78985950039f8d9d1eb9fcbd58b8862e481dd49825cd"
   license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later", "MIT", "BSD-3-Clause", "Apache-2.0"]
-  revision 1
+  revision 2
   head "https://github.com/EttusResearch/uhd.git"
 
   livecheck do
@@ -23,7 +23,7 @@ class Uhd < Formula
   depends_on "doxygen" => :build
   depends_on "boost"
   depends_on "libusb"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "Mako" do
     url "https://files.pythonhosted.org/packages/b0/3c/8dcd6883d009f7cae0f3157fb53e9afb05a0d3d33b3db1268ec2e6f4a56b/Mako-1.1.0.tar.gz"
@@ -44,11 +44,11 @@ class Uhd < Formula
               "autogen_src_path = os.path.relpath(options.output_src_path)",
               "autogen_src_path = os.path.realpath(options.output_src_path)"
 
-    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
+    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
 
     resource("Mako").stage do
-      system Formula["python@3.8"].opt_bin/"python3",
+      system Formula["python@3.9"].opt_bin/"python3",
              *Language::Python.setup_install_args(libexec/"vendor")
     end
 
