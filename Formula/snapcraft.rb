@@ -7,6 +7,7 @@ class Snapcraft < Formula
       tag:      "4.3",
       revision: "262f118ad4199dd706697c275a4223d0b364028b"
   license "GPL-3.0-only"
+  revision 1
 
   bottle do
     cellar :any
@@ -18,7 +19,7 @@ class Snapcraft < Formula
   depends_on "libsodium"
   depends_on "libyaml"
   depends_on "lxc"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "snap"
   depends_on "xdelta"
 
