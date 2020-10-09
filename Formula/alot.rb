@@ -6,6 +6,7 @@ class Alot < Formula
   url "https://github.com/pazz/alot/archive/0.9.1.tar.gz"
   sha256 "ee2c1ab1b43d022a8fe2078820ed57d8d72aec260a7d750776dac4ee841d1de4"
   license "GPL-3.0"
+  revision 1
   head "https://github.com/pazz/alot.git"
 
   bottle do
@@ -20,7 +21,7 @@ class Alot < Formula
   depends_on "gpgme"
   depends_on "libmagic"
   depends_on "notmuch"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/98/c3/2c227e66b5e896e15ccdae2e00bbc69aa46e9a8ce8869cc5fa96310bf612/attrs-19.3.0.tar.gz"
