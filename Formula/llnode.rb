@@ -4,6 +4,7 @@ class Llnode < Formula
   url "https://github.com/nodejs/llnode/archive/v3.2.0.tar.gz"
   sha256 "499b970a5006c2e1057f6c61da79b5466715e830e4a91c71e6de9c1ff6fe1a52"
   license "MIT"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,7 +14,7 @@ class Llnode < Formula
   end
 
   depends_on "node" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
 
   resource "lldb" do
     if DevelopmentTools.clang_build_version >= 1000
