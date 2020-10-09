@@ -4,6 +4,7 @@ class Qscintilla2 < Formula
   url "https://www.riverbankcomputing.com/static/Downloads/QScintilla/2.11.5/QScintilla-2.11.5.tar.gz"
   sha256 "9361e26fd7fb7b5819a7eb92c5c1880a18de9bd3ed9dd2eb008e57388696716b"
   license "GPL-3.0"
+  revision 1
 
   livecheck do
     url "https://www.riverbankcomputing.com/software/qscintilla/download"
@@ -18,7 +19,7 @@ class Qscintilla2 < Formula
   end
 
   depends_on "pyqt"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "qt"
   depends_on "sip"
 
@@ -50,9 +51,9 @@ class Qscintilla2 < Formula
 
     cd "Python" do
       (share/"sip").mkpath
-      version = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
+      version = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
       pydir = "#{lib}/python#{version}/site-packages/PyQt5"
-      system Formula["python@3.8"].opt_bin/"python3", "configure.py", "-o", lib, "-n", include,
+      system Formula["python@3.9"].opt_bin/"python3", "configure.py", "-o", lib, "-n", include,
                         "--apidir=#{prefix}/qsci",
                         "--destdir=#{pydir}",
                         "--stubsdir=#{pydir}",
@@ -76,6 +77,6 @@ class Qscintilla2 < Formula
       assert("QsciLexer" in dir(PyQt5.Qsci))
     EOS
 
-    system Formula["python@3.8"].opt_bin/"python3", "test.py"
+    system Formula["python@3.9"].opt_bin/"python3", "test.py"
   end
 end
