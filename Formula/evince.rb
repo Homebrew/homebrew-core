@@ -4,7 +4,7 @@ class Evince < Formula
   url "https://download.gnome.org/sources/evince/3.38/evince-3.38.0.tar.xz"
   sha256 "26df897a417545b476d2606b14731122e84278ae994bd64ea535449c3cf01948"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -31,7 +31,7 @@ class Evince < Formula
   depends_on "libsecret"
   depends_on "libspectre"
   depends_on "poppler"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
     ENV["DESTDIR"] = "/"
