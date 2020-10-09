@@ -8,6 +8,8 @@ class Antigen < Formula
 
   bottle :unneeded
 
+  uses_from_macos "zsh"
+
   def install
     pkgshare.install "bin/antigen.zsh"
   end
