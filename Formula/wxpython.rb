@@ -6,6 +6,7 @@ class Wxpython < Formula
   url "https://files.pythonhosted.org/packages/cb/4f/1e21d3c079c973ba862a18f3be73c2bbe2e6bc25c96d94df605b5cbb494d/wxPython-4.1.0.tar.gz"
   sha256 "2e2475cb755ac8d93d2f9335c39c060b4d17ecb5d4e0e86626d1e2834b64a48b"
   license "LGPL-2.0-or-later" => { with: "WxWindows-exception-3.1" }
+  revision 1
 
   livecheck do
     url :stable
@@ -23,7 +24,7 @@ class Wxpython < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "numpy"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "zlib"
 
@@ -56,7 +57,7 @@ class Wxpython < Formula
     inreplace "wscript", "MACOSX_DEPLOYMENT_TARGET = \"10.6\"",
                          "MACOSX_DEPLOYMENT_TARGET = \"#{MacOS.version}\""
 
-    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
+    venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
 
     resource("Pillow").stage do
       inreplace "setup.py" do |s|
@@ -87,10 +88,10 @@ class Wxpython < Formula
   end
 
   test do
-    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
+    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     ENV.prepend_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
 
-    output = shell_output("#{Formula["python@3.8"].opt_bin}/python3 -c 'import wx ; print(wx.__version__)'")
+    output = shell_output("#{Formula["python@3.9"].opt_bin}/python3 -c 'import wx ; print(wx.__version__)'")
     assert_match version.to_s, output
   end
 end
