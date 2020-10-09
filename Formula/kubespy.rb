@@ -3,7 +3,7 @@ class Kubespy < Formula
   homepage "https://github.com/pulumi/kubespy"
   url "https://github.com/pulumi/kubespy.git",
       tag:      "v0.6.0",
-      revision: "085db547dc24e0477e3690fe79b6224a1e6fea06"
+      revision: "b05ac83b152f1ff0595f7e7056aa0b70b18594e3"
   license "Apache-2.0"
 
   bottle do
