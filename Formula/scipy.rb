@@ -4,6 +4,7 @@ class Scipy < Formula
   url "https://files.pythonhosted.org/packages/53/10/776750d57ade26522478a92a2e14035868624a6a62f4157b0cc5abd4a980/scipy-1.5.2.tar.gz"
   sha256 "066c513d90eb3fd7567a9e150828d39111ebd88d3e924cdfc9f8ce19ab6f90c9"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/scipy/scipy.git"
 
   livecheck do
@@ -23,7 +24,7 @@ class Scipy < Formula
   depends_on "numpy"
   depends_on "openblas"
   depends_on "pybind11"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   cxxstdlib_check :skip
 
@@ -59,11 +60,11 @@ class Scipy < Formula
 
     Pathname("site.cfg").write config
 
-    version = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
+    version = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     ENV["PYTHONPATH"] = Formula["numpy"].opt_lib/"python#{version}/site-packages"
     ENV.prepend_create_path "PYTHONPATH", lib/"python#{version}/site-packages"
-    system Formula["python@3.8"].opt_bin/"python3", "setup.py", "build", "--fcompiler=gnu95"
-    system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
+    system Formula["python@3.9"].opt_bin/"python3", "setup.py", "build", "--fcompiler=gnu95"
+    system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
   end
 
   # cleanup leftover .pyc files from previous installs which can cause problems
@@ -73,6 +74,6 @@ class Scipy < Formula
   end
 
   test do
-    system Formula["python@3.8"].opt_bin/"python3", "-c", "import scipy"
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "import scipy"
   end
 end
