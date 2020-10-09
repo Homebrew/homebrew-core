@@ -4,7 +4,7 @@ class Ninja < Formula
   url "https://github.com/ninja-build/ninja/archive/v1.10.1.tar.gz"
   sha256 "a6b6f7ac360d4aabd54e299cc1d8fa7b234cd81b9401693da21221c62569a23e"
   license "Apache-2.0"
-  revision 2
+  revision 3
   head "https://github.com/ninja-build/ninja.git"
 
   livecheck do
@@ -19,7 +19,7 @@ class Ninja < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   # from https://github.com/ninja-build/ninja/pull/1836, remove in next release
   patch do
@@ -28,7 +28,7 @@ class Ninja < Formula
   end
 
   def install
-    inreplace "CMakeLists.txt", 'NINJA_PYTHON="python"', "NINJA_PYTHON=\"#{Formula["python@3.8"].opt_bin}/python3\""
+    inreplace "CMakeLists.txt", 'NINJA_PYTHON="python"', "NINJA_PYTHON=\"#{Formula["python@3.9"].opt_bin}/python3\""
 
     system "cmake", "-Bbuild-cmake", "-H.", *std_cmake_args
     system "cmake", "--build", "build-cmake"
