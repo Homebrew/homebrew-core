@@ -6,6 +6,7 @@ class Asciidoc < Formula
   url "https://github.com/asciidoc/asciidoc-py3/archive/9.0.3.tar.gz"
   sha256 "c0de1dcf111a200bf85bd81f67bc18778f839e55d761d6c7320095985524853a"
   license "GPL-2.0"
+  revision 1
   head "https://github.com/asciidoc/asciidoc-py3.git"
 
   bottle do
@@ -18,7 +19,7 @@ class Asciidoc < Formula
   depends_on "autoconf" => :build
   depends_on "docbook-xsl" => :build
   depends_on "docbook"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "source-highlight"
 
   uses_from_macos "libxml2" => :build
