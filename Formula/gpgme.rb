@@ -3,6 +3,7 @@ class Gpgme < Formula
   homepage "https://www.gnupg.org/related_software/gpgme/"
   url "https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.14.0.tar.bz2"
   sha256 "cef1f710a6b0d28f5b44242713ad373702d1466dcbe512eb4e754d7f35cd4307"
+  revision 1
 
   livecheck do
     url "https://gnupg.org/ftp/gcrypt/gpgme/"
@@ -16,14 +17,14 @@ class Gpgme < Formula
     sha256 "370890e7494a7be13e88493520715c48d2d45217daf0419594c1e78d06c6d8ac" => :high_sierra
   end
 
-  depends_on "python@3.8" => [:build, :test]
+  depends_on "python@3.9" => [:build, :test]
   depends_on "swig" => :build
   depends_on "gnupg"
   depends_on "libassuan"
   depends_on "libgpg-error"
 
   def install
-    ENV["PYTHON"] = Formula["python@3.8"].opt_bin/"python3"
+    ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
 
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
@@ -38,6 +39,6 @@ class Gpgme < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/gpgme-tool --lib-version")
-    system Formula["python@3.8"].opt_bin/"python3", "-c", "import gpg; print(gpg.version.versionstr)"
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "import gpg; print(gpg.version.versionstr)"
   end
 end
