@@ -4,7 +4,7 @@ class Nest < Formula
   url "https://github.com/nest/nest-simulator/archive/v2.20.0.tar.gz"
   sha256 "40e33187c22d6e843d80095b221fa7fd5ebe4dbc0116765a91fc5c425dd0eca4"
   license "GPL-2.0"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "38bfd492f381cd059a495122d1c3342e8fb5095501c0422e6c9e04e861cc0d31" => :catalina
@@ -18,7 +18,7 @@ class Nest < Formula
   depends_on "libomp"
   depends_on "libtool"
   depends_on "numpy"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "readline"
   depends_on "scipy"
 
@@ -43,7 +43,7 @@ class Nest < Formula
     args << "-DOpenMP_CXX_FLAGS=-Xpreprocessor\ -fopenmp\ -I#{libomp.opt_include}"
     args << "-DOpenMP_CXX_LIB_NAMES=omp"
     args << "-DOpenMP_omp_LIBRARY=#{libomp.opt_lib}/libomp.dylib"
-    python = Formula["python@3.8"]
+    python = Formula["python@3.9"]
     python_exec = python.opt_bin/"python3"
 
     resource("nose").stage do
@@ -75,9 +75,9 @@ class Nest < Formula
   end
 
   def caveats
-    python = Formula["python@3.8"]
+    python = Formula["python@3.9"]
     <<~EOS
-      The PyNEST bindings and its dependencies are installed with the python@3.8 formula.
+      The PyNEST bindings and its dependencies are installed with the python@3.9 formula.
       If you want to use PyNEST, use the Python interpreter from this path:
 
           #{python.bin}
@@ -87,11 +87,11 @@ class Nest < Formula
   end
 
   test do
-    python = Formula["python@3.8"]
+    python = Formula["python@3.9"]
     # check whether NEST was compiled & linked
     system bin/"nest", "--version"
 
     # check whether NEST is importable form python
-    system python.bin/"python3.8", "-c", "'import nest'"
+    system python.bin/"python3.9", "-c", "'import nest'"
   end
 end
