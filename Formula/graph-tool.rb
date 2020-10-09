@@ -6,6 +6,7 @@ class GraphTool < Formula
   url "https://downloads.skewed.de/graph-tool/graph-tool-2.35.tar.bz2"
   sha256 "2395823c33d4d12cc8465782a640b99ec7bddf074a7a02e9c1eab4eb3f8ce9ba"
   license "LGPL-3.0"
+  revision 1
 
   livecheck do
     url "https://downloads.skewed.de/graph-tool/"
@@ -32,7 +33,7 @@ class GraphTool < Formula
   depends_on "numpy"
   depends_on "py3cairo"
   depends_on "pygobject3"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "scipy"
 
   resource "Cycler" do
@@ -77,8 +78,8 @@ class GraphTool < Formula
 
   def install
     system "autoreconf", "-fiv"
-    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
-    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
+    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
 
     resources.each do |r|
       venv.pip_install_and_link r
@@ -115,6 +116,6 @@ class GraphTool < Formula
       assert g.num_edges() == 1
       assert g.num_vertices() == 2
     EOS
-    system Formula["python@3.8"].opt_bin/"python3", "test.py"
+    system Formula["python@3.9"].opt_bin/"python3", "test.py"
   end
 end
