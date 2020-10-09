@@ -4,6 +4,7 @@ class Protobuf < Formula
   url "https://github.com/protocolbuffers/protobuf/releases/download/v3.13.0/protobuf-all-3.13.0.tar.gz"
   sha256 "465fd9367992a9b9c4fba34a549773735da200903678b81b25f367982e8df376"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url "https://github.com/protocolbuffers/protobuf/releases/latest"
@@ -25,7 +26,7 @@ class Protobuf < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "python@3.8" => [:build, :test]
+  depends_on "python@3.9" => [:build, :test]
 
   resource "six" do
     url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
@@ -54,14 +55,14 @@ class Protobuf < Formula
     ENV.append_to_cflags "-L#{lib}"
 
     resource("six").stage do
-      system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(libexec)
+      system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(libexec)
     end
     chdir "python" do
-      system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(libexec),
+      system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(libexec),
                         "--cpp_implementation"
     end
 
-    version = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
+    version = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     site_packages = "lib/python#{version}/site-packages"
     pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
     (prefix/site_packages/"homebrew-protobuf.pth").write pth_contents
@@ -80,6 +81,6 @@ class Protobuf < Formula
     EOS
     (testpath/"test.proto").write testdata
     system bin/"protoc", "test.proto", "--cpp_out=."
-    system Formula["python@3.8"].opt_bin/"python3", "-c", "import google.protobuf"
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "import google.protobuf"
   end
 end
