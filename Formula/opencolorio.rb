@@ -4,7 +4,7 @@ class Opencolorio < Formula
   url "https://github.com/imageworks/OpenColorIO/archive/v1.1.1.tar.gz"
   sha256 "c9b5b9def907e1dafb29e37336b702fff22cc6306d445a13b1621b8a754c14c8"
   license "BSD-3-Clause"
-  revision 2
+  revision 3
   head "https://github.com/imageworks/OpenColorIO.git"
 
   bottle do
@@ -17,13 +17,13 @@ class Opencolorio < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "little-cms2"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
     args = std_cmake_args + %W[
       -DCMAKE_VERBOSE_MAKEFILE=OFF
       -DPYTHON=python3
-      -DPYTHON_EXECUTABLE=#{Formula["python@3.8"].opt_bin}/"python3"
+      -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/"python3"
     ]
 
     mkdir "macbuild" do
