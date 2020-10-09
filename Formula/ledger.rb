@@ -4,7 +4,7 @@ class Ledger < Formula
   url "https://github.com/ledger/ledger/archive/v3.2.1.tar.gz"
   sha256 "92bf09bc385b171987f456fe3ee9fa998ed5e40b97b3acdd562b663aa364384a"
   license "BSD-3-Clause"
-  revision 2
+  revision 3
   head "https://github.com/ledger/ledger.git"
 
   livecheck do
@@ -22,13 +22,13 @@ class Ledger < Formula
   depends_on "boost"
   depends_on "gmp"
   depends_on "mpfr"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "groff"
 
   def install
     ENV.cxx11
-    ENV.prepend_path "PATH", Formula["python@3.8"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
 
     args = %W[
       --jobs=#{ENV.make_jobs}
