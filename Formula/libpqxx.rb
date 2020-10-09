@@ -4,6 +4,7 @@ class Libpqxx < Formula
   url "https://github.com/jtv/libpqxx/archive/7.2.0.tar.gz"
   sha256 "c482a31c5d08402bc9e8df8291bed3555640ea80b3cb354fca958b1b469870dd"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,12 +14,12 @@ class Libpqxx < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
   depends_on "xmlto" => :build
   depends_on "libpq"
 
   def install
-    ENV.prepend_path "PATH", Formula["python@3.8"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
     ENV["PG_CONFIG"] = Formula["libpq"].opt_bin/"pg_config"
 
     system "./configure", "--prefix=#{prefix}", "--enable-shared"
