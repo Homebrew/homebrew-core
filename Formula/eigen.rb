@@ -4,6 +4,7 @@ class Eigen < Formula
   url "https://gitlab.com/libeigen/eigen/-/archive/3.3.8/eigen-3.3.8.tar.gz"
   sha256 "146a480b8ed1fb6ac7cd33fec9eb5e8f8f62c3683b3f850094d9d5c35a92419a"
   license "MPL-2.0"
+  revision 1
   head "https://gitlab.com/libeigen/eigen"
 
   bottle do
@@ -16,6 +17,12 @@ class Eigen < Formula
   depends_on "cmake" => :build
 
   conflicts_with "freeling", because: "freeling ships its own copy of eigen"
+
+  # Emergency fix for build failures with OpenMP. Remove with the next release.
+  patch do
+    url "https://gitlab.com/libeigen/eigen/-/commit/ef3cc72cb65e2d500459c178c63e349bacfa834f.diff"
+    sha256 "b8877a84c4338f08ab8a6bb8b274c768e93d36ac05b733b078745198919a74bf"
+  end
 
   def install
     mkdir "eigen-build" do
