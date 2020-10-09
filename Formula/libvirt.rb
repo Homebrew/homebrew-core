@@ -4,6 +4,7 @@ class Libvirt < Formula
   url "https://libvirt.org/sources/libvirt-6.8.0.tar.xz"
   sha256 "0c2d7f6ed8bc4956bf7f0c8ca2897c6c82ddb91e3118ab7a588b25eedd16ef69"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
+  revision 1
 
   livecheck do
     url "https://libvirt.org/sources/"
@@ -24,7 +25,7 @@ class Libvirt < Formula
   depends_on "ninja" => :build
   depends_on "perl" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
   depends_on "rpcgen" => :build
   depends_on "gettext"
   depends_on "glib"
