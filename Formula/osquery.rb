@@ -5,7 +5,7 @@ class Osquery < Formula
   sha256 "74280181f45046209053a3e15114d93adc80929a91570cc4497931cfb87679e4"
   # license ["Apache-2.0", "GPL-2.0-only"] - pending https://github.com/Homebrew/brew/pull/7953
   license "Apache-2.0"
-  revision 16
+  revision 17
 
   bottle do
     cellar :any
@@ -18,7 +18,7 @@ class Osquery < Formula
 
   depends_on "bison" => :build
   depends_on "cmake" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
   depends_on "augeas"
   depends_on "boost"
   depends_on "gflags"
@@ -108,13 +108,13 @@ class Osquery < Formula
     # Set the version
     ENV["OSQUERY_BUILD_VERSION"] = version
 
-    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
+    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     ENV.prepend_create_path "PYTHONPATH", buildpath/"third-party/python/lib/python#{xy}/site-packages"
 
     res = resources.map(&:name).to_set - %w[aws-sdk-cpp third-party]
     res.each do |r|
       resource(r).stage do
-        system Formula["python@3.8"].opt_bin/"python3",
+        system Formula["python@3.9"].opt_bin/"python3",
                "setup.py", "install",
                "--prefix=#{buildpath}/third-party/python/",
                "--single-version-externally-managed",
