@@ -6,6 +6,7 @@ class Duplicity < Formula
   url "https://code.launchpad.net/duplicity/0.8-series/0.8.16/+download/duplicity-0.8.16.tar.gz"
   sha256 "2cfcd212834979751310d9df1a954b949f86b084efd5ad1f97dd744780ef9d1b"
   license "GPL-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -22,7 +23,7 @@ class Duplicity < Formula
   depends_on "librsync"
   depends_on "libyaml"
   depends_on "openssl@1.1"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   # Generated with homebrew-pypi-poet from:
   # poet -r fasteners --also future --also mock --also requests --also urllib3 \
