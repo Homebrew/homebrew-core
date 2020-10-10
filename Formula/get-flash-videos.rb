@@ -16,6 +16,23 @@ class GetFlashVideos < Formula
 
   depends_on "rtmpdump"
 
+  on_linux do
+    resource "Module::Find" do
+      url "https://cpan.metacpan.org/authors/id/C/CR/CRENZ/Module-Find-0.13.tar.gz"
+      sha256 "4a47862072ca4962fa69796907476049dc60176003e946cf4b68a6b669f18568"
+    end
+
+    resource "Try::Tiny" do
+      url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/Try-Tiny-0.28.tar.gz"
+      sha256 "f1d166be8aa19942c4504c9111dade7aacb981bc5b3a2a5c5f6019646db8c146"
+    end
+
+    resource "XML::Simple" do
+      url "https://cpan.metacpan.org/authors/id/G/GR/GRANTM/XML-Simple-2.24.tar.gz"
+      sha256 "9a14819fd17c75fbb90adcec0446ceab356cab0ccaff870f2e1659205dc2424f"
+    end
+  end
+
   resource "Crypt::Blowfish_PP" do
     url "https://cpan.metacpan.org/authors/id/M/MA/MATTBM/Crypt-Blowfish_PP-1.12.tar.gz"
     sha256 "714f1a3e94f658029d108ca15ed20f0842e73559ae5fc1faee86d4f2195fcf8c"
