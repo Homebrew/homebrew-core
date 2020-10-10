@@ -1,8 +1,8 @@
 class KdeKarchive < Formula
   desc "Reading, creating, and manipulating file archives"
   homepage "https://api.kde.org/frameworks/karchive/html/index.html"
-  url "https://download.kde.org/stable/frameworks/5.74/karchive-5.74.0.tar.xz"
-  sha256 "deba7aedd9cbf707a56cabeb33d231d64db36c3e5ff866b543c374613be1fc21"
+  url "https://download.kde.org/stable/frameworks/5.75/karchive-5.75.0.tar.xz"
+  sha256 "0c833c766d2301335490a1b36197bae20b2e45d1350f4f8100e6e00d5502eaab"
   head "https://invent.kde.org/frameworks/karchive.git"
 
   bottle do
