@@ -4,7 +4,7 @@ class Rustscan < Formula
   url "https://github.com/RustScan/RustScan/archive/1.10.1.tar.gz"
   sha256 "fe47acf9f0fdabfc5e260b0a28cde9349acb347c4214767f89af2dfacff55717"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
