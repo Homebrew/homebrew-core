@@ -4,7 +4,7 @@ class LibbitcoinProtocol < Formula
   url "https://github.com/libbitcoin/libbitcoin-protocol/archive/v3.6.0.tar.gz"
   sha256 "fc41c64f6d3ee78bcccb63fd0879775c62bba5326f38c90b4c6804e2b9e8686e"
   license "AGPL-3.0"
-  revision 4
+  revision 5
 
   bottle do
     cellar :any
