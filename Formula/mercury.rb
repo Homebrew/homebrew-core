@@ -3,6 +3,7 @@ class Mercury < Formula
   homepage "https://mercurylang.org/"
   url "https://dl.mercurylang.org/release/mercury-srcdist-20.06.tar.gz"
   sha256 "b9c6965d41af49b4218d2444440c4860630d6f50c18dc6f1f4f8374d114f79be"
+  license all_of: ["GPL-2.0-only", "LGPL-2.0-only", "MIT"]
 
   bottle do
     cellar :any
@@ -13,12 +14,17 @@ class Mercury < Formula
 
   depends_on "openjdk"
 
-  def install
-    args = ["--prefix=#{prefix}",
-            "--mandir=#{man}",
-            "--infodir=#{info}"]
+  # Disable advanced segfault handling due to broken header detection.
+  patch do
+    url "https://github.com/Mercury-Language/mercury/commit/37ed70d43878cd53c8da40bf410e0a312835c036.patch?full_index=1"
+    sha256 "f01aca048464341dcf6e345056050e2c45236839cca17ac01fc944131d1641c0"
+  end
 
-    system "./configure", *args
+  def install
+    system "./configure", "--prefix=#{prefix}",
+            "--mandir=#{man}",
+            "--infodir=#{info}",
+            "mercury_cv_is_littleender=yes" # Fix broken endianness detection
 
     system "make", "install", "PARALLEL=-j"
 
