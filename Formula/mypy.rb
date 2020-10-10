@@ -2,8 +2,8 @@ class Mypy < Formula
   desc "Experimental optional static type checker for Python"
   homepage "http://www.mypy-lang.org/"
   url "https://github.com/python/mypy.git",
-      tag:      "v0.782",
-      revision: "39b6bc47b9f7e7d72778886419d07eb4acf3c50a"
+      tag:      "v0.790",
+      revision: "69a055a7632e2444fcb2bfb022d04f4546358d50"
   license "MIT"
   head "https://github.com/python/mypy.git"
 
