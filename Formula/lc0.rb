@@ -2,8 +2,8 @@ class Lc0 < Formula
   desc "Open source neural network based chess engine"
   homepage "https://lczero.org/"
   url "https://github.com/LeelaChessZero/lc0.git",
-      tag:      "v0.26.2",
-      revision: "5869d48b5aa4d3ba2b26ebb00578d8dadcd3c5db"
+      tag:      "v0.26.3",
+      revision: "e339467ca9db5af8abd8037764cf69d44367c351"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -16,6 +16,7 @@ class Lc0 < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "python@3.8" => :build # required to compile .pb files
+  depends_on "eigen"
 
   resource "network" do
     url "https://training.lczero.org/get_network?sha=00af53b081e80147172e6f281c01daf5ca19ada173321438914c730370aa4267", using: :nounzip
