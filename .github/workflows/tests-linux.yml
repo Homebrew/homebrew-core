@@ -5,6 +5,7 @@ on:
       - "Formula/alsa-lib.rb"
       - "Formula/libaio.rb"
       - "Formula/ladspa-sdk.rb"
+      - "Formula/libdrm.rb"
       - "Formula/libmnl.rb"
       - "Formula/libnetfilter-queue.rb"
       - "Formula/libnfnetlink.rb"
