@@ -11,7 +11,6 @@ class Legit < Formula
 
   livecheck do
     url :stable
-    regex(%r{href=.*?/packages.*?/legit[._-]v?(\d+(?:\.\d+)*(?:[._-]?post\d+)?)\.t}i)
   end
 
   bottle do
