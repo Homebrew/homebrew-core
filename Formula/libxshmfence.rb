@@ -13,7 +13,7 @@ class Libxshmfence < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "xorgproto" => :build
+  depends_on "xorgproto" => [:build, :test]
 
   def install
     args = %W[
