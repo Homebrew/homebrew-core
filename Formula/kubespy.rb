@@ -1,9 +1,8 @@
 class Kubespy < Formula
   desc "Tools for observing Kubernetes resources in realtime"
   homepage "https://github.com/pulumi/kubespy"
-  url "https://github.com/pulumi/kubespy.git",
-      tag:      "v0.5.1",
-      revision: "438edbfd5a9a72992803d45addb1f45b10a0b62f"
+  url "https://github.com/pulumi/kubespy/archive/v0.6.0.tar.gz"
+  sha256 "ff8f54a2a495d8ebb57242989238a96c2c07d26601c382a25419498170fc3351"
   license "Apache-2.0"
 
   bottle do
@@ -16,18 +15,13 @@ class Kubespy < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
-    dir = buildpath/"src/github.com/pulumi/kubespy"
-    dir.install buildpath.children
-
-    cd dir do
-      system "make", "build"
-      bin.install "kubespy"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args,
+              "-ldflags", "-X github.com/pulumi/kubespy/version.Version=#{version}"
   end
 
   test do
-    assert_match "v#{version}", shell_output("#{bin}/kubespy version")
+    assert_match version.to_s, shell_output("#{bin}/kubespy version")
+
+    assert_match "Unable to read kubectl config", shell_output("#{bin}/kubespy status v1 Pod nginx 2>&1", 1)
   end
 end
