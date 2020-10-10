@@ -1,9 +1,9 @@
 class BoostPython3 < Formula
   desc "C++ library for C++/Python3 interoperability"
   homepage "https://www.boost.org/"
-  url "https://dl.bintray.com/boostorg/release/1.73.0/source/boost_1_73_0.tar.bz2"
-  mirror "https://dl.bintray.com/homebrew/mirror/boost_1_73_0.tar.bz2"
-  sha256 "4eb3b8d442b426dc35346235c8733b5ae35ba431690e38c6a8263dce9fcbb402"
+  url "https://dl.bintray.com/boostorg/release/1.74.0/source/boost_1_74_0.tar.bz2"
+  mirror "https://dl.bintray.com/homebrew/mirror/boost_1_74_0.tar.bz2"
+  sha256 "83bfc1507731a0906e387fc28b7ef5417d591429e51e788417fe9ff025e116b1"
   license "BSL-1.0"
   head "https://github.com/boostorg/boost.git"
 
@@ -17,13 +17,6 @@ class BoostPython3 < Formula
   depends_on "numpy" => :build
   depends_on "boost"
   depends_on "python@3.8"
-
-  # Fix build on Xcode 11.4
-  patch do
-    url "https://github.com/boostorg/build/commit/b3a59d265929a213f02a451bb63cea75d668a4d9.patch?full_index=1"
-    sha256 "04a4df38ed9c5a4346fbb50ae4ccc948a1440328beac03cb3586c8e2e241be08"
-    directory "tools/build"
-  end
 
   def install
     # "layout" should be synchronized with boost
