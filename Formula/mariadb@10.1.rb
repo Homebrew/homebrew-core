@@ -1,8 +1,8 @@
 class MariadbAT101 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.org/f/mariadb-10.1.46/source/mariadb-10.1.46.tar.gz"
-  sha256 "cde355a750fcbe7a3956576b2a410dd1f7ed8c0f35de3676de8708782725ae15"
+  url "https://downloads.mariadb.org/f/mariadb-10.1.47/source/mariadb-10.1.47.tar.gz"
+  sha256 "a4267487dbddf1dc1faed6e2a322c50a3e80d5d271cb487e8bdad6840e003227"
   license "GPL-2.0-only"
 
   livecheck do
