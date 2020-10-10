@@ -4,7 +4,7 @@ class LibbitcoinClient < Formula
   url "https://github.com/libbitcoin/libbitcoin-client/archive/v3.6.0.tar.gz"
   sha256 "75969ac0a358458491b101cae784de90452883b5684199d3e3df619707802420"
   license "AGPL-3.0"
-  revision 4
+  revision 5
 
   bottle do
     cellar :any
