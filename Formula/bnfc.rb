@@ -1,10 +1,9 @@
 class Bnfc < Formula
   desc "BNF Converter"
   homepage "https://bnfc.digitalgrammars.com/"
-  url "https://github.com/BNFC/bnfc/archive/v2.8.3.tar.gz"
-  sha256 "ba0b6ab36954a0891b4ad3125cefdd6d441d2c73d174cd8eff344e68ae2fd203"
+  url "https://github.com/BNFC/bnfc/archive/v2.8.4.tar.gz"
+  sha256 "69a9cdd602bd7c96f5bc622645f88c8cb54231c7bad52974470dd0937df43f68"
   license "GPL-2.0"
-  revision 1
   head "https://github.com/BNFC/bnfc.git"
 
   bottle do
@@ -71,7 +70,7 @@ class Bnfc < Formula
       (EMul (EInt 14) (ESub (EAdd (EInt 3) (EDiv (EInt 2) (EInt 5))) (EInt 8)))
 
       [Linearized Tree]
-      14 * (3 + 2 / 5 - 8)#{treespace}
+      14 * (3 + 2 / 5 - 8) #{treespace}
 
     EOS
 
