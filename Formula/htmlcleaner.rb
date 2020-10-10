@@ -23,10 +23,12 @@ class Htmlcleaner < Formula
   def install
     ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
 
-    # Homebrew's OpenJDK no longer accepts Java 5 source
     inreplace "pom.xml" do |s|
+      # Homebrew's OpenJDK no longer accepts Java 5 source
       s.gsub! "<source>1.5</source>", "<source>1.7</source>"
       s.gsub! "<target>1.5</target>", "<target>1.7</target>"
+      # OpenJDK >14 doesn't support older maven-javadoc-plugin versions
+      s.gsub! "<version>2.9</version>", "<version>3.2.0</version>"
     end
 
     system "mvn", "clean", "package", "-DskipTests=true", "-Dmaven.javadoc.skip=true"
