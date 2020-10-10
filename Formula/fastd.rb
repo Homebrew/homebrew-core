@@ -1,10 +1,9 @@
 class Fastd < Formula
   desc "Fast and Secure Tunnelling Daemon"
   homepage "https://github.com/NeoRaider/fastd"
-  url "https://github.com/NeoRaider/fastd/releases/download/v19/fastd-19.tar.xz"
-  sha256 "6054608e2103b634c9d19ecd1ae058d4ec694747047130719db180578729783a"
+  url "https://github.com/NeoRaider/fastd/releases/download/v20/fastd-20.tar.xz"
+  sha256 "56cab8639218d63237d9a5508fb2bf6fa637374d53fb7fa55b7e92e4d4dfeb00"
   license "BSD-2-Clause"
-  revision 1
   head "https://github.com/NeoRaider/fastd.git"
 
   bottle do
