@@ -5,6 +5,7 @@ class Wownero < Formula
     tag:      "v0.9.0.2",
     revision: "9a58ac48d2f1ebdc94f168e63fdc30604058a7ca"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     cellar :any
@@ -25,6 +26,7 @@ class Wownero < Formula
   depends_on "zeromq"
 
   conflicts_with "miniupnpc", because: "wownero ships its own copy of miniupnpc"
+  conflicts_with "monero", because: "both install a wallet2_api.h header"
 
   def install
     system "cmake", ".", *std_cmake_args
