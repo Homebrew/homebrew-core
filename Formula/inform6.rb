@@ -1,10 +1,10 @@
 class Inform6 < Formula
   desc "Design system for interactive fiction"
   homepage "https://inform-fiction.org/inform6.html"
-  url "https://ifarchive.org/if-archive/infocom/compilers/inform6/source/inform-6.34-6.12.2.tar.gz"
-  mirror "https://ifarchive.org/if-archive/infocom/compilers/inform6/source/old/inform-6.34-6.12.2.tar.gz"
-  version "6.34-6.12.2"
-  sha256 "c149f143f2c29a4cb071e578afef8097647cc9e823f7fcfab518ac321d9d259f"
+  url "https://ifarchive.org/if-archive/infocom/compilers/inform6/source/inform-6.34-6.12.4-1.tar.gz"
+  mirror "https://ifarchive.org/if-archive/infocom/compilers/inform6/source/old/inform-6.34-6.12.4-1.tar.gz"
+  version "6.34-6.12.4-1"
+  sha256 "8cc1983c7bbed7f23fcf3cd549fe8dc10b1a506b95129c35e9f61d2e79b85295"
   head "https://gitlab.com/DavidGriffith/inform6unix.git"
 
   bottle do
