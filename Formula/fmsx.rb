@@ -15,7 +15,16 @@ class Fmsx < Formula
   end
 
   depends_on "pulseaudio"
-  depends_on :x11
+
+  on_macos do
+    depends_on :x11
+  end
+
+  on_linux do
+    depends_on "libpthread-stubs"
+    depends_on "libx11"
+    depends_on "libxext"
+  end
 
   resource "msx-rom" do
     url "https://fms.komkon.org/fMSX/src/MSX.ROM"
