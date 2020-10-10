@@ -1,7 +1,7 @@
 class Xonsh < Formula
   include Language::Python::Virtualenv
 
-  desc "Python-ish, BASHwards-compatible shell language and command prompt"
+  desc "Python-powered, cross-platform, Unix-gazing shell language and command prompt"
   homepage "https://xon.sh/"
   url "https://github.com/xonsh/xonsh/archive/0.9.23.tar.gz"
   sha256 "44afe504c2878686b4ee732e380c804489477aec2fcc61f5476574ee064fbddc"
