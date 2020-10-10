@@ -3,8 +3,8 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://github.com/jbarlow83/OCRmyPDF"
-  url "https://files.pythonhosted.org/packages/fe/bd/69e72996be28fbe09632b7dde173f9a5e90bae2c4763ace3fd4769ef948f/ocrmypdf-11.2.0.tar.gz"
-  sha256 "ffc9b788524c88519eaae23634366cf170b6d9914b1628aa158cfd89c2fb29ba"
+  url "https://files.pythonhosted.org/packages/8e/51/9b300c3ef8aa155f0a296561c0e53097789fdc8988b110408ad5d6db0c4e/ocrmypdf-11.2.1.tar.gz"
+  sha256 "8f773a64979c4e5def6c08a7ee0895895ac1f1a5a176f1df1522b8603975c006"
   license "MPL-2.0"
 
   livecheck do
@@ -113,8 +113,8 @@ class Ocrmypdf < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/9f/7b/76c4e5ef1a1b528fcaada4133f972e77d33c252831676cf414119ca6093d/tqdm-4.50.0.tar.gz"
-    sha256 "93b7a6a9129fce904f6df4cf3ae7ff431d779be681a95c3344c26f3e6c09abfa"
+    url "https://files.pythonhosted.org/packages/e0/98/e3fbad184a671b51d5a873da486362884e7205eeeed1f597c48731efd122/tqdm-4.50.2.tar.gz"
+    sha256 "69dfa6714dee976e2425a9aab84b622675b7b1742873041e3db8a8e86132a4af"
   end
 
   def install
