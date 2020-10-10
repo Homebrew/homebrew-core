@@ -4,6 +4,7 @@ class Bitcoin < Formula
   url "https://bitcoin.org/bin/bitcoin-core-0.20.1/bitcoin-0.20.1.tar.gz"
   sha256 "4bbd62fd6acfa5e9864ebf37a24a04bc2dcfe3e3222f056056288d854c53b978"
   license "MIT"
+  revision 1
   head "https://github.com/bitcoin/bitcoin.git"
 
   bottle do
