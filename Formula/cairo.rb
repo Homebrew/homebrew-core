@@ -34,6 +34,11 @@ class Cairo < Formula
 
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "libxext"
+    depends_on "libxrender"
+  end
+
   def install
     if build.head?
       ENV["NOCONFIGURE"] = "1"
