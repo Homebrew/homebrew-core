@@ -1,8 +1,8 @@
 class KdeKi18n < Formula
   desc "KDE Gettext-based UI text internationalization"
   homepage "https://api.kde.org/frameworks/ki18n/html/index.html"
-  url "https://download.kde.org/stable/frameworks/5.74/ki18n-5.74.0.tar.xz"
-  sha256 "bcbb95a81cd8f808fc8314741309c4b4ec25fc1c347e285a7cfefc006df3009c"
+  url "https://download.kde.org/stable/frameworks/5.75/ki18n-5.75.0.tar.xz"
+  sha256 "71f22a4ef4a9e750a1813c9fe37b552d9e053e6e2249079b5908d078160130d3"
   head "https://invent.kde.org/frameworks/ki18n.git"
 
   bottle do
