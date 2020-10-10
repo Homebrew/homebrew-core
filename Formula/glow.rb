@@ -1,8 +1,8 @@
 class Glow < Formula
   desc "Render markdown on the CLI"
   homepage "https://github.com/charmbracelet/glow"
-  url "https://github.com/charmbracelet/glow/archive/v1.0.0.tar.gz"
-  sha256 "15e1ec195a11ff36c5d322d193961a39eed22626e376638eb262ec29fb56eae3"
+  url "https://github.com/charmbracelet/glow/archive/v1.0.1.tar.gz"
+  sha256 "78d163bea8e6c13fb343f1e3586e93e0392e5052c408a248cc2f0fcc7aa38618"
   license "MIT"
 
   bottle do
