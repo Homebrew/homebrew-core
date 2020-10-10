@@ -5,7 +5,7 @@ class Openimageio < Formula
   version "2.1.18"
   sha256 "e2cf54f5b28e18fc88e76e1703f2e39bf144c88378334527e4a1246974659a85"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/OpenImageIO/oiio.git"
 
   livecheck do
