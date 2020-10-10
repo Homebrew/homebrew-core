@@ -1,8 +1,8 @@
 class KitchenSync < Formula
   desc "Fast efficiently sync database without dumping & reloading"
   homepage "https://github.com/willbryant/kitchen_sync"
-  url "https://github.com/willbryant/kitchen_sync/archive/v2.6.tar.gz"
-  sha256 "c0ed6fcc44c6441ae35e604de965da13074c0059d0a8b1a1eaed7e4b17c21ea5"
+  url "https://github.com/willbryant/kitchen_sync/archive/v2.7.tar.gz"
+  sha256 "65489d348620dec6369a9c58b36220d8984b8cccb5443fc259d13e484e7f96ab"
   license "MIT"
   head "https://github.com/willbryant/kitchen_sync.git"
 
