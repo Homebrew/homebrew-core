@@ -1,8 +1,8 @@
 class Languagetool < Formula
   desc "Style and grammar checker"
   homepage "https://www.languagetool.org/"
-  url "https://languagetool.org/download/LanguageTool-5.1.zip"
-  sha256 "c91ff43d54c863a9389a81c5fa1a6723041b982435f220e9c2c4db843b66d1b6"
+  url "https://languagetool.org/download/LanguageTool-5.1.2.oxt"
+  sha256 "262f144df5b91b96a57a7e93294d7acbc46f39e2b326995098193b30c2091960"
 
   livecheck do
     url "https://github.com/languagetool-org/languagetool.git"
