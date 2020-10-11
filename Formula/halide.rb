@@ -4,6 +4,7 @@ class Halide < Formula
   url "https://github.com/halide/Halide/archive/v10.0.0.tar.gz"
   sha256 "23808f8e9746aea25349a16da92e89ae320990df3c315c309789fb209ee40f20"
   license "MIT"
+  revision 1
 
   bottle do
     cellar :any
@@ -17,7 +18,7 @@ class Halide < Formula
   depends_on "libomp"
   depends_on "libpng"
   depends_on "llvm"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
     mkdir "build" do
