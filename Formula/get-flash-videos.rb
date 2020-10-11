@@ -90,8 +90,7 @@ class GetFlashVideos < Formula
   end
 
   test do
-    file = testpath/"BBC_-__Do_whatever_it_takes_to_get_him_to_talk.flv"
-    system bin/"get_flash_videos", "http://news.bbc.co.uk/2/hi/programmes/hardtalk/9560793.stm"
-    assert_predicate file, :exist?, "Failed to download #{file}!"
+    assert_match "Filename: BBC_-__Do_whatever_it_takes_to_get_him_to_talk.flv",
+      shell_output("#{bin}/get_flash_videos --info http://news.bbc.co.uk/2/hi/programmes/hardtalk/9560793.stm")
   end
 end
