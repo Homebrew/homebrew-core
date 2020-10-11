@@ -4,6 +4,7 @@ class Binaryen < Formula
   url "https://github.com/WebAssembly/binaryen/archive/version_97.tar.gz"
   sha256 "a1bb8a62851706892faabd4f2aa3c6f7f00462512abd1a6923c746e51290b265"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/WebAssembly/binaryen.git"
 
   bottle do
@@ -14,7 +15,7 @@ class Binaryen < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
   depends_on macos: :el_capitan # needs thread-local storage
 
   def install
