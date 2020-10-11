@@ -43,7 +43,7 @@ class Libgsm < Formula
     system "make", "install",
            "INSTALL_ROOT=#{prefix}",
            "GSM_INSTALL_INC=#{include}"
-    lib.install Dir["lib/*dylib"]
+    lib.install Dir["lib/#{shared_library("*")}"]
   end
 
   test do
