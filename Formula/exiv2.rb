@@ -40,7 +40,7 @@ class Exiv2 < Formula
       -DEXIV2_ENABLE_CURL=ON
       -DEXIV2_ENABLE_SSH=ON
       -DEXIV2_BUILD_SAMPLES=OFF
-      -DSSH_LIBRARY=#{Formula["libssh"].opt_lib}/libssh.dylib
+      -DSSH_LIBRARY=#{Formula["libssh"].opt_lib}/#{shared_library("libssh")}
       -DSSH_INCLUDE_DIR=#{Formula["libssh"].opt_include}
       ..
     ]
