@@ -33,7 +33,7 @@ class Mvtools < Formula
       MVTools will not be autoloaded in your VapourSynth scripts. To use it
       use the following code in your scripts:
 
-        core.std.LoadPlugin(path="#{HOMEBREW_PREFIX}/lib/libmvtools.dylib")
+        core.std.LoadPlugin(path="#{HOMEBREW_PREFIX}/lib/#{shared_library("libmvtools")}")
     EOS
   end
 
@@ -41,7 +41,7 @@ class Mvtools < Formula
     script = <<~EOS.split("\n").join(";")
       import vapoursynth as vs
       core = vs.get_core()
-      core.std.LoadPlugin(path="#{lib}/libmvtools.dylib")
+      core.std.LoadPlugin(path="#{lib}/#{shared_library("libmvtools")}")
     EOS
 
     system Formula["python@3.8"].opt_bin/"python3", "-c", script
