@@ -33,7 +33,7 @@ class MariadbConnectorOdbc < Formula
   end
 
   test do
-    output = shell_output("#{Formula["unixodbc"].opt_bin}/dltest #{lib}/mariadb/libmaodbc.dylib")
-    assert_equal "SUCCESS: Loaded #{lib}/mariadb/libmaodbc.dylib", output.chomp
+    output = shell_output("#{Formula["unixodbc"].opt_bin}/dltest #{lib}/mariadb/#{shared_library("libmaodbc")}")
+    assert_equal "SUCCESS: Loaded #{lib}/mariadb/#{shared_library("libmaodbc")}", output.chomp
   end
 end
