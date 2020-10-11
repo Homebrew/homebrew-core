@@ -8,7 +8,7 @@ class Ghc < Formula
   url "https://downloads.haskell.org/~ghc/8.10.1/ghc-8.10.1-src.tar.xz"
   sha256 "4e3b07f83a266b3198310f19f71e371ebce97c769b14f0d688f4cbf2a2a1edf5"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -33,7 +33,7 @@ class Ghc < Formula
     end
   end
 
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
   depends_on "sphinx-doc" => :build
 
   resource "gmp" do
@@ -65,7 +65,7 @@ class Ghc < Formula
 
     ENV["CC"] = ENV.cc
     ENV["LD"] = "ld"
-    ENV["PYTHON"] = Formula["python@3.8"].opt_bin/"python3"
+    ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
 
     # Build a static gmp rather than in-tree gmp, otherwise all ghc-compiled
     # executables link to Homebrew's GMP.
