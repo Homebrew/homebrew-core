@@ -3,7 +3,7 @@ class Llvm < Formula
   homepage "https://llvm.org/"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/llvm/llvm-project.git"
 
   stable do
@@ -100,7 +100,7 @@ class Llvm < Formula
   # We intentionally use Make instead of Ninja.
   # See: Homebrew/homebrew-core/issues/35513
   depends_on "cmake" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
   depends_on "libffi"
 
   uses_from_macos "libedit"
@@ -130,7 +130,7 @@ class Llvm < Formula
       libunwind
     ]
     # Can likely be added to the base runtimes array when 11.0.0 is released.
-    runtimes << "libcxxabi" if build.head?
+    ecuntimes << "libcxxabi" if build.head?
 
     llvmpath = buildpath/"llvm"
     unless build.head?
@@ -138,7 +138,7 @@ class Llvm < Formula
       (projects + runtimes).each { |p| resource(p).stage(buildpath/p) }
     end
 
-    py_ver = "3.8"
+    py_ver = "3.9"
 
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
