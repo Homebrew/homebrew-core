@@ -3,7 +3,7 @@ class Stella < Formula
   homepage "https://stella-emu.github.io/"
   url "https://github.com/stella-emu/stella/releases/download/6.3/stella-6.3-src.tar.xz"
   sha256 "59ee35a3e49f52e64fa15e0217ecda90ccb768dcb075d997e72d5e5a3198f82e"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   head "https://github.com/stella-emu/stella.git"
 
   bottle do
