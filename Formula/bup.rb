@@ -14,7 +14,7 @@ class Bup < Formula
   end
 
   depends_on "pandoc" => :build
-  depends_on :macos # Due to Python 2
+  depends_on "python@3.9"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/b8/e2/a3a86a67c3fc8249ed305fc7b7d290ebe5e4d46ad45573884761ef4dea7b/certifi-2020.4.5.1.tar.gz"
@@ -36,16 +36,33 @@ class Bup < Formula
     sha256 "0fe2d45ba43b00a41cd73f8be321a44936dc1aba233dee979f17a042b83eb6dc"
   end
 
+  if OS.linux?
+    resource "pyxattr" do
+      url "https://files.pythonhosted.org/packages/cf/b1/7ed931d98b5a91a59b69fcc2860e5b720a22ed1ddb85268415181c9b0986/pyxattr-0.7.1.tar.gz"
+      sha256 "965388dd629334e850aa989a67d2360ec8257cfe8f67d07c29f980d3152f2882"
+    end
+  end
+
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
+    ENV.append "CFLAGS", " #{`python3 --cflags`.chomp}"
+    ENV.append "LDFLAGS", " #{`python3 --ldflags`.chomp}"
+    ENV["PYTHON"] = "python3"
+
     resources.each do |r|
       r.stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
+        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
 
-    # set AC_CPP_PROG due to Mojave issue, see https://github.com/Homebrew/brew/issues/5153
-    system "make", "AC_CPP_PROG=xcrun cpp"
+    if OS.mac?
+      # set AC_CPP_PROG due to Mojave issue, see https://github.com/Homebrew/brew/issues/5153
+      system "make", "AC_CPP_PROG=xcrun cpp"
+    else
+      system "./configure"
+      system "make"
+    end
     system "make", "install", "DESTDIR=#{prefix}", "PREFIX="
 
     mv bin/"bup", libexec/"bup.py"
