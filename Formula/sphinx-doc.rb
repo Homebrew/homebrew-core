@@ -6,6 +6,7 @@ class SphinxDoc < Formula
   url "https://files.pythonhosted.org/packages/57/58/48268b16bf3e6e8288c4c6f3d500e4dd1ca0210289a5be8366bd6d2e6088/Sphinx-3.2.1.tar.gz"
   sha256 "321d6d9b16fa381a5306e5a0b76cd48ffbc588e6340059a729c6fdd66087e0e8"
   license "BSD-2-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -23,7 +24,7 @@ class SphinxDoc < Formula
     Users are advised to use `pip` to install sphinx-doc
   EOS
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "alabaster" do
     url "https://files.pythonhosted.org/packages/cc/b4/ed8dcb0d67d5cfb7f83c4d5463a7614cb1d078ad7ae890c9143edebbf072/alabaster-0.7.12.tar.gz"
