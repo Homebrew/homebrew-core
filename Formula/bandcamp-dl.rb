@@ -4,7 +4,7 @@ class BandcampDl < Formula
   desc "Simple python script to download Bandcamp albums"
   homepage "https://github.com/iheanyi/bandcamp-dl"
   license "Unlicense"
-  revision 4
+  revision 5
   head "https://github.com/iheanyi/bandcamp-dl.git"
 
   stable do
@@ -16,6 +16,12 @@ class BandcampDl < Formula
     patch do
       url "https://github.com/iheanyi/bandcamp-dl/commit/3d3a524af27bac761bd2f8766c6f4951776c6c60.patch?full_index=1"
       sha256 "f776b23beb1149d2449c2187bbdc3843933d063a79254a354bfc69ce4d644091"
+    end
+
+    # fix script matching https://github.com/iheanyi/bandcamp-dl/pull/171
+    patch do
+      url "https://github.com/iheanyi/bandcamp-dl/commit/08c450385efe847e4f8ece1dc95034e69aaeaed0.patch?full_index=1"
+      sha256 "64808a6334994d847d0c5bdcfd49cfd6dbb4376c8c8d3fd4304b85f892d3915f"
     end
   end
 
