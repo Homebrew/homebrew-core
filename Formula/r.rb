@@ -3,7 +3,7 @@ class R < Formula
   homepage "https://www.r-project.org/"
   url "https://cran.r-project.org/src/base/R-4/R-4.0.3.tar.gz"
   sha256 "09983a8a78d5fb6bc45d27b1c55f9ba5265f78fa54a55c13ae691f87c5bb9e0d"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://cran.rstudio.com/banner.shtml"
