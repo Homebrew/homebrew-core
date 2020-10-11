@@ -28,8 +28,8 @@ class Openblas < Formula
     system "make", "CC=#{ENV.cc}", "FC=gfortran", "libs", "netlib", "shared"
     system "make", "PREFIX=#{prefix}", "install"
 
-    lib.install_symlink "libopenblas.dylib" => "libblas.dylib"
-    lib.install_symlink "libopenblas.dylib" => "liblapack.dylib"
+    lib.install_symlink shared_library("libopenblas") => shared_library("libblas")
+    lib.install_symlink shared_library("libopenblas") => shared_library("liblapack")
   end
 
   test do
