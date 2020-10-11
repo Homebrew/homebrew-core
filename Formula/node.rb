@@ -4,6 +4,7 @@ class Node < Formula
   url "https://nodejs.org/dist/v14.13.1/node-v14.13.1.tar.gz"
   sha256 "f0080d3284ea1585e255a3f459ce151e8106a33f4ce8bed0da15ff99c6a082a5"
   license "MIT"
+  revision 1
   head "https://github.com/nodejs/node.git"
 
   livecheck do
@@ -19,7 +20,7 @@ class Node < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
   depends_on "icu4c"
 
   # We track major/minor from upstream Node releases.
@@ -31,7 +32,7 @@ class Node < Formula
 
   def install
     # make sure subprocesses spawned by make are using our Python 3
-    ENV["PYTHON"] = Formula["python@3.8"].opt_bin/"python3"
+    ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
 
     # Never install the bundled "npm", always prefer our
     # installation from tarball for better packaging control.
