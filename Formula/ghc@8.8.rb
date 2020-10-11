@@ -8,6 +8,7 @@ class GhcAT88 < Formula
   url "https://downloads.haskell.org/~ghc/8.8.4/ghc-8.8.4-src.tar.xz"
   sha256 "f0505e38b2235ff9f1090b51f44d6c8efd371068e5a6bb42a2a6d8b67b5ffc2d"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 "04b5d947271af5cc9a6dda589fa29f28d53b34af20545e3d43ded0744a0daa79" => :catalina
@@ -17,7 +18,7 @@ class GhcAT88 < Formula
 
   keg_only :versioned_formula
 
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
   depends_on "sphinx-doc" => :build
 
   resource "gmp" do
