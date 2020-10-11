@@ -5,7 +5,7 @@ class VpnSlice < Formula
   homepage "https://github.com/dlenski/vpn-slice"
   url "https://files.pythonhosted.org/packages/22/a2/55d1f41fdc1708c0a005f5fc678b85acaa3ed5ba470a3a0410898b3a61ff/vpn-slice-0.15.tar.gz"
   sha256 "7d5133aecbed9d5696d59dcb799c3d8d30a89a08f6d36fac335f6b8357786353"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
   head "https://github.com/dlenski/vpn-slice.git"
 
   bottle do
