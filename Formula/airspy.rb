@@ -23,7 +23,7 @@ class Airspy < Formula
 
     libusb = Formula["libusb"]
     args << "-DLIBUSB_INCLUDE_DIR=#{libusb.opt_include}/libusb-1.0"
-    args << "-DLIBUSB_LIBRARIES=#{libusb.opt_lib}/libusb-1.0.dylib"
+    args << "-DLIBUSB_LIBRARIES=#{libusb.opt_lib}/#{shared_library("libusb-1.0")}"
 
     mkdir "build" do
       system "cmake", "..", *args
