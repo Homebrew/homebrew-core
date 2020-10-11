@@ -1,8 +1,8 @@
 class Sslscan < Formula
   desc "Test SSL/TLS enabled services to discover supported cipher suites"
   homepage "https://github.com/rbsec/sslscan"
-  url "https://github.com/rbsec/sslscan/archive/2.0.2.tar.gz"
-  sha256 "9996dec2f4b6d20f1ba6411f157f3163389c52ae8d5e98528aeb0ea3d8b06cd1"
+  url "https://github.com/rbsec/sslscan/archive/2.0.3.tar.gz"
+  sha256 "93c0aa6fccd5ca88f1b27a0c968f1fe060cdf9e16c2cc5bdd7f8159bb667a02f"
   license "GPL-3.0-or-later"
   head "https://github.com/rbsec/sslscan.git"
 
