@@ -3,8 +3,8 @@ class Conan < Formula
 
   desc "Distributed, open source, package manager for C/C++"
   homepage "https://github.com/conan-io/conan"
-  url "https://files.pythonhosted.org/packages/a7/f6/c437f320b4c998ef3f77b0823018078081cb615f88c7eed37a5523d70c0b/conan-1.30.0.tar.gz"
-  sha256 "465e3fde8414e9abdaf6d8b8d2f501c88e6b4a79fcd4eb62541792746a2574e2"
+  url "https://files.pythonhosted.org/packages/20/20/99a5b57ce4086735d11e2e935d90c9bdfd95beac17bd27cd84e8e057fc0e/conan-1.30.1.tar.gz"
+  sha256 "10a7b1882c17339eb7dd6e4ba6db9de167ad9c81ebd88b2204bfa6b5212a3394"
   license "MIT"
   head "https://github.com/conan-io/conan.git"
 
@@ -166,8 +166,8 @@ class Conan < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/9f/7b/76c4e5ef1a1b528fcaada4133f972e77d33c252831676cf414119ca6093d/tqdm-4.50.0.tar.gz"
-    sha256 "93b7a6a9129fce904f6df4cf3ae7ff431d779be681a95c3344c26f3e6c09abfa"
+    url "https://files.pythonhosted.org/packages/e0/98/e3fbad184a671b51d5a873da486362884e7205eeeed1f597c48731efd122/tqdm-4.50.2.tar.gz"
+    sha256 "69dfa6714dee976e2425a9aab84b622675b7b1742873041e3db8a8e86132a4af"
   end
 
   resource "urllib3" do
