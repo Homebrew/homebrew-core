@@ -3,7 +3,7 @@ class Py3cairo < Formula
   homepage "https://cairographics.org/pycairo/"
   url "https://github.com/pygobject/pycairo/releases/download/v1.20.0/pycairo-1.20.0.tar.gz"
   sha256 "5695a10cb7f9ae0d01f665b56602a845b0a8cb17e2123bfece10c2e58552468c"
-  license "LGPL-2.1"
+  license any_of: ["LGPL-2.1-only", "MPL-1.1"]
 
   bottle do
     cellar :any
