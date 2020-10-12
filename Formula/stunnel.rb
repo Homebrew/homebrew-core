@@ -3,6 +3,7 @@ class Stunnel < Formula
   homepage "https://www.stunnel.org/"
   url "https://www.stunnel.org/downloads/stunnel-5.57.tar.gz"
   sha256 "af5ab973dde11807c38735b87bdd87563a47d2fa1c72a07929fcfce80a600fe1"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://www.stunnel.org/downloads.html"
