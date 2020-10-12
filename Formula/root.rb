@@ -31,6 +31,7 @@ class Root < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "ninja" => :build
   depends_on "cfitsio"
   depends_on "davix"
   depends_on "fftw"
@@ -90,6 +91,7 @@ class Root < Formula
       -Dssl=ON
       -Dtmva=ON
       -Dxrootd=ON
+      -GNinja
     ]
 
     cxx_version = (MacOS.version < :mojave) ? 14 : 17
@@ -101,7 +103,7 @@ class Root < Formula
     mkdir "builddir" do
       system "cmake", "..", *args
 
-      system "make", "install"
+      system "ninja", "install"
 
       chmod 0755, Dir[bin/"*.*sh"]
 
