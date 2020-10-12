@@ -28,6 +28,14 @@ class Uhd < Formula
     sha256 "a36919599a9b7dc5d86a7a8988f23a9a3a3d083070023bab23d64f7f1d1e0a4b"
   end
 
+  # Fix build with Boost 1.73 and later
+  # https://github.com/EttusResearch/uhd/issues/347
+  # Remove in next version
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/b9055b4b/uhd/boost-1.73.diff"
+    sha256 "0bf797655424d66f4ceae2feabbd00831bb7b6fa8e3e55e6ed56c7e26dd1a4cd"
+  end
+
   def install
     # https://github.com/EttusResearch/uhd/issues/313
     inreplace "host/lib/transport/nirio/lvbitx/process-lvbitx.py",
