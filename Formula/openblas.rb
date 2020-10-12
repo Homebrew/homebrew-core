@@ -4,7 +4,7 @@ class Openblas < Formula
   url "https://github.com/xianyi/OpenBLAS/archive/v0.3.10.tar.gz"
   sha256 "0484d275f87e9b8641ff2eecaa9df2830cbe276ac79ad80494822721de6e1693"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/xianyi/OpenBLAS.git", branch: "develop"
 
   bottle do
@@ -23,6 +23,7 @@ class Openblas < Formula
     ENV["DYNAMIC_ARCH"] = "1"
     ENV["USE_OPENMP"] = "1"
     ENV["NO_AVX512"] = "1"
+    ENV["TARGET"] = "HASWELL"
 
     # Must call in two steps
     system "make", "CC=#{ENV.cc}", "FC=gfortran", "libs", "netlib", "shared"
