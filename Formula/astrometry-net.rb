@@ -32,6 +32,10 @@ class AstrometryNet < Formula
   end
 
   def install
+    # astrometry-net doesn't support parallel build
+    # See https://github.com/dstndstn/astrometry.net/issues/178#issuecomment-592741428
+    ENV.deparallelize
+
     ENV["NETPBM_INC"] = "-I#{Formula["netpbm"].opt_include}/netpbm"
     ENV["NETPBM_LIB"] = "-L#{Formula["netpbm"].opt_lib} -lnetpbm"
     ENV["SYSTEM_GSL"] = "yes"
