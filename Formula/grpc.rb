@@ -26,6 +26,7 @@ class Grpc < Formula
   depends_on "automake" => :build
   depends_on "cmake" => :build
   depends_on "libtool" => :build
+  depends_on "pkg-config" => [:build, :test]
   depends_on "abseil"
   depends_on "c-ares"
   depends_on "gflags"
@@ -75,7 +76,9 @@ class Grpc < Formula
         return GRPC_STATUS_OK;
       }
     EOS
-    system ENV.cc, "test.cpp", "-I#{include}", "-L#{lib}", "-lgrpc", "-o", "test"
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["openssl@1.1"].opt_lib/"pkgconfig"
+    pkg_config_flags = shell_output("pkg-config --cflags --libs protobuf grpc++").chomp.split
+    system ENV.cc, "test.cpp", "-o", "test", *pkg_config_flags
     system "./test"
   end
 end
