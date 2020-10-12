@@ -3,7 +3,7 @@ class Libp11 < Formula
   homepage "https://github.com/OpenSC/libp11/wiki"
   url "https://github.com/OpenSC/libp11/releases/download/libp11-0.4.11/libp11-0.4.11.tar.gz"
   sha256 "57d47a12a76fd92664ae30032cf969284ebac1dfc25bf824999d74b016d51366"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
 
   livecheck do
     url :head
