@@ -4,7 +4,7 @@ class GccAT5 < Formula
   url "https://ftp.gnu.org/gnu/gcc/gcc-5.5.0/gcc-5.5.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/gcc/gcc-5.5.0/gcc-5.5.0.tar.xz"
   sha256 "530cea139d82fe542b358961130c69cfde8b3d14556370b65823d2f91f0ced87"
-  revision 4
+  revision 5
 
   livecheck do
     url :stable
@@ -28,13 +28,15 @@ class GccAT5 < Formula
   depends_on "libmpc"
   depends_on "mpfr"
 
+  uses_from_macos "zlib"
+
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
 
   resource "isl" do
-    url "https://gcc.gnu.org/pub/gcc/infrastructure/isl-0.14.tar.bz2"
-    mirror "https://mirrorservice.org/sites/distfiles.macports.org/isl/isl-0.14.tar.bz2"
-    sha256 "7e3c02ff52f8540f6a85534f54158968417fd676001651c8289c705bd0228f36"
+    url "https://gcc.gnu.org/pub/gcc/infrastructure/isl-0.18.tar.bz2"
+    mirror "https://mirrorservice.org/sites/distfiles.macports.org/isl/isl-0.18.tar.bz2"
+    sha256 "6b8b0fd7f81d0a957beb3679c81bbb34ccc7568d5682844d8924424a0dadcb1b"
   end
 
   # Fix build with Xcode 9
@@ -70,8 +72,14 @@ class GccAT5 < Formula
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete "LD"
 
-    # Build ISL 0.14 from source during bootstrap
-    resource("isl").stage buildpath/"isl"
+    resource("isl").stage do
+      system "./configure", "--disable-dependency-tracking",
+                            "--disable-silent-rules",
+                            "--prefix=#{libexec}",
+                            "--with-gmp=system",
+                            "--with-gmp-prefix=#{Formula["gmp"].opt_prefix}"
+      system "make", "install"
+    end
 
     # C, C++, ObjC and Fortran compilers are always built
     languages = %w[c c++ fortran objc obj-c++]
@@ -93,6 +101,7 @@ class GccAT5 < Formula
       "--with-gmp=#{Formula["gmp"].opt_prefix}",
       "--with-mpfr=#{Formula["mpfr"].opt_prefix}",
       "--with-mpc=#{Formula["libmpc"].opt_prefix}",
+      "--with-isl=#{libexec}",
       "--with-system-zlib",
       "--enable-libstdcxx-time=yes",
       "--enable-stage1-checking",
@@ -125,9 +134,6 @@ class GccAT5 < Formula
     mkdir "build" do
       system "../configure", *args
       system "make", "bootstrap"
-
-      # At this point `make check` could be invoked to run the testsuite. The
-      # deja-gnu and autogen formulae must be installed in order to do this.
       system "make", "install"
     end
 
