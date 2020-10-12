@@ -4,7 +4,7 @@ class Openblas < Formula
   url "https://github.com/xianyi/OpenBLAS/archive/v0.3.10.tar.gz"
   sha256 "0484d275f87e9b8641ff2eecaa9df2830cbe276ac79ad80494822721de6e1693"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/xianyi/OpenBLAS.git", branch: "develop"
 
   bottle do
@@ -19,10 +19,23 @@ class Openblas < Formula
   depends_on "gcc" # for gfortran
   fails_with :clang
 
+  # This patch fixes a known issue with large matrices in numpy on Haswell and later
+  # chipsets.  See https://github.com/xianyi/OpenBLAS/pull/2729 for details
+  patch do
+    url "https://github.com/xianyi/OpenBLAS/commit/6c33764ca43c7311bdd61e2371b08395cf3e3f01.diff?full_index=1"
+    sha256 "a1b0c27384e424d8cabb5a4e3aeb47b9d0a1fbbc36507431b13719120b6d26d3"
+  end
+
   def install
     ENV["DYNAMIC_ARCH"] = "1"
     ENV["USE_OPENMP"] = "1"
     ENV["NO_AVX512"] = "1"
+    ENV["TARGET"] = case Hardware.oldest_cpu
+    when :arm_vortex_tempest
+      "VORTEX"
+    else
+      Hardware.oldest_cpu.upcase.to_s
+    end
 
     # Must call in two steps
     system "make", "CC=#{ENV.cc}", "FC=gfortran", "libs", "netlib", "shared"
