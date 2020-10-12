@@ -24,6 +24,13 @@ class Cryptol < Formula
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
+  # Fix dependencies https://github.com/GaloisInc/cryptol/issues/879
+  # Remove in next version
+  patch do
+    url "https://github.com/GaloisInc/cryptol/commit/f35fe362.diff?full_index=1"
+    sha256 "7deab78a33582f456b354d2230b4f7faeff526127910d1f6c9b77cf63c16dcfd"
+  end
+
   def install
     system "cabal", "v2-update"
     system "cabal", "v2-install", *std_cabal_v2_args
