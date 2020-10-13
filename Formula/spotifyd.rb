@@ -3,7 +3,7 @@ class Spotifyd < Formula
   homepage "https://github.com/Spotifyd/spotifyd"
   url "https://github.com/Spotifyd/spotifyd/archive/v0.2.24.tar.gz"
   sha256 "d3763f4647217a8f98ee938b50e141d67a5f3d33e9378894fde2a92c9845ef80"
-  license "GPL-3.0"
+  license "GPL-3.0-only"
   head "https://github.com/Spotifyd/spotifyd.git"
 
   livecheck do
@@ -23,6 +23,7 @@ class Spotifyd < Formula
   depends_on "dbus"
 
   def install
+    ENV["COREAUDIO_SDK_PATH"] = MacOS.sdk_path_if_needed
     system "cargo", "install", "--no-default-features",
                                "--features=dbus_keyring,rodio_backend",
                                *std_cargo_args
