@@ -3,6 +3,7 @@ class Freediameter < Formula
   homepage "http://www.freediameter.net"
   url "http://www.freediameter.net/hg/freeDiameter/archive/1.5.0.tar.gz"
   sha256 "2500f75b70d428ea75dd25eedcdddf8fb6a8ea809b02c82bf5e35fe206cbbcbc"
+  license "BSD-3-Clause"
   head "http://www.freediameter.net/hg/freeDiameter", using: :hg
 
   bottle do
