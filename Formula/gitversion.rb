@@ -1,27 +1,30 @@
 class Gitversion < Formula
   desc "Easy semantic versioning for projects using Git"
-  homepage "https://github.com/GitTools/GitVersion"
-  url "https://github.com/GitTools/GitVersion/releases/download/5.0.1/GitVersion-bin-fullfx-v5.0.1.zip"
-  sha256 "9b543d3e42e0d5e6fab0b44553cb6bbbb0e31431030ef761fc1a50c845fd166a"
+  homepage "https://gitversion.net"
+  url "https://github.com/GitTools/GitVersion/archive/5.3.7.tar.gz"
+  sha256 "70c6f867e4a85325ba1e54211fd014d9b3ec9be43bb828393e1f0d6a5e33cefb"
   license "MIT"
 
-  bottle :unneeded
-
-  depends_on "mono"
-
-  uses_from_macos "icu4c"
+  depends_on "dotnet"
 
   def install
-    libexec.install Dir["*"]
+    system "dotnet", "build",
+           "--configuration", "Release",
+           "--framework", "netcoreapp3.1",
+           "--output", "out",
+           "src/GitVersionExe/GitVersionExe.csproj"
+
+    libexec.install Dir["out/*"]
+
     (bin/"gitversion").write <<~EOS
       #!/bin/sh
-      exec "#{Formula["mono"].opt_bin}/mono" "#{libexec}/GitVersion.exe" "$@"
+      exec "#{Formula["dotnet"].opt_bin}/dotnet" "#{libexec}/gitversion.dll" "$@"
     EOS
   end
 
   test do
     # Circumvent GitVersion's build server detection scheme:
-    ENV["JENKINS_URL"] = nil
+    ENV["GITHUB_ACTIONS"] = nil
 
     (testpath/"test.txt").write("test")
     system "git", "init"
