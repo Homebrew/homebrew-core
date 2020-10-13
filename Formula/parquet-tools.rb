@@ -5,6 +5,7 @@ class ParquetTools < Formula
       tag:      "apache-parquet-1.11.1",
       revision: "765bd5cd7fdef2af1cecd0755000694b992bfadd"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/apache/parquet-mr.git"
 
   bottle do
@@ -17,6 +18,13 @@ class ParquetTools < Formula
   depends_on "maven" => :build
   depends_on "openjdk"
 
+  # This file generated with `red-parquet` gem:
+  #   Arrow::Table.new("values" => ["foo", "Homebrew", "bar"]).save("homebrew.parquet")
+  resource("test-parquet") do
+    url "https://gist.github.com/bayandin/2144b5fc6052153c1a33fd2679d50d95/raw/7d793910a1afd75ee4677f8c327491f7bdd2256b/homebrew.parquet"
+    sha256 "5caf572cb0df5ce9d6893609de82d2369b42c3c81c611847b6f921d912040118"
+  end
+
   # based on https://github.com/apache/parquet-mr/pull/809
   patch do
     url "https://github.com/apache/parquet-mr/commit/b6d07ae0744ba47aa9a8868ef2d7cbb232a60b22.patch?full_index=1"
@@ -24,6 +32,10 @@ class ParquetTools < Formula
   end
 
   def install
+    # Mimic changes from https://github.com/apache/parquet-mr/pull/826
+    # See https://issues.apache.org/jira/browse/PARQUET-1923
+    inreplace "pom.xml", "<hadoop.version>2.7.3</hadoop.version>", "<hadoop.version>2.10.1</hadoop.version>"
+
     cd "parquet-tools" do
       system "mvn", "clean", "package", "-Plocal"
       libexec.install "target/parquet-tools-#{version}.jar"
@@ -32,6 +44,10 @@ class ParquetTools < Formula
   end
 
   test do
-    system "#{bin}/parquet-tools", "cat", "-h"
+    resource("test-parquet").stage(testpath)
+    system "#{bin}/parquet-tools", "cat", testpath/"homebrew.parquet"
+
+    output = shell_output("#{bin}/parquet-tools cat #{testpath}/homebrew.parquet")
+    assert_match "values = Homebrew", output
   end
 end
