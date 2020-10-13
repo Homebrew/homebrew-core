@@ -5,6 +5,7 @@ class SolrAT77 < Formula
   mirror "https://archive.apache.org/dist/lucene/solr/7.7.3/solr-7.7.3.tgz"
   sha256 "3ec67fa430afa5b5eb43bb1cd4a659e56ee9f8541e0116d6080c0d783870baee"
   license "Apache-2.0"
+  revision 1
 
   bottle :unneeded
 
