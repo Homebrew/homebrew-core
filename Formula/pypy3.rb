@@ -104,7 +104,7 @@ class Pypy3 < Formula
       system "tar", "-C", libexec.to_s, "--strip-components", "1", "-xf", "pypy3.tar.bz2"
     end
 
-    (libexec/"lib").install libexec/"bin/libpypy3-c.dylib" => "libpypy3-c.dylib"
+    (libexec/"lib").install libexec/"bin/#{shared_library("libpypy3-c")}" => shared_library("libpypy3-c")
 
     MachO::Tools.change_install_name("#{libexec}/bin/pypy3",
                                      "@rpath/libpypy3-c.dylib",
@@ -121,7 +121,7 @@ class Pypy3 < Formula
     # scripts will find it.
     bin.install_symlink libexec/"bin/pypy3"
     bin.install_symlink libexec/"bin/pypy" => "pypy3.6"
-    lib.install_symlink libexec/"lib/libpypy3-c.dylib"
+    lib.install_symlink libexec/"lib/#{shared_library("libpypy3-c")}"
   end
 
   def post_install

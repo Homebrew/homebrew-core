@@ -32,7 +32,7 @@ class Ssldump < Formula
 
     # .dylib, not .a
     inreplace "configure", "if test -f $dir/libpcap.a; then",
-                           "if test -f $dir/libpcap.dylib; then"
+                           "if test -f $dir/#{shared_library("libpcap")}; then"
 
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",

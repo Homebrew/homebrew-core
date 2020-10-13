@@ -14,6 +14,7 @@ class Xtrans < Formula
 
   depends_on "pkg-config" => :build
   depends_on "util-macros" => :build
+  depends_on "xorgproto" => :test
 
   def install
     args = %W[

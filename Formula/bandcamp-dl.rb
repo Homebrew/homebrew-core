@@ -4,7 +4,7 @@ class BandcampDl < Formula
   desc "Simple python script to download Bandcamp albums"
   homepage "https://github.com/iheanyi/bandcamp-dl"
   license "Unlicense"
-  revision 4
+  revision 5
   head "https://github.com/iheanyi/bandcamp-dl.git"
 
   stable do
@@ -17,13 +17,19 @@ class BandcampDl < Formula
       url "https://github.com/iheanyi/bandcamp-dl/commit/3d3a524af27bac761bd2f8766c6f4951776c6c60.patch?full_index=1"
       sha256 "f776b23beb1149d2449c2187bbdc3843933d063a79254a354bfc69ce4d644091"
     end
+
+    # fix script matching https://github.com/iheanyi/bandcamp-dl/pull/171
+    patch do
+      url "https://github.com/iheanyi/bandcamp-dl/commit/08c450385efe847e4f8ece1dc95034e69aaeaed0.patch?full_index=1"
+      sha256 "64808a6334994d847d0c5bdcfd49cfd6dbb4376c8c8d3fd4304b85f892d3915f"
+    end
   end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d68897305f09f2e17db16ea4481cacd8304c353f376430901b8823a44ed1abb1" => :catalina
-    sha256 "597e54edb0b1e0a46e8e87872862ad78857dc953f8af85012aee67c84e3b7e40" => :mojave
-    sha256 "8a2f6f66600c7fbd9daa504cca6a15410984173ba676fb0773874fe371a88a90" => :high_sierra
+    sha256 "ab1b60a73830b8d0c41bb00a1d241e81f3aeaafe157aa000cffc98ee9fd6bf93" => :catalina
+    sha256 "ce31aaad04df1b2bc1a7883f4dea5d40214caa24fe2db8713fda5e3ca7077f82" => :mojave
+    sha256 "334ec76c821cc7cbcc3971717e1a2bc35ebc37492167b4e0c2f2f073c7eb5d35" => :high_sierra
   end
 
   depends_on "python@3.8"

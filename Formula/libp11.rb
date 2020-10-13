@@ -1,9 +1,9 @@
 class Libp11 < Formula
   desc "PKCS#11 wrapper library in C"
   homepage "https://github.com/OpenSC/libp11/wiki"
-  url "https://github.com/OpenSC/libp11/releases/download/libp11-0.4.10/libp11-0.4.10.tar.gz"
-  sha256 "639ea43c3341e267214b712e1e5e12397fd2d350899e673dd1220f3c6b8e3db4"
-  license "LGPL-2.1"
+  url "https://github.com/OpenSC/libp11/releases/download/libp11-0.4.11/libp11-0.4.11.tar.gz"
+  sha256 "57d47a12a76fd92664ae30032cf969284ebac1dfc25bf824999d74b016d51366"
+  license "LGPL-2.1-or-later"
 
   livecheck do
     url :head
@@ -12,10 +12,9 @@ class Libp11 < Formula
 
   bottle do
     cellar :any
-    sha256 "6b02a04559e7c4559dafde0dd6b44fbb22680c469381a9da1dc8cd3111abf939" => :catalina
-    sha256 "299c595c75da2c84b3dfd6212658a7366cea9f5a13a279cc018ff824e00aef3e" => :mojave
-    sha256 "9396b3dafa8e7c8a4e7f85aa2cd2a13a7cc94786cf3f99cf2a4707e2e40b3d2b" => :high_sierra
-    sha256 "a4cefbde247f06a16d5aa14b7fbc04f1ae67f3b3caa2653d1311681deea2ad55" => :sierra
+    sha256 "9da63ed34ade8ca89b600207b22d9fcc9a707aee31e3325f73c5da473e1df481" => :catalina
+    sha256 "14a94b35751b0b820206edecd55dd713079ea20a1e72b049d290b10283a80895" => :mojave
+    sha256 "95fac2824261ddc121f443a372174131eb9f31fe784a724bee7667af1302bba8" => :high_sierra
   end
 
   head do

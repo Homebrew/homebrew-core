@@ -4,6 +4,7 @@ class Libpq < Formula
   url "https://ftp.postgresql.org/pub/source/v13.0/postgresql-13.0.tar.bz2"
   sha256 "80e750be8d436b54197636a02636f8fd3263ba6779bf865b04832495ea592296"
   license "PostgreSQL"
+  revision 1
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/?C=M&O=A"
@@ -11,9 +12,9 @@ class Libpq < Formula
   end
 
   bottle do
-    sha256 "114ddffa1e218ebd7b4c2137bae87428c2ab1bf9dfbfc31aa4211a3d245f15f8" => :catalina
-    sha256 "bf353adff487204fd03f502c2015693ce1696e4cda1aa77a92151b0232385499" => :mojave
-    sha256 "55561c9296619cd25c096155d00923a8719dc5af9a6e0fe00023124807df92e1" => :high_sierra
+    sha256 "8ab2180b01b7e43605d077b6e9c6ed9efe435d7f17c6b57e9548d72d0bf32c7a" => :catalina
+    sha256 "e55e956275960813739d1a5b614e080b69f2f633070cf9b90d580077d2dc3cc4" => :mojave
+    sha256 "9c7349214b312520ec92070dc10bd6112e0cf5890bee053b6cc5b42eb8be1e63" => :high_sierra
   end
 
   keg_only "conflicts with postgres formula"

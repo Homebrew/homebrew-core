@@ -4,7 +4,7 @@ class Gdal < Formula
   url "https://download.osgeo.org/gdal/3.1.3/gdal-3.1.3.tar.xz"
   sha256 "161cf55371a143826f1d76ce566db1f0a666496eeb4371aed78b1642f219d51d"
   license "MIT"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://download.osgeo.org/gdal/CURRENT/"
@@ -12,9 +12,9 @@ class Gdal < Formula
   end
 
   bottle do
-    sha256 "7558b72af99f42b2f24ad1ee580db7837d7c5ec9d5e438dac93fbede582c6a8a" => :catalina
-    sha256 "5c9c142212e010a072198249f9f44b2d42486702fe6454dfb488c3fd76fb9df1" => :mojave
-    sha256 "19f9f1334d6430d110538d5054455d2e242b5487ecf6788465082714ab119fb2" => :high_sierra
+    sha256 "64a8b994f4caaa431c4bf2fa55737c205f7bbc4c8cabfa7868259a093fd82f81" => :catalina
+    sha256 "9d6ce11fcb8008f7df4e45ebdc5abff1e171f6f58bd975ef80fa94572fa4d92b" => :mojave
+    sha256 "f7bd35d249b4cd714726afe84e1dae7e93d782efe1c0192518e20791a1f34b06" => :high_sierra
   end
 
   head do

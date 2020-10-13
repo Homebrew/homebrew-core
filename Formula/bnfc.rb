@@ -1,17 +1,16 @@
 class Bnfc < Formula
   desc "BNF Converter"
   homepage "https://bnfc.digitalgrammars.com/"
-  url "https://github.com/BNFC/bnfc/archive/v2.8.3.tar.gz"
-  sha256 "ba0b6ab36954a0891b4ad3125cefdd6d441d2c73d174cd8eff344e68ae2fd203"
+  url "https://github.com/BNFC/bnfc/archive/v2.8.4.tar.gz"
+  sha256 "69a9cdd602bd7c96f5bc622645f88c8cb54231c7bad52974470dd0937df43f68"
   license "GPL-2.0"
-  revision 1
   head "https://github.com/BNFC/bnfc.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a56684b9fecdf25ef5c77f9124c8c8c3cdbf5f21405a6135eaf47680c387d231" => :catalina
-    sha256 "47cbd943179d46b54c4ff614d613662a4db766ed6f80ec980060acdf6a1c0812" => :mojave
-    sha256 "a92f1907cedabddf2a10a994de224cb15221786742beeb1cde87ac47dc17ff76" => :high_sierra
+    sha256 "c7b3510e24ff12639c19089bacfacbf64352e9f91401fe72b9c7c5842dd9063d" => :catalina
+    sha256 "0c306bbd71021879d87d0db3195196250e44296b8643f2a8c824c63fbd8a4a9a" => :mojave
+    sha256 "28e29f258ab9da7626b351a106b3423bee9a13fa813ff37fe94c67efb432b180" => :high_sierra
   end
 
   depends_on "cabal-install" => [:build, :test]
@@ -71,7 +70,7 @@ class Bnfc < Formula
       (EMul (EInt 14) (ESub (EAdd (EInt 3) (EDiv (EInt 2) (EInt 5))) (EInt 8)))
 
       [Linearized Tree]
-      14 * (3 + 2 / 5 - 8)#{treespace}
+      14 * (3 + 2 / 5 - 8) #{treespace}
 
     EOS
 

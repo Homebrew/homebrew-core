@@ -9,9 +9,10 @@ class AstrometryNet < Formula
 
   bottle do
     cellar :any
-    sha256 "3bc7c8dfe2e54468e9afad45a2146b217e5888158615d3c98c7d4c95ead028a9" => :catalina
-    sha256 "710713585ca331943ba15fb88aefef6d251e78b11f9765e99a4d9752982411c1" => :mojave
-    sha256 "81b1052ddf30d7f91b934c72603347430dc8046ec2f315d1d7f62dec972c39b8" => :high_sierra
+    rebuild 1
+    sha256 "ccf3e518f94726072dc8bb46acd9c488ebfe1d476f598808bd444a997a0f55ed" => :catalina
+    sha256 "18c57142bebb0ab4d33925494376b5826c8f3c8683594ba43f14778db48501b7" => :mojave
+    sha256 "4c27c8e8c975a78357a8e051f9f79b318767592a7a53963bcdcab252e016466c" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -32,6 +33,10 @@ class AstrometryNet < Formula
   end
 
   def install
+    # astrometry-net doesn't support parallel build
+    # See https://github.com/dstndstn/astrometry.net/issues/178#issuecomment-592741428
+    ENV.deparallelize
+
     ENV["NETPBM_INC"] = "-I#{Formula["netpbm"].opt_include}/netpbm"
     ENV["NETPBM_LIB"] = "-L#{Formula["netpbm"].opt_lib} -lnetpbm"
     ENV["SYSTEM_GSL"] = "yes"

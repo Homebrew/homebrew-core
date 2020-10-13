@@ -51,7 +51,7 @@ class Tmx < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "#{lib}/libtmx.dylib", "-lz", "-lxml2", "-o", "test"
+    system ENV.cc, "test.c", "#{lib}/#{shared_library("libtmx")}", "-lz", "-lxml2", "-o", "test"
     system "./test"
   end
 end

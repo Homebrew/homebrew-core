@@ -5,6 +5,7 @@ class Inform6 < Formula
   mirror "https://ifarchive.org/if-archive/infocom/compilers/inform6/source/old/inform-6.34-6.12.2.tar.gz"
   version "6.34-6.12.2"
   sha256 "c149f143f2c29a4cb071e578afef8097647cc9e823f7fcfab518ac321d9d259f"
+  license "Artistic-2.0"
   head "https://gitlab.com/DavidGriffith/inform6unix.git"
 
   bottle do

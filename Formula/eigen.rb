@@ -4,18 +4,25 @@ class Eigen < Formula
   url "https://gitlab.com/libeigen/eigen/-/archive/3.3.8/eigen-3.3.8.tar.gz"
   sha256 "146a480b8ed1fb6ac7cd33fec9eb5e8f8f62c3683b3f850094d9d5c35a92419a"
   license "MPL-2.0"
+  revision 1
   head "https://gitlab.com/libeigen/eigen"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "21834e0e508d5b7e1dc691652b12c72c6157f5dd59772cf1afcbc4de3387d6c1" => :catalina
-    sha256 "9331571eab7031ac0a10403065956348251c074f37cda47fafe94fd3187f0cfa" => :mojave
-    sha256 "af8fbdf33dcfa2ad62b932008359ef49ecf2a57feb7bd1aaa831d57f76ed8c96" => :high_sierra
+    sha256 "2903f6439e0f52e371f6d0a3a8f167a35ce4c07662b04a2e86b26243f19d24ba" => :catalina
+    sha256 "39ab24e3cd9d515b34f220eae5489e4effa732871d36c8e11daa588265ed89d3" => :mojave
+    sha256 "3288da7047cf65b70c315806e97443743273d27fbcfeace9c1061ecbc2faeb4c" => :high_sierra
   end
 
   depends_on "cmake" => :build
 
   conflicts_with "freeling", because: "freeling ships its own copy of eigen"
+
+  # Emergency fix for build failures with OpenMP. Remove with the next release.
+  patch do
+    url "https://gitlab.com/libeigen/eigen/-/commit/ef3cc72cb65e2d500459c178c63e349bacfa834f.diff"
+    sha256 "b8877a84c4338f08ab8a6bb8b274c768e93d36ac05b733b078745198919a74bf"
+  end
 
   def install
     mkdir "eigen-build" do

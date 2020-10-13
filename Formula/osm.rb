@@ -1,15 +1,15 @@
 class Osm < Formula
   desc "Open Service Mesh (OSM)"
   homepage "https://openservicemesh.io/"
-  url "https://github.com/openservicemesh/osm/archive/v0.4.0.tar.gz"
-  sha256 "72586aa8a07bcc3163d921c5b2afa0adec8688058f62801f1377a61a91573328"
+  url "https://github.com/openservicemesh/osm/archive/v0.4.1.tar.gz"
+  sha256 "59155fda1c6626a83ffb728cd7d02f1ad41bc8d27e170f57a84033e45bb4f706"
   license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e4e2e346746e54ff6b612e9b632de739c363c4268eb88f0eeeec63a380443b5d" => :catalina
-    sha256 "e7a1164c06c7f237c41fffdc3cd6ad7d93f9d7b18dd5fdea891f3ce04e251abf" => :mojave
-    sha256 "41559e91e5218b4b6c3356502c4c006ed5cea510a6eaf96bbcbbaa4205abea04" => :high_sierra
+    sha256 "825524ab316724946a2e17fe1f2adb09a829a35e348329dbb99ec321a4d9d830" => :catalina
+    sha256 "98aea461055400e3c9b3ca92e7bc506c3829cc910116015d28145a8181326305" => :mojave
+    sha256 "ee3b66b8ee6abbf81eb41df69f983d46a849bd7cd8c28173c632e3d61b4ef33d" => :high_sierra
   end
 
   depends_on "go" => :build

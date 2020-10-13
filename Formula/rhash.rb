@@ -20,7 +20,7 @@ class Rhash < Formula
     system "./configure", "--prefix=#{prefix}"
     system "make"
     system "make", "install"
-    lib.install "librhash/librhash.dylib"
+    lib.install "librhash/#{shared_library("librhash")}"
     system "make", "-C", "librhash", "install-lib-headers"
   end
 

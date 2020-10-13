@@ -1,8 +1,8 @@
 class K3d < Formula
   desc "Little helper to run Rancher Lab's k3s in Docker"
   homepage "https://github.com/rancher/k3d"
-  url "https://github.com/rancher/k3d/archive/v3.1.2.tar.gz"
-  sha256 "2ec907c076a1efc467f3278c14a95f4eb8bd29cb9e9674b34766e1666297c3d0"
+  url "https://github.com/rancher/k3d/archive/v3.1.3.tar.gz"
+  sha256 "47e3388cb7960253af625550462f47867936b07625a0318eccde2551048eb5a2"
   license "MIT"
 
   livecheck do
@@ -12,9 +12,9 @@ class K3d < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4cc77d305373adabd321b732a913024f3cdb11efa9baaa81fbf2cad1d80c782c" => :catalina
-    sha256 "433c2cf9adf91b2fc5f87d7d97487a7955b10110174ec8a9c8b6dec2abad14a9" => :mojave
-    sha256 "a6eb6ac1abd64b09e1a7873689db183d45a17fb51389a0e96a1dc101bea212ef" => :high_sierra
+    sha256 "88ab5b832c60780a77a5ab23fb9279e7aa8fffb54f9c372e835cbfb335961b9c" => :catalina
+    sha256 "469179e733517139915d369b4deb1587291ee4f1e635d86a47ef8aeae7b84372" => :mojave
+    sha256 "243b148634fa7f0e756fbac37a9ade3e380ceee3806479cf1a9883ce9ee14f95" => :high_sierra
   end
 
   depends_on "go" => :build

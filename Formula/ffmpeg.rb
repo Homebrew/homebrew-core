@@ -15,9 +15,10 @@ class Ffmpeg < Formula
   end
 
   bottle do
-    sha256 "c6c0e23c31d58dca7f43c6569370cad265042192a35d1cc531f58c006e250a6c" => :catalina
-    sha256 "e057176e9169390040367e1431dead835ac93025b1a86d7d40fbcc7e15d89b5c" => :mojave
-    sha256 "8bd7f692b12049a7a073c00e3201b2e8460a2f4817bc3b5cc47cb5d12d3bfa91" => :high_sierra
+    rebuild 1
+    sha256 "1924b8c971e7c2b2fd4a49ffdd2825df5048f5047b18a6454d0df6107e49d9a8" => :catalina
+    sha256 "e67748ccac6f4920ea740e526c34ce0a6c1087b645d41abbeed2c8e570c9a636" => :mojave
+    sha256 "5c2967fa5562347cabe3678a809463b28636f544f975bd4545720aca66de90c3" => :high_sierra
   end
 
   depends_on "nasm" => :build
@@ -56,6 +57,13 @@ class Ffmpeg < Formula
   uses_from_macos "bzip2"
   uses_from_macos "libxml2"
   uses_from_macos "zlib"
+
+  # https://trac.ffmpeg.org/ticket/8760
+  # Remove in next release
+  patch do
+    url "https://github.com/FFmpeg/FFmpeg/commit/7c59e1b0f285cd7c7b35fcd71f49c5fd52cf9315.patch?full_index=1"
+    sha256 "1cbe1b68d70eadd49080a6e512a35f3e230de26b6e1b1c859d9119906417737f"
+  end
 
   def install
     args = %W[

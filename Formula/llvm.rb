@@ -3,7 +3,7 @@ class Llvm < Formula
   homepage "https://llvm.org/"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/llvm/llvm-project.git"
 
   stable do
@@ -83,9 +83,9 @@ class Llvm < Formula
 
   bottle do
     cellar :any
-    sha256 "8aef26f7e303ee40df830fa1ca7df5cd51c8ce1260a6b871277f6f0e8b80103b" => :catalina
-    sha256 "5ad96fe536c054535aa9fb1c80db7d4468b6959cd903a20a7d81e25e470c8af1" => :mojave
-    sha256 "bf6e80f0e3e31a13245aadaa76064b16d2f55e2ffed5decc551be50638218777" => :high_sierra
+    sha256 "d8ad1f1c539c4c643017882878d60bc3a45b7e4a67e4d697ac071d20926d121c" => :catalina
+    sha256 "7a5600152cc5d8c7043b9c92db2194e757e17cae6f9e0a498468c3921efb9770" => :mojave
+    sha256 "9ce34ed1a0be220267b76e8c81d7b4955cca470957a4f921fe7e380b0a81b67f" => :high_sierra
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -100,7 +100,7 @@ class Llvm < Formula
   # We intentionally use Make instead of Ninja.
   # See: Homebrew/homebrew-core/issues/35513
   depends_on "cmake" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
   depends_on "libffi"
 
   uses_from_macos "libedit"
@@ -138,7 +138,7 @@ class Llvm < Formula
       (projects + runtimes).each { |p| resource(p).stage(buildpath/p) }
     end
 
-    py_ver = "3.8"
+    py_ver = "3.9"
 
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang

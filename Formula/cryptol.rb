@@ -12,9 +12,10 @@ class Cryptol < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "360d274aa0f54cb0f5645e6df403bfb354b2c8b8fcd38a84de752b31c0f333f1" => :catalina
-    sha256 "ac8b4bbf496c2be8affdae694bcb162cbdf2f0539e9616a9c4291d09e6247a66" => :mojave
-    sha256 "11052ebd61ac8398f0ccf79e9e5bc5ba94df7423805546e9b318a543e8c0606a" => :high_sierra
+    rebuild 1
+    sha256 "62143f306e77077070a3d304d596a9803411a12384a421c8f8e652fe0912eadb" => :catalina
+    sha256 "8a9d5d3b2317174758ff1b0dc0ec1f82e83036b6afad14608d17527fb03bbb13" => :mojave
+    sha256 "2f1d272e3306ea64488a4518ad4366680b07c0e0af05f9939db94ad059c08601" => :high_sierra
   end
 
   depends_on "cabal-install" => :build
@@ -23,6 +24,13 @@ class Cryptol < Formula
 
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
+
+  # Fix dependencies https://github.com/GaloisInc/cryptol/issues/879
+  # Remove in next version
+  patch do
+    url "https://github.com/GaloisInc/cryptol/commit/f35fe362.diff?full_index=1"
+    sha256 "7deab78a33582f456b354d2230b4f7faeff526127910d1f6c9b77cf63c16dcfd"
+  end
 
   def install
     system "cabal", "v2-update"

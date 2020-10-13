@@ -4,6 +4,7 @@ class Supertux < Formula
   url "https://github.com/SuperTux/supertux/releases/download/v0.6.2/SuperTux-v0.6.2-Source.tar.gz"
   sha256 "26a9e56ea2d284148849f3239177d777dda5b675a10ab2d76ee65854c91ff598"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/SuperTux/supertux.git"
 
   livecheck do
@@ -13,9 +14,9 @@ class Supertux < Formula
 
   bottle do
     cellar :any
-    sha256 "671a6a888ace25b1cd8adfafea895a7bb259bee92be354e7ed4b4fbd63841f92" => :catalina
-    sha256 "e96d518a12e5cd571345abd4d778a6983062daebe845ab1a0404ee1f4ae11212" => :mojave
-    sha256 "3427130b27e209085a062bec0f853f765a34c6bf5d4fe6bedba4c7c5e408c400" => :high_sierra
+    sha256 "2180590875a08d8aa1a03303090ecf34ff3a01bca1084db4b0fba6437090d100" => :catalina
+    sha256 "a3e03cceaedb6ab9dec08e4dc01882e259de440132d06f9c1f50cebd8b61c483" => :mojave
+    sha256 "6f1c9c50af7ccbe9632e1211b81a6bef05ad7d1e0d9c5c20c88386ab3b07cc30" => :high_sierra
   end
 
   depends_on "cmake" => :build

@@ -1,14 +1,14 @@
 class Vroom < Formula
   desc "Vehicle Routing Open-Source Optimization Machine"
   homepage "http://vroom-project.org/"
-  url "https://github.com/VROOM-Project/vroom/archive/v1.7.0.tar.gz"
-  sha256 "38231586070a46c95328c4e8d48dd0b84acd02dd9904f988cbb53ce51c4e62e4"
+  url "https://github.com/VROOM-Project/vroom/archive/v1.8.0.tar.gz"
+  sha256 "7f339e1e0ed6c81c02dd78e10d36db5ec09f404b45731b5fc80ed4036634c67a"
   license "BSD-2-Clause"
 
   bottle do
     cellar :any
-    sha256 "b8b6ba6f23ce63a5d1fe3060c688de42bfd7191ce741bf1f133ad988d2008b8c" => :catalina
-    sha256 "598e546078bb441380537ea0fb684d6f20e3a35b8efb8f7561a399e8e4885546" => :mojave
+    sha256 "afa201989a1bd34ddf8dc96379bffe303eaa855a05dbbae570f44974bf5bf7e6" => :catalina
+    sha256 "9ac415735021d7f3dd94247d0c9a8c7cfe2f4b1d1ec0ea1950663db92d70ff19" => :mojave
   end
 
   depends_on "pkg-config" => :build
@@ -28,7 +28,6 @@ class Vroom < Formula
     output = shell_output("#{bin}/vroom -i #{pkgshare}/docs/example_2.json")
     expected_routes = JSON.parse((pkgshare/"docs/example_2_sol.json").read)["routes"]
     actual_routes = JSON.parse(output)["routes"]
-    actual_routes.first["steps"].each { |r| r.delete("id") } # temp fix, remove in next version
     assert_equal expected_routes, actual_routes
   end
 end

@@ -3,10 +3,9 @@ class SvtplayDl < Formula
 
   desc "Download videos from https://www.svtplay.se/"
   homepage "https://svtplay-dl.se/"
-  url "https://files.pythonhosted.org/packages/f2/7d/d78f5bfb5578bd5c936aa61e8e4b2b9346d2315e45af6a0e6af76dd48882/svtplay-dl-2.6.tar.gz"
-  sha256 "8287042f6f46b1e38d11882df5a2620461e30e11a74e6355857c586b4211a860"
+  url "https://files.pythonhosted.org/packages/6a/24/02d3d89cd4bd4677859df5c1101a5bb55a96ea3ff080c7a74e232e604758/svtplay-dl-2.7.tar.gz"
+  sha256 "2f0534cf237011a20c5630fefe15804ce1e604b3d917e92464b3c5c9dd7aeb10"
   license "MIT"
-  revision 1
 
   livecheck do
     url :stable
@@ -14,9 +13,9 @@ class SvtplayDl < Formula
 
   bottle do
     cellar :any
-    sha256 "779c7499319d6116507d676527718dae674fadc221aea4d06b5978aa50d0a1f2" => :catalina
-    sha256 "5b73777190ec5230c154203a08876c121789a419406980e5d27b494cf808efb1" => :mojave
-    sha256 "b6e88491f1a290fc6f3013508e3c46d84ab9403fba088d5f8fb188d2e286b1d4" => :high_sierra
+    sha256 "340c88a6fecd49a900ebae8360677f2f068b1190120d8e849625ec210fd2bc08" => :catalina
+    sha256 "d5753eb2e6dee46d5b7d81a00e95e2dde48f181f8a9f1165384bac0edd7ad7e6" => :mojave
+    sha256 "ad7156d17108a34589df14166a02673bc5b5c3e93f718a8a09ef0e6804067a87" => :high_sierra
   end
 
   depends_on "openssl@1.1"

@@ -29,7 +29,7 @@ class Unrar < Formula
     # apparent implicit clean which confuses the dependencies.
     system "make", "clean"
     system "make", "lib"
-    lib.install "libunrar.dylib"
+    lib.install shared_library("libunrar")
   end
 
   test do

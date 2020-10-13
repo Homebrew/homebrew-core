@@ -4,6 +4,7 @@ class Root < Formula
   url "https://root.cern.ch/download/root_v6.22.02.source.tar.gz"
   sha256 "89784afa9c9047e9da25afa72a724f32fa8aa646df267b7731e4527cc8a0c340"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/root-project/root.git"
 
   livecheck do
@@ -12,9 +13,9 @@ class Root < Formula
   end
 
   bottle do
-    sha256 "09c96ef6d340593421eea5f24b424b8fa4e72d4589220b15a4e20394acd0d814" => :catalina
-    sha256 "b349ebf73a9b10fee9d7860c1a7cba429e21b61983ee51cebe70eebf586dad41" => :mojave
-    sha256 "618f0802bb730843443f6cba04ad83a3d606f19b54ef08182f411b0cb88c75b1" => :high_sierra
+    sha256 "486f9e341af9643151ac07d2088edb2e1af6606762e0018a173a83843f9a4902" => :catalina
+    sha256 "c011943bd9c0571202c9cbb2de294204d49928280cd884f2c221e588f8967d18" => :mojave
+    sha256 "704b9c68020baf0b5ab836afc0de8170d88fe783e53e5d5aa3ef97c7a1deb692" => :high_sierra
   end
 
   # https://github.com/Homebrew/homebrew-core/issues/30726

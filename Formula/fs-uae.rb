@@ -4,6 +4,7 @@ class FsUae < Formula
   url "https://fs-uae.net/stable/3.0.5/fs-uae-3.0.5.tar.gz"
   sha256 "f26ec42e03cf1a7b53b6ce0d9845aa45bbf472089b5ec046b3eb784ec6859fe3"
   license "GPL-2.0"
+  revision 1
 
   livecheck do
     url "https://fs-uae.net/download"
@@ -12,9 +13,9 @@ class FsUae < Formula
 
   bottle do
     cellar :any
-    sha256 "124950f0053e117fa271e182e705b2c9bee21f2572e371c1ff18f106ad777c5a" => :catalina
-    sha256 "446a54d257e764ec9df2b825b7dfe9dbb266e5ad586f439d75223c986ce21aa8" => :mojave
-    sha256 "b540e43634bfbbe75fe6f143a9bec8aeae85e29028f44e3d54bb979c4630cc51" => :high_sierra
+    sha256 "ab0fdecdc3ee1e4ed70baf7a57bc46d92b85b684c97d680c9fbfab5b280a7da4" => :catalina
+    sha256 "223c490857dc42ec051f68531fbcc2ceffd142cd8f56b4b18a0d1c2134c6fb03" => :mojave
+    sha256 "61bfc89218feb2fb4ae2da82e68d4d81dcb40d7ce6003d0a5d39f675b6327f11" => :high_sierra
   end
 
   head do

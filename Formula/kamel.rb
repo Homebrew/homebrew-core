@@ -3,8 +3,8 @@ class Kamel < Formula
   homepage "https://camel.apache.org/"
 
   url "https://github.com/apache/camel-k.git",
-    tag:      "v1.1.1",
-    revision: "b7b785db55faf33a95e4c3c337e248192510ce85"
+    tag:      "v1.2.0",
+    revision: "ab1a566458962b18fef1a1b594efe7d269fb85af"
   license "Apache-2.0"
   head "https://github.com/apache/camel-k.git"
 
@@ -15,9 +15,9 @@ class Kamel < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ecef41c7225c3d90ef54dd2b7dc4f4a51607e0e9771e14c4d95020b9f3abcc6a" => :catalina
-    sha256 "b044165c34a80de28b62ecefa1a83733322ea38ad2c17372ac68d611937eca37" => :mojave
-    sha256 "16ab114d09da2bf9154527ea5acae32ddfb157ae5831278d1310516f3b70287c" => :high_sierra
+    sha256 "fa9acf81f26ce32fc964b554c2b1314c3c5eed7158ae505b90a56c7f24ec2cbe" => :catalina
+    sha256 "a5d74c1db351e9399770854f859e0de5f6a92aef3e512e391cf1ecfcbd924697" => :mojave
+    sha256 "d40704f099605507c7ad82a8571a87b79ce8a3a64b7b6b1cfbec7ffd5c1cf37e" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -41,10 +41,10 @@ class Kamel < Formula
     assert_match "Apache Camel K is a lightweight", run_output
 
     help_output = shell_output("echo $(#{bin}/kamel help 2>&1)")
-    assert_match "Error: cannot get command client: could not locate a kubeconfig", help_output.chomp
+    assert_match "Error: cannot get command client: invalid configuration", help_output.chomp
 
     get_output = shell_output("echo $(#{bin}/kamel get 2>&1)")
-    assert_match "Error: cannot get command client: could not locate a kubeconfig", get_output
+    assert_match "Error: cannot get command client: invalid configuration", get_output
 
     version_output = shell_output("echo $(#{bin}/kamel version 2>&1)")
     assert_match version.to_s, version_output
@@ -56,7 +56,7 @@ class Kamel < Formula
     assert_match "Error: cannot read file None.java", run_none_output
 
     reset_output = shell_output("echo $(#{bin}/kamel reset 2>&1)")
-    assert_match "Error: cannot get command client: could not locate a kubeconfig", reset_output
+    assert_match "Error: cannot get command client: invalid configuration", reset_output
 
     rebuild_output = shell_output("echo $(#{bin}/kamel rebuild 2>&1)")
     assert_match "Config not found", rebuild_output

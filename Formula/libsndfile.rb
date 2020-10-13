@@ -2,7 +2,7 @@ class Libsndfile < Formula
   desc "C library for files containing sampled sound"
   homepage "http://www.mega-nerd.com/libsndfile/"
   url "https://github.com/erikd/libsndfile/releases/download/v1.0.30/libsndfile-1.0.30.tar.bz2"
-  sha256 "ec898634766595438142c76cf3bdd46b77305d4a295dd16b29d024122d7a4b3f"
+  sha256 "9df273302c4fa160567f412e10cc4f76666b66281e7ba48370fb544e87e4611a"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -12,9 +12,10 @@ class Libsndfile < Formula
 
   bottle do
     cellar :any
-    sha256 "bf93a0083eecbcadc7eb391b9f429e0f55c4f571b5f4d9104cfaf60f8e5932dc" => :catalina
-    sha256 "ef1bd6eb6f6d33e22a05116b0893d85422e3ad7fced4252eace97232e523075d" => :mojave
-    sha256 "9d7d184ccf41eff27b8425a8fd50d60fa8a383338efcd0dcf7121f0ce7e3545c" => :high_sierra
+    rebuild 1
+    sha256 "5f5f4ad1f22b2893b115fdf972c1f8f30a4919719f12fe0f3d186f879eae3051" => :catalina
+    sha256 "5e0f78600b00ca0ebdbafe83e0a0a0a4833810233d714300acac13babb7553bf" => :mojave
+    sha256 "83fe3a19e7c679b07ed791dafeb2e942540092ae714f7c73ae7168ba2115179b" => :high_sierra
   end
 
   depends_on "autoconf" => :build

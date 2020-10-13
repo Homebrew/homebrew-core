@@ -1,15 +1,15 @@
 class AwsEsProxy < Formula
   desc "Small proxy between HTTP client and AWS Elasticsearch"
   homepage "https://github.com/abutaha/aws-es-proxy"
-  url "https://github.com/abutaha/aws-es-proxy/archive/1.1.tar.gz"
-  sha256 "290ec4ef5186b94e1f416550fe8a842fce04ed10937fd0d5580470e1552d5be8"
+  url "https://github.com/abutaha/aws-es-proxy/archive/v1.2.tar.gz"
+  sha256 "5b213e4a37b175238f2587b4eb85681fb6ec8d972dafc0cd8e6680881b9dbbd2"
   license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "dc7b61f5e22fb14108c697fd16d8e10f1dc7c25ba4e198aea9048d5a1ab49380" => :catalina
-    sha256 "04072658dc075c931b5090ed0fc8a7d918388f3352c2752e03eb22f8cda48cb6" => :mojave
-    sha256 "12e316705d1c4730b83f9a7a31559b7968f4c3bace93569902db6a57da0b6966" => :high_sierra
+    sha256 "4ea34f837d16948e94a2e612c9d257e553b37f60c305172ea8e34798347f2dbe" => :catalina
+    sha256 "cc4f13aa9d1aee4a1667a60e5a5a161ae78289fb9a587d12597c379e5c0a9b05" => :mojave
+    sha256 "a3804611f47815c7ba21ea108cb0e077fbfe59c2f52b85c1f778758babbb5a92" => :high_sierra
   end
 
   depends_on "go" => :build

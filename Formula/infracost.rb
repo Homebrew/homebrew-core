@@ -1,16 +1,16 @@
 class Infracost < Formula
   desc "Cost estimates for Terraform"
   homepage "https://www.infracost.io/docs/"
-  url "https://github.com/infracost/infracost/archive/v0.6.2.tar.gz"
-  sha256 "d792710c9dda27f5aa643e1ad8ee20694077d9564cea3e0ce058c7b4b193ccb4"
+  url "https://github.com/infracost/infracost/archive/v0.6.4.tar.gz"
+  sha256 "e8ff7bd05b6116c569b2c0d5fe4283a55d12b773d17be548af148a13b999b11c"
   license "Apache-2.0"
   head "https://github.com/infracost/infracost.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "26f8664a68b039b960f0f0df6fc16e1a2a816420e71aad6ed7a9183cb8826410" => :catalina
-    sha256 "7b2e16e9a7f84b674f1295d4038f60444ea8618a706cf769b1a84f2ddb2b8e64" => :mojave
-    sha256 "7d7af9a8c84545c52ffa953b668a573b8eaf7a5c295cda472f02fb0ffc30bba2" => :high_sierra
+    sha256 "74e8601905837bda04c4a99f222e3abf7ac75555526f0641dae3f31d1853135d" => :catalina
+    sha256 "e2c6b8a20842b36f5aee112606b2452b63e17729edce0a79af268ab2a6754b02" => :mojave
+    sha256 "2898aa18a188ee11116bff05234ec17402c0e964232dc404a8d8a0982373051f" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -18,11 +18,13 @@ class Infracost < Formula
 
   def install
     ENV["CGO_ENABLED"] = "0"
-    ldflags = "-X github.com/infracost/infracost/pkg/version.Version=v#{version}"
+    ldflags = "-X github.com/infracost/infracost/internal/version.Version=v#{version}"
     system "go", "build", *std_go_args, "-ldflags", ldflags, "./cmd/infracost"
   end
 
   test do
+    assert_match "v#{version}", shell_output("#{bin}/infracost --help 2>&1")
+
     output = shell_output("#{bin}/infracost --no-color 2>&1", 1)
     assert_match "No INFRACOST_API_KEY environment variable is set.", output
   end

@@ -8,6 +8,7 @@ on:
       - "Formula/libmnl.rb"
       - "Formula/libnetfilter-queue.rb"
       - "Formula/libnfnetlink.rb"
+      - "Formula/libpciaccess.rb"
       - "Formula/libseccomp.rb"
 jobs:
   tests_linux:

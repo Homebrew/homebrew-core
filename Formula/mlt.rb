@@ -1,8 +1,8 @@
 class Mlt < Formula
   desc "Author, manage, and run multitrack audio/video compositions"
   homepage "https://www.mltframework.org/"
-  license "LGPL-2.1"
-  revision 1
+  license "LGPL-2.1-only"
+  revision 2
   head "https://github.com/mltframework/mlt.git"
 
   stable do
@@ -17,9 +17,9 @@ class Mlt < Formula
   end
 
   bottle do
-    sha256 "40bbaa9868434eecaf7d8f453b12525425ec3bcfc3aa224750e455c1c66b441f" => :catalina
-    sha256 "7329bfcf7535bb615cdc2e8f9abdb3251bf842f6efffe010a4710faea7e047c3" => :mojave
-    sha256 "fdd81ec31e5f42cad27e5a108e07928ec7aa2911f362f4c37bd32e5097806a89" => :high_sierra
+    sha256 "70de9965c66d6fcbf24571fec70c9c8c56c6155728a59a3910b5cd059bf5f4eb" => :catalina
+    sha256 "a7cca4be99a696289481ed7b7c93cd811de6c5d811c34f29aa4da8e43dadbdb2" => :mojave
+    sha256 "d0d0c2df5685eaeb62bff9969fa349bcf80c62d5f338b5efa10cd019a02af1e6" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

@@ -4,13 +4,13 @@ class Rustscan < Formula
   url "https://github.com/RustScan/RustScan/archive/1.10.1.tar.gz"
   sha256 "fe47acf9f0fdabfc5e260b0a28cde9349acb347c4214767f89af2dfacff55717"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4ac239e15d60ea7d0b2924e05f2e7d22a041843e0091926497df0475248a5d8c" => :catalina
-    sha256 "693206c7d24539881ffe4ac09d9c65abdf9f82e7135ccffc64aa822c8ee35c24" => :mojave
-    sha256 "9b94da615263e79c4cf64aa5dde3902b0056f9673d3b853e59340d95d55b01ef" => :high_sierra
+    sha256 "58250ffc55db4dffc1eaa2fbae4ec063dace9bbd85113de2a8d14bc592700c3d" => :catalina
+    sha256 "95aa6188106c8d0f70926ad1e31fdfaa43957a53d51e99e51dfd2b55e50015e0" => :mojave
+    sha256 "6b312149a1fd03b4e12fff33956d85b07deec6d0cee09f349ed0af25782884a5" => :high_sierra
   end
 
   depends_on "rust" => :build

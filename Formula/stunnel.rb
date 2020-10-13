@@ -1,8 +1,9 @@
 class Stunnel < Formula
   desc "SSL tunneling program"
   homepage "https://www.stunnel.org/"
-  url "https://www.stunnel.org/downloads/stunnel-5.56.tar.gz"
-  sha256 "7384bfb356b9a89ddfee70b5ca494d187605bb516b4fff597e167f97e2236b22"
+  url "https://www.stunnel.org/downloads/stunnel-5.57.tar.gz"
+  sha256 "af5ab973dde11807c38735b87bdd87563a47d2fa1c72a07929fcfce80a600fe1"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://www.stunnel.org/downloads.html"
@@ -11,9 +12,10 @@ class Stunnel < Formula
 
   bottle do
     cellar :any
-    sha256 "90d65b410dfcabbc5d4b586449ae92b23cbe3f9e087a7075ec66b81807c17b7b" => :catalina
-    sha256 "61d66e0c5c5d411becd8b7d1f9ba913c1a15b9d15ec70e1253ca2e7fbdb0e516" => :mojave
-    sha256 "22548c4f8f3a15ebe6cd79aa2162dc7af8abaacf3e94d32d7cc8afc8f2049318" => :high_sierra
+    rebuild 1
+    sha256 "878eba096ca3019a14b911d5c4e98850ebd8e5339e9d6921fc9c641c5251405e" => :catalina
+    sha256 "365dd14775cdcf6b7a4b9a92b9f2cfc9e2ab59534e250f30654e9d7a8c187015" => :mojave
+    sha256 "e9f7507a85fb3b2951f770fd9a784a48a90a02263733d870142e23bf2334f706" => :high_sierra
   end
 
   depends_on "openssl@1.1"

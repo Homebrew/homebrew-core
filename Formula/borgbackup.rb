@@ -3,15 +3,15 @@ class Borgbackup < Formula
 
   desc "Deduplicating archiver with compression and authenticated encryption"
   homepage "https://borgbackup.org/"
-  url "https://github.com/borgbackup/borg/releases/download/1.1.13/borgbackup-1.1.13.tar.gz"
-  sha256 "164a8666a61071ce2fa6c60627c7646f12e3a8e74cd38f046be72f5ea91b3821"
+  url "https://github.com/borgbackup/borg/releases/download/1.1.14/borgbackup-1.1.14.tar.gz"
+  sha256 "7dbb0747cc948673f695cd6de284af215f810fed2eb2a615ef26ddc7c691edba"
   license "BSD-3-Clause"
 
   bottle do
     cellar :any
-    sha256 "dd71d53fa665ec83d2f68a1b353ffcabaf499c83681ad0ce3a78eef3f3c79c18" => :catalina
-    sha256 "f903ca24436d27d5f218b7bcdaf757a99a600c45bfbb63c9ab235ced12d8f2cc" => :mojave
-    sha256 "6bc8fd5091f705e9843a77d3f87cd7b722b84243a68e99d8d15d8f8ae20d0b03" => :high_sierra
+    sha256 "d284ec02d4b2fb3b63882a9bfe8bd2300c96969c9ba2536a69e7e44c87c36297" => :catalina
+    sha256 "927973da8c7146ff1ea17efd7fe742631866d554ccc9334b857d55bfcc666068" => :mojave
+    sha256 "ae4e81b65c73e3d2f3c0d34442321db0ef8a25d9f424d8f411643f29d89ba22a" => :high_sierra
   end
 
   depends_on osxfuse: :build

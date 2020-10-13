@@ -1,14 +1,14 @@
 class KdeKi18n < Formula
   desc "KDE Gettext-based UI text internationalization"
   homepage "https://api.kde.org/frameworks/ki18n/html/index.html"
-  url "https://download.kde.org/stable/frameworks/5.74/ki18n-5.74.0.tar.xz"
-  sha256 "bcbb95a81cd8f808fc8314741309c4b4ec25fc1c347e285a7cfefc006df3009c"
+  url "https://download.kde.org/stable/frameworks/5.75/ki18n-5.75.0.tar.xz"
+  sha256 "71f22a4ef4a9e750a1813c9fe37b552d9e053e6e2249079b5908d078160130d3"
   head "https://invent.kde.org/frameworks/ki18n.git"
 
   bottle do
-    sha256 "da4981215236a96dfecc3a64ee85b5d5a2942b9c101cdfbb0896093d60a33642" => :catalina
-    sha256 "52e4c45fd1b4c18bbad54ba48d44c542525f8f58ad20a6396ef377abba72734a" => :mojave
-    sha256 "93fb10c573cfc3d451983b53d96b5099f187f081087c1e13cad1123baf98fc58" => :high_sierra
+    sha256 "c3cde8b606dcad50a4bb84b1007929e0a4e250e420988cefb2eb088e1b551b3c" => :catalina
+    sha256 "da4701402263d28df238af8e2ec9df819d75282d9f550ab318bead98d7f3859b" => :mojave
+    sha256 "e0a76b6beb62d241d814461aa8eb41c0806a7fca65af6537cf2050ed9a2b0abf" => :high_sierra
   end
 
   depends_on "cmake" => [:build, :test]

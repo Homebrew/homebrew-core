@@ -1,15 +1,15 @@
 class Navi < Formula
   desc "Interactive cheatsheet tool for the command-line"
   homepage "https://github.com/denisidoro/navi"
-  url "https://github.com/denisidoro/navi/archive/v2.12.0.tar.gz"
-  sha256 "2331a82f91dee35bd3a1c3cfc14b23a69f9d2ff65a8b7b840ead4e76e8e1f146"
+  url "https://github.com/denisidoro/navi/archive/v2.12.1.tar.gz"
+  sha256 "167c1781062d2621f2d07059e71f5b1e1aa0560798d7799971681808a6d42ed0"
   license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f3636ee09127ffb3746ab27d5f00a73910322ec4ad3aa17e31f323fb7cad5380" => :catalina
-    sha256 "c21b0eb4bb7e9060ae39cb80d2b02c780d0bb26ac573bf5024aac9c12d57650e" => :mojave
-    sha256 "986f19287953b58c8a9e29bb026c558bfc30b32dfb8c2b64d92b6adc3a36c011" => :high_sierra
+    sha256 "171dd5b3887c1728a16cdb1169c49c2ed1440647ad4541aa9afae6ac60dbfad1" => :catalina
+    sha256 "a55e7861b4604c1ba8acac766cd1b89a83a6d0ee644def396f89baae26a5aff0" => :mojave
+    sha256 "14297fa981aa825970ca6ea22369faea3056ca2c381a45195195698fa060d71c" => :high_sierra
   end
 
   depends_on "rust" => :build
