@@ -3,6 +3,7 @@ class PaxConstruct < Formula
   homepage "https://ops4j1.jira.com/wiki/display/paxconstruct/Pax+Construct"
   url "https://search.maven.org/remotecontent?filepath=org/ops4j/pax/construct/scripts/1.5/scripts-1.5.zip"
   sha256 "d0325bbe571783097d4be782576569ea0a61529695c14e33a86bbebfe44859d1"
+  revision 1
 
   bottle :unneeded
 
