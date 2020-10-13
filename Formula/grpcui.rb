@@ -1,15 +1,15 @@
 class Grpcui < Formula
   desc "Interactive web UI for gRPC, along the lines of postman"
   homepage "https://github.com/fullstorydev/grpcui"
-  url "https://github.com/fullstorydev/grpcui/archive/v1.0.0.tar.gz"
-  sha256 "2169f72d23a5e4caceee3b863220bf6a4b4a15f7d88d5bb0de909ca4299a92df"
+  url "https://github.com/fullstorydev/grpcui/archive/v1.1.0.tar.gz"
+  sha256 "1a7c0eac76805350ccf38d6db77ed959a04f7a4a76c60897decca21a2ff49933"
   license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a8551ee4ec39d50e8b596a5c7c3b4e8c62371f294937c951aae2f3e40931cb6d" => :catalina
-    sha256 "e81b5780c4d24c413ad269c6d51ff226a5b7bf929003ced43200870604d01d92" => :mojave
-    sha256 "c28c396193a02af6efadd816e5dea7d6a648dc178e8411e3a53885f44834619b" => :high_sierra
+    sha256 "c6c62dbe114c2bb1de1a0c19d7845bdf2fe758e1810721772888776332a28897" => :catalina
+    sha256 "9f5c2e8b3bdc9e0d4609819503f4a10de72cba88b7fb4aa614e5c315975f7436" => :mojave
+    sha256 "af7abe614d2e96ce599ec1683ad9ec94c51daaf5d72613ad9c4bdedb7c9a4495" => :high_sierra
   end
 
   depends_on "go" => :build
