@@ -3,7 +3,7 @@ class Cksfv < Formula
   homepage "https://zakalwe.fi/~shd/foss/cksfv/"
   url "https://zakalwe.fi/~shd/foss/cksfv/files/cksfv-1.3.15.tar.bz2"
   sha256 "a173be5b6519e19169b6bb0b8a8530f04303fe3b17706927b9bd58461256064c"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
     cellar :any_skip_relocation
