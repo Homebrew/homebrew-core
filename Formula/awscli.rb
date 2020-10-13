@@ -6,6 +6,7 @@ class Awscli < Formula
   url "https://github.com/aws/aws-cli/archive/2.0.56.tar.gz"
   sha256 "7b49bb81bf3145934a8d28edc5cc7f7ab73ef9d7588bc1ce3dae1103fae92d98"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/aws/aws-cli.git", branch: "v2"
 
   bottle do
@@ -14,7 +15,7 @@ class Awscli < Formula
     sha256 "c194c1cd3583b059771c2e18fe4581b60c28ff6eedabf2dfb1ff47e57eb52b39" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "groff"
 
@@ -55,7 +56,7 @@ class Awscli < Formula
 
   test do
     assert_match "topics", shell_output("#{bin}/aws help")
-    assert_include Dir["#{libexec}/lib/python3.8/site-packages/awscli/data/*"],
-                   "#{libexec}/lib/python3.8/site-packages/awscli/data/ac.index"
+    assert_include Dir["#{libexec}/lib/python3.9/site-packages/awscli/data/*"],
+                   "#{libexec}/lib/python3.9/site-packages/awscli/data/ac.index"
   end
 end
