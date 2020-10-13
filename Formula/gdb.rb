@@ -5,7 +5,7 @@ class Gdb < Formula
   mirror "https://ftpmirror.gnu.org/gdb/gdb-9.2.tar.xz"
   sha256 "360cd7ae79b776988e89d8f9a01c985d0b1fa21c767a4295e5f88cb49175c555"
   license "GPL-2.0"
-  revision 1
+  revision 2
   head "https://sourceware.org/git/binutils-gdb.git"
 
   livecheck do
@@ -18,7 +18,7 @@ class Gdb < Formula
     sha256 "cbf828704099f07e8c863c962ef8deb60b932e3d75146a16b20967e3ddca7cbe" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "xz" # required for lzma support
 
   uses_from_macos "expat"
@@ -46,7 +46,7 @@ class Gdb < Formula
       --disable-debug
       --disable-dependency-tracking
       --with-lzma
-      --with-python=#{Formula["python@3.8"].opt_bin}/python3
+      --with-python=#{Formula["python@3.9"].opt_bin}/python3
       --disable-binutils
     ]
 
