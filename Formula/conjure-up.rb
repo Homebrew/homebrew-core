@@ -6,6 +6,7 @@ class ConjureUp < Formula
   url "https://github.com/conjure-up/conjure-up/archive/2.6.14.tar.gz"
   sha256 "c9f115229a305ff40eae051f40db2ca18a3dc2bd377397e22786bba032feb79a"
   license "MIT"
+  revision 1
 
   bottle do
     cellar :any
@@ -20,7 +21,7 @@ class ConjureUp < Formula
   depends_on "juju-wait"
   depends_on "libyaml"
   depends_on "pwgen"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "redis"
 
   uses_from_macos "libffi"
@@ -104,7 +105,7 @@ class ConjureUp < Formula
     url "https://files.pythonhosted.org/packages/d0/22/ca60ef57ad0ea904292daaa1cb0f1e991303667f70794a97674f4a3695fa/macaroonbakery-1.2.3.tar.gz"
     sha256 "bd27e7d2d98cb3dc1973d7b67b2a0c475fb005c0f9c35c04dbf9b272e98939ec"
 
-    # Python 3.8 compatibility platform.linux_distribution
+    # Python 3.9 compatibility platform.linux_distribution
     # Remove in next release
     patch do
       url "https://github.com/go-macaroon-bakery/py-macaroon-bakery/commit/78daf9d233e33da3f4bd2c34553843f82c09b21e.patch?full_index=1"
