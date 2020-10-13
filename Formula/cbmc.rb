@@ -5,6 +5,7 @@ class Cbmc < Formula
       tag:      "cbmc-5.16.0",
       revision: "4451960f8b8172bc91bc8f1cc84ad78e05b12536"
   license "BSD-4-Clause"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
