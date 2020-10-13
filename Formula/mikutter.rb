@@ -22,9 +22,12 @@ class Mikutter < Formula
   depends_on "gtk+"
   depends_on "libidn"
   depends_on "ruby"
-  depends_on "terminal-notifier"
 
   uses_from_macos "xz"
+
+  on_macos do
+    depends_on "terminal-notifier"
+  end
 
   resource "addressable" do
     url "https://rubygems.org/downloads/addressable-2.7.0.gem"
