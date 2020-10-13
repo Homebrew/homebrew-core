@@ -6,6 +6,7 @@ class Molecule < Formula
   url "https://files.pythonhosted.org/packages/a0/a4/f6f0676de9fde9426015d1aaa860444cd3ff6098cbec36aeab8cf1022579/molecule-3.0.8.tar.gz"
   sha256 "42d0c661b52074b00a620466df367ddab9c3682875e6d685bfc93487ef0479cc"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -20,7 +21,7 @@ class Molecule < Formula
 
   depends_on "ansible"
   depends_on "openssl@1.1"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   on_linux do
     depends_on "pkg-config" => :build
