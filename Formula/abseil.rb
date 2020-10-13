@@ -4,6 +4,7 @@ class Abseil < Formula
   url "https://github.com/abseil/abseil-cpp/archive/20200923.1.tar.gz"
   sha256 "808350c4d7238315717749bab0067a1acd208023d41eaf0c7360f29cc8bc8f21"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -15,10 +16,8 @@ class Abseil < Formula
   depends_on "cmake" => :build
 
   def install
-    ENV.cxx11
-
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "..", *std_cmake_args, "-DCMAKE_CXX_STANDARD=17"
       system "make"
       system "make", "install"
     end
@@ -38,7 +37,7 @@ class Abseil < Formula
         std::cout << "Joined string: " << s << "\\n";
       }
     EOS
-    system ENV.cxx, "-std=c++11", "-I#{include}", "-L#{lib}", "-labsl_strings",
+    system ENV.cxx, "-std=c++17", "-I#{include}", "-L#{lib}", "-labsl_strings",
                     "test.cc", "-o", "test"
     assert_equal "Joined string: foo-bar-baz\n", shell_output("#{testpath}/test")
   end
