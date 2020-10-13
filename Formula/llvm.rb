@@ -92,6 +92,11 @@ class Llvm < Formula
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
+  patch :p1 do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/19ac09e6203ece5d1530f4c7ec7a46c35fda23ff/llvm/11.0.0-llvm.diff"
+    sha256 "899bd4d1f5eecb72043c6efeb448fc9beda3f1a73c5e8c84b5a8d505f017ea3d"
+  end
+
   def install
     projects = %w[
       clang
