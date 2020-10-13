@@ -19,7 +19,6 @@ class Exa < Formula
     sha256 "9499359da5f5fffbd8b22c8cb8e78f0fdf99594c4d2b06e7ba58eb21afbcb582" => :sierra
   end
 
-  depends_on "cmake" => :build
   depends_on "rust" => :build
 
   uses_from_macos "zlib"
@@ -29,7 +28,7 @@ class Exa < Formula
   end
 
   def install
-    system "make", "install", "PREFIX=#{prefix}"
+    system "cargo", "install", *std_cargo_args
 
     bash_completion.install "contrib/completions.bash" => "exa"
     zsh_completion.install  "contrib/completions.zsh"  => "_exa"
