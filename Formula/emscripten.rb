@@ -8,6 +8,7 @@ class Emscripten < Formula
   # Emscripten is available under 2 licenses, the MIT license and the
   # University of Illinois/NCSA Open Source License.
   license "MIT"
+  revision 1
   head "https://github.com/emscripten-core/emscripten.git"
 
   livecheck do
@@ -26,7 +27,7 @@ class Emscripten < Formula
   depends_on "cmake" => :build
   depends_on "binaryen"
   depends_on "node"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "yuicompressor"
 
   # emscripten needs argument '-fignore-exceptions', which is only available
@@ -127,7 +128,7 @@ class Emscripten < Formula
 
     %w[em++ em-config emar emcc emcmake emconfigure emlink.py emmake
        emranlib emrun emscons].each do |emscript|
-      (bin/emscript).write_env_script libexec/emscript, PYTHON: Formula["python@3.8"].opt_bin/"python3"
+      (bin/emscript).write_env_script libexec/emscript, PYTHON: Formula["python@3.9"].opt_bin/"python3"
     end
   end
 
