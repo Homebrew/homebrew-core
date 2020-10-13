@@ -1,11 +1,10 @@
 class Nwchem < Formula
   desc "High-performance computational chemistry tools"
-  homepage "http://www.nwchem-sw.org"
-  url "https://github.com/nwchemgit/nwchem/releases/download/v7.0.0-release/nwchem-7.0.0-release.revision-2c9a1c7c-src.2020-02-26.tar.bz2"
-  version "7.0.0"
-  sha256 "1046e13a4c7f95860c8e8fac2b4d80657900ecd07a8242943d564048ce303514"
+  homepage "https://nwchemgit.github.io"
+  url "https://github.com/nwchemgit/nwchem/releases/download/v7.0.2-release/nwchem-7.0.2-release.revision-b9985dfa-src.2020-10-12.tar.bz2"
+  version "7.0.2"
+  sha256 "d9d19d87e70abf43d61b2d34e60c293371af60d14df4a6333bf40ea63f6dc8ce"
   license "ECL-2.0"
-  revision 2
 
   livecheck do
     url "https://github.com/nwchemgit/nwchem.git"
@@ -45,8 +44,6 @@ class Nwchem < Formula
 
       inreplace "util/util_nwchemrc.F", "/etc/nwchemrc", "#{etc}/nwchemrc"
 
-      ENV["NWCHEM_TOP"] = buildpath
-      ENV["NWCHEM_LONG_PATHS"] = "Y"
       # needed to use python 3.X to skip using default python2
       ENV["PYTHONVERSION"] = Language::Python.major_minor_version "python3"
       ENV["BLASOPT"] = "-L#{Formula["openblas"].opt_lib} -lopenblas"
