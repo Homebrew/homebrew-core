@@ -16,6 +16,8 @@ class RipgrepAll < Formula
   depends_on "rust" => :build
   depends_on "ripgrep"
 
+  uses_from_macos "zip" => :test
+
   def install
     system "cargo", "install", *std_cargo_args
   end
