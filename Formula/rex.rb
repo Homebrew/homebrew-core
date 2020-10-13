@@ -13,6 +13,13 @@ class Rex < Formula
 
   uses_from_macos "perl"
 
+  on_macos do
+    resource "LWP::UserAgent" do
+      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.43.tar.gz"
+      sha256 "e9849d7ee6fd0e89cc999e63d7612c951afd6aeea6bc721b767870d9df4ac40d"
+    end
+  end
+
   resource "Module::Build" do
     # AWS::Signature4 requires Module::Build v0.4205 and above, while standard
     # MacOS Perl installation has 0.4003
