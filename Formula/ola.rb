@@ -30,6 +30,13 @@ class Ola < Formula
     sha256 "bbbcb5952b0bdcd01083cef92b72a747d3adbe7ca9e50d865a0c69ae31a8fb4a"
   end
 
+  # Fix compatibility with libmicrohttpd
+  # Remove in next version
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/4dcd2679/ola/libmicrohttpd.diff"
+    sha256 "752f46b6cfe2d9c278c3fd0e68ff753479ca4bba34a3b41f82d523daafde8d08"
+  end
+
   def install
     xy = Language::Python.major_minor_version Formula["python@3.8"].bin/"python3"
     protobuf_pth = Formula["protobuf@3.6"].opt_lib/"python#{xy}/site-packages/homebrew-protobuf.pth"
