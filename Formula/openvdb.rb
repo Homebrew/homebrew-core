@@ -13,6 +13,7 @@ class Openvdb < Formula
     sha256 "a7d3e9cc992f2699b1dea70a51dbd9333b423113a1c8ca819265bbbb0df0d3ca" => :high_sierra
   end
 
+  depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "boost"
   depends_on "c-blosc"
@@ -28,35 +29,14 @@ class Openvdb < Formula
   end
 
   def install
-    # Adjust hard coded paths in Makefile
-    args = [
-      "DESTDIR=#{prefix}",
-      "BLOSC_INCL_DIR=#{Formula["c-blosc"].opt_include}",
-      "BLOSC_LIB_DIR=#{Formula["c-blosc"].opt_lib}",
-      "BOOST_INCL_DIR=#{Formula["boost"].opt_include}",
-      "BOOST_LIB_DIR=#{Formula["boost"].opt_lib}",
-      "BOOST_THREAD_LIB=-lboost_thread-mt",
-      "CONCURRENT_MALLOC_LIB_DIR=#{Formula["jemalloc"].opt_lib}",
-      "CPPUNIT_INCL_DIR=", # Do not use cppunit
-      "CPPUNIT_LIB_DIR=",
-      "DOXYGEN=doxygen",
-      "EXR_INCL_DIR=#{Formula["openexr"].opt_include}/OpenEXR",
-      "EXR_LIB_DIR=#{Formula["openexr"].opt_lib}",
-      "LOG4CPLUS_INCL_DIR=", # Do not use log4cplus
-      "LOG4CPLUS_LIB_DIR=",
-      "NUMPY_INCL_DIR=",
-      "PYTHON_VERSION=",
-      "TBB_INCL_DIR=#{Formula["tbb"].opt_include}",
-      "TBB_LIB_DIR=#{Formula["tbb"].opt_lib}",
-      "GLFW_INCL_DIR=#{Formula["glfw"].opt_include}",
-      "GLFW_LIB_DIR=#{Formula["glfw"].opt_lib}",
-      "GLFW_LIB=-lglfw",
+    cmake_args = [
+      "-DDISABLE_DEPENDENCY_VERSION_CHECKS=ON",
+      "-DOPENVDB_BUILD_DOCS=ON",
     ]
 
-    ENV.append_to_cflags "-I #{buildpath}"
-
-    cd "openvdb" do
-      system "make", "install", *args
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args, *cmake_args
+      system "make", "install"
     end
   end
 
