@@ -30,11 +30,13 @@ class Exa < Formula
   def install
     system "cargo", "install", *std_cargo_args
 
-    begin  # > 0.9
+    begin
+      # > 0.9
       bash_completion.install "completions/completions.bash" => "exa"
       zsh_completion.install  "completions/completions.zsh"  => "_exa"
       fish_completion.install "completions/completions.fish" => "exa.fish"
-    rescue  # <= 0.9
+    rescue
+      # <= 0.9
       bash_completion.install "contrib/completions.bash" => "exa"
       zsh_completion.install  "contrib/completions.zsh"  => "_exa"
       fish_completion.install "contrib/completions.fish" => "exa.fish"
