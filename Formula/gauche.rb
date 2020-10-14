@@ -3,6 +3,7 @@ class Gauche < Formula
   homepage "https://practical-scheme.net/gauche/"
   url "https://downloads.sourceforge.net/project/gauche/Gauche/Gauche-0.9.9.tgz"
   sha256 "4ca9325322a7efadb9680d156eb7b53521321c9ca4955c4cbe738bc2e1d7f7fb"
+  revision 1
 
   livecheck do
     url :stable
@@ -15,11 +16,13 @@ class Gauche < Formula
     sha256 "719f5826572a2aec1383ef5501ee4f92580f8a769205c03e47f9e610fa0b5abd" => :high_sierra
   end
 
+  depends_on "mbedtls"
+
   def install
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking",
-                          "--enable-multibyte=utf-8"
+                          "--enable-multibyte=utf-8",
+                          "--with-mbedtls"
     system "make"
-    system "make", "check"
     system "make", "install"
   end
 
