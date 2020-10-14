@@ -3,8 +3,8 @@ class Salt < Formula
 
   desc "Dynamic infrastructure communication bus"
   homepage "https://s.saltstack.com/community/"
-  url "https://files.pythonhosted.org/packages/3f/c3/316cc75911a9985157df27fbdb7191731e84688101e97d77ea61f22e981d/salt-3001.1.tar.gz"
-  sha256 "e9ebb4d92fae8dabf21b8749dc126e4a4048bf8f613f5b1b851fe4b8226b5abc"
+  url "https://files.pythonhosted.org/packages/45/0a/ca2a0aa55b2e2ba98d91ed49911bd4818b8130fd21593478196740772228/salt-3002.tar.gz"
+  sha256 "b622c9de9fde571db96bfd659a183bea553dd26e71cac85659387e937221aae6"
   license "Apache-2.0"
   head "https://github.com/saltstack/salt.git", branch: "develop", shallow: false
 
@@ -22,7 +22,7 @@ class Salt < Formula
   depends_on "libgit2"
   depends_on "libyaml"
   depends_on "openssl@1.1"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "zeromq"
 
   on_linux do
@@ -32,13 +32,13 @@ class Salt < Formula
   # Homebrew installs optional dependencies: M2Crypto, pygit2
 
   resource "cached-property" do
-    url "https://files.pythonhosted.org/packages/57/8e/0698e10350a57d46b3bcfe8eff1d4181642fd1724073336079cb13c5cf7f/cached-property-1.5.1.tar.gz"
-    sha256 "9217a59f14a5682da7c4b8829deadbfc194ac22e9908ccf7c8820234e80a1504"
+    url "https://files.pythonhosted.org/packages/61/2c/d21c1c23c2895c091fa7a91a54b6872098fea913526932d21902088a7c41/cached-property-1.5.2.tar.gz"
+    sha256 "9fa5755838eecbb2d234c3aa390bd80fbd3ac6b6869109bfc1b499f7bd89a130"
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/54/1d/15eae71ab444bd88a1d69f19592dcf32b9e3166ecf427dd9243ef0d3b7bc/cffi-1.14.1.tar.gz"
-    sha256 "b2a2b0d276a136146e012154baefaea2758ef1f56ae9f4e01c612b0831e0bd2f"
+    url "https://files.pythonhosted.org/packages/cb/ae/380e33d621ae301770358eb11a896a34c34f30db188847a561e8e39ee866/cffi-1.14.3.tar.gz"
+    sha256 "f92f789e4f9241cd262ad7a555ca2c648a98178a953af117ef7fad46aa1d5591"
   end
 
   resource "M2Crypto" do
@@ -52,8 +52,8 @@ class Salt < Formula
   end
 
   resource "pygit2" do
-    url "https://files.pythonhosted.org/packages/d0/c6/33e2df5722e3adf49adc6a2d3c2cdb5a5247236fd8f2063a0c4d058116a1/pygit2-1.2.1.tar.gz"
-    sha256 "de9421118a99c79cbba1e512d60e5caed1d63273ce30a0e8d4edef4a2e500387"
+    url "https://files.pythonhosted.org/packages/20/02/25077cf7ac6599e0e6bd2c6836e7c7360244d2d7224d54e51218dbe00711/pygit2-1.3.0.tar.gz"
+    sha256 "0be93f6a8d7cbf0cc79ae2f0afb1993fc055fc0018c27e2bd01ba143e51d4452"
   end
 
   def install
@@ -66,7 +66,11 @@ class Salt < Formula
     # https://github.com/Homebrew/homebrew-core/pull/52835#issuecomment-617502578
     File.write(buildpath/"pkg/osx/req_pyobjc.txt", "")
 
-    venv = virtualenv_create(libexec, Formula["python@3.8"].bin/"python3.8")
+    # Fix build with Python 3.9 by updating cffi
+    # https://github.com/saltstack/salt/issues/58809
+    inreplace "requirements/static/pkg/py3.9/darwin.txt", "cffi==1.12.2", "cffi>=1.14.3"
+
+    venv = virtualenv_create(libexec, Formula["python@3.9"].bin/"python3.9")
     venv.pip_install resources
 
     system libexec/"bin/pip", "install", "-v", "--ignore-installed", buildpath
