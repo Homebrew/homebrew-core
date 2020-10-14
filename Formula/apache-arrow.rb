@@ -31,6 +31,7 @@ class ApacheArrow < Formula
   depends_on "protobuf"
   depends_on "python@3.8"
   depends_on "rapidjson"
+  depends_on "re2"
   depends_on "snappy"
   depends_on "thrift"
   depends_on "zstd"
@@ -47,6 +48,7 @@ class ApacheArrow < Formula
     # link against system libc++ instead of llvm provided libc++
     ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
     args = %W[
+      -DCMAKE_FIND_PACKAGE_PREFER_CONFIG=TRUE
       -DARROW_FLIGHT=ON
       -DARROW_GANDIVA=ON
       -DARROW_JEMALLOC=ON
@@ -65,8 +67,7 @@ class ApacheArrow < Formula
       -DPYTHON_EXECUTABLE=#{Formula["python@3.8"].bin/"python3"}
     ]
 
-    mkdir "build"
-    cd "build" do
+    mkdir "build" do
       system "cmake", "../cpp", *std_cmake_args, *args
       system "make"
       system "make", "install"
