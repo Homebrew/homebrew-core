@@ -6,6 +6,7 @@ class LibtensorflowAT1 < Formula
   url "https://github.com/tensorflow/tensorflow/archive/v1.15.4.tar.gz"
   sha256 "e18c55e771ad136f9bf3a70ea8f0e2d36662b2ba7c890f9eaf7950554557c7fa"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     cellar :any
@@ -17,7 +18,7 @@ class LibtensorflowAT1 < Formula
   keg_only :versioned_formula
 
   depends_on "bazel" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
 
   def install
     venv_root = "#{buildpath}/venv"
