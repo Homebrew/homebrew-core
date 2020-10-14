@@ -13,14 +13,14 @@ class Openblas < Formula
     sha256 "cf345fcf861d1a699832126476a7385b9cc212dc5b1b985749e219481473e836" => :mojave
     sha256 "09e6222e227fccb3d1a86aa0b0ac77fec3e512ba9266ecf72f235c58c6795009" => :high_sierra
   end
-  # This patch fixes a known issue with large matrices in numpy on Haswell and later
-  # chipsets.  See https://github.com/xianyi/OpenBLAS/pull/2729 for details
 
   keg_only :shadowed_by_macos, "macOS provides BLAS in Accelerate.framework"
 
   depends_on "gcc" # for gfortran
   fails_with :clang
 
+  # This patch fixes a known issue with large matrices in numpy on Haswell and later
+  # chipsets.  See https://github.com/xianyi/OpenBLAS/pull/2729 for details
   patch do
     url "https://github.com/xianyi/OpenBLAS/commit/6c33764ca43c7311bdd61e2371b08395cf3e3f01.diff?full_index=1"
     sha256 "a1b0c27384e424d8cabb5a4e3aeb47b9d0a1fbbc36507431b13719120b6d26d3"
