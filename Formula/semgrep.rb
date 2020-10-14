@@ -27,7 +27,7 @@ class Semgrep < Formula
   depends_on "ocaml" => :build
   depends_on "opam" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/81/d0/641b698d05f0eaea4df4f9cebaff573d7a5276228ef6b7541240fe02f3ad/attrs-20.2.0.tar.gz"
@@ -156,7 +156,7 @@ class Semgrep < Formula
 
     python_path = "semgrep"
     cd python_path do
-      venv = virtualenv_create(libexec, Formula["python@3.8"].bin/"python3.8")
+      venv = virtualenv_create(libexec, Formula["python@3.9"].bin/"python3.9")
       venv.pip_install resources
       venv.pip_install_and_link buildpath/python_path
     end
