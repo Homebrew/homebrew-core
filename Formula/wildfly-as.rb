@@ -3,6 +3,7 @@ class WildflyAs < Formula
   homepage "https://wildfly.org/"
   url "https://download.jboss.org/wildfly/21.0.0.Final/wildfly-21.0.0.Final.tar.gz"
   sha256 "5454dc750c06fd052457d32f5a7ba352b2fb11602fd79f4f1789046d32da0d9f"
+  license "LGPL-2.1-or-later"
 
   livecheck do
     url "https://wildfly.org/downloads/"
