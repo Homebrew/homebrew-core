@@ -2,7 +2,7 @@ class Mlt < Formula
   desc "Author, manage, and run multitrack audio/video compositions"
   homepage "https://www.mltframework.org/"
   license "LGPL-2.1-only"
-  revision 2
+  revision 3
   head "https://github.com/mltframework/mlt.git"
 
   stable do
