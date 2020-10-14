@@ -5,6 +5,7 @@ class Kibana < Formula
       tag:      "v7.8.1",
       revision: "5db9c677ea993ff3df503df03d03f5657fcea42e"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/elastic/kibana.git"
 
   bottle do
@@ -14,7 +15,7 @@ class Kibana < Formula
     sha256 "1922f3a6c69e1d3157673884428fe8116e3567a7dac5119e37d8c6a1427f41e3" => :high_sierra
   end
 
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
   depends_on "yarn" => :build
   depends_on "node@10"
 
