@@ -79,19 +79,36 @@ jobs:
           name: bottles
           path: bottles
 
+      - run: brew test-bot --only-cleanup-after
+        if: always()
+
+      - name: Post Cleanup
+        if: always()
+        run: rm -rvf bottles
+  upload:
+    runs-on: ubuntu-latest
+    needs: bottle
+    if: github.event.inputs.upload
+    steps:
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Download bottles from GitHub Actions
+        uses: actions/download-artifact@main
+        with:
+          name: bottles
+
       - name: Setup git
-        if: github.event.inputs.upload && steps.bottles.outputs.count > 0
         uses: Homebrew/actions/git-user-config@master
 
       - name: Upload and publish bottles on Bintray
-        if: github.event.inputs.upload && steps.bottles.outputs.count > 0
         env:
           HOMEBREW_BINTRAY_USER: brewtestbot
           HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
         run: brew pr-upload --verbose --keep-old
 
       - name: Push commits
-        if: github.event.inputs.upload && steps.bottles.outputs.count > 0
         uses: Homebrew/actions/git-try-push@master
 
       - name: Post comment on failure
@@ -103,10 +120,3 @@ jobs:
           body: ':x: @${{github.actor}} bottle request for ${{github.event.inputs.formula}} [failed](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}}).'
           bot_body: ':x: Bottle request for ${{github.event.inputs.formula}} [failed](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}}).'
           bot: BrewTestBot
-
-      - run: brew test-bot --only-cleanup-after
-        if: always()
-
-      - name: Post Cleanup
-        if: always()
-        run: rm -rvf bottles
