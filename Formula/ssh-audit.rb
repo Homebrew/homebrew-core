@@ -16,6 +16,7 @@ class SshAudit < Formula
   def install
     rewrite_shebang detected_python_shebang, "ssh-audit.py"
     bin.install "ssh-audit.py" => "ssh-audit"
+    man1.install "ssh-audit.1"
   end
 
   test do
