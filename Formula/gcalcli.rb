@@ -129,6 +129,13 @@ class Gcalcli < Formula
   end
 
   test do
-    system "#{libexec}/bin/gcalcli", "--help"
+    expected_output = """
+Go to the following link in your browser:
+
+    https://accounts.google.com/o/oauth2/v2/auth?client_id=foo&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcalendar&access_type=offline&response_type=code
+
+Enter verification code: """
+    stdout_str, status = Open3.capture2("#{libexec}/bin/gcalcli --client-id=foo --client-secret=bar --noauth_local_webserver list", :stdin_data=>"foo")
+    assert_equal expected_output, stdout_str
   end
 end
