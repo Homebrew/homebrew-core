@@ -1,9 +1,9 @@
 class GoAT114 < Formula
   desc "Go programming environment (1.14)"
   homepage "https://golang.org"
-  url "https://golang.org/dl/go1.14.9.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.14.9.src.tar.gz"
-  sha256 "c687c848cc09bcabf2b5e534c3fc4259abebbfc9014dd05a1a2dc6106f404554"
+  url "https://golang.org/dl/go1.14.10.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go1.14.10.src.tar.gz"
+  sha256 "b37699a7e3eab0f90412b3969a90fd072023ecf61e0b86369da532810a95d665"
   license "BSD-3-Clause"
 
   livecheck do
