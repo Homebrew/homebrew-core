@@ -5,6 +5,7 @@ class Solr < Formula
   mirror "https://archive.apache.org/dist/lucene/solr/8.6.3/solr-8.6.3.tgz"
   sha256 "c24925f3e8103673c2fceaaff4a04d6f1ab12b4ffd67da36fbbd2aa9aaaa6b55"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -20,11 +21,12 @@ class Solr < Formula
     prefix.install %w[contrib dist server]
     libexec.install "bin"
     bin.install [libexec/"bin/solr", libexec/"bin/post", libexec/"bin/oom_solr.sh"]
-    bin.env_script_all_files libexec,
-      JAVA_HOME:     Formula["openjdk"].opt_prefix,
-      SOLR_HOME:     var/"lib/solr",
-      SOLR_LOGS_DIR: var/"log/solr",
-      SOLR_PID_DIR:  var/"run/solr"
+
+    env = Language::Java.overridable_java_home_env
+    env["SOLR_HOME"] = "${SOLR_HOME:-#{var/"lib/solr"}}"
+    env["SOLR_LOGS_DIR"] = "${SOLR_LOGS_DIR:-#{var/"log/solr"}}"
+    env["SOLR_PID_DIR"] = "${SOLR_PID_DIR:-#{var/"run/solr"}}"
+    bin.env_script_all_files libexec, env
     (libexec/"bin").rmtree
   end
 
@@ -63,6 +65,7 @@ class Solr < Formula
   end
 
   test do
+    ENV["SOLR_PID_DIR"] = testpath
     port = free_port
 
     # Info detects no Solr node => exit code 3
