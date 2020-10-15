@@ -1,8 +1,8 @@
 class HaskellStack < Formula
   desc "Cross-platform program for developing Haskell projects"
   homepage "https://haskellstack.org/"
-  url "https://github.com/commercialhaskell/stack/archive/v2.3.3.tar.gz"
-  sha256 "57042c0c7b53a6f8dba7f31679e9049c28351a86b8bc2786f7e37eda4733634e"
+  url "https://github.com/commercialhaskell/stack/archive/v2.5.1.tar.gz"
+  sha256 "f29d63b91ff2bddd130b29ddee90a1f450706271a13d5d80b653b50379ffa076"
   license "BSD-3-Clause"
   head "https://github.com/commercialhaskell/stack.git"
 
@@ -25,6 +25,12 @@ class HaskellStack < Formula
 
   on_linux do
     depends_on "gmp"
+  end
+
+  # Support build with persistent-2.11 and optparse-applicative-0.16
+  patch do
+    url "https://github.com/commercialhaskell/stack/commit/7796eaa6b2c6c5e8a579af34ebc33b12d73b6c99.patch?full_index=1"
+    sha256 "58aa8a861307c14068148a88bf8f46ed7fe2e3c89a3c8bfd1949316e2d7dab29"
   end
 
   def install
