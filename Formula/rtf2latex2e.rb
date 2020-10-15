@@ -5,6 +5,11 @@ class Rtf2latex2e < Formula
   version "2.2.3"
   sha256 "7ef86edea11d5513cd86789257a91265fc82d978541d38ab2c08d3e9d6fcd3c3"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/rtf2latex2e[._-]v?(\d+(?:[._-]\d+)+)\.t}i)
+  end
+
   bottle do
     sha256 "c7c3d46cf3f0b3a18dcb01aa9e1f2be4573f236e52f466d78eda4d659084e5bf" => :catalina
     sha256 "bed54dc624378c20df3c352618645058a3ae3956d9cb5811af63836ffaa2dd10" => :mojave

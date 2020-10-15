@@ -6,6 +6,11 @@ class Kawa < Formula
   sha256 "dab1f41da968191fc68be856f133e3d02ce65d2dbd577a27e0490f18ca00fa22"
   revision 1
 
+  livecheck do
+    url :stable
+    regex(/href=.*?kawa[._-]v?(\d+(?:\.\d+)+)\.(?:t|zip)/i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
@@ -15,7 +20,7 @@ class Kawa < Formula
     inreplace "bin/kawa", "thisfile=`command -v $0`",
                           "thisfile=#{libexec}/bin/kawa"
     libexec.install "bin", "lib"
-    (bin/"kawa").write_env_script libexec/"bin/kawa", :JAVA_HOME => Formula["openjdk"].opt_prefix
+    (bin/"kawa").write_env_script libexec/"bin/kawa", JAVA_HOME: Formula["openjdk"].opt_prefix
     doc.install Dir["doc/*"]
   end
 

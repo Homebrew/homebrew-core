@@ -3,6 +3,7 @@ class Jbig2enc < Formula
   homepage "https://github.com/agl/jbig2enc"
   url "https://github.com/agl/jbig2enc/archive/0.29.tar.gz"
   sha256 "bfcf0d0448ee36046af6c776c7271cd5a644855723f0a832d1c0db4de3c21280"
+  license "Apache-2.0"
   head "https://github.com/agl/jbig2enc.git"
 
   bottle do

@@ -1,16 +1,16 @@
 class Nef < Formula
   desc "💊 steroids for Xcode Playgrounds"
   homepage "https://nef.bow-swift.io"
-  url "https://github.com/bow-swift/nef/archive/0.6.0.tar.gz"
-  sha256 "a67bb4201739898832ec52e92d838ccfcae25a490df433cd7cf44f1fc6e0a786"
+  url "https://github.com/bow-swift/nef/archive/0.6.2.tar.gz"
+  sha256 "23915dd21e6485829b5ad88b6a5f4ac6b4ea091fc70820d2322bafba09e2217a"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4dffdd30d80ab45cda870e0e5ebe981f64ab878de8cabaeb13bb33cc5ef6d1a0" => :catalina
-    sha256 "49c50ed996365fa2636500525c5ab74554eb530afde00e94aaf004c2032fcf57" => :mojave
+    sha256 "fae01b5b21abe8205e3e42101804f3c6c16bb04d1c14841846766579ce2885d5" => :catalina
   end
 
-  depends_on :xcode => "11.0"
+  depends_on xcode: "11.4"
 
   def install
     system "make", "install", "prefix=#{prefix}", "version=#{version}"
@@ -20,6 +20,6 @@ class Nef < Formula
     system "#{bin}/nef", "markdown",
            "--project", "#{share}/tests/Documentation.app",
            "--output", "#{testpath}/nef"
-    assert_path_exist "#{testpath}/nef/resources.md", :exist?
+    assert_path_exist "#{testpath}/nef/library/apis.md", :exist?
   end
 end

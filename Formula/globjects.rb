@@ -3,6 +3,7 @@ class Globjects < Formula
   homepage "https://github.com/cginternals/globjects"
   url "https://github.com/cginternals/globjects/archive/v1.1.0.tar.gz"
   sha256 "68fa218c1478c09b555e44f2209a066b28be025312e0bab6e3a0b142a01ebbc6"
+  license "MIT"
   head "https://github.com/cginternals/globjects.git"
 
   bottle do

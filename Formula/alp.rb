@@ -3,6 +3,7 @@ class Alp < Formula
   homepage "https://github.com/tkuchiki/alp"
   url "https://github.com/tkuchiki/alp/archive/v1.0.3.tar.gz"
   sha256 "3bc3284d007eb9a3904ca9f36e244a31576c7e219c0cea7758eee1439c49701c"
+  license "MIT"
   head "https://github.com/tkuchiki/alp.git"
 
   bottle do

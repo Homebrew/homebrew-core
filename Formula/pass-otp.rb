@@ -1,8 +1,9 @@
 class PassOtp < Formula
-  desc "The Pass extension for managing one-time-password (OTP) tokens"
+  desc "Pass extension for managing one-time-password tokens"
   homepage "https://github.com/tadfisher/pass-otp#readme"
   url "https://github.com/tadfisher/pass-otp/releases/download/v1.2.0/pass-otp-1.2.0.tar.gz"
   sha256 "5720a649267a240a4f7ba5a6445193481070049c1d08ba38b00d20fc551c3a67"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation

@@ -3,6 +3,7 @@ class OpentracingCpp < Formula
   homepage "https://opentracing.io/"
   url "https://github.com/opentracing/opentracing-cpp/archive/v1.6.0.tar.gz"
   sha256 "5b170042da4d1c4c231df6594da120875429d5231e9baa5179822ee8d1054ac3"
+  license "Apache-2.0"
 
   bottle do
     cellar :any

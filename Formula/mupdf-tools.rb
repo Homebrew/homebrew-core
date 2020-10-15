@@ -1,21 +1,30 @@
 class MupdfTools < Formula
   desc "Lightweight PDF and XPS viewer"
   homepage "https://mupdf.com/"
-  url "https://mupdf.com/downloads/archive/mupdf-1.16.1-source.tar.xz"
-  sha256 "6fe78184bd5208f9595e4d7f92bc8df50af30fbe8e2c1298b581c84945f2f5da"
+  url "https://mupdf.com/downloads/archive/mupdf-1.18.0-source.tar.xz"
+  sha256 "592d4f6c0fba41bb954eb1a41616661b62b134d5b383e33bd45a081af5d4a59a"
+  license "AGPL-3.0"
   head "https://git.ghostscript.com/mupdf.git"
+
+  livecheck do
+    url "https://mupdf.com/downloads/archive/?C=M&O=D"
+    regex(/href=.*?mupdf[._-]v?(\d+(?:\.\d+)+)-source\.(?:t|zip)/i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "80759203d101cc4b26cf21cfc724a1c0e3b7d896f2ab296d41e0cf829b30e76b" => :catalina
-    sha256 "181249c8429832f2831ddadbf27dfc53b0e645f4dcb86b7a6ee237691a5f051e" => :mojave
-    sha256 "2896fe7b33448061f1a05d09c8976ee506222d39c7eef06bf1a20467215a2114" => :high_sierra
+    sha256 "e985551872925ed4b66ce995c551fda59152c1e7f9cf2bdbd205ab749e867e17" => :catalina
+    sha256 "50f1628c7c396fdfd65eb5ce84541a5b9a695bc6fe003cc7abc732e212762bc3" => :mojave
+    sha256 "2a7a4799ca7e75e948331ce00f5799ae8cb6ae2f23e1143955b9d03d8eccbcd9" => :high_sierra
   end
 
   conflicts_with "mupdf",
-    :because => "mupdf and mupdf-tools install the same binaries."
+    because: "mupdf and mupdf-tools install the same binaries"
 
   def install
+    # Work around Xcode 11 clang bug
+    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
+
     system "make", "install",
            "build=release",
            "verbose=yes",

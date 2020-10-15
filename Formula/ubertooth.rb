@@ -4,6 +4,7 @@ class Ubertooth < Formula
   url "https://github.com/greatscottgadgets/ubertooth/releases/download/2018-12-R1/ubertooth-2018-12-R1.tar.xz"
   version "2018-12-R1"
   sha256 "0042daa79db0f4148a0255cdf05aa57006e23ac36edf7024e9e99ccc4892867b"
+  license "GPL-2.0"
   head "https://github.com/greatscottgadgets/ubertooth.git"
 
   bottle do

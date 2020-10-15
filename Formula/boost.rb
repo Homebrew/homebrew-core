@@ -1,17 +1,23 @@
 class Boost < Formula
   desc "Collection of portable C++ source libraries"
   homepage "https://www.boost.org/"
-  url "https://dl.bintray.com/boostorg/release/1.72.0/source/boost_1_72_0.tar.bz2"
-  mirror "https://dl.bintray.com/homebrew/mirror/boost_1_72_0.tar.bz2"
-  sha256 "59c9b274bc451cf91a9ba1dd2c7fdcaf5d60b1b3aa83f2c9fa143417cc660722"
-  revision 1
+  url "https://dl.bintray.com/boostorg/release/1.73.0/source/boost_1_73_0.tar.bz2"
+  mirror "https://dl.bintray.com/homebrew/mirror/boost_1_73_0.tar.bz2"
+  sha256 "4eb3b8d442b426dc35346235c8733b5ae35ba431690e38c6a8263dce9fcbb402"
+  license "BSL-1.0"
   head "https://github.com/boostorg/boost.git"
+
+  livecheck do
+    url "https://www.boost.org/feed/downloads.rss"
+    regex(/>Version v?(\d+(?:\.\d+)+)</i)
+  end
 
   bottle do
     cellar :any
-    sha256 "d8e2d025325b306f1efc3edb3c5ccb83313526c00de758ee79f00cdde6901113" => :catalina
-    sha256 "e4e69e0a8228fc094f2953cd6bbffc498d55854695689dd849d7db33c87d2c7b" => :mojave
-    sha256 "ec7ce92e8316cb6f7d99f391b813f50070dc35b7a641dc259a5d15cf84790a29" => :high_sierra
+    rebuild 1
+    sha256 "21b7a8b746e98a39c299b5db595f97ff24cb498fee5c3c38be690bcc2510137b" => :catalina
+    sha256 "72159a6229ced562aa26100ce1c72f2ec3070cd6fe6e894e912abd9acc1b76bb" => :mojave
+    sha256 "f7e7f920d91f6b47a99f342a1414b992f012c49441e62b5587502d53cb31af7b" => :high_sierra
   end
 
   depends_on "icu4c"
@@ -19,13 +25,18 @@ class Boost < Formula
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
-  # Fixes significant library search issues in the CMake scripts
-  # where it mixes single-threaded and multithreaded libraries.
-  # Remove with Boost 1.73.0.
+  # Fix build on Xcode 11.4
   patch do
-    url "https://github.com/boostorg/boost_install/compare/52ab9149544bae82e54f600303f5d6d1dda9a4f5...a1b5a477470ff9dc2e00f30be4ec4285583b33b6.patch?full_index=1"
-    sha256 "fb168dd2ddfa20983b565ead86d4355c6d6e3e49bce9c2c6ab7f6e9cd9350bd4"
-    directory "tools/boost_install"
+    url "https://github.com/boostorg/build/commit/b3a59d265929a213f02a451bb63cea75d668a4d9.patch?full_index=1"
+    sha256 "04a4df38ed9c5a4346fbb50ae4ccc948a1440328beac03cb3586c8e2e241be08"
+    directory "tools/build"
+  end
+
+  # Fix build on 64-bit arm
+  patch do
+    url "https://github.com/boostorg/build/commit/456be0b7ecca065fbccf380c2f51e0985e608ba0.patch?full_index=1"
+    sha256 "e7a78145452fc145ea5d6e5f61e72df7dcab3a6eebb2cade6b4cfae815687f3a"
+    directory "tools/build"
   end
 
   def install

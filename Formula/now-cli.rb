@@ -1,19 +1,27 @@
 require "language/node"
 
 class NowCli < Formula
-  desc "The command-line interface for Now"
+  desc "Command-line interface for Now"
   homepage "https://zeit.co/now"
-  url "https://registry.npmjs.org/now/-/now-17.1.0.tgz"
-  sha256 "b440d27e89d77281a8fc980a72f87422e8b0c24779ae1fbed5f13fe21b70cb8c"
+  url "https://registry.npmjs.org/now/-/now-20.0.0.tgz"
+  sha256 "471d4fb8507b64d1caefa5a5a1433432ccf26b1a2965d9c47e88da3934320b96"
+  license "Apache-2.0"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7f4f7f1d8f6344c07cceb7e321697fd512485e0906fbe8aaf227326a9b5c48ff" => :catalina
-    sha256 "08ba1fd3d08195f546d6f537fc1ee749a03165f92f8329a6daa55ee1780bfc5e" => :mojave
-    sha256 "46d102c84bfbb066b77e71c54b13e54b9dec7ab03fb710ba34a91b67cd95390f" => :high_sierra
+    rebuild 1
+    sha256 "a33ec53e45f2ef38fe23a0a2e66205783c4e9d6a037d4b5de38bac3b8a1448e8" => :catalina
+    sha256 "831da3bb99d51a4a0e566bc7f0494dda30be6b8f16170f97afc36a51c843eda7" => :mojave
+    sha256 "a52be7278a1492daa225ecd47b7326f41f60ea2070397903bc3ef09f7f6aec1a" => :high_sierra
   end
 
   depends_on "node"
+
+  disable! date: "2021-01-31", because: :unmaintained
 
   def install
     rm Dir["dist/{*.exe,xsel}"]

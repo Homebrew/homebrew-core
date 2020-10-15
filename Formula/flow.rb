@@ -1,19 +1,24 @@
 class Flow < Formula
   desc "Static type checker for JavaScript"
   homepage "https://flowtype.org/"
-  url "https://github.com/facebook/flow/archive/v0.121.0.tar.gz"
-  sha256 "494067d6de027c1a1ba6f13ed13bc4988a71e36d7ff6d12247ea6bd7494989f3"
+  url "https://github.com/facebook/flow/archive/v0.135.0.tar.gz"
+  sha256 "67a29297059ade81398ed73b5315a6e7a3c021c292c11c5c689733334a54f579"
+  license "MIT"
   head "https://github.com/facebook/flow.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "243f073e5f03897427cfdf5b478f180a80aac9dcafe60274e42c327c267848cd" => :catalina
-    sha256 "9d61952f2deb1b4ceb4af37877e89627c5d64029da0a1c067b560bb0023a5da9" => :mojave
-    sha256 "783f36237e52966c7150c5ea6f665fdc623293870029d708dbdb14616bcbdbf9" => :high_sierra
+    sha256 "51b7334aace020e0b49e9a11c2ae35d7f108604223658dea5fb1c1a6398507d4" => :catalina
+    sha256 "4b67def4dcdb2ccbdf88349710f7014d0be2b8341fad415e19f8f5e30aacd02b" => :mojave
+    sha256 "97f793c564ee292876aac076eb447c2f26591aadb37f908e27ff2bfb831836b9" => :high_sierra
   end
 
   depends_on "ocaml" => :build
   depends_on "opam" => :build
+
+  uses_from_macos "m4" => :build
+  uses_from_macos "rsync" => :build
+  uses_from_macos "unzip" => :build
 
   def install
     system "make", "all-homebrew"

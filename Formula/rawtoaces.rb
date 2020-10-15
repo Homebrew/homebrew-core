@@ -1,14 +1,15 @@
 class Rawtoaces < Formula
-  desc "RAW to ACES Utility"
+  desc "Utility for converting RAW to ACES"
   homepage "https://github.com/ampas/rawtoaces"
   url "https://github.com/ampas/rawtoaces/archive/v1.0.tar.gz"
   sha256 "9d15e7e30c4fe97baedfdafb5fddf95534eee26392002b23e81649bbe6e501e9"
-  revision 8
+  license "AMPAS"
+  revision 10
 
   bottle do
-    sha256 "0607222bd4bf6bce0928a654d019bb43a64e2c858246e5ff696a2ccdeb39e046" => :catalina
-    sha256 "9a23404887ca9a6655be8bd8aeaa8cb42552bcdc90e964baff3e95168a9d4f63" => :mojave
-    sha256 "ae2981d11430b7f54d25f4a5add70af39816d01969dd6120f65cbca503bf957f" => :high_sierra
+    sha256 "bac6d5c1c94756f04bd9dd74093e0a4880bd558248771c2d33e7ad1818d8ded2" => :catalina
+    sha256 "5ea5b07b5b3079318b9cf751664a2e822acff72c22eab7f7aa4673280ff9b241" => :mojave
+    sha256 "de3645e35d6e0ba3ed7cf3890bc94f5009d426e39d682e767a3d861056aa6d18" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -17,6 +18,13 @@ class Rawtoaces < Formula
   depends_on "ceres-solver"
   depends_on "ilmbase"
   depends_on "libraw"
+
+  # Fixes build with libraw 0.20.0
+  # https://github.com/ampas/rawtoaces/pull/120
+  patch do
+    url "https://github.com/ampas/rawtoaces/commit/86d13a0b6d6a7058594258dfa6e1c5888d6a0b75.patch?full_index=1"
+    sha256 "a0a897a6341783e7e4b4db117b37d54bd3197bb42e9c90b59dd74361137388d8"
+  end
 
   def install
     ENV.cxx11

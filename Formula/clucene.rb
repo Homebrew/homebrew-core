@@ -5,6 +5,11 @@ class Clucene < Formula
   sha256 "ddfdc433dd8ad31b5c5819cc4404a8d2127472a3b720d3e744e8c51d79732eab"
   head "https://git.code.sf.net/p/clucene/code.git"
 
+  livecheck do
+    url :stable
+    regex(/url=.*?clucene-core[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t/i)
+  end
+
   bottle do
     cellar :any
     rebuild 1

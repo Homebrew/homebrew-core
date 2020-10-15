@@ -1,16 +1,16 @@
 class Pulledpork < Formula
   desc "Snort rule management"
   homepage "https://github.com/shirkdog/pulledpork"
-  url "https://github.com/shirkdog/pulledpork/archive/v0.7.3.tar.gz"
-  sha256 "48c66dc9abb7545186d4fba497263c1d1b247c0ea7f0953db4d515e7898461a2"
-  revision 3
+  url "https://github.com/shirkdog/pulledpork/archive/v0.7.4.tar.gz"
+  sha256 "f0149eb6f723b622024295e0ee00e1acade93fae464b9fdc323fdf15e99c388c"
+  license "GPL-2.0-or-later"
   head "https://github.com/shirkdog/pulledpork.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5b7202182f284a0f71563981e9a0fe833338f85141d1b798996bc5fa91c070b2" => :catalina
-    sha256 "a58bf34832bfb17003541e1bc081314be348dc2710742143297d7feaab304a64" => :mojave
-    sha256 "9374159d0d80d83e20c4afb1dbb293d038dac84292ab73fb51155e4cf8c825f5" => :high_sierra
+    sha256 "f1e692043de24e99030c5e07a4c11269e091af1748f2bf910048f016358581b6" => :catalina
+    sha256 "8f4884077fee641db519a021f0b47c739165546b8dd8b07a4ea4d1a2f8918aaf" => :mojave
+    sha256 "00f4875c0b5e47644250f39845f90f9a78f10152f489d5c103046f48cd0d5f0a" => :high_sierra
   end
 
   depends_on "openssl@1.1"
@@ -36,7 +36,7 @@ class Pulledpork < Formula
 
     chmod 0755, "pulledpork.pl"
     bin.install "pulledpork.pl"
-    bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
+    bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
     doc.install Dir["doc/*"]
     (etc/"pulledpork").install Dir["etc/*"]
   end

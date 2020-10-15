@@ -3,6 +3,7 @@ class Cifer < Formula
   homepage "https://code.google.com/p/cifer/"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/cifer/cifer-1.2.0.tar.gz"
   sha256 "436816c1f9112b8b80cf974596095648d60ffd47eca8eb91fdeb19d3538ea793"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation

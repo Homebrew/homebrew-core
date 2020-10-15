@@ -3,22 +3,25 @@ class Awscli < Formula
 
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://github.com/aws/aws-cli/archive/2.0.5.tar.gz"
-  sha256 "d1727a8251da51426f71daae2d79a685ec5e53011b7103e37f63e54253744b4c"
-  head "https://github.com/aws/aws-cli.git", :branch => "v2"
+  url "https://github.com/aws/aws-cli/archive/2.0.56.tar.gz"
+  sha256 "7b49bb81bf3145934a8d28edc5cc7f7ab73ef9d7588bc1ce3dae1103fae92d98"
+  license "Apache-2.0"
+  revision 1
+  head "https://github.com/aws/aws-cli.git", branch: "v2"
 
   bottle do
-    sha256 "9c5584c1e6cfa1d857bf97d26f13a04c3d26dbb8c315381fb506b075f9912024" => :catalina
-    sha256 "d872a3d0a3ea847a8ab113d8e360a3166102c88e5312f1bbab3c4e829ee33f5b" => :mojave
-    sha256 "c4180a66aebe47083268dadae44bd4257aaf8665849a1aecd6a4fc20f9898c9f" => :high_sierra
+    sha256 "988439260ca44ffe4ccb61d169c2d1abdd0a608adcbf98d72b83634752c4fa06" => :catalina
+    sha256 "8007685d882faa439a1ada393d7c7264148b09f1a07f3786d0bb840af6bf40e5" => :mojave
+    sha256 "8c6d256fa5f0c4e5ff27468faae0eebb7123306c8b9753c96c4bd466002d5890" => :high_sierra
   end
 
-  # Some AWS APIs require TLS1.2, which system Python doesn't have before High
-  # Sierra
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "groff"
-  uses_from_macos "libyaml"
+
+  on_linux do
+    depends_on "libyaml"
+  end
 
   def install
     venv = virtualenv_create(libexec, "python3")
@@ -26,6 +29,7 @@ class Awscli < Formula
                               "--ignore-installed", buildpath
     system libexec/"bin/pip", "uninstall", "-y", "awscli"
     venv.pip_install_and_link buildpath
+    system libexec/"bin/pip", "uninstall", "-y", "pyinstaller"
     pkgshare.install "awscli/examples"
 
     rm Dir["#{bin}/{aws.cmd,aws_bash_completer,aws_zsh_completer.sh}"]
@@ -39,6 +43,8 @@ class Awscli < Formula
         if [[ -f $e ]]; then source $e; fi
       }
     EOS
+
+    system libexec/"bin/python3", "scripts/gen-ac-index", "--include-builtin-index"
   end
 
   def caveats
@@ -50,5 +56,7 @@ class Awscli < Formula
 
   test do
     assert_match "topics", shell_output("#{bin}/aws help")
+    assert_include Dir["#{libexec}/lib/python3.9/site-packages/awscli/data/*"],
+                   "#{libexec}/lib/python3.9/site-packages/awscli/data/ac.index"
   end
 end

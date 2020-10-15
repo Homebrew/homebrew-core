@@ -3,30 +3,20 @@ class Libtensorflow < Formula
 
   desc "C interface for Google's OS library for Machine Intelligence"
   homepage "https://www.tensorflow.org/"
-  url "https://github.com/tensorflow/tensorflow/archive/v2.1.0.tar.gz"
-  sha256 "638e541a4981f52c69da4a311815f1e7989bf1d67a41d204511966e1daed14f7"
-  revision 1
+  url "https://github.com/tensorflow/tensorflow/archive/v2.3.1.tar.gz"
+  sha256 "ee534dd31a811f7a759453567257d1e643f216d8d55a25c32d2fbfff8153a1ac"
+  license "Apache-2.0"
 
   bottle do
     cellar :any
-    sha256 "ae426ef446f51bec0ab875e326b5c3e8bf77383a00a37c3770a49c2a5da93b00" => :catalina
-    sha256 "e5acab2f4eb720903e3887e0067b63bd25da25ccc76b6134ca9d52d88d20040f" => :mojave
-    sha256 "f34c781a2ba4cf4fce53edc41e71eed861630562207ee4e7d418f2c84bc5a22c" => :high_sierra
+    sha256 "00f8b36915bad9f75893a1196f8e4ddc728600e3b75e0047f681a78e61b4c34f" => :catalina
+    sha256 "88ad47031b69e2e0afcc9b9415beb4205ef8926c5cc7f80fa3c696f7f0a78c72" => :mojave
+    sha256 "8ac6570898cb37086b1072d64388d65c73fc899762541345de8bbb1f1b66efb1" => :high_sierra
   end
 
   depends_on "bazel" => :build
-  depends_on :java => ["1.8", :build]
+  depends_on "numpy" => :build
   depends_on "python@3.8" => :build
-
-  resource "numpy" do
-    url "https://files.pythonhosted.org/packages/40/de/0ea5092b8bfd2e3aa6fdbb2e499a9f9adf810992884d414defc1573dca3f/numpy-1.18.1.zip"
-    sha256 "b6ff59cee96b454516e47e7721098e6ceebef435e3e21ac2d6c3b8b02628eb77"
-  end
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/94/3e/edcf6fef41d89187df7e38e868b2dd2182677922b600e880baad7749c865/six-1.13.0.tar.gz"
-    sha256 "30f610279e8b2578cab6db20741130331735c781b56053c59c4076da27f06b66"
-  end
 
   resource "test-model" do
     url "https://github.com/tensorflow/models/raw/v1.13.0/samples/languages/java/training/model/graph.pb"
@@ -34,18 +24,10 @@ class Libtensorflow < Formula
   end
 
   def install
-    # Bazel fails if version from .bazelversion doesn't match bazel version, so just to use the latest one
-    rm_f ".bazelversion"
+    # Allow tensorflow to use current version of bazel
+    (buildpath / ".bazelversion").atomic_write Formula["bazel"].version
 
-    cmd = Language::Java.java_home_cmd("1.8")
-    ENV["JAVA_HOME"] = Utils.popen_read(cmd).chomp
-
-    venv = virtualenv_create("#{buildpath}/venv", "python3")
-    (resources.map(&:name).to_set - ["test-model"]).each do |r|
-      venv.pip_install resource(r)
-    end
-    ENV["PYTHON_BIN_PATH"] = "#{buildpath}/venv/bin/python"
-
+    ENV["PYTHON_BIN_PATH"] = Formula["python@3.8"].opt_bin/"python3"
     ENV["CC_OPT_FLAGS"] = "-march=native"
     ENV["TF_IGNORE_MAX_BAZEL_VERSION"] = "1"
     ENV["TF_NEED_JEMALLOC"] = "1"

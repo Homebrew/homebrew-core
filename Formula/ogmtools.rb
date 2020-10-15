@@ -3,6 +3,7 @@ class Ogmtools < Formula
   homepage "https://www.bunkus.org/videotools/ogmtools/"
   url "https://www.bunkus.org/videotools/ogmtools/ogmtools-1.5.tar.bz2"
   sha256 "c8d61d1dbceb981dc7399c1a85e43b509fd3d071fb8d3ca89ea9385e6e40fdea"
+  license "GPL-2.0"
 
   bottle do
     cellar :any

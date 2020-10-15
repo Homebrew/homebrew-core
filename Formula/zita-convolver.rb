@@ -3,6 +3,12 @@ class ZitaConvolver < Formula
   homepage "https://kokkinizita.linuxaudio.org/linuxaudio/"
   url "https://kokkinizita.linuxaudio.org/linuxaudio/downloads/zita-convolver-4.0.3.tar.bz2"
   sha256 "9aa11484fb30b4e6ef00c8a3281eebcfad9221e3937b1beb5fe21b748d89325f"
+  license "GPL-3.0"
+
+  livecheck do
+    url "https://kokkinizita.linuxaudio.org/linuxaudio/downloads/index.html"
+    regex(/href=.*?zita-convolver[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     cellar :any

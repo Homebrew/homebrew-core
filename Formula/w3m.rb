@@ -18,6 +18,11 @@ class W3m < Formula
     end
   end
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/w3m[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     rebuild 1
     sha256 "274f48d738d351b3c6a07ada24b866a485c49d400f36108d904a6d2a8835a660" => :catalina

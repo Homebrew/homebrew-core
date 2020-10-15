@@ -1,14 +1,18 @@
 class Gobo < Formula
   desc "Free and portable Eiffel tools and libraries"
   homepage "http://www.gobosoft.com/"
-  url "https://downloads.sourceforge.net/project/gobo-eiffel/gobo-eiffel/20.01/gobo2001-src.tar.gz"
-  sha256 "ff99649a338ab1a1f380d8897a2d9b52ee434d5e9b7de997ed813f29bbeb8000"
+  url "https://downloads.sourceforge.net/project/gobo-eiffel/gobo-eiffel/20.05/gobo2005-src.tar.gz"
+  sha256 "047b6710abd94d1c1366316b4411d5cc1a3752bb60155c24e2a6d81494d63e5b"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d67feb21d1f3f74238cab0cbc1c42b93deed904251aa10d56565ac4a41ebe987" => :catalina
-    sha256 "0f48978d6d0d4888458c8c077812e14d43144153707911b1a18beb19cb35b2b1" => :mojave
-    sha256 "3f3b0ac62919f4df2b3e954acb92a4ea8667374e7fbd9ae7eadae1bf5930f398" => :high_sierra
+    sha256 "a7cd43939f9300895b1b9261ae14dfab076c9daca40f553d1b6b7b263e6b5b98" => :catalina
+    sha256 "a4177e9921a0ccb52b426aea6bd000b3492545f763549fa979d082693041b41c" => :mojave
+    sha256 "72337bad76bfb21be107f01d587c6f4f968e5f4e1b94343e936e7086e59d6308" => :high_sierra
   end
 
   depends_on "eiffelstudio" => :test

@@ -3,8 +3,14 @@ class Ocamlbuild < Formula
   homepage "https://github.com/ocaml/ocamlbuild"
   url "https://github.com/ocaml/ocamlbuild/archive/0.14.0.tar.gz"
   sha256 "87b29ce96958096c0a1a8eeafeb6268077b2d11e1bf2b3de0f5ebc9cf8d42e78"
+  license "LGPL-2.0"
   revision 2
   head "https://github.com/ocaml/ocamlbuild.git"
+
+  livecheck do
+    url "https://github.com/ocaml/ocamlbuild/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
 
   bottle do
     sha256 "8f6fc7e7413b24faa041b7651349a3128f9eadefae5c9aa0c50f0d1a56e010f6" => :catalina

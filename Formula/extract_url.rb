@@ -3,6 +3,7 @@ class ExtractUrl < Formula
   homepage "https://www.memoryhole.net/~kyle/extract_url/"
   url "https://github.com/m3m0ryh0l3/extracturl/archive/v1.6.2.tar.gz"
   sha256 "5f0b568d5c9449f477527b4077d8269f1f5e6d6531dfa5eb6ca72dbacab6f336"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any_skip_relocation
@@ -79,7 +80,7 @@ class ExtractUrl < Formula
 
     system "make", "prefix=#{prefix}"
     system "make", "prefix=#{prefix}", "install"
-    bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
+    bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
   end
 
   test do

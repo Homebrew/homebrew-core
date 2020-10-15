@@ -3,15 +3,14 @@ class Zmap < Formula
   homepage "https://zmap.io"
   url "https://github.com/zmap/zmap/archive/v2.1.1.tar.gz"
   sha256 "29627520c81101de01b0213434adb218a9f1210bfd3f2dcfdfc1f975dbce6399"
-  revision 1
+  license "Apache-2.0"
+  revision 2
   head "https://github.com/zmap/zmap.git"
 
   bottle do
-    rebuild 1
-    sha256 "c2665c378d96627ada38979ecf38e8dfd4729083b805005c8784e97033b58f36" => :catalina
-    sha256 "af12dfa471443be095ccbbb1d0fb8f706e966786d8526b2190f2cfe78f28550c" => :mojave
-    sha256 "d64ac689f0e80bc125a5e4899cc044395b0ba5c75ad365f65a3f6f8a62520137" => :high_sierra
-    sha256 "233f9e5e6964477295c0e9edbf607cd71571155510704124f374934f97eff55c" => :sierra
+    sha256 "7f3dce955fb01597407317a81e6d1e0b60d66756e64358f11106adf5335b820a" => :catalina
+    sha256 "3014cc393e0d9b5e6705392a10da8588f26d668daa5660aebe252ed514bf176e" => :mojave
+    sha256 "99c0f7e06b2789fb57bd465a5a1fe35628b6d5e624ebba32d7f1199abc78d8bf" => :high_sierra
   end
 
   depends_on "byacc" => :build
@@ -21,6 +20,10 @@ class Zmap < Formula
   depends_on "gmp"
   depends_on "json-c"
   depends_on "libdnet"
+
+  # fix json-c 0.14 compat
+  # ref PR, https://github.com/zmap/zmap/pull/609
+  patch :DATA
 
   def install
     inreplace ["conf/zmap.conf", "src/zmap.c", "src/zopt.ggo.in"], "/etc", etc
@@ -35,3 +38,17 @@ class Zmap < Formula
     system "#{sbin}/zmap", "--version"
   end
 end
+
+__END__
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 8bd825f..c70b651 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -71,7 +71,7 @@ if(WITH_JSON)
+         message(FATAL_ERROR "Did not find libjson")
+     endif()
+
+-    add_definitions("-DJSON")
++    string(REPLACE ";" " " JSON_CFLAGS "${JSON_CFLAGS}")
+     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${JSON_CFLAGS}")
+ endif()

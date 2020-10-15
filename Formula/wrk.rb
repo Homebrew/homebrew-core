@@ -15,7 +15,12 @@ class Wrk < Formula
 
   depends_on "openssl@1.1"
 
-  conflicts_with "wrk-trello", :because => "both install `wrk` binaries"
+  on_linux do
+    depends_on "makedepend" => :build
+    depends_on "pkg-config" => :build
+  end
+
+  conflicts_with "wrk-trello", because: "both install `wrk` binaries"
 
   def install
     ENV.deparallelize

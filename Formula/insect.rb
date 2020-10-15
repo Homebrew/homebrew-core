@@ -3,14 +3,19 @@ require "language/node"
 class Insect < Formula
   desc "High precision scientific calculator with support for physical units"
   homepage "https://insect.sh/"
-  url "https://registry.npmjs.org/insect/-/insect-5.4.0.tgz"
-  sha256 "c810e50c473439b04b2b3b7e580e6a2781f1c8747eb4261c262e413d6a145c2c"
+  url "https://registry.npmjs.org/insect/-/insect-5.5.0.tgz"
+  sha256 "88cf5db4b79fd58d52fcfbda68cd17361c99c1d6a1b656e6d932a47fc8889027"
+  license "MIT"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1a7bbd56f97d661e4e236e8375db1614659cf2a35d2112feab11c258d437b054" => :catalina
-    sha256 "8ba4c9bce3fa2fa0dc6546910d0ed7afff432f2e7938e63638c6494a197bba23" => :mojave
-    sha256 "d0efc8426a611811210f093f7a91671fd3f741619709ca88f04274ce7f8e9c06" => :high_sierra
+    sha256 "003e2a5e62cee61b92252eaa82c086cdf70137f4bbaf081f8112f1d9ed7b780b" => :catalina
+    sha256 "8beb06f0b8e5a2f576dd4b13cf70d71c6009ffd8530ea7e9a0690872c1197189" => :mojave
+    sha256 "56137febe41808c75c8a8827f50c67c03ee472e3e8ab7c53554e262c8750fec2" => :high_sierra
   end
 
   depends_on "psc-package" => :build

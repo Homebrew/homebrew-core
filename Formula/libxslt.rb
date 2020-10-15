@@ -4,6 +4,11 @@ class Libxslt < Formula
   url "http://xmlsoft.org/sources/libxslt-1.1.34.tar.gz"
   sha256 "98b1bd46d6792925ad2dfe9a87452ea2adebf69dcb9919ffd55bf926a7f93f7f"
 
+  livecheck do
+    url "http://xmlsoft.org/sources/"
+    regex(/href=.*?libxslt[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "cbadecf3186f45754220dff4cbdfbb576882a211d615b52249a4c9d8ba4d7c3a" => :catalina

@@ -3,6 +3,12 @@ class Qtfaststart < Formula
   homepage "https://libav.org/"
   url "https://libav.org/releases/libav-12.3.tar.gz"
   sha256 "115b659022dd387f662e26fbc5bc0cc14ec18daa100003ffd34f4da0479b272e"
+  license "LGPL-2.1"
+
+  livecheck do
+    url "https://libav.org/releases/"
+    regex(/href=.*?libav[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     cellar :any_skip_relocation

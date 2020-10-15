@@ -6,7 +6,13 @@ class Nethack < Formula
   url "https://www.nethack.org/download/3.6.6/nethack-366-src.tgz"
   version "3.6.6"
   sha256 "cfde0c3ab6dd7c22ae82e1e5a59ab80152304eb23fb06e3129439271e5643ed2"
+  license "NGPL"
   head "https://github.com/NetHack/NetHack.git"
+
+  livecheck do
+    url :head
+    regex(/^NetHack[._-]v?(\d+(?:\.\d+)+)_Released?$/i)
+  end
 
   bottle do
     sha256 "69418bfcba43b656118140a7e50992772567c4c2ab4827ce0af343892a149945" => :catalina

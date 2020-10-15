@@ -1,42 +1,43 @@
 class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases"
   homepage "https://grafana.com"
-  url "https://github.com/grafana/grafana/archive/v6.7.0.tar.gz"
-  sha256 "7f4e3f0d42b8188a334e97062c3bf63ff43af273095ba10147b299e3c1c5a7b7"
+  url "https://github.com/grafana/grafana/archive/v7.2.1.tar.gz"
+  sha256 "12184dfcd317608c916386358a8f9defd1b2e1a77be3f648456fc618087d5732"
+  license "Apache-2.0"
   head "https://github.com/grafana/grafana.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8268e27b33d256fc0e1a0b7bd3444419adde8ef05d9cbc910a3f349d310d7d28" => :catalina
-    sha256 "c4e9b4af29ebce865fb5b41937c027b5d44842c8847f634e189275987db7ebfe" => :mojave
-    sha256 "2724aa9255351c12a2a6d28286cc9b13c5d0239b44a057435e88c9d7ab79e4b6" => :high_sierra
+    sha256 "fefb5b2334c0cf792bd59468b71ef90a73fc2ba064603b66b0bee6c6ff3a4e56" => :catalina
+    sha256 "a52d2a92a6ba151dd729ef2072662e90652125a95de637475a1793bf47597a6d" => :mojave
+    sha256 "970d37156fb953872716810bb41283e8b4e3ac71a57a0dc5ce20221b8bc8024b" => :high_sierra
   end
 
   depends_on "go" => :build
-  depends_on "node@10" => :build
+  depends_on "node" => :build
   depends_on "yarn" => :build
 
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "fontconfig"
+    depends_on "freetype"
+  end
+
   def install
-    ENV["GOPATH"] = buildpath
-    grafana_path = buildpath/"src/github.com/grafana/grafana"
-    grafana_path.install buildpath.children
+    system "go", "run", "build.go", "build"
 
-    cd grafana_path do
-      system "go", "run", "build.go", "build"
+    system "yarn", "install", "--ignore-engines"
 
-      system "yarn", "install", "--ignore-engines"
+    system "node_modules/grunt-cli/bin/grunt", "build"
 
-      system "node_modules/grunt-cli/bin/grunt", "build"
-
-      bin.install "bin/darwin-amd64/grafana-cli"
-      bin.install "bin/darwin-amd64/grafana-server"
-      (etc/"grafana").mkpath
-      cp("conf/sample.ini", "conf/grafana.ini.example")
-      etc.install "conf/sample.ini" => "grafana/grafana.ini"
-      etc.install "conf/grafana.ini.example" => "grafana/grafana.ini.example"
-      pkgshare.install "conf", "public", "tools", "vendor"
-      prefix.install_metafiles
-    end
+    bin.install "bin/darwin-amd64/grafana-cli"
+    bin.install "bin/darwin-amd64/grafana-server"
+    (etc/"grafana").mkpath
+    cp("conf/sample.ini", "conf/grafana.ini.example")
+    etc.install "conf/sample.ini" => "grafana/grafana.ini"
+    etc.install "conf/grafana.ini.example" => "grafana/grafana.ini.example"
+    pkgshare.install "conf", "public", "tools"
   end
 
   def post_install
@@ -44,7 +45,7 @@ class Grafana < Formula
     (var/"lib/grafana/plugins").mkpath
   end
 
-  plist_options :manual => "grafana-server --config=#{HOMEBREW_PREFIX}/etc/grafana/grafana.ini --homepath #{HOMEBREW_PREFIX}/share/grafana --packaging=brew cfg:default.paths.logs=#{HOMEBREW_PREFIX}/var/log/grafana cfg:default.paths.data=#{HOMEBREW_PREFIX}/var/lib/grafana cfg:default.paths.plugins=#{HOMEBREW_PREFIX}/var/lib/grafana/plugins"
+  plist_options manual: "grafana-server --config=#{HOMEBREW_PREFIX}/etc/grafana/grafana.ini --homepath #{HOMEBREW_PREFIX}/share/grafana --packaging=brew cfg:default.paths.logs=#{HOMEBREW_PREFIX}/var/log/grafana cfg:default.paths.data=#{HOMEBREW_PREFIX}/var/lib/grafana cfg:default.paths.plugins=#{HOMEBREW_PREFIX}/var/lib/grafana/plugins"
 
   def plist
     <<~EOS
@@ -116,10 +117,10 @@ class Grafana < Formula
     w = res[1]
     pid = res[2]
 
-    listening = Timeout.timeout(5) do
+    listening = Timeout.timeout(10) do
       li = false
       r.each do |l|
-        if /Initializing HTTPServer/.match?(l)
+        if /HTTP Server Listen/.match?(l)
           li = true
           break
         end

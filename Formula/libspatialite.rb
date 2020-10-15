@@ -15,6 +15,11 @@ class Libspatialite < Formula
     end
   end
 
+  livecheck do
+    url "https://www.gaia-gis.it/gaia-sins/libspatialite-sources/"
+    regex(/href=.*?libspatialite[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "e8bd429119857fab4cb51f3ba7b64024b51eb2400873e71fc9d6aad297c109ce" => :catalina
@@ -23,7 +28,7 @@ class Libspatialite < Formula
   end
 
   head do
-    url "https://www.gaia-gis.it/fossil/libspatialite", :using => :fossil
+    url "https://www.gaia-gis.it/fossil/libspatialite", using: :fossil
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build

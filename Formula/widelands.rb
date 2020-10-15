@@ -1,14 +1,20 @@
 class Widelands < Formula
   desc "Free real-time strategy game like Settlers II"
   homepage "https://www.widelands.org/"
-  url "https://launchpad.net/widelands/build20/build20/+download/widelands-build20.tar.bz2"
-  sha256 "38594d98c74f357d4c31dd8ee2b056bfe921f42935935af915d11b792677bcb2"
+  url "https://launchpad.net/widelands/build21/build21/+download/widelands-build21-source.tar.gz"
+  version "21"
+  sha256 "601e0e4c6f91b3fb0ece2cd1b83ecfb02344a1b9194fbb70ef3f70e06994e357"
   revision 2
 
+  livecheck do
+    url :stable
+    regex(%r{<div class="version">\s*Latest version is [^<]*?v?(\d+(?:\.\d+)*)\s*</div>}i)
+  end
+
   bottle do
-    sha256 "99de8c47d5824abd73dca688f63c4d9091b9423bf1d054b21c614e571ddbf329" => :catalina
-    sha256 "1c0c8a4cb4e3d2a9db80409c4ecaf4f5fecab339fd0c1bc55090a82d7ef344c4" => :mojave
-    sha256 "69e6610a6057de646d76598f1e9f21570f340293d3c69daa88c502750e60dab3" => :high_sierra
+    sha256 "397d51058f809f642fbf562675ca115abd5a1cb14082eb73adf1ecf6e9bd5213" => :catalina
+    sha256 "ed0bde01ae136cd19e169c381ab7c368ec7c016f81b9be12ea8b12eb44a5a7d7" => :mojave
+    sha256 "e1bff6047a59d1dd5ed4e308a326e98d798b2e1244230473e499e6a96f7abac3" => :high_sierra
   end
 
   depends_on "cmake" => :build

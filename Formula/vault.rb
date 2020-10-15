@@ -5,36 +5,35 @@ class Vault < Formula
   desc "Secures, stores, and tightly controls access to secrets"
   homepage "https://vaultproject.io/"
   url "https://github.com/hashicorp/vault.git",
-      :tag      => "v1.3.4",
-      :revision => "3af4987cd9a61c2e915bcca410884c6e35f93060"
+      tag:      "v1.5.4",
+      revision: "1a730771ec70149293efe91e1d283b10d255c6d1"
+  license "MPL-2.0"
   head "https://github.com/hashicorp/vault.git"
+
+  livecheck do
+    url "https://releases.hashicorp.com/vault/"
+    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "38d5259e448cfc9ed592c80e55c062f9472cb672f30e87b3e7915a0b014ea52e" => :catalina
-    sha256 "541f6e33d95ba47c199408052038cccaba9b5e3cdf43fb2b23e84645febd382e" => :mojave
-    sha256 "550fda7af152696f0f8c7e1bbd228b7aa7802e6d9cb6f3a61e1fcbbc65462216" => :high_sierra
+    sha256 "67afea21945f75be2e3d22d12054318153f63a3dfc8cdbb60d2a2860c167c7a3" => :catalina
+    sha256 "c7219e29320e01431aa8ebabf8230575c7e6dd8de7efb1656663a7c138e8201e" => :mojave
+    sha256 "190b4a3c4633c3bbd3d8fe61e019287607d00531c5d07f147fe0f088b2db6728" => :high_sierra
   end
 
-  depends_on "go@1.12" => :build
+  depends_on "go" => :build
   depends_on "gox" => :build
+  depends_on "node@10" => :build
+  depends_on "yarn" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    contents = buildpath.children - [buildpath/".brew_home"]
-    (buildpath/"src/github.com/hashicorp/vault").install contents
-
-    (buildpath/"bin").mkpath
-
-    cd "src/github.com/hashicorp/vault" do
-      system "make", "dev"
-      bin.install "bin/vault"
-      prefix.install_metafiles
-    end
+    ENV.prepend_path "PATH", "#{ENV["GOPATH"]}/bin"
+    system "make", "bootstrap", "static-dist", "dev-ui"
+    bin.install "bin/vault"
   end
 
-  plist_options :manual => "vault server -dev"
+  plist_options manual: "vault server -dev"
 
   def plist
     <<~EOS
@@ -69,9 +68,12 @@ class Vault < Formula
   end
 
   test do
+    port = free_port
+    ENV["VAULT_DEV_LISTEN_ADDRESS"] = "127.0.0.1:#{port}"
+    ENV["VAULT_ADDR"] = "http://127.0.0.1:#{port}"
+
     pid = fork { exec bin/"vault", "server", "-dev" }
     sleep 1
-    ENV.append "VAULT_ADDR", "http://127.0.0.1:8200"
     system bin/"vault", "status"
     Process.kill("TERM", pid)
   end

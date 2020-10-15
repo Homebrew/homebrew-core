@@ -3,25 +3,35 @@ class Gitless < Formula
 
   desc "Simplified version control system on top of git"
   homepage "https://gitless.com/"
-  url "https://github.com/sdg-mit/gitless/archive/v0.8.8.tar.gz"
+  url "https://github.com/gitless-vcs/gitless/archive/v0.8.8.tar.gz"
   sha256 "470aab13d51baec2ab54d7ceb6d12b9a2937f72d840516affa0cb34a6360523c"
-  revision 1
+  license "MIT"
+  revision 4
 
   bottle do
     cellar :any
-    sha256 "bcd17099e61887e4d0374cac43163f7b6e3f4737699cf8fd7742e1218b81c680" => :catalina
-    sha256 "72e835991915de55b762658978ad04d98a4f50368c0e7ccd23a326e3d73e15f1" => :mojave
-    sha256 "4c1ff8fd310933d86ae14dc513001c20de0db7465e351574f7babc6b0ba7ad84" => :high_sierra
+    sha256 "c0ffed9f5228aecb14175929167812114176ac2df5b9583161c4f3c0f7785da0" => :catalina
+    sha256 "f72efc4323f531adcb1a38c8d864a4bd464b4a7d67400623479f05d37a4332cd" => :mojave
+    sha256 "aa526af3aaa79be5c7d86d4265589194e331766ba138e5b74894ad8037224c5c" => :high_sierra
   end
 
   depends_on "libgit2"
-  depends_on "python"
+  depends_on "python@3.8"
 
   uses_from_macos "libffi"
+
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
 
   resource "args" do
     url "https://files.pythonhosted.org/packages/e5/1c/b701b3f4bd8d3667df8342f311b3efaeab86078a840fb826bd204118cc6b/args-0.1.0.tar.gz"
     sha256 "a785b8d837625e9b61c39108532d95b85274acd679693b71ebb5156848fcf814"
+  end
+
+  resource "cached-property" do
+    url "https://files.pythonhosted.org/packages/57/8e/0698e10350a57d46b3bcfe8eff1d4181642fd1724073336079cb13c5cf7f/cached-property-1.5.1.tar.gz"
+    sha256 "9217a59f14a5682da7c4b8829deadbfc194ac22e9908ccf7c8820234e80a1504"
   end
 
   resource "cffi" do
@@ -40,8 +50,8 @@ class Gitless < Formula
   end
 
   resource "pygit2" do
-    url "https://files.pythonhosted.org/packages/4c/64/88c2a4eb2d22ca1982b364f41ff5da42d61de791d7eb68140e7f8f7eb721/pygit2-0.28.2.tar.gz"
-    sha256 "4d8c3fbbf2e5793a9984681a94e6ac2f1bc91a92cbac762dbdfbea296b917f86"
+    url "https://files.pythonhosted.org/packages/1d/c4/e0ba65178512a724a86b39565d7f9286c16d7f8e45e2f665973065c4a495/pygit2-1.1.1.tar.gz"
+    sha256 "9255d507d5d87bf22dfd57997a78908010331fc21f9a83eca121a53f657beb3c"
   end
 
   resource "sh" do
@@ -52,6 +62,13 @@ class Gitless < Formula
   resource "six" do
     url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
     sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
+  end
+
+  # Allow to be dependent on pygit2 1.1.1
+  # Remove for next version
+  patch do
+    url "https://github.com/gitless-vcs/gitless/commit/daf352cae1f830bd4ca9adc949884b606cccdf49.diff?full_index=1"
+    sha256 "a8ef93c73a9055d59b496b1c8a1a78f42f8743b4224dd676dbe1b29ab086b3b4"
   end
 
   def install

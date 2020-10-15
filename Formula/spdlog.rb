@@ -1,27 +1,39 @@
 class Spdlog < Formula
   desc "Super fast C++ logging library"
   homepage "https://github.com/gabime/spdlog"
-  url "https://github.com/gabime/spdlog/archive/v1.5.0.tar.gz"
-  sha256 "b38e0bbef7faac2b82fed550a0c19b0d4e7f6737d5321d4fd8f216b80f8aee8a"
-  head "https://github.com/gabime/spdlog.git", :branch => "v1.x"
+  url "https://github.com/gabime/spdlog/archive/v1.8.1.tar.gz"
+  sha256 "5197b3147cfcfaa67dd564db7b878e4a4b3d9f3443801722b3915cdeced656cb"
+  license "MIT"
+  head "https://github.com/gabime/spdlog.git", branch: "v1.x"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "6cf71927ecad69460cb7be56e2bf8c0a00ddfcf5b861949f7b97627805e7b2e2" => :catalina
-    sha256 "1cc93582e0b67e12aeb8da4cf0f4ebb69eeb1f1c28a9bff53e9c93713d885198" => :mojave
-    sha256 "52ad29f8de732c24697f74f425c825bb9e1cf98356dadab79623441ad4c34a04" => :high_sierra
+    cellar :any
+    sha256 "3599f833d5d9d0c6542c7782deffa7d2788e14ddf68abf55c1fc39eb80254b18" => :catalina
+    sha256 "f8382a1e47f1d92ff14311b0c0706b8684aafbbe0794c6d51dec6fedc12364eb" => :mojave
+    sha256 "ac0a305a6b391825ab51324b9dab2bc3acb6135ec3604bc01f561b403c742042" => :high_sierra
   end
 
   depends_on "cmake" => :build
+  depends_on "fmt"
 
   def install
     ENV.cxx11
 
+    inreplace "include/spdlog/tweakme.h", "// #define SPDLOG_FMT_EXTERNAL", "#define SPDLOG_FMT_EXTERNAL"
+
     mkdir "spdlog-build" do
-      args = std_cmake_args
-      args << "-Dpkg_config_libdir=#{lib}" << "-DSPDLOG_BUILD_BENCH=OFF" << "-DSPDLOG_BUILD_TESTS=OFF" << ".."
-      system "cmake", *args
+      args = std_cmake_args + %W[
+        -Dpkg_config_libdir=#{lib}
+        -DSPDLOG_BUILD_BENCH=OFF
+        -DSPDLOG_BUILD_TESTS=OFF
+        -DSPDLOG_FMT_EXTERNAL=ON
+      ]
+      system "cmake", "..", "-DSPDLOG_BUILD_SHARED=ON", *args
       system "make", "install"
+      system "make", "clean"
+      system "cmake", "..", "-DSPDLOG_BUILD_SHARED=OFF", *args
+      system "make"
+      lib.install "libspdlog.a"
     end
   end
 
@@ -44,7 +56,7 @@ class Spdlog < Formula
       }
     EOS
 
-    system ENV.cxx, "-std=c++11", "test.cpp", "-I#{include}", "-o", "test"
+    system ENV.cxx, "-std=c++11", "test.cpp", "-I#{include}", "-L#{Formula["fmt"].opt_lib}", "-lfmt", "-o", "test"
     system "./test"
     assert_predicate testpath/"basic-log.txt", :exist?
     assert_match "Test", (testpath/"basic-log.txt").read

@@ -1,17 +1,23 @@
 class Squid < Formula
   desc "Advanced proxy caching server for HTTP, HTTPS, FTP, and Gopher"
   homepage "http://www.squid-cache.org/"
-  url "http://www.squid-cache.org/Versions/v4/squid-4.10.tar.xz"
-  sha256 "98f0100afd8a42ea5f6b81eb98b0e4b36d7a54beab1c73d2f1705ab49b025f1f"
+  url "http://www.squid-cache.org/Versions/v4/squid-4.13.tar.xz"
+  sha256 "6891a0f540e60779b4f24f1802a302f813c6f473ec7336a474ed68c3e2e53ee0"
+  license "GPL-2.0"
+
+  livecheck do
+    url "http://www.squid-cache.org/Versions/v4/"
+    regex(/href=.*?squid[._-]v?(\d+(?:\.\d+)+)-RELEASENOTES\.html/i)
+  end
 
   bottle do
-    sha256 "b317cad793854ed6b0c3933ebec75194383d5c2b47e5f868027aaa9e9decb8f9" => :catalina
-    sha256 "116495c487377979f407c4c77a3b904cf06539deaf4fc86d02843d16e224a1d1" => :mojave
-    sha256 "a920686eea11ddb1d3f7fa2ac6a3cd12900e1f5eb181a3f920673e4076f60370" => :high_sierra
+    sha256 "9993d7d8c41a778163e0bdcd13a882125269784fce9969b3f6a4c723daa8b750" => :catalina
+    sha256 "cab7176b8938750b08ec079ff5bd2b37408dace0a1823f61fc2e913d08afe377" => :mojave
+    sha256 "5fc9145a26ff1555e94e5c0e124cdacd5e9b06747240da161ddb1782731b5f71" => :high_sierra
   end
 
   head do
-    url "lp:squid", :using => :bzr
+    url "lp:squid", using: :bzr
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -49,7 +55,7 @@ class Squid < Formula
     system "make", "install"
   end
 
-  plist_options :manual => "squid"
+  plist_options manual: "squid"
 
   def plist
     <<~EOS

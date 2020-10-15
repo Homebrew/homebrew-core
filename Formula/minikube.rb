@@ -2,15 +2,16 @@ class Minikube < Formula
   desc "Run a Kubernetes cluster locally"
   homepage "https://minikube.sigs.k8s.io/"
   url "https://github.com/kubernetes/minikube.git",
-      :tag      => "v1.9.0",
-      :revision => "48fefd43444d2f8852f527c78f0141b377b1e42a"
+      tag:      "v1.14.0",
+      revision: "b09ee50ec047410326a85435f4d99026f9c4f5c4"
+  license "Apache-2.0"
   head "https://github.com/kubernetes/minikube.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b2e717adf9a66bc414e7eda76642ddeb14e753589f829908f0dd4bd7bc5080e8" => :catalina
-    sha256 "d099100983365d5bf31cab95892f29be63065544bccb38eba062daed45ae53c2" => :mojave
-    sha256 "cc399224d90bfca220ac835af40f785bdfca10fcc5b74f9c628b92e459b0cd92" => :high_sierra
+    sha256 "06468df343ad2b30e145885faf3e79ab992d6ee59bdabb2b9e6d20c467b746cb" => :catalina
+    sha256 "1a342c356293faeb55c61185554a4a34bb995a5e7fb5114f17db5a6534afb66e" => :mojave
+    sha256 "398159c00e76ba2a342b29d34318a86faa6524b4bff13226ac9a2db7820660ee" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -21,10 +22,10 @@ class Minikube < Formula
     system "make"
     bin.install "out/minikube"
 
-    output = Utils.popen_read("#{bin}/minikube completion bash")
+    output = Utils.safe_popen_read("#{bin}/minikube", "completion", "bash")
     (bash_completion/"minikube").write output
 
-    output = Utils.popen_read("#{bin}/minikube completion zsh")
+    output = Utils.safe_popen_read("#{bin}/minikube", "completion", "zsh")
     (zsh_completion/"_minikube").write output
   end
 

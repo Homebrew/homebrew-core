@@ -12,8 +12,6 @@ class Znapzend < Formula
     sha256 "18e1269f3ab2964382c1cc7578fa8785ee7ba1412a1c247861d76accde2a6cc5" => :high_sierra
   end
 
-  depends_on "perl" if MacOS.version == :mavericks
-
   def install
     system "./configure", "--disable-silent-rules",
                           "--prefix=#{prefix}"
@@ -25,7 +23,7 @@ class Znapzend < Formula
     (var/"run/znapzend").mkpath
   end
 
-  plist_options :startup => true, :manual => "sudo znapzend --daemonize"
+  plist_options startup: true, manual: "sudo znapzend --daemonize"
 
   def plist
     <<~EOS

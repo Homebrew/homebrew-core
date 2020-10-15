@@ -3,7 +3,12 @@ class Vramsteg < Formula
   homepage "https://gothenburgbitfactory.org/projects/vramsteg.html"
   url "https://gothenburgbitfactory.org/download/vramsteg-1.1.0.tar.gz"
   sha256 "9cc82eb195e4673d9ee6151373746bd22513033e96411ffc1d250920801f7037"
-  head "https://github.com/GothenburgBitFactory/vramsteg.git", :branch => "1.1.1"
+  head "https://github.com/GothenburgBitFactory/vramsteg.git", branch: "1.1.1"
+
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     cellar :any_skip_relocation

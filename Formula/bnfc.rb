@@ -1,19 +1,16 @@
-require "language/haskell"
-
 class Bnfc < Formula
-  include Language::Haskell::Cabal
-
   desc "BNF Converter"
   homepage "https://bnfc.digitalgrammars.com/"
-  url "https://github.com/BNFC/bnfc/archive/v2.8.3.tar.gz"
-  sha256 "ba0b6ab36954a0891b4ad3125cefdd6d441d2c73d174cd8eff344e68ae2fd203"
+  url "https://github.com/BNFC/bnfc/archive/v2.8.4.tar.gz"
+  sha256 "69a9cdd602bd7c96f5bc622645f88c8cb54231c7bad52974470dd0937df43f68"
+  license "GPL-2.0"
   head "https://github.com/BNFC/bnfc.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d08ae18737b1354477b232c833f64e2538d5b27f1c5abfa3166cabb8c5e7790f" => :catalina
-    sha256 "99468b0d324898ded21ffc6d7605009e0735f5d0b3be2804299916c038c3fa8f" => :mojave
-    sha256 "b52608ab271231b3c1ca2aa537793f9988fa4b5a051d5026775a29c1070701d1" => :high_sierra
+    sha256 "c7b3510e24ff12639c19089bacfacbf64352e9f91401fe72b9c7c5842dd9063d" => :catalina
+    sha256 "0c306bbd71021879d87d0db3195196250e44296b8643f2a8c824c63fbd8a4a9a" => :mojave
+    sha256 "28e29f258ab9da7626b351a106b3423bee9a13fa813ff37fe94c67efb432b180" => :high_sierra
   end
 
   depends_on "cabal-install" => [:build, :test]
@@ -22,13 +19,17 @@ class Bnfc < Formula
   depends_on "antlr" => :test
   depends_on "openjdk" => :test
 
-  uses_from_macos "make" => [:build, :test]
   uses_from_macos "bison" => :test
   uses_from_macos "flex" => :test
 
+  on_linux do
+    depends_on "make" => [:build, :test]
+  end
+
   def install
     cd "source" do
-      install_cabal_package :using => ["alex", "happy"]
+      system "cabal", "v2-update"
+      system "cabal", "v2-install", *std_cabal_v2_args
       doc.install "changelog"
       doc.install "src/BNF.cf" => "BNF.cf"
     end
@@ -43,6 +44,8 @@ class Bnfc < Formula
   end
 
   test do
+    ENV.prepend_create_path "PATH", testpath/"tools-bin"
+
     (testpath/"calc.cf").write <<~EOS
       EAdd. Exp  ::= Exp  "+" Exp1 ;
       ESub. Exp  ::= Exp  "-" Exp1 ;
@@ -67,7 +70,7 @@ class Bnfc < Formula
       (EMul (EInt 14) (ESub (EAdd (EInt 3) (EDiv (EInt 2) (EInt 5))) (EInt 8)))
 
       [Linearized Tree]
-      14 * (3 + 2 / 5 - 8)#{treespace}
+      14 * (3 + 2 / 5 - 8) #{treespace}
 
     EOS
 
@@ -86,26 +89,28 @@ class Bnfc < Formula
     end
 
     mktemp "haskell-test" do
-      cabal_sandbox do
-        cabal_install_tools "alex", "happy"
-        system bin/"bnfc", "-m", "-o.", "--haskell", "--ghc", "-d", testpath/"calc.cf"
-        system "make"
-        test_out = shell_output("./Calc/Test #{testpath/"test.calc"}")
-        check_out_hs = <<~EOS
-          #{testpath/"test.calc"}
+      system "cabal", "v2-update"
+      system "cabal", "v2-install",
+             "--jobs=#{ENV.make_jobs}", "--max-backjumps=100000",
+             "--install-method=copy", "--installdir=#{testpath/"tools-bin"}",
+             "alex", "happy"
+      system bin/"bnfc", "-m", "-o.", "--haskell", "--ghc", "-d", testpath/"calc.cf"
+      system "make"
+      test_out = shell_output("./Calc/Test #{testpath/"test.calc"}")
+      check_out_hs = <<~EOS
+        #{testpath/"test.calc"}
 
-          Parse Successful!
+        Parse Successful!
 
-          [Abstract Syntax]
+        [Abstract Syntax]
 
-          EMul (EInt 14) (ESub (EAdd (EInt 3) (EDiv (EInt 2) (EInt 5))) (EInt 8))
+        EMul (EInt 14) (ESub (EAdd (EInt 3) (EDiv (EInt 2) (EInt 5))) (EInt 8))
 
-          [Linearized tree]
+        [Linearized tree]
 
-          14 * (3 + 2 / 5 - 8)
-        EOS
-        assert_equal check_out_hs, test_out
-      end
+        14 * (3 + 2 / 5 - 8)
+      EOS
+      assert_equal check_out_hs, test_out
     end
 
     mktemp "java-test" do

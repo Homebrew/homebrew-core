@@ -10,6 +10,11 @@ class Cvs < Formula
   sha256 "78853613b9a6873a30e1cc2417f738c330e75f887afdaf7b3d0800cb19ca515e"
   revision 2
 
+  livecheck do
+    url "https://ftp.gnu.org/non-gnu/cvs/source/feature/"
+    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "c80cc90d6ffbb4113745eac9386396c82b63ceee000f88acba79b7a16e05724d" => :catalina

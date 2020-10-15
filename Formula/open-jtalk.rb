@@ -4,6 +4,10 @@ class OpenJtalk < Formula
   url "https://downloads.sourceforge.net/project/open-jtalk/Open%20JTalk/open_jtalk-1.11/open_jtalk-1.11.tar.gz"
   sha256 "20fdc6aeb6c757866034abc175820573db43e4284707c866fcd02c8ec18de71f"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "0a251febe3197994355ab780ce02aa45264c7d148b0f1b0dfd1a80a7f7aa9937" => :catalina

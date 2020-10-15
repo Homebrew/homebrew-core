@@ -1,21 +1,24 @@
 class E2tools < Formula
   desc "Utilities to read, write, and manipulate files in ext2/3/4 filesystems"
-  homepage "https://web.archive.org/web/home.earthlink.net/~k_sheff/sw/e2tools/"
-  url "https://web.archive.org/web/20190302014158/home.earthlink.net/~k_sheff/sw/e2tools/e2tools-0.0.16.tar.gz"
-  sha256 "4e3c8e17786ccc03fc9fb4145724edf332bb50e1b3c91b6f33e0e3a54861949b"
+  homepage "https://e2tools.github.io/"
+  url "https://github.com/e2tools/e2tools/releases/download/v0.1.0/e2tools-0.1.0.tar.gz"
+  sha256 "c1a06b5ae2cbddb6f04d070e889b8bebf87015b8585889999452ce9846122edf"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "816825094314cfb451c177fb3f3f6956f3918db125b043bdf6e19aa7c404dc36" => :catalina
-    sha256 "bf9b142f5bb6ba58710bdc077a181ba8a0ac593a46d5f5c9ff2a50d69a43bd78" => :mojave
-    sha256 "7a782af6e3883fe9badda9b579193be4068b71fc1c2c8530f6b207b30bd1f9c3" => :high_sierra
-    sha256 "5818dc7acdcb57aa0945c79280e118cd630ec45d0c3b1997c791158bf5c807e1" => :sierra
-    sha256 "058158b36410bb749abe3bce7476a7f1c837417a38e8d3fa1dd54924df2d80a7" => :el_capitan
+    sha256 "93eab5f2d207ac8f27a9b27db13408b4b7f8a3cfee4ecbca9d9977a851a41576" => :catalina
+    sha256 "1ad81d83b87fc67a54698e6af829dd0945119a41a445383268f1d0190ff7b38d" => :mojave
+    sha256 "069988a622ce0587927a4a50b70b778b461840d2db2e49259e1123123bf6a2ff" => :high_sierra
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "pkg-config" => :build
   depends_on "e2fsprogs"
 
   def install
+    system "autoreconf", "-fiv"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",

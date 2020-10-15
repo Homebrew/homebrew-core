@@ -1,13 +1,18 @@
 class Amtk < Formula
   desc "Actions, Menus and Toolbars Kit for GNOME"
   homepage "https://wiki.gnome.org/Projects/Amtk"
-  url "https://download.gnome.org/sources/amtk/5.0/amtk-5.0.2.tar.xz"
-  sha256 "71cc891fbaaa3d0cb87eeef9a2f7e1a2acab62f738d09ea922fb4b9ea2f84f86"
+  url "https://download.gnome.org/sources/amtk/5.2/amtk-5.2.0.tar.xz"
+  sha256 "820545bb4cf87ecebc2c3638d6b6e58b8dbd60a419a9b43cf020124e5dad7078"
+  license "LGPL-2.1-or-later"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
-    sha256 "297402e4b375cfdaa49c9b257336290ade7b21f2808f5446f0c377c9d515b6d1" => :catalina
-    sha256 "9ed596da18bfcb188d0fa586f9f34ef39ca9fd8bdfaff8cfcb48bbd5f5221539" => :mojave
-    sha256 "ce27bff89e6ca83c5a232780d8db8c89f241b6b1ea1cc51011b2c08492fcd081" => :high_sierra
+    sha256 "89e24e19e0614b13d387b9c0d2ccf89ac15f485edf49c7c39bcaa4f80deba3c1" => :catalina
+    sha256 "004425110c03c91144cfd53df0f6141b05e38d86b64e96303cd6760db9e66a42" => :mojave
+    sha256 "67ad617a78c6922647c2af49225a5f4b8fd7eff3635d0e7f8b4320687b896b60" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build

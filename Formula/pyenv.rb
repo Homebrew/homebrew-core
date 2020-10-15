@@ -1,16 +1,22 @@
 class Pyenv < Formula
   desc "Python version management"
   homepage "https://github.com/pyenv/pyenv"
-  url "https://github.com/pyenv/pyenv/archive/v1.2.17.tar.gz"
-  sha256 "ff10d1c0e51b2f6e5325bbd7bd4314ddf1e8b7fd00f22652b578ae03c858f74b"
+  url "https://github.com/pyenv/pyenv/archive/v1.2.21.tar.gz"
+  sha256 "a36f11a9e35bb3354e820fe2e9d258208624703506878fc6b7466d646b59d782"
+  license "MIT"
   version_scheme 1
   head "https://github.com/pyenv/pyenv.git"
 
+  livecheck do
+    url "https://github.com/pyenv/pyenv/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
-    sha256 "cbb04be64ce7bd342271f5bfe091203e5c40c05d8ffa821cb969aa331197240d" => :catalina
-    sha256 "811c3774816ce9a2126e57c85292df38608e3667a2a280deaa359a71133e2908" => :mojave
-    sha256 "9a4dac58fa6734a15adbef8e95a51e0495291d4644e128240f26fac23bc326a7" => :high_sierra
+    sha256 "2f4c78fd8cce10de8e9fb48a43c7cd51003e7a87c3cba9e4c3942d72f331df58" => :catalina
+    sha256 "a3f8395adbc0644940fa03f41807fac246b997d10ae990f549e016699a2b7e51" => :mojave
+    sha256 "d4a573a9116ee1f474e4a77517af5c9dfaefe5ebb9cf7f26d2cc9ac872fe1155" => :high_sierra
   end
 
   depends_on "autoconf"

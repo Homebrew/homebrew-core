@@ -3,6 +3,7 @@ class GetFlashVideos < Formula
   homepage "https://github.com/monsieurvideo/get-flash-videos"
   url "https://github.com/monsieurvideo/get-flash-videos/archive/1.25.99.03.tar.gz"
   sha256 "37267b41c7b0c240d99ed1f5e7ba04d00f98a8daff82ac9edd2b12c3bca83d73"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,6 +15,23 @@ class GetFlashVideos < Formula
   end
 
   depends_on "rtmpdump"
+
+  on_linux do
+    resource "Module::Find" do
+      url "https://cpan.metacpan.org/authors/id/C/CR/CRENZ/Module-Find-0.13.tar.gz"
+      sha256 "4a47862072ca4962fa69796907476049dc60176003e946cf4b68a6b669f18568"
+    end
+
+    resource "Try::Tiny" do
+      url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/Try-Tiny-0.28.tar.gz"
+      sha256 "f1d166be8aa19942c4504c9111dade7aacb981bc5b3a2a5c5f6019646db8c146"
+    end
+
+    resource "XML::Simple" do
+      url "https://cpan.metacpan.org/authors/id/G/GR/GRANTM/XML-Simple-2.24.tar.gz"
+      sha256 "9a14819fd17c75fbb90adcec0446ceab356cab0ccaff870f2e1659205dc2424f"
+    end
+  end
 
   resource "Crypt::Blowfish_PP" do
     url "https://cpan.metacpan.org/authors/id/M/MA/MATTBM/Crypt-Blowfish_PP-1.12.tar.gz"
@@ -65,15 +83,14 @@ class GetFlashVideos < Formula
     (lib/"perl5").install "blib/lib/FlashVideo"
 
     bin.install "bin/get_flash_videos"
-    bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
+    bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
     chmod 0755, libexec/"bin/get_flash_videos"
 
     man1.install "blib/man1/get_flash_videos.1"
   end
 
   test do
-    file = testpath/"BBC_-__Do_whatever_it_takes_to_get_him_to_talk.flv"
-    system bin/"get_flash_videos", "http://news.bbc.co.uk/2/hi/programmes/hardtalk/9560793.stm"
-    assert_predicate file, :exist?, "Failed to download #{file}!"
+    assert_match "Filename: BBC_-__Do_whatever_it_takes_to_get_him_to_talk.flv",
+      shell_output("#{bin}/get_flash_videos --info http://news.bbc.co.uk/2/hi/programmes/hardtalk/9560793.stm")
   end
 end

@@ -3,16 +3,18 @@ class Gcovr < Formula
   homepage "https://gcovr.com/"
   url "https://github.com/gcovr/gcovr/archive/4.2.tar.gz"
   sha256 "589d5cb7164c285192ed0837d3cc17001ba25211e24933f0ba7cb9cf38b8a30e"
+  license "BSD-3-Clause"
+  revision 1
   head "https://github.com/gcovr/gcovr.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "64f2de6af39af65e2da0fe0622cf72005110bdafcaecdfb71abd6253dc4cf9d5" => :catalina
-    sha256 "6a25bff0607c3ec6e8442a541dfae012678b046e5a1023efc22c5a5063300e1d" => :mojave
-    sha256 "182bbf76588334f06561c759dfdd7ded755f913293eb5da0fa2d7a9b53e6ee86" => :high_sierra
+    sha256 "0e5e2e559d936a1bd54895b1f594f55d555a01d7a296abf8955ea6cb8293e01b" => :catalina
+    sha256 "2398c9991b0a3817192dc11d84399ad1aed85b9e1730f8d10a2ce49bb86b5fc4" => :mojave
+    sha256 "073e15e002cd9d40c63865632bf67e53913628c9bd940650fb781b724549d2fa" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
@@ -45,7 +47,7 @@ class Gcovr < Formula
     system "python3", *Language::Python.setup_install_args(libexec)
 
     bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
   end
 
   test do

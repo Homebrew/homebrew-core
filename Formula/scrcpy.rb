@@ -1,13 +1,15 @@
 class Scrcpy < Formula
   desc "Display and control your Android device"
   homepage "https://github.com/Genymobile/scrcpy"
-  url "https://github.com/Genymobile/scrcpy/archive/v1.12.1.tar.gz"
-  sha256 "7692664e1bd703421eb9659cc9956d9f0ac64eb14abddab7b2ade37625f0243d"
+  url "https://github.com/Genymobile/scrcpy/archive/v1.16.tar.gz"
+  sha256 "94cbd59e26faa08ca25d5126d6c8d45e831b6a9e716ce05cd57bc4bcc751f742"
+  license "Apache-2.0"
 
   bottle do
-    sha256 "ed647f7c957cd996b62c395c2106be3e40d3dd0f8c84eb1bd1d2a212a174a565" => :catalina
-    sha256 "2ab289c10d23c6fb47bc9bd2ae1f04d6f7c9d35f41b14ee1b0f3b4ce8f0d1f48" => :mojave
-    sha256 "3a3f12e0c66d5b9e79096f3bc89480929703742f981209f734632e9aeda12166" => :high_sierra
+    rebuild 1
+    sha256 "584738a06361a66960a1f15435ad4ed85409bb70a03baaa27a1f36b7cd156c62" => :catalina
+    sha256 "b41d43844a54e77169e91fecc064c30ee973da3a135c7ca8281d97463e8b09ca" => :mojave
+    sha256 "460868201832cd2771e7225ed248d4ab0ba7dddd9ad32a523b079960a1974657" => :high_sierra
   end
 
   depends_on "meson" => :build
@@ -17,8 +19,15 @@ class Scrcpy < Formula
   depends_on "sdl2"
 
   resource "prebuilt-server" do
-    url "https://github.com/Genymobile/scrcpy/releases/download/v1.12.1/scrcpy-server-v1.12.1"
-    sha256 "63e569c8a1d0c1df31d48c4214871c479a601782945fed50c1e61167d78266ea"
+    url "https://github.com/Genymobile/scrcpy/releases/download/v1.16/scrcpy-server-v1.16"
+    sha256 "94a79e05b4498d0460ab7bd9d12cbf05156e3a47bf0c5d1420cee1d4493b3832"
+  end
+
+  # Fix build on Xcode 12 (https://github.com/Genymobile/scrcpy/issues/1726)
+  # Remove in the next release
+  patch do
+    url "https://github.com/Genymobile/scrcpy/commit/bd9f656933e79f7b21b42993f8a70a761ab47226.patch?full_index=1"
+    sha256 "3ab1c2d4b9cc38fe94ae24c49c74b4008a36ffb8079442545feeffa5d3448540"
   end
 
   def install
@@ -27,8 +36,7 @@ class Scrcpy < Formula
     cp r.cached_download, buildpath/"prebuilt-server.jar"
 
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}",
-                      "--buildtype=release",
+      system "meson", *std_meson_args,
                       "-Dprebuilt_server=#{buildpath}/prebuilt-server.jar",
                       ".."
 

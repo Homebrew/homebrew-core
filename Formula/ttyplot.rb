@@ -3,6 +3,7 @@ class Ttyplot < Formula
   homepage "https://github.com/tenox7/ttyplot"
   url "https://github.com/tenox7/ttyplot/archive/1.4.tar.gz"
   sha256 "11974754981406d19cfa16865b59770faaf3ade8d909d9a0134dc56e00d29bd4"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

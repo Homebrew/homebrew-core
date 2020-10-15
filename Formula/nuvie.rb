@@ -1,8 +1,13 @@
 class Nuvie < Formula
-  desc "The Ultima 6 engine"
+  desc "Ultima 6 engine"
   homepage "https://nuvie.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/nuvie/Nuvie/0.5/nuvie-0.5.tgz"
   sha256 "ff026f6d569d006d9fe954f44fdf0c2276dbf129b0fc5c0d4ef8dce01f0fc257"
+  license "GPL-2.0"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any

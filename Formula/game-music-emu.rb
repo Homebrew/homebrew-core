@@ -3,13 +3,18 @@ class GameMusicEmu < Formula
   homepage "https://bitbucket.org/mpyne/game-music-emu"
   url "https://bitbucket.org/mpyne/game-music-emu/downloads/game-music-emu-0.6.3.tar.xz"
   sha256 "aba34e53ef0ec6a34b58b84e28bf8cfbccee6585cebca25333604c35db3e051d"
+  revision 2
   head "https://bitbucket.org/mpyne/game-music-emu.git"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any
-    sha256 "dc7859c227ff5014c83f33afcd2e8e433fee630aaa21d95f279f925dd9844aa0" => :catalina
-    sha256 "0d58fd959b1df0444911fc35ddba954ad3aa93975940a6657105475558a33da6" => :mojave
-    sha256 "a2f6918a7291a0478faab60f7aacc30f7086de599bf40db4a284c45627d65540" => :high_sierra
+    sha256 "ee658e16c3d9d0061b0b930ca387a1cb2fa6b6b50d23c9f6f4ae7799ddb6f46d" => :catalina
+    sha256 "754ab0c8bc0a6de76adcb56a59913c930196e8e44154958081c093fb7763edad" => :mojave
+    sha256 "596497823bb1ebb30f20fa01c8656bb15544c12fad5d67c4de165f9ef3122e68" => :high_sierra
   end
 
   depends_on "cmake" => :build

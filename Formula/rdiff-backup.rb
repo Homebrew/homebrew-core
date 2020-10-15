@@ -1,37 +1,26 @@
 class RdiffBackup < Formula
-  desc "Backs up one directory to another--also works over networks"
-  homepage "https://www.nongnu.org/rdiff-backup/"
-  url "https://savannah.nongnu.org/download/rdiff-backup/rdiff-backup-1.2.8.tar.gz"
-  sha256 "0d91a85b40949116fa8aaf15da165c34a2d15449b3cbe01c8026391310ac95db"
-  revision 1
+  desc "Reverse differential backup tool, over a network or locally"
+  homepage "https://rdiff-backup.net/"
+  url "https://github.com/rdiff-backup/rdiff-backup/releases/download/v2.0.5/rdiff-backup-2.0.5.tar.gz"
+  sha256 "2bb7837b4a9712b6efaebfa7da8ed6348ffcb02fcecff0e19d8fff732e933b87"
+  license "GPL-2.0"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "935ffcd8c7ba9579aaf0c640c30ff6b877ae862e5ca5083619c51200ab6847cc" => :catalina
-    sha256 "76ac2c10776a2dcb230f07b95704c65522cae20865a9bf4e4772c86b94673bda" => :mojave
-    sha256 "899687c88770af610d76f66f02da736a2a62ac4676f0f80796dbbae1d92bc47f" => :high_sierra
-    sha256 "7dcf4c878ccafc113e5742c83214f946dd3a55b472e086a944e918bcee1cf2bd" => :sierra
-    sha256 "f06f79bc1536dbaa990e6005565f18de05e9dc12deb09701a504ab6bfc8b8f11" => :el_capitan
-    sha256 "35f6a0f726a680d639f7a1c83af8e27d046d5a68a334bf19d47eaa363748767c" => :yosemite
-    sha256 "5b0eab2335afe2d298cd51737c744d052536cb0bdbee780819496e1000a3b179" => :mavericks
+    sha256 "4ceb0c2146ca9ad88e9d05dd27b294568127a2b97695368045789428a82ab4b3" => :catalina
+    sha256 "c761dd827e1cba2dfe9b946768af39034a8d844e8014bfcedd4729412d22861d" => :mojave
+    sha256 "62f0c516b83e424aac3bea2a31fd624d27543e070363d238a02e2b9ebae40dae" => :high_sierra
   end
 
   depends_on "librsync"
-
-  # librsync 1.x support
-  patch do
-    url "https://git.archlinux.org/svntogit/community.git/plain/trunk/rdiff-backup-1.2.8-librsync-1.0.0.patch?h=packages/rdiff-backup"
-    mirror "https://src.fedoraproject.org/cgit/rpms/rdiff-backup.git/plain/rdiff-backup-1.2.8-librsync-1.0.0.patch"
-    sha256 "a00d993d5ffea32d58a73078fa20c90c1c1c6daa0587690cec0e3da43877bf12"
-  end
+  depends_on "python@3.8"
 
   def install
-    ENV["ARCHFLAGS"] = "-arch x86_64 -arch i386"
-    system "python", "setup.py", "--librsync-dir=#{prefix}", "build"
+    ENV["ARCHFLAGS"] = "-arch x86_64"
+    system "python3", "setup.py", "build", "--librsync-dir=#{prefix}"
     libexec.install Dir["build/lib.macosx*/rdiff_backup"]
     libexec.install Dir["build/scripts-*/*"]
-    man1.install Dir["*.1"]
+    man1.install Dir["docs/*.1"]
     bin.install_symlink Dir["#{libexec}/rdiff-backup*"]
   end
 

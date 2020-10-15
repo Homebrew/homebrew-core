@@ -1,18 +1,19 @@
 class Pybind11 < Formula
   desc "Seamless operability between C++11 and Python"
   homepage "https://github.com/pybind/pybind11"
-  url "https://github.com/pybind/pybind11/archive/v2.4.3.tar.gz"
-  sha256 "1eed57bc6863190e35637290f97a20c81cfe4d9090ac0a24f3bbf08f265eb71d"
+  url "https://github.com/pybind/pybind11/archive/v2.5.0.tar.gz"
+  sha256 "97504db65640570f32d3fdf701c25a340c8643037c3b69aec469c10c93dc8504"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d947e7b809373b629855b26d90cdff09d0e5e59ae47cd194bf79a97715ebcc00" => :catalina
-    sha256 "d947e7b809373b629855b26d90cdff09d0e5e59ae47cd194bf79a97715ebcc00" => :mojave
-    sha256 "d947e7b809373b629855b26d90cdff09d0e5e59ae47cd194bf79a97715ebcc00" => :high_sierra
+    sha256 "c154d564868492981456c9a4e3fa21b6cdb821d96ba14d1ca1f4825d642a1384" => :catalina
+    sha256 "c154d564868492981456c9a4e3fa21b6cdb821d96ba14d1ca1f4825d642a1384" => :mojave
+    sha256 "c154d564868492981456c9a4e3fa21b6cdb821d96ba14d1ca1f4825d642a1384" => :high_sierra
   end
 
   depends_on "cmake" => :build
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
     system "cmake", ".", "-DPYBIND11_TEST=OFF", *std_cmake_args
@@ -39,8 +40,8 @@ class Pybind11 < Formula
       example.add(1,2)
     EOS
 
-    python_flags = `python3-config --cflags --ldflags`.split(" ")
+    python_flags = `#{Formula["python@3.8"].opt_bin}/python3-config --cflags --ldflags --embed`.split(" ")
     system ENV.cxx, "-O3", "-shared", "-std=c++11", *python_flags, "example.cpp", "-o", "example.so"
-    system "python3", "example.py"
+    system Formula["python@3.8"].opt_bin/"python3", "example.py"
   end
 end

@@ -3,6 +3,7 @@ class IkeScan < Formula
   homepage "https://github.com/royhills/ike-scan"
   url "https://github.com/royhills/ike-scan/archive/1.9.4.tar.gz"
   sha256 "2865014185c129ac443beb7bf80f3c5eb93adb504cd307c5b6709199abf7c121"
+  license "GPL-3.0"
   revision 1
 
   head "https://github.com/royhills/ike-scan.git"

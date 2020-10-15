@@ -1,18 +1,24 @@
 class Aspectj < Formula
   desc "Aspect-oriented programming for Java"
   homepage "https://eclipse.org/aspectj/"
-  url "https://www.eclipse.org/downloads/download.php?r=1&file=/tools/aspectj/aspectj-1.9.5.jar"
-  sha256 "335820a6772587873dfdcc614a772ecbb4731b4ffb99eb8ad953cde39f9cf825"
+  url "https://www.eclipse.org/downloads/download.php?r=1&file=/tools/aspectj/aspectj-1.9.6.jar"
+  sha256 "afec62c03fe154adeecf9cd599ce033fff258d1d373a82511e5df54f79ab03e2"
+  revision 1
+
+  livecheck do
+    url "https://eclipse.org/aspectj/downloads.php"
+    regex(%r{Latest Stable Release.*?href=.*?/aspectj[._-]v?(\d+(?:\.\d+)+)\.jar}im)
+  end
 
   bottle :unneeded
 
-  depends_on :java => "1.8"
+  depends_on "openjdk"
 
   def install
     mkdir_p "#{libexec}/#{name}"
-    system "java", "-jar", "aspectj-#{version}.jar", "-to", "#{libexec}/#{name}"
+    system "#{Formula["openjdk"].bin}/java", "-jar", "aspectj-#{version}.jar", "-to", "#{libexec}/#{name}"
     bin.install Dir["#{libexec}/#{name}/bin/*"]
-    bin.env_script_all_files(libexec/"#{name}/bin", Language::Java.java_home_env("1.8"))
+    bin.env_script_all_files libexec/"#{name}/bin", Language::Java.overridable_java_home_env
     chmod 0555, Dir["#{libexec}/#{name}/bin/*"] # avoid 0777
   end
 

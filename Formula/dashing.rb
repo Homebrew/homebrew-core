@@ -3,21 +3,22 @@ class Dashing < Formula
   homepage "https://github.com/technosophos/dashing"
   url "https://github.com/technosophos/dashing/archive/0.4.0.tar.gz"
   sha256 "81b21acae83c144f10d9eea05a0b89f0dcdfa694c3760c2a25bd4eab72a2a3b9"
+  license "MIT"
   revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cdfb4329ae48807046deb40bb2adb9969afda47a25502cedb374cf21a6a605ee" => :catalina
-    sha256 "79874bca8f27064c16aa81b398131d7ed3558bd5987913e344d0075859d9f7c7" => :mojave
-    sha256 "8c34e42f44271bfea4aecbb5dedb18deecfc4b8d0d0564344efa861bb816e8d4" => :high_sierra
+    rebuild 1
+    sha256 "0d163c87983480a05462f6e85967795b2f7d276163a4e4f34c8ff3411bcc39c2" => :catalina
+    sha256 "2990466bfb888e22f2dee7b4521aa022e693176c0fdb4f5c8731a46084fa48c2" => :mojave
+    sha256 "d2aedd54300f6590a10ee654fbe406be903a7a08e68f275bc0868e12b5a6f45f" => :high_sierra
   end
 
   depends_on "go" => :build
 
-  # Use ruby docs just as dummy documentation to test with
   resource "ruby_docs_tarball" do
-    url "https://ruby-doc.com/downloads/ruby_2_6_5_core_rdocs.tgz"
-    sha256 "9b5fc2814e4ce33701b3f6614a3309b8ed7a229e8b9b87cc5e75d5d4dbda1e12"
+    url "http://ruby-doc.com/downloads/ruby_2_6_5_core_rdocs.tgz"
+    sha256 "f9f74cf85c84e934d7127c2e86f4c3b0b70380a92c400decdc8a77ac977097fe"
   end
 
   def install

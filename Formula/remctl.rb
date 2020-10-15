@@ -4,6 +4,11 @@ class Remctl < Formula
   url "https://archives.eyrie.org/software/kerberos/remctl-3.16.tar.xz"
   sha256 "d1c444ab6c817c82413ec9686d178b9d760cd684eae7d24782bbe5c9ce5b0908"
 
+  livecheck do
+    url "https://archives.eyrie.org/software/kerberos/"
+    regex(/href=.*?remctl[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "0c94a53cbd26ed882a5b4c8f973562120dd1cf0a6f76457d392cc5fe59d5ee89" => :catalina

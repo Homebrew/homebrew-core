@@ -1,20 +1,26 @@
 class Algernon < Formula
   desc "Pure Go web server with Lua, Markdown, HTTP/2 and template support"
   homepage "https://algernon.roboticoverlords.org/"
-  url "https://github.com/xyproto/algernon/archive/1.12.7.tar.gz"
-  sha256 "1e04be1274b875a90f3ca1b5685f0e2c2df79ae3b798a1c56395d0b5b5b686b3"
+  url "https://github.com/xyproto/algernon/archive/1.12.8.tar.gz"
+  sha256 "562d6f1145980d5e4c8eaefc2780801b163d228720599f22165135182018d6bf"
+  license "MIT"
+  revision 1
   version_scheme 1
   head "https://github.com/xyproto/algernon.git"
 
-  bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "9f58bb11a8790a99e8fc93cf70e772cc97bae24f5ec86e9811f43be34b563258" => :catalina
-    sha256 "1da54e8872f2d5e98524c1d546e9c409dc5b8b705c6e2752ac8658dc8d8a3d07" => :mojave
-    sha256 "956560cc8c147107a176d827e8ddb48637be59b9318d906c3bfcc33fc0020d20" => :high_sierra
+  livecheck do
+    url "https://github.com/xyproto/algernon/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
   end
 
-  depends_on "go" => :build
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "86789f00d6b8d3469c5d3df5087149a72d1673cb7f2b7e31360672a6193e4eb2" => :catalina
+    sha256 "71d88d3e20c865c299b4083ce9143b8f5594be8be2d5e6a511d6d7187b8465c3" => :mojave
+    sha256 "b78c41a051aac0d969b8d7b49507a11e3e1b69990efe22aa88f9d5a5d544eb46" => :high_sierra
+  end
+
+  depends_on "go@1.14" => :build
 
   def install
     system "go", "build", "-trimpath", "-mod=vendor", "-o", bin/"algernon"
@@ -24,12 +30,13 @@ class Algernon < Formula
   end
 
   test do
+    port = free_port
     pid = fork do
       exec "#{bin}/algernon", "-s", "-q", "--httponly", "--boltdb", "tmp.db",
-                              "--addr", ":45678"
+                              "--addr", ":#{port}"
     end
     sleep 20
-    output = shell_output("curl -sIm3 -o- http://localhost:45678")
+    output = shell_output("curl -sIm3 -o- http://localhost:#{port}")
     assert_match /200 OK.*Server: Algernon/m, output
   ensure
     Process.kill("HUP", pid)

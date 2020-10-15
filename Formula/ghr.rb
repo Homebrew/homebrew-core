@@ -3,6 +3,7 @@ class Ghr < Formula
   homepage "https://tcnksm.github.io/ghr"
   url "https://github.com/tcnksm/ghr/archive/v0.13.0.tar.gz"
   sha256 "53933c6436187f573128903701ce74ac341793e892d3c2f57c822c0ce3c49e11"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

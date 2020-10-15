@@ -2,14 +2,15 @@ class Lego < Formula
   desc "Let's Encrypt client"
   homepage "https://go-acme.github.io/lego/"
   url "https://github.com/go-acme/lego.git",
-    :tag      => "v3.5.0",
-    :revision => "2a1cf86439539feffb06dabec295eb0593457bf7"
+    tag:      "v4.0.1",
+    revision: "99b2cd818167175c8933ff121e613f8b68690f0e"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6e0ea4d6a806f4c51c7847c327b11b503d927276c66c76fd9d39b2eb980274af" => :catalina
-    sha256 "9c7fad89ce5a57315aaa78264548a5a6e0ef1905cce33ff1f6b24b4ec79558a6" => :mojave
-    sha256 "b6c138dc5b91f23876e908f37666141986912e240ced6d4e453f7b6210def2a1" => :high_sierra
+    sha256 "f4811a1694e1bfe2dbb2fef4ea3a44cbb0d6cba4940b3c4f904f515d2c3d7469" => :catalina
+    sha256 "7dfbb0d990526cbd5f6db396cf16eada4f6675021f9917eab7db050f8bb21fc1" => :mojave
+    sha256 "7946ea0f32c17de5af07144533fb9982b0183bfa1973e3c0e1f48ce1d49cce3a" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -17,7 +18,6 @@ class Lego < Formula
   def install
     system "go", "build", "-ldflags", "-s -w -X main.version=#{version}", "-trimpath",
         "-o", bin/"lego", "cmd/lego/main.go"
-    prefix.install_metafiles
   end
 
   test do

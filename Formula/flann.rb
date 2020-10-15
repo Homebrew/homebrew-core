@@ -3,6 +3,7 @@ class Flann < Formula
   homepage "https://www.cs.ubc.ca/research/flann/"
   url "https://github.com/mariusmuja/flann/archive/1.9.1.tar.gz"
   sha256 "b23b5f4e71139faa3bcb39e6bbcc76967fbaf308c4ee9d4f5bfbeceaa76cc5d3"
+  license "BSD-3-Clause"
   revision 9
 
   bottle do
@@ -14,6 +15,15 @@ class Flann < Formula
 
   depends_on "cmake" => :build
   depends_on "hdf5"
+
+  on_linux do
+    # Fix for Linux build: https://bugs.gentoo.org/652594
+    # Not yet fixed upstream: https://github.com/mariusmuja/flann/issues/369
+    patch do
+      url "https://raw.githubusercontent.com/buildroot/buildroot/0c469478f64d0ddaf72c0622a1830d855306d51c/package/flann/0001-src-cpp-fix-cmake-3.11-build.patch"
+      sha256 "aa181d0731d4e9a266f7fcaf5423e7a6b783f400cc040a3ef0fef77930ecf680"
+    end
+  end
 
   resource("dataset.dat") do
     url "https://www.cs.ubc.ca/research/flann/uploads/FLANN/datasets/dataset.dat"

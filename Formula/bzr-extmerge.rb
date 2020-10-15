@@ -4,6 +4,10 @@ class BzrExtmerge < Formula
   url "https://launchpad.net/bzr-extmerge/trunk/1.0.0/+download/bzr-extmerge-1.0.0.tar.gz"
   sha256 "1b86d3a54fe669db19bc2a42a09eae52e449cc3ece8234377fd213e834f69cc0"
 
+  livecheck do
+    url :stable
+  end
+
   bottle :unneeded
 
   depends_on "bazaar"

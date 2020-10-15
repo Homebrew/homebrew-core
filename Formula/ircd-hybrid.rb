@@ -1,26 +1,27 @@
 class IrcdHybrid < Formula
   desc "High-performance secure IRC server"
   homepage "http://www.ircd-hybrid.org/"
-  url "https://downloads.sourceforge.net/project/ircd-hybrid/ircd-hybrid/ircd-hybrid-8.2.30/ircd-hybrid-8.2.30.tgz"
-  sha256 "f92d837306b11621b25eb449b341207c80ba634280bd7c29b2b7be3019b259f1"
+  url "https://downloads.sourceforge.net/project/ircd-hybrid/ircd-hybrid/ircd-hybrid-8.2.33/ircd-hybrid-8.2.33.tgz"
+  sha256 "18470fa4b5361809f8643599facd31541c44b29c0e63b1b44640d6c808456a01"
+  license "GPL-2.0-or-later"
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/ircd-hybrid[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
 
   bottle do
-    sha256 "4f9af65b03a153f6f6ff92f96b6fe7a14784f8dce6852656cc0f130c88b2eebc" => :catalina
-    sha256 "68d2fafdf7448feee3fb0e04ff613205ddbee4e8beb45b179b526e44397d4de7" => :mojave
-    sha256 "c352eba478cec35087af2da77fe3408626c1634621a4be30db75ca48382a9873" => :high_sierra
+    sha256 "d4957e6e7e46d89f0c0f55242a6fb567ab504276229d41ddf8939cd520caabf4" => :catalina
+    sha256 "0481dea871e6d698f4fb4147810c3ab7c98fcb70da5b0075a0b529dec360d6b9" => :mojave
+    sha256 "ee74ff104dd2449c4fead761da86ee244471cf6ff084da677380484fbd0bd0bb" => :high_sierra
   end
 
   depends_on "openssl@1.1"
 
-  conflicts_with "ircd-irc2", :because => "both install an `ircd` binary"
+  conflicts_with "ircd-irc2", because: "both install an `ircd` binary"
 
   # ircd-hybrid needs the .la files
   skip_clean :la
-
-  patch do
-    url "https://github.com/ircd-hybrid/ircd-hybrid/commit/f2428b2cc215b2227f10840ba63a85b2a812f585.patch?full_index=1"
-    sha256 "7073595aba16ff77484a94617b507552bf146032e4e1cbfff4675d83015360e3"
-  end
 
   def install
     ENV.deparallelize # build system trips over itself
@@ -41,7 +42,7 @@ class IrcdHybrid < Formula
     EOS
   end
 
-  plist_options :manual => "ircd"
+  plist_options manual: "ircd"
 
   def plist
     <<~EOS

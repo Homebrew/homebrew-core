@@ -4,6 +4,7 @@ class MavenAT35 < Formula
   url "https://www.apache.org/dyn/closer.lua?path=maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz"
   mirror "https://archive.apache.org/dist/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz"
   sha256 "ce50b1c91364cb77efe3776f756a6d92b76d9038b0a0782f7d53acf1e997a14d"
+  license "Apache-2.0"
   revision 1
 
   bottle :unneeded
@@ -29,7 +30,7 @@ class MavenAT35 < Formula
       basename = file.basename
       next if basename.to_s == "m2.conf"
 
-      (bin/basename).write_env_script file, :JAVA_HOME => "${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
+      (bin/basename).write_env_script file, Language::Java.overridable_java_home_env
     end
   end
 

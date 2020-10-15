@@ -4,6 +4,11 @@ class Vbindiff < Formula
   url "https://www.cjmweb.net/vbindiff/vbindiff-3.0_beta5.tar.gz"
   sha256 "f04da97de993caf8b068dcb57f9de5a4e7e9641dc6c47f79b60b8138259133b8"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?vbindiff[._-]v?(\d+(?:\.\d+)+(?:.?beta\d+)?)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "c7e303922a1f33af5fe107d192a530cfb3d545a55d4b7e681cdb5603e24cdfb6" => :catalina

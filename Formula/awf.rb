@@ -3,6 +3,7 @@ class Awf < Formula
   homepage "https://github.com/valr/awf"
   url "https://github.com/valr/awf/archive/v1.4.0.tar.gz"
   sha256 "bb14517ea3eed050b3fec37783b79c515a0f03268a55dfd0b96a594b5b655c78"
+  license "GPL-3.0"
   revision 2
   head "https://github.com/valr/awf.git"
 

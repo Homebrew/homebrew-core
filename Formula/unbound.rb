@@ -1,14 +1,23 @@
 class Unbound < Formula
   desc "Validating, recursive, caching DNS resolver"
   homepage "https://www.unbound.net"
-  url "https://nlnetlabs.nl/downloads/unbound/unbound-1.10.0.tar.gz"
-  sha256 "152f486578242fe5c36e89995d0440b78d64c05123990aae16246b7f776ce955"
+  url "https://nlnetlabs.nl/downloads/unbound/unbound-1.12.0.tar.gz"
+  sha256 "5b9253a97812f24419bf2e6b3ad28c69287261cf8c8fa79e3e9f6d3bf7ef5835"
+  license "BSD-3-Clause"
   head "https://github.com/NLnetLabs/unbound.git"
 
+  # We check the GitHub repo tags instead of
+  # https://nlnetlabs.nl/downloads/unbound/ since the first-party site has a
+  # tendency to lead to an `execution expired` error.
+  livecheck do
+    url :head
+    regex(/^(?:release-)?v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256 "d2d4d6d362feaafc5d10ea48abff32048527fd1c0fad152311354d58842cda5e" => :catalina
-    sha256 "f7373d641329d32e1a7cb94193691d9077e1932a73621f4b0f049e77cef670d2" => :mojave
-    sha256 "5bda37df0865426a3d254d2dcc27576bd009feddbb6609eba0e98c8dfbd480fb" => :high_sierra
+    sha256 "c5c89b6f51314d30ed291f08f195f6733bc756a2244b024cc4a08971137b2442" => :catalina
+    sha256 "7a72e66c935707fef194772e9a747a28629a6b4ae1a32a500e6b842893afecd5" => :mojave
+    sha256 "457f5cefd1951bbdcf58ebce0ba27cc135ad0e639d06d054ff346263899b64b5" => :high_sierra
   end
 
   depends_on "libevent"
@@ -44,7 +53,7 @@ class Unbound < Formula
                     "username: \"#{ENV["USER"]}\""
   end
 
-  plist_options :startup => true
+  plist_options startup: true
 
   def plist
     <<~EOS

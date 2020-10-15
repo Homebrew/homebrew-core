@@ -5,13 +5,18 @@ class Etsh < Formula
   sha256 "fd4351f50acbb34a22306996f33d391369d65a328e3650df75fb3e6ccacc8dce"
   version_scheme 1
 
+  livecheck do
+    url "https://etsh.nl/src/"
+    regex(/href=.*?etsh[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "1bb2f2a1cdb069e4963cba22c6014894a61853644e840341e8fd01f1ca522ea2" => :catalina
     sha256 "61739a70a6927e119b9f27fe51e24a5bd14f3c5f8cfed1888d1f00682e68c9c8" => :mojave
     sha256 "dbe3c9f5881aa417660aec6e9469123dde475b33551f7207cb3cb7aaade8c16d" => :high_sierra
   end
 
-  conflicts_with "teleport", :because => "both install `tsh` binaries"
+  conflicts_with "teleport", because: "both install `tsh` binaries"
 
   def install
     system "./configure"

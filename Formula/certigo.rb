@@ -3,13 +3,15 @@ class Certigo < Formula
   homepage "https://github.com/square/certigo"
   url "https://github.com/square/certigo/archive/v1.12.1.tar.gz"
   sha256 "800bdfa10ffc7f6313397220d02769e88ed5dae001224c9f0199383dcb63eaec"
+  license "Apache-2.0"
   head "https://github.com/square/certigo.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "61a54ac161807e81d794206ccc248a322d98c829c7ac0c70ac3e49cd7e67d7cf" => :catalina
-    sha256 "70770a8b125b80a1af24d9e5285cbeae82407bf496dbf80c6e747cbffa0e10c6" => :mojave
-    sha256 "964af2666fb75b2b389605bc8d3805ef5ff6790ba5dd31da2eb5c344b98a3c7b" => :high_sierra
+    rebuild 1
+    sha256 "9cb3d249c87ed65409a4e4a0e7841bbb8ab9192dea06df8f78f28f0fcbec4550" => :catalina
+    sha256 "85d39ea2806bbd5ea750486132343d2dc36d5cc37ac0048d4561c40d20826fde" => :mojave
+    sha256 "0ec7c22fe619af5e5178f4387f2731909ff02d4379ec62784f3625d2a63c358c" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -19,11 +21,11 @@ class Certigo < Formula
     bin.install "bin/certigo"
 
     # Install bash completion
-    output = Utils.popen_read("#{bin}/certigo --completion-script-bash")
+    output = Utils.safe_popen_read("#{bin}/certigo", "--completion-script-bash")
     (bash_completion/"certigo").write output
 
     # Install zsh completion
-    output = Utils.popen_read("#{bin}/certigo --completion-script-zsh")
+    output = Utils.safe_popen_read("#{bin}/certigo", "--completion-script-zsh")
     (zsh_completion/"_certigo").write output
   end
 

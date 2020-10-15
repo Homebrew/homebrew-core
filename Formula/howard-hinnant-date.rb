@@ -1,15 +1,15 @@
 class HowardHinnantDate < Formula
   desc "C++ library for date and time operations based on <chrono>"
   homepage "https://github.com/HowardHinnant/date"
-  url "https://github.com/HowardHinnant/date/archive/v2.4.1.tar.gz"
-  sha256 "98907d243397483bd7ad889bf6c66746db0d7d2a39cc9aacc041834c40b65b98"
+  url "https://github.com/HowardHinnant/date/archive/v3.0.0.tar.gz"
+  sha256 "87bba2eaf0ebc7ec539e5e62fc317cb80671a337c1fb1b84cb9e4d42c6dbebe3"
+  license "MIT"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "7afeb7e1b64e9e78d766be80a2e95c51b404092eeb1e5deb4d84956eeb02aff3" => :catalina
-    sha256 "d1601c1a3c38241472d597a126ed120124995919e42d5a9cc10357c699d1b5e7" => :mojave
-    sha256 "f7600a317e2569e37ac78be36abaff96f8f572cd7650d9c202a5a758f59f46f8" => :high_sierra
+    sha256 "336157e546ea77db5ec3c0360b4e873e8c6ec265aa6dedb2fe19d45a6df207fb" => :catalina
+    sha256 "20a35158d9c478a553baae673544620546db6f31825f9e052a0bbf07086e773e" => :mojave
+    sha256 "f23b72ea88d5c0bc12f2e93dff65ba6a9867d88831294fc5c770f2d0a39762fa" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -18,7 +18,8 @@ class HowardHinnantDate < Formula
     system "cmake", ".", *std_cmake_args,
                          "-DENABLE_DATE_TESTING=OFF",
                          "-DUSE_SYSTEM_TZ_DB=ON",
-                         "-DBUILD_SHARED_LIBS=ON"
+                         "-DBUILD_SHARED_LIBS=ON",
+                         "-DBUILD_TZ_LIB=ON"
     system "make", "install"
   end
 
@@ -32,7 +33,7 @@ class HowardHinnantDate < Formula
         std::cout << t << std::endl;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-std=c++1y", "-L#{lib}", "-ltz", "-o", "test"
+    system ENV.cxx, "test.cpp", "-std=c++1y", "-L#{lib}", "-ldate-tz", "-o", "test"
     system "./test"
   end
 end

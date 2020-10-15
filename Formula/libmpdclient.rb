@@ -1,23 +1,25 @@
 class Libmpdclient < Formula
   desc "Library for MPD in the C, C++, and Objective-C languages"
   homepage "https://www.musicpd.org/libs/libmpdclient/"
-  url "https://www.musicpd.org/download/libmpdclient/2/libmpdclient-2.18.tar.xz"
-  sha256 "4cb01e1f567e0169aca94875fb6e1200e7f5ce35b63a4df768ec1591fb1081fa"
+  url "https://www.musicpd.org/download/libmpdclient/2/libmpdclient-2.19.tar.xz"
+  sha256 "158aad4c2278ab08e76a3f2b0166c99b39fae00ee17231bd225c5a36e977a189"
+  license "BSD-3-Clause"
+  revision 1
   head "https://github.com/MusicPlayerDaemon/libmpdclient.git"
 
   bottle do
     cellar :any
-    sha256 "f2b24acc930ccf6f52580122187b1e0b6069e9407674e4a9f795740576f3478b" => :catalina
-    sha256 "bf5948d2521dc3c54a31740765162ef9f4043415b01a1377002597c54bb68324" => :mojave
-    sha256 "4bb5a9d58a7dd3cdb13320ff6a650ce979446e3fa61cabb2aa4954c3ef17e62a" => :high_sierra
+    sha256 "866e94308617552de97ecb04f824408fa4f849d1ef79ff9bf5467170c80e3a23" => :catalina
+    sha256 "0db8f7c9e7cd6eb5082397e9270989864042e36c187cba2fa61ae43ca996e32f" => :mojave
+    sha256 "71c37d5af98688decfe4440ce87e267064a4a71e0b1a4e11455068b5127edae4" => :high_sierra
   end
 
   depends_on "doxygen" => :build
-  depends_on "meson-internal" => :build
+  depends_on "meson" => :build
   depends_on "ninja" => :build
 
   def install
-    system "meson", "--prefix=#{prefix}", ".", "output"
+    system "meson", *std_meson_args, ".", "output"
     system "ninja", "-C", "output"
     system "ninja", "-C", "output", "install"
   end

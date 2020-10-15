@@ -3,18 +3,25 @@ class Dialog < Formula
   homepage "https://invisible-island.net/dialog/"
   url "https://invisible-mirror.net/archives/dialog/dialog-1.3-20200327.tgz"
   sha256 "466163e8b97c2b7709d00389199add3156bd813f60ccb0335d0a30f2d4a17f99"
+  license "LGPL-2.1"
+
+  livecheck do
+    url "https://invisible-mirror.net/archives/dialog/"
+    regex(/href=.*?dialog[._-]v?(\d+(?:\.\d+)+-\d{6,8})\.t/i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "23d7541b2fbba5903eafedde0a4182a3bfe11542139e35fa39d308c9464d62c6" => :catalina
-    sha256 "73aa99c7e00983a9fdefedd5fec29cd77d2825529aa64a10367b7e9f7bb7e1a1" => :mojave
-    sha256 "ef79f4d596a4ebfcb5bde2ac34d0e27e67092263a05b54e110ecc783cfffa4fd" => :high_sierra
+    rebuild 1
+    sha256 "35e1f4c9beb789e9f6db97089f5c0d41032cf72f79ebf2aa1fd804d6d5d62240" => :catalina
+    sha256 "2de067bc267ae01c09b826e55a2ab8626fb9f04e15aeb30189653c731db890db" => :mojave
+    sha256 "0e979958393b4d5db87aea2408ed1ac385db8b999ee38b882da96ed0e32beb19" => :high_sierra
   end
 
   uses_from_macos "ncurses"
 
   def install
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}", "--with-ncurses"
     system "make", "install-full"
   end
 

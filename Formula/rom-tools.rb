@@ -1,39 +1,48 @@
 class RomTools < Formula
   desc "Tools for Multiple Arcade Machine Emulator"
   homepage "https://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/mame0219.tar.gz"
-  version "0.219"
-  sha256 "9513c046033e451d86adfdd297da8a2ad9b6642a2f3ef669e1443d0acc2c2e0b"
+  url "https://github.com/mamedev/mame/archive/mame0225.tar.gz"
+  version "0.225"
+  sha256 "ca4d5a429d72b30fd2bdf60350e490c7de4ac64b1e0dafcf38450f8ba84a1a95"
+  license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/mamedev/mame.git"
 
   bottle do
     cellar :any
-    sha256 "1c601dc2f8866b0d276d83f6bec253b41a73ef410a31ae56e04f87402472ef4f" => :catalina
-    sha256 "2d89d434fdd989d2f73ff3c8b8e8c183990ff8e2193a17ebbe8c9e7a69d68a5b" => :mojave
-    sha256 "25fe7ce48ba40b71fcf65fda3b417b18e1df973675d5a1fc604839563fad2530" => :high_sierra
+    sha256 "5e482f1c3f9837e960994bbffb0cea88c20adc5821801a33fefebeacdba862d4" => :catalina
+    sha256 "dac126e77bb27ddb02065cd7c85d3da6fd8643fb66c793592a524d7cccd9aab2" => :mojave
+    sha256 "78ccfc13ea500bdee82d66517c8786b46e0dd329e967c91f2591ea48141f0c73" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
+  depends_on "python@3.9" => :build
   depends_on "flac"
-  # Need C++ compiler and standard library support C++14.
-  # Build failure on Sierra, see:
-  # https://github.com/Homebrew/homebrew-core/pull/39388
-  depends_on :macos => :high_sierra
+  # Need C++ compiler and standard library support C++17.
+  depends_on macos: :high_sierra
   depends_on "sdl2"
   depends_on "utf8proc"
 
+  uses_from_macos "expat"
+  uses_from_macos "zlib"
+
   def install
+    # Cut sdl2-config's invalid option.
     inreplace "scripts/src/osd/sdl.lua", "--static", ""
-    system "make", "TOOLS=1",
+
+    # Use bundled asio instead of latest version.
+    # See: <https://github.com/mamedev/mame/issues/5721>
+    system "make", "PYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3",
+                   "TOOLS=1",
                    "USE_LIBSDL=1",
                    "USE_SYSTEM_LIB_EXPAT=1",
                    "USE_SYSTEM_LIB_ZLIB=1",
-                   "USE_SYSTEM_LIB_ASIO=0",
+                   "USE_SYSTEM_LIB_ASIO=",
                    "USE_SYSTEM_LIB_FLAC=1",
                    "USE_SYSTEM_LIB_UTF8PROC=1"
     bin.install %w[
       aueffectutil castool chdman floptool imgtool jedutil ldresample ldverify
-      nltool nlwav pngcmp regrep romcmp src2html srcclean testkeys unidasm
+      nltool nlwav pngcmp regrep romcmp srcclean testkeys unidasm
     ]
     bin.install "split" => "rom-split"
     man1.install Dir["docs/man/*.1"]
@@ -55,7 +64,6 @@ class RomTools < Formula
     assert_match "summary", shell_output("#{bin}/regrep 2>&1", 1)
     system "#{bin}/romcmp"
     system "#{bin}/rom-split"
-    assert_match "template", shell_output("#{bin}/src2html 2>&1", 1)
     system "#{bin}/srcclean"
     assert_match "architecture", shell_output("#{bin}/unidasm", 1)
   end

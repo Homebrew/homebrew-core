@@ -1,15 +1,19 @@
 class Freeipmi < Formula
   desc "In-band and out-of-band IPMI (v1.5/2.0) software"
   homepage "https://www.gnu.org/software/freeipmi/"
-  url "https://ftp.gnu.org/gnu/freeipmi/freeipmi-1.6.4.tar.gz"
-  mirror "https://ftpmirror.gnu.org/freeipmi/freeipmi-1.6.4.tar.gz"
-  sha256 "65dfbb95a30438ba247f01a58498862a37d2e71c8c950bcfcee459d079241a3c"
+  url "https://ftp.gnu.org/gnu/freeipmi/freeipmi-1.6.6.tar.gz"
+  mirror "https://ftpmirror.gnu.org/freeipmi/freeipmi-1.6.6.tar.gz"
+  sha256 "cfa30179b44c582e73cf92c2ad0e54fe49f9fd87f7a0889be9dc2db5802e6aab"
+  license "GPL-3.0-or-later"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
-    sha256 "551747c4136dba2a5e7a3d2471ab3cd6c892d31d58edd228401ac3df8b216828" => :catalina
-    sha256 "fed9113f307777c41efc5b186a391074c102462ea92dc84e01aef556c98cfa0a" => :mojave
-    sha256 "23643e72d5d7fbef4a0c221fb212a5f771cb83e7062674870948d099b60f8560" => :high_sierra
-    sha256 "6d74fb59533b218f658926705ca08ad8dbf7ce0cd95d0e0e1f4161359c2401a1" => :sierra
+    sha256 "ff69947a14d7d273349f9f5219b55b8581fee4745c3571fb27f790307f1647a5" => :catalina
+    sha256 "47441cb06fdfae9277c2760f43ba0236020de8906e9ead7bf4e1dc2569f2abc4" => :mojave
+    sha256 "836d80487ea7790b95c951c48a9a7f9788117e254a55c1f6417c5a2455695f5c" => :high_sierra
   end
 
   depends_on "argp-standalone"

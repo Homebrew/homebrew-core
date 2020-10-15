@@ -2,32 +2,33 @@ class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
   # Note: Please keep these values in sync with git-gui.rb when updating.
-  url "https://www.kernel.org/pub/software/scm/git/git-2.26.0.tar.xz"
-  sha256 "9ece0dcb07a5e0d7366a92b613b201cca11ae368ab7687041364b3e756e495d6"
-  head "https://github.com/git/git.git", :shallow => false
+  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.28.0.tar.xz"
+  sha256 "dfa5d1a253aa451465478fe45c6a40ab8605b340fdb4c4e80b16d7f87708439d"
+  license "GPL-2.0-only"
+  head "https://github.com/git/git.git", shallow: false
+
+  livecheck do
+    url "https://www.kernel.org/pub/software/scm/git/"
+    regex(/href=.*?git[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 "174f1f2513dfc0be1997c4385cc4579c37479aa1038e5f73088fb0a1edfbe5e9" => :catalina
-    sha256 "872641963bc853b4e421a0d8fa3a535812fc1a81d07fe00cbd8b1f35bc66558c" => :mojave
-    sha256 "d811df72427c53248ef4ba9e954ecd998c9b72cae87c620af37fa0813e0a0a5f" => :high_sierra
+    sha256 "6c4d10f29f78dcbefa12fab3e47e7755d5d2ca2e9bbc5aeee4838ad223296d0a" => :catalina
+    sha256 "10f23bc63568fdeb598df2dd30fbb0ead31f2eef3c0990a8ac53f3e2005de82f" => :mojave
+    sha256 "5095b064dfafb8cf4cabd017844f181d8eabaf45fb6965d2d30ed6de00c0e884" => :high_sierra
   end
 
   depends_on "gettext"
   depends_on "pcre2"
 
-  if MacOS.version < :yosemite
-    depends_on "openssl@1.1"
-    depends_on "curl"
-  end
-
   resource "html" do
-    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.26.0.tar.xz"
-    sha256 "5be14d0835177f8ada0310c98b0248c7caaea0a302b7b58f1ccc0c0f7ece2466"
+    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-htmldocs-2.28.0.tar.xz"
+    sha256 "24feed3b584e2121418de9bde9f2e23fdcf78e4f914279787f669d3dc375bfe6"
   end
 
   resource "man" do
-    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.26.0.tar.xz"
-    sha256 "387e46a0b67c148be7ef80759b1930a3b64ac77782630c18afc784f35ed93426"
+    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-manpages-2.28.0.tar.xz"
+    sha256 "665a7fa41f9a39248e48422dcf533e1a0133a4a6eddfc25ee55e28e42fc07cb7"
   end
 
   resource "Net::SMTP::SSL" do
@@ -39,7 +40,6 @@ class Git < Formula
     # If these things are installed, tell Git build system not to use them
     ENV["NO_FINK"] = "1"
     ENV["NO_DARWIN_PORTS"] = "1"
-    ENV["NO_R_TO_GCC_LINKER"] = "1" # pass arguments to LD correctly
     ENV["PYTHON_PATH"] = which("python")
     ENV["PERL_PATH"] = which("perl")
     ENV["USE_LIBPCRE2"] = "1"
@@ -47,7 +47,7 @@ class Git < Formula
     ENV["LIBPCREDIR"] = Formula["pcre2"].opt_prefix
     ENV["V"] = "1" # build verbosely
 
-    perl_version = Utils.popen_read("perl --version")[/v(\d+\.\d+)(?:\.\d+)?/, 1]
+    perl_version = Utils.safe_popen_read("perl", "--version")[/v(\d+\.\d+)(?:\.\d+)?/, 1]
 
     ENV["PERLLIB_EXTRA"] = %W[
       #{MacOS.active_developer_dir}
@@ -56,8 +56,6 @@ class Git < Formula
     ].uniq.map do |p|
       "#{p}/Library/Perl/#{perl_version}/darwin-thread-multi-2level"
     end.join(":")
-
-    ENV["NO_PERL_MAKEMAKER"] = "1" unless quiet_system ENV["PERL_PATH"], "-e", "use ExtUtils::MakeMaker"
 
     # Ensure we are using the correct system headers (for curl) to workaround
     # mismatched Xcode/CLT versions:
@@ -136,9 +134,6 @@ class Git < Formula
     chmod 0644, Dir["#{share}/doc/git-doc/**/*.{html,txt}"]
     chmod 0755, Dir["#{share}/doc/git-doc/{RelNotes,howto,technical}"]
 
-    # To avoid this feature hooking into the system OpenSSL, remove it
-    rm "#{libexec}/git-core/git-imap-send" if MacOS.version >= :yosemite
-
     # git-send-email needs Net::SMTP::SSL
     resource("Net::SMTP::SSL").stage do
       (share/"perl5").install "lib/Net"
@@ -169,6 +164,8 @@ class Git < Formula
     system bin/"git", "init"
     %w[haunted house].each { |f| touch testpath/f }
     system bin/"git", "add", "haunted", "house"
+    system bin/"git", "config", "user.name", "'A U Thor'"
+    system bin/"git", "config", "user.email", "author@example.com"
     system bin/"git", "commit", "-a", "-m", "Initial Commit"
     assert_equal "haunted\nhouse", shell_output("#{bin}/git ls-files").strip
 

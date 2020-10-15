@@ -3,6 +3,12 @@ class Jython < Formula
   homepage "https://www.jython.org/"
   url "https://search.maven.org/remotecontent?filepath=org/python/jython-installer/2.7.2/jython-installer-2.7.2.jar"
   sha256 "36e40609567ce020a1de0aaffe45e0b68571c278c14116f52e58cc652fb71552"
+  license "PSF-2.0"
+
+  livecheck do
+    url "https://github.com/jythontools/jython.git"
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   # This isn't accidental; there is actually a compile process here.
   bottle do

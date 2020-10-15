@@ -1,9 +1,14 @@
 class Dps8m < Formula
   desc "Simulator for the Multics dps-8/m mainframe"
-  homepage "https://ringzero.wikidot.com"
+  homepage "https://ringzero.wikidot.com/"
   url "https://gitlab.com/dps8m/dps8m/-/archive/R2.0/dps8m-R2.0.tar.gz"
   sha256 "bb0106d0419afd75bc615006bd9e3f1ff93e12649346feb19820b73c92d06f0d"
   head "https://gitlab.com/dps8m/dps8m.git"
+
+  livecheck do
+    url :head
+    regex(/^R?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     cellar :any
@@ -27,11 +32,12 @@ class Dps8m < Formula
   test do
     (testpath/"test.exp").write <<~EOS
       spawn #{bin}/dps8
-      set timeout 5
+      set timeout 30
       expect {
         timeout { exit 1 }
         "sim>"
       }
+      set timeout 10
       send "help\r"
       expect {
         timeout { exit 2 }

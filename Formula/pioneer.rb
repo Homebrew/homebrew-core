@@ -3,12 +3,14 @@ class Pioneer < Formula
   homepage "https://pioneerspacesim.net/"
   url "https://github.com/pioneerspacesim/pioneer/archive/20200203.tar.gz"
   sha256 "3055d63c1bd3377c3794eee830a8adbd650b178bad9e927531e38cb5d5838694"
+  license "GPL-3.0"
+  revision 1
   head "https://github.com/pioneerspacesim/pioneer.git"
 
   bottle do
-    sha256 "d6ef58a82bd5d0030f28db39103882a4da8416ba3b1dae5d3e98d09e2d06c5c6" => :catalina
-    sha256 "837ce3dc518de05e3c50597252acf888b55ee341777f765bd4b1d88faf53592d" => :mojave
-    sha256 "2d2d2aaeff7ec2231f7908504d4750f9fc2e60fd4d68f059d20808cea36370d7" => :high_sierra
+    sha256 "dd740d3f1f48b444c2c4954621174f27bb5e58f0f337577fe17ca1e0bcc27ebf" => :catalina
+    sha256 "e76632b5f3ffee2f88485a9dfdd55d6bb64566c5a78045a8d6e7e33fef254468" => :mojave
+    sha256 "1485110ccb049479063b6a94cd1385e678251da599d3ef92ca99f8fc69a99000" => :high_sierra
   end
 
   depends_on "cmake" => :build

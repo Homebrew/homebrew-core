@@ -1,15 +1,16 @@
 class Miller < Formula
   desc "Like sed, awk, cut, join & sort for name-indexed data such as CSV"
   homepage "https://github.com/johnkerl/miller"
-  url "https://github.com/johnkerl/miller/releases/download/v5.7.0/mlr-5.7.0.tar.gz"
-  sha256 "3896a8be073427671e7ba84993c071891fb39769696fd566b8b77ec0abd3ea51"
+  url "https://github.com/johnkerl/miller/releases/download/v5.9.1/mlr-5.9.1.tar.gz"
+  sha256 "fb531efe5759b99935ce420c8ad763099cf11c2db8d32e8524753f4271454b57"
+  license "BSD-2-Clause"
   head "https://github.com/johnkerl/miller.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b1e99a7173ec7eac19ac3daa5fd565016897774c9270def0c95610549634a032" => :catalina
-    sha256 "4d5d800c42bedc655093ca0ceb522782721e46af78f1c61e0ebf9fde74f0d9a4" => :mojave
-    sha256 "0485537d6ba6927d11484e5c9f3377c51aa0da38fcecbf701c7833f76812a99d" => :high_sierra
+    sha256 "f723f639b78b03e09657ec505aaac48b7971fbe924b4269f860f1bc97f7db9cc" => :catalina
+    sha256 "36c0835f067998aa8458762915d3cfaf8304170fe47433c43f7001a302110e08" => :mojave
+    sha256 "e034b65d138c356931f0c29d5808d6d8cbc3468bfb7a0007edd37637f0dd265b" => :high_sierra
   end
 
   depends_on "autoconf" => :build

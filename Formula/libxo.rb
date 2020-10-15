@@ -3,6 +3,7 @@ class Libxo < Formula
   homepage "https://juniper.github.io/libxo/libxo-manual.html"
   url "https://github.com/Juniper/libxo/releases/download/1.4.0/libxo-1.4.0.tar.gz"
   sha256 "aa842d9374bc0c640d9526abdeb6f1dc75c1a14e892eafd3c9e0ee2e8dfc1c43"
+  license "BSD-2-Clause"
 
   bottle do
     sha256 "3dffbef9394a617fa8c901c44ce7b31b8843c947762744a8ea1374780d5c1224" => :catalina

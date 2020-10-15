@@ -5,6 +5,11 @@ class Vncsnapshot < Formula
   sha256 "20f5bdf6939a0454bc3b41e87e41a5f247d7efd1445f4fac360e271ddbea14ee"
   revision 1
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/vncsnapshot[._-]v?(\d+(?:\.\d+)+[a-z]?)-src\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "ebdef361f11059c2b912c727a4a8fee601ebd0fc9b4e36e4ef2a70f655a48983" => :catalina

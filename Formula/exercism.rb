@@ -3,7 +3,13 @@ class Exercism < Formula
   homepage "https://exercism.io/cli/"
   url "https://github.com/exercism/cli/archive/v3.0.13.tar.gz"
   sha256 "ecc27f272792bc8909d14f11dd08f0d2e9bde4cc663b3769e00eab6e65328a9f"
+  license "MIT"
   head "https://github.com/exercism/cli.git"
+
+  livecheck do
+    url "https://github.com/exercism/cli/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
 
   bottle do
     cellar :any_skip_relocation

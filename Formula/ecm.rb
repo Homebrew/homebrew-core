@@ -5,6 +5,12 @@ class Ecm < Formula
   version "1.0"
   sha256 "1d0d19666f46d9a2fc7e534f52475e80a274e93bdd3c010a75fe833f8188b425"
 
+  # The first-party web page was been missing since 2014, so we can't check for
+  # new versions and the developer doesn't seem to be actively working on this.
+  livecheck do
+    skip "No available sources to check for versions"
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "93a81fd556f0fa5cb39016f88a50aa7880b65d7f281cd94fbdaba36320d33f1d" => :catalina

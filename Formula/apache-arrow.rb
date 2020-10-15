@@ -1,20 +1,27 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-0.16.0/apache-arrow-0.16.0.tar.gz"
-  mirror "https://archive.apache.org/dist/arrow/arrow-0.16.0/apache-arrow-0.16.0.tar.gz"
-  sha256 "261992de4029a1593195ff4000501503bd403146471b3168bd2cc414ad0fb7f5"
+  url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-1.0.1/apache-arrow-1.0.1.tar.gz"
+  mirror "https://archive.apache.org/dist/arrow/arrow-1.0.1/apache-arrow-1.0.1.tar.gz"
+  sha256 "149ca6aa969ac5742f3b30d1f69a6931a533fd1db8b96712e60bf386a26dc75c"
+  license "Apache-2.0"
   head "https://github.com/apache/arrow.git"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any
-    sha256 "d523f37a5332bd67dfbb7517d30c5bcf762c96c0157425d966628616de961317" => :catalina
-    sha256 "9a1a351efcec6de325196c7692e03637efcd3557f8b0fc8847e0bb2af7b586c4" => :mojave
-    sha256 "b3b2e0681cff1188e6da5bc741a173740a218c1fde467379345a7dd6501b010c" => :high_sierra
+    rebuild 2
+    sha256 "d6989006cc4cbfd1440e37b10953539ac31d3e6545570afef8d919d742e605f3" => :catalina
+    sha256 "cbd0ad01c6d8cd50b159c6f01207971b3fc437a510416fa7253bd1f2776054a8" => :mojave
+    sha256 "e10b6e6b62a241e2084b18840f8e9f9926130d740cf049346e66653d30d3e8f6" => :high_sierra
   end
 
+  depends_on "boost" => :build
   depends_on "cmake" => :build
-  depends_on "boost"
+  depends_on "llvm"  => :build
   depends_on "brotli"
   depends_on "glog"
   depends_on "grpc"
@@ -22,17 +29,29 @@ class ApacheArrow < Formula
   depends_on "numpy"
   depends_on "openssl@1.1"
   depends_on "protobuf"
-  depends_on "python"
+  depends_on "python@3.8"
   depends_on "rapidjson"
+  depends_on "re2"
   depends_on "snappy"
   depends_on "thrift"
   depends_on "zstd"
 
+  # Fix to not install jemalloc in parallel
+  # https://github.com/apache/arrow/pull/7995
+  patch do
+    url "https://github.com/apache/arrow/commit/ae60bad1c2e28bd67cdaeaa05f35096ae193e43a.patch?full_index=1"
+    sha256 "7a793ca3c98a803c652757faa802667e6d19dbc436cedb942c76346771c9e16f"
+  end
+
   def install
     ENV.cxx11
+    # link against system libc++ instead of llvm provided libc++
+    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
     args = %W[
+      -DCMAKE_FIND_PACKAGE_PREFER_CONFIG=TRUE
       -DARROW_FLIGHT=ON
-      -DARROW_JEMALLOC=OFF
+      -DARROW_GANDIVA=ON
+      -DARROW_JEMALLOC=ON
       -DARROW_ORC=ON
       -DARROW_PARQUET=ON
       -DARROW_PLASMA=ON
@@ -45,11 +64,10 @@ class ApacheArrow < Formula
       -DARROW_WITH_SNAPPY=ON
       -DARROW_WITH_BROTLI=ON
       -DARROW_INSTALL_NAME_RPATH=OFF
-      -DPYTHON_EXECUTABLE=#{Formula["python"].bin/"python3"}
+      -DPYTHON_EXECUTABLE=#{Formula["python@3.8"].bin/"python3"}
     ]
 
-    mkdir "build"
-    cd "build" do
+    mkdir "build" do
       system "cmake", "../cpp", *std_cmake_args, *args
       system "make"
       system "make", "install"

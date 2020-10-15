@@ -12,7 +12,7 @@ class JbossForge < Formula
     rm_f Dir["bin/*.bat"]
     libexec.install %w[addons bin lib logging.properties]
     bin.install libexec/"bin/forge"
-    bin.env_script_all_files libexec/"bin", :JAVA_HOME => "${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
+    bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env
   end
 
   test do

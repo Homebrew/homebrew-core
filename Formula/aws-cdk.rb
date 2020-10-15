@@ -3,14 +3,19 @@ require "language/node"
 class AwsCdk < Formula
   desc "AWS Cloud Development Kit - framework for defining AWS infra as code"
   homepage "https://github.com/aws/aws-cdk"
-  url "https://registry.npmjs.org/aws-cdk/-/aws-cdk-1.31.0.tgz"
-  sha256 "ff9d91a4cb242198c6627e73b25ac92dacdb5026b0191e61da2f8d0e1bac35ae"
+  url "https://registry.npmjs.org/aws-cdk/-/aws-cdk-1.67.0.tgz"
+  sha256 "0a1254af0de2de5ce7cdaaf78a35a30421ca8427c0320acd39e90254f9f5dbb7"
+  license "Apache-2.0"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "98b8f0dd001f9c7e1174a7562195fd285a633fd5d6e4a64861545b6d66d54076" => :catalina
-    sha256 "9b65c5f17f6c7fef63493f8ef4518ab387843f2d8a856893e3600d796d1ba7f0" => :mojave
-    sha256 "805812bceceb1d7a3fbf99ae526cdabad66298fafa119db32fc9b0540c138b51" => :high_sierra
+    sha256 "28808b4e821100d861db765bd750a69215c627f06101c327c3c7dba2b1e6adfe" => :catalina
+    sha256 "0aaa3678b2d575a836c1e04fcc9d17e74ebf8d25c3529d5ab408113134254406" => :mojave
+    sha256 "af491c736bd0e49cf2fa7219fd7a96d111e400f06c2c132e5a84f14f73c226bb" => :high_sierra
   end
 
   depends_on "node"
@@ -21,12 +26,13 @@ class AwsCdk < Formula
   end
 
   test do
-    mkdir "testapp"
-    cd testpath/"testapp"
-    shell_output("#{bin}/cdk init app --language=javascript")
-    list = shell_output("#{bin}/cdk list")
-    cdkversion = shell_output("#{bin}/cdk --version")
-    assert_match "TestappStack", list
-    assert_match version.to_s, cdkversion
+    # `cdk init` cannot be run in a non-empty directory
+    mkdir "testapp" do
+      shell_output("#{bin}/cdk init app --language=javascript")
+      list = shell_output("#{bin}/cdk list")
+      cdkversion = shell_output("#{bin}/cdk --version")
+      assert_match "TestappStack", list
+      assert_match version.to_s, cdkversion
+    end
   end
 end

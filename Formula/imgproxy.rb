@@ -1,15 +1,16 @@
 class Imgproxy < Formula
   desc "Fast and secure server for resizing and converting remote images"
   homepage "https://imgproxy.net"
-  url "https://github.com/imgproxy/imgproxy/archive/v2.11.0.tar.gz"
-  sha256 "5de08bdfb180da030a8a342eed5ed29e031aef6d9ac7f10e5df94cec2ac42a5c"
+  url "https://github.com/imgproxy/imgproxy/archive/v2.15.0.tar.gz"
+  sha256 "3bee2aecbb66c98c9e1254a163fb53e32e8af5bf8e3a92f119427113bee01c91"
+  license "MIT"
   head "https://github.com/imgproxy/imgproxy.git"
 
   bottle do
     cellar :any
-    sha256 "d7cd051833518b69c6b65cf88e92e03e4a268b82408d1828768a6b69c7de9e59" => :catalina
-    sha256 "1f5b0d985f1a2999efb2f0ccfabc785b38c6542363795f6be57627e91f2fed14" => :mojave
-    sha256 "4d1e8046cd60db5a8a12bf897e6680bc75ef656bffa8c153c507ddd26681e115" => :high_sierra
+    sha256 "d61664f7b13e4a2e87d37f381cc0a84d050ac32cec6f47ccccf0e7eeca8d5a99" => :catalina
+    sha256 "052202adba0cdb507093e8f0d433aa95623875d56579d3e2a45297e4cfe112bd" => :mojave
+    sha256 "5b9b32c0fa5bd4843b6d167ed8db8e1e665f9967b4694b06f50492f8f7d3c37a" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -20,15 +21,11 @@ class Imgproxy < Formula
     ENV["CGO_LDFLAGS_ALLOW"]="-s|-w"
     ENV["CGO_CFLAGS_ALLOW"]="-Xpreprocessor"
 
-    system "go", "build", "-o", "#{bin}/#{name}"
+    system "go", "build", *std_go_args
   end
 
   test do
-    require "socket"
-
-    server = TCPServer.new(0)
-    port = server.addr[1]
-    server.close
+    port = free_port
 
     cp(test_fixtures("test.jpg"), testpath/"test.jpg")
 
@@ -38,7 +35,7 @@ class Imgproxy < Formula
     pid = fork do
       exec bin/"imgproxy"
     end
-    sleep 3
+    sleep 10
 
     output = testpath/"test-converted.png"
 

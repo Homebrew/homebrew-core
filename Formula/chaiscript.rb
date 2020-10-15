@@ -3,7 +3,8 @@ class Chaiscript < Formula
   homepage "https://chaiscript.com/"
   url "https://github.com/ChaiScript/ChaiScript/archive/v6.1.0.tar.gz"
   sha256 "3ca9ba6434b4f0123b5ab56433e3383b01244d9666c85c06cc116d7c41e8f92a"
-  head "https://github.com/ChaiScript/ChaiScript.git", :branch => "develop"
+  license "BSD-3-Clause"
+  head "https://github.com/ChaiScript/ChaiScript.git", branch: "develop"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,7 +16,7 @@ class Chaiscript < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on :macos => :el_capitan # needs thread-local storage
+  depends_on macos: :el_capitan # needs thread-local storage
 
   def install
     system "cmake", ".", *std_cmake_args

@@ -5,9 +5,15 @@ class ProcyonDecompiler < Formula
   sha256 "74f9f1537113207521a075fafe64bd8265c47a9c73574bbf9fa8854bbf7126bc"
   revision 1
 
+  livecheck do
+    skip "Bitbucket repository is missing"
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
+
+  disable! because: :repo_removed
 
   def install
     libexec.install "procyon-decompiler-#{version}.jar"

@@ -5,6 +5,13 @@ class Ldns < Formula
   sha256 "8ac84c16bdca60e710eea75782356f3ac3b55680d40e1530d7cea474ac208229"
   revision 2
 
+  # https://nlnetlabs.nl/downloads/ldns/ since the first-party site has a
+  # tendency to lead to an `execution expired` error.
+  livecheck do
+    url "https://github.com/NLnetLabs/ldns.git"
+    regex(/^(?:release-)?v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "0446a8f1f3bc55d5d618c5bb2137d45dd3784d69e575ebabacf3dddb0d61055a" => :catalina

@@ -1,21 +1,21 @@
 class Oxipng < Formula
   desc "Multithreaded PNG optimizer written in Rust"
   homepage "https://github.com/shssoichiro/oxipng"
-  url "https://github.com/shssoichiro/oxipng/archive/v2.3.0.tar.gz"
-  sha256 "870c6ab802ca4df6d12a5570b6883e7e3b190bbe6e2fa91282af9b294c8e68b4"
+  url "https://github.com/shssoichiro/oxipng/archive/v3.0.1.tar.gz"
+  sha256 "31b036b146d087b989c22111637129ab8cb29a26719bfff1290427ff8b595e11"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "4759675ebff3a724731ec4bbd0337f18ba374e8e531d909d36a489b54fbf67ab" => :catalina
-    sha256 "d08d638656c7d0da5beedbe2500baad21130c34a736947bbade377ad2ea5c406" => :mojave
-    sha256 "3cbecc354042628174c5dfce4eb37984b1a6f9b89f7a54864af53cdb1e86dca0" => :high_sierra
+    sha256 "b718645e952cd09e9b9b950b738bcfa7d81d24d2ccc94d3db6c76da1232ff932" => :catalina
+    sha256 "b646164d98e8fa1cde4ccd2f2f00620f43a14dbb3c1714c24aef9a49c4cc9e96" => :mojave
+    sha256 "b99d3c1bd4936a71b6948fca53644a2791efbf59260b57d3bb2cdea57ee8c746" => :high_sierra
   end
 
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", *std_cargo_args
   end
 
   test do

@@ -1,14 +1,15 @@
 class Velero < Formula
   desc "Disaster recovery for Kubernetes resources and persistent volumes"
   homepage "https://github.com/vmware-tanzu/velero"
-  url "https://github.com/vmware-tanzu/velero/archive/v1.3.1.tar.gz"
-  sha256 "ff49dda812137befe0e33c130a06862d07bf5c62268ea23b0f5092d0ea144858"
+  url "https://github.com/vmware-tanzu/velero/archive/v1.5.1.tar.gz"
+  sha256 "b5d8f50f8f84f08ec7fc72d2572fd15749b3b95f1a0ac2483f3a4fe6f43e4961"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6d1dea3e2e1dd72480f81bb001e203bc0f68bc74aa522c6bf64cfd8c62d09f31" => :catalina
-    sha256 "8593735a54b607680be528a35b0fc35475e5396bf86d19e0ec72907a749f50ff" => :mojave
-    sha256 "1b4982f30e72daea127667c86080679bfa1c8b499afd90762ba5dc758d116eb7" => :high_sierra
+    sha256 "6f776808bb0cb0f4e05644ac7ed8818c30d6ce37136fa88ccca223fa7c2db5ad" => :catalina
+    sha256 "0d49268aceef9cd0db1f3f6e5f8362175b6d7ac4fb57f8cd7fee2ad4d0b056b2" => :mojave
+    sha256 "7dfbd8334fcd79e17ebba1c471ce1c7b5aab73428783782e86b382f9c1f4efaa" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -25,11 +26,11 @@ class Velero < Formula
                    "./cmd/velero"
 
       # Install bash completion
-      output = Utils.popen_read("#{bin}/velero completion bash")
+      output = Utils.safe_popen_read("#{bin}/velero", "completion", "bash")
       (bash_completion/"velero").write output
 
       # Install zsh completion
-      output = Utils.popen_read("#{bin}/velero completion zsh")
+      output = Utils.safe_popen_read("#{bin}/velero", "completion", "zsh")
       (zsh_completion/"_velero").write output
 
       prefix.install_metafiles
@@ -37,7 +38,7 @@ class Velero < Formula
   end
 
   test do
-    output = shell_output("#{bin}/velero 2>&1")
+    output = shell_output("#{bin}/velero 2>&1", 1)
     assert_match "Velero is a tool for managing disaster recovery", output
     assert_match "Version: v#{version}", shell_output("#{bin}/velero version --client-only 2>&1")
     system bin/"velero", "client", "config", "set", "TEST=value"

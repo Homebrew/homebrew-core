@@ -1,14 +1,15 @@
 class Tectonic < Formula
   desc "Modernized, complete, self-contained TeX/LaTeX engine"
   homepage "https://tectonic-typesetting.github.io/"
-  url "https://github.com/tectonic-typesetting/tectonic/archive/v0.1.12.tar.gz"
-  sha256 "30d2e0fe31145a10097368f11a00540ba201be43d28e7ad580699f47bfa70bf4"
+  url "https://github.com/tectonic-typesetting/tectonic/archive/tectonic@0.1.17.tar.gz"
+  sha256 "cbe2dcc2fd5c87a2e01643bb1d7cb8eb8bb4236832aaa39eedd7d334400d5adb"
+  license "MIT"
 
   bottle do
     cellar :any
-    sha256 "724623104de46afb7438c933ef55f5afd749672757112dba0783d0e25f725b90" => :catalina
-    sha256 "463857e34de7b19f3b866176e4d93be42cc7c80dde7226023ad226d937816b4e" => :mojave
-    sha256 "a7487f280ffdd80bdca699800db3a9771d51233629d2ff9d11b6c1b53929f0f0" => :high_sierra
+    sha256 "ede72897154ae1fac3d057d96c2a1efcc43dce09ee57ae73ed009549e349a253" => :catalina
+    sha256 "42e7f93a00981e5f42de95487bf4f30913a6f8922984c5aa97525b55e07b2bb8" => :mojave
+    sha256 "951d93798bab9b7dc50a267c6a0dafe504dd51ee5777f175350cbb141eb4e838" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -29,7 +30,7 @@ class Tectonic < Formula
     # https://crates.io/crates/openssl#manual-configuration
     ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
 
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", *std_cargo_args
   end
 
   test do

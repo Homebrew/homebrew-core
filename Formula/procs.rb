@@ -1,20 +1,21 @@
 class Procs < Formula
   desc "Modern replacement for ps written by Rust"
   homepage "https://github.com/dalance/procs"
-  url "https://github.com/dalance/procs/archive/v0.9.20.tar.gz"
-  sha256 "509e8085a7b68c4084e9940ad418e03b4704cef518f6de55e5b3f421f4639a36"
+  url "https://github.com/dalance/procs/archive/v0.10.5.tar.gz"
+  sha256 "e363f71d690256dbc48d2a1b6e7c17d17d08dc611561646647443f6500787f25"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fa34ec430e3f88c9bc4a661c3811c6192113126695ab6d0b90a00a26f8e9600d" => :catalina
-    sha256 "856859199b6da8038e88cc630090fb3dad60020e8ce1b70fc35051c57f5e1ba2" => :mojave
-    sha256 "d5f0912cd01c372a93b7cfb60ebd2c86e0bb24d13fcd0ee2a1a2404a4ca10fba" => :high_sierra
+    sha256 "07824511a6b6607a3e955037072b4ecb745698ebfb28cfcb56b6c5ed767eff59" => :catalina
+    sha256 "c1687109dfad6ba278a1275733f972726fc04fd6fef3d802751d1b1c75ef461f" => :mojave
+    sha256 "5635cb43d94fc426400e1f781e6c8a93ff911730c942abf7e50b7de6700bbe1e" => :high_sierra
   end
 
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", *std_cargo_args
   end
 
   test do

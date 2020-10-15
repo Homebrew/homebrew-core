@@ -4,6 +4,12 @@ class Libcuefile < Formula
   url "https://files.musepack.net/source/libcuefile_r475.tar.gz"
   version "r475"
   sha256 "b681ca6772b3f64010d24de57361faecf426ee6182f5969fcf29b3f649133fe7"
+  license "GPL-2.0"
+
+  livecheck do
+    url "https://www.musepack.net/index.php?pg=src"
+    regex(/href=.*?libcuefile[._-](r\d+)\.t/i)
+  end
 
   bottle do
     cellar :any

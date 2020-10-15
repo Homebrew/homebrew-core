@@ -3,6 +3,12 @@ class Telnet < Formula
   homepage "https://opensource.apple.com/"
   url "https://opensource.apple.com/tarballs/remote_cmds/remote_cmds-63.tar.gz"
   sha256 "13858ef1018f41b93026302840e832c2b65289242225c5a19ce5e26f84607f15"
+  license all_of: ["BSD-4-Clause-UC", "APSL-1.0"]
+
+  livecheck do
+    url "https://opensource.apple.com/tarballs/remote_cmds/"
+    regex(/href=.*?remote_cmds[._-]v?(\d+(?:\.\d+)*)\.t/i)
+  end
 
   bottle do
     cellar :any_skip_relocation
@@ -11,9 +17,9 @@ class Telnet < Formula
     sha256 "af38f3c6dd4ff5eda2248671958e66595b39e74cdeecca52af4efb495bc659a7" => :high_sierra
   end
 
-  depends_on :xcode => :build
+  depends_on xcode: :build
 
-  conflicts_with "inetutils", :because => "both install 'telnet' binaries"
+  conflicts_with "inetutils", because: "both install 'telnet' binaries"
 
   resource "libtelnet" do
     url "https://opensource.apple.com/tarballs/libtelnet/libtelnet-13.tar.gz"
@@ -25,8 +31,7 @@ class Telnet < Formula
       ENV["SDKROOT"] = MacOS.sdk_path
       ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
 
-      # Force 64 bit-only build, otherwise it fails on Mojave
-      xcodebuild "SYMROOT=build", "-arch", "x86_64"
+      xcodebuild "SYMROOT=build", "-arch", Hardware::CPU.arch
 
       libtelnet_dst = buildpath/"telnet.tproj/build/Products"
       libtelnet_dst.install "build/Release/libtelnet.a"
@@ -39,7 +44,7 @@ class Telnet < Formula
                    "DSTROOT=build/Archive",
                    "CFLAGS=$(CC_Flags) -isystembuild/Products/",
                    "LDFLAGS=$(LD_Flags) -Lbuild/Products/",
-                   "RC_ARCHS=x86_64", # Force 64-bit build for Mojave
+                   "RC_ARCHS=#{Hardware::CPU.arch}",
                    "install"
 
     bin.install "telnet.tproj/build/Archive/usr/local/bin/telnet"

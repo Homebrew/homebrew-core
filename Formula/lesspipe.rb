@@ -1,14 +1,15 @@
 class Lesspipe < Formula
   desc "Input filter for the pager less"
   homepage "https://www-zeuthen.desy.de/~friebel/unix/lesspipe.html"
-  url "https://github.com/wofr06/lesspipe/archive/1.84.tar.gz"
-  sha256 "5eb4811cc8ded108e98448bd83057e730906f643ad689ccd695828f2a46c4410"
+  url "https://github.com/wofr06/lesspipe/archive/1.85.tar.gz"
+  sha256 "cffbb432396ea4abf551bdda17adee9be3543486bc398c5c6838908e299210f9"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ddefc7bc6202699c00fc69d5bf4e22c06a05cc6ad7c49dca5ff84c32b88ad190" => :catalina
-    sha256 "ddefc7bc6202699c00fc69d5bf4e22c06a05cc6ad7c49dca5ff84c32b88ad190" => :mojave
-    sha256 "ddefc7bc6202699c00fc69d5bf4e22c06a05cc6ad7c49dca5ff84c32b88ad190" => :high_sierra
+    sha256 "6078a8d92ebaee0b4decf8951f6ede33432f15a8e700bf5180257e38ae15a30c" => :catalina
+    sha256 "509e6fbbdb6329be9b6405067a1c16e715c89a6d5dd0621a766e2e7b36157cdf" => :mojave
+    sha256 "59920e52a34aaa64ff44c8d0cb4b157559ec767da77c86d827bd983030f42aa9" => :high_sierra
   end
 
   def install

@@ -5,17 +5,22 @@ class GitReview < Formula
   homepage "https://opendev.org/opendev/git-review"
   url "https://files.pythonhosted.org/packages/2c/e6/e4f1b999af2493a5cc5e050f0869b29f30914f94016abf48c77c6307745b/git-review-1.28.0.tar.gz"
   sha256 "8e3aabb7b9484063e49c2504d137609401e32ad5128ff2a5cf43e98d5d3dc15a"
-  revision 2
+  license "Apache-2.0"
+  revision 3
   head "https://opendev.org/opendev/git-review.git"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8bb267cb74c37af45200381f60f84dc49af52a0d2eed65c23db6e582d0d407b9" => :catalina
-    sha256 "acd209ffed9affc75582b7ef94e3232abc0f2ab6490b634fc9abcb53a2e0f08d" => :mojave
-    sha256 "cb9721c5b767816de394884dbb83a7274b43fcb495015d445253d3820ac07b32" => :high_sierra
+    sha256 "4503d5b3e596e408beff669df65c3761bfe39727a8f98fc89868341d47194a1f" => :catalina
+    sha256 "804656f3cf7beeedab1fba587a3407f2718fe3d146bdcbc6c2a41863620048bc" => :mojave
+    sha256 "ecd779098abba89d86f749bdfa37f261978e6c12de928b3e5eb69e7e00a598e8" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/41/bf/9d214a5af07debc6acf7f3f257265618f1db242a3f8e49a9b516f24523a6/certifi-2019.11.28.tar.gz"
@@ -56,7 +61,7 @@ class GitReview < Formula
     system "git", "init"
     system "git", "config", "user.name", "BrewTestBot"
     system "git", "config", "user.email", "BrewTestBot@test.com"
-    system "git", "remote", "add", "gerrit", "https://github.com/Homebrew/homebrew.github.io"
+    system "git", "remote", "add", "gerrit", "https://github.com/Homebrew/brew.sh"
     (testpath/".git/hooks/commit-msg").write "# empty - make git-review happy"
     (testpath/"foo").write "test file"
     system "git", "add", "foo"

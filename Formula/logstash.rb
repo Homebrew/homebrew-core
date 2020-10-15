@@ -1,13 +1,19 @@
 class Logstash < Formula
   desc "Tool for managing events and logs"
   homepage "https://www.elastic.co/products/logstash"
-  url "https://artifacts.elastic.co/downloads/logstash/logstash-oss-7.6.1.tar.gz"
-  sha256 "1dca0e4b302ce12690bf5068e3daad38fba64b5090bf652dca3a5912a1b87e31"
+  url "https://artifacts.elastic.co/downloads/logstash/logstash-oss-7.9.2.tar.gz"
+  sha256 "611bbb38222c266b813c2fa67fa050969ec2b006db8ad9c93e7b80a9a5fa4ed3"
+  license "Apache-2.0"
   head "https://github.com/elastic/logstash.git"
+
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle :unneeded
 
-  depends_on :java => "1.8"
+  depends_on java: "1.8"
 
   def install
     if build.head?
@@ -20,10 +26,10 @@ class Logstash < Formula
     end
 
     inreplace "bin/logstash",
-              %r{^\. "\$\(cd `dirname \${SOURCEPATH}`\/\.\.; pwd\)\/bin\/logstash\.lib\.sh\"},
+              %r{^\. "\$\(cd `dirname \$\{SOURCEPATH\}`/\.\.; pwd\)/bin/logstash\.lib\.sh"},
               ". #{libexec}/bin/logstash.lib.sh"
     inreplace "bin/logstash-plugin",
-              %r{^\. "\$\(cd `dirname \$0`\/\.\.; pwd\)\/bin\/logstash\.lib\.sh\"},
+              %r{^\. "\$\(cd `dirname \$0`/\.\.; pwd\)/bin/logstash\.lib\.sh"},
               ". #{libexec}/bin/logstash.lib.sh"
     inreplace "bin/logstash.lib.sh",
               /^LOGSTASH_HOME=.*$/,
@@ -49,7 +55,7 @@ class Logstash < Formula
     EOS
   end
 
-  plist_options :manual => "logstash"
+  plist_options manual: "logstash"
 
   def plist
     <<~EOS

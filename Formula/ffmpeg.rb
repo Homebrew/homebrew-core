@@ -1,21 +1,30 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-4.2.2.tar.xz"
-  sha256 "cb754255ab0ee2ea5f66f8850e1bd6ad5cac1cd855d0a2f4990fb8c668b0d29c"
-  revision 2
+  url "https://ffmpeg.org/releases/ffmpeg-4.3.1.tar.xz"
+  sha256 "ad009240d46e307b4e03a213a0f49c11b650e445b1f8be0dda2a9212b34d2ffb"
+  # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
+  # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
+  license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/FFmpeg/FFmpeg.git"
 
+  livecheck do
+    url "https://ffmpeg.org/download.html"
+    regex(/href=.*?ffmpeg[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
-    sha256 "34e8b4424611acc2f90e27b4e1318fc3972b036231a171faa4e017a9b98b9d1b" => :catalina
-    sha256 "80582f6eac8470182df842a072e074de3624ec3f5c091aa9151c178745a06011" => :mojave
-    sha256 "afb1c2a2c38fa4d39dbd178cf5258bc3b81e805196196d24ab3676f134914cab" => :high_sierra
+    rebuild 1
+    sha256 "1924b8c971e7c2b2fd4a49ffdd2825df5048f5047b18a6454d0df6107e49d9a8" => :catalina
+    sha256 "e67748ccac6f4920ea740e526c34ce0a6c1087b645d41abbeed2c8e570c9a636" => :mojave
+    sha256 "5c2967fa5562347cabe3678a809463b28636f544f975bd4545720aca66de90c3" => :high_sierra
   end
 
   depends_on "nasm" => :build
   depends_on "pkg-config" => :build
-  depends_on "texi2html" => :build
   depends_on "aom"
+  depends_on "dav1d"
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "frei0r"
@@ -30,11 +39,13 @@ class Ffmpeg < Formula
   depends_on "opencore-amr"
   depends_on "openjpeg"
   depends_on "opus"
+  depends_on "rav1e"
   depends_on "rtmpdump"
   depends_on "rubberband"
   depends_on "sdl2"
   depends_on "snappy"
   depends_on "speex"
+  depends_on "srt"
   depends_on "tesseract"
   depends_on "theora"
   depends_on "webp"
@@ -44,7 +55,15 @@ class Ffmpeg < Formula
   depends_on "xz"
 
   uses_from_macos "bzip2"
+  uses_from_macos "libxml2"
   uses_from_macos "zlib"
+
+  # https://trac.ffmpeg.org/ticket/8760
+  # Remove in next release
+  patch do
+    url "https://github.com/FFmpeg/FFmpeg/commit/7c59e1b0f285cd7c7b35fcd71f49c5fd52cf9315.patch?full_index=1"
+    sha256 "1cbe1b68d70eadd49080a6e512a35f3e230de26b6e1b1c859d9119906417737f"
+  end
 
   def install
     args = %W[
@@ -61,10 +80,13 @@ class Ffmpeg < Formula
       --enable-gpl
       --enable-libaom
       --enable-libbluray
+      --enable-libdav1d
       --enable-libmp3lame
       --enable-libopus
+      --enable-librav1e
       --enable-librubberband
       --enable-libsnappy
+      --enable-libsrt
       --enable-libtesseract
       --enable-libtheora
       --enable-libvidstab
@@ -73,6 +95,7 @@ class Ffmpeg < Formula
       --enable-libwebp
       --enable-libx264
       --enable-libx265
+      --enable-libxml2
       --enable-libxvid
       --enable-lzma
       --enable-libfontconfig
@@ -98,7 +121,7 @@ class Ffmpeg < Formula
     bin.install Dir["tools/*"].select { |f| File.executable? f }
 
     # Fix for Non-executables that were installed to bin/
-    mv bin/"python", pkgshare/"python", :force => true
+    mv bin/"python", pkgshare/"python", force: true
   end
 
   test do

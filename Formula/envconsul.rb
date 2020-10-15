@@ -2,55 +2,39 @@ class Envconsul < Formula
   desc "Launch process with environment variables from Consul and Vault"
   homepage "https://github.com/hashicorp/envconsul"
   url "https://github.com/hashicorp/envconsul.git",
-    :tag      => "v0.9.2",
-    :revision => "e00ce74043ac1204566ece60f12919c8b56467f3"
+    tag:      "v0.10.0",
+    revision: "1835ce900c68f8bf37e384fb65d8e4763e78ab5a"
+  license "MPL-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4c6124368ea055ecca7e5b75484ed0da40b3de0c86c43e9188c0b00447e9b52b" => :catalina
-    sha256 "a0488492fac09bc1f89a224264602505e3fa7fda8747614ba8a40df5566cd77a" => :mojave
-    sha256 "418b4cc14d268c77074fb118cafe2165a1d4eab9b74489647328328b97d5327d" => :high_sierra
+    sha256 "0c24de84c15beae1d7dae04403be0bcd7732372be8bc75adb1fe19d6278e2107" => :catalina
+    sha256 "4f5a2fbc1b7010c85610a4bf51daacc8f7acb1e787b1577f1b3d55cf4b95692d" => :mojave
+    sha256 "2cefa866ee17b44d57e02f5a006d5a933ca53d19286cd438c3de33109a8f0219" => :high_sierra
   end
 
   depends_on "go" => :build
   depends_on "consul" => :test
 
   def install
-    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"envconsul"
-    prefix.install_metafiles
+    system "go", "build", "-ldflags", "-s -w", *std_go_args
   end
 
   test do
-    require "socket"
-    require "timeout"
-
-    CONSUL_DEFAULT_PORT = 8500
-    LOCALHOST_IP = "127.0.0.1".freeze
-
-    def port_open?(ip_address, port, seconds = 1)
-      Timeout.timeout(seconds) do
-        TCPSocket.new(ip_address, port).close
-      end
-      true
-    rescue Errno::ECONNREFUSED, Errno::EHOSTUNREACH, Timeout::Error
-      false
-    end
-
+    port = free_port
     begin
-      if !port_open?(LOCALHOST_IP, CONSUL_DEFAULT_PORT)
-        fork do
-          exec "consul agent -dev -bind 127.0.0.1"
-          puts "consul started"
-        end
-        sleep 5
-      else
-        puts "Consul already running"
+      fork do
+        exec "consul agent -dev -bind 127.0.0.1 -http-port #{port}"
+        puts "consul started"
       end
-      system "consul", "kv", "put", "homebrew-recipe-test/working", "1"
-      output = shell_output("#{bin}/envconsul -consul-addr=127.0.0.1:8500 -upcase -prefix homebrew-recipe-test env")
+      sleep 5
+
+      system "consul", "kv", "put", "-http-addr", "127.0.0.1:#{port}", "homebrew-recipe-test/working", "1"
+      output = shell_output("#{bin}/envconsul -consul-addr=127.0.0.1:#{port} " \
+                            "-upcase -prefix homebrew-recipe-test env")
       assert_match "WORKING=1", output
     ensure
-      system "consul", "leave"
+      system "consul", "leave", "-http-addr", "127.0.0.1:#{port}"
     end
   end
 end

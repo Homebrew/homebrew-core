@@ -3,13 +3,14 @@ class Libsbol < Formula
   homepage "https://synbiodex.github.io/libSBOL"
   url "https://github.com/SynBioDex/libSBOL/archive/v2.3.2.tar.gz"
   sha256 "c85de13b35dec40c920ff8a848a91c86af6f7c7ee77ed3c750f414bbbbb53924"
+  license "Apache-2.0"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "91de3275d372246e8be0b73b323f070397de88a5f4d7b5308bd005eb01858972" => :catalina
-    sha256 "146dd770ce84a2313c3cd1ebf3bbbb2c9c7035b90664130a8754cadb64a31ebe" => :mojave
-    sha256 "c263df7dc7a32db5341987c3785183ad6fee9a4e2abcce7983ba84bc3ec1ac70" => :high_sierra
-    sha256 "9a85aa1c4eb3f1b1913db75940956698d4085724c8838efa7709d46259429e35" => :sierra
+    sha256 "69d13417a5f365bda9b5da5097f0b253fc76a9c237ac733ef7b684db1a3e01d6" => :catalina
+    sha256 "2d81b55c1e379756aaf37667757273a6581ee98083ac6b87c0d2392020249b19" => :mojave
+    sha256 "cc6aca556487165bf44a40d159428652cae3b60e04f685281a5662b5ced42d2c" => :high_sierra
   end
 
   depends_on "cmake" => :build

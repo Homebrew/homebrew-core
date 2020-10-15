@@ -3,6 +3,7 @@ class Tio < Formula
   homepage "https://tio.github.io"
   url "https://github.com/tio/tio/releases/download/v1.32/tio-1.32.tar.xz"
   sha256 "a8f5ed6994cacb96780baa416b19e5a6d7d67e8c162a8ea4fd9eccd64984ae44"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

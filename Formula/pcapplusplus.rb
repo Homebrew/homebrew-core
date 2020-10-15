@@ -1,14 +1,15 @@
 class Pcapplusplus < Formula
   desc "C++ network sniffing, packet parsing and crafting framework"
   homepage "https://pcapplusplus.github.io"
-  url "https://github.com/seladb/PcapPlusPlus/archive/v19.12.tar.gz"
-  sha256 "9bebe2972a6678b8fb80f93b92a3caf9babae346137f2171e6941f35b56f88bb"
+  url "https://github.com/seladb/PcapPlusPlus/archive/v20.08.tar.gz"
+  sha256 "b35150a8517d3e5d5d8d1514126e4e8e4688f0941916af4256214c013c06ff50"
+  license "Unlicense"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7b028a7ef2438fc52a831baaeaa5475282a4ac811b17464304d0a4b77d9f031b" => :catalina
-    sha256 "712589c7198116011221a502c0cb158bf5b901ae06cb6a51ba7e523fb413ba48" => :mojave
-    sha256 "23854dd42a6afc6abcc8056f3661309c394496292470fb15b76ab211f38b965b" => :high_sierra
+    sha256 "92055e1311b0ef55f5e65481de87e64269b7a170713575ca167649c547fd0954" => :catalina
+    sha256 "25b1bf8b919fd755be9bd070265ee0f2b72de51375fc711af2de03ec4a73e046" => :mojave
+    sha256 "77422853771c5a32b0d7551e5acb9db83507c8072bc39d6fa84dfab161a30643" => :high_sierra
   end
 
   def install

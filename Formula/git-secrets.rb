@@ -3,6 +3,7 @@ class GitSecrets < Formula
   homepage "https://github.com/awslabs/git-secrets"
   url "https://github.com/awslabs/git-secrets/archive/1.3.0.tar.gz"
   sha256 "f1d50c6c5c7564f460ff8d279081879914abe920415c2923934c1f1d1fac3606"
+  license "Apache-2.0"
   head "https://github.com/awslabs/git-secrets.git"
 
   bottle do

@@ -1,15 +1,20 @@
 class Wireshark < Formula
   desc "Graphical network analyzer and capture tool"
   homepage "https://www.wireshark.org"
-  url "https://www.wireshark.org/download/src/all-versions/wireshark-3.2.2.tar.xz"
-  mirror "https://1.eu.dl.wireshark.org/src/all-versions/wireshark-3.2.2.tar.xz"
-  sha256 "5f5923ef4c3fee370ed0ca1bb324f37c246015eba4a7e74ab95d9208feeded79"
-  head "https://code.wireshark.org/review/wireshark", :using => :git
+  url "https://www.wireshark.org/download/src/all-versions/wireshark-3.2.7.tar.xz"
+  mirror "https://1.eu.dl.wireshark.org/src/all-versions/wireshark-3.2.7.tar.xz"
+  sha256 "be832fb86d9c455c5be8b225a755cdc77cb0e92356bdfc1fe4b000d93f7d70da"
+  head "https://code.wireshark.org/review/wireshark", using: :git
+
+  livecheck do
+    url "https://www.wireshark.org/download.html"
+    regex(/Stable Release \((\d+(?:\.\d+)*)/i)
+  end
 
   bottle do
-    sha256 "c0509d8a6fe03675bea1a9f3d2f8db62790000a02e2363202ff384d646feb4ab" => :catalina
-    sha256 "e55d0fe730ec7c96ccfa16d3c1b2bc5ba5638e496543c8b0fb332bfef5f39c85" => :mojave
-    sha256 "cddabe5267aa896a8c6b22adad6f6f9b6754bfcc0b9a4fee25ebfedd801275a2" => :high_sierra
+    sha256 "56e153eb88d099004475e721b08968f617991ea8c35f11e411fc77d9d1b35ed8" => :catalina
+    sha256 "4fa7905354fa591917f8295a54d65aa246fad2c1796f7af7125031deb53f17c9" => :mojave
+    sha256 "b8fb1209b735d6044f047a00adf05007111cf589b2bf5ad53fc3932acf2a0cff" => :high_sierra
   end
 
   depends_on "cmake" => :build

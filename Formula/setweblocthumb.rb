@@ -3,6 +3,7 @@ class Setweblocthumb < Formula
   homepage "https://hasseg.org/setWeblocThumb/"
   url "https://github.com/ali-rantakari/setWeblocThumb/archive/v1.0.0.tar.gz"
   sha256 "0258fdabbd24eed2ad3ff425b7832c4cd9bc706254861a6339f886efc28e35be"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

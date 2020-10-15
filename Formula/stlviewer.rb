@@ -15,6 +15,9 @@ class Stlviewer < Formula
     sha256 "cd58c5ba32e12ebb014a809ce8bdcd4a5b85c3caaedd7063710e409a33640707" => :mavericks
   end
 
+  # https://github.com/vishpat/stlviewer/issues/8
+  disable! because: :no_license
+
   def install
     system "./compile.py"
     bin.install "stlviewer"

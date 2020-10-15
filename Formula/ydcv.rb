@@ -5,16 +5,17 @@ class Ydcv < Formula
   homepage "https://github.com/felixonmars/ydcv"
   url "https://github.com/felixonmars/ydcv/archive/0.7.tar.gz"
   sha256 "03dd5de36ea8fce3170e678e63fc3694e2718b22bc5e1526e3e07f5c36ec9aa0"
-  revision 2
+  license "GPL-3.0"
+  revision 3
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c58351df91ff5461873cb5cae4dcecc40d8f2c64d15152b95c279a1624fe01d0" => :catalina
-    sha256 "8ea0db97fbede09e11d8890652db0128197c8fb551796efdf795c73021c1d578" => :mojave
-    sha256 "906ce5ee60c5b2c8d4c90b42fbc8e08cafd67de0df9f9b63bd7f4a0f428073c7" => :high_sierra
+    sha256 "a16a37a02c2a91cb46238a89d8771af6c65b623f361648e7f13247f0af9ef436" => :catalina
+    sha256 "2ad28560612e25690f859e8ba31e4d7a7b35820dc414c0778aa8c99f90737ceb" => :mojave
+    sha256 "148d1c3f69a30f2f7e42e037bd2dd0a704a400b41990317513d36a993f914a66" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
     ENV["SETUPTOOLS_SCM_PRETEND_VERSION"] = version

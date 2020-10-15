@@ -27,7 +27,7 @@ class Mpdscribble < Formula
     EOS
   end
 
-  plist_options :manual => "mpdscribble"
+  plist_options manual: "mpdscribble"
 
   def plist
     <<~EOS

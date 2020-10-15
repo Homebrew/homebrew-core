@@ -4,25 +4,24 @@ class CmarkGfm < Formula
   url "https://github.com/github/cmark-gfm/archive/0.29.0.gfm.0.tar.gz"
   version "0.29.0.gfm.0"
   sha256 "6a94aeaa59a583fadcbf28de81dea8641b3f56d935dda5b2447a3c8df6c95fea"
+  license "BSD-2-Clause"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "f318b456ed27ff10c495df41c9aed0208761e9fb10b43905d37a39ae30321cf0" => :catalina
-    sha256 "82cf0b26777bb839ace2b833e5390c17f5e4da1e91f61c8729f084e3bac4063c" => :mojave
-    sha256 "b816bbd9cf54cca8146e55cb9920fe8bb182599d4e0157582d39f6ab3b16d999" => :high_sierra
-    sha256 "2f5538c985404d43a128b7ae61ae93c4c4a9c9d277fa14e28cf1f729c0337221" => :sierra
+    sha256 "bce67909783f14886f3c68195fa316e12019208e07a2893ece68bce3ab421014" => :catalina
+    sha256 "08cd69b6691e7f38c84c85272f39ce900d0cb7e8270218e48da25068da5fce2e" => :mojave
+    sha256 "c5b7a2ec9f938dc64d3bccead2e1b7fcb1d21de9404b0e33e433e2d0e6379243" => :high_sierra
   end
 
   depends_on "cmake" => :build
-  depends_on "python" => :build
+  depends_on "python@3.8" => :build
 
-  conflicts_with "cmark", :because => "both install a `cmark.h` header"
+  conflicts_with "cmark", because: "both install a `cmark.h` header"
 
   def install
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
-      system "make"
-      system "make", "test"
       system "make", "install"
     end
   end

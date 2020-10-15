@@ -1,25 +1,24 @@
 class ProtocGenGo < Formula
   desc "Go support for Google's protocol buffers"
   homepage "https://github.com/golang/protobuf"
-  url "https://github.com/golang/protobuf/archive/v1.3.5.tar.gz"
-  sha256 "a3ab705fc75b48cba9ac18d10cb4012416714cc8edaeb151a85c46ac3a65033b"
+  url "https://github.com/golang/protobuf/archive/v1.4.2.tar.gz"
+  sha256 "a1e486b3ed6f502c43e10cb28bde4e8f020a420ef9958d3fbe61801492c07c87"
+  license "BSD-3-Clause"
   head "https://github.com/golang/protobuf.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f294fc2731f7068038f435d20a995efb55b5887a1330623f9eca092b46f152c6" => :catalina
-    sha256 "a7c861710913754302eaccd62b3fc1b506f31a2d3a1bd98dc809e5ca7adcc4b5" => :mojave
-    sha256 "bb8d5634d39418a315e8410b734b77b59706a4e96cfb267bf187193f73dbad23" => :high_sierra
+    sha256 "82ce3ce8a8e158bc9202aebfa2cfcbd5b398aeed9530614ece2d101c7e3e01fb" => :catalina
+    sha256 "82ce3ce8a8e158bc9202aebfa2cfcbd5b398aeed9530614ece2d101c7e3e01fb" => :mojave
+    sha256 "82ce3ce8a8e158bc9202aebfa2cfcbd5b398aeed9530614ece2d101c7e3e01fb" => :high_sierra
   end
 
   depends_on "go" => :build
   depends_on "protobuf"
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/golang/protobuf").install buildpath.children
-    system "go", "install", "github.com/golang/protobuf/protoc-gen-go"
-    bin.install buildpath/"bin/protoc-gen-go"
+    system "go", "build", *std_go_args, "-ldflags", "-s -w", "./protoc-gen-go"
+    prefix.install_metafiles
   end
 
   test do

@@ -3,6 +3,11 @@ class Libgsf < Formula
   homepage "https://developer.gnome.org/gsf/"
   url "https://download.gnome.org/sources/libgsf/1.14/libgsf-1.14.47.tar.xz"
   sha256 "d188ebd3787b5375a8fd38ee6f761a2007de5e98fa0cf5623f271daa67ba774d"
+  license "GPL-2.0"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     sha256 "82a2fce8b091d204302919c7541a0ad21a28a24fe8ad8a5d4ae7f50f3f190349" => :catalina

@@ -3,6 +3,7 @@ class Um < Formula
   homepage "https://github.com/sinclairtarget/um"
   url "https://github.com/sinclairtarget/um/archive/4.2.0.tar.gz"
   sha256 "f8c3f4bc5933cb4ab9643dcef7b01b8e8edf2dcbcd8062ef3ef214d1673ae64e"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
@@ -31,7 +32,7 @@ class Um < Formula
     system "gem", "install", "--ignore-dependencies", "um-#{version}.gem"
 
     bin.install libexec/"bin/um"
-    bin.env_script_all_files(libexec/"bin", :GEM_HOME => ENV["GEM_HOME"])
+    bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"])
 
     bash_completion.install "um-completion.sh"
     man1.install Dir["doc/man1/*"]

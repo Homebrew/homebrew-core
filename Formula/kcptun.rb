@@ -1,15 +1,16 @@
 class Kcptun < Formula
   desc "Stable & Secure Tunnel based on KCP with N:M multiplexing and FEC"
   homepage "https://github.com/xtaci/kcptun"
-  url "https://github.com/xtaci/kcptun/archive/v20200321.tar.gz"
-  sha256 "450e586528bd7b2e586605e3a664f77ebd9baa869918fcc6d6a41f84d4cfb4fd"
+  url "https://github.com/xtaci/kcptun/archive/v20201010.tar.gz"
+  sha256 "afab2a087b787e59e129c7d4fbc578e1131d264c0da1ce23cd1282321fc3c189"
+  license "MIT"
   head "https://github.com/xtaci/kcptun.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fe133e37201fb3eefc7da0be3e4bb3f8ff5544e18560101a67142e16e4ef5a21" => :catalina
-    sha256 "0aade89e5e2d12ec2258d026579c1b68b9211efa6aa0bfa2b30a5c72bdc390cb" => :mojave
-    sha256 "37190ecd3026ebdd4db09d31e2c86eb907a7368ac26338db0e65ece806ac4737" => :high_sierra
+    sha256 "b6928b25f4fd55412d4223ea0ab8a4d5ecbac534466ef5a3d4136a6cef0c66f3" => :catalina
+    sha256 "1976b6dc08cbca5fb3142b0ff6ff8bd5a9dfec732dfb0cea4c7f79f96726967f" => :mojave
+    sha256 "99c63029cbec3ec4c7ed41af0c8755757355a3adb90dc3d8ae60da27855740ca" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -23,7 +24,7 @@ class Kcptun < Formula
     etc.install "examples/local.json" => "kcptun_client.json"
   end
 
-  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/kcptun/bin/kcptun_client -c #{HOMEBREW_PREFIX}/etc/kcptun_client.json"
+  plist_options manual: "#{HOMEBREW_PREFIX}/opt/kcptun/bin/kcptun_client -c #{HOMEBREW_PREFIX}/etc/kcptun_client.json"
 
   def plist
     <<~EOS

@@ -5,24 +5,25 @@ class Bumpversion < Formula
   homepage "https://pypi.python.org/pypi/bumpversion"
   # maintained fork for the project
   # Ongoing maintenance discussion for the project, https://github.com/c4urself/bump2version/issues/86
-  url "https://github.com/c4urself/bump2version/archive/v0.5.11.tar.gz"
-  sha256 "f06c943b320033b3aa07958c99920474a54f1d0d76b12299fa67d59cdb17ab00"
+  url "https://github.com/c4urself/bump2version/archive/v1.0.1.tar.gz"
+  sha256 "b0864d58b0ef231f99fef85ee028633d9366557a748e29cd92df0aa94f83f5fc"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "154d61b2bee73203d79d39aa3a111dc394f4e2d8359a8b7e8e58349ebd07d4a2" => :catalina
-    sha256 "586064c90434be74c2750a75881e1461384d832f782db1c06797beb459d68b76" => :mojave
-    sha256 "5b40851a4fa852ef9b58c379aeba9ace20f6c3132c1caad41ce43307e79b68d9" => :high_sierra
+    sha256 "98faab4d2a8683aeae0d70544ddd975fe3bb67754faa5723ef085555d103990f" => :catalina
+    sha256 "7e216796b73d0fd1903ee89b84bbaa259e64aafc3db6596dbb5e6009b7870d44" => :mojave
+    sha256 "15fa88250157b9773f20b7645410778be0afb63855eabe38bc572f52dafb31b6" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.9"
 
   def install
     virtualenv_install_with_resources
   end
 
   test do
+    ENV["COLUMNS"] = "80"
     assert_includes shell_output("script -q /dev/null #{bin}/bumpversion --help"), "bumpversion: v#{version}"
     version_file = testpath/"VERSION"
     version_file.write "0.0.0"

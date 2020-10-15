@@ -6,6 +6,11 @@ class Monkeysphere < Formula
   revision 1
   head "git://git.monkeysphere.info/monkeysphere"
 
+  livecheck do
+    url "https://deb.debian.org/debian/pool/main/m/monkeysphere/"
+    regex(/href=.*?monkeysphere.?v?(\d+(?:\.\d+)+)(?:\.orig)?\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "b81913712d547ed0cafbb84478af579142a7409a8c15a2349c8e0eadba5693eb" => :catalina

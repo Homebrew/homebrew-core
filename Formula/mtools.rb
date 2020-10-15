@@ -4,6 +4,11 @@ class Mtools < Formula
   url "https://ftp.gnu.org/gnu/mtools/mtools-4.0.24.tar.gz"
   mirror "https://ftpmirror.gnu.org/mtools/mtools-4.0.24.tar.gz"
   sha256 "3483bdf233e77d0cf060de31df8e9f624c4bf26bd8a38ef22e06ca799d60c74e"
+  license "GPL-3.0"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
@@ -12,7 +17,7 @@ class Mtools < Formula
     sha256 "ebed9be10002c3a8a68089ff43702b24f1f2c451be9e14778eaece3ad4e0cdc0" => :high_sierra
   end
 
-  conflicts_with "multimarkdown", :because => "both install `mmd` binaries"
+  conflicts_with "multimarkdown", because: "both install `mmd` binaries"
 
   def install
     # Prevents errors such as "mainloop.c:89:15: error: expected ')'"

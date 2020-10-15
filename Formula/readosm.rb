@@ -4,6 +4,11 @@ class Readosm < Formula
   url "https://www.gaia-gis.it/gaia-sins/readosm-1.1.0.tar.gz"
   sha256 "c508cde9c49b955613d9a30dcf622fa264a5c0e01f58074e93351ea39abd40ec"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?readosm[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "aa0cbf07d9ba38940bf4a594dcfdcc9b915c64b9b6a1eb79907cb6d84c28d267" => :catalina

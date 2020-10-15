@@ -1,25 +1,31 @@
 class Minizip2 < Formula
   desc "Zip file manipulation library with minizip 1.x compatibility layer"
   homepage "https://github.com/nmoinvaz/minizip"
-  url "https://github.com/nmoinvaz/minizip/archive/2.9.2.tar.gz"
-  sha256 "8425399277d9d5e39454e655cfd3eb004607960c8358a3e732f5e741a6b5df0a"
+  url "https://github.com/nmoinvaz/minizip/archive/2.10.1.tar.gz"
+  sha256 "34f9cf28ee8d933835d476f50dcbb9e3fed56b48bfbcda1a561ce0d3affea663"
+  license "Zlib"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "eea2dd5c11351eafe018f1cd12dc2a053e4d158950242d311cb68e53868bc1de" => :catalina
-    sha256 "5f0f8b2d128a4bf04746be75c549b877b29a365028c86c8cb2382206796ed73e" => :mojave
-    sha256 "a6fc8a8620a239b63f8321a4fbd291d20be07db71ba327e72d496de2bdbf9979" => :high_sierra
+    sha256 "b208e4f752e1964b913c1bda42b129e267093ab8a58abeb41fdccb06ae38714f" => :catalina
+    sha256 "fb797578c5c50b1b96f9a77cd0d65f0aa2b5e0d778854749c79ace40f44eaaaa" => :mojave
+    sha256 "aea49e67aca487df03c509928714689b292792149fa585764a85c453ff17f511" => :high_sierra
   end
 
   depends_on "cmake" => :build
+  depends_on "zstd"
+
+  uses_from_macos "bzip2"
+  uses_from_macos "libiconv"
+  uses_from_macos "zlib"
 
   conflicts_with "minizip",
-    :because => "both install a `libminizip.a` library"
+    because: "both install a `libminizip.a` library"
   conflicts_with "libtcod", "libzip",
-    :because => "libtcod, libzip and minizip2 install a `zip.h` header"
+    because: "libtcod, libzip and minizip2 install a `zip.h` header"
 
   def install
-    system "cmake", ".", *std_cmake_args
+    system "cmake", ".", *std_cmake_args, "-DIconv_IS_BUILT_IN=on"
     system "make", "install"
   end
 
@@ -35,7 +41,9 @@ class Minizip2 < Formula
         return hZip != NULL && mz_zip_close(NULL) == MZ_PARAM_ERROR ? 0 : 1;
       }
     EOS
-    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lminizip", "-lz", "-lbz2",
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}",
+                   "-lminizip", "-lz", "-lbz2", "-liconv",
+                   "-L#{Formula["zstd"].opt_lib}", "-lzstd",
                    "-framework", "CoreFoundation", "-framework", "Security", "-o", "test"
     system "./test"
   end

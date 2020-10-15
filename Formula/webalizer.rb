@@ -1,7 +1,7 @@
 class Webalizer < Formula
   desc "Web server log file analysis"
-  homepage "http://www.webalizer.org"
-  url "ftp://ftp.mrunix.net/pub/webalizer/webalizer-2.23-08-src.tgz"
+  homepage "https://web.archive.org/web/20200622121953/www.webalizer.org/"
+  url "https://web.archive.org/web/20200205152356/ftp.mrunix.net/pub/webalizer/webalizer-2.23-08-src.tgz"
   mirror "https://deb.debian.org/debian/pool/main/w/webalizer/webalizer_2.23.08.orig.tar.gz"
   sha256 "edaddb5aa41cc4a081a1500e3fa96615d4b41bc12086bcedf9938018ce79ed8d"
   revision 2

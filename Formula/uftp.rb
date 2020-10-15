@@ -1,15 +1,20 @@
 class Uftp < Formula
   desc "Secure, reliable, efficient multicast file transfer program"
   homepage "https://uftp-multicast.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/uftp-multicast/source-tar/uftp-4.10.1.tar.gz"
-  sha256 "903353febf1b88f701198d956a60cec3d2be3cc251561a678061761aec6622f6"
+  url "https://downloads.sourceforge.net/project/uftp-multicast/source-tar/uftp-5.0.tar.gz"
+  sha256 "562f71ea5a24b615eb491f5744bad01e9c2e58244c1d6252d5ae98d320d308e0"
+  license "GPL-3.0"
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/uftp[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "f0459c3a5f56b16a2b636a1f37cff5220f08265400b18a2f3bea5640856ae608" => :catalina
-    sha256 "23bf3d26128baf28b1204c3b574eeb1c108607b0dc2a3b7d1725f3289ef5b8cf" => :mojave
-    sha256 "bc8d7ee7eeee6fa2f586681ca68d892bb504bbeef1d25f156a8039fdb33862d9" => :high_sierra
+    sha256 "7df0c64b08cd3377837185003849b7d86d11021dc34546f78eedcac3e73a46c6" => :catalina
+    sha256 "618dc8e47d069f19c4aeb1c18cdc12317196ebcfbe6e7c9d1be8b30472e19c92" => :mojave
+    sha256 "35b999e28214d336f0e6224fd92dfa824874c1e08ab520b9643d3fbc75c33b4a" => :high_sierra
   end
 
   depends_on "openssl@1.1"
@@ -22,7 +27,7 @@ class Uftp < Formula
     (prefix/"usr").unlink
   end
 
-  plist_options :manual => "uftpd"
+  plist_options manual: "uftpd"
 
   def plist
     <<~EOS

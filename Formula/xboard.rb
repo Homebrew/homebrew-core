@@ -6,6 +6,10 @@ class Xboard < Formula
   sha256 "2b2e53e8428ad9b6e8dc8a55b3a5183381911a4dae2c0072fa96296bbb1970d6"
   revision 3
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "561953a63ec6296b6faeb38b999f83ede6ba7c91501cce88eeb560c282985ee7" => :catalina
     sha256 "c94386e2985c9a4175aba3280658670810269c0a6fe8315676cc49198070bf14" => :mojave

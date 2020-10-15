@@ -5,6 +5,10 @@ class Libmatio < Formula
   sha256 "5e455527d370ab297c4abe5a2ab4d599c93ac7c1a0c85d841cc5c22f8221c400"
   revision 2
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "5b8bf79fa47dddfa85405fc2e0ea4e0ca44d9154ff690144568b1b8d334edd03" => :catalina

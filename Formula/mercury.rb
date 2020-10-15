@@ -1,24 +1,31 @@
 class Mercury < Formula
   desc "Logic/functional programming language"
   homepage "https://mercurylang.org/"
-  url "https://dl.mercurylang.org/release/mercury-srcdist-20.01.1.tar.gz"
-  sha256 "579cf00fa485d3918dbf9e50bb8057662b66fb82f69b3b824542e42a814bb76f"
+  url "https://dl.mercurylang.org/release/mercury-srcdist-20.06.tar.gz"
+  sha256 "b9c6965d41af49b4218d2444440c4860630d6f50c18dc6f1f4f8374d114f79be"
+  license all_of: ["GPL-2.0-only", "LGPL-2.0-only", "MIT"]
 
   bottle do
     cellar :any
-    sha256 "c6871399da6751d5407e22221a78e439d98b64c3826a2a98862561f013baa379" => :catalina
-    sha256 "4735a23f1f6d8d1c9d828e37cb62068c459c922262ea20e8c6daac000d7cf268" => :mojave
-    sha256 "e01491987cf0aaa54e733bc68b4f81ba02fbbfcff07c61b15b8224d31ed2b4b6" => :high_sierra
+    rebuild 1
+    sha256 "ede7304ce96165ca6382118eacb3997e0732b875db721640002d203db9e66346" => :catalina
+    sha256 "ac95cc73104a5621d7a561ae9957561206541633bff5adaf22ed36e21517add1" => :mojave
+    sha256 "60240308ebcc05ca33a4d40a787745cd4f60b445c9d94302505253bfd4697f6f" => :high_sierra
   end
 
   depends_on "openjdk"
 
-  def install
-    args = ["--prefix=#{prefix}",
-            "--mandir=#{man}",
-            "--infodir=#{info}"]
+  # Disable advanced segfault handling due to broken header detection.
+  patch do
+    url "https://github.com/Mercury-Language/mercury/commit/37ed70d43878cd53c8da40bf410e0a312835c036.patch?full_index=1"
+    sha256 "f01aca048464341dcf6e345056050e2c45236839cca17ac01fc944131d1641c0"
+  end
 
-    system "./configure", *args
+  def install
+    system "./configure", "--prefix=#{prefix}",
+            "--mandir=#{man}",
+            "--infodir=#{info}",
+            "mercury_cv_is_littleender=yes" # Fix broken endianness detection
 
     system "make", "install", "PARALLEL=-j"
 

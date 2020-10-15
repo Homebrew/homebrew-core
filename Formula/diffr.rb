@@ -3,6 +3,7 @@ class Diffr < Formula
   homepage "https://github.com/mookid/diffr"
   url "https://github.com/mookid/diffr/archive/v0.1.4.tar.gz"
   sha256 "2613b57778df4466a20349ef10b9e022d0017b4aee9a47fb07e78779f444f8cb"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,7 +16,7 @@ class Diffr < Formula
   depends_on "diffutils" => :test
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", *std_cargo_args
   end
 
   test do

@@ -5,6 +5,11 @@ class CKermit < Formula
   version "9.0.302"
   sha256 "0d5f2cd12bdab9401b4c836854ebbf241675051875557783c332a6a40dac0711"
 
+  livecheck do
+    url "http://www.kermitproject.org/ck90.html"
+    regex(/The current C-Kermit release is v?(\d+(?:\.\d+)+) /i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 1

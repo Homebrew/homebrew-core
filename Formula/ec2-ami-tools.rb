@@ -10,7 +10,7 @@ class Ec2AmiTools < Formula
   depends_on "openjdk"
 
   def install
-    env = { :JAVA_HOME => Formula["openjdk"].opt_prefix, :EC2_AMITOOL_HOME => libexec }
+    env = { JAVA_HOME: Formula["openjdk"].opt_prefix, EC2_AMITOOL_HOME: libexec }
     rm Dir["bin/*.cmd"] # Remove Windows versions
     libexec.install Dir["*"]
     Pathname.glob("#{libexec}/bin/*") do |file|

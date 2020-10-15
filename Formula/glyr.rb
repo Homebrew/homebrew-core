@@ -3,6 +3,7 @@ class Glyr < Formula
   homepage "https://github.com/sahib/glyr"
   url "https://github.com/sahib/glyr/archive/1.0.10.tar.gz"
   sha256 "77e8da60221c8d27612e4a36482069f26f8ed74a1b2768ebc373c8144ca806e8"
+  license "LGPL-3.0"
   revision 1
 
   bottle do

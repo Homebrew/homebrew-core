@@ -4,6 +4,11 @@ class Mhash < Formula
   url "https://downloads.sourceforge.net/project/mhash/mhash/0.9.9.9/mhash-0.9.9.9.tar.gz"
   sha256 "3dcad09a63b6f1f634e64168dd398e9feb9925560f9b671ce52283a79604d13e"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/mhash[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "d7d0a96656fbae5b279223d120bfe456c775a0c751090049bcf3ffffb2231761" => :catalina

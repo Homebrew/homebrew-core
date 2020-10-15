@@ -1,8 +1,13 @@
 class Artifactory < Formula
   desc "Manages binaries"
   homepage "https://www.jfrog.com/artifactory/"
-  url "https://dl.bintray.com/jfrog/artifactory/jfrog-artifactory-oss-6.18.1.zip"
-  sha256 "f5475d88f0f30afe7f5b94192c82bbe7cf832b8a07b2f8a110f60264c1a6adc1"
+  url "https://dl.bintray.com/jfrog/artifactory/jfrog-artifactory-oss-6.22.0.zip"
+  sha256 "e538eb16c765d5480ef641657ad49aeabc218df46cc48c26f505332bc4202d60"
+
+  livecheck do
+    url "https://dl.bintray.com/jfrog/artifactory/"
+    regex(/href=.*?jfrog-artifactory-oss[._-]v?(\d+(?:\.\d+)+)\.zip/i)
+  end
 
   bottle :unneeded
 
@@ -25,7 +30,7 @@ class Artifactory < Formula
     # Memory Options
     bin.install libexec/"bin/artifactory.default"
 
-    bin.env_script_all_files libexec/"bin", :JAVA_HOME => Formula["openjdk"].opt_prefix
+    bin.env_script_all_files libexec/"bin", JAVA_HOME: Formula["openjdk"].opt_prefix
   end
 
   def post_install
@@ -38,7 +43,7 @@ class Artifactory < Formula
     libexec.install_symlink data => "data"
   end
 
-  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/artifactory/libexec/bin/artifactory.sh"
+  plist_options manual: "#{HOMEBREW_PREFIX}/opt/artifactory/libexec/bin/artifactory.sh"
 
   def plist
     <<~EOS

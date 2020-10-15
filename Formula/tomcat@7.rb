@@ -1,9 +1,14 @@
 class TomcatAT7 < Formula
   desc "Implementation of Java Servlet and JavaServer Pages"
   homepage "https://tomcat.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=tomcat/tomcat-7/v7.0.103/bin/apache-tomcat-7.0.103.tar.gz"
-  mirror "https://archive.apache.org/dist/tomcat/tomcat-7/v7.0.103/bin/apache-tomcat-7.0.103.tar.gz"
-  sha256 "121dcefa2312ec77cd1ef27b085f4b3c913cde7ee67470d582154d845fd94754"
+  url "https://www.apache.org/dyn/closer.lua?path=tomcat/tomcat-7/v7.0.106/bin/apache-tomcat-7.0.106.tar.gz"
+  mirror "https://archive.apache.org/dist/tomcat/tomcat-7/v7.0.106/bin/apache-tomcat-7.0.106.tar.gz"
+  sha256 "533c246def2624de7f79ff6edfdf5695d56f7267ddc337385c2e4b502f963606"
+  license "Apache-2.0"
+
+  livecheck do
+    url :stable
+  end
 
   bottle :unneeded
 
@@ -21,10 +26,10 @@ class TomcatAT7 < Formula
     # Install files
     prefix.install %w[NOTICE LICENSE RELEASE-NOTES RUNNING.txt]
     libexec.install Dir["*"]
-    (bin/"catalina").write_env_script "#{libexec}/bin/catalina.sh", :JAVA_HOME => Formula["openjdk"].opt_prefix
+    (bin/"catalina").write_env_script "#{libexec}/bin/catalina.sh", JAVA_HOME: Formula["openjdk"].opt_prefix
   end
 
-  plist_options :manual => "catalina run"
+  plist_options manual: "catalina run"
 
   def plist
     <<~EOS

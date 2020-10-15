@@ -3,8 +3,14 @@ class Rlwrap < Formula
   homepage "https://github.com/hanslub42/rlwrap"
   url "https://github.com/hanslub42/rlwrap/archive/v0.43.tar.gz"
   sha256 "29e5a850fbe4753f353b0734e46ec0da043621bdcf7b52a89b77517f3941aade"
+  license "GPL-2.0"
   revision 1
   head "https://github.com/hanslub42/rlwrap.git"
+
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     sha256 "d4a2ef8e6f2c143c9156ed301d9b835b74b8e1c8bb232feb7fd8494e5262441c" => :catalina

@@ -1,19 +1,21 @@
-require "language/haskell"
-
 class Purescript < Formula
-  include Language::Haskell::Cabal
-
   desc "Strongly typed programming language that compiles to JavaScript"
   homepage "https://www.purescript.org/"
-  url "https://hackage.haskell.org/package/purescript-0.13.6/purescript-0.13.6.tar.gz"
-  sha256 "12f5efa2e157a8d57e6f5a4318d08ff57796802ec3e404f5436371b32f1f5af7"
+  url "https://hackage.haskell.org/package/purescript-0.13.8/purescript-0.13.8.tar.gz"
+  sha256 "701fac49de867ec01252b067185e8bbd1b72e4b96997044bac3cca91e3f8096a"
+  license "BSD-3-Clause"
+  revision 1
   head "https://github.com/purescript/purescript.git"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c5f29a4323a22ee658121f0923720e7a4e410136ea3b868d79198ce8ae5d4ffa" => :catalina
-    sha256 "7df056f7cff1e30232690dabc6fcfd9efb04d51f23e1e044df7bcd38b72740d1" => :mojave
-    sha256 "2994c4912472097dcdd4ed5f42046656c9a6e1174e1b7ebbf1a9ba50aed2f3f7" => :high_sierra
+    sha256 "3fd65800108e0e185468ca1779a8e6599e1834be1f9f1179da5d964221d82461" => :catalina
+    sha256 "2438c8f73284b0c5923f7bace263e0b00b8df592b073127cd4dd16178d512199" => :mojave
+    sha256 "a12832fe00786da347d0069578ff78556aa93890a28e5ae36497e3b4b7f68aab" => :high_sierra
   end
 
   depends_on "cabal-install" => :build
@@ -27,7 +29,8 @@ class Purescript < Formula
   def install
     system "hpack" if build.head?
 
-    install_cabal_package "-f", "release", :using => ["alex", "happy-1.19.9"]
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", "-frelease", *std_cabal_v2_args
   end
 
   test do

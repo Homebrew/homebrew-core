@@ -3,6 +3,7 @@ class Mdp < Formula
   homepage "https://github.com/visit1985/mdp"
   url "https://github.com/visit1985/mdp/archive/1.0.15.tar.gz"
   sha256 "3edc8ea1551fdf290d6bba721105e2e2c23964070ac18c13b4b8d959cdf6116f"
+  license "GPL-3.0"
   head "https://github.com/visit1985/mdp.git"
 
   bottle do

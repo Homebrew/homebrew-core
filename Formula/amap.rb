@@ -6,6 +6,12 @@ class Amap < Formula
   sha256 "a75ea58de75034de6b10b0de0065ec88e32f9e9af11c7d69edbffc4da9a5b059"
   revision 3
 
+  livecheck do
+    url "https://github.com/vanhauser-thc/THC-Archive/tree/master/Tools/"
+    strategy :page_match
+    regex(%r{href=.*?/amap[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "48480e1e415d4003efdfac48d4f5ae75c2dbfa1d53d9e742ca400cffa04dc231" => :catalina

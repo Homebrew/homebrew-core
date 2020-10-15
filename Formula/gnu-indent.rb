@@ -6,6 +6,10 @@ class GnuIndent < Formula
   sha256 "e77d68c0211515459b8812118d606812e300097cfac0b4e9fb3472664263bb8b"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "82a12279be8834591a2104253ac562978b557c26b262dd8d5bfbf6e7b1103dd1" => :catalina
     sha256 "e960e3f35f6a77daef487f54158953522f58a27caf27e39e0c17702754718ee1" => :mojave

@@ -1,15 +1,20 @@
 class Notmuch < Formula
   desc "Thread-based email index, search, and tagging"
   homepage "https://notmuchmail.org/"
-  url "https://notmuchmail.org/releases/notmuch-0.29.3.tar.xz"
-  sha256 "d5f704b9a72395e43303de9b1f4d8e14dd27bf3646fdbb374bb3dbb7d150dc35"
-  head "https://git.notmuchmail.org/git/notmuch", :using => :git
+  url "https://notmuchmail.org/releases/notmuch-0.31.tar.xz"
+  sha256 "571fa0e1539c86612b1f2b2c80a398e08ecfef52e27ef7e48cf8e3b84fa18394"
+  head "https://git.notmuchmail.org/git/notmuch", using: :git
+
+  livecheck do
+    url "https://notmuchmail.org/releases/"
+    regex(/href=.*?notmuch[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     cellar :any
-    sha256 "7abcdbcd0cb0bb8769038d6d5071605fe3b30cf92a2cb02fe99b021ae3258a25" => :catalina
-    sha256 "e8b7c72755336b60de167c3735347124141afa70e2bc5b67cc5d986a7ee6a459" => :mojave
-    sha256 "0b3af768a7e46d41285220c422ef60c729353d45774b0af609c7e3260506b71b" => :high_sierra
+    sha256 "a575f8f32d349d8944144d6243915e89f913f925d49d980563ca4ead2e2ea672" => :catalina
+    sha256 "bd0b32bbf7c694cc8625da14f60e1c55973d2d9f8c5b65b45df1015753ecf29d" => :mojave
+    sha256 "8474ebc0eac3c36ddd8718de5ffccfbcc26ba88565c5a40295c5458dc87645bf" => :high_sierra
   end
 
   depends_on "doxygen" => :build
@@ -29,16 +34,24 @@ class Notmuch < Formula
       --mandir=#{man}
       --emacslispdir=#{elisp}
       --emacsetcdir=#{elisp}
+      --bashcompletiondir=#{bash_completion}
+      --zshcompletiondir=#{zsh_completion}
       --without-ruby
     ]
 
-    ENV.append_path "PYTHONPATH", Formula["sphinx-doc"].opt_libexec/"lib/python3.7/site-packages"
+    ENV.append_path "PYTHONPATH", Formula["sphinx-doc"].opt_libexec/"lib/python3.8/site-packages"
 
     system "./configure", *args
     system "make", "V=1", "install"
 
+    bash_completion.install "completion/notmuch-completion.bash"
+
+    (prefix/"vim/plugin").install "vim/notmuch.vim"
+    (prefix/"vim/doc").install "vim/notmuch.txt"
+    (prefix/"vim").install "vim/syntax"
+
     cd "bindings/python" do
-      system "python3", *Language::Python.setup_install_args(prefix)
+      system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
     end
   end
 

@@ -1,14 +1,16 @@
 class WlaDx < Formula
   desc "Yet another crossassembler package"
   homepage "https://github.com/vhelin/wla-dx"
-  url "https://github.com/vhelin/wla-dx/archive/v9.10.tar.gz"
-  sha256 "a04eb7b0bdc314ba7cefd5ed1f8529ecc1b18ef524e8f7446e1a2cbf76fdcc4f"
+  url "https://github.com/vhelin/wla-dx/archive/v9.11-fix-fix-fix.tar.gz"
+  sha256 "7ac29b50492ece1d3d47db040219488a120f6cd613110b1e4c5d5d79790b1139"
+  license "GPL-2.0"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4c5a8c948703a0ac4b10a50b01fba6b175b412512afa49b0ca06bd5470fe95ae" => :catalina
-    sha256 "bae03cdacfcbb537e7ee12fb419f87133d9554122994e297fe20daf4b54148bf" => :mojave
-    sha256 "5a317d40754e1387fffe605ed373d03d1acd43247e49cae4e6bc80e9e909c3b7" => :high_sierra
+    sha256 "8f0d4747eb9ef0885ddf6c08b3d4ac980bd2b6dbaaa9f5048ea7aa4bc6f681b8" => :catalina
+    sha256 "b515cc9b31fd4d978143c518555b02873fabff5ef390d369575c3d3e99606326" => :mojave
+    sha256 "0ed73304d947e4ea44431c06df38bb6887a7551f575ade25a6b63ce7b27187c7" => :high_sierra
   end
 
   depends_on "cmake" => :build

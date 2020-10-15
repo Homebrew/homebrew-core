@@ -5,6 +5,11 @@ class Saxon < Formula
   version "9.9.1.7"
   sha256 "5d33c9e7f7326064da528e158c02e72ffe4b5ff78da2645a2dd0ebbefbc9d211"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/SaxonHE(\d+(?:[.-]\d+)+)J?\.(?:t|zip)}i)
+  end
+
   bottle :unneeded
 
   def install

@@ -1,15 +1,16 @@
 class CppGsl < Formula
   desc "Microsoft's C++ Guidelines Support Library"
   homepage "https://github.com/Microsoft/GSL"
-  url "https://github.com/Microsoft/GSL/archive/v2.1.0.tar.gz"
-  sha256 "ef73814657b073e1be86c8f7353718771bf4149b482b6cb54f99e79b23ff899d"
+  url "https://github.com/Microsoft/GSL/archive/v3.1.0.tar.gz"
+  sha256 "d3234d7f94cea4389e3ca70619b82e8fb4c2f33bb3a070799f1e18eef500a083"
+  license "MIT"
   head "https://github.com/Microsoft/GSL.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ba72f6e8b4795f9b785a45d76a411bd04f5c3020366cc366148e3cd06c0a8e7f" => :catalina
-    sha256 "ba72f6e8b4795f9b785a45d76a411bd04f5c3020366cc366148e3cd06c0a8e7f" => :mojave
-    sha256 "ba72f6e8b4795f9b785a45d76a411bd04f5c3020366cc366148e3cd06c0a8e7f" => :high_sierra
+    sha256 "ba5b32881db75527872525bcde6bef641bdb6c89dff511ccf5105229f1ba1e7c" => :catalina
+    sha256 "262709d81631cc7aa7477b03bd1904320da93b12cecf4aded01e3cc59917287f" => :mojave
+    sha256 "262709d81631cc7aa7477b03bd1904320da93b12cecf4aded01e3cc59917287f" => :high_sierra
   end
 
   depends_on "cmake" => :build

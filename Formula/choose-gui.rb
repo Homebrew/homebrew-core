@@ -1,26 +1,25 @@
 class ChooseGui < Formula
   desc "Fuzzy matcher that uses std{in,out} and a native GUI"
-  homepage "https://github.com/sdegutis/choose"
-  url "https://github.com/sdegutis/choose/archive/1.0.tar.gz"
-  sha256 "b1d16c6e143e2a9e9b306cd169ce54535689321d8f016308ff26c82c3d2931bf"
+  homepage "https://github.com/chipsenkbeil/choose"
+  url "https://github.com/chipsenkbeil/choose/archive/1.2.1.tar.gz"
+  sha256 "cab6083be6429e9c67bd0026aedf8bd76675a2dea045d235a973fb61b106aeaf"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "918bd486105a1b5b4c7e25c521f80fcaacb0ae82689b9c0a4692736166611f3e" => :catalina
-    sha256 "a4c32058d0658cbaa5562974eb2d98149f6adde6b95b91bfb464e8e8e12ff267" => :mojave
-    sha256 "bcd4c1c75dad408adfa451351a719ad126e2dadb26a49a4316d7d170ed0c6702" => :high_sierra
-    sha256 "5968418e6ee9717884d32f98e840cf02549165a9efc8f42e32549e3ae800c4cd" => :sierra
-    sha256 "100c28baee98417c8ce7041956c4a62fe9126b6b36a0f3e186b33500b6b1f2fb" => :el_capitan
-    sha256 "fd41325edc44dde3a61c52e310b0faa35314ce9c331b04673f55b6ebd5da28ba" => :yosemite
+    sha256 "8df952db2e54267c80dadb67f0da6a249fb0e3d58c92e1d7ac9e791ab8157f76" => :catalina
+    sha256 "0f045585cc3cfb9308e79156e9fbdcea273f7a6ec14da690d3000b445cf82689" => :mojave
+    sha256 "327a21c741b66cc4484dfba8dcdf3cdd1c4d6f30b8f9e15cd4dbd59b87501e66" => :high_sierra
   end
 
-  depends_on :xcode => :build
-  depends_on :macos => :yosemite
+  depends_on xcode: :build
 
-  conflicts_with "choose", :because => "both install a `choose` binary"
+  conflicts_with "choose", because: "both install a `choose` binary"
+  conflicts_with "choose-rust", because: "both install a `choose` binary"
 
   def install
-    xcodebuild "SDKROOT=", "SYMROOT=build"
+    xcodebuild "SDKROOT=", "SYMROOT=build", "clean"
+    xcodebuild "SDKROOT=", "SYMROOT=build", "-configuration", "Release", "build"
     bin.install "build/Release/choose"
   end
 

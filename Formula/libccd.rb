@@ -3,6 +3,7 @@ class Libccd < Formula
   homepage "http://libccd.danfis.cz/"
   url "https://github.com/danfis/libccd/archive/v2.1.tar.gz"
   sha256 "542b6c47f522d581fbf39e51df32c7d1256ac0c626e7c2b41f1040d4b9d50d1e"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any

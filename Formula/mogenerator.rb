@@ -3,6 +3,7 @@ class Mogenerator < Formula
   homepage "https://rentzsch.github.io/mogenerator/"
   url "https://github.com/rentzsch/mogenerator/archive/1.32.tar.gz"
   sha256 "4fa660a19934d94d7ef35626d68ada9912d925416395a6bf4497bd7df35d7a8b"
+  license "MIT"
   head "https://github.com/rentzsch/mogenerator.git"
 
   bottle do
@@ -13,8 +14,7 @@ class Mogenerator < Formula
     sha256 "aadafc4a282f98739d296f105f24c94666c90417f92c05644fd965dbb42aa37d" => :sierra
   end
 
-  depends_on :xcode => :build
-  depends_on :macos => :yosemite
+  depends_on xcode: :build
 
   def install
     xcodebuild "-target", "mogenerator", "-configuration", "Release", "SYMROOT=symroot", "OBJROOT=objroot"

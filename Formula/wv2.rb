@@ -4,6 +4,11 @@ class Wv2 < Formula
   url "https://downloads.sourceforge.net/project/wvware/wv2-0.4.2.tar.bz2"
   sha256 "9f2b6d3910cb0e29c9ff432f935a594ceec0101bca46ba2fc251aff251ee38dc"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/wv2[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "944451190aa61c6ea3dd74fffbc9e92e999b8eeb559a46f4c4708d5f9b4f154f" => :catalina

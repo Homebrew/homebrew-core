@@ -4,6 +4,11 @@ class Gsasl < Formula
   url "https://ftp.gnu.org/gnu/gsasl/gsasl-1.8.1.tar.gz"
   mirror "https://ftpmirror.gnu.org/gsasl/gsasl-1.8.1.tar.gz"
   sha256 "4dda162a511976bfef14ad1fecd7733719dfd9c361b5d09dc8414ea9d472d8d2"
+  license "GPL-3.0"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any

@@ -1,14 +1,15 @@
 class Webdis < Formula
   desc "Redis HTTP interface with JSON output"
   homepage "https://webd.is/"
-  url "https://github.com/nicolasff/webdis/archive/0.1.9.tar.gz"
-  sha256 "49bbb41d8c6bdbcaf0d849ad463a53f2eb7d99832251df2d78e7f1489b5d0277"
+  url "https://github.com/nicolasff/webdis/archive/0.1.11.tar.gz"
+  sha256 "76f90e42d82a97c319f19005a8729d257d870869d5f0085db7d9c84745833715"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any
-    sha256 "0ed607d2f26d3aa40821e3ef20ae493c58cb12b9df4edd4a0720ff3208f8fce1" => :catalina
-    sha256 "b00e9c19e7cd7846dae7bab59b8a71b18716195222c7b52a2ad2a8fb79f519f8" => :mojave
-    sha256 "906e5885c49a034a676cee68163c749bf1d55df7e26fae1f550bb911ce361bca" => :high_sierra
+    sha256 "d0f5052f9479bba534cdc8f5acfb047207d46b7e03aa3bea8bc9b17a07a27948" => :catalina
+    sha256 "e27da82c3099bbc9194c2a53dd3113580874e06ac8dc206f1523636cb678d3a2" => :mojave
+    sha256 "1947a8b3ffcb642053eefc5fa48aca88604148713fe8ae57eb4ab80a6991b097" => :high_sierra
   end
 
   depends_on "libevent"
@@ -29,7 +30,7 @@ class Webdis < Formula
     (var/"log").mkpath
   end
 
-  plist_options :manual => "webdis #{HOMEBREW_PREFIX}/etc/webdis.json"
+  plist_options manual: "webdis #{HOMEBREW_PREFIX}/etc/webdis.json"
 
   def plist
     <<~EOS
@@ -59,12 +60,16 @@ class Webdis < Formula
   end
 
   test do
+    port = free_port
+    cp "#{etc}/webdis.json", "#{testpath}/webdis.json"
+    inreplace "#{testpath}/webdis.json", "\"http_port\":\t7379,", "\"http_port\":\t#{port},"
+
     server = fork do
-      exec "#{bin}/webdis", "#{etc}/webdis.json"
+      exec "#{bin}/webdis", "#{testpath}/webdis.json"
     end
     sleep 0.5
     # Test that the response is from webdis
-    assert_match(/Server: Webdis/, shell_output("curl --silent -XGET -I http://localhost:7379/PING"))
+    assert_match(/Server: Webdis/, shell_output("curl --silent -XGET -I http://localhost:#{port}/PING"))
   ensure
     Process.kill "TERM", server
     Process.wait server

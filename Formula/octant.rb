@@ -2,15 +2,16 @@ class Octant < Formula
   desc "Kubernetes introspection tool for developers"
   homepage "https://octant.dev"
   url "https://github.com/vmware-tanzu/octant.git",
-      :tag      => "v0.11.0",
-      :revision => "20fbb90b767ff78983c034656e56b50d5ed1c5dd"
+      tag:      "v0.16.1",
+      revision: "8aebb34922f83894fb02ad393740e96ee1b3d8fe"
+  license "Apache-2.0"
   head "https://github.com/vmware-tanzu/octant.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "85c7f159ca072efb57e35c99dc1e5a0dedd3184b0ea7b0b63954d8614f9fedee" => :catalina
-    sha256 "4dafb4e1124c58682d5922718699466fc6fb2a6cf92a5ccfdbee62b5c3d9681e" => :mojave
-    sha256 "273d873e44b79308bdb8c5d348eac20db84186520a08bcb3576053ca51ab977f" => :high_sierra
+    sha256 "30a8f2ff4c498c638647ce0c4a223ca1bb7712b940e2c333498b3c66b073ee76" => :catalina
+    sha256 "1327671fd6c2658fca5e9d7c2b1cc7be4e7971979dfee9a1867bb5a38ea0e9c7" => :mojave
+    sha256 "85cee095a6fcdd835de7ca830e9da0e92b00c0ccdbc9e4af2c2ecd3db91e554f" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -29,11 +30,11 @@ class Octant < Formula
       system "go", "run", "build.go", "go-install"
       ENV.prepend_path "PATH", buildpath/"bin"
 
-      system "go", "generate", "./pkg/icon"
+      system "go", "generate", "./pkg/plugin/plugin.go"
       system "go", "run", "build.go", "web-build"
 
-      commit = Utils.popen_read("git rev-parse HEAD").chomp
-      build_time = Utils.popen_read("date -u +'%Y-%m-%dT%H:%M:%SZ' 2> /dev/null").chomp
+      commit = Utils.safe_popen_read("git", "rev-parse", "HEAD").chomp
+      build_time = Utils.safe_popen_read("date -u +'%Y-%m-%dT%H:%M:%SZ' 2> /dev/null").chomp
       ldflags = ["-X \"main.version=#{version}\"",
                  "-X \"main.gitCommit=#{commit}\"",
                  "-X \"main.buildTime=#{build_time}\""]
@@ -44,10 +45,13 @@ class Octant < Formula
   end
 
   test do
-    kubeconfig = testpath/"config"
-    output = shell_output("#{bin}/octant --kubeconfig #{kubeconfig} 2>&1", 1)
-    assert_match "failed to init cluster client", output
+    fork do
+      exec bin/"octant", "--kubeconfig", testpath/"config", "--disable-open-browser"
+    end
+    sleep 2
 
+    output = shell_output("curl -s http://localhost:7777")
+    assert_match "<title>Octant</title>", output, "Octant did not start"
     assert_match version.to_s, shell_output("#{bin}/octant version")
   end
 end

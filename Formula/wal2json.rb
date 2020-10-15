@@ -1,15 +1,15 @@
 class Wal2json < Formula
   desc "Convert PostgreSQL changesets to JSON format"
   homepage "https://github.com/eulerto/wal2json"
-  url "https://github.com/eulerto/wal2json/archive/wal2json_2_2.tar.gz"
-  sha256 "e2cb764ee1fccb86ba38dbc8a5e2acd2d272e96172203db67fd9c102be0ae3b5"
+  url "https://github.com/eulerto/wal2json/archive/wal2json_2_3.tar.gz"
+  sha256 "2ebf71ace3c9f4b66703bcf6e3fa6ef7b6b026f9e31db4cf864eb3deb4e1a5b3"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "f8d15f5d13d6e4942ccd4baa3ec633a39cd62337224eb1a165689cd2aebcbe51" => :catalina
-    sha256 "9f7218381271a905d4da6a943599cc1db3bbe92965dadc49ac2ae94a35350003" => :mojave
-    sha256 "18182f272c0ada8069adc54d65b3607c51c12e144b0cbe2620ee8fb3fb09c00f" => :high_sierra
+    sha256 "ec25d4dffbb7b4205565f2ec5ad6c17fa62a965d841a75b475b11bd7ff759c51" => :catalina
+    sha256 "fbe884982b54b6d4c17a608f8f861368322cc7f74024b20516632f83ccc7fbe4" => :mojave
+    sha256 "f382e783fbba2a97a79f0bda4db61211e3fbc4b5d2d859daa777ffa6845dc8ac" => :high_sierra
   end
 
   depends_on "postgresql"

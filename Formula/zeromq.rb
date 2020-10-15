@@ -1,15 +1,19 @@
 class Zeromq < Formula
   desc "High-performance, asynchronous messaging library"
   homepage "https://zeromq.org/"
-  url "https://github.com/zeromq/libzmq/releases/download/v4.3.2/zeromq-4.3.2.tar.gz"
-  sha256 "ebd7b5c830d6428956b67a0454a7f8cbed1de74b3b01e5c33c5378e22740f763"
+  url "https://github.com/zeromq/libzmq/releases/download/v4.3.3/zeromq-4.3.3.tar.gz"
+  sha256 "9d9285db37ae942ed0780c016da87060497877af45094ff9e1a1ca736e3875a2"
+
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     cellar :any
-    sha256 "c1b7ef404ebaf2a6dbfbe3912495d0120f952cfa12be44ed19581f4cbbc8e699" => :catalina
-    sha256 "f128049b3857d2b3be7fe355441b2dae455ccc5dae2d64e9d7e9d3abd5f014d5" => :mojave
-    sha256 "11b7d1bf3457a32c1c94716bef3f899106125e772939acb1ad6b0ae308dff863" => :high_sierra
-    sha256 "3de5d5f7d5d686855aadee66616516590fe8b73b5250d259144a1575a95802e8" => :sierra
+    sha256 "5310a4204987850db552bb2746c48171a0faf51692c9f52debf10f85ac4db569" => :catalina
+    sha256 "b67097dee2a42630e01978befe5c173f2a976c16fe4190873997776a584e4559" => :mojave
+    sha256 "fee7be7f0a0762755037f3cd2ab1207dc9af43b0b75bf517d5f6f522a315a3bd" => :high_sierra
   end
 
   head do

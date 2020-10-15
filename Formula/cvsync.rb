@@ -4,6 +4,11 @@ class Cvsync < Formula
   url "https://www.cvsync.org/dist/cvsync-0.24.19.tar.gz"
   sha256 "75d99fc387612cb47141de4d59cb3ba1d2965157230f10015fbaa3a1c3b27560"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?cvsync[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     rebuild 2
@@ -25,7 +30,7 @@ class Cvsync < Formula
     # Makefile from 2005 assumes Darwin doesn't define `socklen_t' and defines
     # it with a CC macro parameter making gcc unhappy about double define.
     inreplace "mk/network.mk",
-      /^CFLAGS \+= \-Dsocklen_t=int/, ""
+      /^CFLAGS \+= -Dsocklen_t=int/, ""
 
     # Remove owner and group parameters from install.
     inreplace "mk/base.mk",

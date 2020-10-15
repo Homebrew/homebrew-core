@@ -3,6 +3,7 @@ class Snappy < Formula
   homepage "https://google.github.io/snappy/"
   url "https://github.com/google/snappy/archive/1.1.8.tar.gz"
   sha256 "16b677f07832a612b0836178db7f374e414f94657c138e6993cbfc5dcc58651f"
+  license "BSD-3-Clause"
   head "https://github.com/google/snappy.git"
 
   bottle do

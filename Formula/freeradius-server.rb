@@ -3,7 +3,13 @@ class FreeradiusServer < Formula
   homepage "https://freeradius.org/"
   url "https://github.com/FreeRADIUS/freeradius-server/archive/release_3_0_21.tar.gz"
   sha256 "b2014372948a92f86cfe2cf43c58ef47921c03af05666eb9d6416bdc6eeaedc2"
+  license "GPL-2.0"
   head "https://github.com/FreeRADIUS/freeradius-server.git"
+
+  livecheck do
+    url :head
+    regex(/^release[._-](\d+(?:[._]\d+)+)$/i)
+  end
 
   bottle do
     sha256 "c3174a08eaeabce252f16224d93fcb1503584ac6b2d7733a6e80eb558cfefee5" => :catalina
@@ -15,8 +21,11 @@ class FreeradiusServer < Formula
   depends_on "talloc"
 
   uses_from_macos "perl"
-  uses_from_macos "readline"
   uses_from_macos "sqlite"
+
+  on_linux do
+    depends_on "readline"
+  end
 
   def install
     ENV.deparallelize

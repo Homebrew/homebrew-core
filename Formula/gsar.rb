@@ -4,6 +4,7 @@ class Gsar < Formula
   url "http://tjaberg.com/gsar121.zip"
   version "1.21"
   sha256 "05fb9583c970aba4eb0ffae2763d7482b0697c65fda1632a247a0153d7db65a9"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

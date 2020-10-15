@@ -3,8 +3,9 @@ class Stern < Formula
   homepage "https://github.com/wercker/stern"
   url "https://github.com/wercker/stern/archive/1.11.0.tar.gz"
   sha256 "d6f47d3a6f47680d3e4afebc8b01a14f0affcd8fb625132af14bb77843f0333f"
+  license "Apache-2.0"
   head "https://github.com/wercker/stern.git",
-    :shallow => false
+    shallow: false
 
   bottle do
     cellar :any_skip_relocation

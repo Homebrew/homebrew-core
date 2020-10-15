@@ -1,13 +1,14 @@
 class Collectd < Formula
   desc "Statistics collection and monitoring daemon"
   homepage "https://collectd.org/"
-  url "https://collectd.org/files/collectd-5.11.0.tar.bz2"
-  sha256 "37b10a806e34aa8570c1cafa6006c604796fae13cc2e1b3e630d33dcba9e5db2"
+  url "https://collectd.org/files/collectd-5.12.0.tar.bz2"
+  sha256 "5bae043042c19c31f77eb8464e56a01a5454e0b39fa07cf7ad0f1bfc9c3a09d6"
+  license "MIT"
 
   bottle do
-    sha256 "6b1fc316e7cab7aa33cfb8034a4e7485798ef2ceb477ceee88c212af480a1d3d" => :catalina
-    sha256 "0a3e17f5f67372dfb30d24f1a3253f53d20d22304f061d90d48a4f7cdd38bbb2" => :mojave
-    sha256 "380302d441ea46e334793feb602e788fe93fdaf13356bf8acc4ef8914d8005bb" => :high_sierra
+    sha256 "ea61777a4d32690b2a1ddd53081f0888f7c83066cc9e0e5482f604e61c981fd9" => :catalina
+    sha256 "9efc5c99db4239be93afbad141938c697cc36c1442e117d92960a5265cfc57cf" => :mojave
+    sha256 "850edf925fa233181c03c7157cf6c89fca53906f930c511febd283358242f688" => :high_sierra
   end
 
   head do
@@ -42,7 +43,7 @@ class Collectd < Formula
     system "make", "install"
   end
 
-  plist_options :manual => "#{HOMEBREW_PREFIX}/sbin/collectd -f -C #{HOMEBREW_PREFIX}/etc/collectd.conf"
+  plist_options manual: "#{HOMEBREW_PREFIX}/sbin/collectd -f -C #{HOMEBREW_PREFIX}/etc/collectd.conf"
 
   def plist
     <<~EOS

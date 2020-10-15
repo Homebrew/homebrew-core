@@ -3,7 +3,12 @@ class Wget < Formula
   homepage "https://www.gnu.org/software/wget/"
   url "https://ftp.gnu.org/gnu/wget/wget-1.20.3.tar.gz"
   sha256 "31cccfc6630528db1c8e3a06f6decf2a370060b982841cfab2b8677400a5092e"
+  license "GPL-3.0-or-later"
   revision 2
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     sha256 "ef65c759c5097a36323fa9c77756468649e8d1980a3a4e05695c05e39568967c" => :catalina
@@ -23,6 +28,10 @@ class Wget < Formula
   depends_on "pkg-config" => :build
   depends_on "libidn2"
   depends_on "openssl@1.1"
+
+  on_linux do
+    depends_on "util-linux"
+  end
 
   def install
     system "./bootstrap", "--skip-po" if build.head?

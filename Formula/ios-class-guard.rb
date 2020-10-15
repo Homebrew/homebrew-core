@@ -3,6 +3,7 @@ class IosClassGuard < Formula
   homepage "https://github.com/Polidea/ios-class-guard/"
   url "https://github.com/Polidea/ios-class-guard/archive/0.8.tar.gz"
   sha256 "4446993378f1e84ce1d1b3cbace0375661e3fe2fa1a63b9bf2c5e9370a6058ff"
+  license "GPL-2.0"
   head "https://github.com/Polidea/ios-class-guard.git"
 
   bottle do
@@ -16,7 +17,7 @@ class IosClassGuard < Formula
     sha256 "4eddde784c843628cb8bcb8c971142683c5a17373058f5bda62356b432dec00a" => :mavericks
   end
 
-  depends_on :xcode => :build
+  depends_on xcode: :build
 
   def install
     xcodebuild "-workspace", "ios-class-guard.xcworkspace",

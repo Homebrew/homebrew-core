@@ -1,26 +1,36 @@
 class Z3 < Formula
   desc "High-performance theorem prover"
   homepage "https://github.com/Z3Prover/z3"
-  url "https://github.com/Z3Prover/z3/archive/z3-4.8.7.tar.gz"
-  sha256 "8c1c49a1eccf5d8b952dadadba3552b0eac67482b8a29eaad62aa7343a0732c3"
+  url "https://github.com/Z3Prover/z3/archive/z3-4.8.9.tar.gz"
+  sha256 "c9fd04b9b33be74fffaac3ec2bc2c320d1a4cc32e395203c55126b12a14ff3f4"
+  license "MIT"
+  revision 1
   head "https://github.com/Z3Prover/z3.git"
+
+  livecheck do
+    url "https://github.com/Z3Prover/z3/releases/latest"
+    regex(%r{href=.*?/tag/z3[._-]v?(\d+(?:\.\d+)+)["' >]}i)
+  end
 
   bottle do
     cellar :any
-    sha256 "a3ce513ca71645a6c71d3f5b0e60ccb27171a8b9a019287e170efe817fb4a76b" => :catalina
-    sha256 "3f0eb432537467e69e9e4990ab6511b795c68557ab276d9e11325ece14c68718" => :mojave
-    sha256 "4cfd76bc84c1b51b2d1450560eb67f1b467c1ebba516c84e617cc099ff579ee7" => :high_sierra
+    sha256 "214adde7572bc8a15e496c5d5c9e4ead2896f734c4aae4ede0769ac103668e9a" => :catalina
+    sha256 "12808ffa55f75ef38a61faf4f973445a6436ccc1cae30fd29489b249fd22467b" => :mojave
+    sha256 "037a6a59ab8b4c776421d4beb3583ce10b0e45b00c4dac9d8075ec56e0e9e858" => :high_sierra
   end
 
-  depends_on "python"
+  # Has Python bindings but are supplementary to the main library
+  # which does not need Python.
+  depends_on "python@3.9" => :build
 
   def install
-    xy = Language::Python.major_minor_version "python3"
-    system "python3", "scripts/mk_make.py",
-                      "--prefix=#{prefix}",
-                      "--python",
-                      "--pypkgdir=#{lib}/python#{xy}/site-packages",
-                      "--staticlib"
+    python3 = Formula["python@3.9"].opt_bin/"python3"
+    xy = Language::Python.major_minor_version python3
+    system python3, "scripts/mk_make.py",
+                     "--prefix=#{prefix}",
+                     "--python",
+                     "--pypkgdir=#{lib}/python#{xy}/site-packages",
+                     "--staticlib"
 
     cd "build" do
       system "make"

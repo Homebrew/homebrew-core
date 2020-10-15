@@ -1,21 +1,28 @@
 class Tbb < Formula
   desc "Rich and complete approach to parallelism in C++"
   homepage "https://www.threadingbuildingblocks.org/"
-  url "https://github.com/intel/tbb/archive/v2020.1.tar.gz"
-  version "2020_U1"
-  sha256 "7c96a150ed22bc3c6628bc3fef9ed475c00887b26d37bca61518d76a56510971"
-  revision 1
+  url "https://github.com/intel/tbb/archive/v2020.3.tar.gz"
+  version "2020_U3"
+  sha256 "ebc4f6aa47972daed1f7bf71d100ae5bf6931c2e3144cf299c8cc7d041dca2f3"
+  license "Apache-2.0"
 
   bottle do
     cellar :any
-    sha256 "1f949738237859a87bf40da697d2adec6603c4dd4338c2fadc9f2b8b2f2dfe52" => :catalina
-    sha256 "d299eab47b9b7e471b09f688d080d362b40ec71160cffe143b23130e07f3d221" => :mojave
-    sha256 "e14f3b69b1850b912c4942100d24f70d5bf02ff8977af893e97fcca904aaac61" => :high_sierra
+    sha256 "4f70d554ad713722b2a273f52638c4c82e36d154e1c40775fa7cd5e36302d474" => :catalina
+    sha256 "867ba96d02b9c2fae28c3caf4e8d5a0c9b665399b4e61df5cf3dd1db0790d149" => :mojave
+    sha256 "636480ba87f9f38cbd1823175bec159a2c5e0bbfa2393cf214d50322ff86e427" => :high_sierra
   end
 
   depends_on "cmake" => :build
   depends_on "swig" => :build
-  depends_on "python"
+  depends_on "python@3.8"
+
+  # Remove when upstream fix is released
+  # https://github.com/oneapi-src/oneTBB/pull/258
+  patch do
+    url "https://github.com/oneapi-src/oneTBB/commit/86f6dcdc17a8f5ef2382faaef860cfa5243984fe.diff?full_index=1"
+    sha256 "94d11e17f32efe6c3ffd1c610811b6d160c619e2a5da7debc5fd8eaca418d9aa"
+  end
 
   def install
     compiler = (ENV.compiler == :clang) ? "clang" : "gcc"
@@ -30,7 +37,7 @@ class Tbb < Formula
 
     cd "python" do
       ENV["TBBROOT"] = prefix
-      system "python3", *Language::Python.setup_install_args(prefix)
+      system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
     end
 
     system "cmake", *std_cmake_args,

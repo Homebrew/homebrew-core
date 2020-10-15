@@ -1,10 +1,14 @@
 class ApacheArchiva < Formula
-  desc "The Build Artifact Repository Manager"
+  desc "Build Artifact Repository Manager"
   homepage "https://archiva.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=archiva/2.2.4/binaries/apache-archiva-2.2.4-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/archiva/2.2.4/binaries/apache-archiva-2.2.4-bin.tar.gz"
-  sha256 "ad099c451529d566db8b5ad6cf2d8bafc6aa2cc3d225c39fd374cad420a6643c"
-  revision 1
+  url "https://www.apache.org/dyn/closer.lua?path=archiva/2.2.5/binaries/apache-archiva-2.2.5-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/archiva/2.2.5/binaries/apache-archiva-2.2.5-bin.tar.gz"
+  sha256 "01119af2d9950eacbcce0b7f8db5067b166ad26c1e1701bef829105441bb6e29"
+  license "Apache-2.0"
+
+  livecheck do
+    url :stable
+  end
 
   bottle :unneeded
 
@@ -12,7 +16,7 @@ class ApacheArchiva < Formula
 
   def install
     libexec.install Dir["*"]
-    (bin/"archiva").write_env_script libexec/"bin/archiva", :JAVA_HOME => Formula["openjdk"].opt_prefix
+    (bin/"archiva").write_env_script libexec/"bin/archiva", JAVA_HOME: Formula["openjdk"].opt_prefix
   end
 
   def post_install
@@ -23,7 +27,7 @@ class ApacheArchiva < Formula
     cp_r libexec/"conf", var/"archiva"
   end
 
-  plist_options :manual => "ARCHIVA_BASE=#{HOMEBREW_PREFIX}/var/archiva #{HOMEBREW_PREFIX}/opt/apache-archiva/bin/archiva console"
+  plist_options manual: "ARCHIVA_BASE=#{HOMEBREW_PREFIX}/var/archiva #{HOMEBREW_PREFIX}/opt/apache-archiva/bin/archiva console"
 
   def plist
     <<~EOS

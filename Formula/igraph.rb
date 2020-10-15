@@ -1,18 +1,23 @@
 class Igraph < Formula
   desc "Network analysis package"
   homepage "https://igraph.org/"
-  url "https://github.com/igraph/igraph/releases/download/0.8.1/igraph-0.8.1.tar.gz"
-  sha256 "266e1bf9e81305b368fbaa2218a8416c51ae85ea164e3657c574dc3898ca7b71"
+  url "https://github.com/igraph/igraph/releases/download/0.8.3/igraph-0.8.3.tar.gz"
+  sha256 "cc935826d3725a9d95f1b0cc46e3c08c554b29cdd6943f0286d965898120b3f1"
+  license "GPL-2.0-or-later"
 
   bottle do
     cellar :any
-    sha256 "e0ff16ce74b2fb424db6ca1bb1974bfe047143dea608687433172b989671ac7f" => :catalina
-    sha256 "ddccb3cfc32f42d88ef243d0eea3bfd5254e60e427cabb45675551fd934cf3f9" => :mojave
-    sha256 "31fa14d8819baacf7be455cecc5f233f618f856e2fc2bc3ef924d1ce248e4f33" => :high_sierra
+    sha256 "6e7d352c5b144dddc9b05052c953bc21a6dcec380d1afcf6f1b3d80d8b22f257" => :catalina
+    sha256 "d60d6d7ba09921385e29b02ca5d26fd0b7c15d1bd6b3de7e9cea33f533c76fd1" => :mojave
+    sha256 "c8081231567eb1fdbe966e687b9ac759ecbd0c61f39a26e316d7c34e29e7c365" => :high_sierra
   end
 
   depends_on "glpk"
   depends_on "gmp"
+
+  on_linux do
+    depends_on "openblas"
+  end
 
   def install
     system "./configure", "--disable-debug",

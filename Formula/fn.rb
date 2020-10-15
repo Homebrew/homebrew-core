@@ -1,14 +1,15 @@
 class Fn < Formula
   desc "Command-line tool for the fn project"
   homepage "https://fnproject.io"
-  url "https://github.com/fnproject/cli/archive/0.5.94.tar.gz"
-  sha256 "c6f75ee7d25f1f451f5f9abab01a8099789de89d76cf9bf9a8da1549281c3b89"
+  url "https://github.com/fnproject/cli/archive/0.5.100.tar.gz"
+  sha256 "a136531a8de1ac7db592a4215b41ea777f984b7944a15e6a2dfab847739be69e"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0e3b5fc8d155764ec247bb8f1ec687a83f064e1a17d9b1f7a69474f6a1febb5e" => :catalina
-    sha256 "7e8e45718bc849d03c7250d2388b48c7ee976215fea9a317aa14f6c9433e646c" => :mojave
-    sha256 "f65593204275c1417081ba5854ebccadc2b499742590ccff0d8261e3e3b14f2d" => :high_sierra
+    sha256 "70afb644c2a001bf82f3b3a6b66f07a675a5b5a3a7e5bbae670ebc14a72ec8d4" => :catalina
+    sha256 "f402360d94b755a56b99437d38bc67b3592ef988e7103bce88939c36d9387302" => :mojave
+    sha256 "0bb15d8be2fca5be63127f373512c2f64a6a6472ca3407c9d4f3bf81143a998b" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -19,13 +20,12 @@ class Fn < Formula
   end
 
   test do
-    require "socket"
     assert_match version.to_s, shell_output("#{bin}/fn --version")
     system "#{bin}/fn", "init", "--runtime", "go", "--name", "myfunc"
     assert_predicate testpath/"func.go", :exist?, "expected file func.go doesn't exist"
     assert_predicate testpath/"func.yaml", :exist?, "expected file func.yaml doesn't exist"
-    server = TCPServer.new("localhost", 0)
-    port = server.addr[1]
+    port = free_port
+    server = TCPServer.new("localhost", port)
     pid = fork do
       loop do
         socket = server.accept

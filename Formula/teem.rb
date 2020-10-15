@@ -5,6 +5,10 @@ class Teem < Formula
   sha256 "a01386021dfa802b3e7b4defced2f3c8235860d500c1fa2f347483775d4c8def"
   head "https://svn.code.sf.net/p/teem/code/teem/trunk"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "105f54c1cb830584bcf694756ab18eab2a7d9a67e3226699272c4449cc2f816e" => :catalina
     sha256 "439d02dd7f54d7f307b5984d00448a4e77309660e8f1c52e998ef9ea40fdcaa1" => :mojave

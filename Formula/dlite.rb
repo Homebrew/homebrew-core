@@ -3,6 +3,7 @@ class Dlite < Formula
   homepage "https://github.com/nlf/dlite"
   url "https://github.com/nlf/dlite/archive/1.1.5.tar.gz"
   sha256 "cfbd99ef79f9657c2927cf5365ab707999a7b51eae759452354aff1a0200de3f"
+  license "MIT"
   head "https://github.com/nlf/dlite.git"
 
   bottle do
@@ -16,10 +17,6 @@ class Dlite < Formula
   end
 
   depends_on "go" => :build
-
-  # DLite depends on the Hypervisor framework which only works on
-  # OS X versions 10.10 (Yosemite) or newer
-  depends_on :macos => :yosemite
 
   def install
     ENV["GOPATH"] = buildpath

@@ -1,45 +1,89 @@
-require "language/haskell"
-
 class Hledger < Formula
-  include Language::Haskell::Cabal
-
-  desc "Command-line accounting tool"
+  desc "Easy plain text accounting with command-line, terminal and web UIs"
   homepage "https://hledger.org/"
-  url "https://hackage.haskell.org/package/hledger-1.16.2/hledger-1.16.2.tar.gz"
-  sha256 "b4b78b3f08d00ca75c6f6d47b37c0a67aec4adc0aefff2ca29bb0f3b82ac7bcb"
+  url "https://hackage.haskell.org/package/hledger-1.19.1/hledger-1.19.1.tar.gz"
+  sha256 "d5c1eb6d8de5cf2d82771db1796b57a304095fa940773a6405c9cd8085f3da71"
+  license "GPL-3.0-or-later"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7a2ce1e953222966b73fdcbb7ea164b49adaf6fbf00eba6795f4d32dd210a958" => :catalina
-    sha256 "ddf79feacd34196d4b92976133dda1de97b53514ed4d1bf9d4c0206bcb330fe2" => :mojave
-    sha256 "22f6bd98c3b593aa5ff55deea85b2c7aa4da9e4d075f1eed05cbca71aefed0ab" => :high_sierra
+    sha256 "ea0f380189028b5e6f1c41743de1692553d7752a001ea0f7e3ba715ba5d31d8e" => :catalina
+    sha256 "db03cb4f2d644d7fd090898d039bb4ca5509ced2f116ecd1f2950bd077864098" => :mojave
+    sha256 "31d4beba55f2acbe521b255b40e9751cba33065193be8be102381cfffcc98f62" => :high_sierra
   end
 
-  depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@8.8" => :build
+  depends_on "haskell-stack" => :build
 
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
-  resource "hledger-web" do
-    url "https://hackage.haskell.org/package/hledger-web-1.16.2/hledger-web-1.16.2.tar.gz"
-    sha256 "daa4b68d8491d0a5716ee2ac39520a31bef6a1ae6b36ddc0f531b81616c237ce"
+  resource "hledger-lib" do
+    url "https://hackage.haskell.org/package/hledger-lib-1.19.1/hledger-lib-1.19.1.tar.gz"
+    sha256 "cabf263fe8a3c38822c9146b54a519fe56d369456c72be6db5a88c1c0208c15f"
   end
-
   resource "hledger-ui" do
-    url "https://hackage.haskell.org/package/hledger-ui-1.16.2/hledger-ui-1.16.2.tar.gz"
-    sha256 "90f69e1e2f9fa66c535b7f61144b3fb681f1629f313c89d423b4569722224faf"
+    url "https://hackage.haskell.org/package/hledger-ui-1.19.1/hledger-ui-1.19.1.tar.gz"
+    sha256 "d4154c33712b003dc15d795c92da59158d2ca5e02660234f731d2794a5403f9e"
+  end
+  resource "hledger-web" do
+    url "https://hackage.haskell.org/package/hledger-web-1.19.1/hledger-web-1.19.1.tar.gz"
+    sha256 "6085cb69bdc3808f929cc6ee621c0d3ffc773debe42bc1aaf0c7c1fe1a988a0f"
   end
 
   def install
-    install_cabal_package "hledger", "hledger-web", "hledger-ui", "brick-0.50.1", :using => ["happy", "alex"]
-    # help cabal pick a good brick version, https://github.com/Homebrew/homebrew-core/pull/49010#issuecomment-574719702
+    (buildpath/"../hledger-lib").install resource("hledger-lib")
+    (buildpath/"../hledger-ui").install resource("hledger-ui")
+    (buildpath/"../hledger-web").install resource("hledger-web")
+    cd ".." do
+      system "stack", "update"
+      system "stack", "init", "--resolver=lts-16.12"
+      system "stack", "install", "--system-ghc", "--no-install-ghc", "--local-bin-path=#{bin}"
+
+      man1.install "hledger-1.19.1/hledger.1"
+      man1.install "hledger-ui/hledger-ui.1"
+      man1.install "hledger-web/hledger-web.1"
+      man5.install "hledger-lib/hledger_csv.5"
+      man5.install "hledger-lib/hledger_journal.5"
+      man5.install "hledger-lib/hledger_timeclock.5"
+      man5.install "hledger-lib/hledger_timedot.5"
+
+      info.install "hledger-1.19.1/hledger.info"
+      info.install "hledger-lib/hledger_csv.info"
+      info.install "hledger-lib/hledger_journal.info"
+      info.install "hledger-lib/hledger_timeclock.info"
+      info.install "hledger-lib/hledger_timedot.info"
+      info.install "hledger-ui/hledger-ui.info"
+      info.install "hledger-web/hledger-web.info"
+    end
   end
 
   test do
-    touch ".hledger.journal"
     system "#{bin}/hledger", "test"
-    system "#{bin}/hledger-web", "--version"
+
+    File.open(".hledger.journal", "w") do |f|
+      f.write <<~EOS
+        2020/1/1
+          boat  123
+          cash
+      EOS
+    end
+
     system "#{bin}/hledger-ui", "--version"
+
+    pid = fork do
+      exec "#{bin}/hledger-web", "--serve"
+    end
+    sleep 1
+    begin
+      assert_match /boat +123/, shell_output("curl -s http://127.0.0.1:5000/journal")
+    ensure
+      Process.kill("SIGINT", pid)
+      Process.wait(pid)
+    end
   end
 end

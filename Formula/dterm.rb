@@ -3,6 +3,12 @@ class Dterm < Formula
   homepage "http://www.knossos.net.nz/resources/free-software/dterm/"
   url "http://www.knossos.net.nz/downloads/dterm-0.5.tgz"
   sha256 "94533be79f1eec965e59886d5f00a35cb675c5db1d89419f253bb72f140abddb"
+  license "GPL-2.0"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?dterm[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     cellar :any_skip_relocation

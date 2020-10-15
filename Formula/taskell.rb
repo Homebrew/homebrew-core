@@ -1,22 +1,19 @@
-require "language/haskell"
-
 class Taskell < Formula
-  include Language::Haskell::Cabal
-
   desc "Command-line Kanban board/task manager with support for Trello"
   homepage "https://taskell.app"
-  url "https://github.com/smallhadroncollider/taskell/archive/1.9.3.tar.gz"
-  sha256 "bbe81d4a8f04ca6bde0ef6c18b5cc29730e876ea40b0c21a8dfe9c538aa39235"
+  url "https://github.com/smallhadroncollider/taskell/archive/1.10.1.tar.gz"
+  sha256 "5056fad8983253a8c67d28f525b2cdf1dc7a182e0e1885a6f060189832aaae54"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "98306d1b63e79984e6d4329cfa83cef8e648cb9a6245113946612fea85ff9af5" => :catalina
-    sha256 "42f5e2adb3bd30b4477ec40bba2e26cff5192ad43bc8e9341abf909c925a8713" => :mojave
-    sha256 "93e7c89aafc04ab9e0b99d28b951ae30403e349fe986f323cdc07d9eac3baada" => :high_sierra
+    sha256 "d224f2ea895ced6b1a8cc761e3d3c79478a9e210df68f3cbcdb65debacd8a246" => :catalina
+    sha256 "6733a5756ba481343d132064e22a6a6447eef1e374ad4a9d4915d8951fe5ccb0" => :mojave
+    sha256 "d7fbd709e7713e2f08a1d75a64c2527dfa87f8d935a872054119bedc4338d652" => :high_sierra
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@8.8" => :build
   depends_on "hpack" => :build
 
   uses_from_macos "ncurses"
@@ -24,7 +21,8 @@ class Taskell < Formula
 
   def install
     system "hpack"
-    install_cabal_package
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
   end
 
   test do

@@ -4,6 +4,11 @@ class Mplayer < Formula
   url "https://mplayerhq.hu/MPlayer/releases/MPlayer-1.4.tar.xz"
   sha256 "82596ed558478d28248c7bc3828eb09e6948c099bbd76bb7ee745a0e3275b548"
 
+  livecheck do
+    url "https://mplayerhq.hu/MPlayer/releases/"
+    regex(/href=.*?MPlayer[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "d46c9afd22fbdda5423877d2583732e6c88ee9bd52b26c8b79ea8e90c9af7d59" => :catalina

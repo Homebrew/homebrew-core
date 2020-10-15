@@ -5,6 +5,10 @@ class Zenity < Formula
   sha256 "e786e733569c97372c3ef1776e71be7e7599ebe87e11e8ad67dcc2e63a82cd95"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "6bbf833a5a7d71346a5391fae436c2c46f530f0f5b9ac5d57330601b3456db49" => :catalina
     sha256 "cef54fcd5601eb5dd3b563d1a09a6cd83654a2fa46e4a83a3d3c6e6a356fe29a" => :mojave

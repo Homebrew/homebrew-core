@@ -3,15 +3,15 @@ class Rdup < Formula
   homepage "https://github.com/miekg/rdup"
   url "https://github.com/miekg/rdup/archive/1.1.15.tar.gz"
   sha256 "787b8c37e88be810a710210a9d9f6966b544b1389a738aadba3903c71e0c29cb"
-  revision 1
+  license "GPL-3.0"
+  revision 2
   head "https://github.com/miekg/rdup.git"
 
   bottle do
     cellar :any
-    sha256 "4fe179d7e456cf85e7558780486e1db9cff3bb598ae5a3754681aacdfac5dda4" => :catalina
-    sha256 "10160aeeb73f78719894f7d95e0286975e77b7778acebb0150256fd0e83d0931" => :mojave
-    sha256 "2bc9ea46a7792c1c3f4d0b8d220e7712876e9847973a32dc948079c72045a0e3" => :high_sierra
-    sha256 "bb7077f739d9ba32ff6b1017987ebffc9b9e4081c6d3dd36e56f0193c9e9e4e7" => :sierra
+    sha256 "cf02c3004b312a3d90c6e47227f35e39319736270be76d7e4b0705568a21abec" => :catalina
+    sha256 "fb091d60536b72e20dc5e1448d9876e7b2eaefd16d40f2bfbf7bba48059af348" => :mojave
+    sha256 "417244fe66e0f47ab1afea65e9a52db01c15ac2f5db5e150ad65d80b2e85e2cc" => :high_sierra
   end
 
   depends_on "autoconf" => :build

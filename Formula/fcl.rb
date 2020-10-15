@@ -3,6 +3,7 @@ class Fcl < Formula
   homepage "https://flexible-collision-library.github.io/"
   url "https://github.com/flexible-collision-library/fcl/archive/v0.6.1.tar.gz"
   sha256 "c8a68de8d35a4a5cd563411e7577c0dc2c626aba1eef288cb1ca88561f8d8019"
+  license "BSD-3-Clause"
 
   bottle do
     sha256 "05a5dfa094009376e5915ad14289490fa370462153102eb43e402d50663a23f4" => :catalina

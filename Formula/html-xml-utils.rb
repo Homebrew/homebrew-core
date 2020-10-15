@@ -1,14 +1,20 @@
 class HtmlXmlUtils < Formula
   desc "Tools for manipulating HTML and XML files"
   homepage "https://www.w3.org/Tools/HTML-XML-utils/"
-  url "https://www.w3.org/Tools/HTML-XML-utils/html-xml-utils-7.8.tar.gz"
-  sha256 "9ab41c9277efc699603d062c10740c6e528fdb9ac35014db4e07f16ad8700d5d"
+  url "https://www.w3.org/Tools/HTML-XML-utils/html-xml-utils-7.9.tar.gz"
+  sha256 "d86ac96ea660316bef814c17b2a96d54cdf91c69e59614459865c2bfdaee433f"
+  license "W3C"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?html-xml-utils[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "28e913a33a61be2662a9aeedb18afd3e61f7ff31f533221e2382fc16845984a2" => :catalina
-    sha256 "8e290495b957bc609598e4a2e6fb26512011e0c433a5058d807d86e406a406ab" => :mojave
-    sha256 "2aa00ada9b366c012d149ff28c99d0054a7b166d2088700482e6118e16580358" => :high_sierra
+    sha256 "ef675b85f70efc449e2f64e28dae04434ea984214a1c3c4e92d78c8d21975878" => :catalina
+    sha256 "b35399870d1a81ee93bfa03fcf191148ddd8775280b038ee3c0fc55b71a9fcb4" => :mojave
+    sha256 "4ec7374987c3ab57fdc4b33596e934e62b37c437c6114b190fdf026029f6329c" => :high_sierra
   end
 
   def install

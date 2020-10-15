@@ -3,6 +3,7 @@ class Svgcleaner < Formula
   homepage "https://github.com/RazrFalcon/svgcleaner"
   url "https://github.com/RazrFalcon/svgcleaner/archive/v0.9.5.tar.gz"
   sha256 "dcf8dbc8939699e2e82141cb86688b6cd09da8cae5e18232ef14085c2366290c"
+  license "GPL-2.0"
   head "https://github.com/RazrFalcon/svgcleaner.git"
 
   bottle do
@@ -16,7 +17,7 @@ class Svgcleaner < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--root", prefix, "--path", "."
+    system "cargo", "install", *std_cargo_args
   end
 
   test do

@@ -4,6 +4,11 @@ class Cppcms < Formula
   url "https://downloads.sourceforge.net/project/cppcms/cppcms/1.2.1/cppcms-1.2.1.tar.bz2"
   sha256 "10fec7710409c949a229b9019ea065e25ff5687103037551b6f05716bf6cac52"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/cppcms[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     rebuild 1
@@ -65,11 +70,12 @@ class Cppcms < Formula
       }
     EOS
 
+    port = free_port
     (testpath/"config.json").write <<~EOS
       {
           "service" : {
               "api" : "http",
-              "port" : 8080,
+              "port" : #{port},
               "worker_threads": 1
           },
           "daemon" : {
@@ -86,7 +92,7 @@ class Cppcms < Formula
 
     sleep 1 # grace time for server start
     begin
-      assert_match(/Hello World/, shell_output("curl http://127.0.0.1:8080/hello"))
+      assert_match(/Hello World/, shell_output("curl http://127.0.0.1:#{port}/hello"))
     ensure
       Process.kill 9, pid
       Process.wait pid

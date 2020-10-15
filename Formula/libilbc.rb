@@ -3,6 +3,7 @@ class Libilbc < Formula
   homepage "https://github.com/TimothyGu/libilbc"
   url "https://github.com/TimothyGu/libilbc/releases/download/v2.0.2/libilbc-2.0.2.tar.gz"
   sha256 "84d5c99087a35bda3463bcb993245b4f8c28c04fe037215a5ec56570f68ce519"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any

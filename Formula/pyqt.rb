@@ -1,22 +1,32 @@
 class Pyqt < Formula
   desc "Python bindings for v5 of Qt"
   homepage "https://www.riverbankcomputing.com/software/pyqt/download5"
-  url "https://files.pythonhosted.org/packages/7c/5b/e760ec4f868cb77cee45b4554bf15d3fe6972176e89c4e3faac941213694/PyQt5-5.14.0.tar.gz"
-  sha256 "0145a6b7de15756366decb736c349a0cb510d706c83fda5b8cd9e0557bc1da72"
+  url "https://files.pythonhosted.org/packages/1d/31/896dc3dfb6c81c70164019a6cbba6ab037e3af7653d9ca60ccc874ee4c27/PyQt5-5.15.1.tar.gz"
+  sha256 "d9a76b850246d08da9863189ecb98f6c2aa9b4d97a3e85e29330a264aed0f9a1"
+  license "GPL-3.0-only"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any
-    sha256 "e2abbfd19a3b2e9c52f2c1c4fb84cc752f832b616a89c1138ab74cad96d95584" => :catalina
-    sha256 "5026dd96d99bb8866d2a2b3bf1bc55d66f9ddbd39e9180ee7c921481b49f39b9" => :mojave
-    sha256 "32f1de6e98558bbf79e31771cfa6bce4206bac12108f384324006c1a18209dfc" => :high_sierra
+    sha256 "ba91fe84fafeb809072d868fc831fa00fbf41b05f0f54d34ae4741a4dc6dbdb2" => :catalina
+    sha256 "9f5af42de5df0fadbed7cd97440302643481edc0ef0c91c0aef3ef8702fd3030" => :mojave
+    sha256 "4af6c3d6b8c2a874b5bfec4dfd530d43dffc45f20222bfaf1e7e9b94489a84c2" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
   depends_on "qt"
   depends_on "sip"
 
+  resource "PyQt5-sip" do
+    url "https://files.pythonhosted.org/packages/73/8c/c662b7ebc4b2407d8679da68e11c2a2eb275f5f2242a92610f6e5024c1f2/PyQt5_sip-12.8.1.tar.gz"
+    sha256 "30e944db9abee9cc757aea16906d4198129558533eb7fadbe48c5da2bd18e0bd"
+  end
+
   def install
-    version = Language::Python.major_minor_version "python3"
+    version = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
     args = ["--confirm-license",
             "--bindir=#{bin}",
             "--destdir=#{lib}/python#{version}/site-packages",
@@ -29,9 +39,10 @@ class Pyqt < Formula
             "QMAKE_MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}",
             "--designer-plugindir=#{pkgshare}/plugins",
             "--qml-plugindir=#{pkgshare}/plugins",
+            "--pyuic5-interpreter=#{Formula["python@3.8"].opt_bin}/python3",
             "--verbose"]
 
-    system "python3", "configure.py", *args
+    system Formula["python@3.8"].opt_bin/"python3", "configure.py", *args
     system "make"
     ENV.deparallelize { system "make", "install" }
   end
@@ -40,7 +51,7 @@ class Pyqt < Formula
     system "#{bin}/pyuic5", "--version"
     system "#{bin}/pylupdate5", "-version"
 
-    system "python3", "-c", "import PyQt5"
+    system Formula["python@3.8"].opt_bin/"python3", "-c", "import PyQt5"
     %w[
       Gui
       Location
@@ -50,6 +61,6 @@ class Pyqt < Formula
       Svg
       Widgets
       Xml
-    ].each { |mod| system "python3", "-c", "import PyQt5.Qt#{mod}" }
+    ].each { |mod| system Formula["python@3.8"].opt_bin/"python3", "-c", "import PyQt5.Qt#{mod}" }
   end
 end

@@ -1,24 +1,34 @@
 class Libsigcxx < Formula
   desc "Callback framework for C++"
   homepage "https://libsigcplusplus.github.io/libsigcplusplus/"
-  url "https://download.gnome.org/sources/libsigc++/3.0/libsigc++-3.0.3.tar.xz"
-  sha256 "e4f4866a894bdbe053e4fb22ccc6bc4b6851fd31a4746fdd20b2cf6e87c6edb6"
+  url "https://download.gnome.org/sources/libsigc++/3.0/libsigc++-3.0.4.tar.xz"
+  sha256 "a3a37410186379df1908957e7aba7519bdcf5bcc8ed70ee8dfea9362c393d545"
+  license "LGPL-3.0-or-later"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any
-    sha256 "77bf9858cb60a1842d970bbbc020a5379536806acbc4114afa56d8c941013765" => :catalina
-    sha256 "7ae9cb9a4d6a645574c6cf5aba8a9cfbbab44349545374f604073393c67f6f50" => :mojave
-    sha256 "e2c75abf2675c7830fd19aa268472aeee8b5c42cd9355147585bad9be7c3059a" => :high_sierra
+    sha256 "6e77a5e5ac7b87088e47fc57c50567e0528ac17a451d219470b274fd41f8b57f" => :catalina
+    sha256 "c8ec93f63daaf73d3141d1e0a1e96a8fc208dbc9e872595f5fce9b4bd7025238" => :mojave
+    sha256 "16ff1c845aed6d385dc947056504b4e22869081b591678c91ed59e39e06f0663" => :high_sierra
   end
 
-  depends_on :macos => :high_sierra # needs C++17
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
+
+  depends_on macos: :high_sierra # needs C++17
 
   def install
     ENV.cxx11
-    system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
-    system "make"
-    system "make", "check"
-    system "make", "install"
+
+    mkdir "build" do
+      system "meson", *std_meson_args, "-Dintrospection=enabled", ".."
+      system "ninja"
+      system "ninja", "install"
+    end
   end
   test do
     (testpath/"test.cpp").write <<~EOS

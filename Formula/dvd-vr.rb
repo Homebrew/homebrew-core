@@ -3,6 +3,7 @@ class DvdVr < Formula
   homepage "https://www.pixelbeat.org/programs/dvd-vr/"
   url "https://www.pixelbeat.org/programs/dvd-vr/dvd-vr-0.9.7.tar.gz"
   sha256 "19d085669aa59409e8862571c29e5635b6b6d3badf8a05886a3e0336546c938f"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

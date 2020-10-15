@@ -3,16 +3,22 @@ class Ccm < Formula
   homepage "https://github.com/pcmanus/ccm"
   url "https://files.pythonhosted.org/packages/f1/12/091e82033d53b3802e1ead6b16045c5ecfb03374f8586a4ae4673a914c1a/ccm-3.1.5.tar.gz"
   sha256 "f07cc0a37116d2ce1b96c0d467f792668aa25835c73beb61639fa50a1954326c"
+  license "Apache-2.0"
+  revision 1
   head "https://github.com/pcmanus/ccm.git"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1301713c60ca83ef5a2b1d5b0df50fcb73d57574ce1fb9f34091e549ba969815" => :catalina
-    sha256 "93f09667b609d1fe582de827efc3d48b4638717871336697b736cf7b997f1eb3" => :mojave
-    sha256 "6f301f55003b0542009458f90cebed245edb4f38abac9a0755552380f2174d12" => :high_sierra
+    sha256 "22fd6d245793ee81816df4ecce043c3a7bda47809f7afacb0eb7d12c6cf23fa5" => :catalina
+    sha256 "59242833ff1017ca8c5fa4a18d0ad7c1c6179b323daa473716c990db2c3d2e2f" => :mojave
+    sha256 "d986995a2a6de7bce2eb538861c94c826bd7f0f38bd23fc999feef15204de8fa" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "PyYAML" do
     url "https://files.pythonhosted.org/packages/3d/d9/ea9816aea31beeadccd03f1f8b625ecf8f645bd66744484d162d84803ce5/PyYAML-5.3.tar.gz"
@@ -42,7 +48,7 @@ class Ccm < Formula
     system "python3", *Language::Python.setup_install_args(libexec)
 
     bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
   end
 
   test do

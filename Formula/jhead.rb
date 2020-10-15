@@ -4,6 +4,11 @@ class Jhead < Formula
   url "https://www.sentex.net/~mwandel/jhead/jhead-3.04.tar.gz"
   sha256 "ef89bbcf4f6c25ed88088cf242a47a6aedfff4f08cc7dc205bf3e2c0f10a03c9"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?jhead[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "1d7d67316306e727fd5b5df4949eb66039462a6887276130a380fa81f17453f7" => :catalina

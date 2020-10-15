@@ -3,6 +3,7 @@ class MysqlSandbox < Formula
   homepage "https://mysqlsandbox.net"
   url "https://github.com/datacharmer/mysql-sandbox/archive/3.2.17.tar.gz"
   sha256 "3af4af111536e4e690042bc80834392f46a7e55c7143332d229ff2eb32321e89"
+  license "Apache-2.0"
   head "https://github.com/datacharmer/mysql-sandbox.git"
 
   bottle do
@@ -22,7 +23,7 @@ class MysqlSandbox < Formula
     system "make", "test", "install"
 
     bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
+    bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
   end
 
   test do

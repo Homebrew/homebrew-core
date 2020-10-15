@@ -1,14 +1,19 @@
 class R < Formula
   desc "Software environment for statistical computing"
   homepage "https://www.r-project.org/"
-  url "https://cran.r-project.org/src/base/R-3/R-3.6.3.tar.gz"
-  sha256 "89302990d8e8add536e12125ec591d6951022cf8475861b3690bc8bf1cefaa8f"
-  revision 1
+  url "https://cran.r-project.org/src/base/R-4/R-4.0.3.tar.gz"
+  sha256 "09983a8a78d5fb6bc45d27b1c55f9ba5265f78fa54a55c13ae691f87c5bb9e0d"
+  license "GPL-2.0-or-later"
+
+  livecheck do
+    url "https://cran.rstudio.com/banner.shtml"
+    regex(%r{href=(?:["']?|.*?/)R[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
 
   bottle do
-    sha256 "87a9a56265163f342725418365989afbdab02abc997df0304e403034094f1117" => :catalina
-    sha256 "fc155a762bf9ba5aef95c50960c69635044eecc55b5cdb95d8974cc15854ba5a" => :mojave
-    sha256 "c272ce6cc5502843f31457c465804b70f990a26ef393b5c62b71cba82dfc7364" => :high_sierra
+    sha256 "4050483a8ea4ff9fbe1531f5e9cbe98fb1c7d8091b42184e40a5bcc678733cf3" => :catalina
+    sha256 "59f6e7ec476e78f4dbd99e01100cd6e937d97a3ecd818a00ad8c60dcb8ee7bea" => :mojave
+    sha256 "a95f0100c9c16a0a45edd271dca3d70b20a4bc9599774510eb1544b901e3d89a" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -17,18 +22,12 @@ class R < Formula
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "openblas"
-  depends_on "pcre"
+  depends_on "pcre2"
   depends_on "readline"
   depends_on "xz"
 
   # needed to preserve executable permissions on files without shebangs
-  skip_clean "lib/R/bin"
-
-  resource "gss" do
-    url "https://cloud.r-project.org/src/contrib/gss_2.1-12.tar.gz", :using => :nounzip
-    mirror "https://mirror.las.iastate.edu/CRAN/src/contrib/gss_2.1-12.tar.gz"
-    sha256 "bcc92bb621671dbf94684e11a0b1c2b6c423f57d7d4ed8c7eeba4f4e51ef170b"
-  end
+  skip_clean "lib/R/bin", "lib/R/doc"
 
   def install
     # Fix dyld: lazy symbol binding failed: Symbol not found: _clock_gettime
@@ -99,8 +98,7 @@ class R < Formula
     assert_equal "[1] 2", shell_output("#{bin}/Rscript -e 'print(1+1)'").chomp
     assert_equal ".dylib", shell_output("#{bin}/R CMD config DYLIB_EXT").chomp
 
-    testpath.install resource("gss")
-    system bin/"R", "CMD", "INSTALL", "--library=.", Dir["gss*"].first
+    system bin/"Rscript", "-e", "install.packages('gss', '.', 'https://cloud.r-project.org')"
     assert_predicate testpath/"gss/libs/gss.so", :exist?,
                      "Failed to install gss package"
   end

@@ -3,6 +3,7 @@ class Mdr < Formula
   homepage "https://github.com/halffullheart/mdr"
   url "https://github.com/halffullheart/mdr/archive/v1.0.1.tar.gz"
   sha256 "103d52c47133a43cc7a6cb8a21bfabe2d6e35e222d5b675bc0c868699a127c67"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation

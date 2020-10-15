@@ -1,20 +1,21 @@
 class Findomain < Formula
   desc "Cross-platform subdomain enumerator"
   homepage "https://github.com/Edu4rdSHL/findomain"
-  url "https://github.com/Edu4rdSHL/findomain/archive/1.4.5.tar.gz"
-  sha256 "f19f9cf8508502f5b054ca7eff88eca84abf5f7903e6e3abb8b7c9feaf721d57"
+  url "https://github.com/Edu4rdSHL/findomain/archive/2.1.4.tar.gz"
+  sha256 "e669e5297c3112ec4e256bef286028220dcb9d46cd8a31e6965cbbc3d2ae3199"
+  license "GPL-3.0-or-later"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "21dd3bcf4f6cc2c4079ce1d810e09e85274a2d56767bd5fe4f4c6e343a9e29f4" => :catalina
-    sha256 "977329cf0a52c16d75694d21d742f23e194ccd1da84314522132644b2a6b56ff" => :mojave
-    sha256 "b6c70546d00fa5532eb6fbc659939064c8d0d0505995e499fa88b66bdb1535e9" => :high_sierra
+    sha256 "738cfda36178883eb8083d531385150cba5213c1831af275121d4fe7f6b3d9fb" => :catalina
+    sha256 "0165c9c1915bc01105c4df30f8883e16ede8d48d49bc98735e85da90247864be" => :mojave
+    sha256 "3470286233010baffcff04f55ef25d5bc8662649a14e17832c69fc307857b84a" => :high_sierra
   end
 
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", *std_cargo_args
   end
 
   test do

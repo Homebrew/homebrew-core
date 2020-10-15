@@ -1,26 +1,28 @@
 class GstPluginsBase < Formula
   desc "GStreamer plugins (well-supported, basic set)"
   homepage "https://gstreamer.freedesktop.org/"
-  url "https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.16.2.tar.xz"
-  sha256 "b13e73e2fe74a4166552f9577c3dcb24bed077021b9c7fa600d910ec6987816a"
+  url "https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.18.0.tar.xz"
+  sha256 "762abdd1a950809a1cea62fff7f86b5f7d6bd5f6841e3e585c700b823cdb7897"
+  license "LGPL-2.0-or-later"
+  head "https://anongit.freedesktop.org/git/gstreamer/gst-plugins-base.git"
 
-  bottle do
-    sha256 "64e4395ec1d40677cfc8b21eaf6815296f44660aab0b4a125735f266552dad95" => :catalina
-    sha256 "5a4245b5251ec3c8ef12a8278101c84c4db8a8892114a53e6a3304569571caba" => :mojave
-    sha256 "d9144e2a0c20e479c341167a8aa9ecc87e65a9c7c9515a62a855785cb1d42252" => :high_sierra
+  livecheck do
+    url "https://gstreamer.freedesktop.org/src/gst-plugins-base/"
+    regex(/href=.*?gst-plugins-base[._-]v?(\d+\.\d*[02468](?:\.\d+)*)\.t/i)
   end
 
-  head do
-    url "https://anongit.freedesktop.org/git/gstreamer/gst-plugins-base.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
+  bottle do
+    sha256 "6a4bc0eb83b7da19c9bdf7dd90c5a6ac0b48893042a43bac03dcbfeef340e592" => :catalina
+    sha256 "f07de5c70880b4c54bf89a1dc60c4ce69330314fb90fea344c2b5f3b6025d8de" => :mojave
+    sha256 "f25b8273bc5fd5d921dde74831b9ccb6bb3fc123c7565027017a459176732a1d" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
+  depends_on "graphene"
   depends_on "gstreamer"
   depends_on "libogg"
   depends_on "libvorbis"
@@ -31,29 +33,21 @@ class GstPluginsBase < Formula
 
   def install
     # gnome-vfs turned off due to lack of formula for it.
-    args = %W[
-      --prefix=#{prefix}
-      --enable-experimental
-      --disable-libvisual
-      --disable-alsa
-      --disable-cdparanoia
-      --without-x
-      --disable-x
-      --disable-xvideo
-      --disable-xshm
-      --disable-debug
-      --disable-dependency-tracking
-      --enable-introspection=yes
+    args = std_meson_args + %w[
+      -Dintrospection=enabled
+      -Dlibvisual=disabled
+      -Dalsa=disabled
+      -Dcdparanoia=disabled
+      -Dx11=disabled
+      -Dxvideo=disabled
+      -Dxshm=disabled
     ]
 
-    if build.head?
-      ENV["NOCONFIGURE"] = "yes"
-      system "./autogen.sh"
+    mkdir "build" do
+      system "meson", *args, ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
     end
-
-    system "./configure", *args
-    system "make"
-    system "make", "install"
   end
 
   test do

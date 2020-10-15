@@ -1,18 +1,15 @@
 class Pla < Formula
   desc "Tool for building Gantt charts in PNG, EPS, PDF or SVG format"
   homepage "https://www.arpalert.org/pla.html"
-  url "https://www.arpalert.org/src/pla-1.2.tar.gz"
-  sha256 "c2f1ce50b04032abf7f88ac07648ea40bed2443e86e9f28f104d341965f52b9c"
+  url "https://www.arpalert.org/src/pla-1.3.tar.gz"
+  sha256 "a342bfe064257487c6f55e049301cc7d06c84b08390a38fd42c901e962fc4a89"
+  license "GPL-2.0-only"
 
   bottle do
     cellar :any
-    sha256 "a93517a26dab0bab4ab32aff81c7af3b7545ae1be265ce15caacc3772cd6d485" => :catalina
-    sha256 "9d5e86767de6c9a2ac741e9edd32d053da5fde96563446a63d1b0475f4da595a" => :mojave
-    sha256 "af3163cf8322d872694753f3d3352384fb9c8ce923c66f7be82f50bdbbe734bc" => :high_sierra
-    sha256 "c6edebbefcf192ea4bcad704ca5b4c27157f77b4a47e3a993ac2a61e7165c13c" => :sierra
-    sha256 "3fd0d11d1bdfa24e93bf94cb854e28382307c291b25994c82a2a8c1a64ce5072" => :el_capitan
-    sha256 "308920e8bf8642826cd973eaa63e22f0fc3dec43a0152485d358ba575638291f" => :yosemite
-    sha256 "df4b500589672dc1c415866b7da4c678621858f48cbac2cab5765c2b4fb1857d" => :mavericks
+    sha256 "9f16be821eecfd9fdc72071f1c2071790904f06ca56c0cf106021e7a1f4c8342" => :catalina
+    sha256 "f5199145d23f1b5c686958a7086b46ddbeb9e1b5041f456d94144cd4c7939821" => :mojave
+    sha256 "dd5b14bc8630dc3b16657e3e764b48cd9d851967daa1c7f039298bf4f2af7b78" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

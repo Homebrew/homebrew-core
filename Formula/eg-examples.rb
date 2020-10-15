@@ -3,18 +3,23 @@ class EgExamples < Formula
 
   desc "Useful examples at the command-line"
   homepage "https://github.com/srsudar/eg"
-  url "https://files.pythonhosted.org/packages/a6/93/38075713a7968a9e8484e894f604f99a68e443e0f9db0ed48063b1241969/eg-1.1.1.tar.gz"
-  sha256 "3faa5fb453d8ba113975a1f31e37ace94867539ba9d46a40af4cea90028a04e4"
-  revision 2
+  url "https://files.pythonhosted.org/packages/59/06/7281154a4cd961f56302d9cac300cc8fc965b16d04ce797ed622a2f53586/eg-1.2.0.tar.gz"
+  sha256 "ac9827824c2c9aee0fd0a54ca57440021a0a87868b503b215c2c273a035bef59"
+  license "MIT"
+  revision 1
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "46a9ac200202e3701ced8127521ef3d717675d8460453b4c4280990381e4f4b7" => :catalina
-    sha256 "882c95a2e4ff16639e596869fab1459acc2b40326ad85d1a2e22352933522cb7" => :mojave
-    sha256 "1e806034a1d7ec1f50654e33e71e72670237ffa33358c7e7490af5d703ec4d62" => :high_sierra
+    sha256 "839e81e263addcbf1baaa179f0422a0a061a7a71f81f7a378017efa91f102ea7" => :catalina
+    sha256 "a895c53ab1408e34514b41d24a7a4a2d878e18eaacf2a17b469dbff88a2b0a76" => :mojave
+    sha256 "8c4eb15ac9f12f809dfe2e69196dea9e62ad7471275473092f2e94bfbc14ea83" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
     virtualenv_install_with_resources

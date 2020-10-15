@@ -3,6 +3,7 @@ class Pict < Formula
   homepage "https://github.com/Microsoft/pict/"
   url "https://github.com/Microsoft/pict/archive/v3.7.1.tar.gz"
   sha256 "4fc7939c708f9c8d6346430b3b90f122f2cc5e341f172f94eb711b1c48f2518a"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

@@ -1,16 +1,22 @@
 class GitlabRunner < Formula
-  desc "The official GitLab CI runner written in Go"
+  desc "Official GitLab CI runner"
   homepage "https://gitlab.com/gitlab-org/gitlab-runner"
   url "https://gitlab.com/gitlab-org/gitlab-runner.git",
-      :tag      => "v12.9.0",
-      :revision => "4c96e5adc3be45507cbd66a50c4c5b716621e6a2"
+      tag:      "v13.4.1",
+      revision: "e95f89a0ebf4256aaff814f64d0cef2ba1e7046e"
+  license "MIT"
   head "https://gitlab.com/gitlab-org/gitlab-runner.git"
+
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "06d20877e6d2de4352893dc518870140d87bebf259f211aff4b4cda1d9e60fe2" => :catalina
-    sha256 "30b65df68be6fa095fd24464df85926e0926946859fdbae2138084dda7335ed2" => :mojave
-    sha256 "68a223b6b8a1efabf07a521d455af0f830de13a913129adbde89a87eb9859633" => :high_sierra
+    sha256 "f497c47353f0fb3389bd6227fafbcf9290b78edb4efc7e26b3d52c8cbe873593" => :catalina
+    sha256 "d07a648ed4660ba1c84e779394655e78cc51bcc3b151abfe5fac2d38ec2e9315" => :mojave
+    sha256 "750f5d2401a2ffebf78f91a0c194c1e0099e72bc45d5efb7c62b87a4e143be28" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -21,8 +27,8 @@ class GitlabRunner < Formula
 
     cd dir do
       proj = "gitlab.com/gitlab-org/gitlab-runner"
-      commit = Utils.popen_read("git", "rev-parse", "--short=8", "HEAD").chomp
-      branch = version.to_s.split(".")[0..1].join("-") + "-stable"
+      commit = Utils.safe_popen_read("git", "rev-parse", "--short=8", "HEAD").chomp
+      branch = "#{version.major}-#{version.minor}-stable"
       built = Time.new.strftime("%Y-%m-%dT%H:%M:%S%:z")
       system "go", "build", "-ldflags", <<~EOS
         -X #{proj}/common.NAME=gitlab-runner
@@ -33,11 +39,10 @@ class GitlabRunner < Formula
       EOS
 
       bin.install "gitlab-runner"
-      prefix.install_metafiles
     end
   end
 
-  plist_options :manual => "gitlab-runner start"
+  plist_options manual: "gitlab-runner start"
 
   def plist
     <<~EOS

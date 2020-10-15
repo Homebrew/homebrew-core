@@ -3,13 +3,13 @@ class Logstalgia < Formula
   homepage "https://logstalgia.io/"
   url "https://github.com/acaudwell/Logstalgia/releases/download/logstalgia-1.1.2/logstalgia-1.1.2.tar.gz"
   sha256 "ed3f4081e401f4a509761a7204bdbd7c34f8f1aff9dcb030348885fb3995fca9"
+  license "GPL-3.0"
+  revision 1
 
   bottle do
-    sha256 "150fc1973c74bc9b7e7afe25cb59b26af3bcfc04b7f47babec8fcd24af58591a" => :catalina
-    sha256 "f5f0829a847376d5d5ae691c53de7b850c26d187631b8bfae8d5cecaf69d935b" => :mojave
-    sha256 "3c70aaf704c6486a0820ad416e9b71be4ee80492fdfec509da494d95657ddc6d" => :high_sierra
-    sha256 "bf1761008179e17ff019777b60dd498174532e8feb1d7044c78d84bddbec9864" => :sierra
-    sha256 "98fd439fb47a282ef86a45568f337ff3195418d32459c6e16718d1748e5f23f7" => :el_capitan
+    sha256 "e292916be0cc939d985c4f42930d5217cf06d1e57fa2a3e376d55a44c4b21fd9" => :catalina
+    sha256 "ecc61da046585777d74c682a14f6e3963570603188d2d447d3fbc4c5f87895dd" => :mojave
+    sha256 "c0411062c997c5ca8aaf27726d2205601438a50ccbecc9a166c26c30bd3c08aa" => :high_sierra
   end
 
   head do

@@ -1,14 +1,16 @@
 class Ejabberd < Formula
   desc "XMPP application server"
   homepage "https://www.ejabberd.im"
-  url "https://www.process-one.net/downloads/ejabberd/20.02/ejabberd-20.02.tgz"
-  sha256 "70d3f1f11ee1d68de7944b879fd502595a4b64e379073986ae5613f774a9d0b9"
+  url "https://static.process-one.net/ejabberd/downloads/20.07/ejabberd-20.07.tgz"
+  sha256 "9e922b938458ae9d72d4e5fdd2d08a1fbad651aae47c9a9d15b79d0bbd1e11f8"
+  license "GPL-2.0"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "aa28c86c26a48f1e5bf1138add19cdbb8b6b07a5fab9e3d35beda6969aa9b020" => :catalina
-    sha256 "d5dd3cd458519ee5f531c5000e308112f5ad1366fc7c250260db5c3628393c8f" => :mojave
-    sha256 "68e0a18b7a0cb4a3a9952f1698f91cd071ebca3660f8c62c42b3b81750be7501" => :high_sierra
+    sha256 "e196794bf1e7a303e57dc8fe7d86a8c20ff3377c7898dee386e576aa97f32fbe" => :catalina
+    sha256 "162ee337822b273b41a2c8321a5f5fc9d40175d70dcd9b1d334c6b0b38139b2d" => :mojave
+    sha256 "49b8ba3a3c253fa2e0cf3a856d9895cceafad05b3ad54ff0d207056e78c8f9d3" => :high_sierra
   end
 
   head do
@@ -18,10 +20,12 @@ class Ejabberd < Formula
     depends_on "automake" => :build
   end
 
-  depends_on "erlang"
+  depends_on "erlang@22"
   depends_on "gd"
   depends_on "libyaml"
   depends_on "openssl@1.1"
+
+  conflicts_with "couchdb", because: "both install `jiffy` lib"
 
   def install
     ENV["TARGET_DIR"] = ENV["DESTDIR"] = "#{lib}/ejabberd/erlang/lib/ejabberd-#{version}"
@@ -52,6 +56,14 @@ class Ejabberd < Formula
   def post_install
     (var/"lib/ejabberd").mkpath
     (var/"spool/ejabberd").mkpath
+
+    # Create the vm.args file, to generate a cookie
+    require "securerandom"
+    cookie = SecureRandom.hex
+    vm_args_file = etc/"ejabberd/vm.args"
+    vm_args_file.write <<~EOS
+      -setcookie #{cookie}
+    EOS
   end
 
   def caveats
@@ -62,7 +74,7 @@ class Ejabberd < Formula
     EOS
   end
 
-  plist_options :manual => "#{HOMEBREW_PREFIX}/sbin/ejabberdctl start"
+  plist_options manual: "#{HOMEBREW_PREFIX}/sbin/ejabberdctl start"
 
   def plist
     <<~EOS

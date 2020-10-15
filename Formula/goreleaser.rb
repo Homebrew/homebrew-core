@@ -2,14 +2,15 @@ class Goreleaser < Formula
   desc "Deliver Go binaries as fast and easily as possible"
   homepage "https://goreleaser.com/"
   url "https://github.com/goreleaser/goreleaser.git",
-      :tag      => "v0.129.0",
-      :revision => "529cfca87d49cd93cdd7f8abd6eea6489c7cbd2e"
+      tag:      "v0.145.0",
+      revision: "ff2495fbd1578347efe00d70d80a05d93976fadb"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ccb9628b8f8b13b72b40ca898536cc64c1af1ed5b2e146ea10746db15bbbe89b" => :catalina
-    sha256 "d1d3bfdefb159196094863acc4bc700668e1b5137305ca0d1bdc013be4900c7e" => :mojave
-    sha256 "c5efd2ef1a8d1e72946a329f1c774a564afd2ad619a913e44681874e7707033e" => :high_sierra
+    sha256 "3dbfdaade0e51f31e529fdf9c022dc2cebfbddceb7a5d44b7190c0503ea8a421" => :catalina
+    sha256 "8d093c86e24f2052ad13863d397bb329f2be2a83892a0cdfc00a244c245a4069" => :mojave
+    sha256 "255257fa6efe16d5c6136dcac3e86fc027057aa00df8fc98e9ee5275bee2421d" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -17,7 +18,7 @@ class Goreleaser < Formula
   def install
     system "go", "build", "-ldflags",
              "-s -w -X main.version=#{version} -X main.commit=#{stable.specs[:revision]} -X main.builtBy=homebrew",
-             "-o", bin/"goreleaser"
+             *std_go_args
   end
 
   test do

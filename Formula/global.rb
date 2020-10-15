@@ -6,6 +6,10 @@ class Global < Formula
   sha256 "987e8cb956c53f8ebe4453b778a8fde2037b982613aba7f3e8e74bcd05312594"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "748524c4b316196e41e0f54df683117c61f7dfdbab1c3e641c36ae4eed7f1013" => :catalina
     sha256 "848b4e78c1f507bc4356b285164368641125194e730accf46c540af5806a600f" => :mojave
@@ -13,7 +17,7 @@ class Global < Formula
   end
 
   head do
-    url ":pserver:anonymous:@cvs.savannah.gnu.org:/sources/global", :using => :cvs
+    url ":pserver:anonymous:@cvs.savannah.gnu.org:/sources/global", using: :cvs
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -27,6 +31,10 @@ class Global < Formula
   depends_on "python@3.8"
 
   uses_from_macos "ncurses"
+
+  on_linux do
+    depends_on "libtool" => :build
+  end
 
   skip_clean "lib/gtags"
 
@@ -53,7 +61,7 @@ class Global < Formula
     system "./configure", *args
     system "make", "install"
 
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
 
     etc.install "gtags.conf"
 

@@ -1,13 +1,18 @@
 class Vala < Formula
   desc "Compiler for the GObject type system"
   homepage "https://wiki.gnome.org/Projects/Vala"
-  url "https://download.gnome.org/sources/vala/0.48/vala-0.48.2.tar.xz"
-  sha256 "f095b0e624b8f4e5a426028ac255e477fad8c3b4c8cbbdebda8d6cd95bf79477"
+  url "https://download.gnome.org/sources/vala/0.48/vala-0.48.11.tar.xz"
+  sha256 "54fd1bb356d69824009691955c885bae357eec4eaced6c2e2d038180322e306a"
+  license "LGPL-2.1-or-later"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
-    sha256 "f766980a66d4ef11512d0c52f6b21905bc030423f457433a2206a6b1772215e1" => :catalina
-    sha256 "89dc62a2a8e5a43cdeccc05d439e1c37883c23195fb48e28de09223d94739ecb" => :mojave
-    sha256 "05472ac7b3b3ea65d3942afd65d69c8e11434182ef92177842ca32f90f841f64" => :high_sierra
+    sha256 "cb21133addf409d424f488c8cc859f1f1002fc92daeaf3e6fa0c749315e46b60" => :catalina
+    sha256 "1b36a7bbe5c7253445ecbeb99cca3a9815751d151ae105ef7f1ded61ec0e32fd" => :mojave
+    sha256 "1cc06100d8aa160afa31dae8c6583bad2824945812214d07b4b363e910670fb9" => :high_sierra
   end
 
   depends_on "gettext"

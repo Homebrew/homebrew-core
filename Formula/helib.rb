@@ -1,17 +1,19 @@
 class Helib < Formula
   desc "Implementation of homomorphic encryption"
   homepage "https://github.com/homenc/HElib"
-  url "https://github.com/homenc/HElib/archive/v1.0.0.tar.gz"
-  sha256 "5b917a6ba1555be580db4c102a339abe124c284007f0044d637892ec85877214"
+  url "https://github.com/homenc/HElib/archive/v1.1.0.tar.gz"
+  sha256 "77a912ed3c86f8bde31b7d476321d0c2d810570c04a60fa95c4bd32a1955b5cf"
+  license "Apache-2.0"
 
   bottle do
     cellar :any
-    sha256 "ad8926ac577b4adb2ce1cce23769e3a3d31027ed7264c99aa42099e238525fe4" => :catalina
-    sha256 "3ffb80af12a8fd92b03292a375a3ca30c24ae61281b1dd81e5022fe363e39b8f" => :mojave
-    sha256 "c0fed1980b3e977ab565b6bea93d885c3a697881d20ecd812640f3d0a869b6d2" => :high_sierra
+    sha256 "072822b5f36b1c6ada8cfc05a8db3206fe8cfe2ab34ca97dd8c0c93ab30a30d1" => :catalina
+    sha256 "b0b8f49c6114141cd35afd1ce6b992e5e2e0acd83a5e426da9c209a76ff0c165" => :mojave
+    sha256 "d878fc06839eb4aa0beaa00ee556b2e9793485381c3fca511cad0397020bce1b" => :high_sierra
   end
 
   depends_on "cmake" => :build
+  depends_on "bats-core" => :test
   depends_on "ntl"
 
   def install
@@ -23,11 +25,12 @@ class Helib < Formula
   end
 
   test do
-    cp (pkgshare/"examples/BGV_general_example/BGV_general_example.cpp"), testpath/"test.cpp"
+    cp pkgshare/"examples/BGV_country_db_lookup/BGV_country_db_lookup.cpp", testpath/"test.cpp"
+    mkdir "build"
     system ENV.cxx, "-std=c++14", "-L#{lib}", "-L#{Formula["ntl"].opt_lib}",
-                    "-lhelib", "-lntl", "test.cpp", "-o", "test"
-    # 2*(n^2) from 0 to 23
-    expected = "0 2 8 18 32 50 72 98 128 162 200 242 288 338 392 450 512 578 648 722 800 882 968 1058"
-    assert_match expected, shell_output("./test")
+                    "-lhelib", "-lntl", "test.cpp", "-o", "build/BGV_country_db_lookup"
+
+    cp_r pkgshare/"examples/tests", testpath
+    system "bats", "."
   end
 end

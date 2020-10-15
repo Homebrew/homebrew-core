@@ -1,24 +1,23 @@
 class Gomplate < Formula
   desc "Command-line Golang template processor"
   homepage "https://gomplate.hairyhenderson.ca/"
-  url "https://github.com/hairyhenderson/gomplate/archive/v3.6.0.tar.gz"
-  sha256 "b24c574a7646461911e5900a84c31b249abf65714cffb9c64d64e4b575751c74"
+  url "https://github.com/hairyhenderson/gomplate/archive/v3.8.0.tar.gz"
+  sha256 "d32817821a7b083b0aeadf29c2aea17e3384b6b619f3a6285150db1914b94c89"
+  license "MIT"
   head "https://github.com/hairyhenderson/gomplate.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "ef111dcdd62072e6b1293da6d767099be4140f17ba9b5d595f85a44d93440bcd" => :catalina
-    sha256 "c97ce8c1f02a1ce4fbf9ae9680e8f70838289cd1db9a625d71922f959bdb22b9" => :mojave
-    sha256 "7253fa83fb15068b94a95c12bd74f27fdf55ad68e3e78022ae26a82df0f6f0b3" => :high_sierra
+    sha256 "52cc95df2ec8d4a0c4f09ceaf3145161e435fc85106f4265ba24a5159f9019e9" => :catalina
+    sha256 "e90c04a70f742766bd71ec4fc74c3aa7f6d5fcaf1147032ec52787e5bb326445" => :mojave
+    sha256 "2fad9d3647034db30eaee6f556ba9930f8d448e287bdac70ad0b0cfa7332cf47" => :high_sierra
   end
 
   depends_on "go" => :build
-  depends_on "upx" => :build
 
   def install
-    system "make", "compress", "VERSION=#{version}"
-    bin.install "bin/gomplate-slim" => "gomplate"
+    system "make", "build", "VERSION=#{version}"
+    bin.install "bin/gomplate" => "gomplate"
     prefix.install_metafiles
   end
 

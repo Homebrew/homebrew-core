@@ -1,13 +1,17 @@
 class BaculaFd < Formula
   desc "Network backup solution"
   homepage "https://www.bacula.org/"
-  url "https://downloads.sourceforge.net/project/bacula/bacula/9.6.3/bacula-9.6.3.tar.gz"
-  sha256 "ec1365a678e1b49505c1cdbc59a3cef5ca5f5a5a25fb1b0cced822eeb88c5b0a"
+  url "https://downloads.sourceforge.net/project/bacula/bacula/9.6.6/bacula-9.6.6.tar.gz"
+  sha256 "6286c975e3f4980c1b4b3bc81ab9cda9186708eb19515abe4dc0b9ed5e2c8281"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
-    sha256 "582fafcb8a0f9f483a94cf124a03f88be86f34cc94739efbc2624002ba25c4fc" => :catalina
-    sha256 "c4785c8a422d053a7a65892748c22283dc2f61b8a8c1512e61c2a0a0911da80e" => :mojave
-    sha256 "897dbcb7fef86658445edd6e6e8a2327157ff0dc1467ac527a905e19e2eccb50" => :high_sierra
+    sha256 "0dd869846330eeec14fdf2c4c4fb4c68366f436a541d15c2ffb5cce2184b7d68" => :catalina
+    sha256 "835731f3c18291b5dc2d30cd55040e0b1fa349d00e83a8fa4c7a1de85e974c50" => :mojave
+    sha256 "6283f63974c24309a3219b6952b43f30fdc91cc6776305a240e5970320c76e39" => :high_sierra
   end
 
   depends_on "openssl@1.1"
@@ -16,7 +20,7 @@ class BaculaFd < Formula
   uses_from_macos "zlib"
 
   conflicts_with "bareos-client",
-    :because => "Both install a `bconsole` executable."
+    because: "both install a `bconsole` executable"
 
   def install
     # CoreFoundation is also used alongside IOKit
@@ -39,6 +43,10 @@ class BaculaFd < Formula
     system "make"
     system "make", "install"
 
+    # Avoid references to the Homebrew shims directory
+    inreplace Dir[prefix/"etc/bacula_config"],
+              HOMEBREW_SHIMS_PATH/"mac/super/", ""
+
     (var/"lib/bacula").mkpath
   end
 
@@ -46,7 +54,7 @@ class BaculaFd < Formula
     (var/"run").mkpath
   end
 
-  plist_options :startup => true, :manual => "bacula-fd"
+  plist_options startup: true, manual: "bacula-fd"
 
   def plist
     <<~EOS

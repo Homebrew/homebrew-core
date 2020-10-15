@@ -1,14 +1,19 @@
 class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
-  url "https://github.com/opencv/opencv/archive/4.2.0.tar.gz"
-  sha256 "9ccb2192d7e8c03c58fee07051364d94ed7599363f3b0dce1c5e6cc11c1bb0ec"
-  revision 3
+  url "https://github.com/opencv/opencv/archive/4.5.0.tar.gz"
+  sha256 "dde4bf8d6639a5d3fe34d5515eab4a15669ded609a1d622350c7ff20dace1907"
+  license "Apache-2.0"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
-    sha256 "ba6068061d29aa4626365aeb644f0672b942069b51e6c9d7569559182afd7006" => :catalina
-    sha256 "6d3be935f596bb82230c4151d2f1aa8bf3030e6f7d3150d0025bc6e164427e42" => :mojave
-    sha256 "e5cb939cec3458d9d769338594f3776906e5ea7b3870a5b17efe827fba71072f" => :high_sierra
+    sha256 "f5e3ccb8fc40fa7d97d1f29cf581dd1b20923c0708e7fc61de6e2ec5cc3c1579" => :catalina
+    sha256 "13fae3bf29f5944c9c5919961a4556f484fc95300d59dfc5a958d835ba81f61d" => :mojave
+    sha256 "92067252d7748f9d675686541f5685bc16636c18574a0ffa9afcaa99ecc91734" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -25,13 +30,14 @@ class Opencv < Formula
   depends_on "openblas"
   depends_on "openexr"
   depends_on "protobuf"
-  depends_on "python"
+  depends_on "python@3.8"
   depends_on "tbb"
+  depends_on "vtk"
   depends_on "webp"
 
   resource "contrib" do
-    url "https://github.com/opencv/opencv_contrib/archive/4.2.0.tar.gz"
-    sha256 "8a6b5661611d89baa59a26eb7ccf4abb3e55d73f99bb52d8f7c32265c8a43020"
+    url "https://github.com/opencv/opencv_contrib/archive/4.5.0.tar.gz"
+    sha256 "a65f1f0b98b2c720abbf122c502044d11f427a43212d85d8d2402d7a6339edda"
   end
 
   def install
@@ -44,10 +50,6 @@ class Opencv < Formula
 
     # Reset PYTHONPATH, workaround for https://github.com/Homebrew/homebrew-science/pull/4885
     ENV.delete("PYTHONPATH")
-
-    py3_config = `python3-config --configdir`.chomp
-    py3_include = `python3 -c "import distutils.sysconfig as s; print(s.get_python_inc())"`.chomp
-    py3_version = Language::Python.major_minor_version "python3"
 
     args = std_cmake_args + %W[
       -DCMAKE_OSX_DEPLOYMENT_TARGET=
@@ -79,12 +81,10 @@ class Opencv < Formula
       -DWITH_OPENGL=OFF
       -DWITH_QT=OFF
       -DWITH_TBB=ON
-      -DWITH_VTK=OFF
+      -DWITH_VTK=ON
       -DBUILD_opencv_python2=OFF
       -DBUILD_opencv_python3=ON
-      -DPYTHON3_EXECUTABLE=#{which "python3"}
-      -DPYTHON3_LIBRARY=#{py3_config}/libpython#{py3_version}.dylib
-      -DPYTHON3_INCLUDE_DIR=#{py3_include}
+      -DPYTHON3_EXECUTABLE=#{Formula["python@3.8"].opt_bin}/python3
     ]
 
     # The compiler on older Mac OS cannot build some OpenCV files using AVX2
@@ -98,10 +98,12 @@ class Opencv < Formula
 
     mkdir "build" do
       system "cmake", "..", *args
+      inreplace "modules/core/version_string.inc", "#{HOMEBREW_SHIMS_PATH}/mac/super/", ""
       system "make"
       system "make", "install"
       system "make", "clean"
       system "cmake", "..", "-DBUILD_SHARED_LIBS=OFF", *args
+      inreplace "modules/core/version_string.inc", "#{HOMEBREW_SHIMS_PATH}/mac/super/", ""
       system "make"
       lib.install Dir["lib/*.a"]
       lib.install Dir["3rdparty/**/*.a"]
@@ -121,7 +123,7 @@ class Opencv < Formula
                     "-o", "test"
     assert_equal `./test`.strip, version.to_s
 
-    output = shell_output("python3 -c 'import cv2; print(cv2.__version__)'")
+    output = shell_output(Formula["python@3.8"].opt_bin/"python3 -c 'import cv2; print(cv2.__version__)'")
     assert_equal version.to_s, output.chomp
   end
 end

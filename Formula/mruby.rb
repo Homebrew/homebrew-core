@@ -1,15 +1,16 @@
 class Mruby < Formula
   desc "Lightweight implementation of the Ruby language"
   homepage "https://mruby.org/"
-  url "https://github.com/mruby/mruby/archive/2.1.0.tar.gz"
-  sha256 "d6733742a07e553c52ab71df08b0604b3b571768bbc0c2729fbf0389d1bb5d13"
+  url "https://github.com/mruby/mruby/archive/2.1.2.tar.gz"
+  sha256 "4dc0017e36d15e81dc85953afb2a643ba2571574748db0d8ede002cefbba053b"
+  license "MIT"
   head "https://github.com/mruby/mruby.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8749973cea753dbe82a574355a61c4e0a09751dccd4d72b591f006653ed09f53" => :catalina
-    sha256 "4e389a4a5dfee27261c46209da85c09d835c8c785924a90b301a55dd66a4cc5e" => :mojave
-    sha256 "a4d66a098987dd5d4e622c35f0140e76959358fed25d691882b987a1bac650ee" => :high_sierra
+    sha256 "b6a638c04a991a249a737d0ad0d9f7fac31d35a7b2fd3c8507304e68f13bc983" => :catalina
+    sha256 "1f31eadc8801f65d42e2cfec43cda336324daf86978529dfc76338e6b094b16c" => :mojave
+    sha256 "5b5dca177d9fdd6a2b543c9aeb2117e0d112d1578fadbb709d8565d83b21d6a7" => :high_sierra
   end
 
   depends_on "bison" => :build

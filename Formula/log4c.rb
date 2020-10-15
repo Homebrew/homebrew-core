@@ -3,7 +3,13 @@ class Log4c < Formula
   homepage "https://log4c.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/log4c/log4c/1.2.4/log4c-1.2.4.tar.gz"
   sha256 "5991020192f52cc40fa852fbf6bbf5bd5db5d5d00aa9905c67f6f0eadeed48ea"
+  license "LGPL-2.1"
   head "https://git.code.sf.net/p/log4c/log4c.git"
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/log4c[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
 
   bottle do
     sha256 "25859511ac3302318ca6eed1eaa89c5a9b1e91b611da4233604e443d9c016dec" => :catalina

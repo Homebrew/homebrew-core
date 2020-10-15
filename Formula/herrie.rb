@@ -3,7 +3,12 @@ class Herrie < Formula
   homepage "https://herrie.info/"
   url "https://github.com/EdSchouten/herrie/releases/download/herrie-2.2/herrie-2.2.tar.bz2"
   sha256 "142341072920f86b6eb570b8f13bf5fd87c06cf801543dc7d1a819e39eb9fb2b"
+  license "BSD-2-Clause"
   revision 1
+
+  livecheck do
+    url "https://github.com/EdSchouten/herrie"
+  end
 
   bottle do
     sha256 "ceb3bb01f7cc36c3d55d785ff6d06706708ce11e81bd9da29b4dcdaaa6476f9a" => :catalina

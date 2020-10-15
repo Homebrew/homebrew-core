@@ -1,15 +1,20 @@
 class KnotResolver < Formula
   desc "Minimalistic, caching, DNSSEC-validating DNS resolver"
   homepage "https://www.knot-resolver.cz"
-  url "https://secure.nic.cz/files/knot-resolver/knot-resolver-5.0.1.tar.xz"
-  sha256 "4a93264ad0cda7ea2252d1ba057e474722f77848165f2893e0c76e21ae406415"
-  revision 1
+  url "https://secure.nic.cz/files/knot-resolver/knot-resolver-5.1.3.tar.xz"
+  sha256 "20cd829027e39a9f7d993894e3640e886825b492d9ac1a744ac5616cc101458b"
+  license all_of: ["CC0-1.0", "GPL-3.0-or-later", "LGPL-2.1-or-later", "MIT"]
   head "https://gitlab.labs.nic.cz/knot/knot-resolver.git"
 
+  livecheck do
+    url "https://secure.nic.cz/files/knot-resolver/"
+    regex(/href=.*?knot-resolver[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
-    sha256 "044564e3cf60e137b105aaeea9cb82bfe687f3a33df9e6f76197016960b9b28d" => :catalina
-    sha256 "b3d71ec2cb19c7b80a945c664824cde1b0b6756232b2b5a496e74fc2534e0f8b" => :mojave
-    sha256 "f3f2b97e386374eccd8c21385491adf5cbfc1fe9f700ae910a72c4c5762fd770" => :high_sierra
+    sha256 "556ef2808aabd638a927a7045ce1c0672c5cb0c134dd6b5180f59164255f7873" => :catalina
+    sha256 "d53358d7dd8360257edc2fed7d87e473273c82bd0c05355c68bb36a1bb7a1e67" => :mojave
+    sha256 "de0f1fb0fcbb4146a3d761f4f5ca137b245980d11025bfda39294d963e4137ab" => :high_sierra
   end
 
   depends_on "meson" => :build
@@ -23,7 +28,7 @@ class KnotResolver < Formula
 
   def install
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", "--default-library=static", ".."
+      system "meson", *std_meson_args, "--default-library=static", ".."
       system "ninja"
       system "ninja", "install"
     end
@@ -36,7 +41,7 @@ class KnotResolver < Formula
     EOS
   end
 
-  plist_options :startup => true
+  plist_options startup: true
 
   def plist
     <<~EOS

@@ -1,51 +1,43 @@
 class Ilmbase < Formula
   desc "OpenEXR ILM Base libraries (high dynamic-range image file format)"
   homepage "https://www.openexr.com/"
-  url "https://github.com/openexr/openexr/archive/v2.4.1.tar.gz"
-  sha256 "3ebbe9a8e67edb4a25890b98c598e9fe23b10f96d1416d6a3ff0732e99d001c1"
+  url "https://github.com/openexr/openexr/archive/v2.5.3.tar.gz"
+  sha256 "6a6525e6e3907715c6a55887716d7e42d09b54d2457323fcee35a0376960bebf"
+  license "BSD-3-Clause"
 
   bottle do
-    sha256 "283030498c0023d380c9df4450377cf6217fb59a826e436244fa695020ed1642" => :catalina
-    sha256 "c3a7cc2853f2e189eda220df9f8452ce76aa809e193b50f601dd3166d83a8b04" => :mojave
-    sha256 "28241d4f2028ea2f0a7bb9d2a17cd7ed717259a194e60d51463f1216fd213ea6" => :high_sierra
+    sha256 "06a9f5b4582372750cf8fb6ba67d65284b00c6c338fc037a363ef9d550c5a9d2" => :catalina
+    sha256 "5cb7f4e1e07f02aba93615d1ef1ec6785a5d868cad642460b2d2871cde3fc08a" => :mojave
+    sha256 "30cea2bd30d5fd3baae5188b0e98d065f78070b741b367b2cdd22b7a7e0269be" => :high_sierra
   end
 
   depends_on "cmake" => :build
 
-  # From https://github.com/openexr/openexr/commit/0b26a9dedda4924841323677f1ce0bce37bfbeb4.patch
-  patch :DATA
-
   def install
     cd "IlmBase" do
-      system "cmake", ".", *std_cmake_args
+      system "cmake", ".", *std_cmake_args, "-DBUILD_TESTING=OFF"
       system "make", "install"
-      pkgshare.install %w[Half HalfTest Iex IexMath IexTest IlmThread Imath ImathTest]
     end
   end
 
   test do
-    cd pkgshare/"IexTest" do
-      system ENV.cxx, "-I#{include}/OpenEXR", "-I./", "-c",
-             "testBaseExc.cpp", "-o", testpath/"test"
-    end
+    (testpath/"test.cpp").write <<~'EOS'
+      #include <ImathRoots.h>
+      #include <algorithm>
+      #include <iostream>
+
+      int main(int argc, char *argv[])
+      {
+        double x[2] = {0.0, 0.0};
+        int n = IMATH_NAMESPACE::solveQuadratic(1.0, 3.0, 2.0, x);
+
+        if (x[0] > x[1])
+          std::swap(x[0], x[1]);
+
+        std::cout << n << ", " << x[0] << ", " << x[1] << "\n";
+      }
+    EOS
+    system ENV.cxx, "-I#{include}/OpenEXR", "-o", testpath/"test", "test.cpp"
+    assert_equal "2, -2, -1\n", shell_output("./test")
   end
 end
-
-__END__
-diff --git a/IlmBase/config/CMakeLists.txt b/IlmBase/config/CMakeLists.txt
-index 508176a4..a6bff04a 100644
---- a/IlmBase/config/CMakeLists.txt
-+++ b/IlmBase/config/CMakeLists.txt
-@@ -71,9 +71,9 @@ if(ILMBASE_INSTALL_PKG_CONFIG)
-   # use a helper function to avoid variable pollution, but pretty simple
-   function(ilmbase_pkg_config_help pcinfile)
-     set(prefix ${CMAKE_INSTALL_PREFIX})
--    set(exec_prefix ${CMAKE_INSTALL_BINDIR})
--    set(libdir ${CMAKE_INSTALL_LIBDIR})
--    set(includedir ${CMAKE_INSTALL_INCLUDEDIR})
-+    set(exec_prefix "\${prefix}")
-+    set(libdir "\${exec_prefix}/${CMAKE_INSTALL_LIBDIR}")
-+    set(includedir "\${prefix}/${CMAKE_INSTALL_INCLUDEDIR}")
-     set(LIB_SUFFIX_DASH ${ILMBASE_LIB_SUFFIX})
-     if(TARGET Threads::Threads)
-       # hrm, can't use properties as they end up as generator expressions

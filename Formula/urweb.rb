@@ -1,13 +1,14 @@
 class Urweb < Formula
   desc "Ur/Web programming language"
   homepage "http://www.impredicative.com/ur/"
-  url "https://github.com/urweb/urweb/releases/download/20190217/urweb-20190217.tar.gz"
-  sha256 "da24e093369a14ae738dfb08d83fcba083ce07360023f6f55734f0e335e880b2"
+  url "https://github.com/urweb/urweb/releases/download/20200209/urweb-20200209.tar.gz"
+  sha256 "ac3010c57f8d90f09f49dfcd6b2dc4d5da1cdbb41cbf12cb386e96e93ae30662"
+  revision 2
 
   bottle do
-    sha256 "ef0713473d33906ec3acfba95b92359cabe03c3da905e700e4a6fb722a8f1e36" => :catalina
-    sha256 "8cf6738df83cae60b5931a858f5dc6c9fe2666d7548978d78f9587a140c2daa5" => :mojave
-    sha256 "316fe61df89c4470e2a0bff1481e8aefa11bc67ca3ff5dad963c57cbfd0c6837" => :high_sierra
+    sha256 "ea2ccdf37715d601fb22b301e9646d8a56bd408b88c8f83e2feda08d3695712c" => :catalina
+    sha256 "edfad2dea9f27c87d7a68396f50cbbf6d345edf6059abf555ad6c7d2d0bc2177" => :mojave
+    sha256 "ccc6d329298c6d3f3f4ba7e67b8be51017b7f95dad00de35d63fe49c670f1ee2" => :high_sierra
   end
 
   depends_on "autoconf" => :build

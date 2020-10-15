@@ -1,21 +1,22 @@
 class Texlab < Formula
   desc "Implementation of the Language Server Protocol for LaTeX"
   homepage "https://texlab.netlify.com/"
-  url "https://github.com/latex-lsp/texlab/archive/v1.10.0.tar.gz"
-  sha256 "af8686a84983992487e2ec2df61478a62581db0d803dcbd77727fb969fd694c0"
+  url "https://github.com/latex-lsp/texlab/archive/v2.2.0.tar.gz"
+  sha256 "313b7c230c71a0087a2a5aadbba1d8ba1a929e1e8f98b8b7553ca956fc567835"
+  license "GPL-3.0"
   head "https://github.com/latex-lsp/texlab.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a156dda97ac1638b77569c6c7022a44abc7231a35a9ab940277f4d25a38007f2" => :catalina
-    sha256 "d3932f321de224ff58e0227951ad06336534580f6c6900c3154b5a12ff0d60f1" => :mojave
-    sha256 "fc26b11b88df5f255a662f61bfa472d21e1adc54e883c0b432f04868236afc19" => :high_sierra
+    sha256 "27c48990087cf5e0c83ed2f18e2312026214e25ff0948d1b440486029ead5433" => :catalina
+    sha256 "e0c354c84d065702a8683cce427f8311e1b264792f9295da496098db7182d350" => :mojave
+    sha256 "e94b88352e4e10f186f4b3f475b3af70674afb92d2bb78259a59d872bcbf218b" => :high_sierra
   end
 
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", *std_cargo_args
   end
 
   test do
@@ -30,7 +31,7 @@ class Texlab < Formula
         {"jsonrpc": "2.0", "id": 0, "method": "initialize", "params": { "rootUri": null, "capabilities": {}}}
 
       EOF
-      assert_match "Content-Length: 543", stdout.gets("\n")
+      assert_match "Content-Length:", stdout.gets("\n")
     ensure
       Process.kill "SIGKILL", pid
     end

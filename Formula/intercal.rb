@@ -3,6 +3,7 @@ class Intercal < Formula
   homepage "http://catb.org/~esr/intercal/"
   url "http://catb.org/~esr/intercal/intercal-0.31.tar.gz"
   sha256 "93d842b81ecdc82b352beb463fbf688749b0c04445388a999667e1958bba4ffc"
+  license "GPL-2.0"
 
   bottle do
     sha256 "a2c1673fbed3d331e725694196acf9ea4cd6bc6df3b86568af3e67ee90d70b30" => :catalina

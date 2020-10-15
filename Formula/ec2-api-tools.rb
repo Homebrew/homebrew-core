@@ -5,12 +5,16 @@ class Ec2ApiTools < Formula
   sha256 "851abe30403ee1c86a3ebdddf5b4bffd7ef4b587110530feadf00954d9ae2f3a"
   revision 1
 
+  livecheck do
+    skip "No longer developed/maintained"
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
 
   def install
-    env = { :JAVA_HOME => Formula["openjdk"].opt_prefix, :EC2_HOME => libexec }
+    env = { JAVA_HOME: Formula["openjdk"].opt_prefix, EC2_HOME: libexec }
     rm Dir["bin/*.cmd"] # Remove Windows versions
     libexec.install Dir["*"]
     Pathname.glob("#{libexec}/bin/*") do |file|

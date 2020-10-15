@@ -4,6 +4,11 @@ class Restund < Formula
   url "http://www.creytiv.com/pub/restund-0.4.12.tar.gz"
   sha256 "3170441dc882352ab0275556b6fc889b38b14203d936071b5fa12f39a5c86d47"
 
+  livecheck do
+    url "http://www.creytiv.com/pub/"
+    regex(/href=.*?restund[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 "904de3a9379dac2c1215b992e1aff7cfd42e09f288e5b88df1969c9ba1675050" => :catalina

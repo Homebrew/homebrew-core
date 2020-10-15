@@ -7,17 +7,18 @@ class GhcAT86 < Formula
   homepage "https://haskell.org/ghc/"
   url "https://downloads.haskell.org/~ghc/8.6.5/ghc-8.6.5-src.tar.xz"
   sha256 "4d4aa1e96f4001b934ac6193ab09af5d6172f41f5a5d39d8e43393b9aafee361"
-  revision 1
+  license "BSD-3-Clause"
+  revision 2
 
   bottle do
-    sha256 "1167f06250256e73d147e8fc0d83e08915f38997792f7afb03a6a292be76b20b" => :catalina
-    sha256 "93501010b8272059bbcf1d3c0c5ca32150466e8756773198d39c3810e9103889" => :mojave
-    sha256 "1a9d50a816fc2c795f4fe2b55540b7c9b04ba3d9b72cf345f7294a044e2b8250" => :high_sierra
+    sha256 "af21e24b89361083a6cd5a27268e0470cdbf2e8616d1d95355df603f58f4e30d" => :catalina
+    sha256 "ccbe2725d127cc1ddd2142294fd62981d6cd7ab110f56b1faa2560c28276b822" => :mojave
+    sha256 "67a54e9d669e51b8018d064b771d31079421b777b03077dc7f02949ecdf8b0c0" => :high_sierra
   end
 
   keg_only :versioned_formula
 
-  depends_on "python" => :build
+  depends_on "python@3.9" => :build
   depends_on "sphinx-doc" => :build
 
   resource "gmp" do
@@ -30,8 +31,15 @@ class GhcAT86 < Formula
   # https://www.haskell.org/ghc/download_ghc_8_6_5#macosx_x86_64
   # "This is a distribution for Mac OS X, 10.7 or later."
   resource "binary" do
-    url "https://downloads.haskell.org/~ghc/8.6.5/ghc-8.6.5-x86_64-apple-darwin.tar.xz"
-    sha256 "dfc1bdb1d303a87a8552aa17f5b080e61351f2823c2b99071ec23d0837422169"
+    on_macos do
+      url "https://downloads.haskell.org/~ghc/8.6.5/ghc-8.6.5-x86_64-apple-darwin.tar.xz"
+      sha256 "dfc1bdb1d303a87a8552aa17f5b080e61351f2823c2b99071ec23d0837422169"
+    end
+
+    on_linux do
+      url "https://downloads.haskell.org/~ghc/8.6.5/ghc-8.6.5-x86_64-deb8-linux.tar.xz"
+      sha256 "c419fd0aa9065fe4d2eb9a248e323860c696ddf3859749ca96a84938aee49107"
+    end
   end
 
   # Fix for Catalina compatibility https://gitlab.haskell.org/ghc/ghc/issues/17353
@@ -40,6 +48,7 @@ class GhcAT86 < Formula
   def install
     ENV["CC"] = ENV.cc
     ENV["LD"] = "ld"
+    ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
 
     # Build a static gmp rather than in-tree gmp, otherwise all ghc-compiled
     # executables link to Homebrew's GMP.
@@ -49,7 +58,7 @@ class GhcAT86 < Formula
     # is mandatory or else you'll get "illegal text relocs" errors.
     resource("gmp").stage do
       system "./configure", "--prefix=#{gmp}", "--with-pic", "--disable-shared",
-                            "--build=#{Hardware.oldest_cpu}-apple-darwin#{`uname -r`.to_i}"
+                            "--build=#{Hardware.oldest_cpu}-apple-darwin#{OS.kernel_version.major}"
       system "make"
       system "make", "install"
     end

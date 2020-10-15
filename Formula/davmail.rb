@@ -1,9 +1,13 @@
 class Davmail < Formula
   desc "POP/IMAP/SMTP/Caldav/Carddav/LDAP exchange gateway"
   homepage "https://davmail.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/davmail/davmail/5.4.0/davmail-5.4.0-3135.zip"
-  version "5.4.0"
-  sha256 "f8a500b33421bc7ceee023353ae56e56e9e6bc89766745c8310440ab5891c216"
+  url "https://downloads.sourceforge.net/project/davmail/davmail/5.5.1/davmail-5.5.1-3299.zip"
+  version "5.5.1"
+  sha256 "34dfd350e7142227cdceb267666b5886ce94564b6395fa0e6098d868c110a48e"
+
+  livecheck do
+    url :stable
+  end
 
   bottle :unneeded
 
@@ -12,7 +16,7 @@ class Davmail < Formula
     bin.write_jar_script libexec/"davmail.jar", "davmail", "-Djava.awt.headless=true"
   end
 
-  plist_options :manual => "davmail"
+  plist_options manual: "davmail"
 
   def plist
     <<~EOS

@@ -5,6 +5,10 @@ class Sox < Formula
   sha256 "b45f598643ffbd8e363ff24d61166ccec4836fea6d3888881b8df53e3bb55f6c"
   revision 3
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "fc412be07e577c2161763dfb509f4fb43f4fe3bca206a1b0b370687df0a264fa" => :catalina

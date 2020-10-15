@@ -10,13 +10,19 @@
 class Mutt < Formula
   desc "Mongrel of mail user agents (part elm, pine, mush, mh, etc.)"
   homepage "http://www.mutt.org/"
-  url "https://bitbucket.org/mutt/mutt/downloads/mutt-1.13.5.tar.gz"
-  sha256 "6cd71b5b3e6b255afef6bed3b5e1e8ee9819b3d7c9839fd95e798045882aa653"
+  url "https://bitbucket.org/mutt/mutt/downloads/mutt-1.14.7.tar.gz"
+  sha256 "e4f507b133253cb5eef27996b8668956cdf9caac622cf8adad13f0f9a4eda864"
+  license "GPL-2.0-or-later"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
-    sha256 "3bcdd2904f7a76d195020188134d9b4566a3d905f43e70a2041c684e6fa9bce3" => :catalina
-    sha256 "64fcaf845a5dc2500e73cc6ae1988679ce139b1573d07b6d899a804d4033382a" => :mojave
-    sha256 "0bdcaa2f901111df911aeebb4b69b67f8907a614b3187d12f82aca17c07bd744" => :high_sierra
+    rebuild 1
+    sha256 "e20f2379b28260a7cd995dfc019e82c4cb72ef1d5a2e15c93328088994d556b9" => :catalina
+    sha256 "592e488746c4b7ff7f6d4c814baa2f14528c2563364503a34ba100a0bf74a2f7" => :mojave
+    sha256 "8916a5de4c7c6734e3039f3e5f1e880fc9624bce8f27fe8e0ef2e25c51f120e7" => :high_sierra
   end
 
   head do
@@ -38,7 +44,7 @@ class Mutt < Formula
   uses_from_macos "zlib"
 
   conflicts_with "tin",
-    :because => "both install mmdf.5 and mbox.5 man pages"
+    because: "both install mmdf.5 and mbox.5 man pages"
 
   def install
     user_in_mail_group = Etc.getgrnam("mail").mem.include?(ENV["USER"])
@@ -75,7 +81,7 @@ class Mutt < Formula
 
   def caveats
     <<~EOS
-      mutt_dotlock(1) has been installed, but does not have the permissions lock
+      mutt_dotlock(1) has been installed, but does not have the permissions to lock
       spool files in /var/mail. To grant the necessary permissions, run
 
         sudo chgrp mail #{bin}/mutt_dotlock

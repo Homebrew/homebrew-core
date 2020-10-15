@@ -1,21 +1,19 @@
 class Libaacs < Formula
   desc "Implements the Advanced Access Content System specification"
   homepage "https://www.videolan.org/developers/libaacs.html"
-  url "https://download.videolan.org/pub/videolan/libaacs/0.9.0/libaacs-0.9.0.tar.bz2"
-  sha256 "47e0bdc9c9f0f6146ed7b4cc78ed1527a04a537012cf540cf5211e06a248bace"
+  url "https://download.videolan.org/pub/videolan/libaacs/0.11.0/libaacs-0.11.0.tar.bz2"
+  sha256 "6d884381fbb659e2a565eba91e72499778635975e4b3d6fd94ab364a25965387"
+  license "LGPL-2.1"
 
   bottle do
     cellar :any
-    sha256 "9c3fbec79dd315fe3cdc3c4cb414e2ec925ee0afa3e8cbe1a134252e46f689a7" => :catalina
-    sha256 "2071dce1ff86c499e3e97c90848e61041d98477c0e50faec10701acd0de7f8d8" => :mojave
-    sha256 "b423d7825fa1695fb9099c0f6f00ea0b460c697878badc2a710900c8e3a55c39" => :high_sierra
-    sha256 "07efaa70031e035a007873916e1e288c830b67095c140e358a71801b044c86a9" => :sierra
-    sha256 "89afae75a0b0969298bb38cc14de93b2f8a713d4fa15ab62c7bc0f265003d1d4" => :el_capitan
-    sha256 "0b3b29f19f636b25e95321aeffbd54303aec2cbca4641671d825284f6cd81fc7" => :yosemite
+    sha256 "74f17ba980a3b1d763f09869541542716979e8fe8e6ee299a00a9d5fe68bbb5b" => :catalina
+    sha256 "97fbb158456e2b35633e387e239a5ccc5e90041a0bba15a139dbf32ea4de872b" => :mojave
+    sha256 "6ac467398d3fb886cee220bd7724f1341631b1ac31220e3ee504d687347a731f" => :high_sierra
   end
 
   head do
-    url "https://git.videolan.org/git/libaacs.git"
+    url "https://code.videolan.org/videolan/libaacs.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

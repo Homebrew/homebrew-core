@@ -1,14 +1,19 @@
 class Dwarfutils < Formula
   desc "Dump and produce DWARF debug information in ELF objects"
   homepage "https://www.prevanders.net/dwarf.html"
-  url "https://www.prevanders.net/libdwarf-20200114.tar.gz"
-  sha256 "cffd8d600ca3181a5194324c38d50f94deb197249b2dea92d18969a7eadd2c34"
+  url "https://www.prevanders.net/libdwarf-20200825.tar.gz"
+  sha256 "c42786a085bf244c8a1b0238b57f42f6cfc582baebe5e174ea62eb1a81f32103"
+
+  livecheck do
+    url :homepage
+    regex(%r{href=(?:["']?|.*?/)libdwarf[._-]v?(\d{6,8})\.t}i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7a752aaf0ef830de3bef1041516ecb1efc505e577b67deb690c9d38b99fbaeeb" => :catalina
-    sha256 "12c22459b32e39867a9943b958de8fecdc311a233f1b80722ecebca44fb5ce50" => :mojave
-    sha256 "7e815620405e86d932cba7502cbf8ee63fd786fb18258a0318d4ca9680f8912e" => :high_sierra
+    sha256 "e0327be931c95af4ec48f26ea7074b845a22519fb5b77d85a4d998f5eb41a9b8" => :catalina
+    sha256 "137d8e78ad93146c117ac0d54b400f482e5e7f77715da38f9dd706fe13f1a911" => :mojave
+    sha256 "a1a67921310eee29917097960b09f75d12043544c460ad678f3f0febe66c0ecb" => :high_sierra
   end
 
   depends_on "libelf" => :build

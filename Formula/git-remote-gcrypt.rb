@@ -3,6 +3,7 @@ class GitRemoteGcrypt < Formula
   homepage "https://spwhitton.name/tech/code/git-remote-gcrypt/"
   url "https://github.com/spwhitton/git-remote-gcrypt/archive/1.3.tar.gz"
   sha256 "e1948dda848db845db404e4337b07206c96cb239b66392fd1c9c246279c2cb25"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation

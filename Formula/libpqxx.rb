@@ -1,15 +1,15 @@
 class Libpqxx < Formula
   desc "C++ connector for PostgreSQL"
-  homepage "http://pqxx.org/development/libpqxx/"
-  url "https://github.com/jtv/libpqxx/archive/6.4.5.tar.gz"
-  sha256 "86921fdb0fe54495a79d5af2c96f2c771098c31e9b352d0834230fd2799ad362"
-  revision 5
+  homepage "https://pqxx.org/development/libpqxx/"
+  url "https://github.com/jtv/libpqxx/archive/7.2.0.tar.gz"
+  sha256 "c482a31c5d08402bc9e8df8291bed3555640ea80b3cb354fca958b1b469870dd"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any
-    sha256 "9f7a06c5aec1200b4c27e754fa0f751cf5084065b4dd268f870d60eca30257c5" => :catalina
-    sha256 "461042302eadaee751e2792402f25bf190386fd9f443a4b5f00be2acb8d47474" => :mojave
-    sha256 "9f1202b31703fb3b716668de6e9b48543faf517e6e419cb68b61d92bad20cb47" => :high_sierra
+    sha256 "c2c99b7a5706d977c933b02029c2f6960b3e82ca87f0a26393859f5e399879d9" => :catalina
+    sha256 "ee66e2a782c70d9c6e00058527e2931950b3e76966033c4f19a95e144e2d22e4" => :mojave
+    sha256 "dd4090bffc158c07fc82e3b0f235ee3856464e521fe3a0d2683b45cd336b206e" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -33,7 +33,7 @@ class Libpqxx < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "-std=c++11", "test.cpp", "-L#{lib}", "-lpqxx",
+    system ENV.cxx, "-std=c++17", "test.cpp", "-L#{lib}", "-lpqxx",
            "-I#{include}", "-o", "test"
     # Running ./test will fail because there is no runnning postgresql server
     # system "./test"

@@ -5,6 +5,11 @@ class Ipbt < Formula
   version "20190601"
   sha256 "a519507fccda5e3054d3639e9abedb482a108fa8ee6fc3b1c03ba0d6a4ba48aa"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?ipbt[._-]v?(\d+)(?:\.[\da-z]+)?\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "367536bc0020cd8b4313936070ec9539bcfe56de061a40b6bfc4aa0533d82a5a" => :catalina

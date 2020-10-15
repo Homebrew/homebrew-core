@@ -1,13 +1,20 @@
 class Glib < Formula
+  include Language::Python::Shebang
+
   desc "Core application library for C"
   homepage "https://developer.gnome.org/glib/"
-  url "https://download.gnome.org/sources/glib/2.64/glib-2.64.1.tar.xz"
-  sha256 "17967603bcb44b6dbaac47988d80c29a3d28519210b28157c2bd10997595bbc7"
+  url "https://download.gnome.org/sources/glib/2.66/glib-2.66.1.tar.xz"
+  sha256 "a269ffe69fbcc3a21ff1acb1b6146b2a5723499d6e2de33ae16ccb6d2438ef60"
+  license "LGPL-2.1-or-later"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
-    sha256 "95aad8af50c0e84cc271b7843e0ef35a0c94fe96a1f1c721d5cb20674ccb7537" => :catalina
-    sha256 "e600b1c91a4760bd0f8170d9162a0b745add3ee5c20071877cd66d0a9a6f5c6d" => :mojave
-    sha256 "88c12b8d341eaf3106b6a2319c6564eade2d6182e3d642b6c9922a2727209183" => :high_sierra
+    sha256 "262f87a82d6409a34bec932f4bfae6c30fa8a39c8886161dd46043243ffcdd9f" => :catalina
+    sha256 "202946f77d5bde6c9bad1f3bad818bc0f01b2493a7c826dbd4a18bd451410f97" => :mojave
+    sha256 "8457442f4db9c331cabeca46344354b5177ff0cc54bef1d3ede8981aeda84b6b" => :high_sierra
   end
 
   depends_on "meson" => :build
@@ -16,8 +23,11 @@ class Glib < Formula
   depends_on "gettext"
   depends_on "libffi"
   depends_on "pcre"
-  depends_on "python"
-  uses_from_macos "util-linux" # for libmount.so
+  depends_on "python@3.8"
+
+  on_linux do
+    depends_on "util-linux"
+  end
 
   # https://bugzilla.gnome.org/show_bug.cgi?id=673135 Resolved as wontfix,
   # but needed to fix an assumption about the location of the d-bus machine
@@ -32,7 +42,7 @@ class Glib < Formula
       "@@HOMEBREW_PREFIX@@", HOMEBREW_PREFIX
 
     # Disable dtrace; see https://trac.macports.org/ticket/30413
-    args = %W[
+    args = std_meson_args + %W[
       -Diconv=auto
       -Dgio_module_dir=#{HOMEBREW_PREFIX}/lib/gio/modules
       -Dbsymbolic_functions=false
@@ -40,9 +50,10 @@ class Glib < Formula
     ]
 
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", *args, ".."
+      system "meson", *args, ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
+      bin.find { |f| rewrite_shebang detected_python_shebang, f }
     end
 
     # ensure giomoduledir contains prefix, as this pkgconfig variable will be

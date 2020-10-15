@@ -1,14 +1,16 @@
 class Sn0int < Formula
   desc "Semi-automatic OSINT framework and package manager"
   homepage "https://github.com/kpcyrd/sn0int"
-  url "https://github.com/kpcyrd/sn0int/archive/v0.18.2.tar.gz"
-  sha256 "5040641ff7954ba7bf663312be06b99d2fa53d6d05ccdd0afa235fa8e2dafe2a"
+  url "https://github.com/kpcyrd/sn0int/archive/v0.19.1.tar.gz"
+  sha256 "4720736805bec49102f0622ba6b68cc63da0a023a029687140d5b4d2a4d637dc"
+  license "GPL-3.0-or-later"
 
   bottle do
     cellar :any
-    sha256 "a0b4bd448acc6f09927627b9ada2855fb8b5935c1d4f4a01b59e6c6111a03c03" => :catalina
-    sha256 "d66000fae5a10b794b32ab72be417815a8711c7f968f1f6de4664045c62c6cbc" => :mojave
-    sha256 "2270f47c557370e5572ea5762db6451c253ec2156ece411783a556fc8aa538c1" => :high_sierra
+    rebuild 1
+    sha256 "5a6cc5bdf07a29ebf714aff83d338394d030780aaf69dda387499ca0db8138f2" => :catalina
+    sha256 "75c89017e8f92cc2ef2a1701554a2047ec1a4a42806bc47081c7af42935a8043" => :mojave
+    sha256 "0cf32130ed1155b959935202031f7d71c34f141a46c726233836e402c9bd8bc8" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -18,8 +20,12 @@ class Sn0int < Formula
 
   uses_from_macos "sqlite"
 
+  on_linux do
+    depends_on "libseccomp"
+  end
+
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", *std_cargo_args
 
     system "#{bin}/sn0int completions bash > sn0int.bash"
     system "#{bin}/sn0int completions fish > sn0int.fish"

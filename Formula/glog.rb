@@ -3,6 +3,7 @@ class Glog < Formula
   homepage "https://github.com/google/glog"
   url "https://github.com/google/glog/archive/v0.4.0.tar.gz"
   sha256 "f28359aeba12f30d73d9e4711ef356dc842886968112162bc73002645139c39c"
+  license "BSD-3-Clause"
   head "https://github.com/google/glog.git"
 
   bottle do

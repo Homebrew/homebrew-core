@@ -3,6 +3,7 @@ class Kommit < Formula
   homepage "https://github.com/vigo/kommit"
   url "https://github.com/vigo/kommit/archive/v1.1.0.tar.gz"
   sha256 "c51e87c9719574feb9841fdcbd6d1a43b73a45afeca25e1312d2699fdf730161"
+  license "MIT"
 
   bottle :unneeded
 

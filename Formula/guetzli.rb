@@ -3,6 +3,7 @@ class Guetzli < Formula
   homepage "https://github.com/google/guetzli"
   url "https://github.com/google/guetzli/archive/v1.0.1.tar.gz"
   sha256 "e52eb417a5c0fb5a3b08a858c8d10fa797627ada5373e203c196162d6a313697"
+  license "Apache-2.0"
   head "https://github.com/google/guetzli.git"
 
   bottle do

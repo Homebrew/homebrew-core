@@ -4,6 +4,10 @@ class Iperf < Formula
   url "https://downloads.sourceforge.net/project/iperf2/iperf-2.0.13.tar.gz"
   sha256 "c88adec966096a81136dda91b4bd19c27aae06df4d45a7f547a8e50d723778ad"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "0b9b36d65f113055e86b158f62daa64bf5c177e27abec34c51cbb60bf2a7d4d7" => :catalina

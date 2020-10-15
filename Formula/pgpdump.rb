@@ -3,6 +3,7 @@ class Pgpdump < Formula
   homepage "https://www.mew.org/~kazu/proj/pgpdump/en/"
   url "https://github.com/kazu-yamamoto/pgpdump/archive/v0.33.tar.gz"
   sha256 "fe580ef43f651da59816c70f38f177ea4fa769d64e3d6883a9d1f661bb0a6952"
+  license "BSD-3-Clause"
   head "https://github.com/kazu-yamamoto/pgpdump.git"
 
   bottle do

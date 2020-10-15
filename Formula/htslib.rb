@@ -1,14 +1,20 @@
 class Htslib < Formula
   desc "C library for high-throughput sequencing data formats"
   homepage "https://www.htslib.org/"
-  url "https://github.com/samtools/htslib/releases/download/1.10.2/htslib-1.10.2.tar.bz2"
-  sha256 "e3b543de2f71723830a1e0472cf5489ec27d0fbeb46b1103e14a11b7177d1939"
+  url "https://github.com/samtools/htslib/releases/download/1.11/htslib-1.11.tar.bz2"
+  sha256 "cffadd9baa6fce27b8fe0b01a462b489f06a5433dfe92121f667f40f632538d7"
+  license "MIT"
+
+  livecheck do
+    url "https://github.com/samtools/htslib/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
 
   bottle do
     cellar :any
-    sha256 "4db003ad760c84dbe70dfcd866a32066a4d93980eab12526f69f53e0052d84a6" => :catalina
-    sha256 "b4282ee3f330a894e68a0141b13b7fc1327d92a5319a95f5a8107a401e57ece5" => :mojave
-    sha256 "507db470fc6cb7d97b06f0efff270fe2063d25143bdc09623135c4876474b3c3" => :high_sierra
+    sha256 "f28d03e151afa13f70ed32382fe39dfbd519b94684bffc1351e38c928156f678" => :catalina
+    sha256 "e32ece4437430fb982ab295b6efaa9bed569dd5a661adcf1bc4240b48ae72914" => :mojave
+    sha256 "b0fd73dc104edc3fc591a998ce27fe99e8086873b0ac29775532374213225a1f" => :high_sierra
   end
 
   depends_on "xz"

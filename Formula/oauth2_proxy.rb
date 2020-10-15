@@ -1,15 +1,16 @@
 class Oauth2Proxy < Formula
   desc "Reverse proxy for authenticating users via OAuth 2 providers"
-  homepage "https://pusher.github.io/oauth2_proxy"
-  url "https://github.com/pusher/oauth2_proxy/archive/v5.0.0.tar.gz"
-  sha256 "a775357f3a8952da2495b423765fe7d77e2fbbe4c9282fc28e910642e27caafb"
-  head "https://github.com/pusher/oauth2_proxy.git"
+  homepage "https://oauth2-proxy.github.io/oauth2-proxy/"
+  url "https://github.com/oauth2-proxy/oauth2_proxy/archive/v6.1.1.tar.gz"
+  sha256 "d5fb4129d7f1d1c39f4f45184b319e9b60fcb186f3acdd7c3ea415c56f69079c"
+  license "MIT"
+  head "https://github.com/oauth2-proxy/oauth2-proxy.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fa2c02bd5d715dd0ea01ba9e253ed0909b363d40f7a6d716e0ef5baeae40cb67" => :catalina
-    sha256 "3ce3d33e4db8a89eb3c2e4f78fb6e8964f3a1647ef90facd29cb3c4941c21963" => :mojave
-    sha256 "3e9400a194397e4aeb85bc01d018554a5efcfa613e37096a20464738878f781b" => :high_sierra
+    sha256 "f109dd498dd23e387c4338baa42df3e00a3d83829571f9d7c5b3e55857e0d818" => :catalina
+    sha256 "17ad8e33c417229882d67128f50ea94c94f834e8a56c62884351fa06eb1c7c2e" => :mojave
+    sha256 "b37692fbfcd018de90a1580e99547919adb4d4c25169c02f67ce2d84a3f1bea6" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -17,18 +18,18 @@ class Oauth2Proxy < Formula
   def install
     system "go", "build", "-ldflags", "-s -w -X main.VERSION=#{version}",
                           "-trimpath",
-                          "-o", bin/"oauth2_proxy"
-    (etc/"oauth2_proxy").install "contrib/oauth2_proxy.cfg.example"
-    bash_completion.install "contrib/oauth2_proxy_autocomplete.sh" => "oauth2_proxy"
+                          "-o", bin/"oauth2-proxy"
+    (etc/"oauth2-proxy").install "contrib/oauth2-proxy.cfg.example"
+    bash_completion.install "contrib/oauth2-proxy_autocomplete.sh" => "oauth2-proxy"
   end
 
   def caveats
     <<~EOS
-      #{etc}/oauth2_proxy/oauth2_proxy.cfg must be filled in.
+      #{etc}/oauth2-proxy/oauth2-proxy.cfg must be filled in.
     EOS
   end
 
-  plist_options :manual => "oauth2_proxy"
+  plist_options manual: "oauth2-proxy"
 
   def plist
     <<~EOS
@@ -44,8 +45,8 @@ class Oauth2Proxy < Formula
           <true/>
           <key>ProgramArguments</key>
           <array>
-              <string>#{opt_bin}/oauth2_proxy</string>
-              <string>--config=#{etc}/oauth2_proxy/oauth2_proxy.cfg</string>
+              <string>#{opt_bin}/oauth2-proxy</string>
+              <string>--config=#{etc}/oauth2-proxy/oauth2-proxy.cfg</string>
           </array>
           <key>WorkingDirectory</key>
           <string>#{HOMEBREW_PREFIX}</string>
@@ -55,22 +56,19 @@ class Oauth2Proxy < Formula
   end
 
   test do
-    require "socket"
     require "timeout"
 
-    # Get an unused TCP port.
-    server = TCPServer.new(0)
-    port = server.addr[1]
-    server.close
+    port = free_port
 
     pid = fork do
-      exec "#{bin}/oauth2_proxy",
+      exec "#{bin}/oauth2-proxy",
         "--client-id=testing",
         "--client-secret=testing",
-        "--cookie-secret=testing",
+        # Cookie secret must be 16, 24, or 32 bytes to create an AES cipher
+        "--cookie-secret=0b425616d665d89fb6ee917b7122b5bf",
         "--http-address=127.0.0.1:#{port}",
         "--upstream=file:///tmp",
-        "-email-domain=*"
+        "--email-domain=*"
     end
 
     begin

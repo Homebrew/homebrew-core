@@ -2,19 +2,25 @@ class Ipfs < Formula
   desc "Peer-to-peer hypermedia protocol"
   homepage "https://ipfs.io/"
   url "https://github.com/ipfs/go-ipfs.git",
-      :tag      => "v0.4.23",
-      :revision => "6ce9a355f9757a921d1e30f4a702028d5e4fb7eb"
-  revision 1
+      tag:      "v0.7.0",
+      revision: "ea77213e31ef2b3cad81d40bf82bb9baef3ea7b6"
+  # license ["Apache-2.0", "MIT"] - pending https://github.com/Homebrew/brew/pull/7953
+  license "Apache-2.0"
   head "https://github.com/ipfs/go-ipfs.git"
+
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4ecb76dcfe78abf785fa4afff5e2d73e1a98692b7d8f09213547aa9c3f96c367" => :catalina
-    sha256 "d3609f786bed42efdd33316a5f12a3ff29cfc0f435576576f80f8a8fc9704893" => :mojave
-    sha256 "d7500e7a35b54a95c64618a9539845d398411428989e3e126632d9ffc80577c6" => :high_sierra
+    sha256 "efa0829574ec0c1bb8191c3bfa0b5f146ad6a52123e6ac7aa66b318a5b2ef8a0" => :catalina
+    sha256 "155e275561f4602feab774ea6519d61cab1bfb61a8fe33af94c8b8e5e5754d47" => :mojave
+    sha256 "0bb55579cf672cba14ddc8e8bb52c1db3ec691a9bc4d07935cc1f4021e7403b4" => :high_sierra
   end
 
-  depends_on "go" => :build
+  depends_on "go@1.14" => :build
 
   def install
     ENV["GOPATH"] = buildpath
@@ -25,7 +31,7 @@ class Ipfs < Formula
     cd("src/github.com/ipfs/go-ipfs") { bash_completion.install "misc/completion/ipfs-completion.bash" }
   end
 
-  plist_options :manual => "ipfs daemon"
+  plist_options manual: "ipfs daemon"
 
   def plist
     <<~EOS

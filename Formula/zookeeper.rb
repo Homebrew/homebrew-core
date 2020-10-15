@@ -1,22 +1,28 @@
 class Zookeeper < Formula
   desc "Centralized server for distributed coordination of services"
   homepage "https://zookeeper.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=zookeeper/zookeeper-3.5.7/apache-zookeeper-3.5.7.tar.gz"
-  mirror "https://archive.apache.org/dist/zookeeper/zookeeper-3.5.7/apache-zookeeper-3.5.7.tar.gz"
-  sha256 "7470d30b17cc77be3b58171d820c432bf5181310fbc62e941e2be2745f7300d4"
+  url "https://www.apache.org/dyn/closer.lua?path=zookeeper/zookeeper-3.6.2/apache-zookeeper-3.6.2.tar.gz"
+  mirror "https://archive.apache.org/dist/zookeeper/zookeeper-3.6.2/apache-zookeeper-3.6.2.tar.gz"
+  sha256 "62d9e865a7b1da5e906ff39ebf40cfa1880303c04b4cf38e2c88d328bc2bcd6f"
+  license "Apache-2.0"
   head "https://gitbox.apache.org/repos/asf/zookeeper.git"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any
-    sha256 "1b10a12fdb023016b1ed490033194f4d301a4bba832d4203e897d69d0660703d" => :catalina
-    sha256 "1db0f0b70043d093a975037020e395b7e0c9d8801234a95c02c34670a430a7a6" => :mojave
-    sha256 "da26560dd346476ebfa0e5bd7148020ce71053aeeb6a65b0b60e4307844e5574" => :high_sierra
+    sha256 "bfcc5a911c89d2b1d535a4f2dfad833cc89b84d410fdc9bce4adda5d4abfe4cb" => :catalina
+    sha256 "799dcedfc580923f05b1634fead93e5b4d570bf499f4c52e732cb123d3d9a928" => :mojave
+    sha256 "1e47078cd2e2275fff519fd4f258d9b3df93f79499ba03534cba8dac56877bd0" => :high_sierra
   end
 
-  depends_on "ant" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "cppunit" => :build
   depends_on "libtool" => :build
+  depends_on "maven" => :build
   depends_on "pkg-config" => :build
 
   def shim_script(target)
@@ -46,21 +52,17 @@ class Zookeeper < Formula
   end
 
   def install
-    system "ant", "compile_jute"
+    system "mvn", "install", "-Pfull-build", "-DskipTests"
 
-    cd "zookeeper-client/zookeeper-client-c" do
-      system "autoreconf", "-fiv"
-      system "./configure", "--disable-dependency-tracking",
-                            "--prefix=#{prefix}",
-                            "--without-cppunit"
-      system "make", "install"
-    end
+    system "tar", "-xf", "zookeeper-assembly/target/apache-zookeeper-#{version}-bin.tar.gz"
+    binpfx = "apache-zookeeper-#{version}-bin"
+    libexec.install binpfx+"/bin", binpfx+"/lib", "zookeeper-contrib"
+    rm_f Dir["build-bin/bin/*.cmd"]
 
-    rm_f Dir["bin/*.cmd"]
-
-    system "ant"
-    libexec.install "bin", "build/lib", "zookeeper-contrib"
-    libexec.install Dir["build/*.jar"]
+    system "tar", "-xf", "zookeeper-assembly/target/apache-zookeeper-#{version}-lib.tar.gz"
+    libpfx = "apache-zookeeper-#{version}-lib"
+    include.install Dir[libpfx+"/usr/include/*"]
+    lib.install Dir[libpfx+"/usr/lib/*"]
 
     bin.mkpath
     (etc/"zookeeper").mkpath
@@ -87,7 +89,7 @@ class Zookeeper < Formula
     (etc/"zookeeper").install ["conf/zoo.cfg", "conf/zoo_sample.cfg"]
   end
 
-  plist_options :manual => "zkServer start"
+  plist_options manual: "zkServer start"
 
   def plist
     <<~EOS

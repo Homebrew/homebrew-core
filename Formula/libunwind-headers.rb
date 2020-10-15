@@ -6,8 +6,7 @@ class LibunwindHeaders < Formula
 
   bottle :unneeded
 
-  keg_only :provided_by_macos,
-    "this formula includes official development headers not installed by Apple"
+  keg_only :shadowed_by_macos, "macOS provides libunwind.dylib (but nothing else)"
 
   def install
     include.install Dir["include/*"]

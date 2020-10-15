@@ -4,6 +4,11 @@ class SdlNet < Formula
   url "https://www.libsdl.org/projects/SDL_net/release/SDL_net-1.2.8.tar.gz"
   sha256 "5f4a7a8bb884f793c278ac3f3713be41980c5eedccecff0260411347714facb4"
 
+  livecheck do
+    url "https://www.libsdl.org/projects/SDL_net/release/"
+    regex(/href=.*?SDL_net[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "4c4cf23a69b5bc903e23e919a87ab1c02ed2e65580b8071ea7fe4d40fdb6de55" => :catalina

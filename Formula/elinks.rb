@@ -5,6 +5,11 @@ class Elinks < Formula
   sha256 "456db6f704c591b1298b0cd80105f459ff8a1fc07a0ec1156a36c4da6f898979"
   revision 3
 
+  livecheck do
+    url :head
+    regex(/^elinks[._-]v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     rebuild 1
     sha256 "67ab168d9d6d5bb65791d4c432e7e1e0109a09076039d4d6b2addec9219bef43" => :catalina

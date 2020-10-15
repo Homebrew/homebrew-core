@@ -1,20 +1,20 @@
 class Opusfile < Formula
   desc "API for decoding and seeking in .opus files"
   homepage "https://www.opus-codec.org/"
-  url "https://archive.mozilla.org/pub/opus/opusfile-0.11.tar.gz"
-  sha256 "74ce9b6cf4da103133e7b5c95df810ceb7195471e1162ed57af415fabf5603bf"
-  revision 1
+  url "https://downloads.xiph.org/releases/opus/opusfile-0.12.tar.gz"
+  sha256 "118d8601c12dd6a44f52423e68ca9083cc9f2bfe72da7a8c1acb22a80ae3550b"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any
-    sha256 "880361a708feef58ac653b5d75c8097424e5b3103a7ff00ac147020de1b7d925" => :catalina
-    sha256 "3ed382fc35e4038c6453b73f7f4de91563c5d46ec42661ef0c6f2fc3ce73f0fa" => :mojave
-    sha256 "a02bf319a06dce9af3eb978a1cc4f787883bdbe64aa2085f7e30279bee27d732" => :high_sierra
-    sha256 "ec6639a35be7e6c52129231be4c20e1d078bea09862ee573ecaf359a5c3cd7d6" => :sierra
+    sha256 "c43c50e65738c25ef72af85e5509577314764c3dad0fb4c122704591d6f3a515" => :catalina
+    sha256 "8754dfcc9abec5de74e8cd7af31614c06e8208bd623f9ad5446048ad14218a97" => :mojave
+    sha256 "ff718107c425123a06270b62aa9a7bd3fee4f785d03dac21a58f7059720be22b" => :high_sierra
   end
 
   head do
-    url "https://git.xiph.org/opusfile.git"
+    url "https://gitlab.xiph.org/xiph/opusfile.git"
+
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
@@ -26,7 +26,7 @@ class Opusfile < Formula
   depends_on "opus"
 
   resource "music_48kbps.opus" do
-    url "https://www.opus-codec.org/examples/samples/music_48kbps.opus"
+    url "https://www.opus-codec.org/static/examples/samples/music_48kbps.opus"
     sha256 "64571f56bb973c078ec784472944aff0b88ba0c88456c95ff3eb86f5e0c1357d"
   end
 
@@ -38,6 +38,7 @@ class Opusfile < Formula
   end
 
   test do
+    testpath.install resource("music_48kbps.opus")
     (testpath/"test.c").write <<~EOS
       #include <opus/opusfile.h>
       #include <stdlib.h>
@@ -58,7 +59,6 @@ class Opusfile < Formula
                              "-L#{lib}",
                              "-lopusfile",
                              "-o", "test"
-    resource("music_48kbps.opus").stage testpath
     system "./test", "music_48kbps.opus"
   end
 end

@@ -1,8 +1,14 @@
 class Gradle < Formula
   desc "Open-source build automation tool based on the Groovy and Kotlin DSL"
   homepage "https://www.gradle.org/"
-  url "https://services.gradle.org/distributions/gradle-6.3-all.zip"
-  sha256 "0f316a67b971b7b571dac7215dcf2591a30994b3450e0629925ffcfe2c68cc5c"
+  url "https://services.gradle.org/distributions/gradle-6.7-all.zip"
+  sha256 "0080de8491f0918e4f529a6db6820fa0b9e818ee2386117f4394f95feb1d5583"
+  license "Apache-2.0"
+
+  livecheck do
+    url "https://services.gradle.org/distributions/"
+    regex(/href=.*?gradle[._-]v?(\d+(?:\.\d+)+)-all\.(?:[tz])/i)
+  end
 
   bottle :unneeded
 
@@ -11,13 +17,13 @@ class Gradle < Formula
   def install
     rm_f Dir["bin/*.bat"]
     libexec.install %w[bin docs lib src]
-    (bin/"gradle").write_env_script libexec/"bin/gradle",
-      :JAVA_HOME => "${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
+    (bin/"gradle").write_env_script libexec/"bin/gradle", Language::Java.overridable_java_home_env
   end
 
   test do
     assert_match version.to_s, shell_output("#{bin}/gradle --version")
 
+    (testpath/"settings.gradle").write ""
     (testpath/"build.gradle").write <<~EOS
       println "gradle works!"
     EOS

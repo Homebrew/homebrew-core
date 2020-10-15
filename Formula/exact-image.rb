@@ -3,6 +3,12 @@ class ExactImage < Formula
   homepage "https://exactcode.com/opensource/exactimage/"
   url "https://dl.exactcode.de/oss/exact-image/exact-image-1.0.2.tar.bz2"
   sha256 "0694c66be5dec41377acead475de69b3d7ffb42c702402f8b713f8b44cdc2791"
+  license "GPL-2.0"
+
+  livecheck do
+    url "https://dl.exactcode.de/oss/exact-image/"
+    regex(/href=.*?exact-image[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 "78a802b0edd2c27640aa2e6be381c146a7fa05bd6dd584ace90b1dfa0e426291" => :catalina

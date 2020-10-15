@@ -1,8 +1,9 @@
 class Riemann < Formula
   desc "Event stream processor"
   homepage "https://riemann.io/"
-  url "https://github.com/riemann/riemann/releases/download/0.3.5/riemann-0.3.5.tar.bz2"
-  sha256 "2c0f7de308417af890d33f2a9ac40649337cf1b7e0e0c930d8e69f151e15fbb4"
+  url "https://github.com/riemann/riemann/releases/download/0.3.6/riemann-0.3.6.tar.bz2"
+  sha256 "fa2e22b712ed53144bf3319a418a3cd502ed00fa8e6bcb50443039a2664ee643"
+  license "EPL-1.0"
 
   bottle :unneeded
 
@@ -37,7 +38,7 @@ class Riemann < Formula
     EOS
   end
 
-  plist_options :manual => "riemann"
+  plist_options manual: "riemann"
 
   def plist
     <<~EOS

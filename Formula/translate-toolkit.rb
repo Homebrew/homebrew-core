@@ -3,19 +3,20 @@ class TranslateToolkit < Formula
 
   desc "Toolkit for localization engineers"
   homepage "https://toolkit.translatehouse.org/"
-  url "https://github.com/translate/translate/archive/2.5.0.tar.gz"
-  sha256 "4c4f28ab70f8bd028c8242c76a0dfef4ad88e0f62df53c5d7d6f2adcfac57600"
+  url "https://github.com/translate/translate/archive/3.0.0.tar.gz"
+  sha256 "edbd6035ca20f2edffb434fb80378f77494fdf41698f006fc93e0c4ce2eea8f2"
+  license "GPL-2.0"
   revision 1
   head "https://github.com/translate/translate.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "208b9953ae03816389f657b76987fce9f531a5db82a8e06fbd35822229eea63b" => :catalina
-    sha256 "9c42f38793ab7f4ede212d258b94bcc776482143f283b38f798723e3901dad8a" => :mojave
-    sha256 "5ee42d0176b78e8c2b2093376f9a5043271838b2863724fcdb84897a9d763a5a" => :high_sierra
+    sha256 "f865d11e700f97b366112d5ef3db5363c0e260109f9b4ff7e64dac9992635e18" => :catalina
+    sha256 "474b0474ea2a85a5204b96de4da80dacb9fe0c3385a63a15dcc83bfeb83cae52" => :mojave
+    sha256 "8fa6b51b0530a4249243e3117eeef6bc3d5b9cf0a0847fade2184183e5ed0ce0" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "argparse" do
     url "https://files.pythonhosted.org/packages/18/dd/e617cfc3f6210ae183374cd9f6a26b20514bbb5a792af97949c5aacddf0f/argparse-1.4.0.tar.gz"

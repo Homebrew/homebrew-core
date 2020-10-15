@@ -3,6 +3,7 @@ class Clipper < Formula
   homepage "https://wincent.com/products/clipper"
   url "https://github.com/wincent/clipper/archive/2.0.0.tar.gz"
   sha256 "9c9fa0b198d11513777d40c88e2529b2f2f84d7045a500be5946976a5cdcfe83"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any_skip_relocation
@@ -18,7 +19,7 @@ class Clipper < Formula
     system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"clipper", "clipper.go"
   end
 
-  plist_options :manual => "clipper"
+  plist_options manual: "clipper"
 
   def plist
     <<~EOS
@@ -49,7 +50,7 @@ class Clipper < Formula
   end
 
   test do
-    TEST_DATA = "a simple string! to test clipper, with söme spéciål characters!! 🐎\n".freeze
+    test_data = "a simple string! to test clipper, with söme spéciål characters!! 🐎\n".freeze
 
     cmd = [opt_bin/"clipper", "-a", testpath/"clipper.sock", "-l", testpath/"clipper.log"].freeze
     ohai cmd.join " "
@@ -59,10 +60,10 @@ class Clipper < Formula
       sleep 0.5 # Give it a moment to launch and create its socket.
       begin
         sock = UNIXSocket.new testpath/"clipper.sock"
-        assert_equal TEST_DATA.bytesize, sock.sendmsg(TEST_DATA)
+        assert_equal test_data.bytesize, sock.sendmsg(test_data)
         sock.close
         sleep 0.5
-        assert_equal TEST_DATA, `LANG=en_US.UTF-8 pbpaste`
+        assert_equal test_data, `LANG=en_US.UTF-8 pbpaste`
       ensure
         Process.kill "TERM", clipper.pid
       end

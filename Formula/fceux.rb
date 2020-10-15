@@ -1,9 +1,13 @@
 class Fceux < Formula
-  desc "The all in one NES/Famicom Emulator"
+  desc "All-in-one NES/Famicom Emulator"
   homepage "http://fceux.com"
   url "https://downloads.sourceforge.net/project/fceultra/Source%20Code/2.2.3%20src/fceux-2.2.3.src.tar.gz"
   sha256 "4be6dda9a347f941809a3c4a90d21815b502384adfdd596adaa7b2daf088823e"
-  revision 3
+  revision 4
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any
@@ -17,6 +21,9 @@ class Fceux < Formula
   depends_on "gd"
   depends_on "gtk+3"
   depends_on "sdl"
+
+  # Does not build: some build scripts rely on Python 2 syntax
+  disable! because: :does_not_build
 
   # Fix "error: ordered comparison between pointer and zero"
   if DevelopmentTools.clang_build_version >= 900

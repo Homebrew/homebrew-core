@@ -4,6 +4,11 @@ class Makepp < Formula
   url "https://downloads.sourceforge.net/project/makepp/2.0/makepp-2.0.tgz"
   sha256 "d1b64c6f259ed50dfe0c66abedeb059e5043fc02ca500b2702863d96cdc15a19"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/makepp[._-]v?(\d+\.\d+)\.t}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "0dfbbcc3fafad36964f7e4c0820726c9764d89a9b56aa190a5cfd44cd0a53dc8" => :catalina

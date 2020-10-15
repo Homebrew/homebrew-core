@@ -10,8 +10,9 @@ class Jack < Formula
   homepage "https://jackaudio.org/"
   # pull from git tag to get submodules
   url "https://github.com/jackaudio/jack1.git",
-      :tag      => "0.125.0",
-      :revision => "f5e00e485e7aa4c5baa20355b27e3b84a6912790"
+      tag:      "0.125.0",
+      revision: "f5e00e485e7aa4c5baa20355b27e3b84a6912790"
+  license "GPL-2.0"
   revision 4
   head "https://github.com/jackaudio/jack1.git"
 
@@ -29,7 +30,9 @@ class Jack < Formula
   depends_on "libsamplerate"
   depends_on "libsndfile"
 
-  uses_from_macos "util-linux"
+  on_linux do
+    depends_on "util-linux"
+  end
 
   def install
     sdk = MacOS.sdk_path_if_needed ? MacOS.sdk_path : ""
@@ -49,7 +52,7 @@ class Jack < Formula
     system "make", "install"
   end
 
-  plist_options :manual => "jackd -d coreaudio"
+  plist_options manual: "jackd -d coreaudio"
 
   def plist
     <<~EOS

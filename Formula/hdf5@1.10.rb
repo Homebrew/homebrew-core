@@ -1,14 +1,15 @@
 class Hdf5AT110 < Formula
   desc "File format designed to store large amounts of data"
   homepage "https://www.hdfgroup.org/HDF5"
-  url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.6/src/hdf5-1.10.6.tar.bz2"
-  sha256 "09d6301901685201bb272a73e21c98f2bf7e044765107200b01089104a47c3bd"
+  url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.7/src/hdf5-1.10.7.tar.bz2"
+  sha256 "02018fac7e5efc496d9539a303cfb41924a5dadffab05df9812096e273efa55e"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any
-    sha256 "6ae8172b9bf10571a56b56c6571d794cc286df091aad63f2df9d744783cea303" => :catalina
-    sha256 "98ebeaaa440bb42e7fa423e1acb8ed445629010cf1d984fd7d19463b40906235" => :mojave
-    sha256 "41b387396f39f4153a6620cec626b8a5282d18d8bd102985158adf5ba23cdf73" => :high_sierra
+    sha256 "b60cf0990900c97ed302056e8ac51e2def10d6d9972d769f7e22d2e94ae0fe7e" => :catalina
+    sha256 "ca0304a962af4bc0c0009f13b47ba55c7be49d26c63a39e8a99b37ae544b72cc" => :mojave
+    sha256 "4ecc6d44b4eb1fd71eaa5f2e8d240d8804352643fc3255b18e71fcb3f9e6af80" => :high_sierra
   end
 
   keg_only :versioned_formula
@@ -31,6 +32,10 @@ class Hdf5AT110 < Formula
               "settingsdir=#{pkgshare}"
 
     system "autoreconf", "-fiv"
+
+    # necessary to avoid compiler paths that include shims directory being used
+    ENV["CC"] = "/usr/bin/cc"
+    ENV["CXX"] = "/usr/bin/c++"
 
     args = %W[
       --disable-dependency-tracking

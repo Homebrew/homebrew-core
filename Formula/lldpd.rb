@@ -1,13 +1,17 @@
 class Lldpd < Formula
   desc "Implementation of IEEE 802.1ab (LLDP)"
   homepage "https://vincentbernat.github.io/lldpd/"
-  url "https://media.luffy.cx/files/lldpd/lldpd-1.0.5.tar.gz"
-  sha256 "2dd3b212f4dbabfcbb2794c0010b245f9f8e74b387984e757be6243a74c6cb99"
+  url "https://media.luffy.cx/files/lldpd/lldpd-1.0.6.tar.gz"
+  sha256 "25e15bc3407c1cbf2d0b2f21993561a57b7e2fdc5cebfcf6df4ce5ce376aaeec"
+
+  livecheck do
+    url "https://github.com/vincentbernat/lldpd.git"
+  end
 
   bottle do
-    sha256 "f37abc384f5435813515146bfa157d53d07611bce4b1b177ddc3d3410416b0b5" => :catalina
-    sha256 "578f07789b6d8f8d0ab98d64707ec14a1879005a06bfe88f9d0447d474e7f2cf" => :mojave
-    sha256 "4f04dc494f01c2ce011ea48c1e85efb3c985e98fe5b31ce768019d3746acd5ea" => :high_sierra
+    sha256 "31d0013804445cc7b674ae9f7cabe736fbfab7a4d03ed88cbe205e97e76c1567" => :catalina
+    sha256 "986c8754cbb606db48dcee2230a097ec40629d5353b3c7f811be0153669fd18c" => :mojave
+    sha256 "ae25b1716c60ab6441d445af1c2053712bdc54358ae5f524cb6aff1c192b39bb" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -42,7 +46,7 @@ class Lldpd < Formula
     (var/"run").mkpath
   end
 
-  plist_options :startup => true
+  plist_options startup: true
 
   def plist
     <<~EOS

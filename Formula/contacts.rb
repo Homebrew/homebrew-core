@@ -7,6 +7,7 @@ class Contacts < Formula
   url "https://github.com/dhess/contacts/archive/4092a3c6615d7a22852a3bafc44e4aeeb698aa8f.tar.gz"
   version "1.1a-3"
   sha256 "e3dd7e592af0016b28e9215d8ac0fe1a94c360eca5bfbdafc2b0e5d76c60b871"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation
@@ -18,7 +19,7 @@ class Contacts < Formula
     sha256 "9a9c89e40f9ccf4ec45cf63414eaf31266dfc9b71dc96d8c02f7ab2b38e8f346" => :mavericks
   end
 
-  depends_on :xcode => :build
+  depends_on xcode: :build
 
   def install
     system "make", "SDKROOT=#{MacOS.sdk_path}"

@@ -3,6 +3,7 @@ class Libtommath < Formula
   homepage "https://www.libtom.net/LibTomMath/"
   url "https://github.com/libtom/libtommath/releases/download/v1.2.0/ltm-1.2.0.tar.xz"
   sha256 "b7c75eecf680219484055fcedd686064409254ae44bc31a96c5032843c0e18b1"
+  license "Unlicense"
   revision 1
   head "https://github.com/libtom/libtommath.git"
 
@@ -25,6 +26,9 @@ class Libtommath < Formula
 
   def install
     ENV["DESTDIR"] = prefix
+
+    # Work around Xcode 11 clang bug
+    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
 
     system "make"
     system "make", "test_standalone"

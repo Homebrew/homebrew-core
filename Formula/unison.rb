@@ -3,7 +3,13 @@ class Unison < Formula
   homepage "https://www.cis.upenn.edu/~bcpierce/unison/"
   url "https://github.com/bcpierce00/unison/archive/v2.51.2.tar.gz"
   sha256 "a2efcbeab651be6df69cc9b253011a07955ecb91fb407a219719451197849d5e"
-  head "https://github.com/bcpierce00/unison.git", :branch => "master"
+  license "GPL-3.0"
+  head "https://github.com/bcpierce00/unison.git", branch: "master"
+
+  livecheck do
+    url "https://github.com/bcpierce00/unison/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+(?:v\d+)?)["' >]}i)
+  end
 
   bottle do
     cellar :any_skip_relocation
@@ -20,6 +26,12 @@ class Unison < Formula
   patch do
     url "https://github.com/bcpierce00/unison/commit/23fa1292.diff?full_index=1"
     sha256 "ad6b28dc2fe1c6c99863079c7e96b12452aa05c05ed010b6c551e32244ce76f2"
+  end
+
+  # compatibility fix with ocaml 4.10
+  patch do
+    url "https://github.com/bcpierce00/unison/commit/acbce432.diff?full_index=1"
+    sha256 "db4f98547fb8e66c8c7d557387b352cece3d06c982bce361bda7f7c3806133d2"
   end
 
   def install

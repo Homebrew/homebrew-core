@@ -2,33 +2,30 @@ class Kibana < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
-      :tag      => "v6.8.7",
-      :revision => "64089136f7faf8a9ec40a65279a512ffd92b427e"
+      tag:      "v7.8.1",
+      revision: "5db9c677ea993ff3df503df03d03f5657fcea42e"
+  license "Apache-2.0"
+  revision 1
   head "https://github.com/elastic/kibana.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2eddac2302247eaae7b5aa97cc752836750c87bee31fa94c2bf639fa06a20ae1" => :catalina
-    sha256 "32fef553a46b67acee00ca5660d1e6da971d876cd7df5487dc1a4c5c99c01653" => :mojave
-    sha256 "f71b40f6dd6215d107bc5893c9953737f8c149ac617338e2859327fd31808b24" => :high_sierra
+    sha256 "ab4ebbdabe531a35369b61b5770d0b7a0028a21ec8cdd1dfc7070041c1fa358e" => :catalina
+    sha256 "660bcf7f4f2d5aa6488e8c54bb1cee3e5a106a11fd5f3ecfc0d5af6d34cfe2b7" => :mojave
+    sha256 "7e55dec07c62cf50140ca1bb47ba07a3ae72f2d2c0d85445d09ba0ce51fe18cb" => :high_sierra
   end
 
+  depends_on "python@3.9" => :build
   depends_on "yarn" => :build
   depends_on "node@10"
 
   def install
     # remove non open source files
     rm_rf "x-pack"
-    inreplace "package.json", /"x-pack":.*/, ""
 
-    # patch build to not try to read tsconfig.json's from the removed x-pack folder
-    inreplace "src/dev/typescript/projects.ts" do |s|
-      s.gsub! "new Project(resolve(REPO_ROOT, 'x-pack/tsconfig.json')),", ""
-      s.gsub! "new Project(resolve(REPO_ROOT, 'x-pack/test/tsconfig.json'), 'x-pack/test'),", ""
-    end
-
+    inreplace "package.json", /"node": "10\.\d+\.\d+"/, %Q("node": "#{Formula["node@10"].version}")
     system "yarn", "kbn", "bootstrap"
-    system "yarn", "build", "--oss", "--release", "--skip-os-packages", "--skip-archives"
+    system "node", "scripts/build", "--oss", "--release", "--skip-os-packages", "--skip-archives"
 
     prefix.install Dir
       .glob("build/oss/kibana-#{version}-darwin-x86_64/**")
@@ -57,7 +54,7 @@ class Kibana < Formula
     EOS
   end
 
-  plist_options :manual => "kibana"
+  plist_options manual: "kibana"
 
   def plist
     <<~EOS
@@ -79,6 +76,19 @@ class Kibana < Formula
 
   test do
     ENV["BABEL_CACHE_PATH"] = testpath/".babelcache.json"
-    assert_match /#{version}/, shell_output("#{bin}/kibana -V")
+
+    (testpath/"data").mkdir
+    (testpath/"config.yml").write <<~EOS
+      path.data: #{testpath}/data
+    EOS
+
+    port = free_port
+    fork do
+      exec bin/"kibana", "-p", port.to_s, "-c", testpath/"config.yml"
+    end
+    sleep 15
+    output = shell_output("curl -s 127.0.0.1:#{port}")
+    # Kibana returns this message until it connects to Elasticsearch
+    assert_equal "Kibana server is not ready yet", output
   end
 end

@@ -5,6 +5,11 @@ class Jags < Formula
   sha256 "8ac5dd57982bfd7d5f0ee384499d62f3e0bb35b5f1660feb368545f1186371fc"
   revision 2
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/JAGS[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "f40e6af27e11d70df8d967dfdf56b9f51f97b6d7b26922efc1e0a7c564d6a82e" => :catalina

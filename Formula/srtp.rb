@@ -3,7 +3,13 @@ class Srtp < Formula
   homepage "https://github.com/cisco/libsrtp"
   url "https://github.com/cisco/libsrtp/archive/v2.3.0.tar.gz"
   sha256 "94093a5d04c5f4743e8d81182b76938374df6d393b45322f24960d250b0110e8"
+  license "BSD-3-Clause"
   head "https://github.com/cisco/libsrtp.git"
+
+  livecheck do
+    url "https://github.com/cisco/libsrtp/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
 
   bottle do
     cellar :any

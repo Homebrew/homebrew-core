@@ -3,6 +3,12 @@ class Makedepend < Formula
   homepage "https://x.org/"
   url "https://xorg.freedesktop.org/releases/individual/util/makedepend-1.0.6.tar.bz2"
   sha256 "d558a52e8017d984ee59596a9582c8d699a1962391b632bec3bb6804bf4d501c"
+  license "MIT"
+
+  livecheck do
+    url "https://xorg.freedesktop.org/releases/individual/util/"
+    regex(/href=.*?makedepend[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     cellar :any_skip_relocation

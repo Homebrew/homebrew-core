@@ -1,21 +1,26 @@
 class Zola < Formula
   desc "Fast static site generator in a single binary with everything built-in"
   homepage "https://www.getzola.org/"
-  url "https://github.com/getzola/zola/archive/v0.10.1.tar.gz"
-  sha256 "cf5992e935d2f236985b57f357bb6e6738e83b13b0ae50278da66382a0af106c"
+  url "https://github.com/getzola/zola/archive/v0.12.2.tar.gz"
+  sha256 "1c0cb37e9a3d9f7ff41012996eb068fb5453c9727f107ac817429cbdae4dae84"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1520621fa148090174e4b3732c4f86d595bd2e6804bc8943774e614d1408ac7d" => :catalina
-    sha256 "0f4e61f9efce1567f82c5ca6c1d3b04ccdadaca96a5b24d148de214d79fd4552" => :mojave
-    sha256 "6fcabfceefe7924916e35865ac0bbd0e643b9ea1582f6563273f942be9e67575" => :high_sierra
+    sha256 "a16ab6a5bc7c04cf10f6266ce79921c607b6c19226190e65c420776595ed26d7" => :catalina
+    sha256 "62c8164ec43c9c6090ff3be1b33ab2f2731894e626d2b2ac660b52f0f6902a36" => :mojave
+    sha256 "4f726fe8708e96ab25f2830dfbb751ef67a34221621312604d6a2bd86bc87d72" => :high_sierra
   end
 
   depends_on "cmake" => :build
   depends_on "rust" => :build
 
+  on_linux do
+    depends_on "openssl@1.1"
+  end
+
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", *std_cargo_args
 
     bash_completion.install "completions/zola.bash"
     zsh_completion.install "completions/_zola"

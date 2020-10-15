@@ -4,6 +4,10 @@ class Openslp < Formula
   url "https://downloads.sourceforge.net/project/openslp/2.0.0/2.0.0%20Release/openslp-2.0.0.tar.gz"
   sha256 "924337a2a8e5be043ebaea2a78365c7427ac6e9cee24610a0780808b2ba7579b"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "fee6eb82ad60bf1446278498ff8860584dcd2192a7505f3c57eec2bab55f337f" => :catalina
     sha256 "948182086a86baa001d9b8864715c91d5d9b9ec76ba7c072667dc0d58e983d12" => :mojave

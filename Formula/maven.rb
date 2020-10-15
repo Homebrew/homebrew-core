@@ -4,13 +4,18 @@ class Maven < Formula
   url "https://www.apache.org/dyn/closer.lua?path=maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz"
   mirror "https://archive.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz"
   sha256 "26ad91d751b3a9a53087aefa743f4e16a17741d3915b219cf74112bf87a438c5"
+  license "Apache-2.0"
   revision 1
+
+  livecheck do
+    url :stable
+  end
 
   bottle :unneeded
 
   depends_on "openjdk"
 
-  conflicts_with "mvnvm", :because => "also installs a 'mvn' executable"
+  conflicts_with "mvnvm", because: "also installs a 'mvn' executable"
 
   def install
     # Remove windows files
@@ -29,7 +34,7 @@ class Maven < Formula
       basename = file.basename
       next if basename.to_s == "m2.conf"
 
-      (bin/basename).write_env_script file, :JAVA_HOME => "${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
+      (bin/basename).write_env_script file, Language::Java.overridable_java_home_env
     end
   end
 

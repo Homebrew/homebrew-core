@@ -5,6 +5,10 @@ class Xlslib < Formula
   mirror "https://dl.bintray.com/homebrew/mirror/xlslib-package-2.5.0.zip"
   sha256 "05a5d052ffdd6590755949d80d16a56285561557bc9a5e887e3b8b3fef92a3f3"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "9db0f101930faf04be3a8c7cccfafefeb82efc3009e88ab7494296b371631bc3" => :catalina

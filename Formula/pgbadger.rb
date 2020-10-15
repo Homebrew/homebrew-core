@@ -1,15 +1,16 @@
 class Pgbadger < Formula
   desc "Log analyzer for PostgreSQL"
   homepage "https://pgbadger.darold.net/"
-  url "https://github.com/darold/pgbadger/archive/v11.2.tar.gz"
-  sha256 "74527a09e2e68918d2714c55a776f8f19bba9dd62a9f49a3f5ffd59e0812bfa3"
+  url "https://github.com/darold/pgbadger/archive/v11.3.tar.gz"
+  sha256 "533f92a9cca460bde60aecad404497e1d7a28cf724b1af085e14352431c3bda3"
+  license "PostgreSQL"
   head "https://github.com/darold/pgbadger.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cecce520a3c653ba69b24eae89587565569fc25191378622704fc3913452a3d6" => :catalina
-    sha256 "cecce520a3c653ba69b24eae89587565569fc25191378622704fc3913452a3d6" => :mojave
-    sha256 "1233f5007ae53bbcc82a3bce3a1f7be459494e2d33adb4652eb7e9c484e4baf9" => :high_sierra
+    sha256 "ff048cb1c48cef7b760583ccf2e1aa4edf2f2d6df5545d094baf20c6a84122a4" => :catalina
+    sha256 "ff048cb1c48cef7b760583ccf2e1aa4edf2f2d6df5545d094baf20c6a84122a4" => :mojave
+    sha256 "a9350663298d12192751ea780e97581a2d715a0ee90295f12a8abf3e8ba84995" => :high_sierra
   end
 
   def install

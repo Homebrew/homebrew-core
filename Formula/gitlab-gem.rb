@@ -1,21 +1,22 @@
 class GitlabGem < Formula
   desc "Ruby client and CLI for GitLab API"
   homepage "https://github.com/NARKOZ/gitlab"
-  url "https://github.com/NARKOZ/gitlab/archive/v4.14.0.tar.gz"
-  sha256 "5cbad9b2ebb028f25bcc78cf3bb878dfc0350e1865b5f2f7cabfe47c885547b7"
+  url "https://github.com/NARKOZ/gitlab/archive/v4.16.1.tar.gz"
+  sha256 "f3c291a4bafb96ae2156d3b3d84aba549dc657a62832a57e254a6e4d2b6c1105"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "680e45bad2fef63bd5df25517e185894b9d79e529322d5364fc65dbbf646e876" => :catalina
-    sha256 "e770a298696ea437570775398ae2d9d5ae583f51ba0b8d347b052c8636596490" => :mojave
-    sha256 "a32923a073ad63900e49b2f18ae2fc64b93cc3cf88b6a3c8f2eaa419b23a0d04" => :high_sierra
+    sha256 "25266a76b57a3a19d41e17adc9a9989b89933f5dcaed509189bd10769fb505e6" => :catalina
+    sha256 "f232c6d9192d9d6383b2fee68c83e3649954212aaaceb205878acdd731acdc2c" => :mojave
+    sha256 "d0a85575ea14b6d88a0be7e540026b8415bca7032d8685e9fb56f270b4226cb9" => :high_sierra
   end
 
-  uses_from_macos "ruby"
+  uses_from_macos "ruby", since: :catalina
 
   resource "httparty" do
-    url "https://rubygems.org/gems/httparty-0.18.0.gem"
-    sha256 "c6f77f117ca6e7aeaf5405d0992edd43f19f4fa5eea79e9a4fdfdb287cfeee6f"
+    url "https://rubygems.org/gems/httparty-0.18.1.gem"
+    sha256 "878fe8038e344b219dbba9e20c442914a2be251d2f4a20bcdeb31f25dcb2f79d"
   end
 
   resource "mime-types" do
@@ -24,8 +25,8 @@ class GitlabGem < Formula
   end
 
   resource "mime-types-data" do
-    url "https://rubygems.org/gems/mime-types-data-3.2019.1009.gem"
-    sha256 "b09bb0076f4d209d21de5f81569edffdb6e53d43f891e30edfa12433980ba6a3"
+    url "https://rubygems.org/gems/mime-types-data-3.2020.0512.gem"
+    sha256 "a31c1705fec7fc775749742c52964a0e012968b43939e141a74f43ffecd6e5fc"
   end
 
   resource "multi_xml" do
@@ -39,8 +40,8 @@ class GitlabGem < Formula
   end
 
   resource "unicode-display_width" do
-    url "https://rubygems.org/gems/unicode-display_width-1.6.1.gem"
-    sha256 "3d011d8ae44d35ddf1148bdf4de9fb4331dc53b5a39420c6336261823f65f7de"
+    url "https://rubygems.org/gems/unicode-display_width-1.7.0.gem"
+    sha256 "cad681071867a4cf52613412e379e39e85ac72b1d236677a2001187d448b231a"
   end
 
   def install
@@ -52,15 +53,13 @@ class GitlabGem < Formula
     end
     system "gem", "build", "gitlab.gemspec"
     system "gem", "install", "--ignore-dependencies", "gitlab-#{version}.gem"
-    bin.install "exe/gitlab"
-    bin.env_script_all_files(libexec/"exe", :GEM_HOME => ENV["GEM_HOME"])
-    libexec.install Dir["*"]
+    (bin/"gitlab").write_env_script libexec/"bin/gitlab", GEM_HOME: ENV["GEM_HOME"]
   end
 
   test do
     ENV["GITLAB_API_ENDPOINT"] = "https://example.com/"
     ENV["GITLAB_API_PRIVATE_TOKEN"] = "token"
     output = shell_output("#{bin}/gitlab user 2>&1", 1)
-    assert_match "The response is not a valid JSON", output
+    assert_match "Server responded with code 404", output
   end
 end

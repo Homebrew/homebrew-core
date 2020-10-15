@@ -3,6 +3,7 @@ class Rbenv < Formula
   homepage "https://github.com/rbenv/rbenv#readme"
   url "https://github.com/rbenv/rbenv/archive/v1.1.2.tar.gz"
   sha256 "80ad89ffe04c0b481503bd375f05c212bbc7d44ef5f5e649e0acdf25eba86736"
+  license "MIT"
   head "https://github.com/rbenv/rbenv.git"
 
   bottle do

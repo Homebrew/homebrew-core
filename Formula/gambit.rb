@@ -3,6 +3,7 @@ class Gambit < Formula
   homepage "http://www.gambit-project.org"
   url "https://github.com/gambitproject/gambit/archive/v16.0.1.tar.gz"
   sha256 "56bb86fd17575827919194e275320a5dd498708fd8bb3b20845243d492c10fef"
+  license "Apache-2.0"
 
   bottle do
     cellar :any

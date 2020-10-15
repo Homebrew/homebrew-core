@@ -5,6 +5,10 @@ class Libnids < Formula
   sha256 "314b4793e0902fbf1fdb7fb659af37a3c1306ed1aad5d1c84de6c931b351d359"
   revision 2
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "0cd6c420a38ea61eb8abe96b6b2f754bddf1ca5583b3dbccfb1b268990426764" => :catalina

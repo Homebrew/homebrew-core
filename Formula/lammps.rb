@@ -7,6 +7,7 @@ class Lammps < Formula
   # We only track stable releases as announced on the LAMMPS homepage.
   version "2020-03-03"
   sha256 "a1a2e3e763ef5baecea258732518d75775639db26e60af1634ab385ed89224d1"
+  license "GPL-2.0"
 
   bottle do
     sha256 "9434567739e6497752d8b2e76b7dd06723b2d9773510e92d3e00aa601208c532" => :catalina
@@ -23,14 +24,16 @@ class Lammps < Formula
   depends_on "open-mpi"
 
   def install
+    # Disable some packages for which we do not have dependencies, that are
+    # deprecated or require too much configuration.
+    disabled_packages = %w[gpu kokkos latte mscg message mpiio poems voronoi]
+
     %w[serial mpi].each do |variant|
       cd "src" do
         system "make", "clean-all"
         system "make", "yes-standard"
 
-        # Disable some packages for which we do not have dependencies, that are
-        # deprecated or require too much configuration.
-        %w[gpu kokkos latte mscg message mpiio poems voronoi].each do |package|
+        disabled_packages.each do |package|
           system "make", "no-#{package}"
         end
 

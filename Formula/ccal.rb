@@ -1,18 +1,17 @@
 class Ccal < Formula
   desc "Create Chinese calendars for print or browsing"
-  homepage "https://ccal.chinesebay.com/ccal"
-  url "https://ccal.chinesebay.com/ccal/ccal-2.5.3.tar.gz"
+  # no https urls
+  homepage "http://ccal.chinesebay.com/ccal/ccal.htm"
+  url "http://ccal.chinesebay.com/ccal/ccal-2.5.3.tar.gz"
   sha256 "3d4cbdc9f905ce02ab484041fbbf7f0b7a319ae6a350c6c16d636e1a5a50df96"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fe287da33f8c7bcbaf74c25a46ca6ed1831dd2602946f5a2bb799a76a1846cbe" => :catalina
-    sha256 "618a97f2a627d06c22fe6483f0ef1f40815815cd0b7f7d56c49681285a0cab43" => :mojave
-    sha256 "1d836266f41a1123f7421b92390b0affe29ca15105b6bad5ae458c147940693c" => :high_sierra
-    sha256 "8ab4cd19d0e0e86ec136ef120dd8308682a34b43f17981cddc4e80d1e17042f2" => :sierra
-    sha256 "2a09b1b16f9b1ea0c89a807ebd2b9cfe43e22d1e35cd576780b1a3c986b4b0d1" => :el_capitan
-    sha256 "d3dc167fb2ac1507616dbf5ce5310fd5c67153d680ff242da23a44f199da7fb3" => :yosemite
-    sha256 "f79240c70ea10dd661005105e552d8dcc993acfb31c399b3f74f4abf9d2c0162" => :mavericks
+    rebuild 1
+    sha256 "ea42afd04ed210cf6e0bedac3ab4ce6b3e37421ba8d79478769d2e117c38a41f" => :catalina
+    sha256 "c3a4bead8506e0234e878727e6d7827925e600bcee3857859fd575d4bbb185cc" => :mojave
+    sha256 "cd9bd38878cee9658e312142edfca7cf35e5223ef30b3a3effc9e4108ccf3d51" => :high_sierra
   end
 
   def install

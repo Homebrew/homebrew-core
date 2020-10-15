@@ -3,6 +3,7 @@ class ProxychainsNg < Formula
   homepage "https://sourceforge.net/projects/proxychains-ng/"
   url "https://github.com/rofl0r/proxychains-ng/archive/v4.14.tar.gz"
   sha256 "ab31626af7177cc2669433bb244b99a8f98c08031498233bb3df3bcc9711a9cc"
+  license "GPL-2.0"
   head "https://github.com/rofl0r/proxychains-ng.git"
 
   bottle do

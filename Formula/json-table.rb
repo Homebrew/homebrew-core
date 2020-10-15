@@ -3,6 +3,7 @@ class JsonTable < Formula
   homepage "https://github.com/micha/json-table"
   url "https://github.com/micha/json-table/archive/4.3.3.tar.gz"
   sha256 "0ab7bb2a705ad3399132060b30b32903762473ff79b5a6e6f52f086e507b0911"
+  license "EPL-1.0"
   head "https://github.com/micha/json-table.git"
 
   bottle do

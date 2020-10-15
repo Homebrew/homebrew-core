@@ -1,15 +1,20 @@
 class TraefikAT1 < Formula
   desc "Modern reverse proxy (v1.7)"
   homepage "https://traefik.io/"
-  url "https://github.com/containous/traefik/releases/download/v1.7.24/traefik-v1.7.24.src.tar.gz"
-  version "1.7.24"
-  sha256 "8f9e0ba3cbb6537e47c675c806d6e6de3267241a48ea7291b19673d524f78a88"
+  url "https://github.com/containous/traefik/releases/download/v1.7.26/traefik-v1.7.26.src.tar.gz"
+  sha256 "37334deb0dcd0c393e3ce003334b497d173a5f84cb412a21f19fbbd61211a0ef"
+  license "MIT"
+
+  livecheck do
+    url "https://github.com/containous/traefik.git"
+    regex(/^v?(1(?:\.\d+)+)$/i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f50589618ba4147731cadda2451d08f95a6d56ad79f823b657ab64db73f590ed" => :catalina
-    sha256 "993885ac94857dd2828fdf05188326a6ebd9e8da38d5deaafbcfa4094b4738d2" => :mojave
-    sha256 "2c00bae6b3c468a32cdaaa59f58d33cc3de61899723a355d99cf34f0bd93c773" => :high_sierra
+    sha256 "dc50cb5af800c8f062e330e3b103bce1a2d0a78c6fdbd73d742c7197252c151b" => :catalina
+    sha256 "3ac187701cefeba894c3440bb9353e4e85cf716ef38cacfe35f3b5e474c52362" => :mojave
+    sha256 "89c846b73437bef8360f1acd1cdd5aceb9f8bc160d6400ac77331ac8452169b7" => :high_sierra
   end
 
   keg_only :versioned_formula
@@ -35,7 +40,7 @@ class TraefikAT1 < Formula
     end
   end
 
-  plist_options :manual => "traefik"
+  plist_options manual: "traefik"
 
   def plist
     <<~EOS
@@ -69,14 +74,8 @@ class TraefikAT1 < Formula
   end
 
   test do
-    require "socket"
-
-    web_server = TCPServer.new(0)
-    http_server = TCPServer.new(0)
-    web_port = web_server.addr[1]
-    http_port = http_server.addr[1]
-    web_server.close
-    http_server.close
+    web_port = free_port
+    http_port = free_port
 
     (testpath/"traefik.toml").write <<~EOS
       [web]

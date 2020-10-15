@@ -3,15 +3,16 @@ class ConjureUp < Formula
 
   desc "Big software deployments so easy it's almost magical"
   homepage "https://conjure-up.io/"
-  url "https://github.com/conjure-up/conjure-up/archive/2.6.9.tar.gz"
-  sha256 "b5ebba187d27b3474b36acd715df015b198c0e5df8aefb32200ba4f3f3de17f4"
-  revision 2
+  url "https://github.com/conjure-up/conjure-up/archive/2.6.14.tar.gz"
+  sha256 "c9f115229a305ff40eae051f40db2ca18a3dc2bd377397e22786bba032feb79a"
+  license "MIT"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "e9e7df0108dd3be03a9391a95befbbfa66950bbbb48ae8fd28f4855ae6c69932" => :catalina
-    sha256 "dc221c6071b5a37760a530da1981a96a1f404fa461d44fee7a217897e9a01077" => :mojave
-    sha256 "b20ebbe1aa0c30c713e58c03ac167196f7c3b5635f95c1ce8687e6bfad9a0294" => :high_sierra
+    sha256 "4c1d6d263ed87f9fd3460deb70723bf2204d1cf77ca0774d7f37c0604e9722d7" => :catalina
+    sha256 "277b9eb27b13b0a517a228b52160a69b367b4f3535a08d3626830bb665f727a3" => :mojave
+    sha256 "1a467b8f94796f8e03820cc0ff227c3f4fa13b9819b205e8bb79a7b1e9ee8379" => :high_sierra
   end
 
   depends_on "awscli"
@@ -20,10 +21,14 @@ class ConjureUp < Formula
   depends_on "juju-wait"
   depends_on "libyaml"
   depends_on "pwgen"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "redis"
 
   uses_from_macos "libffi"
+
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
 
   # list generated from the 'requirements.txt' file in the repository root
   resource "aiofiles" do
@@ -100,10 +105,10 @@ class ConjureUp < Formula
     url "https://files.pythonhosted.org/packages/d0/22/ca60ef57ad0ea904292daaa1cb0f1e991303667f70794a97674f4a3695fa/macaroonbakery-1.2.3.tar.gz"
     sha256 "bd27e7d2d98cb3dc1973d7b67b2a0c475fb005c0f9c35c04dbf9b272e98939ec"
 
-    # Python 3.8 compatibility platform.linux_distribution
+    # Python 3.9 compatibility platform.linux_distribution
     # Remove in next release
     patch do
-      url "https://github.com/go-macaroon-bakery/py-macaroon-bakery/pull/75.patch?full_index=1"
+      url "https://github.com/go-macaroon-bakery/py-macaroon-bakery/commit/78daf9d233e33da3f4bd2c34553843f82c09b21e.patch?full_index=1"
       sha256 "70b36abee3f9d93afee7fb4d4cb9018370aad83f16a2ab7c5b5770aa1178be86"
     end
   end

@@ -1,8 +1,15 @@
 class Clojure < Formula
-  desc "The Clojure Programming Language"
+  desc "Dynamic, general-purpose programming language"
   homepage "https://clojure.org"
-  url "https://download.clojure.org/install/clojure-tools-1.10.1.536.tar.gz"
-  sha256 "b7c5b0cdeb750275ddd98095a1959657b95569b624da7c6163adce5a7d5f7119"
+  url "https://download.clojure.org/install/clojure-tools-1.10.1.708.tar.gz"
+  sha256 "e200f3e148918a12226026809f052f1be54bd43d490bb079072182488155dbc9"
+  license "EPL-1.0"
+  version_scheme 1
+
+  livecheck do
+    url "https://raw.githubusercontent.com/clojure/homebrew-tools/master/Formula/clojure.rb"
+    regex(/url ".*?clojure-tools-v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle :unneeded
 
@@ -13,12 +20,12 @@ class Clojure < Formula
 
   def install
     system "./install.sh", prefix
-    bin.env_script_all_files libexec/"bin", :JAVA_HOME => "${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
+    bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env
   end
 
   test do
     ENV["TERM"] = "xterm"
-    system("#{bin}/clj -e nil")
+    system("#{bin}/clj", "-e", "nil")
     %w[clojure clj].each do |clj|
       assert_equal "2", shell_output("#{bin}/#{clj} -e \"(+ 1 1)\"").strip
     end

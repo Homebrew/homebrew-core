@@ -4,6 +4,11 @@ class Sipcalc < Formula
   url "https://www.routemeister.net/projects/sipcalc/files/sipcalc-1.1.6.tar.gz"
   sha256 "cfd476c667f7a119e49eb5fe8adcfb9d2339bc2e0d4d01a1d64b7c229be56357"
 
+  livecheck do
+    url "https://www.routemeister.net/projects/sipcalc/download.html"
+    regex(/href=.*?sipcalc[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "4b211b4978bd165adb71435e19f19f146ee84f905555c3bce2d4652375067d3d" => :catalina

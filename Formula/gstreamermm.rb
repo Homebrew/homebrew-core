@@ -5,6 +5,10 @@ class Gstreamermm < Formula
   sha256 "be58fe9ef7d7e392568ec85e80a84f4730adbf91fb0355ff7d7c616675ea8d60"
   revision 4
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "2cd58f367c293ee4b19caddbc97ffb3be2fffb0382e0c0908bd4c2e604912ad7" => :catalina

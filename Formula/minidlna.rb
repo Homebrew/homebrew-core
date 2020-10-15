@@ -3,15 +3,19 @@ class Minidlna < Formula
   homepage "https://sourceforge.net/projects/minidlna/"
   url "https://downloads.sourceforge.net/project/minidlna/minidlna/1.2.1/minidlna-1.2.1.tar.gz"
   sha256 "67388ba23ab0c7033557a32084804f796aa2a796db7bb2b770fb76ac2a742eec"
-  revision 1
+  license "GPL-2.0-only"
+  revision 3
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any
-    sha256 "8018faef1d11436216b0c945ba682f52ee37ae437413371f788ff833f88f4334" => :catalina
-    sha256 "e47addf7d21436e3b534b14024271d1d3355818f2e11a04da53a924f2acfe8e3" => :mojave
-    sha256 "ed1b022aaea8beed91a26b9907c8253da9c5c441fa52482ae0255571cd1744ad" => :high_sierra
-    sha256 "5145b3bae1ebb4add544bc8877668a5cea2e80a380a5a0beaba94a6e88cbf33c" => :sierra
-    sha256 "16fb753050582f030bcc16de31ccac3faa74f5ada3d1bed4d17895dd8628f772" => :el_capitan
+    rebuild 1
+    sha256 "9c63cdc32709d5a6d837a58114a9f856395f1587cce6635a0d159587ccd3d474" => :catalina
+    sha256 "9e63dd6d1d5dc2725c63e3b0496ca8ce24c9499513d981ff8ee4542948eab6ce" => :mojave
+    sha256 "01b76bd1171aa3d056296186cf4ff88989c75033e379b88a8e3487fbbb299137" => :high_sierra
   end
 
   head do
@@ -57,7 +61,7 @@ class Minidlna < Formula
     EOS
   end
 
-  plist_options :manual => "minidlna"
+  plist_options manual: "minidlna"
 
   def plist
     <<~EOS
@@ -104,14 +108,13 @@ class Minidlna < Formula
       log_dir=#{testpath}/.config/minidlna
     EOS
 
-    system sbin/"minidlnad", "-f", "minidlna.conf", "-p", "8081", "-P",
-                             testpath/"minidlna.pid"
+    port = free_port
+
+    fork do
+      exec "#{sbin}/minidlnad", "-d", "-f", "minidlna.conf", "-p", port.to_s, "-P", testpath/"minidlna.pid"
+    end
     sleep 2
 
-    begin
-      assert_match /MiniDLNA #{version}/, shell_output("curl localhost:8081")
-    ensure
-      Process.kill("SIGINT", File.read("minidlna.pid").to_i)
-    end
+    assert_match /MiniDLNA #{version}/, shell_output("curl localhost:#{port}")
   end
 end

@@ -5,6 +5,11 @@ class Talloc < Formula
   sha256 "ef4822d2fdafd2be8e0cabc3ec3c806ae29b8268e932c5e9a4cd5585f37f9f77"
   revision 1
 
+  livecheck do
+    url "https://www.samba.org/ftp/talloc/"
+    regex(/href=.*?talloc[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "82822d910206a4ad8e90bfc61b04c0fb6c744bf76e9bf0aa06e35ecc08b34ae4" => :catalina

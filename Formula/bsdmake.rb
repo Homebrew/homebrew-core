@@ -1,5 +1,5 @@
 class Bsdmake < Formula
-  desc "BSD make (build tool)"
+  desc "BSD version of the Make build tool"
   homepage "https://opensource.apple.com/"
   url "https://opensource.apple.com/tarballs/bsdmake/bsdmake-24.tar.gz"
   sha256 "82a948b80c2abfc61c4aa5c1da775986418a8e8eb3dd896288cfadf2e19c4985"
@@ -41,7 +41,7 @@ class Bsdmake < Formula
     # Replace @PREFIX@ inserted by MacPorts patches
     # Use "prefix" since this is sometimes a keg-only brew
     # But first replace the X11 path if X11 is installed
-    inreplace "mk/sys.mk", "@PREFIX@", MacOS::X11.prefix || prefix
+    inreplace "mk/sys.mk", "@PREFIX@", MacOS::XQuartz.prefix || prefix
     inreplace %w[mk/bsd.README
                  mk/bsd.cpu.mk
                  mk/bsd.doc.mk

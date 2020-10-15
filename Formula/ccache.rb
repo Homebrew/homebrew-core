@@ -1,14 +1,15 @@
 class Ccache < Formula
   desc "Object-file caching compiler wrapper"
   homepage "https://ccache.dev/"
-  url "https://github.com/ccache/ccache/releases/download/v3.7.8/ccache-3.7.8.tar.xz"
-  sha256 "99ea7b8fc34fdd5dc628169f452086c1f4d8ca3a1e52bd484fbdef3516893672"
+  url "https://github.com/ccache/ccache/releases/download/v3.7.12/ccache-3.7.12.tar.xz"
+  sha256 "a02f4e8360dc6618bc494ca35b0ae21cea080f804a4898eab1ad3fcd108eb400"
+  license "GPL-3.0-or-later"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0f0bf49831d1469fb89b508fb6ee93c48d648d2f25c012c82ae4b05cd432ccff" => :catalina
-    sha256 "82627c2ab9ed1b728e480dafcfc9d8be0f0d3a5f909699c434fc7606a3dfc6b6" => :mojave
-    sha256 "e7090229972da6f590d1915a0e6812f2a8a2e0b1d14027c9ad793bdafd86b64f" => :high_sierra
+    sha256 "0a68cc6589d15d32e09bbe60d071b2e2df660358b070e02a7f7263ec1eab405a" => :catalina
+    sha256 "8c0468be66ba2c7cfb6d21323e6296ba25bfe27382f0ff0880e0431c27060ba0" => :mojave
+    sha256 "1d0f36a0da0c0677590856ea905b6b7aec4682f1ac2c412897b400809818d702" => :high_sierra
   end
 
   head do
@@ -38,13 +39,13 @@ class Ccache < Formula
       cc
       gcc gcc2 gcc3 gcc-3.3 gcc-4.0
       gcc-4.2 gcc-4.3 gcc-4.4 gcc-4.5 gcc-4.6 gcc-4.7 gcc-4.8 gcc-4.9
-      gcc-5 gcc-6 gcc-7 gcc-8 gcc-9
+      gcc-5 gcc-6 gcc-7 gcc-8 gcc-9 gcc-10
       c++ c++3 c++-3.3 c++-4.0
       c++-4.2 c++-4.3 c++-4.4 c++-4.5 c++-4.6 c++-4.7 c++-4.8 c++-4.9
-      c++-5 c++-6 c++-7 c++-8 c++-9
+      c++-5 c++-6 c++-7 c++-8 c++-9 c++-10
       g++ g++2 g++3 g++-3.3 g++-4.0
       g++-4.2 g++-4.3 g++-4.4 g++-4.5 g++-4.6 g++-4.7 g++-4.8 g++-4.9
-      g++-5 g++-6 g++-7 g++-8 g++-9
+      g++-5 g++-6 g++-7 g++-8 g++-9 g++-10
     ].each do |prog|
       libexec.install_symlink bin/"ccache" => prog
     end

@@ -3,15 +3,17 @@ class Bedtools < Formula
   homepage "https://github.com/arq5x/bedtools2"
   url "https://github.com/arq5x/bedtools2/archive/v2.29.2.tar.gz"
   sha256 "bc2f36b5d4fc9890c69f607d54da873032628462e88c545dd633d2c787a544a5"
+  license "MIT"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "4cdd660e64c7d78876a2ccf60eec8891f484cdd24e2c40ce36800828dffcce1c" => :catalina
-    sha256 "5c40ac3daf8ba6022cd5229aac50458d80b14920ddd513f2e165b233c9e95e72" => :mojave
-    sha256 "2f534f9efbdd387764924f2a9e3a08b435cab0ff0a0edabd6bafe8fa4123af6a" => :high_sierra
+    sha256 "ccf7c496bef6f4504e099ff6dfd0a04a277fe3481dcf0c4cae5b50e605fe9329" => :catalina
+    sha256 "86d19c05b45021f1eedbccd910d0e1401e7b2aa7552bdf5160e77d9bf42fd4a6" => :mojave
+    sha256 "9f2a0e41c2463fef3092b57f0a6a888ef4f50be07fa8b78b3185d6e971bc920d" => :high_sierra
   end
 
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
   depends_on "xz"
 
   uses_from_macos "bzip2"

@@ -3,12 +3,18 @@ class Pangomm < Formula
   homepage "https://www.pango.org/"
   url "https://download.gnome.org/sources/pangomm/2.42/pangomm-2.42.1.tar.xz"
   sha256 "14bf04939930870d5cfa96860ed953ad2ce07c3fd8713add4a1bfe585589f40f"
+  license "LGPL-2.1-only"
+  revision 2
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any
-    sha256 "52e1c201a3967f61e5b3867c172f98cc44f169e60b03af47e00e487a67a53690" => :catalina
-    sha256 "45d67e560dffb346b957011717b33873b53fca560da86648d4f90a40a8b6df98" => :mojave
-    sha256 "a2097268ad9f93093aa809ba243edbe515b00e6e378c1c6b4dac01b32c24fb20" => :high_sierra
+    sha256 "b76cf574756211f73f6145ce57738e47c20740bbced59243526580ac97c639bf" => :catalina
+    sha256 "4c656b17af2dd884085c70493389a5d4c415d9631a6dedb1b88b964bf6e05aca" => :mojave
+    sha256 "ab43bb783b24993470dbb96fa3ac1e75cbfc641e7ac477cb492d2dbecce25091" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

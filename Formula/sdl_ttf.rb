@@ -5,6 +5,11 @@ class SdlTtf < Formula
   sha256 "724cd895ecf4da319a3ef164892b72078bd92632a5d812111261cde248ebcdb7"
   revision 1
 
+  livecheck do
+    url "https://www.libsdl.org/projects/SDL_ttf/release"
+    regex(/href=.*?SDL_ttf[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "66d8be19ddde69b3b260b50e23a4a9f63d22c3343f3d2be530a062b6e00bf690" => :catalina

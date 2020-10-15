@@ -1,14 +1,23 @@
 class Libdeflate < Formula
   desc "Heavily optimized DEFLATE/zlib/gzip compression and decompression"
   homepage "https://github.com/ebiggers/libdeflate"
-  url "https://github.com/ebiggers/libdeflate/archive/v1.5.tar.gz"
-  sha256 "45b1b2332f443b705c59d06a49be009827291d2c487b076dc8ec2791eff4c711"
+  url "https://github.com/ebiggers/libdeflate/archive/v1.6.tar.gz"
+  sha256 "60748f3f7b22dae846bc489b22a4f1b75eab052bf403dd8e16c8279f16f5171e"
+  license "MIT"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "d953614355c76a7aa75c6517fc60b4e5d4163fb5582690a3b00a3b9e1a4fd712" => :catalina
-    sha256 "99672ee99b6bc41349c08cf4f047f21f780ad9aa9cf9eb7cca0639da4f79bb48" => :mojave
-    sha256 "249ed4a8ee9ba404dd8cce6efff0365158992aecaab4a2923b9b62ad35f1234a" => :high_sierra
+    sha256 "cda21372c1a5a131c1bff0f56db0bcede77fc33b7d7993a2d10c942a687a12fa" => :catalina
+    sha256 "73e0789c105bca4c823f90d4e299fa92033a3420efbde58f173cd09a469ad3a2" => :mojave
+    sha256 "841ca895ade3760d2ded53aa4734a2919ca1f74cdf8acfb8cc63c9f3aa4d1165" => :high_sierra
+  end
+
+  # Install shared lib symlink as dylib on macOS
+  # https://github.com/ebiggers/libdeflate/pull/74
+  patch do
+    url "https://github.com/ebiggers/libdeflate/commit/061282f1c1e22cf9372835ca163bbe1819b892b9.patch?full_index=1"
+    sha256 "ed1ccd205f3d070aa2a50755e6c27a530fc8273de09e6d9a4a3ea79d529ccdbe"
   end
 
   def install
@@ -19,6 +28,6 @@ class Libdeflate < Formula
     (testpath/"foo").write "test"
     system "#{bin}/libdeflate-gzip", "foo"
     system "#{bin}/libdeflate-gunzip", "-d", "foo.gz"
-    assert_equal "test", shell_output("cat foo")
+    assert_equal "test", File.read(testpath/"foo")
   end
 end

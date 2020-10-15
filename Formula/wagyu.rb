@@ -1,9 +1,9 @@
 class Wagyu < Formula
   desc "Rust library for generating cryptocurrency wallets"
-  homepage "https://github.com/ArgusHQ/wagyu"
-  url "https://github.com/ArgusHQ/wagyu/archive/v0.6.1.tar.gz"
+  homepage "https://github.com/AleoHQ/wagyu"
+  url "https://github.com/AleoHQ/wagyu/archive/v0.6.1.tar.gz"
   sha256 "2458b3d49653acd5df5f3161205301646527eca9f6ee3d84c7871afa275bad9f"
-  head "https://github.com/ArgusHQ/wagyu.git"
+  head "https://github.com/AleoHQ/wagyu.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,7 +16,7 @@ class Wagyu < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", *std_cargo_args
   end
 
   test do

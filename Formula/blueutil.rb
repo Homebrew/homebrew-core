@@ -3,6 +3,7 @@ class Blueutil < Formula
   homepage "https://github.com/toy/blueutil"
   url "https://github.com/toy/blueutil/archive/v2.6.0.tar.gz"
   sha256 "5ba90cdedd886566e1304813891c0f9f6139db67aaf2829a8294973ee3d0b66c"
+  license "MIT"
   head "https://github.com/toy/blueutil.git"
 
   bottle do
@@ -12,7 +13,7 @@ class Blueutil < Formula
     sha256 "afceca3182b5a43540b44c2b61bb0d510888f0744e924468ee3208d8ab612a4a" => :high_sierra
   end
 
-  depends_on :xcode => :build
+  depends_on xcode: :build
 
   def install
     # Set to build with SDK=macosx10.6, but it doesn't actually need 10.6

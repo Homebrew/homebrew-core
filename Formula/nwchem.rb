@@ -1,22 +1,27 @@
 class Nwchem < Formula
-  desc "NWChem: Open Source High-Performance Computational Chemistry"
-  homepage "http://www.nwchem-sw.org"
-  url "https://github.com/nwchemgit/nwchem/releases/download/v7.0.0-release/nwchem-7.0.0-release.revision-2c9a1c7c-src.2020-02-26.tar.bz2"
-  version "7.0.0"
-  sha256 "1046e13a4c7f95860c8e8fac2b4d80657900ecd07a8242943d564048ce303514"
-  revision 1
+  desc "High-performance computational chemistry tools"
+  homepage "https://nwchemgit.github.io"
+  url "https://github.com/nwchemgit/nwchem/releases/download/v7.0.2-release/nwchem-7.0.2-release.revision-b9985dfa-src.2020-10-12.tar.bz2"
+  version "7.0.2"
+  sha256 "d9d19d87e70abf43d61b2d34e60c293371af60d14df4a6333bf40ea63f6dc8ce"
+  license "ECL-2.0"
+
+  livecheck do
+    url "https://github.com/nwchemgit/nwchem.git"
+    regex(/^v?(\d+(?:\.\d+)+)-release$/i)
+  end
 
   bottle do
     cellar :any
-    sha256 "575409db72d702fc357eaf22c80eec54c018eab3026e6971188985b7e2a9a8fd" => :catalina
-    sha256 "b2a2f14b3545047841f953d7728bcd1371097d6decc73a1632f6307b9e2d9f36" => :mojave
-    sha256 "daa5476f7692086dc6c2d4a42368bc73630f647ed55223f3652e675fd689f00d" => :high_sierra
+    sha256 "1dec7a63957c945ae1a4e4a9652ca9e509beda27aeba43f10688b68033a0e9a0" => :catalina
+    sha256 "f906c312c4b8c57c5d31388d15db6b1e552f93ae153985b3bbb3b749a6dd1fa4" => :mojave
+    sha256 "aef50a03a979cd3dae7f06709e6d99fb9d5f5bbfc6e595752cf6f36cf162f205" => :high_sierra
   end
 
   depends_on "gcc" # for gfortran
   depends_on "open-mpi"
   depends_on "openblas"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "scalapack"
 
   def install
@@ -39,8 +44,6 @@ class Nwchem < Formula
 
       inreplace "util/util_nwchemrc.F", "/etc/nwchemrc", "#{etc}/nwchemrc"
 
-      ENV["NWCHEM_TOP"] = buildpath
-      ENV["NWCHEM_LONG_PATHS"] = "Y"
       # needed to use python 3.X to skip using default python2
       ENV["PYTHONVERSION"] = Language::Python.major_minor_version "python3"
       ENV["BLASOPT"] = "-L#{Formula["openblas"].opt_lib} -lopenblas"

@@ -4,7 +4,13 @@ class Pinentry < Formula
   url "https://www.gnupg.org/ftp/gcrypt/pinentry/pinentry-1.1.0.tar.bz2"
   mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/pinentry/pinentry-1.1.0.tar.bz2"
   sha256 "68076686fa724a290ea49cdf0d1c0c1500907d1b759a3bcbfbec0293e8f56570"
+  license "GPL-2.0"
   revision 1
+
+  livecheck do
+    url "https://gnupg.org/ftp/gcrypt/pinentry/"
+    regex(/href=.*?pinentry[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     cellar :any

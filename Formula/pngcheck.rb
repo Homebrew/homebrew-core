@@ -5,6 +5,11 @@ class Pngcheck < Formula
   sha256 "77f0a039ac64df55fbd06af6f872fdbad4f639d009bbb5cd5cbe4db25690f35f"
   revision 1
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/pngcheck[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "7fb0d821218aba52e2c261c4cdcc50438d71cbf232baba97ef13e861c3386a11" => :catalina

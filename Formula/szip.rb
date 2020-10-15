@@ -5,6 +5,11 @@ class Szip < Formula
   sha256 "21ee958b4f2d4be2c9cabfa5e1a94877043609ce86fde5f286f105f7ff84d412"
   revision 1
 
+  livecheck do
+    url "https://support.hdfgroup.org/ftp/lib-external/szip/"
+    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "e27bbc3b0a5d55b33051cb6ca509836e617b6f96361a70a187a6c8d53f2b520b" => :catalina

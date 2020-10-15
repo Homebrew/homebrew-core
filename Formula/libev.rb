@@ -5,6 +5,11 @@ class Libev < Formula
   mirror "https://fossies.org/linux/misc/libev-4.33.tar.gz"
   sha256 "507eb7b8d1015fbec5b935f34ebed15bf346bed04a11ab82b8eee848c4205aea"
 
+  livecheck do
+    url "http://dist.schmorp.de/libev/"
+    regex(/href=.*?libev[._-]v?([\d.]+)\./i)
+  end
+
   bottle do
     cellar :any
     sha256 "e5481e2ba48282bffb5ecc059f0ddddd9807400593e849ed4b48b1fed3a14698" => :catalina

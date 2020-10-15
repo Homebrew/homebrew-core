@@ -3,6 +3,7 @@ class Mbelib < Formula
   homepage "https://github.com/szechyjs/mbelib"
   url "https://github.com/szechyjs/mbelib/archive/v1.3.0.tar.gz"
   sha256 "5a2d5ca37cef3b6deddd5ce8c73918f27936c50eb0e63b27e4b4fc493310518d"
+  license "ISC"
   head "https://github.com/szechyjs/mbelib.git"
 
   bottle do

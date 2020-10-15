@@ -3,6 +3,7 @@ class Czmq < Formula
   homepage "http://czmq.zeromq.org/"
   url "https://github.com/zeromq/czmq/releases/download/v4.2.0/czmq-4.2.0.tar.gz"
   sha256 "cfab29c2b3cc8a845749758a51e1dd5f5160c1ef57e2a41ea96e4c2dcc8feceb"
+  license "MPL-2.0"
 
   bottle do
     cellar :any
@@ -23,6 +24,7 @@ class Czmq < Formula
   depends_on "asciidoc" => :build
   depends_on "pkg-config" => :build
   depends_on "xmlto" => :build
+  depends_on :macos # Due to Python 2
   depends_on "zeromq"
 
   def install

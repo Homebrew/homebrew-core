@@ -1,15 +1,15 @@
 class Katago < Formula
   desc "Neural Network Go engine with no human-provided knowledge"
   homepage "https://github.com/lightvector/KataGo"
-  url "https://github.com/lightvector/KataGo/archive/v1.3.3.tar.gz"
-  sha256 "de346ea2e0e58f584df482c4ba28703d961dbdb6569bc4203d3edb98ca6c0b1a"
-  revision 1
+  url "https://github.com/lightvector/KataGo/archive/v1.4.5.tar.gz"
+  sha256 "6d29ed8acb45bc4b1b0f39a9a3212f94708d3e2770642aefc3e3dfcf332e8c78"
+  license "MIT"
 
   bottle do
     cellar :any
-    sha256 "62bb0b8e190b713c707486100f848335e44346f5b0e013d1de695fb1257cce32" => :catalina
-    sha256 "94f018ae0a9c3d384d69999039f447bf5533f1623ad4e4e0024e6ea1fda6bf20" => :mojave
-    sha256 "62999f2863e2d05b9c975dacfe7c8653eb828b0120861abb93a4d857a3a5c787" => :high_sierra
+    sha256 "c45535348f0a10f88414dc1e99e43b4c6e62534a790d2deb0422ecc52178eb9f" => :catalina
+    sha256 "813b95e5bd6e1e1828e4624daab8ef63fdb3f610fda611b5f6406c3d7e44d78d" => :mojave
+    sha256 "8fbf9ccd531dcc1ba21b01259a50f3c11de9dc586e80191637b903ab598143b5" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -17,18 +17,18 @@ class Katago < Formula
   depends_on "libzip"
 
   resource "20b-network" do
-    url "https://github.com/lightvector/KataGo/releases/download/v1.3.3-nets/g170e-b20c256x2-s2971705856-d633407024.bin.gz", :using => :nounzip
-    sha256 "dba074142b9da4822ed9ad91c676372fd943c0c115b7975773dd292b9e96a899"
+    url "https://github.com/lightvector/KataGo/releases/download/v1.4.0/g170-b20c256x2-s4384473088-d968438914.bin.gz", using: :nounzip
+    sha256 "da070fddb45e4d798a63b0be1960d604ad422690d82ac66b1d4ee41e8bf42536"
   end
 
   resource "30b-network" do
-    url "https://github.com/lightvector/KataGo/releases/download/v1.3.3-nets/g170-b30c320x2-s1840604672-d633482024.bin.gz", :using => :nounzip
-    sha256 "2f066112e163de396f5bd56b94162419f16ff48e9fb9836c35a711122ecc9a32"
+    url "https://github.com/lightvector/KataGo/releases/download/v1.4.0/g170-b30c320x2-s3530176512-d968463914.bin.gz", using: :nounzip
+    sha256 "67bd8f67a0ed251d78626ccd23cd4cdbcc880ffc29b641f65cf79ec9d9be83e5"
   end
 
   resource "40b-network" do
-    url "https://github.com/lightvector/KataGo/releases/download/v1.3.3-nets/g170-b40c256x2-s1929311744-d633132024.bin.gz", :using => :nounzip
-    sha256 "acbdd1aa883d7d8d60101cdcd0c75754ec25dba66b4d60d8d284427cf645124d"
+    url "https://github.com/lightvector/KataGo/releases/download/v1.4.0/g170-b40c256x2-s3708042240-d967973220.bin.gz", using: :nounzip
+    sha256 "9053c1f0f7834533b34556d3454fe0de8736d5951a2fe5d02c3aebd3fc20240e"
   end
 
   def install

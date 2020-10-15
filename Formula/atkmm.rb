@@ -5,6 +5,10 @@ class Atkmm < Formula
   sha256 "4c4cfc917fd42d3879ce997b463428d6982affa0fb660cafcc0bc2d9afcedd3a"
   revision 2
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "65dca5000702ffcabc191ed84c33cef365056f4c853c8630a094c6e917b5e6c7" => :catalina

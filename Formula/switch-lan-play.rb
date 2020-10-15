@@ -2,14 +2,15 @@ class SwitchLanPlay < Formula
   desc "Make you and your friends play games like in a LAN"
   homepage "https://github.com/spacemeowx2/switch-lan-play"
   url "https://github.com/spacemeowx2/switch-lan-play.git",
-    :tag      => "v0.2.1",
-    :revision => "1c26ca61bc35b35c4900a103edee41d138d64b8d"
+    tag:      "v0.2.3",
+    revision: "c0c663e3fdc95d6d6e8ab401caa2bfb5b5872e00"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c8e615d0b5acbbd3696f283b5824fab39ae8888c283b65bbf2aa7049080061b4" => :catalina
-    sha256 "3dc79868207b00d684f176a84f7539e6cd7fc3ddca9f37ac492dd160b9e5db28" => :mojave
-    sha256 "9db070fc867633a50f08051962f978895f087a9d29efd6b1c9e2879ba8c830a2" => :high_sierra
+    sha256 "caa1992416c8eae4c281af3166238bb2bf8104c1d91d7dc37a2abd8715712ccc" => :catalina
+    sha256 "62da027220b8d01270c8459cec638744ed06eac2ec046ccff56729b7f126eacf" => :mojave
+    sha256 "41a10e6d0ce45410763c4774afa4286a8c633ac60348c0d0963e33cbef855c1d" => :high_sierra
   end
 
   depends_on "cmake" => :build

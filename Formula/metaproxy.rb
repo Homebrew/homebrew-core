@@ -1,14 +1,15 @@
 class Metaproxy < Formula
   desc "Z39.50 proxy and router utilizing Yaz toolkit"
-  homepage "https://www.indexdata.com/metaproxy"
-  url "http://ftp.indexdata.dk/pub/metaproxy/metaproxy-1.17.1.tar.gz"
-  sha256 "61ba411cadf7c2689cfa120568bed666a68cfb5efacdec488e054d3ef4f30177"
+  homepage "https://www.indexdata.com/resources/software/metaproxy"
+  url "http://ftp.indexdata.dk/pub/metaproxy/metaproxy-1.19.1.tar.gz"
+  sha256 "8861f9f3b44c2b170a4a00ed6861d49e0e5bbab9e3d736f939b9e2ca5e9b1b91"
+  license "GPL-2.0-or-later"
 
   bottle do
     cellar :any
-    sha256 "a209d1ac13cb8014558068155a556301ea9dd5067e69e6a986b9128070246628" => :catalina
-    sha256 "8f4f2416e154d2e7f877dc68ce9dea75a26b0b3fa5f178cd0ff62dd7e50d5419" => :mojave
-    sha256 "6cce930bf3e212fbaaab5cb521c3417474719e1289fbd7db9b2117fa943fc9a9" => :high_sierra
+    sha256 "8464920fa204d87a67e7c2f2ae1f09c0cad0065c7f04a9d1b3ad5a254c33b00d" => :catalina
+    sha256 "4d1144c7c7b0bcd886eac667660611c10f233fc347db48c925dd45d2a528b303" => :mojave
+    sha256 "1a36a5089c85d0c51c5a62b5c56a47d95d7e7345cc0cee44ef9a45a071091481" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

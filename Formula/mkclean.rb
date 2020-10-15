@@ -4,6 +4,10 @@ class Mkclean < Formula
   url "https://downloads.sourceforge.net/project/matroska/mkclean/mkclean-0.8.10.tar.bz2"
   sha256 "96773e72903b00d73e68ba9d5f19744a91ed46d27acd511a10eb23533589777d"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "8bbf507533210f38e1ec8e8f18238194b9d67cc54c9d037b25670f6d48fbac6b" => :catalina

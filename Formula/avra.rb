@@ -1,15 +1,15 @@
 class Avra < Formula
   desc "Assember for the Atmel AVR microcontroller family"
   homepage "https://github.com/hsoft/avra"
-  url "https://github.com/hsoft/avra/archive/1.4.1.tar.gz"
-  sha256 "0b92f3a2709d72b903fd95afee2c985ed3847440ad12cd651738afffa14ec69e"
+  url "https://github.com/hsoft/avra/archive/1.4.2.tar.gz"
+  sha256 "cc56837be973d1a102dc6936a0b7235a1d716c0f7cd053bf77e0620577cff986"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "97a934f11ada79ed1b37a74a6e726445150edb713f2520c2d0c5131fca2f36b6" => :catalina
-    sha256 "8d75188d31649e471e5851df65c723016924a08307b6560cfa855379a7169b1c" => :mojave
-    sha256 "401635c4cf252ba0d19ed77866748d3d3deb05a6f024f3aa3c8bfbba69eba8f3" => :high_sierra
-    sha256 "0c349d7192c3eb3b3ba63fc26efb3ea2ca58de6160747804da51ee85c7cc98b5" => :sierra
+    sha256 "752edb7e9140387d4b763229ff05cdf973056a70c5a4799b63cce83c2ff18be5" => :catalina
+    sha256 "cedf5547712134c47d3659e1cddde7d506643448eca98fb428734165fbb5afc7" => :mojave
+    sha256 "f380ed5ddc18ece7b83f4c32290f56dfcc8a27065cc1a39423debfc482d369d2" => :high_sierra
   end
 
   depends_on "autoconf" => :build

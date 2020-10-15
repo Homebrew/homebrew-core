@@ -1,17 +1,21 @@
 class Gnupg < Formula
   desc "GNU Pretty Good Privacy (PGP) package"
   homepage "https://gnupg.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.20.tar.bz2"
-  sha256 "04a7c9d48b74c399168ee8270e548588ddbe52218c337703d7f06373d326ca30"
+  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.23.tar.bz2"
+  sha256 "10b55e49d78b3e49f1edb58d7541ecbdad92ddaeeb885b6f486ed23d1cd1da5c"
+
+  livecheck do
+    url "https://gnupg.org/ftp/gcrypt/gnupg/"
+    regex(/href=.*?gnupg[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 "527ac31afe998a9931a6648c6fcc7288462ae73d6e6e8b84ecf46561c82d50ec" => :catalina
-    sha256 "e826cf4b1764da749eba007097be8077f433e52d8f96405044e57a384b114942" => :mojave
-    sha256 "179b68a29fe9f6731a294a674fbd439623acf22c1997c68b6358808adc83b763" => :high_sierra
+    sha256 "f3d7b9b1b344cf3aa2108756d922d1b48214a46b569ae737c604b22f4001b640" => :catalina
+    sha256 "1587039c4678d1c500fe8a3ba6d25f8070828bbe2159fc9fd12cad534b09dd9a" => :mojave
+    sha256 "87b3d4b162e860382a2f5ab4ed468f324a389fca4cfddc5363e544f3ca370125" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
-  depends_on "sqlite" => :build if MacOS.version == :mavericks
   depends_on "adns"
   depends_on "gettext"
   depends_on "gnutls"

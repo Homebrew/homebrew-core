@@ -3,6 +3,7 @@ class Libdvdcss < Formula
   homepage "https://www.videolan.org/developers/libdvdcss.html"
   url "https://download.videolan.org/pub/videolan/libdvdcss/1.4.2/libdvdcss-1.4.2.tar.bz2"
   sha256 "78c2ed77ec9c0d8fbed7bf7d3abc82068b8864be494cfad165821377ff3f2575"
+  license "GPL-2.0"
 
   bottle do
     cellar :any
@@ -14,7 +15,7 @@ class Libdvdcss < Formula
   end
 
   head do
-    url "https://git.videolan.org/git/libdvdcss.git"
+    url "https://code.videolan.org/videolan/libdvdcss.git"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build

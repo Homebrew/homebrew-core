@@ -5,17 +5,22 @@ class Proselint < Formula
   homepage "http://proselint.com"
   url "https://files.pythonhosted.org/packages/42/ff/8e7ad0108b8faffdf2ec7d170b4a8a3c9bc91f5077debf5381ef14702588/proselint-0.10.2.tar.gz"
   sha256 "3a87eb393056d1bc77d898e4bcf8998f50e9ad84f7b9ff7cf2720509ac8ef904"
-  revision 3
+  license "BSD-3-Clause"
+  revision 4
   head "https://github.com/amperser/proselint.git"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "16677bb488b626f2a5ebab9c85b52e5aa34501861aaf146dd093fdeab9c8d7af" => :catalina
-    sha256 "2cb69c3b259812c1eeb11cc83ec7fcd5d0e6a01485a784ecdb76c75e55a5ad18" => :mojave
-    sha256 "51b225461669feb8926219f46de1fa4c438e875e9b6b9669f9191bd883679617" => :high_sierra
+    sha256 "2f0a8c853ee9b4c7fb31f867d6371a36147772510a1af3431ccdcc272fbaac24" => :catalina
+    sha256 "d410f307de6c9f59b5964b141e52d33318a0de5e871c5b8ed7663a5fbff2f279" => :mojave
+    sha256 "787e948c2466df6ec0b3f8933702badc907bc08e34ca8b357c1568ad134dbd29" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/95/d9/c3336b6b5711c3ab9d1d3a80f1a3e2afeb9d8c02a7166462f6cc96570897/click-6.7.tar.gz"

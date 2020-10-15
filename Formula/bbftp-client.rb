@@ -6,6 +6,11 @@ class BbftpClient < Formula
   sha256 "4000009804d90926ad3c0e770099874084fb49013e8b0770b82678462304456d"
   revision 3
 
+  livecheck do
+    url "https://software.in2p3.fr/bbftp/download.html"
+    regex(/href=.*?bbftp-client[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "3adb6837d00aae2dd6425d06aa6ccf9450e8d6eaac66d4be597a7d97866d30a2" => :catalina

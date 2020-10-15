@@ -1,28 +1,22 @@
 class Metricbeat < Formula
   desc "Collect metrics from your systems and services"
-  homepage "https://www.elastic.co/products/beats/metricbeat"
+  homepage "https://www.elastic.co/beats/metricbeat"
   url "https://github.com/elastic/beats.git",
-      :tag      => "v6.8.7",
-      :revision => "c3db7425739e1c0d1eeefe77f4c0b735a90a3254"
+      tag:      "v7.9.2",
+      revision: "2ab907f5ccecf9fd82fe37105082e89fd871f684"
+  license "Apache-2.0"
+  revision 1
   head "https://github.com/elastic/beats.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b4e7c0e95058592120a43af6694010da1404dae21a1ca293479f9fce5b3e4245" => :catalina
-    sha256 "ff4a8486277ebcdeedaad9c6cb560c4ce15ed02fb94f559830ca60ce51de1783" => :mojave
-    sha256 "e314082a533f6edc1982532add619e7d464b69f876f75cf9bf1d690f5b62729c" => :high_sierra
+    sha256 "4e2e08f1d2e79337d53a8ee197199a453358a7af3e3cddd53d5cfd449c9c8909" => :catalina
+    sha256 "0ac3e0e6d9b1a0191e29209b67ac87189657fb5446e3d4f0954a21ca0243efc6" => :mojave
+    sha256 "00911be1ebddb80bfaa884b1924b703c933784039c971f74b265d1e125e27075" => :high_sierra
   end
 
   depends_on "go" => :build
-
-  # https://github.com/elastic/beats/pull/14798
-  uses_from_macos "python@2" => :build # does not support Python 3
-
-  # Newer virtualenvs are not compatible with Python 2.7.10 on high sierra, use an old version
-  resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/d4/0c/9840c08189e030873387a73b90ada981885010dd9aea134d6de30cd24cb8/virtualenv-15.1.0.tar.gz"
-    sha256 "02f8102c2436bb03b3ee6dede1919d1dac8a427541652e5ec95171ec8adbc93a"
-  end
+  depends_on "python@3.9" => :build
 
   def install
     # remove non open source files
@@ -30,31 +24,21 @@ class Metricbeat < Formula
 
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/elastic/beats").install buildpath.children
-
-    ENV.prepend_create_path "PYTHONPATH", buildpath/"vendor/lib/python2.7/site-packages"
-
-    resource("virtualenv").stage do
-      system "python", *Language::Python.setup_install_args(buildpath/"vendor")
-    end
-
-    ENV.prepend_path "PATH", buildpath/"vendor/bin" # for virtualenv
     ENV.prepend_path "PATH", buildpath/"bin" # for mage (build tool)
 
     cd "src/github.com/elastic/beats/metricbeat" do
       # don't build docs because it would fail creating the combined OSS/x-pack
       # docs and we aren't installing them anyway
-      inreplace "Makefile", "collect: assets collect-docs configs kibana imports",
-                            "collect: assets configs kibana imports"
+      inreplace "magefile.go", "mg.Deps(CollectDocs, FieldsDocs)", ""
 
       system "make", "mage"
-      # prevent downloading binary wheels during python setup
-      system "make", "PIP_INSTALL_COMMANDS=--no-binary :all", "python-env"
       system "mage", "-v", "build"
+      ENV.deparallelize
       system "mage", "-v", "update"
 
       (etc/"metricbeat").install Dir["metricbeat.*", "fields.yml", "modules.d"]
       (libexec/"bin").install "metricbeat"
-      prefix.install "_meta/kibana.generated"
+      prefix.install "build/kibana"
     end
 
     prefix.install_metafiles buildpath/"src/github.com/elastic/beats"
@@ -70,7 +54,7 @@ class Metricbeat < Formula
     EOS
   end
 
-  plist_options :manual => "metricbeat"
+  plist_options manual: "metricbeat"
 
   def plist
     <<~EOS
@@ -105,17 +89,12 @@ class Metricbeat < Formula
     (testpath/"logs").mkpath
     (testpath/"data").mkpath
 
-    pid = fork do
+    fork do
       exec bin/"metricbeat", "-path.config", testpath/"config", "-path.data",
                              testpath/"data"
     end
 
-    begin
-      sleep 30
-      assert_predicate testpath/"data/metricbeat", :exist?
-    ensure
-      Process.kill "SIGINT", pid
-      Process.wait pid
-    end
+    sleep 30
+    assert_predicate testpath/"data/metricbeat", :exist?
   end
 end

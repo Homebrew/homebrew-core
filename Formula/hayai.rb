@@ -3,6 +3,7 @@ class Hayai < Formula
   homepage "https://bruun.co/2012/02/07/easy-cpp-benchmarking"
   url "https://github.com/nickbruun/hayai/archive/v1.0.2.tar.gz"
   sha256 "e30e69b107361c132c831a2c8b2040ea51225bb9ed50675b51099435b8cd6594"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

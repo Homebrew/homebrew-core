@@ -5,6 +5,11 @@ class Rpm2cpio < Formula
   version "1.4"
   sha256 "2841bacdadde2a9225ca387c52259d6007762815468f621253ebb537d6636a00"
 
+  livecheck do
+    url "https://svnweb.freebsd.org/ports/head/archivers/rpm2cpio/Makefile?view=co"
+    regex(/^PORTVERSION=\s*?v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "8655ba73b79595a55d289c2c969e027f2034c0af88263f9fa8c5cb8a1184a823" => :catalina

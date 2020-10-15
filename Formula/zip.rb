@@ -5,6 +5,11 @@ class Zip < Formula
   version "3.0"
   sha256 "f0e8bb1f9b7eb0b01285495a2699df3a4b766784c1765a8f1aeedf63c0806369"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/v?(\d+(?:\.\d+)+)/zip\d+\.(?:t|zip)}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 1

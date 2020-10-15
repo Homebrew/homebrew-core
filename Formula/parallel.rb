@@ -1,20 +1,29 @@
 class Parallel < Formula
   desc "Shell command parallelization utility"
   homepage "https://savannah.gnu.org/projects/parallel/"
-  url "https://ftp.gnu.org/gnu/parallel/parallel-20200322.tar.bz2"
-  mirror "https://ftpmirror.gnu.org/parallel/parallel-20200322.tar.bz2"
-  sha256 "207484e124860e215cc3e4d7aff48b3b1c4376c95b3c7c7888453c67e92be94d"
+  # Version 20200822 is considered beta software on macOS
+  # See https://savannah.gnu.org/forum/forum.php?forum_id=9800
+  url "https://ftp.gnu.org/gnu/parallel/parallel-20200722.tar.bz2"
+  mirror "https://ftpmirror.gnu.org/parallel/parallel-20200722.tar.bz2"
+  sha256 "4801d44f2f71eed26386a0623a6fb3cadd7fa7ec2b5a7bbc5b7b52e2a0450d6f"
+  license "GPL-3.0-or-later"
+  version_scheme 1
   head "https://git.savannah.gnu.org/git/parallel.git"
+
+  livecheck do
+    url :homepage
+    regex(/GNU Parallel v?(\d{6,8}).*? released \[stable\]/i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5d8516f4ae2cea304392d8804d8de8fa8657ab3556e67c78931cd61df485b44a" => :catalina
-    sha256 "5d8516f4ae2cea304392d8804d8de8fa8657ab3556e67c78931cd61df485b44a" => :mojave
-    sha256 "5d8516f4ae2cea304392d8804d8de8fa8657ab3556e67c78931cd61df485b44a" => :high_sierra
+    rebuild 2
+    sha256 "a7cb843b66ce52d0782f612edda3833718be72adc165776079256648788306c1" => :catalina
+    sha256 "5a1f7e2fb880f35fc891fcce8a0e1c2c0c65ccfda9e15f3b47d830898b897bbd" => :mojave
+    sha256 "45342decbb00fbe375e0fced35278827a485e91c2af8de29a5f2eed4697404ab" => :high_sierra
   end
 
-  conflicts_with "moreutils",
-    :because => "both install a `parallel` executable."
+  conflicts_with "moreutils", because: "both install a `parallel` executable"
 
   def install
     system "./configure", "--prefix=#{prefix}"

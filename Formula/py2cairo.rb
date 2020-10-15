@@ -3,7 +3,13 @@ class Py2cairo < Formula
   homepage "https://cairographics.org/pycairo/"
   url "https://github.com/pygobject/pycairo/releases/download/v1.18.2/pycairo-1.18.2.tar.gz"
   sha256 "dcb853fd020729516e8828ad364084e752327d4cff8505d20b13504b32b16531"
+  license "LGPL-2.1"
   revision 1
+
+  livecheck do
+    url :stable
+    regex(/^v?(1\.18(?:\.\d+)*)$/i)
+  end
 
   bottle do
     cellar :any
@@ -14,7 +20,7 @@ class Py2cairo < Formula
 
   depends_on "pkg-config" => :build
   depends_on "cairo"
-  uses_from_macos "python@2"
+  depends_on :macos # Due to Python 2
 
   def install
     system "python", *Language::Python.setup_install_args(prefix)

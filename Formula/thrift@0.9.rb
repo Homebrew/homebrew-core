@@ -3,6 +3,7 @@ class ThriftAT09 < Formula
   homepage "https://thrift.apache.org"
   url "https://github.com/apache/thrift/archive/0.9.3.1.tar.gz"
   sha256 "1f7ca02d88a603f2845b2c7abcab74f8107dd7285056284d65241eb7965e143c"
+  license "Apache-2.0"
 
   bottle do
     cellar :any

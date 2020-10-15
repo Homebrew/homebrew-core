@@ -1,16 +1,15 @@
 class Bibclean < Formula
   desc "BibTeX bibliography file pretty printer and syntax checker"
   homepage "https://www.math.utah.edu/~beebe/software/bibclean/bibclean-03.html#HDR.3"
-  url "http://ftp.math.utah.edu/pub/bibclean/bibclean-2.17.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/bibclean-2.17.tar.gz"
-  sha256 "d79b191fda9658fa83cb43f638321ae98b4acec5bef23a029ef2fd695639ff24"
+  url "http://ftp.math.utah.edu/pub/bibclean/bibclean-3.04.tar.xz"
+  mirror "https://dl.bintray.com/homebrew/mirror/bibclean-3.04.tar.xz"
+  sha256 "4fa68bfd97611b0bb27b44a82df0984b300267583a313669c1217983b859b258"
+  license "GPL-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "635f879a68a634caf12bff8930a27c0427b37bfb8332b7febfce34e62bb892e7" => :catalina
-    sha256 "f095e3e8a61f36dac9bff1687c7c11fddbe75c67f4dded0f82a6a95399d9a8c6" => :mojave
-    sha256 "485c4641efc1716e3de1e7672f5b3a444a0ce7fb3eb516d16fa93292907f931d" => :high_sierra
+    sha256 "15dbbabace79aafd93546976d8a899a393c6489d7951ce2bd2bb148a45f262a3" => :catalina
+    sha256 "82a7919c9d5054012b54d53eacf5a9c0785105071c4c65c83bc2ff428642b3e5" => :mojave
+    sha256 "9a2beadc688b6b12a22359890a6a85f20f3c79af561b5d4268e86069b806f585" => :high_sierra
   end
 
   def install
@@ -23,31 +22,17 @@ class Bibclean < Formula
     inreplace "Makefile" do |s|
       # Insert `mkdir` statements before `scp` statements because `scp` in macOS
       # requires that the full path to the target already exist.
-      s.gsub! /[$][(]CP.*BIBCLEAN.*bindir.*BIBCLEAN[)]/,
-              "mkdir -p $(bindir) && $(CP) $(BIBCLEAN) $(bindir)/$(BIBCLEAN)"
-      s.gsub! /[$][(]CP.*bibclean.*mandir.*bibclean.*manext[)]/,
-              "mkdir -p $(mandir) && $(CP) bibclean.man $(mandir)/bibclean.$(manext)"
+      s.gsub! /[$][{]CP.*BIBCLEAN.*bindir.*BIBCLEAN[}]/,
+              "mkdir -p ${bindir} && ${CP} ${BIBCLEAN} ${bindir}/${BIBCLEAN}"
+      s.gsub! /[$][{]CP.*bibclean.*mandir.*bibclean.*manext[}]/,
+              "mkdir -p ${mandir} && ${CP} bibclean.man ${mandir}/bibclean.${manext}"
 
       # Correct `mandir` (man file path) in the Makefile.
-      s.gsub! /mandir.*prefix.*man.*man1/, "mandir = $(prefix)/share/man/man1"
-
-      # Place all initialization files in $(prefix)/bibclean/share/ instead of
-      # ./bin/ to comply with standard Unix practice.
-      s.gsub! /install-ini.*uninstall-ini/,
-              "install-ini:  uninstall-ini\n\tmkdir -p #{pkgshare}"
-      s.gsub! /[$][(]bindir[)].*bibcleanrc/,
-              "#{pkgshare}/.bibcleanrc"
-      s.gsub! /[$][(]bindir[)].*bibclean.key/,
-              "#{pkgshare}/.bibclean.key"
-      s.gsub! /[$][(]bindir[)].*bibclean.isbn/,
-              "#{pkgshare}/.bibclean.isbn"
+      s.gsub! /mandir.*prefix.*man.*man1/, "mandir = ${prefix}/share/man/man1"
     end
 
     system "make", "all"
     system "make", "install"
-
-    ENV.prepend_path "PATH", pkgshare
-    bin.env_script_all_files(pkgshare, :PATH => ENV["PATH"])
   end
 
   test do

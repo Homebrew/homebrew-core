@@ -1,13 +1,14 @@
 class Rakudo < Formula
   desc "Perl 6 compiler targeting MoarVM"
   homepage "https://rakudo.org"
-  url "https://github.com/rakudo/rakudo/releases/download/2020.02.1/rakudo-2020.02.1.tar.gz"
-  sha256 "7bb27366c0fe7dfd4c5bd616903208a6d63d71f420d14ec0ffa661ca1c8ecae1"
+  url "https://github.com/rakudo/rakudo/releases/download/2020.08/rakudo-2020.08.tar.gz"
+  sha256 "44ffe9701b01a4156a036b8eaa9a73cdb7e85572ef514f27ef5762c30ff00327"
+  license "Artistic-2.0"
 
   bottle do
-    sha256 "b9b0c8759f308500fad6d15e7625dfba6735d66e5773b11f00304bac9924f2d3" => :catalina
-    sha256 "2e81f3feff930473ee6b0e36fb33092e72ab7a8e84c250074fbefafdb4db88aa" => :mojave
-    sha256 "89114bb50c2a4699d684fd2671ffd57fe208c8e375eac42e2b3ae055067c3c6f" => :high_sierra
+    sha256 "d7e3ace67da7a3edc74defd93ee00e4c119d92fffaab8adeacf173299f755b81" => :catalina
+    sha256 "9d738e1b230eb11240aa8e1a06762170602a17fa115b034b9c6156ad325b6053" => :mojave
+    sha256 "75e64cded6fbb8a17aa748a8b4df86d4aa31c9793fa41cab020514273c0190b3" => :high_sierra
   end
 
   depends_on "nqp"

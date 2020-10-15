@@ -1,10 +1,11 @@
 class ScalaAT212 < Formula
   desc "JVM-based programming language"
   homepage "https://www.scala-lang.org/"
-  url "https://downloads.lightbend.com/scala/2.12.11/scala-2.12.11.tgz"
-  mirror "https://www.scala-lang.org/files/archive/scala-2.12.11.tgz"
-  mirror "https://downloads.typesafe.com/scala/2.12.11/scala-2.12.11.tgz"
-  sha256 "25afefb0f1a8c2cdc2a35eb7166de2276a4a1f95986d9bfbe18c60183ab36b85"
+  url "https://downloads.lightbend.com/scala/2.12.12/scala-2.12.12.tgz"
+  mirror "https://www.scala-lang.org/files/archive/scala-2.12.12.tgz"
+  mirror "https://downloads.typesafe.com/scala/2.12.12/scala-2.12.12.tgz"
+  sha256 "3520cd1f3c9efff62baee75f32e52d1e5dc120be2ccf340649e470e48f527e2b"
+  license "Apache-2.0"
 
   bottle :unneeded
 
@@ -18,7 +19,7 @@ class ScalaAT212 < Formula
     share.install "man"
     libexec.install "bin", "lib"
     bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files libexec/"bin", :JAVA_HOME => "${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
+    bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env
 
     # Set up an IntelliJ compatible symlink farm in 'idea'
     idea = prefix/"idea"

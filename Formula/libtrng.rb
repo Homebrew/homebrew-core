@@ -3,6 +3,12 @@ class Libtrng < Formula
   homepage "https://www.numbercrunch.de/trng/"
   url "https://www.numbercrunch.de/trng/trng-4.22.tar.gz"
   sha256 "6acff0a6136e41cbf0b265ae1f4392c8f4394ecfe9803bc98255e9e8d926f3d8"
+  license "BSD-3-Clause"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?trng[._-]v?(\d+(?:\.\d+)+)\.t.*?latest/i)
+  end
 
   bottle do
     cellar :any

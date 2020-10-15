@@ -4,6 +4,11 @@ class Bonniexx < Formula
   url "https://www.coker.com.au/bonnie++/bonnie++-1.98.tgz"
   sha256 "6e0bcbc08b78856fd998dd7bcb352d4615a99c26c2dc83d5b8345b102bad0b04"
 
+  livecheck do
+    url "https://www.coker.com.au/bonnie++/experimental/"
+    regex(/href=.*?bonnie\+\+[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "d6efac6fef771ca5d88fd4f8157e185e120c5e6935f9d940f2c6c3d5c9564ce0" => :catalina

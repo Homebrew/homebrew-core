@@ -1,30 +1,29 @@
 class JsonGlib < Formula
   desc "Library for JSON, based on GLib"
   homepage "https://wiki.gnome.org/Projects/JsonGlib"
-  url "https://download.gnome.org/sources/json-glib/1.4/json-glib-1.4.4.tar.xz"
-  sha256 "720c5f4379513dc11fd97dc75336eb0c0d3338c53128044d9fabec4374f4bc47"
-  revision 1
+  url "https://download.gnome.org/sources/json-glib/1.6/json-glib-1.6.0.tar.xz"
+  sha256 "0d7c67602c4161ea7070fab6c5823afd9bd7f7bc955f652a50d3753b08494e73"
+  license "LGPL-2.1-or-later"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
-    sha256 "643ce68e84c094e77597f2f1b83678d3675b74b1a2e11c43804290d30fa456e6" => :catalina
-    sha256 "223b5472cc71a1eea8efc818d66fa8e6ff05a4aff45d60d4deccba54f82d39dd" => :mojave
-    sha256 "ad30f6f204dd27504d70e9ac22dcfdd482975a5e97879c0b4095527bde68d985" => :high_sierra
-    sha256 "08dbbf2bcef7fdeccfbcd7a0391c4eafa67f914ba0f021c8a41298a6359f7c24" => :sierra
+    sha256 "7a4f86a42a66360951fcbeac7ddcda95288fa3cd7fc5aee8d297fe31540e048f" => :catalina
+    sha256 "8f0e9b27a61d547cb185eb2952fb81e2bcf2ad502e459a7ec2037e505281e060" => :mojave
+    sha256 "6b72cc181e7ee816a8444adc59373b51033712dc8fc58b73531cc9fefbd0bd5e" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build
-  depends_on "meson-internal" => :build
+  depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
 
-  patch :DATA
-
   def install
-    ENV.refurbish_args
-
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", ".."
+      system "meson", *std_meson_args, "-Dintrospection=enabled", ".."
       system "ninja"
       system "ninja", "install"
     end
@@ -60,24 +59,3 @@ class JsonGlib < Formula
     system "./test"
   end
 end
-
-__END__
-diff --git a/meson.build b/meson.build
-index cee6389..50808cf 100644
---- a/meson.build
-+++ b/meson.build
-@@ -145,14 +145,6 @@ if host_system == 'linux'
-   endforeach
- endif
-
--# Maintain compatibility with autotools
--if host_system == 'darwin'
--  common_ldflags += [
--    '-compatibility_version 1',
--    '-current_version @0@.@1@'.format(json_binary_age - json_interface_age, json_interface_age),
--  ]
--endif
--
- root_dir = include_directories('.')
-
- gnome = import('gnome')

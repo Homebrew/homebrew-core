@@ -5,6 +5,11 @@ class Libsmi < Formula
   mirror "https://www.mirrorservice.org/sites/distfiles.macports.org/libsmi/libsmi-0.5.0.tar.gz"
   sha256 "f21accdadb1bb328ea3f8a13fc34d715baac6e2db66065898346322c725754d3"
 
+  livecheck do
+    url "https://www.ibr.cs.tu-bs.de/projects/libsmi/download/"
+    regex(/href=.*?libsmi[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     rebuild 1

@@ -1,16 +1,23 @@
 class Libxmlxx3 < Formula
   desc "C++ wrapper for libxml"
   homepage "https://libxmlplusplus.sourceforge.io/"
-  url "https://download.gnome.org/sources/libxml++/3.2/libxml++-3.2.0.tar.xz"
-  sha256 "b786fae7fd7820d356698069a787d107995c3efcbef50d8f4efd3766ab768e4f"
+  url "https://download.gnome.org/sources/libxml++/3.2/libxml++-3.2.2.tar.xz"
+  sha256 "a53d0af2c9bf566b4d5d57d1c6495b189555c54785941d7e3bef666728952f0b"
+  license "LGPL-2.1-or-later"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any
-    sha256 "583c5345ed243a5cea2bbf82e71a130e85554110ebe3927183171c66225a7c26" => :catalina
-    sha256 "054180f67aa9d297a26c40fc9e6dcc27bf68e78f09db895b3821c68751eabae2" => :mojave
-    sha256 "2da0d0f6e732f910e75e5b20c19a01056854d00feab6e1c2490b7722bbc1af29" => :high_sierra
+    sha256 "51604d366f7b794feff18466d1e42bc1b80c68790f664ce07e15c7bcf18ccd40" => :catalina
+    sha256 "421fc4d53570da9c554c64887b174e4f8eefa0cf97dcf98e15ecef9b9863fe78" => :mojave
+    sha256 "fdefe0b6dea82091a56cc9372ff0a7b74c255a51f94b22005984967aed3a1eb0" => :high_sierra
   end
 
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "glibmm"
 
@@ -18,8 +25,11 @@ class Libxmlxx3 < Formula
 
   def install
     ENV.cxx11
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args, ".."
+      system "ninja"
+      system "ninja", "install"
+    end
   end
 
   test do

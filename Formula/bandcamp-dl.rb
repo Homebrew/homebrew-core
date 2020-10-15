@@ -3,17 +3,33 @@ class BandcampDl < Formula
 
   desc "Simple python script to download Bandcamp albums"
   homepage "https://github.com/iheanyi/bandcamp-dl"
-  url "https://github.com/iheanyi/bandcamp-dl/archive/v0.0.8-12.tar.gz"
-  version "0.0.8-12"
-  sha256 "3252f52780f280ba18818d40cda1c89bdb99ee33d7911320ec2ce4c374df2d6b"
-  revision 3
+  license "Unlicense"
+  revision 5
   head "https://github.com/iheanyi/bandcamp-dl.git"
+
+  stable do
+    url "https://github.com/iheanyi/bandcamp-dl/archive/v0.0.8-12.tar.gz"
+    sha256 "3252f52780f280ba18818d40cda1c89bdb99ee33d7911320ec2ce4c374df2d6b"
+    version "0.0.8-12"
+    # upstream hotfix, https://github.com/iheanyi/bandcamp-dl/pull/167
+    # remove this in next release
+    patch do
+      url "https://github.com/iheanyi/bandcamp-dl/commit/3d3a524af27bac761bd2f8766c6f4951776c6c60.patch?full_index=1"
+      sha256 "f776b23beb1149d2449c2187bbdc3843933d063a79254a354bfc69ce4d644091"
+    end
+
+    # fix script matching https://github.com/iheanyi/bandcamp-dl/pull/171
+    patch do
+      url "https://github.com/iheanyi/bandcamp-dl/commit/08c450385efe847e4f8ece1dc95034e69aaeaed0.patch?full_index=1"
+      sha256 "64808a6334994d847d0c5bdcfd49cfd6dbb4376c8c8d3fd4304b85f892d3915f"
+    end
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7906dfa2016495c4e0aeca69d9aa2b7e9bcc2ac4742ba2900f3e4b6a942a3053" => :catalina
-    sha256 "5bce4baa9ae47a78a43206aad853a0a202395dc335d41756050af358967f035f" => :mojave
-    sha256 "9c8c311b18dad230648661c3b981583ece5e647285239c6024efa2f2598f439e" => :high_sierra
+    sha256 "ab1b60a73830b8d0c41bb00a1d241e81f3aeaafe157aa000cffc98ee9fd6bf93" => :catalina
+    sha256 "ce31aaad04df1b2bc1a7883f4dea5d40214caa24fe2db8713fda5e3ca7077f82" => :mojave
+    sha256 "334ec76c821cc7cbcc3971717e1a2bc35ebc37492167b4e0c2f2f073c7eb5d35" => :high_sierra
   end
 
   depends_on "python@3.8"

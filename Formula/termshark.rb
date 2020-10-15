@@ -3,12 +3,14 @@ class Termshark < Formula
   homepage "https://termshark.io"
   url "https://github.com/gcla/termshark/archive/v2.1.1.tar.gz"
   sha256 "c02a21e0a61b791b1287b85acc33834ccd3bb4efb40be52e5a74d2b989d51416"
+  license "MIT"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "04877a693f8f87f4120847862fa35642b5d862c7b93603b11d330015316efe03" => :catalina
-    sha256 "ec8e1526dd3ba7cb58bbcc510eee873c10fd11f428d12b54950d1dcfa5603a1a" => :mojave
-    sha256 "ef6bfc089550e3ba2afb02510ff7d5d3a8364079970a4f223a8b84801f1c0b93" => :high_sierra
+    sha256 "f5aa37f01cde3195529f2d712bf430eba6f2d72e55956a1da8adc82369ec7d6a" => :catalina
+    sha256 "fc4c36a57bb543b3fa5a78b0dbe75f6989a675789f0eeaaed84880c367a439fe" => :mojave
+    sha256 "16c5dd511a2fa621d103fc07ed93b0af39ac3b08d5976162f5881cc46095dce7" => :high_sierra
   end
 
   depends_on "go" => :build

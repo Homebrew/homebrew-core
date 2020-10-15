@@ -1,14 +1,15 @@
 class AppstreamGlib < Formula
   desc "Helper library for reading and writing AppStream metadata"
   homepage "https://github.com/hughsie/appstream-glib"
-  url "https://github.com/hughsie/appstream-glib/archive/appstream_glib_0_7_17.tar.gz"
-  sha256 "cb612c9e634275e574fa639737cf63711358cd10b9d0d377f70025653fefdd16"
+  url "https://github.com/hughsie/appstream-glib/archive/appstream_glib_0_7_18.tar.gz"
+  sha256 "73b8c10273c4cdd8f6de03c2524fedad64e34ccae08ee847dba804bb15461f6e"
+  license "LGPL-2.1-or-later"
 
   bottle do
     cellar :any
-    sha256 "de7a46f58e307acdfded481babf14370554a37a8f502f8122fa1f789946b04b4" => :catalina
-    sha256 "5086642d95908eedcc2e6e1433f43398cf127fa3745ee40ccd6c9c9e081e30ef" => :mojave
-    sha256 "5c8dfa2d33a90c0b574aa3f4943a74b665019d165cc7493380775addb2cc6545" => :high_sierra
+    sha256 "387813e442c2da30f6b778c691b4306d5ab8b80ec388454e4883f2858b270ddf" => :catalina
+    sha256 "b723129505d1a990f406e1ea49cb24c76b3d1ae5135625d2be213279858a730a" => :mojave
+    sha256 "79165dd4badda969b194ab9333181bc81cca64bc161dc74e95bd643401764e5a" => :high_sierra
   end
 
   depends_on "docbook" => :build
@@ -32,7 +33,7 @@ class AppstreamGlib < Formula
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", "-Dbuilder=false", "-Drpm=false", "-Ddep11=false", "-Dstemmer=false", ".."
+      system "meson", *std_meson_args, "-Dbuilder=false", "-Drpm=false", "-Ddep11=false", "-Dstemmer=false", ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end

@@ -1,19 +1,20 @@
 class Minizinc < Formula
   desc "Medium-level constraint modeling language"
   homepage "https://www.minizinc.org/"
-  url "https://github.com/MiniZinc/libminizinc/archive/2.4.3.tar.gz"
-  sha256 "c5c379b0275cc6c0fefd4568e621a43b6f1f0b4af793fea5995be7c6cf73cc07"
-  head "https://github.com/MiniZinc/libminizinc.git", :branch => "develop"
+  url "https://github.com/MiniZinc/libminizinc/archive/2.5.0.tar.gz"
+  sha256 "a92be5e1f0d7a2d7177341650cbb976114aa4e1e2f260b1e9dada28ebf044b30"
+  license "MPL-2.0"
+  head "https://github.com/MiniZinc/libminizinc.git", branch: "develop"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ac8a3708d18b387b114d96c11c689c0578e3d0119d6d86c491675759e6e7d4f7" => :catalina
-    sha256 "c08c60f5bb8d063262f6c787ab7c5ad7a44d2f42aa0be2b783f20d4f6effac11" => :mojave
-    sha256 "41f9a16e2ced9b258ff971a301b03a03a09b691f04917478a79239cdacb6b706" => :high_sierra
+    sha256 "3761bf1a5f715d47c2292fa0e71d5edaf66dc5d18362952a19c9ab61bdb5f4dd" => :catalina
+    sha256 "10169d25a64dd162ac28aaccd6296efaa084c380942115c0ce7ba17ac7a0ffc7" => :mojave
+    sha256 "ea375d5c130fa16354d6b48c01aa32752593da13526afabab3bf3e79c93953f7" => :high_sierra
   end
 
   depends_on "cmake" => :build
-  depends_on :arch => :x86_64
+  depends_on arch: :x86_64
 
   def install
     mkdir "build" do
@@ -23,6 +24,6 @@ class Minizinc < Formula
   end
 
   test do
-    system bin/"mzn2doc", share/"minizinc/std/all_different.mzn"
+    system bin/"mzn2doc", pkgshare/"std/all_different.mzn"
   end
 end

@@ -1,29 +1,27 @@
 class Doxygen < Formula
   desc "Generate documentation for several programming languages"
-  homepage "http://www.doxygen.org/"
-  url "http://doxygen.nl/files/doxygen-1.8.17.src.tar.gz"
-  mirror "https://downloads.sourceforge.net/project/doxygen/rel-1.8.17/doxygen-1.8.17.src.tar.gz"
-  sha256 "2cba988af2d495541cbbe5541b3bee0ee11144dcb23a81eada19f5501fd8b599"
+  homepage "https://www.doxygen.org/"
+  url "https://doxygen.nl/files/doxygen-1.8.20.src.tar.gz"
+  mirror "https://downloads.sourceforge.net/project/doxygen/rel-1.8.20/doxygen-1.8.20.src.tar.gz"
+  sha256 "e0db6979286fd7ccd3a99af9f97397f2bae50532e4ecb312aa18862f8401ddec"
+  license "GPL-2.0-only"
   head "https://github.com/doxygen/doxygen.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "e616dc31b1fa5fc8e4f1ff3102b049cfaa2e13f199de9e06123d4dbe33a75790" => :catalina
-    sha256 "609bb888081320306742749bf91f4cfd17815bc8d3d4385ebe25932d1d97302e" => :mojave
-    sha256 "a1054bedac664bf5edbcebd74606d6e67cb8cc8c64871206fc93728cca02d1e1" => :high_sierra
+    sha256 "8a4685d1a070c772799993261962da186a43d35bea7d0648c71e593878ca033a" => :catalina
+    sha256 "975acd4d783e3d07f77d93bd8fa817eab4e192d297503494cb60dbc30880620c" => :mojave
+    sha256 "6490b7d253d715a1210f87c1ba4ebb3a6a65d96d9802ce8760416cc09b1f36b3" => :high_sierra
   end
 
   depends_on "bison" => :build
   depends_on "cmake" => :build
 
-  def install
-    args = std_cmake_args + %W[
-      -DCMAKE_OSX_DEPLOYMENT_TARGET:STRING=#{MacOS.version}
-    ]
+  uses_from_macos "flex" => :build
 
+  def install
     mkdir "build" do
-      system "cmake", "..", *args
+      system "cmake", "..", *std_cmake_args
       system "make"
     end
     bin.install Dir["build/bin/*"]

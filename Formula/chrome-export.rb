@@ -3,6 +3,7 @@ class ChromeExport < Formula
   homepage "https://github.com/bdesham/chrome-export"
   url "https://github.com/bdesham/chrome-export/archive/v2.0.2.tar.gz"
   sha256 "41b667b407bc745a57105cc7969ec80cd5e50d67e1cce73cf995c2689d306e97"
+  license "ISC"
   revision 1
 
   bottle :unneeded

@@ -1,13 +1,19 @@
 class Pdns < Formula
   desc "Authoritative nameserver"
   homepage "https://www.powerdns.com"
-  url "https://downloads.powerdns.com/releases/pdns-4.2.1.tar.bz2"
-  sha256 "f65019986b8fcbb1c6fffebcded04b2b397b84395830f4c63e8d119bcfa1aa28"
+  url "https://downloads.powerdns.com/releases/pdns-4.3.1.tar.bz2"
+  sha256 "d5146c04098ee94b9377ee491ebb3fd5eb061d7b24262f4a8e1a89f2ed3fc245"
+  license "GPL-2.0-or-later"
+
+  livecheck do
+    url "https://downloads.powerdns.com/releases/"
+    regex(/href=.*?pdns[._-]v?(\d+(?:\.\d+)*)\.t/i)
+  end
 
   bottle do
-    sha256 "f14eb64110b61db1e93716eab2a7bdb22bf77221dc5e07aed6e19cb5c8415fa7" => :catalina
-    sha256 "cf298ee7822ff4a58356693622b4f2ce998b3d144e70c64c6805aa3fcc28fd1f" => :mojave
-    sha256 "f6e5655f7d5a31caa53887b030937cd36d56a2d542357eb2753f674a42e40289" => :high_sierra
+    sha256 "a2157c837b834c7d428066e64d375636917066ea37c48935afec632c2fe539d9" => :catalina
+    sha256 "3221d27d70b3d023b0bf7ab053f269e3ae0ae31f3b7697e7a495687dba252ec9" => :mojave
+    sha256 "26266299abce6649649c05949369f11139b418bc0bbca23ffb65fa1dbf1640db" => :high_sierra
   end
 
   head do
@@ -27,6 +33,10 @@ class Pdns < Formula
 
   uses_from_macos "curl"
 
+  # fix for compatibility issue with boost 1.73
+  # port of PR https://github.com/PowerDNS/pdns/pull/9070
+  patch :DATA
+
   def install
     # Fix "configure: error: cannot find boost/program_options.hpp"
     ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
@@ -45,7 +55,7 @@ class Pdns < Formula
     system "make", "install"
   end
 
-  plist_options :manual => "pdns_server start"
+  plist_options manual: "pdns_server start"
 
   def plist
     <<~EOS
@@ -59,7 +69,7 @@ class Pdns < Formula
         <string>#{plist_name}</string>
         <key>ProgramArguments</key>
         <array>
-          <string>#{opt_bin}/pdns_server</string>
+          <string>#{sbin}/pdns_server</string>
         </array>
         <key>EnvironmentVariables</key>
         <key>KeepAlive</key>
@@ -76,3 +86,64 @@ class Pdns < Formula
     assert_match "PowerDNS Authoritative Server #{version}", output
   end
 end
+
+__END__
+diff --git a/pdns/ixfrdist-web.cc b/pdns/ixfrdist-web.cc
+index 485e720..58e4720 100644
+--- a/pdns/ixfrdist-web.cc
++++ b/pdns/ixfrdist-web.cc
+@@ -32,7 +32,7 @@ IXFRDistWebServer::IXFRDistWebServer(const ComboAddress &listenAddress, const Ne
+ {
+   d_ws->setACL(acl);
+   d_ws->setLogLevel(loglevel);
+-  d_ws->registerWebHandler("/metrics", boost::bind(&IXFRDistWebServer::getMetrics, this, _1, _2));
++  d_ws->registerWebHandler("/metrics", std::bind(&IXFRDistWebServer::getMetrics, this, std::placeholders::_1, std::placeholders::_2));
+   d_ws->bind();
+ }
+
+diff --git a/pdns/webserver.cc b/pdns/webserver.cc
+index eafd305..8b19b76 100644
+--- a/pdns/webserver.cc
++++ b/pdns/webserver.cc
+@@ -107,7 +107,7 @@ static void bareHandlerWrapper(WebServer::HandlerFunction handler, YaHTTP::Reque
+
+ void WebServer::registerBareHandler(const string& url, HandlerFunction handler)
+ {
+-  YaHTTP::THandlerFunction f = boost::bind(&bareHandlerWrapper, handler, _1, _2);
++  YaHTTP::THandlerFunction f = std::bind(&bareHandlerWrapper, handler, std::placeholders::_1, std::placeholders::_2);
+   YaHTTP::Router::Any(url, f);
+ }
+
+@@ -179,7 +179,7 @@ void WebServer::apiWrapper(WebServer::HandlerFunction handler, HttpRequest* req,
+ }
+
+ void WebServer::registerApiHandler(const string& url, HandlerFunction handler, bool allowPassword) {
+-  HandlerFunction f = boost::bind(&WebServer::apiWrapper, this, handler, _1, _2, allowPassword);
++  HandlerFunction f = std::bind(&WebServer::apiWrapper, this, handler, std::placeholders::_1, std::placeholders::_2, allowPassword);
+   registerBareHandler(url, f);
+ }
+
+@@ -196,7 +196,7 @@ void WebServer::webWrapper(WebServer::HandlerFunction handler, HttpRequest* req,
+ }
+
+ void WebServer::registerWebHandler(const string& url, HandlerFunction handler) {
+-  HandlerFunction f = boost::bind(&WebServer::webWrapper, this, handler, _1, _2);
++  HandlerFunction f = std::bind(&WebServer::webWrapper, this, handler, std::placeholders::_1, std::placeholders::_2);
+   registerBareHandler(url, f);
+ }
+
+diff --git a/pdns/ws-auth.cc b/pdns/ws-auth.cc
+index 8a8c433..df0e633 100644
+--- a/pdns/ws-auth.cc
++++ b/pdns/ws-auth.cc
+@@ -2328,8 +2328,8 @@ void AuthWebServer::webThread()
+       d_ws->registerApiHandler("/api", &apiDiscovery);
+     }
+     if (::arg().mustDo("webserver")) {
+-      d_ws->registerWebHandler("/style.css", boost::bind(&AuthWebServer::cssfunction, this, _1, _2));
+-      d_ws->registerWebHandler("/", boost::bind(&AuthWebServer::indexfunction, this, _1, _2));
++      d_ws->registerWebHandler("/style.css", std::bind(&AuthWebServer::cssfunction, this, std::placeholders::_1, std::placeholders::_2));
++      d_ws->registerWebHandler("/", std::bind(&AuthWebServer::indexfunction, this, std::placeholders::_1, std::placeholders::_2));
+     }
+     d_ws->go();
+   }

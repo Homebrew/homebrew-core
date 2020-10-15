@@ -2,7 +2,6 @@ class Avimetaedit < Formula
   desc "Tool for embedding, validating, and exporting of AVI files metadata"
   homepage "https://mediaarea.net/AVIMetaEdit"
   url "https://mediaarea.net/download/binary/avimetaedit/1.0.2/AVIMetaEdit_CLI_1.0.2_GNU_FromSource.tar.bz2"
-  version "1.0.2"
   sha256 "e0b83e17460d0202a54f637cb673a0c03460704e6c2cff0c2e34222efb2c11ca"
 
   bottle do

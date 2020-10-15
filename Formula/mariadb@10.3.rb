@@ -1,13 +1,14 @@
 class MariadbAT103 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.org/f/mariadb-10.3.21/source/mariadb-10.3.21.tar.gz"
-  sha256 "f95bd4b670fb86082d1e3f0c4299ebcd40bda856b111e3f02ab647b0e9ba5e8f"
+  url "https://downloads.mariadb.org/f/mariadb-10.3.25/source/mariadb-10.3.25.tar.gz"
+  sha256 "12898196fce9d30a5a7639071b719b5b0cf5fbb9b0c8fa9f1cb95310cea09b6d"
+  license "GPL-2.0-only"
 
   bottle do
-    sha256 "bad7798f578ee24af5d769e5912657c2a1cf8ef46b0bb2761cf68b1d3dd4ffba" => :catalina
-    sha256 "e9d1beb78667672d1a6a928ee7e791f4a29050c42a066404a58431d2986914f0" => :mojave
-    sha256 "b4746f15f3c30af707ba57a192ed4af2f194fa8842ee9e19a6dd10afaa85ae02" => :high_sierra
+    sha256 "a45cb296715907729b63f77c89edd933c3c228e520c97053f625e7cd038138f6" => :catalina
+    sha256 "80892bc35cbc832a3ad51af6cb33afd0a6a0a3d10a3059848e6fc48b1defa64b" => :mojave
+    sha256 "f220b2a3c64488395ae85332b85dc4bdd1094c0bbaeec430249bacb43b64fd7f" => :high_sierra
   end
 
   keg_only :versioned_formula
@@ -120,7 +121,7 @@ class MariadbAT103 < Formula
     EOS
   end
 
-  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/mariadb@10.3/bin/mysql.server start"
+  plist_options manual: "#{HOMEBREW_PREFIX}/opt/mariadb@10.3/bin/mysql.server start"
 
   def plist
     <<~EOS

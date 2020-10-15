@@ -3,6 +3,8 @@ class Libiodbc < Formula
   homepage "http://www.iodbc.org/dataspace/iodbc/wiki/iODBC/"
   url "https://github.com/openlink/iODBC/archive/v3.52.13.tar.gz"
   sha256 "4bf67fc6d4d237a4db19b292b5dd255ee09a0b2daa4e4058cf3a918bc5102135"
+  # license ["BSD-3-Clause", "LGPL-2.0"] - pending https://github.com/Homebrew/brew/pull/7953
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any
@@ -16,7 +18,7 @@ class Libiodbc < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
-  conflicts_with "unixodbc", :because => "both install 'odbcinst.h' header"
+  conflicts_with "unixodbc", because: "both install `odbcinst.h`"
 
   def install
     system "./autogen.sh"

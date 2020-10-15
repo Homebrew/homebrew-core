@@ -1,15 +1,16 @@
 class Archiver < Formula
   desc "Cross-platform, multi-format archive utility"
   homepage "https://github.com/mholt/archiver"
-  url "https://github.com/mholt/archiver/archive/v3.3.0.tar.gz"
-  sha256 "c8e88340e80b428c1a1c9734084395b473c9458fcea8b8b5126a9db96ae45844"
+  url "https://github.com/mholt/archiver/archive/v3.3.2.tar.gz"
+  sha256 "1d1db34177fa0d85aea6860b33e94700b1acaa2f3ea626e1f457fede6991041b"
+  license "MIT"
   head "https://github.com/mholt/archiver.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f7e2687f04f044894475e29cfb986f9e40658878b52675ef87e8059676629a6d" => :catalina
-    sha256 "0afa338b4f42fb7314d8b5f557a7310824dad082ff85f3940bfa70b39f3c48a9" => :mojave
-    sha256 "3622a493e750f8aaeebe1f807adb002a8d00297a8f69f5b44ad0ce1c961d1851" => :high_sierra
+    sha256 "5ad31719ad86f037a53871090741da8448337031bcdb71ea47f2586593bd9b04" => :catalina
+    sha256 "963c4901ee5e9bdee50f1a3901012e840bc216b7153fb2d523fde2e7ef5c8686" => :mojave
+    sha256 "479af8f187faf342e80725a2bf80296b4a853e2b0a7892a3cd1c90fdbdc0bd56" => :high_sierra
   end
 
   depends_on "go" => :build

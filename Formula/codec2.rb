@@ -4,6 +4,7 @@ class Codec2 < Formula
   # Linked from https://freedv.org/
   url "https://github.com/drowe67/codec2/archive/v0.9.2.tar.gz"
   sha256 "19181a446f4df3e6d616b50cabdac4485abb9cd3242cf312a0785f892ed4c76c"
+  license "LGPL-2.1"
 
   bottle do
     cellar :any

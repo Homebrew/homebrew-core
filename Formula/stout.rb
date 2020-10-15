@@ -3,6 +3,7 @@ class Stout < Formula
   homepage "https://github.com/cloudflare/Stout"
   url "https://github.com/cloudflare/Stout/archive/v1.3.2.tar.gz"
   sha256 "33aa533beda7181d5efdcfb9fadcc568f58c1f7e27a4902adf1a6807c4875c99"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

@@ -5,6 +5,11 @@ class Sylpheed < Formula
   sha256 "eb23e6bda2c02095dfb0130668cf7c75d1f256904e3a7337815b4da5cb72eb04"
   revision 3
 
+  livecheck do
+    url "https://sylpheed.sraoss.jp/en/download.html"
+    regex(%r{stable.*?href=.*?/sylpheed[._-]v?(\d+(?:\.\d+)+)\.t}im)
+  end
+
   bottle do
     rebuild 1
     sha256 "44913001d85002b75a715b3b8d12ef0fcbc3a1de152546d8fe5297544af367d6" => :catalina

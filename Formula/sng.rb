@@ -4,6 +4,10 @@ class Sng < Formula
   url "https://downloads.sourceforge.net/project/sng/sng-1.1.0.tar.gz"
   sha256 "119c55870c1d1bdc65f7de9dbc62929ccb0c301c2fb79f77df63f5d477f34619"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "b37aa0aca0f3ab6b87ebaba92312fe008233a7f03cc015bcd6dd6e29e5291110" => :catalina

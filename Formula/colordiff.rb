@@ -1,30 +1,30 @@
 class Colordiff < Formula
   desc "Color-highlighted diff(1) output"
   homepage "https://www.colordiff.org/"
-  url "https://www.colordiff.org/colordiff-1.0.18.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/colordiff-1.0.18.tar.gz"
-  sha256 "29cfecd8854d6e19c96182ee13706b84622d7b256077df19fbd6a5452c30d6e0"
+  url "https://www.colordiff.org/colordiff-1.0.19.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/colordiff-1.0.19.tar.gz"
+  sha256 "46e8c14d87f6c4b77a273cdd97020fda88d5b2be42cf015d5d84aca3dfff3b19"
+  license "GPL-2.0-or-later"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?colordiff[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8f3ca0480df2c98a43cba77638ca31d85a2450d6a536e3531f65345f42b07e53" => :catalina
-    sha256 "63483bb1f9e86ffb85de6c7bfaba178da41e2f4577e58efd3d893d8b66263101" => :mojave
-    sha256 "1b381f5726976016f7996abd414eb24b19bfd63dcc7a8a628e51ca4e3507b4d1" => :high_sierra
-    sha256 "c4d57d0ae142725bd320600864843ce040457c7652a3e403e1c65a6e53b42afd" => :sierra
-    sha256 "19c797b186c5b2ec4e4692a21d25f3c8e48addea3cc8aaa2809cf37dcc0f1100" => :el_capitan
-    sha256 "19c797b186c5b2ec4e4692a21d25f3c8e48addea3cc8aaa2809cf37dcc0f1100" => :yosemite
+    rebuild 1
+    sha256 "a591ec70f59b8f5ff3cde4c0a8cd58d920db324f9c3001e218bdcfc8966aca15" => :catalina
+    sha256 "f5b78a778860c7d37a370287c3821e17243a37e5e568cf58fd2aa3df3e3ce409" => :mojave
+    sha256 "305a7dfd6940d463d89473c1f2864c5f5b1bd7ed01f838929c3901ad94f4586d" => :high_sierra
   end
 
-  conflicts_with "cdiff", :because => "both install `cdiff` binaries"
-
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/colordiff/1.0.16.patch"
-    sha256 "715ae7c2f053937606c7fe576acbb7ab6f2c58d6021a9a0d40e7c64a508ec8d0"
-  end
+  depends_on "coreutils" => :build # GNU install
 
   def install
     man1.mkpath
-    system "make", "INSTALL_DIR=#{bin}",
+    system "make", "INSTALL=ginstall",
+                   "INSTALL_DIR=#{bin}",
                    "ETC_DIR=#{etc}",
                    "MAN_DIR=#{man1}",
                    "install"

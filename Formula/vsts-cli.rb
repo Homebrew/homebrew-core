@@ -5,18 +5,25 @@ class VstsCli < Formula
   homepage "https://docs.microsoft.com/en-us/cli/vsts"
   url "https://files.pythonhosted.org/packages/f9/c2/3ed698480ab30d2807fc961eef152099589aeaec3f1407945a4e07275de5/vsts-cli-0.1.4.tar.gz"
   sha256 "27defe1d8aaa1fcbc3517274c0fdbd42b5ebe2c1c40edfc133d98fe4bb7114de"
-  revision 2
+  revision 3
 
   bottle do
-    cellar :any
-    sha256 "b37f51f73b543f2c9403e0a982aa1ae625f170b971a75b1ab07a23a62aa01949" => :catalina
-    sha256 "27a52ac2afc49b4392804ce47984f8ea1986dde0a221d599d2f3afa0e93ca6b3" => :mojave
-    sha256 "59d1ccaa24e3356771bd998de79c226803957811170765933d5ca03f3547f99a" => :high_sierra
+    cellar :any_skip_relocation
+    sha256 "8e952995319c76b81ff6bc83d57333ec92948f9912bf733303b15c45c1d40010" => :catalina
+    sha256 "9bf14052f8080b919ae1e20471a8c4f3157a10b3f0a232aa2ebff503b42dff26" => :mojave
+    sha256 "a20fcbd530d6cc07eebd219652bbdbd8c9cd51f01a61d0aee629e8e4868907b2" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  # https://github.com/Azure/azure-devops-cli-extension/pull/219#issuecomment-456404611
+  deprecate! date: "2019-01-22", because: :unsupported
+
+  depends_on "python@3.9"
 
   uses_from_macos "libffi"
+
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
 
   resource "argcomplete" do
     url "https://files.pythonhosted.org/packages/3c/21/9741e5e5e63245a8cdafb32ffc738bff6e7ef6253b65953e77933e56ce88/argcomplete-1.9.4.tar.gz"
@@ -201,6 +208,41 @@ class VstsCli < Formula
   resource "vsts-cli-work-common" do
     url "https://files.pythonhosted.org/packages/36/51/d4b7accf6b9e009875f4a2c05ceba7ddd8936f99c2dde5f4308a40edc360/vsts-cli-work-common-0.1.4.tar.gz"
     sha256 "ec023e69d88292024e6bd5ac34b9d5913aa92c4ce148751c33fdf9da13e0d522"
+  end
+
+  resource "pycparser" do
+    on_linux do
+      url "https://files.pythonhosted.org/packages/68/9e/49196946aee219aead1290e00d1e7fdeab8567783e83e1b9ab5585e6206a/pycparser-2.19.tar.gz#sha256=a988718abfad80b6b157acce7bf130a30876d27603738ac39f140993246b25b3"
+      sha256 "a988718abfad80b6b157acce7bf130a30876d27603738ac39f140993246b25b3"
+    end
+  end
+
+  resource "cffi" do
+    on_linux do
+      url "https://files.pythonhosted.org/packages/2d/bf/960e5a422db3ac1a5e612cb35ca436c3fc985ed4b7ed13a1b4879006f450/cffi-1.13.2.tar.gz#sha256=599a1e8ff057ac530c9ad1778293c665cb81a791421f46922d80a86473c13346"
+      sha256 "599a1e8ff057ac530c9ad1778293c665cb81a791421f46922d80a86473c13346"
+    end
+  end
+
+  resource "cryptography" do
+    on_linux do
+      url "https://files.pythonhosted.org/packages/be/60/da377e1bed002716fb2d5d1d1cab720f298cb33ecff7bf7adea72788e4e4/cryptography-2.8.tar.gz#sha256=3cda1f0ed8747339bbdf71b9f38ca74c7b592f24f65cdb3ab3765e4b02871651"
+      sha256 "3cda1f0ed8747339bbdf71b9f38ca74c7b592f24f65cdb3ab3765e4b02871651"
+    end
+  end
+
+  resource "jeepney" do
+    on_linux do
+      url "https://files.pythonhosted.org/packages/3a/b6/28c665d48e48b5b7e6a26853d6b4595c4031de7798a6c4985b14492ebd14/jeepney-0.4.1.tar.gz#sha256=13806f91a96e9b2623fd2a81b950d763ee471454aafd9eb6d75dbe7afce428fb"
+      sha256 "13806f91a96e9b2623fd2a81b950d763ee471454aafd9eb6d75dbe7afce428fb"
+    end
+  end
+
+  resource "secretstorage" do
+    on_linux do
+      url "https://files.pythonhosted.org/packages/a6/89/df343dbc2957a317127e7ff2983230dc5336273be34f2e1911519d85aeb5/SecretStorage-3.1.1.tar.gz#sha256=20c797ae48a4419f66f8d28fc221623f11fc45b6828f96bdb1ad9990acb59f92"
+      sha256 "20c797ae48a4419f66f8d28fc221623f11fc45b6828f96bdb1ad9990acb59f92"
+    end
   end
 
   def install

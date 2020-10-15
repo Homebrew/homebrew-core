@@ -1,18 +1,29 @@
 class HelmAT2 < Formula
-  desc "The Kubernetes package manager"
+  desc "Kubernetes package manager"
   homepage "https://helm.sh/"
   url "https://github.com/helm/helm.git",
-      :tag      => "v2.16.5",
-      :revision => "89bd14c1541fa93a09492010030fd3699ca65a97"
+      tag:      "v2.16.12",
+      revision: "47f0b88409e71fd9ca272abc7cd762a56a1c613e"
+  license "Apache-2.0"
+
+  # NOTE: Remove this livecheck block after deprecation takes effect, so we
+  # don't unnecessarily check for updates.
+  livecheck do
+    url :stable
+    regex(/^v?(2(?:\.\d+)+)$/i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bde48a20c099114118e3c41c2bd1273ff1676375899c24ce26d12a695c45cbf7" => :catalina
-    sha256 "36d8479ab5013f3e736c9e51d3b3f80851d9c6abde490d423c3d18090896ce5d" => :mojave
-    sha256 "322938ad3e773e54b609d6815b059061521676bef15b119537597f2ec4e08dc4" => :high_sierra
+    sha256 "f842166eae515ed30c9f91c0ad27994640332b889fb490c2fe2f4ef818501dac" => :catalina
+    sha256 "edc42658f135c42ca81df5a05184b209fd26e2ad78c93583646a219dbd33cbd5" => :mojave
+    sha256 "bf0f6e9a6a3d40e03b76f551bf88d6b2f81f825f063a139c90f804c56b94f885" => :high_sierra
   end
 
   keg_only :versioned_formula
+
+  # See: https://helm.sh/blog/helm-v2-deprecation-timeline/
+  deprecate! date: "2020-11-13", because: :deprecated_upstream
 
   depends_on "glide" => :build
   depends_on "go" => :build
@@ -33,10 +44,10 @@ class HelmAT2 < Formula
       bin.install "bin/tiller"
       man1.install Dir["docs/man/man1/*"]
 
-      output = Utils.popen_read("SHELL=bash #{bin}/helm completion bash")
+      output = Utils.safe_popen_read({ "SHELL" => "bash" }, bin/"helm", "completion", "bash")
       (bash_completion/"helm").write output
 
-      output = Utils.popen_read("SHELL=zsh #{bin}/helm completion zsh")
+      output = Utils.safe_popen_read({ "SHELL" => "zsh" }, bin/"helm", "completion", "zsh")
       (zsh_completion/"_helm").write output
 
       prefix.install_metafiles

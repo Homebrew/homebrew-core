@@ -1,14 +1,19 @@
 class Gloox < Formula
   desc "C++ Jabber/XMPP library that handles the low-level protocol"
   homepage "https://camaya.net/gloox/"
-  url "https://camaya.net/download/gloox-1.0.23.tar.bz2"
-  sha256 "97cb6a0c07e320ffa4a7c66e8ab06b2361086271dc87ed2398befef4e8435f8a"
+  url "https://camaya.net/download/gloox-1.0.24.tar.bz2"
+  sha256 "ae1462be2a2eb8fe5cd054825143617c53c2c9c7195606cb5a5ba68c0f68f9c9"
+
+  livecheck do
+    url :homepage
+    regex(/Latest stable version.*?href=.*?gloox[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     cellar :any
-    sha256 "ae614fa73c886d568e4bb6916438affd3b081bccfc4904fef4a4110417f41e9d" => :catalina
-    sha256 "eea355a755180f72c719f06d0eae5c7b03223c35f39aae6379a007f0a6333ffe" => :mojave
-    sha256 "730858e264fc531556d60fd93f971614e9ce22ee1db1391f651a8fba2b257198" => :high_sierra
+    sha256 "decf46b20a794855cf3bd3c06e05111d15fd11de4dec1c5fdf6a1253eb865e7a" => :catalina
+    sha256 "607baeeadc43775af6799d5bc4715239cbe6455ec72d2e14d82523d425fa7799" => :mojave
+    sha256 "011c8a88d0f8970c9ad4ed339972b55b56c26120e64ef9d1576b68c03b10f706" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

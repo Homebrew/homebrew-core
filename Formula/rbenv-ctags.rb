@@ -3,6 +3,7 @@ class RbenvCtags < Formula
   homepage "https://github.com/tpope/rbenv-ctags"
   url "https://github.com/tpope/rbenv-ctags/archive/v1.0.2.tar.gz"
   sha256 "94b38c277a5de3f53aac0e7f4ffacf30fb6ddeb31c0597c1bcd78b0175c86cbe"
+  license "MIT"
   revision 1
   head "https://github.com/tpope/rbenv-ctags.git"
 

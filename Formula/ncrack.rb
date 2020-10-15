@@ -3,6 +3,7 @@ class Ncrack < Formula
   homepage "https://nmap.org/ncrack/"
   url "https://github.com/nmap/ncrack/archive/0.7.tar.gz"
   sha256 "f3f971cd677c4a0c0668cb369002c581d305050b3b0411e18dd3cb9cc270d14a"
+  license "GPL-2.0"
   head "https://github.com/nmap/ncrack.git"
 
   bottle do

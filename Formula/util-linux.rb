@@ -1,20 +1,36 @@
 class UtilLinux < Formula
   desc "Collection of Linux utilities"
   homepage "https://github.com/karelzak/util-linux"
-  url "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.35/util-linux-2.35.1.tar.xz"
-  sha256 "d9de3edd287366cd908e77677514b9387b22bc7b88f45b83e1922c3597f1d7f9"
+  url "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.36/util-linux-2.36.tar.xz"
+  sha256 "9e4b1c67eb13b9b67feb32ae1dc0d50e08ce9e5d82e1cccd0ee771ad2fa9e0b1"
+  license "GPL-2.0"
 
   bottle do
     cellar :any
-    sha256 "8202113bd4c4c4970eea7e60163c61a8e58a37e76d172df392c1bd04e9414ada" => :catalina
-    sha256 "fb15676437f91b315044d8dca6f22e57c93b56df3d6077fb8fc94ffed600972e" => :mojave
-    sha256 "fe781f80737fd6353a86d43e485d04694e5147d00e38790bd8c8b45cb9da1591" => :high_sierra
+    sha256 "b2b01c8554fdc4071e16bbe74c2956bdeb748b1a62eef4e6314aad005d7227c7" => :catalina
+    sha256 "55bcb266293b3780e934b4cabf6885247fdd2d40bf7a27715142b263de3256d4" => :mojave
+    sha256 "c464328c920e63e017ef642aefed04ad9d34c755064e9ce41d6362b1d119f74a" => :high_sierra
   end
+
+  keg_only "macOS provides the uuid.h header"
 
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
-  keg_only "macOS provides the uuid.h header"
+  # These binaries are already available in macOS
+  def system_bins
+    %w[
+      cal col colcrt colrm
+      getopt
+      hexdump
+      logger look
+      mesg more
+      nologin
+      renice rev
+      ul
+      whereis
+    ]
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking",
@@ -28,7 +44,7 @@ class UtilLinux < Formula
     system "make", "install"
 
     # Remove binaries already shipped by macOS
-    %w[cal col colcrt colrm getopt hexdump logger nologin look mesg more renice rev ul whereis].each do |prog|
+    system_bins.each do |prog|
       rm_f bin/prog
       rm_f sbin/prog
       rm_f man1/"#{prog}.1"
@@ -40,6 +56,36 @@ class UtilLinux < Formula
     Pathname.glob("bash-completion/*") do |prog|
       bash_completion.install prog if (bin/prog.basename).exist? || (sbin/prog.basename).exist?
     end
+  end
+
+  def caveats
+    linux_only_bins = %w[
+      addpart agetty
+      blkdiscard blkzone blockdev
+      chcpu chmem choom chrt ctrlaltdel
+      delpart dmesg
+      eject
+      fallocate fdformat fincore findmnt fsck fsfreeze fstrim
+      hwclock
+      ionice ipcrm ipcs
+      kill
+      last ldattach losetup lsblk lscpu lsipc lslocks lslogins lsmem lsns
+      mount mountpoint
+      nsenter
+      partx pivot_root prlimit
+      raw readprofile resizepart rfkill rtcwake
+      script scriptlive setarch setterm sulogin swapoff swapon switch_root
+      taskset
+      umount unshare utmpdump uuidd
+      wall wdctl
+      zramctl
+    ]
+    <<~EOS
+      The following tools are not supported under macOS, and are therefore not included:
+      #{Formatter.wrap(Formatter.columns(linux_only_bins), 80)}
+      The following tools are already shipped by macOS, and are therefore not included:
+      #{Formatter.wrap(Formatter.columns(system_bins), 80)}
+    EOS
   end
 
   test do

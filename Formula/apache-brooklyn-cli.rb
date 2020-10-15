@@ -3,6 +3,12 @@ class ApacheBrooklynCli < Formula
   homepage "https://brooklyn.apache.org"
   url "https://github.com/apache/brooklyn-client/archive/rel/apache-brooklyn-1.0.0.tar.gz"
   sha256 "9eb52ac3cd76adf219b66eb8b5a7899c86e25736294bca666a5b4e24d34e911b"
+  license "Apache-2.0"
+
+  livecheck do
+    url "https://github.com/apache/brooklyn-client.git"
+    regex(%r{^(?:rel/)?apache-brooklyn[._-]v?(\d+(?:\.\d+)+)$}i)
+  end
 
   bottle do
     cellar :any_skip_relocation
@@ -23,9 +29,8 @@ class ApacheBrooklynCli < Formula
   end
 
   test do
-    require "socket"
-
-    server = TCPServer.new("localhost", 0)
+    port = free_port
+    server = TCPServer.new("localhost", port)
     pid_mock_brooklyn = fork do
       loop do
         socket = server.accept
@@ -41,7 +46,7 @@ class ApacheBrooklynCli < Formula
     end
 
     begin
-      mock_brooklyn_url = "http://localhost:#{server.addr[1]}"
+      mock_brooklyn_url = "http://localhost:#{port}"
       assert_equal "Connected to Brooklyn version 1.2.3 at #{mock_brooklyn_url}\n",
         shell_output("#{bin}/br login #{mock_brooklyn_url} username password")
     ensure

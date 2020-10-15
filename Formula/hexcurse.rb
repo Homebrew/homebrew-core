@@ -3,6 +3,7 @@ class Hexcurse < Formula
   homepage "https://github.com/LonnyGomes/hexcurse"
   url "https://github.com/LonnyGomes/hexcurse/archive/v1.60.0.tar.gz"
   sha256 "f6919e4a824ee354f003f0c42e4c4cef98a93aa7e3aa449caedd13f9a2db5530"
+  license "LGPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

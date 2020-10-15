@@ -3,7 +3,13 @@ class Itpp < Formula
   homepage "https://itpp.sourceforge.io"
   url "https://downloads.sourceforge.net/project/itpp/itpp/4.3.1/itpp-4.3.1.tar.bz2"
   sha256 "50717621c5dfb5ed22f8492f8af32b17776e6e06641dfe3a3a8f82c8d353b877"
+  license "GPL-3.0"
   head "https://git.code.sf.net/p/itpp/git.git"
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/itpp[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
 
   bottle do
     cellar :any

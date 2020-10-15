@@ -1,17 +1,24 @@
 class Rex < Formula
   desc "Command-line tool which executes commands on remote servers"
   homepage "https://www.rexify.org"
-  url "https://cpan.metacpan.org/authors/id/F/FE/FERKI/Rex-1.8.2.tar.gz"
-  sha256 "6baa0603da9589cd6b78abe4c80cf3b9fec57133198b4c66e8d28e8e63888738"
+  url "https://cpan.metacpan.org/authors/id/F/FE/FERKI/Rex-1.11.0.tar.gz"
+  sha256 "73269e5ddad0b88f1cf269173a9eff2f2addff230c303112fda5f43e269c49c5"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2c78999f2976390c2cd6724e5c8532b84915fc4e9724abd966c3f5bb4254071c" => :catalina
-    sha256 "bf82c487cb2094ef2dc0085bb379665dbe54328c65aac333490b52428976bc5a" => :mojave
-    sha256 "247a46a1f54e3075807ce405d5bd0e971a59bfeb9d57a651ed6ce458ffa2cd67" => :high_sierra
+    sha256 "de0ca43e439023982668c5563f41340a82d3ae8c45159b457749c1ab0f15d3c5" => :catalina
+    sha256 "24da3a602c3b434d0069244f546ed33f14e8bd3bbee1f7a99b91ca97a48b0c37" => :mojave
+    sha256 "dc0b2bb90327f2fc716eb95655366fd7a3ac36d7880f25a69777c9976260d508" => :high_sierra
   end
 
   uses_from_macos "perl"
+
+  on_macos do
+    resource "LWP::UserAgent" do
+      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.43.tar.gz"
+      sha256 "e9849d7ee6fd0e89cc999e63d7612c951afd6aeea6bc721b767870d9df4ac40d"
+    end
+  end
 
   resource "Module::Build" do
     # AWS::Signature4 requires Module::Build v0.4205 and above, while standard
@@ -208,7 +215,7 @@ class Rex < Formula
     %w[rex rexify].each do |cmd|
       libexec.install "bin/#{cmd}"
       chmod 0755, libexec/cmd
-      (bin/cmd).write_env_script(libexec/cmd, :PERL5LIB => ENV["PERL5LIB"])
+      (bin/cmd).write_env_script(libexec/cmd, PERL5LIB: ENV["PERL5LIB"])
       man1.install "blib/man1/#{cmd}.1"
     end
   end

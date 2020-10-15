@@ -3,6 +3,7 @@ class Telnetd < Formula
   homepage "https://opensource.apple.com/"
   url "https://opensource.apple.com/tarballs/remote_cmds/remote_cmds-63.tar.gz"
   sha256 "13858ef1018f41b93026302840e832c2b65289242225c5a19ce5e26f84607f15"
+  license all_of: ["BSD-4-Clause-UC", "BSD-3-Clause"]
 
   bottle do
     cellar :any_skip_relocation
@@ -11,7 +12,7 @@ class Telnetd < Formula
     sha256 "d31eb6a8f79b8f9eb2417dce87c6508b8837207d4f8df48bdd5fd1d833f1b757" => :high_sierra
   end
 
-  depends_on :xcode => :build
+  depends_on xcode: :build
 
   resource "libtelnet" do
     url "https://opensource.apple.com/tarballs/libtelnet/libtelnet-13.tar.gz"
@@ -20,8 +21,7 @@ class Telnetd < Formula
 
   def install
     resource("libtelnet").stage do
-      # Force 64 bit-only build, otherwise it fails on Mojave
-      xcodebuild "SYMROOT=build", "-arch", "x86_64"
+      xcodebuild "SYMROOT=build", "-arch", Hardware::CPU.arch
 
       libtelnet_dst = buildpath/"telnetd.tproj/build/Products"
       libtelnet_dst.install "build/Release/libtelnet.a"
@@ -35,7 +35,7 @@ class Telnetd < Formula
                    "CC=#{ENV.cc}",
                    "CFLAGS=$(CC_Flags) -isystembuild/Products/",
                    "LDFLAGS=$(LD_Flags) -Lbuild/Products/",
-                   "RC_ARCHS=x86_64" # Force 64-bit build for Mojave
+                   "RC_ARCHS=#{Hardware::CPU.arch}"
 
     sbin.install "telnetd.tproj/build/Products/telnetd"
     man8.install "telnetd.tproj/telnetd.8"

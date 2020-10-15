@@ -1,15 +1,16 @@
 class Stlink < Formula
   desc "STM32 discovery line Linux programmer"
   homepage "https://github.com/texane/stlink"
-  url "https://github.com/texane/stlink/archive/v1.6.0.tar.gz"
-  sha256 "5575e9322e6914fad3bcbcad77fa2669e4b1853cd49bed44bfac1c68992f538a"
+  url "https://github.com/texane/stlink/archive/v1.6.1.tar.gz"
+  sha256 "ca9a640f84c3e2c9873bd51759594bc05c00cdf6e1f21b434ae2c0e7985433d8"
+  license "BSD-3-Clause"
   head "https://github.com/texane/stlink.git"
 
   bottle do
     cellar :any
-    sha256 "37847a2056adeb51918e7f660a92c6d13e8959e7527de2f9988c8b3c247c4e3f" => :catalina
-    sha256 "afafd4057259f0971e38fc899b86d2543e216e011a384d16396fcdc1126277a3" => :mojave
-    sha256 "626bf84c5d2a98f0824b1d2da49047f8587d949b4fe26ad02c0d3211509bbf2b" => :high_sierra
+    sha256 "e24c7913e29b627142d892c8dacfcbb077cea4a8abdb021d2b6624cd7ce61865" => :catalina
+    sha256 "85fa59905d566f85a1f7b4dc86a2f770181550ac7402907c326b050f09053272" => :mojave
+    sha256 "ca0da39790dc0a876555f19cbf227a05490c126a8f071e971118bdbbd2147787" => :high_sierra
   end
 
   depends_on "cmake" => :build

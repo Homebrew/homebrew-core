@@ -4,6 +4,11 @@ class Prips < Formula
   url "https://devel.ringlet.net/files/sys/prips/prips-1.1.1.tar.xz"
   sha256 "16efeac69b8bd9d13c80ec365ea66bc3bb8326dc23975acdac03184ee8da63a8"
 
+  livecheck do
+    url :homepage
+    regex(/current version .*?prips.*?v?(\d+(?:\.\d+)+)/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "06f354f3564aa9aa391d56b952fb97056c911f32232f6afeefcb23bce5a8bc0c" => :catalina

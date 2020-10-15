@@ -5,15 +5,21 @@ class Flintrock < Formula
   homepage "https://github.com/nchammas/flintrock"
   url "https://files.pythonhosted.org/packages/e6/18/3b45899e69e6ee24928f8c975b6bf575918029a19fc097de5d4ccbf6e3e7/Flintrock-1.0.0.tar.gz"
   sha256 "29635ba045ee4b966094d40ddadb0b2298ab0e3495fddf05a9a8b1060f6e4776"
+  license "Apache-2.0"
+  revision 1
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any
-    sha256 "57c3fa611d0f0cf16ad4c8f0e6d7ecd402aa1b75ebd5a8b7e341da11dd7c5af8" => :catalina
-    sha256 "8bfdab935d6ba893502e690d1e176671e2a8ed947b8da2e7e232bddaf9767861" => :mojave
-    sha256 "348170a071d3f4852dd551774d5ebe17137384cd5c16d874a5f278baab7a41c8" => :high_sierra
+    sha256 "6ef8289d6d808fca678fa087274e51c190f31578b4b804a7fb902e4ee7ec27c8" => :catalina
+    sha256 "4e4adc00f0a68277db0b401183a28854867ac24d55eb5a6709a86b86efcd0d7f" => :mojave
+    sha256 "e7818b83d7de14cd4529d3eb7e15f677011398c94f55371240a9c31ce317592d" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "asn1crypto" do
     url "https://files.pythonhosted.org/packages/9f/3d/8beae739ed8c1c8f00ceac0ab6b0e97299b42da869e24cf82851b27a9123/asn1crypto-1.3.0.tar.gz"

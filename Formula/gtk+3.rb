@@ -1,13 +1,19 @@
 class Gtkx3 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "https://gtk.org/"
-  url "https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.16.tar.xz"
-  sha256 "0d5e1e1494101b8c0c63c0526180780559eee469f021ca0d714018b20fa3d8e8"
+  url "https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.23.tar.xz"
+  sha256 "5d864d248357a2251545b3387b35942de5f66e4c66013f0962eb5cb6f8dae2b1"
+  license "LGPL-2.0-or-later"
+
+  livecheck do
+    url :stable
+    regex(/gtk\+[._-](3\.([0-8]\d*?)?[02468](?:\.\d+)*?)\.t/i)
+  end
 
   bottle do
-    sha256 "5067a6ee1972d99e095ce89474c9261a70b70f0ae5d4fae4924c0f39c59a53dd" => :catalina
-    sha256 "dd86aacf5435b7ff343c2dae2c3601c8041e5b075b544f20514a94d3079d470b" => :mojave
-    sha256 "cbcd3f9044afd43c383d0bd4f52a8e7cabc723574970a8a6d6142122f230cfe9" => :high_sierra
+    sha256 "94b7fbbd4b2557e511b7971998d46b9e96a050b9b5468f8df6410c4b1f28ba18" => :catalina
+    sha256 "ea959fea33bb7ebc455249f782372f1f7f89aa6f19113f2f8a16c8539b6f0ea2" => :mojave
+    sha256 "c5ec8329feaa8a798714bea712ba07836014aa04d28d42a9b63bd5e0adc4e659" => :high_sierra
   end
 
   depends_on "docbook" => :build
@@ -27,8 +33,7 @@ class Gtkx3 < Formula
   uses_from_macos "libxslt" => :build # for xsltproc
 
   def install
-    args = %W[
-      --prefix=#{prefix}
+    args = std_meson_args + %w[
       -Dx11_backend=false
       -Dquartz_backend=true
       -Dgtk_doc=false
@@ -119,5 +124,7 @@ class Gtkx3 < Formula
     ]
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
+    # include a version check for the pkg-config files
+    assert_match version.to_s, shell_output("cat #{lib}/pkgconfig/gtk+-3.0.pc").strip
   end
 end

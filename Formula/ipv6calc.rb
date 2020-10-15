@@ -3,6 +3,7 @@ class Ipv6calc < Formula
   homepage "https://www.deepspace6.net/projects/ipv6calc.html"
   url "https://github.com/pbiering/ipv6calc/archive/2.2.0.tar.gz"
   sha256 "1935352f6171b07f18ce0487ee95ffcc006ea3f653f7cba564d2d8e135f04ca1"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

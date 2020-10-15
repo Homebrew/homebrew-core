@@ -1,16 +1,16 @@
 class DockerMachineParallels < Formula
-  desc "Docker Machine Parallels Driver"
+  desc "Parallels Driver for Docker Machine"
   homepage "https://github.com/Parallels/docker-machine-parallels"
-  url "https://github.com/Parallels/docker-machine-parallels/archive/v1.4.0.tar.gz"
-  sha256 "2c0615f015c7d686050625f1f68c5f62b10e0f924f6126c4d31a56c17be2ef47"
+  url "https://github.com/Parallels/docker-machine-parallels/archive/v2.0.0.tar.gz"
+  sha256 "3fdde5c55bd6118d5bd9382c611c779b9c64cc111721fc17e7711d63d52d7e57"
+  license "MIT"
   head "https://github.com/Parallels/docker-machine-parallels.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6a72d65d67b02ad07e0be3f5fea043bcb406860d58ba4131fdc66ec77b9c212a" => :catalina
-    sha256 "56183f07f2f09eaae958ba5029bfd366a53a42acc40dda6685923fbd524d3dfc" => :mojave
-    sha256 "c7c2c22c321fb09e28ad35576479ea27cf37aaa9a84f63983b771774aaa7dbc4" => :high_sierra
-    sha256 "626f025bef7c15943215ca899dae86bd4e07926826a9eba9b7b43798a16c82ce" => :sierra
+    sha256 "4ac0584bc51d21b9e7af8bfa687df9a3c84a721945f85c100194a3a65ca1c17e" => :catalina
+    sha256 "6fed2c425df4ab8f09292395d72f6521c67bafe50da7f12990e9f7a6186b1ffc" => :mojave
+    sha256 "9db553f2eec8343adb8ea9fea7964388983e6e43fadab2101f78cd9abd6a878a" => :high_sierra
   end
 
   depends_on "go" => :build

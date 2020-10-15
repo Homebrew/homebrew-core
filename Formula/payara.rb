@@ -6,9 +6,9 @@ class Payara < Formula
 
   bottle :unneeded
 
-  depends_on :java => "1.8"
+  depends_on java: "1.8"
 
-  conflicts_with "glassfish", :because => "both install the same scripts"
+  conflicts_with "glassfish", because: "both install the same scripts"
 
   def install
     # Remove Windows scripts
@@ -30,7 +30,7 @@ class Payara < Formula
     EOS
   end
 
-  plist_options :manual => "asadmin start-domain --verbose domain1"
+  plist_options manual: "asadmin start-domain --verbose domain1"
 
   def plist
     <<~EOS

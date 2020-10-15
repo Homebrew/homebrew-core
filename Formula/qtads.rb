@@ -1,6 +1,7 @@
 class Qtads < Formula
   desc "TADS multimedia interpreter"
   homepage "https://qtads.sourceforge.io/"
+  license "GPL-3.0"
   revision 1
   head "https://github.com/realnc/qtads.git"
 
@@ -30,6 +31,11 @@ class Qtads < Formula
         sha256 "2016fef6e867b7b8dfe1bd5db64d588161aad1357faa1962ee48edbe35042ddc"
       end
     end
+  end
+
+  livecheck do
+    url "https://github.com/realnc/qtads/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
   end
 
   bottle do

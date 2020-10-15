@@ -1,14 +1,15 @@
 class Bettercap < Formula
   desc "Swiss army knife for network attacks and monitoring"
   homepage "https://www.bettercap.org/"
-  url "https://github.com/bettercap/bettercap/archive/v2.26.1.tar.gz"
-  sha256 "75530015ee27e5ba05faff0295486ca85489ecd9de3161ca398a9b577522c578"
+  url "https://github.com/bettercap/bettercap/archive/v2.28.tar.gz"
+  sha256 "5bde85117679c6ed8b5469a5271cdd5f7e541bd9187b8d0f26dee790c37e36e9"
+  license "GPL-3.0-only"
 
   bottle do
     cellar :any
-    sha256 "91a85e1c0118e7d5c31b9a1f8fd9ad3b4fca7a57722910099460e84f14f4b553" => :catalina
-    sha256 "241b85a1ce777e9fe9e8d8408afd46fc613c4cf691c1be3c3dbc35e8bde215b0" => :mojave
-    sha256 "dceaab3973b28c4cc88629a4a192d0da1d6ce2ed602260d5dda83e75132295a9" => :high_sierra
+    sha256 "0614862741982083f1629e32b87d84116917e218cac936a078061b898a1e3f04" => :catalina
+    sha256 "805fbdc7281828c316c6fc91454c7f101ab7be69b235b1e32aa78dbaf55da8d3" => :mojave
+    sha256 "6709b0ce6657bc3732dee9079d7635dbab2450d233c57f82e5758e2d0978a38e" => :high_sierra
   end
 
   depends_on "dep" => :build
@@ -19,14 +20,8 @@ class Bettercap < Formula
   uses_from_macos "libpcap"
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/bettercap/bettercap").install buildpath.children
-
-    cd "src/github.com/bettercap/bettercap" do
-      system "make", "build"
-      bin.install "bettercap"
-      prefix.install_metafiles
-    end
+    system "make", "build"
+    bin.install "bettercap"
   end
 
   def caveats
@@ -37,6 +32,6 @@ class Bettercap < Formula
   end
 
   test do
-    assert_match "bettercap", shell_output("#{bin}/bettercap -help 2>&1", 2)
+    assert_match "Operation not permitted", shell_output("#{bin}/bettercap 2>&1", 1)
   end
 end

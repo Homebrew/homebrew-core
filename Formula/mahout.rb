@@ -4,7 +4,12 @@ class Mahout < Formula
   url "https://www.apache.org/dyn/closer.lua?path=mahout/0.13.0/apache-mahout-distribution-0.13.0.tar.gz"
   mirror "https://archive.apache.org/dist/mahout/0.13.0/apache-mahout-distribution-0.13.0.tar.gz"
   sha256 "87bdc86e16b5817d6b5a810b94d7389604887f7de9c680f34faaf0cbb8dabf6f"
+  license "Apache-2.0"
   revision 1
+
+  livecheck do
+    url :stable
+  end
 
   head do
     url "https://github.com/apache/mahout.git"
@@ -36,7 +41,7 @@ class Mahout < Formula
     end
 
     bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files libexec/"bin", :JAVA_HOME => ENV["JAVA_HOME"]
+    bin.env_script_all_files libexec/"bin", JAVA_HOME: ENV["JAVA_HOME"]
   end
 
   test do

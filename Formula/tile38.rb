@@ -2,14 +2,15 @@ class Tile38 < Formula
   desc "In-memory geolocation data store, spatial index, and realtime geofence"
   homepage "https://tile38.com/"
   url "https://github.com/tidwall/tile38.git",
-    :tag      => "1.19.5",
-    :revision => "0490734b74cdf96f52c9f9af4d6774a9ae0f627d"
+    tag:      "1.22.2",
+    revision: "5b77c446a767c290d189291ab01aee9685082bc3"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4eb930318448d4302ca69361d98b3913891cf8fc76977ff6bdb67dc6780c3251" => :catalina
-    sha256 "00d5789489dbe6c29f79ae91c7a51c51d8467c968d7db25eaf6056fbb30f3aa1" => :mojave
-    sha256 "ac4e401bad311a885609a71e59fa2965c9bc97d4e4735cec82277da8c0a940f1" => :high_sierra
+    sha256 "18e4001cf07554ae26d5d420cd3890b3b6d8b3d74b9cd52cfa252ef2c49c748d" => :catalina
+    sha256 "c8a0ffb58b27b60a261cd7312e3660d46e37ff72c45ea8de572489041a7492cf" => :mojave
+    sha256 "5f2b08857ba21d9cdc29d44a448d0c4064365dd8063d6f643e065ec68efad458" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -19,7 +20,7 @@ class Tile38 < Formula
   end
 
   def install
-    commit = Utils.popen_read("git rev-parse --short HEAD").chomp
+    commit = Utils.safe_popen_read("git", "rev-parse", "--short", "HEAD").chomp
 
     ldflags = %W[
       -s -w
@@ -42,7 +43,7 @@ class Tile38 < Formula
     EOS
   end
 
-  plist_options :manual => "tile38-server -d #{HOMEBREW_PREFIX}/var/tile38/data"
+  plist_options manual: "tile38-server -d #{HOMEBREW_PREFIX}/var/tile38/data"
 
   def plist
     <<~EOS

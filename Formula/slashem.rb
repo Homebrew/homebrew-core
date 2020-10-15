@@ -7,6 +7,11 @@ class Slashem < Formula
   version "0.0.8E0F1"
   sha256 "e9bd3672c866acc5a0d75e245c190c689956319f192cb5d23ea924dd77e426c3"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/slashem-source/([^/]+)/[^.]+\.t}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "96fc5b1abd0e8deff9573c43656e7f3caa25b51d28eb8f426cec7c28131ab4b0" => :catalina

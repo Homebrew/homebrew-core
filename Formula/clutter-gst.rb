@@ -5,6 +5,10 @@ class ClutterGst < Formula
   sha256 "fe69bd6c659d24ab30da3f091eb91cd1970026d431179b0724f13791e8ad9f9d"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     rebuild 1
     sha256 "9e5e48bdf08599d63be7a75eabac3221ce4b1799fcf51d857d37336345393c16" => :catalina

@@ -1,13 +1,19 @@
 class Nng < Formula
   desc "Nanomsg-next-generation -- light-weight brokerless messaging"
   homepage "https://nanomsg.github.io/nng/"
-  url "https://github.com/nanomsg/nng/archive/v1.3.0.tar.gz"
-  sha256 "e8fe50d0f79ec3243733f8b4c25099c88b2597ed1bb0d94a27c4385a2a24ecac"
+  url "https://github.com/nanomsg/nng/archive/v1.3.2.tar.gz"
+  sha256 "0f8f2ede7f5ea2018c7fa615c76f48662eb06d39c71c3339f8ff38da44470855"
+  license "MIT"
+
+  livecheck do
+    url "https://github.com/nanomsg/nng.git"
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
-    sha256 "feea9c352fd19ca9d625a4b64458a7b7cedd3d027e2c1065dfdede3f4cdd81e7" => :catalina
-    sha256 "832c27a3418c241ec128f93ccb395c21a53de85942bacf91eb110456500c9294" => :mojave
-    sha256 "79f4d2e9a49be6044dde80c90b7ebb0cb781b86ece50bfb2cdab11c401b70244" => :high_sierra
+    sha256 "108518e716f6e752b93e30dd54f597f303e2b87b65399460e4d954e12254c8a8" => :catalina
+    sha256 "9ba28b38c5529f14e36c0de4231152431c3de02c8fd375f09375bceeaddd6088" => :mojave
+    sha256 "ddacb6bb51d546a4d3a5d45b01cf25588a9a7d644fdb5747e99179278e115459" => :high_sierra
   end
 
   depends_on "asciidoctor" => :build
@@ -23,19 +29,14 @@ class Nng < Formula
   end
 
   test do
-    bind = "tcp://127.0.0.1:8000"
+    bind = "tcp://127.0.0.1:#{free_port}"
 
-    pid = fork do
+    fork do
       exec "#{bin}/nngcat --rep --bind #{bind} --format ascii --data home"
     end
     sleep 2
 
-    begin
-      output = shell_output("#{bin}/nngcat --req --connect #{bind} --format ascii --data brew")
-      assert_match(/home/, output)
-    ensure
-      Process.kill("SIGINT", pid)
-      Process.wait(pid)
-    end
+    output = shell_output("#{bin}/nngcat --req --connect #{bind} --format ascii --data brew")
+    assert_match(/home/, output)
   end
 end

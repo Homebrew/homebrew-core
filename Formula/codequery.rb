@@ -1,16 +1,15 @@
 class Codequery < Formula
   desc "Code-understanding, code-browsing or code-search tool"
   homepage "https://github.com/ruben2020/codequery"
-  url "https://github.com/ruben2020/codequery/archive/v0.21.1.tar.gz"
-  sha256 "c20050dc6963472c7cb7ed4621c7187e24089fa458eb68748ef9d2aae53d991f"
+  url "https://github.com/ruben2020/codequery/archive/v0.23.0.tar.gz"
+  sha256 "c8d1cac148de8979fa4fb4455edc7610e36519503bf9848b6edd008b00c41690"
+  license "MPL-2.0"
 
   bottle do
     cellar :any
-    sha256 "e42335ea67b706cc84cd96ed7c23a127f1a58e7b17a362f5556f8a61d64e2523" => :catalina
-    sha256 "1765b7bf67fd6eaef6b4464bfe06a0ae467165acca5dd17e78d371165a5db91a" => :mojave
-    sha256 "fe67cc5adc84bb2558ad4e67c5b02bfba8b80f3a18bc036801e4c1e1d81c96eb" => :high_sierra
-    sha256 "21a673797bdc3ff9c7453930499e7e29e7f1320eb4dbddec67f7127dee34a989" => :sierra
-    sha256 "15e18f6bb87bd489b33f4322af5d6351e28ec805aef291d6c0df50d80fb7958d" => :el_capitan
+    sha256 "b3f585e17783444968f0739397eb41fb14f897584118689bf1dbb862344e4221" => :catalina
+    sha256 "94fd84eb8c088b69eeddd1e09ad6bf7ed97ddd052e2ab4f6381776a6b4d3622d" => :mojave
+    sha256 "da150e36ca0d9cc56f7b243aa26677e4bed67335b1be5d01f10eeaf83df6884b" => :high_sierra
   end
 
   depends_on "cmake" => :build

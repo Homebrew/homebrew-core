@@ -5,6 +5,7 @@ class Jsonlint < Formula
   homepage "https://github.com/zaach/jsonlint"
   url "https://github.com/zaach/jsonlint/archive/v1.6.0.tar.gz"
   sha256 "a7f763575d3e3ecc9b2a24b18ccbad2b4b38154c073ac63ebc9517c4cb2de06f"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

@@ -1,20 +1,21 @@
 class Vegeta < Formula
   desc "HTTP load testing tool and library"
   homepage "https://github.com/tsenart/vegeta"
-  url "https://github.com/tsenart/vegeta/archive/v12.8.3.tar.gz"
-  sha256 "2e6326b2fe0ef273ae784600e2181e32d307b62beb29cc84ffc8ddd0d5352df9"
+  url "https://github.com/tsenart/vegeta/archive/v12.8.4.tar.gz"
+  sha256 "418249d07f04da0a587df45abe34705166de9e54a836e27e387c719ebab3e357"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f93a70561ffc7d97fb58638e1555148058036f1b65ee3b0891352346a256c8d5" => :catalina
-    sha256 "f3496b02858387a32051d015677ca417c04251b2a98b6d36d8611836908dd23e" => :mojave
-    sha256 "d03417e5f8bf936b8fa726f6ec25607809db1e284a4ca98ebf884fea3825ec49" => :high_sierra
+    sha256 "63b383f4cdff26cc0bf4ba3e24a84ea6d7485a9a61fe49ac62b09f39c5f01e13" => :catalina
+    sha256 "76e2d89891ecee0bfa07e939619683cae2d954bca2c5524a6e87b84c105c6c25" => :mojave
+    sha256 "df3853752133b68c20a9d054c12d36d531779fe595bc6011bb1e2d3245e9df2d" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    build_time = Utils.popen_read("date -u +'%Y-%m-%dT%H:%M:%SZ' 2> /dev/null").chomp
+    build_time = Utils.safe_popen_read("date -u +'%Y-%m-%dT%H:%M:%SZ' 2> /dev/null").chomp
 
     ldflags = %W[
       -s -w

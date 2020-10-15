@@ -4,6 +4,11 @@ class Ncurses < Formula
   url "https://ftp.gnu.org/gnu/ncurses/ncurses-6.2.tar.gz"
   mirror "https://ftpmirror.gnu.org/ncurses/ncurses-6.2.tar.gz"
   sha256 "30306e0c76e0f9f1f0de987cf1c82a5c21e1ce6568b9227f7da5b71cbea86c9d"
+  license "MIT"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     sha256 "eae51ad3391edafe3d6c649ba44f607ee1464b4b5d9ee48770e9817ee5f0ccdd" => :catalina
@@ -32,7 +37,7 @@ class Ncurses < Formula
   end
 
   def make_libncurses_symlinks
-    major = version.to_s.split(".")[0]
+    major = version.major
 
     %w[form menu ncurses panel].each do |name|
       lib.install_symlink "lib#{name}w.#{major}.dylib" => "lib#{name}.dylib"

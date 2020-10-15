@@ -1,9 +1,9 @@
 class Mandoc < Formula
-  desc "The mandoc UNIX manpage compiler toolset"
+  desc "UNIX manpage compiler toolset"
   homepage "https://mandoc.bsd.lv/"
   url "https://mandoc.bsd.lv/snapshots/mandoc-1.14.5.tar.gz"
   sha256 "8219b42cb56fc07b2aa660574e6211ac38eefdbf21f41b698d3348793ba5d8f7"
-  head "anoncvs@mandoc.bsd.lv:/cvs", :using => :cvs
+  head "anoncvs@mandoc.bsd.lv:/cvs", using: :cvs
 
   bottle do
     sha256 "f408752db9b1ba4cc1fc8f47fdf41e1ade8abbcf243e947938efbbea550006b4" => :catalina

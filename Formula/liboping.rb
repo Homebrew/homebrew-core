@@ -3,6 +3,7 @@ class Liboping < Formula
   homepage "https://noping.cc/"
   url "https://noping.cc/files/liboping-1.10.0.tar.bz2"
   sha256 "eb38aa93f93e8ab282d97e2582fbaea88b3f889a08cbc9dbf20059c3779d5cd8"
+  license "LGPL-2.1"
 
   bottle do
     sha256 "997e8eb17c7878cbd0c34bd6532b76ef804899751a58b3b434656d1b9ced07d9" => :catalina

@@ -1,6 +1,7 @@
 class Dosfstools < Formula
   desc "Tools to create, check and label file systems of the FAT family"
   homepage "https://github.com/dosfstools"
+  license "GPL-3.0"
   head "https://github.com/dosfstools/dosfstools.git"
 
   stable do

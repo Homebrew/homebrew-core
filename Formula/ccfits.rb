@@ -3,13 +3,13 @@ class Ccfits < Formula
   homepage "https://heasarc.gsfc.nasa.gov/fitsio/CCfits/"
   url "https://heasarc.gsfc.nasa.gov/fitsio/CCfits/CCfits-2.5.tar.gz"
   sha256 "938ecd25239e65f519b8d2b50702416edc723de5f0a5387cceea8c4004a44740"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "091f16fb6eb763125d88394d1baa092d005fe86723af6b0b2e0a04377f61293c" => :catalina
-    sha256 "b22ef6deaa692874052618ade2477edae7bfb364c7fc99a840cc5907663165e9" => :mojave
-    sha256 "aa4b8ed8430b08cc627e54c938901b85967e0050e61c359d31c18617092590a9" => :high_sierra
+    sha256 "bcf673522fe7245b6ca8c93139793acf10c0fb3e351de96cfd634e296a5be813" => :catalina
+    sha256 "22aa452875d79f09825a87f9f3e384552e7fd92e5d954cd361a1b92cd9e52513" => :mojave
+    sha256 "b527e857acac1d749786f44a06af0cfa5f19f34c568c5f21c65675fa04b97f26" => :high_sierra
   end
 
   depends_on "cfitsio"

@@ -2,21 +2,22 @@ class Micro < Formula
   desc "Modern and intuitive terminal-based text editor"
   homepage "https://github.com/zyedidia/micro"
   url "https://github.com/zyedidia/micro.git",
-      :tag      => "v2.0.2",
-      :revision => "c51f84955e5fe924c34b4f7e06d17cd8731022cf"
+      tag:      "v2.0.8",
+      revision: "cfcb2e4577fe00e744d5684c0871fd8ce849930c"
+  license "MIT"
   head "https://github.com/zyedidia/micro.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "417b185e5ed2f33f4123a8863478c85d468b78aba8fe94941f592a2f54cbfa67" => :catalina
-    sha256 "eaee5080d98a9ac30a2131db5a98ca4f9d4ac23b242dc18c70f729a6f5d4f8b1" => :mojave
-    sha256 "d9af49d3db91196db9108a56db8a3307c638b62ad0848c4712e231613d64182b" => :high_sierra
+    sha256 "bdc49d5bc540b16e9165eadb793fcf755a4342f1b53fb9df9d5859b51a8335c9" => :catalina
+    sha256 "16194e8139cf062a789f767e4d9e572a31b5438c7abf36ee2615093de956d5a8" => :mojave
+    sha256 "5ddc2cdc29a432a2515950946076ebb1ddf7dba410019fd77790f3ba5a2d874c" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    system "make", "build"
+    system "make", "build-tags"
     bin.install "micro"
     man1.install "assets/packaging/micro.1"
     prefix.install_metafiles

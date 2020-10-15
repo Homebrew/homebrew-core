@@ -3,15 +3,20 @@ require "language/node"
 class Prettier < Formula
   desc "Code formatter for JavaScript, CSS, JSON, GraphQL, Markdown, YAML"
   homepage "https://prettier.io/"
-  url "https://registry.npmjs.org/prettier/-/prettier-2.0.2.tgz"
-  sha256 "c2052c741c20158a41dd871687081ad8f85dc41364ab0b4a57cb55f61d8b1484"
+  url "https://registry.npmjs.org/prettier/-/prettier-2.1.2.tgz"
+  sha256 "18567729cd5412d74b0c6840d8878d06849cf4014fe4167f92c1ac93e1d23574"
+  license "MIT"
   head "https://github.com/prettier/prettier.git"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "eaf8a28b352b700dd50fc7a474e95433f59cd9e9f42671c2d9c099f331b8f658" => :catalina
-    sha256 "392d5e6ded1a2662c6531ea6984a76b122e17767e4f28423f8f7db71a3bc9816" => :mojave
-    sha256 "1618556927d9a4a0303fa6a464433079eaba3a6561bc8398d43490d8840ee08d" => :high_sierra
+    sha256 "a6c2cba9cc1c728bba5ba5da6c1bc027bc84d55f46412e79c5e765a27931a757" => :catalina
+    sha256 "db352c62163a79526804d34dd2b706822c0bf9fe655b8f8a32da6448e589cf16" => :mojave
+    sha256 "9c7a4564fdae7ab384e2c191fc6d367040293053e6a91601bfee1ae47b57a483" => :high_sierra
   end
 
   depends_on "node"

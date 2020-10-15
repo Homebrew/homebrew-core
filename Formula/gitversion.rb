@@ -1,24 +1,37 @@
 class Gitversion < Formula
   desc "Easy semantic versioning for projects using Git"
-  homepage "https://github.com/GitTools/GitVersion"
-  url "https://github.com/GitTools/GitVersion/releases/download/5.2.4/gitversion-osx-5.2.4.tar.gz"
-  sha256 "a06ae6cf8062a2b26b858feab01fceb94951627cc732f7422472785ff3ccde4c"
+  homepage "https://gitversion.net"
+  url "https://github.com/GitTools/GitVersion/archive/5.3.7.tar.gz"
+  sha256 "70c6f867e4a85325ba1e54211fd014d9b3ec9be43bb828393e1f0d6a5e33cefb"
+  license "MIT"
 
-  bottle :unneeded
+  bottle do
+    cellar :any
+    sha256 "807c000e45f4e0933fbc4295b55ce83ce4174bfb74a34c141fa2a42f863dc592" => :catalina
+    sha256 "bfb552cda166ba379fb8dbf5a4e0d2689959f4c21bd94a5da5872e37143babe8" => :mojave
+    sha256 "c88bbdf084a9bcd227d4e1f66b851aad65692e6d630bda57e703a6af925391d4" => :high_sierra
+  end
 
-  uses_from_macos "icu4c"
+  depends_on "dotnet"
 
   def install
-    libexec.install Dir["*"]
+    system "dotnet", "build",
+           "--configuration", "Release",
+           "--framework", "netcoreapp3.1",
+           "--output", "out",
+           "src/GitVersionExe/GitVersionExe.csproj"
+
+    libexec.install Dir["out/*"]
+
     (bin/"gitversion").write <<~EOS
       #!/bin/sh
-      exec "#{libexec}/GitVersion" "$@"
+      exec "#{Formula["dotnet"].opt_bin}/dotnet" "#{libexec}/gitversion.dll" "$@"
     EOS
   end
 
   test do
     # Circumvent GitVersion's build server detection scheme:
-    ENV["JENKINS_URL"] = nil
+    ENV["GITHUB_ACTIONS"] = nil
 
     (testpath/"test.txt").write("test")
     system "git", "init"

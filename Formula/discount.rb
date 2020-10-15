@@ -4,6 +4,11 @@ class Discount < Formula
   url "https://www.pell.portland.or.us/~orc/Code/discount/discount-2.2.6.tar.bz2"
   sha256 "ae68a4832ff8e620286304ec525c1fe8957be4d8f1e774588eb03d1c3deb74a7"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?discount[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "231a8ed8499ddec2aaad5731f273d84e5195a898f89fc7fc1548875c7fc7ddfe" => :catalina
@@ -11,8 +16,8 @@ class Discount < Formula
     sha256 "c929af7cff8c87b6dcdf651009894659d3ca9ef7c21b1d935cf0889654b20a7b" => :high_sierra
   end
 
-  conflicts_with "markdown", :because => "both install `markdown` binaries"
-  conflicts_with "multimarkdown", :because => "both install `markdown` binaries"
+  conflicts_with "markdown", because: "both install `markdown` binaries"
+  conflicts_with "multimarkdown", because: "both install `markdown` binaries"
 
   def install
     args = %W[

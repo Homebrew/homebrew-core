@@ -1,13 +1,17 @@
 class Vte3 < Formula
   desc "Terminal emulator widget used by GNOME terminal"
   homepage "https://developer.gnome.org/vte/"
-  url "https://download.gnome.org/sources/vte/0.60/vte-0.60.1.tar.xz"
-  sha256 "5e25807233f8a7e15204be7ff694bbcf6facbb0136092b5ba12584a7b70cf0c4"
+  url "https://download.gnome.org/sources/vte/0.62/vte-0.62.1.tar.xz"
+  sha256 "c369e87c0c8284e09109d0a9aac821f543558f51c0cb9c7acfff3df64153308d"
+  license "LGPL-2.0-or-later"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
-    sha256 "39f2eac270d54152ef935ee128366214ae345d68af8138d9cda861b3e442bd81" => :catalina
-    sha256 "08cef36c52988939c6b237c0099c45aa29d3a4849401ab7e96622b4005770d71" => :mojave
-    sha256 "09288f4fc195a667acbc28ddfd79101e6371168ca0de962532c70978c73e0824" => :high_sierra
+    sha256 "682bd63b12521e701f58b13f72f0a9f3449314670320e491b06d437de309daff" => :catalina
+    sha256 "617d21b21c0ffc0d53dea2ca5dc4ebf796afc9e3f0a46fc0c85ef9a01b2d6e28" => :mojave
   end
 
   depends_on "gobject-introspection" => :build
@@ -17,6 +21,7 @@ class Vte3 < Formula
   depends_on "gettext"
   depends_on "gnutls"
   depends_on "gtk+3"
+  depends_on macos: :mojave
   depends_on "pcre2"
   depends_on "vala"
 
@@ -26,13 +31,12 @@ class Vte3 < Formula
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
-    args = [
-      "--prefix=#{prefix}",
-      "-Dgir=true",
-      "-Dgtk3=true",
-      "-Dgnutls=true",
-      "-Dvapi=true",
-      "-D_b_symbolic_functions=false",
+    args = std_meson_args + %w[
+      -Dgir=true
+      -Dgtk3=true
+      -Dgnutls=true
+      -Dvapi=true
+      -D_b_symbolic_functions=false
     ]
 
     mkdir "build" do

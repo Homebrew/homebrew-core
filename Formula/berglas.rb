@@ -1,20 +1,22 @@
 class Berglas < Formula
   desc "Tool for managing secrets on Google Cloud"
   homepage "https://github.com/GoogleCloudPlatform/berglas"
-  url "https://github.com/GoogleCloudPlatform/berglas/archive/v0.5.1.tar.gz"
-  sha256 "feafbb1d2515bd5dd80b6408d6611549ea22c4366687883b92f706dfd2df596a"
+  url "https://github.com/GoogleCloudPlatform/berglas/archive/v0.5.3.tar.gz"
+  sha256 "cc4608a63813ae8322b21219723bab37edd91a8fcd7ce9810876f4d688eaa1dc"
+  license "Apache-2.0"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fc9040e7b5b6afbe799b3d145e60270340a3e4336958b377c7807d881c41ea0e" => :catalina
-    sha256 "623f8a3f8e7d0a3189176be593b635d24329300ee0c424f5004a3835325ebc9c" => :mojave
-    sha256 "a5523fec056236e5d6fc5e738e068c8d219c69ec45915e7fca4aad474358ca03" => :high_sierra
+    sha256 "2c7a65e0e04b84106700c9228739c4e1f8e7939b66f5770819db0c044ed3b60f" => :catalina
+    sha256 "3ba9898e75191e458e9da01dcbe835aefd82b167e7a2af2ab02a1fdfbbd7f8f8" => :mojave
+    sha256 "63db59c2436d167b2c6315ed23ad9e3e2d814d37b3e0460d4ac53c7608f99dbf" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-mod=vendor", "-o", bin/"berglas"
+    system "go", "build", *std_go_args
   end
 
   test do

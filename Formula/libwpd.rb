@@ -4,6 +4,11 @@ class Libwpd < Formula
   url "https://dev-www.libreoffice.org/src/libwpd-0.10.3.tar.xz"
   sha256 "2465b0b662fdc5d4e3bebcdc9a79027713fb629ca2bff04a3c9251fdec42dd09"
 
+  livecheck do
+    url "https://dev-www.libreoffice.org/src/"
+    regex(/href=["']?libwpd[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "edb924ac33633d851f162839c2e1ef57734c81bd5a6d3d2cde7750175bd19386" => :catalina

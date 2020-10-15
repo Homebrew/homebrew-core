@@ -1,17 +1,18 @@
 class Configen < Formula
   desc "Configuration file code generator for use in Xcode projects"
   homepage "https://github.com/theappbusiness/ConfigGenerator"
-  url "https://github.com/theappbusiness/ConfigGenerator/archive/1.1.1.tar.gz"
-  sha256 "bc35ff0970c9d892a9c9e762f9a6bc63d222d3556cec924e9292f517ac22339d"
+  url "https://github.com/theappbusiness/ConfigGenerator/archive/1.1.2.tar.gz"
+  sha256 "24a0d51f90b36d56c2f75ced9653cf34fe396fd687305903b31eeb822d520608"
+  license "MIT"
   head "https://github.com/theappbusiness/ConfigGenerator.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "82e930bb4d70ee9a6e5d992369be4752f6fed2ddb24d32e55e1deafb32552f66" => :catalina
-    sha256 "1eba1c4035e8bd429023f782d093cbb98dae2c7d4f6a876640afdddc8aaef9e2" => :mojave
+    sha256 "9bdb2988618d5a1e9291a8579207d9dad1092f377d29d13af68cf6ef5afcb202" => :catalina
+    sha256 "befb8801be997ff110c9ca0b817fed82b4e233842f5afe05e7ae372a10c4007f" => :mojave
   end
 
-  depends_on :xcode => ["10.2", :build]
+  depends_on xcode: ["10.2", :build]
 
   def install
     xcodebuild "SYMROOT=build"

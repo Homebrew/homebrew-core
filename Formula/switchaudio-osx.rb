@@ -3,6 +3,7 @@ class SwitchaudioOsx < Formula
   homepage "https://github.com/deweller/switchaudio-osx/"
   url "https://github.com/deweller/switchaudio-osx/archive/1.0.0.tar.gz"
   sha256 "c00389837ffd02b1bb672624fec7b75434e2d72d55574afd7183758b419ed6a3"
+  license "MIT"
   head "https://github.com/deweller/switchaudio-osx.git"
 
   bottle do
@@ -15,7 +16,7 @@ class SwitchaudioOsx < Formula
     sha256 "515b762164648d739ae36f8c5013d250d84af1264bf3ee366ed35adae2f44208" => :el_capitan
   end
 
-  depends_on :xcode => :build
+  depends_on xcode: :build
 
   def install
     xcodebuild "-project", "AudioSwitcher.xcodeproj",

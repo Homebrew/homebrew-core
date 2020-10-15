@@ -5,6 +5,7 @@ class GitRemoteHg < Formula
   homepage "https://github.com/felipec/git-remote-hg"
   url "https://github.com/felipec/git-remote-hg/archive/v0.4.tar.gz"
   sha256 "916072d134cde65b7ffa7d1da1acaabb0f29b65c017d0560e907e7a94063d1b1"
+  license "GPL-2.0"
   revision 2
   head "https://github.com/felipec/git-remote-hg.git"
 
@@ -16,12 +17,12 @@ class GitRemoteHg < Formula
   end
 
   depends_on "asciidoc" => :build
+  depends_on :macos # Due to Python 2
 
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
-  uses_from_macos "python@2" # does not support Python 3
 
-  conflicts_with "git-cinnabar", :because => "both install `git-remote-hg` binaries"
+  conflicts_with "git-cinnabar", because: "both install `git-remote-hg` binaries"
 
   resource "hg" do
     url "https://www.mercurial-scm.org/release/mercurial-5.2.2.tar.gz"

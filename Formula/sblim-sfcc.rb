@@ -5,6 +5,11 @@ class SblimSfcc < Formula
   sha256 "1b8f187583bc6c6b0a63aae0165ca37892a2a3bd4bb0682cd76b56268b42c3d6"
   revision 1
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/sblim-sfcc[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "d20839c77aaa1c968981ca9af0e92bf1c7f600392ea5674971f532040dae518a" => :catalina

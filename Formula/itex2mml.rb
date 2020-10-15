@@ -10,6 +10,11 @@ class Itex2mml < Formula
   url "https://golem.ph.utexas.edu/~distler/blog/files/itexToMML-1.6.0.tar.gz"
   sha256 "5b85b7d77da36af6aba1a56588ce9209b2309d1e99a1b3e6ae8a6d602c30efbb"
 
+  livecheck do
+    url "https://golem.ph.utexas.edu/~distler/code/itexToMML/view/head:/itex-src/itex2MML.h"
+    regex(/#define ITEX2MML_VERSION &quot;v?(\d+(?:\.\d+)+)&quot;/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "61a85ab2e9536209e49b3225f98fc55c0fae709683d0f2662be459f99718bbef" => :catalina

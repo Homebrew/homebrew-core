@@ -1,34 +1,29 @@
 class Sonobuoy < Formula
   desc "Kubernetes component that generates reports on cluster conformance"
-  homepage "https://github.com/heptio/sonobuoy"
-  url "https://github.com/heptio/sonobuoy/archive/v0.17.2.tar.gz"
-  sha256 "fc6623156840c9a518d0820d2a857f7476fd6085c9f0f747fcddd896bf333219"
+  homepage "https://github.com/vmware-tanzu/sonobuoy"
+  url "https://github.com/vmware-tanzu/sonobuoy/archive/v0.19.0.tar.gz"
+  sha256 "973d80c1682e52e69c19104cc0080deccdf1ed800823fef4ad98bba3374cd8a2"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "785670def8b6bfc3255498ebaa401f825e4e02c5d8e6d5bc8d296ef090a7624e" => :catalina
-    sha256 "2510e45a45090aadc0489074ba46e5e22ea4035596f12fc38e3682972150d1fc" => :mojave
-    sha256 "a316e566aaf947ab97681e0dfce1c48b64c83330cc4cb73689cf61ff6f208d57" => :high_sierra
+    sha256 "9dcf27cc22316867f46203d9c5a01fbd9c91c971765cefd636624a6291d590cb" => :catalina
+    sha256 "fdded1d50d8ef5d5410c17094b4718950b02f120e7542fbeee663e130f9c6138" => :mojave
+    sha256 "cb90822ab35edb6a86a437100736a559f872c176930dd7ead6bbbd39bbcc7724" => :high_sierra
   end
 
   depends_on "go" => :build
 
   resource "sonobuoyresults" do
-    url "https://raw.githubusercontent.com/heptio/sonobuoy/master/pkg/client/results/testdata/results-0.10.tar.gz"
+    url "https://raw.githubusercontent.com/vmware-tanzu/sonobuoy/master/pkg/client/results/testdata/results-0.10.tar.gz"
     sha256 "a945ba4d475e33820310a6138e3744f301a442ba01977d38f2b635d2e6f24684"
   end
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/heptio/sonobuoy").install buildpath.children
-
-    cd "src/github.com/heptio/sonobuoy" do
-      system "go", "build", "-o", bin/"sonobuoy", "-installsuffix", "static",
-                   "-ldflags",
-                   "-s -w -X github.com/heptio/sonobuoy/pkg/buildinfo.Version=#{version}",
-                   "./"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-ldflags",
+                   "-s -w -X github.com/vmware-tanzu/sonobuoy/pkg/buildinfo.Version=v#{version}",
+                   *std_go_args
+    prefix.install_metafiles
   end
 
   test do

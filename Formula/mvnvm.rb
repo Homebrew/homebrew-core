@@ -1,21 +1,25 @@
 class Mvnvm < Formula
   desc "Maven version manager"
   homepage "https://mvnvm.org/"
-  url "https://bitbucket.org/mjensen/mvnvm/get/mvnvm-1.0.13.tar.gz"
-  sha256 "af90239b6209b51901701602ee8fd80f1c0171743a1335038d8dd2216e0cbf7d"
-  revision 1
+  url "https://bitbucket.org/mjensen/mvnvm/get/mvnvm-1.0.14.tar.gz"
+  sha256 "09c61a1a7aa0b7e94db122d0b705267f22dce429d3bbcf2345b08ee7a92564c7"
+  license "Apache-2.0"
   head "https://bitbucket.org/mjensen/mvnvm.git"
+
+  livecheck do
+    url :stable
+  end
 
   bottle :unneeded
 
   depends_on "openjdk"
 
-  conflicts_with "maven", :because => "also installs a 'mvn' executable"
+  conflicts_with "maven", because: "also installs a 'mvn' executable"
 
   def install
     bin.install "mvn"
     bin.install "mvnDebug"
-    bin.env_script_all_files libexec/"bin", :JAVA_HOME => "${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
+    bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env
   end
 
   test do

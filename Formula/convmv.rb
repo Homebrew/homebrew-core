@@ -4,6 +4,11 @@ class Convmv < Formula
   url "https://www.j3e.de/linux/convmv/convmv-2.05.tar.gz"
   sha256 "53b6ac8ae4f9beaee5bc5628f6a5382bfd14f42a5bed3d881b829d7b52d81ca6"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?convmv[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "203e34d5e76b55fabbf8548b93f749cd044ad843ca9062a916026e548332f7b0" => :catalina

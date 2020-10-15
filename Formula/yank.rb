@@ -3,6 +3,7 @@ class Yank < Formula
   homepage "https://github.com/mptre/yank"
   url "https://github.com/mptre/yank/archive/v1.2.0.tar.gz"
   sha256 "c4a2f854f9e49e1df61491d3fab29ea595c7e3307394acb15f32b6d415840bce"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

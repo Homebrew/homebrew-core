@@ -1,22 +1,21 @@
-require "language/haskell"
-
 class Komposition < Formula
-  include Language::Haskell::Cabal
-
   desc "Video editor built for screencasters"
   homepage "https://github.com/owickstrom/komposition"
   url "https://github.com/owickstrom/komposition/archive/v0.2.0.tar.gz"
   sha256 "cedb41c68866f8d6a87579f566909fcd32697b03f66c0e2a700a94b6a9263b88"
+  license "MPL-2.0"
+  revision 3
   head "https://github.com/owickstrom/komposition.git"
 
   bottle do
-    sha256 "f28f804f8ca5d9c9c23f8fd9d35edb3276e2d397abbbf73fda33b543d5654611" => :catalina
-    sha256 "2f7008e5a901c7c4739104124c0a3faea211f3d7509c0c19f6a28f8de162be08" => :mojave
-    sha256 "75c13e6a1a9f53273974f6445d4d59adc76c16399480f305547e7bddd5237fbd" => :high_sierra
+    cellar :any
+    sha256 "dc76316ff64beb2d4756ba554844a57d546a0bbe8a300ce1879a6cddcb72ebf8" => :catalina
+    sha256 "e78904afced48a6365ec5cec4b9e97ecccf4bf81401c5576a0c3b21fa1078264" => :mojave
+    sha256 "137747b62de4e68164bceccd009beb65606ae6ba2c94fbe9a72b0eee50ae0961" => :high_sierra
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@8.8" => :build
   depends_on "pkg-config" => :build
   depends_on "ffmpeg"
   depends_on "gobject-introspection"
@@ -30,11 +29,17 @@ class Komposition < Formula
 
   uses_from_macos "libffi"
 
+  # fix a constraint issue with protolude
+  # remove once new version with
+  # https://github.com/owickstrom/komposition/pull/102 is included
+  patch do
+    url "https://github.com/owickstrom/komposition/commit/e6c575cf8eddc3be30471df9a9dd92b3cb9f70c1.diff?full_index=1"
+    sha256 "bdf561d07f1b8d41a4c030e121becab3b70882da8ccee53c1e91c6c0931fee0c"
+  end
+
   def install
-    # The --allow-newer=base may be removed when the ffmpeg-light
-    # bound on base is relaxed, or when Homebrew moves to Cabal 3
-    # builds.
-    install_cabal_package "--allow-newer=base", :using => ["alex", "happy"]
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
   end
 
   test do

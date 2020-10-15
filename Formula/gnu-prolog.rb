@@ -5,6 +5,11 @@ class GnuProlog < Formula
   mirror "https://deb.debian.org/debian/pool/main/g/gprolog/gprolog_1.4.5.orig.tar.gz"
   sha256 "bfdcf00e051e0628b4f9af9d6638d4fde6ad793401e58a5619d1cc6105618c7c"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?gprolog[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "30c1693edfb527b5d9a3de534b3f47b0667303d23b451006ce9c3a923a068025" => :mojave

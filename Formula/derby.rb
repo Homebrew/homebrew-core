@@ -4,6 +4,11 @@ class Derby < Formula
   url "https://www.apache.org/dyn/closer.lua?path=db/derby/db-derby-10.15.2.0/db-derby-10.15.2.0-bin.tar.gz"
   mirror "https://archive.apache.org/dist/db/derby/db-derby-10.15.2.0/db-derby-10.15.2.0-bin.tar.gz"
   sha256 "ac51246a2d9eef70cecd6562075b30aa9953f622cbd2cd3551bc3d239dc6f02a"
+  license "Apache-2.0"
+
+  livecheck do
+    url :stable
+  end
 
   bottle :unneeded
 
@@ -15,16 +20,16 @@ class Derby < Formula
                        KEYS docs javadoc demo]
     bin.install Dir["bin/*"]
     bin.env_script_all_files libexec/"bin",
-                             :JAVA_HOME     => Formula["openjdk"].opt_prefix,
-                             :DERBY_INSTALL => libexec,
-                             :DERBY_HOME    => libexec
+                             JAVA_HOME:     Formula["openjdk"].opt_prefix,
+                             DERBY_INSTALL: libexec,
+                             DERBY_HOME:    libexec
   end
 
   def post_install
     (var/"derby").mkpath
   end
 
-  plist_options :manual => "DERBY_OPTS=-Dsystem.derby.home=#{HOMEBREW_PREFIX}/var/derby #{HOMEBREW_PREFIX}/bin/startNetworkServer"
+  plist_options manual: "DERBY_OPTS=-Dsystem.derby.home=#{HOMEBREW_PREFIX}/var/derby #{HOMEBREW_PREFIX}/bin/startNetworkServer"
 
   def plist
     <<~EOS

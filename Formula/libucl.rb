@@ -3,6 +3,7 @@ class Libucl < Formula
   homepage "https://github.com/vstakhov/libucl"
   url "https://github.com/vstakhov/libucl/archive/0.8.1.tar.gz"
   sha256 "a6397e179672f0e8171a0f9a2cfc37e01432b357fd748b13f4394436689d24ef"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any

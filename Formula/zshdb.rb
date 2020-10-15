@@ -3,6 +3,16 @@ class Zshdb < Formula
   homepage "https://github.com/rocky/zshdb"
   url "https://downloads.sourceforge.net/project/bashdb/zshdb/1.1.2/zshdb-1.1.2.tar.gz"
   sha256 "bf9cb36f60ce6833c5cd880c58d6741873b33f5d546079eebcfce258d609e9af"
+  license "GPL-3.0"
+
+  # We check the "zshdb" directory page because the bashdb project contains
+  # various software and zshdb releases may be pushed out of the SourceForge
+  # RSS feed.
+  livecheck do
+    url "https://sourceforge.net/projects/bashdb/files/zshdb/"
+    strategy :page_match
+    regex(%r{href=(?:["']|.*?zshdb/)?v?(\d+(?:[.-]\d+)+)/?["' >]}i)
+  end
 
   bottle do
     cellar :any_skip_relocation

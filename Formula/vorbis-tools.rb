@@ -5,6 +5,11 @@ class VorbisTools < Formula
   sha256 "a389395baa43f8e5a796c99daf62397e435a7e73531c9f44d9084055a05d22bc"
   revision 2
 
+  livecheck do
+    url "https://downloads.xiph.org/releases/vorbis/"
+    regex(/href=.*?vorbis-tools[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     rebuild 1

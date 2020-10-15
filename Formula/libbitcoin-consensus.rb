@@ -3,6 +3,7 @@ class LibbitcoinConsensus < Formula
   homepage "https://github.com/libbitcoin/libbitcoin-consensus"
   url "https://github.com/libbitcoin/libbitcoin-consensus/archive/v3.6.0.tar.gz"
   sha256 "a4252f40910fcb61da14cf8028bf3824125bacb0fc251491c9bb4e2818065fca"
+  license "AGPL-3.0"
   revision 1
 
   bottle do

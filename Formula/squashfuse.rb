@@ -3,6 +3,7 @@ class Squashfuse < Formula
   homepage "https://github.com/vasi/squashfuse"
   url "https://github.com/vasi/squashfuse/releases/download/0.1.103/squashfuse-0.1.103.tar.gz"
   sha256 "42d4dfd17ed186745117cfd427023eb81effff3832bab09067823492b6b982e7"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any

@@ -1,19 +1,16 @@
 class Libspiro < Formula
   desc "Library to simplify the drawing of curves"
   homepage "https://github.com/fontforge/libspiro"
-  url "https://github.com/fontforge/libspiro/releases/download/0.5.20150702/libspiro-0.5.20150702.tar.gz"
-  sha256 "db1a48659ed3df05521829855b367ab27035c25db2d6a51b868c733b5abf9f7c"
+  url "https://github.com/fontforge/libspiro/releases/download/20200505/libspiro-dist-20200505.tar.gz"
+  sha256 "06c69a1e8dcbcabcf009fd96fd90b1a244d0257246e376c2c4d57c4ea4af0e49"
+  license "GPL-3.0"
   version_scheme 1
 
   bottle do
     cellar :any
-    sha256 "95b1fa2d825d9f7485a3740e989550812778d2d94f060513d4e1e71903eafa4f" => :catalina
-    sha256 "934e0ccd8d371ac24456e1d3d63db4621a3736401105d99b055018b3e941b851" => :mojave
-    sha256 "1429ee36073ef51e18ef636519122059eccdd17d005e56c28fbb2fe6429b3e5a" => :high_sierra
-    sha256 "ed2eb6d7502263bbf73b9a85dfeea23ad76238996c06e2a4b729a687537e9584" => :sierra
-    sha256 "ba2ac132368792d5715eb39a7b0e452fba5a222977ec30b9c5ff09728acfd0e0" => :el_capitan
-    sha256 "408083484eb78518514bd2613f019bd03ac94e791b8302721187eeaf5c775479" => :yosemite
-    sha256 "7bbae215d77ea9b5977f066b2fa646821933f5ed4cbc972e4c50fc5a1708725e" => :mavericks
+    sha256 "238761be2cd640f6c3f59f0461ce7f5b73dc71c9613236e180bc55f4231e167b" => :catalina
+    sha256 "fb1b2e548eddc684a5b615cedabc2c6403e0c87409fdb419369ca40e2b70aa52" => :mojave
+    sha256 "b7155fe14b9909a06a9044ca2d3275f5b2cbcd9aac23583b3819ba53898ff120" => :high_sierra
   end
 
   head do

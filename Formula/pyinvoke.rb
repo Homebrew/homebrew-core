@@ -5,17 +5,18 @@ class Pyinvoke < Formula
   homepage "https://www.pyinvoke.org/"
   url "https://github.com/pyinvoke/invoke/archive/1.4.1.tar.gz"
   sha256 "ac5880fb5d21f06cc1b29f89736cb8a43b85abea9204b4bb4277458ae025d0b7"
-  revision 1
+  license "BSD-2-Clause"
+  revision 2
   head "https://github.com/pyinvoke/invoke.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6e576690387b7433b3795c926672cebc76f51c1a78d64798db3a9b4fba2a584e" => :catalina
-    sha256 "576bd35748ea63fcc0a8bd6f42e68755e34c3736b5233adb0f86293dcaf912f3" => :mojave
-    sha256 "44224c0c6d1c175ddccf9bc20dcc6a0b3c48bd7ab72a30fde8f40db055406eee" => :high_sierra
+    sha256 "eccd4bc025f6e8aeb6239105bdd2054d33b19a26070ed5980d3797f1f7d05ee1" => :catalina
+    sha256 "b1ae4b3f79dfb446e8d7ca9786fd64af088797b37fea00a093cc032c4aac02f6" => :mojave
+    sha256 "2cbd9d88b790af9d6f43e854481a5956e614a6d69d229911530cdffdaeba9cba" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
     virtualenv_install_with_resources

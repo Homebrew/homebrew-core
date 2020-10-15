@@ -1,19 +1,25 @@
 class Glew < Formula
   desc "OpenGL Extension Wrangler Library"
   homepage "https://glew.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/glew/glew/2.1.0/glew-2.1.0.tgz"
-  sha256 "04de91e7e6763039bc11940095cd9c7f880baba82196a7765f727ac05a993c95"
-  revision 1
+  url "https://downloads.sourceforge.net/project/glew/glew/2.2.0/glew-2.2.0.tgz"
+  sha256 "d4fc82893cfb00109578d0a1a2337fb8ca335b3ceccf97b97e5cc7f08e4353e1"
+  license "BSD-3-Clause"
   head "https://github.com/nigels-com/glew.git"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any
-    sha256 "590c10bf98e6263d8e573720e5521584d836f28c52f30f97840614e97c16ccfd" => :catalina
-    sha256 "66638564b5b9d2d915b97841ef1cc117f701c7ec34707734fa1ce11919c28821" => :mojave
-    sha256 "1d3b4e7938d3c1fc7e16f78a506163046da105b443498b7ca1a3cca78f232739" => :high_sierra
+    sha256 "5f130b7557c1753c3880fc2eb16363de05a9d5a7d032294e8f8e744583df467f" => :catalina
+    sha256 "dc1e74289200e3c1db6792f085f1216529b491fc463bc6205bcd40807a4dba31" => :mojave
+    sha256 "1e2d9d489808104dfa3a4dab5662e200e1020b40b869bac45b6b84b8490cd936" => :high_sierra
   end
 
   depends_on "cmake" => :build
+
+  conflicts_with "root", because: "root ships its own copy of glew"
 
   def install
     cd "build" do

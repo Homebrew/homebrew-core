@@ -1,19 +1,22 @@
 class Tmuxinator < Formula
   desc "Manage complex tmux sessions easily"
   homepage "https://github.com/tmuxinator/tmuxinator"
-  url "https://github.com/tmuxinator/tmuxinator/archive/v1.1.4.tar.gz"
-  sha256 "db24b1e07aa7164bee2cf73cc936dc2fb75aa4d062b3b70dccd5f85e6d580e34"
+  url "https://github.com/tmuxinator/tmuxinator/archive/v2.0.1.tar.gz"
+  sha256 "a2c8428d239a6e869da516cecee3ac64db47ba1f1932317eb397b1afd698ee09"
+  license "MIT"
   head "https://github.com/tmuxinator/tmuxinator.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1b4ae8a2bde4b3ca809b8ef0d017b4b7cfe8f9e3f0d81f5bd22c9e48cede8100" => :catalina
-    sha256 "aafc33584c60390e9dc7b29c1a74a6dc55e9235d9827bbb99c067a9b8e7eadd9" => :mojave
-    sha256 "1b4ae8a2bde4b3ca809b8ef0d017b4b7cfe8f9e3f0d81f5bd22c9e48cede8100" => :high_sierra
+    sha256 "fcc792f9e1fabe3929f4d2a0b88122d29c429eab0d6434ec6ed0cddbceb14fdb" => :catalina
+    sha256 "d18e3a7480fa572c8945a6b029a0dd5015556c701c39cfcb1e697eeb6d89e364" => :mojave
+    sha256 "62fc87ed0bd20aac6a3d3867ba999358daf7e0a1316996187a9e1961a39c7a2a" => :high_sierra
   end
 
   depends_on "ruby"
   depends_on "tmux"
+
+  conflicts_with "tmuxinator-completion", because: "the tmuxinator formula includes completion"
 
   resource "erubis" do
     url "https://rubygems.org/downloads/erubis-2.7.0.gem"
@@ -41,7 +44,7 @@ class Tmuxinator < Formula
     system "gem", "build", "tmuxinator.gemspec"
     system "gem", "install", "--ignore-dependencies", "tmuxinator-#{version}.gem"
     bin.install libexec/"bin/tmuxinator"
-    bin.env_script_all_files(libexec/"bin", :GEM_HOME => ENV["GEM_HOME"])
+    bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"])
 
     bash_completion.install "completion/tmuxinator.bash" => "tmuxinator"
     zsh_completion.install "completion/tmuxinator.zsh" => "_tmuxinator"

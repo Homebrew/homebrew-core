@@ -1,9 +1,15 @@
 class Plantuml < Formula
   desc "Draw UML diagrams"
   homepage "https://plantuml.com/"
-  url "https://downloads.sourceforge.net/project/plantuml/1.2020.5/plantuml.1.2020.5.jar"
-  sha256 "0d4e4fd5e8a114958440138c5793f96f664600da22a91ee18070e304955cc1b2"
+  url "https://downloads.sourceforge.net/project/plantuml/1.2020.19/plantuml.1.2020.19.jar"
+  sha256 "112b9c44ea069a9b24f237dfb6cb7a6cfb9cd918e507e9bee2ebb9c3797f6051"
+  license "GPL-3.0-or-later"
   version_scheme 1
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/plantuml[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
 
   bottle :unneeded
 

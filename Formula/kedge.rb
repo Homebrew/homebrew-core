@@ -3,6 +3,7 @@ class Kedge < Formula
   homepage "https://github.com/kedgeproject/kedge"
   url "https://github.com/kedgeproject/kedge/archive/v0.12.0.tar.gz"
   sha256 "3c01880ba9233fe5b0715527ba32f0c59b25b73284de8cfb49914666a158487b"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

@@ -1,14 +1,15 @@
 class Keydb < Formula
   desc "Multithreaded fork of Redis"
   homepage "https://keydb.dev"
-  url "https://github.com/JohnSully/KeyDB/archive/v5.3.3.tar.gz"
-  sha256 "07ad8344984ed8c896b75d19863c11cd7e9786220d93c9abaa3a65c34df075a3"
+  url "https://github.com/JohnSully/KeyDB/archive/v6.0.16.tar.gz"
+  sha256 "809369321d1a98a57337447cce0fd84197dd3c9b493ec1ea2e29268d8534ee5d"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0a2d66e4fd69d66c6d398a622a2faa3d3d4cf1e48b541a07cd29d707f0af50ba" => :catalina
-    sha256 "0556a15e5bc0e1782b636e318d221142d0ed80bf74698cd60205b0fae1c9cc4b" => :mojave
-    sha256 "9e9ab237fe2ca11d815652b4f8f08bc2bfe3b0054a3a1e59fe2b58f6659233fb" => :high_sierra
+    sha256 "399a17386d452bac3d05d7997af196954b4dddb4dd3c2dd753e112405c8eefe6" => :catalina
+    sha256 "19e86e52f647fb1557683cd6f4b682a5e150095f0f99e13c19b7816c81d3bd17" => :mojave
+    sha256 "ab28323dbffb9fcc0f11eeb18d9490808592b5caab0f8168e310937abb83b212" => :high_sierra
   end
 
   def install

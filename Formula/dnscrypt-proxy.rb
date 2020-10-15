@@ -1,27 +1,27 @@
 class DnscryptProxy < Formula
   desc "Secure communications between a client and a DNS resolver"
   homepage "https://dnscrypt.info"
-  url "https://github.com/DNSCrypt/dnscrypt-proxy/archive/2.0.42.tar.gz"
-  sha256 "c000ca4e159c6606cb3476ea9e34ed64b5c46c710d70cc5651f14f1125c8d352"
+  url "https://github.com/DNSCrypt/dnscrypt-proxy/archive/2.0.44.tar.gz"
+  sha256 "c2c9968f07a414e973ec5734f4598d756a35c32beedb18268590ea1355794237"
+  license "ISC"
   head "https://github.com/DNSCrypt/dnscrypt-proxy.git"
+
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1a60c926d87cd06039273e2fd838c763527282f231794cdd99862c6ef5857a5e" => :catalina
-    sha256 "c90910cfe5ead1ccc8dae71e8ba87ab5e1f7b47cf90df005c324851253fd0972" => :mojave
-    sha256 "bfaf425522966cedecdceaab5351bbfda73e9334a99556b2ca7f63530aeb7fe8" => :high_sierra
+    sha256 "7da6a093ba0eb0f91a5e0395c9d59c312ae0ba7ad4d768571084bf9910d4b89e" => :catalina
+    sha256 "902573b2edeac760122d4ef659865578d36ba7478d1c161649c53042fd745c8f" => :mojave
+    sha256 "19c5849e4acc8ba26110aff8d2dded822c406fd9f4fc41a20fe2a891d019c03d" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    prefix.install_metafiles
-    dir = buildpath/"src/github.com/jedisct1/dnscrypt-proxy"
-    dir.install buildpath.children
-
-    cd dir/"dnscrypt-proxy" do
+    cd "dnscrypt-proxy" do
       system "go", "build", "-ldflags", "-X main.version=#{version}", "-o",
              sbin/"dnscrypt-proxy"
       pkgshare.install Dir["example*"]
@@ -53,7 +53,7 @@ class DnscryptProxy < Formula
     EOS
   end
 
-  plist_options :startup => true
+  plist_options startup: true
 
   def plist
     <<~EOS

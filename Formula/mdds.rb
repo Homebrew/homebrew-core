@@ -1,25 +1,47 @@
 class Mdds < Formula
   desc "Multi-dimensional data structure and indexing algorithm"
   homepage "https://gitlab.com/mdds/mdds"
-  url "https://kohei.us/files/mdds/src/mdds-1.6.0.tar.bz2"
-  sha256 "f1585c9cbd12f83a6d43d395ac1ab6a9d9d5d77f062c7b5f704e24ed72dae07d"
+  url "https://kohei.us/files/mdds/src/mdds-1.7.0.tar.bz2"
+  sha256 "a66a2a8293a3abc6cd9baff7c236156e2666935cbfb69a15d64d38141638fecf"
+  license "MIT"
+
+  livecheck do
+    url :head
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b62a69bbecdd3c731bf16c6fcc3384b2fa67c34295cfa1013914af13620511ef" => :catalina
-    sha256 "b62a69bbecdd3c731bf16c6fcc3384b2fa67c34295cfa1013914af13620511ef" => :mojave
-    sha256 "b62a69bbecdd3c731bf16c6fcc3384b2fa67c34295cfa1013914af13620511ef" => :high_sierra
+    sha256 "a5e6a996bf112bca0d5c7e628fd15128977b9075938155a4185aaf5613d136bc" => :catalina
+    sha256 "5146b50529f63030c978dbdab3755ce7a7383d7c8049e03ae1186fa231f867c9" => :mojave
+    sha256 "67f497efa10f695da64e4769d3ef5de6fb0e9d3d0d62026c2105b7c5148b91a9" => :high_sierra
+  end
+
+  head do
+    url "https://gitlab.com/mdds/mdds.git"
+
+    depends_on "automake" => :build
   end
 
   depends_on "autoconf" => :build
   depends_on "boost"
 
   def install
+    args = %W[
+      --prefix=#{prefix}
+      --disable-openmp
+    ]
+
     # Gets it to work when the CLT is installed
     inreplace "configure.ac", "$CPPFLAGS -I/usr/include -I/usr/local/include",
                               "$CPPFLAGS -I/usr/local/include"
-    system "autoconf"
-    system "./configure", "--prefix=#{prefix}", "--disable-openmp"
+
+    if build.head?
+      system "./autogen.sh", *args
+    else
+      system "autoconf"
+      system "./configure", *args
+    end
+
     system "make", "install"
   end
 

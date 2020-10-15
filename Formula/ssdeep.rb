@@ -3,6 +3,7 @@ class Ssdeep < Formula
   homepage "https://ssdeep-project.github.io/ssdeep/"
   url "https://github.com/ssdeep-project/ssdeep/releases/download/release-2.14.1/ssdeep-2.14.1.tar.gz"
   sha256 "ff2eabc78106f009b4fb2def2d76fb0ca9e12acf624cbbfad9b3eb390d931313"
+  license "GPL-2.0"
 
   bottle do
     cellar :any

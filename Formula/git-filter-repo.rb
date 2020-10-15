@@ -1,8 +1,12 @@
 class GitFilterRepo < Formula
+  include Language::Python::Shebang
+
   desc "Quickly rewrite git repository history"
   homepage "https://github.com/newren/git-filter-repo"
-  url "https://github.com/newren/git-filter-repo/releases/download/v2.26.0/git-filter-repo-2.26.0.tar.xz"
-  sha256 "537ac38f49cb5bbb08b1feb7563bace54c34b4d04427e9245c2081654c3ca095"
+  url "https://github.com/newren/git-filter-repo/releases/download/v2.28.0/git-filter-repo-2.28.0.tar.xz"
+  sha256 "fdee8d2138d31d10d821bb05e9be52dd2ecc4e7f08b5c2d1451dda1aa6814669"
+  license "MIT"
+  revision 1
 
   bottle :unneeded
 
@@ -11,10 +15,10 @@ class GitFilterRepo < Formula
   # But we require Git 2.22.0+
   # https://github.com/Homebrew/homebrew-core/pull/46550#issuecomment-563229479
   depends_on "git"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
-    Language::Python.rewrite_python_shebang(Formula["python@3.8"].opt_bin/"python3")
+    rewrite_shebang detected_python_shebang, "git-filter-repo"
     bin.install "git-filter-repo"
     man1.install "Documentation/man1/git-filter-repo.1"
   end

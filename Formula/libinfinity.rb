@@ -3,7 +3,13 @@ class Libinfinity < Formula
   homepage "https://gobby.github.io"
   url "http://releases.0x539.de/libinfinity/libinfinity-0.6.8.tar.gz"
   sha256 "0c4e7e0e5cb6ad5df4dbe19568de37b100a13e61475cf9d4e0f2a68fcdd2d45b"
+  license "LGPL-2.1"
   revision 2
+
+  livecheck do
+    url "http://releases.0x539.de/libinfinity/"
+    regex(/href=.*?libinfinity[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 "4d367978cb9ee0612c37947080939b3006c5bb7972673cc2c6175242c5809c28" => :catalina
@@ -17,6 +23,11 @@ class Libinfinity < Formula
   depends_on "gnutls"
   depends_on "gsasl"
   depends_on "gtk+3"
+
+  # libinfinity is only used by gobby
+  # latest 0.7.1 does not work with gobby 0.5.0 due to open issue, https://github.com/gobby/gobby/issues/143
+  # gobby is disbled per #57501
+  disable! because: "is only used by gobby (which has been disabled)"
 
   # MacPorts patch to fix pam include. This is still applicable to 0.6.4.
   patch :p0 do

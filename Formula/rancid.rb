@@ -12,7 +12,7 @@ class Rancid < Formula
     sha256 "3fe616a75b533dc7d4b8989f8719d6eb9d78628572f1e0769c6ddd6e4e769aae" => :high_sierra
   end
 
-  conflicts_with "par", :because => "both install `par` binaries"
+  conflicts_with "par", because: "both install `par` binaries"
 
   def install
     system "./configure", "--prefix=#{prefix}", "--exec-prefix=#{prefix}", "--mandir=#{man}"

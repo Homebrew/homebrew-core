@@ -3,15 +3,18 @@ class Godep < Formula
   homepage "https://godoc.org/github.com/tools/godep"
   url "https://github.com/tools/godep/archive/v80.tar.gz"
   sha256 "029adc1a0ce5c63cd40b56660664e73456648e5c031ba6c214ba1e1e9fc86cf6"
-  revision 31
+  license "BSD-3-Clause"
+  revision 40
   head "https://github.com/tools/godep.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f525b9456ee3bd7ae2d7e82afa071583978d1c699e136c9572f9101d17ccc733" => :catalina
-    sha256 "ef51b2adb1da7e84cb5103c6322eff1e4ce4dbdd556712e0b5b524aa43702829" => :mojave
-    sha256 "a04c4bcce6ab260efa0536bfd890abbfbb68ef8541a480b3e98ebed670eb70d3" => :high_sierra
+    sha256 "b5b26bb63c5aadd7c6ebae5fe8605c084668cb5e1297c318eb397db23d2240fe" => :catalina
+    sha256 "be738a1922050185a4422642d053f7bdbc7d409b263768ffc0bdb082271408c4" => :mojave
+    sha256 "9a2370c19bac903ee85f179d8562751278651d04e0e8a4f10f684f010e01e61e" => :high_sierra
   end
+
+  deprecate! date: "2018-01-26", because: :repo_archived
 
   depends_on "go"
 

@@ -1,7 +1,8 @@
 class Luajit < Formula
   desc "Just-In-Time Compiler (JIT) for the Lua programming language"
   homepage "https://luajit.org/luajit.html"
-  head "https://luajit.org/git/luajit-2.0.git", :branch => "v2.1"
+  license "MIT"
+  head "https://luajit.org/git/luajit-2.0.git", branch: "v2.1"
 
   stable do
     url "https://luajit.org/download/LuaJIT-2.0.5.tar.gz"
@@ -10,6 +11,11 @@ class Luajit < Formula
     # Fix for macOS 10.15 Catalina SDK
     # https://github.com/LuaJIT/LuaJIT/issues/521
     patch :DATA
+  end
+
+  livecheck do
+    url "https://luajit.org/download.html"
+    regex(/class="downname">LuaJIT[._-]v?([\d.]+)</i)
   end
 
   bottle do
@@ -28,6 +34,9 @@ class Luajit < Formula
       f.change_make_var! "CC", ENV.cc
       f.change_make_var! "CCOPT_x86", ""
     end
+
+    # Xcode 11 fix
+    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
 
     # Per https://luajit.org/install.html: If MACOSX_DEPLOYMENT_TARGET
     # is not set then it's forced to 10.4, which breaks compile on Mojave.

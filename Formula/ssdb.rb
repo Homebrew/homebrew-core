@@ -1,18 +1,25 @@
 class Ssdb < Formula
   desc "NoSQL database supporting many data structures: Redis alternative"
   homepage "http://ssdb.io/"
-  url "https://github.com/ideawu/ssdb/archive/1.9.7.tar.gz"
-  sha256 "ef7c1c048c48671b039fee4c557bcd0150cbab8f3814fdfb782b7aeec9f071ec"
+  url "https://github.com/ideawu/ssdb/archive/1.9.9.tar.gz"
+  sha256 "28b5b6505a6a660b587b7d07ef77a3983a0696f7d481aa70696e53048fa92e45"
+  license "BSD-3-Clause"
   head "https://github.com/ideawu/ssdb.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "adc9b1c421a96f617d53eb9b2750730a2f94470b96bbbffd42171034b42f50e3" => :catalina
-    sha256 "17baf0ab0b2d11d987ff8bf3b9de6a19bf6839a4b23bcd76d01a0d62421141d9" => :mojave
-    sha256 "5ab4ecd6c2d2df8996fc71477e4abe970a48b53999ddc291ceeb06b261ae21d0" => :high_sierra
+    sha256 "fd9b492537642a493ee437e27659b605336a5b0be915feba2894e6cdf2479c70" => :catalina
+    sha256 "07653a68e92db84536be2a515051dd951c73a46a549532aebdac94dfd4d9028d" => :mojave
+    sha256 "63544af42f2779d149b1ca647d22fc1ce687ed68347ea689df8d8a52d3a72727" => :high_sierra
   end
 
   depends_on "autoconf" => :build
+
+  # Fix ssdb 1.9.9 build
+  patch do
+    url "https://github.com/chenrui333/ssdb/commit/9556a38fb1e3cb4920e2b6ab242183a747d55a51.patch?full_index=1"
+    sha256 "ee765e6c98c991c0cf069a5bf4b0d571987b0fa35be756b5a8960190f1d14be9"
+  end
 
   def install
     inreplace "tools/ssdb-cli", /^DIR=.*$/, "DIR=#{prefix}"
@@ -44,7 +51,7 @@ class Ssdb < Formula
     etc.install "ssdb_slave.conf"
   end
 
-  plist_options :manual => "ssdb-server #{HOMEBREW_PREFIX}/etc/ssdb.conf"
+  plist_options manual: "ssdb-server #{HOMEBREW_PREFIX}/etc/ssdb.conf"
 
   def plist
     <<~EOS
@@ -80,7 +87,7 @@ class Ssdb < Formula
   test do
     pid = fork do
       Signal.trap("TERM") do
-        system("#{bin}/ssdb-server -d #{HOMEBREW_PREFIX}/etc/ssdb.conf")
+        system("#{bin}/ssdb-server", "-d", "#{HOMEBREW_PREFIX}/etc/ssdb.conf")
         exit
       end
     end

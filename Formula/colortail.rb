@@ -2,8 +2,9 @@ class Colortail < Formula
   desc "Like tail(1), but with various colors for specified output"
   homepage "https://github.com/joakim666/colortail"
   url "https://github.com/joakim666/colortail.git",
-    :revision => "f44fce0dbfd6bd38cba03400db26a99b489505b5"
+    revision: "f44fce0dbfd6bd38cba03400db26a99b489505b5"
   version "0.3.4"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

@@ -1,15 +1,21 @@
 class Memcached < Formula
   desc "High performance, distributed memory object caching system"
   homepage "https://memcached.org/"
-  url "https://www.memcached.org/files/memcached-1.6.2.tar.gz"
-  sha256 "06720118c40689be0b85249b3dcb23c6e6d5e3ce53893aca9faced264145168b"
+  url "https://www.memcached.org/files/memcached-1.6.7.tar.gz"
+  sha256 "7bbdac9b031d8cfca4a1207f28df598b90ee2e9b44667f7eabd0fe1a59ca5173"
+  license "BSD-3-Clause"
   head "https://github.com/memcached/memcached.git"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?memcached[._-]v?(\d+(?:\.\d+){2,})\./i)
+  end
 
   bottle do
     cellar :any
-    sha256 "2a240991497924a381acc069a98c1fcb05f5234e46619c4fe3a655d73f517fcc" => :catalina
-    sha256 "af8b9fbb030ab08395dd1da3f28fdbb2f2d3911f469e08c5bff31723b0f29e61" => :mojave
-    sha256 "5051e469970ed5d00607e76c6c80bdbcaf594d6c12257db267ff46a5a2812903" => :high_sierra
+    sha256 "7a6ad9f44ec7a42aab0a0b36294f60f66212b70ac8e8fde27f6a697f777f0529" => :catalina
+    sha256 "ac32c89c5efb51c33f7918a1e148bfde8cb007d74df4b4d1460941bc2c96e7f9" => :mojave
+    sha256 "b943eb42d8f00ae09e8eae09aecff9df1280a81647c909bb81554ad2188070ad" => :high_sierra
   end
 
   depends_on "libevent"
@@ -19,7 +25,7 @@ class Memcached < Formula
     system "make", "install"
   end
 
-  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/memcached/bin/memcached"
+  plist_options manual: "#{HOMEBREW_PREFIX}/opt/memcached/bin/memcached"
 
   def plist
     <<~EOS
@@ -48,8 +54,7 @@ class Memcached < Formula
 
   test do
     pidfile = testpath/"memcached.pid"
-    # Assumes port 11211 is not already taken
-    system bin/"memcached", "--listen=localhost:11211", "--daemon", "--pidfile=#{pidfile}"
+    system bin/"memcached", "--listen=localhost:#{free_port}", "--daemon", "--pidfile=#{pidfile}"
     sleep 1
     assert_predicate pidfile, :exist?, "Failed to start memcached daemon"
     pid = (testpath/"memcached.pid").read.chomp.to_i

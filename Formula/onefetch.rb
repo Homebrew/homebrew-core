@@ -1,14 +1,15 @@
 class Onefetch < Formula
   desc "Git repository summary on your terminal"
   homepage "https://github.com/o2sh/onefetch"
-  url "https://github.com/o2sh/onefetch/archive/v2.2.0.tar.gz"
-  sha256 "99e00a760670ac3e8653762fe690f37ce8214470d2887c37aeb778c2c1344734"
+  url "https://github.com/o2sh/onefetch/archive/v2.4.0.tar.gz"
+  sha256 "ea7b2c0a3742a110a60528df7fb05647ea87d41fe22de1de3be61d310486ae0d"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "54ce778668b9953a5c683ba12045998a2a4ae1291a0a2f0e5c4a51aba63e7bc3" => :catalina
-    sha256 "4937b9ddd81bf626dd5b5a0b6ec2d289c74ef125a0e5bb0c87641e343d687412" => :mojave
-    sha256 "eca2bbb2a918e3ffdf41de1e3703941397265c618a31793a29fba4a37f887427" => :high_sierra
+    sha256 "0c248e34afdde7ce7756a07f8adcfac526d94bdb3378daf85d44defda60cc041" => :catalina
+    sha256 "ddbe1f6ca29ffe3789c390142ff92799d39b58fce8b20be5c751a37d312960e5" => :mojave
+    sha256 "869230c06e81e477ba6a9b1be1b770f49431e62297183f63ec3c497bae546301" => :high_sierra
   end
 
   depends_on "rust" => :build
@@ -16,7 +17,7 @@ class Onefetch < Formula
   uses_from_macos "zlib"
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", *std_cargo_args
   end
 
   test do

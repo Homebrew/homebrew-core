@@ -4,6 +4,11 @@ class Pod2man < Formula
   url "https://archives.eyrie.org/software/perl/podlators-4.14.tar.xz"
   sha256 "e504c3d9772b538d7ea31ce2c5e7a562d64a5b7f7c26277b1d7a0de1f6acfdf4"
 
+  livecheck do
+    url "https://archives.eyrie.org/software/perl/"
+    regex(/href=.*?podlators[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "3befc44e77ae00da3acfe5f42a579ebc01ce376dde402404aa5496caaa81d572" => :catalina

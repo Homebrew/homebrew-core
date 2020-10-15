@@ -1,14 +1,15 @@
 class Geoipupdate < Formula
   desc "Automatic updates of GeoIP2 and GeoIP Legacy databases"
   homepage "https://github.com/maxmind/geoipupdate"
-  url "https://github.com/maxmind/geoipupdate/archive/v4.2.2.tar.gz"
-  sha256 "a9267a1fbbadc4686198002d3de0ef60a65e3b47c4e050bcdccf692aa1791092"
+  url "https://github.com/maxmind/geoipupdate/archive/v4.3.0.tar.gz"
+  sha256 "0c6df6a563203e87e80c9998975c287cd4e3a5eb6c83b90dd5a0597298b098f0"
+  license "Apache-2.0"
   head "https://github.com/maxmind/geoipupdate.git"
 
   bottle do
-    sha256 "e860b51cd8d075ab3a96827795d8e210c2b7ac88f6502ccdb4ad9533e2e189f2" => :catalina
-    sha256 "84b1047359a60c208d00fab6f78ed5942236117b4680f7381e0a5f78cc9a911e" => :mojave
-    sha256 "92441c75c201f0b29c0b57e78e5a3025b19ef1f7e6f871f0238d65b77fe44174" => :high_sierra
+    sha256 "8e03cdb8795a6a0dbd1a35a12c50e2021fee969926f6498369b0b04ea097c942" => :catalina
+    sha256 "710a53cf245d180e66f8b4626ff22cb2587912a8e8cd17b9cb34b6d5ffcc3174" => :mojave
+    sha256 "99a8bc8e63c1c8949e52fdd0fe04a27e1c2d973f2d2e9959fda52795bb7d01ed" => :high_sierra
   end
 
   depends_on "go" => :build

@@ -3,6 +3,7 @@ class Libmxml < Formula
   homepage "https://michaelrsweet.github.io/mxml/"
   url "https://github.com/michaelrsweet/mxml/releases/download/v3.1/mxml-3.1.tar.gz"
   sha256 "1ac8d252f62f9dc2b2004518c70d2da313bdfcd92b8350e215f46064a34b52fc"
+  license "Apache-2.0"
   head "https://github.com/michaelrsweet/mxml.git"
 
   bottle do
@@ -13,7 +14,7 @@ class Libmxml < Formula
     sha256 "044434b96bcf9a3097e28c4e85fa5e1e558f2b2dc62c7e8eba6363c664924b68" => :sierra
   end
 
-  depends_on :xcode => :build # for docsetutil
+  depends_on xcode: :build # for docsetutil
 
   def install
     system "./configure", "--disable-debug",

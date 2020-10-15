@@ -3,6 +3,7 @@ class Mp3check < Formula
   homepage "https://code.google.com/archive/p/mp3check/"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/mp3check/mp3check-0.8.7.tgz"
   sha256 "27d976ad8495671e9b9ce3c02e70cb834d962b6fdf1a7d437bb0e85454acdd0e"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

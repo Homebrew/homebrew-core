@@ -5,6 +5,10 @@ class Takt < Formula
   sha256 "eb2947eb49ef84b6b3644f9cf6f1ea204283016c4abcd1f7c57b24b896cc638f"
   revision 2
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "b5f6d5891f4955b26be88358c37199d9f9b1ebd66eaaa519ccbcfddbfa615780" => :catalina
     sha256 "c45509b2d6828c514a0397f9c57284f7c4efcca766deddc762ef69cac715d3df" => :mojave

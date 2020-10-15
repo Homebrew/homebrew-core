@@ -2,20 +2,28 @@ class Consul < Formula
   desc "Tool for service discovery, monitoring and configuration"
   homepage "https://www.consul.io"
   url "https://github.com/hashicorp/consul.git",
-      :tag      => "v1.7.2",
-      :revision => "9ea1a204d832cfd4d8c5cba9df56876a526a4531"
+      tag:      "v1.8.4",
+      revision: "12b16df320052414244659e4dadda078f67849ed"
+  license "MPL-2.0"
   head "https://github.com/hashicorp/consul.git",
-       :shallow => false
+       shallow: false
+
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "48d3dfc2bf8a652d9174272f441bcef15f6bef57c1a31e9825962fae52acd06d" => :catalina
-    sha256 "2c321bc2005e2bef8825fa86c95755d36957c38c9c1ee44936bc201d14028802" => :mojave
-    sha256 "6018791332232109b70c857748f49efb9d832c105f713d124a0f01e581668d5e" => :high_sierra
+    sha256 "e0890d42a6d9aeaeef5ab40c147136bbc90f781995581522775b3a2bc0bf17b6" => :catalina
+    sha256 "13c38541d8e7266fd91ff6d82b8083d4f83bdbcd225b262f9b6ec806f0d9da1f" => :mojave
+    sha256 "b0db03d14e1a894d38f666c7ca7cc75251b1f85fe91ecf87629276fd319aaf7e" => :high_sierra
   end
 
   depends_on "go" => :build
   depends_on "gox" => :build
+
+  uses_from_macos "zip" => :build
 
   def install
     ENV["XC_OS"] = "darwin"
@@ -33,7 +41,7 @@ class Consul < Formula
     end
   end
 
-  plist_options :manual => "consul agent -dev -advertise 127.0.0.1"
+  plist_options manual: "consul agent -dev -bind 127.0.0.1"
 
   def plist
     <<~EOS
@@ -53,7 +61,7 @@ class Consul < Formula
             <string>#{opt_bin}/consul</string>
             <string>agent</string>
             <string>-dev</string>
-            <string>-advertise</string>
+            <string>-bind</string>
             <string>127.0.0.1</string>
           </array>
           <key>RunAtLoad</key>
@@ -70,10 +78,29 @@ class Consul < Formula
   end
 
   test do
+    http_port = free_port
     fork do
-      exec "#{bin}/consul", "agent", "-data-dir", "."
+      # most ports must be free, but are irrelevant to this test
+      system(
+        "#{bin}/consul",
+        "agent",
+        "-dev",
+        "-bind", "127.0.0.1",
+        "-dns-port", "-1",
+        "-grpc-port", "-1",
+        "-http-port", http_port,
+        "-serf-lan-port", free_port,
+        "-serf-wan-port", free_port,
+        "-server-port", free_port
+      )
     end
+
+    # wait for startup
     sleep 3
-    system "#{bin}/consul", "leave"
+
+    k = "brew-formula-test"
+    v = "value"
+    system "#{bin}/consul", "kv", "put", "-http-addr", "127.0.0.1:#{http_port}", k, v
+    assert_equal v, shell_output("#{bin}/consul kv get -http-addr 127.0.0.1:#{http_port} #{k}").chomp
   end
 end

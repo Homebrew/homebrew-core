@@ -1,29 +1,31 @@
 class FbClient < Formula
   desc "Shell-script client for https://paste.xinu.at"
   homepage "https://paste.xinu.at"
-  url "https://paste.xinu.at/data/client/fb-2.0.4.tar.gz"
-  sha256 "330c9593afd2b2480162786992d0bfb71be25faf105f3c24c71d514b58ee0cd3"
-  revision 1
-  head "https://git.server-speed.net/users/flo/fb", :using => :git
+  url "https://paste.xinu.at/data/client/fb-2.1.1.tar.gz"
+  sha256 "8fbcffc853b298a8497ab0f66b254c0c9ae4cbd31ab9889912a44a8c5c7cef0e"
+  head "https://git.server-speed.net/users/flo/fb", using: :git
+
+  livecheck do
+    url :homepage
+    regex(%r{Latest release:.*?href=.*?/fb[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "cdcc8da860e21b55408369556cd2d74d0b85e0ce3b0486ef3efe54d674a4832a" => :catalina
-    sha256 "1e2a04de1b67cb39442f8ce50e852ca02b617d93697f3f87414ab5448a529bc4" => :mojave
-    sha256 "294e9014f93b9dfd3e31e2eafeec205bb92db28c2d6e2b59b3b113e240e8b277" => :high_sierra
-    sha256 "9fa4abfeef74367bdd1305181126bde6009b1cef6c5b6acdc8c878433270b920" => :sierra
+    sha256 "bbbad25721959b383df725f73e0ae2b4c88d6004a57e518db166d61b21257192" => :catalina
+    sha256 "0f388dab8af256ce96a76174468a10d584985ef5750727197d266feb17b6664f" => :mojave
+    sha256 "47b2c5ec2421f9382dd7a918f9002cb858748490d2605cb07e47b911a0eba2be" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "curl-openssl"
-  depends_on "python"
+  depends_on "python@3.8"
 
-  conflicts_with "findbugs", :because => "findbugs and fb-client both install a `fb` binary"
+  conflicts_with "findbugs", because: "findbugs and fb-client both install a `fb` binary"
 
   resource "pycurl" do
-    url "https://files.pythonhosted.org/packages/e8/e4/0dbb8735407189f00b33d84122b9be52c790c7c3b25286826f4e1bdb7bde/pycurl-7.43.0.2.tar.gz"
-    sha256 "0f0cdfc7a92d4f2a5c44226162434e34f7d6967d3af416a6f1448649c09a25a4"
+    url "https://files.pythonhosted.org/packages/ef/05/4b773f74f830a90a326b06f9b24e65506302ab049e825a3c0b60b1a6e26a/pycurl-7.43.0.5.tar.gz"
+    sha256 "ec7dd291545842295b7b56c12c90ffad2976cc7070c98d7b1517b7b6cd5994b3"
   end
 
   resource "pyxdg" do
@@ -35,23 +37,25 @@ class FbClient < Formula
     # avoid pycurl error about compile-time and link-time curl version mismatch
     ENV.delete "SDKROOT"
 
-    xy = Language::Python.major_minor_version "python3"
+    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
 
     # avoid error about libcurl link-time and compile-time ssl backend mismatch
     resource("pycurl").stage do
-      system "python3", *Language::Python.setup_install_args(libexec/"vendor"),
-                        "--curl-config=#{Formula["curl-openssl"].opt_bin}/curl-config"
+      system Formula["python@3.8"].opt_bin/"python3",
+             *Language::Python.setup_install_args(libexec/"vendor"),
+             "--curl-config=#{Formula["curl-openssl"].opt_bin}/curl-config"
     end
 
     resource("pyxdg").stage do
-      system "python3", *Language::Python.setup_install_args(libexec/"vendor")
+      system Formula["python@3.8"].opt_bin/"python3",
+             *Language::Python.setup_install_args(libexec/"vendor")
     end
 
-    inreplace "fb", "#!/usr/bin/env python", "#!/usr/bin/env python3"
+    inreplace "fb", "#!/usr/bin/env python", "#!#{Formula["python@3.8"].opt_bin}/python3"
 
     system "make", "PREFIX=#{prefix}", "install"
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
   end
 
   test do

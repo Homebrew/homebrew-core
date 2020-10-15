@@ -10,7 +10,7 @@ class RdsCommandLineTools < Formula
   depends_on "openjdk"
 
   def install
-    env = { :JAVA_HOME => Formula["openjdk"].opt_prefix, :AWS_RDS_HOME => libexec }
+    env = { JAVA_HOME: Formula["openjdk"].opt_prefix, AWS_RDS_HOME: libexec }
     rm Dir["bin/*.cmd"] # Remove Windows versions
     etc.install "credential-file-path.template"
     libexec.install Dir["*"]

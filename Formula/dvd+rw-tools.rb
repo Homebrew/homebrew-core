@@ -3,6 +3,7 @@ class DvdxrwTools < Formula
   homepage "http://fy.chalmers.se/~appro/linux/DVD+RW/"
   url "http://fy.chalmers.se/~appro/linux/DVD+RW/tools/dvd+rw-tools-7.1.tar.gz"
   sha256 "f8d60f822e914128bcbc5f64fbe3ed131cbff9045dca7e12c5b77b26edde72ca"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

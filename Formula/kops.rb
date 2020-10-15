@@ -1,18 +1,24 @@
 class Kops < Formula
   desc "Production Grade K8s Installation, Upgrades, and Management"
   homepage "https://github.com/kubernetes/kops"
-  url "https://github.com/kubernetes/kops/archive/1.16.0.tar.gz"
-  sha256 "0154395acb7d612a3f072e29db424d8c8065d77b324540a1517aab297d28b3ff"
+  url "https://github.com/kubernetes/kops/archive/v1.18.1.tar.gz"
+  sha256 "3329af791a6a9de82974fc062cd0281de4bfa08aec2573768c261b84578e5084"
+  license "Apache-2.0"
   head "https://github.com/kubernetes/kops.git"
+
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3eda0d9df8cfb8366430973a7e7102e42f8740c976db0faa684a5c194cfd7110" => :catalina
-    sha256 "cf816d4c78b3318f4cfa80542858f07ece2e2bf38741a17c6dd7e486f20fac81" => :mojave
-    sha256 "8c010826e2d21041785add51dd9f2de8df67f984d57b5fc96cf8fbb717758a83" => :high_sierra
+    sha256 "aa71e0cc7ac2a06c6755f71e9220137fef5a34053ecd45cb16696ce7a7f4e6a9" => :catalina
+    sha256 "316cbe047504ba40097fdefe1486b6eda6b040c650b0cdd405cccc8b20be265a" => :mojave
+    sha256 "9fe9f6c3c03551f0c4aa7acb5b89df1cd28779de6de4baa058a2fae8b41b45ce" => :high_sierra
   end
 
-  depends_on "go@1.12" => :build
+  depends_on "go" => :build
   depends_on "kubernetes-cli"
 
   def install
@@ -24,11 +30,11 @@ class Kops < Formula
     bin.install("bin/kops")
 
     # Install bash completion
-    output = Utils.popen_read("#{bin}/kops completion bash")
+    output = Utils.safe_popen_read("#{bin}/kops", "completion", "bash")
     (bash_completion/"kops").write output
 
     # Install zsh completion
-    output = Utils.popen_read("#{bin}/kops completion zsh")
+    output = Utils.safe_popen_read("#{bin}/kops", "completion", "zsh")
     (zsh_completion/"_kops").write output
   end
 

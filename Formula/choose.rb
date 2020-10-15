@@ -3,19 +3,21 @@ class Choose < Formula
   homepage "https://github.com/geier/choose"
   url "https://github.com/geier/choose/archive/v0.1.0.tar.gz"
   sha256 "d09a679920480e66bff36c76dd4d33e8ad739a53eace505d01051c114a829633"
-  revision 2
+  license "MIT"
+  revision 3
   head "https://github.com/geier/choose.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2ab4073c8ee6edfe6d8755faa1a3b40b086de12f9c4bba2054de3dbdda68513c" => :catalina
-    sha256 "15cf39919e08f33252dd110f7c2d61ece1865bfbf1d32041f57b491fb7ccbb1d" => :mojave
-    sha256 "61defb32c37bb7d6c152043f6602d0abd1cbc8aac25fe2fa888e1905fe68ba85" => :high_sierra
+    sha256 "086ebca8f9bff4d065e788c9076bfe204b958f96b8da0cce142f3c890c38cb75" => :catalina
+    sha256 "bef5f7490cf4a45398bfdef4867163957675227e74bab1494ea0da56cda2cda6" => :mojave
+    sha256 "f860816e00292d161ed6f6617cef47c3297eb91e9231f3c125ce12b16ad7d220" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
-  conflicts_with "choose-gui", :because => "both install a `choose` binary"
+  conflicts_with "choose-gui", because: "both install a `choose` binary"
+  conflicts_with "choose-rust", because: "both install a `choose` binary"
 
   resource "urwid" do
     url "https://files.pythonhosted.org/packages/45/dd/d57924f77b0914f8a61c81222647888fbb583f89168a376ffeb5613b02a6/urwid-2.1.0.tar.gz"
@@ -32,7 +34,7 @@ class Choose < Formula
 
     bin.install "choose"
 
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
   end
 
   test do

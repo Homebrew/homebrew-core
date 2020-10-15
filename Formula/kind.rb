@@ -1,15 +1,17 @@
 class Kind < Formula
   desc "Run local Kubernetes cluster in Docker"
   homepage "https://kind.sigs.k8s.io/"
-  url "https://github.com/kubernetes-sigs/kind/archive/v0.7.0.tar.gz"
-  sha256 "d2d4f98596b68c449be95a31e9680fbf7ff3503a28a0943f1997eba50de208f9"
+  url "https://github.com/kubernetes-sigs/kind/archive/v0.9.0.tar.gz"
+  sha256 "c154289659a7ef30b301a0787ecfa2e08edaada6059bf5acefe9f3be1e026381"
+  license "Apache-2.0"
   head "https://github.com/kubernetes-sigs/kind.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fa2ba3846ebbb34f23bddeb09e646e9c25ce1db629b4e6edf40d7bd9d191f9d2" => :catalina
-    sha256 "a8aa767a31255c10b5b93890cfac3eb005b480b6b40220831f1dc235f0d8dea8" => :mojave
-    sha256 "12a4e4fdac5204ff6ea47cbcfb16722ba0671aaf1e97a14facd638ec437425ca" => :high_sierra
+    rebuild 1
+    sha256 "e5ba99b5f14711e0dcb121a992d74c5ee6c6b0468b27e5200bf796d4987e13c0" => :catalina
+    sha256 "d52a780ad6af93a2a7c480a41c5178a461b9966ddc1adb66adde8ff3bce15238" => :mojave
+    sha256 "423ea750ae8589d1a199847f746d8e9b5b1f1d81ceff3a9dab2d63f161532588" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -19,12 +21,16 @@ class Kind < Formula
     prefix.install_metafiles
 
     # Install bash completion
-    output = Utils.popen_read("#{bin}/kind completion bash")
+    output = Utils.safe_popen_read("#{bin}/kind", "completion", "bash")
     (bash_completion/"kind").write output
 
     # Install zsh completion
-    output = Utils.popen_read("#{bin}/kind completion zsh")
+    output = Utils.safe_popen_read("#{bin}/kind", "completion", "zsh")
     (zsh_completion/"_kind").write output
+
+    # Install fish completion
+    output = Utils.safe_popen_read("#{bin}/kind", "completion", "fish")
+    (fish_completion/"kind.fish").write output
   end
 
   test do

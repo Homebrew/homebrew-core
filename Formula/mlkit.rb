@@ -3,7 +3,13 @@ class Mlkit < Formula
   homepage "https://melsman.github.io/mlkit"
   url "https://github.com/melsman/mlkit/archive/mlkit-4.4.3.tar.gz"
   sha256 "51ee5ced1dc639f2c58556dca0dec5c3243dba4705e1cdb91247fa9644b16625"
+  license "GPL-2.0"
   head "https://github.com/melsman/mlkit.git"
+
+  livecheck do
+    url :head
+    regex(/mlkit[._-]v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     sha256 "52ac5d00915774111535053f287c05a63976c83ed7a5a900bbc263f030ea6900" => :mojave

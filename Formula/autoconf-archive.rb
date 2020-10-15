@@ -4,17 +4,24 @@ class AutoconfArchive < Formula
   url "https://ftp.gnu.org/gnu/autoconf-archive/autoconf-archive-2019.01.06.tar.xz"
   mirror "https://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2019.01.06.tar.xz"
   sha256 "17195c833098da79de5778ee90948f4c5d90ed1a0cf8391b4ab348e2ec511e3f"
+  license "GPL-3.0"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f793582f781bede0afc9b807ceaefe811114fb2248cf7fb87d770b8ded1bfdff" => :catalina
-    sha256 "37d5baf229236e25cc249934f6e052f3c99fe2b2c0fbf799c35e3b46ae861520" => :mojave
-    sha256 "37d5baf229236e25cc249934f6e052f3c99fe2b2c0fbf799c35e3b46ae861520" => :high_sierra
-    sha256 "73d531bc05f0eb0e5bb6ced9782bd2920157d89fd72ab42ee2e81b36f783fe98" => :sierra
+    rebuild 1
+    sha256 "75309bbf34fa9694b048206e2f79c477e8259c22df8173b43b9ec4294cff0f63" => :catalina
+    sha256 "18bec44cb2eb240971a855df50102aa6d5e6eadab4a325b3b562a04057991d0c" => :mojave
+    sha256 "ef88538afd7d325b368f15e592a62e087b4bddc66f09e65551cc3597fb3da7a3" => :high_sierra
   end
 
   # autoconf-archive is useless without autoconf
   depends_on "autoconf"
+
+  conflicts_with "gnome-common", because: "both install ax_check_enable_debug.m4 and ax_code_coverage.m4"
 
   def install
     system "./configure", "--prefix=#{prefix}"

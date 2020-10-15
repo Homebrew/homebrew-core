@@ -1,15 +1,16 @@
 class Fdupes < Formula
   desc "Identify or delete duplicate files"
   homepage "https://github.com/adrianlopezroche/fdupes"
-  url "https://github.com/adrianlopezroche/fdupes/releases/download/2.0.0/fdupes-2.0.0.tar.gz"
-  sha256 "eb9e3bd3e722ebb2a272e45a1073f78c60f8989b151c3661421b86b14b203410"
+  url "https://github.com/adrianlopezroche/fdupes/releases/download/v2.1.2/fdupes-2.1.2.tar.gz"
+  sha256 "cd5cb53b6d898cf20f19b57b81114a5b263cc1149cd0da3104578b083b2837bd"
+  license "MIT"
   version_scheme 1
 
   bottle do
     cellar :any
-    sha256 "f23e032f6c62aabb8a3a5935286363f4b5f805a2e9126612c551f6e8bf9c4105" => :catalina
-    sha256 "b8729a91b857ff0f5b314350471434dcad1918a1bb6bd555b6fe41cb1a355ab7" => :mojave
-    sha256 "44f3f184a04ac478d4b49e25886a50f24853f9ef52058d94f331ee6a71006727" => :high_sierra
+    sha256 "e77144bd7d4b3ed472590b0bb7cb99dea185cf57b5b645bb0558c312441624c0" => :catalina
+    sha256 "d9504149274c97eb7edb268d43ff18ebd292046d4c5691ae7c7aa9d16b40b0b3" => :mojave
+    sha256 "0bd9b7c00c454042c485b1839ce6cef7f42af21710aa0d83f64a51ab5b18bfe2" => :high_sierra
   end
 
   depends_on "pcre2"

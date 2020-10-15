@@ -12,9 +12,9 @@ class CloudWatch < Formula
 
   def install
     env = {
-      :JAVA_HOME           => Formula["openjdk"].opt_prefix,
-      :AWS_CLOUDWATCH_HOME => libexec,
-      :SERVICE_HOME        => libexec,
+      JAVA_HOME:           Formula["openjdk"].opt_prefix,
+      AWS_CLOUDWATCH_HOME: libexec,
+      SERVICE_HOME:        libexec,
     }
     rm Dir["bin/*.cmd"] # Remove Windows versions
     libexec.install Dir["*"]

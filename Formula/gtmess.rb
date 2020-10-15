@@ -3,7 +3,12 @@ class Gtmess < Formula
   homepage "https://gtmess.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/gtmess/gtmess/0.97/gtmess-0.97.tar.gz"
   sha256 "606379bb06fa70196e5336cbd421a69d7ebb4b27f93aa1dfd23a6420b3c6f5c6"
+  license "GPL-2.0"
   revision 2
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     sha256 "3c8e2979b478bfe761e2baf263ce4bfdee03426d853ee10faaba353481a21420" => :catalina

@@ -3,6 +3,7 @@ class Openjazz < Formula
   homepage "http://www.alister.eu/jazz/oj/"
   url "https://github.com/AlisterT/openjazz/archive/20190106.tar.gz"
   sha256 "27da3ab32cb6b806502a213c435e1b3b6ecebb9f099592f71caf6574135b1662"
+  license "GPL-2.0"
   head "https://github.com/AlisterT/openjazz.git"
 
   bottle do

@@ -5,16 +5,19 @@ class Theharvester < Formula
   homepage "http://www.edge-security.com/theharvester.php"
   url "https://github.com/laramies/theHarvester/archive/V3.1.tar.gz"
   sha256 "5157f61bdd8fa2a7e5f4c055709e251a1664a86b0265450e5a68d2cdf8c55c13"
+  license "GPL-2.0"
+  revision 1
   head "https://github.com/laramies/theHarvester.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "274398dbaf8d24f8b52d6aaa436081486d95839b3a7040ed40f8afe37d1184b4" => :catalina
-    sha256 "a12701a839ff69050ab270b1e3b18758aa6d107cc30a6cc7b1c4ce9d0a2d8dc0" => :mojave
-    sha256 "fa44985ba8c6761d27b5c26582dfc79e14ede1c55d9e320d843095b419acdece" => :high_sierra
+    cellar :any
+    sha256 "46856f81e9b3e915c37f652886bd17f886fbc7d3c4fb25095a43a04b5b2a916c" => :catalina
+    sha256 "ef8331534e766d52d242fe874e331baa3e563e366a8f5a2bae777024b38310fb" => :mojave
+    sha256 "628cf264b4109d51f768dde76b59409a02d1d6167ce1843d30d9f0ef82016a65" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "libyaml"
+  depends_on "python@3.8"
 
   resource "PyYAML" do
     url "https://files.pythonhosted.org/packages/e3/e8/b3212641ee2718d556df0f23f78de8303f068fe29cdaa7a91018849582fe/PyYAML-5.1.2.tar.gz"
@@ -137,7 +140,7 @@ class Theharvester < Formula
 
     libexec.install Dir["*"]
     (libexec/"theHarvester.py").chmod 0755
-    (bin/"theharvester").write_env_script("#{libexec}/theHarvester.py", :PATH => "#{libexec}/venv/bin:$PATH")
+    (bin/"theharvester").write_env_script("#{libexec}/theHarvester.py", PATH: "#{libexec}/venv/bin:$PATH")
   end
 
   test do

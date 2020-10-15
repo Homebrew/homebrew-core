@@ -4,6 +4,11 @@ class Fdclone < Formula
   url "http://www.unixusers.net/src/fdclone/FD-3.01j.tar.gz"
   sha256 "fe5bb67eb670dcdb1f7368698641c928523e2269b9bee3d13b3b77565d22a121"
 
+  livecheck do
+    url :homepage
+    regex(%r{href=.*?\./FD[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t}i)
+  end
+
   bottle do
     sha256 "6272d033132a7a2c355ab19629241021087c606de3114e2ebe4aa301e6bee840" => :catalina
     sha256 "b3a56f6b62622696f4da6554a487557a57c0875c2aba28705e300b7207f6a8ce" => :mojave

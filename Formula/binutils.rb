@@ -1,18 +1,22 @@
 class Binutils < Formula
   desc "GNU binary tools for native development"
   homepage "https://www.gnu.org/software/binutils/binutils.html"
-  url "https://ftp.gnu.org/gnu/binutils/binutils-2.34.tar.xz"
-  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.34.tar.xz"
-  sha256 "f00b0e8803dc9bab1e2165bd568528135be734df3fabf8d0161828cd56028952"
+  url "https://ftp.gnu.org/gnu/binutils/binutils-2.35.1.tar.xz"
+  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.35.1.tar.xz"
+  sha256 "3ced91db9bf01182b7e420eab68039f2083aed0a214c0424e257eae3ddee8607"
+  license "GPL-2.0"
 
-  bottle do
-    sha256 "1e21593a927df65e405f9d3bdc8f86fe83b1236c5c945641a2de775c99327953" => :catalina
-    sha256 "142e380448ac77bc0f7974ff9b9ddae6a90c4ef5f182cac0c2b029baa8460173" => :mojave
-    sha256 "87bda0c909a5bd2043d35b073f2268cac7aed074a89d903973e4909d68dfdf46" => :high_sierra
+  livecheck do
+    url :stable
   end
 
-  keg_only :provided_by_macos,
-           "because Apple provides the same tools and binutils is poorly supported on macOS"
+  bottle do
+    sha256 "f5b1ef7f5209ccceee53625f240fe85ffa42661d6d7a1058d879d544c3d2076b" => :catalina
+    sha256 "12d25883cb8fd258343baba320ad465da3ce929c988b9950545e8b4d1a403a7d" => :mojave
+    sha256 "56e4eba418acac34302d7b46bc04dbf3c64ddffa2a2830cd5f6ad12911e33294" => :high_sierra
+  end
+
+  keg_only :shadowed_by_macos, "Apple's CLT provides the same tools"
 
   uses_from_macos "zlib"
 

@@ -5,16 +5,21 @@ class Jinja2Cli < Formula
   homepage "https://github.com/mattrobenolt/jinja2-cli"
   url "https://files.pythonhosted.org/packages/23/67/6f05f5f8a9fc108c58e4eac9b9b7876b400985d33149fe2faa87a9ca502b/jinja2-cli-0.7.0.tar.gz"
   sha256 "9ccd8d530dad5d031230afd968cf54637b49842a13ececa6e17c2f67f6e9336e"
-  revision 2
+  license "BSD-2-Clause"
+  revision 3
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "31848f994850d25890342ec76c1259e6b19738105cf7cb8d58eae1f3abb29252" => :catalina
-    sha256 "c1f403a72668b4ffdc5da4e02d6d35cdb712a3b0cd8cf2b91a844b34e5b21370" => :mojave
-    sha256 "972f68142054b8201968d19962ad237b29f9ab2d15b1f5b7b27d5798685db797" => :high_sierra
+    sha256 "f87af5f900907686304e0937303eadeb5050d48e3ae85c340ec39e8918177d1e" => :catalina
+    sha256 "a64bc73445720cf2a272854643c6f66aa0dfec769bd96f292b134054d5b1f84a" => :mojave
+    sha256 "6ae50d5282b186cbf0a8b46b44a173a685a8798fec0606efc6d15bccae9b6a92" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "jinja2" do
     url "https://files.pythonhosted.org/packages/93/ea/d884a06f8c7f9b7afbc8138b762e80479fb17aedbbe2b06515a12de9378d/Jinja2-2.10.1.tar.gz"

@@ -3,6 +3,12 @@ class Normalize < Formula
   homepage "https://www.nongnu.org/normalize/"
   url "https://savannah.nongnu.org/download/normalize/normalize-0.7.7.tar.gz"
   sha256 "6055a2abccc64296e1c38f9652f2056d3a3c096538e164b8b9526e10b486b3d8"
+  license "GPL-2.0"
+
+  livecheck do
+    url "https://download.savannah.gnu.org/releases/normalize/"
+    regex(/href=.*?normalize[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     cellar :any
@@ -18,7 +24,7 @@ class Normalize < Formula
 
   depends_on "mad"
 
-  conflicts_with "num-utils", :because => "both install `normalize` binaries"
+  conflicts_with "num-utils", because: "both install `normalize` binaries"
 
   def install
     args = %W[

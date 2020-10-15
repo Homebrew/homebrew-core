@@ -1,17 +1,74 @@
+require "language/perl"
+
 class SqlTranslator < Formula
+  include Language::Perl::Shebang
+
   desc "Manipulate structured data definitions (SQL and more)"
   homepage "https://github.com/dbsrgits/sql-translator/"
-  url "https://cpan.metacpan.org/authors/id/I/IL/ILMARI/SQL-Translator-1.60.tar.gz"
-  sha256 "6bb0cb32ca25da69df65e5de71f679f3ca90044064526fa336cabd342f220e87"
+  url "https://cpan.metacpan.org/authors/id/I/IL/ILMARI/SQL-Translator-1.62.tar.gz"
+  sha256 "0acd4ff9ac3a2f8d5d67199aac02cdc127e03888e479c51c7bbdc21b85c1ce24"
+  license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2c32a4d89ab652bf3c56459c9f8c5d73d602aefea3f8e9a9970153cedeca8c5e" => :catalina
-    sha256 "5b56cd85c30deb2c7852d0090c55f2d168ec9420c0c25d9c5513a8fb89aac711" => :mojave
-    sha256 "b3af3df936b1c03d50a9d9209e8aef974e59449179e11a2b5bc78e1f59338114" => :high_sierra
+    sha256 "3d141958909ac51a8ba45a075db30100a447230d2a6e1bf08e44a8a677425afd" => :catalina
+    sha256 "9293157476e7ed616067b1c378c811c9e05c5ec17d9c0ad14d1d785428945d80" => :mojave
+    sha256 "d9247d5d149363071ceecea045453779ebb5c0df249e0ef3b679b6c684acb453" => :high_sierra
   end
 
   uses_from_macos "perl"
+
+  on_linux do
+    resource "Moo" do
+      url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/Moo-2.003006.tar.gz"
+      sha256 "bcb2092ab18a45005b5e2e84465ebf3a4999d8e82a43a09f5a94d859ae7f2472"
+    end
+
+    resource "Module::Runtime" do
+      url "https://cpan.metacpan.org/authors/id/Z/ZE/ZEFRAM/Module-Runtime-0.016.tar.gz"
+      sha256 "68302ec646833547d410be28e09676db75006f4aa58a11f3bdb44ffe99f0f024"
+    end
+
+    resource "Sub::Quote" do
+      url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/Sub-Quote-2.006006.tar.gz"
+      sha256 "6e4e2af42388fa6d2609e0e82417de7cc6be47223f576592c656c73c7524d89d"
+    end
+
+    resource "Try::Tiny" do
+      url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/Try-Tiny-0.30.tar.gz"
+      sha256 "da5bd0d5c903519bbf10bb9ba0cb7bcac0563882bcfe4503aee3fb143eddef6b"
+    end
+
+    resource "Import::Into" do
+      url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/Import-Into-1.002005.tar.gz"
+      sha256 "bd9e77a3fb662b40b43b18d3280cd352edf9fad8d94283e518181cc1ce9f0567"
+    end
+
+    resource "Role::Tiny" do
+      url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/Role-Tiny-2.001004.tar.gz"
+      sha256 "92ba5712850a74102c93c942eb6e7f62f7a4f8f483734ed289d08b324c281687"
+    end
+
+    resource "Class::Method::Modifiers" do
+      url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/Class-Method-Modifiers-2.13.tar.gz"
+      sha256 "ab5807f71018a842de6b7a4826d6c1f24b8d5b09fcce5005a3309cf6ea40fd63"
+    end
+
+    resource "DBI" do
+      url "https://cpan.metacpan.org/authors/id/T/TI/TIMB/DBI-1.643.tar.gz"
+      sha256 "8a2b993db560a2c373c174ee976a51027dd780ec766ae17620c20393d2e836fa"
+    end
+
+    resource "Carp::Clan" do
+      url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/Carp-Clan-6.08.tar.gz"
+      sha256 "c75f92e34422cc5a65ab05d155842b701452434e9aefb649d6e2289c47ef6708"
+    end
+
+    resource "Parse::RecDescent" do
+      url "https://cpan.metacpan.org/authors/id/J/JT/JTBRAUN/Parse-RecDescent-1.967015.tar.gz"
+      sha256 "1943336a4cb54f1788a733f0827c0c55db4310d5eae15e542639c9dd85656e37"
+    end
+  end
 
   resource "File::ShareDir::Install" do
     url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/File-ShareDir-Install-0.13.tar.gz"
@@ -49,9 +106,9 @@ class SqlTranslator < Formula
     # Disable dynamic selection of perl which may cause segfault when an
     # incompatible perl is picked up.
     # https://github.com/Homebrew/homebrew-core/issues/4936
-    inreplace Dir["#{bin}/*"], "#!/usr/bin/env perl", "#!/usr/bin/perl"
+    bin.find { |f| rewrite_shebang detected_perl_shebang, f }
 
-    bin.env_script_all_files libexec/"bin", :PERL5LIB => ENV["PERL5LIB"]
+    bin.env_script_all_files libexec/"bin", PERL5LIB: ENV["PERL5LIB"]
   end
 
   test do

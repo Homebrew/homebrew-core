@@ -16,8 +16,6 @@ class Xhyve < Formula
     sha256 "e61ee4b3d2d3b5bba47f4288af54980f5de7991cadf6aa83dc058cb36854c789" => :yosemite
   end
 
-  depends_on :macos => :yosemite
-
   def install
     args = []
     args << "GIT_VERSION=#{version}" if build.stable?

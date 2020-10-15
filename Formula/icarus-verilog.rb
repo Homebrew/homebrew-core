@@ -4,7 +4,13 @@ class IcarusVerilog < Formula
   url "https://github.com/steveicarus/iverilog/archive/v10_3.tar.gz"
   mirror "https://deb.debian.org/debian/pool/main/i/iverilog/iverilog_10.3.orig.tar.gz"
   sha256 "4b884261645a73b37467242d6ae69264fdde2e7c4c15b245d902531efaaeb234"
+  license "LGPL-2.1"
   head "https://github.com/steveicarus/iverilog.git"
+
+  livecheck do
+    url "https://ftp.openbsd.org/pub/OpenBSD/distfiles/"
+    regex(/href=.*?verilog[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 "bf40a384b8432dfb72276e31e87d550b9b47515dc68bdfb25f0cde9becd4ac10" => :catalina
@@ -20,6 +26,11 @@ class IcarusVerilog < Formula
   uses_from_macos "flex" => :build
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "gperf" => :build
+    depends_on "readline"
+  end
 
   def install
     system "autoconf"

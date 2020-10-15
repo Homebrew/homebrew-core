@@ -4,7 +4,7 @@ class Dwm < Formula
   url "https://dl.suckless.org/dwm/dwm-6.2.tar.gz"
   sha256 "97902e2e007aaeaa3c6e3bed1f81785b817b7413947f1db1d3b62b8da4cd110e"
   revision 1
-  head "https://git.suckless.org/dwm", :using => :git
+  head "https://git.suckless.org/dwm", using: :git
 
   bottle do
     cellar :any_skip_relocation

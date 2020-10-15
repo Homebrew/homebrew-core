@@ -4,6 +4,11 @@ class Antlr4CppRuntime < Formula
   url "https://www.antlr.org/download/antlr4-cpp-runtime-4.8-source.zip"
   sha256 "58c9c8f83ed2b2224a047a2ca8af8c7ca2f45bc13ff30bd8777ce65ba81d6d11"
 
+  livecheck do
+    url "https://www.antlr.org/download/"
+    regex(/href=.*?antlr4-cpp-runtime[._-]v?(\d+(?:\.\d+)+)-source\.zip/i)
+  end
+
   bottle do
     cellar :any
     sha256 "e1d273ddfa0ec6d39e6ec23765d4d91951c3089e125bfc65446826be88d534a8" => :catalina

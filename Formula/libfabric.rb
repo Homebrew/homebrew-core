@@ -1,15 +1,16 @@
 class Libfabric < Formula
   desc "OpenFabrics libfabric"
   homepage "https://ofiwg.github.io/libfabric/"
-  url "https://github.com/ofiwg/libfabric/releases/download/v1.9.1/libfabric-1.9.1.tar.bz2"
-  sha256 "c305c6035c992523e08c7591a6a3707225ba3e72de40443eaed837a10df6771a"
+  url "https://github.com/ofiwg/libfabric/releases/download/v1.11.1/libfabric-1.11.1.tar.bz2"
+  sha256 "a72a7dac6322bed09ef1af33bcade3024ca5847a1e9c8fa369da6ab879111fe7"
+  license any_of: ["BSD-2-Clause", "GPL-2.0-only"]
   head "https://github.com/ofiwg/libfabric.git"
 
   bottle do
     cellar :any
-    sha256 "87fc1c6f94b6b9941c38e6803d3f09b26dc5be18cb76c91f60a70c564ded6b1e" => :catalina
-    sha256 "a20ac83b033d5d5ac9c85cab4562abe1374690cd1d7f08934d28e2513e62b193" => :mojave
-    sha256 "ff81fb4106045c7e764ea17190cf78a7e7d9333ac5045ea3153b07ce87a210be" => :high_sierra
+    sha256 "8aa0b77f4999eb110de1a377250b2aa82dc719a07f33197dc5041f257a64e668" => :catalina
+    sha256 "0c297a2011336eb7e1b4273d7f204888b1c7d22e24ae6354676822b912874bfe" => :mojave
+    sha256 "897aa5456f78ee765d586c3a249c75f4f96178de847c09a4ce45834701236903" => :high_sierra
   end
 
   depends_on "autoconf" => :build
@@ -25,6 +26,6 @@ class Libfabric < Formula
   end
 
   test do
-    system "#(bin}/fi_info"
+    assert_match "provider: sockets", shell_output("#{bin}/fi_info")
   end
 end

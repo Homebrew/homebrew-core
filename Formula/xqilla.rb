@@ -4,6 +4,11 @@ class Xqilla < Formula
   url "https://downloads.sourceforge.net/project/xqilla/XQilla-2.3.4.tar.gz"
   sha256 "292631791631fe2e7eb9727377335063a48f12611d641d0296697e0c075902eb"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/XQilla[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     rebuild 1
@@ -16,7 +21,7 @@ class Xqilla < Formula
 
   depends_on "xerces-c"
 
-  conflicts_with "zorba", :because => "Both supply xqc.h"
+  conflicts_with "zorba", because: "both supply `xqc.h`"
 
   def install
     ENV.cxx11

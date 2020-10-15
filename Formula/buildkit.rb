@@ -2,21 +2,27 @@ class Buildkit < Formula
   desc "Сoncurrent, cache-efficient, and Dockerfile-agnostic builder toolkit"
   homepage "https://github.com/moby/buildkit"
   url "https://github.com/moby/buildkit.git",
-      :tag      => "v0.7.0",
-      :revision => "c60a1eb215d795a12e43ceff6a5ed67ce1ad958d"
+      tag:      "v0.7.2",
+      revision: "22e230744171b4442101731951bbbecf97796ea5"
+  license "Apache-2.0"
   head "https://github.com/moby/buildkit.git"
+
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2366e2aff20896e75b862e054eace8f08b6df35b91874f6bb72e16d05d8ddb9a" => :catalina
-    sha256 "d3ef111b9494b03c7c3dff185f59b9d2299e6d2502c0959baa1b7cdd1807c6ae" => :mojave
-    sha256 "fe0166769a3ba14f3d307c5b363563e88898455022efe8432acf6210afa2e750" => :high_sierra
+    sha256 "b3fb77472c881ebcdfbc72cbd1c0dd236c29bca54ea64551bf4f7bd5dfdf8e35" => :catalina
+    sha256 "336d451ad65d94ae7dc95bd56cbddb39d79774a2e6e73178cb7d281e5844cda9" => :mojave
+    sha256 "b11635ac82a9abfd99e7f796b4c8f2cea8a0219651492d6de70336067d97708e" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    revision = Utils.popen_read("git rev-parse HEAD").chomp
+    revision = Utils.safe_popen_read("git", "rev-parse", "HEAD").chomp
     ldflags = %W[
       -s -w
       -X github.com/moby/buildkit/version.Version=#{version}

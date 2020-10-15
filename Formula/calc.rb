@@ -5,6 +5,10 @@ class Calc < Formula
   sha256 "eb1dc5dd680019e30264109167e20539fe9ac869049d8b1639781a51d1dea84c"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "d78863a41409a2e3eaee0b8e4c5eb21a84ee28f1c3f8a27545d6e1f3fe3ae213" => :catalina
     sha256 "1b4e5456d4965f8b74c120590070f74896c1fca85c8aa30354ffe519c1755600" => :mojave

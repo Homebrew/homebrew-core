@@ -4,6 +4,11 @@ class Fig2dev < Formula
   url "https://downloads.sourceforge.net/project/mcj/fig2dev-3.2.7b.tar.xz"
   sha256 "47dc1b4420a1bc503b3771993e19cdaf75120d38be6548709f7d84f7b07d68b2"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/fig2dev[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t}i)
+  end
+
   bottle do
     sha256 "0ffe4d06ce3f489b724facdae111d0358ac5a902733f5c2ccedab8f4f3759893" => :catalina
     sha256 "f640a65192bbae6f8801e6f07d57ff8d24ffda78ea471dacaa1b33684a7858ae" => :mojave

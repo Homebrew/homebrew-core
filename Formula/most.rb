@@ -5,6 +5,11 @@ class Most < Formula
   sha256 "db805d1ffad3e85890802061ac8c90e3c89e25afb184a794e03715a3ed190501"
   head "git://git.jedsoft.org/git/most.git"
 
+  livecheck do
+    url "https://www.jedsoft.org/releases/most/"
+    regex(/href=.*?most[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "2971d721787d978c1855827c1f2cb6143ee0d1efabdfe1caa50bda981865a24d" => :catalina

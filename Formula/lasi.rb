@@ -6,6 +6,10 @@ class Lasi < Formula
   revision 1
   head "https://svn.code.sf.net/p/lasi/code/trunk"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     rebuild 1

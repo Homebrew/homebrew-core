@@ -1,17 +1,20 @@
 class Pango < Formula
   desc "Framework for layout and rendering of i18n text"
   homepage "https://www.pango.org/"
-  url "https://download.gnome.org/sources/pango/1.44/pango-1.44.7.tar.xz"
-  sha256 "66a5b6cc13db73efed67b8e933584509f8ddb7b10a8a40c3850ca4a985ea1b1f"
+  url "https://download.gnome.org/sources/pango/1.46/pango-1.46.2.tar.xz"
+  sha256 "d89fab5f26767261b493279b65cfb9eb0955cd44c07c5628d36094609fc51841"
+  license "LGPL-2.0-or-later"
+  head "https://gitlab.gnome.org/GNOME/pango.git"
 
-  bottle do
-    sha256 "38a8cab63ed7ea37fc5448b74dae21b7f935d4f4ea9c08b658f3553f20ec8f28" => :catalina
-    sha256 "643284e68fcb4699572e7ab327a16ae3eb1c242527a96cb404cd98f14f22a893" => :mojave
-    sha256 "42552a9d26655f006f2361c9a1773d56bd5c5cabcd4f6ad5861fec29bd27c2cc" => :high_sierra
+  livecheck do
+    url :stable
   end
 
-  head do
-    url "https://gitlab.gnome.org/GNOME/pango.git"
+  bottle do
+    cellar :any
+    sha256 "a38a66e69c9beea396f882fb89445ea8e9a3d1a17a395eadcab1a63831d27bba" => :catalina
+    sha256 "daed7dc6be72a1155fd9b023b0e51cf1755ab25aef019084e0d2c42b135e82f3" => :mojave
+    sha256 "5bd420e30613604dfce63ba2588a5244715bf02c0863fbb6cb538bd9ac9fc54d" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build
@@ -26,7 +29,7 @@ class Pango < Formula
 
   def install
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}",
+      system "meson", *std_meson_args,
                       "-Ddefault_library=both",
                       "-Dintrospection=true",
                       "-Duse_fontconfig=true",

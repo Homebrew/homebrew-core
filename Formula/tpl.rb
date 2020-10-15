@@ -3,6 +3,7 @@ class Tpl < Formula
   homepage "https://troydhanson.github.io/tpl/"
   url "https://github.com/troydhanson/tpl/archive/v1.6.1.tar.gz"
   sha256 "0b3750bf62f56be4c42f83c89d8449b24f1c5f1605a104801d70f2f3c06fb2ff"
+  license "BSD-1-Clause"
   head "https://github.com/troydhanson/tpl.git"
 
   bottle do

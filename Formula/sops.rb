@@ -1,16 +1,16 @@
 class Sops < Formula
   desc "Editor of encrypted files"
   homepage "https://github.com/mozilla/sops"
-  url "https://github.com/mozilla/sops/archive/v3.5.0.tar.gz"
-  sha256 "a9c257dc5ddaab736dce08b8c5b1f00e6ca1e3171909b6d7385689044ebe759b"
-  revision 1
+  url "https://github.com/mozilla/sops/archive/v3.6.1.tar.gz"
+  sha256 "bb6611eb70580ff74a258aa8b9713fdcb9a28de5a20ee716fe6b516608a60237"
+  license "MPL-2.0"
   head "https://github.com/mozilla/sops.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "55e5624ed3a1c5ccd2113d663483e8c6fabbb45dede9b691f8921d698549e39e" => :catalina
-    sha256 "7df3685379929174b605e1767b13a19af0db45c4d7f27bbf6d3b6ac905235258" => :mojave
-    sha256 "67541150ddec0ae37ad7b7f4df4ecca8eb8814bf49708abe8cf1e94099f398bb" => :high_sierra
+    sha256 "7b883bcead58c088e16a32310a29f4146066329f7f8b203bf69ec5f1fecec950" => :catalina
+    sha256 "1c0ef6707dee2088bb816d827f6cfd2d7a26ef530b5177b3ae5652aa2a0591eb" => :mojave
+    sha256 "b6e72dd038ae5c28786423aa9b5eb31c92b9533feee1b927d72cb697e3c1ddd7" => :high_sierra
   end
 
   depends_on "go" => :build

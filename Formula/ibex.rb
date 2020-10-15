@@ -1,18 +1,25 @@
 class Ibex < Formula
   desc "C++ library for constraint processing over real numbers"
   homepage "https://web.archive.org/web/20190826220512/www.ibex-lib.org/"
-  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.8.7.tar.gz"
-  sha256 "b80da9f6edecaf93edc00c7e7c630ae6cf934ce9ce061debb630f027e69b5c97"
+  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.8.8.tar.gz"
+  sha256 "8de5012232009e29b833e68cffbb62be228a863aa57712207b1933199c3c8e11"
+  license "LGPL-3.0"
   head "https://github.com/ibex-team/ibex-lib.git"
 
+  livecheck do
+    url :head
+    regex(/^ibex[._-]v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    cellar :any
-    sha256 "0de9cd95f329d455905ef0d562c4bf116b7a634adc70296830da39259b21130f" => :catalina
-    sha256 "ffebafe7aec3708cf61e3f248c891cca974d904c0e987294e45cbf0bf612d13b" => :mojave
-    sha256 "91500e1cd76da6db5afa6e5c0ac70ccf09b2ce3036d4544b2abd21a4ec3beb78" => :high_sierra
+    cellar :any_skip_relocation
+    sha256 "6c0ab52bf081342e3467176f3f777ca5825df8fae28e10d70cdad41978728a8c" => :catalina
+    sha256 "9ce827d5149844bcef31509aff4f4700865029ed6c21d941fc6d1301c1ab6a06" => :mojave
+    sha256 "ae4bc25a0504f206517129a809afa42c26bba93f93573c4cba97cddd0726f63f" => :high_sierra
   end
 
   depends_on "bison" => :build
+  depends_on "cmake" => :build
   depends_on "flex" => :build
   depends_on "pkg-config" => [:build, :test]
 
@@ -21,14 +28,11 @@ class Ibex < Formula
   def install
     ENV.cxx11
 
-    # Reported 9 Oct 2017 https://github.com/ibex-team/ibex-lib/issues/286
-    ENV.deparallelize
-
-    system "./waf", "configure", "--prefix=#{prefix}",
-                                 "--enable-shared",
-                                 "--lp-lib=soplex",
-                                 "--with-optim"
-    system "./waf", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
+      system "make", "SHARED=true"
+      system "make", "install"
+    end
 
     pkgshare.install %w[examples benchs/solver]
     (pkgshare/"examples/symb01.txt").write <<~EOS
@@ -42,14 +46,6 @@ class Ibex < Formula
     ENV.cxx11
 
     cp_r (pkgshare/"examples").children, testpath
-
-    # so that pkg-config can remain a build-time only dependency
-    inreplace %w[makefile slam/makefile] do |s|
-      s.gsub!(/CXXFLAGS.*pkg-config --cflags ibex./,
-              "CXXFLAGS := -I#{include} -I#{include}/ibex "\
-                          "-I#{include}/ibex/3rd")
-      s.gsub!(/LIBS.*pkg-config --libs  ibex./, "LIBS := -L#{lib} -libex")
-    end
 
     (1..8).each do |n|
       system "make", "lab#{n}"

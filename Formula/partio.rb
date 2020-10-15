@@ -3,6 +3,7 @@ class Partio < Formula
   homepage "https://github.com/wdas/partio"
   url "https://github.com/wdas/partio/archive/v1.10.1.tar.gz"
   sha256 "49f0d61bcca4ac3900dc68fdf11fa325cec6fab6cedde37c5a2ce365b1b46112"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any

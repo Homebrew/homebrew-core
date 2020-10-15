@@ -3,15 +3,16 @@ class AstrometryNet < Formula
 
   desc "Automatic identification of astronomical images"
   homepage "https://github.com/dstndstn/astrometry.net"
-  url "https://github.com/dstndstn/astrometry.net/releases/download/0.79/astrometry.net-0.79.tar.gz"
-  sha256 "dd5d5403cc223eb6c51a06a22a5cb893db497d1895971735321354f882c80286"
-  revision 1
+  url "https://github.com/dstndstn/astrometry.net/releases/download/0.82/astrometry.net-0.82.tar.gz"
+  sha256 "20f7ac7474962546f462286178e40b09602eeda10af98c828c64f67771fbc197"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any
-    sha256 "2bce9305bf3534c15ff744ccb9766a69da29aa7f7f10f563eee9d52ecba520ba" => :catalina
-    sha256 "79e3df66bb6bb55b39de46b3276af9f08f7b7515b79ef491722fe2967ebe7add" => :mojave
-    sha256 "22578578bdf27e45a82035ecbf9ed4e8a3da76014b0d8f63aba3651e0fe4a88e" => :high_sierra
+    rebuild 1
+    sha256 "ccf3e518f94726072dc8bb46acd9c488ebfe1d476f598808bd444a997a0f55ed" => :catalina
+    sha256 "18c57142bebb0ab4d33925494376b5826c8f3c8683594ba43f14778db48501b7" => :mojave
+    sha256 "4c27c8e8c975a78357a8e051f9f79b318767592a7a53963bcdcab252e016466c" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -23,35 +24,42 @@ class AstrometryNet < Formula
   depends_on "libpng"
   depends_on "netpbm"
   depends_on "numpy"
-  depends_on "python"
+  depends_on "python@3.8"
   depends_on "wcslib"
 
   resource "fitsio" do
-    url "https://files.pythonhosted.org/packages/d4/51/57074746cb7c9a7f5fe8039563337fbb1edabbc2c742d2acb99b1b7c204c/fitsio-1.1.0.tar.gz"
-    sha256 "b1a8846d11c3919ea75cca611de9f76bfbdf745c4439e89e983d8a6bcfb92183"
+    url "https://files.pythonhosted.org/packages/5e/d7/58ef112ec42a23a866351b09f802e1b1fa6967ac01df0c9f3ea5ee8223ce/fitsio-1.1.2.tar.gz"
+    sha256 "20e689bdbb8cbf5fc6c4a1f7154e7407ed1aa68e2d045e3e2cd814f57d85002f"
   end
 
   def install
+    # astrometry-net doesn't support parallel build
+    # See https://github.com/dstndstn/astrometry.net/issues/178#issuecomment-592741428
+    ENV.deparallelize
+
     ENV["NETPBM_INC"] = "-I#{Formula["netpbm"].opt_include}/netpbm"
     ENV["NETPBM_LIB"] = "-L#{Formula["netpbm"].opt_lib} -lnetpbm"
     ENV["SYSTEM_GSL"] = "yes"
-    ENV["PYTHON_SCRIPT"] = "#{libexec}/bin/python3"
-    ENV["PYTHON"] = "python3"
+    ENV["PYTHON"] = Formula["python@3.8"].opt_bin/"python3"
 
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
     venv.pip_install resources
 
     ENV["INSTALL_DIR"] = prefix
-    xy = Language::Python.major_minor_version "python3"
+    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
     ENV["PY_BASE_INSTALL_DIR"] = libexec/"lib/python#{xy}/site-packages/astrometry"
     ENV["PY_BASE_LINK_DIR"] = libexec/"lib/python#{xy}/site-packages/astrometry"
+    ENV["PYTHON_SCRIPT"] = libexec/"bin/python3"
 
     system "make"
     system "make", "py"
     system "make", "install"
+
+    rm prefix/"doc/report.txt"
   end
 
   test do
+    system "#{bin}/image2pnm", "-h"
     system "#{bin}/build-astrometry-index", "-d", "3", "-o", "index-9918.fits",
                                             "-P", "18", "-S", "mag", "-B", "0.1",
                                             "-s", "0", "-r", "1", "-I", "9918", "-M",

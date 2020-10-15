@@ -1,21 +1,22 @@
 class Libcbor < Formula
   desc "CBOR protocol implementation for C and others"
   homepage "http://libcbor.org/"
-  url "https://github.com/PJK/libcbor/archive/v0.6.0.tar.gz"
-  sha256 "ad97dfe6462a28956be38c924a5a557acf303d8454ca121e02150a5b87e03ee7"
+  url "https://github.com/PJK/libcbor/archive/v0.8.0.tar.gz"
+  sha256 "618097166ea4a54499646998ccaa949a5816e6a665cf1d6df383690895217c8b"
+  license "MIT"
 
   bottle do
     cellar :any
-    sha256 "59b70681658d5173ec44c8bc6ae56bc714287d599b4df7a8582f2fd62d62d002" => :catalina
-    sha256 "953ac4ba8d331b0689107f085da72083fccbf20420773819bfb6153243c3f195" => :mojave
-    sha256 "1ca2a0383d4281b6a6a52e55459345fdd82d1183eb5c9ad4f5f431de5c079297" => :high_sierra
+    sha256 "2860cc48fef2c42aaa50ae25aa90a683e22b81c3905a923e008871679aced20a" => :catalina
+    sha256 "105d0a4b3b1a2556603e5e5619a3805183af2041ef06a85784660982c803b97e" => :mojave
+    sha256 "5b20e9f902ca71c4f9a1c411c1e65eedb25f9c395d1e3ff691a0d3e7451cd6fd" => :high_sierra
   end
 
   depends_on "cmake" => :build
 
   def install
     mkdir "build" do
-      system "cmake", "-G", "Unix Makefiles", "..", *std_cmake_args
+      system "cmake", "..", "-DWITH_EXAMPLES=OFF", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
       system "make"
       system "make", "install"
     end

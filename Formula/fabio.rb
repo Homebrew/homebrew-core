@@ -1,16 +1,16 @@
 class Fabio < Formula
   desc "Zero-conf load balancing HTTP(S) router"
   homepage "https://github.com/fabiolb/fabio"
-  url "https://github.com/fabiolb/fabio/archive/v1.5.13.tar.gz"
-  sha256 "66af6e8dbd0e7cbd171a868fa42a611d445701fadd9782bb077cf9101ac08cdf"
+  url "https://github.com/fabiolb/fabio/archive/v1.5.14.tar.gz"
+  sha256 "4d0be0922a371383912a0fcf2bcd325a91aad9fc9579dcda6dbc075c7dbbbc19"
+  license "MIT"
   head "https://github.com/fabiolb/fabio.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "9ed48161ee4b2c5bcf0ce9ce520c2506bec689b2d21735d1eb4f3a3cb470fb57" => :catalina
-    sha256 "3fe400520ea3af9c28baef9b376f14d8a96c88d6c79bc057f0949e15ea9c0efe" => :mojave
-    sha256 "41ae1110be9335004d77846ab554cb5ecf45f6c48f83942b95bd752c243dcc14" => :high_sierra
+    sha256 "197702e971927d8224bee4a7db06d7e600bd2860bbc055f1df19e20ad2e63358" => :catalina
+    sha256 "d272c77961183cb8361d588c041161de1ecdd729e5857f19e3d4822ddaaf657c" => :mojave
+    sha256 "627bbe4f66761102c57375c327d4352a20825b744e9a653b42c308f3d08e4d45" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -25,9 +25,9 @@ class Fabio < Formula
     require "socket"
     require "timeout"
 
-    CONSUL_DEFAULT_PORT = 8500
-    FABIO_DEFAULT_PORT = 9999
-    LOCALHOST_IP = "127.0.0.1".freeze
+    consul_default_port = 8500
+    fabio_default_port = 9999
+    localhost_ip = "127.0.0.1".freeze
 
     def port_open?(ip_address, port, seconds = 1)
       Timeout.timeout(seconds) do
@@ -38,8 +38,8 @@ class Fabio < Formula
       false
     end
 
-    if !port_open?(LOCALHOST_IP, FABIO_DEFAULT_PORT)
-      if !port_open?(LOCALHOST_IP, CONSUL_DEFAULT_PORT)
+    if !port_open?(localhost_ip, fabio_default_port)
+      if !port_open?(localhost_ip, consul_default_port)
         fork do
           exec "consul agent -dev -bind 127.0.0.1"
           puts "consul started"
@@ -53,7 +53,7 @@ class Fabio < Formula
         puts "fabio started"
       end
       sleep 10
-      assert_equal true, port_open?(LOCALHOST_IP, FABIO_DEFAULT_PORT)
+      assert_equal true, port_open?(localhost_ip, fabio_default_port)
       system "killall", "fabio" # fabio forks off from the fork...
       system "consul", "leave"
     else

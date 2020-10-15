@@ -1,14 +1,18 @@
 class Cython < Formula
   desc "Compiler for writing C extensions for the Python language"
   homepage "https://cython.org/"
-  url "https://files.pythonhosted.org/packages/49/8a/6a4135469372da2e3d9f88f71c6d00d8a07ef65f121eeca0c7ae21697219/Cython-0.29.16.tar.gz"
-  sha256 "232755284f942cbb3b43a06cd85974ef3c970a021aef19b5243c03ee2b08fa05"
+  url "https://files.pythonhosted.org/packages/6c/9f/f501ba9d178aeb1f5bf7da1ad5619b207c90ac235d9859961c11829d0160/Cython-0.29.21.tar.gz"
+  sha256 "e57acb89bd55943c8d8bf813763d20b9099cc7165c0f16b707631a7654be9cad"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "eaeaf12607de3ef3cabd32bec18ebfa6b1dcf96610f72a82766671f452512db1" => :catalina
-    sha256 "f72bcc4ac7cabf4dc14e643ec65b56f3bb9f56de8e8c6219bb802201a958fa31" => :mojave
-    sha256 "99ada9be1fb65d70981e714bcf27134714f1968ff7fcc8751aaaf289624084b7" => :high_sierra
+    sha256 "bedaacf62301f7181b4d35dd98d3538bf27f78edffbbf0943742a50ac13781aa" => :catalina
+    sha256 "ce971564ac8590aed3f98feb6e1b48516313bcace8ff087fe3620260dc88e42a" => :mojave
+    sha256 "f2782e4d8583aa16b4793b431500d865f6dacee146e4f51ec298cd87d95c3d6e" => :high_sierra
   end
 
   keg_only <<~EOS
@@ -16,19 +20,19 @@ class Cython < Formula
     Users are advised to use `pip` to install cython
   EOS
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
-    xy = Language::Python.major_minor_version "python3"
+    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
-    system "python3", *Language::Python.setup_install_args(libexec)
+    system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(libexec)
 
     bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
   end
 
   test do
-    xy = Language::Python.major_minor_version "python3"
+    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
     ENV.prepend_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
 
     phrase = "You are using Homebrew"
@@ -41,7 +45,7 @@ class Cython < Formula
         ext_modules = cythonize("package_manager.pyx")
       )
     EOS
-    system "python3", "setup.py", "build_ext", "--inplace"
-    assert_match phrase, shell_output("python3 -c 'import package_manager'")
+    system Formula["python@3.8"].opt_bin/"python3", "setup.py", "build_ext", "--inplace"
+    assert_match phrase, shell_output("#{Formula["python@3.8"].opt_bin}/python3 -c 'import package_manager'")
   end
 end

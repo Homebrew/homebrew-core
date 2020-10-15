@@ -3,6 +3,7 @@ class Sphinx < Formula
   homepage "https://sphinxsearch.com/"
   url "https://sphinxsearch.com/files/sphinx-2.2.11-release.tar.gz"
   sha256 "6662039f093314f896950519fa781bc87610f926f64b3d349229002f06ac41a9"
+  license "GPL-2.0"
   revision 3
   head "https://github.com/sphinxsearch/sphinx.git"
 
@@ -18,11 +19,11 @@ class Sphinx < Formula
 
   uses_from_macos "zlib"
 
-  conflicts_with "manticoresearch", :because => "manticoresearch is a fork of sphinx"
+  conflicts_with "manticoresearch", because: "manticoresearch is a fork of sphinx"
 
   resource "stemmer" do
     url "https://github.com/snowballstem/snowball.git",
-        :revision => "9b58e92c965cd7e3208247ace3cc00d173397f3c"
+        revision: "9b58e92c965cd7e3208247ace3cc00d173397f3c"
   end
 
   def install

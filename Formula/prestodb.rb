@@ -1,19 +1,19 @@
 class Prestodb < Formula
   desc "Distributed SQL query engine for big data"
   homepage "https://prestodb.io"
-  url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-server/0.230/presto-server-0.230.tar.gz"
-  sha256 "dfa98c7d709e2c2c81e400f746cfec28665ba2005faaa8d87ed38d82b5550503"
-  revision 1
+  url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-server/0.235.1/presto-server-0.235.1.tar.gz"
+  sha256 "862871609b14eb5259530de04f1a1ed69e3bb3b172490f2a1585f8f31fd9453e"
+  revision 2
 
   bottle :unneeded
 
   depends_on "openjdk"
 
-  conflicts_with "prestosql", :because => "both install `presto` and `presto-server` binaries"
+  conflicts_with "prestosql", because: "both install `presto` and `presto-server` binaries"
 
   resource "presto-cli" do
-    url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-cli/0.230/presto-cli-0.230-executable.jar"
-    sha256 "b37cff444f79f5a11998ea51cc5b2ae082c51c5ebd9fff26ded5f6550412ce88"
+    url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-cli/0.235.1/presto-cli-0.235.1-executable.jar"
+    sha256 "22deb730fd593eef83f3204d1b9a925eded2a6fb8a06e88b11a5e1e3d82855a8"
   end
 
   def install
@@ -34,6 +34,7 @@ class Prestodb < Formula
       -XX:+ExplicitGCInvokesConcurrent
       -XX:+HeapDumpOnOutOfMemoryError
       -XX:+ExitOnOutOfMemoryError
+      -Djdk.attach.allowAttachSelf=true
     EOS
 
     (libexec/"etc/config.properties").write <<~EOS
@@ -50,18 +51,11 @@ class Prestodb < Formula
 
     (libexec/"etc/catalog/jmx.properties").write "connector.name=jmx"
 
-    (bin/"presto-server").write <<~EOS
-      #!/bin/bash
-      export JAVA_HOME="#{Formula["openjdk"].opt_prefix}"
-      exec "#{libexec}/bin/launcher" "$@"
-    EOS
+    (bin/"presto-server").write_env_script libexec/"bin/launcher", Language::Java.overridable_java_home_env
 
     resource("presto-cli").stage do
       libexec.install "presto-cli-#{version}-executable.jar"
-      (bin/"presto").write <<~EOS
-        #!/bin/bash
-        exec "#{Formula["openjdk"].opt_bin}/java" -jar "#{libexec}/presto-cli-#{version}-executable.jar" "$@"
-      EOS
+      bin.write_jar_script libexec/"presto-cli-#{version}-executable.jar", "presto"
     end
   end
 
@@ -76,7 +70,7 @@ class Prestodb < Formula
     EOS
   end
 
-  plist_options :manual => "presto-server run"
+  plist_options manual: "presto-server run"
 
   def plist
     <<~EOS

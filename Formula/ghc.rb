@@ -5,29 +5,35 @@ class Ghc < Formula
 
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
-  url "https://downloads.haskell.org/~ghc/8.8.3/ghc-8.8.3-src.tar.xz"
-  sha256 "e0dcc0aaf3e234c5978f29e6df62947e97720ab404ec0158343df211c5480f89"
+  url "https://downloads.haskell.org/~ghc/8.10.1/ghc-8.10.1-src.tar.xz"
+  sha256 "4e3b07f83a266b3198310f19f71e371ebce97c769b14f0d688f4cbf2a2a1edf5"
+  license "BSD-3-Clause"
+  revision 2
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
-    sha256 "efba70e7b2639df91b366fb54580b2de9cf8b774c367e4eeadf662bf8b6c7696" => :catalina
-    sha256 "6ce78524676be247d1729f219faea5fc0c91f084f48fce18d77d590d7f9d1a1b" => :mojave
-    sha256 "8724b8bd4409b1500ef78616a3edce4843c8c47e540605224458f6ff82dc213d" => :high_sierra
+    sha256 "1fc15705e5b9a24ca773d2df745345e75496ec3f227ea518d9945d6e1add6e18" => :catalina
+    sha256 "cf8e2755d55d2a6479e4cebbee041ff63bece9bbae7d514c0b7601f6542b8081" => :mojave
+    sha256 "40e2b31e3390cf784dedcd4357362bee577b6a5c1d911f5c072828fe01f42e8f" => :high_sierra
   end
 
   head do
-    url "https://gitlab.haskell.org/ghc/ghc.git", :branch => "ghc-8.8"
+    url "https://gitlab.haskell.org/ghc/ghc.git", branch: "ghc-8.10"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
 
     resource "cabal" do
-      url "https://hackage.haskell.org/package/cabal-install-3.0.0.0/cabal-install-3.0.0.0.tar.gz"
-      sha256 "a432a7853afe96c0fd80f434bd80274601331d8c46b628cd19a0d8e96212aaf1"
+      url "https://hackage.haskell.org/package/cabal-install-3.2.0.0/cabal-install-3.2.0.0.tar.gz"
+      sha256 "a0555e895aaf17ca08453fde8b19af96725da8398e027aa43a49c1658a600cb0"
     end
   end
 
-  depends_on "python" => :build
+  depends_on "python@3.9" => :build
   depends_on "sphinx-doc" => :build
 
   resource "gmp" do
@@ -37,18 +43,29 @@ class Ghc < Formula
     sha256 "87b565e89a9a684fe4ebeeddb8399dce2599f9c9049854ca8c0dfbdea0e21912"
   end
 
-  # https://www.haskell.org/ghc/download_ghc_8_6_5.html#macosx_x86_64
+  # https://www.haskell.org/ghc/download_ghc_8_10_1.html#macosx_x86_64
   # "This is a distribution for Mac OS X, 10.7 or later."
-  # Need to use 8.6.5 to build 8.8.1 because of
-  # https://gitlab.haskell.org/ghc/ghc/issues/17146
+  # A binary of ghc is needed to bootstrap ghc
   resource "binary" do
-    url "https://downloads.haskell.org/~ghc/8.6.5/ghc-8.6.5-x86_64-apple-darwin.tar.xz"
-    sha256 "dfc1bdb1d303a87a8552aa17f5b080e61351f2823c2b99071ec23d0837422169"
+    on_macos do
+      url "https://downloads.haskell.org/~ghc/8.10.1/ghc-8.10.1-x86_64-apple-darwin.tar.xz"
+      sha256 "65b1ca361093de4804a7e40b3e68178e1ef720f84f743641ec8d95e56a45b3a8"
+    end
+
+    on_linux do
+      url "https://downloads.haskell.org/~ghc/8.10.1/ghc-8.10.1-x86_64-deb9-linux.tar.xz"
+      sha256 "d1cf7886f27af070f3b7dbe1975a78b43ef2d32b86362cbe953e79464fe70761"
+    end
   end
 
   def install
+    # Work around Xcode 11 clang bug
+    # https://bitbucket.org/multicoreware/x265/issues/514/wrong-code-generated-on-macos-1015
+    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
+
     ENV["CC"] = ENV.cc
     ENV["LD"] = "ld"
+    ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
 
     # Build a static gmp rather than in-tree gmp, otherwise all ghc-compiled
     # executables link to Homebrew's GMP.
@@ -58,7 +75,7 @@ class Ghc < Formula
     # is mandatory or else you'll get "illegal text relocs" errors.
     resource("gmp").stage do
       system "./configure", "--prefix=#{gmp}", "--with-pic", "--disable-shared",
-                            "--build=#{Hardware.oldest_cpu}-apple-darwin#{`uname -r`.to_i}"
+                            "--build=#{Hardware.oldest_cpu}-apple-darwin#{OS.kernel_version.major}"
       system "make"
       system "make", "install"
     end
@@ -111,6 +128,7 @@ class Ghc < Formula
 
     ENV.deparallelize { system "make", "install" }
     Dir.glob(lib/"*/package.conf.d/package.cache") { |f| rm f }
+    Dir.glob(lib/"*/package.conf.d/package.cache.lock") { |f| rm f }
   end
 
   def post_install

@@ -5,6 +5,11 @@ class Irrlicht < Formula
   sha256 "f42b280bc608e545b820206fe2a999c55f290de5c7509a02bdbeeccc1bf9e433"
   head "https://svn.code.sf.net/p/irrlicht/code/trunk"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/irrlicht[._-]v?(\d+(?:\.\d+)+)\.(?:t|zip)}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 1
@@ -14,7 +19,7 @@ class Irrlicht < Formula
     sha256 "d2236f351b11847d960909fa0e96d83ab0448228de30cd21014fea47a2c636a5" => :sierra
   end
 
-  depends_on :xcode => :build
+  depends_on xcode: :build
 
   def install
     # Fix "error: cannot initialize a parameter of type

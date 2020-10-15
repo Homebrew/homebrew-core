@@ -3,6 +3,7 @@ class Mergepbx < Formula
   homepage "https://github.com/simonwagner/mergepbx"
   url "https://github.com/simonwagner/mergepbx/archive/v0.10.tar.gz"
   sha256 "1727ea75ffbd95426fe5d1d825bfcfb82dbea3dbc03e96f6d7d7ab2699c67572"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation

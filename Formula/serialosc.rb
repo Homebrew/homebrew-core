@@ -2,8 +2,9 @@ class Serialosc < Formula
   desc "Opensound control server for monome devices"
   homepage "https://monome.org/docs/osc/"
   url "https://github.com/monome/serialosc.git",
-      :tag      => "v1.4.1",
-      :revision => "4fec6f11276dd302faf9ca8e0a8e126f273cf954"
+      tag:      "v1.4.1",
+      revision: "4fec6f11276dd302faf9ca8e0a8e126f273cf954"
+  license "ISC"
   head "https://github.com/monome/serialosc.git"
 
   bottle do

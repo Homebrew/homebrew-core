@@ -1,14 +1,20 @@
 class Groovy < Formula
   desc "Java-based scripting language"
   homepage "https://www.groovy-lang.org/"
-  url "https://dl.bintray.com/groovy/maven/apache-groovy-binary-3.0.2.zip"
-  sha256 "3ce9d9097f3bc42cc23b80cb5bd7e3790c5ca12493bd6ebee104f29ab11bbcb5"
+  url "https://dl.bintray.com/groovy/maven/apache-groovy-binary-3.0.6.zip"
+  sha256 "6e0cc2d5b8a7b8585f15816c7d5cae1b09b4003ced0002e79abe7b4b1ebb35f2"
+  license "Apache-2.0"
+
+  livecheck do
+    url "https://dl.bintray.com/groovy/maven/"
+    regex(/href=.*?groovy-binary[._-]v?([\d.]+)\.zip/i)
+  end
 
   bottle :unneeded
 
   depends_on "openjdk"
 
-  conflicts_with "groovysdk", :because => "both install the same binaries"
+  conflicts_with "groovysdk", because: "both install the same binaries"
 
   def install
     # Don't need Windows files.
@@ -16,7 +22,7 @@ class Groovy < Formula
 
     libexec.install "bin", "conf", "lib"
     bin.install Dir["#{libexec}/bin/*"] - ["#{libexec}/bin/groovy.ico"]
-    bin.env_script_all_files libexec/"bin", :JAVA_HOME => "${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
+    bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env
   end
 
   def caveats

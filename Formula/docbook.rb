@@ -5,6 +5,11 @@ class Docbook < Formula
   sha256 "b3f3413654003c1e773360d7fc60ebb8abd0e8c9af8e7d6c4b55f124f34d1e7f"
   revision 1
 
+  livecheck do
+    url "https://docbook.org/xml/"
+    regex(%r{href=.*?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "8152e5356c47a7b8282f3ed84ee3f29565e8ce620bddeaeaf23dfd1f5ef111a3" => :catalina

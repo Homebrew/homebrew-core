@@ -4,6 +4,10 @@ class Rssh < Formula
   url "https://downloads.sourceforge.net/project/rssh/rssh/2.3.4/rssh-2.3.4.tar.gz"
   sha256 "f30c6a760918a0ed39cf9e49a49a76cb309d7ef1c25a66e77a41e2b1d0b40cd9"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "320bd3daa0a9cf214c46eaacc16b9a69d3854d8dbac7ed432db91d8afd241790" => :catalina
     sha256 "d31053458aa5853114ce8f1b7adf2aa8f6faee7cba5e7270be783f55d8311791" => :mojave

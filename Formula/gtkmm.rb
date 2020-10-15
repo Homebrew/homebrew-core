@@ -5,6 +5,11 @@ class Gtkmm < Formula
   sha256 "0680a53b7bf90b4e4bf444d1d89e6df41c777e0bacc96e9c09fc4dd2f5fe6b72"
   revision 3
 
+  livecheck do
+    url :stable
+    regex(/gtkmm[._-]v?(2\.([0-8]\d*?)?[02468](?:\.\d+)*?)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "172050b87d5a7d4cd945722d80d5a8c933ed6329ad130ba9f92c0705a44acbbd" => :catalina

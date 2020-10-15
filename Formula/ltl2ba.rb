@@ -1,14 +1,14 @@
 class Ltl2ba < Formula
   desc "Translate LTL formulae to Buchi automata"
   homepage "https://www.lsv.ens-cachan.fr/~gastin/ltl2ba/"
-  url "https://www.lsv.fr/~gastin/ltl2ba/ltl2ba-1.2.tar.gz"
-  sha256 "9dfe16c2362e953982407eabf773fff49d69b137b13bd5360b241fb4cf2bfb6f"
+  url "https://www.lsv.fr/~gastin/ltl2ba/ltl2ba-1.3.tar.gz"
+  sha256 "912877cb2929cddeadfd545a467135a2c61c507bbd5ae0edb695f8b5af7ce9af"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "453d994d206ec034580146ff6da2661db60c90fd105867fef4be5eb6f7ff062a" => :catalina
-    sha256 "c5a444d20a1811bf071cdc9c95ffbc272f68283978cbdd676b588ffd9c58735b" => :mojave
-    sha256 "e2d8c66cb983cdcca984048d83a3938158f5286d283cf69df40cc2d8b0c70ff4" => :high_sierra
+    sha256 "ede3b5e5b22b886bce4f6f2ead352dc4a676e3d8a95f9543930f2be2b3a0b4b4" => :catalina
+    sha256 "3e5ddce23730195799dfe85c97a57d63e892f168cda5207c72c68b459e5a92a0" => :mojave
+    sha256 "533a278e70570b8f83550c784ccb7c921d9fb5b93ac613c3f971703090dd7921" => :high_sierra
   end
 
   def install

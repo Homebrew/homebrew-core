@@ -1,10 +1,10 @@
 class Sbt < Formula
   desc "Build tool for Scala projects"
   homepage "https://www.scala-sbt.org/"
-  url "https://github.com/sbt/sbt/releases/download/v1.3.8/sbt-1.3.8.tgz"
-  mirror "https://sbt-downloads.cdnedge.bluemix.net/releases/v1.3.8/sbt-1.3.8.tgz"
-  sha256 "27b2ed49758011fefc1bd05e1f4156544d60673e082277186fdd33b6f55d995d"
-  revision 1
+  url "https://github.com/sbt/sbt/releases/download/v1.4.0/sbt-1.4.0.tgz"
+  mirror "https://sbt-downloads.cdnedge.bluemix.net/releases/v1.4.0/sbt-1.4.0.tgz"
+  sha256 "b4775b470920e03de7a5d81121b4dc741c00513f041e65dbb981052ec6d1eed5"
+  license "Apache-2.0"
 
   bottle :unneeded
 
@@ -16,7 +16,7 @@ class Sbt < Formula
       s.gsub! "/etc/sbt/sbtopts", "#{etc}/sbtopts"
     end
 
-    libexec.install "bin", "lib"
+    libexec.install "bin"
     etc.install "conf/sbtopts"
 
     (bin/"sbt").write <<~EOS

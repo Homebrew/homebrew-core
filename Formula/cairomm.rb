@@ -3,7 +3,13 @@ class Cairomm < Formula
   homepage "https://cairographics.org/cairomm/"
   url "https://cairographics.org/releases/cairomm-1.12.2.tar.gz"
   sha256 "45c47fd4d0aa77464a75cdca011143fea3ef795c4753f6e860057da5fb8bd599"
+  license "LGPL-2.0"
   revision 1
+
+  livecheck do
+    url "https://cairographics.org/releases/?C=M&O=D"
+    regex(/href=.*?cairomm[._-]v?(\d+\.\d*[02468](?:\.\d+)*)\.t/i)
+  end
 
   bottle do
     cellar :any

@@ -2,8 +2,9 @@ class Braid < Formula
   desc "Simple tool to help track vendor branches in a Git repository"
   homepage "https://cristibalan.github.io/braid/"
   url "https://github.com/cristibalan/braid.git",
-      :tag      => "v1.1.3",
-      :revision => "74bde1426c2a2713f8a56a879e5ff2e1e4213ad8"
+      tag:      "v1.1.3",
+      revision: "74bde1426c2a2713f8a56a879e5ff2e1e4213ad8"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
@@ -57,7 +58,7 @@ class Braid < Formula
     system "gem", "build", "braid.gemspec"
     system "gem", "install", "--ignore-dependencies", "braid-#{version}.gem"
     bin.install libexec/"bin/braid"
-    bin.env_script_all_files(libexec/"bin", :GEM_HOME => ENV["GEM_HOME"])
+    bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"])
   end
 
   test do

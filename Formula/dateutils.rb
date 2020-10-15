@@ -3,6 +3,7 @@ class Dateutils < Formula
   homepage "https://www.fresse.org/dateutils/"
   url "https://github.com/hroptatyr/dateutils/releases/download/v0.4.7/dateutils-0.4.7.tar.xz"
   sha256 "49725457f5bef45ea424baade8999a6e54496e357f64280474ff7134a54f599a"
+  license "BSD-3-Clause"
 
   bottle do
     sha256 "25d5db665c0591e56c4ec698656a5519f20417473e3cb763299d804bc735a9a5" => :catalina

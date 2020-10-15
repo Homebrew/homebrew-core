@@ -3,24 +3,36 @@ class Autopep8 < Formula
 
   desc "Automatically formats Python code to conform to the PEP 8 style guide"
   homepage "https://github.com/hhatto/autopep8"
-  url "https://files.pythonhosted.org/packages/12/55/7b07585ca0c30e5b216e4d627f82f96f1a7e82d2dd727b1f926cb3f3d58b/autopep8-1.5.tar.gz"
-  sha256 "0f592a0447acea0c2b0a9602be1e4e3d86db52badd2e3c84f0193bfd89fd3a43"
+  url "https://files.pythonhosted.org/packages/94/37/19bc53fd63fc1caaa15ddb695e32a5d6f6463b3de6b0922ba2a3cbb798c8/autopep8-1.5.4.tar.gz"
+  sha256 "d21d3901cb0da6ebd1e83fc9b0dfbde8b46afc2ede4fe32fbda0c7c6118ca094"
+  license "MIT"
+  revision 1
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e3aae4544f049fe60fc115c16f5c27cb0ecfbfc3b1874606dfd6959a09552f9b" => :catalina
-    sha256 "92c1b4cb88fac852a760e28fea55a3981bcbfb6334782ac2dd1d0f56d739f26a" => :mojave
-    sha256 "964cf580cff80b8162ce2c94b51fa4a79b981b6321478c96f22c9a1bdbac46c9" => :high_sierra
+    sha256 "8ee96be12db50876b59fd7527e5ac37e78956a1e0a7afee54c37606057b0512b" => :catalina
+    sha256 "f988eb964253d539121936ee925466884bfd57adea919a642d926b5ee5c6188a" => :mojave
+    sha256 "b0105ebba5fe631f32f32a097c15ac904f363746d5945c7d16f994e7dd0cb129" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.9"
+
+  resource "pycodestyle" do
+    url "https://files.pythonhosted.org/packages/bb/82/0df047a5347d607be504ad5faa255caa7919562962b934f9372b157e8a70/pycodestyle-2.6.0.tar.gz"
+    sha256 "c58a7d2815e0e8d7972bf1803331fb0152f867bd89adf8a01dfd55085434192e"
+  end
+
+  resource "toml" do
+    url "https://files.pythonhosted.org/packages/da/24/84d5c108e818ca294efe7c1ce237b42118643ce58a14d2462b3b2e3800d5/toml-0.10.1.tar.gz"
+    sha256 "926b612be1e5ce0634a2ca03470f95169cf16f939018233a670519cb4ac58b0f"
+  end
 
   def install
-    venv = virtualenv_create(libexec, "python3")
-    system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
-                              "--ignore-installed", buildpath
-    system libexec/"bin/pip", "uninstall", "-y", name
-    venv.pip_install_and_link buildpath
+    virtualenv_install_with_resources
   end
 
   test do

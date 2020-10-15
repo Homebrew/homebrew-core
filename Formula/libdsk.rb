@@ -4,6 +4,11 @@ class Libdsk < Formula
   url "https://www.seasip.info/Unix/LibDsk/libdsk-1.4.2.tar.gz"
   sha256 "71eda9d0e33ab580cea1bb507467877d33d887cea6ec042b8d969004db89901a"
 
+  livecheck do
+    url :homepage
+    regex(/Stable version.*?href=.*?libdsk[._-]v?(\d+(?:\.\d+)+)\.t/im)
+  end
+
   bottle do
     sha256 "f444a8f81a4767668f4cbffa2ef09268279d23780e92b7d4bc2d6ed44c9cd675" => :catalina
     sha256 "47485db7001965531b700308a3d464a616703ddd8fdca64c8a7d2b5049481eb5" => :mojave

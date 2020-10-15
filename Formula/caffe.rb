@@ -3,12 +3,18 @@ class Caffe < Formula
   homepage "https://caffe.berkeleyvision.org/"
   url "https://github.com/BVLC/caffe/archive/1.0.tar.gz"
   sha256 "71d3c9eb8a183150f965a465824d01fe82826c22505f7aa314f700ace03fa77f"
-  revision 18
+  license "BSD-2-Clause"
+  revision 26
+
+  livecheck do
+    url "https://github.com/BVLC/caffe/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
 
   bottle do
-    sha256 "aee8d5762ea7f50857a2e68b226ac8b6958ec9e6e0b4a6e7ca2e5a05b756e33b" => :catalina
-    sha256 "5bf60770f6f3ac10a928c7d5acb23b3bb4d401503aeb0bbd40f43326ace0f86e" => :mojave
-    sha256 "fb9dc2a3d9e4afcaeea163bba3a6ca14e9559f47669c6a71dda29568c9cc4187" => :high_sierra
+    sha256 "a768738e7222f44a7fd184e2e9c0375defc553032f1b8c37dc9321a9d783903e" => :catalina
+    sha256 "4595a6c77a663e268ad8d946e5bb210bc00de0ba6349f6c397b90f25edcd8c79" => :mojave
+    sha256 "01e9c298ccef4b9056868f1392873cfb46ef91bd637582f448f616657cd570f0" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -24,14 +30,14 @@ class Caffe < Formula
   depends_on "szip"
 
   resource "test_model_weights" do
-    url "http://dl.caffe.berkeleyvision.org/bvlc_reference_caffenet.caffemodel"
+    url "https://bintray.com/homebrew/mirror/download_file?file_path=bvlc_reference_caffenet.caffemodel"
     sha256 "472d4a06035497b180636d8a82667129960371375bd10fcb6df5c6c7631f25e0"
   end
 
   # Fix compilation with OpenCV 4
   # https://github.com/BVLC/caffe/issues/6652
   patch do
-    url "https://github.com/BVLC/caffe/pull/6638.diff?full_index=1"
+    url "https://github.com/BVLC/caffe/commit/0a04cc2ccd37ba36843c18fea2d5cbae6e7dd2b5.diff?full_index=1"
     sha256 "6a6368d715284fabfa96660b6d24d1f4f419f3e6cdddab9a7293954fee4ec2bc"
   end
 

@@ -3,6 +3,7 @@ class Advancecomp < Formula
   homepage "https://www.advancemame.it/comp-readme.html"
   url "https://github.com/amadvance/advancecomp/releases/download/v2.1/advancecomp-2.1.tar.gz"
   sha256 "3ac0875e86a8517011976f04107186d5c60d434954078bc502ee731480933eb8"
+  license "GPL-3.0"
   revision 1
 
   bottle do

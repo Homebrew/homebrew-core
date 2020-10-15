@@ -3,17 +3,21 @@ class GnomeCommon < Formula
   homepage "https://gitlab.gnome.org/GNOME/gnome-common"
   url "https://download.gnome.org/sources/gnome-common/3.18/gnome-common-3.18.0.tar.xz"
   sha256 "22569e370ae755e04527b76328befc4c73b62bfd4a572499fde116b8318af8cf"
+  license "GPL-2.0"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a2499bb22344a9d8da6807a7a3cb3ebbf525f954d2e6f028953cae230e040106" => :catalina
-    sha256 "abae5e0fbfb6d9995ca705f512c606efc426b17e0aee0e323f62bdb6daebdcf6" => :mojave
-    sha256 "1a24d488923e1d73f30e541bf1fcd4956d73e4d0f11c32e5133946cb6a1c546b" => :high_sierra
-    sha256 "6aae778f648ed18eb63e49a5764fa98431683dcaff1d42280d9cdd464b727312" => :sierra
-    sha256 "a5ad22711bdc05e9dbe4c4891ad06f146bc81b4d0d7d737d582f32e36f4e6fc7" => :el_capitan
-    sha256 "7e3512e3a7c39f759ab9f3642831961b355f3f83ae6e19a26fdaf91739870e23" => :yosemite
-    sha256 "a96e5dedc2888b6caa326da0abd8eb7d3f1426407e8bef82a6ba0f41adb7016a" => :mavericks
+    rebuild 1
+    sha256 "079756ae6ef88387933614b1adcd2a76f239f779817f6128493cdac85c8f5baa" => :catalina
+    sha256 "7c853c9cdcd84eddb2a3567d161182b27b42dd28c2d696005dc43cf27bdb7038" => :mojave
+    sha256 "e0d511e98b09eff8a4e0a0511b421459b4610516d643fc9094a44c9e480a7771" => :high_sierra
   end
+
+  conflicts_with "autoconf-archive", because: "both install ax_check_enable_debug.m4 and ax_code_coverage.m4"
 
   def install
     system "./configure", "--prefix=#{prefix}"

@@ -5,6 +5,11 @@ class OcamlFindlib < Formula
   sha256 "8e85cfa57e8745715432df3116697c8f41cb24b5ec16d1d5acd25e0196d34303"
   revision 3
 
+  livecheck do
+    url "http://download.camlcity.org/download/"
+    regex(/href=.*?findlib[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "ba498040816b2b5b00ed84a96107119a99a52a0815b86ace5e5708f807be1ddb" => :catalina
     sha256 "b9af770177876ae3ffff6cca808a7ea72866a0bfe3b92a987878629fc42b3eff" => :mojave

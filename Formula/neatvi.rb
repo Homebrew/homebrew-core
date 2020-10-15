@@ -1,16 +1,16 @@
 class Neatvi < Formula
-  desc "ex/vi clone for editing bidirectional utf-8 text"
+  desc "Clone of ex/vi for editing bidirectional utf-8 text"
   homepage "https://repo.or.cz/neatvi.git"
   url "https://repo.or.cz/neatvi.git",
-      :tag      => "07",
-      :revision => "cfb5f5f6170fa3c66566a81ce2a4d17c60c563aa"
+      tag:      "08",
+      revision: "49e4029728927afb1a22864698be10cf445413aa"
   head "https://repo.or.cz/neatvi.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3c839cf593245c6d026d4a547669c29978e3ec64ef9f247630e4d1183db1376f" => :catalina
-    sha256 "12703985422c0a7dd73003a874c0ce747cf3fb3022f674cbb344e7a0d7836ce9" => :mojave
-    sha256 "e7046e2ff2dbe83c98fa1ddf5c06f299ffc45f825c421fccb95b624d104eae3e" => :high_sierra
+    sha256 "c2c83bfb47a438d99fb7086a756292a4442dfb1d7eebd0314132814201cd944e" => :catalina
+    sha256 "240fb8ec097a95ed3bb86f02f6f3fbd074b671529055009835eb95c6f2dccc6d" => :mojave
+    sha256 "4244c126297140059a43449c435407de2d041486bc56ea44bd2d324649304818" => :high_sierra
   end
 
   def install

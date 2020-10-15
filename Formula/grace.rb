@@ -3,7 +3,13 @@ class Grace < Formula
   homepage "https://plasma-gate.weizmann.ac.il/Grace/"
   url "https://deb.debian.org/debian/pool/main/g/grace/grace_5.1.25.orig.tar.gz"
   sha256 "751ab9917ed0f6232073c193aba74046037e185d73b77bab0f5af3e3ff1da2ac"
+  license "GPL-2.0"
   revision 2
+
+  livecheck do
+    url "https://deb.debian.org/debian/pool/main/g/grace/"
+    regex(/href=.*?grace[._-]v?(\d+(?:\.\d+)+)\.orig\.t/i)
+  end
 
   bottle do
     sha256 "7629c4a481667d3acbbb5813789d885beece9f063e41826546b68b5f7170360b" => :catalina

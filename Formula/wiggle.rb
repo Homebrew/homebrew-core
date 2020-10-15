@@ -3,6 +3,12 @@ class Wiggle < Formula
   homepage "https://neil.brown.name/blog/20100324064620"
   url "https://neil.brown.name/wiggle/wiggle-1.2.tar.gz"
   sha256 "31375badb76a4a586f2113e49d13486dbc64844962ae80976a81c6542e901622"
+  license "GPL-2.0"
+
+  livecheck do
+    url "https://neil.brown.name/wiggle/"
+    regex(/href=.*?wiggle[._-](\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     cellar :any_skip_relocation

@@ -3,6 +3,7 @@ class Tcpkali < Formula
   homepage "https://github.com/machinezone/tcpkali"
   url "https://github.com/machinezone/tcpkali/releases/download/v1.1.1/tcpkali-1.1.1.tar.gz"
   sha256 "a9a15a1703fc4960360a414ee282d821a7b42d4bbba89f9e72a796164ff69598"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any_skip_relocation

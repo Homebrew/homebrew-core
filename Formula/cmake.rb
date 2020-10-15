@@ -1,29 +1,28 @@
 class Cmake < Formula
   desc "Cross-platform make"
   homepage "https://www.cmake.org/"
-  revision 1
+  url "https://github.com/Kitware/CMake/releases/download/v3.18.4/cmake-3.18.4.tar.gz"
+  sha256 "597c61358e6a92ecbfad42a9b5321ddd801fc7e7eca08441307c9138382d4f77"
+  license "BSD-3-Clause"
   head "https://gitlab.kitware.com/cmake/cmake.git"
 
-  stable do
-    url "https://github.com/Kitware/CMake/releases/download/v3.17.0/cmake-3.17.0.tar.gz"
-    sha256 "b74c05b55115eacc4fa2b77a814981dbda05cdc95a53e279fe16b7b272f00847"
-
-    # Allows CMAKE_FIND_FRAMEWORKS to work with CMAKE_FRAMEWORK_PATH, which brew sets.
-    # Remove with 3.18.0.
-    patch do
-      url "https://gitlab.kitware.com/cmake/cmake/-/commit/c841d43d70036830c9fe16a6dbf1f28acf49d7e3.diff"
-      sha256 "87de737abaf5f8c071abc4a4ae2e9cccced6a9780f4066b32ce08a9bc5d8edd5"
-    end
+  livecheck do
+    url "https://cmake.org/download/"
+    regex(/Latest Release \(v?(\d+(?:\.\d+)+)\)/i)
   end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e3d804107690769114dff9f807666f7b2aad6a9610423b99188207b3eef03682" => :catalina
-    sha256 "f2c6d8483a8a1e07087590b06cdfba7081dc82c9c84c0c38cf932be4e9d9fd94" => :mojave
-    sha256 "d9f491b97fed02181a094e2dc96d42b7e01f7f086f88384371279382057dec7b" => :high_sierra
+    sha256 "c7c42e66c63448e4aee44498b374c9985f477b129fccca5dd9c13530d1e680ef" => :catalina
+    sha256 "a0b167ad7f2fbf6f6dbcca9d74cb09acbd7822c54873803e940abf04272f8028" => :mojave
+    sha256 "98704ab50ed76df9214083c01e373277ba02aad43c858182be7ed1466d005326" => :high_sierra
   end
 
   depends_on "sphinx-doc" => :build
+
+  on_linux do
+    depends_on "openssl@1.1"
+  end
 
   # The completions were removed because of problems with system bash
 
@@ -47,15 +46,10 @@ class Cmake < Formula
       --system-curl
     ]
 
-    # There is an existing issue around macOS & Python locale setting
-    # See https://bugs.python.org/issue18378#msg215215 for explanation
-    ENV["LC_ALL"] = "en_US.UTF-8"
-
-    system "./bootstrap", *args, "--", *std_cmake_args
+    system "./bootstrap", *args, "--", *std_cmake_args,
+                                       "-DCMake_INSTALL_EMACS_DIR=#{elisp}"
     system "make"
     system "make", "install"
-
-    elisp.install "Auxiliary/cmake-mode.el"
   end
 
   test do

@@ -1,7 +1,7 @@
 class Clipsafe < Formula
   desc "Command-line interface to Password Safe"
-  homepage "http://waxandwane.org/clipsafe.html"
-  url "http://waxandwane.org/download/clipsafe-1.1.tar.gz"
+  homepage "https://waxandwane.org/clipsafe.html"
+  url "https://waxandwane.org/download/clipsafe-1.1.tar.gz"
   sha256 "7a70b4f467094693a58814a42d272e98387916588c6337963fa7258bda7a3e48"
   revision 1
 
@@ -74,7 +74,7 @@ class Clipsafe < Formula
     end
 
     bin.install "clipsafe"
-    bin.env_script_all_files(libexec+"bin", :PERL5LIB => ENV["PERL5LIB"])
+    bin.env_script_all_files(libexec+"bin", PERL5LIB: ENV["PERL5LIB"])
   end
 
   test do

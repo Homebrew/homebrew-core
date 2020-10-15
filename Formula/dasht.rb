@@ -1,8 +1,9 @@
 class Dasht < Formula
   desc "Search API docs offline, in your terminal or browser"
   homepage "https://sunaku.github.io/dasht"
-  url "https://github.com/sunaku/dasht/archive/v2.3.0.tar.gz"
-  sha256 "44db949eb95653e59d88eafce2b2d1e4378db66776e0d39ee15453dabf010e09"
+  url "https://github.com/sunaku/dasht/archive/v2.4.0.tar.gz"
+  sha256 "5ea43b0f7461e124d46b991892dedc8dcf506ccd5e9dc94324f7bdf6e580ff73"
+  license "ISC"
 
   bottle :unneeded
 

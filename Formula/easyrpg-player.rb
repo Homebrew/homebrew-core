@@ -1,14 +1,19 @@
 class EasyrpgPlayer < Formula
   desc "RPG Maker 2000/2003 games interpreter"
   homepage "https://easyrpg.org/"
-  url "https://easyrpg.org/downloads/player/0.6.1/easyrpg-player-0.6.1.tar.xz"
-  sha256 "2deb4c82301af943f076982e4685fcbaf4db53f3a32c265fa4bbc61cac730e64"
+  url "https://easyrpg.org/downloads/player/0.6.2.3/easyrpg-player-0.6.2.3.tar.xz"
+  sha256 "6702b78949b26aeb6d1e26dbffa33f6352ca14111774bfd433bc140c146087d0"
+  license "GPL-3.0-or-later"
+
+  livecheck do
+    url "https://github.com/EasyRPG/Player.git"
+  end
 
   bottle do
     cellar :any
-    sha256 "97a6be8f5e6f2c7b782bdbbe92a49a59ac9ad27119dc6b248e7ceb99db5fcfa5" => :catalina
-    sha256 "ce83ff05744c75fb5fcbcf681e8e163c8460b778debff28f54422892c970306a" => :mojave
-    sha256 "c2dd612a8529a42cc46166728c96fb1430cb3d00e23ce7d9c5fe5e8df999b78d" => :high_sierra
+    sha256 "e6b485bfe87e67da97b5bc34c828889286bbac4602db5e04efae54392c60a99b" => :catalina
+    sha256 "454cf0e4e8ad0721c52346d26d29b974e568fb0c3b9c12e60d1bc8f88ddc7bc1" => :mojave
+    sha256 "23f7a5cbe93058e968781d35b1a94df1e23ff84942b1afb5ada3e33dfd5b9ca6" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

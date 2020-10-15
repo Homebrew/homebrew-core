@@ -3,6 +3,7 @@ class Zxcc < Formula
   homepage "https://www.seasip.info/Unix/Zxcc/"
   url "https://www.seasip.info/Unix/Zxcc/zxcc-0.5.7.tar.gz"
   sha256 "6095119a31a610de84ff8f049d17421dd912c6fd2df18373e5f0a3bc796eb4bf"
+  license "GPL-2.0"
 
   bottle do
     sha256 "748648c861049366a5bab8f7a101274da7bd2d2378237ccc4acd4cbd5b60fde1" => :catalina

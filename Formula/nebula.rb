@@ -1,14 +1,15 @@
 class Nebula < Formula
   desc "Scalable overlay networking tool for connecting computers anywhere"
   homepage "https://github.com/slackhq/nebula"
-  url "https://github.com/slackhq/nebula/archive/v1.1.0.tar.gz"
-  sha256 "ff08ce10c202a047149397b172e2effaac7f213676e99bb01293b751e73a33fd"
+  url "https://github.com/slackhq/nebula/archive/v1.3.0.tar.gz"
+  sha256 "b94fba0251a4a436e25b127d0b9bc0181b991631f1dc8e344b1c8e895b55375d"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1ab56a03259d3eab9fce10c2480a6c4c1331008b8c5336ee91b7ea57910d3ccf" => :catalina
-    sha256 "4455c6cfc00f3da5c546d5ba27e49bcbfb624eebf7700937e2d8d18b6d0186e8" => :mojave
-    sha256 "1b3b0d8fecadaeb8f93ce0a4477c8cda027b45fea6c1dd3786573dedb1976411" => :high_sierra
+    sha256 "7ffeb1007dd970546c484ac5f2a3f7cc8f8e4c91624d8bbc9ed22dcca5cce478" => :catalina
+    sha256 "41f78ae9272360e99b8cc89931f8a26ac5a189cfa653679a06b78a0fd4adedd6" => :mojave
+    sha256 "bcf0c677c2a13a1e937625bf73b1e437dc3d1ae520a6a96cc798721cd18769f9" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -19,6 +20,38 @@ class Nebula < Formula
     bin.install "./nebula"
     bin.install "./nebula-cert"
     prefix.install_metafiles
+  end
+
+  plist_options startup: true
+
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/nebula</string>
+          <string>-config</string>
+          <string>#{etc}/nebula/config.yml</string>
+        </array>
+        <key>StandardErrorPath</key>
+        <string>#{var}/log/nebula.log</string>
+        <key>StandardOutPath</key>
+        <string>#{var}/log/nebula.log</string>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>KeepAlive</key>
+        <dict>
+          <key>NetworkState</key>
+          <true/>
+        </dict>
+      </dict>
+      </plist>
+    EOS
   end
 
   test do

@@ -4,6 +4,10 @@ class Libb64 < Formula
   url "https://downloads.sourceforge.net/project/libb64/libb64/libb64/libb64-1.2.1.zip"
   sha256 "20106f0ba95cfd9c35a13c71206643e3fb3e46512df3e2efb2fdbf87116314b2"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "ee788cea9a073c456398f86661ea27e092c3d327ea8b0792643ed7d38bd402d0" => :catalina

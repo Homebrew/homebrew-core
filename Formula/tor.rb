@@ -1,14 +1,19 @@
 class Tor < Formula
   desc "Anonymizing overlay network for TCP"
   homepage "https://www.torproject.org/"
-  url "https://www.torproject.org/dist/tor-0.4.2.7.tar.gz"
-  mirror "https://www.torservers.net/mirrors/torproject.org/dist/tor-0.4.2.7.tar.gz"
-  sha256 "06a1d835ddf382f6bca40a62e8fb40b71b2f73d56f0d53523c8bd5caf9b3026d"
+  url "https://www.torproject.org/dist/tor-0.4.4.5.tar.gz"
+  mirror "https://www.torservers.net/mirrors/torproject.org/dist/tor-0.4.4.5.tar.gz"
+  sha256 "a45ca00afe765e3baa839767c9dd6ac9a46dd01720a3a8ff4d86558c12359926"
+
+  livecheck do
+    url "https://dist.torproject.org/"
+    regex(/href=.*?tor[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 "e66d5fd20255c03d532cec0c31e750b81c93e048bf3ae0f88bc787578a2844e4" => :catalina
-    sha256 "fbf0241e0cead767d2b977c43c56e39492ad0159dbe647b119e0dc47eb6a4f91" => :mojave
-    sha256 "2e97cc960eae30d69030b9cb577342eda531350bb65eba35571fb30be7cae6ae" => :high_sierra
+    sha256 "79aeb69314b4130ecfc3123bd34a425be5a8e9a89a97fb4efbdb9b1ce73aca7e" => :catalina
+    sha256 "904be653cf0e2fb3e7680f711288c0bba4cbe762b9dba8133796431ef2228d57" => :mojave
+    sha256 "3241af3dbfee60533efc5740897ecec05433789f3bcb9c92bd0c64bcd2481abb" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -32,7 +37,7 @@ class Tor < Formula
     system "make", "install"
   end
 
-  plist_options :manual => "tor"
+  plist_options manual: "tor"
 
   def plist
     <<~EOS

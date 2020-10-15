@@ -2,14 +2,20 @@ class Inlets < Formula
   desc "Expose your local endpoints to the Internet"
   homepage "https://github.com/inlets/inlets"
   url "https://github.com/inlets/inlets.git",
-      :tag      => "2.7.0",
-      :revision => "ced556795aecc6e2ac514032e78f3096d17bfa25"
+      tag:      "2.7.6",
+      revision: "9d88c2ba279728412c7219772bd42fb2eca8d4c7"
+  license "MIT"
+
+  livecheck do
+    url "https://github.com/inlets/inlets/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d49fb89dc621c3a94e38a1ba4ce40e0d1ca40a8a7609b6b0934f449d2bb4192e" => :catalina
-    sha256 "6bbfc25c045ba3b6c5ac7891c41d6e27e2850281afb97b717a5beebf266b5b07" => :mojave
-    sha256 "bbe5682309639393ad89d4cadd86791283c90fc04e55c6ec032ea8f9af5560d7" => :high_sierra
+    sha256 "b5425af7764a67a1267fc1706cd37113174af8c471e4db289a76aabf558ceef8" => :catalina
+    sha256 "2fe155a85f9c0f58381ea0a965810627cc1c81f3e6d48fb9643abbfa28129978" => :mojave
+    sha256 "863e1aab4656c01178121d27a0ebc2921e3580f967b7c31039c5a91e5086dd07" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -17,16 +23,10 @@ class Inlets < Formula
   uses_from_macos "ruby" => :test
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/inlets/inlets").install buildpath.children
-    cd "src/github.com/inlets/inlets" do
-      commit = Utils.popen_read("git", "rev-parse", "HEAD").chomp
-      system "go", "build", "-ldflags",
-             "-s -w -X main.GitCommit=#{commit} -X main.Version=#{version}",
-             "-a",
-             "-installsuffix", "cgo", "-o", bin/"inlets"
-      prefix.install_metafiles
-    end
+    commit = Utils.safe_popen_read("git", "rev-parse", "HEAD").chomp
+    system "go", "build", *std_go_args,
+            "-ldflags", "-s -w -X main.GitCommit=#{commit} -X main.Version=#{version}",
+            "-a", "-installsuffix", "cgo"
   end
 
   def cleanup(name, pid)
@@ -35,47 +35,33 @@ class Inlets < Formula
     Process.wait(pid)
   end
 
-  MOCK_RESPONSE = "INLETS OK".freeze
-  SECRET_TOKEN = "itsasecret-sssshhhhh".freeze
-
   test do
-    upstream_server = TCPServer.new(0)
-    upstream_port = upstream_server.addr[1]
-    remote_server = TCPServer.new(0)
-    remote_port = remote_server.addr[1]
-    upstream_server.close
-    remote_server.close
-
-    puts "Starting mock server on: localhost:#{upstream_port}"
+    upstream_port = free_port
+    remote_port = free_port
+    mock_response = "INLETS OK".freeze
+    secret_token = "itsasecret-sssshhhhh".freeze
 
     (testpath/"mock_upstream_server.rb").write <<~EOS
       require 'socket'
-
       server = TCPServer.new('localhost', #{upstream_port})
-
       loop do
         socket = server.accept
         request = socket.gets
         STDERR.puts request
-
         response = "OK\\n"
         shutdown = false
-
         if request.include? "inlets-test"
-          response = "#{MOCK_RESPONSE}\\n"
+          response = "#{mock_response}\\n"
           shutdown = true
         end
-
         socket.print "HTTP/1.1 200 OK\\r\\n" +
                     "Host: localhost:#{upstream_port}\\r\\n" +
                     "Content-Type: text/plain\\r\\n" +
                     "Content-Length: \#\{response.bytesize\}\\r\\n" +
                     "Connection: close\\r\\n"
-
         socket.print "\\r\\n"
         socket.print response
         socket.close
-
         if shutdown
           puts "Exiting test server"
           exit 0
@@ -88,9 +74,6 @@ class Inlets < Formula
     end
 
     begin
-      require "uri"
-      require "net/http"
-
       stable_resource = stable.instance_variable_get(:@resource)
       commit = stable_resource.instance_variable_get(:@specs)[:revision]
 
@@ -103,28 +86,19 @@ class Inlets < Formula
       # This test involves establishing a client-server inlets tunnel on the
       # remote_port, running a mock server on the upstream_port and then
       # testing that we can hit the mock server upstream_port via the tunnel remote_port
-      puts "Waiting for mock server"
-      sleep 3
+      sleep 3 # Waiting for mock server
       server_pid = fork do
-        puts "Starting inlets server with port #{remote_port}"
-        exec "#{bin}/inlets server --port #{remote_port} --token #{SECRET_TOKEN}"
+        exec "#{bin}/inlets server --port #{remote_port} --token #{secret_token}"
       end
 
       client_pid = fork do
-        puts "Starting inlets client with remote localhost:#{remote_port}, " \
-             "upstream localhost:#{upstream_port}, token: #{SECRET_TOKEN}"
+        # Starting inlets client
         exec "#{bin}/inlets client --remote localhost:#{remote_port} " \
-             "--upstream localhost:#{upstream_port} --token #{SECRET_TOKEN}"
+             "--upstream localhost:#{upstream_port} --token #{secret_token}"
       end
 
-      puts "Waiting for inlets websocket tunnel"
-      sleep 3
-
-      uri = URI("http://localhost:#{remote_port}/inlets-test")
-      puts "Querying upstream endpoint via inlets remote: #{uri}"
-      response = Net::HTTP.get_response(uri)
-      assert_match MOCK_RESPONSE, response.body
-      assert_equal response.code, "200"
+      sleep 3 # Waiting for inlets websocket tunnel
+      assert_match mock_response, shell_output("curl -s http://localhost:#{remote_port}/inlets-test")
     ensure
       cleanup("Mock Server", mock_upstream_server_pid)
       cleanup("Inlets Server", server_pid)

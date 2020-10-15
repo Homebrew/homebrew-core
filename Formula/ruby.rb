@@ -1,18 +1,23 @@
 class Ruby < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/2.7/ruby-2.7.0.tar.xz"
-  sha256 "27d350a52a02b53034ca0794efe518667d558f152656c2baaf08f3d0c8b02343"
+  url "https://cache.ruby-lang.org/pub/ruby/2.7/ruby-2.7.2.tar.xz"
+  sha256 "1b95ab193cc8f5b5e59d2686cb3d5dcf1ddf2a86cb6950e0b4bdaae5040ec0d6"
+  license "Ruby"
+
+  livecheck do
+    url "https://www.ruby-lang.org/en/downloads/"
+    regex(/href=.*?ruby[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    rebuild 1
-    sha256 "9beef157f5acf35a3ac7c3c2020cc4eef21bc272e4e6a8739fc9d3e53a1df12b" => :catalina
-    sha256 "7acf2f1bebc6711f5de7c721c28befe47c1f1957cebaaa20ab37626908506c21" => :mojave
-    sha256 "6d691ee3a6de3ed4f46b7e8f622a8fb6aa932469a84ef1c04fb3829372a63522" => :high_sierra
+    sha256 "c5c8fef5a6068f0657558662aaf83abd21d4d456f2bf5f5152d932dae09ab3fd" => :catalina
+    sha256 "0c46013234250f1bea09127fa33899a51bbae47109dc9eb3ac6f883ab394e43f" => :mojave
+    sha256 "ea7555713b598bb8c21a1af1554658c65ca8e9368f663a44540343122008afc3" => :high_sierra
   end
 
   head do
-    url "https://github.com/ruby/ruby.git", :branch => "trunk"
+    url "https://github.com/ruby/ruby.git", branch: "trunk"
     depends_on "autoconf" => :build
   end
 
@@ -29,12 +34,12 @@ class Ruby < Formula
   # The exception is Rubygem security fixes, which mandate updating this
   # formula & the versioned equivalents and bumping the revisions.
   resource "rubygems" do
-    url "https://rubygems.org/rubygems/rubygems-3.1.2.tgz"
-    sha256 "edd1a6bca6e780a3f65019bbcb0bbfe36c65a9809c0d43e7b52f23792591f140"
+    url "https://rubygems.org/rubygems/rubygems-3.1.4.tgz"
+    sha256 "d8030019d86d60469d3f4f48b7cfcd724b184157ac2881a5bec4394d9cd93f7d"
   end
 
   def api_version
-    Utils.popen_read("#{bin}/ruby -e 'print Gem.ruby_api_version'")
+    Utils.safe_popen_read("#{bin}/ruby", "-e", "print Gem.ruby_api_version")
   end
 
   def rubygems_bindir
@@ -58,6 +63,9 @@ class Ruby < Formula
       --without-gmp
     ]
     args << "--disable-dtrace" unless MacOS::CLT.installed?
+
+    # Correct MJIT_CC to not use superenv shim
+    args << "MJIT_CC=/usr/bin/clang"
 
     system "./configure", *args
 
@@ -88,7 +96,8 @@ class Ruby < Formula
       system "#{bin}/ruby", "setup.rb", "--prefix=#{buildpath}/vendor_gem"
       rg_in = lib/"ruby/#{api_version}"
 
-      # Remove bundled Rubygem version.
+      # Remove bundled Rubygem and Bundler
+      rm_rf rg_in/"bundler"
       rm_rf rg_in/"rubygems"
       rm_f rg_in/"rubygems.rb"
       rm_f rg_in/"ubygems.rb"
@@ -199,6 +208,8 @@ class Ruby < Formula
   end
 
   def caveats
+    return unless latest_version_installed?
+
     <<~EOS
       By default, binaries installed by gem will be placed into:
         #{rubygems_bindir}
@@ -217,6 +228,7 @@ class Ruby < Formula
       source 'https://rubygems.org'
       gem 'gemoji'
     EOS
+    system bin/"bundle", "exec", "ls" # https://github.com/Homebrew/homebrew-core/issues/53247
     system bin/"bundle", "install", "--binstubs=#{testpath}/bin"
     assert_predicate testpath/"bin/gemoji", :exist?, "gemoji is not installed in #{testpath}/bin"
   end

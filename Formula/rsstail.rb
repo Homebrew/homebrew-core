@@ -3,7 +3,13 @@ class Rsstail < Formula
   homepage "https://www.vanheusden.com/rsstail/"
   url "https://www.vanheusden.com/rsstail/rsstail-2.1.tgz"
   sha256 "42cb452178b21c15c470bafbe5b8b5339a7fb5b980bf8d93d36af89864776e71"
+  license "GPL-2.0"
   head "https://github.com/flok99/rsstail.git"
+
+  livecheck do
+    url :homepage
+    regex(/Latest release.*href=.*?rsstail[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     cellar :any

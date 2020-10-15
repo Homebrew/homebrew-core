@@ -3,6 +3,7 @@ class Ucg < Formula
   homepage "https://github.com/gvansickle/ucg"
   url "https://github.com/gvansickle/ucg/releases/download/0.3.3/universalcodegrep-0.3.3.tar.gz"
   sha256 "116d832bbc743c7dd469e5e7f1b20addb3b7a08df4b4441d59da3acf221caf2d"
+  license "GPL-3.0"
   head "https://github.com/gvansickle/ucg.git"
 
   bottle do
@@ -25,7 +26,7 @@ class Ucg < Formula
   # Fix Xcode 9 compilation issue: https://github.com/gvansickle/ucg/issues/118
   # Patch adapted from upstream: https://github.com/gvansickle/ucg/commit/395f89
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/00615b/ucg/xcode9.patch"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/00615b433f5d2e3eaaf0075fbf4c63d0d732f8c8/ucg/xcode9.patch"
     sha256 "3005fda5923cfa3093ce53ad84435fd7a5974f960b2e222e0e59afa90414af90"
   end
 

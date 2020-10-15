@@ -3,6 +3,7 @@ class Scriptcs < Formula
   homepage "https://github.com/scriptcs/scriptcs"
   url "https://github.com/scriptcs/scriptcs/archive/v0.17.1.tar.gz"
   sha256 "e876118d82f52cbdd9569783ec9278c4ac449055aa628cdcb2d785bf8098a434"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

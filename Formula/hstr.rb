@@ -3,6 +3,7 @@ class Hstr < Formula
   homepage "https://github.com/dvorka/hstr"
   url "https://github.com/dvorka/hstr/archive/2.2.tar.gz"
   sha256 "886531ca9d8d1a5a93a3db96e9fc64154a03f6de428c74c722b41057bceca266"
+  license "Apache-2.0"
 
   bottle do
     cellar :any

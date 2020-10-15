@@ -3,6 +3,12 @@ class Ragel < Formula
   homepage "https://www.colm.net/open-source/ragel/"
   url "https://www.colm.net/files/ragel/ragel-6.10.tar.gz"
   sha256 "5f156edb65d20b856d638dd9ee2dfb43285914d9aa2b6ec779dac0270cd56c3f"
+  license "GPL-2.0"
+
+  livecheck do
+    url :homepage
+    regex(/Stable.*?href=.*?ragel[._-]v?(\d+(?:\.\d+)+)\.t/im)
+  end
 
   bottle do
     cellar :any_skip_relocation

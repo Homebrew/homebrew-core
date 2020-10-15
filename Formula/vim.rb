@@ -2,32 +2,34 @@ class Vim < Formula
   desc "Vi 'workalike' with many additional features"
   homepage "https://www.vim.org/"
   # vim should only be updated every 50 releases on multiples of 50
-  url "https://github.com/vim/vim/archive/v8.2.0450.tar.gz"
-  sha256 "179fe06c9a4a6fabe18befd30ead1c4c739996dc3755dee7765787bbbd3774e0"
+  url "https://github.com/vim/vim/archive/v8.2.1800.tar.gz"
+  sha256 "230ab1f0b194eba70ddd329bf0e0f6aebd92de9a2c6b9cd6137044448ebf2f9c"
+  license "Vim"
+  revision 1
   head "https://github.com/vim/vim.git"
 
   bottle do
-    sha256 "2f4e15e2abce2d6dcf4d71db24c1ad165cfdd3ad640bc1179dcae8ab8e36c6be" => :catalina
-    sha256 "954d56c8c77324baa5f66be49450f8d96aa34fd4d441f1e81b0157c9563a3885" => :mojave
-    sha256 "8b71f588d87febc72f6ad39429044bd5a156f6698ca61a4144a04e614ee2d156" => :high_sierra
+    sha256 "b5a74c7c281d3a85ef3de8d504812af5c37bddcc60ce8d4fba52d6c462f60f84" => :catalina
+    sha256 "7c180e618a61ece01426e00d4abdbacc579563ba703d0045287ee00a130c9516" => :mojave
+    sha256 "ef8cee2017ab43c277f56b0497a5a5eab02d30d0c4e81e9f0b3fa9b6a25b47dc" => :high_sierra
   end
 
   depends_on "gettext"
   depends_on "lua"
   depends_on "perl"
-  depends_on "python"
+  depends_on "python@3.9"
   depends_on "ruby"
 
   uses_from_macos "ncurses"
 
   conflicts_with "ex-vi",
-    :because => "vim and ex-vi both install bin/ex and bin/view"
+    because: "vim and ex-vi both install bin/ex and bin/view"
 
   conflicts_with "macvim",
-    :because => "vim and macvim both install vi* binaries"
+    because: "vim and macvim both install vi* binaries"
 
   def install
-    ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
 
     # https://github.com/Homebrew/homebrew-core/pull/1046
     ENV.delete("SDKROOT")
@@ -45,9 +47,9 @@ class Vim < Formula
                           "--mandir=#{man}",
                           "--enable-multibyte",
                           "--with-tlib=ncurses",
+                          "--with-compiledby=Homebrew",
                           "--enable-cscope",
                           "--enable-terminal",
-                          "--with-compiledby=Homebrew",
                           "--enable-perlinterp",
                           "--enable-rubyinterp",
                           "--enable-python3interp",

@@ -4,6 +4,11 @@ class Wiredtiger < Formula
   url "https://github.com/wiredtiger/wiredtiger/releases/download/3.2.0/wiredtiger-3.2.0.tar.bz2"
   sha256 "c812d34ac542fdd2f5dc16e2f47ebc1eba09487f45e34fbae5a052a668931968"
 
+  livecheck do
+    url "https://github.com/wiredtiger/wiredtiger.git"
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "9b0799ed632b6b053c1f208a3a91c4eb97bfab817542267b32cc42ad0da11da0" => :catalina

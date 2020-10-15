@@ -1,21 +1,23 @@
 class Baobab < Formula
   desc "Gnome disk usage analyzer"
   homepage "https://wiki.gnome.org/Apps/Baobab"
-  url "https://download.gnome.org/sources/baobab/3.34/baobab-3.34.0.tar.xz"
-  sha256 "46ebd9466da6a68c340653e9095f1e905b6fac79305879a9e644634f7da98607"
-  revision 1
+  url "https://download.gnome.org/sources/baobab/3.38/baobab-3.38.0.tar.xz"
+  sha256 "048468147860816b97f15d50b3c84e9acf0539c1441cfeb63703d112e8728329"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
-    sha256 "26429e535b510d1c75991c097d28190711b42f996d5b67b530278e82d712b1fe" => :catalina
-    sha256 "d9cc7ef952c0ac3195c7539b50a6d05550d93a7e155a4f662bd6fd1476c470a6" => :mojave
-    sha256 "52c91b6b0ecf10a220005c3c925feb2ba8cdc7412fdec46a18d9e40c59813ab8" => :high_sierra
+    sha256 "433a0bd533b88a32c6a860776c1979a9d4face3db73d7011cef2f444bcbc033b" => :catalina
+    sha256 "b1043ff9f9bd7edb169a955fe4eaccc521dcf95a448d3a52aed4b79a8eb982f9" => :mojave
+    sha256 "9768e9d8d1f4fdcc0a0fbb5936183c1f0bff547e34fc9814f38698e0e3da2f55" => :high_sierra
   end
 
   depends_on "itstool" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python" => :build
   depends_on "vala" => :build
   depends_on "adwaita-icon-theme"
   depends_on "gtk+3"
@@ -25,7 +27,7 @@ class Baobab < Formula
     # stop meson_post_install.py from doing what needs to be done in the post_install step
     ENV["DESTDIR"] = "/"
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", ".."
+      system "meson", *std_meson_args, ".."
       system "ninja"
       system "ninja", "install"
     end

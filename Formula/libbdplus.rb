@@ -4,6 +4,7 @@ class Libbdplus < Formula
   url "https://download.videolan.org/pub/videolan/libbdplus/0.1.2/libbdplus-0.1.2.tar.bz2"
   mirror "https://ftp.osuosl.org/pub/videolan/libbdplus/0.1.2/libbdplus-0.1.2.tar.bz2"
   sha256 "a631cae3cd34bf054db040b64edbfc8430936e762eb433b1789358ac3d3dc80a"
+  license "LGPL-2.1"
 
   bottle do
     cellar :any
@@ -17,7 +18,7 @@ class Libbdplus < Formula
   end
 
   head do
-    url "https://git.videolan.org/git/libbdplus.git"
+    url "https://code.videolan.org/videolan/libbdplus.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

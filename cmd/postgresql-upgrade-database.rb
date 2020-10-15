@@ -1,6 +1,6 @@
+# frozen_string_literal: true
+
 require "cli/parser"
-require "open-uri"
-require "resource"
 require "formula"
 
 module Homebrew
@@ -104,7 +104,7 @@ module Homebrew
         initdb_args += if setting == "server_encoding"
           ["-E #{value}"]
         else
-          ["--#{setting.tr!("_", "-")}=#{value}"]
+          ["--#{setting.tr("_", "-")}=#{value}"]
         end
       end
 
@@ -124,12 +124,12 @@ module Homebrew
       ohai "Migrating and upgrading data..."
       (var/"log").cd do
         safe_system "#{bin}/pg_upgrade",
-          "-r",
-          "-b", old_bin,
-          "-B", bin,
-          "-d", old_datadir,
-          "-D", datadir,
-          "-j", Hardware::CPU.cores.to_s
+                    "-r",
+                    "-b", old_bin,
+                    "-B", bin,
+                    "-d", old_datadir,
+                    "-D", datadir,
+                    "-j", Hardware::CPU.cores.to_s
       end
       upgraded = true
 

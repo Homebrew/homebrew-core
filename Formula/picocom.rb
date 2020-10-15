@@ -3,6 +3,7 @@ class Picocom < Formula
   homepage "https://github.com/npat-efault/picocom"
   url "https://github.com/npat-efault/picocom/archive/3.1.tar.gz"
   sha256 "e6761ca932ffc6d09bd6b11ff018bdaf70b287ce518b3282d29e0270e88420bb"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

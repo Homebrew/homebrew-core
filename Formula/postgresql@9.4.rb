@@ -3,21 +3,28 @@ class PostgresqlAT94 < Formula
   homepage "https://www.postgresql.org/"
   url "https://ftp.postgresql.org/pub/source/v9.4.26/postgresql-9.4.26.tar.bz2"
   sha256 "f5c014fc4a5c94e8cf11314cbadcade4d84213cfcc82081c9123e1b8847a20b9"
+  license "PostgreSQL"
 
   bottle do
-    rebuild 1
-    sha256 "3c32ebc27f39fa609d19bdc1369a9bac3c4836908ae2456e44a53d3a368d0157" => :catalina
-    sha256 "ee5a9ae06d5324bac569d515ea3de348bb97010044075f791d089352c1a0c967" => :mojave
-    sha256 "03efe44c1c036c9dde08bed7932e34365be47365da98d85f30fc0f0aa2a08da7" => :high_sierra
+    rebuild 3
+    sha256 "15217a46087cd4bef0227f5ca941ed843a4e024aafa4e7c7a3ebf746ca8a1344" => :catalina
+    sha256 "4d24193f0f0931c246a86407d3d8208a48b514b8969dc4567b7d62de2becc3ec" => :mojave
+    sha256 "2e09355d0bf2f70b5ea9c202f15aadee823902caad5cf35b64c882e4b969e70f" => :high_sierra
   end
 
   keg_only :versioned_formula
+
+  deprecate! date: "2020-02-13", because: :versioned_formula
 
   depends_on "openssl@1.1"
   depends_on "readline"
 
   uses_from_macos "libxslt"
   uses_from_macos "perl"
+
+  on_linux do
+    depends_on "util-linux"
+  end
 
   def install
     # Fix "configure: error: readline library not found"
@@ -77,10 +84,15 @@ class PostgresqlAT94 < Formula
 
       To install gems without sudo, see the Homebrew documentation:
         https://docs.brew.sh/Gems,-Eggs-and-Perl-Modules
+
+      This formula has created a default database cluster with:
+        initdb #{var}/postgres
+      For more details, read:
+        https://www.postgresql.org/docs/#{version.major}/app-initdb.html
     EOS
   end
 
-  plist_options :manual => "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgresql@9.4 start"
+  plist_options manual: "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgresql@9.4 start"
 
   def plist
     <<~EOS

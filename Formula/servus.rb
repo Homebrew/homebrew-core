@@ -2,8 +2,9 @@ class Servus < Formula
   desc "Library and Utilities for zeroconf networking"
   homepage "https://github.com/HBPVIS/Servus"
   url "https://github.com/HBPVIS/Servus.git",
-      :tag      => "1.5.2",
-      :revision => "170bd93dbdd6c0dd80cf4dfc5926590cc5cef5ab"
+      tag:      "1.5.2",
+      revision: "170bd93dbdd6c0dd80cf4dfc5926590cc5cef5ab"
+  license "LGPL-3.0"
 
   bottle do
     cellar :any

@@ -3,28 +3,26 @@ class LibtensorflowAT1 < Formula
 
   desc "C interface for Google's OS library for Machine Intelligence"
   homepage "https://www.tensorflow.org/"
-  url "https://github.com/tensorflow/tensorflow/archive/v1.15.2.tar.gz"
-  sha256 "d95d75d26a298211b5e802842e87fda5b8b14f6ad83719377b391e5fb71b8746"
+  url "https://github.com/tensorflow/tensorflow/archive/v1.15.4.tar.gz"
+  sha256 "e18c55e771ad136f9bf3a70ea8f0e2d36662b2ba7c890f9eaf7950554557c7fa"
+  license "Apache-2.0"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "92570221c2761218f2aabbd3e4af823c2376aa99d328cfd71143b12a6be431bf" => :catalina
-    sha256 "92570221c2761218f2aabbd3e4af823c2376aa99d328cfd71143b12a6be431bf" => :mojave
-    sha256 "007269e13388a809aae7ff561a8475a514ab2dd20cb73ff5ca7065001d4df0c4" => :high_sierra
+    sha256 "9763732a2181ccbd646821c7bdf4e59dbefa67e9d70616b11492d3860d59710d" => :catalina
+    sha256 "0d60e4fdc3565e394a87824af4ad5612d059a38c9a48babfe3dee85d372d3cc6" => :mojave
+    sha256 "958c949341285f4cb069a1a8ff3477dae75aea70f5d6f86cf4c9af42c29ee2ab" => :high_sierra
   end
 
   keg_only :versioned_formula
 
   depends_on "bazel" => :build
-  depends_on :java => ["1.8", :build]
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
 
   def install
     venv_root = "#{buildpath}/venv"
     virtualenv_create(venv_root, "python3")
-
-    cmd = Language::Java.java_home_cmd("1.8")
-    ENV["JAVA_HOME"] = Utils.popen_read(cmd).chomp
 
     ENV["PYTHON_BIN_PATH"] = "#{venv_root}/bin/python"
     ENV["CC_OPT_FLAGS"] = "-march=native"

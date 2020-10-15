@@ -3,6 +3,7 @@ class Vorbisgain < Formula
   homepage "https://sjeng.org/vorbisgain.html"
   url "https://sjeng.org/ftp/vorbis/vorbisgain-0.37.tar.gz"
   sha256 "dd6db051cad972bcac25d47b4a9e40e217bb548a1f16328eddbb4e66613530ec"
+  license "LGPL-2.1"
 
   bottle do
     cellar :any

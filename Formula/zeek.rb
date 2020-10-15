@@ -2,14 +2,14 @@ class Zeek < Formula
   desc "Network security monitor"
   homepage "https://www.zeek.org"
   url "https://github.com/zeek/zeek.git",
-      :tag      => "v3.1.1",
-      :revision => "2c8d2af0e7b9456ee5e2fe1d20673be245818f62"
+      tag:      "v3.2.2",
+      revision: "66c2a4e44c9bb34fa26a3c5ac8a6369be7b29d73"
+  license "BSD-3-Clause"
   head "https://github.com/zeek/zeek.git"
 
   bottle do
-    sha256 "5927d057913571c249e400ad3b9829489ade2cfca49919ef75fe65cc628c9d52" => :catalina
-    sha256 "c0b510e132f50c089e6d2c302b00e17b7bd0771efbc8aed154890785379bcb28" => :mojave
-    sha256 "0cbd50046531824910c501d10d9cbc7137f31c4f1657fd2c0882260ec2fb4845" => :high_sierra
+    sha256 "10ba7c86b36c330f8c529b332916461d832592568f0c073a1dce8f82c2a5bf1f" => :catalina
+    sha256 "fd9acc03e879d5df15c24d9ed6b0a843eb227df7ace6dd979b9abd56d71289d3" => :mojave
   end
 
   depends_on "bison" => :build
@@ -17,11 +17,11 @@ class Zeek < Formula
   depends_on "swig" => :build
   depends_on "caf"
   depends_on "geoip"
+  depends_on macos: :mojave
   depends_on "openssl@1.1"
 
   uses_from_macos "flex"
   uses_from_macos "libpcap"
-  uses_from_macos "python@2" # See https://github.com/zeek/zeek/issues/706
 
   def install
     mkdir "build" do

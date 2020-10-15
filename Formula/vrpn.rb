@@ -18,8 +18,6 @@ class Vrpn < Formula
   depends_on "libusb" # for HID support
 
   def install
-    ENV.libstdcxx unless MacOS.version > :mavericks
-
     mkdir "build" do
       system "cmake", "..", *std_cmake_args,
                             "-DCMAKE_OSX_SYSROOT=#{MacOS.sdk_path}",

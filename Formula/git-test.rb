@@ -3,6 +3,7 @@ class GitTest < Formula
   homepage "https://github.com/spotify/git-test"
   url "https://github.com/spotify/git-test/archive/v1.0.4.tar.gz"
   sha256 "7c2331c8dc3c815e440ffa1a4dc7a9ff8a28a0a8cbfd195282f53c3e4cb2ee00"
+  license "Apache-2.0"
 
   bottle :unneeded
 

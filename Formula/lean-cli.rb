@@ -1,33 +1,34 @@
 class LeanCli < Formula
   desc "Command-line tool to develop and manage LeanCloud apps"
   homepage "https://github.com/leancloud/lean-cli"
-  url "https://github.com/leancloud/lean-cli/archive/v0.21.0.tar.gz"
-  sha256 "53a4ab93fc06b5fc3ef02655d4798a1a65d12b9887b63e6898975fe4660a2714"
+  url "https://github.com/leancloud/lean-cli/archive/v0.23.0.tar.gz"
+  sha256 "f87fde319a9275db81eafb205d71760bc9548551ba9f781a63ae74224219bebb"
+  license "Apache-2.0"
   head "https://github.com/leancloud/lean-cli.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0442dfa2d85d2220cb0d79559878d71b0447850da77975307c11c2da7c0fb7c9" => :catalina
-    sha256 "de13c20a85a6f638a4b6134a889fa52316916cac183d8fb5956710eea4e32453" => :mojave
-    sha256 "977d34c18bac304b6e1a1ef3fe6d0d6a5be3204f3f6b6471204a78f5eedc1e14" => :high_sierra
-    sha256 "e5f87605029c8558975decaa755cdf9566593adf08d0fe44669615e9869be25e" => :sierra
+    sha256 "c555c1ade11f253528179f5f89971400429c5705b1a174cdad9d86ef40444d96" => :catalina
+    sha256 "8aed8883f1cd579577e3e3aafe62768a37aff569e2a1c4561966fa5c7b09870b" => :mojave
+    sha256 "99bb082889d69784efb02015bd81b986d6c849e7e1a4826cc7dd6f68d1941811" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
     build_from = build.head? ? "homebrew-head" : "homebrew"
-    ENV["GOPATH"] = buildpath
-    mkdir_p buildpath/"src/github.com/leancloud/"
-    ln_s buildpath, buildpath/"src/github.com/leancloud/lean-cli"
-    system "go", "build", "-o", bin/"lean",
-                 "-ldflags", "-X main.pkgType=#{build_from}",
-                 "github.com/leancloud/lean-cli/lean"
+    system "go", "build",
+            "-ldflags", "-X main.pkgType=#{build_from}",
+            *std_go_args,
+            "-o", bin/"lean",
+            "./lean"
+
     bash_completion.install "misc/lean-bash-completion" => "lean"
     zsh_completion.install "misc/lean-zsh-completion" => "_lean"
   end
 
   test do
     assert_match "lean version #{version}", shell_output("#{bin}/lean --version")
+    assert_match "Please login first.", shell_output("#{bin}/lean init 2>&1", 1)
   end
 end

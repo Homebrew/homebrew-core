@@ -1,16 +1,16 @@
 class Traefik < Formula
   desc "Modern reverse proxy"
   homepage "https://traefik.io/"
-  url "https://github.com/containous/traefik/releases/download/v2.2.0/traefik-v2.2.0.src.tar.gz"
-  version "2.2.0"
-  sha256 "f5f52b25291bef455b3df710e319ded54b8b5138b1c34293d2303749f7b02a6f"
+  url "https://github.com/traefik/traefik/releases/download/v2.3.1/traefik-v2.3.1.src.tar.gz"
+  sha256 "a8211ddb9400ef162e748a37003a000e62eeb801e3a1db0a64ce69fba4f74db5"
+  license "MIT"
   head "https://github.com/containous/traefik.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fa6c7a0faa0a538b68428eb3fe06cfa45f42ab9b4bb67b70536875f503cf4c38" => :catalina
-    sha256 "5d2c7142079dbbe195fde08907c817391460caf4fe99aaed95ba60c2dc8f777f" => :mojave
-    sha256 "ddbb4fdcce9c626bd9ce3d3ecf27a0703e2863aa28f0f645411bec9444ac27c4" => :high_sierra
+    sha256 "b923675d28ba002f335b39ab80e716d5453fab7d79d832eba80eaf19ae528b4d" => :catalina
+    sha256 "e4b9263c652a0e429c93cc464ee7bacced40ec24d922f0f8ba3be66a1000e32a" => :mojave
+    sha256 "7d9250aa8ff76b44a21ea320e275066e6688ffa206e50581877d1284d78d148d" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -19,12 +19,11 @@ class Traefik < Formula
   def install
     system "go", "generate"
     system "go", "build",
-      "-ldflags", "-s -w -X github.com/containous/traefik/v2/pkg/version.Version=#{version}",
+      "-ldflags", "-s -w -X github.com/traefik/traefik/v#{version.major}/pkg/version.Version=#{version}",
       "-trimpath", "-o", bin/"traefik", "./cmd/traefik"
-    prefix.install_metafiles
   end
 
-  plist_options :manual => "traefik"
+  plist_options manual: "traefik"
 
   def plist
     <<~EOS
@@ -58,14 +57,8 @@ class Traefik < Formula
   end
 
   test do
-    require "socket"
-
-    ui_server = TCPServer.new(0)
-    http_server = TCPServer.new(0)
-    ui_port = ui_server.addr[1]
-    http_port = http_server.addr[1]
-    ui_server.close
-    http_server.close
+    ui_port = free_port
+    http_port = free_port
 
     (testpath/"traefik.toml").write <<~EOS
       [entryPoints]

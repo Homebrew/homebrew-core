@@ -4,6 +4,11 @@ class Pigz < Formula
   url "https://zlib.net/pigz/pigz-2.4.tar.gz"
   sha256 "a4f816222a7b4269bd232680590b579ccc72591f1bb5adafcd7208ca77e14f73"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?pigz[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "f9d47b369bad1ec3571d06fb40a1ad926e14360a13ec6e1fc16a6be8a81b7ed7" => :catalina

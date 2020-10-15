@@ -2,21 +2,26 @@ class Duck < Formula
   desc "Command-line interface for Cyberduck (a multi-protocol file transfer tool)"
   homepage "https://duck.sh/"
   # check the changelog for the latest stable version: https://cyberduck.io/changelog/
-  url "https://dist.duck.sh/duck-src-7.2.5.32097.tar.gz"
-  sha256 "920b142e31358392f6da977296a11a1763da5ffb9fe251a1e71024a4a09d8896"
+  url "https://dist.duck.sh/duck-src-7.6.2.33520.tar.gz"
+  sha256 "89312b9d2aea4c388b7aabf8d0f0f1e048442aa49c66d30b7554069337593a17"
+  license "GPL-3.0-only"
   head "https://svn.cyberduck.io/trunk/"
+
+  livecheck do
+    url "https://cyberduck.io/changelog/"
+    regex(/href=.*?Cyberduck[._-]v?(\d+(?:\.\d+)+)\.zip/i)
+  end
 
   bottle do
     cellar :any
-    sha256 "9b829920bb87cce68d43f703b6a86c052ab0670228909ff7672d5b1f648c930c" => :catalina
-    sha256 "03b20c6cefe1d9fc09a86d3dbf6ec52fd1ea84be79d39d8ecbe8d60fa8085447" => :mojave
-    sha256 "8ef7bc9c83ebd11b137e57c2f03ea1c5bfc45d33da45845c8b41c264fc564314" => :high_sierra
+    sha256 "49db8c11b1f4fe0ddf1236dcfb61f2d7875f67b946f967de818532dbfc6ca36b" => :catalina
+    sha256 "11210e14dc5df4327df3d5f066ae31f6f44da3872e82139fda1516bc966cce8b" => :mojave
+    sha256 "d86be08f6dcb03c093ff76740428b412041b19c3f797ac2753882533133e876a" => :high_sierra
   end
 
   depends_on "ant" => :build
-  depends_on :java => ["1.8", :build]
   depends_on "maven" => :build
-  depends_on :xcode => :build
+  depends_on xcode: :build
 
   def install
     xcconfig = buildpath/"Overrides.xcconfig"

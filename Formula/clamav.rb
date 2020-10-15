@@ -1,14 +1,20 @@
 class Clamav < Formula
   desc "Anti-virus software"
   homepage "https://www.clamav.net/"
-  url "https://www.clamav.net/downloads/production/clamav-0.102.2.tar.gz"
-  mirror "https://fossies.org/linux/misc/clamav-0.102.2.tar.gz"
-  sha256 "89fcdcc0eba329ca84d270df09d2bb89ae55f5024b0c3bddb817512fb2c907d3"
+  url "https://www.clamav.net/downloads/production/clamav-0.103.0.tar.gz"
+  mirror "https://fossies.org/linux/misc/clamav-0.103.0.tar.gz"
+  sha256 "32a9745277bfdda80e77ac9ca2f5990897418e9416880f3c31553ca673e80546"
+  license "GPL-2.0-or-later"
+
+  livecheck do
+    url "https://www.clamav.net/downloads"
+    regex(/href=.*?clamav[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 "544f511ddd1c68b88a93f017617c968a4e5d34fc6a010af15e047a76c5b16a9f" => :catalina
-    sha256 "a92959f8a348642739db5e023e4302809c8272da1bea75336635267e449aacdf" => :mojave
-    sha256 "252446ee2509c9653fc9ab160811232d228f9995fcd7d4e9378c128bccd5ecaa" => :high_sierra
+    sha256 "223f07db86b0ed0e4e51db8d634111bb842dcc49c01df6dbe5dedcf46e786e44" => :catalina
+    sha256 "8155acb6f0bf2f1fd110612e8eda7ade7845f3fc3310332af6ae182660ab7692" => :mojave
+    sha256 "458d060d70d37beb01b924ada3be7474b25f4a4c8a2bfb33f6bfb0251ab19024" => :high_sierra
   end
 
   head do
@@ -21,11 +27,15 @@ class Clamav < Formula
 
   depends_on "pkg-config" => :build
   depends_on "json-c"
+  depends_on "libiconv"
+  depends_on "libtool"
   depends_on "openssl@1.1"
-  depends_on "pcre"
+  depends_on "pcre2"
   depends_on "yara"
 
+  uses_from_macos "bzip2"
   uses_from_macos "curl"
+  uses_from_macos "libxml2"
   uses_from_macos "zlib"
 
   skip_clean "share/clamav"
@@ -38,11 +48,15 @@ class Clamav < Formula
       --libdir=#{lib}
       --sysconfdir=#{etc}/clamav
       --disable-zlib-vcheck
-      --enable-llvm=no
+      --with-llvm=no
+      --with-libiconv-prefix=#{Formula["libiconv"].opt_prefix}
+      --with-iconv=#{Formula["libiconv"].opt_prefix}
       --with-libjson=#{Formula["json-c"].opt_prefix}
       --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
-      --with-pcre=#{Formula["pcre"].opt_prefix}
+      --with-pcre=#{Formula["pcre2"].opt_prefix}
       --with-zlib=#{MacOS.sdk_path_if_needed}/usr
+      --with-libbz2-prefix=#{MacOS.sdk_path_if_needed}/usr
+      --with-xml=#{MacOS.sdk_path_if_needed}/usr
     ]
 
     pkgshare.mkpath
@@ -60,5 +74,11 @@ class Clamav < Formula
 
   test do
     system "#{bin}/clamav-config", "--version"
+    (testpath/"freshclam.conf").write <<~EOS
+      DNSDatabaseInfo current.cvd.clamav.net
+      DatabaseMirror database.clamav.net
+    EOS
+    system "#{bin}/freshclam", "--datadir=#{testpath}", "--config-file=#{testpath}/freshclam.conf"
+    system "#{bin}/clamscan", "--database=#{testpath}", testpath
   end
 end

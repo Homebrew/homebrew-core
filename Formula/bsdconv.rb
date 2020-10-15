@@ -3,6 +3,7 @@ class Bsdconv < Formula
   homepage "https://github.com/buganini/bsdconv"
   url "https://github.com/buganini/bsdconv/archive/11.5.tar.gz"
   sha256 "20137c6937a5785467296e12b18b1b9dff55f021bae3f3eb3eb4fa5826689692"
+  license "BSD-2-Clause"
   head "https://github.com/buganini/bsdconv.git"
 
   bottle do

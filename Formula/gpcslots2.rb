@@ -5,6 +5,11 @@ class Gpcslots2 < Formula
   version "0.4.5b"
   sha256 "4daf5b6e5a23fe6cd121fe1250f10ad9f3b936bd536d475ec585f57998736f55"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/gpcslots2[._-]v?(\d+(?:[-_.]\d+)+[a-z]?)}i)
+  end
+
   bottle :unneeded
 
   def install

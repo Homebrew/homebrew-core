@@ -3,15 +3,16 @@ class Asciidoctor < Formula
   homepage "https://asciidoctor.org/"
   url "https://github.com/asciidoctor/asciidoctor/archive/v2.0.10.tar.gz"
   sha256 "afca74837e6d4b339535e8ba0b79f2ad00bd1eef78bf391cc36995ca2e31630a"
+  license "MIT"
+  revision 1
 
   depends_on "ruby" if MacOS.version <= :sierra
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "db4b7fcb39a5d783d294f01094becbd6ff7fab7f258661eb1f2e8be2b8efb5bc" => :catalina
-    sha256 "666df89ed2734108ca6d60ea66780e3fc3cc79bc03924f33e45c33c3f73ebe17" => :mojave
-    sha256 "1d16ba582ee12787f64ed619600f911cc545ce931c9862f52adb48ec110e9505" => :high_sierra
+    sha256 "0a76a0014e0f52d35446749f04aa65e28cb148c689e148d412992e6e82adf8ac" => :catalina
+    sha256 "70d93211cdad629b023bd2aa74bfc6736378fc7740f9c2ccfc31ac327977f001" => :mojave
+    sha256 "a5bce7d4fc26dd7a56a80fc10a65f74966e294f2db2e2754f9bfabe95ffa605a" => :high_sierra
   end
 
   resource "concurrent-ruby" do
@@ -119,6 +120,16 @@ class Asciidoctor < Formula
     sha256 "3e70d0e513f4d631a4b667fed634700d93b104e0d3b4c33f993979df6a67d3f1"
   end
 
+  resource "coderay" do
+    url "https://rubygems.org/gems/coderay-1.1.2.gem"
+    sha256 "9efc1b3663fa561ccffada890bd1eec3a5466808ebc711ab1c5d300617d96a97"
+  end
+
+  resource "rouge" do
+    url "https://rubygems.org/gems/rouge-3.17.0.gem"
+    sha256 "f98a2702deb1110a3603f9ff06e948ce1b348972965478f529d718a76e998776"
+  end
+
   def install
     ENV["GEM_HOME"] = libexec
     resources.each do |r|
@@ -130,7 +141,7 @@ class Asciidoctor < Formula
     system "gem", "install", "asciidoctor-#{version}.gem"
     bin.install Dir[libexec/"bin/asciidoctor"]
     bin.install Dir[libexec/"bin/asciidoctor-pdf"]
-    bin.env_script_all_files(libexec/"bin", :GEM_HOME => ENV["GEM_HOME"])
+    bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"])
     man1.install_symlink "#{libexec}/gems/asciidoctor-#{version}/man/asciidoctor.1" => "asciidoctor.1"
   end
 
@@ -160,6 +171,6 @@ class Asciidoctor < Formula
     system bin/"asciidoctor", "-b", "html5", "-o", "test.html", "test.adoc"
     assert_match "<h1>AsciiDoc is Writing Zen</h1>", File.read("test.html")
     system bin/"asciidoctor", "-r", "asciidoctor-pdf", "-b", "pdf", "-o", "test.pdf", "test.adoc"
-    assert_match "/Title (AsciiDoc is Writing Zen)", File.read("test.pdf", :mode => "rb")
+    assert_match "/Title (AsciiDoc is Writing Zen)", File.read("test.pdf", mode: "rb")
   end
 end

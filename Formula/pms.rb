@@ -5,6 +5,10 @@ class Pms < Formula
   sha256 "96bf942b08cba10ee891a63eeccad307fd082ef3bd20be879f189e1959e775a6"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "de929bc53474adfa2a300f8954e0597489f88c22a29661e85c66d1ea8cc619ff" => :catalina

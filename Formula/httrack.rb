@@ -7,6 +7,11 @@ class Httrack < Formula
   sha256 "3477a0e5568e241c63c9899accbfcdb6aadef2812fcce0173688567b4c7d4025"
   revision 1
 
+  livecheck do
+    url "https://mirror.httrack.com/historical/"
+    regex(/href=.*?httrack[._-]v?(\d+(?:\.\d+)+)\./i)
+  end
+
   bottle do
     sha256 "291ab06b376233166dd833422801d0a7be6f06cdabdc568656ec64ad3adc5fe8" => :catalina
     sha256 "6e0d2265e15d103a37b6b594f7f10c85af82012f1e3c1e25fc436e7430502b2c" => :mojave

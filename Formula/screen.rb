@@ -1,6 +1,7 @@
 class Screen < Formula
   desc "Terminal multiplexer with VT100/ANSI terminal emulation"
   homepage "https://www.gnu.org/software/screen"
+  license "GPL-3.0"
 
   stable do
     url "https://ftp.gnu.org/gnu/screen/screen-4.8.0.tar.gz"
@@ -15,6 +16,10 @@ class Screen < Formula
     end
   end
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "f3787a0e1c889106ab14d89c4f1bed001716ce1eb79e44e56b20e71b7448e172" => :catalina
     sha256 "30dfe7b1bc6c74d64be57224852e50ebd5d4c6d4939872eaceac5f06d9935208" => :mojave
@@ -23,13 +28,6 @@ class Screen < Formula
 
   head do
     url "https://git.savannah.gnu.org/git/screen.git"
-
-    # This patch avoid a bug that prevents detached sessions to reattach
-    # See https://lists.gnu.org/archive/html/screen-users/2016-10/msg00007.html
-    patch do
-      url "https://gist.githubusercontent.com/sobrinho/5a7672e088868c2d036957dbe7825dd0/raw/c6fe5dc20cb7dbd0e23f9053aa3867fcbc01d983/diff.patch"
-      sha256 "47892633ccb137316a0532b034d0be81edc26fc72a6babca9761a1649bc67fd1"
-    end
   end
 
   depends_on "autoconf" => :build

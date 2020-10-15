@@ -1,19 +1,22 @@
 class Abseil < Formula
   desc "C++ Common Libraries"
   homepage "https://abseil.io"
-  url "https://github.com/abseil/abseil-cpp/archive/20200225.1.tar.gz"
-  sha256 "0db0d26f43ba6806a8a3338da3e646bb581f0ca5359b3a201d8fb8e4752fd5f8"
+  url "https://github.com/abseil/abseil-cpp/archive/20200923.1.tar.gz"
+  sha256 "808350c4d7238315717749bab0067a1acd208023d41eaf0c7360f29cc8bc8f21"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "033a24ddaa7a21b2b4dcc4b94faf2f50659424ed23dbf7896ffed649251e6759" => :catalina
-    sha256 "2a6d5775b666e089fe2626ce864b6ed360e23f79ed9a2efcc862927a38ae62d0" => :mojave
-    sha256 "76522d0ca21e741f86ced9fa90d0d244a812cb1e099264541048d1f31993f2d8" => :high_sierra
+    sha256 "66b9e248e36aadbb9984eb33bfb126848b9ea7bf6ca4f6baf4fb7b4a72c39cf8" => :catalina
+    sha256 "4cf99f39a5d99282c289986562bc125892e2610bc1fe6b82f38d300b4254939d" => :mojave
+    sha256 "3a50cb0ccab4b65f8e98607f070105e6f6cdd6fda6770674bfc146bc8e3234e2" => :high_sierra
   end
 
   depends_on "cmake" => :build
 
   def install
+    ENV.cxx11
+
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
       system "make"

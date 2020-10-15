@@ -3,6 +3,7 @@ class Tmate < Formula
   homepage "https://tmate.io/"
   url "https://github.com/tmate-io/tmate/archive/2.4.0.tar.gz"
   sha256 "62b61eb12ab394012c861f6b48ba0bc04ac8765abca13bdde5a4d9105cb16138"
+  license "ISC"
   head "https://github.com/tmate-io/tmate.git"
 
   bottle do

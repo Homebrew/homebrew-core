@@ -1,18 +1,15 @@
 class Opencsg < Formula
-  desc "The CSG rendering library"
+  desc "Constructive solid geometry rendering library"
   homepage "http://www.opencsg.org"
   url "http://www.opencsg.org/OpenCSG-1.4.2.tar.gz"
   sha256 "d952ec5d3a2e46a30019c210963fcddff66813efc9c29603b72f9553adff4afb"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "7f78e244d208d395aaf59f04b491148d328af66197c60bf98abb4dadae86d7af" => :catalina
-    sha256 "2b07411fdabadd95d0cca10b610937e9c93f67c8c17e166b47ee3d8c1cb136a2" => :mojave
-    sha256 "9bbf3895cab4adcea76a072f2ee1b625e82bb4eaa9b5043d34b238ef0142f223" => :high_sierra
-    sha256 "18ab9e25f6af26d9f20560d9038b06f18e483e60ff55fcb63acb15e57b51e2eb" => :sierra
-    sha256 "1f886dbe08d51e4319b4e2c8a110a0f298e9568c21c15891f2f001f12f8b3155" => :el_capitan
-    sha256 "e5487c53392c8d7df4952244ecef3c35ca5b87848af2d30bc8a334fb8e3e9f04" => :yosemite
+    sha256 "d42c4c0c8aa5ef5abbe1f260e98f2652b0e7f78563415219b6b8c80fc4aa5859" => :catalina
+    sha256 "41ca5a9f643f81e0c9ad862e5386994d85aed57c8c9b6a34493d97f7e66e7a53" => :mojave
+    sha256 "67d059404b3a950b73ac4ab6096727c90f24fc1309871969c0d46a7df429de5b" => :high_sierra
   end
 
   depends_on "qt" => :build

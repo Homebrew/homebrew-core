@@ -3,14 +3,19 @@ require "language/node"
 class ApolloCli < Formula
   desc "Command-line tool for Apollo GraphQL"
   homepage "https://apollographql.com"
-  url "https://registry.npmjs.org/apollo/-/apollo-2.25.0.tgz"
-  sha256 "d59b61403a61f852fb83037bdd3efad20c2a89db1b3af6d0b1ac7975e096abef"
+  url "https://registry.npmjs.org/apollo/-/apollo-2.31.0.tgz"
+  sha256 "563a0ec96e323731d0d75d841da863f955bd8d32c201fa621cb8ea957832f9d9"
+  license "MIT"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5cebc4358240c0fb77d6b5e0feedcdc72640044d50cda92e20130fe959628382" => :catalina
-    sha256 "6c6f63f77997ff890b5806ec174867580d582266cd04d279e9251117cf153255" => :mojave
-    sha256 "2843a87b865e7af51255448e9acd1f0c3e82b89fb252c1adb2f5cbfcbad826c4" => :high_sierra
+    sha256 "d39f2a99d159bff26f2a1f636e3987b6748709a681f878869e21af720b51e75c" => :catalina
+    sha256 "e55a4a9eb8519d97f43f21456c8410ba50d9a9a39334ac2c18db59f3945c9bbe" => :mojave
+    sha256 "314eee29a412b2b0c14c350169fcae5df288d6cb2cc7ce8601d6046963b3daf8" => :high_sierra
   end
 
   depends_on "node"
@@ -26,6 +31,6 @@ class ApolloCli < Formula
     assert_match "Missing required flag:", shell_output("#{bin}/apollo codegen:generate 2>&1", 2)
 
     error_output = shell_output("#{bin}/apollo codegen:generate --target typescript 2>&1", 2)
-    assert_match "Please add either a client or service config", error_output
+    assert_match "Error: No schema provider was created", error_output
   end
 end

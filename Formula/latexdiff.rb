@@ -1,16 +1,19 @@
 class Latexdiff < Formula
   desc "Compare and mark up LaTeX file differences"
   homepage "https://www.ctan.org/pkg/latexdiff"
-  url "https://github.com/ftilmann/latexdiff/releases/download/1.3.0/latexdiff-1.3.0.tar.gz"
-  sha256 "523d4bb579531286e05d6be5c6a10aaf4cad02bcc1eb70f1cf048be703971ebb"
+  url "https://github.com/ftilmann/latexdiff/releases/download/1.3.1.1/latexdiff-1.3.1.1.tar.gz"
+  sha256 "5e55ee205750ccbea8d69cf98791707e7a42ab88e92d3a1101f9de53643aa1d3"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a47814862332c19aebaee585f5b48dfcd70e05d7eb6cf87ff12436928c41029c" => :catalina
-    sha256 "6e25d76af6c4385a848dd7e4f59bd8c1c13c257ff2ca53e615abd994cba6c4f7" => :mojave
-    sha256 "84bfed3b50311df8d6b11a7a8df65c55c228c3e5cf6d094e65a20596d345ba13" => :high_sierra
-    sha256 "84bfed3b50311df8d6b11a7a8df65c55c228c3e5cf6d094e65a20596d345ba13" => :sierra
+    sha256 "8eb979b1b52125f102bbc56bbc4611d5b8075f003318307a2205485d95c789aa" => :catalina
+    sha256 "8eb979b1b52125f102bbc56bbc4611d5b8075f003318307a2205485d95c789aa" => :mojave
+    sha256 "8eb979b1b52125f102bbc56bbc4611d5b8075f003318307a2205485d95c789aa" => :high_sierra
   end
+
+  # osx default perl cause compilation error
+  depends_on "perl"
 
   def install
     bin.install %w[latexdiff-fast latexdiff-so latexdiff-vc latexrevise]

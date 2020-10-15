@@ -3,6 +3,7 @@ class ChinadnsC < Formula
   homepage "https://github.com/shadowsocks/ChinaDNS"
   url "https://github.com/shadowsocks/ChinaDNS/releases/download/1.3.2/chinadns-1.3.2.tar.gz"
   sha256 "abfd433e98ac0f31b8a4bd725d369795181b0b6e8d1b29142f1bb3b73bbc7230"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation

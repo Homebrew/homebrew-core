@@ -3,6 +3,7 @@ class Libwandevent < Formula
   homepage "https://research.wand.net.nz/software/libwandevent.php"
   url "https://research.wand.net.nz/software/libwandevent/libwandevent-3.0.2.tar.gz"
   sha256 "48fa09918ff94f6249519118af735352e2119dc4f9b736c861ef35d59466644a"
+  license "GPL-2.0"
 
   bottle do
     cellar :any

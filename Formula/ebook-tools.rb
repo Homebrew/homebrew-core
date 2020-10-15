@@ -5,6 +5,10 @@ class EbookTools < Formula
   sha256 "cbc35996e911144fa62925366ad6a6212d6af2588f1e39075954973bbee627ae"
   revision 3
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "65d014f4c91fec7b0d156a751b1e3b409574f3606264f8ae9ccab0a1db0f564f" => :catalina

@@ -3,6 +3,7 @@ class Nutcracker < Formula
   homepage "https://github.com/twitter/twemproxy"
   url "https://github.com/twitter/twemproxy/archive/v0.4.1.tar.gz"
   sha256 "00c2940f91947bea9457a348316aac1aa1d4e757238aafbefc9d51057da8ede0"
+  license "Apache-2.0"
   head "https://github.com/twitter/twemproxy.git"
 
   bottle do

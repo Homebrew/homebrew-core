@@ -5,6 +5,7 @@ class Uni2ascii < Formula
   homepage "https://billposer.org/Software/uni2ascii.html"
   url "https://deb.debian.org/debian/pool/main/u/uni2ascii/uni2ascii_4.18.orig.tar.gz"
   sha256 "9e24bb6eb2ced0a2945e2dabed5e20c419229a8bf9281c3127fa5993bfa5930e"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation

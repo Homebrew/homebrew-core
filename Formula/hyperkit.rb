@@ -1,21 +1,22 @@
 class Hyperkit < Formula
   desc "Toolkit for embedding hypervisor capabilities in your application"
   homepage "https://github.com/moby/hyperkit"
-  url "https://github.com/moby/hyperkit/archive/v0.20200224.tar.gz"
-  sha256 "c0f9e0eb4cd9efdfa099a8cb5b35483b64688d6d1fc0c7a01e591abd4cf76413"
+  url "https://github.com/moby/hyperkit/archive/v0.20200908.tar.gz"
+  sha256 "e13bdb9dc5c18ca59ae6cd2b447d704d8d58f27cf4ae5a1f0a026deeb13bd0d7"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ba8679cca5d4532aa1afd0f5e6558b38f673e66c48b274dbf73228c632478c3c" => :catalina
-    sha256 "6e658f44e70586cd209fee359e1f303e3f4c8ed24f2ae1f53d845557fa420ee2" => :mojave
-    sha256 "e9d9fda51a2c05a37d0d872a80b6dbf26f56b5842c5dc03ad7be13fd1224d5c1" => :high_sierra
+    sha256 "26a203b17733ff5166d8c31069e3ecd5af15c74448a51d8b682689cb07e911e8" => :catalina
+    sha256 "f662bb10b9bab8a2f3b8e92f51b2fae3f1d8d24310732cc77a164e63d7eaa5d2" => :mojave
+    sha256 "f057fe7b3856421d0fdf1df3d9981e0729ee77c27ed3d4cb918e9523f7d5d9be" => :high_sierra
   end
 
   depends_on "aspcud" => :build
   depends_on "ocaml" => :build
   depends_on "opam" => :build
-  depends_on :x11 => :build
-  depends_on :xcode => ["9.0", :build]
+  depends_on x11: :build
+  depends_on xcode: ["9.0", :build]
 
   depends_on "libev"
 
@@ -34,12 +35,10 @@ class Hyperkit < Formula
     ENV["OCAML_TOPLEVEL_PATH"] = "#{opam_dir}/system/lib/toplevel"
     ENV.prepend_path "PATH", "#{opam_dir}/system/bin"
 
-    ENV.deparallelize { system "opam", "switch", "create", "ocaml-base-compiler.4.07.1" }
-
     system "opam", "config", "exec", "--",
-           "opam", "install", "-y", "uri.1.9.7", "qcow.0.10.4", "conduit.1.0.0", "lwt.3.1.0",
-           "qcow-tool.0.10.5", "mirage-block-unix.2.9.0", "conf-libev.4-11", "logs.0.6.3", "fmt.0.8.6",
-           "mirage-unix.3.2.0", "prometheus-app.0.5", "cstruct-lwt.3.2.1"
+           "opam", "install", "-y", "uri.3.1.0", "qcow.0.11.0", "conduit.2.1.0", "lwt.5.3.0",
+           "qcow-tool.0.11.0", "mirage-block-unix.2.12.0", "conf-libev.4-11", "logs.0.7.0", "fmt.0.8.8",
+           "mirage-unix.4.0.0", "prometheus-app.0.7"
 
     args = []
     args << "GIT_VERSION=#{version}"

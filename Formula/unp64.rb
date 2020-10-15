@@ -5,6 +5,11 @@ class Unp64 < Formula
   version "2.36"
   sha256 "55126d9cd6d3bb0d77aeba3c9bd5d9e16805b098c66de92b33f44814425c39e1"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?unp64.*?UNP64 v?(\d+(?:\.\d+)+) -/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "2bcb692303d870dec60ae2e5c664ffca2ff8d6e46365700c0701ae0e7b19e23d" => :catalina

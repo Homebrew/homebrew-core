@@ -1,14 +1,15 @@
 class Lmod < Formula
   desc "Lua-based environment modules system to modify PATH variable"
-  homepage "https://www.tacc.utexas.edu/research-development/tacc-projects/lmod"
-  url "https://github.com/TACC/Lmod/archive/8.3.tar.gz"
-  sha256 "c2c2e9e6b387b011ee617cb009a2199caac8bf200330cb8a065ceedee09e664a"
+  homepage "https://lmod.readthedocs.io"
+  url "https://github.com/TACC/Lmod/archive/8.4.9.tar.gz"
+  sha256 "8f1e356451b63599a3d80074a38bfd704aa6936773189208884f13ffc0f8c81a"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b99901e7902295931dafde6806b35c38d8240b17c9e4595868e091839ac97228" => :catalina
-    sha256 "52c56206228f1e982c2e4a8461b79ef541e767937da471eb1e3800cfb50d575b" => :mojave
-    sha256 "f16f54b1dc1210a01d5978a1e0f76c1d71f56bd4e4b0fcd5d3d13e395de2d692" => :high_sierra
+    sha256 "dcf3af1dfde4ef934f044879bac9360e8cb2c51d661a6a9a31899dc62dd020d7" => :catalina
+    sha256 "37c13d190eafc9c6cb8c03d1306c536b0e0ee79a312d45307c6135dc24ed0528" => :mojave
+    sha256 "fc0bd776946ea6b70b4d6d88c19720489f10b8d1185b3f324cab84c5486d53bb" => :high_sierra
   end
 
   depends_on "luarocks" => :build
@@ -16,13 +17,13 @@ class Lmod < Formula
   depends_on "lua"
 
   resource "luafilesystem" do
-    url "https://github.com/keplerproject/luafilesystem/archive/v1_7_0_2.tar.gz"
-    sha256 "23b4883aeb4fb90b2d0f338659f33a631f9df7a7e67c54115775a77d4ac3cc59"
+    url "https://github.com/keplerproject/luafilesystem/archive/v1_8_0.tar.gz"
+    sha256 "16d17c788b8093f2047325343f5e9b74cccb1ea96001e45914a58bbae8932495"
   end
 
   resource "luaposix" do
-    url "https://github.com/luaposix/luaposix/archive/v34.1.1.tar.gz"
-    sha256 "7948f4ac8b953172e928753632e37ad97cc3014df74b524fe7839f71216a7e90"
+    url "https://github.com/luaposix/luaposix/archive/v35.0.tar.gz"
+    sha256 "a4edf2f715feff65acb009e8d1689e57ec665eb79bc36a6649fae55eafd56809"
   end
 
   def install

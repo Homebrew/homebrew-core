@@ -4,6 +4,10 @@ class BzrExternals < Formula
   url "https://launchpad.net/bzr-externals/trunk/1.3.3/+download/bzr-externals-1.3.3.tar.gz"
   sha256 "4ee33852f415cd5a982c4fa0bb548f86f2ae52368407c3e8d03d55bcfd7f3332"
 
+  livecheck do
+    url :stable
+  end
+
   bottle :unneeded
 
   depends_on "bazaar"

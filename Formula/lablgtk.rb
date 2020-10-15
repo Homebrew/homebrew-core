@@ -1,14 +1,21 @@
 class Lablgtk < Formula
   desc "Objective Caml interface to gtk+"
   homepage "http://lablgtk.forge.ocamlcore.org"
-  url "https://github.com/garrigue/lablgtk/archive/2.18.10.tar.gz"
-  sha256 "6f00f6b3114b468eb9e743d27511a6063936f6798f890e44b494f71a5cf95470"
+  url "https://github.com/garrigue/lablgtk/archive/2.18.11.tar.gz"
+  sha256 "ff3c551df4e220b0c0fb9a3da6429413bff14f8fc93f4dd6807a35463982c863"
+  license "LGPL-2.1"
+  revision 1
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     cellar :any
-    sha256 "7b434a2c4a888b4dee7e98f6da29c5044cc464bf7be0b34877028cfd1d622c29" => :catalina
-    sha256 "3f24847817551482c9bafb940a313fbb8280c0f8ce2cf9ac5f725ca7b26c6c5c" => :mojave
-    sha256 "44f35afe66045382d61895a198f3353ae7b137430b8dd726e37e1ac6a8a20620" => :high_sierra
+    sha256 "e544b612c7067d60de3c58df5cc48f08ac32266dce56ef72a50b4895a841d21f" => :catalina
+    sha256 "ff8fd335cb687977105f9b18efabc78abafa5965aafce64733888c0f035f92ae" => :mojave
+    sha256 "127d47f712f5f0d914be06a87fa96344eaee9166cba08c50793cc28a8fef02dc" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

@@ -3,7 +3,13 @@ class Astyle < Formula
   homepage "https://astyle.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/astyle/astyle/astyle%203.1/astyle_3.1_macos.tar.gz"
   sha256 "c4eebbe082eb2cb98f90aafcce3da2daeb774dd092e4cf8b728102fded8d1dcf"
+  license "MIT"
   head "https://svn.code.sf.net/p/astyle/code/trunk/AStyle"
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/astyle[._-]v?(\d+(?:\.\d+)+)_}i)
+  end
 
   bottle do
     cellar :any_skip_relocation

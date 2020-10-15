@@ -3,14 +3,20 @@ require "language/node"
 class GatsbyCli < Formula
   desc "Gatsby command-line interface"
   homepage "https://www.gatsbyjs.org/docs/gatsby-cli/"
-  url "https://registry.npmjs.org/gatsby-cli/-/gatsby-cli-2.11.3.tgz"
-  sha256 "4dceed29d23f01404d8379b4de21d1206ef9b696dc0a003ebbed3a2ec2fd0e14"
+  # gatsby-cli should only be updated every 10 releases on multiples of 10
+  url "https://registry.npmjs.org/gatsby-cli/-/gatsby-cli-2.12.100.tgz"
+  sha256 "8e93ce31c09bf78ec50382ac8c34b9d930d02e9373bde063563adcfe20b85d15"
+  license "MIT"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "97a4d8f85fddc19c3a5d209e782a1f4effc30b29a178bcc4f8cb91d087642faa" => :catalina
-    sha256 "f5b5c3e75aa1792f9819e523d640b631cc42bdb507cf69497abf874c90d543a2" => :mojave
-    sha256 "56b62e458fae0e8329536fe2e3d2eeb3f695a548b46d5b3f44398c3406f215c6" => :high_sierra
+    sha256 "e7b1585a8e6ee91cd0600e16d3a2c0c7c8f33be30a2949a816a5e51689331089" => :catalina
+    sha256 "4c56a00dd1384037dfc479f18c10a24b532aa640463ddc1dda12a1b85570bec2" => :mojave
+    sha256 "077335b0063142db4127cc93d5b8ffdc55e25d3e8a8132018c919024cdd65dee" => :high_sierra
   end
 
   depends_on "node"
@@ -18,6 +24,9 @@ class GatsbyCli < Formula
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
+
+    # Avoid references to Homebrew shims
+    rm_f "#{libexec}/lib/node_modules/gatsby-cli/node_modules/websocket/builderror.log"
   end
 
   test do

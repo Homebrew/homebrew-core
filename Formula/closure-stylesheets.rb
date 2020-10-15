@@ -2,8 +2,8 @@ class ClosureStylesheets < Formula
   desc "Extended CSS preprocessor, linter, and internationalizer"
   homepage "https://github.com/google/closure-stylesheets"
   url "https://github.com/google/closure-stylesheets/releases/download/v1.5.0/closure-stylesheets.jar"
-  version "1.5.0"
   sha256 "aa4e9b23093187a507a4560d13e59411fc92e285bc911b908a6bcf39479df03c"
+  license "Apache-2.0"
   revision 1
 
   bottle :unneeded

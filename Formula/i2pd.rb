@@ -1,14 +1,15 @@
 class I2pd < Formula
   desc "Full-featured C++ implementation of I2P client"
   homepage "https://i2pd.website/"
-  url "https://github.com/PurpleI2P/i2pd/archive/2.30.0.tar.gz"
-  sha256 "25915cbd33a9f53c89ddf7fbd68fccc5ffc89ab40d4445ccc813da74fae154f2"
+  url "https://github.com/PurpleI2P/i2pd/archive/2.33.0.tar.gz"
+  sha256 "6a30eb410263d2da23d238758ad156e36983bff1ed347fe57789763ae986d0f4"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any
-    sha256 "bf8e0b58ad49024b24191105f2131c40dc992ed47c3e7cfeeebfb94c00a20e65" => :catalina
-    sha256 "bc659ae1f3838a1db82ea7526420547020af3504f4a24ae9cae86d3eef9f83c1" => :mojave
-    sha256 "b13b8b91a70e48ef89f815fa97eae696bca5748b739a516736c847425d58010b" => :high_sierra
+    sha256 "f091f0923c6316eaedaceb23341a74991ca1d6cfc9ed1dd15def0924f2b44c6a" => :catalina
+    sha256 "be66f39ebe5bf3af18580e46b7fc10eef56934c3748242a671b213e8675646e5" => :mojave
+    sha256 "9bcd3b180c11c9940f8d2f7887cf1cc2b0c57143d7fe3fc70dc7f3efd31437b4" => :high_sierra
   end
 
   depends_on "boost"
@@ -43,7 +44,7 @@ class I2pd < Formula
     (var/"log/i2pd").mkpath
   end
 
-  plist_options :manual => "i2pd"
+  plist_options manual: "i2pd"
 
   def plist
     <<~EOS

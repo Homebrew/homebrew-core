@@ -4,16 +4,21 @@ class Octave < Formula
   url "https://ftp.gnu.org/gnu/octave/octave-5.2.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/octave/octave-5.2.0.tar.xz"
   sha256 "2757b5cc1854c9326d6c99d2900c7cec2909ac7ed500212d170d0df592bfd26b"
-  revision 4
+  license "GPL-3.0"
+  revision 10
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
-    sha256 "4b3b18acdb6acc3ef9584bf4c58a8cf3c70b50a674f295f9811085a9204c0747" => :catalina
-    sha256 "c92e4dd7a90017781b28a87d98cf1dd341b0f19b65cd3d3010c8c820c1c874f7" => :mojave
-    sha256 "de6afbcb205a9b3c038c006b4156861859d878de1fe7399c9f701093bb36d6ac" => :high_sierra
+    sha256 "83ac9ed09181aad9dc27d3d2463ae516b1197c99b20ebe60879edbb69a784eb5" => :catalina
+    sha256 "026c0c85722f18a0d7f06de52ac48542a2069de7af5343d866b230201a140161" => :mojave
+    sha256 "cdf71e69e13c120c6c26ce3088d7c0cf3e4f8a8691951d42212bc1135a5ca1af" => :high_sierra
   end
 
   head do
-    url "https://hg.savannah.gnu.org/hgweb/octave", :branch => "default", :using => :hg
+    url "https://hg.savannah.gnu.org/hgweb/octave", branch: "default", using: :hg
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -48,6 +53,7 @@ class Octave < Formula
   depends_on "pstoedit"
   depends_on "qhull"
   depends_on "qrupdate"
+  depends_on "qscintilla2"
   depends_on "qt"
   depends_on "readline"
   depends_on "suite-sparse"

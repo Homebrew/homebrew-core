@@ -3,7 +3,13 @@ class Fizmo < Formula
   homepage "https://fizmo.spellbreaker.org"
   url "https://fizmo.spellbreaker.org/source/fizmo-0.8.5.tar.gz"
   sha256 "1c259a29b21c9f401c12fc24d555aca4f4ff171873be56fb44c0c9402c61beaa"
+  license "BSD-3-Clause"
   revision 1
+
+  livecheck do
+    url "https://fizmo.spellbreaker.org/download/"
+    regex(%r{href=.*?/fizmo[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
 
   bottle do
     sha256 "a4eb5a9297a54cc301764b7fbbd059080a140916088e60cd4992bc1966fd2a6b" => :mojave

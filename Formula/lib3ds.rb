@@ -3,6 +3,7 @@ class Lib3ds < Formula
   homepage "https://code.google.com/archive/p/lib3ds/"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/lib3ds/lib3ds-1.3.0.zip"
   sha256 "f5b00c302955a67fa5fb1f2d3f2583767cdc61fdbc6fd843c0c7c9d95c5629e3"
+  license "GPL-2.0"
 
   bottle do
     cellar :any

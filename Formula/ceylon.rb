@@ -7,7 +7,7 @@ class Ceylon < Formula
 
   bottle :unneeded
 
-  depends_on :java => "1.8"
+  depends_on java: "1.8"
 
   def install
     man1.install Dir["doc/man/man1/*"]

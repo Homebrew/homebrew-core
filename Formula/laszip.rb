@@ -3,6 +3,7 @@ class Laszip < Formula
   homepage "https://laszip.org/"
   url "https://github.com/LASzip/LASzip/releases/download/3.4.3/laszip-src-3.4.3.tar.gz"
   sha256 "53f546a7f06fc969b38d1d71cceb1862b4fc2c4a0965191a0eee81a57c7b373d"
+  license "LGPL-2.1"
   head "https://github.com/LASzip/LASzip.git"
 
   bottle do

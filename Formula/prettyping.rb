@@ -3,6 +3,7 @@ class Prettyping < Formula
   homepage "https://denilsonsa.github.io/prettyping/"
   url "https://github.com/denilsonsa/prettyping/archive/v1.0.1.tar.gz"
   sha256 "48ff5dce1d18761c4ee3c860afd3360266f7079b8e85af9e231eb15c45247323"
+  license "MIT"
 
   bottle :unneeded
 

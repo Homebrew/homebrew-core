@@ -3,14 +3,14 @@ class Libao < Formula
   homepage "https://www.xiph.org/ao/"
   url "https://github.com/xiph/libao/archive/1.2.2.tar.gz"
   sha256 "df8a6d0e238feeccb26a783e778716fb41a801536fe7b6fce068e313c0e2bf4d"
-  head "https://git.xiph.org/libao.git"
+  license "GPL-2.0"
+  head "https://gitlab.xiph.org/xiph/libao.git"
 
   bottle do
-    rebuild 1
-    sha256 "ad257da0feb811f46a6f7594e83a5a278960e50147c623f6dbab9d326ea7cffa" => :catalina
-    sha256 "68e4c903f9da763a466dbec546a50d6d835045879b37dc0e5ad6ca0edd7cb6ae" => :mojave
-    sha256 "5ab0149864a6dd0955bc782d4f67dd1c6d1343fcc2ce6983bf4cb3b4ec11d9b1" => :high_sierra
-    sha256 "91d709008100b42cc05e28b835155432ab61beee1a8b8337eff5fe0266cba1a1" => :sierra
+    rebuild 2
+    sha256 "703bfcae17a364ad0e526d5556b3583d1864c6db4c52ba85ef64dc0600039372" => :catalina
+    sha256 "932b3a41565e678489471dae66b29fea1ca2de6013c2559f9c34cc5e9bd5a33f" => :mojave
+    sha256 "d7144edd6dc64b987d9a9d584799fe20a76ed92f2b1b18c074a6846926f23169" => :high_sierra
   end
 
   depends_on "autoconf" => :build

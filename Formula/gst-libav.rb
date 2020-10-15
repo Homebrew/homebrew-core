@@ -1,39 +1,37 @@
 class GstLibav < Formula
   desc "GStreamer plugins for Libav (a fork of FFmpeg)"
   homepage "https://gstreamer.freedesktop.org/"
-  url "https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.16.2.tar.xz"
-  sha256 "c724f612700c15a933c7356fbeabb0bb9571fb5538f8b1b54d4d2d94188deef2"
+  url "https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.18.0.tar.xz"
+  sha256 "42f93f5ce9a3fc22051e5f783a4574b56ebf213f331f75dcbc3552459bd3a06a"
+  license "LGPL-2.1-or-later"
+  head "https://anongit.freedesktop.org/git/gstreamer/gst-libav.git"
+
+  livecheck do
+    url "https://gstreamer.freedesktop.org/src/gst-libav/"
+    regex(/href=.*?gst-libav[._-]v?(\d+\.\d*[02468](?:\.\d+)*)\.t/i)
+  end
 
   bottle do
     cellar :any
-    sha256 "dce5e4261059fa2fc2e14eb4db2f43cfdf749eee11140539b3f1c3c74af25198" => :catalina
-    sha256 "999e32d952de88b5578a3906fe922b135827738ac9b16afcd542bc9ba01d2d21" => :mojave
-    sha256 "281dc5fd5d4a0f558b653d7054303fbd30308feb73d2c4e37811d8389d28b6ad" => :high_sierra
+    sha256 "6caaaefdbc19002a84ab270be444d611b8602df450eaf8e9e5e71081f2fd1c10" => :catalina
+    sha256 "4b9b3cbff2fa2072fb6b4b9bc65328b5f096e201213e63cc9dc5f7406874d0d7" => :mojave
+    sha256 "ba4f52d9065ac3371ee0f0ea11014dedc2cc16defd068847ca14372d348ee2b5" => :high_sierra
   end
 
-  head do
-    url "https://anongit.freedesktop.org/git/gstreamer/gst-libav.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-    depends_on "gettext"
-  end
-
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "yasm" => :build
+  depends_on "ffmpeg"
   depends_on "gst-plugins-base"
   depends_on "xz" # For LZMA
 
   def install
-    if build.head?
-      ENV["NOCONFIGURE"] = "yes"
-      system "./autogen.sh"
+    mkdir "build" do
+      system "meson", *std_meson_args, ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
     end
-
-    system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
-    system "make"
-    system "make", "install"
   end
 
   test do

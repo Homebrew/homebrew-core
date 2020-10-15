@@ -4,6 +4,11 @@ class GnuTime < Formula
   url "https://ftp.gnu.org/gnu/time/time-1.9.tar.gz"
   mirror "https://ftpmirror.gnu.org/time/time-1.9.tar.gz"
   sha256 "fbacf0c81e62429df3e33bda4cee38756604f18e01d977338e23306a3e3b521e"
+  license "GPL-3.0"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation

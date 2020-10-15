@@ -3,19 +3,20 @@ class Mackup < Formula
 
   desc "Keep your Mac's application settings in sync"
   homepage "https://github.com/lra/mackup"
-  url "https://github.com/lra/mackup/archive/0.8.28.tar.gz"
-  sha256 "b4a586d12460df00a8322e0ffc8454fe0816630bd97640cd08b87fa0de6c1ba6"
+  url "https://github.com/lra/mackup/archive/0.8.29.tar.gz"
+  sha256 "2be19200ed93d277dc5ac91bae392a88c1ce31d49181ba5a6ca4e5193333ff29"
+  license "GPL-3.0"
   revision 1
   head "https://github.com/lra/mackup.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "dbc5ac8b84c362ff421aff6b75819145c9033b72cb1f819dc182964e59b8221e" => :catalina
-    sha256 "dcd2364073468374ed2d60f921546db1948ca14efc5e7f0751873b7d89b5c8ba" => :mojave
-    sha256 "3af5af899b13058a5887831beffbeada93ceb76a0c2598cbd9675cf11162d8c1" => :high_sierra
+    sha256 "b76ef684413cff5aa37666202ee84a0e42c7db942689ddf6d815a1f3b48352a1" => :catalina
+    sha256 "e2a3b323ac3b0d57ae3962d996b959ebdec5008db19a9495343f5987542ba5a8" => :mojave
+    sha256 "c8043863b82bf5acd733c235e64005782ec26e516c66477527fde373819535d8" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "docopt" do
     url "https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz"

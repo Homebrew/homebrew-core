@@ -3,7 +3,13 @@ class Nanomsg < Formula
   homepage "https://nanomsg.org/"
   url "https://github.com/nanomsg/nanomsg/archive/1.1.5.tar.gz"
   sha256 "218b31ae1534ab897cb5c419973603de9ca1a5f54df2e724ab4a188eb416df5a"
+  license "MIT"
   head "https://github.com/nanomsg/nanomsg.git"
+
+  livecheck do
+    url "https://github.com/nanomsg/nanomsg/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
 
   bottle do
     sha256 "81cd453e3fdf65da66a54fda36c84248a1eb923ac92125fd14bdf68989aeb9b7" => :catalina
@@ -21,19 +27,14 @@ class Nanomsg < Formula
   end
 
   test do
-    bind = "tcp://127.0.0.1:8000"
+    bind = "tcp://127.0.0.1:#{free_port}"
 
-    pid = fork do
+    fork do
       exec "#{bin}/nanocat --rep --bind #{bind} --format ascii --data home"
     end
     sleep 2
 
-    begin
-      output = shell_output("#{bin}/nanocat --req --connect #{bind} --format ascii --data brew")
-      assert_match /home/, output
-    ensure
-      Process.kill("SIGINT", pid)
-      Process.wait(pid)
-    end
+    output = shell_output("#{bin}/nanocat --req --connect #{bind} --format ascii --data brew")
+    assert_match /home/, output
   end
 end

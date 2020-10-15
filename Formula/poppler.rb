@@ -1,15 +1,20 @@
 class Poppler < Formula
   desc "PDF rendering library (based on the xpdf-3.0 code base)"
   homepage "https://poppler.freedesktop.org/"
-  url "https://poppler.freedesktop.org/poppler-0.86.1.tar.xz"
-  sha256 "af630a277c8e194c31339c5446241834aed6ed3d4b4dc7080311e51c66257f6c"
-  revision 1
+  url "https://poppler.freedesktop.org/poppler-20.10.0.tar.xz"
+  sha256 "434ecbbb539c1a75955030a1c9b24c7b58200b7f68d2e4269e29acf2f8f13336"
+  license "GPL-2.0-only"
   head "https://anongit.freedesktop.org/git/poppler/poppler.git"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?poppler[._-]v?(\d+(?:\.\d+)*)\.t/i)
+  end
+
   bottle do
-    sha256 "f1f4a95d8b5fe2b9b663e003eb5766953fb9ed053e50398d7adfc06e166239b0" => :catalina
-    sha256 "ed48d79176e1b14827657f5761cad278080b54730debcd5020db8712cd08859d" => :mojave
-    sha256 "3c092acf7818351a6234bfd640f6b343bef22ada2351c55bf9c49124ca86ddd2" => :high_sierra
+    sha256 "4d2848ac3472c3fd48357d8a0c99c5c610d33a864801d74855fcacb58fe7fb69" => :catalina
+    sha256 "f1f1c59dac8d8c0e66c9f72a5abd7378d2f937e4e75472f5377f2e384e5eeb5e" => :mojave
+    sha256 "6295d1392db46253b2afab2dd08a0cf3da320b638922d617523ae1e7edf45952" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -31,18 +36,11 @@ class Poppler < Formula
   uses_from_macos "curl"
 
   conflicts_with "pdftohtml", "pdf2image", "xpdf",
-    :because => "poppler, pdftohtml, pdf2image, and xpdf install conflicting executables"
+    because: "poppler, pdftohtml, pdf2image, and xpdf install conflicting executables"
 
   resource "font-data" do
     url "https://poppler.freedesktop.org/poppler-data-0.4.9.tar.gz"
     sha256 "1f9c7e7de9ecd0db6ab287349e31bf815ca108a5a175cf906a90163bdbe32012"
-  end
-
-  # Fixes crash issues in various downstream projects, such as pdfpc.
-  # Remove with the next version.
-  patch do
-    url "https://gitlab.freedesktop.org/poppler/poppler/-/commit/68b6dd2ecd868c1a757cb8b9273e2e26687e5229.diff"
-    sha256 "28dbc041981b2cb13d4fb18ce370496c4fa5c7c48bc688ffc10ae34c49c65349"
   end
 
   def install

@@ -1,13 +1,10 @@
-require "language/haskell"
-
 class ElmFormat < Formula
-  include Language::Haskell::Cabal
-
   desc "Elm source code formatter, inspired by gofmt"
   homepage "https://github.com/avh4/elm-format"
   url "https://github.com/avh4/elm-format.git",
-      :tag      => "0.8.3",
-      :revision => "b97e3593d564a1e069c0a022da8cbd98ca2c5a4b"
+      tag:      "0.8.3",
+      revision: "b97e3593d564a1e069c0a022da8cbd98ca2c5a4b"
+  license "BSD-3-Clause"
   head "https://github.com/avh4/elm-format.git"
 
   bottle do
@@ -35,10 +32,9 @@ class ElmFormat < Formula
 
     (buildpath/"elm-format").install Dir["*"]
 
-    cabal_sandbox do
-      cabal_sandbox_add_source "elm-format"
-      cabal_install "--only-dependencies", "elm-format"
-      cabal_install "--prefix=#{prefix}", "elm-format"
+    cd "elm-format" do
+      system "cabal", "v2-update"
+      system "cabal", "v2-install", *std_cabal_v2_args
     end
   end
 

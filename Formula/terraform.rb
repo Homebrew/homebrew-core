@@ -1,41 +1,34 @@
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
-  url "https://github.com/hashicorp/terraform/archive/v0.12.24.tar.gz"
-  sha256 "11f547db8893abd10861b153311eb9690013249282ea015a023f1ea1f9146b6d"
+  url "https://github.com/hashicorp/terraform/archive/v0.13.4.tar.gz"
+  sha256 "a8fd0574594c534b3bf2c0b71eee88aff502a551a788f610f88b52a715f00c10"
+  license "MPL-2.0"
   head "https://github.com/hashicorp/terraform.git"
+
+  livecheck do
+    url "https://releases.hashicorp.com/terraform/"
+    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cdfb0e90156ee1bedb30f52a9e260340ff7c08580c12dd35138bf63c01fe1000" => :catalina
-    sha256 "2a21a77589673b2064c9fa7587a79a0375d69a8e02f824e5dc22dc960bf2d78b" => :mojave
-    sha256 "1eefeff3899922cc643b82dcc8fec52ce9ea65fd789a73639588e6123239fa0c" => :high_sierra
+    sha256 "05e7bf567f54c8396df8cf90470e573f5b08ebe8920bad1e638f531a54a152b6" => :catalina
+    sha256 "e1a7f05f31ad593a8d6822cd410872cccb513b2d9d5535a33b7a489ffc21e206" => :mojave
+    sha256 "ffc0d620e8b3ec23b0265ff4b46aa1158b9149cd05210c2da498b6ac1bc4b9aa" => :high_sierra
   end
 
-  depends_on "go@1.13" => :build
-  depends_on "gox" => :build
+  depends_on "go@1.14" => :build
 
-  conflicts_with "tfenv", :because => "tfenv symlinks terraform binaries"
+  conflicts_with "tfenv", because: "tfenv symlinks terraform binaries"
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV.prepend_create_path "PATH", buildpath/"bin"
+    # v0.6.12 - source contains tests which fail if these environment variables are set locally.
+    ENV.delete "AWS_ACCESS_KEY"
+    ENV.delete "AWS_SECRET_KEY"
 
-    dir = buildpath/"src/github.com/hashicorp/terraform"
-    dir.install buildpath.children - [buildpath/".brew_home"]
-
-    cd dir do
-      # v0.6.12 - source contains tests which fail if these environment variables are set locally.
-      ENV.delete "AWS_ACCESS_KEY"
-      ENV.delete "AWS_SECRET_KEY"
-
-      ENV["XC_OS"] = "darwin"
-      ENV["XC_ARCH"] = "amd64"
-      system "make", "tools", "bin"
-
-      bin.install "pkg/darwin_amd64/terraform"
-      prefix.install_metafiles
-    end
+    ENV["CGO_ENABLED"] = "0"
+    system "go", "build", *std_go_args, "-ldflags", "-s -w", "-mod=vendor"
   end
 
   test do

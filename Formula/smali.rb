@@ -3,12 +3,14 @@ class Smali < Formula
   homepage "https://github.com/JesusFreke/smali"
   url "https://github.com/JesusFreke/smali/archive/v2.4.0.tar.gz"
   sha256 "6a9014ecffd7d374f1b9e3c236b11d18a8d8f9c33dbb8ca171c79cc243a0f902"
+  license "BSD-3-Clause"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "efa9c4eae8301de352ce02cb8180a8e21c4df6e6aaf080e9dfd7ec493a1467ba" => :catalina
-    sha256 "cd91042aa24ff1f209ce3b4461114f9c2cfb773df77258a029449873e2eab9ed" => :mojave
-    sha256 "3c6001a0005d2b80c5e646a0823cc48cd752f9ad37e9badc50d3d100a0a88885" => :high_sierra
+    sha256 "2a17c236e4dea10abb4cfc8383abd72204dfa925e72ab10bf6aaaa02875af266" => :catalina
+    sha256 "39f6422066f4b61496c4ce287f37a7ee1069926eea698a6dbd15a131e14a7616" => :mojave
+    sha256 "7b90641feb3ce88a706bee6c8b5ca3a231f4d3c2ce138d7fabe5d470574d77f3" => :high_sierra
   end
 
   depends_on "gradle" => :build
@@ -21,12 +23,7 @@ class Smali < Formula
       jarfile = "#{name}-#{version}-dev-fat.jar"
 
       libexec.install "#{name}/build/libs/#{jarfile}"
-
-      (bin/name).write <<~EOS
-        #!/bin/bash
-        export JAVA_HOME="${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
-        exec "${JAVA_HOME}/bin/java" -jar "#{libexec}/#{jarfile}" "$@"
-      EOS
+      bin.write_jar_script libexec/jarfile, name
     end
   end
 

@@ -1,30 +1,33 @@
 class CAres < Formula
   desc "Asynchronous DNS library"
   homepage "https://c-ares.haxx.se/"
-  url "https://c-ares.haxx.se/download/c-ares-1.16.0.tar.gz"
-  sha256 "de058ad7c128156e2db6dc98b8a359924d6f210a1b99dd36ba15c8f839a83a89"
+  url "https://c-ares.haxx.se/download/c-ares-1.16.1.tar.gz"
+  sha256 "d08312d0ecc3bd48eee0a4cc0d2137c9f194e0a28de2028928c0f6cae85f86ce"
+  license "MIT"
+  revision 1
+  head "https://github.com/bagder/c-ares.git"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?c-ares[._-](\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     cellar :any
-    sha256 "e2382f3a03ef2e311eacd300f256a9aff61f706337b9c6e0ec0ee66be68b373b" => :catalina
-    sha256 "5b47cb575d75bad499ba8fea85748f6dc05375f4d2dab67ba7a8a189b768d2ae" => :mojave
-    sha256 "a91f2fd5c5cf75b08e2631ddec005d7cdcf777b0e380d2fbe1bb8f8643bd9b21" => :high_sierra
+    sha256 "72a7232d82c7601576bd2af4271157ee34ff478f1cd7febe5c144254ec5e9e07" => :catalina
+    sha256 "cd4a1354a3658e804caf1b24a33a40078948d3f9ed9413cb4f32e56045ef244d" => :mojave
+    sha256 "14b1bbb8bced1bde8b3a8beb5e3e35fcb65a1dec45393c37cc0533f67d41ec8b" => :high_sierra
   end
 
-  head do
-    url "https://github.com/bagder/c-ares.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
+  depends_on "cmake" => :build
+  depends_on "ninja" => :build
 
   def install
-    system "./buildconf" if build.head?
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-dependency-tracking",
-                          "--disable-debug"
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", "-GNinja", *std_cmake_args
+      system "ninja"
+      system "ninja", "install"
+    end
   end
 
   test do

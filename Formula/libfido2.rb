@@ -1,15 +1,16 @@
 class Libfido2 < Formula
   desc "Provides library functionality for FIDO U2F & FIDO 2.0, including USB"
   homepage "https://developers.yubico.com/libfido2/"
-  url "https://github.com/Yubico/libfido2/archive/1.3.1.tar.gz"
-  sha256 "ba35e22016b60c1e4be66dff3cd6a60c1fe4bfa0d91ec0b89ca9da25ebeaaf41"
+  url "https://github.com/Yubico/libfido2/archive/1.5.0.tar.gz"
+  sha256 "5990f923c9390fe1e6a00ba5d1d1f74030e7344b855e971d9fb7223e70ff3122"
+  license "BSD-2-Clause"
   revision 1
 
   bottle do
     cellar :any
-    sha256 "f1f5de29336fe0b77fee7ea83bc5937dd8b6c35676895d178c68cbcdec45af24" => :catalina
-    sha256 "4e5894279f2521dc23f754a6378d9b89d033d85352bb0ea9d2b8121c8196074b" => :mojave
-    sha256 "a8be51438333d65f1ba019f302d322ee2b11102a854406c282a9635524e6b49d" => :high_sierra
+    sha256 "3160d880a6c2175777523c26a82629500ea2cea52aabc54d31b868c15ad823c2" => :catalina
+    sha256 "ff215921abe2965e55f66bab26eaa5cc6b6d822d0b9068f0a6e85b3e2a071586" => :mojave
+    sha256 "018430b7f86e69a66fa01c1400054e5e05b7cbf44a95622909b9c010f313c736" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -26,7 +27,6 @@ class Libfido2 < Formula
       system "make", "man_symlink"
       system "make", "install"
     end
-    mv prefix/"man", share/"man"
   end
 
   test do
@@ -43,9 +43,8 @@ class Libfido2 < Formula
         return 1;
       size_t found_devices = 0;
       int error;
-      if ((error = fido_dev_info_manifest(devlist, max_devices, &found_devices)) != FIDO_OK)
-        return 1;
-      printf("FIDO/U2F devices found: %s\\n", found_devices ? "Some" : "None");
+      if ((error = fido_dev_info_manifest(devlist, max_devices, &found_devices)) == FIDO_OK)
+        printf("FIDO/U2F devices found: %s\\n", found_devices ? "Some" : "None");
       fido_dev_info_free(&devlist, max_devices);
     }
     EOF

@@ -3,6 +3,7 @@ class Libnfs < Formula
   homepage "https://github.com/sahlberg/libnfs"
   url "https://github.com/sahlberg/libnfs/archive/libnfs-4.0.0.tar.gz"
   sha256 "6ee77e9fe220e2d3e3b1f53cfea04fb319828cc7dbb97dd9df09e46e901d797d"
+  license "LGPL-2.1"
 
   bottle do
     cellar :any

@@ -1,16 +1,21 @@
 class Dmenu < Formula
   desc "Dynamic menu for X11"
   homepage "https://tools.suckless.org/dmenu/"
-  url "https://dl.suckless.org/tools/dmenu-4.9.tar.gz"
-  sha256 "b3971f4f354476a37b2afb498693649009b201550b0c7c88e866af8132b64945"
-  head "https://git.suckless.org/dmenu/", :using => :git
+  url "https://dl.suckless.org/tools/dmenu-5.0.tar.gz"
+  sha256 "fe18e142c4dbcf71ba5757dbbdea93b1c67d58fc206fc116664f4336deef6ed3"
+  license "MIT"
+  head "https://git.suckless.org/dmenu/", using: :git
+
+  livecheck do
+    url "https://dl.suckless.org/tools/"
+    regex(/href=.*?dmenu[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6d5bd66279c7595ce553efc719503205af487e300623fce212e1155db370f6b5" => :catalina
-    sha256 "44e6f96de8f8dd18389c17b99f65a9632cb134b183512ddbd05a542279005f84" => :mojave
-    sha256 "297b8b591ee33d1a4f8100de2de275ca15268a906c77c1b4123d0787deb2cab4" => :high_sierra
-    sha256 "2fe7512953f6e5099a4a624d8ebc6a3e83bda0753eafa7bb7f2942db90d21e62" => :sierra
+    sha256 "c3c3df399b25d4f8973cb2dad21e9eee4e6c07f60fa639e0239c6e64a134c284" => :catalina
+    sha256 "28c154b8f5c657ca864305f495d7cd43ed4d39ce3d9fe17ffc101dc808033edf" => :mojave
+    sha256 "ed800e10a28a770ff50b0a4462ecb18406d0dec7a4d59f42885b7f6e8ee387db" => :high_sierra
   end
 
   depends_on :x11

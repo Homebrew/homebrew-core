@@ -1,22 +1,23 @@
 class Ispc < Formula
   desc "Compiler for SIMD programming on the CPU"
   homepage "https://ispc.github.io"
-  url "https://github.com/ispc/ispc/archive/v1.12.0.tar.gz"
-  sha256 "9ebc29adcdf477659b45155d0f91e61120a12084e42113d0e9f4ce5cfdfbdcab"
+  url "https://github.com/ispc/ispc/archive/v1.14.1.tar.gz"
+  sha256 "3a7ee9ab90b9e9932b7b4effc9bb3ef45ca271d60d9ec6bc8c335242b5ec097b"
+  license "BSD-3-Clause"
   revision 1
 
   bottle do
     cellar :any
-    sha256 "99109ffe35534e264eea6814b4006a49a1aba2cda154ab2d22d7e0c29da6cfc0" => :catalina
-    sha256 "cc7f31ea15ede43f37e40270643d3fa86722bc4ccf9a1bf4c763ad6985a26ffb" => :mojave
-    sha256 "17439d6f18ba148e5a912f595240ce5c89a9f951059411217c53db59dbab75d2" => :high_sierra
+    sha256 "7d830ca3028045971afbd4bd9adc6c73caf6bc79d0da341bb72acef0067e978b" => :catalina
+    sha256 "a93ed9cd6c35b8b8cda6e0128438fa12f5f2bf8b92ced82d507c8f792a229634" => :mojave
+    sha256 "1607e7d662670ed74fe122004c1ac7ace19ab1eb6c3939fe196155e90ebbd897" => :high_sierra
   end
 
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "flex" => :build
+  depends_on "python@3.9" => :build
   depends_on "llvm"
-  depends_on "python"
 
   def install
     args = std_cmake_args + %W[

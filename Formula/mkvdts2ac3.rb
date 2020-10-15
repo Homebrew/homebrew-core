@@ -1,6 +1,7 @@
 class Mkvdts2ac3 < Formula
   desc "Convert DTS audio to AC3 within a matroska file"
   homepage "https://github.com/JakeWharton/mkvdts2ac3"
+  license "Apache-2.0"
   revision 3
   head "https://github.com/JakeWharton/mkvdts2ac3.git"
 

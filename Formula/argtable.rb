@@ -5,6 +5,10 @@ class Argtable < Formula
   version "2.13"
   sha256 "8f77e8a7ced5301af6e22f47302fdbc3b1ff41f2b83c43c77ae5ca041771ddbf"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "29bfa5bfd7e897512347ecf664c3e3a9bbe7ec585115c09167ca8b6c312be9d6" => :catalina

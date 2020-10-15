@@ -1,6 +1,7 @@
 class Mpssh < Formula
   desc "Mass parallel ssh"
   homepage "https://github.com/ndenev/mpssh"
+  license "BSD-3-Clause"
   head "https://github.com/ndenev/mpssh.git"
 
   stable do

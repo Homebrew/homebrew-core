@@ -34,13 +34,18 @@ class Icecast < Formula
   end
 
   test do
+    port = free_port
+
+    cp etc/"icecast.xml", testpath/"icecast.xml"
+    inreplace testpath/"icecast.xml", "<port>8000</port>", "<port>#{port}</port>"
+
     pid = fork do
-      exec "icecast", "-c", etc/"icecast.xml", "2>", "/dev/null"
+      exec "icecast", "-c", testpath/"icecast.xml", "2>", "/dev/null"
     end
     sleep 3
 
     begin
-      assert_match "icestats", shell_output("curl localhost:8000/status-json.xsl")
+      assert_match "icestats", shell_output("curl localhost:#{port}/status-json.xsl")
     ensure
       Process.kill "TERM", pid
       Process.wait pid

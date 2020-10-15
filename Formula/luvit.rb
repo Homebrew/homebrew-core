@@ -1,17 +1,16 @@
 class Luvit < Formula
   desc "Asynchronous I/O for Lua"
   homepage "https://luvit.io"
-  url "https://github.com/luvit/luvit/archive/2.16.0.tar.gz"
-  sha256 "3cbd5136da6dba4ccfaee86357255c39b5fafa5fffa62d7d793514fa4dca1a79"
-  revision 1
+  url "https://github.com/luvit/luvit/archive/2.17.0.tar.gz"
+  sha256 "80657aa752322560fcde780212b6807b626b45d65aca3f3dae254e5c4fb0ee78"
+  license "Apache-2.0"
   head "https://github.com/luvit/luvit.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "b057dc9f3afbcc37bd7ed40c9a283928f340af080cf75146d428976f61747535" => :catalina
-    sha256 "b057dc9f3afbcc37bd7ed40c9a283928f340af080cf75146d428976f61747535" => :mojave
-    sha256 "b057dc9f3afbcc37bd7ed40c9a283928f340af080cf75146d428976f61747535" => :high_sierra
+    sha256 "a1210dda91aa024d11bd4d15a67b71654dcbbbc2ba14a87d1d34ab012f4d5c2a" => :catalina
+    sha256 "a3a37fdf8f0e99efdfc1736978ea9d8cdea74e939b42696fe771c3c5c9914f8f" => :mojave
+    sha256 "2c704b1f98b965c0b6010a897a0c951f47cb896bbbf5381e7d4ee80238692033" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

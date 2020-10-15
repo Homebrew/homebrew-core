@@ -4,6 +4,11 @@ class Antiword < Formula
   url "http://www.winfield.demon.nl/linux/antiword-0.37.tar.gz"
   sha256 "8e2c000fcbc6d641b0e6ff95e13c846da3ff31097801e86702124a206888f5ac"
 
+  livecheck do
+    url "http://www.winfield.demon.nl/linux/"
+    regex(/href=.*?antiword[._-]v?(\d+(?:\.\d+)+)\.t[a-z]+(?:\.[a-z]+)?["' >]/i)
+  end
+
   bottle do
     sha256 "7f62624bf238ba077370f6e8e223704b57eee461f2bbaddc47de8e4b5c5a4eda" => :catalina
     sha256 "63b4aa9e31936c405039161b1ae728d76472bb9932a7b460e1fdd7a1276ee5ad" => :mojave

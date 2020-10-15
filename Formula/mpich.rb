@@ -4,12 +4,19 @@ class Mpich < Formula
   url "https://www.mpich.org/static/downloads/3.3.2/mpich-3.3.2.tar.gz"
   mirror "https://fossies.org/linux/misc/mpich-3.3.2.tar.gz"
   sha256 "4bfaf8837a54771d3e4922c84071ef80ffebddbb6971a006038d91ee7ef959b9"
+  license "mpich2"
+  revision 1
+
+  livecheck do
+    url "https://www.mpich.org/static/downloads/"
+    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
 
   bottle do
     cellar :any
-    sha256 "7d46386dd93ee397ce6dd9f3198aa16aa9e1390699396f3f3b4135087f6ed216" => :catalina
-    sha256 "865e53a39ea105d5d646986b64a0ad9096cdbf4135d7435448062bc458cb6a64" => :mojave
-    sha256 "9d5dc18a7f5a9283f225e117f6ae879f1205249799287150a0e63ef177682077" => :high_sierra
+    sha256 "3927047d7322310cef941a5e790c43b858a29716bea54d493bd1901b8d0bcb3d" => :catalina
+    sha256 "44511bb2ad213ccc7e47a505895cf6aa4dbdd1a7dbba468095a130e83ca7bff3" => :mojave
+    sha256 "0498e1ee125ed94a3822179663e552ecf29bdca1ae3837520284fadae3782cef" => :high_sierra
   end
 
   head do
@@ -22,7 +29,7 @@ class Mpich < Formula
 
   depends_on "gcc" # for gfortran
 
-  conflicts_with "open-mpi", :because => "both install MPI compiler wrappers"
+  conflicts_with "open-mpi", because: "both install MPI compiler wrappers"
 
   def install
     if build.head?
@@ -35,7 +42,10 @@ class Mpich < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
-                          "--mandir=#{man}"
+                          "--mandir=#{man}",
+                          # Flag for compatibility with GCC 10
+                          # https://lists.mpich.org/pipermail/discuss/2020-January/005863.html
+                          "FFLAGS=-fallow-argument-mismatch"
 
     system "make"
     system "make", "check"

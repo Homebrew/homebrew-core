@@ -5,6 +5,11 @@ class Musepack < Formula
   version "r475"
   sha256 "a4b1742f997f83e1056142d556a8c20845ba764b70365ff9ccf2e3f81c427b2b"
 
+  livecheck do
+    url "https://www.musepack.net/index.php?pg=src"
+    regex(/href=.*?musepack(?:[._-]src)?[._-](r\d+)\.t/i)
+  end
+
   bottle do
     cellar :any
     rebuild 1

@@ -50,7 +50,7 @@ class Runit < Formula
     EOS
   end
 
-  plist_options :manual => "runit"
+  plist_options manual: "runit"
 
   def plist
     <<~EOS

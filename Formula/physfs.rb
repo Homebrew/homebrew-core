@@ -3,7 +3,12 @@ class Physfs < Formula
   homepage "https://icculus.org/physfs/"
   url "https://icculus.org/physfs/downloads/physfs-3.0.2.tar.bz2"
   sha256 "304df76206d633df5360e738b138c94e82ccf086e50ba84f456d3f8432f9f863"
-  head "https://hg.icculus.org/icculus/physfs/", :using => :hg
+  head "https://hg.icculus.org/icculus/physfs/", using: :hg
+
+  livecheck do
+    url "https://icculus.org/physfs/downloads/"
+    regex(/href=.*?physfs[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     cellar :any
@@ -14,6 +19,12 @@ class Physfs < Formula
   end
 
   depends_on "cmake" => :build
+
+  uses_from_macos "zip" => :test
+
+  on_linux do
+    depends_on "readline"
+  end
 
   def install
     mkdir "macbuild" do

@@ -3,6 +3,7 @@ class Akamai < Formula
   homepage "https://github.com/akamai/cli"
   url "https://github.com/akamai/cli/archive/1.1.5.tar.gz"
   sha256 "759c3c3bc59c2623fc8a5f91907f55d870f77aef1839f2ecc703db5c469b852a"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

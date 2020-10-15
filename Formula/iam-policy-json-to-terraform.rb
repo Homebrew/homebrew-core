@@ -1,15 +1,16 @@
 class IamPolicyJsonToTerraform < Formula
   desc "Convert a JSON IAM Policy into terraform"
   homepage "https://github.com/flosell/iam-policy-json-to-terraform"
-  url "https://github.com/flosell/iam-policy-json-to-terraform/archive/1.3.0.tar.gz"
-  sha256 "90b5be7caa232186718b5645b2d5ab65a59695854db7598462bdbe059444a051"
+  url "https://github.com/flosell/iam-policy-json-to-terraform/archive/1.5.0.tar.gz"
+  sha256 "9d58642d3f532c4334dc63f45e44ff9cae254360f977bca925f20033338fadcb"
+  license "Apache-2.0"
   head "https://github.com/flosell/iam-policy-json-to-terraform.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ef3fc3988992318aaba7c08cdf0673c926582a5702fefe41bde207d6b8ab0334" => :catalina
-    sha256 "2cdd8319c8b2b24bd5ab168dc3cbd4b73085e5f943e129c295564ba03052dc88" => :mojave
-    sha256 "910972e266cff1247565ad9eed6a50ad3c146ca0c6b948953dfe02b48225c7c8" => :high_sierra
+    sha256 "d5aa3dea843226e508c13bd46c418d7d76e928d631863002054a0bd05b139a73" => :catalina
+    sha256 "b7d80897886195d53da78f483318c12c5873483faaf73bf42dc91dfe1d7ddfbc" => :mojave
+    sha256 "1ad4ad756d400206cc8583a53dc57e50139b45865118d13594c5cc4acef7ff75" => :high_sierra
   end
 
   depends_on "dep" => :build

@@ -3,6 +3,7 @@ class Sshtrix < Formula
   homepage "https://nullsecurity.net/tools/cracker.html"
   url "https://github.com/nullsecuritynet/tools/raw/master/cracker/sshtrix/release/sshtrix-0.0.3.tar.gz"
   sha256 "30d1d69c1cac92836e74b8f7d0dc9d839665b4994201306c72e9929bee32e2e0"
+  license "GPL-3.0"
 
   bottle do
     cellar :any

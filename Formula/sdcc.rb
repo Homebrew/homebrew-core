@@ -3,7 +3,13 @@ class Sdcc < Formula
   homepage "https://sdcc.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/sdcc/sdcc/4.0.0/sdcc-src-4.0.0.tar.bz2"
   sha256 "489180806fc20a3911ba4cf5ccaf1875b68910d7aed3f401bbd0695b0bef4e10"
+  license "GPL-2.0"
   head "https://svn.code.sf.net/p/sdcc/code/trunk/sdcc"
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/sdcc-src[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
 
   bottle do
     sha256 "876e548b2a8c31c2d45d753b59e528c82101d193398d8c158270849fe9703ece" => :catalina

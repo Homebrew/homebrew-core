@@ -6,6 +6,11 @@ class Geomview < Formula
   sha256 "67edb3005a22ed2bf06f0790303ee3f523011ba069c10db8aef263ac1a1b02c0"
   revision 1
 
+  livecheck do
+    url "https://deb.debian.org/debian/pool/main/g/geomview/"
+    regex(/href=.*?geomview[._-]v?(\d+(?:\.\d+)+)(?:\.orig)?\.t/i)
+  end
+
   bottle do
     sha256 "2a2d54a233f02bb8667cc5217fe110fc31e29eeeaca51f99bb7ac58237f9b0a9" => :catalina
     sha256 "cd70e7bf1004fe4b28933971dc3e817822c2abdd17fd09eb728f26ac85506cb2" => :mojave

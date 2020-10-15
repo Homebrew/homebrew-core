@@ -3,7 +3,13 @@ class SeleniumServerStandalone < Formula
   homepage "https://www.seleniumhq.org/"
   url "https://selenium-release.storage.googleapis.com/3.141/selenium-server-standalone-3.141.59.jar"
   sha256 "acf71b77d1b66b55db6fb0bed6d8bae2bbd481311bcbedfeff472c0d15e8f3cb"
-  revision 1
+  license "Apache-2.0"
+  revision 2
+
+  livecheck do
+    url "https://www.selenium.dev/downloads/"
+    regex(/href=.*?selenium-server-standalone[._-]v?(\d+(?:\.\d+)+)\.jar/i)
+  end
 
   bottle :unneeded
 
@@ -11,13 +17,10 @@ class SeleniumServerStandalone < Formula
 
   def install
     libexec.install "selenium-server-standalone-#{version}.jar"
-    (bin/"selenium-server").write <<~EOS
-      #!/bin/bash
-      exec "#{Formula["openjdk"].opt_bin}/java" -jar "#{libexec}/selenium-server-standalone-#{version}.jar" "$@"
-    EOS
+    bin.write_jar_script libexec/"selenium-server-standalone-#{version}.jar", "selenium-server"
   end
 
-  plist_options :manual => "selenium-server -port 4444"
+  plist_options manual: "selenium-server -port 4444"
 
   def plist
     <<~EOS
@@ -33,7 +36,7 @@ class SeleniumServerStandalone < Formula
         <false/>
         <key>ProgramArguments</key>
         <array>
-          <string>/usr/bin/java</string>
+          <string>#{Formula["openjdk"].opt_bin}/java</string>
           <string>-jar</string>
           <string>#{libexec}/selenium-server-standalone-#{version}.jar</string>
           <string>-port</string>
@@ -51,22 +54,14 @@ class SeleniumServerStandalone < Formula
   end
 
   test do
-    port = 4444
-    pid = fork do
-      exec "#{bin}/selenium-server -port #{port}"
-    end
+    port = free_port
+    fork { exec "#{bin}/selenium-server -port #{port}" }
     sleep 3
+    output = shell_output("curl --silent localhost:#{port}/wd/hub/status")
+    output = JSON.parse(output)
 
-    begin
-      output = shell_output("curl --silent localhost:4444/wd/hub/status")
-      output = JSON.parse(output)
-
-      assert_equal 0, output["status"]
-      assert_true output["value"]["ready"]
-      assert_equal version, output["value"]["build"]["version"]
-    ensure
-      Process.kill("SIGINT", pid)
-      Process.wait(pid)
-    end
+    assert_equal 0, output["status"]
+    assert_true output["value"]["ready"]
+    assert_equal version, output["value"]["build"]["version"]
   end
 end

@@ -1,17 +1,17 @@
 class Mmseqs2 < Formula
   desc "Software suite for very fast sequence search and clustering"
   homepage "https://mmseqs.com/"
-  url "https://github.com/soedinglab/MMseqs2/archive/11-e1a1c.tar.gz"
-  version "11-e1a1c"
-  sha256 "ffe1ae300dbe1a0e3d72fc9e947356a4807f07951cb56316f36974d8d5875cbb"
-  revision 1
+  url "https://github.com/soedinglab/MMseqs2/archive/12-113e3.tar.gz"
+  version "12-113e3"
+  sha256 "81fa0d77eab9d74b429567da00aa7ec2d46049537ce469595d7356b6d8b5458a"
+  license "GPL-3.0-or-later"
   head "https://github.com/soedinglab/MMseqs2.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9bc41128722a0a926cc30fca2cfb29574bb150deb8acc482cd61e7e49e8169fb" => :catalina
-    sha256 "789fa0f2f9bef66df73de586236dbffb037f8a32794e47768818d1fc732c05e2" => :mojave
-    sha256 "d3f8b1a3ba35b0af1e80a0a917d915e8c19ea542bde20879c3031f1138af55aa" => :high_sierra
+    sha256 "19e991c528466e6443a0772d6ea2c373b5323f3b6d919adde3ec2cd6958c6e04" => :catalina
+    sha256 "f31e32a418bb6a407be63e5d60c4bcc10497c3412b07fe270ac523851fbeeea7" => :mojave
+    sha256 "6a92a84f48542cac881e7bf4de5c7946d8038e8da1c799c98fe0992ed3f4d1a0" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -19,12 +19,11 @@ class Mmseqs2 < Formula
   depends_on "wget"
 
   uses_from_macos "bzip2"
-  uses_from_macos "gawk"
   uses_from_macos "zlib"
 
   resource "documentation" do
     url "https://github.com/soedinglab/MMseqs2.wiki.git",
-        :revision => "c77918c9cebb24075f3c102a73fb1d413017a1a5"
+        revision: "d53d8be3761ee625b0dcddda29b092bbd02244ef"
   end
 
   def install
@@ -38,6 +37,9 @@ class Mmseqs2 < Formula
     args << "-DOpenMP_CXX_FLAGS=-Xpreprocessor\ -fopenmp\ -I#{libomp.opt_include}"
     args << "-DOpenMP_CXX_LIB_NAMES=omp"
     args << "-DOpenMP_omp_LIBRARY=#{libomp.opt_lib}/libomp.a"
+
+    # Fix SIMDe on AppleClang11, fixed upstream, remove in next release
+    args << "-DCMAKE_CXX_FLAGS=-DSIMDE_NO_CHECK_IMMEDIATE_CONSTANT=1" if DevelopmentTools.clang_build_version == 1100
 
     system "cmake", ".", *args
     system "make", "install"

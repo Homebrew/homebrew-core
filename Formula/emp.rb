@@ -3,6 +3,7 @@ class Emp < Formula
   homepage "https://github.com/remind101/empire"
   url "https://github.com/remind101/empire/archive/v0.13.0.tar.gz"
   sha256 "1294de5b02eaec211549199c5595ab0dbbcfdeb99f670b66e7890c8ba11db22b"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any_skip_relocation
@@ -27,7 +28,7 @@ class Emp < Formula
   test do
     require "webrick"
 
-    server = WEBrick::HTTPServer.new :Port => 8035
+    server = WEBrick::HTTPServer.new Port: 8035
     server.mount_proc "/apps/foo/releases" do |_req, res|
       resp = {
         "created_at"  => "2015-10-12T0:00:00.00000000-00:00",

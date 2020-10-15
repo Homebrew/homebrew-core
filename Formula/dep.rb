@@ -2,8 +2,9 @@ class Dep < Formula
   desc "Go dependency management tool"
   homepage "https://github.com/golang/dep"
   url "https://github.com/golang/dep.git",
-      :tag      => "v0.5.4",
-      :revision => "1f7c19e5f52f49ffb9f956f64c010be14683468b"
+      tag:      "v0.5.4",
+      revision: "1f7c19e5f52f49ffb9f956f64c010be14683468b"
+  license "BSD-3-Clause"
   head "https://github.com/golang/dep.git"
 
   bottle do
@@ -16,7 +17,7 @@ class Dep < Formula
 
   depends_on "go"
 
-  conflicts_with "deployer", :because => "both install `dep` binaries"
+  conflicts_with "deployer", because: "both install `dep` binaries"
 
   def install
     ENV["GOPATH"] = buildpath

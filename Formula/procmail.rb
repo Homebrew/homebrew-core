@@ -5,6 +5,15 @@ class Procmail < Formula
   url "https://opensource.apple.com/tarballs/procmail/procmail-14.tar.gz"
   sha256 "f3bd815d82bb70625f2ae135df65769c31dd94b320377f0067cd3c2eab968e81"
 
+  # Procmail is no longer developed/maintained and the formula uses tarballs
+  # from Apple, so we check this source for new releases. The "version" here is
+  # the numeric portion of the archive name (e.g. 14 for procmail-14.tar.gz)
+  # instead of the actual procmail version.
+  livecheck do
+    url "https://opensource.apple.com/tarballs/procmail/"
+    regex(/href=.*?procmail[._-]v?(\d+(?:\.\d+)*)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "a7f6ee9550f27ea88322a4c4c88b04421e6d2c676248a914571a2fbffd6d425f" => :catalina

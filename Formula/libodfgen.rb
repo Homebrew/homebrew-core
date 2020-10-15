@@ -5,6 +5,11 @@ class Libodfgen < Formula
   mirror "https://downloads.sourceforge.net/project/libwpd/libodfgen/libodfgen-0.1.7/libodfgen-0.1.7.tar.xz"
   sha256 "323e491f956c8ca2abb12c998e350670930a32317bf9662b0615dd4b3922b831"
 
+  livecheck do
+    url "https://dev-www.libreoffice.org/src/"
+    regex(/href=["']?libodfgen[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     rebuild 1

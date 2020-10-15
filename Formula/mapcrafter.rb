@@ -3,6 +3,7 @@ class Mapcrafter < Formula
   homepage "https://mapcrafter.org"
   url "https://github.com/mapcrafter/mapcrafter/archive/v.2.4.tar.gz"
   sha256 "f3b698d34c02c2da0c4d2b7f4e251bcba058d0d1e4479c0418eeba264d1c8dae"
+  license "GPL-3.0"
   revision 3
 
   bottle do

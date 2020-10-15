@@ -8,10 +8,10 @@ class Yasm < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ff96362c2fe7e8a4608471d479ae5eefb44d81d318ddad204900118be444c65d" => :catalina
-    sha256 "a3b57d242cdd13967472fbb5badd774d677428b6f730438d18fd153920dd3620" => :mojave
-    sha256 "aa12e2f4b22a402405553706681d5c6bde592a1958a7c1e2594a365c29834625" => :high_sierra
-    sha256 "49aa187cc261f03269c7036f1c39d6ff58d6748a25b247a0c51f8f3ecbf032cd" => :sierra
+    rebuild 1
+    sha256 "9aa61930f25fe305dc5364e72f539b0a225702b5f1dc222a9dde1216e901f7ab" => :catalina
+    sha256 "0dc797b72ee3bad9c6a52276c871ac745207b5626722e805fa642d7a872847fc" => :mojave
+    sha256 "7f31deeff91c5929f2cd52eca6b636669f9c8966f6d4777e89fa4b04e541ad85" => :high_sierra
   end
 
   head do
@@ -55,7 +55,7 @@ class Yasm < Formula
       .len:   equ     $ - msg
     EOS
     system "#{bin}/yasm", "-f", "macho64", "test.asm"
-    system "/usr/bin/ld", "-macosx_version_min", "10.7.0", "-lSystem", "-o", "test", "test.o"
+    system "/usr/bin/ld", "-macosx_version_min", "10.8.0", "-static", "-o", "test", "test.o"
     system "./test"
   end
 end

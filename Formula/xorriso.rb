@@ -5,6 +5,10 @@ class Xorriso < Formula
   mirror "https://ftpmirror.gnu.org/xorriso/xorriso-1.5.2.tar.gz"
   sha256 "3b69f5c93ae7c40c5bbe4a847fa3963f5efc9c565551622f77121c5792fc17e7"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "ba9353c38b3109630b543faf56f9f8431ec225db32e5f446495528879fcdc361" => :catalina

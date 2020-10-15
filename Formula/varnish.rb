@@ -1,23 +1,31 @@
 class Varnish < Formula
   desc "High-performance HTTP accelerator"
   homepage "https://www.varnish-cache.org/"
-  url "https://varnish-cache.org/_downloads/varnish-6.4.0.tgz"
-  sha256 "f636ba2d881b146f480fb52efefae468b36c2c3e6620d07460f9ccbe364a76c2"
+  url "https://varnish-cache.org/_downloads/varnish-6.5.1.tgz"
+  sha256 "11964c688f9852237c99c1e327d54dc487549ddb5f0f5aa7996e521333d7cdb5"
+  license "BSD-2-Clause"
+
+  livecheck do
+    url "https://varnish-cache.org/releases/"
+    regex(/href=.*?varnish[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 "b112adc0d1789bfe4bea6c3dd7777ce48bbdd8c5d2dd80d42b22b014f5fec988" => :catalina
-    sha256 "432d0cbd340a6e12856a9cba72130142565632c88200386e6f7411dd787f8fa0" => :mojave
-    sha256 "0113688047f37015d042d9650695f885a8fab888e029cd16ea3a62366f06c015" => :high_sierra
+    sha256 "c965ba15a912c5ec2edda39dbea0dc407f6def32880ff0b36f562a181c551cf5" => :catalina
+    sha256 "b429c593e98a20172de524371ec8fbe562a1c3162bb6ca5af1a473211f14bfc5" => :mojave
+    sha256 "c91874d68b7c64aaaa8bbe0b55219c516362e66120f4a1c131fbfa1d1e6ef67c" => :high_sierra
   end
 
   depends_on "docutils" => :build
   depends_on "graphviz" => :build
   depends_on "pkg-config" => :build
-  depends_on "python" => :build
+  depends_on "python@3.8" => :build
   depends_on "sphinx-doc" => :build
   depends_on "pcre"
 
   def install
+    ENV["PYTHON"] = Formula["python@3.8"].opt_bin/"python3"
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--localstatedir=#{var}"
@@ -26,7 +34,7 @@ class Varnish < Formula
     (var/"varnish").mkpath
   end
 
-  plist_options :manual => "#{HOMEBREW_PREFIX}/sbin/varnishd -n #{HOMEBREW_PREFIX}/var/varnish -f #{HOMEBREW_PREFIX}/etc/varnish/default.vcl -s malloc,1G -T 127.0.0.1:2000 -a 0.0.0.0:8080 -F"
+  plist_options manual: "#{HOMEBREW_PREFIX}/sbin/varnishd -n #{HOMEBREW_PREFIX}/var/varnish -f #{HOMEBREW_PREFIX}/etc/varnish/default.vcl -s malloc,1G -T 127.0.0.1:2000 -a 0.0.0.0:8080 -F"
 
   def plist
     <<~EOS

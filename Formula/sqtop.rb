@@ -4,6 +4,7 @@ class Sqtop < Formula
   url "https://github.com/paleg/sqtop/archive/v2015-02-08.tar.gz"
   version "2015-02-08"
   sha256 "eae4c8bc16dbfe70c776d990ecf14328acab0ed736f0bf3bd1647a3ac2f5e8bf"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

@@ -1,21 +1,22 @@
 class Audacious < Formula
   desc "Free and advanced audio player based on GTK+"
   homepage "https://audacious-media-player.org/"
+  license "BSD-2-Clause"
 
   stable do
-    url "https://distfiles.audacious-media-player.org/audacious-4.0.tar.bz2"
-    sha256 "3f46025334cc79332ef87a0c94297632f8eceb8e1497bf5a76a57003453c8bea"
+    url "https://distfiles.audacious-media-player.org/audacious-4.0.5.tar.bz2"
+    sha256 "51aea9e6a3b17f5209d49283a2dee8b9a7cd7ea96028316909da9f0bfe931f09"
 
     resource "plugins" do
-      url "https://distfiles.audacious-media-player.org/audacious-plugins-4.0.tar.bz2"
-      sha256 "e1ad3223c7833f167642563f3c30c68d292b1a457c9f0159fdedd58e575e3ee4"
+      url "https://distfiles.audacious-media-player.org/audacious-plugins-4.0.5.tar.bz2"
+      sha256 "9f0251922886934f2aa32739b5a30eadfefa7c70dd7b3e78f94aa6fc54e0c55b"
     end
   end
 
   bottle do
-    sha256 "6e6348dcc4b8b0c07338cd230ee45e2c751f02e945d279043d2c8ba868f85a5a" => :catalina
-    sha256 "bd744580a408ed7069d47fe576e00d8d672f0fad06133f5c5e5a939ff040b259" => :mojave
-    sha256 "9c7132c30a0bf3c7ac98d11fba51a9abb16581759c456b5272d9acf77d73cd2d" => :high_sierra
+    sha256 "b91911a8c81456b650fb88eb7f9dda4844538632b034a783eb209524aa6a2467" => :catalina
+    sha256 "09a4731e3df8b48e43305051a64ca73b07fec7ff76cf1cee1edc734a3cac99ea" => :mojave
+    sha256 "49a8da44d9aabfeb8d45057d7f04270a6cc0efc65f703d1e810edf74437691af" => :high_sierra
   end
 
   head do
@@ -41,25 +42,24 @@ class Audacious < Formula
   depends_on "lame"
   depends_on "libbs2b"
   depends_on "libcue"
+  depends_on "libmodplug"
   depends_on "libnotify"
+  depends_on "libopenmpt"
   depends_on "libsamplerate"
   depends_on "libsoxr"
   depends_on "libvorbis"
+  depends_on :macos # Due to Python 2
   depends_on "mpg123"
   depends_on "neon"
   depends_on "qt"
   depends_on "sdl2"
   depends_on "wavpack"
 
-  uses_from_macos "python@2"
-
   def install
     args = %W[
       --prefix=#{prefix}
-      --disable-coreaudio
+      --disable-dbus
       --disable-gtk
-      --disable-mpris2
-      --enable-mac-media-keys
       --enable-qt
     ]
 
@@ -69,6 +69,13 @@ class Audacious < Formula
     system "make", "install"
 
     resource("plugins").stage do
+      args += %w[
+        --disable-coreaudio
+        --disable-mpris2
+        --enable-mac-media-keys
+      ]
+      inreplace "src/glspectrum/gl-spectrum.cc", "#include <GL/", "#include <"
+      inreplace "src/qtglspectrum/gl-spectrum.cc", "#include <GL/", "#include <"
       ENV.prepend_path "PKG_CONFIG_PATH", "#{lib}/pkgconfig"
 
       system "./autogen.sh" if build.head?
@@ -81,9 +88,9 @@ class Audacious < Formula
 
   def caveats
     <<~EOS
-      audtool does not work due to a broken dbus implementation on macOS, so is not built
-      coreaudio output has been disabled as it does not work (Fails to set audio unit input property.)
-      GTK+ gui is not built by default as the QT gui has better integration with macOS, and when built, the gtk gui takes precedence
+      audtool does not work due to a broken dbus implementation on macOS, so it is not built.
+      Core Audio output has been disabled as it does not work (fails to set audio unit input property).
+      GTK+ GUI is not built by default as the Qt GUI has better integration with macOS, and the GTK GUI would take precedence if present.
     EOS
   end
 

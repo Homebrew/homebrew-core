@@ -3,6 +3,7 @@ class Libdill < Formula
   homepage "http://libdill.org/"
   url "https://github.com/sustrik/libdill/archive/2.14.tar.gz"
   sha256 "ebba0e5b433ec123b74a57d49b89dfa673aa258e03e6a452959e556b4c4529b9"
+  license "MIT"
 
   bottle do
     cellar :any

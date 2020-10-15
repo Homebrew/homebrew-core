@@ -4,6 +4,11 @@ class SpeechTools < Formula
   url "http://festvox.org/packed/festival/2.5/speech_tools-2.5.0-release.tar.gz"
   sha256 "e4fd97ed78f14464358d09f36dfe91bc1721b7c0fa6503e04364fb5847805dcc"
 
+  livecheck do
+    url "http://festvox.org/packed/festival/?C=M&O=D"
+    regex(%r{href=.*?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "88ed5cfcaf1234243702c543cff1d41471292dcf40a00ac6c5d4bd269c02de26" => :catalina
@@ -13,7 +18,7 @@ class SpeechTools < Formula
     sha256 "a0794d1d7f424833d2fe92726d26b6ebcc8dcf63b7f9700b19e1119ed7e2ca62" => :el_capitan
   end
 
-  conflicts_with "align", :because => "both install `align` binaries"
+  conflicts_with "align", because: "both install `align` binaries"
 
   def install
     ENV.deparallelize

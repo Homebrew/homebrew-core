@@ -1,14 +1,14 @@
 class Sfcgal < Formula
   desc "C++ wrapper library around CGAL"
   homepage "http://sfcgal.org/"
-  url "https://github.com/Oslandia/SFCGAL/archive/v1.3.7.tar.gz"
-  sha256 "30ea1af26cb2f572c628aae08dd1953d80a69d15e1cac225390904d91fce031b"
-  revision 2
+  url "https://gitlab.com/Oslandia/SFCGAL/-/archive/v1.3.9/SFCGAL-v1.3.9.tar.gz"
+  sha256 "4f8ecfaa0d9ac5d8d7969f767ce3abadc7cc64059a11481e4bc497f04d5f6598"
+  license "LGPL-2.0+"
 
   bottle do
-    sha256 "fefaaab69ba9fc4664303b558c01a9bcc584fbe39b0d34e2373d384c4a371e2e" => :catalina
-    sha256 "e69cc15c8b93ddd06a9c65acd55afc338d520939d8781cbe97d8238548eee380" => :mojave
-    sha256 "58cd7e79ae765402b421fc1f4a6b7fd3b9d9e4a54bfe06fb5687b6b886c25bb4" => :high_sierra
+    sha256 "8cc583e706bc2755d61c362afbdd0cc627c6126113d4d6c5c0cc1f1bb62e8dfa" => :catalina
+    sha256 "4137e3e9b3058a0d05a1ef9a357f0b22d4e0cf57ea6c525b3c4d7e3741a6ba86" => :mojave
+    sha256 "cddd030fa1e55f74ee70068d2ac5b6c748def91794a82cad87a3025078cb2f78" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -16,12 +16,6 @@ class Sfcgal < Formula
   depends_on "cgal"
   depends_on "gmp"
   depends_on "mpfr"
-
-  # Patch for CGAL-5.0. To be removed next release. See https://github.com/Oslandia/SFCGAL/pull/197 for fix upstream
-  patch do
-    url "https://github.com/Oslandia/SFCGAL/compare/v1.3.7...sloriot:remove_auto_ptr.patch"
-    sha256 "4cc975509368df986ff634ddcf605ad6469aa01bb68659ae21d171ed2a0f5f66"
-  end
 
   def install
     system "cmake", ".", *std_cmake_args

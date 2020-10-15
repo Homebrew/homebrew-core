@@ -1,23 +1,25 @@
 class X8664ElfBinutils < Formula
-  desc "FSF Binutils for x86_64-elf cross development"
+  desc "GNU Binutils for x86_64-elf cross development"
   homepage "https://www.gnu.org/software/binutils/"
-  url "https://ftp.gnu.org/gnu/binutils/binutils-2.34.tar.gz"
-  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.34.tar.gz"
-  sha256 "53537d334820be13eeb8acb326d01c7c81418772d626715c7ae927a7d401cab3"
+  url "https://ftp.gnu.org/gnu/binutils/binutils-2.35.1.tar.xz"
+  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.35.1.tar.xz"
+  sha256 "3ced91db9bf01182b7e420eab68039f2083aed0a214c0424e257eae3ddee8607"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
-    sha256 "57141264369389b9c50019aac6bb0f6dcf19935f20ea8fab57b56d4c4451066a" => :catalina
-    sha256 "2fa4917e60d82c29d70b90a5a725ecb26a29aa5cf148af16e73af045ee431c59" => :mojave
-    sha256 "ed28927581eb4e2a8bfd10134eec40e1b1055161a5fb26580453943fb3bffe72" => :high_sierra
+    sha256 "8ca33c467a19a068f0e92c75d00f87115283072d5054672449d9abd2fa96036e" => :catalina
+    sha256 "59d35da02f1387ae5fd0b0c13f1647a0ae7b88dcff3e662bb3eaa502990937c4" => :mojave
+    sha256 "df62f4e6bf30c75023ebad89244e0a71d86f03966ba46892a5c1046332af2a73" => :high_sierra
   end
 
   def install
     system "./configure", "--target=x86_64-elf",
-                          "--enable-targets=all",
-                          "--enable-multilib",
-                          "--enable-64-bit-bfd",
-                          "--disable-werror",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "--infodir=#{info}/x86_64-elf-binutils",
+                          "--disable-nls"
     system "make"
     system "make", "install"
   end
@@ -34,6 +36,6 @@ class X8664ElfBinutils < Formula
     EOS
     system "#{bin}/x86_64-elf-as", "--64", "-o", "test-s.o", "test-s.s"
     assert_match "file format elf64-x86-64",
-      shell_output("#{Formula["x86_64-elf-binutils"].bin}/x86_64-elf-objdump -a test-s.o")
+      shell_output("#{bin}/x86_64-elf-objdump -a test-s.o")
   end
 end

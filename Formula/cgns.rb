@@ -1,14 +1,21 @@
 class Cgns < Formula
   desc "CFD General Notation System"
   homepage "http://cgns.org/"
-  url "https://github.com/CGNS/CGNS/archive/v4.1.1.tar.gz"
-  sha256 "055d345c3569df3ae832fb2611cd7e0bc61d56da41b2be1533407e949581e226"
+  url "https://github.com/CGNS/CGNS/archive/v4.1.2.tar.gz"
+  sha256 "951653956f509b8a64040f1440c77f5ee0e6e2bf0a9eef1248d370f60a400050"
+  license "BSD-3-Clause"
+  head "https://github.com/CGNS/CGNS.git"
+
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     cellar :any
-    sha256 "58d72a07332c405794ad894f3660915603cf68a0a113c2ef7a53be90ddbb1c45" => :catalina
-    sha256 "3061b10281a14b48f51e896acafb793cd2f6acbf2881a260a22a0dfcf3d83cf2" => :mojave
-    sha256 "d7a8544d2c0c29019874097d8f70cdc68e46e5f635201130f91020d1b0af73a0" => :high_sierra
+    sha256 "4371c695cad1aa0bccbaaf0deccb9a8f5ddf7271dcbbddf6307b8d0bc254cec5" => :catalina
+    sha256 "d9904ca7c839a5d0421b99ba784e98fec047971de47efa5d3cc00725cd892e26" => :mojave
+    sha256 "8bfeb33c22f79c998b31fea6aafc60aecf2edf18ea754799c67c012d90555ec9" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -29,6 +36,9 @@ class Cgns < Formula
       system "make"
       system "make", "install"
     end
+
+    # Avoid references to Homebrew shims
+    inreplace include/"cgnsBuild.defs", HOMEBREW_LIBRARY/"Homebrew/shims/mac/super/clang", "/usr/bin/clang"
   end
 
   test do

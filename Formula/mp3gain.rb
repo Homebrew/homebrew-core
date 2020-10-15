@@ -5,6 +5,10 @@ class Mp3gain < Formula
   version "1.6.2"
   sha256 "5cc04732ef32850d5878b28fbd8b85798d979a025990654aceeaa379bcc9596d"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "27dbf67d73a4f63cd06cc568b8a40d09e3fec5e858c447da1750b2093046d795" => :catalina

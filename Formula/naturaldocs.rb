@@ -4,6 +4,11 @@ class Naturaldocs < Formula
   url "https://downloads.sourceforge.net/project/naturaldocs/Stable%20Releases/2.0.2/Natural_Docs_2.0.2.zip"
   sha256 "4a8be89d1c749fa40611193404556d408f414e03df8c397b970e045b57a54d4d"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/Natural.?Docs[._-]v?(\d+(?:\.\d+)+)\.(?:t|zip)}i)
+  end
+
   bottle :unneeded
 
   depends_on "mono"

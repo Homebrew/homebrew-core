@@ -3,6 +3,7 @@ class Libresample < Formula
   homepage "https://ccrma.stanford.edu/~jos/resample/Available_Software.html"
   url "https://deb.debian.org/debian/pool/main/libr/libresample/libresample_0.1.3.orig.tar.gz"
   sha256 "20222a84e3b4246c36b8a0b74834bb5674026ffdb8b9093a76aaf01560ad4815"
+  license "LGPL-2.1"
 
   bottle do
     cellar :any_skip_relocation

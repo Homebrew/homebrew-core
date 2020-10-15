@@ -1,8 +1,9 @@
 class WiremockStandalone < Formula
   desc "Simulator for HTTP-based APIs"
   homepage "http://wiremock.org/docs/running-standalone/"
-  url "https://search.maven.org/remotecontent?filepath=com/github/tomakehurst/wiremock-standalone/2.26.3/wiremock-standalone-2.26.3.jar"
-  sha256 "de1f60e88565649a3a1c1a1e59f2ed58c2b5bd6417d91b6c77b93a5dd1bb3d77"
+  url "https://search.maven.org/remotecontent?filepath=com/github/tomakehurst/wiremock-standalone/2.27.2/wiremock-standalone-2.27.2.jar"
+  sha256 "00b14f9d6399a9bba96139f84354f981d9fd1c3f4cf6938d36391f292f76382b"
+  license "Apache-2.0"
   head "https://github.com/tomakehurst/wiremock.git"
 
   bottle :unneeded
@@ -18,11 +19,7 @@ class WiremockStandalone < Formula
   end
 
   test do
-    require "socket"
-
-    server = TCPServer.new(0)
-    port = server.addr[1]
-    server.close
+    port = free_port
 
     wiremock = fork do
       exec "#{bin}/wiremock", "-port", port.to_s

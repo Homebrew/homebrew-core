@@ -1,15 +1,16 @@
 class Cjdns < Formula
   desc "Advanced mesh routing system with cryptographic addressing"
   homepage "https://github.com/cjdelisle/cjdns/"
-  url "https://github.com/cjdelisle/cjdns/archive/cjdns-v20.5.tar.gz"
-  sha256 "c7a8335b9be0b53f6d78427e318dd52d93e0e7bea95850d994c241813e6e5e92"
+  url "https://github.com/cjdelisle/cjdns/archive/cjdns-v21.tar.gz"
+  sha256 "6dfb1fe18c9689324f36c8d33e660972aac5af4579fcaa9c4730179bc8d67c69"
+  license all_of: ["GPL-3.0-or-later", "GPL-2.0-or-later", "BSD-3-Clause", "MIT"]
   head "https://github.com/cjdelisle/cjdns.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5939291f77f7f90d1867c7f1e001da71d388b04a06742d8895cbbaf4d3a06971" => :catalina
-    sha256 "6f526ee74df572fd99dd6641732040e5f147013d30d2e4c194c98c3c9acc1f61" => :mojave
-    sha256 "589b70433d38ef5b7f5b04553b4a200327797c35836cb36ae472325d4855eb4a" => :high_sierra
+    sha256 "b40905920fb755137bd4ebb409a92b9472419e974eb634834de0cf4f8ee4b39d" => :catalina
+    sha256 "badca34b50dc0c5eb97d22d1538e8b12cf80d8d28acdeb31fd00ac4fd9074e12" => :mojave
+    sha256 "a3708d0844e30cc69de62232117b683ac8f48426f9c8a12781fcd042c581b0e5" => :high_sierra
   end
 
   depends_on "node" => :build

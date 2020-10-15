@@ -5,22 +5,28 @@ class Agda < Formula
 
   desc "Dependently typed functional programming language"
   homepage "https://wiki.portal.chalmers.se/agda/"
+  license "BSD-3-Clause"
 
   stable do
     url "https://hackage.haskell.org/package/Agda-2.6.1/Agda-2.6.1.tar.gz"
     sha256 "678f416af8f30d017825309f15fac41d239b07f66a4c40497e8435a6bdb7c129"
 
     resource "stdlib" do
+      # version needed to build with ghc-8.10.1
       url "https://github.com/agda/agda-stdlib.git",
-          :tag      => "v1.3",
-          :revision => "9f929b4fe28bb7ba74b6b95d01ed0958343f3451"
+          revision: "b859bd363a96bc862ead0509bdf5869837651896"
     end
   end
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
-    sha256 "0781eb7d7503b64f1d4646b0fe8f7c5ae41dbda83e3397994eb690e2c0e5a4a1" => :catalina
-    sha256 "2fbca2d6e6f6569b39befb0fbaea02ea09681014563e5c39fb04e8911f3fda0c" => :mojave
-    sha256 "f1312e5307c3f022e7244bc7780bebbd8422f4e1d61a50618f4406485648b292" => :high_sierra
+    rebuild 2
+    sha256 "c2d27dd1e42cee97bd2d4d19d38e027e627df890025265dceab6454d662a3b3e" => :catalina
+    sha256 "664bd4405aebb3eab9c982257425e439a1e03514053f9ddbda08e4257cc2a4d3" => :mojave
+    sha256 "f3d520dba93d25d02aeb32b4493aab265e41ef70d161777745a25d203d1dd1e5" => :high_sierra
   end
 
   head do
@@ -33,19 +39,19 @@ class Agda < Formula
 
   depends_on "cabal-install"
   depends_on "emacs"
-  depends_on "ghc"
+  depends_on "ghc@8.8"
 
   uses_from_macos "zlib"
 
   def install
     # install Agda core
-    install_cabal_package :using => ["alex", "happy", "cpphs"]
+    install_cabal_package using: ["alex", "happy", "cpphs"]
 
     resource("stdlib").stage lib/"agda"
 
     # generate the standard library's bytecode
     cd lib/"agda" do
-      cabal_sandbox :home => buildpath, :keep_lib => true do
+      cabal_sandbox home: buildpath, keep_lib: true do
         cabal_install "--only-dependencies"
         cabal_install
         system "GenerateEverything"
@@ -145,18 +151,13 @@ class Agda < Formula
     system bin/"agda", "--js", simpletest
 
     # test the GHC backend
-    cabal_sandbox do
-      cabal_install "ieee754"
-      dbpath = Dir["#{testpath}/.cabal-sandbox/*-packages.conf.d"].first
-      dbopt = "--ghc-flag=-package-db=#{dbpath}"
-
-      # compile and run a simple program
-      system bin/"agda", "-c", dbopt, iotest
-      assert_equal "", shell_output(testpath/"IOTest")
-
-      # compile and run a program that uses the standard library
-      system bin/"agda", "-c", "-i", lib/"agda"/"src", dbopt, stdlibiotest
-      assert_equal "Hello, world!", shell_output(testpath/"StdlibIOTest")
-    end
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", "ieee754", "--lib", *std_cabal_v2_args
+    # compile and run a simple program
+    system bin/"agda", "-c", iotest
+    assert_equal "", shell_output(testpath/"IOTest")
+    # compile and run a program that uses the standard library
+    system bin/"agda", "-c", "-i", lib/"agda"/"src", stdlibiotest
+    assert_equal "Hello, world!", shell_output(testpath/"StdlibIOTest")
   end
 end
