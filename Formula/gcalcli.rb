@@ -134,7 +134,7 @@ class Gcalcli < Formula
     "&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcalendar&access_type=offline&response_type=code\n\n"\
     "Enter verification code: "
     output = pipe_output(
-      "#{libexec}/bin/gcalcli --client-id=foo --client-secret=bar --noauth_local_webserver list", "foo"
+      "#{bin}/gcalcli --client-id=foo --client-secret=bar --noauth_local_webserver list", "foo"
     )
     assert_equal expected_output, output
   end
