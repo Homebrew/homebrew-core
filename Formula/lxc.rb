@@ -1,8 +1,8 @@
 class Lxc < Formula
   desc "CLI client for interacting with LXD"
   homepage "https://linuxcontainers.org"
-  url "https://linuxcontainers.org/downloads/lxd/lxd-4.6.tar.gz"
-  sha256 "3702f5eafba6dba2ab21c2119bc74e8b55514d697c1fac80343adeea94d72e04"
+  url "https://linuxcontainers.org/downloads/lxd/lxd-4.7.tar.gz"
+  sha256 "011745a66e971d95ada088dc42a9154028393de86871ea3ef4ff91a2976525ed"
   license "Apache-2.0"
 
   livecheck do
