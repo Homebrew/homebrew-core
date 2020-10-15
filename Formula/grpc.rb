@@ -6,7 +6,7 @@ class Grpc < Formula
     revision: "414bb8322de2411eee1f4e841ff29d887bec7884",
     shallow:  false
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/grpc/grpc.git"
 
   livecheck do
@@ -37,6 +37,8 @@ class Grpc < Formula
     mkdir "cmake/build" do
       args = %w[
         ../..
+        -DCMAKE_CXX_STANDARD=17
+        -DCMAKE_CXX_STANDARD_REQUIRED=TRUE
         -DBUILD_SHARED_LIBS=ON
         -DgRPC_BUILD_TESTS=OFF
         -DgRPC_INSTALL=ON
