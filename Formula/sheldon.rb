@@ -1,8 +1,8 @@
 class Sheldon < Formula
   desc "Fast, configurable, shell plugin manager"
   homepage "https://rossmacarthur.github.io/sheldon"
-  url "https://github.com/rossmacarthur/sheldon/archive/0.5.4.tar.gz"
-  sha256 "2707f05f59ce3df7e572f8a098d6f0d675b0b351695d04ba8d159d5a7eee8562"
+  url "https://github.com/rossmacarthur/sheldon/archive/0.6.0.tar.gz"
+  sha256 "5c04abd956634725e23a3a782fe0fb40a9fe1323ed07fcf8ff2a30ce59b83b59"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/rossmacarthur/sheldon.git"
 
@@ -22,7 +22,7 @@ class Sheldon < Formula
 
   test do
     touch testpath/"plugins.toml"
-    system "#{bin}/sheldon", "--home", testpath, "--root", testpath, "lock"
+    system "#{bin}/sheldon", "--home", testpath, "--config-dir", testpath, "--data-dir", testpath, "lock"
     assert_predicate testpath/"plugins.lock", :exist?
   end
 end
