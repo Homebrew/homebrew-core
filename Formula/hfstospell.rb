@@ -1,10 +1,9 @@
 class Hfstospell < Formula
   desc "Helsinki Finite-State Technology ospell"
   homepage "https://hfst.github.io/"
-  url "https://github.com/hfst/hfst-ospell/releases/download/v0.5.1/hfstospell-0.5.1.tar.gz"
-  sha256 "ccf5f3b06bcdc5636365e753b9f7fad9c11dfe483272061700a905b3d65ac750"
+  url "https://github.com/hfst/hfst-ospell/releases/download/v0.5.2/hfst-ospell-0.5.2.tar.bz2"
+  sha256 "ab9ccf3c2165c0efd8dd514e0bf9116e86a8a079d712c0ed6c2fabf0052e9aa4"
   license "Apache-2.0"
-  revision 2
 
   livecheck do
     url "https://github.com/hfst/hfst-ospell/releases/latest"
@@ -18,12 +17,16 @@ class Hfstospell < Formula
     sha256 "f5ebd7bb299f5e660c8b559bed232bc6fc6ec4ea98691384d385f3afcf4a6c96" => :high_sierra
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "icu4c"
   depends_on "libarchive"
 
   def install
     ENV.cxx11
+    system "autoreconf", "-fiv"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--without-libxmlpp",
