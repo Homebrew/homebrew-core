@@ -3,10 +3,9 @@ class AwsElasticbeanstalk < Formula
 
   desc "Client for Amazon Elastic Beanstalk web service"
   homepage "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3.html"
-  url "https://files.pythonhosted.org/packages/3e/72/18aae8bbfdb7d9ed8ff509f4c5274af86da45b0647b834d50589547ee9dd/awsebcli-3.19.0.tar.gz"
-  sha256 "35fc8417a37c9234789947d40b6f66b49a115d06d0dd9f6ce0bebd617df60202"
+  url "https://files.pythonhosted.org/packages/32/26/6e51c423dddda05204f36c927f079aa1972617c3cafcd4b434cd034e7cd1/awsebcli-3.19.1.tar.gz"
+  sha256 "ef3d1bfb003902795a368c3740c179463217863ca4c285d4b4c24b11e7e08206"
   license "Apache-2.0"
-  revision 1
 
   livecheck do
     url :stable
@@ -38,18 +37,18 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "blessed" do
-    url "https://files.pythonhosted.org/packages/54/bf/f0394ac7ddc7d8d467c348e07260425e32c75ec57a65749f00aa56fec044/blessed-1.17.10.tar.gz"
-    sha256 "58b9464609f54e2eca5f5926db590a5b01fefef882844ce05064f483b8f96c26"
+    url "https://files.pythonhosted.org/packages/f1/42/415316ca799d8df60832b51cc493935e70ea6bc02f68430e7ac3982304ca/blessed-1.17.11.tar.gz"
+    sha256 "7d4914079a6e8e14fbe080dcaf14dee596a088057cdc598561080e3266123b48"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/e1/a1/d2923bf6f9d881d294e21e72cd0efc9ff409f4e399122565a9d701213dc8/botocore-1.17.62.tar.gz"
-    sha256 "8712b69f6e4abd9a5ef52b20fb5b9ca545cda335ee1b106fc68dd7786c7c78ae"
+    url "https://files.pythonhosted.org/packages/41/3d/360ccf3612644b661c55fde8959e6a1597ce589d1fad0b62c351d2623a4f/botocore-1.17.63.tar.gz"
+    sha256 "40f13f6c9c29c307a9dc5982739e537ddce55b29787b90c3447b507e3283bcd6"
   end
 
   resource "cached-property" do
-    url "https://files.pythonhosted.org/packages/57/8e/0698e10350a57d46b3bcfe8eff1d4181642fd1724073336079cb13c5cf7f/cached-property-1.5.1.tar.gz"
-    sha256 "9217a59f14a5682da7c4b8829deadbfc194ac22e9908ccf7c8820234e80a1504"
+    url "https://files.pythonhosted.org/packages/61/2c/d21c1c23c2895c091fa7a91a54b6872098fea913526932d21902088a7c41/cached-property-1.5.2.tar.gz"
+    sha256 "9fa5755838eecbb2d234c3aa390bd80fbd3ac6b6869109bfc1b499f7bd89a130"
   end
 
   resource "cement" do
@@ -73,13 +72,13 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "colorama" do
-    url "https://files.pythonhosted.org/packages/82/75/f2a4c0c94c85e2693c229142eb448840fba0f9230111faa889d1f541d12d/colorama-0.4.3.tar.gz"
-    sha256 "e96da0d330793e2cb9485e9ddfd918d456036c7149416295932478192f4436a1"
+    url "https://files.pythonhosted.org/packages/1f/bb/5d3246097ab77fa083a61bd8d3d527b7ae063c7d8e8671b1cf8c4ec10cbe/colorama-0.4.4.tar.gz"
+    sha256 "5941b2b48a20143d2267e95b1c2a7603ce057ee39fd88e7329b0c292aa16869b"
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/12/be/c9cc7d7ab71dbcc9e4e517ead0cdd48e8c9a48d7b8bdddb738e90d08279a/cryptography-3.1.tar.gz"
-    sha256 "26409a473cc6278e4c90f782cd5968ebad04d3911ed1c402fc86908c17633e08"
+    url "https://files.pythonhosted.org/packages/5d/4b/7bb135c5787c003cdbc44990c5f41908f0f37135e0bb554e880d90fd5f6f/cryptography-3.1.1.tar.gz"
+    sha256 "9d9fc6a16357965d282dd4ab6531013935425d0dc4950df2e0cf2a1b1ac1017d"
   end
 
   resource "docker" do
