@@ -32,9 +32,9 @@ class Jabba < Formula
 
   test do
     ENV["JABBA_HOME"] = testpath/"jabba_home"
-    system bin/"jabba", "install", "openjdk@1.14.0"
-    jdk_path = shell_output("#{bin}/jabba which openjdk@1.14.0").strip
-    assert_match 'openjdk version "14',
+    system bin/"jabba", "install", "openjdk@1.15.0"
+    jdk_path = shell_output("#{bin}/jabba which openjdk@1.15.0").strip
+    assert_match 'openjdk version "15',
                  shell_output("#{jdk_path}/Contents/Home/bin/java -version 2>&1")
   end
 end
