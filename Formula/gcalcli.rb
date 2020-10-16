@@ -129,11 +129,7 @@ class Gcalcli < Formula
   end
 
   test do
-    expected_output = "\nGo to the following link in your browser:\n\n"\
-    "    https://accounts.google.com/o/oauth2/v2/auth?client_id=foo&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob"\
-    "&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcalendar&access_type=offline&response_type=code\n\n"\
-    "Enter verification code: "
     output = pipe_output("#{bin}/gcalcli --client-id=foo --client-secret=bar --noauth_local_webserver list", "foo")
-    assert_equal expected_output, output
+    assert_match "Go to the following link in your browser:", output
   end
 end
