@@ -8,9 +8,9 @@ class KibanaAT6 < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "14afbf843c4d5c49a9d954d97d14dfe5191441cdf80ae81b0938ce0f1caf0ab4" => :catalina
-    sha256 "a61a2125471d6f22601d938f4626f0d962cec6b17bc511bcff67ca6ce8d14655" => :mojave
-    sha256 "3c72706fade6f3ecf040761629a7a51bb709614e61d197285a268fd7f65f647d" => :high_sierra
+    sha256 "d13d9e35a2d55f1e316a16a6dc7662a0be783b11e0707f445902da1a6084a207" => :catalina
+    sha256 "726bc34894f26bc18d9b1b9d756febefb03d76ef598445c406f18840554f6198" => :mojave
+    sha256 "4bd89cc139a35c58402dabeaab5dcbccf02e6bd269122b454723941449984f9e" => :high_sierra
   end
 
   keg_only :versioned_formula
