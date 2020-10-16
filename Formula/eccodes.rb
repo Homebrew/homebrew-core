@@ -3,6 +3,7 @@ class Eccodes < Formula
   homepage "https://confluence.ecmwf.int/display/ECC"
   url "https://software.ecmwf.int/wiki/download/attachments/45757960/eccodes-2.19.0-Source.tar.gz"
   sha256 "a1d080aed1b17a9d4e3aecccc5a328c057830cd4d54f451f5498b80b24c46404"
+  license "Apache-2.0"
 
   livecheck do
     url "https://software.ecmwf.int/wiki/display/ECC/Releases"
