@@ -4,7 +4,7 @@ class Autojump < Formula
   url "https://github.com/wting/autojump/archive/release-v22.5.3.tar.gz"
   sha256 "00daf3698e17ac3ac788d529877c03ee80c3790472a85d0ed063ac3a354c37b1"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/wting/autojump.git"
 
   bottle do
@@ -24,7 +24,7 @@ class Autojump < Formula
     (prefix/"etc").install_symlink prefix/"etc/profile.d/autojump.sh"
 
     libexec.install bin
-    bin.write_exec_script libexec/"bin/autojump"
+    (bin/"autojump").write_env_script libexec/"bin/autojump", PATH: "#{Formula["python@3.9"].libexec}/bin:$PATH"
   end
 
   def caveats
