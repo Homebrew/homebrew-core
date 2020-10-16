@@ -1,8 +1,8 @@
 class GitAbsorb < Formula
   desc "Automatic git commit --fixup"
   homepage "https://github.com/tummychow/git-absorb"
-  url "https://github.com/tummychow/git-absorb/archive/0.6.4.tar.gz"
-  sha256 "d21830cfe9ca490a8ab6240b56ab3914bf460cb11ead8f369b90ba75eaee00ec"
+  url "https://github.com/tummychow/git-absorb/archive/0.6.5.tar.gz"
+  sha256 "0c8bf3520209f6d292515ccaaa4b91d7d5e18bd8abe41fad049b5a2797386892"
   license "BSD-3-Clause"
 
   bottle do
