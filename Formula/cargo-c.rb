@@ -4,6 +4,7 @@ class CargoC < Formula
   url "https://github.com/lu-zero/cargo-c/archive/v0.6.13.tar.gz"
   sha256 "aa6b23c7ae19ec93e6edeb59be46056faccb915a02d1784a0c29ac7a3c6a8aea"
   license "MIT"
+  revision 1
 
   bottle do
     cellar :any
