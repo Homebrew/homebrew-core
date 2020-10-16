@@ -4,6 +4,7 @@ class PostgresqlAT12 < Formula
   url "https://ftp.postgresql.org/pub/source/v12.4/postgresql-12.4.tar.bz2"
   sha256 "bee93fbe2c32f59419cb162bcc0145c58da9a8644ee154a30b9a5ce47de606cc"
   license "PostgreSQL"
+  revision 1
 
   bottle do
     sha256 "9a77bfba8c21995349b40344f5e37a1922accd358ba589fd1baa63c3aa6158e9" => :catalina
@@ -62,7 +63,7 @@ class PostgresqlAT12 < Formula
     args << "PG_SYSROOT=#{MacOS.sdk_path}" if MacOS.sdk_root_needed?
 
     system "./configure", *args
-    system "make"
+    system "make", "pkglibdir=#{lib}/postgresql"
     system "make", "install-world", "datadir=#{pkgshare}",
                                     "libdir=#{lib}",
                                     "pkglibdir=#{lib}/postgresql",
@@ -129,6 +130,6 @@ class PostgresqlAT12 < Formula
     system "#{bin}/initdb", testpath/"test" unless ENV["CI"]
     assert_equal opt_pkgshare.to_s, shell_output("#{bin}/pg_config --sharedir").chomp
     assert_equal opt_lib.to_s, shell_output("#{bin}/pg_config --libdir").chomp
-    assert_equal opt_lib.to_s, shell_output("#{bin}/pg_config --pkglibdir").chomp
+    assert_equal "#{lib}/postgresql", shell_output("#{bin}/pg_config --pkglibdir").chomp
   end
 end
