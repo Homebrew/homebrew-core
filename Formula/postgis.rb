@@ -3,6 +3,8 @@ class Postgis < Formula
   homepage "https://postgis.net/"
   url "https://download.osgeo.org/postgis/source/postgis-3.0.2.tar.gz"
   sha256 "a3a1641dfd73c83924088a185bdb8b35567b3d1dc8d0887f9e4b492e228ab2ca"
+  license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://download.osgeo.org/postgis/source/"
