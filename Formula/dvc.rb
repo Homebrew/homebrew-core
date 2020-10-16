@@ -3,8 +3,8 @@ class Dvc < Formula
 
   desc "Git for data science projects"
   homepage "https://dvc.org"
-  url "https://github.com/iterative/dvc/archive/1.8.2.tar.gz"
-  sha256 "4cefa9f183e7ab4f7f8cdf6605dd1771b46cc9f131491940e3bb6743adf0bac2"
+  url "https://github.com/iterative/dvc/archive/1.8.4.tar.gz"
+  sha256 "71e9d1acc3ad5ce6fc94a7b3d3e4390e1754f8adfe484daa9a251b03e874353f"
   license "Apache-2.0"
 
   livecheck do
@@ -45,8 +45,8 @@ class Dvc < Formula
   end
 
   resource "colorama" do
-    url "https://files.pythonhosted.org/packages/82/75/f2a4c0c94c85e2693c229142eb448840fba0f9230111faa889d1f541d12d/colorama-0.4.3.tar.gz"
-    sha256 "e96da0d330793e2cb9485e9ddfd918d456036c7149416295932478192f4436a1"
+    url "https://files.pythonhosted.org/packages/1f/bb/5d3246097ab77fa083a61bd8d3d527b7ae063c7d8e8671b1cf8c4ec10cbe/colorama-0.4.4.tar.gz"
+    sha256 "5941b2b48a20143d2267e95b1c2a7603ce057ee39fd88e7329b0c292aa16869b"
   end
 
   resource "commonmark" do
@@ -90,8 +90,8 @@ class Dvc < Formula
   end
 
   resource "funcy" do
-    url "https://files.pythonhosted.org/packages/ce/4b/6ffa76544e46614123de31574ad95758c421aae391a1764921b8a81e1eae/funcy-1.14.tar.gz"
-    sha256 "75ee84c3b446f92e68a857c2267b15a1b49c631c9d5a87a5f063cd2d6761a5c4"
+    url "https://files.pythonhosted.org/packages/f0/50/f1a9e03bdb6935c77377d2e8762d9876b49b140825b8ac25131245e774f4/funcy-1.15.tar.gz"
+    sha256 "65b746fed572b392d886810a98d56939c6e0d545abb750527a717c21ced21008"
   end
 
   resource "future" do
@@ -105,8 +105,8 @@ class Dvc < Formula
   end
 
   resource "GitPython" do
-    url "https://files.pythonhosted.org/packages/63/c7/639d7965f5c860ba0fec323fd3b80ba57f7c3eb90e58ca5b4ea467e50ba9/GitPython-3.1.8.tar.gz"
-    sha256 "080bf8e2cf1a2b907634761c2eaefbe83b69930c94c66ad11b65a8252959f912"
+    url "https://files.pythonhosted.org/packages/72/ad/5cf16fd1307e0ec17fc2347475e732f64d396649c64ed358a29186f4ce74/GitPython-3.1.9.tar.gz"
+    sha256 "a03f728b49ce9597a6655793207c6ab0da55519368ff5961e4a74ae475b9fa8e"
   end
 
   resource "grandalf" do
@@ -185,8 +185,8 @@ class Dvc < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/ed/0b/04bc93dbfc626bb4f235c12ce86a091b00ed4dac55977eb4330172a98800/rich-7.0.0.tar.gz"
-    sha256 "291700f5c09fae83676f44781d01a292c39efad9505dd4724899646b794f9afb"
+    url "https://files.pythonhosted.org/packages/5e/23/5dba6724216df5c54294dac27a25a4a1ea302803603da60483bdde59a6c2/rich-8.0.0.tar.gz"
+    sha256 "1b5023d2241e6552a24ddfe830a853fc8e53da4e6a6ed6c7105bb262593edf97"
   end
 
   resource "ruamel.yaml" do
@@ -205,8 +205,8 @@ class Dvc < Formula
   end
 
   resource "shtab" do
-    url "https://files.pythonhosted.org/packages/29/d2/9e57be722dc8d1e42001e958e92285d3139c66ec8a246e7096b9e783f05f/shtab-1.3.1.tar.gz"
-    sha256 "a6f8eacf6ade37331e157498d1b21b6e47f132204becff5920c1886ac65faf64"
+    url "https://files.pythonhosted.org/packages/e2/8b/606c8bc2cdeb7208196ce0e0b20444a79b7cfb3274909ffd6262b34a7e56/shtab-1.3.2.tar.gz"
+    sha256 "863d24ff40140c180921d91262c61126b227fe81564ee700ef8fb8c13a7a518a"
   end
 
   resource "six" do
@@ -230,8 +230,8 @@ class Dvc < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/bc/03/2bc607a15e201058cb6b19784b9c217d7ff37a686ce4a2d8a37a638f3ba5/tqdm-4.49.0.tar.gz"
-    sha256 "faf9c671bd3fad5ebaeee366949d969dca2b2be32c872a7092a1e1a9048d105b"
+    url "https://files.pythonhosted.org/packages/e0/98/e3fbad184a671b51d5a873da486362884e7205eeeed1f597c48731efd122/tqdm-4.50.2.tar.gz"
+    sha256 "69dfa6714dee976e2425a9aab84b622675b7b1742873041e3db8a8e86132a4af"
   end
 
   resource "typing-extensions" do
