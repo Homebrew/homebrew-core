@@ -8,9 +8,9 @@ class Argocd < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "37b46e1233585c99b1793f81b15485ac95afd63ff9d568b21c22216f17cfa09f" => :catalina
-    sha256 "8c864e0235ed23e19aea679602756f5f4d42934b27ba055228678e5d540f711b" => :mojave
-    sha256 "5cd1087ba3d2978c7dcfd9f79f19c171e43795e647170f51012a85892914df78" => :high_sierra
+    sha256 "39cba424c74280c70bfbfdaa017d18af5264a1e2eed7cb52f4cb48fdfe856df9" => :catalina
+    sha256 "56e68cf7ed9d08d47327d60fe34befb386f29a8bdd67421ad14dfe87389aaa4f" => :mojave
+    sha256 "171f3c42e5f2225b709b46d9b2f5055c28562b04d77c8d69ab5398b62e1f7458" => :high_sierra
   end
 
   depends_on "go" => :build
