@@ -18,8 +18,12 @@ class Cbmc < Formula
   depends_on "openjdk" => :build
 
   def install
+    args = std_cmake_args + %w[
+      -DCMAKE_C_COMPILER=/usr/bin/clang
+    ]
+
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "..", *args
       system "cmake", "--build", "."
       system "make", "install"
     end
