@@ -3,10 +3,9 @@ class TranslateToolkit < Formula
 
   desc "Toolkit for localization engineers"
   homepage "https://toolkit.translatehouse.org/"
-  url "https://github.com/translate/translate/archive/3.0.0.tar.gz"
-  sha256 "edbd6035ca20f2edffb434fb80378f77494fdf41698f006fc93e0c4ce2eea8f2"
+  url "https://github.com/translate/translate/archive/3.1.1.tar.gz"
+  sha256 "1ec6c9d00557e808e40ae9a0ea93643a156eccac7023363d69b4ada2a9651672"
   license "GPL-2.0"
-  revision 1
   head "https://github.com/translate/translate.git"
 
   bottle do
