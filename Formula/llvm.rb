@@ -6,57 +6,27 @@ class Llvm < Formula
   head "https://github.com/llvm/llvm-project.git"
 
   stable do
-    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.0/llvm-11.0.0.src.tar.xz"
-    sha256 "913f68c898dfb4a03b397c5e11c6a2f39d0f22ed7665c9cefa87a34423a72469"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.0/llvm-project-11.0.0.tar.xz"
+    sha256 "b7b639fc675fa1c86dd6d0bc32267be9eb34451748d2efd03f674b773000e92b"
 
-    resource "clang" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.0/clang-11.0.0.src.tar.xz"
-      sha256 "0f96acace1e8326b39f220ba19e055ba99b0ab21c2475042dbc6a482649c5209"
+    patch do
+      url "https://github.com/llvm/llvm-project/commit/c86f56e32e724c6018e579bb2bc11e667c96fc96.patch?full_index=1"
+      sha256 "6e13e01b4f9037bb6f43f96cb752d23b367fe7db4b66d9bf2a4aeab9234b740a"
     end
 
-    resource "clang-tools-extra" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.0/clang-tools-extra-11.0.0.src.tar.xz"
-      sha256 "fed318f75d560d0e0ae728e2fb8abce71e9d0c60dd120c9baac118522ce76c09"
+    patch do
+      url "https://github.com/llvm/llvm-project/commit/31e5f7120bdd2f76337686d9d169b1c00e6ee69c.patch?full_index=1"
+      sha256 "f025110aa6bf80bd46d64a0e2b1e2064d165353cd7893bef570b6afba7e90b4d"
     end
 
-    resource "compiler-rt" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.0/compiler-rt-11.0.0.src.tar.xz"
-      sha256 "374aff82ff573a449f9aabbd330a5d0a441181c535a3599996127378112db234"
+    patch do
+      url "https://github.com/llvm/llvm-project/commit/3c7bfbd6831b2144229734892182d403e46d7baf.patch?full_index=1"
+      sha256 "62014ddad6d5c485ecedafe3277fe7978f3f61c940976e3e642536726abaeb68"
     end
 
-    resource "libcxx" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.0/libcxx-11.0.0.src.tar.xz"
-      sha256 "6c1ee6690122f2711a77bc19241834a9219dda5036e1597bfa397f341a9b8b7a"
-    end
-
-    resource "libcxxabi" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.0/libcxxabi-11.0.0.src.tar.xz"
-      sha256 "58697d4427b7a854ec7529337477eb4fba16407222390ad81a40d125673e4c15"
-    end
-
-    resource "libunwind" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.0/libunwind-11.0.0.src.tar.xz"
-      sha256 "8455011c33b14abfe57b2fd9803fb610316b16d4c9818bec552287e2ba68922f"
-    end
-
-    resource "lld" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.0/lld-11.0.0.src.tar.xz"
-      sha256 "efe7be4a7b7cdc6f3bcf222827c6f837439e6e656d12d6c885d5c8a80ff4fd1c"
-    end
-
-    resource "lldb" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.0/lldb-11.0.0.src.tar.xz"
-      sha256 "8570c09f57399e21e0eea0dcd66ae0231d47eafc7a04d6fe5c4951b13c4d2c72"
-    end
-
-    resource "openmp" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.0/openmp-11.0.0.src.tar.xz"
-      sha256 "2d704df8ca67b77d6d94ebf79621b0f773d5648963dd19e0f78efef4404b684c"
-    end
-
-    resource "polly" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.0/polly-11.0.0.src.tar.xz"
-      sha256 "dcfadb8d11f2ea0743a3f19bab3b43ee1cb855e136bc81c76e2353cd76148440"
+    patch do
+      url "https://github.com/llvm/llvm-project/commit/c4d7536136b331bada079b2afbb2bd09ad8296bf.patch?full_index=1"
+      sha256 "2b894cbaf990510969bf149697882c86a068a1d704e749afa5d7b71b6ee2eb9f"
     end
   end
 
@@ -92,11 +62,6 @@ class Llvm < Formula
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
-  patch :p1 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/19ac09e6203ece5d1530f4c7ec7a46c35fda23ff/llvm/11.0.0-llvm.diff"
-    sha256 "899bd4d1f5eecb72043c6efeb448fc9beda3f1a73c5e8c84b5a8d505f017ea3d"
-  end
-
   def install
     projects = %w[
       clang
@@ -114,12 +79,6 @@ class Llvm < Formula
       libcxxabi
       libunwind
     ]
-
-    llvmpath = buildpath/"llvm"
-    unless build.head?
-      llvmpath.install buildpath.children - [buildpath/".brew_home"]
-      (projects + runtimes).each { |p| resource(p).stage(buildpath/p) }
-    end
 
     py_ver = "3.9"
 
@@ -170,6 +129,7 @@ class Llvm < Formula
       args << "-DCMAKE_LINKER=/Library/Developer/CommandLineTools/usr/bin/ld"
     end
 
+    llvmpath = buildpath/"llvm"
     mkdir llvmpath/"build" do
       system "cmake", "-G", "Unix Makefiles", "..", *(std_cmake_args + args)
       system "make"
