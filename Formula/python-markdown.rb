@@ -3,9 +3,10 @@ class PythonMarkdown < Formula
 
   desc "Python implementation of Markdown"
   homepage "https://pypi.python.org/pypi/Markdown"
-  url "https://files.pythonhosted.org/packages/44/30/cb4555416609a8f75525e34cbacfc721aa5b0044809968b2cf553fd879c7/Markdown-3.2.2.tar.gz"
-  sha256 "1fafe3f1ecabfb514a5285fca634a53c1b32a81cb0feb154264d55bf2ff22c17"
-  revision 1
+  url "https://github.com/Python-Markdown/markdown/archive/3.3.1.tar.gz"
+  sha256 "5edc04d4afa4b4a6859f50d73c5e64bb4a1b5f44debe26398ee0f1040b0635a6"
+  license "BSD-3-Clause"
+  head "https://github.com/Python-Markdown/markdown.git"
 
   livecheck do
     url :stable
