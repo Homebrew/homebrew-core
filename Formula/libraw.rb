@@ -1,8 +1,8 @@
 class Libraw < Formula
   desc "Library for reading RAW files from digital photo cameras"
   homepage "https://www.libraw.org/"
-  url "https://www.libraw.org/data/LibRaw-0.20.0.tar.gz"
-  sha256 "1f0a383da2ce9f409087facd28261decbf6be72cc90c78cd003b0766e4d694a3"
+  url "https://www.libraw.org/data/LibRaw-0.20.2.tar.gz"
+  sha256 "dc1b486c2003435733043e4e05273477326e51c3ea554c6864a4eafaff1004a6"
   license any_of: ["LGPL-2.1-only", "CDDL-1.0"]
 
   livecheck do
@@ -17,6 +17,9 @@ class Libraw < Formula
     sha256 "8a41cdb86d8af0121493d810cebfcecde17fc39cc4e73645a3f485b9fd66274f" => :high_sierra
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "jasper"
   depends_on "jpeg"
@@ -29,6 +32,7 @@ class Libraw < Formula
   end
 
   def install
+    system "autoreconf", "-fiv"
     system "./configure", "--prefix=#{prefix}",
                           "--disable-dependency-tracking",
                           "ac_cv_prog_c_openmp=-Xpreprocessor -fopenmp",
