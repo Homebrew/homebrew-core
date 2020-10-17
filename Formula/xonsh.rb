@@ -3,8 +3,8 @@ class Xonsh < Formula
 
   desc "Python-powered, cross-platform, Unix-gazing shell language and command prompt"
   homepage "https://xon.sh/"
-  url "https://github.com/xonsh/xonsh/archive/0.9.23.tar.gz"
-  sha256 "44afe504c2878686b4ee732e380c804489477aec2fcc61f5476574ee064fbddc"
+  url "https://github.com/xonsh/xonsh/archive/0.9.24.tar.gz"
+  sha256 "ed981f129f2501b3d7354466b7c85ff58d22750f18df0910d66c8dbe94ec9b3b"
   license "BSD-2-Clause-Views"
   head "https://github.com/xonsh/xonsh.git"
 
@@ -21,8 +21,8 @@ class Xonsh < Formula
   # See https://xon.sh/osx.html#dependencies
 
   resource "prompt_toolkit" do
-    url "https://files.pythonhosted.org/packages/18/0f/ae4b350b969dc1d8ecfcbdc1060d59ff025336a23f153ece49aa662a1309/prompt_toolkit-3.0.7.tar.gz"
-    sha256 "822f4605f28f7d2ba6b0b09a31e25e140871e96364d1d377667b547bb3bf4489"
+    url "https://files.pythonhosted.org/packages/d4/12/7fe77b49d67845a378cfadb484b64218ed09d0e8bf420c663b4fe28f0631/prompt_toolkit-3.0.8.tar.gz"
+    sha256 "25c95d2ac813909f813c93fde734b6e44406d1477a9faef7c915ff37d39c0a8c"
   end
 
   resource "Pygments" do
