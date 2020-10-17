@@ -3,10 +3,9 @@ class Athenacli < Formula
 
   desc "CLI tool for AWS Athena service"
   homepage "https://athenacli.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/17/fb/645836b65d26808fc936b7dec83e763078f8ababd27bfcdebd0a6ce19844/athenacli-1.5.0.tar.gz"
-  sha256 "696a4141e88ea16d7ca4f6bfad0da25f61f974bb0cc32bdee1f3915dfacdfcdd"
+  url "https://files.pythonhosted.org/packages/1a/93/e97459238a4805981d4d354de5b26a043a452b32f7c832aa95237bd5dacf/athenacli-1.6.0.tar.gz"
+  sha256 "f65edeb84802f4b8c7f2d89513ff126b7864e6ae04a901efb2ee1eb8471b0cb2"
   license "BSD-3-Clause"
-  revision 1
 
   livecheck do
     url :stable
@@ -22,13 +21,13 @@ class Athenacli < Formula
   depends_on "python@3.9"
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/4c/71/410d956522a03b331e339813dbd0871bb941f1118a49227617e1c97943d9/boto3-1.14.39.tar.gz"
-    sha256 "b81e5f672ba66e85a0037baae8c73fcc8fca90b94a0bd591cc9e6dc25a1364fe"
+    url "https://files.pythonhosted.org/packages/ce/b8/e7fa00e5de96229964b16e766e20bbde0e055a97fc475cef7deba9036593/boto3-1.15.18.tar.gz"
+    sha256 "f56148e2c6b9a2d704218da42f07d72f00270bfddb13bc1bdea20d3327daa51e"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/f8/c1/840d1cc498e0708267752a497383c048bbb63d6f4d8fdc49e9d607177009/botocore-1.17.39.tar.gz"
-    sha256 "fd1c42436a4271fbcc8bc53357171ff01d9a1bea8efc4c8a00e58a531efdcb31"
+    url "https://files.pythonhosted.org/packages/02/af/2fccd3e251e406429ef433f1cf1fed24da0fa527c7604db757e219aa2bbc/botocore-1.18.18.tar.gz"
+    sha256 "e224754230e7e015836ba20037cac6321e8e2ce9b8627c14d579fcb37249decd"
   end
 
   resource "cli-helpers" do
@@ -44,11 +43,6 @@ class Athenacli < Formula
   resource "configobj" do
     url "https://files.pythonhosted.org/packages/64/61/079eb60459c44929e684fa7d9e2fdca403f67d64dd9dbac27296be2e0fab/configobj-5.0.6.tar.gz"
     sha256 "a2f5650770e1c87fb335af19a9b7eb73fc05ccf22144eb68db7d00cd2bcb0902"
-  end
-
-  resource "docutils" do
-    url "https://files.pythonhosted.org/packages/93/22/953e071b589b0b1fee420ab06a0d15e5aa0c7470eb9966d60393ce58ad61/docutils-0.15.2.tar.gz"
-    sha256 "a2aeea129088da402665e92e0b25b04b073c04b2dce4ab65caaa38b7ce2e1a99"
   end
 
   resource "future" do
@@ -67,13 +61,13 @@ class Athenacli < Formula
   end
 
   resource "PyAthena" do
-    url "https://files.pythonhosted.org/packages/7e/a9/b8dee28fe6464bcc85224bd4fe53a77549406cce10adcd448010799b8cf8/PyAthena-1.11.0.tar.gz"
-    sha256 "0837270d347c15330bd480a66f0ecedaea5469adcd6b46c7705402e8e19ef013"
+    url "https://files.pythonhosted.org/packages/a1/52/3785de72a10021d1182d17bb27b15c548f7e1ed4fa730b5682b678c6025e/PyAthena-1.11.2.tar.gz"
+    sha256 "2b4308c983c7fb27e4990932477ad3df78b7144890b74c887116b2d67c212ca6"
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/6e/4d/4d2fe93a35dfba417311a4ff627489a947b01dc0cc377a3673c00cf7e4b2/Pygments-2.6.1.tar.gz"
-    sha256 "647344a061c249a3b74e230c739f434d7ea4d8b1d5f3721bc0f3558049b38f44"
+    url "https://files.pythonhosted.org/packages/e2/07/25bd93c9c0175adfa5fb1513a20b25e7dd6c9a67c155e19b11b5f3662104/Pygments-2.7.1.tar.gz"
+    sha256 "926c3f319eda178d1bd90851e4317e6d8cdb5e292a3386aac9bd75eca29cf9c7"
   end
 
   resource "python-dateutil" do
