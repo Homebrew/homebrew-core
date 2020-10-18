@@ -4,6 +4,7 @@ class Mdk < Formula
   url "https://ftp.gnu.org/gnu/mdk/v1.2.11/mdk-1.2.11.tar.gz"
   mirror "https://ftpmirror.gnu.org/mdk/v1.2.11/mdk-1.2.11.tar.gz"
   sha256 "ebc979a2f93f35b0646fb5fe102140bfb020ecde4992b061964479eb43622a67"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url :stable
