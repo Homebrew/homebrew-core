@@ -1,8 +1,8 @@
 class Liboqs < Formula
   desc "Library for quantum-safe cryptography"
   homepage "https://openquantumsafe.org/"
-  url "https://github.com/open-quantum-safe/liboqs/archive/0.3.0.tar.gz"
-  sha256 "b447133039a8fb8df3cc90e22db1453cd67987834d495ac6898ac6a63df7c14b"
+  url "https://github.com/open-quantum-safe/liboqs/archive/0.4.0.tar.gz"
+  sha256 "05836cd2b5c70197b3b6eed68b97d0ccb2c445061d5c19c15aef7c959842de0b"
   license "MIT"
 
   bottle do
