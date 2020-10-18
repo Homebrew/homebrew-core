@@ -3,7 +3,7 @@ class Mmctl < Formula
   homepage "https://github.com/mattermost/mmctl"
   url "https://github.com/mattermost/mmctl.git",
       tag:      "v5.28.0",
-      revision: "453684e911a396a7a9e2d79452e33b955a8b4bb7"
+      revision: "fc2ffd482f5062fef373444f3878252a33367683"
   license "Apache-2.0"
   head "https://github.com/mattermost/mmctl.git"
 
