@@ -3,7 +3,7 @@ class Anjuta < Formula
   homepage "http://anjuta.org"
   url "https://download.gnome.org/sources/anjuta/3.34/anjuta-3.34.0.tar.xz"
   sha256 "42a93130ed3ee02d064a7094e94e1ffae2032b3f35a87bf441e37fc3bb3a148f"
-  revision 3
+  revision 4
 
   livecheck do
     url :stable
