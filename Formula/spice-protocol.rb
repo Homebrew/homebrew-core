@@ -1,8 +1,8 @@
 class SpiceProtocol < Formula
   desc "Headers for SPICE protocol"
   homepage "https://www.spice-space.org/"
-  url "https://www.spice-space.org/download/releases/spice-protocol-0.14.2.tar.xz"
-  sha256 "8f3a63c8b68300dffe36f2e75eac57afa1e76d5d80af760fd138a0b3f44cf1e9"
+  url "https://www.spice-space.org/download/releases/spice-protocol-0.14.3.tar.xz"
+  sha256 "f986e5bc2a1598532c4897f889afb0df9257ac21c160c083703ae7c8de99487a"
   license "BSD-3-Clause"
 
   livecheck do
