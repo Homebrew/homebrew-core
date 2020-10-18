@@ -1,8 +1,8 @@
 class Geph2 < Formula
   desc "Modular Internet censorship circumvention system"
   homepage "https://geph.io"
-  url "https://github.com/geph-official/geph2/archive/v0.22.3.tar.gz"
-  sha256 "1a0aeb6722c79460070db86319fab1ae3d9eec90618a3b6960faacc88731d98a"
+  url "https://github.com/geph-official/geph2/archive/v0.22.5.tar.gz"
+  sha256 "4afca74d97c890061d34c8885258d6f4a48c63e69c7e8b56719fdae68c4f306b"
   license "GPL-3.0-only"
 
   bottle do
