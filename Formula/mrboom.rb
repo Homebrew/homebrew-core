@@ -1,8 +1,8 @@
 class Mrboom < Formula
   desc "Eight player Bomberman clone"
   homepage "http://mrboom.mumblecore.org/"
-  url "https://github.com/Javanaise/mrboom-libretro/archive/5.0.tar.gz"
-  sha256 "71af5a47ca5a8972598fe388b653120315bd2e7e05e99a3ee68637c2f74688fc"
+  url "https://github.com/Javanaise/mrboom-libretro/releases/download/5.0/MrBoom-src-5.0.tar.gz"
+  sha256 "88bd9fee69a9d3a5f3edafde9cfb5f9a8ca415041281fc19c1e7bc2a75407829"
   license "MIT"
 
   bottle do
