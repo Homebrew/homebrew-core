@@ -15,8 +15,8 @@ class Tfsec < Formula
   depends_on "go" => :build
 
   resource "testfile" do
-    url "https://raw.githubusercontent.com/tfsec/tfsec/master/example/brew-validate.tf"
-    sha256 "9267e6cac1277992ac521f417c6d552eff3c4606520f584bd8c1ea67ae0880d2"
+    url "https://raw.githubusercontent.com/tfsec/tfsec/2d9b76a/example/brew-validate.tf"
+    sha256 "3ef5c46e81e9f0b42578fd8ddce959145cd043f87fd621a12140e99681f1128a"
   end
 
   def install
