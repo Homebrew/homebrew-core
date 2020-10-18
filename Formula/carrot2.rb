@@ -17,6 +17,11 @@ class Carrot2 < Formula
   depends_on "openjdk"
 
   def install
+    # Make possible to build the formula with the latest available in Homebrew gradle
+    inreplace "gradle/validation/check-environment.gradle",
+      /expectedGradleVersion = '[^']+'/,
+      "expectedGradleVersion = '#{Formula["gradle"].version}'"
+
     system "gradle", "assemble"
 
     cd "distribution/build/dist" do
