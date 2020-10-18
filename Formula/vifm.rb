@@ -1,8 +1,8 @@
 class Vifm < Formula
   desc "Ncurses based file manager with vi like keybindings"
   homepage "https://vifm.info/"
-  url "https://github.com/vifm/vifm/releases/download/v0.10.1/vifm-0.10.1.tar.bz2"
-  sha256 "99006f56db05e1bdfb7983e8d5c31c9ac93bf2ac9e0409a577c8ca660fecd03b"
+  url "https://github.com/vifm/vifm/releases/download/v0.11/vifm-osx-0.11.tar.bz2"
+  sha256 "d6f829ed0228a8f534d63479fc988c2b4b95e6bc49d5db5e4fabff337fba3c4c"
 
   bottle do
     sha256 "0495acdf812f89f23c7fafcccef47589249477c5c38dd0e47049c3421edc712a" => :mojave
