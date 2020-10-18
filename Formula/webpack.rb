@@ -4,8 +4,8 @@ require "json"
 class Webpack < Formula
   desc "Bundler for JavaScript and friends"
   homepage "https://webpack.js.org/"
-  url "https://registry.npmjs.org/webpack/-/webpack-4.44.2.tgz"
-  sha256 "5c3acf43907326781bbecb2f334a0939d38a99fe50a34c67d4f55be0bb80e123"
+  url "https://registry.npmjs.org/webpack/-/webpack-5.1.3.tgz"
+  sha256 "cfe19e27245e1c365ee517373d1c22f4dcf2f9ae6b6adcf81f33e58f0aee1f37"
   license "MIT"
   head "https://github.com/webpack/webpack.git"
 
@@ -22,8 +22,8 @@ class Webpack < Formula
   depends_on "node"
 
   resource "webpack-cli" do
-    url "https://registry.npmjs.org/webpack-cli/-/webpack-cli-3.3.12.tgz"
-    sha256 "f0267a453af2f55aef74de7c72136c2aabf162b15e488da1c7eac9b0b55a3cb1"
+    url "https://registry.npmjs.org/webpack-cli/-/webpack-cli-4.0.0.tgz"
+    sha256 "ba846e71caddbf5a48b090f23f8ce91df6c771c72e324d1fb2b9eda6e2af1a7a"
   end
 
   def install
@@ -44,8 +44,8 @@ class Webpack < Formula
 
   test do
     (testpath/"index.js").write <<~EOS
-      function component () {
-        var element = document.createElement('div');
+      function component() {
+        const element = document.createElement('div');
         element.innerHTML = 'Hello' + ' ' + 'webpack';
         return element;
       }
@@ -53,7 +53,7 @@ class Webpack < Formula
       document.body.appendChild(component());
     EOS
 
-    system bin/"webpack", "index.js", "--output=bundle.js"
-    assert_predicate testpath/"bundle.js", :exist?, "bundle.js was not generated"
+    system bin/"webpack", testpath/"index.js"
+    assert_match "const e=document\.createElement(\"div\");", File.read(testpath/"dist/main.js")
   end
 end
