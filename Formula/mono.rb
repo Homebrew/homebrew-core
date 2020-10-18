@@ -18,11 +18,13 @@ class Mono < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on :macos # Due to Python 2
+  depends_on "python@3.9"
 
   uses_from_macos "unzip" => :build
 
   conflicts_with "xsd", because: "both install `xsd` binaries"
+  conflicts_with cask: "mono-mdk"
+  conflicts_with cask: "mono-mdk-for-visual-studio"
 
   # xbuild requires the .exe files inside the runtime directories to
   # be executable
