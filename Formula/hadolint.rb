@@ -1,9 +1,9 @@
 class Hadolint < Formula
   desc "Smarter Dockerfile linter to validate best practices"
   homepage "https://github.com/hadolint/hadolint"
-  url "https://github.com/hadolint/hadolint/archive/v1.18.1.tar.gz"
-  sha256 "4800d4a063ae86b3a7494c09a5de018a794307db8cfbdb9775bfa74bb6448d5b"
-  license "GPL-3.0"
+  url "https://github.com/hadolint/hadolint/archive/v1.18.2.tar.gz"
+  sha256 "5acbe40d2d9cc56955fda33572ce7283cb26b5b254fd557f4f1261937125b66f"
+  license "GPL-3.0-only"
 
   bottle do
     cellar :any_skip_relocation
