@@ -2,8 +2,8 @@ class Vgmstream < Formula
   desc "Library for playing streamed audio formats from video games"
   homepage "https://hcs64.com/vgmstream.html"
   url "https://github.com/losnoco/vgmstream.git",
-      tag:      "r1050-3280-gba405509",
-      revision: "ba405509cc3bb9fe1a6389d6d268475e2d567545"
+      tag:      "r1050-3312-g70d20924",
+      revision: "70d20924341e1df3e4f76b4c4a6e414981950f8e"
   license "ISC"
   head "https://github.com/losnoco/vgmstream.git"
 
@@ -21,9 +21,8 @@ class Vgmstream < Formula
   depends_on "mpg123"
 
   def install
-    system "cmake", "-DBUILD_AUDACIOUS:BOOL=OFF", "."
-    system "make", "vgmstream_cli"
-    system "make", "vgmstream123"
+    system "cmake", "-DBUILD_AUDACIOUS:BOOL=OFF", "-DCMAKE_BUILD_TYPE=Release", "."
+    system "cmake", "--build", ".", "--config", "Release", "--target", "vgmstream_cli", "vgmstream123"
     bin.install "cli/vgmstream_cli"
     bin.install_symlink "vgmstream_cli" => "vgmstream-cli"
     bin.install "cli/vgmstream123"
