@@ -23,10 +23,8 @@ class Eccodes < Formula
   depends_on "netcdf"
 
   def install
-    # Fix for GCC 10, remove with next version
-    # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=957159
-    ENV.prepend "FFLAGS", "-fallow-argument-mismatch"
-
+    # remove prefix forcing GCC 10 on linux, which uses GCC 5
+    # https://github.com/Homebrew/discussions/discussions/71
     inreplace "CMakeLists.txt", "find_package( OpenJPEG )", ""
 
     mkdir "build" do
