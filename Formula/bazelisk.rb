@@ -2,8 +2,8 @@ class Bazelisk < Formula
   desc "User-friendly launcher for Bazel"
   homepage "https://github.com/bazelbuild/bazelisk/"
   url "https://github.com/bazelbuild/bazelisk.git",
-      tag:      "v1.7.2",
-      revision: "f9e8cf8d0daa335b886969b48f5cc443c9e8963a"
+      tag:      "v1.7.3",
+      revision: "dba981e4e82bec8e0de5a6587913e3341ed10081"
   license "Apache-2.0"
   head "https://github.com/bazelbuild/bazelisk.git"
 
