@@ -1,9 +1,14 @@
 class Sratom < Formula
   desc "Library for serializing LV2 atoms to/from RDF"
   homepage "https://drobilla.net/software/sratom/"
-  url "https://download.drobilla.net/sratom-0.6.4.tar.bz2"
-  sha256 "146c8f14b8902ac3c8fa8c2e0a014eb8a38fab60090c5adbfbff3e3b7c5c006e"
+  url "https://download.drobilla.net/sratom-0.6.6.tar.bz2"
+  sha256 "fb910bf62a5e69f4430bf09653d386fc4de9ff02bfd58635e1d45cbd31481b9d"
   license "ISC"
+
+  livecheck do
+    url "https://download.drobilla.net"
+    regex(/href=.*?sratom[._-]v?(\d+.\d+.\d+)\.t/i)
+  end
 
   bottle do
     cellar :any
