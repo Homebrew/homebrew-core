@@ -51,6 +51,7 @@ class Libmaa < Formula
        *
        */
 
+      #include <stdlib.h>
       #include <maa.h>
 
       int main( int argc, char **argv )
