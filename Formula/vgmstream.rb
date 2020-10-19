@@ -4,7 +4,9 @@ class Vgmstream < Formula
   url "https://github.com/losnoco/vgmstream.git",
       tag:      "r1050-3312-g70d20924",
       revision: "70d20924341e1df3e4f76b4c4a6e414981950f8e"
+  version "r1050-3312-g70d20924"
   license "ISC"
+  version_scheme 1
   head "https://github.com/losnoco/vgmstream.git"
 
   bottle do
