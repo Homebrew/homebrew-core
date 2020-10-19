@@ -23,7 +23,7 @@ class Vgmstream < Formula
   depends_on "mpg123"
 
   def install
-    system "cmake", "-DBUILD_AUDACIOUS:BOOL=OFF", "-DCMAKE_BUILD_TYPE=Release", "."
+    system "cmake", "-DBUILD_AUDACIOUS:BOOL=OFF", *std_cmake_args, "."
     system "cmake", "--build", ".", "--config", "Release", "--target", "vgmstream_cli", "vgmstream123"
     bin.install "cli/vgmstream_cli"
     bin.install_symlink "vgmstream_cli" => "vgmstream-cli"
