@@ -1,8 +1,9 @@
 class Vttest < Formula
   desc "Test compatibility of VT100-compatible terminals"
   homepage "https://invisible-island.net/vttest/"
-  url "https://invisible-mirror.net/archives/vttest/vttest-20200610.tgz"
-  sha256 "8b52bc63b0e19feb15e3a044f0814a73e4f43306dd93362f9ad8bd94d2a40105"
+  url "https://invisible-mirror.net/archives/vttest/vttest-20200920.tgz"
+  sha256 "c9619d6bbe5804181dda18ec2901d51ce5551259565b9ccb13d5ef86b3bfb301"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any_skip_relocation
