@@ -5,6 +5,11 @@ class Ace < Formula
   sha256 "8bfa251186d9ed1ce48d8936bdace4bc11a49f5fa216f8c1d0be7a65bcf66b39"
   license "DOC"
 
+  livecheck do
+    url "https://github.com/DOCGroup/ACE_TAO/releases/latest"
+    regex(%r{href=.*?/tag/.+TAO\-v?(\d+(?:_\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "3b5f8677da8a76ce379d757e8a79f9767c71526054b956357220fbd083d862da" => :catalina
