@@ -21,7 +21,7 @@ class ApacheArrow < Formula
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
-  depends_on "llvm"  => :build
+  depends_on "llvm@9" => :build
   depends_on "brotli"
   depends_on "glog"
   depends_on "grpc"
@@ -46,7 +46,7 @@ class ApacheArrow < Formula
   def install
     ENV.cxx11
     # link against system libc++ instead of llvm provided libc++
-    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
+    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm@9"].opt_lib
     args = %W[
       -DCMAKE_FIND_PACKAGE_PREFER_CONFIG=TRUE
       -DARROW_FLIGHT=ON
