@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v14.14.0/node-v14.14.0.tar.gz"
-  sha256 "afb0b401d62d9fcfc68258f50d0bf042998d349ce9c1d7a2d45dd87870b3aab7"
+  url "https://nodejs.org/dist/v15.0.0/node-v15.0.0.tar.gz"
+  sha256 "72f6234594877ab212c43a76f2f5b05d409d7c025e0eb36d675d9acfd0d3f2d8"
   license "MIT"
   head "https://github.com/nodejs/node.git"
 
@@ -25,8 +25,8 @@ class Node < Formula
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-6.14.8.tgz"
-    sha256 "fe8e873cb606c06f67f666b4725eb9122c8927f677c8c0baf1477f0ff81f5a2c"
+    url "https://registry.npmjs.org/npm/-/npm-7.0.0.tgz"
+    sha256 "58b4c1832ee7147f741142de8842387279e96b7a6e9f06f2a67db65347e1b310"
   end
 
   def install
@@ -49,6 +49,8 @@ class Node < Formula
 
     bootstrap = buildpath/"npm_bootstrap"
     bootstrap.install resource("npm")
+    # These dirs must exists before npm install.
+    mkdir_p libexec/"lib"
     system "node", bootstrap/"bin/npm-cli.js", "install", "-ddd", "--global",
             "--prefix=#{libexec}", resource("npm").cached_download
 
