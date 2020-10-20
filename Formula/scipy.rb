@@ -31,15 +31,15 @@ class Scipy < Formula
   # https://github.com/scipy/scipy/issues/12935
   # https://github.com/scipy/scipy/pull/12243
   patch do
-    url "https://github.com/scipy/scipy/commit/b8e47064.diff?full_index=1"
-    sha256 "7b2fdb01fc3af54e189c3ec4785c6d69ea63d9bd12aac83c9eaedd393c01591d"
+    url "https://github.com/scipy/scipy/commit/b8e47064.patch?full_index=1"
+    sha256 "2cb39e75f00d89564cdc769598bee2e772f6cb7bde5cc94560a2e588fb7a0027"
   end
 
   # Fix compilation with Xcode 12
   # https://github.com/scipy/scipy/issues/12860
   patch do
-    url "https://github.com/scipy/scipy/commit/de679deb.diff?full_index=1"
-    sha256 "23d957effb33494c73a12a6bca2866c9b6aa9ba94d69744a32231965dd6b949e"
+    url "https://github.com/scipy/scipy/commit/de679deb.patch?full_index=1"
+    sha256 "97fd91849d3b2d6693ed656b941be593411bfe63d7df473544a59a8e7f8dcc60"
   end
 
   def install
