@@ -1,20 +1,28 @@
 class Languagetool < Formula
   desc "Style and grammar checker"
   homepage "https://www.languagetool.org/"
-  url "https://languagetool.org/download/LanguageTool-5.1.3.oxt"
-  sha256 "3c3288a4a651553b3f9e762a027fab75a38b35050f522cbf8fce2554977dc7f0"
+  url "https://github.com/languagetool-org/languagetool.git", tag: "v5.1.3", revision: "9ef0a18d77cfb39143cf99619e26d374ede7fb7b"
   license "LGPL-2.1-or-later"
+  revision 1
+  head "https://github.com/languagetool-org/languagetool.git"
 
   livecheck do
-    url "https://github.com/languagetool-org/languagetool.git"
+    url :head
   end
 
-  bottle :unneeded
-
+  depends_on "maven" => :build
   depends_on "openjdk"
 
   def install
-    libexec.install Dir["*"]
+    system "mvn", "clean", "package", "-DskipTests"
+
+    # We need to strip one path level from the distribution zipball,
+    # so extract it into a temporary directory then install it.
+    mktemp "zip" do
+      system "unzip", Dir["#{buildpath}/languagetool-standalone/target/*.zip"].first, "-d", "."
+      libexec.install Dir["*/*"]
+    end
+
     (bin/"languagetool").write <<~EOS
       #!/bin/bash
       exec "#{Formula["openjdk"].opt_bin}/java" -jar "#{libexec}/languagetool-commandline.jar" "$@"
@@ -30,6 +38,9 @@ class Languagetool < Formula
   end
 
   test do
-    pipe_output("#{bin}/languagetool -l en-US -", "This is a test.")
+    (testpath/"test.txt").write <<~EOS
+      Homebrew, the missing package manager for macOS.
+    EOS
+    assert_match /Homebrew/, shell_output("#{bin}/languagetool -l en-US test.txt")
   end
 end
