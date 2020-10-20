@@ -1,6 +1,6 @@
 class Tbb < Formula
   desc "Rich and complete approach to parallelism in C++"
-  homepage "https://www.threadingbuildingblocks.org/"
+  homepage "https://github.com/oneapi-src/oneTBB"
   url "https://github.com/intel/tbb/archive/v2020.3.tar.gz"
   version "2020_U3"
   sha256 "ebc4f6aa47972daed1f7bf71d100ae5bf6931c2e3144cf299c8cc7d041dca2f3"
