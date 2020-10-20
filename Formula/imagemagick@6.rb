@@ -8,6 +8,7 @@ class ImagemagickAT6 < Formula
   mirror "https://www.imagemagick.org/download/releases/ImageMagick-6.9.11-34.tar.xz"
   sha256 "1a0de3fc2ab0cbaae4b06e3300755a2f6729b967f627982467ee3ef9e6948d29"
   license "ImageMagick"
+  revision 1
   head "https://github.com/imagemagick/imagemagick6.git"
 
   livecheck do
@@ -26,6 +27,7 @@ class ImagemagickAT6 < Formula
   depends_on "pkg-config" => :build
 
   depends_on "freetype"
+  depends_on "ghostscript"
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
@@ -54,7 +56,7 @@ class ImagemagickAT6 < Formula
       --with-modules
       --with-webp=yes
       --with-openjp2
-      --without-gslib
+      --with-gslib
       --with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts
       --without-fftw
       --without-pango
