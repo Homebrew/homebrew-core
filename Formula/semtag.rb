@@ -6,9 +6,6 @@ class Semtag < Formula
 
   bottle :unneeded
 
-  # https://github.com/pnikosis/semtag/issues/15
-  disable! because: :no_license
-
   def install
     bin.install "semtag"
   end
