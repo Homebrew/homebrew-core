@@ -2,9 +2,14 @@ class Nushell < Formula
   desc "Modern shell for the GitHub era"
   homepage "https://www.nushell.sh"
   url "https://github.com/nushell/nushell/archive/0.21.0.tar.gz"
-  sha256 "223df54901cf924c8018629827c00c73a3cf45bbb178503484318734e9d99e82"
+  sha256 "24598bcf6e61825fd3b6f17e083952926a4b072efff413748bbd5bc83a3158f1"
   license "MIT"
   head "https://github.com/nushell/nushell.git", branch: "main"
+
+  livecheck do
+    url "https://github.com/nushell/nushell/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:[._]\d+)+)["' >]}i)
+  end
 
   bottle do
     cellar :any
