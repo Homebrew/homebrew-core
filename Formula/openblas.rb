@@ -22,8 +22,8 @@ class Openblas < Formula
   # This patch fixes a known issue with large matrices in numpy on Haswell and later
   # chipsets.  See https://github.com/xianyi/OpenBLAS/pull/2729 for details
   patch do
-    url "https://github.com/xianyi/OpenBLAS/commit/6c33764ca43c7311bdd61e2371b08395cf3e3f01.diff?full_index=1"
-    sha256 "a1b0c27384e424d8cabb5a4e3aeb47b9d0a1fbbc36507431b13719120b6d26d3"
+    url "https://github.com/xianyi/OpenBLAS/commit/6c33764ca43c7311bdd61e2371b08395cf3e3f01.patch?full_index=1"
+    sha256 "a945a8df0a77c25e7c3540a8d3b998b567b207f5d104cbb723de3d8dcb43dd5c"
   end
 
   def install
