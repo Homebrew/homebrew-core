@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v14.14.0/node-v14.14.0.tar.gz"
-  sha256 "afb0b401d62d9fcfc68258f50d0bf042998d349ce9c1d7a2d45dd87870b3aab7"
+  url "https://nodejs.org/dist/v15.0.1/node-v15.0.1.tar.gz"
+  sha256 "b9a00a4847863914ffe7751c2d81b67cb96a8f958cbc692f988c8c78db14ebec"
   license "MIT"
   head "https://github.com/nodejs/node.git"
 
@@ -25,8 +25,8 @@ class Node < Formula
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-6.14.8.tgz"
-    sha256 "fe8e873cb606c06f67f666b4725eb9122c8927f677c8c0baf1477f0ff81f5a2c"
+    url "https://registry.npmjs.org/npm/-/npm-7.0.3.tgz"
+    sha256 "d83833ae163545abf6a54dbb019770ef9000d31f1c2dd0cd934dedf6b41382a6"
   end
 
   def install
@@ -36,9 +36,6 @@ class Node < Formula
     # Never install the bundled "npm", always prefer our
     # installation from tarball for better packaging control.
     args = %W[--prefix=#{prefix} --without-npm --with-intl=system-icu]
-    # Remove `--openssl-no-asm` workaround when upstream releases a fix
-    # See also: https://github.com/nodejs/node/issues/34043
-    args << "--openssl-no-asm" if Hardware::CPU.arm?
     args << "--tag=head" if build.head?
 
     system "./configure", *args
@@ -49,6 +46,8 @@ class Node < Formula
 
     bootstrap = buildpath/"npm_bootstrap"
     bootstrap.install resource("npm")
+    # These dirs must exists before npm install.
+    mkdir_p libexec/"lib"
     system "node", bootstrap/"bin/npm-cli.js", "install", "-ddd", "--global",
             "--prefix=#{libexec}", resource("npm").cached_download
 
