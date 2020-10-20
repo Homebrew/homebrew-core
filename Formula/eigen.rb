@@ -20,8 +20,8 @@ class Eigen < Formula
 
   # Emergency fix for build failures with OpenMP. Remove with the next release.
   patch do
-    url "https://gitlab.com/libeigen/eigen/-/commit/ef3cc72cb65e2d500459c178c63e349bacfa834f.diff"
-    sha256 "b8877a84c4338f08ab8a6bb8b274c768e93d36ac05b733b078745198919a74bf"
+    url "https://gitlab.com/libeigen/eigen/-/commit/ef3cc72cb65e2d500459c178c63e349bacfa834f.patch?full_index=1"
+    sha256 "c04d624d550b119be0f810786baba7e0d7809edefd4854a2db6dbd98a7da5a7d"
   end
 
   def install
