@@ -9,7 +9,7 @@ class Zbar < Formula
 
   livecheck do
     url :stable
-    regex(%r{url=.*?/zbar[._-]v?(\d+(?:\.\d+)+)\.t}i)
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
