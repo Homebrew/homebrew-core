@@ -1,8 +1,8 @@
 class Unison < Formula
   desc "File synchronization tool for OSX"
   homepage "https://www.cis.upenn.edu/~bcpierce/unison/"
-  url "https://github.com/bcpierce00/unison/archive/v2.51.2.tar.gz"
-  sha256 "a2efcbeab651be6df69cc9b253011a07955ecb91fb407a219719451197849d5e"
+  url "https://github.com/bcpierce00/unison/archive/v2.51.3.tar.gz"
+  sha256 "0c287d17f52729440b2bdc28edf4d19b2d5ea5869983d78e780d501c5866914b"
   license "GPL-3.0"
   head "https://github.com/bcpierce00/unison.git", branch: "master"
 
@@ -20,19 +20,6 @@ class Unison < Formula
   end
 
   depends_on "ocaml" => :build
-
-  # Upstream fix for compatibility with OCaml 4.08 and later
-  # https://github.com/bcpierce00/unison/pull/276
-  patch do
-    url "https://github.com/bcpierce00/unison/commit/23fa1292.patch?full_index=1"
-    sha256 "25e3a4fc4460e40fcc61135b13effdc6ec71b8399af7d1f9d6399c7e96e07fbd"
-  end
-
-  # compatibility fix with ocaml 4.10
-  patch do
-    url "https://github.com/bcpierce00/unison/commit/acbce432.patch?full_index=1"
-    sha256 "07e94b6a16b32f9aa46bb1b9a3592a70f37ecbd80bc5c4bd6b39736b5969f83f"
-  end
 
   def install
     ENV.deparallelize
