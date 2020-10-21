@@ -3,10 +3,9 @@ class AnimeDownloader < Formula
 
   desc "Download your favourite anime"
   homepage "https://github.com/vn-ki/anime-downloader"
-  url "https://files.pythonhosted.org/packages/75/ca/1a312247353743ce30d0e9d7a2482b2e41946fa1757ba5db91ab0755a8b5/anime-downloader-4.6.6.tar.gz"
-  sha256 "d0b69f104c0759405669338b19a17f8f4086c99944b3e1e51ad6ae6623c4a29a"
+  url "https://files.pythonhosted.org/packages/03/78/167cd1c2fe0ef43a0d137edc148279828ddd69b36b76e87f451b311b8a02/anime-downloader-5.0.1.tar.gz"
+  sha256 "d4e0da2f39edf5f6b4f9481b80a87fde951dbd3b379e8952a62bcc14b9d17371"
   license "Unlicense"
-  revision 1
   head "https://github.com/vn-ki/anime-downloader.git"
 
   livecheck do
