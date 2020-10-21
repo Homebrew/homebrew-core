@@ -1,13 +1,13 @@
 class Libsndfile < Formula
   desc "C library for files containing sampled sound"
-  homepage "http://www.mega-nerd.com/libsndfile/"
+  homepage "https://libsndfile.github.io/libsndfile/"
   url "https://github.com/erikd/libsndfile/releases/download/v1.0.30/libsndfile-1.0.30.tar.bz2"
   sha256 "9df273302c4fa160567f412e10cc4f76666b66281e7ba48370fb544e87e4611a"
   license "LGPL-2.1-or-later"
 
   livecheck do
-    url :homepage
-    regex(/href=.*?libsndfile[._-]v?([\d.]+)\.t/i)
+    url "https://github.com/erikd/libsndfile/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
   end
 
   bottle do
