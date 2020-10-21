@@ -5,6 +5,7 @@ class LizardAnalyzer < Formula
   homepage "http://www.lizard.ws"
   url "https://files.pythonhosted.org/packages/60/a7/7a93f5d004bf86209406c533d21d7dede965f976384d29e8681aa47faed9/lizard-1.17.7.tar.gz"
   sha256 "d08e7afb4534fc326401ede2d5aace027757fb1a9deb3cc9f8e7f4339983c630"
+  license "MIT"
 
   livecheck do
     url :stable
