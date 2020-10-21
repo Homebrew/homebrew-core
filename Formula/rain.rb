@@ -17,6 +17,6 @@ class Rain < Formula
         Bucket:
           Type: AWS::S3::Bucket
     EOS
-    assert_equal "test.template: ok", shell_output("rain check test.template").strip
+    assert_equal "test.template: ok", shell_output("#{bin}/rain check test.template").strip
   end
 end
