@@ -8,7 +8,7 @@ class ApacheDrill < Formula
 
   livecheck do
     url "https://drill.apache.org/download/"
-    /href=.*?apache-drill[._-]v?(\d+(?:\.\d+)+)\.t/i
+    regex(/href=.*?apache-drill[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle :unneeded
