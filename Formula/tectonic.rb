@@ -1,8 +1,8 @@
 class Tectonic < Formula
   desc "Modernized, complete, self-contained TeX/LaTeX engine"
   homepage "https://tectonic-typesetting.github.io/"
-  url "https://github.com/tectonic-typesetting/tectonic/archive/tectonic@0.1.17.tar.gz"
-  sha256 "cbe2dcc2fd5c87a2e01643bb1d7cb8eb8bb4236832aaa39eedd7d334400d5adb"
+  url "https://github.com/tectonic-typesetting/tectonic/archive/tectonic@0.2.0.tar.gz"
+  sha256 "fce39a26b8a88c662de114ce38f407f234e255c4cef6ea825e85358e936b9bbd"
   license "MIT"
 
   bottle do
