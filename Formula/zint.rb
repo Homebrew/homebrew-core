@@ -8,7 +8,7 @@ class Zint < Formula
 
   livecheck do
     url :stable
-    regex(%r{url=.*?/zint[._-]v?(\d+(?:\.\d+)+)\.t}i)
+    regex(%r{url=.*?/zint[._-]v?(\d+(?:\.\d+)+)(?:-src)?\.t}i)
   end
 
   bottle do
