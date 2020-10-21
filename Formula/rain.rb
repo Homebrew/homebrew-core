@@ -12,6 +12,11 @@ class Rain < Formula
   end
 
   test do
-    system "#{bin}/rain", "--version"
+    (testpath/"test.template").write <<~EOS
+      Resources:
+        Bucket:
+          Type: AWS::S3::Bucket
+    EOS
+    assert_equal "test.template: ok", shell_output("rain check test.template").strip
   end
 end
