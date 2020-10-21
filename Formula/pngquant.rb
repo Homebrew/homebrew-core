@@ -3,7 +3,7 @@ class Pngquant < Formula
   homepage "https://pngquant.org/"
   url "https://pngquant.org/pngquant-2.13.0-src.tar.gz"
   sha256 "0d1d5dcdb5785961abf64397fb0735f8a29da346b6fee6666e4ef082b516c07e"
-  license "GPL-3.0"
+  license :cannot_represent
   head "https://github.com/kornelski/pngquant.git"
 
   livecheck do
