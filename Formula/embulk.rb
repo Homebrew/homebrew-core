@@ -9,8 +9,8 @@ class Embulk < Formula
   license "Apache-2.0"
 
   livecheck do
-    url "https://github.com/embulk/embulk.git"
-    regex(/^v?(0\.9(?:\.\d+)+)$/i)
+    url :homepage
+    regex(%r{Stable.+?href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}im)
   end
 
   bottle :unneeded
