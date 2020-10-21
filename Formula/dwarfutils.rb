@@ -1,8 +1,8 @@
 class Dwarfutils < Formula
   desc "Dump and produce DWARF debug information in ELF objects"
   homepage "https://www.prevanders.net/dwarf.html"
-  url "https://www.prevanders.net/libdwarf-20200825.tar.gz"
-  sha256 "c42786a085bf244c8a1b0238b57f42f6cfc582baebe5e174ea62eb1a81f32103"
+  url "https://www.prevanders.net/libdwarf-20201020.tar.gz"
+  sha256 "1c5ce59e314c6fe74a1f1b4e2fa12caea9c24429309aa0ebdfa882f74f016eff"
 
   livecheck do
     url :homepage
