@@ -3,9 +3,9 @@ class Libcerf < Formula
   homepage "https://jugit.fz-juelich.de/mlz/libcerf"
   url "https://jugit.fz-juelich.de/mlz/libcerf/-/archive/v1.14/libcerf-v1.14.tar.gz"
   sha256 "065346b3360943c9961517f8c49ae13fe956835f6fc3b53e9d307e41feec3a34"
-  version_scheme 1
   license "MIT"
   head "https://jugit.fz-juelich.de/mlz/libcerf.git"
+  version_scheme 1
 
   livecheck do
     url "https://jugit.fz-juelich.de/api/v4/projects/269/releases"
