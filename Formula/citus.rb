@@ -1,8 +1,8 @@
 class Citus < Formula
   desc "PostgreSQL-based distributed RDBMS"
   homepage "https://www.citusdata.com"
-  url "https://github.com/citusdata/citus/archive/v9.4.1.tar.gz"
-  sha256 "0818797d12e8c7ccd8c73cf47d1574a96d08c1400161776dd3ce09a6f686feaa"
+  url "https://github.com/citusdata/citus/archive/v9.4.2.tar.gz"
+  sha256 "3d6210758ef26b755ac2b0b742a97ba3a4a05760736e0206e063cda20c2cb103"
   license "AGPL-3.0"
   head "https://github.com/citusdata/citus.git"
 
@@ -13,16 +13,16 @@ class Citus < Formula
     sha256 "9e30c3dbe27a4966d00f2e4a1fd1f6440fbaa7b2bd6e1969d915c830bb6c3b13" => :high_sierra
   end
 
-  depends_on "postgresql"
+  depends_on "postgresql@12"
   depends_on "readline"
 
   def install
-    ENV["PG_CONFIG"] = Formula["postgresql"].opt_bin/"pg_config"
+    ENV["PG_CONFIG"] = Formula["postgresql@12"].opt_bin/"pg_config"
 
     system "./configure"
 
     # workaround for https://github.com/Homebrew/homebrew/issues/49948
-    system "make", "libpq=-L#{Formula["postgresql"].opt_lib} -lpq"
+    system "make", "libpq=-L#{Formula["postgresql@12"].opt_lib} -lpq"
 
     # Use stage directory to prevent installing to pg_config-defined dirs,
     # which would not be within this package's Cellar.
@@ -32,13 +32,13 @@ class Citus < Formula
     bin.install Dir["stage/**/bin/*"]
     lib.install Dir["stage/**/lib/*"]
     include.install Dir["stage/**/include/*"]
-    (share/"postgresql/extension").install Dir["stage/**/share/postgresql/extension/*"]
+    (share/"postgresql@12/extension").install Dir["stage/**/share/postgresql@12/extension/*"]
   end
 
   test do
     return if ENV["CI"]
 
-    pg_bin = Formula["postgresql"].opt_bin
+    pg_bin = Formula["postgresql@12"].opt_bin
     pg_port = "55561"
     system "#{pg_bin}/initdb", testpath/"test"
     pid = fork do
