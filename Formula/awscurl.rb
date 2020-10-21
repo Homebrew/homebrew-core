@@ -3,10 +3,9 @@ class Awscurl < Formula
 
   desc "Curl like simplicity to access AWS resources"
   homepage "https://github.com/okigan/awscurl"
-  url "https://github.com/okigan/awscurl/archive/v0.20.tar.gz"
-  sha256 "3ce06d105067b42398cf0bb6696742b790258e16487d5e5afa025b7c3ca983e4"
+  url "https://github.com/okigan/awscurl/archive/v0.21.tar.gz"
+  sha256 "772d7cf1e46f1b82e659973a5486722aa4c447830490b70c7372a8c2cdfed4cb"
   license "MIT"
-  revision 2
   head "https://github.com/okigan/awscurl.git"
 
   bottle do
