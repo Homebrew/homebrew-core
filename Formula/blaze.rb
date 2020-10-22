@@ -4,6 +4,7 @@ class Blaze < Formula
   url "https://bitbucket.org/blaze-lib/blaze/downloads/blaze-3.8.tar.gz"
   sha256 "dfaae1a3a9fea0b3cc92e78c9858dcc6c93301d59f67de5d388a3a41c8a629ae"
   license "BSD-3-Clause"
+  revision 1
   head "https://bitbucket.org/blaze-lib/blaze.git"
 
   bottle do
@@ -14,6 +15,7 @@ class Blaze < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "openblas"
 
   def install
     system "cmake", ".", *std_cmake_args
