@@ -2,8 +2,8 @@ class Dnsping < Formula
   desc "Like ping but for DNS servers: checks latency and errors and report statistics"
   homepage "https://fortio.org/"
   url "https://github.com/fortio/dnsping.git",
-      tag:      "v1.0.0",
-      revision: "a02279242d312ed4f60b9803a88e6d3c2431e614"
+      tag:      "v1.1.0",
+      revision: "94b2d9a27df3209e5b39594bf3d000dd865748d1"
   license "Apache-2.0"
 
   depends_on "go" => :build
