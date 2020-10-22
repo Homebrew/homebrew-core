@@ -9,7 +9,7 @@ class Arturo < Formula
   depends_on "nim" => :build
 
   def install
-    system "/bin/sh", "build.sh"
+    system "./build.sh"
     bin.install "bin/arturo"
   end
 
