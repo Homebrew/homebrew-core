@@ -10,6 +10,7 @@ class Redex < Formula
     sha256 "18a840e4db0fc51f79e17dfd749b2ffcce65a28e7ef9c2b3c255c5ad89f6fd6f"
 
     # Fix compilation on High Sierra
+    # Fix boost issue (https://github.com/facebook/redex/pull/564)
     # Remove for next release
     patch :DATA
   end
@@ -64,3 +65,22 @@ index 525601ec..a359f49f 100644
  #include <string>
  #include <unordered_set>
  #include <vector>
+diff --git a/libredex/Show.cpp b/libredex/Show.cpp
+index b042070f..5e492e3f 100644
+--- a/libredex/Show.cpp
++++ b/libredex/Show.cpp
+@@ -9,7 +9,14 @@
+
+ #include "Show.h"
+
++#include <boost/version.hpp>
++// Quoted was accepted into public components as of 1.73. The `detail`
++// header was removed in 1.74.
++#if BOOST_VERSION < 107400
+ #include <boost/io/detail/quoted_manip.hpp>
++#else
++#include <boost/io/quoted.hpp>
++#endif
+ #include <sstream>
+
+ #include "ControlFlow.h"
