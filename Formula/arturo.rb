@@ -5,7 +5,7 @@ class Arturo < Formula
   sha256 "90dfd8870ab0bfadd14cd611a33353a1d4b66b25e0c56d75cab895989be25c98"
   license "MIT"
 
-  depends_on "gmp" => :build
+  depends_on "gmp"
   depends_on "nim" => :build
 
   def install
@@ -14,6 +14,9 @@ class Arturo < Formula
   end
 
   test do
-    system "#{bin}/arturo", "-v"
+    (testpath/"hello.art").write <<~EOS
+      print "hello"
+    EOS
+    assert_equal "hello", shell_output("#{bin}/arturo #{testpath}/hello.art").chomp
   end
 end
