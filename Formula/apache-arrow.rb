@@ -1,11 +1,10 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-1.0.1/apache-arrow-1.0.1.tar.gz"
-  mirror "https://archive.apache.org/dist/arrow/arrow-1.0.1/apache-arrow-1.0.1.tar.gz"
-  sha256 "149ca6aa969ac5742f3b30d1f69a6931a533fd1db8b96712e60bf386a26dc75c"
+  url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-2.0.0/apache-arrow-2.0.0.tar.gz"
+  mirror "https://archive.apache.org/dist/arrow/arrow-2.0.0/apache-arrow-2.0.0.tar.gz"
+  sha256 "be0342cc847bb340d86aeaef43596a0b6c1dbf1ede9c789a503d939e01c71fbe"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/apache/arrow.git"
 
   livecheck do
@@ -35,13 +34,6 @@ class ApacheArrow < Formula
   depends_on "snappy"
   depends_on "thrift"
   depends_on "zstd"
-
-  # Fix to not install jemalloc in parallel
-  # https://github.com/apache/arrow/pull/7995
-  patch do
-    url "https://github.com/apache/arrow/commit/ae60bad1c2e28bd67cdaeaa05f35096ae193e43a.patch?full_index=1"
-    sha256 "7a793ca3c98a803c652757faa802667e6d19dbc436cedb942c76346771c9e16f"
-  end
 
   def install
     ENV.cxx11
