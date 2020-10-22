@@ -5,8 +5,8 @@ class Kpcli < Formula
 
   desc "Command-line interface to KeePass database files"
   homepage "https://kpcli.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/kpcli/kpcli-3.5.pl"
-  sha256 "bbe4fed616de87341100c903fad486dcf2640e4de4197c4e60bb41821d4a70c4"
+  url "https://downloads.sourceforge.net/project/kpcli/kpcli-3.6.pl"
+  sha256 "01f23882d458dfffc176fe5f268ced13c667de22b7fbf60d488eca87f3362deb"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
 
   livecheck do
