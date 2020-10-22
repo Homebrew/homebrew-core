@@ -14,11 +14,11 @@ class WoboqCodebrowser < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm@6"
+  depends_on "llvm@7"
 
   def install
     args = std_cmake_args + %W[
-      -DLLVM_CONFIG_EXECUTABLE=#{Formula["llvm@6"].opt_bin}/llvm-config
+      -DLLVM_CONFIG_EXECUTABLE=#{Formula["llvm@7"].opt_bin}/llvm-config
       -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
     ]
     system "cmake", ".", *args
