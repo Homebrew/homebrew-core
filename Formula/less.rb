@@ -1,8 +1,8 @@
 class Less < Formula
   desc "Pager program similar to more"
   homepage "http://www.greenwoodsoftware.com/less/index.html"
-  url "http://www.greenwoodsoftware.com/less/less-551.tar.gz"
-  sha256 "ff165275859381a63f19135a8f1f6c5a194d53ec3187f94121ecd8ef0795fe3d"
+  url "http://www.greenwoodsoftware.com/less/less-563.tar.gz"
+  sha256 "ce5b6d2b9fc4442d7a07c93ab128d2dff2ce09a1d4f2d055b95cf28dd0dc9a9a"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -21,6 +21,10 @@ class Less < Formula
 
   uses_from_macos "ncurses"
 
+  # Fix build with Xcode 12 as it no longer allows implicit function declarations
+  # See https://github.com/gwsw/less/issues/91
+  patch :DATA
+
   def install
     system "./configure", "--prefix=#{prefix}", "--with-regex=pcre"
     system "make", "install"
@@ -30,3 +34,21 @@ class Less < Formula
     system "#{bin}/lesskey", "-V"
   end
 end
+__END__
+diff --git a/configure b/configure
+index 0ce6db1..eac7ca0 100755
+--- a/configure
++++ b/configure
+@@ -4104,11 +4104,11 @@ if test "x$TERMLIBS" = x; then
+     TERMLIBS="-lncurses"
+     SAVE_LIBS=$LIBS
+     LIBS="$LIBS $TERMLIBS"
+     cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+ /* end confdefs.h.  */
+-
++#include <termcap.h>
+ int
+ main ()
+ {
+ tgetent(0,0); tgetflag(0); tgetnum(0); tgetstr(0,0);
+   ;
