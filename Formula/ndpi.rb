@@ -3,7 +3,7 @@ class Ndpi < Formula
   homepage "https://www.ntop.org/products/deep-packet-inspection/ndpi/"
   url "https://github.com/ntop/nDPI/archive/3.4.tar.gz"
   sha256 "dc9b291c7fde94edb45fb0f222e0d93c93f8d6d37f4efba20ebd9c655bfcedf9"
-  license "LGPL-3.0"
+  license "LGPL-3.0-or-later"
   head "https://github.com/ntop/nDPI.git", branch: "dev"
 
   bottle do
