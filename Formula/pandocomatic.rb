@@ -3,7 +3,7 @@ class Pandocomatic < Formula
   homepage "https://heerdebeer.org/Software/markdown/pandocomatic/"
   url "https://github.com/htdebeer/pandocomatic/archive/0.2.7.3.tar.gz"
   sha256 "bddd44f2d79bc4d99aa599331892cd954396abd679e606588c6b1ce9629644e4"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   bottle do
     cellar :any_skip_relocation
