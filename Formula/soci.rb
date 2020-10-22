@@ -3,6 +3,7 @@ class Soci < Formula
   homepage "https://soci.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/soci/soci/soci-4.0.1/soci-4.0.1.zip"
   sha256 "ec25f69df0237882bb9035c69e21d91e62f0c6a2cd6f9f0153bbf00b435ff6b2"
+  license "BSL-1.0"
 
   livecheck do
     url :stable
