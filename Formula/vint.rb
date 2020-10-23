@@ -30,5 +30,17 @@ class Vint < Formula
 
   test do
     system bin/"vint", "--help"
+    (testpath/"bad.vim").write <<~EOS
+      not vimscript
+    EOS
+    assert_match "E492", shell_output("#{bin}/vint bad.vim", 1)
+
+    (testpath/"good.vim").write <<~EOS
+      " minimal vimrc
+      syntax on
+      set backspace=indent,eol,start
+      filetype plugin indent on
+    EOS
+    assert_equal "", shell_output("#{bin}/vint good.vim")
   end
 end
