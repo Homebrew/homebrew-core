@@ -4,6 +4,7 @@ class GstPluginsUgly < Formula
   url "https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-1.18.0.tar.xz"
   sha256 "686644e45e08258ae240c4519376668ad8d34ea6d0f6ab556473c317bfb7e082"
   license "LGPL-2.0-or-later"
+  revision 1
   head "https://anongit.freedesktop.org/git/gstreamer/gst-plugins-ugly.git"
 
   livecheck do
