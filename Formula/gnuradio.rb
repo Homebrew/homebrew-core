@@ -6,7 +6,7 @@ class Gnuradio < Formula
   url "https://github.com/gnuradio/gnuradio/releases/download/v3.8.2.0/gnuradio-3.8.2.0.tar.gz"
   sha256 "3e293541a9ac8d78660762bae8b80c0f6195b3494e1c50c01a9fd79cc60bb624"
   license "GPL-3.0-or-later"
-  revision 2
+  revision 3
   head "https://github.com/gnuradio/gnuradio.git"
 
   bottle do
@@ -30,7 +30,7 @@ class Gnuradio < Formula
   depends_on "portaudio"
   depends_on "pygobject3"
   depends_on "pyqt"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "qt"
   depends_on "qwt"
   depends_on "uhd"
@@ -210,6 +210,6 @@ class Gnuradio < Formula
 
       main()
     EOS
-    system "python3", testpath/"test.py"
+    system Formula["python@3.9"].opt_bin/"python3", testpath/"test.py"
   end
 end
