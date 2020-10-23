@@ -5,7 +5,7 @@ class Csound < Formula
     tag:      "6.15.0",
     revision: "18c2c7897425f462b9a7743cee157cb410c88198"
   license "LGPL-2.1-or-later"
-  revision 2
+  revision 3
   head "https://github.com/csound/csound.git", branch: "develop"
 
   livecheck do
