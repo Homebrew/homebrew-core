@@ -6,7 +6,7 @@ class Dvc < Formula
   url "https://github.com/iterative/dvc/archive/1.8.4.tar.gz"
   sha256 "71e9d1acc3ad5ce6fc94a7b3d3e4390e1754f8adfe484daa9a251b03e874353f"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://github.com/iterative/dvc.git"
