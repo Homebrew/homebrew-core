@@ -7,7 +7,7 @@ class Libtorch < Formula
       tag:      "v1.6.0",
       revision: "b31f58de6fa8bbda5353b3c77d9be4914399724d"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://github.com/pytorch/pytorch/releases/latest"
@@ -16,13 +16,13 @@ class Libtorch < Formula
 
   bottle do
     cellar :any
-    sha256 "639c902bc29a3d3bc3da276a36d2ca4a1b652c3500544a959e8854ff8bbb3d94" => :catalina
-    sha256 "19826ceb6d2fb187fa62581e59eac8119c62a9848b26165db5a90782e6cd2e52" => :mojave
-    sha256 "7e8b575d15988304e31d00eeaedc2cc463fda10a12192ae598e3c7b28f70a6a3" => :high_sierra
+    sha256 "4fae38bbe9d67812da46fafaaf2cda545eaf4eb11c9648c40ea1e5317379bc53" => :catalina
+    sha256 "1601ffc6870e5c32a3e210947d2afd45692d4bdc31f9dbc9456f5661906d3cda" => :mojave
+    sha256 "295cc80f818c6f5345c1f9dcb08965785710577c397767b4ed66d8af73f8d553" => :high_sierra
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
   depends_on "eigen"
   depends_on "libomp"
   depends_on "libyaml"
@@ -40,7 +40,7 @@ class Libtorch < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
+    venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
     venv.pip_install resources
 
     args = %W[

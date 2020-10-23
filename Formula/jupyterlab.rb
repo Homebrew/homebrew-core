@@ -6,22 +6,22 @@ class Jupyterlab < Formula
   url "https://files.pythonhosted.org/packages/39/dc/a0d48fa885fce1efa8a7dcee9c86d52cf59aa312cc35fc78077c841ee411/jupyterlab-2.2.8.tar.gz"
   sha256 "c8377bee30504919c1e79949f9fe35443ab7f5c4be622c95307e8108410c8b8c"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
   end
 
   bottle do
-    cellar :any
-    sha256 "6bed9623a449ef37e88fc05a756e82829b3c58c1cb80323c8e8cbb069b83402c" => :catalina
-    sha256 "4bb1622e233ed68dcef96913541daeea2ddf8e527153f31fa735aec297d579c1" => :mojave
-    sha256 "c6fd205cc7ee7e554a432522394b16d873fe8c662ef2eda584095d48c8c0d0a1" => :high_sierra
+    sha256 "33730ac81db3a05c982f62944675f6a1b276ac050736fd6370428c14b58a4052" => :catalina
+    sha256 "bb5f148d84c3d83d8baf45ab88def3a680f1544ea30d304d40a3a7f2d0ad5da9" => :mojave
+    sha256 "546fa85813e599d27c8fde3c06bbb931d9dc9b6fd60868c167af59484ff8f871" => :high_sierra
   end
 
   depends_on "ipython"
   depends_on "node"
   depends_on "pandoc"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "zeromq"
 
   uses_from_macos "expect" => :test
@@ -302,7 +302,7 @@ class Jupyterlab < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
+    venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
     ENV["JUPYTER_PATH"] = etc/"jupyter"
 
     # gather packages to link based on options

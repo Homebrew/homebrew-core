@@ -4,6 +4,7 @@ class GstEditingServices < Formula
   url "https://gstreamer.freedesktop.org/src/gst-editing-services/gst-editing-services-1.18.0.tar.xz"
   sha256 "4daef0d4875415ea262f7fb1287d4a33939a9594f3c1e661f8587ab00f7000a8"
   license "LGPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://gstreamer.freedesktop.org/src/gst-editing-services/"
@@ -11,9 +12,9 @@ class GstEditingServices < Formula
   end
 
   bottle do
-    sha256 "54ee45634af1436dadc952ef3d5478036037cc3f85c97407b76f6eadc1f61ca6" => :catalina
-    sha256 "8c6aafd9c9f555deb8bbfc660b1033977315a67a7572fd78aeb369d380547cec" => :mojave
-    sha256 "d0d844da99e4bee0abdb7a7bd6dec5d235a3d0322cdff11a39d4058f2e6e8cbd" => :high_sierra
+    sha256 "6186de7daeaa8962f9f92e20903ffc91e106a28dadd0060d7ab001ff8acab890" => :catalina
+    sha256 "eab524514fdaa2ea301d0956dfe706199c91606b96bbae802074102b061b2715" => :mojave
+    sha256 "2a207a17f9948055db758ec32d231a909cc24611e9e58dfdffa6933ba39bf4fd" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build

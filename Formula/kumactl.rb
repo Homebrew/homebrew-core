@@ -1,15 +1,15 @@
 class Kumactl < Formula
   desc "Kuma control plane command-line utility"
   homepage "https://kuma.io/"
-  url "https://github.com/kumahq/kuma/archive/0.7.2.tar.gz"
-  sha256 "2e2c1097990465d403b93e148051070150df6c0e6103ccf25ea51ed0a529656d"
+  url "https://github.com/kumahq/kuma/archive/0.7.3.tar.gz"
+  sha256 "d9f4392706557234fe2579285a3c1781d47239cfb05a71ab241bcc685d923627"
   license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a31a7af43e38e06da70e6c84f852521a96c87808177e8bf532c20e03117b4966" => :catalina
-    sha256 "da9bff93f1ee754b513e066367502001053daa9cacfbcd80dbcd60b54a174a27" => :mojave
-    sha256 "28cb6a7dfc8c68654c20bc35d9fd8d99d2e88523d2eab7f3680e01e558ad3a87" => :high_sierra
+    sha256 "2f2df9a3540a2c979e90b133339dacf0784fec0c6eb3ff4a062984ca94b4d411" => :catalina
+    sha256 "0f6bab72b32fa986aeba183075fd3e43ca8afa2c3f92c324ea77dc7b91ebe103" => :mojave
+    sha256 "e029d1b060e7a03ea3f6234e0ee7e2749c1ed3fd8da48aca7c706739f4117cdf" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -30,8 +30,10 @@ class Kumactl < Formula
     assert_match "Management tool for Kuma.", shell_output("#{bin}/kumactl")
     assert_match version.to_s, shell_output("#{bin}/kumactl version 2>&1")
 
-    touch testpath/"config"
+    (testpath/"config.yml").write <<~EOS
+      name:
+    EOS
     assert_match "Error: YAML contains invalid resource: Name field cannot be empty",
-    shell_output("#{bin}/kumactl apply -f config 2>&1", 1)
+    shell_output("#{bin}/kumactl apply -f config.yml 2>&1", 1)
   end
 end

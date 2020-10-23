@@ -4,6 +4,7 @@ class CodeServer < Formula
   url "https://registry.npmjs.org/code-server/-/code-server-3.6.0.tgz"
   sha256 "21bb3801d0c5f510d147fd30c2136e5f29cc1365ea7ddd9b9ecd578bd6302839"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,12 +12,12 @@ class CodeServer < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "05ecc38e633a7da62943a68ef0daf1b385bd7596a81a8d199cd2d099eba55956" => :catalina
-    sha256 "451f3a58a7d4fe6f7dfb2cfda0485e4df7edfe0dffd8423c185a448bbc061a8f" => :mojave
-    sha256 "396c4ee64b8337c597587463b22e72e2d5b16ac0bb942d02878b9d5655afd002" => :high_sierra
+    sha256 "c4eda67f4ebabdf26a3c5c9ed0222fe5624ec13733eea08c350e933cef1c864d" => :catalina
+    sha256 "65538b53697bcd60c95e59fa885d7d598f07dc702ef6e8d66344fdcde23484b7" => :mojave
+    sha256 "f9856496fdba09fed15e0bc8dbf0a3ebea0183cc4b92311323ea22b956519220" => :high_sierra
   end
 
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
   depends_on "yarn" => :build
   depends_on "node"
 

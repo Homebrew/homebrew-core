@@ -6,12 +6,13 @@ class GstDevtools < Formula
   url "https://gstreamer.freedesktop.org/src/gst-devtools/gst-devtools-1.18.0.tar.xz"
   sha256 "82337141b5654f11c440f783892ba9d9498b3b6b98c2286b000f96dce6945f16"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://anongit.freedesktop.org/git/gstreamer/gst-devtools.git"
 
   bottle do
-    sha256 "f9f4c3b56900451560a484f7f08f566bb34c17b1bf63c32d8653851e7afe0f4c" => :catalina
-    sha256 "b38054091a5c0156951daa97288e4b6728b768774e6e479111cc3d75373f0fa8" => :mojave
-    sha256 "0c0d08f61c6c4a5589146edbdcb702831d7942c0a37b6bf64b22a30bab950828" => :high_sierra
+    sha256 "9deffbd51968295db502d9ae7874f83458458c163daa427fba0451a6fed47bb5" => :catalina
+    sha256 "a958772618d4b35b5a05fbacb9aee801c2d26b1e11e30270197f19abb83a08ea" => :mojave
+    sha256 "d5a3e6fcbe0d7454574a0029925e103aa70e96db2235341c3e4bb7d1e81553ef" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build
@@ -22,7 +23,7 @@ class GstDevtools < Formula
   depends_on "gst-plugins-base"
   depends_on "gstreamer"
   depends_on "json-glib"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
     args = std_meson_args + %w[

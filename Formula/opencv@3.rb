@@ -4,11 +4,12 @@ class OpencvAT3 < Formula
   url "https://github.com/opencv/opencv/archive/3.4.12.tar.gz"
   sha256 "c8919dfb5ead6be67534bf794cb0925534311f1cd5c6680f8164ad1813c88d13"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
-    sha256 "ddd575264b09a0c2082f37b8a07ce1782ef0b0e72d67245a6fbe177a3382938b" => :catalina
-    sha256 "907fb90b36f3a4db48a278a7f06d258b778c29a614d074b42eac9de7db9e4e8c" => :mojave
-    sha256 "4ea1d46fdcc64cf34583fd4a8f2d9eedbacd05b53cad79fc458701d857fbdd36" => :high_sierra
+    sha256 "79b76d3ea5bb101253891a96309c2e7b44263979fbf443c8bee0962f7e8cb40e" => :catalina
+    sha256 "87795a720609695bf4bef8f7eb88c7bbb020f7afb1f7c7473e53170c1d8decd0" => :mojave
+    sha256 "df7413d4501e193294314729210f7b9ef47f0b79221511b2f9e14375f5087e86" => :high_sierra
   end
 
   keg_only :versioned_formula
@@ -25,7 +26,7 @@ class OpencvAT3 < Formula
   depends_on "libtiff"
   depends_on "numpy"
   depends_on "openexr"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "tbb"
 
   resource "contrib" do
@@ -70,7 +71,7 @@ class OpencvAT3 < Formula
       -DWITH_VTK=OFF
       -DBUILD_opencv_python2=OFF
       -DBUILD_opencv_python3=ON
-      -DPYTHON3_EXECUTABLE=#{Formula["python@3.8"].opt_bin}/python3
+      -DPYTHON3_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
     ]
 
     args << "-DENABLE_AVX=OFF" << "-DENABLE_AVX2=OFF"
@@ -102,9 +103,9 @@ class OpencvAT3 < Formula
     system ENV.cxx, "test.cpp", "-I#{include}", "-L#{lib}", "-o", "test"
     assert_equal `./test`.strip, version.to_s
 
-    py3_version = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
+    py3_version = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     ENV["PYTHONPATH"] = lib/"python#{py3_version}/site-packages"
-    output = shell_output(Formula["python@3.8"].opt_bin/"python3 -c 'import cv2; print(cv2.__version__)'")
+    output = shell_output(Formula["python@3.9"].opt_bin/"python3 -c 'import cv2; print(cv2.__version__)'")
     assert_equal version.to_s, output.chomp
   end
 end

@@ -5,18 +5,19 @@ class BoostPython3 < Formula
   mirror "https://dl.bintray.com/homebrew/mirror/boost_1_74_0.tar.bz2"
   sha256 "83bfc1507731a0906e387fc28b7ef5417d591429e51e788417fe9ff025e116b1"
   license "BSL-1.0"
+  revision 1
   head "https://github.com/boostorg/boost.git"
 
   bottle do
     cellar :any
-    sha256 "eca007bea06791b5a65b4070e41f3502f9d057a9bccbfbbf9df19f196941cccb" => :catalina
-    sha256 "59ba760e2c07838e121bf133c3a72870b7ca6364f465a5ea89af2d3ce9a094cb" => :mojave
-    sha256 "7e6378396028787a96fc68610bca84e743e76fff8d1c20882b18c7fd96f7df10" => :high_sierra
+    sha256 "e0bcf523b8e07d375db02bd4fd465d69fa12c1ce056df83bce2f2124230ee881" => :catalina
+    sha256 "7c79a5b4b2043f24aaf5eae7ad25b45b45334d213b489c0ae62be84acc57f61c" => :mojave
+    sha256 "f9152b8264ac74ccfdc90ba3353e58889c9922b1a5743a87a3f7fedc0557cb41" => :high_sierra
   end
 
   depends_on "numpy" => :build
   depends_on "boost"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
     # "layout" should be synchronized with boost
@@ -40,8 +41,8 @@ class BoostPython3 < Formula
     # user-config.jam below.
     inreplace "bootstrap.sh", "using python", "#using python"
 
-    pyver = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
-    py_prefix = Formula["python@3.8"].opt_frameworks/"Python.framework/Versions/#{pyver}"
+    pyver = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    py_prefix = Formula["python@3.9"].opt_frameworks/"Python.framework/Versions/#{pyver}"
 
     # Force boost to compile with the desired compiler
     (buildpath/"user-config.jam").write <<~EOS
@@ -81,9 +82,9 @@ class BoostPython3 < Formula
       }
     EOS
 
-    pyincludes = shell_output("#{Formula["python@3.8"].opt_bin}/python3-config --includes").chomp.split(" ")
-    pylib = shell_output("#{Formula["python@3.8"].opt_bin}/python3-config --ldflags --embed").chomp.split(" ")
-    pyver = Language::Python.major_minor_version(Formula["python@3.8"].opt_bin/"python3").to_s.delete(".")
+    pyincludes = shell_output("#{Formula["python@3.9"].opt_bin}/python3-config --includes").chomp.split(" ")
+    pylib = shell_output("#{Formula["python@3.9"].opt_bin}/python3-config --ldflags --embed").chomp.split(" ")
+    pyver = Language::Python.major_minor_version(Formula["python@3.9"].opt_bin/"python3").to_s.delete(".")
 
     system ENV.cxx, "-shared", "hello.cpp", "-L#{lib}", "-lboost_python#{pyver}", "-o",
            "hello.so", *pyincludes, *pylib
@@ -92,6 +93,6 @@ class BoostPython3 < Formula
       import hello
       print(hello.greet())
     EOS
-    assert_match "Hello, world!", pipe_output(Formula["python@3.8"].opt_bin/"python3", output, 0)
+    assert_match "Hello, world!", pipe_output(Formula["python@3.9"].opt_bin/"python3", output, 0)
   end
 end

@@ -4,17 +4,18 @@ class Libzzip < Formula
   url "https://github.com/gdraheim/zziplib/archive/v0.13.71.tar.gz"
   sha256 "2ee1e0fbbb78ec7cc46bde5b62857bc51f8d665dd265577cf93584344b8b9de2"
   license "LGPL-2.0"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "e5d1924bd3078e0ec191022a1472b9fed24df6217bca8a96eaa3124baa63fee1" => :catalina
-    sha256 "e6060c02eaeb6df911ae74896181c261c1b235891f4a470e2afe8aea3c4846e5" => :mojave
-    sha256 "18edacbb19f463f1481eae261ec25f4c643c659703ff1d1d2ae59b28684a0fc3" => :high_sierra
+    sha256 "dc85b70f378aaaf57f17c6a945e7a36c9c125941651de6d2c2d0c5308befd3dc" => :catalina
+    sha256 "777bdcb24dfc69b7d91298949814a0c54313c251ae80173b636e2baae298f228" => :mojave
+    sha256 "1663861e1170f3e34b94580d0905063d48703717efbea616010a239eb135f1e8" => :high_sierra
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
 
   def install
     mkdir "build" do

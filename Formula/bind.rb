@@ -11,6 +11,7 @@ class Bind < Formula
   url "https://downloads.isc.org/isc/bind9/9.16.7/bind-9.16.7.tar.xz"
   sha256 "9f7d1812ebbd26a699f62b6fa8522d5dec57e4bf43af0042a0d60d39ed8314d1"
   license "MPL-2.0"
+  revision 1
   version_scheme 1
   head "https://gitlab.isc.org/isc-projects/bind9.git"
 
@@ -22,16 +23,16 @@ class Bind < Formula
   end
 
   bottle do
-    sha256 "18f25bc05253751cd74b30547c4abc32948ea71381d0c20911b1b9b39206214f" => :catalina
-    sha256 "43874746fb0e50cd80195b1498234713aa7a1250fc2cd03dc446a66d3981314f" => :mojave
-    sha256 "5d5646151f026eac651fc1ee663346cb7929e5d11e1c43da6a1d4c31705e7cf2" => :high_sierra
+    sha256 "4e30344b9663cd8ae33af31e8a5241ca9d98f33985f7360701cea1ff072a691e" => :catalina
+    sha256 "76ff0b81b4e52f3ca7a503b240204e5fd31704c9dc3cdfc970e3e0ee5334309e" => :mojave
+    sha256 "eb2c21722592007b5567c8df20bfed89819bcaa08bcfba597031df65122c0569" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "json-c"
   depends_on "libuv"
   depends_on "openssl@1.1"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "ply" do
     url "https://files.pythonhosted.org/packages/e5/69/882ee5c9d017149285cab114ebeab373308ef0f874fcdac9beb90e0ac4da/ply-3.11.tar.gz"
@@ -39,12 +40,12 @@ class Bind < Formula
   end
 
   def install
-    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
+    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     vendor_site_packages = libexec/"vendor/lib/python#{xy}/site-packages"
     ENV.prepend_create_path "PYTHONPATH", vendor_site_packages
     resources.each do |r|
       r.stage do
-        system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
+        system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
 
@@ -56,7 +57,7 @@ class Bind < Formula
                           "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}",
                           "--with-libjson=#{Formula["json-c"].opt_prefix}",
                           "--with-python-install-dir=#{vendor_site_packages}",
-                          "--with-python=#{Formula["python@3.8"].opt_bin}/python3",
+                          "--with-python=#{Formula["python@3.9"].opt_bin}/python3",
                           "--without-lmdb"
 
     system "make"

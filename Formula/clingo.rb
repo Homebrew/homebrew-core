@@ -4,7 +4,7 @@ class Clingo < Formula
   url "https://github.com/potassco/clingo/archive/v5.4.0.tar.gz"
   sha256 "e2de331ee0a6d254193aab5995338a621372517adcf91568092be8ac511c18f3"
   license "MIT"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://github.com/potassco/clingo/releases/latest"
@@ -12,15 +12,15 @@ class Clingo < Formula
   end
 
   bottle do
-    sha256 "d22f05f1666d6e1c24b92e98b6cec9c44dafc53943555092f79de4625fb0bd9d" => :catalina
-    sha256 "68f3b4714a71193844fd338a4a426e469015db3f3ac11dd42c82080c5a182553" => :mojave
-    sha256 "ace56673b60a0576b584efb515b795354e7b0c2421c82e55a025dc08cba03980" => :high_sierra
+    sha256 "5e3cead6d5fde6357e4a9bfda2f7e1d4096682b83194906e011b0d04a0fe58cf" => :catalina
+    sha256 "348efd367746175aef195ba411274d772af37bcdb320df395c19897fb56b1b22" => :mojave
+    sha256 "e2f27e0830e735740f66646c50527e4601cae561a2e1c9e27ab12a36d88a0145" => :high_sierra
   end
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "lua"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   # This formula replaced the clasp & gringo formulae.
   # https://github.com/Homebrew/homebrew-core/pull/20281
@@ -41,7 +41,7 @@ class Clingo < Formula
                          "-DCLINGO_BUILD_PY_SHARED=ON",
                          "-DPYCLINGO_USE_INSTALL_PREFIX=ON",
                          "-DCLINGO_BUILD_WITH_LUA=ON",
-                         "-DPYTHON_EXECUTABLE=#{Formula["python@3.8"].opt_bin}/python3",
+                         "-DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3",
                          "-DPYCLINGO_DYNAMIC_LOOKUP=OFF",
                          *std_cmake_args
     system "make", "install"

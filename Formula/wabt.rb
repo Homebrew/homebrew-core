@@ -5,6 +5,7 @@ class Wabt < Formula
     tag:      "1.0.19",
     revision: "cd5ff133f84854f0b269f5cb06193ad8205f05d3"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://github.com/WebAssembly/wabt/releases/latest"
@@ -13,13 +14,13 @@ class Wabt < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "60d464680e3e70f9db8e079d1e6cb4d45f9c9994025cb3ba0f2b3a98c422f132" => :catalina
-    sha256 "e19ec65d36ef68a8f5637dcc8d9728642fc0887e9f8655b912ec906c1e686d34" => :mojave
-    sha256 "992e3b6ca47b54df5755d37e5968f15a2dda4070ec1f94d96c1e9a82828289d6" => :high_sierra
+    sha256 "08c32dd387bd3b1288c919a83f92f0f2c5a9e9e092078c2046e3c73a84e2d700" => :catalina
+    sha256 "04e765099fc579a310d5b1f6d73fe0e806de1101b3509eee389b6ccf7c99a8fd" => :mojave
+    sha256 "ddca29a3a9e019781add7050d40c7ecf61db5526dfff6282bfab520bccfffc74" => :high_sierra
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
 
   def install
     mkdir "build" do

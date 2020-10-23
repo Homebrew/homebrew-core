@@ -4,7 +4,7 @@ class Ledger < Formula
   url "https://github.com/ledger/ledger/archive/v3.2.1.tar.gz"
   sha256 "92bf09bc385b171987f456fe3ee9fa998ed5e40b97b3acdd562b663aa364384a"
   license "BSD-3-Clause"
-  revision 2
+  revision 3
   head "https://github.com/ledger/ledger.git"
 
   livecheck do
@@ -13,22 +13,22 @@ class Ledger < Formula
   end
 
   bottle do
-    sha256 "9f19cc8b74fe91947ed39dfb1c7f69d98ffcd69ab8c3216c3406781a17471539" => :catalina
-    sha256 "1918009a3f3fbbd9347406bca4e3317d1b9215167eb9a6cbf09db6737f01cf1b" => :mojave
-    sha256 "f8db0f0c312bd26da3bb8e9a28abfeeae318aed1f99194bdbe815015ecb5029d" => :high_sierra
+    sha256 "3aa99883691fcd92825ba5596633cd7958ccdbc7b14d54879a906b20c8936d2d" => :catalina
+    sha256 "4c50dd4776d1014f83f3f08242af9d0309db9c6afddd45e88912025be803adae" => :mojave
+    sha256 "c63574b6f1df94721c5f20c7d04607a1fe6c3b85f3e72064fd2a10525d12dcd2" => :high_sierra
   end
 
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "gmp"
   depends_on "mpfr"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "groff"
 
   def install
     ENV.cxx11
-    ENV.prepend_path "PATH", Formula["python@3.8"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
 
     args = %W[
       --jobs=#{ENV.make_jobs}

@@ -6,15 +6,16 @@ class Bcoin < Formula
   url "https://github.com/bcoin-org/bcoin/archive/v2.1.2.tar.gz"
   sha256 "b4c63598ee1efc17e4622ef88c1dff972692da1157e8daf7da5ea8abc3d234df"
   license "MIT"
+  revision 1
   head "https://github.com/bcoin-org/bcoin.git"
 
   bottle do
-    sha256 "108903ff8f06a500be27e4108b65c4462c469f778a23b41b697f21c99d19df5f" => :catalina
-    sha256 "c8bec139df5f6b3e8b40179dab802dee9b7480d80c5503f620d8ac843479e274" => :mojave
-    sha256 "aaaccce8be6e2c06276627d4ce705039530ba228b378b5f670bc83124f649b32" => :high_sierra
+    sha256 "408858a3f5353615b6ebd052ae5d8ecb2707c0575ecd0fd8993ceacf7d80338e" => :catalina
+    sha256 "fc3226b4ec0341accfb96e26578ce631b12259bafb83ab3ee118c67aab2ac896" => :mojave
+    sha256 "72ba73b25be636e27aaa14267bfb0e8383ffdb484f73b1ccc88c55fc9b7ae28f" => :high_sierra
   end
 
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
   depends_on "node"
 
   def install

@@ -6,19 +6,20 @@ class Asciidoc < Formula
   url "https://github.com/asciidoc/asciidoc-py3/archive/9.0.3.tar.gz"
   sha256 "c0de1dcf111a200bf85bd81f67bc18778f839e55d761d6c7320095985524853a"
   license "GPL-2.0"
+  revision 1
   head "https://github.com/asciidoc/asciidoc-py3.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "35432712b96f6c242f69dce68cb0a1c694666dcbbb59ada1b52f44c5382c07c1" => :catalina
-    sha256 "53a91455c88216dec9bf411065a8e8fa3d2b088e8a3c2859a3e10be1d84e1062" => :mojave
-    sha256 "67864189bcd3e8d1f49107bd0cb6aaa5554c9227e5904e048343e8fb1483f29b" => :high_sierra
+    sha256 "60e64a526922ddf394597e47b5d541a4a09fccf77b5287a499fd20fc93dedcae" => :catalina
+    sha256 "6cf0f9cf32246aafcc067d53fa9ffd523daf980199e41071888d75da322072c5" => :mojave
+    sha256 "6ed5c44ae27f4fb32d37e3fe49922723ba5476b5f976a2c343268927119a09a5" => :high_sierra
   end
 
   depends_on "autoconf" => :build
   depends_on "docbook-xsl" => :build
   depends_on "docbook"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "source-highlight"
 
   uses_from_macos "libxml2" => :build

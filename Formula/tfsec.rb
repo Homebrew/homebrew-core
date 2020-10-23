@@ -5,6 +5,11 @@ class Tfsec < Formula
   sha256 "4cf8194d1aabf7207f9873ef10bd7e9b271eaeed503a0d71c03719cd5126dbe1"
   license "MIT"
 
+  livecheck do
+    url "https://github.com/tfsec/tfsec/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "adb26b3a24ec2ca6e4ab184ff6bf972005ae1276a5f036f4279126de0edd5d86" => :catalina

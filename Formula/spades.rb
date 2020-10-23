@@ -7,7 +7,7 @@ class Spades < Formula
   mirror "https://cab.spbu.ru/files/release3.14.1/SPAdes-3.14.1.tar.gz"
   sha256 "d629b78f7e74c82534ac20f5b3c2eb367f245e6840a67b9ef6a76f6fac5323ca"
   license "GPL-2.0"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://cab.spbu.ru/files/?C=M&O=D"
@@ -16,13 +16,13 @@ class Spades < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a6f57aca314cbe6d46554308a1b6a54c6c76bab341ac0813e9d0e68187428023" => :catalina
-    sha256 "0f536b922fba137fca8f2ba6634a90fc09e71b683342a0d331ac2bd1676d5fac" => :mojave
-    sha256 "c2bc400de41d30e04ad78cdc1894a5c9af1a15a237ae6aa71d73d2807b93e029" => :high_sierra
+    sha256 "d71dce85beb2f8f912c630e9a7275295f0cb88f6e35ae9b3e6ef5fcb9038a082" => :catalina
+    sha256 "3d5353e4e5d69fb611873ee7ba7cd272f61b2f306515efc10762ee6e65d4e2bb" => :mojave
+    sha256 "0d219b76bb4076f76f1a7551b06620258702dee5229685a85b5ec683e6dbb3ab" => :high_sierra
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "bzip2"
   uses_from_macos "ncurses"

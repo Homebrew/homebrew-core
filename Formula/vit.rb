@@ -6,17 +6,17 @@ class Vit < Formula
   url "https://github.com/scottkosty/vit/archive/v2.0.0.tar.gz"
   sha256 "0c8739c16b5922880e762bd38f887240923d16181b2f85bb88c4f9f6faf38d6d"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/scottkosty/vit.git", branch: "2.x"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6d70b6f12fc488da934b045dd9acbd3e11c275e815330da15962834d7cf897f9" => :catalina
-    sha256 "c41b171a5b91015b5b291125081f135ef2c2fc3a7025e78dfaa42fed706d8ba2" => :mojave
-    sha256 "3498a07d7d7ebc8011585ca12a60657e97f28712f77b2d35ccd54bf6acc79a5c" => :high_sierra
+    sha256 "4e1509120e57d5bfcb00274ff1f0a8e63f77ece272e93dfbc17aa694d37c6a26" => :catalina
+    sha256 "4e3434b618336f3c507df406cab0e37f2f3119217e24237d9d390f17e6ab88d6" => :mojave
+    sha256 "9549087c4e477517e6f6aec719bb8d79727e642f8c65c0b28363f4290ac440d9" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "task"
 
   resource "pytz" do

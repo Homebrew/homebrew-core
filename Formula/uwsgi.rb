@@ -1,7 +1,7 @@
 class Uwsgi < Formula
   desc "Full stack for building hosting services"
   homepage "https://uwsgi-docs.readthedocs.io/en/latest/"
-  revision 4
+  revision 5
   head "https://github.com/unbit/uwsgi.git"
 
   stable do
@@ -17,15 +17,15 @@ class Uwsgi < Formula
   end
 
   bottle do
-    sha256 "6c82bba2d7564bd3409867d304c578c7823d7c1db019d8b4c8223ae569a5f247" => :catalina
-    sha256 "2a3b1c26400d68491409b8625f56c730a2f69bbb5acc2596c80ea4cba3435fad" => :mojave
-    sha256 "2c511739e0317173b7c82b15a87a0eade429ed88be667801b477c95dc2affd72" => :high_sierra
+    sha256 "54ef215cc4b0dd34c256e757b8ab6bfe691e061429dd51909af1c3c08cf4a580" => :catalina
+    sha256 "f3ce20a0196e32d76e0c355672bc9401fa390f8fc2e64d28e011e07d65b6c8f9" => :mojave
+    sha256 "4508c03d1f3e7df0dadb55f6dfe48d9fb360aaab51195b52784c15791f3f2da6" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
   depends_on "pcre"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "yajl"
 
   uses_from_macos "curl"

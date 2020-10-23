@@ -4,11 +4,12 @@ class VtkAT82 < Formula
   url "https://www.vtk.org/files/release/8.2/VTK-8.2.0.tar.gz"
   sha256 "34c3dc775261be5e45a8049155f7228b6bd668106c72a3c435d95730d17d57bb"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
-    sha256 "37d86d6f6021aece7811709f2efddaf1146b49b46e4ce35fe831561f2465f462" => :catalina
-    sha256 "0c08fc45e6b7b0ed70ced6511cb65e04bb2dadbdac45fae431fcd02e36010748" => :mojave
-    sha256 "60920bd860d41f69e6988ac8a94008fa2c16d5c2a9c13b21915c89828519c83c" => :high_sierra
+    sha256 "047462441e9da29fb30fd623813f0cf8d2ac622b625decca87cca64945aca945" => :catalina
+    sha256 "2e1e70ac0856b2c320db624248587810b9212b919cf7055e2a46712238e71d9a" => :mojave
+    sha256 "e3e0622f90192b04810ad3e2c7638c307df23b49a39e94b8993d3ae1da60b7c4" => :high_sierra
   end
 
   keg_only :versioned_formula
@@ -24,7 +25,7 @@ class VtkAT82 < Formula
   depends_on "libtiff"
   depends_on "netcdf"
   depends_on "pyqt"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "qt"
 
   # Fix compile issues on Mojave and later
@@ -70,7 +71,7 @@ class VtkAT82 < Formula
       -DVTK_USE_SYSTEM_ZLIB=ON
       -DVTK_WRAP_PYTHON=ON
       -DVTK_PYTHON_VERSION=3
-      -DPYTHON_EXECUTABLE=#{Formula["python@3.8"].opt_bin}/python3
+      -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
       -DVTK_INSTALL_PYTHON_MODULE_DIR=#{lib}/python#{pyver}/site-packages
       -DVTK_QT_VERSION:STRING=5
       -DVTK_Group_Qt=ON

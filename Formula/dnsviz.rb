@@ -6,7 +6,7 @@ class Dnsviz < Formula
   url "https://files.pythonhosted.org/packages/25/d2/0ebfe23440a1adfdca403d7773570d3c05a3a8c5bcbaa0c091b5114d0224/dnsviz-0.8.2.tar.gz"
   sha256 "a81ff254c23718cd6f364b03bf6e9c80468fa4663fd5be66043de7b0bece1cab"
   license "GPL-2.0"
-  revision 4
+  revision 5
 
   livecheck do
     url :stable
@@ -14,9 +14,9 @@ class Dnsviz < Formula
 
   bottle do
     cellar :any
-    sha256 "47ffb6b1aa7d57a037db402c8d6cf78fa083ff5a3aa1bf94f9e4f6070b7816ab" => :catalina
-    sha256 "44d4920948ba5499f2996b07e0d93b9113afb62ec6e6166bf2d01f21c6a3e604" => :mojave
-    sha256 "635201531d8351bf760b0b00f1f2f7fd8880d21375772f74a923f14666bfe20b" => :high_sierra
+    sha256 "98841730e89ea63774ef33bc723f3f55ce74e965aef94df623dafaef277e8f05" => :catalina
+    sha256 "d1cfccf7a3eee282d072f7e8b704ecf447e0fe57c57b6453cde69bf68454b147" => :mojave
+    sha256 "7a84c44a46a4dd1e7cd4d6b951ca3011ae662275c67b9f0fecf35626ab66ce8f" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -25,7 +25,7 @@ class Dnsviz < Formula
   depends_on "graphviz"
   depends_on "libsodium"
   depends_on "openssl@1.1"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   on_linux do
     # Fix build error of m2crypto, see https://github.com/crocs-muni/roca/issues/1#issuecomment-336893096

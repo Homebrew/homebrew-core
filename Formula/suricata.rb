@@ -4,6 +4,7 @@ class Suricata < Formula
   url "https://www.openinfosecfoundation.org/download/suricata-6.0.0.tar.gz"
   sha256 "3c175a6dee9071141391f64828502cfb6e48dc1a20833e1411fb45be5368923b"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url "https://suricata-ids.org/download/"
@@ -11,9 +12,9 @@ class Suricata < Formula
   end
 
   bottle do
-    sha256 "59dd569ae8dbece8f60d01b0668b75eee9b87ff5481ecb809df3cad77db6c458" => :catalina
-    sha256 "eb00f491a77c0a0deaa2bc040be98759fcb9272d32ab5940c430911ad1ea7f9d" => :mojave
-    sha256 "b9848f2cae99d5dcfc6cd0d5e56bcf1045c14ccf24b1ad0d7cbccfee4aa81e19" => :high_sierra
+    sha256 "357f14c8a5904953453139e1d9363388d1f5779fa21ab413357a4b476eff6c24" => :catalina
+    sha256 "aa86c75ad788ab24ccd6b3dcf47e21e2766bcf018a302d67bfa569289da59edb" => :mojave
+    sha256 "5d885e9492f79dcc5cb039f3a5012dc8eb3549ccbf91695c563e73ffd205a329" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -26,7 +27,7 @@ class Suricata < Formula
   depends_on "nspr"
   depends_on "nss"
   depends_on "pcre"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "argparse" do
     url "https://files.pythonhosted.org/packages/18/dd/e617cfc3f6210ae183374cd9f6a26b20514bbb5a792af97949c5aacddf0f/argparse-1.4.0.tar.gz"
@@ -44,7 +45,7 @@ class Suricata < Formula
   end
 
   def install
-    python3 = Formula["python@3.8"].opt_bin/"python3"
+    python3 = Formula["python@3.9"].opt_bin/"python3"
     xy = Language::Python.major_minor_version python3
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
     resources.each do |r|

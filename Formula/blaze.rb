@@ -4,16 +4,18 @@ class Blaze < Formula
   url "https://bitbucket.org/blaze-lib/blaze/downloads/blaze-3.8.tar.gz"
   sha256 "dfaae1a3a9fea0b3cc92e78c9858dcc6c93301d59f67de5d388a3a41c8a629ae"
   license "BSD-3-Clause"
+  revision 1
   head "https://bitbucket.org/blaze-lib/blaze.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0b6eea6a400363549d96c9093a8987653c966580c39c2e96b223a9139974636b" => :catalina
-    sha256 "5dd4f2b4876abb2b483c3a8a529e0019cef7e6ee62631d10d041ca6d377f5ca9" => :mojave
-    sha256 "99d8e68c81380e11226786f2843b476d782e305fc0a78dbf0fc095b659a9fe50" => :high_sierra
+    sha256 "a0ee08be16bbc07c8c3447d05768a736d577a78fdf8ad920cf4cf071cecb4ce4" => :catalina
+    sha256 "d4c4f3f85b1d9f7759fa7fa9a9c850fd031fd5204b3b0beff5caa879a9561ea8" => :mojave
+    sha256 "4cd2aa850c2749e6b8b9c82687e377bf48b0c97e55dba47c99182439677d042b" => :high_sierra
   end
 
   depends_on "cmake" => :build
+  depends_on "openblas"
 
   def install
     system "cmake", ".", *std_cmake_args

@@ -4,16 +4,17 @@ class Botan < Formula
   url "https://botan.randombit.net/releases/Botan-2.16.0.tar.xz"
   sha256 "92ed6ebc918d86bd1b04221ca518af4cf29cc326c4760740bd2d22e61cea2628"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/randombit/botan.git"
 
   bottle do
-    sha256 "9fa7cc2c1782d8fdaac1b6bb4bb5cf3d39817cd51de91a061da241599165203a" => :catalina
-    sha256 "1994726d7e74837c73da3be3b897e621d52c6aa1d83b3e495b8ff7897b878691" => :mojave
-    sha256 "e57441b37a2f1ae109ecebd218a3a1aa1c1dc99e021db6f50fa9eea226302045" => :high_sierra
+    sha256 "d119a8a032b7bc778054109bcac38c3e7dd63a352f7f1d462d9e9cd4e987e030" => :catalina
+    sha256 "6a617380241089e14f2c13eb887f2dd4eef7eec1d4395781338495b558a5c48e" => :mojave
+    sha256 "57fb28fc92e902e75bdf89892c2404b147210df0f3980b2d9dddc579e2a7c1a6" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "sqlite"
 
   uses_from_macos "bzip2"
@@ -30,7 +31,7 @@ class Botan < Formula
       --with-zlib
       --with-bzip2
       --with-sqlite3
-      --with-python-versions=3.8
+      --with-python-versions=3.9
     ]
 
     system "./configure.py", *args

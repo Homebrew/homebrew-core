@@ -4,6 +4,7 @@ class Xapian < Formula
   url "https://oligarchy.co.uk/xapian/1.4.17/xapian-core-1.4.17.tar.xz"
   sha256 "b5eb8556dea1b0cad4167a66223522e66d670ec1eba16c7fdc844ed6b652572e"
   license "GPL-2.0"
+  revision 1
   version_scheme 1
 
   livecheck do
@@ -13,13 +14,13 @@ class Xapian < Formula
 
   bottle do
     cellar :any
-    sha256 "4712dbe3959cf4bb599d5c28a63b752de362d8201a68d4c2b73cce4e61d575e0" => :catalina
-    sha256 "fd46c140fdbd39fc34a201f51414239112edacedf85486496eeee9d62b8f29cf" => :mojave
-    sha256 "62231301f3ee14feb596caa691aef3b3ae95068cb7636eb5abbcefeb056571bc" => :high_sierra
+    sha256 "d85371485dcb478aa6902fabf9506902d91aa4a9922e2a560a7f663f22512f41" => :catalina
+    sha256 "c27f0ff9663719c6ceef03fe41b6d96504c6f4a8ee5d7941f788a885382ff4e6" => :mojave
+    sha256 "d4a73f84536006e75d09e6998d31dde209e7fb4981c3e082f764b77342f2565e" => :high_sierra
   end
 
   depends_on "sphinx-doc" => :build
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "zlib"
 
@@ -35,7 +36,7 @@ class Xapian < Formula
   end
 
   def install
-    python = Formula["python@3.8"].opt_bin/"python3"
+    python = Formula["python@3.9"].opt_bin/"python3"
     ENV["PYTHON"] = python
 
     system "./configure", "--disable-dependency-tracking",
@@ -62,6 +63,6 @@ class Xapian < Formula
 
   test do
     system bin/"xapian-config", "--libs"
-    system Formula["python@3.8"].opt_bin/"python3", "-c", "import xapian"
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "import xapian"
   end
 end

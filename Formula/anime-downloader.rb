@@ -6,6 +6,7 @@ class AnimeDownloader < Formula
   url "https://files.pythonhosted.org/packages/75/ca/1a312247353743ce30d0e9d7a2482b2e41946fa1757ba5db91ab0755a8b5/anime-downloader-4.6.6.tar.gz"
   sha256 "d0b69f104c0759405669338b19a17f8f4086c99944b3e1e51ad6ae6623c4a29a"
   license "Unlicense"
+  revision 1
   head "https://github.com/vn-ki/anime-downloader.git"
 
   livecheck do
@@ -14,14 +15,14 @@ class AnimeDownloader < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9b06603b48c10cf1fad5f9987d713720986cf7750583ab61ef8cba0ad0d2e87a" => :catalina
-    sha256 "552e13b784999316320d2cdfe26386fc8ffd0493ddcfa4b8120fe009c55172d9" => :mojave
-    sha256 "887d0894db7d4010f1d479ce7d30dbcc1193fb49b5d3e5ee059188227216997f" => :high_sierra
+    sha256 "5fcb4f5184ba9a8d2f9b0a0149c7f70479d6d5adddbf2a6243007f4de1c36003" => :catalina
+    sha256 "68a16a091663a1de8d908e4fc91132e062ad12feb36ad5c383c00c1f83600dbc" => :mojave
+    sha256 "729a857f6ebac78a81008201cf12e282e870d24c163ba9873584457f75ed8fc3" => :high_sierra
   end
 
   depends_on "aria2"
   depends_on "node"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "beautifulsoup4" do
     url "https://files.pythonhosted.org/packages/6b/c3/d31704ae558dcca862e4ee8e8388f357af6c9d9acb0cad4ba0fbbd350d9a/beautifulsoup4-4.9.3.tar.gz"

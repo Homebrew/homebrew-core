@@ -6,15 +6,16 @@ class Glib < Formula
   url "https://download.gnome.org/sources/glib/2.66/glib-2.66.2.tar.xz"
   sha256 "ec390bed4e8dd0f89e918f385e8d4cfd7470b1ef7c1ce93ec5c4fc6e3c6a17c4"
   license "LGPL-2.1-or-later"
+  revision 1
 
   livecheck do
     url :stable
   end
 
   bottle do
-    sha256 "325391b8f3f49936c8add539b1c686622d8bf6c8fcd35c4f9c5874e13db15a4d" => :catalina
-    sha256 "b7bc4d0f176edd757f1c9dba48ab9ad72f57e4130ea34588e559ac8b911f3ba5" => :mojave
-    sha256 "832c7168aef9afb23967c4641ab807f9daaf8aabc6bcb4da97caa28e85eb8c98" => :high_sierra
+    sha256 "55989b3ad3b8da0314749ab1abf699beecfa19479a4bbbc47e981aa282840fe1" => :catalina
+    sha256 "0715e8debe9a6a1e1f8223759a29c300eccb151c2fd5e4c376f8f71636501e0d" => :mojave
+    sha256 "f7c78253be38a52794ff424dcf493d60bd9a2534e49043b88ff2e75906bc17c6" => :high_sierra
   end
 
   depends_on "meson" => :build
@@ -23,7 +24,7 @@ class Glib < Formula
   depends_on "gettext"
   depends_on "libffi"
   depends_on "pcre"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   on_linux do
     depends_on "util-linux"

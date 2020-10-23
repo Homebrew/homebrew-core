@@ -3,6 +3,7 @@ class Notmuch < Formula
   homepage "https://notmuchmail.org/"
   url "https://notmuchmail.org/releases/notmuch-0.31.tar.xz"
   sha256 "571fa0e1539c86612b1f2b2c80a398e08ecfef52e27ef7e48cf8e3b84fa18394"
+  revision 1
   head "https://git.notmuchmail.org/git/notmuch", using: :git
 
   livecheck do
@@ -12,9 +13,9 @@ class Notmuch < Formula
 
   bottle do
     cellar :any
-    sha256 "a575f8f32d349d8944144d6243915e89f913f925d49d980563ca4ead2e2ea672" => :catalina
-    sha256 "bd0b32bbf7c694cc8625da14f60e1c55973d2d9f8c5b65b45df1015753ecf29d" => :mojave
-    sha256 "8474ebc0eac3c36ddd8718de5ffccfbcc26ba88565c5a40295c5458dc87645bf" => :high_sierra
+    sha256 "41a433bb148fed019ff8382df394d4139aa64ad4e36b40160dff83b5b12ee1dd" => :catalina
+    sha256 "7e149250a7ed2e0381557d1adbad16d4736c5d086aa27ca3fc0d9b03371d9ad8" => :mojave
+    sha256 "871dccce993147aa11750a7182b11ecee59404271022213c4553cd7888e4298a" => :high_sierra
   end
 
   depends_on "doxygen" => :build
@@ -23,7 +24,7 @@ class Notmuch < Formula
   depends_on "sphinx-doc" => :build
   depends_on "glib"
   depends_on "gmime"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "talloc"
   depends_on "xapian"
   depends_on "zlib"
@@ -39,7 +40,7 @@ class Notmuch < Formula
       --without-ruby
     ]
 
-    ENV.append_path "PYTHONPATH", Formula["sphinx-doc"].opt_libexec/"lib/python3.8/site-packages"
+    ENV.append_path "PYTHONPATH", Formula["sphinx-doc"].opt_libexec/"lib/python3.9/site-packages"
 
     system "./configure", *args
     system "make", "V=1", "install"
@@ -51,7 +52,7 @@ class Notmuch < Formula
     (prefix/"vim").install "vim/syntax"
 
     cd "bindings/python" do
-      system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
+      system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
     end
   end
 

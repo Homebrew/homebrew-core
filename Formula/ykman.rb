@@ -6,7 +6,7 @@ class Ykman < Formula
   url "https://developers.yubico.com/yubikey-manager/Releases/yubikey-manager-3.1.1.tar.gz"
   sha256 "68ef41ac3cd2e891019e755a492427ecdd63d8816525d05f2f32c37b8c440cfa"
   license "BSD-2-Clause"
-  revision 1
+  revision 2
   head "https://github.com/Yubico/yubikey-manager.git"
 
   livecheck do
@@ -16,15 +16,15 @@ class Ykman < Formula
 
   bottle do
     cellar :any
-    sha256 "c06a8cb44d6cd76c638c88ef5812e4c2dcce922f30014f875eaf61bf63ae7404" => :catalina
-    sha256 "e1d502f836a9403fd191f8f7bab1cec7b09236de0f035d24385b0f55e82ea63a" => :mojave
-    sha256 "8c00a4aa2502ef29c8dc9c02f0ce0f6a04299aeeae00168536f55623c1c21b8a" => :high_sierra
+    sha256 "52b8348e1263cdf8e51b06dd40085e3aef2be9d154355add21e99ba1e6660146" => :catalina
+    sha256 "6cdee1b430e53d5a3e2eec0d978bd6e2e6039e9afd31a80267b79cc4a11a6e85" => :mojave
+    sha256 "5ae0a850fab23bcabf5df6ed14ddd95568430bb6374777c637abecb805b26581" => :high_sierra
   end
 
   depends_on "swig" => :build
   depends_on "libusb"
   depends_on "openssl@1.1"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "ykpers"
 
   uses_from_macos "libffi"

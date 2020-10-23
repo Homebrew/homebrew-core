@@ -6,6 +6,7 @@ class Duplicity < Formula
   url "https://code.launchpad.net/duplicity/0.8-series/0.8.16/+download/duplicity-0.8.16.tar.gz"
   sha256 "2cfcd212834979751310d9df1a954b949f86b084efd5ad1f97dd744780ef9d1b"
   license "GPL-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -13,16 +14,16 @@ class Duplicity < Formula
 
   bottle do
     cellar :any
-    sha256 "87dc6d779a109d0ed35ae65fe193f90fb6f24f8d5c0a569efb7ace1b0db914c7" => :catalina
-    sha256 "53ba597f368bbe91b2c34584d0453d1d3c23195b524141a5c2640166bfab0196" => :mojave
-    sha256 "913c63f342cb03a5c3586c4cdbb87b2975c46c4363aa9795be3c4606de8bf56f" => :high_sierra
+    sha256 "163f9614457106ff474c57327f314d4c02a70c4707146d17b1f3840b347cb6f1" => :catalina
+    sha256 "45ce06149045162a9921737d574b872643f12b464569e6dd69e06fcc1301802b" => :mojave
+    sha256 "675ad0408180047202c3f9ca0e77f210459cfae9319967030275f67110b6fa13" => :high_sierra
   end
 
   depends_on "gnupg"
   depends_on "librsync"
   depends_on "libyaml"
   depends_on "openssl@1.1"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   # Generated with homebrew-pypi-poet from:
   # poet -r fasteners --also future --also mock --also requests --also urllib3 \

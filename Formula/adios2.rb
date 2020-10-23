@@ -4,13 +4,13 @@ class Adios2 < Formula
   url "https://github.com/ornladios/ADIOS2/archive/v2.6.0.tar.gz"
   sha256 "45b41889065f8b840725928db092848b8a8b8d1bfae1b92e72f8868d1c76216c"
   license "Apache-2.0"
-  revision 2
+  revision 3
   head "https://github.com/ornladios/ADIOS2.git", branch: "master"
 
   bottle do
-    sha256 "549ce3b6de7131b44c4b8403685cf8addc18d22439d437071474c067309b57e7" => :catalina
-    sha256 "c90a3bf6d0176b0bd19aafbca19b20a0347d71f5176f38840bb10c4683d2b3e3" => :mojave
-    sha256 "52fb482680fc9d96709dba546c045e5f1cf4526a9165d8abebde862d4bac3256" => :high_sierra
+    sha256 "b2e21f05ce51864584440bbee0df419a4adf1c842159af0a975415f2d31dbb9d" => :catalina
+    sha256 "9b91ada3dc230fa55c94f8a13fbb7fa0483b5487d84c464d31b04fcc831148ba" => :mojave
+    sha256 "3d12753838588f88e5e55de6095bc93af2731b34ff65c807414208cf443a3442" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -21,7 +21,7 @@ class Adios2 < Formula
   depends_on "mpi4py"
   depends_on "numpy"
   depends_on "open-mpi"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "zeromq"
   uses_from_macos "bzip2"
 
@@ -59,7 +59,7 @@ class Adios2 < Formula
       -DCMAKE_DISABLE_FIND_PACKAGE_FLEX=TRUE
       -DCMAKE_DISABLE_FIND_PACKAGE_LibFFI=TRUE
       -DCMAKE_DISABLE_FIND_PACKAGE_NVSTREAM=TRUE
-      -DPYTHON_EXECUTABLE=#{Formula["python@3.8"].opt_bin}/python3
+      -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
       -DADIOS2_BUILD_TESTING=OFF
       -DADIOS2_BUILD_EXAMPLES=OFF
     ]
@@ -81,8 +81,8 @@ class Adios2 < Formula
     system "./a.out"
     assert_predicate testpath/"myVector_cpp.bp", :exist?
 
-    system Formula["python@3.8"].opt_bin/"python3", "-c", "import adios2"
-    system Formula["python@3.8"].opt_bin/"python3", (pkgshare/"test/helloBPWriter.py")
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "import adios2"
+    system Formula["python@3.9"].opt_bin/"python3", (pkgshare/"test/helloBPWriter.py")
     assert_predicate testpath/"npArray.bp", :exist?
   end
 end

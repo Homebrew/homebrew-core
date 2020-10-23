@@ -3,8 +3,8 @@ require "language/node"
 class Eleventy < Formula
   desc "Simpler static site generator"
   homepage "https://www.11ty.dev"
-  url "https://registry.npmjs.org/@11ty/eleventy/-/eleventy-0.11.0.tgz"
-  sha256 "1430be9f422802b1833b116822b9526ee58e59b627d67842df5cf2d8ef84f65e"
+  url "https://registry.npmjs.org/@11ty/eleventy/-/eleventy-0.11.1.tgz"
+  sha256 "55dfb1dedffff5598a1f9900250530ad8b1d7b91eb5ef0760ef8e27104f7ed5f"
   license "MIT"
   head "https://github.com/11ty/eleventy.git"
 
@@ -14,9 +14,9 @@ class Eleventy < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "46d20c5bec31be5785cd494a3925e2b3f8231800d865e98e025bf637e131ea86" => :catalina
-    sha256 "eddd72fbb882382129956d2ef4b27671ede98db7681a6134096371a248dbec1c" => :mojave
-    sha256 "69ab30317e492a8e467cc77f91a7c1ca961269071939bb5c4b56ab9e8ea4c595" => :high_sierra
+    sha256 "48934e50a9eee9eb34e6011eeb829c9995c102a5bd7d1c02eb041d0ba119ee52" => :catalina
+    sha256 "0d259029be276276315bfa3cef874a0af1cbe4553ad5a6d5e09794ad70a7a6fb" => :mojave
+    sha256 "bd861131b89565c4637c60f11d7e2dfdb76220517005ab22bb8ef4f52720ed5c" => :high_sierra
   end
 
   depends_on "node"

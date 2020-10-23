@@ -21,8 +21,7 @@ class OpenjdkAT8 < Formula
 
   # Oracle doesn't serve JDK 7 downloads anymore, so use Zulu JDK 7 for bootstrapping.
   resource "boot-jdk" do
-    # FIXME: when https://github.com/Homebrew/brew/pull/8946 is merged.
-    url "https://cdn.azul.com/zulu/bin/zulu7.40.0.15-ca-jdk7.0.272-mac" + "osx_x64.tar.gz"
+    url "https://cdn.azul.com/zulu/bin/zulu7.40.0.15-ca-jdk7.0.272-macosx_x64.tar.gz"
     sha256 "d09468bda072deeadd2a5e39aeae96b57ece2ec5fdbdc75998b99b52c113706b"
   end
 

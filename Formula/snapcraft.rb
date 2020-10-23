@@ -7,18 +7,19 @@ class Snapcraft < Formula
       tag:      "4.3",
       revision: "262f118ad4199dd706697c275a4223d0b364028b"
   license "GPL-3.0-only"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "221cf23a02d88eb570a3cceca242641d1f3ef0a4936e438e82405a163b7d58df" => :catalina
-    sha256 "f2f2f5e025ad7d29e85a19a673ea78fe72e8880f2165c116fb55a6d41ea48d1c" => :mojave
-    sha256 "5c39f7496a54b70560d57f5b8aacc79513a9612b44c51bc874096878a22b5edb" => :high_sierra
+    sha256 "9794d4f92c102bedb392a336ed3c8be6193f1567d7d553cead8fa44d925e8933" => :catalina
+    sha256 "c5a1d01c0d7768eb294d73c8b6f827f3675bfe56742adeeabee8361ab3263c38" => :mojave
+    sha256 "f9cc23ccad426a2caf82a7d18f9661e126d16d4fd2c3d0c244c5b8d79d83811f" => :high_sierra
   end
 
   depends_on "libsodium"
   depends_on "libyaml"
   depends_on "lxc"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "snap"
   depends_on "xdelta"
 

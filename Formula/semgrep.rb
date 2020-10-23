@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/returntocorp/semgrep.git",
-    tag:      "v0.27.0",
-    revision: "549bfa79f81939ac06e57a527b5f0d46c87c46ce"
+    tag:      "v0.28.0",
+    revision: "b9f1d25600247ee1042eacfec428225ae623a646"
   license "LGPL-2.1-only"
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
@@ -16,10 +16,9 @@ class Semgrep < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "8361eafc0a19176b0fd3feabf70223981990625ff83be753e7aad60efe4df368" => :catalina
-    sha256 "d069664040c1e1ebf0452805451c69ca4f3d7f12acbdff700f39b8e77af9852a" => :mojave
-    sha256 "f8a46d6d359f2d757679a5cacb12ec7f77cc2c0603306aabed647de51593cdec" => :high_sierra
+    sha256 "7dfd2534fbace49eec8fee363abd270f835b1ac13aa6e2890df72511a235e83f" => :catalina
+    sha256 "408ed9181e45b2cc423b853302eb277cfcc6492d622edb436cb4d2b4f1b14e53" => :mojave
+    sha256 "65447813c52e3a2128625f05395ae9998bf98e6a089ab68e034780deeccbce1b" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -136,6 +135,14 @@ class Semgrep < Formula
       ENV.deparallelize { system "opam", "switch", "create", "ocaml-base-compiler.4.10.0" }
 
       system "opam", "exec", "--", "make", "setup"
+
+      # Install spacegrep
+      cd "spacegrep" do
+        system "opam", "install", "--deps-only", "-y", "."
+        system "opam", "exec", "--", "make"
+        system "opam", "exec", "--", "make", "install"
+        bin.install "_build/default/src/bin/Spacegrep_main.exe" => "spacegrep"
+      end
 
       # Install tree-sitter
       cd "ocaml-tree-sitter" do

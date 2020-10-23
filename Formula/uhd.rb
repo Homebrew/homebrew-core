@@ -4,7 +4,7 @@ class Uhd < Formula
   url "https://github.com/EttusResearch/uhd/archive/v3.15.0.0.tar.gz"
   sha256 "eed4a77d75faafff56be78985950039f8d9d1eb9fcbd58b8862e481dd49825cd"
   license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later", "MIT", "BSD-3-Clause", "Apache-2.0"]
-  revision 1
+  revision 2
   head "https://github.com/EttusResearch/uhd.git"
 
   livecheck do
@@ -13,17 +13,16 @@ class Uhd < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 "ee9fdf4b27ddf83c6d1965a7bb97b0686518ce67ddf780a2f1713fee9bda9c3a" => :catalina
-    sha256 "e3cdd07c0bfa1e29983566cae2fe2b964431f05c4a06479f37e4347d3f1f676b" => :mojave
-    sha256 "fbae4fec9ad2802ceab2407915588440dcbdd810d510733064601178b1151f6a" => :high_sierra
+    sha256 "8e65f370dea3f23cb226e35595441c1b998f1044737e3f327cb15bcc6c12838d" => :catalina
+    sha256 "78652146db42531d9af14c776f8acb4eaaa1abbb2d956aeedcaa27d91f7bd305" => :mojave
+    sha256 "107ab41c9790f36ef37efb7382a65d8cd57f8bd872408943f8224dc3061d1bab" => :high_sierra
   end
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "boost"
   depends_on "libusb"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "Mako" do
     url "https://files.pythonhosted.org/packages/b0/3c/8dcd6883d009f7cae0f3157fb53e9afb05a0d3d33b3db1268ec2e6f4a56b/Mako-1.1.0.tar.gz"
@@ -44,11 +43,11 @@ class Uhd < Formula
               "autogen_src_path = os.path.relpath(options.output_src_path)",
               "autogen_src_path = os.path.realpath(options.output_src_path)"
 
-    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
+    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
 
     resource("Mako").stage do
-      system Formula["python@3.8"].opt_bin/"python3",
+      system Formula["python@3.9"].opt_bin/"python3",
              *Language::Python.setup_install_args(libexec/"vendor")
     end
 

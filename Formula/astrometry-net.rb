@@ -6,13 +6,13 @@ class AstrometryNet < Formula
   url "https://github.com/dstndstn/astrometry.net/releases/download/0.82/astrometry.net-0.82.tar.gz"
   sha256 "20f7ac7474962546f462286178e40b09602eeda10af98c828c64f67771fbc197"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "ccf3e518f94726072dc8bb46acd9c488ebfe1d476f598808bd444a997a0f55ed" => :catalina
-    sha256 "18c57142bebb0ab4d33925494376b5826c8f3c8683594ba43f14778db48501b7" => :mojave
-    sha256 "4c27c8e8c975a78357a8e051f9f79b318767592a7a53963bcdcab252e016466c" => :high_sierra
+    sha256 "341deb97e8b97022dba091f90eb564fb69993e686a7e3ce4f5ecee824f99a572" => :catalina
+    sha256 "c21290e658b447a4ee10e33c6f0924ba7224bf31863e2541cb2ee502781cec28" => :mojave
+    sha256 "da1ed3b61a7388044bc0b40fc58f9b9d1ecc2b27df25ff47596980b56edc82ad" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -24,7 +24,7 @@ class AstrometryNet < Formula
   depends_on "libpng"
   depends_on "netpbm"
   depends_on "numpy"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "wcslib"
 
   resource "fitsio" do
@@ -40,13 +40,13 @@ class AstrometryNet < Formula
     ENV["NETPBM_INC"] = "-I#{Formula["netpbm"].opt_include}/netpbm"
     ENV["NETPBM_LIB"] = "-L#{Formula["netpbm"].opt_lib} -lnetpbm"
     ENV["SYSTEM_GSL"] = "yes"
-    ENV["PYTHON"] = Formula["python@3.8"].opt_bin/"python3"
+    ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
 
-    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
+    venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
     venv.pip_install resources
 
     ENV["INSTALL_DIR"] = prefix
-    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
+    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     ENV["PY_BASE_INSTALL_DIR"] = libexec/"lib/python#{xy}/site-packages/astrometry"
     ENV["PY_BASE_LINK_DIR"] = libexec/"lib/python#{xy}/site-packages/astrometry"
     ENV["PYTHON_SCRIPT"] = libexec/"bin/python3"

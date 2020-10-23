@@ -4,7 +4,7 @@ class Root < Formula
   url "https://root.cern.ch/download/root_v6.22.02.source.tar.gz"
   sha256 "89784afa9c9047e9da25afa72a724f32fa8aa646df267b7731e4527cc8a0c340"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
   head "https://github.com/root-project/root.git"
 
   livecheck do
@@ -13,9 +13,9 @@ class Root < Formula
   end
 
   bottle do
-    sha256 "486f9e341af9643151ac07d2088edb2e1af6606762e0018a173a83843f9a4902" => :catalina
-    sha256 "c011943bd9c0571202c9cbb2de294204d49928280cd884f2c221e588f8967d18" => :mojave
-    sha256 "704b9c68020baf0b5ab836afc0de8170d88fe783e53e5d5aa3ef97c7a1deb692" => :high_sierra
+    sha256 "cc0493ce8a26375f1d3e8d2d638c278eb63c151df167c49372080fd5fa9ce90b" => :catalina
+    sha256 "69133c7779229fe307d2524bbb1aa06d262d02a4d75f4624cc8e255212006c8d" => :mojave
+    sha256 "d8a4212c3bb33cbc16bc301c96cd6b34aeb1bd20de95ccab4527c03d941bd7f6" => :high_sierra
   end
 
   # https://github.com/Homebrew/homebrew-core/issues/30726
@@ -46,7 +46,7 @@ class Root < Formula
   depends_on "numpy" # for tmva
   depends_on "openssl@1.1"
   depends_on "pcre"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "tbb"
   depends_on "xrootd"
   depends_on "xz" # for LZMA
@@ -71,7 +71,7 @@ class Root < Formula
     args = std_cmake_args + %W[
       -DCLING_CXX_PATH=clang++
       -DCMAKE_INSTALL_ELISPDIR=#{elisp}
-      -DPYTHON_EXECUTABLE=#{Formula["python@3.8"].opt_bin}/python3
+      -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
       -Dbuiltin_cfitsio=OFF
       -Dbuiltin_freetype=ON
       -Dbuiltin_glew=ON
@@ -107,7 +107,7 @@ class Root < Formula
 
       chmod 0755, Dir[bin/"*.*sh"]
 
-      version = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
+      version = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
       pth_contents = "import site; site.addsitedir('#{lib}/root')\n"
       (prefix/"lib/python#{version}/site-packages/homebrew-root.pth").write pth_contents
     end
@@ -161,6 +161,6 @@ class Root < Formula
                  shell_output("/bin/bash test_compile.bash")
 
     # Test Python module
-    system Formula["python@3.8"].opt_bin/"python3", "-c", "import ROOT; ROOT.gSystem.LoadAllLibraries()"
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "import ROOT; ROOT.gSystem.LoadAllLibraries()"
   end
 end

@@ -6,17 +6,18 @@ class Libtensorflow < Formula
   url "https://github.com/tensorflow/tensorflow/archive/v2.3.1.tar.gz"
   sha256 "ee534dd31a811f7a759453567257d1e643f216d8d55a25c32d2fbfff8153a1ac"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "00f8b36915bad9f75893a1196f8e4ddc728600e3b75e0047f681a78e61b4c34f" => :catalina
-    sha256 "88ad47031b69e2e0afcc9b9415beb4205ef8926c5cc7f80fa3c696f7f0a78c72" => :mojave
-    sha256 "8ac6570898cb37086b1072d64388d65c73fc899762541345de8bbb1f1b66efb1" => :high_sierra
+    sha256 "18b25876cbc418d59bfa5c9f806e74dbd0da02bab9feffc44e65524f0028c72d" => :catalina
+    sha256 "53554298e92ce72341bec663bdf13370126d6f28fe74b75a62b8fc345b989069" => :mojave
+    sha256 "13461ccd13130e156755ea92e08c1ad59a353439bce390c781f7144f72be09d3" => :high_sierra
   end
 
   depends_on "bazel" => :build
   depends_on "numpy" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
 
   resource "test-model" do
     url "https://github.com/tensorflow/models/raw/v1.13.0/samples/languages/java/training/model/graph.pb"
@@ -27,7 +28,7 @@ class Libtensorflow < Formula
     # Allow tensorflow to use current version of bazel
     (buildpath / ".bazelversion").atomic_write Formula["bazel"].version
 
-    ENV["PYTHON_BIN_PATH"] = Formula["python@3.8"].opt_bin/"python3"
+    ENV["PYTHON_BIN_PATH"] = Formula["python@3.9"].opt_bin/"python3"
     ENV["CC_OPT_FLAGS"] = "-march=native"
     ENV["TF_IGNORE_MAX_BAZEL_VERSION"] = "1"
     ENV["TF_NEED_JEMALLOC"] = "1"

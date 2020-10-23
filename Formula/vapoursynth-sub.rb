@@ -4,14 +4,14 @@ class VapoursynthSub < Formula
   url "https://github.com/vapoursynth/vapoursynth/archive/R50.tar.gz"
   sha256 "b9dc7ce904c6a3432df7491b7052bc4cf09ccf1e7a703053f8079a2267522f97"
   license "LGPL-2.1"
-  revision 1
+  revision 2
   head "https://github.com/vapoursynth/vapoursynth.git"
 
   bottle do
     cellar :any
-    sha256 "61aa955a21de088cb8f53ef014a6ed0bbca3435ee70ac958f38bdec42540ca79" => :catalina
-    sha256 "deeea5620be2867e3fab4a89bbf93074bf9e8d10a3b01fba9e8161f333293bd3" => :mojave
-    sha256 "1f4e14c3572fcb8e1e65b59f41639bab5a7e28ff4509de6af42afc8e7f8931ff" => :high_sierra
+    sha256 "77ec96126cbc37ef5d66c37b7aba1fe8095cdeb7f495664cb30e7f323aa50845" => :catalina
+    sha256 "8d3de5eace567abcad3bfa0f464bfe4f2e1af8727bdaed129926559fc21ce3d7" => :mojave
+    sha256 "67b8faf01b617a673ce08e3c702abfbc6b9ae0132098947b7f6799bf5243741a" => :high_sierra
   end
 
   depends_on "autoconf" => :build
@@ -41,8 +41,8 @@ class VapoursynthSub < Formula
   end
 
   test do
-    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
+    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     ENV.prepend_path "PYTHONPATH", lib/"python#{xy}/site-packages"
-    system Formula["python@3.8"].opt_bin/"python3", "-c", "from vapoursynth import core; core.sub"
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "from vapoursynth import core; core.sub"
   end
 end

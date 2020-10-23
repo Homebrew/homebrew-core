@@ -4,16 +4,17 @@ class SpirvTools < Formula
   url "https://github.com/KhronosGroup/SPIRV-Tools/archive/v2020.3.tar.gz"
   sha256 "8b538a1cb2a4275ef9617abcb047d54e8292f975ac1d93323d5dd1e19c85280b"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "eb2e8acb244d040f0bbc586c037650a13672c32b5894fbe54be1531eb649ee35" => :catalina
-    sha256 "5874ff4a3b024d83c6b203e75087717951b571352bf1a25a59aeb4e58e5194fc" => :mojave
-    sha256 "f9f5ffdf2de7a2650b251aad002e94b27d16818172f2a168ca51cda8b80bf74a" => :high_sierra
+    sha256 "b150e16e5d4d40f29dfd739bf297cebfa232d3ae267fb7965d4151a8ace43ec4" => :catalina
+    sha256 "f5ddf173300822bf7f7f0b42bafdf1d242b1de1b63a565d02e0084f7b4107d36" => :mojave
+    sha256 "4bcbda12ffa24d5bcc19271cc318a035130d4f168145397704d0ef98fe1adda5" => :high_sierra
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
 
   resource "re2" do
     # revision number could be found in ./DEPS

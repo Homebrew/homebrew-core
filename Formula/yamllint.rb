@@ -6,16 +6,17 @@ class Yamllint < Formula
   url "https://github.com/adrienverge/yamllint/archive/v1.25.0.tar.gz"
   sha256 "995b69c880bc1ba9368ed13be3421ae7de221e6e886aa6dc4ac52a780a87034a"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "90198d7785e1338371e05318329a18c648884bdae5666338667bc800ed248029" => :catalina
-    sha256 "43eeac2efc920b6e3e57f14b369ab88d1734c8dc565922e699d170882fa60a1b" => :mojave
-    sha256 "8af90e6d4e820011b38d4a85f436dfbbb6dca1a242b0ca970b81ce619fd172da" => :high_sierra
+    sha256 "4da53cd2d8d61957b50189cdaf4378319bc233ae4d9714c95cb189a06058ff2e" => :catalina
+    sha256 "e6c94f6fc961be975a542b3c1fdd0a490d7755a54fe8af07e3611175a9adf619" => :mojave
+    sha256 "bf90ed58f27615bccd363fc33da8a03b0d60e4e1400d62872c1e46a59592e3ba" => :high_sierra
   end
 
   depends_on "libyaml"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "PyYAML" do
     url "https://files.pythonhosted.org/packages/64/c2/b80047c7ac2478f9501676c988a5411ed5572f35d1beff9cae07d321512c/PyYAML-5.3.1.tar.gz"

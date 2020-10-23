@@ -5,7 +5,7 @@ class Simgrid < Formula
   homepage "https://simgrid.org/"
   url "https://framagit.org/simgrid/simgrid/uploads/0365f13697fb26eae8c20fc234c5af0e/SimGrid-3.25.tar.gz"
   sha256 "0b5dcdde64f1246f3daa7673eb1b5bd87663c0a37a2c5dcd43f976885c6d0b46"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://framagit.org/simgrid/simgrid.git"
@@ -13,9 +13,9 @@ class Simgrid < Formula
   end
 
   bottle do
-    sha256 "5f6acdf27e6f658a180026c72c52b36de25ee08d9eac609f762358277613ae0b" => :catalina
-    sha256 "66357d6bbddedef44f1f35db0870592b1d4a1786d4f7ff87417ce0a88e1f0486" => :mojave
-    sha256 "9fab4d4bb4eadbb23a20295d29c0fe2bd2823a85790c0287b315d80615eed649" => :high_sierra
+    sha256 "f735fe9ac565cd1fe49b9117be9ca64a3a15a8dd69dbbf2a4385a82bfd201b4e" => :catalina
+    sha256 "9fa0989ffe0e2018e105f8a22ab9e9178bc456dd5430d8468866c6b57ed3bf26" => :mojave
+    sha256 "eefddfa608d34b725af614af41a93ca017a761f877257300b182df0f56ad6bfe" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -23,7 +23,7 @@ class Simgrid < Formula
   depends_on "boost"
   depends_on "graphviz"
   depends_on "pcre"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
     # Avoid superenv shim references
