@@ -88,14 +88,9 @@ class Opencv < Formula
       -DPYTHON3_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
     ]
 
-    # The compiler on older Mac OS cannot build some OpenCV files using AVX2
-    # extensions, failing with errors such as
-    # "error: use of undeclared identifier '_mm256_cvtps_ph'"
-    # Work around this by not trying to build AVX2 code.
-    args << "-DCPU_DISPATCH=SSE4_1,SSE4_2,AVX" if MacOS.version <= :yosemite
-
-    args << "-DENABLE_AVX=OFF" << "-DENABLE_AVX2=OFF"
-    args << "-DENABLE_SSE41=OFF" << "-DENABLE_SSE42=OFF" unless MacOS.version.requires_sse42?
+    cpu_disable_flags = %w[AVX AVX2]
+    cpu_disable_flags << "SSE4_1" << "SSE4_2" unless MacOS.version.requires_sse42?
+    args << "-DCPU_BASELINE_DISABLE=#{cpu_disable_flags.join(",")}"
 
     mkdir "build" do
       system "cmake", "..", *args
