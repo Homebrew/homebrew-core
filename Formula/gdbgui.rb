@@ -6,6 +6,7 @@ class Gdbgui < Formula
   url "https://files.pythonhosted.org/packages/06/af/2953018117f73a9bcfd0939c7e801b36cff03590f1b52dd7451d8102a021/gdbgui-0.14.0.1.tar.gz"
   sha256 "4f1482b3bafb04d1d1d0b0ac140bb89befdf5456482ed1533734cd5ab1ca0656"
   license "GPL-3.0-only"
+  revision 1
 
   livecheck do
     url :stable
@@ -19,7 +20,7 @@ class Gdbgui < Formula
   end
 
   depends_on "gdb"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "Brotli" do
     url "https://files.pythonhosted.org/packages/2a/18/70c32fe9357f3eea18598b23aa9ed29b1711c3001835f7cf99a9818985d0/Brotli-1.0.9.zip"
@@ -130,6 +131,9 @@ class Gdbgui < Formula
     port = free_port
 
     fork do
+      # Work around a gevent/greenlet bug
+      # https://github.com/cs01/gdbgui/issues/359
+      ENV["PURE_PYTHON"] = "1"
       exec bin/"gdbgui", "-n", "-p", port.to_s
     end
     sleep 3
