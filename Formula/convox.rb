@@ -6,6 +6,11 @@ class Convox < Formula
   license "Apache-2.0"
   version_scheme 1
 
+  livecheck do
+    url "https://github.com/convox/convox/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "aa99b99d4f3240df0d16fcb87a6d82ade028cfa2fde233845eeedd045c1010b7" => :catalina
