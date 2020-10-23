@@ -1,8 +1,8 @@
 class DhallYaml < Formula
   desc "Convert between Dhall and YAML"
   homepage "https://github.com/dhall-lang/dhall-haskell/tree/master/dhall-yaml"
-  url "https://hackage.haskell.org/package/dhall-yaml-1.2.2/dhall-yaml-1.2.2.tar.gz"
-  sha256 "0225dd564c2ad40f30ca1025b722f8785bca5b23dda0ec9abc1fdc7398f25cd7"
+  url "https://hackage.haskell.org/package/dhall-yaml-1.2.3/dhall-yaml-1.2.3.tar.gz"
+  sha256 "c3551fcc5685d65211aed5ec0d01ff3c2c547506261941fd25cb451f725e82d8"
   license "BSD-3-Clause"
   head "https://github.com/dhall-lang/dhall-haskell.git"
 
