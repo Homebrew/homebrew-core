@@ -4,7 +4,6 @@ class NodeAT14 < Formula
   url "https://nodejs.org/dist/v14.14.0/node-v14.14.0.tar.gz"
   sha256 "afb0b401d62d9fcfc68258f50d0bf042998d349ce9c1d7a2d45dd87870b3aab7"
   license "MIT"
-  head "https://github.com/nodejs/node.git"
 
   livecheck do
     url "https://nodejs.org/dist/"
@@ -41,7 +40,6 @@ class NodeAT14 < Formula
     # Remove `--openssl-no-asm` workaround when upstream releases a fix
     # See also: https://github.com/nodejs/node/issues/34043
     args << "--openssl-no-asm" if Hardware::CPU.arm?
-    args << "--tag=head" if build.head?
 
     system "./configure", *args
     system "make", "install"
@@ -93,7 +91,9 @@ class NodeAT14 < Formula
 
   test do
     path = testpath/"test.js"
-    path.write "console.log('hello');"
+    path.write "console.log('he
+
+llo');"
 
     output = shell_output("#{bin}/node #{path}").strip
     assert_equal "hello", output
@@ -111,7 +111,7 @@ class NodeAT14 < Formula
     assert_predicate HOMEBREW_PREFIX/"bin/npm", :executable?, "npm must be executable"
     npm_args = ["-ddd", "--cache=#{HOMEBREW_CACHE}/npm_cache", "--build-from-source"]
     system "#{HOMEBREW_PREFIX}/bin/npm", *npm_args, "install", "npm@latest"
-    system "#{HOMEBREW_PREFIX}/bin/npm", *npm_args, "install", "bufferutil" unless head?
+    system "#{HOMEBREW_PREFIX}/bin/npm", *npm_args, "install", "bufferutil"
     assert_predicate HOMEBREW_PREFIX/"bin/npx", :exist?, "npx must exist"
     assert_predicate HOMEBREW_PREFIX/"bin/npx", :executable?, "npx must be executable"
     assert_match "< hello >", shell_output("#{HOMEBREW_PREFIX}/bin/npx cowsay hello")
