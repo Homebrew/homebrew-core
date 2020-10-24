@@ -91,9 +91,7 @@ class NodeAT14 < Formula
 
   test do
     path = testpath/"test.js"
-    path.write "console.log('he
-
-llo');"
+    path.write "console.log('hello');"
 
     output = shell_output("#{bin}/node #{path}").strip
     assert_equal "hello", output
