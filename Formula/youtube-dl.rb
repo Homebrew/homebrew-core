@@ -12,6 +12,9 @@ class YoutubeDl < Formula
 
   bottle :unneeded
 
+  # https://github.com/github/dmca/blob/master/2020/10/2020-10-23-RIAA.md
+  disable! because: :repo_removed
+
   def install
     system "make", "PREFIX=#{prefix}" if build.head?
     bin.install "youtube-dl"
