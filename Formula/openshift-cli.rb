@@ -1,18 +1,18 @@
 class OpenshiftCli < Formula
   desc "OpenShift command-line interface tools"
   homepage "https://www.openshift.com/"
-  url "https://github.com/openshift/origin.git",
-      tag:      "v4.1.0",
-      revision: "b4261e07eda19d9c42aa9d1c748c34f8cba09168",
+  url "https://github.com/openshift/oc.git",
+      tag:      "openshift-clients-4.6.0-202006250705.p0",
+      revision: "51011e4849252c723b520643d27d3fa164d28c61",
       shallow:  false
+  version "4.6.0"
   license "Apache-2.0"
-  revision 1
-  head "https://github.com/openshift/origin.git",
+  head "https://github.com/openshift/oc.git",
       shallow: false
 
   livecheck do
     url :head
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    regex(/^openshift-clients-(\d+(?:\.\d+)+-\S*)?.*$/i)
   end
 
   bottle do
@@ -25,25 +25,22 @@ class OpenshiftCli < Formula
 
   depends_on "coreutils" => :build
   depends_on "go" => :build
+  depends_on "heimdal" => :build
   depends_on "socat"
 
   def install
     ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/github.com/openshift/origin"
+    dir = buildpath/"src/github.com/openshift/oc"
     dir.install buildpath.children - [buildpath/".brew_home"]
 
     cd dir do
-      # make target is changing in >v4.1; remove this if statement when next
-      # bumping stable version
       if build.stable?
-        system "make", "all", "WHAT=cmd/oc"
+        system "make", "cross-build-darwin-amd64", "WHAT=cmd/oc"
       else
-        system "make", "all", "WHAT=staging/src/github.com/openshift/oc/cmd/oc"
+        system "make", "cross-build-darwin-amd64", "WHAT=staging/src/github.com/openshift/oc/cmd/oc"
       end
 
-      bin.install "_output/local/bin/darwin/amd64/oc"
-
-      prefix.install_metafiles
+      bin.install "_output/bin/darwin_amd64/oc"
 
       bash_completion.install "contrib/completions/bash/oc"
       zsh_completion.install "contrib/completions/zsh/oc" => "_oc"
@@ -51,13 +48,10 @@ class OpenshiftCli < Formula
   end
 
   test do
-    version_output = shell_output("#{bin}/oc version --client 2>&1")
-    assert_match "GitTreeState:\"clean\"", version_output
-    if build.stable?
-      assert_match "GitVersion:\"v#{version}", version_output
-      assert_match stable.instance_variable_get(:@resource)
-                         .instance_variable_get(:@specs)[:revision].slice(0, 9),
-                   version_output
-    end
+    (testpath/"kubeconfig").write ""
+    system "KUBECONFIG=#{testpath}/kubeconfig #{bin}/oc config set-context foo 2>&1"
+    context_output = shell_output("KUBECONFIG=#{testpath}/kubeconfig #{bin}/oc config get-contexts -o name")
+
+    assert_match "foo", context_output
   end
 end
