@@ -1,8 +1,8 @@
 class RakudoStar < Formula
   desc "Rakudo compiler and commonly used packages"
   homepage "https://rakudo.org/"
-  url "https://rakudo.org/dl/star/rakudo-star-2020.01.tar.gz"
-  sha256 "f1696577670d4ff5b464e572b1b0b8c390e6571e1fb8471cbf369fa39712c668"
+  url "https://rakudo.org/dl/star/rakudo-star-2020.05.tar.gz"
+  sha256 "d0d0a4ed5f75a5fb010d9630c052c061df9b6ce8325d578fae21fc6a4b99e6d6"
   license "Artistic-2.0"
   revision 1
 
@@ -23,6 +23,7 @@ class RakudoStar < Formula
   depends_on "libffi"
   depends_on "pcre"
   depends_on "readline"
+  depends_on "bash"
 
   conflicts_with "moarvm", "nqp", because: "rakudo-star currently ships with moarvm and nqp included"
   conflicts_with "parrot"
@@ -35,15 +36,13 @@ class RakudoStar < Formula
 
     ENV.deparallelize # An intermittent race condition causes random build failures.
 
-    system "perl", "Configure.pl", "--prefix=#{prefix}",
-                   "--backends=moar", "--gen-moar"
-    system "make"
     # make install runs tests that can hang on sierra
     # set this variable to skip those tests
     ENV["NO_NETWORK_TESTING"] = "1"
-    system "make", "install"
+    system "bin/rstar", "install", "-p", "#{prefix}"
 
-    # Panda is now in share/perl6/site/bin, so we need to symlink it too.
+    #  Installed scripts are now in share/perl/{site|vendor}/bin, so we need to symlink it too.
+    bin.install_symlink Dir[share/"perl6/vendor/bin/*"]
     bin.install_symlink Dir[share/"perl6/site/bin/*"]
 
     # Move the man pages out of the top level into share.
@@ -53,7 +52,7 @@ class RakudoStar < Formula
   end
 
   test do
-    out = `#{bin}/perl6 -e 'loop (my $i = 0; $i < 10; $i++) { print $i }'`
+    out = `#{bin}/raku -e 'loop (my $i = 0; $i < 10; $i++) { print $i }'`
     assert_equal "0123456789", out
     assert_equal 0, $CHILD_STATUS.exitstatus
   end
