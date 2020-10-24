@@ -18,12 +18,12 @@ class RakudoStar < Formula
     sha256 "0938d963dc23119a1c4a2fa976d4b870f81d744c41986f122aad15858c0b9717" => :high_sierra
   end
 
+  depends_on "bash"
   depends_on "gmp"
   depends_on "icu4c"
   depends_on "libffi"
   depends_on "pcre"
   depends_on "readline"
-  depends_on "bash"
 
   conflicts_with "moarvm", "nqp", because: "rakudo-star currently ships with moarvm and nqp included"
   conflicts_with "parrot"
@@ -39,7 +39,7 @@ class RakudoStar < Formula
     # make install runs tests that can hang on sierra
     # set this variable to skip those tests
     ENV["NO_NETWORK_TESTING"] = "1"
-    system "bin/rstar", "install", "-p", "#{prefix}"
+    system "bin/rstar", "install", "-p", prefix.to_s
 
     #  Installed scripts are now in share/perl/{site|vendor}/bin, so we need to symlink it too.
     bin.install_symlink Dir[share/"perl6/vendor/bin/*"]
