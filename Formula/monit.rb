@@ -1,8 +1,8 @@
 class Monit < Formula
   desc "Manage and monitor processes, files, directories, and devices"
   homepage "https://mmonit.com/monit/"
-  url "https://mmonit.com/monit/dist/monit-5.27.0.tar.gz"
-  sha256 "d8c0deef624f193a952502fe9baabfa66e3d8d057df5738da43f9a37792afca4"
+  url "https://mmonit.com/monit/dist/monit-5.27.1.tar.gz"
+  sha256 "f57408d16185687513a3c4eb3f2bb72eef76331ac16210e9652e846e5c84ed51"
 
   livecheck do
     url "https://mmonit.com/monit/dist/"
