@@ -5,10 +5,10 @@ class Libslirp < Formula
   sha256 "388b4b08a8cc0996cc5155cb027a097dc1a7f2cfe84b1121496608ab5366cc48"
   license "BSD-3-Clause"
 
-  depends_on "pkg-config" => :build
   depends_on "glib" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
+  depends_on "pkg-config" => :build
 
   def install
     system "sed", "-i", "-e", "s/,--version-script//g", "meson.build"
