@@ -19,7 +19,11 @@ class GoJira < Formula
     prefix.install_metafiles
 
     # Install zsh completion
-    output_zsh = Utils.popen_read("#{bin}/jira", "--completion-script-zsh").strip
+    begin
+      output_zsh = Utils.safe_popen_read("#{bin}/jira", "--completion-script-zsh").strip
+    rescue ErrorDuringExecution => e
+      output_zsh = e.output.first.second.to_s.strip
+    end
     # Strip out unneeded zsh module initialization and tell compinit to autoload
     output_zsh = output_zsh.sub("autoload -U compinit && compinit", "#autoload")
     output_zsh = output_zsh.sub("autoload -U bashcompinit && bashcompinit", "")
