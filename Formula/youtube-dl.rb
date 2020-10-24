@@ -1,14 +1,15 @@
 class YoutubeDl < Formula
   desc "Download YouTube videos from the command-line"
-  homepage "https://ytdl-org.github.io/youtube-dl/"
-  url "https://github.com/ytdl-org/youtube-dl/releases/download/2020.09.20/youtube-dl-2020.09.20.tar.gz"
-  sha256 "ac1a799cf968345bf29089ed2e5c5d4f4a32031625d808369e61b6362d1c7cde"
+  homepage "https://yt-dl.org"
+  url "http://abf-downloads.openmandriva.org/ytdl/youtube-dl-2020.09.20.tar.gz"
+  sha256 "ead79e9248aaf7667f015da2ccd4bde44a8948fa980f82965609cdca88ad285e"
   license "Unlicense"
-
-  head do
-    url "https://github.com/ytdl-org/youtube-dl.git"
-    depends_on "pandoc" => :build
-  end
+  
+  #HEAD is disabled as https://github.com/ytdl-org/youtube-dl/ is taken down due to DMCA takedown notice by RIAA (https://github.com/github/dmca/blob/master/2020/10/2020-10-23-RIAA.md).
+  #head do
+  #  url "https://github.com/ytdl-org/youtube-dl.git"
+  #  depends_on "pandoc" => :build
+  #end
 
   bottle :unneeded
 
