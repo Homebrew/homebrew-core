@@ -1,8 +1,8 @@
 class MysqlAT56 < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/5.6/en/"
-  url "https://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.47.tar.gz"
-  sha256 "0919096705784c62af831bb607e99345083edd76967c8c65966728742a9127fe"
+  url "https://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.50.tar.gz"
+  sha256 "efc48d8160a66b50fc498bb42ea730c3b6f30f036b709a7070d356edd645923e"
   license "GPL-2.0"
 
   livecheck do
@@ -57,6 +57,9 @@ class MysqlAT56 < Formula
     system "cmake", ".", *std_cmake_args, *args
     system "make"
     system "make", "install"
+
+    # Avoid references to the Homebrew shims directory
+    inreplace bin/"mysqlbug", HOMEBREW_SHIMS_PATH/"mac/super/", ""
 
     (prefix/"mysql-test").cd do
       system "./mysql-test-run.pl", "status", "--vardir=#{Dir.mktmpdir}"
