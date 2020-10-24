@@ -6,6 +6,8 @@ class Infrakit < Formula
       revision: "3d2670e484176ce474d4b3d171994ceea7054c02"
   license "Apache-2.0"
 
+  deprecate! because: :repo_archived
+
   bottle do
     cellar :any_skip_relocation
     rebuild 1
