@@ -3,7 +3,7 @@ class Packetq < Formula
   homepage "https://www.dns-oarc.net/tools/packetq"
   url "https://www.dns-oarc.net/files/packetq/packetq-1.4.3.tar.gz"
   sha256 "330fcdf63e56a97c5321726f48f28a76a7d574318dd235a16dac27f43277b0b7"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url :homepage
