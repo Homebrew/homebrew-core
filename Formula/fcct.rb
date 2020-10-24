@@ -6,6 +6,11 @@ class Fcct < Formula
   license "Apache-2.0"
   head "https://github.com/coreos/fcct.git"
 
+  livecheck do
+    url "https://github.com/coreos/fcct/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "1b525343e7d1401c4de2694c7ed25a40d05e607900519ce36c63e76166fde16b" => :catalina
