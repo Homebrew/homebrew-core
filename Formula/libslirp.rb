@@ -11,7 +11,7 @@ class Libslirp < Formula
   depends_on "glib"
 
   def install
-    system "sed", "-i", "-e", "s/,--version-script//g", "meson.build"
+    inreplace "meson.build", ",--version-script", ""
     system "meson", "build", *std_meson_args
     system "ninja", "-C", "build", "install"
   end
