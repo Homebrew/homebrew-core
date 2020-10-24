@@ -18,6 +18,8 @@ class NodeAT14 < Formula
     sha256 "42b51e14448f7c4548effecd6f3f4c943785e122096b59ad8d4cb0b5c974faae" => :high_sierra
   end
 
+  keg_only :versioned_formula
+
   depends_on "pkg-config" => :build
   depends_on "python@3.9" => :build
   depends_on "icu4c"
