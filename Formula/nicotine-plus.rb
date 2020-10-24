@@ -6,6 +6,7 @@ class NicotinePlus < Formula
   url "https://github.com/Nicotine-Plus/nicotine-plus/archive/2.1.2.tar.gz"
   sha256 "3ed18ade97183c632836eb8e304a515fc19a35babb46cc6e6747bcfd8205dcdf"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/Nicotine-Plus/nicotine-plus.git"
 
   bottle do
@@ -18,7 +19,7 @@ class NicotinePlus < Formula
   depends_on "adwaita-icon-theme"
   depends_on "gtk+3"
   depends_on "pygobject3"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "taglib"
 
   resource "miniupnpc" do
@@ -32,9 +33,7 @@ class NicotinePlus < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3")
-    venv.pip_install resources
-    venv.pip_install_and_link buildpath
+    virtualenv_install_with_resources
   end
 
   test do
