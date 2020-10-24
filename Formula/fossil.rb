@@ -8,7 +8,7 @@ class Fossil < Formula
 
   livecheck do
     url "https://www.fossil-scm.org/index.html/uv/download.js"
-    regex(/"title": *?"Version (\d+(?:\.\d+)+)(?!.*preview)/i)
+    regex(/"title": *?"Version (\d+(?:\.\d+)+)\s*?\(/i)
   end
 
   bottle do
