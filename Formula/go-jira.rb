@@ -17,6 +17,13 @@ class GoJira < Formula
   def install
     system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"jira", "cmd/jira/main.go"
     prefix.install_metafiles
+
+    # Install zsh completion
+    output_zsh = Utils.popen_read("#{bin}/jira", "--completion-script-zsh").strip
+    # Strip out unneeded zsh module initialization and tell compinit to autoload
+    output_zsh = output_zsh.sub("autoload -U compinit && compinit", "#autoload")
+    output_zsh = output_zsh.sub("autoload -U bashcompinit && bashcompinit", "")
+    (zsh_completion/"_jira").write output_zsh
   end
 
   test do
