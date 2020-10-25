@@ -33,6 +33,7 @@ class Armadillo < Formula
   end
 
   test do
+    ENV.cxx11
     (testpath/"test.cpp").write <<~EOS
       #include <iostream>
       #include <armadillo>
