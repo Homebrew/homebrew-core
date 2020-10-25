@@ -4,6 +4,7 @@ class Gjs < Formula
   url "https://download.gnome.org/sources/gjs/1.66/gjs-1.66.1.tar.xz"
   sha256 "8d4240455eff642c8bf6d9805077e33e0a60cb2ea13f77a55f7f30c29668344c"
   license all_of: ["LGPL-2.0-or-later", "MIT"]
+  revision 1
 
   livecheck do
     url :stable
@@ -18,7 +19,7 @@ class Gjs < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
   depends_on "rust" => :build
   depends_on "gobject-introspection"
   depends_on "gtk+3"
@@ -56,7 +57,7 @@ class Gjs < Formula
     end
 
     resource("six").stage do
-      system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(buildpath/"vendor")
+      system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(buildpath/"vendor")
     end
 
     resource("mozjs78").stage do
@@ -71,7 +72,7 @@ class Gjs < Formula
       mkdir("build") do
         xy = Language::Python.major_minor_version "python3"
         ENV.prepend_create_path "PYTHONPATH", buildpath/"vendor/lib/python#{xy}/site-packages"
-        ENV["PYTHON"] = Formula["python@3.8"].opt_bin/"python3"
+        ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
         ENV["_MACOSX_DEPLOYMENT_TARGET"] = ENV["MACOSX_DEPLOYMENT_TARGET"]
         ENV["CC"] = Formula["llvm"].opt_bin/"clang"
         ENV["CXX"] = Formula["llvm"].opt_bin/"clang++"
