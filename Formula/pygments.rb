@@ -3,10 +3,9 @@ class Pygments < Formula
 
   desc "Generic syntax highlighter"
   homepage "https://pygments.org/"
-  url "https://files.pythonhosted.org/packages/e2/07/25bd93c9c0175adfa5fb1513a20b25e7dd6c9a67c155e19b11b5f3662104/Pygments-2.7.1.tar.gz"
-  sha256 "926c3f319eda178d1bd90851e4317e6d8cdb5e292a3386aac9bd75eca29cf9c7"
+  url "https://files.pythonhosted.org/packages/5d/0e/ff13c055b014d634ed17e9e9345a312c28ec6a06448ba6d6ccfa77c3b5e8/Pygments-2.7.2.tar.gz"
+  sha256 "381985fcc551eb9d37c52088a32914e00517e57f4a21609f48141ba08e193fa0"
   license "BSD-2-Clause"
-  revision 1
   head "https://github.com/pygments/pygments.git"
 
   livecheck do
