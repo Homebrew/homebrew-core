@@ -14,6 +14,8 @@ class Komposition < Formula
     sha256 "137747b62de4e68164bceccd009beb65606ae6ba2c94fbe9a72b0eee50ae0961" => :high_sierra
   end
 
+  disable! because: :does_not_build
+
   depends_on "cabal-install" => :build
   depends_on "ghc@8.8" => :build
   depends_on "pkg-config" => :build
