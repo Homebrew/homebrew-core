@@ -6,6 +6,7 @@ class Jrnl < Formula
   url "https://files.pythonhosted.org/packages/be/56/20e494eb2a7be914f05c43048ed1e42bc3eb34515319aa1a72e5fabb7d98/jrnl-2.4.5.tar.gz"
   sha256 "a5f069efcaa3f5d95cc7712178b3f92915f67eed4034e5f257cc063c6b0e74d9"
   license "GPL-3.0-only"
+  revision 1
 
   livecheck do
     url :stable
