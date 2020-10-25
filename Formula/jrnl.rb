@@ -19,7 +19,7 @@ class Jrnl < Formula
     sha256 "1c05607e857fa8d9f04732a76df2f76cfc1396f70425dbb2a572aa5c10e492ff" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "expect" => :test
 
@@ -138,6 +138,10 @@ class Jrnl < Formula
     end
   end
 
+  # just the pyproject.toml change already merged in https://github.com/jrnl-org/jrnl/pull/1054
+  # remove in next release
+  patch :DATA
+
   def install
     virtualenv_install_with_resources
   end
@@ -206,3 +210,19 @@ class Jrnl < Formula
     assert_predicate testpath/"test.txt", :exist?
   end
 end
+
+__END__
+diff --git a/pyproject.toml b/pyproject.toml
+index 982a7b3..6485ff1 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -16,7 +16,7 @@ homepage = "https://jrnl.sh"
+ repository = "https://github.com/jrnl-org/jrnl"
+
+ [tool.poetry.dependencies]
+-python = ">=3.6.0, <3.9.0"
++python = ">=3.6.0, <3.10.0"
+ pyxdg = "^0.26.0"
+ cryptography = "^2.7"
+ passlib = "^1.7"
+dustin@mbair ~/jrn
