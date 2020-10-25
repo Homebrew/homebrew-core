@@ -12,8 +12,8 @@ class Libslirp < Formula
 
   def install
     inreplace "meson.build", ",--version-script", ""
-    system "meson", "build", *std_meson_args
-    system "ninja", "-C", "build", "install"
+    system "meson", "build", "-Ddefault_library=both", *std_meson_args
+    system "ninja", "-C", "build", "install", "all"
   end
 
   test do
