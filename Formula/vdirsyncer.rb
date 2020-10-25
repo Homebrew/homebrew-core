@@ -6,7 +6,7 @@ class Vdirsyncer < Formula
   url "https://github.com/pimutils/vdirsyncer.git",
       tag:      "0.16.8",
       revision: "b5dd0929d009b7b07f72903dd6fb82815f45bdd8"
-  revision 1
+  revision 2
   head "https://github.com/pimutils/vdirsyncer.git"
 
   livecheck do
@@ -22,6 +22,13 @@ class Vdirsyncer < Formula
   end
 
   depends_on "python@3.9"
+
+  # from https://github.com/pimutils/vdirsyncer/pull/830
+  # remove in next release
+  patch do
+    url "https://github.com/pimutils/vdirsyncer/commit/7577fa21177442aacc2d86640ef28cebf1c4aaef.patch?full_index=1"
+    sha256 "3fe0b07e6a1f5210a51af4240e54ee2fe32936680f7ae518e40424531b657844"
+  end
 
   def install
     venv = virtualenv_create(libexec, "python3.9")
