@@ -33,7 +33,6 @@ class Armadillo < Formula
   end
 
   test do
-    ENV.cxx11
     (testpath/"test.cpp").write <<~EOS
       #include <iostream>
       #include <armadillo>
@@ -42,7 +41,7 @@ class Armadillo < Formula
         std::cout << arma::arma_version::as_string() << std::endl;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-I#{include}", "-L#{lib}", "-larmadillo", "-o", "test"
+    system ENV.cxx, "-std=c++11", "test.cpp", "-I#{include}", "-L#{lib}", "-larmadillo", "-o", "test"
     assert_equal shell_output("./test").to_i, version.to_s.to_i
   end
 end
