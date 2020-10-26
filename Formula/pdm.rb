@@ -16,13 +16,12 @@ class Pdm < Formula
     raise FormulaAmbiguousPythonError, self if wanted.size > 1
 
     result = wanted.first
-    result = "python3" if result == "python"
-    return result
+    result == "python" ? "python3" : result
   end
 
   def python_bin
     prefix = HOMEBREW_CELLAR/python
-    version = Dir.entries(prefix).sort_by(&:downcase).last
+    version = Dir.entries(prefix).max_by(&:downcase)
     prefix/version/"bin/python3"
   end
 
@@ -40,10 +39,9 @@ class Pdm < Formula
     fish_completion.install "./completions/pdm.fish"
 
     bin.install_symlink(libexec/"bin/pdm")
-
   end
 
   test do
-    system bin/"pdm" "--help"
+    system bin/"pdm", "--help"
   end
 end
