@@ -2,8 +2,9 @@ class Freeling < Formula
   desc "Suite of language analyzers"
   homepage "http://nlp.lsi.upc.edu/freeling/"
   url "https://github.com/TALP-UPC/FreeLing/releases/download/4.2/FreeLing-src-4.2.tar.gz"
-  sha256 "ef0eac3c82b1d1eb6b87094043c744f6517b3bd639415040eaa6e1e6b298d425"
+  sha256 "f96afbdb000d7375426644fb2f25baff9a63136dddce6551ea0fd20059bfce3b"
   license "AGPL-3.0-only"
+  revision 1
 
   bottle do
     rebuild 1
@@ -22,6 +23,14 @@ class Freeling < Formula
   conflicts_with "hunspell", because: "both install 'analyze' binary"
 
   def install
+    # Allow compilation without extra data (more than 1 GB), should be fixed
+    # in next release
+    # https://github.com/TALP-UPC/FreeLing/issues/112
+    inreplace "CMakeLists.txt", "SET(languages \"as;ca;cs;cy;de;en;es;fr;gl;hr;it;nb;pt;ru;sl\")",
+                                "SET(languages \"en;es;pt\")"
+    inreplace "CMakeLists.txt", "SET(variants \"es/es-old;es/es-ar;es/es-cl;ca/balear;ca/valencia\")",
+                                "SET(variants \"es/es-old;es/es-ar;es/es-cl\")"
+
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
       system "make", "install"
