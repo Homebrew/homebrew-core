@@ -14,6 +14,8 @@ class Googletest < Formula
 
   depends_on "cmake" => :build
 
+  conflicts_with "nss", because: "both install `libgtest.a`"
+
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"
