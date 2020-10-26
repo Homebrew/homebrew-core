@@ -17,7 +17,10 @@ class NodeAT14 < Formula
   depends_on "icu4c"
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--with-intl=system-icu"
+    # make sure subprocesses spawned by make are using our Python 3
+    ENV["PYTHON"] = Formula["python@3.9"].opt_bin / "python3"
+
+    system "python3", "configure.py", "--prefix=#{prefix}", "--with-intl=system-icu"
     system "make", "install"
   end
 
