@@ -1,8 +1,8 @@
 class Sha3sum < Formula
   desc "Keccak, SHA-3, SHAKE, and RawSHAKE checksum utilities"
   homepage "https://github.com/maandree/sha3sum"
-  url "https://github.com/maandree/sha3sum/archive/1.1.5.tar.gz"
-  sha256 "1a4eef5b09b7f70af1f6970840475d4735a14b4fab21937b9fd104b8606654ce"
+  url "https://github.com/maandree/sha3sum/archive/1.2.tar.gz"
+  sha256 "e3c10938ed3e8218e17f3ab69daf2df958d97ca9a263003f0e890bc17c783787"
   license "ISC"
 
   bottle do
@@ -15,6 +15,12 @@ class Sha3sum < Formula
   end
 
   depends_on "libkeccak"
+
+  # remove in next release
+  patch do
+    url "https://github.com/maandree/sha3sum/commit/d01c03c.patch?full_index=1"
+    sha256 "c958d05b67330291c3d14608d1566351e05f23cf3f4fb27186e5e99765ab7dd0"
+  end
 
   def install
     system "make", "install", "PREFIX=#{prefix}"
