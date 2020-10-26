@@ -14,12 +14,9 @@ class Pdm < Formula
     system libexec/"bin/pip", "install", "."
 
     Dir.mkdir "./completions"
-    system "#{libexec}/bin/pdm completion bash > ./completions/pdm"
-    system "#{libexec}/bin/pdm completion zsh > ./completions/_pdm"
-    system "#{libexec}/bin/pdm completion fish > ./completions/pdm.fish"
-    bash_completion.install "./completions/pdm"
-    zsh_completion.install "./completions/_pdm"
-    fish_completion.install "./completions/pdm.fish"
+    bash_completion.install Utils.safe_popen_read("#{libexec}/bin/pdm completion bash")
+    zsh_completion.install Utils.safe_popen_read("#{libexec}/bin/pdm completion zsh")
+    fish_completion.install Utils.safe_popen_read("#{libexec}/bin/pdm completion fish")
 
     bin.install_symlink(libexec/"bin/pdm")
   end
