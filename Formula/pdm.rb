@@ -32,7 +32,6 @@ class Pdm < Formula
     system bin/"pdm", "add", "requests"
     assert_match "[tool.pdm.dependencies]\nrequests", (testpath/"pyproject.toml").read
     assert_predicate testpath/"pdm.lock", :exist?
-    assert_predicate testpath/"__pypackages__/3.9/lib/requests", :exist?
     assert_match "name = \"urllib3\"", (testpath/"pdm.lock").read
     output = shell_output("#{bin}/pdm run python -c 'import requests;print(requests.__version__)'")
     assert_equal "2.24.0", output.strip
