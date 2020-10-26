@@ -13,7 +13,6 @@ class Pdm < Formula
     system Formula["python@3.9"].opt_bin/"python3", "-m", "venv", libexec
     system libexec/"bin/pip", "install", "."
 
-    Dir.mkdir "./completions"
     (bash_completion/"pdm").write Utils.safe_popen_read(libexec/"bin/pdm", "completion", "bash")
     (zsh_completion/"_pdm").write Utils.safe_popen_read(libexec/"bin/pdm", "completion", "zsh")
     (fish_completion/"pdm.fish").write Utils.safe_popen_read(libexec/"bin/pdm", "completion", "fish")
@@ -39,7 +38,7 @@ class Pdm < Formula
     assert_predicate testpath/"pdm.lock", :exist?
     assert_predicate testpath/"__pypackages__/3.9/lib/requests", :exist?
     assert_match "name = \"urllib3\"", (testpath/"pdm.lock").read
-    output = shell_output(bin/"pdm", "run", "python", "-c", "import requests;print(requests.__version__)")
-    assert_equal "2.24.0", output
+    output = shell_output("#{bin}/pdm run python -c 'import requests;print(requests.__version__)'")
+    assert_equal "2.24.0", output.strip
   end
 end
