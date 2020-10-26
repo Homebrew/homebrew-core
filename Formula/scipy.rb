@@ -1,10 +1,9 @@
 class Scipy < Formula
   desc "Software for mathematics, science, and engineering"
   homepage "https://www.scipy.org"
-  url "https://files.pythonhosted.org/packages/53/10/776750d57ade26522478a92a2e14035868624a6a62f4157b0cc5abd4a980/scipy-1.5.2.tar.gz"
-  sha256 "066c513d90eb3fd7567a9e150828d39111ebd88d3e924cdfc9f8ce19ab6f90c9"
+  url "https://files.pythonhosted.org/packages/93/63/4a566494594a13697c5d5d8a754d6e329d018ddf881520775e0229fa29ef/scipy-1.5.3.tar.gz"
+  sha256 "ddae76784574cc4c172f3d5edd7308be16078dd3b977e8746860c76c195fa707"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/scipy/scipy.git"
 
   livecheck do
@@ -33,13 +32,6 @@ class Scipy < Formula
   patch do
     url "https://github.com/scipy/scipy/commit/b8e47064.patch?full_index=1"
     sha256 "2cb39e75f00d89564cdc769598bee2e772f6cb7bde5cc94560a2e588fb7a0027"
-  end
-
-  # Fix compilation with Xcode 12
-  # https://github.com/scipy/scipy/issues/12860
-  patch do
-    url "https://github.com/scipy/scipy/commit/de679deb.patch?full_index=1"
-    sha256 "97fd91849d3b2d6693ed656b941be593411bfe63d7df473544a59a8e7f8dcc60"
   end
 
   def install
