@@ -4,7 +4,7 @@ class Urh < Formula
   url "https://files.pythonhosted.org/packages/08/6b/00fc66ea878a26ff054562552bb9b966fc5bec8d7df1fc52134b6431af76/urh-2.8.9.tar.gz"
   sha256 "d3cdc2612f5039b40cfccfb99e2ae7311cd1cd27011c857e0aec99b150c93919"
   license "GPL-3.0"
-  revision 1
+  revision 2
   head "https://github.com/jopohl/urh.git"
 
   livecheck do
