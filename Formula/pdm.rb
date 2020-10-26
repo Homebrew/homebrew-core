@@ -21,8 +21,6 @@ class Pdm < Formula
   end
 
   test do
-    _, status = Open3.capture2(bin/"pdm", "--help")
-    assert_equal status, 0
     (testpath/"pyproject.toml").write <<~EOS
       [tool.pdm]
       python_requires = ">=3.8"
