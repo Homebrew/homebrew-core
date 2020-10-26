@@ -16,45 +16,11 @@ class NodeAT14 < Formula
   depends_on "python@3.9" => :build
   depends_on "icu4c"
 
-  # We track major/minor from upstream Node releases.
-  # We will accept *important* npm patch releases when necessary.
-  resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-6.14.8.tgz"
-    sha256 "fe8e873cb606c06f67f666b4725eb9122c8927f677c8c0baf1477f0ff81f5a2c"
-  end
-
   def install
-    # make sure subprocesses spawned by make are using our Python 3
-    ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
-
-    # Never install the bundled "npm", always prefer our
-    # installation from tarball for better packaging control.
-    args = %W[--prefix=#{prefix} --without-npm --with-intl=system-icu]
-    # Remove `--openssl-no-asm` workaround when upstream releases a fix
-    # See also: https://github.com/nodejs/node/issues/34043
-    args << "--openssl-no-asm" if Hardware::CPU.arm?
-
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}", "--with-intl=system-icu"
     system "make", "install"
-
-    # Allow npm to find Node before installation has completed.
-    ENV.prepend_path "PATH", bin
-
-    bootstrap = buildpath/"npm_bootstrap"
-    bootstrap.install resource("npm")
-    system "node", bootstrap/"bin/npm-cli.js", "install", "-ddd", "--global",
-           "--prefix=#{libexec}", resource("npm").cached_download
-
-    # The `package.json` stores integrity information about the above passed
-    # in `cached_download` npm resource, which breaks `npm -g outdated npm`.
-    # This copies back over the vanilla `package.json` to fix this issue.
-    cp bootstrap/"package.json", libexec/"lib/node_modules/npm"
-    # These symlinks are never used & they've caused issues in the past.
-    rm_rf libexec/"share"
-
-    bash_completion.install bootstrap/"lib/utils/completion.sh" => "npm"
   end
-
+  
   def post_install
     (lib/"node_modules/npm/npmrc").atomic_write("prefix = #{HOMEBREW_PREFIX}\n")
   end
@@ -75,13 +41,13 @@ class NodeAT14 < Formula
     ENV.prepend_path "PATH", opt_bin
     ENV.delete "NVM_NODEJS_ORG_MIRROR"
     assert_equal which("node"), opt_bin/"node"
-    assert_predicate HOMEBREW_PREFIX/"bin/npm", :exist?, "npm must exist"
-    assert_predicate HOMEBREW_PREFIX/"bin/npm", :executable?, "npm must be executable"
+    assert_predicate bin/"npm", :exist?, "npm must exist"
+    assert_predicate bin/"npm", :executable?, "npm must be executable"
     npm_args = ["-ddd", "--cache=#{HOMEBREW_CACHE}/npm_cache", "--build-from-source"]
-    system "#{HOMEBREW_PREFIX}/bin/npm", *npm_args, "install", "npm@latest"
-    system "#{HOMEBREW_PREFIX}/bin/npm", *npm_args, "install", "bufferutil"
-    assert_predicate HOMEBREW_PREFIX/"bin/npx", :exist?, "npx must exist"
-    assert_predicate HOMEBREW_PREFIX/"bin/npx", :executable?, "npx must be executable"
-    assert_match "< hello >", shell_output("#{HOMEBREW_PREFIX}/bin/npx cowsay hello")
+    system "#{bin}/npm", *npm_args, "install", "npm@latest"
+    system "#{bin}/npm", *npm_args, "install", "bufferutil"
+    assert_predicate bin/"npx", :exist?, "npx must exist"
+    assert_predicate bin/"npx", :executable?, "npx must be executable"
+    assert_match "< hello >", shell_output("#{bin}/npx cowsay hello")
   end
 end
