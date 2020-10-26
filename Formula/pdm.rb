@@ -25,8 +25,6 @@ class Pdm < Formula
     assert_equal status, 0
     (testpath/"pyproject.toml").write <<~EOS
       [tool.pdm]
-      name = "test-pdm"
-      version = "0.0.0"
       python_requires = ">=3.8"
 
       [tool.pdm.dependencies]
