@@ -24,8 +24,8 @@ class Flashrom < Formula
   depends_on "libusb-compat"
 
   def install
-    ENV["CONFIG_ENABLE_LIBPCI_PROGRAMMERS"] = "0"
-    ENV["CONFIG_RAYER_SPI"] = "0"
+    ENV["CONFIG_ENABLE_LIBPCI_PROGRAMMERS"] = "no"
+    ENV["CONFIG_RAYER_SPI"] = "no"
 
     system "make", "DESTDIR=#{prefix}", "PREFIX=/", "install"
     mv sbin, bin
