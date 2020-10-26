@@ -1,6 +1,4 @@
 class Pdm < Formula
-  include Language::Python::Virtualenv
-
   desc "Modern Python package manager with PEP 582 support"
   homepage "https://pdm.fming.dev"
   url "https://files.pythonhosted.org/packages/74/4f/dcbbd585bb43a7210e97ee83b514c25060b4537022b082a3ce661def8bad/pdm-0.10.0.tar.gz"
@@ -10,24 +8,9 @@ class Pdm < Formula
 
   depends_on "python@3.9"
 
-  def python
-    wanted = python_names.select { |py| needs_python?(py) }
-    raise FormulaUnknownPythonError, self if wanted.empty?
-    raise FormulaAmbiguousPythonError, self if wanted.size > 1
-
-    result = wanted.first
-    result == "python" ? "python3" : result
-  end
-
-  def python_bin
-    prefix = HOMEBREW_CELLAR/python
-    version = Dir.entries(prefix).max_by(&:downcase)
-    prefix/version/"bin/python3"
-  end
-
   def install
     # Generate requirements from locked file
-    system python_bin, "-m", "venv", libexec
+    system Formula["python@3.9"].opt_bin/"python3", "-m", "venv", libexec
     system libexec/"bin/pip", "install", "."
 
     Dir.mkdir "./completions"
@@ -42,6 +25,24 @@ class Pdm < Formula
   end
 
   test do
-    system bin/"pdm", "--help"
+    _, status = Open3.capture2(bin/"pdm", "--help")
+    assert_equal status, 0
+    (testpath/"pyproject.toml").write <<~EOS
+      [tool.pdm]
+      name = "test-pdm"
+      version = "0.0.0"
+      python_requires = ">=3.8"
+
+      [tool.pdm.dependencies]
+
+      [tool.pdm.dev-dependencies]
+    EOS
+    system bin/"pdm", "add", "requests"
+    assert_match "[tool.pdm.dependencies]\nrequests", (testpath/"pyproject.toml").read
+    assert_predicate testpath/"pdm.lock", :exist?
+    assert_predicate testpath/"__pypackages__/3.9/lib/requests", :exist?
+    assert_match "name = \"urllib3\"", (testpath/"pdm.lock").read
+    _, status = Open3.capture2(bin/"pdm", "run", "python", "-c", "import requests")
+    assert_equal status, 0
   end
 end
