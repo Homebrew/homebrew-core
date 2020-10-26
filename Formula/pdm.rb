@@ -29,8 +29,8 @@ class Pdm < Formula
 
       [tool.pdm.dev-dependencies]
     EOS
-    system bin/"pdm", "add", "requests"
-    assert_match "[tool.pdm.dependencies]\nrequests", (testpath/"pyproject.toml").read
+    system bin/"pdm", "add", "requests==2.24.0"
+    assert_match "[tool.pdm.dependencies]\nrequests = \"==2.24.0\"", (testpath/"pyproject.toml").read
     assert_predicate testpath/"pdm.lock", :exist?
     assert_match "name = \"urllib3\"", (testpath/"pdm.lock").read
     output = shell_output("#{bin}/pdm run python -c 'import requests;print(requests.__version__)'")
