@@ -18,7 +18,7 @@ class RakudoStar < Formula
     sha256 "0938d963dc23119a1c4a2fa976d4b870f81d744c41986f122aad15858c0b9717" => :high_sierra
   end
 
-  depends_on "bash"
+  depends_on "bash" => :build
   depends_on "gmp"
   depends_on "icu4c"
   depends_on "libffi"
