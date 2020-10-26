@@ -14,9 +14,9 @@ class Pdm < Formula
     system libexec/"bin/pip", "install", "."
 
     Dir.mkdir "./completions"
-    bash_completion.install Utils.safe_popen_read("#{libexec}/bin/pdm completion bash")
-    zsh_completion.install Utils.safe_popen_read("#{libexec}/bin/pdm completion zsh")
-    fish_completion.install Utils.safe_popen_read("#{libexec}/bin/pdm completion fish")
+    bash_completion.install Utils.safe_popen_read(libexec/"bin/pdm", "completion", "bash")
+    zsh_completion.install Utils.safe_popen_read(libexec/"bin/pdm", "completion", "zsh")
+    fish_completion.install Utils.safe_popen_read(libexec/"bin/pdm", "completion", "fish")
 
     bin.install_symlink(libexec/"bin/pdm")
   end
@@ -39,7 +39,7 @@ class Pdm < Formula
     assert_predicate testpath/"pdm.lock", :exist?
     assert_predicate testpath/"__pypackages__/3.9/lib/requests", :exist?
     assert_match "name = \"urllib3\"", (testpath/"pdm.lock").read
-    _, status = Open3.capture2(bin/"pdm", "run", "python", "-c", "import requests")
-    assert_equal status, 0
+    output = shell_output(bin/"pdm", "run", "python", "-c", "import requests;print(requests.__version__)")
+    assert_equal "2.24.0", output
   end
 end
