@@ -56,30 +56,7 @@ class NodeAT14 < Formula
   end
 
   def post_install
-    node_modules = HOMEBREW_PREFIX/"lib/node_modules"
-    node_modules.mkpath
-    # Kill npm but preserve all other modules across node updates/upgrades.
-    rm_rf node_modules/"npm"
-
-    cp_r libexec/"lib/node_modules/npm", node_modules
-    # This symlink doesn't hop into homebrew_prefix/bin automatically so
-    # we make our own. This is a small consequence of our
-    # bottle-npm-and-retain-a-private-copy-in-libexec setup
-    # All other installs **do** symlink to homebrew_prefix/bin correctly.
-    # We ln rather than cp this because doing so mimics npm's normal install.
-    ln_sf node_modules/"npm/bin/npm-cli.js", HOMEBREW_PREFIX/"bin/npm"
-    ln_sf node_modules/"npm/bin/npx-cli.js", HOMEBREW_PREFIX/"bin/npx"
-
-    # Create manpage symlinks (or overwrite the old ones)
-    %w[man1 man5 man7].each do |man|
-      # Dirs must exist first: https://github.com/Homebrew/legacy-homebrew/issues/35969
-      mkdir_p HOMEBREW_PREFIX/"share/man/#{man}"
-      # still needed to migrate from copied file manpages to symlink manpages
-      rm_f Dir[HOMEBREW_PREFIX/"share/man/#{man}/{npm.,npm-,npmrc.,package.json.,npx.}*"]
-      ln_sf Dir[node_modules/"npm/man/#{man}/{npm,package-,shrinkwrap-,npx}*"], HOMEBREW_PREFIX/"share/man/#{man}"
-    end
-
-    (node_modules/"npm/npmrc").atomic_write("prefix = #{HOMEBREW_PREFIX}\n")
+    (lib/"node_modules/npm/npmrc").atomic_write("prefix = #{HOMEBREW_PREFIX}\n")
   end
 
   test do
