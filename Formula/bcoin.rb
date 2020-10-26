@@ -19,8 +19,6 @@ class Bcoin < Formula
   depends_on "node"
 
   def install
-    # These dirs must exists before npm install.
-    mkdir_p libexec/"lib"
     system "#{Formula["node"].libexec}/bin/npm", "install", *Language::Node.std_npm_install_args(libexec)
     (bin/"bcoin").write_env_script libexec/"bin/bcoin", PATH: "#{Formula["node"].opt_bin}:$PATH"
   end
