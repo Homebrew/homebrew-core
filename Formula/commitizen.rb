@@ -3,11 +3,14 @@ class Commitizen < Formula
 
   desc "Defines a standard way of committing rules and communicating it"
   homepage "https://commitizen-tools.github.io/commitizen/"
-  url "https://github.com/commitizen-tools/commitizen/archive/v2.4.1.tar.gz"
-  sha256 "b50e1f0f9c9d6e06c20ac39c07f62e9ec9e38081dd856513f2565ad2a270b6bf"
+  url "https://files.pythonhosted.org/packages/f6/1f/d5d788c8098a151913e0cdf6d639f9b47ce2736d3dc79a7aec333cb06b64/commitizen-2.4.2.tar.gz"
+  sha256 "b267e7c56b0bf51440392d147ab22dec1286313a6059aa85e85ae24b1baf7a84"
   license "MIT"
-  revision 1
   head "https://github.com/commitizen-tools/commitizen.git"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
@@ -19,8 +22,8 @@ class Commitizen < Formula
   depends_on "python@3.9"
 
   resource "colorama" do
-    url "https://files.pythonhosted.org/packages/82/75/f2a4c0c94c85e2693c229142eb448840fba0f9230111faa889d1f541d12d/colorama-0.4.3.tar.gz"
-    sha256 "e96da0d330793e2cb9485e9ddfd918d456036c7149416295932478192f4436a1"
+    url "https://files.pythonhosted.org/packages/1f/bb/5d3246097ab77fa083a61bd8d3d527b7ae063c7d8e8671b1cf8c4ec10cbe/colorama-0.4.4.tar.gz"
+    sha256 "5941b2b48a20143d2267e95b1c2a7603ce057ee39fd88e7329b0c292aa16869b"
   end
 
   resource "decli" do
@@ -44,8 +47,8 @@ class Commitizen < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/18/0f/ae4b350b969dc1d8ecfcbdc1060d59ff025336a23f153ece49aa662a1309/prompt_toolkit-3.0.7.tar.gz"
-    sha256 "822f4605f28f7d2ba6b0b09a31e25e140871e96364d1d377667b547bb3bf4489"
+    url "https://files.pythonhosted.org/packages/d4/12/7fe77b49d67845a378cfadb484b64218ed09d0e8bf420c663b4fe28f0631/prompt_toolkit-3.0.8.tar.gz"
+    sha256 "25c95d2ac813909f813c93fde734b6e44406d1477a9faef7c915ff37d39c0a8c"
   end
 
   resource "pyparsing" do
@@ -59,8 +62,8 @@ class Commitizen < Formula
   end
 
   resource "questionary" do
-    url "https://files.pythonhosted.org/packages/39/02/2f95b728bec63e0366b4c4c6f307c7432f93994a87bd5a8e6b8d6e5750e9/questionary-1.6.0.tar.gz"
-    sha256 "ec7a6f31096959b3080c4e041ad916773613d182eacf600506725a2fc578e28c"
+    url "https://files.pythonhosted.org/packages/89/70/6c2176fde7cfacbd3f3833bfb321827826c72071b7c008eb56defb2ca68c/questionary-1.7.0.tar.gz"
+    sha256 "338f326d3d10204dc3a21a07cfa8243f32d8d8f3d9f3de244951066c0769f2ea"
   end
 
   resource "six" do
