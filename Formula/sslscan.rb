@@ -1,35 +1,31 @@
 class Sslscan < Formula
   desc "Test SSL/TLS enabled services to discover supported cipher suites"
   homepage "https://github.com/rbsec/sslscan"
-  url "https://github.com/rbsec/sslscan/archive/1.11.13-rbsec.tar.gz"
-  version "1.11.13"
-  sha256 "8a09c4cd1400af2eeeec8436a2f645ed0aae5576f4de045a09ea9ff099f56f4a"
+  url "https://github.com/rbsec/sslscan/archive/2.0.5.tar.gz"
+  sha256 "34a557a7996bb5c2f69fe512b7ef14ba272094178e76140535e50691bf934f99"
+  license "GPL-3.0-or-later"
   head "https://github.com/rbsec/sslscan.git"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "788f9752e795f4ff95e1251a243a5829a6f9b40facbdca40e4819de5f9d7dc4c" => :catalina
-    sha256 "8a8826da03dbbaa9ee89c8e6b95496c178f5a93d86468402fb6e432ebc7f2c68" => :mojave
-    sha256 "e0735e75b58b7cb0ef72cc79089df545e0140e52bc206c1791ab979192251d22" => :high_sierra
-    sha256 "4b00ee57ccf8dfbc890bbc7ca978dd4f310e7f73dfc022c78c33b69b9b3449dc" => :sierra
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)(?:-rbsec)?$/i)
   end
 
-  resource "insecure-openssl" do
-    url "https://github.com/openssl/openssl/archive/OpenSSL_1_0_2f.tar.gz"
-    sha256 "4c9492adcb800ec855f11121bd64ddff390160714d93f95f279a9bd7241c23a6"
+  bottle do
+    cellar :any
+    sha256 "0702cc8487b0084732d86d07bcc822d83a967567bb0248c7ff42862d779ff7c0" => :catalina
+    sha256 "30b5a6fa056180ab04cdfa6d601a5b4d1cd553c407ae5e506602bee0e3542410" => :mojave
+    sha256 "c9c9678f7980dc52992212800e0b7f8bbcd155988c163489eed938d3d58fa0a8" => :high_sierra
   end
+
+  depends_on "openssl@1.1"
 
   def install
-    (buildpath/"openssl").install resource("insecure-openssl")
+    # use `libcrypto.dylib` built from `openssl@1.1`
+    inreplace "Makefile", "static: openssl/libcrypto.a",
+                          "static: #{Formula["openssl@1.1"].opt_lib}/libcrypto.dylib"
 
-    # prevent sslscan from fetching the tip of the openssl fork
-    # at https://github.com/PeterMosmans/openssl
-    inreplace "Makefile", "openssl/Makefile: .openssl.is.fresh",
-                          "openssl/Makefile:"
-
-    ENV.deparallelize do
-      system "make", "static"
-    end
+    system "make", "static"
     system "make", "install", "PREFIX=#{prefix}"
   end
 

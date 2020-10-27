@@ -3,6 +3,7 @@ class Mpir < Formula
   homepage "http://mpir.org/"
   url "http://mpir.org/mpir-3.0.0.tar.bz2"
   sha256 "52f63459cf3f9478859de29e00357f004050ead70b45913f2c2269d9708675bb"
+  license "GPL-3.0"
 
   bottle do
     cellar :any
@@ -17,7 +18,7 @@ class Mpir < Formula
 
   def install
     args = %W[--disable-silent-rules --prefix=#{prefix} --enable-cxx]
-    args << "--build=#{Hardware.oldest_cpu}-apple-darwin#{`uname -r`.to_i}"
+    args << "--build=#{Hardware.oldest_cpu}-apple-darwin#{OS.kernel_version.major}"
     system "./configure", *args
     system "make", "install"
   end

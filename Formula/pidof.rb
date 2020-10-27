@@ -5,6 +5,11 @@ class Pidof < Formula
   version "0.1.4"
   sha256 "2a2cd618c7b9130e1a1d9be0210e786b85cbc9849c9b6f0cad9cbde31541e1b8"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?pidof[^>]+>\s*Download \(v?(\d+(?:\.\d+)+)\)</i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 2

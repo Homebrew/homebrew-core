@@ -1,63 +1,45 @@
 class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
-  revision 1
+  # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
+  license "Apache-2.0"
+  head "https://github.com/llvm/llvm-project.git"
 
   stable do
-    url "https://releases.llvm.org/9.0.0/llvm-9.0.0.src.tar.xz"
-    sha256 "d6a0565cf21f22e9b4353b2eb92622e8365000a9e90a16b09b56f8157eabfe84"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.0/llvm-project-11.0.0.tar.xz"
+    sha256 "b7b639fc675fa1c86dd6d0bc32267be9eb34451748d2efd03f674b773000e92b"
 
-    resource "clang" do
-      url "https://releases.llvm.org/9.0.0/cfe-9.0.0.src.tar.xz"
-      sha256 "7ba81eef7c22ca5da688fdf9d88c20934d2d6b40bfe150ffd338900890aa4610"
+    patch do
+      url "https://github.com/llvm/llvm-project/commit/c86f56e32e724c6018e579bb2bc11e667c96fc96.patch?full_index=1"
+      sha256 "6e13e01b4f9037bb6f43f96cb752d23b367fe7db4b66d9bf2a4aeab9234b740a"
     end
 
-    resource "clang-extra-tools" do
-      url "https://releases.llvm.org/9.0.0/clang-tools-extra-9.0.0.src.tar.xz"
-      sha256 "ea1c86ce352992d7b6f6649bc622f6a2707b9f8b7153e9f9181a35c76aa3ac10"
+    patch do
+      url "https://github.com/llvm/llvm-project/commit/31e5f7120bdd2f76337686d9d169b1c00e6ee69c.patch?full_index=1"
+      sha256 "f025110aa6bf80bd46d64a0e2b1e2064d165353cd7893bef570b6afba7e90b4d"
     end
 
-    resource "compiler-rt" do
-      url "https://releases.llvm.org/9.0.0/compiler-rt-9.0.0.src.tar.xz"
-      sha256 "56e4cd96dd1d8c346b07b4d6b255f976570c6f2389697347a6c3dcb9e820d10e"
+    patch do
+      url "https://github.com/llvm/llvm-project/commit/3c7bfbd6831b2144229734892182d403e46d7baf.patch?full_index=1"
+      sha256 "62014ddad6d5c485ecedafe3277fe7978f3f61c940976e3e642536726abaeb68"
     end
 
-    resource "libcxx" do
-      url "https://releases.llvm.org/9.0.0/libcxx-9.0.0.src.tar.xz"
-      sha256 "3c4162972b5d3204ba47ac384aa456855a17b5e97422723d4758251acf1ed28c"
+    patch do
+      url "https://github.com/llvm/llvm-project/commit/c4d7536136b331bada079b2afbb2bd09ad8296bf.patch?full_index=1"
+      sha256 "2b894cbaf990510969bf149697882c86a068a1d704e749afa5d7b71b6ee2eb9f"
     end
+  end
 
-    resource "libunwind" do
-      url "https://releases.llvm.org/9.0.0/libunwind-9.0.0.src.tar.xz"
-      sha256 "976a8d09e1424fb843210eecec00a506b956e6c31adda3b0d199e945be0d0db2"
-    end
-
-    resource "lld" do
-      url "https://releases.llvm.org/9.0.0/lld-9.0.0.src.tar.xz"
-      sha256 "31c6748b235d09723fb73fea0c816ed5a3fab0f96b66f8fbc546a0fcc8688f91"
-    end
-
-    resource "lldb" do
-      url "https://releases.llvm.org/9.0.0/lldb-9.0.0.src.tar.xz"
-      sha256 "1e4c2f6a1f153f4b8afa2470d2e99dab493034c1ba8b7ffbbd7600de016d0794"
-    end
-
-    resource "openmp" do
-      url "https://releases.llvm.org/9.0.0/openmp-9.0.0.src.tar.xz"
-      sha256 "9979eb1133066376cc0be29d1682bc0b0e7fb541075b391061679111ae4d3b5b"
-    end
-
-    resource "polly" do
-      url "https://releases.llvm.org/9.0.0/polly-9.0.0.src.tar.xz"
-      sha256 "a4fa92283de725399323d07f18995911158c1c5838703f37862db815f513d433"
-    end
+  livecheck do
+    url :homepage
+    regex(/LLVM (\d+.\d+.\d+)/i)
   end
 
   bottle do
     cellar :any
-    sha256 "a8e2475a1fc5a81f0da83a73d17fd54cc2a686f7b5d8e7ace9ea18885971415f" => :catalina
-    sha256 "418d1e365a59f1ef41b36e444ea72e60f381ba02083659e0375838d81443b151" => :mojave
-    sha256 "f9e02c2d5e6a5480e2f3f353d223acb170a9ba19fcd8d3ce38fbbc4e99a7d952" => :high_sierra
+    sha256 "313e4f27bc61f4a7afe193288c0fb98a8c96efe89edf82990ae1b79d584196c5" => :catalina
+    sha256 "0d9e7f09db772677467075f5fe8440130cd08b3019ed73ca4afa7b2f307d962e" => :mojave
+    sha256 "d3c239a222cf92151616f98ab2ff28ec40d9eee3d395a55d23c12a374a2e0977" => :high_sierra
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -66,67 +48,42 @@ class Llvm < Formula
     satisfy { MacOS::CLT.installed? }
   end
 
-  head do
-    url "https://git.llvm.org/git/llvm.git"
-
-    resource "clang" do
-      url "https://git.llvm.org/git/clang.git"
-    end
-
-    resource "clang-extra-tools" do
-      url "https://git.llvm.org/git/clang-tools-extra.git"
-    end
-
-    resource "compiler-rt" do
-      url "https://git.llvm.org/git/compiler-rt.git"
-    end
-
-    resource "libcxx" do
-      url "https://git.llvm.org/git/libcxx.git"
-    end
-
-    resource "libunwind" do
-      url "https://git.llvm.org/git/libunwind.git"
-    end
-
-    resource "lld" do
-      url "https://git.llvm.org/git/lld.git"
-    end
-
-    resource "lldb" do
-      url "https://git.llvm.org/git/lldb.git"
-    end
-
-    resource "openmp" do
-      url "https://git.llvm.org/git/openmp.git"
-    end
-
-    resource "polly" do
-      url "https://git.llvm.org/git/polly.git"
-    end
-  end
-
   keg_only :provided_by_macos
 
   # https://llvm.org/docs/GettingStarted.html#requirement
+  # We intentionally use Make instead of Ninja.
+  # See: Homebrew/homebrew-core/issues/35513
   depends_on "cmake" => :build
-  depends_on :xcode => :build
+  depends_on "python@3.9" => :build
   depends_on "libffi"
-  depends_on "swig"
+
+  uses_from_macos "libedit"
+  uses_from_macos "libxml2"
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
 
   def install
+    projects = %w[
+      clang
+      clang-tools-extra
+      lld
+      lldb
+      polly
+    ]
+    # OpenMP currently fails to build on ARM
+    # https://github.com/Homebrew/brew/issues/7857#issuecomment-661484670
+    projects << "openmp" unless Hardware::CPU.arm?
+    runtimes = %w[
+      compiler-rt
+      libcxx
+      libcxxabi
+      libunwind
+    ]
+
+    py_ver = "3.9"
+
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
-
-    (buildpath/"tools/clang").install resource("clang")
-    (buildpath/"tools/clang/tools/extra").install resource("clang-extra-tools")
-    (buildpath/"projects/openmp").install resource("openmp")
-    (buildpath/"projects/libcxx").install resource("libcxx")
-    (buildpath/"projects/libunwind").install resource("libunwind")
-    (buildpath/"tools/lld").install resource("lld")
-    (buildpath/"tools/lldb").install resource("lldb")
-    (buildpath/"tools/polly").install resource("polly")
-    (buildpath/"projects/compiler-rt").install resource("compiler-rt")
 
     # compiler-rt has some iOS simulator features that require i386 symbols
     # I'm assuming the rest of clang needs support too for 32-bit compilation
@@ -136,54 +93,63 @@ class Llvm < Formula
     ENV.permit_arch_flags
 
     args = %W[
-      -DLIBOMP_ARCH=x86_64
-      -DLINK_POLLY_INTO_TOOLS=ON
+      -DLLVM_ENABLE_PROJECTS=#{projects.join(";")}
+      -DLLVM_ENABLE_RUNTIMES=#{runtimes.join(";")}
+      -DLLVM_POLLY_LINK_INTO_TOOLS=ON
       -DLLVM_BUILD_EXTERNAL_COMPILER_RT=ON
-      -DLLVM_BUILD_LLVM_DYLIB=ON
+      -DLLVM_LINK_LLVM_DYLIB=ON
+      -DLLVM_BUILD_LLVM_C_DYLIB=ON
       -DLLVM_ENABLE_EH=ON
       -DLLVM_ENABLE_FFI=ON
       -DLLVM_ENABLE_LIBCXX=ON
       -DLLVM_ENABLE_RTTI=ON
       -DLLVM_INCLUDE_DOCS=OFF
+      -DLLVM_INCLUDE_TESTS=OFF
       -DLLVM_INSTALL_UTILS=ON
+      -DLLVM_ENABLE_Z3_SOLVER=OFF
       -DLLVM_OPTIMIZED_TABLEGEN=ON
       -DLLVM_TARGETS_TO_BUILD=all
-      -DWITH_POLLY=ON
       -DFFI_INCLUDE_DIR=#{Formula["libffi"].opt_lib}/libffi-#{Formula["libffi"].version}/include
       -DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}
-      -DLLVM_CREATE_XCODE_TOOLCHAIN=ON
+      -DLLVM_CREATE_XCODE_TOOLCHAIN=#{MacOS::Xcode.installed? ? "ON" : "OFF"}
       -DLLDB_USE_SYSTEM_DEBUGSERVER=ON
-      -DLLDB_DISABLE_PYTHON=1
+      -DLLDB_ENABLE_PYTHON=OFF
+      -DLLDB_ENABLE_LUA=OFF
+      -DLLDB_ENABLE_LZMA=OFF
       -DLIBOMP_INSTALL_ALIASES=OFF
+      -DCLANG_PYTHON_BINDINGS_VERSIONS=#{py_ver}
     ]
 
-    mkdir "build" do
-      if MacOS.version >= :mojave
-        sdk_path = MacOS::CLT.installed? ? "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk" : MacOS.sdk_path
-        args << "-DDEFAULT_SYSROOT=#{sdk_path}"
-      end
+    sdk = MacOS.sdk_path_if_needed
+    args << "-DDEFAULT_SYSROOT=#{sdk}" if sdk
 
+    if MacOS.version == :mojave && MacOS::CLT.installed?
+      # Mojave CLT linker via software update is older than Xcode.
+      # Use it to retain compatibility.
+      args << "-DCMAKE_LINKER=/Library/Developer/CommandLineTools/usr/bin/ld"
+    end
+
+    llvmpath = buildpath/"llvm"
+    mkdir llvmpath/"build" do
       system "cmake", "-G", "Unix Makefiles", "..", *(std_cmake_args + args)
       system "make"
       system "make", "install"
-      system "make", "install-xcode-toolchain"
+      system "make", "install-xcode-toolchain" if MacOS::Xcode.installed?
     end
 
-    (share/"clang/tools").install Dir["tools/clang/tools/scan-{build,view}"]
-    (share/"cmake").install "cmake/modules"
-    inreplace "#{share}/clang/tools/scan-build/bin/scan-build", "$RealBin/bin/clang", "#{bin}/clang"
-    bin.install_symlink share/"clang/tools/scan-build/bin/scan-build", share/"clang/tools/scan-view/bin/scan-view"
-    man1.install_symlink share/"clang/tools/scan-build/man/scan-build.1"
+    # Install LLVM Python bindings
+    # Clang Python bindings are installed by CMake
+    (lib/"python#{py_ver}/site-packages").install llvmpath/"bindings/python/llvm"
 
-    # install llvm python bindings
-    (lib/"python2.7/site-packages").install buildpath/"bindings/python/llvm"
-    (lib/"python2.7/site-packages").install buildpath/"tools/clang/bindings/python/clang"
+    # Install Emacs modes
+    elisp.install Dir[llvmpath/"utils/emacs/*.el"] + Dir[share/"clang/*.el"]
   end
 
-  def caveats; <<~EOS
-    To use the bundled libc++ please add the following LDFLAGS:
-      LDFLAGS="-L#{opt_lib} -Wl,-rpath,#{opt_lib}"
-  EOS
+  def caveats
+    <<~EOS
+      To use the bundled libc++ please add the following LDFLAGS:
+        LDFLAGS="-L#{opt_lib} -Wl,-rpath,#{opt_lib}"
+    EOS
   end
 
   test do
@@ -247,12 +213,11 @@ class Llvm < Formula
     # Testing Command Line Tools
     if MacOS::CLT.installed?
       toolchain_path = "/Library/Developer/CommandLineTools"
-      sdk_path = "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk"
       system "#{bin}/clang++", "-v",
-             "-isysroot", sdk_path,
+             "-isysroot", MacOS::CLT.sdk_path,
              "-isystem", "#{toolchain_path}/usr/include/c++/v1",
              "-isystem", "#{toolchain_path}/usr/include",
-             "-isystem", "#{sdk_path}/usr/include",
+             "-isystem", "#{MacOS::CLT.sdk_path}/usr/include",
              "-std=c++11", "test.cpp", "-o", "testCLT++"
       assert_includes MachO::Tools.dylibs("testCLT++"), "/usr/lib/libc++.1.dylib"
       assert_equal "Hello World!", shell_output("./testCLT++").chomp
@@ -263,10 +228,10 @@ class Llvm < Formula
     # Testing Xcode
     if MacOS::Xcode.installed?
       system "#{bin}/clang++", "-v",
-             "-isysroot", MacOS.sdk_path,
+             "-isysroot", MacOS::Xcode.sdk_path,
              "-isystem", "#{MacOS::Xcode.toolchain_path}/usr/include/c++/v1",
              "-isystem", "#{MacOS::Xcode.toolchain_path}/usr/include",
-             "-isystem", "#{MacOS.sdk_path}/usr/include",
+             "-isystem", "#{MacOS::Xcode.sdk_path}/usr/include",
              "-std=c++11", "test.cpp", "-o", "testXC++"
       assert_includes MachO::Tools.dylibs("testXC++"), "/usr/lib/libc++.1.dylib"
       assert_equal "Hello World!", shell_output("./testXC++").chomp
@@ -304,5 +269,21 @@ class Llvm < Formula
     EOS
     assert_equal "int main() { printf(\"Hello world!\"); }\n",
       shell_output("#{bin}/clang-format -style=google clangformattest.c")
+
+    # Ensure LLVM did not regress output of `llvm-config --system-libs` which for a time
+    # was known to output incorrect linker flags; e.g., `-llibxml2.tbd` instead of `-lxml2`.
+    # On the other hand, note that a fully qualified path to `dylib` or `tbd` is OK, e.g.,
+    # `/usr/local/lib/libxml2.tbd` or `/usr/local/lib/libxml2.dylib`.
+    shell_output("#{bin}/llvm-config --system-libs").chomp.strip.split(" ").each do |lib|
+      if lib.start_with?("-l")
+        assert !lib.end_with?(".tbd"), "expected abs path when lib reported as .tbd"
+        assert !lib.end_with?(".dylib"), "expected abs path when lib reported as .dylib"
+      else
+        p = Pathname.new(lib)
+        if p.extname == ".tbd" || p.extname == ".dylib"
+          assert p.absolute?, "expected abs path when lib reported as .tbd or .dylib"
+        end
+      end
+    end
   end
 end

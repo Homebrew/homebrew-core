@@ -4,20 +4,19 @@ class Mytop < Formula
   url "http://www.mysqlfanboy.com/mytop-3/mytop-1.9.1.tar.gz"
   mirror "https://deb.debian.org/debian/pool/main/m/mytop/mytop_1.9.1.orig.tar.gz"
   sha256 "179d79459d0013ab9cea2040a41c49a79822162d6e64a7a85f84cdc44828145e"
-  revision 7
+  revision 8
 
   bottle do
     cellar :any
-    sha256 "5318df299e0ce050c36698497d22959187b24e8dd81cc5766860a7a06f2ab718" => :catalina
-    sha256 "dc6eb11ecde1b19856bee11e61a04a6d28b67c341043ac6bf21e15f750aec836" => :mojave
-    sha256 "78f2298b2724d094921eac4909c175cdd07bf46a9096ed5b697ef22034c89f7a" => :high_sierra
-    sha256 "4cdb2985bb26fefac0b41da8d686bd6b4e56fcce52f3ca7ef572016f1f01d40f" => :sierra
+    sha256 "69930f7d5c68b0d6ce75c89820732f269d3b3c6651358875b0db58ae1ead38f0" => :catalina
+    sha256 "ac13ecf239ff9d4bb1d39ad584c46ac9a5c95f3b96b3991bf9108280b30c0a19" => :mojave
+    sha256 "2862de7630947648898e1ef348a8357fdd25622310c9af03450c40ea33fc925c" => :high_sierra
   end
 
   depends_on "mysql-client"
   depends_on "openssl@1.1"
 
-  conflicts_with "mariadb", :because => "both install `mytop` binaries"
+  conflicts_with "mariadb", because: "both install `mytop` binaries"
 
   resource "List::Util" do
     url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Scalar-List-Utils-1.46.tar.gz"
@@ -72,7 +71,7 @@ class Mytop < Formula
     system "perl", "Makefile.PL", "INSTALL_BASE=#{prefix}"
     system "make", "test", "install"
     share.install prefix/"man"
-    bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
+    bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
   end
 
   test do

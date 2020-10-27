@@ -1,30 +1,34 @@
 class Manticoresearch < Formula
   desc "Open source text search engine"
   homepage "https://www.manticoresearch.com"
-  url "https://github.com/manticoresoftware/manticoresearch/releases/download/3.2.0/manticore-3.2.0-191017-e526a01-release.tar.gz"
-  sha256 "df6dbcc4df01065fc3cc6328f043b8cef3eb403a28671455cd3c8fc4217e3391"
+  url "https://repo.manticoresearch.com/repository/manticoresearch_source/release/manticore-3.5.2-201002-8b2c175-release-source.tar.gz"
+  version "3.5.2"
+  sha256 "9eb41e68d422a9e0043415ffc5e2f6d39e8d94eae9c843b4b55b54eacc33a517"
+  license "GPL-2.0"
+  version_scheme 1
   head "https://github.com/manticoresoftware/manticoresearch.git"
 
   bottle do
-    sha256 "fd744cbff75ab0e153d9c4a0eb1e49fec7222daa49b481363be448ab0fc506c0" => :catalina
-    sha256 "ae594e5ef0c1f5c73b6f08b90249081f0df69879453fa379f3f3b5ae935ed17e" => :mojave
-    sha256 "fad052312cbbe75b5a0a6ca4e2184d9531f8c8bfa606597f0487c75a2339b09c" => :high_sierra
+    sha256 "6e8eab5ea85129311caca57dd605bae1bad03e7e9a021fbad9c6a2ebc5a204a5" => :catalina
+    sha256 "9413bdb874c9e02936326f22b2f3343d9b4b1312db95c324b12045741f71f729" => :mojave
+    sha256 "173f37791179e84ddf9d4304eee37a3a0ea6485847aa4d8ec7359623e884a1d2" => :high_sierra
   end
 
+  depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "icu4c" => :build
   depends_on "libpq" => :build
   depends_on "mysql" => :build
-  depends_on "unixodbc" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
-  conflicts_with "sphinx",
-   :because => "manticore, sphinx install the same binaries."
+  conflicts_with "sphinx", because: "manticoresearch is a fork of sphinx"
 
   def install
     args = %W[
       -DCMAKE_INSTALL_LOCALSTATEDIR=#{var}
       -DDISTR_BUILD=macosbrew
+      -DBoost_NO_BOOST_CMAKE=ON
+      -DWITH_ODBC=OFF
     ]
     mkdir "build" do
       system "cmake", "..", *std_cmake_args, *args
@@ -38,35 +42,36 @@ class Manticoresearch < Formula
     (var/"manticore/data").mkpath
   end
 
-  plist_options :manual => "searchd --config #{HOMEBREW_PREFIX}/etc/manticore/sphinx.conf"
+  plist_options manual: "searchd --config #{HOMEBREW_PREFIX}/etc/manticore/manticore.conf"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>KeepAlive</key>
-        <false/>
-        <key>ProgramArguments</key>
-        <array>
-            <string>#{opt_bin}/searchd</string>
-            <string>--config</string>
-            <string>#{etc}/manticore/sphinx.conf</string>
-            <string>--nodetach</string>
-        </array>
-        <key>WorkingDirectory</key>
-        <string>#{HOMEBREW_PREFIX}</string>
-      </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>KeepAlive</key>
+          <false/>
+          <key>ProgramArguments</key>
+          <array>
+              <string>#{opt_bin}/searchd</string>
+              <string>--config</string>
+              <string>#{etc}/manticore/manticore.conf</string>
+              <string>--nodetach</string>
+          </array>
+          <key>WorkingDirectory</key>
+          <string>#{HOMEBREW_PREFIX}</string>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do
-    (testpath/"sphinx.conf").write <<~EOS
+    (testpath/"manticore.conf").write <<~EOS
       searchd {
         pid_file = searchd.pid
         binlog_path=#

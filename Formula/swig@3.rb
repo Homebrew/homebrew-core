@@ -15,6 +15,8 @@ class SwigAT3 < Formula
 
   depends_on "pcre"
 
+  uses_from_macos "ruby" => :test
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"

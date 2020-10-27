@@ -1,28 +1,24 @@
 class Bup < Formula
   desc "Backup tool"
-  homepage "https://github.com/bup/bup"
-  url "https://github.com/bup/bup/archive/0.30.tar.gz"
-  sha256 "5238f045c220278a165fff528ea32288f2752db2e1ac15704e849b71cddda0b2"
+  homepage "https://bup.github.io/"
+  url "https://github.com/bup/bup/archive/0.31.tar.gz"
+  sha256 "2f54351aed653b4b9567d3a534af598a5bc63b32efd7cc593bcecac3b89e16d1"
+  license "LGPL-2.1"
   head "https://github.com/bup/bup.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "03113e1218de2523b0234d8ac10a18151f684c46c689e027e253e9db43e1cf4a" => :catalina
-    sha256 "2de7026bdda615a5cf7715d0ded2c40cddb19336ec354bc03bfc87a88c604afc" => :mojave
-    sha256 "87858ab9d63413366fd0fcda74bd74e0d206206157b87202783c75bb2fc7476e" => :high_sierra
+    sha256 "3bf19221bf74b4df029c16bc0d2c329ffa8c15299bd8d1ec3bf2fb5b33ef71d6" => :catalina
+    sha256 "9c0ece72b212d56a83ebe5540c68851e9fd759dabe05db787cc438aedce022de" => :mojave
+    sha256 "9c9515da16e8ba9ed333922a486a042da64e4f7d0986298a8c82420c83b06a7f" => :high_sierra
   end
 
   depends_on "pandoc" => :build
-  depends_on "python@2" # does not support Python 3
-
-  resource "backports_abc" do
-    url "https://files.pythonhosted.org/packages/68/3c/1317a9113c377d1e33711ca8de1e80afbaf4a3c950dd0edfaf61f9bfe6d8/backports_abc-0.5.tar.gz"
-    sha256 "033be54514a03e255df75c5aee8f9e672f663f93abb723444caec8fe43437bde"
-  end
+  depends_on :macos # Due to Python 2
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/41/b6/4f0cefba47656583217acd6cd797bc2db1fede0d53090fdc28ad2c8e0716/certifi-2018.10.15.tar.gz"
-    sha256 "6d58c986d22b038c8c0df30d639f23a3e6d172a05c3583e766f4c0b785c0986a"
+    url "https://files.pythonhosted.org/packages/b8/e2/a3a86a67c3fc8249ed305fc7b7d290ebe5e4d46ad45573884761ef4dea7b/certifi-2020.4.5.1.tar.gz"
+    sha256 "51fcb31174be6e6664c5f69e3e1691a2d72a1a12e90f872cbdb1567eb47b6519"
   end
 
   resource "singledispatch" do
@@ -31,13 +27,13 @@ class Bup < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
-    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
+    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
+    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
   end
 
   resource "tornado" do
-    url "https://files.pythonhosted.org/packages/e6/78/6e7b5af12c12bdf38ca9bfe863fcaf53dc10430a312d0324e76c1e5ca426/tornado-5.1.1.tar.gz"
-    sha256 "4e5158d97583502a7e2739951553cbd88a72076f152b4b11b64b9a10c4c49409"
+    url "https://files.pythonhosted.org/packages/95/84/119a46d494f008969bf0c775cb2c6b3579d3c4cc1bb1b41a022aa93ee242/tornado-6.0.4.tar.gz"
+    sha256 "0fe2d45ba43b00a41cd73f8be321a44936dc1aba233dee979f17a042b83eb6dc"
   end
 
   def install
@@ -53,7 +49,7 @@ class Bup < Formula
     system "make", "install", "DESTDIR=#{prefix}", "PREFIX="
 
     mv bin/"bup", libexec/"bup.py"
-    (bin/"bup").write_env_script libexec/"bup.py", :PYTHONPATH => ENV["PYTHONPATH"]
+    (bin/"bup").write_env_script libexec/"bup.py", PYTHONPATH: ENV["PYTHONPATH"]
   end
 
   test do

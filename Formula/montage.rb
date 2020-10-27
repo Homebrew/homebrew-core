@@ -15,18 +15,19 @@ class Montage < Formula
     sha256 "30e68dcecc111af10a65b1edd33a0142457b2f2064e1bce45e33a6d3d11539d4" => :mavericks
   end
 
-  conflicts_with "wdiff", :because => "Both install an mdiff executable"
+  conflicts_with "wdiff", because: "both install an `mdiff` executable"
 
   def install
     system "make"
     bin.install Dir["bin/m*"]
   end
 
-  def caveats; <<~EOS
-    Montage is under the Caltech/JPL non-exclusive, non-commercial software
-    licence agreement available at:
-      http://montage.ipac.caltech.edu/docs/download.html
-  EOS
+  def caveats
+    <<~EOS
+      Montage is under the Caltech/JPL non-exclusive, non-commercial software
+      licence agreement available at:
+        http://montage.ipac.caltech.edu/docs/download.html
+    EOS
   end
 
   test do

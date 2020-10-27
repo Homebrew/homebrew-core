@@ -3,6 +3,7 @@ class Vitetris < Formula
   homepage "https://www.victornils.net/tetris/"
   url "https://github.com/vicgeralds/vitetris/archive/v0.58.0.tar.gz"
   sha256 "e7e7cb74bb814b9fec80fe4ede3c3f04134d8217d630e092a097238248d604f9"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any_skip_relocation

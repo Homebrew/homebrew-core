@@ -5,6 +5,10 @@ class Libidl < Formula
   sha256 "c5d24d8c096546353fbc7cedf208392d5a02afe9d56ebcc1cccb258d7c4d2220"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "fc384a7b4357147c85196b681bd1a96a70e2a7e194c38b6e8afbef5bafc21efb" => :catalina
@@ -16,6 +20,9 @@ class Libidl < Formula
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "glib"
+
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
 
   def install
     system "./configure", "--disable-dependency-tracking",

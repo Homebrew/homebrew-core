@@ -3,6 +3,7 @@ class Mkcert < Formula
   homepage "https://github.com/FiloSottile/mkcert"
   url "https://github.com/FiloSottile/mkcert/archive/v1.4.1.tar.gz"
   sha256 "b539e11ac0a06ff4831b76134b8d391610287cf8e56b002365b3786b96e0acbe"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any_skip_relocation

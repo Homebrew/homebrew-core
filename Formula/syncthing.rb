@@ -1,68 +1,70 @@
 class Syncthing < Formula
   desc "Open source continuous file synchronization application"
   homepage "https://syncthing.net/"
-  url "https://github.com/syncthing/syncthing.git",
-      :tag      => "v1.3.0",
-      :revision => "2c88e473cb089e377628cdd4ea086eb60ff2b195"
+  url "https://github.com/syncthing/syncthing/archive/v1.10.0.tar.gz"
+  sha256 "9baacd5383e36696d5ecf467536659c5e4beb12caf2126da29a92bd423277a46"
+  license "MPL-2.0"
   head "https://github.com/syncthing/syncthing.git"
+
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "81c4bbb7b6c7855a5eee5e41bb4489de4d1d301f968b1c680cb86b95c9f3fb08" => :mojave
-    sha256 "a92ac13dae538d0932c1c4f2af0185ef571f9730df74b522bc569f547211e537" => :high_sierra
+    sha256 "586b4b37d9300aa93ff433c4ebcd18d29863cf466962802fdf2ec31b9a72f76c" => :catalina
+    sha256 "5ea876c0c49923cc75b31ff0a4598cb0876597d5ca8335bb8d0bdb562d7168a3" => :mojave
+    sha256 "5433ef70f0ac9709aeeffc88a7ab1730113c0ae4fed5fdaf17121b7ab24e1b9e" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
+    system "go", "run", "build.go", "--version", "v#{version}", "--no-upgrade", "tar"
+    bin.install "syncthing"
 
-    src = buildpath/"src/github.com/syncthing/syncthing"
-    src.install buildpath.children
-    src.cd do
-      system "./build.sh", "noupgrade"
-      bin.install "syncthing"
-      man1.install Dir["man/*.1"]
-      man5.install Dir["man/*.5"]
-      man7.install Dir["man/*.7"]
-      prefix.install_metafiles
-    end
+    man1.install Dir["man/*.1"]
+    man5.install Dir["man/*.5"]
+    man7.install Dir["man/*.7"]
   end
 
-  plist_options :manual => "syncthing"
+  plist_options manual: "syncthing"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/syncthing</string>
-          <string>-no-browser</string>
-          <string>-no-restart</string>
-        </array>
-        <key>KeepAlive</key>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
         <dict>
-          <key>Crashed</key>
-          <true/>
-          <key>SuccessfulExit</key>
-          <false/>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/syncthing</string>
+            <string>-no-browser</string>
+            <string>-no-restart</string>
+          </array>
+          <key>KeepAlive</key>
+          <dict>
+            <key>Crashed</key>
+            <true/>
+            <key>SuccessfulExit</key>
+            <false/>
+          </dict>
+          <key>ProcessType</key>
+          <string>Background</string>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/syncthing.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/syncthing.log</string>
         </dict>
-        <key>ProcessType</key>
-        <string>Background</string>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/syncthing.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/syncthing.log</string>
-      </dict>
-    </plist>
-  EOS
+      </plist>
+    EOS
   end
 
   test do
+    assert_match "syncthing v#{version} ", shell_output("#{bin}/syncthing --version")
     system bin/"syncthing", "-generate", "./"
   end
 end

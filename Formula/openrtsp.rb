@@ -1,31 +1,46 @@
 class Openrtsp < Formula
   desc "Command-line RTSP client"
   homepage "http://www.live555.com/openRTSP"
-  url "http://www.live555.com/liveMedia/public/live.2018.10.17.tar.gz"
+  url "http://www.live555.com/liveMedia/public/live.2020.10.16.tar.gz"
+  mirror "https://download.videolan.org/pub/videolan/testing/contrib/live555/live.2020.10.16.tar.gz"
   # Keep a mirror as upstream tarballs are removed after each version
-  mirror "https://download.videolan.org/pub/videolan/testing/contrib/live555/live.2018.10.17.tar.gz"
-  sha256 "7c68d9c95b39acd309a2b6a4fc14c3837544a9be3f64062ed38d1ad6f68dc9e8"
+  sha256 "76ba4eb4e846caab97aef9b425866c80e0ab52252146b5b024d3d3ad934d3e78"
+  license "LGPL-3.0-or-later"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "409bfd3370d03a822f2e78fc660bf814acfed94f70c248c111c316e656e22921" => :catalina
-    sha256 "fbf8533b65181a93a166ba5415327a4a294576c55effe2c881fbe20956772853" => :mojave
-    sha256 "fbff910d3f518c592e2f64afa540a17d59db664f06ce5077e1ef7959ee1ce481" => :high_sierra
-    sha256 "293bd6edd7d7de1ea39517b1809865f120570e3645acbd777b704c5ebed16189" => :sierra
+  livecheck do
+    url "http://www.live555.com/liveMedia/public/"
+    regex(/href=.*?live[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t/i)
   end
 
+  bottle do
+    cellar :any
+    sha256 "f309dea1f86da483c6371046ee176c5720939fc8331df3a31e58c19cb98731c5" => :catalina
+    sha256 "65dbf2cfe7333a73482bc84161399781ad54f96fec6889592fd491bd37fd5575" => :mojave
+    sha256 "f88ffd15dbff7bacfbc910c4d8c49d88472cb701d2cb0bba4dde0b2118a823e0" => :high_sierra
+  end
+
+  depends_on "openssl@1.1"
+
   def install
+    # Avoid linkage to system OpenSSL
+    libs = [
+      Formula["openssl@1.1"].opt_lib/"libcrypto.dylib",
+      Formula["openssl@1.1"].opt_lib/"libssl.dylib",
+    ]
+
     system "./genMakefiles", "macosx"
-    system "make", "PREFIX=#{prefix}", "install"
+    system "make", "PREFIX=#{prefix}",
+           "LIBS_FOR_CONSOLE_APPLICATION=#{libs.join(" ")}", "install"
 
     # Move the testing executables out of the main PATH
     libexec.install Dir.glob(bin/"test*")
   end
 
-  def caveats; <<~EOS
-    Testing executables have been placed in:
-      #{libexec}
-  EOS
+  def caveats
+    <<~EOS
+      Testing executables have been placed in:
+        #{libexec}
+    EOS
   end
 
   test do

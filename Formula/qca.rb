@@ -1,46 +1,56 @@
 class Qca < Formula
   desc "Qt Cryptographic Architecture (QCA)"
   homepage "https://userbase.kde.org/QCA"
-  revision 1
-  head "https://anongit.kde.org/qca.git"
+  license "LGPL-2.1"
+  revision 2
+  head "https://invent.kde.org/libraries/qca.git"
 
   stable do
-    url "https://github.com/KDE/qca/archive/v2.2.1.tar.gz"
-    sha256 "c67fc0fa8ae6cb3d0ba0fbd8fca8ee8e4c5061b99f1fd685fd7d9800cef17f6b"
+    url "https://download.kde.org/stable/qca/2.3.1/qca-2.3.1.tar.xz"
+    sha256 "c13851109abefc4623370989fae3a745bf6b1acb3c2a13a8958539823e974e4b"
 
     # use major version for framework, instead of full version
-    # see: https://github.com/KDE/qca/pull/3
+    # see: https://invent.kde.org/libraries/qca/-/merge_requests/34
     patch do
-      url "https://github.com/KDE/qca/pull/3.patch?full_index=1"
-      sha256 "37281b8fefbbdab768d7abcc39fb1c1bf85159730c2a4de6e84f0bf318ebac2c"
+      url "https://invent.kde.org/libraries/qca/-/commit/f899a6aaad6747c703a9ee438a4a75bd7f6052f4.diff"
+      sha256 "1ae6e279d3e1e4dbe10ff80908517dab29e2b538f7c79384901d28bed69cbc9e"
     end
   end
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256 "3994834f24803f2160fef801132008751edf8965b309d727e56cd1d79b97be85" => :catalina
-    sha256 "54df24141f4dfc90d98eee0e8dd6e0f64bccde7eebe25ddd64378c27d2758924" => :mojave
-    sha256 "0d30e0f8da5cff11b81b4591ca7399eef30d2ba0952daf7e5b4541aba3a32ca5" => :high_sierra
-    sha256 "eef1669c0e70e85b0aed09d1bc885287e1d946b46de1068cab6a0b299d65a43f" => :sierra
+    cellar :any
+    sha256 "beffb3f0ec64707df65d6debe01378970a64a09bd1f3e62a75135fceb05fad2a" => :catalina
+    sha256 "1698ced59723dd813b0d844557701ff944e2392877bdf6ef3c5dbf6d2dbbc60b" => :mojave
+    sha256 "adf5f64082417a58d3472fbd8a57b1b2f9b37cb5a9410cf1db86b8fa44868cf5" => :high_sierra
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl@1.1" # qca-ossl plugin
+  depends_on "botan"
+  depends_on "gnupg"
+  depends_on "libgcrypt"
+  depends_on "nss"
+  depends_on "openssl@1.1"
+  depends_on "pkcs11-helper"
   depends_on "qt"
 
   def install
     args = std_cmake_args
-    args << "-DQT4_BUILD=OFF"
     args << "-DBUILD_TESTS=OFF"
     args << "-DQCA_PLUGINS_INSTALL_DIR=#{lib}/qt5/plugins"
 
     # Disable some plugins. qca-ossl, qca-cyrus-sasl, qca-logger,
     # qca-softstore are always built.
-    args << "-DWITH_botan_PLUGIN=NO"
-    args << "-DWITH_gcrypt_PLUGIN=NO"
-    args << "-DWITH_gnupg_PLUGIN=NO"
-    args << "-DWITH_nss_PLUGIN=NO"
-    args << "-DWITH_pkcs11_PLUGIN=NO"
+    args << "-DWITH_botan_PLUGIN=ON"
+    args << "-DWITH_gcrypt_PLUGIN=ON"
+    args << "-DWITH_gnupg_PLUGIN=ON"
+    args << "-DWITH_nss_PLUGIN=ON"
+    args << "-DWITH_pkcs11_PLUGIN=ON"
 
     # ensure opt_lib for framework install name and linking (can't be done via CMake configure)
     inreplace "src/CMakeLists.txt",

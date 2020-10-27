@@ -3,6 +3,12 @@ class Taktuk < Formula
   homepage "https://taktuk.gforge.inria.fr/"
   url "https://gforge.inria.fr/frs/download.php/file/37055/taktuk-3.7.7.tar.gz"
   sha256 "56a62cca92670674c194e4b59903e379ad0b1367cec78244641aa194e9fe893e"
+  license "GPL-2.0"
+
+  livecheck do
+    url "https://gforge.inria.fr/frs/?group_id=274"
+    regex(/href=.*?taktuk[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     cellar :any

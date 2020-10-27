@@ -3,17 +3,18 @@ class Supervisor < Formula
 
   desc "Process Control System"
   homepage "http://supervisord.org/"
-  url "https://github.com/Supervisor/supervisor/archive/4.1.0.tar.gz"
-  sha256 "e4e87a309d34c1356b77d1dfd300191b2a7c314e050d7b3853e5b91ef166c2f2"
+  url "https://github.com/Supervisor/supervisor/archive/4.2.0.tar.gz"
+  sha256 "05031f36ad15cad47fb56f01d8e075f952ae39ba8ce492ea790ebb310e3f0368"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e4036a376329fdfe172d0884353e8726063b9535ff79a76f46e04369e680b5ba" => :catalina
-    sha256 "3e51e9866e4793367df67e0e566cb33a8f018a899cfbb36654f1d8baa9be4bd4" => :mojave
-    sha256 "41fd027c40c5e5da953fc007999db6248046f45ea68e9b1c5a4525834e98f130" => :high_sierra
+    sha256 "bd9a26f19bc257abded6138d2c0ae208252d6c780ae2daa85b7d093c47234eb1" => :catalina
+    sha256 "484eeb4bd246381f6c629023f126515d960a564fd3de4788e3eace9085cf698d" => :mojave
+    sha256 "cca1a2525646a0aaeb2bae9c5885bca7757737415bbfe54f12cb1b2367548bb3" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.9"
 
   def install
     inreplace buildpath/"supervisor/skel/sample.conf" do |s|
@@ -26,15 +27,22 @@ class Supervisor < Formula
 
     virtualenv_install_with_resources
 
-    etc.install buildpath/"supervisor/skel/sample.conf" => "supervisord.ini"
+    etc.install buildpath/"supervisor/skel/sample.conf" => "supervisord.conf"
   end
 
   def post_install
     (var/"run").mkpath
     (var/"log").mkpath
+    conf_warn = <<~EOS
+      The default location for supervisor's config file is now:
+        #{etc}/supervisord.conf
+      Please move your config file to this location and restart supervisor.
+    EOS
+    old_conf = etc/"supervisord.ini"
+    opoo conf_warn if old_conf.exist?
   end
 
-  plist_options :manual => "supervisord -c #{HOMEBREW_PREFIX}/etc/supervisord.ini"
+  plist_options manual: "supervisord"
 
   def plist
     <<~EOS
@@ -53,7 +61,7 @@ class Supervisor < Formula
           <array>
             <string>#{opt_bin}/supervisord</string>
             <string>-c</string>
-            <string>#{etc}/supervisord.ini</string>
+            <string>#{etc}/supervisord.conf</string>
             <string>--nodaemon</string>
           </array>
         </dict>

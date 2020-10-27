@@ -1,8 +1,14 @@
 class Metabase < Formula
   desc "Business intelligence report server"
   homepage "https://www.metabase.com/"
-  url "https://downloads.metabase.com/v0.32.10/metabase.jar"
-  sha256 "360b97a4d9c948388e054d2e1fe5f309f527bf174073bc3a20f9a6a837e7fc37"
+  url "https://downloads.metabase.com/v0.37.0.2/metabase.jar"
+  sha256 "7f95f9823bdf567d4044925e9f14c820a6b4a176624ec027d911cac33813bf96"
+  license "AGPL-3.0-only"
+
+  livecheck do
+    url "https://github.com/metabase/metabase/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
 
   head do
     url "https://github.com/metabase/metabase.git"
@@ -14,7 +20,9 @@ class Metabase < Formula
 
   bottle :unneeded
 
-  depends_on :java => "1.8"
+  # metabase uses jdk.nashorn.api.scripting.JSObject
+  # which is removed in Java 15
+  depends_on "openjdk@11"
 
   def install
     if build.head?
@@ -24,39 +32,36 @@ class Metabase < Formula
       libexec.install "metabase.jar"
     end
 
-    (bin/"metabase").write <<~EOS
-      #!/bin/bash
-      export JAVA_HOME="$(#{Language::Java.java_home_cmd("1.8")})"
-      exec java -jar "#{libexec}/metabase.jar" "$@"
-    EOS
+    bin.write_jar_script libexec/"metabase.jar", "metabase", java_version: "11"
   end
 
-  plist_options :startup => true, :manual => "metabase"
+  plist_options startup: true, manual: "metabase"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>KeepAlive</key>
-      <true/>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_bin}/metabase</string>
-      </array>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>WorkingDirectory</key>
-      <string>#{var}/metabase</string>
-      <key>StandardOutPath</key>
-      <string>#{var}/metabase/server.log</string>
-      <key>StandardErrorPath</key>
-      <string>/dev/null</string>
-    </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>KeepAlive</key>
+        <true/>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/metabase</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>WorkingDirectory</key>
+        <string>#{var}/metabase</string>
+        <key>StandardOutPath</key>
+        <string>#{var}/metabase/server.log</string>
+        <key>StandardErrorPath</key>
+        <string>/dev/null</string>
+      </dict>
+      </plist>
+    EOS
   end
 
   test do

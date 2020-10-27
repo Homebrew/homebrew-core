@@ -2,30 +2,34 @@ class Ldid < Formula
   desc "Lets you manipulate the signature block in a Mach-O binary"
   homepage "https://cydia.saurik.com/info/ldid/"
   url "https://git.saurik.com/ldid.git",
-      :tag      => "v1.2.1",
-      :revision => "e4b7adc1e02c9f0e16cc9ae2841192b386f6d4ea"
+      tag:      "v2.1.2",
+      revision: "c2f8abf013b22c335f44241a6a552a7767e73419"
+  license "AGPL-3.0"
   revision 1
   head "https://git.saurik.com/ldid.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "f80f2e277b47423d0b346004746e4ffe175ab25d919d1579035c7c518c149aa3" => :catalina
-    sha256 "ba39a727e8edd9376e0bef4eeb900d8852f90fa7d1a0b50d754f9007185b7764" => :mojave
-    sha256 "1b0d2d4b611a914b8cf688ac3f35eba21490654bc8b7401bf47e9e1be77e0f3f" => :sierra
+    cellar :any
+    sha256 "fdd2c5d784f91bcbe6117d16763c3b552f08c8aa1783cb0d7017fb1832f353d3" => :catalina
+    sha256 "b76050d24afe9f92eb6a7f53233c27a530ae59454f7193ff82bcade593022645" => :mojave
+    sha256 "2a0dd3dd8e0b34980260054420212932e4010eea4e4245307919527aaca7df58" => :high_sierra
   end
 
+  depends_on "libplist"
   depends_on "openssl@1.1"
 
   def install
-    inreplace "make.sh" do |s|
-      s.gsub! %r{^.*/Applications/Xcode-5.1.1.app.*}, ""
-
-      # Reported upstream 2 Sep 2018 (to saurik via email)
-      s.gsub! "-mmacosx-version-min=10.4", "-mmacosx-version-min=#{MacOS.version}"
-      s.gsub! "for arch in i386 x86_64; do", "for arch in x86_64; do" if MacOS.version >= :mojave
-    end
-    system "./make.sh"
+    system ENV.cc, "-c",
+                   "-o", "lookup2.o", "lookup2.c",
+                   "-I."
+    system ENV.cxx, "-std=c++11",
+                    "-o", "ldid", "lookup2.o", "ldid.cpp",
+                    "-I.",
+                    "-framework", "CoreFoundation",
+                    "-framework", "Security",
+                    "-lcrypto", "-lplist-2.0", "-lxml2"
     bin.install "ldid"
+    ln_s bin/"ldid", bin/"ldid2"
   end
 
   test do

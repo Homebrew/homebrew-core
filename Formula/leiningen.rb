@@ -1,21 +1,27 @@
 class Leiningen < Formula
   desc "Build tool for Clojure"
   homepage "https://github.com/technomancy/leiningen"
-  url "https://github.com/technomancy/leiningen/archive/2.9.1.tar.gz"
-  sha256 "a4c239b407576f94e2fef5bfa107f0d3f97d0b19c253b08860d9609df4ab8b29"
+  url "https://github.com/technomancy/leiningen/archive/2.9.4.tar.gz"
+  sha256 "be1b1e43c5376f2fdc8666aeb671df16c19776d5cfe64339292a3d35ce3a7faa"
+  license "EPL-1.0"
   head "https://github.com/technomancy/leiningen.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "480cf69d0f2f9d43879b0768018ef323426d0cca145e00984d76890c2baaa919" => :catalina
-    sha256 "4b353034cd7bf4825ed9c5a340a20beed7382a8369f9ecd9f7da233e9b36a03a" => :mojave
-    sha256 "4b353034cd7bf4825ed9c5a340a20beed7382a8369f9ecd9f7da233e9b36a03a" => :high_sierra
-    sha256 "f7ebcf91cfac411472d2dfdee71f008bc2ad3d7289b342a98db0916e74b7f615" => :sierra
+    sha256 "3e65cbf112fe60434c3b6f748342de048feeaa63f10da2e26721ce9e83dea081" => :catalina
+    sha256 "3e65cbf112fe60434c3b6f748342de048feeaa63f10da2e26721ce9e83dea081" => :mojave
+    sha256 "3e65cbf112fe60434c3b6f748342de048feeaa63f10da2e26721ce9e83dea081" => :high_sierra
   end
 
   resource "jar" do
-    url "https://github.com/technomancy/leiningen/releases/download/2.9.1/leiningen-2.9.1-standalone.zip", :using => :nounzip
-    sha256 "ea7c831a4f5c38b6fc3926c6ad32d1d4b9b91bf830a715ecff5a70a18bda55f8"
+    url "https://github.com/technomancy/leiningen/releases/download/2.9.4/leiningen-2.9.4-standalone.zip", using: :nounzip
+    sha256 "0e3c339480347df0445317d329accbd4a578ebbd8d91e568e661feb1b388706c"
+  end
+
+  # Remove patch when updated to next release
+  patch do
+    url "https://github.com/technomancy/leiningen/commit/7677dabea40a2d17a42a718ca8c7e450b09e153c.patch?full_index=1"
+    sha256 "91260bb1ce6974fe0134dfa46548a6083c0ae347c2acf8ef7e57b0adef8e8df2"
   end
 
   def install
@@ -34,11 +40,12 @@ class Leiningen < Formula
     zsh_completion.install "zsh_completion.zsh" => "_lein"
   end
 
-  def caveats; <<~EOS
-    Dependencies will be installed to:
-      $HOME/.m2/repository
-    To play around with Clojure run `lein repl` or `lein help`.
-  EOS
+  def caveats
+    <<~EOS
+      Dependencies will be installed to:
+        $HOME/.m2/repository
+      To play around with Clojure run `lein repl` or `lein help`.
+    EOS
   end
 
   test do

@@ -3,6 +3,12 @@ class Nload < Formula
   homepage "http://www.roland-riegel.de/nload/"
   url "http://www.roland-riegel.de/nload/nload-0.7.4.tar.gz"
   sha256 "c1c051e7155e26243d569be5d99c744d8620e65fa8a7e05efcf84d01d9d469e5"
+  license "GPL-2.0"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?nload[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     cellar :any_skip_relocation
@@ -14,6 +20,8 @@ class Nload < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+
+  uses_from_macos "ncurses"
 
   # crash on F2 and garbage in adapter name, see https://sourceforge.net/p/nload/bugs/8/ reported on 2014-04-03
   patch :p0 do

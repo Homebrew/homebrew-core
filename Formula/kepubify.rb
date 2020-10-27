@@ -1,15 +1,16 @@
 class Kepubify < Formula
   desc "Convert ebooks from epub to kepub"
   homepage "https://pgaskin.net/kepubify/"
-  url "https://github.com/geek1011/kepubify/archive/v2.3.3.tar.gz"
-  sha256 "57bbd5c5f24eab4d5eb5ab2dd9fb7b534afbfaf78d0c07fbf8c570b2fe5fae0a"
-  head "https://github.com/geek1011/kepubify.git"
+  url "https://github.com/pgaskin/kepubify/archive/v3.1.6.tar.gz"
+  sha256 "09b81eff1cf53fb184773cf289c1eee56c3354cf6e1efddb5e308566b31de69f"
+  license "MIT"
+  head "https://github.com/pgaskin/kepubify.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4b6c99b8a4bd18131c01a2cfd4cc855140f28bb828f586c98d98b18bf686b1a7" => :catalina
-    sha256 "4ac2a6391a16528f35127f88a52476086d8b62833be8afe2234fb99d23c151ad" => :mojave
-    sha256 "0856de98e48b3ceedc567399cf08871f51ecb4df9e091e4e9aebb6437ff9c98a" => :high_sierra
+    sha256 "02f990a949cebef432e4355e90c5e4685d85f556519392ecb425a0d7e0730add" => :catalina
+    sha256 "6f5f0a9dff4919fbdd57fece754775014f2528fdd86e0f6a3ed5b30333d14435" => :mojave
+    sha256 "ea8a1abda1b013780b9475fdcd9ee1332fbb33d22e8e41a43bfd4ad7b99bbfd1" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -17,18 +18,25 @@ class Kepubify < Formula
   def install
     ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
 
-    system "go", "build", "-o", bin/"kepubify",
-                 "-ldflags", "-X main.version=v#{version}"
+    %w[
+      kepubify
+      covergen
+      seriesmeta
+    ].each do |p|
+      system "go", "build", "-o", bin/p,
+                   "-ldflags", "-s -w -X main.version=#{version}",
+                   "./cmd/#{p}"
+    end
 
-    pkgshare.install "kepub/testdata/books/test1.epub"
+    pkgshare.install "kepub/test.epub"
   end
 
   test do
     pdf = test_fixtures("test.pdf")
     output = shell_output("#{bin}/kepubify #{pdf} 2>&1", 1)
-    assert_match "not an epub", output
+    assert_match "Error: invalid extension", output
 
-    system bin/"kepubify", pkgshare/"test1.epub"
-    assert_predicate testpath/"test1.kepub.epub", :exist?
+    system bin/"kepubify", pkgshare/"test.epub"
+    assert_predicate testpath/"test_converted.kepub.epub", :exist?
   end
 end

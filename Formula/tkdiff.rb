@@ -5,6 +5,11 @@ class Tkdiff < Formula
   version "4.3.5"
   sha256 "29d7f0b815d06b0ab6653baa9b6b7c213801ce6a976724ae843bf9735cbbde7e"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/tkdiff/v?(\d+(?:\.\d+)+)/[^"]+?\.zip}i)
+  end
+
   bottle :unneeded
 
   def install

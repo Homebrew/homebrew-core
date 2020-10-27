@@ -1,28 +1,27 @@
 class Goreman < Formula
   desc "Foreman clone written in Go"
   homepage "https://github.com/mattn/goreman"
-  url "https://github.com/mattn/goreman/archive/v0.3.0.tar.gz"
-  sha256 "80b439dc2d68e59003c5cb1739a8c2241be54ece36e8cb686e4db25bee9e141a"
+  url "https://github.com/mattn/goreman/archive/v0.3.7.tar.gz"
+  sha256 "424dde6592c99468dce19c1302222a15ccc2367f0c908ee2147709398ce6497b"
+  license "MIT"
+  head "https://github.com/mattn/goreman.git"
+
+  livecheck do
+    url :homepage
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "05f671ec06b1bdb69d7ae497026fb9e7d892ff30d176fbd85a7b1f96576f2938" => :catalina
-    sha256 "896a22c18d18985195df7b47f655b759051856a12406f4de23e3a511630eadee" => :mojave
-    sha256 "f3ea945f4596a6f2b218c1fea6ff2e9e7fc4420b07b1f32a22698c01e5a59424" => :high_sierra
+    sha256 "8985d410d3b9c56064ceb7a01be4fd448e46c414f0a0b8c3a4f6ec7374c2f5b6" => :catalina
+    sha256 "d7781e6ce9c1ab5844f06d77dbbb8355a5f749daa5cd3c2b12266385d73b9a77" => :mojave
+    sha256 "df59dbb8a079d4eaf095b7a807dcbd0a96de11874dec3b6e560454617eed9b2b" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    srcpath = buildpath/"src/github.com/mattn/goreman"
-    srcpath.install buildpath.children
-
-    cd srcpath do
-      system "go", "build", "-o", bin/"goreman"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"goreman"
   end
 
   test do

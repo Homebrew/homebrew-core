@@ -3,6 +3,7 @@ class AptDater < Formula
   homepage "https://github.com/DE-IBH/apt-dater"
   url "https://github.com/DE-IBH/apt-dater/archive/v1.0.4.tar.gz"
   sha256 "a4bd5f70a199b844a34a3b4c4677ea56780c055db7c557ff5bd8f2772378a4d6"
+  license "GPL-2.0"
   revision 1
   version_scheme 1
 
@@ -19,6 +20,7 @@ class AptDater < Formula
   depends_on "gettext"
   depends_on "glib"
   depends_on "popt"
+
   uses_from_macos "libxml2"
 
   def install

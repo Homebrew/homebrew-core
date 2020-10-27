@@ -18,7 +18,7 @@ class Xsd < Formula
   depends_on "pkg-config" => :build
   depends_on "xerces-c"
 
-  conflicts_with "mono", :because => "both install `xsd` binaries"
+  conflicts_with "mono", because: "both install `xsd` binaries"
 
   # Patches:
   # 1. As of version 4.0.0, Clang fails to compile if the <iostream> header is

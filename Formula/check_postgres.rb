@@ -1,16 +1,21 @@
 class CheckPostgres < Formula
   desc "Monitor Postgres databases"
   homepage "https://bucardo.org/wiki/Check_postgres"
-  url "https://bucardo.org/downloads/check_postgres-2.24.0.tar.gz"
-  sha256 "79d4efb2d82a91dd8e7c077c323d1a25d64435bcaecfc3bba0cf0bb5e3ea1e17"
+  url "https://bucardo.org/downloads/check_postgres-2.25.0.tar.gz"
+  sha256 "11b52f86c44d6cc26e9a4129e67c2589071dbe1b8ac1f8895761517491c6e44b"
+  license "BSD-2-Clause"
   head "https://github.com/bucardo/check_postgres.git"
+
+  livecheck do
+    url "https://bucardo.org/check_postgres/"
+    regex(/latest version.*?v?(\d+(?:\.\d+)+)/i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b5de792e7b22657a7d34b0c20ae20994c2ff9967870d2361a96af3c9ecde973a" => :catalina
-    sha256 "eed2892822abe3b006befc6f7933040b8deec32074c9729408c6c4f4765efce8" => :mojave
-    sha256 "eed2892822abe3b006befc6f7933040b8deec32074c9729408c6c4f4765efce8" => :high_sierra
-    sha256 "56fbaf773772a3424d6c1d532c9f5f691c1f4d85e4a0bc62ef880a28bae87f5a" => :sierra
+    sha256 "2f164aefe3706e144350278db4e9246359a8a58bba1f16fae289344553e33b64" => :catalina
+    sha256 "2f164aefe3706e144350278db4e9246359a8a58bba1f16fae289344553e33b64" => :mojave
+    sha256 "e0ae2298e162d333e8833ad294906ba369ac5adaf704b8478ebf54c7a134b9f4" => :high_sierra
   end
 
   depends_on "postgresql"

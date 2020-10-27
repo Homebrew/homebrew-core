@@ -1,19 +1,28 @@
 class TransmissionCli < Formula
   desc "Lightweight BitTorrent client"
   homepage "https://www.transmissionbt.com/"
-  url "https://github.com/transmission/transmission-releases/raw/dc77bea/transmission-2.94.tar.xz"
-  sha256 "35442cc849f91f8df982c3d0d479d650c6ca19310a994eccdaa79a4af3916b7d"
-  revision 1
+  url "https://github.com/transmission/transmission-releases/raw/d5ccf14/transmission-3.00.tar.xz"
+  sha256 "9144652fe742f7f7dd6657716e378da60b751aaeda8bef8344b3eefc4db255f2"
+  # license ["GPL-2.0", "GPL-3.0"] - pending https://github.com/Homebrew/brew/pull/7953
+  license "GPL-2.0"
+
+  livecheck do
+    url "https://github.com/transmission/transmission-releases/"
+    regex(/href=.*?transmission[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 "e64cb28206f2592f2b4b922a5953d6cdc806ec1eb0e20ecf16dbfa333268edcb" => :catalina
-    sha256 "83eb7e06a8c621224c883d220ef242127ee4f273cbfa290889118ceb1e4d2cca" => :mojave
-    sha256 "800441903403efd301a0a8fc63771523302c43c8020381b4b19cba5ae51da843" => :high_sierra
-    sha256 "1f518eddc8e93cd916313a16a0e253f9abe744c45d908bfee5fac40a0d6041f1" => :sierra
+    sha256 "576f0f5017a86da149292b6da4fde251ad7a77bd9a88e82639ed4fc586cb08e7" => :catalina
+    sha256 "d56c90e32e206cdcf5ec8591fcb79de80c9b41483946c354fac4b9f09020c236" => :mojave
+    sha256 "d8ded603c8aae8b4eaf59c1c078dfdfb44b97191d4ce42439f6b02984ccf16b3" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "libevent"
+  depends_on "openssl@1.1"
+
+  uses_from_macos "curl"
+  uses_from_macos "zlib"
 
   def install
     ENV.append "LDFLAGS", "-framework Foundation -prebind"
@@ -33,46 +42,48 @@ class TransmissionCli < Formula
     (var/"transmission").mkpath
   end
 
-  def caveats; <<~EOS
-    This formula only installs the command line utilities.
+  def caveats
+    <<~EOS
+      This formula only installs the command line utilities.
 
-    Transmission.app can be downloaded directly from the website:
-      https://www.transmissionbt.com/
+      Transmission.app can be downloaded directly from the website:
+        https://www.transmissionbt.com/
 
-    Alternatively, install with Homebrew Cask:
-      brew cask install transmission
-  EOS
+      Alternatively, install with Homebrew Cask:
+        brew cask install transmission
+    EOS
   end
 
-  plist_options :manual => "transmission-daemon --foreground"
+  plist_options manual: "transmission-daemon --foreground"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/transmission-daemon</string>
-          <string>--foreground</string>
-          <string>--config-dir</string>
-          <string>#{var}/transmission/</string>
-          <string>--log-info</string>
-          <string>--logfile</string>
-          <string>#{var}/transmission/transmission-daemon.log</string>
-        </array>
-        <key>KeepAlive</key>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
         <dict>
-          <key>NetworkState</key>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/transmission-daemon</string>
+            <string>--foreground</string>
+            <string>--config-dir</string>
+            <string>#{var}/transmission/</string>
+            <string>--log-info</string>
+            <string>--logfile</string>
+            <string>#{var}/transmission/transmission-daemon.log</string>
+          </array>
+          <key>KeepAlive</key>
+          <dict>
+            <key>NetworkState</key>
+            <true/>
+          </dict>
+          <key>RunAtLoad</key>
           <true/>
         </dict>
-        <key>RunAtLoad</key>
-        <true/>
-      </dict>
-    </plist>
-  EOS
+      </plist>
+    EOS
   end
 
   test do

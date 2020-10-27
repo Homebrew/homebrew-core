@@ -1,20 +1,28 @@
 class Coq < Formula
   desc "Proof assistant for higher-order logic"
   homepage "https://coq.inria.fr/"
-  url "https://github.com/coq/coq/archive/V8.10.1.tar.gz"
-  sha256 "f8eb889c4974b89db1303b22382b2de4116ede1db673afefc67e3abff8955612"
+  url "https://github.com/coq/coq/archive/V8.12.0.tar.gz"
+  sha256 "ecde14c6132f5abb459e7f4724788788928174ad4484fff88e86b0086779bcee"
+  license "LGPL-2.1"
   head "https://github.com/coq/coq.git"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256 "ad44a6694028e971ebe8b203dc5b240353133482d0766666bbaacee8bc2b6b1d" => :catalina
-    sha256 "26ee42e17513ae2e7d5a3fa4ee7185fd2e1c3b3d60eb61ba5b499871542cf715" => :mojave
-    sha256 "4bea2021c232045a6535a33f18f05b1e36533920df3c8245cbfb52d42279c69f" => :high_sierra
+    sha256 "a5554791729dd815ac14788c76b7f4e72970d734fa0fa161709030409cf55f90" => :catalina
+    sha256 "ac3b6a5a21b51c4c535255607a0d620665f9747183115ff20a6349bcf863afc1" => :mojave
+    sha256 "28d141665e1ca46ead7af4061aff2658712817b6d140b37e69171586e28999f3" => :high_sierra
   end
 
   depends_on "ocaml-findlib" => :build
-  depends_on "camlp5"
   depends_on "ocaml"
   depends_on "ocaml-num"
+
+  uses_from_macos "m4" => :build
+  uses_from_macos "unzip" => :build
 
   def install
     system "./configure", "-prefix", prefix,

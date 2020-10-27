@@ -1,16 +1,20 @@
 class BashCompletionAT2 < Formula
-  desc "Programmable completion for Bash 4.1+"
+  desc "Programmable completion for Bash 4.2+"
   homepage "https://github.com/scop/bash-completion"
-  url "https://github.com/scop/bash-completion/releases/download/2.8/bash-completion-2.8.tar.xz"
-  sha256 "c01f5570f5698a0dda8dc9cfb2a83744daa1ec54758373a6e349bd903375f54d"
+  url "https://github.com/scop/bash-completion/releases/download/2.11/bash-completion-2.11.tar.xz"
+  sha256 "73a8894bad94dee83ab468fa09f628daffd567e8bef1a24277f1e9a0daf911ac"
+  license "GPL-2.0"
+
+  livecheck do
+    url "https://github.com/scop/bash-completion/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "2e9f92a4467a67597ae250f98bf9c6e10903acb94b22deb747253837283c4113" => :catalina
-    sha256 "4377303d2f57e4fd4887201a15c6ffe9e41e0636b8b83cf7a4a53ce76f85a5e7" => :mojave
-    sha256 "ae0fd1bc4b23207417f5d070eeedb4d3158cc170dcf9c84f04c23fe479c219dc" => :high_sierra
-    sha256 "ae0fd1bc4b23207417f5d070eeedb4d3158cc170dcf9c84f04c23fe479c219dc" => :sierra
+    sha256 "3fe7e4021769be9a92eac055496e6189996c3527270db1dfdd4b0eb8cd7b4192" => :catalina
+    sha256 "3fe7e4021769be9a92eac055496e6189996c3527270db1dfdd4b0eb8cd7b4192" => :mojave
+    sha256 "3fe7e4021769be9a92eac055496e6189996c3527270db1dfdd4b0eb8cd7b4192" => :high_sierra
   end
 
   head do
@@ -22,10 +26,15 @@ class BashCompletionAT2 < Formula
 
   depends_on "bash"
 
-  conflicts_with "bash-completion", :because => "Differing version of same formula"
+  conflicts_with "bash-completion",
+    because: "each are different versions of the same formula"
 
   def install
-    inreplace "bash_completion", "readlink -f", "readlink"
+    inreplace "bash_completion" do |s|
+      s.gsub! "readlink -f", "readlink"
+      # Automatically read Homebrew's existing v1 completions
+      s.gsub! ":-/etc/bash_completion.d", ":-#{etc}/bash_completion.d"
+    end
 
     system "autoreconf", "-i" if build.head?
     system "./configure", "--prefix=#{prefix}"
@@ -33,13 +42,11 @@ class BashCompletionAT2 < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    Add the following to your ~/.bash_profile:
-      [[ -r "#{etc}/profile.d/bash_completion.sh" ]] && . "#{etc}/profile.d/bash_completion.sh"
-
-    If you'd like to use existing homebrew v1 completions, add the following before the previous line:
-      export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
-  EOS
+  def caveats
+    <<~EOS
+      Add the following line to your ~/.bash_profile:
+        [[ -r "#{etc}/profile.d/bash_completion.sh" ]] && . "#{etc}/profile.d/bash_completion.sh"
+    EOS
   end
 
   test do

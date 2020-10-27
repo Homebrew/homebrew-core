@@ -1,14 +1,20 @@
 class Itk < Formula
   desc "Insight Toolkit is a toolkit for performing registration and segmentation"
-  homepage "https://www.itk.org/"
-  url "https://github.com/InsightSoftwareConsortium/ITK/releases/download/v5.0.1/InsightToolkit-5.0.1.tar.gz"
-  sha256 "613b125cbf58481e8d1e36bdeacf7e21aba4b129b4e524b112f70c4d4e6d15a6"
-  head "https://itk.org/ITK.git"
+  homepage "https://itk.org"
+  url "https://github.com/InsightSoftwareConsortium/ITK/releases/download/v5.1.1/InsightToolkit-5.1.1.tar.gz"
+  sha256 "39e2a63840054361b728878a35b21bbe38374682ffb4b5c4f8f8f7514dedb58e"
+  license "Apache-2.0"
+  head "https://github.com/InsightSoftwareConsortium/ITK.git"
+
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
-    sha256 "66681e635208d8da127e72493196826562e5df862a33c9ed4c154c023eaad05a" => :catalina
-    sha256 "a69ca8e607d27c5b78c80b04e521ba38cb0ed9f50ddfb3fe856c179a68575be6" => :mojave
-    sha256 "c894c33c5f45504cb2c13ef58600479875b3cb04a7b123e71860ab206b33432d" => :high_sierra
+    sha256 "0f61a4a6db8935c74dad672472a9df7a920dcad0081db2ff9b8af62291cd27f7" => :catalina
+    sha256 "cdab5fa00fc056cb691b95ee762bee986af9f90bf388dc178cd71fc708be5cab" => :mojave
+    sha256 "6693ad5cd1d63c568eb9613553333e04b0fd808a6ebace4e6fdaee2cddaee0fd" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -18,7 +24,12 @@ class Itk < Formula
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
-  depends_on "vtk"
+  depends_on "vtk@8.2" # needed for gdcm
+
+  on_linux do
+    depends_on "alsa-lib"
+    depends_on "unixodbc"
+  end
 
   def install
     args = std_cmake_args + %W[
@@ -41,11 +52,23 @@ class Itk < Formula
       -DITK_USE_SYSTEM_TIFF=ON
       -DITK_USE_SYSTEM_GDCM=ON
       -DITK_LEGACY_REMOVE=ON
-      -DModule_ITKLevelSetsv4Visualization=ON
       -DModule_ITKReview=ON
       -DModule_ITKVtkGlue=ON
       -DITK_USE_GPU=ON
     ]
+
+    # Avoid references to the Homebrew shims directory
+    inreplace "Modules/Core/Common/src/CMakeLists.txt" do |s|
+      s.gsub!(/MAKE_MAP_ENTRY\(\s*\\"CMAKE_C_COMPILER\\",
+              \s*\\"\${CMAKE_C_COMPILER}\\".*\);/x,
+              "MAKE_MAP_ENTRY(\\\"CMAKE_C_COMPILER\\\", " \
+              "\\\"#{ENV.cc}\\\", \\\"The C compiler.\\\");")
+
+      s.gsub!(/MAKE_MAP_ENTRY\(\s*\\"CMAKE_CXX_COMPILER\\",
+              \s*\\"\${CMAKE_CXX_COMPILER}\\".*\);/x,
+              "MAKE_MAP_ENTRY(\\\"CMAKE_CXX_COMPILER\\\", " \
+              "\\\"#{ENV.cxx}\\\", \\\"The CXX compiler.\\\");")
+    end
 
     mkdir "build" do
       system "cmake", "..", *args
@@ -66,7 +89,7 @@ class Itk < Formula
       }
     EOS
 
-    v = version.to_s.split(".")[0..1].join(".")
+    v = version.major_minor
     # Build step
     system ENV.cxx, "-std=c++11", "-isystem", "#{include}/ITK-#{v}", "-o", "test.cxx.o", "-c", "test.cxx"
     # Linking step

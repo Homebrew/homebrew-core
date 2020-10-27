@@ -1,14 +1,15 @@
 class Pdf2json < Formula
   desc "PDF to JSON and XML converter"
   homepage "https://github.com/flexpaper/pdf2json"
-  url "https://github.com/flexpaper/pdf2json/archive/0.70.tar.gz"
-  sha256 "65d7c273c3dc003470ee61a429274b3612a0ee995e75dc32ad8dbdc9d03fbad1"
+  url "https://github.com/flexpaper/pdf2json/archive/0.71.tar.gz"
+  sha256 "54878473a2afb568caf2da11d6804cabe0abe505da77584a3f8f52bcd37d9c55"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ffcee90aedfc094b2339da1ea20d13533944e3cb504c83bf14c5a35e3c8fc6d3" => :catalina
-    sha256 "43e67dfa77c38eb32a4ae1b079c565752e567598596d8adaaa7d4f464eee7696" => :mojave
-    sha256 "82d6e789d9a698b1eca23ed91ef3ecc3a67db1faa4a1f530f2f1452484d8ca8b" => :high_sierra
+    sha256 "035c69de85f1cad569ff743faef796a88b9f9a706be802bf111a83505858b366" => :catalina
+    sha256 "abf950838b700f50ff4279501533176cb5a1929fb0b88c8ccf94b07ac362c66d" => :mojave
+    sha256 "4bee4b8c61362c64d72a3f011f8c5ef223c5e80d269e442a18472adc42e108e9" => :high_sierra
   end
 
   def install

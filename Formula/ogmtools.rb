@@ -3,6 +3,7 @@ class Ogmtools < Formula
   homepage "https://www.bunkus.org/videotools/ogmtools/"
   url "https://www.bunkus.org/videotools/ogmtools/ogmtools-1.5.tar.bz2"
   sha256 "c8d61d1dbceb981dc7399c1a85e43b509fd3d071fb8d3ca89ea9385e6e40fdea"
+  license "GPL-2.0"
 
   bottle do
     cellar :any
@@ -31,11 +32,12 @@ class Ogmtools < Formula
   end
 
   # Borrow warning from MacPorts
-  def caveats; <<~EOS
-    Ogmtools has not been updated since 2004 and is no longer being developed,
-    maintained or supported. There are several issues, especially on 64-bit
-    architectures, which the author will not fix or accept patches for.
-    Keep this in mind when deciding whether to use this software.
-  EOS
+  def caveats
+    <<~EOS
+      Ogmtools has not been updated since 2004 and is no longer being developed,
+      maintained or supported. There are several issues, especially on 64-bit
+      architectures, which the author will not fix or accept patches for.
+      Keep this in mind when deciding whether to use this software.
+    EOS
   end
 end

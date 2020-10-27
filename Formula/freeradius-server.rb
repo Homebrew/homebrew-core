@@ -1,21 +1,31 @@
 class FreeradiusServer < Formula
   desc "High-performance and highly configurable RADIUS server"
   homepage "https://freeradius.org/"
-  url "https://github.com/FreeRADIUS/freeradius-server/archive/release_3_0_19.tar.gz"
-  sha256 "34c50ac47a683b13eae1a02f2d0263c0bd51a83f01b99c02c5fe25df07a1ee77"
-  revision 1
+  url "https://github.com/FreeRADIUS/freeradius-server/archive/release_3_0_21.tar.gz"
+  sha256 "b2014372948a92f86cfe2cf43c58ef47921c03af05666eb9d6416bdc6eeaedc2"
+  license "GPL-2.0"
   head "https://github.com/FreeRADIUS/freeradius-server.git"
 
+  livecheck do
+    url :head
+    regex(/^release[._-](\d+(?:[._]\d+)+)$/i)
+  end
+
   bottle do
-    sha256 "eeec4733e5c9daba6a384600b7ef95dab513e5f4c744ea62eb9b608599b29e6b" => :catalina
-    sha256 "7a2a426654c18300d324d10937d239815cd98f7ff0cc14ee559989556336898e" => :mojave
-    sha256 "db3eff9b15d53109b5fb41c39ffecb27191733e1deaba62e17ec21bb249aab31" => :high_sierra
-    sha256 "c2ff882edd53c1644843e29b23cc11b160dea126be8016925514fc34976b4f58" => :sierra
+    sha256 "c3174a08eaeabce252f16224d93fcb1503584ac6b2d7733a6e80eb558cfefee5" => :catalina
+    sha256 "4c4dc47fe8af598594c4dd24184f7b5400e383e7649c6f6aa98f1663997b04ec" => :mojave
+    sha256 "2c8d33eddc1311f098175f2854173bbd4181d9f20fa0d1807950a84198fca6e1" => :high_sierra
   end
 
   depends_on "openssl@1.1"
   depends_on "talloc"
+
   uses_from_macos "perl"
+  uses_from_macos "sqlite"
+
+  on_linux do
+    depends_on "readline"
+  end
 
   def install
     ENV.deparallelize

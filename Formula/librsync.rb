@@ -1,13 +1,14 @@
 class Librsync < Formula
   desc "Library that implements the rsync remote-delta algorithm"
   homepage "https://librsync.github.io/"
-  url "https://github.com/librsync/librsync/archive/v2.2.1.tar.gz"
-  sha256 "b5ab8e2092b82b7d7bb9c1dd52e6a77083a89f8ad9b9309da611f490d0b49a71"
+  url "https://github.com/librsync/librsync/archive/v2.3.1.tar.gz"
+  sha256 "dbd7eb643665691bdf4009174461463737b19b4814b789baad62914cabfe4569"
+  license "LGPL-2.1"
 
   bottle do
-    sha256 "232b2a47795d07f9265b92a056a929e1d34ebb6419e307b6bacff429b5868114" => :catalina
-    sha256 "e05a45cf32e871d343bbee800a48870c44fa0030d85850bd079bb0eb324cdc37" => :mojave
-    sha256 "a769c1226480c91ea14bebae631e12aa80b91fdad7983e9f9401c793027d9691" => :high_sierra
+    sha256 "eb1526a88a99556f1ae98c7fa008a8c17ddbe2efe2e55de0192ccbccf9840937" => :catalina
+    sha256 "27f16505bf1b37a9701d70701e708451d47743a3b4d453dcc1d4048065af05af" => :mojave
+    sha256 "20fd33975022b7caaa12b9906b726f1b9dd9a792d9291170e72298a351650610" => :high_sierra
   end
 
   depends_on "cmake" => :build

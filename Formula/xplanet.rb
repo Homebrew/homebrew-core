@@ -3,13 +3,16 @@ class Xplanet < Formula
   homepage "https://xplanet.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/xplanet/xplanet/1.3.1/xplanet-1.3.1.tar.gz"
   sha256 "4380d570a8bf27b81fb629c97a636c1673407f4ac4989ce931720078a90aece7"
-  revision 3
+  revision 4
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
-    sha256 "aceb0af3fffbec2688b79ed1ae4d9c3c4004d8f6d685fb3156799b416403595a" => :catalina
-    sha256 "786a7ce7564b15a7b24b6bbe9db363ac96ba44a0dc432e487f4ce5926f8abb95" => :mojave
-    sha256 "3f2d8620a26cc9e524be24d91db203337f4e1daad7b5db61c74207f26daf1298" => :high_sierra
-    sha256 "959cdbb77423ca2a305981370a087736941ae2767a3cbfbd0483f24b97049ca5" => :sierra
+    sha256 "c8e659713aaa70e8fc00d48e15cf997648759afa7b6ff8e0979212348fd6cc8f" => :catalina
+    sha256 "9912c643de81e812f69e639e1fe1ee3ee45900d85ce23409adb0a394305b970b" => :mojave
+    sha256 "aec227666c4e6216b061e979c5aabd1343c9c6433e8f85868f0f12eff3c01b62" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -29,7 +32,7 @@ class Xplanet < Formula
   # Fix compilation with giflib 5
   # https://xplanet.sourceforge.io/FUDforum2/index.php?t=msg&th=592
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/xplanet/xplanet-1.3.1-giflib5.patch"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/6b8519a9391b96477c38e1b1c865892f7bf093ca/xplanet/xplanet-1.3.1-giflib5.patch"
     sha256 "0a88a9c984462659da37db58d003da18a4c21c0f4cd8c5c52f5da2b118576d6e"
   end
 
@@ -52,9 +55,13 @@ class Xplanet < Formula
 
   # Test all the supported image formats, jpg, png, gif and tiff, as well as the -num_times 2 patch
   test do
-    system "#{bin}/xplanet", "-target", "earth", "-output", "#{testpath}/test.jpg", "-radius", "30", "-num_times", "2", "-random", "-wait", "1"
-    system "#{bin}/xplanet", "-target", "earth", "--transpng", "#{testpath}/test.png", "-radius", "30", "-num_times", "2", "-random", "-wait", "1"
-    system "#{bin}/xplanet", "-target", "earth", "--output", "#{testpath}/test.gif", "-radius", "30", "-num_times", "2", "-random", "-wait", "1"
-    system "#{bin}/xplanet", "-target", "earth", "--output", "#{testpath}/test.tiff", "-radius", "30", "-num_times", "2", "-random", "-wait", "1"
+    system "#{bin}/xplanet", "-target", "earth", "-output", "#{testpath}/test.jpg",
+                             "-radius", "30", "-num_times", "2", "-random", "-wait", "1"
+    system "#{bin}/xplanet", "-target", "earth", "--transpng", "#{testpath}/test.png",
+                             "-radius", "30", "-num_times", "2", "-random", "-wait", "1"
+    system "#{bin}/xplanet", "-target", "earth", "--output", "#{testpath}/test.gif",
+                             "-radius", "30", "-num_times", "2", "-random", "-wait", "1"
+    system "#{bin}/xplanet", "-target", "earth", "--output", "#{testpath}/test.tiff",
+                             "-radius", "30", "-num_times", "2", "-random", "-wait", "1"
   end
 end

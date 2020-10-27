@@ -3,6 +3,7 @@ class Ski < Formula
   homepage "http://catb.org/~esr/ski/"
   url "http://www.catb.org/~esr/ski/ski-6.13.tar.gz"
   sha256 "34e95547ecfe7b3791df0a81fef9af422ececf49b1aa1e93bbb1ba067ccdc955"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any_skip_relocation

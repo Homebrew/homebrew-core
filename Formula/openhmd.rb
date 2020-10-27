@@ -3,6 +3,7 @@ class Openhmd < Formula
   homepage "http://openhmd.net"
   url "https://github.com/OpenHMD/OpenHMD/archive/0.3.0.tar.gz"
   sha256 "ec5c97ab456046a8aef3cde6d59e474603af398f1d064a66e364fe3c0b26a0fa"
+  license "BSL-1.0"
   head "https://github.com/OpenHMD/OpenHMD.git"
 
   bottle do
@@ -19,8 +20,8 @@ class Openhmd < Formula
   depends_on "pkg-config" => :build
   depends_on "hidapi"
 
-  conflicts_with "cspice", :because => "both install `simple` binaries"
-  conflicts_with "libftdi0", :because => "both install `simple` binaries"
+  conflicts_with "cspice", because: "both install `simple` binaries"
+  conflicts_with "libftdi0", because: "both install `simple` binaries"
 
   def install
     system "./autogen.sh"

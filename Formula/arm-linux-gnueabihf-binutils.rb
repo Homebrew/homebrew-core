@@ -1,15 +1,19 @@
 class ArmLinuxGnueabihfBinutils < Formula
   desc "FSF/GNU binutils for cross-compiling to arm-linux"
   homepage "https://www.gnu.org/software/binutils/binutils.html"
-  url "https://ftp.gnu.org/gnu/binutils/binutils-2.32.tar.gz"
-  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.32.tar.gz"
-  sha256 "9b0d97b3d30df184d302bced12f976aa1e5fbf4b0be696cdebc6cca30411a46e"
+  url "https://ftp.gnu.org/gnu/binutils/binutils-2.35.1.tar.xz"
+  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.35.1.tar.xz"
+  sha256 "3ced91db9bf01182b7e420eab68039f2083aed0a214c0424e257eae3ddee8607"
+  license "GPL-2.0"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
-    sha256 "68654c822c5e7c9bc53ae210a43a56c8710a2e313bfe0b5b7ff0f6ee315b6e21" => :catalina
-    sha256 "ce0dcfa1e43603353f9961b4f0a4d7be8410311c0a26c94eeb5fb4b9300631f2" => :mojave
-    sha256 "5f8b6709262fc2a62dec89d1b8b3c4f85ff1c20916e7c33a9be6b87205b6f285" => :high_sierra
-    sha256 "a884754782026786a2f4b2a440110ba1da07c3ffa61849706277e2550b353e79" => :sierra
+    sha256 "219d1ead2e887b2a7f4ea9cd8b1c115dc912cd254cd678020c904d63b1810388" => :catalina
+    sha256 "0e72aca9b33e17501b812660d4bdc7e692fc4a6c85e745abe47d0586e0cd6d3d" => :mojave
+    sha256 "076cd5fe22328f950ac2cbf3c959c1819c9831c3f7a18f3e0fd940e83e2890f9" => :high_sierra
   end
 
   def install

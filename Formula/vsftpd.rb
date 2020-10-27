@@ -5,6 +5,11 @@ class Vsftpd < Formula
   mirror "https://fossies.org/linux/misc/vsftpd-3.0.3.tar.gz"
   sha256 "9d4d2bf6e6e2884852ba4e69e157a2cecd68c5a7635d66a3a8cf8d898c955ef7"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?vsftpd[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 2
     sha256 "43b17ac94b152a4922a915b7e2efc89c3da7ee53e00f860136c5c58489e2b782" => :catalina
@@ -35,35 +40,37 @@ class Vsftpd < Formula
     man8.install "vsftpd.8"
   end
 
-  def caveats; <<~EOS
-    To use chroot, vsftpd requires root privileges, so you will need to run
-    `sudo vsftpd`.
-    You should be certain that you trust any software you grant root privileges.
+  def caveats
+    <<~EOS
+      To use chroot, vsftpd requires root privileges, so you will need to run
+      `sudo vsftpd`.
+      You should be certain that you trust any software you grant root privileges.
 
-    The vsftpd.conf file must be owned by root or vsftpd will refuse to start:
-      sudo chown root #{HOMEBREW_PREFIX}/etc/vsftpd.conf
-  EOS
+      The vsftpd.conf file must be owned by root or vsftpd will refuse to start:
+        sudo chown root #{HOMEBREW_PREFIX}/etc/vsftpd.conf
+    EOS
   end
 
-  plist_options :startup => true, :manual => "sudo vsftpd"
+  plist_options startup: true, manual: "sudo vsftpd"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{sbin}/vsftpd</string>
-        <string>#{etc}/vsftpd.conf</string>
-      </array>
-      <key>RunAtLoad</key>
-      <true/>
-    </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{sbin}/vsftpd</string>
+          <string>#{etc}/vsftpd.conf</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+      </dict>
+      </plist>
+    EOS
   end
 
   test do

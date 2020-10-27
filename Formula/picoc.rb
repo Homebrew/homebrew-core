@@ -1,8 +1,9 @@
 class Picoc < Formula
   desc "C interpreter for scripting"
-  homepage "https://github.com/zsaleeba/picoc"
+  homepage "https://gitlab.com/zsaleeba/picoc"
+  license "BSD-3-Clause"
   revision 1
-  head "https://github.com/zsaleeba/picoc.git"
+  head "https://gitlab.com/zsaleeba/picoc.git"
 
   stable do
     url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/picoc/picoc-2.1.tar.bz2"
@@ -13,19 +14,17 @@ class Picoc < Formula
     # Fix abort trap due to stack overflow
     # Upstream commit from 14 Oct 2013 "Fixed a problem with PlatformGetLine()"
     patch do
-      url "https://github.com/zsaleeba/picoc/commit/ed54c51.patch?full_index=1"
-      sha256 "2111ad8d038cf0063430746bf868b56f4658e79b87e4b94b03d00fb58af8564f"
+      url "https://gitlab.com/zsaleeba/picoc/commit/ed54c519169b88b7b40d1ebb11599d89a4228a71.patch"
+      sha256 "bdedbb6e70e6378e05e50d0ef055306045e460f2675f8bd870566ae28b654589"
     end
   end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c3c7b26693b0fc4860ce21bafc778ed705e53b4fe85425d7a869b5cc57ff9d38" => :catalina
-    sha256 "a3a2e949287349f46033c961de43fd8122a55b2ebc7881100c464fe965f2b4da" => :mojave
-    sha256 "f321e8e5bb302b30c946fa239709afaf7609f4151803ca3e722eeb26872e119b" => :high_sierra
-    sha256 "456707c08da75cf7ad3f98898dda357617b5295c4a09631366e06f9bdb1e09f4" => :sierra
-    sha256 "abd8328d9db2961516c421b09d0da77f7df9c09314d2d09530af27a0fe2d55d7" => :el_capitan
-    sha256 "5d732cb34ea6a0349f82bf39f948ab9b49be72273a264c52d0a0773ade2acba1" => :yosemite
+    rebuild 1
+    sha256 "168aebca830b719b3645b682c9c3f1208663b6853b62d68ddeb2957ee6c8bc07" => :catalina
+    sha256 "0251ecfb5772bffbb92457af974af44856d25215d1d9bd692530b6b53517f71a" => :mojave
+    sha256 "5b2c6a5c8c3404cbd75b4b0e1c6f6cbf1be0246ca0b3d1df70d78a6785e51711" => :high_sierra
   end
 
   def install

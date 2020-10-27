@@ -3,15 +3,14 @@ class Cmus < Formula
   homepage "https://cmus.github.io/"
   url "https://github.com/cmus/cmus/archive/v2.8.0.tar.gz"
   sha256 "756ce2c6241b2104dc19097488225de559ac1802a175be0233cfb6fbc02f3bd2"
-  revision 1
+  license "GPL-2.0"
+  revision 2
   head "https://github.com/cmus/cmus.git"
 
   bottle do
-    rebuild 1
-    sha256 "d89a46acdec0e5830d41d2d40419d62fe555f34b99f93bf758e749e023e9b294" => :catalina
-    sha256 "5597b87c7fcdceec789103df12ae89408e69f98668da522b7ee6a908e622c290" => :mojave
-    sha256 "38f6dda244d82bc960b7e1c65e2e0316c2cde6cc61174bad763b7243e6f88ad8" => :high_sierra
-    sha256 "42cab3ddb96e7b36b2b8cf67d2384adea5169e2955841c35166aece5afcd9329" => :sierra
+    sha256 "139bf64752c28ed24e016dfcde2d294e8594430dab9bb8b7df80b4e2e1c06cd1" => :catalina
+    sha256 "4c5095917ced94e028bf33b8330f46dd692ab62fbd0304d14f1d9664b8045b3d" => :mojave
+    sha256 "a6f14946798e6b75c0102801a7f0bf85d5601914f0e2e7d9206664d0b86d6203" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

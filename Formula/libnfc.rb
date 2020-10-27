@@ -1,17 +1,14 @@
 class Libnfc < Formula
   desc "Low level NFC SDK and Programmers API"
   homepage "https://github.com/nfc-tools/libnfc"
-  url "https://bintray.com/artifact/download/nfc-tools/sources/libnfc-1.7.1.tar.bz2"
-  sha256 "945e74d8e27683f9b8a6f6e529557b305d120df347a960a6a7ead6cb388f4072"
+  url "https://github.com/nfc-tools/libnfc/releases/download/libnfc-1.8.0/libnfc-1.8.0.tar.bz2"
+  sha256 "6d9ad31c86408711f0a60f05b1933101c7497683c2e0d8917d1611a3feba3dd5"
+  license "LGPL-3.0"
 
   bottle do
-    sha256 "241577cd369d23294bd5509d9c30a5bc85e89eda6bc212c28831b2389fb44096" => :catalina
-    sha256 "a6f032e306967d4df3177c22363c8c93336ba314216431c5e4ff3380b3823456" => :mojave
-    sha256 "6123f4b6cba07ac11b327e378b9b774fca3609cec3e7ef58d6dcb6f6270dc36e" => :high_sierra
-    sha256 "18ebd76ab92ace056da2f014b3bbfb872d152ff6dc5d66ae274c7bd67474defa" => :sierra
-    sha256 "792064362ef2b224a15190b6fcf97066c7a1d47a3bee13495134aafb067cc11d" => :el_capitan
-    sha256 "3f2e7a57fca1f12b4b938c6136036f889562540e6c6a8e5188cd32fabd927a9c" => :yosemite
-    sha256 "cabb3f773d92c2cd95af437d6f4c567529229b26b82d568af1c89ec50b674f59" => :mavericks
+    sha256 "6659f67e40774cdb8e95548c03542bbc123ccabc0f4a6160504c03e43fa43c26" => :catalina
+    sha256 "9bc90c84f89408a8960289a668af7ad9b7b17d34a02996b83ec960c5cbefafeb" => :mojave
+    sha256 "8e6abd4d61ef9aff76ef25b092806b95614c07a9e46a0e13ca6e915271454a92" => :high_sierra
   end
 
   head do

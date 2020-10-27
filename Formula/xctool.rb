@@ -1,18 +1,19 @@
 class Xctool < Formula
   desc "Drop-in replacement for xcodebuild with a few extra features"
   homepage "https://github.com/facebook/xctool"
-  url "https://github.com/facebook/xctool/archive/0.3.6.tar.gz"
-  sha256 "9c9135b2d447134c706c6dbdb8dfa6af148e8aa01811f14e92861b5825578b55"
+  url "https://github.com/facebook/xctool/archive/0.3.7.tar.gz"
+  sha256 "608522865dc42959a6240010c8295ce01278f4b7a8276d838f21a8973938206d"
+  license "Apache-2.0"
   head "https://github.com/facebook/xctool.git"
 
   bottle do
     cellar :any
-    sha256 "80fd9400d09b4263c403752c171dc6bb512a85121bcf15d71e5bf0a1f8edd884" => :mojave
-    sha256 "6a49ea600c94ef2c294966b5d921266eeeea0f7e36d0dcefc187233a4681b36e" => :high_sierra
-    sha256 "3af550733cfaa53e47402bf6153a1a4d711f4b0b4ed80009bd1548c41ae25fbc" => :sierra
+    sha256 "0cf8c734d095ab97b2d5537b67d3f13e6ff8f38c46503ea02b9eba98ff35942c" => :catalina
+    sha256 "8b116346555e2616619e577d3ce3c69a24d66cb505ee048ba316ab2880736043" => :mojave
+    sha256 "055172ba606bf94416513e418007f849a08ff24a3b3484fb67c1b4f854123bb9" => :high_sierra
   end
 
-  depends_on :xcode => "7.0"
+  depends_on xcode: "7.0"
 
   def install
     xcodebuild "-workspace", "xctool.xcworkspace",

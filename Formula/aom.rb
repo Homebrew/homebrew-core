@@ -2,15 +2,16 @@ class Aom < Formula
   desc "Codec library for encoding and decoding AV1 video streams"
   homepage "https://aomedia.googlesource.com/aom"
   url "https://aomedia.googlesource.com/aom.git",
-      :tag      => "v1.0.0",
-      :revision => "d14c5bb4f336ef1842046089849dee4a301fbbf0"
+      tag:      "v2.0.0",
+      revision: "bb35ba9148543f22ba7d8642e4fbd29ae301f5dc"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any_skip_relocation
     rebuild 1
-    sha256 "1c49d2f8eee438f057d689a3ac68af545e4462ebd2db2fdd9a749fb6a1842da7" => :catalina
-    sha256 "f326a5ea77c38ea80d81c6302d6e2d314a7407d036f881bf4783cf3d757bb473" => :mojave
-    sha256 "fedb7991299e8e84ed4ce94ad3cc161951aa10d3044fc9446009046d17eb1e2f" => :high_sierra
+    sha256 "c4a83e9bc36bc1fe6633d8a4fef10436e5c79e825352e6562d776dcff6dbcd08" => :catalina
+    sha256 "96537ef620ea5035ffbb643db83edc9fc7e7995fbcd08ebd16fef74d5e17b411" => :mojave
+    sha256 "39d14687b9a45a50f921a19e23b935799d052686854bb247ed59235bcc28c59d" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -27,12 +28,14 @@ class Aom < Formula
     ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
 
     mkdir "macbuild" do
-      system "cmake", "..", *std_cmake_args,
-                      "-DENABLE_DOCS=off",
-                      "-DENABLE_EXAMPLES=on",
-                      "-DENABLE_TESTDATA=off",
-                      "-DENABLE_TESTS=off",
-                      "-DENABLE_TOOLS=off"
+      args = std_cmake_args.concat(["-DENABLE_DOCS=off",
+                                    "-DENABLE_EXAMPLES=on",
+                                    "-DENABLE_TESTDATA=off",
+                                    "-DENABLE_TESTS=off",
+                                    "-DENABLE_TOOLS=off"])
+      # Runtime CPU detection is not currently enabled for ARM on macOS.
+      args << "-DCONFIG_RUNTIME_CPU_DETECT=0" if Hardware::CPU.arm?
+      system "cmake", "..", *args
 
       system "make", "install"
     end

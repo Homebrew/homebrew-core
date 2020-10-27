@@ -1,21 +1,32 @@
 class PostgresqlAT96 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v9.6.15/postgresql-9.6.15.tar.bz2"
-  sha256 "3cd9fe9af247167f863030842c1a57f58bdf3e5d50a94997d34a802b6032170a"
-  revision 1
+  url "https://ftp.postgresql.org/pub/source/v9.6.19/postgresql-9.6.19.tar.bz2"
+  sha256 "61f93a94ccddbe0b2d1afaf03f04ba605d8af5b774ff9b830e5adeb50ab55cb0"
+  license "PostgreSQL"
+
+  livecheck do
+    url "https://www.postgresql.org/docs/9.6/static/release.html"
+    regex(/Release v?(\d+(?:\.\d+)+)/i)
+  end
 
   bottle do
-    sha256 "661fa3a54e1e9fdbf445a0bbc0b91faddea6b2b023811e05b1902402be62d600" => :catalina
-    sha256 "92c545b9724c68be7b4598b16bd43b24bddd30c98a72548ba657bfb662026305" => :mojave
-    sha256 "263bef3e3927121a8e1a9c5f17a3d17ae44c64beff509db1d3d239d065faf20f" => :high_sierra
-    sha256 "3007b300d69bedcb20276093929c2687f7bebdaed40e86cb3fd27d90dcc0a157" => :sierra
+    sha256 "81b3a3ac4e549641e48fe4f291b32266603858cff2ceb6242f2725deb20bdd9a" => :catalina
+    sha256 "b515085fd803628a5979a34402fa7296e95c437bc5805ec08acd69b43ac11c6a" => :mojave
+    sha256 "59593120c3bce07fa0c130eda3f1b0aef1cc2ed254b822fd9ed416d7469a8da2" => :high_sierra
   end
 
   keg_only :versioned_formula
 
   depends_on "openssl@1.1"
   depends_on "readline"
+
+  uses_from_macos "libxslt"
+  uses_from_macos "perl"
+
+  on_linux do
+    depends_on "util-linux"
+  end
 
   def install
     # avoid adding the SDK library directory to the linker search path
@@ -40,31 +51,13 @@ class PostgresqlAT96 < Formula
       --with-libxml
       --with-libxslt
       --with-perl
+      --with-tcl
       --with-uuid=e2fs
     ]
 
-    # The CLT is required to build Tcl support on 10.7 and 10.8 because
-    # tclConfig.sh is not part of the SDK
-    args << "--with-tcl"
-    if File.exist?("#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework/tclConfig.sh")
-      args << "--with-tclconfig=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework"
-    end
-
-    # As of Xcode/CLT 10.x the Perl headers were moved from /System
-    # to inside the SDK, so we need to use `-iwithsysroot` instead
-    # of `-I` to point to the correct location.
-    # https://www.postgresql.org/message-id/153558865647.1483.573481613491501077%40wrigleys.postgresql.org
-    if DevelopmentTools.clang_build_version >= 1000
-      inreplace "configure",
-                "-I$perl_archlibexp/CORE",
-                "-iwithsysroot $perl_archlibexp/CORE"
-      inreplace "contrib/hstore_plperl/Makefile",
-                "$(perl_archlibexp)/CORE",
-                "-iwithsysroot $(perl_archlibexp)/CORE"
-      inreplace "src/pl/plperl/GNUmakefile",
-                "$(perl_archlibexp)/CORE",
-                "-iwithsysroot $(perl_archlibexp)/CORE"
-    end
+    # PostgreSQL by default uses xcodebuild internally to determine this,
+    # which does not work on CLT-only installs.
+    args << "PG_SYSROOT=#{MacOS.sdk_path}" if MacOS.sdk_root_needed?
 
     system "./configure", *args
     system "make"
@@ -89,59 +82,66 @@ class PostgresqlAT96 < Formula
   end
 
   def post_install
+    return if ENV["CI"]
+
     (var/"log").mkpath
     (var/name).mkpath
-    unless File.exist? "#{var}/#{name}/PG_VERSION"
-      system "#{bin}/initdb", "#{var}/#{name}"
-    end
+    system "#{bin}/initdb", "#{var}/#{name}" unless File.exist? "#{var}/#{name}/PG_VERSION"
   end
 
-  def caveats; <<~EOS
-    If builds of PostgreSQL 9 are failing and you have version 8.x installed,
-    you may need to remove the previous version first. See:
-      https://github.com/Homebrew/legacy-homebrew/issues/2510
+  def caveats
+    <<~EOS
+      If builds of PostgreSQL 9 are failing and you have version 8.x installed,
+      you may need to remove the previous version first. See:
+        https://github.com/Homebrew/legacy-homebrew/issues/2510
 
-    To migrate existing data from a previous major version (pre-9.0) of PostgreSQL, see:
-      https://www.postgresql.org/docs/9.6/static/upgrading.html
+      To migrate existing data from a previous major version (pre-9.0) of PostgreSQL, see:
+        https://www.postgresql.org/docs/9.6/static/upgrading.html
 
-    To migrate existing data from a previous minor version (9.0-9.5) of PostgreSQL, see:
-      https://www.postgresql.org/docs/9.6/static/pgupgrade.html
+      To migrate existing data from a previous minor version (9.0-9.5) of PostgreSQL, see:
+        https://www.postgresql.org/docs/9.6/static/pgupgrade.html
 
-      You will need your previous PostgreSQL installation from brew to perform `pg_upgrade`.
-        Do not run `brew cleanup postgresql@9.6` until you have performed the migration.
-  EOS
+        You will need your previous PostgreSQL installation from brew to perform `pg_upgrade`.
+          Do not run `brew cleanup postgresql@9.6` until you have performed the migration.
+
+      This formula has created a default database cluster with:
+        initdb #{var}/postgres
+      For more details, read:
+        https://www.postgresql.org/docs/#{version.major}/app-initdb.html
+    EOS
   end
 
-  plist_options :manual => "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgresql@9.6 start"
+  plist_options manual: "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgresql@9.6 start"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>KeepAlive</key>
-      <true/>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_bin}/postgres</string>
-        <string>-D</string>
-        <string>#{var}/#{name}</string>
-      </array>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>WorkingDirectory</key>
-      <string>#{HOMEBREW_PREFIX}</string>
-      <key>StandardErrorPath</key>
-      <string>#{var}/log/#{name}.log</string>
-    </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>KeepAlive</key>
+        <true/>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/postgres</string>
+          <string>-D</string>
+          <string>#{var}/#{name}</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>WorkingDirectory</key>
+        <string>#{HOMEBREW_PREFIX}</string>
+        <key>StandardErrorPath</key>
+        <string>#{var}/log/#{name}.log</string>
+      </dict>
+      </plist>
+    EOS
   end
 
   test do
-    system "#{bin}/initdb", testpath/"test"
+    system "#{bin}/initdb", testpath/"test" unless ENV["CI"]
     assert_equal pkgshare.to_s, shell_output("#{bin}/pg_config --sharedir").chomp
     assert_equal lib.to_s, shell_output("#{bin}/pg_config --libdir").chomp
     assert_equal lib.to_s, shell_output("#{bin}/pg_config --pkglibdir").chomp

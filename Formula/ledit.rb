@@ -4,6 +4,11 @@ class Ledit < Formula
   url "http://pauillac.inria.fr/~ddr/ledit/distrib/src/ledit-2.04.tgz"
   sha256 "484897016b001b6d64eb24e38a213177b230ebf8e0d9808a969b62f012e70ee4"
 
+  livecheck do
+    url :homepage
+    regex(/current .*? is v?(\d+(?:\.\d+)+) /i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "084768158bc35e6f6eb496d0adea9253cbbb18738c8ef03318a079fef179fc80" => :catalina

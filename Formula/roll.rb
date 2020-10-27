@@ -3,6 +3,7 @@ class Roll < Formula
   homepage "https://matteocorti.github.io/roll/"
   url "https://github.com/matteocorti/roll/releases/download/v2.5.0/roll-2.5.0.tar.gz"
   sha256 "a06b9782225442c71347eaf745e47684a9227d55575e865f503266c06454586c"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

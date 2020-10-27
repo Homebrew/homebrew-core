@@ -1,20 +1,20 @@
 class Unicorn < Formula
   desc "Lightweight multi-architecture CPU emulation framework"
   homepage "https://www.unicorn-engine.org/"
-  url "https://github.com/unicorn-engine/unicorn/archive/1.0.1.tar.gz"
-  sha256 "3a6a4f2b8c405ab009040ca43af8e4aa10ebe44d9c8b336aa36dc35df955017c"
+  url "https://github.com/unicorn-engine/unicorn/archive/1.0.2.tar.gz"
+  sha256 "6400e16f9211486fa5353b1870e6a82f8aa342e429718d1cbca08d609aaadc52"
   head "https://github.com/unicorn-engine/unicorn.git"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "3804516889997cf2eceb92e6baf8667396ec83f7a66c1c362925e0a11f9004cc" => :catalina
-    sha256 "78a5143347e18c673a63dc4b171f610499eb728836f20626bd77bc886374b853" => :mojave
-    sha256 "c44cbb02b8073ca0e70f13cf16272964ab52a8b19a20da07dcfd76c6f15585dd" => :high_sierra
-    sha256 "8c134f4b88d63da3908d419dd29118d6ada4489091cd53e81cc9a72f28a9760b" => :sierra
+    sha256 "d1e59e6241ec4851d24e3f3086e118ed421ee4bda1fb3d8a5e47053256f97d5a" => :catalina
+    sha256 "72d3bba30abcb9cc00ce28b3fa109aca19adaf60e0fbd6fcf248a3b7c24bc3fd" => :mojave
+    sha256 "81be5f24d90b028828fe678e57086d0db49c5739bcd83a636c8aba01062133a1" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
+  depends_on :macos # Due to Python 2 (Might work with Python 3 with next release (1.0.2)
+  # See https://github.com/Homebrew/linuxbrew-core/pull/19728
 
   def install
     ENV["PREFIX"] = prefix

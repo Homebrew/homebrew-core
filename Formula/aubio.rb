@@ -3,30 +3,35 @@ class Aubio < Formula
   homepage "https://aubio.org/"
   url "https://aubio.org/pub/aubio-0.4.9.tar.bz2"
   sha256 "d48282ae4dab83b3dc94c16cf011bcb63835c1c02b515490e1883049c3d1f3da"
+  revision 2
+
+  livecheck do
+    url "https://aubio.org/pub/"
+    regex(/href=.*?aubio[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     cellar :any
-    sha256 "b542f8ab15932bc1b5f51c65ab00f7501d2054752823832fafbc5d2f0d87f0ac" => :catalina
-    sha256 "1c011afadd6d9590101b46cb6f3bf530c5ddfb2cef0983bf4fea287ef5f8c265" => :mojave
-    sha256 "f4d0585fe52669ce1c8f3b33e64af22219cc8623f27423bc7d9ce8c3f4e2351a" => :high_sierra
-    sha256 "11ce710814cb514c434620c24fbb4504a3744747ae06dfe260bcdcfa6b69ef64" => :sierra
+    sha256 "9b24159cf4c8adbb1a78c5cab192453ebebd47260612d38005683ff093250b45" => :catalina
+    sha256 "653f41a951b87cf01049ed6a7019a3d2c96e635fc16d3be4d5edf3225b0a5f52" => :mojave
+    sha256 "d6cc3ba3c3a257f4d5b4c1c3a9c0c8cca4fccf09ffc682901888d26c039886a8" => :high_sierra
   end
 
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "numpy"
-  depends_on "python"
+  depends_on "python@3.9"
 
   def install
     # Needed due to issue with recent clang (-fno-fused-madd))
     ENV.refurbish_args
 
-    system "python3", "./waf", "configure", "--prefix=#{prefix}"
-    system "python3", "./waf", "build"
-    system "python3", "./waf", "install"
+    system Formula["python@3.9"].opt_bin/"python3", "./waf", "configure", "--prefix=#{prefix}"
+    system Formula["python@3.9"].opt_bin/"python3", "./waf", "build"
+    system Formula["python@3.9"].opt_bin/"python3", "./waf", "install"
 
-    system "python3", *Language::Python.setup_install_args(prefix)
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
+    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
   end
 
   test do

@@ -5,6 +5,11 @@ class Djview4 < Formula
   sha256 "8446f3cd692238421a342f12baa365528445637bffb96899f319fe762fda7c21"
   revision 1
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/djview[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     rebuild 1

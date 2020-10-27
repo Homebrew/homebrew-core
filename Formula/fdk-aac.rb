@@ -4,6 +4,10 @@ class FdkAac < Formula
   url "https://downloads.sourceforge.net/project/opencore-amr/fdk-aac/fdk-aac-2.0.1.tar.gz"
   sha256 "840133aa9412153894af03b27b03dde1188772442c316a4ce2a24ed70093f271"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "526c83a79b7f208f07e8d04ad5ce47c8104d90a76034e42422d124fba128ba3c" => :catalina

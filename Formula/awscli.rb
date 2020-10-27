@@ -3,28 +3,32 @@ class Awscli < Formula
 
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  # awscli should only be updated every 10 releases on multiples of 10
-  url "https://github.com/aws/aws-cli/archive/1.16.260.tar.gz"
-  sha256 "cf6f954eecf2bb17eebc2e74db15b9d55b4f106d92da16fad21a9f1cde06f2d3"
-  head "https://github.com/aws/aws-cli.git", :branch => "develop"
+  url "https://github.com/aws/aws-cli/archive/2.0.59.tar.gz"
+  sha256 "cacf8d3252759db4db600c9a53bda17e5b6c3692e366eb2918cf2d05cb54854c"
+  license "Apache-2.0"
+  head "https://github.com/aws/aws-cli.git", branch: "v2"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "857add53919b5fce1b4d7e1f33fe71a0afae3ca8ada78c27180ac0dfdd11b705" => :catalina
-    sha256 "d53c2fc83dc48908399c1ebbbc600f362466d7f5d57cce4682fb33b83f58e351" => :mojave
-    sha256 "97220dcaa3b2104e4a795f4a777f1939e1d142f7d409d59fe6a85da879e9c931" => :high_sierra
+    sha256 "86cbe5f10e78b656e89db7019ce3c8c338e6e325d31547373b78ebe4c0cd5bf0" => :catalina
+    sha256 "bebc8b2cc83a79935d32f78063f39844b40ef157772efac6d0bc8a8a72044c16" => :mojave
+    sha256 "806cb438909ce439f8863337eea8e4407ef9946ab055096596e189270176ae2d" => :high_sierra
   end
 
-  # Some AWS APIs require TLS1.2, which system Python doesn't have before High
-  # Sierra
-  depends_on "python"
+  depends_on "python@3.9"
+
+  uses_from_macos "groff"
+
+  on_linux do
+    depends_on "libyaml"
+  end
 
   def install
     venv = virtualenv_create(libexec, "python3")
-    system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
+    system libexec/"bin/pip", "install", "-v", "-r", "requirements.txt",
                               "--ignore-installed", buildpath
     system libexec/"bin/pip", "uninstall", "-y", "awscli"
     venv.pip_install_and_link buildpath
+    system libexec/"bin/pip", "uninstall", "-y", "pyinstaller"
     pkgshare.install "awscli/examples"
 
     rm Dir["#{bin}/{aws.cmd,aws_bash_completer,aws_zsh_completer.sh}"]
@@ -38,15 +42,20 @@ class Awscli < Formula
         if [[ -f $e ]]; then source $e; fi
       }
     EOS
+
+    system libexec/"bin/python3", "scripts/gen-ac-index", "--include-builtin-index"
   end
 
-  def caveats; <<~EOS
-    The "examples" directory has been installed to:
-      #{HOMEBREW_PREFIX}/share/awscli/examples
-  EOS
+  def caveats
+    <<~EOS
+      The "examples" directory has been installed to:
+        #{HOMEBREW_PREFIX}/share/awscli/examples
+    EOS
   end
 
   test do
     assert_match "topics", shell_output("#{bin}/aws help")
+    assert_include Dir["#{libexec}/lib/python3.9/site-packages/awscli/data/*"],
+                   "#{libexec}/lib/python3.9/site-packages/awscli/data/ac.index"
   end
 end

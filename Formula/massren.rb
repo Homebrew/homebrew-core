@@ -3,6 +3,7 @@ class Massren < Formula
   homepage "https://github.com/laurent22/massren"
   url "https://github.com/laurent22/massren/archive/v1.5.4.tar.gz"
   sha256 "7a728d96a9e627c3609d147db64bba60ced33c407c75e9512147a5c83ba94f56"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

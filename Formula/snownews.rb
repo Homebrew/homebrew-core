@@ -3,6 +3,7 @@ class Snownews < Formula
   homepage "https://github.com/kouya/snownews"
   url "https://github.com/kouya/snownews/archive/1.6.10.tar.gz"
   sha256 "8c78067aef75e283df4b3cca1c966587b6654e9e84a3e6e5eb8bdd5829799242"
+  license "GPL-3.0"
 
   bottle do
     sha256 "6829a661dc7dbd01b149a05aff6b81b4ecc22b99f3f06345f029b183bf952c64" => :catalina
@@ -21,15 +22,13 @@ class Snownews < Formula
   def install
     # Fix file not found errors for /usr/lib/system/libsystem_symptoms.dylib and
     # /usr/lib/system/libsystem_darwin.dylib on 10.11 and 10.12, respectively
-    if MacOS.version == :sierra || MacOS.version == :el_capitan
-      ENV["SDKROOT"] = MacOS.sdk_path
-    end
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra || MacOS.version == :el_capitan
 
     system "./configure", "--prefix=#{prefix}"
 
     # Must supply -lz because configure relies on "xml2-config --libs"
     # for it, which doesn't work on OS X prior to 10.11
-    system "make", "install", "EXTRA_LDFLAGS=#{ENV.ldflags} -L#{Formula["openssl"].opt_lib} -lz",
+    system "make", "install", "EXTRA_LDFLAGS=#{ENV.ldflags} -L#{Formula["openssl@1.1"].opt_lib} -lz",
            "CC=#{ENV.cc}", "INSTALL=ginstall"
   end
 

@@ -1,18 +1,17 @@
 class Macosvpn < Formula
   desc "Create Mac OS VPNs programmatically"
   homepage "https://github.com/halo/macosvpn"
-  url "https://github.com/halo/macosvpn/archive/0.3.5.tar.gz"
-  sha256 "a1ab4276d22d42430ae8696420a9e0641609bad442036e4e2403d722a1d919a4"
+  url "https://github.com/halo/macosvpn/archive/1.0.2.tar.gz"
+  sha256 "bcc1ddb7714c1c0030f1cf97c581dd03b30b189ffc33fd1f805dd9d0bd3e0363"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f3265e0c3da8a09a691f6cff3b8408184c7423ed49d90a7b2b2290b3b3674d99" => :mojave
-    sha256 "478bec17d2000763fde198848b85478aa8ece4414499a1cfc2dd8925071f15e9" => :high_sierra
-    sha256 "fd31b7b30a4867a7693a35ce96a6d74034e160f8b7cae1bc37e8ca5083552a04" => :sierra
-    sha256 "4cf716851d7a1fda3ed5387504d01d8832b53f54fd7b683267af29fc5d18f7a1" => :el_capitan
+    sha256 "8a2d3103fe6c5c674b9180af8c1c0e15e0583874a3986e84ac3a29cc76227329" => :catalina
+    sha256 "e31d705b812175220fef63839c6310ae3ee28e2e8d61dc04bdb2972dd970f513" => :mojave
   end
 
-  depends_on :xcode => ["7.3", :build]
+  depends_on xcode: ["11.1", :build]
 
   def install
     xcodebuild "SYMROOT=build"
@@ -20,6 +19,6 @@ class Macosvpn < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/macosvpn version", 10)
+    assert_match version.to_s, shell_output("#{bin}/macosvpn version", 2)
   end
 end

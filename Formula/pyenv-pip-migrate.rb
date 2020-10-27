@@ -3,6 +3,7 @@ class PyenvPipMigrate < Formula
   homepage "https://github.com/pyenv/pyenv-pip-migrate"
   url "https://github.com/pyenv/pyenv-pip-migrate/archive/v20130527.tar.gz"
   sha256 "1ec5a590a05792843d493a66825ede852b6afc6e95a6a2d2a813e73497c6637a"
+  license "MIT"
   head "https://github.com/pyenv/pyenv-pip-migrate.git"
 
   bottle :unneeded

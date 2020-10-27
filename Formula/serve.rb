@@ -1,37 +1,31 @@
 class Serve < Formula
   desc "Static http server anywhere you need one"
   homepage "https://github.com/syntaqx/serve"
-  url "https://github.com/syntaqx/serve/archive/v0.4.0.tar.gz"
-  sha256 "5329738cc72bcee9c7d327981e256369c623257f7f9bd282592deafccacee6f1"
+  url "https://github.com/syntaqx/serve/archive/v0.5.0.tar.gz"
+  sha256 "fab576aa29b14dcfc45ba6e0e7e6b5284a83e873b75992399b3f5ef8d415d6ae"
+  license "MIT"
   head "https://github.com/syntaqx/serve.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8cc3f01c3baafe4728f382083cce3ceca4bbe7263ae51da6fdc49c01d8fc1458" => :catalina
-    sha256 "a339885f14479144ebe771f5caba2239290d89926a1a8bbbaa56751b9ef62f8f" => :mojave
-    sha256 "2b1474e49ed747c67fde6ed65e404da4c4e4d2f39190995241e10e62a99cca17" => :high_sierra
-    sha256 "c23f691164cbd2f96630d273215f300e1e05ad99427b63e830db52c01eb9ac08" => :sierra
+    sha256 "b6358efb493acb673bf7513a252f9f48e9ebb2c6a7824208d89ae631cfad9439" => :catalina
+    sha256 "9521fba08dd7bcfd843464b3c12a4f841007f28052104072768e052c194de6aa" => :mojave
+    sha256 "0735a5f8002970bc5d1cb1ca68681713de9dfcffc7eeb30bcdcb7fc33bc58551" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    src = buildpath/"src/github.com/syntaqx/serve"
-    src.install buildpath.children
-    src.cd do
-      system "go", "build", "-ldflags", "-X main.version=#{version}", "-o", bin/"serve", "./cmd/serve"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-ldflags", "-X main.version=#{version}", *std_go_args, "./cmd/serve"
   end
 
   test do
+    port = free_port
     pid = fork do
-      exec "#{bin}/serve"
+      exec "#{bin}/serve -port #{port}"
     end
     sleep 1
-    output = shell_output("curl -sI http://localhost:8080")
+    output = shell_output("curl -sI http://localhost:#{port}")
     assert_match(/200 OK/m, output)
   ensure
     Process.kill("HUP", pid)

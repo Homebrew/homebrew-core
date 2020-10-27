@@ -1,25 +1,32 @@
 class Libepoxy < Formula
   desc "Library for handling OpenGL function pointer management"
   homepage "https://github.com/anholt/libepoxy"
-  url "https://download.gnome.org/sources/libepoxy/1.5/libepoxy-1.5.3.tar.xz"
-  sha256 "002958c5528321edd53440235d3c44e71b5b1e09b9177e8daf677450b6c4433d"
+  url "https://download.gnome.org/sources/libepoxy/1.5/libepoxy-1.5.4.tar.xz"
+  sha256 "0bd2cc681dfeffdef739cb29913f8c3caa47a88a451fd2bc6e606c02997289d2"
+  license "MIT"
+  revision 1
+
+  # We use a common regex because libepoxy doesn't use GNOME's "even-numbered
+  # minor is stable" version scheme.
+  livecheck do
+    url :stable
+    regex(/libepoxy[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     cellar :any
-    sha256 "2b40b669394b38062aeb683c72a53c73a6a48420d7529c5862290a4721850bb7" => :catalina
-    sha256 "2effda8b89a49b5dbd3860061666757e58ba982534e42507e29ea3646f896178" => :mojave
-    sha256 "0f7ebb1bf7449c25196dd2f3500e520a2b0eb67ac21263ec87c9d02c7d9e7e58" => :high_sierra
-    sha256 "147538004325b02238d187ec1ef55944a0e74fe83accf1506904b62d01f75ec2" => :sierra
+    sha256 "9f58a2eab6aafcc95ade6893bde8d878ab422284353e22c11d04c3a6f3a1e7cb" => :catalina
+    sha256 "e42a0410e6f94fa419f785c5b0901eea1506242b1729f97b672f25b463ce3d4e" => :mojave
+    sha256 "95cbc3ce1fc94931e0259f9e55a25d9dcacacd70713ae3e59cba28f3d7ff2a3a" => :high_sierra
   end
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python" => :build
 
   def install
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", ".."
+      system "meson", *std_meson_args, ".."
       system "ninja"
       system "ninja", "install"
     end
@@ -31,6 +38,7 @@ class Libepoxy < Formula
       #include <epoxy/gl.h>
       #include <OpenGL/CGLContext.h>
       #include <OpenGL/CGLTypes.h>
+      #include <OpenGL/OpenGL.h>
       int main()
       {
           CGLPixelFormatAttribute attribs[] = {0};

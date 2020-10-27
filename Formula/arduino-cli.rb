@@ -2,28 +2,49 @@ class ArduinoCli < Formula
   desc "Arduino command-line interface"
   homepage "https://github.com/arduino/arduino-cli"
   url "https://github.com/arduino/arduino-cli.git",
-     :tag      => "0.6.0",
-     :revision => "3a08b07d458ef65fdefe88a7d71056227f626f5a"
+     tag:      "0.13.0",
+     revision: "693a045eea420c29ca7027e668eee31bce37365d"
+  license "GPL-3.0"
   head "https://github.com/arduino/arduino-cli.git"
+
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "878a5c5b6b9c25e1e1a7d703876dda604cae63a3efee21039e6d3ba44f43eb43" => :mojave
-    sha256 "d96cc41349e79283cc17ab01ef2643badb8f835c38a6e1d6873a0aa35ed97bfc" => :high_sierra
+    sha256 "b5927718821674c171e8853f97c83331216bea92257168e1bd4e830fe88d5e58" => :catalina
+    sha256 "4522d66a123be600d11f7c7b76dbc327f139cc060564c920fcf7c1d888a07ede" => :mojave
+    sha256 "fc4945e6f995a7367d807edcb31708a2d5d7d82cfec22b26b1187133db40b8a6" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    commit = Utils.popen_read("git", "rev-parse", "HEAD").chomp
-    system "go", "build", "-ldflags",
-           "-s -w -X github.com/arduino/arduino-cli/version.versionString=#{version} " \
-           "-X github.com/arduino/arduino-cli/version.commit=#{commit}",
-           "-o", bin/"arduino-cli"
+    commit = Utils.safe_popen_read("git", "rev-parse", "HEAD").chomp
+    ldflags = %W[
+      -s -w
+      -X github.com/arduino/arduino-cli/version.versionString=#{version}
+      -X github.com/arduino/arduino-cli/version.commit=#{commit}
+    ]
+    system "go", "build", *std_go_args, "-ldflags", ldflags.join(" ")
+
+    output = Utils.safe_popen_read({ "SHELL" => "bash" }, "#{bin}/arduino-cli", "completion", "bash")
+    (bash_completion/"arduino-cli").write output
+
+    output = Utils.safe_popen_read({ "SHELL" => "zsh" }, "#{bin}/arduino-cli", "completion", "zsh")
+    (zsh_completion/"_arduino-cli").write output
+
+    output = Utils.safe_popen_read({ "SHELL" => "fish" }, "#{bin}/arduino-cli", "completion", "fish")
+    (fish_completion/"arduino-cli.fish").write output
   end
 
   test do
     system "#{bin}/arduino-cli", "sketch", "new", "test_sketch"
     assert File.directory?("#{testpath}/test_sketch")
+
+    version_output = shell_output("#{bin}/arduino-cli version 2>&1")
+    assert_match "arduino-cli Version: #{version}", version_output
   end
 end

@@ -3,6 +3,7 @@ class Platypus < Formula
   homepage "https://sveinbjorn.org/platypus"
   url "https://sveinbjorn.org/files/software/platypus/platypus5.3.src.zip"
   sha256 "b5b707d4f664ab6f60eed545d49a7d38da7557ce8268cc4791886eee7b3ca571"
+  license "BSD-3-Clause"
   head "https://github.com/sveinbjornt/Platypus.git"
 
   bottle do
@@ -13,7 +14,7 @@ class Platypus < Formula
     sha256 "d46dd428161d8ed7febf5ea4109f9bcddfa65c75d4e67619781745587c6b6f55" => :sierra
   end
 
-  depends_on :xcode => ["8.0", :build]
+  depends_on xcode: ["8.0", :build]
 
   def install
     xcodebuild "SYMROOT=build", "DSTROOT=#{buildpath}/dst",
@@ -32,15 +33,16 @@ class Platypus < Formula
     end
   end
 
-  def caveats; <<~EOS
-    This formula only installs the command-line Platypus tool, not the GUI.
+  def caveats
+    <<~EOS
+      This formula only installs the command-line Platypus tool, not the GUI.
 
-    The GUI can be downloaded from Platypus' website:
-      https://sveinbjorn.org/platypus
+      The GUI can be downloaded from Platypus' website:
+        https://sveinbjorn.org/platypus
 
-    Alternatively, install with Homebrew Cask:
-      brew cask install platypus
-  EOS
+      Alternatively, install with Homebrew Cask:
+        brew cask install platypus
+    EOS
   end
 
   test do

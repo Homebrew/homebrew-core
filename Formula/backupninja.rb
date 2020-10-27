@@ -4,6 +4,12 @@ class Backupninja < Formula
   url "https://sourcearchive.raspbian.org/main/b/backupninja/backupninja_1.1.0.orig.tar.gz"
   mirror "https://debian.ethz.ch/ubuntu/ubuntu/pool/universe/b/backupninja/backupninja_1.1.0.orig.tar.gz"
   sha256 "abe444d0c7520ede7847b9497da4b1253a49579f59293b043c47b1dd9833280a"
+  license "GPL-2.0"
+
+  livecheck do
+    url "https://sourcearchive.raspbian.org/main/b/backupninja/"
+    regex(/href=.*?backupninja[._-]v?(\d+(?:\.\d+)+)\.orig\.t/i)
+  end
 
   bottle do
     cellar :any_skip_relocation

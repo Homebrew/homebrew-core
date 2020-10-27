@@ -1,18 +1,23 @@
 class Ed < Formula
   desc "Classic UNIX line editor"
   homepage "https://www.gnu.org/software/ed/ed.html"
-  url "https://ftp.gnu.org/gnu/ed/ed-1.15.tar.lz"
-  mirror "https://ftpmirror.gnu.org/ed/ed-1.15.tar.lz"
-  sha256 "ad4489c0ad7a108c514262da28e6c2a426946fb408a3977ef1ed34308bdfd174"
+  url "https://ftp.gnu.org/gnu/ed/ed-1.16.tar.lz"
+  mirror "https://ftpmirror.gnu.org/ed/ed-1.16.tar.lz"
+  sha256 "cfc07a14ab048a758473ce222e784fbf031485bcd54a76f74acfee1f390d8b2c"
+  revision 1
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "2977274fd722f25c7ff48bcec676bbd5441a541290eecc0fadd612b912a402e6" => :catalina
-    sha256 "5e928abc1cb9805d5af7c20862dd34158fce16a40b081e7fbf2d0831eee4823e" => :mojave
-    sha256 "f0c6117b99056bb8d56538e31cf2ba6213d3f4f3eb6527dc566636eb9cd07595" => :high_sierra
-    sha256 "04e745994129682e6d11caa6ce047a76da39c448403d4723fce2560c3603faef" => :sierra
+    sha256 "c8ffa15f236faed29b760318f598903144a8f30ed6a09161f67578b9789760c9" => :catalina
+    sha256 "2d8205eb80873325eb1b485238270df1d0e4ad71212d02f48dffbbdb77b529ed" => :mojave
+    sha256 "57b85675d5c24f9fa076b9e115274f03c8ec136a36400956b488d6e11fb37e5c" => :high_sierra
   end
+
+  keg_only :provided_by_macos
 
   def install
     ENV.deparallelize
@@ -29,12 +34,13 @@ class Ed < Formula
     libexec.install_symlink "gnuman" => "man"
   end
 
-  def caveats; <<~EOS
-    All commands have been installed with the prefix "g".
-    If you need to use these commands with their normal names, you
-    can add a "gnubin" directory to your PATH from your bashrc like:
-      PATH="#{opt_libexec}/gnubin:$PATH"
-  EOS
+  def caveats
+    <<~EOS
+      All commands have been installed with the prefix "g".
+      If you need to use these commands with their normal names, you
+      can add a "gnubin" directory to your PATH from your bashrc like:
+        PATH="#{opt_libexec}/gnubin:$PATH"
+    EOS
   end
 
   test do

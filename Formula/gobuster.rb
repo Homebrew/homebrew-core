@@ -2,29 +2,22 @@ class Gobuster < Formula
   desc "Directory/file & DNS busting tool written in Go"
   homepage "https://github.com/OJ/gobuster"
   url "https://github.com/OJ/gobuster.git",
-      :tag      => "v3.0.1",
-      :revision => "9ef3642d170d71fd79093c0aa0c23b6f2a4c1c64"
+      tag:      "v3.1.0",
+      revision: "f5051ed456dc158649bb8bf407889ab0978bf1ba"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f4c8f7838d25aa09d1a9487c6f70c8d15058fdd41008ae895082f8891a0798b0" => :catalina
-    sha256 "a9c4bbe39fb195053b3ab6775df8a70e23db510b4a04193b87bde9a82ed512d2" => :mojave
-    sha256 "1509160d7934a4d2ae01fba76441e905bd1fc36687d58a557ebaf7b47c274e30" => :high_sierra
-    sha256 "d72c5733c19364971ad6b6445b5c0c591bceffb6340ecbbb35c44295e1e04ff7" => :sierra
+    sha256 "f8f36299b36b59006637dcc7d062614eb209ba82a31f5a67fce789c4d6ef9562" => :catalina
+    sha256 "16912d38db06501d02cdab6066d1da01129779d958ce142c40018cce30328fc4" => :mojave
+    sha256 "341ce02f5e99ba1bf9cee8d6cbdd150a6e36d8b0fd811ded7a2da8933d877f9a" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    dir = buildpath/"src/github.com/OJ/gobuster"
-    dir.install buildpath.children
-
-    cd dir do
-      system "go", "build", "-o", bin/"gobuster"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"gobuster"
+    prefix.install_metafiles
   end
 
   test do

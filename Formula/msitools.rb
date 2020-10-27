@@ -1,14 +1,18 @@
 class Msitools < Formula
   desc "Windows installer (.MSI) tool"
   homepage "https://wiki.gnome.org/msitools"
-  url "https://download.gnome.org/sources/msitools/0.99/msitools-0.99.tar.xz"
-  sha256 "d475939a5e336b205eb3137bac733de8099bc74829040e065b01b15f6c8b3635"
+  url "https://download.gnome.org/sources/msitools/0.100/msitools-0.100.tar.xz"
+  sha256 "bbf1a6e3a9c2323b860a3227ac176736a3eafc4a44a67346c6844591f10978ea"
+  license "GPL-2.0"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
-    sha256 "919a699e30ed3416a101c9b6488691a5a6ad64a1dd1565579a3c4345fd8d456a" => :catalina
-    sha256 "d99f819451f9ce0ae4906dd096cb9db8384e2ab0f273ab81ab834af10d109bf8" => :mojave
-    sha256 "afa0c094ff3c227302213e0e875c17510b48c5b90a9e317b94198140771a42d8" => :high_sierra
-    sha256 "633b5a43c4c0517c0c1fb58661049e6987c4d3c9b82035394282d20278aa3015" => :sierra
+    sha256 "f9b65f68c973c323e96a0492df562bae32e3ede79d9e5a6f24b89f53ef085883" => :catalina
+    sha256 "b7646423954ae62a8dcb8ee413f98e0f5e1c4b8a73876255fcd2f0371e547f92" => :mojave
+    sha256 "fd8689ba0902ed4d784f85969d281a0e1c58bb76f0fe17a93d96ba2d3f845cdb" => :high_sierra
   end
 
   depends_on "intltool" => :build
@@ -19,6 +23,21 @@ class Msitools < Formula
   depends_on "glib"
   depends_on "libgsf"
   depends_on "vala"
+
+  # Workaround for https://gitlab.gnome.org/GNOME/msitools/issues/15
+  # Merged upstream in the following commits:
+  # https://gitlab.gnome.org/GNOME/msitools/commit/248450a2f2a23df59428fa816865a26f7e2496e0
+  # https://gitlab.gnome.org/GNOME/msitools/commit/9bbcc6da06ccf6144258c26ddcaab3262538d3ce
+  # Remove in next release.
+  patch do
+    url "https://gitlab.gnome.org/GNOME/msitools/commit/248450a2f2a23df59428fa816865a26f7e2496e0.patch"
+    sha256 "32bf8c2995085c2751c3fe8cd67878ea28b2ee255f5d00ed3ea7c5fddea3d902"
+  end
+
+  patch do
+    url "https://gitlab.gnome.org/GNOME/msitools/commit/9bbcc6da06ccf6144258c26ddcaab3262538d3ce.patch"
+    sha256 "5178df1577a967e887a859fe1a6c791071712e3acfc6f898e1e83352b7336a9a"
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking",

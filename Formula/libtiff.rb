@@ -4,6 +4,12 @@ class Libtiff < Formula
   url "https://download.osgeo.org/libtiff/tiff-4.1.0.tar.gz"
   mirror "https://fossies.org/linux/misc/tiff-4.1.0.tar.gz"
   sha256 "5d29f32517dadb6dbcd1255ea5bbc93a2b54b94fbf83653b4d65c7d6775b8634"
+  license "libtiff"
+
+  livecheck do
+    url "https://download.osgeo.org/libtiff/"
+    regex(/href=.*?tiff[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     cellar :any
@@ -13,6 +19,8 @@ class Libtiff < Formula
   end
 
   depends_on "jpeg"
+
+  uses_from_macos "zlib"
 
   def install
     args = %W[

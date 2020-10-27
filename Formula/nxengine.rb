@@ -4,6 +4,7 @@ class Nxengine < Formula
   url "https://nxengine.sourceforge.io/dl/nx-src-1006.tar.bz2"
   version "1.0.0.6"
   sha256 "cf9cbf15dfdfdc9936720a714876bb1524afbd2931e3eaa4c89984a40b21ad68"
+  license "GPL-3.0"
 
   bottle do
     cellar :any
@@ -41,7 +42,7 @@ class Nxengine < Formula
               /(image = SDL_LoadBMP)\((pbm_name)\);/,
               "char fn[256]; strcpy(fn, \"#{var}/nxengine/\"); strcat(fn, \\2); \\1(fn);"
     inreplace "extract/extractpxt.cpp",
-              /(mkdir)\((\".+\")/,
+              /(mkdir)\((".+")/,
               "char dir[256]; strcpy(dir, \"#{var}/nxengine/\"); strcat(dir, \\2); \\1(dir"
     inreplace "extract/extractfiles.cpp" do |s|
       s.gsub! /char \*dir = strdup\((fname)\);/,
@@ -65,9 +66,10 @@ class Nxengine < Formula
     ln_sf "/Library/Fonts/Courier New.ttf", "#{var}/nxengine/font.ttf"
   end
 
-  def caveats; <<~EOS
-    When the game runs first time, it will extract data files into the following directory:
-      #{var}/nxengine
-  EOS
+  def caveats
+    <<~EOS
+      When the game runs first time, it will extract data files into the following directory:
+        #{var}/nxengine
+    EOS
   end
 end

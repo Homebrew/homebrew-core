@@ -2,23 +2,25 @@ class DockerMachineDriverXhyve < Formula
   desc "Docker Machine driver for xhyve"
   homepage "https://github.com/machine-drivers/docker-machine-driver-xhyve"
   url "https://github.com/machine-drivers/docker-machine-driver-xhyve.git",
-      :tag      => "v0.4.0",
-      :revision => "829c0968dac18547636f3ad6aa5ef83677f48267"
+      tag:      "v0.4.0",
+      revision: "829c0968dac18547636f3ad6aa5ef83677f48267"
+  license "BSD-3-Clause"
   head "https://github.com/machine-drivers/docker-machine-driver-xhyve.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d64c4216f55e38b2da5ddcdda337133858c678570acd909a0f5c3910c272b8a7" => :mojave
-    sha256 "53f287a301b4df97248850ef0160eda8ea804f502be7b37574f88290ce5d62e7" => :high_sierra
-    sha256 "19ee4c65be0c2dcbe3b5f504e67cc0d81165164f90c007c066d9cc7b9d21cd2c" => :sierra
+    rebuild 1
+    sha256 "5c0cf9c40831d43e094ec493d9c4598019f7c9a9b3daabce0369777fa17f77aa" => :catalina
+    sha256 "b7e9879c8c5c734da5bd83ae00496dc26dcf8133e354662e7b6a8846bfbfc989" => :mojave
+    sha256 "282868271a1e504ca8643bb6507eb2f99f8f8703d64050886e00175182b35668" => :high_sierra
   end
 
   depends_on "go" => :build
   depends_on "docker-machine"
-  depends_on :macos => :yosemite
 
   def install
-    (buildpath/"gopath/src/github.com/zchee/docker-machine-driver-xhyve").install Dir["{*,.git,.gitignore,.gitmodules}"]
+    (buildpath/"gopath/src/github.com/zchee/docker-machine-driver-xhyve").install \
+      Dir["{*,.git,.gitignore,.gitmodules}"]
 
     ENV["GOPATH"] = "#{buildpath}/gopath"
     build_root = buildpath/"gopath/src/github.com/zchee/docker-machine-driver-xhyve"
@@ -39,12 +41,13 @@ class DockerMachineDriverXhyve < Formula
     end
   end
 
-  def caveats; <<~EOS
-    This driver requires superuser privileges to access the hypervisor. To
-    enable, execute
-        sudo chown root:wheel #{opt_prefix}/bin/docker-machine-driver-xhyve
-        sudo chmod u+s #{opt_prefix}/bin/docker-machine-driver-xhyve
-  EOS
+  def caveats
+    <<~EOS
+      This driver requires superuser privileges to access the hypervisor. To
+      enable, execute
+          sudo chown root:wheel #{opt_prefix}/bin/docker-machine-driver-xhyve
+          sudo chmod u+s #{opt_prefix}/bin/docker-machine-driver-xhyve
+    EOS
   end
 
   test do

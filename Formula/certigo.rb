@@ -1,16 +1,17 @@
 class Certigo < Formula
   desc "Utility to examine and validate certificates in a variety of formats"
   homepage "https://github.com/square/certigo"
-  url "https://github.com/square/certigo/archive/v1.11.0.tar.gz"
-  sha256 "2a0e7291c921f9e662743183d0a0695d7b34efb9972cda7f80cf3f9a292bcda0"
+  url "https://github.com/square/certigo/archive/v1.12.1.tar.gz"
+  sha256 "800bdfa10ffc7f6313397220d02769e88ed5dae001224c9f0199383dcb63eaec"
+  license "Apache-2.0"
   head "https://github.com/square/certigo.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "debd4cd336c0e3e247645810c617555b776dff9b2057e60b7553c4f2ee6064a5" => :catalina
-    sha256 "46fa9befb01dd5aa3a923848f1178ed219500400a1d2e2ba644bcb44c6508273" => :mojave
-    sha256 "01c67dccacfe76630409daaa8cd8ef53a6680a1c5f6adac6be1cef3adac9a12f" => :high_sierra
-    sha256 "55c18b8cf5af060425447fcedac72f9f187efdb17fab4ef37de9577251767797" => :sierra
+    rebuild 1
+    sha256 "9cb3d249c87ed65409a4e4a0e7841bbb8ab9192dea06df8f78f28f0fcbec4550" => :catalina
+    sha256 "85d39ea2806bbd5ea750486132343d2dc36d5cc37ac0048d4561c40d20826fde" => :mojave
+    sha256 "0ec7c22fe619af5e5178f4387f2731909ff02d4379ec62784f3625d2a63c358c" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -18,6 +19,14 @@ class Certigo < Formula
   def install
     system "./build"
     bin.install "bin/certigo"
+
+    # Install bash completion
+    output = Utils.safe_popen_read("#{bin}/certigo", "--completion-script-bash")
+    (bash_completion/"certigo").write output
+
+    # Install zsh completion
+    output = Utils.safe_popen_read("#{bin}/certigo", "--completion-script-zsh")
+    (zsh_completion/"_certigo").write output
   end
 
   test do

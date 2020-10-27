@@ -1,21 +1,21 @@
 class Shellharden < Formula
   desc "Bash syntax highlighter that encourages/fixes variables quoting"
   homepage "https://github.com/anordal/shellharden"
-  url "https://github.com/anordal/shellharden/archive/v4.1.1.tar.gz"
-  sha256 "7d7ac3443f35eb74abfc78fa67db2947d60b7d0782f225f55d6eefafcf294c7c"
+  url "https://github.com/anordal/shellharden/archive/v4.1.2.tar.gz"
+  sha256 "8e5f623f9d58e08460d3ecabb28c53f1969bed09c2526f01b5e00362a8b08e7f"
+  license "MPL-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "83bd7d67371e37e898dc6c39f9ba17d118b24c974a85a8bfd281ceff63afed0f" => :catalina
-    sha256 "baa7d0b87d9154caea44a01c94da1fa6159ab844c17eccada88ee877a48d0840" => :mojave
-    sha256 "3eb95853dcd0c2eff2c14eec1f7d5c70344319d70bbbe257873601fe8b8e32c6" => :high_sierra
+    sha256 "85dd6255ff5f3410eafff6f5689bbcb7feac3f3f5d291139fc60597e2f46e5a5" => :catalina
+    sha256 "fbe947b5d0596fb32bcbadddd904bf0b0d30c64053e00c13a41cc6ecf89d1e20" => :mojave
+    sha256 "214a9dca5d9d013ada81c97e204c96815fd3376399c960d73973ffe4c7d653cf" => :high_sierra
   end
 
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", *std_cargo_args
   end
 
   test do

@@ -1,19 +1,23 @@
 class GnuSed < Formula
   desc "GNU implementation of the famous stream editor"
   homepage "https://www.gnu.org/software/sed/"
-  url "https://ftp.gnu.org/gnu/sed/sed-4.7.tar.xz"
-  mirror "https://ftpmirror.gnu.org/sed/sed-4.7.tar.xz"
-  sha256 "2885768cd0a29ff8d58a6280a270ff161f6a3deb5690b2be6c49f46d4c67bd6a"
+  url "https://ftp.gnu.org/gnu/sed/sed-4.8.tar.xz"
+  mirror "https://ftpmirror.gnu.org/sed/sed-4.8.tar.xz"
+  sha256 "f79b0cfea71b37a8eeec8490db6c5f7ae7719c35587f21edb0617f370eeff633"
+  license "GPL-3.0"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 3
-    sha256 "fd4d42fd7c2896ec25477cf132ee944e0977fe3f3fc98125e5319bf524a84024" => :catalina
-    sha256 "568caa32e2f48a1a3a0363e33367effbf447064eca64f471076c3dace6a4eae0" => :mojave
-    sha256 "c633ae024f6c977abee048485ac37a321ed7badcaab2377c5e1082f68210d28b" => :high_sierra
+    sha256 "726be75d6d7155820b408a10e5c1a5ba1406374a7fc167af62524a4f4bbbc099" => :catalina
+    sha256 "093f16752e7dfb115c055f20aed090108b94edd47c40f5e50878d961359251b2" => :mojave
+    sha256 "865abe618c67037a4a419a05e0df2c6814fb3abdd6f631ea546aeba0aaf8eb78" => :high_sierra
   end
 
-  conflicts_with "ssed", :because => "both install share/info/sed.info"
+  conflicts_with "ssed", because: "both install share/info/sed.info"
 
   def install
     args = %W[
@@ -34,13 +38,14 @@ class GnuSed < Formula
     libexec.install_symlink "gnuman" => "man"
   end
 
-  def caveats; <<~EOS
-    GNU "sed" has been installed as "gsed".
-    If you need to use it as "sed", you can add a "gnubin" directory
-    to your PATH from your bashrc like:
+  def caveats
+    <<~EOS
+      GNU "sed" has been installed as "gsed".
+      If you need to use it as "sed", you can add a "gnubin" directory
+      to your PATH from your bashrc like:
 
-        PATH="#{opt_libexec}/gnubin:$PATH"
-  EOS
+          PATH="#{opt_libexec}/gnubin:$PATH"
+    EOS
   end
 
   test do

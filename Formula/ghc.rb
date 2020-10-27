@@ -5,30 +5,35 @@ class Ghc < Formula
 
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
-  url "https://downloads.haskell.org/ghc/8.8.1/ghc-8.8.1-src.tar.xz"
-  sha256 "908a83d9b814da74585de9d39687189e6260ec3848131f9d9236cab8a123721a"
+  url "https://downloads.haskell.org/~ghc/8.10.1/ghc-8.10.1-src.tar.xz"
+  sha256 "4e3b07f83a266b3198310f19f71e371ebce97c769b14f0d688f4cbf2a2a1edf5"
+  license "BSD-3-Clause"
+  revision 2
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
-    rebuild 1
-    sha256 "e0c68beda3b63b242d971f86792e92693732fa5e23c69659fc0a59d8dc331a38" => :catalina
-    sha256 "335717b90bb69785591b4e8896bd081170d4dd0fcb0f7496d367c2b0fdcf03c3" => :mojave
-    sha256 "0b1414c28edf44b9433a2976a7ed63301197c478f9e2d01fa5dd449b3b42a597" => :high_sierra
+    sha256 "1fc15705e5b9a24ca773d2df745345e75496ec3f227ea518d9945d6e1add6e18" => :catalina
+    sha256 "cf8e2755d55d2a6479e4cebbee041ff63bece9bbae7d514c0b7601f6542b8081" => :mojave
+    sha256 "40e2b31e3390cf784dedcd4357362bee577b6a5c1d911f5c072828fe01f42e8f" => :high_sierra
   end
 
   head do
-    url "https://gitlab.haskell.org/ghc/ghc.git", :branch => "ghc-8.8"
+    url "https://gitlab.haskell.org/ghc/ghc.git", branch: "ghc-8.10"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
 
     resource "cabal" do
-      url "https://hackage.haskell.org/package/cabal-install-3.0.0.0/cabal-install-3.0.0.0.tar.gz"
-      sha256 "a432a7853afe96c0fd80f434bd80274601331d8c46b628cd19a0d8e96212aaf1"
+      url "https://hackage.haskell.org/package/cabal-install-3.2.0.0/cabal-install-3.2.0.0.tar.gz"
+      sha256 "a0555e895aaf17ca08453fde8b19af96725da8398e027aa43a49c1658a600cb0"
     end
   end
 
-  depends_on "python" => :build
+  depends_on "python@3.9" => :build
   depends_on "sphinx-doc" => :build
 
   resource "gmp" do
@@ -38,19 +43,20 @@ class Ghc < Formula
     sha256 "87b565e89a9a684fe4ebeeddb8399dce2599f9c9049854ca8c0dfbdea0e21912"
   end
 
-  # https://www.haskell.org/ghc/download_ghc_8_6_5.html#macosx_x86_64
+  # https://www.haskell.org/ghc/download_ghc_8_10_1.html#macosx_x86_64
   # "This is a distribution for Mac OS X, 10.7 or later."
-  # Need to use 8.6.5 to build 8.8.1 because of
-  # https://gitlab.haskell.org/ghc/ghc/issues/17146
+  # A binary of ghc is needed to bootstrap ghc
   resource "binary" do
-    url "https://downloads.haskell.org/~ghc/8.6.5/ghc-8.6.5-x86_64-apple-darwin.tar.xz"
-    sha256 "dfc1bdb1d303a87a8552aa17f5b080e61351f2823c2b99071ec23d0837422169"
-  end
+    on_macos do
+      url "https://downloads.haskell.org/~ghc/8.10.1/ghc-8.10.1-x86_64-apple-darwin.tar.xz"
+      sha256 "65b1ca361093de4804a7e40b3e68178e1ef720f84f743641ec8d95e56a45b3a8"
+    end
 
-  # Two patches:
-  #  - configure: workaround for https://gitlab.haskell.org/ghc/ghc/issues/17114
-  #  - rts/Linker.c: Fix for Catalina compatibility https://gitlab.haskell.org/ghc/ghc/issues/17353
-  patch :DATA
+    on_linux do
+      url "https://downloads.haskell.org/~ghc/8.10.1/ghc-8.10.1-x86_64-deb9-linux.tar.xz"
+      sha256 "d1cf7886f27af070f3b7dbe1975a78b43ef2d32b86362cbe953e79464fe70761"
+    end
+  end
 
   def install
     # Work around Xcode 11 clang bug
@@ -59,6 +65,7 @@ class Ghc < Formula
 
     ENV["CC"] = ENV.cc
     ENV["LD"] = "ld"
+    ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
 
     # Build a static gmp rather than in-tree gmp, otherwise all ghc-compiled
     # executables link to Homebrew's GMP.
@@ -68,9 +75,8 @@ class Ghc < Formula
     # is mandatory or else you'll get "illegal text relocs" errors.
     resource("gmp").stage do
       system "./configure", "--prefix=#{gmp}", "--with-pic", "--disable-shared",
-                            "--build=#{Hardware.oldest_cpu}-apple-darwin#{`uname -r`.to_i}"
+                            "--build=#{Hardware.oldest_cpu}-apple-darwin#{OS.kernel_version.major}"
       system "make"
-      system "make", "check"
       system "make", "install"
     end
 
@@ -122,6 +128,7 @@ class Ghc < Formula
 
     ENV.deparallelize { system "make", "install" }
     Dir.glob(lib/"*/package.conf.d/package.cache") { |f| rm f }
+    Dir.glob(lib/"*/package.conf.d/package.cache.lock") { |f| rm f }
   end
 
   def post_install
@@ -130,49 +137,6 @@ class Ghc < Formula
 
   test do
     (testpath/"hello.hs").write('main = putStrLn "Hello Homebrew"')
-    system "#{bin}/runghc", testpath/"hello.hs"
+    assert_match "Hello Homebrew", shell_output("#{bin}/runghc hello.hs")
   end
 end
-__END__
-diff --git a/configure b/configure
-index e00a480..6db08ee 100755
---- a/configure
-+++ b/configure
-@@ -11525,6 +11525,8 @@ fi;
- fi
- { $as_echo "$as_me:${as_lineno-$LINENO}: result: $fptools_cv_alex_version" >&5
- $as_echo "$fptools_cv_alex_version" >&6; }
-+if test ! -f compiler/cmm/CmmLex.hs || test ! -f compiler/parser/Lexer.hs
-+then
- fp_version1=$fptools_cv_alex_version; fp_version2=3.1.7
- fp_save_IFS=$IFS; IFS='.'
- while test x"$fp_version1" != x || test x"$fp_version2" != x
-@@ -11548,6 +11550,7 @@ IFS=$fp_save_IFS
- if test "$fp_num1" -lt "$fp_num2"; then :
-   as_fn_error $? "Alex version 3.1.7 or later is required to compile GHC." "$LINENO" 5
- fi
-+fi
- AlexVersion=$fptools_cv_alex_version;
- 
- 
-diff -pur a/rts/Linker.c b/rts/Linker.c
---- a/rts/Linker.c	2019-08-25 21:03:36.000000000 +0900
-+++ b/rts/Linker.c	2019-11-05 11:09:06.000000000 +0900
-@@ -192,7 +192,7 @@ int ocTryLoad( ObjectCode* oc );
-  *
-  * MAP_32BIT not available on OpenBSD/amd64
-  */
--#if defined(x86_64_HOST_ARCH) && defined(MAP_32BIT)
-+#if defined(x86_64_HOST_ARCH) && defined(MAP_32BIT) && !defined(__APPLE__)
- #define TRY_MAP_32BIT MAP_32BIT
- #else
- #define TRY_MAP_32BIT 0
-@@ -214,7 +214,7 @@ int ocTryLoad( ObjectCode* oc );
-  */
- #if !defined(ALWAYS_PIC) && defined(x86_64_HOST_ARCH)
-
--#if defined(MAP_32BIT)
-+#if defined(MAP_32BIT) && !defined(__APPLE__)
- // Try to use MAP_32BIT
- #define MMAP_32BIT_BASE_DEFAULT 0
- #else

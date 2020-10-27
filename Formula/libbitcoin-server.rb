@@ -3,13 +3,13 @@ class LibbitcoinServer < Formula
   homepage "https://github.com/libbitcoin/libbitcoin-server"
   url "https://github.com/libbitcoin/libbitcoin-server/archive/v3.6.0.tar.gz"
   sha256 "283fa7572fcde70a488c93e8298e57f7f9a8e8403e209ac232549b2c433674e1"
-  revision 2
+  license "AGPL-3.0"
+  revision 5
 
   bottle do
-    sha256 "9d4b777b10ed489bbc11938b11fcd7bcf89ce498e901a1ce45ceca65899bdd15" => :catalina
-    sha256 "89f68bb7f63d8607fedf7d43ef649cb9dea5e3aeed46de0761f3490ec6438e85" => :mojave
-    sha256 "a41b76159482bb9e10e6a43f1b63ccbbdf9cd8330334918c4961a095a849d74b" => :high_sierra
-    sha256 "be860f7ccc38400930cd9995a03e38f3ea3c3ce6d5fca54410941c92cd71c7e3" => :sierra
+    sha256 "4a2b284d9569ec892e5548e689266abb9b7a2100015207db9045c7b5da114bc5" => :catalina
+    sha256 "67d3d042ba2b7b337abb4e88c33c06f28b01b5c5eea7c4e0811b837159c3b354" => :mojave
+    sha256 "99da12bdcf85074aa4ea25da7b0d6b16b5bf1c8dea7409a17f96e7ba2012a745" => :high_sierra
   end
 
   depends_on "autoconf" => :build

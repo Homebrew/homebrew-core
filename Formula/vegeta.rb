@@ -1,30 +1,29 @@
 class Vegeta < Formula
   desc "HTTP load testing tool and library"
   homepage "https://github.com/tsenart/vegeta"
-  url "https://github.com/tsenart/vegeta.git",
-      :tag      => "v12.7.0",
-      :revision => "9c95632b3e8562be6df690c639a3f5a6f40d3004"
+  url "https://github.com/tsenart/vegeta/archive/v12.8.4.tar.gz"
+  sha256 "418249d07f04da0a587df45abe34705166de9e54a836e27e387c719ebab3e357"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8bcc25e5a17aabc111d71ea916e8433589a9fe9e41bf5f172c77faafdd4285c5" => :catalina
-    sha256 "5b40fdc60f3bb98cb1c922ecbf84ea48748e97a3e31d979378f1abc2b6ea032a" => :mojave
-    sha256 "d72fb9d6d2b987f0f35c0545d806a1ea4626e266641e6e8abecc4ce0be54e4ce" => :high_sierra
-    sha256 "1596ae7a805382e2073fbc92a94c105d4176d75aace961e829c00dedd47b97b9" => :sierra
+    sha256 "63b383f4cdff26cc0bf4ba3e24a84ea6d7485a9a61fe49ac62b09f39c5f01e13" => :catalina
+    sha256 "76e2d89891ecee0bfa07e939619683cae2d954bca2c5524a6e87b84c105c6c25" => :mojave
+    sha256 "df3853752133b68c20a9d054c12d36d531779fe595bc6011bb1e2d3245e9df2d" => :high_sierra
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    src = buildpath/"src/github.com/tsenart/vegeta"
-    src.install buildpath.children
-    src.cd do
-      system "make", "vegeta"
-      bin.install "vegeta"
-      prefix.install_metafiles
-    end
+    build_time = Utils.safe_popen_read("date -u +'%Y-%m-%dT%H:%M:%SZ' 2> /dev/null").chomp
+
+    ldflags = %W[
+      -s -w
+      -X main.Version=#{version}
+      -X main.Date=#{build_time}
+    ]
+
+    system "go", "build", "-o", bin/"vegeta", "-ldflags", ldflags.join(" ")
   end
 
   test do

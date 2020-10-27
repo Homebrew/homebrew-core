@@ -17,7 +17,7 @@ class Nuxeo < Formula
     libexec.install Dir["#{buildpath}/*"]
 
     (bin/"nuxeoctl").write_env_script "#{libexec}/bin/nuxeoctl",
-      :NUXEO_HOME => libexec.to_s, :NUXEO_CONF => "#{etc}/nuxeo.conf"
+      NUXEO_HOME: libexec.to_s, NUXEO_CONF: "#{etc}/nuxeo.conf"
 
     inreplace "#{libexec}/bin/nuxeo.conf" do |s|
       s.gsub! /#nuxeo\.log\.dir.*/, "nuxeo.log.dir=#{var}/log/nuxeo"
@@ -36,11 +36,12 @@ class Nuxeo < Formula
     libexec.install_symlink var/"cache/nuxeo/packages"
   end
 
-  def caveats; <<~EOS
-    You need to edit #{etc}/nuxeo.conf file to configure manually the server.
-    Also, in case of upgrade, run 'nuxeoctl mp-upgrade' to ensure all
-    downloaded addons are up to date.
-  EOS
+  def caveats
+    <<~EOS
+      You need to edit #{etc}/nuxeo.conf file to configure manually the server.
+      Also, in case of upgrade, run 'nuxeoctl mp-upgrade' to ensure all
+      downloaded addons are up to date.
+    EOS
   end
 
   test do

@@ -3,12 +3,20 @@ class GtkMacIntegration < Formula
   homepage "https://wiki.gnome.org/Projects/GTK+/OSX/Integration"
   url "https://download.gnome.org/sources/gtk-mac-integration/2.1/gtk-mac-integration-2.1.3.tar.xz"
   sha256 "d5f72302daad1f517932194d72967a32e72ed8177cfa38aaf64f0a80564ce454"
-  revision 2
+  license "LGPL-2.1"
+  revision 4
+
+  # We use a common regex because gtk-mac-integration doesn't use GNOME's
+  # "even-numbered minor is stable" version scheme.
+  livecheck do
+    url :stable
+    regex(/gtk-mac-integration[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 "c44aed60d1bddea2a38b4e7d4211dc506695b66170889b104cc9b0f42ae074ed" => :catalina
-    sha256 "17623aa62198ffb4da0a61b4265d50d3e168170b3e39b33679abea0014d8f773" => :mojave
-    sha256 "e8f85dbdf092f966838caca1156c836f6a85e9d906276de9eac47dbea4d84adc" => :high_sierra
+    sha256 "f3aa06585602da10d89507059ece018889dbb0054118791015d22c65fec76cde" => :catalina
+    sha256 "a49e16175a868344c82613a7e23755bc6fc5da89c12e8ee6385c94c02da477cc" => :mojave
+    sha256 "61e69c71c4443999c5b0f53fcbcf1e5e775e7f0078117b54b5fe451dafeabc5f" => :high_sierra
   end
 
   head do
@@ -25,7 +33,6 @@ class GtkMacIntegration < Formula
   depends_on "gettext"
   depends_on "gtk+"
   depends_on "gtk+3"
-  depends_on "pygtk"
 
   def install
     args = %W[
@@ -34,8 +41,8 @@ class GtkMacIntegration < Formula
       --prefix=#{prefix}
       --with-gtk2
       --with-gtk3
-      --enable-python=yes
       --enable-introspection=yes
+      --enable-python=no
     ]
 
     if build.head?

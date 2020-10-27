@@ -1,31 +1,27 @@
 class Prototool < Formula
   desc "Your Swiss Army Knife for Protocol Buffers"
   homepage "https://github.com/uber/prototool"
-  url "https://github.com/uber/prototool/archive/v1.9.0.tar.gz"
-  sha256 "5f549c2c0c36f938b7d38d1fdec1deeb891ea10d534ee0e6a56ee7f9f746e89c"
+  url "https://github.com/uber/prototool/archive/v1.10.0.tar.gz"
+  sha256 "5b516418f41f7283a405bf4a8feb2c7034d9f3d8c292b2caaebcd218581d2de4"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6f2bfe70e42f7ae8fb136a7a17ec0138240f23eb15eba1f150971f867bef097b" => :catalina
-    sha256 "796c219902fcc8201d41c183efb470e97ef0251b70759826c4ef08dc06edd991" => :mojave
-    sha256 "d6fb6d50f3ac98e96a39c2425196f043f995ddc2368be51d6ea3d4345cd29363" => :high_sierra
+    sha256 "e7c678d2842ce666ddfbeee1092c2354a420c9b8b94244e8db2b382f6568e536" => :catalina
+    sha256 "256435ac965872664fc2707b8188090c2a1d369308ef2b224d53e1b972ee7620" => :mojave
+    sha256 "373cf39c37bd40c8eb4f9261129226bf0f276771872060ea3495d6a2d56fa911" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/github.com/uber/prototool"
-    dir.install buildpath.children
-    cd dir do
-      system "make", "brewgen"
-      cd "brew" do
-        bin.install "bin/prototool"
-        bash_completion.install "etc/bash_completion.d/prototool"
-        zsh_completion.install "etc/zsh/site-functions/_prototool"
-        man1.install Dir["share/man/man1/*.1"]
-        prefix.install_metafiles
-      end
+    system "make", "brewgen"
+    cd "brew" do
+      bin.install "bin/prototool"
+      bash_completion.install "etc/bash_completion.d/prototool"
+      zsh_completion.install "etc/zsh/site-functions/_prototool"
+      man1.install Dir["share/man/man1/*.1"]
+      prefix.install_metafiles
     end
   end
 

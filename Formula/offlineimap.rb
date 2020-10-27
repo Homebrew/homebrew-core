@@ -1,21 +1,26 @@
 class Offlineimap < Formula
   desc "Synchronizes emails between two repositories"
   homepage "https://www.offlineimap.org/"
-  url "https://github.com/OfflineIMAP/offlineimap/archive/v7.3.0.tar.gz"
-  sha256 "d8378e82e392c70f5c20cb08705687da30cd427f2bca539939311512777e6659"
+  url "https://files.pythonhosted.org/packages/40/41/5c9fae40b32ced68ad09e12f967be6e41309d63359948c6518d4c42de4a4/offlineimap-7.3.3.tar.gz"
+  sha256 "ce7642e30e00a93d81d1990ec68debc7548b575b66424b79977bc685657c1862"
+  license "GPL-2.0"
   head "https://github.com/OfflineIMAP/offlineimap.git"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "deaa78edce86b63e6d24b563877f6c246c2d1cf2987da172174fbd2207112eb1" => :catalina
-    sha256 "deaa78edce86b63e6d24b563877f6c246c2d1cf2987da172174fbd2207112eb1" => :mojave
-    sha256 "deaa78edce86b63e6d24b563877f6c246c2d1cf2987da172174fbd2207112eb1" => :high_sierra
+    sha256 "2d21d8216b9d9ad3197181632dd8583d8bd15f46851365e906d9581ae67ff30e" => :catalina
+    sha256 "ff922fc76e1e5571628d7ecb4bd436180895352768979c2cd9bcfee048b5d0f4" => :mojave
+    sha256 "ff922fc76e1e5571628d7ecb4bd436180895352768979c2cd9bcfee048b5d0f4" => :high_sierra
   end
 
-  depends_on "asciidoc" => :build
-  depends_on "docbook-xsl" => :build
-  depends_on "sphinx-doc" => :build
-  depends_on "python@2" # does not support Python 3
+  depends_on :macos # Due to Python 2 (Will never support Python 3)
+  # https://github.com/OfflineIMAP/offlineimap/issues/616#issuecomment-491003691
+  uses_from_macos "libxml2"
+  uses_from_macos "libxslt"
 
   resource "rfc6555" do
     url "https://files.pythonhosted.org/packages/58/a8/1dfba2db1f744657065562386069e547eefea9432d3f520d4af5b5fabd28/rfc6555-0.0.0.tar.gz"
@@ -28,13 +33,13 @@ class Offlineimap < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
-    sha256 "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
+    url "https://files.pythonhosted.org/packages/21/9f/b251f7f8a76dec1d6651be194dfba8fb8d7781d10ab3987190de8391d08e/six-1.14.0.tar.gz"
+    sha256 "236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a"
   end
 
   def install
-    xy = Language::Python.major_minor_version "python2"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
+    ENV.delete("PYTHONPATH")
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
 
     resources.each do |r|
       r.stage do
@@ -42,62 +47,63 @@ class Offlineimap < Formula
       end
     end
 
-    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
-    system "make", "docs"
-    man1.install "docs/offlineimap.1"
-    man7.install "docs/offlineimapui.7"
+    # Remove hardcoded python2 that does not exist on high-sierra or mojave
+    inreplace "Makefile", "python2", "python"
+    inreplace "bin/offlineimap", "python2", "python"
 
     etc.install "offlineimap.conf", "offlineimap.conf.minimal"
     libexec.install "bin/offlineimap" => "offlineimap.py"
     libexec.install "offlineimap"
     (bin/"offlineimap").write_env_script(libexec/"offlineimap.py",
-      :PYTHONPATH => ENV["PYTHONPATH"])
+      PYTHONPATH: ENV["PYTHONPATH"])
   end
 
-  def caveats; <<~EOS
-    To get started, copy one of these configurations to ~/.offlineimaprc:
-    * minimal configuration:
-        cp -n #{etc}/offlineimap.conf.minimal ~/.offlineimaprc
+  def caveats
+    <<~EOS
+      To get started, copy one of these configurations to ~/.offlineimaprc:
+      * minimal configuration:
+          cp -n #{etc}/offlineimap.conf.minimal ~/.offlineimaprc
 
-    * advanced configuration:
-        cp -n #{etc}/offlineimap.conf ~/.offlineimaprc
-  EOS
+      * advanced configuration:
+          cp -n #{etc}/offlineimap.conf ~/.offlineimaprc
+    EOS
   end
 
-  plist_options :manual => "offlineimap"
+  plist_options manual: "offlineimap"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>EnvironmentVariables</key>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
         <dict>
-          <key>PATH</key>
-          <string>/usr/bin:/bin:/usr/sbin:/sbin:#{HOMEBREW_PREFIX}/bin</string>
+          <key>EnvironmentVariables</key>
+          <dict>
+            <key>PATH</key>
+            <string>/usr/bin:/bin:/usr/sbin:/sbin:#{HOMEBREW_PREFIX}/bin</string>
+          </dict>
+          <key>KeepAlive</key>
+          <false/>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/offlineimap</string>
+            <string>-q</string>
+            <string>-u</string>
+            <string>basic</string>
+          </array>
+          <key>StartInterval</key>
+          <integer>300</integer>
+          <key>RunAtLoad</key>
+          <true />
+          <key>StandardErrorPath</key>
+          <string>/dev/null</string>
+          <key>StandardOutPath</key>
+          <string>/dev/null</string>
         </dict>
-        <key>KeepAlive</key>
-        <false/>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/offlineimap</string>
-          <string>-q</string>
-          <string>-u</string>
-          <string>basic</string>
-        </array>
-        <key>StartInterval</key>
-        <integer>300</integer>
-        <key>RunAtLoad</key>
-        <true />
-        <key>StandardErrorPath</key>
-        <string>/dev/null</string>
-        <key>StandardOutPath</key>
-        <string>/dev/null</string>
-      </dict>
-    </plist>
-  EOS
+      </plist>
+    EOS
   end
 
   test do

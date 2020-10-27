@@ -1,18 +1,18 @@
 class Zrepl < Formula
   desc "One-stop ZFS backup & replication solution"
   homepage "https://zrepl.github.io"
-  url "https://github.com/zrepl/zrepl/archive/v0.2.0.tar.gz"
-  sha256 "40ceb559059b43e96f61303a43ca0fac80b26f8281a07aa03e235658a6548891"
+  url "https://github.com/zrepl/zrepl/archive/v0.3.0.tar.gz"
+  sha256 "669b59ca524f487a76145f7153b9c048442cd1b96a293e0dc18048f5024a2997"
+  license "MIT"
   head "https://github.com/zrepl/zrepl.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cb99b7814e895f3004274ef6898002a2f09a8a88948a3a3fd79810adedf29beb" => :catalina
-    sha256 "ad08b412021d906160358c211cf6f9a8578f82a427610f576e206d2424dbc2f8" => :mojave
-    sha256 "51b266e1b03634d565d898848b20b6a7c1267dfac0ab3cfe7d0a1f011f6b46c5" => :high_sierra
+    sha256 "d476be049ac26213db683e0d2bf9a2ec0d3e43dad951a10c20b40afa6ede42c3" => :catalina
+    sha256 "23f0442f06dd7faf6782d9ac79607ba43e31e5dfd6cfa3450063ed012514e091" => :mojave
+    sha256 "75334d924255ced1155afb9523258e53be8e1c2ad6538e6b88c79c19251a17b4" => :high_sierra
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   resource "sample_config" do
@@ -21,21 +21,8 @@ class Zrepl < Formula
   end
 
   def install
-    contents = Dir["{*,.git,.gitignore}"]
-    gopath = buildpath/"gopath"
-    (gopath/"src/github.com/zrepl/zrepl").install contents
-
-    ENV["GOPATH"] = gopath
-    ENV.prepend_create_path "PATH", gopath/"bin"
-    cd gopath/"src/github.com/zrepl/zrepl" do
-      system "go", "build", "-o", "'$GOPATH/bin/stringer'", "golang.org/x/tools/cmd/stringer"
-      system "go", "build", "-o", "'$GOPATH/bin/protoc-gen-go'", "github.com/golang/protobuf/protoc-gen-go"
-      system "go", "build", "-o", "'$GOPATH/bin/enumer'", "github.com/alvaroloes/enumer"
-      system "go", "build", "-o", "'$GOPATH/bin/goimports'", "golang.org/x/tools/cmd/goimports"
-      system "go", "build", "-o", "'$GOPATH/bin/golangci-lint'", "github.com/golangci/golangci-lint/cmd/golangci-lint"
-      system "make", "ZREPL_VERSION=#{version}"
-      bin.install "artifacts/zrepl"
-    end
+    system "go", "build", *std_go_args,
+      "-ldflags", "-X github.com/zrepl/zrepl/version.zreplVersion=#{version}"
   end
 
   def post_install
@@ -44,41 +31,42 @@ class Zrepl < Formula
     (etc/"zrepl").mkpath
   end
 
-  plist_options :startup => true, :manual => "sudo zrepl daemon"
+  plist_options startup: true, manual: "sudo zrepl daemon"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
-    "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>EnvironmentVariables</key>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+      "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
         <dict>
-          <key>PATH</key>
-          <string>/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:#{HOMEBREW_PREFIX}/bin</string>
+          <key>EnvironmentVariables</key>
+          <dict>
+            <key>PATH</key>
+            <string>/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:#{HOMEBREW_PREFIX}/bin</string>
+          </dict>
+          <key>KeepAlive</key>
+          <true/>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/zrepl</string>
+            <string>daemon</string>
+          </array>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/zrepl/zrepl.err.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/zrepl/zrepl.out.log</string>
+          <key>ThrottleInterval</key>
+          <integer>30</integer>
+          <key>WorkingDirectory</key>
+          <string>#{var}/run/zrepl</string>
         </dict>
-        <key>KeepAlive</key>
-        <true/>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/zrepl</string>
-          <string>daemon</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/zrepl/zrepl.err.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/zrepl/zrepl.out.log</string>
-        <key>ThrottleInterval</key>
-        <integer>30</integer>
-        <key>WorkingDirectory</key>
-        <string>#{var}/run/zrepl</string>
-      </dict>
-    </plist>
-  EOS
+      </plist>
+    EOS
   end
 
   test do

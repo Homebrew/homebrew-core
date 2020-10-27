@@ -3,7 +3,10 @@ class Squashfs < Formula
   homepage "https://github.com/plougher/squashfs-tools"
   url "https://github.com/plougher/squashfs-tools/archive/4.4.tar.gz"
   sha256 "a7fa4845e9908523c38d4acf92f8a41fdfcd19def41bd5090d7ad767a6dc75c3"
-  head "https://github.com/plougher/squashfs-tools", :using => :git, :commit => "52eb4c279cd283ed9802dd1ceb686560b22ffb67"
+  license "GPL-2.0"
+  head "https://github.com/plougher/squashfs-tools",
+    using:  :git,
+    commit: "52eb4c279cd283ed9802dd1ceb686560b22ffb67"
 
   bottle do
     cellar :any
@@ -18,10 +21,13 @@ class Squashfs < Formula
   depends_on "xz"
   depends_on "zstd"
 
+  uses_from_macos "zlib"
+
   # Patch necessary to emulate the sigtimedwait process otherwise we get build failures.
   # Also clang fixes, extra endianness knowledge and a bundle of other macOS fixes.
+  # Original patchset: https://github.com/plougher/squashfs-tools/pull/69
   patch do
-    url "https://github.com/plougher/squashfs-tools/pull/69.patch?full_index=1"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/660ae1013be90a7ad70c862be60f9de87bbd25ca/squashfs/4.4.patch"
     sha256 "eb399705d259346473ebe5d43b886b278abc66d822ee4193b7c65b4a2ca903da"
   end
 
@@ -61,7 +67,8 @@ class Squashfs < Formula
     #   (Also tests that `xz` support is properly linked.)
     system "#{bin}/mksquashfs", "in/test1", "in/test2", "in/test3", "test.xz.sqsh", "-quiet", "-comp", "xz"
     assert_predicate testpath/"test.xz.sqsh", :exist?
-    assert_match "Found a valid SQUASHFS 4:0 superblock on test.xz.sqsh.", shell_output("#{bin}/unsquashfs -s test.xz.sqsh")
+    assert_match "Found a valid SQUASHFS 4:0 superblock on test.xz.sqsh.",
+      shell_output("#{bin}/unsquashfs -s test.xz.sqsh")
 
     # Test unsquashfs can extract files verbatim.
     system "#{bin}/unsquashfs", "-d", "out", "test.xz.sqsh"

@@ -1,16 +1,21 @@
 class Thrift < Formula
   desc "Framework for scalable cross-language services development"
   homepage "https://thrift.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=/thrift/0.12.0/thrift-0.12.0.tar.gz"
-  sha256 "c336099532b765a6815173f62df0ed897528a9d551837d627c1f87fadad90428"
-  revision 1
+  url "https://www.apache.org/dyn/closer.lua?path=thrift/0.13.0/thrift-0.13.0.tar.gz"
+  mirror "https://archive.apache.org/dist/thrift/0.13.0/thrift-0.13.0.tar.gz"
+  sha256 "7ad348b88033af46ce49148097afe354d513c1fca7c607b59c33ebb6064b5179"
+  license "Apache-2.0"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any
-    sha256 "17605f1674a5bc1f374f13137db550c51181e7eebae59513444d0f46032a2a78" => :catalina
-    sha256 "ead278adf991ed6056b97806f5a7815f76340492d00b39801c863e907826a2ec" => :mojave
-    sha256 "f2a1fcbee158d5478f786a1ff7667c65061e15f8a0ebecdbc69e748c184cc8ef" => :high_sierra
-    sha256 "3b554722d5011a8aa1906046d4d65b3482a121baf36c737aca4de1d270171e42" => :sierra
+    rebuild 1
+    sha256 "9fff4084e59bf612da35f7e731c82f5a1d714aec8ba860a2521c0ca1d73731d4" => :catalina
+    sha256 "840fbc8db938bc1b8e50d16f733bcd22a8918efee276cbf969fc79f779380b5d" => :mojave
+    sha256 "bec0a20279bf36bcd960c71b9e417e41a53479e8a575034bef426994e7ecc546" => :high_sierra
   end
 
   head do
@@ -23,7 +28,7 @@ class Thrift < Formula
   end
 
   depends_on "bison" => :build
-  depends_on "boost"
+  depends_on "boost" => [:build, :test]
   depends_on "openssl@1.1"
 
   def install
@@ -43,6 +48,7 @@ class Thrift < Formula
       --without-php_extension
       --without-python
       --without-ruby
+      --without-swift
     ]
 
     ENV.cxx11 if ENV.compiler == :clang
@@ -59,6 +65,17 @@ class Thrift < Formula
   end
 
   test do
-    system "#{bin}/thrift", "--version"
+    (testpath/"test.thrift").write <<~'EOS'
+      service MultiplicationService {
+        i32 multiply(1:i32 x, 2:i32 y),
+      }
+    EOS
+
+    system "#{bin}/thrift", "-r", "--gen", "cpp", "test.thrift"
+
+    system ENV.cxx, "-std=c++11", "gen-cpp/MultiplicationService.cpp",
+      "gen-cpp/MultiplicationService_server.skeleton.cpp",
+      "-I#{include}/include",
+      "-L#{lib}", "-lthrift"
   end
 end

@@ -4,6 +4,11 @@ class Expect < Formula
   url "https://downloads.sourceforge.net/project/expect/Expect/5.45.4/expect5.45.4.tar.gz"
   sha256 "49a7da83b0bdd9f46d04a04deec19c7767bb9a323e40c4781f89caf760b92c34"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/expect-?v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     rebuild 1
     sha256 "f7c101cd2eec5832de103e3535e876de15b53a96a301d4848990ab8af992f3a6" => :catalina
@@ -30,7 +35,8 @@ class Expect < Formula
       --with-tcl=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework
     ]
 
-    ENV.prepend "CFLAGS", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework/Versions/8.5/Headers/tcl-private"
+    ENV.prepend "CFLAGS",
+      "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework/Versions/8.5/Headers/tcl-private"
 
     # Regenerate configure script. Remove after patch applied in newer
     # releases.

@@ -1,16 +1,15 @@
 class Pugixml < Formula
   desc "Light-weight C++ XML processing library"
   homepage "https://pugixml.org/"
-  url "https://github.com/zeux/pugixml/releases/download/v1.9/pugixml-1.9.tar.gz"
-  sha256 "d156d35b83f680e40fd6412c4455fdd03544339779134617b9b28d19e11fdba6"
+  url "https://github.com/zeux/pugixml/releases/download/v1.10/pugixml-1.10.tar.gz"
+  sha256 "55f399fbb470942410d348584dc953bcaec926415d3462f471ef350f29b5870a"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "3c0b7ab4c2b6e3a3c5445020f530557ad5d2455f1e56e8dad1e9851abdb675b1" => :catalina
-    sha256 "65415981e37fc57d6e01ccd5ce9ef3a28f0b127ebefad23978a826fbf90ce6c1" => :mojave
-    sha256 "88887f5773727df5b02405326b57821c7d8ae625bc36878d5abc9317e66a9f74" => :high_sierra
-    sha256 "349e189771d80c798d920be6ff8f6d24612528a05e4285c4957e806092792604" => :sierra
+    sha256 "ffcc56b93b63ac573480cdcafd859bdee76409e834e4e6b855c0ac4cfa9eb94c" => :catalina
+    sha256 "ee86188a54388e0644fd3f90e0319c8c734fb6ae254b23da609af17e1f579c9a" => :mojave
+    sha256 "2b5ce73035deb5e9557fca05fc6100c4a1c18acf33816316185d00d9bb2198fe" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -40,9 +39,8 @@ class Pugixml < Formula
       <root>Hello world!</root>
     EOS
 
-    system ENV.cc, "test.cpp", "-o", "test", "-lstdc++",
-                               "-L#{Dir["#{lib}/pug*"].first}", "-lpugixml",
-                               "-I#{include.children.first}"
+    system ENV.cxx, "test.cpp", "-o", "test", "-I#{include}",
+                    "-L#{lib}", "-lpugixml"
     system "./test"
   end
 end

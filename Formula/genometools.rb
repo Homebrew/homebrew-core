@@ -1,25 +1,26 @@
 class Genometools < Formula
-  desc "GenomeTools: The versatile open source genome analysis software"
+  desc "Versatile open source genome analysis software"
   homepage "http://genometools.org/"
-  url "http://genometools.org/pub/genometools-1.5.10.tar.gz"
-  sha256 "0208591333b74594bc219fb67f5a29b81bb2ab872f540c408ac1743716274e6a"
-  revision 3
+  # genometools does not have source code on par with their binary dist on their website
+  url "https://github.com/genometools/genometools/archive/v1.6.1.tar.gz"
+  sha256 "528ca143a7f1d42af8614d60ea1e5518012913a23526d82e434f0dad2e2d863f"
+  license "ISC"
+  revision 2
   head "https://github.com/genometools/genometools.git"
 
   bottle do
     cellar :any
-    sha256 "681429d3a6b6ee6b8b4113740ccbcab9ffd56bde1aad23b42ee177ec2851fcab" => :catalina
-    sha256 "015822f99146040c6a5330bf99d3ae3be3802388362483058943ccf50e798f69" => :mojave
-    sha256 "85f0a2692a6f93089bc2a1a7967f7d410b99b55a9536db8a3191008999b17e4b" => :high_sierra
-    sha256 "e7a8e2ae40f1b5fb56e09e0449fefc10f00b820fe333d9f8fb2ed19ad92ebce1" => :sierra
+    sha256 "707d87995a1fd3153e9020630b8645f35b387ec0610950dcbcc61da8afb172e0" => :catalina
+    sha256 "f2d6eba092bf144f8184ce648af3e75a2097359eda4efa7c9eabf314a30d00d1" => :mojave
+    sha256 "5606993111552191b2e9215b06665bf0043c9851a6dd60c9927a32c94d0b2d4b" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "pango"
-  depends_on "python"
+  depends_on "python@3.9"
 
-  conflicts_with "libslax", :because => "both install `bin/gt`"
+  conflicts_with "libslax", because: "both install `bin/gt`"
 
   def install
     system "make", "prefix=#{prefix}"
@@ -38,6 +39,6 @@ class Genometools < Formula
 
   test do
     system "#{bin}/gt", "-test"
-    system "python3", "-c", "import gt"
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "import gt"
   end
 end

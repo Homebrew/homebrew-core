@@ -3,37 +3,39 @@ class Autojump < Formula
   homepage "https://github.com/wting/autojump"
   url "https://github.com/wting/autojump/archive/release-v22.5.3.tar.gz"
   sha256 "00daf3698e17ac3ac788d529877c03ee80c3790472a85d0ed063ac3a354c37b1"
+  license "GPL-3.0-or-later"
+  revision 2
   head "https://github.com/wting/autojump.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "11ab5e57c200bd21825899a7f2a7792afd0c19f8c065729e56673f5f949a97e7" => :catalina
-    sha256 "5576b3f2b9fcb2a236d6ac22b163af03994edb98b69c997ed5a88db85c8d0a15" => :mojave
-    sha256 "5576b3f2b9fcb2a236d6ac22b163af03994edb98b69c997ed5a88db85c8d0a15" => :high_sierra
-    sha256 "c95107719bd784e0e348be6dbfb3a780240d96f8d76710271c3642335babbd8f" => :sierra
+    sha256 "86f9b762fdc71023781e999f2269c1c9af87ad7c22f01b6ad9481e6583cf972a" => :catalina
+    sha256 "aeabdd63a425d4505d8b5f9aa6f3895e3447e8835d2ba82799e6de46162dc0f4" => :mojave
+    sha256 "225ebe9420dc834c2381b9c0fdadd1acb19a9152db6822ebce1ee8071db9bdd3" => :high_sierra
   end
 
-  uses_from_macos "python@2"
+  depends_on "python@3.9"
 
   def install
-    system "./install.py", "-d", prefix, "-z", zsh_completion
+    system Formula["python@3.9"].opt_bin/"python3", "install.py", "-d", prefix, "-z", zsh_completion
 
     # Backwards compatibility for users that have the old path in .bash_profile
     # or .zshrc
     (prefix/"etc").install_symlink prefix/"etc/profile.d/autojump.sh"
 
     libexec.install bin
-    bin.write_exec_script libexec/"bin/autojump"
+    (bin/"autojump").write_env_script libexec/"bin/autojump", PATH: "#{Formula["python@3.9"].libexec}/bin:$PATH"
   end
 
-  def caveats; <<~EOS
-    Add the following line to your ~/.bash_profile or ~/.zshrc file (and remember
-    to source the file to update your current session):
-      [ -f #{etc}/profile.d/autojump.sh ] && . #{etc}/profile.d/autojump.sh
+  def caveats
+    <<~EOS
+      Add the following line to your ~/.bash_profile or ~/.zshrc file (and remember
+      to source the file to update your current session):
+        [ -f #{etc}/profile.d/autojump.sh ] && . #{etc}/profile.d/autojump.sh
 
-    If you use the Fish shell then add the following line to your ~/.config/fish/config.fish:
-      [ -f #{HOMEBREW_PREFIX}/share/autojump/autojump.fish ]; and source #{HOMEBREW_PREFIX}/share/autojump/autojump.fish
-  EOS
+      If you use the Fish shell then add the following line to your ~/.config/fish/config.fish:
+        [ -f #{HOMEBREW_PREFIX}/share/autojump/autojump.fish ]; and source #{HOMEBREW_PREFIX}/share/autojump/autojump.fish
+    EOS
   end
 
   test do

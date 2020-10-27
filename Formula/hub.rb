@@ -1,31 +1,35 @@
 class Hub < Formula
   desc "Add GitHub support to git on the command-line"
   homepage "https://hub.github.com/"
-  url "https://github.com/github/hub/archive/v2.13.0.tar.gz"
-  sha256 "0b5147a25aa8dff37d6c88b2a30ed38c05d35e03c64d79039925dcb49de80940"
+  url "https://github.com/github/hub/archive/v2.14.2.tar.gz"
+  sha256 "e19e0fdfd1c69c401e1c24dd2d4ecf3fd9044aa4bd3f8d6fd942ed1b2b2ad21a"
+  license "MIT"
   head "https://github.com/github/hub.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "039088d14cd3eb740f57f4a3f2703f6b71716abf1369a3878a3bd1b93b84522b" => :catalina
-    sha256 "b9f7bda85596f33a7417d1fbd4a140b8f583d3cf862f4d3c7a9ac0066ee18071" => :mojave
-    sha256 "30091202eec232f4f7b3e2194721f20ece42392c1171f6eb45bfe7b6ee5c1665" => :high_sierra
+    sha256 "fdf05855839a9d7ec6e7bee6796e3cb5fc473500cffc002366cf98c09a805b69" => :catalina
+    sha256 "bcbae9c683d76f3395665467ba0f0c00c60c12c84022f72faba4b8981724b563" => :mojave
+    sha256 "8800cda4532784bf764ea6116a06c81d8d90bb3d36d8ecf295e64f9dd647c4ad" => :high_sierra
   end
 
   depends_on "go" => :build
 
+  uses_from_macos "groff" => :build
+  uses_from_macos "ruby" => :build
+
+  on_linux do
+    depends_on "util-linux"
+  end
+
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/github/hub").install buildpath.children
-    cd "src/github.com/github/hub" do
-      system "make", "install", "prefix=#{prefix}"
+    system "make", "install", "prefix=#{prefix}"
 
-      prefix.install_metafiles
+    prefix.install_metafiles
 
-      bash_completion.install "etc/hub.bash_completion.sh"
-      zsh_completion.install "etc/hub.zsh_completion" => "_hub"
-      fish_completion.install "etc/hub.fish_completion" => "hub.fish"
-    end
+    bash_completion.install "etc/hub.bash_completion.sh"
+    zsh_completion.install "etc/hub.zsh_completion" => "_hub"
+    fish_completion.install "etc/hub.fish_completion" => "hub.fish"
   end
 
   test do

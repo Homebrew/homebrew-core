@@ -3,33 +3,38 @@ class Thefuck < Formula
 
   desc "Programatically correct mistyped console commands"
   homepage "https://github.com/nvbn/thefuck"
-  url "https://files.pythonhosted.org/packages/19/b0/5a563805cd59ad99b46a82fad0008ff6d9b55b61db88d8839b448c45b63c/thefuck-3.29.tar.gz"
-  sha256 "7b907b6ef6863cc0d3e9bb3e573054547a60f89572250b767ccadb317d3c8297"
+  url "https://files.pythonhosted.org/packages/46/ed/11176f81a85876f4016c18907d6e085862df464a76628b91b3e91f080c7e/thefuck-3.30.tar.gz"
+  sha256 "32b41db4360a810d8e761e80fe09868ce634476ee1829e26869d49484b7a95cc"
+  license "MIT"
+  revision 1
   head "https://github.com/nvbn/thefuck.git"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a9e1c5b8a788445cbddb0c75e76b15855e2f7d38ff97730213a58266b7c67848" => :catalina
-    sha256 "e0d8a79a9c0c301c9d5316983ee95aaeb582ae354a6dcd1bec3ae3a16e2920bf" => :mojave
-    sha256 "5eec27cd3a36614f7042b2936f943fa1a173c00f90a46b37e199ef3f359b38ab" => :high_sierra
-    sha256 "dbac00409d1662ad5c566f0936c296fba3dc42ce59cfa49b3bd5eb6fb9972cf5" => :sierra
+    sha256 "7f8ecd031ae58cc414d695058d7332b4b93c8e2959cf5114c82609d5676b24a7" => :catalina
+    sha256 "b7ff0b5553c12c27d3311d557604b708e0e4ea0c315b03198f354667b057a1c8" => :mojave
+    sha256 "e2d94b4c4d959f39370227a2a029956f85b5ef6e739bb0b55969ca2b0c034bb5" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.9"
 
   resource "colorama" do
-    url "https://files.pythonhosted.org/packages/76/53/e785891dce0e2f2b9f4b4ff5bc6062a53332ed28833c7afede841f46a5db/colorama-0.4.1.tar.gz"
-    sha256 "05eed71e2e327246ad6b38c540c4a3117230b19679b875190486ddd2d721422d"
+    url "https://files.pythonhosted.org/packages/82/75/f2a4c0c94c85e2693c229142eb448840fba0f9230111faa889d1f541d12d/colorama-0.4.3.tar.gz"
+    sha256 "e96da0d330793e2cb9485e9ddfd918d456036c7149416295932478192f4436a1"
   end
 
   resource "decorator" do
-    url "https://files.pythonhosted.org/packages/ba/19/1119fe7b1e49b9c8a9f154c930060f37074ea2e8f9f6558efc2eeaa417a2/decorator-4.4.0.tar.gz"
-    sha256 "86156361c50488b84a3f148056ea716ca587df2f0de1d34750d35c21312725de"
+    url "https://files.pythonhosted.org/packages/da/93/84fa12f2dc341f8cf5f022ee09e109961055749df2d0c75c5f98746cfe6c/decorator-4.4.2.tar.gz"
+    sha256 "e3a62f0520172440ca0dcc823749319382e377f37f140a0b99ef45fecb84bfe7"
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/c6/c1/beed5e4eaa1345901b595048fab1c85aee647ea0fc02d9e8bf9aceb81078/psutil-5.6.2.tar.gz"
-    sha256 "828e1c3ca6756c54ac00f1427fdac8b12e21b8a068c3bb9b631a1734cada25ed"
+    url "https://files.pythonhosted.org/packages/c4/b8/3512f0e93e0db23a71d82485ba256071ebef99b227351f0f5540f744af41/psutil-5.7.0.tar.gz"
+    sha256 "685ec16ca14d079455892f25bd124df26ff9137664af445563c1bd36629b5e0e"
   end
 
   resource "pyte" do
@@ -38,26 +43,27 @@ class Thefuck < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
-    sha256 "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
+    url "https://files.pythonhosted.org/packages/21/9f/b251f7f8a76dec1d6651be194dfba8fb8d7781d10ab3987190de8391d08e/six-1.14.0.tar.gz"
+    sha256 "236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a"
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/55/11/e4a2bb08bb450fdbd42cc709dd40de4ed2c472cf0ccb9e64af22279c5495/wcwidth-0.1.7.tar.gz"
-    sha256 "3df37372226d6e63e1b1e1eda15c594bca98a22d33a23832a90998faa96bc65e"
+    url "https://files.pythonhosted.org/packages/5e/33/92333eb80be0c96385dee338f30b53e24a8b415d5785e225d789b3f90feb/wcwidth-0.1.8.tar.gz"
+    sha256 "f28b3e8a6483e5d49e7f8949ac1a78314e740333ae305b4ba5defd3e74fb37a8"
   end
 
   def install
     virtualenv_install_with_resources
   end
 
-  def caveats; <<~EOS
-    Add the following to your .bash_profile, .bashrc or .zshrc:
+  def caveats
+    <<~EOS
+      Add the following to your .bash_profile, .bashrc or .zshrc:
 
-      eval $(thefuck --alias)
+        eval $(thefuck --alias)
 
-    For other shells, check https://github.com/nvbn/thefuck/wiki/Shell-aliases
-  EOS
+      For other shells, check https://github.com/nvbn/thefuck/wiki/Shell-aliases
+    EOS
   end
 
   test do

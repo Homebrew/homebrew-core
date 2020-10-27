@@ -4,6 +4,11 @@ class Minizip < Formula
   url "https://zlib.net/zlib-1.2.11.tar.gz"
   sha256 "c3e5e9fdd5004dcb542feda5ee4f0ff0744628baf8ed2dd5d66f8ca1197cb1a1"
 
+  livecheck do
+    url "https://zlib.net/"
+    regex(/href=.*?zlib[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     rebuild 2
@@ -17,8 +22,10 @@ class Minizip < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
+  uses_from_macos "zlib"
+
   conflicts_with "minizip2",
-    :because => "both install a `libminizip.a` library"
+    because: "both install a `libminizip.a` library"
 
   def install
     system "./configure", "--prefix=#{prefix}"

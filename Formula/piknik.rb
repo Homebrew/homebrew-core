@@ -3,6 +3,7 @@ class Piknik < Formula
   homepage "https://github.com/jedisct1/piknik"
   url "https://github.com/jedisct1/piknik/archive/0.9.1.tar.gz"
   sha256 "a682e16d937a5487eda5b0d0889ae114e228bd3c9beddd743cad40f1bad94448"
+  license "BSD-2-Clause"
   head "https://github.com/jedisct1/piknik.git"
 
   bottle do
@@ -33,31 +34,33 @@ class Piknik < Formula
     end
   end
 
-  def caveats; <<~EOS
-    In order to get convenient shell aliases, put something like this in #{shell_profile}:
-      . #{etc}/profile.d/piknik.sh
-  EOS
+  def caveats
+    <<~EOS
+      In order to get convenient shell aliases, put something like this in #{shell_profile}:
+        . #{etc}/profile.d/piknik.sh
+    EOS
   end
 
-  plist_options :manual => "piknik -server"
+  plist_options manual: "piknik -server"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/piknik</string>
-          <string>-server</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-      </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/piknik</string>
+            <string>-server</string>
+          </array>
+          <key>RunAtLoad</key>
+          <true/>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do
@@ -70,6 +73,7 @@ class Piknik < Formula
       exec "#{bin}/piknik", "-server", "-config", conffile
     end
     begin
+      sleep 1
       IO.popen([{}, "#{bin}/piknik", "-config", conffile, "-copy"], "w+") do |p|
         p.write "test"
       end

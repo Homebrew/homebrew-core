@@ -1,7 +1,7 @@
 class Colorsvn < Formula
   desc "Subversion output colorizer"
-  homepage "http://colorsvn.tigris.org/"
-  url "http://colorsvn.tigris.org/files/documents/4414/49311/colorsvn-0.3.3.tar.gz"
+  homepage "https://web.archive.org/web/20170725092001/colorsvn.tigris.org/"
+  url "https://web.archive.org/web/20170725092001/colorsvn.tigris.org/files/documents/4414/49311/colorsvn-0.3.3.tar.gz"
   sha256 "db58d5b8f60f6d4def14f8f102ff137b87401257680c1acf2bce5680b801394e"
   revision 1
 
@@ -40,16 +40,17 @@ class Colorsvn < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    You probably want to set an alias to svn in your bash profile.
-    So source #{etc}/profile.d/colorsvn-env.sh or add the line
+  def caveats
+    <<~EOS
+      You probably want to set an alias to svn in your bash profile.
+      So source #{etc}/profile.d/colorsvn-env.sh or add the line
 
-        alias svn=colorsvn
+          alias svn=colorsvn
 
-    to your bash profile.
+      to your bash profile.
 
-    So when you type "svn" you'll run "colorsvn".
-  EOS
+      So when you type "svn" you'll run "colorsvn".
+    EOS
   end
 
   test do

@@ -3,6 +3,11 @@ class Flac123 < Formula
   homepage "https://flac-tools.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/flac-tools/flac123/flac123-0.0.12-release.tar.gz"
   sha256 "1976efd54a918eadd3cb10b34c77cee009e21ae56274148afa01edf32654e47d"
+  license "GPL-2.0"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any

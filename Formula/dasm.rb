@@ -1,20 +1,21 @@
 class Dasm < Formula
   desc "Macro assembler with support for several 8-bit microprocessors"
   homepage "https://dasm-assembler.github.io/"
-  url "https://github.com/dasm-assembler/dasm/archive/2.20.11.tar.gz"
-  sha256 "c69bbe192159dcf75677ca13bba65c3318dc443f2df45fccd3c060b2e092c7f5"
+  url "https://github.com/dasm-assembler/dasm/archive/2.20.14.tar.gz"
+  sha256 "c66538ad8c413a4ea88525246ed9fef2bf9c9d2e36593acdf651e06635ad7497"
+  license "GPL-2.0-or-later"
   version_scheme 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0c3819d2aafb6fd2daf11de8f9981c607f7dea0fc6244d538be3523816e699bf" => :catalina
-    sha256 "73736deba071cce9a0bf233dc4e084a9996a82431334dec3de16770c4630706b" => :mojave
-    sha256 "a0b952e00a3c25bb4eb0f7116804355acc87c60397649a18c090008a3030a566" => :high_sierra
+    sha256 "775182ffbc11709b19311978f7a7390cb550203cf6451275a2860601f66f2682" => :catalina
+    sha256 "2dbc0dad5d33e6e51eed0bb58972eab4d15a517c8fe4890c78098b065a7bfdf8" => :mojave
+    sha256 "1bc81a0ca38c8fe4615282acae9eca531374ce1271d4812532c33d88729166c3" => :high_sierra
   end
 
   def install
     system "make"
-    prefix.install "bin", "doc"
+    prefix.install "bin", "docs", "machines"
   end
 
   test do

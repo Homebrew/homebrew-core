@@ -1,9 +1,20 @@
 class Libelf < Formula
   desc "ELF object file access library"
   homepage "https://web.archive.org/web/20181111033959/www.mr511.de/software/english.html"
-  url "https://web.archive.org/web/20181111033959/www.mr511.de/software/libelf-0.8.13.tar.gz"
+  url "https://dl.bintray.com/homebrew/mirror/libelf-0.8.13.tar.gz" # using this url since original source is offline ( https://github.com/Homebrew/homebrew-core/pull/54887 )
   sha256 "591a9b4ec81c1f2042a97aa60564e0cb79d041c52faa7416acb38bc95bd2c76d"
+  license "LGPL-2.0"
   revision 1
+
+  # The formula uses archive.org for the homepage and a mirrored version of the
+  # last available archive. There seems to be some newer development in the
+  # ELF Tool Chain project (https://sourceforge.net/p/elftoolchain/wiki/Home/)
+  # but they don't create separate libelf releases. Altogether, there's nothing
+  # we can currently check for a new version, so we're skipping this until
+  # something changes.
+  livecheck do
+    skip "No version information available to check"
+  end
 
   bottle do
     cellar :any_skip_relocation

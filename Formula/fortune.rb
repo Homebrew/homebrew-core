@@ -5,18 +5,25 @@ class Fortune < Formula
   mirror "https://src.fedoraproject.org/repo/pkgs/fortune-mod/fortune-mod-9708.tar.gz/81a87a44f9d94b0809dfc2b7b140a379/fortune-mod-9708.tar.gz"
   sha256 "1a98a6fd42ef23c8aec9e4a368afb40b6b0ddfb67b5b383ad82a7b78d8e0602a"
 
+  livecheck do
+    url "https://www.ibiblio.org/pub/linux/games/amusements/fortune/"
+    regex(/href=.*?fortune-mod[._-]v?(\d+(?:\.\d+)*)\.t/i)
+  end
+
   bottle do
-    rebuild 3
-    sha256 "bde8e2f3f2e9e65c18b72b647cd8aad7658251592fae03717e7d90f4428464de" => :catalina
-    sha256 "f635d0fc0504922ba1bfae451f17b874ea96cffb85dead0913adb9da0669738e" => :mojave
-    sha256 "b650a61e6b39e9f12179140e0d2b23c0c606e7f29e64851aac5df4e376d77130" => :high_sierra
-    sha256 "c6fe1b893c31bc71b2c24de5bcc0a84fbd5025091d796250a7ef4ff6e406eea7" => :sierra
+    rebuild 4
+    sha256 "9d1ed340349cd7995d1308fc09fc69c3520c96b329ab881dc0d96fce914e029c" => :catalina
+    sha256 "9a7a866859df246c3fe9331cb1b131562359690dbc5bfed6ee4e8f5a4585025e" => :mojave
+    sha256 "3421fe011b2f27d30ae6e56d880eba8a68cb1249d6c4cd063a04fd61022507be" => :high_sierra
   end
 
   def install
     ENV.deparallelize
 
     inreplace "Makefile" do |s|
+      # Don't install offensive quotes
+      s.change_make_var! "OFFENSIVE", "0"
+
       # Use our selected compiler
       s.change_make_var! "CC", ENV.cc
 

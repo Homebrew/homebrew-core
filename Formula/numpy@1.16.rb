@@ -1,23 +1,25 @@
 class NumpyAT116 < Formula
   desc "Package for scientific computing with Python"
   homepage "https://www.numpy.org/"
-  url "https://files.pythonhosted.org/packages/d3/4b/f9f4b96c0b1ba43d28a5bdc4b64f0b9d3fbcf31313a51bc766942866a7c7/numpy-1.16.4.zip"
-  sha256 "7242be12a58fec245ee9734e625964b97cf7e3f2f7d016603f9e56660ce479c7"
+  url "https://github.com/numpy/numpy/releases/download/v1.16.6/numpy-1.16.6.zip"
+  sha256 "e5cf3fdf13401885e8eea8170624ec96225e2174eb0c611c6f26dd33b489e3ff"
+  license "BSD-3-Clause"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "7a6e4d2862b296c4dbdce11618396ff5c13da4aa84e4747fcf0a07efff508ad7" => :catalina
-    sha256 "1efacb12d68f80b3bb431f3ccf0ee161c096b29253b2777a0ed407f38f966342" => :mojave
-    sha256 "8f4597ef83483db4104b5172f5312f5ce946826fb6bd5eceeb0d2ec156526774" => :high_sierra
+    sha256 "fff9f604e35a06cc3197cc818a851d037f6d8f30df04fc7640144966bfb15c91" => :catalina
+    sha256 "0d6a4439397cf4c684b6e01fb7038ed9b9943582d5ef15f080503755330ca615" => :mojave
+    sha256 "ed8d4fa6634bea85689ae4d5e316e9a3546469e44358aba6a9f73183fdcb4272" => :high_sierra
   end
 
   depends_on "gcc" => :build # for gfortran
+  depends_on :macos # Due to Python 2
   depends_on "openblas"
-  depends_on "python@2"
 
   resource "Cython" do
-    url "https://files.pythonhosted.org/packages/a5/1f/c7c5450c60a90ce058b47ecf60bb5be2bfe46f952ed1d3b95d1d677588be/Cython-0.29.13.tar.gz"
-    sha256 "c29d069a4a30f472482343c866f7486731ad638ef9af92bfe5fca9c7323d638e"
+    url "https://files.pythonhosted.org/packages/d9/82/d01e767abb9c4a5c07a6a1e6f4d5a8dfce7369318d31f48a52374094372e/Cython-0.29.15.tar.gz"
+    sha256 "60d859e1efa5cc80436d58aecd3718ff2e74b987db0518376046adedba97ac30"
   end
 
   resource "nose" do
@@ -39,22 +41,22 @@ class NumpyAT116 < Formula
 
     Pathname("site.cfg").write config
 
-    version = Language::Python.major_minor_version "python2"
+    version = Language::Python.major_minor_version "python"
     dest_path = lib/"python#{version}/site-packages"
     dest_path.mkpath
 
     nose_path = libexec/"nose/lib/python#{version}/site-packages"
     resource("nose").stage do
-      system "python2", *Language::Python.setup_install_args(libexec/"nose")
+      system "python", *Language::Python.setup_install_args(libexec/"nose")
       (dest_path/"homebrew-numpy-nose.pth").write "#{nose_path}\n"
     end
 
     ENV.prepend_create_path "PYTHONPATH", buildpath/"tools/lib/python#{version}/site-packages"
     resource("Cython").stage do
-      system "python2", *Language::Python.setup_install_args(buildpath/"tools")
+      system "python", *Language::Python.setup_install_args(buildpath/"tools")
     end
 
-    system "python2", "setup.py",
+    system "python", "setup.py",
       "build", "--fcompiler=gnu95", "--parallel=#{ENV.make_jobs}",
       "install", "--prefix=#{prefix}",
       "--single-version-externally-managed", "--record=installed.txt"
@@ -63,7 +65,7 @@ class NumpyAT116 < Formula
   end
 
   test do
-    system "python2", "-c", <<~EOS
+    system "python", "-c", <<~EOS
       import numpy as np
       t = np.ones((3,3), int)
       assert t.sum() == 9

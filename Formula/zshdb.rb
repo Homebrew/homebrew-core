@@ -1,14 +1,24 @@
 class Zshdb < Formula
   desc "Debugger for zsh"
   homepage "https://github.com/rocky/zshdb"
-  url "https://downloads.sourceforge.net/project/bashdb/zshdb/1.0.1/zshdb-1.0.1.tar.gz"
-  sha256 "0b2717c1b1682b87c9e2a4d5303a5a60f9fbf418dbb7dd64fc814fbeead6506a"
+  url "https://downloads.sourceforge.net/project/bashdb/zshdb/1.1.2/zshdb-1.1.2.tar.gz"
+  sha256 "bf9cb36f60ce6833c5cd880c58d6741873b33f5d546079eebcfce258d609e9af"
+  license "GPL-3.0"
+
+  # We check the "zshdb" directory page because the bashdb project contains
+  # various software and zshdb releases may be pushed out of the SourceForge
+  # RSS feed.
+  livecheck do
+    url "https://sourceforge.net/projects/bashdb/files/zshdb/"
+    strategy :page_match
+    regex(%r{href=(?:["']|.*?zshdb/)?v?(\d+(?:[.-]\d+)+)/?["' >]}i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "02c72baac9b416aef9b58d98d72b1e0dca18de16efd3ae9dfd43368b52fa88a7" => :catalina
-    sha256 "02c72baac9b416aef9b58d98d72b1e0dca18de16efd3ae9dfd43368b52fa88a7" => :mojave
-    sha256 "02c72baac9b416aef9b58d98d72b1e0dca18de16efd3ae9dfd43368b52fa88a7" => :high_sierra
+    sha256 "2bdc583e95b4d4bd92624d48ce804561e3a337792dbba74f451a2507eb939704" => :catalina
+    sha256 "2bdc583e95b4d4bd92624d48ce804561e3a337792dbba74f451a2507eb939704" => :mojave
+    sha256 "2bdc583e95b4d4bd92624d48ce804561e3a337792dbba74f451a2507eb939704" => :high_sierra
   end
 
   head do

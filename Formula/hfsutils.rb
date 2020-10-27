@@ -1,7 +1,7 @@
 class Hfsutils < Formula
   desc "Tools for reading and writing Macintosh volumes"
   homepage "https://www.mars.org/home/rob/proj/hfs/"
-  url "ftp://ftp.mars.org/pub/hfs/hfsutils-3.2.6.tar.gz"
+  url "https://www.mars.org/pub/hfs/hfsutils-3.2.6.tar.gz"
   mirror "https://fossies.org/linux/misc/old/hfsutils-3.2.6.tar.gz"
   mirror "https://ftp.osuosl.org/pub/clfs/conglomeration/hfsutils/hfsutils-3.2.6.tar.gz"
   sha256 "bc9d22d6d252b920ec9cdf18e00b7655a6189b3f34f42e58d5bb152957289840"

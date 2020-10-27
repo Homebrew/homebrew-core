@@ -1,19 +1,21 @@
 class Arangodb < Formula
-  desc "The Multi-Model NoSQL Database"
+  desc "Multi-Model NoSQL Database"
   homepage "https://www.arangodb.com/"
-  url "https://download.arangodb.com/Source/ArangoDB-3.5.2.tar.gz"
-  sha256 "9331ddb8d745c5d977975591b20a00461bfe11865bfce9f3495dc8bdb9260bf1"
-  head "https://github.com/arangodb/arangodb.git", :branch => "devel"
+  url "https://download.arangodb.com/Source/ArangoDB-3.7.3.tar.gz"
+  sha256 "beb814932227949e21ae8fea4fb7bf76ed10c16666ee5f5dc1122f6e5a4d070f"
+  license "Apache-2.0"
+  head "https://github.com/arangodb/arangodb.git", branch: "devel"
 
   bottle do
-    sha256 "5e86cc8536055411a87d0e98329a07edf77b54e5624fab7cb7ae3d0e5a11cc0b" => :catalina
-    sha256 "c37fb40d99c4ade05624bfbe6200be512de4d2f234479ac356d459fde3c1ebd1" => :mojave
+    sha256 "4cbbf74380be461376cc7c0f9d4867e8584e3e5655b3241a8d132794bdc3bcd5" => :catalina
+    sha256 "6badc93f71766f82a27ee6cb223a8a3c12afec51d9ae5c4f56482b403ed27329" => :mojave
   end
 
   depends_on "ccache" => :build
   depends_on "cmake" => :build
-  depends_on "go" => :build
-  depends_on :macos => :mojave
+  depends_on "go@1.13" => :build
+  depends_on "python@3.9" => :build
+  depends_on macos: :mojave
   depends_on "openssl@1.1"
 
   # the ArangoStarter is in a separate github repository;
@@ -21,24 +23,35 @@ class Arangodb < Formula
   # with a unified CLI
   resource "starter" do
     url "https://github.com/arangodb-helper/arangodb.git",
-      :revision => "bbe29730e70dba609b57c469e8f863f032fabf3e"
+      tag:      "0.14.15",
+      revision: "e32307e9ae5a0046214cb066355a8577e6fc4148"
+  end
+
+  # Fix compilation with Xcode 12, remove in next release
+  patch do
+    url "https://github.com/arangodb/arangodb/commit/9fc2cd41.patch?full_index=1"
+    sha256 "ba1e417e85d467e020e9207f78a61e8a35a61a7576d2f822aaf6bd107bcebc92"
   end
 
   def install
     ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
 
     resource("starter").stage do
-      ENV.append "GOPATH", Dir.pwd + "/.gobuild"
-      system "make", "deps"
+      ENV["GO111MODULE"] = "on"
+      ENV["DOCKERCLI"] = ""
       # use commit-id as projectBuild
       commit = `git rev-parse HEAD`.chomp
-      system "go", "build", "-ldflags", "-X main.projectVersion=0.14.12 -X main.projectBuild=#{commit}",
-                            "-o", "arangodb",
-                            "github.com/arangodb-helper/arangodb"
-      bin.install "arangodb"
+      system "make", "deps"
+      ldflags = %W[
+        -s -w
+        -X main.projectVersion=#{resource("starter").version}
+        -X main.projectBuild=#{commit}
+      ]
+      system "go", "build", *std_go_args, "-ldflags", ldflags.join(" "), "github.com/arangodb-helper/arangodb"
     end
 
     mkdir "build" do
+      openssl = Formula["openssl@1.1"]
       args = std_cmake_args + %W[
         -DHOMEBREW=ON
         -DCMAKE_BUILD_TYPE=RelWithDebInfo
@@ -46,8 +59,8 @@ class Arangodb < Formula
         -DUSE_JEMALLOC=Off
         -DCMAKE_SKIP_RPATH=On
         -DOPENSSL_USE_STATIC_LIBS=On
-        -DCMAKE_LIBRARY_PATH=#{prefix}/opt/openssl@1.1/lib
-        -DOPENSSL_ROOT_DIR=#{prefix}/opt/openssl@1.1/lib
+        -DCMAKE_LIBRARY_PATH=#{openssl.opt_lib}
+        -DOPENSSL_ROOT_DIR=#{openssl.opt_lib}
         -DCMAKE_OSX_DEPLOYMENT_TARGET=#{MacOS.version}
         -DTARGET_ARCHITECTURE=nehalem
         -DUSE_CATCH_TESTS=Off
@@ -55,9 +68,7 @@ class Arangodb < Formula
         -DCMAKE_INSTALL_LOCALSTATEDIR=#{var}
       ]
 
-      if ENV.compiler == "gcc-6"
-        ENV.append "V8_CXXFLAGS", "-O3 -g -fno-delete-null-pointer-checks"
-      end
+      ENV["V8_CXXFLAGS"] = "-O3 -g -fno-delete-null-pointer-checks" if ENV.compiler == "gcc-6"
 
       system "cmake", "..", *args
       system "make", "install"
@@ -70,32 +81,31 @@ class Arangodb < Formula
   end
 
   def caveats
-    s = <<~EOS
+    <<~EOS
       An empty password has been set. Please change it by executing
         #{opt_sbin}/arango-secure-installation
     EOS
-
-    s
   end
 
-  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/arangodb/sbin/arangod"
+  plist_options manual: "#{HOMEBREW_PREFIX}/opt/arangodb/sbin/arangod"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>KeepAlive</key>
-        <true/>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>Program</key>
-        <string>#{opt_sbin}/arangod</string>
-        <key>RunAtLoad</key>
-        <true/>
-      </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>KeepAlive</key>
+          <true/>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>Program</key>
+          <string>#{opt_sbin}/arangod</string>
+          <key>RunAtLoad</key>
+          <true/>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do

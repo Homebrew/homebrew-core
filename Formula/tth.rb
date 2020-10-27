@@ -1,16 +1,19 @@
 class Tth < Formula
   desc "TeX/LaTeX to HTML converter"
   homepage "http://hutchinson.belmont.ma.us/tth/"
-  url "http://hutchinson.belmont.ma.us/tth/tth_distribution/tth_4.12.tgz"
-  sha256 "9d35c7414493faae79fb60866966862c58c2f37eefe08e77d226ecbd6d7acfa2"
+  url "http://hutchinson.belmont.ma.us/tth/tth_distribution/tth_4.15.tgz"
+  sha256 "83c1f39fbf3377fb43e3d01d042302fa91f8758aa9acc10e22fe8af140f0126c"
+
+  livecheck do
+    url "http://hutchinson.belmont.ma.us/tth/Version"
+    regex(/"v?(\d+(?:\.\d+)+)"/i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b28e90b9d5639deb3023f606eefe1ea6cb8525a58685b1558cf80a3e3e6b3f8c" => :catalina
-    sha256 "9a2a248e2b669c30cdb8c085d94be14b3b2fe5092dd76a1f960fa74fb3e554f7" => :mojave
-    sha256 "5b06f95fbccf3847cbabee3dec070cae76763acef5b0801e0870359639a20880" => :high_sierra
-    sha256 "22b58ab69a94f8e031efa6662179b14a2ba57bf0582174eda559abc0e3cf9701" => :sierra
-    sha256 "d02002b9156fc175d253f30ac2e5e7fa29a32e3c109caeaa3367d33fa496eb8f" => :el_capitan
+    sha256 "eba438c9ec2902578cd3a043fdfbc1fa6bf22bedbde36e868c4fe02740448b06" => :catalina
+    sha256 "a0fcd3029a8a43a59a530537c5fef4df45c0155924f41b07ac14ec2362d73ba7" => :mojave
+    sha256 "dc8224b651a9bbb3ab8a5f5dd2e213bfd42518962bd7132cb3d8a2db12ddd5bb" => :high_sierra
   end
 
   def install

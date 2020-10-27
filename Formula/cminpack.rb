@@ -3,22 +3,23 @@ class Cminpack < Formula
   homepage "http://devernay.free.fr/hacks/cminpack/cminpack.html"
   url "https://github.com/devernay/cminpack/archive/v1.3.6.tar.gz"
   sha256 "3c07fd21308c96477a2c900032e21d937739c233ee273b4347a0d4a84a32d09f"
+  license "BSD-3-Clause"
+  revision 1
   head "https://github.com/devernay/cminpack.git"
 
   bottle do
     cellar :any
-    sha256 "8fa220ed6b7167debda6509eeb504f95d01af9d7ca887ee6b0c632881f282cbb" => :catalina
-    sha256 "414aa14e16da767cfb9559b5293f1bb46ca1e3c326905611e69fe59bd3e415d3" => :mojave
-    sha256 "32a6b48cfe87b229bb1529a7c895762a5f3fa50b30703260ccca724c6af72a2a" => :high_sierra
-    sha256 "16664c7714c7e4337d453cc709dcee658662b7b61735608a278d81314557a08f" => :sierra
-    sha256 "ea2b1e1a4d1323e47df94c5fff2b66a8d3ecd2800f5f1dab788994e37192c628" => :el_capitan
-    sha256 "83b0004c7f4a707f51ee402f9d99f85f3c2d7f865c33f96f0a7ee85abfdb8ec1" => :yosemite
+    sha256 "f01181d9cd0882df08500e79b24c98a0d101579592684fe151fac5efa4e34835" => :catalina
+    sha256 "4ee55e748a0b20cf6450c88beaf821fd962e78c81c640a569720c0831b653ac0" => :mojave
+    sha256 "07714bb85b22bf0a9408337520ec68ac1ebbf4141070319e26975b641b936cd2" => :high_sierra
   end
 
   depends_on "cmake" => :build
 
   def install
-    system "cmake", ".", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
+    system "cmake", ".", "-DBUILD_SHARED_LIBS=ON",
+                         "-DCMAKE_BUILD_WITH_INSTALL_RPATH=ON",
+                         *std_cmake_args
     system "make", "install"
 
     man3.install Dir["doc/*.3"]

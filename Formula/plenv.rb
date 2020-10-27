@@ -1,11 +1,15 @@
 class Plenv < Formula
   desc "Perl binary manager"
   homepage "https://github.com/tokuhirom/plenv"
-  url "https://github.com/tokuhirom/plenv/archive/2.3.0.tar.gz"
-  sha256 "49ea2770627f40d1fafccf03bf459839bf1d005b3d8c3c5772f0242c84423876"
+  url "https://github.com/tokuhirom/plenv/archive/2.3.1.tar.gz"
+  sha256 "12004cfed7ed083911dbda3228a9fb9ce6e40e259b34e791d970c4f335935fa3"
+  # license ["Artistic-1.0", "GPL-1.0"] - pending https://github.com/Homebrew/brew/pull/7953
+  license "Artistic-1.0"
   head "https://github.com/tokuhirom/plenv.git"
 
   bottle :unneeded
+
+  depends_on "perl-build"
 
   def install
     prefix.install "bin", "plenv.d", "completions", "libexec"
@@ -14,17 +18,18 @@ class Plenv < Formula
     system "#{bin}/plenv", "rehash"
   end
 
-  def caveats; <<~EOS
-    To enable shims add to your profile:
-      if which plenv > /dev/null; then eval "$(plenv init -)"; fi
-    With zsh, add to your .zshrc:
-      if which plenv > /dev/null; then eval "$(plenv init - zsh)"; fi
-    With fish, add to your config.fish
-      if plenv > /dev/null; plenv init - | source ; end
-  EOS
+  def caveats
+    <<~EOS
+      To enable shims add to your profile:
+        if which plenv > /dev/null; then eval "$(plenv init -)"; fi
+      With zsh, add to your .zshrc:
+        if which plenv > /dev/null; then eval "$(plenv init - zsh)"; fi
+      With fish, add to your config.fish
+        if plenv > /dev/null; plenv init - | source ; end
+    EOS
   end
 
   test do
-    system "#{bin}/plenv", "--version"
+    assert_match(/\* system \(set by/, shell_output("#{bin}/plenv versions"))
   end
 end

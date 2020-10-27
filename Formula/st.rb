@@ -3,6 +3,7 @@ class St < Formula
   homepage "https://github.com/nferraz/st"
   url "https://github.com/nferraz/st/archive/v1.1.4.tar.gz"
   sha256 "c02a16f67e4c357690a5438319843149fd700c223128f9ffebecab2849c58bb8"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
@@ -21,7 +22,7 @@ class St < Formula
     system "make", "install"
 
     bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files libexec/"bin", :PERL5LIB => ENV["PERL5LIB"]
+    bin.env_script_all_files libexec/"bin", PERL5LIB: ENV["PERL5LIB"]
 
     man1.install_symlink Dir[libexec/"share/man/man1/*.1"]
   end

@@ -1,20 +1,32 @@
 class BoostBuild < Formula
   desc "C++ build system"
   homepage "https://www.boost.org/build/"
-  url "https://github.com/boostorg/build/archive/boost-1.71.0.tar.gz"
-  sha256 "236328d837d4c199c364a7f909070c86ce800b868336abb401a270bd247f9e6d"
+  url "https://github.com/boostorg/build/archive/boost-1.73.0.tar.gz"
+  sha256 "3490f9859a08cf46d963f0cfb834d30cd2c9f4cf5e0738dc19287b5849a316c2"
+  license "BSL-1.0"
   version_scheme 1
   head "https://github.com/boostorg/build.git"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "64536e5359d5a44216dfe28da70acf494e0145711ecee4cb8f014ca0fd0be3fc" => :catalina
-    sha256 "38b1d0c754e3bdf870ee3eec5cd3ce5e1a6e00bef49053d75a91105b2e9311c9" => :mojave
-    sha256 "54d0198ed146c01582834fdf3c399382f599b9dd94632efe0d51c1739e204ba5" => :high_sierra
-    sha256 "ec8ed9608fe07c3f581bd3e67199449e80134a9f6bb718ab8e8105b3756364b1" => :sierra
+  livecheck do
+    url :head
+    regex(/^boost[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
-  conflicts_with "b2-tools", :because => "both install `b2` binaries"
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "f6bb502b7848e98f4b184c2bf2604cc005e4bad599b1078a35119c2e8a2dccf1" => :catalina
+    sha256 "68b1dea12cdbab911e66842020a3f66690b85612ccf539e337ed71129747ed89" => :mojave
+    sha256 "2422cb690b00b75fa6dd4bfe63e7a775abd7659a537a627aec33115af051907e" => :high_sierra
+  end
+
+  conflicts_with "b2-tools", because: "both install `b2` binaries"
+
+  # Fix Xcode 11.4 compatibility.
+  # Remove with the next release.
+  patch do
+    url "https://github.com/boostorg/build/commit/b3a59d265929a213f02a451bb63cea75d668a4d9.patch?full_index=1"
+    sha256 "04a4df38ed9c5a4346fbb50ae4ccc948a1440328beac03cb3586c8e2e241be08"
+  end
 
   def install
     system "./bootstrap.sh"

@@ -1,14 +1,14 @@
 class Dateutils < Formula
   desc "Tools to manipulate dates with a focus on financial data"
   homepage "https://www.fresse.org/dateutils/"
-  url "https://github.com/hroptatyr/dateutils/releases/download/v0.4.6/dateutils-0.4.6.tar.xz"
-  sha256 "26a071317ae5710f226a3e6ba9a54d3764cd9efe3965aecc18e75372088757cd"
+  url "https://github.com/hroptatyr/dateutils/releases/download/v0.4.7/dateutils-0.4.7.tar.xz"
+  sha256 "49725457f5bef45ea424baade8999a6e54496e357f64280474ff7134a54f599a"
+  license "BSD-3-Clause"
 
   bottle do
-    sha256 "d7a2e5a20d955be7a23c8fcbb3de9a3b83743243501340fcd57a8f3b8c6118b4" => :catalina
-    sha256 "14c0bba42d725f246b116e5818ee421b8747b605aa4cc02dfaf00c863f821173" => :mojave
-    sha256 "efcf8e592b8a3f76d73bcc0b4478323631f16554003c84ada8af2f92e5592dbc" => :high_sierra
-    sha256 "c612ebbb2baffa30db4c1ba51afb635e406acd29cb0afec3329efbdf6dd419ae" => :sierra
+    sha256 "25d5db665c0591e56c4ec698656a5519f20417473e3cb763299d804bc735a9a5" => :catalina
+    sha256 "3124ddab0439b64bcfc95057ee52c7c902e684898a2d96832732819682fba75c" => :mojave
+    sha256 "310bbe8e2d4d039d065fb9bc5cd33ced2fc45f970057f21a205ff0004d6921e0" => :high_sierra
   end
 
   head do

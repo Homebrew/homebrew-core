@@ -1,33 +1,28 @@
 class Hostess < Formula
   desc "Idempotent command-line utility for managing your /etc/hosts file"
   homepage "https://github.com/cbednarski/hostess"
-  url "https://github.com/cbednarski/hostess/archive/v0.3.0.tar.gz"
-  sha256 "9b1f72f8657dd15482a429b33fc7bdb28c7a06137330b59f0eaef956c857ed59"
+  url "https://github.com/cbednarski/hostess/archive/v0.5.2.tar.gz"
+  sha256 "ece52d72e9e886e5cc877379b94c7d8fe6ba5e22ab823ef41b66015e5326da87"
+  license "MIT"
   head "https://github.com/cbednarski/hostess.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d0b8140a1f3d8c97868c218626fbc935ed592abaa6be72dcca368e36b62869db" => :catalina
-    sha256 "d9d5adeeb0551a9bb230b09b8463aa098abf42e2e5df4392ed7ae8236c6b4ce2" => :mojave
-    sha256 "955705aca89353471ac63e07a9254ca4252546c8071eda85a8b95ac6aa0b6331" => :high_sierra
-    sha256 "6a5ca47a7d0047d1595c79008ffc5d9a43ce8ef11cea5b6fc7deeaa239102216" => :sierra
-    sha256 "e77cffa19bdf7feb4973d59c4aa0f1551dc74b8caaf35c8a6330e71e223e2bdf" => :el_capitan
+    sha256 "80480773a167fdcad3fadb3feeb298b51aeb89aec5863204f512f941af7271da" => :catalina
+    sha256 "f3f06881067507c0d115209d515e6ebbe4090d7aa8fcff7bc685027c49ea6479" => :mojave
+    sha256 "15050f5b2f5936fe74e47937323c8a872ec12b75ed639b3df2c6eac11cf7da6f" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/github.com/cbednarski/hostess"
-    dir.install buildpath.children
+    ENV["GOOS"] = "darwin"
+    ENV["GOARCH"] = "amd64"
 
-    cd dir/"cmd/hostess" do
-      system "go", "install"
-    end
-    bin.install "bin/hostess"
+    system "go", "build", "-ldflags", "-s -w -X main.version=#{version}", "-o", bin/"hostess"
   end
 
   test do
-    system bin/"hostess", "--help"
+    assert_match "localhost", shell_output("#{bin}/hostess ls 2>&1")
   end
 end

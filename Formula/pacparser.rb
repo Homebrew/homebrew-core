@@ -3,6 +3,7 @@ class Pacparser < Formula
   homepage "https://github.com/pacparser/pacparser"
   url "https://github.com/pacparser/pacparser/archive/1.3.7.tar.gz"
   sha256 "575c5d8096b4c842b2af852bbb8bcfde96170b28b49f33249dbe2057a8beea13"
+  license "LGPL-3.0"
   head "https://github.com/pacparser/pacparser.git"
 
   bottle do

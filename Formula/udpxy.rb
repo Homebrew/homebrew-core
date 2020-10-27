@@ -6,6 +6,11 @@ class Udpxy < Formula
   version "1.0.23-12"
   sha256 "16bdc8fb22f7659e0427e53567dc3e56900339da261199b3d00104d699f7e94c"
 
+  livecheck do
+    url "http://www.udpxy.com/download/1_23/"
+    regex(/href=.*?udpxy[._-]v?(\d+(?:\.\d+)+-\d+)-prod\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "48a44c1a8510793fe0e878da79ac3a94953b3c13ecfe2dd4f338cecc17d30406" => :catalina
@@ -20,29 +25,30 @@ class Udpxy < Formula
     system "make", "install", "DESTDIR=#{prefix}", "PREFIX=''"
   end
 
-  plist_options :manual => "udpxy -p 4022"
+  plist_options manual: "udpxy -p 4022"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>KeepAlive</key>
-      <true/>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_bin}/udpxy</string>
-        <string>-p</string>
-        <string>4022</string>
-      </array>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>WorkingDirectory</key>
-      <string>#{HOMEBREW_PREFIX}</string>
-    </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>KeepAlive</key>
+        <true/>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/udpxy</string>
+          <string>-p</string>
+          <string>4022</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>WorkingDirectory</key>
+        <string>#{HOMEBREW_PREFIX}</string>
+      </dict>
+      </plist>
+    EOS
   end
 end

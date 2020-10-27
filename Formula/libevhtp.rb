@@ -3,13 +3,14 @@ class Libevhtp < Formula
   homepage "https://criticalstack.com/"
   url "https://github.com/criticalstack/libevhtp/archive/1.2.18.tar.gz"
   sha256 "316ede0d672be3ae6fe489d4ac1c8c53a1db7d4fe05edaff3c7c853933e02795"
-  revision 2
+  license "BSD-3-Clause"
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "1c9eac0e309c108015f1cd45de5e1de60a962dbe7d8ad702ceec92ca09b1a733" => :mojave
-    sha256 "f78dc220333d1a20a11243c11cc8e212e75487b6a01fabe02c2d2a18d779b9c2" => :high_sierra
-    sha256 "a27afd7497a33479dc608320cb8ad7641c83c9c85b736037aa228e1c98c0a71d" => :sierra
+    sha256 "507466763ef1710ef11b82d02a5229d1445ba6393a553d75926b8fe5d727d871" => :catalina
+    sha256 "bfd6cffbcad95d0db38d4b699af24dd3aab1a82b0bdfc7ea7136b212cecab37c" => :mojave
+    sha256 "72be53d01a0ab668255e9ab605c4d7b6c16e4ca1a3f68b026c3c9ae1fe77af50" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -20,6 +21,7 @@ class Libevhtp < Formula
   def install
     system "cmake", "-DEVHTP_BUILD_SHARED=ON",
                     "-DBUILD_SHARED_LIBS=ON",
+                    "-DEVHTP_DISABLE_REGEX=ON",
                     ".", *std_cmake_args
     system "make", "install"
     mkdir_p "./html/docs/"

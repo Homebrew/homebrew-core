@@ -3,6 +3,7 @@ class MavenShell < Formula
   homepage "https://github.com/jdillon/mvnsh"
   url "https://search.maven.org/remotecontent?filepath=org/sonatype/maven/shell/dist/mvnsh-assembly/1.1.0/mvnsh-assembly-1.1.0-bin.tar.gz"
   sha256 "584008d726bf6f90271f4ccd03b549773cbbe62ba7e92bf131e67df3ac5a41ac"
+  license "EPL-1.0"
 
   bottle :unneeded
 

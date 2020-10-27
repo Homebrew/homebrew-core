@@ -1,33 +1,36 @@
 class MysqlClient < Formula
   desc "Open source relational database management system"
-  homepage "https://dev.mysql.com/doc/refman/5.7/en/"
-  # Pinned at `5.7.*`
-  url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.28.tar.gz"
-  sha256 "f16399315212117c08f9bdf8a0d682728b2ce82d691bcfbf25a770f413b6f2da"
+  homepage "https://dev.mysql.com/doc/refman/8.0/en/"
+  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.22.tar.gz"
+  sha256 "ba765f74367c638d7cd1c546c05c14382fd997669bcd9680278e907f8d7eb484"
 
-  bottle do
-    sha256 "49c493fa62c2d02d54d9f11f7e90818556338e871f2352029e65912e56638cd0" => :catalina
-    sha256 "8e49ca1ca574972bb6ba2c32e42d9d4587d2f0ca170b3a6e95eb2d0109901d24" => :mojave
-    sha256 "b107088a2c71f87d29d453b556554502c19a863cc7e3cf541afb38c46795503e" => :high_sierra
+  livecheck do
+    url "https://github.com/mysql/mysql-server.git"
+    regex(/^mysql[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
-  keg_only "conflicts with mysql"
+  bottle do
+    sha256 "533b8b6535afa3463f01296e7c66c8c5b059684c2fafd841ba96fe29bfc14d8f" => :catalina
+    sha256 "3facd2969b6da9d1cde0d73a798b121c1a47cf507ed5a655ef8a288b92ddc23a" => :mojave
+    sha256 "fd77cb216f782f15d82a493ab9ec33d533e540027bb65aa406a3db5e134b821a" => :high_sierra
+  end
+
+  keg_only "it conflicts with mysql (which contains client libraries)"
 
   depends_on "cmake" => :build
-
+  # GCC is not supported either, so exclude for El Capitan.
+  depends_on macos: :sierra if DevelopmentTools.clang_build_version < 900
   depends_on "openssl@1.1"
 
-  def install
-    # https://bugs.mysql.com/bug.php?id=87348
-    # Fixes: "ADD_SUBDIRECTORY given source
-    # 'storage/ndb' which is not an existing"
-    inreplace "CMakeLists.txt", "ADD_SUBDIRECTORY(storage/ndb)", ""
+  uses_from_macos "libedit"
 
+  def install
     # -DINSTALL_* are relative to `CMAKE_INSTALL_PREFIX` (`prefix`)
     args = %W[
+      -DFORCE_INSOURCE_BUILD=1
       -DCOMPILATION_COMMENT=Homebrew
-      -DDEFAULT_CHARSET=utf8
-      -DDEFAULT_COLLATION=utf8_general_ci
+      -DDEFAULT_CHARSET=utf8mb4
+      -DDEFAULT_COLLATION=utf8mb4_general_ci
       -DINSTALL_DOCDIR=share/doc/#{name}
       -DINSTALL_INCLUDEDIR=include/mysql
       -DINSTALL_INFODIR=share/info

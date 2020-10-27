@@ -1,16 +1,27 @@
 class Remake < Formula
   desc "GNU Make with improved error handling, tracing, and a debugger"
   homepage "https://bashdb.sourceforge.io/remake"
-  url "https://downloads.sourceforge.net/project/bashdb/remake/4.2%2Bdbg-1.4/remake-4.2.1%2Bdbg-1.4.tar.bz2"
-  version "4.2.1-1.4"
-  sha256 "55df3b2586ab90ac0983a049f1911c4a1d9b68f7715c69768fbb0405e96a0e7b"
+  url "https://downloads.sourceforge.net/project/bashdb/remake/4.3%2Bdbg-1.5/remake-4.3%2Bdbg-1.5.tar.gz"
+  version "4.3-1.5"
+  sha256 "2e6eb709f3e6b85893f14f15e34b4c9b754aceaef0b92bb6ca3a025f10119d76"
+  license "GPL-3.0"
+
+  # We check the "remake" directory page because the bashdb project contains
+  # various software and remake releases may be pushed out of the SourceForge
+  # RSS feed.
+  livecheck do
+    url "https://sourceforge.net/projects/bashdb/files/remake/"
+    strategy :page_match
+    regex(%r{href=.*?remake/v?(\d+(?:\.\d+)+(?:(?:%2Bdbg)?[._-]\d+(?:\.\d+)+)?)/?["' >]}i)
+  end
 
   bottle do
-    sha256 "7eca51d8dbc43ec7f6bf9466f25cbe8b25f6a267def2125c0b1a4c686f85368a" => :mojave
-    sha256 "3d3ab44424002f01faba037c83e6d0bf19f9477c71ebd63191f565f87574238e" => :high_sierra
-    sha256 "6b8bcf13f7d7b879c005fa90e2d0afeade5ebf04887330aa5905bde2923e7186" => :sierra
-    sha256 "ea8af9ddc7a22e0708ea44345c78fd0c900cef791096cc1091157580de152297" => :el_capitan
+    sha256 "ad7371427c7aa33cc28ac17f8f91fd6dd6a4e15b031a8aedabdc38a8da5ae7f7" => :catalina
+    sha256 "308ec13eaf2295d55be5d8dd92e9932a8fa9d25dd06001f43436fcd304b638e3" => :mojave
+    sha256 "835577312df4dc23a7ea0701b15b80db4cd233cfaf4efcfbd6bfea8f0f5b27d5" => :high_sierra
   end
+
+  depends_on "readline"
 
   def install
     system "./configure", "--disable-debug",

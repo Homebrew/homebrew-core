@@ -3,16 +3,15 @@ class Dromeaudio < Formula
   homepage "https://github.com/joshb/dromeaudio/"
   url "https://github.com/joshb/DromeAudio/archive/v0.3.0.tar.gz"
   sha256 "d226fa3f16d8a41aeea2d0a32178ca15519aebfa109bc6eee36669fa7f7c6b83"
+  license "BSD-2-Clause"
   head "https://github.com/joshb/dromeaudio.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "537401eb1346b32ad7474408f24853224d1874d7782c4980b0883855be8e153b" => :mojave
-    sha256 "17e070192156e0e50f983a857110b1b9efcb5476dca7047adcdd151f9b14b81e" => :high_sierra
-    sha256 "6a8617ee09ea859c079db275005a89d38738e497f07383ec2ba96b8df5c657f7" => :sierra
-    sha256 "48f99a1a83ddf9d7ab3a3e6823a5bb715c8f781ad014727995ad8b8a8fc212bc" => :el_capitan
-    sha256 "2d8165381db24b35e50cf29e6c745e05149dd2e00e8f1d0c61133a45355c3dc6" => :yosemite
+    rebuild 2
+    sha256 "5199ecfbb8454f1560685c537b1fbaf1b301b39ad8ea825a9f846cc9f3530f30" => :catalina
+    sha256 "062b0fa8e43363d60e5816343d1fcb7f58ce02c236512d96f4bf4ba10c96fd2c" => :mojave
+    sha256 "1334685c021a520567e2d16bfe68ebddea8f9382a50645e241d09349cfb6b450" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -25,6 +24,16 @@ class Dromeaudio < Formula
   end
 
   test do
-    system "#{bin}/DromeAudioPlayer", test_fixtures("test.mp3")
+    assert_predicate include/"DromeAudio", :exist?
+    assert_predicate lib/"libDromeAudio.a", :exist?
+
+    # We don't test DromeAudioPlayer with an audio file because it only works
+    # with certain audio devices and will fail on CI with this error:
+    #   DromeAudio Exception: AudioDriverOSX::AudioDriverOSX():
+    #   AudioUnitSetProperty (for StreamFormat) failed
+    #
+    # Related PR: https://github.com/Homebrew/homebrew-core/pull/55292
+    assert_match /Usage: .*?DromeAudioPlayer <filename>/i,
+                 shell_output(bin/"DromeAudioPlayer 2>&1", 1)
   end
 end

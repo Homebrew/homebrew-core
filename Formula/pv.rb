@@ -4,6 +4,11 @@ class Pv < Formula
   url "https://www.ivarch.com/programs/sources/pv-1.6.6.tar.bz2"
   sha256 "608ef935f7a377e1439c181c4fc188d247da10d51a19ef79bcdee5043b0973f1"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?pv[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "a5a43d38f36d54dd3e01d70ab6faa68af3ddc7cb80302f02945d1344eee7b7d4" => :catalina

@@ -3,13 +3,18 @@ class Libflowmanager < Formula
   homepage "https://research.wand.net.nz/software/libflowmanager.php"
   url "https://research.wand.net.nz/software/libflowmanager/libflowmanager-3.0.0.tar.gz"
   sha256 "0866adfcdc223426ba17d6133a657d94928b4f8e12392533a27387b982178373"
+  revision 1
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?libflowmanager[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     cellar :any
-    sha256 "5fa3ce0917567cf4baf9c72b4a8f2fd5ebe013fd58371c213ceffbb46c946586" => :mojave
-    sha256 "52ebf18a6e9816920a0d44c09e9694c59524854d89e277e87486b81b995a6a60" => :high_sierra
-    sha256 "56f84519f766ec0c4fcb47401851743070649a46b6f84707650256601e2ed04d" => :sierra
-    sha256 "62ab34fafd7cd64356c2c6d185f76709539cca3c55b3ca7e41473ee79ddbae7f" => :el_capitan
+    sha256 "41c5f69289236b3362062b471654f0cc9446f93d90066c001a1bda56d9b9b4f3" => :catalina
+    sha256 "64843e32762b175f497e00e332bee33dbe2c5e77384ccb64a0957e9a6c2bd40b" => :mojave
+    sha256 "156b302b5feade664f79f10358bc7888f9db14da53bd3549f90864b1bd9056f5" => :high_sierra
   end
 
   depends_on "libtrace"

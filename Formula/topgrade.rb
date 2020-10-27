@@ -1,25 +1,27 @@
 class Topgrade < Formula
   desc "Upgrade all the things"
   homepage "https://github.com/r-darwish/topgrade"
-  url "https://github.com/r-darwish/topgrade/archive/v3.3.0.tar.gz"
-  sha256 "22f8065d3fe715726de400927f845323b66e93ca374fbb3b6276289f83052384"
+  url "https://github.com/r-darwish/topgrade/archive/v5.8.1.tar.gz"
+  sha256 "a3bed226213e9c65e3807f61727c590167028c393ddcea3627cef812258100de"
+  license "GPL-3.0-or-later"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "dc7a7b726a614262f11b2aa854db0847af1c4ad58e4042296fbc601d23643fbe" => :catalina
-    sha256 "ff244409dceb0ff1639c652cd8b30c4d8528eba02a2330c5070579345dfa3752" => :mojave
-    sha256 "df0083c23ffd2e78ce5c24b9515d8df5f4d3ceeb9fd058d5846abed9c8e99696" => :high_sierra
+    sha256 "639f88840d31ca19389da3237d1d8f638f1ec13f02804733c8cc7afdae5dec8a" => :catalina
+    sha256 "c332e0903168ec1bf2ba9960846f9bc95aeec4587b632a2cba1ac96d55177d00" => :mojave
+    sha256 "313a803b4bc0b14c4bf6d5f0cb61f4feb7c18291365ff3e817c7feb266bff476" => :high_sierra
   end
 
   depends_on "rust" => :build
+  depends_on xcode: :build if MacOS::CLT.version >= "11.4" # libxml2 module bug
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", *std_cargo_args
   end
 
   test do
-    # Configuraton path details: https://github.com/r-darwish/topgrade/blob/master/README.md#configuration-path
-    # Sample config file: https://github.com/r-darwish/topgrade/blob/master/config.example.toml
+    # Configuraton path details: https://github.com/r-darwish/topgrade/blob/HEAD/README.md#configuration-path
+    # Sample config file: https://github.com/r-darwish/topgrade/blob/HEAD/config.example.toml
     (testpath/"Library/Preferences/topgrade.toml").write <<~EOS
       # Additional git repositories to pull
       #git_repos = [
@@ -30,7 +32,7 @@ class Topgrade < Formula
 
     assert_match version.to_s, shell_output("#{bin}/topgrade --version")
 
-    output = shell_output("#{bin}/topgrade -n")
+    output = shell_output("#{bin}/topgrade -n --only brew")
     assert_match "Dry running: #{HOMEBREW_PREFIX}/bin/brew upgrade", output
     assert_not_match /\sSelf update\s/, output
   end

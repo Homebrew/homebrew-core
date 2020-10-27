@@ -1,14 +1,15 @@
 class Hwloc < Formula
   desc "Portable abstraction of the hierarchical topology of modern architectures"
   homepage "https://www.open-mpi.org/projects/hwloc/"
-  url "https://www.open-mpi.org/software/hwloc/v2.1/downloads/hwloc-2.1.0.tar.bz2"
-  sha256 "19429752f772cf68321196970ffb10dafd7e02ab38d2b3382b157c78efd10862"
+  url "https://www.open-mpi.org/software/hwloc/v2.3/downloads/hwloc-2.3.0.tar.bz2"
+  sha256 "b607f6097873f69ef6b4b01e66e0dcb45f9939e8979827284664bbf0d4018a64"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any
-    sha256 "94e4e238c45da330b53fde9c622e74a2dfabd00a17f37fa1807b1d828452759d" => :catalina
-    sha256 "df6180858171e5345d517cb5d7bace1f0f33fd63a84180ec591f2530465d7172" => :mojave
-    sha256 "e07953afc5a1e9548c467b1336c7003c2e2d008110c8e2012f160dedc3b15037" => :high_sierra
+    sha256 "b98423329f95c10ee12f079edcdeae64b33f4639cd666d83e498805879d0cb4d" => :catalina
+    sha256 "7ac08b2c072844864427cc80ec8906ea188ec3682a75578c149ade8148be3e66" => :mojave
+    sha256 "72be3d1ae086a215fe867e34ffdf6da3e39b7571ceb6c8c5606035db24491d81" => :high_sierra
   end
 
   head do
@@ -19,6 +20,7 @@ class Hwloc < Formula
   end
 
   depends_on "pkg-config" => :build
+
   uses_from_macos "libxml2"
 
   def install
@@ -32,6 +34,9 @@ class Hwloc < Formula
     system "make", "install"
 
     pkgshare.install "tests"
+
+    # remove homebrew shims directory references
+    rm Dir[pkgshare/"tests/**/Makefile"]
   end
 
   test do

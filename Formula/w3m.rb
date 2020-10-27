@@ -18,6 +18,11 @@ class W3m < Formula
     end
   end
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/w3m[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     rebuild 1
     sha256 "274f48d738d351b3c6a07ada24b866a485c49d400f36108d904a6d2a8835a660" => :catalina
@@ -29,6 +34,9 @@ class W3m < Formula
   depends_on "pkg-config" => :build
   depends_on "bdw-gc"
   depends_on "openssl@1.1"
+
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
 
   def install
     system "./configure", "--prefix=#{prefix}",

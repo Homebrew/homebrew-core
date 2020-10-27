@@ -1,15 +1,17 @@
 class MavenAT33 < Formula
   desc "Java-based project management"
   homepage "https://maven.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz"
+  url "https://www.apache.org/dyn/closer.lua?path=maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz"
   mirror "https://archive.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz"
   sha256 "6e3e9c949ab4695a204f74038717aa7b2689b1be94875899ac1b3fe42800ff82"
+  license "Apache-2.0"
+  revision 1
 
   bottle :unneeded
 
   keg_only :versioned_formula
 
-  depends_on :java => "1.7+"
+  depends_on "openjdk"
 
   def install
     # Remove windows files

@@ -3,15 +3,15 @@ class Innotop < Formula
   homepage "https://github.com/innotop/innotop/"
   url "https://github.com/innotop/innotop/archive/v1.12.0.tar.gz"
   sha256 "f56d51b2c33a9c03f1b9d4fc5f7480f1c2104ef1e8f04def84a16f35d0bc42f6"
-  revision 1
+  license "GPL-2.0"
+  revision 2
   head "https://github.com/innotop/innotop.git"
 
   bottle do
     cellar :any
-    sha256 "2f44801e8c3636e255a77e70e467d5033db045dd271d231b33bcba132318c204" => :catalina
-    sha256 "f06efef58e029201c6200a3fdb747a1289bd8ca84e7fe59f1ded94decc65df76" => :mojave
-    sha256 "dd3f3bd29b7e3c900342c933bb8e410cfde233fead139aa45523a865e9fd0977" => :high_sierra
-    sha256 "ac47e8dc4522263549d2ce3aa041b0bffea7bebe7ea836f0dd88449e332330a2" => :sierra
+    sha256 "937b00c65e3a404671911927fb6822401d1ee7d7d485519522cd98c4cf3c3f4b" => :catalina
+    sha256 "c121ba3fb8b300e6504f82d09f37845ddec1b3e7bdcf351c4f803bb44b922bc2" => :mojave
+    sha256 "34c26eaa153e3412c1d4426a3f8df76661dc260b454f06943a2e75dcee329140" => :high_sierra
   end
 
   depends_on "mysql-client"
@@ -48,7 +48,7 @@ class Innotop < Formula
     system "perl", "Makefile.PL", "INSTALL_BASE=#{prefix}"
     system "make", "install"
     share.install prefix/"man"
-    bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
+    bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
   end
 
   test do

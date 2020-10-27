@@ -22,10 +22,11 @@ class Vimpager < Formula
     system "make", "docs"
   end
 
-  def caveats; <<~EOS
-    To use vimpager as your default pager, add `export PAGER=vimpager` to your
-    shell configuration.
-  EOS
+  def caveats
+    <<~EOS
+      To use vimpager as your default pager, add `export PAGER=vimpager` to your
+      shell configuration.
+    EOS
   end
 
   test do

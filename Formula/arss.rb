@@ -4,6 +4,10 @@ class Arss < Formula
   url "https://downloads.sourceforge.net/project/arss/arss/0.2.3/arss-0.2.3-src.tar.gz"
   sha256 "e2faca8b8a3902226353c4053cd9ab71595eec6ead657b5b44c14b4bef52b2b2"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "d84220ffc41768520239228b13a8466493682fa30a670163041caa0b06f449a2" => :catalina

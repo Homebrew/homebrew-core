@@ -4,6 +4,10 @@ class Rkhunter < Formula
   url "https://downloads.sourceforge.net/project/rkhunter/rkhunter/1.4.6/rkhunter-1.4.6.tar.gz"
   sha256 "f750aa3e22f839b637a073647510d7aa3adf7496e21f3c875b7a368c71d37487"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "e9bfbf9e122295e1fd4ac70dea7502856b3415e0eec187512f196d51a718ab92" => :catalina

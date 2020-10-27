@@ -4,6 +4,12 @@ class Squirrel < Formula
   url "https://downloads.sourceforge.net/project/squirrel/squirrel3/squirrel%203.1%20stable/squirrel_3_1_stable.tar.gz"
   version "3.1.0"
   sha256 "4845a7fb82e4740bde01b0854112e3bb92a0816ad959c5758236e73f4409d0cb"
+  license "MIT"
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/squirrel[._-]v?(\d+(?:[-_]\d+)+).stable\.t}i)
+  end
 
   bottle do
     cellar :any_skip_relocation
@@ -31,22 +37,23 @@ class Squirrel < Formula
     (lib+"pkgconfig/libsquirrel.pc").write pc_file
   end
 
-  def pc_file; <<~EOS
-    prefix=#{opt_prefix}
-    exec_prefix=${prefix}
-    libdir=/${exec_prefix}/lib
-    includedir=/${prefix}/include
-    bindir=/${prefix}/bin
-    ldflags=  -L/${prefix}/lib
+  def pc_file
+    <<~EOS
+      prefix=#{opt_prefix}
+      exec_prefix=${prefix}
+      libdir=/${exec_prefix}/lib
+      includedir=/${prefix}/include
+      bindir=/${prefix}/bin
+      ldflags=  -L/${prefix}/lib
 
-    Name: libsquirrel
-    Description: squirrel library
-    Version: #{version}
+      Name: libsquirrel
+      Description: squirrel library
+      Version: #{version}
 
-    Requires:
-    Libs: -L${libdir} -lsquirrel -lsqstdlib
-    Cflags: -I${includedir}
-  EOS
+      Requires:
+      Libs: -L${libdir} -lsquirrel -lsqstdlib
+      Cflags: -I${includedir}
+    EOS
   end
 
   test do

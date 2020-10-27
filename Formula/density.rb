@@ -3,6 +3,7 @@ class Density < Formula
   homepage "https://github.com/centaurean/density"
   url "https://github.com/centaurean/density/archive/density-0.14.2.tar.gz"
   sha256 "0b130ea9da3ddaad78810a621a758b47c4135d91d5b5fd22d60bbaf04bc147da"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any
@@ -15,7 +16,7 @@ class Density < Formula
 
   resource "cputime" do
     url "https://github.com/centaurean/cputime.git",
-        :revision => "d435d91b872a4824fb507a02d0d1814ed3e791b0"
+        revision: "d435d91b872a4824fb507a02d0d1814ed3e791b0"
   end
 
   resource "spookyhash" do

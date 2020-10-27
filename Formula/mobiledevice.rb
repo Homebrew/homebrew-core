@@ -3,21 +3,21 @@ class Mobiledevice < Formula
   homepage "https://github.com/imkira/mobiledevice"
   url "https://github.com/imkira/mobiledevice/archive/v2.0.0.tar.gz"
   sha256 "07b167f6103175c5eba726fd590266bf6461b18244d34ef6d05a51fc4871e424"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "e7cace974bdc389f01ff6ec4fb0719cc73bd56ff485045b209150bae2bdc1462" => :mojave
-    sha256 "b848e30f816b76adea5e301e00123ac80a624db9461ef3a8b1324d84ad5d7c44" => :high_sierra
-    sha256 "0ff270eba2d01738d98d3a3a1570c46f2d0cdee93317b5b448e44d85ef4163c3" => :sierra
-    sha256 "6e7b8b74e3fe54132245a6f6720a77385c1a0185d6b2fdfbdb7391229e9e8b7a" => :el_capitan
+    rebuild 2
+    sha256 "6912247da18b0d7f033d37115939a67629b93d036458f1369944a58953c12f69" => :catalina
+    sha256 "1d327ce17e123f4039b9b0e6c351277d8e781a6757dd23060b6b207d791380f8" => :mojave
+    sha256 "7ac3822649356127001c8b452df55c1435c467938193f223da61bbcdf2a7c11b" => :high_sierra
   end
 
-  # Upstream is pretty dead but this is a simple change
-  # that permits building on newer versions of macOS.
+  # This is a simple change that permits building on newer versions of macOS.
+  # Should be included in the next stable release.
   patch do
-    url "https://github.com/imkira/mobiledevice/pull/20.patch?full_index=1"
-    sha256 "adb46783a6cce1e988e2efd3440e2991ac5c5ce55f59b9049c9ccc2936ae8a02"
+    url "https://github.com/imkira/mobiledevice/commit/0472188d875382c5535916bf4469a2de7696fd39.patch?full_index=1"
+    sha256 "76094a3e39e287c88bb60c829d2e9ab8801f8638c116d95a16333198b236147b"
   end
 
   def install

@@ -1,19 +1,20 @@
 class Mapserver < Formula
   desc "Publish spatial data and interactive mapping apps to the web"
   homepage "https://mapserver.org/"
-  url "https://download.osgeo.org/mapserver/mapserver-7.2.2.tar.gz"
-  sha256 "287f8dfe10961bc685bb87e118b7aa81382df907b2b3961d6559169b527ba95c"
+  url "https://download.osgeo.org/mapserver/mapserver-7.6.1.tar.gz"
+  sha256 "2d250874d55bee44e0dbbb3a38e612f8572730705edada00c6ab8b2c9e890581"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "3b24b6e3017545591672754741556ad53d2af3f7d9a22e4d5a884787013383ff" => :mojave
-    sha256 "5e845a5488957540ac077276509abfcb9da88b780245049fb1d78c20f011ecfa" => :high_sierra
-    sha256 "dc60f67df38a0c8fdc14f607ca1fd559fa47f1a84c672742e98612b49c909bdb" => :sierra
+    sha256 "b103aeaef884d1a4a5ea2d4cbc15428d42d373e9d3d7b134dd601cc037a55300" => :catalina
+    sha256 "35c6639f7cdb2406fa663f38d305f883be04d44fedca97e5842091a2f2412fa4" => :mojave
+    sha256 "b3bf03a232330e3e1e0d0a1758ff1d3065e36e3c84649682844b058af80cb110" => :high_sierra
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "swig" => :build
+  depends_on "swig@3" => :build
   depends_on "cairo"
   depends_on "fcgi"
   depends_on "freetype"
@@ -25,13 +26,14 @@ class Mapserver < Formula
   depends_on "postgresql"
   depends_on "proj"
   depends_on "protobuf-c"
+  depends_on "python@3.9"
+
+  uses_from_macos "curl"
 
   def install
-    # Harfbuzz support requires fribidi and fribidi support requires
-    # harfbuzz but fribidi currently fails to build with:
-    # fribidi-common.h:61:12: fatal error: 'glib.h' file not found
+    ENV.cxx11
+
     args = std_cmake_args + %w[
-      -DPYTHON_EXECUTABLE:FILEPATH=/usr/bin/python
       -DWITH_CLIENT_WFS=ON
       -DWITH_CLIENT_WMS=ON
       -DWITH_CURL=ON
@@ -43,37 +45,34 @@ class Mapserver < Formula
       -DWITH_KML=ON
       -DWITH_OGR=ON
       -DWITH_POSTGIS=ON
-      -DWITH_PROJ=ON
       -DWITH_PYTHON=ON
       -DWITH_SOS=ON
       -DWITH_WFS=ON
-      -WITH_CAIRO=ON
     ]
+    args << "-DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin/"python3"}"
+    args << "-DPHP_EXTENSION_DIR=#{lib}/php/extensions"
 
     # Install within our sandbox
     inreplace "mapscript/python/CMakeLists.txt" do |s|
-      s.gsub! "${PYTHON_SITE_PACKAGES}", lib/"python2.7/site-packages"
       s.gsub! "${PYTHON_LIBRARIES}", "-Wl,-undefined,dynamic_lookup"
     end
-    inreplace "mapscript/php/CMakeLists.txt", "${PHP5_EXTENSION_DIR}", lib/"php/extensions"
 
     # Using rpath on python module seems to cause problems if you attempt to
     # import it with an interpreter it wasn't built against.
     # 2): Library not loaded: @rpath/libmapserver.1.dylib
     args << "-DCMAKE_SKIP_RPATH=ON"
 
-    # Use Proj 6.0.0 compatibility headers
-    # https://github.com/mapserver/mapserver/issues/5766
-    ENV.append_to_cflags "-DACCEPT_USE_OF_DEPRECATED_PROJ_API_H"
-
     mkdir "build" do
       system "cmake", "..", *args
       system "make", "install"
+      cd "mapscript/python" do
+        system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
+      end
     end
   end
 
   test do
     assert_match version.to_s, shell_output("#{bin}/mapserv -v")
-    system "python2.7", "-c", "import mapscript"
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "import mapscript"
   end
 end

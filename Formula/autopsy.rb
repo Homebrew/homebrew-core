@@ -4,6 +4,11 @@ class Autopsy < Formula
   url "https://downloads.sourceforge.net/project/autopsy/autopsy/2.24/autopsy-2.24.tar.gz"
   sha256 "ab787f519942783d43a561d12be0554587f11f22bc55ab79d34d8da703edc09e"
 
+  livecheck do
+    url "https://github.com/sleuthkit/autopsy/releases/latest"
+    regex(%r{href=.*?/tag/autopsy[._-]v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle :unneeded
 
   depends_on "sleuthkit"
@@ -11,39 +16,40 @@ class Autopsy < Formula
   # fixes weird configure script that wouldn't work nicely with homebrew
   patch :DATA
 
-  def autcfg; <<~EOS
-    # Autopsy configuration settings
+  def autcfg
+    <<~EOS
+      # Autopsy configuration settings
 
-    # when set to 1, the server will stop after it receives no
-    # connections for STIMEOUT seconds.
-    $USE_STIMEOUT = 0;
-    $STIMEOUT = 3600;
+      # when set to 1, the server will stop after it receives no
+      # connections for STIMEOUT seconds.
+      $USE_STIMEOUT = 0;
+      $STIMEOUT = 3600;
 
-    # number of seconds that child waits for input from client
-    $CTIMEOUT = 15;
+      # number of seconds that child waits for input from client
+      $CTIMEOUT = 15;
 
-    # set to 1 to save the cookie value in a file (for scripting)
-    $SAVE_COOKIE = 1;
+      # set to 1 to save the cookie value in a file (for scripting)
+      $SAVE_COOKIE = 1;
 
-    $INSTALLDIR = '#{prefix}';
-
-
-    # System Utilities
-    $GREP_EXE = '/usr/bin/grep';
-    $FILE_EXE = '/usr/bin/file';
-    $MD5_EXE = '/sbin/md5';
-    $SHA1_EXE = '/usr/bin/shasum';
+      $INSTALLDIR = '#{prefix}';
 
 
-    # Directories
-    $TSKDIR = '/usr/local/bin/';
+      # System Utilities
+      $GREP_EXE = '/usr/bin/grep';
+      $FILE_EXE = '/usr/bin/file';
+      $MD5_EXE = '/sbin/md5';
+      $SHA1_EXE = '/usr/bin/shasum';
 
-    # Homebrew users can install NSRL database and change this variable later
-    $NSRLDB = '';
 
-    # Evidence locker location
-    $LOCKDIR = '#{var}/lib/autopsy';
-  EOS
+      # Directories
+      $TSKDIR = '/usr/local/bin/';
+
+      # Homebrew users can install NSRL database and change this variable later
+      $NSRLDB = '';
+
+      # Evidence locker location
+      $LOCKDIR = '#{var}/lib/autopsy';
+    EOS
   end
 
   def install
@@ -57,10 +63,11 @@ class Autopsy < Formula
     bin.install "base/autopsy.base" => "autopsy"
   end
 
-  def caveats; <<~EOS
-    By default, the evidence locker is in:
-      #{var}/lib/autopsy
-  EOS
+  def caveats
+    <<~EOS
+      By default, the evidence locker is in:
+        #{var}/lib/autopsy
+    EOS
   end
 end
 

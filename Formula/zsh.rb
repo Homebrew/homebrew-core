@@ -1,15 +1,18 @@
 class Zsh < Formula
   desc "UNIX shell (command interpreter)"
   homepage "https://www.zsh.org/"
-  url "https://downloads.sourceforge.net/project/zsh/zsh/5.7.1/zsh-5.7.1.tar.xz"
-  mirror "https://www.zsh.org/pub/zsh-5.7.1.tar.xz"
-  sha256 "7260292c2c1d483b2d50febfa5055176bd512b32a8833b116177bf5f01e77ee8"
+  url "https://downloads.sourceforge.net/project/zsh/zsh/5.8/zsh-5.8.tar.xz"
+  mirror "https://www.zsh.org/pub/zsh-5.8.tar.xz"
+  sha256 "dcc4b54cc5565670a65581760261c163d720991f0d06486da61f8d839b52de27"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
-    sha256 "a24afee5cc1af2b139b6afb8963992b3fb22a4b9fbfa02402ac17e6bfa66a27a" => :catalina
-    sha256 "793d87f67e64a5e01dfdea890af218e4779a2df514d395b956e464129af16fd7" => :mojave
-    sha256 "6656fe9aa5d5cbaff49bc9c1ccf17b7d96d21036ac44c9181bd35c57dc38b450" => :high_sierra
-    sha256 "008dfc844b88fcd61925233b08f0d78b2851bf2901320a5f6ee975da4b8604e3" => :sierra
+    sha256 "209d04a4d62f6162f1b6cf824d2c50b00b52cb812c04c1967e5b376573b5aef0" => :catalina
+    sha256 "c5c35657637c97132efbaa0fd8e2add568aaa62adfe66e7d19f961f8e9506da9" => :mojave
+    sha256 "029b8c6922f01bfd832dd0f4f940f99328d2495714c37c1dc7ef326d6fb1459e" => :high_sierra
   end
 
   head do
@@ -21,33 +24,33 @@ class Zsh < Formula
   depends_on "pcre"
 
   resource "htmldoc" do
-    url "https://downloads.sourceforge.net/project/zsh/zsh-doc/5.7.1/zsh-5.7.1-doc.tar.xz"
-    mirror "https://www.zsh.org/pub/zsh-5.7.1-doc.tar.xz"
-    sha256 "3053670250e23905c940592c79428d7f67495fa05b0fff49dfaab9172c4239b4"
+    url "https://downloads.sourceforge.net/project/zsh/zsh-doc/5.8/zsh-5.8-doc.tar.xz"
+    mirror "https://www.zsh.org/pub/zsh-5.8-doc.tar.xz"
+    sha256 "9b4e939593cb5a76564d2be2e2bfbb6242509c0c56fd9ba52f5dba6cf06fdcc4"
   end
 
   def install
     system "Util/preconfig" if build.head?
 
     system "./configure", "--prefix=#{prefix}",
-                          "--enable-fndir=#{pkgshare}/functions",
-                          "--enable-scriptdir=#{pkgshare}/scripts",
-                          "--enable-site-fndir=#{HOMEBREW_PREFIX}/share/zsh/site-functions",
-                          "--enable-site-scriptdir=#{HOMEBREW_PREFIX}/share/zsh/site-scripts",
-                          "--enable-runhelpdir=#{pkgshare}/help",
-                          "--enable-cap",
-                          "--enable-maildir-support",
-                          "--enable-multibyte",
-                          "--enable-pcre",
-                          "--enable-zsh-secure-free",
-                          "--enable-unicode9",
-                          "--enable-etcdir=/etc",
-                          "--with-tcsetpgrp",
-                          "DL_EXT=bundle"
+           "--enable-fndir=#{pkgshare}/functions",
+           "--enable-scriptdir=#{pkgshare}/scripts",
+           "--enable-site-fndir=#{HOMEBREW_PREFIX}/share/zsh/site-functions",
+           "--enable-site-scriptdir=#{HOMEBREW_PREFIX}/share/zsh/site-scripts",
+           "--enable-runhelpdir=#{pkgshare}/help",
+           "--enable-cap",
+           "--enable-maildir-support",
+           "--enable-multibyte",
+           "--enable-pcre",
+           "--enable-zsh-secure-free",
+           "--enable-unicode9",
+           "--enable-etcdir=/etc",
+           "--with-tcsetpgrp",
+           "DL_EXT=bundle"
 
     # Do not version installation directories.
     inreplace ["Makefile", "Src/Makefile"],
-      "$(libdir)/$(tzsh)/$(VERSION)", "$(libdir)"
+              "$(libdir)/$(tzsh)/$(VERSION)", "$(libdir)"
 
     if build.head?
       # disable target install.man, because the required yodl comes neither with macOS nor Homebrew

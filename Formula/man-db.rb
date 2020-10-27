@@ -1,22 +1,33 @@
 class ManDb < Formula
   desc "Unix documentation system"
-  homepage "http://man-db.nongnu.org/"
-  url "https://download.savannah.gnu.org/releases/man-db/man-db-2.8.5.tar.xz"
-  sha256 "b64d52747534f1fe873b2876eb7f01319985309d5d7da319d2bc52ba1e73f6c1"
-  revision 1
+  homepage "https://www.nongnu.org/man-db/"
+  url "https://download.savannah.gnu.org/releases/man-db/man-db-2.9.3.tar.xz"
+  mirror "https://download-mirror.savannah.gnu.org/releases/man-db/man-db-2.9.3.tar.xz"
+  sha256 "fa5aa11ab0692daf737e76947f45669225db310b2801a5911bceb7551c5597b8"
+
+  livecheck do
+    url "https://download.savannah.gnu.org/releases/man-db/"
+    regex(/href=.*?man-db[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 "7020922156beba59a49ce7d858f370d6fb1884ed2debaf8c57a09b4c37096a14" => :catalina
-    sha256 "d068d781ba8482dd4e00b14d514e8bbaa30600ed286f0c422e09524e3e8a4247" => :mojave
-    sha256 "4ee0fb987e13ced600fdbc6159e75f5303510e937d94ed78ccd0610eb8eac601" => :high_sierra
-    sha256 "6054a6367980207aad35a40f0147e389e8f4db1691f42056111448389c61f23b" => :sierra
+    sha256 "1f203de0472712f459bee1b66dc93d4fa0c6fc190bdf467c018319add61a22ff" => :catalina
+    sha256 "3eb1e906db4927d45eaa4cd26d28bd69cf62eaa94316f32c3f29266d0070a978" => :mojave
+    sha256 "6827bc87f0ccf3b9e3f04adb8e0aba1d63497291704773bd9f6691d73cf4ee1d" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
 
+  uses_from_macos "groff"
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "gdbm"
+  end
+
   resource "libpipeline" do
-    url "https://download.savannah.gnu.org/releases/libpipeline/libpipeline-1.5.1.tar.gz"
-    sha256 "d633706b7d845f08b42bc66ddbe845d57e726bf89298e2cee29f09577e2f902f"
+    url "https://download.savannah.gnu.org/releases/libpipeline/libpipeline-1.5.2.tar.gz"
+    sha256 "fd59c649c1ae9d67604d1644f116ad4d297eaa66f838e3dfab96b41e85b059fb"
   end
 
   def install
@@ -43,18 +54,7 @@ class ManDb < Formula
       --program-prefix=g
     ]
 
-    # NB: Remove once man-db 2.8.6 is released
-    # https://git.savannah.gnu.org/cgit/man-db.git/commit/?id=b74c839eaa5000a18d1c396e995eca85b0e9464b
-    args += %w[
-      --without-systemdtmpfilesdir
-      --without-systemdsystemunitdir
-    ]
-
     system "./configure", *args
-
-    # NB: Remove once man-db 2.8.6 is released
-    # https://git.savannah.gnu.org/cgit/man-db.git/commit/?id=056e8c7c012b00261133259d6438ff8303a8c36c
-    ENV.append_to_cflags "-Wl,-flat_namespace,-undefined,suppress"
 
     system "make", "CFLAGS=#{ENV.cflags}"
     system "make", "install"
@@ -85,12 +85,13 @@ class ManDb < Formula
     man1.install_symlink "glexgrog.1" => "lexgrog.1"
   end
 
-  def caveats; <<~EOS
-    Commands also provided by macOS have been installed with the prefix "g".
-    If you need to use these commands with their normal names, you
-    can add a "bin" directory to your PATH from your bashrc like:
-      PATH="#{opt_libexec}/bin:$PATH"
-  EOS
+  def caveats
+    <<~EOS
+      Commands also provided by macOS have been installed with the prefix "g".
+      If you need to use these commands with their normal names, you
+      can add a "bin" directory to your PATH from your bashrc like:
+        PATH="#{opt_libexec}/bin:$PATH"
+    EOS
   end
 
   test do

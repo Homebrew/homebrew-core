@@ -1,19 +1,21 @@
-require "language/haskell"
-
 class GitAnnex < Formula
-  include Language::Haskell::Cabal
-
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
-  url "https://hackage.haskell.org/package/git-annex-7.20191106/git-annex-7.20191106.tar.gz"
-  sha256 "8b48e491b7b4905b429d858e87651e202518a97b8885ff7a98d273bc43007aff"
+  url "https://hackage.haskell.org/package/git-annex-8.20201007/git-annex-8.20201007.tar.gz"
+  sha256 "0af92007388dbb0cbd02dc3d1565b6712bcae56de7089f31dfdff63909f3216c"
+  license all_of: ["AGPL-3.0-or-later", "BSD-2-Clause", "BSD-3-Clause",
+                   "GPL-2.0-only", "GPL-3.0-or-later", "MIT"]
   head "git://git-annex.branchable.com/"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any
-    sha256 "bf310c37c35a18c65049d98c7d1121c744ac98b29ec42bfaff0434e48b456494" => :catalina
-    sha256 "45a4ac89011639d9e7e027796a011b613cd654e4dcf0eeaf77f04b5ae9e1a7d8" => :mojave
-    sha256 "446c503c4f3f54ca372f47d33ab51e5ecd8bc6b5314dcdda40404d6a6fc02ad9" => :high_sierra
+    sha256 "f2c38120494f3ad79479f71be3dea9c2d70835f4741f7b6e9895a5c134b33115" => :catalina
+    sha256 "b34d6d5111db90eef1df3557f2edc766d4e8ec77c68b16c395bd5b5c846dd81c" => :mojave
+    sha256 "0a5add918150d312a27174e8b04d0323a141cbe2db3667a8f804d50fbef1eae7" => :high_sierra
   end
 
   depends_on "cabal-install" => :build
@@ -22,42 +24,37 @@ class GitAnnex < Formula
   depends_on "gsasl"
   depends_on "libmagic"
   depends_on "quvi"
-  depends_on "xdot"
 
   def install
-    # Reported 28 Feb 2018 to aws upstream https://github.com/aristidb/aws/issues/244
-    # This is already resolved in aws 0.20 but we can't move to 0.20 until
-    # esqueleto 2.6.0 ships. See https://github.com/bitemyapp/esqueleto/issues/88
-    # The network 2.7.0.1 issue has been fixed upstream but needs a new release.
-    install_cabal_package "--constraint", "http-conduit>=2.3",
-                          "--constraint", "network>=2.6.3.0",
-                          :using => ["alex", "happy", "c2hs"],
-                          :flags => ["s3", "webapp"]
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args,
+                    "--flags=+S3"
     bin.install_symlink "git-annex" => "git-annex-shell"
   end
 
-  plist_options :manual => "git annex assistant --autostart"
+  plist_options manual: "git annex assistant --autostart"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>KeepAlive</key>
-        <false/>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/git-annex</string>
-          <string>assistant</string>
-          <string>--autostart</string>
-        </array>
-      </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>KeepAlive</key>
+          <false/>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/git-annex</string>
+            <string>assistant</string>
+            <string>--autostart</string>
+          </array>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do
@@ -73,6 +70,11 @@ class GitAnnex < Formula
     assert_match /^add Hello.txt.*ok.*\(recording state in git\.\.\.\)/m, shell_output("git annex add .")
     system "git", "commit", "-a", "-m", "Initial Commit"
     assert File.symlink?("Hello.txt")
+
+    # make sure the various remotes were built
+    assert_match shell_output("git annex version | grep 'remote types:'").chomp,
+                 "remote types: git gcrypt p2p S3 bup directory rsync web bittorrent " \
+                 "webdav adb tahoe glacier ddar git-lfs httpalso hook external"
 
     # The steps below are necessary to ensure the directory cleanly deletes.
     # git-annex guards files in a way that isn't entirely friendly of automatically

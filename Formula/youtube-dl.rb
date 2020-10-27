@@ -1,27 +1,29 @@
 class YoutubeDl < Formula
-  desc "Download YouTube videos from the command-line"
-  homepage "https://ytdl-org.github.io/youtube-dl/"
-  url "https://github.com/ytdl-org/youtube-dl/releases/download/2019.11.05/youtube-dl-2019.11.05.tar.gz"
-  sha256 "05ad24f831e915b65520f6abfa1c1d52be4aad6cc9603b24a67a804062302489"
+  include Language::Python::Virtualenv
 
-  head do
-    url "https://github.com/ytdl-org/youtube-dl.git"
-    depends_on "pandoc" => :build
+  desc "Download YouTube videos from the command-line"
+  homepage "https://yt-dl.org"
+  url "https://files.pythonhosted.org/packages/12/8b/51cae2929739d637fdfbc706b2d5f8925b5710d8f408b5319a07ea45fe99/youtube_dl-2020.9.20.tar.gz"
+  sha256 "67fb9bfa30f5b8f06227c478a8a6ed04af1f97ad4e81dd7e2ce518df3e275391"
+  license "Unlicense"
+
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "6553843d76f95feeb9a488b2a14cb8374b313f02bd72b18d75cbbd2270fe11ee" => :catalina
+    sha256 "8a6f47c7bf197a9cb40e08d130ce6ac9530d2c77f4ecd92f838e19abe23f2c5a" => :mojave
+    sha256 "7b797964bed458c4271ad917373155a9be574afc174bfdda14b73a77fb16cbc5" => :high_sierra
   end
 
-  bottle :unneeded
+  depends_on "python@3.9"
 
   def install
-    system "make", "PREFIX=#{prefix}" if build.head?
-    bin.install "youtube-dl"
-    man1.install "youtube-dl.1"
-    bash_completion.install "youtube-dl.bash-completion"
-    zsh_completion.install "youtube-dl.zsh" => "_youtube-dl"
-    fish_completion.install "youtube-dl.fish"
+    virtualenv_install_with_resources
   end
 
   test do
-    system "#{bin}/youtube-dl", "--simulate", "https://www.youtube.com/watch?v=he2a4xK8ctk"
-    system "#{bin}/youtube-dl", "--simulate", "--yes-playlist", "https://www.youtube.com/watch?v=iCkYw3cRwLo&list=LLnHXLLNHjNAnDQ50JANLG1g"
+    # commit history of homebrew-core repo
+    system "#{bin}/youtube-dl", "--simulate", "https://www.youtube.com/watch?v=pOtd1cbOP7k"
+    # homebrew playlist
+    system "#{bin}/youtube-dl", "--simulate", "--yes-playlist", "https://www.youtube.com/watch?v=pOtd1cbOP7k&list=PLMsZ739TZDoLj9u_nob8jBKSC-mZb0Nhj"
   end
 end

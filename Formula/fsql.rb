@@ -3,6 +3,7 @@ class Fsql < Formula
   homepage "https://github.com/kashav/fsql"
   url "https://github.com/kashav/fsql/archive/v0.3.1.tar.gz"
   sha256 "b88110426a60aa2c48f7b4e52e117a899d43d1bba2614346b729234cd4bd9184"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

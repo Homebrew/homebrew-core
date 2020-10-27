@@ -3,7 +3,7 @@ class Xcproj < Formula
   homepage "https://github.com/0xced/xcproj"
   url "https://github.com/0xced/xcproj/archive/0.2.1.tar.gz"
   sha256 "8c31f85d57945cd5bb306d7a0ff7912f2a0d53fa3c888657e0a69ca5d27348cb"
-  head "https://github.com/0xced/xcproj.git", :branch => "develop"
+  head "https://github.com/0xced/xcproj.git", branch: "develop"
 
   bottle do
     cellar :any_skip_relocation

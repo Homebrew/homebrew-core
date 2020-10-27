@@ -1,15 +1,19 @@
 class Emacs < Formula
   desc "GNU Emacs text editor"
   homepage "https://www.gnu.org/software/emacs/"
-  url "https://ftp.gnu.org/gnu/emacs/emacs-26.3.tar.xz"
-  mirror "https://ftpmirror.gnu.org/emacs/emacs-26.3.tar.xz"
-  sha256 "4d90e6751ad8967822c6e092db07466b9d383ef1653feb2f95c93e7de66d3485"
+  url "https://ftp.gnu.org/gnu/emacs/emacs-27.1.tar.xz"
+  mirror "https://ftpmirror.gnu.org/emacs/emacs-27.1.tar.xz"
+  sha256 "4a4c128f915fc937d61edfc273c98106711b540c9be3cd5d2e2b9b5b2f172e41"
+  license "GPL-3.0-or-later"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
-    sha256 "9ab33f4386ca5f7326a8c28da1324556ec990f682a7ca88641203da0b42dbdae" => :catalina
-    sha256 "8162a26246de7db44c53ea0d0ef0a806140318d19c69e8e5e33aa88ce7e823a8" => :mojave
-    sha256 "6a2629b6deddf99f81abb1990ecd6c87f0242a0eecbb6b6c2e4c3540e421d4c4" => :high_sierra
-    sha256 "2a47477e71766d7dd6b16c29ad5ba71817ed80d06212e3261ef3c776e7e9f5a2" => :sierra
+    sha256 "6586559b5aa8c51ce6cc7738abe4796ef7e803ab3389dc2e30eda7bb5e46b85d" => :catalina
+    sha256 "6704d9430ac4b602a5dc7046f845d8b93d00cb509fc70244403f14af6c97bc3b" => :mojave
+    sha256 "a4808d9f5433bcc9512ae4c62dba04b7954a1c0ee47e01b34ba5a401f227f375" => :high_sierra
   end
 
   head do
@@ -22,10 +26,17 @@ class Emacs < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gnutls"
+  depends_on "jansson"
+
+  uses_from_macos "libxml2"
+  uses_from_macos "ncurses"
+
+  on_linux do
+    depends_on "jpeg"
+  end
 
   def install
     args = %W[
-      --disable-dependency-tracking
       --disable-silent-rules
       --enable-locallisppath=#{HOMEBREW_PREFIX}/share/emacs/site-lisp
       --infodir=#{info}/emacs
@@ -44,6 +55,14 @@ class Emacs < Formula
       system "./autogen.sh"
     end
 
+    File.write "lisp/site-load.el", <<~EOS
+      (setq exec-path (delete nil
+        (mapcar
+          (lambda (elt)
+            (unless (string-match-p "Homebrew/shims" elt) elt))
+          exec-path)))
+    EOS
+
     system "./configure", *args
     system "make"
     system "make", "install"
@@ -54,27 +73,28 @@ class Emacs < Formula
     (man1/"ctags.1.gz").unlink
   end
 
-  plist_options :manual => "emacs"
+  plist_options manual: "emacs"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>KeepAlive</key>
-      <true/>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_bin}/emacs</string>
-        <string>--fg-daemon</string>
-      </array>
-      <key>RunAtLoad</key>
-      <true/>
-    </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>KeepAlive</key>
+        <true/>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/emacs</string>
+          <string>--fg-daemon</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+      </dict>
+      </plist>
+    EOS
   end
 
   test do

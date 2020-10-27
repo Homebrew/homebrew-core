@@ -1,14 +1,15 @@
 class Pagmo < Formula
   desc "Scientific library for massively parallel optimization"
   homepage "https://esa.github.io/pagmo2/"
-  url "https://github.com/esa/pagmo2/archive/v2.11.4.tar.gz"
-  sha256 "7756cf4b4a427a856137c40c3fdf27422fcf546249b70f9ba4c213ef1fbee051"
+  url "https://github.com/esa/pagmo2/archive/v2.15.0.tar.gz"
+  sha256 "07977be690b512ea11fc40d5b8bfa0a7a8507ce9053a615c2bc4725d355ef9a8"
+  license "GPL-3.0"
 
   bottle do
     cellar :any
-    sha256 "bf7266791644988179506f3c89dd7f671ea36b2262a1d1daaf9b51f81f28e962" => :catalina
-    sha256 "fadbf1dddee642198a8e4b0f1ca2c55785137cb7eadda7136e09a7475d8eec75" => :mojave
-    sha256 "ff1dccd341a12f21c16979dcc1a6fd63eb764997e975d2bd720e4957693a118a" => :high_sierra
+    sha256 "0f50a88dc4df4c8cabafceb3a96a9fb93d913db185257ca91830345dc7f5e13f" => :catalina
+    sha256 "acd5be5bb4b9fa2b93512c7a480dae7c1a84025330f866157bf0db9640f8948e" => :mojave
+    sha256 "4146ac95f0a01a6901c696cd54808b5834942e39bb10689b8ea6094be45d1582" => :high_sierra
   end
 
   depends_on "cmake" => :build

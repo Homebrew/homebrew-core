@@ -1,16 +1,21 @@
 class QpidProton < Formula
   desc "High-performance, lightweight AMQP 1.0 messaging library"
   homepage "https://qpid.apache.org/proton/"
-  url "https://www.apache.org/dyn/closer.lua?path=qpid/proton/0.29.0/qpid-proton-0.29.0.tar.gz"
-  sha256 "7dfee950e40f3bd89edf1b1d41874fe129ba25ea3068300aa2578ddc67680bef"
-  revision 1
+  url "https://www.apache.org/dyn/closer.lua?path=qpid/proton/0.32.0/qpid-proton-0.32.0.tar.gz"
+  mirror "https://archive.apache.org/dist/qpid/proton/0.32.0/qpid-proton-0.32.0.tar.gz"
+  sha256 "58064511f4436e71b76b4bb78207530c591b81ddbe99d93bc50ee40c1e04d491"
+  license "Apache-2.0"
   head "https://gitbox.apache.org/repos/asf/qpid-proton.git"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any
-    sha256 "0b3f1c52f2a0c02531a0a86cdb41a31d1d641309fa8f5de551b6e6b5922cc971" => :mojave
-    sha256 "0844cba721198292397a460bafdcc7362b2553c1bd13b9176e5397dff8ea17ba" => :high_sierra
-    sha256 "51e8e477136a8c92363adb25f5f8fd2aa244a2b4f493874a94e380279e75ddf8" => :sierra
+    sha256 "04bed9699fa8e399d7361dd79e2819780e43cc5a9d3d1d221f1085a644801e09" => :catalina
+    sha256 "a6fb688d4b98625e77f1886284ab795374dcba771504301c4114825e79084ef0" => :mojave
+    sha256 "754da3603d6c444bd392dcc94b28a1d8da76489dbf972638644889278b75932f" => :high_sierra
   end
 
   depends_on "cmake" => :build

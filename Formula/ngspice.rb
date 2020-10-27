@@ -1,16 +1,18 @@
 class Ngspice < Formula
   desc "Spice circuit simulator"
   homepage "https://ngspice.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/30/ngspice-30.tar.gz"
-  sha256 "08fe0e2f3768059411328a33e736df441d7e6e7304f8dad0ed5f28e15d936097"
-  revision 1
+  url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/32/ngspice-32.tar.gz"
+  sha256 "3cd90c4e94516d87c5b4d02a3a6405b1136b25d05c871d4fee1fd7c4c0d03ef2"
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/ngspice[._-]v?(\d+(?:\.\d+)*)\.t}i)
+  end
 
   bottle do
-    rebuild 1
-    sha256 "90ef0a161c54ad7ce33ed9753a556478e0a3f56cf1dc0c15d819ff3583ef5fc2" => :catalina
-    sha256 "ad1218af03e9711b74cbf8919b8ef9c77ec216ee43d40648423c5043f4feb393" => :mojave
-    sha256 "1241cc934814f62c3abcc148817b1eb10ec84db5a7ec65c7d0f5316e4bb7f831" => :high_sierra
-    sha256 "89983540f2878f500431a0bec70dfcc2bcfc695e382499586e7f44189a978caa" => :sierra
+    sha256 "924b787c656fc7062bd5e3c96b0a2b33f458013d27c1aa55cd85f56218ac7a8e" => :catalina
+    sha256 "7a93fe4be3e1508b76d1549ee9d749fbcadb801dc0d2333d0d3042880044ad96" => :mojave
+    sha256 "c8c737e0652d05084ed7496af7bc0e1cb55e9f6b2a1ccaaaeff5a436a0d96f92" => :high_sierra
   end
 
   head do

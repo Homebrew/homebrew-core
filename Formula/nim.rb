@@ -1,22 +1,25 @@
 class Nim < Formula
   desc "Statically typed compiled systems programming language"
   homepage "https://nim-lang.org/"
-  url "https://nim-lang.org/download/nim-1.0.2.tar.xz"
-  sha256 "73a0ae099e1da39cc913c4a4054b5bf3d843ab93df95ffb98988a51074b651e6"
+  url "https://nim-lang.org/download/nim-1.4.0.tar.xz"
+  sha256 "be3120ab6b737f6ce0dd63fabf9e7c2c7625992b1145e5ebccf0573f3b09905d"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6ee3bd404cc5b2b3f1cb7f1470b052879b34401028c74489a4c73308414f7360" => :catalina
-    sha256 "8cb24b7174375f9fe696d7961cf3b703b27c1279c7fb026440ac86178803ecca" => :mojave
-    sha256 "7379299b370756d952848a1c7ce4f583149dde80420e37eff10bc374e468ea7f" => :high_sierra
+    sha256 "bca34805e420b0482ed6f570a21b67d43a9a71eac509ab51c5c66ecd8f9eecb5" => :catalina
+    sha256 "a9ed9e6a0cd26d34bce1dc2debb6faa5b616f5928072cf0de10313b04e43ee54" => :mojave
+    sha256 "363d4054b228725ec61cbb1ecefc85f16e2233b325a0efdb3491244630cc6e97" => :high_sierra
   end
 
   head do
-    url "https://github.com/nim-lang/Nim.git", :branch => "devel"
+    url "https://github.com/nim-lang/Nim.git", branch: "devel"
     resource "csources" do
       url "https://github.com/nim-lang/csources.git"
     end
   end
+
+  depends_on "help2man" => :build
 
   def install
     if build.head?
@@ -36,10 +39,15 @@ class Nim < Formula
     system "./koch", "geninstall"
     system "/bin/sh", "install.sh", prefix
 
+    system "help2man", "bin/nim", "-o", "nim.1", "-N"
+    man1.install "nim.1"
+
     target = prefix/"nim/bin"
     bin.install_symlink target/"nim"
     tools = %w[nimble nimgrep nimpretty nimsuggest]
     tools.each do |t|
+      system "help2man", buildpath/"bin"/t, "-o", "#{t}.1", "-N"
+      man1.install "#{t}.1"
       target.install buildpath/"bin"/t
       bin.install_symlink target/t
     end

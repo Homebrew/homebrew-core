@@ -1,13 +1,24 @@
 class Zabbix < Formula
   desc "Availability and monitoring solution"
   homepage "https://www.zabbix.com/"
-  url "https://downloads.sourceforge.net/project/zabbix/ZABBIX%20Latest%20Stable/4.4.1/zabbix-4.4.1.tar.gz"
-  sha256 "0bf74e597dd41a558305fe17a2b1ed6fe2d77044b87696a92e4227fbf315564a"
+  url "https://cdn.zabbix.com/zabbix/sources/stable/5.0/zabbix-5.0.4.tar.gz"
+  sha256 "c1da683fb886bc6edcb59b07c716a1083a92b5ec31b3d2372afdbbc6307f7147"
+  license "GPL-2.0-or-later"
+
+  # As of writing, the Zabbix SourceForge repository is missing the latest
+  # version (4.4.8), so we have to check for the newest version on the Zabbix
+  # CDN index page instead. Unfortunately, the versions are separated into
+  # folders for a given major/minor version, so this will quietly stop being
+  # a proper check sometime in the future and need to be updated.
+  livecheck do
+    url "https://cdn.zabbix.com/zabbix/sources/stable/5.0/"
+    regex(/href=.*?zabbix[._-](\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 "13c5f69c5c3db5364354d414970b66f7c236607ef68a7fff82fe893b9c557390" => :catalina
-    sha256 "4ac089f569f90b6f5c9cc2816d7ccc45fe83192955ae097c47ae064e3159207e" => :mojave
-    sha256 "c1cf86f2ef15c6c59420df806b6c542de45322fdc62d4f4081257d8ae7468dd1" => :high_sierra
+    sha256 "15d06bf800f325c3195c6903161fe3dd335cc0ed31644a8c3eb22d4129fea98d" => :catalina
+    sha256 "a3af50a405519799544eb08cdb50a1eca4e7c413c15101198e2ba8dd321ec88d" => :mojave
+    sha256 "b06ee8377b5d40ccc8688c5c94d9595dab19231028a8654b6b315be20646a940" => :high_sierra
   end
 
   depends_on "openssl@1.1"

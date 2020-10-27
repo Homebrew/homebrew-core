@@ -1,7 +1,8 @@
 class ArxLibertatis < Formula
   desc "Cross-platform, open source port of Arx Fatalis"
   homepage "https://arx-libertatis.org/"
-  revision 1
+  license "GPL-3.0"
+  revision 2
 
   stable do
     url "https://arx-libertatis.org/files/arx-libertatis-1.1.2.tar.xz"
@@ -14,13 +15,16 @@ class ArxLibertatis < Formula
     end
   end
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
-    sha256 "9e9f88d9c0c24e99bed8f2243da32fe41b1859aaa25121dab9d4c20a354ef5e6" => :mojave
-    sha256 "eaff0f12ab121a5964e7d0cd8c9272a39daba70a268d039728947c72885be8b2" => :high_sierra
-    sha256 "9a7629e5033f4180f9e0a82bb018c2f00403c09aa473cfa0224301cc405fb6d3" => :sierra
-    sha256 "8824a97e84542832da85eeb48b79a6b1de189ddf6ebe041fc7f1c9cb874fad21" => :el_capitan
-    sha256 "1fc2d3c07f6f1a1cf1470138329290484145f7774b16fc5a8ca82d01ea194312" => :yosemite
+    sha256 "b93ffc0870dffd0bab99117814e3c094fc019c2315bdd8fc35f687c1009dd661" => :catalina
+    sha256 "39fc49249e5a82bd067c05bcd056b454a90ace91f364b3c33534901827247b2c" => :mojave
+    sha256 "2fe2043845655c6f3e75be1dc7213826fd142f806fd7b59006fdef940584e92a" => :high_sierra
   end
 
   head do
@@ -39,7 +43,7 @@ class ArxLibertatis < Formula
   depends_on "innoextract"
   depends_on "sdl"
 
-  conflicts_with "rnv", :because => "both install `arx` binaries"
+  conflicts_with "rnv", because: "both install `arx` binaries"
 
   def install
     args = std_cmake_args
@@ -74,13 +78,14 @@ class ArxLibertatis < Formula
     end
   end
 
-  def caveats; <<~EOS
-    This package only contains the Arx Libertatis binary, not the game data.
-    To play Arx Fatalis you will need to obtain the game from GOG.com and
-    install the game data with:
+  def caveats
+    <<~EOS
+      This package only contains the Arx Libertatis binary, not the game data.
+      To play Arx Fatalis you will need to obtain the game from GOG.com and
+      install the game data with:
 
-      arx-install-data /path/to/setup_arx_fatalis.exe
-  EOS
+        arx-install-data /path/to/setup_arx_fatalis.exe
+    EOS
   end
 
   test do

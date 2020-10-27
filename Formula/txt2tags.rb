@@ -1,20 +1,32 @@
 class Txt2tags < Formula
+  include Language::Python::Virtualenv
+
   desc "Conversion tool to generating several file formats"
   homepage "https://txt2tags.org/"
-  url "https://github.com/txt2tags/txt2tags/archive/2.6.tar.gz"
-  sha256 "c87b911ac5cc97dd2fdb6067601cf4fbd0094a065f6b7a593142fa75e3a924c1"
-  revision 1
+  url "https://files.pythonhosted.org/packages/0e/80/dc4215b549ddbe1d1251bc4cd47ad6f4a65e1f9803815997817ff297d22e/txt2tags-3.7.tar.gz"
+  sha256 "27969387206d12b4e4a0eb13d0d5dd957d71dbb932451b0dceeab5e3dbb6178a"
+  revision 2
 
-  bottle :unneeded
+  livecheck do
+    url :stable
+  end
+
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "6d2516f5a7e3ac9dd0b87f14aa21689c98fc85cd04133d61feb57f7b67ca815e" => :catalina
+    sha256 "91d15a499c27c63bcd94c13a348cba21412a3dd2d67630033d0704a4399ca769" => :mojave
+    sha256 "2e6484c9e6eacb833e0f1eeac952fa88bf0582c33517d3cba587d8540c0748f2" => :high_sierra
+  end
+
+  depends_on "python@3.9"
 
   def install
-    bin.install "txt2tags"
-    man1.install "doc/English/manpage.man" => "txt2tags.1"
+    virtualenv_install_with_resources
   end
 
   test do
     (testpath/"test.txt").write("\n= Title =")
     system bin/"txt2tags", "-t", "html", "--no-headers", "test.txt"
-    assert_match %r{<H1>Title</H1>}, File.read("test.html")
+    assert_match "<h1>Title</h1>", File.read("test.html")
   end
 end

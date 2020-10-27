@@ -3,15 +3,17 @@ class Sbuild < Formula
   homepage "http://sbuild.org"
   url "http://sbuild.org/uploads/sbuild/0.7.7/sbuild-0.7.7-dist.zip"
   sha256 "606bc09603707f31d9ca5bc306ba01b171f8400e643261acd28da7a1a24dfb23"
+  license "Apache-2.0"
+  revision 1
 
   bottle :unneeded
 
-  depends_on :java => "1.6+"
+  depends_on "openjdk"
 
   def install
     libexec.install Dir["*"]
     chmod 0755, libexec/"bin/sbuild"
-    bin.install_symlink libexec/"bin/sbuild"
+    (bin/"sbuild").write_env_script libexec/"bin/sbuild", Language::Java.overridable_java_home_env
   end
 
   test do

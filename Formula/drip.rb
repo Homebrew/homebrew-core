@@ -3,6 +3,7 @@ class Drip < Formula
   homepage "https://github.com/flatland/drip"
   url "https://github.com/flatland/drip/archive/0.2.4.tar.gz"
   sha256 "9ed25e29759a077d02ddac61785f33d1f2e015b74f1fd934890aba4a35b3551d"
+  license "EPL-1.0"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,7 +16,7 @@ class Drip < Formula
     sha256 "69207c24aa1f8e6ba406e6cc3f811cd7000ee14c713cc32b49d72f2c76a702bc" => :mavericks
   end
 
-  depends_on :java => "1.8"
+  depends_on java: "1.8"
 
   def install
     system "make"

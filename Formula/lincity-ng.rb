@@ -3,6 +3,7 @@ class LincityNg < Formula
   homepage "https://github.com/lincity-ng/lincity-ng/"
   url "https://github.com/lincity-ng/lincity-ng/archive/lincity-ng-2.0.tar.gz"
   sha256 "e05a2c1e1d682fbf289caecd0ea46ca84b0db9de43c7f1b5add08f0fdbf1456b"
+  license "GPL-2.0"
   revision 2
   head "https://github.com/lincity-ng/lincity-ng.git"
 
@@ -38,10 +39,11 @@ class LincityNg < Formula
     rm_rf ["#{pkgshare}/applications", "#{pkgshare}/pixmaps"]
   end
 
-  def caveats; <<~EOS
-    If you have problem with fullscreen, try running in windowed mode:
-      lincity-ng -w
-  EOS
+  def caveats
+    <<~EOS
+      If you have problem with fullscreen, try running in windowed mode:
+        lincity-ng -w
+    EOS
   end
 
   test do

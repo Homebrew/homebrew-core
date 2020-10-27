@@ -6,14 +6,13 @@ class ScmManager < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "521d84a5445594de2d018af2a9f0291ab0a8495e8fe878b56913ee92173a2241" => :catalina
-    sha256 "d28ad275b745fb546973c9d451df374f994eaeade2d351732ab31a7141260372" => :mojave
-    sha256 "42e177bd72cba3b27750308aeeaf8afa0ec8cc553b8a9acf1a02a6d5a698ce14" => :high_sierra
-    sha256 "42e177bd72cba3b27750308aeeaf8afa0ec8cc553b8a9acf1a02a6d5a698ce14" => :sierra
-    sha256 "42e177bd72cba3b27750308aeeaf8afa0ec8cc553b8a9acf1a02a6d5a698ce14" => :el_capitan
+    rebuild 1
+    sha256 "243c6c1c7047996457078beedf753d836a4548696fb2a231afddba97d83b4aee" => :catalina
+    sha256 "b90390788ed53f447e0c501842c7ecf99802a6a1ceeed48cbc6b7ade84e8bc31" => :mojave
+    sha256 "d0999804b3919b8f6b77f4342ab7f65a22b1a27f2084f310c443eb4b80ef3642" => :high_sierra
   end
 
-  depends_on :java => "1.8"
+  depends_on java: "1.8"
 
   resource "client" do
     url "https://maven.scm-manager.org/nexus/content/repositories/releases/sonia/scm/clients/scm-cli-client/1.59/scm-cli-client-1.59-jar-with-dependencies.jar"
@@ -25,46 +24,35 @@ class ScmManager < Formula
 
     libexec.install Dir["*"]
 
-    (bin/"scm-server").write <<~EOS
-      #!/bin/bash
-      BASEDIR="#{libexec}"
-      REPO="#{libexec}/lib"
-      export JAVA_HOME=$(#{Language::Java.java_home_cmd("1.8")})
-      "#{libexec}/bin/scm-server" "$@"
-    EOS
-    chmod 0755, bin/"scm-server"
+    env = Language::Java.overridable_java_home_env("1.8")
+    env["BASEDIR"] = libexec
+    env["REPO"] = libexec/"lib"
+    (bin/"scm-server").write_env_script libexec/"bin/scm-server", env
 
-    tools = libexec/"tools"
-    tools.install resource("client")
-
-    scm_cli_client = bin/"scm-cli-client"
-    scm_cli_client.write <<~EOS
-      #!/bin/bash
-      export JAVA_HOME=$(#{Language::Java.java_home_cmd("1.8")})
-      java -jar "#{tools}/scm-cli-client-#{version}-jar-with-dependencies.jar" "$@"
-    EOS
-    chmod 0755, scm_cli_client
+    (libexec/"tools").install resource("client")
+    bin.write_jar_script libexec/"tools/scm-cli-client-#{version}-jar-with-dependencies.jar", "scm-cli-client", java_version: "1.8"
   end
 
-  plist_options :manual => "scm-server start"
+  plist_options manual: "scm-server start"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/scm-server</string>
-          <string>start</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-      </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/scm-server</string>
+            <string>start</string>
+          </array>
+          <key>RunAtLoad</key>
+          <true/>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do

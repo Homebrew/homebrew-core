@@ -1,19 +1,30 @@
 class MariadbAT101 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.org/f/mariadb-10.1.43/source/mariadb-10.1.43.tar.gz"
-  sha256 "c3d4c579cfa112be53ea538dba8643466b36e8d010cde35709e55c82cfc0bedf"
+  url "https://downloads.mariadb.org/f/mariadb-10.1.47/source/mariadb-10.1.47.tar.gz"
+  sha256 "a4267487dbddf1dc1faed6e2a322c50a3e80d5d271cb487e8bdad6840e003227"
+  license "GPL-2.0-only"
+
+  livecheck do
+    url "https://downloads.mariadb.org/"
+    regex(/Download v?(10\.1(?:\.\d+)+) Stable Now/i)
+  end
 
   bottle do
-    sha256 "8e9538a858ab39dbb0966ab5bb1fa33e69313045f1d5aed9097d0eebc93b6af2" => :catalina
-    sha256 "141e18a76a6535ab8d9e5b88dd38d37e83e1f4b9bb5ed31c68363336f5f7ed5b" => :mojave
-    sha256 "227042e2fd413f767b651529aff0a5d4eea1627a23dacbcfdac54f3cb4573088" => :high_sierra
+    sha256 "3b9a37af2f59efc4fa5aabbd36ab3077e4f1a47f3c3608add0a5392db76c3b24" => :catalina
+    sha256 "1bdd60c6cfdef07302af2e98dcda27c8c2770210b82339f1ef2eaa1893c7b9b6" => :mojave
+    sha256 "406b8ae1a02d1f9d7808439e5e5fffef90eed2ebea5941819d8c7c308e3f9acf" => :high_sierra
   end
 
   keg_only :versioned_formula
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
+  depends_on "groonga"
   depends_on "openssl@1.1"
+
+  uses_from_macos "bzip2"
+  uses_from_macos "ncurses"
 
   def install
     # Set basedir and ldata so that mysql_install_db can find the server
@@ -23,6 +34,9 @@ class MariadbAT101 < Formula
       s.change_make_var! "basedir", "\"#{prefix}\""
       s.change_make_var! "ldata", "\"#{var}/mysql\""
     end
+
+    # Use brew groonga
+    rm_r "storage/mroonga/vendor/groonga"
 
     # -DINSTALL_* are relative to prefix
     args = %W[
@@ -48,6 +62,9 @@ class MariadbAT101 < Formula
     system "cmake", ".", *std_cmake_args, *args
     system "make"
     system "make", "install"
+
+    # Avoid references to the Homebrew shims directory
+    inreplace bin/"mysqlbug", HOMEBREW_SHIMS_PATH/"mac/super/", ""
 
     # Fix my.cnf to point to #{etc} instead of /etc
     (etc/"my.cnf.d").mkpath
@@ -104,40 +121,42 @@ class MariadbAT101 < Formula
     end
   end
 
-  def caveats; <<~EOS
-    A "/etc/my.cnf" from another install may interfere with a Homebrew-built
-    server starting up correctly.
+  def caveats
+    <<~EOS
+      A "/etc/my.cnf" from another install may interfere with a Homebrew-built
+      server starting up correctly.
 
-    MySQL is configured to only allow connections from localhost by default
+      MySQL is configured to only allow connections from localhost by default
 
-    To connect:
-        mysql -uroot
-  EOS
+      To connect:
+          mysql -uroot
+    EOS
   end
 
-  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/mariadb@10.1/bin/mysql.server start"
+  plist_options manual: "#{HOMEBREW_PREFIX}/opt/mariadb@10.1/bin/mysql.server start"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>KeepAlive</key>
-      <true/>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_bin}/mysqld_safe</string>
-        <string>--datadir=#{var}/mysql</string>
-      </array>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>WorkingDirectory</key>
-      <string>#{var}</string>
-    </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>KeepAlive</key>
+        <true/>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/mysqld_safe</string>
+          <string>--datadir=#{var}/mysql</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>WorkingDirectory</key>
+        <string>#{var}</string>
+      </dict>
+      </plist>
+    EOS
   end
 
   test do

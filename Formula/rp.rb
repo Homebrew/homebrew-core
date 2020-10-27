@@ -4,6 +4,7 @@ class Rp < Formula
   url "https://github.com/0vercl0k/rp/archive/v1.tar.gz"
   version "1.0"
   sha256 "3bf69aee23421ffdc5c7fc3ce6c30eb7510640d384ce58f4a820bae02effebe3"
+  license "GPL-3.0"
   head "https://github.com/0vercl0k/rp.git"
 
   bottle do
@@ -24,7 +25,7 @@ class Rp < Formula
 
   def install
     mkdir "build" do
-      system "cmake", ".."
+      system "cmake", "..", *std_cmake_args
       system "make"
     end
     bin.install "bin/rp-osx"

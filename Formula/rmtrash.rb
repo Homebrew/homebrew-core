@@ -5,6 +5,11 @@ class Rmtrash < Formula
   version "0.3.3"
   sha256 "9b30561454529e5923ffb62327d3fe009d23495263efc958534ac6b637e361d6"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?rmtrash[^>]+>\s*Download \(v?(\d+(?:\.\d+)+)\)</i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 1

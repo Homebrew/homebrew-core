@@ -4,6 +4,12 @@ class JohnJumbo < Formula
   url "https://openwall.com/john/k/john-1.9.0-jumbo-1.tar.xz"
   version "1.9.0"
   sha256 "f5d123f82983c53d8cc598e174394b074be7a77756f5fb5ed8515918c81e7f3b"
+  license "GPL-2.0"
+
+  livecheck do
+    url "https://github.com/magnumripper/JohnTheRipper.git"
+    regex(/^v?(\d+(?:\.\d+)+)-jumbo-\d$/i)
+  end
 
   bottle do
     rebuild 1
@@ -17,7 +23,7 @@ class JohnJumbo < Formula
   depends_on "gmp"
   depends_on "openssl@1.1"
 
-  conflicts_with "john", :because => "both install the same binaries"
+  conflicts_with "john", because: "both install the same binaries"
 
   # https://github.com/magnumripper/JohnTheRipper/blob/bleeding-jumbo/doc/INSTALL#L133-L143
   fails_with :gcc do
@@ -27,15 +33,23 @@ class JohnJumbo < Formula
   # Fixed setup `-mno-sse4.1` for some machines.
   # See details for example from here: https://github.com/magnumripper/JohnTheRipper/pull/4100
   patch do
-    url "https://github.com/magnumripper/JohnTheRipper/commit/a537bbca37c1c2452ffcfccea6d2366447ec05c2.diff?full_index=1"
-    sha256 "c246b7a4b06436810dee66d324fa550c5f6bc2dabcb09a2f5f7836c6633a549a"
+    url "https://github.com/magnumripper/JohnTheRipper/commit/a537bbca37c1c2452ffcfccea6d2366447ec05c2.patch?full_index=1"
+    sha256 "bb6cfff297f1223dd1177a515657b8f1f780c55f790e5b6e6518bb2cb0986b7b"
   end
 
   # Fixed setup of openssl@1.1 over series of patches
   # See details for example from here: https://github.com/magnumripper/JohnTheRipper/pull/4101
   patch do
-    url "https://github.com/magnumripper/JohnTheRipper/pull/4101.diff?full_index=1"
-    sha256 "c21ba72b1267752c8fe70b6f48baf6a36bf4f4796a58e5b2f5998a3a42f96126"
+    url "https://github.com/magnumripper/JohnTheRipper/commit/4844c79bf43dbdbb6ae3717001173355b3de5517.patch?full_index=1"
+    sha256 "8469b8eb1d880365121491d45421d132b634983fdcaf4028df8ae8b9085c98ae"
+  end
+  patch do
+    url "https://github.com/magnumripper/JohnTheRipper/commit/26750d4cff0e650f836974dc3c9c4d446f3f8d0e.patch?full_index=1"
+    sha256 "43d259266b6b986a0a3daff484cfb90214ca7f57cd4703175e3ff95d48ddd3e2"
+  end
+  patch do
+    url "https://github.com/magnumripper/JohnTheRipper/commit/f03412b789d905b1a8d50f5f4b76d158b01c81c1.patch?full_index=1"
+    sha256 "65a4aacc22f82004e102607c03149395e81c7b6104715e5b90b4bbc016e5e0f7"
   end
 
   def install
@@ -66,7 +80,7 @@ class JohnJumbo < Formula
 
   test do
     touch "john2.pot"
-    (testpath/"test").write "dave:#{`printf secret | /usr/bin/openssl md5`}"
+    (testpath/"test").write "dave:#{`printf secret | /usr/bin/openssl md5 -r | cut -d' ' -f1`}"
     assert_match(/secret/, shell_output("#{bin}/john --pot=#{testpath}/john2.pot --format=raw-md5 test"))
     assert_match(/secret/, (testpath/"john2.pot").read)
   end

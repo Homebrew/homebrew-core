@@ -3,14 +3,15 @@ class Libbi < Formula
   homepage "https://libbi.org/"
   url "https://github.com/lawmurray/LibBi/archive/1.4.5.tar.gz"
   sha256 "af2b6d30e1502f99a3950d63ceaf7d7275a236f4d81eff337121c24fbb802fbe"
+  license "GPL-2.0"
+  revision 2
   head "https://github.com/lawmurray/LibBi.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9375c903bf9980fa04fe6ab1a08fc174dbfdbc60cbf6bf33a4f85c135b4ba356" => :catalina
-    sha256 "9e3385af760fa9d77122311be8cc0da4993e5dbf514fd7449ddc45fef328e31f" => :mojave
-    sha256 "f4777d1ce91c8e1b4a7b56db70ed1a15a605e3817ae063cdd7187ab40167bfed" => :high_sierra
-    sha256 "d1916249f2268c6015852f177d0198b3a96dad65c406e867ab73fbb837e8fa39" => :sierra
+    sha256 "8a5e07818b7ab072b4ce227a8e9c6fbfe0a944376fe0e7ae718757f552daf6cb" => :catalina
+    sha256 "1ccf102c4139efb50411136b936637ca4f353c64660f945044c4056dfaabec5e" => :mojave
+    sha256 "b0336adbd5aa3122599d729ad9472ec368d74d2a891ce0aee0348e4c5768c162" => :high_sierra
   end
 
   depends_on "automake"
@@ -18,6 +19,8 @@ class Libbi < Formula
   depends_on "gsl"
   depends_on "netcdf"
   depends_on "qrupdate"
+
+  uses_from_macos "perl"
 
   resource "Test::Simple" do
     url "https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302133.tar.gz"
@@ -132,7 +135,7 @@ class Libbi < Formula
     system "make", "install"
 
     pkgshare.install "Test.bi", "test.conf"
-    bin.env_script_all_files(libexec+"bin", :PERL5LIB => ENV["PERL5LIB"])
+    bin.env_script_all_files(libexec+"bin", PERL5LIB: ENV["PERL5LIB"])
   end
 
   test do

@@ -1,16 +1,16 @@
 class Btfs < Formula
   desc "BitTorrent filesystem based on FUSE"
   homepage "https://github.com/johang/btfs"
-  url "https://github.com/johang/btfs/archive/v2.20.tar.gz"
-  sha256 "ab85d10407d210c367dc5a0db6aa9e8620ebbb819c58da783ca343dfa8577441"
+  url "https://github.com/johang/btfs/archive/v2.22.tar.gz"
+  sha256 "03ebfffd7cbd91e2113d0c43d8d129ad7851753c287c326416ecf622789c4a8d"
+  license "GPL-3.0-only"
   head "https://github.com/johang/btfs.git"
 
   bottle do
     cellar :any
-    sha256 "a910b20564aa16b0d02ea1959b6156efe45603085d2cc19243f05e65bf8a5dbc" => :catalina
-    sha256 "7b3b691544cdf1fc4d7a88f5ca5b2bc630d636b79e65391eceda02015ed817a6" => :mojave
-    sha256 "dab4673f1e3f5b5b3f0200e9ac252e5124bcb4702fe52735da85eec9d8dea26e" => :high_sierra
-    sha256 "457c198406251b965f3fff02f8910dbfb30988210a0ff6e7e2fb5b1c8d4ea601" => :sierra
+    sha256 "d5b103b5b9004549a555352be373c2160bcd5b9f6a8e7e8b030cbf113ae76fcd" => :catalina
+    sha256 "bb550107105c612e2c9b81478b352d053f5b8ac8658377e0d40e4ee1109519fc" => :mojave
+    sha256 "934b8849eaecd08113b01e222c9583f9293100889f3f40f8452a476a6491e0d0" => :high_sierra
   end
 
   depends_on "autoconf" => :build

@@ -1,14 +1,15 @@
 class Catch2 < Formula
   desc "Modern, C++-native, header-only, test framework"
   homepage "https://github.com/catchorg/Catch2"
-  url "https://github.com/catchorg/Catch2/archive/v2.10.2.tar.gz"
-  sha256 "79aa46ee6c5a87bc5306bfffc6ecde6a1ad6327715b208ee2e846873f282a494"
+  url "https://github.com/catchorg/Catch2/archive/v2.13.2.tar.gz"
+  sha256 "5e39d9199f4f174dc3c8896fb4cf0a2ce9b9c358ae759b87fade6d615ca2d27e"
+  license "BSL-1.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "324a1c931fd1b5fa5d103004772cac80da644724ecca7fe9cad1cdbc6ae582bc" => :catalina
-    sha256 "324a1c931fd1b5fa5d103004772cac80da644724ecca7fe9cad1cdbc6ae582bc" => :mojave
-    sha256 "324a1c931fd1b5fa5d103004772cac80da644724ecca7fe9cad1cdbc6ae582bc" => :high_sierra
+    sha256 "11de128f69768338a297dacc7a9b0e28fa7d43425d073c98e72af59aa4baad42" => :catalina
+    sha256 "3f3361a3e0b107e3a92373802228af7cc4eaafc6891295480d675d8e15388128" => :mojave
+    sha256 "416383794859afa0cb66cae949875931f95dc50877ae0d1d3dd092a8d82443a1" => :high_sierra
   end
 
   depends_on "cmake" => :build

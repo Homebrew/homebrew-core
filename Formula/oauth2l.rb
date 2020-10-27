@@ -1,15 +1,16 @@
 class Oauth2l < Formula
   desc "Simple CLI for interacting with Google oauth tokens"
   homepage "https://github.com/google/oauth2l"
-  url "https://github.com/google/oauth2l/archive/v1.0.1.tar.gz"
-  sha256 "8207bb796727019b277f63c709fa4e399f2d40c223633d0df6c74dc1f3c9385f"
+  url "https://github.com/google/oauth2l/archive/v1.1.0.tar.gz"
+  sha256 "4058dc07fb9a4e985472068b80e9504b477102b1a0cd999f9367736a5ddb6be5"
+  license "Apache-2.0"
   head "https://github.com/google/oauth2l.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "36b8c454a7d8934b7fa5ba65ee4132859ffd07452628c5869ae51beedf010f8c" => :catalina
-    sha256 "7983a17ea03db453152e87d1bf517aff15f4f3bced0bd483405e6e31dd6fd070" => :mojave
-    sha256 "d7d65ee29295d7740068d32b552327a8f3ceed0b3eb378f3d06afcfc03fcf796" => :high_sierra
+    sha256 "4dedbbebe5996581e6a6c41500abded4f96b0d888e7b68e64584b846d196967e" => :catalina
+    sha256 "3cdb4abb44ae3fa046446c28a54225ab46efa736a6cc5dcab80d7156c8f78348" => :mojave
+    sha256 "d52fe266287cba01a822204ae32770cff65a244011a69f5306d9d38071c6385a" => :high_sierra
   end
 
   depends_on "go" => :build

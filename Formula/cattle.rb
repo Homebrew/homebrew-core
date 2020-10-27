@@ -1,15 +1,14 @@
 class Cattle < Formula
   desc "Brainfuck language toolkit"
-  homepage "https://github.com/andreabolognani/cattle"
-  url "https://kiyuko.org/software/cattle/releases/cattle-1.2.2.tar.gz"
-  sha256 "e8e9baba41c4b25a1fdac552c5b03ad62a4dbb782e9866df3c3463baf6411826"
-  revision 2
+  homepage "https://kiyuko.org/software/cattle"
+  url "https://kiyuko.org/software/cattle/releases/cattle-1.4.0.tar.xz"
+  sha256 "9ba2d746f940978b5bfc6c39570dde7dc55d5b4d09d0d25f29252d6a25fb562f"
+  license "GPL-2.0"
 
   bottle do
-    sha256 "351e447fdd9020945375ad5db0884e1f4f80915d4af4911cfebd37636afd2fe6" => :catalina
-    sha256 "0ae9acb42c85b12815f16e0325bdca644a7df6a6d52734e8f713f5d38b20c480" => :mojave
-    sha256 "db653a4f8e8463ced42f6b9aaad04f8f09fff9847225054f4833ac06e1a03bfe" => :high_sierra
-    sha256 "1d66b604d5ae66b79d83ac63b959ca37df121dd146be43a6af8fb110c6ae196b" => :sierra
+    sha256 "d721fea1c78f6b79eb7ae7e325442e276638919bdef0a21604e910501d4cc67f" => :catalina
+    sha256 "7ce0b67200025300e8e326dc890c79b94be12b627ebc4bbf230ae64437aa286d" => :mojave
+    sha256 "43b809e209b52621c0ac66810b751a22f43d1718f75f41c9c0364d6ecb762b83" => :high_sierra
   end
 
   head do
@@ -34,10 +33,13 @@ class Cattle < Formula
       inreplace "autogen.sh", "libtoolize", "glibtoolize"
       system "sh", "autogen.sh"
     end
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+
+    mkdir "build" do
+      system "../configure", "--disable-dependency-tracking",
+                             "--disable-silent-rules",
+                             "--prefix=#{prefix}"
+      system "make", "install"
+    end
   end
 
   test do

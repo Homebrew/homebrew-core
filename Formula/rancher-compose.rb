@@ -3,6 +3,7 @@ class RancherCompose < Formula
   homepage "https://github.com/rancher/rancher-compose"
   url "https://github.com/rancher/rancher-compose/archive/v0.12.5.tar.gz"
   sha256 "cdff53b2c3401b990ad33e229c7ef429504419e49e18a814101e2fa3c84859ea"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

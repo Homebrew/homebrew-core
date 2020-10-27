@@ -1,17 +1,20 @@
 class Grep < Formula
   desc "GNU grep, egrep and fgrep"
   homepage "https://www.gnu.org/software/grep/"
-  url "https://ftp.gnu.org/gnu/grep/grep-3.3.tar.xz"
-  mirror "https://ftpmirror.gnu.org/grep/grep-3.3.tar.xz"
-  sha256 "b960541c499619efd6afe1fa795402e4733c8e11ebf9fafccc0bb4bccdc5b514"
+  url "https://ftp.gnu.org/gnu/grep/grep-3.5.tar.xz"
+  mirror "https://ftpmirror.gnu.org/grep/grep-3.5.tar.xz"
+  sha256 "b82ac77707c2ab945520c8404c9fa9f890f7791a62cf2103cf6238acad87a44a"
+  license "GPL-3.0-or-later"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any
-    rebuild 2
-    sha256 "18cfdeab08ab5b1cef0bb1cc750636109e7a7733a9219a67430cd47bfbd4f34f" => :catalina
-    sha256 "ca4b36489d4767f809516edaed8e4f869834dfca40e7ccfa2c697e1ffa771717" => :mojave
-    sha256 "3d31c9e997b832a9035394e51191d4f26357b51412d78e0029e19d5a6fc7efdb" => :high_sierra
-    sha256 "830c7d077c489b9276a314c631a32d539c476efa7fa3857e9ed5913aa92c9c06" => :sierra
+    sha256 "9d3347c001171d788a12d0113de23d347722a0587ae27540aa01afb32d95aa3a" => :catalina
+    sha256 "6c8b53ccc62d1dc82c07f4758909d74be944f2f2770fd3a147660a70a78b95e7" => :mojave
+    sha256 "62f85b85c25c50ac0899a16fc83945f4361db6e4c8beae0e44d4a9f748291622" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -40,12 +43,13 @@ class Grep < Formula
     libexec.install_symlink "gnuman" => "man"
   end
 
-  def caveats; <<~EOS
-    All commands have been installed with the prefix "g".
-    If you need to use these commands with their normal names, you
-    can add a "gnubin" directory to your PATH from your bashrc like:
-      PATH="#{opt_libexec}/gnubin:$PATH"
-  EOS
+  def caveats
+    <<~EOS
+      All commands have been installed with the prefix "g".
+      If you need to use these commands with their normal names, you
+      can add a "gnubin" directory to your PATH from your bashrc like:
+        PATH="#{opt_libexec}/gnubin:$PATH"
+    EOS
   end
 
   test do

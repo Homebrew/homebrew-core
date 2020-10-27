@@ -2,8 +2,9 @@ class JingTrang < Formula
   desc "Schema validation and conversion based on RELAX NG"
   homepage "http://www.thaiopensource.com/relaxng/"
   url "https://github.com/relaxng/jing-trang.git",
-      :tag      => "V20181222",
-      :revision => "a3ec4cd650f48ec00189578f314fbe94893cd92d"
+      tag:      "V20181222",
+      revision: "a3ec4cd650f48ec00189578f314fbe94893cd92d"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,7 +15,7 @@ class JingTrang < Formula
   end
 
   depends_on "ant" => :build
-  depends_on :java => "1.8"
+  depends_on java: "1.8"
 
   def install
     system "./ant", "jar"

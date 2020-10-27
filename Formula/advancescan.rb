@@ -3,6 +3,7 @@ class Advancescan < Formula
   homepage "https://www.advancemame.it/scan-readme.html"
   url "https://github.com/amadvance/advancescan/releases/download/v1.18/advancescan-1.18.tar.gz"
   sha256 "8c346c6578a1486ca01774f30c3e678058b9b8b02f265119776d523358d24672"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,6 +14,8 @@ class Advancescan < Formula
     sha256 "e4295866cda2370aa37cb1144ff1269ada4df6b76145a25efaf072d7a6b09b5c" => :el_capitan
     sha256 "f91cbe31c7c8072fffffcd0cc8766e20df6f728abc73f66140f97c0a49d6f6c8" => :yosemite
   end
+
+  uses_from_macos "zlib"
 
   def install
     system "./configure", "--disable-silent-rules",

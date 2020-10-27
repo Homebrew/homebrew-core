@@ -5,6 +5,11 @@ class Yaf < Formula
   sha256 "5e2523eeeaa5ac7e08f73b38c599f321ba93f239011efec9c39cfcbc30489dca"
   revision 1
 
+  livecheck do
+    url "https://tools.netsa.cert.org/yaf/download.html"
+    regex(/".*?yaf[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     rebuild 1
@@ -20,6 +25,8 @@ class Yaf < Formula
   depends_on "libfixbuf"
   depends_on "libtool"
   depends_on "pcre"
+
+  uses_from_macos "libpcap"
 
   def install
     system "./configure", "--disable-dependency-tracking",

@@ -3,19 +3,21 @@ class Beagle < Formula
   homepage "https://github.com/beagle-dev/beagle-lib"
   url "https://github.com/beagle-dev/beagle-lib/archive/v3.1.2.tar.gz"
   sha256 "dd872b484a3a9f0bce369465e60ccf4e4c0cd7bd5ce41499415366019f236275"
+  license "LGPL-3.0"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "032c922981ee1707934cceb53318a26dab4a0ca6c392db63115f626a9f56b412" => :mojave
-    sha256 "d7834048b8aabdedcc824daf474cefe0436fdd8515da4df3f6c52a87d01395ef" => :high_sierra
-    sha256 "87e49bf8faeff280ba1211a7c0a0b1626750652b0498eef2ff01dfcff4290056" => :sierra
+    sha256 "de8fe667e01d1e204c669980753cf9ef84b4d2406ab52c0882d6d9108d2dc7eb" => :catalina
+    sha256 "fe9ae7aaa01df98d34b5cbd7dce8abd9ac840f2bb54797851b42a056ee258e01" => :mojave
+    sha256 "d2a42acc06fa4bf26c25b4d63a96c0d6bf46f7b1a21bacf91ef70fbff58e77b4" => :high_sierra
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "doxygen" => :build
-  depends_on :java => [:build, :test]
   depends_on "libtool" => :build
+  depends_on "openjdk" => [:build, :test]
 
   def install
     system "./autogen.sh"
@@ -41,7 +43,7 @@ class Beagle < Formula
     system ENV.cxx, "-I#{include}/libhmsbeagle-1",
            testpath/"test.cpp", "-o", "test"
     system "./test"
-    system "javac", "T.java"
-    system "java", "-Djava.library.path=#{lib}", "T"
+    system "#{Formula["openjdk"].bin}/javac", "T.java"
+    system "#{Formula["openjdk"].bin}/java", "-Djava.library.path=#{lib}", "T"
   end
 end

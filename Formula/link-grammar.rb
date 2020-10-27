@@ -1,14 +1,20 @@
 class LinkGrammar < Formula
   desc "Carnegie Mellon University's link grammar parser"
   homepage "https://www.abisource.com/projects/link-grammar/"
-  url "https://www.abisource.com/downloads/link-grammar/5.6.2/link-grammar-5.6.2.tar.gz"
-  sha256 "333c29abdcb6f3b90aff4d24889d11174d45b7cc1960816a257eecd6679186c9"
+  url "https://www.abisource.com/downloads/link-grammar/5.8.0/link-grammar-5.8.0.tar.gz"
+  sha256 "ad65a6b47ca0665b814430a5a8ff4de51f4805f7fb76642ced90297b4e7f16ed"
+  license "LGPL-2.1"
+  revision 1
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?link-grammar[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 "a6271a6564c1ec4ff95d8223e47385aad3b4df314db579f3e68ea43f9a456870" => :catalina
-    sha256 "90b3c98782ea23f109ea0046548c531331f3d07e9645a4d9bd01ae43381c01a0" => :mojave
-    sha256 "f201950217bc053f94351992075900a0d6f6d96a22d5411df6ee54e007838762" => :high_sierra
-    sha256 "e4103b4f47f143886f2bbfaa089a318921ffb297fedfa0174d0403334375d732" => :sierra
+    sha256 "d2125eec68c573874249d6b3629b54b9c55c7c378343f9ae969440dfdbb3497d" => :catalina
+    sha256 "5c6e347b0c82683ae1a3c8838bec8bf9b840c06fbe33e59a494ea3495256b0e0" => :mojave
+    sha256 "64a9aa4bebc23fe23063f436cd18bca518e11f3be4322ca60d2d710c9ed6cd8c" => :high_sierra
   end
 
   depends_on "ant" => :build
@@ -17,21 +23,21 @@ class LinkGrammar < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "python@3.9" => :build
+
+  uses_from_macos "sqlite"
 
   def install
     ENV["PYTHON_LIBS"] = "-undefined dynamic_lookup"
     inreplace "bindings/python/Makefile.am",
-      "$(PYTHON2_LDFLAGS) -module -no-undefined",
-      "$(PYTHON2_LDFLAGS) -module"
-    inreplace "bindings/java/build.xml.in",
-      "<property name=\"source\" value=\"1.6\"/>",
-      "<property name=\"source\" value=\"1.7\"/>"
-    inreplace "bindings/java/build.xml.in",
-      "<property name=\"target\" value=\"1.6\"/>",
-      "<property name=\"target\" value=\"1.7\"/>"
+      "$(PYTHON_LDFLAGS) -module -no-undefined",
+      "$(PYTHON_LDFLAGS) -module"
+    inreplace "link-grammar/link-grammar.def", "regex_tokenizer_test\n", ""
     system "autoreconf", "-fiv"
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", "--disable-debug",
+                          "--disable-dependency-tracking",
+                          "--prefix=#{prefix}",
+                          "--with-regexlib=c"
     system "make", "install"
   end
 

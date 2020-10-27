@@ -1,35 +1,33 @@
 class Mercury < Formula
   desc "Logic/functional programming language"
   homepage "https://mercurylang.org/"
-  url "https://dl.mercurylang.org/release/mercury-srcdist-14.01.1.tar.gz"
-  sha256 "98f7cbde7a7425365400feef3e69f1d6a848b25dc56ba959050523d546c4e88b"
-  revision 1
+  url "https://dl.mercurylang.org/release/mercury-srcdist-20.06.tar.gz"
+  sha256 "b9c6965d41af49b4218d2444440c4860630d6f50c18dc6f1f4f8374d114f79be"
+  license all_of: ["GPL-2.0-only", "LGPL-2.0-only", "MIT"]
 
   bottle do
     cellar :any
-    sha256 "2beee99d44c44e0d368d2317d08b3a2e0482f9f188cc1037a04664a51b08b605" => :catalina
-    sha256 "73f7a5af0479bdabb0bf50366ef2b638a69b42d17ac2de0b597e43f90c28377d" => :mojave
-    sha256 "2b68773f1e4dd35bb70ed17a94f82ef7bb4e11f5169869d8904d7f6ce667003a" => :high_sierra
-    sha256 "200fbd8b1e59fa3b4b7ef80d09955c697a31e83f15eb4c661bef1dc2458236d0" => :sierra
-    sha256 "daf916b14c3358f4d7ed6cdba153f96d6f4acec2d29b9fb43b027a6610bd783d" => :el_capitan
-    sha256 "afcff5ed87fdd477ce8037cca2f3fcab828b71cf78e1fbde951c4e17ae3e0b17" => :yosemite
-    sha256 "0e736ef6f5cc48bc9d6f7d50cb9df6fb52dba2b0b3bf2d83b378f83fcff4ecb9" => :mavericks
+    rebuild 1
+    sha256 "ede7304ce96165ca6382118eacb3997e0732b875db721640002d203db9e66346" => :catalina
+    sha256 "ac95cc73104a5621d7a561ae9957561206541633bff5adaf22ed36e21517add1" => :mojave
+    sha256 "60240308ebcc05ca33a4d40a787745cd4f60b445c9d94302505253bfd4697f6f" => :high_sierra
+  end
+
+  depends_on "openjdk"
+
+  # Disable advanced segfault handling due to broken header detection.
+  patch do
+    url "https://github.com/Mercury-Language/mercury/commit/37ed70d43878cd53c8da40bf410e0a312835c036.patch?full_index=1"
+    sha256 "f01aca048464341dcf6e345056050e2c45236839cca17ac01fc944131d1641c0"
   end
 
   def install
-    args = ["--prefix=#{prefix}",
+    system "./configure", "--prefix=#{prefix}",
             "--mandir=#{man}",
             "--infodir=#{info}",
-            "--disable-dependency-tracking",
-            "--enable-java-grade"]
+            "mercury_cv_is_littleender=yes" # Fix broken endianness detection
 
-    system "./configure", *args
-
-    # The build system doesn't quite honour the mandir/infodir autoconf
-    # parameters.
-    system "make", "install", "PARALLEL=-j",
-                              "INSTALL_MAN_DIR=#{man}",
-                              "INSTALL_INFO_DIR=#{info}"
+    system "make", "install", "PARALLEL=-j"
 
     # Remove batch files for windows.
     rm Dir.glob("#{bin}/*.bat")
@@ -47,7 +45,13 @@ class Mercury < Formula
       main(IOState_in, IOState_out) :-
           io.write_string("#{test_string}", IOState_in, IOState_out).
     EOS
-    system "#{bin}/mmc", "--make", "hello"
+
+    system "#{bin}/mmc", "-o", "hello_c", "hello"
+    assert_predicate testpath/"hello_c", :exist?
+
+    assert_equal test_string, shell_output("#{testpath}/hello_c")
+
+    system "#{bin}/mmc", "--grade", "java", "hello"
     assert_predicate testpath/"hello", :exist?
 
     assert_equal test_string, shell_output("#{testpath}/hello")

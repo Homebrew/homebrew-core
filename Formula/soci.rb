@@ -1,15 +1,18 @@
 class Soci < Formula
   desc "Database access library for C++"
   homepage "https://soci.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/soci/soci/soci-3.2.3/soci-3.2.3.zip"
-  sha256 "ab0f82873b0c5620e0e8eb2ff89abad6517571fd63bae4bdcac64dd767ac9a05"
+  url "https://downloads.sourceforge.net/project/soci/soci/soci-4.0.1/soci-4.0.1.zip"
+  sha256 "ec25f69df0237882bb9035c69e21d91e62f0c6a2cd6f9f0153bbf00b435ff6b2"
+  license "BSL-1.0"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
-    rebuild 1
-    sha256 "0fd00b5a595f94e6e62cb7f6976816bca6a747ed3a98b0327f5961548e2606ef" => :catalina
-    sha256 "e0898c45669d19255465f990c9ac4ea6f6b42c4c6de7688d5ca137f77080bc55" => :mojave
-    sha256 "bf08b482820dd4ce1613b662d573caeeb0e9e78d379d7f21dee9118833867e65" => :high_sierra
-    sha256 "db0a84d0ac41fb65d0bdea2eccc652754bdacca85b8659aec879d85101f2d276" => :sierra
+    sha256 "367f4d37091b11f2e63e220361f9344622a93f8c961122901889c5ef132fb0ec" => :catalina
+    sha256 "c51aea80672de81e7663b36e6ff39ce9cc3025aa3c531539424dd089c1b347a8" => :mojave
+    sha256 "6e6fced1aa11defaed5f6ea4461b5bbf763b8f55349035e587c80c4bbd68df27" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -29,5 +32,24 @@ class Soci < Formula
       system "cmake", "..", *args
       system "make", "install"
     end
+  end
+
+  test do
+    (testpath/"test.cxx").write <<~EOS
+      #include "soci/soci.h"
+      #include "soci/empty/soci-empty.h"
+      #include <string>
+
+      using namespace soci;
+      std::string connectString = "";
+      backend_factory const &backEnd = *soci::factory_empty();
+
+      int main(int argc, char* argv[])
+      {
+        soci::session sql(backEnd, connectString);
+      }
+    EOS
+    system ENV.cxx, "-o", "test", "test.cxx", "-std=c++11", "-L#{lib}", "-lsoci_core", "-lsoci_empty"
+    system "./test"
   end
 end

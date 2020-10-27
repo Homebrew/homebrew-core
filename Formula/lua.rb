@@ -3,7 +3,13 @@ class Lua < Formula
   homepage "https://www.lua.org/"
   url "https://www.lua.org/ftp/lua-5.3.5.tar.gz"
   sha256 "0c2eed3f960446e1a3e4b9a1ca2f3ff893b6ce41942cf54d5dd59ab4b3b058ac"
+  license "MIT"
   revision 1
+
+  livecheck do
+    url "https://www.lua.org/ftp/"
+    regex(/href=.*?lua[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     cellar :any
@@ -12,6 +18,12 @@ class Lua < Formula
     sha256 "fcf36c0a4785ed9f515a1a18d8e158ad806c8ff92a5359959fbfa1b84bc52454" => :high_sierra
     sha256 "17947facfc289e35fc19a1c4091f4d26387bdc254150df75e0aa95d881e58135" => :sierra
     sha256 "b6e9699312e768aaa800d06e1f1e445f1bed64c8eb614083915c60e0a2e3d746" => :el_capitan
+  end
+
+  uses_from_macos "unzip" => :build
+
+  on_linux do
+    depends_on "readline"
   end
 
   # Be sure to build a dylib, or else runtime modules will pull in another static copy of liblua = crashy
@@ -48,33 +60,35 @@ class Lua < Formula
     (lib/"pkgconfig").install_symlink "lua.pc" => "lua-5.3.pc"
   end
 
-  def pc_file; <<~EOS
-    V= 5.3
-    R= #{version}
-    prefix=#{HOMEBREW_PREFIX}
-    INSTALL_BIN= ${prefix}/bin
-    INSTALL_INC= ${prefix}/include/lua
-    INSTALL_LIB= ${prefix}/lib
-    INSTALL_MAN= ${prefix}/share/man/man1
-    INSTALL_LMOD= ${prefix}/share/lua/${V}
-    INSTALL_CMOD= ${prefix}/lib/lua/${V}
-    exec_prefix=${prefix}
-    libdir=${exec_prefix}/lib
-    includedir=${prefix}/include/lua
+  def pc_file
+    <<~EOS
+      V= 5.3
+      R= #{version}
+      prefix=#{HOMEBREW_PREFIX}
+      INSTALL_BIN= ${prefix}/bin
+      INSTALL_INC= ${prefix}/include/lua
+      INSTALL_LIB= ${prefix}/lib
+      INSTALL_MAN= ${prefix}/share/man/man1
+      INSTALL_LMOD= ${prefix}/share/lua/${V}
+      INSTALL_CMOD= ${prefix}/lib/lua/${V}
+      exec_prefix=${prefix}
+      libdir=${exec_prefix}/lib
+      includedir=${prefix}/include/lua
 
-    Name: Lua
-    Description: An Extensible Extension Language
-    Version: #{version}
-    Requires:
-    Libs: -L${libdir} -llua -lm
-    Cflags: -I${includedir}
-  EOS
+      Name: Lua
+      Description: An Extensible Extension Language
+      Version: #{version}
+      Requires:
+      Libs: -L${libdir} -llua -lm
+      Cflags: -I${includedir}
+    EOS
   end
 
-  def caveats; <<~EOS
-    You may also want luarocks:
-      brew install luarocks
-  EOS
+  def caveats
+    <<~EOS
+      You may also want luarocks:
+        brew install luarocks
+    EOS
   end
 
   test do

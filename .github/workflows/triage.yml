@@ -1,0 +1,105 @@
+name: Triage tasks
+
+on: pull_request_target
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check commit format
+        uses: Homebrew/actions/check-commit-format@master
+        with:
+          token: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
+      - name: Cancel previous runs
+        uses: Homebrew/actions/cancel-previous-runs@master
+        if: always()
+        with:
+          token: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
+      - name: Label pull request
+        uses: Homebrew/actions/label-pull-requests@master
+        if: always()
+        with:
+          token: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
+          def: |
+            [
+                {
+                    "label": "new formula",
+                    "status": "added",
+                    "path": "Formula/.+"
+                }, {
+                    "label": "marked for removal/rejection",
+                    "status": "removed",
+                    "path": "Formula/.+"
+                }, {
+                    "label": "bottle unneeded",
+                    "path": "Formula/.+",
+                    "content": "\n  (bottle :unneeded|depends_on :linux)\n"
+                }, {
+                    "label": "formula deprecated",
+                    "path": "Formula/.+",
+                    "content": "\n  deprecate!.*\n"
+                }, {
+                    "label": "formula disabled",
+                    "path": "Formula/.+",
+                    "content": "\n  disable!.*\n"
+                }, {
+                    "label": "legacy",
+                    "path": "Formula/.+@.+"
+                }, {
+                    "label": "missing license",
+                    "path": "Formula/.+",
+                    "missing_content": "\n  license .+\n"
+                }, {
+                    "label": "deprecated license",
+                    "path": "Formula/.+",
+                    "content": "license .*\"(GPL|LGPL|AGPL|GFDL)-[0-9].[0-9][+]?\".*"
+                }, {
+                    "label": "go",
+                    "path": "Formula/.+",
+                    "content": "depends_on \"go(?:@[0-9.]+)?\""
+                }, {
+                    "label": "haskell",
+                    "path": "Formula/.+",
+                    "content": "depends_on \"(?:ghc@?|haskell-stack).+"
+                }, {
+                    "label": "java",
+                    "path": "Formula/.+",
+                    "content": "depends_on \"?(?:java|openjdk@?).+"
+                }, {
+                    "label": "lua",
+                    "path": "Formula/.+",
+                    "content": "depends_on \"lua(?:@[0-9.]+|jit)?\""
+                }, {
+                    "label": "nodejs",
+                    "path": "Formula/.+",
+                    "content": "depends_on \"node(?:@\\d+)?\""
+                }, {
+                    "label": "ocaml",
+                    "path": "Formula/.+",
+                    "content": "depends_on \"ocaml\""
+                }, {
+                    "label": "perl",
+                    "path": "Formula/.+",
+                    "content": "(?:depends_on|uses_from_macos) \"perl@?.+"
+                }, {
+                    "label": "php",
+                    "path": "Formula/.+",
+                    "content": "(?:depends_on|uses_from_macos) \"php@?.+"
+                }, {
+                    "label": "python",
+                    "path": "Formula/.+",
+                    "content": "(?:depends_on|uses_from_macos) \"python@?.+"
+                }, {
+                    "label": "ruby",
+                    "path": "Formula/.+",
+                    "content": "(?:depends_on|uses_from_macos) \"ruby@?.+"
+                }, {
+                    "label": "rust",
+                    "path": "Formula/.+",
+                    "content": "depends_on \"rust\""
+                }, {
+                    "label": "swift",
+                    "path": "Formula/.+",
+                    "content": "system \"swift\", \"build\""
+                }
+            ]

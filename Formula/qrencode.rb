@@ -1,16 +1,20 @@
 class Qrencode < Formula
   desc "QR Code generation"
   homepage "https://fukuchi.org/works/qrencode/index.html.en"
-  url "https://fukuchi.org/works/qrencode/qrencode-4.0.2.tar.gz"
-  sha256 "dbabe79c07614625d1f74d8c0ae2ee5358c4e27eab8fd8fe31f9365f821a3b1d"
+  url "https://fukuchi.org/works/qrencode/qrencode-4.1.1.tar.gz"
+  sha256 "da448ed4f52aba6bcb0cd48cac0dd51b8692bccc4cd127431402fca6f8171e8e"
+  license "LGPL-2.1-or-later"
+
+  livecheck do
+    url "https://fukuchi.org/works/qrencode/"
+    regex(/href=.*?qrencode[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     cellar :any
-    sha256 "467f54a970d8ceaceaee214d3723aa4adea9277ecc7c5ccd575da3f7a918af77" => :catalina
-    sha256 "1da2c679c176cd636ba258e6f504b35e86b0378f1a97608187b7cc7bb133cc9c" => :mojave
-    sha256 "a541a4b376c69168e1d3392c90810893e02bfc1ba235437453018495901a0171" => :high_sierra
-    sha256 "9b876f9388c74c61e1d5a3c87663b424c4215e546c37a3a8e1543e5de976988d" => :sierra
-    sha256 "83b2cb0f1f60421584a5e6694907ccb636834349a61a40dc8e1a40272a95cc9f" => :el_capitan
+    sha256 "326d2f182c7c8d9188be7adda5bd0ecb5922269f60f72ac265e404fa17fb310f" => :catalina
+    sha256 "a8ec712f32c4d8b09d4c098c37264ea41f0f382525c5b67e657248fdd9f1f53d" => :mojave
+    sha256 "a6d123b7f88941fe9959970d8b6ccfbc426c2ec405cfc731bc259f2b0f536171" => :high_sierra
   end
 
   head do

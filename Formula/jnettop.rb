@@ -5,6 +5,11 @@ class Jnettop < Formula
   sha256 "a005d6fa775a85ff9ee91386e25505d8bdd93bc65033f1928327c98f5e099a62"
   revision 2
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/jnettop[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     rebuild 1

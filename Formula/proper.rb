@@ -3,6 +3,7 @@ class Proper < Formula
   homepage "https://proper-testing.github.io"
   url "https://github.com/proper-testing/proper/archive/v1.3.tar.gz"
   sha256 "7e59eeaef12c07b1e42b0891238052cd05cbead58096efdffa3413b602cd8939"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation

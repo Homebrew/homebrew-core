@@ -3,7 +3,13 @@ class Irssi < Formula
   homepage "https://irssi.org/"
   url "https://github.com/irssi/irssi/releases/download/1.2.2/irssi-1.2.2.tar.xz"
   sha256 "6727060c918568ba2ff4295ad736128dba0b995d7b20491bca11f593bd857578"
+  license "GPL-2.0"
   revision 1
+
+  livecheck do
+    url "https://irssi.org/download/"
+    regex(%r{<p>Latest release version: <strong>v?(\d+(?:\.\d+)+)</strong>}i)
+  end
 
   bottle do
     rebuild 1
@@ -24,6 +30,7 @@ class Irssi < Formula
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "openssl@1.1"
+
   uses_from_macos "perl"
 
   def install

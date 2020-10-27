@@ -6,6 +6,11 @@ class Libpano < Formula
   sha256 "037357383978341dea8f572a5d2a0876c5ab0a83dffda431bd393357e91d95a8"
   revision 2
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/libpano(\d+-\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any
     sha256 "446728639c2cdf06291df1ecd510da3dcb0550163d73560eec6d13b0e3b28351" => :catalina

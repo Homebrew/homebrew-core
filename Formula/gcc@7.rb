@@ -1,15 +1,20 @@
 class GccAT7 < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
-  url "https://ftp.gnu.org/gnu/gcc/gcc-7.4.0/gcc-7.4.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gcc/gcc-7.4.0/gcc-7.4.0.tar.xz"
-  sha256 "eddde28d04f334aec1604456e536416549e9b1aa137fc69204e65eb0c009fe51"
+  url "https://ftp.gnu.org/gnu/gcc/gcc-7.5.0/gcc-7.5.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gcc/gcc-7.5.0/gcc-7.5.0.tar.xz"
+  sha256 "b81946e7f01f90528a1f7352ab08cc602b9ccc05d4e44da4bd501c5a189ee661"
   revision 2
 
+  livecheck do
+    url :stable
+    regex(%r{href=.*?gcc[._-]v?(7(?:\.\d+)+)(?:/?["' >]|\.t)}i)
+  end
+
   bottle do
-    sha256 "cd0ab374ef92a1688ccf2e6cf6c275c64e99b05ef1e7b145e3ef56569cc2f2e6" => :mojave
-    sha256 "5a47d91428176dfb4b77bcddc24844a0ae31dd0cd8347913e10eb753e0b7df61" => :high_sierra
-    sha256 "804157359c20bdb3ddf6b8b2bd86a6ead241d217d00e82b1365539ef9675ce1b" => :sierra
+    sha256 "4dca3b07173bffba262e003b345970119626a4d60a25c167d6bc216c46f1d83e" => :catalina
+    sha256 "5d4086421866078dc4d9bfe623a38160dbcf04ff88b4d0284dee9da66ff50f4c" => :mojave
+    sha256 "3c2135fc0b1c7f0ce048c1f610d2131a237911bdbd66d8bff731bbf9c6d84bcc" => :high_sierra
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -27,21 +32,11 @@ class GccAT7 < Formula
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
 
-  # Patch for Xcode bug, taken from https://gcc.gnu.org/bugzilla/show_bug.cgi?id=89864#c43
-  # This should be removed in the next release of GCC if fixed by apple; this is an xcode bug,
-  # but this patch is a work around committed to GCC trunk
-  if MacOS::Xcode.version >= "10.2"
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/gcc%407/gcc7-xcode10.2.patch"
-      sha256 "873f791d249467bd4187f2994b08a924774d39311af93b61c827e066434181fe"
-    end
-  end
-
   def install
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete "LD"
 
-    version_suffix = version.to_s.slice(/\d/)
+    version_suffix = version.major.to_s
 
     # Even when suffixes are appended, the info pages conflict when
     # install-info is run so pretend we have an outdated makeinfo
@@ -54,10 +49,8 @@ class GccAT7 < Formula
     #  - BRIG
     languages = %w[c c++ objc obj-c++ fortran]
 
-    osmajor = `uname -r`.chomp
-
     args = [
-      "--build=x86_64-apple-darwin#{osmajor}",
+      "--build=x86_64-apple-darwin#{OS.kernel_version}",
       "--prefix=#{prefix}",
       "--libdir=#{lib}/gcc/#{version_suffix}",
       "--enable-languages=#{languages.join(",")}",
@@ -77,21 +70,21 @@ class GccAT7 < Formula
     # Xcode 10 dropped 32-bit support
     args << "--disable-multilib" if DevelopmentTools.clang_build_version >= 1000
 
+    # System headers may not be in /usr/include
+    sdk = MacOS.sdk_path_if_needed
+    if sdk
+      args << "--with-native-system-header-dir=/usr/include"
+      args << "--with-sysroot=#{sdk}"
+    end
+
+    # Avoid reference to sed shim
+    args << "SED=/usr/bin/sed"
+
     # Ensure correct install names when linking against libgcc_s;
     # see discussion in https://github.com/Homebrew/homebrew/pull/34303
     inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"
 
     mkdir "build" do
-      if !MacOS::CLT.installed?
-        # For Xcode-only systems, we need to tell the sysroot path
-        args << "--with-native-system-header-dir=/usr/include"
-        args << "--with-sysroot=#{MacOS.sdk_path}"
-      elsif MacOS.version >= :mojave
-        # System headers are no longer located in /usr/include
-        args << "--with-native-system-header-dir=/usr/include"
-        args << "--with-sysroot=/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk"
-      end
-
       system "../configure", *args
 
       system "make"
@@ -122,7 +115,7 @@ class GccAT7 < Formula
         return 0;
       }
     EOS
-    system "#{bin}/gcc-7", "-o", "hello-c", "hello-c.c"
+    system "#{bin}/gcc-#{version.major}", "-o", "hello-c", "hello-c.c"
     assert_equal "Hello, world!\n", `./hello-c`
 
     (testpath/"hello-cc.cc").write <<~EOS
@@ -133,7 +126,7 @@ class GccAT7 < Formula
         return 0;
       }
     EOS
-    system "#{bin}/g++-7", "-o", "hello-cc", "hello-cc.cc"
+    system "#{bin}/g++-#{version.major}", "-o", "hello-cc", "hello-cc.cc"
     assert_equal "Hello, world!\n", `./hello-cc`
 
     (testpath/"test.f90").write <<~EOS
@@ -147,7 +140,7 @@ class GccAT7 < Formula
       write(*,"(A)") "Done"
       end
     EOS
-    system "#{bin}/gfortran-7", "-o", "test", "test.f90"
+    system "#{bin}/gfortran-#{version.major}", "-o", "test", "test.f90"
     assert_equal "Done\n", `./test`
   end
 end

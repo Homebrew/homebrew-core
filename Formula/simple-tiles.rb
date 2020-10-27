@@ -3,16 +3,15 @@ class SimpleTiles < Formula
   homepage "https://propublica.github.io/simple-tiles/"
   url "https://github.com/propublica/simple-tiles/archive/v0.6.1.tar.gz"
   sha256 "2391b2f727855de28adfea9fc95d8c7cbaca63c5b86c7286990d8cbbcd640d6f"
-  revision 4
+  license "MIT"
+  revision 8
   head "https://github.com/propublica/simple-tiles.git"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "f4afdf9fc92f2e50bb9d9d688b13f0a498d67b33c96604d01d826f335450ac78" => :catalina
-    sha256 "bb724cfcf8966cc53a5f0bf7905cd8703b1cb10e8bfa78401f8e294b38b9f40e" => :mojave
-    sha256 "4ac4a9283ace0bf83b51c9edfd88c2d013ddb994cccc7fddc339dd6052c9f6d8" => :high_sierra
-    sha256 "5459625985be9b05f9e77c1876b5cfc10b085dab3f9efaa2a142d822f2b6ecea" => :sierra
+    sha256 "4189c71a64c384fe516f1db1f20f9cd275e435f7b88995c21ce412ba272620f5" => :catalina
+    sha256 "80cf79f642357f6c408d0081020eca4638e13def659b2eb5f8a84cb3bf4e6392" => :mojave
+    sha256 "f737a155c3021b2c33655ce3f70f8d11d178197e8ce2d5669e73fede374c0d1b" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

@@ -1,24 +1,34 @@
 class Armadillo < Formula
   desc "C++ linear algebra library"
   homepage "https://arma.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/arma/armadillo-9.800.2.tar.xz"
-  sha256 "09962d8d22b98aea32633f6b6ad9b15189888b905f1f092183eda3c5bff35457"
+  url "https://downloads.sourceforge.net/project/arma/armadillo-10.1.0.tar.xz"
+  sha256 "72e3f1b4b4d1b4df70d9cb1e321a254ea04d7843f68a6c34d82691997d558395"
+  license "Apache-2.0"
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/armadillo[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
 
   bottle do
     cellar :any
-    sha256 "f13df5fafa38becbc3addebe806abbd0c823d1c65ba9ee72c9f71d91907c1f7d" => :catalina
-    sha256 "be230681eb2958e133312bedda58d4bf2da6cedfa0c3f07d4c7a1ea360bba29f" => :mojave
-    sha256 "c51085922f4e24fb1d1eb4bde75d329602c585820b4d4c231c8e50f12ef7d3d9" => :high_sierra
+    sha256 "48a426509f41b1bff7890bd9965f5023e2d0c439ef0f88ccea9ae37d9459be23" => :catalina
+    sha256 "b53496756be8e6581b8a920645d2656e005c7d2f0de467d5590b1f09920310f1" => :mojave
+    sha256 "94f328f55c75d13ce6528f4aeec7a1befcd5d94e76ab5edf2d143fedff23ea6d" => :high_sierra
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "arpack"
   depends_on "hdf5"
+  depends_on "openblas"
+  depends_on "superlu"
   depends_on "szip"
 
   def install
-    system "cmake", ".", "-DDETECT_HDF5=ON", *std_cmake_args
+    ENV.prepend "CXXFLAGS", "-DH5_USE_110_API -DH5Ovisit_vers=1"
+
+    system "cmake", ".", "-DDETECT_HDF5=ON", "-DALLOW_OPENBLAS_MACOS=ON", *std_cmake_args
     system "make", "install"
   end
 
@@ -31,7 +41,7 @@ class Armadillo < Formula
         std::cout << arma::arma_version::as_string() << std::endl;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-I#{include}", "-L#{lib}", "-larmadillo", "-o", "test"
-    assert_equal Utils.popen_read("./test").to_i, version.to_s.to_i
+    system ENV.cxx, "-std=c++11", "test.cpp", "-I#{include}", "-L#{lib}", "-larmadillo", "-o", "test"
+    assert_equal shell_output("./test").to_i, version.to_s.to_i
   end
 end

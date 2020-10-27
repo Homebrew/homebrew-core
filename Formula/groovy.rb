@@ -1,22 +1,28 @@
 class Groovy < Formula
   desc "Java-based scripting language"
   homepage "https://www.groovy-lang.org/"
-  url "https://dl.bintray.com/groovy/maven/apache-groovy-binary-2.5.8.zip"
-  sha256 "49fb14b98f9fed1744781e4383cf8bff76440032f58eb5fabdc9e67a5daa8742"
+  url "https://dl.bintray.com/groovy/maven/apache-groovy-binary-3.0.6.zip"
+  sha256 "6e0cc2d5b8a7b8585f15816c7d5cae1b09b4003ced0002e79abe7b4b1ebb35f2"
+  license "Apache-2.0"
+
+  livecheck do
+    url "https://dl.bintray.com/groovy/maven/"
+    regex(/href=.*?groovy-binary[._-]v?([\d.]+)\.zip/i)
+  end
 
   bottle :unneeded
 
-  # Groovy 2.5 requires JDK8+ to build and JDK7 is the minimum version of the JRE that we support.
-  depends_on :java => "1.7+"
+  depends_on "openjdk"
 
-  conflicts_with "groovysdk", :because => "both install the same binaries"
+  conflicts_with "groovysdk", because: "both install the same binaries"
 
   def install
     # Don't need Windows files.
     rm_f Dir["bin/*.bat"]
 
     libexec.install "bin", "conf", "lib"
-    bin.install_symlink Dir["#{libexec}/bin/*"] - ["#{libexec}/bin/groovy.ico"]
+    bin.install Dir["#{libexec}/bin/*"] - ["#{libexec}/bin/groovy.ico"]
+    bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env
   end
 
   def caveats

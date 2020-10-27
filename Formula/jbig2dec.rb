@@ -1,18 +1,25 @@
 class Jbig2dec < Formula
   desc "JBIG2 decoder and library (for monochrome documents)"
   homepage "https://jbig2dec.com/"
-  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs927/jbig2dec-0.16.tar.gz"
-  sha256 "a4f6bf15d217e7816aa61b92971597c801e81f0a63f9fe1daee60fb88e0f0602"
+  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs9531/jbig2dec-0.19.tar.gz"
+  sha256 "279476695b38f04939aa59d041be56f6bade3422003a406a85e9792c27118a37"
+  license "AGPL-3.0-or-later"
+
+  livecheck do
+    url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/latest"
+    regex(%r{href=.*?/jbig2dec[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
 
   bottle do
     cellar :any
-    sha256 "8656a96c7c445128f5cdeaa820a75df51d018fbc165a8e5991e9bcfa3268c9ba" => :catalina
-    sha256 "4f3bb46fc8727b6aa1b6def6b9d6893078cf929d0ed37e432ea864810ad6ddf7" => :mojave
-    sha256 "1b2684d8ba1e74ed1f5d8eaaee419859056aa5cbc85a6979fd16241d658c08d7" => :high_sierra
-    sha256 "63c219877b391ee3198d8d60e7fbb4635d43af160b63ba1a2ef8309125c1ca50" => :sierra
+    sha256 "7e70d2b2472b4116d1f98b7518f124067dbfa8e4d3d73b552af38440e7770bdd" => :catalina
+    sha256 "d02d163a886d1f3a9e1af50418ed2f19f66981b44a58f3228b3580f585929ee4" => :mojave
+    sha256 "8ec515805d2fab8f4db3b27afba0363428f341bb16fbda7d2708ef44fffc5285" => :high_sierra
   end
 
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
 
   resource("test") do
     url "https://github.com/apache/tika/raw/master/tika-parsers/src/test/resources/test-documents/testJBIG2.jb2"
@@ -27,7 +34,7 @@ class Jbig2dec < Formula
       --without-libpng
     ]
 
-    system "./configure", *args
+    system "./autogen.sh", *args
     system "make", "install"
   end
 

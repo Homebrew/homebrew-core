@@ -5,6 +5,10 @@ class Lpc21isp < Formula
   version "1.97"
   sha256 "9f7d80382e4b70bfa4200233466f29f73a36fea7dc604e32f05b9aa69ef591dc"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "e5231b41e3d08d835d4c3a457b594c60576c42802347c01555acc94c04067d94" => :catalina

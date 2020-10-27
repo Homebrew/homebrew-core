@@ -1,17 +1,25 @@
 class MupdfTools < Formula
   desc "Lightweight PDF and XPS viewer"
   homepage "https://mupdf.com/"
-  url "https://mupdf.com/downloads/archive/mupdf-1.15.0-source.tar.xz"
-  sha256 "565036cf7f140139c3033f0934b72e1885ac7e881994b7919e15d7bee3f8ac4e"
+  url "https://mupdf.com/downloads/archive/mupdf-1.18.0-source.tar.xz"
+  sha256 "592d4f6c0fba41bb954eb1a41616661b62b134d5b383e33bd45a081af5d4a59a"
+  license "AGPL-3.0"
   head "https://git.ghostscript.com/mupdf.git"
+
+  livecheck do
+    url "https://mupdf.com/downloads/archive/?C=M&O=D"
+    regex(/href=.*?mupdf[._-]v?(\d+(?:\.\d+)+)-source\.(?:t|zip)/i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "2777f9f600980f2dc9a08607f6b8cd63e0d34a76579a2c96a5cddc6b9abc919d" => :catalina
-    sha256 "bca11e9d9e1e2fefbf2aecfdabe5152aa9d2ac0a026690fa9f63fdc7a480f002" => :mojave
-    sha256 "34787901ceaf810b88d553a40f2307a4255056ada19323f8d742e87727bfb33d" => :high_sierra
+    sha256 "e985551872925ed4b66ce995c551fda59152c1e7f9cf2bdbd205ab749e867e17" => :catalina
+    sha256 "50f1628c7c396fdfd65eb5ce84541a5b9a695bc6fe003cc7abc732e212762bc3" => :mojave
+    sha256 "2a7a4799ca7e75e948331ce00f5799ae8cb6ae2f23e1143955b9d03d8eccbcd9" => :high_sierra
   end
+
+  conflicts_with "mupdf",
+    because: "mupdf and mupdf-tools install the same binaries"
 
   def install
     # Work around Xcode 11 clang bug
@@ -31,6 +39,6 @@ class MupdfTools < Formula
   end
 
   test do
-    assert_match "Homebrew test", shell_output("#{bin}/mutool draw -F txt #{test_fixtures("test.pdf")}")
+    assert_match "Homebrew test", shell_output("#{bin}/mudraw -F txt #{test_fixtures("test.pdf")}")
   end
 end

@@ -3,6 +3,7 @@ class MsgpackTools < Formula
   homepage "https://github.com/ludocode/msgpack-tools"
   url "https://github.com/ludocode/msgpack-tools/releases/download/v0.6/msgpack-tools-0.6.tar.gz"
   sha256 "98c8b789dced626b5b48261b047e2124d256e5b5d4fbbabdafe533c0bd712834"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,6 +14,8 @@ class MsgpackTools < Formula
   end
 
   depends_on "cmake" => :build
+
+  conflicts_with "remarshal", because: "both install 'json2msgpack' binary"
 
   def install
     system "cmake", ".", *std_cmake_args

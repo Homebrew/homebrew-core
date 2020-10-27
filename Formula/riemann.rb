@@ -1,8 +1,9 @@
 class Riemann < Formula
   desc "Event stream processor"
   homepage "https://riemann.io/"
-  url "https://github.com/riemann/riemann/releases/download/0.3.4/riemann-0.3.4.tar.bz2"
-  sha256 "c46aa5e37ebf14fb809fdbd02ff3bb7e7bc92f0c3c675312ddf3569d5f8461b0"
+  url "https://github.com/riemann/riemann/releases/download/0.3.6/riemann-0.3.6.tar.bz2"
+  sha256 "fa2e22b712ed53144bf3319a418a3cd502ed00fa8e6bcb50443039a2664ee643"
+  license "EPL-1.0"
 
   bottle :unneeded
 
@@ -28,40 +29,42 @@ class Riemann < Formula
     (bin+"riemann").write shim_script
   end
 
-  def caveats; <<~EOS
-    You may also wish to install these Ruby gems:
-      riemann-client
-      riemann-tools
-      riemann-dash
-  EOS
+  def caveats
+    <<~EOS
+      You may also wish to install these Ruby gems:
+        riemann-client
+        riemann-tools
+        riemann-dash
+    EOS
   end
 
-  plist_options :manual => "riemann"
+  plist_options manual: "riemann"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
-    "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>KeepAlive</key>
-        <true/>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/riemann</string>
-          <string>#{etc}/riemann.config</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/riemann.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/riemann.log</string>
-      </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+      "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>KeepAlive</key>
+          <true/>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/riemann</string>
+            <string>#{etc}/riemann.config</string>
+          </array>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/riemann.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/riemann.log</string>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do

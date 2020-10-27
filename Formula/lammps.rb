@@ -1,18 +1,18 @@
 class Lammps < Formula
   desc "Molecular Dynamics Simulator"
   homepage "https://lammps.sandia.gov/"
-  url "https://lammps.sandia.gov/tars/lammps-7Aug19.tar.gz"
+  url "https://github.com/lammps/lammps/archive/stable_3Mar2020.tar.gz"
   # lammps releases are named after their release date. We transform it to
   # YYYY-MM-DD (year-month-day) so that we get a sane version numbering.
   # We only track stable releases as announced on the LAMMPS homepage.
-  version "2019-08-07"
-  sha256 "4e8342b97441deb76c2fddd8a4fd23beb718cb0910779d98e334026391ed3961"
+  version "2020-03-03"
+  sha256 "a1a2e3e763ef5baecea258732518d75775639db26e60af1634ab385ed89224d1"
+  license "GPL-2.0"
 
   bottle do
-    sha256 "604056c80bb3b36f0a1644388bff26f2bcdc3e2f2541247e9a7ce941b20e9bcc" => :catalina
-    sha256 "e14fbf9e68b16804c9d86f525e92190010c580c479263eaf194ff1e23dd877b1" => :mojave
-    sha256 "eebae98d9606af15a5281f07843ea41aeb94974a52f0023e9734aab3db430406" => :high_sierra
-    sha256 "cd52cb03b501cb8d65f0dcf8baf3857dc13e2a2206016ef559bf5ff3eba31e1d" => :sierra
+    sha256 "9434567739e6497752d8b2e76b7dd06723b2d9773510e92d3e00aa601208c532" => :catalina
+    sha256 "6c450ea6fd0261adb9b18a8c09f69763b84f51d696c5bb269bf3b141f01bd484" => :mojave
+    sha256 "1a3ecf33da4145a48ab4c645bdb762ef8997c79e2ddaba33b6a12db898c8e73f" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -24,14 +24,16 @@ class Lammps < Formula
   depends_on "open-mpi"
 
   def install
+    # Disable some packages for which we do not have dependencies, that are
+    # deprecated or require too much configuration.
+    disabled_packages = %w[gpu kokkos latte mscg message mpiio poems voronoi]
+
     %w[serial mpi].each do |variant|
       cd "src" do
         system "make", "clean-all"
         system "make", "yes-standard"
 
-        # Disable some packages for which we do not have dependencies, that are
-        # deprecated or require too much configuration.
-        %w[gpu kokkos latte mscg message mpiio poems voronoi].each do |package|
+        disabled_packages.each do |package|
           system "make", "no-#{package}"
         end
 

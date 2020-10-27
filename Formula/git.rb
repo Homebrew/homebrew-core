@@ -1,32 +1,34 @@
 class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
-  url "https://www.kernel.org/pub/software/scm/git/git-2.24.0.tar.xz"
-  sha256 "9f71d61973626d8b28c4cdf8e2484b4bf13870ed643fed982d68b2cfd754371b"
-  head "https://github.com/git/git.git", :shallow => false
+  # Note: Please keep these values in sync with git-gui.rb when updating.
+  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.29.1.tar.xz"
+  sha256 "3005609697d0dd61699d86b533f4db873da82e80804cbb55111b2e330114adb3"
+  license "GPL-2.0-only"
+  head "https://github.com/git/git.git", shallow: false
+
+  livecheck do
+    url "https://www.kernel.org/pub/software/scm/git/"
+    regex(/href=.*?git[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 "fa754c684673a191b999528995c1dc4b0d597a95ed6a2b1dd213c8e7018885ab" => :catalina
-    sha256 "36d3b48999a9252ea1a25fa54cd5305259c713d78d14be8161ea206357c1e120" => :mojave
-    sha256 "014ffddf6866f5c8c4177d06629b040949e4dfbb730e3dbe13a26a6a54e260df" => :high_sierra
+    sha256 "385f0411bc491f64ee14e76a74ae4d4e09a7f7ec8c2fa2dcd8933090fc1a27e2" => :catalina
+    sha256 "85be6b3c6c44b38b3076994a211b821daa0f74ed5fcd9f168ea5d640d0dbee3e" => :mojave
+    sha256 "3aa9aa95a05f2ec114fbb5acac525f45c42088122976ef369648c45acb0f138f" => :high_sierra
   end
 
   depends_on "gettext"
   depends_on "pcre2"
 
-  if MacOS.version < :yosemite
-    depends_on "openssl@1.1"
-    depends_on "curl"
-  end
-
   resource "html" do
-    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.24.0.tar.xz"
-    sha256 "05b6ed0719d5e29d5c60dd7d0a5469f4a0514008a64f6084ac26335d1b37f73b"
+    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-htmldocs-2.29.1.tar.xz"
+    sha256 "c69e59cb6899ef84dbdf0ec28d00e7f6eeec257d37ca386e2521aed79a7dfe2b"
   end
 
   resource "man" do
-    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.24.0.tar.xz"
-    sha256 "b0c872c16f22942c1cb6c90ec07f395a931f7c2f9fb920d2ec926674265c04a6"
+    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-manpages-2.29.1.tar.xz"
+    sha256 "d3c7958aea93106d974ecf2516636270676679d8fcbff540e6ee398c2074c7be"
   end
 
   resource "Net::SMTP::SSL" do
@@ -38,7 +40,6 @@ class Git < Formula
     # If these things are installed, tell Git build system not to use them
     ENV["NO_FINK"] = "1"
     ENV["NO_DARWIN_PORTS"] = "1"
-    ENV["NO_R_TO_GCC_LINKER"] = "1" # pass arguments to LD correctly
     ENV["PYTHON_PATH"] = which("python")
     ENV["PERL_PATH"] = which("perl")
     ENV["USE_LIBPCRE2"] = "1"
@@ -46,7 +47,7 @@ class Git < Formula
     ENV["LIBPCREDIR"] = Formula["pcre2"].opt_prefix
     ENV["V"] = "1" # build verbosely
 
-    perl_version = Utils.popen_read("perl --version")[/v(\d+\.\d+)(?:\.\d+)?/, 1]
+    perl_version = Utils.safe_popen_read("perl", "--version")[/v(\d+\.\d+)(?:\.\d+)?/, 1]
 
     ENV["PERLLIB_EXTRA"] = %W[
       #{MacOS.active_developer_dir}
@@ -56,16 +57,24 @@ class Git < Formula
       "#{p}/Library/Perl/#{perl_version}/darwin-thread-multi-2level"
     end.join(":")
 
-    unless quiet_system ENV["PERL_PATH"], "-e", "use ExtUtils::MakeMaker"
-      ENV["NO_PERL_MAKEMAKER"] = "1"
+    # Ensure we are using the correct system headers (for curl) to workaround
+    # mismatched Xcode/CLT versions:
+    # https://github.com/Homebrew/homebrew-core/issues/46466
+    if MacOS.version == :mojave && MacOS::CLT.installed? && MacOS::CLT.provides_sdk?
+      ENV["HOMEBREW_SDKROOT"] = MacOS::CLT.sdk_path(MacOS.version)
     end
 
+    # The git-gui and gitk tools are installed by a separate formula (git-gui)
+    # to avoid a dependency on tcl-tk and to avoid using the broken system
+    # tcl-tk (see https://github.com/Homebrew/homebrew-core/issues/36390)
+    # This is done by setting the NO_TCLTK make variable.
     args = %W[
       prefix=#{prefix}
       sysconfdir=#{etc}
       CC=#{ENV.cc}
       CFLAGS=#{ENV.cflags}
       LDFLAGS=#{ENV.ldflags}
+      NO_TCLTK=1
     ]
 
     if MacOS.version < :yosemite
@@ -125,11 +134,6 @@ class Git < Formula
     chmod 0644, Dir["#{share}/doc/git-doc/**/*.{html,txt}"]
     chmod 0755, Dir["#{share}/doc/git-doc/{RelNotes,howto,technical}"]
 
-    # To avoid this feature hooking into the system OpenSSL, remove it
-    if MacOS.version >= :yosemite
-      rm "#{libexec}/git-core/git-imap-send"
-    end
-
     # git-send-email needs Net::SMTP::SSL
     resource("Net::SMTP::SSL").stage do
       (share/"perl5").install "lib/Net"
@@ -150,10 +154,18 @@ class Git < Formula
     etc.install "gitconfig"
   end
 
+  def caveats
+    <<~EOS
+      The Tcl/Tk GUIs (e.g. gitk, git-gui) are now in the `git-gui` formula.
+    EOS
+  end
+
   test do
     system bin/"git", "init"
     %w[haunted house].each { |f| touch testpath/f }
     system bin/"git", "add", "haunted", "house"
+    system bin/"git", "config", "user.name", "'A U Thor'"
+    system bin/"git", "config", "user.email", "author@example.com"
     system bin/"git", "commit", "-a", "-m", "Initial Commit"
     assert_equal "haunted\nhouse", shell_output("#{bin}/git ls-files").strip
 
@@ -161,9 +173,10 @@ class Git < Formula
     %w[foo bar].each { |f| touch testpath/f }
     system bin/"git", "add", "foo", "bar"
     system bin/"git", "commit", "-a", "-m", "Second Commit"
-    assert_match "Authentication Required", shell_output(
-      "#{bin}/git send-email --to=dev@null.com --smtp-server=smtp.gmail.com " \
-      "--smtp-encryption=tls --confirm=never HEAD^ 2>&1", 255
+    assert_match "Authentication Required", pipe_output(
+      "#{bin}/git send-email --from=test@example.com --to=dev@null.com " \
+      "--smtp-server=smtp.gmail.com --smtp-server-port=587 " \
+      "--smtp-encryption=tls --confirm=never HEAD^ 2>&1",
     )
   end
 end

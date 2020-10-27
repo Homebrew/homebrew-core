@@ -3,6 +3,7 @@ class DnscryptWrapper < Formula
   homepage "https://cofyc.github.io/dnscrypt-wrapper/"
   url "https://github.com/cofyc/dnscrypt-wrapper/archive/v0.4.2.tar.gz"
   sha256 "911856dc4e211f906ca798fcf84f5b62be7fdbf73c53e5715ce18d553814ac86"
+  license "ISC"
   revision 1
   head "https://github.com/Cofyc/dnscrypt-wrapper.git"
 

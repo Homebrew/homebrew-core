@@ -3,7 +3,13 @@ class Libsvg < Formula
   homepage "https://cairographics.org/"
   url "https://cairographics.org/snapshots/libsvg-0.1.4.tar.gz"
   sha256 "4c3bf9292e676a72b12338691be64d0f38cd7f2ea5e8b67fbbf45f1ed404bc8f"
+  license "LGPL-2.1"
   revision 1
+
+  livecheck do
+    url "https://cairographics.org/snapshots/"
+    regex(/href=.*?libsvg[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     cellar :any
@@ -20,6 +26,8 @@ class Libsvg < Formula
   depends_on "pkg-config" => :build
   depends_on "jpeg"
   depends_on "libpng"
+
+  uses_from_macos "libxml2"
 
   def install
     system "./configure", "--prefix=#{prefix}"

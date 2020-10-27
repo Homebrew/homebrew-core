@@ -1,14 +1,14 @@
 class Opensubdiv < Formula
   desc "Open-source subdivision surface library"
   homepage "https://graphics.pixar.com/opensubdiv/docs/intro.html"
-  url "https://github.com/PixarAnimationStudios/OpenSubdiv/archive/v3_4_0.tar.gz"
-  sha256 "d932b292f83371c7518960b2135c7a5b931efb43cdd8720e0b27268a698973e4"
+  url "https://github.com/PixarAnimationStudios/OpenSubdiv/archive/v3_4_3.tar.gz"
+  sha256 "7b22eb27d636ab0c1e03722c7a5a5bd4f11664ee65c9b48f341a6d0ce7f36745"
+  license "Apache-2.0"
 
   bottle do
-    sha256 "7dc17e537de30c08b25ef0dab69bca126e8c4d0bda504fd49bfe63093436169a" => :catalina
-    sha256 "ff26ccfc7953b18c7117db84a8f73dfbc10511d9b49b90ff143b743970cb3e01" => :mojave
-    sha256 "13f2a6fe7993bb82da70c2a249c634c5526cbf29cf7bdaf844d52476b1f06c61" => :high_sierra
-    sha256 "dc5485a6f2df692a6c64e88cac96b98fc4fc8c85de3aa7517410190133433ace" => :sierra
+    sha256 "ef8b813dc962503a90798c4327805730eb6eba3989dfa7a3a137ea6021777e56" => :catalina
+    sha256 "8b00f0fe55b6163755170a122fa3dbceaf740fe806ae6b856a37cd7b5928a856" => :mojave
+    sha256 "41f202b119fff15151d6d2c8259b71c94f9d129141fc16992e6b75552b0b1ec7" => :high_sierra
   end
 
   depends_on "cmake" => :build

@@ -3,15 +3,20 @@ require "language/node"
 class ContentfulCli < Formula
   desc "Contentful command-line tools"
   homepage "https://github.com/contentful/contentful-cli"
-  url "https://registry.npmjs.org/contentful-cli/-/contentful-cli-1.1.5.tgz"
-  sha256 "09f1fdf05007f2ff13db4a394ee1d0c58f18df4c0f7a44d13ca4b94c6cbea8af"
+  url "https://registry.npmjs.org/contentful-cli/-/contentful-cli-1.4.43.tgz"
+  sha256 "73422c319aa599f1bdf66fc6805f3ceb9004f6ee9982fcd52a309770d5cf0067"
+  license "MIT"
   head "https://github.com/contentful/contentful-cli.git"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5040a758822daa9c798f78d561a24f18ddffc453fe937b1779481cdaf910fba1" => :catalina
-    sha256 "128ff45e2d116d76c3b2fea5d6f1bca6c5873f9cc9af4d5e35ca554d73b4b622" => :mojave
-    sha256 "1b7bef1a9aaac5819b7a3aaf83155d7b776bdc2c08f024161bf5fb7656135c0b" => :high_sierra
+    sha256 "4fc888cd0967393d87d941086f49d92e0982e1e6ef64f15085e2ae7d858f7f79" => :catalina
+    sha256 "1df9ccd2730d747bdbcb9a935386b69fc5d0978ceb83ed7fa159156e1ca859bd" => :mojave
+    sha256 "c44b09e1f45edf9987c1d6571eb21b5e6d36a9f9973bba698f17033420c60b62" => :high_sierra
   end
 
   depends_on "node"
@@ -25,6 +30,6 @@ class ContentfulCli < Formula
     output = shell_output("#{bin}/contentful space list 2>&1", 1)
     assert_match "🚨  Error: You have to be logged in to do this.", output
     assert_match "You can log in via contentful login", output
-    assert_match "Or provide a managementToken via --management-Token argument", output
+    assert_match "Or provide a management token via --management-token argument", output
   end
 end

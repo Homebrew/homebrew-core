@@ -3,6 +3,7 @@ class Modd < Formula
   homepage "https://github.com/cortesi/modd"
   url "https://github.com/cortesi/modd/archive/v0.8.tar.gz"
   sha256 "04e9bacf5a73cddea9455f591700f452d2465001ccc0c8e6f37d27b8b376b6e0"
+  license "MIT"
   head "https://github.com/cortesi/modd.git"
 
   bottle do

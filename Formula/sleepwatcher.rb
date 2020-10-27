@@ -4,6 +4,11 @@ class Sleepwatcher < Formula
   url "https://www.bernhard-baehr.de/sleepwatcher_2.2.1.tgz"
   sha256 "4bf1656702167871141fbc119a844d1363d89994e1a67027f0e773023ae9643e"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?sleepwatcher[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "45c9c42ac76f9e9f85b0dbc2cb2251fe74448322196ac0ba10b93c416121db2a" => :catalina
@@ -43,18 +48,19 @@ class Sleepwatcher < Formula
     prefix.install Dir["config/*.plist"]
   end
 
-  def caveats; <<~EOS
-    For SleepWatcher to work, you will need to read the following:
+  def caveats
+    <<~EOS
+      For SleepWatcher to work, you will need to read the following:
 
-      #{prefix}/ReadMe.rtf
+        #{prefix}/ReadMe.rtf
 
-    Ignore information about installing the binary and man page,
-    but read information regarding setup of the launchd files which
-    are installed here:
+      Ignore information about installing the binary and man page,
+      but read information regarding setup of the launchd files which
+      are installed here:
 
-      #{Dir["#{prefix}/*.plist"].join("\n      ")}
+        #{Dir["#{prefix}/*.plist"].join("\n      ")}
 
-    These are the examples provided by the author.
-  EOS
+      These are the examples provided by the author.
+    EOS
   end
 end

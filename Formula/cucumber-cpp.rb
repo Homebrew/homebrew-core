@@ -3,14 +3,14 @@ class CucumberCpp < Formula
   homepage "https://cucumber.io"
   url "https://github.com/cucumber/cucumber-cpp/archive/v0.5.tar.gz"
   sha256 "9e1b5546187290b265e43f47f67d4ce7bf817ae86ee2bc5fb338115b533f8438"
-  revision 4
+  license "MIT"
+  revision 7
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "bdb03c9be8588d3f06468697f160a7f79deba63bdc8557e57904c4d73064678f" => :catalina
-    sha256 "1aa6806faca85d2b63ce287fe4e5f2d61653b845bb1bae9761646464a4d8220e" => :mojave
-    sha256 "1d0058ed4d37fdf0ae44ab2205e202b603edd295c9d20b32d3c253d816300d29" => :high_sierra
+    sha256 "278bdf3528a7b8bac8ec0ea20e1a57a16eaba54929ce4c544cbe4ce1c8a5279f" => :catalina
+    sha256 "5c1dede434bdd00e19cbd82e42236c18fa1ce5f7cf172fce972185249f94ddc7" => :mojave
+    sha256 "d12e60f17d95446ccc80dffdb74c77b554121b9d1ce58beabec041f9232a891c" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -33,7 +33,10 @@ class CucumberCpp < Formula
   test do
     ENV["GEM_HOME"] = testpath
     ENV["BUNDLE_PATH"] = testpath
-    if MacOS.version == :high_sierra
+    if MacOS.version >= :mojave && MacOS::CLT.installed?
+      ENV.delete("CPATH")
+      ENV["SDKROOT"] = MacOS::CLT.sdk_path(MacOS.version)
+    elsif MacOS.version == :high_sierra
       ENV.delete("CPATH")
       ENV.delete("SDKROOT")
     end

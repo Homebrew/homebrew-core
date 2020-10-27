@@ -1,26 +1,36 @@
 class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://github.com/protocolbuffers/protobuf/"
-  url "https://github.com/protocolbuffers/protobuf.git",
-      :tag      => "v3.10.0",
-      :revision => "6d4e7fd7966c989e38024a8ea693db83758944f1"
-  head "https://github.com/protocolbuffers/protobuf.git"
+  url "https://github.com/protocolbuffers/protobuf/releases/download/v3.13.0/protobuf-all-3.13.0.tar.gz"
+  sha256 "465fd9367992a9b9c4fba34a549773735da200903678b81b25f367982e8df376"
+  license "BSD-3-Clause"
+  revision 1
+
+  livecheck do
+    url "https://github.com/protocolbuffers/protobuf/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
 
   bottle do
     cellar :any
-    sha256 "7e1a09099cc918a87e5b8b8aa8720b5398ae140ca2cb49203afb9a12f873feb9" => :catalina
-    sha256 "b13a84b99a3c1655b6c0b1dacd7290b22ef8eb6ad321e5ce29372d4718e736be" => :mojave
-    sha256 "0795805e92c9a9166de9be8529910e6783cf5300ca03783313a3c15ae243232a" => :high_sierra
+    sha256 "10df8a94c8077b4d2578e4db9410b586b865e4299cd6e7199993ca1c5a88af97" => :catalina
+    sha256 "ddef4d788c58c5e94007403fab456bd46ebdb631b0929289876bcb9c6b7483c1" => :mojave
+    sha256 "b7a53da8093a922302da1f34e85fe647f3d6250e7c4d56b5777d1391ee534e93" => :high_sierra
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
-  depends_on "python" => [:build, :test]
+  head do
+    url "https://github.com/protocolbuffers/protobuf.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
+  depends_on "python@3.9" => [:build, :test]
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
-    sha256 "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
+    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
+    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
   end
 
   def install
@@ -30,7 +40,7 @@ class Protobuf < Formula
     ENV.prepend "CXXFLAGS", "-DNDEBUG"
     ENV.cxx11
 
-    system "./autogen.sh"
+    system "./autogen.sh" if build.head?
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}", "--with-zlib"
     system "make"
@@ -38,20 +48,21 @@ class Protobuf < Formula
     system "make", "install"
 
     # Install editor support and examples
-    doc.install "editors", "examples"
+    pkgshare.install "editors/proto.vim", "examples"
+    elisp.install "editors/protobuf-mode.el"
 
     ENV.append_to_cflags "-I#{include}"
     ENV.append_to_cflags "-L#{lib}"
 
     resource("six").stage do
-      system "python3", *Language::Python.setup_install_args(libexec)
+      system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(libexec)
     end
     chdir "python" do
-      system "python3", *Language::Python.setup_install_args(libexec),
+      system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(libexec),
                         "--cpp_implementation"
     end
 
-    version = Language::Python.major_minor_version "python3"
+    version = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     site_packages = "lib/python#{version}/site-packages"
     pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
     (prefix/site_packages/"homebrew-protobuf.pth").write pth_contents
@@ -70,6 +81,6 @@ class Protobuf < Formula
     EOS
     (testpath/"test.proto").write testdata
     system bin/"protoc", "test.proto", "--cpp_out=."
-    system "python3", "-c", "import google.protobuf"
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "import google.protobuf"
   end
 end

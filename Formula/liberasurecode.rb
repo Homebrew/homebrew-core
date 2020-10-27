@@ -3,6 +3,7 @@ class Liberasurecode < Formula
   homepage "https://github.com/openstack/liberasurecode"
   url "https://github.com/openstack/liberasurecode/archive/1.6.1.tar.gz"
   sha256 "958b01ff91efe7b21a19ca72937a93b2a5c7af41c08790d4fe9df82d8c5e24f0"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any
@@ -16,6 +17,8 @@ class Liberasurecode < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "jerasure"
+
+  uses_from_macos "zlib"
 
   def install
     system "./autogen.sh"
@@ -52,7 +55,8 @@ class Liberasurecode < Formula
           exit(0);
       }
     EOS
-    system ENV.cxx, "liberasurecode-test.cpp", "-L#{lib}", "-lerasurecode", "-I#{include}/liberasurecode", "-o", "liberasurecode-test"
+    system ENV.cxx, "liberasurecode-test.cpp", "-L#{lib}", "-lerasurecode",
+                    "-I#{include}/liberasurecode", "-o", "liberasurecode-test"
     system "./liberasurecode-test"
   end
 end

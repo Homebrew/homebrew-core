@@ -1,40 +1,33 @@
 class Bitcoin < Formula
   desc "Decentralized, peer to peer payment network"
   homepage "https://bitcoin.org/"
-  url "https://bitcoin.org/bin/bitcoin-core-0.18.1/bitcoin-0.18.1.tar.gz"
-  sha256 "5c7d93f15579e37aa2d1dc79e8f5ac675f59045fceddf604ae0f1550eb03bf96"
+  url "https://bitcoin.org/bin/bitcoin-core-0.20.1/bitcoin-0.20.1.tar.gz"
+  sha256 "4bbd62fd6acfa5e9864ebf37a24a04bc2dcfe3e3222f056056288d854c53b978"
+  license "MIT"
   revision 1
+  head "https://github.com/bitcoin/bitcoin.git"
 
   bottle do
     cellar :any
-    sha256 "938d065581a197627f256912124625c19e41c44d6171c9436439887df1f760c7" => :catalina
-    sha256 "5ef81b850e854e55d8f833c60f85c687757dce42b40270d361e6ba01ce9a37a7" => :mojave
-    sha256 "8650b24c3dba1bb87c8fcf1516e013f4a5390b5b79ebbcd6f97e57bad20a194a" => :high_sierra
-    sha256 "40f30ab7c8fe3eef9e90929cdaba441035f22e45fe7d3360ce653b55d8b2d40d" => :sierra
+    sha256 "adfe0983a4c57e70c5d084206f779d42d31b6cd4fe3e81205d81330da01c1cfe" => :catalina
+    sha256 "f887ce011df22dbe1c001ee42fb6f0adddf22736fc12ea83b5d373bbd5a90e43" => :mojave
+    sha256 "b6b4763357bcbadbd9439c0d39132d43306a7b9b08c61c90afbe11c6cb2b3ff1" => :high_sierra
   end
 
-  head do
-    url "https://github.com/bitcoin/bitcoin.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "berkeley-db@4"
   depends_on "boost"
   depends_on "libevent"
   depends_on "miniupnpc"
-  depends_on "openssl@1.1"
   depends_on "zeromq"
 
   def install
-    if MacOS.version == :el_capitan && MacOS::Xcode.version >= "8.0"
-      ENV.delete("SDKROOT")
-    end
+    ENV.delete("SDKROOT") if MacOS.version == :el_capitan && MacOS::Xcode.version >= "8.0"
 
-    system "./autogen.sh" if build.head?
+    system "./autogen.sh"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--with-boost-libdir=#{Formula["boost"].opt_lib}",
@@ -43,24 +36,25 @@ class Bitcoin < Formula
     pkgshare.install "share/rpcauth"
   end
 
-  plist_options :manual => "bitcoind"
+  plist_options manual: "bitcoind"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_bin}/bitcoind</string>
-      </array>
-      <key>RunAtLoad</key>
-      <true/>
-    </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/bitcoind</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+      </dict>
+      </plist>
+    EOS
   end
 
   test do

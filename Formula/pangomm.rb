@@ -1,16 +1,20 @@
 class Pangomm < Formula
   desc "C++ interface to Pango"
   homepage "https://www.pango.org/"
-  url "https://download.gnome.org/sources/pangomm/2.42/pangomm-2.42.0.tar.xz"
-  sha256 "ca6da067ff93a6445780c0b4b226eb84f484ab104b8391fb744a45cbc7edbf56"
+  url "https://download.gnome.org/sources/pangomm/2.42/pangomm-2.42.1.tar.xz"
+  sha256 "14bf04939930870d5cfa96860ed953ad2ce07c3fd8713add4a1bfe585589f40f"
+  license "LGPL-2.1-only"
   revision 2
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any
-    sha256 "4e9fc1700643a05af5748609802fac09023c7be06602cfb876260a4ef8de8041" => :catalina
-    sha256 "103b9458af7fd9d7f08df10ad1da6f34b5c348399b88c5c50d0db25c61a38b4a" => :mojave
-    sha256 "48d67ace965522374210098e3a6e991f3a8fb1b5815211fac2d1130b10b3cdec" => :high_sierra
-    sha256 "15a59400365ed6730c2078de7b12081b0370659eda3f693ba367e4d9907a8ba3" => :sierra
+    sha256 "b76cf574756211f73f6145ce57738e47c20740bbced59243526580ac97c639bf" => :catalina
+    sha256 "4c656b17af2dd884085c70493389a5d4c415d9631a6dedb1b88b964bf6e05aca" => :mojave
+    sha256 "ab43bb783b24993470dbb96fa3ac1e75cbfc641e7ac477cb492d2dbecce25091" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

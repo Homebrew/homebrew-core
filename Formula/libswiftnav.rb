@@ -3,6 +3,7 @@ class Libswiftnav < Formula
   homepage "https://github.com/swift-nav/libswiftnav-legacy"
   url "https://github.com/swift-nav/libswiftnav-legacy/archive/v0.21.tar.gz"
   sha256 "087c7264c0d0d735414f8bffbfa52ab44696c500ba14a43262d98d6aa093221f"
+  license "LGPL-3.0"
 
   bottle do
     cellar :any

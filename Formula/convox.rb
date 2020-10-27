@@ -1,39 +1,35 @@
 class Convox < Formula
-  desc "Command-line interface for the Rack PaaS on AWS"
+  desc "Command-line interface for the Convox PaaS"
   homepage "https://convox.com/"
-  url "https://github.com/convox/rack/archive/20191110173914.tar.gz"
-  sha256 "53d4bdea3920f5619a65377f5933a17c74e8e228c6e91c9776c07892280089dd"
+  url "https://github.com/convox/convox/archive/3.0.43.tar.gz"
+  sha256 "65dd83b2ac9384b95893941f2392de8c87a462438d463834805a82ee48f62df6"
+  license "Apache-2.0"
+  version_scheme 1
+
+  livecheck do
+    url "https://github.com/convox/convox/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9c75769616e0b2006b8e87bd1cd2e6845ad3ad26018f050bd9a1eb29b120752e" => :catalina
-    sha256 "c55d8b72a60f998f3bfbb8f58ceb2049e401c0d5532379a0dd11484992c236fa" => :mojave
-    sha256 "283ef60a4158ec701afcc4526c5a90d63aff0cc682cc337659c1c231bfb625e8" => :high_sierra
+    sha256 "26ab60cdaf71fb8c4e0bbb474d79e4e285102b92f2ed0511fdfc060294a01a06" => :catalina
+    sha256 "0745086dd49b0443929dcfd9175483dd6b23a9e38f1de7a5f5cca8a3923dc7e2" => :mojave
+    sha256 "1c0f8867746a448f0b3825a1245ffa83e7328120279b43e64e4be7d39f7e4d63" => :high_sierra
   end
 
   depends_on "go" => :build
 
-  resource "packr" do
-    url "https://github.com/gobuffalo/packr/archive/v2.0.1.tar.gz"
-    sha256 "cc0488e99faeda4cf56631666175335e1cce021746972ce84b8a3083aa88622f"
-  end
-
   def install
-    ENV["GOPATH"] = buildpath
+    ldflags = %W[
+      -X main.version=#{version}
+    ].join(" ")
 
-    (buildpath/"src/github.com/convox/rack").install Dir["*"]
-
-    resource("packr").stage { system "go", "install", "./packr" }
-    cd buildpath/"src/github.com/convox/rack" do
-      system buildpath/"bin/packr"
-    end
-
-    system "go", "build", "-ldflags=-X main.version=#{version}",
-           "-o", bin/"convox", "-v", "github.com/convox/rack/cmd/convox"
-    prefix.install_metafiles
+    system "go", "build", *std_go_args, "-mod=vendor", "-ldflags", ldflags, "./cmd/convox"
   end
 
   test do
-    system bin/"convox"
+    assert_equal "Authenticating with localhost... ERROR: invalid login\n",
+      shell_output("#{bin}/convox login -t invalid localhost 2>&1", 1)
   end
 end

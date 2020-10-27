@@ -1,6 +1,7 @@
 class Cmigemo < Formula
   desc "Migemo is a tool that supports Japanese incremental search with Romaji"
   homepage "https://www.kaoriya.net/software/cmigemo"
+  license "MIT"
   head "https://github.com/koron/cmigemo.git"
 
   stable do
@@ -33,10 +34,11 @@ class Cmigemo < Formula
     system "make", "osx-install"
   end
 
-  def caveats; <<~EOS
-    See also https://github.com/emacs-jp/migemo to use cmigemo with Emacs.
-    You will have to save as migemo.el and put it in your load-path.
-  EOS
+  def caveats
+    <<~EOS
+      See also https://github.com/emacs-jp/migemo to use cmigemo with Emacs.
+      You will have to save as migemo.el and put it in your load-path.
+    EOS
   end
 end
 

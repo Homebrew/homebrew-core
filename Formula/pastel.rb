@@ -1,15 +1,15 @@
 class Pastel < Formula
   desc "Command-line tool to generate, analyze, convert and manipulate colors"
   homepage "https://github.com/sharkdp/pastel"
-  url "https://github.com/sharkdp/pastel/archive/v0.6.1.tar.gz"
-  sha256 "ece0004d725133bcf552bbfe5508c087513eb52f6c363fbad6eeb9c74769a932"
+  url "https://github.com/sharkdp/pastel/archive/v0.8.0.tar.gz"
+  sha256 "603dc63d6aa261f159178dffeb389471a845c1a5d62187a275a3d33a66fe9a69"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "98a1ba143f1675f3c9a24ace7dc3047cd9b80c462b3b57a38448a81414d911a6" => :catalina
-    sha256 "9ff2230b5d4405ca5d889aa6938ebc2d0189e3012fc6e367a6a4c5f4f28ecd3a" => :mojave
-    sha256 "fa282f3adbef4bc3fe48690b0e539bf73b1abbf594c5ea93b9cc26cb25217c3b" => :high_sierra
+    sha256 "e2478748ed0561c76af8f68b4067f42cd365ad7735a9d44dda159e9bd35a1c1d" => :catalina
+    sha256 "3d9fcb9c4f2e70010681b88f0ceca5795773b849e7bc6f59689e90ad969a673c" => :mojave
+    sha256 "06f87da95e1d1b0f53fbcd9c9ff36e4c8a0d3ea85825ac7bc648b3ab445e61ee" => :high_sierra
   end
 
   depends_on "rust" => :build
@@ -17,7 +17,7 @@ class Pastel < Formula
   def install
     ENV["SHELL_COMPLETIONS_DIR"] = buildpath/"completions"
 
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", *std_cargo_args
 
     bash_completion.install "completions/pastel.bash"
     zsh_completion.install "completions/_pastel"

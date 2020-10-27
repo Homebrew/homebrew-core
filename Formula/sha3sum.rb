@@ -3,6 +3,7 @@ class Sha3sum < Formula
   homepage "https://github.com/maandree/sha3sum"
   url "https://github.com/maandree/sha3sum/archive/1.1.5.tar.gz"
   sha256 "1a4eef5b09b7f70af1f6970840475d4735a14b4fab21937b9fd104b8606654ce"
+  license "ISC"
 
   bottle do
     cellar :any

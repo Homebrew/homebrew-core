@@ -3,6 +3,7 @@ class GitSvnAbandon < Formula
   homepage "https://github.com/nothingmuch/git-svn-abandon"
   url "https://github.com/nothingmuch/git-svn-abandon/archive/0.0.1.tar.gz"
   sha256 "65c11b5e575e6af4d21ef7624941c4581a5570748d50e38714bd33fee56e4485"
+  license "MIT"
   head "https://github.com/nothingmuch/git-svn-abandon.git"
 
   bottle :unneeded

@@ -3,139 +3,87 @@ class Salt < Formula
 
   desc "Dynamic infrastructure communication bus"
   homepage "https://s.saltstack.com/community/"
-  url "https://files.pythonhosted.org/packages/b7/f2/d285dd83d76be1d80bc9851b309ad9d88a60de1822f80c58d92355208525/salt-2019.2.1.tar.gz"
-  sha256 "c8fa8318a8e87f788970b83f841bb52f1e873a697e2db9691e284ce248aa930a"
-  revision 1
-  head "https://github.com/saltstack/salt.git", :branch => "develop", :shallow => false
+  url "https://files.pythonhosted.org/packages/3f/c3/316cc75911a9985157df27fbdb7191731e84688101e97d77ea61f22e981d/salt-3001.1.tar.gz"
+  sha256 "e9ebb4d92fae8dabf21b8749dc126e4a4048bf8f613f5b1b851fe4b8226b5abc"
+  license "Apache-2.0"
+  head "https://github.com/saltstack/salt.git", branch: "develop", shallow: false
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
-    cellar :any
-    sha256 "13a1456391cf40574294469e852c47e20ff40ed9bcaf45c5c2ff8058878a9d65" => :mojave
-    sha256 "50564375b1060f22883bc086c18af5a77625663deead6c9dd7faed834c2ffc5b" => :high_sierra
+    sha256 "7f00834e6d47f0d9b10e65479d3d3a9095bc1636207afdb16f9808f75fb1f71b" => :catalina
+    sha256 "3f82a3b5c49d6890334397eec9e8d72841ceee1ebbfdbcf2a33a1a05971355ec" => :mojave
+    sha256 "174326324fa9aa283d00204855bfa687964b9c97511e91023b8b8824288c1c82" => :high_sierra
   end
 
   depends_on "swig" => :build
   depends_on "libgit2"
   depends_on "libyaml"
-  depends_on "openssl@1.1" # For M2Crypto
-  depends_on "python"
+  depends_on "openssl@1.1"
+  depends_on "python@3.8"
   depends_on "zeromq"
 
-  # Saltstack's Git filesystem backend depends on pygit2 which depends on libgit2
-  # pygit2 must be the same version as libgit2 - mismatched versions are incompatible
-
-  resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/56/e6/332789f295cf22308386cf5bbd1f4e00ed11484299c5d7383378cf48ba47/Jinja2-2.10.tar.gz"
-    sha256 "f84be1bb0040caca4cea721fcbbbbd61f9be9464ca236387158b0feea01914a4"
+  on_linux do
+    depends_on "pkg-config" => :build
   end
 
-  resource "M2Crypto" do
-    url "https://files.pythonhosted.org/packages/0a/d3/ecef6a0eaef77448deb6c9768af936fec71c0c4b42af983699cfa1499962/M2Crypto-0.31.0.tar.gz"
-    sha256 "fd59a9705275d609948005f4cbcaf25f28a4271308237eb166169528692ce498"
-  end
+  # Homebrew installs optional dependencies: M2Crypto, pygit2
 
-  resource "MarkupSafe" do
-    url "https://files.pythonhosted.org/packages/b9/2e/64db92e53b86efccfaea71321f597fa2e1b2bd3853d8ce658568f7a13094/MarkupSafe-1.1.1.tar.gz"
-    sha256 "29872e92839765e546828bb7754a68c418d927cd064fd4708fab9fe9c8bb116b"
-  end
-
-  resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"
-    sha256 "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf"
-  end
-
-  resource "backports_abc" do
-    url "https://files.pythonhosted.org/packages/68/3c/1317a9113c377d1e33711ca8de1e80afbaf4a3c950dd0edfaf61f9bfe6d8/backports_abc-0.5.tar.gz"
-    sha256 "033be54514a03e255df75c5aee8f9e672f663f93abb723444caec8fe43437bde"
-  end
-
-  resource "certifi" do
-    url "https://files.pythonhosted.org/packages/06/b8/d1ea38513c22e8c906275d135818fee16ad8495985956a9b7e2bb21942a1/certifi-2019.3.9.tar.gz"
-    sha256 "b26104d6835d1f5e49452a26eb2ff87fe7090b89dfcaee5ea2212697e1e1d7ae"
+  resource "cached-property" do
+    url "https://files.pythonhosted.org/packages/57/8e/0698e10350a57d46b3bcfe8eff1d4181642fd1724073336079cb13c5cf7f/cached-property-1.5.1.tar.gz"
+    sha256 "9217a59f14a5682da7c4b8829deadbfc194ac22e9908ccf7c8820234e80a1504"
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/93/1a/ab8c62b5838722f29f3daffcc8d4bd61844aa9b5f437341cc890ceee483b/cffi-1.12.3.tar.gz"
-    sha256 "041c81822e9f84b1d9c401182e174996f0bae9991f33725d059b771744290774"
+    url "https://files.pythonhosted.org/packages/54/1d/15eae71ab444bd88a1d69f19592dcf32b9e3166ecf427dd9243ef0d3b7bc/cffi-1.14.1.tar.gz"
+    sha256 "b2a2b0d276a136146e012154baefaea2758ef1f56ae9f4e01c612b0831e0bd2f"
   end
 
-  resource "chardet" do
-    url "https://files.pythonhosted.org/packages/fc/bb/a5768c230f9ddb03acc9ef3f0d4a3cf93462473795d18e9535498c8f929d/chardet-3.0.4.tar.gz"
-    sha256 "84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae"
-  end
-
-  resource "idna" do
-    url "https://files.pythonhosted.org/packages/ad/13/eb56951b6f7950cadb579ca166e448ba77f9d24efc03edd7e55fa57d04b7/idna-2.8.tar.gz"
-    sha256 "c357b3f628cf53ae2c4c05627ecc484553142ca23264e593d327bcde5e9c3407"
-  end
-
-  resource "msgpack" do
-    url "https://files.pythonhosted.org/packages/81/9c/0036c66234482044070836cc622266839e2412f8108849ab0bfdeaab8578/msgpack-0.6.1.tar.gz"
-    sha256 "4008c72f5ef2b7936447dcb83db41d97e9791c83221be13d5e19db0796df1972"
+  resource "M2Crypto" do
+    url "https://files.pythonhosted.org/packages/ff/df/84609ed874b5e6fcd3061a517bf4b6e4d0301f553baf9fa37bef2b509797/M2Crypto-0.36.0.tar.gz"
+    sha256 "1542c18e3ee5c01db5031d0b594677536963e3f54ecdf5315aeecb3a595b4dc1"
   end
 
   resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/68/9e/49196946aee219aead1290e00d1e7fdeab8567783e83e1b9ab5585e6206a/pycparser-2.19.tar.gz"
-    sha256 "a988718abfad80b6b157acce7bf130a30876d27603738ac39f140993246b25b3"
-  end
-
-  resource "pycrypto" do
-    url "https://files.pythonhosted.org/packages/60/db/645aa9af249f059cc3a368b118de33889219e0362141e75d4eaf6f80f163/pycrypto-2.6.1.tar.gz"
-    sha256 "f2ce1e989b272cfcb677616763e0a2e7ec659effa67a88aa92b3a65528f60a3c"
+    url "https://files.pythonhosted.org/packages/0f/86/e19659527668d70be91d0369aeaa055b4eb396b0f387a4f92293a20035bd/pycparser-2.20.tar.gz"
+    sha256 "2d475327684562c3a96cc71adf7dc8c4f0565175cf86b6d7a404ff4c771f15f0"
   end
 
   resource "pygit2" do
-    url "https://files.pythonhosted.org/packages/ec/56/9f591bee962dcdc3c4268c4bf0a836d5188b1604e58e3618df12a963573b/pygit2-0.28.1.tar.gz"
-    sha256 "2ccdb865ef530c799a6430d0e52952925ffc0d7c856e7608f4cf42f4b821412b"
-  end
-
-  resource "pyzmq" do
-    url "https://files.pythonhosted.org/packages/f8/48/5416696b9f2eacc7d1f9fe3a7187ad54d769e09585ec0b59c137ab5c7575/pyzmq-18.0.1.tar.gz"
-    sha256 "8b319805f6f7c907b101c864c3ca6cefc9db8ce0791356f180b1b644c7347e4c"
-  end
-
-  resource "requests" do
-    url "https://files.pythonhosted.org/packages/52/2c/514e4ac25da2b08ca5a464c50463682126385c4272c18193876e91f4bc38/requests-2.21.0.tar.gz"
-    sha256 "502a824f31acdacb3a35b6690b5fbf0bc41d63a24a45c4004352b0242707598e"
-  end
-
-  resource "singledispatch" do
-    url "https://files.pythonhosted.org/packages/d9/e9/513ad8dc17210db12cb14f2d4d190d618fb87dd38814203ea71c87ba5b68/singledispatch-3.4.0.3.tar.gz"
-    sha256 "5b06af87df13818d14f08a028e42f566640aef80805c3b50c5056b086e3c2b9c"
-  end
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
-    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
-  end
-
-  resource "tornado" do
-    url "https://files.pythonhosted.org/packages/e3/7b/e29ab3d51c8df66922fea216e2bddfcb6430fb29620e5165b16a216e0d3c/tornado-4.5.3.tar.gz"
-    sha256 "6d14e47eab0e15799cf3cdcc86b0b98279da68522caace2bd7ce644287685f0a"
-  end
-
-  resource "typing" do
-    url "https://files.pythonhosted.org/packages/bf/9b/2bf84e841575b633d8d91ad923e198a415e3901f228715524689495b4317/typing-3.6.6.tar.gz"
-    sha256 "4027c5f6127a6267a435201981ba156de91ad0d1d98e9ddc2aa173453453492d"
-  end
-
-  resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/b1/53/37d82ab391393565f2f831b8eedbffd57db5a718216f82f1a8b4d381a1c1/urllib3-1.24.1.tar.gz"
-    sha256 "de9529817c93f27c8ccbfead6985011db27bd0ddfcdb2d86f3f663385c6a9c22"
+    url "https://files.pythonhosted.org/packages/d0/c6/33e2df5722e3adf49adc6a2d3c2cdb5a5247236fd8f2063a0c4d058116a1/pygit2-1.2.1.tar.gz"
+    sha256 "de9421118a99c79cbba1e512d60e5caed1d63273ce30a0e8d4edef4a2e500387"
   end
 
   def install
     ENV["SWIG_FEATURES"]="-I#{Formula["openssl@1.1"].opt_include}"
 
-    virtualenv_install_with_resources
+    # Fix building of M2Crypto on High Sierra https://github.com/Homebrew/homebrew-core/pull/45895
+    ENV.delete("HOMEBREW_SDKROOT") if MacOS.version == :high_sierra
+
+    # Do not install PyObjC since it causes broken linkage
+    # https://github.com/Homebrew/homebrew-core/pull/52835#issuecomment-617502578
+    File.write(buildpath/"pkg/osx/req_pyobjc.txt", "")
+
+    venv = virtualenv_create(libexec, Formula["python@3.8"].bin/"python3.8")
+    venv.pip_install resources
+
+    system libexec/"bin/pip", "install", "-v", "--ignore-installed", buildpath
+    system libexec/"bin/pip", "uninstall", "-y", "salt"
+    venv.pip_install_and_link buildpath
+
     prefix.install libexec/"share" # man pages
     (etc/"saltstack").install (buildpath/"conf").children # sample config files
   end
 
-  def caveats; <<~EOS
-    Sample configuration files have been placed in #{etc}/saltstack.
-    Saltstack will not use these by default.
-  EOS
+  def caveats
+    <<~EOS
+      Sample configuration files have been placed in #{etc}/saltstack.
+      Saltstack will not use these by default.
+
+      Homebrew's installation does not include PyObjC.
+    EOS
   end
 
   test do

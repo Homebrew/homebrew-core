@@ -1,16 +1,15 @@
 class LibsignalProtocolC < Formula
   desc "Signal Protocol C Library"
   homepage "https://github.com/signalapp/libsignal-protocol-c"
-  url "https://github.com/signalapp/libsignal-protocol-c/archive/v2.3.2.tar.gz"
-  sha256 "f3826f3045352e14027611c95449bfcfe39bfd3d093d578c70f70eee0c85000d"
-  revision 1
+  url "https://github.com/signalapp/libsignal-protocol-c/archive/v2.3.3.tar.gz"
+  sha256 "c22e7690546e24d46210ca92dd808f17c3102e1344cd2f9a370136a96d22319d"
+  license "GPL-3.0"
 
   bottle do
     cellar :any
-    sha256 "df5462c2832b84eea5c37e636dfdc7346d51a9c95e49f3637b9080dde29ef96f" => :catalina
-    sha256 "7035841cf73621a131ee048066d83c8bc76603b87169849f88ce465244673540" => :mojave
-    sha256 "1d81242623d2f2ed761f324dee57a5604ec9fb70cc8ac7c604c92619f93010c2" => :high_sierra
-    sha256 "777f53a6b2b73a010e602f29d0d67f43cc5aa100db82629c66b17ee9b79fc830" => :sierra
+    sha256 "2ad98569b7c0543579c9a2596a78e86bb7a915fb17632850cea099feb9d2d674" => :catalina
+    sha256 "95991e7aa3ef7fa4fdfb25f8f3ed588103e7343599bb5fd86c190e0a2b62ebf8" => :mojave
+    sha256 "9dc54604cd42340d8e1ab2da73b54fd19d4cfdb87144921bdb6bcf03e2b41993" => :high_sierra
   end
 
   depends_on "cmake" => :build

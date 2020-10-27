@@ -5,6 +5,10 @@ class Gengetopt < Formula
   mirror "https://ftpmirror.gnu.org/gengetopt/gengetopt-2.23.tar.xz"
   sha256 "b941aec9011864978dd7fdeb052b1943535824169d2aa2b0e7eae9ab807584ac"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "7134042a80bb314db08216b1de2d293b5925ab729ba87649fdab4dc6298256f4" => :catalina

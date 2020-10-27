@@ -3,6 +3,12 @@ class Xmlto < Formula
   homepage "https://pagure.io/xmlto/"
   url "https://releases.pagure.org/xmlto/xmlto-0.0.28.tar.bz2"
   sha256 "1130df3a7957eb9f6f0d29e4aa1c75732a7dfb6d639be013859b5c7ec5421276"
+  license "GPL-2.0"
+
+  livecheck do
+    url "https://releases.pagure.org/xmlto/?C=M&O=D"
+    regex(/href=.*?xmlto[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     cellar :any_skip_relocation
@@ -20,6 +26,8 @@ class Xmlto < Formula
   # Doesn't strictly depend on GNU getopt, but macOS system getopt(1)
   # does not support longopts in the optstring, so use GNU getopt.
   depends_on "gnu-getopt"
+
+  uses_from_macos "libxslt"
 
   # xmlto forces --nonet on xsltproc, which causes it to fail when
   # DTDs/entities aren't available locally.

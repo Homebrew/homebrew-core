@@ -3,6 +3,7 @@ class Rdate < Formula
   homepage "https://www.aelius.com/njh/rdate/"
   url "https://www.aelius.com/njh/rdate/rdate-1.5.tar.gz"
   sha256 "6e800053eaac2b21ff4486ec42f0aca7214941c7e5fceedd593fa0be99b9227d"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

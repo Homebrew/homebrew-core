@@ -50,12 +50,14 @@ class AppEnginePython < Formula
         ('/', MainPage),
       ], debug=True)
     EOS
+
+    port = free_port
     begin
       pid = fork do
-        exec "#{pkgshare}/dev_appserver.py app.yaml --skip_sdk_update_check"
+        exec "#{pkgshare}/dev_appserver.py app.yaml --skip_sdk_update_check --port #{port}"
       end
       sleep 5
-      output = shell_output("curl -s http://localhost:8080/")
+      output = shell_output("curl -s http://localhost:#{port}/")
       assert_equal "Hello, World!", output.chomp
     ensure
       Process.kill("HUP", pid)

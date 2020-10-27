@@ -5,39 +5,75 @@ class Vault < Formula
   desc "Secures, stores, and tightly controls access to secrets"
   homepage "https://vaultproject.io/"
   url "https://github.com/hashicorp/vault.git",
-      :tag      => "v1.2.4",
-      :revision => "360b3a32c68a4003594a25ba17c8f582558fcfbc"
+      tag:      "v1.5.5",
+      revision: "f5d1ddb3750e7c28e25036e1ef26a4c02379fc01"
+  license "MPL-2.0"
   head "https://github.com/hashicorp/vault.git"
+
+  livecheck do
+    url "https://releases.hashicorp.com/vault/"
+    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "85c55dbc7851cecf723a23b23907fb5874f72254cf8e9b039f811f31d94cec6d" => :catalina
-    sha256 "520b0924b40384d5149aa71533982c4f1c91b4063296641f32af652a5c65dbea" => :mojave
-    sha256 "323c61e661e4f55f7a5387877fd5c3537650cfaa1fe71b1150d2d8943a83c8e2" => :high_sierra
+    sha256 "90aab2af3b4af97ccbf3b27afa752bb51296027ee4895d34fc90bf639d46a68b" => :catalina
+    sha256 "dafa1b61268993a3469518b49c50e0876426642aa985a2a4eb955e3012b7cd9e" => :mojave
+    sha256 "a63c8c926d76cb3fb4d404eae5ea7f84551eb95a3aa9eb2e2130b02716732dfb" => :high_sierra
   end
 
   depends_on "go" => :build
   depends_on "gox" => :build
+  depends_on "node@10" => :build
+  depends_on "yarn" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
+    ENV.prepend_path "PATH", "#{ENV["GOPATH"]}/bin"
+    system "make", "bootstrap", "static-dist", "dev-ui"
+    bin.install "bin/vault"
+  end
 
-    contents = buildpath.children - [buildpath/".brew_home"]
-    (buildpath/"src/github.com/hashicorp/vault").install contents
+  plist_options manual: "vault server -dev"
 
-    (buildpath/"bin").mkpath
-
-    cd "src/github.com/hashicorp/vault" do
-      system "make", "dev"
-      bin.install "bin/vault"
-      prefix.install_metafiles
-    end
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>KeepAlive</key>
+          <dict>
+            <key>SuccessfulExit</key>
+            <false/>
+          </dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/vault</string>
+            <string>server</string>
+            <string>-dev</string>
+          </array>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>WorkingDirectory</key>
+          <string>#{var}</string>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/vault.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/vault.log</string>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do
+    port = free_port
+    ENV["VAULT_DEV_LISTEN_ADDRESS"] = "127.0.0.1:#{port}"
+    ENV["VAULT_ADDR"] = "http://127.0.0.1:#{port}"
+
     pid = fork { exec bin/"vault", "server", "-dev" }
     sleep 1
-    ENV.append "VAULT_ADDR", "http://127.0.0.1:8200"
     system bin/"vault", "status"
     Process.kill("TERM", pid)
   end

@@ -3,6 +3,7 @@ class Pcrexx < Formula
   homepage "https://www.daemon.de/PCRE"
   url "https://www.daemon.de/idisk/Apps/pcre++/pcre++-0.9.5.tar.gz"
   sha256 "77ee9fc1afe142e4ba2726416239ced66c3add4295ab1e5ed37ca8a9e7bb638a"
+  license "LGPL-2.1"
 
   bottle do
     cellar :any
@@ -40,11 +41,12 @@ class Pcrexx < Formula
     mv man3/"Pcre.3", man3/"pcre++.3"
   end
 
-  def caveats; <<~EOS
-    The man page has been renamed to pcre++.3 to avoid conflicts with
-    pcre in case-insensitive file system.  Please use "man pcre++"
-    instead.
-  EOS
+  def caveats
+    <<~EOS
+      The man page has been renamed to pcre++.3 to avoid conflicts with
+      pcre in case-insensitive file system.  Please use "man pcre++"
+      instead.
+    EOS
   end
 end
 

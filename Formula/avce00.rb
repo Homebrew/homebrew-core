@@ -15,7 +15,7 @@ class Avce00 < Formula
     sha256 "55990b93f7fe4639c6fdf29c4cc6c5791c6178c8661e22ef9e0dd64606532f56" => :mavericks
   end
 
-  conflicts_with "gdal", :because => "both install a cpl_conv.h header"
+  conflicts_with "gdal", because: "both install a cpl_conv.h header"
 
   def install
     system "make", "CC=#{ENV.cc}"

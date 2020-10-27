@@ -1,21 +1,41 @@
 class I386ElfGdb < Formula
   desc "GNU debugger for i386-elf cross development"
   homepage "https://www.gnu.org/software/gdb/"
-  url "https://ftp.gnu.org/gnu/gdb/gdb-8.3.tar.xz"
-  sha256 "802f7ee309dcc547d65a68d61ebd6526762d26c3051f52caebe2189ac1ffd72e"
+  url "https://ftp.gnu.org/gnu/gdb/gdb-10.1.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gdb/gdb-10.1.tar.xz"
+  sha256 "f82f1eceeec14a3afa2de8d9b0d3c91d5a3820e23e0a01bbb70ef9f0276b62c0"
+  license "GPL-3.0-or-later"
+  head "https://sourceware.org/git/binutils-gdb.git"
 
-  bottle do
-    sha256 "78bc76a038e82c274fcbf1acb1a731d3e93e137501f2e93578998f2ad3d69707" => :catalina
-    sha256 "bdecb45d09a045fe1ffaa9e489ca5d5cf4bc52ad317066ddebcc6fef762214b0" => :mojave
-    sha256 "f24d032ddfe38c469592fcd27de1f2cd76748065291003802f63ed2eeefc0802" => :high_sierra
-    sha256 "db2569c5307b05e3806d5fe4072782b8f9601abe60779144b66a45c1fe6abc8b" => :sierra
+  livecheck do
+    url :stable
   end
 
+  bottle do
+    sha256 "4b529407dbdbb4a4686bf0c8e88511f6ec77cc24cd808704f457443d774ea7b7" => :catalina
+    sha256 "7ffb645794a491ccc52fea225c511647ab3f39771e65c3a2912d0e77f7f4e181" => :mojave
+    sha256 "f97095dfc0fc75cfdfa67f9cc8ef4402c7b8d4f24a0a522281f1d5c93c3ee4b3" => :high_sierra
+  end
+
+  depends_on "python@3.9"
+  depends_on "xz" # required for lzma support
+
+  conflicts_with "gdb", because: "both install include/gdb, share/gdb and share/info"
+  conflicts_with "x86_64-elf-gdb", because: "both install include/gdb, share/gdb and share/info"
+
   def install
+    args = %W[
+      --target=i386-elf
+      --prefix=#{prefix}
+      --disable-debug
+      --disable-dependency-tracking
+      --with-lzma
+      --with-python=#{Formula["python@3.9"].opt_bin}/python3
+      --disable-binutils
+    ]
+
     mkdir "build" do
-      system "../configure", "--target=i386-elf",
-                             "--prefix=#{prefix}",
-                             "--disable-werror"
+      system "../configure", *args
       system "make"
 
       # Don't install bfd or opcodes, as they are provided by binutils

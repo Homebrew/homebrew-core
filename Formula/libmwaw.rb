@@ -1,15 +1,19 @@
 class Libmwaw < Formula
   desc "Library for converting legacy Mac document formats"
   homepage "https://sourceforge.net/p/libmwaw/wiki/Home/"
-  url "https://downloads.sourceforge.net/project/libmwaw/libmwaw/libmwaw-0.3.15/libmwaw-0.3.15.tar.xz"
-  sha256 "0440bb09f05e3419423d8dfa36ee847056ebfd837f9cbc091fdb5b057daab0b1"
+  url "https://downloads.sourceforge.net/project/libmwaw/libmwaw/libmwaw-0.3.17/libmwaw-0.3.17.tar.xz"
+  sha256 "8e1537eb1de1b4714f4bf0a20478f342c5d71a65bf99307a694b1e9e30bb911c"
+  license any_of: ["LGPL-2.1-or-later", "MPL-2.0"]
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any
-    sha256 "63063f14d3c766feb82ef52335aaecf5ebebafe5135721184e5a475cef9c7b4f" => :catalina
-    sha256 "9b17fa0d1afca2803fed1412bcb20275552a73cf6a3ec6377d2070abc87310ee" => :mojave
-    sha256 "a03479bf4c1becc688f76ce5c16519a6ccde95fc65da8d46c3e9cc6664b07fdb" => :high_sierra
-    sha256 "cffc10a8c11055740f1baa7729df7d5744c018cd2deedd172cde0142989bb9b8" => :sierra
+    sha256 "807cff54beea1a3e68897da872ba18fcff59a6f617d46080beb95c769c97db2f" => :catalina
+    sha256 "2c2d73c68fd3b5f0b3b1c028fda9900d9c75589e498b16bf275eafc3f414c8ab" => :mojave
+    sha256 "7d29c815ecf0f72bc8623a1b13fc5d8e6786b54dd27609490ed75b720cdd5d90" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

@@ -1,8 +1,9 @@
 class Govendor < Formula
-  desc "Go vendor tool that works with the standard vendor file"
+  desc "Tool for vendoring Go dependencies"
   homepage "https://github.com/kardianos/govendor"
   url "https://github.com/kardianos/govendor/archive/v1.0.9.tar.gz"
   sha256 "d303abf194838792234a1451c3a1e87885d1b2cd21774867b592c1f7db00551e"
+  license "BSD-3-Clause"
   head "https://github.com/kardianos/govendor.git"
 
   bottle do

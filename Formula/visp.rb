@@ -1,14 +1,19 @@
 class Visp < Formula
   desc "Visual Servoing Platform library"
   homepage "https://visp.inria.fr/"
-  url "https://gforge.inria.fr/frs/download.php/latestfile/475/visp-3.2.0.tar.gz"
-  sha256 "072237ed5c6fcbc6a87300fa036014ec574fd081724907e41ae2d6fb5a222fbc"
-  revision 5
+  url "https://gforge.inria.fr/frs/download.php/latestfile/475/visp-3.3.0.tar.gz"
+  sha256 "f2ed11f8fee52c89487e6e24ba6a31fa604b326e08fb0f561a22c877ebdb640d"
+  revision 10
+
+  livecheck do
+    url "https://visp.inria.fr/download/"
+    regex(/href=.*?visp[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 "8dad266d9554bbf185ff11f87c2ab09d57d99fba6d512f38238e7c2f55ebbe42" => :mojave
-    sha256 "abe3a3879f23184466001c69b261932f15ecd88cf1337c3c310d98e6c7b3fedc" => :high_sierra
-    sha256 "e06a3f6810a11b733278d6e4ede15473a21fb37a89ce665943b578afbd7b4748" => :sierra
+    sha256 "928fb42332e4da6954d643ad3a003e1d309c53ea94821f8e75434ae899aac06e" => :catalina
+    sha256 "b9819cad207fbfc0a200422ae0c7f5e57f52ab138243f55b96629e771bd8d813" => :mojave
+    sha256 "8cf7ccba0cc069a589d8a21492267625724bbab209ea517c3f0e43cbc76ebb6d" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -22,10 +27,30 @@ class Visp < Formula
   depends_on "pcl"
   depends_on "zbar"
 
+  # from first commit at https://github.com/lagadic/visp/pull/768 - remove in next release
+  patch do
+    url "https://github.com/lagadic/visp/commit/61c8beb8442f9e0fe7df8966e2e874929af02344.patch?full_index=1"
+    sha256 "429bf02498fc03fff7bc2a2ad065dea6d8a8bfbde6bb1adb516fa821b1e5c96f"
+  end
+
+  # Fixes build on OpenCV >= 4.4.0
+  # Extracted from https://github.com/lagadic/visp/pull/795
+  patch :DATA
+
   def install
     ENV.cxx11
 
     sdk = MacOS::CLT.installed? ? "" : MacOS.sdk_path
+
+    # Avoid superenv shim references
+    inreplace "CMakeLists.txt" do |s|
+      s.sub! /CMake build tool:"\s+\${CMAKE_BUILD_TOOL}/,
+             "CMake build tool:            gmake\""
+      s.sub! /C\+\+ Compiler:"\s+\${VISP_COMPILER_STR}/,
+             "C++ Compiler:                clang++\""
+      s.sub! /C Compiler:"\s+\${CMAKE_C_COMPILER}/,
+             "C Compiler:                  clang\""
+    end
 
     system "cmake", ".", "-DBUILD_DEMOS=OFF",
                          "-DBUILD_EXAMPLES=OFF",
@@ -86,3 +111,26 @@ class Visp < Formula
     assert_equal version.to_s, shell_output("./test").chomp
   end
 end
+__END__
+diff --git a/modules/vision/src/key-point/vpKeyPoint.cpp b/modules/vision/src/key-point/vpKeyPoint.cpp
+index dd5cabf..23ed382 100644
+--- a/modules/vision/src/key-point/vpKeyPoint.cpp
++++ b/modules/vision/src/key-point/vpKeyPoint.cpp
+@@ -2269,7 +2269,7 @@ void vpKeyPoint::initDetector(const std::string &detectorName)
+ 
+   if (detectorNameTmp == "SIFT") {
+ #ifdef VISP_HAVE_OPENCV_XFEATURES2D
+-    cv::Ptr<cv::FeatureDetector> siftDetector = cv::xfeatures2d::SIFT::create();
++    cv::Ptr<cv::FeatureDetector> siftDetector = cv::SIFT::create();
+     if (!usePyramid) {
+       m_detectors[detectorNameTmp] = siftDetector;
+     } else {
+@@ -2447,7 +2447,7 @@ void vpKeyPoint::initExtractor(const std::string &extractorName)
+ #else
+   if (extractorName == "SIFT") {
+ #ifdef VISP_HAVE_OPENCV_XFEATURES2D
+-    m_extractors[extractorName] = cv::xfeatures2d::SIFT::create();
++    m_extractors[extractorName] = cv::SIFT::create();
+ #else
+     std::stringstream ss_msg;
+     ss_msg << "Fail to initialize the extractor: SIFT. OpenCV version  " << std::hex << VISP_HAVE_OPENCV_VERSION

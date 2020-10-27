@@ -2,19 +2,20 @@ class ZshSyntaxHighlighting < Formula
   desc "Fish shell like syntax highlighting for zsh"
   homepage "https://github.com/zsh-users/zsh-syntax-highlighting"
   url "https://github.com/zsh-users/zsh-syntax-highlighting.git",
-      :tag      => "0.6.0",
-      :revision => "434af7b11dd33641231f1b48b8432e68eb472e46"
+      tag:      "0.7.1",
+      revision: "932e29a0c75411cb618f02995b66c0a4a25699bc"
+  license "BSD-3-Clause"
   head "https://github.com/zsh-users/zsh-syntax-highlighting.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6057e59c2a7da41da0cb922181f49e0386edc2c78309abd725daca90b893772e" => :catalina
-    sha256 "03b91cbda8cbfe4a089ded8cefa4f6e06ad0946851b8fdda7617ab76bb4f5e50" => :mojave
-    sha256 "97dc3e73da8e3a8cb054a780a28cda23be2bbd33547daa606d71a3c7f1d2821f" => :high_sierra
-    sha256 "34fff5bf9bcacd1aaf3aad77199fc61a5ca31239236adaef0bab92452b5b4ad3" => :sierra
-    sha256 "34fff5bf9bcacd1aaf3aad77199fc61a5ca31239236adaef0bab92452b5b4ad3" => :el_capitan
-    sha256 "34fff5bf9bcacd1aaf3aad77199fc61a5ca31239236adaef0bab92452b5b4ad3" => :yosemite
+    rebuild 1
+    sha256 "8b240a93c28b0c190c427afee55b80a0195dc0ed0cdb2ec956871330e0b2f3a5" => :catalina
+    sha256 "ab57b09a3770c0497b1704ca86bbd285d9bcab439316c0bd7f72ab72e8597d92" => :mojave
+    sha256 "f8e941c6208a3b895a174be341a9ef2c114a3d5efeb0e86b421825b2aee0b943" => :high_sierra
   end
+
+  uses_from_macos "zsh" => [:build, :test]
 
   def install
     system "make", "install", "PREFIX=#{prefix}"

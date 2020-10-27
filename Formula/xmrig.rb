@@ -1,28 +1,31 @@
 class Xmrig < Formula
   desc "Monero (XMR) CPU miner"
   homepage "https://github.com/xmrig/xmrig"
-  url "https://github.com/xmrig/xmrig/archive/v2.14.4.tar.gz"
-  sha256 "7e827ece5df61ab1e23dda40940ad2f7946dc006fced86836aed3a26dcdc185e"
-  revision 1
+  url "https://github.com/xmrig/xmrig/archive/v6.4.0.tar.gz"
+  sha256 "8bb521f000f82c7376f74f7f184a296cc75fafa75f2fa0a778b9094c05f303f0"
+  license "GPL-3.0-or-later"
   head "https://github.com/xmrig/xmrig.git"
 
+  livecheck do
+    url "https://github.com/xmrig/xmrig/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
-    cellar :any
-    sha256 "593c36810c6bdb62a1e5b792ad5329ef6bbb83ce930512375c3a96641a93f099" => :catalina
-    sha256 "9cfd4cdb1593f0e90867dfce64e82f0979558ddeb89492edb4ef8fb04e865af3" => :mojave
-    sha256 "578b70e67019678acc15d0d936a948b7905dab827efbdac4c0e235dc8e00db36" => :high_sierra
-    sha256 "b798556ea6f2315521d08d4a9d209191b4b9f64bf26ff9104dca8df07f7561c4" => :sierra
+    sha256 "185f9ce4207c033078303c95a0b934975ccf9fb8210b8eaea2f467594357f582" => :catalina
+    sha256 "62001eba90921049136e28d957088424e3e08912b6d3e055e4d04012fa23e267" => :mojave
+    sha256 "24d5c6cfd03394a847c10735a4804a41ea730688c52d741c312c9aa0aa0055c8" => :high_sierra
   end
 
   depends_on "cmake" => :build
+  depends_on "hwloc"
   depends_on "libmicrohttpd"
   depends_on "libuv"
   depends_on "openssl@1.1"
 
   def install
     mkdir "build" do
-      system "cmake", "..", "-DUV_LIBRARY=#{Formula["libuv"].opt_lib}/libuv.dylib",
-                            *std_cmake_args
+      system "cmake", "..", "-DWITH_CN_GPU=OFF", *std_cmake_args
       system "make"
       bin.install "xmrig"
     end
@@ -37,12 +40,12 @@ class Xmrig < Formula
       read, write = IO.pipe
       pid = fork do
         exec "#{bin}/xmrig", "--no-color", "--max-cpu-usage=1", "--print-time=1",
-             "--threads=1", "--retries=1", "--url=#{test_server}", :out => write
+             "--threads=1", "--retries=1", "--url=#{test_server}", out: write
       end
       start_time=Time.now
       loop do
         assert (Time.now - start_time <= timeout), "No server connect after timeout"
-        break if read.gets.include? "\] \[#{test_server}\] DNS error: \"unknown node or service\""
+        break if read.gets.include? "#{test_server} DNS error: \"unknown node or service\""
       end
     ensure
       Process.kill("SIGINT", pid)

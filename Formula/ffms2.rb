@@ -4,14 +4,16 @@ class Ffms2 < Formula
   url "https://github.com/FFMS/ffms2/archive/2.23.tar.gz"
   mirror "https://deb.debian.org/debian/pool/main/f/ffms2/ffms2_2.23.orig.tar.gz"
   sha256 "b09b2aa2b1c6f87f94a0a0dd8284b3c791cbe77f0f3df57af99ddebcd15273ed"
-  revision 2
+  # The FFMS2 source is licensed under the MIT license, but its binaries
+  # are licensed under the GPL because GPL components of FFmpeg are used.
+  license "GPL-2.0"
+  revision 5
 
   bottle do
     cellar :any
-    sha256 "e83b73db4d441dd37b0811650f690756a863e629f7c5f89818ca59f300acafce" => :catalina
-    sha256 "638fda6fb3d0cf6af50ab122056e8fc23da52c0ab3d3b3df999b9ffcd2c7dbd1" => :mojave
-    sha256 "e42a13a433f713ec01ac496a36716c44f225c9ebe8ea397eb9d3d8d872faad7a" => :high_sierra
-    sha256 "c6fdb79a9e1bdbfd0bc0da134c7f8f845015527de866170e0d542ecef9861bdb" => :sierra
+    sha256 "2d7dec5996e8f1aa94ed24852ad8cf9abf2ff50721492d98cb245a5ff1f852d4" => :catalina
+    sha256 "1748aa600727eb0d214bff7b8b73acae50ee59c4e7a6e46b9d5933ec58593bd9" => :mojave
+    sha256 "d12367149ca820122c2f2104bf676130032358b0e27fa7195ccd8d342677c777" => :high_sierra
   end
 
   head do

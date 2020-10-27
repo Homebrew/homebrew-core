@@ -1,24 +1,30 @@
 class S3cmd < Formula
+  include Language::Python::Virtualenv
+
   desc "Command-line tool for the Amazon S3 service"
   homepage "https://s3tools.org/s3cmd"
-  url "https://downloads.sourceforge.net/project/s3tools/s3cmd/2.0.2/s3cmd-2.0.2.tar.gz"
-  sha256 "9f244c0c10d58d0ccacbba3aa977463e32491bdd9d95109e27b67e4d46c5bd52"
+  url "https://files.pythonhosted.org/packages/c7/eb/5143fe1884af2303cb7b23f453e5c9f337af46c2281581fc40ab5322dee4/s3cmd-2.1.0.tar.gz"
+  sha256 "966b0a494a916fc3b4324de38f089c86c70ee90e8e1cae6d59102103a4c0cc03"
+  license "GPL-2.0"
   revision 1
   head "https://github.com/s3tools/s3cmd.git"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "0c9218029b1ab059996b6c2e841fd93d69e4bf08e810b3aff6fa4be59416f17d" => :catalina
-    sha256 "189112abb6e81acbbbd4977a3d573cf090dd7c85fee032642c5a9164ccb03046" => :mojave
-    sha256 "182902e2ea25497262b58393a95b34a0961a1d83dc2702d357c5f3d06d1baecf" => :high_sierra
-    sha256 "182902e2ea25497262b58393a95b34a0961a1d83dc2702d357c5f3d06d1baecf" => :sierra
+  livecheck do
+    url :stable
   end
 
-  depends_on "python"
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "0f660e6f188828607eecea389019d1c9d1c2d128ac400969bea0e56a7b7453a1" => :catalina
+    sha256 "584271d030de4833c8d17a6cbb198157052b06c3df7ca6be923552f23e5f68d1" => :mojave
+    sha256 "3f071500164cbeeab6b43eb832145b93610260f013257eee2736242032ec8ff0" => :high_sierra
+  end
+
+  depends_on "python@3.9"
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/a0/b0/a4e3241d2dee665fea11baec21389aec6886655cd4db7647ddf96c3fad15/python-dateutil-2.7.3.tar.gz"
-    sha256 "e27001de32f627c22380a688bcc43ce83504a7bc5da472209b4c70f02829f0b8"
+    url "https://files.pythonhosted.org/packages/be/ed/5bbc91f03fa4c839c4c7360375da77f9659af5f7086b7a7bdda65771c8e0/python-dateutil-2.8.1.tar.gz"
+    sha256 "73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c"
   end
 
   resource "python-magic" do
@@ -27,23 +33,13 @@ class S3cmd < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
-    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
+    url "https://files.pythonhosted.org/packages/94/3e/edcf6fef41d89187df7e38e868b2dd2182677922b600e880baad7749c865/six-1.13.0.tar.gz"
+    sha256 "30f610279e8b2578cab6db20741130331735c781b56053c59c4076da27f06b66"
   end
 
   def install
-    xy = Language::Python.major_minor_version "python3"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
-    resources.each do |r|
-      r.stage { system "python3", *Language::Python.setup_install_args(libexec/"vendor") }
-    end
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
-    system "python3", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
-    man1.install Dir[libexec/"share/man/man1/*"]
+    ENV["S3CMD_INSTPATH_MAN"] = man
+    virtualenv_install_with_resources
   end
 
   test do

@@ -6,7 +6,18 @@ class Libcaca < Formula
   mirror "https://fossies.org/linux/privat/libcaca-0.99.beta19.tar.gz"
   version "0.99b19"
   sha256 "128b467c4ed03264c187405172a4e83049342cc8cc2f655f53a2d0ee9d3772f4"
+  license "WTFPL"
   revision 1
+
+  # The regex here matches unstable releases and is loose about it (`.*`), as
+  # there are currently only beta releases and we don't know if there will be
+  # releases candidates, etc. before there's a stable release. Hopefully we can
+  # restrict this to stable releases in the future but it has to be loose for
+  # the moment.
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+.*)/i)
+  end
 
   bottle do
     cellar :any

@@ -1,17 +1,16 @@
 class Libvpx < Formula
   desc "VP8/VP9 video codec"
   homepage "https://www.webmproject.org/code/"
-  url "https://github.com/webmproject/libvpx/archive/v1.8.1.tar.gz"
-  sha256 "df19b8f24758e90640e1ab228ab4a4676ec3df19d23e4593375e6f3847dee03e"
-  head "https://chromium.googlesource.com/webm/libvpx", :using => :git
+  url "https://github.com/webmproject/libvpx/archive/v1.9.0.tar.gz"
+  sha256 "d279c10e4b9316bf11a570ba16c3d55791e1ad6faa4404c67422eb631782c80a"
+  license "BSD-3-Clause"
+  head "https://chromium.googlesource.com/webm/libvpx.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "ff6f98e9d0e276f2f45424de360eb862afa8603c9650080e79e751e0f4eddf88" => :catalina
-    sha256 "0e1d5f53082f7718604f11a6df4ff9edd219892cd5eef4c4a7c5875dcf9876f2" => :mojave
-    sha256 "b67db059b122aa25a17fff630cc04cba531a95b33b6032ac5ba78434325f0700" => :high_sierra
-    sha256 "12c14d42a563fc9d2b94f6733b45816fb21e70f4fd3229c9398e115af49f9bc0" => :sierra
+    sha256 "19a684e5b0a2109b40a6c412517ad8639200c76d8bd527e98fc24d9589bb1c4e" => :catalina
+    sha256 "c813698920d7e5144ae45f9922477cc30ed4f7ee81463977b01d50af43e0be19" => :mojave
+    sha256 "13e231eb9c8158e84df24a58c8b96f3f57e9202ad680b4be3bbaf7e67f40aaac" => :high_sierra
   end
 
   depends_on "yasm" => :build

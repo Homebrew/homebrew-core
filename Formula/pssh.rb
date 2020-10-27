@@ -4,24 +4,30 @@ class Pssh < Formula
   homepage "https://code.google.com/archive/p/parallel-ssh/"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/parallel-ssh/pssh-2.3.1.tar.gz"
   sha256 "539f8d8363b722712310f3296f189d1ae8c690898eca93627fc89a9cb311f6b4"
+  license "BSD-3-Clause"
+  revision 3
+
+  livecheck do
+    url "https://www.googleapis.com/download/storage/v1/b/google-code-archive/o/v2%2Fcode.google.com%2Fparallel-ssh%2Fdownloads-page-1.json?&alt=media"
+    regex(/pssh[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 2
-    sha256 "8f48ad9c3d6c59d77e50a85a940e9698482018140475035b274eee45567d5474" => :catalina
-    sha256 "fd5a9e13b00695332f468814d5bf2c823713cb7f91f423395996f5f65354f8d6" => :mojave
-    sha256 "73f994d5f4b9e8df301351b552108cdc2cf5a99c2899c8f5c929c9111b69187c" => :high_sierra
+    sha256 "01d4dbe79b114a2e0a0e0cb10de0279f7872e9ed09036550102989bb9b59cb66" => :catalina
+    sha256 "7446d15d9d2fe0579fa3f7c37f5e5958309d4de88ea456b6f6e9aebc3a8e4ced" => :mojave
+    sha256 "d01989822798d3d6c6a4b3cd6fba588170128860e9f20300b88035443b915d4b" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.9"
 
-  conflicts_with "putty", :because => "both install `pscp` binaries"
+  conflicts_with "putty", because: "both install `pscp` binaries"
 
   # Fix for Python 3 compatibility
   # https://bugs.archlinux.org/task/46571
   patch do
-    url "https://github.com/nplanel/parallel-ssh/commit/ee379dc5.diff?full_index=1"
-    sha256 "467df6024d180ea41a7e453b2d4485ef2be2a911410d8845df1b9e6b6dc301ae"
+    url "https://github.com/nplanel/parallel-ssh/commit/ee379dc5.patch?full_index=1"
+    sha256 "79c133072396e5d3d370ec254b7f7ed52abe1d09b5d398880f0e1cfaf988defa"
   end
 
   def install

@@ -1,16 +1,21 @@
 require "language/node"
 
 class Ungit < Formula
-  desc "The easiest way to use git. On any platform. Anywhere"
+  desc "Easiest way to use Git. On any platform. Anywhere"
   homepage "https://github.com/FredrikNoren/ungit"
-  url "https://registry.npmjs.org/ungit/-/ungit-1.5.0.tgz"
-  sha256 "e41ec6128586f980140bb38393d4135710cb14d3ef3e4431720f1b3550ce6047"
+  url "https://registry.npmjs.org/ungit/-/ungit-1.5.12.tgz"
+  sha256 "8a52eec719818d520d2e774cf032126b7a5edfc2bd80c777202100bb2049c4d8"
+  license "MIT"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ed42ae8af033b52cb1048fc8d9915fb7633c4627e7ee0a7819251368cd45f2fc" => :catalina
-    sha256 "341dde234a6a0e375f26c95b604bf964fec73d7f4ff50258ac1a9198bfb511d8" => :mojave
-    sha256 "073a373648a944b4ea72184f5c1f7d4dcec932d998e239f83b9fbeb4f496ccce" => :high_sierra
+    sha256 "fc993795f40b280ea3cfc9178687d55d5ff85b945f8ea24eeebbf496bdc3611c" => :catalina
+    sha256 "62cb99b06b418f103ad6c57128d577375e1ca214e60c2dde3392031ecdb94942" => :mojave
+    sha256 "cc798c8c18069b63795b953566f1c4fc997ca48cfc81f1856e1d724d63972de3" => :high_sierra
   end
 
   depends_on "node"
@@ -21,22 +26,13 @@ class Ungit < Formula
   end
 
   test do
-    require "nokogiri"
+    port = free_port
 
-    server = TCPServer.new(0)
-    port = server.addr[1]
-    server.close
-
-    ppid = fork do
-      exec bin/"ungit", "--no-launchBrowser", "--port=#{port}", "--autoShutdownTimeout=6000"
+    fork do
+      exec bin/"ungit", "--no-launchBrowser", "--port=#{port}"
     end
-    sleep 5
-    assert_match "ungit", Nokogiri::HTML(shell_output("curl -s 127.0.0.1:#{port}/")).at_css("title").text
-  ensure
-    Process.kill("TERM", ppid)
-    # ensure that there are no spawned child processes left
-    child_p = shell_output("ps -o pid,ppid").scan(/^(\d+)\s+#{ppid}\s*$/).map { |p| p[0].to_i }
-    child_p.each { |pid| Process.kill("TERM", pid) }
-    Process.wait(ppid)
+    sleep 8
+
+    assert_includes shell_output("curl -s 127.0.0.1:#{port}/"), "<title>ungit</title>"
   end
 end

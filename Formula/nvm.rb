@@ -1,9 +1,10 @@
 class Nvm < Formula
   desc "Manage multiple Node.js versions"
-  homepage "https://github.com/creationix/nvm"
-  url "https://github.com/creationix/nvm/archive/v0.35.1.tar.gz"
-  sha256 "020f64b091e06d025ccdd977db82fe0f1ea7fa044335633dc404d21801100a0f"
-  head "https://github.com/creationix/nvm.git"
+  homepage "https://github.com/nvm-sh/nvm"
+  url "https://github.com/nvm-sh/nvm/archive/v0.36.0.tar.gz"
+  sha256 "4e9de23fedde992af9547bedb2bf55b74fa765e930170e65907e85d6b48ae069"
+  license "MIT"
+  head "https://github.com/nvm-sh/nvm.git"
 
   bottle :unneeded
 
@@ -12,28 +13,29 @@ class Nvm < Formula
     bash_completion.install "bash_completion" => "nvm"
   end
 
-  def caveats; <<~EOS
-    Please note that upstream has asked us to make explicit managing
-    nvm via Homebrew is unsupported by them and you should check any
-    problems against the standard nvm install method prior to reporting.
+  def caveats
+    <<~EOS
+      Please note that upstream has asked us to make explicit managing
+      nvm via Homebrew is unsupported by them and you should check any
+      problems against the standard nvm install method prior to reporting.
 
-    You should create NVM's working directory if it doesn't exist:
+      You should create NVM's working directory if it doesn't exist:
 
-      mkdir ~/.nvm
+        mkdir ~/.nvm
 
-    Add the following to #{shell_profile} or your desired shell
-    configuration file:
+      Add the following to #{shell_profile} or your desired shell
+      configuration file:
 
-      export NVM_DIR="$HOME/.nvm"
-      [ -s "#{opt_prefix}/nvm.sh" ] && \. "#{opt_prefix}/nvm.sh"  # This loads nvm
-      [ -s "#{opt_prefix}/etc/bash_completion.d/nvm" ] && \. "#{opt_prefix}/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+        export NVM_DIR="$HOME/.nvm"
+        [ -s "#{opt_prefix}/nvm.sh" ] && \. "#{opt_prefix}/nvm.sh"  # This loads nvm
+        [ -s "#{opt_prefix}/etc/bash_completion.d/nvm" ] && \. "#{opt_prefix}/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-    You can set $NVM_DIR to any location, but leaving it unchanged from
-    #{prefix} will destroy any nvm-installed Node installations
-    upon upgrade/reinstall.
+      You can set $NVM_DIR to any location, but leaving it unchanged from
+      #{prefix} will destroy any nvm-installed Node installations
+      upon upgrade/reinstall.
 
-    Type `nvm help` for further information.
-  EOS
+      Type `nvm help` for further information.
+    EOS
   end
 
   test do

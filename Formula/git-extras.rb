@@ -1,30 +1,31 @@
 class GitExtras < Formula
   desc "Small git utilities"
   homepage "https://github.com/tj/git-extras"
-  url "https://github.com/tj/git-extras/archive/5.0.0.tar.gz"
-  sha256 "7fb70af14c12119d184fe33f5f86046b7ad175ee81fa89e75fb54a5b3aff609a"
+  url "https://github.com/tj/git-extras/archive/6.1.0.tar.gz"
+  sha256 "7be0b15ee803d76d2c2e8036f5d9db6677f2232bb8d2c4976691ff7ae026a22f"
+  license "MIT"
   head "https://github.com/tj/git-extras.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a59d6c7f60ed7a2904f855bb32cc66f21cd91f03c84c7d85803343cff21c942d" => :catalina
-    sha256 "5bd122f438ebe8d623169f24a5add6a4609a7e33782f15f09e98a9e8e4c5a5fc" => :mojave
-    sha256 "5bd122f438ebe8d623169f24a5add6a4609a7e33782f15f09e98a9e8e4c5a5fc" => :high_sierra
-    sha256 "3e50176046daa936eded6a4f5ac27d56fd05375c145c61889a050fdb3797d596" => :sierra
+    sha256 "abb85334f41bfa73f650bc138caecf8a35cc0af8951628c97b09d68c30fbbe60" => :catalina
+    sha256 "afe41a9918fd0951a2e2b4badfbb6bca57ca2161d6ef82f452604e1f73154825" => :mojave
+    sha256 "ffc36aced07c7ca6a5e8ccb8b4dbfcdd50742efd780d9a1b668189813a3486cf" => :high_sierra
   end
 
   conflicts_with "git-utils",
-    :because => "both install a `git-pull-request` script"
+    because: "both install a `git-pull-request` script"
 
   def install
     system "make", "PREFIX=#{prefix}", "INSTALL_VIA=brew", "install"
     pkgshare.install "etc/git-extras-completion.zsh"
   end
 
-  def caveats; <<~EOS
-    To load Zsh completions, add the following to your .zschrc:
-      source #{opt_pkgshare}/git-extras-completion.zsh
-  EOS
+  def caveats
+    <<~EOS
+      To load Zsh completions, add the following to your .zshrc:
+        source #{opt_pkgshare}/git-extras-completion.zsh
+    EOS
   end
 
   test do

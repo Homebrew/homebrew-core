@@ -3,18 +3,27 @@ class Libetonyek < Formula
   homepage "https://wiki.documentfoundation.org/DLP/Libraries/libetonyek"
   url "https://dev-www.libreoffice.org/src/libetonyek/libetonyek-0.1.9.tar.xz"
   sha256 "e61677e8799ce6e55b25afc11aa5339113f6a49cff031f336e32fa58635b1a4a"
+  revision 1
+
+  livecheck do
+    url "https://dev-www.libreoffice.org/src/"
+    regex(/href=["']?libetonyek[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 "babe107b6e32e3efa4ad535cac4d699e6705cd930e99ddcdefb1846df0c28984" => :mojave
-    sha256 "2dddd5203a9a15f453b7da4b17e4e2556b16c95563160b454853ac258899ae37" => :high_sierra
-    sha256 "e00523e2ed27d9f56b60c50db89e33ed7b6993a7301dc56e7a1b7228f63b3912" => :sierra
+    rebuild 1
+    sha256 "fe426f3577057ac3a73b9527b01124e5f916872b505f12e8224674d72a700c5b" => :catalina
+    sha256 "b51d5847f87fba35e67703d248f0552a4e03eb6fc4e35ba5a180f41fec68fdeb" => :mojave
+    sha256 "d86fef6a245db1b767d8965362eae4782af35b2c2b14e819ae7d436790f909cd" => :high_sierra
   end
 
   depends_on "boost" => :build
+  depends_on "glm" => :build
+  depends_on "mdds" => :build
   depends_on "pkg-config" => :build
-  depends_on "glm"
   depends_on "librevenge"
-  depends_on "mdds"
+
+  uses_from_macos "libxml2"
 
   resource "liblangtag" do
     url "https://bitbucket.org/tagoh/liblangtag/downloads/liblangtag-0.6.2.tar.bz2"
@@ -36,7 +45,7 @@ class Libetonyek < Formula
                           "--disable-werror",
                           "--disable-tests",
                           "--prefix=#{prefix}",
-                          "--with-mdds=1.4"
+                          "--with-mdds=1.5"
     system "make", "install"
   end
 

@@ -6,13 +6,10 @@ class Sdf < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "622635ef7983bccc9510e1c95e96af57da34345bbe20d85021a1145ee195be2d" => :mojave
-    sha256 "7bb04c7929c2a4ba22edb621f57f5d3ae9dd27713978ed7ae3efe7cfe295503d" => :high_sierra
-    sha256 "e30e7e02213cfabc3cf5a6499905eed7657ccaf84e4612a8b9ef1bba1b4b308b" => :sierra
-    sha256 "7b99bc3c67466c7bde1e59908b82f023962e14df0e0ae83bfcebcd2e11ca5f29" => :el_capitan
-    sha256 "abadd2d273826b42b95fd342bf3a7c8a523d0126b8d9aedfcec67b21bcbc6d6f" => :yosemite
-    sha256 "d29da190673806e54a235b203658a5123007511c48ca7d7a408bc4fed5c3bc51" => :mavericks
+    rebuild 2
+    sha256 "fe35832ac1cd23d4a30259ed3e2745543ee7641cf3cb774c092916acb135558f" => :catalina
+    sha256 "bb23a4a58c726d8e86346151dd3f59bfd9185585dcaffcebfa73882abc6bd3ca" => :mojave
+    sha256 "e4229bab3c8cfda42089e5371aef014a0fea214be9b7c8a99537077268fec106" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

@@ -2,20 +2,26 @@ class ParquetTools < Formula
   desc "Apache Parquet command-line tools and utilities"
   homepage "https://parquet.apache.org/"
   url "https://github.com/apache/parquet-mr.git",
-      :tag      => "apache-parquet-1.10.0",
-      :revision => "031a6654009e3b82020012a18434c582bd74c73a"
+      tag:      "apache-parquet-1.11.1",
+      revision: "765bd5cd7fdef2af1cecd0755000694b992bfadd"
+  license "Apache-2.0"
   head "https://github.com/apache/parquet-mr.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "663df850056a24973c7a164823fe859efdd8b1b84bc5b622f12f2922bcad5eb8" => :catalina
-    sha256 "80bbeb4f549cb06c1195fbd4b9170a428cf435678a579d1437d9b7f5fc0399da" => :mojave
-    sha256 "727a15da8f38f3a9accf1b5850e98c12a6b783d97014826442421eb2b25a1006" => :high_sierra
-    sha256 "9d0889dcab15c776d2878796562ec41a8e4baf539996e51714180138cb005c15" => :sierra
-    sha256 "5847b83a96097c31497caf966d3d28185b16912bb4017bfbc4a2dd284b3c350d" => :el_capitan
+    sha256 "37d87045919ddb7d3f85efd0ad02b2af90b2f6bdb850da7e917b05c0e622aad0" => :catalina
+    sha256 "ebcc402a4b4385cec57dc835142940ceab8233809ff99311ca04a3a81e22a1c4" => :mojave
+    sha256 "e86151377d7008b1674f4cc71b11aabea81d4e2ce3c04b10e90bf197bc36c021" => :high_sierra
   end
 
   depends_on "maven" => :build
+  depends_on "openjdk"
+
+  # based on https://github.com/apache/parquet-mr/pull/809
+  patch do
+    url "https://github.com/apache/parquet-mr/commit/b6d07ae0744ba47aa9a8868ef2d7cbb232a60b22.patch?full_index=1"
+    sha256 "200999012f743454cd525572bf848cd48b26051916a2d468474823a0aa2ccf61"
+  end
 
   def install
     cd "parquet-tools" do

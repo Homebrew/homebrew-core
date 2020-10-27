@@ -1,8 +1,9 @@
 class PhoronixTestSuite < Formula
   desc "Open-source automated testing/benchmarking software"
   homepage "https://www.phoronix-test-suite.com/"
-  url "https://github.com/phoronix-test-suite/phoronix-test-suite/archive/v9.0.1.tar.gz"
-  sha256 "66f57eeb12241966cb7ad6594981bfd6ccdb28c4a14325271bec50c810d041db"
+  url "https://github.com/phoronix-test-suite/phoronix-test-suite/archive/v9.8.0.tar.gz"
+  sha256 "6313c5ad1fa4a62726f1347c3674a704582ec5a3a0ca1af20b034ccc6f64af9e"
+  license "GPL-3.0"
   head "https://github.com/phoronix-test-suite/phoronix-test-suite.git"
 
   bottle :unneeded
@@ -20,6 +21,7 @@ class PhoronixTestSuite < Formula
   end
 
   test do
+    cd pkgshare
     assert_match version.to_s, shell_output("#{bin}/phoronix-test-suite version")
   end
 end

@@ -1,15 +1,15 @@
 class CpuFeatures < Formula
   desc "Cross platform C99 library to get cpu features at runtime"
   homepage "https://github.com/google/cpu_features"
-  url "https://github.com/google/cpu_features/archive/v0.4.1.tar.gz"
-  sha256 "b7b6b27f759410f73f15f935ae646f30c9c6742731dc354416399677bd418156"
+  url "https://github.com/google/cpu_features/archive/v0.6.0.tar.gz"
+  sha256 "95a1cf6f24948031df114798a97eea2a71143bd38a4d07d9a758dda3924c1932"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cf7f7d47468e2c0cf321c22c86adb2c734920559b1a63553b1688ed0e4a39b73" => :catalina
-    sha256 "b2736429ca74d23173266aab1d3ee6fea58ee963e0042391d803b26d322838d7" => :mojave
-    sha256 "0d8119f02b609f5cfcac19177bd669668686c549bb138fbe2a0aa391df7dc838" => :high_sierra
-    sha256 "d703ec98a4f4913ac50c872475e7c37e6c439326db607297fa14cd438e75f919" => :sierra
+    sha256 "ba67bb2d2166f43b17aba3fb4f8306b577e17779e8a8facea32a16451c7b369d" => :catalina
+    sha256 "9f7d3b134c25934208808a47a8c8ecde61d8a7c3d429246ce807d9183930bd66" => :mojave
+    sha256 "057d70560cecfd8863543a562ddb0ec64147ac3ce6292adedf0bc28c74a92349" => :high_sierra
   end
 
   depends_on "cmake" => :build

@@ -1,23 +1,27 @@
 class Gleam < Formula
   desc "✨ A statically typed language for the Erlang VM"
   homepage "https://gleam.run"
-  url "https://github.com/lpil/gleam/archive/v0.4.2.tar.gz"
-  sha256 "db1d9568138eddc56d5fc6135ae9f21b06335119fe7fe2526d6498a97fa4fd67"
+  url "https://github.com/lpil/gleam/archive/v0.11.2.tar.gz"
+  sha256 "3f308915fac58876aeae39cedfbdb44dd7775567ace36ff3b83ddb4ea1498ce0"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "8554c7e81378dca051827e5a10b46594b210c035b947d367256a7bda8d8c2d31" => :catalina
-    sha256 "594bbaf47f4a260a24a16fc7f2cc34f4889a071f96eb89b6d1d36bdf4ed1086c" => :mojave
-    sha256 "f46e3c4fb0a5162273ba1d87c623c4c53f9284254200442b005061d4c165cfbb" => :high_sierra
+    sha256 "6341cb125abf33b142c33104b89d6ad680ae7e2fb9cc15e20984a19466d2de6b" => :catalina
+    sha256 "ccfb7ad2cc98c358ce6f2ac4797e3d2cb60683c36420419d57a257d63f5fe907" => :mojave
+    sha256 "f8a8090c533509c5449fe24ee49da9cb4da2f18cda095cd48a487c9861803e42" => :high_sierra
   end
 
   depends_on "rust" => :build
   depends_on "erlang"
   depends_on "rebar3"
 
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
+
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "gleam"
+    system "cargo", "install", *std_cargo_args
   end
 
   test do

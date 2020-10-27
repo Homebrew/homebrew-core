@@ -69,12 +69,7 @@ class Moc < Formula
   end
 
   def caveats
-    <<~EOS
-      You must start the jack daemon prior to running mocp.
-      If you need wide-character support in the player, for example
-      with Chinese characters, you can install using
-          --with-ncurses
-    EOS
+    "You must start the jack daemon prior to running mocp."
   end
 
   test do

@@ -3,24 +3,50 @@ class Infer < Formula
   homepage "https://fbinfer.com/"
   # pull from git tag to get submodules
   url "https://github.com/facebook/infer.git",
-      :tag      => "v0.15.0",
-      :revision => "8bda23fadcc51c6ed38a4c3a75be25a266e8f7b4"
+      tag:      "v0.17.0",
+      revision: "99464c01da5809e7159ed1a75ef10f60d34506a4"
+  license "MIT"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     cellar :any
-    sha256 "0b056e3162e0e5c791173f790e5e06dda2f80781531098ca8c6eb3d89dc96768" => :high_sierra
-    sha256 "91c68a2e6487e2218567a2e92c10b76bbfea5c69497b1bd9b027426ed23ec615" => :sierra
-    sha256 "8bb9d822db58e8b34e286dbc167c391e497ae5e37d96766ca355dd9bc7e6ec50" => :el_capitan
+    rebuild 1
+    sha256 "1dc9c75c759611c8fe0efa8f63d7e55bbaa35d8dc2863f7a527069b11759f244" => :catalina
+    sha256 "74b2dddff2bea362066395e28a797078d33514774511cc64771d0f89eea2466d" => :mojave
+    sha256 "7630571f8e391ce0ba991ffe7a5d7b2b4a1029cda1d56497800d8ae0a260d4b6" => :high_sierra
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "cmake" => :build
-  depends_on :java => ["1.7+", :build]
+  depends_on java: ["1.8", :build, :test]
   depends_on "libtool" => :build
   depends_on "ocaml" => :build
+  depends_on "ocaml-findlib" => :build
+  depends_on "ocaml-num" => :build
   depends_on "opam" => :build
   depends_on "pkg-config" => :build
+  depends_on "gmp"
+  depends_on :macos # Due to Python 2 (https://github.com/facebook/infer/issues/934)
+  depends_on "mpfr"
+  depends_on "sqlite"
+
+  uses_from_macos "m4" => :build
+  uses_from_macos "unzip" => :build
+  uses_from_macos "ncurses"
+  uses_from_macos "xz"
+  uses_from_macos "zlib"
+
+  # Remove camlp4 dependency, which is deprecated
+  # Addressed in 0.18.x
+  patch do
+    url "https://github.com/facebook/infer/commit/f52b5fc981c692776210d7eb9681c2b8c3117c93.patch?full_index=1"
+    sha256 "5487b9b39607c94821bede8d4f0ec2a0ed08d5213d5f048b1344819dac53b2f5"
+  end
 
   def install
     # needed to build clang
@@ -33,29 +59,46 @@ class Infer < Formula
     opamroot.mkpath
     ENV["OPAMROOT"] = opamroot
     ENV["OPAMYES"] = "1"
+    ENV["OPAMVERBOSE"] = "1"
+
+    system "opam", "init", "--no-setup", "--disable-sandboxing"
 
     # do not attempt to use the clang in facebook-clang-plugins/ as it hasn't been built yet
     ENV["INFER_CONFIGURE_OPTS"] = "--prefix=#{prefix} --without-fcp-clang"
 
-    llvm_args = %w[
-      -DLLVM_INCLUDE_DOCS=OFF
-      -DLLVM_INSTALL_UTILS=OFF
-      -DLLVM_TARGETS_TO_BUILD=all
-      -DLIBOMP_ARCH=x86_64
-      -DLLVM_BUILD_EXTERNAL_COMPILER_RT=ON
-      -DLLVM_BUILD_LLVM_DYLIB=ON
-    ]
+    # Let's try build clang faster
+    ENV["JOBS"] = ENV.make_jobs.to_s
 
-    system "opam", "init", "--no-setup"
-    ocaml_version = File.read("build-infer.sh").match(/OCAML_VERSION_DEFAULT=\"([^\"]+)\"/)[1]
-    ocaml_version_number = ocaml_version.split("+", 2)[0]
-    inreplace "#{opamroot}/compilers/#{ocaml_version_number}/#{ocaml_version}/#{ocaml_version}.comp",
-      '["./configure"', '["./configure" "-no-graph"'
-    # so that `infer --version` reports a release version number
-    inreplace "infer/src/base/Version.ml.in", "let is_release = is_yes \"@IS_RELEASE_TREE@\"", "let is_release = true"
-    inreplace "facebook-clang-plugins/clang/setup.sh", "CMAKE_ARGS=(", "CMAKE_ARGS=(\n  " + llvm_args.join("\n  ")
-    system "./build-infer.sh", "all", "--yes"
-    system "opam", "config", "exec", "--switch=infer-#{ocaml_version}", "--", "make", "install"
+    ENV["CLANG_CMAKE_ARGS"] = "-DLLVM_OCAML_INSTALL_PATH=#{`opam var lib`.chomp}/ocaml"
+
+    # Release build
+    touch ".release"
+
+    # Pin updated dependencies which are required to build on brew ocaml
+    # Remove from this when Infer updates their opam.locked to use at least these versions
+    pinned_deps = {
+      "mlgmpidl"  => "1.2.12",
+      "octavius"  => "1.2.1",
+      "parmap"    => "1.0-rc11",
+      "ppx_tools" => "5.3+4.08.0",
+    }
+    pinned_deps.each { |dep, ver| system "opam", "pin", "add", dep, ver, "--locked" }
+
+    # Unfortunately, opam can't cope if a system ocaml-num happens to be installed.
+    # Instead, we depend on Homebrew's ocaml-num and fool opam into using it.
+    # https://github.com/ocaml/opam-repository/issues/14646
+    system "opam", "pin", "add", "ocamlfind", Formula["ocaml-findlib"].version.to_s, "--locked", "--fake"
+    system "opam", "pin", "add", "num", Formula["ocaml-num"].version.to_s, "--locked", "--fake"
+
+    # Relax the dependency lock on a specific ocaml
+    # Also ignore anything we pinned above
+    ENV["OPAMIGNORECONSTRAINTS"] = "ocaml,ocamlfind,num,#{pinned_deps.keys.join(",")}"
+
+    # Remove ocaml-variants dependency (we won't be using it)
+    inreplace "opam.locked", /^ +"ocaml-variants" \{= ".*?"\}$\n/, ""
+
+    system "opam", "exec", "--", "./build-infer.sh", "all", "--yes", "--user-opam-switch"
+    system "opam", "exec", "--", "make", "install-with-libs"
   end
 
   test do
@@ -83,8 +126,8 @@ class Infer < Formula
       }
     EOS
 
-    shell_output("#{bin}/infer --fail-on-issue -- clang -c FailingTest.c", 2)
-    shell_output("#{bin}/infer --fail-on-issue -- clang -c PassingTest.c")
+    shell_output("#{bin}/infer --fail-on-issue -P -- clang -c FailingTest.c", 2)
+    shell_output("#{bin}/infer --fail-on-issue -P -- clang -c PassingTest.c")
 
     (testpath/"FailingTest.java").write <<~EOS
       class FailingTest {
@@ -120,7 +163,7 @@ class Infer < Formula
       }
     EOS
 
-    shell_output("#{bin}/infer --fail-on-issue -- javac FailingTest.java", 2)
-    shell_output("#{bin}/infer --fail-on-issue -- javac PassingTest.java")
+    shell_output("#{bin}/infer --fail-on-issue -P -- javac FailingTest.java", 2)
+    shell_output("#{bin}/infer --fail-on-issue -P -- javac PassingTest.java")
   end
 end

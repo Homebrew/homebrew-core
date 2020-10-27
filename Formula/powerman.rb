@@ -1,14 +1,14 @@
 class Powerman < Formula
   desc "Control (remotely and in parallel) switched power distribution units"
   homepage "https://code.google.com/p/powerman/"
-  url "https://github.com/chaos/powerman/releases/download/2.3.25/powerman-2.3.25.tar.gz"
-  sha256 "36e98a5a6b1395d8243b5bcaa8a6af42b4ab9411a63d7aa0768b4014ee0f207d"
+  url "https://github.com/chaos/powerman/releases/download/2.3.26/powerman-2.3.26.tar.gz"
+  sha256 "19e213127f468b835165b8e2082ff2dfff62d6832f3332160f2c6ba8b2d286ad"
+  license "GPL-2.0"
 
   bottle do
-    sha256 "501c8bb80bf0f5876e7464e3d26c80c45e8afaa14d630f8275144ba656e63bbb" => :catalina
-    sha256 "1a36b88991905a9f768f789b9d4381d5ad26992259440325fc997bc3bcd074bd" => :mojave
-    sha256 "397248285300786311331cfa9b67d74e0f3b1dfb9d93bc9d0887b7caa253bf3e" => :high_sierra
-    sha256 "8eb522e26039405245bb5159c34eb8e329683569c0b0f6654aeed183d0f13dba" => :sierra
+    sha256 "aaa93f0be2fa1d4092c2d06cec0b7fbcc00d4817ff2d6dc4601301a8cb3917fc" => :catalina
+    sha256 "a2d26575a0a9816dc1f8b0b212531c8ea455a6c8322a42d5fb2630e3a2f85b1b" => :mojave
+    sha256 "9dd898b2222ba55a6c2aeb4e4414d6eb68d9c9e19794da533b4d1bd6970e6469" => :high_sierra
   end
 
   head do

@@ -1,7 +1,8 @@
 class Tcptraceroute < Formula
   desc "Traceroute implementation using TCP packets"
   homepage "https://github.com/mct/tcptraceroute"
-  revision 1
+  license "GPL-2.0"
+  revision 2
   head "https://github.com/mct/tcptraceroute.git"
 
   stable do
@@ -18,12 +19,9 @@ class Tcptraceroute < Formula
 
   bottle do
     cellar :any
-    sha256 "9cfef78a5c463879ead4822dd364d65edf1161f2d09722954c69ae2a427167d7" => :catalina
-    sha256 "27fb840b747841e42dddb71edf57b29a3bae93380bc9f53c19b07fb9307e603b" => :mojave
-    sha256 "d8093c6d5e3cc0738753df38332f303704de764942000130be13ee351a32255a" => :high_sierra
-    sha256 "dd1916233cb76a06e925884f9a1b8e681a181ae3699e0cd7086c5cd8d0c85f43" => :sierra
-    sha256 "823a6a2b058ebd9d9a612079d469cbb4bdcc7f3e438c40758836cf7a2373cd00" => :el_capitan
-    sha256 "883c29c6037488f13724adddd84c87c0d13e846aaf3a45b1c60206ac091c37fe" => :yosemite
+    sha256 "26e71f154250d933387eb00a17f93c7fe500c9d6bc69ddec10b7bfe7f39c38eb" => :catalina
+    sha256 "c688457fecc03c5e881448e3f2bc941bc352bb29488383889f71de3f719dee29" => :mojave
+    sha256 "e71cda023bb22dc514fda3d22af13bf8f0db80c1937add70b67cf7447d40a67f" => :high_sierra
   end
 
   depends_on "libnet"
@@ -36,11 +34,12 @@ class Tcptraceroute < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    tcptraceroute requires root privileges so you will need to run
-    `sudo tcptraceroute`.
-    You should be certain that you trust any software you grant root privileges.
-  EOS
+  def caveats
+    <<~EOS
+      tcptraceroute requires root privileges so you will need to run
+      `sudo tcptraceroute`.
+      You should be certain that you trust any software you grant root privileges.
+    EOS
   end
 
   test do

@@ -3,16 +3,15 @@ class Veclibfort < Formula
   homepage "https://github.com/mcg1969/vecLibFort"
   url "https://github.com/mcg1969/vecLibFort/archive/0.4.2.tar.gz"
   sha256 "c61316632bffa1c76e3c7f92b11c9def4b6f41973ecf9e124d68de6ae37fbc85"
-  revision 6
+  license "BSL-1.0"
+  revision 7
   head "https://github.com/mcg1969/vecLibFort.git"
 
   bottle do
     cellar :any
-    sha256 "493d5c54e0b7b5ce3eca692e9809ca0c0f4d64da6d60a12f187490110717a356" => :catalina
-    sha256 "cfc57cf7c918e03eca808df69b322b150802aeee21bfafcd3906d52cdf4d8598" => :mojave
-    sha256 "482b9bd9210a7b32c30e4536d77529110f7a85399c83efd370f2612e9dd60d65" => :high_sierra
-    sha256 "f655ad9b96a1e13a17dd757a598608850634ccc04fb52436e3f838f588ffe157" => :sierra
-    sha256 "c91bb504dc969a045cbfc837b7f54de5e04012894b835a3b39ed1a6dc075d52f" => :el_capitan
+    sha256 "bacc73e19f66c5b9cbd1436cbac4a6256a638724961bc17a79a844a0c5635712" => :catalina
+    sha256 "a3d1f23a1ce7f3044b50ba81baf3c1ee058070baa33a7d2a8ea14827ac6d0650" => :mojave
+    sha256 "072c7d553e857a6b4c760f921b9eb6281e7d91c5911f5257915bf6de8bdee97e" => :high_sierra
   end
 
   depends_on "gcc" # for gfortran

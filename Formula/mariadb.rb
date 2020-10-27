@@ -1,25 +1,35 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.org/f/mariadb-10.4.10/source/mariadb-10.4.10.tar.gz"
-  sha256 "cd50fddf86c2a47405737e342f78ebd40d5716f0fb32b976245de713bed01421"
+  url "https://downloads.mariadb.com/MariaDB/mariadb-10.5.6/source/mariadb-10.5.6.tar.gz"
+  sha256 "ff05dd69e9f6992caf1053242db704f04eda6f9accbcc98b74edfaf6013c45c4"
+  license "GPL-2.0-only"
+
+  livecheck do
+    url "https://downloads.mariadb.org/"
+    regex(/Download v?(\d+(?:\.\d+)+) Stable Now/i)
+  end
 
   bottle do
-    sha256 "64eef58dca19b2adb6f0ac36952766a66bab70926424428ceb1c4f41608e4cdf" => :catalina
-    sha256 "5a749416ba00ae59a3a5903dac0bc0a89cc8da103b51e73cdbea7a7425943322" => :mojave
-    sha256 "9e66889529a01f029b448f64e187010d0e017c504ddb37cbfffa1311cfdafa64" => :high_sierra
+    sha256 "b7300eb26d819c604b9f9abb6f5782b64bbf39a9131d7c3063221f4a49ef4e12" => :catalina
+    sha256 "c6de45088fab3ab0ddfe6f0edf7b8f3fb84cfe9b7f79f6055f0d1ee5395daf69" => :mojave
+    sha256 "b6795cacaf8ba7ee419f2664aa72f4a5f8dcf6dc327e5dab3f28e11b4ae324a7" => :high_sierra
   end
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
+  depends_on "groonga"
   depends_on "openssl@1.1"
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "bzip2"
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
+
   conflicts_with "mysql", "percona-server",
-    :because => "mariadb, mysql, and percona install the same binaries"
-  conflicts_with "mysql-connector-c",
-    :because => "both install MySQL client libraries"
-  conflicts_with "mytop", :because => "both install `mytop` binaries"
-  conflicts_with "mariadb-connector-c",
-    :because => "both install plugins"
+    because: "mariadb, mysql, and percona install the same binaries"
+  conflicts_with "mytop", because: "both install `mytop` binaries"
+  conflicts_with "mariadb-connector-c", because: "both install `mariadb_config`"
 
   def install
     # Set basedir and ldata so that mysql_install_db can find the server
@@ -29,6 +39,9 @@ class Mariadb < Formula
       s.change_make_var! "basedir", "\"#{prefix}\""
       s.change_make_var! "ldata", "\"#{var}/mysql\""
     end
+
+    # Use brew groonga
+    rm_r "storage/mroonga/vendor/groonga"
 
     # -DINSTALL_* are relative to prefix
     args = %W[
@@ -109,40 +122,39 @@ class Mariadb < Formula
     end
   end
 
-  def caveats; <<~EOS
-    A "/etc/my.cnf" from another install may interfere with a Homebrew-built
-    server starting up correctly.
+  def caveats
+    <<~EOS
+      A "/etc/my.cnf" from another install may interfere with a Homebrew-built
+      server starting up correctly.
 
-    MySQL is configured to only allow connections from localhost by default
-
-    To connect:
-        mysql -uroot
-  EOS
+      MySQL is configured to only allow connections from localhost by default
+    EOS
   end
 
-  plist_options :manual => "mysql.server start"
+  plist_options manual: "mysql.server start"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>KeepAlive</key>
-      <true/>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_bin}/mysqld_safe</string>
-        <string>--datadir=#{var}/mysql</string>
-      </array>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>WorkingDirectory</key>
-      <string>#{var}</string>
-    </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>KeepAlive</key>
+        <true/>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/mysqld_safe</string>
+          <string>--datadir=#{var}/mysql</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>WorkingDirectory</key>
+        <string>#{var}</string>
+      </dict>
+      </plist>
+    EOS
   end
 
   test do

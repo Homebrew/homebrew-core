@@ -4,6 +4,10 @@ class Ekhtml < Formula
   url "https://downloads.sourceforge.net/project/ekhtml/ekhtml/0.3.2/ekhtml-0.3.2.tar.gz"
   sha256 "1ed1f0166cd56552253cd67abcfa51728ff6b88f39bab742dbf894b2974dc8d6"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "6599b50de97ee6aec9788ac0479c2ad25f335213b3bc9bbab0e5a8ae5c142482" => :catalina

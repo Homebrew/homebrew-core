@@ -1,20 +1,28 @@
 class Sqlite < Formula
   desc "Command-line interface for SQLite"
   homepage "https://sqlite.org/"
-  url "https://sqlite.org/2019/sqlite-autoconf-3300100.tar.gz"
-  version "3.30.1"
-  sha256 "8c5a50db089bd2a1b08dbc5b00d2027602ca7ff238ba7658fabca454d4298e60"
+  url "https://www.sqlite.org/2020/sqlite-autoconf-3330000.tar.gz"
+  version "3.33.0"
+  sha256 "106a2c48c7f75a298a7557bcc0d5f4f454e5b43811cc738b7ca294d6956bbb15"
+  license "blessing"
+
+  livecheck do
+    url "https://sqlite.org/news.html"
+    regex(%r{v?(\d+(?:\.\d+)+)</h3>}i)
+  end
 
   bottle do
     cellar :any
-    sha256 "38c39121f7634ec563bb201b483f66cf567dfe61e02624ffb06f620f11158ab1" => :catalina
-    sha256 "5e6fef2d754e0e4009d502c40ad1846ac46937886b5f3fe89378cb838626d95e" => :mojave
-    sha256 "5331999b520ce7e257a0e263ef0a6d0a1d3d40ce9a1d5759a10e0e21dcd001be" => :high_sierra
+    sha256 "78566572373e0010a52729c1b41f7503f4e86acc67e7a37bafe091a6ddc36147" => :catalina
+    sha256 "0d4a34731923310528f3ca79418eb7149cf12eda3b3043e5ba11b040ca5f602f" => :mojave
+    sha256 "9fd2f150b96a7ca378f84e09a2715c7a87c1b95a3a3a241a25f57d22ab0be781" => :high_sierra
   end
 
-  keg_only :provided_by_macos, "macOS provides an older sqlite3"
+  keg_only :provided_by_macos
 
   depends_on "readline"
+
+  uses_from_macos "zlib"
 
   def install
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_COLUMN_METADATA=1"

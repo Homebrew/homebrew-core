@@ -3,7 +3,13 @@ class Ganglia < Formula
   homepage "https://ganglia.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/ganglia/ganglia%20monitoring%20core/3.7.2/ganglia-3.7.2.tar.gz"
   sha256 "042dbcaf580a661b55ae4d9f9b3566230b2232169a0898e91a797a4c61888409"
+  license "BSD-3-Clause"
   revision 3
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/ganglia[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
 
   bottle do
     sha256 "3201c7b103ad74ed63d7e4cda74da894a3e71443a8b2e79353dcf22874580c96" => :catalina
@@ -27,7 +33,7 @@ class Ganglia < Formula
   depends_on "pcre"
   depends_on "rrdtool"
 
-  conflicts_with "coreutils", :because => "both install `gstat` binaries"
+  conflicts_with "coreutils", because: "both install `gstat` binaries"
 
   def install
     if build.head?
@@ -56,10 +62,11 @@ class Ganglia < Formula
     (var/"lib/ganglia/rrds").mkpath
   end
 
-  def caveats; <<~EOS
-    If you didn't have a default config file, one was created here:
-      #{etc}/gmond.conf
-  EOS
+  def caveats
+    <<~EOS
+      If you didn't have a default config file, one was created here:
+        #{etc}/gmond.conf
+    EOS
   end
 
   test do

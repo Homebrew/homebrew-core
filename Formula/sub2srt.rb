@@ -3,6 +3,7 @@ class Sub2srt < Formula
   homepage "https://github.com/robelix/sub2srt"
   url "https://github.com/robelix/sub2srt/archive/0.5.5.tar.gz"
   sha256 "169d94d1d0e946a5d57573b7b7b5883875996f802362341fe1a1a0220229b905"
+  license "GPL-2.0"
   head "https://github.com/robelix/sub2srt.git"
 
   bottle :unneeded

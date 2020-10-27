@@ -4,6 +4,10 @@ class Clean < Formula
   url "https://downloads.sourceforge.net/project/clean/clean/3.4/clean-3.4.tar.bz2"
   sha256 "761f3a9e1ed50747b6a62a8113fa362a7cc74d359ac6e8e30ba6b30d59115320"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "c4846ab5fe761673db9a5575b56ec21b4ae0d4d75a974015d946d25fde0def12" => :catalina

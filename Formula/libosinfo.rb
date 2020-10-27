@@ -1,53 +1,68 @@
 class Libosinfo < Formula
-  desc "The Operating System information database"
+  desc "Operating System information database"
   homepage "https://libosinfo.org/"
-  url "https://releases.pagure.org/libosinfo/libosinfo-1.6.0.tar.gz"
-  sha256 "3c385c1cceb46301fdc79115e7b28e3df7aa26fafce0a787a60132a86a1990c7"
+  url "https://releases.pagure.org/libosinfo/libosinfo-1.8.0.tar.xz"
+  sha256 "49ff32be0d209f6c99480e28b94340ac3dd0158322ae4303adfbdfe973a108a5"
+  license "LGPL-2.0-or-later"
+  revision 3
+
+  livecheck do
+    url "https://releases.pagure.org/libosinfo/?C=M&O=D"
+    regex(/href=.*?libosinfo[._-]v?([\d.]+)\.t/i)
+  end
 
   bottle do
-    sha256 "8242828a781ce96d398c46860ae0202afab5fe579b5e91aaa256e969fd85d0a6" => :catalina
-    sha256 "c67caf435fca9b083f3928bd6983dcaf4347f33b16693e5f28debe5b216b012d" => :mojave
-    sha256 "bed6f6794bcf73559378663f1856436508ab77572a9d6a79fce658ac6f320787" => :high_sierra
-    sha256 "a9d1632746e463740d21c64cacfd00f9625664c14369c6089edf6aa3f29170b0" => :sierra
+    sha256 "6a779d888f548649d3482452583ced807c9aceca45bb0989122b22822ec82316" => :catalina
+    sha256 "60e18106b7dca908a79e1edf59cd090ecb3a11d611d84330806aa0941fedb035" => :mojave
+    sha256 "eabb00c969fe4686063a44b6d58170bc566972278d8b27468ac56341e7d083d3" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "check"
   depends_on "gettext"
   depends_on "glib"
   depends_on "libsoup"
   depends_on "libxml2"
+  depends_on "usb.ids"
+
+  resource "pci.ids" do
+    url "https://raw.githubusercontent.com/pciutils/pciids/791050fc4eca1e19db3a985a284081f9038c21aa/pci.ids"
+    sha256 "587aa462719ffa840254e88b7b79fb499da2c3af227496a45d7e8b7c87f790f6"
+  end
 
   def install
-    # avoid wget dependency
-    inreplace "Makefile.in", "wget -q -O", "curl -o"
+    (share/"misc").install resource("pci.ids")
 
-    args = %W[
-      --prefix=#{prefix}
-      --localstatedir=#{var}
-      --mandir=#{man}
-      --sysconfdir=#{etc}
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --disable-vala
-      --enable-introspection
-      --enable-tests
-    ]
-
-    system "./configure", *args
-
-    # Compilation of docs doesn't get done if we jump straight to "make install"
-    system "make"
-    system "make", "install"
+    mkdir "build" do
+      flags = %W[
+        -Denable-gtk-doc=false
+        -Dwith-pci-ids-path=#{share/"misc/pci.ids"}
+        -Dwith-usb-ids-path=#{Formula["usb.ids"].opt_share/"misc/usb.ids"}
+        -Dsysconfdir=#{etc}
+      ]
+      system "meson", *std_meson_args, *flags, ".."
+      system "ninja", "install", "-v"
+    end
+    (share/"osinfo/.keep").write ""
   end
 
   test do
     (testpath/"test.c").write <<~EOS
+      #include <stdio.h>
       #include <osinfo/osinfo.h>
 
       int main(int argc, char *argv[]) {
+        GError *err = NULL;
         OsinfoPlatformList *list = osinfo_platformlist_new();
+        OsinfoLoader *loader = osinfo_loader_new();
+        osinfo_loader_process_system_path(loader, &err);
+        if (err != NULL) {
+          fprintf(stderr, "%s", err->message);
+          return 1;
+        }
         return 0;
       }
     EOS
@@ -67,5 +82,6 @@ class Libosinfo < Formula
     ]
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
+    system bin/"osinfo-query", "device"
   end
 end

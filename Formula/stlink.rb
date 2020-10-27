@@ -1,18 +1,16 @@
 class Stlink < Formula
   desc "STM32 discovery line Linux programmer"
   homepage "https://github.com/texane/stlink"
-  url "https://github.com/texane/stlink/archive/v1.5.1.tar.gz"
-  sha256 "e0145fbfd3e781f21baf12a0750b0933c445ee6338e36142836bf5a2c267e107"
+  url "https://github.com/texane/stlink/archive/v1.6.1.tar.gz"
+  sha256 "ca9a640f84c3e2c9873bd51759594bc05c00cdf6e1f21b434ae2c0e7985433d8"
+  license "BSD-3-Clause"
   head "https://github.com/texane/stlink.git"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "71586a0e11d540bc26627bb0300df6a4a02e2dc95b5e81d19aa4a73514f88f40" => :catalina
-    sha256 "65d735edcaf4fbc2d23d564a831309d43bedc1efaa9574b0e697f48256711df2" => :mojave
-    sha256 "9640919d8abfe07ea06e0c208d13dba96988a99bf8ae6080afcc4c332f58b530" => :high_sierra
-    sha256 "9662ae4fc8ff28f24ea2441a9629fbc66732f1c24d9bd71fca94cea4d16a5901" => :sierra
-    sha256 "f74ea6ea462e6c7de089bcdcb92f9b44f1e9809e8989da7cc50a65ade4e1be77" => :el_capitan
+    sha256 "e24c7913e29b627142d892c8dacfcbb077cea4a8abdb021d2b6624cd7ce61865" => :catalina
+    sha256 "85fa59905d566f85a1f7b4dc86a2f770181550ac7402907c326b050f09053272" => :mojave
+    sha256 "ca0da39790dc0a876555f19cbf227a05490c126a8f071e971118bdbbd2147787" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -25,6 +23,6 @@ class Stlink < Formula
   end
 
   test do
-    system bin/"st-util", "-h"
+    assert_match "st-flash #{version}", shell_output("#{bin}/st-flash --debug reset 2>&1", 255)
   end
 end

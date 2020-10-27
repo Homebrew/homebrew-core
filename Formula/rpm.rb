@@ -1,14 +1,20 @@
 class Rpm < Formula
   desc "Standard unix software packaging tool"
   homepage "https://rpm.org/"
-  url "http://ftp.rpm.org/releases/rpm-4.15.x/rpm-4.15.0.tar.bz2"
-  sha256 "1e06723b13591e57c99ebe2006fb8daddc4cf72efb366a64a34673ba5f61c201"
+  url "http://ftp.rpm.org/releases/rpm-4.15.x/rpm-4.15.1.tar.bz2"
+  sha256 "ddef45f9601cd12042edfc9b6e37efcca32814e1e0f4bb8682d08144a3e2d230"
+  revision 1
   version_scheme 1
 
+  livecheck do
+    url "https://github.com/rpm-software-management/rpm.git"
+    regex(/rpm[._-]v?(\d+(?:\.\d+)+)-release/i)
+  end
+
   bottle do
-    sha256 "a758f1a11bb8b5c794d6566988cc0a1d61aa5f7b0b66b6a5b0fe33330d26aff6" => :catalina
-    sha256 "282452168e2b1c1635009bcd8a5dcc27580f2bcaf738f6b37fd20c383e0e17de" => :mojave
-    sha256 "0e1ccf75206784980f892425c2d96d5ff2b7433953c49296948eda35506e2e9f" => :high_sierra
+    sha256 "e5d398daca37da278add441d2cb0825c019fed8bcfb33bd4abb01dad3dce42e0" => :catalina
+    sha256 "0b5556d33614062b0b9d39cc8d3f4046d562cbaa9b03498cf4b11c57debb38fe" => :mojave
+    sha256 "a59870c437fe72ce7438726f79a44111d8352dbe50b7f6cf9d147210034a764b" => :high_sierra
   end
 
   depends_on "berkeley-db"
@@ -47,7 +53,12 @@ class Rpm < Formula
                           "--with-external-db",
                           "--with-crypto=openssl",
                           "--without-apidocs",
-                          "--with-vendor=homebrew"
+                          "--with-vendor=homebrew",
+                          # Don't allow superenv shims to be saved into lib/rpm/macros
+                          "__MAKE=/usr/bin/make",
+                          "__SED=/usr/bin/sed",
+                          "__GIT=/usr/bin/git",
+                          "__LD=/usr/bin/ld"
     system "make", "install"
   end
 
@@ -92,13 +103,10 @@ class Rpm < Formula
   test do
     (testpath/"rpmbuild").mkpath
 
-    # Falsely flagged by RuboCop.
-    # rubocop:disable Style/FormatStringToken
     (testpath/".rpmmacros").write <<~EOS
       %_topdir		#{testpath}/rpmbuild
-      %_tmppath		%{_topdir}/tmp
+      %_tmppath		%\{_topdir}/tmp
     EOS
-    # rubocop:enable Style/FormatStringToken
 
     system "#{bin}/rpm", "-vv", "-qa", "--dbpath=#{testpath}/var/lib/rpm"
     assert_predicate testpath/"var/lib/rpm/Packages", :exist?,

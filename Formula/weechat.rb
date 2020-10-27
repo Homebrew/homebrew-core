@@ -1,15 +1,16 @@
 class Weechat < Formula
   desc "Extensible IRC client"
   homepage "https://www.weechat.org"
-  url "https://weechat.org/files/src/weechat-2.6.tar.xz"
-  sha256 "fa9e3130e7afdfb6eff1b7892caac3efdd38a442f9989ca8c061eced2c755148"
+  url "https://weechat.org/files/src/weechat-2.9.tar.xz"
+  sha256 "eab406c385c3a10d0107ddc3aac6596ae8c59af99e9158c6d769e90ec9adfa0e"
+  license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/weechat/weechat.git"
 
   bottle do
-    sha256 "6fe44ae3787ce8b4133d66e7e7882aee72fdbbe0798b84a8e57ad3804a182466" => :catalina
-    sha256 "b394f94725481ffb20c88325947f66da4e8d8e3106d3b41c49431915fc297aa0" => :mojave
-    sha256 "1cd660bf3084ddbbe4c1fcebd38f484265e13072d153ad895dd4498d652b3953" => :high_sierra
-    sha256 "769a4ce55cee49db0fcf430201d4a94b077adeeb83901f231e2481c9034a9749" => :sierra
+    sha256 "65a4c84a1d5b2104a7c3885ad2f82434143dbffc4def32983bcb422050e88f90" => :catalina
+    sha256 "46489201131cdbe9cd2ac3859b117c88f2cc1da87ba2508aa41642ae01c6ef13" => :mojave
+    sha256 "7355d5708e6a661ce974c565c835fbe1bce28fa57f2a872900f9cfe41ad48002" => :high_sierra
   end
 
   depends_on "asciidoctor" => :build
@@ -19,24 +20,27 @@ class Weechat < Formula
   depends_on "gettext"
   depends_on "gnutls"
   depends_on "libgcrypt"
+  depends_on "libiconv"
   depends_on "lua"
   depends_on "ncurses"
   depends_on "perl"
-  depends_on "python"
-  depends_on "ruby" if MacOS.version <= :sierra
+  depends_on "python@3.9"
+  depends_on "ruby"
+
+  uses_from_macos "curl"
+  uses_from_macos "tcl-tk"
 
   def install
     args = std_cmake_args + %W[
       -DENABLE_MAN=ON
       -DENABLE_GUILE=OFF
-      -DCA_FILE=#{etc}/openssl/cert.pem
+      -DCA_FILE=#{Formula["gnutls"].pkgetc}/cert.pem
       -DENABLE_JAVASCRIPT=OFF
+      -DENABLE_PHP=OFF
     ]
 
-    if MacOS.version >= :sierra
-      args << "-DRUBY_EXECUTABLE=/usr/bin/ruby"
-      args << "-DRUBY_LIB=/usr/lib/libruby.dylib"
-    end
+    # Fix system gem on Mojave
+    ENV["SDKROOT"] = ENV["HOMEBREW_SDKROOT"]
 
     mkdir "build" do
       system "cmake", "..", *args

@@ -3,21 +3,25 @@ require "language/node"
 class Coffeescript < Formula
   desc "Unfancy JavaScript"
   homepage "https://coffeescript.org/"
-  url "https://registry.npmjs.org/coffeescript/-/coffeescript-2.4.1.tgz"
-  sha256 "e4f0f957185adf2c7456b0080a7bf9a25e9b5e346c2b66bfb67acb2ac25a8471"
+  url "https://registry.npmjs.org/coffeescript/-/coffeescript-2.5.1.tgz"
+  sha256 "0ab43e873a859d323f2f5a0069a8bef3acfa72b09769be3350c9d43c5bb489a0"
+  license "MIT"
   head "https://github.com/jashkenas/coffeescript.git"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9735256a21c36c30fb29a9de0c0c0cbb15dd8d29e315522f55afcd3f285fc8ad" => :catalina
-    sha256 "9c1bf5218600450ce9f3e8ed18e762f38d066d313f2d7ad198c8c0ffd7a7ad38" => :mojave
-    sha256 "46c1294c0ddabe9e77e83a1a43e2ce26c91c88f8831c0134fd4806704fc6838c" => :high_sierra
-    sha256 "eee1074f188cb64062d88a72c43e156230a358d207eb22959ff10c3b77545854" => :sierra
+    sha256 "090fe2a4161fbcf4e7615cded97c8e9736f7939c1a70a863f37d83141f5cb118" => :catalina
+    sha256 "acd2a08cb5db976c36508582ac5ff82476ad9dc037ab065353d071cf46c211f5" => :mojave
+    sha256 "4ee049a8e7bb8a0c67452cb0b912ef5fd4e402c4948cf1b4cb8a5022640df19e" => :high_sierra
   end
 
   depends_on "node"
 
-  conflicts_with "cake", :because => "both install `cake` binaries"
+  conflicts_with "cake", because: "both install `cake` binaries"
 
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)

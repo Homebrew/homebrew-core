@@ -5,6 +5,10 @@ class Ufraw < Formula
   sha256 "f7abd28ce587db2a74b4c54149bd8a2523a7ddc09bedf4f923246ff0ae09a25e"
   revision 3
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     rebuild 1
     sha256 "19a95667ecb2a9bab8a108e539ef229b945f727bca7e8651af80cca1d355a196" => :catalina
@@ -24,14 +28,14 @@ class Ufraw < Formula
 
   # jpeg 9 compatibility
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/b8ed064/ufraw/jpeg9.patch"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/b8ed064e0d2567a4ced511755ba0a8cc5ecc75f7/ufraw/jpeg9.patch"
     sha256 "45de293a9b132eb675302ba8870f5b6216c51da8247cd096b24a5ab60ffbd7f9"
   end
 
   # Fix compilation with Xcode 9 and later,
   # see https://sourceforge.net/p/ufraw/bugs/419/
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/d5bf686c74/ufraw/high_sierra.patch"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/d5bf686c740d9ee0fdf0384ef8dfb293c5483dd2/ufraw/high_sierra.patch"
     sha256 "60c67978cc84b5a118855bcaa552d5c5c3772b407046f1b9db9b74076a938f6e"
   end
 

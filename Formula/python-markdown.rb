@@ -1,25 +1,28 @@
 class PythonMarkdown < Formula
+  include Language::Python::Virtualenv
+
   desc "Python implementation of Markdown"
   homepage "https://pypi.python.org/pypi/Markdown"
-  url "https://files.pythonhosted.org/packages/ac/df/0ae25a9fd5bb528fe3c65af7143708160aa3b47970d5272003a1ad5c03c6/Markdown-3.1.1.tar.gz"
-  sha256 "2e50876bcdd74517e7b71f3e7a76102050edec255b3983403f1a63e7c8a41e7a"
+  url "https://github.com/Python-Markdown/markdown/archive/3.3.1.tar.gz"
+  sha256 "5edc04d4afa4b4a6859f50d73c5e64bb4a1b5f44debe26398ee0f1040b0635a6"
+  license "BSD-3-Clause"
+  head "https://github.com/Python-Markdown/markdown.git"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "70dccbcd84e8e9151940ee81433a43284dd7e0b4f20b54a98f63bae19719bb61" => :catalina
-    sha256 "997125a0155bbebdc066d74272cfb4d7be2ebe1299204b1626db52d2a35ccd21" => :mojave
-    sha256 "997125a0155bbebdc066d74272cfb4d7be2ebe1299204b1626db52d2a35ccd21" => :high_sierra
-    sha256 "db626ba3ff3da1197a29fb621d15400790acf7e11d3adf9a5c022361f6554f3b" => :sierra
+    sha256 "86fdb3082a32df892f8344100929795de8aba2dac965677b0c7e7b6a4470729a" => :catalina
+    sha256 "80e595735252ab2d6ec6059bad7e4b1a976b5fd1ba11f8c28fad977c68ccf032" => :mojave
+    sha256 "a4fc3011403266446e0507eaa930908ba864b2fe199b7abb6bb14ecdaa81855d" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.9"
 
   def install
-    xy = Language::Python.major_minor_version "python3"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
-    system "python3", *Language::Python.setup_install_args(libexec)
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   test do

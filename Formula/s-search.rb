@@ -5,6 +5,7 @@ class SSearch < Formula
   homepage "https://github.com/zquestz/s"
   url "https://github.com/zquestz/s/archive/v0.5.14.tar.gz"
   sha256 "c32eedf6a4080cbe221c902cf7f63b1668b3927edfc448d963d69ed66c8ec2fb"
+  license "MIT"
   head "https://github.com/zquestz/s.git"
 
   bottle do
@@ -19,7 +20,7 @@ class SSearch < Formula
 
   go_resource "github.com/FiloSottile/gvt" do
     url "https://github.com/FiloSottile/gvt.git",
-        :revision => "50d83ea21cb0405e81efd284951e111b3a68d701"
+        revision: "50d83ea21cb0405e81efd284951e111b3a68d701"
   end
 
   def install

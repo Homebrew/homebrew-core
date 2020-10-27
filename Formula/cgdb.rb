@@ -3,6 +3,12 @@ class Cgdb < Formula
   homepage "https://cgdb.github.io/"
   url "https://cgdb.me/files/cgdb-0.7.1.tar.gz"
   sha256 "bb723be58ec68cb59a598b8e24a31d10ef31e0e9c277a4de07b2f457fe7de198"
+  license "GPL-2.0"
+
+  livecheck do
+    url "https://cgdb.me/files/"
+    regex(/href=.*?cgdb[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 "50abc3a292d69a3a121f3ed7d54d72f4528eb1285faa7f842bb96588a463dc88" => :catalina
@@ -20,6 +26,8 @@ class Cgdb < Formula
 
   depends_on "help2man" => :build
   depends_on "readline"
+
+  uses_from_macos "flex" => :build
 
   def install
     system "sh", "autogen.sh" if build.head?

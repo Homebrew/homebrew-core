@@ -1,15 +1,19 @@
 class JpegTurbo < Formula
   desc "JPEG image codec that aids compression and decompression"
   homepage "https://www.libjpeg-turbo.org/"
-  url "https://downloads.sourceforge.net/project/libjpeg-turbo/2.0.3/libjpeg-turbo-2.0.3.tar.gz"
-  sha256 "4246de500544d4ee408ee57048aa4aadc6f165fc17f141da87669f20ed3241b7"
+  url "https://downloads.sourceforge.net/project/libjpeg-turbo/2.0.5/libjpeg-turbo-2.0.5.tar.gz"
+  sha256 "16f8f6f2715b3a38ab562a84357c793dd56ae9899ce130563c72cd93d8357b5d"
+  license "IJG"
   head "https://github.com/libjpeg-turbo/libjpeg-turbo.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
-    sha256 "22d6d0bcf913245cea1541440dcd79519b81953057eb028113f62d416d4f0d1b" => :catalina
-    sha256 "dfc1db83aeb51510ee7fe2243d168f9a2a8898b65176f4c07282e2781cfdbbeb" => :mojave
-    sha256 "ca326419069792b324e956a325190f0ad1425fc86174e36a5315d3781be6c41c" => :high_sierra
-    sha256 "8b587585e4dd98b09ee49fbab70868d2874710506850ad7762f59c44a78c48fd" => :sierra
+    sha256 "8e5ea85c9b9e2c35badbae2ac326871779438d92d89caedf4a454ae31699c65f" => :catalina
+    sha256 "705f3e434a0e2d28360ae63fe99cca55b552bee2e95eac737a49b825946b91dd" => :mojave
+    sha256 "4d564fd7620edb99c656a964cdd53aeb3c93d9f61ff1a94c68bf568cce789f67" => :high_sierra
   end
 
   keg_only "libjpeg-turbo is not linked to prevent conflicts with the standard libjpeg"

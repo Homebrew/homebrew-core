@@ -1,19 +1,20 @@
 class Singular < Formula
   desc "Computer algebra system for polynomial computations"
   homepage "https://www.singular.uni-kl.de/"
-  url "https://service.mathematik.uni-kl.de/ftp/pub/Math/Singular/SOURCES/4-1-2/singular-4.1.2p1.tar.gz"
-  version "4.1.2p1"
-  sha256 "b520809ce061059081a973d4a3b102b05863d49c20565d03f638ba5146296d4f"
+  url "ftp://jim.mathematik.uni-kl.de/pub/Math/Singular/SOURCES/4-1-3/singular-4.1.3p2.tar.gz"
+  version "4.1.3p2"
+  sha256 "ee7ac6076d7f8622a1f24d37e9b632bae0700c6e314f56728400be136df64494"
+  license "GPL-2.0"
   revision 2
 
   bottle do
-    sha256 "8729b1dc62c815119dcf2dd02c28bd46bff1f6d26b4f94fbe19bcd068bebabd1" => :catalina
-    sha256 "c8667a4ade11b37490a21f5ebba2aeae703d8531bdfa7622c4ebd83bc1e809f2" => :mojave
-    sha256 "366655725abfcebfd6aac79713aeb568282f5c23509b66dc5154367d2bd13934" => :high_sierra
+    sha256 "75f8a2d324d2d9bff14ec7063ccc23992502f899ddacc6603102dd7e0047f482" => :catalina
+    sha256 "6462648583c2d1a3f21e6bcd341ff75ffc6cf9e2a945b80d268093187591dcd4" => :mojave
+    sha256 "f0c3ef15a16f9e59290da7ad7530a5c6897aacf2b825b41db5ea4da61bb7cf25" => :high_sierra
   end
 
   head do
-    url "https://github.com/Singular/Sources.git"
+    url "https://github.com/Singular/Singular.git", branch: "spielwiese"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -23,6 +24,7 @@ class Singular < Formula
   depends_on "gmp"
   depends_on "mpfr"
   depends_on "ntl"
+  depends_on "python@3.9"
 
   def install
     system "./autogen.sh" if build.head?
@@ -30,6 +32,7 @@ class Singular < Formula
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
+                          "--with-python=#{Formula["python@3.9"].opt_bin}/python3",
                           "CXXFLAGS=-std=c++11"
     system "make", "install"
   end

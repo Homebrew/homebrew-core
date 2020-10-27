@@ -4,6 +4,11 @@ class Stm32flash < Formula
   url "https://downloads.sourceforge.net/project/stm32flash/stm32flash-0.5.tar.gz"
   sha256 "97aa9422ef02e82f7da9039329e21a437decf972cb3919ad817f70ac9a49e306"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/stm32flash[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "ad0d22f81963099a648b32697bf1a14ca3ee51cd45f8e73f0f701d5836faecee" => :catalina

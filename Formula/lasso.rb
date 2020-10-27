@@ -1,24 +1,39 @@
 class Lasso < Formula
   desc "Library for Liberty Alliance and SAML protocols"
   homepage "https://lasso.entrouvert.org/"
-  url "https://dev.entrouvert.org/releases/lasso/lasso-2.6.0.tar.gz"
-  sha256 "146bff7a25166467d960003346cbc3291f3f29067e305cb82ebb12354c7d0acf"
-  revision 2
+  url "https://dev.entrouvert.org/releases/lasso/lasso-2.6.1.tar.gz"
+  sha256 "f8a8dbce238802f6bb9c3b8bd528b4dce2a1dc44e2d34d8d839aa54fbc8ed1de"
+  license "GPL-2.0"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "2c88e8cd95ae369d367c06345174b9f9503ef9cf45907e9536a6930eeb7ccfbd" => :catalina
-    sha256 "2205d01fc955e79915ec59ba8acfa1221fcac6cd382529fcc08a2db6809e01e8" => :mojave
-    sha256 "e65e3b3b6ce40489b6674c51ccd6266d8a8167e6de99eb237e3a5a8a7473e33a" => :high_sierra
-    sha256 "de394e2052991b6fe749d8f8e00f7999c84241cfa93cb68791f2e2cb1a68381a" => :sierra
+    sha256 "bc1f4dc6fccff1c5631d37b4539d2d9a657357445488ce892756feccf98f660b" => :catalina
+    sha256 "d4bfe838fe8fd0b32ff7e19a4601c85a3b98a49ed8e1f05dc796ed5adf89005b" => :mojave
+    sha256 "8256178a39f08386db515226b334a93f895cb8d96c043acfe1a8d420efbb668f" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
+  depends_on "python@3.9" => :build
   depends_on "glib"
   depends_on "libxmlsec1"
   depends_on "openssl@1.1"
 
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/21/9f/b251f7f8a76dec1d6651be194dfba8fb8d7781d10ab3987190de8391d08e/six-1.14.0.tar.gz"
+    sha256 "236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a"
+  end
+
   def install
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
+    resources.each do |r|
+      r.stage do
+        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
+      end
+    end
+
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--disable-java",

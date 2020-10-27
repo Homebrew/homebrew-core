@@ -3,6 +3,7 @@ class Ry < Formula
   homepage "https://github.com/jayferd/ry"
   url "https://github.com/jayferd/ry/archive/v0.5.2.tar.gz"
   sha256 "b53b51569dfa31233654b282d091b76af9f6b8af266e889b832bb374beeb1f59"
+  license "MIT"
   head "https://github.com/jayferd/ry.git"
 
   bottle do
@@ -22,14 +23,15 @@ class Ry < Formula
     system "make", "install", "PREFIX=#{prefix}"
   end
 
-  def caveats; <<~EOS
-    Please add to your profile:
-      which ry &>/dev/null && eval "$(ry setup)"
+  def caveats
+    <<~EOS
+      Please add to your profile:
+        which ry &>/dev/null && eval "$(ry setup)"
 
-    If you want your Rubies to persist across updates you
-    should set the `RY_RUBIES` variable in your profile, i.e.
-      export RY_RUBIES="#{HOMEBREW_PREFIX}/var/ry/rubies"
-  EOS
+      If you want your Rubies to persist across updates you
+      should set the `RY_RUBIES` variable in your profile, i.e.
+        export RY_RUBIES="#{HOMEBREW_PREFIX}/var/ry/rubies"
+    EOS
   end
 
   test do

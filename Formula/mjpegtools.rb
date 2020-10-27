@@ -5,6 +5,10 @@ class Mjpegtools < Formula
   sha256 "864f143d7686377f8ab94d91283c696ebd906bf256b2eacc7e9fb4dddcedc407"
   revision 2
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "5628d3b16a0e3172ba49a38b903b5be2fcb2595ce4919e32c41e39a89a250102" => :catalina

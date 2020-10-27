@@ -1,17 +1,15 @@
 class Seexpr < Formula
   desc "Embeddable expression evaluation engine"
   homepage "https://www.disneyanimation.com/technology/seexpr.html"
-  url "https://github.com/wdas/SeExpr/archive/v2.11.tar.gz"
-  sha256 "bf4a498f86aa3fc19aad3d7384de11d5df76f7f71587c9bd789f5e50f8090e1a"
+  url "https://github.com/wdas/SeExpr/archive/v3.0.1.tar.gz"
+  sha256 "1e4cd35e6d63bd3443e1bffe723dbae91334c2c94a84cc590ea8f1886f96f84e"
+  license "Apache-2.0"
 
   bottle do
     cellar :any
-    sha256 "f240a108c552c37d6f070d5048f1f00a33055243a5a82e6f017481fd452847a0" => :mojave
-    sha256 "a5a7e8224eb7669dc0fea2178df7d51be1733f9fb82d4c0bb1851608f18c4722" => :high_sierra
-    sha256 "762881f740d763d3c2477f5ead9b2fc7c549f38721b39e999f9b6634f5215b68" => :sierra
-    sha256 "0a374c2f84169d0b4ab064dfdd2dee856d5f80c9b8b27eee57e3d1614abffaa9" => :el_capitan
-    sha256 "c023332d27c1977db807f890011688ed756eb130fa1df40aa562776192733ffd" => :yosemite
-    sha256 "2e55d79f1519adbf0f1fdcf566aa67bd5515a60132516e2908250831d8e40355" => :mavericks
+    sha256 "2a55400ad86255b300843f7cde1dbed4130d0ba26ffc4c8725fec83b50e7f9e3" => :catalina
+    sha256 "e5ba2fcca24837fc43d11524fdeff04d9f4429f6c66421dec6c1925b60893f82" => :mojave
+    sha256 "b5a3d64c08f692d25d3eb12dd9409c414939303b0b9f19396c95a13d07b46fa9" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -20,13 +18,44 @@ class Seexpr < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "..", *std_cmake_args, "-DUSE_PYTHON=FALSE"
       system "make", "doc"
       system "make", "install"
     end
   end
 
   test do
-    system bin/"asciigraph"
+    assert_equal shell_output("#{bin}/asciigraph2"), <<~EOS
+                                    |                             
+                                    |                             
+                                    |                             
+                                    |                             
+                                   ###                            
+                                  # |#                            
+                                 ## |##                           
+                                 #  | #                           
+                                ##  | ##                          
+                                #   |  #                          
+                               ##   |  ##                         
+                               #    |   #                         
+                               #    |   ##                        
+                   ####       #     |    #       ####             
+      #######-----##--###-----#-----|----##-----##--###-----######
+            ######      ##   #      |     #    #      ######      
+                         ## ##      |     ## ##                   
+                          ###       |      ###                    
+                                    |                             
+                                    |                             
+                                    |                             
+                                    |                             
+                                    |                             
+                                    |                             
+                                    |                             
+                                    |                             
+                                    |                             
+                                    |                             
+                                    |                             
+                                    |                             
+    EOS
   end
 end

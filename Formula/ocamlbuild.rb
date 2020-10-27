@@ -3,14 +3,19 @@ class Ocamlbuild < Formula
   homepage "https://github.com/ocaml/ocamlbuild"
   url "https://github.com/ocaml/ocamlbuild/archive/0.14.0.tar.gz"
   sha256 "87b29ce96958096c0a1a8eeafeb6268077b2d11e1bf2b3de0f5ebc9cf8d42e78"
-  revision 1
+  license "LGPL-2.0"
+  revision 2
   head "https://github.com/ocaml/ocamlbuild.git"
 
+  livecheck do
+    url "https://github.com/ocaml/ocamlbuild/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
-    sha256 "4a735f41188227e15df37568e7ecda33e86f409df0a98ad4b7f89f23b560a072" => :catalina
-    sha256 "c7c277ed26f4b571d6e03b19e12c67eb09aac6ae3923d30a41db19f95a47aa6c" => :mojave
-    sha256 "3f5115d2af6cd6579f025f9caef26407de11307aea64cefed776cc41a0a64edc" => :high_sierra
-    sha256 "2ef35dd67ec4c9b4ca26a6ffd3b182e596e50dd83125be4f59b171768af2456d" => :sierra
+    sha256 "8f6fc7e7413b24faa041b7651349a3128f9eadefae5c9aa0c50f0d1a56e010f6" => :catalina
+    sha256 "04fed811edb4dd3903f742ec6678643f9959e85c4fcb763972c8779dec059515" => :mojave
+    sha256 "e4cd0274f9657874e29add30545055af4ea8697d426ed95f799ddce63aef5cfe" => :high_sierra
   end
 
   depends_on "ocaml"

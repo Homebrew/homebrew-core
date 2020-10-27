@@ -1,25 +1,31 @@
 class Gpgme < Formula
   desc "Library access to GnuPG"
   homepage "https://www.gnupg.org/related_software/gpgme/"
-  url "https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.13.1.tar.bz2"
-  sha256 "c4e30b227682374c23cddc7fdb9324a99694d907e79242a25a4deeedb393be46"
+  url "https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.14.0.tar.bz2"
+  sha256 "cef1f710a6b0d28f5b44242713ad373702d1466dcbe512eb4e754d7f35cd4307"
+  revision 1
+
+  livecheck do
+    url "https://gnupg.org/ftp/gcrypt/gpgme/"
+    regex(/href=.*?gpgme[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "81b33b4c78fa21c135798a5eb12f50506613eb329e7a381b7b83a9066db11542" => :catalina
-    sha256 "2a771556a334f9ad4603e83db53cbfacf53d80dc53420f244f0e3bd73afd576b" => :mojave
-    sha256 "af1c3963c888a5ee9abfe38acc31039e3da2f2d2ceded165cc6d92374ec6a794" => :high_sierra
-    sha256 "11c95397d0da8b17414876c65a8085cf0ea826939c202d7f677c93bc7efba20b" => :sierra
+    sha256 "fa8c359b9ca00fc0269f26243da8a1032f6a75a01196942b3fbf5ab0933bca23" => :catalina
+    sha256 "95e303f1b3f7201c9d684d84a5fa849dfa5942dc623a810f9f383f3331d6bb25" => :mojave
+    sha256 "3fa5a848421bcf9f36106f49d9fde42bd59999cfbfd57c9d2b6fbd0da095ba1b" => :high_sierra
   end
 
-  depends_on "python" => [:build, :test]
+  depends_on "python@3.9" => [:build, :test]
   depends_on "swig" => :build
   depends_on "gnupg"
   depends_on "libassuan"
   depends_on "libgpg-error"
 
   def install
+    ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
+
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
@@ -33,7 +39,6 @@ class Gpgme < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/gpgme-tool --lib-version")
-    system "python2.7", "-c", "import gpg; print gpg.version.versionstr"
-    system "python3", "-c", "import gpg; print(gpg.version.versionstr)"
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "import gpg; print(gpg.version.versionstr)"
   end
 end

@@ -3,14 +3,24 @@ class GraphTool < Formula
 
   desc "Efficient network analysis for Python 3"
   homepage "https://graph-tool.skewed.de/"
-  url "https://downloads.skewed.de/graph-tool/graph-tool-2.29.tar.bz2"
-  sha256 "6c0c4336bed6e2f79c91ace6d6914145ee03d0bd5025473b5918aec2b0657f7a"
+  url "https://downloads.skewed.de/graph-tool/graph-tool-2.35.tar.bz2"
+  sha256 "2395823c33d4d12cc8465782a640b99ec7bddf074a7a02e9c1eab4eb3f8ce9ba"
+  license "LGPL-3.0"
   revision 1
 
-  bottle do
-    sha256 "1f996b31dfb36bd8cb6a0e8162df27820fdebadd76f8d6650e6b09f5f61576e1" => :mojave
+  livecheck do
+    url "https://downloads.skewed.de/graph-tool/"
+    regex(/href=.*?graph-tool[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  bottle do
+    sha256 "a40bb74bb0f26997e70dbd3184b790e31c7803e4213f3162a457a2601de6d59f" => :catalina
+    sha256 "0701551b1f3fcab3422338343a90638081b83f8bddf4e8101c7250e14e5ed6ba" => :mojave
+  end
+
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "boost-python3"
@@ -19,11 +29,11 @@ class GraphTool < Formula
   depends_on "google-sparsehash"
   depends_on "gtk+3"
   depends_on "librsvg"
-  depends_on :macos => :mojave # for C++17
+  depends_on macos: :mojave # for C++17
   depends_on "numpy"
   depends_on "py3cairo"
   depends_on "pygobject3"
-  depends_on "python"
+  depends_on "python@3.9"
   depends_on "scipy"
 
   resource "Cycler" do
@@ -42,28 +52,34 @@ class GraphTool < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/5d/3a/24d275393f493004aeb15a1beae2b4a3043526e8b692b65b4a9341450ebe/pyparsing-2.4.0.tar.gz"
-    sha256 "1873c03321fc118f4e9746baf201ff990ceb915f433f23b395f5580d1840cb2a"
+    url "https://files.pythonhosted.org/packages/00/32/8076fa13e832bb4dcff379f18f228e5a53412be0631808b9ca2610c0f566/pyparsing-2.4.5.tar.gz"
+    sha256 "4ca62001be367f01bd3e92ecbb79070272a9d4964dce6a48a82ff0b8bc7e683a"
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/ad/99/5b2e99737edeb28c71bcbec5b5dda19d0d9ef3ca3e92e3e925e7c0bb364c/python-dateutil-2.8.0.tar.gz"
-    sha256 "c89805f6f4d64db21ed966fda138f8a5ed7a4fdbc1a8ee329ce1b74e3c74da9e"
+    url "https://files.pythonhosted.org/packages/be/ed/5bbc91f03fa4c839c4c7360375da77f9659af5f7086b7a7bdda65771c8e0/python-dateutil-2.8.1.tar.gz"
+    sha256 "73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c"
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/df/d5/3e3ff673e8f3096921b3f1b79ce04b832e0100b4741573154b72b756a681/pytz-2019.1.tar.gz"
-    sha256 "d747dd3d23d77ef44c6a3526e274af6efeb0a6f1afd5a69ba4d5be4098c8e141"
+    url "https://files.pythonhosted.org/packages/82/c3/534ddba230bd4fbbd3b7a3d35f3341d014cca213f369a9940925e7e5f691/pytz-2019.3.tar.gz"
+    sha256 "b02c06db6cf09c12dd25137e563b31700d3b80fcc4ad23abb7a315f2789819be"
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
-    sha256 "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
+    url "https://files.pythonhosted.org/packages/94/3e/edcf6fef41d89187df7e38e868b2dd2182677922b600e880baad7749c865/six-1.13.0.tar.gz"
+    sha256 "30f610279e8b2578cab6db20741130331735c781b56053c59c4076da27f06b66"
+  end
+
+  resource "zstandard" do
+    url "https://files.pythonhosted.org/packages/1b/a7/97b157508923ec0c2d27cdc23003cb096fa50ae38ded6e54adcbca3dca35/zstandard-0.14.0.tar.gz"
+    sha256 "9052398da52e8702cf9929999c8986b0f68b18c793e309cd8dff5cb7863d7652"
   end
 
   def install
-    xy = Language::Python.major_minor_version "python3"
-    venv = virtualenv_create(libexec, "python3")
+    system "autoreconf", "-fiv"
+    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
 
     resources.each do |r|
       venv.pip_install_and_link r
@@ -77,6 +93,8 @@ class GraphTool < Formula
       PYTHON_LIBS=-undefined\ dynamic_lookup
       --with-python-module-path=#{lib}/python#{xy}/site-packages
       --with-boost-python=boost_python#{xy.to_s.delete(".")}-mt
+      --with-boost-libdir=#{HOMEBREW_PREFIX}/opt/boost/lib
+      --with-boost-coroutine=boost_coroutine-mt
     ]
     args << "--with-expat=#{MacOS.sdk_path}/usr" if MacOS.sdk_path_if_needed
 
@@ -98,6 +116,6 @@ class GraphTool < Formula
       assert g.num_edges() == 1
       assert g.num_vertices() == 2
     EOS
-    system "python3", "test.py"
+    system Formula["python@3.9"].opt_bin/"python3", "test.py"
   end
 end

@@ -1,15 +1,21 @@
 class X265 < Formula
   desc "H.265/HEVC encoder"
-  homepage "https://bitbucket.org/multicoreware/x265"
-  url "https://bitbucket.org/multicoreware/x265/downloads/x265_3.2.1.tar.gz"
-  sha256 "fb9badcf92364fd3567f8b5aa0e5e952aeea7a39a2b864387cec31e3b58cbbcc"
-  head "https://bitbucket.org/multicoreware/x265", :using => :hg
+  homepage "https://bitbucket.org/multicoreware/x265_git"
+  url "https://bitbucket.org/multicoreware/x265_git/get/3.4.tar.gz"
+  sha256 "7f2771799bea0f53b5ab47603d5bea46ea2a221e047a7ff398115e9976fd5f86"
+  license "GPL-2.0-only"
+  head "https://bitbucket.org/multicoreware/x265_git"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any
-    sha256 "1b0ba2cbc5a5776f28ca0e35e057dea92b3562f023e897c04eee202f8c6a5e41" => :catalina
-    sha256 "69be6670b0f82f1229ebe281e635e2f588c0bf2c45aec9d8a6194a3700cb2563" => :mojave
-    sha256 "4dcc40b0d54784a6f3c3a878bddc79f7cbd657a17e4fd6a1aef0ff7f259e4824" => :high_sierra
+    rebuild 1
+    sha256 "a24f202256e98285ed39c80277b2aa5d9eba2b5f37ee7f05993b269b3033684e" => :catalina
+    sha256 "5a0033bb9c6b2cf12f5836a1ad3f887f61df55eceecedc2d3414665282e576f2" => :mojave
+    sha256 "fc09819e3bba1189d57b7708ad0fcccc359b160ea380574796d7eb4a71e139ac" => :high_sierra
   end
 
   depends_on "cmake" => :build

@@ -1,8 +1,13 @@
 class Smpeg2 < Formula
   desc "SDL MPEG Player Library"
   homepage "https://icculus.org/smpeg/"
-  url "svn://svn.icculus.org/smpeg/tags/release_2_0_0/", :revision => "408"
+  url "svn://svn.icculus.org/smpeg/tags/release_2_0_0/", revision: "408"
   head "svn://svn.icculus.org/smpeg/trunk"
+
+  livecheck do
+    url "https://svn.icculus.org/smpeg/tags/"
+    regex(%r{href=.*?release[._-]v?(2(?:[._]\d+)+)/}i)
+  end
 
   bottle do
     cellar :any

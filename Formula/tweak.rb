@@ -11,6 +11,8 @@ class Tweak < Formula
     sha256 "e36456b9e78dafa97c7c972a9c26bc274cc30dff8f50c2a736d2aaca8068dfa8" => :high_sierra
   end
 
+  uses_from_macos "ncurses"
+
   def install
     system "make"
     system "make", "install", "PREFIX=#{prefix}", "MANDIR=#{man1}"

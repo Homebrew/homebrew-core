@@ -1,22 +1,29 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-4.2.1.tar.xz"
-  sha256 "cec7c87e9b60d174509e263ac4011b522385fd0775292e1670ecc1180c9bb6d4"
+  url "https://ffmpeg.org/releases/ffmpeg-4.3.1.tar.xz"
+  sha256 "ad009240d46e307b4e03a213a0f49c11b650e445b1f8be0dda2a9212b34d2ffb"
+  # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
+  # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
+  license "GPL-2.0-or-later"
   revision 2
   head "https://github.com/FFmpeg/FFmpeg.git"
 
+  livecheck do
+    url "https://ffmpeg.org/download.html"
+    regex(/href=.*?ffmpeg[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
-    sha256 "11b16a8f9657e0826774d41133052b088f778a50f6f8037f641923cbb6b90335" => :catalina
-    sha256 "a8dfa8eb401973fb9aa2adf806fca3e2a091ccb16d1270b5dcd67283022ba05b" => :mojave
-    sha256 "67fa397296c48e8f838a4cfbd654da8888a7e579eb53bda46e2d2ca70908d14e" => :high_sierra
+    sha256 "094d18736a0c4486374e73242b0a344d2b6dc089692da6c3e696d1a64d3671eb" => :catalina
+    sha256 "68f51c0b4fe35370039b0a7126f9d5be63e87074906458a49c002ecee3c0a5e4" => :mojave
+    sha256 "bfb13be4194da84b3d8058e967a6f928def7d9fe30c6429a463c7c7aa2c768e3" => :high_sierra
   end
 
   depends_on "nasm" => :build
   depends_on "pkg-config" => :build
-  depends_on "texi2html" => :build
-
   depends_on "aom"
+  depends_on "dav1d"
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "frei0r"
@@ -31,23 +38,33 @@ class Ffmpeg < Formula
   depends_on "opencore-amr"
   depends_on "openjpeg"
   depends_on "opus"
+  depends_on "rav1e"
   depends_on "rtmpdump"
   depends_on "rubberband"
   depends_on "sdl2"
   depends_on "snappy"
   depends_on "speex"
+  depends_on "srt"
   depends_on "tesseract"
   depends_on "theora"
+  depends_on "webp"
   depends_on "x264"
   depends_on "x265"
   depends_on "xvid"
   depends_on "xz"
 
-  def install
-    # Work around Xcode 11 clang bug
-    # https://bitbucket.org/multicoreware/x265/issues/514/wrong-code-generated-on-macos-1015
-    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
+  uses_from_macos "bzip2"
+  uses_from_macos "libxml2"
+  uses_from_macos "zlib"
 
+  # https://trac.ffmpeg.org/ticket/8760
+  # Remove in next release
+  patch do
+    url "https://github.com/FFmpeg/FFmpeg/commit/7c59e1b0f285cd7c7b35fcd71f49c5fd52cf9315.patch?full_index=1"
+    sha256 "1cbe1b68d70eadd49080a6e512a35f3e230de26b6e1b1c859d9119906417737f"
+  end
+
+  def install
     args = %W[
       --prefix=#{prefix}
       --enable-shared
@@ -62,17 +79,22 @@ class Ffmpeg < Formula
       --enable-gpl
       --enable-libaom
       --enable-libbluray
+      --enable-libdav1d
       --enable-libmp3lame
       --enable-libopus
+      --enable-librav1e
       --enable-librubberband
       --enable-libsnappy
+      --enable-libsrt
       --enable-libtesseract
       --enable-libtheora
       --enable-libvidstab
       --enable-libvorbis
       --enable-libvpx
+      --enable-libwebp
       --enable-libx264
       --enable-libx265
+      --enable-libxml2
       --enable-libxvid
       --enable-lzma
       --enable-libfontconfig
@@ -98,7 +120,7 @@ class Ffmpeg < Formula
     bin.install Dir["tools/*"].select { |f| File.executable? f }
 
     # Fix for Non-executables that were installed to bin/
-    mv bin/"python", pkgshare/"python", :force => true
+    mv bin/"python", pkgshare/"python", force: true
   end
 
   test do

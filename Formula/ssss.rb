@@ -3,6 +3,7 @@ class Ssss < Formula
   homepage "http://point-at-infinity.org/ssss/"
   url "http://point-at-infinity.org/ssss/ssss-0.5.tar.gz"
   sha256 "5d165555105606b8b08383e697fc48cf849f51d775f1d9a74817f5709db0f995"
+  license "GPL-2.0"
 
   bottle do
     cellar :any
@@ -21,7 +22,7 @@ class Ssss < Formula
   def install
     inreplace "Makefile" do |s|
       # Compile with -DNOMLOCK to avoid warning on every run on macOS.
-      s.gsub! /\-W /, "-W -DNOMLOCK $(CFLAGS) $(LDFLAGS)"
+      s.gsub! /-W /, "-W -DNOMLOCK $(CFLAGS) $(LDFLAGS)"
     end
 
     system "make"

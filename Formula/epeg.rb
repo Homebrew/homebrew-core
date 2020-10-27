@@ -3,6 +3,7 @@ class Epeg < Formula
   homepage "https://github.com/mattes/epeg"
   url "https://github.com/mattes/epeg/archive/v0.9.2.tar.gz"
   sha256 "f8285b94dd87fdc67aca119da9fc7322ed6902961086142f345a39eb6e0c4e29"
+  license "MIT-enna"
   revision 1
   head "https://github.com/mattes/epeg.git"
 

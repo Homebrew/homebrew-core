@@ -4,6 +4,11 @@ class Kimwituxx < Formula
   url "https://download.savannah.gnu.org/releases/kimwitu-pp/kimwitu++-2.3.13.tar.gz"
   sha256 "3f6d9fbb35cc4760849b18553d06bc790466ca8b07884ed1a1bdccc3a9792a73"
 
+  livecheck do
+    url "https://download.savannah.gnu.org/releases/kimwitu-pp/"
+    regex(/href=.*?kimwitu\+\+[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "470e06521034cea8db6ad07e8aab45c5bfbe3969cd03891799348eb4e9279c90" => :catalina

@@ -3,15 +3,15 @@ class Arpack < Formula
   homepage "https://github.com/opencollab/arpack-ng"
   url "https://github.com/opencollab/arpack-ng/archive/3.7.0.tar.gz"
   sha256 "972e3fc3cd0b9d6b5a737c9bf6fd07515c0d6549319d4ffb06970e64fa3cc2d6"
-  revision 3
+  license "BSD-3-Clause"
+  revision 5
   head "https://github.com/opencollab/arpack-ng.git"
 
   bottle do
     cellar :any
-    sha256 "16a4a696da2803d4a427508bd4dc27ccec4ac28b072cc82172945d81a895fa13" => :catalina
-    sha256 "8d6eb8e363467ee3b8a40c875e789edc3c43e3a095b03a383e721495c6905de7" => :mojave
-    sha256 "41856273d9f50a1738a26c290af692414ced685379eebd69c89db308e2cd48fb" => :high_sierra
-    sha256 "2c2dfdc439824d04d14c863d22c75f4e70d5f191e3cba9c6a6e567dcd4e0c1a6" => :sierra
+    sha256 "c4d53dfa06e56a05dfe6c53020a8c5d867b6cf9d0cc37de9b6debc80d1af0d44" => :catalina
+    sha256 "a5b2d5d34b7c9650d54b7985a4edf979e9c43ddc29830676f042c112f4025967" => :mojave
+    sha256 "152d4a439d8309460a8d2da947eb611aa5c6dd9fa77bba9afa2db60c09f807f4" => :high_sierra
   end
 
   depends_on "autoconf" => :build
@@ -34,6 +34,10 @@ class Arpack < Formula
       --enable-icb
       --enable-icb-exmm
     ]
+
+    # Fix for GCC 10, remove with next version
+    # https://github.com/opencollab/arpack-ng/commit/ad82dcbc
+    args << "FFLAGS=-fallow-argument-mismatch"
 
     system "./bootstrap"
     system "./configure", *args

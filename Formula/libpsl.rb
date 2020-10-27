@@ -1,25 +1,30 @@
 class Libpsl < Formula
   desc "C library for the Public Suffix List"
   homepage "https://rockdaboot.github.io/libpsl"
-  url "https://github.com/rockdaboot/libpsl/releases/download/libpsl-0.21.0/libpsl-0.21.0.tar.gz"
-  sha256 "41bd1c75a375b85c337b59783f5deb93dbb443fb0a52d257f403df7bd653ee12"
+  url "https://github.com/rockdaboot/libpsl/releases/download/0.21.1/libpsl-0.21.1.tar.gz"
+  sha256 "ac6ce1e1fbd4d0254c4ddb9d37f1fa99dec83619c1253328155206b896210d4c"
+  license "MIT"
   revision 1
 
   bottle do
     cellar :any
-    sha256 "443d1be7d403015d313b2980912b0d2ebadc2988c3989c3bef028ab29daea72b" => :catalina
-    sha256 "762188236f81b927f3c86f4e1d42f9dd647534d6bf12f1bf724308a692e8948d" => :mojave
-    sha256 "3d63876a24e0f165ce10cd7247d51e2d1520f2a4124f65a611a0f0cf0cfe5851" => :high_sierra
-    sha256 "267c60bed429c9f7b0ccc79a936daaf1fae1ad0e3165915f08c0a1d5afbf7178" => :sierra
+    sha256 "556831eb0cbd09ab25778ce94edcbc25e111ab777f80b2e85e9610c0187fa1a6" => :catalina
+    sha256 "e4143e4f14c0182904d8680de693f5dbbc4ec3292655fe044ec1f23d7901631f" => :mojave
+    sha256 "62824a3515a7c8c7847fff9d91caa21dbca05653ccbd6bdf29805ee0cfbaa73c" => :high_sierra
   end
 
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "libidn2"
+  depends_on "python@3.9" => :build
+  depends_on "icu4c"
 
   def install
-    system "./configure", "--disable-silent-rules",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args, "-Druntime=libicu", "-Dbuiltin=libicu", ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
   end
 
   test do
@@ -44,6 +49,5 @@ class Libpsl < Formula
     system ENV.cc, "-o", "test", "test.c", "-I#{include}",
                    "-L#{lib}", "-lpsl"
     system "./test"
-    system "#{bin}/psl", "--help"
   end
 end

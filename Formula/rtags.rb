@@ -2,16 +2,16 @@ class Rtags < Formula
   desc "Source code cross-referencer like ctags with a clang frontend"
   homepage "https://github.com/Andersbakken/rtags"
   url "https://github.com/Andersbakken/rtags.git",
-      :tag      => "v2.34",
-      :revision => "2723ce64f0e83e81ac4a49068fba2588701fdb11"
+      tag:      "v2.38",
+      revision: "9687ccdb9e539981e7934e768ea5c84464a61139"
+  license "GPL-3.0"
   head "https://github.com/Andersbakken/rtags.git"
 
   bottle do
     cellar :any
-    sha256 "3b73fd7b8c2a030aa2d6cbe8251c1233f75344b4c59395ca170e725d72209c84" => :catalina
-    sha256 "eecf7d02f14a70a7bf084ac4ca1b90069a5aafa1c8ce321a5c4a18bce480811e" => :mojave
-    sha256 "a6a0623ecedda03bf90e396e1c891ad2925dc2845810d55c3d145ab6bc410a28" => :high_sierra
-    sha256 "0c6d0ace0aba7ad795b4db67a658f3d2130e93b02bd22f459d54c5d852f3e9bd" => :sierra
+    sha256 "332ba278034061d8789e8bcfc2d06120c122f0912de030524ee44d73089bdda6" => :catalina
+    sha256 "a9b3b3f280643e151a9d98438ae1bef2bf77eda3a3412d07c1781d60b6e13a25" => :mojave
+    sha256 "b1f34a462f2473d7059b8db4d78ff85f3bc18e5df25e2d597ce95052d15da132" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -37,34 +37,35 @@ class Rtags < Formula
     end
   end
 
-  plist_options :manual => "#{HOMEBREW_PREFIX}/bin/rdm --verbose --inactivity-timeout=300 --log-file=#{HOMEBREW_PREFIX}/var/log/rtags.log"
+  plist_options manual: "#{HOMEBREW_PREFIX}/bin/rdm --verbose --inactivity-timeout=300 --log-file=#{HOMEBREW_PREFIX}/var/log/rtags.log"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{bin}/rdm</string>
-        <string>--verbose</string>
-        <string>--launchd</string>
-        <string>--inactivity-timeout=300</string>
-        <string>--log-file=#{var}/log/rtags.log</string>
-      </array>
-      <key>Sockets</key>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
       <dict>
-        <key>Listener</key>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{bin}/rdm</string>
+          <string>--verbose</string>
+          <string>--launchd</string>
+          <string>--inactivity-timeout=300</string>
+          <string>--log-file=#{var}/log/rtags.log</string>
+        </array>
+        <key>Sockets</key>
         <dict>
-          <key>SockPathName</key>
-          <string>#{ENV["HOME"]}/.rdm</string>
+          <key>Listener</key>
+          <dict>
+            <key>SockPathName</key>
+            <string>#{ENV["HOME"]}/.rdm</string>
+          </dict>
         </dict>
       </dict>
-    </dict>
-    </plist>
-  EOS
+      </plist>
+    EOS
   end
 
   test do

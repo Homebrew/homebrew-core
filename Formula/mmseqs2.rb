@@ -1,34 +1,45 @@
 class Mmseqs2 < Formula
   desc "Software suite for very fast sequence search and clustering"
   homepage "https://mmseqs.com/"
-  url "https://github.com/soedinglab/MMseqs2/archive/10-6d92c.tar.gz"
-  version "10-6d92c"
-  sha256 "62415e545706adc6e9e6689d34902f405ab5e5c67c8c7562bdd9dd4da2088697"
+  url "https://github.com/soedinglab/MMseqs2/archive/12-113e3.tar.gz"
+  version "12-113e3"
+  sha256 "81fa0d77eab9d74b429567da00aa7ec2d46049537ce469595d7356b6d8b5458a"
+  license "GPL-3.0-or-later"
+  head "https://github.com/soedinglab/MMseqs2.git"
 
   bottle do
-    cellar :any
-    sha256 "96b2cf5f08089363df4cd8814b7528bac06c1dac8c11f4839c5dee453ce97122" => :catalina
-    sha256 "813552b3664a81c0ec2e6ef973acc7d1cb5fdacdc02ddaff4787366ef81b7827" => :mojave
-    sha256 "e229477bb366685e7725abb8a7ecfef9d74652266aa2761a7bfdc6b2bc20c39c" => :high_sierra
-    sha256 "3fdb5ce1ace58238f4011df2f1f437fdc25031012b6a2e1a95c158a12b2acc3d" => :sierra
+    cellar :any_skip_relocation
+    sha256 "19e991c528466e6443a0772d6ea2c373b5323f3b6d919adde3ec2cd6958c6e04" => :catalina
+    sha256 "f31e32a418bb6a407be63e5d60c4bcc10497c3412b07fe270ac523851fbeeea7" => :mojave
+    sha256 "6a92a84f48542cac881e7bf4de5c7946d8038e8da1c799c98fe0992ed3f4d1a0" => :high_sierra
   end
 
   depends_on "cmake" => :build
-  depends_on "gcc"
+  depends_on "libomp"
+  depends_on "wget"
 
-  cxxstdlib_check :skip
-
-  fails_with :clang # needs OpenMP support
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
 
   resource "documentation" do
     url "https://github.com/soedinglab/MMseqs2.wiki.git",
-        :revision => "03da86a5c553d00c8d4484e9fbd8d68ef14e1169"
+        revision: "d53d8be3761ee625b0dcddda29b092bbd02244ef"
   end
 
   def install
     args = *std_cmake_args << "-DHAVE_TESTS=0" << "-DHAVE_MPI=0"
     args << "-DVERSION_OVERRIDE=#{version}"
     args << "-DHAVE_SSE4_1=1"
+
+    libomp = Formula["libomp"]
+    args << "-DOpenMP_C_FLAGS=-Xpreprocessor\ -fopenmp\ -I#{libomp.opt_include}"
+    args << "-DOpenMP_C_LIB_NAMES=omp"
+    args << "-DOpenMP_CXX_FLAGS=-Xpreprocessor\ -fopenmp\ -I#{libomp.opt_include}"
+    args << "-DOpenMP_CXX_LIB_NAMES=omp"
+    args << "-DOpenMP_omp_LIBRARY=#{libomp.opt_lib}/libomp.a"
+
+    # Fix SIMDe on AppleClang11, fixed upstream, remove in next release
+    args << "-DCMAKE_CXX_FLAGS=-DSIMDE_NO_CHECK_IMMEDIATE_CONSTANT=1" if DevelopmentTools.clang_build_version == 1100
 
     system "cmake", ".", *args
     system "make", "install"
@@ -39,9 +50,7 @@ class Mmseqs2 < Formula
   end
 
   def caveats
-    unless Hardware::CPU.sse4?
-      "MMseqs2 requires at least SSE4.1 CPU instruction support."
-    end
+    "MMseqs2 requires at least SSE4.1 CPU instruction support." unless Hardware::CPU.sse4?
   end
 
   test do

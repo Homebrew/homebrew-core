@@ -4,6 +4,11 @@ class Stow < Formula
   url "https://ftp.gnu.org/gnu/stow/stow-2.3.1.tar.gz"
   mirror "https://ftpmirror.gnu.org/stow/stow-2.3.1.tar.gz"
   sha256 "09d5d99671b78537fd9b2c0b39a5e9761a7a0e979f6fdb7eabfa58ee45f03d4b"
+  license "GPL-3.0"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation

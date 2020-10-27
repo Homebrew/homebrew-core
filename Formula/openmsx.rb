@@ -3,14 +3,15 @@ class Openmsx < Formula
   homepage "https://openmsx.org/"
   url "https://github.com/openMSX/openMSX/releases/download/RELEASE_0_15_0/openmsx-0.15.0.tar.gz"
   sha256 "93f209d8fed2e04e62526469bb6bb431b82ea4d07ecdc45dab2b8cc4ca21d62a"
+  license "GPL-2.0"
+  revision 1
   head "https://github.com/openMSX/openMSX.git"
 
   bottle do
     cellar :any
-    sha256 "d747a6fb6c9f9a489468f55765dbe8ef19664c1feb7346a42ed3f093cc61499a" => :catalina
-    sha256 "64145c0b205a9eeb64e12f06b63440ee7c8bbba0153a0e248a1e37486815fb21" => :mojave
-    sha256 "eb64da0eff2b09fb3046903b020becc06aa8683ad398e9cea08708567fbcf194" => :high_sierra
-    sha256 "a2396de7cce4f6a317d6f8f3e38e32afb304580f08ccc798c36b0c5a933fcf8f" => :sierra
+    sha256 "10c3e39c22efbd11e11b352f8fabfcea03633088cb16fe24611ed631325ed05c" => :catalina
+    sha256 "ed24d06d8f8913236fa619f0d92396e2a2a8d2f40afb5e56c609ecdf332b4ca4" => :mojave
+    sha256 "86fff1a90fff96cb0398184ef7ebdeb804edda4c9d34ee5e7278159df64b10e3" => :high_sierra
   end
 
   depends_on "freetype"

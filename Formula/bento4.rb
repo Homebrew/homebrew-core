@@ -1,24 +1,28 @@
 class Bento4 < Formula
   desc "Full-featured MP4 format and MPEG DASH library and tools"
   homepage "https://www.bento4.com/"
-  url "https://github.com/axiomatic-systems/Bento4/archive/v1.5.1-628.tar.gz"
-  version "1.5.1-628"
-  sha256 "e6fce0b1015698ff2f4f99e81c516ec042b351de052c885da7f82aebda56b65a"
+  url "https://www.bok.net/Bento4/source/Bento4-SRC-1-6-0-632.zip"
+  version "1.6.0-632"
+  sha256 "faa3a406dc24c3d34d29661bbbe94b42c7f7deee9a5c624696a055bb9b7da6ad"
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f982d297d2d65bb5e51c29602fea985f0abe399077b555f805920ebd821b583a" => :catalina
-    sha256 "70b14caee7dee4170ef309393e122f16ecb677943a3f2c9d1d40747764bea18d" => :mojave
-    sha256 "d1977eae032f7de54129952c0178bf183aa3909a89826333b185a36e43c780f0" => :high_sierra
-    sha256 "85ca3dbb13344503507d939edb90dfee89f3d8f342c1fadbb1494e983d9251cf" => :sierra
+    sha256 "3b5840c8f8c049032e39a19a571a616a3faf3157f874f1ed0e22e5e248a3b59b" => :catalina
+    sha256 "c4312f145319b6f1b48d1413d897e7c98f3be60c19379f2fcf7692b65a585fcf" => :mojave
+    sha256 "2c8431f14ae7303a9738c8d036a03763835b2146446c28dc464f647c9caab04d" => :high_sierra
   end
 
-  depends_on :xcode => :build
-  depends_on "python"
+  depends_on xcode: :build
+  depends_on "python@3.9"
 
-  conflicts_with "gpac", :because => "both install `mp42ts` binaries"
+  on_linux do
+    depends_on "cmake" => :build
+  end
+
+  conflicts_with "gpac", because: "both install `mp42ts` binaries"
   conflicts_with "mp4v2",
-    :because => "both install `mp4extract` and `mp4info` binaries"
+    because: "both install `mp4extract` and `mp4info` binaries"
 
   def install
     cd "Build/Targets/universal-apple-macosx" do

@@ -1,15 +1,21 @@
 class Libmagic < Formula
   desc "Implementation of the file(1) command"
   homepage "https://www.darwinsys.com/file/"
-  url "https://astron.com/pub/file/file-5.37.tar.gz"
-  sha256 "e9c13967f7dd339a3c241b7710ba093560b9a33013491318e88e6b8b57bae07f"
+  url "https://astron.com/pub/file/file-5.39.tar.gz"
+  sha256 "f05d286a76d9556243d0cb05814929c2ecf3a5ba07963f8f70bfaaa70517fad1"
+
+  livecheck do
+    url "https://astron.com/pub/file/"
+    regex(/href=.*?file[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 "e654f30906f89acee7a71bafc464d27876024fd795bbcbe0535285afce215ff0" => :catalina
-    sha256 "d4bef4ec5fd234cd4fdc0650d7a2dba51fa9e5d421669db9fa8d2d466e20c98c" => :mojave
-    sha256 "14eb5417f36b7ae1813a290c6004c880bd2c50498bc470a48dd9fb8cb489aa4e" => :high_sierra
-    sha256 "c5cacee5081c405d14caa39c8e3768c6112c8f154c9e1ebbeabd081fff88f44b" => :sierra
+    sha256 "90b17cb74e853804227abdd32c6810ff535fb98e8862f946c49860b697faece0" => :catalina
+    sha256 "f32eb14fbef470d28a041ddefec932e8d96870b4a13dbac3f61d8c6de6e50f29" => :mojave
+    sha256 "110d2db0b588dc5a379124d024b228e8ee8aae58c95a6a0510e68dc36426a86a" => :high_sierra
   end
+
+  uses_from_macos "zlib"
 
   def install
     system "./configure", "--disable-dependency-tracking",

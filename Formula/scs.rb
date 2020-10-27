@@ -1,15 +1,15 @@
 class Scs < Formula
   desc "Conic optimization via operator splitting"
   homepage "https://web.stanford.edu/~boyd/papers/scs.html"
-  url "https://github.com/cvxgrp/scs/archive/2.1.1.tar.gz"
-  sha256 "0e20b91e8caf744b84aa985ba4e98cc7235ee33612b2bad2bf31ea5ad4e07d93"
+  url "https://github.com/cvxgrp/scs/archive/2.1.2.tar.gz"
+  sha256 "fa2a959180224e4a470d5e618012b56cf9d04aba9ff23c75117c01a8e3e70234"
+  license "MIT"
 
   bottle do
     cellar :any
-    sha256 "75459dcf470d2685ee0d27ce63e4bf39367a6e8ab12478379cf77cf0455dcab7" => :catalina
-    sha256 "790a8b317c31bed14703a624c2c10ac21d6b5a79e49a9602cf17d4fcfda0206a" => :mojave
-    sha256 "972212da980f70df69900f0af8115022cf12eb1dbad0c74a2c65b83b9c22daba" => :high_sierra
-    sha256 "9c4f346e1a76e4951c6eb12324e40f08a3b52671872401091d01e456d715455f" => :sierra
+    sha256 "c5a8b9e03c06e7eab32e1934e69ebed0036b2ae7a9a98612f4aab618d665db96" => :catalina
+    sha256 "2bad6f83534fe6fd7f2f3f4b56ed2c942aa650060090239c458fc3e36c1cea10" => :mojave
+    sha256 "3335a0697e50ea6bf1b38ff0f3a8946d8945a25b8c5731f4afe7b59c965c43c0" => :high_sierra
   end
 
   def install

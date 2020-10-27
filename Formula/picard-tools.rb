@@ -1,16 +1,25 @@
 class PicardTools < Formula
   desc "Tools for manipulating HTS data and formats"
   homepage "https://broadinstitute.github.io/picard/"
-  url "https://github.com/broadinstitute/picard/releases/download/2.21.2/picard.jar"
-  sha256 "89be6d0fec5e4bf0a82db0aa17728e5f15d13456dcf9e7f75dd3af9901895700"
+  url "https://github.com/broadinstitute/picard/releases/download/2.23.8/picard.jar"
+  sha256 "224b2928f7c8c27902bf4107c2bebe002f85bf99fcad5552b8ec0af6bb5ed429"
+  license "MIT"
+
+  livecheck do
+    url "https://github.com/broadinstitute/picard/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on "openjdk"
 
   def install
     libexec.install "picard.jar"
-    bin.write_jar_script libexec/"picard.jar", "picard"
+    (bin/"picard").write <<~EOS
+      #!/bin/bash
+      exec "#{Formula["openjdk"].opt_bin}/java" $JAVA_OPTS -jar "#{libexec}/picard.jar" "$@"
+    EOS
   end
 
   test do

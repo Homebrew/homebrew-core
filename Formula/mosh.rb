@@ -1,19 +1,29 @@
 class Mosh < Formula
   desc "Remote terminal application"
   homepage "https://mosh.org"
-  url "https://mosh.org/mosh-1.3.2.tar.gz"
-  sha256 "da600573dfa827d88ce114e0fed30210689381bbdcff543c931e4d6a2e851216"
-  revision 9
+  license "GPL-3.0"
+  revision 12
+
+  stable do
+    url "https://mosh.org/mosh-1.3.2.tar.gz"
+    sha256 "da600573dfa827d88ce114e0fed30210689381bbdcff543c931e4d6a2e851216"
+
+    # Fix mojave build.
+    patch do
+      url "https://github.com/mobile-shell/mosh/commit/e5f8a826ef9ff5da4cfce3bb8151f9526ec19db0.patch?full_index=1"
+      sha256 "022bf82de1179b2ceb7dc6ae7b922961dfacd52fbccc30472c527cb7c87c96f0"
+    end
+  end
 
   bottle do
     cellar :any
-    sha256 "d98896965ced1c6e299083d563ff2a1267c63d18e9f722024297267ddd286928" => :catalina
-    sha256 "441d8beb4dbc1cd5f88ab49835560e841e719838132688b3e3736b02d2d89515" => :mojave
-    sha256 "cae33e412eb50e8ccedecf7a3aa6c66b4f7b7b46137927ae6c2309fcf143760a" => :high_sierra
+    sha256 "80aa0652a09eacf7e786012d1db2382d7423d476b44c536c1a7a3312b4a5e45a" => :catalina
+    sha256 "6d1567ab1ff2159a5bd346ed8b51bca5fd82506279b930bb10079dc1ea79f860" => :mojave
+    sha256 "e82a65883dc605e100b159ccd55ffee43c14eb65086a02b8cceba67f1b524066" => :high_sierra
   end
 
   head do
-    url "https://github.com/mobile-shell/mosh.git", :shallow => false
+    url "https://github.com/mobile-shell/mosh.git", shallow: false
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -21,15 +31,10 @@ class Mosh < Formula
 
   depends_on "pkg-config" => :build
   depends_on "tmux" => :build
+  depends_on "openssl@1.1"
   depends_on "protobuf"
 
-  # Fix mojave build.
-  unless build.head?
-    patch do
-      url "https://github.com/mobile-shell/mosh/commit/e5f8a826ef9ff5da4cfce3bb8151f9526ec19db0.patch?full_index=1"
-      sha256 "022bf82de1179b2ceb7dc6ae7b922961dfacd52fbccc30472c527cb7c87c96f0"
-    end
-  end
+  uses_from_macos "ncurses"
 
   def install
     ENV.cxx11
@@ -40,7 +45,6 @@ class Mosh < Formula
 
     system "./autogen.sh" if build.head?
     system "./configure", "--prefix=#{prefix}", "--enable-completion"
-    system "make", "check"
     system "make", "install"
   end
 

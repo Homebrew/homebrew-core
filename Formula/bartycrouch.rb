@@ -2,17 +2,17 @@ class Bartycrouch < Formula
   desc "Incrementally update/translate your Strings files"
   homepage "https://github.com/Flinesoft/BartyCrouch"
   url "https://github.com/Flinesoft/BartyCrouch.git",
-      :tag      => "4.0.2",
-      :revision => "7d4cfec9530c7364727a4461712b54909f8d4a90"
+      tag:      "4.3.1",
+      revision: "fb18f5f6946a8ca87cde45e4ba4858a401ed968b"
+  license "MIT"
   head "https://github.com/Flinesoft/BartyCrouch.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cd91ef1da39fd877372b3035e740bd4b87ee7fc4421dab0bf243be0f3441b725" => :catalina
-    sha256 "3ccf1146ffb56b4bf49fd15cccdf1982d92c79a3eaba4577b0fabce4b6f8be76" => :mojave
+    sha256 "aa2777a08e4d1a12340638678c4652b4ab5d5aa6f7db2917e7c907550d524119" => :catalina
   end
 
-  depends_on :xcode => ["10.2", :build]
+  depends_on xcode: ["12.0", :build]
 
   def install
     system "make", "install", "prefix=#{prefix}"

@@ -1,27 +1,22 @@
 class Kubeprod < Formula
   desc "Installer for the Bitnami Kubernetes Production Runtime (BKPR)"
   homepage "https://kubeprod.io"
-  url "https://github.com/bitnami/kube-prod-runtime/archive/v1.3.5.tar.gz"
-  sha256 "1bca77a65fd271c2860b53e720335e253e825d51ae0f4304e58f0b7072f0f9d3"
+  url "https://github.com/bitnami/kube-prod-runtime/archive/v1.6.1.tar.gz"
+  sha256 "fdf5b82ea274033488af2c2c6057507e601366f61b2f888b33bee767e4000d77"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "17684a448aa03bf7d106eaaceed9ff05134173d5b20f360e2b567ba4b60ace99" => :catalina
-    sha256 "8bee6fd6efe66a2aa4d98119949418ecff8ca9e9e934dccbe81bf5ba727fb339" => :mojave
-    sha256 "d89ac49c2974596764083cf09a1ed2439b282082c1fc96e7822d38699eb855a8" => :high_sierra
+    sha256 "72b78c5b8393d7fe37d9b1ec1e53f32a34162f4a6379ddd2250bbe5680c53d3e" => :catalina
+    sha256 "75fc89249f53f9b8fe8e09bf3970c11ddc2aaa417f49735c2ac79b0d468dca3e" => :mojave
+    sha256 "bf0f97d8da14fd61c43cf1844eb4899f81073719c233aaaa0856f971e0dfc048" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["TARGETS"] = "darwin/amd64"
-    dir = buildpath/"src/github.com/bitnami/kube-prod-runtime"
-    dir.install buildpath.children
-
-    cd dir do
-      system "make", "-C", "kubeprod", "release", "VERSION=v#{version}"
-      bin.install "kubeprod/_dist/darwin-amd64/bkpr-v#{version}/kubeprod"
+    cd "kubeprod" do
+      system "go", "build", *std_go_args, "-ldflags", "-X main.version=v#{version}", "-mod=vendor"
     end
   end
 

@@ -1,17 +1,20 @@
 class Libewf < Formula
   desc "Library for support of the Expert Witness Compression Format"
   homepage "https://github.com/libyal/libewf"
-  url "https://deb.debian.org/debian/pool/main/libe/libewf/libewf_20140608.orig.tar.gz"
-  version "20140608"
-  sha256 "d14030ce6122727935fbd676d0876808da1e112721f3cb108564a4d9bf73da71"
-  revision 3
+  # The main libewf repository is currently "experimental".
+  url "https://github.com/libyal/libewf-legacy/releases/download/20140808/libewf-20140808.tar.gz"
+  sha256 "dfe29b5f2f1841ff1fe11979780d710a660dbc4727af82ec391f398e6b49e5fd"
+  license "LGPL-3.0"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any
-    sha256 "e2c5005bc71cf22e1aa33ab1c9b4e816660e1b1085a79251455365b8b48bb139" => :catalina
-    sha256 "4f3520882d014c9ee35a8b32587a4ae13f342d19c7351b22395ca123957dc2f2" => :mojave
-    sha256 "0a8e82d0e066e4d53107ed9091786e8ad6887b6f70ecd3fdd46ac1d7fea444d5" => :high_sierra
-    sha256 "d2d9c4ee449899af01012fb4c20a1518003fe6f61c0749bdcaebb64c4aa72950" => :sierra
+    sha256 "43d8ba6c2441f65080f257a7239fe468be70cb2578ec2106230edd1164e967b6" => :catalina
+    sha256 "4c5482f8f1c97f9c3f3687bccd9c3628b314699bc26743e641f2ae573bf95eeb" => :mojave
+    sha256 "cae6fd2f38855fd15f8a50b644d0817181fed055aef85b7793759d7703a833d4" => :high_sierra
   end
 
   head do
@@ -24,6 +27,9 @@ class Libewf < Formula
 
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
+
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
 
   def install
     if build.head?

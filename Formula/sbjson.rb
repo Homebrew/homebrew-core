@@ -1,18 +1,19 @@
 class Sbjson < Formula
   desc "JSON CLI parser & reformatter based on SBJson v5"
   homepage "https://github.com/stig/json-framework"
-  url "https://github.com/stig/json-framework/archive/v5.0.2.tar.gz"
-  sha256 "3d0162aca53a3305faff06f95bd4cabf15ab1ba95b9e422f87b5de0990c4c06b"
+  url "https://github.com/stig/json-framework/archive/v5.0.3.tar.gz"
+  sha256 "9a03f6643b42a82300f4aefcfb6baf46cc2c519f1bb7db3028f338d6d1c56f1b"
+  license "BSD-3-Clause"
   head "https://github.com/stig/json-framework.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ae17cd9f58361f2a482bdffe5aee76da5cf34131ba14ea6b3aa1cea2f348e852" => :catalina
-    sha256 "239b7bb8278f310fb76feb7dc3be64cf5c05720bdf7655c915d27b90c7761c38" => :mojave
-    sha256 "ce4947b43a5706b19e1ac8f0b42234bbad19d033d5344afd72cfb9ae5470f52a" => :high_sierra
+    sha256 "e703b87ff205bfec1cfc09e9c200ebca6be643df15ec99b85c590110a4885fb2" => :catalina
+    sha256 "8b145bcfef84733c00d94e57cbe0eac56a7981654cda6068ff219264353b25bd" => :mojave
+    sha256 "649463e051c03596a72400a04b95f993222f5ba6d42a879241291660fef8605c" => :high_sierra
   end
 
-  depends_on :xcode => :build
+  depends_on xcode: :build
 
   def install
     xcodebuild "-project", "SBJson5.xcodeproj",

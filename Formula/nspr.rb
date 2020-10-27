@@ -1,23 +1,25 @@
 class Nspr < Formula
   desc "Platform-neutral API for system-level and libc-like functions"
   homepage "https://developer.mozilla.org/docs/Mozilla/Projects/NSPR"
-  url "https://archive.mozilla.org/pub/nspr/releases/v4.23/src/nspr-4.23.tar.gz"
-  sha256 "4b9d821037faf5723da901515ed9cac8b23ef1ea3729022259777393453477a4"
+  url "https://archive.mozilla.org/pub/nspr/releases/v4.29/src/nspr-4.29.tar.gz"
+  sha256 "22286bdb8059d74632cc7c2865c139e63953ecfb33bf4362ab58827e86e92582"
+  license "MPL-2.0"
+
+  livecheck do
+    url "https://ftp.mozilla.org/pub/nspr/releases/"
+    regex(/v(\d+(?:\.\d+)*)/i)
+  end
 
   bottle do
     cellar :any
-    sha256 "ae8ddaf4515104ade295b6474b2964a1327cdc2133e83e942d249fead9970b53" => :catalina
-    sha256 "9203fbc1294b61227f918935e0d59e21a0b65b0e5374349b7525f01793188d5c" => :mojave
-    sha256 "eae0aeb8a3cc008d08d5eb6d97ef1e7c0c0f91bb4504967a569cb5eaf0824908" => :high_sierra
+    sha256 "c47dc31bf73d954e1d4629a92cff5f2e5801573fa9cc1caab7c9ea3b0fb68566" => :catalina
+    sha256 "5b87579476cdbb34be47c9579125183f9ff29373e9b25e94d419b02995e6ae29" => :mojave
+    sha256 "1b3e41e52e1dc0131ca2ae486d099fb91e7e983355d8dd4ae18ff47a8547fe1e" => :high_sierra
   end
 
   def install
     ENV.deparallelize
     cd "nspr" do
-      # Fixes a bug with linking against CoreFoundation, needed to work with SpiderMonkey
-      # See: https://openradar.appspot.com/7209349
-      inreplace "pr/src/Makefile.in", "-framework CoreServices -framework CoreFoundation", ""
-
       args = %W[
         --disable-debug
         --prefix=#{prefix}

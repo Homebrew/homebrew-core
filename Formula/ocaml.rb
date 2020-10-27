@@ -3,27 +3,31 @@
 # also updated by incrementing their revisions.
 #
 # Specific packages to pay attention to include:
-# - camlp4
-# - opam
+# - camlp5
+# - lablgtk
 #
 # Applications that really shouldn't break on a compiler update are:
-# - mldonkey
 # - coq
 # - coccinelle
 # - unison
 class Ocaml < Formula
   desc "General purpose programming language in the ML family"
   homepage "https://ocaml.org/"
-  url "https://caml.inria.fr/pub/distrib/ocaml-4.08/ocaml-4.08.1.tar.xz"
-  sha256 "cd4f180453ffd7cc6028bb18954b3d7c3f715af13157df2f7c68bdfa07655ea3"
-  head "https://github.com/ocaml/ocaml.git", :branch => "trunk"
+  url "https://caml.inria.fr/pub/distrib/ocaml-4.10/ocaml-4.10.0.tar.xz"
+  sha256 "30734db17b609fdd1609c39a05912325c299023968a2c783e5955dd5163dfeb7"
+  license "LGPL-2.1"
+  head "https://github.com/ocaml/ocaml.git", branch: "trunk"
+
+  livecheck do
+    url "https://ocaml.org/releases"
+    regex(/href=.*?v?(\d+(?:\.\d+)+)\.html/i)
+  end
 
   bottle do
     cellar :any
-    sha256 "3303756d5e2e4ce953dcf4f07861713ee9a121adc13030bd82dd484a8509bf13" => :catalina
-    sha256 "32975ce17008941774b66953c57c8bff280276773ce4e39305b215d1ef487dae" => :mojave
-    sha256 "91a69eb4be51d6a3afdb3b4c36d607a1384f355e3f468de345f996b9cb732e3e" => :high_sierra
-    sha256 "c66d4a1ee91315cedccc507ac9a85229777ab13062666fb2aacaa44512feb9c6" => :sierra
+    sha256 "0870fc3042b3725fb2c6f131c4d6f78aec9f19d553e054ba4890773ef69e45a7" => :catalina
+    sha256 "b43a7247e3d3848d5f20d2432d4996e41049e79c738762f1026f4376ec7e80d3" => :mojave
+    sha256 "a534347814298cc8e66e321384f16eac85f2a59aaa2f536e542fb4870386bc2b" => :high_sierra
   end
 
   pour_bottle? do
@@ -41,7 +45,6 @@ class Ocaml < Formula
       --prefix=#{HOMEBREW_PREFIX}
       --enable-debug-runtime
       --mandir=#{man}
-      --disable-graph-lib
     ]
     system "./configure", *args
     system "make", "world.opt"

@@ -1,20 +1,31 @@
 class MysqlAT57 < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/5.7/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.28.tar.gz"
-  sha256 "f16399315212117c08f9bdf8a0d682728b2ce82d691bcfbf25a770f413b6f2da"
+  url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.32.tar.gz"
+  sha256 "9a8a04a2b0116ccff9a8d8aace07aaeaacf47329b701c5dfa9fa4351d3f1933b"
+  license "GPL-2.0"
+
+  livecheck do
+    url "https://dev.mysql.com/downloads/mysql/5.7.html"
+    regex(/href=.*?mysql[._-]v?(\d+.\d+.\d+)-/i)
+  end
 
   bottle do
-    sha256 "25979cdf7664ceabbe69c4423317612e51cb2dc73d4e5cb4e24abefc29aa018a" => :catalina
-    sha256 "81cf2771fd65d0fda6536bde1366622d5305d6720ba5822a4919acd661509613" => :mojave
-    sha256 "c4b91823da381ca3f5c1d4016b35b0f5c02c947eecad788541cb666bfbb49290" => :high_sierra
+    sha256 "b941e1c492c340e737423badddd648b267e33a8cdc865f4f2935001d5f8a6e7d" => :catalina
+    sha256 "d0a660aff0c0919206fad22432af8174985035b40889fddb15c8f4aa3c0b2b69" => :mojave
+    sha256 "46ecc776de40f0da06a82ad0018d33c6fd27a9924ea4df8ddd17970c06fa52f6" => :high_sierra
   end
 
   keg_only :versioned_formula
 
   depends_on "cmake" => :build
-
   depends_on "openssl@1.1"
+
+  uses_from_macos "libedit"
+
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
 
   def datadir
     var/"mysql"
@@ -94,7 +105,7 @@ class MysqlAT57 < Formula
       To connect run:
           mysql -uroot
     EOS
-    if my_cnf = ["/etc/my.cnf", "/etc/mysql/my.cnf"].find { |x| File.exist? x }
+    if (my_cnf = ["/etc/my.cnf", "/etc/mysql/my.cnf"].find { |x| File.exist? x })
       s += <<~EOS
 
         A "#{my_cnf}" from another install may interfere with a Homebrew-built
@@ -104,29 +115,30 @@ class MysqlAT57 < Formula
     s
   end
 
-  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/mysql@5.7/bin/mysql.server start"
+  plist_options manual: "#{HOMEBREW_PREFIX}/opt/mysql@5.7/bin/mysql.server start"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>KeepAlive</key>
-      <true/>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_bin}/mysqld_safe</string>
-        <string>--datadir=#{datadir}</string>
-      </array>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>WorkingDirectory</key>
-      <string>#{datadir}</string>
-    </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>KeepAlive</key>
+        <true/>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/mysqld_safe</string>
+          <string>--datadir=#{datadir}</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>WorkingDirectory</key>
+        <string>#{datadir}</string>
+      </dict>
+      </plist>
+    EOS
   end
 
   test do
@@ -135,12 +147,13 @@ class MysqlAT57 < Formula
     system bin/"mysqld", "--initialize-insecure", "--user=#{ENV["USER"]}",
     "--basedir=#{prefix}", "--datadir=#{dir}", "--tmpdir=#{dir}"
 
+    port = free_port
     pid = fork do
-      exec bin/"mysqld", "--bind-address=127.0.0.1", "--datadir=#{dir}"
+      exec bin/"mysqld", "--bind-address=127.0.0.1", "--datadir=#{dir}", "--port=#{port}"
     end
     sleep 2
 
-    output = shell_output("curl 127.0.0.1:3306")
+    output = shell_output("curl 127.0.0.1:#{port}")
     output.force_encoding("ASCII-8BIT") if output.respond_to?(:force_encoding)
     assert_match version.to_s, output
   ensure

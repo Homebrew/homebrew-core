@@ -4,6 +4,11 @@ class Findutils < Formula
   url "https://ftp.gnu.org/gnu/findutils/findutils-4.7.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/findutils/findutils-4.7.0.tar.xz"
   sha256 "c5fefbdf9858f7e4feb86f036e1247a54c79fc2d8e4b7064d5aaa1f47dfa789a"
+  license "GPL-3.0"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
@@ -60,12 +65,13 @@ class Findutils < Formula
     (var/"locate").mkpath
   end
 
-  def caveats; <<~EOS
-    All commands have been installed with the prefix "g".
-    If you need to use these commands with their normal names, you
-    can add a "gnubin" directory to your PATH from your bashrc like:
-      PATH="#{opt_libexec}/gnubin:$PATH"
-  EOS
+  def caveats
+    <<~EOS
+      All commands have been installed with the prefix "g".
+      If you need to use these commands with their normal names, you
+      can add a "gnubin" directory to your PATH from your bashrc like:
+        PATH="#{opt_libexec}/gnubin:$PATH"
+    EOS
   end
 
   test do

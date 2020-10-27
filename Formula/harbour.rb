@@ -1,14 +1,20 @@
 class Harbour < Formula
   desc "Portable, xBase-compatible programming language and environment"
   homepage "https://harbour.github.io"
+  license "GPL-2.0"
   head "https://github.com/harbour/core.git"
 
   # Missing a header that was deprecated by libcurl @ version 7.12.0 and
   # deleted sometime after Harbour 3.0.0 release.
   stable do
     patch :DATA
-    url "https://downloads.sourceforge.net/harbour-project/source/3.0.0/harbour-3.0.0.tar.bz2"
+    url "https://downloads.sourceforge.net/project/harbour-project/source/3.0.0/harbour-3.0.0.tar.bz2"
     sha256 "4e99c0c96c681b40c7e586be18523e33db24baea68eb4e394989a3b7a6b5eaad"
+  end
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/harbour[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
   bottle do

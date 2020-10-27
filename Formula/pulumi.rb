@@ -2,39 +2,36 @@ class Pulumi < Formula
   desc "Cloud native development platform"
   homepage "https://pulumi.io/"
   url "https://github.com/pulumi/pulumi.git",
-      :tag      => "v1.5.1",
-      :revision => "69e04367a5772abab09eda5ad39367cd2e780af7"
+      tag:      "v2.12.1",
+      revision: "0173ab41dd10efd5d645ea9a57113e2d81fb5d2e"
+  license "Apache-2.0"
+  head "https://github.com/pulumi/pulumi.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2f9f8302f5a2c6efd1193f3661cc85bbbda7b6a301ab323d99bf21cae43a5286" => :catalina
-    sha256 "d9159ffca790247683988e6acf910da07226fffe15a5267a6fdd2873ec829bbc" => :mojave
-    sha256 "8f6f78e6aa8f29fde06919df9fa3b7f96e3284d28bb2eb1620c32a50cc3aea64" => :high_sierra
+    sha256 "e54eae8bcc78eaa4cc30b96efd9e2d3371b16d44e52757d49b119e172e772427" => :catalina
+    sha256 "b19f0b6866f3320e0e765e03be245332769f665a71c168b70242bc2db7596f3c" => :mojave
+    sha256 "8bbdae6b0bce9e482743c79624808fa3010a36bbcc7f5ee9858be7b555eba8fd" => :high_sierra
   end
 
-  depends_on "go@1.12" => :build
+  depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "on"
-
-    dir = buildpath/"src/github.com/pulumi/pulumi"
-    dir.install buildpath.children
-
-    cd dir do
-      system "go", "mod", "vendor"
-      system "make", "dist"
-      bin.install Dir["#{buildpath}/bin/*"]
-      prefix.install_metafiles
-
-      # Install bash completion
-      output = Utils.popen_read("#{bin}/pulumi gen-completion bash")
-      (bash_completion/"pulumi").write output
-
-      # Install zsh completion
-      output = Utils.popen_read("#{bin}/pulumi gen-completion zsh")
-      (zsh_completion/"_pulumi").write output
+    cd "./sdk" do
+      system "go", "mod", "download"
     end
+    cd "./pkg" do
+      system "go", "mod", "download"
+    end
+
+    system "make", "brew"
+
+    bin.install Dir["#{ENV["GOPATH"]}/bin/pulumi*"]
+
+    # Install shell completions
+    (bash_completion/"pulumi.bash").write Utils.safe_popen_read(bin/"pulumi", "gen-completion", "bash")
+    (zsh_completion/"_pulumi").write Utils.safe_popen_read(bin/"pulumi", "gen-completion", "zsh")
+    (fish_completion/"pulumi.fish").write Utils.safe_popen_read(bin/"pulumi", "gen-completion", "fish")
   end
 
   test do

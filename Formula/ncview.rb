@@ -1,16 +1,24 @@
 class Ncview < Formula
   desc "Visual browser for netCDF format files"
-  homepage "https://web.archive.org/web/20190806213507/meteora.ucsd.edu/~pierce/ncview_home_page.html"
-  url "ftp://cirrus.ucsd.edu/pub/ncview/ncview-2.1.7.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/ncview--2.1.7.tar.gz"
-  sha256 "a14c2dddac0fc78dad9e4e7e35e2119562589738f4ded55ff6e0eca04d682c82"
-  revision 10
+  homepage "https://cirrus.ucsd.edu/ncview/"
+  url "ftp://cirrus.ucsd.edu/pub/ncview/ncview-2.1.8.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/ncview-2.1.8.tar.gz"
+  sha256 "e8badc507b9b774801288d1c2d59eb79ab31b004df4858d0674ed0d87dfc91be"
+  revision 3
+
+  # The stable archive in the formula is fetched over FTP and the website for
+  # the software hasn't been updated to list the latest release (it has been
+  # years now). We're checking Debian for now because it's potentially better
+  # than having no check at all.
+  livecheck do
+    url "http://ftp.debian.org/debian/pool/main/n/ncview/"
+    regex(/href=.*?ncview[._-]v?(\d+(?:\.\d+)+)(?:\+ds)?\.orig\.t/i)
+  end
 
   bottle do
-    sha256 "6728af3ab82b4598d60c52a5bd3f0f1a94077876e4936b45c430743657d248aa" => :catalina
-    sha256 "6fdf161cfd6faac506618bb965093c051611eacfe53e1af4fe40cf526328d08c" => :mojave
-    sha256 "b9f8db64be40f663d9f3c4edef70bf6c8843347f4095ac06e5ead7126426020b" => :high_sierra
-    sha256 "fbfa69cf9cde49fecf167b327a54e89f3d8be022957af39bda161ded33149201" => :sierra
+    sha256 "0a1594bb793189d1359cbd800e44d830cc9cf39b713d71128d41323b284e687a" => :catalina
+    sha256 "d0b8e9fb871edf26633325c7309269689d0b4bd858f16a45527230dc16533abf" => :mojave
+    sha256 "5511d243f73fd1a7867bb4dd0263afe215dd0e4e29ef77199efee5db08c2d207" => :high_sierra
   end
 
   depends_on "libpng"
@@ -33,6 +41,6 @@ class Ncview < Formula
 
   test do
     assert_match "Ncview #{version}",
-                 shell_output("#{bin}/ncview -c 2>&1", 1)
+                 shell_output("#{bin}/ncview -c 2>&1")
   end
 end

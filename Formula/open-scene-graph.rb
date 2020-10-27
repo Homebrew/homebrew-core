@@ -1,14 +1,14 @@
 class OpenSceneGraph < Formula
   desc "3D graphics toolkit"
   homepage "https://github.com/openscenegraph/OpenSceneGraph"
-  url "https://github.com/openscenegraph/OpenSceneGraph/archive/OpenSceneGraph-3.6.3.tar.gz"
-  sha256 "51bbc79aa73ca602cd1518e4e25bd71d41a10abd296e18093a8acfebd3c62696"
+  url "https://github.com/openscenegraph/OpenSceneGraph/archive/OpenSceneGraph-3.6.5.tar.gz"
+  sha256 "aea196550f02974d6d09291c5d83b51ca6a03b3767e234a8c0e21322927d1e12"
   head "https://github.com/openscenegraph/OpenSceneGraph.git"
 
   bottle do
-    sha256 "153c47045ba21b94581aed7375218a38534077fc8920090dc541627d09ef36c5" => :mojave
-    sha256 "adabb1b668bdfec8e6ccc1e05a91577bbe0c58487d345b662c3acaae2298e8a9" => :high_sierra
-    sha256 "8f69c72133ca7100385f49d104f33517c66aefe7c76bb22e08b28c8aaa4c6385" => :sierra
+    sha256 "a5af0114a8096d9bdc63682eb7a913b1a72b6f0d6cc20f526c0734b8111b7499" => :catalina
+    sha256 "35070bb7f3ac7460d14df196d7d0e9110fbdf84e61fa10b0ed2613d697310aa0" => :mojave
+    sha256 "9bbb98357b02428b90ffd8eadb5da85afcc2360aee2c8de8820fbed241f94a1d" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -17,26 +17,25 @@ class OpenSceneGraph < Formula
   depends_on "pkg-config" => :build
   depends_on "freetype"
   depends_on "gtkglext"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "sdl"
 
   # patch necessary to ensure support for gtkglext-quartz
-  # filed as an issue to the developers https://github.com/openscenegraph/osg/issues/34
+  # filed as an issue to the developers https://github.com/openscenegraph/OpenSceneGraph/issues/34
   patch :DATA
 
   def install
     # Fix "fatal error: 'os/availability.h' file not found" on 10.11 and
     # "error: expected function body after function declarator" on 10.12
-    if MacOS.version == :sierra || MacOS.version == :el_capitan
-      ENV["SDKROOT"] = MacOS.sdk_path
-    end
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra || MacOS.version == :el_capitan
 
     args = std_cmake_args + %w[
       -DBUILD_DOCUMENTATION=ON
       -DCMAKE_DISABLE_FIND_PACKAGE_FFmpeg=ON
       -DCMAKE_DISABLE_FIND_PACKAGE_GDAL=ON
+      -DCMAKE_DISABLE_FIND_PACKAGE_Jasper=ON
+      -DCMAKE_DISABLE_FIND_PACKAGE_OpenEXR=ON
       -DCMAKE_DISABLE_FIND_PACKAGE_TIFF=ON
-      -DCMAKE_DISABLE_FIND_PACKAGE_cairo=ON
       -DCMAKE_CXX_FLAGS=-Wno-error=narrowing
       -DCMAKE_OSX_ARCHITECTURES=x86_64
       -DOSG_DEFAULT_IMAGE_PLUGIN_FOR_OSX=imageio
@@ -67,6 +66,7 @@ class OpenSceneGraph < Formula
     assert_equal `./test`.chomp, version.to_s
   end
 end
+
 __END__
 diff --git a/CMakeModules/FindGtkGl.cmake b/CMakeModules/FindGtkGl.cmake
 index 321cede..6497589 100644

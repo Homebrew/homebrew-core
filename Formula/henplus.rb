@@ -3,6 +3,7 @@ class Henplus < Formula
   homepage "https://github.com/neurolabs/henplus"
   url "https://github.com/downloads/neurolabs/henplus/henplus-0.9.8.tar.gz"
   sha256 "ea7ca363d0503317235e97f66aa0efefe44463d8445e88b304ec0ac1748fe1ff"
+  license "GPL-2.0"
   revision 1
 
   bottle do
@@ -17,7 +18,7 @@ class Henplus < Formula
   end
 
   depends_on "ant" => :build
-  depends_on :java => "1.8"
+  depends_on java: "1.8"
   depends_on "libreadline-java"
 
   def install
@@ -32,10 +33,11 @@ class Henplus < Formula
     system "ant", "install", "-Dprefix=#{prefix}"
   end
 
-  def caveats; <<~EOS
-    You may need to set JAVA_HOME:
-      export JAVA_HOME="$(/usr/libexec/java_home)"
-  EOS
+  def caveats
+    <<~EOS
+      You may need to set JAVA_HOME:
+        export JAVA_HOME="$(/usr/libexec/java_home)"
+    EOS
   end
 
   test do

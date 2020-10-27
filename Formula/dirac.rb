@@ -6,6 +6,10 @@ class Dirac < Formula
   mirror "https://deb.debian.org/debian/pool/main/d/dirac/dirac_1.0.2.orig.tar.gz"
   sha256 "816b16f18d235ff8ccd40d95fc5b4fad61ae47583e86607932929d70bf1f00fd"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     rebuild 1

@@ -1,65 +1,98 @@
 class Travis < Formula
   desc "Command-line client for Travis CI"
   homepage "https://github.com/travis-ci/travis.rb/"
-  url "https://github.com/travis-ci/travis.rb/archive/v1.8.10.tar.gz"
-  sha256 "77f43de7c1e686e2b8eca3f467047de9687c4021c4a12f46dcf1e0f3e63a96c3"
+  url "https://github.com/travis-ci/travis.rb/archive/v1.9.1.tar.gz"
+  sha256 "efe64321ba52e1ce62e46209a70c27d7909129bd0dd7c6166657e871b149a692"
+  license "MIT"
 
   bottle do
     cellar :any
-    sha256 "42d8323b7ebb3687b3ea96b1051fd9e02c22732ebd2964d6bea064fb443f99ba" => :mojave
-    sha256 "d66aa769ff2b66c634ead1d76966015f852d39c3b6baf5ef01e80f2da5c66c45" => :high_sierra
-    sha256 "01b6473c4a5d559e0920c8badd3fd182d0ce9896db2e0017419176814c800d99" => :sierra
+    sha256 "e73ded3bc90d895c4210b55d99589fd5b440e0c9fe655b9aeb923b79c061af56" => :catalina
+    sha256 "322f16ef370e8130d009d09da3538a779fcc9c96e642b9baf5dc65970f61a95b" => :mojave
+    sha256 "201f7ddbd12e090edcabc22264b0029d3063cd423301d7b82a7aeceb0107ccd0" => :high_sierra
   end
 
-  depends_on "ruby" if MacOS.version <= :sierra
+  depends_on "pkg-config" => :build
+  depends_on "ruby"
+
+  if MacOS.version < :catalina
+    depends_on "libffi"
+  else
+    uses_from_macos "libffi"
+  end
+
+  resource "activesupport" do
+    url "https://rubygems.org/gems/activesupport-5.2.4.2.gem"
+    sha256 "8c3ae3df5b08b49b6b5d9c5028da1a1e582f1243b7362dbb9736f65ede492378"
+  end
+
+  resource "concurrent-ruby" do
+    url "https://rubygems.org/gems/concurrent-ruby-1.1.6.gem"
+    sha256 "14da21d5cfe9ccb02e9359b01cb7291e0167ded0ec805d4f3a4b2b4ffa418324"
+  end
+
+  resource "i18n" do
+    url "https://rubygems.org/gems/i18n-1.8.2.gem"
+    sha256 "95cf147081cc6f1dbfb32a8f29a03afe8b0f4da6a300d37d34e0f74a6868994b"
+  end
+
+  resource "minitest" do
+    url "https://rubygems.org/gems/minitest-5.14.0.gem"
+    sha256 "dfe35170edd195c3f32b43c2326a776e687f9efb330f185e43f0ca0a8be9e33c"
+  end
+
+  resource "tzinfo" do
+    url "https://rubygems.org/gems/tzinfo-1.2.7.gem"
+    sha256 "3945d8a57c62a59e691d527ae4daaf562d6e07a3c0d032876c6b066e108072c4"
+  end
 
   resource "addressable" do
-    url "https://rubygems.org/gems/addressable-2.4.0.gem"
-    sha256 "7abfff765571b0a73549c9a9d2f7e143979cd0c252f7fa4c81e7102a973ef656"
+    url "https://rubygems.org/gems/addressable-2.7.0.gem"
+    sha256 "5e9b62fe1239091ea9b2893cd00ffe1bcbdd9371f4e1d35fac595c98c5856cbb"
   end
 
-  resource "backports" do
-    url "https://rubygems.org/gems/backports-3.11.3.gem"
-    sha256 "57b04d4e2806c199bff3663d810db25e019cf88c42cacc0edbb36d3038d6a5ab"
+  resource "public_suffix" do
+    url "https://rubygems.org/gems/public_suffix-4.0.4.gem"
+    sha256 "3ff2a10253583b2780b6fb0ea643a2e877ae3bf719bd987fe5f16b550ec733d0"
   end
 
   resource "ethon" do
-    url "https://rubygems.org/gems/ethon-0.11.0.gem"
-    sha256 "88ec7960a8e00f76afc96ed15dcc8be0cb515f963fe3bb1d4e0b5c51f9d7e078"
+    url "https://rubygems.org/gems/ethon-0.12.0.gem"
+    sha256 "e99d3095e89f82c5a7e63d9261ddf4a21f28ae5d12a9d3abaa6920cce6cbef3d"
   end
 
   resource "faraday" do
-    url "https://rubygems.org/gems/faraday-0.15.2.gem"
-    sha256 "affa23f5e5ee27170cbb5045c580af9b396bac525516c6583661c2bb08038f92"
+    url "https://rubygems.org/gems/faraday-1.0.1.gem"
+    sha256 "381aee04fcc9effbe5fa7cc703d8f5f20293722f987ded4f958f77514cd29373"
   end
 
   resource "faraday_middleware" do
-    url "https://rubygems.org/gems/faraday_middleware-0.12.2.gem"
-    sha256 "2d90093c18c23e7f5a6f602ed3114d2c62abc3f7f959dd3046745b24a863f1dc"
+    url "https://rubygems.org/gems/faraday_middleware-1.0.0.gem"
+    sha256 "19e808539681bbf2e65df30dfbe27bb402bde916a1dceb4c7496dbe8de14334a"
   end
 
+  # required by typhoeus
   resource "ffi" do
-    url "https://rubygems.org/gems/ffi-1.9.25.gem"
-    sha256 "f854f08f08190fec772a12e863f33761d02ad3efea3c3afcdeffc8a06313f54a"
+    url "https://rubygems.org/gems/ffi-1.12.2.gem"
+    sha256 "048ad01d5369f67075f943c16f1058f10663af2a66eedb87d921316ba1828e82"
   end
 
   resource "gh" do
-    url "https://rubygems.org/gems/gh-0.15.1.gem"
-    sha256 "ef733f81c17846f217f5ad9616105e9adc337775d41de1cc330133ad25708d3c"
+    url "https://rubygems.org/gems/gh-0.17.0.gem"
+    sha256 "7219a131780f2f21b7495e60e94dd5170e5ab6dc9a219f4623ca4175456d42da"
   end
 
   resource "highline" do
-    url "https://rubygems.org/gems/highline-1.7.10.gem"
-    sha256 "1e147d5d20f1ad5b0e23357070d1e6d0904ae9f71c3c49e0234cf682ae3c2b06"
+    url "https://rubygems.org/gems/highline-2.0.3.gem"
+    sha256 "2ddd5c127d4692721486f91737307236fe005352d12a4202e26c48614f719479"
   end
 
-  if MacOS.version <= :sierra
-    resource "json" do
-      url "https://rubygems.org/gems/json-2.1.0.gem"
-      sha256 "b76fd09b881088c6c64a12721a1528f2f747a1c2ee52fab4c1f60db8af946607"
-    end
+  resource "json" do
+    url "https://rubygems.org/gems/json-2.3.0.gem"
+    sha256 "b61691fd2087ac37141b75ff4287ce2c3f17251c713e97ef73b43b4bb2e0355b"
   end
 
+  # launchy v2.5.0 requires ruby > 2.4.0
   resource "launchy" do
     url "https://rubygems.org/gems/launchy-2.4.3.gem"
     sha256 "42f52ce12c6fe079bac8a804c66522a0eefe176b845a62df829defe0e37214a4"
@@ -71,8 +104,8 @@ class Travis < Formula
   end
 
   resource "multipart-post" do
-    url "https://rubygems.org/gems/multipart-post-2.0.0.gem"
-    sha256 "3dc44e50d3df3d42da2b86272c568fd7b75c928d8af3cc5f9834e2e5d9586026"
+    url "https://rubygems.org/gems/multipart-post-2.1.1.gem"
+    sha256 "d2dd7aa957650e0d99e0513cd388401b069f09528441b87d884609c8e94ffcfd"
   end
 
   resource "net-http-persistent" do
@@ -90,6 +123,11 @@ class Travis < Formula
     sha256 "c405c931090e126c056d99f6b69a01b1bcb6cbfdde02389c93e7d547c6efd5a3"
   end
 
+  resource "thread_safe" do
+    url "https://rubygems.org/gems/thread_safe-0.3.6.gem"
+    sha256 "9ed7072821b51c57e8d6b7011a8e282e25aeea3a4065eab326e43f66f063b05a"
+  end
+
   resource "typhoeus" do
     url "https://rubygems.org/gems/typhoeus-0.8.0.gem"
     sha256 "28b7cf3c7d915a06d412bddab445df94ab725252009aa409f5ea41ab6577a30f"
@@ -102,6 +140,9 @@ class Travis < Formula
 
   def install
     ENV["GEM_HOME"] = libexec
+    # gem issue on Mojave
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :mojave
+
     resources.each do |r|
       r.fetch
       system "gem", "install", r.cached_download, "--ignore-dependencies",
@@ -110,14 +151,12 @@ class Travis < Formula
     system "gem", "build", "travis.gemspec"
     system "gem", "install", "--ignore-dependencies", "travis-#{version}.gem"
     bin.install libexec/"bin/travis"
-    bin.env_script_all_files(libexec/"bin", :GEM_HOME => ENV["GEM_HOME"])
+    bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"])
   end
 
   test do
     (testpath/".travis.yml").write <<~EOS
       language: ruby
-
-      sudo: true
 
       matrix:
         include:

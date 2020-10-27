@@ -1,14 +1,20 @@
 class Elektra < Formula
   desc "Framework to access config settings in a global key database"
   homepage "https://libelektra.org/"
-  url "https://www.libelektra.org/ftp/elektra/releases/elektra-0.9.0.tar.gz"
-  sha256 "fcdbd1a148af91e2933d9a797def17d386a17006f629d5146020fe3b1b51ddd8"
+  url "https://www.libelektra.org/ftp/elektra/releases/elektra-0.9.2.tar.gz"
+  sha256 "6f2fcf8aaed8863e1cc323265ca2617751ca50dac974b43a0811bcfd4a511f2e"
+  license "BSD-3-Clause"
   head "https://github.com/ElektraInitiative/libelektra.git"
 
+  livecheck do
+    url "https://www.libelektra.org/ftp/elektra/releases/"
+    regex(/href=.*?elektra[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
-    sha256 "6cd6b9560e5e51985af452fb2869dd03b4079b25b60b77dbe48a302b521cdbe2" => :mojave
-    sha256 "3feaa48d0d4c1d0ba1ceb5e98ddda094f4cf3f64ffbb3c4d6809e827a6de1e84" => :high_sierra
-    sha256 "963f9f7d9bea4fc866cc08cbae06e6fe473075f5afe2a2167aa9fbfbfde83d7e" => :sierra
+    sha256 "e621021dfaf81727f50302993a94b0f06eaccfc0c4d57c6879bbb0d3d5a42368" => :catalina
+    sha256 "761e2bc6bbda33e08a6aebe9ea36d490d05b6bf0ec6e4d1bf3d9dc92ceb72ac0" => :mojave
+    sha256 "f53a1b4ba82ab8165ec9b265e2fe71b1cbd97b47d9ce5e2607e7fe35a3814b0e" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -21,16 +27,20 @@ class Elektra < Formula
       system "make", "install"
     end
 
-    bash_completion.install "scripts/kdb-bash-completion" => "kdb"
-    fish_completion.install "scripts/kdb.fish"
-    zsh_completion.install "scripts/kdb_zsh_completion" => "_kdb"
+    # Avoid references to the Homebrew shims directory
+    inreplace Dir[prefix/"share/elektra/test_data/gen/gen/highlevel/*.check.sh"],
+              HOMEBREW_SHIMS_PATH/"mac/super/", ""
+
+    bash_completion.install "scripts/completion/kdb-bash-completion" => "kdb"
+    fish_completion.install "scripts/completion/kdb.fish"
+    zsh_completion.install "scripts/completion/kdb_zsh_completion" => "_kdb"
   end
 
   test do
     output = shell_output("#{bin}/kdb get system/elektra/version/infos/licence")
     assert_match "BSD", output
-    Utils.popen_read("#{bin}/kdb", "list").split.each do |plugin|
-      system "#{bin}/kdb", "check", plugin
+    shell_output("#{bin}/kdb plugin-list").split.each do |plugin|
+      system "#{bin}/kdb", "plugin-check", plugin
     end
   end
 end

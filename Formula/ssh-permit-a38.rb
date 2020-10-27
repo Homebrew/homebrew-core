@@ -3,6 +3,7 @@ class SshPermitA38 < Formula
   homepage "https://github.com/ierror/ssh-permit-a38"
   url "https://github.com/ierror/ssh-permit-a38/archive/v0.2.0.tar.gz"
   sha256 "cb8d94954c0e68eb86e3009d6f067b92464f9c095b6a7754459cfce329576bd9"
+  license "MIT"
   revision 1
 
   bottle do
@@ -17,17 +18,20 @@ class SshPermitA38 < Formula
   depends_on "rust" => :build
   depends_on "openssl@1.1"
 
+  uses_from_macos "zlib"
+
   def install
     # Ensure that the `openssl` crate picks up the intended library.
     # https://crates.io/crates/openssl#manual-configuration
     ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
 
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", *std_cargo_args
   end
 
   test do
     system bin/"ssh-permit-a38 host 1.exmaple.com add"
 
-    assert(File.readlines("ssh-permit.json").grep(/1.exmaple.com/).size == 1, "Test host not found in ssh-permit.json")
+    assert File.readlines("ssh-permit.json").grep(/1.exmaple.com/).size == 1,
+      "Test host not found in ssh-permit.json"
   end
 end

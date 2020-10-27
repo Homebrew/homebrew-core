@@ -4,21 +4,27 @@ require "json"
 class Webpack < Formula
   desc "Bundler for JavaScript and friends"
   homepage "https://webpack.js.org/"
-  url "https://registry.npmjs.org/webpack/-/webpack-4.41.2.tgz"
-  sha256 "06a91fdf5a6d7d39c6337542956ad5770619c8648162869256b37c9ef4c665fc"
+  url "https://registry.npmjs.org/webpack/-/webpack-5.2.0.tgz"
+  sha256 "196111df2ca36ccc9987cf005b998ffeced769554ba9a2c90306b876106017fb"
+  license "MIT"
   head "https://github.com/webpack/webpack.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
-    sha256 "d586c725119c7b418519b1661f1edb3c1554fe546beb6263964b121ef67ebc82" => :catalina
-    sha256 "d1f2e501ca5a0289fdaf99f177abcd826480e65d0da5aff0a5c2a51e80500f5b" => :mojave
-    sha256 "b2a4ae8dfd9d91e50bb61d3d890fcb0d6768f4602a59a01cfa35cf4501f677b6" => :high_sierra
+    cellar :any_skip_relocation
+    sha256 "caa836df8ea5188309e441a697757d4f77fe69aa9ff6164961e91371b5aa83ea" => :catalina
+    sha256 "4c09d2fc4f72f9b7aea87850f09c5892bf39267a208e13597aad01e19d315a0d" => :mojave
+    sha256 "e6c6e700b9b82c307998f8911c6ae6fc404228bd9396e670ffa6891b5504d270" => :high_sierra
   end
 
   depends_on "node"
 
   resource "webpack-cli" do
-    url "https://registry.npmjs.org/webpack-cli/-/webpack-cli-3.3.8.tgz"
-    sha256 "a198025f402cb37d0e44329ff35fb8dc3bb74c5dd533d299b2997a0b4fc5973f"
+    url "https://registry.npmjs.org/webpack-cli/-/webpack-cli-4.0.0.tgz"
+    sha256 "ba846e71caddbf5a48b090f23f8ce91df6c771c72e324d1fb2b9eda6e2af1a7a"
   end
 
   def install
@@ -39,8 +45,8 @@ class Webpack < Formula
 
   test do
     (testpath/"index.js").write <<~EOS
-      function component () {
-        var element = document.createElement('div');
+      function component() {
+        const element = document.createElement('div');
         element.innerHTML = 'Hello' + ' ' + 'webpack';
         return element;
       }
@@ -48,7 +54,7 @@ class Webpack < Formula
       document.body.appendChild(component());
     EOS
 
-    system bin/"webpack", "index.js", "--output=bundle.js"
-    assert_predicate testpath/"bundle.js", :exist?, "bundle.js was not generated"
+    system bin/"webpack", testpath/"index.js"
+    assert_match "const e=document\.createElement(\"div\");", File.read(testpath/"dist/main.js")
   end
 end

@@ -1,18 +1,22 @@
 class WakatimeCli < Formula
   desc "Command-line interface to the WakaTime api"
   homepage "https://wakatime.com/"
-  url "https://files.pythonhosted.org/packages/04/db/9917533f8fd503f636f8c5655d9055f2fbef6f90a12a0210b92994f6f823/wakatime-10.4.1.tar.gz"
-  sha256 "8acef3ab83dbf9b5cc7592510b9dea1b75f20f4bdf60650329431b81e7f125a9"
+  url "https://files.pythonhosted.org/packages/87/03/1e919ddff6488a9be5e609ee3de500bf17b0151734d57c8923c605246235/wakatime-13.1.0.tar.gz"
+  sha256 "8da2e38335a60819b61adb60a72adc6588b3755eca376d05c9588cbf5fe64c57"
+  license "BSD-3-Clause"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3167ac719d8b58384c8b81db49831e06d084b1455bec7198a8b423586742c650" => :catalina
-    sha256 "de1250de51e5a98e72a6719ab36ec7ff27d5cfe073bf2977e407dbede12fd92e" => :mojave
-    sha256 "21070f5a585ac2b80bcd97c28a6edfcf24a1225bc9fd92b8fbe02de904e66d44" => :high_sierra
-    sha256 "21070f5a585ac2b80bcd97c28a6edfcf24a1225bc9fd92b8fbe02de904e66d44" => :sierra
+    sha256 "1573e0dd92f96002d51d388bb75f4ea06946dacf8c2e46c2408513c0a13c9feb" => :catalina
+    sha256 "84e365ad5241e4c17926bb32730cbf0d2d9de798551e137fe568a3934e7d733f" => :mojave
+    sha256 "9c4ddbce30fc3b94deb970c30527a80534e4389810524cfc58b634fc0863fc0c" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.9"
 
   def install
     xy = Language::Python.major_minor_version "python3"
@@ -20,10 +24,12 @@ class WakatimeCli < Formula
 
     system "python3", *Language::Python.setup_install_args(libexec)
     bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
   end
 
   test do
-    system "#{bin}/wakatime", "--help"
+    assert_match "Common interface for the WakaTime api.", shell_output("#{bin}/wakatime --help 2>&1")
+
+    assert_match "error: Missing api key.", shell_output("#{bin}/wakatime --project test 2>&1", 104)
   end
 end

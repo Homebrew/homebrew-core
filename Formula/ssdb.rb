@@ -1,21 +1,25 @@
 class Ssdb < Formula
   desc "NoSQL database supporting many data structures: Redis alternative"
   homepage "http://ssdb.io/"
-  url "https://github.com/ideawu/ssdb/archive/1.9.4.tar.gz"
-  sha256 "6a24efcc906faf07c02c69975861368c1aa8e4adb3770f4bcd3dd610cdcce537"
+  url "https://github.com/ideawu/ssdb/archive/1.9.9.tar.gz"
+  sha256 "28b5b6505a6a660b587b7d07ef77a3983a0696f7d481aa70696e53048fa92e45"
+  license "BSD-3-Clause"
   head "https://github.com/ideawu/ssdb.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ae4601d4ea8edc2c7229eb0f482f68b32f3da7893aa59ab2f65d93c103f553b2" => :catalina
-    sha256 "e0909c2c863ae8995a2a2e28caa9e14f0a410e02bed59e3e1d099264ee1f0ba8" => :mojave
-    sha256 "b6682e1b7e93c577e69c60308cc99a0e7124ddc48006207d963888863fb21dd9" => :high_sierra
-    sha256 "79903c5f68970f2c92716aa357dc7d02842ab9838aed81eb0d10a84a6b7b3277" => :sierra
-    sha256 "ea82ea4a73dca47ff68b7cfaf205373302709946aaecadd8d71d71741ca02f13" => :el_capitan
-    sha256 "24f875e83c5457735183542c8c173c01eb08bcf819dc38042f34f0114d220f3f" => :yosemite
+    sha256 "fd9b492537642a493ee437e27659b605336a5b0be915feba2894e6cdf2479c70" => :catalina
+    sha256 "07653a68e92db84536be2a515051dd951c73a46a549532aebdac94dfd4d9028d" => :mojave
+    sha256 "63544af42f2779d149b1ca647d22fc1ce687ed68347ea689df8d8a52d3a72727" => :high_sierra
   end
 
   depends_on "autoconf" => :build
+
+  # Fix ssdb 1.9.9 build
+  patch do
+    url "https://github.com/chenrui333/ssdb/commit/9556a38fb1e3cb4920e2b6ab242183a747d55a51.patch?full_index=1"
+    sha256 "ee765e6c98c991c0cf069a5bf4b0d571987b0fa35be756b5a8960190f1d14be9"
+  end
 
   def install
     inreplace "tools/ssdb-cli", /^DIR=.*$/, "DIR=#{prefix}"
@@ -47,42 +51,43 @@ class Ssdb < Formula
     etc.install "ssdb_slave.conf"
   end
 
-  plist_options :manual => "ssdb-server #{HOMEBREW_PREFIX}/etc/ssdb.conf"
+  plist_options manual: "ssdb-server #{HOMEBREW_PREFIX}/etc/ssdb.conf"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>KeepAlive</key>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
         <dict>
-          <key>SuccessfulExit</key>
-          <false/>
+          <key>KeepAlive</key>
+          <dict>
+            <key>SuccessfulExit</key>
+            <false/>
+          </dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/ssdb-server</string>
+            <string>#{etc}/ssdb.conf</string>
+          </array>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>WorkingDirectory</key>
+          <string>#{var}</string>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/ssdb.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/ssdb.log</string>
         </dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/ssdb-server</string>
-          <string>#{etc}/ssdb.conf</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>WorkingDirectory</key>
-        <string>#{var}</string>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/ssdb.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/ssdb.log</string>
-      </dict>
-    </plist>
-  EOS
+      </plist>
+    EOS
   end
 
   test do
     pid = fork do
       Signal.trap("TERM") do
-        system("#{bin}/ssdb-server -d #{HOMEBREW_PREFIX}/etc/ssdb.conf")
+        system("#{bin}/ssdb-server", "-d", "#{HOMEBREW_PREFIX}/etc/ssdb.conf")
         exit
       end
     end

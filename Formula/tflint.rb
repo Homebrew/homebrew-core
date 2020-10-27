@@ -1,36 +1,28 @@
 class Tflint < Formula
   desc "Linter for Terraform files"
-  homepage "https://github.com/wata727/tflint"
-  url "https://github.com/wata727/tflint.git",
-    :tag      => "v0.12.1",
-    :revision => "98b9b63f6d1bae0838165465db8b04613760e9e6"
-  head "https://github.com/wata727/tflint.git"
+  homepage "https://github.com/terraform-linters/tflint"
+  url "https://github.com/terraform-linters/tflint/archive/v0.20.3.tar.gz"
+  sha256 "a375bdcae4276e39607a026da9b50ddca6656586baed2c7c667ed77acf570985"
+  license "MPL-2.0"
+  head "https://github.com/terraform-linters/tflint.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a321c4c221d75e7438bf5f0066f7fb19bdba08bb4a8e1f7f9aba21c4378f1115" => :catalina
-    sha256 "014a86cc46f23c52eab90b9679c40cfe2727d88dd9d1e85538ced3f0a36d3ff2" => :mojave
-    sha256 "68b21e6af886c82e29e24b8892bb7be0f75ccc2861101748aa9c18b283c0b9e5" => :high_sierra
+    sha256 "d7930b07af3479a15c068518f97f9064a1baa9cec4c1a604ab519b1a28eb8fab" => :catalina
+    sha256 "32d10ac434538fbaa8927c78a2b01406071af79c4ab5da736db3f47629831c42" => :mojave
+    sha256 "a44edc90914c6e3d02742b0fdbc167a6f7681065dab8464092ccdedf5706b765" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    dir = buildpath/"src/github.com/wata727/tflint"
-    dir.install buildpath.children
-
-    cd dir do
-      system "go", "build", "-o", bin/"tflint"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-ldflags", "-s -w", "-o", bin/"tflint"
   end
 
   test do
     (testpath/"test.tf").write <<~EOS
       provider "aws" {
-        region = "${var.aws_region}"
+        region = var.aws_region
       }
     EOS
 

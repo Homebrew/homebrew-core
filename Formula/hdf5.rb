@@ -1,16 +1,20 @@
 class Hdf5 < Formula
   desc "File format designed to store large amounts of data"
   homepage "https://www.hdfgroup.org/HDF5"
-  url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.5/src/hdf5-1.10.5.tar.bz2"
-  sha256 "68d6ea8843d2a106ec6a7828564c1689c7a85714a35d8efafa2fee20ca366f44"
+  url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.12/hdf5-1.12.0/src/hdf5-1.12.0.tar.bz2"
+  sha256 "97906268640a6e9ce0cde703d5a71c9ac3092eded729591279bf2e3ca9765f61"
   revision 1
+
+  livecheck do
+    url "https://www.hdfgroup.org/downloads/hdf5/"
+    regex(/Newsletter for HDF5[._-]v?(.*?) Release/i)
+  end
 
   bottle do
     cellar :any
-    sha256 "afdce21a9b29d29b4da6462822e50a4c4b775506c9682d93f3b4fed346f6abde" => :catalina
-    sha256 "28ee1944f9b17a50bddbfbc1730d06373efaf2f188930fa1624370bb895626df" => :mojave
-    sha256 "38fd7f6b101842d2fb103d45f3cbd927b7698795ec622495a9fc6052454eb011" => :high_sierra
-    sha256 "211b460cc14787591fdcc90c4aed3d643b5bab780269a1f2c775adf4d1ed8399" => :sierra
+    sha256 "e0990f7a52f3f66fd8d546ff1e1d26d4a0cec5ebc9a45ec21fb5335359d6878a" => :catalina
+    sha256 "3b681a12f21a576b4c80d84d52dbe8ff9380ecc517f9b742dbe26faf5ffc289a" => :mojave
+    sha256 "331f9a49fb5abb3344a6dc7ff626e37d799418d8de507487c30aff91e2b22265" => :high_sierra
   end
 
   depends_on "autoconf" => :build
@@ -18,10 +22,11 @@ class Hdf5 < Formula
   depends_on "libtool" => :build
   depends_on "gcc" # for gfortran
   depends_on "szip"
+
   uses_from_macos "zlib"
 
   def install
-    inreplace %w[c++/src/h5c++.in fortran/src/h5fc.in tools/src/misc/h5cc.in],
+    inreplace %w[c++/src/h5c++.in fortran/src/h5fc.in bin/h5cc.in],
       "${libdir}/libhdf5.settings",
       "#{pkgshare}/libhdf5.settings"
 

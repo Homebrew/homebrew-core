@@ -1,24 +1,29 @@
 class Vice < Formula
   desc "Versatile Commodore Emulator"
-  homepage "https://vice-emu.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/vice-emu/releases/vice-3.3.tar.gz"
-  sha256 "1a55b38cc988165b077808c07c52a779d181270b28c14b5c9abf4e569137431d"
-  revision 2
+  homepage "https://sourceforge.net/projects/vice-emu/"
+  url "https://downloads.sourceforge.net/project/vice-emu/releases/vice-3.4.tar.gz"
+  sha256 "4bd00c1c63d38cd1fe01b90032834b52f774bc29e4b67eeb1e525b14fee07aeb"
+  revision 1
   head "https://svn.code.sf.net/p/vice-emu/code/trunk/vice"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/vice[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
-    sha256 "7cc7889e59d86aea5c5d546b2546f0d362eca98f0a3b30c6b79a0b225ff6e134" => :catalina
-    sha256 "70cd1c39de3602ff4f6834bae1e2bdb084183d48dfd50559e771f91b8b13dead" => :mojave
-    sha256 "93a9bd8e96d84c627e54ca142674e99fa47e8501dac887210d7afcde43d511d9" => :high_sierra
-    sha256 "ec8486f012038772ef8239623f472d7c619c614194f0da67d72cadaedf10154c" => :sierra
+    cellar :any
+    sha256 "b65fbef8066263ccd42679a2b9ed9f3d438ff75a5d8c097dcf04ffb5fa1b1e43" => :catalina
+    sha256 "65380e5bdb80143cfbd668fe45c385b7715faa6baa8f109707003be3fb410efb" => :mojave
+    sha256 "d2532e0ccc1a84a9896a611c9ac7eac15342f7ebbaedba7c0b29f36c178a0c27" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "texinfo" => :build
   depends_on "xa" => :build
   depends_on "yasm" => :build
-  depends_on "autoconf" if build.head?
-  depends_on "automake" if build.head?
+  depends_on "autoconf"
+  depends_on "automake"
   depends_on "ffmpeg"
   depends_on "flac"
   depends_on "giflib"
@@ -42,22 +47,22 @@ class Vice < Formula
       "--enable-external-ffmpeg",
     ]
 
-    if build.head?
-      configure_flags << "--enable-native-gtk3ui"
+    configure_flags << if build.head?
+      "--enable-native-gtk3ui"
     else
-      configure_flags << "--disable-bundle"
-      configure_flags << "--enable-sdlui2"
+      "--enable-sdlui2"
     end
 
-    system "./autogen.sh" if build.head?
+    system "./autogen.sh"
     system "./configure", *configure_flags
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    App bundles are no longer built for each emulator. The binaries are
-    available in #{HOMEBREW_PREFIX}/bin directly instead.
-  EOS
+  def caveats
+    <<~EOS
+      App bundles are no longer built for each emulator. The binaries are
+      available in #{HOMEBREW_PREFIX}/bin directly instead.
+    EOS
   end
 
   test do

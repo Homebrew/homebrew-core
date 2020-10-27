@@ -1,20 +1,18 @@
 class Telnetd < Formula
-  desc "TELNET server (built from macOS Sierra sources)"
+  desc "TELNET server"
   homepage "https://opensource.apple.com/"
-  url "https://opensource.apple.com/tarballs/remote_cmds/remote_cmds-54.50.1.tar.gz"
-  sha256 "156ddec946c81af1cbbad5cc6e601135245f7300d134a239cda45ff5efd75930"
+  url "https://opensource.apple.com/tarballs/remote_cmds/remote_cmds-63.tar.gz"
+  sha256 "13858ef1018f41b93026302840e832c2b65289242225c5a19ce5e26f84607f15"
+  license all_of: ["BSD-4-Clause-UC", "BSD-3-Clause"]
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "3311f7c7010df042a4e81248140a31b0bfd3b187a993aef039ffda2ca8bdb14c" => :catalina
-    sha256 "61c06e02268d33b84484ba991221493ef0d01dfcff6c4e655ff831c3f7fc6f51" => :mojave
-    sha256 "6c0d7658f3f74e12ea983a72907635a0444d97290b43c604b96218b4e6ca52d1" => :high_sierra
-    sha256 "43e4d4a2eb55629583d76ce9c6131f2ce1d4868b90d2e24a170ffc63f4947c8a" => :sierra
-    sha256 "87932091398ba2cddf14298d70ce1b17ebb7c1e734e177807f23444a44987df2" => :el_capitan
+    sha256 "16f053b3bdfe04dcad271f63cd1f7e6ccc312ddb410081f4f729d12bc80eceb9" => :catalina
+    sha256 "cde731ff626ebda39ecadc5b6ed2014429cb2afb99521fd967a2176d127d94b7" => :mojave
+    sha256 "d31eb6a8f79b8f9eb2417dce87c6508b8837207d4f8df48bdd5fd1d833f1b757" => :high_sierra
   end
 
-  depends_on :xcode => :build
+  depends_on xcode: :build
 
   resource "libtelnet" do
     url "https://opensource.apple.com/tarballs/libtelnet/libtelnet-13.tar.gz"
@@ -23,8 +21,7 @@ class Telnetd < Formula
 
   def install
     resource("libtelnet").stage do
-      # Force 64 bit-only build, otherwise it fails on Mojave
-      xcodebuild "SYMROOT=build", "-arch", "x86_64"
+      xcodebuild "SYMROOT=build", "-arch", Hardware::CPU.arch
 
       libtelnet_dst = buildpath/"telnetd.tproj/build/Products"
       libtelnet_dst.install "build/Release/libtelnet.a"
@@ -38,7 +35,7 @@ class Telnetd < Formula
                    "CC=#{ENV.cc}",
                    "CFLAGS=$(CC_Flags) -isystembuild/Products/",
                    "LDFLAGS=$(LD_Flags) -Lbuild/Products/",
-                   "RC_ARCHS=x86_64" # Force 64-bit build for Mojave
+                   "RC_ARCHS=#{Hardware::CPU.arch}"
 
     sbin.install "telnetd.tproj/build/Products/telnetd"
     man8.install "telnetd.tproj/telnetd.8"

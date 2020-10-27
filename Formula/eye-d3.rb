@@ -1,30 +1,49 @@
 class EyeD3 < Formula
+  include Language::Python::Virtualenv
+
   desc "Work with ID3 metadata in .mp3 files"
   homepage "https://eyed3.nicfit.net/"
-  url "https://eyed3.nicfit.net/releases/eyeD3-0.8.11.tar.gz"
-  sha256 "0e4c9b9b42257deb9c38c112dbe44e1203dea686d454dc76adb72ded25ac878c"
+  url "https://eyed3.nicfit.net/releases/eyeD3-0.9.5.tar.gz"
+  mirror "https://files.pythonhosted.org/packages/3a/7a/07fc7a0e4f7913f599dae950ea5024f006ccef2bc1bbffba288ed8fdfcab/eyeD3-0.9.5.tar.gz"
+  sha256 "faf5806197f2093e82c2830d41f2378f07b3a9da07a16fafb14fc6fbdebac50a"
+  license "GPL-3.0"
+  revision 2
+
+  livecheck do
+    url "https://eyed3.nicfit.net/releases/"
+    regex(/href=.*?eyeD3[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "dc56bd4c80be39c5d9311750fc993ca11105577c6173315389bc7c18026192f1" => :catalina
-    sha256 "dc56bd4c80be39c5d9311750fc993ca11105577c6173315389bc7c18026192f1" => :mojave
-    sha256 "dc56bd4c80be39c5d9311750fc993ca11105577c6173315389bc7c18026192f1" => :high_sierra
+    sha256 "8c413651ff61a76a5e5998eff9fd51944895b63c92ee7f82e2af436f9a9ce2cb" => :catalina
+    sha256 "427a4f9c0bed9e543ea478ca1d5d6914a1dd3e38897bdd3e25855a1771a3d4af" => :mojave
+    sha256 "6abe02207943590759f2853e3dee4aed9f8815d1a621ebe238ae70a5be0286db" => :high_sierra
   end
 
-  depends_on "libmagic"
-  depends_on "python"
+  depends_on "python@3.9"
 
   # Looking for documentation? Please submit a PR to build some!
   # See https://github.com/Homebrew/homebrew/issues/32770 for previous attempt.
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/41/b6/4f0cefba47656583217acd6cd797bc2db1fede0d53090fdc28ad2c8e0716/certifi-2018.10.15.tar.gz"
-    sha256 "6d58c986d22b038c8c0df30d639f23a3e6d172a05c3583e766f4c0b785c0986a"
+    url "https://files.pythonhosted.org/packages/b8/e2/a3a86a67c3fc8249ed305fc7b7d290ebe5e4d46ad45573884761ef4dea7b/certifi-2020.4.5.1.tar.gz"
+    sha256 "51fcb31174be6e6664c5f69e3e1691a2d72a1a12e90f872cbdb1567eb47b6519"
   end
 
   resource "chardet" do
     url "https://files.pythonhosted.org/packages/fc/bb/a5768c230f9ddb03acc9ef3f0d4a3cf93462473795d18e9535498c8f929d/chardet-3.0.4.tar.gz"
     sha256 "84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae"
+  end
+
+  resource "deprecation" do
+    url "https://files.pythonhosted.org/packages/cd/94/8d9d6303f5ddcbf40959fc2b287479bd9a201ea9483373d9b0882ae7c3ad/deprecation-2.0.7.tar.gz"
+    sha256 "c0392f676a6146f0238db5744d73e786a43510d54033f80994ef2f4c9df192ed"
+  end
+
+  resource "filetype" do
+    url "https://files.pythonhosted.org/packages/b8/1f/5c7999077c31db27cc9b0048a7aaddeb76f01276645546ae5c561880dd30/filetype-1.0.6.tar.gz"
+    sha256 "99d2b923921cadbe6e451249091ca7156b4beaee6e741bd711a582d4dd2f2881"
   end
 
   resource "grako" do
@@ -33,57 +52,53 @@ class EyeD3 < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/65/c4/80f97e9c9628f3cac9b98bfca0402ede54e0563b56482e3e6e45c43c4935/idna-2.7.tar.gz"
-    sha256 "684a38a6f903c1d71d6d5fac066b58d7768af4de2b832e426ec79c30daa94a16"
+    url "https://files.pythonhosted.org/packages/cb/19/57503b5de719ee45e83472f339f617b0c01ad75cba44aba1e4c97c2b0abd/idna-2.9.tar.gz"
+    sha256 "7588d1c14ae4c77d74036e8c22ff447b26d0fde8f007354fd48a7814db15b7cb"
   end
 
-  resource "pathlib" do
-    url "https://files.pythonhosted.org/packages/ac/aa/9b065a76b9af472437a0059f77e8f962fe350438b927cb80184c32f075eb/pathlib-1.0.1.tar.gz"
-    sha256 "6940718dfc3eff4258203ad5021090933e5c04707d5ca8cc9e73c94a7894ea9f"
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/65/37/83e3f492eb52d771e2820e88105f605335553fe10422cba9d256faeb1702/packaging-20.3.tar.gz"
+    sha256 "3c292b474fda1671ec57d46d739d072bfd495a4f51ad01a055121d81e952b7a3"
   end
 
   resource "pylast" do
-    url "https://files.pythonhosted.org/packages/eb/5e/c7aa34730b5184121ca3793028a4e1f2e459f0e1bce6f39b63e501f5acc1/pylast-2.4.0.tar.gz"
-    sha256 "8e883f13b70c3879fc821bbee1accf27ea4e68898f4462cbbe358f615adcbbfb"
+    url "https://files.pythonhosted.org/packages/d5/6e/52cc82855010d6d9bdc75417e0c92b4b6ac2b071879faed790be712f564e/pylast-3.2.1.tar.gz"
+    sha256 "3c984be04c9a22a884c3106a7f75749466d27c68870d6fb7e1f56b71becea7c0"
   end
 
-  resource "python-magic" do
-    url "https://files.pythonhosted.org/packages/84/30/80932401906eaf787f2e9bd86dc458f1d2e75b064b4c187341f29516945c/python-magic-0.4.15.tar.gz"
-    sha256 "f3765c0f582d2dfc72c15f3b5a82aecfae9498bd29ca840d72f37d7bd38bfcd5"
+  resource "pyparsing" do
+    url "https://files.pythonhosted.org/packages/c1/47/dfc9c342c9842bbe0036c7f763d2d6686bcf5eb1808ba3e170afdb282210/pyparsing-2.4.7.tar.gz"
+    sha256 "c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/40/35/298c36d839547b50822985a2cf0611b3b978a5ab7a5af5562b8ebe3e1369/requests-2.20.1.tar.gz"
-    sha256 "ea881206e59f41dbd0bd445437d792e43906703fff75ca8ff43ccdb11f33f263"
+    url "https://files.pythonhosted.org/packages/f5/4f/280162d4bd4d8aad241a21aecff7a6e46891b905a4341e7ab549ebaf7915/requests-2.23.0.tar.gz"
+    sha256 "b3f43d496c6daba4493e7c431722aeb7dbc6288f52a6e04e7b6023b0247817e6"
+  end
+
+  resource "ruamel.yaml" do
+    url "https://files.pythonhosted.org/packages/16/8b/54a26c1031595e5edd0e616028b922d78d8ffba8bc775f0a4faeada846cc/ruamel.yaml-0.16.10.tar.gz"
+    sha256 "099c644a778bf72ffa00524f78dd0b6476bca94a1da344130f4bf3381ce5b954"
+  end
+
+  resource "ruamel.yaml.clib" do
+    url "https://files.pythonhosted.org/packages/92/28/612085de3fae9f82d62d80255d9f4cf05b1b341db1e180adcf28c1bf748d/ruamel.yaml.clib-0.2.0.tar.gz"
+    sha256 "b66832ea8077d9b3f6e311c4a53d06273db5dc2db6e8a908550f3c14d67e718c"
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
-    sha256 "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
+    url "https://files.pythonhosted.org/packages/21/9f/b251f7f8a76dec1d6651be194dfba8fb8d7781d10ab3987190de8391d08e/six-1.14.0.tar.gz"
+    sha256 "236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/b1/53/37d82ab391393565f2f831b8eedbffd57db5a718216f82f1a8b4d381a1c1/urllib3-1.24.1.tar.gz"
-    sha256 "de9529817c93f27c8ccbfead6985011db27bd0ddfcdb2d86f3f663385c6a9c22"
+    url "https://files.pythonhosted.org/packages/09/06/3bc5b100fe7e878d3dee8f807a4febff1a40c213d2783e3246edde1f3419/urllib3-1.25.8.tar.gz"
+    sha256 "87716c2d2a7121198ebcb7ce7cccf6ce5e9ba539041cfbaeecfb641dc0bf6acc"
   end
 
   def install
-    xy = Language::Python.major_minor_version "python3"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
-    resources.each do |r|
-      r.stage do
-        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    # Install in our prefix, not the first-in-the-path python site-packages dir.
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
-
-    system "python3", "setup.py", "install", "--prefix=#{libexec}"
+    virtualenv_install_with_resources
     share.install "docs/plugins", "docs/cli.rst"
-
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   test do

@@ -1,7 +1,7 @@
 class P0f < Formula
   desc "Versatile passive OS fingerprinting, masquerade detection tool"
-  homepage "http://lcamtuf.coredump.cx/p0f3/"
-  url "http://lcamtuf.coredump.cx/p0f3/releases/p0f-3.09b.tgz"
+  homepage "https://lcamtuf.coredump.cx/p0f3/"
+  url "https://lcamtuf.coredump.cx/p0f3/releases/p0f-3.09b.tgz"
   sha256 "543b68638e739be5c3e818c3958c3b124ac0ccb8be62ba274b4241dbdec00e7f"
 
   bottle do

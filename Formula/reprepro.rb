@@ -3,14 +3,13 @@ class Reprepro < Formula
   homepage "https://salsa.debian.org/brlink/reprepro"
   url "https://deb.debian.org/debian/pool/main/r/reprepro/reprepro_5.3.0.orig.tar.gz"
   sha256 "5a5404114b43a2d4ca1f8960228b1db32c41fb55de1996f62bc1b36001f3fab4"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "6c95891ff569737d0b636f74456b3194571b4b3b5ef3e781dde572317f58e941" => :catalina
-    sha256 "0fe440a480fa2c723af48142ca77b2cc5fb733ba5e20c011f90c11a0a1f221a0" => :mojave
-    sha256 "dfeae3f34e3cf85ed2a5242f2b692a647935b78bae036398e02595448eb82e69" => :high_sierra
-    sha256 "6ab79c20ca3f9fc1d020edcc6909af83346501656a9918e0dee1d2b9ee260016" => :sierra
+    sha256 "b4588ca9f8be12fdf56fe66d846ef9dc0c0508fd436fbb3065c0009b7bcd6939" => :catalina
+    sha256 "70363262c41a09895d4d43a2bd25302ed76e9e9d187edde3512ec917e5a96b48" => :mojave
+    sha256 "86a0418ad19243949f1dbfb621970022fab9eb409c5690e4bca2d12f441644dd" => :high_sierra
   end
 
   depends_on "berkeley-db@4"

@@ -3,6 +3,12 @@ class Libdiscid < Formula
   homepage "https://musicbrainz.org/doc/libdiscid"
   url "http://ftp.musicbrainz.org/pub/musicbrainz/libdiscid/libdiscid-0.6.2.tar.gz"
   sha256 "f9e443ac4c0dd4819c2841fcc82169a46fb9a626352cdb9c7f65dd3624cd31b9"
+  license "LGPL-2.1"
+
+  livecheck do
+    url "http://ftp.musicbrainz.org/pub/musicbrainz/libdiscid/"
+    regex(/href=.*?libdiscid[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     cellar :any

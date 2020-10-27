@@ -1,35 +1,40 @@
 class Ibex < Formula
   desc "C++ library for constraint processing over real numbers"
-  homepage "http://www.ibex-lib.org/"
-  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.8.2.tar.gz"
-  sha256 "ad432fcb0321f7fb1d73356f9cce5a28170fbda63466228e5d2be9673249a9ec"
+  homepage "https://web.archive.org/web/20190826220512/www.ibex-lib.org/"
+  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.8.8.tar.gz"
+  sha256 "8de5012232009e29b833e68cffbb62be228a863aa57712207b1933199c3c8e11"
+  license "LGPL-3.0"
   head "https://github.com/ibex-team/ibex-lib.git"
 
+  livecheck do
+    url :head
+    regex(/^ibex[._-]v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    cellar :any
-    sha256 "e0ec3cc51d9933d7cf447dc947980605210408f78bf4d96e9ad3d48503c436f5" => :catalina
-    sha256 "a4ba8be28aecc518997be03a59cbb5f4fc772747818a9cabb20b31946ef0430e" => :mojave
-    sha256 "c1e025bfeefd93e9445065c35a677ef375d5d1951bc5226eb578a66d212023f3" => :high_sierra
-    sha256 "778927fdd20960097fe3bffd27d2d905d13ffe3f0dfd30af1b3a7cca0f24dbf9" => :sierra
+    cellar :any_skip_relocation
+    sha256 "6c0ab52bf081342e3467176f3f777ca5825df8fae28e10d70cdad41978728a8c" => :catalina
+    sha256 "9ce827d5149844bcef31509aff4f4700865029ed6c21d941fc6d1301c1ab6a06" => :mojave
+    sha256 "ae4bc25a0504f206517129a809afa42c26bba93f93573c4cba97cddd0726f63f" => :high_sierra
   end
 
   depends_on "bison" => :build
+  depends_on "cmake" => :build
   depends_on "flex" => :build
   depends_on "pkg-config" => [:build, :test]
+
+  uses_from_macos "zlib"
 
   def install
     ENV.cxx11
 
-    # Reported 9 Oct 2017 https://github.com/ibex-team/ibex-lib/issues/286
-    ENV.deparallelize
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
+      system "make", "SHARED=true"
+      system "make", "install"
+    end
 
-    system "./waf", "configure", "--prefix=#{prefix}",
-                                 "--enable-shared",
-                                 "--lp-lib=soplex",
-                                 "--with-optim"
-    system "./waf", "install"
-
-    pkgshare.install %w[examples plugins/solver/benchs]
+    pkgshare.install %w[examples benchs/solver]
     (pkgshare/"examples/symb01.txt").write <<~EOS
       function f(x)
         return ((2*x,-x);(-x,3*x));
@@ -41,14 +46,6 @@ class Ibex < Formula
     ENV.cxx11
 
     cp_r (pkgshare/"examples").children, testpath
-
-    # so that pkg-config can remain a build-time only dependency
-    inreplace %w[makefile slam/makefile] do |s|
-      s.gsub!(/CXXFLAGS.*pkg-config --cflags ibex./,
-              "CXXFLAGS := -I#{include} -I#{include}/ibex "\
-                          "-I#{include}/ibex/3rd")
-      s.gsub!(/LIBS.*pkg-config --libs  ibex./, "LIBS := -L#{lib} -libex")
-    end
 
     (1..8).each do |n|
       system "make", "lab#{n}"

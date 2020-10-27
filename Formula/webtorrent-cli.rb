@@ -3,14 +3,18 @@ require "language/node"
 class WebtorrentCli < Formula
   desc "Command-line streaming torrent client"
   homepage "https://webtorrent.io/"
-  url "https://registry.npmjs.org/webtorrent-cli/-/webtorrent-cli-3.0.4.tgz"
-  sha256 "5102f46937056db4e1268bc9ce6244435d0b3fab2dc5973911ecf5db4e372b8d"
+  url "https://registry.npmjs.org/webtorrent-cli/-/webtorrent-cli-3.0.7.tgz"
+  sha256 "7c6da2d8c800b921af458c94d606dad53d01cdf013fc364bb041a713e886af92"
+  license "MIT"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
-    sha256 "e2c73414925c70265f2b60fc20aabaa24ad8513fdfa1db350fd52216283c1976" => :catalina
-    sha256 "feb8ebedf0ae71e606138a3aade95976433bbf97066a45bbb77b7667b7940ecd" => :mojave
-    sha256 "f8ce4a50913b23cf1f8d587d7fc51fbb071a6fb44d34be6b005a47d6cc20f435" => :high_sierra
-    sha256 "01b1f9ab124ec3310f09f202d98fdc03a4a8a4fc969a5304da464faadf04bf5e" => :sierra
+    sha256 "524dc3212204b210358f2c6798820b17f2634919d60335db7a78a9172d64bac2" => :catalina
+    sha256 "75671e025faab37bf9d90fd195b1c6532a3cb0c47c9e01b2e448b8c4d5429cee" => :mojave
+    sha256 "7dd6916db1c79502146e5664ce1c47674259c3cdca06bbbe4e579a332e368c29" => :high_sierra
   end
 
   depends_on "node"
@@ -28,7 +32,7 @@ class WebtorrentCli < Formula
       &tr=https://tracker.archlinux.org:443/announce
     EOS
 
-    assert_equal <<~EOS.chomp, shell_output("#{bin}/webtorrent info '#{magnet_uri}'")
+    expected_output_raw = <<~EOS
       {
         "xt": "urn:btih:9eae210fe47a073f991c83561e75d439887be3f3",
         "dn": "archlinux-2017.02.01-x86_64.iso",
@@ -45,5 +49,10 @@ class WebtorrentCli < Formula
         "urlList": []
       }
     EOS
+    expected_json = JSON.parse(expected_output_raw)
+    actual_output_raw = shell_output("#{bin}/webtorrent info '#{magnet_uri}'")
+    actual_json = JSON.parse(actual_output_raw)
+    assert_equal expected_json["tr"].to_set, actual_json["tr"].to_set
+    assert_equal expected_json["announce"].to_set, actual_json["announce"].to_set
   end
 end

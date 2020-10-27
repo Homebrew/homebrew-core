@@ -3,18 +3,25 @@ class Ldns < Formula
   homepage "https://nlnetlabs.nl/projects/ldns/"
   url "https://nlnetlabs.nl/downloads/ldns/ldns-1.7.1.tar.gz"
   sha256 "8ac84c16bdca60e710eea75782356f3ac3b55680d40e1530d7cea474ac208229"
-  revision 1
+  revision 3
+
+  # https://nlnetlabs.nl/downloads/ldns/ since the first-party site has a
+  # tendency to lead to an `execution expired` error.
+  livecheck do
+    url "https://github.com/NLnetLabs/ldns.git"
+    regex(/^(?:release-)?v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     cellar :any
-    sha256 "62204338590c6474bc213a3cfc9d422aca1ef35a763412cbcd8f9d2a279d3807" => :catalina
-    sha256 "4658a9bdae49915184e10be212a19f11504ca731e66ad8a118a6cb80838a555b" => :mojave
-    sha256 "2f2ee1ff4f7c6513b9c59fcee2d36b44e0421d238cbecbd6c6ed8f5801ba1803" => :high_sierra
-    sha256 "e4fe44eec5ae7b987b264cdbb64a02a7e53a25d1203edc44cb820cd7cc93093c" => :sierra
+    sha256 "9143a6b86f643e5d63cf00774619622abaf0f3ee7e7f071f4aab924f15e163ff" => :catalina
+    sha256 "51a0ab78e1788d5a13bc0e14d476a0f9d98b565915b04507df88c8b81c64963d" => :mojave
+    sha256 "86c7687436d1ddb2b41392ee6c5e8f235ffe478d7b7b0d912feaa7a89217e8d5" => :high_sierra
   end
 
   depends_on "swig" => :build
   depends_on "openssl@1.1"
+  depends_on "python@3.9"
 
   def install
     args = %W[
@@ -23,10 +30,14 @@ class Ldns < Formula
       --with-examples
       --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
       --with-pyldns
-      PYTHON_SITE_PKG=#{lib}/python2.7/site-packages
+      PYTHON_SITE_PKG=#{lib}/python3.9/site-packages
       --disable-dane-verify
     ]
 
+    # Fixes: ./contrib/python/ldns_wrapper.c:2746:10: fatal error: 'ldns.h' file not found
+    inreplace "contrib/python/ldns.i", "#include \"ldns.h\"", "#include <ldns/ldns.h>"
+
+    ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
     system "./configure", *args
 
     inreplace "Makefile" do |s|

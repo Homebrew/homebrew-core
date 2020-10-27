@@ -1,18 +1,16 @@
 class Httpflow < Formula
   desc "Packet capture and analysis utility similar to tcpdump for HTTP"
   homepage "https://github.com/six-ddc/httpflow"
-  url "https://github.com/six-ddc/httpflow/archive/0.0.7.tar.gz"
-  sha256 "9bcc7bc00427a4b01c5a5178113780f2321fbe2f81857c915a420df3a6b41de2"
+  url "https://github.com/six-ddc/httpflow/archive/0.0.9.tar.gz"
+  sha256 "2347bd416641e165669bf1362107499d0bc4524ed9bfbb273ccd3b3dd411e89c"
+  license "MIT"
   head "https://github.com/six-ddc/httpflow.git"
 
   bottle do
     cellar :any
-    sha256 "6e2dae55b26343cf1e384ab67e22d70c19162f09d28c96f02dcad2b96a70de17" => :catalina
-    sha256 "602b0986019d2d669e91ccd4d43411b6c8ad52ae44feaaac6f19f57c5267a7f9" => :mojave
-    sha256 "81bacec65a65a4f97be8035f1d21407ddada8bf3e8ab2dea8163f42162af6d65" => :high_sierra
-    sha256 "02f297152a11c184e4b16e3881d416f9cd388ecab8a4979a02bf0bbf6f2c4f56" => :sierra
-    sha256 "aae82cdbdfbda4766e7ac39ac7cf0d588ae05379b6de60fe9a62521eaf097f61" => :el_capitan
-    sha256 "f1f6b80b4d0ae25da4bc0b626ce3da653ad48f55c4d9e82c3e60ec51ff6ddea4" => :yosemite
+    sha256 "2b7b63f5d82139b4fc017b8848e3b29608738cd510ef1350710c6224a24079a3" => :catalina
+    sha256 "6d911ff1c720035b0b23cf994fbbb37e7d1372dcd32eb60bc54924b78b444431" => :mojave
+    sha256 "cf54de7d5e6fda49966d75a0c33580bb8e64d3d0fb6c39337a03e21fb20682d5" => :high_sierra
   end
 
   depends_on "pcre"

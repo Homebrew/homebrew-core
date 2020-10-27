@@ -1,33 +1,36 @@
 class Field3d < Formula
   desc "Library for storing voxel data on disk and in memory"
   homepage "https://sites.google.com/site/field3d/"
-  url "https://github.com/imageworks/Field3D/archive/v1.7.2.tar.gz"
-  sha256 "8f7c33ecb4489ed626455cf3998d911a079b4f137f86814d9c37c5765bf4b020"
-  revision 9
+  url "https://github.com/imageworks/Field3D/archive/v1.7.3.tar.gz"
+  sha256 "b6168bc27abe0f5e9b8d01af7794b3268ae301ac72b753712df93125d51a0fd4"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any
-    sha256 "e9bc286abc81f4d9e9a548d12052cb5983f97be7c71ba48fea596ca20a6299a3" => :catalina
-    sha256 "5a309ce2f4638c73a6de3739bdfebcf95d1dc58b35ea3e788a7fd2aef86202c5" => :mojave
-    sha256 "46dd1e449ac494a9fe2b16eee139915151aee504293492120b2d1bf4b8a74490" => :high_sierra
-    sha256 "59d48d1f4975d7f86214169f3dad2c0fa5bfc3168ce659275518ff5c48504f9f" => :sierra
+    sha256 "62cd1be576caec00c1d4369e08d226a94f88056588b3b34047e137a012ac6eda" => :catalina
+    sha256 "3c295ee04d92a9a1e0a87e6af3cf8dc53fcb7679b9518ba18d21c5667a17d458" => :mojave
+    sha256 "e71612d2b6260538c6a283c1d68e5cfe4fa86325feab85d885e28ea4ddb1aed9" => :high_sierra
   end
 
-  depends_on "scons" => :build
+  depends_on "cmake" => :build
   depends_on "boost"
   depends_on "hdf5"
   depends_on "ilmbase"
 
   def install
-    system "scons"
-    include.install Dir["install/**/**/release/include/*"]
-    lib.install Dir["install/**/**/release/lib/*"]
+    ENV.cxx11
+    ENV.prepend "CXXFLAGS", "-DH5_USE_110_API"
+
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
+      system "make", "install"
+    end
     man1.install "man/f3dinfo.1"
     pkgshare.install "contrib", "test", "apps/sample_code"
   end
 
   test do
-    system ENV.cxx, "-I#{include}", "-L#{lib}", "-lField3D",
+    system ENV.cxx, "-std=c++11", "-I#{include}", "-L#{lib}", "-lField3D",
            "-I#{Formula["boost"].opt_include}",
            "-L#{Formula["boost"].opt_lib}", "-lboost_system",
            "-I#{Formula["hdf5"].opt_include}",

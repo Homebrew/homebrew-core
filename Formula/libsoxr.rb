@@ -3,20 +3,52 @@ class Libsoxr < Formula
   homepage "https://sourceforge.net/projects/soxr/"
   url "https://downloads.sourceforge.net/project/soxr/soxr-0.1.3-Source.tar.xz"
   sha256 "b111c15fdc8c029989330ff559184198c161100a59312f5dc19ddeb9b5a15889"
+  license "LGPL-2.1-or-later"
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/soxr[._-]v?(\d+(?:\.\d+)+)(?:-Source)?\.t}i)
+  end
 
   bottle do
     cellar :any
-    sha256 "a6c8f1003e47e95e1653d617df2a228935fcea753bb578904687eb211d24d213" => :catalina
-    sha256 "060d8d9eff5fc5152bdb8e1be67e2dbbdeebc6bfeb1deaf0561f96ba0a2de184" => :mojave
-    sha256 "10b952f7e1ca5f9c839f87a2920e6739d4e3c262e88b05a3b8a62074de69e5ac" => :high_sierra
-    sha256 "b469390e789389d10825c86d2ed825e1cb64efd14ecf98870043178846ed38ab" => :sierra
-    sha256 "473b6f61851824ec47918a423295332f00d2ac802f2da4ef7058c621a4f365b0" => :el_capitan
+    rebuild 1
+    sha256 "6fc775411464312fe93dff80cf50497d7b412b36c8115eaa91fe65c321da755e" => :catalina
+    sha256 "ddd19b9146079827cd9065afe6853961e8b0d0857f5a06888efc500a25f087e6" => :mojave
+    sha256 "808ad13bdf13729d2f7e881c34b267bcd6598838d4f47d0dcf5ca5e38ba5db9c" => :high_sierra
   end
 
   depends_on "cmake" => :build
 
+  # Fixes the build on 64-bit ARM macOS; the __arm__ define used in the
+  # code isn't defined on 64-bit Apple Silicon.
+  # Upstream pull request: https://sourceforge.net/p/soxr/code/merge-requests/5/
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/76868b36263be42440501d3692fd3a258f507d82/libsoxr/arm64_defines.patch"
+    sha256 "9df5737a21b9ce70cc136c302e195fad9f9f6c14418566ad021f14bb34bb022c"
+  end
+
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include <soxr.h>
+
+      int main()
+      {
+        char const *version = 0;
+        version = soxr_version();
+        if (version == 0)
+        {
+          return 1;
+        }
+        return 0;
+      }
+    EOS
+    system ENV.cc, "-L#{lib}", "test.c", "-lsoxr", "-o", "test"
+    system "./test"
   end
 end

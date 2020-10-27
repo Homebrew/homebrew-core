@@ -1,14 +1,18 @@
 class Gedit < Formula
-  desc "The GNOME text editor"
+  desc "GNOME text editor"
   homepage "https://wiki.gnome.org/Apps/Gedit"
-  url "https://download.gnome.org/sources/gedit/3.34/gedit-3.34.0.tar.xz"
-  sha256 "3e95e51d3ccb495a9ac95aa3ed7fe8fe37ccde7c678f37fa3cea684bc71d507e"
-  revision 1
+  url "https://download.gnome.org/sources/gedit/3.38/gedit-3.38.0.tar.xz"
+  sha256 "46cf06806de58f6e5e95e34fd98ad0b2c0c50b3dae6d23ca57d16d5cc41856f8"
+  license "GPL-2.0-or-later"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
-    sha256 "188f873c298e9e29cfa99ae292023da5eb93d5dc91b22ea4dcf215dd7fdccfbb" => :catalina
-    sha256 "2e6ca747f2ea550481b6d6c86dbd13bba3d19695d904ae25784b205124e5b9cd" => :mojave
-    sha256 "c356ea924bfae4ca4e938566b9dce2d3de2467c180c1b0270e0e163f5af2ef61" => :high_sierra
+    sha256 "20f526cd2c9cd65e6d3d5745291abab24e90da2297ba9cf3d968fb0a8bca61f1" => :catalina
+    sha256 "829baca554b2379332b40b23726cd07ea5df9c3bb0cde67b91e215aef73fd67f" => :mojave
+    sha256 "4466c99c2f70ddcacda0dd99c52bbc5d0f7094e4153144e8c20ae0300b2dabce" => :high_sierra
   end
 
   depends_on "itstool" => :build
@@ -26,18 +30,18 @@ class Gedit < Formula
   depends_on "gsettings-desktop-schemas"
   depends_on "gspell"
   depends_on "gtk+3"
-  depends_on "gtk-mac-integration"
   depends_on "gtksourceview4"
   depends_on "libpeas"
   depends_on "libsoup"
   depends_on "libxml2"
   depends_on "pango"
+  depends_on "tepl"
 
   def install
     ENV["DESTDIR"] = "/"
 
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", ".."
+      system "meson", *std_meson_args, ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end
@@ -53,10 +57,10 @@ class Gedit < Formula
     system bin/"gedit", "--version"
     # API test
     (testpath/"test.c").write <<~EOS
-      #include <gedit/gedit-utils.h>
+      #include <gedit/gedit-debug.h>
 
       int main(int argc, char *argv[]) {
-        gchar *text = gedit_utils_make_valid_utf8("test text");
+        gedit_debug_init();
         return 0;
       }
     EOS
@@ -92,7 +96,7 @@ class Gedit < Formula
       -I#{gtksourceview4.opt_include}/gtksourceview-4
       -I#{gtkx3.opt_include}/gtk-3.0
       -I#{harfbuzz.opt_include}/harfbuzz
-      -I#{include}/gedit-3.14
+      -I#{include}/gedit-3.38
       -I#{libepoxy.opt_include}
       -I#{libffi.opt_lib}/libffi-3.0.13/include
       -I#{libpeas.opt_include}/libpeas-1.0
@@ -117,7 +121,7 @@ class Gedit < Formula
       -lcairo-gobject
       -lgdk-3
       -lgdk_pixbuf-2.0
-      -lgedit-3.14
+      -lgedit-3.38
       -lgio-2.0
       -lgirepository-1.0
       -lglib-2.0

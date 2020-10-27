@@ -3,6 +3,7 @@ class Openjpeg < Formula
   homepage "https://www.openjpeg.org/"
   url "https://github.com/uclouvain/openjpeg/archive/v2.3.1.tar.gz"
   sha256 "63f5a4713ecafc86de51bfad89cc07bb788e9bba24ebbf0c4ca637621aadb6a9"
+  license "BSD-2-Clause"
   head "https://github.com/uclouvain/openjpeg.git"
 
   bottle do

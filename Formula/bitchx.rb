@@ -5,6 +5,10 @@ class Bitchx < Formula
   sha256 "2d270500dd42b5e2b191980d584f6587ca8a0dbda26b35ce7fadb519f53c83e2"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "9e24f64d188be8be36054aad67ead05bffd2f1b5a7c6bef6bc9f98f7ea92fb87" => :catalina
     sha256 "52939d589b5697402b6b5c658ab065651ac1943e8c7c7c9798aca5f76790be00" => :mojave
@@ -20,15 +24,12 @@ class Bitchx < Formula
     # https://sourceforge.net/p/bitchx/git/ci/184af728c73c379d1eee57a387b6012572794fa8/
     inreplace "configure", "SSLeay", "OpenSSL_version_num"
 
-    args = %W[
-      --prefix=#{prefix}
-      --mandir=#{man}
-      --enable-ipv6
-      --with-plugins=acro,aim,arcfour,amp,autocycle,blowfish,cavlink,encrypt,fserv,hint,identd,nap,pkga,possum,qbx,qmail
-      --with-ssl
-    ]
-
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}",
+                          "--mandir=#{man}",
+                          "--enable-ipv6",
+                          "--with-plugins=acro,aim,arcfour,amp,autocycle,blowfish,cavlink,encrypt,fserv," \
+                                         "hint,identd,nap,pkga,possum,qbx,qmail",
+                          "--with-ssl"
     system "make"
     system "make", "install"
   end

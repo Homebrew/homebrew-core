@@ -3,6 +3,7 @@ class Aria2 < Formula
   homepage "https://aria2.github.io/"
   url "https://github.com/aria2/aria2/releases/download/release-1.35.0/aria2-1.35.0.tar.xz"
   sha256 "1e2b7fd08d6af228856e51c07173cfcf987528f1ac97e04c5af4a47642617dfd"
+  license "GPL-2.0"
 
   bottle do
     cellar :any
@@ -13,6 +14,13 @@ class Aria2 < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libssh2"
+
+  uses_from_macos "libxml2"
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "openssl@1.1"
+  end
 
   def install
     ENV.cxx11

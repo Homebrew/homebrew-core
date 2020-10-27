@@ -11,20 +11,21 @@ class Hyperspec < Formula
     doc.install Dir["*"]
   end
 
-  def caveats; <<~EOS
-    To use this copy of the HyperSpec with SLIME, put the following in
-    you .emacs intialization file:
+  def caveats
+    <<~EOS
+      To use this copy of the HyperSpec with SLIME, put the following in
+      you .emacs intialization file:
 
-    (eval-after-load "slime"
-      '(progn
-         (setq common-lisp-hyperspec-root
-               "#{HOMEBREW_PREFIX}/share/doc/hyperspec/HyperSpec/")
-         (setq common-lisp-hyperspec-symbol-table
-               (concat common-lisp-hyperspec-root "Data/Map_Sym.txt"))
-         (setq common-lisp-hyperspec-issuex-table
-               (concat common-lisp-hyperspec-root "Data/Map_IssX.txt"))))
+      (eval-after-load "slime"
+        '(progn
+           (setq common-lisp-hyperspec-root
+                 "#{HOMEBREW_PREFIX}/share/doc/hyperspec/HyperSpec/")
+           (setq common-lisp-hyperspec-symbol-table
+                 (concat common-lisp-hyperspec-root "Data/Map_Sym.txt"))
+           (setq common-lisp-hyperspec-issuex-table
+                 (concat common-lisp-hyperspec-root "Data/Map_IssX.txt"))))
 
-  EOS
+    EOS
   end
 
   test do

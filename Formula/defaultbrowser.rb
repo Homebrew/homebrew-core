@@ -3,6 +3,7 @@ class Defaultbrowser < Formula
   homepage "https://github.com/kerma/defaultbrowser"
   url "https://github.com/kerma/defaultbrowser/archive/1.1.tar.gz"
   sha256 "56249f05da912bbe828153d775dc4f497f5a8b453210c2788d6a439418ac2ea3"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

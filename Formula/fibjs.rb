@@ -1,19 +1,19 @@
 class Fibjs < Formula
   desc "JavaScript on Fiber"
   homepage "https://fibjs.org/"
-  url "https://github.com/fibjs/fibjs/releases/download/v0.28.0/fullsrc.zip"
-  sha256 "f970927bc84e945617c4437a8689168cf6626b9b899b55ae239fbd80aa274945"
+  url "https://github.com/fibjs/fibjs/releases/download/v0.31.0/fullsrc.zip"
+  sha256 "e5111ece8e6350f5d530d4b17003c2019be27017c5dec75c488587e942c502a0"
+  license "GPL-3.0"
   head "https://github.com/fibjs/fibjs.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "88607ac1b27e38088880ab703f2abd76a88b38ddcae2da62ff6108e6bf9f3305" => :mojave
-    sha256 "a332e5c7b8e75b627ff346bcca19d5fb167ffb05ba5ab8e62bc4234b54276aef" => :high_sierra
-    sha256 "c66dc2e015e907055d655dcaa2843a5d638e97afd3f5ac7dcff87d830b233e92" => :sierra
+    sha256 "804d64c9c1d99dc5f94e9219f9fccee72745ec25f96a47a297f869b5504e6682" => :catalina
+    sha256 "f833634da5af3a4596412cd06860b12d685b0e60ca2005ffb8968507d312feab" => :mojave
+    sha256 "10b5be3c5be1f1cb3ef9a905755491a17d84fe7d4453169717aa0ee5bd19d45d" => :high_sierra
   end
 
   depends_on "cmake" => :build
-  depends_on :macos => :sierra # fibjs requires >= Xcode 8.3 (or equivalent CLT)
 
   def install
     # the build script breaks when CI is set by Homebrew

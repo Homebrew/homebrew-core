@@ -1,14 +1,18 @@
 class GnomeLatex < Formula
   desc "LaTeX editor for the GNOME desktop"
   homepage "https://wiki.gnome.org/Apps/GNOME-LaTeX"
-  url "https://download.gnome.org/sources/gnome-latex/3.32/gnome-latex-3.32.0.tar.xz"
-  sha256 "0f069c7b4c6754255a1c7e3e3b050925d8076f55458526a30ab59e0a7d52acc9"
-  revision 2
+  url "https://download.gnome.org/sources/gnome-latex/3.38/gnome-latex-3.38.0.tar.xz"
+  sha256 "a82a9fc6f056929ea18d6dffd121e71b2c21768808c86ef1f34da0f86e220d77"
+  license "GPL-3.0-or-later"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
-    sha256 "2f4018d35ea99c5c8c6dbaa0cdb92e40d1392739c8c786cd381a2153d4ae7dd0" => :catalina
-    sha256 "eb5d1ee1c770b904d7cb2643c34be87a0b8bd55acadf8b1accb7c5c4d04f3c03" => :mojave
-    sha256 "0ef723d17e744eeed76eb2653efeb37b3224e2d6f6e7fa8e5c4f3ed9b42c25ef" => :high_sierra
+    sha256 "f1dbea254436194246d1ea3fcd47a5b08b394efb3a08f48a9a3decd85120ce90" => :catalina
+    sha256 "c8f5a18378b6a759f3f4614baedf693814b61da0dfecd2f0d8d6ad93bef3fa25" => :mojave
+    sha256 "7a9d3285f2457fecacc4e0840e32ac940b0e77041dd30839e6a7af7ad55453dd" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build
@@ -32,9 +36,12 @@ class GnomeLatex < Formula
   end
 
   def post_install
-    system "#{Formula["glib"].opt_bin}/glib-compile-schemas", "#{HOMEBREW_PREFIX}/share/glib-2.0/schemas"
-    system "#{Formula["gtk+3"].opt_bin}/gtk3-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
-    system "#{Formula["gtk+3"].opt_bin}/gtk3-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/HighContrast"
+    system "#{Formula["glib"].opt_bin}/glib-compile-schemas",
+           "#{HOMEBREW_PREFIX}/share/glib-2.0/schemas"
+    system "#{Formula["gtk+3"].opt_bin}/gtk3-update-icon-cache", "-f", "-t",
+           "#{HOMEBREW_PREFIX}/share/icons/hicolor"
+    system "#{Formula["gtk+3"].opt_bin}/gtk3-update-icon-cache", "-f", "-t",
+           "#{HOMEBREW_PREFIX}/share/icons/HighContrast"
   end
 
   test do

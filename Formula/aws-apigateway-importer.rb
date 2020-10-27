@@ -1,8 +1,9 @@
 class AwsApigatewayImporter < Formula
-  desc "AWS API Gateway Importer"
+  desc "Create or update Amazon API Gateway APIs from a Swagger or RAML API"
   homepage "https://github.com/amazon-archives/aws-apigateway-importer"
   url "https://github.com/amazon-archives/aws-apigateway-importer/archive/aws-apigateway-importer-1.0.1.tar.gz"
   sha256 "8371e3fb1b6333cd50a76fdcdc1280ee8e489aec4bf9a1869325f9b8ebb73b54"
+  license "Apache-2.0"
   revision 1
 
   bottle do
@@ -16,12 +17,12 @@ class AwsApigatewayImporter < Formula
   end
 
   depends_on "maven" => :build
-  depends_on :java => "1.8"
+  depends_on java: "1.8"
 
   # Pin aws-sdk-java-core for JSONObject compatibility
   patch do
-    url "https://github.com/amazon-archives/aws-apigateway-importer/commit/660e3ce.diff?full_index=1"
-    sha256 "6ff63c504b906e1fb6d0f2a9772761edeef3b37b3dca1e48bba72432d863a852"
+    url "https://github.com/amazon-archives/aws-apigateway-importer/commit/660e3ce.patch?full_index=1"
+    sha256 "9882150c1ac682db36755fc7bcb813da1f7c94b98e3bfbe6fe329de9a3506092"
   end
 
   def install

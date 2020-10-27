@@ -1,44 +1,41 @@
 class Kubeless < Formula
   desc "Kubernetes Native Serverless Framework"
   homepage "https://kubeless.io"
-  url "https://github.com/kubeless/kubeless/archive/v1.0.5.tar.gz"
-  sha256 "46eb797a0c1846ee8a75d8dd08c959042224ee8ecf227c29640e823f77358365"
+  url "https://github.com/kubeless/kubeless/archive/v1.0.7.tar.gz"
+  sha256 "8aedb768da672e60c489cce1a8757cb21841c9651bfe3ef7112570eaa13720fa"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7ae0105927a08b8e940f205767afb6136295a07bb54924a55143be1d7ab6944b" => :catalina
-    sha256 "151d3184666c690d3ec2d074dd314cf2ca2b9f727e0cc89660bd2f1026307aed" => :mojave
-    sha256 "c37d5f0d6513ba6f37f5731731626b4faefc28bc7980b67a6a249bf58ed623d9" => :high_sierra
+    sha256 "94927a41f4778a3e99934154bda7db05c4048e83d49a840ecf7eca6ddfbc32e4" => :catalina
+    sha256 "0b0f24835a3fb21b5a5459a030f821f2c13691ad8978a02067dfb38f15d8ac6f" => :mojave
+    sha256 "ec427f71d144c616cfc1803da51caf69f6ead7cefd5ade2f8c23129d73eec705" => :high_sierra
   end
 
   depends_on "go" => :build
   depends_on "kubernetes-cli"
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/kubeless/kubeless").install buildpath.children
-    cd "src/github.com/kubeless/kubeless" do
-      ldflags = %W[
-        -w -X github.com/kubeless/kubeless/pkg/version.Version=v#{version}
-      ]
-      system "go", "build", "-o", bin/"kubeless", "-ldflags",
-             ldflags.join(" "), "./cmd/kubeless"
-      prefix.install_metafiles
-    end
+    ldflags = %W[
+      -s -w -X github.com/kubeless/kubeless/pkg/version.Version=v#{version}
+    ]
+    system "go", "build", "-ldflags", ldflags.join(" "), "-trimpath",
+           "-o", bin/"kubeless", "./cmd/kubeless"
+    prefix.install_metafiles
   end
 
   test do
-    require "socket"
+    port = free_port
+    server = TCPServer.new("127.0.0.1", port)
 
-    server = TCPServer.new("127.0.0.1", 0)
-    port = server.addr[1]
     pid = fork do
       loop do
         socket = server.accept
         request = socket.gets
         request_path = request.split(" ")[1]
-        if request_path == "/api/v1/namespaces/kubeless/configmaps/kubeless-config"
-          response = '{
+        response = case request_path
+        when "/api/v1/namespaces/kubeless/configmaps/kubeless-config"
+          '{
             "kind": "ConfigMap",
             "apiVersion": "v1",
             "metadata": { "name": "kubeless-config", "namespace": "kubeless" },
@@ -53,20 +50,20 @@ class Kubeless < Formula
                 '}]"
               }
             }'
-        elsif request_path == "/apis/kubeless.io/v1beta1/namespaces/default/functions"
-          response = '{
+        when "/apis/kubeless.io/v1beta1/namespaces/default/functions"
+          '{
             "apiVersion": "kubeless.io/v1beta1",
             "kind": "Function",
             "metadata": { "name": "get-python", "namespace": "default" }
             }'
-        elsif request_path == "/apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/functions.kubeless.io"
-          response = '{
+        when "/apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/functions.kubeless.io"
+          '{
             "apiVersion": "apiextensions.k8s.io/v1beta1",
             "kind": "CustomResourceDefinition",
             "metadata": { "name": "functions.kubeless.io" }
             }'
         else
-          response = "OK"
+          "OK"
         end
         socket.print "HTTP/1.1 200 OK\r\n" \
                     "Content-Length: #{response.bytesize}\r\n" \

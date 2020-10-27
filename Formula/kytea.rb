@@ -3,6 +3,7 @@ class Kytea < Formula
   homepage "http://www.phontron.com/kytea/"
   url "http://www.phontron.com/kytea/download/kytea-0.4.7.tar.gz"
   sha256 "534a33d40c4dc5421f053c71a75695c377df737169f965573175df5d2cff9f46"
+  license "Apache-2.0"
 
   bottle do
     sha256 "927aac3d562cc2977f84670c850ab262a05a010bfe7e7f16aa0eb7d9532eae7b" => :catalina

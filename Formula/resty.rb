@@ -3,6 +3,7 @@ class Resty < Formula
   homepage "https://github.com/micha/resty"
   url "https://github.com/micha/resty/archive/v3.0.tar.gz"
   sha256 "9ed8f50dcf70a765b3438840024b557470d7faae2f0c1957a011ebb6c94b9dd1"
+  license "MIT"
   head "https://github.com/micha/resty.git"
 
   bottle do
@@ -13,6 +14,8 @@ class Resty < Formula
     sha256 "fb754eb95b4cb573eef1807f5dcddab59e021a4326022a9fb8126fb8e80ff247" => :sierra
     sha256 "435854dd9bc54f09e46f3f895fc0801ce90a30b23b8d9f109f361f89666fcfe1" => :el_capitan
   end
+
+  conflicts_with "nss", because: "both install `pp` binaries"
 
   resource "JSON" do
     url "https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/JSON-2.94.tar.gz"
@@ -31,15 +34,16 @@ class Resty < Formula
     end
 
     bin.install "pp"
-    bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
+    bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
 
     bin.install "pypp"
   end
 
-  def caveats; <<~EOS
-    To activate the resty, add the following at the end of your #{shell_profile}:
-    source #{opt_pkgshare}/resty
-  EOS
+  def caveats
+    <<~EOS
+      To activate the resty, add the following at the end of your #{shell_profile}:
+      source #{opt_pkgshare}/resty
+    EOS
   end
 
   test do

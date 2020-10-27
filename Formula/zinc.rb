@@ -6,6 +6,8 @@ class Zinc < Formula
 
   bottle :unneeded
 
+  deprecate! because: :repo_archived
+
   def install
     rm_f Dir["bin/ng/{linux,win}*"]
     libexec.install Dir["*"]

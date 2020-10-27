@@ -1,27 +1,27 @@
 class Gegl < Formula
   desc "Graph based image processing framework"
-  homepage "http://www.gegl.org/"
-  url "https://download.gimp.org/pub/gegl/0.4/gegl-0.4.16.tar.bz2"
-  sha256 "0112df690301d9eb993cc48965fc71b7751c9021a4f4ee08fcae366c326b5e5a"
-  revision 2
+  homepage "https://www.gegl.org/"
+  url "https://download.gimp.org/pub/gegl/0.4/gegl-0.4.26.tar.xz"
+  sha256 "0f371e2ed2b92162fefd3dde743e648ca08a6a1b2b05004867fbddc7e211e424"
+  license all_of: ["LGPL-3.0-or-later", "GPL-3.0-or-later", "BSD-3-Clause", "MIT"]
+  head "https://gitlab.gnome.org/GNOME/gegl.git"
+
+  livecheck do
+    url "https://download.gimp.org/pub/gegl/0.4/"
+    regex(/href=.*?gegl[._-]v?(\d+(?:\.\d+)*)\.t/i)
+  end
 
   bottle do
-    sha256 "c85c022cbec147dc1c206c6efaaab0ad1cc9db52b90706a3e131b6918eed7f89" => :catalina
-    sha256 "9a94a1bfa65fc2aab0076a2dc5bdd8f78607c735b6043c5ce8d9aad192e9818f" => :mojave
-    sha256 "b12c213159d53df0bf6777fb81d13bb93ba90683da3142bb38d250d7dfc00d05" => :high_sierra
-    sha256 "22fd034b398955586ff07868178a930858d428e1af957c1921260ff679fea672" => :sierra
+    rebuild 1
+    sha256 "a3540f7585cc3bad21608ff58dee983e6309d8af74068aa1bea99d8864c11c42" => :catalina
+    sha256 "74edbefe0d2ec7f76fdb4566ae8b02ce728049c78f10fd2205a3381db26f3337" => :mojave
+    sha256 "f1ac9e40057da12f5132db71ceca4f9f55c60d4787ea630278e8cb9b445bcbee" => :high_sierra
   end
 
-  head do
-    # Use the Github mirror because official git unreliable.
-    url "https://github.com/GNOME/gegl.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
-  depends_on "intltool" => :build
+  depends_on "glib" => :build
+  depends_on "gobject-introspection" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "babl"
   depends_on "gettext"
@@ -30,19 +30,37 @@ class Gegl < Formula
   depends_on "json-glib"
   depends_on "libpng"
 
-  conflicts_with "coreutils", :because => "both install `gcut` binaries"
+  on_linux do
+    depends_on "cairo"
+  end
+
+  conflicts_with "coreutils", because: "both install `gcut` binaries"
 
   def install
-    system "./autogen.sh" if build.head?
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--disable-docs",
-                          "--without-cairo",
-                          "--without-jasper",
-                          "--without-umfpack",
-                          "--without-libspiro"
-    system "make", "install"
+    args = std_meson_args + %w[
+      -Dwith-docs=false
+      -Dwith-cairo=false
+      -Dwith-jasper=false
+      -Dwith-umfpack=false
+      -Dwith-libspiro=false
+      --force-fallback-for=libnsgif,poly2tri-c
+    ]
+
+    ### Temporary Fix ###
+    # Temporary fix for a meson bug
+    # Upstream appears to still be deciding on a permanent fix
+    # See: https://gitlab.gnome.org/GNOME/gegl/-/issues/214
+    inreplace "subprojects/poly2tri-c/meson.build",
+      "libpoly2tri_c = static_library('poly2tri-c',",
+      "libpoly2tri_c = static_library('poly2tri-c', 'EMPTYFILE.c',"
+    touch "subprojects/poly2tri-c/EMPTYFILE.c"
+    ### END Temporary Fix ###
+
+    mkdir "build" do
+      system "meson", *args, ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
   end
 
   test do

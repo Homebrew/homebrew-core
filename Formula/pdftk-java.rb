@@ -1,24 +1,30 @@
 class PdftkJava < Formula
   desc "Port of pdftk in java"
   homepage "https://gitlab.com/pdftk-java/pdftk"
-  url "https://gitlab.com/pdftk-java/pdftk/-/archive/v3.0.8/pdftk-v3.0.8.tar.gz"
-  sha256 "43415a906cde23e724a53ba2555f5a8fd262227ec35a33f9ab8ec3e89b1c54cd"
+  url "https://gitlab.com/pdftk-java/pdftk/-/archive/v3.2.0/pdftk-v3.2.0.tar.gz"
+  sha256 "f61f544ac139ee50ad177a51edede2ca259488d7435e37bf33b823bb2d43d626"
+  license "GPL-2.0-or-later"
   head "https://gitlab.com/pdftk-java/pdftk.git"
+
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f1d1b6bb4a694679a2340f0075b050bd6c26e71075f88f6dff5ef6bc16d4e4a1" => :catalina
-    sha256 "3f3f261f034dd2cdf781b776f5d89bb08eb58168346739460693102188bffcfc" => :mojave
-    sha256 "487dc134781c5cad3be5db550b9bf2c302401d4ab7b47b8e90822e25bec72dc3" => :high_sierra
+    sha256 "cd4ce772b1ae8cf8d9d67232f434f32439890e8810b3b5d54d59e3f65433486b" => :catalina
+    sha256 "1efae8075702b2414b7cf5bc370b9b7d4a0370029e851783621cc679577eb7dc" => :mojave
+    sha256 "cccf082754df1f34fdb8c3d684bdda3eea6fdc10175d496fa242040c858b5801" => :high_sierra
   end
 
   depends_on "gradle" => :build
-  depends_on :java => "1.8"
+  depends_on java: "1.8"
 
   def install
     system "gradle", "shadowJar", "--no-daemon"
-    libexec.install "build/libs/pdftk.jar"
-    bin.write_jar_script libexec/"pdftk.jar", "pdftk", :java_version => "1.7+"
+    libexec.install "build/libs/pdftk-all.jar"
+    bin.write_jar_script libexec/"pdftk-all.jar", "pdftk", java_version: "1.8"
   end
 
   test do

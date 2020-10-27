@@ -1,16 +1,16 @@
 class Uncrustify < Formula
   desc "Source code beautifier"
   homepage "https://uncrustify.sourceforge.io/"
-  url "https://github.com/uncrustify/uncrustify/archive/uncrustify-0.69.0.tar.gz"
-  sha256 "33bd97a07f7c4bd114874f73171aca220bf05c17108f8505a117b97374a347b6"
+  url "https://github.com/uncrustify/uncrustify/archive/uncrustify-0.71.0.tar.gz"
+  sha256 "403a0f34463c0d6b0fbf230d8a03b7af9f493faa235208417793350db062003c"
+  license "GPL-2.0"
   head "https://github.com/uncrustify/uncrustify.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6ae285168f69ae667257cc71f0e9e9915c6a3c3e18305f516efa47c3c4b67405" => :catalina
-    sha256 "f0d6180d805e5d23e8b246334c1891827dcab715a63b415e52e7e3b22f4c1a96" => :mojave
-    sha256 "df8861dad2dc6214dee749c7213e9eae62b7691ca0a616e671e14ea21065061b" => :high_sierra
-    sha256 "bc0ccbe0e0dd5834129fcc92cb55335841372a59a31d063062e6031bf36357a5" => :sierra
+    sha256 "8071c9d74d2ed2fdd69c8b9f665dbbcf364cb961796d014adcee6ad71be37e67" => :catalina
+    sha256 "9ede4664a01943bc10c07e643a2c4af2de8c1d91a534a954c78d92780f235b35" => :mojave
+    sha256 "60ffa3330811d4499f928eb7124d6981c1afb24ec0c86a4325d2804c65189828" => :high_sierra
   end
 
   depends_on "cmake" => :build

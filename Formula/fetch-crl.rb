@@ -1,16 +1,55 @@
 class FetchCrl < Formula
   desc "Retrieve certificate revocation lists (CRLs)"
   homepage "https://wiki.nikhef.nl/grid/FetchCRL3"
-  url "https://dist.eugridpma.info/distribution/util/fetch-crl3/fetch-crl-3.0.20.tar.gz"
-  sha256 "cf2e145fd8855a3811b7dfeb82ed416e46ac0852dbfaa73d915cef9bd245d30d"
+  url "https://dist.eugridpma.info/distribution/util/fetch-crl3/fetch-crl-3.0.21.tar.gz"
+  sha256 "19a96b95a1c22da9d812014660744c6a31aac597b53ac17128068a77c269cde8"
+  license "Apache-2.0"
+
+  livecheck do
+    url "https://dist.eugridpma.info/distribution/util/fetch-crl/"
+    regex(/href=.*?fetch-crl[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5a6f936f6411b77ae9a337573b8515cd812fc5a1531f8f23e5b81f67cf6746a6" => :catalina
-    sha256 "b29839aecb3c2baccaea03af66504fe993fa590dda06d608b40ffb64697d0125" => :mojave
-    sha256 "d267b22108f0174da30e56d8d1346b9d581c0ab98a48885c1c5e668368c47598" => :high_sierra
-    sha256 "d267b22108f0174da30e56d8d1346b9d581c0ab98a48885c1c5e668368c47598" => :sierra
-    sha256 "d267b22108f0174da30e56d8d1346b9d581c0ab98a48885c1c5e668368c47598" => :el_capitan
+    sha256 "7c4aedc9178b36cf45d9a05ed4213c5c2ede584dc1c2754f2370b91f42a1efe3" => :catalina
+    sha256 "7c4aedc9178b36cf45d9a05ed4213c5c2ede584dc1c2754f2370b91f42a1efe3" => :mojave
+    sha256 "7c4aedc9178b36cf45d9a05ed4213c5c2ede584dc1c2754f2370b91f42a1efe3" => :high_sierra
+  end
+
+  resource "LWP" do
+    on_linux do
+      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.43.tar.gz"
+      sha256 "e9849d7ee6fd0e89cc999e63d7612c951afd6aeea6bc721b767870d9df4ac40d"
+    end
+  end
+
+  resource "HTTP::Request" do
+    on_linux do
+      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.18.tar.gz"
+      sha256 "d060d170d388b694c58c14f4d13ed908a2807f0e581146cef45726641d809112"
+    end
+  end
+
+  resource "URI" do
+    on_linux do
+      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-1.76.tar.gz"
+      sha256 "b2c98e1d50d6f572483ee538a6f4ccc8d9185f91f0073fd8af7390898254413e"
+    end
+  end
+
+  resource "HTTP::Date" do
+    on_linux do
+      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Date-6.05.tar.gz"
+      sha256 "365d6294dfbd37ebc51def8b65b81eb79b3934ecbc95a2ec2d4d827efe6a922b"
+    end
+  end
+
+  resource "Try::Tiny" do
+    on_linux do
+      url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/Try-Tiny-0.28.tar.gz"
+      sha256 "f1d166be8aa19942c4504c9111dade7aacb981bc5b3a2a5c5f6019646db8c146"
+    end
   end
 
   def install

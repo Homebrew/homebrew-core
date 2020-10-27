@@ -2,29 +2,23 @@ class Gowsdl < Formula
   desc "WSDL2Go code generation as well as its SOAP proxy"
   homepage "https://github.com/hooklift/gowsdl"
   url "https://github.com/hooklift/gowsdl.git",
-      :tag      => "v0.3.1",
-      :revision => "2375731131398bde30666dc45b48cd92f937de98"
+      tag:      "v0.4.0",
+      revision: "7a3e6bce010b32c1672884a6d478a16fee8f2d05"
+  license "MPL-2.0"
   head "https://github.com/hooklift/gowsdl.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "03176da2dee51883e9d5638b0cfe1b0d3bcf9ed4d0fc461862efe94180332217" => :catalina
-    sha256 "2ac105a303ffb54fb2fe09be85a6b913aca155cbd8c3a3fb07a525dcc662af64" => :mojave
-    sha256 "e9c472ac11711508d3d4d7dc403d2697b178b9eb82b4283f5801e49a07b34353" => :high_sierra
-    sha256 "83fa8252186b7c1c2d6ed205ea90a7e479c5e7df2891d77ddc3229dbaa98b49b" => :sierra
+    sha256 "ac79869fae62091277dad289c73f337cee0c9d92a42b38af5dc4d59b53f59885" => :catalina
+    sha256 "650f3a704f6918e069c60d64807ddffe3fd327b6ef2e5688768d08f646ccfa59" => :mojave
+    sha256 "64d483de68fc8f23043ee9652addf1a918e79a3c68c70324652ab5d0ac4b1c64" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    srcpath = buildpath/"src/github.com/hooklift/gowsdl"
-    srcpath.install buildpath.children
-    srcpath.cd do
-      system "make", "build"
-      bin.install "build/gowsdl"
-    end
+    system "make", "build"
+    bin.install "build/gowsdl"
   end
 
   test do

@@ -1,19 +1,26 @@
 class PcscLite < Formula
   desc "Middleware to access a smart card using SCard API"
   homepage "https://pcsclite.apdu.fr/"
-  url "https://pcsclite.apdu.fr/files/pcsc-lite-1.8.25.tar.bz2"
-  sha256 "d76d79edc31cf76e782b9f697420d3defbcc91778c3c650658086a1b748e8792"
+  url "https://pcsclite.apdu.fr/files/pcsc-lite-1.9.0.tar.bz2"
+  sha256 "0148d403137124552c5d0f10f8cdab2cbb8dfc7c6ce75e018faf667be34f2ef9"
+
+  livecheck do
+    url "https://pcsclite.apdu.fr/files/"
+    regex(/href=.*?pcsc-lite[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     cellar :any
-    sha256 "d4fdefb11d6fcfb20ffb8aac8be408d4c1041fd981caabc42a6d482fd980ca62" => :catalina
-    sha256 "29ebb59b42af0959efe85ca374d03cd51984b9966c3be2ed51c8ae30098e0ea2" => :mojave
-    sha256 "832957657fec785b6d157a6a670da607675bdef8655d82c3a16fc39e305e5e57" => :high_sierra
-    sha256 "92fb7438f0467c2f749218cb8b23fa1bf66425fb8f49b20888530fb97094598f" => :sierra
+    sha256 "650bd1cb922417a5ef04f6667261e9b11393ebbd24750f6332ed067716a5e192" => :catalina
+    sha256 "fca41c0447251ec74156c0dd68e6b38b695d9f14d7176c329964c223cfb983e6" => :mojave
+    sha256 "4fc95dd4040b9ac313724c6db99937949dc18013c8a59839f806885e0d5e2e50" => :high_sierra
   end
 
-  keg_only :provided_by_macos,
-    "pcsc-lite interferes with detection of macOS's PCSC.framework"
+  keg_only :shadowed_by_macos, "macOS provides PCSC.framework"
+
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking",

@@ -1,16 +1,16 @@
 class Stockfish < Formula
   desc "Strong open-source chess engine"
   homepage "https://stockfishchess.org/"
-  url "https://github.com/official-stockfish/Stockfish/files/2629649/sf_10.zip"
-  sha256 "9c2aa8b06935c930e80cba1426e10d76b6b1accc5a769e6bf1f41e15d79cadda"
+  url "https://github.com/official-stockfish/Stockfish/archive/sf_12.tar.gz"
+  sha256 "d1ec11d1cb8dfc5b33bcd6ec89ed0bafb3951cc1690851448a2696caa2022899"
+  license "GPL-3.0-only"
   head "https://github.com/official-stockfish/Stockfish.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "788bbe949f69b99c2ca0220961aa3ad2cdc05487340d54b44b964f62ca076d3f" => :catalina
-    sha256 "7e7d58466b8d4f325e69eb593dbb40074541e383b9b1e62dae83b3d9cddfc3a7" => :mojave
-    sha256 "be82b92aa3b8a89162caca9f206645cb6395b93898f7575ea782f754b2183bd8" => :high_sierra
-    sha256 "84e6d5d13b0a30843ed3eafd245a3c6a61ecf67635b3b18ba5950fb69aed1bb1" => :sierra
+    sha256 "04832aaf954ad2c9f50909fc8d03958e445a9e784d4c43b04d5cdcbd8232b4dd" => :catalina
+    sha256 "a2fd4c1073710d99d49a34e4a77399915e13829dab269774beb71f48e087461f" => :mojave
+    sha256 "9c65cfd27113438abd3823e5172b58816b9081f8b41123e32da8c72d590121e2" => :high_sierra
   end
 
   def install

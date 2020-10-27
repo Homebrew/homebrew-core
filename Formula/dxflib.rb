@@ -4,6 +4,11 @@ class Dxflib < Formula
   url "https://www.ribbonsoft.com/archives/dxflib/dxflib-2.5.0.0-1.src.tar.gz"
   sha256 "20ad9991eec6b0f7a3cc7c500c044481a32110cdc01b65efa7b20d5ff9caefa9"
 
+  livecheck do
+    url "https://www.ribbonsoft.com/en/dxflib-downloads"
+    regex(/href=.*?dxflib[._-]v?(\d+(?:\.\d+)+)-src\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 2

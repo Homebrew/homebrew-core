@@ -3,6 +3,7 @@ class T1utils < Formula
   homepage "https://www.lcdf.org/type/"
   url "https://www.lcdf.org/type/t1utils-1.41.tar.gz"
   sha256 "fc5edd7e829902b3b685886382fed690d533681c0ab218a387c9e47606623427"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

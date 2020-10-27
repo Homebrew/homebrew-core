@@ -3,6 +3,7 @@ class Sha1dc < Formula
   homepage "https://github.com/cr-marcstevens/sha1collisiondetection"
   url "https://github.com/cr-marcstevens/sha1collisiondetection/archive/stable-v1.0.3.tar.gz"
   sha256 "77a1c2b2a4fbe4f78de288fa4831ca63938c3cb84a73a92c79f436238bd9ac07"
+  license "MIT"
 
   # The "master" branch is unusably broken and behind the
   # "simplified_c90" branch that's the basis for release.

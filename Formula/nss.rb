@@ -1,17 +1,29 @@
 class Nss < Formula
   desc "Libraries for security-enabled client and server applications"
   homepage "https://developer.mozilla.org/docs/NSS"
-  url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_47_RTM/src/nss-3.47.tar.gz"
-  sha256 "6cd0c4438b616bdacc0b5f25ff1506b0d07ee97ea6c95d514c5487200a155fa7"
+  url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_58_RTM/src/nss-3.58.tar.gz"
+  sha256 "9f73cf789b5f109b978e5239551b609b0cafa88d18f0bc8ce3f976cb629353c0"
+  license "MPL-2.0"
+
+  livecheck do
+    url "https://ftp.mozilla.org/pub/security/nss/releases/"
+    regex(%r{href=.*?NSS[._-]v?(\d+(?:[._]\d+)+)[._-]RTM/?["' >]}i)
+  end
 
   bottle do
     cellar :any
-    sha256 "eed21b30ac471a914f9845479cdab779b3ab586f51661c671e3041f9f7d1557f" => :catalina
-    sha256 "c54d6f1f289faf7cd742c47c384a28d40d8cf8cd33e40943f268c9960dca6f9f" => :mojave
-    sha256 "502a309b8b5d490f1ee6bdc6510b15cf554141ab883b435bbdf74aa71c21e021" => :high_sierra
+    sha256 "baec8fe237523b3d157c85b27557576fe6529783b7076d71ca3520c2115cadf1" => :catalina
+    sha256 "732bc60e7ee64e29022a492d5b36824ca41deec37d8506bdaf442b9d752cc435" => :mojave
+    sha256 "879b71bff4bbd61b334d1a6d61cb1faa2862f07e02b7d4c2f99e9d23311dcc9f" => :high_sierra
   end
 
   depends_on "nspr"
+
+  uses_from_macos "sqlite"
+  uses_from_macos "zlib"
+
+  conflicts_with "resty", because: "both install `pp` binaries"
+  conflicts_with "googletest", because: "both install `libgtest.a`"
 
   def install
     ENV.deparallelize
@@ -70,30 +82,32 @@ class Nss < Formula
 
   # A very minimal nss-config for configuring firefox etc. with this nss,
   # see https://bugzil.la/530672 for the progress of upstream inclusion.
-  def config_file; <<~EOS
-    #!/bin/sh
-    for opt; do :; done
-    case "$opt" in
-      --version) opt="--modversion";;
-      --cflags|--libs) ;;
-      *) exit 1;;
-    esac
-    pkg-config "$opt" nss
-  EOS
+  def config_file
+    <<~EOS
+      #!/bin/sh
+      for opt; do :; done
+      case "$opt" in
+        --version) opt="--modversion";;
+        --cflags|--libs) ;;
+        *) exit 1;;
+      esac
+      pkg-config "$opt" nss
+    EOS
   end
 
-  def pc_file; <<~EOS
-    prefix=#{prefix}
-    exec_prefix=${prefix}
-    libdir=${exec_prefix}/lib
-    includedir=${prefix}/include/nss
+  def pc_file
+    <<~EOS
+      prefix=#{prefix}
+      exec_prefix=${prefix}
+      libdir=${exec_prefix}/lib
+      includedir=${prefix}/include/nss
 
-    Name: NSS
-    Description: Mozilla Network Security Services
-    Version: #{version}
-    Requires: nspr >= 4.12
-    Libs: -L${libdir} -lnss3 -lnssutil3 -lsmime3 -lssl3
-    Cflags: -I${includedir}
-  EOS
+      Name: NSS
+      Description: Mozilla Network Security Services
+      Version: #{version}
+      Requires: nspr >= 4.12
+      Libs: -L${libdir} -lnss3 -lnssutil3 -lsmime3 -lssl3
+      Cflags: -I${includedir}
+    EOS
   end
 end

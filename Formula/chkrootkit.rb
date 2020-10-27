@@ -5,6 +5,11 @@ class Chkrootkit < Formula
   mirror "https://fossies.org/linux/misc/chkrootkit-0.53.tar.gz"
   sha256 "7262dae33b338976828b5d156b70d159e0043c0db43ada8dee66c97387cf45b5"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?download[^>]*>chkrootkit v?(\d+(?:\.\d+)+)/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "23a9f903721d19c0b6201163cb937823970c66592f094c673b1de1036da8bef9" => :catalina

@@ -2,44 +2,37 @@ class MinioMc < Formula
   desc "Replacement for ls, cp and other commands for object storage"
   homepage "https://github.com/minio/mc"
   url "https://github.com/minio/mc.git",
-      :tag      => "RELEASE.2019-10-09T22-54-57Z",
-      :revision => "f93fe1330a3647b1afaff0ed8c188d2897bf391e"
-  version "20191009225457"
+      tag:      "RELEASE.2020-10-03T02-54-56Z",
+      revision: "f11ae85566fea61b998cd7c168d5a4dbefe831ba"
+  version "20201003025456"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "74b0a7ada6bcff57f250cecc66ce6e26faf02207a7eec67b1401d35332c5b519" => :catalina
-    sha256 "f919164d11d9e21aadd60662959b967c7f14fa61a60f38e582909e761e08bfc5" => :mojave
-    sha256 "326d3187ceff7eb10dc82d055102dea7cb90f11056103740f42cb845f17797ac" => :high_sierra
+    sha256 "1c9e4d77d0b729dc3957097b6ccb2ee6ad657cab6fc383501513c6b0a13567e8" => :catalina
+    sha256 "004eeb59ee2a7a3aa31e59961e45a9bda586b405df9f6ef4d5b7fb0913097a2d" => :mojave
+    sha256 "b38a3e40b159cced1c32def784172f177511fa44ba0947cea6b4d8d9d1099313" => :high_sierra
   end
 
   depends_on "go" => :build
 
-  conflicts_with "midnight-commander", :because => "Both install a `mc` binary"
+  conflicts_with "midnight-commander", because: "both install an `mc` binary"
 
   def install
-    ENV["GOPATH"] = buildpath
-    src = buildpath/"src/github.com/minio/mc"
-    src.install buildpath.children
-    src.cd do
-      if build.head?
-        system "go", "build", "-o", buildpath/"mc"
-      else
-        minio_release = `git tag --points-at HEAD`.chomp
-        minio_version = minio_release.gsub(/RELEASE\./, "").chomp.gsub(/T(\d+)\-(\d+)\-(\d+)Z/, 'T\1:\2:\3Z')
-        minio_commit = `git rev-parse HEAD`.chomp
-        proj = "github.com/minio/mc"
+    if build.head?
+      system "go", "build", "-trimpath", "-o", bin/"mc"
+    else
+      minio_release = `git tag --points-at HEAD`.chomp
+      minio_version = minio_release.gsub(/RELEASE\./, "").chomp.gsub(/T(\d+)-(\d+)-(\d+)Z/, 'T\1:\2:\3Z')
+      minio_commit = `git rev-parse HEAD`.chomp
+      proj = "github.com/minio/mc"
 
-        system "go", "build", "-o", buildpath/"mc", "-ldflags", <<~EOS
-          -X #{proj}/cmd.Version=#{minio_version}
-          -X #{proj}/cmd.ReleaseTag=#{minio_release}
-          -X #{proj}/cmd.CommitID=#{minio_commit}
-        EOS
-      end
+      system "go", "build", "-trimpath", "-o", bin/"mc", "-ldflags", <<~EOS
+        -X #{proj}/cmd.Version=#{minio_version}
+        -X #{proj}/cmd.ReleaseTag=#{minio_release}
+        -X #{proj}/cmd.CommitID=#{minio_commit}
+      EOS
     end
-
-    bin.install buildpath/"mc"
-    prefix.install_metafiles
   end
 
   test do

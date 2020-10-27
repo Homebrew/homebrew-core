@@ -5,6 +5,7 @@ class Pipebench < Formula
   # url "http://www.habets.pp.se/synscan/files/pipebench-0.40.tar.gz"
   url "https://deb.debian.org/debian/pool/main/p/pipebench/pipebench_0.40.orig.tar.gz"
   sha256 "ca764003446222ad9dbd33bbc7d94cdb96fa72608705299b6cc8734cd3562211"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

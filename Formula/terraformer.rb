@@ -1,38 +1,32 @@
 class Terraformer < Formula
   desc "CLI tool to generate terraform files from existing infrastructure"
   homepage "https://github.com/GoogleCloudPlatform/terraformer"
-  url "https://github.com/GoogleCloudPlatform/terraformer.git",
-    :tag      => "0.8.4",
-    :revision => "3df9db7f4811e89d2633e78c3fd4743ec0062d4f"
+  url "https://github.com/GoogleCloudPlatform/terraformer/archive/0.8.9.tar.gz"
+  sha256 "42f3b5cb9d7fead1f7e24a1a33adabd0f9e46f8df95924bc358d1fa699c82c7b"
+  license "Apache-2.0"
+  head "https://github.com/GoogleCloudPlatform/terraformer.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7197e3ecc256aff6efb2e8d186a5507270431f4d0f37735e24aa3d29c76a9bb5" => :catalina
-    sha256 "0a9c047c5429ff44af7b0f8451b38f8b966f193ddb073e9c6ca3105d84498f0c" => :mojave
-    sha256 "7174d86df23c114fd2e3d92fc8d0172631011e4e725334e32e8fe3ec04245749" => :high_sierra
+    sha256 "e01f6e52c9436afd3c1df1829ab970182f24383b4066c463d0984c481eef75b5" => :catalina
+    sha256 "40346e9d8c9a70cec6015fe08af93e76dd4a0e2a313d563cbb0ff2fe87701b5c" => :mojave
+    sha256 "a75009ca4799e5ca99b8476250d6f99cc18c869eaec6bd447469726445f8aa12" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    dir = buildpath/"src/github.com/GoogleCloudPlatform/terraformer"
-    dir.install buildpath.children
-
-    cd dir do
-      system "go", "build", "-o", bin/"terraformer"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/terraformer version")
+    assert_match version.to_s,
+      shell_output("#{bin}/terraformer version")
 
-    help_output = "Available Commands"
-    assert_match help_output.to_s, shell_output("#{bin}/terraformer -h")
+    assert_match "Available Commands",
+      shell_output("#{bin}/terraformer -h")
 
-    import_error = "aaa"
-    assert_match import_error.to_s, shell_output("#{bin}/terraformer import google --resources=gcs --projects=aaa 2>&1", 1)
+    assert_match "aaa",
+      shell_output("#{bin}/terraformer import google --resources=gcs --projects=aaa 2>&1", 1)
   end
 end

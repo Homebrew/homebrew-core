@@ -1,14 +1,14 @@
 class Juise < Formula
   desc "JUNOS user interface scripting environment"
   homepage "https://github.com/Juniper/juise/wiki"
-  url "https://github.com/Juniper/juise/releases/download/0.8.0/juise-0.8.0.tar.gz"
-  sha256 "eea1f6da0f24f6d86abd083bd193b953870fbfc8dab5d11e2a125c2f3ea1c83a"
-  revision 1
+  url "https://github.com/Juniper/juise/releases/download/0.9.0/juise-0.9.0.tar.gz"
+  sha256 "7eb7985944b7322fe290f4e5a080a4018ed84bf576e23b8a32e3f94eb13f4c27"
+  license "BSD-3-Clause"
 
   bottle do
-    sha256 "9858429b5a56e0ac0d5ed35e84c06d334252403d017b768ad585e4a6b6fd869b" => :catalina
-    sha256 "022848ff83dab742bbc0c219638a176cb81393861307d48a665a16c2e6d8730a" => :mojave
-    sha256 "a1f88b9f9f013eb751d3afcb3a681ff6a0996c818b38ab062e20adb083f7dc2f" => :high_sierra
+    sha256 "fdc8151a4937275308e7d353b0f42007e5a371a58551c2609351ac9ae0647bbb" => :catalina
+    sha256 "7895026372337e9a86c906b364f5a3bda3c217e6def31b6e51ada8ab14c9334b" => :mojave
+    sha256 "6c4e884c63521014cd059e59372130ea70a06067769aaaf79497cb1f6877c41a" => :high_sierra
   end
 
   head do

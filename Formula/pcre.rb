@@ -1,16 +1,21 @@
 class Pcre < Formula
   desc "Perl compatible regular expressions library"
   homepage "https://www.pcre.org/"
-  url "https://ftp.pcre.org/pub/pcre/pcre-8.43.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.exim.org/pub/pcre/pcre-8.43.tar.bz2"
-  sha256 "91e762520003013834ac1adb4a938d53b22a216341c061b0cf05603b290faf6b"
+  url "https://ftp.pcre.org/pub/pcre/pcre-8.44.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.exim.org/pub/pcre/pcre-8.44.tar.bz2"
+  sha256 "19108658b23b3ec5058edc9f66ac545ea19f9537234be1ec62b714c84399366d"
+  license "BSD-3-Clause"
+
+  livecheck do
+    url "https://ftp.pcre.org/pub/pcre/"
+    regex(/href=.*?pcre[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     cellar :any
-    sha256 "3517eab75bf5bdb7798414d0af2aaaaf43edd248abc960b008d89b0a0958d537" => :catalina
-    sha256 "08e7414a7641d1e184c936537ff67f72f52649374d2308b896d4146ccc2c08fe" => :mojave
-    sha256 "0389911a93a88efd4a69b52dea8ecb872fdb55bcfff45d2f7313be5f79730861" => :high_sierra
-    sha256 "02966e199e627803e700bc1905bf30a07f87f82bdd627cc7e915966af727fd21" => :sierra
+    sha256 "f8ac266e04f984fa55091a43f0fdc39a40d57c2489d289a186c88ccedaba7eeb" => :catalina
+    sha256 "ed9b483538da7bc6559d2e63dd36659736fab9510681661d970d707a18731de4" => :mojave
+    sha256 "aeea1351e1439847d00c3cee54bd28639493e686f809568cf42fea7bb28da2a5" => :high_sierra
   end
 
   head do
@@ -20,6 +25,9 @@ class Pcre < Formula
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
+
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
 
   def install
     args = %W[
@@ -33,7 +41,7 @@ class Pcre < Formula
       --enable-pcregrep-libz
       --enable-pcregrep-libbz2
     ]
-    args << "--enable-jit" if MacOS.version >= :sierra
+    args << "--enable-jit" if MacOS.version >= :sierra && Hardware::CPU.arch == :x86_64
 
     system "./autogen.sh" if build.head?
     system "./configure", *args

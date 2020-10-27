@@ -3,24 +3,27 @@ class Bumpversion < Formula
 
   desc "Increase version numbers with SemVer terms"
   homepage "https://pypi.python.org/pypi/bumpversion"
-  url "https://github.com/peritus/bumpversion/archive/v0.5.3.tar.gz"
-  sha256 "97ac6efca7544853309b68efe92f113ab6bddb77ecbaefa5702a6183a30bcb33"
+  # maintained fork for the project
+  # Ongoing maintenance discussion for the project, https://github.com/c4urself/bump2version/issues/86
+  url "https://github.com/c4urself/bump2version/archive/v1.0.1.tar.gz"
+  sha256 "b0864d58b0ef231f99fef85ee028633d9366557a748e29cd92df0aa94f83f5fc"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b76a4decfc09c2ff2749799e8d6801dd95d346d96031f1ab47156e75deb9ab25" => :catalina
-    sha256 "d0c7bfaaa9d6b58f78cc5f33dc7a898045f4ebd13d37285c1277425a31145057" => :mojave
-    sha256 "da4953ee6935686f818d2f4f83169c6a2e93613cabba3f8a1a8d26eda0dad8c7" => :high_sierra
-    sha256 "24db5ac89df5d502f6a86a87699c66538e5e7f7e309f7897d6efd6bb73e64645" => :sierra
+    sha256 "98faab4d2a8683aeae0d70544ddd975fe3bb67754faa5723ef085555d103990f" => :catalina
+    sha256 "7e216796b73d0fd1903ee89b84bbaa259e64aafc3db6596dbb5e6009b7870d44" => :mojave
+    sha256 "15fa88250157b9773f20b7645410778be0afb63855eabe38bc572f52dafb31b6" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.9"
 
   def install
     virtualenv_install_with_resources
   end
 
   test do
+    ENV["COLUMNS"] = "80"
     assert_includes shell_output("script -q /dev/null #{bin}/bumpversion --help"), "bumpversion: v#{version}"
     version_file = testpath/"VERSION"
     version_file.write "0.0.0"

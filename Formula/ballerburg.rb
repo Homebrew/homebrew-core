@@ -3,6 +3,7 @@ class Ballerburg < Formula
   homepage "https://baller.tuxfamily.org/"
   url "https://download.tuxfamily.org/baller/ballerburg-1.2.0.tar.gz"
   sha256 "0625f4b213c1180f2cb2179ef2bc6ce35c7e99db2b27306a8690c389ceac6300"
+  license "GPL-3.0"
   head "https://git.tuxfamily.org/baller/baller.git"
 
   bottle do

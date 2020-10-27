@@ -3,6 +3,7 @@ class Daemonize < Formula
   homepage "https://software.clapper.org/daemonize/"
   url "https://github.com/bmc/daemonize/archive/release-1.7.8.tar.gz"
   sha256 "20c4fc9925371d1ddf1b57947f8fb93e2036eb9ccc3b43a1e3678ea8471c4c60"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any_skip_relocation
@@ -30,9 +31,11 @@ class Daemonize < Formula
     EOS
     chmod 0700, dummy_script_file
     system "#{sbin}/daemonize", "-p", pid_file, dummy_script_file
-    assert_predicate pid_file, :exist?, "The file containing the PID of the child process was not created."
+    assert_predicate pid_file, :exist?,
+      "The file containing the PID of the child process was not created."
     sleep(4) # sleep while waiting for the dummy script to finish
-    assert_predicate output_file, :exist?, "The file which should have been created by the child process doesn't exist."
+    assert_predicate output_file, :exist?,
+      "The file which should have been created by the child process doesn't exist."
     assert_match version.to_s, output_file.read
   end
 end

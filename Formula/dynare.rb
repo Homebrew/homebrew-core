@@ -3,17 +3,18 @@ class Dynare < Formula
   homepage "https://www.dynare.org/"
   url "https://www.dynare.org/release/source/dynare-4.5.7.tar.xz"
   sha256 "9224ec5279d79d55d91a01ed90022e484f66ce93d56ca6d52933163f538715d4"
-  revision 7
+  license "GPL-3.0-or-later"
+  revision 14
 
   bottle do
     cellar :any
-    sha256 "1099b6c5697d797b8e0d9e6464e5cf31c625fbbe0fd1642ea10c05d4bb3f9bc0" => :catalina
-    sha256 "52558399745d3774b47395b96fa891408421f86db422fe6ea0cb33b287a47075" => :mojave
-    sha256 "0a743dfda6443744fed3aae2068746c73b8eb4a489107c105b8c98b8bb9942d8" => :high_sierra
+    sha256 "a5276e59c1bec80a8375fb0336f3492d5476cd4a12e0daf189dddec430ccc353" => :catalina
+    sha256 "92b085732e3406b5cd5c31d3db612feb0f7bc9545058ea39cd39d194dbc284d1" => :mojave
+    sha256 "739290a01a46cf0c87752cea88ceb56242eadbdd7b91e426c3e0ad1d7b683900" => :high_sierra
   end
 
   head do
-    url "https://github.com/DynareTeam/dynare.git"
+    url "https://git.dynare.org/Dynare/dynare.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -48,7 +49,7 @@ class Dynare < Formula
       system "make", "lib", "OPTS=-fPIC -fdefault-integer-8",
              "FORTRAN=gfortran", "LOADER=gfortran",
              "SLICOTLIB=../libslicot64_pic.a"
-      (buildpath/"slicot").install "libslicot_pic.a", "libslicot64_pic.a"
+      (buildpath/"slicot/lib").install "libslicot_pic.a", "libslicot64_pic.a"
     end
 
     system "autoreconf", "-fvi" if build.head?
@@ -57,14 +58,21 @@ class Dynare < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
                           "--disable-matlab",
-                          "--with-slicot=#{buildpath}/slicot"
-    system "make", "install"
+                          "--with-slicot=#{buildpath}/slicot",
+                          "--with-boost=#{Formula["boost"].prefix}",
+                          "--disable-doc"
+    # Octave hardcodes its paths which causes problems on GCC minor version bumps
+    gcc = Formula["gcc"]
+    gcc_major_ver = gcc.any_installed_version.major
+    flibs = "-L#{gcc.lib}/gcc/#{gcc_major_ver} -lgfortran -lquadmath -lm"
+    system "make", "install", "FLIBS=#{flibs}"
   end
 
-  def caveats; <<~EOS
-    To get started with Dynare, open Octave and type
-      addpath #{opt_lib}/dynare/matlab
-  EOS
+  def caveats
+    <<~EOS
+      To get started with Dynare, open Octave and type
+        addpath #{opt_lib}/dynare/matlab
+    EOS
   end
 
   test do

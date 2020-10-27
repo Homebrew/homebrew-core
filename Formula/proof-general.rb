@@ -3,6 +3,7 @@ class ProofGeneral < Formula
   homepage "https://proofgeneral.github.io"
   url "https://github.com/ProofGeneral/PG/archive/v4.4.tar.gz"
   sha256 "1ba236d81768a87afa0287f49d4b2223097bc61d180468cbd997d46ab6132e7e"
+  license "GPL-2.0"
   revision 2
   head "https://github.com/ProofGeneral/PG.git"
 
@@ -39,9 +40,10 @@ class ProofGeneral < Formula
     doc.install "doc/ProofGeneral", "doc/PG-adapting"
   end
 
-  def caveats; <<~EOS
-    HTML documentation is available in: #{HOMEBREW_PREFIX}/share/doc/proof-general
-  EOS
+  def caveats
+    <<~EOS
+      HTML documentation is available in: #{HOMEBREW_PREFIX}/share/doc/proof-general
+    EOS
   end
 
   test do

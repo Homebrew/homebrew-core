@@ -2,15 +2,20 @@ class Libressl < Formula
   desc "Version of the SSL/TLS protocol forked from OpenSSL"
   homepage "https://www.libressl.org/"
   # Please ensure when updating version the release is from stable branch.
-  url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.9.2.tar.gz"
-  mirror "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-2.9.2.tar.gz"
-  sha256 "c4c78167fae325b47aebd8beb54b6041d6f6a56b3743f4bd5d79b15642f9d5d4"
+  url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-3.2.2.tar.gz"
+  mirror "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-3.2.2.tar.gz"
+  sha256 "a9d1e1d030b8bcc67bf6428b8c0fff14a5602e2236257b9e3d77acaf12e2a7a1"
+  license "OpenSSL"
+
+  livecheck do
+    url :homepage
+    regex(/latest stable release is (\d+(?:\.\d+)+)/i)
+  end
 
   bottle do
-    sha256 "50ea3bcd227756e9b9f20e8475957db0edaaa7394147ae6e36c80093e292d642" => :catalina
-    sha256 "fb1abd7aa5daf4b8d4f9257feb30843e076b9022938fb747f32637e69df00358" => :mojave
-    sha256 "6100634a6db7d8d2ae212aaaf4ba113a2685a7f390864be75959c50ec16a93a1" => :high_sierra
-    sha256 "3bcf4c988213f7c5b8e0c37b0b4e5c5437f0fbc52abe96670d9d94fb466b3ef3" => :sierra
+    sha256 "00d8d05fd6e3a712f8220e49a1e405ab5067028b1839f70c450c31ab2ceccb30" => :catalina
+    sha256 "903fa188bd18598a9caecc6e3f7a799be8f0574b102aa69d383ab6ad653a39ca" => :mojave
+    sha256 "e6dc8d2b2c6634cdfb6456d176cde1e94ad8e11ebf3e518d5b394edfb1cca823" => :high_sierra
   end
 
   head do
@@ -21,8 +26,7 @@ class Libressl < Formula
     depends_on "libtool" => :build
   end
 
-  keg_only :provided_by_macos,
-    "LibreSSL is not linked to prevent conflict with the system OpenSSL"
+  keg_only :provided_by_macos
 
   def install
     args = %W[
@@ -64,15 +68,16 @@ class Libressl < Formula
     (etc/"libressl/cert.pem").atomic_write(valid_certs.join("\n"))
   end
 
-  def caveats; <<~EOS
-    A CA file has been bootstrapped using certificates from the SystemRoots
-    keychain. To add additional certificates (e.g. the certificates added in
-    the System keychain), place .pem files in
-      #{etc}/libressl/certs
+  def caveats
+    <<~EOS
+      A CA file has been bootstrapped using certificates from the SystemRoots
+      keychain. To add additional certificates (e.g. the certificates added in
+      the System keychain), place .pem files in
+        #{etc}/libressl/certs
 
-    and run
-      #{opt_bin}/openssl certhash #{etc}/libressl/certs
-  EOS
+      and run
+        #{opt_bin}/openssl certhash #{etc}/libressl/certs
+    EOS
   end
 
   test do

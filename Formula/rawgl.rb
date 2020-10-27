@@ -18,8 +18,8 @@ class Rawgl < Formula
 
   # Upstream fix for SDL2_mixer >= 2.0.2
   patch do
-    url "https://github.com/cyxx/rawgl/commit/483492fb.diff?full_index=1"
-    sha256 "7af13dfa6cd1e042b6bbaf789da88471e326a411ccac3dac4c6c4c1124e8a153"
+    url "https://github.com/cyxx/rawgl/commit/483492fb.patch?full_index=1"
+    sha256 "b1f6fb1e4f6ee52a79d128dccd63a7d5a20ced25bb435e934235b679d1299862"
   end
 
   def install

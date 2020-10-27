@@ -3,15 +3,18 @@ class Minidlna < Formula
   homepage "https://sourceforge.net/projects/minidlna/"
   url "https://downloads.sourceforge.net/project/minidlna/minidlna/1.2.1/minidlna-1.2.1.tar.gz"
   sha256 "67388ba23ab0c7033557a32084804f796aa2a796db7bb2b770fb76ac2a742eec"
-  revision 1
+  license "GPL-2.0-only"
+  revision 4
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any
-    sha256 "8018faef1d11436216b0c945ba682f52ee37ae437413371f788ff833f88f4334" => :catalina
-    sha256 "e47addf7d21436e3b534b14024271d1d3355818f2e11a04da53a924f2acfe8e3" => :mojave
-    sha256 "ed1b022aaea8beed91a26b9907c8253da9c5c441fa52482ae0255571cd1744ad" => :high_sierra
-    sha256 "5145b3bae1ebb4add544bc8877668a5cea2e80a380a5a0beaba94a6e88cbf33c" => :sierra
-    sha256 "16fb753050582f030bcc16de31ccac3faa74f5ada3d1bed4d17895dd8628f772" => :el_capitan
+    sha256 "e405d0c50488156eac2bd8b79f10cf42d2b331f681275c5852ad5bfee7d270f5" => :catalina
+    sha256 "3a191a0fc199cd2bd51400c24d629a3b62c660542da1e707a1241c440b343cef" => :mojave
+    sha256 "79b4b5af4e56d2b726c9a2aeb0b0e9fdb976aa4cd3554da25c6a94852a8968a0" => :high_sierra
   end
 
   head do
@@ -57,40 +60,41 @@ class Minidlna < Formula
     EOS
   end
 
-  plist_options :manual => "minidlna"
+  plist_options manual: "minidlna"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_sbin}/minidlnad</string>
-          <string>-d</string>
-          <string>-f</string>
-          <string>#{ENV["HOME"]}/.config/minidlna/minidlna.conf</string>
-          <string>-P</string>
-          <string>#{ENV["HOME"]}/.config/minidlna/minidlna.pid</string>
-        </array>
-        <key>KeepAlive</key>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
         <dict>
-          <key>Crashed</key>
-          <true/>
-          <key>SuccessfulExit</key>
-          <false/>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_sbin}/minidlnad</string>
+            <string>-d</string>
+            <string>-f</string>
+            <string>#{ENV["HOME"]}/.config/minidlna/minidlna.conf</string>
+            <string>-P</string>
+            <string>#{ENV["HOME"]}/.config/minidlna/minidlna.pid</string>
+          </array>
+          <key>KeepAlive</key>
+          <dict>
+            <key>Crashed</key>
+            <true/>
+            <key>SuccessfulExit</key>
+            <false/>
+          </dict>
+          <key>ProcessType</key>
+          <string>Background</string>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/minidlnad.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/minidlnad.log</string>
         </dict>
-        <key>ProcessType</key>
-        <string>Background</string>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/minidlnad.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/minidlnad.log</string>
-      </dict>
-    </plist>
-  EOS
+      </plist>
+    EOS
   end
 
   test do
@@ -103,14 +107,13 @@ class Minidlna < Formula
       log_dir=#{testpath}/.config/minidlna
     EOS
 
-    system sbin/"minidlnad", "-f", "minidlna.conf", "-p", "8081", "-P",
-                             testpath/"minidlna.pid"
+    port = free_port
+
+    fork do
+      exec "#{sbin}/minidlnad", "-d", "-f", "minidlna.conf", "-p", port.to_s, "-P", testpath/"minidlna.pid"
+    end
     sleep 2
 
-    begin
-      assert_match /MiniDLNA #{version}/, shell_output("curl localhost:8081")
-    ensure
-      Process.kill("SIGINT", File.read("minidlna.pid").to_i)
-    end
+    assert_match /MiniDLNA #{version}/, shell_output("curl localhost:#{port}")
   end
 end

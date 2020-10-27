@@ -1,27 +1,22 @@
 class GoJira < Formula
   desc "Simple jira command-line client in Go"
   homepage "https://github.com/go-jira/jira"
-  url "https://github.com/go-jira/jira/archive/v1.0.22.tar.gz"
-  sha256 "428099801521debb46f30ed602481e92c4560e2251542c1f1a2dc4a818ff9765"
+  url "https://github.com/go-jira/jira/archive/v1.0.27.tar.gz"
+  sha256 "c5bcf7b61300b67a8f4e42ab60e462204130c352050e8551b1c23ab2ecafefc7"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "562a0922313a626d983c8150a8527c42c933f9d21ac587bdf81f90f558228ad4" => :catalina
-    sha256 "bc1ceb2829539132828c91393d925481ea32fad23acd812caeded39245c4c7bc" => :mojave
-    sha256 "5dacf7ae9a20486722af587660682bada1acfd8e443e4ff7e67918afe6f33b39" => :high_sierra
+    sha256 "82a05966c4af4b6200507909bc37eaef905f96d69d1c790ae655e35741ca058c" => :catalina
+    sha256 "32dbd901f35e80fce61a466811dfa5261e543bdb15da855973506e1964c21497" => :mojave
+    sha256 "94372ad76c9857929142891482451672c615a03a32ea310ffcc993b89ad889ff" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/gopkg.in/Netflix-Skunkworks/go-jira.v1"
-    dir.install buildpath.children
-
-    cd dir do
-      system "go", "build", "-o", bin/"jira", "-ldflags", "-w -s", "cmd/jira/main.go"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"jira", "cmd/jira/main.go"
+    prefix.install_metafiles
   end
 
   test do

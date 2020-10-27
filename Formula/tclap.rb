@@ -3,6 +3,12 @@ class Tclap < Formula
   homepage "https://tclap.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/tclap/tclap-1.2.2.tar.gz"
   sha256 "f5013be7fcaafc69ba0ce2d1710f693f61e9c336b6292ae4f57554f59fde5837"
+  license "MIT"
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/tclap[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
 
   bottle do
     cellar :any_skip_relocation

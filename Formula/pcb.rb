@@ -1,16 +1,20 @@
 class Pcb < Formula
   desc "Interactive printed circuit board editor"
   homepage "http://pcb.geda-project.org/"
-  url "https://downloads.sourceforge.net/project/pcb/pcb/pcb-4.2.0/pcb-4.2.0.tar.gz"
-  sha256 "cd4b36df6747789775812fb433f246d6bd5a27f3a16357d78d9c4c9b59c59a43"
-  revision 1
+  url "https://downloads.sourceforge.net/project/pcb/pcb/pcb-4.2.2/pcb-4.2.2.tar.gz"
+  sha256 "1ceeaf1bdbe0508b9b140ca421eb600836579114c04dee939341c5d594f36e5d"
+  license "GPL-2.0"
   version_scheme 1
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/pcb[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
-    sha256 "d43af459fe1d262e950a073894903ffb599531f710424c753b3c2779cbdb7771" => :catalina
-    sha256 "3f910571af474058db83eac46cc6672a8492b1c5b594594752d2cf3c077a6e33" => :mojave
-    sha256 "c2014db727633acb06b633247d3e9e809a76cb9a88daa7deb9b7bc1609670f39" => :high_sierra
-    sha256 "0a71157a119d5206fb3b908fd8c25a4072b0e832aa466f13cbd04d998af39817" => :sierra
+    sha256 "a1dca0926d6752943013906f21eb4f1d14156fcbb3dfc9906953df52ab7e7b51" => :catalina
+    sha256 "0f598ed594a62cf96451a20635e186967957db8a536c20398285d26d88505772" => :mojave
+    sha256 "95e752fd6939e81b4fe3a1b5e035a2240921e8ad9e507373735b5c81336978e1" => :high_sierra
   end
 
   head do
@@ -28,7 +32,7 @@ class Pcb < Formula
   depends_on "gtk+"
   depends_on "gtkglext"
 
-  conflicts_with "gts", :because => "both install a `gts.h` header"
+  conflicts_with "gts", because: "both install a `gts.h` header"
 
   def install
     system "./autogen.sh" if build.head?

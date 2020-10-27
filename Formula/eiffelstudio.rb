@@ -3,6 +3,7 @@ class Eiffelstudio < Formula
   homepage "https://www.eiffel.com"
   url "https://ftp.eiffel.com/pub/download/19.05/eiffelstudio-19.05.10.3187.tar"
   sha256 "b5f883353405eb9ce834c50a863b3721b21c35950a226103e6d01d0101a932b3"
+  license "GPL-2.0"
 
   bottle do
     cellar :any
@@ -20,7 +21,7 @@ class Eiffelstudio < Formula
     system "./make_images", "macosx-x86-64"
     prefix.install Dir["Eiffel_19.05/*"]
     bin.mkpath
-    env = { :ISE_EIFFEL => prefix, :ISE_PLATFORM => "macosx-x86-64" }
+    env = { ISE_EIFFEL: prefix, ISE_PLATFORM: "macosx-x86-64" }
     (bin/"ec").write_env_script(prefix/"studio/spec/macosx-x86-64/bin/ec", env)
     (bin/"ecb").write_env_script(prefix/"studio/spec/macosx-x86-64/bin/ecb", env)
     (bin/"estudio").write_env_script(prefix/"studio/spec/macosx-x86-64/bin/estudio", env)

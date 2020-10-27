@@ -1,15 +1,20 @@
 class CdogsSdl < Formula
   desc "Classic overhead run-and-gun game"
   homepage "https://cxong.github.io/cdogs-sdl/"
-  url "https://github.com/cxong/cdogs-sdl/archive/0.6.9.tar.gz"
-  sha256 "6f81f528cb6fcc6f72ad67627dc22baeac05d7acec512fee5830224cd06cf9ba"
+  url "https://github.com/cxong/cdogs-sdl/archive/0.8.0.tar.gz"
+  sha256 "ae5f493cfbbb5809824af79b164bd9a2ab7f7cfeb32468ff48f36b4a14982aba"
+  license "GPL-2.0"
   head "https://github.com/cxong/cdogs-sdl.git"
 
+  livecheck do
+    url "https://github.com/cxong/cdogs-sdl/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
-    sha256 "6fb64eabb3777469eae01c7a106ae23a476207acc464dce439ee0df32113f559" => :catalina
-    sha256 "0d9364354ce369be43114c059c8ae55fdc9a9f77534463f919cb3fc491f63c79" => :mojave
-    sha256 "fa1acdcace9940b7e633d21f42159ff72aa55095d995f8331fba40b4aa85f31e" => :high_sierra
-    sha256 "811a7269fa69ba5fde0a15486e019c91f0d6b81afc644d7ed782f1d7e144917e" => :sierra
+    sha256 "66687e6a3548b98f7fd709efd02c8b859720366ae4cce99a5bbd7912fbaeefaa" => :catalina
+    sha256 "268d71dc819666f503df8baf456e8c67ae656120325c220cbf61c24180ba539d" => :mojave
+    sha256 "867cda02b913848c1c3ceb77b5bd3830e744297bbb03924d55030630b8b6af9c" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -29,10 +34,13 @@ class CdogsSdl < Formula
   end
 
   test do
-    server = fork do
-      system "#{bin}/cdogs-sdl"
+    pid = fork do
+      exec bin/"cdogs-sdl"
     end
-    sleep 5
-    Process.kill("TERM", server)
+    sleep 7
+    assert_predicate testpath/".config/cdogs-sdl",
+                     :exist?, "User config directory should exist"
+  ensure
+    Process.kill("TERM", pid)
   end
 end

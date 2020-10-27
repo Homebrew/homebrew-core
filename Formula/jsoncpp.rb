@@ -1,24 +1,31 @@
 class Jsoncpp < Formula
   desc "Library for interacting with JSON"
   homepage "https://github.com/open-source-parsers/jsoncpp"
-  url "https://github.com/open-source-parsers/jsoncpp/archive/1.9.1.tar.gz"
-  sha256 "c7b40f5605dd972108f503f031b20186f5e5bca2b65cd4b8bd6c3e4ba8126697"
+  url "https://github.com/open-source-parsers/jsoncpp/archive/1.9.4.tar.gz"
+  sha256 "e34a628a8142643b976c7233ef381457efad79468c67cb1ae0b83a33d7493999"
+  license "MIT"
+  revision 1
   head "https://github.com/open-source-parsers/jsoncpp.git"
+
+  livecheck do
+    url "https://github.com/open-source-parsers/jsoncpp/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
 
   bottle do
     cellar :any
-    sha256 "72ccd05545ec772fe1c0fb52e61f899e803b10e8a3cc8d5ae81d17c21d7685af" => :catalina
-    sha256 "a3ea2b6e4e3e9b85565b473c1dd8826611a54d58d896c7d183b531f45f1d69e4" => :mojave
-    sha256 "6845ead23ea19d336483799227e497eb7b1e45c0e67b91cd85b424a842a8b188" => :high_sierra
-    sha256 "5b4f345172c39853765b57eb0c7a706454031cf3a6da1c00a2b3d61244b20ada" => :sierra
+    sha256 "ecb519ab6a3d662893a69c18a047b30e6092ee31554ffc5756a53838320e6d9a" => :catalina
+    sha256 "8a052407837f69662e243ec46bfe81faefafba89b31ec95d6953b9a3b7d1603e" => :mojave
+    sha256 "85a862e7c2b2d381de4158ea6e574d92711cc7e311af7b01e9146f34d2da5f67" => :high_sierra
   end
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
+  depends_on "python@3.9" => :build
 
   def install
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", ".."
+      system "meson", *std_meson_args, "-Dpython=#{Formula["python@3.9"].opt_bin}/python3", ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end

@@ -1,8 +1,9 @@
 class Shml < Formula
   desc "Style Framework for The Terminal"
   homepage "https://odb.github.io/shml/"
-  url "https://github.com/MaxCDN/shml/archive/1.1.0.tar.gz"
+  url "https://github.com/odb/shml/archive/1.1.0.tar.gz"
   sha256 "0f0634fe5dd043f5ff52946151584a59b5826acbb268c9d884a166c3196b8f4f"
+  license "MIT"
 
   bottle :unneeded
 

@@ -3,6 +3,7 @@ class Mkhexgrid < Formula
   homepage "http://www.nomic.net/~uckelman/mkhexgrid/"
   url "http://www.nomic.net/~uckelman/mkhexgrid/releases/mkhexgrid-0.1.1.src.tar.bz2"
   sha256 "122609261cc91c2063ab5315d4316a27c9a0ab164f663a6cb781dd87310be3dc"
+  license "GPL-2.0"
 
   bottle do
     cellar :any

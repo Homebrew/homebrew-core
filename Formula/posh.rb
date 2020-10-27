@@ -1,15 +1,15 @@
 class Posh < Formula
   desc "Policy-compliant ordinary shell"
   homepage "https://salsa.debian.org/clint/posh"
-  url "https://salsa.debian.org/clint/posh/repository/debian/0.13.2/archive.tar.gz"
-  sha256 "d4ea1e08b4e2916a6a43f50f7892ab4152e9438b19f7a008e5b2a46e4f5ac774"
+  url "https://salsa.debian.org/clint/posh/-/archive/debian/0.14.1/posh-debian-0.14.1.tar.bz2"
+  sha256 "3c9ca430977d85ad95d439656269b878bd5bde16521b778c222708910d111c80"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "feed2fe4790da6503fd829889f4ca5aa70f7716e1329cae79d92e84c9142ae69" => :catalina
-    sha256 "700e48f30128fa0fdd35c3117154dd24455ba2a8839bd56fda146f5cf8e4eb11" => :mojave
-    sha256 "9c38d14973e3fd33480cfdb45442a1e2e5291d4a60008ea61c689d497f8ff7ef" => :high_sierra
-    sha256 "d8528d6120edc6a45b43c7e3b148b5cb8859dcd10ee24c60ae7b1c7cfaa992d5" => :sierra
+    sha256 "9a30988f801e9c31ad6fefd48a232a5c95990300eb396a4c32a991176f8350b6" => :catalina
+    sha256 "20157fe0e9ff5389d07f85079a3137112cd6ad5bff5081d247e8778a082281c8" => :mojave
+    sha256 "bfee90257c267d2bd68ec3501887901179f4464d3e6d5b9afb42580ef1db4677" => :high_sierra
   end
 
   depends_on "autoconf" => :build

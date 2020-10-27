@@ -4,16 +4,21 @@ class Flac < Formula
   url "https://downloads.xiph.org/releases/flac/flac-1.3.3.tar.xz"
   sha256 "213e82bd716c9de6db2f98bcadbc4c24c7e2efe8c75939a1a84e28539c4e1748"
 
+  livecheck do
+    url "https://downloads.xiph.org/releases/flac/"
+    regex(/href=.*?flac[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
-    sha256 "c33809e09990a272cff9d0aae609eab10f605bae909b6d4c14e5af5096e3b0c9" => :catalina
-    sha256 "ef7f0557e79c99a79814f4ed29120719eea153f12b774a207e19d9b61658660f" => :mojave
-    sha256 "bd5a61be6c9f3b75f5012f56b2db4bf351d991675dd8f6ddb18c74e7c985d0fb" => :high_sierra
-    sha256 "aa3dc4ddf9802576ea7f3ef73bf7276c54720de3378c7b4d0a708707644c2089" => :sierra
+    rebuild 1
+    sha256 "3d33119f1e513ad58f20722e41498fc23315d756a834d8b346cee6842f45fea1" => :catalina
+    sha256 "ffadc5a1825acd43aee92ea2523a1b46b3c63820f5cf59f61ee2972571454755" => :mojave
+    sha256 "53562e93cd58b45d15fb5303938b1718298d69101a53612fd53075e881cbfc95" => :high_sierra
   end
 
   head do
-    url "https://git.xiph.org/flac.git"
+    url "https://gitlab.xiph.org/xiph/flac.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -36,7 +41,9 @@ class Flac < Formula
   end
 
   test do
-    system "#{bin}/flac", "--decode", "--force-raw", "--endian=little", "--sign=signed", "--output-name=out.raw", test_fixtures("test.flac")
-    system "#{bin}/flac", "--endian=little", "--sign=signed", "--channels=1", "--bps=8", "--sample-rate=8000", "--output-name=out.flac", "out.raw"
+    system "#{bin}/flac", "--decode", "--force-raw", "--endian=little", "--sign=signed",
+                          "--output-name=out.raw", test_fixtures("test.flac")
+    system "#{bin}/flac", "--endian=little", "--sign=signed", "--channels=1", "--bps=8",
+                          "--sample-rate=8000", "--output-name=out.flac", "out.raw"
   end
 end

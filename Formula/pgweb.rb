@@ -1,14 +1,15 @@
 class Pgweb < Formula
   desc "Web-based PostgreSQL database browser"
   homepage "https://sosedoff.github.io/pgweb/"
-  url "https://github.com/sosedoff/pgweb/archive/v0.11.4.tar.gz"
-  sha256 "1dc101abc31bc349a38b746b98835572498049d06b8be9938c795f89bbeac936"
+  url "https://github.com/sosedoff/pgweb/archive/v0.11.7.tar.gz"
+  sha256 "d35f74a6d80093764aece7b0a0ad6869799d04316efab077e0f7603835a9f159"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ce25f236df051d88022bdfa279d31eea35ea283fe50d73da64837e785d74b79c" => :catalina
-    sha256 "a073f7b5f18ac4da86a16da5bbdb5e378691eb7f2167c8d6632d5f5e274f6f11" => :mojave
-    sha256 "d2835f43238673d6df1fecdfa8a6688a808c6ecb1d2574f21966ab3cd4d8812f" => :high_sierra
+    sha256 "38ad603da0bc035e5a905f44e22e70335d965a4ca62a2019d08a03cde3fe7f8c" => :catalina
+    sha256 "7230e2f2ef476b2768a25796c3f20d45654eb8fa33ff171e70d91188df7e6527" => :mojave
+    sha256 "536cc0ae5680a2c6316c569e2989868108f4b6626e496ec99c93e1ea823a7ba5" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -29,11 +30,7 @@ class Pgweb < Formula
   end
 
   test do
-    require "socket"
-
-    server = TCPServer.new(0)
-    port = server.addr[1]
-    server.close
+    port = free_port
 
     begin
       pid = fork do

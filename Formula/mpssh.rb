@@ -1,6 +1,7 @@
 class Mpssh < Formula
   desc "Mass parallel ssh"
   homepage "https://github.com/ndenev/mpssh"
+  license "BSD-3-Clause"
   head "https://github.com/ndenev/mpssh.git"
 
   stable do
@@ -8,8 +9,8 @@ class Mpssh < Formula
     sha256 "510e11c3e177a31c1052c8b4ec06357c147648c86411ac3ed4ac814d0d927f2f"
     patch do
       # don't install binaries as root (upstream commit)
-      url "https://github.com/ndenev/mpssh/commit/3cbb868b6fdf8dff9ab86868510c0455ad1ec1b3.diff?full_index=1"
-      sha256 "c91c3478f05de4b3c200a384ca28449d0c43ad569e8035b3b5247c787f0a984b"
+      url "https://github.com/ndenev/mpssh/commit/3cbb868b6fdf8dff9ab86868510c0455ad1ec1b3.patch?full_index=1"
+      sha256 "a6c596c87a4945e6a77b779fcc42867033dbfd95e27ede492e8b841738a67316"
     end
   end
 

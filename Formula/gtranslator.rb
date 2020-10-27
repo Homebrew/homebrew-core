@@ -1,20 +1,23 @@
 class Gtranslator < Formula
   desc "GNOME gettext PO file editor"
   homepage "https://wiki.gnome.org/Design/Apps/Translator"
-  url "https://download.gnome.org/sources/gtranslator/3.34/gtranslator-3.34.0.tar.xz"
-  sha256 "b2f25c02bdfd246896803756078c3006ef433c83eb802bc23a33413046bffb17"
-  revision 1
+  url "https://download.gnome.org/sources/gtranslator/3.38/gtranslator-3.38.0.tar.xz"
+  sha256 "dbcda9b81a22d9233be18e99fd5c448f6ab05759d1e94c10580bb831ca2d7635"
+  license "GPL-3.0-or-later"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
-    sha256 "159e755282296b401507b791b4c4b7121b995a8055b75271aca6c4ff95c7fcf6" => :catalina
-    sha256 "4b5a43b5bd598eab15e66156b3491c43ad20dc7a226880ee9b720e4bb6b43188" => :mojave
-    sha256 "17ac4683c97685ceedbda84a6680124f04d6181e2397c373633dc8c99eb835b2" => :high_sierra
+    sha256 "ca6600f0f0d75cc1f9c2a063ac2ad6bdfe790fe89a72533307deda968903eb2b" => :catalina
+    sha256 "d46199ba9a6eb1a9cf068fe5a9ae34529ab60b70ebdaca2f29c82e4eef86d34b" => :mojave
+    sha256 "13cc15d49f5c39f4be9f28860b6e99d7186d7b985fa03308f3a185692f57ad3b" => :high_sierra
   end
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python" => :build
   depends_on "adwaita-icon-theme"
   depends_on "glib"
   depends_on "gspell"
@@ -23,6 +26,7 @@ class Gtranslator < Formula
   depends_on "iso-codes"
   depends_on "itstool"
   depends_on "json-glib"
+  depends_on "libdazzle"
   depends_on "libgda"
   depends_on "libsoup"
 
@@ -30,7 +34,7 @@ class Gtranslator < Formula
     # stop meson_post_install.py from doing what needs to be done in the post_install step
     ENV["DESTDIR"] = "/"
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", ".."
+      system "meson", *std_meson_args, ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end

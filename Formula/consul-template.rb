@@ -2,36 +2,30 @@ class ConsulTemplate < Formula
   desc "Generic template rendering and notifications with Consul"
   homepage "https://github.com/hashicorp/consul-template"
   url "https://github.com/hashicorp/consul-template.git",
-      :tag      => "v0.22.1",
-      :revision => "f04989c64e9bd4c49a7217ac4635732dd8e0bb26"
+      tag:      "v0.25.1",
+      revision: "171d54d1d3e732a7e960988b72ff9c2fddb3cd8f"
+  license "MPL-2.0"
   head "https://github.com/hashicorp/consul-template.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "72e9acbe3c7ec5ba23b8cbe5b613d15c4c96e1d3a10d5a74640f9f69a81d0a46" => :catalina
-    sha256 "3ce2ab218e3b6379add2f41bb32457fd3e7974cbbbf8a795055e535f590d0dfb" => :mojave
-    sha256 "b58cbc3a12ec729d0375df7893f6238e591d6af347bb8a4437f8741a40828dcc" => :high_sierra
+    sha256 "79c0b42239bae3e2771b9cce86d2e816654126aa6c5907be3999eadec34ecd8a" => :catalina
+    sha256 "169f7d647729d546330b8268f5e07eb378fc95e35831fb6f24d508901f607499" => :mojave
+    sha256 "37f32e5b0d9e2ffc20846be7f4e97607e76f5b27b29cf015c941c9c03cc506f4" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["XC_OS"] = "darwin"
-    ENV["XC_ARCH"] = "amd64"
-
-    dir = buildpath/"src/github.com/hashicorp/consul-template"
-    dir.install buildpath.children - [buildpath/".brew_home"]
-
-    cd dir do
-      project = "github.com/hashicorp/consul-template"
-      commit = Utils.popen_read("git rev-parse --short HEAD").chomp
-      ldflags = ["-X #{project}/version.Name=consul-template",
-                 "-X #{project}/version.GitCommit=#{commit}"]
-      system "go", "build", "-o", bin/"consul-template", "-ldflags",
-             ldflags.join(" ")
-      prefix.install_metafiles
-    end
+    project = "github.com/hashicorp/consul-template"
+    commit = Utils.safe_popen_read("git", "rev-parse", "--short", "HEAD").chomp
+    ldflags = %W[
+      -s -w
+      -X #{project}/version.Name=consul-template
+      -X #{project}/version.GitCommit=#{commit}
+    ]
+    system "go", "build", "-ldflags", ldflags.join(" "), *std_go_args
+    prefix.install_metafiles
   end
 
   test do

@@ -41,10 +41,11 @@ class Brogue < Formula
     libexec.install "bin/brogue", "bin/keymap"
   end
 
-  def caveats; <<~EOS
-    If you are upgrading from 1.7.2, you need to copy your highscores file:
-        cp #{HOMEBREW_PREFIX}/Cellar/#{name}/1.7.2/BrogueHighScores.txt #{var}/brogue/
-  EOS
+  def caveats
+    <<~EOS
+      If you are upgrading from 1.7.2, you need to copy your highscores file:
+          cp #{HOMEBREW_PREFIX}/Cellar/#{name}/1.7.2/BrogueHighScores.txt #{var}/brogue/
+    EOS
   end
 
   test do

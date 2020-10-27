@@ -1,6 +1,7 @@
 class Libdc1394 < Formula
   desc "Provides API for IEEE 1394 cameras"
   homepage "https://damien.douxchamps.net/ieee1394/libdc1394/"
+  license "LGPL-2.1"
 
   stable do
     url "https://downloads.sourceforge.net/project/libdc1394/libdc1394-2/2.2.6/libdc1394-2.2.6.tar.gz"
@@ -13,6 +14,10 @@ class Libdc1394 < Formula
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/b8275aa07f/libdc1394/capture.patch"
       sha256 "6e3675b7fb1711c5d7634a76d723ff25e2f7ae73cd1fbf3c4e49ba8e5dcf6c39"
     end
+  end
+
+  livecheck do
+    url :stable
   end
 
   bottle do

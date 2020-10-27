@@ -1,14 +1,19 @@
 class Deployer < Formula
   desc "Deployment tool written in PHP with support for popular frameworks"
   homepage "https://deployer.org/"
-  url "https://deployer.org/releases/v6.6.0/deployer.phar"
-  sha256 "37a5478689477b04c7433d62f97e5727c6a0683c4e08b1959ff0d20c64eab28a"
+  url "https://deployer.org/releases/v6.8.0/deployer.phar"
+  sha256 "25f639561cb7ebe5c2231b05cb10a0cf62f83469faf6b9248dfa6b7f94e3bd26"
+
+  livecheck do
+    url "https://deployer.org/download"
+    regex(%r{href=.*?/releases/v?(\d+(?:\.\d+)+)/deployer.phar}i)
+  end
 
   bottle :unneeded
 
   depends_on "php"
 
-  conflicts_with "dep", :because => "both install `dep` binaries"
+  conflicts_with "dep", because: "both install `dep` binaries"
 
   def install
     bin.install "deployer.phar" => "dep"

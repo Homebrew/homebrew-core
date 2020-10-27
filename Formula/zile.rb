@@ -6,6 +6,10 @@ class Zile < Formula
   sha256 "7a78742795ca32480f2bab697fd5e328618d9997d6f417cf1b14e9da9af26b74"
   revision 2
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     rebuild 1
@@ -17,6 +21,8 @@ class Zile < Formula
   depends_on "help2man" => :build
   depends_on "pkg-config" => :build
   depends_on "bdw-gc"
+
+  uses_from_macos "ncurses"
 
   def install
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"

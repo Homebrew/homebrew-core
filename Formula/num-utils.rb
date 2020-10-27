@@ -16,9 +16,9 @@ class NumUtils < Formula
     sha256 "188ff1f94691f8bf5099ec1012d4732be8fa385bf738671f86780376dd2597b9" => :mavericks
   end
 
-  conflicts_with "normalize", :because => "both install `normalize` binaries"
-  conflicts_with "crush-tools", :because => "both install an `range` binary"
-  conflicts_with "argyll-cms", :because => "both install `average` binaries"
+  conflicts_with "normalize", because: "both install `normalize` binaries"
+  conflicts_with "crush-tools", because: "both install an `range` binary"
+  conflicts_with "argyll-cms", because: "both install `average` binaries"
 
   def install
     %w[average bound interval normalize numgrep numprocess numsum random range round].each do |p|

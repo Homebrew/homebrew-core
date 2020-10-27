@@ -1,27 +1,22 @@
 class Direnv < Formula
   desc "Load/unload environment variables based on $PWD"
   homepage "https://direnv.net/"
-  url "https://github.com/direnv/direnv/archive/v2.20.1.tar.gz"
-  sha256 "dd54393661602bb989ee880f14c41f7a7b47a153777999509127459edae52e47"
+  url "https://github.com/direnv/direnv/archive/v2.23.1.tar.gz"
+  sha256 "12e01b1df182541654a39c8d631140cf528bfdca6c492545c7e6455748503efa"
+  license "MIT"
   head "https://github.com/direnv/direnv.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "63210cfbbd0febcb18f3c48b460a1a446f19ee9682566a78b7c44f3d289eed83" => :catalina
-    sha256 "548dc9aab0d941ce4bb15b5f5b0de0c70308cdebc2c6af8d54a644e57e71ffa5" => :mojave
-    sha256 "eb6c47a8999d698a81032a4d5f60053ea898251575a79e95fcaeb35dcb15c6cb" => :high_sierra
-    sha256 "6e5aea68152027b0117319dadf8ecdcc0183815073ea8dbfab10e7bf5967047c" => :sierra
+    sha256 "4cc10d8fad64eb6d5f9a0eee257c77c7d812a0a6ea6d53439e001bf023ac1bf1" => :catalina
+    sha256 "1307aa1a9a14aa8e4b04abc444d2d36c199c4ff8466d2ef3fba115b61e12ef21" => :mojave
+    sha256 "d7cc71241d1e4656598051536dfb30f0d2ef18bf9134e3e899ff3ada3888cd6a" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/direnv/direnv").install buildpath.children
-    cd "src/github.com/direnv/direnv" do
-      system "make", "install", "DESTDIR=#{prefix}"
-      prefix.install_metafiles
-    end
+    system "make", "install", "DESTDIR=#{prefix}"
   end
 
   test do

@@ -1,28 +1,33 @@
 class RancherCli < Formula
-  desc "The Rancher CLI is a unified tool to manage your Rancher server"
+  desc "Unified tool to manage your Rancher server"
   homepage "https://github.com/rancher/cli"
-  url "https://github.com/rancher/cli/archive/v2.3.2.tar.gz"
-  sha256 "18a3b3e816c0e59cd36cbe836cb373d0390ce9ee74bcc58820cdd5affd9cfbdf"
+  url "https://github.com/rancher/cli/archive/v2.4.6.tar.gz"
+  sha256 "4dc8399c3cd5a10dfc89ca71b622308b7c03a268eae0a4da35d1f39988fbddc5"
+  license "Apache-2.0"
+  head "https://github.com/rancher/cli.git"
+
+  livecheck do
+    url "https://github.com/rancher/cli/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8529a27ad17d294661b1ea1e2c4d2da90149681419aff1382a4cd802613c1dca" => :catalina
-    sha256 "07140cb6d3b0208e53bb879fd8db1ffa2db5f9911835fb907f77d4b4b4d987a9" => :mojave
-    sha256 "66297b3b6fea84eab42e5c568bcd433a9fa774e357e97b4ac278b61c6f60a50e" => :high_sierra
+    sha256 "949cbf3440dffdf14e161139aff69e2966d68719174e43a68b4c3e6e44d7df8b" => :catalina
+    sha256 "1ca2b69dcd809539276bab69e5c90047450e93dcf96189aacaa440522d8041ff" => :mojave
+    sha256 "ab95e21dde075606e7c519fac0501e990f762db03a55323654d5d86f046f5816" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/rancher/cli/").install Dir["*"]
-    system "go", "build", "-ldflags",
-           "-w -X github.com/rancher/cli/version.VERSION=#{version}",
-           "-o", "#{bin}/rancher",
-           "-v", "github.com/rancher/cli/"
+    system "go", "build", "-mod=vendor", "-ldflags",
+           "-w -X main.VERSION=#{version}",
+           "-trimpath", "-o", bin/"rancher"
   end
 
   test do
-    system bin/"rancher", "help"
+    assert_match "Failed to parse SERVERURL", shell_output("#{bin}/rancher login localhost -t foo 2>&1", 1)
+    assert_match "invalid token", shell_output("#{bin}/rancher login https://127.0.0.1 -t foo 2>&1", 1)
   end
 end

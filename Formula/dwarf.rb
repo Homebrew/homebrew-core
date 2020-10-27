@@ -3,6 +3,7 @@ class Dwarf < Formula
   homepage "https://github.com/elboza/dwarf-ng/"
   url "https://github.com/elboza/dwarf-ng/archive/dwarf-0.4.0.tar.gz"
   sha256 "a64656f53ded5166041ae25cc4b1ad9ab5046a5c4d4c05b727447e73c0d83da0"
+  license "GPL-2.0"
   revision 1
 
   bottle do
@@ -15,6 +16,7 @@ class Dwarf < Formula
 
   depends_on "flex"
   depends_on "readline"
+
   uses_from_macos "bison"
 
   def install

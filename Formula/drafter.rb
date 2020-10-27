@@ -1,22 +1,23 @@
 class Drafter < Formula
   desc "Native C/C++ API Blueprint Parser"
   homepage "https://apiblueprint.org/"
-  url "https://github.com/apiaryio/drafter/releases/download/v4.0.2/drafter-4.0.2.tar.gz"
-  sha256 "35e9ca58acbf7dc2e8c48a8bf16bc7a4efbdc2dedaeedb258e0ad80c14496d78"
+  url "https://github.com/apiaryio/drafter/releases/download/v5.0.0/drafter-5.0.0.tar.gz"
+  sha256 "a35894a8f4de8b9ead216056b6a77c8c03a4156b6a6e7eae46d9e11d116a748e"
+  license "MIT"
   head "https://github.com/apiaryio/drafter.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c2a5b57cc3e10cc9365bd04bd6b1ec00037b0b97a982101f6c40f4c280558ea3" => :catalina
-    sha256 "b5ee20160ca4d4721d493ff18f49a930acb508a877146ade6a391f7bd831ac4f" => :mojave
-    sha256 "8220d968afb0a0cdfc25aa51b8547b246e138018501e7e80b50864fa92ff7da0" => :high_sierra
+    cellar :any
+    sha256 "29fa18ff148f6ebf454ed383181384bfb9aff1520e64072dfb386445bf8e52a3" => :catalina
+    sha256 "2a56e75e39f7b46eba355ae6163b645e161c4e458a4f127c37a948377143ac3e" => :mojave
+    sha256 "125fb907888693fd3d638a79d185483f44112f5bb64f098626aa17f00b25513d" => :high_sierra
   end
 
   depends_on "cmake" => :build
 
   def install
     system "cmake", ".", *std_cmake_args
-    system "make", "drafter", "drafter-cli"
+    system "make", "drafter"
     system "make", "install"
   end
 

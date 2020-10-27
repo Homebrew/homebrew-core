@@ -3,6 +3,7 @@ class Flex < Formula
   homepage "https://github.com/westes/flex"
   url "https://github.com/westes/flex/releases/download/v2.6.4/flex-2.6.4.tar.gz"
   sha256 "e87aae032bf07c26f85ac0ed3250998c37621d95f8bd748b31f15b33c45ee995"
+  license "BSD-2-Clause"
   revision 1
 
   bottle do
@@ -24,10 +25,13 @@ class Flex < Formula
     depends_on "libtool" => :build
   end
 
-  keg_only :provided_by_macos, "some formulae require a newer version of flex"
+  keg_only :provided_by_macos
 
   depends_on "help2man" => :build
   depends_on "gettext"
+
+  uses_from_macos "bison" => :build
+  uses_from_macos "m4"
 
   def install
     if build.head?

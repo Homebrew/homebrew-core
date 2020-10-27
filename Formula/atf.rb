@@ -1,8 +1,9 @@
 class Atf < Formula
-  desc "ATF: Automated Testing Framework"
+  desc "Automated testing framework"
   homepage "https://github.com/jmmv/atf"
   url "https://github.com/jmmv/atf/releases/download/atf-0.21/atf-0.21.tar.gz"
   sha256 "92bc64180135eea8fe84c91c9f894e678767764f6dbc8482021d4dde09857505"
+  license "BSD-2-Clause"
 
   bottle do
     sha256 "39570850845a8c01f2ce167fec23284fc6172c816a9d5806b9c9034448d5a0a3" => :catalina

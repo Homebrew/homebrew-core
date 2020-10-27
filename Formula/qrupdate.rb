@@ -1,16 +1,20 @@
 class Qrupdate < Formula
   desc "Fast updates of QR and Cholesky decompositions"
   homepage "https://sourceforge.net/projects/qrupdate/"
-  url "https://downloads.sourceforge.net/qrupdate/qrupdate-1.1.2.tar.gz"
+  url "https://downloads.sourceforge.net/project/qrupdate/qrupdate/1.2/qrupdate-1.1.2.tar.gz"
   sha256 "e2a1c711dc8ebc418e21195833814cb2f84b878b90a2774365f0166402308e08"
-  revision 11
+  revision 13
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/qrupdate[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
 
   bottle do
     cellar :any
-    sha256 "e275c1facc9afebb6884c4dff4fce18c2ddd7be138502971fcfcf81ab36caab2" => :catalina
-    sha256 "e509deee8107d09eaff0e02cbe38bbe27abfb5bed32b3766be83207fccc00320" => :mojave
-    sha256 "743423a355fe7fcd2e43f3056829227d3d957f717b08d956d9cee1902bbbaafc" => :high_sierra
-    sha256 "835f8dbf0f30b16079b35eba39ad788dfdb3834bf6ab9acdcc8d2083f9199b5c" => :sierra
+    sha256 "2b2464b06d3f39c68826319d7cf6f860e7fb4a90377ab5a70609e87c9706ffba" => :catalina
+    sha256 "f8979b51f613030bbafd0241c918457d26b4f7074ad4e43d50668d20b0ca87be" => :mojave
+    sha256 "85065f6d6e3362e53fd66118e11a4727faad0cbf01e5c2e8985bee2382123295" => :high_sierra
   end
 
   depends_on "gcc" # for gfortran
@@ -38,6 +42,7 @@ class Qrupdate < Formula
 
   test do
     system "gfortran", "-o", "test", pkgshare/"tch1dn.f", pkgshare/"utils.f",
+                       "-fallow-argument-mismatch",
                        "-L#{lib}", "-lqrupdate",
                        "-L#{Formula["openblas"].opt_lib}", "-lopenblas"
     assert_match "PASSED   4     FAILED   0", shell_output("./test")

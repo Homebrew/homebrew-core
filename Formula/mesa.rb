@@ -1,29 +1,36 @@
 class Mesa < Formula
   include Language::Python::Virtualenv
+
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://mesa.freedesktop.org/archive/mesa-19.1.7.tar.xz"
-  sha256 "e287920fdb38712a9fed448dc90b3ca95048c7face5db52e58361f8b6e0f3cd5"
+  url "https://mesa.freedesktop.org/archive/mesa-20.2.1.tar.xz"
+  sha256 "d1a46d9a3f291bc0e0374600bdcb59844fa3eafaa50398e472a36fc65fd0244a"
+  license "MIT"
+  revision 1
   head "https://gitlab.freedesktop.org/mesa/mesa.git"
 
-  bottle do
-    sha256 "08e519e5540e340136e6773925f71ccb974eaf6576c6ea3619f90043cf3634b6" => :mojave
-    sha256 "dc5a2b8caf4823e7163acf81845222f536ed61a65406837664ff0eb28e729baf" => :high_sierra
-    sha256 "fe1cc29ff4476548ae2a3b2b1cbd6aea27686ceee80c6e74ff4b5dbcc04bc2e5" => :sierra
+  livecheck do
+    url :stable
   end
 
-  depends_on "meson-internal" => :build
+  bottle do
+    cellar :any
+    sha256 "748342d8a327d3020bf6f8c1f4802cc9854aabed9ae09be569945ec805a4e217" => :catalina
+    sha256 "52d122a994018dc02d1a351c59a32a9428efc81ce4342d5eee6fed7f21636a60" => :mojave
+    sha256 "22240d614adfa767e18dadd3c3f407762d4e82134ea7b7e1c9980b8f2a112c05" => :high_sierra
+  end
+
+  depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python" => :build
+  depends_on "python@3.9" => :build
   depends_on "freeglut" => :test
   depends_on "expat"
   depends_on "gettext"
-  depends_on :x11
 
   resource "Mako" do
-    url "https://files.pythonhosted.org/packages/b0/3c/8dcd6883d009f7cae0f3157fb53e9afb05a0d3d33b3db1268ec2e6f4a56b/Mako-1.1.0.tar.gz"
-    sha256 "a36919599a9b7dc5d86a7a8988f23a9a3a3d083070023bab23d64f7f1d1e0a4b"
+    url "https://files.pythonhosted.org/packages/72/89/402d2b4589e120ca76a6aed8fee906a0f5ae204b50e455edd36eda6e778d/Mako-1.1.3.tar.gz"
+    sha256 "8195c8c1400ceb53496064314c6736719c6f25e7479cd24c77be3d9361cddc27"
   end
 
   resource "gears.c" do
@@ -32,23 +39,31 @@ class Mesa < Formula
   end
 
   def install
-    xy = Language::Python.major_minor_version "python3"
-    ENV.prepend_create_path "PYTHONPATH", buildpath/"vendor/lib/python#{xy}/site-packages"
+    ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
 
-    resource("Mako").stage do
-      system "python3", *Language::Python.setup_install_args(buildpath/"vendor")
-    end
+    venv_root = libexec/"venv"
+    venv = virtualenv_create(venv_root, "python3")
+    venv.pip_install resource("Mako")
+
+    ENV.prepend_path "PATH", "#{venv_root}/bin"
 
     resource("gears.c").stage(pkgshare.to_s)
 
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", "-D buildtype=plain", "-D b_ndebug=true", ".."
+      system "meson", *std_meson_args, "..", "-Db_ndebug=true",
+                      "-Dplatforms=surfaceless", "-Dglx=disabled"
       system "ninja"
       system "ninja", "install"
     end
   end
 
   test do
-    system ENV.cc, "#{pkgshare}/gears.c", "-o", "gears", "-L#{lib}", "-I#{Formula["freeglut"].opt_include}", "-L#{Formula["freeglut"].opt_lib}", "-lgl", "-lglut"
+    flags = %W[
+      -framework OpenGL
+      -I#{Formula["freeglut"].opt_include}
+      -L#{Formula["freeglut"].opt_lib}
+      -lglut
+    ]
+    system ENV.cc, "#{pkgshare}/gears.c", "-o", "gears", *flags
   end
 end

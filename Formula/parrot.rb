@@ -1,6 +1,7 @@
 class Parrot < Formula
   desc "Open source virtual machine (for Perl6, et al.)"
   homepage "http://www.parrot.org/"
+  license "Artistic-2.0"
   head "https://github.com/parrot/parrot.git"
 
   stable do
@@ -9,14 +10,14 @@ class Parrot < Formula
 
     # remove at 8.2.0, already in HEAD
     patch do
-      url "https://github.com/parrot/parrot/commit/7524bf5384ddebbb3ba06a040f8acf972aa0a3ba.diff?full_index=1"
-      sha256 "55b6cae8b48e1f942c7be83955250b0a6d3b1132539b42cee532c9b2b6952b0a"
+      url "https://github.com/parrot/parrot/commit/7524bf5384ddebbb3ba06a040f8acf972aa0a3ba.patch?full_index=1"
+      sha256 "1357090247b856416b23792a2859ae4860ed1336b05dddc1ee00793b6dc3d78a"
     end
 
     # remove at 8.2.0, already in HEAD
     patch do
-      url "https://github.com/parrot/parrot/commit/854aec65d6de8eaf5282995ab92100a2446f0cde.diff?full_index=1"
-      sha256 "3452227cfdf4827ef26d0d9d09db5528c20fbbc19a95f76fb4356b19cfb88e88"
+      url "https://github.com/parrot/parrot/commit/854aec65d6de8eaf5282995ab92100a2446f0cde.patch?full_index=1"
+      sha256 "4e068c3a9243f350a3e862991a1042a06a03a625361f9f01cc445a31df906c6e"
     end
   end
 

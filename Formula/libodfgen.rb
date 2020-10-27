@@ -5,11 +5,17 @@ class Libodfgen < Formula
   mirror "https://downloads.sourceforge.net/project/libwpd/libodfgen/libodfgen-0.1.7/libodfgen-0.1.7.tar.xz"
   sha256 "323e491f956c8ca2abb12c998e350670930a32317bf9662b0615dd4b3922b831"
 
+  livecheck do
+    url "https://dev-www.libreoffice.org/src/"
+    regex(/href=["']?libodfgen[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
-    sha256 "82f4fd01079c63a6c460bcc30030f5c3da384775f1a96b209eba0bfaef167e4f" => :mojave
-    sha256 "8d75f3b5976c0415b4c99d78c185d086ed416a6a4a1ce6408c111193886efed7" => :high_sierra
-    sha256 "5d3eeab26f1b61ae6dc105bb6612d339e188095e9633d9e19e08f98c9d9f2b92" => :sierra
+    rebuild 1
+    sha256 "25fb42ad5715c87c0a23547b59515aa5c0d7cba2e0a5d09d2d2a8eeb06217677" => :catalina
+    sha256 "f90434da376c3af4b55640d1c5a870c28339a9174dfda56b7bc79dc6b6b60ec8" => :mojave
+    sha256 "b80178fdbf5ca0816879466adc8fbedd671d57db3378ee3c708fefdf9b8f87e3" => :high_sierra
   end
 
   depends_on "boost" => :build

@@ -3,6 +3,7 @@ class Cmockery < Formula
   homepage "https://github.com/google/cmockery"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/cmockery/cmockery-0.1.2.tar.gz"
   sha256 "b9e04bfbeb45ceee9b6107aa5db671c53683a992082ed2828295e83dc84a8486"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any

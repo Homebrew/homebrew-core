@@ -3,6 +3,7 @@ class Tidyp < Formula
   homepage "https://github.com/petdance/tidyp"
   url "https://github.com/downloads/petdance/tidyp/tidyp-1.04.tar.gz"
   sha256 "20b0fad32c63575bd4685ed09b8c5ca222bbc7b15284210d4b576d0223f0b338"
+  license "Zlib"
 
   bottle do
     cellar :any
@@ -14,6 +15,8 @@ class Tidyp < Formula
     sha256 "710962782d909bf11987f8b147d7e141ccba48643ab2db02c7f267d6cf871dd9" => :yosemite
     sha256 "7501f78d5f8e549fec7f689cd24aafa716e2097744ec78359d8092183469e4c8" => :mavericks
   end
+
+  uses_from_macos "libxslt" => :build
 
   resource "manual" do
     url "https://raw.githubusercontent.com/petdance/tidyp/6a6c85bc9cb089e343337377f76127d01dd39a1c/htmldoc/tidyp1.xsl"

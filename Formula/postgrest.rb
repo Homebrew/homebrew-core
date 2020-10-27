@@ -1,33 +1,32 @@
-require "language/haskell"
-require "net/http"
-
 class Postgrest < Formula
-  include Language::Haskell::Cabal
-
   desc "Serves a fully RESTful API from any existing PostgreSQL database"
   homepage "https://github.com/PostgREST/postgrest"
-  url "https://github.com/PostgREST/postgrest/archive/v6.0.2.tar.gz"
-  sha256 "8355719e6c6bdf03a93204c5bcf2246521e0ffc02694b2cebfc576d4eae9a0c9"
+  url "https://github.com/PostgREST/postgrest/archive/v7.0.1.tar.gz"
+  sha256 "12f621065b17934c474c85f91ad7b276bff46f684a5f49795b10b39eaacfdcaa"
+  license "MIT"
   head "https://github.com/PostgREST/postgrest.git"
 
   bottle do
     cellar :any
-    sha256 "fc0ed59614a15faba14a43cb2034c0f13429347a092f82ec88e06f4f013067bc" => :mojave
-    sha256 "c3f2b71886b7a2f609f78d3f0ac756a016533674520c778586cac3242063b225" => :high_sierra
-    sha256 "151e3406cd3b46b327bf745f99d9e0cf1f7c8208590a54d576ee0672a6f8c8ba" => :sierra
+    sha256 "691546e89701fd582d47c697dc27551ef3284ee21933a5912f406e6fee4dd272" => :catalina
+    sha256 "34c0413e71a41bc8550b7ea5286e0330aa888990d2e2a8fe6d81b57152c83d61" => :mojave
+    sha256 "6ca3bb9cd14c9ab4ddd028493e4ffd70ddae571be74723997b677c6c67542c87" => :high_sierra
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@8.8" => :build
   depends_on "postgresql"
 
   def install
-    install_cabal_package :using => ["happy"]
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
   end
 
   test do
+    return if ENV["CI"]
+
     pg_bin  = Formula["postgresql"].bin
-    pg_port = 55561
+    pg_port = free_port
     pg_user = "postgrest_test_user"
     test_db = "test_postgrest_formula"
 
@@ -38,20 +37,21 @@ class Postgrest < Formula
       testpath/"#{test_db}.log", "-w", "-o", %Q("-p #{pg_port}"), "start"
 
     begin
+      port = free_port
       system "#{pg_bin}/createdb", "-w", "-p", pg_port, "-U", pg_user, test_db
       (testpath/"postgrest.config").write <<~EOS
         db-uri = "postgres://#{pg_user}@localhost:#{pg_port}/#{test_db}"
         db-schema = "public"
         db-anon-role = "#{pg_user}"
-        server-port = 55560
+        server-port = #{port}
       EOS
       pid = fork do
         exec "#{bin}/postgrest", "postgrest.config"
       end
-      Process.detach(pid)
-      sleep(5) # Wait for the server to start
-      response = Net::HTTP.get(URI("http://localhost:55560"))
-      assert_match /responses.*200.*OK/, response
+      sleep 5 # Wait for the server to start
+
+      output = shell_output("curl -s http://localhost:#{port}")
+      assert_match "200", output
     ensure
       begin
         Process.kill("TERM", pid) if pid

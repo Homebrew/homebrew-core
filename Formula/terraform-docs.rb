@@ -1,29 +1,23 @@
 class TerraformDocs < Formula
   desc "Tool to generate documentation from Terraform modules"
-  homepage "https://github.com/segmentio/terraform-docs"
-  url "https://github.com/segmentio/terraform-docs/archive/v0.6.0.tar.gz"
-  sha256 "e52f508f5c47bcb0c9a42307cba564c66ec3a155f336b9a25557e8b0f8facaa3"
+  homepage "https://github.com/terraform-docs/terraform-docs"
+  url "https://github.com/terraform-docs/terraform-docs/archive/v0.10.1.tar.gz"
+  sha256 "f3cc429d8edd129c73ca18feafd17bf1aacb0397b3653b7f65aa3978c4d6c337"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c0db923a9445496ae2b2e84274bf5db108e59b9b468fff54e155b566853729b0" => :catalina
-    sha256 "ec9b27e7c105c18ff9ba7953c18d11a23c32add8fd57dbb91cca31c325994744" => :mojave
-    sha256 "e3e88fc9c0a342fce40468b643a964a026b118b4f5a4e9e6f721cc9355923e64" => :high_sierra
-    sha256 "a1b0dbfb0b70a888311f4561f5a5fd45e0dee7d9261ea22317867aa166626e50" => :sierra
+    sha256 "9af166d0e3af3d696770e94b819739e97efdedb623a07f2bc1fb3f0698760b44" => :catalina
+    sha256 "219f33fc44d5c4d032997fae412694f510ab62a33eb9816d387e1c24d8717605" => :mojave
+    sha256 "2544851eb87efa344c48392c85404f82c3ef9c5a868555f743cf12f45c860b48" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/github.com/segmentio/terraform-docs"
-    dir.install buildpath.children
-
-    cd dir do
-      system "make", "build-darwin-amd64"
-      bin.install "bin/darwin-amd64/terraform-docs"
-      prefix.install_metafiles
-    end
+    system "make", "build"
+    bin.install "bin/darwin-amd64/terraform-docs"
+    prefix.install_metafiles
   end
 
   test do

@@ -1,27 +1,40 @@
 class GstEditingServices < Formula
   desc "GStreamer Editing Services"
   homepage "https://gstreamer.freedesktop.org/modules/gst-editing-services.html"
-  url "https://gstreamer.freedesktop.org/src/gst-editing-services/gstreamer-editing-services-1.16.1.tar.xz"
-  sha256 "c884878f9e6ddac96e4f174654d12fe52e3d48eaaec27a80767c0d56cb2f6780"
+  url "https://gstreamer.freedesktop.org/src/gst-editing-services/gst-editing-services-1.18.0.tar.xz"
+  sha256 "4daef0d4875415ea262f7fb1287d4a33939a9594f3c1e661f8587ab00f7000a8"
+  license "LGPL-2.0-or-later"
+  revision 1
+
+  livecheck do
+    url "https://gstreamer.freedesktop.org/src/gst-editing-services/"
+    regex(/href=.*?gst(?:reamer)?-editing-services[._-]v?(\d+\.\d*[02468](?:\.\d+)*)\.t/i)
+  end
 
   bottle do
-    sha256 "2989c392e6784984644d2c200c16ba5377487e5233ced15ce0abfe352c7a19b6" => :catalina
-    sha256 "2ee5c075c178a4b3fbaf660e256a9c7972ad740b6ba6c6a3499a749c3828fc25" => :mojave
-    sha256 "c3f48c4ab638e4787d97da06d10fc6102dfb6de9b8c59a6838a1845a73c463c6" => :high_sierra
-    sha256 "97a43fc06ee67c0a9522695c1d761e6e9a324ce6409ccc25aaa447b90909f47e" => :sierra
+    sha256 "6186de7daeaa8962f9f92e20903ffc91e106a28dadd0060d7ab001ff8acab890" => :catalina
+    sha256 "eab524514fdaa2ea301d0956dfe706199c91606b96bbae802074102b061b2715" => :mojave
+    sha256 "2a207a17f9948055db758ec32d231a909cc24611e9e58dfdffa6933ba39bf4fd" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "gst-plugins-base"
   depends_on "gstreamer"
 
   def install
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-gtk-doc",
-                          "--disable-docbook"
-    system "make"
-    system "make", "install"
+    args = std_meson_args + %w[
+      -Dintrospection=enabled
+      -Dtests=disabled
+    ]
+
+    mkdir "build" do
+      system "meson", *args, ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
   end
 
   test do

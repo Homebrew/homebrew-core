@@ -1,17 +1,20 @@
 class Nrpe < Formula
   desc "Nagios remote plugin executor"
   homepage "https://www.nagios.org/"
-  url "https://downloads.sourceforge.net/project/nagios/nrpe-3.x/nrpe-3.2.1.tar.gz"
-  sha256 "8ad2d1846ab9011fdd2942b8fc0c99dfad9a97e57f4a3e6e394a4ead99c0f1f0"
-  revision 1
+  url "https://downloads.sourceforge.net/project/nagios/nrpe-4.x/nrpe-4.0.3/nrpe-4.0.3.tar.gz"
+  sha256 "f907ba15381adfc6eef211508abd027f8e1973116080faa4534a1191211c0340"
+  license "GPL-2.0"
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/nrpe[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "7c0ce6b92d5fe437be7c96a45aa59e5497bfaf9dd29de04128a137afdd86e90b" => :catalina
-    sha256 "d68901dd62599886b0221f60672cef58f18a6d1dc39c28ac8eb955f90e80daf1" => :mojave
-    sha256 "1338535bd58f188ed452b40bdc6b38c0b45ed56cb39819293c2d896031114659" => :high_sierra
-    sha256 "5ec433eb1047741db64c0e16a8c216ffce9764ab45a7b5bf881bbb2f7e7a98d1" => :sierra
+    sha256 "6ef7387202f3b9afda335fd77f16a268a82bed7a9f6ef856faa83741b308d8f2" => :catalina
+    sha256 "90463f41b64e1ac2149dd917d536e406ed22ba9cef8a27e06618bab53c4e673e" => :mojave
+    sha256 "e109e63ca7f6f5386eae058d19e510c5d3a5deb2633f8ef014df1ac24d414cb9" => :high_sierra
   end
 
   depends_on "nagios-plugins"
@@ -48,31 +51,32 @@ class Nrpe < Formula
     (var/"run").mkpath
   end
 
-  plist_options :manual => "nrpe -n -c #{HOMEBREW_PREFIX}/etc/nrpe.cfg -d"
+  plist_options manual: "nrpe -n -c #{HOMEBREW_PREFIX}/etc/nrpe.cfg -d"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>Label</key>
-      <string>org.nrpe.agent</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_bin}/nrpe</string>
-        <string>-c</string>
-        <string>#{etc}/nrpe.cfg</string>
-        <string>-d</string>
-      </array>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>ServiceDescription</key>
-      <string>Homebrew NRPE Agent</string>
-      <key>Debug</key>
-      <true/>
-    </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>Label</key>
+        <string>org.nrpe.agent</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/nrpe</string>
+          <string>-c</string>
+          <string>#{etc}/nrpe.cfg</string>
+          <string>-d</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>ServiceDescription</key>
+        <string>Homebrew NRPE Agent</string>
+        <key>Debug</key>
+        <true/>
+      </dict>
+      </plist>
+    EOS
   end
 
   test do

@@ -4,6 +4,10 @@ class Htmlcxx < Formula
   url "https://downloads.sourceforge.net/project/htmlcxx/v0.87/htmlcxx-0.87.tar.gz"
   sha256 "5d38f938cf4df9a298a5346af27195fffabfef9f460fc2a02233cbcfa8fc75c8"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 "8414d919ae850983832803af525e8b98d3e5aa106c47b05f420d77020c7c99ca" => :catalina
     sha256 "e910595c43c028e25e0e0a44203e3c95b229162ea89678721b4a7f6e22974aca" => :mojave

@@ -1,22 +1,41 @@
 class Movgrab < Formula
   desc "Downloader for youtube, dailymotion, and other video websites"
   homepage "https://sites.google.com/site/columscode/home/movgrab"
-  url "https://sites.google.com/site/columscode/files/movgrab-1.2.1.tar.gz"
-  sha256 "1e9a57b1c934d8584f9133d918c1ceecfe102bbaf9fb4c8ab174a642917ae4a8"
+  url "https://github.com/ColumPaget/Movgrab/archive/3.1.2.tar.gz"
+  sha256 "30be6057ddbd9ac32f6e3d5456145b09526cc6bd5e3f3fb3999cc05283457529"
+  license "GPL-3.0"
+  revision 2
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "aed3c8c31bbfa27328292f4be3fd0a184c02f11c3605d64fa6c67b1c793646bf" => :catalina
-    sha256 "cde671dc6401286e39179deff8598a78e7df1184b420178a178900f505ac4221" => :mojave
-    sha256 "32d047668237fab4e3dea9987bce5d568a86b7846d671dffabcecd5aaf42ddfe" => :high_sierra
-    sha256 "aa40b9cb2e4c947ced14535bcb0e4bf189cf90ca786a7386b372abc6e92ed90a" => :sierra
-    sha256 "82cb6ea3423aabf6ae277fcdb2d6ae497021ba5ea7b9c58d6f3553ecebe1bb17" => :el_capitan
-    sha256 "aac759c0e0b95b7ccf0e9a446d78e360be70aacf43f341eb1f785e8c7396b8cc" => :yosemite
-    sha256 "f36f583c82bf0b4fda8b918fde44d0631950544c48f313ac3ed52b9dee6af7de" => :mavericks
+    cellar :any
+    sha256 "b3032648e55b090ca256192c989683f3b0a26942f38f0460dce9457548c14fe0" => :catalina
+    sha256 "b0e5153f5147c8d256685dfa8be4ac67bc863bb472afcaf769caa133fb94b889" => :mojave
+    sha256 "7702b7817fc398f4901014bd6162578294da414a18b1ae4e5f10ef8cf05a678c" => :high_sierra
+  end
+
+  depends_on "libressl"
+
+  # Fixes an incompatibility between Linux's getxattr and macOS's.
+  # Reported upstream; half of this is already committed, and there's
+  # a PR for the other half.
+  # https://github.com/ColumPaget/libUseful/issues/1
+  # https://github.com/ColumPaget/libUseful/pull/2
+  patch do
+    url "https://github.com/Homebrew/formula-patches/raw/936597e74d22ab8cf421bcc9c3a936cdae0f0d96/movgrab/libUseful_xattr_backport.diff"
+    sha256 "d77c6661386f1a6d361c32f375b05bfdb4ac42804076922a4c0748da891367c2"
   end
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--disable-debug", "--disable-dependency-tracking"
+    # Can you believe this? A forgotten semicolon! Probably got missed because it's
+    # behind a conditional #ifdef.
+    # Fixed upstream: https://github.com/ColumPaget/libUseful/commit/6c71f8b123fd45caf747828a9685929ab63794d7
+    inreplace "libUseful-2.8/FileSystem.c", "result=-1", "result=-1;"
+
+    # Later versions of libUseful handle the fact that setresuid is Linux-only, but
+    # this one does not. https://github.com/ColumPaget/Movgrab/blob/HEAD/libUseful/Process.c#L95-L99
+    inreplace "libUseful-2.8/Process.c", "setresuid(uid,uid,uid)", "setreuid(uid,uid)"
+
+    system "./configure", "--prefix=#{prefix}", "--disable-debug", "--disable-dependency-tracking", "--enable-ssl"
     system "make"
 
     # because case-insensitivity is sadly a thing and while the movgrab

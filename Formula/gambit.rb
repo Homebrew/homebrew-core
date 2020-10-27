@@ -1,16 +1,15 @@
 class Gambit < Formula
   desc "Software tools for game theory"
   homepage "http://www.gambit-project.org"
-  url "https://github.com/gambitproject/gambit/archive/v15.1.1.tar.gz"
-  sha256 "fb4dce2f386e46bbfc72cb75471f43716535937c96ad5a730cad22f97c6a65e6"
+  url "https://github.com/gambitproject/gambit/archive/v16.0.1.tar.gz"
+  sha256 "56bb86fd17575827919194e275320a5dd498708fd8bb3b20845243d492c10fef"
+  license "Apache-2.0"
 
   bottle do
     cellar :any
-    sha256 "85c73c5372aa6bba15f651f9b0b5b3e5eaa790c83ba19159de8a0e8bca0e60fc" => :catalina
-    sha256 "697370ba59d7b4a8e7f35e5bbfc3535ed6fef6d0a80a39e9e0583e7496865fbf" => :mojave
-    sha256 "8419c4b938c3ee82df324d4e4fbc0de03302a973ebeb82b917c90be04fa10569" => :high_sierra
-    sha256 "1d0324bc5c27cfe5660be48a8d2e7c9d01ac342e5d3ee1ee6d89f30b9c149afa" => :sierra
-    sha256 "86626efb984f8bb90daca5421cfdb2cbb2b9669ac26b271d0381219e1374e1b2" => :el_capitan
+    sha256 "c1bf628cb87dbed50a0bd5299b3921545a001999af7a061343caf6aa75784cf5" => :catalina
+    sha256 "849760c07650bf6d240e3d488ed984ef3f1520976cc402ec1afe215ac881aa08" => :mojave
+    sha256 "f5d187618279c18de8e290151ba7683a5b68e4b96203db1a05600eb84002d391" => :high_sierra
   end
 
   depends_on "autoconf" => :build

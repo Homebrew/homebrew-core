@@ -3,6 +3,7 @@ class Jumanpp < Formula
   homepage "http://nlp.ist.i.kyoto-u.ac.jp/EN/index.php?JUMAN%2B%2B"
   url "https://lotus.kuee.kyoto-u.ac.jp/nl-resource/jumanpp/jumanpp-1.02.tar.xz"
   sha256 "01fa519cb1b66c9cccc9778900a4048b69b718e190a17e054453ad14c842e690"
+  license "Apache-2.0"
 
   bottle do
     sha256 "4b2c208b0954536aa3f2b838a525e2542a547a192a03951c0f8a7f69c082a60d" => :catalina

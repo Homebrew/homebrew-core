@@ -1,17 +1,20 @@
 class Ntp < Formula
-  desc "The Network Time Protocol (NTP) Distribution"
+  desc "Network Time Protocol (NTP) Distribution"
   homepage "https://www.eecis.udel.edu/~mills/ntp/html/"
-  url "https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p13.tar.gz"
-  version "4.2.8p13"
-  sha256 "288772cecfcd9a53694ffab108d1825a31ba77f3a8466b0401baeca3bc232a38"
-  revision 1
+  url "https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p15.tar.gz"
+  version "4.2.8p15"
+  sha256 "f65840deab68614d5d7ceb2d0bb9304ff70dcdedd09abb79754a87536b849c19"
+
+  livecheck do
+    url "https://www.ntp.org/downloads.html"
+    regex(/href=.*?ntp[._-]v?(\d+(?:\.\d+)+(?:p\d+)?)\.t/i)
+  end
 
   bottle do
     cellar :any
-    sha256 "603fa07434d02e8562061076635bb1f4fb492a2c15feedd0cebb98066451947f" => :catalina
-    sha256 "88daac89608fccbee91081426b81aa0cf274df656d4f3bba9104c6622a2da070" => :mojave
-    sha256 "25c4bb04713cbddea1e629a3e22994af48d04cbb89e3f91fe47533c343fa5ea9" => :high_sierra
-    sha256 "c89c2be95d8c98771e28df90d361f1f969a3bc132ecad472d812ae31e6ebef91" => :sierra
+    sha256 "3c6a8893b0e76b8af1a4fd19ab664279b5409c1129062bf1feee4643318236b3" => :catalina
+    sha256 "b69ded37b2c8304157c3f46e4484af9099b4fd1e077929c35bb630903d059856" => :mojave
+    sha256 "9f7ce9c3ff545ff738fcf4049445923c968ec807cf1ecde451be76412442e6f1" => :high_sierra
   end
 
   depends_on "openssl@1.1"

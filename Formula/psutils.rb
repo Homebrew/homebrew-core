@@ -5,6 +5,7 @@ class Psutils < Formula
   mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/psutils/psutils-p17.tar.gz"
   version "p17"
   sha256 "3853eb79584ba8fbe27a815425b65a9f7f15b258e0d43a05a856bdb75d588ae4"
+  license "psutils"
 
   bottle do
     cellar :any_skip_relocation

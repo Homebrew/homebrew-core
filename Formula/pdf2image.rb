@@ -17,8 +17,8 @@ class Pdf2image < Formula
   depends_on "ghostscript"
   depends_on :x11
 
-  conflicts_with "poppler", "xpdf",
-    :because => "pdf2image, poppler, and xpdf install conflicting executables"
+  conflicts_with "pdftohtml", "poppler", "xpdf",
+    because: "poppler, pdftohtml, pdf2image, and xpdf install conflicting executables"
 
   def install
     system "./configure", "--prefix=#{prefix}"
@@ -32,7 +32,7 @@ class Pdf2image < Formula
 
     # Add X11 libs manually; the Makefiles don't use LDFLAGS properly
     inreplace ["src/Makefile", "xpdf/Makefile"],
-      "LDFLAGS =", "LDFLAGS=-L#{MacOS::X11.lib}"
+      "LDFLAGS =", "LDFLAGS=-L#{MacOS::XQuartz.lib}"
 
     system "make"
     system "make", "install"

@@ -3,18 +3,22 @@ class Docutils < Formula
 
   desc "Text processing system for reStructuredText"
   homepage "https://docutils.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/docutils/docutils/0.15/docutils-0.15.tar.gz"
-  sha256 "c35e87e985f70106f6f97e050f3bed990641e0e104566134b9cd23849a460e96"
+  url "https://downloads.sourceforge.net/project/docutils/docutils/0.16/docutils-0.16.tar.gz"
+  sha256 "7d4e999cca74a52611773a42912088078363a30912e8822f7a3d38043b767573"
+  revision 2
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3230d98f9912c462a2b6dd1aa64494fa26037eec4c1975a75970361de6243e79" => :catalina
-    sha256 "c655dd3f311370b4c6683236b6ead52d800397e050584124a54709effa556746" => :mojave
-    sha256 "7fc8102f9f46d9f3bc4debe405fa6b533809aa73da074d0379652971a30fbd93" => :high_sierra
-    sha256 "6393cc30ff4cef96e4309fc912267fd9649396fc31a471b15af6363eb1cedf95" => :sierra
+    sha256 "b29e292e287170881f5e88d0e05fa41420515081126e486332d9036c8024f9ef" => :catalina
+    sha256 "8fe38011ae417e9f2476fdadc5a3c96558fa4f6ce7c86ac3961a71b9b35ecfbc" => :mojave
+    sha256 "771eee4e347d10e5e9722e2c74f99c31e4c712aa06d422bd1c03903b2bba7b97" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.9"
 
   def install
     virtualenv_install_with_resources

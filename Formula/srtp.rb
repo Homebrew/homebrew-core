@@ -1,17 +1,21 @@
 class Srtp < Formula
   desc "Implementation of the Secure Real-time Transport Protocol"
   homepage "https://github.com/cisco/libsrtp"
-  url "https://github.com/cisco/libsrtp/archive/v2.2.0.tar.gz"
-  sha256 "44fd7497bce78767e96b54a11bca520adb2ad32effd515f04bce602b60a1a50b"
+  url "https://github.com/cisco/libsrtp/archive/v2.3.0.tar.gz"
+  sha256 "94093a5d04c5f4743e8d81182b76938374df6d393b45322f24960d250b0110e8"
+  license "BSD-3-Clause"
   head "https://github.com/cisco/libsrtp.git"
+
+  livecheck do
+    url "https://github.com/cisco/libsrtp/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
 
   bottle do
     cellar :any
-    sha256 "3597d91b40e400b75ec89a2b003030e57e9415a33ddd0e26ca6f09763c867ecc" => :catalina
-    sha256 "4460696066b2fff80cd18081a69cf8647f88138e11bf9610c5dbc5cbd3002c92" => :mojave
-    sha256 "bcb274922744410710c235ae65707c4c30bab6d96c1273c00f1d59fc7691bb88" => :high_sierra
-    sha256 "5186bfcb8ad18ae451beb7e6d14c146b4a8240ba93868e761de4c2a3a5af81d6" => :sierra
-    sha256 "640a086f11cb6fdaadb50354062de0a1def1194c93250495924f948668a0dbc0" => :el_capitan
+    sha256 "b96d4c3bb159a6f43d5bdd9cc0be0d8deecb06c95df19f2d9cc1f517ffc64ad6" => :catalina
+    sha256 "4bbad999b46dd545aa32882e968d441f5d5e709dc8549ef79e3885dd49fcb964" => :mojave
+    sha256 "5c70c41484064bbe25c31a19fc2cffc5cbea3de27e837a039b17767aeb1b57b8" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

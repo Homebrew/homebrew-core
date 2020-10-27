@@ -1,18 +1,24 @@
 class Ghostscript < Formula
   desc "Interpreter for PostScript and PDF"
   homepage "https://www.ghostscript.com/"
-  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs950/ghostpdl-9.50.tar.gz"
-  sha256 "dd94c5a06c03c58b47b929d03260f491d4807eaf5be83abd283278927b11c9ee"
+  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs9533/ghostpdl-9.53.3.tar.gz"
+  sha256 "96d04e4e464bddb062c1774ea895c4f1c1c94e6c4b62f5d32218ebd44dd65ba1"
+  license "AGPL-3.0-or-later"
+
+  livecheck do
+    url :head
+    regex(/^ghostpdl[._-]v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
-    sha256 "c1e11a68fdd8b406979fc51791cb1f2a25d76c48a94570c41d6baecc5b338ee1" => :catalina
-    sha256 "8d035baadee0af460d3703593dfa646225499de19e97df29ce415e46ac414590" => :mojave
-    sha256 "e3327de86ff58f2f348c40cda8b0e4c6eebb120187dbb5d93be14fd887b54c05" => :high_sierra
+    sha256 "d6c05b6c190b6e908d09546977eb2dc111b475ced5db2719cba16ce89ce0b0ed" => :catalina
+    sha256 "b5e6adcbf8f65731d1f3347e81e7ee494a77f35dae6a03aab4d735e714e07b05" => :mojave
+    sha256 "c582c8db6f927273af8e33521aaa33111f216ba05ef36a6d4a2befe8da5d3062" => :high_sierra
   end
 
   head do
     # Can't use shallow clone. Doing so = fatal errors.
-    url "https://git.ghostscript.com/ghostpdl.git", :shallow => false
+    url "https://git.ghostscript.com/ghostpdl.git", shallow: false
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -21,6 +27,11 @@ class Ghostscript < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libtiff"
+
+  on_linux do
+    depends_on "fontconfig"
+    depends_on "libidn"
+  end
 
   # https://sourceforge.net/projects/gs-fonts/
   resource "fonts" do
@@ -38,7 +49,6 @@ class Ghostscript < Formula
       --disable-gtk
       --disable-fontconfig
       --without-libidn
-      --with-system-libtiff
       --without-x
     ]
 
@@ -47,12 +57,6 @@ class Ghostscript < Formula
     else
       system "./configure", *args
     end
-
-    # Fix for shared library bug https://bugs.ghostscript.com/show_bug.cgi?id=701211
-    # Can be removed in next version, and possibly replaced by passing
-    # --enable-gpdl to configure
-    inreplace "Makefile", "PCL_XPS_TARGETS=$(PCL_TARGET) $(XPS_TARGET)",
-                          "PCL_XPS_TARGETS=$(PCL_TARGET) $(XPS_TARGET) $(GPDL_TARGET)"
 
     # Install binaries and libraries
     system "make", "install"

@@ -15,10 +15,10 @@ class Cspice < Formula
     sha256 "ff72f9d54707e03e86016b286117528720134acd4f23bd6e6b4402c8cd4def73" => :yosemite
   end
 
-  conflicts_with "openhmd", :because => "both install `simple` binaries"
-  conflicts_with "libftdi0", :because => "both install `simple` binaries"
-  conflicts_with "enscript", :because => "both install `states` binaries"
-  conflicts_with "fondu", :because => "both install `tobin` binaries"
+  conflicts_with "openhmd", because: "both install `simple` binaries"
+  conflicts_with "libftdi0", because: "both install `simple` binaries"
+  conflicts_with "enscript", because: "both install `states` binaries"
+  conflicts_with "fondu", because: "both install `tobin` binaries"
 
   def install
     rm_f Dir["lib/*"]

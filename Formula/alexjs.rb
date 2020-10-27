@@ -3,14 +3,15 @@ require "language/node"
 class Alexjs < Formula
   desc "Catch insensitive, inconsiderate writing"
   homepage "https://alexjs.com"
-  url "https://github.com/get-alex/alex/archive/8.0.0.tar.gz"
-  sha256 "681022a4e5a03e15e4aa0a65b417929b1d7d8ce24f6805f90cf442e589d16269"
+  url "https://github.com/get-alex/alex/archive/9.0.1.tar.gz"
+  sha256 "b4e70076c14c52ef275abadc6c32fccdd28db31153b26ce0731b926c5014865e"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0be908a2f46c538275454731e982b789894570434f522aa1e09d420bcc88049a" => :catalina
-    sha256 "3d24eaeaae4f251c8d13bb1f112623d9b2b248dd92569dd89afaf924677add14" => :mojave
-    sha256 "f029bb8ba6e5938fa9ff314c348ae3f1e9f55d8639e7a3a9103ab0e177fd816a" => :high_sierra
+    sha256 "dd0ebbe18ac855859f8b69f721e326cfee8d8ee19ea4af51adf801eca3b0e300" => :catalina
+    sha256 "3fc471e69908b83d73a42a20cdfd7467f79a921055aafdf03f6f4520138285b1" => :mojave
+    sha256 "f3d30248e5219818a6b4fdadf2bbaf4e27949576f05b51322765189583042aaf" => :high_sierra
   end
 
   depends_on "node"

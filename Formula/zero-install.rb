@@ -1,18 +1,24 @@
 class ZeroInstall < Formula
-  desc "Zero Install is a decentralised software installation system"
+  desc "Decentralised cross-platform software installation system"
   homepage "https://0install.net/"
-  url "https://downloads.sourceforge.net/project/zero-install/0install/2.13/0install-2.13.tar.bz2"
-  sha256 "10726e05ac262c7c5dd1ae109deddf9aa61a146db8fc75c997dd4efc3a4d35ca"
+  url "https://github.com/0install/0install.git",
+      tag:      "v2.17",
+      revision: "4a837bd638d93905b96d073c28c644894f8d4a0b"
+  license "LGPL-2.1-or-later"
+  head "https://github.com/0install/0install.git"
+
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "12d16e6e7c193b0525bf783a931e178a43cb2357a6821de8628d5b1945e5b8c0" => :mojave
-    sha256 "29434cfb80b552cb133e47b6a0a8e4d9929656de096c6fb383ab53dae9d6af5a" => :high_sierra
-    sha256 "5e6a18d83dc1503a71545506b25de4b0c97efbdf0a4ce6632a30369bc96e0cc2" => :sierra
-    sha256 "0fa494c5e2852f8ebcadadc9c441302145444da6f580efce516263f9c1b33e4f" => :el_capitan
+    sha256 "4306ae5d0ca339a7f5ecd9c7ba6a3a192a1d176883d49dda9d31aad78bc390fd" => :catalina
+    sha256 "73b04cd9560f78c799599fc4f9fba0de2b072c56e2195ef0522bb23e6eeb376b" => :mojave
+    sha256 "4fb5867d432bd3e22525b95682521a12a3279dd4fb7f8b0df3cb6664a6959835" => :high_sierra
   end
 
-  depends_on "camlp4" => :build
   depends_on "ocaml" => :build
   depends_on "ocamlbuild" => :build
   depends_on "opam" => :build
@@ -20,35 +26,37 @@ class ZeroInstall < Formula
   depends_on "gnupg"
 
   def install
-    ENV["OCAMLPARAM"] = "safe-string=0,_" # OCaml 4.06.0 compat
     ENV.append_path "PATH", Formula["gnupg"].opt_bin
 
-    opamroot = buildpath/"opamroot"
-    ENV["OPAMROOT"] = opamroot
-    ENV["OPAMYES"] = "1"
-    system "opam", "init", "--no-setup"
-    modules = %w[
-      cppo
-      yojson
-      xmlm
-      ounit
-      lwt_react
-      ocurl
-      obus
-      sha
-      cppo_ocamlbuild
-    ]
-    system "opam", "config", "exec", "opam", "install", *modules
+    # Use correct curl headers
+    ENV["HOMEBREW_SDKROOT"] = MacOS::CLT.sdk_path(MacOS.version) if MacOS.version >= :mojave && MacOS::CLT.installed?
 
-    # mkdir: <buildpath>/build: File exists.
-    # https://github.com/0install/0install/issues/87
-    ENV.deparallelize { system "opam", "config", "exec", "make" }
+    Dir.mktmpdir("opamroot") do |opamroot|
+      ENV["OPAMROOT"] = opamroot
+      ENV["OPAMYES"] = "1"
+      ENV["OPAMVERBOSE"] = "1"
+      system "opam", "init", "--no-setup", "--disable-sandboxing"
+      modules = %w[
+        yojson
+        xmlm
+        ounit
+        lwt_react
+        ocurl
+        sha
+        dune
+      ]
+      system "opam", "config", "exec", "opam", "install", *modules
 
-    inreplace "dist/install.sh" do |s|
-      s.gsub! '"/usr/local"', prefix
-      s.gsub! '"${PREFIX}/man"', man
+      # mkdir: <buildpath>/build: File exists.
+      # https://github.com/0install/0install/issues/87
+      ENV.deparallelize { system "opam", "config", "exec", "make" }
+
+      inreplace "dist/install.sh" do |s|
+        s.gsub! '"/usr/local"', prefix
+        s.gsub! '"${PREFIX}/man"', man
+      end
+      system "make", "install"
     end
-    system "make", "install"
   end
 
   test do

@@ -1,8 +1,13 @@
 class Funcoeszz < Formula
   desc "Dozens of command-line mini-applications (Portuguese)"
   homepage "https://funcoeszz.net/"
-  url "https://funcoeszz.net/download/funcoeszz-15.5.sh"
-  sha256 "13e6347018b43c54f5032d4700d45255f7e26e1e8f1eacb25e324d4fbe07e15d"
+  url "https://funcoeszz.net/download/funcoeszz-18.3.sh"
+  sha256 "c1348fbaf79e7ac97568785674edee602077c3a747d3a1bfa4cf63af343c4352"
+
+  livecheck do
+    url "https://funcoeszz.net/download/"
+    regex(/href=.*?funcoeszz[._-]v?(\d+(?:\.\d+)+)\.sh/i)
+  end
 
   bottle :unneeded
 
@@ -12,13 +17,14 @@ class Funcoeszz < Formula
     bin.install "funcoeszz-#{version}.sh" => "funcoeszz"
   end
 
-  def caveats; <<~EOS
-    To use this software add to your profile:
-      export ZZPATH="#{opt_bin}/funcoeszz"
-      source "$ZZPATH"
+  def caveats
+    <<~EOS
+      To use this software add to your profile:
+        export ZZPATH="#{opt_bin}/funcoeszz"
+        source "$ZZPATH"
 
-    Usage of a newer Bash than the macOS default is required.
-  EOS
+      Usage of a newer Bash than the macOS default is required.
+    EOS
   end
 
   test do

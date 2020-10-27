@@ -1,16 +1,20 @@
 class Packetq < Formula
   desc "SQL-frontend to PCAP-files"
   homepage "https://www.dns-oarc.net/tools/packetq"
-  url "https://www.dns-oarc.net/files/packetq/packetq-1.4.1.tar.gz"
-  sha256 "de374930dcc36c4b23ef4807ac798016fef6f45d29d3464f993df21e154e57d1"
+  url "https://www.dns-oarc.net/files/packetq/packetq-1.4.3.tar.gz"
+  sha256 "330fcdf63e56a97c5321726f48f28a76a7d574318dd235a16dac27f43277b0b7"
+  license "GPL-3.0-or-later"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?packetq[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "496dafa1c12643ad79d624c9ae58ccc4be58a3670b4dc4b83e6157c43b6aacf0" => :catalina
-    sha256 "58d903042f0fb1c352bdd422f087c444796dc11161d50de69093e4a583d02b59" => :mojave
-    sha256 "299409c99a253199b8b5896ecc8f1490ef4989ff72b10abd2651981a0bd47974" => :high_sierra
-    sha256 "eda7fdbbfc232e370b03e762c24551e92c3207f23f66e42db1c9ec10c448e1e1" => :sierra
-    sha256 "1cc4d10a81e062c41d7641d8fc3a7e94a1bf3b9e92ad6c4d70c8bdc730cee1d4" => :el_capitan
+    sha256 "e09c6588aa801951e518c10e09339d496fa23ab88c0a837a06b963bf6c6a5ba9" => :catalina
+    sha256 "cf369b7e772dd7a390ca50f68e6b8eead2448414353ce313042ecaedb2f6ee88" => :mojave
+    sha256 "58bfb682012318c49bb013b791771f94896d008d77f0ce1bb189d13ab55b20ea" => :high_sierra
   end
 
   def install

@@ -3,18 +3,23 @@ class SdlMixer < Formula
   homepage "https://www.libsdl.org/projects/SDL_mixer/"
   url "https://www.libsdl.org/projects/SDL_mixer/release/SDL_mixer-1.2.12.tar.gz"
   sha256 "1644308279a975799049e4826af2cfc787cad2abb11aa14562e402521f86992a"
-  revision 3
+  license "Zlib"
+  revision 4
+
+  livecheck do
+    url "https://www.libsdl.org/projects/SDL_mixer/release/"
+    regex(/href=.*?SDL_mixer[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     cellar :any
-    sha256 "a2555ba3d81dd01637f6407db77cd7cc5ed363fd887627d786d3475e79e960a0" => :catalina
-    sha256 "c957ec0e2f17c89e78b2b6aff735ec7abe19bd0e10a0e2aaad227746c26dd910" => :mojave
-    sha256 "e08902563c6265ac480323c9f22a26ee0e51f42fb1c36efb9b66b1f6b34a032d" => :high_sierra
-    sha256 "69e8726e5b9bb858e069d244844411fc43930d3a7d0b78c6177bf36c76bb04c2" => :sierra
-    sha256 "9c9a55fe416bc37a14e9a58439093b85274bf12c2bab24660a3f7c4b0fff70c3" => :el_capitan
+    sha256 "9b63c289fadc5382e5c77d77ba5e04d05f30532508a1512a6e5a7afb6e2c472a" => :catalina
+    sha256 "dd69b75165f502ff2540c6e6fa72645049b8bc25ed1794b36d3757a8bc74eb97" => :mojave
+    sha256 "a6e0ff3e96a41f88892cf1fcee7d8c21fd816094f48d376640f77184a8c78e06" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
+  depends_on "flac"
   depends_on "libmikmod"
   depends_on "libogg"
   depends_on "libvorbis"
@@ -33,6 +38,7 @@ class SdlMixer < Formula
       --prefix=#{prefix}
       --disable-dependency-tracking
       --enable-music-ogg
+      --enable-music-flac
       --disable-music-ogg-shared
       --disable-music-mod-shared
     ]
@@ -48,7 +54,8 @@ class SdlMixer < Formula
                    "-L#{lib}", "-lSDL_mixer",
                    "-L#{Formula["sdl"].lib}", "-lSDLmain", "-lSDL",
                    "-Wl,-framework,Cocoa"
-    system "SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=disk ./playwave #{test_fixtures("test.wav")}"
+    Utils.safe_popen_read({ "SDL_VIDEODRIVER" => "dummy", "SDL_AUDIODRIVER" => "disk" },
+                          "./playwave", test_fixtures("test.wav"))
     assert_predicate testpath/"sdlaudio.raw", :exist?
   end
 end

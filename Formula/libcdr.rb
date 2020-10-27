@@ -1,15 +1,20 @@
 class Libcdr < Formula
   desc "C++ library to parse the file format of CorelDRAW documents"
   homepage "https://wiki.documentfoundation.org/DLP/Libraries/libcdr"
-  url "https://dev-www.libreoffice.org/src/libcdr/libcdr-0.1.5.tar.xz"
-  sha256 "6ace5c499a8be34ad871e825442ce388614ae2d8675c4381756a7319429e3a48"
+  url "https://dev-www.libreoffice.org/src/libcdr/libcdr-0.1.6.tar.xz"
+  sha256 "01cd00b04a030977e544433c2d127c997205332cd9b8e35ec0ee17110da7f861"
+  revision 2
+
+  livecheck do
+    url "https://dev-www.libreoffice.org/src/"
+    regex(/href=["']?libcdr[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     cellar :any
-    sha256 "1c27e4e351f32291d89656aa08d9a88202e8fe85858ca55264f1a2ea3fb90694" => :catalina
-    sha256 "d5362604839f1948a8b594c53e2db0c1bd419ab63c59e158813d56e916d7201f" => :mojave
-    sha256 "99fe39b40cf1977d09536fd15fa7557042c200e5848424b98b1b67fa8ed54198" => :high_sierra
-    sha256 "78dec5bba67665dc518c0eb579ed2c0d00065ee5c1ac6da234f05e0c9d734c83" => :sierra
+    sha256 "8c07a139f24c7548cfd8eb6b5bba59ab643d0030d05fb52eb2baf7a825a232fa" => :catalina
+    sha256 "9a1aff2e64f3d103b416b7bcc07c2431777660eee1466af64d9717cbcca9454b" => :mojave
+    sha256 "f602a7919ea9e6921f3597f061b96b466d3291c597c355f410bd340b4b8e23d3" => :high_sierra
   end
 
   depends_on "cppunit" => :build

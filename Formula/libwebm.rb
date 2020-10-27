@@ -3,6 +3,7 @@ class Libwebm < Formula
   homepage "https://www.webmproject.org/code/"
   url "https://github.com/webmproject/libwebm/archive/libwebm-1.0.0.27.tar.gz"
   sha256 "1332f43742aeae215fd8df1be6e363e753b17abb37447190e789299fe3edec77"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any_skip_relocation

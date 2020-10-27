@@ -1,18 +1,18 @@
 class GccAT5 < Formula
-  def osmajor
-    `uname -r`.chomp
-  end
-
-  desc "The GNU Compiler Collection"
+  desc "GNU Compiler Collection"
   homepage "https://gcc.gnu.org/"
   url "https://ftp.gnu.org/gnu/gcc/gcc-5.5.0/gcc-5.5.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/gcc/gcc-5.5.0/gcc-5.5.0.tar.xz"
   sha256 "530cea139d82fe542b358961130c69cfde8b3d14556370b65823d2f91f0ced87"
-  revision 3
+  revision 5
+
+  livecheck do
+    url :stable
+    regex(%r{href=.*?gcc[._-]v?(5(?:\.\d+)+)(?:/?["' >]|\.t)}i)
+  end
 
   bottle do
-    sha256 "112039ed5d8e890730c62c275fcab77f65ab9ac9be324dad3f4b0eada4b39434" => :high_sierra
-    sha256 "726ec47a02e3d92c1d031a26b7578e8ed019cd7f748359c8232332f1f0cf5e45" => :sierra
+    sha256 "01a2818d89c25b22bdf8b6c597186cf986f4d2c2175741a98967ec933e5e7907" => :high_sierra
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -22,19 +22,21 @@ class GccAT5 < Formula
     satisfy { MacOS::CLT.installed? }
   end
 
-  depends_on :maximum_macos => [:high_sierra, :build]
+  depends_on maximum_macos: [:high_sierra, :build]
 
   depends_on "gmp"
   depends_on "libmpc"
   depends_on "mpfr"
 
+  uses_from_macos "zlib"
+
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
 
   resource "isl" do
-    url "https://gcc.gnu.org/pub/gcc/infrastructure/isl-0.14.tar.bz2"
-    mirror "https://mirrorservice.org/sites/distfiles.macports.org/isl/isl-0.14.tar.bz2"
-    sha256 "7e3c02ff52f8540f6a85534f54158968417fd676001651c8289c705bd0228f36"
+    url "https://gcc.gnu.org/pub/gcc/infrastructure/isl-0.18.tar.bz2"
+    mirror "https://mirrorservice.org/sites/distfiles.macports.org/isl/isl-0.18.tar.bz2"
+    sha256 "6b8b0fd7f81d0a957beb3679c81bbb34ccc7568d5682844d8924424a0dadcb1b"
   end
 
   # Fix build with Xcode 9
@@ -61,7 +63,7 @@ class GccAT5 < Formula
   # but this patch is a work around committed to GCC trunk
   if MacOS::Xcode.version >= "10.2"
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/gcc%405/gcc5-xcode10.2.patch"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/91d57ebe88e17255965fa88b53541335ef16f64a/gcc%405/gcc5-xcode10.2.patch"
       sha256 "6834bec30c54ab1cae645679e908713102f376ea0fc2ee993b3c19995832fe56"
     end
   end
@@ -70,13 +72,19 @@ class GccAT5 < Formula
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete "LD"
 
-    # Build ISL 0.14 from source during bootstrap
-    resource("isl").stage buildpath/"isl"
+    resource("isl").stage do
+      system "./configure", "--disable-dependency-tracking",
+                            "--disable-silent-rules",
+                            "--prefix=#{libexec}",
+                            "--with-gmp=system",
+                            "--with-gmp-prefix=#{Formula["gmp"].opt_prefix}"
+      system "make", "install"
+    end
 
     # C, C++, ObjC and Fortran compilers are always built
     languages = %w[c c++ fortran objc obj-c++]
 
-    version_suffix = version.to_s.slice(/\d/)
+    version_suffix = version.major.to_s
 
     # Even when suffixes are appended, the info pages conflict when
     # install-info is run so pretend we have an outdated makeinfo
@@ -84,7 +92,7 @@ class GccAT5 < Formula
     ENV["gcc_cv_prog_makeinfo_modern"] = "no"
 
     args = [
-      "--build=x86_64-apple-darwin#{osmajor}",
+      "--build=x86_64-apple-darwin#{OS.kernel_version}",
       "--prefix=#{prefix}",
       "--libdir=#{lib}/gcc/#{version_suffix}",
       "--enable-languages=#{languages.join(",")}",
@@ -93,6 +101,7 @@ class GccAT5 < Formula
       "--with-gmp=#{Formula["gmp"].opt_prefix}",
       "--with-mpfr=#{Formula["mpfr"].opt_prefix}",
       "--with-mpc=#{Formula["libmpc"].opt_prefix}",
+      "--with-isl=#{libexec}",
       "--with-system-zlib",
       "--enable-libstdcxx-time=yes",
       "--enable-stage1-checking",
@@ -108,23 +117,23 @@ class GccAT5 < Formula
       "--enable-multilib",
     ]
 
+    # System headers may not be in /usr/include
+    sdk = MacOS.sdk_path_if_needed
+    if sdk
+      args << "--with-native-system-header-dir=/usr/include"
+      args << "--with-sysroot=#{sdk}"
+    end
+
+    # Avoid reference to sed shim
+    args << "SED=/usr/bin/sed"
+
     # Ensure correct install names when linking against libgcc_s;
     # see discussion in https://github.com/Homebrew/homebrew/pull/34303
     inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"
 
     mkdir "build" do
-      unless MacOS::CLT.installed?
-        # For Xcode-only systems, we need to tell the sysroot path.
-        # "native-system-headers" will be appended
-        args << "--with-native-system-header-dir=/usr/include"
-        args << "--with-sysroot=#{MacOS.sdk_path}"
-      end
-
       system "../configure", *args
       system "make", "bootstrap"
-
-      # At this point `make check` could be invoked to run the testsuite. The
-      # deja-gnu and autogen formulae must be installed in order to do this.
       system "make", "install"
     end
 
@@ -151,7 +160,7 @@ class GccAT5 < Formula
         return 0;
       }
     EOS
-    system bin/"gcc-5", "-o", "hello-c", "hello-c.c"
+    system bin/"gcc-#{version.major}", "-o", "hello-c", "hello-c.c"
     assert_equal "Hello, world!\n", `./hello-c`
   end
 end

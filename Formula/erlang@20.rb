@@ -2,15 +2,19 @@ class ErlangAT20 < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url "https://github.com/erlang/otp/archive/OTP-20.3.8.23.tar.gz"
-  sha256 "0f7ea88ebc58b85f146ca6db7a53f14109becf693e7cdac15c03c59dc34af0cc"
+  url "https://github.com/erlang/otp/archive/OTP-20.3.8.26.tar.gz"
+  sha256 "dce78b60938a48b887317e5222cff946fd4af36666153ab2f0f022aa91755813"
+  license "Apache-2.0"
 
   bottle do
     cellar :any
-    sha256 "3b6c01716226369dd3501cf25c489ba9cf8a50f45e921cbcff12bf2bdfacb477" => :catalina
-    sha256 "17588664535bc927ca750d992db576d1b720e7fb3f5f2145a1fbdc42c7bcca6b" => :mojave
-    sha256 "69c18bae54cbd16a4a1b4e8077a5111d97643a355760ff3a5a4e37ec580a513f" => :high_sierra
+    sha256 "130019a8e459654a92e7267b60932867c8c27957d5bd5b791e358407e6d2755b" => :catalina
+    sha256 "5e1003bf97321f4cf5cd57b062b752c2d92bcbb457ab5e992309790b7827fd1f" => :mojave
+    sha256 "a401feb22927ecc0e649f3f2f7aeba331725b6390985f826ed5639d59732ee6a" => :high_sierra
   end
+
+  # Deprecated with OTP-23 release (https://erlang.org/pipermail/erlang-questions/2020-July/099747.html)
+  deprecate! date: "2020-05-13", because: :unsupported
 
   keg_only :versioned_formula
 
@@ -20,15 +24,15 @@ class ErlangAT20 < Formula
   depends_on "openssl@1.1"
   depends_on "wxmac"
 
+  uses_from_macos "m4" => :build
+
   resource "man" do
     url "https://www.erlang.org/download/otp_doc_man_20.3.tar.gz"
-    mirror "https://fossies.org/linux/misc/legacy/otp_doc_man_20.3.tar.gz"
     sha256 "17e0b2f94f11576a12526614a906ecad629b8804c25e6c18523f7c4346607112"
   end
 
   resource "html" do
     url "https://www.erlang.org/download/otp_doc_html_20.3.tar.gz"
-    mirror "https://fossies.org/linux/misc/legacy/otp_doc_html_20.3.tar.gz"
     sha256 "8099b62e9fa24b3f90eaeda151fa23ae729c8297e7d3fd8adaca865b35a3125d"
   end
 
@@ -71,12 +75,13 @@ class ErlangAT20 < Formula
     doc.install resource("html")
   end
 
-  def caveats; <<~EOS
-    Man pages can be found in:
-      #{opt_lib}/erlang/man
+  def caveats
+    <<~EOS
+      Man pages can be found in:
+        #{opt_lib}/erlang/man
 
-    Access them with `erl -man`, or add this directory to MANPATH.
-  EOS
+      Access them with `erl -man`, or add this directory to MANPATH.
+    EOS
   end
 
   test do

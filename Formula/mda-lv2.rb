@@ -1,19 +1,15 @@
 class MdaLv2 < Formula
   desc "LV2 port of the MDA plugins"
   homepage "https://drobilla.net/software/mda-lv2/"
-  url "https://download.drobilla.net/mda-lv2-1.2.2.tar.bz2"
-  sha256 "a476c31ed9f8b009ebacc32a02d06ba9584c0d0d03f03dd62b1354d10a030442"
+  url "https://download.drobilla.net/mda-lv2-1.2.4.tar.bz2"
+  sha256 "a81a00e19594881174526cd6ee7a3e301236e0ca25191982f5c9af5eb8d96ca8"
+  license "GPL-3.0"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "3a9d7745e5a8d5213159501f1e716f090c310471f0bacce2730a925028180c4a" => :catalina
-    sha256 "a35e5b6845887a54ed2ff0ca4a23e32f4a5796e4f7275769b9f9264d3d99ebcc" => :mojave
-    sha256 "29fa1a1ff269eeb5dfe5c485be44146f144e35f39468872f95d76423c7b838c0" => :high_sierra
-    sha256 "9c26710de958efc12a5a9d6589ebb9202028c910ca9c203ec0cc07fbd28dcd65" => :sierra
-    sha256 "8177c7c9d23fc7daf59c764a36d336f2d7dd3d7617752c33f132ed34a08f37f0" => :el_capitan
-    sha256 "670da0efa727514c30897830e6dc38eef62b29e7f7c540f37821bc3997ecf64d" => :yosemite
-    sha256 "20fafd017914d54441227646c528b951c16adfe5b9ed4522b8d8cf074cc25acd" => :mavericks
+    sha256 "d79b7ac328f0064f2ca3d14b4ddfb7dc999aaf5386f21e7122d239dca72dfbbc" => :catalina
+    sha256 "852451a5e46cacc35f5ca529d2a9edba3d6874c21e1d0478c46cafcb93c8291a" => :mojave
+    sha256 "616562cb40d0af01063e188d5d46a505455a947fc93c008b0f0eb6c65d0dd2af" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -22,6 +18,6 @@ class MdaLv2 < Formula
   def install
     system "./waf", "configure", "--prefix=#{prefix}"
     system "./waf"
-    system "./waf", "install"
+    system "./waf", "install", "--destdir=#{prefix}"
   end
 end

@@ -3,6 +3,7 @@ class ArchiSteamFarm < Formula
   homepage "https://github.com/JustArchi/ArchiSteamFarm"
   url "https://github.com/JustArchi/ArchiSteamFarm/releases/download/2.3.2.0/ASF.zip"
   sha256 "1a9f50c3cf2eb00e5148bc21a209b0c7c275b6c36c8cae8b4d9b2469bee7ff33"
+  license "Apache-2.0"
 
   bottle :unneeded
 
@@ -19,9 +20,10 @@ class ArchiSteamFarm < Formula
     libexec.install_symlink etc/"asf" => "config"
   end
 
-  def caveats; <<~EOS
-    Config: #{etc}/asf/
-  EOS
+  def caveats
+    <<~EOS
+      Config: #{etc}/asf/
+    EOS
   end
 
   test do

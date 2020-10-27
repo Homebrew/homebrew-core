@@ -3,6 +3,7 @@ class Fourstore < Formula
   homepage "https://github.com/4store/4store"
   url "https://github.com/4store/4store/archive/v1.1.6.tar.gz"
   sha256 "a0c8143fcceeb2f1c7f266425bb6b0581279129b86fdd10383bf1c1e1cab8e00"
+  license "GPL-3.0"
   revision 1
 
   bottle do
@@ -34,21 +35,22 @@ class Fourstore < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    Databases will be created at #{var}/fourstore.
+  def caveats
+    <<~EOS
+      Databases will be created at #{var}/fourstore.
 
-    Create and start up a database:
-        4s-backend-setup mydb
-        4s-backend mydb
+      Create and start up a database:
+          4s-backend-setup mydb
+          4s-backend mydb
 
-    Load RDF data:
-        4s-import mydb datafile.rdf
+      Load RDF data:
+          4s-import mydb datafile.rdf
 
-    Start up HTTP SPARQL server without daemonizing:
-        4s-httpd -p 8000 -D mydb
+      Start up HTTP SPARQL server without daemonizing:
+          4s-httpd -p 8000 -D mydb
 
-    See https://4store.danielknoell.de/trac/wiki/Documentation/ for more information.
-  EOS
+      See https://4store.danielknoell.de/trac/wiki/Documentation/ for more information.
+    EOS
   end
 
   test do

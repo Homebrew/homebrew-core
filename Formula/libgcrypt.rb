@@ -1,18 +1,25 @@
 class Libgcrypt < Formula
   desc "Cryptographic library based on the code from GnuPG"
   homepage "https://gnupg.org/related_software/libgcrypt/"
-  url "https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.8.5.tar.bz2"
-  sha256 "3b4a2a94cb637eff5bdebbcaf46f4d95c4f25206f459809339cdada0eb577ac3"
+  url "https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.8.7.tar.bz2"
+  sha256 "03b70f028299561b7034b8966d7dd77ef16ed139c43440925fe8782561974748"
+  license "GPL-2.0-only"
+
+  livecheck do
+    url "https://gnupg.org/ftp/gcrypt/libgcrypt/"
+    regex(/libgcrypt[._-]v?(\d+\.\d+\.\d+)/i)
+  end
 
   bottle do
     cellar :any
-    sha256 "7e81e6735f8eb849e26ae30a01ca6aa42c32ab53cace7a2a1867d7148abbb5fd" => :catalina
-    sha256 "d983dca1f56d0177d4ecd6ea2752457caaa5e21cdbe147e354ba1debb1ed34dd" => :mojave
-    sha256 "2188074c35a5a552ce5adad2ebd36a376bbd7309907c96fdbec2dff13c7d1863" => :high_sierra
-    sha256 "3e074f8bd2787fc5878ea8bfc31e50e596222c019054d83465b74e93328f71f3" => :sierra
+    sha256 "b736ce71bf9af64a1b3adee264cf231635828d12d9c064d795404ff049535778" => :catalina
+    sha256 "7d729f53cf725dae16a5f7de79e69e583a62aef05bfd65d58deb0969b8b67171" => :mojave
+    sha256 "586e65a329af130e0da3f1f72a40cacbc8b2e0f6c882d167907d6da3a4f7213b" => :high_sierra
   end
 
   depends_on "libgpg-error"
+
+  uses_from_macos "libxslt"
 
   def install
     # Temporary hack to get libgcrypt building on macOS 10.12 and 10.11 with XCode 8.

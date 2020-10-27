@@ -3,26 +3,21 @@ class Jid < Formula
   homepage "https://github.com/simeji/jid"
   url "https://github.com/simeji/jid/archive/v0.7.6.tar.gz"
   sha256 "0912050b3be3760804afaf7ecd6b42bfe79e7160066587fbc0afa5324b03fb48"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c0a9e483aa10fc6ff94335da3f69a72559a504f02068b70db06d39cabe42ff92" => :catalina
-    sha256 "2552c0ab94b892750ecff994b5f3fa963d8ab69298fc27abff7ca92f1e371532" => :mojave
-    sha256 "4cfdd2d04b54fdd4d63a1297205bc7867b8bd7049c727ab8ad306c12f0d270d6" => :high_sierra
-    sha256 "1905385bc2a0dbd606c4d90f9b119839b3674231ce3b3fa43f0bef314a1684ca" => :sierra
+    rebuild 1
+    sha256 "0b45fe9c59facbc6b2bbacf4b52927934b09d6e2050ad3a5b5a32434a4bd4751" => :catalina
+    sha256 "2980bf16f4376b7bdfc27e0e6bbe45d9e1f8aca8a143f6f7b6fd939eb6892617" => :mojave
+    sha256 "d429ac5400fd67dcee12e5fe962e84f535858c7ecb3235ee01f8a54dc44e7a9e" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    src = buildpath/"src/github.com/simeji/jid"
-    src.install buildpath.children
-    src.cd do
-      system "go", "build", "-o", bin/"jid", "cmd/jid/jid.go"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"jid", "cmd/jid/jid.go"
+    prefix.install_metafiles
   end
 
   test do

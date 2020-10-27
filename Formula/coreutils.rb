@@ -1,15 +1,20 @@
 class Coreutils < Formula
   desc "GNU File, Shell, and Text utilities"
   homepage "https://www.gnu.org/software/coreutils"
-  url "https://ftp.gnu.org/gnu/coreutils/coreutils-8.31.tar.xz"
-  mirror "https://ftpmirror.gnu.org/coreutils/coreutils-8.31.tar.xz"
-  sha256 "ff7a9c918edce6b4f4b2725e3f9b37b0c4d193531cac49a48b56c4d0d3a9e9fd"
+  url "https://ftp.gnu.org/gnu/coreutils/coreutils-8.32.tar.xz"
+  mirror "https://ftpmirror.gnu.org/coreutils/coreutils-8.32.tar.xz"
+  sha256 "4458d8de7849df44ccab15e16b1548b285224dbba5f08fac070c1c0e0bcc4cfa"
+  license "GPL-3.0-or-later"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     rebuild 1
-    sha256 "7262e4c76483ea796454db828c25955be1e6b2bc8e056ba1dd6e92bfe1118da5" => :catalina
-    sha256 "05ae58c26a53c2dfa2d9d45943b9d21753eea59609f0a48caa59713d6f6392d7" => :mojave
-    sha256 "5cba7394f1995fad0f6215a7618f65983dcf84b93b076af18d09354051320fb2" => :high_sierra
+    sha256 "f40ba727ec1bb54300c7c79804f410a62341b63f3fba41d78ef34e5d369fe9fc" => :catalina
+    sha256 "91cd269ea5eff54a3074e0c3cd0995911c5989a4eb87a3c27b17a765c48f494e" => :mojave
+    sha256 "25c71d9d9a156cc8dfaa52b35dad1f9d49df55e97748fb5ab9522f65aeed4dca" => :high_sierra
   end
 
   head do
@@ -24,13 +29,14 @@ class Coreutils < Formula
     depends_on "xz" => :build
   end
 
-  conflicts_with "aardvark_shell_utils", :because => "both install `realpath` binaries"
-  conflicts_with "b2sum", :because => "both install `b2sum` binaries"
-  conflicts_with "ganglia", :because => "both install `gstat` binaries"
-  conflicts_with "gegl", :because => "both install `gcut` binaries"
-  conflicts_with "idutils", :because => "both install `gid` and `gid.1`"
-  conflicts_with "md5sha1sum", :because => "both install `md5sum` and `sha1sum` binaries"
-  conflicts_with "truncate", :because => "both install `truncate` binaries"
+  conflicts_with "aardvark_shell_utils", because: "both install `realpath` binaries"
+  conflicts_with "b2sum", because: "both install `b2sum` binaries"
+  conflicts_with "ganglia", because: "both install `gstat` binaries"
+  conflicts_with "gegl", because: "both install `gcut` binaries"
+  conflicts_with "idutils", because: "both install `gid` and `gid.1`"
+  conflicts_with "md5sha1sum", because: "both install `md5sum` and `sha1sum` binaries"
+  conflicts_with "truncate", because: "both install `truncate` binaries"
+  conflicts_with "uutils-coreutils", because: "coreutils and uutils-coreutils install the same binaries"
 
   def install
     system "./bootstrap" if build.head?
@@ -68,12 +74,13 @@ class Coreutils < Formula
     end
   end
 
-  def caveats; <<~EOS
-    Commands also provided by macOS have been installed with the prefix "g".
-    If you need to use these commands with their normal names, you
-    can add a "gnubin" directory to your PATH from your bashrc like:
-      PATH="#{opt_libexec}/gnubin:$PATH"
-  EOS
+  def caveats
+    <<~EOS
+      Commands also provided by macOS have been installed with the prefix "g".
+      If you need to use these commands with their normal names, you
+      can add a "gnubin" directory to your PATH from your bashrc like:
+        PATH="#{opt_libexec}/gnubin:$PATH"
+    EOS
   end
 
   def coreutils_filenames(dir)

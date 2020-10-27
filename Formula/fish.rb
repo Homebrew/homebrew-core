@@ -1,25 +1,31 @@
 class Fish < Formula
   desc "User-friendly command-line shell for UNIX-like operating systems"
   homepage "https://fishshell.com"
-  url "https://github.com/fish-shell/fish-shell/releases/download/3.0.2/fish-3.0.2.tar.gz"
-  sha256 "14728ccc6b8e053d01526ebbd0822ca4eb0235e6487e832ec1d0d22f1395430e"
+  url "https://github.com/fish-shell/fish-shell/releases/download/3.1.2/fish-3.1.2.tar.gz"
+  sha256 "d5b927203b5ca95da16f514969e2a91a537b2f75bec9b21a584c4cd1c7aa74ed"
+  license "GPL-2.0"
+
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "895edf3ca5bf3e3774a3f625b7c765868862dc8524fb68e83ce288ae0dbffdd0" => :catalina
-    sha256 "0dda76c64b0e2b4f1bfe48b816346f54a3fd9531550439caadadc6a1641c6d6b" => :mojave
-    sha256 "aaa15fbea68f8414084124da4347aec31484a3ab6320daf5f1cd54e208bf32c1" => :high_sierra
-    sha256 "65eb56f5d3e5978051743e0e1a6616983f34922cad65cbe0964b671d9bf4437e" => :sierra
+    cellar :any_skip_relocation
+    sha256 "b158b7f8640feb7c622ff3ca92b1bd88565f274f3e761499f5926bb124eeff7d" => :catalina
+    sha256 "6797636eaba364d0cbbc0459103a8767598e985f01846cca6cb57c986dfee7b8" => :mojave
+    sha256 "2609577a0d9f6b661331adccf5d1d8e010662ffe128869757e0af9a6760e26fb" => :high_sierra
   end
 
   head do
-    url "https://github.com/fish-shell/fish-shell.git", :shallow => false
+    url "https://github.com/fish-shell/fish-shell.git", shallow: false
 
     depends_on "sphinx-doc" => :build
   end
 
   depends_on "cmake" => :build
   depends_on "pcre2"
+
   uses_from_macos "ncurses"
 
   def install

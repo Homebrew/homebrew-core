@@ -4,6 +4,11 @@ class Autoconf < Formula
   url "https://ftp.gnu.org/gnu/autoconf/autoconf-2.69.tar.gz"
   mirror "https://ftpmirror.gnu.org/autoconf/autoconf-2.69.tar.gz"
   sha256 "954bd69b391edc12d6a4a51a2dd1476543da5c6bbf05a95b59dc0dd6fd4c2969"
+  license "GPL-2.0"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
@@ -16,6 +21,9 @@ class Autoconf < Formula
     sha256 "daf70656aa9ff8b2fb612324222aa6b5e900e2705c9f555198bcd8cd798d7dd0" => :yosemite
     sha256 "d153b3318754731ff5e91b45b2518c75880993fa9d1f312a03696e2c1de0c9d5" => :mavericks
   end
+
+  uses_from_macos "m4"
+  uses_from_macos "perl"
 
   def install
     ENV["PERL"] = "/usr/bin/perl"

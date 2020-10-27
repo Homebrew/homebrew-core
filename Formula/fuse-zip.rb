@@ -1,16 +1,20 @@
 class FuseZip < Formula
   desc "FUSE file system to create & manipulate ZIP archives"
   homepage "https://bitbucket.org/agalanin/fuse-zip"
-  url "https://bitbucket.org/agalanin/fuse-zip/downloads/fuse-zip-0.6.2.tar.gz"
-  sha256 "d39fd064b7b34e351e309de6297342c21dcc6caf60e22804f888c7c1f905498e"
-  head "https://bitbucket.org/agalanin/fuse-zip", :using => :hg
+  url "https://bitbucket.org/agalanin/fuse-zip/downloads/fuse-zip-0.7.1.tar.gz"
+  sha256 "7dac61c3f27f9041545ab1a22bb772ea282ed2dea25a0220dcecfa6801b5b121"
+  license "GPL-3.0"
+  head "https://bitbucket.org/agalanin/fuse-zip", using: :hg
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any
-    sha256 "3114b95376750564e24523622225a6aa98642f5127f2ac4f20d96a0a7d6865d1" => :catalina
-    sha256 "3c3cc8b458faa125328582313df31efc6124da75a6a80e8b1a165b95d654e702" => :mojave
-    sha256 "a0bd93e260a4cfa4138b5612be786695a30f1958528453f9ff3a62b795381671" => :high_sierra
-    sha256 "0ec6b8c0e878898a539b101a0a56a21f6e2b962645fe35d7fe5a6a0486018066" => :sierra
+    sha256 "570b1b88d586360f0be52dd67de67d5e7232c9aee1734d3d19ca11092af12aa1" => :catalina
+    sha256 "d02e3b4695535794d1c6dfceedf3db3b3eaffa5181bd23b9ec7c9e047761a055" => :mojave
+    sha256 "dd165964a99e12206f15bf33a5032fc5e440c27a04ab77cd1c36bf2efce64b19" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

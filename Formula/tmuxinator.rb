@@ -1,19 +1,22 @@
 class Tmuxinator < Formula
   desc "Manage complex tmux sessions easily"
   homepage "https://github.com/tmuxinator/tmuxinator"
-  url "https://github.com/tmuxinator/tmuxinator/archive/v1.1.2.tar.gz"
-  sha256 "455e0b92f6b54d9ed8a132eb624c004ffa6fd219d1d0f710af90d3068e10ce07"
+  url "https://github.com/tmuxinator/tmuxinator/archive/v2.0.1.tar.gz"
+  sha256 "a2c8428d239a6e869da516cecee3ac64db47ba1f1932317eb397b1afd698ee09"
+  license "MIT"
   head "https://github.com/tmuxinator/tmuxinator.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2d07c2e730941a0250ab3ecab73225d81a3fce27bcb31c92b22998fdb6443b76" => :catalina
-    sha256 "17e16770c9ae8c9f284f7574091c5ed6470fc84b16ef8257cd4a2eb2473610f0" => :mojave
-    sha256 "439c8f31e061cd4c321a270b575679ededb5fda8cbb28e23ceb24464d21894d5" => :high_sierra
+    sha256 "fcc792f9e1fabe3929f4d2a0b88122d29c429eab0d6434ec6ed0cddbceb14fdb" => :catalina
+    sha256 "d18e3a7480fa572c8945a6b029a0dd5015556c701c39cfcb1e697eeb6d89e364" => :mojave
+    sha256 "62fc87ed0bd20aac6a3d3867ba999358daf7e0a1316996187a9e1961a39c7a2a" => :high_sierra
   end
 
   depends_on "ruby"
   depends_on "tmux"
+
+  conflicts_with "tmuxinator-completion", because: "the tmuxinator formula includes completion"
 
   resource "erubis" do
     url "https://rubygems.org/downloads/erubis-2.7.0.gem"
@@ -21,8 +24,8 @@ class Tmuxinator < Formula
   end
 
   resource "thor" do
-    url "https://rubygems.org/downloads/thor-0.20.3.gem"
-    sha256 "49bc217fe28f6af34c6e60b003e3405c27595a55689077d82e9e61d4d3b519fa"
+    url "https://rubygems.org/downloads/thor-1.0.1.gem"
+    sha256 "7572061e3cbe6feee57828670e6a25a66dd397f05c1f8515d49f770a7d9d70f5"
   end
 
   resource "xdg" do
@@ -41,7 +44,7 @@ class Tmuxinator < Formula
     system "gem", "build", "tmuxinator.gemspec"
     system "gem", "install", "--ignore-dependencies", "tmuxinator-#{version}.gem"
     bin.install libexec/"bin/tmuxinator"
-    bin.env_script_all_files(libexec/"bin", :GEM_HOME => ENV["GEM_HOME"])
+    bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"])
 
     bash_completion.install "completion/tmuxinator.bash" => "tmuxinator"
     zsh_completion.install "completion/tmuxinator.zsh" => "_tmuxinator"

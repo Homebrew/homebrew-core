@@ -1,19 +1,27 @@
 class Vala < Formula
   desc "Compiler for the GObject type system"
   homepage "https://wiki.gnome.org/Projects/Vala"
-  url "https://download.gnome.org/sources/vala/0.46/vala-0.46.4.tar.xz"
-  sha256 "4bb9b60fc0230b0db2c8a0e2a80ec29f1c10b43dc78355abba78adedbc2e03a1"
+  url "https://download.gnome.org/sources/vala/0.48/vala-0.48.11.tar.xz"
+  sha256 "54fd1bb356d69824009691955c885bae357eec4eaced6c2e2d038180322e306a"
+  license "LGPL-2.1-or-later"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
-    sha256 "aafe529673cf27ac6f99efd0f1764b8b9c5d9a9b6bfe0571c31978d1504b84e7" => :catalina
-    sha256 "b0e4b699b7de352c39bdca7666dae60b9524fc83d2fa651c22a427fbf9823780" => :mojave
-    sha256 "2e800031b4e9e2310ec616c845f1fdcf72cd741da873acb21b9eccbd967c07ad" => :high_sierra
+    sha256 "cb21133addf409d424f488c8cc859f1f1002fc92daeaf3e6fa0c749315e46b60" => :catalina
+    sha256 "1b36a7bbe5c7253445ecbeb99cca3a9815751d151ae105ef7f1ded61ec0e32fd" => :mojave
+    sha256 "1cc06100d8aa160afa31dae8c6583bad2824945812214d07b4b363e910670fb9" => :high_sierra
   end
 
   depends_on "gettext"
   depends_on "glib"
   depends_on "graphviz"
   depends_on "pkg-config"
+
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
 
   def install
     system "./configure", "--disable-dependency-tracking",

@@ -3,6 +3,7 @@ class Libdivecomputer < Formula
   homepage "https://www.libdivecomputer.org/"
   url "https://www.libdivecomputer.org/releases/libdivecomputer-0.6.0.tar.gz"
   sha256 "a0fe75b7e5f7d8b73bfe46beb858dde4f5e2b2692d5270c96e69f5cb34aba15a"
+  license "LGPL-2.1"
   head "https://git.code.sf.net/p/libdivecomputer/code.git"
 
   bottle do

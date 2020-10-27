@@ -4,6 +4,11 @@ class Pigz < Formula
   url "https://zlib.net/pigz/pigz-2.4.tar.gz"
   sha256 "a4f816222a7b4269bd232680590b579ccc72591f1bb5adafcd7208ca77e14f73"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?pigz[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "f9d47b369bad1ec3571d06fb40a1ad926e14360a13ec6e1fc16a6be8a81b7ed7" => :catalina
@@ -12,6 +17,8 @@ class Pigz < Formula
     sha256 "9173b4bdf36c787ad7a3b7d738236e0393430b607ba44d5a32fa387b008a347a" => :sierra
     sha256 "d0c4ec5ac96ab0262d5e67bd5df5432d7dc40ac1404341962c02835ca8451b5c" => :el_capitan
   end
+
+  uses_from_macos "zlib"
 
   def install
     # Fix dyld: lazy symbol binding failed: Symbol not found: _deflatePending

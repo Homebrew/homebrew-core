@@ -5,16 +5,17 @@ class Ydcv < Formula
   homepage "https://github.com/felixonmars/ydcv"
   url "https://github.com/felixonmars/ydcv/archive/0.7.tar.gz"
   sha256 "03dd5de36ea8fce3170e678e63fc3694e2718b22bc5e1526e3e07f5c36ec9aa0"
+  license "GPL-3.0"
+  revision 3
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8c3b86d6f485f64c93716604031b7ab9981bcaae43096b545a753e114e6bd7b9" => :catalina
-    sha256 "d4782bc68e0fe4fcc0d9687d44c9f4cf19188644bc723ad0de21e1c4629c757e" => :mojave
-    sha256 "306a3fba391696ddf6a1031774906786421ae4df2a2466f4b05eb9c2e7c34a57" => :high_sierra
-    sha256 "24bd213b43d60cf2ef49868c3419bf09bce242d82ce78c4cd4d793c01d45676c" => :sierra
+    sha256 "a16a37a02c2a91cb46238a89d8771af6c65b623f361648e7f13247f0af9ef436" => :catalina
+    sha256 "2ad28560612e25690f859e8ba31e4d7a7b35820dc414c0778aa8c99f90737ceb" => :mojave
+    sha256 "148d1c3f69a30f2f7e42e037bd2dd0a704a400b41990317513d36a993f914a66" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.9"
 
   def install
     ENV["SETUPTOOLS_SCM_PRETEND_VERSION"] = version
@@ -23,9 +24,10 @@ class Ydcv < Formula
     virtualenv_install_with_resources
   end
 
-  def caveats; <<~EOS
-    You need to add a config for API Key, read more at https://github.com/felixonmars/ydcv
-  EOS
+  def caveats
+    <<~EOS
+      You need to add a config for API Key, read more at https://github.com/felixonmars/ydcv
+    EOS
   end
 
   test do

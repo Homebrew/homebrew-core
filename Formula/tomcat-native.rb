@@ -1,22 +1,25 @@
 class TomcatNative < Formula
   desc "Lets Tomcat use some native resources for performance"
   homepage "https://tomcat.apache.org/native-doc/"
-  url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-connectors/native/1.2.23/source/tomcat-native-1.2.23-src.tar.gz"
-  mirror "https://archive.apache.org/dist/tomcat/tomcat-connectors/native/1.2.23/source/tomcat-native-1.2.23-src.tar.gz"
-  sha256 "5ae5940f759cfdd68384ecf61f2c4fd9b01eb430ab0d349c0b197df0b0c0c3c7"
-  revision 1
+  url "https://www.apache.org/dyn/closer.lua?path=tomcat/tomcat-connectors/native/1.2.25/source/tomcat-native-1.2.25-src.tar.gz"
+  mirror "https://archive.apache.org/dist/tomcat/tomcat-connectors/native/1.2.25/source/tomcat-native-1.2.25-src.tar.gz"
+  sha256 "b62f29ebd1f5df25ea33698427d7eb53e3bbde953dfbcc0c9c4c6c13ed23a33b"
+  license "Apache-2.0"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any
-    sha256 "499d10e958763721cb39297d1dbf5a7e6d7ed6f6bdda0c08ee1159af2f4fe974" => :catalina
-    sha256 "945488a79003f860822a2848a68b69f4443697db9bcee063be5cbf27df7d2424" => :mojave
-    sha256 "e14b2958741b69ca96218c7a942a35277c6657ef978597ac17ea1a3fd21dfa62" => :high_sierra
-    sha256 "771ea402f8194159234038dc462bdc3442ed3af9f4a6d1ff5eb3d7babafe8de0" => :sierra
+    sha256 "4b6c29db536582d170a979ca5fec140d3a252576a0ac587de45f0cc4517917a0" => :catalina
+    sha256 "48d5b5a3e06e33fb8c861caa75817e95081e5198f872090c97b2d247f355b895" => :mojave
+    sha256 "9fa1374046bc6bd35c13e6f82c1066a50fbda6ed31cd18efc658816caa5ea561" => :high_sierra
   end
 
   depends_on "libtool" => :build
   depends_on "apr"
-  depends_on :java => "1.7+"
+  depends_on "openjdk"
   depends_on "openssl@1.1"
   depends_on "tomcat"
 
@@ -24,27 +27,30 @@ class TomcatNative < Formula
     cd "native" do
       system "./configure", "--prefix=#{prefix}",
                             "--with-apr=#{Formula["apr"].opt_prefix}",
-                            "--with-java-home=#{ENV["JAVA_HOME"]}",
+                            "--with-java-home=#{Formula["openjdk"].opt_prefix}",
                             "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}"
 
       # fixes occasional compiling issue: glibtool: compile: specify a tag with `--tag'
       args = ["LIBTOOL=glibtool --tag=CC"]
       # fixes a broken link in mountain lion's apr-1-config (it should be /XcodeDefault.xctoolchain/):
-      # usr/local/opt/libtool/bin/glibtool: line 1125: /Applications/Xcode.app/Contents/Developer/Toolchains/OSX10.8.xctoolchain/usr/bin/cc: No such file or directory
+      # usr/local/opt/libtool/bin/glibtool: line 1125:
+      # /Applications/Xcode.app/Contents/Developer/Toolchains/OSX10.8.xctoolchain/usr/bin/cc:
+      # No such file or directory
       args << "CC=#{ENV.cc}"
       system "make", *args
       system "make", "install"
     end
   end
 
-  def caveats; <<~EOS
-    In order for tomcat's APR lifecycle listener to find this library, you'll
-    need to add it to java.library.path. This can be done by adding this line
-    to $CATALINA_HOME/bin/setenv.sh
+  def caveats
+    <<~EOS
+      In order for tomcat's APR lifecycle listener to find this library, you'll
+      need to add it to java.library.path. This can be done by adding this line
+      to $CATALINA_HOME/bin/setenv.sh
 
-      CATALINA_OPTS=\"$CATALINA_OPTS -Djava.library.path=#{opt_lib}\"
+        CATALINA_OPTS=\"$CATALINA_OPTS -Djava.library.path=#{opt_lib}\"
 
-    If $CATALINA_HOME/bin/setenv.sh doesn't exist, create it and make it executable.
-  EOS
+      If $CATALINA_HOME/bin/setenv.sh doesn't exist, create it and make it executable.
+    EOS
   end
 end

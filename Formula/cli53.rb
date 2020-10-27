@@ -1,28 +1,22 @@
 class Cli53 < Formula
   desc "Command-line tool for Amazon Route 53"
   homepage "https://github.com/barnybug/cli53"
-  url "https://github.com/barnybug/cli53/archive/0.8.16.tar.gz"
-  sha256 "e1cc35c471b06e12580344c15f30c49b161e07a4c900401372024f141d96646d"
+  url "https://github.com/barnybug/cli53/archive/0.8.17.tar.gz"
+  sha256 "32b8e6ffe3234f87497328285c377b9280d1b302658e9acb45eb0dedbda0b14d"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9c563d3742b5ae012b0c08f3e816f04092c3ba5f3460b046790d5b8c12d5563c" => :catalina
-    sha256 "d0484ba43d434d973d2fe02689b8d33d8402ebd2931c84c44317841a214c8abe" => :mojave
-    sha256 "c1f265ccffd84dc3077f6eccf68d1e71430b2a38401ce58ee572e228b070730a" => :high_sierra
+    sha256 "65f9f13eb5c2f53afcb697f9699f8dd6b9df5f400908a2d3423879f8ca895942" => :catalina
+    sha256 "73ec9efeaf423dd32530bd4a547b11522b54dd5666942735268bb7690479ff09" => :mojave
+    sha256 "190e2e02b890cf099ca52d1468b224d16c82840a3a534db83a2aed5553b07bfc" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    dir = buildpath/"src/github.com/barnybug/cli53"
-    dir.install buildpath.children
-
-    cd dir do
-      system "go", "build", "-o", bin/"cli53", "./cmd/cli53"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"cli53", "./cmd/cli53"
+    prefix.install_metafiles
   end
 
   test do

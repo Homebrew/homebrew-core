@@ -1,38 +1,41 @@
 class Libnotify < Formula
   desc "Library that sends desktop notifications to a notification daemon"
   homepage "https://developer.gnome.org/libnotify"
-  url "https://download.gnome.org/sources/libnotify/0.7/libnotify-0.7.8.tar.xz"
-  sha256 "69209e0b663776a00c7b6c0e560302a8dbf66b2551d55616304f240bba66e18c"
-  revision 1
+  url "https://download.gnome.org/sources/libnotify/0.7/libnotify-0.7.9.tar.xz"
+  sha256 "66c0517ed16df7af258e83208faaf5069727dfd66995c4bbc51c16954d674761"
+  license "LGPL-2.1"
 
-  bottle do
-    sha256 "b3d67293db66122b210e6ce6dcac62c2e71dbb881ab87a5e8bac3d4b16b4111f" => :catalina
-    sha256 "49a2299522d7c86e46ac6c6a2e2dbeab7b20c2e18f84b61c9d4370fc38c0511a" => :mojave
-    sha256 "d467b8388a30fe7bd2a327e0422c5316183ac161f45754b8709447cd74c35bb1" => :high_sierra
-    sha256 "54dd14c50b6979b7924580431bad1cf61b81940a873fe7390974de9a7cb1cd24" => :sierra
+  # libnotify uses GNOME's "even-numbered minor is stable" version scheme but
+  # we've been using a development version 0.7.x for many years, so we have to
+  # match development versions until we're on a stable release.
+  livecheck do
+    url :stable
+    regex(/libnotify-(\d+(?:\.\d+)+)\.t/i)
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
+  bottle do
+    cellar :any
+    sha256 "367a8d51cb565452392b9bc92c753ca641c23f91fc4ff93fb6166b63f2beafda" => :catalina
+    sha256 "e6d5a6a87f885bf421e6a70c9cef1c6aaf89db46a98216af6c06754246a8f896" => :mojave
+    sha256 "0560e601843a3e42a4823904dd5534212efd823292444a9588f1cf99ea8bc8f5" => :high_sierra
+  end
+
+  depends_on "docbook-xsl" => :build
   depends_on "gobject-introspection" => :build
   depends_on "gtk-doc" => :build
-  depends_on "libtool" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "gdk-pixbuf"
 
   def install
-    # the latest build does not include configure so we need to
-    # generate it from configure.ac.
-    # Upstream issue at https://gitlab.gnome.org/GNOME/libnotify/issues/5
-    mkdir_p "m4"
-    system "gtkdocize", "--copy"
-    system "autoreconf", "-i"
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--disable-tests",
-                          "--enable-introspection"
-    system "make", "install"
+    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
+
+    mkdir "build" do
+      system "meson", *std_meson_args, "-Dtests=false", ".."
+      system "ninja"
+      system "ninja", "install"
+    end
   end
 
   test do

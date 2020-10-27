@@ -1,19 +1,35 @@
 class Boost < Formula
   desc "Collection of portable C++ source libraries"
   homepage "https://www.boost.org/"
-  url "https://dl.bintray.com/boostorg/release/1.71.0/source/boost_1_71_0.tar.bz2"
-  sha256 "d73a8da01e8bf8c7eda40b4c84915071a8c8a0df4a6734537ddde4a8580524ee"
+  url "https://dl.bintray.com/boostorg/release/1.74.0/source/boost_1_74_0.tar.bz2"
+  mirror "https://dl.bintray.com/homebrew/mirror/boost_1_74_0.tar.bz2"
+  sha256 "83bfc1507731a0906e387fc28b7ef5417d591429e51e788417fe9ff025e116b1"
+  license "BSL-1.0"
   head "https://github.com/boostorg/boost.git"
+
+  livecheck do
+    url "https://www.boost.org/feed/downloads.rss"
+    regex(/>Version v?(\d+(?:\.\d+)+)</i)
+  end
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "41a5d38f5a7c626a064f5c5a9f8d620b76e9b5f2cf7eda85a52998a86b33bc85" => :catalina
-    sha256 "9e026db92f0a38c7c222227c39d54c350490046e7e86920668f300ba4a773a32" => :mojave
-    sha256 "8bd88f7245f35545ea5b3091408660148e6e819effe29191161da4968f15800d" => :high_sierra
+    sha256 "0c3609787aac666de8db539259e2f604bda631bcc4fde5f5427ea83f4692dec1" => :catalina
+    sha256 "5e2e4d620e783c93a9f445a58b4814aab081ebea584b662b3f21a03155585ad9" => :mojave
+    sha256 "9237b5a9f73ff1783da15b6768cef723d4e8ffb4a129a2a00d0eb52d3ed4a7d4" => :high_sierra
   end
 
   depends_on "icu4c"
+
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
+
+  # Fix build on 64-bit arm
+  patch do
+    url "https://github.com/boostorg/build/commit/456be0b7ecca065fbccf380c2f51e0985e608ba0.patch?full_index=1"
+    sha256 "e7a78145452fc145ea5d6e5f61e72df7dcab3a6eebb2cade6b4cfae815687f3a"
+    directory "tools/build"
+  end
 
   def install
     # Force boost to compile with the desired compiler
@@ -56,9 +72,7 @@ class Boost < Formula
     # Boost is using "clang++ -x c" to select C compiler which breaks C++14
     # handling using ENV.cxx14. Using "cxxflags" and "linkflags" still works.
     args << "cxxflags=-std=c++14"
-    if ENV.compiler == :clang
-      args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++"
-    end
+    args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++" if ENV.compiler == :clang
 
     system "./bootstrap.sh", *bootstrap_args
     system "./b2", "headers"

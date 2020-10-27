@@ -1,15 +1,15 @@
 class GnuGetopt < Formula
   desc "Command-line option parsing utility"
   homepage "https://github.com/karelzak/util-linux"
-  url "https://www.kernel.org/pub/linux/utils/util-linux/v2.34/util-linux-2.34.tar.xz"
-  sha256 "743f9d0c7252b6db246b659c1e1ce0bd45d8d4508b4dfa427bbb4a3e9b9f62b5"
+  url "https://www.kernel.org/pub/linux/utils/util-linux/v2.36/util-linux-2.36.tar.xz"
+  sha256 "9e4b1c67eb13b9b67feb32ae1dc0d50e08ce9e5d82e1cccd0ee771ad2fa9e0b1"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8e17c46ff090d4c062e18f776db6e1b3ec2123858902ac9eedf6482a3db83905" => :catalina
-    sha256 "e08dc391e166d3e05ff00bd9e9fa75e34f5f9cae04a76b6d6f249374b70ab074" => :mojave
-    sha256 "278a797fe2cdf1fe9c4862bc2b6a74745aa445a441d526b3c3bb50eae03a2de8" => :high_sierra
-    sha256 "d1f9ded99bb4ff42fd593bf0d2b38db7fa2938859f724aa16b405181cfbb9bad" => :sierra
+    sha256 "729d02eac3c092be7dec5d8d3c0f0fc813e729a94a955f1bbc56d416fc410ef1" => :catalina
+    sha256 "080e1a67f6efa6ab711e300366969ae63d4b3b533bde7f5347b35c2337e20e2e" => :mojave
+    sha256 "4e9566ba6ef6f6bf8f3a261ae1802f621198122e227512c65ddd9bf5d2415ab4" => :high_sierra
   end
 
   keg_only :provided_by_macos

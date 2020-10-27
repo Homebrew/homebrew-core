@@ -1,38 +1,37 @@
 class Redo < Formula
   include Language::Python::Virtualenv
 
-  desc "Implements djb's redo: an alternative to make(1)"
-  homepage "https://github.com/apenwarr/redo"
-  url "https://github.com/apenwarr/redo/archive/redo-0.42.tar.gz"
-  sha256 "c98379cf6c91544534b2c76929c13337acc013d5a7015deb01492a63b1339f3c"
+  desc "Implements djb's redo: an alternative to make"
+  homepage "https://redo.rtfd.io/"
+  url "https://github.com/apenwarr/redo/archive/redo-0.42c.tar.gz"
+  sha256 "6f1600c82d00bdfa75445e1e161477f876bd2615eb4371eb1bcf0a7e252dc79f"
+  license "Apache-2.0"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "847db9d0cb26a07a0a65ff478141006ba9f83cc242e99bb4010537015d2f5002" => :mojave
-    sha256 "6bb0d9320b7e2b5d0092ee825cd74a3d81175563d8a562af5e3bf941e0828a4a" => :high_sierra
-    sha256 "f4088a0ae5895759a6969b5bcbe670c024871b6edba1eccb635f8ef9dcfd82ce" => :sierra
+    sha256 "4531c1e25405e7cc940e109fdc7f028cfc84b6b224874d861f112371da993fac" => :catalina
+    sha256 "9b3f873c69959f246ea6c8abbea58f875e436fa260aefcb2697d798cfd803b3e" => :mojave
+    sha256 "0e30bad1e3dad48d66fb4061e4fb7dbd7b5b3450a53a93275990a66b2bc558dc" => :high_sierra
   end
 
-  depends_on "python@2" # does not support Python 3
+  depends_on "python@3.9"
 
   resource "Markdown" do
-    url "https://files.pythonhosted.org/packages/ac/df/0ae25a9fd5bb528fe3c65af7143708160aa3b47970d5272003a1ad5c03c6/Markdown-3.1.1.tar.gz"
-    sha256 "2e50876bcdd74517e7b71f3e7a76102050edec255b3983403f1a63e7c8a41e7a"
+    url "https://files.pythonhosted.org/packages/44/30/cb4555416609a8f75525e34cbacfc721aa5b0044809968b2cf553fd879c7/Markdown-3.2.2.tar.gz"
+    sha256 "1fafe3f1ecabfb514a5285fca634a53c1b32a81cb0feb154264d55bf2ff22c17"
   end
 
-  resource "BeautifulSoup" do
-    url "https://files.pythonhosted.org/packages/1e/ee/295988deca1a5a7accd783d0dfe14524867e31abb05b6c0eeceee49c759d/BeautifulSoup-3.2.1.tar.gz"
-    sha256 "6a8cb4401111e011b579c8c52a51cdab970041cc543814bbd9577a4529fe1cdb"
+  resource "beautifulsoup4" do
+    url "https://files.pythonhosted.org/packages/c6/62/8a2bef01214eeaa5a4489eca7104e152968729512ee33cb5fbbc37a896b7/beautifulsoup4-4.9.1.tar.gz"
+    sha256 "73cc4d115b96f79c7d77c1c7f7a0a8d4c57860d1041df407dd1aae7f07a77fd7"
   end
 
   def install
-    venv = virtualenv_create(libexec)
+    venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
     venv.pip_install resources
     # Set the interpreter so that ./do install can find the pip installed
-    # resources.
-    open("redo/whichpython", "w") do |file|
-      file.puts "#{libexec}/bin/python"
-    end
+    # resources
     ENV["DESTDIR"] = ""
     ENV["PREFIX"] = prefix
     system "./do", "install"
@@ -40,6 +39,29 @@ class Redo < Formula
   end
 
   test do
-    system "#{bin}/redo", "--version"
+    assert_equal version.to_s, shell_output("#{bin}/redo --version").strip
+    # Test is based on https://redo.readthedocs.io/en/latest/cookbook/hello/
+    (testpath/"hello.c").write <<~EOS
+      #include <stdio.h>
+
+      int main() {
+          printf(\"Hello, world!\\n\");
+          return 0;
+      }
+    EOS
+    (testpath/"hello.do").write <<~EOS
+      redo-ifchange hello.c
+      cc -o $3 hello.c -Wall
+    EOS
+    assert_equal "redo  hello", shell_output("redo hello 2>&1").strip
+    assert_predicate testpath/"hello", :exist?
+    assert_equal "Hello, world!\n", shell_output("./hello")
+    assert_equal "redo  hello", shell_output("redo hello 2>&1").strip
+    assert_equal "", shell_output("redo-ifchange hello 2>&1").strip
+    touch "hello.c"
+    assert_equal "redo  hello", shell_output("redo-ifchange hello 2>&1").strip
+    (testpath/"all.do").write("redo-ifchange hello")
+    (testpath/"hello").delete
+    assert_equal "redo  all\nredo    hello", shell_output("redo 2>&1").strip
   end
 end

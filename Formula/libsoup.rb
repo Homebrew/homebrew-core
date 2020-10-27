@@ -1,13 +1,18 @@
 class Libsoup < Formula
   desc "HTTP client/server library for GNOME"
   homepage "https://wiki.gnome.org/Projects/libsoup"
-  url "https://download.gnome.org/sources/libsoup/2.68/libsoup-2.68.2.tar.xz"
-  sha256 "51ad3001a946fe3bcf29b692dc9ffe05cdf702ea6ca0ee8c3099a99a2f4e3933"
+  url "https://download.gnome.org/sources/libsoup/2.72/libsoup-2.72.0.tar.xz"
+  sha256 "170c3f8446b0f65f8e4b93603349172b1085fb8917c181d10962f02bb85f5387"
+  license "LGPL-2.0-or-later"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
-    sha256 "6af3460f1ffd83077cc3808399330ab7ed6ad64be838d66be2e3cec367e752e5" => :catalina
-    sha256 "c338380f43951970c0d8a44bc4555939e61d8711f6d981897cdb0a264500824a" => :mojave
-    sha256 "4f407f54985809962b82f6a7c6e48f8898ef45a8415aa8a7155d57716c07b0a3" => :high_sierra
+    sha256 "b7f09cfabd4ef0210d181e54e74f2cff33518df0c81bc9e27764454e54cb6243" => :catalina
+    sha256 "14a5f08043cacb9f68a9f5d48e0175397c81184621fbcbec871aa764241509a6" => :mojave
+    sha256 "78a481740fc494934fdbafbd25f8c7141f57cd61d1ff713682fe3a5a4b91b840" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build
@@ -17,11 +22,15 @@ class Libsoup < Formula
   depends_on "glib-networking"
   depends_on "gnutls"
   depends_on "libpsl"
+  depends_on :macos # Due to Python 2
   depends_on "vala"
+
+  uses_from_macos "krb5"
+  uses_from_macos "libxml2"
 
   def install
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", ".."
+      system "meson", *std_meson_args, ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end

@@ -1,20 +1,25 @@
 class Glade < Formula
   desc "RAD tool for the GTK+ and GNOME environment"
   homepage "https://glade.gnome.org/"
-  url "https://download.gnome.org/sources/glade/3.22/glade-3.22.1.tar.xz"
-  sha256 "dff89a2ef2eaf000ff2a46979978d03cb9202cb04668e01d0ea5c5bb5547e39a"
-  revision 3
+  url "https://download.gnome.org/sources/glade/3.38/glade-3.38.1.tar.xz"
+  sha256 "171a50be4930d4806fc8ce7f5ce3a75b49e9916f9d3037a5b50d35799bd0cfcd"
+  license "LGPL-2.1-or-later"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
-    sha256 "d74b67d3cb4e4df75000513f812f6fdecc4f208af545397ec65b0e06b24dc504" => :catalina
-    sha256 "a6ca3581505e7ba2bad7b14c620fc694c645bcf7978a0d06db0baa4f0fa1ab84" => :mojave
-    sha256 "0382cf5cc5057d5a32d40544457e4776c878b53dfe6d4fbd10f21f74c09f4427" => :high_sierra
+    sha256 "3187701f15fe07fa109f2a842dcbb87cb1bc0f9e8d0acd8062460cff9b4f5eef" => :catalina
+    sha256 "251a6d9af41c33cad41380ce09146638c29bb547e38ada77d1c076a9edeeff82" => :mojave
+    sha256 "42fc02ee56dc09c6c30438591327ee82cf1ecc5c93e96d5687b81995ebab9f61" => :high_sierra
   end
 
   depends_on "docbook-xsl" => :build
   depends_on "gobject-introspection" => :build
-  depends_on "intltool" => :build
   depends_on "itstool" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "adwaita-icon-theme"
   depends_on "gettext"
@@ -27,17 +32,18 @@ class Glade < Formula
     # Find our docbook catalog
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--enable-gladeui",
-                          "--enable-introspection"
-    # objective-c is needed for glade-registration.c. unfortunately build fails if -x objective-c is added to global CFLAGS.
-    # Bugreport Upstream: https://bugzilla.gnome.org/show_bug.cgi?id=768032
-    inreplace "src/Makefile", "-c -o glade-glade-registration.o", "-x objective-c -c -o glade-glade-registration.o"
+    # Disable icon-cache update
+    ENV["DESTDIR"] = "/"
 
-    system "make" # separate steps required
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args, "-Dintrospection=true", "-Dgladeui=true", ".."
+      system "ninja"
+      system "ninja", "install"
+    end
+  end
+
+  def post_install
+    system "#{Formula["gtk+3"].opt_bin}/gtk3-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
   end
 
   test do

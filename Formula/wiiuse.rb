@@ -1,15 +1,15 @@
 class Wiiuse < Formula
   desc "Connect Nintendo Wii Remotes"
   homepage "https://github.com/wiiuse/wiiuse"
-  url "https://github.com/wiiuse/wiiuse/archive/0.15.4.tar.gz"
-  sha256 "45be974acc418b8c8e248d960f3c0da143a513f6404a9c5cc5aa0072934b0cc4"
+  url "https://github.com/wiiuse/wiiuse/archive/0.15.5.tar.gz"
+  sha256 "d22b66eb13b92513c7736cc5e867fed40b25a0e398a70aa059711fc4f4769363"
+  license "GPL-3.0"
 
   bottle do
     cellar :any
-    sha256 "5464a5da078f37d0444521d04b95092aeec982cf41949328c8bfd4c5aea791a9" => :catalina
-    sha256 "81f9c831744a302586fa3158fe29127aaeeac73e0d5c074425abda85ecf2f00c" => :mojave
-    sha256 "1a6064dd68d05c22b3078371569eec25311ff222f795c2eb2dc71848089b3230" => :high_sierra
-    sha256 "c14e2c7d0a576284818879a756b0da9dd0bf4d9c789d301b69afe3a0f7c9bc17" => :sierra
+    sha256 "0a7689f0a9a9ad3fcfe44b35b3467f48c6065345ef8396c178fe0c3fcc22c7ff" => :catalina
+    sha256 "2cd562e7ccdfa82c47a464b4a501925398ce8381e3489db0d7e773e8e2040002" => :mojave
+    sha256 "40f7508add9a2974c76bd91d9e8fbe62bd2500ae4433de06af5711d340297b96" => :high_sierra
   end
 
   depends_on "cmake" => :build

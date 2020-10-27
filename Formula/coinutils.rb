@@ -1,14 +1,23 @@
 class Coinutils < Formula
   desc "COIN-OR utilities"
   homepage "https://github.com/coin-or/CoinUtils"
-  url "https://github.com/coin-or/CoinUtils/archive/releases/2.11.3.tar.gz"
-  sha256 "7c4753816e765974941db75ec89f8855e56b86959f3a5f068fdf95b0003be61c"
+  url "https://github.com/coin-or/CoinUtils/archive/releases/2.11.4.tar.gz"
+  sha256 "d4effff4452e73356eed9f889efd9c44fe9cd68bd37b608a5ebb2c58bd45ef81"
+  license "EPL-1.0"
+  revision 1
+  head "https://github.com/coin-or/CoinUtils.git"
+
+  livecheck do
+    url :homepage
+    regex(%r{^(?:releases/)?(\d+(?:\.\d+)+)$}i)
+  end
 
   bottle do
     cellar :any
-    sha256 "f2218aa3a46657a4a41bf25bf05a4100faf99c3d96efb1662d7e30bdf2b1acc6" => :catalina
-    sha256 "9558f2e26a1585b9a8c6bbd1942e204bc2e08806eb9771cb96e6de987c8fcec8" => :mojave
-    sha256 "ac4abeaa19b49c6d566087a19e0f45a2c2c7be703e6013ca6d6a1a0f76505e07" => :high_sierra
+    rebuild 1
+    sha256 "ec360d8c70a2f54dc6ab4cbabedf3e7f801bc1ae85e630ef9884d0a79ad706f0" => :catalina
+    sha256 "eb85ec2e02aed09292625122dc05fbcf64b85d7f82cc6d001975eed43cfc1de1" => :mojave
+    sha256 "f7bfde6c8c42b6f7d3925de0577d10bcef5b171b3337ea4c70b08a8ec20c026a" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

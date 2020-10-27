@@ -1,18 +1,19 @@
 class Prestodb < Formula
   desc "Distributed SQL query engine for big data"
   homepage "https://prestodb.io"
-  url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-server/0.227/presto-server-0.227.tar.gz"
-  sha256 "2c3d16fc16fc01ad9e79cbb1fd3a6978b5aea70fdc4c6c0a0319ba9f27e9462b"
+  url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-server/0.235.1/presto-server-0.235.1.tar.gz"
+  sha256 "862871609b14eb5259530de04f1a1ed69e3bb3b172490f2a1585f8f31fd9453e"
+  revision 2
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on "openjdk"
 
-  conflicts_with "prestosql", :because => "both install `presto` and `presto-server` binaries"
+  conflicts_with "prestosql", because: "both install `presto` and `presto-server` binaries"
 
   resource "presto-cli" do
-    url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-cli/0.227/presto-cli-0.227-executable.jar"
-    sha256 "e7b889a84cbad4dc7fc2f920e37d831cffcbb6bfd67c2f0878d6a5f6cfee02dc"
+    url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-cli/0.235.1/presto-cli-0.235.1-executable.jar"
+    sha256 "22deb730fd593eef83f3204d1b9a925eded2a6fb8a06e88b11a5e1e3d82855a8"
   end
 
   def install
@@ -33,6 +34,7 @@ class Prestodb < Formula
       -XX:+ExplicitGCInvokesConcurrent
       -XX:+HeapDumpOnOutOfMemoryError
       -XX:+ExitOnOutOfMemoryError
+      -Djdk.attach.allowAttachSelf=true
     EOS
 
     (libexec/"etc/config.properties").write <<~EOS
@@ -49,13 +51,11 @@ class Prestodb < Formula
 
     (libexec/"etc/catalog/jmx.properties").write "connector.name=jmx"
 
-    (bin/"presto-server").write <<~EOS
-      #!/bin/bash
-      exec "#{libexec}/bin/launcher" "$@"
-    EOS
+    (bin/"presto-server").write_env_script libexec/"bin/launcher", Language::Java.overridable_java_home_env
 
     resource("presto-cli").stage do
-      bin.install "presto-cli-#{version}-executable.jar" => "presto"
+      libexec.install "presto-cli-#{version}-executable.jar"
+      bin.write_jar_script libexec/"presto-cli-#{version}-executable.jar", "presto"
     end
   end
 
@@ -63,36 +63,38 @@ class Prestodb < Formula
     (var/"presto/data").mkpath
   end
 
-  def caveats; <<~EOS
-    Add connectors to #{opt_libexec}/etc/catalog/. See:
-    https://prestodb.io/docs/current/connector.html
-  EOS
+  def caveats
+    <<~EOS
+      Add connectors to #{opt_libexec}/etc/catalog/. See:
+      https://prestodb.io/docs/current/connector.html
+    EOS
   end
 
-  plist_options :manual => "presto-server run"
+  plist_options manual: "presto-server run"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
-    "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>AbandonProcessGroup</key>
-        <true/>
-        <key>WorkingDirectory</key>
-        <string>#{opt_libexec}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/presto-server</string>
-          <string>run</string>
-        </array>
-      </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+      "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>AbandonProcessGroup</key>
+          <true/>
+          <key>WorkingDirectory</key>
+          <string>#{opt_libexec}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/presto-server</string>
+            <string>run</string>
+          </array>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do

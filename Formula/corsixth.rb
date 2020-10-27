@@ -1,20 +1,20 @@
 class Corsixth < Formula
   desc "Open source clone of Theme Hospital"
   homepage "https://github.com/CorsixTH/CorsixTH"
-  url "https://github.com/CorsixTH/CorsixTH/archive/v0.63.tar.gz"
-  sha256 "9016ce0a22e0e800937970a91b48aaf536fc901c98d3edd1e11bf97590523d81"
+  url "https://github.com/CorsixTH/CorsixTH/archive/v0.64.tar.gz"
+  sha256 "12389a95de0031baec1a3fc77208d44228177f49564f1c79ae763ab4aeeafa98"
+  license "MIT"
   head "https://github.com/CorsixTH/CorsixTH.git"
 
   bottle do
-    sha256 "61fc2f45fa162f5f83620081655667041bf1d8afd933a67c2e9bde711c384472" => :catalina
-    sha256 "42ffa795dfc4749f31e753c224fd8f7ce1373631fb0f231db0ea8990d2eda064" => :mojave
-    sha256 "6af1f1845c4a56747cd4663ef0774f976b57a9954f7b1524da2b268bf819ea4c" => :high_sierra
-    sha256 "2dd1c75f87d4dda6a2becebd48109dcf0b4b28bae903e5fa54db913557bacbde" => :sierra
+    sha256 "55125a4f568f1ba0f85b1eb4d120f5cacaea712edd83ea8f8532e88d951775f7" => :catalina
+    sha256 "a45d65b39202414cba78d393293003d43617b6bd2794fdd14d127ce606bdfee2" => :mojave
+    sha256 "a03e225349a6eb5511202933fb173600db098d8c93a5272daa09bd2c05f92801" => :high_sierra
   end
 
   depends_on "cmake" => :build
   depends_on "luarocks" => :build
-  depends_on :xcode => :build
+  depends_on xcode: :build
   depends_on "ffmpeg"
   depends_on "freetype"
   depends_on "lua"
@@ -52,10 +52,11 @@ class Corsixth < Formula
                          "-DCORSIX_TH_DATADIR=#{prefix}/CorsixTH.app/Contents/Resources/",
                          *std_cmake_args
     system "make"
-    cp_r %w[CorsixTH/CorsixTH.lua CorsixTH/Lua CorsixTH/Levels CorsixTH/Campaigns CorsixTH/Graphics CorsixTH/Bitmap], "CorsixTH/CorsixTH.app/Contents/Resources/"
+    cp_r %w[CorsixTH/CorsixTH.lua CorsixTH/Lua CorsixTH/Levels CorsixTH/Campaigns CorsixTH/Graphics CorsixTH/Bitmap],
+         "CorsixTH/CorsixTH.app/Contents/Resources/"
     prefix.install "CorsixTH/CorsixTH.app"
 
-    env = { :LUA_PATH => ENV["LUA_PATH"], :LUA_CPATH => ENV["LUA_CPATH"] }
+    env = { LUA_PATH: ENV["LUA_PATH"], LUA_CPATH: ENV["LUA_CPATH"] }
     (bin/"CorsixTH").write_env_script(prefix/"CorsixTH.app/Contents/MacOS/CorsixTH", env)
   end
 

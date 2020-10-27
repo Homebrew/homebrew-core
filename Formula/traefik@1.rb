@@ -1,15 +1,20 @@
 class TraefikAT1 < Formula
   desc "Modern reverse proxy (v1.7)"
   homepage "https://traefik.io/"
-  url "https://github.com/containous/traefik/releases/download/v1.7.19/traefik-v1.7.19.src.tar.gz"
-  version "1.7.19"
-  sha256 "489cfabb705bb496eeaf0be7b13c9bbefdb138cbd64ca356439f10d33d09fb6d"
+  url "https://github.com/containous/traefik/releases/download/v1.7.26/traefik-v1.7.26.src.tar.gz"
+  sha256 "37334deb0dcd0c393e3ce003334b497d173a5f84cb412a21f19fbbd61211a0ef"
+  license "MIT"
+
+  livecheck do
+    url "https://github.com/containous/traefik.git"
+    regex(/^v?(1(?:\.\d+)+)$/i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e0397310c7852b2d194cbad29a58e8adaa791cb8562f970dbabe71bbe487c304" => :catalina
-    sha256 "41172ba062814eb4aa5c5d20ad6eb5db75494a262d741e92ab9ff1dc0069794b" => :mojave
-    sha256 "8ae6fbf301294b9a97272eec81618a3dc42a16b4eec1eea340557b1c31e93c0d" => :high_sierra
+    sha256 "dc50cb5af800c8f062e330e3b103bce1a2d0a78c6fdbd73d742c7197252c151b" => :catalina
+    sha256 "3ac187701cefeba894c3440bb9353e4e85cf716ef38cacfe35f3b5e474c52362" => :mojave
+    sha256 "89c846b73437bef8360f1acd1cdd5aceb9f8bc160d6400ac77331ac8452169b7" => :high_sierra
   end
 
   keg_only :versioned_formula
@@ -35,7 +40,7 @@ class TraefikAT1 < Formula
     end
   end
 
-  plist_options :manual => "traefik"
+  plist_options manual: "traefik"
 
   def plist
     <<~EOS
@@ -69,21 +74,14 @@ class TraefikAT1 < Formula
   end
 
   test do
-    require "socket"
-
-    web_server = TCPServer.new(0)
-    http_server = TCPServer.new(0)
-    web_port = web_server.addr[1]
-    http_port = http_server.addr[1]
-    web_server.close
-    http_server.close
+    web_port = free_port
+    http_port = free_port
 
     (testpath/"traefik.toml").write <<~EOS
       [web]
-      address = ":#{web_port}"
-
+        address = ":#{web_port}"
       [entryPoints.http]
-      address = ":#{http_port}"
+        address = ":#{http_port}"
     EOS
 
     begin
@@ -91,10 +89,14 @@ class TraefikAT1 < Formula
         exec bin/"traefik", "--configfile=#{testpath}/traefik.toml"
       end
       sleep 5
+      cmd = "curl -sIm3 -XGET http://127.0.0.1:#{http_port}/"
+      assert_match /404 Not Found/m, shell_output(cmd)
+      sleep 1
       cmd = "curl -sIm3 -XGET http://localhost:#{web_port}/dashboard/"
       assert_match /200 OK/m, shell_output(cmd)
     ensure
-      Process.kill("HUP", pid)
+      Process.kill(9, pid)
+      Process.wait(pid)
     end
   end
 end

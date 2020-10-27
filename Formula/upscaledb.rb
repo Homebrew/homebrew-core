@@ -1,78 +1,53 @@
 class Upscaledb < Formula
   desc "Database for embedded devices"
   homepage "https://upscaledb.com/"
-  revision 13
+  license "Apache-2.0"
+  head "https://github.com/cruppstahl/upscaledb.git"
 
   stable do
-    url "http://files.upscaledb.com/dl/upscaledb-2.2.0.tar.gz"
-    mirror "https://dl.bintray.com/homebrew/mirror/upscaledb-2.2.0.tar.gz"
-    sha256 "7d0d1ace47847a0f95a9138637fcaaf78b897ef682053e405e2c0865ecfd253e"
+    url "https://github.com/cruppstahl/upscaledb.git",
+      tag:      "release-2.2.1",
+      revision: "60d39fc19888fbc5d8b713d30373095a41bf9ced"
 
-    # Remove for > 2.2.2
-    # Upstream commit from 12 Feb 2018 "Fix compilation with Boost 1.66 (#110)"
     patch do
-      url "https://github.com/cruppstahl/upscaledb/commit/01156f9a8.patch?full_index=1"
-      sha256 "e65b9f2b624b7cdad00c3c1444721cadd615688556d8f0bb389d15f5f5f4f430"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/31fa2b66ae637e8f1dc2864af869baa34604f8fe/upscaledb/2.2.1.diff"
+      sha256 "fc99845f15e87c8ba30598cfdd15f0f010efa45421462548ee56c8ae26a12ee5"
     end
+  end
+
+  livecheck do
+    url "http://files.upscaledb.com/dl/"
+    regex(/href=.*?upscaledb[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "f43667827810a6aa32195181d4e59141cd6d887cc7b5c5b06cac7a62fbe26c5d" => :catalina
-    sha256 "c4f5569e53aee69de83be670f8d8646b0578d08c81a7f3a1bf6baabcecd634f6" => :mojave
-    sha256 "a69181d755deab2d8b9ea090370416532cd7b2731c03732786c3bc708d383987" => :high_sierra
+    sha256 "b507da019b3c2491594d7ad127e980d098f80f78f044e00b4f07a3f3cdd9b795" => :catalina
+    sha256 "85e1468d77fa72b7cfc4e039877018648b79e8eb7006e63263fbdd44978f043a" => :mojave
+    sha256 "9e15c86df38e916f08ba95254fe675e60b250b7e8e72e9dd9e07a6ff226dd092" => :high_sierra
   end
 
-  head do
-    url "https://github.com/cruppstahl/upscaledb.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "boost"
   depends_on "gnutls"
-  depends_on :java
+  depends_on "openjdk"
   depends_on "openssl@1.1"
-  depends_on "protobuf"
-
-  resource "libuv" do
-    url "https://github.com/libuv/libuv/archive/v0.10.37.tar.gz"
-    sha256 "4c12bed4936dc16a20117adfc5bc18889fa73be8b6b083993862628469a1e931"
-  end
-
-  # Patch for compatibility with OpenSSL 1.1
-  # https://github.com/cruppstahl/upscaledb/issues/124
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a7095c61/upscaledb/openssl-1.1.diff"
-    sha256 "c388613c88e856ee64be2b4a72b64a1b998f1f8b835122579e2049e9f01a0f58"
-  end
 
   def install
-    # Fix collision with isset() in <sys/params.h>
-    # See https://github.com/Homebrew/homebrew-core/pull/4145
-    inreplace "./src/5upscaledb/upscaledb.cc",
-      "#  include \"2protobuf/protocol.h\"",
-      "#  include \"2protobuf/protocol.h\"\n#define isset(f, b)       (((f) & (b)) == (b))"
+    ENV.cxx11
 
-    system "./bootstrap.sh" if build.head?
+    # Avoid references to Homebrew shims
+    ENV["SED"] = "sed"
 
-    resource("libuv").stage do
-      system "make", "libuv.dylib", "SO_LDFLAGS=-Wl,-install_name,#{libexec}/libuv/lib/libuv.dylib"
-      (libexec/"libuv/lib").install "libuv.dylib"
-      (libexec/"libuv").install "include"
-    end
-
-    ENV.prepend "LDFLAGS", "-L#{libexec}/libuv/lib"
-    ENV.prepend "CFLAGS", "-I#{libexec}/libuv/include"
-    ENV.prepend "CPPFLAGS", "-I#{libexec}/libuv/include"
+    system "./bootstrap.sh"
 
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
+                          "--disable-remote", # upscaledb is not compatible with latest protobuf
                           "--prefix=#{prefix}",
-                          "JDK=#{ENV["JAVA_HOME"]}"
+                          "JDK=#{Formula["openjdk"].opt_prefix}"
     system "make", "install"
 
     pkgshare.install "samples"

@@ -1,20 +1,24 @@
 class GrinWallet < Formula
   desc "Official wallet for the cryptocurrency Grin"
   homepage "https://grin.mw"
-  url "https://github.com/mimblewimble/grin-wallet/archive/v2.1.0.tar.gz"
-  sha256 "649664af929fc2afd42e52597ad675d3e1856c95e0cda60ef8d4c478abe5c01c"
+  url "https://github.com/mimblewimble/grin-wallet/archive/v4.0.0.tar.gz"
+  sha256 "b31e7e0271c7c821c66153fbc2b70aa7db365309a5460fde9dc004a5dcc72986"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d5950dd43be19901a8ae137e204832e9038aface9f754ed4aca0ed7cab156855" => :catalina
-    sha256 "6f0cd0a1488d3f7338fe20e1b8d8fb99ca1232f10e1fa645449660b553ca24d4" => :mojave
-    sha256 "219e61b427f9709edbdf4195354300da91bf4b162e8ae37ac19e78d1cf8de3fa" => :high_sierra
+    sha256 "99c3c710cca324b279b9f53db6687c5f35dceb1a7fab99e6da08734f1f14fb64" => :catalina
+    sha256 "9527840eae34a19dc485a2f13fe0d0422429f08e2352267a637a41b5bf31bf1d" => :mojave
+    sha256 "c9f755928079e4d3073e5f80071b2d7a860b3f0daaf44abd0e0d5c1c1c106cab" => :high_sierra
   end
 
+  depends_on "llvm" => :build # for libclang
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    ENV["CLANG_PATH"] = Formula["llvm"].opt_bin/"clang"
+
+    system "cargo", "install", *std_cargo_args
   end
 
   test do

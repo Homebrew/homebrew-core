@@ -4,6 +4,7 @@ class Cmix < Formula
   url "https://github.com/byronknoll/cmix/archive/v18.tar.gz"
   version "18.0.0"
   sha256 "2f0272186a8ff693146d0d8070ad4d9687461a486805ab91d727891df316498d"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation

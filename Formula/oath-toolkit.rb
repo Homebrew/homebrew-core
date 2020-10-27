@@ -6,6 +6,11 @@ class OathToolkit < Formula
   sha256 "b03446fa4b549af5ebe4d35d7aba51163442d255660558cd861ebce536824aa0"
   revision 1
 
+  livecheck do
+    url "https://download.savannah.gnu.org/releases/oath-toolkit/"
+    regex(/href=.*?oath-toolkit[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 "24a65399ed4b462a3291c542616e1a5dad4df008dcb116fd12c34030f05135b0" => :catalina

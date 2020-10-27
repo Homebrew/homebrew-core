@@ -3,6 +3,7 @@ class RbenvGemset < Formula
   homepage "https://github.com/jf/rbenv-gemset"
   url "https://github.com/jf/rbenv-gemset/archive/v0.5.9.tar.gz"
   sha256 "856aa45ce1e9ac56d476667e2ca58f5f312600879fec4243073edc88a41954da"
+  license :public_domain
   revision 1
   head "https://github.com/jf/rbenv-gemset.git"
 

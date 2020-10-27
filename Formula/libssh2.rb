@@ -3,7 +3,13 @@ class Libssh2 < Formula
   homepage "https://libssh2.org/"
   url "https://libssh2.org/download/libssh2-1.9.0.tar.gz"
   sha256 "d5fb8bd563305fd1074dda90bd053fb2d29fc4bce048d182f96eaa466dfadafd"
+  license "BSD-3-Clause"
   revision 1
+
+  livecheck do
+    url "https://libssh2.org/download/"
+    regex(/href=.*?libssh2[._-]v?(\d+(?:\.\d+)+)\./i)
+  end
 
   bottle do
     cellar :any
@@ -22,6 +28,8 @@ class Libssh2 < Formula
   end
 
   depends_on "openssl@1.1"
+
+  uses_from_macos "zlib"
 
   def install
     args = %W[

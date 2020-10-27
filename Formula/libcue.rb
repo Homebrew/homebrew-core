@@ -3,6 +3,7 @@ class Libcue < Formula
   homepage "https://github.com/lipnitsk/libcue"
   url "https://github.com/lipnitsk/libcue/archive/v2.2.1.tar.gz"
   sha256 "f27bc3ebb2e892cd9d32a7bee6d84576a60f955f29f748b9b487b173712f1200"
+  license "GPL-2.0"
 
   bottle do
     cellar :any
@@ -14,6 +15,9 @@ class Libcue < Formula
   end
 
   depends_on "cmake" => :build
+
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
 
   def install
     system "cmake", ".", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args

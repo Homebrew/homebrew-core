@@ -5,6 +5,10 @@ class Libgetdata < Formula
   sha256 "d547a022f435b9262dcf06dc37ebd41232e2229ded81ef4d4f5b3dbfc558aba3"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     rebuild 3
@@ -14,6 +18,9 @@ class Libgetdata < Formula
   end
 
   depends_on "libtool"
+
+  uses_from_macos "perl"
+  uses_from_macos "zlib"
 
   def install
     system "./configure", "--prefix=#{prefix}",

@@ -1,15 +1,16 @@
 class Luarocks < Formula
   desc "Package manager for the Lua programming language"
   homepage "https://luarocks.org/"
-  url "https://luarocks.org/releases/luarocks-3.2.1.tar.gz"
-  sha256 "f27e20c9cdb3ffb991ccdb85796c36a0690566676f8e1a59b0d0ee6598907d04"
+  url "https://luarocks.org/releases/luarocks-3.4.0.tar.gz"
+  sha256 "62ce5826f0eeeb760d884ea8330cd1552b5d432138b8bade0fa72f35badd02d0"
+  license "MIT"
   head "https://github.com/luarocks/luarocks.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "29e2c931525520f224a780598fd2e2db874bec996deea7be48926ac388aee044" => :catalina
-    sha256 "29e2c931525520f224a780598fd2e2db874bec996deea7be48926ac388aee044" => :mojave
-    sha256 "29e2c931525520f224a780598fd2e2db874bec996deea7be48926ac388aee044" => :high_sierra
+    sha256 "5e9fada325530d8177cc8d342539911ddcc494f215dee34a2aed8d9936e54561" => :catalina
+    sha256 "26e55dbc66636fdc8cebd4ffd0a08a9f27930cbb9961d51d6817e0b405dd2ef3" => :mojave
+    sha256 "d9ba9f1b497a18d0078ecdfe4e2e5496dd7dcdf4bb27cf78f9d80e8f4e38d6ad" => :high_sierra
   end
 
   depends_on "lua@5.1" => :test
@@ -22,13 +23,14 @@ class Luarocks < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    LuaRocks supports multiple versions of Lua. By default it is configured
-    to use Lua5.3, but you can require it to use another version at runtime
-    with the `--lua-dir` flag, like this:
+  def caveats
+    <<~EOS
+      LuaRocks supports multiple versions of Lua. By default it is configured
+      to use Lua5.3, but you can require it to use another version at runtime
+      with the `--lua-dir` flag, like this:
 
-      luarocks --lua-dir=#{Formula["lua@5.1"].opt_prefix} install say
-  EOS
+        luarocks --lua-dir=#{Formula["lua@5.1"].opt_prefix} install say
+    EOS
   end
 
   test do

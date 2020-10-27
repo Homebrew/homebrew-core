@@ -3,25 +3,43 @@ class Exa < Formula
   homepage "https://the.exa.website"
   url "https://github.com/ogham/exa/archive/v0.9.0.tar.gz"
   sha256 "96e743ffac0512a278de9ca3277183536ee8b691a46ff200ec27e28108fef783"
+  license "MIT"
   head "https://github.com/ogham/exa.git"
+
+  livecheck do
+    url "https://github.com/ogham/exa/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cc484e7deb12cdae4ede810258be0ca069d7db395897e9d3fbadd501fb075743" => :catalina
-    sha256 "bc80009ad845d914c08e6de1c39c97e0f4f180ef4f077b3ef1957cab519d6743" => :mojave
-    sha256 "7382b758899c756f94c4c99440f71075945d333e302e53139e423fb1798c852e" => :high_sierra
-    sha256 "9499359da5f5fffbd8b22c8cb8e78f0fdf99594c4d2b06e7ba58eb21afbcb582" => :sierra
+    rebuild 2
+    sha256 "db91d6383734415664520fadb8a4401c465f08b6c8dbd5c56d47e959d04ec6f5" => :catalina
+    sha256 "6c4473e06868d60a18657f8f6d98985ec7480de89213765738a3e33eeb9ceee1" => :mojave
+    sha256 "e47d5005f3a6a05bc442ed8e12a8e3206f39d0e4daf4835e84545ab158c4f089" => :high_sierra
   end
 
-  depends_on "cmake" => :build
   depends_on "rust" => :build
 
-  def install
-    system "make", "install", "PREFIX=#{prefix}"
+  uses_from_macos "zlib"
 
-    bash_completion.install "contrib/completions.bash" => "exa"
-    zsh_completion.install  "contrib/completions.zsh"  => "_exa"
-    fish_completion.install "contrib/completions.fish" => "exa.fish"
+  on_linux do
+    depends_on "libgit2"
+  end
+
+  def install
+    system "cargo", "install", *std_cargo_args
+
+    # Remove in 0.9+
+    if build.head?
+      bash_completion.install "completions/completions.bash" => "exa"
+      zsh_completion.install  "completions/completions.zsh"  => "_exa"
+      fish_completion.install "completions/completions.fish" => "exa.fish"
+    else
+      bash_completion.install "contrib/completions.bash" => "exa"
+      zsh_completion.install  "contrib/completions.zsh"  => "_exa"
+      fish_completion.install "contrib/completions.fish" => "exa.fish"
+    end
   end
 
   test do

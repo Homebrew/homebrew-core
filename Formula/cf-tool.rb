@@ -1,14 +1,15 @@
 class CfTool < Formula
   desc "Command-line tool for Codeforces contests"
   homepage "https://github.com/xalanq/cf-tool"
-  url "https://github.com/xalanq/cf-tool/archive/v0.8.2.tar.gz"
-  sha256 "04eeb0ebfd2f15f81940012def95ec964498f7053029aa8b192d99c5a88bb98b"
+  url "https://github.com/xalanq/cf-tool/archive/v1.0.0.tar.gz"
+  sha256 "6671392df969e7decf9bf6b89a43a93c2bde978e005e99ddb7fd84b0c513df9f"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8c28ad65369bed1bc74105242097fca990c3b4ca875cca731eed928f547df1b4" => :catalina
-    sha256 "ea7a5befc573b9c55cb4ce6f5f65b33141737c767548ad98fc50689b8a8c7747" => :mojave
-    sha256 "9e0ab03bf2a895310eea7a6bc73221ffeb490416be1fb3bf9a77eda439e17159" => :high_sierra
+    sha256 "3369b5efe4c26d786fa8a54d4ca208c11dc89850565adaf6a1c922f4f16d2a3f" => :catalina
+    sha256 "4344edd7a9160d7113d135c574146f6ca5bedfded9e8633b02642276999e6dbe" => :mojave
+    sha256 "a3497993ba1bae8cda20da28d5fb7ea8687ba0e50a23d5f6687d515457c4a00c" => :high_sierra
   end
 
   depends_on "go" => :build

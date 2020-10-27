@@ -1,29 +1,34 @@
 class Gprof2dot < Formula
+  include Language::Python::Virtualenv
+
   desc "Convert the output from many profilers into a Graphviz dot graph"
   homepage "https://github.com/jrfonseca/gprof2dot"
-  url "https://files.pythonhosted.org/packages/9d/36/f977122502979f3dfb50704979c9ed70e6b620787942b089bf1af15f5aba/gprof2dot-2017.9.19.tar.gz"
-  sha256 "cebc7aa2782fd813ead415ea1fae3409524343485eadc7fb60ef5bd1e810309e"
-  revision 1
+  url "https://files.pythonhosted.org/packages/fd/77/3158821acc45cc26d5815d4250275d03c254572ff53c0388af8df168ce78/gprof2dot-2019.11.30.tar.gz"
+  sha256 "b43fe04ebb3dfe181a612bbfc69e90555b8957022ad6a466f0308ed9c7f22e99"
+  license "LGPL-3.0"
+  revision 2
   head "https://github.com/jrfonseca/gprof2dot.git"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "26aa6725c6be1ba4c2cb91a9bbc355a351877a47b875d8454e158a4d67ba6cb7" => :catalina
-    sha256 "2b090e85c705d72b374cbcd0edebfcee857966b487e27438d74ca67710f31ed0" => :mojave
-    sha256 "f638c54489227411236cc969200a20c49bf59caa19ace82ab81589ba857e353e" => :high_sierra
-    sha256 "f638c54489227411236cc969200a20c49bf59caa19ace82ab81589ba857e353e" => :sierra
+    sha256 "088de0dd88acd16d009b57229dc45028277d9a3401e7902208e0cde1972d75e0" => :catalina
+    sha256 "0d693183049e2ee10e946134997c9a0cd23a8ca335705080b0dce1af1831884c" => :mojave
+    sha256 "b2396cc1daa5759af6642a8e85b66d447e3ff3f0395db74429d6969e62823f7c" => :high_sierra
   end
 
   depends_on "graphviz"
-  depends_on "python"
+  depends_on "python@3.9"
+
+  on_linux do
+    depends_on "libx11"
+  end
 
   def install
-    xy = Language::Python.major_minor_version "python3"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
-    system "python3", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   test do

@@ -4,7 +4,7 @@ class Ctags < Formula
   revision 1
 
   stable do
-    url "https://downloads.sourceforge.net/ctags/ctags-5.8.tar.gz"
+    url "https://downloads.sourceforge.net/project/ctags/ctags/5.8/ctags-5.8.tar.gz"
     sha256 "0e44b45dcabe969e0bbbb11e30c246f81abe5d32012db37395eb57d66e9e99c7"
 
     # also fixes https://sourceforge.net/p/ctags/bugs/312/
@@ -13,6 +13,11 @@ class Ctags < Formula
       url "https://gist.githubusercontent.com/naegelejd/9a0f3af61954ae5a77e7/raw/16d981a3d99628994ef0f73848b6beffc70b5db8/Ctags%20r782"
       sha256 "26d196a75fa73aae6a9041c1cb91aca2ad9d9c1de8192fce8cdc60e4aaadbcbb"
     end
+  end
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/ctags[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
   bottle do

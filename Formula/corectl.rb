@@ -3,8 +3,9 @@ class Corectl < Formula
   homepage "https://github.com/TheNewNormal/corectl"
   url "https://github.com/TheNewNormal/corectl/archive/v0.7.18.tar.gz"
   sha256 "9bdf7bc8c6a7bd861e2b723c0566d0a093ed5d5caf370a065a1708132b4ab98a"
+  license "Apache-2.0"
   revision 2
-  head "https://github.com/TheNewNormal/corectl.git", :branch => "golang"
+  head "https://github.com/TheNewNormal/corectl.git", branch: "golang"
 
   bottle do
     cellar :any
@@ -17,9 +18,8 @@ class Corectl < Formula
   depends_on "go" => :build
   depends_on "ocaml" => :build
   depends_on "opam" => :build
-  depends_on :x11 => :build
+  depends_on x11: :build
   depends_on "libev"
-  depends_on :macos => :yosemite
 
   def install
     ENV["GOPATH"] = buildpath
@@ -52,13 +52,14 @@ class Corectl < Formula
     end
   end
 
-  def caveats; <<~EOS
-    Starting with 0.7 "corectl" has a client/server architecture. So before you
-    can use the "corectl" cli, you have to start the server daemon:
+  def caveats
+    <<~EOS
+      Starting with 0.7 "corectl" has a client/server architecture. So before you
+      can use the "corectl" cli, you have to start the server daemon:
 
-    $ corectld start
+      $ corectld start
 
-  EOS
+    EOS
   end
 
   test do

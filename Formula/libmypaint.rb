@@ -1,15 +1,16 @@
 class Libmypaint < Formula
   desc "MyPaint brush engine library"
   homepage "https://github.com/mypaint/libmypaint/wiki"
-  url "https://github.com/mypaint/libmypaint/releases/download/v1.4.0/libmypaint-1.4.0.tar.xz"
-  sha256 "59d13b14c6aca0497095f29ee7228ca2499a923ba8e1dd718a2f2ecb45a9cbff"
+  url "https://github.com/mypaint/libmypaint/releases/download/v1.6.1/libmypaint-1.6.1.tar.xz"
+  sha256 "741754f293f6b7668f941506da07cd7725629a793108bb31633fb6c3eae5315f"
+  license "ISC"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "30e7a9a3ee0a5211cb37e3c59492ee6979e65c3d302d1b2248cf559bc338f125" => :catalina
-    sha256 "2008250ff04ff41ec3e7abdc89b283448a699c72c9fb7cfd5562aee94842583a" => :mojave
-    sha256 "4d1266b23b828f915323e2e3511aba7c21f6148822020aed000d2f30c8ee7fb6" => :high_sierra
-    sha256 "74c7e8fce4bc805d22b952077cf184de788965f0109faf540ce1e909187884e2" => :sierra
+    sha256 "699014970a67055822e7ee2abc92c4ea2b45e51bcd58cfa01cb24c2ed08f6a2b" => :catalina
+    sha256 "97ca6e5c0ae27513cc3af20c1256548d6a21e0a38bfdcea5a79f7fe1c0a6886d" => :mojave
+    sha256 "4260697ececf5344aa3eacd16afdd5f4eff556cee6312e49a8e5544edb71aca1" => :high_sierra
   end
 
   depends_on "intltool" => :build

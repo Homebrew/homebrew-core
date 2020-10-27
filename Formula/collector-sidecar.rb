@@ -3,6 +3,7 @@ class CollectorSidecar < Formula
   homepage "https://github.com/Graylog2/collector-sidecar"
   url "https://github.com/Graylog2/collector-sidecar/archive/1.0.2.tar.gz"
   sha256 "ee7ddb725d3475656df0bb08476e64c7f919acfc011a338b4532249363778130"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation
@@ -39,23 +40,24 @@ class CollectorSidecar < Formula
     end
   end
 
-  plist_options :manual => "graylog-sidecar"
+  plist_options manual: "graylog-sidecar"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
-    "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>Program</key>
-        <string>#{opt_bin}/graylog-sidecar</string>
-        <key>RunAtLoad</key>
-        <true/>
-      </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
+      "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>Program</key>
+          <string>#{opt_bin}/graylog-sidecar</string>
+          <key>RunAtLoad</key>
+          <true/>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do

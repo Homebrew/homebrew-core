@@ -3,22 +3,22 @@ class Percol < Formula
   homepage "https://github.com/mooz/percol"
   url "https://github.com/mooz/percol/archive/v0.2.1.tar.gz"
   sha256 "75056ba1fe190ae4c728e68df963c0e7d19bfe5a85649e51ae4193d4011042f9"
-  revision 1
+  license "MIT"
+  revision 3
   head "https://github.com/mooz/percol.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c9e13bc103fe32c8d78de04f547fd2be75d0564657e1f6e1f54bca846fc10ab7" => :catalina
-    sha256 "43a0d42c2184fcc78ee6cb187c0bd4167133debe35be81d724bd3b2a26848de3" => :mojave
-    sha256 "dee76bc835dadd9f37058c6ef642eddca4278d5f5d0995b72bdb0c5fa4d537a4" => :high_sierra
-    sha256 "dee76bc835dadd9f37058c6ef642eddca4278d5f5d0995b72bdb0c5fa4d537a4" => :sierra
+    sha256 "c62d0f5afe808ad6f8f4aef4bbb564b264b2be6111b4b601ab1f4dc3ea085d0f" => :catalina
+    sha256 "6f48bda38d580d2bc062b1964c706d6b4aba657b4e1d13b0d0007debfb0505b0" => :mojave
+    sha256 "e57c46a9b3d71dee2a3641d75fa1bb47fe520cee81e401b41154c69e329f90a2" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.9"
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
-    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
+    url "https://files.pythonhosted.org/packages/94/3e/edcf6fef41d89187df7e38e868b2dd2182677922b600e880baad7749c865/six-1.13.0.tar.gz"
+    sha256 "30f610279e8b2578cab6db20741130331735c781b56053c59c4076da27f06b66"
   end
 
   resource "cmigemo" do
@@ -39,7 +39,7 @@ class Percol < Formula
     system "python3", *Language::Python.setup_install_args(libexec)
 
     bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
   end
 
   test do

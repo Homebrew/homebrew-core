@@ -1,8 +1,9 @@
 class Nu < Formula
   desc "Object-oriented, Lisp-like programming language"
-  homepage "https://github.com/nulang/nu"
+  homepage "https://programming.nu/"
   url "https://github.com/nulang/nu/archive/v2.3.0.tar.gz"
   sha256 "1a6839c1f45aff10797dd4ce5498edaf2f04c415b3c28cd06a7e0697d6133342"
+  license "Apache-2.0"
 
   bottle do
     cellar :any
@@ -33,14 +34,15 @@ class Nu < Formula
     system "./mininush", "tools/nuke", "install"
   end
 
-  def caveats; <<~EOS
-    Nu.framework was installed to:
-      #{frameworks}/Nu.framework
+  def caveats
+    <<~EOS
+      Nu.framework was installed to:
+        #{frameworks}/Nu.framework
 
-    You may want to symlink this Framework to a standard macOS location,
-    such as:
-      ln -s "#{frameworks}/Nu.framework" /Library/Frameworks
-  EOS
+      You may want to symlink this Framework to a standard macOS location,
+      such as:
+        ln -s "#{frameworks}/Nu.framework" /Library/Frameworks
+    EOS
   end
 
   test do

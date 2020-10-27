@@ -4,6 +4,7 @@ class Libtextcat < Formula
   url "https://software.wise-guys.nl/download/libtextcat-2.2.tar.gz"
   mirror "https://src.fedoraproject.org/repo/pkgs/libtextcat/libtextcat-2.2.tar.gz/128cfc86ed5953e57fe0f5ae98b62c2e/libtextcat-2.2.tar.gz"
   sha256 "5677badffc48a8d332e345ea4fe225e3577f53fc95deeec8306000b256829655"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any

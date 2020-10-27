@@ -1,15 +1,19 @@
 class PerconaXtrabackup < Formula
   desc "Open source hot backup tool for InnoDB and XtraDB databases"
   homepage "https://www.percona.com/software/mysql-database/percona-xtrabackup"
-  url "https://www.percona.com/downloads/XtraBackup/Percona-XtraBackup-2.4.14/source/tarball/percona-xtrabackup-2.4.14.tar.gz"
-  sha256 "4dffa6986aef358675b318b3b9f4a9b8df48e8fc4987ad2469bba1b186b47662"
+  url "https://www.percona.com/downloads/Percona-XtraBackup-LATEST/Percona-XtraBackup-8.0.13/source/tarball/percona-xtrabackup-8.0.13.tar.gz"
+  sha256 "760f556e85ad55bd54019ad78b1064557c68e31b6e37dc4f4ce1f0065b911f71"
   revision 1
 
+  livecheck do
+    url "https://github.com/percona/percona-xtrabackup.git"
+    regex(/^percona-xtrabackup[._-]v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256 "e4ea3bb192e9a18c1e6d07df0f8d4d1c3f66fd137d1fb1d7bfc4d1797e6fc71a" => :catalina
-    sha256 "5c79a9667f73328988698067ccd98044c65b047d6334e4ecfbf6ea1f218a2494" => :mojave
-    sha256 "9e30e4ca82c4e36117a083f59f8326d7e3b5ce8b9f962ac3f036b8de24d50163" => :high_sierra
-    sha256 "872f44972f4f7701cc22730987eb5b81efb7691160ee7e4989fbcc25988ea1ae" => :sierra
+    sha256 "2f35a444086da15b1e05ec9ac225f153376abb81546db4490fbf34b4096ec6c0" => :catalina
+    sha256 "a4f1233ebde9ab66010214fa21c739ae9f97cffcb739bdd51fe542511d5571e1" => :mojave
+    sha256 "7238c7d0e4977dcdba034ded3aa5ed9cd71884ba060894060755428aa85ea29a" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -19,8 +23,8 @@ class PerconaXtrabackup < Formula
   depends_on "mysql-client"
   depends_on "openssl@1.1"
 
-  conflicts_with "percona-server",
-    :because => "both install lib/plugin/keyring_vault.so"
+  conflicts_with "protobuf",
+    because: "both install libprotobuf(-lite) libraries"
 
   resource "DBI" do
     url "https://cpan.metacpan.org/authors/id/T/TI/TIMB/DBI-1.641.tar.gz"
@@ -33,16 +37,18 @@ class PerconaXtrabackup < Formula
   end
 
   resource "boost" do
-    url "https://downloads.sourceforge.net/project/boost/boost/1.59.0/boost_1_59_0.tar.bz2"
-    sha256 "727a932322d94287b62abb1bd2d41723eec4356a7728909e38adb65ca25241ca"
+    url "https://downloads.sourceforge.net/project/boost/boost/1.70.0/boost_1_70_0.tar.bz2"
+    sha256 "430ae8354789de4fd19ee52f3b1f739e1fba576f0aded0897c3c2bc00fb38778"
   end
 
   def install
     cmake_args = %w[
       -DBUILD_CONFIG=xtrabackup_release
       -DCOMPILATION_COMMENT=Homebrew
+      -DINSTALL_PLUGINDIR=lib/percona-xtrabackup/plugin
       -DINSTALL_MANDIR=share/man
       -DWITH_MAN_PAGES=ON
+      -DINSTALL_MYSQLTESTDIR=
       -DCMAKE_CXX_FLAGS="-DBOOST_NO_CXX11_HDR_ARRAY"
     ]
 
@@ -50,22 +56,20 @@ class PerconaXtrabackup < Formula
     # See https://bugs.python.org/issue18378#msg215215
     ENV["LC_ALL"] = "en_US.UTF-8"
 
-    # 1.59.0 specifically required. Detailed in cmake/boost.cmake
-    (buildpath/"boost_1_59_0").install resource("boost")
-    cmake_args << "-DWITH_BOOST=#{buildpath}/boost_1_59_0"
+    # 1.70.0 specifically required. Detailed in cmake/boost.cmake
+    (buildpath/"boost_1_70_0").install resource("boost")
+    cmake_args << "-DWITH_BOOST=#{buildpath}/boost_1_70_0"
 
     cmake_args.concat std_cmake_args
 
-    system "cmake", *cmake_args
-    system "make"
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *cmake_args
+      system "make"
+      system "make", "install"
+    end
 
-    share.install "share/man"
-
-    rm_rf prefix/"xtrabackup-test" # Remove unnecessary files
-    # remove conflicting libraries that are already installed by mysql
+    # remove conflicting library that is already installed by mysql
     rm lib/"libmysqlservices.a"
-    rm lib/"plugin/keyring_file.so"
 
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
 
@@ -81,10 +85,14 @@ class PerconaXtrabackup < Formula
       system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
       system "make", "install"
     end
-    bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
+    bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
   end
 
   test do
     assert_match version.to_s, shell_output("#{bin}/xtrabackup --version 2>&1")
+
+    mkdir "backup"
+    output = shell_output("#{bin}/xtrabackup --target-dir=backup --backup 2>&1", 1)
+    assert_match "Failed to connect to MySQL server", output
   end
 end

@@ -1,15 +1,16 @@
 class FaasCli < Formula
   desc "CLI for templating and/or deploying FaaS functions"
-  homepage "https://docs.get-faas.com/"
+  homepage "https://www.openfaas.com/"
   url "https://github.com/openfaas/faas-cli.git",
-      :tag      => "0.9.5",
-      :revision => "b7a67fe8d6a02aef35caae615ba56333e7337bfe"
+      tag:      "0.12.14",
+      revision: "c12d57c39ac4cc6eef3c9bba2fb45113d882432f"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "252c2cc7939fea101d195b0cfc7716a24e53e4036f7ba524f9c0778af680cd7d" => :catalina
-    sha256 "fdf58583cb34156887d4bbad265bbf99fdc03d1ef9b138bfcc9ba7cf1eabbb8c" => :mojave
-    sha256 "334464f6d82d8680f815408e8a04f15f1772ae7652a4e6cd9757d9df6c047964" => :high_sierra
+    sha256 "7051bca10bfdfd1ef4e7fe687494eecf5df77827a44a08c94cba9f4851e52120" => :catalina
+    sha256 "bdca47be1908c16bcf727414edfcfb6a17b959e4b426ac793c3afbfc2e167aa2" => :mojave
+    sha256 "cfd299020e90768c1ad8536ef1be86b0f882d206524866f89f82bffc58a39fc0" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -17,17 +18,12 @@ class FaasCli < Formula
   def install
     ENV["XC_OS"] = "darwin"
     ENV["XC_ARCH"] = "amd64"
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/openfaas/faas-cli").install buildpath.children
-    cd "src/github.com/openfaas/faas-cli" do
-      project = "github.com/openfaas/faas-cli"
-      commit = Utils.popen_read("git", "rev-parse", "HEAD").chomp
-      system "go", "build", "-ldflags",
-             "-s -w -X #{project}/version.GitCommit=#{commit} -X #{project}/version.Version=#{version}", "-a",
-             "-installsuffix", "cgo", "-o", bin/"faas-cli"
-      bin.install_symlink "faas-cli" => "faas"
-      prefix.install_metafiles
-    end
+    project = "github.com/openfaas/faas-cli"
+    commit = Utils.safe_popen_read("git", "rev-parse", "HEAD").chomp
+    system "go", "build", "-ldflags",
+            "-s -w -X #{project}/version.GitCommit=#{commit} -X #{project}/version.Version=#{version}", "-a",
+            "-installsuffix", "cgo", "-o", bin/"faas-cli"
+    bin.install_symlink "faas-cli" => "faas"
   end
 
   test do
@@ -50,7 +46,7 @@ class FaasCli < Formula
 
     (testpath/"test.yml").write <<~EOS
       provider:
-        name: faas
+        name: openfaas
         gateway: http://localhost:#{port}
         network: "func_functions"
 

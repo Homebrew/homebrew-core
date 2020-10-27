@@ -1,17 +1,18 @@
 class Psftools < Formula
   desc "Tools for fixed-width bitmap fonts"
   homepage "https://www.seasip.info/Unix/PSF/"
-  url "https://people.phys.ethz.ch/~myczko/debian/psftools/psftools_1.1.10.orig.tar.gz"
-  # Previous URL (upstream default URL) has changed checksum:
-  # https://www.seasip.info/Unix/PSF/psftools-1.1.10.tar.gz
-  sha256 "1bc03214a29c4fc461a7aa11b9a3debde419b1271fa5110273ded961774e2b6f"
+  # psftools-1.1.10.tar.gz (dated 2017) was a typo of 1.0.10 and has since been deleted.
+  # You may still find it on some mirrors but it should not be used.
+  url "https://www.seasip.info/Unix/PSF/psftools-1.0.13.tar.gz"
+  sha256 "9c61e6885dca2f9591b4aa5fe821e16d4779cd071c3a45ead326629f210def65"
+  license "GPL-2.0"
+  version_scheme 1
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "45dc312102cc19efb4f884e2815e7429958be40fba454973de6d64783b379862" => :catalina
-    sha256 "6206419f9571de1d719e48ea41f352e7a19ccf93e22f67949d39f6407117ce5e" => :mojave
-    sha256 "abd4076ee669f51d13339c64d609db42543ba04268b9e3e8e79d5c4ad3dba397" => :high_sierra
+    sha256 "30d2a62f05343fbd172a0b7d094e84755d3441fae6e9a5734793cf363a9e8c40" => :catalina
+    sha256 "9a04003b9ff3529c3e1e94f63b062c120b8a5e4af66a99965347d63827004128" => :mojave
+    sha256 "cd1682c76f401ff6fc6c4dce3e4c5d31aeb50a2deb4b56a31b8bab5830c6ec4b" => :high_sierra
   end
 
   depends_on "autoconf" => :build

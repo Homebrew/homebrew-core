@@ -1,9 +1,13 @@
 class Libcroco < Formula
   desc "CSS parsing and manipulation toolkit for GNOME"
-  homepage "http://www.linuxfromscratch.org/blfs/view/svn/general/libcroco.html"
+  homepage "https://gitlab.gnome.org/GNOME/libcroco"
   url "https://download.gnome.org/sources/libcroco/0.6/libcroco-0.6.13.tar.xz"
   sha256 "767ec234ae7aa684695b3a735548224888132e063f92db585759b422570621d4"
   revision 1
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any
@@ -16,6 +20,8 @@ class Libcroco < Formula
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
+
+  uses_from_macos "libxml2"
 
   def install
     system "./configure", "--disable-dependency-tracking",

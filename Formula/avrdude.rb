@@ -6,6 +6,11 @@ class Avrdude < Formula
   sha256 "0f9f731b6394ca7795b88359689a7fa1fba818c6e1d962513eb28da670e0a196"
   revision 1
 
+  livecheck do
+    url "https://download.savannah.gnu.org/releases/avrdude/"
+    regex(/href=.*?avrdude[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "d3f4c82170fa37bacd6e1bc3276ba27e7a8ed2ea781b101b7899e7602393a15b" => :catalina
     sha256 "65fe6de6f540eb1c6ad94d35c847f8a5921cc9059ff044d1bc78f68cc8b8334b" => :mojave

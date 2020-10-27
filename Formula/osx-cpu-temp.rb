@@ -3,6 +3,7 @@ class OsxCpuTemp < Formula
   homepage "https://github.com/lavoiesl/osx-cpu-temp"
   url "https://github.com/lavoiesl/osx-cpu-temp/archive/1.1.0.tar.gz"
   sha256 "94b90ce9a1c7a428855453408708a5557bfdb76fa45eef2b8ded4686a1558363"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

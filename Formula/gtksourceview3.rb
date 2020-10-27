@@ -3,12 +3,18 @@ class Gtksourceview3 < Formula
   homepage "https://projects.gnome.org/gtksourceview/"
   url "https://download.gnome.org/sources/gtksourceview/3.24/gtksourceview-3.24.11.tar.xz"
   sha256 "691b074a37b2a307f7f48edc5b8c7afa7301709be56378ccf9cc9735909077fd"
-  revision 2
+  revision 3
+
+  livecheck do
+    url :stable
+    regex(/gtksourceview[._-]v?(3\.([0-8]\d*?)?[02468](?:\.\d+)*?)\.t/i)
+  end
 
   bottle do
-    sha256 "ce6588f731be85d7c5ed37e7289e51b2fb36f11d8a737401e0fcc54467beabc4" => :catalina
-    sha256 "6cdc3337652b4fe1b0b2908996744764db42639e974e5f7b38f456329a0cfa3c" => :mojave
-    sha256 "f2a90809d31e0b808072c048ef3a4bdc5cf0f1a363e65646692a783bb74f6c1e" => :high_sierra
+    rebuild 1
+    sha256 "e82371b46c1d8206c5aedf9966835e27ffb3bd011ad936bffa0e26cfe3c2808c" => :catalina
+    sha256 "f9f3856ad743d604e084f77e68d2edd53d99093ce06dc23b9f0cdbdc5e70c5d0" => :mojave
+    sha256 "d67cdf5db8996c90d56ad6468c830fcb8e28b26753ab7d332b3a4c990c17e84b" => :high_sierra
   end
 
   depends_on "autoconf" => :build
@@ -32,7 +38,7 @@ class Gtksourceview3 < Formula
 
   test do
     (testpath/"test.c").write <<~EOS
-      #include <gtksourceview/gtksourceview.h>
+      #include <gtksourceview/gtksource.h>
 
       int main(int argc, char *argv[]) {
         gchar *text = gtk_source_utils_unescape_search_text("hello world");

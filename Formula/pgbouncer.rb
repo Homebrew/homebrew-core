@@ -1,25 +1,27 @@
 class Pgbouncer < Formula
   desc "Lightweight connection pooler for PostgreSQL"
-  homepage "https://pgbouncer.github.io/"
-  url "https://pgbouncer.github.io/downloads/files/1.10.0/pgbouncer-1.10.0.tar.gz"
-  sha256 "d8a01442fe14ce3bd712b9e2e12456694edbbb1baedb0d6ed1f915657dd71bd5"
-  revision 1
+  homepage "https://www.pgbouncer.org/"
+  url "https://www.pgbouncer.org/downloads/files/1.14.0/pgbouncer-1.14.0.tar.gz"
+  sha256 "a0c13d10148f557e36ff7ed31793abb7a49e1f8b09aa2d4695d1c28fa101fee7"
+
+  livecheck do
+    url "https://github.com/pgbouncer/pgbouncer"
+  end
 
   bottle do
     cellar :any
-    sha256 "4d52e5a09594ca3350df197d2c2ca8ac98943f194cbd476cc187e731139b9c27" => :catalina
-    sha256 "47856e33e4e537ee50b39573d63f1366f332b57d57be21a797bd7da6d19eb11b" => :mojave
-    sha256 "728418195cb273b74d67b791a0e9834cbc7dc9828f928c9dd44fe015e404b117" => :high_sierra
-    sha256 "ec357f9ba0bd22a1f34b0ce1d9174376ba4aedf43904318430cd109f076a4188" => :sierra
+    sha256 "eaecbb143f281ccc047d7a63488038c2d53de7ffaf56b56e532dce7089e30106" => :catalina
+    sha256 "c86c7f6b7fa11965e9427aeb36bc334b6f7f31323d826350736813187622844f" => :mojave
+    sha256 "4e098f2929939ba16d03e194310df111929dd861e02e89f075ce726f8f67b49d" => :high_sierra
   end
 
+  depends_on "pkg-config" => :build
   depends_on "libevent"
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--disable-debug",
-                          "--with-libevent=#{HOMEBREW_PREFIX}",
                           "--prefix=#{prefix}"
-    ln_s "../install-sh", "doc/install-sh"
     system "make", "install"
     bin.install "etc/mkauth.py"
     inreplace "etc/pgbouncer.ini" do |s|
@@ -30,17 +32,18 @@ class Pgbouncer < Formula
     etc.install %w[etc/pgbouncer.ini etc/userlist.txt]
   end
 
-  def caveats; <<~EOS
-    The config file: #{etc}/pgbouncer.ini is in the "ini" format and you
-    will need to edit it for your particular setup. See:
-    https://pgbouncer.github.io/config.html
+  def caveats
+    <<~EOS
+      The config file: #{etc}/pgbouncer.ini is in the "ini" format and you
+      will need to edit it for your particular setup. See:
+      https://pgbouncer.github.io/config.html
 
-    The auth_file option should point to the #{etc}/userlist.txt file which
-    can be populated by the #{bin}/mkauth.py script.
-  EOS
+      The auth_file option should point to the #{etc}/userlist.txt file which
+      can be populated by the #{bin}/mkauth.py script.
+    EOS
   end
 
-  plist_options :manual => "pgbouncer -q #{HOMEBREW_PREFIX}/etc/pgbouncer.ini"
+  plist_options manual: "pgbouncer -q #{HOMEBREW_PREFIX}/etc/pgbouncer.ini"
 
   def plist
     <<~EOS

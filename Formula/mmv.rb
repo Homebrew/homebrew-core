@@ -4,6 +4,11 @@ class Mmv < Formula
   url "https://deb.debian.org/debian/pool/main/m/mmv/mmv_1.01b.orig.tar.gz"
   sha256 "0399c027ea1e51fd607266c1e33573866d4db89f64a74be8b4a1d2d1ff1fdeef"
 
+  livecheck do
+    url "https://deb.debian.org/debian/pool/main/m/mmv/"
+    regex(/href=.*?mmv[._-]v?(\d+(?:\.\d+)+[a-z]?)\.orig\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 1

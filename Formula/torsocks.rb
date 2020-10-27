@@ -2,8 +2,8 @@ class Torsocks < Formula
   desc "Use SOCKS-friendly applications with Tor"
   homepage "https://gitweb.torproject.org/torsocks.git/"
   url "https://git.torproject.org/torsocks.git",
-      :tag      => "v2.3.0",
-      :revision => "cec4a733c081e09fb34f0aa4224ffd7b687fb310"
+      tag:      "v2.3.0",
+      revision: "cec4a733c081e09fb34f0aa4224ffd7b687fb310"
   head "https://git.torproject.org/torsocks.git"
 
   bottle do

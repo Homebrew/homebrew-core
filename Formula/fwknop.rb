@@ -3,6 +3,7 @@ class Fwknop < Formula
   homepage "https://www.cipherdyne.org/fwknop/"
   url "https://github.com/mrash/fwknop/archive/2.6.10.tar.gz"
   sha256 "a7c465ba84261f32c6468c99d5512f1111e1bf4701477f75b024bf60b3e4d235"
+  license "GPL-2.0"
   head "https://github.com/mrash/fwknop.git"
 
   bottle do

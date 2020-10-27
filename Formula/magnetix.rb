@@ -14,7 +14,7 @@ class Magnetix < Formula
     sha256 "ed629c950ac52c6efee73a2e77e7004e0e33a85fe920d793a2e8621a484d7cdc" => :yosemite
   end
 
-  depends_on :xcode => :build
+  depends_on xcode: :build
 
   # Port audio code from QTKit to AVFoundation
   # Required since 10.12 SDK no longer includes QTKit.
@@ -32,10 +32,11 @@ class Magnetix < Formula
     end
   end
 
-  def caveats; <<~EOS
-    Install games in the following directory:
-      ~/Library/Application Support/magnetiX/
-  EOS
+  def caveats
+    <<~EOS
+      Install games in the following directory:
+        ~/Library/Application Support/magnetiX/
+    EOS
   end
 
   test do

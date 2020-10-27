@@ -3,6 +3,12 @@ class Tta < Formula
   homepage "https://web.archive.org/web/20100131140204/true-audio.com/"
   url "https://downloads.sourceforge.net/project/tta/tta/libtta/libtta-2.2.tar.gz"
   sha256 "1723424d75b3cda907ff68abf727bb9bc0c23982ea8f91ed1cc045804c1435c4"
+  license "LGPL-3.0"
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/libtta[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
 
   bottle do
     cellar :any_skip_relocation

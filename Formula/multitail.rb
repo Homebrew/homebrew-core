@@ -1,18 +1,20 @@
 class Multitail < Formula
   desc "Tail multiple files in one terminal simultaneously"
   homepage "https://vanheusden.com/multitail/"
-  url "https://vanheusden.com/multitail/multitail-6.4.2.tgz"
-  sha256 "af1d5458a78ad3b747c5eeb135b19bdca281ce414cefdc6ea0cff6d913caa1fd"
+  url "https://vanheusden.com/multitail/multitail-6.5.0.tgz"
+  sha256 "b29d5e77dfc663c7500f78da67de5d82d35d9417a4741a89a18ce9ee7bdba9ed"
+  license "GPL-2.0"
   head "https://github.com/flok99/multitail.git"
 
   bottle do
-    rebuild 1
-    sha256 "d61b7ec5070d9ce5d4430c2a4b91406b1f50fc4debb26064200aece8fbb86581" => :catalina
-    sha256 "9d561e3132f6749aec218961f65d84516cc6a99a2247ee6ef4abf6ed1accc942" => :mojave
-    sha256 "b8d2ab93cd8bf7954ffc49ed929aa0cf2c60a2ebeb872e9d3686d314af043be2" => :high_sierra
-    sha256 "ec1007a1ab7ffc9394f25d1a838d54051c04c14667721e8db9f49803084f6dcc" => :sierra
-    sha256 "b9c5e200dab1bf30ef4bd9bb257d5728c6779552aab97a1ddc65d02ad697cd8f" => :el_capitan
+    cellar :any
+    sha256 "6d0d74b45d02adc52fa6a5f666484c62941457da3cb10e50d65f5d772cc59c02" => :catalina
+    sha256 "933801e9ec5999742cfcea6cc59580f69fc966ad82858326c2a90f68868de60f" => :mojave
+    sha256 "57526de43035b0d5d2520d54b252d29c20a4efb146c019ac044ad5067be5351a" => :high_sierra
   end
+
+  depends_on "pkg-config" => :build
+  depends_on "ncurses"
 
   def install
     system "make", "-f", "makefile.macosx", "multitail", "DESTDIR=#{HOMEBREW_PREFIX}"

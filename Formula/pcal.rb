@@ -4,6 +4,10 @@ class Pcal < Formula
   url "https://downloads.sourceforge.net/project/pcal/pcal/pcal-4.11.0/pcal-4.11.0.tgz"
   sha256 "8406190e7912082719262b71b63ee31a98face49aa52297db96cc0c970f8d207"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "9d7f46d2cbf308cd81bcce8fb98e48d295917562a46e509e739cad51d90dcf2c" => :catalina

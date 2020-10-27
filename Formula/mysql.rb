@@ -1,35 +1,31 @@
 class Mysql < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/8.0/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.18.tar.gz"
-  sha256 "0eccd9d79c04ba0ca661136bb29085e3833d9c48ed022d0b9aba12236994186b"
-  revision 1
+  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.22.tar.gz"
+  sha256 "ba765f74367c638d7cd1c546c05c14382fd997669bcd9680278e907f8d7eb484"
+  license "GPL-2.0"
+
+  livecheck do
+    url "https://dev.mysql.com/downloads/mysql/"
+    regex(/href=.*?mysql[._-]v?(\d+.\d+.\d+)-/i)
+  end
 
   bottle do
-    sha256 "dd0af1f15dd8906db5842329531548c4dc46b587e36647807b663162a8d83d7c" => :catalina
-    sha256 "2bdaae4c7b08d11e04c21eca651dfeb0d87d2e199d371a0fa6cd145dc1170fdd" => :mojave
-    sha256 "9f12ab1f836c59d2630a4916ec69dd6dd99175b702ef6762f34f5d3f51642018" => :high_sierra
+    sha256 "b56dd0f401abab4a2dff51706e78b7b7fedb2d4bf747b24e45bbcd4418d13eec" => :catalina
+    sha256 "accf6653da818f660ea85f1334a347cebe9ccf75ed7e514f13709a33fc640324" => :mojave
+    sha256 "83348080be9653d33f42db9f5c49e1b5db2f12a5f041095e7acc68550bbcde5b" => :high_sierra
   end
 
   depends_on "cmake" => :build
-
   # GCC is not supported either, so exclude for El Capitan.
-  depends_on :macos => :sierra if DevelopmentTools.clang_build_version == 800
-
-  # https://github.com/Homebrew/homebrew-core/issues/1475
-  # Needs at least Clang 3.6, which shipped alongside Yosemite.
-  # Note: MySQL themselves don't support anything below Sierra.
-  depends_on :macos => :yosemite
-
+  depends_on macos: :sierra if DevelopmentTools.clang_build_version == 800
   depends_on "openssl@1.1"
-  depends_on "protobuf@3.7" # MySQL 8.0.19 will support the latest version
+  depends_on "protobuf"
+
+  uses_from_macos "libedit"
 
   conflicts_with "mariadb", "percona-server",
-    :because => "mysql, mariadb, and percona install the same binaries."
-  conflicts_with "mysql-connector-c",
-    :because => "both install MySQL client libraries"
-  conflicts_with "mariadb-connector-c",
-    :because => "both install plugins"
+    because: "mysql, mariadb, and percona install the same binaries"
 
   # https://bugs.mysql.com/bug.php?id=86711
   # https://github.com/Homebrew/homebrew-core/pull/20538
@@ -47,8 +43,6 @@ class Mysql < Formula
     args = %W[
       -DFORCE_INSOURCE_BUILD=1
       -DCOMPILATION_COMMENT=Homebrew
-      -DDEFAULT_CHARSET=utf8mb4
-      -DDEFAULT_COLLATION=utf8mb4_general_ci
       -DINSTALL_DOCDIR=share/doc/#{name}
       -DINSTALL_INCLUDEDIR=include/mysql
       -DINSTALL_INFODIR=share/info
@@ -59,7 +53,7 @@ class Mysql < Formula
       -DSYSCONFDIR=#{etc}
       -DWITH_BOOST=boost
       -DWITH_EDITLINE=system
-      -DWITH_SSL=yes
+      -DWITH_SSL=#{Formula["openssl@1.1"].opt_prefix}
       -DWITH_PROTOBUF=system
       -DWITH_UNIT_TESTS=OFF
       -DENABLED_LOCAL_INFILE=1
@@ -73,6 +67,14 @@ class Mysql < Formula
     (prefix/"mysql-test").cd do
       system "./mysql-test-run.pl", "status", "--vardir=#{Dir.mktmpdir}"
     end
+
+    # Remove libssl copies as the binaries use the keg anyway and they create problems for other applications
+    rm_rf lib/"libssl.dylib"
+    rm_rf lib/"libssl.1.1.dylib"
+    rm_rf lib/"libcrypto.1.1.dylib"
+    rm_rf lib/"libcrypto.dylib"
+    rm_rf lib/"plugin/libcrypto.1.1.dylib"
+    rm_rf lib/"plugin/libssl.1.1.dylib"
 
     # Remove the tests directory
     rm_rf prefix/"mysql-test"
@@ -118,7 +120,7 @@ class Mysql < Formula
       To connect run:
           mysql -uroot
     EOS
-    if my_cnf = ["/etc/my.cnf", "/etc/mysql/my.cnf"].find { |x| File.exist? x }
+    if (my_cnf = ["/etc/my.cnf", "/etc/mysql/my.cnf"].find { |x| File.exist? x })
       s += <<~EOS
 
         A "#{my_cnf}" from another install may interfere with a Homebrew-built
@@ -128,29 +130,30 @@ class Mysql < Formula
     s
   end
 
-  plist_options :manual => "mysql.server start"
+  plist_options manual: "mysql.server start"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>KeepAlive</key>
-      <true/>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_bin}/mysqld_safe</string>
-        <string>--datadir=#{datadir}</string>
-      </array>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>WorkingDirectory</key>
-      <string>#{datadir}</string>
-    </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>KeepAlive</key>
+        <true/>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/mysqld_safe</string>
+          <string>--datadir=#{datadir}</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>WorkingDirectory</key>
+        <string>#{datadir}</string>
+      </dict>
+      </plist>
+    EOS
   end
 
   test do
@@ -159,12 +162,13 @@ class Mysql < Formula
     system bin/"mysqld", "--initialize-insecure", "--user=#{ENV["USER"]}",
     "--basedir=#{prefix}", "--datadir=#{dir}", "--tmpdir=#{dir}"
 
+    port = free_port
     pid = fork do
-      exec bin/"mysqld", "--bind-address=127.0.0.1", "--datadir=#{dir}"
+      exec bin/"mysqld", "--bind-address=127.0.0.1", "--datadir=#{dir}", "--port=#{port}"
     end
     sleep 2
 
-    output = shell_output("curl 127.0.0.1:3306")
+    output = shell_output("curl 127.0.0.1:#{port}")
     output.force_encoding("ASCII-8BIT") if output.respond_to?(:force_encoding)
     assert_match version.to_s, output
   ensure

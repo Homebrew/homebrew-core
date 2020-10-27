@@ -4,6 +4,10 @@ class Tinyxml < Formula
   url "https://downloads.sourceforge.net/project/tinyxml/tinyxml/2.6.2/tinyxml_2_6_2.tar.gz"
   sha256 "15bdfdcec58a7da30adc87ac2b078e4417dbe5392f3afb719f9ba6d062645593"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "7cc1ada5d273bec9f50a1809a9989306ec9601a037c06b362cee321fbdc5c0a7" => :catalina
@@ -24,12 +28,12 @@ class Tinyxml < Formula
   # The third patch adds a CMakeLists.txt file to build a shared library and provide an install target
   #   submitted upstream as https://sourceforge.net/p/tinyxml/patches/66/
   patch do
-    url "https://raw.githubusercontent.com/robotology/yarp/master/extern/tinyxml/patches/enforce-use-stl.patch"
+    url "https://raw.githubusercontent.com/robotology/yarp/59eedfbaa1069aa5f03a4a9980d984d59decd55c/extern/tinyxml/patches/enforce-use-stl.patch"
     sha256 "16a5b5e842eb0336be606131e5fb12a9165970f7bd943780ba09df2e1e8b29b1"
   end
 
   patch do
-    url "https://raw.githubusercontent.com/robotology/yarp/master/extern/tinyxml/patches/entity-encoding.patch"
+    url "https://raw.githubusercontent.com/robotology/yarp/59eedfbaa1069aa5f03a4a9980d984d59decd55c/extern/tinyxml/patches/entity-encoding.patch"
     sha256 "c5128e03933cd2e22eb85554d58f615f4dbc9177bd144cae2913c0bd7b140c2b"
   end
 
@@ -44,18 +48,19 @@ class Tinyxml < Formula
     (lib+"pkgconfig/tinyxml.pc").write pc_file
   end
 
-  def pc_file; <<~EOS
-    prefix=#{opt_prefix}
-    exec_prefix=${prefix}
-    libdir=${exec_prefix}/lib
-    includedir=${prefix}/include
+  def pc_file
+    <<~EOS
+      prefix=#{opt_prefix}
+      exec_prefix=${prefix}
+      libdir=${exec_prefix}/lib
+      includedir=${prefix}/include
 
-    Name: TinyXml
-    Description: Simple, small, C++ XML parser
-    Version: #{version}
-    Libs: -L${libdir} -ltinyxml
-    Cflags: -I${includedir}
-  EOS
+      Name: TinyXml
+      Description: Simple, small, C++ XML parser
+      Version: #{version}
+      Libs: -L${libdir} -ltinyxml
+      Cflags: -I${includedir}
+    EOS
   end
 
   test do

@@ -3,6 +3,7 @@ class Aide < Formula
   homepage "https://aide.github.io/"
   url "https://github.com/aide/aide/releases/download/v0.16.2/aide-0.16.2.tar.gz"
   sha256 "17f998ae6ae5afb9c83578e4953115ab8a2705efc50dee5c6461cef3f521b797"
+  license "GPL-2.0"
 
   bottle do
     cellar :any
@@ -21,6 +22,9 @@ class Aide < Formula
   depends_on "libgcrypt"
   depends_on "libgpg-error"
   depends_on "pcre"
+
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
   uses_from_macos "curl"
 
   def install

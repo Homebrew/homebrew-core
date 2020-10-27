@@ -1,30 +1,36 @@
 class Ntopng < Formula
   desc "Next generation version of the original ntop"
   homepage "https://www.ntop.org/products/traffic-analysis/ntop/"
+  license "GPL-3.0"
+  revision 1
 
   stable do
-    url "https://github.com/ntop/ntopng/archive/3.8.tar.gz"
-    sha256 "683d28aece3bf3f17c3d53d7a76fbd2a24719767477f5dce55268683fd87f821"
+    url "https://github.com/ntop/ntopng/archive/4.0.tar.gz"
+    sha256 "caf3aeec5c66eca7ddc3a1d4edc4a109b6c963a22bfcf6843e402a569c8e12a1"
 
     resource "nDPI" do
-      url "https://github.com/ntop/nDPI/archive/2.6.tar.gz"
-      sha256 "efdfb68940385b18079920330528978765dc2a90c8163d10f63301bddadbf91e"
+      url "https://github.com/ntop/nDPI/archive/3.2.tar.gz"
+      sha256 "6808c8c4495343e67863f4d30bb261c1e2daec5628ae0be257ba2a2dea7ec70a"
+
+      # Contains an API change which ntopng 4.0 uses.
+      patch do
+        url "https://github.com/ntop/nDPI/commit/e4512dbcb9e1db0500290b712257e501d1440d71.patch?full_index=1"
+        sha256 "b753532c7c4e68bd20ac432e4ea2159b38609ee7bf6296e96b511222813cc633"
+      end
     end
   end
 
   bottle do
-    rebuild 1
-    sha256 "7df3adf0ac7d3f5ea92fb4611c92fae5401fe9e29f1186f828deb47ef01d0f16" => :catalina
-    sha256 "8eda47ae0274ebe3557e43b3f77dd03e5f2d817fb112c6bbe353e812b1545b8e" => :mojave
-    sha256 "4a8f83d19c03888ef27a8c9d47f8612adc1ccfa02c2381048dd738e9146b0e73" => :high_sierra
-    sha256 "f90a831a2a31441ab63d252c75ec4720ba32420d1b03963f3e013e7f1e79e13a" => :sierra
+    sha256 "0f5da1b5b0fe34429ce4c85d246117ccae35d6cc91db37b0606bdcd2cc8a1383" => :catalina
+    sha256 "17616993b42436771976fd8a55bd23147d446e52956f5f96e4fa6685f7c75561" => :mojave
+    sha256 "173a972b8696abeb4f645c2a2ec84fbe5e82b01ff66fa8ef0769906304af65b2" => :high_sierra
   end
 
   head do
-    url "https://github.com/ntop/ntopng.git", :branch => "dev"
+    url "https://github.com/ntop/ntopng.git", branch: "dev"
 
     resource "nDPI" do
-      url "https://github.com/ntop/nDPI.git", :branch => "dev"
+      url "https://github.com/ntop/nDPI.git", branch: "dev"
     end
   end
 

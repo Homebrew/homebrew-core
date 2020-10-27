@@ -5,18 +5,21 @@ class KeepkeyAgent < Formula
   homepage "https://github.com/romanz/trezor-agent"
   url "https://files.pythonhosted.org/packages/65/72/4bf47a7bc8dc93d2ac21672a0db4bc58a78ec5cee3c4bcebd0b4092a9110/keepkey_agent-0.9.0.tar.gz"
   sha256 "47c85de0c2ffb53c5d7bd2f4d2230146a416e82511259fad05119c4ef74be70c"
-  revision 1
+  license "LGPL-3.0"
+  revision 4
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3c7d8ff59d1e17131a89d51602283c6dfceaa8874eb825ebf124413798c11e34" => :catalina
-    sha256 "64bd4d3444fd618a1b691a9ca1248df44547fbca438942eca67bafc677f0b7fb" => :mojave
-    sha256 "cff70c223d0e5f6bbf49fdedda1aa0c5979bd987b23be768f071801945d15a7c" => :high_sierra
-    sha256 "d745d85c10d037ae99221b0dbfa6bae7eee9abcc681035715f296f630dc2104f" => :sierra
-    sha256 "923d1471a0285a545de011f0628e36e02566bc422b7d5d86d20af82b3e301968" => :el_capitan
+    sha256 "6e0175e5f051ad05cbb26fcc2975632e1ffb8373e08c1235b4d7cd61f7cc1cf8" => :catalina
+    sha256 "27e81313d7690b317eb8f9a11a413c7b1529d2272bcbcf70b8263b41a406b0f8" => :mojave
+    sha256 "572d3d43c959597434419201e1ab260cafea2e7e7a9f3f07cfd6d2a1d20ab7d3" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.9"
 
   resource "backports.shutil_which" do
     url "https://files.pythonhosted.org/packages/dd/ea/715dc80584207a0ff4a693a73b03c65f087d8ad30842832b9866fe18cb2f/backports.shutil_which-3.5.1.tar.gz"

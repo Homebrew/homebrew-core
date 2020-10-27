@@ -3,7 +3,12 @@ class Luabind < Formula
   homepage "https://github.com/luabind/luabind"
   url "https://downloads.sourceforge.net/project/luabind/luabind/0.9.1/luabind-0.9.1.tar.gz"
   sha256 "80de5e04918678dd8e6dac3b22a34b3247f74bf744c719bae21faaa49649aaae"
+  license "MIT"
   revision 2
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any
@@ -34,8 +39,8 @@ class Luabind < Formula
 
   # apply upstream commit to enable building with clang
   patch do
-    url "https://github.com/luabind/luabind/commit/3044a9053ac50977684a75c4af42b2bddb853fad.diff?full_index=1"
-    sha256 "d04cbe7e5ed732943b1caf547321ac81b1db49271a5956a5f218905016c8900e"
+    url "https://github.com/luabind/luabind/commit/3044a9053ac50977684a75c4af42b2bddb853fad.patch?full_index=1"
+    sha256 "0e213656165de17c2047e18ac451fa891355a7f58b2995b5b8e0d95c23acdb1c"
   end
 
   # include C header that is not pulled in automatically on OS X 10.9 anymore
@@ -49,9 +54,10 @@ class Luabind < Formula
     ENV["LUA_PATH"] = Formula["lua@5.1"].opt_prefix
 
     args = %w[release install]
-    if ENV.compiler == :clang
+    case ENV.compiler
+    when :clang
       args << "--toolset=clang"
-    elsif ENV.compiler == :gcc
+    when :gcc
       args << "--toolset=darwin"
     end
     args << "--prefix=#{prefix}"
@@ -60,18 +66,19 @@ class Luabind < Formula
     (lib/"pkgconfig/luabind.pc").write pc_file
   end
 
-  def pc_file; <<~EOS
-    prefix=#{HOMEBREW_PREFIX}
-    exec_prefix=${prefix}
-    libdir=${exec_prefix}/lib
-    includedir=${exec_prefix}/include
+  def pc_file
+    <<~EOS
+      prefix=#{HOMEBREW_PREFIX}
+      exec_prefix=${prefix}
+      libdir=${exec_prefix}/lib
+      includedir=${exec_prefix}/include
 
-    Name: luabind
-    Description: Library for bindings between C++ and Lua
-    Version: 0.9.1
-    Libs: -L${libdir} -lluabind
-    Cflags: -I${includedir}
-  EOS
+      Name: luabind
+      Description: Library for bindings between C++ and Lua
+      Version: 0.9.1
+      Libs: -L${libdir} -lluabind
+      Cflags: -I${includedir}
+    EOS
   end
 
   test do

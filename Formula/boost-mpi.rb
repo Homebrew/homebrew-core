@@ -1,16 +1,16 @@
 class BoostMpi < Formula
   desc "C++ library for C++/MPI interoperability"
   homepage "https://www.boost.org/"
-  url "https://dl.bintray.com/boostorg/release/1.71.0/source/boost_1_71_0.tar.bz2"
-  sha256 "d73a8da01e8bf8c7eda40b4c84915071a8c8a0df4a6734537ddde4a8580524ee"
-  revision 1
+  url "https://dl.bintray.com/boostorg/release/1.74.0/source/boost_1_74_0.tar.bz2"
+  mirror "https://dl.bintray.com/homebrew/mirror/boost_1_74_0.tar.bz2"
+  sha256 "83bfc1507731a0906e387fc28b7ef5417d591429e51e788417fe9ff025e116b1"
+  license "BSL-1.0"
   head "https://github.com/boostorg/boost.git"
 
   bottle do
-    rebuild 1
-    sha256 "e4fde273f5ea74d733c71978810d9510e54a2fcaca64459982dec9f43c500610" => :catalina
-    sha256 "a6f535dfd42e05dd080e53d11642356087cf657b40b2113aa613cf50f93791d5" => :mojave
-    sha256 "6dd48ed4e5a7b42f61e34a0f3b75fa1aa4837a920a58b6d131763b8850f6f00c" => :high_sierra
+    sha256 "3a7a77d91db3d7f2f04bc564c2189769e53e37ffeb2cc08a716a299a341b0eb8" => :catalina
+    sha256 "78868cfa11d4bccdbbedb69ad36c208c7b467d77f4fefd198591e7b51a3d250c" => :mojave
+    sha256 "ae3da02f294d9eaaca43ef27316cb117136b84e3f7ce8eecbe671f17d1d2e90a" => :high_sierra
   end
 
   depends_on "boost"
@@ -31,9 +31,7 @@ class BoostMpi < Formula
     # Trunk starts using "clang++ -x c" to select C compiler which breaks C++11
     # handling using ENV.cxx11. Using "cxxflags" and "linkflags" still works.
     args << "cxxflags=-std=c++11"
-    if ENV.compiler == :clang
-      args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++"
-    end
+    args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++" if ENV.compiler == :clang
 
     open("user-config.jam", "a") do |file|
       file.write "using darwin : : #{ENV.cxx} ;\n"

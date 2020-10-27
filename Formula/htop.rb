@@ -1,40 +1,41 @@
 class Htop < Formula
   desc "Improved top (interactive process viewer)"
-  homepage "https://hisham.hm/htop/"
-  url "https://hisham.hm/htop/releases/2.2.0/htop-2.2.0.tar.gz"
-  sha256 "d9d6826f10ce3887950d709b53ee1d8c1849a70fa38e91d5896ad8cbc6ba3c57"
-  revision 1
+  homepage "https://htop.dev/"
+  url "https://github.com/htop-dev/htop/archive/3.0.2.tar.gz"
+  sha256 "b4744a3bea279f2a3725ed8e5e35ffd9cb10d66673bf07c8fe21feb3c4661305"
+  license "GPL-2.0-or-later"
+  head "https://github.com/htop-dev/htop.git"
+
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     cellar :any
-    sha256 "c06ff60960f64f5c8395f53d7419cbcce2a22ee87f0cb0138352c8a88111d21c" => :catalina
-    sha256 "77aa302765353b4085dcad52356d3264183e06310dda8d5bac64642299ea2902" => :mojave
-    sha256 "0ebfb655b91566ba31f8effc94d642a43305ff95bdc9b30b46fadc132e2ced0c" => :high_sierra
-    sha256 "ed93b86f011de155c5d261b8c9cc9cb81fd0017667bf3ebe26ee090716bcd650" => :sierra
+    sha256 "5bfd853dd4f051eb9a53c85ccdf21f66691f1a839036f5cff6c20a1f0ab05967" => :catalina
+    sha256 "8b577984d03fd78706384024e579dc68df3a96013fc35d251534281ff3ec7ae4" => :mojave
+    sha256 "1187ac4a948631e883539e0d2dd2362a1a64292ea562cf58ba8ec0b061150a49" => :high_sierra
   end
 
-  head do
-    url "https://github.com/hishamhm/htop.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "ncurses" # enables mouse scroll
 
   def install
-    system "./autogen.sh" if build.head?
+    system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    htop requires root privileges to correctly display all running processes,
-    so you will need to run `sudo htop`.
-    You should be certain that you trust any software you grant root privileges.
-  EOS
+  def caveats
+    <<~EOS
+      htop requires root privileges to correctly display all running processes,
+      so you will need to run `sudo htop`.
+      You should be certain that you trust any software you grant root privileges.
+    EOS
   end
 
   test do

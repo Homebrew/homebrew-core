@@ -1,44 +1,37 @@
 class Getdns < Formula
   desc "Modern asynchronous DNS API"
   homepage "https://getdnsapi.net"
-  url "https://getdnsapi.net/releases/getdns-1-5-2/getdns-1.5.2.tar.gz"
-  sha256 "1826a6a221ea9e9301f2c1f5d25f6f5588e841f08b967645bf50c53b970694c0"
-  revision 3
+  url "https://getdnsapi.net/releases/getdns-1-6-0/getdns-1.6.0.tar.gz"
+  sha256 "40e5737471a3902ba8304b0fd63aa7c95802f66ebbc6eae53c487c8e8a380f4a"
+  license "BSD-3-Clause"
+  head "https://github.com/getdnsapi/getdns.git", branch: "develop"
+
+  # We check the GitHub releases instead of https://getdnsapi.net/releases/,
+  # since the aforementioned first-party URL has a tendency to lead to an
+  # `execution expired` error.
+  livecheck do
+    url "https://github.com/getdnsapi/getdns/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
 
   bottle do
     cellar :any
-    sha256 "e9d55e0441197296fb86a1b1799d7a3774648b65578ea78231da2a50ad5161b8" => :catalina
-    sha256 "c7cde9c6422419585abaf6b30b14d1213ee728d6298527689714f61e1003dfcd" => :mojave
-    sha256 "b105523ee31c31dd16484babf53659e82a2950f095f5949d811733b481f1d84b" => :high_sierra
-    sha256 "aab96082494eadf2d8806211a3597fdd3356938181e39b8c77a6146a8767ce97" => :sierra
+    sha256 "e921bc22b5d49af0cf93a3daf035828b286cf28faf4e3916c863214c58cb100d" => :catalina
+    sha256 "dddc38b808f9901c02b56755838005ff9f04cb665f40d7145709838e8e38ef99" => :mojave
+    sha256 "431361fe29326a2c2b8ecb57b87f8a09c26fc21b5e3170c74bfe61b9ce6b1864" => :high_sierra
   end
 
-  head do
-    url "https://github.com/getdnsapi/getdns.git", :branch => "develop"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
+  depends_on "cmake" => :build
   depends_on "libevent"
   depends_on "libidn2"
   depends_on "openssl@1.1"
   depends_on "unbound"
 
   def install
-    if build.head?
-      system "glibtoolize", "-ci"
-      system "autoreconf", "-fi"
-    end
-
-    system "./configure", "--prefix=#{prefix}",
-                          "--with-libevent",
-                          "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}",
-                          "--with-trust-anchor=#{etc}/getdns-root.key",
-                          "--without-stubby"
+    system "cmake", ".", *std_cmake_args,
+                         "-DBUILD_TESTING=OFF",
+                         "-DPATH_TRUST_ANCHOR_FILE=#{etc}/getdns-root.key"
     system "make"
-    ENV.deparallelize
     system "make", "install"
   end
 

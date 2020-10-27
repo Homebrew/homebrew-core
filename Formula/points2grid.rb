@@ -3,14 +3,14 @@ class Points2grid < Formula
   homepage "https://github.com/CRREL/points2grid"
   url "https://github.com/CRREL/points2grid/archive/1.3.1.tar.gz"
   sha256 "6e2f2d3bbfd6f0f5c2d0c7d263cbd5453745a6fbe3113a3a2a630a997f4a1807"
-  revision 4
+  license "BSD-4-Clause"
+  revision 8
 
   bottle do
     cellar :any
-    sha256 "55fc987d27a9dd759111258641196dc1d48856c5f4a828fdffedb6ca49b8e63d" => :catalina
-    sha256 "2353397675ec9f8fe4f8cf701645e4dceedf01030ee54ff61720521ba6afa046" => :mojave
-    sha256 "4d2c91405313abf7fedda20628ce2b11b5bc3f76a42862a40e90d5252ad34e7c" => :high_sierra
-    sha256 "58d99c2471ebd555d76e36c1108d352bb4e9b7594459ea3381c5f4a6232bfca3" => :sierra
+    sha256 "caeb87d3165908356f7af813676c9e9caeaa010031ef555efc7ab7e35840e166" => :catalina
+    sha256 "daa8956573bbf24c90a630b3af8c732dbae56488d991c7fde2262dd69f79375a" => :mojave
+    sha256 "d761f8f93883f4d2517c21f7e328a4daed07bc4ed09fdc684068ebffdadb1b4e" => :high_sierra
   end
 
   depends_on "cmake" => :build

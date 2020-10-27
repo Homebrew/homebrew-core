@@ -1,15 +1,20 @@
 class Freeciv < Formula
   desc "Free and Open Source empire-building strategy game"
-  homepage "https://freeciv.wikia.com/"
-  url "https://downloads.sourceforge.net/project/freeciv/Freeciv%202.6/2.6.0/freeciv-2.6.0.tar.bz2"
-  sha256 "7c20399198d6c7d846fed9a69b02e01134ae5340a3ae0f99d1e38063ade6c999"
-  revision 2
+  homepage "http://freeciv.org"
+  url "https://downloads.sourceforge.net/project/freeciv/Freeciv%202.6/2.6.2/freeciv-2.6.2.tar.bz2"
+  sha256 "6181ef3d3c76264383aabbe0eaf1550d8a65ca42639e6c17cc2938165e176c8f"
+  license "GPL-2.0"
+  revision 1
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/freeciv[._-]v?(\d+(?:\.\d+)+)\.(?:t|zip)/}i)
+  end
 
   bottle do
-    sha256 "3de88c5d6230897f92b145eee14294bff55ce133c3e81258c77792b12f482996" => :catalina
-    sha256 "e1846824dd58a21076dcd3dcc92538d21ab0571c3e21dc13a39850194a192976" => :mojave
-    sha256 "3896454c21b30406c48d25877a7deed3aeee943219c976ac62ea9f7825d7903f" => :high_sierra
-    sha256 "dc55a50e4055b42302630bc6471eda4ac8c5fc6be45bed562824126901918765" => :sierra
+    sha256 "ef6d245c1c9e7deae7ac7f7e76df10e7b6a8d49968bebc0b99f14729ceee290f" => :catalina
+    sha256 "3b488924c498bfd515785b3ce42f9b9fc75b82fa799fff77fd58c1b42038c2bb" => :mojave
+    sha256 "d7789957285649359ce9283b0cc4635fa6e94ca14856cfc922aef65810a41357" => :high_sierra
   end
 
   head do
@@ -23,18 +28,23 @@ class Freeciv < Formula
 
   depends_on "pkg-config" => :build
   depends_on "atk"
+  depends_on "cairo"
   depends_on "freetype"
+  depends_on "gdk-pixbuf"
   depends_on "gettext"
   depends_on "glib"
-  depends_on "gtk+"
+  depends_on "gtk+3"
+  depends_on "harfbuzz"
   depends_on "icu4c"
   depends_on "pango"
   depends_on "readline"
-  depends_on "sdl"
-  depends_on "sdl_gfx"
-  depends_on "sdl_image"
-  depends_on "sdl_mixer"
-  depends_on "sdl_ttf"
+  depends_on "sdl2"
+  depends_on "sdl2_mixer"
+
+  uses_from_macos "bzip2"
+  uses_from_macos "curl"
+  uses_from_macos "libiconv"
+  uses_from_macos "zlib"
 
   def install
     ENV["ac_cv_lib_lzma_lzma_code"] = "no"
@@ -43,6 +53,11 @@ class Freeciv < Formula
       --disable-debug
       --disable-dependency-tracking
       --disable-gtktest
+      --disable-silent-rules
+      --disable-sdltest
+      --disable-sdl2test
+      --disable-sdl2framework
+      --enable-fcdb=sqlite3
       --prefix=#{prefix}
       --with-readline=#{Formula["readline"].opt_prefix}
       CFLAGS=-I#{Formula["gettext"].include}
@@ -63,11 +78,10 @@ class Freeciv < Formula
     system bin/"freeciv-manual"
     assert_predicate testpath/"classic6.mediawiki", :exist?
 
-    server = fork do
+    fork do
       system bin/"freeciv-server", "-l", testpath/"test.log"
     end
     sleep 5
-    Process.kill("TERM", server)
     assert_predicate testpath/"test.log", :exist?
   end
 end

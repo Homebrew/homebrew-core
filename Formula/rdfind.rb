@@ -3,13 +3,13 @@ class Rdfind < Formula
   homepage "https://rdfind.pauldreik.se/"
   url "https://rdfind.pauldreik.se/rdfind-1.4.1.tar.gz"
   sha256 "30c613ec26eba48b188d2520cfbe64244f3b1a541e60909ce9ed2efb381f5e8c"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "4b0f71d105368d57caf8037100cd79447d9b7e7d8eac3a167c65aa836d04d7ca" => :catalina
-    sha256 "a0958b206cea28100f3aa0f08dc3d1be3de2eba641a44b293a44f42f9e43e261" => :mojave
-    sha256 "1d504b757728f9f704884de3d347ebd22536e2cb86b4badafaec9aa3e9e915d8" => :high_sierra
-    sha256 "894d7aaf7a86a7df034c773c9b62e1a8525cbbebf56870280a886ca0b80d5ae9" => :sierra
+    sha256 "e890406a4cbbd8d026a4c583644efa537433ac71c095a1e582b0454d85a87d00" => :catalina
+    sha256 "489e104d2c5e5d939439f5b100cd97e19ed070181d355b49fbd1ad2b3320d789" => :mojave
+    sha256 "2ce91e3b8a129c0fadb57fba46074e74e0d896287c23eb1844cd99e5eef093b1" => :high_sierra
   end
 
   depends_on "nettle"

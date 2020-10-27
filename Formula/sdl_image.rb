@@ -3,7 +3,13 @@ class SdlImage < Formula
   homepage "https://www.libsdl.org/projects/SDL_image"
   url "https://www.libsdl.org/projects/SDL_image/release/SDL_image-1.2.12.tar.gz"
   sha256 "0b90722984561004de84847744d566809dbb9daf732a9e503b91a1b5a84e5699"
+  license "Zlib"
   revision 7
+
+  livecheck do
+    url "https://www.libsdl.org/projects/SDL_image/release/"
+    regex(/href=.*?SDL_image[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     cellar :any

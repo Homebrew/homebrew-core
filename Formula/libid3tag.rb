@@ -4,6 +4,11 @@ class Libid3tag < Formula
   url "https://downloads.sourceforge.net/project/mad/libid3tag/0.15.1b/libid3tag-0.15.1b.tar.gz"
   sha256 "63da4f6e7997278f8a3fef4c6a372d342f705051d1eeb6a46a86b03610e26151"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/libid3tag[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t}i)
+  end
+
   bottle do
     cellar :any
     rebuild 1
@@ -14,6 +19,19 @@ class Libid3tag < Formula
     sha256 "75e446174dd2a9dc17326c998757c4218a89cddb734f3000d0b0506de801732a" => :el_capitan
     sha256 "07ef662e3ab9be0cce16eabb13dbc046fc60c42184ac003285371dc955859697" => :yosemite
     sha256 "d832f73e16b185fed6a66d2f00199a7d76411e438854988262463f4769b40d5b" => :mavericks
+  end
+
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "gperf"
+
+    # fix build with gperf
+    # https://bugs.gentoo.org/show_bug.cgi?id=605158
+    patch do
+      url "https://gist.githubusercontent.com/iMichka/c23ea881388319b38838183754349bba/raw/4829ff0702a511f96026369676a11edd9a79ab30/libid3tag.diff"
+      sha256 "00f04427c6b3bab2bb8595f6df0ebc774b60031ee60428241801ccf6337d4c5d"
+    end
   end
 
   # patch for utf-16 (memory leaks), see https://bugs.launchpad.net/mixxx/+bug/403586
@@ -54,19 +72,20 @@ class Libid3tag < Formula
     (lib+"pkgconfig/id3tag.pc").write pc_file
   end
 
-  def pc_file; <<~EOS
-    prefix=#{opt_prefix}
-    exec_prefix=${prefix}
-    libdir=${exec_prefix}/lib
-    includedir=${prefix}/include
+  def pc_file
+    <<~EOS
+      prefix=#{opt_prefix}
+      exec_prefix=${prefix}
+      libdir=${exec_prefix}/lib
+      includedir=${prefix}/include
 
-    Name: id3tag
-    Description: ID3 tag reading library
-    Version: #{version}
-    Requires:
-    Conflicts:
-    Libs: -L${libdir} -lid3tag -lz
-    Cflags: -I${includedir}
-  EOS
+      Name: id3tag
+      Description: ID3 tag reading library
+      Version: #{version}
+      Requires:
+      Conflicts:
+      Libs: -L${libdir} -lid3tag -lz
+      Cflags: -I${includedir}
+    EOS
   end
 end

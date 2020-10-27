@@ -1,19 +1,21 @@
 class Opam < Formula
-  desc "The OCaml package manager"
+  desc "OCaml package manager"
   homepage "https://opam.ocaml.org"
-  url "https://github.com/ocaml/opam/releases/download/2.0.5/opam-full-2.0.5.tar.gz"
-  sha256 "776c7e64d6e24c2ef1efd1e6a71d36e007645efae94eaf860c05c1929effc76f"
+  url "https://github.com/ocaml/opam/releases/download/2.0.7/opam-full-2.0.7.tar.gz"
+  sha256 "9c0dac1094ed624158fff13000cdfa8edbc96798d32b9fab40b0b5330f9490a2"
+  license "LGPL-2.1"
   head "https://github.com/ocaml/opam.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2eaa945aa00834374c7170da065b5d2c15a5df25130bb9b336fb17097f7000cd" => :catalina
-    sha256 "73d4d1936a7862127e77efa45a07af5e4b49ed00227e9455671ca2a87a32875c" => :mojave
-    sha256 "8799c5a87853dba2a74a3cbc58a7ecb39197ade8372726d044f617ca6bf55a33" => :high_sierra
-    sha256 "2e81e914a8259d6f97e808d4def682154d45545efc6efc67c2c344dc5e97e1d8" => :sierra
+    sha256 "f159a779ee6521c95c06b382fbea72bd1cedf6463d9be8bc85f5cfac4ef16b0d" => :catalina
+    sha256 "fec93e54a1a635c7d2b5ca4acfbd051665a606f6760b5336b846b23ca8663e23" => :mojave
+    sha256 "5fef1c5aca812af337373a34b9a97e2f0bd7bf3f22a36c3d184af73a4c2ea7f7" => :high_sierra
   end
 
   depends_on "ocaml" => [:build, :test]
+
+  uses_from_macos "unzip"
 
   def install
     ENV.deparallelize
@@ -21,19 +23,19 @@ class Opam < Formula
     system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
     system "make", "lib-ext"
     system "make"
-    system "make", "man"
     system "make", "install"
 
-    bash_completion.install "src/state/shellscripts/complete.sh"
+    bash_completion.install "src/state/shellscripts/complete.sh" => "opam"
     zsh_completion.install "src/state/shellscripts/complete.zsh" => "_opam"
   end
 
-  def caveats; <<~EOS
-    OPAM uses ~/.opam by default for its package database, so you need to
-    initialize it first by running:
+  def caveats
+    <<~EOS
+      OPAM uses ~/.opam by default for its package database, so you need to
+      initialize it first by running:
 
-    $ opam init
-  EOS
+      $ opam init
+    EOS
   end
 
   test do

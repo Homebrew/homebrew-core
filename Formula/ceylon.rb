@@ -7,7 +7,7 @@ class Ceylon < Formula
 
   bottle :unneeded
 
-  depends_on :java => "1.8"
+  depends_on java: "1.8"
 
   def install
     man1.install Dir["doc/man/man1/*"]
@@ -20,9 +20,14 @@ class Ceylon < Formula
 
   test do
     cd "#{libexec}/samples/helloworld" do
-      system "#{bin}/ceylon", "compile", "--out", "#{testpath}/modules", "--encoding", "UTF-8", "com.example.helloworld"
-      system "#{bin}/ceylon", "doc", "--out", "#{testpath}/modules", "--encoding", "UTF-8", "--non-shared", "com.example.helloworld"
-      system "#{bin}/ceylon", "run", "--rep", "#{testpath}/modules", "com.example.helloworld/1.0", "John"
+      system "#{bin}/ceylon", "compile", "--out", "#{testpath}/modules",
+                                         "--encoding", "UTF-8",
+                                         "com.example.helloworld"
+      system "#{bin}/ceylon", "doc", "--out", "#{testpath}/modules",
+                                     "--encoding", "UTF-8", "--non-shared",
+                                     "com.example.helloworld"
+      system "#{bin}/ceylon", "run", "--rep", "#{testpath}/modules",
+                                     "com.example.helloworld/1.0", "John"
     end
   end
 end

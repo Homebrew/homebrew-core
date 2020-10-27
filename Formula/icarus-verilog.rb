@@ -1,27 +1,38 @@
 class IcarusVerilog < Formula
   desc "Verilog simulation and synthesis tool"
   homepage "http://iverilog.icarus.com/"
-  url "ftp://icarus.com/pub/eda/verilog/v10/verilog-10.3.tar.gz"
-  mirror "https://deb.debian.org/debian/pool/main/i/iverilog/iverilog_10.3.orig.tar.gz"
-  sha256 "86bd45e7e12d1bc8772c3cdd394e68a9feccb2a6d14aaf7dae0773b7274368ef"
+  url "https://github.com/steveicarus/iverilog/archive/v11_0.tar.gz"
+  mirror "https://deb.debian.org/debian/pool/main/i/iverilog/iverilog_11.0.orig.tar.gz"
+  sha256 "6327fb900e66b46803d928b7ca439409a0dc32731d82143b20387be0833f1c95"
+  license "LGPL-2.1"
+  head "https://github.com/steveicarus/iverilog.git"
+
+  livecheck do
+    url "https://ftp.openbsd.org/pub/OpenBSD/distfiles/"
+    regex(/href=.*?verilog[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 "bf40a384b8432dfb72276e31e87d550b9b47515dc68bdfb25f0cde9becd4ac10" => :catalina
-    sha256 "0237851e478bcb76567111f14c1e42fe79161a8cd28ca04127295fc40db14113" => :mojave
-    sha256 "96a15af23212d29f9410e073418c9388447955245fa8c38cf3b27ccf8fabd178" => :high_sierra
-    sha256 "ded40d14a1cd74f2b764d9cf667d48ee8b6c010e77d88ca47afc99188ace1255" => :sierra
+    sha256 "99791a3fd0891487586c49112fa3293e65320e651bbf9c03f15a58b456e96e6e" => :catalina
+    sha256 "92851adfb43caad0826da2bf74706c15e6fffc2e32b2b003e19659b0e6a4542b" => :mojave
+    sha256 "a92f6fe981238a8c2b9f47b99d77c1e8596bc74235b8f6601835aae8f9ad70a1" => :high_sierra
   end
 
-  head do
-    url "https://github.com/steveicarus/iverilog.git"
-    depends_on "autoconf" => :build
-  end
-
+  depends_on "autoconf" => :build
   # parser is subtly broken when processed with an old version of bison
   depends_on "bison" => :build
 
+  uses_from_macos "flex" => :build
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "gperf" => :build
+    depends_on "readline"
+  end
+
   def install
-    system "autoconf" if build.head?
+    system "autoconf"
     system "./configure", "--prefix=#{prefix}"
     # https://github.com/steveicarus/iverilog/issues/85
     ENV.deparallelize

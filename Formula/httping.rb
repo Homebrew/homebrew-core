@@ -3,6 +3,7 @@ class Httping < Formula
   homepage "https://www.vanheusden.com/httping/"
   url "https://www.vanheusden.com/httping/httping-2.5.tgz"
   sha256 "3e895a0a6d7bd79de25a255a1376d4da88eb09c34efdd0476ab5a907e75bfaf8"
+  license "GPL-2.0"
   revision 2
   head "https://github.com/flok99/httping.git"
 
@@ -26,10 +27,6 @@ class Httping < Formula
   end
 
   test do
-    if MacOS.version >= :el_capitan
-      system bin/"httping", "-c", "2", "-g", "https://brew.sh/"
-    else
-      system bin/"httping", "-c", "2", "-g", "http://brew.sh/"
-    end
+    system bin/"httping", "-c", "2", "-g", "https://brew.sh/"
   end
 end

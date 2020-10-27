@@ -1,24 +1,35 @@
 class Ldc < Formula
   desc "Portable D programming language compiler"
   homepage "https://wiki.dlang.org/LDC"
-  url "https://github.com/ldc-developers/ldc/releases/download/v1.17.0/ldc-1.17.0-src.tar.gz"
-  sha256 "6a2fa91a53d954361832591488241c92adb497842069077425d73c9b9d2c4fa9"
-  head "https://github.com/ldc-developers/ldc.git", :shallow => false
+  url "https://github.com/ldc-developers/ldc/releases/download/v1.24.0/ldc-1.24.0-src.tar.gz"
+  sha256 "fd9561ade916e9279bdcc166cf0e4836449c24e695ab4470297882588adbba3c"
+  license "BSD-3-Clause"
+  head "https://github.com/ldc-developers/ldc.git", shallow: false
+
+  livecheck do
+    url "https://github.com/ldc-developers/ldc/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
 
   bottle do
-    sha256 "d1a3c150b95503558ef83d8e6dfdad818fa550b97333368178e402ab13cc02fc" => :mojave
-    sha256 "ae7b85fa800d95dcc8815dfafd5716b0d3cf47134d2fc536a2796db8cee11f28" => :high_sierra
-    sha256 "f48a3181863ba8a69c56459512a15fb1f0fcc153250d3cba5374c173a3627d31" => :sierra
+    sha256 "50fbf7f844bdbf0b7ddadfd4e028509192fe0c12f7c2dfafd57158d649856a82" => :catalina
+    sha256 "fbb02c825000d7e2d68061d390279769eb0ee332f8dffc5fabb405e42df0dee6" => :mojave
+    sha256 "64cd2a36a85803fe72ee075f35b1a71d4e5f3ddf06115c8885df72874abfec0d" => :high_sierra
   end
 
   depends_on "cmake" => :build
   depends_on "libconfig" => :build
-  depends_on "llvm"
+  depends_on "llvm@9" # due to a bug in llvm 10 https://bugs.llvm.org/show_bug.cgi?id=47226
+
+  uses_from_macos "libxml2" => :build
+
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
 
   resource "ldc-bootstrap" do
-    url "https://github.com/ldc-developers/ldc/releases/download/v1.17.0/ldc2-1.17.0-osx-x86_64.tar.xz"
-    version "1.17.0"
-    sha256 "fb1fe4e6edba4a8ac590e24abccdd034f11fa11a1bbe4c0f3cdb6083ba069825"
+    url "https://github.com/ldc-developers/ldc/releases/download/v1.24.0/ldc2-1.24.0-osx-x86_64.tar.xz"
+    sha256 "91b74856982d4d5ede6e026f24e33887d931db11b286630554fc2ad0438cda44"
   end
 
   def install
@@ -27,14 +38,10 @@ class Ldc < Formula
 
     mkdir "build" do
       args = std_cmake_args + %W[
-        -DLLVM_ROOT_DIR=#{Formula["llvm"].opt_prefix}
+        -DLLVM_ROOT_DIR=#{Formula["llvm@9"].opt_prefix}
         -DINCLUDE_INSTALL_DIR=#{include}/dlang/ldc
         -DD_COMPILER=#{buildpath}/ldc-bootstrap/bin/ldmd2
-        -DLDC_WITH_LLD=OFF
-        -DRT_ARCHIVE_WITH_LDC=OFF
       ]
-      # LDC_WITH_LLD see https://github.com/ldc-developers/ldc/releases/tag/v1.4.0 Known issues
-      # RT_ARCHIVE_WITH_LDC see https://github.com/ldc-developers/ldc/issues/2350
 
       system "cmake", "..", *args
       system "make"

@@ -1,29 +1,48 @@
 class Spades < Formula
+  include Language::Python::Shebang
+
   desc "De novo genome sequence assembly"
-  homepage "http://cab.spbu.ru/software/spades/"
-  url "http://cab.spbu.ru/files/release3.13.0/SPAdes-3.13.0.tar.gz"
-  mirror "https://github.com/ablab/spades/releases/download/v3.13.0/SPAdes-3.13.0.tar.gz"
-  sha256 "c63442248c4c712603979fa70503c2bff82354f005acda2abc42dd5598427040"
-  revision 1
+  homepage "https://cab.spbu.ru/software/spades/"
+  url "https://github.com/ablab/spades/releases/download/v3.14.1/SPAdes-3.14.1.tar.gz"
+  mirror "https://cab.spbu.ru/files/release3.14.1/SPAdes-3.14.1.tar.gz"
+  sha256 "d629b78f7e74c82534ac20f5b3c2eb367f245e6840a67b9ef6a76f6fac5323ca"
+  license "GPL-2.0"
+  revision 2
+
+  livecheck do
+    url "https://cab.spbu.ru/files/?C=M&O=D"
+    regex(%r{href=.*?release(\d+(?:\.\d+)+)/?["' >]}i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "f79562a627e66647a7013f989e257f3ed33023daf7cbc9f836fecb0356766aa7" => :catalina
-    sha256 "6eff79211afd0a5f2a3194db28a630bfa53cec5b968dc810e65bbaefce55fae4" => :mojave
-    sha256 "ef7d029efa28d81c236a428f40c0780b074827b50e5618cc328b4cfffdc7e579" => :high_sierra
-    sha256 "8418d4226f398f2853500eb3fea5788d58b392202101934a4fba502f7c77efcd" => :sierra
+    cellar :any_skip_relocation
+    sha256 "d71dce85beb2f8f912c630e9a7275295f0cb88f6e35ae9b3e6ef5fcb9038a082" => :catalina
+    sha256 "3d5353e4e5d69fb611873ee7ba7cd272f61b2f306515efc10762ee6e65d4e2bb" => :mojave
+    sha256 "0d219b76bb4076f76f1a7551b06620258702dee5229685a85b5ec683e6dbb3ab" => :high_sierra
   end
 
   depends_on "cmake" => :build
-  depends_on "gcc"
+  depends_on "python@3.9"
 
-  fails_with :clang # no OpenMP support
+  uses_from_macos "bzip2"
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "libomp"
+  end
+
+  on_linux do
+    depends_on "jemalloc"
+    depends_on "readline"
+  end
 
   def install
     mkdir "src/build" do
       system "cmake", "..", *std_cmake_args
       system "make", "install"
     end
+    bin.find { |f| rewrite_shebang detected_python_shebang, f }
   end
 
   test do

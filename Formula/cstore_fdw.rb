@@ -1,23 +1,22 @@
 class CstoreFdw < Formula
   desc "Columnar store for analytics with Postgres"
   homepage "https://github.com/citusdata/cstore_fdw"
-  url "https://github.com/citusdata/cstore_fdw/archive/v1.6.2.tar.gz"
-  sha256 "35aabbc5a1608024e6aa038d06035e90d587e805eb706eb80652eb8547783491"
+  url "https://github.com/citusdata/cstore_fdw/archive/v1.7.0.tar.gz"
+  sha256 "bd8a06654b483d27b48d8196cf6baac0c7828b431b49ac097923ac0c54a1c38c"
+  license "Apache-2.0"
 
   bottle do
     cellar :any
-    sha256 "a8b567b94b36717172703aaae7efdd9186c98f38019a46e5215ada8494e595ee" => :catalina
-    sha256 "b6bc6b6fa4ee33cc7feb99c3048ef9111720bff5a4d9aafd46269dfe886e84a7" => :mojave
-    sha256 "634bbe8703dec700f01becc6a83fce3aeb741cfcb6e3cc40527cc334b67f4bdf" => :high_sierra
-    sha256 "947cd3c688305996b7b3a4159c0feab29efd5adaa0ae5548250ffdb3b8095bee" => :sierra
+    rebuild 1
+    sha256 "bf5bff9fcedd614bb641d3ac2bfe1c0c5d226cffd4bdccdc4ea011cfe307000b" => :catalina
+    sha256 "d2758c2643cebe884e575a44e8f36defb68519326898dccc5dd13e2046235ea5" => :mojave
+    sha256 "c7eb62b441f09798e91098a082b8835184c98292822cf5606a3bc83d0627559e" => :high_sierra
   end
 
   depends_on "postgresql"
   depends_on "protobuf-c"
 
   def install
-    ENV["PG_CONFIG"] = Formula["postgresql"].opt_bin/"pg_config"
-
     # workaround for https://github.com/Homebrew/homebrew/issues/49948
     system "make", "libpq=-L#{Formula["postgresql"].opt_lib} -lpq"
 
@@ -31,6 +30,8 @@ class CstoreFdw < Formula
   end
 
   test do
+    return if ENV["CI"]
+
     pg_bin = Formula["postgresql"].opt_bin
     pg_port = "55561"
     system "#{pg_bin}/initdb", testpath/"test"

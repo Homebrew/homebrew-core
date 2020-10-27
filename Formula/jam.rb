@@ -1,21 +1,17 @@
 class Jam < Formula
   desc "Make-like build tool"
-  homepage "https://www.perforce.com/resources/documentation/jam"
-  url "https://swarm.workshop.perforce.com/projects/perforce_software-jam/download/main/jam-2.6.zip"
-  sha256 "7c510be24dc9d0912886c4364dc17a013e042408386f6b937e30bd9928d5223c"
+  homepage "https://www.perforce.com/documentation/jam-documentation"
+  url "https://swarm.workshop.perforce.com/projects/perforce_software-jam/download/main/jam-2.6.1.zip"
+  sha256 "72ea48500ad3d61877f7212aa3d673eab2db28d77b874c5a0b9f88decf41cb73"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0cc10cd2f6e62c79dd2f768c071176ed3bd2817324c3bcf965c9b353b34b907b" => :catalina
-    sha256 "74bb1fa17bf34a593e1eddc6ed535e96df35b4ef33e3fb012dc3078518f3ec5e" => :mojave
-    sha256 "fca7eb8cad1835f4f158a20082f34db110301ec08227508c0467148fc0574b36" => :high_sierra
-    sha256 "8ac6989eec84a98b3f84b2375e6c460512256cbd7049ddd96acd8b85c327b0fa" => :sierra
-    sha256 "d93effb9978322bc47d7d204e435ce7da90dd577a43b9086d6868a3118c2fb29" => :el_capitan
-    sha256 "9f8bffedce727f07a14ff7a9453bf66884dce87d463de464fe2c40e30f127c60" => :yosemite
-    sha256 "83ef7ba772948a5e06481cd0a32c54f09139d2693d880223b72ee27deb4d7e37" => :mavericks
+    sha256 "0f2f2b4cac48c2ef9b11d86867c4e9d941a41a582754bfc470da25a7174dde9f" => :catalina
+    sha256 "c19a32cbe0ffa2e7d2d826ee542a74307ca29b34ba28dc5ec6aea7ff7a9127c1" => :mojave
+    sha256 "2927cebface8a3cbc00a23e7badb9e1676fda9bae282e78a1772b99aafba5014" => :high_sierra
   end
 
-  conflicts_with "ftjam", :because => "both install a `jam` binary"
+  conflicts_with "ftjam", because: "both install a `jam` binary"
 
   def install
     system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}", "LOCATE_TARGET=bin"

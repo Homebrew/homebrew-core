@@ -1,15 +1,15 @@
 class Nlopt < Formula
   desc "Free/open-source library for nonlinear optimization"
   homepage "https://nlopt.readthedocs.io/"
-  url "https://github.com/stevengj/nlopt/archive/v2.6.1.tar.gz"
-  sha256 "66d63a505187fb6f98642703bd0ef006fedcae2f9a6d1efa4f362ea919a02650"
+  url "https://github.com/stevengj/nlopt/archive/v2.6.2.tar.gz"
+  sha256 "cfa5981736dd60d0109c534984c4e13c615314d3584cf1c392a155bfe1a3b17e"
+  license "LGPL-2.1"
   head "https://github.com/stevengj/nlopt.git"
 
   bottle do
-    sha256 "50af59975dda1e54eb42a6d8b9d12177a6aa04ab6949044fbe2fa54d0ddd7181" => :catalina
-    sha256 "7a81f1b9a7f5f60d805ce298d1f97b974126a7db3be54bd7471e09de5256f248" => :mojave
-    sha256 "232738c4999669c84b8c0c1414a5a89847329c6a9492d8f74f5940f0803688e9" => :high_sierra
-    sha256 "00464736f9872cd6a67ee005ba85c1536219e973855c8fa81c46f1515e1409f9" => :sierra
+    sha256 "67fbb937e618ea96f22cae30d9f71c3abc4d36b8e9b3d48a0ac47074189da936" => :catalina
+    sha256 "849095263f9cac072ca976169f1689ed51b04be20f89e219513bcc7db8a01937" => :mojave
+    sha256 "aef5b9054a8b604ad90fa7bb689b3daa3b671b9d65f16e53d25b7a9fa8e074d8" => :high_sierra
   end
 
   depends_on "cmake" => [:build, :test]

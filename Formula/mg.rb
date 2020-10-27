@@ -1,16 +1,15 @@
 class Mg < Formula
   desc "Small Emacs-like editor"
   homepage "https://github.com/ibara/mg"
-  url "https://github.com/ibara/mg/releases/download/mg-6.5/mg-6.5.tar.gz"
-  sha256 "3e4bb4582c8d1a72fb798bc320a9eede04f41e7e72a1421193174b1a6fc43cd8"
+  url "https://github.com/ibara/mg/releases/download/mg-6.7/mg-6.7.tar.gz"
+  sha256 "02583d90df743e994fb1e411befbd23488fd1eaeb82c9db1fd4957d1a8f1abde"
   version_scheme 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8b9e7b59a0021e6bf6e2534f437438fa692f0b9afb68eadf24ec1d2690f1b966" => :catalina
-    sha256 "54880473248cbcc31d29cec5e6c053629f47525fd8fdbd3e72310321b2681e04" => :mojave
-    sha256 "3eb1ebbc0e3cff3645b5608ed1584a4e78400b3d0e6063667aaac98dd79fa81b" => :high_sierra
-    sha256 "6177fdb667f9e016e0c2c87844637bd20630a44f2f3bf4068b0117ecbf72f631" => :sierra
+    sha256 "44271237cfb495988cd88029e0ac465a46e14bdb583ac09c1acdf73f95bd4fc4" => :catalina
+    sha256 "ac5ac7054d3feb7aaef8746482678e66380893958299a36eeff1101cfa407d92" => :mojave
+    sha256 "dfff27703d404052738009ab8c19a6d94b3a784c346962001eb80fa5cd9de4c4" => :high_sierra
   end
 
   def install

@@ -3,17 +3,18 @@ class Mitie < Formula
   homepage "https://github.com/mit-nlp/MITIE/"
   url "https://github.com/mit-nlp/MITIE/archive/v0.7.tar.gz"
   sha256 "0830955e64c2a4cceab803884355f090cf8e9086e68ac5df43058f05c34697e8"
+  license "BSL-1.0"
+  revision 2
   head "https://github.com/mit-nlp/MITIE.git"
 
   bottle do
     cellar :any
-    sha256 "469ce415ab6ae244b3d69fff545f90b379eaca76a495d3f8f385fa1897e523b7" => :catalina
-    sha256 "4f9709ea893f329be8b0097668770177aa37873f97e5f83b9c61a1ee7755d44b" => :mojave
-    sha256 "097989a1217a73c777f37d6232c5bee07055335570548375086aa38525c6c21b" => :high_sierra
-    sha256 "243d4557bc8f89638bcc45a1cdfe4402d820d3d5d56a0ffb6db3b9a748ca47e5" => :sierra
+    sha256 "7190df4ed270f1ed0d6b09ea3410b673af9bf8de7349db5cc7c58a8596d10094" => :catalina
+    sha256 "523dbdb69c94746e8e451c01a400897e294f414981bacc7c3933e3cefef590c5" => :mojave
+    sha256 "36a3671f823322c4542af4c555ccfcc1f69ce7c50360f17903b0decc34ddb63e" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.9"
 
   resource "models-english" do
     url "https://downloads.sourceforge.net/project/mitie/binaries/MITIE-models-v0.2.tar.bz2"

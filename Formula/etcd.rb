@@ -2,57 +2,57 @@ class Etcd < Formula
   desc "Key value store for shared configuration and service discovery"
   homepage "https://github.com/etcd-io/etcd"
   url "https://github.com/etcd-io/etcd.git",
-    :tag      => "v3.4.3",
-    :revision => "3cf2f69b5738fb702ba1a935590f36b52b18979b"
+    tag:      "v3.4.13",
+    revision: "ae9734ed278b7a1a7dfc82e800471ebbf9fce56f"
+  license "Apache-2.0"
   head "https://github.com/etcd-io/etcd.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9ec3f9d7548b078452d2c669521c83a79173178ee84d5a3963d5ecd1ee79ec21" => :catalina
-    sha256 "2247b5b279eb6ba017c8fa079a0628571cf62444b8c22849ac426ad0ce800221" => :mojave
-    sha256 "e9ab53a559f0a73840b1c2a7112e7cc2192055c9904977a6006f70962eacc335" => :high_sierra
+    sha256 "ff3603b21a38568e3a2ae9964cdacbb5adfdc8b094c98b8e0423d2e4fb82c8ca" => :catalina
+    sha256 "8c3f78a11d36c7c934deb4faa1007645d8cdb8293b04242e92e536551752a805" => :mojave
+    sha256 "642a6b2ef0dbfabad3645e512c507aca25fa777a84e1790f7d18f8f63a2c637d" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
+    # Fix vendored deps issue (remove this in the next release)
+    system "go", "mod", "vendor"
 
-    dir = buildpath/"src/github.com/etcd-io/etcd"
-    dir.install buildpath.children
-
-    cd dir do
-      system "go", "build", "-ldflags", "-X main.version=#{version}", "-o", bin/"etcd"
-      system "go", "build", "-ldflags", "-X main.version=#{version}", "-o", bin/"etcdctl", "etcdctl/main.go"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-mod=vendor", "-ldflags", "-s -w -X main.version=#{version}", "-trimpath", "-o",
+      bin/"etcd"
+    system "go", "build", "-mod=vendor", "-ldflags", "-s -w -X main.version=#{version}", "-trimpath", "-o",
+      bin/"etcdctl", "etcdctl/main.go"
+    prefix.install_metafiles
   end
 
-  plist_options :manual => "etcd"
+  plist_options manual: "etcd"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>KeepAlive</key>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
         <dict>
-          <key>SuccessfulExit</key>
-          <false/>
+          <key>KeepAlive</key>
+          <dict>
+            <key>SuccessfulExit</key>
+            <false/>
+          </dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/etcd</string>
+          </array>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>WorkingDirectory</key>
+          <string>#{var}</string>
         </dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/etcd</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>WorkingDirectory</key>
-        <string>#{var}</string>
-      </dict>
-    </plist>
-  EOS
+      </plist>
+    EOS
   end
 
   test do

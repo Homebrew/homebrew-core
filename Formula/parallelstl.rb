@@ -1,15 +1,27 @@
 class Parallelstl < Formula
   desc "C++ standard library algorithms with support for execution policies"
   homepage "https://github.com/intel/parallelstl"
-  url "https://github.com/intel/parallelstl/archive/20190522.tar.gz"
-  sha256 "37a83f26299c66a9988e85f06149487cfb2d69fb41568c64b7ad7c7903bcaac1"
+  url "https://github.com/intel/parallelstl/archive/20200330.tar.gz"
+  sha256 "47d78920a7220828cde9b0c0cf808c70774b2db05ab4dd689b8bbd350afb9e6e"
+  # Apache License Version 2.0 with LLVM exceptions
+  license "Apache-2.0"
 
-  bottle :unneeded
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "5b3837f32d57d6d5398da1127eb4bba489a85821ae32e125fc486edb3abbca11" => :catalina
+    sha256 "5b3837f32d57d6d5398da1127eb4bba489a85821ae32e125fc486edb3abbca11" => :mojave
+    sha256 "5b3837f32d57d6d5398da1127eb4bba489a85821ae32e125fc486edb3abbca11" => :high_sierra
+  end
 
+  depends_on "cmake" => :build
   depends_on "tbb"
 
   def install
-    include.install Dir["include/*"]
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
+      system "make", "install"
+    end
+    prefix.install "stdlib"
   end
 
   test do
@@ -28,7 +40,7 @@ class Parallelstl < Formula
       }
     EOS
     system ENV.cxx, "-std=c++11", "-L#{Formula["tbb"].opt_lib}", "-ltbb",
-                    "-I#{include}", "test.cpp", "-o", "test"
+                    "-I#{prefix}/stdlib", "-I#{include}", "test.cpp", "-o", "test"
     system "./test"
   end
 end

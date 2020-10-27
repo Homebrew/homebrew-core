@@ -1,16 +1,21 @@
 class Allegro < Formula
   desc "C/C++ multimedia library for cross-platform game development"
   homepage "https://liballeg.org/"
-  url "https://github.com/liballeg/allegro5/releases/download/5.2.5.0/allegro-5.2.5.0.tar.gz"
-  sha256 "59968da34a0353913868b8299aaff9520d19a3b0960c6406be8323a6ac9bb719"
+  url "https://github.com/liballeg/allegro5/releases/download/5.2.6.0/allegro-5.2.6.0.tar.gz"
+  sha256 "5de8189ec051e1865f359654f86ec68e2a12a94edd00ad06d1106caa5ff27763"
+  license "Zlib"
   head "https://github.com/liballeg/allegro5.git"
+
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     cellar :any
-    sha256 "b84ad30a88079bd0e88f40c73bb3b9260d2d713c5dc641b4bf2305f226dc26e2" => :catalina
-    sha256 "58517ffcc0689c592e394638aa90477bda3170b33b7c75135871297af8f08efb" => :mojave
-    sha256 "8d7e5a4ed33deb9c14b885788cc955b2900dd097d5c7876c3a5373c9746e3c1a" => :high_sierra
-    sha256 "c236492cd141af9d1bb9f32122265d444967ba9399b6f848d9721afd78cbb84a" => :sierra
+    sha256 "9e71511f6c8faa8449dd06bc30bd74497ee832e3e0ca7f3eb02bcef263ab4b3f" => :catalina
+    sha256 "ead9f69a2af4720ad8a9e020657b1db71e49cb3e83d9d8477d425de9d948ce07" => :mojave
+    sha256 "4ab4367b267e257a1aeee6cd65301922cf38cb37e8c11865edecedac5960f96e" => :high_sierra
   end
 
   depends_on "cmake" => :build

@@ -1,10 +1,18 @@
 class PgTop < Formula
   desc "Monitor PostgreSQL processes"
-  homepage "https://git.postgresql.org/gitweb/?p=pg_top.git"
+  homepage "https://pg_top.gitlab.io"
   url "https://ftp.postgresql.org/pub/projects/pgFoundry/ptop/pg_top/3.7.0/pg_top-3.7.0.tar.bz2"
   mirror "https://mirrorservice.org/sites/ftp.postgresql.org/projects/pgFoundry/ptop/pg_top/3.7.0/pg_top-3.7.0.tar.bz2"
   sha256 "c48d726e8cd778712e712373a428086d95e2b29932e545ff2a948d043de5a6a2"
   revision 3
+
+  # We're currently checking the pg_top GitLab repository, since there are new
+  # 4.0.0 prerelease versions there that aren't at the existing stable source
+  # (i.e., https://ftp.postgresql.org/pub/projects/pgFoundry/ptop/pg_top/).
+  livecheck do
+    url "https://gitlab.com/pg_top/pg_top.git"
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     cellar :any

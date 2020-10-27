@@ -5,6 +5,10 @@ class Snap7 < Formula
   sha256 "1f4270cde8684957770a10a1d311c226e670d9589c69841a9012e818f7b9f80e"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     rebuild 1
@@ -17,7 +21,7 @@ class Snap7 < Formula
   def install
     lib.mkpath
     system "make", "-C", "build/osx",
-                   "-f", "#{MacOS.preferred_arch}_osx.mk",
+                   "-f", "x86_64_osx.mk",
                    "install", "LibInstall=#{lib}"
     include.install "release/Wrappers/c-cpp/snap7.h"
   end

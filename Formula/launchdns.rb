@@ -3,6 +3,7 @@ class Launchdns < Formula
   homepage "https://github.com/josh/launchdns"
   url "https://github.com/josh/launchdns/archive/v1.0.4.tar.gz"
   sha256 "60f6010659407e3d148c021c88e1c1ce0924de320e99a5c58b21c8aece3888aa"
+  license "MIT"
   revision 1
   head "https://github.com/josh/launchdns.git"
 
@@ -14,8 +15,6 @@ class Launchdns < Formula
     sha256 "ced5d6c6bdb3074c29dd65b244fc4325cc4799820d7dd38c6dedf04c2555f3cb" => :sierra
   end
 
-  depends_on :macos => :yosemite
-
   def install
     ENV["PREFIX"] = prefix
     system "./configure", "--with-launch-h", "--with-launch-h-activate-socket"
@@ -24,40 +23,41 @@ class Launchdns < Formula
     (prefix/"etc/resolver/localhost").write("nameserver 127.0.0.1\nport 55353\n")
   end
 
-  plist_options :manual => "launchdns"
+  plist_options manual: "launchdns"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/launchdns</string>
-          <string>--socket=Listeners</string>
-          <string>--timeout=30</string>
-        </array>
-        <key>Sockets</key>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
         <dict>
-          <key>Listeners</key>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/launchdns</string>
+            <string>--socket=Listeners</string>
+            <string>--timeout=30</string>
+          </array>
+          <key>Sockets</key>
           <dict>
-            <key>SockType</key>
-            <string>dgram</string>
-            <key>SockNodeName</key>
-            <string>127.0.0.1</string>
-            <key>SockServiceName</key>
-            <string>55353</string>
+            <key>Listeners</key>
+            <dict>
+              <key>SockType</key>
+              <string>dgram</string>
+              <key>SockNodeName</key>
+              <string>127.0.0.1</string>
+              <key>SockServiceName</key>
+              <string>55353</string>
+            </dict>
           </dict>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/launchdns.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/launchdns.log</string>
         </dict>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/launchdns.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/launchdns.log</string>
-      </dict>
-    </plist>
-  EOS
+      </plist>
+    EOS
   end
 
   test do

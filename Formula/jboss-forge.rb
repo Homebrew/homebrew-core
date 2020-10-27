@@ -1,18 +1,18 @@
 class JbossForge < Formula
   desc "Tools to help set up and configure a project"
   homepage "https://forge.jboss.org/"
-  url "https://downloads.jboss.org/forge/releases/3.9.4.Final/forge-distribution-3.9.4.Final-offline.zip"
-  version "3.9.4.Final"
-  sha256 "7b26f0d89fe62bd750be8016486cd31d8b43dce28d24ad8e1a07cbe66feb8537"
+  url "https://downloads.jboss.org/forge/releases/3.9.7.Final/forge-distribution-3.9.7.Final-offline.zip"
+  sha256 "d9ed822e48ef40147ef3e33d3c5998f027109f4d901d809065503f86076f4bbf"
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on "openjdk"
 
   def install
     rm_f Dir["bin/*.bat"]
     libexec.install %w[addons bin lib logging.properties]
-    bin.install_symlink libexec/"bin/forge"
+    bin.install libexec/"bin/forge"
+    bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env
   end
 
   test do

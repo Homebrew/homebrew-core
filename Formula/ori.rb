@@ -5,6 +5,10 @@ class Ori < Formula
   sha256 "a9b12ac23beaf259aa830addea11b519d16068f38c479f916b2747644194672c"
   revision 2
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "7a7309ce9c2910c06ef1e1476ab733f72b561914e8fbac72fde592aef0e319e2" => :catalina

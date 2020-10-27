@@ -1,14 +1,16 @@
 class Kubecfg < Formula
   desc "Manage complex enterprise Kubernetes environments as code"
   homepage "https://github.com/bitnami/kubecfg"
-  url "https://github.com/bitnami/kubecfg/archive/v0.13.1.tar.gz"
-  sha256 "1ebed3c7d815bbc8fcfcd3b49f7dd75f725167f7129f5acd9b66f9eb8a98ac5d"
+  url "https://github.com/bitnami/kubecfg/archive/v0.16.0.tar.gz"
+  sha256 "08846d19db0250a21d553cdaf1f0461dc398031b9ac76ccd360b169703f63567"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2556f6cf6d6e24cb1f4fd3880d65cba6560eeefd08260b9a3fd19cf342abef69" => :catalina
-    sha256 "97a6a726693bdb3bee47f9cc4c05f23818a11b7e9b8beb99a668b651bf033b57" => :mojave
-    sha256 "600eaae96e6557e8c12df62ffee784635fc5def233e98ac6b850c4077473cfe2" => :high_sierra
+    rebuild 1
+    sha256 "4b1c21dd475b3d66051e4413173991f7825876fa09f82b0e0b913c2355ad3de1" => :catalina
+    sha256 "18a96eba78f47594337dc07a87ba17c90c3562eb665e5318bdc660b7556f1bf6" => :mojave
+    sha256 "1a504128fd97438fc4e35ef265bbc2b7693ddd11dc343c0a6b1dca55df593ab3" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -23,9 +25,9 @@ class Kubecfg < Formula
       prefix.install_metafiles
     end
 
-    output = Utils.popen_read("#{bin}/kubecfg completion --shell bash")
+    output = Utils.safe_popen_read("#{bin}/kubecfg", "completion", "--shell", "bash")
     (bash_completion/"kubecfg").write output
-    output = Utils.popen_read("#{bin}/kubecfg completion --shell zsh")
+    output = Utils.safe_popen_read("#{bin}/kubecfg", "completion", "--shell", "zsh")
     (zsh_completion/"_kubecfg").write output
   end
 

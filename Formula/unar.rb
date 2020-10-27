@@ -2,20 +2,23 @@ class Unar < Formula
   desc "Command-line unarchiving tools supporting multiple formats"
   homepage "https://unarchiver.c3.cx/commandline"
   url "https://wakaba.c3.cx/releases/TheUnarchiver/unar1.10.1_src.zip"
-  version "1.10.1"
   sha256 "40967014a505b7a27864c49dc3b5d30b98ae4e6d4873783b2ef9ef9215fd092b"
-  head "https://bitbucket.org/WAHa_06x36/theunarchiver", :using => :hg
+  license "LGPL-2.1-or-later"
+
+  livecheck do
+    url "https://wakaba.c3.cx/releases/TheUnarchiver/"
+    regex(/unarv?(\d+(?:\.\d+)+)_src/i)
+  end
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "5a9fc27b0ced42e4bd8fabc4e21b8a4b4237f18329e424d07d56e2281fec0efd" => :catalina
-    sha256 "da43cef8fa866f3ef1b49207616198f71865a2bd74bea8a4ca6561663c8c5a4a" => :mojave
-    sha256 "83d44f348e559ec06bea6a5e9d9b50252884b2f9eefda0d0834f4b43f9445049" => :high_sierra
-    sha256 "26a7dc14db6b28cc896f5692fd1ba6b3434656c80df5e28fecb41dfa952f31d8" => :sierra
+    rebuild 2
+    sha256 "366fc5e1d3587148e089214a91cd23a96eae1b0aefebcd2e9813b1cc2f6593c2" => :catalina
+    sha256 "7bc711ae9affa86d2bc6b29df427dbc900afa6f18bcf13dc4fcf0518f0a50ffa" => :mojave
+    sha256 "311cdc91d8897b3ebe20ea6b9e62bb2e4bc4bc15c9d2f321567cd010031df78a" => :high_sierra
   end
 
-  depends_on :xcode => :build
+  depends_on xcode: :build
 
   # Fix build for Xcode 10 but remove libstdc++.6.dylib and linking libc++.dylib instead
   patch do
@@ -25,20 +28,14 @@ class Unar < Formula
 
   def install
     # ZIP for 1.10.1 additionally contains a `__MACOSX` directory, preventing
-    # stripping of the first path component during extraction of the archive.
+    # stripping of the first path component during extraction of the archive
     mv Dir["The Unarchiver/*"], "."
 
-    args = %W[
-      -project ./XADMaster/XADMaster.xcodeproj
-      SYMROOT=..
-      -configuration Release
-      MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}
-    ]
-
     # Build XADMaster.framework, unar and lsar
-    xcodebuild "-target", "XADMaster", *args
-    xcodebuild "-target", "unar", *args
-    xcodebuild "-target", "lsar", *args
+    %w[XADMaster unar lsar].each do |target|
+      xcodebuild "-target", target, "-project", "./XADMaster/XADMaster.xcodeproj", "SYMROOT=..",
+                 "-configuration", "Release", "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
+    end
 
     bin.install "./Release/unar", "./Release/lsar"
     lib.install "./Release/libXADMaster.a"

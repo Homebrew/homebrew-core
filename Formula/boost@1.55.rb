@@ -3,6 +3,7 @@ class BoostAT155 < Formula
   homepage "https://www.boost.org"
   url "https://downloads.sourceforge.net/project/boost/boost/1.55.0/boost_1_55_0.tar.bz2"
   sha256 "fff00023dd79486d444c8e29922f4072e1d451fc5a4d2b6075852ead7f2b7b52"
+  license "BSL-1.0"
   revision 1
 
   bottle do
@@ -16,17 +17,19 @@ class BoostAT155 < Formula
 
   keg_only :versioned_formula
 
+  disable! because: :versioned_formula
+
   # Patches boost::atomic for LLVM 3.4 as it is used on OS X 10.9 with Xcode 5.1
   # https://github.com/Homebrew/homebrew/issues/27396
   # https://github.com/Homebrew/homebrew/pull/27436
   patch :p2 do
-    url "https://github.com/boostorg/atomic/commit/6bb71fdd.diff?full_index=1"
-    sha256 "1574ef5c1c3ec28cf3786e40e4a8608f2bbb1c426ef2f14a2515e7a1a9313fab"
+    url "https://github.com/boostorg/atomic/commit/6bb71fdd.patch?full_index=1"
+    sha256 "a0478ca4e0f7d14e648c69cba2912d61695737db1914011b610d7113b7a39ad4"
   end
 
   patch :p2 do
-    url "https://github.com/boostorg/atomic/commit/e4bde20f.diff?full_index=1"
-    sha256 "fa6676d83993c59e3566fff105f7e99c193a54ef7dba5c3b327ebdb5b6dcba37"
+    url "https://github.com/boostorg/atomic/commit/e4bde20f.patch?full_index=1"
+    sha256 "dd476a4ac5853a605add17b785ff0ab61f912736c052f5048147cbc4c592128b"
   end
 
   # Patch fixes upstream issue reported here (https://svn.boost.org/trac/boost/ticket/9698).
@@ -34,8 +37,15 @@ class BoostAT155 < Formula
   # See this issue (https://github.com/Homebrew/homebrew/issues/30592) for more details.
 
   patch :p2 do
-    url "https://github.com/boostorg/chrono/commit/143260d.diff?full_index=1"
-    sha256 "96ba2f3a028df323e9bdffb400cc7c30c0c67e3d681c8c5a867c40ae0549cb62"
+    url "https://github.com/boostorg/chrono/commit/143260d.patch?full_index=1"
+    sha256 "6c2a777c6d7df4608be0fd4c7495e2ee52abb392987d8eeea5bb99a248db50d2"
+  end
+
+  # Fix build on Xcode 11.4
+  patch :p2 do
+    url "https://github.com/boostorg/build/commit/b3a59d265929a213f02a451bb63cea75d668a4d9.patch?full_index=1"
+    sha256 "04a4df38ed9c5a4346fbb50ae4ccc948a1440328beac03cb3586c8e2e241be08"
+    directory "tools/build/v2"
   end
 
   def install

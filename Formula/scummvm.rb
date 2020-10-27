@@ -1,14 +1,20 @@
 class Scummvm < Formula
   desc "Graphic adventure game interpreter"
   homepage "https://www.scummvm.org/"
-  url "https://www.scummvm.org/frs/scummvm/2.1.0/scummvm-2.1.0.tar.xz"
-  sha256 "6b50c6596a1536b52865f556dc05ded20f86b6ffabe4bccbd746b5587b15f727"
+  url "https://www.scummvm.org/frs/scummvm/2.2.0/scummvm-2.2.0.tar.xz"
+  sha256 "1469657e593bd8acbcfac0b839b086f640ebf120633e93f116cab652b5b27387"
+  license "GPL-2.0-or-later"
   head "https://github.com/scummvm/scummvm.git"
 
+  livecheck do
+    url "https://www.scummvm.org/frs/scummvm/"
+    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["']}i)
+  end
+
   bottle do
-    sha256 "213a7b49024659878d44c874d3d493f348bd7042a63940d62bfa54aed3541224" => :catalina
-    sha256 "a9e8736f6b93bbf3c6c165831a58d944f488a0c4287858b4fbd39f635941f703" => :mojave
-    sha256 "1bcbb3168dbe936067d015f60fa19cd5dca0892e10c25ff18f86e49c0a268129" => :high_sierra
+    sha256 "b48fb222871740414480cb4a1789c1c1b379b30dafac2970656ec8802deb205b" => :catalina
+    sha256 "0e359a79ab9835cd3511d1aa7e617349b50fcb0a3241c2d700d2341f321a90b7" => :mojave
+    sha256 "dafe75e762c2ccee797055f3bf6dda13d08f3e1efcd2c7017dc734db41a1acef" => :high_sierra
   end
 
   depends_on "a52dec"

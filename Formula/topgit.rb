@@ -3,6 +3,7 @@ class Topgit < Formula
   homepage "https://github.com/mackyle/topgit"
   url "https://github.com/mackyle/topgit/archive/topgit-0.19.12.tar.gz"
   sha256 "104eaf5b33bdc738a63603c4a661aab33fc59a5b8e3bb3bc58af7e4fc2d031da"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

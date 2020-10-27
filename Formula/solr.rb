@@ -1,33 +1,41 @@
 class Solr < Formula
   desc "Enterprise search platform from the Apache Lucene project"
   homepage "https://lucene.apache.org/solr/"
-  url "https://www.apache.org/dyn/closer.cgi?path=lucene/solr/8.3.0/solr-8.3.0.tgz"
-  sha256 "1a9820915186227eaf6fcb851d60690853911b92a15b4e0b7f046324eb8d1387"
+  url "https://www.apache.org/dyn/closer.lua?path=lucene/solr/8.6.3/solr-8.6.3.tgz"
+  mirror "https://archive.apache.org/dist/lucene/solr/8.6.3/solr-8.6.3.tgz"
+  sha256 "c24925f3e8103673c2fceaaff4a04d6f1ab12b4ffd67da36fbbd2aa9aaaa6b55"
+  license "Apache-2.0"
+  revision 1
+
+  livecheck do
+    url :stable
+  end
 
   bottle :unneeded
 
-  depends_on :java
-
-  skip_clean "example/logs"
+  depends_on "openjdk"
 
   def install
-    bin.install %w[bin/solr bin/post bin/oom_solr.sh]
     pkgshare.install "bin/solr.in.sh"
-    prefix.install %w[example server]
-    libexec.install Dir["*"]
+    (var/"lib/solr").install "server/solr/README.txt", "server/solr/solr.xml", "server/solr/zoo.cfg"
+    prefix.install %w[contrib dist server]
+    libexec.install "bin"
+    bin.install [libexec/"bin/solr", libexec/"bin/post", libexec/"bin/oom_solr.sh"]
 
-    # Fix the classpath for the post tool
-    inreplace "#{bin}/post", '"$SOLR_TIP/dist"', "#{libexec}/dist"
-
-    # Fix the paths in the sample solrconfig.xml files
-    Dir.glob(["#{prefix}/example/**/solrconfig.xml",
-              "#{prefix}/**/data_driven_schema_configs/**/solrconfig.xml",
-              "#{prefix}/**/sample_techproducts_configs/**/solrconfig.xml"]) do |f|
-      inreplace f, ":../../../..}/", "}/libexec/"
-    end
+    env = Language::Java.overridable_java_home_env
+    env["SOLR_HOME"] = "${SOLR_HOME:-#{var/"lib/solr"}}"
+    env["SOLR_LOGS_DIR"] = "${SOLR_LOGS_DIR:-#{var/"log/solr"}}"
+    env["SOLR_PID_DIR"] = "${SOLR_PID_DIR:-#{var/"run/solr"}}"
+    bin.env_script_all_files libexec, env
+    (libexec/"bin").rmtree
   end
 
-  plist_options :manual => "solr start"
+  def post_install
+    (var/"run/solr").mkpath
+    (var/"log/solr").mkpath
+  end
+
+  plist_options manual: "solr start"
 
   def plist
     <<~EOS
@@ -42,6 +50,8 @@ class Solr < Formula
             <string>#{opt_bin}/solr</string>
             <string>start</string>
             <string>-f</string>
+            <string>-s</string>
+            <string>/usr/local/var/lib/solr</string>
           </array>
           <key>ServiceDescription</key>
           <string>#{name}</string>
@@ -55,6 +65,20 @@ class Solr < Formula
   end
 
   test do
-    system bin/"solr"
+    ENV["SOLR_PID_DIR"] = testpath
+    port = free_port
+
+    # Info detects no Solr node => exit code 3
+    shell_output(bin/"solr -i", 3)
+    # Start a Solr node => exit code 0
+    shell_output(bin/"solr start -p #{port} -Djava.io.tmpdir=/tmp")
+    # Info detects a Solr node => exit code 0
+    shell_output(bin/"solr -i")
+    # Impossible to start a second Solr node on the same port => exit code 1
+    shell_output(bin/"solr start -p #{port}", 1)
+    # Stop a Solr node => exit code 0
+    shell_output(bin/"solr stop -p #{port}")
+    # No Solr node left to stop => exit code 1
+    shell_output(bin/"solr stop -p #{port}", 1)
   end
 end

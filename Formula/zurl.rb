@@ -3,30 +3,31 @@ class Zurl < Formula
   homepage "https://github.com/fanout/zurl"
   url "https://dl.bintray.com/fanout/source/zurl-1.11.0.tar.bz2"
   sha256 "18aa3b077aefdba47cc46c5bca513ca2e20f2564715be743f70e4efa4fdccd7a"
+  license "GPL-3.0-or-later"
+  revision 2
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "b43fa1ee1c6b05ae37f66f6caf8bb0b0e075a53e1963f6cdea0e889c699d9fc1" => :catalina
-    sha256 "cd5e8df45b97733f790cf8cd37cbe40fc3cb35e7a69fbccdecce45bc04b21457" => :mojave
-    sha256 "8155e4f50b2272c468d45a74447c78bdb7b2bb47b3b5ee59f7dde12996229011" => :high_sierra
-    sha256 "6b1e4a67a6068160c0a0a20881679ae3e6498af925611bc26a0ff9b47bbf215f" => :sierra
+    sha256 "17c084231724231503046a4d1b0de95c8cedceade6b2c4dd589ab259fc34518a" => :catalina
+    sha256 "aac838332c5f0288bf435680564418739ddbcd72e8b1b0309e9df12ad914a60c" => :mojave
+    sha256 "268dc7ab197c9ba0937f4254375e9e144449896d7110c6b2d75a80e6f2b85021" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python" => :test
+  depends_on "python@3.9" => :test
   depends_on "qt"
   depends_on "zeromq"
 
+  uses_from_macos "curl"
+
   resource "pyzmq" do
-    url "https://files.pythonhosted.org/packages/7a/d2/1eb3a994374802b352d4911f3317313a5b4ea786bc830cc5e343dad9b06d/pyzmq-18.1.0.tar.gz"
-    sha256 "93f44739db69234c013a16990e43db1aa0af3cf5a4b8b377d028ff24515fbeb3"
+    url "https://files.pythonhosted.org/packages/86/08/e5fc492317cc9d65b32d161c6014d733e8ab20b5e78e73eca63f53b17004/pyzmq-19.0.1.tar.gz"
+    sha256 "13a5638ab24d628a6ade8f794195e1a1acd573496c3b85af2f1183603b7bf5e0"
   end
 
   def install
     system "./configure", "--prefix=#{prefix}", "--extraconf=QMAKE_MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
     system "make"
-    system "make", "check"
     system "make", "install"
   end
 
@@ -35,7 +36,10 @@ class Zurl < Formula
     ipcfile = testpath/"zurl-req"
     runfile = testpath/"test.py"
 
-    resource("pyzmq").stage { system "python3", *Language::Python.setup_install_args(testpath/"vendor") }
+    resource("pyzmq").stage do
+      system Formula["python@3.9"].opt_bin/"python3",
+      *Language::Python.setup_install_args(testpath/"vendor")
+    end
 
     conffile.write(<<~EOS,
       [General]
@@ -45,6 +49,7 @@ class Zurl < Formula
     EOS
                   )
 
+    port = free_port
     runfile.write(<<~EOS,
       import json
       import threading
@@ -55,11 +60,8 @@ class Zurl < Formula
           self.send_response(200)
           self.end_headers()
           self.wfile.write(b'test response\\n')
-      port = None
       def server_worker(c):
-        global port
-        server = HTTPServer(('', 0), TestHandler)
-        port = server.server_address[1]
+        server = HTTPServer(('', #{port}), TestHandler)
         c.acquire()
         c.notify()
         c.release()
@@ -77,7 +79,7 @@ class Zurl < Formula
       ctx = zmq.Context()
       sock = ctx.socket(zmq.REQ)
       sock.connect('ipc://#{ipcfile}')
-      req = {'id': '1', 'method': 'GET', 'uri': 'http://localhost:%d/test' % port}
+      req = {'id': '1', 'method': 'GET', 'uri': 'http://localhost:#{port}/test'}
       sock.send_string('J' + json.dumps(req))
       poller = zmq.Poller()
       poller.register(sock, zmq.POLLIN)
@@ -94,9 +96,9 @@ class Zurl < Formula
     end
 
     begin
-      xy = Language::Python.major_minor_version "python3"
+      xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
       ENV["PYTHONPATH"] = testpath/"vendor/lib/python#{xy}/site-packages"
-      system "python3", runfile
+      system Formula["python@3.9"].opt_bin/"python3", runfile
     ensure
       Process.kill("TERM", pid)
       Process.wait(pid)

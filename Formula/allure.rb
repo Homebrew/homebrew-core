@@ -1,12 +1,13 @@
 class Allure < Formula
   desc "Flexible lightweight test report tool"
   homepage "https://github.com/allure-framework/allure2"
-  url "https://dl.bintray.com/qameta/maven/io/qameta/allure/allure-commandline/2.13.0/allure-commandline-2.13.0.zip"
-  sha256 "5653cfdd374b9f1015518b44db412c67cd4d36807936d88d7dcd60190a8f075f"
+  url "https://dl.bintray.com/qameta/maven/io/qameta/allure/allure-commandline/2.13.6/allure-commandline-2.13.6.zip"
+  sha256 "a528f978d173721560fddd0d3c7e74ec7b9a41d4bc15097e44307beabc5ae2a5"
+  license "Apache-2.0"
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on "openjdk"
 
   def install
     # Remove all windows files
@@ -14,7 +15,8 @@ class Allure < Formula
 
     prefix.install_metafiles
     libexec.install Dir["*"]
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    bin.install Dir["#{libexec}/bin/*"]
+    bin.env_script_all_files libexec/"bin", JAVA_HOME: Formula["openjdk"].opt_prefix
   end
 
   test do

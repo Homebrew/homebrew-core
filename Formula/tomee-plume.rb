@@ -1,8 +1,14 @@
 class TomeePlume < Formula
   desc "Apache TomEE Plume"
   homepage "https://tomee.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=tomee/tomee-1.7.4/apache-tomee-1.7.4-plume.tar.gz"
-  sha256 "0f37dbe25c3a68a365f440cfaac01e63158e6ccce943f367203418038b5be402"
+  url "https://www.apache.org/dyn/closer.lua?path=tomee/tomee-8.0.4/apache-tomee-8.0.4-plume.tar.gz"
+  mirror "https://archive.apache.org/dist/tomee/tomee-8.0.4/apache-tomee-8.0.4-plume.tar.gz"
+  sha256 "fff4d98606f023b11c37bb7b4ceb74600552ff2953dc90fb484456236da34663"
+  license "Apache-2.0"
+
+  livecheck do
+    url :stable
+  end
 
   bottle :unneeded
 
@@ -18,12 +24,13 @@ class TomeePlume < Formula
     bin.install_symlink "#{libexec}/bin/startup.sh" => "tomee-plume-startup"
   end
 
-  def caveats; <<~EOS
-    The home of Apache TomEE Plume is:
-      #{opt_libexec}
-    To run Apache TomEE:
-      #{opt_libexec}/bin/tomee-plume-startup
-  EOS
+  def caveats
+    <<~EOS
+      The home of Apache TomEE Plume is:
+        #{opt_libexec}
+      To run Apache TomEE:
+        #{opt_libexec}/bin/tomee-plume-startup
+    EOS
   end
 
   test do

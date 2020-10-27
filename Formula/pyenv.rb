@@ -1,22 +1,34 @@
 class Pyenv < Formula
   desc "Python version management"
   homepage "https://github.com/pyenv/pyenv"
-  url "https://github.com/pyenv/pyenv/archive/v1.2.15.tar.gz"
-  sha256 "115c30021410a3d3764b5413fdfc06db1efdcef88fb3b65867bea1765eea3505"
+  url "https://github.com/pyenv/pyenv/archive/v1.2.21.tar.gz"
+  sha256 "a36f11a9e35bb3354e820fe2e9d258208624703506878fc6b7466d646b59d782"
+  license "MIT"
   version_scheme 1
   head "https://github.com/pyenv/pyenv.git"
 
+  livecheck do
+    url "https://github.com/pyenv/pyenv/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
-    sha256 "b3a2c8756d697a74b665aa9e3a2e41abc991f592640492dec99afe1eef0878c2" => :catalina
-    sha256 "ab7e341286ec746f5f286284ad18703be8197810de374674297ec860c6c4dc00" => :mojave
-    sha256 "4a65548a46397a568717557cd7b012feeb4660391e8b8dcfa5d503cfb448f6ca" => :high_sierra
+    sha256 "2f4c78fd8cce10de8e9fb48a43c7cd51003e7a87c3cba9e4c3942d72f331df58" => :catalina
+    sha256 "a3f8395adbc0644940fa03f41807fac246b997d10ae990f549e016699a2b7e51" => :mojave
+    sha256 "d4a573a9116ee1f474e4a77517af5c9dfaefe5ebb9cf7f26d2cc9ac872fe1155" => :high_sierra
   end
 
   depends_on "autoconf"
   depends_on "openssl@1.1"
   depends_on "pkg-config"
   depends_on "readline"
+
+  uses_from_macos "bzip2"
+  uses_from_macos "libffi"
+  uses_from_macos "ncurses"
+  uses_from_macos "xz"
+  uses_from_macos "zlib"
 
   def install
     inreplace "libexec/pyenv", "/usr/local", HOMEBREW_PREFIX

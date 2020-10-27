@@ -1,20 +1,25 @@
 class SshAudit < Formula
-  desc "SSH server auditing"
+  include Language::Python::Shebang
+
+  desc "SSH server & client auditing"
   homepage "https://github.com/jtesta/ssh-audit"
-  url "https://github.com/jtesta/ssh-audit/releases/download/v2.0.0/ssh-audit-v2.0.0.tar.gz"
-  sha256 "9ae7db82c343fc2d3af20994e750fbe69da8bed7ecde14e3fd8607d23b758c75"
+  url "https://github.com/jtesta/ssh-audit/releases/download/v2.3.0/ssh-audit-2.3.0.tar.gz"
+  sha256 "776547591e7b69a2a8dcd1eaaac5d38321f2cb4a5de5f8e5a3e135b33236e812"
+  license "MIT"
+  revision 2
   head "https://github.com/jtesta/ssh-audit.git"
 
   bottle :unneeded
 
-  depends_on "python"
+  depends_on "python@3.9"
 
   def install
+    rewrite_shebang detected_python_shebang, "ssh-audit.py"
     bin.install "ssh-audit.py" => "ssh-audit"
+    man1.install "ssh-audit.1"
   end
 
   test do
-    output = shell_output("#{bin}/ssh-audit -h 2>&1", 1)
-    assert_match "force ssh version 1 only", output
+    assert_match "[exception]", shell_output("#{bin}/ssh-audit -nt 0 ssh.github.com", 1)
   end
 end

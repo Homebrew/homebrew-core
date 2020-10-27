@@ -3,6 +3,7 @@ class Bamtools < Formula
   homepage "https://github.com/pezmaster31/bamtools"
   url "https://github.com/pezmaster31/bamtools/archive/v2.5.1.tar.gz"
   sha256 "4abd76cbe1ca89d51abc26bf43a92359e5677f34a8258b901a01f38c897873fc"
+  license "MIT"
   head "https://github.com/pezmaster31/bamtools.git"
 
   bottle do

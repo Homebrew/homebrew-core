@@ -1,22 +1,33 @@
 class AuroraCli < Formula
   desc "Apache Aurora Scheduler Client"
   homepage "https://aurora.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=/aurora/0.21.0/apache-aurora-0.21.0.tar.gz"
-  sha256 "4b608e5199ae72c83b0bc97569de5ed2c58d73a709f6906c3664154144438b65"
+  url "https://www.apache.org/dyn/closer.lua?path=aurora/0.22.0/apache-aurora-0.22.0.tar.gz"
+  mirror "https://archive.apache.org/dist/aurora/0.22.0/apache-aurora-0.22.0.tar.gz"
+  sha256 "d3c20a09dcc62cac98cb83889099e845ce48a1727ca562d80b9a9274da2cfa12"
+  license "Apache-2.0"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "f2945196eccad73b84c7d5c3e23b0dea0d09b0aad3d0bde1d4db8c3481546635" => :mojave
-    sha256 "dcb6e76159d6d41b2e7dd3eb83ab9c64fee3ea36cf4efa78f2a5019b30d3da19" => :high_sierra
-    sha256 "aec69c7cb0a23373f583fa124add6cb68b6fe4af7faa32e4c8167b8d3e886f74" => :sierra
+    sha256 "b3b61ca0da323c10be32bfb19af28a48b7cf393729076c3ce6608c69d79bff7d" => :catalina
+    sha256 "4aec30f08b06a40ec584c4c570181e5e04909009e4bc8ce2d18f84a0e282629d" => :mojave
+    sha256 "0a1b506e5d75c9fa8d587bfc9945e78c9cb5342c17a4062d18aafb942e111eca" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.7"
+
+  # Does not build on Catalina
+  # Has been moved to the Apache Attic: https://github.com/apache/attic-aurora
+  disable! because: :does_not_build
 
   def install
     # No pants yet for Mojave, so we force High Sierra binaries there
-    ENV["PANTS_BINARIES_PATH_BY_ID"] = "{('darwin','15'):('mac','10.11'),('darwin','16'):('mac','10.12'),('darwin','17'):('mac','10.13'),('darwin','18'):('mac','10.13')}"
+    ENV["PANTS_BINARIES_PATH_BY_ID"] =
+      "{('darwin','15'):('mac','10.11'),('darwin','16'):('mac','10.12'),"\
+      "('darwin','17'):('mac','10.13'),('darwin','18'):('mac','10.13')}"
 
     system "./pants", "binary", "src/main/python/apache/aurora/kerberos:kaurora"
     system "./pants", "binary", "src/main/python/apache/aurora/kerberos:kaurora_admin"

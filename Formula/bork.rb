@@ -3,6 +3,7 @@ class Bork < Formula
   homepage "https://github.com/mattly/bork"
   url "https://github.com/mattly/bork/archive/v0.11.1.tar.gz"
   sha256 "4dabfca259cc529a19597c6f748f1492985ee2f6d7ac88cf70fa621b99f7a927"
+  license "Apache-2.0"
   head "https://github.com/mattly/bork.git"
 
   bottle :unneeded

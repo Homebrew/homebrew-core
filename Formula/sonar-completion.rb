@@ -1,11 +1,15 @@
 class SonarCompletion < Formula
   desc "Bash completion for Sonar"
   homepage "https://github.com/a1dutch/sonarqube-bash-completion"
-  url "https://github.com/a1dutch/sonarqube-bash-completion/archive/1.0.tar.gz"
-  sha256 "501bb1c87fab9dd934cdc506f12e74ea21d48be72a9e4321c88187e4a0e0a99a"
+  url "https://github.com/a1dutch/sonarqube-bash-completion/archive/1.1.tar.gz"
+  sha256 "506a592b166cff88786ae9e6215f922b8ed3617c65a4a88169211a80ef1c6b66"
+  license "Apache-2.0"
   head "https://github.com/a1dutch/sonarqube-bash-completion.git"
 
   bottle :unneeded
+
+  # https://github.com/a1dutch/sonarqube-bash-completion/issues/1
+  disable! because: :no_license
 
   def install
     bash_completion.install "etc/bash_completion.d/sonar"

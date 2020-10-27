@@ -1,26 +1,32 @@
 class Mesos < Formula
   desc "Apache cluster manager"
   homepage "https://mesos.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=mesos/1.8.1/mesos-1.8.1.tar.gz"
-  mirror "https://archive.apache.org/dist/mesos/1.8.1/mesos-1.8.1.tar.gz"
-  sha256 "583f2ad0de36c3e3ce08609a6df1a3ef1145e84f453b3d56fd8332767c3a84e7"
+  url "https://www.apache.org/dyn/closer.lua?path=mesos/1.10.0/mesos-1.10.0.tar.gz"
+  mirror "https://archive.apache.org/dist/mesos/1.10.0/mesos-1.10.0.tar.gz"
+  sha256 "f4b9e8a1e9f905334adf4d349a2ed33a4cfa43278381cd34fb4fc7e9df9e12a1"
+  license "Apache-2.0"
 
-  bottle do
-    sha256 "b5d4c1be465ac092856a0bd587eedffc1f2fa4627410a4f7fb3ec2eedec36bef" => :catalina
-    sha256 "f3ad80347eda8b915ad3d10da9a5ed6c7d27c0cc489d05a9a87741c1e8b03ad3" => :mojave
-    sha256 "7159fdf18c7d074c0c78b0f840317c77414da66e7b559180f4e3c88ddedf90d3" => :high_sierra
-    sha256 "545a5649305fb8bcc6b6d9827f760a68436a3fe1b433a6eeca0a2b92bcddb36e" => :sierra
+  livecheck do
+    url :stable
   end
 
+  bottle do
+    sha256 "b0a1798c812bc74cc8d896880158703b097ccc49a6b52c053dd3433b3f6f83f8" => :catalina
+    sha256 "b4cf28b191b2e158432fc2ddeada105ee0c22374d3e6962982f86e4f07601743" => :mojave
+    sha256 "3888836895ef845bb54d2421068c1b52b9f615991e38350b8e261a035c6193e8" => :high_sierra
+  end
+
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "maven" => :build
   depends_on "apr-util"
-  depends_on :java => "1.8"
-
-  depends_on "python@2"
+  depends_on java: "1.8"
+  depends_on :macos # Due to Python 2
   depends_on "subversion"
 
-  conflicts_with "nanopb-generator", :because => "they depend on an incompatible version of protobuf"
-  conflicts_with "rapidjson", :because => "mesos installs a copy of rapidjson headers"
+  conflicts_with "nanopb-generator", because: "they depend on an incompatible version of protobuf"
+  conflicts_with "rapidjson", because: "mesos installs a copy of rapidjson headers"
 
   resource "protobuf" do
     url "https://files.pythonhosted.org/packages/1b/90/f531329e628ff34aee79b0b9523196eb7b5b6b398f112bb0c03b24ab1973/protobuf-3.6.1.tar.gz"
@@ -64,11 +70,6 @@ class Mesos < Formula
     # `--[disable|enable]-optimize`.
     ENV.O0 unless DevelopmentTools.clang_build_version >= 900
 
-    # work around to avoid `_clock_gettime` symbol not found error.
-    if MacOS.version == "10.11" && MacOS::Xcode.version >= "8.0"
-      ENV["ac_have_clock_syscall"] = "no"
-    end
-
     # work around distutils abusing CC instead of using CXX
     # https://issues.apache.org/jira/browse/MESOS-799
     # https://github.com/Homebrew/legacy-homebrew/pull/37087
@@ -86,27 +87,14 @@ class Mesos < Formula
               "import ext_modules",
               native_patch
 
-    # skip build javadoc because Homebrew's setting user.home in _JAVA_OPTIONS
-    # would trigger maven-javadoc-plugin bug.
-    # https://issues.apache.org/jira/browse/MESOS-3482
-    maven_javadoc_patch = <<~EOS
-      <properties>
-        <maven.javadoc.skip>true</maven.javadoc.skip>
-      </properties>
-      \\0
-    EOS
-    inreplace "src/java/mesos.pom.in",
-              "<url>http://mesos.apache.org</url>",
-              maven_javadoc_patch
-
     ENV.cxx11
 
     system "./configure", "--prefix=#{prefix}",
                           "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
-                          "--with-svn=#{Formula["subversion"].opt_prefix}",
                           "--with-apr=#{Formula["apr"].opt_libexec}",
+                          "--with-svn=#{Formula["subversion"].opt_prefix}",
                           "--disable-python"
     system "make"
     system "make", "install"
@@ -119,8 +107,8 @@ class Mesos < Formula
                           "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
-                          "--with-svn=#{Formula["subversion"].opt_prefix}",
                           "--with-apr=#{Formula["apr"].opt_libexec}",
+                          "--with-svn=#{Formula["subversion"].opt_prefix}",
                           "--enable-python"
     ["native", "interface", "executor", "scheduler", "cli", ""].each do |p|
       cd "src/python/#{p}" do
@@ -140,9 +128,7 @@ class Mesos < Formula
     ENV.prepend_create_path "PYTHONPATH", protobuf_path
     %w[six protobuf].each do |r|
       resource(r).stage do
-        if r == "protobuf"
-          ln_s buildpath/"protobuf/lib/python2.7/site-packages/google/apputils", "google/apputils"
-        end
+        ln_s buildpath/"protobuf/lib/python2.7/site-packages/google/apputils", "google/apputils" if r == "protobuf"
         system "python", *Language::Python.setup_install_args(libexec/"protobuf")
       end
     end

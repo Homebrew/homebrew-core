@@ -1,14 +1,19 @@
 class Netdata < Formula
-  desc "Distributed real-time performance and health monitoring"
-  homepage "https://my-netdata.io/"
-  url "https://github.com/netdata/netdata/releases/download/v1.18.1/netdata-v1.18.1.tar.gz"
-  sha256 "39cca83e810296177ea255deef9961631480cb911da68dde7ac5a339cc95e521"
+  desc "Diagnose infrastructure problems with metrics, visualizations & alarms"
+  homepage "https://netdata.cloud/"
+  url "https://github.com/netdata/netdata/releases/download/v1.26.0/netdata-v1.26.0.tar.gz"
+  sha256 "33af27eb57f954e50059a32bec624815aa742fe03182845b1d9b577f1e20e30a"
+  license "GPL-3.0-or-later"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
-    rebuild 1
-    sha256 "84efcd6425d799cdaa275e451e0817c7b4254679161b4b56eb0ea7e7b12fd90d" => :catalina
-    sha256 "58e13b46d8a49d0bcb3a46dd96361b1800c217c3d94b3a2180213760c16b32a5" => :mojave
-    sha256 "207101244660ee19ea4f56ab0c77c24d5fc51ff333892191e2ae1e0ea0db5433" => :high_sierra
+    sha256 "bd2e4c457cb565f03c632527ac62eef558bf54ea770a06bd06a4c53a100d043f" => :catalina
+    sha256 "e2a1165f6dcabb048cc8298213b5ea2b212fb393ab19e24245b6403edb128764" => :mojave
+    sha256 "0e27a3c39108a37709aaaf549b57bbb1d4726f31e2abfdb5f0ba73432bbcc849" => :high_sierra
   end
 
   depends_on "autoconf" => :build
@@ -68,37 +73,40 @@ class Netdata < Formula
       s.gsub!(/web files owner = .*/, "web files owner = #{ENV["USER"]}")
       s.gsub!(/web files group = .*/, "web files group = #{Etc.getgrgid(prefix.stat.gid).name}")
     end
+    (var/"cache/netdata/unittest-dbengine/dbengine").mkpath
+    (var/"lib/netdata/registry").mkpath
+    (var/"log/netdata").mkpath
     (var/"netdata").mkpath
   end
 
-  plist_options :manual => "#{HOMEBREW_PREFIX}/sbin/netdata -D"
+  plist_options manual: "#{HOMEBREW_PREFIX}/sbin/netdata -D"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>ProgramArguments</key>
-        <array>
-            <string>#{opt_sbin}/netdata</string>
-            <string>-D</string>
-        </array>
-        <key>WorkingDirectory</key>
-        <string>#{var}</string>
-      </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>ProgramArguments</key>
+          <array>
+              <string>#{opt_sbin}/netdata</string>
+              <string>-D</string>
+          </array>
+          <key>WorkingDirectory</key>
+          <string>#{var}</string>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do
     system "#{sbin}/netdata", "-W", "set", "registry", "netdata unique id file",
                               "#{testpath}/netdata.unittest.unique.id",
                               "-W", "set", "registry", "netdata management api key file",
-                              "#{testpath}/netdata.api.key",
-                              "-W", "unittest"
+                              "#{testpath}/netdata.api.key"
   end
 end

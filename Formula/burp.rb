@@ -1,6 +1,7 @@
 class Burp < Formula
   desc "Network backup and restore"
   homepage "https://burp.grke.org/"
+  license "AGPL-3.0"
   revision 1
 
   stable do
@@ -9,8 +10,13 @@ class Burp < Formula
 
     resource "uthash" do
       url "https://github.com/troydhanson/uthash.git",
-          :revision => "8b214aefcb81df86a7e5e0d4fa20e59a6c18bc02"
+          revision: "8b214aefcb81df86a7e5e0d4fa20e59a6c18bc02"
     end
+  end
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/burp[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
   bottle do
@@ -59,38 +65,40 @@ class Burp < Formula
     (var/"spool/burp").mkpath
   end
 
-  def caveats; <<~EOS
-    Before installing the launchd entry you should configure your burp client in
-      #{etc}/burp/burp.conf
-  EOS
+  def caveats
+    <<~EOS
+      Before installing the launchd entry you should configure your burp client in
+        #{etc}/burp/burp.conf
+    EOS
   end
 
-  plist_options :startup => true
+  plist_options startup: true
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>UserName</key>
-      <string>root</string>
-      <key>KeepAlive</key>
-      <false/>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_bin}/burp</string>
-        <string>-a</string>
-        <string>t</string>
-      </array>
-      <key>StartInterval</key>
-      <integer>1200</integer>
-      <key>WorkingDirectory</key>
-      <string>#{HOMEBREW_PREFIX}</string>
-    </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>UserName</key>
+        <string>root</string>
+        <key>KeepAlive</key>
+        <false/>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/burp</string>
+          <string>-a</string>
+          <string>t</string>
+        </array>
+        <key>StartInterval</key>
+        <integer>1200</integer>
+        <key>WorkingDirectory</key>
+        <string>#{HOMEBREW_PREFIX}</string>
+      </dict>
+      </plist>
+    EOS
   end
 
   test do

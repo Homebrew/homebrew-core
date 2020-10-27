@@ -1,15 +1,20 @@
 class LibvirtGlib < Formula
   desc "Libvirt API for glib-based programs"
   homepage "https://libvirt.org/"
-  url "https://libvirt.org/sources/glib/libvirt-glib-2.0.0.tar.gz"
-  sha256 "94e8c410c67501303d3b32ca8ce2c36edf898511ec4de9b7f29cd35d274b3d6a"
+  url "https://libvirt.org/sources/glib/libvirt-glib-3.0.0.tar.gz"
+  sha256 "7fff8ca9a2b723dbfd04223b1c7624251c8bf79eb57ec27362a7301b2dd9ebfe"
+  license "LGPL-2.1-or-later"
   revision 1
 
+  livecheck do
+    url "https://libvirt.org/sources/glib/"
+    regex(/href=.*?libvirt-glib[._-]v?([\d.]+)\.t/i)
+  end
+
   bottle do
-    sha256 "d4e218497763f25fa19d8c23f4e36a4538d4281d4f015d583305650ccd879873" => :catalina
-    sha256 "7b6665ce900145b71afcc3e77821b8292072de84662a8e0588ff9c416adce946" => :mojave
-    sha256 "49573b3aa06fbc8ccf8ef3ebf40ffc6550b74d3592b58e336d11e3dc0d654a60" => :high_sierra
-    sha256 "c98664ee49b401f61b05984f7bc5a992cb91aeecd744beae3bf5f38857b42af8" => :sierra
+    sha256 "167725ebc46919472e205ae7f11953ac1dd1a6b7d4431fa8a54f720dd8d32717" => :catalina
+    sha256 "836139b6c4349752f9e5e6ce0863f3129602c54ee040caf0e8bb31ea97a6bf3f" => :mojave
+    sha256 "fd81e19fae3e2855e61e9519ec829859fd3a9956927c47396af123611c6a23cd" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build

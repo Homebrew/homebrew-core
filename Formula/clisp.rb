@@ -6,6 +6,12 @@ class Clisp < Formula
   sha256 "8132ff353afaa70e6b19367a25ae3d5a43627279c25647c220641fed00f8e890"
   revision 2
 
+  livecheck do
+    url "https://ftp.gnu.org/gnu/clisp/release/?C=M&O=D"
+    strategy :page_match
+    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "d71cf96b9d303ec2de1cb091043a0ad1befa590bbe3ee027f7f94c03daf9f6a1" => :mojave

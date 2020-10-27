@@ -1,43 +1,37 @@
 class Minio < Formula
-  desc "Amazon S3 compatible object storage server"
-  homepage "https://github.com/minio/minio"
+  desc "High Performance, Kubernetes Native Object Storage"
+  homepage "https://min.io"
   url "https://github.com/minio/minio.git",
-      :tag      => "RELEASE.2019-10-12T01-39-57Z",
-      :revision => "bd106408462ecef70debf51f1e6179de950c5812"
-  version "20191012013957"
+      tag:      "RELEASE.2020-10-18T21-54-12Z",
+      revision: "4eb45c9a0f7bbff564dcfc811cc1c78655c5e5bf"
+  version "20201018215412"
+  license "Apache-2.0"
+  head "https://github.com/minio/minio.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1c5c0595206f8c26f31314f9d96efed95dcb51df0e016941f6ac07bf4f8e4434" => :catalina
-    sha256 "617635392cbafe21de8060ed5fc5dacf96a246c315f2950c577eb1f7a924656e" => :mojave
-    sha256 "4d7484e1cc920ae55dcf0775b7969c0de76cc3aa2fe855f2c2334a5f2c1f4896" => :high_sierra
+    sha256 "9f30bda0aefa18758d1592038a15e6528261e7de4498a7e1f58a16825dada8a3" => :catalina
+    sha256 "e297bcdb5a665712d3ee8cfb7ff38fb7fea7d9a64eac8f13ce55daeb9f4d8d9b" => :mojave
+    sha256 "22cee724726bf754f622f901cbcf2dfa1ba5fea31a4f59c0e5c655d109199162" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    src = buildpath/"src/github.com/minio/minio"
-    src.install buildpath.children
-    src.cd do
-      if build.head?
-        system "go", "build", "-o", buildpath/"minio"
-      else
-        release = `git tag --points-at HEAD`.chomp
-        version = release.gsub(/RELEASE\./, "").chomp.gsub(/T(\d+)\-(\d+)\-(\d+)Z/, 'T\1:\2:\3Z')
-        commit = `git rev-parse HEAD`.chomp
-        proj = "github.com/minio/minio"
+    if build.head?
+      system "go", "build", *std_go_args
+    else
+      release = `git tag --points-at HEAD`.chomp
+      version = release.gsub(/RELEASE\./, "").chomp.gsub(/T(\d+)-(\d+)-(\d+)Z/, 'T\1:\2:\3Z')
+      commit = `git rev-parse HEAD`.chomp
+      proj = "github.com/minio/minio"
 
-        system "go", "build", "-o", buildpath/"minio", "-ldflags", <<~EOS
-          -X #{proj}/cmd.Version=#{version}
-          -X #{proj}/cmd.ReleaseTag=#{release}
-          -X #{proj}/cmd.CommitID=#{commit}
-        EOS
-      end
+      system "go", "build", *std_go_args, "-ldflags", <<~EOS
+        -X #{proj}/cmd.Version=#{version}
+        -X #{proj}/cmd.ReleaseTag=#{release}
+        -X #{proj}/cmd.CommitID=#{commit}
+      EOS
     end
-
-    bin.install buildpath/"minio"
-    prefix.install_metafiles
   end
 
   def post_install
@@ -45,7 +39,7 @@ class Minio < Formula
     (etc/"minio").mkpath
   end
 
-  plist_options :manual => "minio server"
+  plist_options manual: "minio server"
 
   def plist
     <<~EOS
@@ -83,6 +77,12 @@ class Minio < Formula
   end
 
   test do
-    system "#{bin}/minio", "version"
+    assert_match "minio server - start object storage server",
+      shell_output("#{bin}/minio server --help 2>&1")
+
+    assert_match "minio gateway - start object storage gateway",
+      shell_output("#{bin}/minio gateway 2>&1")
+    assert_match "ERROR Unable to validate credentials",
+      shell_output("#{bin}/minio gateway s3 2>&1", 1)
   end
 end

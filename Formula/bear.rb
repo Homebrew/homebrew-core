@@ -1,26 +1,32 @@
 class Bear < Formula
+  include Language::Python::Shebang
+
   desc "Generate compilation database for clang tooling"
   homepage "https://github.com/rizsotto/Bear"
-  url "https://github.com/rizsotto/Bear/archive/2.4.2.tar.gz"
-  sha256 "e80c0d622a8192a1ec0c0efa139e5767c6c4b1defe1c75fc99cf680c6d1816c0"
+  url "https://github.com/rizsotto/Bear/archive/2.4.4.tar.gz"
+  sha256 "5e95c9fe24714bcb98b858f0f0437aff76ad96b1d998940c0684c3a9d3920e82"
+  license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/rizsotto/Bear.git"
 
   bottle do
     cellar :any
-    sha256 "95726dc7ffc8bd4df3f976d0c3cdbbadf1509c755de876d855cbb21e625fe6cb" => :catalina
-    sha256 "fd0d8a9cb6c5182d128bce82ed98c72c5960a12c927d30100f8fbb9834af6ef4" => :mojave
-    sha256 "55dd8a9e37ef3f78dfa13f963cf1c7f82db6c026f449cce1dd1da47123b2a49e" => :high_sierra
+    sha256 "84cf802302f75a97d460d81b34388f1b426739251a0a1ef693798974de8b20bb" => :catalina
+    sha256 "cf53da69c793f2eebdfe625ffd6776d4f3a7a36a440eeb027ec75bc27865acad" => :mojave
+    sha256 "9e0070f18b84c96e10c0305c016e75129d51b9d480424b12563a1979b2a7e297" => :high_sierra
   end
 
   depends_on "cmake" => :build
-  depends_on "python"
+  depends_on "python@3.9"
 
   def install
     args = std_cmake_args + %W[
-      -DPYTHON_EXECUTABLE=#{Formula["python"].opt_bin}/python3
+      -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
     ]
     system "cmake", ".", *args
     system "make", "install"
+
+    rewrite_shebang detected_python_shebang, bin/"bear"
   end
 
   test do

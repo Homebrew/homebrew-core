@@ -1,24 +1,30 @@
 class Ncmpc < Formula
   desc "Curses Music Player Daemon (MPD) client"
   homepage "https://www.musicpd.org/clients/ncmpc/"
-  url "https://www.musicpd.org/download/ncmpc/0/ncmpc-0.30.tar.xz"
-  sha256 "e3fe0cb58b8a77f63fb1645c2f974b334f1614efdc834ec698ee7d861f1b12a3"
-  revision 2
+  url "https://www.musicpd.org/download/ncmpc/0/ncmpc-0.40.tar.xz"
+  sha256 "09fa587caceb96b3de71c57c9b07dba9129824aa256272739ee79542bf70d3dd"
+  license "GPL-2.0-or-later"
 
-  bottle do
-    sha256 "288b7c60146d5041ba4a5ce7a82dcea40a45ba37b87caed9baf6b0f98d329107" => :catalina
-    sha256 "7b3d786665c467062935bd484d37fa1781364040a48d83c1da17759615a26bc7" => :mojave
-    sha256 "5489be35a603c832514f87c7b1d1368a366abd133085968eb8f6eeaec8da08d4" => :high_sierra
-    sha256 "1e7ecbd504ea76bb826e32221e1c8d90135969c785a7ee90e32db77d09ca151e" => :sierra
+  livecheck do
+    url "https://www.musicpd.org/download/ncmpc/0/"
+    regex(/href=.*?ncmpc[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  bottle do
+    cellar :any
+    sha256 "b0d7f89faa7f1a6a0d39b2e257f8ca0abca93bb6654b69251a3261e2b1fc075b" => :catalina
+    sha256 "d2bbc8836a5c0cb5380c4698706e30876fad06788771129ad0cf953e0b219f50" => :mojave
+    sha256 "da45a87cc0e143418c66f468f94f3930c24544b4ef5d22396aa5280d5878dd45" => :high_sierra
+  end
+
+  depends_on "boost" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "gcc" if DevelopmentTools.clang_build_version <= 800
   depends_on "gettext"
-  depends_on "glib"
   depends_on "libmpdclient"
+  depends_on "pcre"
 
   fails_with :clang do
     build 800
@@ -26,21 +32,8 @@ class Ncmpc < Formula
   end
 
   def install
-    sdk = MacOS.sdk_path_if_needed ? MacOS.sdk_path : ""
-
-    # Fix undefined symbols _COLORS, _COLS, etc.
-    # Reported 21 Sep 2017 https://github.com/MusicPlayerDaemon/ncmpc/issues/6
-    (buildpath/"ncurses.pc").write <<~EOS
-      Name: ncurses
-      Description: ncurses
-      Version: 5.4
-      Libs: -L/usr/lib -lncurses
-      Cflags: -I#{sdk}/usr/include
-    EOS
-    ENV.prepend_path "PKG_CONFIG_PATH", buildpath
-
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", ".."
+      system "meson", *std_meson_args, "-Dcolors=false", "-Dnls=disabled", ".."
       system "ninja", "install"
     end
   end

@@ -3,7 +3,12 @@ class Sz81 < Formula
   homepage "https://sz81.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/sz81/sz81/2.1.7/sz81-2.1.7-source.tar.gz"
   sha256 "4ad530435e37c2cf7261155ec43f1fc9922e00d481cc901b4273f970754144e1"
+  license "GPL-2.0"
   head "https://svn.code.sf.net/p/sz81/code/sz81"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     sha256 "97f54508894d2dca7948b2798d0c76164a1ebea685a14f8be12e992883348455" => :catalina

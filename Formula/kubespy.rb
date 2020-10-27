@@ -1,33 +1,27 @@
 class Kubespy < Formula
   desc "Tools for observing Kubernetes resources in realtime"
   homepage "https://github.com/pulumi/kubespy"
-  url "https://github.com/pulumi/kubespy.git",
-      :tag      => "v0.5.0",
-      :revision => "f8634fd17a81832d71b22f9566868572b7c957fb"
+  url "https://github.com/pulumi/kubespy/archive/v0.6.0.tar.gz"
+  sha256 "ff8f54a2a495d8ebb57242989238a96c2c07d26601c382a25419498170fc3351"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6fcd4540e7b986567b355db660f08a80ab59f42a124ac0155c00ffcaa060c085" => :catalina
-    sha256 "0bf331c5f6599d6529db49070e5a98f97f9c46a6683094c6a182438c6323c428" => :mojave
-    sha256 "9919ac7b83faf8683989239d68d92ed626ef8665fd5bf4c4e52b6a0163614766" => :high_sierra
-    sha256 "f6e255dfd78c4a77e64fdbb6b9ee25acbb3c3f8686e8f18e2bd404a1d6577a8c" => :sierra
+    sha256 "c803662722beea17aa638cfab61ca1b47326ca4e9c6fc8522d3e8776c43cb7bb" => :catalina
+    sha256 "02dd7561ce07c576d9ab3de63dbcdf0c43ccc75a00260f44b56d036076059662" => :mojave
+    sha256 "c573da0ba80217ac5ce529fa070b5ecfb398e1554c93f1d824b1df9bcc16c406" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
-    dir = buildpath/"src/github.com/pulumi/kubespy"
-    dir.install buildpath.children
-
-    cd dir do
-      system "make", "build"
-      bin.install "kubespy"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args,
+              "-ldflags", "-X github.com/pulumi/kubespy/version.Version=#{version}"
   end
 
   test do
-    assert_match "v#{version}", shell_output("#{bin}/kubespy version")
+    assert_match version.to_s, shell_output("#{bin}/kubespy version")
+
+    assert_match "Unable to read kubectl config", shell_output("#{bin}/kubespy status v1 Pod nginx 2>&1", 1)
   end
 end

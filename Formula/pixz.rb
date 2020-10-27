@@ -1,17 +1,16 @@
 class Pixz < Formula
   desc "Parallel, indexed, xz compressor"
   homepage "https://github.com/vasi/pixz"
-  url "https://github.com/vasi/pixz/releases/download/v1.0.6/pixz-1.0.6.tar.gz"
-  sha256 "c54a406dddc6c2226779aeb4b5d5b5649c1d3787b39794fbae218f7535a1af63"
-  revision 1
+  url "https://github.com/vasi/pixz/releases/download/v1.0.7/pixz-1.0.7.tar.gz"
+  sha256 "d1b6de1c0399e54cbd18321b8091bbffef6d209ec136d4466f398689f62c3b5f"
+  license "BSD-2-Clause"
   head "https://github.com/vasi/pixz.git"
 
   bottle do
     cellar :any
-    sha256 "f8b5da517c4ea08d9dd191c90528fbeeafe696df565dcf7a974c61b3d635b8c5" => :catalina
-    sha256 "1fba8335b8dd4b061f961ce2e5d03eafa550a7a92edc8b8a95b6129c55bd6b7b" => :mojave
-    sha256 "4c971701c82c6444dec792341b49b8ce38e88b2d9e3d549c12433d2fef37cd0a" => :high_sierra
-    sha256 "9d2f908cb1c21882c95f3c3284c9b4c1eea74c2b25d3ba6df9ad47fadbcc0813" => :sierra
+    sha256 "fa271c0bbea97dccf10ae82803746f86ff67bfbd3a3fdc0c9786a6a6afb7f46d" => :catalina
+    sha256 "55562f5c1bc151210be9c85db0ecb3c4544a809793ea9330bc3b6d212b394778" => :mojave
+    sha256 "6df8ca6e7449ed6b76174ce16f7ed3433ca28afba82776630dbd31bc6a8fac17" => :high_sierra
   end
 
   depends_on "asciidoc" => :build
@@ -19,6 +18,8 @@ class Pixz < Formula
   depends_on "pkg-config" => :build
   depends_on "libarchive"
   depends_on "xz"
+
+  uses_from_macos "libxslt"
 
   def install
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["libarchive"].opt_lib/"pkgconfig"

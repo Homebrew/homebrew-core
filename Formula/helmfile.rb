@@ -1,41 +1,43 @@
 class Helmfile < Formula
   desc "Deploy Kubernetes Helm Charts"
   homepage "https://github.com/roboll/helmfile"
-  url "https://github.com/roboll/helmfile/archive/v0.90.8.tar.gz"
-  sha256 "e54abf082b2387cd62c4f19423c02efa40820752e9da3ece573de42d2af1fb7a"
+  url "https://github.com/roboll/helmfile/archive/v0.132.1.tar.gz"
+  sha256 "6b1ca959a64caabd840df0ae0e1c59bb2a4f245c7f42feb53a0a50cc84da2ace"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f576ce215811b4a2008bb88f8396c617dc5e32422f2ea9bb8fca6009cdd4a01f" => :catalina
-    sha256 "c35c76ddf6087f248d7f5c3da751e1e04d8810d3298ead04a7b35bd500e63af2" => :mojave
-    sha256 "0e48282cad50d9674270009c6ad70c97ee6e82fe74f96a6ed98b901cb3a4847e" => :high_sierra
+    rebuild 1
+    sha256 "000121b006aa32c2835be4fc7d9f4d6e0efd142ef34da3d01a6f1de94ac8aef0" => :catalina
+    sha256 "bff824acf11cdcb2226b46e0f296599b939782a1c8679a88c58099c2afb0ff8d" => :mojave
+    sha256 "4ebca3dfaaa7c78b0449ffede248786525a50db5a3cb35165564f7791e621f92" => :high_sierra
   end
 
   depends_on "go" => :build
-  depends_on "kubernetes-helm"
+  depends_on "helm"
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    (buildpath/"src/github.com/roboll/helmfile").install buildpath.children
-    cd "src/github.com/roboll/helmfile" do
-      system "go", "build", "-ldflags", "-X main.Version=v#{version}",
+    system "go", "build", "-ldflags", "-X github.com/roboll/helmfile/pkg/app/version.Version=v#{version}",
              "-o", bin/"helmfile", "-v", "github.com/roboll/helmfile"
-      prefix.install_metafiles
-    end
   end
 
   test do
     (testpath/"helmfile.yaml").write <<-EOS
     repositories:
     - name: stable
-      url: https://kubernetes-charts.storage.googleapis.com/
+      url: https://charts.helm.sh/stable
 
     releases:
-    - name: test
+    - name: vault                            # name of this release
+      namespace: vault                       # target namespace
+      createNamespace: true                  # helm 3.2+ automatically create release namespace (default true)
+      labels:                                # Arbitrary key value pairs for filtering releases
+        foo: bar
+      chart: stable/vault                    # the chart being installed to create this release, referenced by `repository/chart` syntax
+      version: ~1.24.1                       # the semver of the chart. range constraint is supported
     EOS
-    system Formula["kubernetes-helm"].opt_bin/"helm", "init", "--client-only"
-    output = "Adding repo stable https://kubernetes-charts.storage.googleapis.com"
+    system Formula["helm"].opt_bin/"helm", "create", "foo"
+    output = "Adding repo stable https://charts.helm.sh/stable"
     assert_match output, shell_output("#{bin}/helmfile -f helmfile.yaml repos 2>&1")
     assert_match version.to_s, shell_output("#{bin}/helmfile -v")
   end

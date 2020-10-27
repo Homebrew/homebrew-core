@@ -1,14 +1,15 @@
 class Sdlpop < Formula
   desc "Open-source port of Prince of Persia"
   homepage "https://github.com/NagyD/SDLPoP"
-  url "https://github.com/NagyD/SDLPoP/archive/v1.20.tar.gz"
-  sha256 "dbb75398dee2224bcee648602ad23e469b936a2b7ea962a8a01b091b989f25b6"
+  url "https://github.com/NagyD/SDLPoP/archive/v1.21.tar.gz"
+  sha256 "2d3111bd92f39a6ee203194cf058f59c9774b5cb38437ff245dfc876930d0f95"
+  license "GPL-3.0-or-later"
 
   bottle do
     cellar :any
-    sha256 "54fd6bcb8f351a98cd38017bb3c2a6df7a607dbd13b32cbd2162ab168a2a7759" => :catalina
-    sha256 "136ad2e3a3dfb37fa6e998ebcada2b35f1a41b8b31b4ac404038388bd2d6902b" => :mojave
-    sha256 "40e3329a4043ea4da4e71ccfbea3c9f710e9fed5d61e1d91a5390f7505f6c5f5" => :high_sierra
+    sha256 "b2d7607bbcd3a725ed2c3b1c9e290076c7c561deafac51b081f3d7ceabd04aad" => :catalina
+    sha256 "6ce535a5a303503e21def50933a3596f13b373eaa5263a076ec062be328bb717" => :mojave
+    sha256 "bf4afc58349c91ce9c2f06269e3807015e6cf4e37d0341fd4e09c3e48445c28c" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -32,9 +33,10 @@ class Sdlpop < Formula
     EOS
   end
 
-  def caveats; <<~EOS
-    Save and replay files are stored in the following directory:
-      #{var}/sdlpop
-  EOS
+  def caveats
+    <<~EOS
+      Save and replay files are stored in the following directory:
+        #{var}/sdlpop
+    EOS
   end
 end

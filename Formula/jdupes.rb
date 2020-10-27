@@ -1,19 +1,24 @@
 class Jdupes < Formula
   desc "Duplicate file finder and an enhanced fork of 'fdupes'"
   homepage "https://github.com/jbruchon/jdupes"
-  url "https://github.com/jbruchon/jdupes/archive/v1.13.2.tar.gz"
-  sha256 "41376ace274320a77e35ffed170ff0cbca2cd0cfd0ff1cea53d7464e97d4341f"
+  url "https://github.com/jbruchon/jdupes/archive/v1.19.0.tar.gz"
+  sha256 "98676d3455c89882c3f7f4934602f9e7aca2b054caf3f0deaf286552ce9b276b"
+  license "MIT"
+
+  livecheck do
+    url "https://github.com/jbruchon/jdupes/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7de156d158f3a57689a6db010bc786e1becc38c594a17114e0e7992e1e541925" => :catalina
-    sha256 "5914122e74633a5d22c16102e0ffbf43c6a5d5903ecc75d41b050339af913b96" => :mojave
-    sha256 "f2132c6e2a0a1402a0dcc0205efc2ae80fcc1e70508f1910db3113de0d64ce1d" => :high_sierra
-    sha256 "95ce9083f5ee6dabdaae7ac9165b51231aa8df5240452f3eaec9c172064082cc" => :sierra
+    sha256 "46fec950c90e6d2306884dc961d508368e744b6b3b516a1c935930c694f5dd4b" => :catalina
+    sha256 "d1c88242da6c924d310427620cdef06190b33f9a60c9633f1439df7caddc8f05" => :mojave
+    sha256 "654d11b34e057cff3150e264d2dbf10d8d2114a9529cb20ab6c76865fd6caf7e" => :high_sierra
   end
 
   def install
-    system "make", "install", "PREFIX=#{prefix}"
+    system "make", "install", "PREFIX=#{prefix}", "ENABLE_DEDUPE=1"
   end
 
   test do

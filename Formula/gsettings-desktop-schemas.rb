@@ -1,15 +1,19 @@
 class GsettingsDesktopSchemas < Formula
   desc "GSettings schemas for desktop components"
   homepage "https://download.gnome.org/sources/gsettings-desktop-schemas/"
-  url "https://download.gnome.org/sources/gsettings-desktop-schemas/3.34/gsettings-desktop-schemas-3.34.0.tar.xz"
-  sha256 "288b04260f7040b0e004a8d59c773cfb4e32df4f1b4a0f9d705c51afccc95ead"
+  url "https://download.gnome.org/sources/gsettings-desktop-schemas/3.38/gsettings-desktop-schemas-3.38.0.tar.xz"
+  sha256 "5704c8266004b296036671f223c705dc046aa694a1b1abb87c67e7d2747a8c67"
+  license "LGPL-2.1-or-later"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "25c76bffef3120c933377a4fb15c83e58e85725cddf5eb5a0b258543dca236b5" => :catalina
-    sha256 "b4ee2623616015199defc0693af6a1b5ca5e33db176057f0c45c831463e73dce" => :mojave
-    sha256 "b4ee2623616015199defc0693af6a1b5ca5e33db176057f0c45c831463e73dce" => :high_sierra
-    sha256 "6c01b5599386af810b7bac0b6c4b8f2bf985a4d649e8d98c674097052a570a8f" => :sierra
+    sha256 "0bcc0f743e141beb151ad2b400c40a4d30e317d1080437e359095fb53da3c8e4" => :catalina
+    sha256 "dd69129d87fd0b0c435b29b19e2ac9cea2d1a72d557aed9b3db1202afb49578d" => :mojave
+    sha256 "63a1370fe1e1e58eabb9e608cb992a8391e2ba11c0940899d4c37c3c43088ff2" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build
@@ -18,11 +22,13 @@ class GsettingsDesktopSchemas < Formula
   depends_on "pkg-config" => :build
   depends_on "glib"
 
+  uses_from_macos "expat"
+
   def install
     ENV["DESTDIR"] = "/"
 
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", ".."
+      system "meson", *std_meson_args, ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end

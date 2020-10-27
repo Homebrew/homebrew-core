@@ -3,15 +3,14 @@ class Libming < Formula
   homepage "http://www.libming.org"
   url "https://github.com/libming/libming/archive/ming-0_4_8.tar.gz"
   sha256 "2a44cc8b7f6506adaa990027397b6e0f60ba0e3c1fe8c9514be5eb8e22b2375c"
+  license "LGPL-2.1"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "5bcc8a4895624596a8f4423a7f166ea1c357ce4907b7d3ab7907ebcd0bc34413" => :catalina
-    sha256 "a752e52ef310c943317df0e8adfbd31fe44724123f4a11e7b7ed7055e15730c8" => :mojave
-    sha256 "e8e2645d0bfafa6b62bf209f6259a1a433fb23632fa9b5048cd407d13fa9b2d2" => :high_sierra
-    sha256 "38b7d494355b3b2368dffe806814b62accd9bb8a2bcdd2c3d000449a7cb0a316" => :sierra
-    sha256 "c9a220b978be081b1f202b5964c2231a38eb8ea415746bb4d9b4f73bd03325ae" => :el_capitan
-    sha256 "dcab3bcff475f2b5266dbbd6e86c65223dc20aa2372544b2b55842e401f564bd" => :yosemite
+    sha256 "9c37f5438fb510747686c52cfd2070007ccbb57ecdfb256e344713764aae8782" => :catalina
+    sha256 "6c4230cfec9255a8f4f4d029414807726b44a1fcd597920c2502a1c5ad84ba52" => :mojave
+    sha256 "50d6199171c5d8bc5b7cfb24e6befe9f2c7aefc12d8ee7127202fcf1ea646ae4" => :high_sierra
   end
 
   depends_on "autoconf" => :build
@@ -20,6 +19,11 @@ class Libming < Formula
   depends_on "freetype"
   depends_on "giflib"
   depends_on "libpng"
+  depends_on :macos # Due to Python 2
+
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+  uses_from_macos "perl"
 
   def install
     system "autoreconf", "-fiv"

@@ -1,16 +1,17 @@
 class Qcli < Formula
   desc "Report audiovisual metrics via libavfilter"
   homepage "https://bavc.org/preserve-media/preservation-tools"
-  url "https://github.com/bavc/qctools/archive/v1.0.tar.gz"
-  sha256 "4b687eb9aedf29a8262393079669d3870c04b510669b9df406021243b8ebd918"
+  url "https://github.com/bavc/qctools/archive/v1.1.tar.gz"
+  sha256 "e11eb93b02f9c75f88182a57b8ab44248ac10ca931cf066e7f02bd1835f2900c"
+  license "GPL-3.0"
+  revision 3
   head "https://github.com/bavc/qctools.git"
 
   bottle do
     cellar :any
-    sha256 "14b15e5d2c173b11c20e3fb12d9dc5f8f34dfb9cbc7ffddc2649ed3ea0b0dc1a" => :catalina
-    sha256 "ff59d63feaa9096773228c1e4dd866da2e5bd5812c38645669c80c31be3c7bc8" => :mojave
-    sha256 "d726ff0f06c9e604a95d36d0eae58ca886c6b2024cefe4d77adc92598dd8d56d" => :high_sierra
-    sha256 "837745fe83f29aa3d83de03bd7ed22785248eb9328a5f18bda8a04e151af3c62" => :sierra
+    sha256 "ef657d1dc674393cd3ab389527392dce56ddb392c0d89b818680bcbab67a1715" => :catalina
+    sha256 "d36d29273a40bdbdb7007392ab487fc5175cbba239611bb188d46927c8cd67bf" => :mojave
+    sha256 "89caf6ebb740e3f1ffa15401afb6f1529b32bf152153f3934d462fb888e4a7e3" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

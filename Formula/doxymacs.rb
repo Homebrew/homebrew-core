@@ -3,6 +3,11 @@ class Doxymacs < Formula
   homepage "https://doxymacs.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/doxymacs/doxymacs/1.8.0/doxymacs-1.8.0.tar.gz"
   sha256 "a23fd833bc3c21ee5387c62597610941e987f9d4372916f996bf6249cc495afa"
+  license "GPL-2.0"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
@@ -25,9 +30,7 @@ class Doxymacs < Formula
 
   def install
     # Fix undefined symbols errors for _xmlCheckVersion and other symbols
-    if MacOS.version == :sierra || MacOS.version == :el_capitan
-      ENV["SDKROOT"] = MacOS.sdk_path
-    end
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra || MacOS.version == :el_capitan
 
     # https://sourceforge.net/p/doxymacs/support-requests/5/
     ENV.append "CFLAGS", "-std=gnu89"

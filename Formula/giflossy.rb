@@ -3,6 +3,7 @@ class Giflossy < Formula
   homepage "https://pornel.net/lossygif"
   url "https://github.com/kornelski/giflossy/archive/1.91.tar.gz"
   sha256 "b97f6aadf163ff5dd96ad1695738ad3d5aa7f1658baed8665c42882f11d9ab22"
+  license "GPL-2.0"
   head "https://github.com/kornelski/giflossy.git"
 
   bottle do
@@ -19,7 +20,7 @@ class Giflossy < Formula
   depends_on "automake" => :build
 
   conflicts_with "gifsicle",
-    :because => "both install an `gifsicle` binary"
+    because: "both install an `gifsicle` binary"
 
   def install
     args = %W[

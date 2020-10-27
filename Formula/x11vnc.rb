@@ -3,6 +3,7 @@ class X11vnc < Formula
   homepage "https://github.com/LibVNC/x11vnc"
   url "https://github.com/LibVNC/x11vnc/archive/0.9.16.tar.gz"
   sha256 "885e5b5f5f25eec6f9e4a1e8be3d0ac71a686331ee1cfb442dba391111bd32bd"
+  license "GPL-2.0"
 
   bottle do
     cellar :any

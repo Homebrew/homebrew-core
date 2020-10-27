@@ -1,18 +1,17 @@
 class Remind < Formula
   desc "Sophisticated calendar and alarm"
   homepage "https://dianne.skoll.ca/projects/remind/"
-  url "https://dianne.skoll.ca/projects/remind/download/remind-03.01.16.tar.gz"
-  sha256 "eeb79bd4019d23a033fe3e86c672d960399db6a27c747e5b466ad55831dfca93"
+  url "https://dianne.skoll.ca/projects/remind/download/remind-03.03.01.tar.gz"
+  sha256 "d1a164d1c2d1e963d5f1f251457a8065cae12f36e3914cac1e54275180499478"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "444089059be6e06068947152227c92456a491c31e03663b3cf306c2858da1dc0" => :catalina
-    sha256 "cf9cead0828acc09c9f93c45df372063167daaa46e336a7ef9c604310f92c51f" => :mojave
-    sha256 "955b1f9a9a769c8d88814fee718237ea94ec2c537a3953cb01427815577ef84a" => :high_sierra
-    sha256 "a2349249ca5fa9dcb92998f94b7b761636fa7c04c54c088798da92773c438e56" => :sierra
+    sha256 "cb1470b7207336fee89f03b6a7d540ff21720ec27f3a18abb0c938a815efca05" => :catalina
+    sha256 "09c627b85760732ba5a9e52e184458e1ea6be7b69d35cad34fe1c0e2d6189d4c" => :mojave
+    sha256 "2c99a0b697e0b93cd8d43c39fd81f4c220c280ee2c260e573c39ff2f749e01b6" => :high_sierra
   end
 
-  conflicts_with "rem", :because => "both install `rem` binaries"
+  conflicts_with "rem", because: "both install `rem` binaries"
 
   def install
     # Remove unnecessary sleeps when running on Apple
@@ -27,6 +26,7 @@ class Remind < Formula
 
   test do
     (testpath/"reminders").write "ONCE 2015-01-01 Homebrew Test"
-    assert_equal "Reminders for Thursday, 1st January, 2015:\n\nHomebrew Test\n\n", shell_output("#{bin}/remind reminders 2015-01-01")
+    assert_equal "Reminders for Thursday, 1st January, 2015:\n\nHomebrew Test\n\n",
+      shell_output("#{bin}/remind reminders 2015-01-01")
   end
 end

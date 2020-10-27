@@ -9,23 +9,22 @@
 class Gpac < Formula
   desc "Multimedia framework for research and academic purposes"
   homepage "https://gpac.wp.mines-telecom.fr/"
-  url "https://github.com/gpac/gpac/archive/v0.8.0.tar.gz"
-  sha256 "f9c4bf82b0cbc9014bc217d6245118ceb1be319f877501f8b6da7a284f70ec65"
-  revision 1
+  url "https://github.com/gpac/gpac/archive/v1.0.1.tar.gz"
+  sha256 "3b0ffba73c68ea8847027c23f45cd81d705110ec47cf3c36f60e669de867e0af"
+  license "LGPL-2.1-or-later"
   head "https://github.com/gpac/gpac.git"
 
   bottle do
     cellar :any
-    sha256 "4fc891e2da6330b285fa451d8ef381a584ce6db88775b236dfea9be15ca5ec94" => :catalina
-    sha256 "e524e50f08bcb03f3c8af5313f517bd51382a0cf830aa632499834e1f396514e" => :mojave
-    sha256 "3cc7442693e7173b95ae2b7cd5ed8eb4e89a7e5859284d1f12f21a181e8d2bdf" => :high_sierra
-    sha256 "0f2a6e4e1a24d9754b71062cbe86c871db8a98915933a819bfee8e0e68baf4c7" => :sierra
+    sha256 "cd323eba25dac7431970a3854c1317c1e4ce71e12421a1c789bfe127f2c373d7" => :catalina
+    sha256 "f6acea4aee0a0719ae5c8deb775529a07a7da5d8e32e9c30371a7165b010294d" => :mojave
+    sha256 "b050e13507f1462dcf37d968ed24e36195cf6026dc762e7ddbfa7de9088e0a9c" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
 
-  conflicts_with "bento4", :because => "both install `mp42ts` binaries"
+  conflicts_with "bento4", because: "both install `mp42ts` binaries"
 
   def install
     args = %W[

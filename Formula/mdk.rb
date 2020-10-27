@@ -1,16 +1,20 @@
 class Mdk < Formula
   desc "GNU MIX development kit"
   homepage "https://www.gnu.org/software/mdk/mdk.html"
-  url "https://ftp.gnu.org/gnu/mdk/v1.2.10/mdk-1.2.10.tar.gz"
-  mirror "https://ftpmirror.gnu.org/mdk/v1.2.10/mdk-1.2.10.tar.gz"
-  sha256 "b0f4323a607a3346769499b00fdd6d4748af5a61dd8a24511867ef5d96c08ce7"
-  revision 1
+  url "https://ftp.gnu.org/gnu/mdk/v1.2.11/mdk-1.2.11.tar.gz"
+  mirror "https://ftpmirror.gnu.org/mdk/v1.2.11/mdk-1.2.11.tar.gz"
+  sha256 "ebc979a2f93f35b0646fb5fe102140bfb020ecde4992b061964479eb43622a67"
+  license "GPL-3.0-or-later"
+
+  livecheck do
+    url :stable
+    regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
 
   bottle do
-    sha256 "ca512acbb302831a59136fe510dafbf2076ca6be8aceeeaa151bc27021d96249" => :catalina
-    sha256 "6d9fee5bb70d9423735a441343d8db3c827b495ef1e66c82929fc1048f21231c" => :mojave
-    sha256 "250dbb25d43d7e6c6e92096cc679dd62c4025194e4c9d80f084bf9307ac3c71b" => :high_sierra
-    sha256 "fdf93789019c0c275ab52e509fc0a3d43048aba6caba3258822451f0126a17ba" => :sierra
+    sha256 "20a139c96405e7b62c7c7d2f7b5a4da7baf7654a1807671b49db5b3c80e89570" => :catalina
+    sha256 "7a39ffe28f44b3d3f542fd10d28036557027ae5f79f87f58a767c7b5c3039a65" => :mojave
+    sha256 "aa9492abf5336318ce8717fe5721edefeb39f38b63c6128eea04d84c15cfa8a3" => :high_sierra
   end
 
   depends_on "intltool" => :build

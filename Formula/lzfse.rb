@@ -3,6 +3,7 @@ class Lzfse < Formula
   homepage "https://github.com/lzfse/lzfse"
   url "https://github.com/lzfse/lzfse/archive/lzfse-1.0.tar.gz"
   sha256 "cf85f373f09e9177c0b21dbfbb427efaedc02d035d2aade65eb58a3cbf9ad267"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any

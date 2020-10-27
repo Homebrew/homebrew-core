@@ -3,6 +3,7 @@ class Cmocka < Formula
   homepage "https://cmocka.org/"
   url "https://cmocka.org/files/1.1/cmocka-1.1.5.tar.xz"
   sha256 "f0ccd8242d55e2fd74b16ba518359151f6f8383ff8aef4976e48393f77bba8b6"
+  license "Apache-2.0"
   head "https://git.cryptomilk.org/projects/cmocka.git"
 
   bottle do
@@ -18,9 +19,7 @@ class Cmocka < Formula
   def install
     args = std_cmake_args
     args << "-DWITH_STATIC_LIB=ON" << "-DWITH_CMOCKERY_SUPPORT=ON" << "-DUNIT_TESTING=ON"
-    if MacOS.version == "10.11" && MacOS::Xcode.version >= "8.0"
-      args << "-DHAVE_CLOCK_GETTIME:INTERNAL=0"
-    end
+    args << "-DHAVE_CLOCK_GETTIME:INTERNAL=0" if MacOS.version == "10.11" && MacOS::Xcode.version >= "8.0"
 
     mkdir "build" do
       system "cmake", "..", *args

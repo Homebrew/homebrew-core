@@ -3,6 +3,7 @@ class Pmdmini < Formula
   homepage "https://github.com/mistydemeo/pmdmini"
   url "https://github.com/mistydemeo/pmdmini/archive/v1.0.1.tar.gz"
   sha256 "5c866121d58fbea55d9ffc28ec7d48dba916c8e1bed1574453656ef92ee5cea9"
+  license "GPL-2.0"
 
   bottle do
     cellar :any
@@ -26,7 +27,8 @@ class Pmdmini < Formula
     system "make"
 
     # Makefile doesn't build a dylib
-    system "#{ENV.cc} -dynamiclib -install_name #{lib}/libpmdmini.dylib -o libpmdmini.dylib -undefined dynamic_lookup obj/*.o"
+    system "#{ENV.cc} -dynamiclib -install_name #{lib}/libpmdmini.dylib " \
+                     "-o libpmdmini.dylib -undefined dynamic_lookup obj/*.o"
 
     bin.install "pmdplay"
     lib.install "libpmdmini.a", "libpmdmini.dylib"

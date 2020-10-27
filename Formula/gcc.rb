@@ -1,16 +1,21 @@
 class Gcc < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
-  url "https://ftp.gnu.org/gnu/gcc/gcc-9.2.0/gcc-9.2.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gcc/gcc-9.2.0/gcc-9.2.0.tar.xz"
-  sha256 "ea6ef08f121239da5695f76c9b33637a118dcf63e24164422231917fa61fb206"
-  revision 1
+  url "https://ftp.gnu.org/gnu/gcc/gcc-10.2.0/gcc-10.2.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gcc/gcc-10.2.0/gcc-10.2.0.tar.xz"
+  sha256 "b8dd4368bb9c7f0b98188317ee0254dd8cc99d1e3a18d0ff146c855fe16c1d8c"
+  license "GPL-3.0"
   head "https://gcc.gnu.org/git/gcc.git"
 
+  livecheck do
+    url :stable
+    regex(%r{href=.*?gcc[._-]v?(\d+(?:\.\d+)+)(?:/?["' >]|\.t)}i)
+  end
+
   bottle do
-    sha256 "e1a6cd0d52fb715431063657cec4e3578170079168b612a6998d321d778330b1" => :catalina
-    sha256 "12951cda5ca32814387a1106fdaea9c4d4dd55e9c27f0dc7c044ab5e00dca695" => :mojave
-    sha256 "fd0945c648c9a6672892a9b17ce3108dd6b8319aaf67c2718290ea0d13e22f1b" => :high_sierra
+    sha256 "8dbccea194c20b1037b7e8180986e98a8ee3e37eaac12c7d223c89be3deaac6a" => :catalina
+    sha256 "79d2293ce912dc46af961f30927b31eb06844292927be497015496f79ac41557" => :mojave
+    sha256 "5ed870a39571614dc5d83be26d73a4164911f4356b80d9345258a4c1dc3f1b70" => :high_sierra
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -25,23 +30,16 @@ class Gcc < Formula
   depends_on "libmpc"
   depends_on "mpfr"
 
+  uses_from_macos "zlib"
+
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
-
-  # Fix system headers for Catalina SDK
-  # (otherwise __OSX_AVAILABLE_STARTING ends up undefined)
-  if DevelopmentTools.clang_build_version >= 1100
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/b8b8e65e/gcc/9.2.0-catalina.patch"
-      sha256 "0b8d14a7f3c6a2f0d2498526e86e088926671b5da50a554ffa6b7f73ac4f132b"
-    end
-  end
 
   def version_suffix
     if build.head?
       "HEAD"
     else
-      version.to_s.slice(/\d/)
+      version.major.to_s
     end
   end
 
@@ -55,11 +53,10 @@ class Gcc < Formula
     #  - BRIG
     languages = %w[c c++ objc obj-c++ fortran]
 
-    osmajor = `uname -r`.split(".").first
     pkgversion = "Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip
 
     args = %W[
-      --build=x86_64-apple-darwin#{osmajor}
+      --build=x86_64-apple-darwin#{OS.kernel_version.major}
       --prefix=#{prefix}
       --libdir=#{lib}/gcc/#{version_suffix}
       --disable-nls
@@ -78,21 +75,21 @@ class Gcc < Formula
     # Xcode 10 dropped 32-bit support
     args << "--disable-multilib" if DevelopmentTools.clang_build_version >= 1000
 
+    # System headers may not be in /usr/include
+    sdk = MacOS.sdk_path_if_needed
+    if sdk
+      args << "--with-native-system-header-dir=/usr/include"
+      args << "--with-sysroot=#{sdk}"
+    end
+
+    # Avoid reference to sed shim
+    args << "SED=/usr/bin/sed"
+
     # Ensure correct install names when linking against libgcc_s;
     # see discussion in https://github.com/Homebrew/legacy-homebrew/pull/34303
     inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"
 
     mkdir "build" do
-      if !MacOS::CLT.installed?
-        # For Xcode-only systems, we need to tell the sysroot path
-        args << "--with-native-system-header-dir=/usr/include"
-        args << "--with-sysroot=#{MacOS.sdk_path}"
-      elsif MacOS.version >= :mojave
-        # System headers are no longer located in /usr/include
-        args << "--with-native-system-header-dir=/usr/include"
-        args << "--with-sysroot=/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk"
-      end
-
       system "../configure", *args
 
       # Use -headerpad_max_install_names in the build,

@@ -1,16 +1,20 @@
 class Uftp < Formula
   desc "Secure, reliable, efficient multicast file transfer program"
   homepage "https://uftp-multicast.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/uftp-multicast/source-tar/uftp-4.10.tar.gz"
-  sha256 "91ba8aae80c7c9ccaf04600b628cbeca4699ed48268fe43d2bf539a41083f292"
+  url "https://downloads.sourceforge.net/project/uftp-multicast/source-tar/uftp-5.0.tar.gz"
+  sha256 "562f71ea5a24b615eb491f5744bad01e9c2e58244c1d6252d5ae98d320d308e0"
+  license "GPL-3.0"
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/uftp[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "ea98ef798ec24178eb774bae4c532198032b5839b2412f2b7e934de5ead5d358" => :catalina
-    sha256 "7a3fba8e55b2dc2eed95d3922ee849b158c97eb65b5bcd333d5b70bdaa198f51" => :mojave
-    sha256 "2a9dca5eeafa7a9b3ecc2fbe989e107dcc88609529e298c903a1cbdfc4cfeb76" => :high_sierra
-    sha256 "a8f42a5f05adb4566f7179c2798f2e93b46f937508fa70f1d91cb8d192096765" => :sierra
+    sha256 "7df0c64b08cd3377837185003849b7d86d11021dc34546f78eedcac3e73a46c6" => :catalina
+    sha256 "618dc8e47d069f19c4aeb1c18cdc12317196ebcfbe6e7c9d1be8b30472e19c92" => :mojave
+    sha256 "35b999e28214d336f0e6224fd92dfa824874c1e08ab520b9643d3fbc75c33b4a" => :high_sierra
   end
 
   depends_on "openssl@1.1"
@@ -23,29 +27,30 @@ class Uftp < Formula
     (prefix/"usr").unlink
   end
 
-  plist_options :manual => "uftpd"
+  plist_options manual: "uftpd"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>KeepAlive</key>
-      <true/>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_sbin}/uftpd</string>
-        <string>-d</string>
-      </array>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>WorkingDirectory</key>
-      <string>#{var}</string>
-    </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>KeepAlive</key>
+        <true/>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_sbin}/uftpd</string>
+          <string>-d</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>WorkingDirectory</key>
+        <string>#{var}</string>
+      </dict>
+      </plist>
+    EOS
   end
 
   test do

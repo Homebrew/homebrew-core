@@ -3,14 +3,17 @@ class OpencvAT2 < Formula
   homepage "https://opencv.org/"
   url "https://github.com/opencv/opencv/archive/2.4.13.7.tar.gz"
   sha256 "192d903588ae2cdceab3d7dc5a5636b023132c8369f184ca89ccec0312ae33d0"
-  revision 5
+  license "BSD-3-Clause"
+  revision 11
 
   bottle do
-    rebuild 1
-    sha256 "9b5ec41fcf3171360aaab7a54e4f9a0de45af3d067ba95f8cfc0752162df24f9" => :catalina
-    sha256 "f3730ff75749689792411fc2b928e0682ca6d4fdf036617d2ea4c0f96e073023" => :mojave
-    sha256 "ee0926b30e0ca6b85f3670dd0e45183ed2c392d9bbe9748256ae96130638e3d1" => :high_sierra
+    sha256 "180d6d38c261fbb8d8a874fe21018c0ad1fa9e9a526e9234ff5645affe04512f" => :catalina
+    sha256 "9beadffa6f23d7c7ea58a501d88e8512a67ac4f0848b8a9920209fc6430ab0ed" => :mojave
+    sha256 "b90a2e7e26ef9d18a2f87a954a786a6bc983047fbcae2280b662df66e254e76c" => :high_sierra
   end
+
+  # https://www.slideshare.net/EugeneKhvedchenya/opencv-30-latest-news-and-the-roadmap
+  deprecate! date: "2015-02-01", because: :unsupported
 
   keg_only :versioned_formula
 
@@ -21,11 +24,12 @@ class OpencvAT2 < Formula
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
+  depends_on :macos # Due to Python 2
   depends_on "numpy@1.16"
   depends_on "openexr"
-  depends_on "python@2" # does not support Python 3
 
   def install
+    ENV.cxx11
     jpeg = Formula["jpeg"]
 
     args = std_cmake_args + %W[
@@ -62,12 +66,11 @@ class OpencvAT2 < Formula
     # https://github.com/Homebrew/homebrew-science/issues/2302
     args << "-DCMAKE_PREFIX_PATH=#{py_prefix}"
 
-    if MacOS.version.requires_sse42?
-      args << "-DENABLE_SSE41=ON" << "-DENABLE_SSE42=ON"
-    end
+    args << "-DENABLE_SSE41=ON" << "-DENABLE_SSE42=ON" if MacOS.version.requires_sse42?
 
     mkdir "build" do
       system "cmake", "..", *args
+      inreplace "modules/core/version_string.inc", "#{HOMEBREW_SHIMS_PATH}/mac/super/", ""
       system "make"
       system "make", "install"
     end

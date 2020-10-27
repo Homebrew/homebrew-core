@@ -3,6 +3,7 @@ class Swimat < Formula
   homepage "https://github.com/Jintin/Swimat"
   url "https://github.com/Jintin/Swimat/archive/v1.6.2.tar.gz"
   sha256 "1e6000dd16857a769070036fe710dd0b2aa6c4436a02ecc60590d829d6228e8b"
+  license "MIT"
   head "https://github.com/Jintin/Swimat.git"
 
   bottle do
@@ -11,7 +12,7 @@ class Swimat < Formula
     sha256 "197ba3d1db2bfbee29a10e4735925b4fdac3035c486b7899bc564cea5f019839" => :mojave
   end
 
-  depends_on :xcode => ["10.2", :build]
+  depends_on xcode: ["10.2", :build]
 
   def install
     xcodebuild "-target", "CLI",

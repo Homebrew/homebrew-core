@@ -1,16 +1,22 @@
 class Fop < Formula
   desc "XSL-FO print formatter for making PDF or PS documents"
   homepage "https://xmlgraphics.apache.org/fop/index.html"
-  url "https://www.apache.org/dyn/closer.cgi?path=/xmlgraphics/fop/binaries/fop-2.4-bin.tar.gz"
-  sha256 "d97f7318ca1aab9937d68aa6ce2a00379d8d4a0b692515246c84d328a6bf4f0c"
+  url "https://www.apache.org/dyn/closer.lua?path=xmlgraphics/fop/binaries/fop-2.5-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/xmlgraphics/fop/binaries/fop-2.5-bin.tar.gz"
+  sha256 "6a3c5f8915be5ef90fff202c818152d8252bb45b96d9c5d6550594903739e5ed"
+  license "Apache-2.0"
+
+  livecheck do
+    url :stable
+  end
 
   bottle :unneeded
 
-  depends_on :java => "1.6+"
+  depends_on "openjdk"
 
   resource "hyph" do
-    url "https://downloads.sourceforge.net/project/offo/offo-hyphenation-utf8/0.1/offo-hyphenation-fop-stable-utf8.zip"
-    sha256 "0b4e074635605b47a7b82892d68e90b6ba90fd2af83142d05878d75762510128"
+    url "https://downloads.sourceforge.net/project/offo/offo-hyphenation/2.2/offo-hyphenation-compiled.zip"
+    sha256 "3b503122b488bd30f658e9757c3b3066dd7a59f56c3a9bbb3eaae2d23b7d883f"
   end
 
   def install
@@ -19,10 +25,10 @@ class Fop < Formula
 
     executable = libexec/"fop/fop"
     executable.chmod 0555
-    bin.write_exec_script executable
+    (bin/"fop").write_env_script executable, JAVA_HOME: Formula["openjdk"].opt_prefix
 
     resource("hyph").stage do
-      (libexec/"build").install "fop-hyph.jar"
+      (libexec/"fop/build").install "fop-hyph.jar"
     end
   end
 

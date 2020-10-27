@@ -1,15 +1,15 @@
 class Enet < Formula
   desc "Provides a network communication layer on top of UDP"
   homepage "http://enet.bespin.org"
-  url "http://enet.bespin.org/download/enet-1.3.14.tar.gz"
-  sha256 "98f6f57aab0a424469619ed3047728f0d3901ce8f0dea919c11e7966d807e870"
+  url "http://enet.bespin.org/download/enet-1.3.15.tar.gz"
+  sha256 "5abdf63346e54272344d8184b5a2f333d202d809d28123911cbd993e5772bdfb"
+  license "MIT"
 
   bottle do
     cellar :any
-    sha256 "fd907590e904f76351db367069a3d28bec7ab9cb946f66a01c22102e8c9bd951" => :catalina
-    sha256 "3813772ea57875407a2f949e2aaa3d9330a25e443efc231bd6aeb6b6af213001" => :mojave
-    sha256 "25754aa22b0d3862dc2b0d355452c040022af50a99af5f98b39e46151aca43e1" => :high_sierra
-    sha256 "d7a0e4e8189f600db8f657aa46622b20ec5dd67facf06dd370d8185ff4714b27" => :sierra
+    sha256 "7188260137953334ee61ed7eb2252d813e3cb7d86985d0d18ed3e1ce84bc965f" => :catalina
+    sha256 "34bc8c1bbc9d71e2af3ec8f65dd24d681ad70be68f67534bba9a40f6e68bf21e" => :mojave
+    sha256 "95634a66c99f7cb4f2b4a402017fee5f2ab1f6cb36f2fe75725c44c36908bf1b" => :high_sierra
   end
 
   def install

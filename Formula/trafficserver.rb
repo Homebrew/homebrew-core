@@ -1,16 +1,18 @@
 class Trafficserver < Formula
   desc "HTTP/1.1 compliant caching proxy server"
   homepage "https://trafficserver.apache.org/"
+  url "https://www.apache.org/dyn/closer.lua?path=trafficserver/trafficserver-8.1.0.tar.bz2"
+  mirror "https://archive.apache.org/dist/trafficserver/trafficserver-8.1.0.tar.bz2"
+  sha256 "01bcc5d5cc58d5368366e193b6091e2d6af000badc19be3c49db7aa96955bbe2"
+  license "Apache-2.0"
 
-  stable do
-    url "https://archive.apache.org/dist/trafficserver/trafficserver-8.0.5.tar.bz2"
-    sha256 "8ede46ef4b7961b0f53dc3418985f30569725c671ea9e6626dc8bbf0ca46544f"
+  livecheck do
+    url :stable
   end
 
   bottle do
-    sha256 "e6ea637eb779516b21ebae5e0df8ee10b6dfac8a0e710139ec9f5edcc4f6d6c6" => :catalina
-    sha256 "146b8cda24b90b8f8438bd8cd0684ce0324c2fc7ba18de598cc9f151e5fe59a7" => :mojave
-    sha256 "2016f7171e6633dfa7abf86833354c30b63d2517955f0e7695dd3f0bed5b99b1" => :high_sierra
+    sha256 "d490c5c8fae027a4a6ffcd205b375625e37d3a2f99bb060a5989b33499145a72" => :catalina
+    sha256 "cc6df9c477581b56ce70bb909456a48041f6230b7a432ae1365ed60dd2019904" => :mojave
   end
 
   head do
@@ -26,6 +28,7 @@ class Trafficserver < Formula
     end
   end
 
+  depends_on macos: :mojave # `error: call to unavailable member function 'value': introduced in macOS 10.14`
   depends_on "openssl@1.1"
   depends_on "pcre"
 

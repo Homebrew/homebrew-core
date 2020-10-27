@@ -5,6 +5,10 @@ class Libglade < Formula
   sha256 "c41d189b68457976069073e48d6c14c183075d8b1d8077cb6dfb8b7c5097add3"
   revision 4
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     rebuild 1
     sha256 "f87fe8b63946d78fd43586ef25fbd108d9f81fda2089a66f40cbdc0216601f8e" => :catalina

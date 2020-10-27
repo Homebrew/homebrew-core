@@ -14,7 +14,7 @@ class Imagesnap < Formula
     sha256 "bbe0115174e191a6eaeedcdb3136e4c9248e7bab649bb30ddd4e07d27ea4e553" => :el_capitan
   end
 
-  depends_on :xcode => :build
+  depends_on xcode: :build
 
   # Fixes running on 10.13+: https://github.com/rharder/imagesnap/issues/16
   # Merged into master, will be in the next release.

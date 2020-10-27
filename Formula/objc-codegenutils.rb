@@ -3,6 +3,7 @@ class ObjcCodegenutils < Formula
   homepage "https://github.com/square/objc-codegenutils"
   url "https://github.com/square/objc-codegenutils/archive/v1.0.tar.gz"
   sha256 "98b8819e77e18029f1bda56622d42c162e52ef98f3ba4c6c8fcf5d40c256e845"
+  license "Apache-2.0"
   head "https://github.com/square/objc-codegenutils.git"
 
   bottle do
@@ -15,10 +16,11 @@ class ObjcCodegenutils < Formula
     sha256 "46d389e6ec12462dfbdd97822ce7c6e8156bbe9fac7a3baf04c20cb1991d9f75" => :mavericks
   end
 
-  depends_on :xcode => :build
+  depends_on xcode: :build
 
   def install
-    xcodebuild "-project", "codegenutils.xcodeproj", "-target", "assetgen", "-configuration", "Release", "SYMROOT=build", "OBJROOT=build"
+    xcodebuild "-project", "codegenutils.xcodeproj", "-target", "assetgen",
+               "-configuration", "Release", "SYMROOT=build", "OBJROOT=build"
     bin.install "build/Release/objc-assetgen"
     xcodebuild "-target", "colordump", "-configuration", "Release", "SYMROOT=build", "OBJROOT=build"
     bin.install "build/Release/objc-colordump"

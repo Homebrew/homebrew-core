@@ -1,14 +1,14 @@
 class Icecream < Formula
   desc "Distributed compiler with a central scheduler to share build load"
   homepage "https://en.opensuse.org/Icecream"
-  url "https://github.com/icecc/icecream/archive/1.3.tar.gz"
-  sha256 "5e147544dcc557ae6f0b13246aa1445f0f244f010de8e137053078275613bd00"
+  url "https://github.com/icecc/icecream/archive/1.3.1.tar.gz"
+  sha256 "9f45510fb2251d818baebcff19051c1cf059e48c6b830fb064a8379480159b9d"
+  license "GPL-2.0"
 
   bottle do
-    sha256 "72eaf1c15d341a9ecf8445111ebda07da0135fb919a93be1d485d616baba58cc" => :catalina
-    sha256 "6bebd258c4ad165dc3218fad1e34999fd61bb817f3e9b8d7edffc93b30d2ff1f" => :mojave
-    sha256 "1b27b28324a463527ac2f25168b915eeca1fb754d26c098eeadfc10d51f10cae" => :high_sierra
-    sha256 "400a0b2499cbd472afecc999a774f61867747099469a3aa6bc1eb607ae46c8cc" => :sierra
+    sha256 "666f827a6a686e6d2e81dc1d0eb5aae8374f01d7d1524ef6c695e3bf207c4af5" => :catalina
+    sha256 "fb94b2d8e763469a2b0112523f89496f4a81e22ed9b7290f4280178f726853da" => :mojave
+    sha256 "6cc11bcddd969e9aeb7e83692e9714d5891f0530bacbc1c52b019b298bce3d24" => :high_sierra
   end
 
   depends_on "autoconf" => :build
@@ -35,48 +35,51 @@ class Icecream < Formula
     (prefix/"#{plist_name}-scheduler.plist").write scheduler_plist
   end
 
-  def caveats; <<~EOS
-    To override the toolset with icecc, add to your path:
-      #{opt_libexec}/icecc/bin
-  EOS
+  def caveats
+    <<~EOS
+      To override the toolset with icecc, add to your path:
+        #{opt_libexec}/icecc/bin
+    EOS
   end
 
-  plist_options :manual => "iceccd"
+  plist_options manual: "iceccd"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-        <string>#{sbin}/iceccd</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-    </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+          <string>#{sbin}/iceccd</string>
+          </array>
+          <key>RunAtLoad</key>
+          <true/>
+      </dict>
+      </plist>
+    EOS
   end
 
-  def scheduler_plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-        <key>Label</key>
-        <string>#{plist_name}-scheduler</string>
-        <key>ProgramArguments</key>
-        <array>
-        <string>#{sbin}/icecc-scheduler</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-    </dict>
-    </plist>
-  EOS
+  def scheduler_plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+          <key>Label</key>
+          <string>#{plist_name}-scheduler</string>
+          <key>ProgramArguments</key>
+          <array>
+          <string>#{sbin}/icecc-scheduler</string>
+          </array>
+          <key>RunAtLoad</key>
+          <true/>
+      </dict>
+      </plist>
+    EOS
   end
 
   test do

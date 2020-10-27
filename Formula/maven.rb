@@ -1,15 +1,21 @@
 class Maven < Formula
   desc "Java-based project management"
   homepage "https://maven.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=maven/maven-3/3.6.2/binaries/apache-maven-3.6.2-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/maven/maven-3/3.6.2/binaries/apache-maven-3.6.2-bin.tar.gz"
-  sha256 "3fbc92d1961482d6fbd57fbf3dd6d27a4de70778528ee3fb44aa7d27eb32dfdc"
+  url "https://www.apache.org/dyn/closer.lua?path=maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz"
+  sha256 "26ad91d751b3a9a53087aefa743f4e16a17741d3915b219cf74112bf87a438c5"
+  license "Apache-2.0"
+  revision 1
+
+  livecheck do
+    url :stable
+  end
 
   bottle :unneeded
 
-  depends_on :java => "1.7+"
+  depends_on "openjdk"
 
-  conflicts_with "mvnvm", :because => "also installs a 'mvn' executable"
+  conflicts_with "mvnvm", because: "also installs a 'mvn' executable"
 
   def install
     # Remove windows files

@@ -4,6 +4,7 @@ class Libstatgrab < Formula
   url "https://ftp.i-scream.org/pub/i-scream/libstatgrab/libstatgrab-0.92.tar.gz"
   mirror "https://www.mirrorservice.org/pub/i-scream/libstatgrab/libstatgrab-0.92.tar.gz"
   sha256 "5bf1906aff9ffc3eeacf32567270f4d819055d8386d98b9c8c05519012d5a196"
+  license "GPL-2.0"
 
   bottle do
     cellar :any

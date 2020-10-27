@@ -4,6 +4,7 @@ class Libbtbb < Formula
   url "https://github.com/greatscottgadgets/libbtbb/archive/2018-12-R1.tar.gz"
   version "2018-12-R1"
   sha256 "0eb2b72e1c1131538206f1e3176e2cf1048751fe7dc665eef1e7429d1f2e6225"
+  license "GPL-2.0"
   head "https://github.com/greatscottgadgets/libbtbb.git"
 
   bottle do

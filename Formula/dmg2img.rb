@@ -5,6 +5,11 @@ class Dmg2img < Formula
   sha256 "02aea6d05c5b810074913b954296ddffaa43497ed720ac0a671da4791ec4d018"
   revision 1
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?dmg2img[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "e16b42ead321d5e0c85a98592154ef13a2206355a13cfe021735653a1dd995be" => :catalina

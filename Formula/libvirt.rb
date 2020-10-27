@@ -1,89 +1,84 @@
 class Libvirt < Formula
   desc "C virtualization API"
   homepage "https://www.libvirt.org"
-  url "https://libvirt.org/sources/libvirt-5.9.0.tar.xz"
-  sha256 "3496d2e1d988185de013b2a9d2e8824458afd85aa7cd050283a59b3d78978939"
-  head "https://github.com/libvirt/libvirt.git"
+  url "https://libvirt.org/sources/libvirt-6.8.0.tar.xz"
+  sha256 "0c2d7f6ed8bc4956bf7f0c8ca2897c6c82ddb91e3118ab7a588b25eedd16ef69"
+  license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
+  revision 1
 
-  bottle do
-    sha256 "15c9711df6e2c8dfcfac262a19c1d0aa0e1be6c518a548af238f26aa63c24006" => :catalina
-    sha256 "d837fc01b016eb7a624a56155910e6b4c428b7833fb5f111956ab38997a37337" => :mojave
-    sha256 "ec74e1d18cc8adcff1a99b6b3de4d11f6a2733b2113f02566c8f90694ea1c9c2" => :high_sierra
+  livecheck do
+    url "https://libvirt.org/sources/"
+    regex(/href=.*?libvirt[._-]v?([\d.]+)\.t/i)
   end
 
+  bottle do
+    sha256 "f803b6967dc9261f561d4deba6ff0950f7e56c9b0febcb2e3c6f7c67b02325a4" => :catalina
+    sha256 "c37e01074f22e646bcffe850e33ff1295a490295aab8860aad80cf5ac09f05e6" => :mojave
+    sha256 "401fc69e2a5daf2f6b47a8cc76791bf80824f5b748ca239b0ef8f61fa27e1c0a" => :high_sierra
+  end
+
+  head do
+    url "https://github.com/libvirt/libvirt.git"
+  end
+  depends_on "docutils" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
+  depends_on "perl" => :build
   depends_on "pkg-config" => :build
+  depends_on "python@3.9" => :build
+  depends_on "rpcgen" => :build
+  depends_on "gettext"
   depends_on "glib"
   depends_on "gnutls"
   depends_on "libgcrypt"
+  depends_on "libiscsi"
+  depends_on "libssh2"
   depends_on "yajl"
 
-  if build.head?
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "gettext" => :build
-    depends_on "libtool" => :build
-    depends_on "rpcgen" => :build
-  end
-
   def install
-    args = %W[
-      --prefix=#{prefix}
-      --localstatedir=#{var}
-      --mandir=#{man}
-      --sysconfdir=#{etc}
-      --with-esx
-      --with-init-script=none
-      --with-remote
-      --with-test
-      --with-vbox
-      --with-vmware
-      --with-qemu
-    ]
-
-    args << "ac_cv_path_RPCGEN=#{Formula["rpcgen"].opt_prefix}/bin/rpcgen" if build.head?
-
-    # Work around a gnulib issue with macOS Catalina
-    args << "gl_cv_func_ftello_works=yes"
-
-    system "./autogen.sh" if build.head?
-    system "./configure", *args
-
-    # Compilation of docs doesn't get done if we jump straight to "make install"
-    system "make"
-    system "make", "install"
-
-    # Update the libvirt daemon config file to reflect the Homebrew prefix
-    inreplace "#{etc}/libvirt/libvirtd.conf" do |s|
-      s.gsub! "/etc/", "#{HOMEBREW_PREFIX}/etc/"
-      s.gsub! "/var/", "#{HOMEBREW_PREFIX}/var/"
+    mkdir "build" do
+      args = %W[
+        --localstatedir=#{var}
+        --mandir=#{man}
+        --sysconfdir=#{etc}
+        -Ddriver_esx=enabled
+        -Ddriver_qemu=enabled
+        -Dinit_script=none
+      ]
+      system "meson", *std_meson_args, *args, ".."
+      system "meson", "compile"
+      system "meson", "install"
     end
   end
 
-  plist_options :manual => "libvirtd"
+  plist_options manual: "libvirtd"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>EnvironmentVariables</key>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
         <dict>
-          <key>PATH</key>
-          <string>#{HOMEBREW_PREFIX}/bin</string>
+          <key>EnvironmentVariables</key>
+          <dict>
+            <key>PATH</key>
+            <string>#{HOMEBREW_PREFIX}/bin</string>
+          </dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{sbin}/libvirtd</string>
+            <string>-f</string>
+            <string>#{etc}/libvirt/libvirtd.conf</string>
+          </array>
+          <key>KeepAlive</key>
+          <true/>
+          <key>RunAtLoad</key>
+          <true/>
         </dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{sbin}/libvirtd</string>
-        </array>
-        <key>KeepAlive</key>
-        <true/>
-        <key>RunAtLoad</key>
-        <true/>
-      </dict>
-    </plist>
-  EOS
+      </plist>
+    EOS
   end
 
   test do

@@ -5,6 +5,11 @@ class PureFtpd < Formula
   sha256 "767bf458c70b24f80c0bb7a1bbc89823399e75a0a7da141d30051a2b8cc892a5"
   revision 1
 
+  livecheck do
+    url "https://download.pureftpd.org/pub/pure-ftpd/releases/"
+    regex(/href=.*?pure-ftpd[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "aa0a342b50ae3761120370fc0e6605241e03545441c472d778ef030239784454" => :catalina
@@ -32,36 +37,37 @@ class PureFtpd < Formula
     system "make", "install"
   end
 
-  plist_options :manual => "pure-ftpd"
+  plist_options manual: "pure-ftpd"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>KeepAlive</key>
-        <true/>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_sbin}/pure-ftpd</string>
-          <string>--chrooteveryone</string>
-          <string>--createhomedir</string>
-          <string>--allowdotfiles</string>
-          <string>--login=puredb:#{etc}/pureftpd.pdb</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>WorkingDirectory</key>
-        <string>#{var}</string>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/pure-ftpd.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/pure-ftpd.log</string>
-      </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>KeepAlive</key>
+          <true/>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_sbin}/pure-ftpd</string>
+            <string>--chrooteveryone</string>
+            <string>--createhomedir</string>
+            <string>--allowdotfiles</string>
+            <string>--login=puredb:#{etc}/pureftpd.pdb</string>
+          </array>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>WorkingDirectory</key>
+          <string>#{var}</string>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/pure-ftpd.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/pure-ftpd.log</string>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do

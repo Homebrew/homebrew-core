@@ -1,8 +1,9 @@
 class OpenapiGenerator < Formula
   desc "Generate clients, server & docs from an OpenAPI spec (v2, v3)"
   homepage "https://openapi-generator.tech/"
-  url "https://search.maven.org/remotecontent?filepath=org/openapitools/openapi-generator-cli/4.2.0/openapi-generator-cli-4.2.0.jar"
-  sha256 "eb4ab3ca11ea69f60f0ef730c7f912c4bec69bf582d06d2da4a652b40cf08501"
+  url "https://search.maven.org/remotecontent?filepath=org/openapitools/openapi-generator-cli/4.3.1/openapi-generator-cli-4.3.1.jar"
+  sha256 "f438cd16bc1db28d3363e314cefb59384f252361db9cb1a04a322e7eb5b331c1"
+  license "Apache-2.0"
 
   head do
     url "https://github.com/OpenAPITools/openapi-generator.git"
@@ -12,20 +13,20 @@ class OpenapiGenerator < Formula
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on "openjdk"
 
   def install
-    # Need to set JAVA_HOME manually since maven overrides 1.8 with 1.7+
-    cmd = Language::Java.java_home_cmd("1.8")
-    ENV["JAVA_HOME"] = Utils.popen_read(cmd).chomp
     if build.head?
       system "mvn", "clean", "package", "-Dmaven.javadoc.skip=true"
       libexec.install "modules/openapi-generator-cli/target/openapi-generator-cli.jar"
-      bin.write_jar_script libexec/"openapi-generator-cli.jar", "openapi-generator", "$JAVA_OPTS"
     else
-      libexec.install "openapi-generator-cli-#{version}.jar"
-      bin.write_jar_script libexec/"openapi-generator-cli-#{version}.jar", "openapi-generator", "$JAVA_OPTS"
+      libexec.install "openapi-generator-cli-#{version}.jar" => "openapi-generator-cli.jar"
     end
+
+    (bin/"openapi-generator").write <<~EOS
+      #!/bin/bash
+      exec "#{Formula["openjdk"].opt_bin}/java" $JAVA_OPTS -jar "#{libexec}/openapi-generator-cli.jar" "$@"
+    EOS
   end
 
   test do

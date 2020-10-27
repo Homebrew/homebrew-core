@@ -3,24 +3,29 @@ class JujuWait < Formula
 
   desc "Juju plugin for waiting for deployments to settle"
   homepage "https://launchpad.net/juju-wait"
-  url "https://files.pythonhosted.org/packages/4c/ee/1a4b3298afd01f276e37dbd3f8d5a42478fb049f08f6255ca2742f7aab9f/juju-wait-2.6.4.tar.gz"
-  sha256 "c1dd38c2525fc26d1e89739f9a932aebfd2c1e238e96c980f26527522e7111bf"
+  url "https://files.pythonhosted.org/packages/0c/2b/f4bd0138f941e4ba321298663de3f1c8d9368b75671b17aa1b8d41a154dc/juju-wait-2.8.4.tar.gz"
+  sha256 "9e84739056e371ab41ee59086313bf357684bc97aae8308716c8fe3f19df99be"
+  license "GPL-3.0-only"
+  revision 1
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any
-    sha256 "1bd151d68e2b3671a7f7a5089a6264358094049b8f0a01c1fcfe6278b039c72d" => :catalina
-    sha256 "fa16c0c9ee4e4630473cead84377e6c0495013a25f9952e1000737ca11f7268a" => :mojave
-    sha256 "2067d5af66824dc2100ddc6cbc2a758dd3d919dcb44035a4d6c7112aaf391fa0" => :high_sierra
-    sha256 "46dadcf85332eaf1e80e044da7fb790ce32d65df5f79193253f4edb80d16c283" => :sierra
+    sha256 "82f581e595e843682782737000c28646f59ce7ceda2572a094c616aeddf26709" => :catalina
+    sha256 "3d09fe21c6290f6a055cae35c06e4cdd7682111b295eea2551430df1f618b3d0" => :mojave
+    sha256 "5d6a6e8f8fe65ec7f7e0b132b75d85d3b918ec850f9f9b8d0f5742ab6d37f552" => :high_sierra
   end
 
   depends_on "juju"
   depends_on "libyaml"
-  depends_on "python"
+  depends_on "python@3.9"
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"
-    sha256 "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf"
+    url "https://files.pythonhosted.org/packages/64/c2/b80047c7ac2478f9501676c988a5411ed5572f35d1beff9cae07d321512c/PyYAML-5.3.1.tar.gz"
+    sha256 "b8eac752c5e14d3eca0e6dd9199cd627518cb5ec06add0de9d32baeee6fe645d"
   end
 
   def install

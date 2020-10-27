@@ -1,16 +1,15 @@
 class Unpaper < Formula
   desc "Post-processing for scanned/photocopied books"
-  homepage "https://www.flameeyes.eu/projects/unpaper"
-  url "https://www.flameeyes.eu/files/unpaper-6.1.tar.xz"
+  homepage "https://www.flameeyes.com/projects/unpaper"
+  url "https://www.flameeyes.com/files/unpaper-6.1.tar.xz"
   sha256 "237c84f5da544b3f7709827f9f12c37c346cdf029b1128fb4633f9bafa5cb930"
-  revision 2
+  revision 5
 
   bottle do
     cellar :any
-    sha256 "255eef39573324e6772fcbb69d2f6567b4230152f55ffa6b545b41fd81d8a7ac" => :mojave
-    sha256 "064acb1292a5a948eb3963be07c400d8fe0e7fa008afec78bfdd659392e45871" => :high_sierra
-    sha256 "f35014bc991ee89bc5af4a4f25034bf525220a13a8925518424a5a423273a1cc" => :sierra
-    sha256 "743399859c237fb673ee9dec339d660215d92db2383f31c3208f726116adeb1d" => :el_capitan
+    sha256 "dc0331209f12046ebcb674087480f9b2c995f8da60c732b2135f92213bd030b2" => :catalina
+    sha256 "78c90c879e19beb16f2822c2c4aa7ef6c47120e5571681963990e99a9addbd73" => :mojave
+    sha256 "2602c2cdfa14bd52b0af559434f5215e8e704dc29cab6e44e77e751227fb8909" => :high_sierra
   end
 
   head do
@@ -21,6 +20,13 @@ class Unpaper < Formula
 
   depends_on "pkg-config" => :build
   depends_on "ffmpeg"
+
+  uses_from_macos "libxslt"
+
+  on_linux do
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
 
   def install
     system "autoreconf", "-i" if build.head?

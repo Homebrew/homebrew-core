@@ -1,19 +1,25 @@
 class Oclgrind < Formula
   desc "OpenCL device simulator and debugger"
   homepage "https://github.com/jrprice/Oclgrind"
-  url "https://github.com/jrprice/Oclgrind/archive/v18.3.tar.gz"
-  sha256 "90518d47573e64c6c28e173dc6f10c4e0ca53a99543ef2f1afaac1cbf725fe90"
+  url "https://github.com/jrprice/Oclgrind/archive/v19.10.tar.gz"
+  sha256 "f9a8f22cb9f6d88670f2578c46ba0d728ba8eaee5c481c2811129dc157c43dc0"
+  license "BSD-3-Clause"
+  revision 3
+
+  livecheck do
+    url :homepage
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     cellar :any
-    sha256 "fef83d451c0545143c476dee9115177b185520a96d0712264f33b2b3d7da321a" => :mojave
-    sha256 "02bef522dafb0e6a4ebdb57caf496642c21c3ae3b05eb455c91c3dee540107bb" => :high_sierra
-    sha256 "4c5246e9cbe98976a83a8626667cc9ce792756f5e7bba5efd318d93ab56321b0" => :sierra
-    sha256 "30bad2aec84a6d1d1ce222f083266fba3a483bcde59b4223035e5a838e225ee9" => :el_capitan
+    sha256 "1fd792bb90fa78dd58cc2d7ffe824084b80caf2211363096b14a3d9a6f3411c9" => :catalina
+    sha256 "f6728b30db78fa358b2136d4c1e51dbcafa79b4a9ddbf3a601f28c01e0e26805" => :mojave
+    sha256 "fe3d0a3798f2ac0092e8469a6f824bdfb29b0fb92f0d3b3fa0edeb8875f54ee6" => :high_sierra
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm" => :build
+  depends_on "llvm@9"
 
   def install
     system "cmake", ".", *std_cmake_args
@@ -21,7 +27,7 @@ class Oclgrind < Formula
   end
 
   test do
-    (testpath/"rot13.c").write <<~EOS
+    (testpath/"rot13.c").write <<~'EOS'
       #include <stdio.h>
       #include <string.h>
 
@@ -93,6 +99,19 @@ class Oclgrind < Formula
                 1, srcptr, &srcsize, &error);
         error=clBuildProgram(prog, 0, NULL, "", NULL, NULL);
 
+        if (error == CL_BUILD_PROGRAM_FAILURE) {
+          size_t logsize;
+          clGetProgramBuildInfo(prog, device, CL_PROGRAM_BUILD_LOG, 0, NULL, &logsize);
+
+          char *log=(char *)malloc(logsize);
+          clGetProgramBuildInfo(prog, device, CL_PROGRAM_BUILD_LOG, logsize, log, NULL);
+
+          fprintf(stderr, "%s\n", log);
+          free(log);
+
+          return 1;
+        }
+
         cl_mem mem1, mem2;
         mem1=clCreateBuffer(context, CL_MEM_READ_ONLY, worksize, NULL, &error);
         mem2=clCreateBuffer(context, CL_MEM_WRITE_ONLY, worksize, NULL, &error);
@@ -113,7 +132,9 @@ class Oclgrind < Formula
         puts(buf2);
       }
     EOS
+
     system ENV.cc, "rot13.c", "-o", "rot13", "-framework", "OpenCL"
-    assert_equal "Hello, World!", pipe_output([bin/"oclgrind", "./rot13"], "", 0).chomp
+    output = shell_output("#{bin}/oclgrind ./rot13 2>&1").chomp
+    assert_equal "Hello, World!", output
   end
 end

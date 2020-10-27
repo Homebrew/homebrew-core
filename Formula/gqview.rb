@@ -5,6 +5,13 @@ class Gqview < Formula
   sha256 "97e3b7ce5f17a315c56d6eefd7b3a60b40cc3d18858ca194c7e7262acce383cb"
   revision 3
 
+  # The "gqview" directory is where stable versions are found, so we use it in
+  # the regex to avoid matching releases in the "unstable" directory.
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/gqview/[^/]+/gqview[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     sha256 "e8e56389d265444d10d7859b63736370c2b88b98d4f8b4254bdecf2f3b7c8ab4" => :catalina
     sha256 "dc9cc0efc66c0e2156efeba84201c54711288e96868367bde264dbfaff14236f" => :mojave

@@ -1,14 +1,22 @@
 class SonarqubeLts < Formula
   desc "Manage code quality"
   homepage "https://www.sonarqube.org/"
-  url "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-7.9.1.zip"
-  sha256 "67f3ccae79245397480b0947d7a0b5661dc650b87f368b39365044ebcc88ada0"
+  url "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-7.9.4.zip"
+  sha256 "67fd0e9b2f4a1cf481ac9c5487173e4b1aa05381e6219428f53de510c8f2289d"
+
+  # The regex below should only match the LTS release archive on the Sonarqube
+  # downloads page. This is necessary because the usual index page for releases
+  # doesn't distinguish between current and LTS releases.
+  livecheck do
+    url "https://www.sonarqube.org/downloads/"
+    regex(/downloads-lts.+?href=.*?sonarqube[._-]v?(\d+(?:\.\d+)+)\.(?:zip|t)/im)
+  end
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on "openjdk"
 
-  conflicts_with "sonarqube", :because => "both install the same binaries"
+  conflicts_with "sonarqube", because: "both install the same binaries"
 
   def install
     # Delete native bin directories for other systems
@@ -16,28 +24,30 @@ class SonarqubeLts < Formula
 
     libexec.install Dir["*"]
 
-    bin.install_symlink "#{libexec}/bin/macosx-universal-64/sonar.sh" => "sonar"
+    (bin/"sonar").write_env_script libexec/"bin/macosx-universal-64/sonar.sh",
+      JAVA_HOME: Formula["openjdk"].opt_prefix
   end
 
-  plist_options :manual => "sonar console"
+  plist_options manual: "sonar console"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-        <string>#{opt_bin}/sonar</string>
-        <string>start</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-    </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+          <string>#{opt_bin}/sonar</string>
+          <string>start</string>
+          </array>
+          <key>RunAtLoad</key>
+          <true/>
+      </dict>
+      </plist>
+    EOS
   end
 
   test do

@@ -7,6 +7,11 @@ class PdflibLite < Formula
   version "7.0.5p3"
   sha256 "e5fb30678165d28b2bf066f78d5f5787e73a2a28d4902b63e3e07ce1678616c9"
 
+  # PDFlib Lite reached its end of life in 2011 and is no longer supported.
+  livecheck do
+    skip "No longer supported"
+  end
+
   bottle do
     cellar :any
     rebuild 2
@@ -36,10 +41,11 @@ class PdflibLite < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    pdflib-lite is not open source software; usage restrictions apply!
-    Be sure to understand and obey the license terms, which can be found at:
-    https://www.pdflib.com/download/free-software/pdflib-lite-7/pdflib-lite-licensing/
-  EOS
+  def caveats
+    <<~EOS
+      pdflib-lite is not open source software; usage restrictions apply!
+      Be sure to understand and obey the license terms, which can be found at:
+      https://www.pdflib.com/download/free-software/pdflib-lite-7/pdflib-lite-licensing/
+    EOS
   end
 end

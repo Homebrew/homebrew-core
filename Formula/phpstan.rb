@@ -1,8 +1,9 @@
 class Phpstan < Formula
   desc "PHP Static Analysis Tool"
   homepage "https://github.com/phpstan/phpstan"
-  url "https://github.com/phpstan/phpstan/releases/download/0.11.19/phpstan.phar"
-  sha256 "e1e0bd422ce365c96043a507f1ced6dae8a11e146d6c5050e837ee03ba68042c"
+  url "https://github.com/phpstan/phpstan/releases/download/0.12.52/phpstan.phar"
+  sha256 "cb029763ba3318ddeb8642deee497c0d94ddc63e7e567445c4d0bba324bb0b7e"
+  license "MIT"
 
   bottle :unneeded
 
@@ -39,7 +40,7 @@ class Phpstan < Formula
 
         final class Email
         {
-            private $email;
+            private string $email;
 
             private function __construct(string $email)
             {
@@ -71,6 +72,7 @@ class Phpstan < Formula
             }
         }
     EOS
-    assert_match /^\n\n \[OK\] No errors/, shell_output("#{bin}/phpstan analyse --level max --autoload-file src/autoload.php src/Email.php")
+    assert_match /^\n \[OK\] No errors/,
+      shell_output("#{bin}/phpstan analyse --level max --autoload-file src/autoload.php src/Email.php")
   end
 end

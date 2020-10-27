@@ -1,15 +1,16 @@
 class Tile38 < Formula
   desc "In-memory geolocation data store, spatial index, and realtime geofence"
   homepage "https://tile38.com/"
-  url "https://github.com/tidwall/tile38/archive/1.19.0.tar.gz"
-  sha256 "4317f3753c941b48e22ea61f3425fb5c2fd345fbeb5415f06396fa0af3ad35d1"
-  head "https://github.com/tidwall/tile38.git"
+  url "https://github.com/tidwall/tile38.git",
+    tag:      "1.22.2",
+    revision: "5b77c446a767c290d189291ab01aee9685082bc3"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9177936ccc91b290ea8aa41e2de701290cf91f1ee0e0654d70d62aed0b2c87fe" => :catalina
-    sha256 "5d468ff70e1f611c44d3845de13d4c23408ccd88f8426097d19c4c8f1568cbfa" => :mojave
-    sha256 "07414b98ce099ac14fbf199ce587ba53b2715a7bed2778ac8344de4826f1ec10" => :high_sierra
+    sha256 "18e4001cf07554ae26d5d420cd3890b3b6d8b3d74b9cd52cfa252ef2c49c748d" => :catalina
+    sha256 "c8a0ffb58b27b60a261cd7312e3660d46e37ff72c45ea8de572489041a7492cf" => :mojave
+    sha256 "5f2b08857ba21d9cdc29d44a448d0c4064365dd8063d6f643e065ec68efad458" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -19,10 +20,16 @@ class Tile38 < Formula
   end
 
   def install
-    ENV["GOPATH"] = buildpath
-    system "make"
+    commit = Utils.safe_popen_read("git", "rev-parse", "--short", "HEAD").chomp
 
-    bin.install "tile38-cli", "tile38-server"
+    ldflags = %W[
+      -s -w
+      -X github.com/tidwall/tile38/core.Version=#{version}
+      -X github.com/tidwall/tile38/core.GitSHA=#{commit}
+    ]
+
+    system "go", "build", "-o", bin/"tile38-server", "-ldflags", ldflags.join(" "), "./cmd/tile38-server"
+    system "go", "build", "-o", bin/"tile38-cli", "-ldflags", ldflags.join(" "), "./cmd/tile38-cli"
   end
 
   def post_install
@@ -30,42 +37,44 @@ class Tile38 < Formula
     datadir.mkpath
   end
 
-  def caveats; <<~EOS
-    To connect: tile38-cli
-  EOS
+  def caveats
+    <<~EOS
+      To connect: tile38-cli
+    EOS
   end
 
-  plist_options :manual => "tile38-server -d #{HOMEBREW_PREFIX}/var/tile38/data"
+  plist_options manual: "tile38-server -d #{HOMEBREW_PREFIX}/var/tile38/data"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>KeepAlive</key>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
         <dict>
-          <key>SuccessfulExit</key>
-          <false/>
+          <key>KeepAlive</key>
+          <dict>
+            <key>SuccessfulExit</key>
+            <false/>
+          </dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/tile38-server</string>
+            <string>-d</string>
+            <string>#{datadir}</string>
+          </array>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>WorkingDirectory</key>
+          <string>#{var}</string>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/tile38.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/tile38.log</string>
         </dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/tile38-server</string>
-          <string>-d</string>
-          <string>#{datadir}</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>WorkingDirectory</key>
-        <string>#{var}</string>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/tile38.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/tile38.log</string>
-      </dict>
-    </plist>
-  EOS
+      </plist>
+    EOS
   end
 
   test do

@@ -3,6 +3,7 @@ class Cwlogs < Formula
   homepage "https://github.com/segmentio/cwlogs"
   url "https://github.com/segmentio/cwlogs/archive/v1.2.0.tar.gz"
   sha256 "3f7b56b49c42c1de0e697fc391abad07b03434cff36b153249dd2af3107e064e"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

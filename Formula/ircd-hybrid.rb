@@ -1,20 +1,24 @@
 class IrcdHybrid < Formula
   desc "High-performance secure IRC server"
   homepage "http://www.ircd-hybrid.org/"
-  url "https://downloads.sourceforge.net/project/ircd-hybrid/ircd-hybrid/ircd-hybrid-8.2.24/ircd-hybrid-8.2.24.tgz"
-  sha256 "eaa42d8bf10c0e619e3bda96f35d31bb20715305a85a1386cfbc6b8761fed50e"
-  revision 1
+  url "https://downloads.sourceforge.net/project/ircd-hybrid/ircd-hybrid/ircd-hybrid-8.2.33/ircd-hybrid-8.2.33.tgz"
+  sha256 "18470fa4b5361809f8643599facd31541c44b29c0e63b1b44640d6c808456a01"
+  license "GPL-2.0-or-later"
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/ircd-hybrid[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
 
   bottle do
-    sha256 "de9ce625b777bf066d1d0b2933443618b677fe74387f7a3d2f07ff856605f1c0" => :catalina
-    sha256 "478efdf1f24ce2baa47511c4cfa2c451703140c760186a8845fecc765c3b38c4" => :mojave
-    sha256 "36d3e9d28b01f104593703ebe93a230a170247090e78b492cee72eb55c3cedcc" => :high_sierra
-    sha256 "f61894f34fb608a97f4df370f9f466a129f418d8eb48781fe936ff5f145c2c5a" => :sierra
+    sha256 "d4957e6e7e46d89f0c0f55242a6fb567ab504276229d41ddf8939cd520caabf4" => :catalina
+    sha256 "0481dea871e6d698f4fb4147810c3ab7c98fcb70da5b0075a0b529dec360d6b9" => :mojave
+    sha256 "ee74ff104dd2449c4fead761da86ee244471cf6ff084da677380484fbd0bd0bb" => :high_sierra
   end
 
   depends_on "openssl@1.1"
 
-  conflicts_with "ircd-irc2", :because => "both install an `ircd` binary"
+  conflicts_with "ircd-irc2", because: "both install an `ircd` binary"
 
   # ircd-hybrid needs the .la files
   skip_clean :la
@@ -31,36 +35,38 @@ class IrcdHybrid < Formula
     etc.install "doc/reference.conf" => "ircd.conf"
   end
 
-  def caveats; <<~EOS
-    You'll more than likely need to edit the default settings in the config file:
-      #{etc}/ircd.conf
-  EOS
+  def caveats
+    <<~EOS
+      You'll more than likely need to edit the default settings in the config file:
+        #{etc}/ircd.conf
+    EOS
   end
 
-  plist_options :manual => "ircd"
+  plist_options manual: "ircd"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>KeepAlive</key>
-      <false/>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_bin}/ircd</string>
-      </array>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>WorkingDirectory</key>
-      <string>#{HOMEBREW_PREFIX}</string>
-      <key>StandardErrorPath</key>
-      <string>#{var}/ircd.log</string>
-    </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>KeepAlive</key>
+        <false/>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/ircd</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>WorkingDirectory</key>
+        <string>#{HOMEBREW_PREFIX}</string>
+        <key>StandardErrorPath</key>
+        <string>#{var}/ircd.log</string>
+      </dict>
+      </plist>
+    EOS
   end
 
   test do

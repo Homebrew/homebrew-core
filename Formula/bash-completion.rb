@@ -7,6 +7,10 @@ class BashCompletion < Formula
   sha256 "8ebe30579f0f3e1a521013bcdd183193605dab353d7a244ff2582fb3a36f7bec"
   revision 3
 
+  livecheck do
+    skip "1.x versions are no longer developed"
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "bd0c84cc6df9d3ff06ac081d85fdcc052b9e63136f4e2aa5fd2f2a0b7f654c84" => :catalina
@@ -17,7 +21,8 @@ class BashCompletion < Formula
     sha256 "58be92ef01d5068f37b1c00af8e9b202bdb409c93121bb0e07dcbb5e55dc3be2" => :yosemite
   end
 
-  conflicts_with "bash-completion@2", :because => "Differing version of same formula"
+  conflicts_with "bash-completion@2",
+    because: "each are different versions of the same formula"
 
   # Backports the following upstream patch from 2.x:
   # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=740971
@@ -39,10 +44,11 @@ class BashCompletion < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    Add the following line to your ~/.bash_profile:
-      [[ -r "#{etc}/profile.d/bash_completion.sh" ]] && . "#{etc}/profile.d/bash_completion.sh"
-  EOS
+  def caveats
+    <<~EOS
+      Add the following line to your ~/.bash_profile:
+        [[ -r "#{etc}/profile.d/bash_completion.sh" ]] && . "#{etc}/profile.d/bash_completion.sh"
+    EOS
   end
 
   test do

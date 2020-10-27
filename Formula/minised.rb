@@ -3,6 +3,7 @@ class Minised < Formula
   homepage "https://www.exactcode.com/opensource/minised/"
   url "https://dl.exactcode.de/oss/minised/minised-1.15.tar.gz"
   sha256 "ada36a55b71d1f2eb61f2f3b95f112708ce51e69f601bf5ea5d7acb7c21b3481"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any_skip_relocation

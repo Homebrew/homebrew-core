@@ -4,6 +4,11 @@ class Ucommon < Formula
   url "https://ftp.gnu.org/gnu/commonc++/ucommon-7.0.0.tar.gz"
   sha256 "6ac9f76c2af010f97e916e4bae1cece341dc64ca28e3881ff4ddc3bc334060d7"
 
+  livecheck do
+    url :stable
+    regex(/href=.*?ucommon[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "3040baab77d1ff69f36ff21ec9259c8512170f361119e66b446a48b86f157320" => :catalina
     sha256 "34ef3423a4f8f0de02e05e8a00a5f1cb12bd0b9790103354792c24b7613ccb80" => :mojave

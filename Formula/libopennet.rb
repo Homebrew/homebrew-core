@@ -1,8 +1,9 @@
 class Libopennet < Formula
-  desc "open_net(), similar to open()"
+  desc "Provides open_net() (similar to open())"
   homepage "https://www.rkeene.org/oss/libopennet"
   url "https://www.rkeene.org/files/oss/libopennet/libopennet-0.9.9.tar.gz"
   sha256 "d1350abe17ac507ffb50d360c5bf8290e97c6843f569a1d740f9c1d369200096"
+  license "LGPL-2.1"
 
   bottle do
     cellar :any

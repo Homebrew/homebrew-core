@@ -4,6 +4,11 @@ class Markdown < Formula
   url "https://daringfireball.net/projects/downloads/Markdown_1.0.1.zip"
   sha256 "6520e9b6a58c5555e381b6223d66feddee67f675ed312ec19e9cee1b92bc0137"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?Markdown[._-]v?(\d+(?:\.\d+)+)\.zip/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "35864422386d1390de813462b697b604813bc3a7caac7bf3fd172335e25b2a55" => :catalina
@@ -15,8 +20,8 @@ class Markdown < Formula
     sha256 "66fffda1a29fd9e2dcddcb52fb9606f21d897bf4680583626b612a95d27b1e04" => :mavericks
   end
 
-  conflicts_with "discount", :because => "both install `markdown` binaries"
-  conflicts_with "multimarkdown", :because => "both install `markdown` binaries"
+  conflicts_with "discount", because: "both install `markdown` binaries"
+  conflicts_with "multimarkdown", because: "both install `markdown` binaries"
 
   def install
     bin.install "Markdown.pl" => "markdown"

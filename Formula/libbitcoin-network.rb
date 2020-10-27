@@ -3,6 +3,7 @@ class LibbitcoinNetwork < Formula
   homepage "https://github.com/libbitcoin/libbitcoin-network"
   url "https://github.com/libbitcoin/libbitcoin-network/archive/v3.6.0.tar.gz"
   sha256 "68d36577d44f7319280c446a5327a072eb20749dfa859c0e1ac768304c9dd93a"
+  license "AGPL-3.0"
   revision 1
 
   bottle do

@@ -1,16 +1,27 @@
 class MidnightCommander < Formula
   desc "Terminal-based visual file manager"
   homepage "https://www.midnight-commander.org/"
-  url "https://www.midnight-commander.org/downloads/mc-4.8.22.tar.xz"
-  sha256 "ee7868d7ba0498cf2cccefe107d7efee7f2571098806bba2aed5a159db801318"
-  revision 2
-  head "https://github.com/MidnightCommander/mc.git"
+  url "https://www.midnight-commander.org/downloads/mc-4.8.25.tar.xz"
+  sha256 "ffc19617f20ebb23330acd3998b7fd559a042d172fa55746d53d246697b2548a"
+  license "GPL-3.0"
+
+  livecheck do
+    url "http://ftp.midnight-commander.org"
+    regex(/href=.*?mc[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 "a09791d4752c87a4f02c9d45d418f282ebeab30089641ef0d0ec6d7390449815" => :catalina
-    sha256 "f0a68c97b763f0287815a5aa09d001cf813595e3a9d4ba5ae5c25095adb666ce" => :mojave
-    sha256 "a0c72e44f505ccb864b2b301a05cdec10580a26b195f574a46f0e552cf97e993" => :high_sierra
-    sha256 "1d7f48e1c2834f4bb2a3dadc0df433eec646fe31bf1817e44fa9a16dc91ee941" => :sierra
+    sha256 "2c36f252c47b8ecff2fa4afb4191a963af7c3d30a8aeb267a40f967873a01643" => :catalina
+    sha256 "224d6aa6577e51952833ee65888bb99eacb89508dc9ac2f82a0e679b4635d7e3" => :mojave
+    sha256 "79c2208b2097941cf3a792f47ad1f280ddbc3add7bd631084484163b7ba14ae9" => :high_sierra
+  end
+
+  head do
+    url "https://github.com/MidnightCommander/mc.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
   end
 
   depends_on "pkg-config" => :build
@@ -19,7 +30,7 @@ class MidnightCommander < Formula
   depends_on "openssl@1.1"
   depends_on "s-lang"
 
-  conflicts_with "minio-mc", :because => "Both install a `mc` binary"
+  conflicts_with "minio-mc", because: "both install an `mc` binary"
 
   def install
     args = %W[
@@ -35,7 +46,7 @@ class MidnightCommander < Formula
     # Fix compilation bug on macOS 10.13 by pretending we don't have utimensat()
     # https://github.com/MidnightCommander/mc/pull/130
     ENV["ac_cv_func_utimensat"] = "no" if MacOS.version >= :high_sierra
-
+    system "./autogen.sh" if build.head?
     system "./configure", *args
     system "make", "install"
   end

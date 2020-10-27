@@ -1,18 +1,28 @@
 class Cmake < Formula
   desc "Cross-platform make"
   homepage "https://www.cmake.org/"
-  url "https://github.com/Kitware/CMake/releases/download/v3.15.5/cmake-3.15.5.tar.gz"
-  sha256 "fbdd7cef15c0ced06bb13024bfda0ecc0dedbcaaaa6b8a5d368c75255243beb4"
-  head "https://cmake.org/cmake.git"
+  url "https://github.com/Kitware/CMake/releases/download/v3.18.4/cmake-3.18.4.tar.gz"
+  sha256 "597c61358e6a92ecbfad42a9b5321ddd801fc7e7eca08441307c9138382d4f77"
+  license "BSD-3-Clause"
+  head "https://gitlab.kitware.com/cmake/cmake.git"
+
+  livecheck do
+    url "https://cmake.org/download/"
+    regex(/Latest Release \(v?(\d+(?:\.\d+)+)\)/i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "46b47f448f7690bbed70526a42f27bea54aa7562c9eefb86955102fc83d1366d" => :catalina
-    sha256 "ded337f539d87466a83e50c4dee5ccd47356a3a4bc066a0cadbf4c8fc52c7179" => :mojave
-    sha256 "e98220aa1eedd7e97926e160c76424cdb08ea5cfc6866ca65cd25a830605586d" => :high_sierra
+    sha256 "c7c42e66c63448e4aee44498b374c9985f477b129fccca5dd9c13530d1e680ef" => :catalina
+    sha256 "a0b167ad7f2fbf6f6dbcca9d74cb09acbd7822c54873803e940abf04272f8028" => :mojave
+    sha256 "98704ab50ed76df9214083c01e373277ba02aad43c858182be7ed1466d005326" => :high_sierra
   end
 
   depends_on "sphinx-doc" => :build
+
+  on_linux do
+    depends_on "openssl@1.1"
+  end
 
   # The completions were removed because of problems with system bash
 
@@ -36,15 +46,10 @@ class Cmake < Formula
       --system-curl
     ]
 
-    # There is an existing issue around macOS & Python locale setting
-    # See https://bugs.python.org/issue18378#msg215215 for explanation
-    ENV["LC_ALL"] = "en_US.UTF-8"
-
-    system "./bootstrap", *args, "--", "-DCMAKE_BUILD_TYPE=Release"
+    system "./bootstrap", *args, "--", *std_cmake_args,
+                                       "-DCMake_INSTALL_EMACS_DIR=#{elisp}"
     system "make"
     system "make", "install"
-
-    elisp.install "Auxiliary/cmake-mode.el"
   end
 
   test do

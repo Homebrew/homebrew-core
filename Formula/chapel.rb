@@ -1,14 +1,14 @@
 class Chapel < Formula
   desc "Emerging programming language designed for parallel computing"
   homepage "https://chapel-lang.org/"
-  url "https://github.com/chapel-lang/chapel/releases/download/1.20.0/chapel-1.20.0.tar.gz"
-  sha256 "08bc86df13e4ad56d0447f52628b0f8e36b0476db4e19a90eeb2bd5f260baece"
+  url "https://github.com/chapel-lang/chapel/releases/download/1.23.0/chapel-1.23.0.tar.gz"
+  sha256 "7ae2c8f17a7b98ac68378e94a842cf16d4ab0bcfeabc0fee5ab4aaa07b205661"
+  license "Apache-2.0"
 
   bottle do
-    sha256 "057e5c71d41f2ff71434f446ffd8f9aa932b553612313729d4651fdc58233650" => :catalina
-    sha256 "8fcaebe6a3c465a29a66e691581b88b2fc9960726e1f94b3f21aa0f53c424044" => :mojave
-    sha256 "4aee5a0ddf8a44897a2f03c458a8e7e70d76b07f04024119ed482fbc06cf330c" => :high_sierra
-    sha256 "34a5eac538de8fb6ac632109a0154e1d14ff8551bc8f4fec8df8359568697338" => :sierra
+    sha256 "5aa5b6a7e03ed702530959c1983e8989be5f1ba4494af6d9da044e38ef62bfcb" => :catalina
+    sha256 "123c5824b82621b4984e1afbf4f01f5c20af8cbc03e7b1266af396f8eaa80f79" => :mojave
+    sha256 "101b6a940e07d3e86ec809b3f7737950e0ef12c61daf43ef92c00e95047333c5" => :high_sierra
   end
 
   def install
@@ -23,7 +23,6 @@ class Chapel < Formula
     cd libexec do
       system "make"
       system "make", "chpldoc"
-      system "make", "test-venv"
       system "make", "mason"
       system "make", "cleanall"
     end
@@ -32,14 +31,14 @@ class Chapel < Formula
 
     # Install chpl and other binaries (e.g. chpldoc) into bin/ as exec scripts.
     bin.install Dir[libexec/"bin/darwin-x86_64/*"]
-    bin.env_script_all_files libexec/"bin/darwin-x86_64/", :CHPL_HOME => libexec
+    bin.env_script_all_files libexec/"bin/darwin-x86_64/", CHPL_HOME: libexec
     man1.install_symlink Dir["#{libexec}/man/man1/*.1"]
   end
 
   test do
     ENV["CHPL_HOME"] = libexec
     cd libexec do
-      system "make", "check"
+      system "util/test/checkChplInstall"
     end
   end
 end

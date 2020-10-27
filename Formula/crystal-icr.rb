@@ -1,15 +1,14 @@
 class CrystalIcr < Formula
   desc "Interactive console for Crystal programming language"
   homepage "https://github.com/crystal-community/icr"
-  url "https://github.com/crystal-community/icr/archive/v0.6.0.tar.gz"
-  sha256 "970d5ecbde6bb370c8178339db42e7812b7a2f3a5db3eec868cc18c19523c0ea"
-  revision 4
+  url "https://github.com/crystal-community/icr/archive/v0.8.0.tar.gz"
+  sha256 "8c7825dd035bbb4bc6499873d4bd125185a01cae10dc8dd6f98e6e013def381c"
+  license "MIT"
 
   bottle do
-    sha256 "f040106e20bebbcfea61a12cee83b3cdaaeb484bc3ab3b590206f1897ca6dc99" => :catalina
-    sha256 "bc19b1b359cd9f78137fd11199a87856d727eb6769a38ae8e009613296188fca" => :mojave
-    sha256 "69a0f31e9738fc6eb89364f507e0867b249614845a0b5d734955e29096c8903d" => :high_sierra
-    sha256 "1bd7c503764108164362adfa4530de7629f19293ea1c9052dc5da77dca0b52c0" => :sierra
+    sha256 "22389822712ed2a634ba8d32817a29e0930eb53669d4c931f740b5c895de9ed4" => :catalina
+    sha256 "5c73c5c37ed0cd5ceb6fc72f88afe4a9156417a0e4752e93500d0aec755646c0" => :mojave
+    sha256 "1ea960e6dd1eeffc8c7e9471a2e17e9dc912eccdc7558d18346a856c10e078bb" => :high_sierra
   end
 
   depends_on "crystal"

@@ -1,29 +1,26 @@
 class Cheat < Formula
   desc "Create and view interactive cheat sheets for *nix commands"
   homepage "https://github.com/cheat/cheat"
-  url "https://github.com/cheat/cheat.git",
-    :tag      => "3.0.7",
-    :revision => "09c29a322f4393f1c92d00b84c867b2c8ff45a7a"
+  url "https://github.com/cheat/cheat/archive/4.1.0.tar.gz"
+  sha256 "b392c3a77eda61f4b1f0991cb30c6202f74472713293e73f645fb697665ca72c"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ad5c46d1ec437d364591fc640fc3eaa67f98a379497894bddd2f83436cc0635d" => :catalina
-    sha256 "ff93eaa6fdd671e6b490d7ab61bb4770fb045281b047f44033bc4d45d982373c" => :mojave
-    sha256 "08d47ee793dc589ac80af88adec9dfebd34f3d04c22db50af7f0c565ec52ffc2" => :high_sierra
+    sha256 "78ed17a3a87db6a169c5c984ccb7d4083641679f871e208879b45962511a0a5b" => :catalina
+    sha256 "22a32893fb8c620146fb784454c0337116b174d62d085b7e3050a5bc5981ef5a" => :mojave
+    sha256 "d60d58f26760c6d9c125c02a8d8238cc159e040f3bf07d2b016f6b4dbfc5ba9d" => :high_sierra
   end
 
   depends_on "go" => :build
 
+  conflicts_with "bash-snippets", because: "both install a `cheat` executable"
+
   def install
-    ENV["GOPATH"] = buildpath
+    system "go", "build", "-mod", "vendor", "-o", bin/"cheat", "./cmd/cheat"
 
-    dir = buildpath/"src/github.com/cheat/cheat"
-    dir.install buildpath.children
-
-    cd dir do
-      system "go", "build", "-mod", "vendor", "-o", bin/"cheat", "./cmd/cheat"
-      prefix.install_metafiles
-    end
+    bash_completion.install "scripts/cheat.bash"
+    fish_completion.install "scripts/cheat.fish"
   end
 
   test do
@@ -31,7 +28,5 @@ class Cheat < Formula
 
     output = shell_output("#{bin}/cheat --init 2>&1")
     assert_match "editor: vim", output
-
-    assert_match "could not locate config file", shell_output("#{bin}/cheat tar 2>&1", 1)
   end
 end

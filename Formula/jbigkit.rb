@@ -4,8 +4,9 @@ class Jbigkit < Formula
   url "https://www.cl.cam.ac.uk/~mgk25/jbigkit/download/jbigkit-2.1.tar.gz"
   mirror "https://deb.debian.org/debian/pool/main/j/jbigkit/jbigkit_2.1.orig.tar.gz"
   sha256 "de7106b6bfaf495d6865c7dd7ac6ca1381bd12e0d81405ea81e7f2167263d932"
+  license "GPL-2.0"
   head "https://www.cl.cam.ac.uk/~mgk25/git/jbigkit",
-       :using => :git
+       using: :git
 
   bottle do
     cellar :any_skip_relocation
@@ -18,7 +19,7 @@ class Jbigkit < Formula
     sha256 "0ce925915b984307d2e679622138143c5cc5baf832b0a16003fa1e6111a5df9f" => :mavericks
   end
 
-  conflicts_with "netpbm", :because => "both install `pbm.5` and `pgm.5` files"
+  conflicts_with "netpbm", because: "both install `pbm.5` and `pgm.5` files"
 
   def install
     system "make", "CC=#{ENV.cc}", "CCFLAGS=#{ENV.cflags}"

@@ -1,19 +1,24 @@
 class Octave < Formula
   desc "High-level interpreted language for numerical computing"
   homepage "https://www.gnu.org/software/octave/index.html"
-  url "https://ftp.gnu.org/gnu/octave/octave-5.1.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/octave/octave-5.1.0.tar.xz"
-  sha256 "87b4df6dfa28b1f8028f69659f7a1cabd50adfb81e1e02212ff22c863a29454e"
-  revision 8
+  url "https://ftp.gnu.org/gnu/octave/octave-5.2.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/octave/octave-5.2.0.tar.xz"
+  sha256 "2757b5cc1854c9326d6c99d2900c7cec2909ac7ed500212d170d0df592bfd26b"
+  license "GPL-3.0"
+  revision 10
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
-    sha256 "8bb7ddaaea035b95e80ab59ffe747c04e545829bd9388ef869015f759fcd00cc" => :catalina
-    sha256 "e58308453bc7860606cf6011345300e2449e0438019a629d90aa428694549dde" => :mojave
-    sha256 "d6cd6c2d7f9cb0a396046c0a68ee9deb20b79fad44285e720a5f9cd217a32595" => :high_sierra
+    sha256 "83ac9ed09181aad9dc27d3d2463ae516b1197c99b20ebe60879edbb69a784eb5" => :catalina
+    sha256 "026c0c85722f18a0d7f06de52ac48542a2069de7af5343d866b230201a140161" => :mojave
+    sha256 "cdf71e69e13c120c6c26ce3088d7c0cf3e4f8a8691951d42212bc1135a5ca1af" => :high_sierra
   end
 
   head do
-    url "https://hg.savannah.gnu.org/hgweb/octave", :branch => "default", :using => :hg
+    url "https://hg.savannah.gnu.org/hgweb/octave", branch: "default", using: :hg
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -24,7 +29,7 @@ class Octave < Formula
 
   # Complete list of dependencies at https://wiki.octave.org/Building
   depends_on "gnu-sed" => :build # https://lists.gnu.org/archive/html/octave-maintainers/2016-09/msg00193.html
-  depends_on :java => ["1.7+", :build]
+  depends_on "openjdk" => :build
   depends_on "pkg-config" => :build
   depends_on "arpack"
   depends_on "epstool"
@@ -48,11 +53,14 @@ class Octave < Formula
   depends_on "pstoedit"
   depends_on "qhull"
   depends_on "qrupdate"
+  depends_on "qscintilla2"
   depends_on "qt"
   depends_on "readline"
   depends_on "suite-sparse"
   depends_on "sundials"
   depends_on "texinfo"
+
+  uses_from_macos "curl"
 
   # Dependencies use Fortran, leading to spurious messages about GCC
   cxxstdlib_check :skip
@@ -61,7 +69,7 @@ class Octave < Formula
   # https://github.com/Homebrew/homebrew-core/issues/39848
   # Patch submitted upstream at: https://savannah.gnu.org/patch/index.php?9806
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/octave/5.1.0-java-version.patch"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a8124b73c5216cc81d63627a4b41203ab1d91a4d/octave/5.1.0-java-version.patch"
     sha256 "7ea1e9b410a759fa136d153fb8482ecfc3425a39bfe71c1e71b3ff0f7d9a0b54"
   end
 
@@ -92,6 +100,7 @@ class Octave < Formula
                           "--disable-static",
                           "--with-hdf5-includedir=#{Formula["hdf5"].opt_include}",
                           "--with-hdf5-libdir=#{Formula["hdf5"].opt_lib}",
+                          "--with-java-homedir=#{Formula["openjdk"].opt_prefix}",
                           "--with-x=no",
                           "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas",
                           "--with-portaudio",

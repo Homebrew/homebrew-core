@@ -1,26 +1,24 @@
-require "language/haskell"
-
 class PinboardNotesBackup < Formula
-  include Language::Haskell::Cabal
-
   desc "Efficiently back up the notes you've saved to Pinboard"
   homepage "https://github.com/bdesham/pinboard-notes-backup"
-  url "https://github.com/bdesham/pinboard-notes-backup/archive/v1.0.4.1.tar.gz"
-  sha256 "c21d87f19bba59bb51ff7f7715a33a4a33ced20971f4881fd371ab3070a4b106"
+  url "https://github.com/bdesham/pinboard-notes-backup/archive/v1.0.5.tar.gz"
+  sha256 "eb4409edd52745cac16a68faf51f6a86178db1432b3b848e6fb195fd7528e7da"
+  license "GPL-3.0"
   head "https://github.com/bdesham/pinboard-notes-backup.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e904a9c00e26580d3f45716bb16987c4174850f85d5ee441073c1c1ee5b91d24" => :mojave
-    sha256 "8815547595a8642a26183a7701bb13d9a60068fd5b7aa9d34506f584c3158580" => :high_sierra
-    sha256 "b5673dd192867c0a38dfc9443d1272b42bc303d3561949ce3157ea7300e2aeb6" => :sierra
+    sha256 "1735309c67f5ff12f212c8f780fe0cfb3d0409c53ce9376ee265597ceb517693" => :catalina
+    sha256 "244865afa3cd3d89f059dd4e6a162de07ce8d404c9ea2c05dc92ef17869c75e8" => :mojave
+    sha256 "cddc7122a3aa1aec17c18d2e50f471a154db42006684b7ba8d5fb4b2cfd5842f" => :high_sierra
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@8.6" => :build
 
   def install
-    install_cabal_package
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
     man1.install "man/pnbackup.1"
   end
 

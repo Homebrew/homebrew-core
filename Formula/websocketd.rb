@@ -3,6 +3,7 @@ class Websocketd < Formula
   homepage "http://websocketd.com"
   url "https://github.com/joewalnes/websocketd/archive/v0.3.1.tar.gz"
   sha256 "323700908ca7fe7b69cb2cc492b4746c4cd3449e49fbab15a4b3a5eccf8757f4"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any_skip_relocation
@@ -27,11 +28,12 @@ class Websocketd < Formula
   end
 
   test do
-    pid = Process.fork { exec "#{bin}/websocketd", "--port=8080", "echo", "ok" }
+    port = free_port
+    pid = Process.fork { exec "#{bin}/websocketd", "--port=#{port}", "echo", "ok" }
     sleep 2
 
     begin
-      assert_equal("404 page not found\n", shell_output("curl -s http://localhost:8080"))
+      assert_equal("404 page not found\n", shell_output("curl -s http://localhost:#{port}"))
     ensure
       Process.kill 9, pid
       Process.wait pid

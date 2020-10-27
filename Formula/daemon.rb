@@ -3,6 +3,7 @@ class Daemon < Formula
   homepage "http://libslack.org/daemon/"
   url "http://libslack.org/daemon/download/daemon-0.6.4.tar.gz"
   sha256 "c4b9ea4aa74d55ea618c34f1e02c080ddf368549037cb239ee60c83191035ca1"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

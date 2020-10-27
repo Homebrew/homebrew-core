@@ -1,15 +1,19 @@
 class Gnuplot < Formula
   desc "Command-driven, interactive function plotting"
   homepage "http://www.gnuplot.info/"
-  url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.2.7/gnuplot-5.2.7.tar.gz"
-  sha256 "97fe503ff3b2e356fe2ae32203fc7fd2cf9cef1f46b60fe46dc501a228b9f4ed"
+  url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.4.0/gnuplot-5.4.0.tar.gz"
+  sha256 "eb4082f03a399fd1e9e2b380cf7a4f785e77023d8dcc7e17570c1b5570a49c47"
+  license "gnuplot"
   revision 1
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
-    sha256 "e1da5191c494e45bc6b899baa87094d588bbd659abf348d91341480be02eea05" => :catalina
-    sha256 "c5f7eb8ca16ddc90c9c14f100c43c46c5be179dc1389bf85e1d7726dd862c6d7" => :mojave
-    sha256 "4f09ccc4c4bf56c65873e20f7265df44fcbec3e319592a2d6870ee3a06a60dfa" => :high_sierra
-    sha256 "33c03c8bff2e427d6c2b25575de43b8c41041919b79c320b1a57a8de23cb5d7d" => :sierra
+    sha256 "07e87a593917fbb66d6eef8efe30ee04531bde21c5d4a45775bae98b5314b42d" => :catalina
+    sha256 "221b581e96e34f346ef8de648e8e4ddadf66250ec1b1d5d9a894d12846c11f0a" => :mojave
+    sha256 "43bd44cae7f514c857f548f671c6b600b31e077c2aa783d1b63d5295c467a2ad" => :high_sierra
   end
 
   head do

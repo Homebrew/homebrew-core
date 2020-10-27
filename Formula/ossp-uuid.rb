@@ -5,6 +5,11 @@ class OsspUuid < Formula
   sha256 "11a615225baa5f8bb686824423f50e4427acd3f70d394765bdff32801f0fd5b0"
   revision 2
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?uuid[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "fd727fb38c48eda8d6bcb36be17e281b2152a54144298d39cab50ec7743e8a95" => :catalina

@@ -2,44 +2,47 @@ class Buku < Formula
   include Language::Python::Virtualenv
 
   desc "Powerful command-line bookmark manager"
-  homepage "https://github.com/jarun/Buku"
-  url "https://github.com/jarun/Buku/archive/v4.2.2.tar.gz"
-  sha256 "08866f284a03454d9ee5bbb332da62e6ae1dfbe83ada75092453a7fd04fe62b3"
-  revision 3
+  homepage "https://github.com/jarun/buku"
+  url "https://github.com/jarun/buku/archive/v4.4.tar.gz"
+  sha256 "c7d755569117ceb85fdda734dcca657e01f6d5252d7d3b9f757faeedfdcac741"
+  license "GPL-3.0"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "507fdab1e9b0bb374131781c14a8ca7bf2317a52e25a2a23d14f646fefd433ba" => :catalina
-    sha256 "63bba11125015a071ffb492ae9ab49e818f915c31c26d34f0cb34cbf7d266da8" => :mojave
-    sha256 "225cba1f8dae1398e1b6f124dd7f7d0a486f006e56400f4c70cd1a5285891bd2" => :high_sierra
+    sha256 "044b82a3e27d301b94f09289e4b3aee1e8447149eeb64c9d3db2ff8102f62cf6" => :catalina
+    sha256 "9e0087d9d5c7e5aab848658d68b8ae81965094e8f26778c335c483e9ec00c0d9" => :mojave
+    sha256 "4712518906a802e6aeb2dea503b3c6654062ec8bd1052a000dc3986e540b558f" => :high_sierra
   end
 
   depends_on "openssl@1.1"
-  depends_on "python"
+  depends_on "python@3.9"
 
-  resource "asn1crypto" do
-    url "https://files.pythonhosted.org/packages/c1/a9/86bfedaf41ca590747b4c9075bc470d0b2ec44fb5db5d378bc61447b3b6b/asn1crypto-1.2.0.tar.gz"
-    sha256 "87620880a477123e01177a1f73d0f327210b43a3cdbd714efcd2fa49a8d7b384"
+  uses_from_macos "expect" => :test
+  uses_from_macos "libffi"
+
+  on_linux do
+    depends_on "pkg-config" => :build
   end
 
   resource "beautifulsoup4" do
-    url "https://files.pythonhosted.org/packages/80/f2/f6aca7f1b209bb9a7ef069d68813b091c8c3620642b568dac4eb0e507748/beautifulsoup4-4.7.1.tar.gz"
-    sha256 "945065979fb8529dd2f37dbb58f00b661bdbcbebf954f93b32fdf5263ef35348"
+    url "https://files.pythonhosted.org/packages/c6/62/8a2bef01214eeaa5a4489eca7104e152968729512ee33cb5fbbc37a896b7/beautifulsoup4-4.9.1.tar.gz"
+    sha256 "73cc4d115b96f79c7d77c1c7f7a0a8d4c57860d1041df407dd1aae7f07a77fd7"
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/55/54/3ce77783acba5979ce16674fc98b1920d00b01d337cfaaf5db22543505ed/certifi-2018.11.29.tar.gz"
-    sha256 "47f9c83ef4c0c621eaef743f133f09fa8a74a9b75f037e8624f83bd1b6626cb7"
+    url "https://files.pythonhosted.org/packages/b4/19/53433f37a31543364c8676f30b291d128cdf4cd5b31b755b7890f8e89ac8/certifi-2020.4.5.2.tar.gz"
+    sha256 "5ad7e9a056d25ffa5082862e36f119f7f7cec6457fa07ee2f8c339814b80c9b1"
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/93/1a/ab8c62b5838722f29f3daffcc8d4bd61844aa9b5f437341cc890ceee483b/cffi-1.12.3.tar.gz"
-    sha256 "041c81822e9f84b1d9c401182e174996f0bae9991f33725d059b771744290774"
+    url "https://files.pythonhosted.org/packages/05/54/3324b0c46340c31b909fcec598696aaec7ddc8c18a63f2db352562d3354c/cffi-1.14.0.tar.gz"
+    sha256 "2d384f4a127a15ba701207f7639d94106693b6cd64173d6c8988e2c25f3ac2b6"
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/f3/39/d3904df7c56f8654691c4ae1bdb270c1c9220d6da79bd3b1fbad91afd0e1/cryptography-2.4.2.tar.gz"
-    sha256 "05a6052c6a9f17ff78ba78f8e6eb1d777d25db3b763343a1ae89a7a8670386dd"
+    url "https://files.pythonhosted.org/packages/56/3b/78c6816918fdf2405d62c98e48589112669f36711e50158a0c15d804c30d/cryptography-2.9.2.tar.gz"
+    sha256 "a0c30272fb4ddda5f5ffc1089d7405b7a71b0b0f51993cb4e5dbb4590b2fc229"
   end
 
   resource "html5lib" do
@@ -47,29 +50,24 @@ class Buku < Formula
     sha256 "66cb0dcfdbbc4f9c3ba1a63fdb511ffdbd4f513b2b6d81b80cd26ce6b3fb3736"
   end
 
-  resource "idna" do
-    url "https://files.pythonhosted.org/packages/ad/13/eb56951b6f7950cadb579ca166e448ba77f9d24efc03edd7e55fa57d04b7/idna-2.8.tar.gz"
-    sha256 "c357b3f628cf53ae2c4c05627ecc484553142ca23264e593d327bcde5e9c3407"
-  end
-
   resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/68/9e/49196946aee219aead1290e00d1e7fdeab8567783e83e1b9ab5585e6206a/pycparser-2.19.tar.gz"
-    sha256 "a988718abfad80b6b157acce7bf130a30876d27603738ac39f140993246b25b3"
+    url "https://files.pythonhosted.org/packages/0f/86/e19659527668d70be91d0369aeaa055b4eb396b0f387a4f92293a20035bd/pycparser-2.20.tar.gz"
+    sha256 "2d475327684562c3a96cc71adf7dc8c4f0565175cf86b6d7a404ff4c771f15f0"
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
-    sha256 "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
+    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
+    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/10/e5/ba6dae356c1ca793c08b2017e27cb43199c0fd8b18595e8abf977bbc8d5f/soupsieve-1.7.2.tar.gz"
-    sha256 "10687fc53eeb3518e01a0ac84d3d711da623d3298a3039459d3f649927c4a270"
+    url "https://files.pythonhosted.org/packages/3e/db/5ba900920642414333bdc3cb397075381d63eafc7e75c2373bbc560a9fa1/soupsieve-2.0.1.tar.gz"
+    sha256 "a59dc181727e95d25f781f0eb4fd1825ff45590ec8ff49eadfd7f1a537cc0232"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/b1/53/37d82ab391393565f2f831b8eedbffd57db5a718216f82f1a8b4d381a1c1/urllib3-1.24.1.tar.gz"
-    sha256 "de9529817c93f27c8ccbfead6985011db27bd0ddfcdb2d86f3f663385c6a9c22"
+    url "https://files.pythonhosted.org/packages/05/8c/40cd6949373e23081b3ea20d5594ae523e681b6f472e600fbc95ed046a36/urllib3-1.25.9.tar.gz"
+    sha256 "3018294ebefce6572a474f0604c2021e33b3fd8006ecd11d62107a5d2a963527"
   end
 
   resource "webencodings" do
@@ -78,13 +76,7 @@ class Buku < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3")
-    venv.pip_install resources
-
-    # Replace shebang with virtualenv python
-    inreplace "buku", "#!/usr/bin/env python3", "#!#{libexec}/bin/python"
-
-    bin.install "buku"
+    virtualenv_install_with_resources
     man1.install "buku.1"
     bash_completion.install "auto-completion/bash/buku-completion.bash"
     fish_completion.install "auto-completion/fish/buku.fish"
@@ -115,6 +107,8 @@ class Buku < Formula
       spawn #{bin}/buku --nc --import bookmarks.html
       expect -re "DB file is being created at .*"
       expect "You should encrypt it."
+      expect "Generate auto-tag (YYYYMonDD)? (y/n): "
+      send "y\r"
       expect "Append tags when bookmark exist? (y/n): "
       send "y\r"
       expect "Add parent folder names as tags? (y/n): "

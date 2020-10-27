@@ -1,24 +1,21 @@
-require "language/haskell"
-
 class ElmFormat < Formula
-  include Language::Haskell::Cabal
-
   desc "Elm source code formatter, inspired by gofmt"
   homepage "https://github.com/avh4/elm-format"
   url "https://github.com/avh4/elm-format.git",
-      :tag      => "0.8.2",
-      :revision => "ab3627cce01e5556b3fe8c2b5e3d92b80bfc74af"
+      tag:      "0.8.4",
+      revision: "5bd4fbe591fe8b456160c180cb875ef60bc57890"
+  license "BSD-3-Clause"
   head "https://github.com/avh4/elm-format.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "31144028047fc2d4abf834bafcc2db54f20c516984c151ea5fba94371b28d4c7" => :mojave
-    sha256 "be14a5786096c3c76b60eb87160359230b78be1de602c859d4b35a422275e981" => :high_sierra
-    sha256 "81499738a7d79d0cd2b4aa2645f4f8b450b6da9e3e293d9f595bc5f082ca9e08" => :sierra
+    sha256 "dca23c0c1e66cfc6208ff891611ba8c38fdddd1d90d2a8b32bafe69dc3701b91" => :catalina
+    sha256 "0e196d773546e0d476c079a434c57f1b49a2966410397bb33747fa2d9e57ffe1" => :mojave
+    sha256 "a8f9aa324518559cdd5b7617f5453f629e90f6897cd72e38f5ab84165e7ddae0" => :high_sierra
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@8.8" => :build
 
   def build_elm_format_conf
     <<~EOS
@@ -35,10 +32,9 @@ class ElmFormat < Formula
 
     (buildpath/"elm-format").install Dir["*"]
 
-    cabal_sandbox do
-      cabal_sandbox_add_source "elm-format"
-      cabal_install "--only-dependencies", "elm-format"
-      cabal_install "--prefix=#{prefix}", "elm-format"
+    cd "elm-format" do
+      system "cabal", "v2-update"
+      system "cabal", "v2-install", *std_cabal_v2_args
     end
   end
 

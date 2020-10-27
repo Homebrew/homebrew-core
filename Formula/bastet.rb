@@ -1,8 +1,9 @@
 class Bastet < Formula
   desc "Bastard Tetris"
-  homepage "http://fph.altervista.org/prog/bastet.html"
+  homepage "https://fph.altervista.org/prog/bastet.html"
   url "https://github.com/fph/bastet/archive/0.43.2.tar.gz"
   sha256 "f219510afc1d83e4651fbffd5921b1e0b926d5311da4f8fa7df103dc7f2c403f"
+  license "GPL-3.0"
 
   bottle do
     rebuild 1
@@ -32,5 +33,18 @@ class Bastet < Formula
 
     bin.install "bastet"
     man6.install "bastet.6"
+  end
+
+  test do
+    pid = fork do
+      exec bin/"bastet"
+    end
+    sleep 3
+
+    assert_predicate bin/"bastet", :exist?
+    assert_predicate bin/"bastet", :executable?
+  ensure
+    Process.kill("TERM", pid)
+    Process.wait(pid)
   end
 end

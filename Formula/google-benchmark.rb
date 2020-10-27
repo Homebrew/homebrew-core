@@ -1,16 +1,16 @@
 class GoogleBenchmark < Formula
   desc "C++ microbenchmark support library"
   homepage "https://github.com/google/benchmark"
-  url "https://github.com/google/benchmark/archive/v1.5.0.tar.gz"
-  sha256 "3c6a165b6ecc948967a1ead710d4a181d7b0fbcaa183ef7ea84604994966221a"
+  url "https://github.com/google/benchmark/archive/v1.5.2.tar.gz"
+  sha256 "dccbdab796baa1043f04982147e67bb6e118fe610da2c65f88912d73987e700c"
+  license "Apache-2.0"
   head "https://github.com/google/benchmark.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6d7902db4dfdcc4a0c6e928fe2ef178238b5e4d4ca0c02f536fd8c94d8f2c7c6" => :catalina
-    sha256 "e2acb14eb43b34f2ccb30ff82a0efd540c3ff0ee9a036a83a00187980457ab17" => :mojave
-    sha256 "d9a78a0c14c161ca9c490605f2800328fc5899ffc98cec09af1bd0622338dcc5" => :high_sierra
-    sha256 "27cfc3243938226aca675a93ec347bb1a15e482ccfb95b356352b2f1391ac4d1" => :sierra
+    sha256 "432e4f98bad2a73d0f47279714d5028dfad2283f939eb745794b47272bf90f2e" => :catalina
+    sha256 "e303f9f7f9ce196aa338a18767605162d27612514cd134e7b143be0b85ffe66c" => :mojave
+    sha256 "8275a82eeb23188a166f67ace983ee9968f247840d20fb0119a5f1c0f5067c7a" => :high_sierra
   end
 
   depends_on "cmake" => :build

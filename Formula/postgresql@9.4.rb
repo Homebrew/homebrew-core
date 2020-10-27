@@ -1,27 +1,34 @@
 class PostgresqlAT94 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v9.4.24/postgresql-9.4.24.tar.bz2"
-  sha256 "52253d67dd46a7463a9d7c5e82bf959931fa4c11ec56293150210fa82a0f9429"
-  revision 1
+  url "https://ftp.postgresql.org/pub/source/v9.4.26/postgresql-9.4.26.tar.bz2"
+  sha256 "f5c014fc4a5c94e8cf11314cbadcade4d84213cfcc82081c9123e1b8847a20b9"
+  license "PostgreSQL"
 
   bottle do
-    sha256 "0c6e2c5f243ba38e908a2276e17db10b88b8b609d5d40659a4cb91977fce4a95" => :catalina
-    sha256 "a79336772356f70f9dcc0cc6ac89cf4d8f68cf8b18f61da2686d720249e7c705" => :mojave
-    sha256 "e627e9679ed5b2fd35d9f31571e9c86ea7e0b8e098bf8ae32e05027204c14c6c" => :high_sierra
-    sha256 "37cb6a1cbd1da98b31d69b2be227c9bcb6fa46f6972c631d1b25fb98b0f0f515" => :sierra
+    rebuild 3
+    sha256 "15217a46087cd4bef0227f5ca941ed843a4e024aafa4e7c7a3ebf746ca8a1344" => :catalina
+    sha256 "4d24193f0f0931c246a86407d3d8208a48b514b8969dc4567b7d62de2becc3ec" => :mojave
+    sha256 "2e09355d0bf2f70b5ea9c202f15aadee823902caad5cf35b64c882e4b969e70f" => :high_sierra
   end
 
   keg_only :versioned_formula
 
+  deprecate! date: "2020-02-13", because: :versioned_formula
+
   depends_on "openssl@1.1"
   depends_on "readline"
 
+  uses_from_macos "libxslt"
+  uses_from_macos "perl"
+
+  on_linux do
+    depends_on "util-linux"
+  end
+
   def install
     # Fix "configure: error: readline library not found"
-    if MacOS.version == :sierra || MacOS.version == :el_capitan
-      ENV["SDKROOT"] = MacOS.sdk_path
-    end
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra || MacOS.version == :el_capitan
 
     ENV.prepend "LDFLAGS", "-L#{Formula["openssl@1.1"].opt_lib} -L#{Formula["readline"].opt_lib}"
     ENV.prepend "CPPFLAGS", "-I#{Formula["openssl@1.1"].opt_include} -I#{Formula["readline"].opt_include}"
@@ -56,11 +63,11 @@ class PostgresqlAT94 < Formula
   end
 
   def post_install
+    return if ENV["CI"]
+
     (var/"log").mkpath
     (var/name).mkpath
-    unless File.exist? "#{var}/#{name}/PG_VERSION"
-      system "#{bin}/initdb", "#{var}/#{name}"
-    end
+    system "#{bin}/initdb", "#{var}/#{name}" unless File.exist? "#{var}/#{name}/PG_VERSION"
   end
 
   def caveats
@@ -77,38 +84,44 @@ class PostgresqlAT94 < Formula
 
       To install gems without sudo, see the Homebrew documentation:
         https://docs.brew.sh/Gems,-Eggs-and-Perl-Modules
+
+      This formula has created a default database cluster with:
+        initdb #{var}/postgres
+      For more details, read:
+        https://www.postgresql.org/docs/#{version.major}/app-initdb.html
     EOS
   end
 
-  plist_options :manual => "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgresql@9.4 start"
+  plist_options manual: "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgresql@9.4 start"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>KeepAlive</key>
-      <true/>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_bin}/postgres</string>
-        <string>-D</string>
-        <string>#{var}/#{name}</string>
-      </array>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>WorkingDirectory</key>
-      <string>#{HOMEBREW_PREFIX}</string>
-      <key>StandardErrorPath</key>
-      <string>#{var}/log/#{name}.log</string>
-    </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>KeepAlive</key>
+        <true/>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/postgres</string>
+          <string>-D</string>
+          <string>#{var}/#{name}</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>WorkingDirectory</key>
+        <string>#{HOMEBREW_PREFIX}</string>
+        <key>StandardErrorPath</key>
+        <string>#{var}/log/#{name}.log</string>
+      </dict>
+      </plist>
+    EOS
   end
 
   test do
-    system "#{bin}/initdb", testpath/"test"
+    system "#{bin}/initdb", testpath/"test" unless ENV["CI"]
   end
 end

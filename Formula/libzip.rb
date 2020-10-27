@@ -1,21 +1,28 @@
 class Libzip < Formula
   desc "C library for reading, creating, and modifying zip archives"
   homepage "https://libzip.org/"
-  url "https://libzip.org/download/libzip-1.5.2.tar.gz"
-  sha256 "be694a4abb2ffe5ec02074146757c8b56084dbcebf329123c84b205417435e15"
+  url "https://libzip.org/download/libzip-1.7.3.tar.xz"
+  sha256 "a60473ffdb7b4260c08bfa19c2ccea0438edac11193c3afbbb1f17fbcf6c6132"
+  license "BSD-3-Clause"
+
+  livecheck do
+    url "https://libzip.org/download/"
+    regex(/href=.*?libzip[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    rebuild 1
-    sha256 "48097805d906d0c6febd72e06e2ba4c7de3fb98408c98538b98a16bf1e7bc066" => :catalina
-    sha256 "7aad5ff734cec8f3c7f71540ee3d16f1423cc9526893d8e60d624f6d22f7dcbc" => :mojave
-    sha256 "c3e6bfd3be85c039d1ea40706ce9921a21a2856e2b709dae38c2efb0a3996c37" => :high_sierra
-    sha256 "237b9a980bef4463dc1f88c97093312292049f3e6184986179b7e2411337a8e6" => :sierra
+    sha256 "e5a16cd6fef05a7f6f44852f1008a3e5d27796e661079278643d9c1f0912672c" => :catalina
+    sha256 "3554c0ba2bd6f663a10a1791b474d3634d8b72f9ee6d4ed818cca7fd17c40737" => :mojave
+    sha256 "b629e96fde8b5d27235d11a176c674630036cc9e8541e076d5ae4945a9b2cdf1" => :high_sierra
   end
 
   depends_on "cmake" => :build
 
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
+
   conflicts_with "libtcod", "minizip2",
-    :because => "libtcod, libzip and minizip2 install a `zip.h` header"
+    because: "libtcod, libzip and minizip2 install a `zip.h` header"
 
   def install
     system "cmake", ".", *std_cmake_args

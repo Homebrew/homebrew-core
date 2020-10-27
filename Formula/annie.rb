@@ -1,25 +1,21 @@
 class Annie < Formula
   desc "Fast, simple and clean video downloader"
   homepage "https://github.com/iawia002/annie"
-  url "https://github.com/iawia002/annie/archive/0.9.6.tar.gz"
-  sha256 "e5e505ff7c7363fed6dbeed7ccefb3af726312ae19fd290b3179f5d41cb63d22"
+  url "https://github.com/iawia002/annie/archive/0.10.3.tar.gz"
+  sha256 "a5252317113cf90e687a532b2e961126206b29829c61d6507fc69881e85d1d34"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6560d04f09c28d7cb8b5013eb62a569e30eb59462375f30575b15f73cd6b9171" => :catalina
-    sha256 "3897252d4dcd0f100215ce986dee661b2caae620690b5db9237a8fe64b8e02e3" => :mojave
-    sha256 "a00211a682f61543f119bf5c5c1a8c540e88318ba42b82f815179be941a34d1c" => :high_sierra
+    sha256 "8c608e9147c4f83c6ba931d16967d688e71afb82aaa1a1ba9807e7a23fde0437" => :catalina
+    sha256 "5da3e7ca14e3f6305f4b104490656e6d0edc94ec6e73d8d3eb5a6cf237819680" => :mojave
+    sha256 "2187f28963dc9493cf35d9014eead0919e27ef77072f705787b6bd7d446ce03f" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/iawia002/annie").install buildpath.children
-    cd "src/github.com/iawia002/annie" do
-      system "go", "build", "-o", bin/"annie"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args
   end
 
   test do

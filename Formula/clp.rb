@@ -1,20 +1,27 @@
 class Clp < Formula
   desc "Linear programming solver"
   homepage "https://github.com/coin-or/Clp"
-  url "https://github.com/coin-or/Clp/archive/releases/1.17.3.tar.gz"
-  sha256 "25f0692fe1daa492e7801770af6991506ae9a8c34a4cae358d017400a02dfcf8"
+  url "https://github.com/coin-or/Clp/archive/releases/1.17.6.tar.gz"
+  sha256 "afff465b1620cfcbb7b7c17b5d331d412039650ff471c4160c7eb24ae01284c9"
+  license "EPL-1.0"
+  revision 1
+
+  livecheck do
+    url :stable
+    regex(%r{^(?:releases/)?v?(\d+(?:\.\d+)+)$}i)
+  end
 
   bottle do
     cellar :any
-    sha256 "8fbdf09232ec254499190aa1ded5d7b1ef9afceee52152d06015e372693e0f0f" => :catalina
-    sha256 "47405e6eaa81067d591c0b71bf2eca12e8e3452e74f4038142c5c79955924913" => :mojave
-    sha256 "a4e37c5c28ccc68d31609142021b79f3ae6e88279a9cef7380e05c13fdfc3042" => :high_sierra
-    sha256 "9ad0b39ec4c454bb43433099dcceb152a29418d5d33a4b8049155b4861940979" => :sierra
+    sha256 "b68e1b527f9bd8a10c391f49835f379e973c4ad12fb68993d72e49604e4a21bb" => :catalina
+    sha256 "db3e0b70a5a5435d2c01b8c25c54615288d15dd0aef1606bc6812099b7feb052" => :mojave
+    sha256 "b279c98add833139bbdd65122391805109371eae1c2e99fbd35cbf9993e45ee5" => :high_sierra
   end
 
   depends_on "pkg-config" => [:build, :test]
   depends_on "coinutils"
   depends_on "openblas"
+  depends_on "osi"
 
   resource "coin-or-tools-data-sample-p0033-mps" do
     url "https://raw.githubusercontent.com/coin-or-tools/Data-Sample/releases/1.2.11/p0033.mps"

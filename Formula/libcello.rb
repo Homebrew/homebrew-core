@@ -3,7 +3,13 @@ class Libcello < Formula
   homepage "http://libcello.org/"
   url "http://libcello.org/static/libCello-2.1.0.tar.gz"
   sha256 "49acf6525ac6808c49f2125ecdc101626801cffe87da16736afb80684b172b28"
+  license "BSD-2-Clause"
   head "https://github.com/orangeduck/libCello.git"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?libCello[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     cellar :any_skip_relocation

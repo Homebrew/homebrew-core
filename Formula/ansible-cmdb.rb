@@ -3,6 +3,7 @@ class AnsibleCmdb < Formula
   homepage "https://github.com/fboender/ansible-cmdb"
   url "https://github.com/fboender/ansible-cmdb/releases/download/1.30/ansible-cmdb-1.30.tar.gz"
   sha256 "a52c450abea8fa7d162445386e40e554db763e34695b50c64c43e98d594539f6"
+  license "GPL-3.0"
 
   bottle :unneeded
 

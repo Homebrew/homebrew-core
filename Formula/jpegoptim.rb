@@ -3,6 +3,7 @@ class Jpegoptim < Formula
   homepage "https://github.com/tjko/jpegoptim"
   url "https://github.com/tjko/jpegoptim/archive/RELEASE.1.4.6.tar.gz"
   sha256 "c44dcfac0a113c3bec13d0fc60faf57a0f9a31f88473ccad33ecdf210b4c0c52"
+  license "GPL-2.0"
   head "https://github.com/tjko/jpegoptim.git"
 
   bottle do

@@ -1,16 +1,17 @@
 class MathComp < Formula
   desc "Mathematical Components for the Coq proof assistant"
   homepage "https://math-comp.github.io/math-comp/"
-  url "https://github.com/math-comp/math-comp/archive/mathcomp-1.9.0.tar.gz"
-  sha256 "fe3d157a4db7e96f39212f76e701a7fc1e3f125c54b8c38f06a6a387eda61c96"
-  revision 2
+  url "https://github.com/math-comp/math-comp/archive/mathcomp-1.11.0.tar.gz"
+  sha256 "b16108320f77d15dd19ecc5aad90775b576edfa50c971682a1a439f6d364fef6"
+  license "CECILL-B"
+  revision 1
   head "https://github.com/math-comp/math-comp.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "44a5ba1916abd4303551eb1897bcf560dbe57317e59e15b1faebd7436ef84cf1" => :catalina
-    sha256 "0f4d994faef8da24ab0950c5ac0b04da4a06189f0aa56db41ff921036734b2d9" => :mojave
-    sha256 "1ee2b7af9e4712ad0c6c430099d4f4ddefb7c28798aedc14cb30b0443695bc96" => :high_sierra
+    sha256 "edb89d858da73c96db674081d8e4ae7928c1e8ba84aa6d1b094d8f3ecdf9e3da" => :catalina
+    sha256 "909e8d31ba453c301dbb60429dbd34c762fc8e2d17429db26dede12baa7c78ed" => :mojave
+    sha256 "60fbe12a151b31cedb075a81e352b63f130ee01e17b3ea47bc04430be006a9b5" => :high_sierra
   end
 
   depends_on "ocaml" => :build

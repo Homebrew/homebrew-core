@@ -5,12 +5,18 @@ class Xorriso < Formula
   mirror "https://ftpmirror.gnu.org/xorriso/xorriso-1.5.2.tar.gz"
   sha256 "3b69f5c93ae7c40c5bbe4a847fa3963f5efc9c565551622f77121c5792fc17e7"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "ba9353c38b3109630b543faf56f9f8431ec225db32e5f446495528879fcdc361" => :catalina
     sha256 "e85cf1dfeb93797ef41680738cbde8fdf02aecb8040681742c2c89c82659c871" => :mojave
     sha256 "341b85b60e1762c6ffca661940ce5e1958b1f2aab89f49da0865466ad1badc5a" => :high_sierra
   end
+
+  uses_from_macos "zlib"
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",

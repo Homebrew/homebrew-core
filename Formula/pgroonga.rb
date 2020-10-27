@@ -1,15 +1,19 @@
 class Pgroonga < Formula
   desc "PostgreSQL plugin to use Groonga as index"
   homepage "https://pgroonga.github.io/"
-  url "https://packages.groonga.org/source/pgroonga/pgroonga-2.2.1.tar.gz"
-  sha256 "68ddb538b14917f89fb6c71846ac736de2ebc7d799a56fb69a149bde671e2135"
+  url "https://packages.groonga.org/source/pgroonga/pgroonga-2.2.6.tar.gz"
+  sha256 "799bb56468d66e3e736759f1e19c0deb8368e07d354932f06979302309efd42a"
+
+  livecheck do
+    url "https://packages.groonga.org/source/pgroonga/"
+    regex(/href=.*?pgroonga[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     cellar :any
-    sha256 "1c74234d2999c6183b96f8c89afdaf22737e5bdbcbb84ea1e03482000b909e2b" => :catalina
-    sha256 "15e1584a853f70a64ccb2e1285bd4bde7a8924e9c78b9c09eeb8401231a80bb1" => :mojave
-    sha256 "50df1b2525a3763cd493df1acd44df3faeeccb50d258cd2d0cbe6e70666e0c62" => :high_sierra
-    sha256 "ca843315151b2ab07b54e92f4f99cc2940beb7ef66c81993205988abbd7bf688" => :sierra
+    sha256 "9fd0decbb8035c8b86a85a9a18c69cc18ca80343aa79142437ebc085d2e92c0c" => :catalina
+    sha256 "9a7b21ee071a28ce41b2407509801cdf526a4752f84a14e4a5931eec18f32cd2" => :mojave
+    sha256 "83504f44a4635b8e70d1505b315895bed3a94d2925c968f42f481a23afb1ab10" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -26,6 +30,8 @@ class Pgroonga < Formula
   end
 
   test do
+    return if ENV["CI"]
+
     pg_bin = Formula["postgresql"].opt_bin
     pg_port = "55561"
     system "#{pg_bin}/initdb", testpath/"test"

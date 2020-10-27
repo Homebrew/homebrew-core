@@ -1,28 +1,25 @@
 class Opa < Formula
   desc "Open source, general-purpose policy engine"
   homepage "https://www.openpolicyagent.org"
-  url "https://github.com/open-policy-agent/opa/archive/v0.15.0.tar.gz"
-  sha256 "b6098542ae11e0a75a84e0cb0e41139b16b41a6e75c52c76ceaae623be158dab"
+  url "https://github.com/open-policy-agent/opa/archive/v0.24.0.tar.gz"
+  sha256 "6401f8ce1c99fe90fddd27e1fb54b04477faee8d6ce0a1e4565405df26e47383"
+  license "Apache-2.0"
+  head "https://github.com/open-policy-agent/opa.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6b8dd55079242d7c6dbd3ff9c47d028d0919c82a67d6a54948f1aa790045da99" => :catalina
-    sha256 "459878ca12c3793acc0f2d615a2d4e2a1e318f2f6d732d4a06b38fa13a648f6f" => :mojave
-    sha256 "e12e9e44c0c481dc6ad35fd11e6c169b7e5b28c48b2c465e26e6602f89c1cee3" => :high_sierra
+    sha256 "4f232fca4be0ec90905d33fb487cdbe872947e9ca1630bd81191c80946127642" => :catalina
+    sha256 "aeb1715b15a432775184cfc0d0dd17f45bdfcae4a6bda508d118e4bfa77e297a" => :mojave
+    sha256 "b4f3d4d9ca0c2032ac0488d5fd355b69b7bbe3446ff79dae1ec0bcf3eef2fa2b" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/open-policy-agent/opa").install buildpath.children
-
-    cd "src/github.com/open-policy-agent/opa" do
-      system "go", "build", "-o", bin/"opa", "-installsuffix", "static",
-                   "-ldflags",
-                   "-X github.com/open-policy-agent/opa/version.Version=#{version}"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args,
+              "-ldflags", "-X github.com/open-policy-agent/opa/version.Version=#{version}"
+    system "./build/gen-man.sh", "man1"
+    man.install "man1"
   end
 
   test do

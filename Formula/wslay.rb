@@ -1,16 +1,15 @@
 class Wslay < Formula
   desc "C websocket library"
   homepage "https://wslay.sourceforge.io/"
-  url "https://github.com/tatsuhiro-t/wslay/releases/download/release-1.1.0/wslay-1.1.0.tar.xz"
-  sha256 "0d82d247b847cc08e798ee2f28ee22b331d54e5900b3e1bef184945770185e17"
+  url "https://github.com/tatsuhiro-t/wslay/releases/download/release-1.1.1/wslay-1.1.1.tar.xz"
+  sha256 "166cfa9e3971f868470057ed924ae1b53f428db061b361b9a17c0508719d2cb5"
+  license "MIT"
 
   bottle do
     cellar :any
-    sha256 "e8c9abc264375e73eaf4cf29267ad8f9cddcd92649d0bafe5543da73eae1f26c" => :catalina
-    sha256 "abebf8b1210e19530f0446ce3b2e873bc2f960d259ad5a4b9a930c1f4221969e" => :mojave
-    sha256 "f2537bdaf7a5fd083e21f034fc6fb18ffe36f7dc16b589b8ef1a29cfbfd58286" => :high_sierra
-    sha256 "004c25402d835de2c7c067ee04f64c7cc84207f47483f2b1fcbbcd8c2e3f3a59" => :sierra
-    sha256 "518238850151cd6a73a2ac1896b671105bf6160ce043ba2afbe62b71816267b2" => :el_capitan
+    sha256 "b0c31393b4065ddad22d079252f4310ccafee1c26d5ea56a58c2bc3bfa728b46" => :catalina
+    sha256 "4ea82d98c0fd0cfcc1e842dde6e0fbd15355d538876f24fa0c2ca6f05ed17926" => :mojave
+    sha256 "6aade683b7db8a32c859e54134568bdb3983d57878783d86c89e5d28c5e8db77" => :high_sierra
   end
 
   head do

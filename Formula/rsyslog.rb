@@ -1,18 +1,26 @@
 class Rsyslog < Formula
   desc "Enhanced, multi-threaded syslogd"
   homepage "https://www.rsyslog.com/"
-  url "https://www.rsyslog.com/files/download/rsyslog/rsyslog-8.1908.0.tar.gz"
-  sha256 "f8c8e53b651e03a011667c60bd2d4dba7a7cb6ec04b247c8ea8514115527863b"
+  url "https://www.rsyslog.com/files/download/rsyslog/rsyslog-8.2010.0.tar.gz"
+  sha256 "19b232f765c4ba7a35b91ef1f5f9af775f6ff78ef56bb7737a2ce79ccbb32b98"
+  license all_of: ["Apache-2.0", "GPL-3.0-or-later", "LGPL-3.0-or-later"]
+
+  livecheck do
+    url :homepage
+    regex(/Current Version.+?v?(\d+(?:\.\d+)+)/im)
+  end
 
   bottle do
-    sha256 "196b336e97fd2d464aa862524d8085c3505fdae7a4b6528da90dbf983fba0ce5" => :catalina
-    sha256 "0a4054dbd737bb3d4a525e289b955f032bc1f4eb7b838a8c46f56174bae3c2ea" => :mojave
-    sha256 "26f028afe97baa540fa5a3606b48eb228603634c787ec48524c73a25040f2ba5" => :high_sierra
-    sha256 "02581b59828e52756fa99798134f34771afd84308136c2f5c543941d7f56d4e6" => :sierra
+    sha256 "128ed628f1b65a38f2e2d6463ab5d7ad82e2605b35a00db38e8282467cd3fbfe" => :catalina
+    sha256 "eb44aad01f3736ee2c0c69e907c66ee82f31abb00ce1b101b1c32c66312112d1" => :mojave
+    sha256 "25ce0e6d606ab2623f842f9d05a19dc7cea7efa13a8a0ec25df9ea6844a048ca" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "libestr"
+
+  uses_from_macos "curl"
+  uses_from_macos "zlib"
 
   resource "libfastjson" do
     url "https://download.rsyslog.com/libfastjson/libfastjson-0.99.8.tar.gz"
@@ -44,32 +52,37 @@ class Rsyslog < Formula
     system "make", "install"
   end
 
-  plist_options :manual => "rsyslogd -f #{HOMEBREW_PREFIX}/etc/rsyslog.conf -i #{HOMEBREW_PREFIX}/var/run/rsyslogd.pid"
+  def post_install
+    mkdir_p var/"run"
+  end
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>KeepAlive</key>
-        <true/>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_sbin}/rsyslogd</string>
-          <string>-n</string>
-          <string>-f</string>
-          <string>#{etc}/rsyslog.conf</string>
-          <string>-i</string>
-          <string>#{var}/run/rsyslogd.pid</string>
-        </array>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/rsyslogd.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/rsyslogd.log</string>
-      </dict>
-    </plist>
-  EOS
+  plist_options manual: "rsyslogd -f #{HOMEBREW_PREFIX}/etc/rsyslog.conf -i #{HOMEBREW_PREFIX}/var/run/rsyslogd.pid"
+
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>KeepAlive</key>
+          <true/>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_sbin}/rsyslogd</string>
+            <string>-n</string>
+            <string>-f</string>
+            <string>#{etc}/rsyslog.conf</string>
+            <string>-i</string>
+            <string>#{var}/run/rsyslogd.pid</string>
+          </array>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/rsyslogd.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/rsyslogd.log</string>
+        </dict>
+      </plist>
+    EOS
   end
 end

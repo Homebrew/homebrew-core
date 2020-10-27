@@ -1,14 +1,20 @@
 class Perltidy < Formula
   desc "Indents and reformats Perl scripts to make them easier to read"
   homepage "https://perltidy.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/perltidy/20190915/Perl-Tidy-20190915.tar.gz"
-  sha256 "c236dfacbba115cfc3f2868006c8601e021fe97c13cd2170a49bf8d404cc701b"
+  url "https://downloads.sourceforge.net/project/perltidy/20201001/Perl-Tidy-20201001.tar.gz"
+  sha256 "0873ebb300239d792fb8e67164b0e04bb8fb1ff153659630d321c0b4a1dc9a12"
+  license "GPL-2.0-or-later"
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/Perl-Tidy[._-]v?(\d+)\.t}i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a6a6c2d5d9cb8d87eda99bb05ab1d4cc0afc4eafb6cdc9765f0e275dbb4010d3" => :catalina
-    sha256 "d93079fafa5beacbed053cf21cb96ae095d084c71def53b0d74d27b364514d5a" => :mojave
-    sha256 "6c5d11263079c58ebf55bd6c4339d6086ecbaab0db0f179243ebb98c657e1f2e" => :high_sierra
+    sha256 "f4c7d493dd160f77a4eb9ffdaae1dba253eb5002dae7b61fe7f0f75be2be3aae" => :catalina
+    sha256 "516bf53ef6b995a20875522dfd13cf2746fbf90739d6b82da41e8d1b50d24685" => :mojave
+    sha256 "5d4762a60cd52cbd73e4fc1d0d67ace8595bd6133958b16ef2c4093491bff545" => :high_sierra
   end
 
   def install
@@ -18,9 +24,8 @@ class Perltidy < Formula
                                   "INSTALLSITEMAN1DIR=#{man1}",
                                   "INSTALLSITEMAN3DIR=#{man3}"
     system "make"
-    system "make", "test"
     system "make", "install"
-    bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
+    bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
   end
 
   test do

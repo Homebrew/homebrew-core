@@ -1,26 +1,29 @@
 class Osslsigncode < Formula
   desc "OpenSSL based Authenticode signing for PE/MSI/Java CAB files"
   homepage "https://github.com/mtrojnar/osslsigncode"
-  url "https://github.com/mtrojnar/osslsigncode/archive/2.0.tar.gz"
-  sha256 "5a60e0a4b3e0b4d655317b2f12a810211c50242138322b16e7e01c6fbb89d92f"
+  url "https://github.com/mtrojnar/osslsigncode/archive/2.1.tar.gz"
+  sha256 "1d142f4e0b9d490d6d7bc495dc57b8c322895b0e6ec474d04d5f6910d61e5476"
+  license "GPL-3.0"
 
   bottle do
     cellar :any
-    sha256 "958b10ce3d64f94b1beb5f9f9d25d9252a059d35306b22e6c816bdaa38a331b0" => :catalina
-    sha256 "372930dce3e97d7ff42ceb60c21996b98bc05eeab16c4badf7d224ae9c3bc3b2" => :mojave
-    sha256 "77be2ee5af3ae642658118eac2fad889b48995fcfb183ff0602462467ba0cb22" => :high_sierra
-    sha256 "a430c3f1cdb8e9be02aa18c89483309431e77ae4daf3b8288e1680fe60e129c8" => :sierra
+    sha256 "964162e471801ec6335e1cb88fa7d71145a09acd7507f71d049af1edc6375f9e" => :catalina
+    sha256 "6ce5ae481bea9b92e4baaf795dfbdaf6cb29d574189978012f641857ffe39113" => :mojave
+    sha256 "2a70933b296047d0042df4e1c1361cab8d588ff70c36ef44f63ac01105ce32f6" => :high_sierra
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "libgsf"
   depends_on "openssl@1.1"
+
+  uses_from_macos "curl"
 
   def install
     system "./autogen.sh"
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--with-gsf", "--prefix=#{prefix}"
     system "make", "install"
   end
 

@@ -4,6 +4,11 @@ class Getmail < Formula
   url "http://pyropus.ca/software/getmail/old-versions/getmail-5.14.tar.gz"
   sha256 "f3a99fe74564237d12ca8d4582e113c067c9205b5ab640f72b4e8447606a99c1"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?getmail[._-]v?(\d+(?:\.\d+)*)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "571bce56f171a3ea5274bdcb3aaac6bb18dc20323ccee9e513ca14d15f7b75f0" => :catalina

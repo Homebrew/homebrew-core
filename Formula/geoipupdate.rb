@@ -1,36 +1,34 @@
 class Geoipupdate < Formula
   desc "Automatic updates of GeoIP2 and GeoIP Legacy databases"
   homepage "https://github.com/maxmind/geoipupdate"
-  url "https://github.com/maxmind/geoipupdate/archive/v4.1.5.tar.gz"
-  sha256 "fba0de08136af05038c2375e24f0eb2cfddf46caa2ec946dc1417d72d1108fed"
+  url "https://github.com/maxmind/geoipupdate/archive/v4.3.0.tar.gz"
+  sha256 "0c6df6a563203e87e80c9998975c287cd4e3a5eb6c83b90dd5a0597298b098f0"
+  license "Apache-2.0"
   head "https://github.com/maxmind/geoipupdate.git"
 
   bottle do
-    sha256 "f1f1f4edb2b53a113a5e2be4fda3603aee435246a4e47a239c8a3f9cd7410364" => :catalina
-    sha256 "739559a526ddae5d6e392ef3853d9a26003f2cf24191f64cb22c3b06ef526d4a" => :mojave
-    sha256 "ec0ed3c37ea5b26f2fee4166f2f46d1da7af3d32f444186ddb50e55071362fad" => :high_sierra
+    sha256 "8e03cdb8795a6a0dbd1a35a12c50e2021fee969926f6498369b0b04ea097c942" => :catalina
+    sha256 "710a53cf245d180e66f8b4626ff22cb2587912a8e8cd17b9cb34b6d5ffcc3174" => :mojave
+    sha256 "99a8bc8e63c1c8949e52fdd0fe04a27e1c2d973f2d2e9959fda52795bb7d01ed" => :high_sierra
   end
 
   depends_on "go" => :build
   depends_on "pandoc" => :build
 
+  uses_from_macos "curl"
+  uses_from_macos "zlib"
+
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/maxmind/geoipupdate").install buildpath.children
+    system "make", "CONFFILE=#{etc}/GeoIP.conf", "DATADIR=#{var}/GeoIP", "VERSION=#{version} (homebrew)"
 
-    cd "src/github.com/maxmind/geoipupdate" do
-      system "make", "CONFFILE=#{etc}/GeoIP.conf", "DATADIR=#{var}/GeoIP", "VERSION=#{version} (homebrew)"
-
-      bin.install  "build/geoipupdate"
-      etc.install  "build/GeoIP.conf"
-      man1.install "build/geoipupdate.1"
-      man5.install "build/GeoIP.conf.5"
-    end
+    bin.install  "build/geoipupdate"
+    etc.install  "build/GeoIP.conf"
+    man1.install "build/geoipupdate.1"
+    man5.install "build/GeoIP.conf.5"
   end
 
   def post_install
     (var/"GeoIP").mkpath
-    system bin/"geoipupdate", "-v"
   end
 
   test do

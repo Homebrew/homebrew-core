@@ -3,29 +3,30 @@ class Lcm < Formula
   homepage "https://lcm-proj.github.io/"
   url "https://github.com/lcm-proj/lcm/releases/download/v1.4.0/lcm-1.4.0.zip"
   sha256 "e249d7be0b8da35df8931899c4a332231aedaeb43238741ae66dc9baf4c3d186"
-  revision 1
-
+  license "LGPL-2.1"
+  revision 5
   head "https://github.com/lcm-proj/lcm.git"
 
   bottle do
     cellar :any
-    sha256 "52b944b19684bf87d7e688746f0fd6e228592cbbe0b573b8a7bed8a992a58352" => :catalina
-    sha256 "6cef0f13a3d16fc22eec7e49723f912abeb1e6d8f86aa1ce30cbd7fef422081c" => :mojave
-    sha256 "508d932a8eec5be9f8e70baaf17aa9c03dcf28228880f1a88ff797fea77deea1" => :high_sierra
+    sha256 "a19a78d14fcab20e29c3a8e8e4e285918ea2ebec2141b9f517f819aaf5c97096" => :catalina
+    sha256 "997c8ace421b510f5f7094ca651aceba9929390e5885e2cbe992fe62df7cc7f9" => :mojave
+    sha256 "aeaad1129d679ee067c8270e62e86fd2a32c7bee3b110a8f84b9753a42fdb612" => :high_sierra
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
-  depends_on :java => "1.8+"
-  depends_on "python"
+  depends_on "lua"
+  depends_on "openjdk"
+  depends_on "python@3.9"
 
   def install
     args = std_cmake_args + %W[
       -DLCM_ENABLE_EXAMPLES=OFF
       -DLCM_ENABLE_TESTS=OFF
       -DLCM_JAVA_TARGET_VERSION=8
-      -DPYTHON_EXECUTABLE=#{Formula["python"].opt_bin}/python3
+      -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
     ]
 
     mkdir "build" do

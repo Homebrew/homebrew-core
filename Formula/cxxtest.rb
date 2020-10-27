@@ -1,30 +1,26 @@
 class Cxxtest < Formula
-  desc "xUnit-style unit testing framework for C++"
+  include Language::Python::Virtualenv
+
+  desc "C++ unit testing framework similar to JUnit, CppUnit and xUnit"
   homepage "https://cxxtest.com/"
   url "https://github.com/CxxTest/cxxtest/releases/download/4.4/cxxtest-4.4.tar.gz"
   mirror "https://deb.debian.org/debian/pool/main/c/cxxtest/cxxtest_4.4.orig.tar.gz"
   sha256 "1c154fef91c65dbf1cd4519af7ade70a61d85a923b6e0c0b007dc7f4895cf7d8"
+  license "LGPL-3.0"
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "35c64fe6d91097fa9aabfc63a145e6e9e6f27411e589b69f0da77895045dc128" => :catalina
-    sha256 "0c97b74f6bc2cee5e0683fcec6bd07da544b5f3e9cd25b9631b6291b86490392" => :mojave
-    sha256 "4ef0fbb78839714da6108883475dce9536df2e59dd9dc7bf42677a86d00f4356" => :high_sierra
-    sha256 "4ef0fbb78839714da6108883475dce9536df2e59dd9dc7bf42677a86d00f4356" => :sierra
+    sha256 "40c95a78befc9212653a872f53f7b87669d6ed855da71355a6324571cfc09f9c" => :catalina
+    sha256 "19feab27f801c6af7cba8075900cdb96f492244d06fc49ed9b4c943b1f13777e" => :mojave
+    sha256 "c989ac0116f6c42404580610e42f467af4d476b4107e2303d47da4f576a394f2" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.9"
 
   def install
-    xy = Language::Python.major_minor_version "python3"
-    ENV.prepend_create_path "PYTHONPATH", lib/"python#{xy}/site-packages"
-
-    cd "./python" do
-      system "python3", *Language::Python.setup_install_args(prefix)
-    end
-
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
+    venv.pip_install_and_link buildpath/"python"
 
     include.install "cxxtest"
     doc.install Dir["doc/*"]

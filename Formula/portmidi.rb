@@ -5,6 +5,11 @@ class Portmidi < Formula
   sha256 "08e9a892bd80bdb1115213fb72dc29a7bf2ff108b378180586aa65f3cfd42e0f"
   revision 2
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/portmidi-src[._-]v?(\d+)\.}i)
+  end
+
   bottle do
     cellar :any
     rebuild 1
@@ -16,9 +21,7 @@ class Portmidi < Formula
   depends_on "cmake" => :build
 
   def install
-    if MacOS.version == :sierra || MacOS.version == :el_capitan
-      ENV["SDKROOT"] = MacOS.sdk_path
-    end
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra || MacOS.version == :el_capitan
 
     inreplace "pm_mac/Makefile.osx", "PF=/usr/local", "PF=#{prefix}"
 

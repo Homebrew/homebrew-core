@@ -4,6 +4,10 @@ class Bsdsfv < Formula
   url "https://downloads.sourceforge.net/project/bsdsfv/bsdsfv/1.18/bsdsfv-1.18.tar.gz"
   sha256 "577245da123d1ea95266c1628e66a6cf87b8046e1a902ddd408671baecf88495"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "3abfd33001c44edc6b03905559f8565f923001aa1ccc3a3247ebd073d226ccaa" => :catalina

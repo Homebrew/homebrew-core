@@ -1,8 +1,9 @@
 class PaxConstruct < Formula
   desc "Tools to setup and develop OSGi projects quickly"
   homepage "https://ops4j1.jira.com/wiki/display/paxconstruct/Pax+Construct"
-  url "https://search.maven.org/remotecontent?filepath=org/ops4j/pax/construct/scripts/1.5/scripts-1.5.zip"
-  sha256 "d0325bbe571783097d4be782576569ea0a61529695c14e33a86bbebfe44859d1"
+  url "https://search.maven.org/remotecontent?filepath=org/ops4j/pax/construct/scripts/1.6.0/scripts-1.6.0.zip"
+  sha256 "fc832b94a7d095d5ee26b1ce4b3db449261f0154e55b34a7bc430cb685d51064"
+  license "Apache-2.0"
 
   bottle :unneeded
 

@@ -5,6 +5,11 @@ class Autossh < Formula
   mirror "https://deb.debian.org/debian/pool/main/a/autossh/autossh_1.4g.orig.tar.gz"
   sha256 "5fc3cee3361ca1615af862364c480593171d0c54ec156de79fc421e31ae21277"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?autossh[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "48e2beb06564ae4715df08b98577b10d01a25750e720b188b863ea8f195278ef" => :catalina

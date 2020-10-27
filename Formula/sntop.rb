@@ -3,6 +3,7 @@ class Sntop < Formula
   homepage "https://sntop.sourceforge.io/"
   url "https://pkg.freebsd.org/ports-distfiles/sntop-1.4.3.tar.gz"
   sha256 "943a5af1905c3ae7ead064e531cde6e9b3dc82598bbda26ed4a43788d81d6d89"
+  license "GPL-2.0"
 
   bottle do
     rebuild 1
@@ -26,11 +27,12 @@ class Sntop < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    sntop uses fping by default and fping can only be run by root by default.
-    You can run `sudo sntop` (or `sntop -p` which uses standard ping).
-    You should be certain that you trust any software you grant root privileges.
-  EOS
+  def caveats
+    <<~EOS
+      sntop uses fping by default and fping can only be run by root by default.
+      You can run `sudo sntop` (or `sntop -p` which uses standard ping).
+      You should be certain that you trust any software you grant root privileges.
+    EOS
   end
 
   test do

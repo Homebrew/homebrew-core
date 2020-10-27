@@ -4,6 +4,12 @@ class Bcrypt < Formula
   url "https://bcrypt.sourceforge.io/bcrypt-1.1.tar.gz"
   sha256 "b9c1a7c0996a305465135b90123b0c63adbb5fa7c47a24b3f347deb2696d417d"
 
+  livecheck do
+    url :homepage
+    strategy :page_match
+    regex(/href=.*?bcrypt[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "1e9d946fdf6761cf3ef623ac4646f5d77107aca427ae5d986a25f5ef7de6ceea" => :catalina

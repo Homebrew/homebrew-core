@@ -1,28 +1,24 @@
 class GstPluginsGood < Formula
   desc "GStreamer plugins (well-supported, under the LGPL)"
   homepage "https://gstreamer.freedesktop.org/"
+  url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.18.0.tar.xz"
+  sha256 "6329bc377a3afea5cf1ab329a91cc4a906f075781780d1edc59e8bea8c1a8bac"
+  license "LGPL-2.0-or-later"
+  head "https://anongit.freedesktop.org/git/gstreamer/gst-plugins-good.git"
 
-  stable do
-    url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.16.1.tar.xz"
-    sha256 "9fbabe69018fcec707df0b71150168776040cde6c1a26bb5a82a136755fa8f1f"
+  livecheck do
+    url "https://gstreamer.freedesktop.org/src/gst-plugins-good/"
+    regex(/href=.*?gst-plugins-good[._-]v?(\d+\.\d*[02468](?:\.\d+)*)\.t/i)
   end
 
   bottle do
-    sha256 "070e2e81a5b6020655a6ca7ccd2d23a4f07769a4b6b63ef82560a91a79ca681d" => :catalina
-    sha256 "673f6063b41897bc8459c1bab7645c8d1b5bd2fd0d76487377bae0aea6515be5" => :mojave
-    sha256 "e5779ab58e4fc5c01bd5d0d0ed06cfe27ceee5777057a65170cdf09d4f0046b1" => :high_sierra
-    sha256 "53b2bd6a52bd0aab3f45a28023d0e973f120047614f18fc91520bf70943994cb" => :sierra
+    sha256 "640ea34d1d6a1677ef0d686c94a94c7f11fc51a3cc559f259a93a67829df104e" => :catalina
+    sha256 "947085d8a2e20821863142835ed01c2194b5fc5f5215d1bce2a5305da600d177" => :mojave
+    sha256 "a4ce36c20f484ae760bad584863b37d24d685f7418e459f9ce2e407d9ca3f458" => :high_sierra
   end
 
-  head do
-    url "https://anongit.freedesktop.org/git/gstreamer/gst-plugins-good.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-    depends_on "check"
-  end
-
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "flac"
@@ -40,25 +36,16 @@ class GstPluginsGood < Formula
   depends_on "taglib"
 
   def install
-    args = %W[
-      --prefix=#{prefix}
-      --disable-gtk-doc
-      --disable-goom
-      --with-default-videosink=ximagesink
-      --disable-debug
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --disable-x
+    args = std_meson_args + %w[
+      -Dgoom=disabled
+      -Dximagesrc=disabled
     ]
 
-    if build.head?
-      ENV["NOCONFIGURE"] = "yes"
-      system "./autogen.sh"
+    mkdir "build" do
+      system "meson", *args, ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
     end
-
-    system "./configure", *args
-    system "make"
-    system "make", "install"
   end
 
   test do

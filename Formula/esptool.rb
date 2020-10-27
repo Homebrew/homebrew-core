@@ -5,15 +5,17 @@ class Esptool < Formula
   homepage "https://github.com/espressif/esptool"
   url "https://github.com/espressif/esptool/archive/v2.8.tar.gz"
   sha256 "f6187ab0467e05bff6ef4e777bde5ee8eb57a74154865d30491ebb42b228c617"
+  license "GPL-2.0"
+  revision 3
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a7f29c76c6919589ed72db7d6e30cf39cacf859472944ad5fc942cc7a9db82fc" => :catalina
-    sha256 "cb53806994a53823d6caff81f2d71b88bdf30d1da48d148ada62b8b14202fe2d" => :mojave
-    sha256 "c8f2ab169b860cd549b3fa1bf572adb29e77a76ebf0f3d5a62ba58af00f8173b" => :high_sierra
+    sha256 "5604775a4ca2fd6862321cea2669d433ca6e787dd3067f906253850b916dbd55" => :catalina
+    sha256 "d4042620d6ea819adf11e05d909d77a1872a0d100cd47bed163514994a9f81b9" => :mojave
+    sha256 "62c206f044e3b712ae9068919882a5f311cae0740affe3846043407439d8183c" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.9"
 
   resource "ecdsa" do
     url "https://files.pythonhosted.org/packages/f9/e5/99ebb176e47f150ac115ffeda5fedb6a3dbb3c00c74a59fd84ddf12f5857/ecdsa-0.13.tar.gz"

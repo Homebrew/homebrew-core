@@ -3,6 +3,12 @@ class Knock < Formula
   homepage "https://zeroflux.org/projects/knock"
   url "https://zeroflux.org/proj/knock/files/knock-0.7.tar.gz"
   sha256 "9938479c321066424f74c61f6bee46dfd355a828263dc89561a1ece3f56578a4"
+  license "GPL-2.0"
+
+  livecheck do
+    url "https://www.zeroflux.org/projects/knock"
+    regex(%r{The current version of knockd is <strong>v?(\d+(?:\.\d+)+)</strong>}i)
+  end
 
   bottle do
     cellar :any_skip_relocation

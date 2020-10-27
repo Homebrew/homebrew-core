@@ -1,21 +1,26 @@
 class FluentBit < Formula
   desc "Data Collector for IoT"
   homepage "https://github.com/fluent/fluent-bit"
-  url "https://github.com/fluent/fluent-bit/archive/v0.14.9.tar.gz"
-  sha256 "dad69d3b1ecb9577880b65ffc40fcaed44ab4875bd2d179641098e2778744a04"
+  url "https://github.com/fluent/fluent-bit/archive/v1.6.1.tar.gz"
+  sha256 "1e0153d03ab6223f330602f5cbcc368cd57813f99942fe536ba1f367c5e22484"
+  license "Apache-2.0"
   head "https://github.com/fluent/fluent-bit.git"
+
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     cellar :any
-    sha256 "2507e5a3b0f30eaf44f6acf6ab659d3003ff5822d0e279fc1712830af77e8cb4" => :mojave
-    sha256 "45f89286b8aa1d5946bec8f5d6ddc9ddfd44cf1be795816f6c7b6e3d018a6055" => :high_sierra
-    sha256 "d0136990b48d1fe3f5ac0e7e55b41ac0925404349730605d1f1b38f551cd5b03" => :sierra
+    sha256 "40ccb5eef5c8435d7dfb9fca2e0a7290b6452022ab16a93d4561872011993e6e" => :catalina
+    sha256 "a0ec424da02c4a768d40528de416b63f03453ed4981729846f955db095cafe11" => :mojave
+    sha256 "e0c8be899457517500a3424abb73f9ec8e9d2ad6b25efd7d6fb691055bea1005" => :high_sierra
   end
 
+  depends_on "bison" => :build
   depends_on "cmake" => :build
-
-  conflicts_with "mbedtls", :because => "fluent-bit includes mbedtls libraries."
-  conflicts_with "msgpack", :because => "fluent-bit includes msgpack libraries."
+  depends_on "flex" => :build
 
   def install
     # Per https://luajit.org/install.html: If MACOSX_DEPLOYMENT_TARGET

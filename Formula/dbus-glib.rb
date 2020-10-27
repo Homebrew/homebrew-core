@@ -5,6 +5,11 @@ class DbusGlib < Formula
   sha256 "7ce4760cf66c69148f6bd6c92feaabb8812dee30846b24cd0f7395c436d7e825"
   revision 1
 
+  livecheck do
+    url "https://dbus.freedesktop.org/releases/dbus-glib/"
+    regex(/href=.*?dbus-glib[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "1e239ecd5e6ba952a9a31ea7902c6b67fe5cf25509a7c796987dfc97efdbd38d" => :catalina

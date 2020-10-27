@@ -1,16 +1,15 @@
 class Tig < Formula
   desc "Text interface for Git repositories"
   homepage "https://jonas.github.io/tig/"
-  url "https://github.com/jonas/tig/releases/download/tig-2.4.1/tig-2.4.1.tar.gz"
-  sha256 "b6b6aa183e571224d0e1fab3ec482542c1a97fa7a85b26352dc31dbafe8558b8"
-  revision 1
+  url "https://github.com/jonas/tig/releases/download/tig-2.5.1/tig-2.5.1.tar.gz"
+  sha256 "500d5d34524f6b856edd5cae01f1404d14f3b51a9a53fd7357f4cebb3d4c9e64"
+  license "GPL-2.0"
 
   bottle do
     cellar :any
-    sha256 "24120acece88b9c8274d535340fba77017e251f29d9ddbf65d71fbf476888154" => :catalina
-    sha256 "eba3a55c27fa0574f50afa7c93992e2ca977bfec4614c3cbf659a8139af33ef9" => :mojave
-    sha256 "4a73419c6034c18896d658938992a2c3ec8f4c5cd0567323cde27c6270861d03" => :high_sierra
-    sha256 "09939bc22023b396db534f278257343b0752509a53eea5f2a417cbb0a47b3b8c" => :sierra
+    sha256 "e3dd84d1883ca04013d72311c248f623a3e55fa8fa31456f5fe956ae19ccd4de" => :catalina
+    sha256 "0fbc0ae28aed58f73b1e798cbe75c8d131762c91371bd00e5a257c3a6fda7f85" => :mojave
+    sha256 "9f6983f67cbbe6d551c8ab39131ca1e91e9f3e57ffe1f1791e6c182fd017fbf8" => :high_sierra
   end
 
   head do
@@ -37,12 +36,13 @@ class Tig < Formula
     cp "#{bash_completion}/tig-completion.bash", zsh_completion
   end
 
-  def caveats; <<~EOS
-    A sample of the default configuration has been installed to:
-      #{opt_pkgshare}/examples/tigrc
-    to override the system-wide default configuration, copy the sample to:
-      #{etc}/tigrc
-  EOS
+  def caveats
+    <<~EOS
+      A sample of the default configuration has been installed to:
+        #{opt_pkgshare}/examples/tigrc
+      to override the system-wide default configuration, copy the sample to:
+        #{etc}/tigrc
+    EOS
   end
 
   test do

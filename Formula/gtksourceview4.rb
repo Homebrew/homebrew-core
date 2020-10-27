@@ -1,14 +1,19 @@
 class Gtksourceview4 < Formula
   desc "Text view with syntax, undo/redo, and text marks"
   homepage "https://projects.gnome.org/gtksourceview/"
-  url "https://download.gnome.org/sources/gtksourceview/4.4/gtksourceview-4.4.0.tar.xz"
-  sha256 "9ddb914aef70a29a66acd93b4f762d5681202e44094d2d6370e51c9e389e689a"
-  revision 1
+  url "https://download.gnome.org/sources/gtksourceview/4.8/gtksourceview-4.8.0.tar.xz"
+  sha256 "00a19121500cedf1bae97f35af865d839841fd785d9facf188498e13975b4e1a"
+  license "LGPL-2.1-or-later"
+
+  livecheck do
+    url :stable
+    regex(/gtksourceview[._-]v?(4\.([0-8]\d*?)?[02468](?:\.\d+)*?)\.t/i)
+  end
 
   bottle do
-    sha256 "6cd8a161e089c7f2b37688bfb882cf303f7d8ca828b3995a9563376e4fd2beb0" => :catalina
-    sha256 "611a6c5aa42071174d2cb5d24691bcdfd8c3d5cd04e9eee0cd0749e13236a093" => :mojave
-    sha256 "d8f1ec0bea4affe7983bd13af677a98bc820432697f036172f2c9d7def8b7347" => :high_sierra
+    sha256 "d49d932f5d0986c72d13d0750e1038ab18036da9539902a55d6cd856126bc452" => :catalina
+    sha256 "bc2eae19e209fe125041648d1f45ab36a8609ac2a49c8bc9fe1aa604b8cc8d99" => :mojave
+    sha256 "38fbfbe4cc2887532bf078e2a2b62a1d1102cb09bf4f8724d31e96d9a58a0148" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build
@@ -18,12 +23,8 @@ class Gtksourceview4 < Formula
   depends_on "vala" => :build
   depends_on "gtk+3"
 
-  # submitted upstream as https://gitlab.gnome.org/GNOME/gtksourceview/merge_requests/61
-  patch :DATA
-
   def install
-    args = %W[
-      --prefix=#{prefix}
+    args = std_meson_args + %w[
       -Dgir=true
       -Dvapi=true
     ]
@@ -102,40 +103,3 @@ class Gtksourceview4 < Formula
     system "./test"
   end
 end
-
-__END__
-diff --git a/gtksourceview/meson.build b/gtksourceview/meson.build
-index 14603ffe..82a28d2b 100644
---- a/gtksourceview/meson.build
-+++ b/gtksourceview/meson.build
-@@ -248,6 +248,7 @@ if cc.get_id() == 'msvc'
- else
-   gtksource_lib = shared_library(package_string, gtksource_res,
-                   version: lib_version,
-+          darwin_versions: lib_osx_version,
-       include_directories: gtksourceview_include_dirs,
-              dependencies: gtksource_deps,
-                link_whole: gtksource_libs,
-diff --git a/meson.build b/meson.build
-index 78c2fc59..ef3d5d6b 100644
---- a/meson.build
-+++ b/meson.build
-@@ -21,10 +21,14 @@ version_micro = version_arr[2].to_int()
- api_version = '4'
-
- lib_version = '0.0.0'
--lib_version_arr = version.split('.')
--lib_version_major = version_arr[0].to_int()
--lib_version_minor = version_arr[1].to_int()
--lib_version_micro = version_arr[2].to_int()
-+lib_version_arr = lib_version.split('.')
-+lib_version_major = lib_version_arr[0].to_int()
-+lib_version_minor = lib_version_arr[1].to_int()
-+lib_version_micro = lib_version_arr[2].to_int()
-+
-+osx_current = lib_version_minor + 1
-+lib_osx_version = [osx_current, '@0@.@1@'.format(osx_current, lib_version_micro)]
-+
-
- package_name = meson.project_name()
- package_string = '@0@-@1@'.format(package_name, api_version)

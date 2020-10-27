@@ -2,24 +2,21 @@ class Flake8 < Formula
   include Language::Python::Virtualenv
 
   desc "Lint your Python code for style and logical errors"
-  homepage "http://flake8.pycqa.org/"
-  url "https://gitlab.com/pycqa/flake8/-/archive/3.7.9/flake8-3.7.9.tar.bz2"
-  sha256 "2fd4dfaaeb507e1bb5a598f76e61eca50d27930e550c215f73ed2e5454681c1e"
-  head "https://gitlab.com/PyCQA/flake8.git", :shallow => false
+  homepage "https://flake8.pycqa.org/"
+  url "https://gitlab.com/pycqa/flake8/-/archive/3.8.4/flake8-3.8.4.tar.bz2"
+  sha256 "66f65cf5614a24f813a76ab6388507ad8def068dcee859568a3c32a49a5d597b"
+  license "MIT"
+  revision 1
+  head "https://gitlab.com/PyCQA/flake8.git", shallow: false
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "64ed289bb60f923957b6ba6a9462e89903e2444ac40baa88b9d5c855d970eb27" => :catalina
-    sha256 "0ea49e473833c6bd7fa8d00a8962f59a0dfb853d9237b5961b31a233d3996082" => :mojave
-    sha256 "0d1162d279110a265420fe2f93f04f330e2ac47fdf410368ae1ba260749cb661" => :high_sierra
+    sha256 "77549fc69b29277ab03f89a5d0f266163fa3989f15c6bc69a3ed822e124c21a8" => :catalina
+    sha256 "6e6ed9e932cbf0bb54700d6e0e8d8433254b6fa250951f2b7ea27cdf53e6a32e" => :mojave
+    sha256 "57fef973e58c0e8bb0ac0030844c3cba24001fd3676c2f2c95d76ea74c460897" => :high_sierra
   end
 
-  depends_on "python"
-
-  resource "entrypoints" do
-    url "https://files.pythonhosted.org/packages/b4/ef/063484f1f9ba3081e920ec9972c96664e2edb9fdc3d8669b0e3b8fc0ad7c/entrypoints-0.3.tar.gz"
-    sha256 "c70dd71abe5a8c85e55e12c19bd91ccfeec11a6e99044204511f9ed547d48451"
-  end
+  depends_on "python@3.9"
 
   resource "mccabe" do
     url "https://files.pythonhosted.org/packages/06/18/fa675aa501e11d6d6ca0ae73a101b2f3571a565e0f7d38e062eec18a91ee/mccabe-0.6.1.tar.gz"
@@ -27,35 +24,24 @@ class Flake8 < Formula
   end
 
   resource "pycodestyle" do
-    url "https://files.pythonhosted.org/packages/1c/d1/41294da5915f4cae7f4b388cea6c2cd0d6cd53039788635f6875dfe8c72f/pycodestyle-2.5.0.tar.gz"
-    sha256 "e40a936c9a450ad81df37f549d676d127b1b66000a6c500caa2b085bc0ca976c"
+    url "https://files.pythonhosted.org/packages/bb/82/0df047a5347d607be504ad5faa255caa7919562962b934f9372b157e8a70/pycodestyle-2.6.0.tar.gz"
+    sha256 "c58a7d2815e0e8d7972bf1803331fb0152f867bd89adf8a01dfd55085434192e"
   end
 
   resource "pyflakes" do
-    url "https://files.pythonhosted.org/packages/52/64/87303747635c2988fcaef18af54bfdec925b6ea3b80bcd28aaca5ba41c9e/pyflakes-2.1.1.tar.gz"
-    sha256 "d976835886f8c5b31d47970ed689944a0262b5f3afa00a5a7b4dc81e5449f8a2"
+    url "https://files.pythonhosted.org/packages/f1/e2/e02fc89959619590eec0c35f366902535ade2728479fc3082c8af8840013/pyflakes-2.2.0.tar.gz"
+    sha256 "35b2d75ee967ea93b55750aa9edbbf72813e06a66ba54438df2cfac9e3c27fc8"
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3")
-    resource("entrypoints").stage do
-      # Without removing this file, `pip` will ignore the `setup.py` file and
-      # attempt to download the [`flit`](https://github.com/takluyver/flit)
-      # build system.
-      rm_f "pyproject.toml"
-      venv.pip_install Pathname.pwd
-    end
-    (resources.map(&:name).to_set - ["entrypoints"]).each do |r|
-      venv.pip_install resource(r)
-    end
-    venv.pip_install_and_link buildpath
+    virtualenv_install_with_resources
   end
 
   test do
-    xy = Language::Python.major_minor_version "python3"
-    # flake8 version 3.7.8 will fail this test with `E203` warnings.
-    # Adding `E203` to the list of ignores makes the test pass.
-    # Remove the customized ignore list once the problem is fixed upstream.
-    system "#{bin}/flake8", "#{libexec}/lib/python#{xy}/site-packages/flake8", "--ignore=E121,E123,E126,E226,E24,E704,W503,W504,E203"
+    (testpath/"test.py").write <<~EOS
+      print("Hello World!")
+    EOS
+
+    system "#{bin}/flake8", "test.py"
   end
 end

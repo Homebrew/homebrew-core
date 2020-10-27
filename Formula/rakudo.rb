@@ -1,16 +1,19 @@
 class Rakudo < Formula
   desc "Perl 6 compiler targeting MoarVM"
   homepage "https://rakudo.org"
-  url "https://github.com/rakudo/rakudo/releases/download/2019.07.1/rakudo-2019.07.1.tar.gz"
-  sha256 "d91dce95ec3f6fca1723c7eacfcbcc823269ba73dc945d778f608f0c878444f7"
+  url "https://github.com/rakudo/rakudo/releases/download/2020.09/rakudo-2020.09.tar.gz"
+  sha256 "a79e023e32f17415516369e2ee2f3e49e1c2931ca1430b53079ec77db4e5eec7"
+  license "Artistic-2.0"
 
   bottle do
-    sha256 "e180ecda54bcd74f66f14850fcb733a9552fe0618e71cd7bf2576beeecd7866a" => :mojave
-    sha256 "0d1bd679975d7621389aa48b9ad48926608d697d7130c7ec8b6c6aefb505f574" => :high_sierra
-    sha256 "ea0966b945f85ef68eccfb42fc78551d92adeade9f0aec8bb70fbf992f3c34f6" => :sierra
+    sha256 "f3f4f1a750130c0512c6e7bd7543a223d109e7a6f0f34352f56821ed8177e9d9" => :catalina
+    sha256 "21e8a0fc99ceaa59441054001f14e4a08c18179361cd63674e7738b7a721b68c" => :mojave
+    sha256 "b9174683a00886ad6c35b457109af18d7a43bd7285a378ff48598ce3be90a48c" => :high_sierra
   end
 
   depends_on "nqp"
+
+  conflicts_with "rakudo-star"
 
   def install
     system "perl", "Configure.pl",

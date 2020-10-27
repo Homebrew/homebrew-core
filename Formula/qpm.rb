@@ -2,15 +2,16 @@ class Qpm < Formula
   desc "Package manager for Qt applications"
   homepage "https://www.qpm.io"
   url "https://github.com/Cutehacks/qpm.git",
-      :tag      => "v0.11.0",
-      :revision => "fc340f20ddcfe7e09f046fd22d2af582ff0cd4ef"
+      tag:      "v0.11.0",
+      revision: "fc340f20ddcfe7e09f046fd22d2af582ff0cd4ef"
+  license "Artistic-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4ef0d236caf32a763f7c6dc717a47d23a99d2058617ed6ac151bc8b8a75fb881" => :mojave
-    sha256 "af6f724ef7820ce62453edcd72f39b9c283554aa5bb2be091d37f48935fe7f5e" => :high_sierra
-    sha256 "5c57c74e4079c59241e96b16f6236346efb4e358953f4c1edba359aa21d0d10c" => :sierra
-    sha256 "316bf8d4802e252fe6ff20a1b1dec582968a0f5a34fde5001b6a92f7ad30dfa9" => :el_capitan
+    rebuild 1
+    sha256 "5d5edc32931995dfa82429a1d8708e700de70208f36767808a433c1e9bb2ffb2" => :catalina
+    sha256 "f8208ec60e2af6e9d1da2caa0ad1b48b5b027955c2daa51860fa1606b8c5acef" => :mojave
+    sha256 "8c9d0dde0b7a4292f8fa04337805755ac16ce1aab08710463323afec2f73d551" => :high_sierra
   end
 
   depends_on "go" => :build

@@ -1,16 +1,20 @@
 class Libdnet < Formula
   desc "Portable low-level networking library"
-  homepage "https://github.com/dugsong/libdnet"
-  url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/libdnet/libdnet-1.12.tgz"
-  sha256 "83b33039787cf99990e977cef7f18a5d5e7aaffc4505548a83d31bd3515eb026"
+  homepage "https://github.com/ofalk/libdnet"
+  url "https://github.com/ofalk/libdnet/archive/libdnet-1.14.tar.gz"
+  sha256 "592599c54a57102a177270f3a2caabda2c2ac7768b977d7458feba97da923dfe"
+  license "BSD-3-Clause"
+
+  livecheck do
+    url :homepage
+    regex(/^libdnet[._-]v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     cellar :any
-    rebuild 4
-    sha256 "f0f94480e8f973b31b39dfbb7f594c678f02c7176559badb1d31d644deb0a34a" => :catalina
-    sha256 "540ccb96d3647a0d71f563e06d08e410d14b7d09c23f6348bc91fd22251e5ff2" => :mojave
-    sha256 "ece250e6792f542e5546ac5e8e5144fe07c76ce3ddb94216181e85092d530e81" => :high_sierra
-    sha256 "bb550ef762ca5d65f87b65575758557afcf8e6b93855be32638cab265540ba6b" => :sierra
+    sha256 "f8c9ace5eb112c484f50da7624df13c551b14114ece91a155ce2394b30e264b7" => :catalina
+    sha256 "1e967ac6c5b9c70f72efba9082844c755dba2d62054a4c4dfbd5629da3cb0b76" => :mojave
+    sha256 "fd53de5c1830dcdb52ecba97cf0c9c6afccf44037e6df6f64ef1d163d6c6adff" => :high_sierra
   end
 
   depends_on "autoconf" => :build

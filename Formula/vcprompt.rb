@@ -4,6 +4,10 @@ class Vcprompt < Formula
   url "https://bitbucket.org/gward/vcprompt/downloads/vcprompt-1.2.1.tar.gz"
   sha256 "98c2dca278a34c5cdbdf4a5ff01747084141fbf4c50ba88710c5a13c3cf9af09"
 
+  livecheck do
+    skip "Bitbucket repository is missing"
+  end
+
   bottle do
     cellar :any
     rebuild 1
@@ -17,7 +21,7 @@ class Vcprompt < Formula
   end
 
   head do
-    url "https://bitbucket.org/gward/vcprompt", :using => :hg
+    url "https://bitbucket.org/gward/vcprompt", using: :hg
     depends_on "autoconf" => :build
   end
 

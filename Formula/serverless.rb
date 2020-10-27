@@ -2,15 +2,15 @@ require "language/node"
 
 class Serverless < Formula
   desc "Build applications with serverless architectures"
-  homepage "https://serverless.com"
-  url "https://github.com/serverless/serverless/archive/v1.57.0.tar.gz"
-  sha256 "24efd84dd69c00ec49fd0dcef772177344b79f42362c0d0af4471b46cbfd2c1f"
+  homepage "https://www.serverless.com/"
+  url "https://github.com/serverless/serverless/archive/v2.8.0.tar.gz"
+  sha256 "5b12bd2bca7ae4676f74654f7831e91ef0b9fa98dd774decc14fd634e0f93dd9"
+  license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "5a57df00a3c804cb6d75b19aa9d356e35124493f36c4dff1b43e1f499a95fc19" => :catalina
-    sha256 "3d3d30f4dfe01d600df156e6ebb6de225de8d369af6c259833bb369fe1558e69" => :mojave
-    sha256 "48adbbc42c517143e526d7af7e6581bdc5ff9f6745f3cc842e99739c4ed83891" => :high_sierra
+    sha256 "68928caccf062014d1b157703539f6ca55b37e50886c8e27d96431967ca157b4" => :catalina
+    sha256 "5376c3896ecc30c5b69479e62083266186121aa5f9f62028cedbe99dc793045a" => :mojave
+    sha256 "8ef03b628bbd11d2129f834f418baf0a775b1e75324dc60d43161d978fb1a5c6" => :high_sierra
   end
 
   depends_on "node"
@@ -30,7 +30,7 @@ class Serverless < Formula
         region: eu-west-1
     EOS
 
-    system("#{bin}/serverless config credentials --provider aws --key aa --secret xx")
+    system("#{bin}/serverless", "config", "credentials", "--provider", "aws", "--key", "aa", "--secret", "xx")
     output = shell_output("#{bin}/serverless package")
     assert_match "Serverless: Packaging service...", output
   end
