@@ -4,8 +4,8 @@ class Fzf < Formula
   url "https://github.com/junegunn/fzf/archive/0.24.0.tar.gz"
   sha256 "ce76f5f1a7cef05061e3cb2ab1eba7bc47660a868d622b5dd914e50158129ff6"
   license "MIT"
-  head "https://github.com/junegunn/fzf.git"
   revision 1
+  head "https://github.com/junegunn/fzf.git"
 
   bottle do
     cellar :any_skip_relocation
