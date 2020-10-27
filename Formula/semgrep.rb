@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/returntocorp/semgrep.git",
-    tag:      "v0.28.0",
-    revision: "b9f1d25600247ee1042eacfec428225ae623a646"
+    tag:      "v0.29.0",
+    revision: "f398786cfc6ad152169ecc3b555dc60aacaad053"
   license "LGPL-2.1-only"
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
@@ -141,7 +141,7 @@ class Semgrep < Formula
         system "opam", "install", "--deps-only", "-y", "."
         system "opam", "exec", "--", "make"
         system "opam", "exec", "--", "make", "install"
-        bin.install "_build/default/src/bin/Spacegrep_main.exe" => "spacegrep"
+        bin.install "_build/default/src/bin/Space_main.exe" => "spacegrep"
       end
 
       # Install tree-sitter
@@ -158,7 +158,7 @@ class Semgrep < Formula
         system "opam", "install", "--deps-only", "-y", "."
         system "opam", "exec", "--", "make", "all"
         system "opam", "exec", "--", "make", "install"
-        bin.install "_build/default/bin/Main.exe" => "semgrep-core"
+        bin.install "_build/default/cli/Main.exe" => "semgrep-core"
       end
     end
 
