@@ -24,7 +24,7 @@ class Helmfile < Formula
     (testpath/"helmfile.yaml").write <<-EOS
     repositories:
     - name: stable
-      url: https://kubernetes-charts.storage.googleapis.com
+      url: https://charts.helm.sh/stable
 
     releases:
     - name: vault                            # name of this release
@@ -36,7 +36,7 @@ class Helmfile < Formula
       version: ~1.24.1                       # the semver of the chart. range constraint is supported
     EOS
     system Formula["helm"].opt_bin/"helm", "create", "foo"
-    output = "Adding repo stable https://kubernetes-charts.storage.googleapis.com"
+    output = "Adding repo stable https://charts.helm.sh/stable"
     assert_match output, shell_output("#{bin}/helmfile -f helmfile.yaml repos 2>&1")
     assert_match version.to_s, shell_output("#{bin}/helmfile -v")
   end
