@@ -2,8 +2,8 @@ class HelmAT2 < Formula
   desc "Kubernetes package manager"
   homepage "https://helm.sh/"
   url "https://github.com/helm/helm.git",
-      tag:      "v2.16.12",
-      revision: "47f0b88409e71fd9ca272abc7cd762a56a1c613e"
+      tag:      "v2.17.0",
+      revision: "a690bad98af45b015bd3da1a41f6218b1a451dbe"
   license "Apache-2.0"
 
   # NOTE: Remove this livecheck block after deprecation takes effect, so we
