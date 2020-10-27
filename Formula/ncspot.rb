@@ -9,6 +9,7 @@ class Ncspot < Formula
   depends_on "rust" => :build
 
   def install
+    ENV["COREAUDIO_SDK_PATH"] = MacOS.sdk_path_if_needed
     system "cargo", "install",
       "--no-default-features", "--features", "rodio_backend,cursive/pancurses-backend", *std_cargo_args
   end
