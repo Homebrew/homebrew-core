@@ -6,7 +6,7 @@ class Ballerina < Formula
   license "Apache-2.0"
 
   livecheck do
-  url "https://dist.ballerina.io/downloads/1.2.9/ballerina-1.2.9.zip"
+    url "https://ballerina.io/learn/installing-ballerina/"
     regex(/href=.*?ballerina[._-]v?(\d+(?:\.\d+)+)/i)
   end
 
