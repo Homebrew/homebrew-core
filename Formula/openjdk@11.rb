@@ -1,9 +1,9 @@
 class OpenjdkAT11 < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://hg.openjdk.java.net/jdk-updates/jdk11u/archive/jdk-11.0.8-ga.tar.bz2"
-  sha256 "0c10838f708a5987d2980aee56c5c50c02637e21387215f3e13358b93d107192"
-  license "GPL-2.0"
+  url "https://hg.openjdk.java.net/jdk-updates/jdk11u/archive/jdk-11.0.9-ga.tar.bz2"
+  sha256 "0f35778a120da24dff1f752d128029d87448777a6ab9401c7cf5bc875f127d80"
+  license "GPL-2.0-only"
 
   bottle do
     cellar :any
@@ -26,19 +26,40 @@ class OpenjdkAT11 < Formula
     sha256 "77ea7675ee29b85aa7df138014790f91047bfdafbc997cb41a1030a0417356d7"
   end
 
+  # Fix build on Xcode 12
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/2087f9d035e568655d3f4240827e9cb7f31370da/openjdk%4011/xcode12.diff"
+    sha256 "d995c4bd49fc41ff47c4dab6f83b79b4e639c423040b7340ea13db743dfced70"
+  end
+
   def install
     boot_jdk_dir = Pathname.pwd/"boot-jdk"
     resource("boot-jdk").stage boot_jdk_dir
     boot_jdk = boot_jdk_dir/"Contents/Home"
     java_options = ENV.delete("_JAVA_OPTIONS")
 
-    _, _, build = version.to_s.rpartition("+")
+    # Inspecting .hg_archival.txt to find a build number
+    # The file looks like this:
+    #
+    # repo: fd16c54261b32be1aaedd863b7e856801b7f8543
+    # node: 4397fa4529b2794ddcdf3445c0611fe383243fb4
+    # branch: default
+    # tag: jdk-11.0.9+11
+    # tag: jdk-11.0.9-ga
+    #
+    build = File.read(".hg_archival.txt")
+                .scan(/^tag: jdk-#{version}\+(.+)$/)
+                .map(&:first)
+                .map(&:to_i)
+                .max
+    raise "cannot find build number in .hg_archival.txt" if build.nil?
 
     chmod 0755, "configure"
     system "./configure", "--without-version-pre",
                           "--without-version-opt",
                           "--with-version-build=#{build}",
                           "--with-toolchain-path=/usr/bin",
+                          "--with-sysroot=#{MacOS.sdk_path}",
                           "--with-extra-ldflags=-headerpad_max_install_names",
                           "--with-boot-jdk=#{boot_jdk}",
                           "--with-boot-jdk-jvmargs=#{java_options}",
