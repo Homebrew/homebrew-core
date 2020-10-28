@@ -1,13 +1,8 @@
 class Libre < Formula
   desc "Toolkit library for asynchronous network I/O with protocol stacks"
-  homepage "http://www.creytiv.com"
-  url "http://www.creytiv.com/pub/re-0.6.1.tar.gz"
+  homepage "https://github.com/creytiv/re"
+  url "https://github.com/creytiv/re/releases/download/v0.6.1/re-0.6.1.tar.gz"
   sha256 "cd5bfc79640411803b200c7531e4ba8a230da3806746d3bd2de970da2060fe43"
-
-  livecheck do
-    url "http://www.creytiv.com/pub/"
-    regex(/href=.*?re[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
 
   bottle do
     cellar :any
