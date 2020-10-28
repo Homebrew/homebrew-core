@@ -1,6 +1,6 @@
 class Fceux < Formula
   desc "All-in-one NES/Famicom Emulator"
-  homepage "http://fceux.com"
+  homepage "https://fceux.com/"
   url "https://downloads.sourceforge.net/project/fceultra/Source%20Code/2.2.3%20src/fceux-2.2.3.src.tar.gz"
   sha256 "4be6dda9a347f941809a3c4a90d21815b502384adfdd596adaa7b2daf088823e"
   revision 4
