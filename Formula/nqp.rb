@@ -1,8 +1,9 @@
 class Nqp < Formula
   desc "Lightweight Perl 6-like environment for virtual machines"
   homepage "https://github.com/perl6/nqp"
-  url "https://github.com/perl6/nqp/releases/download/2020.09/nqp-2020.09.tar.gz"
-  sha256 "b0e2449959b5d34a26542b6fecab82a24b10a74fb8fdf6ed80d98b71f2f17126"
+  # Note: Please keep these values in sync with moarvm & rakudo when updating.
+  url "https://github.com/perl6/nqp/releases/download/2020.10/nqp-2020.10.tar.gz"
+  sha256 "100c74c8a81117040c3a1b85ac99312008753c17faeeab7d69998bcf7cdb6059"
   license "Artistic-2.0"
 
   bottle do
