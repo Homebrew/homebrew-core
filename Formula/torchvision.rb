@@ -1,10 +1,9 @@
 class Torchvision < Formula
   desc "Datasets, transforms, and models for computer vision"
   homepage "https://github.com/pytorch/vision"
-  url "https://github.com/pytorch/vision/archive/v0.7.0.tar.gz"
-  sha256 "fa0a6f44a50451115d1499b3f2aa597e0092a07afce1068750260fa7dd2c85cb"
+  url "https://github.com/pytorch/vision/archive/v0.8.1.tar.gz"
+  sha256 "c46734c679c99f93e5c06654f4295a05a6afe6c00a35ebd26a2cce507ae1ccbd"
   license "BSD-3-Clause"
-  revision 2
 
   bottle do
     cellar :any
@@ -15,6 +14,7 @@ class Torchvision < Formula
 
   depends_on "cmake" => :build
   depends_on "python@3.9" => :build
+  depends_on "jpeg"
   depends_on "libtorch"
 
   def install
@@ -34,6 +34,6 @@ class Torchvision < Formula
                     "-I#{libtorch.opt_include}/torch/csrc/api/include",
                     "-L#{libtorch.opt_lib}", "-ltorch", "-ltorch_cpu", "-lc10",
                     "-L#{lib}", "-ltorchvision"
-    assert_match "[ CPUFloatType{1,1000} ]", shell_output("./test")
+    assert_match "[1, 1000]", shell_output("./test")
   end
 end
