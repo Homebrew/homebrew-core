@@ -1,10 +1,9 @@
 class Libass < Formula
   desc "Subtitle renderer for the ASS/SSA subtitle format"
   homepage "https://github.com/libass/libass"
-  url "https://github.com/libass/libass/releases/download/0.14.0/libass-0.14.0.tar.xz"
-  sha256 "881f2382af48aead75b7a0e02e65d88c5ebd369fe46bc77d9270a94aa8fd38a2"
+  url "https://github.com/libass/libass/releases/download/0.15.0/libass-0.15.0.tar.xz"
+  sha256 "9f09230c9a0aa68ef7aa6a9e2ab709ca957020f842e52c5b2e52b801a7d9e833"
   license "ISC"
-  revision 1
 
   bottle do
     cellar :any
