@@ -15,7 +15,10 @@ class Ncspot < Formula
   end
 
   test do
-    # Same test as ncmpc
-    system bin/"ncspot", "--help"
+    pid = fork { exec "#{bin}/ncspot -b . -d debug.log 2>&1 >/dev/null" }
+    sleep 2
+    Process.kill "TERM", pid
+
+    assert_match '[ncspot::config] [TRACE] "./.config"', File.read("debug.log")
   end
 end
