@@ -3,7 +3,7 @@ class Ctop < Formula
   homepage "https://bcicen.github.io/ctop/"
   url "https://github.com/bcicen/ctop.git",
     tag:      "v0.7.4",
-    revision: "5b2d180f6007fb2a8387d0e821f3b80bcfc9a1cb"
+    revision: "426dd2c9854786bdfba7a55272256502849ccfb5"
   license "MIT"
 
   bottle do
