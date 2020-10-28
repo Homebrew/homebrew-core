@@ -1,9 +1,9 @@
 class CeresSolver < Formula
   desc "C++ library for large-scale optimization"
   homepage "http://ceres-solver.org/"
-  url "http://ceres-solver.org/ceres-solver-1.14.0.tar.gz"
-  sha256 "4744005fc3b902fed886ea418df70690caa8e2ff6b5a90f3dd88a3d291ef8e8e"
-  revision 14
+  url "http://ceres-solver.org/ceres-solver-2.0.0.tar.gz"
+  sha256 "10298a1d75ca884aa0507d1abb0e0f04800a92871cd400d4c361b56a777a7603"
+  license "BSD-3-Clause"
   head "https://ceres-solver.googlesource.com/ceres-solver.git"
 
   bottle do
@@ -15,21 +15,20 @@ class CeresSolver < Formula
     sha256 "0a091d6adf630d059340d1c4e69836fc9ecbbac804b23f855095ad9b0473a6b0" => :mojave
   end
 
-  depends_on "cmake"
+  depends_on "cmake" => [:build, :test]
   depends_on "eigen"
   depends_on "gflags"
   depends_on "glog"
   depends_on "metis"
+  depends_on "openblas"
   depends_on "suite-sparse"
+  depends_on "tbb"
 
   def install
     system "cmake", ".", *std_cmake_args,
                     "-DBUILD_SHARED_LIBS=ON",
-                    "-DEIGEN_INCLUDE_DIR=#{Formula["eigen"].opt_include}/eigen3",
-                    "-DMETIS_LIBRARY=#{Formula["metis"].opt_lib}/#{shared_library("libmetis")}",
-                    "-DGLOG_INCLUDE_DIR_HINTS=#{Formula["glog"].opt_include}",
-                    "-DGLOG_LIBRARY_DIR_HINTS=#{Formula["glog"].opt_lib}",
-                    "-DTBB=OFF", "-DBUILD_EXAMPLES=OFF", "-DLIB_SUFFIX=''"
+                    "-DBUILD_EXAMPLES=OFF",
+                    "-DLIB_SUFFIX=''"
     system "make"
     system "make", "install"
     pkgshare.install "examples", "data"
@@ -39,12 +38,11 @@ class CeresSolver < Formula
   test do
     cp pkgshare/"examples/helloworld.cc", testpath
     (testpath/"CMakeLists.txt").write <<~EOS
-      cmake_minimum_required(VERSION 2.8)
+      cmake_minimum_required(VERSION 3.5)
       project(helloworld)
       find_package(Ceres REQUIRED)
-      include_directories(${CERES_INCLUDE_DIRS})
       add_executable(helloworld helloworld.cc)
-      target_link_libraries(helloworld ${CERES_LIBRARIES})
+      target_link_libraries(helloworld Ceres::ceres)
     EOS
 
     system "cmake", "-DCeres_DIR=#{share}/Ceres", "."
