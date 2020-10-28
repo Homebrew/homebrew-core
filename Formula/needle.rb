@@ -3,7 +3,7 @@ class Needle < Formula
   homepage "https://github.com/uber/needle"
   url "https://github.com/uber/needle.git",
       tag:      "v0.16.2",
-      revision: "ead44f5f029b4075295f48867237a96ec98aef28"
+      revision: "1e72748a8e8b242f1c9acc96e1c461031422f704"
   license "Apache-2.0"
 
   bottle do
