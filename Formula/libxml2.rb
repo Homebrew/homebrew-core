@@ -46,7 +46,7 @@ class Libxml2 < Formula
 
   # Resolves CVE-2018-8048, CVE-2018-3740, CVE-2018-3741
   # Upstream hasn't patched this bug, but Nokogiri distributes
-  # libxml2 with this patch to fixe this issue
+  # libxml2 with this patch to fix this issue
   # https://bugzilla.gnome.org/show_bug.cgi?id=769760
   # https://github.com/sparklemotion/nokogiri/pull/1746
   patch do
