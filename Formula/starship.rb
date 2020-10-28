@@ -18,7 +18,7 @@ class Starship < Formula
   uses_from_macos "zlib"
 
   def install
-    system "cargo", "install", *std_cargo_args
+    system "cargo", "install", "--features", "notify-rust", *std_cargo_args
 
     bash_output = Utils.safe_popen_read("#{bin}/starship", "completions", "bash")
     (bash_completion/"starship").write bash_output
