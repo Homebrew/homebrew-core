@@ -5,6 +5,7 @@ class ApacheDrill < Formula
   mirror "https://archive.apache.org/dist/drill/drill-1.17.0/apache-drill-1.17.0.tar.gz"
   sha256 "a3d2d544bcc32b915fb53fced0f982670bd6fe2abd764423e566a5f6b54debf1"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://drill.apache.org/download/"
@@ -13,7 +14,7 @@ class ApacheDrill < Formula
 
   bottle :unneeded
 
-  depends_on java: "1.8"
+  depends_on "openjdk@8"
 
   def install
     libexec.install Dir["*"]
