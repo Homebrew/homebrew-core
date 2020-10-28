@@ -1,8 +1,8 @@
 class Abcmidi < Formula
   desc "Converts abc music notation files to MIDI files"
   homepage "https://ifdo.ca/~seymour/runabc/top.html"
-  url "https://ifdo.ca/~seymour/runabc/abcMIDI-2020.10.19.zip"
-  sha256 "39b4c884f5a6a9ebd53b53de5824552899ff4a77c7a18c095eee45e8b93ee292"
+  url "https://ifdo.ca/~seymour/runabc/abcMIDI-2020.10.27.zip"
+  sha256 "5e93cb0257f5966d669808b7df7c21ef307912804bfa5048685ec7eb72c207ac"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -22,6 +22,12 @@ class Abcmidi < Formula
     # the tarball. On case-sensitive file-systems, the "makefile" file won't
     # be overridden and will be chosen over the "Makefile" file.
     rm "makefile"
+
+    # Fix the build issue (remove in the next release)
+    inreplace "drawtune.c", "printtext(left, v->place->item, &textfont);",
+                            "printtext(left, v->place->item.voidptr, &textfont);"
+    inreplace "drawtune.c", "printtext(centre, v->place->item, &textfont);",
+                            "printtext(centre, v->place->item.voidptr, &textfont);"
 
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}",
