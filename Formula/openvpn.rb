@@ -4,6 +4,7 @@ class Openvpn < Formula
   url "https://swupdate.openvpn.org/community/releases/openvpn-2.5.0.tar.xz"
   mirror "https://build.openvpn.net/downloads/releases/openvpn-2.5.0.tar.xz"
   sha256 "029a426e44d656cb4e1189319c95fe6fc9864247724f5599d99df9c4c3478fbd"
+  license "GPLv2"
 
   livecheck do
     url :homepage
