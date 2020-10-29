@@ -6,7 +6,7 @@ class Sqliteodbc < Formula
   sha256 "fabcbec73f98d1a34911636c02c29fc64147d27516b142e8e132c68c05a6065b"
 
   livecheck do
-    url "http://www.ch-werner.de/sqliteodbc/"
+    url "https://ch-werner.homepage.t-online.de/sqliteodbc/"
     regex(/href=.*?sqliteodbc[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
