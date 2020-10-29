@@ -7,7 +7,7 @@ class Redis < Formula
   head "https://github.com/redis/redis.git", branch: "unstable"
 
   livecheck do
-    url "http://download.redis.io/releases/"
+    url "https://download.redis.io/releases/"
     regex(/href=.*?redis[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
