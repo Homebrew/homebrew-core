@@ -3,10 +3,9 @@ class GstDevtools < Formula
 
   desc "GStreamer development and validation tools"
   homepage "https://gstreamer.freedesktop.org/modules/gstreamer.html"
-  url "https://gstreamer.freedesktop.org/src/gst-devtools/gst-devtools-1.18.0.tar.xz"
-  sha256 "82337141b5654f11c440f783892ba9d9498b3b6b98c2286b000f96dce6945f16"
+  url "https://gstreamer.freedesktop.org/src/gst-devtools/gst-devtools-1.18.1.tar.xz"
+  sha256 "712212babd2238233d55beecfc0fe1ea8db18e8807ac6ab05a64505b2c7ab0df"
   license "LGPL-2.1-or-later"
-  revision 1
   head "https://anongit.freedesktop.org/git/gstreamer/gst-devtools.git"
 
   bottle do
