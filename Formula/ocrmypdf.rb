@@ -3,8 +3,8 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://github.com/jbarlow83/OCRmyPDF"
-  url "https://files.pythonhosted.org/packages/fe/c7/455510db33427432307c2f8d5fbf413144f9c0040b88dcc446747d5acb6c/ocrmypdf-11.3.0.tar.gz"
-  sha256 "6ba47399d3459768a3c7689169e6235f30634614ea3759e65b4933326c052fef"
+  url "https://files.pythonhosted.org/packages/7c/2b/cc6bc7f523221bf3293773a3258d92114d7d1eb8c05947d84a584db84fc6/ocrmypdf-11.3.1.tar.gz"
+  sha256 "ea9026b989e9a3c5469051560347bc0b8aa61da5300d65e7fdc71b1cf09da31a"
   license "MPL-2.0"
 
   livecheck do
@@ -53,8 +53,8 @@ class Ocrmypdf < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/5d/4b/7bb135c5787c003cdbc44990c5f41908f0f37135e0bb554e880d90fd5f6f/cryptography-3.1.1.tar.gz"
-    sha256 "9d9fc6a16357965d282dd4ab6531013935425d0dc4950df2e0cf2a1b1ac1017d"
+    url "https://files.pythonhosted.org/packages/94/5c/42de91c7fbdb817b2d9a4e64b067946eb38a4eb36c1a09c96c87a0f86a82/cryptography-3.2.1.tar.gz"
+    sha256 "d3d5e10be0cf2a12214ddee45c6bd203dab435e3d83b4560c03066eda600bfe3"
   end
 
   resource "humanfriendly" do
@@ -73,8 +73,8 @@ class Ocrmypdf < Formula
   end
 
   resource "pdfminer.six" do
-    url "https://files.pythonhosted.org/packages/34/4a/bc38040c4a970870ccbef975bae2b6b1bccaa2d308e61111203cccc58e89/pdfminer.six-20200726.tar.gz"
-    sha256 "8513b27d780ac83e8474cef245c43d1ebf65ca9550dc07ac0525b4d47eb2c310"
+    url "https://files.pythonhosted.org/packages/d8/bb/45cb24e715d3058f92f703265e6ed396767b19fec6d19d1ea54e04b730b7/pdfminer.six-20201018.tar.gz"
+    sha256 "b9aac0ebeafb21c08bf65f2039f4b2c5f78a3449d0a41df711d72445649e952a"
   end
 
   resource "pikepdf" do
@@ -98,8 +98,8 @@ class Ocrmypdf < Formula
   end
 
   resource "reportlab" do
-    url "https://files.pythonhosted.org/packages/c5/44/bad9cdd11491d46bfde158689e51579e8559aacd67e9204ed1867862c90c/reportlab-3.5.53.tar.gz"
-    sha256 "49e32586d3a814a5f77407c0590504a72743ca278518b3c0f90182430f2d87af"
+    url "https://files.pythonhosted.org/packages/ea/92/f6c44d738c6cab18435684dd2abfc29ec6b044b59ce9c0f223f68c95f4a1/reportlab-3.5.54.tar.gz"
+    sha256 "8365efe779e43e8005eace19c11c36e6a4bbea86ddc868b8db122240391c1747"
   end
 
   resource "six" do
@@ -113,8 +113,8 @@ class Ocrmypdf < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/e0/98/e3fbad184a671b51d5a873da486362884e7205eeeed1f597c48731efd122/tqdm-4.50.2.tar.gz"
-    sha256 "69dfa6714dee976e2425a9aab84b622675b7b1742873041e3db8a8e86132a4af"
+    url "https://files.pythonhosted.org/packages/88/e6/13dde83089386c9aa200c4539891948094443d4f6fe85fe95c7806c1f3d5/tqdm-4.51.0.tar.gz"
+    sha256 "ef54779f1c09f346b2b5a8e5c61f96fbcb639929e640e59f8cf810794f406432"
   end
 
   def install
