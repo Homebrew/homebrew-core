@@ -3,8 +3,8 @@ class CfnLint < Formula
 
   desc "Validate CloudFormation templates against the CloudFormation spec"
   homepage "https://github.com/aws-cloudformation/cfn-python-lint/"
-  url "https://files.pythonhosted.org/packages/25/14/cc835821df10882b76ae8667ad525322358f9a8ce29e42ed96df2ceba294/cfn-lint-0.38.0.tar.gz"
-  sha256 "51d810bf63ee244a1b347e88d7ea53fa60308b4d36503bb86844c6ea280a6ff2"
+  url "https://files.pythonhosted.org/packages/69/b3/4c217569c40adcdb0cebcab244b01568a7bfd1c46455cc4f5f9d12a2f8df/cfn-lint-0.39.0.tar.gz"
+  sha256 "5f48c8be94f7b3575dad5a26138a0f2aaf310ce7c2378bfa4f23a36e1c761121"
   license "MIT"
 
   livecheck do
@@ -26,18 +26,18 @@ class CfnLint < Formula
   end
 
   resource "aws-sam-translator" do
-    url "https://files.pythonhosted.org/packages/5a/bf/26b4ed823aa590de23827e6190094dec29df7e168da4eb42e133514661d4/aws-sam-translator-1.27.0.tar.gz"
-    sha256 "3258122f4cd671ba3dc141382dd0412c123db9f1317bed8b26e7229f63634454"
+    url "https://files.pythonhosted.org/packages/47/b0/35e15b6abb646956e9e63fbe69b8fa019c0db1989d029a55041a39d88219/aws-sam-translator-1.28.1.tar.gz"
+    sha256 "9d591c2b37fdd9b050428b135c8d7abc9641551bbfc7bb7fcb4009efba92184d"
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/8d/5a/6ccd35b9b8d6a052220ce380bb2b129277e15c2bb71daf8df443ca04d9e3/boto3-1.15.17.tar.gz"
-    sha256 "83fc4652eb102c0ff862061d65280bb1ee6f773043b5231d1badb77681267318"
+    url "https://files.pythonhosted.org/packages/c2/62/a16554bef40adc732dacbce7b88db85cf508958d952c38a92a789a8a5a0c/boto3-1.16.7.tar.gz"
+    sha256 "2cabcdc217a128832d6c948cae22cbd3af03ae0736efcb59749f1f11f528be54"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/c0/9d/017d4f0320cccc5bbce911e2f070ed62e96b3bc4d57e9e66db9b8ec8f659/botocore-1.18.17.tar.gz"
-    sha256 "4cdb114947391c88787df3e2f6a9f53ee15f1e2fef8691963e959858a034bb02"
+    url "https://files.pythonhosted.org/packages/d7/d7/3d540494414a311a772a6ab27f23bf976fec0ee152c0b5d0bfb62ced6176/botocore-1.19.7.tar.gz"
+    sha256 "ab59f842797cbd09ee7d9e3f353bb9546f428853d94db448977dd554320620b3"
   end
 
   resource "decorator" do
@@ -102,8 +102,8 @@ class CfnLint < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/81/f4/87467aeb3afc4a6056e1fe86626d259ab97e1213b1dfec14c7cb5f538bf0/urllib3-1.25.10.tar.gz"
-    sha256 "91056c15fa70756691db97756772bb1eb9678fa585d9184f24534b100dc60f4a"
+    url "https://files.pythonhosted.org/packages/76/d9/bbbafc76b18da706451fa91bc2ebe21c0daf8868ef3c30b869ac7cb7f01d/urllib3-1.25.11.tar.gz"
+    sha256 "8d7eaa5a82a1cac232164990f04874c594c9453ec55eef02eab885aa02fc17a2"
   end
 
   def install
