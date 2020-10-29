@@ -1,8 +1,8 @@
 class Xmlsh < Formula
   desc "XML shell"
   homepage "http://www.xmlsh.org"
-  url "https://downloads.sourceforge.net/project/xmlsh/xmlsh/1.2.5/xmlsh_1_2_5.zip"
-  sha256 "489df45f19a6bb586fdb5abd1f8ba9397048597895cb25def747b0118b02b1c8"
+  url "http://xmlsh-org-downloads.s3-website-us-east-1.amazonaws.com/archives%2Frelease-1_3_1%2Fxmlsh_1_3_1.zip"
+  sha256 "b52daadac61920a8a5b241795f1348298327db9841c052114f2351b365a23e2f"
 
   livecheck do
     url :stable
