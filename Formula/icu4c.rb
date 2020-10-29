@@ -1,9 +1,9 @@
 class Icu4c < Formula
   desc "C/C++ and Java libraries for Unicode and globalization"
   homepage "http://site.icu-project.org/home"
-  url "https://github.com/unicode-org/icu/releases/download/release-67-1/icu4c-67_1-src.tgz"
-  version "67.1"
-  sha256 "94a80cd6f251a53bd2a997f6f1b5ac6653fe791dfab66e1eb0227740fb86d5dc"
+  url "https://github.com/unicode-org/icu/releases/download/release-68-1/icu4c-68_1-src.tgz"
+  version "68.1"
+  sha256 "a9f2e3d8b4434b8e53878b4308bd1e6ee51c9c7042e2b1a376abefb6fbb29f2d"
   license "ICU"
 
   livecheck do
@@ -19,13 +19,6 @@ class Icu4c < Formula
   end
 
   keg_only :provided_by_macos, "macOS provides libicucore.dylib (but nothing else)"
-
-  # fix C++14 compatibility of U_ASSERT macro.
-  # Remove with next release (ICU 68).
-  patch :p2 do
-    url "https://github.com/unicode-org/icu/commit/715d254a02b0b22681cb6f861b0921ae668fa7d6.patch?full_index=1"
-    sha256 "a87e1b9626ec5803b1220489c0d6cc544a5f293f1c5280e3b27871780c4ecde8"
-  end
 
   def install
     args = %W[
