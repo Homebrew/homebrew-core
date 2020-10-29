@@ -1,8 +1,9 @@
 class Fastd < Formula
   desc "Fast and Secure Tunnelling Daemon"
   homepage "https://github.com/NeoRaider/fastd"
-  url "https://github.com/NeoRaider/fastd/releases/download/v20/fastd-20.tar.xz"
-  sha256 "56cab8639218d63237d9a5508fb2bf6fa637374d53fb7fa55b7e92e4d4dfeb00"
+  url "https://github.com/NeoRaider/fastd.git",
+    tag:      "v21",
+    revision: "2ce6095b2795052e34110599c484205468fb9fa6"
   license "BSD-2-Clause"
   head "https://github.com/NeoRaider/fastd.git"
 
@@ -14,17 +15,19 @@ class Fastd < Formula
   end
 
   depends_on "bison" => :build # fastd requires bison >= 2.5
-  depends_on "cmake" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "json-c"
   depends_on "libsodium"
   depends_on "libuecc"
+  depends_on "openssl@1.1"
 
   def install
     mkdir "build" do
-      system "cmake", "..", "-DENABLE_LTO=ON", *std_cmake_args
-      system "make"
-      system "make", "install"
+      system "meson", *std_meson_args, "-DENABLE_LTO=ON", ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
     end
   end
 
