@@ -6,7 +6,9 @@ class MidnightCommander < Formula
   license "GPL-3.0"
 
   livecheck do
-    url "http://ftp.midnight-commander.org"
+    # Insecure, canonical alias:
+    # http://ftp.midnight-commander.org/
+    url "https://ftp.osuosl.org/pub/midnightcommander/"
     regex(/href=.*?mc[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
