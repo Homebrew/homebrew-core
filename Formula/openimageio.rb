@@ -1,11 +1,10 @@
 class Openimageio < Formula
   desc "Library for reading, processing and writing images"
   homepage "https://openimageio.org/"
-  url "https://github.com/OpenImageIO/oiio/archive/Release-2.1.18.1.tar.gz"
-  version "2.1.18"
-  sha256 "e2cf54f5b28e18fc88e76e1703f2e39bf144c88378334527e4a1246974659a85"
+  url "https://github.com/OpenImageIO/oiio/archive/Release-2.2.7.0.tar.gz"
+  version "2.2.7"
+  sha256 "857ac83798d6d2bda5d4d11a90618ff19486da2e5a4c4ff022c5976b5746fe8c"
   license "BSD-3-Clause"
-  revision 4
   head "https://github.com/OpenImageIO/oiio.git"
 
   livecheck do
@@ -34,6 +33,7 @@ class Openimageio < Formula
   depends_on "libtiff"
   depends_on "opencolorio"
   depends_on "openexr"
+  depends_on "pybind11"
   depends_on "python@3.9"
   depends_on "webp"
 
