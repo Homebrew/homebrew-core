@@ -1,8 +1,8 @@
 class Tup < Formula
   desc "File-based build system"
   homepage "http://gittup.org/tup/"
-  url "https://github.com/gittup/tup/archive/v0.7.9.tar.gz"
-  sha256 "9b0951afaa749186eb55d88860405b2f6b3d88632d1b5df1ec4a0bf973d8d326"
+  url "https://github.com/gittup/tup/archive/v0.7.10.tar.gz"
+  sha256 "c80946bc772ae4a5170855e907c866dae5040620e81ee1a590223bdbdf65f0f8"
   license "GPL-2.0"
   head "https://github.com/gittup/tup.git"
 
