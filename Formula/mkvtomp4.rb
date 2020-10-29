@@ -10,7 +10,7 @@ class Mkvtomp4 < Formula
 
   livecheck do
     url :stable
-    regex(/^mkvtomp4-v?(\d+(?:\.\d+)+?)$/i)
+    regex(/^mkvtomp4[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
