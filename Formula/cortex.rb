@@ -5,6 +5,11 @@ class Cortex < Formula
   sha256 "eba55bdb420d91da7c6cfc056172cb613298d3429439c175f044d58da4e0ecf7"
   license "Apache-2.0"
 
+  livecheck do
+    url "https://github.com/cortexproject/cortex/releases"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "c306a615e62d64102f4a9bd3a8a7fd9fd48f227cebb51ae605b585b35b36e341" => :catalina
