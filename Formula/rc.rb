@@ -1,7 +1,7 @@
 class Rc < Formula
   desc "Implementation of the AT&T Plan 9 shell"
   homepage "http://doc.cat-v.org/plan_9/4th_edition/papers/rc"
-  url "http://static.tobold.org/rc/rc-1.7.4.tar.gz"
+  url "https://web.archive.org/web/20200227085442/static.tobold.org/rc/rc-1.7.4.tar.gz"
   mirror "https://src.fedoraproject.org/repo/extras/rc/rc-1.7.4.tar.gz/f99732d7a8be3f15f81e99c3af46dc95/rc-1.7.4.tar.gz"
   sha256 "5ed26334dd0c1a616248b15ad7c90ca678ae3066fa02c5ddd0e6936f9af9bfd8"
 
