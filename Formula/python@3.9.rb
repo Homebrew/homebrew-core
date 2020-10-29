@@ -54,6 +54,7 @@ class PythonAT39 < Formula
   link_overwrite "bin/wheel3"
   link_overwrite "share/man/man1/python3.1"
   link_overwrite "lib/pkgconfig/python3.pc"
+  link_overwrite "lib/pkgconfig/python3-embed.pc"
   link_overwrite "Frameworks/Python.framework/Headers"
   link_overwrite "Frameworks/Python.framework/Python"
   link_overwrite "Frameworks/Python.framework/Resources"
