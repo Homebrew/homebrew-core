@@ -11,7 +11,7 @@ class Ncview < Formula
   # years now). We're checking Debian for now because it's potentially better
   # than having no check at all.
   livecheck do
-    url "http://ftp.debian.org/debian/pool/main/n/ncview/"
+    url "https://deb.debian.org/debian/pool/main/n/ncview/"
     regex(/href=.*?ncview[._-]v?(\d+(?:\.\d+)+)(?:\+ds)?\.orig\.t/i)
   end
 
