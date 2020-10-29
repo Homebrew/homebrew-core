@@ -2,11 +2,12 @@ class MidnightCommander < Formula
   desc "Terminal-based visual file manager"
   homepage "https://www.midnight-commander.org/"
   url "https://www.midnight-commander.org/downloads/mc-4.8.25.tar.xz"
+  mirror "https://ftp.osuosl.org/pub/midnightcommander/mc-4.8.25.tar.xz"
   sha256 "ffc19617f20ebb23330acd3998b7fd559a042d172fa55746d53d246697b2548a"
   license "GPL-3.0"
 
   livecheck do
-    url "http://ftp.midnight-commander.org"
+    url "https://ftp.osuosl.org/pub/midnightcommander/"
     regex(/href=.*?mc[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
