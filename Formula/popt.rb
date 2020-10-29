@@ -2,10 +2,11 @@ class Popt < Formula
   desc "Library like getopt(3) with a number of enhancements"
   homepage "https://github.com/rpm-software-management/popt"
   url "http://ftp.rpm.org/popt/releases/popt-1.x/popt-1.18.tar.gz"
+  mirror "https://ftp.osuosl.org/pub/rpm/popt/releases/popt-1.x/popt-1.18.tar.gz"
   sha256 "5159bc03a20b28ce363aa96765f37df99ea4d8850b1ece17d1e6ad5c24fdc5d1"
   license "MIT"
 
-  # The stable archive is found at http://ftp.rpm.org/popt/releases/popt-1.x/
+  # The stable archive is found at https://ftp.osuosl.org/pub/rpm/popt/releases/popt-1.x/
   # but it's unclear whether this would be a reliable check in the long term.
   # We're simply checking the Git repository tags for the moment, as we
   # shouldn't encounter problems with this method.
