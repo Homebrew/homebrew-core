@@ -4,6 +4,7 @@ class Starship < Formula
   url "https://github.com/starship/starship/archive/v0.46.2.tar.gz"
   sha256 "39301c8118239eda7b6d8dbcae498f28bfd901932e69003c249d99ee7989c1bb"
   license "ISC"
+  revision 1
   head "https://github.com/starship/starship.git"
 
   bottle do
@@ -15,8 +16,13 @@ class Starship < Formula
   end
 
   depends_on "rust" => :build
+  depends_on "openssl@1.1"
 
   uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
 
   def install
     system "cargo", "install", "--features", "notify-rust", *std_cargo_args
