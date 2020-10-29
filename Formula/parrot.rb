@@ -6,6 +6,7 @@ class Parrot < Formula
 
   stable do
     url "http://ftp.parrot.org/releases/supported/8.1.0/parrot-8.1.0.tar.bz2"
+    mirror "https://ftp.osuosl.org/pub/parrot/releases/supported/8.1.0/parrot-8.1.0.tar.bz2"
     sha256 "caf356acab64f4ea50595a846808e81d0be8ada8267afbbeb66ddb3c93cb81d3"
 
     # remove at 8.2.0, already in HEAD
