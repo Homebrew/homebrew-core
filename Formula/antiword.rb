@@ -2,6 +2,7 @@ class Antiword < Formula
   desc "Utility to read Word (.doc) files"
   homepage "http://www.winfield.demon.nl/"
   url "http://www.winfield.demon.nl/linux/antiword-0.37.tar.gz"
+  mirror "https://fossies.org/linux/misc/old/antiword-0.37.tar.gz"
   sha256 "8e2c000fcbc6d641b0e6ff95e13c846da3ff31097801e86702124a206888f5ac"
 
   livecheck do
