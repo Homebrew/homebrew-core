@@ -1,8 +1,8 @@
 class Gstreamer < Formula
   desc "Development framework for multimedia applications"
   homepage "https://gstreamer.freedesktop.org/"
-  url "https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.18.0.tar.xz"
-  sha256 "0ff09245b06c0aeb5d9a156edcab088a7e8213a0bf9c84a1ff0318f9c00c7805"
+  url "https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.18.1.tar.xz"
+  sha256 "79df8de21f284a105a5c1568527f8c559c583c85c0f2bd7bdb5b0372b8beecba"
   license "LGPL-2.0-or-later"
   head "https://anongit.freedesktop.org/git/gstreamer/gstreamer.git"
 
@@ -26,13 +26,6 @@ class Gstreamer < Formula
   depends_on "glib"
 
   uses_from_macos "flex" => :build
-
-  # Patch submitted upstream at
-  # https://gitlab.freedesktop.org/gstreamer/gstreamer/-/merge_requests/620
-  patch do
-    url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/commit/40c994cddee41954053f80dde40f56107ddfcfd4.patch"
-    sha256 "ff275d2709b257f592ca03b1f4eb63324a27e5637e6a4f6e9d97dc2727051bb5"
-  end
 
   def install
     # Ban trying to chown to root.
