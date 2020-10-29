@@ -1,21 +1,17 @@
 class SshAudit < Formula
-  include Language::Python::Shebang
+  include Language::Python::Virtualenv
 
   desc "SSH server & client auditing"
   homepage "https://github.com/jtesta/ssh-audit"
-  url "https://github.com/jtesta/ssh-audit/releases/download/v2.3.1/ssh-audit-2.3.1.tar.gz"
-  sha256 "3d81c2620f53e7e0fe359e94524f28b58d53aa4e77292e2c9c555e174993d314"
+  url "https://files.pythonhosted.org/packages/61/09/d4ec73164f4548b7352389117ed0a30e47c444a76c18046421e22311f8ea/ssh-audit-2.3.1.tar.gz"
+  sha256 "84d3294b25f3a1ce0a5f14094e80d85cfded3b5ef941c0df131cf7485d449b6b"
   license "MIT"
   head "https://github.com/jtesta/ssh-audit.git"
-
-  bottle :unneeded
 
   depends_on "python@3.9"
 
   def install
-    rewrite_shebang detected_python_shebang, "ssh-audit.py"
-    bin.install "ssh-audit.py" => "ssh-audit"
-    man1.install "ssh-audit.1"
+    virtualenv_install_with_resources
   end
 
   test do
