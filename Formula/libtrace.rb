@@ -3,7 +3,7 @@ class Libtrace < Formula
   homepage "https://research.wand.net.nz/software/libtrace.php"
   url "https://research.wand.net.nz/software/libtrace/libtrace-4.0.15.tar.bz2"
   sha256 "1f0352200171fa4adcef0a2df22714186e2585ebc7e6f7ca5fdc90e1af2e18c8"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url :homepage
