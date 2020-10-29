@@ -1,9 +1,9 @@
 class OpenjdkAT8 < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://hg.openjdk.java.net/jdk8u/jdk8u/archive/jdk8u265-ga.tar.bz2"
-  version "1.8.0+265"
-  sha256 "b5fd22b2f4a0a59611373e5f1ffc423d26e62ea38f1084a80a401beb6bd04d88"
+  url "https://hg.openjdk.java.net/jdk8u/jdk8u/archive/jdk8u272-ga.tar.bz2"
+  version "1.8.0+272"
+  sha256 "a80476dfe32c12882fe2d87bdb0dd37fc4a0dae8dd95f0c22c7c2445fc08ff7e"
   license "GPL-2.0-only"
 
   bottle do
@@ -35,38 +35,38 @@ class OpenjdkAT8 < Formula
   # the tarballs and stage them directly to avoid running upstream's unversioned
   # `get_source.sh` script.
   resource "corba" do
-    url "https://hg.openjdk.java.net/jdk8u/jdk8u/corba/archive/jdk8u265-ga.tar.bz2"
-    sha256 "a3adf57f7d50155bb83926afc2ca0007c6f17602660bacaff67201dd886b379f"
+    url "https://hg.openjdk.java.net/jdk8u/jdk8u/corba/archive/jdk8u272-ga.tar.bz2"
+    sha256 "51212e37b6c6e120901e61b830f110bbd121e9c4611aec9ff4e3f404a667855f"
   end
 
   resource "hotspot" do
-    url "https://hg.openjdk.java.net/jdk8u/jdk8u/hotspot/archive/jdk8u265-ga.tar.bz2"
-    sha256 "b4f6ab5466fc73f6e015d5394b4204453a109dc532e8bbac069c46c109545ce6"
+    url "https://hg.openjdk.java.net/jdk8u/jdk8u/hotspot/archive/jdk8u272-ga.tar.bz2"
+    sha256 "a8c83dcd272dc29c538291f24d1b28b7069e048398681b6db082cdaa8f3a6b07"
   end
 
   resource "jaxp" do
-    url "https://hg.openjdk.java.net/jdk8u/jdk8u/jaxp/archive/jdk8u265-ga.tar.bz2"
-    sha256 "d8e6a5bf406bf32f7806081907bd299098f13ade00260a737d3c141bcc2890a9"
+    url "https://hg.openjdk.java.net/jdk8u/jdk8u/jaxp/archive/jdk8u272-ga.tar.bz2"
+    sha256 "3f8b02337f4cd96e9180aa118705f48c39562f66287b46dd69554221fa196084"
   end
 
   resource "jaxws" do
-    url "https://hg.openjdk.java.net/jdk8u/jdk8u/jaxws/archive/jdk8u265-ga.tar.bz2"
-    sha256 "436a0aaecda8f2cc66ef2cbccea34a85887e5646fff60036473c08f975a68e33"
+    url "https://hg.openjdk.java.net/jdk8u/jdk8u/jaxws/archive/jdk8u272-ga.tar.bz2"
+    sha256 "ed276f9a70bf2582183838ad8b1874c0993b4a28741c69f095669667b12cd3d4"
   end
 
   resource "jdk" do
-    url "https://hg.openjdk.java.net/jdk8u/jdk8u/jdk/archive/jdk8u265-ga.tar.bz2"
-    sha256 "f9ca5bcda71f91d087d7483c1ae53d266a92f9691836f1cbbfaa37a9993f1f9b"
+    url "https://hg.openjdk.java.net/jdk8u/jdk8u/jdk/archive/jdk8u272-ga.tar.bz2"
+    sha256 "a3deeab4ac721d1ce9d8a2fb1917ba9e2afc6041f03ad4a342e9a5441cce621d"
   end
 
   resource "langtools" do
-    url "https://hg.openjdk.java.net/jdk8u/jdk8u/langtools/archive/jdk8u265-ga.tar.bz2"
-    sha256 "ea33875d91addd8f6dd52afe5cfa11c108f0e378df8451ed22a4e6767576c899"
+    url "https://hg.openjdk.java.net/jdk8u/jdk8u/langtools/archive/jdk8u272-ga.tar.bz2"
+    sha256 "ed59eabe4eb3fcf9af592d1af2d052c5053da9d868542fc47a0bddcb91e69c60"
   end
 
   resource "nashorn" do
-    url "https://hg.openjdk.java.net/jdk8u/jdk8u/nashorn/archive/jdk8u265-ga.tar.bz2"
-    sha256 "660148fab294a98147d346209e19b6dcf82807588d3c8c54abfc1262c95043d4"
+    url "https://hg.openjdk.java.net/jdk8u/jdk8u/nashorn/archive/jdk8u272-ga.tar.bz2"
+    sha256 "a5b8c478cd7695bf83210b8e97be3bfc8248c22916cec3b8b869586c3d7f0007"
   end
 
   # Apply this upstreamed patch series to build on newer Xcode.
