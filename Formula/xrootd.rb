@@ -3,7 +3,7 @@ class Xrootd < Formula
   homepage "https://xrootd.slac.stanford.edu/"
   url "https://xrootd.slac.stanford.edu/download/v4.12.5/xrootd-4.12.5.tar.gz"
   sha256 "164c83171e0bfc4d15ed55abde5f8b4d6413aa516c6b1faefabca0e6ba18275f"
-  license "LGPL-3.0"
+  license "LGPL-3.0-or-later"
   head "https://github.com/xrootd/xrootd.git"
 
   livecheck do
