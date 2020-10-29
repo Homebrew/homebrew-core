@@ -8,6 +8,11 @@ class Mkvtomp4 < Formula
   license "MIT"
   revision 2
 
+  livecheck do
+    url :stable
+    regex(/^mkvtomp4-v?(\d+(?:\.\d+)+?)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "87db5af32a6a707a10c11280169dff12f9df3874f93428e49aa14cbfd88eb313" => :catalina
