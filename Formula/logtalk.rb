@@ -7,8 +7,8 @@ class Logtalk < Formula
   license "Apache-2.0"
 
   livecheck do
-    url :stable
-    regex(/^lgt(\d+)stable$/i)
+    url "https://logtalk.org/download.html"
+    regex(/Latest stable version:.*?v?(\d+(?:\.\d+)+)/i)
   end
 
   bottle do
