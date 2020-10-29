@@ -1,7 +1,7 @@
 class Singular < Formula
   desc "Computer algebra system for polynomial computations"
   homepage "https://www.singular.uni-kl.de/"
-  url "ftp://jim.mathematik.uni-kl.de/pub/Math/Singular/SOURCES/4-1-3/singular-4.1.3p2.tar.gz"
+  url "https://www.mathematik.uni-kl.de/ftp/pub/Math/Singular/src/4-1-3/singular-4.1.3p2.tar.gz"
   version "4.1.3p2"
   sha256 "ee7ac6076d7f8622a1f24d37e9b632bae0700c6e314f56728400be136df64494"
   license "GPL-2.0"
