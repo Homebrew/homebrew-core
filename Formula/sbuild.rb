@@ -1,7 +1,9 @@
 class Sbuild < Formula
   desc "Scala-based build system"
-  homepage "http://sbuild.org"
-  url "http://sbuild.org/uploads/sbuild/0.7.7/sbuild-0.7.7-dist.zip"
+  homepage "http://sbuild.org/"
+  # Insecure, canonical alias:
+  # http://sbuild.org/uploads/sbuild/0.7.7/sbuild-0.7.7-dist.zip
+  url "https://github.com/SBuild-org/SBuild-org.github.io/raw/master/uploads/sbuild/0.7.7/sbuild-0.7.7-dist.zip"
   sha256 "606bc09603707f31d9ca5bc306ba01b171f8400e643261acd28da7a1a24dfb23"
   license "Apache-2.0"
   revision 1
