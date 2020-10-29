@@ -8,8 +8,8 @@ class IcarusVerilog < Formula
   head "https://github.com/steveicarus/iverilog.git"
 
   livecheck do
-    url "https://ftp.openbsd.org/pub/OpenBSD/distfiles/"
-    regex(/href=.*?verilog[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url "https://github.com/steveicarus/iverilog/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:[._]\d+)+)["' >]}i)
   end
 
   bottle do
