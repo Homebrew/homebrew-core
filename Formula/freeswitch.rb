@@ -2,7 +2,7 @@ class Freeswitch < Formula
   desc "Telephony platform to route various communication protocols"
   homepage "https://freeswitch.org"
   license "MPL-1.1"
-  revision 1
+  revision 2
   head "https://github.com/signalwire/freeswitch.git"
 
   stable do
@@ -65,6 +65,7 @@ class Freeswitch < Formula
   depends_on "openssl@1.1"
   depends_on "opus"
   depends_on "pcre"
+  depends_on "sofia-sip"
   depends_on "speex"
   depends_on "speexdsp"
   depends_on "sqlite"
@@ -72,10 +73,6 @@ class Freeswitch < Formula
 
   uses_from_macos "libedit"
   uses_from_macos "zlib"
-
-  on_linux do
-    depends_on "util-linux"
-  end
 
   # https://github.com/Homebrew/homebrew/issues/42865
 
@@ -140,12 +137,6 @@ class Freeswitch < Formula
       revision: "6351b1824a7634853bf963c0ec399e783e35d4d1"
   end
 
-  # There's no tags for now https://github.com/freeswitch/sofia-sip/issues/24
-  resource "sofia-sip" do
-    url "https://github.com/freeswitch/sofia-sip.git",
-      revision: "f6f29b483e9c31ce8d3e87419ec3deea8679312d"
-  end
-
   resource "libks" do
     url "https://github.com/signalwire/libks.git",
       tag:      "1.6.0",
@@ -169,17 +160,6 @@ class Freeswitch < Formula
       ENV.deparallelize { system "make", "install" }
 
       ENV.append_path "PKG_CONFIG_PATH", "#{libexec}/spandsp/lib/pkgconfig"
-    end
-
-    resource("sofia-sip").stage do
-      system "./bootstrap.sh"
-      system "./configure", "--disable-debug",
-                            "--disable-dependency-tracking",
-                            "--disable-silent-rules",
-                            "--prefix=#{libexec}/sofia-sip"
-      system "make", "install"
-
-      ENV.append_path "PKG_CONFIG_PATH", "#{libexec}/sofia-sip/lib/pkgconfig"
     end
 
     resource("libks").stage do
