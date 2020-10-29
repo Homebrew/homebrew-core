@@ -1,11 +1,10 @@
 class XalanC < Formula
   desc "XSLT processor"
   homepage "https://xalan.apache.org/xalan-c/"
-  url "https://www.apache.org/dyn/closer.lua?path=xalan/xalan-c/sources/xalan_c-1.11-src.tar.gz"
-  mirror "https://archive.apache.org/dist/xalan/xalan-c/sources/xalan_c-1.11-src.tar.gz"
-  sha256 "4f5e7f75733d72e30a2165f9fdb9371831cf6ff0d1997b1fb64cdd5dc2126a28"
+  url "https://www.apache.org/dyn/closer.lua?path=xalan/xalan-c/sources/xalan_c-1.12.tar.gz"
+  mirror "https://archive.apache.org/dist/xalan/xalan-c/sources/xalan_c-1.12.tar.gz"
+  sha256 "ee7d4b0b08c5676f5e586c7154d94a5b32b299ac3cbb946e24c4375a25552da7"
   license "Apache-2.0"
-  revision 1
 
   livecheck do
     url :stable
@@ -21,18 +20,6 @@ class XalanC < Formula
   end
 
   depends_on "xerces-c"
-
-  # Fix segfault. See https://issues.apache.org/jira/browse/XALANC-751
-  # Build with char16_t casts.  See https://issues.apache.org/jira/browse/XALANC-773
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/71f4b091e4c4939c3fa95981298580a827788e6f/xalan-c/xerces-char16.patch"
-    sha256 "ebd4ded1f6ee002351e082dee1dcd5887809b94c6263bbe4e8e5599f56774ebf"
-  end
-
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/71f4b091e4c4939c3fa95981298580a827788e6f/xalan-c/locator-system-id.patch"
-    sha256 "7c317c6b99cb5fb44da700e954e6b3e8c5eda07bef667f74a42b0099d038d767"
-  end
 
   def install
     ENV.cxx11
