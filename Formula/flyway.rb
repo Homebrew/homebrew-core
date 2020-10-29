@@ -6,8 +6,8 @@ class Flyway < Formula
   license "Apache-2.0"
 
   livecheck do
-    url :homepage
-    regex(/Get Started with Flyway\s+v?(\d+(?:\.\d+)+) </im)
+    url "https://flywaydb.org/documentation/usage/maven/"
+    regex(/&lt;version&gt;.*?v?(\d+(?:\.\d+)+)&lt;/im)
   end
 
   bottle :unneeded
