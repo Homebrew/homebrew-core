@@ -4,11 +4,6 @@ class Xmlsh < Formula
   url "http://xmlsh-org-downloads.s3-website-us-east-1.amazonaws.com/archives%2Frelease-1_3_1%2Fxmlsh_1_3_1.zip"
   sha256 "b52daadac61920a8a5b241795f1348298327db9841c052114f2351b365a23e2f"
 
-  livecheck do
-    url :stable
-    regex(%r{url=.*?/v?(\d+(?:\.\d+)+)/xmlsh}i)
-  end
-
   bottle :unneeded
 
   def install
