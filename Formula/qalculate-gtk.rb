@@ -1,8 +1,8 @@
 class QalculateGtk < Formula
   desc "Multi-purpose desktop calculator"
   homepage "https://qalculate.github.io/"
-  url "https://github.com/Qalculate/qalculate-gtk/releases/download/v3.12.1/qalculate-gtk-3.12.1.tar.gz"
-  sha256 "1be087dace97c96c94cd0a032be103d8506001919a0ecc1cdd222445f5708596"
+  url "https://github.com/Qalculate/qalculate-gtk/releases/download/v3.14.0/qalculate-gtk-3.14.0.tar.gz"
+  sha256 "704dd3a98b47e0a84eb61b80c50cd6c445b37a1d28c1b1c271d7aef3592657e7"
   license "GPL-2.0"
 
   bottle do
