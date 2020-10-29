@@ -6,6 +6,11 @@ class Logtalk < Formula
   sha256 "4c9149dc8b9c57e9cb78cbdb98fb8d9701ff2772fbc996a7e28c309324ef678b"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    regex(/^lgt(\d+)stable$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "6a178878387076d1b5df4ae68696be29f4a9a16ebb6046dd611085d96c362ae9" => :catalina
