@@ -4,6 +4,7 @@ class PostgresqlAT11 < Formula
   url "https://ftp.postgresql.org/pub/source/v11.9/postgresql-11.9.tar.bz2"
   sha256 "35618aa72e0372091f923c42389c6febd07513157b4fbb9408371706afbb6635"
   license "PostgreSQL"
+  revision 1
 
   bottle do
     sha256 "6ae4d48f4eb3af904ff8bb4a4cd6194500272847636261a049559059a312ac10" => :catalina
