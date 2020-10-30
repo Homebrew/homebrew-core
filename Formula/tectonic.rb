@@ -4,6 +4,7 @@ class Tectonic < Formula
   url "https://github.com/tectonic-typesetting/tectonic/archive/tectonic@0.3.1.tar.gz"
   sha256 "3cef4305e5de4fc386fb4cff013502e330f235155696c425b0b20f828ccee57a"
   license "MIT"
+  revision 1
 
   bottle do
     cellar :any
