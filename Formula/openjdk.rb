@@ -22,8 +22,14 @@ class Openjdk < Formula
 
   # From https://jdk.java.net/archive/
   resource "boot-jdk" do
-    url "https://download.java.net/java/GA/jdk14.0.2/205943a0976c4ed48cb16f1043c5c647/12/GPL/openjdk-14.0.2_osx-x64_bin.tar.gz"
-    sha256 "386a96eeef63bf94b450809d69ceaa1c9e32a97230e0a120c1b41786b743ae84"
+    on_macos do
+      url "https://download.java.net/java/GA/jdk14.0.2/205943a0976c4ed48cb16f1043c5c647/12/GPL/openjdk-14.0.2_osx-x64_bin.tar.gz"
+      sha256 "386a96eeef63bf94b450809d69ceaa1c9e32a97230e0a120c1b41786b743ae84"
+    end
+    on_linux do
+      url "https://download.java.net/java/GA/jdk14.0.2/205943a0976c4ed48cb16f1043c5c647/12/GPL/openjdk-14.0.2_linux-x64_bin.tar.gz"
+      sha256 "bb67cadee687d7b486583d03c9850342afea4593be4f436044d785fba9508fb7"
+    end
   end
 
   # Fix build on Xcode 12
