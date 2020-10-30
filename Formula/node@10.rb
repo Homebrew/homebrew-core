@@ -4,6 +4,7 @@ class NodeAT10 < Formula
   url "https://nodejs.org/dist/v10.23.0/node-v10.23.0.tar.xz"
   sha256 "fd356039d5c223f020db514b64e4619b285e669f8f5f0b6232458d4440c6741f"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://nodejs.org/dist/"
