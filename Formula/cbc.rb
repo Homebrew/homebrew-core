@@ -6,6 +6,11 @@ class Cbc < Formula
   # update to EPL-2.0 on next release
   license "EPL-1.0"
 
+  livecheck do
+    url :stable
+    regex(%r{^(?:releases/)?v?(\d+(?:\.\d+)+)$}i)
+  end
+
   bottle do
     cellar :any
     sha256 "56fee588e216483d5b63e6e6f61dc824325da64f61fcaa7af3c3f6692c0a004d" => :catalina
