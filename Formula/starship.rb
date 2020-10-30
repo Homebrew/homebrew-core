@@ -21,6 +21,7 @@ class Starship < Formula
 
   on_linux do
     depends_on "pkg-config" => :build
+    depends_on "dbus"
   end
 
   def install
