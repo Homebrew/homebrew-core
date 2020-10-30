@@ -8,6 +8,11 @@ class Hsd < Formula
   license "MIT"
   revision 1
 
+  livecheck do
+    url "https://github.com/handshake-org/hsd/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     sha256 "e2ba2aca6a02bec6b19bda5bae90d3cdf55dcb2d04c06e10c2c165fe6d2355ce" => :catalina
     sha256 "d1a1258ab1bb0223fa817e87ee97bb0135505c60e8b33fc6d7529ee9e19bb522" => :mojave
