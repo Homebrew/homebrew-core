@@ -6,7 +6,7 @@ class S3cmd < Formula
   url "https://files.pythonhosted.org/packages/c7/eb/5143fe1884af2303cb7b23f453e5c9f337af46c2281581fc40ab5322dee4/s3cmd-2.1.0.tar.gz"
   sha256 "966b0a494a916fc3b4324de38f089c86c70ee90e8e1cae6d59102103a4c0cc03"
   license "GPL-2.0"
-  revision 1
+  revision 2
   head "https://github.com/s3tools/s3cmd.git"
 
   livecheck do
@@ -20,7 +20,7 @@ class S3cmd < Formula
     sha256 "3f071500164cbeeab6b43eb832145b93610260f013257eee2736242032ec8ff0" => :high_sierra
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.8"
 
   resource "python-dateutil" do
     url "https://files.pythonhosted.org/packages/be/ed/5bbc91f03fa4c839c4c7360375da77f9659af5f7086b7a7bdda65771c8e0/python-dateutil-2.8.1.tar.gz"
