@@ -80,6 +80,7 @@ class Ntfs3g < Formula
           -o volname="${VOLUME_NAME}" \\
           -o local \\
           -o negative_vncache \\
+          -o auto_xattr \\
           -o auto_cache \\
           -o noatime \\
           -o windows_names \\
