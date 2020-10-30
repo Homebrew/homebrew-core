@@ -6,6 +6,11 @@ class Halide < Formula
   license "MIT"
   revision 1
 
+  livecheck do
+    url "https://github.com/halide/Halide/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "997ed23a3fcb238899272fab8a0f9c2948477fb53bdc1bf2382a31418bc51571" => :catalina
