@@ -21,8 +21,14 @@ class OpenjdkAT8 < Formula
 
   # Oracle doesn't serve JDK 7 downloads anymore, so use Zulu JDK 7 for bootstrapping.
   resource "boot-jdk" do
-    url "https://cdn.azul.com/zulu/bin/zulu7.40.0.15-ca-jdk7.0.272-macosx_x64.tar.gz"
-    sha256 "d09468bda072deeadd2a5e39aeae96b57ece2ec5fdbdc75998b99b52c113706b"
+    on_macos do
+      url "https://cdn.azul.com/zulu/bin/zulu7.40.0.15-ca-jdk7.0.272-macosx_x64.tar.gz"
+      sha256 "d09468bda072deeadd2a5e39aeae96b57ece2ec5fdbdc75998b99b52c113706b"
+    end
+    on_linux do
+      url "https://cdn.azul.com/zulu/bin/zulu7.40.0.15-ca-jdk7.0.272-linux_x64.tar.gz"
+      sha256 "5efbf721a4335a19c8c3fbf2cf2fce8d1c6b4a766fb93e98f9303845f89d901e"
+    end
   end
 
   # These are typically set up as a Mercurial "forest" checkout, but we download
