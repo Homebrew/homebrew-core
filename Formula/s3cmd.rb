@@ -20,6 +20,11 @@ class S3cmd < Formula
     sha256 "3f071500164cbeeab6b43eb832145b93610260f013257eee2736242032ec8ff0" => :high_sierra
   end
 
+  # s3cmd version 2.1.0 is not compatible with Python 3.9, know issues are:
+  # - https://github.com/s3tools/s3cmd/issues/1146
+  # - https://github.com/s3tools/s3cmd/pull/1144
+  # - https://github.com/s3tools/s3cmd/pull/1137
+  # Do not bump Python version until these issues are fixed, probably when version 2.2.0 is released.
   depends_on "python@3.8"
 
   resource "python-dateutil" do
