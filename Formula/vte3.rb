@@ -4,6 +4,7 @@ class Vte3 < Formula
   url "https://download.gnome.org/sources/vte/0.62/vte-0.62.1.tar.xz"
   sha256 "c369e87c0c8284e09109d0a9aac821f543558f51c0cb9c7acfff3df64153308d"
   license "LGPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
