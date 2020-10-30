@@ -5,7 +5,7 @@ class Asciidoc < Formula
   homepage "https://asciidoc.org/"
   url "https://github.com/asciidoc/asciidoc-py3/archive/9.0.4.tar.gz"
   sha256 "9e269f336a71e8685d03a00c71b55ca029eed9f7baf1afe67c447be32206b176"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
   head "https://github.com/asciidoc/asciidoc-py3.git"
 
   bottle do
