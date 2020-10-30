@@ -1,8 +1,8 @@
 class Archiver < Formula
   desc "Cross-platform, multi-format archive utility"
   homepage "https://github.com/mholt/archiver"
-  url "https://github.com/mholt/archiver/archive/v3.4.0.tar.gz"
-  sha256 "00268ce515b3325e41c81c5b2205e5becf3c1480ad86489dd22a4a987f48acf2"
+  url "https://github.com/mholt/archiver/archive/v3.5.0.tar.gz"
+  sha256 "8f2e3ad68553f6b58bf99e8635ff0953f62ff0a7804da7658954ffaa7d0aaa0a"
   license "MIT"
   head "https://github.com/mholt/archiver.git"
 
