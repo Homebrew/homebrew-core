@@ -4,6 +4,7 @@ class PostgresqlAT10 < Formula
   url "https://ftp.postgresql.org/pub/source/v10.14/postgresql-10.14.tar.bz2"
   sha256 "381cd8f491d8f77db2f4326974542a50095b5fa7709f24d7c5b760be2518b23b"
   license "PostgreSQL"
+  revision 1
 
   bottle do
     sha256 "0d107a7007bfd7ad54bc2c341dd668b9b371d53a5bb51c18a32b6cc13fc6af95" => :catalina
