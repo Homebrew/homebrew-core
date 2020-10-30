@@ -5,7 +5,7 @@ class Libical < Formula
   sha256 "09fecacaf75ba5a242159e3a9758a5446b5ce4d0ab684f98a7040864e1d1286f"
   # license ["LGPL-2.1", "MPL-2.0"] - pending https://github.com/Homebrew/brew/pull/7953
   license "LGPL-2.1"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
