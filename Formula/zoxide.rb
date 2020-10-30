@@ -1,8 +1,8 @@
 class Zoxide < Formula
   desc "Shell extension to navigate your filesystem faster"
   homepage "https://github.com/ajeetdsouza/zoxide"
-  url "https://github.com/ajeetdsouza/zoxide/archive/v0.4.3.tar.gz"
-  sha256 "cfcbbe7b73a2a149e2b38ac6dd4bd4a6c1bdd6cf6f2a2bab49f6aeec3c705357"
+  url "https://github.com/ajeetdsouza/zoxide/archive/v0.5.0.tar.gz"
+  sha256 "62b7a2ced73d5ac0a183b3855d54d6619166b4d8d8c74299bb610265ccc4b193"
   license "MIT"
 
   bottle do
