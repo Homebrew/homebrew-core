@@ -4,7 +4,7 @@ class PostgresqlAT12 < Formula
   url "https://ftp.postgresql.org/pub/source/v12.4/postgresql-12.4.tar.bz2"
   sha256 "bee93fbe2c32f59419cb162bcc0145c58da9a8644ee154a30b9a5ce47de606cc"
   license "PostgreSQL"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "2e2720ad0af2af08a77c08cb3b0e70bf5b8b401e13f50317d5b2a969cc7ae0c2" => :catalina
