@@ -4,6 +4,7 @@ class Libphonenumber < Formula
   url "https://github.com/google/libphonenumber/archive/v8.12.12.tar.gz"
   sha256 "525882292111975b4c69eb65805206708f9cb659bfa8418e5258e13cac1cb624"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     cellar :any
