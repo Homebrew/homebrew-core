@@ -40,7 +40,7 @@ class X265 < Formula
     (buildpath/"8bit").mkpath
 
     mkdir "10bit" do
-      system "cmake", buildpath/"source", *high_bit_depth_args
+      system "cmake", buildpath/"source", "-DENABLE_HDR10_PLUS=ON", *high_bit_depth_args
       system "make"
       mv "libx265.a", buildpath/"8bit/libx265_main10.a"
     end
@@ -52,7 +52,7 @@ class X265 < Formula
     end
 
     cd "8bit" do
-      system "cmake", buildpath/"source", *args
+      system "cmake", buildpath/"source", "-DENABLE_HDR10_PLUS=ON", *args
       system "make"
       mv "libx265.a", "libx265_main.a"
       system "libtool", "-static", "-o", "libx265.a", "libx265_main.a",
