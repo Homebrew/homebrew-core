@@ -1,9 +1,10 @@
 class Enet < Formula
   desc "Provides a network communication layer on top of UDP"
   homepage "http://enet.bespin.org"
-  url "http://enet.bespin.org/download/enet-1.3.15.tar.gz"
-  sha256 "5abdf63346e54272344d8184b5a2f333d202d809d28123911cbd993e5772bdfb"
+  url "http://enet.bespin.org/download/enet-1.3.16.tar.gz"
+  sha256 "bbb77ebb607f4a03ecce0b06304bae4612bc26f418b75340644cff950562efd1"
   license "MIT"
+  head "https://github.com/lsalzman/enet.git"
 
   bottle do
     cellar :any
@@ -15,5 +16,24 @@ class Enet < Formula
   def install
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include <enet/enet.h>
+      #include <stdio.h>
+
+      int main (int argc, char ** argv) 
+      {
+        if (enet_initialize () != 0)
+        {
+          fprintf (stderr, "An error occurred while initializing ENet.\\n");
+          return EXIT_FAILURE;
+        }
+        atexit (enet_deinitialize);
+      }
+    EOS
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lenet", "-o", "test"
+    system testpath/"test"
   end
 end
