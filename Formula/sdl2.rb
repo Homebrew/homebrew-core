@@ -47,7 +47,7 @@ class Sdl2 < Formula
 
     system "./autogen.sh" if build.head?
 
-    args = %W[--prefix=#{prefix} --without-x]
+    args = %W[--prefix=#{prefix} --without-x --enable-hidapi]
     system "./configure", *args
     system "make", "install"
   end
