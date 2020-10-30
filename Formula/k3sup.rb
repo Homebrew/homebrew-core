@@ -17,8 +17,7 @@ class K3sup < Formula
     commit = Utils.safe_popen_read("git", "rev-parse", "--short", "HEAD").chomp
 
     system "go", "build", "-ldflags",
-            "-s -w -X github.com/alexellis/k3sup/cmd.Version=#{version} -X github.com/alexellis/k3sup/cmd.GitCommit=#{commit}",
-            "-o", bin/"k3sup"
+            "-s -w -X github.com/alexellis/k3sup/cmd.Version=#{version} -X github.com/alexellis/k3sup/cmd.GitCommit=#{commit}", *std_go_args
   end
 
   test do
