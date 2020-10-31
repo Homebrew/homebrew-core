@@ -1,10 +1,9 @@
 class MoltenVk < Formula
   desc "Implementation of the Vulkan graphics and compute API on top of Metal"
   homepage "https://github.com/KhronosGroup/MoltenVK"
-  url "https://github.com/KhronosGroup/MoltenVK/archive/v1.0.41.tar.gz"
-  sha256 "a11208f3bc2eb5cd6cfebbc0bc09ac2af8ecbe5cc3e57cde817bc8bc96d2cc33"
+  url "https://github.com/KhronosGroup/MoltenVK/archive/v1.1.0.tar.gz"
+  sha256 "0538fa1c23ddae495c7f82ccd0db90790a90b7017a258ca7575fbae8021f3058"
   license "Apache-2.0"
-  revision 2
 
   bottle do
     cellar :any
@@ -30,7 +29,7 @@ class MoltenVk < Formula
   resource "Vulkan-Headers" do
     # ExternalRevisions/Vulkan-Headers_repo_revision
     url "https://github.com/KhronosGroup/Vulkan-Headers.git",
-        revision: "fb7f9c9bcd1d1544ea203a1f3d4253d0e90c5a90"
+        revision: "7f9879b1b1fab53f719a9ed5e6e29533b10972b2"
   end
 
   resource "Vulkan-Portability" do
@@ -42,31 +41,31 @@ class MoltenVk < Formula
   resource "SPIRV-Cross" do
     # ExternalRevisions/SPIRV-Cross_repo_revision
     url "https://github.com/KhronosGroup/SPIRV-Cross.git",
-        revision: "e58e8d5dbe03ea2cc755dbaf43ffefa1b8d77bef"
+        revision: "e6f5ce6b8998f551f3400ad743b77be51bbe3019"
   end
 
   resource "glslang" do
     # ExternalRevisions/glslang_repo_revision
     url "https://github.com/KhronosGroup/glslang.git",
-        revision: "e157435c1e777aa1052f446dafed162b4a722e03"
+        revision: "bacaef3237c515e40d1a24722be48c0a0b30f75f"
   end
 
   resource "SPIRV-Tools" do
     # External/glslang/known_good.json
     url "https://github.com/KhronosGroup/SPIRV-Tools.git",
-        revision: "fd8e130510a6b002b28eee5885a9505040a9bdc9"
+        revision: "0a1fb588cd365f7737cb121fdd64553923e0cef6"
   end
 
   resource "SPIRV-Headers" do
     # External/glslang/known_good.json
     url "https://github.com/KhronosGroup/SPIRV-Headers.git",
-        revision: "f8bf11a0253a32375c32cad92c841237b96696c0"
+        revision: "060627f0b0d2fa8581b5acb939f46e3b9e500593"
   end
 
   resource "Vulkan-Tools" do
     # ExternalRevisions/Vulkan-Tools_repo_revision
     url "https://github.com/KhronosGroup/Vulkan-Tools.git",
-        revision: "7844b9b4e180612c7ca35bcb07ce7f86610b22c4"
+        revision: "2bfd6a752dc6cb26ceda4ec9d56e7dce98527680"
   end
 
   def install
