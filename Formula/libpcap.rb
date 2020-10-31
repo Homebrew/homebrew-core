@@ -6,6 +6,11 @@ class Libpcap < Formula
   license "BSD-3-Clause"
   head "https://github.com/the-tcpdump-group/libpcap.git"
 
+  livecheck do
+    url "https://www.tcpdump.org/release/"
+    regex(/href=.*?libpcap[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "3a85693ff5d241ccdc689af9fa1281434ddf6ae3d0887cd679d07bbc1730ec29" => :catalina
