@@ -3,7 +3,7 @@ class OsmPbf < Formula
   homepage "https://wiki.openstreetmap.org/wiki/PBF_Format"
   url "https://github.com/scrosby/OSM-binary/archive/v1.4.0.tar.gz"
   sha256 "be634444d10ad23c127946e0aa7a44bd2d975fc89f53fc022e7504221fbc2cae"
-  license "LGPL-3.0"
+  license all_of: ["LGPL-3.0-or-later", "MIT"]
 
   bottle do
     cellar :any_skip_relocation
