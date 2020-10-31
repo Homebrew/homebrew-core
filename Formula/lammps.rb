@@ -7,7 +7,12 @@ class Lammps < Formula
   # We only track stable releases as announced on the LAMMPS homepage.
   version "2020-03-03"
   sha256 "a1a2e3e763ef5baecea258732518d75775639db26e60af1634ab385ed89224d1"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
+
+  livecheck do
+    url "https://github.com/lammps/lammps/releases/latest"
+    regex(%r{href=.*?/tag/stable[._-](\d+\w+\d+)["' >]}i)
+  end
 
   bottle do
     sha256 "9434567739e6497752d8b2e76b7dd06723b2d9773510e92d3e00aa601208c532" => :catalina
