@@ -5,6 +5,11 @@ class Osi < Formula
   sha256 "984a5886825e2da9bf44d8a665f4b92812f0700e451c12baf9883eaa2315fad5"
   license "EPL-1.0"
 
+  livecheck do
+    url "https://github.com/coin-or/Osi/releases/latest"
+    regex(%r{href=.*?/tag/(?:releases%2F)?v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "448319c96791abd303e976711176d74260d575b528c5c1229e1439fb85c295b9" => :catalina
