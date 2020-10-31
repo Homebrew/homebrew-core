@@ -5,6 +5,11 @@ class Glslang < Formula
   sha256 "639ebec56f1a7402f2fa094469a5ddea1eceecfaf2e9efe361376a0f73a7ee2f"
   head "https://github.com/KhronosGroup/glslang.git"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "9db9f4d0af3d3945270e3fcfbb2e502f377f15d76810facf80862093a18b7a5d" => :catalina
