@@ -5,6 +5,11 @@ class Abyss < Formula
   sha256 "38e886f455074c76b32dd549e94cc345f46cb1d33ab11ad3e8e1f5214fc65521"
   license all_of: ["GPL-3.0-only", "LGPL-2.1-or-later", "MIT", "BSD-3-Clause"]
 
+  livecheck do
+    url "https://github.com/bcgsc/abyss/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "521a584ab5f11e69de3b4b2362bdcf89cf3b541b32694c30eec6e71d334c8232" => :catalina
