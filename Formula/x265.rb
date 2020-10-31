@@ -52,7 +52,7 @@ class X265 < Formula
     end
 
     cd "8bit" do
-      system "cmake", buildpath/"source", "-DENABLE_HDR10_PLUS=ON", *args
+      system "cmake", buildpath/"source", *args
       system "make"
       mv "libx265.a", "libx265_main.a"
       system "libtool", "-static", "-o", "libx265.a", "libx265_main.a",
