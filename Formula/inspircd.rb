@@ -1,9 +1,9 @@
 class Inspircd < Formula
   desc "Modular C++ Internet Relay Chat daemon"
   homepage "https://www.inspircd.org/"
-  url "https://github.com/inspircd/inspircd/archive/v3.7.0.tar.gz"
-  sha256 "e77df17ed7f774fa0927cfce4412c2b6a3e4d5a9a8acab9753685c2aef22ea3b"
-  license "GPL-2.0"
+  url "https://github.com/inspircd/inspircd/archive/v3.8.0.tar.gz"
+  sha256 "2f847c6a091332faa7a647291f92ff3ed571b17967c85198d34c816c40e47e04"
+  license "GPL-2.0-only"
 
   livecheck do
     url "https://github.com/inspircd/inspircd.git"
@@ -22,7 +22,7 @@ class Inspircd < Formula
   skip_clean "logs"
 
   def install
-    system "./configure", "--enable-extras=m_ldapauth.cpp,m_ldapoper.cpp"
+    system "./configure", "--enable-extras=ldap"
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
