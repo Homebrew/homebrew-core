@@ -8,6 +8,15 @@ class Mame < Formula
   revision 1
   head "https://github.com/mamedev/mame.git"
 
+  # MAME tags (and filenames) are formatted like `mame0226`, so livecheck will
+  # report the version like `0226`. We work around this by matching the link
+  # text for the release title, since it contains the properly formatted version
+  # (e.g., 0.226).
+  livecheck do
+    url "https://github.com/mamedev/mame/releases/latest"
+    regex(%r{release-header.*?/releases/tag/mame[._-]?\d+(?:\.\d+)*["' >]>MAME v?(\d+(?:\.\d+)+)}im)
+  end
+
   bottle do
     cellar :any
     sha256 "3680dd9e5f826552b289f521f11cb91c52fa037b215285f1e47f1a1319409eb4" => :catalina
