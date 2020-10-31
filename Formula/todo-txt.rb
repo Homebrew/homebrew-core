@@ -6,6 +6,11 @@ class TodoTxt < Formula
   license "GPL-3.0-only"
   head "https://github.com/todotxt/todo.txt-cli.git"
 
+  livecheck do
+    url "https://github.com/todotxt/todo.txt-cli/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle :unneeded
 
   def install
