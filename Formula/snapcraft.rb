@@ -9,6 +9,11 @@ class Snapcraft < Formula
   license "GPL-3.0-only"
   revision 1
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "9794d4f92c102bedb392a336ed3c8be6193f1567d7d553cead8fa44d925e8933" => :catalina
