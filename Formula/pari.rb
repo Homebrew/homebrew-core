@@ -3,7 +3,7 @@ class Pari < Formula
   homepage "https://pari.math.u-bordeaux.fr/"
   url "https://pari.math.u-bordeaux.fr/pub/pari/unix/pari-2.13.0.tar.gz"
   sha256 "c811946de9d2c1ed0e97ff08e80d966f9a0b55848b7688406fab229e3948ba93"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://pari.math.u-bordeaux.fr/pub/pari/unix/"
