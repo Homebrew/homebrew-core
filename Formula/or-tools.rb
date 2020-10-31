@@ -6,6 +6,11 @@ class OrTools < Formula
   license "Apache-2.0"
   head "https://github.com/google/or-tools.git"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "7a119a20186b34d80b7a36e3cd18f2e7bc6561cd70e52ea05231422a38fdcd1f" => :catalina
