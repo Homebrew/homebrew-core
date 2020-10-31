@@ -7,6 +7,11 @@ class SolrAT77 < Formula
   license "Apache-2.0"
   revision 1
 
+  livecheck do
+    url "https://lucene.apache.org/solr/downloads.html"
+    regex(/href=.*?solr[._-]v?(7(?:\.\d+)*)\.t/i)
+  end
+
   bottle :unneeded
 
   keg_only :versioned_formula
