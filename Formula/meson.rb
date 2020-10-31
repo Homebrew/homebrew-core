@@ -1,10 +1,9 @@
 class Meson < Formula
   desc "Fast and user friendly build system"
   homepage "https://mesonbuild.com/"
-  url "https://github.com/mesonbuild/meson/releases/download/0.55.3/meson-0.55.3.tar.gz"
-  sha256 "6bed2a25a128bbabe97cf40f63165ebe800e4fcb46db8ab7ef5c2b5789f092a5"
+  url "https://github.com/mesonbuild/meson/releases/download/0.56.0/meson-0.56.0.tar.gz"
+  sha256 "291dd38ff1cd55fcfca8fc985181dd39be0d3e5826e5f0013bf867be40117213"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/mesonbuild/meson.git"
 
   bottle do
