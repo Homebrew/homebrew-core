@@ -6,6 +6,11 @@ class Task < Formula
   license "MIT"
   head "https://github.com/GothenburgBitFactory/taskwarrior.git", branch: "2.6.0", shallow: false
 
+  livecheck do
+    url "https://taskwarrior.org/download/"
+    regex(/href=.*?task[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "24c80011867aa34766864a4bbac071493fb45c93bd3e08b3e9979b3ba4780fa2" => :catalina
     sha256 "bba98b6bdfb3f79f1434229d8ade4b0622119320353da0eb8fec39809d66947d" => :mojave
