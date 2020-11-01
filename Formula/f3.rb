@@ -1,6 +1,6 @@
 class F3 < Formula
   desc "Test various flash cards"
-  homepage "https://web.archive.org/web/20200110163924/oss.digirati.com.br/f3/"
+  homepage "https://fight-flash-fraud.readthedocs.io/en/latest/"
   url "https://github.com/AltraMayor/f3/archive/v8.0.tar.gz"
   sha256 "fb5e0f3b0e0b0bff2089a4ea6af53278804dfe0b87992499131445732e311ab4"
   license "GPL-3.0-only"
