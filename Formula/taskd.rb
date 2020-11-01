@@ -7,6 +7,11 @@ class Taskd < Formula
   revision 1
   head "https://github.com/GothenburgBitFactory/taskserver.git"
 
+  livecheck do
+    url "https://taskwarrior.org/download/"
+    regex(/href=.*?taskd[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     rebuild 1
