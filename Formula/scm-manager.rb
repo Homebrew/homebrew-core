@@ -3,6 +3,7 @@ class ScmManager < Formula
   homepage "https://www.scm-manager.org"
   url "https://maven.scm-manager.org/nexus/content/repositories/releases/sonia/scm/scm-server/1.59/scm-server-1.59-app.tar.gz"
   sha256 "8628e82f3bfd452412260dd2d82c2e76ee57013223171f2908d75cbc6258f261"
+  license "BSD-3-Clause"
   revision 1
 
   bottle do
