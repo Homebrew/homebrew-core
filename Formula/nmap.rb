@@ -3,6 +3,7 @@ class Nmap < Formula
   homepage "https://nmap.org/"
   url "https://nmap.org/dist/nmap-7.91.tar.bz2"
   sha256 "18cc4b5070511c51eb243cdd2b0b30ff9b2c4dc4544c6312f75ce3a67a593300"
+  license :cannot_represent
   head "https://svn.nmap.org/nmap/"
 
   livecheck do
