@@ -4,6 +4,7 @@ class Libgr < Formula
   url "https://github.com/sciapp/gr/archive/v0.52.0.tar.gz"
   sha256 "8c9149377bfd3fe61b05cda34b980f894f1a723d7c74c4ace5da2e31d3630870"
   license "MIT"
+  revision 1
 
   bottle do
     rebuild 1
@@ -13,7 +14,6 @@ class Libgr < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on xcode: :build
   depends_on "cairo"
   depends_on "glfw"
   depends_on "libtiff"
@@ -22,8 +22,7 @@ class Libgr < Formula
   depends_on "zeromq"
 
   def install
-    mkdir "build"
-    cd "build" do
+    mkdir "build" do
       system "cmake", "..", *std_cmake_args
       system "make"
       system "make", "install"
