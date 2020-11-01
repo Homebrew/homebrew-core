@@ -4,6 +4,7 @@ class Wartremover < Formula
   url "https://github.com/wartremover/wartremover/archive/v2.4.12.tar.gz"
   sha256 "96aefb990757e1bb8e0bb1202e5abaf2831c671c61b0c567eed63871fb3d04c1"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/wartremover/wartremover.git"
 
   bottle do
@@ -14,7 +15,7 @@ class Wartremover < Formula
   end
 
   depends_on "sbt" => :build
-  depends_on java: "1.8"
+  depends_on "openjdk@8"
 
   def install
     system "sbt", "-sbt-jar", Formula["sbt"].opt_libexec/"bin/sbt-launch.jar",
