@@ -2,7 +2,7 @@ class YoutubeDl < Formula
   include Language::Python::Virtualenv
 
   desc "Download YouTube videos from the command-line"
-  homepage "https://yt-dl.org"
+  homepage "https://youtube-dl.org/"
   url "https://gitlab.com/dstftw/youtube-dl/-/archive/2020.11.01.1/youtube-dl-2020.11.01.1.tar.gz"
   sha256 "7a62187bc9f91af42eb5c9c95652e350170a72dbbdac8c7d71a6aeb4885a901a"
   license "Unlicense"
