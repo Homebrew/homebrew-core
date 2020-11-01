@@ -3,6 +3,7 @@ class Openjdk < Formula
   homepage "https://openjdk.java.net/"
   url "https://hg.openjdk.java.net/jdk-updates/jdk15u/archive/jdk-15.0.1-ga.tar.bz2"
   sha256 "9c5be662f5b166b5c82c27de29b71f867cff3ff4570f4c8fa646490c4529135a"
+  license :cannot_represent
 
   bottle do
     cellar :any
