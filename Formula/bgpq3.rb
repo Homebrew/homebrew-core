@@ -6,6 +6,11 @@ class Bgpq3 < Formula
   license "BSD-2-Clause"
   head "https://github.com/snar/bgpq3.git"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "428a0dcb0af2876c03374236ee10b2385ab993dc54cc12e080198d7e552bbdea" => :catalina
