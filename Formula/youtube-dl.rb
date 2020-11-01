@@ -3,8 +3,8 @@ class YoutubeDl < Formula
 
   desc "Download YouTube videos from the command-line"
   homepage "https://yt-dl.org"
-  url "https://files.pythonhosted.org/packages/12/8b/51cae2929739d637fdfbc706b2d5f8925b5710d8f408b5319a07ea45fe99/youtube_dl-2020.9.20.tar.gz"
-  sha256 "67fb9bfa30f5b8f06227c478a8a6ed04af1f97ad4e81dd7e2ce518df3e275391"
+  url "https://gitlab.com/dstftw/youtube-dl/-/archive/2020.11.01.1/youtube-dl-2020.11.01.1.tar.gz"
+  sha256 "7a62187bc9f91af42eb5c9c95652e350170a72dbbdac8c7d71a6aeb4885a901a"
   license "Unlicense"
 
   bottle do
@@ -15,6 +15,11 @@ class YoutubeDl < Formula
   end
 
   depends_on "python@3.9"
+
+  resource "youtube_dl" do
+    url "https://files.pythonhosted.org/packages/2d/70/bd9ec7f14efab2811fc4bd39cd586ed5e292547552310ee863ff84fa7791/youtube_dl-2020.11.1.1.tar.gz"
+    sha256 "b73379d6b08f03aec49a1899affe4cfd35bb92002dbdb3a3a1435a5811d4f120"
+  end
 
   def install
     virtualenv_install_with_resources
