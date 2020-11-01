@@ -5,6 +5,11 @@ class Cacli < Formula
   sha256 "9f164636367af848de93459cf0e7919aa099c408e6ad91a58874db6bc9986bfb"
   license "MIT"
 
+  livecheck do
+    url "https://github.com/cloud-annotations/training/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "63f761d1b56137cdb4a2d94e5894c7a43ac28f8d9f7f36c2011da7ea21445c9e" => :catalina
