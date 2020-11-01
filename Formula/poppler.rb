@@ -1,8 +1,8 @@
 class Poppler < Formula
   desc "PDF rendering library (based on the xpdf-3.0 code base)"
   homepage "https://poppler.freedesktop.org/"
-  url "https://poppler.freedesktop.org/poppler-20.10.0.tar.xz"
-  sha256 "434ecbbb539c1a75955030a1c9b24c7b58200b7f68d2e4269e29acf2f8f13336"
+  url "https://poppler.freedesktop.org/poppler-20.11.0.tar.xz"
+  sha256 "021557074516492375c2bb4226a413aad431159e9177f9f14dff4159d2723b14"
   license "GPL-2.0-only"
   head "https://anongit.freedesktop.org/git/poppler/poppler.git"
 
@@ -39,8 +39,8 @@ class Poppler < Formula
     because: "poppler, pdftohtml, pdf2image, and xpdf install conflicting executables"
 
   resource "font-data" do
-    url "https://poppler.freedesktop.org/poppler-data-0.4.9.tar.gz"
-    sha256 "1f9c7e7de9ecd0db6ab287349e31bf815ca108a5a175cf906a90163bdbe32012"
+    url "https://poppler.freedesktop.org/poppler-data-0.4.10.tar.gz"
+    sha256 "6e2fcef66ec8c44625f94292ccf8af9f1d918b410d5aa69c274ce67387967b30"
   end
 
   def install
