@@ -5,6 +5,11 @@ class Dafny < Formula
   sha256 "ea7ae310282c922772a46a9a85e2b4213043283038b74d012047b5294687d168"
   revision 2
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+b?)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "00cfdeb5892e2834b144a6e4c816a50d594440882327e65a771f9e72cd13f82d" => :catalina
