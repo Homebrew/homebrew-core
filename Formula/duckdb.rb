@@ -37,6 +37,15 @@ class Duckdb < Formula
       INSERT INTO weather (temp) VALUES (40), (45), (50);
       SELECT AVG(temp) FROM weather;
     EOS
-    assert_equal "45.0", shell_output("#{bin}/duckdb_cli < #{path}").strip
+
+    expected_output = <<~EOS
+      ┌───────────┐
+      │ avg(temp) │
+      ├───────────┤
+      │ 45.0      │
+      └───────────┘
+    EOS
+
+    assert_equal expected_output, shell_output("#{bin}/duckdb_cli < #{path}")
   end
 end
