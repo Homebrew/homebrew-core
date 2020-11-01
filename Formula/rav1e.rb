@@ -7,7 +7,7 @@ class Rav1e < Formula
 
   livecheck do
     url :stable
-    regex(/v([\d.]+)/i)
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
