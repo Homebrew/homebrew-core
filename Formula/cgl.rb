@@ -5,6 +5,11 @@ class Cgl < Formula
   sha256 "cfeeedd68feab7c0ce377eb9c7b61715120478f12c4dd0064b05ad640e20f3fb"
   license "EPL-1.0"
 
+  livecheck do
+    url "https://github.com/coin-or/Cgl/releases/latest"
+    regex(%r{href=.*?/tag/(?:releases%2F)?v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "6eb179515b4cf06ad8bb484e6384f6cdae99297f523372b082ef079ed84cafd4" => :catalina
