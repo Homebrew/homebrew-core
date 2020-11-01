@@ -5,6 +5,11 @@ class Katago < Formula
   sha256 "6d29ed8acb45bc4b1b0f39a9a3212f94708d3e2770642aefc3e3dfcf332e8c78"
   license "MIT"
 
+  livecheck do
+    url "https://github.com/lightvector/KataGo/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "c45535348f0a10f88414dc1e99e43b4c6e62534a790d2deb0422ecc52178eb9f" => :catalina
