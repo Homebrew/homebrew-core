@@ -3,8 +3,13 @@ class Gpredict < Formula
   homepage "http://gpredict.oz9aec.net/"
   url "https://github.com/csete/gpredict/releases/download/v2.2.1/gpredict-2.2.1.tar.bz2"
   sha256 "e759c4bae0b17b202a7c0f8281ff016f819b502780d3e77b46fe8767e7498e43"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   revision 2
+
+  livecheck do
+    url "https://github.com/csete/gpredict/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
 
   bottle do
     sha256 "99fff9473dcc5eaa0c58cf0b2bf04f4240e1598aada45565e4dbbf050d2ac7dc" => :catalina
