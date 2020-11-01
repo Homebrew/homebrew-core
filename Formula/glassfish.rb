@@ -5,6 +5,11 @@ class Glassfish < Formula
   sha256 "26f3fa6463d24c5ed3956e4cab24a97e834ca37d7a23d341aadaa78d9e0093ce"
   license "EPL-2.0"
 
+  livecheck do
+    url "https://projects.eclipse.org/projects/ee4j.glassfish/downloads"
+    regex(/href=.*?glassfish[._-]v?(\d+(?:\.\d+)+)\.zip/i)
+  end
+
   bottle :unneeded
 
   depends_on java: "1.8"
