@@ -4,12 +4,13 @@ class SbtAT013 < Formula
   url "https://github.com/sbt/sbt/releases/download/v0.13.18/sbt-0.13.18.tgz"
   sha256 "afe82322ca8e63e6f1e10fc1eb515eb7dc6c3e5a7f543048814072a03d83b331"
   license "Apache-2.0"
+  revision 1
 
   bottle :unneeded
 
   keg_only :versioned_formula
 
-  depends_on java: "1.8"
+  depends_on "openjdk@8"
 
   def install
     inreplace "bin/sbt" do |s|
