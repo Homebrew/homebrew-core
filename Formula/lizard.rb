@@ -1,9 +1,15 @@
 class Lizard < Formula
   desc "Efficient compressor with very fast decompression"
   homepage "https://github.com/inikep/lizard"
-  url "https://github.com/inikep/lizard/archive/v2.0.tar.gz"
-  sha256 "85456b7274c9f0e477ff8e3f06dbc2f8ee8619d737a73c730c8a1adacb45f6da"
-  license "GPL-2.0"
+  url "https://github.com/inikep/lizard/archive/v1.0.tar.gz"
+  sha256 "6f666ed699fc15dc7fdaabfaa55787b40ac251681b50c0d8df017c671a9457e6"
+  license all_of: ["BSD-2-Clause", "GPL-2.0-or-later"]
+  version_scheme 1
+
+  livecheck do
+    url "https://github.com/inikep/lizard/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
 
   bottle do
     cellar :any
