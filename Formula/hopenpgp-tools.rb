@@ -3,6 +3,7 @@ class HopenpgpTools < Formula
   homepage "https://hackage.haskell.org/package/hopenpgp-tools"
   url "https://hackage.haskell.org/package/hopenpgp-tools-0.23.3/hopenpgp-tools-0.23.3.tar.gz"
   sha256 "576054cc292c8e17dda844820138f05dc20076ad2eea61a165a0ee130b78d0c0"
+  license "AGPL-3.0-or-later"
   head "https://salsa.debian.org/clint/hOpenPGP.git"
 
   livecheck do
