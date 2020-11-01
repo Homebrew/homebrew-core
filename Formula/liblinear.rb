@@ -6,6 +6,11 @@ class Liblinear < Formula
   license "BSD-3-Clause"
   head "https://github.com/cjlin1/liblinear.git"
 
+  livecheck do
+    url "https://www.csie.ntu.edu.tw/~cjlin/liblinear/oldfiles/"
+    regex(/href=.*?liblinear[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "b1ff692bb0430cc95e14ef736a8b1730afa826887648f91835869181922a2136" => :catalina
