@@ -6,6 +6,11 @@ class Pwsafe < Formula
   license "GPL-2.0"
   revision 4
 
+  livecheck do
+    url "https://src.fedoraproject.org/repo/pkgs/pwsafe/"
+    regex(/href=.*?pwsafe[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "5f952aa85147c86d2f77f9054fe228484820388c3b1e92c39c12432a15ca0f54" => :catalina
