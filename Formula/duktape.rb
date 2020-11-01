@@ -5,6 +5,11 @@ class Duktape < Formula
   sha256 "96f4a05a6c84590e53b18c59bb776aaba80a205afbbd92b82be609ba7fe75fa7"
   license "MIT"
 
+  livecheck do
+    url "https://github.com/svaarala/duktape/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "3abfb4891e9d485ed2e20ba42074a82a254f714ca646b1285cb08ce3cc56d23f" => :catalina
