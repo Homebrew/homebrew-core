@@ -5,6 +5,11 @@ class Clair < Formula
   sha256 "51e3c1e13c7670406097b447d385cdac9a0509e6bcb71bf89c29d6143ed4f464"
   license "Apache-2.0"
 
+  livecheck do
+    url "https://github.com/quay/clair/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "0d68ea1e0d988662effc3192756c8b5c35051641980d7853582b9af313c5cdda" => :catalina
