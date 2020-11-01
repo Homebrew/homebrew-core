@@ -8,6 +8,11 @@ class Borgbackup < Formula
   license "BSD-3-Clause"
   revision 1
 
+  livecheck do
+    url "https://github.com/borgbackup/borg/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "c04342b9fb9a2ae30e7030fafb7ac38ef68a8cfb0c6f095bd66926dd41240bc9" => :catalina
