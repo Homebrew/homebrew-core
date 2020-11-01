@@ -4,6 +4,7 @@ class Guile < Formula
   url "https://ftp.gnu.org/gnu/guile/guile-3.0.4.tar.xz"
   mirror "https://ftpmirror.gnu.org/guile/guile-3.0.4.tar.xz"
   sha256 "6b7947dc2e3d115983846a268b8f5753c12fd5547e42fbf2b97d75a3b79f0d31"
+  license "LGPL-3.0-or-later"
 
   livecheck do
     url :stable
