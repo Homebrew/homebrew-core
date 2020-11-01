@@ -6,6 +6,11 @@ class Tarsnap < Formula
   license "0BSD"
   revision 1
 
+  livecheck do
+    url "https://www.tarsnap.com/download/"
+    regex(/href=.*?tarsnap-autoconf[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "afa6ebfefbc93faf12ac6576f26edb0b68c6a47cc65b893d590ea1efd4301fb4" => :catalina
