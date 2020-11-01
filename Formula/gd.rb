@@ -3,6 +3,7 @@ class Gd < Formula
   homepage "https://libgd.github.io/"
   url "https://github.com/libgd/libgd/releases/download/gd-2.3.0/libgd-2.3.0.tar.xz"
   sha256 "ecd9155b9a417fb3f837f29e5966323796de247789163761dd72dbf83bfcac58"
+  license :cannot_represent
 
   bottle do
     cellar :any
