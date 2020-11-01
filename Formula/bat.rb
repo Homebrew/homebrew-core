@@ -19,7 +19,6 @@ class Bat < Formula
 
   def install
     ENV["SHELL_COMPLETIONS_DIR"] = buildpath
-    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
     system "cargo", "install", *std_cargo_args
 
     assets_dir = Dir["target/release/build/bat-*/out/assets"].first
