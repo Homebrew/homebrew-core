@@ -4,7 +4,7 @@ class YoutubeDl < Formula
   desc "Download YouTube videos from the command-line"
   homepage "https://youtube-dl.org/"
   url "https://gitlab.com/dstftw/youtube-dl/-/archive/2020.11.01.1/youtube-dl-2020.11.01.1.tar.gz"
-  sha256 "7a62187bc9f91af42eb5c9c95652e350170a72dbbdac8c7d71a6aeb4885a901a"
+  sha256 "dc67fee2fe6be417c74b6896168661c3f46246fb4379720fdbe7fb8f96708460"
   license "Unlicense"
 
   bottle do
