@@ -6,6 +6,11 @@ class R3 < Formula
   license "MIT"
   head "https://github.com/c9s/r3.git"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "96787f402bbc3a37207c3d5c3468d3b98028a12335a66d176d18d268e2406462" => :catalina
