@@ -5,6 +5,11 @@ class Solidity < Formula
   sha256 "3994482ed1104f55cbd7614649c2129adaf3fc9a782d910e688d0010abeb7a9c"
   license all_of: ["GPL-3.0-or-later", "MIT", "BSD-3-Clause", "Apache-2.0", "CC0-1.0"]
 
+  livecheck do
+    url "https://github.com/ethereum/solidity/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "f5f68c1744f923e5e0028ec4380d9367174a8dd5cd48077d2eb8bea324ebaa16" => :catalina
