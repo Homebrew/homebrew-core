@@ -6,6 +6,12 @@ class IosClassGuard < Formula
   license "GPL-2.0"
   head "https://github.com/Polidea/ios-class-guard.git"
 
+  # version 0.8 is newer than 3.5
+  livecheck do
+    url :stable
+    regex(/^v?(0(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "807b425c949e9a25331abd13967721d6f58d3a1674fcc8175744e713e81ee5d3" => :catalina
