@@ -3,6 +3,7 @@ class ScmManager < Formula
   homepage "https://www.scm-manager.org"
   url "https://maven.scm-manager.org/nexus/content/repositories/releases/sonia/scm/scm-server/1.59/scm-server-1.59-app.tar.gz"
   sha256 "8628e82f3bfd452412260dd2d82c2e76ee57013223171f2908d75cbc6258f261"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -12,7 +13,7 @@ class ScmManager < Formula
     sha256 "d0999804b3919b8f6b77f4342ab7f65a22b1a27f2084f310c443eb4b80ef3642" => :high_sierra
   end
 
-  depends_on java: "1.8"
+  depends_on "openjdk@8"
 
   resource "client" do
     url "https://maven.scm-manager.org/nexus/content/repositories/releases/sonia/scm/clients/scm-cli-client/1.59/scm-cli-client-1.59-jar-with-dependencies.jar"
