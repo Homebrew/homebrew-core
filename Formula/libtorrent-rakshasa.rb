@@ -5,6 +5,11 @@ class LibtorrentRakshasa < Formula
   sha256 "0f6c2e7ffd3a1723ab47fdac785ec40f85c0a5b5a42c1d002272205b988be722"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "207e33009028a8721a89c91139fe78fea1cd9fb8a05862286264dfc53548886a" => :catalina
