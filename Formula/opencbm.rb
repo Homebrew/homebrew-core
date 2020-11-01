@@ -1,9 +1,15 @@
 class Opencbm < Formula
   desc "Provides access to various floppy drive formats"
-  homepage "https://spiro.trikaliotis.net/opencbm-alpha"
+  homepage "https://spiro.trikaliotis.net/opencbm"
   url "https://spiro.trikaliotis.net/Download/opencbm-0.4.99.99/opencbm-0.4.99.99.tar.bz2"
   sha256 "b1e4cd73c8459acd48c5e8536d47439bafea51f136f43fde5a4d6a5f7dbaf6c6"
+  license "GPL-2.0-only"
   head "https://git.code.sf.net/p/opencbm/code.git"
+
+  livecheck do
+    url :homepage
+    regex(/<h1[^>]*?>VERSION v?(\d+(?:\.\d+)+)/i)
+  end
 
   bottle do
     sha256 "0fcf92ca18ebde6b9d431dfd1ab8667ca93ee59c53f85e818eed9f0b8ba78306" => :catalina
