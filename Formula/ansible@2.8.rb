@@ -24,6 +24,7 @@ class AnsibleAT28 < Formula
   # Ansible 2.8 would probably never work with Python > 3.7
   # https://github.com/ansible/ansible/issues/63973
 
+  uses_from_macos "krb5"
   uses_from_macos "libffi"
   uses_from_macos "libxslt"
 
