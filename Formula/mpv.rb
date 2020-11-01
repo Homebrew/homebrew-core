@@ -3,7 +3,7 @@ class Mpv < Formula
   homepage "https://mpv.io"
   url "https://github.com/mpv-player/mpv/archive/v0.32.0.tar.gz"
   sha256 "9163f64832226d22e24bbc4874ebd6ac02372cd717bef15c28a0aa858c5fe592"
-  license "GPL-2.0"
+  license :cannot_represent
   revision 7
   head "https://github.com/mpv-player/mpv.git"
 
