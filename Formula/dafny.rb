@@ -7,7 +7,7 @@ class Dafny < Formula
 
   livecheck do
     url :stable
-    regex(/^v?(\d+(?:\.\d+)+b?)$/i)
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
