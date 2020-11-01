@@ -3,8 +3,13 @@ class Fwknop < Formula
   homepage "https://www.cipherdyne.org/fwknop/"
   url "https://github.com/mrash/fwknop/archive/2.6.10.tar.gz"
   sha256 "a7c465ba84261f32c6468c99d5512f1111e1bf4701477f75b024bf60b3e4d235"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   head "https://github.com/mrash/fwknop.git"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     sha256 "3a4ff22b7de484deb6473ffdad63d3e927290925af925b5dbf1b868648824493" => :catalina
