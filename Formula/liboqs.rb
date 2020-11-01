@@ -5,6 +5,11 @@ class Liboqs < Formula
   sha256 "05836cd2b5c70197b3b6eed68b97d0ccb2c445061d5c19c15aef7c959842de0b"
   license "MIT"
 
+  livecheck do
+    url "https://github.com/open-quantum-safe/liboqs/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "ffd8b834836ed6b28606c173766f99d168c57b322153cbea5100bbbc27e1073d" => :catalina
