@@ -6,6 +6,11 @@ class WlaDx < Formula
   license "GPL-2.0"
   revision 1
 
+  livecheck do
+    url "https://github.com/vhelin/wla-dx/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)(?:-fix)*["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "8f0d4747eb9ef0885ddf6c08b3d4ac980bd2b6dbaaa9f5048ea7aa4bc6f681b8" => :catalina
