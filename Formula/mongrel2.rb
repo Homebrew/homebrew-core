@@ -15,6 +15,11 @@ class Mongrel2 < Formula
     end
   end
 
+  livecheck do
+    url "https://github.com/mongrel2/mongrel2/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "a8fec9c22f23f3347c2ffff44b25e07920ba8dd7e24c0001f0b3fc73fce07407" => :catalina
