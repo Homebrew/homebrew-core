@@ -5,6 +5,11 @@ class GitRemoteGcrypt < Formula
   sha256 "e1948dda848db845db404e4337b07206c96cb239b66392fd1c9c246279c2cb25"
   license "GPL-3.0"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "40fe96f458da47660ec153c19efc0271f9f8bcd987cf328081873adecffd6a88" => :catalina
