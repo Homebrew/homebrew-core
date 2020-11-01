@@ -7,6 +7,13 @@ class Simh < Formula
   license "MIT"
   head "https://github.com/simh/simh.git"
 
+  # At the time this check was added, the "latest" release on GitHub was several
+  # versions behind the actual latest version, so we check the Git tags instead.
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+(?:-\d+)?)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "790feb234cf193ae6de2c076ad10024e5d9bd6d301020392a79cffc7ff6ccb15" => :catalina
