@@ -6,6 +6,16 @@ class FuzzyFind < Formula
   sha256 "104300ba16af18d60ef3c11d70d2ec2a95ddf38632d08e4f99644050db6035cb"
   head "https://github.com/silentbicycle/ff.git"
 
+  # This regex intentially allows anything to come after the numeric version
+  # (instead of using $ at the end like we normally do). These tags have a
+  # format like `0.6-flag-features` or `v0.5-first-form`, where the trailing
+  # text seems to be a release name. This regex may become a problem in the
+  # future if we encounter releases like `1.2-alpha1` `1.2-rc1`, etc.
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "4e58e0ac23df5dbd26787238c0160716db8eb673b4a62625a9edcb4ceaf38eac" => :catalina
