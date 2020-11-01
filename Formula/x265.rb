@@ -5,6 +5,7 @@ class X265 < Formula
   sha256 "7f2771799bea0f53b5ab47603d5bea46ea2a221e047a7ff398115e9976fd5f86"
   license "GPL-2.0-only"
   head "https://bitbucket.org/multicoreware/x265_git"
+  revision 1
 
   livecheck do
     url :stable
