@@ -9,6 +9,11 @@ class ZabbixCli < Formula
   revision 1
   head "https://github.com/unioslo/zabbix-cli.git"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "279c0d15eb9b0d3318511c235652627498179b6b37664b47e65e47dd37848586" => :catalina
