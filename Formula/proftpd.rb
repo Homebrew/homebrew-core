@@ -7,6 +7,14 @@ class Proftpd < Formula
   sha256 "8b7bbf9757988935352d9dec5ebf96b6a1e6b63a6cdac2e93202ac6c42c4cd96"
   license "GPL-2.0"
 
+  # Proftpd uses an incrementing letter after the numeric version for
+  # maintenance releases. Versions like `1.2.3a` and `1.2.3b` are not alpha and
+  # beta respectively. Prerelease versions use a format like `1.2.3rc1`.
+  livecheck do
+    url "https://github.com/proftpd/proftpd/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+[a-z]?)["' >]}i)
+  end
+
   bottle do
     sha256 "b30ef0c9ea4f2642cb98e863c51ef8b337605ca5d9a3df8d2d9995ac00c6e9be" => :catalina
     sha256 "2f529091ef2c1e07ca1db9ec0a974f639530cca275e2f3ebbd910b42a3cb5f12" => :mojave
