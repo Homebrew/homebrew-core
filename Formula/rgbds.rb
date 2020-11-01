@@ -6,6 +6,11 @@ class Rgbds < Formula
   license "MIT"
   head "https://github.com/rednex/rgbds.git"
 
+  livecheck do
+    url "https://github.com/gbdev/rgbds/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "8adee69ec949c97750ea1aa84fb7ccabe219598902744f06cae3b49b4cbe6a08" => :catalina
