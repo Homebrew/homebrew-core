@@ -6,6 +6,11 @@ class Dotnet < Formula
       revision: "a5bf06c9d45144d6e152f5e53155e41839aa4a55"
   license "MIT"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)-SDK$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "f6c4d1db106a901e28fb32cbd7d5eadf09ad4b934c5329acafc1d126ce0c4300" => :catalina
