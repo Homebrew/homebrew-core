@@ -10,6 +10,11 @@ class Vgmstream < Formula
   version_scheme 1
   head "https://github.com/losnoco/vgmstream.git"
 
+  livecheck do
+    url "https://github.com/losnoco/vgmstream/releases/latest"
+    regex(%r{href=.*?/tag/([^"' >]+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "22245cda49c47f9e6fcace0938586ec6e7fc7e3b3fb3db5f81ae9d90ecfb4bc8" => :catalina
