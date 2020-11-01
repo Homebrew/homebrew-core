@@ -6,6 +6,11 @@ class Snap < Formula
   sha256 "c4f532018ca9d2a5f87a95909b3674f8e299e97ba5cb5575895bcdd29be23db3"
   license "GPL-3.0-only"
 
+  livecheck do
+    url "https://github.com/snapcore/snapd/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "0879922d7e220a6af8e6e14056e3785f105d79a1e5b7c8ed6152fedf891f32bf" => :catalina
