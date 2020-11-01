@@ -3,6 +3,7 @@ class Krb5 < Formula
   homepage "https://web.mit.edu/kerberos/"
   url "https://kerberos.org/dist/krb5/1.18/krb5-1.18.2.tar.gz"
   sha256 "c6e4c9ec1a98141c3f5d66ddf1a135549050c9fab4e9a4620ee9b22085873ae0"
+  license :cannot_represent
 
   livecheck do
     url :homepage
