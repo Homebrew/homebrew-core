@@ -5,6 +5,11 @@ class Redpen < Formula
   sha256 "6c3dc4a6a45828f9cc833ca7253fdb036179036631248288251cb9ac4520c39d"
   license "Apache-2.0"
 
+  livecheck do
+    url "https://github.com/redpen-cc/redpen/releases/latest"
+    regex(%r{href=.*?/tag/(?:redpen[._-])?v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
