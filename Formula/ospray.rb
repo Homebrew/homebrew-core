@@ -6,6 +6,11 @@ class Ospray < Formula
   license "Apache-2.0"
   head "https://github.com/ospray/ospray.git"
 
+  livecheck do
+    url "https://github.com/ospray/ospray/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "f6b816e4ce29195586af8305a27bcb49f366bf08cc761ee85deb8eb69165f897" => :catalina
