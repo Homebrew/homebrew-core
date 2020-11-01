@@ -1,6 +1,7 @@
 class Sdl2 < Formula
   desc "Low-level access to audio, keyboard, mouse, joystick, and graphics"
   homepage "https://www.libsdl.org/"
+  license "Zlib"
   revision 1
 
   stable do
