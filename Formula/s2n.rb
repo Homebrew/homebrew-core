@@ -5,6 +5,11 @@ class S2n < Formula
   sha256 "ace34f0546f50551ee2124d25f8de3b7b435ddb1b4fbf640ea0dcb0f1c677451"
   license "Apache-2.0"
 
+  livecheck do
+    url "https://github.com/awslabs/s2n/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "563c56399c77a3d3a6a7fa265a854c11671e671ad679316e0f5eb3fadfe1d3ea" => :catalina
