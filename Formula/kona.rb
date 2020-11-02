@@ -6,6 +6,11 @@ class Kona < Formula
   license "ISC"
   head "https://github.com/kevinlawler/kona.git"
 
+  livecheck do
+    url "https://github.com/kevinlawler/kona/releases/latest"
+    regex(%r{href=.*?/tag/(?:Win(?:64)?[._-])?v?(\d+(?:\.\d+)*)[^"' >]*["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "0b6a2f66ebbbaa1f13c31e8e08d0c3d9d98e1dbc91d83d6c0c7afba82dfec16f" => :catalina
