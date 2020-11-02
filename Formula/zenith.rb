@@ -21,16 +21,15 @@ class Zenith < Formula
 
   test do
     require "pty"
+    require "io/console"
 
-    begin
-      (testpath/"zenith").mkdir
-      cmd = "#{bin}/zenith --db zenith"
-      output, input, pid = PTY.spawn "stty rows 80 cols 43 && #{cmd}"
-      sleep 1
-      input.write "q"
-      assert_match /PID\s+USER\s+P\s+N\s+↓CPU%\s+MEM%/, output.read
-    ensure
-      Process.kill("TERM", pid)
-    end
+    (testpath/"zenith").mkdir
+    r, w, pid = PTY.spawn "#{bin}/zenith --db zenith"
+    r.winsize = [80, 43]
+    sleep 1
+    w.write "q"
+    assert_match /PID\s+USER\s+P\s+N\s+↓CPU%\s+MEM%/, r.read
+  ensure
+    Process.kill("TERM", pid)
   end
 end
