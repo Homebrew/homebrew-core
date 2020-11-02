@@ -3,8 +3,14 @@ class Slrn < Formula
   homepage "https://slrn.sourceforge.io/"
   url "https://jedsoft.org/releases/slrn/slrn-1.0.3a.tar.bz2"
   sha256 "3ba8a4d549201640f2b82d53fb1bec1250f908052a7983f0061c983c634c2dac"
+  license "GPL-2.0-or-later"
   revision 1
   head "git://git.jedsoft.org/git/slrn.git"
+
+  livecheck do
+    url "https://jedsoft.org/releases/slrn/"
+    regex(/href=.*?slrn[._-]v?(\d+(?:\.\d+)+(?:[a-z]?\d*)?)\.t/i)
+  end
 
   bottle do
     sha256 "de190a3f3793acd7d8e50dc82231e7ad94535621bc4c37a34efcc1907c295296" => :catalina
