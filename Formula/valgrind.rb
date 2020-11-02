@@ -10,6 +10,11 @@ class Valgrind < Formula
     depends_on maximum_macos: :high_sierra
   end
 
+  livecheck do
+    url "https://sourceware.org/pub/valgrind/"
+    regex(/href=.*?valgrind[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "7170a66beb19ccfd79d1559fe57c67fb4a6a7b6369775621f5073af6fea07ea8" => :high_sierra
   end
