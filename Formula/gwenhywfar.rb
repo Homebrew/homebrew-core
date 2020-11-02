@@ -3,6 +3,7 @@ class Gwenhywfar < Formula
   homepage "https://www.aquamaniac.de/"
   url "https://www.aquamaniac.de/rdm/attachments/download/344/gwenhywfar-5.4.1.tar.gz"
   sha256 "fbfd403410e3c1cf7e2957738cf51c6a01ceeec6ab4d2f546512c255d3c08a9b"
+  license "LGPL-2.1-or-later"
 
   livecheck do
     url "https://www.aquamaniac.de/rdm/projects/gwenhywfar/files"
