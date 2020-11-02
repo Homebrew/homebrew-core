@@ -4,6 +4,12 @@ class Openconnect < Formula
   url "ftp://ftp.infradead.org/pub/openconnect/openconnect-8.10.tar.gz"
   mirror "https://fossies.org/linux/privat/openconnect-8.10.tar.gz"
   sha256 "30e64c6eca4be47bbf1d61f53dc003c6621213738d4ea7a35e5cf1ac2de9bab1"
+  license "LGPL-2.1-only"
+
+  livecheck do
+    url "https://www.infradead.org/openconnect/download.html"
+    regex(/href=.*?openconnect[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 "b4144970e695adc8f049319408cd431c96eb2ca4714feb903e0f01f3926dfd1f" => :catalina
