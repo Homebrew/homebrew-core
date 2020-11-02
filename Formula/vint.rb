@@ -7,6 +7,11 @@ class Vint < Formula
   sha256 "ebbb4ffd790324331aabf82d0b8777db8ce41d72d7c4c1c328bc099359ae06d6"
   license "MIT"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "75161a294d40430a9146e35a9e3871f3d8761cc6b60f66f8b9abd22630f8e579" => :catalina
