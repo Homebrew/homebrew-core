@@ -3,7 +3,7 @@ class Artifactory < Formula
   homepage "https://www.jfrog.com/artifactory/"
   url "https://dl.bintray.com/jfrog/artifactory/jfrog-artifactory-oss-6.23.1.zip"
   sha256 "24c1796ede992e879e0446cf07bbb0231af6e690a03e8998ef7b7f153237fff8"
-
+  license "AGPL-3.0-or-later"
   livecheck do
     url "https://dl.bintray.com/jfrog/artifactory/"
     regex(/href=.*?jfrog-artifactory-oss[._-]v?(\d+(?:\.\d+)+)\.zip/i)
