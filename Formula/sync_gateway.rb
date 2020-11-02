@@ -8,6 +8,11 @@ class SyncGateway < Formula
   revision 1
   head "https://github.com/couchbase/sync_gateway.git"
 
+  livecheck do
+    url "https://github.com/couchbase/sync_gateway/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "e7b1ece8809d746f12ae636fb2f2d037b9662369300d854244003d6cc5203cd3" => :catalina
