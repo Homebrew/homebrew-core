@@ -5,6 +5,11 @@ class UsbIds < Formula
   sha256 "de972f2cde2b681f3350273c4cae9985364c1acd99d774bdd82ca7e7408574d6"
   license any_of: ["GPL-2.0-or-later", "BSD-3-Clause"]
 
+  livecheck do
+    url "https://deb.debian.org/debian/pool/main/u/usb.ids/"
+    regex(/href=.*?usb\.ids[._-]v?(\d+(?:\.\d+)+)\.orig\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "2994769226c7815ef5eee9ba27f729005fd993341dfbca50f413139ef411ac5c" => :catalina
