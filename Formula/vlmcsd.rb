@@ -6,6 +6,11 @@ class Vlmcsd < Formula
   sha256 "62f55c48f5de1249c2348ab6b96dabbe7e38899230954b0c8774efb01d9c42cc"
   head "https://github.com/Wind4/vlmcsd.git"
 
+  livecheck do
+    url "https://github.com/Wind4/vlmcsd/releases/latest"
+    regex(%r{href=.*?/tag/([^"' >]+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "3f3cc34de780b15b2c5eb32660f79a95bd28674c7cebb78452f9f8888d9d8b38" => :catalina
