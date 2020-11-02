@@ -6,6 +6,11 @@ class Libopenmpt < Formula
   sha256 "9468e3e501859821a5a3da76b8cceca2728ed3cbc8a818b550fd3690246197b3"
   license "BSD-3-Clause"
 
+  livecheck do
+    url "https://lib.openmpt.org/files/libopenmpt/src/"
+    regex(/href=.*?libopenmpt[._-]v?(\d+(?:\.\d+)+)\+release\.autotools\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "8cb20a0a1c82e950d9383d3b397c1ad7c92c49783a3e762b5ebe54b27c0dcca6" => :catalina
