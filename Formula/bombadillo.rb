@@ -20,10 +20,11 @@ class Bombadillo < Formula
 
   test do
     require "pty"
+    require "io/console"
 
-    cmd = bin/"bombadillo gopher://bombadillo.colorfield.space"
-    config = testpath/".config"
-    r, w, pid = PTY.spawn("stty rows 80 cols 43 && XDG_CONFIG_HOME=#{config} #{cmd}")
+    cmd = "#{bin}/bombadillo gopher://bombadillo.colorfield.space"
+    r, w, pid = PTY.spawn({ "XDG_CONFIG_HOME" => testpath/".config" }, cmd)
+    r.winsize = [80, 43]
     sleep 1
     w.write "q"
     assert_match /Bombadillo is a non-web browser/, r.read
