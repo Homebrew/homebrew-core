@@ -7,6 +7,11 @@ class Arabica < Formula
   license "BSD-3-Clause"
   head "https://github.com/jezhiggins/arabica.git"
 
+  livecheck do
+    url "https://github.com/jezhiggins/arabica/releases/latest"
+    regex(%r{href=.*?/tag/([^"' >]+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "4fbf676c46941de213b095ab74f0b4973e5984c2bbaa7679757b0db4b369480a" => :catalina
