@@ -7,6 +7,11 @@ class Openmsx < Formula
   revision 1
   head "https://github.com/openMSX/openMSX.git"
 
+  livecheck do
+    url "https://github.com/openMSX/openMSX/releases/latest"
+    regex(%r{href=.*?/tag/RELEASE[._-]v?(\d+(?:[._]\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "10c3e39c22efbd11e11b352f8fabfcea03633088cb16fe24611ed631325ed05c" => :catalina
