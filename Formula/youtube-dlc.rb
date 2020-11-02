@@ -10,13 +10,11 @@ class YoutubeDlc < Formula
     regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
   end
 
-  head do
-    url "https://github.com/blackjack4494/yt-dlc.git"
-  end
+  head "https://github.com/blackjack4494/yt-dlc.git"
 
   depends_on "make" => :build
   depends_on "pandoc" => :build
-  depends_on "python3"
+  depends_on "python@3.9"
   uses_from_macos "zip" => :build
 
   def install
