@@ -6,6 +6,11 @@ class Kore < Formula
   license "ISC"
   head "https://github.com/jorisvink/kore.git"
 
+  livecheck do
+    url "https://kore.io/source"
+    regex(/href=.*?kore[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "ad77b830ab7265b3f1f3be5f25b82949672369ab53478b35428ccc39dc770c5f" => :catalina
     sha256 "766a72d1382f2edff8a4a479e6528fd3b3e952b978224d139dd1c602ea9c39c5" => :mojave
