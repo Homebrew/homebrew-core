@@ -6,7 +6,13 @@ class IosClassGuard < Formula
   license "GPL-2.0"
   head "https://github.com/Polidea/ios-class-guard.git"
 
-  # version 0.8 is newer than 3.5
+  # The latest version tags in the Git repository are `0.8` (2015-10-14) and
+  # `0.6` (2014-08-20) but versions before these are like `3.5` (2013-11-16),
+  # `3.4` (2012-11-19), `3.3.4` (2011-09-03), etc. The older releases like `3.5`
+  # are wrongly treated as newer but the GitHub repository doesn't mark a
+  # "latest" release, so we can only work around this by restricting matching
+  # to 0.x releases for now. If the major version reaches 1.x in the
+  # future, this check will also need to be updated.
   livecheck do
     url :stable
     regex(/^v?(0(?:\.\d+)+)$/i)
