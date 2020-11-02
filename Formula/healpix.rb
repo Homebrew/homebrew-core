@@ -5,6 +5,7 @@ class Healpix < Formula
   version "3.70"
   sha256 "8841f171f1e22e75ea130e12e5cdc5bcf85dbec79f9f67dd1bf27e99fd20b6d1"
   license "GPL-2.0-or-later"
+  revision 2
 
   livecheck do
     url :stable
