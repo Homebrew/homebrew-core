@@ -6,6 +6,11 @@ class Stuntman < Formula
   license "Apache-2.0"
   head "https://github.com/jselbie/stunserver.git"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?stunserver[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "e337d1ad8978b0bb926bca46992575b686145f9e8eb43dbc990e4efe08539722" => :catalina
