@@ -5,12 +5,12 @@ class YoutubeDlc < Formula
   sha256 "0d23cc2e2f1cc7291e5d2a468b1cd282a6be228a215df188aaecae8951ac64d9"
   license "Unlicense"
 
+  head "https://github.com/blackjack4494/yt-dlc.git"
+
   livecheck do
     url "https://github.com/blackjack4494/yt-dlc/releases/latest"
     regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
   end
-
-  head "https://github.com/blackjack4494/yt-dlc.git"
 
   depends_on "make" => :build
   depends_on "pandoc" => :build
