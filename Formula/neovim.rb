@@ -13,6 +13,7 @@ class Neovim < Formula
 
   head do
     url "https://github.com/neovim/neovim.git"
+    depends_on "tree-sitter"
     depends_on "utf8proc"
   end
 
