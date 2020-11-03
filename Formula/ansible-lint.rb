@@ -3,8 +3,8 @@ class AnsibleLint < Formula
 
   desc "Checks ansible playbooks for practices and behaviour"
   homepage "https://github.com/ansible/ansible-lint/"
-  url "https://files.pythonhosted.org/packages/82/7b/8757f707c3b2017f2f2daf081c0e99e4090d14a1593c5d1c6d6da6596519/ansible-lint-4.3.6.tar.gz"
-  sha256 "888cf2510d830de017e01ca4d5fd92abfb84458a2b2a47263a2d923a7dabc7ba"
+  url "https://files.pythonhosted.org/packages/b3/23/1ab89648d1169b19c822ee8fffd7743332c5ea5dde3ab0c42d19844e330b/ansible-lint-4.3.7.tar.gz"
+  sha256 "1012fc3f5c4c0c58eece515860f19c34c5088faa5be412eec6fae5b45bda9c4f"
   license "MIT"
 
   livecheck do
@@ -35,8 +35,8 @@ class AnsibleLint < Formula
   end
 
   resource "ansible-base" do
-    url "https://files.pythonhosted.org/packages/b3/7f/2a3d935534b5b41fbde5a9fab03c3fdc7c5f94c113409ec1031ddc9bc8de/ansible-base-2.10.2.tar.gz"
-    sha256 "c79fe108e13b286bad21734208624aaef9dabb49bb4211b13bc96d88829e22ab"
+    url "https://files.pythonhosted.org/packages/2e/d1/92422f8f53ae2d4e75ebdc2be2186a9ca2796b5d9679f20ed0239e86d8cf/ansible-base-2.10.3.tar.gz"
+    sha256 "35a208726b10fecbcf00c263ae4572b48f505b5796fb77a85c3e9c1036ea5e4f"
   end
 
   resource "cffi" do
