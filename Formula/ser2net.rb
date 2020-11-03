@@ -20,8 +20,8 @@ class Ser2net < Formula
   depends_on "libyaml"
 
   resource "gensio" do
-    url "https://downloads.sourceforge.net/project/ser2net/ser2net/gensio-2.1.4.tar.gz"
-    sha256 "1f5a29aabfb35886893cfda5cd78192db67e96de796dbf9758dbecd4077a3fd8"
+    url "https://downloads.sourceforge.net/project/ser2net/ser2net/gensio-2.2.0.tar.gz"
+    sha256 "006ce4e1fa0786b1abfa18f675cd92f98558f612e6fde6fac8bd5a1e61b5e1c9"
   end
 
   def install
