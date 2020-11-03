@@ -16,8 +16,7 @@ class NatsServer < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"nats-server"
-    prefix.install_metafiles
+    system "go", "build", "-ldflags", "-s -w", *std_go_args
   end
 
   plist_options manual: "nats-server"
@@ -42,20 +41,16 @@ class NatsServer < Formula
   end
 
   test do
-    pid = fork do
+    port = free_port
+    fork do
       exec bin/"nats-server",
-           "--port=8085",
+           "--port=#{port}",
            "--pid=#{testpath}/pid",
            "--log=#{testpath}/log"
     end
     sleep 3
 
-    begin
-      assert_match version.to_s, shell_output("curl localhost:8085")
-      assert_predicate testpath/"log", :exist?
-    ensure
-      Process.kill "SIGINT", pid
-      Process.wait pid
-    end
+    assert_match version.to_s, shell_output("curl localhost:#{port}")
+    assert_predicate testpath/"log", :exist?
   end
 end
