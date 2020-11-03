@@ -3,6 +3,7 @@ class MinimalRacket < Formula
   homepage "https://racket-lang.org/"
   url "https://mirror.racket-lang.org/installers/7.9/racket-minimal-7.9-src-builtpkgs.tgz"
   sha256 "293aa8ef709a6240472f16833351ba66a9e461261d2813c7fb1cc5ddf59c3000"
+  license any_of: ["MIT", "Apache-2.0"]
 
   livecheck do
     url "https://download.racket-lang.org/all-versions.html"
