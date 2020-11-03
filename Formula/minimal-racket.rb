@@ -68,8 +68,6 @@ class MinimalRacket < Formula
         #{version}
       catalogs:
         https://download.racket-lang.org/releases/#{version}/catalog/
-        https://pkgs.racket-lang.org
-        https://planet-compats.racket-lang.org
       default-scope:
         installation
     EOS
