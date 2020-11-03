@@ -4,7 +4,7 @@ class Blast < Formula
   url "https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.11.0/ncbi-blast-2.11.0+-src.tar.gz"
   version "2.11.0"
   sha256 "d88e1858ae7ce553545a795a2120e657a799a6d334f2a07ef0330cc3e74e1954"
-  license "LGPL-2.1"
+  license :public_domain
 
   livecheck do
     url "https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/"
