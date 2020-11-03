@@ -1,10 +1,9 @@
 class XcbProto < Formula
   desc "X.Org: XML-XCB protocol descriptions for libxcb code generation"
   homepage "https://www.x.org/"
-  url "https://xcb.freedesktop.org/dist/xcb-proto-1.13.tar.bz2"
-  sha256 "7b98721e669be80284e9bbfeab02d2d0d54cd11172b72271e47a2fe875e2bde1"
+  url "https://xcb.freedesktop.org/dist/xcb-proto-1.14.tar.gz"
+  sha256 "1c3fa23d091fb5e4f1e9bf145a902161cec00d260fabf880a7a248b02ab27031"
   license "MIT"
-  revision 1
 
   bottle do
     cellar :any_skip_relocation
