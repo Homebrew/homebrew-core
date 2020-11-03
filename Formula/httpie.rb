@@ -2,7 +2,7 @@ class Httpie < Formula
   include Language::Python::Virtualenv
 
   desc "User-friendly cURL replacement (command-line HTTP client)"
-  homepage "https://httpie.org/"
+  homepage "https://httpie.io/"
   url "https://files.pythonhosted.org/packages/b4/d4/712645808103f2d15c281b9eacd184c88754ef7e9a322d9a30ba343fd341/httpie-2.3.0.tar.gz"
   sha256 "d540571991d07329d217c31bf1ff95fd217957da2aa2def09bcfa0c0fca0cf96"
   license "BSD-3-Clause"
@@ -66,7 +66,7 @@ class Httpie < Formula
   end
 
   test do
-    raw_url = "https://raw.githubusercontent.com/Homebrew/homebrew-core/master/Formula/httpie.rb"
+    raw_url = "https://raw.githubusercontent.com/Homebrew/homebrew-core/HEAD/Formula/httpie.rb"
     assert_match "PYTHONPATH", shell_output("#{bin}/http --ignore-stdin #{raw_url}")
   end
 end
