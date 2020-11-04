@@ -98,13 +98,7 @@ class OciCli < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3")
-    system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
-                                "--ignore-installed", buildpath
-
-    venv.pip_install_and_link buildpath
-
-    bin.install_symlink libexec/"bin/oci"
+    virtualenv_install_with_resources
   end
 
   test do
