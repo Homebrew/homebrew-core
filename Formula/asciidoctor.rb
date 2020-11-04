@@ -20,18 +20,18 @@ class Asciidoctor < Formula
   end
 
   resource "pdf-core" do
-    url "https://rubygems.org/gems/pdf-core-0.9.0.gem"
-    sha256 "4f368b2f12b57ec979872d4bf4bd1a67e8648e0c81ab89801431d2fc89f4e0bb"
+    url "https://rubygems.org/gems/pdf-core-0.7.0.gem"
+    sha256 "c1afdbb79edaf7c9fea69fd4b8d3b2c68eeb7203ce4db0e80be5392e20e394a6"
   end
 
   resource "ttfunk" do
-    url "https://rubygems.org/downloads/ttfunk-1.6.2.1.gem"
-    sha256 "f663d866d7b5089367d90ba5416191b24cfed000e30a90ab21bba3318d950b70"
+    url "https://rubygems.org/downloads/ttfunk-1.5.1.gem"
+    sha256 "8da1c20cc9e010a4b083376e6ae6996c4aa517558420bb23d9a1d8a228b6f9d5"
   end
 
   resource "prawn" do
-    url "https://rubygems.org/gems/prawn-2.3.0.gem"
-    sha256 "38376dee380c8920d3b70ac5bfd3a2213f02f7a7343f8e6e4c1f22c671a9f672"
+    url "https://rubygems.org/gems/prawn-2.2.2.gem"
+    sha256 "95284b761f0ea99334ef840ab85f577cfe2cc9448f769cc723843a6d7670b2e1"
   end
 
   resource "prawn-icon" do
@@ -55,8 +55,8 @@ class Asciidoctor < Formula
   end
 
   resource "prawn-svg" do
-    url "https://rubygems.org/gems/prawn-svg-0.31.0.gem"
-    sha256 "d40435a7880e76d7b6053c819c8033862ffa8c0fc5271ea9f11b1286658565e5"
+    url "https://rubygems.org/gems/prawn-svg-0.30.0.gem"
+    sha256 "e7d85c2b7c05427cfe9860c29db99ce9c935bd88158eb340e4b70fcf12a1c335"
   end
 
   resource "prawn-table" do
