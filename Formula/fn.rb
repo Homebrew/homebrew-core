@@ -1,8 +1,8 @@
 class Fn < Formula
   desc "Command-line tool for the fn project"
   homepage "https://fnproject.io"
-  url "https://github.com/fnproject/cli/archive/0.5.101.tar.gz"
-  sha256 "8844c8df88b4c7b49b2ba8d52de3c9c53cbbe1959174c47d22da55a2aae4eaf3"
+  url "https://github.com/fnproject/cli/archive/0.5.102.tar.gz"
+  sha256 "2d0bea1d6a492101e44c1dfa710efa90ccbfbea81a252fdb82f4efc0c2bfd4e3"
   license "Apache-2.0"
 
   bottle do
