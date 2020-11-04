@@ -4,6 +4,12 @@ class Peg < Formula
   url "https://www.piumarta.com/software/peg/peg-0.1.18.tar.gz"
   mirror "https://deb.debian.org/debian/pool/main/p/peg/peg_0.1.18.orig.tar.gz"
   sha256 "20193bdd673fc7487a38937e297fff08aa73751b633a086ac28c3b34890f9084"
+  license "MIT"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?peg[._-]v?(\d+(?:\.\d+)+)(?:\.orig)?\.t/i)
+  end
 
   bottle do
     cellar :any_skip_relocation
