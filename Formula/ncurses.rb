@@ -20,6 +20,10 @@ class Ncurses < Formula
 
   depends_on "pkg-config" => :build
 
+  on_linux do
+    depends_on "gpatch" => :build
+  end
+
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--enable-pc-files",
@@ -40,15 +44,29 @@ class Ncurses < Formula
     major = version.major
 
     %w[form menu ncurses panel].each do |name|
-      lib.install_symlink "lib#{name}w.#{major}.dylib" => "lib#{name}.dylib"
-      lib.install_symlink "lib#{name}w.#{major}.dylib" => "lib#{name}.#{major}.dylib"
+      on_macos do
+        lib.install_symlink "lib#{name}w.#{major}.dylib" => "lib#{name}.dylib"
+        lib.install_symlink "lib#{name}w.#{major}.dylib" => "lib#{name}.#{major}.dylib"
+      end
+      on_linux do
+        lib.install_symlink "lib#{name}w.so.#{major}" => "lib#{name}.so"
+        lib.install_symlink "lib#{name}w.so.#{major}" => "lib#{name}.so.#{major}"
+      end
       lib.install_symlink "lib#{name}w.a" => "lib#{name}.a"
       lib.install_symlink "lib#{name}w_g.a" => "lib#{name}_g.a"
     end
 
     lib.install_symlink "libncurses++w.a" => "libncurses++.a"
     lib.install_symlink "libncurses.a" => "libcurses.a"
-    lib.install_symlink "libncurses.dylib" => "libcurses.dylib"
+    lib.install_symlink shared_library("libncurses") => shared_library("libcurses")
+    on_linux do
+      # libtermcap and libtinfo are provided by ncurses and have the
+      # same api. Help some older packages to find these dependencies.
+      # https://bugs.centos.org/view.php?id=11423
+      # https://bugs.launchpad.net/ubuntu/+source/ncurses/+bug/259139
+      lib.install_symlink "libncurses.so" => "libtermcap.so"
+      lib.install_symlink "libncurses.so" => "libtinfo.so"
+    end
 
     (lib/"pkgconfig").install_symlink "ncursesw.pc" => "ncurses.pc"
     (lib/"pkgconfig").install_symlink "formw.pc" => "form.pc"
