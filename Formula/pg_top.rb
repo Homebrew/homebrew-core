@@ -1,16 +1,13 @@
 class PgTop < Formula
   desc "Monitor PostgreSQL processes"
   homepage "https://pg_top.gitlab.io"
-  url "https://ftp.postgresql.org/pub/projects/pgFoundry/ptop/pg_top/3.7.0/pg_top-3.7.0.tar.bz2"
-  mirror "https://mirrorservice.org/sites/ftp.postgresql.org/projects/pgFoundry/ptop/pg_top/3.7.0/pg_top-3.7.0.tar.bz2"
-  sha256 "c48d726e8cd778712e712373a428086d95e2b29932e545ff2a948d043de5a6a2"
-  revision 3
+  url "https://pg_top.gitlab.io/source/pg_top-4.0.0.tar.xz"
+  sha256 "5191765f6be187725f0decbbe9ae85af1c4354f69d2e1364a6415846652c2825"
+  license "BSD-3-Clause"
+  head "https://gitlab.com/pg_top/pg_top.git"
 
-  # We're currently checking the pg_top GitLab repository, since there are new
-  # 4.0.0 prerelease versions there that aren't at the existing stable source
-  # (i.e., https://ftp.postgresql.org/pub/projects/pgFoundry/ptop/pg_top/).
   livecheck do
-    url "https://gitlab.com/pg_top/pg_top.git"
+    url :head
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
@@ -23,13 +20,22 @@ class PgTop < Formula
     sha256 "6d0104d461d7187ad02e1085098f2dad4fa00c4f2db93b1b910a6a072517ca54" => :el_capitan
   end
 
+  depends_on "cmake" => :build
+
   depends_on "postgresql"
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
-    (buildpath/"config.h").append_lines "#define HAVE_DECL_STRLCPY 1"
-    system "make", "install"
+    mv "machine/m_macosx.c", "machine/m_darwin.c"
+    inreplace "CMakeLists.txt", "/usr/include/", "#{MacOS.sdk_path}/usr/include/"
+    inreplace "machine/m_remote.c",
+      "#if defined(__FreeBSD__) || defined(__OpenBSD__)",
+      "#if defined(__FreeBSD__) || defined(__OpenBSD__) || defined(__APPLE__)"
+
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
+      system "make"
+      system "make", "install"
+    end
   end
 
   test do
