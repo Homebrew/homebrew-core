@@ -9,6 +9,16 @@ class Mactelnet < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
+  patch do
+    url "https://github.com/haakonnessjoen/MAC-Telnet/commit/64efc157945fd93134449fb0d75288170842cbe8.patch?full_index=1"
+    sha256 "6cd8bda911c7f1b1dc99adb5b6d66dcc2d2c0e7490c1ad898235dfd81bc70abe"
+  end
+
+  patch do
+    url "https://github.com/haakonnessjoen/MAC-Telnet/commit/321ba89d046308c7bc956de203f107a12792f64d.patch?full_index=1"
+    sha256 "a4569cd4e82a37d0e76c95074eb2b77ae82cf767a5d23d3a96f23427906aa228"
+  end
+
   def install
     system "./autogen.sh"
     system "./configure",
@@ -24,10 +34,5 @@ class Mactelnet < Formula
     assert_equal "MAC-Telnet", shell_output("#{bin}/macping -v")
     assert_equal "MAC-Telnet", shell_output("#{bin}/mactelnet -v")
     assert_equal "MAC-Telnet", shell_output("#{bin}/mactelnetd -v")
-  end
-
-  patch do
-    url "https://github.com/haakonnessjoen/MAC-Telnet/pull/64.diff"
-    sha256 "1464afa2fab04f186a2618a4783c66250c852534c9de921d30eccabd5dfd63e7"
   end
 end
