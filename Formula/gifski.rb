@@ -4,6 +4,7 @@ class Gifski < Formula
   url "https://github.com/ImageOptim/gifski/archive/1.2.3.tar.gz"
   sha256 "52d87342125220a5d7552097adcfa43c12455709c32b4a52b27d56523a94de67"
   license "AGPL-3.0-only"
+  revision 1
 
   bottle do
     cellar :any
