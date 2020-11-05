@@ -3,8 +3,8 @@ class Ansible < Formula
 
   desc "Automate deployment, configuration, and upgrading"
   homepage "https://www.ansible.com/"
-  url "https://releases.ansible.com/ansible/ansible-2.9.14.tar.gz"
-  sha256 "efe7183e08f0c9dd9efd9124efa8978be62851b1e8eb856593a073538bfc6fb5"
+  url "https://releases.ansible.com/ansible/ansible-2.9.15.tar.gz"
+  sha256 "736a19fa6d608b4df2d6b48d31fec057b3f95abf62b7fda69ffa4a743e2f55b6"
   license "GPL-3.0-or-later"
   head "https://github.com/ansible/ansible.git", branch: "devel"
 
@@ -127,8 +127,8 @@ class Ansible < Formula
   end
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/81/d0/641b698d05f0eaea4df4f9cebaff573d7a5276228ef6b7541240fe02f3ad/attrs-20.2.0.tar.gz"
-    sha256 "26b54ddbbb9ee1d34d5d3668dd37d6cf74990ab23c828c2888dccdceee395594"
+    url "https://files.pythonhosted.org/packages/f0/cb/80a4a274df7da7b8baf083249b0890a0579374c3d74b5ac0ee9291f912dc/attrs-20.3.0.tar.gz"
+    sha256 "832aa3cde19744e49938b91fea06d69ecb9e649c93ba974535d08ad92164f700"
   end
 
   resource "backports.ssl_match_hostname" do
@@ -147,13 +147,13 @@ class Ansible < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/e2/3d/4c3b903af6e2db99b3a4c22e29d1e74a2ca95b7b78729b7c1c2a0ef4ed8f/boto3-1.16.9.tar.gz"
-    sha256 "3affe4f42849c332e877e460b27cc96cbd342276f70fb9da6ce1c469af74b9ea"
+    url "https://files.pythonhosted.org/packages/8e/dd/7115a7c23afb833475d15c33773f74e180f27f3ffc7796e74a729bdf51b8/boto3-1.16.11.tar.gz"
+    sha256 "fe5fbcf988e6f5b87a31ddd6ba92a6485d35f666d26b9c9750263aa8b0d33b60"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/86/d6/79515ff93f40791f68e2d4643a9b403e6ecc6b29cf5ff814f01abb88d3a3/botocore-1.19.9.tar.gz"
-    sha256 "ffba3a407e2b9fbd958c9b3d089de8831015572e06b23b6203f434257a8d08c0"
+    url "https://files.pythonhosted.org/packages/ad/4b/6fba62a48d803e88ebede6b50c2b03c4df61b5e52ffc290e64316244cf62/botocore-1.19.11.tar.gz"
+    sha256 "85c49ec723e86317af46594f9a1843c6d64ecc3ab43c6e0a58a57d9c7cbbebe5"
   end
 
   resource "cachetools" do
@@ -362,8 +362,8 @@ class Ansible < Formula
   end
 
   resource "openstacksdk" do
-    url "https://files.pythonhosted.org/packages/65/6f/9e82c5607e462bae641df5e6cc23e07d6d8955c21163b51066e50af857a7/openstacksdk-0.50.0.tar.gz"
-    sha256 "2ec441d9f64a2e64d2888d0a4eca2e07c4f6f98251424ec7733dad771a364c55"
+    url "https://files.pythonhosted.org/packages/a1/aa/ac11371cf284f945d91d076e8bf3590133f73cf4a50f8fb67f7aba415d7b/openstacksdk-0.51.0.tar.gz"
+    sha256 "baa56d314567be979d86f1932359962f9fc9d72668d7f065c987ea167e49ac69"
   end
 
   resource "os-client-config" do
