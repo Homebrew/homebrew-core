@@ -1,8 +1,8 @@
 class KitchenSync < Formula
   desc "Fast efficiently sync database without dumping & reloading"
   homepage "https://github.com/willbryant/kitchen_sync"
-  url "https://github.com/willbryant/kitchen_sync/archive/v2.9.tar.gz"
-  sha256 "7e50d275f5a7b47889d7679e5a28545de8e731f7cf12a699b8af42a638b64bfc"
+  url "https://github.com/willbryant/kitchen_sync/archive/v2.10.tar.gz"
+  sha256 "98d2024df192571b7a5b4c21f0522d7d7187ac2a1411051e4594f3a66ebfa1af"
   license "MIT"
   head "https://github.com/willbryant/kitchen_sync.git"
 
@@ -34,7 +34,9 @@ class KitchenSync < Formula
   end
 
   test do
-    output = shell_output("#{bin}/ks --from a://b/ --to c://d/ 2>&1")
-    assert_match "Finished Kitchen Syncing", output
+    output = shell_output("#{bin}/ks --from mysql://b/ --to mysql://d/ 2>&1", 1)
+
+    assert_match "Unknown MySQL server host", output
+    assert_match "Kitchen Syncing failed.", output
   end
 end
