@@ -2,8 +2,8 @@ class K9s < Formula
   desc "Kubernetes CLI To Manage Your Clusters In Style!"
   homepage "https://k9scli.io/"
   url "https://github.com/derailed/k9s.git",
-      tag:      "v0.23.4",
-      revision: "c996ab314b3f229857cf6ddb37d130d4c76f9c4b"
+      tag:      "v0.23.5",
+      revision: "98082eefab68b955090788b63bc5981f7dfea836"
   license "Apache-2.0"
 
   bottle do
