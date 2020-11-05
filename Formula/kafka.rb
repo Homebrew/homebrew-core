@@ -5,6 +5,7 @@ class Kafka < Formula
   mirror "https://archive.apache.org/dist/kafka/2.6.0/kafka_2.13-2.6.0.tgz"
   sha256 "7c789adaa89654d935a5558d0dacff7466e2cfec9620cb8177cec141e7b0fb92"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -17,15 +18,7 @@ class Kafka < Formula
     sha256 "027a1d06325c8b98cca97cc2922fdbf7d980fb52917d1791861032cd501e5428" => :high_sierra
   end
 
-  # Related to https://issues.apache.org/jira/browse/KAFKA-2034
-  # Since Kafka does not currently set the source or target compability version inside build.gradle
-  # if you do not have Java 1.8 installed you cannot used the bottled version of Kafka
-  pour_bottle? do
-    reason "The bottle requires Java 1.8."
-    satisfy { quiet_system("/usr/libexec/java_home --version 1.8 --failfast") }
-  end
-
-  depends_on java: "1.8"
+  depends_on "openjdk"
   depends_on "zookeeper"
 
   conflicts_with "confluent-platform", because: "both install identically named Kafka related executables"
@@ -44,7 +37,7 @@ class Kafka < Formula
     libexec.install "libs"
 
     prefix.install "bin"
-    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
+    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env)
     Dir["#{bin}/*.sh"].each { |f| mv f, f.to_s.gsub(/.sh$/, "") }
 
     mv "config", "kafka"
