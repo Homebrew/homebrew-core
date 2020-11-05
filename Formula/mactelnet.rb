@@ -3,7 +3,7 @@ class Mactelnet < Formula
   homepage "https://github.com/haakonnessjoen/MAC-Telnet"
   url "https://github.com/haakonnessjoen/MAC-Telnet/archive/v0.4.4.tar.gz"
   sha256 "2e6f041c0ff26597e6551cb564a0e41430a6ae183d31eb216493d862733f4c14"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
