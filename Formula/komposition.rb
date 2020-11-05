@@ -4,7 +4,7 @@ class Komposition < Formula
   url "https://github.com/owickstrom/komposition/archive/v0.2.0.tar.gz"
   sha256 "cedb41c68866f8d6a87579f566909fcd32697b03f66c0e2a700a94b6a9263b88"
   license "MPL-2.0"
-  revision 4
+  revision 5
   head "https://github.com/owickstrom/komposition.git"
 
   bottle do
