@@ -1,8 +1,9 @@
 class KubernetesServiceCatalogClient < Formula
   desc "Consume Services in k8s using the OSB API"
   homepage "https://svc-cat.io/"
-  url "https://github.com/kubernetes-sigs/service-catalog/archive/v0.3.1.tar.gz"
-  sha256 "5b463be2102b32bd5a5fed5d433ef53da4d1f70bf007b5a4b78eee7024ca52e3"
+  url "https://github.com/kubernetes-sigs/service-catalog/archive/v0.3.1.chart.tar.gz"
+  version "0.3.1.chart"
+  sha256 "3bb35a861e65f5d6aa93a2e525aabe33608090d8b2bb40524efb8a918bdb5f6f"
   license "Apache-2.0"
 
   bottle do
