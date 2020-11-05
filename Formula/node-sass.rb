@@ -3,8 +3,8 @@ class NodeSass < Formula
 
   desc "JavaScript implementation of a Sass compiler"
   homepage "https://github.com/sass/dart-sass"
-  url "https://registry.npmjs.org/sass/-/sass-1.28.0.tgz"
-  sha256 "80f84f831bb6ab427a88b7dde766bf5c68add6808a4e98aa7712dec7937bf3f3"
+  url "https://registry.npmjs.org/sass/-/sass-1.29.0.tgz"
+  sha256 "ab8c7ecbc4cec8a6709d1edabf6cd6679b0a870ee5a00d116ad8f708cf897823"
   license "MIT"
 
   livecheck do
@@ -19,9 +19,6 @@ class NodeSass < Formula
   end
 
   depends_on "node"
-
-  # waiting for pull request at #47438
-  # conflicts_with "dart-sass", :because => "both install a `sass` binary"
 
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
