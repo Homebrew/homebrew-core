@@ -32,8 +32,8 @@ class Proguard < Formula
 
     expect = <<~EOS
       Picked up _JAVA_OPTIONS: #{ENV["_JAVA_OPTIONS"]}
-      Usage: java proguard.retrace.ReTrace [-regex <regex>] [-verbose] <mapping_file> [<stacktrace_file>]
+      Usage: java proguard.retrace.ReTrace [-regex <regex>] [-allclassnames] [-verbose] <mapping_file> [<stacktrace_file>]
     EOS
-    assert_equal expect, pipe_output("#{bin}/retrace 2>&1")
+    assert_match expect, pipe_output("#{bin}/retrace 2>&1")
   end
 end
