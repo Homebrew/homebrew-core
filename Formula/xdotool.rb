@@ -3,7 +3,7 @@ class Xdotool < Formula
   homepage "https://www.semicomplete.com/projects/xdotool/"
   url "https://github.com/jordansissel/xdotool/archive/v3.20160805.1.tar.gz"
   sha256 "ddafca1239075c203769c17a5a184587731e56fbe0438c09d08f8af1704e117a"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "8dbfb2b1c32176c7cba00aaa2365f3cd438619dc0286e668e5d87412c3717d53" => :catalina
@@ -12,9 +12,10 @@ class Xdotool < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "libx11"
+  depends_on "libxinerama"
   depends_on "libxkbcommon"
-
-  depends_on :x11
+  depends_on "libxtst"
 
   def install
     # Work around an issue with Xcode 8 on El Capitan, which
