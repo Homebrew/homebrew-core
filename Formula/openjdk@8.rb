@@ -87,7 +87,6 @@ class OpenjdkAT8 < Formula
     # Patches must be applied as resources because they assume a
     # full Mercurial "forest" checkout.
     resource("patch").stage(buildpath)
-    resource(r).stage(buildpath)
     patch = Dir["*.patch"].first
     system "patch -g 0 -f -p1 < #{patch}"
     rm patch
