@@ -3,8 +3,8 @@ class AnimeDownloader < Formula
 
   desc "Download your favourite anime"
   homepage "https://github.com/vn-ki/anime-downloader"
-  url "https://files.pythonhosted.org/packages/03/78/167cd1c2fe0ef43a0d137edc148279828ddd69b36b76e87f451b311b8a02/anime-downloader-5.0.1.tar.gz"
-  sha256 "d4e0da2f39edf5f6b4f9481b80a87fde951dbd3b379e8952a62bcc14b9d17371"
+  url "https://files.pythonhosted.org/packages/8b/54/def46a9f9c05c89f8c4080d7df0aba2636bbadd4d1c4624e3a7be704a5d9/anime-downloader-5.0.2.tar.gz"
+  sha256 "c6a117826d6f67986f0c325c06eeca787493a7ee1cc75a4a21fc7eca67c261aa"
   license "Unlicense"
   head "https://github.com/vn-ki/anime-downloader.git"
 
@@ -69,8 +69,8 @@ class AnimeDownloader < Formula
   end
 
   resource "pycryptodome" do
-    url "https://files.pythonhosted.org/packages/4c/2b/eddbfc56076fae8deccca274a5c70a9eb1e0b334da0a33f894a420d0fe93/pycryptodome-3.9.8.tar.gz"
-    sha256 "0e24171cf01021bc5dc17d6a9d4f33a048f09d62cc3f62541e95ef104588bda4"
+    url "https://files.pythonhosted.org/packages/c4/3a/5bca2cb1648b171afd6b7d29a11c6bca8b305bb75b7e2d78a0f5c61ff95e/pycryptodome-3.9.9.tar.gz"
+    sha256 "910e202a557e1131b1c1b3f17a63914d57aac55cf9fb9b51644962841c3995c4"
   end
 
   resource "pySmartDL" do
