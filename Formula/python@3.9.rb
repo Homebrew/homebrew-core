@@ -75,6 +75,16 @@ class PythonAT39 < Formula
     sha256 "99a22d87add3f634ff917310a3d87e499f19e663413a52eb9232c447aa646c9f"
   end
 
+  # Remove this block when upstream adds arm64 and Big Sur compatibility
+  if MacOS.version >= :big_sur
+    # Upstream PRs #20171, #21114, #21224 and #21249
+    # Backport of https://github.com/python/cpython/pull/22855
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/33a9d63f/python/arm64-3.9.patch"
+      sha256 "167e328cf68e9ec142f483fda9fafbb903be9a47dee2826614fdc24b2fbe6e06"
+    end
+  end
+
   def install
     # Unset these so that installing pip and setuptools puts them where we want
     # and not into some other Python the user has installed.
