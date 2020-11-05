@@ -1,8 +1,8 @@
 class Scipy < Formula
   desc "Software for mathematics, science, and engineering"
   homepage "https://www.scipy.org"
-  url "https://files.pythonhosted.org/packages/93/63/4a566494594a13697c5d5d8a754d6e329d018ddf881520775e0229fa29ef/scipy-1.5.3.tar.gz"
-  sha256 "ddae76784574cc4c172f3d5edd7308be16078dd3b977e8746860c76c195fa707"
+  url "https://files.pythonhosted.org/packages/aa/d5/dd06fe0e274e579e1dff21aa021219c039df40e39709fabe559faed072a5/scipy-1.5.4.tar.gz"
+  sha256 "4a453d5e5689de62e5d38edf40af3f17560bfd63c9c5bd228c18c1f99afa155b"
   license "BSD-3-Clause"
   head "https://github.com/scipy/scipy.git"
 
@@ -25,14 +25,6 @@ class Scipy < Formula
   depends_on "python@3.9"
 
   cxxstdlib_check :skip
-
-  # Fix compilation with Xcode 12
-  # https://github.com/scipy/scipy/issues/12935
-  # https://github.com/scipy/scipy/pull/12243
-  patch do
-    url "https://github.com/scipy/scipy/commit/b8e47064.patch?full_index=1"
-    sha256 "2cb39e75f00d89564cdc769598bee2e772f6cb7bde5cc94560a2e588fb7a0027"
-  end
 
   def install
     openblas = Formula["openblas"].opt_prefix
