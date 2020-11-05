@@ -69,16 +69,11 @@ class OpenjdkAT8 < Formula
     sha256 "a5b8c478cd7695bf83210b8e97be3bfc8248c22916cec3b8b869586c3d7f0007"
   end
 
-  # Apply this upstreamed patch series to build on newer Xcode.
+  # Apply this upstreamed patch to build on newer Xcode.
   # https://github.com/AdoptOpenJDK/openjdk-jdk8u/pull/10
-  resource "patch1" do
+  resource "patch" do
     url "https://github.com/AdoptOpenJDK/openjdk-jdk8u/commit/3f637d28dfeba8cf1391c9e70a89c0aac0f2150a.patch?full_index=1"
     sha256 "36bebf72b2972c9fb7766745d67234c7a379d5fcdddec760d8aca9f59a1c1b2d"
-  end
-
-  resource "patch2" do
-    url "https://github.com/AdoptOpenJDK/openjdk-jdk8u/commit/267716c72f8789750f714dc29d4ed1f1f10a4f16.patch?full_index=1"
-    sha256 "e7e1512848270a8e3121fa92524f399ae18504a32e97cb1a43eb2075a54f120b"
   end
 
   def install
@@ -91,12 +86,11 @@ class OpenjdkAT8 < Formula
 
     # Patches must be applied as resources because they assume a
     # full Mercurial "forest" checkout.
-    %w[patch1 patch2].each do |r|
-      resource(r).stage(buildpath)
-      patch = Dir["*.patch"].first
-      system "patch -g 0 -f -p1 < #{patch}"
-      rm patch
-    end
+    resource("patch").stage(buildpath)
+    resource(r).stage(buildpath)
+    patch = Dir["*.patch"].first
+    system "patch -g 0 -f -p1 < #{patch}"
+    rm patch
 
     # Work around clashing -I/usr/include and -isystem headers,
     # as superenv already handles this detail for us.
