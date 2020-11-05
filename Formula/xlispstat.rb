@@ -4,6 +4,7 @@ class Xlispstat < Formula
   url "https://homepage.cs.uiowa.edu/~luke/xls/xlispstat/current/xlispstat-3-52-23.tar.gz"
   version "3.52.23"
   sha256 "9bf165eb3f92384373dab34f9a56ec8455ff9e2bf7dff6485e807767e6ce6cf4"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -15,7 +16,7 @@ class Xlispstat < Formula
     sha256 "c4004c8fc128a187c35923eff3cb0c5a641f7928aff558559279d5d98abe849d" => :yosemite
   end
 
-  depends_on :x11
+  depends_on "libx11"
 
   def install
     system "./configure", "--prefix=#{prefix}", "--disable-debug", "--disable-dependency-tracking"
