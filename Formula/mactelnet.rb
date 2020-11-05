@@ -31,8 +31,8 @@ class Mactelnet < Formula
   end
 
   test do
-    assert_equal "MAC-Ping", shell_output("#{bin}/macping -v")
-    assert_equal "MAC-Telnet", shell_output("#{bin}/mactelnet -v")
-    assert_equal "MAC-Telnet Daemon", shell_output("#{bin}/mactelnetd -v")
+    assert_match "MAC-Ping", shell_output("#{bin}/macping -v")
+    assert_match "MAC-Telnet", shell_output("#{bin}/mactelnet -v")
+    assert_match "MAC-Telnet Daemon", shell_output("#{bin}/mactelnetd -v")
   end
 end
