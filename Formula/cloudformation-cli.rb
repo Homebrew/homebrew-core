@@ -3,8 +3,8 @@ class CloudformationCli < Formula
 
   desc "CloudFormation Provider Development Toolkit"
   homepage "https://github.com/aws-cloudformation/cloudformation-cli/"
-  url "https://files.pythonhosted.org/packages/bc/a9/ea88605e30eb868cbb3505c2b44eed3d1557f6cf3f4af6b56ec8927369bc/cloudformation-cli-0.1.12.tar.gz"
-  sha256 "372e9127bfebcfd81af0f437c7329e487b2dbdffce846c62f98fcd9593ee6c8c"
+  url "https://files.pythonhosted.org/packages/39/6b/141196ead8841ce65d853ffaad0ebdc63068617c930518a939159bb346d2/cloudformation-cli-0.1.13.tar.gz"
+  sha256 "818a359e74ee3934c5e31c1633150636125bc516b3b32c82386eca9db21badf4"
   license "Apache-2.0"
 
   livecheck do
@@ -29,13 +29,13 @@ class CloudformationCli < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/8d/5a/6ccd35b9b8d6a052220ce380bb2b129277e15c2bb71daf8df443ca04d9e3/boto3-1.15.17.tar.gz"
-    sha256 "83fc4652eb102c0ff862061d65280bb1ee6f773043b5231d1badb77681267318"
+    url "https://files.pythonhosted.org/packages/8e/dd/7115a7c23afb833475d15c33773f74e180f27f3ffc7796e74a729bdf51b8/boto3-1.16.11.tar.gz"
+    sha256 "fe5fbcf988e6f5b87a31ddd6ba92a6485d35f666d26b9c9750263aa8b0d33b60"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/c0/9d/017d4f0320cccc5bbce911e2f070ed62e96b3bc4d57e9e66db9b8ec8f659/botocore-1.18.17.tar.gz"
-    sha256 "4cdb114947391c88787df3e2f6a9f53ee15f1e2fef8691963e959858a034bb02"
+    url "https://files.pythonhosted.org/packages/ad/4b/6fba62a48d803e88ebede6b50c2b03c4df61b5e52ffc290e64316244cf62/botocore-1.19.11.tar.gz"
+    sha256 "85c49ec723e86317af46594f9a1843c6d64ecc3ab43c6e0a58a57d9c7cbbebe5"
   end
 
   resource "certifi" do
@@ -49,8 +49,8 @@ class CloudformationCli < Formula
   end
 
   resource "cloudformation-cli-go-plugin" do
-    url "https://files.pythonhosted.org/packages/d2/5e/d8c591e6a142fdab2e83615b01ec69b5cdea2331858af572a4d1cf965b84/cloudformation-cli-go-plugin-2.0.1.tar.gz"
-    sha256 "12208adccf99677545c34da1562b5efce5262b13314b3e9ff0d8cb460486b54f"
+    url "https://files.pythonhosted.org/packages/3e/b3/6ff86d7ff82e5fa1419209ddb4e0225fd47ba21c3efc480259d8c3501c46/cloudformation-cli-go-plugin-2.0.3.tar.gz"
+    sha256 "c621f0c9f85e830b5a6de02a82fad3088923e7237a50c4c982531ed4943da15f"
   end
 
   resource "cloudformation-cli-java-plugin" do
@@ -69,8 +69,8 @@ class CloudformationCli < Formula
   end
 
   resource "hypothesis" do
-    url "https://files.pythonhosted.org/packages/32/51/7c131b250a356a0a563eb8ef9b074b77d0f5ec30389ee0cc5193315137d3/hypothesis-5.37.3.tar.gz"
-    sha256 "54bf2efa1da1286a348c436b4f815284107c6724fb3627f2522c2d02e3e559b5"
+    url "https://files.pythonhosted.org/packages/27/eb/d5623fba156d72d67a945f4d515f5e31d6e23ede343fed2e3dabc3577a71/hypothesis-5.41.1.tar.gz"
+    sha256 "06776c245b5eb25011040f94779fda6bbfa9def72074672af2e79a5e6bce8b38"
   end
 
   resource "idna" do
@@ -129,8 +129,8 @@ class CloudformationCli < Formula
   end
 
   resource "pytest" do
-    url "https://files.pythonhosted.org/packages/c8/a7/b3bdcc52e6143c056e5a42fa1b3e73abc11927c6c58e1667884559d7ddee/pytest-6.1.1.tar.gz"
-    sha256 "8f593023c1a0f916110285b6efd7f99db07d59546e3d8c36fc60e2ab05d3be92"
+    url "https://files.pythonhosted.org/packages/d4/df/bd7c25c4fe809a17315b3fc9878edf48d31dde7b431b6836848b063c0428/pytest-6.1.2.tar.gz"
+    sha256 "c0a7e94a8cdbc5422a51ccdad8e6f1024795939cc89159a0ae7f0b316ad3823e"
   end
 
   resource "pytest-localserver" do
@@ -164,8 +164,8 @@ class CloudformationCli < Formula
   end
 
   resource "semver" do
-    url "https://files.pythonhosted.org/packages/aa/e8/cb894f70a52887f001aff5f264f68272c21fa58268495aca17df396c161f/semver-2.10.2.tar.gz"
-    sha256 "c0a4a9d1e45557297a722ee9bac3de2ec2ea79016b6ffcaca609b0bc62cf4276"
+    url "https://files.pythonhosted.org/packages/31/a9/b61190916030ee9af83de342e101f192bbb436c59be20a4cb0cdb7256ece/semver-2.13.0.tar.gz"
+    sha256 "fa0fe2722ee1c3f57eac478820c3a5ae2f624af8264cbdf9000c980ff7f75e3f"
   end
 
   resource "six" do
@@ -179,13 +179,13 @@ class CloudformationCli < Formula
   end
 
   resource "toml" do
-    url "https://files.pythonhosted.org/packages/da/24/84d5c108e818ca294efe7c1ce237b42118643ce58a14d2462b3b2e3800d5/toml-0.10.1.tar.gz"
-    sha256 "926b612be1e5ce0634a2ca03470f95169cf16f939018233a670519cb4ac58b0f"
+    url "https://files.pythonhosted.org/packages/be/ba/1f744cdc819428fc6b5084ec34d9b30660f6f9daaf70eead706e3203ec3c/toml-0.10.2.tar.gz"
+    sha256 "b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/81/f4/87467aeb3afc4a6056e1fe86626d259ab97e1213b1dfec14c7cb5f538bf0/urllib3-1.25.10.tar.gz"
-    sha256 "91056c15fa70756691db97756772bb1eb9678fa585d9184f24534b100dc60f4a"
+    url "https://files.pythonhosted.org/packages/76/d9/bbbafc76b18da706451fa91bc2ebe21c0daf8868ef3c30b869ac7cb7f01d/urllib3-1.25.11.tar.gz"
+    sha256 "8d7eaa5a82a1cac232164990f04874c594c9453ec55eef02eab885aa02fc17a2"
   end
 
   resource "websocket_client" do
