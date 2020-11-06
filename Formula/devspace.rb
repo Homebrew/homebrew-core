@@ -6,6 +6,11 @@ class Devspace < Formula
     revision: "2b69cf7eee778c892129a7b8233ab7ecd6125690"
   license "Apache-2.0"
 
+  livecheck do
+    url "https://github.com/devspace-cloud/devspace/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "c0c2d22b046ccf22243ddb25b2d07526c36de76fea7c68bace1190b870f9a4a6" => :big_sur
