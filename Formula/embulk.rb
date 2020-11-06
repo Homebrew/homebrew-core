@@ -3,10 +3,11 @@ class Embulk < Formula
   homepage "https://www.embulk.org/"
   # https://www.embulk.org/articles/2020/03/13/embulk-v0.10.html
   # v0.10.* is a "development" series, not for your production use.
-  # In your production, keep using v0.9.*.
-  url "https://github.com/embulk/embulk/releases/download/v0.10.15/embulk-0.10.15.jar"
-  sha256 "4f14f446eafc121297ffa08b17af86eef253289cec71cfe66b6f67059ceeb4e7"
+  # In your production, keep using v0.9.* stable series.
+  url "https://bintray.com/artifact/download/embulk/maven/embulk-0.9.23.jar"
+  sha256 "153977fad482bf52100dd96f47e897c87b48de4fb13bccd6b3101475d3a5ebb9"
   license "Apache-2.0"
+  version_scheme 1
 
   livecheck do
     url :homepage
@@ -15,14 +16,14 @@ class Embulk < Formula
 
   bottle :unneeded
 
-  depends_on java: "1.8"
+  depends_on "openjdk@8"
 
   def install
     # Execute through /bin/bash to be compatible with OS X 10.9.
     libexec.install "embulk-#{version}.jar" => "embulk.jar"
     (bin/"embulk").write <<~EOS
       #!/bin/bash
-      export JAVA_HOME="#{Language::Java.overridable_java_home_env("1.8")[:JAVA_HOME]}"
+      export JAVA_HOME="${JAVA_HOME:-#{Formula["openjdk@8"].opt_prefix}}"
       exec /bin/bash "#{libexec}/embulk.jar" "$@"
     EOS
   end
