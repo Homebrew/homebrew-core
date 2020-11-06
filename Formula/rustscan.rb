@@ -1,10 +1,9 @@
 class Rustscan < Formula
   desc "Modern Day Portscanner"
   homepage "https://github.com/rustscan/rustscan"
-  url "https://github.com/RustScan/RustScan/archive/1.10.1.tar.gz"
-  sha256 "fe47acf9f0fdabfc5e260b0a28cde9349acb347c4214767f89af2dfacff55717"
+  url "https://github.com/RustScan/RustScan/archive/2.0.0.tar.gz"
+  sha256 "94e1a825b0b063e3134d2dfb2b8a047b7527aa5a0ecd83b9627aee0dab1a55e0"
   license "GPL-3.0-or-later"
-  revision 2
 
   bottle do
     cellar :any_skip_relocation
@@ -21,7 +20,7 @@ class Rustscan < Formula
   end
 
   test do
-    assert_no_match /panic/, shell_output("#{bin}/rustscan --greppable 127.0.0.1")
-    assert_no_match /panic/, shell_output("#{bin}/rustscan --greppable 0.0.0.0")
+    assert_no_match /panic/, shell_output("#{bin}/rustscan --greppable -a 127.0.0.1")
+    assert_no_match /panic/, shell_output("#{bin}/rustscan --greppable -a 0.0.0.0")
   end
 end
