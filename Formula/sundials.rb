@@ -1,7 +1,7 @@
 class Sundials < Formula
   desc "Nonlinear and differential/algebraic equations solver"
-  homepage "https://computation.llnl.gov/casc/sundials/main.html"
-  url "https://computation.llnl.gov/projects/sundials/download/sundials-5.5.0.tar.gz"
+  homepage "https://computing.llnl.gov/projects/sundials"
+  url "https://computing.llnl.gov/projects/sundials/download/sundials-5.5.0.tar.gz"
   sha256 "2a755e89aab96d2ff096a4e30bf00bb162e80be20e9e99f424dccfb249098237"
   license "BSD-3-Clause"
 
