@@ -2,8 +2,8 @@ class Ctop < Formula
   desc "Top-like interface for container metrics"
   homepage "https://bcicen.github.io/ctop/"
   url "https://github.com/bcicen/ctop.git",
-    tag:      "v0.7.4",
-    revision: "426dd2c9854786bdfba7a55272256502849ccfb5"
+    tag:      "v0.7.5",
+    revision: "c971d26d42a7998b8883fee32d4b29d424992dec"
   license "MIT"
 
   bottle do
