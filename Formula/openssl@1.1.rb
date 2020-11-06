@@ -21,6 +21,36 @@ class OpensslAT11 < Formula
 
   keg_only :shadowed_by_macos, "macOS provides LibreSSL"
 
+  resource "cacert" do
+    on_linux do
+      # homepage "http://curl.haxx.se/docs/caextract.html"
+      url "https://curl.haxx.se/ca/cacert-2020-01-01.pem"
+      mirror "https://gist.githubusercontent.com/dawidd6/16d94180a019f31fd31bc679365387bc/raw/ef02c78b9d6427585d756528964d18a2b9e318f7/cacert-2020-01-01.pem"
+      sha256 "adf770dfd574a0d6026bfaa270cb6879b063957177a991d453ff1d302c02081f"
+    end
+  end
+
+  resource "Test::Harness" do
+    on_linux do
+      url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Test-Harness-3.42.tar.gz"
+      sha256 "0fd90d4efea82d6e262e6933759e85d27cbcfa4091b14bf4042ae20bab528e53"
+    end
+  end
+
+  resource "Test::More" do
+    on_linux do
+      url "https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302175.tar.gz"
+      sha256 "c8c8f5c51ad6d7a858c3b61b8b658d8e789d3da5d300065df0633875b0075e49"
+    end
+  end
+
+  resource "ExtUtils::MakeMaker" do
+    on_linux do
+      url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.48.tar.gz"
+      sha256 "94e64a630fc37e80c0ca02480dccfa5f2f4ca4b0dd4eeecc1d65acd321c68289"
+    end
+  end
+
   # SSLv2 died with 1.1.0, so no-ssl2 no longer required.
   # SSLv3 & zlib are off by default with 1.1.0 but this may not
   # be obvious to everyone, so explicitly state it for now to
