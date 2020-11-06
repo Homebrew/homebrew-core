@@ -1,10 +1,9 @@
 class Botan < Formula
   desc "Cryptographic algorithms and formats library in C++"
   homepage "https://botan.randombit.net/"
-  url "https://botan.randombit.net/releases/Botan-2.16.0.tar.xz"
-  sha256 "92ed6ebc918d86bd1b04221ca518af4cf29cc326c4760740bd2d22e61cea2628"
+  url "https://botan.randombit.net/releases/Botan-2.17.0.tar.xz"
+  sha256 "b97044b312aa718349af7851331b064bc7bd5352400d5f80793bace427d01343"
   license "BSD-2-Clause"
-  revision 1
   head "https://github.com/randombit/botan.git"
 
   bottle do
