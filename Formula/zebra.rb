@@ -1,8 +1,8 @@
 class Zebra < Formula
   desc "Information management system"
   homepage "https://www.indexdata.com/zebra"
-  url "http://ftp.indexdata.dk/pub/zebra/idzebra-2.2.1.tar.gz"
-  sha256 "539825f2be01ef287b686ea1d7f858e4473873526f2e5bf3ad8f0123d7d07910"
+  url "http://ftp.indexdata.dk/pub/zebra/idzebra-2.2.2.tar.gz"
+  sha256 "513c2bf272e12745d4a7b58599ded0bc1292a84e9dc420a32eb53b6601ae0000"
 
   livecheck do
     url "https://www.indexdata.com/resources/software/zebra"
