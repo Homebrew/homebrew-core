@@ -1,10 +1,9 @@
 class Pushpin < Formula
   desc "Reverse proxy for realtime web services"
   homepage "https://pushpin.org/"
-  url "https://dl.bintray.com/fanout/source/pushpin-1.30.0.tar.bz2"
-  sha256 "927d83919d193e19e03d9217ece495c1a5c22bfcc344b19a6e948d206c3e1ddc"
-  license "AGPL-3.0"
-  revision 1
+  url "https://dl.bintray.com/fanout/source/pushpin-1.31.0.tar.bz2"
+  sha256 "62504863297a8ec1833486affaff91fade7a970dd43b9c8c2add5944603481ac"
+  license "AGPL-3.0-or-later"
   head "https://github.com/fanout/pushpin.git"
 
   bottle do
@@ -14,6 +13,7 @@ class Pushpin < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "condure"
   depends_on "mongrel2"
   depends_on "python@3.9"
   depends_on "qt"
