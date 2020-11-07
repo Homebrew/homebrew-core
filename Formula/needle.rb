@@ -12,14 +12,15 @@ class Needle < Formula
     sha256 "ea9e38d739acc83ca9a58ba10aef72456e73f22e790462f243192db7aa0a814d" => :mojave
   end
 
-  depends_on xcode: ["11.3", :build]
+  depends_on xcode: ["11.6", :build]
   depends_on xcode: "6.0"
 
   def install
     system "make", "archive_generator"
-    bin.install "Generator/bin/needle"
-    lib.install "Generator/bin/lib_InternalSwiftSyntaxParser.dylib"
-    system "install_name_tool", "-change", "@executable_path/lib_InternalSwiftSyntaxParser.dylib" "@executable_path/../lib/lib_InternalSwiftSyntaxParser.dylib", "Generator/bin/needle"
+    system "install_name_tool", "-change", "@executable_path/lib_InternalSwiftSyntaxParser.dylib", "@executable_path/../lib/lib_InternalSwiftSyntaxParser.dylib", "./Generator/bin/needle"
+    bin.install "./Generator/bin/needle"
+    lib.install "./Generator/bin/lib_InternalSwiftSyntaxParser.dylib"
+
   end
 
   test do
