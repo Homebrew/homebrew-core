@@ -4,7 +4,7 @@ class Godep < Formula
   url "https://github.com/tools/godep/archive/v80.tar.gz"
   sha256 "029adc1a0ce5c63cd40b56660664e73456648e5c031ba6c214ba1e1e9fc86cf6"
   license "BSD-3-Clause"
-  revision 41
+  revision 42
   head "https://github.com/tools/godep.git"
 
   bottle do
