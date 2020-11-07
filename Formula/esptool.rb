@@ -63,9 +63,9 @@ class Esptool < Formula
   test do
     require "base64"
 
-    assert_match(/#{version}/, shell_output("#{bin}/esptool.py version"))
-    assert_match(/#{version}/, shell_output("#{bin}/espefuse.py --help"))
-    assert_match(/#{version}/, shell_output("#{bin}/espsecure.py --help"))
+    assert_match version.to_s, shell_output("#{bin}/esptool.py version")
+    assert_match "usage: espefuse.py", shell_output("#{bin}/espefuse.py --help")
+    assert_match version.to_s, shell_output("#{bin}/espsecure.py --help")
 
     (testpath/"helloworld-esp8266.bin").write ::Base64.decode64 <<~EOS
       6QIAICyAEEAAgBBAMAAAAFDDAAAAgP4/zC4AQMwkAEAh/P8SwfAJMQH8/8AAACH5/wH6/8AAAAb//wAABvj/AACA/j8QAAAASGVsbG8gd29ybGQhCgAAAAAAAAAAAAAD
