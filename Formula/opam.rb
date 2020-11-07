@@ -14,6 +14,7 @@ class Opam < Formula
   end
 
   depends_on "ocaml" => [:build, :test]
+  depends_on "gpatch"
 
   uses_from_macos "unzip"
 
