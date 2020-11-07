@@ -3,6 +3,7 @@ class Digdag < Formula
   homepage "https://www.digdag.io/"
   url "https://dl.digdag.io/digdag-0.9.42.jar"
   sha256 "71071424a5beeb881cb4ccb06067a556a3673caf3dc8850dd584357e99134b21"
+  revision 1
 
   livecheck do
     url "https://github.com/treasure-data/digdag.git"
@@ -11,7 +12,7 @@ class Digdag < Formula
 
   bottle :unneeded
 
-  depends_on java: "1.8"
+  depends_on "openjdk@8"
 
   def install
     libexec.install "digdag-#{version}.jar"
