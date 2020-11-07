@@ -4,6 +4,7 @@ class Dmenu < Formula
   url "https://dl.suckless.org/tools/dmenu-5.0.tar.gz"
   sha256 "fe18e142c4dbcf71ba5757dbbdea93b1c67d58fc206fc116664f4336deef6ed3"
   license "MIT"
+  revision 1
   head "https://git.suckless.org/dmenu/", using: :git
 
   livecheck do
@@ -18,13 +19,16 @@ class Dmenu < Formula
     sha256 "ed800e10a28a770ff50b0a4462ecb18406d0dec7a4d59f42885b7f6e8ee387db" => :high_sierra
   end
 
-  depends_on :x11
+  depends_on "fontconfig"
+  depends_on "libx11"
+  depends_on "libxft"
+  depends_on "libxinerama"
 
   def install
-    system "make", "PREFIX=#{prefix}", "install"
+    system "make", "FREETYPEINC=#{HOMEBREW_PREFIX}/include/freetype2", "PREFIX=#{prefix}", "install"
   end
 
   test do
-    assert_match /#{version}/, shell_output("#{bin}/dmenu -v")
+    assert_match "warning: no locale support", shell_output("#{bin}/dmenu 2>&1", 1)
   end
 end
