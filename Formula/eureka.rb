@@ -14,6 +14,7 @@ class Eureka < Formula
   end
 
   depends_on "rust" => :build
+  depends_on "openssl@1.1"
 
   def install
     system "cargo", "install", *std_cargo_args
