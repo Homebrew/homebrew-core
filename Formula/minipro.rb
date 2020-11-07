@@ -1,8 +1,8 @@
 class Minipro < Formula
   desc "Open controller for the MiniPRO TL866xx series of chip programmers"
   homepage "https://gitlab.com/DavidGriffith/minipro/"
-  url "https://gitlab.com/DavidGriffith/minipro/-/archive/0.4/minipro-0.4.tar.gz"
-  sha256 "05e0090eab33a236992f5864f3485924fb5dfad95d8f16916a17296999c094cc"
+  url "https://gitlab.com/DavidGriffith/minipro/-/archive/0.5/minipro-0.5.tar.gz"
+  sha256 "1c7559fd45c5cfc1d83cd0dfe2dd132cb621afbd113ab18dec1b5e6832f7121d"
   license "GPL-3.0"
 
   bottle do
