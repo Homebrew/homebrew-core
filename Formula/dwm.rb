@@ -3,7 +3,8 @@ class Dwm < Formula
   homepage "https://dwm.suckless.org/"
   url "https://dl.suckless.org/dwm/dwm-6.2.tar.gz"
   sha256 "97902e2e007aaeaa3c6e3bed1f81785b817b7413947f1db1d3b62b8da4cd110e"
-  revision 1
+  license "MIT"
+  revision 2
   head "https://git.suckless.org/dwm", using: :git
 
   bottle do
@@ -15,7 +16,9 @@ class Dwm < Formula
   end
 
   depends_on "dmenu"
-  depends_on :x11
+  depends_on "libx11"
+  depends_on "libxft"
+  depends_on "libxinerama"
 
   def install
     # The dwm default quit keybinding Mod1-Shift-q collides with
@@ -24,7 +27,7 @@ class Dwm < Formula
     "{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },",
     "{ MODKEY|ControlMask,           XK_q,      quit,           {0} },"
     inreplace "dwm.1", '.B Mod1\-Shift\-q', '.B Mod1\-Control\-q'
-    system "make", "PREFIX=#{prefix}", "install"
+    system "make", "FREETYPEINC=#{Formula["freetype2"].opt_include}/freetype2", "PREFIX=#{prefix}", "install"
   end
 
   def caveats
@@ -41,6 +44,7 @@ class Dwm < Formula
   end
 
   test do
-    assert_match /#{version}/, shell_output("#{bin}/dwm -v 2>&1", 1)
+    assert_match "dwm: cannot open display", shell_output("DISPLAY= #{bin}/dwm 2>&1", 1)
+    assert_match "dwm-#{version}", shell_output("DISPLAY= #{bin}/dwm -v 2>&1", 1)
   end
 end
