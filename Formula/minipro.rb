@@ -3,7 +3,7 @@ class Minipro < Formula
   homepage "https://gitlab.com/DavidGriffith/minipro/"
   url "https://gitlab.com/DavidGriffith/minipro/-/archive/0.5/minipro-0.5.tar.gz"
   sha256 "1c7559fd45c5cfc1d83cd0dfe2dd132cb621afbd113ab18dec1b5e6832f7121d"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   bottle do
     cellar :any
