@@ -32,12 +32,6 @@ class Fontforge < Formula
 
   uses_from_macos "libxml2"
 
-  # Remove with next release (cmake: adjust Python linkage)
-  # Original patchset: https://github.com/fontforge/fontforge/pull/4258
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/99af4b5/fontforge/20200314.patch"
-    sha256 "3deed4d79a1fdf5fb6de2fca7da8ffe14301acbeb015441574a7a28e902561f5"
-  end
   def install
     mkdir "build" do
       system "cmake", "..",
