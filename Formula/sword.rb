@@ -3,6 +3,7 @@ class Sword < Formula
   homepage "https://www.crosswire.org/sword/index.jsp"
   url "https://www.crosswire.org/ftpmirror/pub/sword/source/v1.9/sword-1.9.0.tar.gz"
   sha256 "42409cf3de2faf1108523e2c5ac0745d21f9ed2a5c78ed878ee9dcc303426b8a"
+  license "GPL-2.0-only"
 
   livecheck do
     url "https://www.crosswire.org/ftpmirror/pub/sword/source/"
