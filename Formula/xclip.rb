@@ -3,7 +3,8 @@ class Xclip < Formula
   homepage "https://github.com/astrand/xclip"
   url "https://github.com/astrand/xclip/archive/0.13.tar.gz"
   sha256 "ca5b8804e3c910a66423a882d79bf3c9450b875ac8528791fb60ec9de667f758"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -16,7 +17,8 @@ class Xclip < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on :x11
+  depends_on "libx11"
+  depends_on "libxmu"
 
   def install
     system "autoreconf", "-fiv"
