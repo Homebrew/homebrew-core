@@ -16,6 +16,8 @@ class Sword < Formula
     sha256 "6bb12d6e5bee18ef39752f365fdb2cfb9ea6347b51db9ee36f8d4a70684dcaa1" => :high_sierra
   end
 
+  uses_from_macos "zlib"
+
   def install
     args = %W[
       --prefix=#{prefix}
