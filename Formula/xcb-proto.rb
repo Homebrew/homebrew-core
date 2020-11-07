@@ -30,6 +30,6 @@ class XcbProto < Formula
   end
 
   test do
-    assert_equal "#{share}/xcb", shell_output("pkg-config --variable=xcbincludedir xcb-proto").chomp
+    assert_match "#{share}/xcb", shell_output("pkg-config --variable=xcbincludedir xcb-proto").chomp
   end
 end
