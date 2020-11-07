@@ -3,7 +3,8 @@ class Sxiv < Formula
   homepage "https://github.com/muennich/sxiv"
   url "https://github.com/muennich/sxiv/archive/v26.tar.gz"
   sha256 "a382ad57734243818e828ba161fc0357b48d8f3a7f8c29cac183492b46b58949"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/muennich/sxiv.git"
 
   bottle do
@@ -16,15 +17,16 @@ class Sxiv < Formula
   depends_on "giflib"
   depends_on "imlib2"
   depends_on "libexif"
-  depends_on :x11
+  depends_on "libx11"
+  depends_on "libxft"
 
   def install
     system "make", "PREFIX=#{prefix}", "AUTORELOAD=nop",
-                   "CPPFLAGS=-I/opt/X11/include", "LDFLAGS=-L/opt/X11/lib",
+                   "CPPFLAGS=-I#{Formula["freetype2"].opt_include}/freetype2",
                    "LDLIBS=-lpthread", "install"
   end
 
   test do
-    system "#{bin}/sxiv", "-v"
+    assert_match "Error opening X display", shell_output("DISPLAY= #{bin}/sxiv #{test_fixtures("test.png")} 2>&1", 1)
   end
 end
