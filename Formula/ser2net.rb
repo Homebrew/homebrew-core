@@ -22,6 +22,8 @@ class Ser2net < Formula
   resource "gensio" do
     url "https://downloads.sourceforge.net/project/ser2net/ser2net/gensio-2.2.0.tar.gz"
     sha256 "006ce4e1fa0786b1abfa18f675cd92f98558f612e6fde6fac8bd5a1e61b5e1c9"
+    # https://sourceforge.net/p/ser2net/news/2020/10/gensio-220-and-ser2net-430-released/
+    patch :DATA
   end
 
   def install
@@ -39,7 +41,6 @@ class Ser2net < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}"
-
     system "make", "install"
 
     (etc/"ser2net").install "ser2net.yaml"
@@ -82,3 +83,19 @@ class Ser2net < Formula
     assert_match version.to_s, shell_output("#{sbin}/ser2net -v")
   end
 end
+
+
+__END__
+diff --git a/lib/gensio_sctp.c b/lib/gensio_sctp.c
+index bd9437f..4278ff8 100644
+--- a/lib/gensio_sctp.c
++++ b/lib/gensio_sctp.c
+@@ -1092,7 +1092,7 @@ str_to_sctp_gensio_accepter(const char *str, const char * const args[],
+ #else
+ 
+ int
+-sctp_gensio_alloc(struct gensio_addr *iai, const char * const args[],
++sctp_gensio_alloc(const struct gensio_addr *iai, const char * const args[],
+ 		  struct gensio_os_funcs *o,
+ 		  gensio_event cb, void *user_data,
+ 		  struct gensio **new_gensio)
