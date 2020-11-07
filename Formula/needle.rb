@@ -16,7 +16,10 @@ class Needle < Formula
   depends_on xcode: "6.0"
 
   def install
-    system "make", "install", "BINARY_FOLDER_PREFIX=#{prefix}"
+    system "make", "archive_generator"
+    bin.install "Generator/bin/needle"
+    lib.install "Generator/bin/lib_InternalSwiftSyntaxParser.dylib"
+    system "install_name_tool", "-change", "@executable_path/lib_InternalSwiftSyntaxParser.dylib" "@executable_path/../lib/lib_InternalSwiftSyntaxParser.dylib", "Generator/bin/needle"
   end
 
   test do
