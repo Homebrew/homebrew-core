@@ -1,10 +1,9 @@
 class Bento4 < Formula
   desc "Full-featured MP4 format and MPEG DASH library and tools"
   homepage "https://www.bento4.com/"
-  url "https://www.bok.net/Bento4/source/Bento4-SRC-1-6-0-632.zip"
-  version "1.6.0-632"
-  sha256 "faa3a406dc24c3d34d29661bbbe94b42c7f7deee9a5c624696a055bb9b7da6ad"
-  revision 2
+  url "https://www.bok.net/Bento4/source/Bento4-SRC-1-6-0-637.zip"
+  version "1.6.0-637"
+  sha256 "ac6628aa46836994d52823a7dddc604d4f32b04c08bde73dcbe5a446a7715420"
 
   livecheck do
     url "https://www.bok.net/Bento4/source/"
