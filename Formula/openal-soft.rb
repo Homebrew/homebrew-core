@@ -1,8 +1,8 @@
 class OpenalSoft < Formula
   desc "Implementation of the OpenAL 3D audio API"
   homepage "https://openal-soft.org/"
-  url "https://openal-soft.org/openal-releases/openal-soft-1.20.1.tar.bz2"
-  sha256 "b6ceb051325732c23f5c8b6d37dbd89534517e6439a87e970882b447c3025d6d"
+  url "https://openal-soft.org/openal-releases/openal-soft-1.21.0.tar.bz2"
+  sha256 "2916b4fc24e23b0271ce0b3468832ad8b6d8441b1830215b28cc4fee6cc89297"
   license "LGPL-2.0"
   head "https://github.com/kcat/openal-soft.git"
 
