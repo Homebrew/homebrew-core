@@ -6,7 +6,7 @@ class Libtensorflow < Formula
   url "https://github.com/tensorflow/tensorflow/archive/v2.3.1.tar.gz"
   sha256 "ee534dd31a811f7a759453567257d1e643f216d8d55a25c32d2fbfff8153a1ac"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -58,6 +58,7 @@ class Libtensorflow < Formula
     ]
     targets = %w[
       tensorflow:libtensorflow.so
+      tensorflow:install_headers
       tensorflow/tools/benchmark:benchmark_model
       tensorflow/tools/graph_transforms:summarize_graph
       tensorflow/tools/graph_transforms:transform_graph
@@ -65,14 +66,7 @@ class Libtensorflow < Formula
     system "bazel", "build", *bazel_args, *targets
 
     lib.install Dir["bazel-bin/tensorflow/*.so*", "bazel-bin/tensorflow/*.dylib*"]
-    (include/"tensorflow/c").install %w[
-      tensorflow/c/c_api.h
-      tensorflow/c/c_api_experimental.h
-      tensorflow/c/tf_attrtype.h
-      tensorflow/c/tf_datatype.h
-      tensorflow/c/tf_status.h
-      tensorflow/c/tf_tensor.h
-    ]
+    (include/"tensorflow/c").install Dir["bazel-bin/tensorflow/include/tensorflow/c/*"]
     bin.install %w[
       bazel-bin/tensorflow/tools/benchmark/benchmark_model
       bazel-bin/tensorflow/tools/graph_transforms/summarize_graph
