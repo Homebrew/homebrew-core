@@ -3,10 +3,9 @@ class Jrnl < Formula
 
   desc "Command-line note taker"
   homepage "https://jrnl.sh/"
-  url "https://files.pythonhosted.org/packages/be/56/20e494eb2a7be914f05c43048ed1e42bc3eb34515319aa1a72e5fabb7d98/jrnl-2.4.5.tar.gz"
-  sha256 "a5f069efcaa3f5d95cc7712178b3f92915f67eed4034e5f257cc063c6b0e74d9"
+  url "https://files.pythonhosted.org/packages/b2/38/d8bec99bbc94d8bab97e9432bd4878f7c98826caa0d228604b6fcd2248d3/jrnl-2.5.tar.gz"
+  sha256 "3984d402feb18538fca6bbba3e0b9900b2f78af0a800fffa735ab9b08896ffda"
   license "GPL-3.0-only"
-  revision 1
 
   livecheck do
     url :stable
@@ -33,28 +32,28 @@ class Jrnl < Formula
   end
 
   resource "asteval" do
-    url "https://files.pythonhosted.org/packages/e4/3b/8aaee90977588fa3e88d7a495af306d6f4a1c1c01c8f0fe0de1fc43d0908/asteval-0.9.18.tar.gz"
-    sha256 "5d64e18b8a72c2c7ae8f9b70d1f80b68bbcaa98c1c0d7047c35489d03209bc86"
+    url "https://files.pythonhosted.org/packages/4d/35/140edd280047b77aef487a8840c0f60372ab15210eb8064e5de9b832730c/asteval-0.9.19.tar.gz"
+    sha256 "445f3a59df692c0c0ff2868c0bbf9b293884db4a9f9a13c73555485ba75ed08b"
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/54/1d/15eae71ab444bd88a1d69f19592dcf32b9e3166ecf427dd9243ef0d3b7bc/cffi-1.14.1.tar.gz"
-    sha256 "b2a2b0d276a136146e012154baefaea2758ef1f56ae9f4e01c612b0831e0bd2f"
+    url "https://files.pythonhosted.org/packages/cb/ae/380e33d621ae301770358eb11a896a34c34f30db188847a561e8e39ee866/cffi-1.14.3.tar.gz"
+    sha256 "f92f789e4f9241cd262ad7a555ca2c648a98178a953af117ef7fad46aa1d5591"
   end
 
   resource "colorama" do
-    url "https://files.pythonhosted.org/packages/82/75/f2a4c0c94c85e2693c229142eb448840fba0f9230111faa889d1f541d12d/colorama-0.4.3.tar.gz"
-    sha256 "e96da0d330793e2cb9485e9ddfd918d456036c7149416295932478192f4436a1"
+    url "https://files.pythonhosted.org/packages/1f/bb/5d3246097ab77fa083a61bd8d3d527b7ae063c7d8e8671b1cf8c4ec10cbe/colorama-0.4.4.tar.gz"
+    sha256 "5941b2b48a20143d2267e95b1c2a7603ce057ee39fd88e7329b0c292aa16869b"
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/56/3b/78c6816918fdf2405d62c98e48589112669f36711e50158a0c15d804c30d/cryptography-2.9.2.tar.gz"
-    sha256 "a0c30272fb4ddda5f5ffc1089d7405b7a71b0b0f51993cb4e5dbb4590b2fc229"
+    url "https://files.pythonhosted.org/packages/94/5c/42de91c7fbdb817b2d9a4e64b067946eb38a4eb36c1a09c96c87a0f86a82/cryptography-3.2.1.tar.gz"
+    sha256 "d3d5e10be0cf2a12214ddee45c6bd203dab435e3d83b4560c03066eda600bfe3"
   end
 
   resource "keyring" do
-    url "https://files.pythonhosted.org/packages/a6/52/eb8a0e13b54ec9240c7dd68fcd0951c52f62033d438af372831af770f7cc/keyring-21.2.1.tar.gz"
-    sha256 "c53e0e5ccde3ad34284a40ce7976b5b3a3d6de70344c3f8ee44364cc340976ec"
+    url "https://files.pythonhosted.org/packages/c9/5a/c7aefc112d75872ea2099c494b84ba6e108b20584264929e614c60939368/keyring-21.5.0.tar.gz"
+    sha256 "207bd66f2a9881c835dad653da04e196c678bf104f8252141d2d3c4f31051579"
   end
 
   resource "packaging" do
@@ -68,8 +67,8 @@ class Jrnl < Formula
   end
 
   resource "passlib" do
-    url "https://files.pythonhosted.org/packages/6d/6b/4bfca0c13506535289b58f9c9761d20f56ed89439bfe6b8e07416ce58ee1/passlib-1.7.2.tar.gz"
-    sha256 "8d666cef936198bc2ab47ee9b0410c94adf2ba798e5a84bf220be079ae7ab6a8"
+    url "https://files.pythonhosted.org/packages/b6/06/9da9ee59a67fae7761aab3ccc84fa4f3f33f125b370f1ccdb915bf967c11/passlib-1.7.4.tar.gz"
+    sha256 "defd50f72b65c5402ab2c573830a6978e5f202ad0d984793c8dde2c4152ebe04"
   end
 
   resource "pycparser" do
@@ -88,8 +87,8 @@ class Jrnl < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/f4/f6/94fee50f4d54f58637d4b9987a1b862aeb6cd969e73623e02c5c00755577/pytz-2020.1.tar.gz"
-    sha256 "c35965d010ce31b23eeb663ed3cc8c906275d6be1a34393a1d73a41febf4a048"
+    url "https://files.pythonhosted.org/packages/09/07/448a8887c7195450604dfc0305d80d74324c36ee18ed997664051d4bffe3/pytz-2020.4.tar.gz"
+    sha256 "3e6b7dd2d1e0a59084bcee14a17af60c5c562cdc16d828e8eba2e683d3a7e268"
   end
 
   resource "pyxdg" do
@@ -137,10 +136,6 @@ class Jrnl < Formula
       sha256 "15da8a989b65498e29be338b3b279965f1b8f09b9668bd8010da183024c8bff6"
     end
   end
-
-  # just the pyproject.toml change already merged in https://github.com/jrnl-org/jrnl/pull/1054
-  # remove in next release
-  patch :DATA
 
   def install
     virtualenv_install_with_resources
@@ -210,19 +205,3 @@ class Jrnl < Formula
     assert_predicate testpath/"test.txt", :exist?
   end
 end
-
-__END__
-diff --git a/pyproject.toml b/pyproject.toml
-index 982a7b3..6485ff1 100644
---- a/pyproject.toml
-+++ b/pyproject.toml
-@@ -16,7 +16,7 @@ homepage = "https://jrnl.sh"
- repository = "https://github.com/jrnl-org/jrnl"
-
- [tool.poetry.dependencies]
--python = ">=3.6.0, <3.9.0"
-+python = ">=3.6.0, <3.10.0"
- pyxdg = "^0.26.0"
- cryptography = "^2.7"
- passlib = "^1.7"
-dustin@mbair ~/jrn
