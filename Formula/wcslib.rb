@@ -3,7 +3,12 @@ class Wcslib < Formula
   homepage "https://www.atnf.csiro.au/people/mcalabre/WCS/"
   url "https://www.atnf.csiro.au/pub/software/wcslib/wcslib-7.3.tar.bz2"
   sha256 "4b01cf425382a26ca4f955ed6841a5f50c55952a2994367f8e067e4183992961"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?wcslib\.t.+?WCSLIB v?(\d+(?:\.\d+)+)</im)
+  end
 
   bottle do
     cellar :any
