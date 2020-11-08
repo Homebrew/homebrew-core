@@ -19,7 +19,7 @@ class X265 < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "nasm" => :build
+  depends_on "nasm" => :build if Hardware::CPU.intel?
 
   def install
     # Work around Xcode 11 clang bug
