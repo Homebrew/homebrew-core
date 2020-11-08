@@ -33,7 +33,7 @@ class Fish < Formula
     # Backport of https://github.com/fish-shell/fish-shell/issues/6952
     # See https://github.com/fish-shell/fish-shell/issues/7467
     # Remove in 3.2.0
-    inreplace "CMakeLists.txt", "CODESIGN_ON_MAC(${target})", ""
+    inreplace "CMakeLists.txt", "CODESIGN_ON_MAC(${target})", "" if build.stable?
 
     # In Homebrew's 'superenv' sed's path will be incompatible, so
     # the correct path is passed into configure here.
