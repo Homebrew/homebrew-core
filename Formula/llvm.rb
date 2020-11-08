@@ -62,17 +62,23 @@ class Llvm < Formula
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
+  # Upstream ARM patch for OpenMP runtime, remove in next version
+  # https://reviews.llvm.org/D91002
+  # https://bugs.llvm.org/show_bug.cgi?id=47609
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/6166a68c/llvm/openmp_arm.patch"
+    sha256 "70fe3836b423e593688cd1cc7a3d76ee6406e64b9909f1a2f780c6f018f89b1e"
+  end
+
   def install
     projects = %w[
       clang
       clang-tools-extra
       lld
       lldb
+      openmp
       polly
     ]
-    # OpenMP currently fails to build on ARM
-    # https://github.com/Homebrew/brew/issues/7857#issuecomment-661484670
-    projects << "openmp" unless Hardware::CPU.arm?
     runtimes = %w[
       compiler-rt
       libcxx
