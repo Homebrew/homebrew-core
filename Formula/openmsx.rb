@@ -1,10 +1,9 @@
 class Openmsx < Formula
   desc "MSX emulator"
   homepage "https://openmsx.org/"
-  url "https://github.com/openMSX/openMSX/releases/download/RELEASE_0_15_0/openmsx-0.15.0.tar.gz"
-  sha256 "93f209d8fed2e04e62526469bb6bb431b82ea4d07ecdc45dab2b8cc4ca21d62a"
+  url "https://github.com/openMSX/openMSX/releases/download/RELEASE_16_0/openmsx-16.0.tar.gz"
+  sha256 "055c6d12c8c15eb49be1ce53587f560e53fa05bdb05a56a7a249489fe93fb04e"
   license "GPL-2.0"
-  revision 1
   head "https://github.com/openMSX/openMSX.git"
 
   livecheck do
@@ -20,11 +19,18 @@ class Openmsx < Formula
     sha256 "86fff1a90fff96cb0398184ef7ebdeb804edda4c9d34ee5e7278159df64b10e3" => :high_sierra
   end
 
+  depends_on "alsa-lib"
   depends_on "freetype"
   depends_on "glew"
+  depends_on "libogg"
   depends_on "libpng"
-  depends_on "sdl"
-  depends_on "sdl_ttf"
+  depends_on "libvorbis"
+  depends_on "python@3.9"
+  depends_on "sdl2"
+  depends_on "sdl2_ttf"
+  depends_on "theora"
+
+  uses_from_macos "zlib"
 
   def install
     # Fixes a clang crash; this is an LLVM/Apple bug, not an openmsx bug
