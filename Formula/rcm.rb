@@ -5,6 +5,13 @@ class Rcm < Formula
   sha256 "9b11ae37449cf4d234ec6d1348479bfed3253daba11f7e9e774059865b66c24a"
   license "BSD-3-Clause"
 
+  # The first-party website doesn't appear to provide links to archive files, so
+  # we check the Git repository tags instead.
+  livecheck do
+    url "https://github.com/thoughtbot/rcm.git"
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "86ac10a7254567afb24c9816f6a80dd90a81bc8cd8619c112e59c0950929ef14" => :catalina
