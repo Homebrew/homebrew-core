@@ -6,11 +6,12 @@ class Intercal < Formula
   license "GPL-2.0"
 
   # The latest version tags in the Git repository are `0.31` (2019-06-12) and
-  # `0.30` (2015-04-02) but versions before these are like `1.27` (2010-08-25),
-  # `1.26` (2010-08-25), etc. The older releases like `1.27` and `1.26` are like orphan
-  # releases, so we can only work around this by restricting matching
-  # to 0.x releases for now. If the major version reaches 1.x in the
-  # future, this check will also need to be updated.
+  # `0.30` (2015-04-02) but there are older versions like `1.27` (2010-08-25)
+  # and `1.26` (2010-08-25). These two older 1.x releases are wrongly treated
+  # as newer but the GitLab project doesn't do releases, so we can only
+  # reference the tags. We work around this by restricting matching to 0.x
+  # releases for now. If the major version reaches 1.x in the future, this
+  # check will also need to be updated.
   livecheck do
     url :head
     regex(/^v?(0(?:\.\d+)+)$/i)
