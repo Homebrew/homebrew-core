@@ -5,6 +5,15 @@ class Crfxx < Formula
   mirror "https://drive.google.com/uc?id=0B4y35FiV1wh7QVR6VXJ5dWExSTQ&export=download"
   sha256 "9d1c0a994f25a5025cede5e1d3a687ec98cd4949bfb2aae13f2a873a13259cb2"
 
+  # Archive files from upstream are hosted on Google Drive, so we can't identify
+  # versions from the tarballs, as the links on the homepage don't include this
+  # information. This identifies versions from the "News" sections, which works
+  # for now but may encounter issues in the future due to the loose regex.
+  livecheck do
+    url :homepage
+    regex(/CRF\+\+ v?(\d+(?:\.\d+)+)[\s<]/i)
+  end
+
   bottle do
     cellar :any
     rebuild 2
