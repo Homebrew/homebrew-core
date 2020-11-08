@@ -3,7 +3,8 @@ class Nedit < Formula
   homepage "https://sourceforge.net/projects/nedit/"
   url "https://downloads.sourceforge.net/project/nedit/nedit-source/nedit-5.7-src.tar.gz"
   sha256 "add9ac79ff973528ad36c86858238bac4f59896c27dbf285cbe6a4d425fca17a"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -17,8 +18,14 @@ class Nedit < Formula
     sha256 "74a4e728ef503642b5ad4dc4466f26a2d6f241e7d495099c8b14defd4e12f350" => :high_sierra
   end
 
+  depends_on "libice"
+  depends_on "libsm"
+  depends_on "libx11"
+  depends_on "libxext"
+  depends_on "libxp"
+  depends_on "libxpm"
+  depends_on "libxt"
   depends_on "openmotif"
-  depends_on :x11
 
   def install
     system "make", "macosx", "MOTIFLINK='-lXm'"
@@ -34,7 +41,7 @@ class Nedit < Formula
   end
 
   test do
-    system bin/"nedit", "-version"
-    system bin/"ncl", "-version"
+    assert_match "Can't open display", shell_output("DISPLAY= #{bin}/nedit 2>&1", 1)
+    assert_match "Can't open display", shell_output("DISPLAY= #{bin}/ncl 2>&1", 1)
   end
 end
