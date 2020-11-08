@@ -19,6 +19,14 @@ class Libomp < Formula
 
   depends_on "cmake" => :build
 
+  # Upstream patch for ARM, accepted, remove in next version
+  # https://reviews.llvm.org/D91002
+  # https://bugs.llvm.org/show_bug.cgi?id=47609
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/7e2ee1d7/libomp/arm.patch"
+    sha256 "6de9071e41a166b74d29fe527211831d2f8e9cb031ad17929dece044f2edd801"
+  end
+
   def install
     # Disable LIBOMP_INSTALL_ALIASES, otherwise the library is installed as
     # libgomp alias which can conflict with GCC's libgomp.
