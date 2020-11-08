@@ -5,6 +5,11 @@ class Telnetd < Formula
   sha256 "13858ef1018f41b93026302840e832c2b65289242225c5a19ce5e26f84607f15"
   license all_of: ["BSD-4-Clause-UC", "BSD-3-Clause"]
 
+  livecheck do
+    url "https://opensource.apple.com/tarballs/remote_cmds/"
+    regex(/href=.*?remote_cmds[._-]v?(\d+(?:\.\d+)*)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "16f053b3bdfe04dcad271f63cd1f7e6ccc312ddb410081f4f729d12bc80eceb9" => :catalina
