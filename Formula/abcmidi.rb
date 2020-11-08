@@ -23,12 +23,6 @@ class Abcmidi < Formula
     # be overridden and will be chosen over the "Makefile" file.
     rm "makefile"
 
-    # Fix the build issue (remove in the next release)
-    inreplace "drawtune.c", "printtext(left, v->place->item, &textfont);",
-                            "printtext(left, v->place->item.voidptr, &textfont);"
-    inreplace "drawtune.c", "printtext(centre, v->place->item, &textfont);",
-                            "printtext(centre, v->place->item.voidptr, &textfont);"
-
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}"
