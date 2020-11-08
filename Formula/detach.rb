@@ -5,6 +5,11 @@ class Detach < Formula
   sha256 "b2070e708d4fe3a84197e2a68f25e477dba3c2d8b1f9ce568f70fc8b8e8a30f0"
   license "MIT"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?detach[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "dbd06a1dcb4592035dff0b4df0cc3259c2dbb444acdb1553ab2a2d4edf3fff57" => :catalina
