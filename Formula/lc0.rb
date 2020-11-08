@@ -24,6 +24,9 @@ class Lc0 < Formula
   end
 
   def install
+    # since default meson behavior is disabling fallback deps, explicitly specify the eigen dep
+    inreplace "meson.build", "('eigen3'", "('eigen'"
+
     system "meson", *std_meson_args, "-Dgtest=false", "build/release"
 
     cd "build/release" do
