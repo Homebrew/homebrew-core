@@ -1,8 +1,8 @@
 class Onefetch < Formula
   desc "Git repository summary on your terminal"
   homepage "https://github.com/o2sh/onefetch"
-  url "https://github.com/o2sh/onefetch/archive/v2.7.0.tar.gz"
-  sha256 "7d9f060c2b9fd683006373ea6fb1368c147e0b84edebc261bf4468bfdd3f7358"
+  url "https://github.com/o2sh/onefetch/archive/v2.7.1.tar.gz"
+  sha256 "ac2129ecc0ac1bf5ee9bf8a6511f3cfe9b53c873860745346c060ecc8f902848"
   license "MIT"
 
   bottle do
