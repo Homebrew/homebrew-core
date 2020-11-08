@@ -3,6 +3,8 @@ class Morse < Formula
   homepage "http://www.catb.org/~esr/morse/"
   url "http://www.catb.org/~esr/morse/morse-2.5.tar.gz"
   sha256 "476d1e8e95bb173b1aadc755db18f7e7a73eda35426944e1abd57c20307d4987"
+  license "BSD-2-Clause"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -14,11 +16,15 @@ class Morse < Formula
     sha256 "c89c45cdc2ff59d6ac327188c484659c769fe94a07e5e1f38f4d568f0b1a943d" => :yosemite
   end
 
-  depends_on :x11
+  depends_on "libx11"
 
   def install
     system "make", "all", "DEVICE=X11"
     bin.install "morse"
     man1.install "morse.1"
+  end
+
+  test do
+    system "#{bin}/morse"
   end
 end
