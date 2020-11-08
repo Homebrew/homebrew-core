@@ -1,8 +1,8 @@
 class Gravity < Formula
   desc "Embeddable programming language"
   homepage "https://marcobambini.github.io/gravity/"
-  url "https://github.com/marcobambini/gravity/archive/0.7.9.tar.gz"
-  sha256 "6fb79176b991420fed4d19dc6e831d4cd8b0b5a591257a32b1eb64fe03530dfa"
+  url "https://github.com/marcobambini/gravity/archive/0.8.0.tar.gz"
+  sha256 "c2a62846110164e6e4f50ca98c3fa38269d84ac9452cb85e75a88f50cec2f53b"
   license "MIT"
 
   bottle do
