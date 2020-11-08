@@ -4,6 +4,10 @@ class Mdf2iso < Formula
   url "https://deb.debian.org/debian/pool/main/m/mdf2iso/mdf2iso_0.3.1.orig.tar.gz"
   sha256 "906f0583cb3d36c4d862da23837eebaaaa74033c6b0b6961f2475b946a71feb7"
 
+  livecheck do
+    skip "No longer developed or maintained"
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 1
