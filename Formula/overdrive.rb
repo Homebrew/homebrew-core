@@ -8,6 +8,11 @@ class Overdrive < Formula
 
   bottle :unneeded
 
+  uses_from_macos "curl"
+  uses_from_macos "libxml2"
+  uses_from_macos "openssl"
+  depends_on "tidy-html5"
+
   def install
     bin.install "overdrive.sh"
   end
