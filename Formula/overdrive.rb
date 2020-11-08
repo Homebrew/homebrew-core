@@ -8,16 +8,17 @@ class Overdrive < Formula
 
   bottle :unneeded
 
+  depends_on "tidy-html5"
   uses_from_macos "curl"
   uses_from_macos "libxml2"
   uses_from_macos "openssl"
-  depends_on "tidy-html5"
 
   def install
     bin.install "overdrive.sh"
   end
 
   test do
-    system "#{bin}/overdrive.sh", "-h"
+    # A full run would require an authentic file, which can only be used once
+    assert_match "warning: failed to load", shell_output("#{bin}/overdrive.sh download fake_file.odm 2>&1", 1)
   end
 end
