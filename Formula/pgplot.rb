@@ -6,7 +6,8 @@ class Pgplot < Formula
   mirror "https://gentoo.osuosl.org/distfiles/pgplot522.tar.gz"
   version "5.2.2"
   sha256 "a5799ff719a510d84d26df4ae7409ae61fe66477e3f1e8820422a9a4727a5be4"
-  revision 9
+  license :cannot_represent
+  revision 10
 
   bottle do
     cellar :any
@@ -17,7 +18,7 @@ class Pgplot < Formula
 
   depends_on "gcc" # for gfortran
   depends_on "libpng"
-  depends_on :x11
+  depends_on "libx11"
 
   # from MacPorts: https://trac.macports.org/browser/trunk/dports/graphics/pgplot/files
   patch :p0 do
