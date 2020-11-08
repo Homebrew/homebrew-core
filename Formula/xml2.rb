@@ -5,6 +5,10 @@ class Xml2 < Formula
   sha256 "e3203a5d3e5d4c634374e229acdbbe03fea41e8ccdef6a594a3ea50a50d29705"
   license "GPL-2.0"
 
+  livecheck do
+    skip "Upstream is gone and the formula uses archive.org URLs"
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 1
