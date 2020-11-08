@@ -3,7 +3,7 @@ class OpenalSoft < Formula
   homepage "https://openal-soft.org/"
   url "https://openal-soft.org/openal-releases/openal-soft-1.21.0.tar.bz2"
   sha256 "2916b4fc24e23b0271ce0b3468832ad8b6d8441b1830215b28cc4fee6cc89297"
-  license "LGPL-2.0"
+  license "LGPL-2.0-or-later"
   head "https://github.com/kcat/openal-soft.git"
 
   bottle do
