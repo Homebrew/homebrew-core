@@ -1,9 +1,8 @@
 class Oniguruma < Formula
   desc "Regular expressions library"
   homepage "https://github.com/kkos/oniguruma/"
-  url "https://github.com/kkos/oniguruma/releases/download/v6.9.5_rev1/onig-6.9.5-rev1.tar.gz"
-  version "6.9.5-rev1"
-  sha256 "d33c849d1672af227944878cefe0a8fcf26fc62bedba32aa517f2f63c314a99e"
+  url "https://github.com/kkos/oniguruma/releases/download/v6.9.6/onig-6.9.6.tar.gz"
+  sha256 "bd0faeb887f748193282848d01ec2dad8943b5dfcb8dc03ed52dcc963549e819"
   license "BSD-2-Clause"
   head "https://github.com/kkos/oniguruma.git"
 
