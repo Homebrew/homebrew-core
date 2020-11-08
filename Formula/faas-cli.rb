@@ -47,7 +47,7 @@ class FaasCli < Formula
     (testpath/"test.yml").write <<~EOS
       provider:
         name: openfaas
-        gateway: http://localhost:#{port}
+        gateway: https://localhost:#{port}
         network: "func_functions"
 
       functions:
@@ -58,15 +58,14 @@ class FaasCli < Formula
     EOS
 
     begin
-      output = shell_output("#{bin}/faas-cli deploy -yaml test.yml 2>&1", 1)
+      output = shell_output("#{bin}/faas-cli deploy --tls-no-verify -yaml test.yml 2>&1", 1)
       assert_match "stat ./template/python/template.yml", output
 
       assert_match "ruby", shell_output("#{bin}/faas-cli template pull 2>&1")
       assert_match "node", shell_output("#{bin}/faas-cli new --list")
 
-      output = shell_output("#{bin}/faas-cli deploy -yaml test.yml")
-      assert_match "Function dummy_function already exists, attempting rolling-update", output
-      assert_match "Deployed. 200 OK", output
+      output = shell_output("#{bin}/faas-cli deploy --tls-no-verify -yaml test.yml", 1)
+      assert_match "Deploying: dummy_function.", output
 
       stable_resource = stable.instance_variable_get(:@resource)
       commit = stable_resource.instance_variable_get(:@specs)[:revision]
