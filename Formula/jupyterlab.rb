@@ -6,6 +6,7 @@ class Jupyterlab < Formula
   url "https://files.pythonhosted.org/packages/83/e8/af2cfb8bbc5fd90f6572e7bca0e73f9d909132b99665e1cc88380dd8bb36/jupyterlab-2.2.9.tar.gz"
   sha256 "3be8f8edea173753dd838c1b6d3bbcb6f5c801121f824a477025c1b6a1d33dc6"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
