@@ -20,6 +20,12 @@ class PandocCiteproc < Formula
     sha256 "dfd25614701ee6cfdbe4ec0d6e67a9e54f6c08ded7f8b3de65f1db621fdc72dc" => :high_sierra
   end
 
+  # https://github.com/jgm/pandoc-citeproc/commit/473378e588c40a6c3cb3b24330431b89cf4f81b4
+  # This package is no longer maintained.
+  # Pandoc now uses the [citeproc](https://github.com/jgm/citeproc)
+  # library, and no external filter is needed.
+  deprecate! date: "2020-10-09", because: :deprecated_upstream
+
   depends_on "cabal-install" => :build
   depends_on "ghc@8.8" => :build
   depends_on "pandoc"
