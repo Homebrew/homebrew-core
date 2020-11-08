@@ -12,6 +12,13 @@ class Bash < Formula
     sha256 "b4a80f2ac66170b2913efbfb9f2594f1f76c7b1afd11f799e22035d63077fb4d"
     version "5.0.18"
 
+    # Fix configure detection of strsignal() and snprintf() with Xcode 12
+    # https://savannah.gnu.org/patch/index.php?9991
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/cda4fced/bash/bash.patch"
+      sha256 "4c478ecedcc33efa1b71679d479453940fb3a210709cd03a00c2b56e64328631"
+    end
+
     %w[
       001 f2fe9e1f0faddf14ab9bfa88d450a75e5d028fedafad23b88716bd657c737289
       002 87e87d3542e598799adb3e7e01c8165bc743e136a400ed0de015845f7ff68707
