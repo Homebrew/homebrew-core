@@ -3,6 +3,8 @@ class MesalibGlw < Formula
   homepage "https://www.mesa3d.org"
   url "https://mesa.freedesktop.org/archive/glw/glw-8.0.0.tar.bz2"
   sha256 "2da1d06e825f073dcbad264aec7b45c649100e5bcde688ac3035b34c8dbc8597"
+  license :cannot_represent
+  revision 1
 
   bottle do
     cellar :any
@@ -14,7 +16,9 @@ class MesalibGlw < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on :x11
+  depends_on "libx11"
+  depends_on "libxt"
+  depends_on "mesa"
 
   def install
     system "./configure", "--disable-debug",
