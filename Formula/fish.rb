@@ -29,6 +29,12 @@ class Fish < Formula
   uses_from_macos "ncurses"
 
   def install
+    # Disable code signing in cmake, so we can codesign ourselves in brew
+    # Backport of https://github.com/fish-shell/fish-shell/issues/6952
+    # See https://github.com/fish-shell/fish-shell/issues/7467
+    # Remove in 3.2.0
+    inreplace "CMakeLists.txt", "CODESIGN_ON_MAC(${target})", ""
+
     # In Homebrew's 'superenv' sed's path will be incompatible, so
     # the correct path is passed into configure here.
     args = %W[
