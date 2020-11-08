@@ -14,7 +14,7 @@ class Saxon < Formula
 
   def install
     libexec.install Dir["*.jar", "doc", "notices"]
-    bin.write_jar_script libexec/"saxon9he.jar", "saxon"
+    bin.write_jar_script libexec/"saxon-he-10.3.jar", "saxon"
   end
 
   test do
@@ -33,7 +33,7 @@ class Saxon < Formula
       </xsl:stylesheet>
     EOS
     assert_equal <<~EOS.chop, shell_output("#{bin}/saxon test.xml test.xsl")
-      <html>
+      <!DOCTYPE HTML><html>
          <body>
             <p>It works!</p>
          </body>
