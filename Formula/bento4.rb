@@ -6,6 +6,11 @@ class Bento4 < Formula
   sha256 "faa3a406dc24c3d34d29661bbbe94b42c7f7deee9a5c624696a055bb9b7da6ad"
   revision 2
 
+  livecheck do
+    url "https://www.bok.net/Bento4/source/"
+    regex(/href=.*?Bento4-SRC[._-]v?(\d+(?:[.-]\d+)+)\.zip/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "3b5840c8f8c049032e39a19a571a616a3faf3157f874f1ed0e22e5e248a3b59b" => :catalina
