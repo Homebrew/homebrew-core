@@ -5,6 +5,11 @@ class Icecast < Formula
   sha256 "49b5979f9f614140b6a38046154203ee28218d8fc549888596a683ad604e4d44"
   revision 1
 
+  livecheck do
+    url "https://downloads.xiph.org/releases/icecast/"
+    regex(/href=.*?icecast[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "824f7d295c28fbdb17da3015b4e4d6ca76be536f6bf81e98d5312dd7b9a095cd" => :catalina
