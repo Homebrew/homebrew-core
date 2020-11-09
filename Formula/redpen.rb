@@ -26,7 +26,7 @@ class Redpen < Formula
   test do
     path = "#{libexec}/sample-doc/en/sampledoc-en.txt"
     output = "#{bin}/redpen -l 20 -c #{libexec}/conf/redpen-conf-en.xml #{path}"
-    match = /sampledoc-en.txt:1: ValidationError[SentenceLength]*/
+    match = "sampledoc-en.txt:1: ValidationError[SentenceLength]"
     assert_match match, shell_output(output).split("\n").find { |line| line.include?("sampledoc-en.txt") }
   end
 end
