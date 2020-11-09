@@ -19,9 +19,19 @@ class Softhsm < Formula
     sha256 "cd17fa2e8538ca99b5963d60074578c91839740e7f87cc292b9b8f4f67dd99d8" => :high_sierra
   end
 
+  head do
+    url "https://github.com/opendnssec/SoftHSMv2.git", branch: "develop"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+    depends_on "pkg-config" => :build
+  end
+
   depends_on "openssl@1.1"
 
   def install
+    system "sh", "./autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
