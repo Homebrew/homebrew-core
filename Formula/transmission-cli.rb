@@ -8,6 +8,7 @@ class TransmissionCli < Formula
 
   livecheck do
     url "https://github.com/transmission/transmission-releases/"
+    strategy :page_match
     regex(/href=.*?transmission[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
