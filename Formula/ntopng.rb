@@ -13,18 +13,18 @@ class Ntopng < Formula
     end
   end
 
+  bottle do
+    sha256 "0f5da1b5b0fe34429ce4c85d246117ccae35d6cc91db37b0606bdcd2cc8a1383" => :catalina
+    sha256 "17616993b42436771976fd8a55bd23147d446e52956f5f96e4fa6685f7c75561" => :mojave
+    sha256 "173a972b8696abeb4f645c2a2ec84fbe5e82b01ff66fa8ef0769906304af65b2" => :high_sierra
+  end
+
   head do
     url "https://github.com/ntop/ntopng.git", branch: "dev"
 
     resource "nDPI" do
       url "https://github.com/ntop/nDPI.git", branch: "dev"
     end
-  end
-
-  bottle do
-    sha256 "0f5da1b5b0fe34429ce4c85d246117ccae35d6cc91db37b0606bdcd2cc8a1383" => :catalina
-    sha256 "17616993b42436771976fd8a55bd23147d446e52956f5f96e4fa6685f7c75561" => :mojave
-    sha256 "173a972b8696abeb4f645c2a2ec84fbe5e82b01ff66fa8ef0769906304af65b2" => :high_sierra
   end
 
   depends_on "autoconf" => :build
