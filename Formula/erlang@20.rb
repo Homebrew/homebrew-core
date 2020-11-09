@@ -14,7 +14,7 @@ class ErlangAT20 < Formula
   end
 
   # Deprecated with OTP-23 release (https://erlang.org/pipermail/erlang-questions/2020-July/099747.html)
-  deprecate! date: "2020-05-13", because: :unsupported
+  disable! date: "2020-05-13", because: :unmaintained
 
   keg_only :versioned_formula
 
@@ -62,10 +62,12 @@ class ErlangAT20 < Formula
       --enable-wx
       --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
       --without-javac
-      --enable-darwin-64bit
     ]
 
-    args << "--with-dynamic-trace=dtrace" if MacOS::CLT.installed?
+    on_macos do
+      args << "--enable-darwin-64bit"
+      args << "--with-dynamic-trace=dtrace" if MacOS::CLT.installed?
+    end
 
     system "./configure", *args
     system "make"
