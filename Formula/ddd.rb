@@ -4,6 +4,7 @@ class Ddd < Formula
   url "https://ftp.gnu.org/gnu/ddd/ddd-3.3.12.tar.gz"
   mirror "https://ftpmirror.gnu.org/ddd/ddd-3.3.12.tar.gz"
   sha256 "3ad6cd67d7f4b1d6b2d38537261564a0d26aaed077bf25c51efc1474d0e8b65c"
+  license all_of: ["GPL-3.0-only", "GFDL-1.1-or-later"]
   revision 1
 
   livecheck do
@@ -19,15 +20,17 @@ class Ddd < Formula
     sha256 "68864faf1967b400bc5df5809ab9ee03a0d632f3736071131dd5469be715c58f" => :el_capitan
   end
 
+  depends_on "gdb" => :test
+  depends_on "libice"
+  depends_on "libsm"
+  depends_on "libx11"
+  depends_on "libxau"
+  depends_on "libxaw"
+  depends_on "libxext"
+  depends_on "libxp"
+  depends_on "libxpm"
+  depends_on "libxt"
   depends_on "openmotif"
-  depends_on :x11
-
-  # Needed for OSX 10.9 DP6 build failure:
-  # https://savannah.gnu.org/patch/?8178
-  patch :p0 do
-    url "https://savannah.gnu.org/patch/download.php?file_id=29114"
-    sha256 "aaacae79ce27446ead3483123abef0f8222ebc13fd61627bfadad96016248af6"
-  end
 
   # https://savannah.gnu.org/bugs/?41997
   patch do
@@ -40,6 +43,13 @@ class Ddd < Formula
   patch :p0 do
     url "https://raw.githubusercontent.com/macports/macports-ports/a71fa9f4/devel/ddd/files/patch-unknown-type-name-a_class.diff"
     sha256 "c187a024825144f186f0cf9cd175f3e972bb84590e62079793d0182cb15ca183"
+  end
+
+  # Patch to fix compilation with Xt 1.2.0
+  # https://savannah.gnu.org/patch/?9992
+  patch do
+    url "https://savannah.gnu.org/patch/download.php?file_id=50229"
+    sha256 "140a1493ab640710738abf67838e63fbb8328590d1d3ab0212e7ca1f378a9ee7"
   end
 
   def install
@@ -63,5 +73,6 @@ class Ddd < Formula
     output = shell_output("#{bin}/ddd --version")
     output.force_encoding("ASCII-8BIT") if output.respond_to?(:force_encoding)
     assert_match version.to_s, output
+    assert_match testpath.to_s, shell_output("printf pwd\\\\nquit | #{bin}/ddd --gdb --nw true 2>&1")
   end
 end
