@@ -67,11 +67,13 @@ class ErlangAT22 < Formula
       --enable-wx
       --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
       --without-javac
-      --enable-darwin-64bit
     ]
 
-    args << "--enable-kernel-poll" if MacOS.version > :el_capitan
-    args << "--with-dynamic-trace=dtrace" if MacOS::CLT.installed?
+    on_macos do
+      args << "--enable-darwin-64bit"
+      args << "--enable-kernel-poll" if MacOS.version > :el_capitan
+      args << "--with-dynamic-trace=dtrace" if MacOS::CLT.installed?
+    end
 
     system "./configure", *args
     system "make"
