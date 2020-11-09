@@ -107,10 +107,10 @@ class ErlangAT22 < Formula
           end;
       main(_) ->
           usage().
-      
+
       usage() ->
           io:format("usage: factorial integer\n").
-      
+
       fac(0) -> 1;
       fac(N) -> N * fac(N-1).
     EOS
