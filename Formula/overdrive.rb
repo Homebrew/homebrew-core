@@ -14,11 +14,11 @@ class Overdrive < Formula
   uses_from_macos "openssl"
 
   def install
-    bin.install "overdrive.sh"
+    bin.install "overdrive.sh" => "overdrive"
   end
 
   test do
     # A full run would require an authentic file, which can only be used once
-    assert_match "warning: failed to load", shell_output("#{bin}/overdrive.sh download fake_file.odm 2>&1", 1)
+    assert_match "warning: failed to load", shell_output("#{bin}/overdrive download fake_file.odm 2>&1", 1)
   end
 end
