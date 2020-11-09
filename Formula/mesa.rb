@@ -69,7 +69,8 @@ class Mesa < Formula
       -L#{Formula["libxext"].lib}
       -lGL
       -lX11
-      -lxext
+      -lXext
+      -lm
     ]
     system ENV.cc, "glxgears.c", "-o", "gears", *flags
   end
