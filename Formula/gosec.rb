@@ -6,7 +6,7 @@ class Gosec < Formula
   license "Apache-2.0"
   head "https://github.com/securego/gosec.git"
 
-  depends_on "go" => :build
+  depends_on "go"
 
   def install
     system "go", "build", *std_go_args, "-ldflags", "-X main.version=v#{version}", "./cmd/gosec"
