@@ -4,7 +4,7 @@ class Remake < Formula
   url "https://downloads.sourceforge.net/project/bashdb/remake/4.3%2Bdbg-1.5/remake-4.3%2Bdbg-1.5.tar.gz"
   version "4.3-1.5"
   sha256 "2e6eb709f3e6b85893f14f15e34b4c9b754aceaef0b92bb6ca3a025f10119d76"
-  license "GPL-3.0"
+  license "GPL-3.0-only"
 
   # We check the "remake" directory page because the bashdb project contains
   # various software and remake releases may be pushed out of the SourceForge
@@ -22,6 +22,8 @@ class Remake < Formula
   end
 
   depends_on "readline"
+
+  conflicts_with "make", because: "both install texinfo files for make"
 
   def install
     system "./configure", "--disable-debug",
