@@ -14,7 +14,7 @@ class Condure < Formula
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  depends_on "python@3.8" => :test
+  depends_on "python@3.9" => :test
   depends_on "zeromq"
 
   resource "pyzmq" do
@@ -36,12 +36,12 @@ class Condure < Formula
     runfile = testpath/"test.py"
 
     resource("pyzmq").stage do
-      system Formula["python@3.8"].opt_bin/"python3",
+      system Formula["python@3.9"].opt_bin/"python3",
       *Language::Python.setup_install_args(testpath/"vendor")
     end
 
     resource("tnetstring3").stage do
-      system Formula["python@3.8"].opt_bin/"python3",
+      system Formula["python@3.9"].opt_bin/"python3",
       *Language::Python.setup_install_args(testpath/"vendor")
     end
 
@@ -85,9 +85,9 @@ class Condure < Formula
     end
 
     begin
-      xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
+      xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
       ENV["PYTHONPATH"] = testpath/"vendor/lib/python#{xy}/site-packages"
-      system Formula["python@3.8"].opt_bin/"python3", runfile
+      system Formula["python@3.9"].opt_bin/"python3", runfile
     ensure
       Process.kill("TERM", pid)
       Process.wait(pid)
