@@ -23,7 +23,7 @@ class Enet < Formula
       #include <enet/enet.h>
       #include <stdio.h>
 
-      int main (int argc, char ** argv) 
+      int main (int argc, char ** argv)
       {
         if (enet_initialize () != 0)
         {
