@@ -19,10 +19,10 @@ class Fontconfig < Formula
   end
 
   pour_bottle? do
-    reason "The bottle needs to be installed into /usr/local."
+    reason "The bottle needs to be installed into #{Homebrew::DEFAULT_PREFIX}."
     # c.f. the identical hack in lua
     # https://github.com/Homebrew/homebrew/issues/47173
-    satisfy { HOMEBREW_PREFIX.to_s == "/usr/local" }
+    satisfy { HOMEBREW_PREFIX.to_s == Homebrew::DEFAULT_PREFIX }
   end
 
   head do
@@ -64,6 +64,9 @@ class Fontconfig < Formula
     font_dirs << Dir["/System/Library/Assets{,V2}/com_apple_MobileAsset_Font*"].max if MacOS.version >= :sierra
 
     system "autoreconf", "-iv" if build.head?
+    on_linux do
+      ENV["UUID_CFLAGS"] = "-I#{Formula["util-linux"].include}"
+    end
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--enable-static",
