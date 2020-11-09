@@ -37,7 +37,7 @@ class GulpCli < Formula
       function defaultTask(cb) {
         cb();
       }
-      exports.default = defaultTask    
+      exports.default = defaultTask
     EOS
     assert_match "Finished 'default' after ", shell_output("#{bin}/gulp")
   end
