@@ -17,10 +17,9 @@ class Needle < Formula
 
   def install
     system "make", "archive_generator"
-    system "install_name_tool", "-change", "@executable_path/lib_InternalSwiftSyntaxParser.dylib", "@executable_path/../lib/lib_InternalSwiftSyntaxParser.dylib", "./Generator/bin/needle"
+    system "install_name_tool", "-change", "@executable_path/lib_InternalSwiftSyntaxParser.dylib", "@executable_path/../libexec/lib_InternalSwiftSyntaxParser.dylib", "./Generator/bin/needle"
     bin.install "./Generator/bin/needle"
-    lib.install "./Generator/bin/lib_InternalSwiftSyntaxParser.dylib"
-
+    libexec.install "./Generator/bin/lib_InternalSwiftSyntaxParser.dylib"
   end
 
   test do
