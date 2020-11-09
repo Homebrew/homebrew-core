@@ -24,7 +24,7 @@ class Duckscript < Formula
   test do
     (testpath/"hello.ds").write <<~EOS
       out = set "Hello World"
-      echo The out variable holds the value: ${out}    
+      echo The out variable holds the value: ${out}
     EOS
     output = shell_output("#{bin}/duck hello.ds")
     assert_match "The out variable holds the value: Hello World", output
