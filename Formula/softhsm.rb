@@ -3,6 +3,7 @@ class Softhsm < Formula
   homepage "https://www.opendnssec.org/softhsm/"
   url "https://dist.opendnssec.org/source/softhsm-2.6.1.tar.gz"
   sha256 "61249473054bcd1811519ef9a989a880a7bdcc36d317c9c25457fc614df475f2"
+  license "BSD-2-Clause"
 
   # We check the GitHub repo tags instead of https://dist.opendnssec.org/source/
   # since the aforementioned first-party URL has a tendency to lead to an
