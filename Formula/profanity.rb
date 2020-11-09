@@ -29,9 +29,12 @@ class Profanity < Formula
   depends_on "libstrophe"
   depends_on "openssl@1.1"
   depends_on "readline"
-  depends_on "terminal-notifier"
 
   uses_from_macos "curl"
+
+  on_macos do
+    depends_on "terminal-notifier"
+  end
 
   def install
     system "./bootstrap.sh" if build.head?
