@@ -19,7 +19,7 @@ class Ocaml < Formula
   head "https://github.com/ocaml/ocaml.git", branch: "trunk"
 
   livecheck do
-    url "https://ocaml.org/releases"
+    url "https://ocaml.org/releases/"
     regex(/href=.*?v?(\d+(?:\.\d+)+)\.html/i)
   end
 
