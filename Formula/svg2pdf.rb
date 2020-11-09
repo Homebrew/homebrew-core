@@ -6,6 +6,11 @@ class Svg2pdf < Formula
   license "LGPL-2.1"
   revision 1
 
+  livecheck do
+    url "https://cairographics.org/snapshots/"
+    regex(/href=.*?svg2pdf[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "7dff42459bf1ab33b0938f062d42c1857cb8274d1935f356b4f7dec76aac865c" => :catalina
