@@ -19,6 +19,10 @@ class Bettercap < Formula
 
   uses_from_macos "libpcap"
 
+  on_linux do
+    depends_on "libnetfilter-queue"
+  end
+
   def install
     system "make", "build"
     bin.install "bettercap"
