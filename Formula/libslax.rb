@@ -6,7 +6,7 @@ class Libslax < Formula
   license "BSD-3-Clause"
 
   livecheck do
-    url "https://github.com/Juniper/libslax/releases"
+    url "https://github.com/Juniper/libslax/releases/latest"
     regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
   end
 
