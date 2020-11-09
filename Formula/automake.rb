@@ -28,7 +28,9 @@ class Automake < Formula
   end
 
   def install
-    ENV["PERL"] = "/usr/bin/perl"
+    on_macos do
+      ENV["PERL"] = "/usr/bin/perl"
+    end
 
     resource("config").stage do
       cp Dir["config.*"], buildpath/"lib"
