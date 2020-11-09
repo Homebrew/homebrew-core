@@ -1,10 +1,8 @@
 class Miniserve < Formula
   desc "High performance static file server"
   homepage "https://github.com/svenstaro/miniserve"
-  # Bumpable only when it doesn't use features only available in Rust Nightly.
-  # Check for resolution of https://github.com/svenstaro/miniserve/issues/291.
-  url "https://github.com/svenstaro/miniserve/archive/v0.3.0.tar.gz"
-  sha256 "80ee5d661730ddad14671f961b560467f3b3a9f0544b9b11dec65098eb4a1f7e"
+  url "https://github.com/svenstaro/miniserve/archive/v0.10.3.tar.gz"
+  sha256 "315f8a96253f831100b13584d6d89207d9fd2a7b53823cea5a1a4e3e84d39593"
   license "MIT"
 
   bottle do
