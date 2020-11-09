@@ -4,7 +4,7 @@ class Zbar < Formula
   url "https://github.com/mchehab/zbar/archive/0.23.1.tar.gz"
   sha256 "297439f8859089d2248f55ab95b2a90bba35687975365385c87364c77fdb19f3"
   license "LGPL-2.1-only"
-  revision 10
+  revision 11
   head "https://github.com/mchehab/zbar.git"
 
   livecheck do
