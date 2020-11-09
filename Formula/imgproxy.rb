@@ -4,6 +4,7 @@ class Imgproxy < Formula
   url "https://github.com/imgproxy/imgproxy/archive/v2.15.0.tar.gz"
   sha256 "3bee2aecbb66c98c9e1254a163fb53e32e8af5bf8e3a92f119427113bee01c91"
   license "MIT"
+  revision 1
   head "https://github.com/imgproxy/imgproxy.git"
 
   bottle do
