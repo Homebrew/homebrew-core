@@ -16,6 +16,7 @@ class Condure < Formula
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "python@3.9" => :test
+  depends_on "openssl"
   depends_on "zeromq"
 
   resource "pyzmq" do
