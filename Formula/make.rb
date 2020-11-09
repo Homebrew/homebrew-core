@@ -4,7 +4,7 @@ class Make < Formula
   url "https://ftp.gnu.org/gnu/make/make-4.3.tar.lz"
   mirror "https://ftpmirror.gnu.org/make/make-4.3.tar.lz"
   sha256 "de1a441c4edf952521db30bfca80baae86a0ff1acd0a00402999344f04c45e82"
-  license "GPL-3.0"
+  license "GPL-3.0-only"
 
   livecheck do
     url :stable
@@ -15,6 +15,8 @@ class Make < Formula
     sha256 "50ac9c7185e08349c35531d8ee30e755713aec340229cab2008ba1a2ceac15c9" => :mojave
     sha256 "e7f49884dbeaae3e7ccc9dc3a58fec587c2a594f50314dbc33cde44c6f807f53" => :high_sierra
   end
+
+  conflicts_with "remake", because: "both install texinfo files for make"
 
   def install
     args = %W[
