@@ -55,9 +55,8 @@ class Lesstif < Formula
 
   def caveats
     <<~EOS
-      The man page for Core.3 has been renamed to LessTifCore.3 to 
-      avoid conflicts with CORE.3 from Perl in case-insensitive file 
-      systems. Please use "man LessTifCore" instead.
+      The manpage was renamed to avoid a conflict with Perl. To read it, run:
+        man LessTifCore
     EOS
   end
 end
