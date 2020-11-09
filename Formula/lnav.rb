@@ -6,7 +6,7 @@ class Lnav < Formula
   license "BSD-2-Clause"
 
   livecheck do
-    url "https://github.com/tstack/lnav/releases"
+    url "https://github.com/tstack/lnav/releases/latest"
     regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
   end
 
