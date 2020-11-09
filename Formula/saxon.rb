@@ -14,7 +14,7 @@ class Saxon < Formula
 
   def install
     libexec.install Dir["*.jar", "doc", "notices"]
-    bin.write_jar_script libexec/"saxon-he-10.3.jar", "saxon"
+    bin.write_jar_script libexec/"saxon-he-#{version.major_minor}.jar", "saxon"
   end
 
   test do
