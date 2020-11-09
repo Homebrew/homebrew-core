@@ -24,6 +24,15 @@ class Bzip2 < Formula
     inreplace "Makefile", "$(PREFIX)/man", "$(PREFIX)/share/man"
 
     system "make", "install", "PREFIX=#{prefix}"
+
+    on_linux do
+      # Install shared libraries
+      system "make", "-f", "Makefile-libbz2_so", "clean"
+      system "make", "-f", "Makefile-libbz2_so"
+      lib.install "libbz2.so.#{version}", "libbz2.so.#{version.major_minor}"
+      lib.install_symlink "libbz2.so.#{version}" => "libbz2.so.#{version.major}"
+      lib.install_symlink "libbz2.so.#{version}" => "libbz2.so"
+    end
   end
 
   test do
