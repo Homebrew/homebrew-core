@@ -5,7 +5,7 @@ class Eigen < Formula
   sha256 "146a480b8ed1fb6ac7cd33fec9eb5e8f8f62c3683b3f850094d9d5c35a92419a"
   license "MPL-2.0"
   revision 1
-  head "https://gitlab.com/libeigen/eigen"
+  head "https://gitlab.com/libeigen/eigen.git"
 
   bottle do
     cellar :any_skip_relocation

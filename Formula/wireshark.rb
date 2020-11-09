@@ -5,7 +5,7 @@ class Wireshark < Formula
   mirror "https://1.na.dl.wireshark.org/src/wireshark-3.4.0.tar.xz"
   sha256 "67e4ebbd9153fc589fd67dc21b93176674c73adc3d5a43934c3ac69d8594a8ae"
   license "GPL-2.0-or-later"
-  head "https://code.wireshark.org/review/wireshark", using: :git
+  head "https://code.wireshark.org/review/wireshark.git"
 
   livecheck do
     url "https://www.wireshark.org/download.html"

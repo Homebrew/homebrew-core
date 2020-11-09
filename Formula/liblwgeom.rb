@@ -4,7 +4,7 @@ class Liblwgeom < Formula
   url "https://download.osgeo.org/postgis/source/postgis-2.5.4.tar.gz"
   sha256 "146d59351cf830e2a2a72fa14e700cd5eab6c18ad3e7c644f57c4cee7ed98bbe"
   revision 1
-  head "https://git.osgeo.org/gitea/postgis/postgis"
+  head "https://git.osgeo.org/gitea/postgis/postgis.git"
 
   livecheck do
     url "https://download.osgeo.org/postgis/source/"

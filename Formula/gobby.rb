@@ -5,7 +5,7 @@ class Gobby < Formula
   sha256 "8ceb3598d27cfccdf9c9889b781c4c5c8e1731ca6beb183f5d4555644c06bd98"
   license "ISC"
   revision 8
-  head "https://github.com/gobby/gobby"
+  head "https://github.com/gobby/gobby.git"
 
   bottle do
     sha256 "5e2914adc88813352b11d1db5e69d2aa9b4612b7fb4ae05443a18b9426a0f26d" => :catalina

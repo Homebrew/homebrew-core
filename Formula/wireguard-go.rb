@@ -4,11 +4,11 @@ class WireguardGo < Formula
   url "https://git.zx2c4.com/wireguard-go/snapshot/wireguard-go-0.0.20200320.tar.xz"
   sha256 "c8262da949043976d092859843d3c0cdffe225ec6f1398ba119858b6c1b3552f"
   license "MIT"
-  head "https://git.zx2c4.com/wireguard-go", using: :git
+  head "https://git.zx2c4.com/wireguard-go.git"
 
   livecheck do
     url :head
-    regex(/href=.*?wireguard-go[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
