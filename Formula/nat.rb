@@ -1,5 +1,5 @@
 class Nat < Formula
-  desc "⚡️nat - the 'ls' replacement you never knew you needed⚡️"
+  desc "'ls' replacement you never knew you needed"
   homepage "https://github.com/willdoescode/nat"
   url "https://github.com/willdoescode/nat/archive/v1.0.8.tar.gz"
   sha256 "3eb0e7e6e08402a9263ab76569c4dcd5ace82282ea06799fb1271b31bd4f1017"
