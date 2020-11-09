@@ -16,6 +16,8 @@ class CoreosCt < Formula
 
   depends_on "go" => :build
 
+  deprecate! because: :repo_archived
+
   def install
     system "make", "all", "VERSION=v#{version}"
     bin.install "./bin/ct"
@@ -29,7 +31,7 @@ class CoreosCt < Formula
             ssh_authorized_keys:
               - ssh-rsa mykey
     EOS
-    output = shell_output("#{bin}/ct -pretty -in-file #{testpath}/input")
-    assert_match /.*"sshAuthorizedKeys":\s*["ssh-rsa mykey"\s*].*/m, output.strip
+    output = shell_output("#{bin}/ct -pretty -in-file #{testpath}/input").lines.map(&:strip).join
+    assert_match /.*"sshAuthorizedKeys":\s*\["ssh-rsa mykey"\s*\].*/m, output.strip
   end
 end
