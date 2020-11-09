@@ -15,7 +15,10 @@ class Gopass < Formula
 
   depends_on "go" => :build
   depends_on "gnupg"
-  depends_on "terminal-notifier"
+
+  on_macos do
+    depends_on "terminal-notifier"
+  end
 
   def install
     ENV["GOBIN"] = bin
