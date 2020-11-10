@@ -3,8 +3,8 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://github.com/jbarlow83/OCRmyPDF"
-  url "https://files.pythonhosted.org/packages/2a/22/2d72e3b6d05ea0b3aa691b4a58de9d4c7d26a2c728531e90798f7ba86ce7/ocrmypdf-11.3.2.tar.gz"
-  sha256 "dbf869f4c95f3832a6425c211a0fd7b21352b46c18a5d0d2a8037f34faf94553"
+  url "https://files.pythonhosted.org/packages/2f/5e/f39d0fe72379684a514501509fc086257bcb9bf031d0cdc1a5eced5f6147/ocrmypdf-11.3.3.tar.gz"
+  sha256 "20722d89d2f0deeb5b3ffa8622ead59d54af46d44f21848ec0f15ef79ce1a4a3"
   license "MPL-2.0"
 
   livecheck do
@@ -108,8 +108,8 @@ class Ocrmypdf < Formula
   end
 
   resource "sortedcontainers" do
-    url "https://files.pythonhosted.org/packages/3b/fb/48f6fa11e4953c530b09fa0f2976df5234b0eaabcd158625c3e73535aeb8/sortedcontainers-2.2.2.tar.gz"
-    sha256 "4e73a757831fc3ca4de2859c422564239a31d8213d09a2a666e375807034d2ba"
+    url "https://files.pythonhosted.org/packages/14/10/6a9481890bae97da9edd6e737c9c3dec6aea3fc2fa53b0934037b35c89ea/sortedcontainers-2.3.0.tar.gz"
+    sha256 "59cc937650cf60d677c16775597c89a960658a09cf7c1a668f86e1e4464b10a1"
   end
 
   resource "tqdm" do
