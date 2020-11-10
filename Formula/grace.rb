@@ -3,8 +3,8 @@ class Grace < Formula
   homepage "https://plasma-gate.weizmann.ac.il/Grace/"
   url "https://deb.debian.org/debian/pool/main/g/grace/grace_5.1.25.orig.tar.gz"
   sha256 "751ab9917ed0f6232073c193aba74046037e185d73b77bab0f5af3e3ff1da2ac"
-  license "GPL-2.0"
-  revision 2
+  license "GPL-2.0-only"
+  revision 3
 
   livecheck do
     url "https://deb.debian.org/debian/pool/main/g/grace/"
@@ -22,13 +22,21 @@ class Grace < Formula
 
   depends_on "fftw"
   depends_on "jpeg"
+  depends_on "libice"
   depends_on "libpng"
+  depends_on "libsm"
+  depends_on "libx11"
+  depends_on "libxext"
+  depends_on "libxmu"
+  depends_on "libxp"
+  depends_on "libxpm"
+  depends_on "libxt"
   depends_on "openmotif"
   depends_on "pdflib-lite"
-  depends_on :x11
 
   def install
     ENV.O1 # https://github.com/Homebrew/homebrew/issues/27840#issuecomment-38536704
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}",
                           "--enable-grace-home=#{prefix}"
