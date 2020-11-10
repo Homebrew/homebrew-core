@@ -5,6 +5,8 @@ class SimpleMtpfs < Formula
   sha256 "1d011df3fa09ad0a5c09d48d84c03e6cddf86390af9eb4e0c178193f32f0e2fc"
   license "GPL-2.0"
 
+  deprecate! because: "requires FUSE"
+
   bottle do
     cellar :any
     sha256 "d902aae104d1f2ae07bdb28ecabbef8d9d97d9326a3e29050c83a4dd69597ed4" => :catalina
