@@ -1,10 +1,9 @@
 class Wartremover < Formula
   desc "Flexible Scala code linting tool"
   homepage "https://github.com/wartremover/wartremover"
-  url "https://github.com/wartremover/wartremover/archive/v2.4.12.tar.gz"
-  sha256 "96aefb990757e1bb8e0bb1202e5abaf2831c671c61b0c567eed63871fb3d04c1"
+  url "https://github.com/wartremover/wartremover/archive/v2.4.13.tar.gz"
+  sha256 "d8fb123dc4f9327adf17e4a59c6004e6eece840725175968049d6d9f3b3e545e"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/wartremover/wartremover.git"
 
   bottle do
