@@ -5,6 +5,8 @@ class Gocryptfs < Formula
   sha256 "c4ca576c2a47f0ed395b96f70fb58fc8f7b4beced8ae67e356eeed6898f8352a"
   license "MIT"
 
+  deprecate! because: "requires FUSE"
+
   bottle do
     cellar :any
     sha256 "adf2a34cc99f353992e790c856971e9128d55caf5c51a2ae0a50ff5506e63c1c" => :catalina
