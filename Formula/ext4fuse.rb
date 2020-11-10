@@ -6,6 +6,8 @@ class Ext4fuse < Formula
   license "GPL-2.0"
   head "https://github.com/gerard/ext4fuse.git"
 
+  deprecate! because: "requires FUSE"
+
   bottle do
     cellar :any
     sha256 "446dde5e84b058966ead0cde5e38e9411f465732527f6decfa1c0dcdbd4abbef" => :catalina
