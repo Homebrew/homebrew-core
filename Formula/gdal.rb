@@ -1,10 +1,9 @@
 class Gdal < Formula
   desc "Geospatial Data Abstraction Library"
   homepage "https://www.gdal.org/"
-  url "https://download.osgeo.org/gdal/3.1.4/gdal-3.1.4.tar.xz"
-  sha256 "7b82486f71c71cec61f9b237116212ce18ef6b90f068cbbf9f7de4fc50b576a8"
+  url "https://download.osgeo.org/gdal/3.2.0/gdal-3.2.0.tar.xz"
+  sha256 "b051f852600ffdf07e337a7f15673da23f9201a9dbb482bd513756a3e5a196a6"
   license "MIT"
-  revision 1
 
   livecheck do
     url "https://download.osgeo.org/gdal/CURRENT/"
@@ -166,7 +165,7 @@ class Gdal < Formula
     # basic tests to see if third-party dylibs are loading OK
     system "#{bin}/gdalinfo", "--formats"
     system "#{bin}/ogrinfo", "--formats"
-
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "import gdal"
+    # Changed Python package name from "gdal" to "osgeo.gdal" in 3.2.0.
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "import osgeo.gdal"
   end
 end
