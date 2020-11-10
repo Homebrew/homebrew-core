@@ -13,6 +13,8 @@ class Ntfs3g < Formula
     end
   end
 
+  deprecate! because: "requires FUSE"
+
   livecheck do
     url :head
     regex(/^v?(\d+(?:\.\d+)+)$/i)
