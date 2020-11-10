@@ -4,6 +4,8 @@ class Avfs < Formula
   url "https://downloads.sourceforge.net/project/avf/avfs/1.1.3/avfs-1.1.3.tar.bz2"
   sha256 "4f4ec1e8c0d5da94949e3dab7500ee29fa3e0dda723daf8e7d60e5f3ce4450df"
 
+  deprecate! because: "requires FUSE"
+
   livecheck do
     url :stable
     regex(%r{url=.*?/avfs[._-]v?(\d+(?:\.\d+)+)\.t}i)
