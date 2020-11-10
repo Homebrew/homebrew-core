@@ -3,8 +3,8 @@ require "language/go"
 class Charm < Formula
   desc "Tool for managing Juju Charms"
   homepage "https://github.com/juju/charmstore-client"
-  url "https://github.com/juju/charmstore-client/archive/v2.4.0.tar.gz"
-  sha256 "02f5b9c5211467353dbcf9589ecf70d6e7debf16e3a8b85fa870084525466731"
+  url "https://github.com/juju/charmstore-client/archive/v2.5.0.tar.gz"
+  sha256 "9cfb4115570aef268f77bdd89095bc0d144aeebff8646ba665bd4eafb326e338"
   license "GPL-3.0"
 
   bottle do
@@ -17,43 +17,27 @@ class Charm < Formula
   depends_on "bazaar" => :build
   depends_on "go" => :build
 
-  go_resource "github.com/kisielk/gotool" do
-    url "https://github.com/kisielk/gotool.git",
-        revision: "80517062f582ea3340cd4baf70e86d539ae7d84d"
-  end
-
-  go_resource "github.com/pelletier/go-toml" do
-    url "https://github.com/pelletier/go-toml.git",
-        revision: "603baefff989777996bf283da430d693e78eba3a"
-  end
-
-  go_resource "golang.org/x/tools" do
-    url "https://go.googlesource.com/tools.git",
-        revision: "fd2d2c45eb2dff7b87eab4303a1016b4dbf95e81"
-  end
-
-  go_resource "github.com/rogpeppe/godeps" do
-    url "https://github.com/rogpeppe/godeps.git",
-        revision: "404a7e748cd352bb0d7449dedc645546eebbfc6e"
-  end
+  patch :DATA
 
   def install
-    ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/github.com/juju/charmstore-client"
-    dir.install buildpath.children - [buildpath/".brew_home"]
-    ENV.prepend_create_path "PATH", buildpath/"bin"
-    Language::Go.stage_deps resources, buildpath/"src"
-    cd("src/github.com/rogpeppe/godeps") { system "go", "install" }
-
-    cd dir do
-      system "godeps", "-x", "-u", "dependencies.tsv"
-      system "go", "build", "github.com/juju/charmstore-client/cmd/charm"
-      bin.install "charm"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args, "./cmd/charm"
   end
 
   test do
-    system "#{bin}/charm"
+    assert_match "show-plan           - show plan details", shell_output("#{bin}/charm 2>&1")
+
+    assert_match "ERROR missing plan url", shell_output("#{bin}/charm show-plan 2>&1", 2)
   end
 end
+
+__END__
+diff --git a/go.mod b/go.mod
+index 5939f2b..fccc5e1 100644
+--- a/go.mod
++++ b/go.mod
+@@ -50,3 +50,5 @@ replace github.com/altoros/gosigma => github.com/juju/gosigma v0.0.0-20200420012
+ replace gopkg.in/mgo.v2 => github.com/juju/mgo v0.0.0-20190418114320-e9d4866cb7fc
+
+ replace github.com/hashicorp/raft => github.com/juju/raft v2.0.0-20200420012049-88ad3b3f0a54+incompatible
++
++replace golang.org/x/sys => golang.org/x/sys v0.0.0-20200826173525-f9321e4c35a6
