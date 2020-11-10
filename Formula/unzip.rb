@@ -21,6 +21,7 @@ class Unzip < Formula
 
   keg_only :provided_by_macos
 
+  uses_from_macos "zip" => :test
   uses_from_macos "bzip2"
 
   # Upstream is unmaintained so we use the Debian patchset:
@@ -57,13 +58,17 @@ class Unzip < Formula
   end
 
   def install
-    system "make", "-f", "unix/Makefile",
-      "CC=#{ENV.cc}",
-      "LOC=-DLARGE_FILE_SUPPORT",
-      "D_USE_BZ2=-DUSE_BZIP2",
-      "L_BZ2=-lbz2",
-      "macosx",
-      "LFLAGS1=-liconv"
+    args = %W[
+      CC=#{ENV.cc}
+      LOC=-DLARGE_FILE_SUPPORT
+      D_USE_BZ2=-DUSE_BZIP2
+      L_BZ2=-lbz2
+      macosx
+    ]
+    on_macos do
+      args << "LFLAGS1=-liconv"
+    end
+    system "make", "-f", "unix/Makefile", *args
     system "make", "prefix=#{prefix}", "MANDIR=#{man1}", "install"
   end
 
@@ -72,7 +77,12 @@ class Unzip < Formula
     (testpath/"test2").write "Bonjour!"
     (testpath/"test3").write "Hej!"
 
-    system "/usr/bin/zip", "test.zip", "test1", "test2", "test3"
+    on_macos do
+      system "/usr/bin/zip", "test.zip", "test1", "test2", "test3"
+    end
+    on_linux do
+      system Formula["zip"].bin/"zip", "test.zip", "test1", "test2", "test3"
+    end
     %w[test1 test2 test3].each do |f|
       rm f
       refute_predicate testpath/f, :exist?, "Text files should have been removed!"
