@@ -6,6 +6,8 @@ class Sshfs < Formula
   license "GPL-2.0"
   revision 2
 
+  deprecate! because: "requires FUSE"
+
   livecheck do
     url :stable
     regex(/^sshfs[._-]v?(\d+(?:\.\d+)+)$/i)
