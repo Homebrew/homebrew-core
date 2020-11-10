@@ -8,6 +8,8 @@ class Borgbackup < Formula
   license "BSD-3-Clause"
   revision 1
 
+  deprecate! because: "requires FUSE"
+
   livecheck do
     url "https://github.com/borgbackup/borg/releases/latest"
     regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
