@@ -3,7 +3,8 @@ class Mupdf < Formula
   homepage "https://mupdf.com/"
   url "https://mupdf.com/downloads/archive/mupdf-1.18.0-source.tar.xz"
   sha256 "592d4f6c0fba41bb954eb1a41616661b62b134d5b383e33bd45a081af5d4a59a"
-  license "AGPL-3.0"
+  license "AGPL-3.0-or-later"
+  revision 1
   head "https://git.ghostscript.com/mupdf.git"
 
   livecheck do
@@ -18,16 +19,22 @@ class Mupdf < Formula
     sha256 "21389eb838991da63ebd3bb5903ce83c001d716ed192c38c0a14ae3939f758a8" => :high_sierra
   end
 
-  depends_on :x11
+  depends_on "pkg-config" => :build
+  depends_on "freeglut"
+  depends_on "mesa"
 
   conflicts_with "mupdf-tools",
     because: "mupdf and mupdf-tools install the same binaries"
 
   def install
+    glut_cflags = `pkg-config --cflags glut gl`.chomp
+    glut_libs = `pkg-config --libs glut gl`.chomp
     system "make", "install",
            "build=release",
            "verbose=yes",
            "CC=#{ENV.cc}",
+           "SYS_GLUT_CFLAGS=#{glut_cflags}",
+           "SYS_GLUT_LIBS=#{glut_libs}",
            "prefix=#{prefix}"
 
     # Symlink `mutool` as `mudraw` (a popular shortcut for `mutool draw`).
