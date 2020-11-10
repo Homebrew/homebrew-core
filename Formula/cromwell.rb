@@ -15,8 +15,8 @@ class Cromwell < Formula
   depends_on "openjdk"
 
   resource "womtool" do
-    url "https://github.com/broadinstitute/cromwell/releases/download/53.1//womtool-53.1.jar"
-    sha256 "dc14acf038de4acf8d43002d75433fb208250957e4f88929c44b84d1dd1c848f"
+    url "https://github.com/broadinstitute/cromwell/releases/download/54//womtool-54.jar"
+    sha256 "382beb9caf1f794f05673919d5f086e53edd0a3db20f32a995cf653451906fb4"
   end
 
   def install
