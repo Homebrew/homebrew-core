@@ -22,9 +22,6 @@ class Goaccess < Formula
     ENV.append_path "PATH", Formula["gettext"].bin
     system "autoreconf", "-vfi"
 
-    # upstream issue: https://github.com/allinurl/goaccess/issues/1779
-    inreplace "src/parser.c", "#include <malloc.h>", ""
-
     args = %W[
       --disable-debug
       --disable-dependency-tracking
