@@ -9,6 +9,8 @@ class Encfs < Formula
   revision 3
   head "https://github.com/vgough/encfs.git"
 
+  deprecate! because: "requires FUSE"
+
   bottle do
     sha256 "c41dd4f6c6eae27645695e7540a6e1ec25cd4a15756e5f5ed97a345cd39372fc" => :catalina
     sha256 "1cc308274ff04d95ab12bc39be227517dbf264e5cf811d72b153d6f84b06c0cb" => :mojave
