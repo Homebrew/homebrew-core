@@ -6,6 +6,8 @@ class Curlftpfs < Formula
   revision 1
   head ":pserver:anonymous:@curlftpfs.cvs.sourceforge.net:/cvsroot/curlftpfs", using: :cvs
 
+  deprecate! because: "requires FUSE"
+
   livecheck do
     url :stable
   end
