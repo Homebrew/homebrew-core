@@ -5,6 +5,8 @@ class Freerdp < Formula
   sha256 "883bc0396c6be9aba6bc07ebc8ff08457125868ada0f06554e62ef072f90cf59"
   license "Apache-2.0"
 
+  revision 1
+
   bottle do
     sha256 "a2ca3e1a307c549ab620d98fc5e96870017d63dc3d279da5ca56dda76fc38075" => :catalina
     sha256 "67732bc5f1195cd4c959243b02f3f7a3f81c516f97b6f5eda7376cdf2ee73edd" => :mojave
@@ -19,8 +21,16 @@ class Freerdp < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "libusb"
+  depends_on "libx11"
+  depends_on "libxcursor"
+  depends_on "libxext"
+  depends_on "libxfixes"
+  depends_on "libxi"
+  depends_on "libxinerama"
+  depends_on "libxrandr"
+  depends_on "libxrender"
+  depends_on "libxv"
   depends_on "openssl@1.1"
-  depends_on :x11
 
   on_linux do
     depends_on "alsa-lib"
