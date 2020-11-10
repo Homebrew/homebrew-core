@@ -7,6 +7,8 @@ class Securefs < Formula
   license "MIT"
   head "https://github.com/netheril96/securefs.git"
 
+  deprecate! because: "requires FUSE"
+
   bottle do
     cellar :any
     sha256 "8a8c7dd74f9b3082b2b128cc058714a27206d910273e4148959a25b7d30c51b5" => :catalina
