@@ -5,6 +5,8 @@ class Wdfs < Formula
   sha256 "fcf2e1584568b07c7f3683a983a9be26fae6534b8109e09167e5dff9114ba2e5"
   revision 1
 
+  deprecate! because: "requires FUSE"
+
   bottle do
     cellar :any
     sha256 "a00329ad59065dc12983272eb1da0e861aa73cbfa8b2edc69393a5a2eba4e49f" => :catalina
