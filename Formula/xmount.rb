@@ -5,6 +5,8 @@ class Xmount < Formula
   sha256 "76e544cd55edc2dae32c42a38a04e11336f4985e1d59cec9dd41e9f9af9b0008"
   revision 2
 
+  deprecate! because: "requires FUSE"
+
   bottle do
     rebuild 1
     sha256 "55de429679b12e85dcfb854d4add045363a287c172b7b77765591d7d1d89324c" => :catalina
