@@ -3,7 +3,8 @@ class Imake < Formula
   homepage "https://xorg.freedesktop.org"
   url "https://xorg.freedesktop.org/releases/individual/util/imake-1.0.8.tar.bz2"
   sha256 "b8d2e416b3f29cd6482bcffaaf19286d32917a164d07102a0e531ccd41a2a702"
-  revision 2
+  license "MIT"
+  revision 3
 
   bottle do
     sha256 "9397e56fac8b92243e8dbd73e9bf96d6bb932832a4571e8b571098ea251eb1e2" => :catalina
@@ -12,17 +13,12 @@ class Imake < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "xorgproto" => :build
   depends_on "gcc"
-  depends_on :x11
 
   resource "xorg-cf-files" do
     url "https://xorg.freedesktop.org/releases/individual/util/xorg-cf-files-1.0.6.tar.bz2"
     sha256 "4dcf5a9dbe3c6ecb9d2dd05e629b3d373eae9ba12d13942df87107fdc1b3934d"
-  end
-
-  patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/patches/a0bb3a4/imake/patch-imakemdep.h.diff"
-    sha256 "1f7a24f625d2611c31540d4304a45f228767becafa37af01e1695d74e612459e"
   end
 
   def install
@@ -31,7 +27,10 @@ class Imake < Formula
     # imake runtime is broken when used with clang's cpp
     gcc_major_ver = Formula["gcc"].any_installed_version.major
     cpp_program = Formula["gcc"].opt_bin/"cpp-#{gcc_major_ver}"
-    inreplace "imakemdep.h", /::CPPCMD::/, cpp_program
+    (buildpath/"imakemdep.h").append_lines [
+      "#define DEFAULT_CPP \"#{cpp_program}\"",
+      "#undef USE_CC_E",
+    ]
     inreplace "imake.man", /__cpp__/, cpp_program
 
     # also use gcc's cpp during buildtime to pass ./configure checks
@@ -43,7 +42,7 @@ class Imake < Formula
     resource("xorg-cf-files").stage do
       # Fix for different X11 locations.
       inreplace "X11.rules", "define TopXInclude	/**/",
-                "define TopXInclude	-I#{MacOS::XQuartz.include}"
+                "define TopXInclude	-I#{HOMEBREW_PREFIX}/include"
       system "./configure", "--with-config-dir=#{lib}/X11/config",
                             "--prefix=#{HOMEBREW_PREFIX}"
       system "make", "install"
