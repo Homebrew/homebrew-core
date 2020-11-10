@@ -5,6 +5,8 @@ class Afuse < Formula
   sha256 "c6e0555a65d42d3782e0734198bbebd22486386e29cb00047bc43c3eb726dca8"
   license "GPL-2.0"
 
+  deprecate! because: "requires FUSE"
+
   bottle do
     cellar :any
     sha256 "cf5a7aeba0e2504ea5bf7bf691ed2d0f8245cbac069b089359588e7df04140e0" => :catalina
