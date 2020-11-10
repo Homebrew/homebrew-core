@@ -14,7 +14,7 @@ class Arturo < Formula
 
   depends_on "nim" => :build
   depends_on "gmp"
-  depends_on "mysql"  
+  depends_on "mysql"
 
   def install
     system "./build.sh"
