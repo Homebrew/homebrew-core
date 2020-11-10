@@ -6,6 +6,8 @@ class Dislocker < Formula
   license "GPL-2.0"
   revision 4
 
+  deprecate! because: "requires FUSE"
+
   bottle do
     sha256 "e0049b9ff51ad9f3e4008df1edac9b52aa0d8df55e119990553b4d9cec651b90" => :catalina
     sha256 "f6378852886b1d1793260ce411250751614428102a5fd07f792352ce0fc206c3" => :mojave
