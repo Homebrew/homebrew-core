@@ -6,6 +6,8 @@ class Ifuse < Formula
   license "LGPL-2.1"
   head "https://cgit.sukimashita.com/ifuse.git"
 
+  deprecate! because: "requires FUSE"
+
   bottle do
     cellar :any
     sha256 "cdce9fc5dbaf44641743b4a77434d340ae11cb8ed98f17b1a86a5653d2b6e1a2" => :catalina
