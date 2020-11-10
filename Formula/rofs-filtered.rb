@@ -5,6 +5,8 @@ class RofsFiltered < Formula
   sha256 "d66066dfd0274a2fb7b71dd929445377dd23100b9fa43e3888dbe3fc7e8228e8"
   license "GPL-2.0"
 
+  deprecate! because: "requires FUSE"
+
   bottle do
     cellar :any
     rebuild 1
