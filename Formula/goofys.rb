@@ -7,6 +7,8 @@ class Goofys < Formula
   license "Apache-2.0"
   head "https://github.com/kahing/goofys.git"
 
+  deprecate! because: "requires FUSE"
+
   bottle do
     cellar :any_skip_relocation
     rebuild 1
