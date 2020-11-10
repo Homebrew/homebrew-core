@@ -6,6 +6,8 @@ class S3fs < Formula
   license "GPL-2.0-or-later"
   head "https://github.com/s3fs-fuse/s3fs-fuse.git"
 
+  deprecate! because: "requires FUSE"
+
   bottle do
     cellar :any
     sha256 "5183ab606057fbe8e46a737b25c1ad4e82dd67389f48827d7bfd567c67cf8417" => :catalina
