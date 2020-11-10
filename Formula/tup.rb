@@ -6,6 +6,8 @@ class Tup < Formula
   license "GPL-2.0-only"
   head "https://github.com/gittup/tup.git"
 
+  deprecate! because: "requires FUSE"
+
   bottle do
     cellar :any
     sha256 "48009935b0e38be19c1d8a0afbbeef75109a970a57327dad9ecf5929b64b7bf2" => :catalina
