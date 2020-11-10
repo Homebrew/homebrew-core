@@ -5,6 +5,8 @@ class Mp3fs < Formula
   sha256 "cbb52062d712e8dfd3491d0b105e2e05715d493a0fd14b53a23919694a348069"
   license "GPL-3.0"
 
+  deprecate! because: "requires FUSE"
+
   bottle do
     cellar :any
     sha256 "26d991c2fb34055035c01d12033f28b5a694954ad9b3f650658dfa1ebc9994ea" => :catalina
