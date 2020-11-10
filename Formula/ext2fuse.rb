@@ -5,6 +5,8 @@ class Ext2fuse < Formula
   sha256 "431035797b2783216ec74b6aad5c721b4bffb75d2174967266ee49f0a3466cd9"
   revision 2
 
+  deprecate! because: "requires FUSE"
+
   livecheck do
     url :stable
   end
