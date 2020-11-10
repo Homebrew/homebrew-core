@@ -9,6 +9,8 @@ class Gitfs < Formula
   revision 4
   head "https://github.com/presslabs/gitfs.git"
 
+  deprecate! because: "requires FUSE"
+
   bottle do
     cellar :any
     sha256 "c8c83c94da3b5f1dc480eec0ede90bf678eee59a97bb54a64cf94555d9c57752" => :catalina
