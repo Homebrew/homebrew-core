@@ -5,6 +5,8 @@ class Squashfuse < Formula
   sha256 "42d4dfd17ed186745117cfd427023eb81effff3832bab09067823492b6b982e7"
   license "BSD-2-Clause"
 
+  deprecate! because: "requires FUSE"
+
   bottle do
     cellar :any
     sha256 "7e2e0499c0b9f98beb398319c949d2a1d45de6a3f0b546ef1d55214f68522312" => :catalina
