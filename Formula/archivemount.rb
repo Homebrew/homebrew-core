@@ -4,6 +4,8 @@ class Archivemount < Formula
   url "https://www.cybernoia.de/software/archivemount/archivemount-0.9.1.tar.gz"
   sha256 "c529b981cacb19541b48ddafdafb2ede47a40fcaf16c677c1e2cd198b159c5b3"
 
+  deprecate! because: "requires FUSE"
+
   livecheck do
     url :homepage
     regex(/href=.*?archivemount[._-]v?(\d+(?:\.\d+)+)\.t/i)
