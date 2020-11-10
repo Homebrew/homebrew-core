@@ -6,6 +6,8 @@ class Gcsfuse < Formula
   license "Apache-2.0"
   head "https://github.com/GoogleCloudPlatform/gcsfuse.git"
 
+  deprecate! because: "requires FUSE"
+
   livecheck do
     url "https://github.com/GoogleCloudPlatform/gcsfuse/releases/latest"
     regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
