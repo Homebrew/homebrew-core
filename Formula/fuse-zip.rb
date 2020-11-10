@@ -8,6 +8,8 @@ class FuseZip < Formula
   license "GPL-3.0-or-later"
   head "https://bitbucket.org/agalanin/fuse-zip", using: :hg
 
+  deprecate! because: "requires FUSE"
+
   livecheck do
     url :stable
   end
