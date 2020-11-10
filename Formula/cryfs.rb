@@ -5,6 +5,8 @@ class Cryfs < Formula
   sha256 "5531351b67ea23f849b71a1bc44474015c5718d1acce039cf101d321b27f03d5"
   license "LGPL-3.0"
 
+  deprecate! because: "requires FUSE"
+
   bottle do
     cellar :any
     rebuild 1
