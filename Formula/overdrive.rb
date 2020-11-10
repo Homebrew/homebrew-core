@@ -10,8 +10,8 @@ class Overdrive < Formula
 
   depends_on "tidy-html5"
   uses_from_macos "curl"
+  uses_from_macos "libressl"
   uses_from_macos "libxml2"
-  uses_from_macos "openssl"
 
   def install
     bin.install "overdrive.sh" => "overdrive"
