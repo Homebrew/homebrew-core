@@ -8,6 +8,8 @@ class S3ql < Formula
   license "GPL-3.0"
   revision 1
 
+  deprecate! because: "requires FUSE"
+
   bottle do
     cellar :any
     rebuild 1
