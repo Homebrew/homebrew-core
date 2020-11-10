@@ -19,6 +19,7 @@ class Influxdb < Formula
   end
 
   depends_on "go" => :build
+  depends_on "pkg-config" => :build
 
   def install
     ENV["GOBIN"] = buildpath
