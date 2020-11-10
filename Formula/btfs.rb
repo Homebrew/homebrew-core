@@ -6,6 +6,8 @@ class Btfs < Formula
   license "GPL-3.0-only"
   head "https://github.com/johang/btfs.git"
 
+  deprecate! because: "requires FUSE"
+
   bottle do
     cellar :any
     sha256 "d5b103b5b9004549a555352be373c2160bcd5b9f6a8e7e8b030cbf113ae76fcd" => :catalina
