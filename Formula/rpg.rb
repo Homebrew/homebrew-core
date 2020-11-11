@@ -6,6 +6,8 @@ class Rpg < Formula
   license "MIT"
   head "https://github.com/rtomayko/rpg.git"
 
+  deprecate! because: :repo_archived
+
   bottle do
     cellar :any_skip_relocation
     sha256 "826bacff2dddeeeb41cdf328b7702fa415d049b9d1d55b2f93e7f1084ebcb3e0" => :catalina
