@@ -5,6 +5,8 @@ class Wordnet < Formula
   # Version 3.1 is version 3.0 with the 3.1 dictionary.
   version "3.1"
   sha256 "6c492d0c7b4a40e7674d088191d3aa11f373bb1da60762e098b8ee2dda96ef22"
+  license :cannot_represent
+  revision 1
 
   bottle do
     sha256 "a815dc11f451a82c84ed37266010f81bc4f5993467c1e6063edb3fc3f0fd95c5" => :catalina
@@ -16,7 +18,7 @@ class Wordnet < Formula
     sha256 "786bc9b811d958b71888cc87e0ef75a6cd66ebc05202278b7827f847f6b4dfe5" => :mavericks
   end
 
-  depends_on :x11
+  depends_on "tcl-tk"
 
   resource "dict" do
     url "https://wordnetcode.princeton.edu/wn3.1.dict.tar.gz"
@@ -32,8 +34,8 @@ class Wordnet < Formula
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}",
-                          "--with-tcl=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework",
-                          "--with-tk=#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework"
+                          "--with-tcl=#{Formula["tcl-tk"].opt_prefix}/lib",
+                          "--with-tk=#{Formula["tcl-tk"].opt_prefix}/lib"
     ENV.deparallelize
     system "make", "install"
   end
