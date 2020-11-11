@@ -35,6 +35,10 @@ class Gnutls < Formula
   end
 
   def install
+    # Fix build with Xcode 12
+    # https://gitlab.com/gnutls/gnutls/-/issues/1116
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
+
     args = %W[
       --disable-dependency-tracking
       --disable-silent-rules
