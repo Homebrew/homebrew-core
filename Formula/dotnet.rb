@@ -2,8 +2,8 @@ class Dotnet < Formula
   desc ".NET Core"
   homepage "https://dotnet.microsoft.com/"
   url "https://github.com/dotnet/source-build.git",
-      tag:      "v3.1.109-SDK",
-      revision: "a5bf06c9d45144d6e152f5e53155e41839aa4a55"
+      tag:      "v3.1.110-SDK",
+      revision: "2b1abb23997ef7cd23182455e0c6566e205e43d0"
   license "MIT"
 
   livecheck do
@@ -25,16 +25,7 @@ class Dotnet < Formula
   depends_on "icu4c"
   depends_on "openssl"
 
-  # Patch of https://github.com/dotnet/source-build/pull/1789 which will be
-  # released with tag 3.1.110 in November 2020.
-  resource "0005-Fix-bad-configure-tests.patch" do
-    url "https://raw.githubusercontent.com/dotnet/source-build/17c6409189ed29f0fac2e8f4b1c30d882e6756b5/patches/coreclr/0005-Fix-bad-configure-tests.patch"
-    sha256 "57b83f9445d59137bdcc31c2a64d413bae23e80dc18f6fbcd8ceaac1d8b6754b"
-  end
-
   def install
-    resource("0005-Fix-bad-configure-tests.patch").stage buildpath/"patches/coreclr"
-
     # Arguments needed to not artificially time-limit downloads from Azure.
     # See the following GitHub issue comment for details:
     # https://github.com/dotnet/source-build/issues/1596#issuecomment-670995776
