@@ -5,6 +5,8 @@ class Tidyp < Formula
   sha256 "20b0fad32c63575bd4685ed09b8c5ca222bbc7b15284210d4b576d0223f0b338"
   license "Zlib"
 
+  deprecate! because: :repo_archived
+
   bottle do
     cellar :any
     sha256 "ed67353f58e09c04387453c92536d7980c3408391bae0db77f3af421779cee57" => :catalina
