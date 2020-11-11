@@ -3,6 +3,8 @@ class Sng < Formula
   homepage "https://sng.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/sng/sng-1.1.0.tar.gz"
   sha256 "119c55870c1d1bdc65f7de9dbc62929ccb0c301c2fb79f77df63f5d477f34619"
+  license "Zlib"
+  revision 1
 
   livecheck do
     url :stable
@@ -17,7 +19,7 @@ class Sng < Formula
   end
 
   depends_on "libpng"
-  depends_on :x11
+  depends_on "xorgrgb"
 
   def install
     system "./configure", "--prefix=#{prefix}"
