@@ -3,6 +3,8 @@ class Tgif < Formula
   homepage "http://bourbon.usc.edu/tgif/"
   url "https://downloads.sourceforge.net/project/tgif/tgif/4.2.5/tgif-QPL-4.2.5.tar.gz"
   sha256 "2f24e9fecafae6e671739bd80691a06c9d032bdd1973ca164823e72ab1c567ba"
+  license "QPL-1.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -17,7 +19,13 @@ class Tgif < Formula
     sha256 "df95673872cdb34ca9cccfaa456bdc4a35e29d720b8ffa4875501cf864d399bd" => :yosemite
   end
 
-  depends_on :x11
+  depends_on "libice"
+  depends_on "libidn"
+  depends_on "libsm"
+  depends_on "libx11"
+  depends_on "libxext"
+  depends_on "libxmu"
+  depends_on "libxt"
 
   def install
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
