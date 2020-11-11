@@ -4,6 +4,11 @@ class Cf < Formula
   url "https://ee.lbl.gov/downloads/cf/cf-1.2.5.tar.gz"
   sha256 "ef65e9eb57c56456dfd897fec12da8617c775e986c23c0b9cbfab173b34e5509"
 
+  livecheck do
+    url "https://ee.lbl.gov/downloads/cf/"
+    regex(/href=.*?cf[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "14a240b51f627599ebd4cbbffc27c52d40790c6537f91f20d978d6054e62571b" => :catalina
