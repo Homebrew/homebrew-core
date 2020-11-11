@@ -5,6 +5,11 @@ class Rdfind < Formula
   sha256 "30c613ec26eba48b188d2520cfbe64244f3b1a541e60909ce9ed2efb381f5e8c"
   revision 1
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?rdfind[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "e890406a4cbbd8d026a4c583644efa537433ac71c095a1e582b0454d85a87d00" => :catalina
