@@ -1,5 +1,3 @@
-require "language/go"
-
 class Charm < Formula
   desc "Tool for managing Juju Charms"
   homepage "https://github.com/juju/charmstore-client"
