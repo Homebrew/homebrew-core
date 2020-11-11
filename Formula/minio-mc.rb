@@ -7,6 +7,11 @@ class MinioMc < Formula
   version "20201003025456"
   license "Apache-2.0"
 
+  livecheck do
+    url "https://github.com/minio/mc/releases/latest"
+    regex(%r{href=.*?/tag/(?:RELEASE[._-]?)?([^"' >]+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "1c9e4d77d0b729dc3957097b6ccb2ee6ad657cab6fc383501513c6b0a13567e8" => :catalina
