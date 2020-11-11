@@ -1,8 +1,8 @@
 class Parallelstl < Formula
   desc "C++ standard library algorithms with support for execution policies"
   homepage "https://github.com/intel/parallelstl"
-  url "https://github.com/intel/parallelstl/archive/20200330.tar.gz"
-  sha256 "47d78920a7220828cde9b0c0cf808c70774b2db05ab4dd689b8bbd350afb9e6e"
+  url "https://github.com/intel/parallelstl/archive/20201111.tar.gz"
+  sha256 "c5ca7e0a618df8d28087be2e23ae38713ab1bcff0107562b935fbb5ba072fbf6"
   # Apache License Version 2.0 with LLVM exceptions
   license "Apache-2.0"
 
