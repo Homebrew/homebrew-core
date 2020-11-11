@@ -36,37 +36,37 @@ class OpenjdkAT8 < Formula
   # `get_source.sh` script.
   resource "corba" do
     url "https://hg.openjdk.java.net/jdk8u/jdk8u/corba/archive/jdk8u272-ga.tar.bz2"
-    sha256 "51212e37b6c6e120901e61b830f110bbd121e9c4611aec9ff4e3f404a667855f"
+    sha256 "28c487a49546ab1a592eaf229c13e1896b390958ac4e6fa19bf5da34a1977138"
   end
 
   resource "hotspot" do
     url "https://hg.openjdk.java.net/jdk8u/jdk8u/hotspot/archive/jdk8u272-ga.tar.bz2"
-    sha256 "a8c83dcd272dc29c538291f24d1b28b7069e048398681b6db082cdaa8f3a6b07"
+    sha256 "55db6eb423445978e5a9a285c5adea238dec3d3998dc5f1216f8f5c7a8d7c5ea"
   end
 
   resource "jaxp" do
     url "https://hg.openjdk.java.net/jdk8u/jdk8u/jaxp/archive/jdk8u272-ga.tar.bz2"
-    sha256 "3f8b02337f4cd96e9180aa118705f48c39562f66287b46dd69554221fa196084"
+    sha256 "778d3946b9cf84c9b7fd937dc91d0e919ba7616cc4e3db44b9d0347ecdad308a"
   end
 
   resource "jaxws" do
     url "https://hg.openjdk.java.net/jdk8u/jdk8u/jaxws/archive/jdk8u272-ga.tar.bz2"
-    sha256 "ed276f9a70bf2582183838ad8b1874c0993b4a28741c69f095669667b12cd3d4"
+    sha256 "a46eabbed4fedcdbd26510fc1ccf40aaa337e44542f112d4dba3e93f2bb7e492"
   end
 
   resource "jdk" do
     url "https://hg.openjdk.java.net/jdk8u/jdk8u/jdk/archive/jdk8u272-ga.tar.bz2"
-    sha256 "a3deeab4ac721d1ce9d8a2fb1917ba9e2afc6041f03ad4a342e9a5441cce621d"
+    sha256 "9913adf85d3c5b039a5dfeb0962613d92c6f454d0bbbbe3e5341e221021e908e"
   end
 
   resource "langtools" do
     url "https://hg.openjdk.java.net/jdk8u/jdk8u/langtools/archive/jdk8u272-ga.tar.bz2"
-    sha256 "ed59eabe4eb3fcf9af592d1af2d052c5053da9d868542fc47a0bddcb91e69c60"
+    sha256 "9189920ae3858c9a680912c54504302e0553cf25d892c8a03fe954859f587066"
   end
 
   resource "nashorn" do
     url "https://hg.openjdk.java.net/jdk8u/jdk8u/nashorn/archive/jdk8u272-ga.tar.bz2"
-    sha256 "a5b8c478cd7695bf83210b8e97be3bfc8248c22916cec3b8b869586c3d7f0007"
+    sha256 "b42bed287349ecc702f874867a60c3e3664a799d69004e46260db5ff9a7df772"
   end
 
   # Apply this upstreamed patch to build on newer Xcode.
