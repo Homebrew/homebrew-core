@@ -5,6 +5,8 @@ class TigerVnc < Formula
   sha256 "3648eca472a92a4e8fe55b27cd397b1bf16bad0b24a3a1988661f44553f5e2c3"
   license "GPL-2.0-or-later"
 
+  revision 1
+
   bottle do
     sha256 "b9a09483c45610c81dd29fc20a41b4fa8120e1353f736bb637732d4788e4bb28" => :catalina
     sha256 "c90bdf1ac012129c5d4caecd3e5acf2d110ca8cd68a8bcff6de07373149424db" => :mojave
@@ -17,7 +19,20 @@ class TigerVnc < Formula
   depends_on "gnutls"
   depends_on "jpeg-turbo"
   depends_on "pixman"
-  depends_on :x11
+
+  on_linux do
+    depends_on "libx11"
+    depends_on "libxcursor"
+    depends_on "libxdamage"
+    depends_on "libxext"
+    depends_on "libxfixes"
+    depends_on "libxft"
+    depends_on "libxi"
+    depends_on "libxinerama"
+    depends_on "libxrandr"
+    depends_on "libxrender"
+    depends_on "libxtst"
+  end
 
   def install
     turbo = Formula["jpeg-turbo"]
