@@ -3,7 +3,7 @@ class OpenjdkAT8 < Formula
   homepage "https://openjdk.java.net/"
   url "https://hg.openjdk.java.net/jdk8u/jdk8u/archive/jdk8u272-ga.tar.bz2"
   version "1.8.0+272"
-  sha256 "a80476dfe32c12882fe2d87bdb0dd37fc4a0dae8dd95f0c22c7c2445fc08ff7e"
+  sha256 "3b335df278915237986ccdfc40e262d5b6a711072b2a0b99bf2b197dc9ff0cff"
   license "GPL-2.0-only"
 
   bottle do
