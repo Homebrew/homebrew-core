@@ -6,8 +6,8 @@ class OsspUuid < Formula
   revision 2
 
   livecheck do
-    url :homepage
-    regex(/href=.*?uuid[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url "https://deb.debian.org/debian/pool/main/o/ossp-uuid/"
+    regex(/href=["']?ossp-uuid[._-]v?(\d+(?:\.\d+)+)\.orig\.t/i)
   end
 
   bottle do
