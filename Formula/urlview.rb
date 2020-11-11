@@ -2,9 +2,17 @@ class Urlview < Formula
   desc "URL extractor/launcher"
   homepage "https://packages.debian.org/sid/misc/urlview"
   url "https://deb.debian.org/debian/pool/main/u/urlview/urlview_0.9.orig.tar.gz"
-  version "0.9-20"
+  version "0.9-21"
   sha256 "746ff540ccf601645f500ee7743f443caf987d6380e61e5249fc15f7a455ed42"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
+
+  # Since this formula incorporates patches and uses a version like `0.9-21`,
+  # this check is open-ended (rather than targeting the .orig.tar.gz file), so
+  # we identify patch versions as well.
+  livecheck do
+    url "https://deb.debian.org/debian/pool/main/u/urlview/"
+    regex(/href=.*?urlview[._-]v?(\d+(?:[.-]\d+)+)/i)
+  end
 
   bottle do
     cellar :any_skip_relocation
@@ -16,8 +24,8 @@ class Urlview < Formula
   end
 
   patch do
-    url "https://deb.debian.org/debian/pool/main/u/urlview/urlview_0.9-20.diff.gz"
-    sha256 "0707956fd7195aefe6d6ff2eaabe8946e3d18821a1ce97c0f48d0f8d6e37514e"
+    url "https://deb.debian.org/debian/pool/main/u/urlview/urlview_0.9-21.diff.gz"
+    sha256 "efdf6a279d123952820dd6185ab9399ee1bf081ea3dd613dc96933cd1827a9e9"
   end
 
   def install
