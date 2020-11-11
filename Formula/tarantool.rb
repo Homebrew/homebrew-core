@@ -4,6 +4,7 @@ class Tarantool < Formula
   url "https://download.tarantool.org/tarantool/2.5/src/tarantool-2.5.2.0.tar.gz"
   sha256 "f64b8ef772d42017bd938770912b4a1727ce6302087efcd5c7faac9e425d9ac4"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/tarantool/tarantool.git", branch: "2.5", shallow: false
 
   bottle do
