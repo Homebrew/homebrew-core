@@ -47,7 +47,7 @@ class Clhep < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "-L#{lib}", "-lCLHEP", "-I#{include}/CLHEP",
+    system ENV.cxx, "-std=c++11", "-L#{lib}", "-lCLHEP", "-I#{include}/CLHEP",
            testpath/"test.cpp", "-o", "test"
     assert_equal "r: 3.74166 phi: 1.10715 cos(theta): 0.801784",
                  shell_output("./test").chomp
