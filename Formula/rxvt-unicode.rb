@@ -3,7 +3,8 @@ class RxvtUnicode < Formula
   homepage "http://software.schmorp.de/pkg/rxvt-unicode.html"
   url "http://dist.schmorp.de/rxvt-unicode/rxvt-unicode-9.22.tar.bz2"
   sha256 "e94628e9bcfa0adb1115d83649f898d6edb4baced44f5d5b769c2eeb8b95addd"
-  revision 3
+  license "GPL-3.0-only"
+  revision 4
 
   bottle do
     sha256 "d17b7410c97c5f95f1abbf7de7e49249995b23303696b8f7a2eed7c0924fe818" => :catalina
@@ -15,7 +16,13 @@ class RxvtUnicode < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on :x11
+  depends_on "fontconfig"
+  depends_on "freetype"
+  depends_on "libx11"
+  depends_on "libxft"
+  depends_on "libxmu"
+  depends_on "libxrender"
+  depends_on "libxt"
 
   # Patches 1 and 2 remove -arch flags for compiling perl support
   # Patch 3 fixes `make install` target on case-insensitive filesystems
