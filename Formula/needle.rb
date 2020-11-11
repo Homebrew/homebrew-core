@@ -2,8 +2,8 @@ class Needle < Formula
   desc "Compile-time safe Swift dependency injection framework with real code"
   homepage "https://github.com/uber/needle"
   url "https://github.com/uber/needle.git",
-      tag:      "v0.16.2.1",
-      revision: "86a5d15ed2e1ad34403f354477d365221d94f318"
+      tag:      "v0.16.2.2",
+      revision: "b1d0de426a32ef2983d6db0014781a63393dc06e"
   license "Apache-2.0"
 
   bottle do
@@ -16,8 +16,7 @@ class Needle < Formula
   depends_on xcode: "6.0"
 
   def install
-    system "make", "archive_generator"
-    system "install_name_tool", "-change", "@executable_path/lib_InternalSwiftSyntaxParser.dylib", "@executable_path/../libexec/lib_InternalSwiftSyntaxParser.dylib", "./Generator/bin/needle"
+    system "make", "install", "BINARY_FOLDER_PREFIX=#{prefix}"
     bin.install "./Generator/bin/needle"
     libexec.install "./Generator/bin/lib_InternalSwiftSyntaxParser.dylib"
   end
