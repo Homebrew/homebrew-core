@@ -27,7 +27,7 @@ class Abcl < Formula
   def install
     ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
 
-    system "ant", "abcl.properties.autoconfigure.openjdk.14"
+    system "ant", "abcl.properties.autoconfigure.openjdk.8"
     system "ant"
 
     libexec.install "dist/abcl.jar", "dist/abcl-contrib.jar"
