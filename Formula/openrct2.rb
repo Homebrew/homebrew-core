@@ -5,6 +5,7 @@ class Openrct2 < Formula
       tag:      "v0.3.2",
       revision: "cea5fab238e5dd17a2f958c0a484ad97035264ae"
   license "GPL-3.0-only"
+  revision 1
   head "https://github.com/OpenRCT2/OpenRCT2.git", branch: "develop"
 
   bottle do
