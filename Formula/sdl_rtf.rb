@@ -19,7 +19,7 @@ class SdlRtf < Formula
   depends_on "sdl"
 
   def install
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}", "--disable-sdltest"
     system "make", "install"
   end
 end
