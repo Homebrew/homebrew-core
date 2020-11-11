@@ -13,6 +13,7 @@ class Bash < Formula
     version "5.0.18"
 
     # Fix configure detection of strsignal() and snprintf() with Xcode 12
+    # Remove for version 5.1
     # https://savannah.gnu.org/patch/index.php?9991
     patch do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/cda4fced/bash/bash.patch"
@@ -69,6 +70,11 @@ class Bash < Formula
     # things (e.g. git+ssh) will break if the user sets their default shell to
     # Homebrew's bash instead of /bin/bash.
     ENV.append_to_cflags "-DSSH_SOURCE_BASHRC"
+
+    # Work around configure issues with Xcode 12
+    # https://savannah.gnu.org/patch/index.php?9991
+    # Remove for version 5.1
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
 
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
