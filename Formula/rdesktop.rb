@@ -3,8 +3,8 @@ class Rdesktop < Formula
   homepage "https://www.rdesktop.org/"
   url "https://github.com/rdesktop/rdesktop/releases/download/v1.9.0/rdesktop-1.9.0.tar.gz"
   sha256 "473c2f312391379960efe41caad37852c59312bc8f100f9b5f26609ab5704288"
-  license "GPL-3.0"
-  revision 1
+  license "GPL-3.0-or-later"
+  revision 2
 
   bottle do
     sha256 "4b504df078255fec4d85c94f9a815eb26e55cec1cd38ebf2755ead4d0bcda3be" => :catalina
@@ -16,8 +16,10 @@ class Rdesktop < Formula
   depends_on "gnutls"
   depends_on "libao"
   depends_on "libtasn1"
+  depends_on "libx11"
+  depends_on "libxcursor"
+  depends_on "libxrandr"
   depends_on "nettle"
-  depends_on :x11
 
   def install
     args = %W[
@@ -25,8 +27,6 @@ class Rdesktop < Formula
       --disable-credssp
       --enable-smartcard
       --with-sound=libao
-      --x-includes=#{MacOS::XQuartz.include}
-      --x-libraries=#{MacOS::XQuartz.lib}
     ]
 
     system "./configure", *args
