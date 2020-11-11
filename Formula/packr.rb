@@ -1,8 +1,8 @@
 class Packr < Formula
   desc "Easy way to embed static files into Go binaries"
   homepage "https://github.com/gobuffalo/packr"
-  url "https://github.com/gobuffalo/packr/archive/v2.8.0.tar.gz"
-  sha256 "2cab1e8d60734af05d594346f8e4bffcef0ac2aea4895b08bd9f3c40fc24c639"
+  url "https://github.com/gobuffalo/packr/archive/v2.8.1.tar.gz"
+  sha256 "648f8690e0349039300d3603708bd383f3568193ebaeb0760a87da8760dc7fa7"
   license "MIT"
 
   bottle do
