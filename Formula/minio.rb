@@ -8,6 +8,11 @@ class Minio < Formula
   license "Apache-2.0"
   head "https://github.com/minio/minio.git"
 
+  livecheck do
+    url "https://github.com/minio/minio/releases/latest"
+    regex(%r{href=.*?/tag/(?:RELEASE[._-]?)?([^"' >]+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "683225d7b4226cb85590b002bf58aecb68deae94933df531e09d4120ce8b6893" => :catalina
