@@ -1,8 +1,8 @@
 class Gh < Formula
   desc "GitHub command-line tool"
   homepage "https://github.com/cli/cli"
-  url "https://github.com/cli/cli/archive/v1.2.0.tar.gz"
-  sha256 "d2ff68475802292673b168c35f3f1443dd0068ad6f9e2ee11a260c843b548026"
+  url "https://github.com/cli/cli/archive/v1.2.1.tar.gz"
+  sha256 "ae7f03426b9d9ebf40be3cdbd4ce8cec7aeeda8e51acd34d8d0aaf0b3c4ea550"
   license "MIT"
 
   livecheck do
