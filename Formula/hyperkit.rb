@@ -4,6 +4,7 @@ class Hyperkit < Formula
   url "https://github.com/moby/hyperkit/archive/v0.20200908.tar.gz"
   sha256 "e13bdb9dc5c18ca59ae6cd2b447d704d8d58f27cf4ae5a1f0a026deeb13bd0d7"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -15,7 +16,6 @@ class Hyperkit < Formula
   depends_on "aspcud" => :build
   depends_on "ocaml" => :build
   depends_on "opam" => :build
-  depends_on x11: :build
   depends_on xcode: ["9.0", :build]
 
   depends_on "libev"
