@@ -4,6 +4,7 @@ class Ballerina < Formula
   url "https://dist.ballerina.io/downloads/1.2.9/ballerina-1.2.9.zip"
   sha256 "369f64135779f464fdac1dc0c6827baedbfbccc5f0e9428505879be84789b7a0"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://ballerina.io/learn/installing-ballerina/"
@@ -12,7 +13,7 @@ class Ballerina < Formula
 
   bottle :unneeded
 
-  depends_on java: "1.8"
+  depends_on "openjdk@8"
 
   def install
     # Remove Windows files
