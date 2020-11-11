@@ -6,6 +6,11 @@ class Xsane < Formula
   sha256 "5782d23e67dc961c81eef13a87b17eb0144cae3d1ffc5cf7e0322da751482b4b"
   revision 4
 
+  livecheck do
+    url "https://ftp.osuosl.org/pub/blfs/conglomeration/xsane/"
+    regex(/href=.*?xsane[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "1b87500430dca49d717fa39d92214da59f08d4f7ec63ea477056bc5b2b920de4" => :catalina
     sha256 "93064b6ec70657f6815a0aba5d52c8b7e54e9ef6f223c608351b790887c62b92" => :mojave
