@@ -17,6 +17,8 @@ class Groovyserv < Formula
     sha256 "51aef6e15608021ae127aaa93e2aa39bfaf52cfea688b45841d315b6a04b55aa" => :el_capitan
   end
 
+  deprecate! because: :does_not_build
+
   depends_on "go" => :build
   depends_on "groovy"
   depends_on java: "1.8"
