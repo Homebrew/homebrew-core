@@ -6,6 +6,7 @@ class Infer < Formula
       tag:      "v0.17.0",
       revision: "99464c01da5809e7159ed1a75ef10f60d34506a4"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -19,6 +20,8 @@ class Infer < Formula
     sha256 "74b2dddff2bea362066395e28a797078d33514774511cc64771d0f89eea2466d" => :mojave
     sha256 "7630571f8e391ce0ba991ffe7a5d7b2b4a1029cda1d56497800d8ae0a260d4b6" => :high_sierra
   end
+
+  deprecate! because: :does_not_build
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
