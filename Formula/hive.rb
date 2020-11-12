@@ -5,7 +5,7 @@ class Hive < Formula
   mirror "https://archive.apache.org/dist/hive/hive-3.1.2/apache-hive-3.1.2-bin.tar.gz"
   sha256 "d75dcf36908b4e7b9b0ec9aec57a46a6628b97b276c233cb2c2f1a3e89b13462"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -14,7 +14,7 @@ class Hive < Formula
   bottle :unneeded
 
   depends_on "hadoop"
-  depends_on java: "1.8"
+  depends_on "openjdk"
 
   def install
     rm_f Dir["bin/*.cmd", "bin/ext/*.cmd", "bin/ext/util/*.cmd"]
@@ -30,7 +30,7 @@ class Hive < Formula
       next if file.directory?
 
       (bin/file.basename).write_env_script file,
-        Language::Java.java_home_env("1.7+").merge(HIVE_HOME: libexec)
+        Language::Java.java_home_env.merge(HIVE_HOME: libexec)
     end
   end
 
