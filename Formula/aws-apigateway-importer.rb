@@ -6,6 +6,8 @@ class AwsApigatewayImporter < Formula
   license "Apache-2.0"
   revision 1
 
+  deprecate! because: :repo_archived
+
   bottle do
     cellar :any_skip_relocation
     sha256 "3a837a89af7bfd9454b2e12924323e82ab6cb6ab09f4088e47b672a6a79aedd2" => :catalina
