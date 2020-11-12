@@ -4,7 +4,8 @@ class Geomview < Formula
   url "https://deb.debian.org/debian/pool/main/g/geomview/geomview_1.9.5.orig.tar.gz"
   mirror "https://downloads.sourceforge.net/project/geomview/geomview/1.9.5/geomview-1.9.5.tar.gz"
   sha256 "67edb3005a22ed2bf06f0790303ee3f523011ba069c10db8aef263ac1a1b02c0"
-  revision 1
+  license "LGPL-2.1-only"
+  revision 2
 
   livecheck do
     url "https://deb.debian.org/debian/pool/main/g/geomview/"
@@ -20,8 +21,15 @@ class Geomview < Formula
     sha256 "edc57089dc5ba7f2e7ec43c66202f19c460c4a1970f9c60984c0f3fe6c481012" => :yosemite
   end
 
+  depends_on "libice"
+  depends_on "libsm"
+  depends_on "libx11"
+  depends_on "libxext"
+  depends_on "libxmu"
+  depends_on "libxt"
+  depends_on "mesa"
+  depends_on "mesa-glu"
   depends_on "openmotif"
-  depends_on :x11
 
   def install
     system "./configure", "--disable-dependency-tracking",
@@ -32,6 +40,6 @@ class Geomview < Formula
   end
 
   test do
-    system "#{bin}/geomview", "--version"
+    assert_match "Error: Can't open display:", shell_output("DISPLAY= #{bin}/geomview 2>&1", 1)
   end
 end
