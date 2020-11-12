@@ -1,8 +1,8 @@
 class Osm < Formula
   desc "Open Service Mesh (OSM)"
   homepage "https://openservicemesh.io/"
-  url "https://github.com/openservicemesh/osm/archive/v0.4.2.tar.gz"
-  sha256 "46fc0ab6b0c057fc61572777ba9807d7d57605ec987e686d057a16ffe4488ad7"
+  url "https://github.com/openservicemesh/osm/archive/v0.5.0.tar.gz"
+  sha256 "d1d609ce548426aec4a31c866cd056b3a29afba4718b7f5661968b96118f1995"
   license "MIT"
 
   bottle do
