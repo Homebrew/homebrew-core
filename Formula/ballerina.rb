@@ -4,7 +4,6 @@ class Ballerina < Formula
   url "https://dist.ballerina.io/downloads/1.2.10/ballerina-1.2.10.zip"
   sha256 "3441300795ec8f931545304c286cd19ca2d9e010e43ef9cddb6b63455cf0bae5"
   license "Apache-2.0"
-  revision 1
 
   livecheck do
     url "https://ballerina.io/learn/installing-ballerina/"
