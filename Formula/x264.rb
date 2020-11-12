@@ -1,13 +1,14 @@
 class X264 < Formula
   desc "H.264/AVC encoder"
   homepage "https://www.videolan.org/developers/x264.html"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
+  revision 1
   head "https://code.videolan.org/videolan/x264.git"
 
   stable do
     # the latest commit on the stable branch
     url "https://code.videolan.org/videolan/x264.git",
-        revision: "98ee9d2f215326feeb221a4434957fa586d55c18"
+        revision: "4121277b40a667665d4eea1726aefdc55d12d110"
     version "r3027"
   end
 
@@ -35,19 +36,7 @@ class X264 < Formula
     fails_with :clang
   end
 
-  # update config.* and configure: add Apple Silicon support.
-  # upstream PR https://code.videolan.org/videolan/x264/-/merge_requests/35
-  # Can be removed once it gets merged into stable branch
-  patch do
-    url "https://code.videolan.org/videolan/x264/-/commit/eb95c2965299ba5b8598e2388d71b02e23c9fba7.diff?full_index=1"
-    sha256 "7cdc60cffa8f3004837ba0c63c8422fbadaf96ccedb41e505607ead2691d49b9"
-  end
-
   def install
-    # Work around Xcode 11 clang bug
-    # https://bitbucket.org/multicoreware/x265/issues/514/wrong-code-generated-on-macos-1015
-    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
-
     args = %W[
       --prefix=#{prefix}
       --disable-lsmash
@@ -63,6 +52,7 @@ class X264 < Formula
   end
 
   test do
+    assert_match version.to_s.delete("r"), shell_output("#{bin}/x264 --version").lines.first
     (testpath/"test.c").write <<~EOS
       #include <stdint.h>
       #include <x264.h>
