@@ -5,6 +5,11 @@ class Libdaemon < Formula
   sha256 "fd23eb5f6f986dcc7e708307355ba3289abe03cc381fc47a80bca4a50aa6b834"
   license "LGPL-2.1"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?libdaemon[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     rebuild 2
