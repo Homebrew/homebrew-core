@@ -5,6 +5,11 @@ class Libxp < Formula
   sha256 "bd1e449572359921dd5fa20707757f57d7535aff1772570ab2c29c6b49b86266"
   license "MIT"
 
+  livecheck do
+    url :stable
+    regex(/^libXp[._-]v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
     sha256 "e70342d93c5cf690582f559318b05b26da9175fc7620493fa15a224a847ec1da" => :catalina
