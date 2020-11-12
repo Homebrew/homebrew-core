@@ -19,7 +19,6 @@ class DiffPdf < Formula
   depends_on "cairo"
   depends_on "poppler"
   depends_on "wxmac"
-  depends_on :x11
 
   def install
     system "./configure", "--disable-dependency-tracking",
@@ -30,6 +29,8 @@ class DiffPdf < Formula
   end
 
   test do
-    system "#{bin}/diff-pdf", "-h"
+    testpdf = test_fixtures("test.pdf")
+    system "#{bin}/diff-pdf", "--output-diff=no_diff.pdf", testpdf, testpdf
+    assert (testpath/"no_diff.pdf").file?
   end
 end
