@@ -1,8 +1,8 @@
 class Rain < Formula
   desc "Command-line tool for working with AWS CloudFormation"
   homepage "https://github.com/aws-cloudformation/rain"
-  url "https://github.com/aws-cloudformation/rain/archive/v0.10.2-1.tar.gz"
-  sha256 "a3c855cef9aae00f28c9b39d70d1df0c94e965a389ae38c4dd0d5b07a5fea6bc"
+  url "https://github.com/aws-cloudformation/rain/archive/v1.0.0.tar.gz"
+  sha256 "c5a5a36ebfa960efeb97a5a43c6b998d3633953ce06d5fdf5eec977a23183eb5"
   license "Apache-2.0"
 
   bottle do
@@ -15,7 +15,7 @@ class Rain < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args
+    system "go", "build", *std_go_args, "cmd/rain/main.go"
   end
 
   test do
@@ -24,6 +24,6 @@ class Rain < Formula
         Bucket:
           Type: AWS::S3::Bucket
     EOS
-    assert_equal "test.template: ok", shell_output("#{bin}/rain check test.template").strip
+    assert_equal "formatted OK", shell_output("#{bin}/rain fmt -v test.template").strip
   end
 end
