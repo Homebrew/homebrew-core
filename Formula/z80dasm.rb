@@ -5,6 +5,11 @@ class Z80dasm < Formula
   sha256 "76d3967bb028f380a0c4db704a894c2aa939951faa5c5630b3355c327c0bd360"
   license "GPL-2.0-or-later"
 
+  livecheck do
+    url "https://www.tablix.org/~avian/z80dasm"
+    regex(/href=.*?z80dasm[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "5012e33c0fc342ec32a22462f9a75897fd69d44cf2918c64a593d268fa365c86" => :catalina
