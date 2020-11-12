@@ -19,7 +19,7 @@ class AwsApigatewayImporter < Formula
   end
 
   depends_on "maven" => :build
-  depends_on java: "1.8"
+  depends_on "openjdk@8"
 
   # Pin aws-sdk-java-core for JSONObject compatibility
   patch do
