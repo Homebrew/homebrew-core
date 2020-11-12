@@ -5,6 +5,13 @@ class Memtester < Formula
   sha256 "8ed52b0d06d4aeb61954994146e2a5b2d20448a8f3ce3ee995120e6dbde2ae37"
   license "GPL-2.0-only"
 
+  # Despite the name, all the versions are seemingly found on this page. If this
+  # doesn't end up being true over time, we can check the homepage instead.
+  livecheck do
+    url "http://pyropus.ca/software/memtester/old-versions/"
+    regex(/href=.*?memtester[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "3a076907f16eea276860af92f2ce27ac3ffa5f7ddb6b107bcd0767a4d2ae8f9e" => :catalina
