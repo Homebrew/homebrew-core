@@ -7,7 +7,7 @@ class Ballerina < Formula
   revision 1
 
   livecheck do
-    url "https://dist.ballerina.io/downloads/1.2.10/ballerina-1.2.10.zip"
+    url "https://ballerina.io/learn/installing-ballerina/"
     regex(/href=.*?ballerina[._-]v?(\d+(?:\.\d+)+)/i)
   end
 
