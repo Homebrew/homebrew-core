@@ -4,6 +4,11 @@ class Runit < Formula
   url "http://smarden.org/runit/runit-2.1.2.tar.gz"
   sha256 "6fd0160cb0cf1207de4e66754b6d39750cff14bb0aa66ab49490992c0c47ba18"
 
+  livecheck do
+    url "http://smarden.org/runit/install.html"
+    regex(/href=.*?runit[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 1
