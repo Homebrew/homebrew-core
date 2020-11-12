@@ -36,7 +36,7 @@ class TigerVnc < Formula
     turbo = Formula["jpeg-turbo"]
     args = std_cmake_args + %W[
       -DJPEG_INCLUDE_DIR=#{turbo.include}
-      -DJPEG_LIBRARY=#{turbo.lib}/libjpeg.dylib
+      -DJPEG_LIBRARY=#{turbo.lib}/#{shared_library("libjpeg")}
       .
     ]
     system "cmake", *args
