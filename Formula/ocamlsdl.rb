@@ -6,10 +6,6 @@ class Ocamlsdl < Formula
   license "LGPL-2.1-or-later"
   revision 13
 
-  livecheck do
-    url :stable
-  end
-
   disable! because: :unmaintained
 
   bottle do
