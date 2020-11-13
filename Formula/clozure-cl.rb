@@ -36,7 +36,7 @@ class ClozureCl < Formula
       if DevelopmentTools.clang_build_version == 1100 && MacOS::CLT.installed?
         # Xcode 11.0-11.3 assembler is broken. Try the CLT in case it is older.
         # https://github.com/Clozure/ccl/issues/271
-        # Note: ccl NEEDS the system assembler - it is not compatible with Clang's
+        # NOTE: ccl NEEDS the system assembler - it is not compatible with Clang's
         args << "AS=/Library/Developer/CommandLineTools/usr/bin/as"
       end
 
