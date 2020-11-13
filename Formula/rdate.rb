@@ -26,7 +26,7 @@ class Rdate < Formula
   end
 
   test do
-    # note that the server must support RFC 868
+    # NOTE: The server must support RFC 868
     system "#{bin}/rdate", "-p", "-t", "10", "time-b-b.nist.gov"
   end
 end
