@@ -11,7 +11,7 @@ class Libhandy < Formula
     sha256 "aff98ff6a6b9d071a635cbe294c675b4f7fd2c155f737bafa0d787501714e847" => :high_sierra
   end
 
-  # Note: The glade catalog is disabled due to a bug that has been fixed but
+  # NOTE: The glade catalog is disabled due to a bug that has been fixed but
   # not landed in a stable libhandy version yet (as of September 2020).
   # See https://gitlab.gnome.org/GNOME/libhandy/-/merge_requests/614
   # When it lands, -Dglade_catalog=enabled should work (make sure to add
