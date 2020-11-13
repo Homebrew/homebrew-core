@@ -24,7 +24,7 @@ class Pth < Formula
   def install
     ENV.deparallelize
 
-    # Note: shared library will not be build with --disable-debug, so don't add that flag
+    # NOTE: The shared library will not be build with --disable-debug, so don't add that flag
     system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
     system "make"
     system "make", "test"
