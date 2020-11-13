@@ -49,7 +49,7 @@ class LuaAT51 < Formula
     (lib/"pkgconfig").install "etc/lua.pc"
 
     # Renaming from Lua to Lua51.
-    # Note that the naming must be both lua-version & lua.version.
+    # NOTE: The naming must be both lua-version & lua.version.
     # Software can't find the libraries without supporting both the
     # hyphen and full stop.
     mv bin/"lua", bin/"lua-5.1"
