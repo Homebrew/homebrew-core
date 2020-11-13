@@ -32,6 +32,11 @@ class Pgbouncer < Formula
     etc.install %w[etc/pgbouncer.ini etc/userlist.txt]
   end
 
+  def post_install
+    (var/"log").mkpath
+    (var/"run").mkpath
+  end
+
   def caveats
     <<~EOS
       The config file: #{etc}/pgbouncer.ini is in the "ini" format and you
