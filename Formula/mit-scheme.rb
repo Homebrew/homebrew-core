@@ -34,7 +34,7 @@ class MitScheme < Formula
     # with the error "the object ..., passed as the second argument to apply, is
     # not the correct type." Only Haswell and above appear to be impacted.
     # Reported 23rd Apr 2016: https://savannah.gnu.org/bugs/index.php?47767
-    # Note that `unless build.bottle?` avoids overriding --bottle-arch=[...].
+    # NOTE: `unless build.bottle?` avoids overriding --bottle-arch=[...].
     ENV["HOMEBREW_OPTFLAGS"] = "-march=#{Hardware.oldest_cpu}" unless build.bottle?
 
     resource("bootstrap").stage do
