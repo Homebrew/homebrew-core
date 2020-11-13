@@ -8,7 +8,7 @@ class Cloudtoken < Formula
   license "Apache-2.0"
 
   depends_on "openssl"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "cloudtoken-plugin.adfs" do
     url "https://files.pythonhosted.org/packages/60/5a/1d5c8e8f0ec11afce01ca13abb6307b876292f47b742a50cb2ef7e43c4eb/cloudtoken-plugin.adfs-0.1.685.tar.gz"
