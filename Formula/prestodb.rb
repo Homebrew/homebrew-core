@@ -23,8 +23,8 @@ class Prestodb < Formula
   conflicts_with "prestosql", because: "both install `presto` and `presto-server` binaries"
 
   resource "presto-cli" do
-    url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-cli/0.243.1/presto-cli-0.243.1-executable.jar"
-    sha256 "25c01a95cd126a8e4ea13dba79b571ca932fede418c752390f63273e08252451"
+    url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-cli/0.243.2/presto-cli-0.243.2-executable.jar"
+    sha256 "0e1de529977b6e9ee29d9622dfb8685c62086d1cd8d276ca7bcba0b18bcd85e5"
   end
 
   def install
