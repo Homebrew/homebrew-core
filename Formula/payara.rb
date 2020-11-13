@@ -3,10 +3,11 @@ class Payara < Formula
   homepage "https://www.payara.fish"
   url "https://search.maven.org/remotecontent?filepath=fish/payara/distributions/payara/5.192/payara-5.192.zip"
   sha256 "272352a4d8a6fd19a0e3e02bde946fb9a860c1206fc6e39a41279a73f43b2995"
+  revision 1
 
   bottle :unneeded
 
-  depends_on java: "1.8"
+  depends_on "openjdk@8"
 
   conflicts_with "glassfish", because: "both install the same scripts"
 
