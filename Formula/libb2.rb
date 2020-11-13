@@ -14,10 +14,13 @@ class Libb2 < Formula
   end
 
   def install
+    extra_args = []
+    extra_args << "--enable-fat" unless Hardware::CPU.arm?
+
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
-                          "--enable-fat",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          *extra_args
     system "make", "install"
   end
 
