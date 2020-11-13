@@ -4,7 +4,7 @@ class Fox < Formula
   url "http://fox-toolkit.org/ftp/fox-1.6.56.tar.gz"
   sha256 "c517e5fcac0e6b78ca003cc167db4f79d89e230e5085334253e1d3f544586cb2"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url "http://www.fox-toolkit.org/news.html"
@@ -25,9 +25,20 @@ class Fox < Formula
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
-  depends_on :x11
+  depends_on "libx11"
+  depends_on "libxcursor"
+  depends_on "libxext"
+  depends_on "libxfixes"
+  depends_on "libxft"
+  depends_on "libxi"
+  depends_on "libxrandr"
+  depends_on "libxrender"
+  depends_on "mesa"
+  depends_on "mesa-glu"
 
   def install
+    # Needed for libxft to find ftbuild2.h provided by freetype
+    ENV.append "CPPFLAGS", "-I#{Formula["freetype"].opt_include}/freetype2"
     system "./configure", "--disable-dependency-tracking",
                           "--enable-release",
                           "--prefix=#{prefix}",
