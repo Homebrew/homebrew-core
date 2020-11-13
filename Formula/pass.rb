@@ -4,6 +4,7 @@ class Pass < Formula
   url "https://git.zx2c4.com/password-store/snapshot/password-store-1.7.3.tar.xz"
   sha256 "2b6c65846ebace9a15a118503dcd31b6440949a30d3b5291dfb5b1615b99a3f4"
   license "GPL-2.0"
+  revision 1
   head "https://git.zx2c4.com/password-store.git"
 
   livecheck do
@@ -30,6 +31,9 @@ class Pass < Formula
     inreplace "#{bin}/pass",
               /^SYSTEM_EXTENSION_DIR=.*$/,
               "SYSTEM_EXTENSION_DIR=\"#{HOMEBREW_PREFIX}/lib/password-store/extensions\""
+    inreplace "#{lib}/password-store/platform.sh",
+              /^GETOPT=.*$/,
+              "GETOPT=\"#{HOMEBREW_PREFIX}/opt/gnu-getopt/bin/getopt\""
     elisp.install "contrib/emacs/password-store.el"
     pkgshare.install "contrib"
   end
