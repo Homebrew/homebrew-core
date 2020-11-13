@@ -1,4 +1,4 @@
-# Note that odd release numbers indicate unstable releases.
+# NOTE: Odd release numbers indicate unstable releases.
 # Please only submit PRs for [x.even.x] version numbers:
 # https://github.com/djcb/mu/commit/23f4a64bdcdee3f9956a39b9a5a4fd0c5c2370ba
 class Mu < Formula
