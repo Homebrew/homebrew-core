@@ -38,7 +38,32 @@ class Pulseaudio < Formula
   uses_from_macos "expat"
   uses_from_macos "m4"
 
+  on_linux do
+    depends_on "glib"
+    depends_on "libcap"
+
+    # Depends on XML::Parser
+    # Using the host's Perl interpreter to install XML::Parser fails when using brew's glibc.
+    # Use brew's Perl interpreter instead.
+    # See Linuxbrew/homebrew-core#8148
+    resource "XML::Parser" do
+      url "https://cpan.metacpan.org/authors/id/T/TO/TODDR/XML-Parser-2.44.tar.gz"
+      sha256 "1ae9d07ee9c35326b3d9aad56eae71a6730a73a116b9fe9e8a4758b7cc033216"
+    end
+  end
+
   def install
+    on_linux do
+      ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
+      resources.each do |res|
+        res.stage do
+          system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+          system "make", "PERL5LIB=#{ENV["PERL5LIB"]}", "CC=#{ENV.cc}"
+          system "make", "install"
+        end
+      end
+    end
+
     args = %W[
       --disable-dependency-tracking
       --disable-silent-rules
@@ -47,9 +72,23 @@ class Pulseaudio < Formula
       --disable-neon-opt
       --disable-nls
       --disable-x11
-      --with-mac-sysroot=#{MacOS.sdk_path}
-      --with-mac-version-min=#{MacOS.version}
     ]
+
+    on_macos do
+      args << "--with-mac-sysroot=#{MacOS.sdk_path})"
+      args << "--with-mac-version-min=#{MacOS.version}"
+    end
+
+    on_linux do
+      # Perl depends on gdbm.
+      # If the dependency of pulseaudio on perl is build-time only,
+      # pulseaudio detects and links gdbm at build-time, but cannot locate it at run-time.
+      # Thus, we have to
+      #  - specify not to use gdbm (with --with-database=simple), or
+      #  - add a dependency on gdbm if gdbm is wanted (not implemented).
+      # See Linuxbrew/homebrew-core#8148
+      args << "--with-database=simple"
+    end
 
     if build.head?
       # autogen.sh runs bootstrap.sh then ./configure
@@ -58,6 +97,11 @@ class Pulseaudio < Formula
       system "./configure", *args
     end
     system "make", "install"
+
+    on_linux do
+      # https://stackoverflow.com/questions/56309056/is-gschemas-compiled-architecture-specific-can-i-ship-it-with-my-python-library
+      rm "#{share}/glib-2.0/schemas/gschemas.compiled"
+    end
   end
 
   plist_options manual: "pulseaudio"
