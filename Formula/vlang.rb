@@ -1,7 +1,7 @@
 class Vlang < Formula
   desc "V programming language"
   homepage "https://vlang.io"
-  # Note: Keep this in sync with V compiler below when updating
+  # NOTE: Keep this in sync with V compiler below when updating
   url "https://github.com/vlang/v/archive/0.1.29.tar.gz"
   sha256 "5111d04663d8454c9e8bcbd7e3544dcbd6abc54eb5034e31649417af6e8418a6"
   license "MIT"
