@@ -5,6 +5,7 @@ class Libtiff < Formula
   mirror "https://fossies.org/linux/misc/tiff-4.1.0.tar.gz"
   sha256 "5d29f32517dadb6dbcd1255ea5bbc93a2b54b94fbf83653b4d65c7d6775b8634"
   license "libtiff"
+  revision 1
 
   livecheck do
     url "https://download.osgeo.org/libtiff/"
@@ -28,6 +29,8 @@ class Libtiff < Formula
       --prefix=#{prefix}
       --disable-dependency-tracking
       --disable-lzma
+      --disable-webp
+      --disable-zstd
       --with-jpeg-include-dir=#{Formula["jpeg"].opt_include}
       --with-jpeg-lib-dir=#{Formula["jpeg"].opt_lib}
       --without-x
