@@ -14,6 +14,8 @@ class Libb2 < Formula
   end
 
   def install
+    # SSE detection is broken on arm64 macos
+    # https://github.com/BLAKE2/libb2/issues/36
     extra_args = []
     extra_args << "--enable-fat" unless Hardware::CPU.arm?
 
