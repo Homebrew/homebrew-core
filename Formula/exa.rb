@@ -4,7 +4,6 @@ class Exa < Formula
   url "https://github.com/ogham/exa/archive/v0.9.0.tar.gz"
   sha256 "96e743ffac0512a278de9ca3277183536ee8b691a46ff200ec27e28108fef783"
   license "MIT"
-  head "https://github.com/ogham/exa.git"
 
   livecheck do
     url "https://github.com/ogham/exa/releases/latest"
@@ -19,7 +18,11 @@ class Exa < Formula
     sha256 "e1afc4b73ef02f23012b0c76a4aaadb7ca256530ffc685ccfda79a5d846bae49" => :high_sierra
   end
 
-  depends_on "pandoc" => :build
+  head do
+    url "https://github.com/ogham/exa.git"
+    depends_on "pandoc" => :build
+  end
+
   depends_on "rust" => :build
 
   uses_from_macos "zlib"
