@@ -16,7 +16,7 @@ class Libtommath < Formula
 
   # Fixes mp_set_double being missing on macOS.
   # This is needed by some dependents in homebrew-core.
-  # Note: this patch has been merged upstream but we take a backport
+  # NOTE: This patch has been merged upstream but we take a backport
   # from a fork due to file name differences between 1.2.0 and master.
   # Remove with the next version.
   patch do
