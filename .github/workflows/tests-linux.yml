@@ -9,6 +9,7 @@ on:
       - "Formula/ladspa-sdk.rb"
       - "Formula/libbsd.rb"
       - "Formula/libcap.rb"
+      - "Formula/libcap-ng.rb"
       - "Formula/libdrm.rb"
       - "Formula/libfuse.rb"
       - "Formula/libmnl.rb"
