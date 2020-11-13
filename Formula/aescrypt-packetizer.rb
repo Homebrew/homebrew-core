@@ -31,8 +31,16 @@ class AescryptPacketizer < Formula
     if build.head?
       cd "linux"
       system "autoreconf", "-ivf"
-      system "./configure", "prefix=#{prefix}", "--enable-iconv",
-              "--disable-gui"
+
+      args = %W[
+        prefix=#{prefix}
+        --disable-gui
+      ]
+      on_macos do
+        args << "--enable-iconv"
+      end
+
+      system "./configure", *args
       system "make", "install"
     else
       cd "src" do
