@@ -1,7 +1,7 @@
 class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
-  # Note: Please keep these values in sync with git-gui.rb when updating.
+  # NOTE: Please keep these values in sync with git-gui.rb when updating.
   url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.29.2.tar.xz"
   sha256 "f2fc436ebe657821a1360bcd1e5f4896049610082419143d60f6fa13c2f607c1"
   license "GPL-2.0-only"
