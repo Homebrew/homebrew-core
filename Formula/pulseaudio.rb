@@ -18,7 +18,7 @@ class Pulseaudio < Formula
   end
 
   head do
-    url "https://anongit.freedesktop.org/git/pulseaudio/pulseaudio.git"
+    url "https://gitlab.freedesktop.org/pulseaudio/pulseaudio.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
