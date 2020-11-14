@@ -3,8 +3,9 @@ class AflFuzz < Formula
   homepage "https://github.com/google/AFL"
   url "https://github.com/google/AFL/archive/v2.57b.tar.gz"
   version "2.57b"
-  sha256 "a6416350ef40e042085337b0cbc12ac95d312f124d11f37076672f511fe31608"
+  sha256 "6f05a6515c07abe49f6f292bd13c96004cc1e016bda0c3cc9c2769dd43f163ee"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -18,8 +19,8 @@ class AflFuzz < Formula
   end
 
   def install
-    system "make", "PREFIX=#{prefix}"
-    system "make", "install", "PREFIX=#{prefix}"
+    system "make", "PREFIX=#{prefix}", "AFL_NO_X86=1"
+    system "make", "install", "PREFIX=#{prefix}", "AFL_NO_X86=1"
   end
 
   test do
