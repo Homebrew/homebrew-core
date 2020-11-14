@@ -13,7 +13,6 @@ class Needle < Formula
   end
 
   depends_on xcode: ["11.6", :build]
-  depends_on xcode: "6.0"
 
   def install
     system "make", "install", "BINARY_FOLDER_PREFIX=#{prefix}"
@@ -22,6 +21,15 @@ class Needle < Formula
   end
 
   test do
+    (testpath/"Test.swift").write <<~EOS
+    import Foundation
+    protocol ChildDependency: Dependency {}
+    class Child: Component<ChildDependency> {}
+
+    let child = Child(parent: self)
+    EOS
+
+    assert_match "Root\n", shell_output("#{bin}/needle print-dependency-tree #{testpath}/Test.swift")
     assert_match version.to_s, shell_output("#{bin}/needle version")
   end
 end
