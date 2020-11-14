@@ -1,8 +1,8 @@
 class Liberasurecode < Formula
   desc "Erasure Code API library written in C with pluggable backends"
   homepage "https://github.com/openstack/liberasurecode"
-  url "https://github.com/openstack/liberasurecode/archive/1.6.1.tar.gz"
-  sha256 "958b01ff91efe7b21a19ca72937a93b2a5c7af41c08790d4fe9df82d8c5e24f0"
+  url "https://github.com/openstack/liberasurecode/archive/1.6.2.tar.gz"
+  sha256 "f11752f41e652e62d0feb095a118a8fe1b5d43910d3d31a0de99b789070d7788"
   license "BSD-2-Clause"
 
   bottle do
