@@ -49,7 +49,7 @@ jobs:
     if: github.event_name == 'pull_request' && ! contains(github.event.pull_request.labels.*.name, 'CI-syntax-only')
     strategy:
       matrix:
-        version: [10.15, 10.14, 10.13]
+        version: ['11.0', 10.15, 10.14, 10.13]
       fail-fast: false
     runs-on: ${{ matrix.version }}
     timeout-minutes: 4320
