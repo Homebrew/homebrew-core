@@ -14,12 +14,12 @@ class ApacheFlink < Formula
 
   bottle :unneeded
 
-  depends_on java: "1.8"
+  depends_on "openjdk@11"
 
   def install
     rm_f Dir["bin/*.bat"]
     libexec.install Dir["*"]
-    (libexec/"bin").env_script_all_files(libexec/"libexec", Language::Java.java_home_env("1.8"))
+    (libexec/"bin").env_script_all_files(libexec/"libexec", Language::Java.java_home_env("11"))
     (libexec/"bin").install Dir["#{libexec}/libexec/*.jar"]
     chmod 0755, Dir["#{libexec}/bin/*"]
     bin.write_exec_script "#{libexec}/bin/flink"
@@ -37,8 +37,8 @@ class ApacheFlink < Formula
     ENV.prepend "FLINK_LOG_DIR", testpath/"log"
     system libexec/"bin/start-cluster.sh"
     system bin/"flink", "run", "-p", "1",
-           libexec/"examples/streaming/WordCount.jar", "--input", "input",
-           "--output", "result/1"
+           libexec/"examples/streaming/WordCount.jar", "--input", testpath/"input",
+           "--output", testpath/"result/1"
     system libexec/"bin/stop-cluster.sh"
     assert_predicate testpath/"result/1", :exist?
     assert_equal expected, (testpath/"result/1").read
