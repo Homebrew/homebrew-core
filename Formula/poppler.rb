@@ -4,7 +4,7 @@ class Poppler < Formula
   url "https://poppler.freedesktop.org/poppler-20.11.0.tar.xz"
   sha256 "021557074516492375c2bb4226a413aad431159e9177f9f14dff4159d2723b14"
   license "GPL-2.0-only"
-  head "https://anongit.freedesktop.org/git/poppler/poppler.git"
+  head "https://gitlab.freedesktop.org/poppler/poppler.git"
 
   livecheck do
     url :homepage
