@@ -41,6 +41,12 @@ class Qt < Formula
     directory "qt3d"
   end
 
+  # Patches for Xcode 12 / Metal API changes. Remove when Qt updates its Chromium.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/f42f80503399061eab165b8e83a5519446128d5f/qt/qt-webengine-xcode-12.diff"
+    sha256 "3a3186b32ee358a25841c96d520d5d5e5ca7fba3912b2fc3b338b4f45256bcdb"
+  end
+
   def install
     args = %W[
       -verbose
