@@ -16,7 +16,7 @@ class HicolorIconTheme < Formula
   end
 
   head do
-    url "https://anongit.freedesktop.org/git/xdg/default-icon-theme.git"
+    url "https://gitlab.freedesktop.org/xdg/default-icon-theme.git"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
