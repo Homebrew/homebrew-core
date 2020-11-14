@@ -5,7 +5,7 @@ class GstPluginsBad < Formula
   sha256 "c195978c85d97406c05eb9d43ac54b9ab35eda6ffdae32b3ed597b8f1743c1b2"
   license "LGPL-2.0-or-later"
   revision 1
-  head "https://anongit.freedesktop.org/git/gstreamer/gst-plugins-bad.git"
+  head "https://gitlab.freedesktop.org/gstreamer/gst-plugins-bad.git"
 
   livecheck do
     url "https://gstreamer.freedesktop.org/src/gst-plugins-bad/"
