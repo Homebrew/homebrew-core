@@ -3,14 +3,13 @@ class Ansible < Formula
 
   desc "Automate deployment, configuration, and upgrading"
   homepage "https://www.ansible.com/"
-  url "https://releases.ansible.com/ansible/ansible-2.9.15.tar.gz"
-  sha256 "736a19fa6d608b4df2d6b48d31fec057b3f95abf62b7fda69ffa4a743e2f55b6"
+  url "https://files.pythonhosted.org/packages/9c/f4/c156b10d7ae90ba6b99b1b126f7d30628adc1e733a6fbd63569852948f21/ansible-2.10.3.tar.gz"
+  sha256 "eb1d08b9b98a60e90e7123a12f40770780f29f9d73168da55d449106a9f4d348"
   license "GPL-3.0-or-later"
   head "https://github.com/ansible/ansible.git", branch: "devel"
 
   livecheck do
-    url "https://releases.ansible.com/ansible/"
-    regex(/href=.*?ansible[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url :stable
   end
 
   bottle do
@@ -89,8 +88,8 @@ class Ansible < Formula
   # The rest of this list should always be sorted by:
   # pip install homebrew-pypi-poet && poet_lint $(brew formula ansible)
   resource "Babel" do
-    url "https://files.pythonhosted.org/packages/34/18/8706cfa5b2c73f5a549fdc0ef2e24db71812a2685959cff31cbdfc010136/Babel-2.8.0.tar.gz"
-    sha256 "1aac2ae2d0d8ea368fa90906567f5c08463d98ade155c0c4bfedd6a0f7160e38"
+    url "https://files.pythonhosted.org/packages/41/1b/5ed6e564b9ca54318df20ebe5d642ab25da4118df3c178247b8c4b26fa13/Babel-2.9.0.tar.gz"
+    sha256 "da031ab54472314f210b0adcff1588ee5d1d1d0ba4dbd07b94dba82bde791e05"
   end
 
   resource "Jinja2" do
@@ -111,6 +110,11 @@ class Ansible < Formula
   resource "PyYAML" do
     url "https://files.pythonhosted.org/packages/64/c2/b80047c7ac2478f9501676c988a5411ed5572f35d1beff9cae07d321512c/PyYAML-5.3.1.tar.gz"
     sha256 "b8eac752c5e14d3eca0e6dd9199cd627518cb5ec06add0de9d32baeee6fe645d"
+  end
+
+  resource "ansible-base" do
+    url "https://files.pythonhosted.org/packages/2e/d1/92422f8f53ae2d4e75ebdc2be2186a9ca2796b5d9679f20ed0239e86d8cf/ansible-base-2.10.3.tar.gz"
+    sha256 "35a208726b10fecbcf00c263ae4572b48f505b5796fb77a85c3e9c1036ea5e4f"
   end
 
   resource "apache-libcloud" do
@@ -149,13 +153,13 @@ class Ansible < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/8e/dd/7115a7c23afb833475d15c33773f74e180f27f3ffc7796e74a729bdf51b8/boto3-1.16.11.tar.gz"
-    sha256 "fe5fbcf988e6f5b87a31ddd6ba92a6485d35f666d26b9c9750263aa8b0d33b60"
+    url "https://files.pythonhosted.org/packages/51/7c/de00a09b9a9395ea1698134635ded0880b20d3fbfd50ae6fdb79b7f411ca/boto3-1.16.18.tar.gz"
+    sha256 "51c419d890ae216b9b031be31f3182739dc3deb5b64351f286bffca2818ddb35"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/ad/4b/6fba62a48d803e88ebede6b50c2b03c4df61b5e52ffc290e64316244cf62/botocore-1.19.11.tar.gz"
-    sha256 "85c49ec723e86317af46594f9a1843c6d64ecc3ab43c6e0a58a57d9c7cbbebe5"
+    url "https://files.pythonhosted.org/packages/0c/42/ed7176ab40118481a8445a779e24589acdfbfad68d27a9ff316cd7920bab/botocore-1.19.18.tar.gz"
+    sha256 "288d43e85f12e3c1d6a0535a585a182ca04e8c6e742ebaaf15357a0e3b37ca7a"
   end
 
   resource "cachetools" do
@@ -164,8 +168,8 @@ class Ansible < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/40/a7/ded59fa294b85ca206082306bba75469a38ea1c7d44ea7e1d64f5443d67a/certifi-2020.6.20.tar.gz"
-    sha256 "5930595817496dd21bb8dc35dad090f1c2cd0adfaf21204bf6732ca5d8ee34d3"
+    url "https://files.pythonhosted.org/packages/e6/de/879cf857ae6f890dfa23c3d6239814c5471936b618c8fb0c8732ad5da885/certifi-2020.11.8.tar.gz"
+    sha256 "f05def092c44fbf25834a51509ef6e631dc19765ab8a57b4e7ab85531f0a9cf4"
   end
 
   resource "cffi" do
@@ -179,13 +183,13 @@ class Ansible < Formula
   end
 
   resource "cliff" do
-    url "https://files.pythonhosted.org/packages/78/98/bbea018dc7d1973b636ba07fcf1e51cc472d93a9b478500ea059a0753070/cliff-3.4.0.tar.gz"
-    sha256 "49be854582ec4a74240cb72f287846f823cd8cbd2e25f924541d12f27104bda3"
+    url "https://files.pythonhosted.org/packages/eb/ac/f4a5fd1845521e64a0d2224ceb65d81d8dccfb845ed1ccb3918f67836b44/cliff-3.5.0.tar.gz"
+    sha256 "5bfb684b5fcdff0afaaccd1298a376c0e62e644c46b7e9abc034595b41fe1759"
   end
 
   resource "cmd2" do
-    url "https://files.pythonhosted.org/packages/cc/62/b12c1029be341d1e4de6ca6fe5b9237e2c9c89df01612c20dd1582cb32e0/cmd2-1.3.11.tar.gz"
-    sha256 "826a288ee6d9c4ec1184e64e9566c09d3b73be8f4283c1898fa4332f1daf8dbf"
+    url "https://files.pythonhosted.org/packages/c1/76/98f8767ddc8febfbd6367b2fcd391cd92087496d00e58ad99008e126035e/cmd2-1.4.0.tar.gz"
+    sha256 "e59fa932418603af4e046a96c8985812b05af8a73bfd9d7a386cd1b02c6ab687"
   end
 
   resource "colorama" do
@@ -379,8 +383,8 @@ class Ansible < Formula
   end
 
   resource "osc-lib" do
-    url "https://files.pythonhosted.org/packages/2e/9b/91e3af2ecc91ba84ea73d98bc55cb997686609f5bca2e7093b4420fcfad2/osc-lib-2.2.1.tar.gz"
-    sha256 "d969891040de0804b5126fa4c476ec1f4ec1475096907096971fd40d989e0ad2"
+    url "https://files.pythonhosted.org/packages/2e/99/7d0c86e6b153a4946e0b3ba0c09c065a699244a76c18538d57bfee88f6a3/osc-lib-2.3.0.tar.gz"
+    sha256 "ee4f8b6989d3a3fb1021a6a32665000b1db27e615a0ab5c86c35eb59c90003f1"
   end
 
   resource "oslo.config" do
@@ -530,8 +534,8 @@ class Ansible < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/da/67/672b422d9daf07365259958912ba533a0ecab839d4084c487a5fe9a5405f/requests-2.24.0.tar.gz"
-    sha256 "b3559a131db72c33ee969480840fff4bb6dd111de7dd27c8ee1f820f4f00231b"
+    url "https://files.pythonhosted.org/packages/9f/14/4a6542a078773957aa83101336375c9597e6fe5889d20abda9c38f9f3ff2/requests-2.25.0.tar.gz"
+    sha256 "7f1a0b932f4a60a1a65caa4263921bb7d9ee911957e0ae4a23a6dd08185ad5f8"
   end
 
   resource "requests-credssp" do
@@ -615,8 +619,8 @@ class Ansible < Formula
   end
 
   resource "transitions" do
-    url "https://files.pythonhosted.org/packages/32/32/305845f95f98b505e641aa3fc135b0a9747befcff06223a541d2aa388d47/transitions-0.8.4.tar.gz"
-    sha256 "9a2841b24789dfd345267cb92e26b79da75fd03f6021d1a5222c71b5c9ae3c16"
+    url "https://files.pythonhosted.org/packages/02/39/2f163ec555b9475944d7569099070a801d875d927272d910d35c17107a98/transitions-0.8.5.tar.gz"
+    sha256 "e441c66a0c753d56c01c3e5e547f21dbe4a5569c939f12477475c5e81d79769b"
   end
 
   resource "unicodecsv" do
@@ -625,8 +629,8 @@ class Ansible < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/76/d9/bbbafc76b18da706451fa91bc2ebe21c0daf8868ef3c30b869ac7cb7f01d/urllib3-1.25.11.tar.gz"
-    sha256 "8d7eaa5a82a1cac232164990f04874c594c9453ec55eef02eab885aa02fc17a2"
+    url "https://files.pythonhosted.org/packages/29/e6/d1a1d78c439cad688757b70f26c50a53332167c364edb0134cadd280e234/urllib3-1.26.2.tar.gz"
+    sha256 "19188f96923873c92ccb987120ec4acaa12f0461fa9ce5d3d0772bc965a39e08"
   end
 
   resource "wcwidth" do
@@ -672,7 +676,17 @@ class Ansible < Formula
     # https://github.com/Homebrew/homebrew-core/issues/7197
     ENV.prepend "CPPFLAGS", "-I#{MacOS.sdk_path}/usr/include/ffi"
 
-    virtualenv_install_with_resources
+    venv = virtualenv_create(libexec, "python3")
+    # Install all of the resources declared on the formula into the virtualenv.
+    resources.each do |r|
+      # ansible-base provides all ansible binaries
+      if r.name == "ansible-base"
+        venv.pip_install_and_link r
+      else
+        venv.pip_install r
+      end
+    end
+    venv.pip_install_and_link buildpath
 
     # prettytable 0.7.2 has file permissions 600 for some files.
     # We need to add read permissions in order to be able to use it as a
@@ -682,8 +696,6 @@ class Ansible < Formula
     Pathname.glob(libexec/"lib/python*/site-packages/prettytable-0.7.2-py*.egg-info").each do |prettytable_path|
       chmod_R("a+r", prettytable_path)
     end
-
-    man1.install Dir["docs/man/man1/*.1"]
   end
 
   test do
