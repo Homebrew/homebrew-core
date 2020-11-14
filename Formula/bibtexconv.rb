@@ -3,7 +3,7 @@ class Bibtexconv < Formula
   homepage "https://www.uni-due.de/~be0001/bibtexconv/"
   url "https://github.com/dreibh/bibtexconv/archive/bibtexconv-1.1.21.tar.gz"
   sha256 "65dc0f452dc035f33119729730e61625f59781a75807cc7409766aef79ad5c5a"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
   head "https://github.com/dreibh/bibtexconv.git"
 
   bottle do
