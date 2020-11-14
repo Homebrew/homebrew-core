@@ -3,7 +3,7 @@ class Xmlto < Formula
   homepage "https://pagure.io/xmlto/"
   url "https://releases.pagure.org/xmlto/xmlto-0.0.28.tar.bz2"
   sha256 "1130df3a7957eb9f6f0d29e4aa1c75732a7dfb6d639be013859b5c7ec5421276"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://releases.pagure.org/xmlto/?C=M&O=D"
@@ -36,6 +36,8 @@ class Xmlto < Formula
   def install
     # GNU getopt is keg-only, so point configure to it
     ENV["GETOPT"] = Formula["gnu-getopt"].opt_bin/"getopt"
+    # Prevent reference to Homebrew shim
+    ENV["SED"] = "/usr/bin/sed"
     # Find our docbook catalog
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
