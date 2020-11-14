@@ -1,5 +1,5 @@
 class Timer < Formula
-  desc "A command line tool to set a timer"
+  desc "Command-line tool to set a timer"
   homepage "https://github.com/annpocoyo/timer"
   url "https://github.com/annpocoyo/timer/raw/main/archive/Timer-1.0.0.tar.gz"
   version "1.0.0"
