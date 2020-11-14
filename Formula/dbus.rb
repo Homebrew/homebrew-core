@@ -18,7 +18,7 @@ class Dbus < Formula
   end
 
   head do
-    url "https://anongit.freedesktop.org/git/dbus/dbus.git"
+    url "https://gitlab.freedesktop.org/dbus/dbus.git"
 
     depends_on "autoconf" => :build
     depends_on "autoconf-archive" => :build
