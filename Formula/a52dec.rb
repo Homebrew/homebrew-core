@@ -23,6 +23,12 @@ class A52dec < Formula
   end
 
   def install
+    on_linux do
+      # Fix error ld: imdct.lo: relocation R_X86_64_32 against `.bss' can not be
+      # used when making a shared object; recompile with -fPIC
+      ENV.append_to_cflags "-fPIC"
+    end
+
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
