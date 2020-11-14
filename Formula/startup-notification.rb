@@ -3,6 +3,8 @@ class StartupNotification < Formula
   homepage "https://www.freedesktop.org/wiki/Software/startup-notification/"
   url "https://www.freedesktop.org/software/startup-notification/releases/startup-notification-0.12.tar.gz"
   sha256 "3c391f7e930c583095045cd2d10eb73a64f085c7fde9d260f2652c7cb3cfbe4a"
+  license "LGPL-2.0-or-later"
+  revision 1
 
   bottle do
     cellar :any
@@ -14,14 +16,18 @@ class StartupNotification < Formula
     sha256 "770f1ab8c0339c940b098d91989fbc06bacafabe1a91cc891e9891ef39e83781" => :yosemite
   end
 
-  depends_on "pkg-config" => :build
-  depends_on :x11
+  depends_on "pkg-config" => [:build, :test]
+  depends_on "libx11"
+  depends_on "libxcb"
+  depends_on "xcb-util"
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
+    system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
+  end
+
+  test do
+    assert_match "-I#{include}", shell_output("pkg-config --cflags libstartup-notification-1.0").chomp
   end
 end
