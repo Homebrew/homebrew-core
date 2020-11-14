@@ -4,7 +4,7 @@ class Gstreamer < Formula
   url "https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.18.1.tar.xz"
   sha256 "79df8de21f284a105a5c1568527f8c559c583c85c0f2bd7bdb5b0372b8beecba"
   license "LGPL-2.0-or-later"
-  head "https://anongit.freedesktop.org/git/gstreamer/gstreamer.git"
+  head "https://gitlib.freedesktop.org/gstreamer/gstreamer.git"
 
   livecheck do
     url "https://gstreamer.freedesktop.org/src/gstreamer/"
