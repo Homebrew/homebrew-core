@@ -4,7 +4,8 @@ class Ncview < Formula
   url "ftp://cirrus.ucsd.edu/pub/ncview/ncview-2.1.8.tar.gz"
   mirror "https://dl.bintray.com/homebrew/mirror/ncview-2.1.8.tar.gz"
   sha256 "e8badc507b9b774801288d1c2d59eb79ab31b004df4858d0674ed0d87dfc91be"
-  revision 3
+  license "GPL-3.0-only"
+  revision 4
 
   # The stable archive in the formula is fetched over FTP and the website for
   # the software hasn't been updated to list the latest release (it has been
@@ -21,10 +22,14 @@ class Ncview < Formula
     sha256 "5511d243f73fd1a7867bb4dd0263afe215dd0e4e29ef77199efee5db08c2d207" => :high_sierra
   end
 
+  depends_on "libice"
   depends_on "libpng"
+  depends_on "libsm"
+  depends_on "libx11"
+  depends_on "libxaw"
+  depends_on "libxt"
   depends_on "netcdf"
   depends_on "udunits"
-  depends_on :x11
 
   def install
     # Bypass compiler check (which fails due to netcdf's nc-config being
