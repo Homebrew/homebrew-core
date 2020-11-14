@@ -3,7 +3,7 @@ class Aide < Formula
   homepage "https://aide.github.io/"
   url "https://github.com/aide/aide/releases/download/v0.16.2/aide-0.16.2.tar.gz"
   sha256 "17f998ae6ae5afb9c83578e4953115ab8a2705efc50dee5c6461cef3f521b797"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
     cellar :any
@@ -30,12 +30,21 @@ class Aide < Formula
   def install
     system "sh", "./autogen.sh" if build.head?
 
-    system "./configure", "--disable-lfs",
-                          "--disable-static",
-                          "--with-curl",
-                          "--with-zlib",
-                          "--sysconfdir=#{etc}",
-                          "--prefix=#{prefix}"
+    args = %W[
+      --disable-lfs
+      --disable-static
+      --with-zlib
+      --sysconfdir=#{etc}
+      --prefix=#{prefix}
+    ]
+    on_macos do
+      args << "--with-curl"
+    end
+    on_linux do
+      args << "--with-curl=" + Formula["curl"].prefix
+    end
+
+    system "./configure", *args
 
     system "make", "install"
   end
