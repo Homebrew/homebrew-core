@@ -5,7 +5,7 @@ class GstLibav < Formula
   sha256 "39a717bc2613efbbba19df3cf5cacff0987471fc8281ba2c5dcdeaded79c2ed8"
   license "LGPL-2.1-or-later"
   revision 1
-  head "https://anongit.freedesktop.org/git/gstreamer/gst-libav.git"
+  head "https://gitlab.freedesktop.org/gstreamer/gst-libav.git"
 
   livecheck do
     url "https://gstreamer.freedesktop.org/src/gst-libav/"
