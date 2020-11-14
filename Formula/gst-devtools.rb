@@ -6,7 +6,7 @@ class GstDevtools < Formula
   url "https://gstreamer.freedesktop.org/src/gst-devtools/gst-devtools-1.18.1.tar.xz"
   sha256 "712212babd2238233d55beecfc0fe1ea8db18e8807ac6ab05a64505b2c7ab0df"
   license "LGPL-2.1-or-later"
-  head "https://anongit.freedesktop.org/git/gstreamer/gst-devtools.git"
+  head "https://gitlab.freedesktop.org/gstreamer/gst-devtools.git"
 
   bottle do
     sha256 "4befaddc224b6621effeed0b92e336b6ec6cc8ea2be44fb5ccfe681561d7509b" => :catalina
