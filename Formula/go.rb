@@ -2,6 +2,7 @@ class Go < Formula
   desc "Open source programming language to build simple/reliable/efficient software"
   homepage "https://golang.org"
   license "BSD-3-Clause"
+  revision 1
 
   stable do
     url "https://golang.org/dl/go1.15.5.src.tar.gz"
