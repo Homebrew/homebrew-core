@@ -3,7 +3,7 @@ class Uchardet < Formula
   homepage "https://www.freedesktop.org/wiki/Software/uchardet/"
   url "https://www.freedesktop.org/software/uchardet/releases/uchardet-0.0.7.tar.xz"
   sha256 "3fc79408ae1d84b406922fa9319ce005631c95ca0f34b205fad867e8b30e45b1"
-  head "https://anongit.freedesktop.org/git/uchardet/uchardet.git"
+  head "https://gitlab.freedesktop.org/uchardet/uchardet.git"
 
   livecheck do
     url :stable
