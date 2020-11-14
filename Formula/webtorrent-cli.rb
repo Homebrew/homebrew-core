@@ -3,8 +3,8 @@ require "language/node"
 class WebtorrentCli < Formula
   desc "Command-line streaming torrent client"
   homepage "https://webtorrent.io/"
-  url "https://registry.npmjs.org/webtorrent-cli/-/webtorrent-cli-3.1.0.tgz"
-  sha256 "ed7b614204d2cc0506af203acd1e94ebaf1af953603b457dc7fd528b850272b3"
+  url "https://registry.npmjs.org/webtorrent-cli/-/webtorrent-cli-3.2.0.tgz"
+  sha256 "8ff1a23fb88a0fefbef140349072ba41706133eaea7d851dcc6776276d6cca87"
   license "MIT"
 
   livecheck do
