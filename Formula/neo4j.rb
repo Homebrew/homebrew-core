@@ -3,7 +3,7 @@ class Neo4j < Formula
   homepage "https://neo4j.com/"
   url "https://neo4j.com/artifact.php?name=neo4j-community-4.1.4-unix.tar.gz"
   sha256 "c6e555e35fd08ab1129f57c4346450b1bc3793488a270fa9b2271a41b5b39455"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url "https://neo4j.com/download-center/"
