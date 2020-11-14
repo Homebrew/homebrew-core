@@ -4,7 +4,7 @@ class GstPluginsBase < Formula
   url "https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.18.1.tar.xz"
   sha256 "1ba654d7de30f7284b4c7071b32f881b609733ce02ab6d9d9ea29386a036c641"
   license "LGPL-2.0-or-later"
-  head "https://anongit.freedesktop.org/git/gstreamer/gst-plugins-base.git"
+  head "https://gitlab.freedesktop.org/gstreamer/gst-plugins-base.git"
 
   livecheck do
     url "https://gstreamer.freedesktop.org/src/gst-plugins-base/"
