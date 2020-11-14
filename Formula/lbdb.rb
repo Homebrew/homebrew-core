@@ -3,7 +3,7 @@ class Lbdb < Formula
   homepage "https://www.spinnaker.de/lbdb/"
   url "https://www.spinnaker.de/lbdb/download/lbdb_0.49.tar.gz"
   sha256 "f565b64a0bc8edb2a5a273e305d5cdecd9053d834fb96f6b2b2f353c99c3c887"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://www.spinnaker.de/lbdb/download/"
