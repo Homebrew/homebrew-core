@@ -20,19 +20,16 @@ class Mozjpeg < Formula
 
   keg_only "mozjpeg is not linked to prevent conflicts with the standard libjpeg"
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  depends_on "cmake" => :build
   depends_on "nasm" => :build
-  depends_on "pkg-config" => :build
   depends_on "libpng"
 
   def install
-    system "autoreconf", "-fvi"
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-dependency-tracking",
-                          "--with-jpeg8"
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
+      system "make"
+      system "make", "install"
+    end
   end
 
   test do
