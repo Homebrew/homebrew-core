@@ -7,6 +7,8 @@ class Corectl < Formula
   revision 2
   head "https://github.com/TheNewNormal/corectl.git", branch: "golang"
 
+  deprecate! because: :unmaintained
+
   bottle do
     cellar :any
     sha256 "b3d030cf97c738ef427b24cd492a7b746b738be84f234f5904eedbff14661570" => :mojave
@@ -18,7 +20,6 @@ class Corectl < Formula
   depends_on "go" => :build
   depends_on "ocaml" => :build
   depends_on "opam" => :build
-  depends_on x11: :build
   depends_on "libev"
 
   def install
@@ -54,11 +55,8 @@ class Corectl < Formula
 
   def caveats
     <<~EOS
-      Starting with 0.7 "corectl" has a client/server architecture. So before you
-      can use the "corectl" cli, you have to start the server daemon:
-
-      $ corectld start
-
+      Start the server daemon with:
+        corectld start
     EOS
   end
 
