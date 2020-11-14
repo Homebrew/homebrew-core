@@ -6,7 +6,7 @@ class RobotFramework < Formula
   url "https://github.com/robotframework/robotframework/archive/v3.2.2.tar.gz"
   sha256 "6b2bddcecb5d1c6198999e38aeaf4c0366542a5e7b5bd788c6a3a36b055d5ea2"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/robotframework/robotframework.git"
 
   livecheck do
@@ -23,7 +23,6 @@ class RobotFramework < Formula
 
   depends_on "openssl@1.1"
   depends_on "python@3.9"
-  depends_on :x11
 
   resource "bcrypt" do
     url "https://files.pythonhosted.org/packages/fa/aa/025a3ab62469b5167bc397837c9ffc486c42a97ef12ceaa6699d8f5a5416/bcrypt-3.1.7.tar.gz"
