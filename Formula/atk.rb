@@ -3,6 +3,7 @@ class Atk < Formula
   homepage "https://library.gnome.org/devel/atk/"
   url "https://download.gnome.org/sources/atk/2.36/atk-2.36.0.tar.xz"
   sha256 "fb76247e369402be23f1f5c65d38a9639c1164d934e40f6a9cf3c9e96b652788"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :stable
@@ -52,8 +53,10 @@ class Atk < Formula
       -latk-1.0
       -lglib-2.0
       -lgobject-2.0
-      -lintl
     ]
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
