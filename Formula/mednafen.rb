@@ -3,7 +3,7 @@ class Mednafen < Formula
   homepage "https://mednafen.github.io/"
   url "https://mednafen.github.io/releases/files/mednafen-1.26.1.tar.xz"
   sha256 "842907c25c4292c9ba497c9cb9229c7d10e04e22cb4740d154ab690e6587fdf4"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://mednafen.github.io/releases/"
