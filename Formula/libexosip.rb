@@ -5,6 +5,7 @@ class Libexosip < Formula
   mirror "https://download-mirror.savannah.gnu.org/releases/exosip/libexosip2-5.2.0.tar.gz"
   sha256 "e3ae88df8573c9e08dbc24fe6195a118845e845109a8e291c91ecd6a2a3b7225"
   license "GPL-2.0"
+  revision 1
 
   livecheck do
     url "https://download.savannah.gnu.org/releases/exosip/"
