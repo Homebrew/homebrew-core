@@ -2,16 +2,15 @@ class Awsume < Formula
   include Language::Python::Virtualenv
 
   desc "Utility for easily assuming AWS IAM roles from the command-line"
-  homepage "https://www.trek10.com/blog/awsume-aws-assume-made-awesome"
-  url "https://github.com/trek10inc/awsume/archive/4.4.1.tar.gz"
-  sha256 "66d698b4716a1dc7c927778a8fe124a6ac2d99334aff2be5dac6b13598b4e08f"
+  homepage "https://awsu.me"
+  url "https://files.pythonhosted.org/packages/51/9f/fc853b027a763026b6b1efc16a8a71090848c5a53dbbbf4482e913e084a8/awsume-4.4.1.tar.gz"
+  sha256 "c12b95c5e55f663c21824f7ae233bbc41ffa418a004f73919835014418da1d6d"
   license "MIT"
   revision 2
   head "https://github.com/trek10inc/awsume.git"
 
   livecheck do
     url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
@@ -26,23 +25,18 @@ class Awsume < Formula
   uses_from_macos "sqlite"
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/6d/e3/bdd48e60b6ec83e77c4f5e300aff9999f0eac97f92b468cc69bd0871f096/boto3-1.13.25.tar.gz"
-    sha256 "1c37c727e0e6f872f5262a893a1ed5422ef0f1ed6075d35b809e20c3072dad5b"
+    url "https://files.pythonhosted.org/packages/51/7c/de00a09b9a9395ea1698134635ded0880b20d3fbfd50ae6fdb79b7f411ca/boto3-1.16.18.tar.gz"
+    sha256 "51c419d890ae216b9b031be31f3182739dc3deb5b64351f286bffca2818ddb35"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/7c/b4/fd5f0e872c910db2685737c50797db273e6d8de706d9131aef4e8f0f04a5/botocore-1.16.25.tar.gz"
-    sha256 "b55b3acab42b58c24481a9fbb33d53fb7d8d03dfc0338af0132f6c5010006d0d"
+    url "https://files.pythonhosted.org/packages/0c/42/ed7176ab40118481a8445a779e24589acdfbfad68d27a9ff316cd7920bab/botocore-1.19.18.tar.gz"
+    sha256 "288d43e85f12e3c1d6a0535a585a182ca04e8c6e742ebaaf15357a0e3b37ca7a"
   end
 
   resource "colorama" do
-    url "https://files.pythonhosted.org/packages/82/75/f2a4c0c94c85e2693c229142eb448840fba0f9230111faa889d1f541d12d/colorama-0.4.3.tar.gz"
-    sha256 "e96da0d330793e2cb9485e9ddfd918d456036c7149416295932478192f4436a1"
-  end
-
-  resource "docutils" do
-    url "https://files.pythonhosted.org/packages/93/22/953e071b589b0b1fee420ab06a0d15e5aa0c7470eb9966d60393ce58ad61/docutils-0.15.2.tar.gz"
-    sha256 "a2aeea129088da402665e92e0b25b04b073c04b2dce4ab65caaa38b7ce2e1a99"
+    url "https://files.pythonhosted.org/packages/1f/bb/5d3246097ab77fa083a61bd8d3d527b7ae063c7d8e8671b1cf8c4ec10cbe/colorama-0.4.4.tar.gz"
+    sha256 "5941b2b48a20143d2267e95b1c2a7603ce057ee39fd88e7329b0c292aa16869b"
   end
 
   resource "jmespath" do
@@ -56,8 +50,8 @@ class Awsume < Formula
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/c4/b8/3512f0e93e0db23a71d82485ba256071ebef99b227351f0f5540f744af41/psutil-5.7.0.tar.gz"
-    sha256 "685ec16ca14d079455892f25bd124df26ff9137664af445563c1bd36629b5e0e"
+    url "https://files.pythonhosted.org/packages/33/e0/82d459af36bda999f82c7ea86c67610591cf5556168f48fd6509e5fa154d/psutil-5.7.3.tar.gz"
+    sha256 "af73f7bcebdc538eda9cc81d19db1db7bf26f103f91081d780bbacfcb620dee2"
   end
 
   resource "python-dateutil" do
@@ -81,8 +75,8 @@ class Awsume < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/05/8c/40cd6949373e23081b3ea20d5594ae523e681b6f472e600fbc95ed046a36/urllib3-1.25.9.tar.gz"
-    sha256 "3018294ebefce6572a474f0604c2021e33b3fd8006ecd11d62107a5d2a963527"
+    url "https://files.pythonhosted.org/packages/29/e6/d1a1d78c439cad688757b70f26c50a53332167c364edb0134cadd280e234/urllib3-1.26.2.tar.gz"
+    sha256 "19188f96923873c92ccb987120ec4acaa12f0461fa9ce5d3d0772bc965a39e08"
   end
 
   def install
@@ -90,7 +84,7 @@ class Awsume < Formula
   end
 
   test do
-    assert_includes "4.0.0", shell_output("#{bin}/awsume -v")
+    assert_match version.to_s, shell_output("#{bin}/awsume -v 2>&1")
 
     file_path = File.expand_path("~/.awsume/config.yaml")
     shell_output(File.exist?(file_path))
