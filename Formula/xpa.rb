@@ -11,7 +11,7 @@ class Xpa < Formula
     sha256 "29a855b77adcb642355fd4ffc78787507e75fac460f1f53994f7ba8f2324c1ac" => :high_sierra
   end
 
-  depends_on :x11
+  depends_on "libxt" => :build
 
   def install
     system "./configure", "--disable-debug",
