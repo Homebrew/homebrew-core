@@ -1,9 +1,9 @@
 class OathToolkit < Formula
   desc "Tools for one-time password authentication systems"
   homepage "https://www.nongnu.org/oath-toolkit/"
-  url "https://download.savannah.gnu.org/releases/oath-toolkit/oath-toolkit-2.6.3.tar.gz"
-  mirror "https://fossies.org/linux/privat/oath-toolkit-2.6.3.tar.gz"
-  sha256 "a1f7fd5fc5df214eebe263233bae750596b8aeee4c8a424ed3623269115551b2"
+  url "https://download.savannah.gnu.org/releases/oath-toolkit/oath-toolkit-2.6.4.tar.gz"
+  mirror "https://fossies.org/linux/privat/oath-toolkit-2.6.4.tar.gz"
+  sha256 "bfc6255ead837e6966f092757a697c3191c93fa58323ce07859a5f666d52d684"
 
   livecheck do
     url "https://download.savannah.gnu.org/releases/oath-toolkit/"
