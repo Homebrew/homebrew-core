@@ -4,6 +4,7 @@ class Libxkbcommon < Formula
   url "https://xkbcommon.org/download/libxkbcommon-1.0.1.tar.xz"
   sha256 "ab68b25341c99f2218d7cf3dad459c1827f411219901ade05bbccbdb856b6c8d"
   license "MIT"
+  revision 1
   head "https://github.com/xkbcommon/libxkbcommon.git"
 
   bottle do
@@ -17,13 +18,21 @@ class Libxkbcommon < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on :x11
+  depends_on "libx11"
+  depends_on "libxcb"
+  depends_on "xkeyboardconfig"
 
   uses_from_macos "libxml2"
 
   def install
+    args = %W[
+      -Denable-wayland=false
+      -Denable-docs=false
+      -Dxkb-config-root=#{HOMEBREW_PREFIX}/share/X11/xkb
+      -Dxkb-config-root=#{HOMEBREW_PREFIX}/share/X11/locale
+    ]
     mkdir "build" do
-      system "meson", *std_meson_args, "-Denable-wayland=false", "-Denable-docs=false", ".."
+      system "meson", *std_meson_args, *args, ".."
       system "ninja", "install", "-v"
     end
   end
