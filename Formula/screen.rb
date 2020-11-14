@@ -43,6 +43,10 @@ class Screen < Formula
     # before osdef.sh script generates it.
     ENV.deparallelize
 
+    # Fix for Xcode 12 build errors.
+    # https://savannah.gnu.org/bugs/index.php?59465
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
+
     system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}",
                           "--mandir=#{man}",
