@@ -5,7 +5,7 @@ class TrashCli < Formula
   homepage "https://github.com/andreafrancia/trash-cli"
   url "https://github.com/andreafrancia/trash-cli/archive/0.20.11.14.tar.gz"
   sha256 "43e936a5795e076b9d8804394410145e1bd88dfa2f7c24f493098387bb0ab70f"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   head "https://github.com/andreafrancia/trash-cli.git"
 
   bottle do
