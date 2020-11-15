@@ -4,6 +4,7 @@ class ProtocGenGo < Formula
   url "https://github.com/golang/protobuf/archive/v1.4.3.tar.gz"
   sha256 "5736f943f8647362f5559689df6154f3c85d261fb088867c8a68494e2a767610"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/golang/protobuf.git"
 
   bottle do
