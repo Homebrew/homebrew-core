@@ -47,6 +47,10 @@ class Hdf5 < Formula
     ]
 
     system "./configure", *args
+
+    # Avoid shims in settings file
+    inreplace "src/libhdf5.settings", HOMEBREW_LIBRARY/"Homebrew/shims/mac/super/clang", "/usr/bin/clang"
+
     system "make", "install"
   end
 
