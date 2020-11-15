@@ -97,7 +97,6 @@
   "postgresql95": "postgresql@9.5",
   "presto": "prestodb",
   "pyqt5": "pyqt",
-  "python3": "python",
   "qt5": "qt",
   "racket": "minimal-racket",
   "rebar@3": "rebar3",
