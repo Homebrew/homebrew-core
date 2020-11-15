@@ -5,6 +5,7 @@ class Wownero < Formula
     tag:      "v0.9.1.0",
     revision: "21fa2b944ba2b4325d0df1c2bf564617818a7b0c"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     cellar :any
