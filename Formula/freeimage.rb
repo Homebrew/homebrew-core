@@ -33,6 +33,7 @@ class Freeimage < Formula
 
   test do
     (testpath/"test.c").write <<~EOS
+      #include <stdlib.h>
       #include <FreeImage.h>
       int main() {
          FreeImage_Initialise(0);
