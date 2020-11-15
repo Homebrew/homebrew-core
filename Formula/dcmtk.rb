@@ -3,6 +3,7 @@ class Dcmtk < Formula
   homepage "https://dicom.offis.de/dcmtk.php.en"
   url "https://dicom.offis.de/download/dcmtk/dcmtk365/dcmtk-3.6.5.tar.gz"
   sha256 "a05178665f21896dbb0974106dba1ad144975414abd760b4cf8f5cc979f9beb9"
+  revision 1
   head "https://git.dcmtk.org/dcmtk.git"
 
   livecheck do
@@ -26,7 +27,9 @@ class Dcmtk < Formula
 
   def install
     mkdir "build" do
-      system "cmake", *std_cmake_args, ".."
+      system "cmake", "-DBUILD_SHARED_LIBS=OFF", *std_cmake_args, ".."
+      system "make", "install"
+      system "cmake", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args, ".."
       system "make", "install"
     end
   end
