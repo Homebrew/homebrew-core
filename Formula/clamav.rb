@@ -55,10 +55,19 @@ class Clamav < Formula
       --with-libjson=#{Formula["json-c"].opt_prefix}
       --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
       --with-pcre=#{Formula["pcre2"].opt_prefix}
-      --with-zlib=#{MacOS.sdk_path_if_needed}/usr
-      --with-libbz2-prefix=#{MacOS.sdk_path_if_needed}/usr
-      --with-xml=#{MacOS.sdk_path_if_needed}/usr
     ]
+
+    on_macos do
+      args << "--with-zlib=#{MacOS.sdk_path_if_needed}/usr"
+      args << "--with-libbz2-prefix=#{MacOS.sdk_path_if_needed}/usr"
+      args << "--with-xml=#{MacOS.sdk_path_if_needed}/usr"
+    end
+    on_linux do
+      args << "--with-zlib=#{Formula["zlib"].opt_prefix}"
+      args << "--with-libbz2-prefix=#{Formula["bzip2"].opt_prefix}"
+      args << "--with-xml=#{Formula["libxml2"].opt_prefix}"
+      args << "--with-libcurl=#{Formula["curl"].opt_prefix}"
+    end
 
     pkgshare.mkpath
     system "autoreconf", "-fvi" if build.head?
