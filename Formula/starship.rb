@@ -4,7 +4,6 @@ class Starship < Formula
   url "https://github.com/starship/starship/archive/v0.47.0.tar.gz"
   sha256 "9c9ede1eb7a9e1acf49f0321915232426c234b356c6bb1f740d15d6fa45d1bee"
   license "ISC"
-  revision 1
   head "https://github.com/starship/starship.git"
 
   bottle do
