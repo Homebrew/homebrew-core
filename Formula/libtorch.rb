@@ -7,6 +7,7 @@ class Libtorch < Formula
       tag:      "v1.7.0",
       revision: "e85d494707b835c12165976b8442af54b9afcb26"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url "https://github.com/pytorch/pytorch/releases/latest"
