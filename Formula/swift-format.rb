@@ -23,7 +23,7 @@ class SwiftFormat < Formula
 
   test do
     system bin/"swift-format", "--version"
-    
+
     (testpath/"test.swift").write " print(  \"Hello, World\"  ) ;"
     assert_equal "print(\"Hello, World\")\n", shell_output("#{bin}/swift-format test.swift")
   end
