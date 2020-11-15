@@ -4,7 +4,7 @@ class NanopbGenerator < Formula
   url "https://jpa.kapsi.fi/nanopb/download/nanopb-0.4.3.tar.gz"
   sha256 "91b4be33691dc1532d94b56f308743b8a07d209126b7fe21f98f8fdadd8edb95"
   license "Zlib"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://jpa.kapsi.fi/nanopb/download/"
