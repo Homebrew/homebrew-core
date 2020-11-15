@@ -4,6 +4,7 @@ class ProtocGenGogo < Formula
   url "https://github.com/gogo/protobuf/archive/v1.3.1.tar.gz"
   sha256 "5184f06decd681fcc82f6583976111faf87189c0c2f8063b34ac2ea9ed997236"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/gogo/protobuf.git"
 
   bottle do
