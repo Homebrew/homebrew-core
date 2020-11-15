@@ -4,6 +4,7 @@ class Mysql < Formula
   url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.22.tar.gz"
   sha256 "ba765f74367c638d7cd1c546c05c14382fd997669bcd9680278e907f8d7eb484"
   license "GPL-2.0"
+  revision 1
 
   livecheck do
     url "https://dev.mysql.com/downloads/mysql/"
