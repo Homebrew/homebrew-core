@@ -36,6 +36,9 @@ class GtkDoc < Formula
   end
 
   def install
+    # To avoid recording the shims path
+    ENV["PKG_CONFIG"] = Formula["pkg-config"].bin/"pkg-config"
+
     xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
     resource("Pygments").stage do
