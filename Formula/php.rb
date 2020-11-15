@@ -2,9 +2,9 @@ class Php < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-7.4.13.tar.xz"
-  mirror "https://fossies.org/linux/www/php-7.4.13.tar.xz"
-  sha256 "aead303e3abac23106529560547baebbedba0bb2943b91d5aa08fff1f41680f4"
+  url "https://www.php.net/distributions/php-8.0.0.tar.xz"
+  mirror "https://fossies.org/linux/www/php-8.0.0.tar.xz"
+  sha256 "b5278b3eef584f0c075d15666da4e952fa3859ee509d6b0cc2ed13df13f65ebb"
   license "PHP-3.01"
 
   livecheck do
@@ -281,7 +281,7 @@ class Php < Formula
   def caveats
     <<~EOS
       To enable PHP in Apache add the following to httpd.conf and restart Apache:
-          LoadModule php7_module #{opt_lib}/httpd/modules/libphp7.so
+          LoadModule php_module #{opt_lib}/httpd/modules/libphp.so
 
           <FilesMatch \\.php$>
               SetHandler application/x-httpd-php
@@ -359,16 +359,10 @@ class Php < Formula
         DirectoryIndex index.php
       EOS
 
-      php_module = if head?
-        "LoadModule php_module #{lib}/httpd/modules/libphp.so"
-      else
-        "LoadModule php7_module #{lib}/httpd/modules/libphp7.so"
-      end
-
       (testpath/"httpd.conf").write <<~EOS
         #{main_config}
         LoadModule mpm_prefork_module lib/httpd/modules/mod_mpm_prefork.so
-        #{php_module}
+        LoadModule php_module #{lib}/httpd/modules/libphp.so
         <FilesMatch \\.(php|phar)$>
           SetHandler application/x-httpd-php
         </FilesMatch>
