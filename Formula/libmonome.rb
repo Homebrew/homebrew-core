@@ -1,8 +1,8 @@
 class Libmonome < Formula
   desc "Interact with monome devices via C, Python, or FFI"
   homepage "https://monome.org/"
-  url "https://github.com/monome/libmonome/archive/v1.4.2.tar.gz"
-  sha256 "d8f87fc8240214c2ca433f4b185eb3ddbace2065f95487e5d9ac0ab60220393d"
+  url "https://github.com/monome/libmonome/archive/v1.4.3.tar.gz"
+  sha256 "018e8bf64fda20c09a6de57fee484d7327d9176df27a81b015fa9da4853d8b5d"
   license "ISC"
   head "https://github.com/monome/libmonome.git"
 
