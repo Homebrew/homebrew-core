@@ -15,6 +15,8 @@ class Govendor < Formula
     sha256 "52e2dd5debbd16a4da952ce16dd37d2697e16ba8509ff1e9a9551e7303ec6949" => :el_capitan
   end
 
+  deprecate! because: :repo_archived
+
   depends_on "go"
 
   def install
