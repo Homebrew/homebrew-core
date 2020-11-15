@@ -1,11 +1,10 @@
 class Stern < Formula
   desc "Tail multiple Kubernetes pods & their containers"
-  homepage "https://github.com/wercker/stern"
-  url "https://github.com/wercker/stern/archive/1.11.0.tar.gz"
-  sha256 "d6f47d3a6f47680d3e4afebc8b01a14f0affcd8fb625132af14bb77843f0333f"
+  homepage "https://github.com/stern/stern"
+  url "https://github.com/stern/stern/archive/v1.13.0.tar.gz"
+  sha256 "17f41fb51e61ae396979c6d1007fc5dd2913e51c21c0c01f35019d94db65f1b6"
   license "Apache-2.0"
-  head "https://github.com/wercker/stern.git",
-    shallow: false
+  head "https://github.com/stern/stern.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,25 +15,12 @@ class Stern < Formula
   end
 
   depends_on "go" => :build
-  depends_on "govendor" => :build
 
   def install
-    contents = Dir["{*,.git,.gitignore}"]
-    gopath = buildpath/"gopath"
-    (gopath/"src/github.com/wercker/stern").install contents
-
-    ENV["GOPATH"] = gopath
-    ENV.prepend_create_path "PATH", gopath/"bin"
-
-    cd gopath/"src/github.com/wercker/stern" do
-      system "govendor", "sync"
-      system "go", "build", "-o", "bin/stern"
-      bin.install "bin/stern"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-ldflags", "-s -w -X github.com/stern/stern/cmd.version=#{version}", *std_go_args
   end
 
   test do
-    system "#{bin}/stern", "--version"
+    assert_match "version: #{version}", shell_output("#{bin}/stern --version")
   end
 end
