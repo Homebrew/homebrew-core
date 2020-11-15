@@ -13,7 +13,7 @@ class SwiftFormat < Formula
     sha256 "d8f72c33efc125e2904e1bec2c8942cca75d75cf81dcab7fcf08ba124af16170" => :catalina
   end
 
-  depends_on xcode: ["12.0", :build]
+  depends_on xcode: "12.0"
 
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release"
