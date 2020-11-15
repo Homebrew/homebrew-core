@@ -7,6 +7,11 @@ class Octant < Formula
   license "Apache-2.0"
   head "https://github.com/vmware-tanzu/octant.git"
 
+  livecheck do
+    url "https://github.com/vmware-tanzu/octant/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "30a8f2ff4c498c638647ce0c4a223ca1bb7712b940e2c333498b3c66b073ee76" => :catalina
