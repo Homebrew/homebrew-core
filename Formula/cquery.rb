@@ -15,6 +15,8 @@ class Cquery < Formula
     sha256 "ac3ad5aada30ca31d70f36e6e3ba76d96aa0e235ccdd62259a086578fe182b44" => :sierra
   end
 
+  deprecate! because: :repo_archived
+
   depends_on "cmake" => :build
   depends_on "llvm"
 
