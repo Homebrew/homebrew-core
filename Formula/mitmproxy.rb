@@ -6,6 +6,7 @@ class Mitmproxy < Formula
   url "https://github.com/mitmproxy/mitmproxy/archive/v5.3.0.tar.gz"
   sha256 "e4a3de2fdc2c169f0e9c3a04c39de14d2650edf46b3157645339e4920b3a8e26"
   license "MIT"
+  revision 1
   head "https://github.com/mitmproxy/mitmproxy.git"
 
   bottle do
