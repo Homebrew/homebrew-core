@@ -17,6 +17,8 @@ class Fleetctl < Formula
     sha256 "09492b0c1dc6af381bb22bec46b51c585db9068cda51f290dc5d2c46d91d6c48" => :yosemite
   end
 
+  deprecate! because: :repo_archived
+
   depends_on "go" => :build
 
   def install
