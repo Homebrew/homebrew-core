@@ -15,9 +15,10 @@ class JingTrang < Formula
   end
 
   depends_on "ant" => :build
-  depends_on java: "1.8"
+  depends_on "openjdk@11"
 
   def install
+    ENV["JAVA_HOME"] = Formula["openjdk@11"].opt_prefix
     system "./ant", "jar"
     libexec.install Dir["*"]
     bin.write_jar_script libexec/"build/jing.jar", "jing"
