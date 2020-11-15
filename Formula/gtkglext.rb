@@ -1,6 +1,6 @@
 class Gtkglext < Formula
   desc "OpenGL extension to GTK+"
-  homepage "https://projects.gnome.org/gtkglext/"
+  homepage "https://developer.gnome.org/gtkglext/stable/"
   url "https://download.gnome.org/sources/gtkglext/1.2/gtkglext-1.2.0.tar.gz"
   sha256 "e5073f3c6b816e7fa67d359d9745a5bb5de94a628ac85f624c992925a46844f9"
   revision 3
