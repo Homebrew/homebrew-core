@@ -3,8 +3,8 @@ name: Dispatch build bottle
 on:
   workflow_dispatch:
     inputs:
-      macos:
-        description: macOS version
+      os:
+        description: Operating system (macOS version or Linux)
         required: true
       formula:
         description: Formula name
@@ -23,7 +23,7 @@ env:
 
 jobs:
   bottle:
-    runs-on: ${{github.event.inputs.macos}}
+    runs-on: ${{github.event.inputs.os}}
     timeout-minutes: 4320
     env:
       PATH: '/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin'
@@ -35,7 +35,7 @@ jobs:
         run: |
           echo sender=${{github.event.sender.login}}
           echo formula=${{github.event.inputs.formula}}
-          echo version=${{github.event.inputs.macos}}
+          echo os=${{github.event.inputs.os}}
           echo issue=${{github.event.inputs.issue}}
           echo upload=${{github.event.inputs.upload}}
 
@@ -118,7 +118,7 @@ jobs:
         run: |
           echo sender=${{github.event.sender.login}}
           echo formula=${{github.event.inputs.formula}}
-          echo version=${{github.event.inputs.macos}}
+          echo os=${{github.event.inputs.os}}
           echo issue=${{github.event.inputs.issue}}
           echo upload=${{github.event.inputs.upload}}
 
