@@ -5,6 +5,7 @@ class JingTrang < Formula
       tag:      "V20181222",
       revision: "a3ec4cd650f48ec00189578f314fbe94893cd92d"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
