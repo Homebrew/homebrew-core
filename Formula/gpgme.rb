@@ -3,6 +3,7 @@ class Gpgme < Formula
   homepage "https://www.gnupg.org/related_software/gpgme/"
   url "https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.15.0.tar.bz2"
   sha256 "0b472bc12c7d455906c8a539ec56da0a6480ef1c3a87aa5b74d7125df68d0e5b"
+  license "LGPL-2.1-or-later"
 
   livecheck do
     url "https://gnupg.org/ftp/gcrypt/gpgme/"
