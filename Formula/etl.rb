@@ -1,10 +1,10 @@
 class Etl < Formula
   desc "Extensible Template Library"
   homepage "https://synfig.org"
-  url "https://downloads.sourceforge.net/project/synfig/releases/1.2.2/source/ETL-1.2.2.tar.gz"
-  mirror "https://github.com/synfig/synfig/releases/download/v1.2.2/source-ETL-1.2.2.tar.gz"
-  sha256 "0dc19c5a6c9e964054ca3af6dacd6ab0c198d78071cfab2aebac178afe454d8b"
-  license "GPL-3.0"
+  url "https://downloads.sourceforge.net/project/synfig/releases/1.4.0/source/ETL-1.4.0.tar.gz"
+  mirror "https://github.com/synfig/synfig/releases/download/v1.4.0/ETL-1.4.0.tar.gz"
+  sha256 "d43396c0ac356114713469216a9257247c2588d5475590a46db63cf201d1a011"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :stable
@@ -37,7 +37,7 @@ class Etl < Formula
       }
     EOS
     flags = %W[
-      -I#{include}
+      -I#{include}/ETL
       -lpthread
     ]
     system ENV.cxx, "test.cpp", "-o", "test", *flags
