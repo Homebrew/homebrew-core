@@ -4,6 +4,7 @@ class OrTools < Formula
   url "https://github.com/google/or-tools/archive/v8.0.tar.gz"
   sha256 "ac01d7ebde157daaeb0e21ce54923a48e4f1d21faebd0b08a54979f150f909ee"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/google/or-tools.git"
 
   livecheck do
