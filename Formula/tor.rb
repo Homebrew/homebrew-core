@@ -1,9 +1,9 @@
 class Tor < Formula
   desc "Anonymizing overlay network for TCP"
   homepage "https://www.torproject.org/"
-  url "https://www.torproject.org/dist/tor-0.4.4.5.tar.gz"
-  mirror "https://www.torservers.net/mirrors/torproject.org/dist/tor-0.4.4.5.tar.gz"
-  sha256 "a45ca00afe765e3baa839767c9dd6ac9a46dd01720a3a8ff4d86558c12359926"
+  url "https://www.torproject.org/dist/tor-0.4.4.6.tar.gz"
+  mirror "https://www.torservers.net/mirrors/torproject.org/dist/tor-0.4.4.6.tar.gz"
+  sha256 "5f154c155803adf5c89e87cab53017b6908c5ebe50c65839e8cf4fbd2abe1fdc"
 
   livecheck do
     url "https://dist.torproject.org/"
