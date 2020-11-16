@@ -1,10 +1,10 @@
 class Global < Formula
   desc "Source code tag system"
   homepage "https://www.gnu.org/software/global/"
-  url "https://ftp.gnu.org/gnu/global/global-6.6.4.tar.gz"
-  mirror "https://ftpmirror.gnu.org/global/global-6.6.4.tar.gz"
-  sha256 "987e8cb956c53f8ebe4453b778a8fde2037b982613aba7f3e8e74bcd05312594"
-  revision 1
+  url "https://ftp.gnu.org/gnu/global/global-6.6.5.tar.gz"
+  mirror "https://ftpmirror.gnu.org/global/global-6.6.5.tar.gz"
+  sha256 "9c3730bd9e975d94231f3402d5526b79c0b23cc665d624c9829c948dfad37b83"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url :stable
@@ -28,7 +28,7 @@ class Global < Formula
   end
 
   depends_on "ctags"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "ncurses"
 
@@ -39,8 +39,8 @@ class Global < Formula
   skip_clean "lib/gtags"
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/cb/9f/27d4844ac5bf158a33900dbad7985951e2910397998e85712da03ce125f0/Pygments-2.5.2.tar.gz"
-    sha256 "98c8aa5a9f778fcd1026a17361ddaf7330d1b7c62ae97c3bb0ae73e0b9b6b0fe"
+    url "https://files.pythonhosted.org/packages/5d/0e/ff13c055b014d634ed17e9e9345a312c28ec6a06448ba6d6ccfa77c3b5e8/Pygments-2.7.2.tar.gz"
+    sha256 "381985fcc551eb9d37c52088a32914e00517e57f4a21609f48141ba08e193fa0"
   end
 
   def install
@@ -49,7 +49,9 @@ class Global < Formula
     xy = Language::Python.major_minor_version "python3"
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
     pygments_args = %W[build install --prefix=#{libexec}]
-    resource("Pygments").stage { system "python3", "setup.py", *pygments_args }
+    resource("Pygments").stage { system "#{Formula["python@3.9"].opt_bin}/python3", "setup.py", *pygments_args }
+
+    ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
 
     args = %W[
       --disable-dependency-tracking
@@ -58,7 +60,11 @@ class Global < Formula
       --with-exuberant-ctags=#{Formula["ctags"].opt_bin}/ctags
     ]
 
+    # Fix detection of realpath() with Xcode >= 12
+    ENV.append_to_cflags "-Wno-error=implicit-function-declaration"
+
     system "./configure", *args
+    system "make"
     system "make", "install"
 
     bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
@@ -69,6 +75,8 @@ class Global < Formula
     cd share/"gtags" do
       rm %w[README COPYING LICENSE INSTALL ChangeLog AUTHORS]
     end
+    inreplace share/"gtags/script/pygments_parser.py", "#!/usr/bin/env python",
+      "#!#{Formula["python@3.9"].opt_bin}/python3"
   end
 
   test do
