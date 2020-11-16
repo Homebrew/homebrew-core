@@ -68,8 +68,10 @@ class Gmime < Formula
       -lglib-2.0
       -lgmime-3.0
       -lgobject-2.0
-      -lintl
     ]
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cc, "-o", "test", "test.c", *flags
     system "./test"
   end
