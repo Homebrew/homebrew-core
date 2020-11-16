@@ -35,7 +35,7 @@ class LastpassCli < Formula
 
     bash_completion.install "contrib/lpass_bash_completion"
     zsh_completion.install "contrib/lpass_zsh_completion" => "_lpass"
-    fish_completion.install "contrib/completions-lpass.fish" => "lpass"
+    fish_completion.install "contrib/completions-lpass.fish" => "lpass.fish"
   end
 
   test do
