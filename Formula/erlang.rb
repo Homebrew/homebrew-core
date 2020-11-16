@@ -34,6 +34,10 @@ class Erlang < Formula
     sha256 "0e0075f174db2f9b5a0f861263062942e5a721c40ec747356e482e3be2fb8931"
   end
 
+  # Fix for Big Sur, remove in next version
+  # https://github.com/erlang/otp/pull/2865
+  patch :DATA
+
   def install
     # Unset these so that building wx, kernel, compiler and
     # other modules doesn't fail with an unintelligable error.
@@ -112,3 +116,17 @@ class Erlang < Formula
     assert_match "factorial 42 = 1405006117752879898543142606244511569936384000000000", shell_output("./factorial 42")
   end
 end
+__END__
+diff --git a/make/configure.in b/make/configure.in
+index bf6ee284343..898aa40c4a0 100644
+--- a/make/configure.in
++++ b/make/configure.in
+@@ -398,7 +398,7 @@ if test $CROSS_COMPILING = no; then
+ 	       [1-9][0-9].[0-9])
+ 	          int_macosx_version=`echo $macosx_version | sed 's|\([^\.]*\)\.\([^\.]*\)|\10\200|'`;;
+ 	       [1-9][0-9].[0-9].[0-9])
+-	          int_macosx_version=`echo $macosx_version | sed 's|\([^\.]*\)\.\([^\.]*\)\.\([^\.]*\)|\1\2\3|'`;;
++	          int_macosx_version=`echo $macosx_version | sed 's|\([^\.]*\)\.\([^\.]*\)\.\([^\.]*\)|\10\20\3|'`;;
+ 	       [1-9][0-9].[1-9][0-9])
+ 	          int_macosx_version=`echo $macosx_version | sed 's|\([^\.]*\)\.\([^\.]*\)|\1\200|'`;;
+ 	       [1-9][0-9].[1-9][0-9].[0-9])
