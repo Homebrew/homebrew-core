@@ -24,12 +24,11 @@ class Cminpack < Formula
 
     man3.install Dir["doc/*.3"]
     doc.install Dir["doc/*"]
-    pkgshare.install "examples"
+    pkgshare.install "examples/thybrdc.c"
   end
 
   test do
-    cp pkgshare/"examples/thybrdc.c", testpath
-    system ENV.cc, pkgshare/"examples/thybrdc.c", "-o", "test",
+    system ENV.cc, pkgshare/"thybrdc.c", "-o", "test",
                    "-I#{include}/cminpack-1", "-L#{lib}", "-lcminpack", "-lm"
     assert_match "number of function evaluations", shell_output("./test")
   end
