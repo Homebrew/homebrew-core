@@ -23,9 +23,14 @@ class Gspell < Formula
   depends_on "pkg-config" => :build
   depends_on "enchant"
   depends_on "gtk+3"
-  depends_on "gtk-mac-integration"
   depends_on "iso-codes"
   depends_on "vala"
+
+  uses_from_macos "libffi"
+
+  on_macos do
+    depends_on "gtk-mac-integration"
+  end
 
   patch :DATA
 
@@ -55,7 +60,6 @@ class Gspell < Formula
     gettext = Formula["gettext"]
     glib = Formula["glib"]
     gtkx3 = Formula["gtk+3"]
-    gtk_mac_integration = Formula["gtk-mac-integration"]
     harfbuzz = Formula["harfbuzz"]
     libepoxy = Formula["libepoxy"]
     libpng = Formula["libpng"]
@@ -72,7 +76,12 @@ class Gspell < Formula
       -I#{glib.opt_include}/gio-unix-2.0/
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include
-      -I#{gtk_mac_integration.opt_include}/gtkmacintegration
+    ]
+    on_macos do
+      gtk_mac_integration = Formula["gtk-mac-integration"]
+      flags << "-I#{gtk_mac_integration.opt_include}/gtkmacintegration"
+    end
+    flags += %W[
       -I#{gtkx3.opt_include}/gtk-3.0
       -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/gspell-1
@@ -100,10 +109,12 @@ class Gspell < Formula
       -lgobject-2.0
       -lgspell-1
       -lgtk-3
-      -lintl
       -lpango-1.0
       -lpangocairo-1.0
     ]
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cc, "test.c", "-o", "test", *flags
     ENV["G_DEBUG"] = "fatal-warnings"
 
