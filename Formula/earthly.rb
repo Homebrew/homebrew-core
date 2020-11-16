@@ -1,8 +1,8 @@
 class Earthly < Formula
   desc "Build automation tool for the post-container era"
   homepage "https://earthly.dev/"
-  url "https://github.com/earthly/earthly/archive/v0.3.13.tar.gz"
-  sha256 "348c384b100a406b3bec02fcb17a17ecfce8a33eee826e8333736642f25bf227"
+  url "https://github.com/earthly/earthly/archive/v0.3.14.tar.gz"
+  sha256 "2fbabdb785aa0e98703720baf27b954b80a4f13bc1e7482dc461379d04583240"
   license "MPL-2.0"
   head "https://github.com/earthly/earthly.git"
 
@@ -18,7 +18,7 @@ class Earthly < Formula
 
   def install
     ldflags = "-X main.DefaultBuildkitdImage=earthly/buildkitd:v#{version} -X main.Version=v#{version} " \
-              "-X main.GitSha=6cd8e6ecc23b6b742bd1d7429fefb5c2662ab70a "
+              "-X main.GitSha=c87b61e44db352a2bd25379c432ebad7b835fc4a "
     tags = "dfrunmount dfrunsecurity dfsecrets dfssh dfrunnetwork"
     system "go", "build",
         "-tags", tags,
