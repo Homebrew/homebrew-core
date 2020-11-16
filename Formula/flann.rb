@@ -1,6 +1,6 @@
 class Flann < Formula
   desc "Fast Library for Approximate Nearest Neighbors"
-  homepage "https://www.cs.ubc.ca/research/flann/"
+  homepage "https://github.com/mariusmuja/flann"
   url "https://github.com/mariusmuja/flann/archive/1.9.1.tar.gz"
   sha256 "b23b5f4e71139faa3bcb39e6bbcc76967fbaf308c4ee9d4f5bfbeceaa76cc5d3"
   license "BSD-3-Clause"
