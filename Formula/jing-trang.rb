@@ -22,8 +22,8 @@ class JingTrang < Formula
     ENV["JAVA_HOME"] = Formula["openjdk@11"].opt_prefix
     system "./ant", "jar"
     libexec.install Dir["*"]
-    bin.write_jar_script libexec/"build/jing.jar", "jing"
-    bin.write_jar_script libexec/"build/trang.jar", "trang"
+    bin.write_jar_script libexec/"build/jing.jar", "jing", java_version: "11"
+    bin.write_jar_script libexec/"build/trang.jar", "trang", java_version: "11"
   end
 
   test do
