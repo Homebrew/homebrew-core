@@ -45,18 +45,14 @@ class OpenjdkAT8 < Formula
     boot_jdk = buildpath/"boot-jdk"
     resource("boot-jdk").stage(boot_jdk)
 
-    # Work around Xcode 12 mixed SDK issues.
-    ENV["SDKPATH"] = ENV["SDKROOT"] = MacOS::CLT.sdk_path(MacOS.version) if MacOS.version == :catalina
-
     # Work around clashing -I/usr/include and -isystem headers,
     # as superenv already handles this detail for us.
     inreplace "common/autoconf/flags.m4",
-      '-isysroot \"$SYSROOT\"', ""
+              '-isysroot \"$SYSROOT\"', ""
     inreplace "common/autoconf/toolchain.m4",
-      '-isysroot \"$SDKPATH\" -iframework\"$SDKPATH/System/Library/Frameworks\"', ""
-    inreplace "hotspot/make/bsd/makefiles/saproc.make" do |s|
-      s.gsub! '-isysroot "$(SDKPATH)" -iframework"$(SDKPATH)/System/Library/Frameworks"', ""
-    end
+              '-isysroot \"$SDKPATH\" -iframework\"$SDKPATH/System/Library/Frameworks\"', ""
+    inreplace "hotspot/make/bsd/makefiles/saproc.make",
+              '-isysroot "$(SDKPATH)" -iframework"$(SDKPATH)/System/Library/Frameworks"', ""
 
     # Fix macOS version detection. After 10.10 this was changed to a 6 digit number,
     # but this Makefile was written in the era of 4 digit numbers.
@@ -67,19 +63,32 @@ class OpenjdkAT8 < Formula
 
     # Fix to permit building with Xcode 12
     inreplace "common/autoconf/toolchain.m4",
-      '"${XC_VERSION_PARTS[[0]]}" != "4"',
-      '"${XC_VERSION_PARTS[[0]]}" != "12"'
+              '"${XC_VERSION_PARTS[[0]]}" != "4"',
+              '"${XC_VERSION_PARTS[[0]]}" != "12"'
+
+    args = %W[--with-boot-jdk-jvmargs=#{java_options}
+              --with-boot-jdk=#{boot_jdk}
+              --with-debug-level=release
+              --with-jvm-variants=server
+              --with-milestone=fcs
+              --with-native-debug-symbols=none
+              --with-toolchain-type=clang
+              --with-update-version=#{update}]
+
+    # Work around SDK issues with JavaVM framework.
+    if MacOS.version <= :catalina
+      sdk_path = MacOS::CLT.sdk_path(MacOS.version)
+      ENV["SDKPATH"] = ENV["SDKROOT"] = sdk_path
+      javavm_framework_path = sdk_path/"System/Library/Frameworks/JavaVM.framework/Frameworks"
+      args += %W[--with-extra-cflags=-F#{javavm_framework_path}
+                 --with-extra-cxxflags=-F#{javavm_framework_path}
+                 --with-extra-ldflags=-F#{javavm_framework_path}]
+    end
 
     chmod 0755, %w[configure common/autoconf/autogen.sh]
+
     system "common/autoconf/autogen.sh"
-    system "./configure", "--with-boot-jdk-jvmargs=#{java_options}",
-                          "--with-boot-jdk=#{boot_jdk}",
-                          "--with-debug-level=release",
-                          "--with-jvm-variants=server",
-                          "--with-milestone=fcs",
-                          "--with-native-debug-symbols=none",
-                          "--with-toolchain-type=clang",
-                          "--with-update-version=#{update}"
+    system "./configure", *args
 
     ENV["MAKEFLAGS"] = "JOBS=#{ENV.make_jobs}"
     system "make", "images"
