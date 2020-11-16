@@ -1,8 +1,8 @@
 class Wangle < Formula
   desc "Modular, composable client/server abstractions framework"
   homepage "https://github.com/facebook/wangle"
-  url "https://github.com/facebook/wangle/releases/download/v2020.11.09.00/wangle-v2020.11.09.00.tar.gz"
-  sha256 "dbaa947f65e3017baca3f0b19b54ca0ceda3de27d5f6b24409b5545e4cf39c92"
+  url "https://github.com/facebook/wangle/archive/v2020.11.16.00.tar.gz"
+  sha256 "eef658df5ccb685adfd7147572df5623cdd8a1aa67603f128bebf41bce4b447c"
   license "Apache-2.0"
   head "https://github.com/facebook/wangle.git"
 
@@ -72,7 +72,7 @@ class Wangle < Formula
     require "pty"
     r, w, pid = PTY.spawn(testpath/"EchoClient", "-port", port.to_s)
     w.write "Hello from Homebrew!\nAnother test line.\n"
-    sleep 1
+    sleep 2
     Process.kill("TERM", pid)
     output = r.read
     assert_match("received back: Hello from Homebrew!", output)
