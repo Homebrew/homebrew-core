@@ -4,6 +4,7 @@ class Rain < Formula
   url "https://github.com/aws-cloudformation/rain/archive/v1.0.1.tar.gz"
   sha256 "77cdc31002755e638ab8721e988656642973d2115f8b32914ebc29e8cc9dc6b0"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -17,6 +18,15 @@ class Rain < Formula
 
   def install
     system "go", "build", *std_go_args, "cmd/rain/main.go"
+    bash_completion.install "docs/bash_completion.sh"
+    zsh_completion.install "docs/zsh_completion.sh"
+  end
+
+  def caveats
+    <<~EOS
+      Deploying CloudFormation stacks with rain requires the AWS CLI to be installed.
+      All other functionality works without the AWS CLI.
+    EOS
   end
 
   test do
