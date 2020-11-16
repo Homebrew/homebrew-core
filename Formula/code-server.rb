@@ -1,8 +1,8 @@
 class CodeServer < Formula
   desc "Access VS Code through the browser"
   homepage "https://github.com/cdr/code-server"
-  url "https://registry.npmjs.org/code-server/-/code-server-3.6.2.tgz"
-  sha256 "eb98ec16c6ac5ec6a905f4b33104a71992d8dee12292807425424c66f22dffc4"
+  url "https://registry.npmjs.org/code-server/-/code-server-3.7.0.tgz"
+  sha256 "f8794c3b9944e50eacbeca676e20c1141cc1ff9b9866c544ca83dd7ff6ceea19"
   license "MIT"
 
   livecheck do
@@ -70,8 +70,9 @@ class CodeServer < Formula
   end
 
   test do
+    # See https://github.com/cdr/code-server/blob/master/ci/build/test-standalone-release.sh
     system bin/"code-server", "--extensions-dir=.", "--install-extension", "ms-python.python"
-    assert_equal "ms-python.python\n",
+    assert_match "ms-python.python",
       shell_output("#{bin/"code-server"} --extensions-dir=. --list-extensions")
   end
 end
