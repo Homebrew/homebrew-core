@@ -1,8 +1,8 @@
 class Lightgbm < Formula
   desc "Fast, distributed, high performance gradient boosting framework"
   homepage "https://github.com/microsoft/LightGBM"
-  url "https://github.com/microsoft/LightGBM/archive/v3.0.0.tar.gz"
-  sha256 "940563ece81d94eb843c2d1dc702da5af7c2a67fb1ccf31d64b39e00262d35b5"
+  url "https://github.com/microsoft/LightGBM/archive/v3.1.0.tar.gz"
+  sha256 "5575c5abc4630b1ecb5990363bdaf25118efbd48416dda930f390689cfc58040"
   license "MIT"
 
   bottle do
