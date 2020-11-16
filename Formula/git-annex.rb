@@ -1,8 +1,8 @@
 class GitAnnex < Formula
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
-  url "https://hackage.haskell.org/package/git-annex-8.20201103/git-annex-8.20201103.tar.gz"
-  sha256 "f4a6ade8a86d9640b5b2d81e45fc4c93c8e35bd90a1fc49d47c4aff1f59d31fd"
+  url "https://hackage.haskell.org/package/git-annex-8.20201127/git-annex-8.20201127.tar.gz"
+  sha256 "e7ff248e49ee6acb5122d0f7975c8a9cf327f76179ea96a005bafef59c2b3559"
   license all_of: ["AGPL-3.0-or-later", "BSD-2-Clause", "BSD-3-Clause",
                    "GPL-2.0-only", "GPL-3.0-or-later", "MIT"]
   head "git://git-annex.branchable.com/"
@@ -19,7 +19,7 @@ class GitAnnex < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@8.6" => :build
+  depends_on "ghc" => :build
   depends_on "pkg-config" => :build
   depends_on "gsasl"
   depends_on "libmagic"
