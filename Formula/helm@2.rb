@@ -6,13 +6,6 @@ class HelmAT2 < Formula
       revision: "a690bad98af45b015bd3da1a41f6218b1a451dbe"
   license "Apache-2.0"
 
-  # NOTE: Remove this livecheck block after deprecation takes effect, so we
-  # don't unnecessarily check for updates.
-  livecheck do
-    url :stable
-    regex(/^v?(2(?:\.\d+)+)$/i)
-  end
-
   bottle do
     cellar :any_skip_relocation
     sha256 "432e81bffefbb026bd50058e920a424b1805b84efc634d78c93dfedb9fec3d5a" => :big_sur
