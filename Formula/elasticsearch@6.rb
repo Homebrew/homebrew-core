@@ -4,7 +4,6 @@ class ElasticsearchAT6 < Formula
   url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-oss-6.8.12.tar.gz"
   sha256 "feb6c43fe66055360754597350c088025b40566cee16175b005e55660d9e62fd"
   license "Apache-2.0"
-  revision 1
 
   bottle do
     cellar :any_skip_relocation
