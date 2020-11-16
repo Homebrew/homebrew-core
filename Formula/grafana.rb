@@ -32,8 +32,14 @@ class Grafana < Formula
 
     system "node_modules/grunt-cli/bin/grunt", "build"
 
-    bin.install "bin/darwin-amd64/grafana-cli"
-    bin.install "bin/darwin-amd64/grafana-server"
+    on_macos do
+      bin.install "bin/darwin-amd64/grafana-cli"
+      bin.install "bin/darwin-amd64/grafana-server"
+    end
+    on_linux do
+      bin.install "bin/linux-amd64/grafana-cli"
+      bin.install "bin/linux-amd64/grafana-server"
+    end
     (etc/"grafana").mkpath
     cp("conf/sample.ini", "conf/grafana.ini.example")
     etc.install "conf/sample.ini" => "grafana/grafana.ini"
