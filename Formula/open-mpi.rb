@@ -23,6 +23,14 @@ class OpenMpi < Formula
     depends_on "libtool" => :build
   end
 
+  # Regenerate for Big Sur due to configure issues
+  # https://github.com/open-mpi/ompi/issues/8218
+  if MacOS.version >= :big_sur
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   depends_on "gcc"
   depends_on "hwloc"
   depends_on "libevent"
@@ -62,7 +70,7 @@ class OpenMpi < Formula
     ]
     args << "--with-platform-optimized" if build.head?
 
-    system "./autogen.pl" if build.head?
+    system "./autogen.pl", "--force" if build.head? || MacOS.version >= :big_sur
     system "./configure", *args
     system "make", "all"
     system "make", "check"
