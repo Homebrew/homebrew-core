@@ -106,6 +106,14 @@ class Netcdf < Formula
       system "make", "install"
     end
 
+    # Remove some shims path
+    inreplace [
+      bin/"nf-config", bin/"ncxx4-config", bin/"nc-config",
+      lib/"pkgconfig/netcdf.pc", lib/"pkgconfig/netcdf-fortran.pc",
+      lib/"cmake/netCDF/netCDFConfig.cmake",
+      lib/"libnetcdf.settings", lib/"libnetcdf-cxx.settings"
+    ], HOMEBREW_LIBRARY/"Homebrew/shims/mac/super/clang", "/usr/bin/clang"
+
     # SIP causes system Python not to play nicely with @rpath
     libnetcdf = (lib/"libnetcdf.dylib").readlink
     %w[libnetcdf-cxx4.dylib libnetcdf_c++.dylib].each do |f|
