@@ -4,6 +4,7 @@ class Zsh < Formula
   url "https://downloads.sourceforge.net/project/zsh/zsh/5.8/zsh-5.8.tar.xz"
   mirror "https://www.zsh.org/pub/zsh-5.8.tar.xz"
   sha256 "dcc4b54cc5565670a65581760261c163d720991f0d06486da61f8d839b52de27"
+  revision 1
 
   livecheck do
     url :stable
@@ -31,6 +32,11 @@ class Zsh < Formula
   end
 
   def install
+    # Work around configure issues with Xcode 12
+    # https://www.zsh.org/mla/workers/2020/index.html
+    # https://github.com/Homebrew/homebrew-core/issues/64921
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
+
     system "Util/preconfig" if build.head?
 
     system "./configure", "--prefix=#{prefix}",
