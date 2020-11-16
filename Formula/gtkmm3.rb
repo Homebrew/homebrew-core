@@ -121,12 +121,14 @@ class Gtkmm3 < Formula
       -lgobject-2.0
       -lgtk-3
       -lgtkmm-3.0
-      -lintl
       -lpango-1.0
       -lpangocairo-1.0
       -lpangomm-1.4
       -lsigc-2.0
     ]
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", *flags
     system "./test"
   end
