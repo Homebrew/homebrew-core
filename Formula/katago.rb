@@ -21,6 +21,7 @@ class Katago < Formula
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "libzip"
+  depends_on macos: :mojave
 
   resource "20b-network" do
     url "https://github.com/lightvector/KataGo/releases/download/v1.4.5/g170e-b20c256x2-s5303129600-d1228401921.bin.gz", using: :nounzip
