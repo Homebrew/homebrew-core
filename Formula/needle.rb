@@ -23,6 +23,7 @@ class Needle < Formula
   test do
     (testpath/"Test.swift").write <<~EOS
     import Foundation
+
     protocol ChildDependency: Dependency {}
     class Child: Component<ChildDependency> {}
 
