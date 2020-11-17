@@ -22,12 +22,12 @@ class Needle < Formula
 
   test do
     (testpath/"Test.swift").write <<~EOS
-    import Foundation
+      import Foundation
 
-    protocol ChildDependency: Dependency {}
-    class Child: Component<ChildDependency> {}
+      protocol ChildDependency: Dependency {}
+      class Child: Component<ChildDependency> {}
 
-    let child = Child(parent: self)
+      let child = Child(parent: self)
     EOS
 
     assert_match "Root\n", shell_output("#{bin}/needle print-dependency-tree #{testpath}/Test.swift")
