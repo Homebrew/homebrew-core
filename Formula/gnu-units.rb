@@ -1,9 +1,9 @@
 class GnuUnits < Formula
   desc "GNU unit conversion tool"
   homepage "https://www.gnu.org/software/units/"
-  url "https://ftp.gnu.org/gnu/units/units-2.20.tar.gz"
-  mirror "https://ftpmirror.gnu.org/units/units-2.20.tar.gz"
-  sha256 "c5e298c87516711f3bedb9315583bad0965c5d3d0bb587f9837a9af12a50fadc"
+  url "https://ftp.gnu.org/gnu/units/units-2.21.tar.gz"
+  mirror "https://ftpmirror.gnu.org/units/units-2.21.tar.gz"
+  sha256 "6c3e80a9f980589fd962a5852a2674642257db1c5fd5b27c4d9e664f3486cbaf"
   license "GPL-3.0-or-later"
 
   livecheck do
