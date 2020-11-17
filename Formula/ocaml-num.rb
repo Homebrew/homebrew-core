@@ -24,8 +24,9 @@ class OcamlNum < Formula
     cp Formula["ocaml"].opt_lib/"ocaml/Makefile.config", lib/"ocaml"
 
     # install in #{lib}/ocaml not #{HOMEBREW_PREFIX}/lib/ocaml
-    inreplace lib/"ocaml/Makefile.config", /^prefix=#{HOMEBREW_PREFIX}$/,
-                                           "prefix=#{prefix}"
+    inreplace lib/"ocaml/Makefile.config" do |s|
+      s.change_make_var! "prefix", prefix
+    end
 
     system "make"
     (lib/"ocaml/stublibs").mkpath # `make install` assumes this directory exists
