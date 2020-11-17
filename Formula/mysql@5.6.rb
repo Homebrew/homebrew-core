@@ -3,7 +3,7 @@ class MysqlAT56 < Formula
   homepage "https://dev.mysql.com/doc/refman/5.6/en/"
   url "https://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.50.tar.gz"
   sha256 "efc48d8160a66b50fc498bb42ea730c3b6f30f036b709a7070d356edd645923e"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
 
   livecheck do
     url "https://dev.mysql.com/downloads/mysql/5.6.html"
