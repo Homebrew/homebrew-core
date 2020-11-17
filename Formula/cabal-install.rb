@@ -28,6 +28,7 @@ class CabalInstall < Formula
   end
 
   def install
+    ENV.prepend_path "PATH", Formula["ghc@8.8"].bin
     cd "cabal-install" if build.head?
 
     system "sh", "bootstrap.sh", "--sandbox"
