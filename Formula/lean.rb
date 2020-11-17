@@ -24,6 +24,7 @@ class Lean < Formula
   depends_on "cmake" => :build
   depends_on "gmp"
   depends_on "jemalloc"
+  depends_on macos: :mojave
 
   def install
     mkdir "src/build" do
