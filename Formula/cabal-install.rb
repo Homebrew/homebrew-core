@@ -18,17 +18,10 @@ class CabalInstall < Formula
     sha256 "2946e5b36632d7e33e1312c0597d4858479748ee94eb1a52df9f4869c87eb2a7" => :high_sierra
   end
 
-  depends_on "ghc"
+  depends_on "ghc@8.8"
   uses_from_macos "zlib"
 
-  # Update bootstrap dependencies to work with base-4.13.0.0
-  patch :p2 do
-    url "https://github.com/haskell/cabal/commit/b6f7ec5f3598f69288bddbdba352e246e337fb90.patch?full_index=1"
-    sha256 "f4c869e74968c5892cd1fa1001adf96eddcec73e03fb5cf70d3a0c0de08d9e4e"
-  end
-
   def install
-    inreplace "cabal-install.cabal", "4.14", "4.15"
     cd "cabal-install" if build.head?
 
     system "sh", "bootstrap.sh", "--sandbox"
