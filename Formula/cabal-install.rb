@@ -18,7 +18,9 @@ class CabalInstall < Formula
     sha256 "2946e5b36632d7e33e1312c0597d4858479748ee94eb1a52df9f4869c87eb2a7" => :high_sierra
   end
 
-  depends_on "ghc@8.8"
+  # cabal-install 3.2 needs to be bootstrapped with ghc 8.8
+  depends_on "ghc@8.8" => :build
+  depends_on "ghc"
   uses_from_macos "zlib"
 
   # Update bootstrap dependencies to work with base-4.13.0.0
