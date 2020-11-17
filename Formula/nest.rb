@@ -71,7 +71,7 @@ class Nest < Formula
     # Replace internally accessible gcc with externally accesible version
     # in nest-config if required
     inreplace bin/"nest-config",
-        %r{#{HOMEBREW_REPOSITORY}/Library/Homebrew/shims.*/super},
+        %r{#{HOMEBREW_REPOSITORY}/Library/Homebrew/shims.*/super}o,
         "#{HOMEBREW_PREFIX}/bin"
   end
 
