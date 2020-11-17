@@ -20,8 +20,8 @@ class Onnxruntime < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "flake8" => :build
   depends_on "python@3.8" => :build
+  depends_on macos: :mojave
 
   def install
     cmake_args = %W[
