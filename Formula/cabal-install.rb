@@ -28,6 +28,7 @@ class CabalInstall < Formula
   end
 
   def install
+    inreplace "cabal-install.cabal", "4.14", "4.15"
     cd "cabal-install" if build.head?
 
     system "sh", "bootstrap.sh", "--sandbox"
