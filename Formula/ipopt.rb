@@ -4,6 +4,7 @@ class Ipopt < Formula
   url "https://www.coin-or.org/download/source/Ipopt/Ipopt-3.13.3.tgz"
   sha256 "86354b36c691e6cd6b8049218519923ab0ce8a6f0a432c2c0de605191f2d4a1c"
   license "EPL-1.0"
+  revision 1
   head "https://github.com/coin-or/Ipopt.git"
 
   bottle do
@@ -14,13 +15,14 @@ class Ipopt < Formula
     sha256 "cb84dcb56e82cfc9d3d20f073e91ca6cb91bfbd4b6870ba006a614a4326835de" => :high_sierra
   end
 
+  depends_on "openjdk" => :build
   depends_on "pkg-config" => [:build, :test]
   depends_on "gcc"
   depends_on "openblas"
 
   resource "mumps" do
     url "http://mumps.enseeiht.fr/MUMPS_5.3.5.tar.gz"
-    sha256 "9cf89fcb5232560e807b7b1cc2adb7d0c280cbdfd3aa480de1d0b431a87187d3"
+    sha256 "e5d665fdb7043043f0799ae3dbe3b37e5b200d1ab7a6f7b2a4e463fd89507fa4"
 
     # MUMPS does not provide a Makefile.inc customized for macOS.
     patch do
