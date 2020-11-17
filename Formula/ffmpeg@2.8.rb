@@ -5,8 +5,8 @@ class FfmpegAT28 < Formula
   sha256 "d0734fec613fe12bee0b5a84f917779b854c1ede7882793f618490e6bbf0c148"
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
-  license "GPL-2.0"
-  revision 3
+  license "GPL-2.0-or-later"
+  revision 4
 
   livecheck do
     url "https://ffmpeg.org/download.html"
@@ -84,6 +84,8 @@ class FfmpegAT28 < Formula
       --enable-libspeex
       --enable-opencl
       --disable-indev=jack
+      --disable-libxcb
+      --disable-xlib
     ]
 
     # A bug in a dispatch header on 10.10, included via CoreFoundation,
