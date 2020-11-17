@@ -19,6 +19,10 @@ class Aspcud < Formula
   depends_on "re2c" => :build
   depends_on "clingo"
 
+  # Fix for compatibility with Boost >= 1.74
+  # https://github.com/potassco/aspcud/issues/7
+  patch :DATA
+
   def install
     args = std_cmake_args
     args << "-DASPCUD_GRINGO_PATH=#{Formula["clingo"].opt_bin}/gringo"
@@ -41,3 +45,16 @@ class Aspcud < Formula
     system "#{bin}/aspcud", "in.cudf", "out.cudf"
   end
 end
+__END__
+diff -pur aspcud-1.9.4-old/libcudf/src/dependency.cpp aspcud-1.9.4/libcudf/src/dependency.cpp
+--- aspcud-1.9.4-old/libcudf/src/dependency.cpp	2017-09-19 12:48:41.000000000 +0200
++++ aspcud-1.9.4/libcudf/src/dependency.cpp	2020-11-17 15:39:33.000000000 +0100
+@@ -473,7 +473,7 @@ void ConflictGraph::cliques_(bool verbos
+         }
+         else {
+             PackageList candidates = component, next;
+-            boost::sort(candidates, boost::bind(&ConflictGraph::edgeSort, this, _1, _2));
++            boost::sort(candidates, boost::bind(&ConflictGraph::edgeSort, this, boost::placeholders::_1, boost::placeholders::_2));
+             // TODO: sort by out-going edges
+             do {
+                 cliques.push_back(PackageList());
