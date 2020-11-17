@@ -4,6 +4,7 @@ class Torchvision < Formula
   url "https://github.com/pytorch/vision/archive/v0.8.1.tar.gz"
   sha256 "c46734c679c99f93e5c06654f4295a05a6afe6c00a35ebd26a2cce507ae1ccbd"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     cellar :any
@@ -15,6 +16,7 @@ class Torchvision < Formula
   depends_on "cmake" => :build
   depends_on "python@3.9" => :build
   depends_on "jpeg"
+  depends_on "libpng"
   depends_on "libtorch"
 
   def install
