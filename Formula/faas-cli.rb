@@ -6,6 +6,11 @@ class FaasCli < Formula
       revision: "c12d57c39ac4cc6eef3c9bba2fb45113d882432f"
   license "MIT"
 
+  livecheck do
+    url "https://github.com/openfaas/faas-cli/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "7051bca10bfdfd1ef4e7fe687494eecf5df77827a44a08c94cba9f4851e52120" => :catalina
