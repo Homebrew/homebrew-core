@@ -73,7 +73,7 @@ class Vault < Formula
     ENV["VAULT_ADDR"] = "http://127.0.0.1:#{port}"
 
     pid = fork { exec bin/"vault", "server", "-dev" }
-    sleep 1
+    sleep 5
     system bin/"vault", "status"
     Process.kill("TERM", pid)
   end
