@@ -4,10 +4,10 @@ class MoltenVk < Formula
   url "https://github.com/KhronosGroup/MoltenVK/archive/v1.1.0.tar.gz"
   sha256 "0538fa1c23ddae495c7f82ccd0db90790a90b7017a258ca7575fbae8021f3058"
   license "Apache-2.0"
-  revision 2
 
   bottle do
     cellar :any
+    sha256 "" => :big_sur
     sha256 "3eda5e70c4f70cdea90c46180574d6b61c8849ca2eeec033ab9c33bb3cae5280" => :catalina
     sha256 "a6875344cb7327b6dd804a82ebd348fda81bb93d2160d0b756a2f133a38e7299" => :mojave
   end
