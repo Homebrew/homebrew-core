@@ -1,8 +1,8 @@
 class Latexml < Formula
   desc "LaTeX to XML/HTML/MathML Converter"
   homepage "https://dlmf.nist.gov/LaTeXML/"
-  url "https://dlmf.nist.gov/LaTeXML/releases/LaTeXML-0.8.4.tar.gz"
-  sha256 "92599b45fb587ac14b2ba9cc84b85d9ddc2deaf1cbdc2e89e7a6559e1fbb34cc"
+  url "https://dlmf.nist.gov/LaTeXML/releases/LaTeXML-0.8.5.tar.gz"
+  sha256 "0c37fc2531e33c2777f135f50ad43a7493b2cd473fe94a20b83a322b31e285d3"
   head "https://github.com/brucemiller/LaTeXML.git"
 
   livecheck do
