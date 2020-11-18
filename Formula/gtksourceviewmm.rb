@@ -3,7 +3,7 @@ class Gtksourceviewmm < Formula
   homepage "https://developer.gnome.org/gtksourceviewmm/"
   url "https://download.gnome.org/sources/gtksourceviewmm/2.10/gtksourceviewmm-2.10.3.tar.xz"
   sha256 "0000df1b582d7be2e412020c5d748f21c0e6e5074c6b2ca8529985e70479375b"
-  revision 6
+  revision 7
 
   livecheck do
     url :stable
@@ -62,8 +62,8 @@ class Gtksourceviewmm < Formula
       -I#{atk.opt_include}/atk-1.0
       -I#{atkmm.opt_include}/atkmm-1.6
       -I#{cairo.opt_include}/cairo
-      -I#{cairomm.opt_include}/cairomm-1.0
-      -I#{cairomm.opt_lib}/cairomm-1.0/include
+      -I#{cairomm.opt_include}/cairomm-1.16
+      -I#{cairomm.opt_lib}/cairomm-1.16/include
       -I#{fontconfig.opt_include}
       -I#{freetype.opt_include}/freetype2
       -I#{gdk_pixbuf.opt_include}/gdk-pixbuf-2.0
@@ -111,7 +111,7 @@ class Gtksourceviewmm < Formula
       -latk-1.0
       -latkmm-1.6
       -lcairo
-      -lcairomm-1.0
+      -lcairomm-1.16
       -lgdk-quartz-2.0
       -lgdk_pixbuf-2.0
       -lgdkmm-2.4
