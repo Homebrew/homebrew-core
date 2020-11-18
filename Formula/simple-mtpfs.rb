@@ -5,14 +5,14 @@ class SimpleMtpfs < Formula
   sha256 "1d011df3fa09ad0a5c09d48d84c03e6cddf86390af9eb4e0c178193f32f0e2fc"
   license "GPL-2.0"
 
-  deprecate! because: "requires FUSE"
-
   bottle do
     cellar :any
     sha256 "d902aae104d1f2ae07bdb28ecabbef8d9d97d9326a3e29050c83a4dd69597ed4" => :catalina
     sha256 "4f9c18fb88084e24773591124bdcfdc0ceb3741f2cdaffa2d67e7b22cfe5672e" => :mojave
     sha256 "0a22b0fd5ea759ce48068efabf40ac09b4a76d5dcf942db8b672edfd3e1b90a8" => :high_sierra
   end
+
+  deprecate! because: "requires FUSE"
 
   depends_on "autoconf" => :build
   depends_on "autoconf-archive" => :build # required for AX_CXX_COMPILE_STDCXX_17
