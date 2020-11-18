@@ -8,8 +8,6 @@ class S3ql < Formula
   license "GPL-3.0"
   revision 1
 
-  deprecate! because: "requires FUSE"
-
   bottle do
     cellar :any
     rebuild 1
@@ -17,6 +15,8 @@ class S3ql < Formula
     sha256 "5cb74d53c8529637963a543360365a83ea1c8cabab740cc2d9691d3a75ce261c" => :mojave
     sha256 "63b52252fa9acd84fe7af0812241ab35e72062044cfe0659163a39e47a76581d" => :high_sierra
   end
+
+  deprecate! because: "requires FUSE"
 
   # disable due to osxfuse API is with fuse2
   # logged an issue, https://github.com/s3ql/s3ql/issues/192
