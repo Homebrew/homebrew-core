@@ -25,6 +25,13 @@ class Macvim < Formula
   conflicts_with "vim",
     because: "vim and macvim both install vi* binaries"
 
+  # Fix for Big Sur bug, remove in next version
+  # https://github.com/macvim-dev/macvim/issues/1113
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/bd6637/macvim/big_sur.patch"
+    sha256 "1d3737d664b39f902d22da392869c66397b6b5d8a420d1a83f34f9ffaf963c38"
+  end
+
   def install
     # Avoid issues finding Ruby headers
     ENV.delete("SDKROOT")
