@@ -32,11 +32,11 @@ class V2ray < Formula
     (etc/"v2ray").install "release/config/config.json" => "config.json"
 
     resource("geoip").stage do
-      (share/"v2ray").install "geoip.dat"
+      (pkgshare/"v2ray").install "geoip.dat"
     end
 
     resource("geosite").stage do
-      (share/"v2ray").install "dlc.dat" => "geosite.dat"
+      (pkgshare/"v2ray").install "dlc.dat" => "geosite.dat"
     end
   end
 
