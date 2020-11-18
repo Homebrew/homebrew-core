@@ -6,8 +6,6 @@ class Sshfs < Formula
   license "GPL-2.0"
   revision 2
 
-  deprecate! because: "requires FUSE"
-
   livecheck do
     url :stable
     regex(/^sshfs[._-]v?(\d+(?:\.\d+)+)$/i)
@@ -20,6 +18,8 @@ class Sshfs < Formula
     sha256 "58d222f37622b399352f16eaf823d3e564445d9e951629e965281ac31de5ef4a" => :high_sierra
     sha256 "dc4a7f24c2cbebd7c35891200b043d737ba6586a28992708ef849ffedff7bb01" => :sierra
   end
+
+  deprecate! because: "requires FUSE"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
