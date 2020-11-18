@@ -19,6 +19,8 @@ class Atdtool < Formula
     sha256 "5a11e4ab56f3b02990418612c81f0538b8ea6161d15e5bac2932208ee5293055" => :high_sierra
   end
 
+  deprecate! because: :repo_archived
+
   depends_on "python@3.9"
 
   def install
