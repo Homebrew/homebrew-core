@@ -13,6 +13,9 @@ class Gobby < Formula
     sha256 "76ec450b768f0d27bb032cfb34e337002ee9f45a547a07c01e03b73e03413ad0" => :high_sierra
   end
 
+  # open issue since 2017-04-23, https://github.com/gobby/gobby/issues/143
+  disable! date: "2018-08-26", because: :unmaintained
+
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
@@ -23,9 +26,6 @@ class Gobby < Formula
   depends_on "hicolor-icon-theme"
   depends_on "libinfinity"
   depends_on "libxml++"
-
-  # open issue since 2017-04-23, https://github.com/gobby/gobby/issues/143
-  disable! date: "2018-08-26", because: :unmaintained
 
   # Necessary to remove mandatory gtk-mac-integration
   # it's badly broken as it depends on an ancient version of ige-mac-integration
