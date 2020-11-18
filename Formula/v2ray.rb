@@ -24,7 +24,6 @@ class V2ray < Formula
   end
 
   def install
-    ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
     ldflags = "-s -w -buildid="
     system "go", "build", *std_go_args,
                  "-ldflags", ldflags,
@@ -49,6 +48,9 @@ class V2ray < Formula
   end
 
   test do
-    assert_match "V2Ray", shell_output("#{bin}/v2ray -version")
+    config = "{\"log\":{\"access\":\"#{testpath}/log\"}}"
+    output = shell_output "echo '#{config}' | #{bin}/v2ray -test"
+    assert_match "Configuration OK", output
+    assert_predicate testpath/"log", :exist?
   end
 end
