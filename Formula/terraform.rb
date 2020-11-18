@@ -28,7 +28,10 @@ class Terraform < Formula
     ENV.delete "AWS_ACCESS_KEY"
     ENV.delete "AWS_SECRET_KEY"
 
-    ENV["CGO_ENABLED"] = "0"
+    # resolves issues fetching providers while on a VPN that uses /etc/resolv.conf
+    # https://github.com/hashicorp/terraform/issues/26532#issuecomment-720570774
+    ENV["CGO_ENABLED"] = "1"
+
     system "go", "build", *std_go_args, "-ldflags", "-s -w", "-mod=vendor"
   end
 
