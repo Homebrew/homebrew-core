@@ -8,11 +8,6 @@ class V2ray < Formula
 
   depends_on "go" => :build
 
-  resource "config" do
-    url "https://github.com/v2fly/v2ray-core/raw/v4.32.1/release/config/config.json"
-    sha256 "e4498e48725cb8e835aa384b98e494579b1f04059576fdaf43ea0579498b7edd"
-  end
-
   resource "geoip" do
     url "https://github.com/v2fly/geoip/releases/download/202011150541/geoip.dat"
     sha256 "11b7c3bfc5715c42d26b0e4bcf51d38c157eae9ab4b9e8391d702681e385dbcd"
@@ -35,15 +30,15 @@ class V2ray < Formula
                  "./infra/control/main"
 
     resource("config").stage do
-      (etc/"v2ray").install "config.json"
+      (etc/"v2ray").install "release/config/config.json" => "config.json"
     end
 
     resource("geoip").stage do
-      (etc/"v2ray").install "geoip.dat"
+      (share/"v2ray").install "geoip.dat"
     end
 
     resource("geosite").stage do
-      (etc/"v2ray").install "dlc.dat" => "geosite.dat"
+      (share/"v2ray").install "dlc.dat" => "geosite.dat"
     end
   end
 
