@@ -93,7 +93,7 @@ class PostgresqlAT12 < Formula
         brew postgresql-upgrade-database
 
       This formula has created a default database cluster with:
-        initdb --locale=C -E UTF-8 #{var}/postgres
+        initdb --locale=C -E UTF-8 #{var}/#{name}
       For more details, read:
         https://www.postgresql.org/docs/#{version.major}/app-initdb.html
     EOS
