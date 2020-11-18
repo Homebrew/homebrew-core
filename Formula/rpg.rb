@@ -6,8 +6,6 @@ class Rpg < Formula
   license "MIT"
   head "https://github.com/rtomayko/rpg.git"
 
-  deprecate! because: :repo_archived
-
   bottle do
     cellar :any_skip_relocation
     rebuild 1
@@ -15,6 +13,8 @@ class Rpg < Formula
     sha256 "fab3d032e629a4d20add14e9693919a074286990a16eb6fa8772180fc60730ee" => :mojave
     sha256 "f1c7e5d997a1f0ceb1cca6b1067408912ff8e14522fb411530649f0689f9d042" => :high_sierra
   end
+
+  deprecate! because: :repo_archived
 
   def install
     system "./configure", "--prefix=#{prefix}"
