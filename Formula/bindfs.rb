@@ -5,8 +5,6 @@ class Bindfs < Formula
   sha256 "e5ca5aff55204b993a025a77c3f8c0e2ee901ba8059d71bea11de2cc685ec497"
   license "GPL-2.0"
 
-  deprecate! because: "requires FUSE"
-
   bottle do
     cellar :any
     sha256 "bf4fb90d788651299973a3f48300824ae6b4ec4ce1441dd94d544180f54379bd" => :catalina
@@ -20,6 +18,8 @@ class Bindfs < Formula
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
+
+  deprecate! because: "requires FUSE"
 
   depends_on "pkg-config" => :build
   depends_on :osxfuse
