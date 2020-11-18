@@ -3,7 +3,7 @@ class Libglademm < Formula
   homepage "https://gnome.org"
   url "https://download.gnome.org/sources/libglademm/2.6/libglademm-2.6.7.tar.bz2"
   sha256 "38543c15acf727434341cc08c2b003d24f36abc22380937707fc2c5c687a2bc3"
-  revision 6
+  revision 7
 
   livecheck do
     url :stable
@@ -66,8 +66,8 @@ class Libglademm < Formula
       -I#{atk.opt_include}/atk-1.0
       -I#{atkmm.opt_include}/atkmm-1.6
       -I#{cairo.opt_include}/cairo
-      -I#{cairomm.opt_include}/cairomm-1.0
-      -I#{cairomm.opt_lib}/cairomm-1.0/include
+      -I#{cairomm.opt_include}/cairomm-1.16
+      -I#{cairomm.opt_lib}/cairomm-1.16/include
       -I#{fontconfig.opt_include}
       -I#{freetype.opt_include}/freetype2
       -I#{gdk_pixbuf.opt_include}/gdk-pixbuf-2.0
@@ -115,7 +115,7 @@ class Libglademm < Formula
       -latk-1.0
       -latkmm-1.6
       -lcairo
-      -lcairomm-1.0
+      -lcairomm-1.16
       -lgdk-quartz-2.0
       -lgdk_pixbuf-2.0
       -lgdkmm-2.4
