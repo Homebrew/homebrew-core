@@ -13,8 +13,6 @@ class Ntfs3g < Formula
     end
   end
 
-  deprecate! because: "requires FUSE"
-
   livecheck do
     url :head
     regex(/^v?(\d+(?:\.\d+)+)$/i)
@@ -37,6 +35,8 @@ class Ntfs3g < Formula
     depends_on "libgcrypt" => :build
     depends_on "libtool" => :build
   end
+
+  deprecate! because: "requires FUSE"
 
   depends_on "pkg-config" => :build
   depends_on "coreutils" => :test
