@@ -1,5 +1,5 @@
 class V2ray < Formula
-  desc "A platform for building proxies to bypass network restrictions"
+  desc "Platform for building proxies to bypass network restrictions"
   homepage "https://v2fly.org/"
   url "https://github.com/v2fly/v2ray-core/archive/v4.32.1.tar.gz"
   sha256 "f5553ffd04ff226573e8132d9beaa63f4d8f4882eba047225b33620848bc6917"
@@ -26,8 +26,9 @@ class V2ray < Formula
   def install
     ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
     ENV["CGO_ENABLED"] = "0"
-    system "go", "build", "-o", bin/"v2ray", "-ldflags", "-s -w -buildid=", "./main"
-    system "go", "build", "-o", bin/"v2ctl", "-ldflags", "-s -w -buildid=", "-tags", "confonly", "./infra/control/main"
+    ldflags = "-s -w -buildid="
+    system "go", "build", "-o", bin/"v2ray", "-ldflags", ldflags, "./main"
+    system "go", "build", "-o", bin/"v2ctl", "-ldflags", ldflags, "-tags", "confonly", "./infra/control/main"
 
     resource("config").stage do
       (etc/"v2ray").install "config.json"
