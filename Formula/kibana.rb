@@ -5,7 +5,6 @@ class Kibana < Formula
       tag:      "v7.9.2",
       revision: "44b08462985e0a5faff66078f4bea691fdd31669"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/elastic/kibana.git"
 
   bottle do
