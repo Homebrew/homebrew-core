@@ -6,8 +6,6 @@ class Infrakit < Formula
       revision: "3d2670e484176ce474d4b3d171994ceea7054c02"
   license "Apache-2.0"
 
-  deprecate! because: :repo_archived
-
   bottle do
     cellar :any_skip_relocation
     rebuild 1
@@ -16,6 +14,8 @@ class Infrakit < Formula
     sha256 "3d188727e1be0bdf150e152b0939560a209415fa9d3b5c2275eea163510d4994" => :high_sierra
     sha256 "8db80c4d2d7842486a4cedfa4952ed06e453f2e61f4e6818a08b17fa694d1a1c" => :sierra
   end
+
+  deprecate! because: :repo_archived
 
   depends_on "go" => :build
   depends_on "libvirt" => :build
