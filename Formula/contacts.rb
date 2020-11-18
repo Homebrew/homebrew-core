@@ -9,8 +9,6 @@ class Contacts < Formula
   sha256 "e3dd7e592af0016b28e9215d8ac0fe1a94c360eca5bfbdafc2b0e5d76c60b871"
   license "GPL-2.0-only"
 
-  deprecate! because: :repo_archived
-
   bottle do
     cellar :any_skip_relocation
     sha256 "02f0086162efb3e8473f846252a6c4813e85a1bbf57a38e3420f20946eafa60f" => :catalina
@@ -20,6 +18,8 @@ class Contacts < Formula
     sha256 "7f6c6817310dacf83041d2017e8841b49e26df0d09039692576b6fe0fed52ecc" => :el_capitan
     sha256 "9a9c89e40f9ccf4ec45cf63414eaf31266dfc9b71dc96d8c02f7ab2b38e8f346" => :mavericks
   end
+
+  deprecate! because: :repo_archived
 
   depends_on xcode: :build
 
