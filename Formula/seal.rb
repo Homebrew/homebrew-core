@@ -54,7 +54,7 @@ class Seal < Formula
       )
 
       # Link Microsoft SEAL
-      target_link_libraries(sealexamples SEAL::seal)
+      target_link_libraries(sealexamples SEAL::seal_shared)
     EOS
 
     system "cmake", "examples"
