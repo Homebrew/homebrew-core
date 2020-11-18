@@ -87,9 +87,6 @@ class PostgresqlAT10 < Formula
 
   def caveats
     <<~EOS
-      To migrate existing data from a previous major version of PostgreSQL run:
-        brew postgresql-upgrade-database
-
       This formula has created a default database cluster with:
         initdb #{var}/#{name}
       For more details, read:
