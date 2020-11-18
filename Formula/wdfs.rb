@@ -5,8 +5,6 @@ class Wdfs < Formula
   sha256 "fcf2e1584568b07c7f3683a983a9be26fae6534b8109e09167e5dff9114ba2e5"
   revision 1
 
-  deprecate! because: "requires FUSE"
-
   bottle do
     cellar :any
     sha256 "a00329ad59065dc12983272eb1da0e861aa73cbfa8b2edc69393a5a2eba4e49f" => :catalina
@@ -14,6 +12,8 @@ class Wdfs < Formula
     sha256 "f2f3ad809ea9104bb5fd49b4f903b0465707baf76be3329422ea34aeed8bacb4" => :high_sierra
     sha256 "7aab5f9c3d807f73dfe9df437a15806b74bc5a76cd3cd13e961ea781c7fa32fb" => :sierra
   end
+
+  deprecate! because: "requires FUSE"
 
   depends_on "pkg-config" => :build
   depends_on "glib"
