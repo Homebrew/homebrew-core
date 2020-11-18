@@ -8,8 +8,6 @@ class FuseZip < Formula
   license "GPL-3.0-or-later"
   head "https://bitbucket.org/agalanin/fuse-zip", using: :hg
 
-  deprecate! because: "requires FUSE"
-
   livecheck do
     url :stable
   end
@@ -21,6 +19,8 @@ class FuseZip < Formula
     sha256 "f99be52df0a2ff2842c615bb4fa255c4400b382d2bb98d14e023223956edb245" => :mojave
     sha256 "e72d442a43e1396c8a744e73bc9d197cbef7bb996bba97bff4b377c253c12ed8" => :high_sierra
   end
+
+  deprecate! because: "requires FUSE"
 
   depends_on "pkg-config" => :build
   depends_on "libzip"
