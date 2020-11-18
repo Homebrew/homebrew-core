@@ -29,9 +29,7 @@ class V2ray < Formula
                  "-o", bin/"v2ctl",
                  "./infra/control/main"
 
-    resource("config").stage do
-      (etc/"v2ray").install "release/config/config.json" => "config.json"
-    end
+    (etc/"v2ray").install "release/config/config.json" => "config.json"
 
     resource("geoip").stage do
       (share/"v2ray").install "geoip.dat"
