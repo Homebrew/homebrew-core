@@ -3,7 +3,7 @@ class Sngrep < Formula
   homepage "https://github.com/irontec/sngrep"
   url "https://github.com/irontec/sngrep/archive/v1.4.8.tar.gz"
   sha256 "f39fded8dc9ef0b7a41319f223dd4afa348bb2418bea578ed281557726829728"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   bottle do
     sha256 "a19fc42dc0c44f2f196428f39dcc547595731e9332610b2ebc624e8013f04788" => :big_sur
