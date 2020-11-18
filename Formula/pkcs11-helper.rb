@@ -3,8 +3,7 @@ class Pkcs11Helper < Formula
   homepage "https://github.com/OpenSC/OpenSC/wiki/pkcs11-helper"
   url "https://github.com/OpenSC/pkcs11-helper/releases/download/pkcs11-helper-1.27/pkcs11-helper-1.27.0.tar.bz2"
   sha256 "653730f0c561bbf5941754c0783976113589b2dc64a0661c908dc878bfa4e58b"
-  # license ["BSD-3-Clause", "GPL-2.0"] - pending https://github.com/Homebrew/brew/pull/7953
-  license "BSD-3-Clause"
+  license any_of: ["BSD-3-Clause", "GPL-2.0-or-later"]
   head "https://github.com/OpenSC/pkcs11-helper.git"
 
   livecheck do
