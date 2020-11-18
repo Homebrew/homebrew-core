@@ -7,8 +7,6 @@ class Goofys < Formula
   license "Apache-2.0"
   head "https://github.com/kahing/goofys.git"
 
-  deprecate! because: "requires FUSE"
-
   bottle do
     cellar :any_skip_relocation
     rebuild 1
@@ -16,6 +14,8 @@ class Goofys < Formula
     sha256 "cee50248f9ac4d33ef8ca585ad94e3c9e6226fc464dfad86de2b7f9497b9f2b7" => :mojave
     sha256 "eb0a3cfe49104292c16d76dce71db34000b1a7214f660b3cff3a39e4b3ba7a44" => :high_sierra
   end
+
+  deprecate! because: "requires FUSE"
 
   depends_on "go" => :build
   depends_on :osxfuse
