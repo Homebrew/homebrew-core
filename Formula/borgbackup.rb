@@ -8,8 +8,6 @@ class Borgbackup < Formula
   license "BSD-3-Clause"
   revision 1
 
-  deprecate! because: "requires FUSE"
-
   livecheck do
     url "https://github.com/borgbackup/borg/releases/latest"
     regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
@@ -21,6 +19,8 @@ class Borgbackup < Formula
     sha256 "c0caa9585403c77102d7b9d31f38bbcfa9ed26e8b4a0893daa43e6fe2b03f6e7" => :mojave
     sha256 "572afe4f34d36ae32c0ec48da8d4a2e9cc59b4ad891f884e5a1efe48e69c478c" => :high_sierra
   end
+
+  deprecate! because: "requires FUSE"
 
   depends_on osxfuse: :build
   depends_on "pkg-config" => :build
