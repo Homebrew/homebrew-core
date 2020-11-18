@@ -105,13 +105,13 @@ class PostgresqlAT95 < Formula
         Do not run `brew cleanup postgresql@9.5` until you have performed the migration.
 
       This formula has created a default database cluster with:
-        initdb #{var}/postgres
+        initdb #{var}/#{name}
       For more details, read:
         https://www.postgresql.org/docs/#{version.major}/app-initdb.html
     EOS
   end
 
-  plist_options manual: "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgresql@9.5 start"
+  plist_options manual: "pg_ctl -D #{HOMEBREW_PREFIX}/var/#{name} start"
 
   def plist
     <<~EOS

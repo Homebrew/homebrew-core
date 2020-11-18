@@ -91,13 +91,13 @@ class PostgresqlAT10 < Formula
         brew postgresql-upgrade-database
 
       This formula has created a default database cluster with:
-        initdb #{var}/postgres
+        initdb #{var}/#{name}
       For more details, read:
         https://www.postgresql.org/docs/#{version.major}/app-initdb.html
     EOS
   end
 
-  plist_options manual: "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgresql@10 start"
+  plist_options manual: "pg_ctl -D #{HOMEBREW_PREFIX}/var/#{name} start"
 
   def plist
     <<~EOS

@@ -83,13 +83,13 @@ class PostgresqlAT11 < Formula
         brew postgresql-upgrade-database
 
       This formula has created a default database cluster with:
-        initdb --locale=C -E UTF-8 #{var}/postgres
+        initdb --locale=C -E UTF-8 #{var}/#{name}
       For more details, read:
         https://www.postgresql.org/docs/#{version.major}/app-initdb.html
     EOS
   end
 
-  plist_options manual: "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgresql@11 start"
+  plist_options manual: "pg_ctl -D #{HOMEBREW_PREFIX}/var/#{name} start"
 
   def plist
     <<~EOS

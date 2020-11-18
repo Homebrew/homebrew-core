@@ -86,13 +86,13 @@ class PostgresqlAT94 < Formula
         https://docs.brew.sh/Gems,-Eggs-and-Perl-Modules
 
       This formula has created a default database cluster with:
-        initdb #{var}/postgres
+        initdb #{var}/#{name}
       For more details, read:
         https://www.postgresql.org/docs/#{version.major}/app-initdb.html
     EOS
   end
 
-  plist_options manual: "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgresql@9.4 start"
+  plist_options manual: "pg_ctl -D #{HOMEBREW_PREFIX}/var/#{name} start"
 
   def plist
     <<~EOS
