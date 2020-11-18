@@ -4,7 +4,7 @@ class Pangomm < Formula
   url "https://download.gnome.org/sources/pangomm/2.42/pangomm-2.42.1.tar.xz"
   sha256 "14bf04939930870d5cfa96860ed953ad2ce07c3fd8713add4a1bfe585589f40f"
   license "LGPL-2.1-only"
-  revision 2
+  revision 3
 
   livecheck do
     url :stable
@@ -51,8 +51,8 @@ class Pangomm < Formula
     pixman = Formula["pixman"]
     flags = %W[
       -I#{cairo.opt_include}/cairo
-      -I#{cairomm.opt_include}/cairomm-1.0
-      -I#{cairomm.opt_lib}/cairomm-1.0/include
+      -I#{cairomm.opt_include}/cairomm-1.16
+      -I#{cairomm.opt_lib}/cairomm-1.16/include
       -I#{fontconfig.opt_include}
       -I#{freetype.opt_include}/freetype2
       -I#{gettext.opt_include}
@@ -77,7 +77,7 @@ class Pangomm < Formula
       -L#{lib}
       -L#{pango.opt_lib}
       -lcairo
-      -lcairomm-1.0
+      -lcairomm-1.16
       -lglib-2.0
       -lglibmm-2.4
       -lgobject-2.0
