@@ -5,8 +5,6 @@ class RofsFiltered < Formula
   sha256 "d66066dfd0274a2fb7b71dd929445377dd23100b9fa43e3888dbe3fc7e8228e8"
   license "GPL-2.0"
 
-  deprecate! because: "requires FUSE"
-
   bottle do
     cellar :any
     rebuild 1
@@ -14,6 +12,8 @@ class RofsFiltered < Formula
     sha256 "6f220b4a193928a97dc8442cadf6d161224a1ddac098d496c8cf9a20fb7cd02a" => :mojave
     sha256 "74277c4f4cc2c60534cda38627450176f356da5bb7120334fd667eaa261fea7b" => :high_sierra
   end
+
+  deprecate! because: "requires FUSE"
 
   depends_on "cmake" => :build
   depends_on :osxfuse
