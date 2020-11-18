@@ -25,6 +25,10 @@ class Macvim < Formula
   conflicts_with "vim",
     because: "vim and macvim both install vi* binaries"
 
+  # Fix for Big Sur bug, remove in next version
+  # https://github.com/macvim-dev/macvim/issues/1113
+  patch :DATA
+
   def install
     # Avoid issues finding Ruby headers
     ENV.delete("SDKROOT")
@@ -77,3 +81,49 @@ class Macvim < Formula
     assert_equal "hello python3", (testpath/"test.txt").read.chomp
   end
 end
+__END__
+diff --git a/src/MacVim/MacVim.xcodeproj/project.pbxproj b/src/MacVim/MacVim.xcodeproj/project.pbxproj
+index 729c23009..9b66f5335 100644
+--- a/src/MacVim/MacVim.xcodeproj/project.pbxproj
++++ b/src/MacVim/MacVim.xcodeproj/project.pbxproj
+@@ -3,7 +3,7 @@
+        archiveVersion = 1;
+        classes = {
+        };
+-       objectVersion = 47;
++       objectVersion = 54;
+        objects = {
+
+ /* Begin PBXBuildFile section */
+@@ -1169,6 +1169,7 @@
+                        buildSettings = {
+                                COMBINE_HIDPI_IMAGES = YES;
+                                COPY_PHASE_STRIP = NO;
++                               EXCLUDED_ARCHS = arm64;
+                                FRAMEWORK_SEARCH_PATHS = (
+                                        "$(inherited)",
+                                        "$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+@@ -1202,6 +1203,7 @@
+                        buildSettings = {
+                                COMBINE_HIDPI_IMAGES = YES;
+                                COPY_PHASE_STRIP = YES;
++                               EXCLUDED_ARCHS = arm64;
+                                FRAMEWORK_SEARCH_PATHS = (
+                                        "$(inherited)",
+                                        "$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+@@ -1233,6 +1235,7 @@
+                        buildSettings = {
+                                CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+                                ENABLE_TESTABILITY = YES;
++                               EXCLUDED_ARCHS = arm64;
+                                GCC_VERSION = 4.2;
+                                GCC_WARN_ABOUT_RETURN_TYPE = YES;
+                                GCC_WARN_UNUSED_VARIABLE = YES;
+@@ -1246,6 +1249,7 @@
+                        isa = XCBuildConfiguration;
+                        buildSettings = {
+                                CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
++                               EXCLUDED_ARCHS = arm64;
+                                GCC_VERSION = 4.2;
+                                GCC_WARN_ABOUT_RETURN_TYPE = YES;
+                                GCC_WARN_UNUSED_VARIABLE = YES;
