@@ -8,8 +8,6 @@ class Termtosvg < Formula
   license "BSD-3-Clause"
   revision 2
 
-  deprecate! date: "2020-10-08", because: :repo_archived
-
   bottle do
     cellar :any_skip_relocation
     sha256 "16c74ac4446e7e91a1b7474ce3026f8546ba04430b8572944db7152fa9c3d48e" => :big_sur
@@ -17,6 +15,8 @@ class Termtosvg < Formula
     sha256 "22decfefbd2791ac22f3e267467f53a84524298a5cf1d9b285e97568555b12f0" => :mojave
     sha256 "26a80230af97da8f083d5e3004cb3a000e4cd16e33ce4e733400a9d9d0ade42a" => :high_sierra
   end
+
+  deprecate! date: "2020-10-08", because: :repo_archived
 
   depends_on "python@3.9"
 
