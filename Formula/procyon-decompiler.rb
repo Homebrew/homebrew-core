@@ -7,9 +7,9 @@ class ProcyonDecompiler < Formula
 
   bottle :unneeded
 
-  depends_on "openjdk"
-
   disable! because: :repo_removed
+
+  depends_on "openjdk"
 
   def install
     libexec.install "procyon-decompiler-#{version}.jar"
