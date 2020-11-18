@@ -110,5 +110,8 @@ jobs:
                     "label": "swift",
                     "path": "Formula/.+",
                     "content": "system \"swift\", \"build\""
+                }, {
+                    "label": "automerge-skip",
+                    "path": "Formula/(patchelf|binutils).rb"
                 }
             ]
