@@ -5,6 +5,7 @@ class Groff < Formula
   mirror "https://ftpmirror.gnu.org/groff/groff-1.22.4.tar.gz"
   sha256 "e78e7b4cb7dec310849004fa88847c44701e8d133b5d4c13057d876c1bad0293"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
