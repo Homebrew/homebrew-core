@@ -6,8 +6,6 @@ class AwsApigatewayImporter < Formula
   license "Apache-2.0"
   revision 1
 
-  deprecate! because: :repo_archived
-
   bottle do
     cellar :any_skip_relocation
     sha256 "3a837a89af7bfd9454b2e12924323e82ab6cb6ab09f4088e47b672a6a79aedd2" => :catalina
@@ -17,6 +15,8 @@ class AwsApigatewayImporter < Formula
     sha256 "bbe12dac66d033674840eace741bcf5c3549e7317ab9ca6fa9f349418a6c9861" => :el_capitan
     sha256 "bbe12dac66d033674840eace741bcf5c3549e7317ab9ca6fa9f349418a6c9861" => :yosemite
   end
+
+  deprecate! because: :repo_archived
 
   depends_on "maven" => :build
   depends_on "openjdk@8"
