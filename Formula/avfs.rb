@@ -4,8 +4,6 @@ class Avfs < Formula
   url "https://downloads.sourceforge.net/project/avf/avfs/1.1.3/avfs-1.1.3.tar.bz2"
   sha256 "4f4ec1e8c0d5da94949e3dab7500ee29fa3e0dda723daf8e7d60e5f3ce4450df"
 
-  deprecate! because: "requires FUSE"
-
   livecheck do
     url :stable
     regex(%r{url=.*?/avfs[._-]v?(\d+(?:\.\d+)+)\.t}i)
@@ -16,6 +14,8 @@ class Avfs < Formula
     sha256 "1e75ce4753a0d9a9af12e4a718537a9e2398fd535413b72505dd126a33610fe6" => :mojave
     sha256 "690fbe0161f0c5ce4ec737e67624b54bfcd7825efa8b554e1773691365dcd6ed" => :high_sierra
   end
+
+  deprecate! because: "requires FUSE"
 
   depends_on "pkg-config" => :build
   depends_on macos: :sierra # needs clock_gettime
