@@ -115,16 +115,16 @@ class PostgresqlAT12 < Formula
         <array>
           <string>#{opt_bin}/postgres</string>
           <string>-D</string>
-          <string>#{var}/postgres</string>
+          <string>#{var}/#{name}</string>
         </array>
         <key>RunAtLoad</key>
         <true/>
         <key>WorkingDirectory</key>
         <string>#{HOMEBREW_PREFIX}</string>
         <key>StandardOutPath</key>
-        <string>#{var}/log/postgres.log</string>
+        <string>#{var}/log/#{name}.log</string>
         <key>StandardErrorPath</key>
-        <string>#{var}/log/postgres.log</string>
+        <string>#{var}/log/#{name}.log</string>
       </dict>
       </plist>
     EOS
