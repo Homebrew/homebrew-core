@@ -3,10 +3,9 @@ class Duplicity < Formula
 
   desc "Bandwidth-efficient encrypted backup"
   homepage "https://launchpad.net/duplicity"
-  url "https://code.launchpad.net/duplicity/0.8-series/0.8.16/+download/duplicity-0.8.16.tar.gz"
-  sha256 "2cfcd212834979751310d9df1a954b949f86b084efd5ad1f97dd744780ef9d1b"
-  license "GPL-2.0"
-  revision 1
+  url "https://code.launchpad.net/duplicity/0.8-series/0.8.17/+download/duplicity-0.8.17.tar.gz"
+  sha256 "a273b1e74d8d0b7825572f51be9c8284e579961e01f4fc1473048e95dce49984"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :stable
@@ -32,18 +31,18 @@ class Duplicity < Formula
   #   --also pydrive --also requests-oauthlib --also pexpect > resources
 
   resource "arrow" do
-    url "https://files.pythonhosted.org/packages/3f/e5/ddd9d095abbd249c2a610e6676c806a5f156c943677b30c2904f4c18f1b9/arrow-0.15.7.tar.gz"
-    sha256 "3f1a92b25bbee5f80cc8f6bdecfeade9028219229137c559c37335b4f574a292"
+    url "https://files.pythonhosted.org/packages/ec/74/1cf2d9912921cebdba3fa954949206c8aa159c9cc803b88140fb227f8a0e/arrow-0.17.0.tar.gz"
+    sha256 "ff08d10cda1d36c68657d6ad20d74fbea493d980f8b2d45344e00d6ed2bf6ed4"
   end
 
   resource "b2sdk" do
-    url "https://files.pythonhosted.org/packages/b7/05/49e2e8b031dc3d6f9de48ccdac2289722d86c8f62ec7b0b922462e817247/b2sdk-1.1.0.tar.gz"
-    sha256 "b76c92afd9cdc3e8ce664e3d85aaab16bedd5207c22733534a752950af3e5dca"
+    url "https://files.pythonhosted.org/packages/50/4c/2e00d4f1e45692f66132c539edb3f9f3fc0a8938c6d49c151d1f72bb6fc2/b2sdk-1.2.0.tar.gz"
+    sha256 "8e46ff9d47a9b90d8b9beab1969fcf4920300b02e20e6bf0745be04e09e8a6ff"
   end
 
   resource "bcrypt" do
-    url "https://files.pythonhosted.org/packages/fa/aa/025a3ab62469b5167bc397837c9ffc486c42a97ef12ceaa6699d8f5a5416/bcrypt-3.1.7.tar.gz"
-    sha256 "0b0069c752ec14172c5f78208f1863d7ad6755a6fae6fe76ec2c80d13be41e42"
+    url "https://files.pythonhosted.org/packages/d8/ba/21c475ead997ee21502d30f76fd93ad8d5858d19a3fad7cd153de698c4dd/bcrypt-3.2.0.tar.gz"
+    sha256 "5b93c1726e50a93a033c36e5ca7fdcd29a5c7395af50a6892f5d9e7c6cfbfb29"
   end
 
   resource "boto" do
@@ -52,13 +51,13 @@ class Duplicity < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/ae/40/1331ac21ea6dab80351da88f2ae259714ee232d1ebd2f83fd924da3bf18c/boto3-1.14.16.tar.gz"
-    sha256 "ce5a4ab6af9e993d1864209cbbb6f4812f65fbc57ad6b95e5967d8bf38b1dcfb"
+    url "https://files.pythonhosted.org/packages/1a/ec/b970ae04958b51dab82b848ede21bbf98ef927a158aa968f6d082f18bd6c/boto3-1.16.20.tar.gz"
+    sha256 "6c5d952f97e13997b1c7463038d96469355595cd37f87b43451759cc03756322"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/fd/2a/604ee068b58397fdf7595ed95635e44783ce767412c694478d2e1c6c641d/botocore-1.17.16.tar.gz"
-    sha256 "fe0c4f7cd6b67eff3b7cb8dff6709a65d6fca10b7b7449a493b2036915e98b4c"
+    url "https://files.pythonhosted.org/packages/63/64/83904cc34441fc59d493923a6a9595a87a58c40ae36e25cd447ce6b83cee/botocore-1.19.20.tar.gz"
+    sha256 "00a69a507e8b817d0703c612131e6cb3a3260579d0353c56d005bd9effd92ec0"
   end
 
   resource "cachetools" do
@@ -67,13 +66,13 @@ class Duplicity < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/40/a7/ded59fa294b85ca206082306bba75469a38ea1c7d44ea7e1d64f5443d67a/certifi-2020.6.20.tar.gz"
-    sha256 "5930595817496dd21bb8dc35dad090f1c2cd0adfaf21204bf6732ca5d8ee34d3"
+    url "https://files.pythonhosted.org/packages/e6/de/879cf857ae6f890dfa23c3d6239814c5471936b618c8fb0c8732ad5da885/certifi-2020.11.8.tar.gz"
+    sha256 "f05def092c44fbf25834a51509ef6e631dc19765ab8a57b4e7ab85531f0a9cf4"
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/05/54/3324b0c46340c31b909fcec598696aaec7ddc8c18a63f2db352562d3354c/cffi-1.14.0.tar.gz"
-    sha256 "2d384f4a127a15ba701207f7639d94106693b6cd64173d6c8988e2c25f3ac2b6"
+    url "https://files.pythonhosted.org/packages/cb/ae/380e33d621ae301770358eb11a896a34c34f30db188847a561e8e39ee866/cffi-1.14.3.tar.gz"
+    sha256 "f92f789e4f9241cd262ad7a555ca2c648a98178a953af117ef7fad46aa1d5591"
   end
 
   resource "chardet" do
@@ -82,8 +81,8 @@ class Duplicity < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/56/3b/78c6816918fdf2405d62c98e48589112669f36711e50158a0c15d804c30d/cryptography-2.9.2.tar.gz"
-    sha256 "a0c30272fb4ddda5f5ffc1089d7405b7a71b0b0f51993cb4e5dbb4590b2fc229"
+    url "https://files.pythonhosted.org/packages/94/5c/42de91c7fbdb817b2d9a4e64b067946eb38a4eb36c1a09c96c87a0f86a82/cryptography-3.2.1.tar.gz"
+    sha256 "d3d5e10be0cf2a12214ddee45c6bd203dab435e3d83b4560c03066eda600bfe3"
   end
 
   resource "docutils" do
@@ -92,8 +91,8 @@ class Duplicity < Formula
   end
 
   resource "dropbox" do
-    url "https://files.pythonhosted.org/packages/ce/e5/395b7bfe0d7267ad7fdc2eedc05ae30056f2dac103287acfc50f20839723/dropbox-10.2.0.tar.gz"
-    sha256 "4372916da70aad82e7227e7c31a8cfa2310e41c9d34d32883daedf43ed403f86"
+    url "https://files.pythonhosted.org/packages/49/18/bfdcac85c16e7b31fe8087fabee6820657e48a1514c249aae093f109ac09/dropbox-10.10.0.tar.gz"
+    sha256 "df43e9e0bdcae6d610dd754a5ec72f2f91a311bbc2c8a28d076df69695b18398"
   end
 
   resource "fasteners" do
@@ -112,18 +111,18 @@ class Duplicity < Formula
   end
 
   resource "google-api-python-client" do
-    url "https://files.pythonhosted.org/packages/31/8d/06ee9dd2f50eb111d2fc19a217a38b25e0f431ef4e0e7efc2efce2d3daf0/google-api-python-client-1.9.3.tar.gz"
-    sha256 "220349ce189a85229fc46875d467101318495a4a735c0ff2f165b9bdbc7511a0"
+    url "https://files.pythonhosted.org/packages/9a/a1/db866879d86b04f1c0eb777472eefd8756268d5be14d09c31331d56fb37a/google-api-python-client-1.12.6.tar.gz"
+    sha256 "1f5cfcb92c8e3bd0a69cb2ff3cefa5ff16ffa1900af795a53f5bed93c8238951"
   end
 
   resource "google-auth" do
-    url "https://files.pythonhosted.org/packages/4c/12/762ac9190d9f4b37976d6ffadb0ea25124fcf938ca893764004ff6ab96b6/google-auth-1.18.0.tar.gz"
-    sha256 "d6b390d3bb0969061ffec7e5766c45c1b39e13c302691e35029f1ad1ccd8ca3b"
+    url "https://files.pythonhosted.org/packages/65/1c/eee2dbfefe37855300e4f89245c698bb1713de215d191a5127317b418576/google-auth-1.23.0.tar.gz"
+    sha256 "5176db85f1e7e837a646cd9cede72c3c404ccf2e3373d9ee14b2db88febad440"
   end
 
   resource "google-auth-httplib2" do
-    url "https://files.pythonhosted.org/packages/e7/32/ac7f30b742276b4911a1439c5291abab1b797ccfd30bc923c5ad67892b13/google-auth-httplib2-0.0.3.tar.gz"
-    sha256 "098fade613c25b4527b2c08fa42d11f3c2037dda8995d86de0745228e965d445"
+    url "https://files.pythonhosted.org/packages/6c/5e/97a5e7573457020351a275c74c559dbe2ebe1c606119f991541c98ffa651/google-auth-httplib2-0.0.4.tar.gz"
+    sha256 "8d092cc60fb16517b12057ec0bba9185a96e3b7169d86ae12eae98e645b7bc39"
   end
 
   resource "httplib2" do
@@ -167,8 +166,8 @@ class Duplicity < Formula
   end
 
   resource "paramiko" do
-    url "https://files.pythonhosted.org/packages/ac/15/4351003352e11300b9f44a13576bff52dcdc6e4a911129c07447bda0a358/paramiko-2.7.1.tar.gz"
-    sha256 "920492895db8013f6cc0179293147f830b8c7b21fdfc839b6bad760c27459d9f"
+    url "https://files.pythonhosted.org/packages/cf/a1/20d00ce559a692911f11cadb7f94737aca3ede1c51de16e002c7d3a888e0/paramiko-2.7.2.tar.gz"
+    sha256 "7f36f4ba2c0d81d219f4595e35f70d56cc94f9ac40a6acdf51d6ca210ce65035"
   end
 
   resource "pexpect" do
@@ -217,8 +216,8 @@ class Duplicity < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/da/67/672b422d9daf07365259958912ba533a0ecab839d4084c487a5fe9a5405f/requests-2.24.0.tar.gz"
-    sha256 "b3559a131db72c33ee969480840fff4bb6dd111de7dd27c8ee1f820f4f00231b"
+    url "https://files.pythonhosted.org/packages/9f/14/4a6542a078773957aa83101336375c9597e6fe5889d20abda9c38f9f3ff2/requests-2.25.0.tar.gz"
+    sha256 "7f1a0b932f4a60a1a65caa4263921bb7d9ee911957e0ae4a23a6dd08185ad5f8"
   end
 
   resource "requests-oauthlib" do
@@ -247,13 +246,13 @@ class Duplicity < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/3c/17/229e06a959dc41b85be2e372096b2637e51de5f84afc58b3e588f1826c80/tqdm-4.47.0.tar.gz"
-    sha256 "63ef7a6d3eb39f80d6b36e4867566b3d8e5f1fe3d6cb50c5e9ede2b3198ba7b7"
+    url "https://files.pythonhosted.org/packages/9f/30/8c8015735a54e13444a3d4982a7a9538bde27f8b3bd35203f9e920f0d78c/tqdm-4.52.0.tar.gz"
+    sha256 "18d6a615aedd09ec8456d9524489dab330af4bd5c2a14a76eb3f9a0e14471afe"
   end
 
   resource "typing" do
-    url "https://files.pythonhosted.org/packages/67/b0/b2ea2bd67bfb80ea5d12a5baa1d12bda002cab3b6c9b48f7708cd40c34bf/typing-3.7.4.1.tar.gz"
-    sha256 "91dfe6f3f706ee8cc32d38edbbf304e9b7583fb37108fef38229617f8b3eba23"
+    url "https://files.pythonhosted.org/packages/05/d9/6eebe19d46bd05360c9a9aae822e67a80f9242aabbfc58b641b957546607/typing-3.7.4.3.tar.gz"
+    sha256 "1187fb9c82fd670d10aa07bbb6cfcfe4bdda42d6fab8d5134f04e8c4d0b71cc9"
   end
 
   resource "uritemplate" do
@@ -262,8 +261,8 @@ class Duplicity < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/05/8c/40cd6949373e23081b3ea20d5594ae523e681b6f472e600fbc95ed046a36/urllib3-1.25.9.tar.gz"
-    sha256 "3018294ebefce6572a474f0604c2021e33b3fd8006ecd11d62107a5d2a963527"
+    url "https://files.pythonhosted.org/packages/29/e6/d1a1d78c439cad688757b70f26c50a53332167c364edb0134cadd280e234/urllib3-1.26.2.tar.gz"
+    sha256 "19188f96923873c92ccb987120ec4acaa12f0461fa9ce5d3d0772bc965a39e08"
   end
 
   def install
