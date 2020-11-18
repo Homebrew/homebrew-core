@@ -25,10 +25,15 @@ class V2ray < Formula
 
   def install
     ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
-    ENV["CGO_ENABLED"] = "0"
     ldflags = "-s -w -buildid="
-    system "go", "build", "-o", bin/"v2ray", "-ldflags", ldflags, "./main"
-    system "go", "build", "-o", bin/"v2ctl", "-ldflags", ldflags, "-tags", "confonly", "./infra/control/main"
+    system "go", "build", *std_go_args,
+                 "-ldflags", ldflags,
+                 "./main"
+    system "go", "build", *std_go_args,
+                 "-ldflags", ldflags,
+                 "-tags", "confonly",
+                 "-o", bin/"v2ctl",
+                 "./infra/control/main"
 
     resource("config").stage do
       (etc/"v2ray").install "config.json"
