@@ -5,8 +5,6 @@ class S3Backer < Formula
   sha256 "deea48205347b24d1298fa16bf3252d9348d0fe81dde9cb20f40071b8de60519"
   license "GPL-2.0-or-later"
 
-  deprecate! because: "requires FUSE"
-
   livecheck do
     url "https://build.opensuse.org/package/view_file/openSUSE:Factory/s3backer/s3backer.spec"
     regex(/Version:\s+v?(\d+(?:\.\d+)+)/i)
@@ -18,6 +16,8 @@ class S3Backer < Formula
     sha256 "346fe1b085490959e17acf9930878b46b8224bf20b7aada21a1a48ab963c0da3" => :mojave
     sha256 "4d23cfd2c126c5f3efa1023e7c061830de6f1fdda69760bbd3ed70a169def288" => :high_sierra
   end
+
+  deprecate! because: "requires FUSE"
 
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
