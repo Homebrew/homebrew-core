@@ -11,6 +11,7 @@ class MoltenVk < Formula
 
   depends_on "cmake" => :build
   depends_on "python@3.9" => :build
+  depends_on "llvm" => :build
   depends_on xcode: ["11.0", :build]
   # Requires IOSurface/IOSurfaceRef.h.
   depends_on macos: :sierra
@@ -60,6 +61,12 @@ class MoltenVk < Formula
         revision: "5ab5c96198f30804a6a29961b8905f292a8ae600"
   end
 
+  resource "LunarGLASS" do
+    # External/glslang/known_good.json
+    url "https://github.com/LunarG/LunarGLASS.git",
+        revision: "012965ae9214daba0eb2bded1324e58ea8ceb6ea"
+  end
+  
   resource "Vulkan-Tools" do
     # ExternalRevisions/Vulkan-Tools_repo_revision
     url "https://github.com/KhronosGroup/Vulkan-Tools.git",
