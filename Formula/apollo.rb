@@ -16,6 +16,9 @@ class Apollo < Formula
     sha256 "81b2a6a1110da6cf58c6725eb6e2c331668fa39d01644e0a754a2eb9241fdccd" => :high_sierra
   end
 
+  # https://github.com/apache/activemq-apollo/commit/049d68bf3f94cdf62ded5426d3cad4ef3e3c56ca
+  deprecate! date: "2019-03-11", because: :deprecated_upstream
+
   depends_on "openjdk"
 
   # https://www.oracle.com/technetwork/database/berkeleydb/overview/index-093405.html
@@ -29,9 +32,6 @@ class Apollo < Formula
     url "https://search.maven.org/remotecontent?filepath=org/fusesource/fuse-extra/fusemq-apollo-mqtt/1.3/fusemq-apollo-mqtt-1.3-uber.jar"
     sha256 "2795caacbc6086c7de46b588d11a78edbf8272acb7d9da3fb329cb34fcb8783f"
   end
-
-  # https://github.com/apache/activemq-apollo/commit/049d68bf3f94cdf62ded5426d3cad4ef3e3c56ca
-  deprecate! date: "2019-03-11", because: :deprecated_upstream
 
   def install
     prefix.install_metafiles
