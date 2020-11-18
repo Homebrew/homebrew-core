@@ -5,8 +5,6 @@ class Ext2fuse < Formula
   sha256 "431035797b2783216ec74b6aad5c721b4bffb75d2174967266ee49f0a3466cd9"
   revision 2
 
-  deprecate! because: "requires FUSE"
-
   livecheck do
     url :stable
   end
@@ -17,6 +15,8 @@ class Ext2fuse < Formula
     sha256 "541b0787069c0bf37607392a9789ed4e3b2f21ebe214b3274ec27023aa03335f" => :mojave
     sha256 "0b8e89292e91a8fbe00430ae16a3ebbfdbba1017f6dee4801bcf8e63d238962f" => :high_sierra
   end
+
+  deprecate! because: "requires FUSE"
 
   depends_on "e2fsprogs"
   depends_on :osxfuse
