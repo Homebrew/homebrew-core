@@ -6,8 +6,6 @@ class Gcsfuse < Formula
   license "Apache-2.0"
   head "https://github.com/GoogleCloudPlatform/gcsfuse.git"
 
-  deprecate! because: "requires FUSE"
-
   livecheck do
     url "https://github.com/GoogleCloudPlatform/gcsfuse/releases/latest"
     regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
@@ -19,6 +17,8 @@ class Gcsfuse < Formula
     sha256 "a97edf4dbfa9e41d2e9d4de092507c9d5199de2324b0d95f454c50893d977889" => :mojave
     sha256 "e0f04b45a7fe6583e424fc81a7c34dace7b01e215739758930b6baab14d3d50c" => :high_sierra
   end
+
+  deprecate! because: "requires FUSE"
 
   depends_on "go" => :build
   depends_on :osxfuse
