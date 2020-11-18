@@ -3,7 +3,7 @@ class Gtkmm < Formula
   homepage "https://www.gtkmm.org/"
   url "https://download.gnome.org/sources/gtkmm/2.24/gtkmm-2.24.5.tar.xz"
   sha256 "0680a53b7bf90b4e4bf444d1d89e6df41c777e0bacc96e9c09fc4dd2f5fe6b72"
-  revision 3
+  revision 4
 
   livecheck do
     url :stable
@@ -63,8 +63,8 @@ class Gtkmm < Formula
       -I#{atk.opt_include}/atk-1.0
       -I#{atkmm.opt_include}/atkmm-1.6
       -I#{cairo.opt_include}/cairo
-      -I#{cairomm.opt_include}/cairomm-1.0
-      -I#{cairomm.opt_lib}/cairomm-1.0/include
+      -I#{cairomm.opt_include}/cairomm-1.16
+      -I#{cairomm.opt_lib}/cairomm-1.16/include
       -I#{fontconfig.opt_include}
       -I#{freetype.opt_include}/freetype2
       -I#{gdk_pixbuf.opt_include}/gdk-pixbuf-2.0
@@ -107,7 +107,7 @@ class Gtkmm < Formula
       -latk-1.0
       -latkmm-1.6
       -lcairo
-      -lcairomm-1.0
+      -lcairomm-1.16
       -lgdk-quartz-2.0
       -lgdk_pixbuf-2.0
       -lgdkmm-2.4
