@@ -6,8 +6,6 @@ class Curlftpfs < Formula
   revision 1
   head ":pserver:anonymous:@curlftpfs.cvs.sourceforge.net:/cvsroot/curlftpfs", using: :cvs
 
-  deprecate! because: "requires FUSE"
-
   livecheck do
     url :stable
   end
@@ -19,6 +17,8 @@ class Curlftpfs < Formula
     sha256 "edb3da0b0ccc3b5b3004096f89174786ad75838b82b6c6b621855291744147f1" => :high_sierra
     sha256 "5734dbff6e2a7c18232d08d22fe64e19610f32b07e48b276996df759baaef407" => :sierra
   end
+
+  deprecate! because: "requires FUSE"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
