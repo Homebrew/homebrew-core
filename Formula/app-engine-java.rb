@@ -4,9 +4,6 @@ class AppEngineJava < Formula
   url "https://storage.googleapis.com/appengine-sdks/featured/appengine-java-sdk-1.9.83.zip"
   sha256 "1d585a36303c14f4fa44790bba97d5d8b75a889ad48ffce8187333488511e43e"
 
-  # https://cloud.google.com/appengine/docs/standard/java/sdk-gcloud-migration
-  deprecate! date: "2019-07-30", because: :deprecated_upstream
-
   # This has received at least one update after the supposed end of life date
   # (2020-08-30), so there may be value in keeping this check around for a
   # little while longer. Once it's clear this won't receive any more updates,
@@ -18,6 +15,9 @@ class AppEngineJava < Formula
   end
 
   bottle :unneeded
+
+  # https://cloud.google.com/appengine/docs/standard/java/sdk-gcloud-migration
+  deprecate! date: "2019-07-30", because: :deprecated_upstream
 
   depends_on "openjdk@8"
 
