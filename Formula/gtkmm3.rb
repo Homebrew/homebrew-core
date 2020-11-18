@@ -4,7 +4,7 @@ class Gtkmm3 < Formula
   url "https://download.gnome.org/sources/gtkmm/3.24/gtkmm-3.24.2.tar.xz"
   sha256 "6d71091bcd1863133460d4188d04102810e9123de19706fb656b7bb915b4adc3"
   license "LGPL-2.1"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -63,8 +63,8 @@ class Gtkmm3 < Formula
       -I#{atk.opt_include}/atk-1.0
       -I#{atkmm.opt_include}/atkmm-1.6
       -I#{cairo.opt_include}/cairo
-      -I#{cairomm.opt_include}/cairomm-1.0
-      -I#{cairomm.opt_lib}/cairomm-1.0/include
+      -I#{cairomm.opt_include}/cairomm-1.16
+      -I#{cairomm.opt_lib}/cairomm-1.16/include
       -I#{fontconfig.opt_include}
       -I#{freetype.opt_include}/freetype2
       -I#{gdk_pixbuf.opt_include}/gdk-pixbuf-2.0
@@ -110,7 +110,7 @@ class Gtkmm3 < Formula
       -latkmm-1.6
       -lcairo
       -lcairo-gobject
-      -lcairomm-1.0
+      -lcairomm-1.16
       -lgdk-3
       -lgdk_pixbuf-2.0
       -lgdkmm-3.0
