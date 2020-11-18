@@ -4,6 +4,7 @@ class Aerc < Formula
   url "https://git.sr.ht/~sircmpwn/aerc/archive/0.5.2.tar.gz"
   sha256 "87b922440e53b99f260d2332996537decb452c838c774e9340b633296f9f68ee"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 "bfbdc6552a248e34e2a85f24664568a8bfc80a3941eb01bc05f9c9b97b6bc811" => :big_sur
@@ -16,6 +17,7 @@ class Aerc < Formula
 
   def install
     system "make", "PREFIX=#{prefix}"
+    inreplace "aerc.conf", pkgshare.to_s, "#{HOMEBREW_PREFIX}/share/aerc"
     system "make", "install", "PREFIX=#{prefix}"
   end
 
