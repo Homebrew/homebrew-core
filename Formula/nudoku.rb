@@ -1,10 +1,20 @@
 class Nudoku < Formula
   desc "Ncurses based sudoku game"
   homepage "https://jubalh.github.io/nudoku/"
-  url "https://github.com/jubalh/nudoku/archive/2.0.0.tar.gz"
-  sha256 "44d3ec1ff34a010910ac7a92f6d84e8a7a4678a966999b7be27d224609ae54e1"
   license "GPL-3.0"
   head "https://github.com/jubalh/nudoku.git"
+
+  stable do
+    url "https://github.com/jubalh/nudoku/archive/2.0.0.tar.gz"
+    sha256 "44d3ec1ff34a010910ac7a92f6d84e8a7a4678a966999b7be27d224609ae54e1"
+
+    # gettext 0.20 compatibility.
+    # Remove with next release.
+    patch do
+      url "https://github.com/jubalh/nudoku/commit/9a4ffc359fe72f6af0e3654ae19ae421ab941ea8.patch?full_index=1"
+      sha256 "e4b52f5ac48bfd192f28ae4b3a2fb146c7bc1bec1a441e8e10f4ad90550d4e66"
+    end
+  end
 
   bottle do
     sha256 "bd5279ad0896787dadf5f2ef3c9796eed06d7dac60fb91ae337a7e372191082a" => :big_sur
@@ -19,13 +29,6 @@ class Nudoku < Formula
   depends_on "gettext"
 
   uses_from_macos "ncurses"
-
-  # gettext 0.20 compatibility.
-  # Remove with next release.
-  patch do
-    url "https://github.com/jubalh/nudoku/commit/9a4ffc359fe72f6af0e3654ae19ae421ab941ea8.patch?full_index=1"
-    sha256 "e4b52f5ac48bfd192f28ae4b3a2fb146c7bc1bec1a441e8e10f4ad90550d4e66"
-  end
 
   def install
     system "autoreconf", "-fiv"
