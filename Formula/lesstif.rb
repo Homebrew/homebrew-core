@@ -6,8 +6,6 @@ class Lesstif < Formula
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later"]
   revision 1
 
-  deprecate! because: :unmaintained
-
   livecheck do
     url :stable
   end
@@ -18,6 +16,8 @@ class Lesstif < Formula
     sha256 "f522a309507b2f9c2aad4aea7a8bbb6cc7d845e922d6d49cd3ca81bccad7f5f5" => :mojave
     sha256 "6bc0a2511a83a9a15bc27a2385aa7fd944836eb4e685ee7878e590be7680e713" => :high_sierra
   end
+
+  deprecate! because: :unmaintained
 
   depends_on "freetype"
   depends_on "libice"
