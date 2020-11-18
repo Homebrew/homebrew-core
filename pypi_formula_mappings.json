@@ -1,0 +1,18 @@
+{
+  "ansible": false,
+  "ansible@2.8": false,
+  "cloudformation-cli": {
+    "extra_packages": ["cloudformation-cli-go-plugin", "cloudformation-cli-java-plugin"]
+  },
+  "diffoscope": "diffoscope[cmdline]",
+  "ipython": {
+    "extra_packages": ["ipykernel"]
+  },
+  "molecule": false,
+  "salt": {
+    "extra_packages": ["M2Crypto", "pygit2"]
+  },
+  "xdot": {
+    "extra_packages": ["graphviz"]
+  }
+}
