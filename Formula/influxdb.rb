@@ -1,8 +1,8 @@
 class Influxdb < Formula
   desc "Time series, events, and metrics database"
   homepage "https://influxdata.com/time-series-platform/influxdb/"
-  url "https://github.com/influxdata/influxdb/archive/v1.8.3.tar.gz"
-  sha256 "d8b89e324ed7343c1397124ac3cc68c405406faf74e7369e733611cada54656d"
+  url "https://github.com/influxdata/influxdb/archive/v2.0.1.tar.gz"
+  sha256 "4ba400e00be3846a9bcba0e20ddb4a344449ae084b04e97e7fec15d63073c476"
   license "MIT"
   head "https://github.com/influxdata/influxdb.git"
 
@@ -19,12 +19,16 @@ class Influxdb < Formula
     sha256 "958b7dbbb9f7b7879ab9a9bc8b408c3ffe43027557dc7c3a3a9d73257ff6a820" => :high_sierra
   end
 
+  depends_on "bazaar" => :build
   depends_on "go" => :build
+  depends_on "pkg-config" => :build
+  depends_on "rust" => :build
+  depends_on "yarn" => :build
+  depends_on "flux"
+  depends_on "protobuf"
 
   def install
-    ENV["GOBIN"] = buildpath
-
-    system "go", "install", "-ldflags", "-X main.version=#{version}", "./..."
+    system "make"
     bin.install %w[influxd influx influx_tsm influx_stress influx_inspect]
 
     etc.install "etc/config.sample.toml" => "influxdb.conf"
