@@ -12,14 +12,14 @@ class Fceux < Formula
     sha256 "3f587de213706a92fb02b14676514f6cba079e3c3b7ded2e57a8e718ebf9cf20" => :high_sierra
   end
 
+  # Does not build: some build scripts rely on Python 2 syntax
+  disable! because: :does_not_build
+
   depends_on "pkg-config" => :build
   depends_on "scons" => :build
   depends_on "gd"
   depends_on "gtk+3"
   depends_on "sdl"
-
-  # Does not build: some build scripts rely on Python 2 syntax
-  disable! because: :does_not_build
 
   # Fix "error: ordered comparison between pointer and zero"
   if DevelopmentTools.clang_build_version >= 900
