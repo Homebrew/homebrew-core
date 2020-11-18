@@ -3,8 +3,8 @@ class Conan < Formula
 
   desc "Distributed, open source, package manager for C/C++"
   homepage "https://conan.io"
-  url "https://files.pythonhosted.org/packages/e5/bf/9da730885fd1260047ff34780e23787fa23b426d8cba5e234475a5b21902/conan-1.31.2.tar.gz"
-  sha256 "eac7c04dbd5514d66d0ae4099469894c561c34d6f56de854187518ff68c6cdfa"
+  url "https://github.com/conan-io/conan/archive/1.31.3.tar.gz"
+  sha256 "1491938208424652cee4e8bc4347e36297371bf058b08c16064e8459c3b18b0b"
   license "MIT"
   head "https://github.com/conan-io/conan.git"
 
@@ -161,8 +161,8 @@ class Conan < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/88/e6/13dde83089386c9aa200c4539891948094443d4f6fe85fe95c7806c1f3d5/tqdm-4.51.0.tar.gz"
-    sha256 "ef54779f1c09f346b2b5a8e5c61f96fbcb639929e640e59f8cf810794f406432"
+    url "https://files.pythonhosted.org/packages/9f/30/8c8015735a54e13444a3d4982a7a9538bde27f8b3bd35203f9e920f0d78c/tqdm-4.52.0.tar.gz"
+    sha256 "18d6a615aedd09ec8456d9524489dab330af4bd5c2a14a76eb3f9a0e14471afe"
   end
 
   resource "urllib3" do
