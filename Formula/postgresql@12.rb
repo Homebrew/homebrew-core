@@ -81,9 +81,9 @@ class PostgresqlAT12 < Formula
     return if ENV["CI"]
 
     (var/"log").mkpath
-    (var/"postgres").mkpath
-    unless File.exist? "#{var}/postgres/PG_VERSION"
-      system "#{bin}/initdb", "--locale=C", "-E", "UTF-8", "#{var}/postgres"
+    (var/name).mkpath
+    unless File.exist? "#{var}/#{name}/PG_VERSION"
+      system "#{bin}/initdb", "--locale=C", "-E", "UTF-8", "#{var}/#{name}"
     end
   end
 
