@@ -3,7 +3,7 @@ class Gtksourceviewmm3 < Formula
   homepage "https://developer.gnome.org/gtksourceviewmm/"
   url "https://download.gnome.org/sources/gtksourceviewmm/3.18/gtksourceviewmm-3.18.0.tar.xz"
   sha256 "51081ae3d37975dae33d3f6a40621d85cb68f4b36ae3835eec1513482aacfb39"
-  revision 5
+  revision 6
 
   livecheck do
     url :stable
@@ -62,8 +62,8 @@ class Gtksourceviewmm3 < Formula
       -I#{atk.opt_include}/atk-1.0
       -I#{atkmm.opt_include}/atkmm-1.6
       -I#{cairo.opt_include}/cairo
-      -I#{cairomm.opt_include}/cairomm-1.0
-      -I#{cairomm.opt_lib}/cairomm-1.0/include
+      -I#{cairomm.opt_include}/cairomm-1.16
+      -I#{cairomm.opt_lib}/cairomm-1.16/include
       -I#{fontconfig.opt_include}
       -I#{freetype.opt_include}/freetype2
       -I#{gdk_pixbuf.opt_include}/gdk-pixbuf-2.0
@@ -113,7 +113,7 @@ class Gtksourceviewmm3 < Formula
       -latkmm-1.6
       -lcairo
       -lcairo-gobject
-      -lcairomm-1.0
+      -lcairomm-1.16
       -lgdk-3
       -lgdk_pixbuf-2.0
       -lgdkmm-3.0
