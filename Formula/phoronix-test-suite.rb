@@ -1,9 +1,9 @@
 class PhoronixTestSuite < Formula
   desc "Open-source automated testing/benchmarking software"
   homepage "https://www.phoronix-test-suite.com/"
-  url "https://github.com/phoronix-test-suite/phoronix-test-suite/archive/v9.8.0.tar.gz"
-  sha256 "6313c5ad1fa4a62726f1347c3674a704582ec5a3a0ca1af20b034ccc6f64af9e"
-  license "GPL-3.0"
+  url "https://github.com/phoronix-test-suite/phoronix-test-suite/archive/v10.0.1.tar.gz"
+  sha256 "3d65dc03c0e20e2419521157cb8189b90e93826dfbf81e7e4d088bc2f14b0650"
+  license "GPL-3.0-or-later"
   head "https://github.com/phoronix-test-suite/phoronix-test-suite.git"
 
   bottle :unneeded
