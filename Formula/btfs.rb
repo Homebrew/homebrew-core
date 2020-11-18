@@ -6,14 +6,14 @@ class Btfs < Formula
   license "GPL-3.0-only"
   head "https://github.com/johang/btfs.git"
 
-  deprecate! because: "requires FUSE"
-
   bottle do
     cellar :any
     sha256 "d5b103b5b9004549a555352be373c2160bcd5b9f6a8e7e8b030cbf113ae76fcd" => :catalina
     sha256 "bb550107105c612e2c9b81478b352d053f5b8ac8658377e0d40e4ee1109519fc" => :mojave
     sha256 "934b8849eaecd08113b01e222c9583f9293100889f3f40f8452a476a6491e0d0" => :high_sierra
   end
+
+  deprecate! because: "requires FUSE"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
