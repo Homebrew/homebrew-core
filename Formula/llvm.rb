@@ -79,6 +79,7 @@ class Llvm < Formula
       lldb
       openmp
       polly
+      mlir
     ]
     runtimes = %w[
       compiler-rt
@@ -106,6 +107,8 @@ class Llvm < Formula
       -DLLVM_BUILD_EXTERNAL_COMPILER_RT=ON
       -DLLVM_LINK_LLVM_DYLIB=ON
       -DLLVM_BUILD_LLVM_C_DYLIB=ON
+      -DLLVM_BUILD_EXAMPLES=ON
+      -DLLVM_ENABLE_ASSERTIONS=ON
       -DLLVM_ENABLE_EH=ON
       -DLLVM_ENABLE_FFI=ON
       -DLLVM_ENABLE_LIBCXX=ON
