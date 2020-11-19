@@ -23,13 +23,6 @@ class Libgcrypt < Formula
   uses_from_macos "libxslt"
 
   def install
-    # Temporary hack to get libgcrypt building on macOS 10.12 and 10.11 with XCode 8.
-    # Seems to be a Clang issue rather than an upstream one, so
-    # keep checking whether or not this is necessary.
-    # Should be reported to GnuPG if still an issue when near stable.
-    # https://github.com/Homebrew/homebrew-core/issues/1957
-    ENV.O1 if DevelopmentTools.clang_build_version == 800
-
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--enable-static",
