@@ -29,16 +29,20 @@ class Grep < Formula
       --infodir=#{info}
       --mandir=#{man}
       --with-packager=Homebrew
-      --program-prefix=g
     ]
 
+    on_macos do
+      args << "--program-prefix=g"
+    end
     system "./configure", *args
     system "make"
     system "make", "install"
 
-    %w[grep egrep fgrep].each do |prog|
-      (libexec/"gnubin").install_symlink bin/"g#{prog}" => prog
-      (libexec/"gnuman/man1").install_symlink man1/"g#{prog}.1" => "#{prog}.1"
+    on_macos do
+      %w[grep egrep fgrep].each do |prog|
+        (libexec/"gnubin").install_symlink bin/"g#{prog}" => prog
+        (libexec/"gnuman/man1").install_symlink man1/"g#{prog}.1" => "#{prog}.1"
+      end
     end
 
     libexec.install_symlink "gnuman" => "man"
@@ -57,10 +61,17 @@ class Grep < Formula
     text_file = testpath/"file.txt"
     text_file.write "This line should be matched"
 
-    grepped = shell_output("#{bin}/ggrep match #{text_file}")
-    assert_match "should be matched", grepped
+    on_macos do
+      grepped = shell_output("#{bin}/ggrep match #{text_file}")
+      assert_match "should be matched", grepped
 
-    grepped = shell_output("#{opt_libexec}/gnubin/grep match #{text_file}")
-    assert_match "should be matched", grepped
+      grepped = shell_output("#{opt_libexec}/gnubin/grep match #{text_file}")
+      assert_match "should be matched", grepped
+    end
+
+    on_linux do
+      grepped = shell_output("#{bin}/grep match #{text_file}")
+      assert_match "should be matched", grepped
+    end
   end
 end
