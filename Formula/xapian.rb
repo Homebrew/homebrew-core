@@ -53,6 +53,10 @@ class Xapian < Formula
       ENV.append_path "PYTHONPATH", Formula["sphinx-doc"].opt_libexec/"lib/python#{xy}/site-packages"
       ENV.append_path "PYTHONPATH", Formula["sphinx-doc"].opt_libexec/"vendor/lib/python#{xy}/site-packages"
 
+      # Fix build on Big Sur (darwin20)
+      # https://github.com/xapian/xapian/pull/319
+      inreplace "configure", "*-darwin[91]*", "*-darwin[912]*"
+
       system "./configure", "--disable-dependency-tracking",
                             "--prefix=#{prefix}",
                             "--with-python3"
