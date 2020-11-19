@@ -20,20 +20,26 @@ class GnuIndent < Formula
 
   depends_on "gettext"
 
+  uses_from_macos "texinfo" => :build
+
   def install
     args = %W[
       --disable-debug
       --disable-dependency-tracking
       --prefix=#{prefix}
       --mandir=#{man}
-      --program-prefix=g
     ]
 
+    on_macos do
+      args << "--program-prefix=g"
+    end
     system "./configure", *args
     system "make", "install"
 
-    (libexec/"gnubin").install_symlink bin/"gindent" => "indent"
-    (libexec/"gnuman/man1").install_symlink man1/"gindent.1" => "indent.1"
+    on_macos do
+      (libexec/"gnubin").install_symlink bin/"gindent" => "indent"
+      (libexec/"gnuman/man1").install_symlink man1/"gindent.1" => "indent.1"
+    end
 
     libexec.install_symlink "gnuman" => "man"
   end
@@ -50,7 +56,12 @@ class GnuIndent < Formula
 
   test do
     (testpath/"test.c").write("int main(){ return 0; }")
-    system "#{bin}/gindent", "test.c"
+    on_macos do
+      system "#{bin}/gindent", "test.c"
+    end
+    on_linux do
+      system "#{bin}/indent", "test.c"
+    end
     assert_equal File.read("test.c"), <<~EOS
       int
       main ()
