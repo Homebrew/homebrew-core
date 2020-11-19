@@ -54,9 +54,6 @@ class Gnutls < Formula
       --with-p11-kit
     ]
 
-    # Work around a gnulib issue with macOS Catalina
-    args << "gl_cv_func_ftello_works=yes"
-
     system "./configure", *args
     # Adding LDFLAGS= to allow the build on Catalina 10.15.4
     # See https://gitlab.com/gnutls/gnutls/-/issues/966
