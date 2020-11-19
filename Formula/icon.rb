@@ -1,9 +1,9 @@
 class Icon < Formula
   desc "General-purpose programming language"
   homepage "https://www.cs.arizona.edu/icon/"
-  url "https://www2.cs.arizona.edu/icon/ftp/packages/unix/icon-v951src.tgz"
-  version "9.5.1"
-  sha256 "062a680862b1c10c21789c0c7c7687c970a720186918d5ed1f7aad9fdc6fa9b9"
+  url "https://github.com/gtownsend/icon/archive/v9.5.20i.tar.gz"
+  version "9.5.20i"
+  sha256 "3ebfcc89f3f3f7acc5afe61402f6b3b168b8cd83f79021c98bbd791e92c4cbe8"
 
   bottle do
     cellar :any_skip_relocation
