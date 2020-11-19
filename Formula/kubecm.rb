@@ -10,7 +10,7 @@ class Kubecm < Formula
   def install
     system "go", "build",
            "-ldflags", "-X github.com/sunny0826/kubecm/cmd.kubecmVersion=#{version}",
-           "-o", bin/"kubecm"
+           *std_go_args
 
     # Install bash completion
     output = Utils.safe_popen_read("#{bin}/kubecm", "completion", "bash")
@@ -22,6 +22,8 @@ class Kubecm < Formula
   end
 
   test do
-    assert_match "\nKubeConfig Manager\n", shell_output("#{bin}/kubecm -h 2>&1")
+    # Should error out as switch context need kubeconfig
+    status_output = shell_output("#{bin}/kubecm switch 2>&1", 1)
+    assert_match "Error: open", status_output
   end
 end
