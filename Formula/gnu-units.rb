@@ -22,16 +22,19 @@ class GnuUnits < Formula
     args = %W[
       --prefix=#{prefix}
       --with-installed-readline
-      --program-prefix=g
     ]
 
+    on_macos do
+      args << "--program-prefix=g"
+    end
     system "./configure", *args
     system "make", "install"
 
-    (libexec/"gnubin").install_symlink bin/"gunits" => "units"
-    (libexec/"gnubin").install_symlink bin/"gunits_cur" => "units_cur"
-    (libexec/"gnuman/man1").install_symlink man1/"gunits.1" => "units.1"
-
+    on_macos do
+      (libexec/"gnubin").install_symlink bin/"gunits" => "units"
+      (libexec/"gnubin").install_symlink bin/"gunits_cur" => "units_cur"
+      (libexec/"gnuman/man1").install_symlink man1/"gunits.1" => "units.1"
+    end
     libexec.install_symlink "gnuman" => "man"
   end
 
@@ -45,7 +48,12 @@ class GnuUnits < Formula
   end
 
   test do
-    assert_equal "* 18288", shell_output("#{bin}/gunits '600 feet' 'cm' -1").strip
-    assert_equal "* 18288", shell_output("#{opt_libexec}/gnubin/units '600 feet' 'cm' -1").strip
+    on_macos do
+      assert_equal "* 18288", shell_output("#{bin}/gunits '600 feet' 'cm' -1").strip
+      assert_equal "* 18288", shell_output("#{opt_libexec}/gnubin/units '600 feet' 'cm' -1").strip
+    end
+    on_linux do
+      assert_equal "* 18288", shell_output("#{bin}/units '600 feet' 'cm' -1").strip
+    end
   end
 end
