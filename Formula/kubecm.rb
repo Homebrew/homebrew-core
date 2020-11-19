@@ -2,6 +2,7 @@ class Kubecm < Formula
   desc "Merge multiple kubeconfig"
   homepage "https://github.com/sunny0826/kubecm"
   version "0.10.2"
+  license "Apache-2.0"
   bottle :unneeded
 
   if OS.mac?
