@@ -39,16 +39,20 @@ class GnuTar < Formula
     args = %W[
       --prefix=#{prefix}
       --mandir=#{man}
-      --program-prefix=g
     ]
 
+    on_macos do
+      args << "--program-prefix=g"
+    end
     system "./bootstrap" if build.head?
     system "./configure", *args
     system "make", "install"
 
-    # Symlink the executable into libexec/gnubin as "tar"
-    (libexec/"gnubin").install_symlink bin/"gtar" =>"tar"
-    (libexec/"gnuman/man1").install_symlink man1/"gtar.1" => "tar.1"
+    on_macos do
+      # Symlink the executable into libexec/gnubin as "tar"
+      (libexec/"gnubin").install_symlink bin/"gtar" =>"tar"
+      (libexec/"gnuman/man1").install_symlink man1/"gtar.1" => "tar.1"
+    end
 
     libexec.install_symlink "gnuman" => "man"
   end
@@ -65,9 +69,15 @@ class GnuTar < Formula
 
   test do
     (testpath/"test").write("test")
-    system bin/"gtar", "-czvf", "test.tar.gz", "test"
-    assert_match /test/, shell_output("#{bin}/gtar -xOzf test.tar.gz")
+    on_macos do
+      system bin/"gtar", "-czvf", "test.tar.gz", "test"
+      assert_match /test/, shell_output("#{bin}/gtar -xOzf test.tar.gz")
+      assert_match /test/, shell_output("#{opt_libexec}/gnubin/tar -xOzf test.tar.gz")
+    end
 
-    assert_match /test/, shell_output("#{opt_libexec}/gnubin/tar -xOzf test.tar.gz")
+    on_linux do
+      system bin/"tar", "-czvf", "test.tar.gz", "test"
+      assert_match /test/, shell_output("#{bin}/tar -xOzf test.tar.gz")
+    end
   end
 end
