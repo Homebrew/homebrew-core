@@ -6,6 +6,7 @@ on:
       - "Formula/device-mapper.rb"
       - "Formula/libaio.rb"
       - "Formula/ladspa-sdk.rb"
+      - "Formula/libbsd.rb"
       - "Formula/libcap.rb"
       - "Formula/libdrm.rb"
       - "Formula/libfuse.rb"
