@@ -23,7 +23,7 @@ class Kfctl < Formula
     end
   
     test do
-      run_output = shell_output("#{bin}/kfctl 2>&1")
-      assert_match "A client CLI to create kubeflow applications for specific platforms or 'on-prem'\n to an existing k8s cluster.", run_output
+      run_output = shell_output("#{bin}/kfctl version 2>&1")
+      assert_match "kfctl v1.1.0-0-g9a3621e", run_output
     end
   end 
