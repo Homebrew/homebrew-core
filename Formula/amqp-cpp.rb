@@ -1,8 +1,8 @@
 class AmqpCpp < Formula
   desc "C++ library for communicating with a RabbitMQ message broker"
   homepage "https://github.com/CopernicaMarketingSoftware/AMQP-CPP"
-  url "https://github.com/CopernicaMarketingSoftware/AMQP-CPP/archive/v4.3.8.tar.gz"
-  sha256 "9c1facf48f57f2e204e90a40744110e759e47561f724973d726e5a30573756ba"
+  url "https://github.com/CopernicaMarketingSoftware/AMQP-CPP/archive/v4.3.9.tar.gz"
+  sha256 "e577b39ed178cf7b8c678e0c4cd00058f2b64b225b08d7f241e229c9cc407636"
   license "Apache-2.0"
   head "https://github.com/CopernicaMarketingSoftware/AMQP-CPP.git"
 
