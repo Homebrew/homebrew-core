@@ -28,7 +28,6 @@ class Advancemame < Formula
   conflicts_with "advancemenu", because: "both install `advmenu` binaries"
 
   def install
-    ENV.delete "SDKROOT" if MacOS.version == :yosemite
     system "./configure", "--prefix=#{prefix}"
     system "make", "install", "LDFLAGS=#{ENV.ldflags}", "mandir=#{man}", "docdir=#{doc}"
   end
