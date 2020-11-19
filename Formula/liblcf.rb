@@ -18,11 +18,7 @@ class Liblcf < Formula
   depends_on "pkg-config" => :build
   depends_on "icu4c"
 
-  if MacOS.version < :el_capitan
-    depends_on "expat"
-  else
-    uses_from_macos "expat"
-  end
+  uses_from_macos "expat"
 
   def install
     system "./configure", "--disable-dependency-tracking",
