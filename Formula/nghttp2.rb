@@ -44,9 +44,6 @@ class Nghttp2 < Formula
       --with-xml-prefix=/usr
     ]
 
-    # requires thread-local storage features only available in 10.11+
-    args << "--disable-threads" if MacOS.version < :el_capitan
-
     system "autoreconf", "-ivf" if build.head?
     system "./configure", *args
     system "make"
