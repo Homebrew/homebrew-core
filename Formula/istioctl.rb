@@ -2,8 +2,8 @@ class Istioctl < Formula
   desc "Istio configuration command-line utility"
   homepage "https://github.com/istio/istio"
   url "https://github.com/istio/istio.git",
-      tag:      "1.7.4",
-      revision: "4ce531ff1823a3abb9f42fa9d35523b0436e2d04"
+      tag:      "1.8.0",
+      revision: "c87a4c874df27e37a3e6c25fa3d1ef6279685d23"
   license "Apache-2.0"
   head "https://github.com/istio/istio.git"
 
@@ -33,6 +33,6 @@ class Istioctl < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/istioctl version --remote=false")
+    assert_match version.major_minor.to_s, shell_output("#{bin}/istioctl version --remote=false")
   end
 end
