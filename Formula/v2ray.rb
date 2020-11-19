@@ -41,8 +41,25 @@ class V2ray < Formula
   end
 
   test do
-    config = "{\"log\":{\"access\":\"#{testpath}/log\"}}"
-    output = shell_output "echo '#{config}' | #{bin}/v2ray -test"
+    (testpath/"config.json").write <<~EOS
+      {
+        "log": {
+          "access": "#{testpath}/log"
+        },
+        "routing": {
+          "rules": [
+            {
+              "ip": [
+                "geoip:private"
+              ],
+              "type": "field"
+            }
+          ]
+        }
+      }
+    EOS
+    output = shell_output "#{bin}/v2ray -c #{testpath}/config.json -test"
+
     assert_match "Configuration OK", output
     assert_predicate testpath/"log", :exist?
   end
