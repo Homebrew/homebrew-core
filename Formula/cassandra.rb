@@ -5,6 +5,7 @@ class Cassandra < Formula
   mirror "https://archive.apache.org/dist/cassandra/3.11.9/apache-cassandra-3.11.9-bin.tar.gz"
   sha256 "0c90cf369e86cef10c53be2d0196ba4019150f2a84653a291547821f18536ab2"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -19,6 +20,7 @@ class Cassandra < Formula
 
   depends_on "cython" => :build
   depends_on :macos # Due to Python 2 (https://issues.apache.org/jira/browse/CASSANDRA-10190)
+  depends_on "openjdk"
 
   # Only >=Yosemite has new enough setuptools for successful compile of the below deps.
   # Python 2 needs setuptools < 45.0.0 (https://github.com/pypa/setuptools/issues/2094)
