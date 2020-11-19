@@ -1,8 +1,8 @@
 class Nlopt < Formula
   desc "Free/open-source library for nonlinear optimization"
   homepage "https://nlopt.readthedocs.io/"
-  url "https://github.com/stevengj/nlopt/archive/v2.6.2.tar.gz"
-  sha256 "cfa5981736dd60d0109c534984c4e13c615314d3584cf1c392a155bfe1a3b17e"
+  url "https://github.com/stevengj/nlopt/archive/v2.7.0.tar.gz"
+  sha256 "b881cc2a5face5139f1c5a30caf26b7d3cb43d69d5e423c9d78392f99844499f"
   license "LGPL-2.1"
   head "https://github.com/stevengj/nlopt.git"
 
