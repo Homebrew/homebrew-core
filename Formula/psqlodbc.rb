@@ -1,8 +1,8 @@
 class Psqlodbc < Formula
   desc "Official PostgreSQL ODBC driver"
   homepage "https://odbc.postgresql.org"
-  url "https://ftp.postgresql.org/pub/odbc/versions/src/psqlodbc-12.02.0000.tar.gz"
-  sha256 "7b00d99ee729c06cfc784ab43deb7dee77761b667dd62122c2cb0cd7b043ba67"
+  url "https://ftp.postgresql.org/pub/odbc/versions/src/psqlodbc-13.00.0000.tar.gz"
+  sha256 "4f156931b44d78401abfc2b72e512147a02b836677f8aac610b812f12e08910d"
 
   livecheck do
     url "https://ftp.postgresql.org/pub/odbc/versions/src/"
