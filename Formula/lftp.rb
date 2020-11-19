@@ -4,6 +4,7 @@ class Lftp < Formula
   url "https://lftp.yar.ru/ftp/lftp-4.9.2.tar.xz"
   sha256 "c517c4f4f9c39bd415d7313088a2b1e313b2d386867fe40b7692b83a20f0670d"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url "https://github.com/lavv17/lftp.git"
@@ -15,7 +16,7 @@ class Lftp < Formula
     sha256 "d92a86e574d3660a49de510815a7780708606fef9f498d5376ee91d2d61956f8" => :high_sierra
   end
 
-  depends_on "libidn"
+  depends_on "libidn2"
   depends_on "openssl@1.1"
   depends_on "readline"
 
@@ -28,13 +29,15 @@ class Lftp < Formula
       ENV.delete("SDKROOT")
     end
 
+    # Work around configure issues with Xcode 12
+    # https://github.com/lavv17/lftp/issues/611
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}",
                           "--with-readline=#{Formula["readline"].opt_prefix}",
-                          "--with-libidn=#{Formula["libidn"].opt_prefix}",
-                          # Work around a gnulib issue with macOS Catalina
-                          "gl_cv_func_ftello_works=yes"
+                          "--with-libidn2=#{Formula["libidn2"].opt_prefix}"
 
     system "make", "install"
   end
