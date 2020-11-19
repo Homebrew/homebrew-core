@@ -33,26 +33,30 @@ class Findutils < Formula
       --localstatedir=#{var}/locate
       --disable-dependency-tracking
       --disable-debug
-      --program-prefix=g
     ]
 
+    on_macos do
+      args << "--program-prefix=g"
+    end
     system "./configure", *args
     system "make", "install"
 
-    # https://savannah.gnu.org/bugs/index.php?46846
-    # https://github.com/Homebrew/homebrew/issues/47791
-    (libexec/"bin").install bin/"gupdatedb"
-    (bin/"gupdatedb").write <<~EOS
-      #!/bin/sh
-      export LC_ALL='C'
-      exec "#{libexec}/bin/gupdatedb" "$@"
-    EOS
+    on_macos do
+      # https://savannah.gnu.org/bugs/index.php?46846
+      # https://github.com/Homebrew/homebrew/issues/47791
+      (libexec/"bin").install bin/"gupdatedb"
+      (bin/"gupdatedb").write <<~EOS
+        #!/bin/sh
+        export LC_ALL='C'
+        exec "#{libexec}/bin/gupdatedb" "$@"
+      EOS
 
-    [[prefix, bin], [share, man/"*"]].each do |base, path|
-      Dir[path/"g*"].each do |p|
-        f = Pathname.new(p)
-        gnupath = "gnu" + f.relative_path_from(base).dirname
-        (libexec/gnupath).install_symlink f => f.basename.sub(/^g/, "")
+      [[prefix, bin], [share, man/"*"]].each do |base, path|
+        Dir[path/"g*"].each do |p|
+          f = Pathname.new(p)
+          gnupath = "gnu" + f.relative_path_from(base).dirname
+          (libexec/gnupath).install_symlink f => f.basename.sub(/^g/, "")
+        end
       end
     end
 
@@ -74,7 +78,12 @@ class Findutils < Formula
 
   test do
     touch "HOMEBREW"
-    assert_match "HOMEBREW", shell_output("#{bin}/gfind .")
-    assert_match "HOMEBREW", shell_output("#{opt_libexec}/gnubin/find .")
+    on_macos do
+      assert_match "HOMEBREW", shell_output("#{bin}/gfind .")
+      assert_match "HOMEBREW", shell_output("#{opt_libexec}/gnubin/find .")
+    end
+    on_linux do
+      assert_match "HOMEBREW", shell_output("#{bin}/find .")
+    end
   end
 end
