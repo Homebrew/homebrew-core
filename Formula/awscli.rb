@@ -15,7 +15,10 @@ class Awscli < Formula
     sha256 "bdfa90c8a378d555a18fd56a35feb8a9458bc7826f51140ad3ddb5d834054773" => :high_sierra
   end
 
-  depends_on "python@3.9"
+  # NOTE: Do not upgrade Python to 3.9+ until awscli officially supports it.
+  # See https://github.com/Homebrew/homebrew-core/issues/63990
+  # and https://github.com/aws/aws-cli/issues/5692.
+  depends_on "python@3.8"
 
   uses_from_macos "groff"
 
@@ -56,7 +59,7 @@ class Awscli < Formula
 
   test do
     assert_match "topics", shell_output("#{bin}/aws help")
-    assert_include Dir["#{libexec}/lib/python3.9/site-packages/awscli/data/*"],
-                   "#{libexec}/lib/python3.9/site-packages/awscli/data/ac.index"
+    assert_include Dir["#{libexec}/lib/python3.8/site-packages/awscli/data/*"],
+                   "#{libexec}/lib/python3.8/site-packages/awscli/data/ac.index"
   end
 end
