@@ -92,19 +92,19 @@ class PostgresqlAT12 < Formula
   # and has a PG_VERSION file, which should indicate that the versioned
   # data dir is in use. Otherwise, returns the old data dir path.
   def postgresql_datadir
-    unless versioned_data_dir_exists?
-      "#{var}/postgres"
-    else
+    if versioned_data_dir_exists?
       "#{var}/#{name}"
+    else
+      "#{var}/postgres"
     end
   end
 
   # Same as with the data dir - use old log file if 
   def postgresql_log_path
-    unless versioned_data_dir_exists?
-      "#{var}/log/postgres"
-    else
+    if versioned_data_dir_exists?
       "#{var}/log/#{name}"
+    else
+      "#{var}/log/postgres"
     end
   end
 
