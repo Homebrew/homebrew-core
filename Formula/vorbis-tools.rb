@@ -28,10 +28,6 @@ class VorbisTools < Formula
   uses_from_macos "curl"
 
   def install
-    # Fix `brew linkage --test` "Missing libraries: /usr/lib/libnetwork.dylib"
-    # Prevent bogus linkage to the libnetwork.tbd in Xcode 7's SDK
-    ENV.delete("SDKROOT") if MacOS.version == :yosemite
-
     args = %W[
       --disable-debug
       --disable-dependency-tracking
