@@ -46,12 +46,19 @@ class V2ray < Formula
         "log": {
           "access": "#{testpath}/log"
         },
+        "outbounds": [
+          {
+            "protocol": "freedom",
+            "tag": "direct"
+          },
+        ],
         "routing": {
           "rules": [
             {
               "ip": [
                 "geoip:private"
               ],
+              "outboundTag": "direct",
               "type": "field"
             }
           ]
