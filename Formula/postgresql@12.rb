@@ -87,16 +87,83 @@ class PostgresqlAT12 < Formula
     end
   end
 
+  # Previous versions of this formula used the same data dir as the regular
+  # postgresql formula. So we check whether the versioned data dir exists
+  # and has a PG_VERSION file, which should indicate that the versioned
+  # data dir is in use. Otherwise, returns the old data dir path.
+  def postgresql_datadir
+    unless versioned_data_dir_exists?
+      "#{var}/postgres"
+    else
+      "#{var}/#{name}"
+    end
+  end
+
+  # Same as with the data dir - use old log file if 
+  def postgresql_log_path
+    unless versioned_data_dir_exists?
+      "#{var}/log/postgres"
+    else
+      "#{var}/log/#{name}"
+    end
+  end
+
+  def versioned_data_dir_exists?
+    File.exist?("#{var}/#{name}/PG_VERSION")
+  end
+
+  def conflicts_with_postgresql_formula?
+    Formula["postgresql"].any_version_installed?
+  end
+
+  # Figure out what version of PostgreSQL the old data dir is
+  # using
+  def old_postgresql_datadir_version_12?
+    File.exist?("#{var}/postgres/PG_VERSION") &&
+      File.read("#{var}/postgres/PG_VERSION").chomp == "12"
+  end
+
   def caveats
-    <<~EOS
+    caveats = ""
+
+    # Check if we need to print a warning re: data dir
+    if old_postgresql_datadir_version_12?
+      if conflicts_with_postgresql_formula?
+        # Both PostgreSQL and PostgreSQL@12 are installed
+        caveats += <<~EOS
+          Previous versions of this formula used the same data directory as
+          the regular PostgreSQL formula. This causes a conflict if you
+          try to use both at the same time.
+
+        EOS
+      else
+        # Only PostgreSQL@12 is installed, not PostgreSQL
+        caveats += <<~EOS
+          Previous versions of this formula used the same data directory as
+          the regular PostgreSQL formula. This will cause a conflict if you
+          try to use both at the same time.
+
+          You can migrate to a versioned data directory by running this command:
+
+            mv -v "#{var}/postgres" "#{var}/#{name}"
+
+          (Make sure PostgreSQL is not running before executing this command)
+
+        EOS
+      end
+    end
+
+    caveats += <<~EOS
       This formula has created a default database cluster with:
         initdb --locale=C -E UTF-8 #{var}/#{name}
       For more details, read:
         https://www.postgresql.org/docs/#{version.major}/app-initdb.html
     EOS
+
+    caveats
   end
 
-  plist_options manual: "pg_ctl -D #{HOMEBREW_PREFIX}/var/#{name} start"
+  plist_options manual: "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgres@12 start"
 
   def plist
     <<~EOS
@@ -112,16 +179,16 @@ class PostgresqlAT12 < Formula
         <array>
           <string>#{opt_bin}/postgres</string>
           <string>-D</string>
-          <string>#{var}/#{name}</string>
+          <string>#{postgresql_datadir}</string>
         </array>
         <key>RunAtLoad</key>
         <true/>
         <key>WorkingDirectory</key>
         <string>#{HOMEBREW_PREFIX}</string>
         <key>StandardOutPath</key>
-        <string>#{var}/log/#{name}.log</string>
+        <string>#{postgresql_log_path}.log</string>
         <key>StandardErrorPath</key>
-        <string>#{var}/log/#{name}.log</string>
+        <string>#{postgresql_log_path}.log</string>
       </dict>
       </plist>
     EOS
