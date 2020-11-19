@@ -1,5 +1,5 @@
 class Kfctl < Formula
-  desc "The kfctl is a CLI for deploying and managing Kubeflow"
+  desc "Kubeflow commandline interface"
   homepage "https://github.com/kubeflow/kfctl"
   url "https://github.com/kubeflow/kfctl.git",
       tag:      "v1.1.0",
@@ -7,7 +7,7 @@ class Kfctl < Formula
   license "Apache-2.0"
 
   depends_on "go@1.13" => :build
-  
+
   def install
     system "make", "build"
     bin.install "bin/darwin/kfctl"
@@ -17,7 +17,7 @@ class Kfctl < Formula
     (bash_completion/"kfctl").write output
 
     # Install zsh completion
-    output = Utils.safe_popen_read("#{bin}/kfctl", "completion",  "zsh")
+    output = Utils.safe_popen_read("#{bin}/kfctl", "completion", "zsh")
     (zsh_completion/"kfctl").write output
   end
   
