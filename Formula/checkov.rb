@@ -3,8 +3,8 @@ class Checkov < Formula
 
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
-  url "https://files.pythonhosted.org/packages/60/f4/11865dc1874e008ae0e8f8f2a538e8838814208f175b7782ca58cb6eca0d/checkov-1.0.629.tar.gz"
-  sha256 "1d6cde6852702cf3785c677cbfdea8ddeb32c10b3845b87eb1dc55e5cc4b4914"
+  url "https://files.pythonhosted.org/packages/fb/5c/3797d4d4b7f2211c2089a4e6f52025ebeaeb7dbf25ecdd3e48fc7716f1e0/checkov-1.0.632.tar.gz"
+  sha256 "a9ae7f03ab22a8ccbac223c77450d72ccc7e051f6c3bda7715f6e266cbcf10a9"
   license "Apache-2.0"
 
   bottle do
