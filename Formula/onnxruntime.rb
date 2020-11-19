@@ -2,8 +2,8 @@ class Onnxruntime < Formula
   desc "Cross-platform, high performance scoring engine for ML models"
   homepage "https://github.com/microsoft/onnxruntime"
   url "https://github.com/microsoft/onnxruntime.git",
-    tag:      "v1.3.1",
-    revision: "530117cfdb230228c3429ab39d1b7cf1f68c0567"
+    tag:      "v1.5.3",
+    revision: "7bcf796a0d3208b0c193d1758708495b09281e0a"
   license "MIT"
 
   livecheck do
@@ -20,13 +20,13 @@ class Onnxruntime < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
 
   def install
     cmake_args = %W[
       -Donnxruntime_RUN_ONNX_TESTS=OFF
       -Donnxruntime_GENERATE_TEST_REPORTS=OFF
-      -DPYTHON_EXECUTABLE=#{Formula["python@3.8"].opt_bin}/python3
+      -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
       -Donnxruntime_BUILD_SHARED_LIB=ON
       -Donnxruntime_BUILD_UNIT_TESTS=OFF
       -DCMAKE_BUILD_TYPE=Release
