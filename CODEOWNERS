@@ -15,3 +15,5 @@ tap_migrations.json   @MikeMcQuaid
 cmd/                  @MikeMcQuaid
 
 LICENSE.txt           @Homebrew/plc @MikeMcQuaid
+
+audit_exceptions/permitted_formula_license_mismatches.json   @Homebrew/plc
