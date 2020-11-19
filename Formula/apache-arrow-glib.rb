@@ -18,15 +18,17 @@ class ApacheArrowGlib < Formula
   end
 
   depends_on "gobject-introspection" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "apache-arrow"
   depends_on "glib"
 
   def install
-    cd "c_glib" do
-      system "./configure", "--prefix=#{prefix}"
-      system "make"
-      system "make", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args, "../c_glib"
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
     end
   end
 
