@@ -6,7 +6,6 @@ class V2ray < Formula
   license all_of: ["MIT", "CC-BY-SA-4.0"]
   head "https://github.com/v2fly/v2ray-core.git"
 
-  
   depends_on "go" => :build
 
   resource "geoip" do
