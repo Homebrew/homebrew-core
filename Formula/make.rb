@@ -24,14 +24,18 @@ class Make < Formula
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
-      --program-prefix=g
     ]
 
+    on_macos do
+      args << "--program-prefix=g"
+    end
     system "./configure", *args
     system "make", "install"
 
-    (libexec/"gnubin").install_symlink bin/"gmake" =>"make"
-    (libexec/"gnuman/man1").install_symlink man1/"gmake.1" => "make.1"
+    on_macos do
+      (libexec/"gnubin").install_symlink bin/"gmake" =>"make"
+      (libexec/"gnuman/man1").install_symlink man1/"gmake.1" => "make.1"
+    end
 
     libexec.install_symlink "gnuman" => "man"
   end
@@ -52,7 +56,12 @@ class Make < Formula
       \t@echo Homebrew
     EOS
 
-    assert_equal "Homebrew\n", shell_output("#{bin}/gmake")
-    assert_equal "Homebrew\n", shell_output("#{opt_libexec}/gnubin/make")
+    on_macos do
+      assert_equal "Homebrew\n", shell_output("#{bin}/gmake")
+      assert_equal "Homebrew\n", shell_output("#{opt_libexec}/gnubin/make")
+    end
+    on_linux do
+      assert_equal "Homebrew\n", shell_output("#{bin}/make")
+    end
   end
 end
