@@ -35,27 +35,31 @@ class Inetutils < Formula
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
-      --program-prefix=g
       --with-idn
     ]
 
+    on_macos do
+      args << "--program-prefix=g"
+    end
     system "./configure", *args
     system "make", "install"
 
-    # Binaries not shadowing macOS utils symlinked without 'g' prefix
-    noshadow.each do |cmd|
-      bin.install_symlink "g#{cmd}" => cmd
-      man1.install_symlink "g#{cmd}.1" => "#{cmd}.1"
-    end
+    on_macos do
+      # Binaries not shadowing macOS utils symlinked without 'g' prefix
+      noshadow.each do |cmd|
+        bin.install_symlink "g#{cmd}" => cmd
+        man1.install_symlink "g#{cmd}.1" => "#{cmd}.1"
+      end
 
-    # Symlink commands without 'g' prefix into libexec/gnubin and
-    # man pages into libexec/gnuman
-    bin.find.each do |path|
-      next unless File.executable?(path) && !File.directory?(path)
+      # Symlink commands without 'g' prefix into libexec/gnubin and
+      # man pages into libexec/gnuman
+      bin.find.each do |path|
+        next unless File.executable?(path) && !File.directory?(path)
 
-      cmd = path.basename.to_s.sub(/^g/, "")
-      (libexec/"gnubin").install_symlink bin/"g#{cmd}" => cmd
-      (libexec/"gnuman"/"man1").install_symlink man1/"g#{cmd}.1" => "#{cmd}.1"
+        cmd = path.basename.to_s.sub(/^g/, "")
+        (libexec/"gnubin").install_symlink bin/"g#{cmd}" => cmd
+        (libexec/"gnuman"/"man1").install_symlink man1/"g#{cmd}.1" => "#{cmd}.1"
+      end
     end
 
     libexec.install_symlink "gnuman" => "man"
@@ -75,8 +79,15 @@ class Inetutils < Formula
   end
 
   test do
-    output = pipe_output("#{libexec}/gnubin/ftp -v",
+    on_macos do
+      output = pipe_output("#{libexec}/gnubin/ftp -v",
                          "open ftp.gnu.org\nanonymous\nls\nquit\n")
-    assert_match "Connected to ftp.gnu.org.\n220 GNU FTP server ready", output
+      assert_match "Connected to ftp.gnu.org.\n220 GNU FTP server ready", output
+    end
+    on_linux do
+      output = pipe_output("#{bin}/ftp -v",
+                         "open ftp.gnu.org\nanonymous\nls\nquit\n")
+      assert_match "Connected to ftp.gnu.org.\n220 GNU FTP server ready", output
+    end
   end
 end
