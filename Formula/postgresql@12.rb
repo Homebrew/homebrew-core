@@ -129,9 +129,9 @@ class PostgresqlAT12 < Formula
 
     # Check if we need to print a warning re: data dir
     if old_postgresql_datadir_version_12?
-      if conflicts_with_postgresql_formula?
+      caveats += if conflicts_with_postgresql_formula?
         # Both PostgreSQL and PostgreSQL@12 are installed
-        caveats += <<~EOS
+        <<~EOS
           Previous versions of this formula used the same data directory as
           the regular PostgreSQL formula. This causes a conflict if you
           try to use both at the same time.
@@ -139,7 +139,7 @@ class PostgresqlAT12 < Formula
         EOS
       else
         # Only PostgreSQL@12 is installed, not PostgreSQL
-        caveats += <<~EOS
+        <<~EOS
           Previous versions of this formula used the same data directory as
           the regular PostgreSQL formula. This will cause a conflict if you
           try to use both at the same time.
