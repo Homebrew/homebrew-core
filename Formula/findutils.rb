@@ -4,7 +4,8 @@ class Findutils < Formula
   url "https://ftp.gnu.org/gnu/findutils/findutils-4.7.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/findutils/findutils-4.7.0.tar.xz"
   sha256 "c5fefbdf9858f7e4feb86f036e1247a54c79fc2d8e4b7064d5aaa1f47dfa789a"
-  license "GPL-3.0"
+  license "GPL-3.0-only"
+  revision 1
 
   livecheck do
     url :stable
@@ -35,9 +36,6 @@ class Findutils < Formula
       --disable-debug
       --program-prefix=g
     ]
-
-    # Work around a gnulib issue with macOS Catalina
-    args << "gl_cv_func_ftello_works=yes"
 
     system "./configure", *args
     system "make", "install"
