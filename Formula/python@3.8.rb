@@ -287,9 +287,9 @@ class PythonAT38 < Formula
           # site_packages; prefer the shorter paths
           long_prefix = re.compile(r'#{rack}/[0-9\._abrc]+/Frameworks/Python\.framework/Versions/#{xy}/lib/python#{xy}/site-packages')
           sys.path = [long_prefix.sub('#{HOMEBREW_PREFIX/"lib/python#{xy}/site-packages"}', p) for p in sys.path]
-          # Set the sys.executable to use the opt_prefix, unless explicitly set
-          # with PYTHONEXECUTABLE:
-          if 'PYTHONEXECUTABLE' not in os.environ:
+          # Set the sys.executable to use the opt_prefix. Only do this if PYTHONEXECUTABLE is not
+          # explicitly set and we are not in a virtualenv:
+          if 'PYTHONEXECUTABLE' not in os.environ and sys.prefix == sys.base_prefix:
               sys.executable = '#{opt_bin}/python#{xy}'
     EOS
   end
