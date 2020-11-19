@@ -22,6 +22,6 @@ class Kubecm < Formula
   end
 
   test do
-    assert_match "KubeConfig Manager:", shell_output("#{bin}/kubecm -h 2>&1")
+    assert_match "\nKubeConfig Manager\n", shell_output("#{bin}/kubecm -h 2>&1")
   end
 end
