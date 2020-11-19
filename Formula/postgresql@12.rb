@@ -99,7 +99,8 @@ class PostgresqlAT12 < Formula
     end
   end
 
-  # Same as with the data dir - use old log file if 
+  # Same as with the data dir - use old log file if the old data dir
+  # is version 12
   def postgresql_log_path
     if versioned_data_dir_exists?
       "#{var}/log/#{name}"
