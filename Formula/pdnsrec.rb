@@ -19,7 +19,6 @@ class Pdnsrec < Formula
 
   depends_on "pkg-config" => :build
   depends_on "boost"
-  depends_on "gcc" if DevelopmentTools.clang_build_version == 600
   depends_on "lua"
   depends_on "openssl@1.1"
 
