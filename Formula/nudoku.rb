@@ -1,7 +1,7 @@
 class Nudoku < Formula
   desc "Ncurses based sudoku game"
   homepage "https://jubalh.github.io/nudoku/"
-  license "GPL-3.0-only"
+  license "GPL-3.0-or-later"
   head "https://github.com/jubalh/nudoku.git"
 
   stable do
