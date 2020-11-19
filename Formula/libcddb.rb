@@ -21,8 +21,6 @@ class Libcddb < Formula
   depends_on "libcdio"
 
   def install
-    ENV.delete("SDKROOT") if MacOS.version == :yosemite && MacOS::Xcode.version >= "7.0"
-
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
