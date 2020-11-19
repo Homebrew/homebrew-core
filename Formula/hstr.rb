@@ -1,8 +1,8 @@
 class Hstr < Formula
   desc "Bash and zsh history suggest box"
   homepage "https://github.com/dvorka/hstr"
-  url "https://github.com/dvorka/hstr/archive/2.2.tar.gz"
-  sha256 "886531ca9d8d1a5a93a3db96e9fc64154a03f6de428c74c722b41057bceca266"
+  url "https://github.com/dvorka/hstr/archive/2.3.tar.gz"
+  sha256 "c7e7408671757b3f4be9c5a59b4e2d56e7a7b601ace2a94eb6b2b61f20ee890b"
   license "Apache-2.0"
 
   bottle do
