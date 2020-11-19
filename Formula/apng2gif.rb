@@ -22,11 +22,6 @@ class Apng2gif < Formula
 
   depends_on "libpng"
 
-  if MacOS.version <= :yosemite
-    depends_on "gcc"
-    fails_with :clang
-  end
-
   def install
     system "make"
     bin.install "apng2gif"
