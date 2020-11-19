@@ -24,13 +24,17 @@ class GnuTime < Formula
     args = %W[
       --prefix=#{prefix}
       --info=#{info}
-      --program-prefix=g
     ]
 
+    on_macos do
+      args << "--program-prefix=g"
+    end
     system "./configure", *args
     system "make", "install"
 
-    (libexec/"gnubin").install_symlink bin/"gtime" => "time"
+    on_macos do
+      (libexec/"gnubin").install_symlink bin/"gtime" => "time"
+    end
   end
 
   def caveats
@@ -44,7 +48,13 @@ class GnuTime < Formula
   end
 
   test do
-    system bin/"gtime", "ruby", "--version"
-    system opt_libexec/"gnubin/time", "ruby", "--version"
+    on_macos do
+      system bin/"gtime", "ruby", "--version"
+      system opt_libexec/"gnubin/time", "ruby", "--version"
+    end
+
+    on_linux do
+      system bin/"time", "ruby", "--version"
+    end
   end
 end
