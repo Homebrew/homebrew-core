@@ -15,6 +15,7 @@ on:
       - "Formula/libnfnetlink.rb"
       - "Formula/libpciaccess.rb"
       - "Formula/libseccomp.rb"
+      - "Formula/libtirpc.rb"
       - "Formula/linux-headers.rb"
       - "Formula/strace.rb"
 jobs:
