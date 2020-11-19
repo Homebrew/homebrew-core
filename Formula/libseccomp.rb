@@ -5,6 +5,11 @@ class Libseccomp < Formula
   sha256 "1ffa7038d2720ad191919816db3479295a4bcca1ec14e02f672539f4983014f3"
   license "LGPL-2.1-only"
 
+  livecheck do
+    url "https://github.com/seccomp/libseccomp/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "gperf" => :build
