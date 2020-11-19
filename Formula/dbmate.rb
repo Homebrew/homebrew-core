@@ -1,8 +1,8 @@
 class Dbmate < Formula
   desc "Lightweight, framework-agnostic database migration tool"
   homepage "https://github.com/amacneil/dbmate"
-  url "https://github.com/amacneil/dbmate/archive/v1.10.0.tar.gz"
-  sha256 "bf00360c9eb12151c157cc227a21f6688d8ea89de571b618a018b081637297a3"
+  url "https://github.com/amacneil/dbmate/archive/v1.11.0.tar.gz"
+  sha256 "97c017061a6ae1d3f2c614306639990fa0dab656e329a353467f9515ca999bb9"
   license "MIT"
   head "https://github.com/amacneil/dbmate.git"
 
@@ -21,7 +21,7 @@ class Dbmate < Formula
   end
 
   test do
-    (testpath/".env").write("DATABASE_URL=sqlite3:///test.sqlite3")
+    (testpath/".env").write("DATABASE_URL=sqlite3:test.sqlite3")
     system bin/"dbmate", "create"
     assert_predicate testpath/"test.sqlite3", :exist?, "failed to create test.sqlite3"
   end
