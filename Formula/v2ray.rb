@@ -50,7 +50,7 @@ class V2ray < Formula
           {
             "protocol": "freedom",
             "tag": "direct"
-          },
+          }
         ],
         "routing": {
           "rules": [
