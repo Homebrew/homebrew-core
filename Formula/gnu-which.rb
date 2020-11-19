@@ -25,14 +25,18 @@ class GnuWhich < Formula
     args = %W[
       --prefix=#{prefix}
       --disable-dependency-tracking
-      --program-prefix=g
     ]
 
+    on_macos do
+      args << "--program-prefix=g"
+    end
     system "./configure", *args
     system "make", "install"
 
-    (libexec/"gnubin").install_symlink bin/"gwhich" => "which"
-    (libexec/"gnuman/man1").install_symlink man1/"gwhich.1" => "which.1"
+    on_macos do
+      (libexec/"gnubin").install_symlink bin/"gwhich" => "which"
+      (libexec/"gnuman/man1").install_symlink man1/"gwhich.1" => "which.1"
+    end
 
     libexec.install_symlink "gnuman" => "man"
   end
@@ -48,7 +52,12 @@ class GnuWhich < Formula
   end
 
   test do
-    system "#{bin}/gwhich", "gcc"
-    system "#{opt_libexec}/gnubin/which", "gcc"
+    on_macos do
+      system "#{bin}/gwhich", "gcc"
+      system "#{opt_libexec}/gnubin/which", "gcc"
+    end
+    on_linux do
+      system "#{bin}/which", "gcc"
+    end
   end
 end
