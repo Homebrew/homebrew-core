@@ -14,8 +14,10 @@ class Bpytop < Formula
     sha256 "115ecf39c7e025c6a0a24d07ba8a214ddc67765f64edec049f0a5f6dcbad86d7" => :mojave
   end
 
-  depends_on "osx-cpu-temp"
   depends_on "python@3.9"
+  on_macos do
+    depends_on "osx-cpu-temp"
+  end
 
   resource "psutil" do
     url "https://files.pythonhosted.org/packages/33/e0/82d459af36bda999f82c7ea86c67610591cf5556168f48fd6509e5fa154d/psutil-5.7.3.tar.gz"
