@@ -3,6 +3,7 @@ class Unicorn < Formula
   homepage "https://www.unicorn-engine.org/"
   url "https://github.com/unicorn-engine/unicorn/archive/1.0.2.tar.gz"
   sha256 "6400e16f9211486fa5353b1870e6a82f8aa342e429718d1cbca08d609aaadc52"
+  revision 1
   head "https://github.com/unicorn-engine/unicorn.git"
 
   bottle do
@@ -14,8 +15,7 @@ class Unicorn < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on :macos # Due to Python 2 (Might work with Python 3 with next release (1.0.2)
-  # See https://github.com/Homebrew/linuxbrew-core/pull/19728
+  depends_on "python@3.9" => [:build, :test]
 
   def install
     ENV["PREFIX"] = prefix
@@ -26,7 +26,7 @@ class Unicorn < Formula
     system "make", "install"
 
     cd "bindings/python" do
-      system "python", *Language::Python.setup_install_args(prefix)
+      system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
     end
   end
 
@@ -78,6 +78,6 @@ class Unicorn < Formula
       "-lpthread", "-lm", "-L#{lib}", "-lunicorn"
     system testpath/"test1"
 
-    system "python", "-c", "import unicorn; print(unicorn.__version__)"
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "import unicorn; print(unicorn.__version__)"
   end
 end
