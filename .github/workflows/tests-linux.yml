@@ -19,6 +19,7 @@ on:
       - "Formula/libtirpc.rb"
       - "Formula/linux-headers.rb"
       - "Formula/strace.rb"
+      - "Formula/wayland.rb"
 jobs:
   check_labels_linux:
     runs-on: ubuntu-latest
