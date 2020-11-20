@@ -3,9 +3,9 @@ class AzureCli < Formula
 
   desc "Microsoft Azure CLI 2.0"
   homepage "https://docs.microsoft.com/cli/azure/overview"
-  url "https://codeload.github.com/Azure/azure-cli/legacy.tar.gz/76f513462ff4905f7263fbdd575f2460fe2b2a24"
-  version "2.15.0"
-  sha256 "4290860609c7b60a944838b35c0b41d4305f627bce553e52909253dc07196510"
+  url "https://codeload.github.com/Azure/azure-cli/legacy.tar.gz/f0d68450dd6db7d4e6b603c2f0a8b840a52dbcb8"
+  version "2.15.1"
+  sha256 "3aeab2fb854b9c93290f73064607dc823f79380455d347541494f7e73fe82e98"
   license "MIT"
   head "https://github.com/Azure/azure-cli.git"
 
@@ -16,9 +16,9 @@ class AzureCli < Formula
 
   bottle do
     cellar :any
-    sha256 "de5f0e4044136045f7d425dadb10f4f146db012e64ee3855e2748d08c1330676" => :big_sur
-    sha256 "69d2bf08429dfcdfa7877740082241805e7fa83727fe957c958d67246b34be2b" => :catalina
-    sha256 "6351e0752ffb808864a4628a0d2c7318d5edabd5fe3095a3d0360cfd0923225a" => :mojave
+    sha256 "dc7df3c94c22ad4080fe67c96716e0b0ae404fbcf0770b064bc6ebff6ee34329" => :big_sur
+    sha256 "4dc6d716a2a5d85880cb8f90fbadedec764efbaf7c8e0c3738e61391a382c68e" => :catalina
+    sha256 "4256230d3bdaf63164dcbb03c9b0eeff953ba39bbbe74f8daf0d83715c39a3df" => :mojave
   end
 
   depends_on "openssl@1.1"

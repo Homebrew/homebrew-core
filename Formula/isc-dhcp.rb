@@ -11,6 +11,7 @@ class IscDhcp < Formula
   end
 
   bottle do
+    sha256 "d5e8627307133d4039211383156348ffdd1c343e2d4246f024e773e69531ed64" => :big_sur
     sha256 "26591c29130891dfe5a7ebe686c800bda76fdf5113885a801c3a30730a119130" => :catalina
     sha256 "0d61b17cc0bbac751ded99a66948e880c64fe6ba47a8d1613c470ee6c4e54fec" => :mojave
     sha256 "b0894db278d509c8615da4df71e26bce91daf300bba6380095f291bd2daa642c" => :high_sierra

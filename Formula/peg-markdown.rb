@@ -10,6 +10,7 @@ class PegMarkdown < Formula
 
   bottle do
     cellar :any
+    sha256 "efefd2a49548d4abdfc97bdc12295b1f6dac5b1832f21d9b6f147cc7a3c27176" => :big_sur
     sha256 "08910e3fdd97183865c2839a4e14839826101e6dfa48120aebc60fbe838f0689" => :catalina
     sha256 "a60087175a8f3c5242e9183eeddb433e6bdbe68409cae0a7c61d66da4622b150" => :mojave
     sha256 "207764b26b253904cf61e9e13eb32e81a51d61d548b7dafd366da5a5394a5f08" => :high_sierra

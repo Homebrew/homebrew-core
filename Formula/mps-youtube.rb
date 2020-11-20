@@ -10,6 +10,7 @@ class MpsYoutube < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "b9077de1d446678ff5a91d341257636a8c6b59e818b1843fc1f7f14a3a568718" => :big_sur
     sha256 "18d91d027af3797a33a1dce5cd5677045539a1c9664fd5d1e70b000f3baa0298" => :catalina
     sha256 "51c856bc1f5cdfe4b71c8315277d17fdfb3202afcc20c0816a1c884b14b10fde" => :mojave
     sha256 "812e64456b7e8cce5ede6fb043c904d78d6b16c8d92c8d33f620b7b85ac10984" => :high_sierra

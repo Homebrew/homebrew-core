@@ -9,6 +9,7 @@ class Infrakit < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "1516a85df3aef1a35b656d241de9e7f7ec8d8e35d14fdd8c6df1d8966c9a4978" => :big_sur
     sha256 "1ad3128e68d1c83ca103eb1469138f3a0d40722b1a9c300babcd50533ff9342a" => :catalina
     sha256 "a20e2268d7d92cb9fcdb136c0940a7bfa62faf6bdc33f79f89639bc08e7d7cb1" => :mojave
     sha256 "3d188727e1be0bdf150e152b0939560a209415fa9d3b5c2275eea163510d4994" => :high_sierra

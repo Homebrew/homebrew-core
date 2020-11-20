@@ -12,6 +12,7 @@ class Dxflib < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 2
+    sha256 "ffdf278bbcd52a31f20e536cec99fb30c5bf94d7f353b3c4b4f943666717da11" => :big_sur
     sha256 "70b4e8b65b8a1090eb19080c1ec7675ec58aaef4c573ac2af89f2fe985e23d7e" => :catalina
     sha256 "1b9e667aa5bb30e050f41370afbbfaa91a563ab015a4ab4930c7dbb99fccc956" => :mojave
     sha256 "fb790fe1b9357907e77f50650ed0d696e855c311320d726472ac511297994573" => :high_sierra

@@ -11,6 +11,7 @@ class UBootTools < Formula
 
   bottle do
     cellar :any
+    sha256 "38d66ae4e6d926bc35e4eb833f6810a367f2cf3cdd8ec5185a861daadc30743e" => :big_sur
     sha256 "c4e1c77a34e57576f9ab599781be090820a4d5911f4147e10d0e99114cd3c8c6" => :catalina
     sha256 "44d21cc3ac974b0538d24d4e5a74f25e3df764c8b5fc3458214890bacfa138ac" => :mojave
     sha256 "afb5dea722a9ae646809a3c8b59dbbd80b55042e3c3de8f45741e6ebb460df6a" => :high_sierra

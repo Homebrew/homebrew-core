@@ -1,16 +1,15 @@
 class Scw < Formula
   desc "Command-line Interface for Scaleway"
   homepage "https://github.com/scaleway/scaleway-cli"
-  url "https://github.com/scaleway/scaleway-cli/archive/v2.2.2.tar.gz"
-  sha256 "31be1039c916fe0b8a321701bff176df81b3676c957aa02528b278b9055eeedd"
+  url "https://github.com/scaleway/scaleway-cli/archive/v2.2.3.tar.gz"
+  sha256 "769920b3a2f94cd2ac260c0e1bc25639af17776383e6d1cb60cc870af9576d58"
   license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fb40d52604cdc46e367c24b3f7b257f85cd62662b318727dd60c7bd21f276ea8" => :big_sur
-    sha256 "912d17973d30be335b52c4e5ca1fef815d7541bd123c8ca0a2b86ddc51b7844a" => :catalina
-    sha256 "669d8271919aeef4b85cca428aecdc614164147606f990c069c094a4a82d5765" => :mojave
-    sha256 "70d717f4aecdbeff784a11897f009bec361ae8e787d3bb14d34275d6e6c799c7" => :high_sierra
+    sha256 "b410dd52d238835670a831130875fcc2e4307851ebac10fd5a4443bcdc8b016e" => :big_sur
+    sha256 "57f7099f827810ef25f7956194c59d6504b98e209be37003fc4be2b647ec40f7" => :catalina
+    sha256 "e0b5d4629a0efb6c8e40c9fd4260987c5c9caf35ebadbd6be827340588ea5087" => :mojave
   end
 
   depends_on "go" => :build

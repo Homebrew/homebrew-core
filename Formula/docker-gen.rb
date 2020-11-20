@@ -9,6 +9,7 @@ class DockerGen < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "77385699141202354e27dbfbe1d57c936e4eec4beb1c5f7537f29db4cfc57602" => :big_sur
     sha256 "d5305ec74f29526e6e7b01632dda0e48b0af397d9a65baf233db4da48f96ee8a" => :catalina
     sha256 "00f1f34756eadc57f39945a00bc4e8c9e8ff2beefafbb58052667c2611e29e0f" => :mojave
     sha256 "42d2757b01271ef6c14de5441b3c65507538388db1e00e69f322272a5ba5b59c" => :high_sierra

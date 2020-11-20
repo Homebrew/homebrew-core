@@ -3,8 +3,8 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/6f/c4/da52bfdd6168ea46a0fe2b7c983b6c34c377a8733ec177cc00b197a96a9f/snakemake-5.28.0.tar.gz"
-  sha256 "2367ce91baf7f8fa7738d33aff9670ffdf5410bbac49aeb209f73b45a3425046"
+  url "https://files.pythonhosted.org/packages/b0/3f/2e1dad67eb172b6443b5eb37eb885a054a55cfd733393071499514140282/snakemake-5.29.0.tar.gz"
+  sha256 "47417307d08ecb0707b3b29effc933bd63d8c8e3ab15509c62b685b7614c6568"
   license "MIT"
   head "https://github.com/snakemake/snakemake.git"
 
@@ -14,10 +14,9 @@ class Snakemake < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "12a01988bdada90eb6ac9b39d6a26fdb5ced555120d8a4f1a26215e616253c91" => :big_sur
-    sha256 "3a79b5ddafdaf218fab75be2e00ca4281d606b881061492699e4a414a2dbb430" => :catalina
-    sha256 "9d2cdf260124e54584b6238f5ee54c09c3c80a32801ad8fd539da384032933a0" => :mojave
-    sha256 "3eab0eb41f36ff0b464551e00071a4866c92044e77aa4e06c7eeb4dc72a0e874" => :high_sierra
+    sha256 "ab774961242a33922a7dd922870f216521eeb2ffed04fa600860bf148153cf16" => :big_sur
+    sha256 "05355b0febeecabaaa63a07f7ff2ea45dec4dd9f15f6e28d7ccaba932796f0d2" => :catalina
+    sha256 "669e7eb051c1f283b4ce1bb27ccdd4d31d1b233709a548087a66c5f0552b6315" => :mojave
   end
 
   depends_on "cbc"
@@ -89,8 +88,8 @@ class Snakemake < Formula
   end
 
   resource "jupyter-core" do
-    url "https://files.pythonhosted.org/packages/28/64/8bdde111be57a2a3d54376db29b5f25ab9c68ffd3d6554989db24d5c1b7a/jupyter_core-4.6.3.tar.gz"
-    sha256 "394fd5dd787e7c8861741880bdf8a00ce39f95de5d18e579c74b882522219e7e"
+    url "https://files.pythonhosted.org/packages/46/54/aa5d2ec9aad97d696970c1f64f36fc82c14057734d3c8cfa2e0c79f114fb/jupyter_core-4.7.0.tar.gz"
+    sha256 "aa1f9496ab3abe72da4efe0daab0cb2233997914581f9a071e07498c6add8ed3"
   end
 
   resource "nbformat" do

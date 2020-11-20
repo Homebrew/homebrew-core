@@ -10,6 +10,7 @@ class Tin < Formula
   end
 
   bottle do
+    sha256 "88a9d57f952f8780b7d40b09a48a88e72a13d5d7a363ff77b9714571127a40f0" => :big_sur
     sha256 "78c9d679c6669f6e9579c1de58e1769f8d5fdf0de54664aaeba49888811d33a5" => :catalina
     sha256 "2fb85a878a4930f0d48a35fd3628621d5d0f3009d8283066ddfdc17a950153b8" => :mojave
     sha256 "89b38a18627bac3b16f2c947350ce3e438793603d04b30fc09bea916f85cbd49" => :high_sierra

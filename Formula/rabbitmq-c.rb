@@ -8,6 +8,7 @@ class RabbitmqC < Formula
 
   bottle do
     cellar :any
+    sha256 "f76f526ae3c37b8f686cbd796d2fc9f1ec6210e0ae2f8986260efa834b99c9f3" => :big_sur
     sha256 "6434a9100eeadfcd57d35fd31d1863d75b71ec163a3a1be29076c217712bda55" => :catalina
     sha256 "5f99c633ece8efad2ef2085955b22d0558d8fc2dedcac67b3ba8b58a2640c2c3" => :mojave
     sha256 "53d883744a185e5daab18c8bd18fd70fed56dd009cc507356f128663947c2453" => :high_sierra

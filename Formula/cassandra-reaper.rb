@@ -1,28 +1,63 @@
 class CassandraReaper < Formula
   desc "Management interface for Cassandra"
   homepage "https://cassandra-reaper.io/"
-  url "https://github.com/thelastpickle/cassandra-reaper/releases/download/1.3.0/cassandra-reaper-1.3.0-release.tar.gz"
-  sha256 "79c190c51c3404c2efc7f7f1aafa7cfd91f2280cbb1fe719e668966836904efd"
+  url "https://github.com/thelastpickle/cassandra-reaper/releases/download/2.1.2/cassandra-reaper-2.1.2-release.tar.gz"
+  sha256 "30868c4373c40bbc3cf5238357bbcd19dcb5a24a895e435ef5e090568a5e2d09"
   license "Apache-2.0"
 
-  bottle :unneeded
-
-  depends_on java: "1.8"
+  depends_on "openjdk@8"
 
   def install
     prefix.install "bin"
-    share.install "server/target" => "cassandra-reaper"
     etc.install "resource" => "cassandra-reaper"
+    share.install "server/target" => "cassandra-reaper"
+    inreplace Dir[etc/"cassandra-reaper/*.yaml"], " /var/log", " #{var}/log"
+  end
+
+  plist_options manual: "cassandra-reaper"
+
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/cassandra-reaper</string>
+          </array>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>KeepAlive</key>
+          <true/>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/cassandra-reaper/service.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/cassandra-reaper/service.err</string>
+          <key>EnvironmentVariables</key>
+          <dict>
+            <key>JAVA_HOME</key>
+            <string>#{Formula["openjdk@8"].opt_prefix}</string>
+          </dict>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do
-    pid = fork do
-      exec "#{bin}/cassandra-reaper"
+    ENV["JAVA_HOME"] = Formula["openjdk@8"].opt_prefix
+    cp etc/"cassandra-reaper/cassandra-reaper.yaml", testpath
+    port = free_port
+    inreplace "cassandra-reaper.yaml" do |s|
+      s.gsub! "port: 8080", "port: #{port}"
+      s.gsub! "port: 8081", "port: #{free_port}"
+    end
+    fork do
+      exec "#{bin}/cassandra-reaper", "#{testpath}/cassandra-reaper.yaml"
     end
     sleep 10
-    output = shell_output("curl -Im3 -o- http://localhost:8080/webui/")
-    assert_match /200 OK.*/m, output
-  ensure
-    Process.kill("KILL", pid)
+    assert_match "200 OK", shell_output("curl -Im3 -o- http://localhost:#{port}/webui/login.html")
   end
 end

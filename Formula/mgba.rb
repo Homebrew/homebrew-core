@@ -29,10 +29,6 @@ class Mgba < Formula
   depends_on "sdl2"
 
   def install
-    # Fix "error: 'future<void>' is unavailable: introduced in macOS 10.8"
-    # Reported 11 Dec 2017 https://github.com/mgba-emu/mgba/issues/944
-    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version if MacOS.version <= :el_capitan
-
     # Install .app bundle into prefix, not prefix/Applications
     inreplace "src/platform/qt/CMakeLists.txt", "Applications", "."
 

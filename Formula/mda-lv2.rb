@@ -7,6 +7,7 @@ class MdaLv2 < Formula
 
   bottle do
     cellar :any
+    sha256 "c98df66e1d834f99c433066c4b64114c61b8a6f0b69d2efec156e27d229c3864" => :big_sur
     sha256 "d79b7ac328f0064f2ca3d14b4ddfb7dc999aaf5386f21e7122d239dca72dfbbc" => :catalina
     sha256 "852451a5e46cacc35f5ca529d2a9edba3d6874c21e1d0478c46cafcb93c8291a" => :mojave
     sha256 "616562cb40d0af01063e188d5d46a505455a947fc93c008b0f0eb6c65d0dd2af" => :high_sierra

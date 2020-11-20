@@ -1,8 +1,8 @@
 class GitSubrepo < Formula
   desc "Git Submodule Alternative"
   homepage "https://github.com/ingydotnet/git-subrepo"
-  url "https://github.com/ingydotnet/git-subrepo/archive/0.4.1.tar.gz"
-  sha256 "64cc2490c54fe1e5396bb14f6bbf0aa8378085f3b8847fd8ed171e5ddd886065"
+  url "https://github.com/ingydotnet/git-subrepo/archive/0.4.2.tar.gz"
+  sha256 "64c473a8070b7cf7b0fbb9d9bff40381ebc6a57eaaa1bc17e66f2a5920dd1ef8"
   license "MIT"
   head "https://github.com/ingydotnet/git-subrepo.git"
 
@@ -13,9 +13,9 @@ class GitSubrepo < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "499beadca28680001847d8ee797f15595b629017a4b434e775ae4d3309277002" => :catalina
-    sha256 "499beadca28680001847d8ee797f15595b629017a4b434e775ae4d3309277002" => :mojave
-    sha256 "499beadca28680001847d8ee797f15595b629017a4b434e775ae4d3309277002" => :high_sierra
+    sha256 "994bc2d7fbc2493b0098aa8ef6aa417168787ba35c3454bd95fbc17e2785682c" => :big_sur
+    sha256 "f946b93c3cb112ee8c79bbdfb180991d3b5ab57d2709699253d438b59e5300d5" => :catalina
+    sha256 "edec79b53d654b24091d8aff431784f965ca0a4469724d602c18ca652713a305" => :mojave
   end
 
   depends_on "bash"

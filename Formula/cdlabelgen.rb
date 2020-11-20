@@ -6,6 +6,7 @@ class Cdlabelgen < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8c1096a23f2ce2b8db912fcb9786c2f9d76b7ece60d2269512e90fa9505d0d9e" => :big_sur
     sha256 "5facce52a8f22279160a388513b2a9406f427f3ab231e119fbc0b074dc7028f9" => :catalina
     sha256 "5162ba8c34a6aeef369b5004d1608fa2b8de5a33350f1d7629f08eed8b18d5d9" => :mojave
     sha256 "ece93bae3d8b9e6e5c37b347849836dc970183efcea603d7d3b6f8f0dbaebd4a" => :high_sierra

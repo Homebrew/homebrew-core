@@ -9,6 +9,7 @@ class GitCola < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "d5e72dde0b6ea555a8daae7c873d58a5c97ddbf6ac499b41239f10dc3aff94a9" => :big_sur
     sha256 "ef1c8b2bcaf9de6249a46bfc97ab24f048f5b9051c2d8290614fce3d5c8edfef" => :catalina
     sha256 "18ff1bd2601835ab966f635680470031912913593d8a28cdeba9e92effcb7418" => :mojave
     sha256 "64f4ec4531a6f96370748a586dfe81fe134ae24c0292f7429043e8eeb7ac64f3" => :high_sierra

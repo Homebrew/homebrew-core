@@ -3,19 +3,18 @@ class Unicorn < Formula
   homepage "https://www.unicorn-engine.org/"
   url "https://github.com/unicorn-engine/unicorn/archive/1.0.2.tar.gz"
   sha256 "6400e16f9211486fa5353b1870e6a82f8aa342e429718d1cbca08d609aaadc52"
+  revision 1
   head "https://github.com/unicorn-engine/unicorn.git"
 
   bottle do
     cellar :any
-    sha256 "18a17bdacc8c9171a049a3b77533ad5a7abc340c0b99ff351e40b3058bf7f1b3" => :big_sur
-    sha256 "d1e59e6241ec4851d24e3f3086e118ed421ee4bda1fb3d8a5e47053256f97d5a" => :catalina
-    sha256 "72d3bba30abcb9cc00ce28b3fa109aca19adaf60e0fbd6fcf248a3b7c24bc3fd" => :mojave
-    sha256 "81be5f24d90b028828fe678e57086d0db49c5739bcd83a636c8aba01062133a1" => :high_sierra
+    sha256 "0df92b5a73a27807376ab728337601fabf538e8c94e68e26436f5b4ef76c52c8" => :big_sur
+    sha256 "db49e0948f773702635011471c36b5782c47f3b360986cc606050d2ea5d419c5" => :catalina
+    sha256 "fd6267dea877a4ef1f949397195aff710c8aca8d4473db396731212043f665ac" => :mojave
   end
 
   depends_on "pkg-config" => :build
-  depends_on :macos # Due to Python 2 (Might work with Python 3 with next release (1.0.2)
-  # See https://github.com/Homebrew/linuxbrew-core/pull/19728
+  depends_on "python@3.9" => [:build, :test]
 
   def install
     ENV["PREFIX"] = prefix
@@ -26,7 +25,7 @@ class Unicorn < Formula
     system "make", "install"
 
     cd "bindings/python" do
-      system "python", *Language::Python.setup_install_args(prefix)
+      system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
     end
   end
 
@@ -78,6 +77,6 @@ class Unicorn < Formula
       "-lpthread", "-lm", "-L#{lib}", "-lunicorn"
     system testpath/"test1"
 
-    system "python", "-c", "import unicorn; print(unicorn.__version__)"
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "import unicorn; print(unicorn.__version__)"
   end
 end

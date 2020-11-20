@@ -8,6 +8,7 @@ class GoJsonnet < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "2dba5ba4d1902a939bccbaec1dcb5644e7db5e0ee9086076c178748cca492a63" => :big_sur
     sha256 "5c476a536e168be0cf65a7850c05563c5363356774057bd9cfc8aa11cb0e0df6" => :catalina
     sha256 "6dda575e3b152664a76776a23ceec61a471fc0baedbb4062e784d4f917a76b15" => :mojave
     sha256 "3f98a99da047fabc9a1fee8b32585c86f2e370a6a278e7d27cef8f7a050006c5" => :high_sierra

@@ -11,6 +11,7 @@ class ShallowBackup < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ed8d7fd1723a6cc043f76799099cf7267f96baa8e9d2a9ea01f6b29ba1167c27" => :big_sur
     sha256 "ab0480d15430cc6fdfcde70fca423784efcf2a4e32aa5286a60b53ba5d713b23" => :catalina
     sha256 "1dbe77e521a242d1b1c3d833b981427724006c82c3885fb87062c30d272e4cc2" => :mojave
     sha256 "1de7f1b14391ee61eb08f4016d92ecac7e431337bfea369bcb6bb95cfb1461f6" => :high_sierra

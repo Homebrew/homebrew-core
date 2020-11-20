@@ -11,6 +11,7 @@ class PerconaXtrabackup < Formula
   end
 
   bottle do
+    sha256 "cf46ee03c9f8b1f4f2d5ddaae73144aad4f941c1a02e88339859483b716e399d" => :big_sur
     sha256 "2f35a444086da15b1e05ec9ac225f153376abb81546db4490fbf34b4096ec6c0" => :catalina
     sha256 "a4f1233ebde9ab66010214fa21c739ae9f97cffcb739bdd51fe542511d5571e1" => :mojave
     sha256 "7238c7d0e4977dcdba034ded3aa5ed9cd71884ba060894060755428aa85ea29a" => :high_sierra

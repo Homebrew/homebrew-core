@@ -7,6 +7,7 @@ class Joshua < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8e37238c958548a5f28c843f65e9f9a6e9eede05d9f9b9a8e802fabae5e42906" => :big_sur
     sha256 "126f37758cb9f1ace827883911906cab4976bf5f211b200ed0e2f307fae87982" => :catalina
     sha256 "126f37758cb9f1ace827883911906cab4976bf5f211b200ed0e2f307fae87982" => :mojave
     sha256 "126f37758cb9f1ace827883911906cab4976bf5f211b200ed0e2f307fae87982" => :high_sierra

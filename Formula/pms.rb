@@ -11,6 +11,7 @@ class Pms < Formula
 
   bottle do
     cellar :any
+    sha256 "61b7be3d89ec3436b9e14733936d31564c6989bccb05cb675e529383ba799924" => :big_sur
     sha256 "de929bc53474adfa2a300f8954e0597489f88c22a29661e85c66d1ea8cc619ff" => :catalina
     sha256 "0c43ee20313b6616c6ececb9c906da12720b035862a894a3f9dd11984c640b30" => :mojave
     sha256 "f01d2f4db91f6b6bcf35f86c7a0d2b0fbed17941d9556fe0ba71e855c7667638" => :high_sierra

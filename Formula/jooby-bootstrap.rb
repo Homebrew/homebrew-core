@@ -8,6 +8,8 @@ class JoobyBootstrap < Formula
 
   bottle :unneeded
 
+  deprecate! because: :unmaintained
+
   depends_on java: "1.8"
   depends_on "maven"
 

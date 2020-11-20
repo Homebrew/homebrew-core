@@ -1,9 +1,9 @@
 class Monkeysphere < Formula
   desc "Use the OpenPGP web of trust to verify ssh connections"
-  homepage "https://web.monkeysphere.info/"
+  homepage "http://web.monkeysphere.info/"
   url "https://deb.debian.org/debian/pool/main/m/monkeysphere/monkeysphere_0.44.orig.tar.gz"
   sha256 "6ac6979fa1a4a0332cbea39e408b9f981452d092ff2b14ed3549be94918707aa"
-  revision 1
+  revision 2
   head "git://git.monkeysphere.info/monkeysphere"
 
   livecheck do
@@ -13,10 +13,9 @@ class Monkeysphere < Formula
 
   bottle do
     cellar :any
-    sha256 "b81913712d547ed0cafbb84478af579142a7409a8c15a2349c8e0eadba5693eb" => :catalina
-    sha256 "d5c8badc7a3296cd5150f3520a0abf61aa4a683a43d121961b412ff619aaa4d1" => :mojave
-    sha256 "5928a7723f50b5ce5c505571570a6bb82823f6faf0133ab2f9b0f2757a9b68fc" => :high_sierra
-    sha256 "f1bbf185764cd974016f73e4a6d037cec60a83b57c3a3314797aa8aa60edf1bb" => :sierra
+    sha256 "f11af3b493a5d93a12f5f6f6cb8087ddb0ef3dbc1f33b1ff70a1e9ce9f6c4d8f" => :big_sur
+    sha256 "0557472226ce5e6c5a6f0f4a4af26044fe13424330ece4fb295c4b1fc9db8b5d" => :catalina
+    sha256 "e9d45d6838affae4acc4c564d81d73d80f87197875ea498bc2982ec6e331b87b" => :mojave
   end
 
   depends_on "gnu-sed" => :build

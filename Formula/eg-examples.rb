@@ -14,6 +14,7 @@ class EgExamples < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "204831d83039555366ef695c6bace02cd9898c4580cb81c22ea984594d74c020" => :big_sur
     sha256 "839e81e263addcbf1baaa179f0422a0a061a7a71f81f7a378017efa91f102ea7" => :catalina
     sha256 "a895c53ab1408e34514b41d24a7a4a2d878e18eaacf2a17b469dbff88a2b0a76" => :mojave
     sha256 "8c4eb15ac9f12f809dfe2e69196dea9e62ad7471275473092f2e94bfbc14ea83" => :high_sierra

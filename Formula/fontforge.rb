@@ -1,16 +1,13 @@
 class Fontforge < Formula
   desc "Command-line outline and bitmap font editor/converter"
   homepage "https://fontforge.github.io"
-  url "https://github.com/fontforge/fontforge/archive/20200314.tar.gz"
-  sha256 "ad0eb017379c6f7489aa8e2d7c160f19140d1ac6351f20df1d9857d9428efcf2"
-  license "GPL-3.0"
-  revision 2
+  url "https://github.com/fontforge/fontforge/releases/download/20201107/fontforge-20201107.tar.xz"
+  sha256 "68bcba8f602819eddc29cd356ee13fafbad7a80d19b652d354c6791343476c78"
 
   bottle do
-    sha256 "9c0a61fe2fc9fa5c387c596b69c6a2e76f8316a1115d2796ae1138af0b9ac319" => :big_sur
-    sha256 "1e71933145235afca40aeb357ff8d0ee6ec9461e5b4f7607b7b935cbbf07c0ae" => :catalina
-    sha256 "621b45bbce2fb407847fa5978eda807561288a8ba793dbc18b9f6cb089fac756" => :mojave
-    sha256 "aeff8baaaadf3bb54734feae6a75e8868291a5cb8441e88e5fd13772a08f5ccf" => :high_sierra
+    sha256 "fdadc5e603cec702c46ce7d7cf71bc39ea8b61c1d7e41baaa6347af596ea8d75" => :big_sur
+    sha256 "fa057842c812785b9fc515f8e52d50d5c05a18f1647474469edd34587e18e8c9" => :catalina
+    sha256 "e3e59082b1b97574d9ed2ebb644a38df2d94e31e37a61a01726f578c49beef7a" => :mojave
   end
 
   depends_on "cmake" => :build
@@ -34,12 +31,6 @@ class Fontforge < Formula
 
   uses_from_macos "libxml2"
 
-  # Remove with next release (cmake: adjust Python linkage)
-  # Original patchset: https://github.com/fontforge/fontforge/pull/4258
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/99af4b5/fontforge/20200314.patch"
-    sha256 "3deed4d79a1fdf5fb6de2fca7da8ffe14301acbeb015441574a7a28e902561f5"
-  end
   def install
     mkdir "build" do
       system "cmake", "..",

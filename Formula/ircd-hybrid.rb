@@ -11,6 +11,7 @@ class IrcdHybrid < Formula
   end
 
   bottle do
+    sha256 "b3b4c8073a2c5258b7fa57a194c2ce33a00ad167a5f5a824853fe23ff7d7bd6f" => :big_sur
     sha256 "fd198e99459ec5f6c3f10fbd10dd95fec4064fa0b6fc79407f517f59d0f1e602" => :catalina
     sha256 "290c563e7ed4bcc10aedb0b38dda5a933e1b399f91cf64cc026c26bca556c078" => :mojave
     sha256 "19e587507da6c3fd66fa207129499cabe2a6114dde6288ddbdca84515da0e432" => :high_sierra
