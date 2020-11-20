@@ -3,8 +3,8 @@ class Pdm < Formula
 
   desc "Modern Python package manager with PEP 582 support"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/7f/97/d8fe6561bb84abef6e1ec0973059c6d6fff161ccd8dd804bef5274750e4d/pdm-0.10.2.tar.gz"
-  sha256 "46ec6c6c8bcf18961ccd81c3082221a9de075046ed9f23f68fdc41c0eedb12b6"
+  url "https://files.pythonhosted.org/packages/17/e6/543177f87b33af9148a9d13272fdc6a9e07249e051ad4c4748a613871919/pdm-0.11.0.tar.gz"
+  sha256 "bf9685ca2c16161d2d7a4321b1fe54066fbe372d4cbccc4c16b25bfead4b1b64"
   license "MIT"
   head "https://github.com/frostming/pdm.git"
 
@@ -24,8 +24,8 @@ class Pdm < Formula
   end
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/81/d0/641b698d05f0eaea4df4f9cebaff573d7a5276228ef6b7541240fe02f3ad/attrs-20.2.0.tar.gz"
-    sha256 "26b54ddbbb9ee1d34d5d3668dd37d6cf74990ab23c828c2888dccdceee395594"
+    url "https://files.pythonhosted.org/packages/f0/cb/80a4a274df7da7b8baf083249b0890a0579374c3d74b5ac0ee9291f912dc/attrs-20.3.0.tar.gz"
+    sha256 "832aa3cde19744e49938b91fea06d69ecb9e649c93ba974535d08ad92164f700"
   end
 
   resource "cached-property" do
@@ -46,16 +46,6 @@ class Pdm < Formula
   resource "distlib" do
     url "https://files.pythonhosted.org/packages/2f/83/1eba07997b8ba58d92b3e51445d5bf36f9fba9cb8166bcae99b9c3464841/distlib-0.3.1.zip"
     sha256 "edf6116872c863e1aa9d5bb7cb5e05a022c519a4594dc703843343a9ddd9bff1"
-  end
-
-  resource "halo" do
-    url "https://files.pythonhosted.org/packages/ae/47/80742a791ea21ceb9e6e1355e341b3c9223d7710df5874fe6faba9734484/halo-0.0.30.tar.gz"
-    sha256 "ad1fb4d7e29fe846d323bf4a8bf9e65fddcb24c10258c13e964cab13278f9568"
-  end
-
-  resource "log-symbols" do
-    url "https://files.pythonhosted.org/packages/45/87/e86645d758a4401c8c81914b6a88470634d1785c9ad09823fa4a1bd89250/log_symbols-0.0.14.tar.gz"
-    sha256 "cf0bbc6fe1a8e53f0d174a716bc625c4f87043cc21eb55dd8a740cfe22680556"
   end
 
   resource "packaging" do
@@ -108,16 +98,6 @@ class Pdm < Formula
     sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
   end
 
-  resource "spinners" do
-    url "https://files.pythonhosted.org/packages/d3/91/bb331f0a43e04d950a710f402a0986a54147a35818df0e1658551c8d12e1/spinners-0.0.24.tar.gz"
-    sha256 "1eb6aeb4781d72ab42ed8a01dcf20f3002bf50740d7154d12fb8c9769bf9e27f"
-  end
-
-  resource "termcolor" do
-    url "https://files.pythonhosted.org/packages/8a/48/a76be51647d0eb9f10e2a4511bf3ffb8cc1e6b14e9e4fab46173aa79f981/termcolor-1.1.0.tar.gz"
-    sha256 "1d6d69ce66211143803fbc56652b41d73b4a400a2891d7bf7a1cdf4c02de613b"
-  end
-
   resource "toml" do
     url "https://files.pythonhosted.org/packages/be/ba/1f744cdc819428fc6b5084ec34d9b30660f6f9daaf70eead706e3203ec3c/toml-0.10.2.tar.gz"
     sha256 "b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"
@@ -138,6 +118,7 @@ class Pdm < Formula
   test do
     (testpath/"pyproject.toml").write <<~EOS
       [tool.pdm]
+      name = "testproj"
       python_requires = ">=3.9"
 
       [tool.pdm.dependencies]
