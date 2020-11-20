@@ -1,8 +1,4 @@
-require "language/haskell"
-
 class Elm < Formula
-  include Language::Haskell::Cabal
-
   desc "Functional programming language for building browser-based GUIs"
   homepage "https://elm-lang.org"
   url "https://github.com/elm/compiler/archive/0.19.1.tar.gz"
@@ -26,11 +22,8 @@ class Elm < Formula
     # elm-compiler needs to be staged in a subdirectory for the build process to succeed
     (buildpath/"elm-compiler").install Dir["*"]
 
-    cabal_sandbox do
-      cabal_sandbox_add_source "elm-compiler"
-      cabal_install "--only-dependencies", "--force-reinstalls", "elm"
-      cabal_install "--prefix=#{prefix}", "elm"
-    end
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
   end
 
   test do
