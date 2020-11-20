@@ -107,8 +107,6 @@ class Llvm < Formula
       -DLLVM_BUILD_EXTERNAL_COMPILER_RT=ON
       -DLLVM_LINK_LLVM_DYLIB=ON
       -DLLVM_BUILD_LLVM_C_DYLIB=ON
-      -DLLVM_BUILD_EXAMPLES=ON
-      -DLLVM_ENABLE_ASSERTIONS=ON
       -DLLVM_ENABLE_EH=ON
       -DLLVM_ENABLE_FFI=ON
       -DLLVM_ENABLE_LIBCXX=ON
@@ -142,8 +140,8 @@ class Llvm < Formula
     llvmpath = buildpath/"llvm"
     mkdir llvmpath/"build" do
       system "cmake", "-G", "Unix Makefiles", "..", *(std_cmake_args + args)
-      system "make"
-      system "make", "install"
+      system "cmake", "--build", "."
+      system "cmake", "--build", ".", "--target", "install"
       system "make", "install-xcode-toolchain" if MacOS::Xcode.installed?
     end
 
