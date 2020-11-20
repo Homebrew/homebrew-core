@@ -23,6 +23,10 @@ class Pqiv < Formula
   depends_on "poppler"
   depends_on "webp"
 
+  on_linux do
+    depends_on "libtiff"
+  end
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
