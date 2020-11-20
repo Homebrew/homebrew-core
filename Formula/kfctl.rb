@@ -2,7 +2,7 @@ class Kfctl < Formula
   desc "Kubeflow command-line interface"
   homepage "https://github.com/kubeflow/kfctl"
   url "https://github.com/kubeflow/kfctl.git",
-      tag: "v1.1.0",
+      tag:      "v1.1.0",
       revision: "9a3621e2b2ce6d2baa5c78acccec5028c4e4cbe1"
   license "Apache-2.0"
 
@@ -14,11 +14,11 @@ class Kfctl < Formula
 
     # Install bash completion
     output = Utils.safe_popen_read("#{bin}/kfctl", "completion", "bash")
-    (bash_completion / "kfctl").write output
+    (bash_completion/"kfctl").write output
 
     # Install zsh completion
     output = Utils.safe_popen_read("#{bin}/kfctl", "completion", "zsh")
-    (zsh_completion / "kfctl").write output
+    (zsh_completion/"kfctl").write output
   end
 
   test do
