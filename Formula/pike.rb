@@ -24,6 +24,10 @@ class Pike < Formula
   depends_on "nettle"
   depends_on "pcre"
 
+  on_linux do
+    depends_on "jpeg"
+  end
+
   def install
     ENV.append "CFLAGS", "-m64"
     ENV.deparallelize
