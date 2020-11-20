@@ -25,6 +25,7 @@ class Graphviz < Formula
   depends_on "gd"
   depends_on "gts"
   depends_on "libpng"
+  depends_on "librsvg"
   depends_on "libtool"
   depends_on "pango"
 
@@ -54,7 +55,6 @@ class Graphviz < Formula
       --without-gdk
       --without-gdk-pixbuf
       --without-gtk
-      --without-rsvg
       --without-qt
       --without-x
       --with-gts
