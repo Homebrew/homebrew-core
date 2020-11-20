@@ -23,8 +23,8 @@ class Flang < Formula
     llvmpath = buildpath/"llvm"
     mkdir llvmpath/"build" do
       system "cmake", "-G", "Unix Makefiles", "..", *(std_cmake_args + args)
-      system "make"
-      system "make", "install"
+      system "cmake", "--build", ".", "--target", "check-mlir", "check-flang"
+      system "cmake", "--install", "."
     end
   end
 
