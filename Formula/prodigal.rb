@@ -3,7 +3,7 @@ class Prodigal < Formula
   homepage "https://github.com/hyattpd/Prodigal"
   url "https://github.com/hyattpd/Prodigal/archive/v2.6.3.tar.gz"
   sha256 "89094ad4bff5a8a8732d899f31cec350f5a4c27bcbdd12663f87c9d1f0ec599f"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url "https://github.com/hyattpd/Prodigal/releases/latest"
@@ -18,6 +18,18 @@ class Prodigal < Formula
     sha256 "c120fed8e29bb3b1a4ff69d5ca05e051a0fe3822784b3d585e142da3452d1ac1" => :high_sierra
     sha256 "a27fe5316181d4826e5aa5291d0fc1b1a7087c32c7b4e6aedabf1209d5a8ac36" => :sierra
     sha256 "70b432e3d3da1f4089680b06c0745b7dac3611f05d8ec9440faa918bc82d6fe5" => :el_capitan
+  end
+
+  # Prodigal will have incorrect output if compiled with certain compilers.
+  # This will be fixed in the next release. Also see:
+  # https://github.com/hyattpd/Prodigal/issues/34
+  # https://github.com/hyattpd/Prodigal/issues/41
+  # https://github.com/hyattpd/Prodigal/pull/35
+  on_linux do
+    patch do
+      url "https://github.com/hyattpd/Prodigal/commit/cbbb5db21d120f100724b69d5212cf1275ab3759.patch?full_index=1"
+      sha256 "fd292c0a98412a7f2ed06d86e0e3f96a9ad698f6772990321ad56985323b99a6"
+    end
   end
 
   def install
