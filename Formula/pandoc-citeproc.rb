@@ -1,8 +1,4 @@
-require "language/haskell"
-
 class PandocCiteproc < Formula
-  include Language::Haskell::Cabal
-
   desc "Library and executable for using citeproc with pandoc"
   homepage "https://github.com/jgm/pandoc-citeproc"
   url "https://hackage.haskell.org/package/pandoc-citeproc-0.17.0.2/pandoc-citeproc-0.17.0.2.tar.gz"
@@ -20,7 +16,7 @@ class PandocCiteproc < Formula
   # This package is no longer maintained.
   # Pandoc now uses the [citeproc](https://github.com/jgm/citeproc)
   # library, and no external filter is needed.
-  deprecate! date: "2020-10-09", because: :deprecated_upstream
+  disable! date: "2020-10-09", because: :deprecated_upstream
 
   depends_on "cabal-install" => :build
   depends_on "ghc@8.8" => :build
@@ -29,7 +25,8 @@ class PandocCiteproc < Formula
   uses_from_macos "unzip" => :build
 
   def install
-    install_cabal_package
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
   end
 
   test do
