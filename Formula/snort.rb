@@ -29,6 +29,7 @@ class Snort < Formula
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
+  uses_from_macos "xz"
 
   def install
     openssl = Formula["openssl@1.1"]
