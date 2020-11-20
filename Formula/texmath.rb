@@ -1,8 +1,4 @@
-require "language/haskell"
-
 class Texmath < Formula
-  include Language::Haskell::Cabal
-
   desc "Haskell library for converting LaTeX math to MathML"
   homepage "https://johnmacfarlane.net/texmath.html"
   url "https://hackage.haskell.org/package/texmath-0.12.0.2/texmath-0.12.0.2.tar.gz"
@@ -24,9 +20,8 @@ class Texmath < Formula
   depends_on "ghc" => :build
 
   def install
-    install_cabal_package "--enable-tests", flags: ["executable"] do
-      system "cabal", "test"
-    end
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
   end
 
   test do
