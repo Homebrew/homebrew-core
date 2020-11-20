@@ -25,7 +25,12 @@ class Premake < Formula
       system "./premake5", "gmake"
     end
 
-    system "make", "-C", "build/gmake.macosx"
+    on_macos do
+      system "make", "-C", "build/gmake.macosx"
+    end
+    on_macos do
+      system "make", "-C", "build/gmake.unix"
+    end
 
     if build.head?
       bin.install "bin/release/premake5"
