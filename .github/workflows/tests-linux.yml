@@ -14,6 +14,7 @@ on:
       - "Formula/libmnl.rb"
       - "Formula/libnetfilter-queue.rb"
       - "Formula/libnfnetlink.rb"
+      - "Formula/libnsl.rb"
       - "Formula/libpciaccess.rb"
       - "Formula/libseccomp.rb"
       - "Formula/libtirpc.rb"
