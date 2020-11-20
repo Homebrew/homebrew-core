@@ -1,8 +1,8 @@
 class OpenMpi < Formula
   desc "High performance message passing library"
   homepage "https://www.open-mpi.org/"
-  url "https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.5.tar.bz2"
-  sha256 "c58f3863b61d944231077f344fe6b4b8fbb83f3d1bc93ab74640bf3e5acac009"
+  url "https://aws.open-mpi.org/~jsquyres/unofficial/openmpi-gitclone-v4.1.x-including-big-sur-libtool-fix.tar.bz2"
+  sha256 "7920bcac03086f476f8a1149c5a5d3e94876831f0e9a0ee47c88efaae920f223"
   license "BSD-3-Clause"
 
   livecheck do
@@ -71,7 +71,6 @@ class OpenMpi < Formula
     ]
     args << "--with-platform-optimized" if build.head?
 
-    system "./autogen.pl", "--force" if build.head? || MacOS.version >= :big_sur
     system "./configure", *args
     system "make", "all"
     system "make", "check"
