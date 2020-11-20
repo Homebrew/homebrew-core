@@ -16,6 +16,13 @@ class Libvmaf < Formula
   depends_on "nasm" => :build
   depends_on "ninja" => :build
 
+  # Upstream patch for Xcode 12, remove in next version
+  # https://github.com/Netflix/vmaf/pull/676
+  patch do
+    url "https://github.com/Netflix/vmaf/commit/b7851292.patch?full_index=1"
+    sha256 "686a01b0cc0f6b0e07a12964492e7702ac0b54cc92f5370f1a31d44fd0855ced"
+  end
+
   def install
     Dir.chdir("libvmaf") do
       system "meson", *std_meson_args, "build"
