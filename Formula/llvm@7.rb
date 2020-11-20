@@ -87,7 +87,7 @@ class LlvmAT7 < Formula
     ENV.permit_arch_flags
 
     args = %W[
-      -DLIBOMP_ARCH=x86_64
+      -DLIBOMP_ARCH=#{`uname -a`.split.last}
       -DLINK_POLLY_INTO_TOOLS=ON
       -DLLVM_BUILD_EXTERNAL_COMPILER_RT=ON
       -DLLVM_BUILD_LLVM_DYLIB=ON
