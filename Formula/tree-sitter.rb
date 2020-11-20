@@ -14,9 +14,15 @@ class TreeSitter < Formula
     sha256 "f142b02c17ed1c789b1675a3e56f448cade7000752f099850c18764aca2b960f" => :high_sierra
   end
 
+  depends_on "rust" => :build
+
   def install
     system "make"
     system "make", "install", "PREFIX=#{prefix}"
+
+    cd "cli" do
+      system "cargo", "install", *std_cargo_args
+    end
   end
 
   test do
