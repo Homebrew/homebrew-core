@@ -1,10 +1,28 @@
 class Emacs < Formula
   desc "GNU Emacs text editor"
   homepage "https://www.gnu.org/software/emacs/"
-  url "https://ftp.gnu.org/gnu/emacs/emacs-27.1.tar.xz"
-  mirror "https://ftpmirror.gnu.org/emacs/emacs-27.1.tar.xz"
-  sha256 "4a4c128f915fc937d61edfc273c98106711b540c9be3cd5d2e2b9b5b2f172e41"
   license "GPL-3.0-or-later"
+
+  stable do
+    url "https://ftp.gnu.org/gnu/emacs/emacs-27.1.tar.xz"
+    mirror "https://ftpmirror.gnu.org/emacs/emacs-27.1.tar.xz"
+    sha256 "4a4c128f915fc937d61edfc273c98106711b540c9be3cd5d2e2b9b5b2f172e41"
+
+    # The emacs binary is patched with a signature after linking. This invalidates the code
+    # signature. Code signing is required on Apple Silicon. This patch adds a step to resign
+    # the binary after it is patched.
+    patch do
+      url "https://github.com/emacs-mirror/emacs/commit/868f51324ac96bc3af49a826e1db443548c9d6cc.patch?full_index=1"
+      sha256 "d2b19fcca66338d082c15fa11d57abf7ad6b40129478bef4c6234c19966db988"
+    end
+
+    # Back-ported patch for configure and configure.guess to allow configure to complete
+    # for aarch64-apple-darwin targets.
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/25c1e1797d4004a9e5b9453779399afc63d04b97/emacs/arm.patch"
+      sha256 "5f812fc413b722e294c7f7abd38f3a9bbda84ec68537cea42900a81e57c7ecb1"
+    end
+  end
 
   livecheck do
     url :stable
