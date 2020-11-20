@@ -1,8 +1,4 @@
-require "language/haskell"
-
 class Agda < Formula
-  include Language::Haskell::Cabal
-
   desc "Dependently typed functional programming language"
   homepage "https://wiki.portal.chalmers.se/agda/"
   license "BSD-3-Clause"
