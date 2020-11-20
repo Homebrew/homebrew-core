@@ -7,20 +7,22 @@ class Flang < Formula
 
   depends_on "cmake" => :build
   depends_on "gcc" # for gfortran
-  depends_on "llvm"
+
+  uses_from_macos "libedit"
+  uses_from_macos "libxml2"
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
 
   def install
-    cd "flang"
-
-    llvm_cmake_dir = "#{Formula["llvm"].opt_prefix}/lib/cmake"
-
-    args = %W[
-      -DLLVM_DIR=#{llvm_cmake_dir}/llvm
-      -DMLIR_DIR=#{llvm_cmake_dir}/mlir
+    args = %w[
+      -DLLVM_ENABLE_PROJECTS=mlir;flang
+      -DLLVM_TARGETS_TO_BUILD=all
+      -DLLVM_ENABLE_ASSERTIONS=ON
     ]
 
-    mkdir "build" do
-      system "cmake", "-G", "Unix Makefiles", "..", *std_cmake_args, *args
+    llvmpath = buildpath/"llvm"
+    mkdir llvmpath/"build" do
+      system "cmake", "-G", "Unix Makefiles", "..", *(std_cmake_args + args)
       system "make"
       system "make", "install"
     end
