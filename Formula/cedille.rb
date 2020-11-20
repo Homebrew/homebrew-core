@@ -1,8 +1,4 @@
-require "language/haskell"
-
 class Cedille < Formula
-  include Language::Haskell::Cabal
-
   desc "Language based on the Calculus of Dependent Lambda Eliminations"
   homepage "https://cedille.github.io/"
   license "MIT"
