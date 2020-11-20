@@ -29,14 +29,14 @@ class V2ray < Formula
                  "-o", bin/"v2ctl",
                  "./infra/control/main"
 
-    (etc/"v2ray").install "release/config/config.json" => "config.json"
+    pkgetc.install "release/config/config.json" => "config.json"
 
     resource("geoip").stage do
-      (pkgshare/"v2ray").install "geoip.dat"
+      pkgshare.install "geoip.dat"
     end
 
     resource("geosite").stage do
-      (pkgshare/"v2ray").install "dlc.dat" => "geosite.dat"
+      pkgshare.install "dlc.dat" => "geosite.dat"
     end
   end
 
