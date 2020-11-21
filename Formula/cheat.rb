@@ -22,6 +22,7 @@ class Cheat < Formula
 
     bash_completion.install "scripts/cheat.bash"
     fish_completion.install "scripts/cheat.fish"
+    zsh_completion.install "scripts/cheat.zsh"
   end
 
   test do
