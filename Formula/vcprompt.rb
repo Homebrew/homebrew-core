@@ -1,12 +1,9 @@
 class Vcprompt < Formula
   desc "Provide version control info in shell prompts"
-  homepage "https://bitbucket.org/gward/vcprompt"
-  url "https://bitbucket.org/gward/vcprompt/downloads/vcprompt-1.2.1.tar.gz"
-  sha256 "98c2dca278a34c5cdbdf4a5ff01747084141fbf4c50ba88710c5a13c3cf9af09"
-
-  livecheck do
-    skip "Bitbucket repository is missing"
-  end
+  homepage "https://hg.gerg.ca/vcprompt"
+  url "https://hg.gerg.ca/vcprompt/archive/1.2.1.tar.gz"
+  sha256 "fdf26566e2bd73cf734b7228f78c09a0f53d0166662fcd482a076ed01c9dbe36"
+  license "GPL-2.0-or-later"
 
   bottle do
     cellar :any
@@ -20,19 +17,13 @@ class Vcprompt < Formula
     sha256 "ee133ff8277ce6d7792acd261ba3f27259e677badfe73b80ffd6fd08c6cd3665" => :mavericks
   end
 
-  head do
-    url "https://bitbucket.org/gward/vcprompt", using: :hg
-    depends_on "autoconf" => :build
-  end
-
+  depends_on "autoconf" => :build
   depends_on "sqlite"
 
   def install
-    system "autoconf" if build.head?
-
+    system "autoconf"
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
-
     system "make", "PREFIX=#{prefix}",
                    "MANDIR=#{man1}",
                    "install"
