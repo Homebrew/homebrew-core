@@ -13,7 +13,7 @@ class AwsRotateKey < Formula
   end
   
   test do
-    assert_match(/^Usage of #{bin}\/aws-rotate-key:/, shell_output("#{bin}/aws-rotate-key --help 2>&1"))
+    assert_match(%r{/^Usage of #{bin}/aws-rotate-key:/}, shell_output("#{bin}/aws-rotate-key --help 2>&1"))
     assert_match("1.0.7", shell_output("#{bin}/aws-rotate-key --version"))
   end
 end
