@@ -6,6 +6,11 @@ class Stockfish < Formula
   license "GPL-3.0-only"
   head "https://github.com/official-stockfish/Stockfish.git"
 
+  livecheck do
+    url "https://github.com/official-stockfish/Stockfish/releases/latest"
+    regex(%r{href=.*?/tag/(?:sf[._-])?v?(\d+(?:\.\d+)*)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "33e7b97bde0b94856ef6e14087f2c1e40d8e17f5a4878123bedeacfd6329fdd3" => :big_sur
