@@ -20,6 +20,7 @@ class Xdot < Formula
 
   depends_on "adwaita-icon-theme"
   depends_on "gtk+3"
+  depends_on "numpy"
   depends_on "py3cairo"
   depends_on "pygobject3"
   depends_on "python@3.9"
