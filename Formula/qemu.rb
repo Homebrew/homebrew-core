@@ -47,7 +47,6 @@ class Qemu < Formula
       --enable-libssh
       --enable-vde
       --extra-cflags=-DNCURSES_WIDECHAR=1
-      --enable-cocoa
       --disable-sdl
       --disable-gtk
     ]
@@ -57,6 +56,10 @@ class Qemu < Formula
     # obtain sensible runtime errors. This will also be compatible with
     # Samba installations from external taps.
     args << "--smbd=#{HOMEBREW_PREFIX}/sbin/samba-dot-org-smbd"
+
+    on_macos do
+      args << "--enable-cocoa"
+    end
 
     system "./configure", *args
     system "make", "V=1", "install"
