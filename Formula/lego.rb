@@ -2,8 +2,8 @@ class Lego < Formula
   desc "Let's Encrypt client"
   homepage "https://go-acme.github.io/lego/"
   url "https://github.com/go-acme/lego.git",
-    tag:      "v4.1.1",
-    revision: "fca2a4564fe913f8cef61612a16b7b3d0f1e3bae"
+    tag:      "v4.1.2",
+    revision: "721cfb5fe2d4d32043f5994e2a38473a86365802"
   license "MIT"
 
   bottle do
