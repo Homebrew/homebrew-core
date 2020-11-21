@@ -1,8 +1,8 @@
 class OpenMpi < Formula
   desc "High performance message passing library"
   homepage "https://www.open-mpi.org/"
-  url "https://aws.open-mpi.org/~jsquyres/unofficial/openmpi-gitclone-v4.1.x-including-big-sur-libtool-fix.tar.bz2"
-  sha256 "7920bcac03086f476f8a1149c5a5d3e94876831f0e9a0ee47c88efaae920f223"
+  url "https://github.com/ggouaillardet/ompi/releases/download/4.0-brew/openmpi-gitclone.tar.bz2"
+  sha256 "68cb76bd5c2254c4a109f5d96a8e5ea4fbaec462f50a0757af0360f678a0fbed"
   license "BSD-3-Clause"
 
   livecheck do
