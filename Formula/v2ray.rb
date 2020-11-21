@@ -1,8 +1,8 @@
 class V2ray < Formula
   desc "Platform for building proxies to bypass network restrictions"
   homepage "https://v2fly.org/"
-  url "https://github.com/v2fly/v2ray-core/archive/v4.32.1.tar.gz"
-  sha256 "f5553ffd04ff226573e8132d9beaa63f4d8f4882eba047225b33620848bc6917"
+  url "https://github.com/v2fly/v2ray-core/archive/v4.33.0.tar.gz"
+  sha256 "ce456df0a798e1ed76ec014cb619e89c508bfb812c689260067575ee94e18c76"
   license all_of: ["MIT", "CC-BY-SA-4.0"]
   head "https://github.com/v2fly/v2ray-core.git"
 
