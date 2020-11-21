@@ -16,13 +16,13 @@ class V2ray < Formula
   depends_on "go" => :build
 
   resource "geoip" do
-    url "https://github.com/v2fly/geoip/releases/download/202011150541/geoip.dat"
-    sha256 "11b7c3bfc5715c42d26b0e4bcf51d38c157eae9ab4b9e8391d702681e385dbcd"
+    url "https://github.com/v2fly/geoip/releases/download/202011190012/geoip.dat"
+    sha256 "022e6426f66cd7093fc2454c28537d2345b4fce49dc97b81ddfec07ce54e7081"
   end
 
   resource "geosite" do
-    url "https://github.com/v2fly/domain-list-community/releases/download/20201117215431/dlc.dat"
-    sha256 "32ba60cb90c9f6951e2de12bf3a8e9fd5fbccee4d1706421f1a9413303e75a2e"
+    url "https://github.com/v2fly/domain-list-community/releases/download/20201120043726/dlc.dat"
+    sha256 "ba3d57da0547fe9293f680a9de786ff9c8c0c85ed2bc9437454bd129ced90abf"
   end
 
   def install
