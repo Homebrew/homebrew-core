@@ -14,6 +14,8 @@ class Natalie < Formula
     sha256 "dd51e00a1969ffdd478e954bed48bedd1c5a9813b67931aa146711f49cb58223" => :high_sierra
   end
 
+  deprecate! because: :repo_archived
+
   depends_on xcode: ["9.4", :build]
 
   def install
