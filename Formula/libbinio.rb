@@ -22,7 +22,7 @@ class Libbinio < Formula
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}", "--infodir=#{info}"
     system "make", "install"
   end
 end
