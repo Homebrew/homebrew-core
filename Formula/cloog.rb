@@ -1,7 +1,7 @@
 class Cloog < Formula
   desc "Generate code for scanning Z-polyhedra"
-  homepage "https://www.bastoul.net/cloog/"
-  url "https://www.bastoul.net/cloog/pages/download/count.php3?url=./cloog-0.18.4.tar.gz"
+  homepage "http://www.bastoul.net/cloog/"
+  url "http://www.bastoul.net/cloog/pages/download/count.php3?url=./cloog-0.18.4.tar.gz"
   sha256 "325adf3710ce2229b7eeb9e84d3b539556d093ae860027185e7af8a8b00a750e"
   revision 3
 
