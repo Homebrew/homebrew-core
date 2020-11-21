@@ -24,6 +24,11 @@ class Xdot < Formula
   depends_on "pygobject3"
   depends_on "python@3.9"
 
+  resource "graphviz" do
+    url "https://files.pythonhosted.org/packages/33/c4/82459071796f59ef218d3c22d43d35aa0fbcf74f9fcce8829672febd7f5e/graphviz-0.15.zip"
+    sha256 "2b85f105024e229ec330fe5067abbe9aa0d7708921a585ecc2bf56000bf5e027"
+  end
+
   def install
     xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
