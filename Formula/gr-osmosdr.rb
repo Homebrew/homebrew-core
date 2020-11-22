@@ -6,6 +6,7 @@ class GrOsmosdr < Formula
   url "https://github.com/osmocom/gr-osmosdr/archive/v0.2.2.tar.gz"
   sha256 "5a7ce7afee38a56191b5d16cb4a91c92476729ff16ed09cbba5a3851ac619713"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 "c4a00d0ab33d277fbd036c7f496b09ca8259ec892a2a8877a3707a512f4ec705" => :big_sur
@@ -48,6 +49,10 @@ class GrOsmosdr < Formula
 
     system "cmake", ".", *std_cmake_args, "-DPYTHON_EXECUTABLE=#{venv_root}/bin/python"
     system "make", "install"
+
+    # Leave a pointer to our Python module directory where GNU Radio can find it
+    site_packages = lib/"python#{xy}/site-packages"
+    (etc/"gnuradio/plugins.d/gr-osmosdr.pth").write "#{site_packages}\n"
   end
 
   test do
@@ -60,5 +65,9 @@ class GrOsmosdr < Formula
     EOS
     system ENV.cxx, "test.cpp", "-L#{lib}", "-lgnuradio-osmosdr", "-o", "test"
     system "./test"
+
+    # Make sure GNU Radio's Python can find our module
+    (testpath/"testimport.py").write "import osmosdr\n"
+    system Formula["gnuradio"].libexec/"venv/bin/python", testpath/"testimport.py"
   end
 end

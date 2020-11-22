@@ -6,7 +6,7 @@ class Gnuradio < Formula
   url "https://github.com/gnuradio/gnuradio/releases/download/v3.8.2.0/gnuradio-3.8.2.0.tar.gz"
   sha256 "3e293541a9ac8d78660762bae8b80c0f6195b3494e1c50c01a9fd79cc60bb624"
   license "GPL-3.0-or-later"
-  revision 3
+  revision 4
   head "https://github.com/gnuradio/gnuradio.git"
 
   bottle do
@@ -141,9 +141,22 @@ class Gnuradio < Formula
     mv Dir[lib/"python#{xy}/dist-packages/*"], lib/"python#{xy}/site-packages/"
     rm_rf lib/"python#{xy}/dist-packages"
 
+    # Create a directory for Homebrew to put .pth files pointing to GNU Radio
+    # plugins installed by other packages. An automatically-loaded module adds
+    # this directory to the package search path.
+    plugin_pth_dir = etc/"gnuradio/plugins.d"
+    mkdir plugin_pth_dir
+
     site_packages = lib/"python#{xy}/site-packages"
-    pth_contents = "import site; site.addsitedir('#{site_packages}')\n"
-    (venv_root/"lib/python#{xy}/site-packages/homebrew-gnuradio.pth").write pth_contents
+    venv_site_packages = venv_root/"lib/python#{xy}/site-packages"
+
+    (venv_site_packages/"homebrew_gr_plugins.py").write <<~EOS
+      import site
+      site.addsitedir("#{plugin_pth_dir}")
+    EOS
+
+    pth_contents = "#{site_packages}\nimport homebrew_gr_plugins\n"
+    (venv_site_packages/"homebrew-gnuradio.pth").write pth_contents
 
     rm bin.children.reject(&:executable?)
   end
