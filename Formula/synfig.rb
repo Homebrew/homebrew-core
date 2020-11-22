@@ -1,10 +1,9 @@
 class Synfig < Formula
   desc "Command-line renderer"
   homepage "https://synfig.org/"
-  url "https://downloads.sourceforge.net/project/synfig/releases/1.2.2/source/synfig-1.2.2.tar.gz"
-  mirror "https://github.com/synfig/synfig/releases/download/v1.2.2/source-synfig-1.2.2.tar.gz"
-  sha256 "5f5f7b33483041165f9a63fe4d95eb815971c7444569e574206f6964e83cc2ef"
-  revision 4
+  url "https://downloads.sourceforge.net/project/synfig/releases/1.4.0/source/synfig-1.4.0.tar.gz"
+  mirror "https://github.com/synfig/synfig/releases/download/v1.4.0/synfig-1.4.0.tar.gz"
+  sha256 "7f36d57eba9dc959e1deae89e6908585a08db7f2d9399915a46a9eff33080c9c"
   head "https://svn.code.sf.net/p/synfig/code/"
 
   livecheck do
@@ -48,6 +47,7 @@ class Synfig < Formula
 
   test do
     (testpath/"test.cpp").write <<~EOS
+      #include <stddef.h>
       #include <synfig/version.h>
       int main(int argc, char *argv[])
       {
