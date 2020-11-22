@@ -3,6 +3,7 @@ class Naturaldocs < Formula
   homepage "https://www.naturaldocs.org/"
   url "https://downloads.sourceforge.net/project/naturaldocs/Stable%20Releases/2.1/Natural_Docs_2.1.zip"
   sha256 "681a452ae6e981b0c0a0670d859873cceb3326939f2ae1e5f38bb27e91ac18c0"
+  license "AGPL-3.0-only"
 
   livecheck do
     url :stable
