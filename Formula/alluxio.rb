@@ -1,8 +1,9 @@
 class Alluxio < Formula
   desc "Open Source Memory Speed Virtual Distributed Storage"
   homepage "https://www.alluxio.io/"
-  url "https://downloads.alluxio.io/downloads/files/2.4.0/alluxio-2.4.0-bin.tar.gz"
-  sha256 "6f664325d79bf3dd5682749b476eef1f99b0557c473f245903300eea2e5459d9"
+  url "https://downloads.alluxio.io/downloads/files/2.4.1/alluxio-2.4.1-bin.tar.gz"
+  sha256 "06c052761f597692a4427f08169f3277f458cf23847db4270b1f2dd75c14907a"
+  license "Apache-2.0"
 
   livecheck do
     url "https://downloads.alluxio.io/downloads/files/"
@@ -11,6 +12,9 @@ class Alluxio < Formula
 
   bottle :unneeded
 
+  # Alluxio requires Java 8 or Java 11
+  depends_on "openjdk@11"
+
   def default_alluxio_conf
     <<~EOS
       alluxio.master.hostname=localhost
@@ -18,9 +22,10 @@ class Alluxio < Formula
   end
 
   def install
-    doc.install Dir["docs/*"]
     libexec.install Dir["*"]
-    bin.write_exec_script Dir["#{libexec}/bin/*"]
+    bin.install Dir["#{libexec}/bin/*"]
+    bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env("11")
+    chmod "+x", Dir["#{libexec}/bin/*"]
 
     rm_rf Dir["#{etc}/alluxio/*"]
 
@@ -41,6 +46,12 @@ class Alluxio < Formula
   end
 
   test do
-    system bin/"alluxio", "version"
+    output = shell_output("#{bin}/alluxio validateConf")
+    assert_match "ValidateConf - Validating configuration.", output
+
+    output = shell_output("#{bin}/alluxio clearCache 2>&1", 1)
+    assert_match "drop_caches: No such file or directory", output
+
+    assert_match version.to_s, shell_output("#{bin}/alluxio version")
   end
 end
