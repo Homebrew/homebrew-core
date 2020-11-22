@@ -4,7 +4,7 @@ class Ipopt < Formula
   url "https://www.coin-or.org/download/source/Ipopt/Ipopt-3.13.3.tgz"
   sha256 "86354b36c691e6cd6b8049218519923ab0ce8a6f0a432c2c0de605191f2d4a1c"
   license "EPL-1.0"
-  revision 1
+  revision 2
   head "https://github.com/coin-or/Ipopt.git"
 
   bottle do
@@ -16,6 +16,7 @@ class Ipopt < Formula
 
   depends_on "openjdk" => :build
   depends_on "pkg-config" => [:build, :test]
+  depends_on "ampl-mp"
   depends_on "gcc"
   depends_on "openblas"
 
@@ -66,6 +67,8 @@ class Ipopt < Formula
       "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas",
       "--with-mumps-cflags=-I#{buildpath}/mumps_include",
       "--with-mumps-lflags=-L#{lib} -ldmumps -lmpiseq -lmumps_common -lopenblas -lpord",
+      "--with-asl-cflags=-I#{Formula["ampl-mp"].opt_include}/asl",
+      "--with-asl-lflags=-L#{Formula["ampl-mp"].opt_lib} -lasl",
     ]
 
     system "./configure", *args
@@ -80,5 +83,6 @@ class Ipopt < Formula
     pkg_config_flags = `pkg-config --cflags --libs ipopt`.chomp.split
     system ENV.cxx, "examples/hs071_cpp/hs071_main.cpp", "examples/hs071_cpp/hs071_nlp.cpp", *pkg_config_flags
     system "./a.out"
+    system "#{bin}/ipopt", "#{Formula["ampl-mp"].opt_pkgshare}/example/wb"
   end
 end
