@@ -1,12 +1,12 @@
 class Lammps < Formula
   desc "Molecular Dynamics Simulator"
   homepage "https://lammps.sandia.gov/"
-  url "https://github.com/lammps/lammps/archive/stable_3Mar2020.tar.gz"
+  url "https://github.com/lammps/lammps/archive/stable_29Oct2020.tar.gz"
   # lammps releases are named after their release date. We transform it to
   # YYYY-MM-DD (year-month-day) so that we get a sane version numbering.
   # We only track stable releases as announced on the LAMMPS homepage.
-  version "2020-03-03"
-  sha256 "a1a2e3e763ef5baecea258732518d75775639db26e60af1634ab385ed89224d1"
+  version "2020-10-29"
+  sha256 "759705e16c1fedd6aa6e07d028cc0c78d73c76b76736668420946a74050c3726"
   license "GPL-2.0-only"
 
   livecheck do
@@ -29,9 +29,11 @@ class Lammps < Formula
   depends_on "open-mpi"
 
   def install
+    ENV.cxx11
+
     # Disable some packages for which we do not have dependencies, that are
     # deprecated or require too much configuration.
-    disabled_packages = %w[gpu kokkos latte mscg message mpiio poems voronoi]
+    disabled_packages = %w[gpu kokkos latte mscg message mpiio poems python voronoi]
 
     %w[serial mpi].each do |variant|
       cd "src" do
