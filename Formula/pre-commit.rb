@@ -3,8 +3,8 @@ class PreCommit < Formula
 
   desc "Framework for managing multi-language pre-commit hooks"
   homepage "https://pre-commit.com/"
-  url "https://files.pythonhosted.org/packages/48/15/c65d94201c865857570286ab272212655ce5b601246c10ef2b39742f6109/pre_commit-2.8.2.tar.gz"
-  sha256 "905ebc9b534b991baec87e934431f2d0606ba27f2b90f7f652985f5a5b8b6ae6"
+  url "https://files.pythonhosted.org/packages/1f/37/1784ffed1530863f954e52da5adda84ac5ff1fe8926705631abbae4a7fea/pre_commit-2.9.0.tar.gz"
+  sha256 "b2d106d51c6ba6217e859d81774aae33fd825fe7de0dcf0c46e2586333d7a92e"
   license "MIT"
 
   bottle do
@@ -39,8 +39,8 @@ class PreCommit < Formula
   end
 
   resource "identify" do
-    url "https://files.pythonhosted.org/packages/63/38/6d29a358d8919edbcb878141c49f34bd8f01067a1548df42451046f4d59b/identify-1.5.6.tar.gz"
-    sha256 "969d844b7a85d32a5f9ac4e163df6e846d73c87c8b75847494ee8f4bd2186421"
+    url "https://files.pythonhosted.org/packages/7d/0e/65f2c9a9ee19471d2058484df25f9934dfd0b5aa618e4dd6cba665dc3a9a/identify-1.5.9.tar.gz"
+    sha256 "c9504ba6a043ee2db0a9d69e43246bc138034895f6338d5aed1b41e4a73b1513"
   end
 
   resource "nodeenv" do
@@ -59,13 +59,13 @@ class PreCommit < Formula
   end
 
   resource "toml" do
-    url "https://files.pythonhosted.org/packages/da/24/84d5c108e818ca294efe7c1ce237b42118643ce58a14d2462b3b2e3800d5/toml-0.10.1.tar.gz"
-    sha256 "926b612be1e5ce0634a2ca03470f95169cf16f939018233a670519cb4ac58b0f"
+    url "https://files.pythonhosted.org/packages/be/ba/1f744cdc819428fc6b5084ec34d9b30660f6f9daaf70eead706e3203ec3c/toml-0.10.2.tar.gz"
+    sha256 "b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"
   end
 
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/06/8c/eb8a0ae49eba5be054ca32b3a1dca432baee1d83c4f125d276c6a5fd2d20/virtualenv-20.1.0.tar.gz"
-    sha256 "b8d6110f493af256a40d65e29846c69340a947669eec8ce784fcf3dd3af28380"
+    url "https://files.pythonhosted.org/packages/b5/c1/efd1bffe48cf3b3840e4d1133d3572cc8eb8cda1c4728fef1c8289ebdd80/virtualenv-20.2.0.tar.gz"
+    sha256 "fd4147c5ba3f694e2e4fc3c767407dc2226899623bb9b49c2f15637c2ee335b3"
   end
 
   def install
