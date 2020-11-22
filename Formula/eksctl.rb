@@ -37,7 +37,7 @@ class Eksctl < Formula
     assert_match "The official CLI for Amazon EKS",
       shell_output("#{bin}/eksctl --help")
 
-    assert_match "Error: --cluster must be set",
+    assert_match "Error: couldn't create node group filter from command line options: --cluster must be set",
       shell_output("#{bin}/eksctl create nodegroup 2>&1", 1)
   end
 end
