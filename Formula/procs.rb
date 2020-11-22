@@ -1,8 +1,8 @@
 class Procs < Formula
   desc "Modern replacement for ps written by Rust"
   homepage "https://github.com/dalance/procs"
-  url "https://github.com/dalance/procs/archive/v0.10.7.tar.gz"
-  sha256 "bf0da9d47be2cf5ee005328bfe173ad2a577772340dc6dc53aded42c0d335c56"
+  url "https://github.com/dalance/procs/archive/v0.10.8.tar.gz"
+  sha256 "74255cca2b8599892bca30a5b88a6ff8fa30a79900859ea037d2f7ab3b5ac793"
   license "MIT"
 
   bottle do
