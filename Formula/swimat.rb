@@ -6,6 +6,11 @@ class Swimat < Formula
   license "MIT"
   head "https://github.com/Jintin/Swimat.git"
 
+  livecheck do
+    url "https://github.com/Jintin/Swimat/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "f03f021887a387010e733167f87b37afb05a909b8bfa94d69793b43ea0e637c1" => :big_sur
