@@ -21,12 +21,12 @@ class Ola < Formula
   depends_on "libmicrohttpd"
   depends_on "libusb"
   depends_on "numpy"
-  depends_on "protobuf@3.6"
+  depends_on "protobuf"
   depends_on "python@3.9"
 
   def install
     xy = Language::Python.major_minor_version Formula["python@3.9"].bin/"python3"
-    protobuf_pth = Formula["protobuf@3.6"].opt_lib/"python#{xy}/site-packages/homebrew-protobuf.pth"
+    protobuf_pth = Formula["protobuf"].opt_lib/"python#{xy}/site-packages/homebrew-protobuf.pth"
     (buildpath/".brew_home/Library/Python/#{xy}/lib/python/site-packages").install_symlink protobuf_pth
 
     args = %W[
