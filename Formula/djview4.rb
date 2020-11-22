@@ -26,7 +26,6 @@ class Djview4 < Formula
   depends_on "qt"
 
   def install
-    inreplace "src/djview.pro", "10.6", MacOS.version
     system "autoreconf", "-fiv"
 
     system "./configure", "--disable-debug",
