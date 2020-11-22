@@ -158,6 +158,11 @@ class Gnuradio < Formula
     pth_contents = "#{site_packages}\nimport homebrew_gr_plugins\n"
     (venv_site_packages/"homebrew-gnuradio.pth").write pth_contents
 
+    # Patch the grc config to change the search directory for blocks
+    inreplace etc/"gnuradio/conf.d/grc.conf" do |s|
+      s.gsub! share.to_s, "#{HOMEBREW_PREFIX}/share"
+    end
+
     rm bin.children.reject(&:executable?)
   end
 
