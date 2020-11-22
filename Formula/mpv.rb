@@ -1,10 +1,9 @@
 class Mpv < Formula
   desc "Media player based on MPlayer and mplayer2"
   homepage "https://mpv.io"
-  url "https://github.com/mpv-player/mpv/archive/v0.32.0.tar.gz"
-  sha256 "9163f64832226d22e24bbc4874ebd6ac02372cd717bef15c28a0aa858c5fe592"
+  url "https://github.com/mpv-player/mpv/archive/v0.33.0.tar.gz"
+  sha256 "f1b9baf5dc2eeaf376597c28a6281facf6ed98ff3d567e3955c95bf2459520b4"
   license :cannot_represent
-  revision 8
   head "https://github.com/mpv-player/mpv.git"
 
   bottle do
