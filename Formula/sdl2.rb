@@ -14,6 +14,13 @@ class Sdl2 < Formula
       url "https://bugzilla.libsdl.org/attachment.cgi?id=4263"
       sha256 "07ea066e805f82d85e6472e767ba75d265cb262053901ac9a9e22c5f8ff187a5"
     end
+
+    # Fix configure script detects Apple Silicon Macs as iPhones.
+    # https://bugzilla.libsdl.org/show_bug.cgi?id=5232
+    patch do
+      url "https://hg.libsdl.org/SDL/raw-rev/af22dd6c0787"
+      sha256 "df68efb43e451789c1bf2873dabc9a70c66264f8b7ad360a71ea4c643c6acc37"
+    end
   end
 
   livecheck do
