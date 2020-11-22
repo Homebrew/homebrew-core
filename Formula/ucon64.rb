@@ -26,14 +26,6 @@ class Ucon64 < Formula
     sha256 "d74cb3ba11a4ef5d0f8d224325958ca1203b0d8bb4a7a79867e412d987f0b846"
   end
 
-  # Fixes an upstream issue which incorrectly attempts to use a Linux-only
-  # function on macOS. Should be in the next release.
-  # https://sourceforge.net/p/ucon64/svn/2763/
-  patch do
-    url "https://github.com/Homebrew/formula-patches/raw/23a80b586dd35fdde1bf575c57a1b468631e644e/ucon64/sched_setscheduler.diff"
-    sha256 "bb7bf52ec016092bf84b0a5eebb4295394288985993d4ab7a6b69a78c1c3ce77"
-  end
-
   def install
     # ucon64's normal install process installs the discmage library in
     # the user's home folder. We want to store it inside the prefix, so
