@@ -5,6 +5,7 @@ class Juju < Formula
     tag:      "juju-2.8.6",
     revision: "5d0442d3e15952bfc0ce059cb43ef7949ca71aaa"
   license "AGPL-3.0-only"
+  revision 1
   version_scheme 1
 
   livecheck do
@@ -20,6 +21,12 @@ class Juju < Formula
   end
 
   depends_on "go" => :build
+
+  # Fixed in next 2.8.x release.
+  patch do
+    url "https://github.com/juju/juju/commit/29afb4b7fdbaa70a3e1a2c596e46a0c7962303a4.patch?full_index=1"
+    sha256 "edb6337d7bb75ae053eecbcf5704a4165130241b302832484ece19b5183c3ca7"
+  end
 
   def install
     git_commit = Utils.safe_popen_read("git", "rev-parse", "HEAD").chomp
