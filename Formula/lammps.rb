@@ -8,6 +8,7 @@ class Lammps < Formula
   version "2020-03-03"
   sha256 "a1a2e3e763ef5baecea258732518d75775639db26e60af1634ab385ed89224d1"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url "https://github.com/lammps/lammps/releases/latest"
