@@ -1,8 +1,8 @@
 class Goaccess < Formula
   desc "Log analyzer and interactive viewer for the Apache Webserver"
   homepage "https://goaccess.io/"
-  url "https://tar.goaccess.io/goaccess-1.4.1.tar.gz"
-  sha256 "9fa2a4121ee76f7c69c272744d8e81234032f3fd32bde36b16012d8b7c1b8bad"
+  url "https://tar.goaccess.io/goaccess-1.4.2.tar.gz"
+  sha256 "f0ea433170058866e57bd5d0f98dc70c3857f4762ca5a29e6ece26d2ccce4f67"
   license "MIT"
   head "https://github.com/allinurl/goaccess.git"
 
