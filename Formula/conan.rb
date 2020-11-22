@@ -9,7 +9,8 @@ class Conan < Formula
   head "https://github.com/conan-io/conan.git"
 
   livecheck do
-    url :stable
+    url "https://github.com/conan-io/conan/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
   end
 
   bottle do
