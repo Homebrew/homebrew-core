@@ -3,7 +3,7 @@ class OpenkimModels < Formula
   homepage "https://openkim.org"
   url "https://s3.openkim.org/archives/collection/openkim-models-2019-07-25.txz"
   sha256 "50338084ece92ec0fb13b0bbdf357b5d7450e26068ba501f23c315f814befc26"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "d8eb0ffb78085bf3d5770d022378d82631e75c8975611bcd4f6b63a33f0ef74c" => :big_sur
