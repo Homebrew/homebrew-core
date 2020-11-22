@@ -12,6 +12,8 @@ class Kotlin < Formula
 
   bottle :unneeded
 
+  depends_on "openjdk" => :test
+
   def install
     libexec.install "bin", "build.txt", "lib"
     rm Dir["#{libexec}/bin/*.bat"]
