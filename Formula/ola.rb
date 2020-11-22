@@ -2,8 +2,8 @@ class Ola < Formula
   desc "Open Lighting Architecture for lighting control information"
   homepage "https://www.openlighting.org/ola/"
   url "https://github.com/OpenLightingProject/ola/releases/download/0.10.8/ola-0.10.8.tar.gz"
+  sha256 "102aa3114562a2a71dbf7f77d2a0fb9fc47acc35d6248a70b6e831365ca71b13"
   license "GPL-2.0"
-  revision 5
   head "https://github.com/OpenLightingProject/ola.git"
 
   bottle do
