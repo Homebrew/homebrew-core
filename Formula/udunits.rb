@@ -1,8 +1,8 @@
 class Udunits < Formula
   desc "Unidata unit conversion library"
   homepage "https://www.unidata.ucar.edu/software/udunits/"
-  url "https://github.com/Unidata/UDUNITS-2/archive/v2.2.27.6.tar.gz"
-  sha256 "74fd7fb3764ce2821870fa93e66671b7069a0c971513bf1904c6b053a4a55ed1"
+  url "https://github.com/Unidata/UDUNITS-2/archive/v2.2.27.27.tar.gz"
+  sha256 "6c65b3097ef38b94c01dfede8904346c1439de9704b9bae7deea72bd5143a7bb"
 
   bottle do
     sha256 "06ce12b4caedfc807687c9ab8d2fdacf6a4dd7a26299a2bc6039a690d380e27f" => :big_sur
