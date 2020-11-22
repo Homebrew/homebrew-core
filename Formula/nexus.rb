@@ -6,8 +6,8 @@ class Nexus < Formula
   license "EPL-1.0"
 
   livecheck do
-    url "https://help.sonatype.com/repomanager2/download/download-archives---repository-manager-oss"
-    regex(/href=.*?nexus[._-]v?(\d+(?:\.\d+)+(?:-\d+)?)(?:-bundle)?\.t/i)
+    url "https://github.com/sonatype/nexus-public/releases/latest"
+    regex(%r{href=.*?/tag/release[._-]v?(\d+(?:[.-]\d+)+)["' >]}i)
   end
 
   bottle do
