@@ -31,7 +31,8 @@ class Geos < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--enable-python",
-                          "PYTHON=#{Formula["python@3.9"].opt_bin}/python3"
+                          "PYTHON=#{Formula["python@3.9"].opt_bin}/python3",
+                          "--disable-inline"
     system "make", "install"
   end
 
