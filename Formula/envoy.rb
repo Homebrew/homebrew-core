@@ -2,7 +2,7 @@ class Envoy < Formula
   desc "Cloud-native high-performance edge/middle/service proxy"
   homepage "https://www.envoyproxy.io"
   url "https://github.com/envoyproxy/envoy.git",
-      tag:      "v1.61.1",
+      tag:      "v1.16.1",
       revision: "0717f49fef0dac3818cd7cdc52bf18e0ae1f7a2c"
   license "Apache-2.0"
 
