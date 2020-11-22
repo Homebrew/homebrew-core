@@ -19,18 +19,14 @@ class Djvulibre < Formula
     sha256 "a175ac622b0f8914e401ba93938b4316c08f35bc186c35196a5a3de6b56b95ab" => :yosemite
   end
 
-  head do
-    url "https://git.code.sf.net/p/djvu/djvulibre-git.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "jpeg"
   depends_on "libtiff"
 
   def install
-    system "./autogen.sh" if build.head?
+    system "./autogen.sh"
     # Don't build X11 GUI apps, Spotlight Importer or QuickLook plugin
     system "./configure", "--prefix=#{prefix}", "--disable-desktopfiles"
     system "make"
