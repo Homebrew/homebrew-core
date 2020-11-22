@@ -21,8 +21,8 @@ class V2ray < Formula
   end
 
   resource "geosite" do
-    url "https://github.com/v2fly/domain-list-community/releases/download/20201120043726/dlc.dat"
-    sha256 "ba3d57da0547fe9293f680a9de786ff9c8c0c85ed2bc9437454bd129ced90abf"
+    url "https://github.com/v2fly/domain-list-community/releases/download/20201122065644/dlc.dat"
+    sha256 "574af5247bb83db844be03038c8fed1e488bf4bd4ce5de2843847cf40be923c1"
   end
 
   def install
