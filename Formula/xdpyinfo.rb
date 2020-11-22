@@ -32,6 +32,6 @@ class Xdpyinfo < Formula
   end
 
   test do
-    assert_match /version number:\s+11.0/, shell_output("xdpyinfo")
+    assert_match("xdpyinfo #{version}", shell_output("DISPLAY= xdpyinfo -version 2>&1"))
   end
 end
