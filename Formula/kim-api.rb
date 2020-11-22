@@ -1,9 +1,9 @@
 class KimApi < Formula
   desc "Knowledgebase of Interatomic Models (KIM) API"
   homepage "https://openkim.org"
-  url "https://s3.openkim.org/kim-api/kim-api-2.1.3.txz"
-  sha256 "88a5416006c65a2940d82fad49de0885aead05bfa8b59f87d287db5516b9c467"
-  revision 1
+  url "https://s3.openkim.org/kim-api/kim-api-2.2.0.txz"
+  sha256 "8a9301bb2b718986350a6f0dab758168002d4b10badae5b1b70d19f73ad46f80"
+  license "CDDL-1.0"
 
   livecheck do
     url "https://openkim.org/kim-api/previous-versions/"
@@ -40,6 +40,6 @@ class KimApi < Formula
 
   test do
     output = shell_output("#{bin}/kim-api-collections-management list")
-    assert_match "ex_model_Ar_P_Morse_07C_w_Extensions", output
+    assert_match "Knowledgebase of Interatomic Models (KIM)  ---  Model Collections Listing", output
   end
 end
