@@ -3,7 +3,7 @@ class Axel < Formula
   homepage "https://github.com/eribertomota/axel"
   url "https://github.com/axel-download-accelerator/axel/releases/download/v2.17.10/axel-2.17.10.tar.xz"
   sha256 "46eb4f10a11c4e50320ae6a034ef03ffe59dc11c3c6542a9867a3e4dc0c4b44e"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   head "https://github.com/eribertomota/axel.git"
 
   bottle do
