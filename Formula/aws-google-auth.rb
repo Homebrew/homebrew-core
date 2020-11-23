@@ -6,7 +6,7 @@ class AwsGoogleAuth < Formula
   url "https://github.com/cevoaustralia/aws-google-auth/archive/0.0.36.tar.gz"
   sha256 "c880633b2813b3fd2312fd1301a8927ebc7b13c3405932bd0ec760cecfb7c780"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/cevoaustralia/aws-google-auth.git"
 
   bottle do
@@ -65,8 +65,8 @@ class AwsGoogleAuth < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/05/8c/40cd6949373e23081b3ea20d5594ae523e681b6f472e600fbc95ed046a36/urllib3-1.25.9.tar.gz"
-    sha256 "3018294ebefce6572a474f0604c2021e33b3fd8006ecd11d62107a5d2a963527"
+    url "https://files.pythonhosted.org/packages/29/e6/d1a1d78c439cad688757b70f26c50a53332167c364edb0134cadd280e234/urllib3-1.26.2.tar.gz"
+    sha256 "19188f96923873c92ccb987120ec4acaa12f0461fa9ce5d3d0772bc965a39e08"
   end
 
   resource "botocore" do
@@ -125,8 +125,8 @@ class AwsGoogleAuth < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/f5/4f/280162d4bd4d8aad241a21aecff7a6e46891b905a4341e7ab549ebaf7915/requests-2.23.0.tar.gz"
-    sha256 "b3f43d496c6daba4493e7c431722aeb7dbc6288f52a6e04e7b6023b0247817e6"
+    url "https://files.pythonhosted.org/packages/9f/14/4a6542a078773957aa83101336375c9597e6fe5889d20abda9c38f9f3ff2/requests-2.25.0.tar.gz"
+    sha256 "7f1a0b932f4a60a1a65caa4263921bb7d9ee911957e0ae4a23a6dd08185ad5f8"
   end
 
   resource "tabulate" do
