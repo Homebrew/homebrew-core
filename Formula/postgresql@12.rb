@@ -81,9 +81,9 @@ class PostgresqlAT12 < Formula
     return if ENV["CI"]
 
     (var/"log").mkpath
-    postgresql_datadir.mkpath
+    versioned_postgresql_data_dir.mkpath
     unless versioned_data_dir_exists?
-      system "#{bin}/initdb", "--locale=C", "-E", "UTF-8", postgresql_datadir
+      system "#{bin}/initdb", "--locale=C", "-E", "UTF-8", versioned_postgresql_data_dir
     end
   end
 
