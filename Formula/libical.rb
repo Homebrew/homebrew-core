@@ -3,8 +3,7 @@ class Libical < Formula
   homepage "https://libical.github.io/libical/"
   url "https://github.com/libical/libical/releases/download/v3.0.8/libical-3.0.8.tar.gz"
   sha256 "09fecacaf75ba5a242159e3a9758a5446b5ce4d0ab684f98a7040864e1d1286f"
-  # license ["LGPL-2.1", "MPL-2.0"] - pending https://github.com/Homebrew/brew/pull/7953
-  license "LGPL-2.1"
+  license any_of: ["LGPL-2.1-or-later", "MPL-2.0"]
   revision 2
 
   bottle do
