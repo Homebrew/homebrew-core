@@ -25,6 +25,14 @@ class TreeSitter < Formula
     end
   end
 
+  def caveats
+    <<~EOS
+      To automatically create a default config file in ~/.tree-sitter,
+      run this command:
+        tree-sitter init-config
+    EOS
+  end
+
   test do
     # a trivial tree-sitter test
     assert_equal "tree-sitter #{version}", shell_output("#{bin}/tree-sitter --version").strip
