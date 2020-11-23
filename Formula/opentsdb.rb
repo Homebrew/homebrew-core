@@ -21,8 +21,8 @@ class Opentsdb < Formula
 
   depends_on "gnuplot"
   depends_on "hbase"
-  depends_on java: "1.8"
   depends_on "lzo"
+  depends_on "openjdk@8"
 
   def install
     system "./configure",
