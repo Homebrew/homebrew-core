@@ -17,6 +17,7 @@ class CassandraAT22 < Formula
 
   depends_on "cython" => :build
   depends_on :macos # Due to Python 2 (does not support Python 3)
+  depends_on "openjdk@8"
 
   # Only >=Yosemite has new enough setuptools for successful compile of the below deps.
   # Python 2 needs setuptools < 45.0.0 (https://github.com/pypa/setuptools/issues/2094)
@@ -82,6 +83,9 @@ class CassandraAT22 < Formula
       # Storage path
       s.gsub! "cassandra_storagedir\=\"$CASSANDRA_HOME/data\"",
               "cassandra_storagedir\=\"#{var}/lib/cassandra\""
+
+      s.gsub! "#JAVA_HOME=/usr/local/jdk6",
+              "JAVA_HOME=#{Language::Java.overridable_java_home_env("1.8")[:JAVA_HOME]}"
     end
 
     rm Dir["bin/*.bat", "bin/*.ps1"]
