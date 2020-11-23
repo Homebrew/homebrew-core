@@ -140,15 +140,15 @@ class PostgresqlAT12 < Formula
       else
         # Only PostgreSQL@12 is installed, not PostgreSQL
         <<~EOS
-          Previous versions of this formula used the same data directory as
-          the regular PostgreSQL formula. This will cause a conflict if you
+          Previous versions of #{name} used the same data directory as
+          the postgresql formula. This will cause a conflict if you
           try to use both at the same time.
 
           You can migrate to a versioned data directory by running this command:
 
             mv -v "#{var}/postgres" "#{var}/#{name}"
 
-          (Make sure PostgreSQL is not running before executing this command)
+          (Make sure PostgreSQL is stopped before executing this command)
 
         EOS
       end
