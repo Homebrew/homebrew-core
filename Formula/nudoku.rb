@@ -5,8 +5,8 @@ class Nudoku < Formula
   head "https://github.com/jubalh/nudoku.git"
 
   stable do
-    url "https://github.com/jubalh/nudoku/archive/2.0.0.tar.gz"
-    sha256 "44d3ec1ff34a010910ac7a92f6d84e8a7a4678a966999b7be27d224609ae54e1"
+    url "https://github.com/jubalh/nudoku/archive/2.1.0.tar.gz"
+    sha256 "eeff7f3adea5bfe7b88bf7683d68e9a597aabd1442d1621f21760c746400b924"
 
     # gettext 0.20 compatibility.
     # Remove with next release.
