@@ -23,6 +23,7 @@ class Htop < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "python@3.9" => :build
   depends_on "ncurses" # enables mouse scroll
 
   def install
