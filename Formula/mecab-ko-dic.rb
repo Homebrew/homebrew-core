@@ -1,8 +1,8 @@
 class MecabKoDic < Formula
   desc "See mecab"
   homepage "https://bitbucket.org/eunjeon/mecab-ko-dic"
-  url "https://bitbucket.org/eunjeon/mecab-ko-dic/downloads/mecab-ko-dic-1.6.1-20140814.tar.gz"
-  sha256 "251fb141f2e96d34ea62f557c146ab0615dea67502cce8811d408309f182cfb7"
+  url "https://bitbucket.org/eunjeon/mecab-ko-dic/downloads/mecab-ko-dic-2.1.1-20180720.tar.gz"
+  sha256 "fd62d3d6d8fa85145528065fabad4d7cb20f6b2201e71be4081a4e9701a5b330"
   license "Apache-2.0"
 
   livecheck do
