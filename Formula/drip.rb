@@ -18,7 +18,7 @@ class Drip < Formula
 
   deprecate! because: :does_not_build
 
-  depends_on java: "1.8"
+  depends_on "openjdk@8"
 
   def install
     system "make"
