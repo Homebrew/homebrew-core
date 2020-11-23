@@ -3,8 +3,7 @@ class Libfreenect < Formula
   homepage "https://openkinect.org/"
   url "https://github.com/OpenKinect/libfreenect/archive/v0.6.1.tar.gz"
   sha256 "a2e426cf42d9289b054115876ec39502a1144bc782608900363a0c38056b6345"
-  # license ["Apache-2.0", "GPL-2.0"] - pending https://github.com/Homebrew/brew/pull/7953
-  license "Apache-2.0"
+  license any_of: ["Apache-2.0", "GPL-2.0-only"]
   head "https://github.com/OpenKinect/libfreenect.git"
 
   bottle do
