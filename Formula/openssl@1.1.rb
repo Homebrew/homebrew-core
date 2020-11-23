@@ -46,6 +46,13 @@ class OpensslAT11 < Formula
     end
   end
 
+  # Add darwin64-arm64-cc build target.
+  # See: https://github.com/openssl/openssl/pull/12369
+  patch do
+    url "https://github.com/stuartcarnie/openssl/commit/4907cf01f63cc966a40d67eb2e030c4d8eb1d528.patch?full_index=1"
+    sha256 "2c0af13764c9d52bb9e04687d430d5e2682bb877b790f089c348c8de0434ad00"
+  end
+
   # SSLv2 died with 1.1.0, so no-ssl2 no longer required.
   # SSLv3 & zlib are off by default with 1.1.0 but this may not
   # be obvious to everyone, so explicitly state it for now to
@@ -90,7 +97,7 @@ class OpensslAT11 < Formula
 
     arch_args = []
     on_macos do
-      arch_args += %w[darwin64-x86_64-cc enable-ec_nistp_64_gcc_128]
+      arch_args += %W[darwin64-#{Hardware::CPU.arch}-cc enable-ec_nistp_64_gcc_128]
     end
     on_linux do
       if Hardware::CPU.intel?
@@ -99,9 +106,6 @@ class OpensslAT11 < Formula
         arch_args << (Hardware::CPU.is_64_bit? ? "linux-aarch64" : "linux-armv4")
       end
     end
-    # Remove `no-asm` workaround when upstream releases a fix
-    # See also: https://github.com/openssl/openssl/issues/12254
-    arch_args << "no-asm" if Hardware::CPU.arm?
 
     ENV.deparallelize
     system "perl", "./Configure", *(configure_args + arch_args)
