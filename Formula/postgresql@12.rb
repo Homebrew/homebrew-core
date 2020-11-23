@@ -81,9 +81,9 @@ class PostgresqlAT12 < Formula
     return if ENV["CI"]
 
     (var/"log").mkpath
-    (var/name).mkpath
-    unless File.exist? "#{var}/#{name}/PG_VERSION"
-      system "#{bin}/initdb", "--locale=C", "-E", "UTF-8", "#{var}/#{name}"
+    postgresql_datadir.mkpath
+    unless versioned_data_dir_exists?
+      system "#{bin}/initdb", "--locale=C", "-E", "UTF-8", postgresql_datadir
     end
   end
 
@@ -93,10 +93,18 @@ class PostgresqlAT12 < Formula
   # data dir is in use. Otherwise, returns the old data dir path.
   def postgresql_datadir
     if versioned_data_dir_exists?
-      "#{var}/#{name}"
+      versioned_postgresql_data_dir
     else
-      "#{var}/postgres"
+      old_postgresql_data_dir
     end
+  end
+
+  def versioned_postgresql_data_dir
+    "#{var}/#{name}"
+  end
+
+  def old_postgresql_data_dir
+    "#{var}/postgres"
   end
 
   # Same as with the data dir - use old log file if the old data dir
@@ -110,7 +118,7 @@ class PostgresqlAT12 < Formula
   end
 
   def versioned_data_dir_exists?
-    File.exist?("#{var}/#{name}/PG_VERSION")
+    File.exist?("#{versioned_postgresql_data_dir}/PG_VERSION")
   end
 
   def conflicts_with_postgresql_formula?
@@ -120,8 +128,8 @@ class PostgresqlAT12 < Formula
   # Figure out what version of PostgreSQL the old data dir is
   # using
   def old_postgresql_datadir_version_12?
-    File.exist?("#{var}/postgres/PG_VERSION") &&
-      File.read("#{var}/postgres/PG_VERSION").chomp == "12"
+    File.exist?("#{old_postgresql_data_dir}/PG_VERSION") &&
+      File.read("#{old_postgresql_data_dir}/PG_VERSION").chomp == "12"
   end
 
   def caveats
@@ -139,7 +147,7 @@ class PostgresqlAT12 < Formula
           In order to avoid this conflict, you should make sure that the
           #{name} data directory is located at:
 
-            #{var}/#{name}
+            #{versioned_postgresql_data_dir}
 
         EOS
       else
@@ -151,7 +159,7 @@ class PostgresqlAT12 < Formula
 
           You can migrate to a versioned data directory by running this command:
 
-            mv -v "#{var}/postgres" "#{var}/#{name}"
+            mv -v "#{old_postgresql_data_dir}" "#{versioned_postgresql_data_dir}"
 
           (Make sure PostgreSQL is stopped before executing this command)
 
@@ -161,7 +169,7 @@ class PostgresqlAT12 < Formula
 
     caveats += <<~EOS
       This formula has created a default database cluster with:
-        initdb --locale=C -E UTF-8 #{var}/#{name}
+        initdb --locale=C -E UTF-8 #{postgresql_datadir}
       For more details, read:
         https://www.postgresql.org/docs/#{version.major}/app-initdb.html
     EOS
