@@ -82,7 +82,7 @@ class PostgresqlAT12 < Formula
 
     (var/"log").mkpath
     versioned_data_dir.mkpath
-    unless versioned_data_dir_exists?
+    unless versioned_pg_version_exists?
       system "#{bin}/initdb", "--locale=C", "-E", "UTF-8", versioned_data_dir
     end
   end
@@ -92,7 +92,7 @@ class PostgresqlAT12 < Formula
   # and has a PG_VERSION file, which should indicate that the versioned
   # data dir is in use. Otherwise, returns the old data dir path.
   def postgresql_datadir
-    if versioned_data_dir_exists?
+    if versioned_pg_version_exists?
       versioned_data_dir
     else
       old_postgres_data_dir
@@ -110,14 +110,14 @@ class PostgresqlAT12 < Formula
   # Same as with the data dir - use old log file if the old data dir
   # is version 12
   def postgresql_log_path
-    if versioned_data_dir_exists?
+    if versioned_pg_version_exists?
       "#{var}/log/#{name}"
     else
       "#{var}/log/postgres"
     end
   end
 
-  def versioned_data_dir_exists?
+  def versioned_pg_version_exists?
     File.exist?("#{versioned_postgresql_data_dir}/PG_VERSION")
   end
 
