@@ -118,7 +118,7 @@ class PostgresqlAT12 < Formula
   end
 
   def versioned_pg_version_exists?
-    File.exist?("#{versioned_postgresql_data_dir}/PG_VERSION")
+    (versioned_data_dir/"PG_VERSION").exist?
   end
 
   def conflicts_with_postgresql_formula?
