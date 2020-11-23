@@ -1,8 +1,8 @@
 class Bat < Formula
   desc "Clone of cat(1) with syntax highlighting and Git integration"
   homepage "https://github.com/sharkdp/bat"
-  url "https://github.com/sharkdp/bat/archive/v0.16.0.tar.gz"
-  sha256 "4db85abfaba94a5ff601d51b4da8759058c679a25b5ec6b45c4b2d85034a5ad3"
+  url "https://github.com/sharkdp/bat/archive/v0.17.0.tar.gz"
+  sha256 "a2848389c8e213f63856ce7c664a4c069e3f28438e770ff9b93df272f61cde6b"
   license "Apache-2.0"
 
   bottle do
