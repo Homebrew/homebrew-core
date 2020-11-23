@@ -33,6 +33,7 @@ class Graphviz < Formula
 
   on_linux do
     depends_on "byacc" => :build
+    depends_on "ghostscript" => :build
   end
 
   # See https://github.com/Homebrew/homebrew-core/pull/57132
