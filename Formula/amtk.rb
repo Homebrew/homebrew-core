@@ -80,7 +80,6 @@ class Amtk < Formula
       -L#{lib}
       -L#{pango.opt_lib}
       -latk-1.0
-      -lamtk-5.0
       -lcairo
       -lcairo-gobject
       -lgdk-3
@@ -89,10 +88,16 @@ class Amtk < Formula
       -lglib-2.0
       -lgobject-2.0
       -lgtk-3
-      -lintl
       -lpango-1.0
       -lpangocairo-1.0
     ]
+    on_macos do
+      flags << "-lintl"
+      flags << "-lamtk-5.0"
+    end
+    on_linux do
+      flags << "-lamtk-5"
+    end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
