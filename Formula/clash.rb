@@ -6,6 +6,7 @@ class Clash < Formula
   license "GPL-3.0-only"
 
   depends_on "go" => :build
+  depends_on "shadowsocks-libev" => :test
 
   def install
     system "go", "build", *std_go_args
@@ -39,6 +40,40 @@ class Clash < Formula
   end
 
   test do
-    system "#{bin}/clash", "-v"
+    ss_port = free_port
+    (testpath/"shadowsocks-libev.json").write <<~EOS
+      {
+          "server":"127.0.0.1",
+          "server_port":#{ss_port},
+          "password":"test",
+          "timeout":600,
+          "method":"chacha20-ietf-poly1305"
+      }
+    EOS
+    server = fork { exec "ss-server", "-c", testpath/"shadowsocks-libev.json" }
+
+    clash_port = free_port
+    (testpath/"clash.yaml").write <<~EOS
+      mixed-port: #{clash_port}
+      mode: global
+      proxies:
+        - name: "server"
+          type: ss
+          server: 127.0.0.1
+          port: #{ss_port}
+          password: "test"
+          cipher: chacha20-ietf-poly1305
+    EOS
+    client = fork { exec "#{bin}/clash", "-f", testpath/"clash.yaml" }
+
+    sleep 10
+    begin
+      system "curl", "--socks5", "127.0.0.1:#{clash_port}", "github.com"
+    ensure
+      Process.kill 9, server
+      Process.wait server
+      Process.kill 9, client
+      Process.wait client
+    end
   end
 end
