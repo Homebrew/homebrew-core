@@ -30,15 +30,27 @@ class Bento4 < Formula
     because: "both install `mp4extract` and `mp4info` binaries"
 
   def install
-    cd "Build/Targets/universal-apple-macosx" do
-      xcodebuild "-target", "All", "-configuration", "Release", "SYMROOT=build"
-      programs = Dir["build/Release/*"].select do |f|
-        next if f.end_with? ".dylib"
-        next if f.end_with? "Test"
+    on_macos do
+      cd "Build/Targets/universal-apple-macosx" do
+        xcodebuild "-target", "All", "-configuration", "Release", "SYMROOT=build"
+        programs = Dir["build/Release/*"].select do |f|
+          next if f.end_with? ".dylib"
+          next if f.end_with? "Test"
 
-        File.file?(f) && File.executable?(f)
+          File.file?(f) && File.executable?(f)
+        end
+        bin.install programs
       end
-      bin.install programs
+    end
+    on_linux do
+      mkdir "cmakebuild" do
+        system "cmake", "..", *std_cmake_args
+        system "make"
+        programs = Dir["./*"].select do |f|
+          File.file?(f) && File.executable?(f)
+        end
+        bin.install programs
+      end
     end
 
     rm Dir["Source/Python/wrappers/*.bat"]
