@@ -11,8 +11,6 @@ class Druid < Formula
 
   bottle :unneeded
 
-  deprecate! because: :does_not_build
-
   depends_on "openjdk@8"
   depends_on "zookeeper"
 
