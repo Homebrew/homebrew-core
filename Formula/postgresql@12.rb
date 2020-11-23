@@ -136,6 +136,11 @@ class PostgresqlAT12 < Formula
           the regular PostgreSQL formula. This causes a conflict if you
           try to use both at the same time.
 
+          In order to avoid this conflict, you should make sure that the
+          #{name} data directory is located at:
+
+            #{var}/#{name}
+
         EOS
       else
         # Only PostgreSQL@12 is installed, not PostgreSQL
