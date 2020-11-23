@@ -26,8 +26,8 @@ class Ola < Formula
 
   # remove in version 0.11
   patch do
-    url "https://raw.githubusercontent.com/macports/macports-ports/89b697d200c7112839e8f2472cd2ff8dfa6509de/net/ola/files/patch-protobuf3.diff"
-    sha256 "bbbcb5952b0bdcd01083cef92b72a747d3adbe7ca9e50d865a0c69ae31a8fb4a"
+    url "https://raw.githubusercontent.com/peternewman/formula-patches/patch-1/ola/protobuf3.diff"
+    sha256 "6a694b4a471209c92eee599d8d47e6910c81ef45ba830f33e9dbe9558ea08d5c"
   end
 
   def install
