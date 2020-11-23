@@ -3,8 +3,7 @@ class TransmissionCli < Formula
   homepage "https://www.transmissionbt.com/"
   url "https://github.com/transmission/transmission-releases/raw/d5ccf14/transmission-3.00.tar.xz"
   sha256 "9144652fe742f7f7dd6657716e378da60b751aaeda8bef8344b3eefc4db255f2"
-  # license ["GPL-2.0", "GPL-3.0"] - pending https://github.com/Homebrew/brew/pull/7953
-  license "GPL-2.0"
+  license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
 
   livecheck do
     url "https://github.com/transmission/transmission-releases/"
