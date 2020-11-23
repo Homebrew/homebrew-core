@@ -121,7 +121,7 @@ class PostgresqlAT12 < Formula
     (versioned_data_dir/"PG_VERSION").exist?
   end
 
-  def conflicts_with_postgresql_formula?
+  def postgresql_formula_present?
     Formula["postgresql"].any_version_installed?
   end
 
@@ -140,7 +140,7 @@ class PostgresqlAT12 < Formula
     # ... and check it against the old data dir postgres version number
     # to see if we need to print a warning re: data dir
     if old_postgresql_datadir_version == pg_formula_version
-      caveats += if conflicts_with_postgresql_formula?
+      caveats += if postgresql_formula_present?
         # Both PostgreSQL and PostgreSQL@12 are installed
         <<~EOS
           Previous versions of this formula used the same data directory as
