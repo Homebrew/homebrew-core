@@ -3,8 +3,7 @@ class Libnice < Formula
   homepage "https://wiki.freedesktop.org/nice/"
   url "https://nice.freedesktop.org/releases/libnice-0.1.18.tar.gz"
   sha256 "5eabd25ba2b54e817699832826269241abaa1cf78f9b240d1435f936569273f4"
-  # license ["LGPL-2.1", "MPL-1.1"] - pending https://github.com/Homebrew/brew/pull/7953
-  license "LGPL-2.1"
+  license any_of: ["LGPL-2.1-only", "MPL-1.1"]
 
   livecheck do
     url "https://github.com/libnice/libnice.git"
