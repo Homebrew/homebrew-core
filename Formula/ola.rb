@@ -26,7 +26,7 @@ class Ola < Formula
 
   # remove in version 0.11
   patch do
-    url "https://raw.githubusercontent.com/peternewman/formula-patches/patch-1/ola/protobuf3.diff"
+    url "https://raw.githubusercontent.com/peternewman/formula-patches/962afe2cca849816b7cc099231de0bb220d59758/ola/protobuf3.diff"
     sha256 "6a694b4a471209c92eee599d8d47e6910c81ef45ba830f33e9dbe9558ea08d5c"
   end
 
