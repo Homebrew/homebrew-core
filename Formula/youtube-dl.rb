@@ -6,6 +6,7 @@ class YoutubeDl < Formula
   url "https://files.pythonhosted.org/packages/b6/d5/f003ec65e6bcfe475abddbfb3271159736be6ebca2ab95796c0f2e8ee184/youtube_dl-2020.11.29.tar.gz"
   sha256 "849d2a85ee99e5caafc8d52572bb603c4ae020dfb615a4d51c3bc90787d40df3"
   license "Unlicense"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -19,6 +20,8 @@ class YoutubeDl < Formula
   def install
     virtualenv_install_with_resources
     man1.install_symlink libexec/"share/man/man1/youtube-dl.1" => "youtube-dl.1"
+    bash_completion.install libexec/"etc/bash_completion.d/youtube-dl.bash-completion"
+    fish_completion.install libexec/"etc/fish/completions/youtube-dl.fish"
   end
 
   test do
