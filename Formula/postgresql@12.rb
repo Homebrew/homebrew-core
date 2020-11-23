@@ -95,7 +95,7 @@ class PostgresqlAT12 < Formula
     if versioned_data_dir_exists?
       versioned_data_dir
     else
-      old_postgresql_data_dir
+      old_postgres_data_dir
     end
   end
 
@@ -103,7 +103,7 @@ class PostgresqlAT12 < Formula
     "#{var}/#{name}"
   end
 
-  def old_postgresql_data_dir
+  def old_postgres_data_dir
     "#{var}/postgres"
   end
 
@@ -128,8 +128,8 @@ class PostgresqlAT12 < Formula
   # Figure out what version of PostgreSQL the old data dir is
   # using
   def old_postgresql_datadir_version_12?
-    File.exist?("#{old_postgresql_data_dir}/PG_VERSION") &&
-      File.read("#{old_postgresql_data_dir}/PG_VERSION").chomp == "12"
+    File.exist?("#{old_postgres_data_dir}/PG_VERSION") &&
+      File.read("#{old_postgres_data_dir}/PG_VERSION").chomp == "12"
   end
 
   def caveats
@@ -156,9 +156,8 @@ class PostgresqlAT12 < Formula
           the postgresql formula. This will cause a conflict if you
           try to use both at the same time.
 
-          You can migrate to a versioned data directory by running this command:
-
-            mv -v "#{old_postgresql_data_dir}" "#{versioned_data_dir}"
+          You can migrate to a versioned data directory by running:
+            mv -v "#{old_postgres_data_dir}" "#{versioned_data_dir}"
 
           (Make sure PostgreSQL is stopped before executing this command)
 
