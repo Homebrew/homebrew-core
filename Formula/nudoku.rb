@@ -1,20 +1,10 @@
 class Nudoku < Formula
   desc "Ncurses based sudoku game"
   homepage "https://jubalh.github.io/nudoku/"
+  url "https://github.com/jubalh/nudoku/archive/2.1.0.tar.gz"
+  sha256 "eeff7f3adea5bfe7b88bf7683d68e9a597aabd1442d1621f21760c746400b924"
   license "GPL-3.0-or-later"
   head "https://github.com/jubalh/nudoku.git"
-
-  stable do
-    url "https://github.com/jubalh/nudoku/archive/2.1.0.tar.gz"
-    sha256 "eeff7f3adea5bfe7b88bf7683d68e9a597aabd1442d1621f21760c746400b924"
-
-    # gettext 0.20 compatibility.
-    # Remove with next release.
-    patch do
-      url "https://github.com/jubalh/nudoku/commit/9a4ffc359fe72f6af0e3654ae19ae421ab941ea8.patch?full_index=1"
-      sha256 "e4b52f5ac48bfd192f28ae4b3a2fb146c7bc1bec1a441e8e10f4ad90550d4e66"
-    end
-  end
 
   bottle do
     rebuild 1
