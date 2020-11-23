@@ -15,6 +15,9 @@ class Stormlib < Formula
 
   depends_on "cmake" => :build
 
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
+
   # prevents cmake from trying to write to /Library/Frameworks/
   patch :DATA
 
