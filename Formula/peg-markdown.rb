@@ -3,8 +3,7 @@ class PegMarkdown < Formula
   homepage "https://github.com/jgm/peg-markdown"
   url "https://github.com/jgm/peg-markdown/archive/0.4.14.tar.gz"
   sha256 "111bc56058cfed11890af11bec7419e2f7ccec6b399bf05f8c55dae0a1712980"
-  # license ["GPL-2.0", "MIT"] - pending https://github.com/Homebrew/brew/pull/7953
-  license "MIT"
+  license any_of: ["GPL-2.0-or-later", "MIT"]
   revision 1
   head "https://github.com/jgm/peg-markdown.git"
 
