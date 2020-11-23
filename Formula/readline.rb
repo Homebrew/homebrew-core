@@ -38,12 +38,21 @@ class Readline < Formula
   uses_from_macos "ncurses"
 
   def install
-    system "./configure", "--prefix=#{prefix}"
+    args = ["--prefix=#{prefix}"]
+    on_linux do
+      args << "--with-curses"
+    end
+    system "./configure", *args
+
+    args = []
+    on_linux do
+      args << "SHLIB_LIBS=-lcurses"
+    end
     # There is no termcap.pc in the base system, so we have to comment out
     # the corresponding Requires.private line.
     # Otherwise, pkg-config will consider the readline module unusable.
     inreplace "readline.pc", /^(Requires.private: .*)$/, "# \\1"
-    system "make", "install"
+    system "make", "install", *args
   end
 
   test do
