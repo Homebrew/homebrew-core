@@ -26,12 +26,12 @@ class Infer < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "cmake" => :build
-  depends_on java: ["1.8", :build, :test]
   depends_on "libtool" => :build
   depends_on "ocaml" => :build
   depends_on "ocaml-findlib" => :build
   depends_on "ocaml-num" => :build
   depends_on "opam" => :build
+  depends_on "openjdk@8" => [:build, :test]
   depends_on "pkg-config" => :build
   depends_on "gmp"
   depends_on :macos # Due to Python 2 (https://github.com/facebook/infer/issues/934)
