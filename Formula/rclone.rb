@@ -13,17 +13,21 @@ class Rclone < Formula
     sha256 "cea1a5bf6e0346731ba8357e313ae6eb3633e14400c2e9e67bd5a3f8524721f6" => :high_sierra
   end
 
-  deprecate! because: "requires FUSE"
-
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-tags", "cmount", *std_go_args
+    system "go", "build", "-tags", "brew", *std_go_args
     man1.install "rclone.1"
     system bin/"rclone", "genautocomplete", "bash", "rclone.bash"
     system bin/"rclone", "genautocomplete", "zsh", "_rclone"
     bash_completion.install "rclone.bash" => "rclone"
     zsh_completion.install "_rclone"
+  end
+
+  def caveats
+    <<~EOS
+      Homebrew's installation does not include the `mount` subcommand.
+    EOS
   end
 
   test do
