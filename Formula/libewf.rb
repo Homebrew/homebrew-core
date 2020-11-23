@@ -4,7 +4,7 @@ class Libewf < Formula
   # The main libewf repository is currently "experimental".
   url "https://github.com/libyal/libewf-legacy/releases/download/20140810/libewf-20140810.tar.gz"
   sha256 "44a134256970b5e1e3c8ff9ab5e4edf2bb8cf5bf26387282a4da975b4d12fb79"
-  license "LGPL-3.0"
+  license "LGPL-3.0-or-later"
 
   livecheck do
     url :stable
