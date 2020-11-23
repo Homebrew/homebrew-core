@@ -7,8 +7,8 @@ class Bigloo < Formula
   revision 1
 
   livecheck do
-    url :homepage
-    regex(/>\s*?version v?(\d+(?:\.\d+)+[a-z]?)\s*?</i)
+    url "https://www-sop.inria.fr/indes/fp/Bigloo/download.html"
+    regex(/bigloo-latest\.t.+?\(([^)]+?)\)/i)
   end
 
   bottle do
