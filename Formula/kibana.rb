@@ -2,10 +2,9 @@ class Kibana < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
-      tag:      "v7.8.1",
-      revision: "5db9c677ea993ff3df503df03d03f5657fcea42e"
+      tag:      "v7.10.0",
+      revision: "1796b5ec8fa1e60ccea63f2e5c25ccc665b92fdc"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/elastic/kibana.git"
 
   bottle do
@@ -21,11 +20,13 @@ class Kibana < Formula
   depends_on "node@10"
 
   def install
+    inreplace "package.json", /"node": "10\.\d+\.\d+"/, %Q("node": "#{Formula["node@10"].version}")
+    system "yarn", "kbn", "bootstrap"
+
     # remove non open source files
     rm_rf "x-pack"
 
-    inreplace "package.json", /"node": "10\.\d+\.\d+"/, %Q("node": "#{Formula["node@10"].version}")
-    system "yarn", "kbn", "bootstrap"
+    # build open source only
     system "node", "scripts/build", "--oss", "--release", "--skip-os-packages", "--skip-archives"
 
     prefix.install Dir
