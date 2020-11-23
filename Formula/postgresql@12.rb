@@ -81,9 +81,9 @@ class PostgresqlAT12 < Formula
     return if ENV["CI"]
 
     (var/"log").mkpath
-    versioned_postgresql_data_dir.mkpath
+    versioned_data_dir.mkpath
     unless versioned_data_dir_exists?
-      system "#{bin}/initdb", "--locale=C", "-E", "UTF-8", versioned_postgresql_data_dir
+      system "#{bin}/initdb", "--locale=C", "-E", "UTF-8", versioned_data_dir
     end
   end
 
@@ -93,13 +93,13 @@ class PostgresqlAT12 < Formula
   # data dir is in use. Otherwise, returns the old data dir path.
   def postgresql_datadir
     if versioned_data_dir_exists?
-      versioned_postgresql_data_dir
+      versioned_data_dir
     else
       old_postgresql_data_dir
     end
   end
 
-  def versioned_postgresql_data_dir
+  def versioned_data_dir
     "#{var}/#{name}"
   end
 
@@ -146,8 +146,7 @@ class PostgresqlAT12 < Formula
 
           In order to avoid this conflict, you should make sure that the
           #{name} data directory is located at:
-
-            #{versioned_postgresql_data_dir}
+            #{versioned_data_dir}
 
         EOS
       else
@@ -159,7 +158,7 @@ class PostgresqlAT12 < Formula
 
           You can migrate to a versioned data directory by running this command:
 
-            mv -v "#{old_postgresql_data_dir}" "#{versioned_postgresql_data_dir}"
+            mv -v "#{old_postgresql_data_dir}" "#{versioned_data_dir}"
 
           (Make sure PostgreSQL is stopped before executing this command)
 
