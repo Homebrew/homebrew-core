@@ -18,6 +18,8 @@ class Zbackup < Formula
   depends_on "protobuf"
   depends_on "xz" # get liblzma compression algorithm library from XZutils
 
+  uses_from_macos "zlib"
+
   # These fixes are upstream and can be removed in version 1.5+
   patch do
     url "https://github.com/zbackup/zbackup/commit/7e6adda6b1df9c7b955fc06be28fe6ed7d8125a2.patch?full_index=1"
