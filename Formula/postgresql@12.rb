@@ -100,20 +100,20 @@ class PostgresqlAT12 < Formula
   end
 
   def versioned_data_dir
-    "#{var}/#{name}"
+    var/name
   end
 
   def old_postgres_data_dir
-    "#{var}/postgres"
+    var/"postgres"
   end
 
   # Same as with the data dir - use old log file if the old data dir
   # is version 12
   def postgresql_log_path
     if versioned_pg_version_exists?
-      "#{var}/log/#{name}"
+      var/"log/#{name}"
     else
-      "#{var}/log/postgres"
+      var/"log/postgres"
     end
   end
 
