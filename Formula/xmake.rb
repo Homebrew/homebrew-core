@@ -19,6 +19,9 @@ class Xmake < Formula
   end
 
   def install
+    on_linux do
+      ENV["XMAKE_ROOT"] = "y" if ENV["CI"]
+    end
     system "make", "build"
     system "make", "install", "prefix=#{prefix}"
   end
