@@ -134,7 +134,7 @@ class PostgresqlAT12 < Formula
     caveats = ""
 
     # Extract the version from the formula name
-    pg_formula_version = name.split("@", 2)[1]
+    pg_formula_version = name.split("@", 2).last
     # ... and check it against the old data dir postgres version number
     # to see if we need to print a warning re: data dir
     if old_postgresql_datadir_version == pg_formula_version
