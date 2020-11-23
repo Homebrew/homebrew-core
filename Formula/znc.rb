@@ -36,6 +36,11 @@ class Znc < Formula
     ENV.append "CXXFLAGS", "-std=c++11"
     ENV.append "CXXFLAGS", "-stdlib=libc++" if ENV.compiler == :clang
 
+    on_linux do
+      ENV.append "CXXFLAGS", "-I#{Formula["zlib"].opt_include}"
+      ENV.append "LIBS", "-L#{Formula["zlib"].opt_lib}"
+    end
+
     system "./autogen.sh" if build.head?
     system "./configure", "--prefix=#{prefix}", "--enable-python"
     system "make", "install"
