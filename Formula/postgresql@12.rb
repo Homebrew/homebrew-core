@@ -82,9 +82,7 @@ class PostgresqlAT12 < Formula
 
     (var/"log").mkpath
     versioned_data_dir.mkpath
-    unless versioned_pg_version_exists?
-      system "#{bin}/initdb", "--locale=C", "-E", "UTF-8", versioned_data_dir
-    end
+    system "#{bin}/initdb", "--locale=C", "-E", "UTF-8", versioned_data_dir unless versioned_pg_version_exists?
   end
 
   # Previous versions of this formula used the same data dir as the regular
