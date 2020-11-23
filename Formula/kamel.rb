@@ -1,10 +1,9 @@
 class Kamel < Formula
   desc "Apache Camel K CLI"
   homepage "https://camel.apache.org/"
-
   url "https://github.com/apache/camel-k.git",
-    tag:      "v1.2.0",
-    revision: "ab1a566458962b18fef1a1b594efe7d269fb85af"
+    tag:      "v1.2.1",
+    revision: "476ed0e600abe6fe54de19225f8f0c18d6bcbfa9"
   license "Apache-2.0"
   head "https://github.com/apache/camel-k.git"
 
@@ -29,8 +28,6 @@ class Kamel < Formula
     ENV["JAVA_HOME"] = Language::Java.java_home("11")
     system "make"
     bin.install "kamel"
-
-    prefix.install_metafiles
 
     output = Utils.safe_popen_read("#{bin}/kamel", "completion", "bash")
     (bash_completion/"kamel").write output
