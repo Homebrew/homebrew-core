@@ -19,7 +19,6 @@ class Ninja < Formula
     sha256 "a7a30267288572d960f0d213b941076e6740f6b89c65447ae6c8d41fa3752480" => :high_sierra
   end
 
-  depends_on "cmake" => :build
   depends_on "python@3.9"
 
   # from https://github.com/ninja-build/ninja/pull/1836, remove in next release
@@ -29,15 +28,10 @@ class Ninja < Formula
   end
 
   def install
-    inreplace "CMakeLists.txt", 'NINJA_PYTHON="python"', "NINJA_PYTHON=\"#{Formula["python@3.9"].opt_bin}/python3\""
+    py = Formula["python@3.9"].opt_bin/"python3"
+    system py, "./configure.py", "--bootstrap", "--verbose", "--with-python=#{py}"
 
-    system "cmake", "-Bbuild-cmake", "-H.", *std_cmake_args
-    system "cmake", "--build", "build-cmake"
-
-    # Quickly test the build
-    system "./build-cmake/ninja_test"
-
-    bin.install "build-cmake/ninja"
+    bin.install "ninja"
     bash_completion.install "misc/bash-completion" => "ninja-completion.sh"
     zsh_completion.install "misc/zsh-completion" => "_ninja"
   end
