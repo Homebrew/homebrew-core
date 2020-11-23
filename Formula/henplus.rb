@@ -20,8 +20,8 @@ class Henplus < Formula
   deprecate! because: :does_not_build
 
   depends_on "ant" => :build
-  depends_on java: "1.8"
   depends_on "libreadline-java"
+  depends_on "openjdk@8"
 
   def install
     inreplace "bin/henplus" do |s|
