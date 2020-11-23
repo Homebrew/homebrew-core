@@ -127,16 +127,19 @@ class PostgresqlAT12 < Formula
 
   # Figure out what version of PostgreSQL the old data dir is
   # using
-  def old_postgresql_datadir_version_12?
-    File.exist?("#{old_postgres_data_dir}/PG_VERSION") &&
-      File.read("#{old_postgres_data_dir}/PG_VERSION").chomp == "12"
+  def old_postgresql_datadir_version
+    pg_version = old_postgres_data_dir/"PG_VERSION"
+    pg_version.exist? && pg_version.read.chomp
   end
 
   def caveats
     caveats = ""
 
-    # Check if we need to print a warning re: data dir
-    if old_postgresql_datadir_version_12?
+    # Extract the version from the formula name
+    pg_formula_version = name.split("@", 2)[1]
+    # ... and check it against the old data dir postgres version number
+    # to see if we need to print a warning re: data dir
+    if old_postgresql_datadir_version == pg_formula_version
       caveats += if conflicts_with_postgresql_formula?
         # Both PostgreSQL and PostgreSQL@12 are installed
         <<~EOS
