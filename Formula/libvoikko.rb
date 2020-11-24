@@ -5,6 +5,11 @@ class Libvoikko < Formula
   sha256 "e843df002fcea2a90609d87e4d6c28f8a0e23332d3b42979ab1793e18f839307"
   revision 3
 
+  livecheck do
+    url "https://www.puimula.org/voikko-sources/libvoikko/"
+    regex(/href=.*?libvoikko[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "0d36dae546a309c83750f42e8eba3b6d9b51765f78093a9b6bffa5c9d5bc0cd8" => :big_sur
