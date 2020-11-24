@@ -107,6 +107,35 @@ class Black < Formula
     virtualenv_install_with_resources
   end
 
+  plist_options startup: true, manual: "blackd"
+
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>KeepAlive</key>
+        <true/>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/blackd</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>WorkingDirectory</key>
+        <string>#{HOMEBREW_PREFIX}</string>
+        <key>StandardOutPath</key>
+        <string>#{var}/log/blackd.log</string>
+        <key>StandardErrorPath</key>
+        <string>#{var}/log/blackd.log</string>
+      </dict>
+      </plist>
+    EOS
+  end
+
   test do
     ENV["LC_ALL"] = "en_US.UTF-8"
     (testpath/"black_test.py").write <<~EOS
