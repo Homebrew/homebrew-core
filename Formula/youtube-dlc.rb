@@ -1,8 +1,8 @@
 class YoutubeDlc < Formula
   desc "Media downloader supporting various sites such as youtube"
   homepage "https://github.com/blackjack4494/yt-dlc"
-  url "https://github.com/blackjack4494/yt-dlc/archive/2020.10.31.tar.gz"
-  sha256 "0d23cc2e2f1cc7291e5d2a468b1cd282a6be228a215df188aaecae8951ac64d9"
+  url "https://github.com/blackjack4494/yt-dlc/archive/2020.11.11-3.tar.gz"
+  sha256 "649f8ba9a6916ca45db0b81fbcec3485e79895cec0f29fd25ec33520ffffca84"
   license "Unlicense"
 
   head "https://github.com/blackjack4494/yt-dlc.git"
