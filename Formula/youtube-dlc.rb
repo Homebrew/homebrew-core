@@ -9,7 +9,7 @@ class YoutubeDlc < Formula
 
   livecheck do
     url "https://github.com/blackjack4494/yt-dlc/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    regex(%r{href=.*?/tag/v?(\d+(?:[.-]\d+)+)["' >]}i)
   end
 
   depends_on "make" => :build
