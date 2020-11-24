@@ -6,7 +6,7 @@ class AwsRotateKey < Formula
   license "MIT"
   head "https://github.com/stefansundin/aws-rotate-key.git"
   depends_on "go" => :build
-  
+
   def install
     system "go", "build", *std_go_args
   end
