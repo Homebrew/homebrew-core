@@ -3,7 +3,7 @@ class Log4cplus < Formula
   homepage "https://sourceforge.net/p/log4cplus/wiki/Home/"
   url "https://downloads.sourceforge.net/project/log4cplus/log4cplus-stable/2.0.5/log4cplus-2.0.5.tar.xz"
   sha256 "6046f0867ce4734f298418c7b7db0d35c27403090bb751d98e6e76aa4935f1af"
-  license any_of: ["Apache-2.0", "BSD-2-Clause"]
+  license all_of: ["Apache-2.0", "BSD-2-Clause"]
 
   livecheck do
     url :stable
