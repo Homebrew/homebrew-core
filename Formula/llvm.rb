@@ -142,7 +142,7 @@ class Llvm < Formula
       system "cmake", "-G", "Unix Makefiles", "..", *(std_cmake_args + args)
       system "cmake", "--build", "."
       system "cmake", "--build", ".", "--target", "install"
-      system "make", "install-xcode-toolchain" if MacOS::Xcode.installed?
+      system "cmake", "--build", ".", "--target", "install-xcode-toolchain" if MacOS::Xcode.installed?
     end
 
     # Install LLVM Python bindings
@@ -209,6 +209,15 @@ class Llvm < Formula
         return 0;
       }
     EOS
+
+    # Testing mlir
+    (testpath/"test.mlir").write <<~EOS
+      func @bad_branch() {
+        br ^missing  // expected-error {{reference to an undefined block}}
+      }
+    EOS
+
+    system "#{bin}/mlir-opt", "--verify-diagnostics", "test.mlir"
 
     # Testing default toolchain and SDK location.
     system "#{bin}/clang++", "-v",
