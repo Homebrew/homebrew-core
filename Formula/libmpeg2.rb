@@ -3,7 +3,7 @@ class Libmpeg2 < Formula
   homepage "https://libmpeg2.sourceforge.io/"
   url "https://libmpeg2.sourceforge.io/files/libmpeg2-0.5.1.tar.gz"
   sha256 "dee22e893cb5fc2b2b6ebd60b88478ab8556cb3b93f9a0d7ce8f3b61851871d4"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
     cellar :any
@@ -18,14 +18,23 @@ class Libmpeg2 < Formula
     sha256 "f6a868beb10fbf84d3eb1af556478ecbfb238d28608a53b99e607c02910e5e49" => :mavericks
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "sdl"
 
   def install
     # Otherwise compilation fails in clang with `duplicate symbol ___sputc`
     ENV.append_to_cflags "-std=gnu89"
 
+    system "autoreconf", "-fiv"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
+    pkgshare.install "doc/sample1.c"
+  end
+
+  test do
+    system ENV.cc, "-I#{include}/mpeg2dec", "-L#{lib}", "-lmpeg2", pkgshare/"sample1.c"
   end
 end
