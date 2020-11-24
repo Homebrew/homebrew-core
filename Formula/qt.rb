@@ -37,8 +37,8 @@ class Qt < Formula
   # Fix build on Linux when the build system has AVX2
   # Patch submitted at https://codereview.qt-project.org/c/qt/qt3d/+/303993
   patch do
-    url "https://codereview.qt-project.org/gitweb?p=qt/qt3d.git;a=patch;h=b456a7d47a36dc3429a5e7bac7665b12d257efea"
-    sha256 "e47071f5feb6f24958b3670d83071502fe87243456b29fdc731c6eba677d9a59"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/564876/qt/qt3d-no-avx2-compile-fix.diff"
+    sha256 "dcc535d21fc2d692f4081d5e66b96960e7d48fa4e07705fcac40d63fbc713639"
     directory "qt3d"
   end
 
