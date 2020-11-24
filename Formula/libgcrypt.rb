@@ -33,13 +33,15 @@ class Libgcrypt < Formula
 
     # Parallel builds work, but only when run as separate steps
     system "make"
-    # Slightly hideous hack to help `make check` work in
-    # normal place on >10.10 where SIP is enabled.
-    # https://github.com/Homebrew/homebrew-core/pull/3004
-    # https://bugs.gnupg.org/gnupg/issue2056
-    MachO::Tools.change_install_name("#{buildpath}/tests/.libs/random",
-                                     "#{lib}/libgcrypt.20.dylib",
-                                     "#{buildpath}/src/.libs/libgcrypt.20.dylib")
+    on_macos do
+      # Slightly hideous hack to help `make check` work in
+      # normal place on >10.10 where SIP is enabled.
+      # https://github.com/Homebrew/homebrew-core/pull/3004
+      # https://bugs.gnupg.org/gnupg/issue2056
+      MachO::Tools.change_install_name("#{buildpath}/tests/.libs/random",
+                                       "#{lib}/libgcrypt.20.dylib",
+                                       "#{buildpath}/src/.libs/libgcrypt.20.dylib")
+    end
 
     system "make", "check"
     system "make", "install"
