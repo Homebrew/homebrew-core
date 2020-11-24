@@ -17,11 +17,12 @@ class AwsRotateKey < Formula
       aws_access_key_id=AKIA123
       aws_secret_access_key=abc
     EOF
-    assert_match Regexp.new(<<~EOS), shell_output("AWS_SHARED_CREDENTIALS_FILE=#{testpath}/credentials #{bin}/aws-rotate-key -y 2>&1", 1)
+    output = shell_output("AWS_SHARED_CREDENTIALS_FILE=#{testpath}/credentials #{bin}/aws-rotate-key -y 2>&1", 1)
+    assert_match Regexp.new(<<~EOS), output
       ^Using access key AKIA123 from profile "default"\\.
       Error getting caller identity\\. Is the key disabled\\?
       InvalidClientTokenId: The security token included in the request is invalid\\.
-      \tstatus code: 403, request id: [a-f0-9\\-]+$
+      \tstatus code: \\d+, request id: [a-f0-9\\-]+$
     EOS
   end
 end
