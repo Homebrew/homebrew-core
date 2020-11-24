@@ -34,14 +34,6 @@ class Qt < Formula
   uses_from_macos "flex"
   uses_from_macos "sqlite"
 
-  # Fix build on Linux when the build system has AVX2
-  # Patch submitted at https://codereview.qt-project.org/c/qt/qt3d/+/303993
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/564876/qt/qt3d-no-avx2-compile-fix.diff"
-    sha256 "dcc535d21fc2d692f4081d5e66b96960e7d48fa4e07705fcac40d63fbc713639"
-    directory "qt3d"
-  end
-
   # Patches for Xcode 12 / Metal API changes. Remove when Qt updates its Chromium.
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/f42f80503399061eab165b8e83a5519446128d5f/qt/qt-webengine-xcode-12.diff"
