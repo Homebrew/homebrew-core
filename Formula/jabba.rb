@@ -7,11 +7,6 @@ class Jabba < Formula
   revision 1
   head "https://github.com/shyiko/jabba.git"
 
-  livecheck do
-    url "https://github.com/shyiko/jabba/releases"
-    regex(/jabba-(\d(\.\d+)+)\.t/i)
-  end
-
   bottle do
     cellar :any_skip_relocation
     rebuild 2
