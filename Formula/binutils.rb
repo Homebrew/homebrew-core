@@ -4,7 +4,8 @@ class Binutils < Formula
   url "https://ftp.gnu.org/gnu/binutils/binutils-2.35.1.tar.xz"
   mirror "https://ftpmirror.gnu.org/binutils/binutils-2.35.1.tar.xz"
   sha256 "3ced91db9bf01182b7e420eab68039f2083aed0a214c0424e257eae3ddee8607"
-  license "GPL-2.0"
+  license all_of: ["GPL-2.0-or-later", "GPL-3.0-or-later", "LGPL-2.0-or-later", "LGPL-3.0-only"]
+  revision 1
 
   livecheck do
     url :stable
@@ -32,11 +33,21 @@ class Binutils < Formula
                           "--enable-interwork",
                           "--enable-multilib",
                           "--enable-64-bit-bfd",
+                          "--enable-gold",
+                          "--enable-plugins",
                           "--enable-targets=all"
     system "make"
     system "make", "install"
-    Dir["#{bin}/*"].each do |f|
-      bin.install_symlink f => "g" + File.basename(f)
+    bin.install_symlink "ld.gold" => "gold"
+    on_macos do
+      Dir["#{bin}/*"].each do |f|
+        bin.install_symlink f => "g" + File.basename(f)
+      end
+    end
+
+    on_linux do
+      # Reduce the size of the bottle.
+      system "strip", *Dir[bin/"*", lib/"*.a"]
     end
   end
 
