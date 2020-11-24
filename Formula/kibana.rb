@@ -21,13 +21,15 @@ class Kibana < Formula
 
   def install
     inreplace "package.json", /"node": "10\.\d+\.\d+"/, %Q("node": "#{Formula["node@10"].version}")
-    system "yarn", "kbn", "bootstrap"
 
-    # remove non open source files
-    rm_rf "x-pack"
+    # prepare project after checkout
+    system "yarn", "kbn", "bootstrap"
 
     # build open source only
     system "node", "scripts/build", "--oss", "--release", "--skip-os-packages", "--skip-archives"
+
+    # remove non open source files
+    rm_rf "x-pack"
 
     prefix.install Dir
       .glob("build/oss/kibana-#{version}-darwin-x86_64/**")
