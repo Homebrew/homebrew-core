@@ -3,8 +3,8 @@ class Checkov < Formula
 
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
-  url "https://files.pythonhosted.org/packages/af/73/dcfa0cffe2580c24110315d83fc39b63bb5988210638ea86f9855692268f/checkov-1.0.639.tar.gz"
-  sha256 "e8c56faaa333e1c4d7d1a945decda8581fb6a5fef43d9932396667ed072bb967"
+  url "https://files.pythonhosted.org/packages/7d/dc/38feb41dd8af19e3d0a339599ce51eeceb2d4df5757836bc39e68b49689c/checkov-1.0.642.tar.gz"
+  sha256 "8d07448c0af187c76d6bd90900e8d49cb80e70bb083462aa94d57804949df3ae"
   license "Apache-2.0"
 
   bottle do
@@ -94,6 +94,16 @@ class Checkov < Formula
   resource "lark-parser" do
     url "https://files.pythonhosted.org/packages/34/b8/aa7d6cf2d5efdd2fcd85cf39b33584fe12a0f7086ed451176ceb7fb510eb/lark-parser-0.7.8.tar.gz"
     sha256 "26215ebb157e6fb2ee74319aa4445b9f3b7e456e26be215ce19fdaaa901c20a4"
+  end
+
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/55/fd/fc1aca9cf51ed2f2c11748fa797370027babd82f87829c7a8e6dbe720145/packaging-20.4.tar.gz"
+    sha256 "4357f74f47b9c12db93624a82154e9b120fa8293699949152b22065d556079f8"
+  end
+
+  resource "pyparsing" do
+    url "https://files.pythonhosted.org/packages/c1/47/dfc9c342c9842bbe0036c7f763d2d6686bcf5eb1808ba3e170afdb282210/pyparsing-2.4.7.tar.gz"
+    sha256 "c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"
   end
 
   resource "python-dateutil" do
