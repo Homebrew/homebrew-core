@@ -3,10 +3,9 @@ class Codespell < Formula
 
   desc "Fix common misspellings in source code and text files"
   homepage "https://github.com/codespell-project/codespell"
-  url "https://files.pythonhosted.org/packages/7e/37/b15b4133e90bbef5acecfd2f3f3871c1352ee281c042fd64a22a72735fb8/codespell-1.17.1.tar.gz"
-  sha256 "25a2ecd86b9cdc111dc40a30d0ed28c578e13a0ce158d1c383f9d47811bfcd23"
-  license "GPL-2.0"
-  revision 1
+  url "https://files.pythonhosted.org/packages/f3/d1/0553aad57ca850516c2a666690fd818fa9e80f1293e460be976eee4dcc86/codespell-2.0.0.tar.gz"
+  sha256 "dd9983e096b9f7ba89dd2d2466d1fc37231d060f19066331b9571341363c77b8"
+  license "GPL-2.0-only"
 
   livecheck do
     url :stable
