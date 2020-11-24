@@ -17,6 +17,8 @@ class Rebar < Formula
     sha256 "30b03e9b4d9405d3131cbc4d4303797496d264fafed8f708a7a862e73e2e99ea" => :yosemite
   end
 
+  deprecate! because: :repo_archived
+
   depends_on "erlang"
 
   def install
