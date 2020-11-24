@@ -1,9 +1,9 @@
 class Bgpstream < Formula
   desc "For live and historical BGP data analysis"
   homepage "https://bgpstream.caida.org/"
-  url "https://bgpstream.caida.org/bundles/caidabgpstreamwebhomepage/dists/bgpstream-1.2.3.tar.gz"
-  sha256 "2c1affec8d38a9f750029e48b77a46064937d3e41f6c10dfac72777fa934cd74"
-  license "GPL-2.0"
+  url "https://github.com/CAIDA/libbgpstream/releases/download/v2.0.0/libbgpstream-2.0.0.tar.gz"
+  sha256 "f9e377856fb282ac93277c4c5a35b421b8cef5a72e8d671c40f4d7722be0bac7"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any
@@ -13,6 +13,7 @@ class Bgpstream < Formula
     sha256 "d1541897010832dee6be24eb2e37ebe59899653f2277da1b34d29c6953754b6e" => :sierra
   end
 
+  depends_on "librdkafka"
   depends_on "wandio"
 
   def install
