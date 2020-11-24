@@ -29,6 +29,10 @@ class LlvmAT7 < Formula
   resource "clang" do
     url "https://releases.llvm.org/7.1.0/cfe-7.1.0.src.tar.xz"
     sha256 "e97dc472aae52197a4d5e0185eb8f9e04d7575d2dc2b12194ddc768e0f8a846d"
+    patch do
+      url "https://gist.githubusercontent.com/hjelmn/9fa1a7742acad71f404544a03bda414a/raw/b56a25f7208023d9724f671dfd7a80cbdac2a612/cfe-7.1.0-darwin-arm64.patch"
+      sha256 "eb6be925cdab150f5d01d51fa6bd6a4fe1dbf481794b83976ff877524192d1c1"
+    end
   end
 
   resource "clang-extra-tools" do
@@ -39,6 +43,10 @@ class LlvmAT7 < Formula
   resource "compiler-rt" do
     url "https://releases.llvm.org/7.1.0/compiler-rt-7.1.0.src.tar.xz"
     sha256 "057bdac0581215b5ceb39edfd5bbef9eb79578f16a8908349f3066251fba88d8"
+    patch do
+      url "https://gist.githubusercontent.com/hjelmn/9fa1a7742acad71f404544a03bda414a/raw/b8066f65920155a103dd54c53682a981198c603e/compiler-rt-7.1.0-darwin-arm64.patch"
+      sha256 "717670499de38a0cf2668539ef57d7a8c4639730b2d9f25f62a3777998a4ded7"
+    end
   end
 
   resource "libcxx" do
@@ -59,6 +67,10 @@ class LlvmAT7 < Formula
   resource "openmp" do
     url "https://releases.llvm.org/7.1.0/openmp-7.1.0.src.tar.xz"
     sha256 "1ee73aa1eef4ef7f75c96b24bf02445440602064c0074891ca5344a63f1fe5b5"
+    patch do
+      url "https://gist.githubusercontent.com/hjelmn/9fa1a7742acad71f404544a03bda414a/raw/01dcfa8859a7ed4d42e4deb47fbe0b29faf2e3b8/openmp-7.1.0-darwin-arm64.patch"
+      sha256 "10b18a193cf7951428ff5f2898399cf178769b04ae208020d28421a96e900d34"
+    end
   end
 
   resource "polly" do
@@ -86,8 +98,24 @@ class LlvmAT7 < Formula
     # can almost be treated as an entirely different build from llvm.
     ENV.permit_arch_flags
 
+    target_arch =
+      case Hardware.oldest_cpu
+      when :arm_vortex_tempest
+        "AArch64"
+      else
+        "x86_64"
+      end
+    target_triple =
+      case Hardware.oldest_cpu
+      when :arm_vortex_tempest
+        "arm64-apple-darwin"
+      else
+        "x86_64-apple-darwin"
+      end
     args = %W[
-      -DLIBOMP_ARCH=x86_64
+      -DLIBOMP_ARCH=#{target_arch}
+      -DLLVM_TARGETS_TO_BUILD=AArch64,x86_64
+      -DLLVM_DEFAULT_TARGET_TRIPLE=#{target_triple}
       -DLINK_POLLY_INTO_TOOLS=ON
       -DLLVM_BUILD_EXTERNAL_COMPILER_RT=ON
       -DLLVM_BUILD_LLVM_DYLIB=ON
