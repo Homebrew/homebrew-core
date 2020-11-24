@@ -43,7 +43,7 @@ class TreeSitter < Formula
     system "#{bin}/tree-sitter", "generate"
 
     # test `tree-sitter parse`
-    (testpath/"test"/"corpus"/"hello.txt").write <<~EOS
+    (testpath/"test/corpus/hello.txt").write <<~EOS
       hello
     EOS
     parse_result = shell_output("#{bin}/tree-sitter parse #{testpath}/test/corpus/hello.txt").strip
