@@ -19,6 +19,9 @@ class Liblwgeom < Formula
     sha256 "daa95483a59170f27fc06112f72e5abdf3a3bd09526896703061dd7e7bae99e6" => :high_sierra
   end
 
+  # See details in https://github.com/postgis/postgis/pull/348
+  disable! because: "liblwgeom headers are not installed anymore, use librttopo instead"
+
   keg_only "conflicts with PostGIS, which also installs liblwgeom.dylib"
 
   depends_on "autoconf" => :build
