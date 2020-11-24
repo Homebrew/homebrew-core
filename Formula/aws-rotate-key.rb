@@ -22,7 +22,7 @@ class AwsRotateKey < Formula
       ^Using access key AKIA123 from profile "default"\\.
       Error getting caller identity\\. Is the key disabled\\?
       InvalidClientTokenId: The security token included in the request is invalid\\.
-      \tstatus code: \\d+, request id: [a-f0-9\\-]+$
+      \tstatus code: \\d+, request id: [a-f0-9\\-]+
     EOS
   end
 end
