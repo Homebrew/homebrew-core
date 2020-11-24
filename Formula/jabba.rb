@@ -4,7 +4,13 @@ class Jabba < Formula
   url "https://github.com/shyiko/jabba/archive/0.11.2.tar.gz"
   sha256 "33874c81387f03fe1a27c64cb6fb585a458c1a2c1548b4b86694da5f81164355"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/shyiko/jabba.git"
+
+  livecheck do
+    url "https://github.com/shyiko/jabba/releases"
+    regex(/jabba-(\d(\.\d+)+)\.t/i)
+  end
 
   bottle do
     cellar :any_skip_relocation
@@ -29,6 +35,7 @@ class Jabba < Formula
       system "go", "build", "-ldflags", ldflags, "-o", bin/"jabba"
       prefix.install_metafiles
     end
+    ENV["JABBA_HOME"] = "$HOME/.jabba"
   end
 
   test do
@@ -36,6 +43,7 @@ class Jabba < Formula
     system bin/"jabba", "install", "openjdk@1.14.0"
     jdk_path = shell_output("#{bin}/jabba which openjdk@1.14.0").strip
     assert_match 'openjdk version "14',
-                 shell_output("#{jdk_path}/Contents/Home/bin/java -version 2>&1")
+    shell_output("#{jdk_path}/Contents/Home/bin/java -version 2>&1")
+    assert_match "#{HOMEBREW_PREFIX}/bin/jabba", shell_output("which jabba")
   end
 end
