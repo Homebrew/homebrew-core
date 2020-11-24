@@ -3,6 +3,7 @@ class Mad < Formula
   homepage "https://www.underbit.com/products/mad/"
   url "https://downloads.sourceforge.net/project/mad/libmad/0.15.1b/libmad-0.15.1b.tar.gz"
   sha256 "bbfac3ed6bfbc2823d3775ebb931087371e142bb0e9bb1bee51a76a6e0078690"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :stable
@@ -22,10 +23,25 @@ class Mad < Formula
     sha256 "7bd46d4da0f695b3a5bcc899b7139f14d11741f2e47d34f21a984f9bab953c81" => :mavericks
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+
   def install
+    touch "NEWS"
+    touch "AUTHORS"
+    touch "ChangeLog"
+    system "autoreconf", "-fiv"
     system "./configure", "--disable-debugging", "--enable-fpm=64bit", "--prefix=#{prefix}"
     system "make", "CFLAGS=#{ENV.cflags}", "LDFLAGS=#{ENV.ldflags}", "install"
     (lib+"pkgconfig/mad.pc").write pc_file
+    pkgshare.install "minimad.c"
+  end
+
+  test do
+    system ENV.cc, "-I#{include}", "-L#{lib}", "-lmad", pkgshare/"minimad.c", "-o", "minimad"
+    system "./minimad <#{test_fixtures("test.mp3")} >test.wav"
+    assert_equal 4608, (testpath/"test.wav").size?
   end
 
   def pc_file
