@@ -3,8 +3,8 @@ class PreCommit < Formula
 
   desc "Framework for managing multi-language pre-commit hooks"
   homepage "https://pre-commit.com/"
-  url "https://files.pythonhosted.org/packages/1f/37/1784ffed1530863f954e52da5adda84ac5ff1fe8926705631abbae4a7fea/pre_commit-2.9.0.tar.gz"
-  sha256 "b2d106d51c6ba6217e859d81774aae33fd825fe7de0dcf0c46e2586333d7a92e"
+  url "https://files.pythonhosted.org/packages/41/2a/9f4ad0894166b581000b4389021955960f7d7ad90ba855be4bf92de46318/pre_commit-2.9.1.tar.gz"
+  sha256 "bf1da4848f2b7f51fd0b5e5bf0131095d7d3c121e8efaaeea5c957e05c365c4e"
   license "MIT"
 
   bottle do
@@ -38,8 +38,8 @@ class PreCommit < Formula
   end
 
   resource "identify" do
-    url "https://files.pythonhosted.org/packages/7d/0e/65f2c9a9ee19471d2058484df25f9934dfd0b5aa618e4dd6cba665dc3a9a/identify-1.5.9.tar.gz"
-    sha256 "c9504ba6a043ee2db0a9d69e43246bc138034895f6338d5aed1b41e4a73b1513"
+    url "https://files.pythonhosted.org/packages/81/2d/e9ca41910763d4c9f3fd6773baafb513f14b3f1281723eed924847ea1f47/identify-1.5.10.tar.gz"
+    sha256 "943cd299ac7f5715fcb3f684e2fc1594c1e0f22a90d15398e5888143bd4144b5"
   end
 
   resource "nodeenv" do
@@ -63,8 +63,8 @@ class PreCommit < Formula
   end
 
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/b5/c1/efd1bffe48cf3b3840e4d1133d3572cc8eb8cda1c4728fef1c8289ebdd80/virtualenv-20.2.0.tar.gz"
-    sha256 "fd4147c5ba3f694e2e4fc3c767407dc2226899623bb9b49c2f15637c2ee335b3"
+    url "https://files.pythonhosted.org/packages/49/63/8e16d7f59ec7be34fbf57f9935e3ce1ab8b96cb6f1609ff30f16bbe7cf0d/virtualenv-20.2.1.tar.gz"
+    sha256 "e0aac7525e880a429764cefd3aaaff54afb5d9f25c82627563603f5d7de5a6e5"
   end
 
   def install
