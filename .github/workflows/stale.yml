@@ -1,0 +1,28 @@
+name: "Close stale issues"
+
+on:
+  schedule:
+    # Once every day
+    - cron: "0 0 * * *"
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mark/Close Stale Issues and Pull Requests
+        uses: actions/stale@v3
+        with:
+          repo-token: ${{ secrets.HOMEBREW_GITHUB_API_TOKEN }}
+          days-before-stale: 21
+          days-before-close: 7
+          stale-issue-message: >
+            This issue has been automatically marked as stale because it has not had
+            recent activity. It will be closed if no further activity occurs.
+          exempt-issue-labels:
+            - gsoc-outreachy
+            - help wanted
+            - in progress
+          exempt-pr-labels:
+            - gsoc-outreachy
+            - help wanted
+            - in progress
