@@ -3,8 +3,8 @@ class Dvc < Formula
 
   desc "Git for data science projects"
   homepage "https://dvc.org"
-  url "https://files.pythonhosted.org/packages/6e/3c/58f73c0a6e83967d2691e4f40e5116e76a3cb85b4e5efbbd8c073cc09cbe/dvc-1.10.1.tar.gz"
-  sha256 "ae88507a48ebc9cbd8015dcd4fd06e4ed784bf9b9b960c4443a0696979b2c69d"
+  url "https://files.pythonhosted.org/packages/72/1b/8e38e107e1e993c96e65063d92bc61a2c81a12b4837c70adce597cf72ae7/dvc-1.10.2.tar.gz"
+  sha256 "871feaf6d6526c8be3ad9d3e8632b2d9bc1aeaa124de53d99f5d92d16d48204b"
   license "Apache-2.0"
 
   livecheck do
@@ -79,8 +79,8 @@ class Dvc < Formula
   end
 
   resource "dulwich" do
-    url "https://files.pythonhosted.org/packages/fc/86/4bf0caafc7700904844ad3f25f212d5d8aea5889c67dbdaa66dd213b7203/dulwich-0.20.11.tar.gz"
-    sha256 "0b142794fb72647673173b80ed8b75e1f56b42a0972c5b3c752d88766a659d53"
+    url "https://files.pythonhosted.org/packages/38/63/d13c38c45e44b616ca7160bd9132387593f779feffeb0ea751ecc3e2ee71/dulwich-0.20.13.tar.gz"
+    sha256 "a5edcd168c66a10f9a663950eb3e7bd6c8e5a2ecf10495331f44c549e03c36c2"
   end
 
   resource "flatten-dict" do
@@ -269,8 +269,8 @@ class Dvc < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/9f/30/8c8015735a54e13444a3d4982a7a9538bde27f8b3bd35203f9e920f0d78c/tqdm-4.52.0.tar.gz"
-    sha256 "18d6a615aedd09ec8456d9524489dab330af4bd5c2a14a76eb3f9a0e14471afe"
+    url "https://files.pythonhosted.org/packages/db/af/6af426ad64a4e89696069f8a87d985c10a79e4c6f975ac772b676afc21a5/tqdm-4.53.0.tar.gz"
+    sha256 "3d3f1470d26642e88bd3f73353cb6ff4c51ef7d5d7efef763238f4bc1f7e4e81"
   end
 
   resource "typing-extensions" do
