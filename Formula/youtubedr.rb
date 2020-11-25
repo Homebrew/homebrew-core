@@ -5,8 +5,6 @@ class Youtubedr < Formula
   sha256 "e0e298aa4d589813b635bc09e9b50b220f248312ec5893a381bacf70a624a9e1"
   license "MIT"
 
-  bottle :unneeded
-
   depends_on "go" => :build
 
   def install
