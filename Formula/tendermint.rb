@@ -9,7 +9,7 @@ class Tendermint < Formula
   depends_on "go" => :build
 
   def install
-    system "make", "build", "LDFLAGS=-X github.com/tendermint/tendermint/version.TMCoreSemVer=#{version}"
+    system "make", "build", "VERSION=#{version}"
     bin.install "build/tendermint"
   end
 
