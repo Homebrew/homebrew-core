@@ -33,7 +33,7 @@ class Qt < Formula
   uses_from_macos "bison"
   uses_from_macos "flex"
   uses_from_macos "sqlite"
-  
+
   patch :DATA
 
   def install
