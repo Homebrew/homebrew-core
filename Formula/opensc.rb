@@ -3,7 +3,7 @@ class Opensc < Formula
   homepage "https://github.com/OpenSC/OpenSC/wiki"
   url "https://github.com/OpenSC/OpenSC/releases/download/0.21.0/opensc-0.21.0.tar.gz"
   sha256 "2bfbbb1dcb4b8d8d75685a3e95c30798fb6411d4efab3690fd89d2cb25f3325e"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
   head "https://github.com/OpenSC/OpenSC.git"
 
   livecheck do
