@@ -3,7 +3,7 @@ class Hidapi < Formula
   homepage "https://github.com/libusb/hidapi"
   url "https://github.com/libusb/hidapi/archive/hidapi-0.10.1.tar.gz"
   sha256 "f71dd8a1f46979c17ee521bc2117573872bbf040f8a4750e492271fc141f2644"
-  license "GPL-3.0"
+  license any_of: ["GPL-3.0-only", "BSD-3-Clause"]
   head "https://github.com/libusb/hidapi.git"
 
   bottle do
