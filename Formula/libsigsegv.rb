@@ -4,7 +4,7 @@ class Libsigsegv < Formula
   url "https://ftp.gnu.org/gnu/libsigsegv/libsigsegv-2.12.tar.gz"
   mirror "https://ftpmirror.gnu.org/libsigsegv/libsigsegv-2.12.tar.gz"
   sha256 "3ae1af359eebaa4ffc5896a1aee3568c052c99879316a1ab57f8fe1789c390b6"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :stable
@@ -20,7 +20,16 @@ class Libsigsegv < Formula
     sha256 "b9808096e671482dffd3c4b7ea330d8fc58027bee92c6a774b953fefc1606eb1" => :el_capitan
   end
 
+  head do
+    url "https://git.savannah.gnu.org/git/libsigsegv.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
   def install
+    system "./gitsub.sh", "pull" if build.head?
+    system "./autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--enable-shared"
