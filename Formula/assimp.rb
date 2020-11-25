@@ -3,7 +3,7 @@ class Assimp < Formula
   homepage "https://www.assimp.org/"
   url "https://github.com/assimp/assimp/archive/v5.0.1.tar.gz"
   sha256 "11310ec1f2ad2cd46b95ba88faca8f7aaa1efe9aa12605c55e3de2b977b3dbfc"
-  license "LGPL-3.0"
+  license :cannot_represent
   head "https://github.com/assimp/assimp.git"
 
   bottle do
@@ -21,6 +21,7 @@ class Assimp < Formula
   def install
     args = std_cmake_args
     args << "-DASSIMP_BUILD_TESTS=OFF"
+    args << "-DCMAKE_INSTALL_RPATH=#{lib}"
     system "cmake", *args
     system "make", "install"
   end
