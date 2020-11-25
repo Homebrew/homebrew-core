@@ -38,7 +38,7 @@ jobs:
           HOMEBREW_GITHUB_API_TOKEN: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
           HOMEBREW_BINTRAY_USER: brewtestbot
           HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
-        run: brew pr-pull --debug ${{github.event.inputs.args}} ${{github.event.inputs.pull_request}}
+        run: brew pr-pull --debug --workflows=tests.yml,wheezy_tests.yml --ignore-missing-artifacts=wheezy_tests.yml ${{github.event.inputs.args}} ${{github.event.inputs.pull_request}}
 
       - name: Push commits
         uses: Homebrew/actions/git-try-push@master
