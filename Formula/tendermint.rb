@@ -1,5 +1,5 @@
 class Tendermint < Formula
-  desc "BFT state machine replication for applications written in any programming language"
+  desc "BFT state machine replication for applications across all programming languages"
   homepage "https://tendermint.com/"
   url "https://github.com/tendermint/tendermint/archive/v0.34.0.tar.gz"
   sha256 "3a28fac4c5e610fc32763db1b717ec0a1e12d39262e321d6da223c3b0acfea7f"
