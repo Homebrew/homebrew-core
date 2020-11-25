@@ -15,6 +15,8 @@ class Dep < Formula
     sha256 "ef9a0a978cbf2d4e537d21c4ff7b89a75b66228697b0aa348daa2284bc7362a9" => :sierra
   end
 
+  deprecate! because: :repo_archived
+
   depends_on "go"
 
   conflicts_with "deployer", because: "both install `dep` binaries"
