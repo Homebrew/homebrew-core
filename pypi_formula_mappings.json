@@ -14,5 +14,6 @@
   },
   "xdot": {
     "extra_packages": ["graphviz"]
-  }
+  },
+  "xonsh": "xonsh[ptk,pygments,proctitle]"
 }
