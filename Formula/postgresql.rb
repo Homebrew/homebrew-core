@@ -89,7 +89,7 @@ class Postgresql < Formula
   end
 
   def postgresql_log_path
-    var/"log/#{name}.log"
+    var/"log/postgres.log"
   end
 
   def pg_version_exists?
