@@ -5,6 +5,7 @@ class AwsRotateKey < Formula
   sha256 "9dadb689583dc4d8869a346c2e7f12201e1fe65d5bf1d64eb09b69f65518bc44"
   license "MIT"
   head "https://github.com/stefansundin/aws-rotate-key.git"
+
   depends_on "go" => :build
 
   def install
