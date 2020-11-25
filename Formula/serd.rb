@@ -5,6 +5,11 @@ class Serd < Formula
   sha256 "f5a2c74c659d8b318059068f135a43a3771491c367b6947e053a713b23cd37ef"
   license "ISC"
 
+  livecheck do
+    url "https://download.drobilla.net/"
+    regex(/href=.*?serd[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "c53043a419c1409b8c1df9a3ab3b304525a69392933ffd421fa6fa3c22df4ab9" => :big_sur
