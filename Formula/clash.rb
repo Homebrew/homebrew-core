@@ -53,7 +53,7 @@ class Clash < Formula
     server = fork { exec "ss-server", "-c", testpath/"shadowsocks-libev.json" }
 
     clash_port = free_port
-    (testpath/"clash.yaml").write <<~EOS
+    (testpath/"config.yaml").write <<~EOS
       mixed-port: #{clash_port}
       mode: global
       proxies:
@@ -64,9 +64,10 @@ class Clash < Formula
           password: "test"
           cipher: chacha20-ietf-poly1305
     EOS
-    client = fork { exec "#{bin}/clash", "-f", testpath/"clash.yaml" }
+    system "#{bin}/clash", "-t", "-d", testpath # test config && download Country.mmdb
+    client = fork { exec "#{bin}/clash", "-d", testpath }
 
-    sleep 10
+    sleep 3
     begin
       system "curl", "--socks5", "127.0.0.1:#{clash_port}", "github.com"
     ensure
