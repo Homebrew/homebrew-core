@@ -109,9 +109,9 @@ class PostgresqlAT12 < Formula
   # is version 12
   def postgresql_log_path
     if versioned_pg_version_exists?
-      var/"log/#{name}"
+      var/"log/#{name}.log"
     else
-      var/"log/postgres"
+      var/"log/postgres.log"
     end
   end
 
@@ -199,9 +199,9 @@ class PostgresqlAT12 < Formula
         <key>WorkingDirectory</key>
         <string>#{HOMEBREW_PREFIX}</string>
         <key>StandardOutPath</key>
-        <string>#{postgresql_log_path}.log</string>
+        <string>#{postgresql_log_path}</string>
         <key>StandardErrorPath</key>
-        <string>#{postgresql_log_path}.log</string>
+        <string>#{postgresql_log_path}</string>
       </dict>
       </plist>
     EOS
