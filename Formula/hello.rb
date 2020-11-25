@@ -11,7 +11,7 @@ class Hello < Formula
   end
 
   bottle do
-    cellar "/home/linuxbrew/.linuxbrew/Cellar"
+    cellar :any_skip_relocation
     sha256 "a0af7dcbb5c83f6f3f7ecd507c2d352c1a018f894d51ad241ce8492fa598010f" => :big_sur
     sha256 "5334dd344986e46b2aa4f0471cac7b0914bd7de7cb890a34415771788d03f2ac" => :catalina
     sha256 "22948764d8f8d7be4870ff92dae64d986eb63a9150b219c20fff87d1a6aa93d6" => :mojave
