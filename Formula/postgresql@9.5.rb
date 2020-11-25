@@ -85,8 +85,20 @@ class PostgresqlAT95 < Formula
     return if ENV["CI"]
 
     (var/"log").mkpath
-    (var/name).mkpath
-    system "#{bin}/initdb", "#{var}/#{name}" unless File.exist? "#{var}/#{name}/PG_VERSION"
+    postgresql_datadir.mkpath
+    system "#{bin}/initdb", postgresql_datadir unless pg_version_exists?
+  end
+
+  def postgresql_datadir
+    var/name
+  end
+
+  def postgresql_log_path
+    var/"log/#{name}.log"
+  end
+
+  def pg_version_exists?
+    (postgresql_datadir/"PG_VERSION").exist?
   end
 
   def caveats
@@ -95,17 +107,8 @@ class PostgresqlAT95 < Formula
       you may need to remove the previous version first. See:
         https://github.com/Homebrew/legacy-homebrew/issues/2510
 
-      To migrate existing data from a previous major version (pre-9.0) of PostgreSQL, see:
-        https://www.postgresql.org/docs/9.5/static/upgrading.html
-
-      To migrate existing data from a previous minor version (9.0-9.4) of PostgreSQL, see:
-        https://www.postgresql.org/docs/9.5/static/pgupgrade.html
-
-        You will need your previous PostgreSQL installation from brew to perform `pg_upgrade`.
-        Do not run `brew cleanup postgresql@9.5` until you have performed the migration.
-
       This formula has created a default database cluster with:
-        initdb #{var}/postgres
+        initdb #{postgresql_datadir}
       For more details, read:
         https://www.postgresql.org/docs/#{version.major}/app-initdb.html
     EOS
@@ -127,14 +130,14 @@ class PostgresqlAT95 < Formula
         <array>
           <string>#{opt_bin}/postgres</string>
           <string>-D</string>
-          <string>#{var}/#{name}</string>
+          <string>#{postgresql_datadir}</string>
         </array>
         <key>RunAtLoad</key>
         <true/>
         <key>WorkingDirectory</key>
         <string>#{HOMEBREW_PREFIX}</string>
         <key>StandardErrorPath</key>
-        <string>#{var}/log/#{name}.log</string>
+        <string>#{postgresql_log_path}</string>
       </dict>
       </plist>
     EOS
