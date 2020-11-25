@@ -3,11 +3,15 @@ class Flake8 < Formula
 
   desc "Lint your Python code for style and logical errors"
   homepage "https://flake8.pycqa.org/"
-  url "https://gitlab.com/pycqa/flake8/-/archive/3.8.4/flake8-3.8.4.tar.bz2"
-  sha256 "66f65cf5614a24f813a76ab6388507ad8def068dcee859568a3c32a49a5d597b"
+  url "https://files.pythonhosted.org/packages/71/6a/b3341ef7e7f3585add027d876a7d9837cdfe3320b6c6b5fd0cddfa9ceeac/flake8-3.8.4.tar.gz"
+  sha256 "aadae8761ec651813c24be05c6f7b4680857ef6afaae4651a4eccaef97ce6c3b"
   license "MIT"
   revision 1
   head "https://gitlab.com/PyCQA/flake8.git", shallow: false
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
@@ -39,10 +43,15 @@ class Flake8 < Formula
   end
 
   test do
-    (testpath/"test.py").write <<~EOS
+    (testpath/"test-bad.py").write <<~EOS
+      print ("Hello World!")
+    EOS
+
+    (testpath/"test-good.py").write <<~EOS
       print("Hello World!")
     EOS
 
-    system "#{bin}/flake8", "test.py"
+    assert_match "E211", shell_output("#{bin}/flake8 test-bad.py", 1)
+    assert_empty shell_output("#{bin}/flake8 test-good.py")
   end
 end
