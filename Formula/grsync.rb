@@ -1,9 +1,9 @@
 class Grsync < Formula
   desc "GUI for rsync"
   homepage "https://www.opbyte.it/grsync/"
-  url "https://downloads.sourceforge.net/project/grsync/grsync-1.2.8.tar.gz"
-  sha256 "94ea5faca67e3df467b5283377af3cb32b2b47631b6a32d38bc7b371209306b1"
-  license "GPL-2.0"
+  url "https://downloads.sourceforge.net/project/grsync/grsync-1.3.0.tar.gz"
+  sha256 "b7c7c6a62e05302d8317c38741e7d71ef9ab4639ee5bff2622a383b2043a35fc"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :stable
@@ -19,7 +19,7 @@ class Grsync < Formula
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "gtk+"
+  depends_on "gtk+3"
 
   def install
     system "./configure", "--disable-dependency-tracking",
