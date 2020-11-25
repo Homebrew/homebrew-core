@@ -4,6 +4,7 @@ on:
     paths:
       - "Formula/alsa-lib.rb"
       - "Formula/device-mapper.rb"
+      - "Formula/hello.rb"
       - "Formula/libaio.rb"
       - "Formula/ladspa-sdk.rb"
       - "Formula/libbsd.rb"
@@ -37,3 +38,45 @@ jobs:
           mkdir ~/bottles
           cd ~/bottles
           brew test-bot --only-formulae
+
+      - name: Output brew test-bot --only-formulae failures
+        if: always()
+        run: |
+          cat ~/bottles/steps_output.txt
+          rm ~/bottles/steps_output.txt
+
+      - name: Upload logs
+        if: failure()
+        uses: actions/upload-artifact@main
+        with:
+          name: logs (Linux)
+          path: ~/bottles/logs
+
+      - name: Delete logs and home
+        if: always()
+        run: |
+          rm -rvf ~/bottles/logs
+          rm -rvf ~/bottles/home
+
+      - name: Count bottles
+        id: bottles
+        if: always()
+        run: |
+          cd ~/bottles
+          count=$(ls *.json | wc -l | xargs echo -n)
+          echo "$count bottles"
+          echo "::set-output name=count::$count"
+
+      - name: Upload bottles
+        if: always() && steps.bottles.outputs.count > 0
+        uses: actions/upload-artifact@main
+        with:
+          name: bottles
+          path: ~/bottles
+
+      - run: brew test-bot --only-cleanup-after
+        if: always()
+
+      - name: Post Cleanup
+        if: always()
+        run: rm -rvf ~/bottles
