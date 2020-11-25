@@ -85,7 +85,7 @@ class Postgresql < Formula
   end
 
   def postgresql_datadir
-    var/name
+    var/"postgres"
   end
 
   def postgresql_log_path
