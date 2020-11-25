@@ -19,11 +19,6 @@ class AwsRotateKey < Formula
       aws_secret_access_key=abc
     EOF
     output = shell_output("AWS_SHARED_CREDENTIALS_FILE=#{testpath}/credentials #{bin}/aws-rotate-key -y 2>&1", 1)
-    assert_match Regexp.new(<<~EOS), output
-      ^Using access key AKIA123 from profile "default"\\.
-      Error getting caller identity\\. Is the key disabled\\?\n
-      InvalidClientTokenId: The security token included in the request is invalid\\.
-      \tstatus code: \\d+, request id: [a-f0-9\\-]+
-    EOS
+    assert_match "InvalidClientTokenId: The security token included in the request is invalid", output
   end
 end
