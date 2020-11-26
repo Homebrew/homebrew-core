@@ -26,18 +26,18 @@ class CfnLint < Formula
   end
 
   resource "aws-sam-translator" do
-    url "https://files.pythonhosted.org/packages/c3/82/e6e2f14cd03d33e425cd0ed14d169166b1da88f606d962954de6e2cdd805/aws-sam-translator-1.29.0.tar.gz"
-    sha256 "0e7aee471d35a4f700d24bca3f351287ff6ba72ab4718d475fb7a5eb96697551"
+    url "https://files.pythonhosted.org/packages/31/60/4ef2e58bacbc84f12edb702a7f9ffc30def8b9390522e19bb9bf1f91b15f/aws-sam-translator-1.31.0.tar.gz"
+    sha256 "3a1d73d098161e60966b0d53bb310c98e4f66101688cce3d1697903643782d79"
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/1a/ec/b970ae04958b51dab82b848ede21bbf98ef927a158aa968f6d082f18bd6c/boto3-1.16.20.tar.gz"
-    sha256 "6c5d952f97e13997b1c7463038d96469355595cd37f87b43451759cc03756322"
+    url "https://files.pythonhosted.org/packages/94/53/eeff6079218be23b94b2ff0365a2ba1e82583318194400ca1bfe0a9973ea/boto3-1.16.25.tar.gz"
+    sha256 "13e6ab0abe10b4de54583067d12ed48c8477d91b7a7a8e6097d366a2a3631d17"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/63/64/83904cc34441fc59d493923a6a9595a87a58c40ae36e25cd447ce6b83cee/botocore-1.19.20.tar.gz"
-    sha256 "00a69a507e8b817d0703c612131e6cb3a3260579d0353c56d005bd9effd92ec0"
+    url "https://files.pythonhosted.org/packages/0e/e9/b8d6489412435e4d18d763cf0c30d5059854cea2886510c8b4d2d3e50093/botocore-1.19.25.tar.gz"
+    sha256 "ccaf3979590b72625b3699d93dabf48f350f9a3304c127fc6830e8ac842b0d96"
   end
 
   resource "decorator" do
@@ -51,8 +51,8 @@ class CfnLint < Formula
   end
 
   resource "jsonpatch" do
-    url "https://files.pythonhosted.org/packages/69/72/24826f61fe4ba535207ed8efe17c82a5e9f9fdf2247054ae829b5c134b71/jsonpatch-1.26.tar.gz"
-    sha256 "e45df18b0ab7df1925f20671bbc3f6bd0b4b556fb4b9c5d97684b0a7eac01744"
+    url "https://files.pythonhosted.org/packages/ed/db/3119f10b6f4b5ec409fbe0cb4b7b7da0f66dc4b9fadc54276c30b3d90c0b/jsonpatch-1.27.tar.gz"
+    sha256 "4d08af10d71723b5b2924da6ba90f273a4d1a5c6accfb605eb970cb2f9b29cf9"
   end
 
   resource "jsonpointer" do
