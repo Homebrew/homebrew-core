@@ -3,10 +3,9 @@ class Salt < Formula
 
   desc "Dynamic infrastructure communication bus"
   homepage "https://s.saltstack.com/community/"
-  url "https://files.pythonhosted.org/packages/48/79/66352fd2351bd494ee6ee502693c8b54f77a8afc4d96c5b20b1f1306b2b5/salt-3002.1.tar.gz"
-  sha256 "4c536a0577c9fe5052fa80c25c93527af00b50086aba0f5320e46dcd1dc3e75e"
+  url "https://files.pythonhosted.org/packages/b5/45/a20ff8a3cad48b50a924ee9c65f2df0e214de4fa282c4feef2e1d6a0b886/salt-3002.2.tar.gz"
+  sha256 "bd6d29621ce8e099412777cd396af35474aa112bb0999b5da804387d87290075"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/saltstack/salt.git", branch: "develop", shallow: false
 
   livecheck do
@@ -60,16 +59,9 @@ class Salt < Formula
   def install
     ENV["SWIG_FEATURES"]="-I#{Formula["openssl@1.1"].opt_include}"
 
-    # Fix building of M2Crypto on High Sierra https://github.com/Homebrew/homebrew-core/pull/45895
-    ENV.delete("HOMEBREW_SDKROOT") if MacOS.version == :high_sierra
-
     # Do not install PyObjC since it causes broken linkage
     # https://github.com/Homebrew/homebrew-core/pull/52835#issuecomment-617502578
     File.write(buildpath/"pkg/osx/req_pyobjc.txt", "")
-
-    # Fix build with Python 3.9 by updating cffi
-    # https://github.com/saltstack/salt/issues/58809
-    inreplace "requirements/static/pkg/py3.9/darwin.txt", "cffi==1.12.2", "cffi>=1.14.3"
 
     venv = virtualenv_create(libexec, Formula["python@3.9"].bin/"python3.9")
     venv.pip_install resources
