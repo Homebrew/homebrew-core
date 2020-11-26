@@ -5,8 +5,8 @@ class Perkeep < Formula
 
   stable do
     url "https://github.com/perkeep/perkeep.git",
-        tag:      "0.10",
-        revision: "0cbe4d5e05a40a17efe7441d75ce0ffdf9d6b9f5"
+        tag:      "0.11",
+        revision: "76755286451a1b08e2356f549574be3eea0185e5"
 
     # gopherjs doesn't tag releases, so just pick the most recent revision for now
     resource "gopherjs" do
