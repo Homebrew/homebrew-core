@@ -222,6 +222,9 @@ class CloudformationCli < Formula
 
       spawn #{bin}/cfn init
 
+      expect -exact "Do you want to develop a new resource(r) or a module(m)?."
+      send -- "r\r"
+
       expect -exact "What's the name of your resource type?"
       send -- "brew::formula::test\r"
 
@@ -241,5 +244,6 @@ class CloudformationCli < Formula
     rpdk_config = JSON.parse(File.read(testpath/".rpdk-config"))
     assert_equal "brew::formula::test", rpdk_config["typeName"]
     assert_equal "go", rpdk_config["language"]
+    assert_predicate testpath/"rpdk.log", :exist?
   end
 end
