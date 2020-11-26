@@ -1,0 +1,18 @@
+[
+  "autoconf@2.13",
+  "bash-completion@2",
+  "cairomm@1.14",
+  "clang-format@8",
+  "gcc@4.9",
+  "gcc@5",
+  "gcc@6",
+  "gcc@7",
+  "gcc@8",
+  "gcc@9",
+  "gnupg@1.4",
+  "libsigc++@2",
+  "lua@5.1",
+  "numpy@1.16",
+  "openssl@1.1",
+  "python@3.9"
+]
