@@ -3,10 +3,9 @@ class RstLint < Formula
 
   desc "ReStructuredText linter"
   homepage "https://github.com/twolfson/restructuredtext-lint"
-  url "https://github.com/twolfson/restructuredtext-lint/archive/1.3.1.tar.gz"
-  sha256 "469fcc0dae4f511da5a28f5d0f9b5d0f477dabca4a44cd8c84e20b8a99791b89"
+  url "https://github.com/twolfson/restructuredtext-lint/archive/1.3.2.tar.gz"
+  sha256 "07bcdb8365918412865de169e3070028bf58f57af23023dd859f5e772f894783"
   license "Unlicense"
-  revision 1
 
   bottle do
     cellar :any_skip_relocation
