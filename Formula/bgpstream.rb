@@ -1,8 +1,8 @@
 class Bgpstream < Formula
   desc "For live and historical BGP data analysis"
   homepage "https://bgpstream.caida.org/"
-  url "https://github.com/CAIDA/libbgpstream/releases/download/v2.0.0/libbgpstream-2.0.0.tar.gz"
-  sha256 "f9e377856fb282ac93277c4c5a35b421b8cef5a72e8d671c40f4d7722be0bac7"
+  url "https://github.com/CAIDA/libbgpstream/releases/download/v2.1.0/libbgpstream-2.1.0.tar.gz"
+  sha256 "27a84f8048c885f67353a1fc9ef020aa8453621a15af3ae706a1fc8e776da80b"
   license "BSD-2-Clause"
 
   bottle do
