@@ -4,7 +4,7 @@ class Syncthing < Formula
   url "https://github.com/syncthing/syncthing/archive/v1.11.1.tar.gz"
   sha256 "741d339dad6335f9a2fb9259a1b57c82896d9363d92a5c9ac2573068bf1859b7"
   license "MPL-2.0"
-  head "https://github.com/syncthing/syncthing.git"
+  head "https://github.com/syncthing/syncthing.git", branch: "main"
 
   livecheck do
     url :head
@@ -22,7 +22,8 @@ class Syncthing < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "run", "build.go", "--version", "v#{version}", "--no-upgrade", "tar"
+    build_version = build.head? ? "v0.0.0-#{version}" : "v#{version}"
+    system "go", "run", "build.go", "--version", build_version, "--no-upgrade", "tar"
     bin.install "syncthing"
 
     man1.install Dir["man/*.1"]
@@ -65,7 +66,8 @@ class Syncthing < Formula
   end
 
   test do
-    assert_match "syncthing v#{version} ", shell_output("#{bin}/syncthing --version")
+    build_version = build.head? ? "v0.0.0-#{version}" : "v#{version}"
+    assert_match "syncthing #{build_version} ", shell_output("#{bin}/syncthing --version")
     system bin/"syncthing", "-generate", "./"
   end
 end
