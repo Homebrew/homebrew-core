@@ -4,15 +4,17 @@ class Tm < Formula
   url "https://github.com/triggermesh/tm/archive/v1.0.0.tar.gz"
   sha256 "cca47e3a51bf0fcaada1e4afe03f4eb6aa63e75a7819fd7e8cae1c91e5d939b4"
   license "Apache-2.0"
+  head "https://github.com/triggermesh/tm.git"
 
   depends_on "go" => :build
 
   def install
-    proj = "github.com/triggermesh/tm"
-    system "go", "build", *std_go_args, "-ldflags", <<~EOS
+    ldflags = %W[
       -s -w
-      -X #{proj}/cmd.version=v#{version}
-    EOS
+      -X github.com/triggermesh/tm/cmd.version=v#{version}
+    ]
+
+    system "go", "build", *std_go_args, "-ldflags", ldflags.join(" ")
   end
 
   test do
