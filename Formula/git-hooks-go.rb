@@ -1,8 +1,8 @@
 class GitHooksGo < Formula
   desc "Git hooks manager"
   homepage "https://git-hooks.github.io/git-hooks"
-  url "https://github.com/git-hooks/git-hooks/archive/v1.3.0.tar.gz"
-  sha256 "518eadf3229d9db16d603290634af8ae66461ec021edf646e8bca49deee81850"
+  url "https://github.com/git-hooks/git-hooks/archive/v1.3.1.tar.gz"
+  sha256 "c37cedf52b3ea267b7d3de67dde31adad4d2a22a7780950d6ca2da64a8b0341b"
   license "MIT"
   head "https://github.com/git-hooks/git-hooks.git"
 
