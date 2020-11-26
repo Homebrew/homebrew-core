@@ -3,7 +3,7 @@ class Bombadillo < Formula
   homepage "https://bombadillo.colorfield.space/"
   url "https://tildegit.org/sloum/bombadillo/archive/2.3.3.tar.gz"
   sha256 "2d4ec15cac6d3324f13a4039cca86fecf3141503f556a6fa48bdbafb86325f1c"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   bottle do
     cellar :any_skip_relocation
