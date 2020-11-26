@@ -54,8 +54,10 @@ class Go < Formula
 
     cd "src" do
       ENV["GOROOT_FINAL"] = libexec
-      # Required for Apple Silicon Rosetta: Without it, Go will hang while building
-      ENV["GODEBUG"] = "asyncpreemptoff=1"
+      if MacOS.version >= :big_sur
+        # Required for Apple Silicon Rosetta: Without it, Go will hang while building
+        ENV["GODEBUG"] = "asyncpreemptoff=1"
+      end
       system "./make.bash", "--no-clean"
     end
 
