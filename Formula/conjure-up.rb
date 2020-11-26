@@ -6,7 +6,7 @@ class ConjureUp < Formula
   url "https://github.com/conjure-up/conjure-up/archive/2.6.14.tar.gz"
   sha256 "c9f115229a305ff40eae051f40db2ca18a3dc2bd377397e22786bba032feb79a"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
