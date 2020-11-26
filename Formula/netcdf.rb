@@ -5,7 +5,7 @@ class Netcdf < Formula
   mirror "https://www.gfd-dennou.org/arch/netcdf/unidata-mirror/netcdf-c-4.7.4.tar.gz"
   sha256 "0e476f00aeed95af8771ff2727b7a15b2de353fb7bb3074a0d340b55c2bd4ea8"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/Unidata/netcdf-c.git"
 
   livecheck do
@@ -13,16 +13,15 @@ class Netcdf < Formula
     regex(/^(?:netcdf-|v)?(\d+(?:\.\d+)+)$/i)
   end
 
-  bottle do
-    rebuild 1
-    sha256 "945407cca07cd5096c8f9e00520e5b51fef5d30d6e4bf68775de508268100f4e" => :big_sur
-    sha256 "bf768c6f17428104b463b55420ed6a57c64870c13f2c475604a3446122a0e6de" => :catalina
-    sha256 "1ef8f155374e15879156ba393750ef0449f5cea5215f625fcb457176350ea17b" => :mojave
-    sha256 "1866c199aaa33565c687d83f163a50ad779949d98dd563e967d9b385bdc030f1" => :high_sierra
-  end
+  # bottle do
+  #   rebuild 1
+  #   sha256 "945407cca07cd5096c8f9e00520e5b51fef5d30d6e4bf68775de508268100f4e" => :big_sur
+  #   sha256 "bf768c6f17428104b463b55420ed6a57c64870c13f2c475604a3446122a0e6de" => :catalina
+  #   sha256 "1ef8f155374e15879156ba393750ef0449f5cea5215f625fcb457176350ea17b" => :mojave
+  #   sha256 "1866c199aaa33565c687d83f163a50ad779949d98dd563e967d9b385bdc030f1" => :high_sierra
+  # end
 
   depends_on "cmake" => :build
-  depends_on "gcc" # for gfortran
   depends_on "hdf5"
 
   uses_from_macos "curl"
@@ -37,12 +36,6 @@ class Netcdf < Formula
     url "https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-cxx-4.2.tar.gz"
     mirror "https://www.gfd-dennou.org/arch/netcdf/unidata-mirror/netcdf-cxx-4.2.tar.gz"
     sha256 "95ed6ab49a0ee001255eac4e44aacb5ca4ea96ba850c08337a3e4c9a0872ccd1"
-  end
-
-  resource "fortran" do
-    url "https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-fortran-4.5.2.tar.gz"
-    mirror "https://www.gfd-dennou.org/arch/netcdf/unidata-mirror/netcdf-fortran-4.5.2.tar.gz"
-    sha256 "b959937d7d9045184e9d2040a915d94a7f4d0185f4a9dceb8f08c94b0c3304aa"
   end
 
   def install
@@ -80,45 +73,17 @@ class Netcdf < Formula
       end
     end
 
-    fortran_args = args.dup
-    fortran_args << "-DENABLE_TESTS=OFF"
-
-    # Fix for netcdf-fortran with GCC 10, remove with next version
-    ENV.prepend "FFLAGS", "-fallow-argument-mismatch"
-
-    resource("fortran").stage do
-      mkdir "build-fortran" do
-        system "cmake", "..", "-DBUILD_SHARED_LIBS=ON", *fortran_args
-        system "make", "install"
-        system "make", "clean"
-        system "cmake", "..", "-DBUILD_SHARED_LIBS=OFF", *fortran_args
-        system "make"
-        lib.install "fortran/libnetcdff.a"
-      end
-    end
-
-    ENV.prepend "CPPFLAGS", "-I#{include}"
-    ENV.prepend "LDFLAGS", "-L#{lib}"
-    resource("cxx-compat").stage do
-      system "./configure", "--disable-dependency-tracking",
-                            "--enable-shared",
-                            "--enable-static",
-                            "--prefix=#{prefix}"
-      system "make"
-      system "make", "install"
-    end
-
     # Remove some shims path
     inreplace [
-      bin/"nf-config", bin/"ncxx4-config", bin/"nc-config",
-      lib/"pkgconfig/netcdf.pc", lib/"pkgconfig/netcdf-fortran.pc",
+      bin/"ncxx4-config", bin/"nc-config",
+      lib/"pkgconfig/netcdf.pc",
       lib/"cmake/netCDF/netCDFConfig.cmake",
       lib/"libnetcdf.settings", lib/"libnetcdf-cxx.settings"
     ], HOMEBREW_LIBRARY/"Homebrew/shims/mac/super/clang", "/usr/bin/clang"
 
     # SIP causes system Python not to play nicely with @rpath
     libnetcdf = (lib/"libnetcdf.dylib").readlink
-    %w[libnetcdf-cxx4.dylib libnetcdf_c++.dylib].each do |f|
+    %w[libnetcdf-cxx4.dylib].each do |f|
       macho = MachO.open("#{lib}/#{f}")
       macho.change_dylib("@rpath/#{libnetcdf}",
                          "#{lib}/#{libnetcdf}")
@@ -143,28 +108,5 @@ class Netcdf < Formula
     else
       assert_equal version.to_s, `./test`
     end
-
-    (testpath/"test.f90").write <<~EOS
-      program test
-        use netcdf
-        integer :: ncid, varid, dimids(2)
-        integer :: dat(2,2) = reshape([1, 2, 3, 4], [2, 2])
-        call check( nf90_create("test.nc", NF90_CLOBBER, ncid) )
-        call check( nf90_def_dim(ncid, "x", 2, dimids(2)) )
-        call check( nf90_def_dim(ncid, "y", 2, dimids(1)) )
-        call check( nf90_def_var(ncid, "data", NF90_INT, dimids, varid) )
-        call check( nf90_enddef(ncid) )
-        call check( nf90_put_var(ncid, varid, dat) )
-        call check( nf90_close(ncid) )
-      contains
-        subroutine check(status)
-          integer, intent(in) :: status
-          if (status /= nf90_noerr) call abort
-        end subroutine check
-      end program test
-    EOS
-    system "gfortran", "test.f90", "-L#{lib}", "-I#{include}", "-lnetcdff",
-                       "-o", "testf"
-    system "./testf"
   end
 end
