@@ -3,7 +3,7 @@ class Gitg < Formula
   homepage "https://wiki.gnome.org/Apps/Gitg"
   url "https://download.gnome.org/sources/gitg/3.32/gitg-3.32.1.tar.xz"
   sha256 "24a4aabf8a42aa2e783e1fb5996ebb3c2a82a01b9689269f1329517ef124ef5a"
-  revision 5
+  revision 6
 
   livecheck do
     url :stable
