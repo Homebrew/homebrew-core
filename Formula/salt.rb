@@ -6,6 +6,7 @@ class Salt < Formula
   url "https://files.pythonhosted.org/packages/48/79/66352fd2351bd494ee6ee502693c8b54f77a8afc4d96c5b20b1f1306b2b5/salt-3002.1.tar.gz"
   sha256 "4c536a0577c9fe5052fa80c25c93527af00b50086aba0f5320e46dcd1dc3e75e"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/saltstack/salt.git", branch: "develop", shallow: false
 
   livecheck do
