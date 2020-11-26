@@ -18,8 +18,8 @@ class Ortp < Formula
   depends_on "mbedtls"
 
   resource "bctoolbox" do
-    url "https://gitlab.linphone.org/BC/public/bctoolbox/-/archive/4.3.1/bctoolbox-4.3.1.tar.bz2"
-    sha256 "1b7ec1a7fa2af2a6741ebda7602c82996752aa46fb17d6c9ddb2ed0846872384"
+    url "https://gitlab.linphone.org/BC/public/bctoolbox/-/archive/4.4.12/bctoolbox-4.4.12.tar.bz2"
+    sha256 "8d7c797af45d2e1c7f4f4c345307af842b34390112cbadef28491d5cf841ca83"
   end
 
   def install
