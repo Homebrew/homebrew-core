@@ -3,8 +3,8 @@ class CloudformationCli < Formula
 
   desc "CloudFormation Provider Development Toolkit"
   homepage "https://github.com/aws-cloudformation/cloudformation-cli/"
-  url "https://files.pythonhosted.org/packages/e9/87/b83a65ada8cd1ff9e4dfc32ede7e352bd3f81d6bbfbfdd99d3abc9e37467/cloudformation-cli-0.1.14.tar.gz"
-  sha256 "66579a36b4d70740408f6019bdb122f610160ab720b0d6bb49cd50e78a7c834a"
+  url "https://files.pythonhosted.org/packages/5f/05/a616ca44b7cfc3146a55a32f9d9da163ba04f4a540e11fcccc8e9bcdac5d/cloudformation-cli-0.2.1.tar.gz"
+  sha256 "ac9dec440417b992a1be07c5907bbdebb227ef2c025cdeb0be125d77b4d42b62"
   license "Apache-2.0"
 
   livecheck do
@@ -29,13 +29,13 @@ class CloudformationCli < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/1a/ec/b970ae04958b51dab82b848ede21bbf98ef927a158aa968f6d082f18bd6c/boto3-1.16.20.tar.gz"
-    sha256 "6c5d952f97e13997b1c7463038d96469355595cd37f87b43451759cc03756322"
+    url "https://files.pythonhosted.org/packages/94/53/eeff6079218be23b94b2ff0365a2ba1e82583318194400ca1bfe0a9973ea/boto3-1.16.25.tar.gz"
+    sha256 "13e6ab0abe10b4de54583067d12ed48c8477d91b7a7a8e6097d366a2a3631d17"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/63/64/83904cc34441fc59d493923a6a9595a87a58c40ae36e25cd447ce6b83cee/botocore-1.19.20.tar.gz"
-    sha256 "00a69a507e8b817d0703c612131e6cb3a3260579d0353c56d005bd9effd92ec0"
+    url "https://files.pythonhosted.org/packages/0e/e9/b8d6489412435e4d18d763cf0c30d5059854cea2886510c8b4d2d3e50093/botocore-1.19.25.tar.gz"
+    sha256 "ccaf3979590b72625b3699d93dabf48f350f9a3304c127fc6830e8ac842b0d96"
   end
 
   resource "certifi" do
@@ -49,13 +49,13 @@ class CloudformationCli < Formula
   end
 
   resource "cloudformation-cli-go-plugin" do
-    url "https://files.pythonhosted.org/packages/3e/b3/6ff86d7ff82e5fa1419209ddb4e0225fd47ba21c3efc480259d8c3501c46/cloudformation-cli-go-plugin-2.0.3.tar.gz"
-    sha256 "c621f0c9f85e830b5a6de02a82fad3088923e7237a50c4c982531ed4943da15f"
+    url "https://files.pythonhosted.org/packages/8f/00/909410b531a330f3f8a784862dd0daf12541a99a969555e2b3c7af892ec7/cloudformation-cli-go-plugin-2.0.4.tar.gz"
+    sha256 "2b6bc4eaa89b7c055a91b86ec957ef765b0c8a43f5af3c4fa916e2d4d3fd03d6"
   end
 
   resource "cloudformation-cli-java-plugin" do
-    url "https://files.pythonhosted.org/packages/42/0d/b114a517b42a4c0dc8771720075f6524e2ba2195a936dd9e888947fe5634/cloudformation-cli-java-plugin-2.0.2.tar.gz"
-    sha256 "90f72cf405d6f484a34a7a6027137e5f91ecce01adb380f3acb960265c5dacc3"
+    url "https://files.pythonhosted.org/packages/37/42/9649aa7b20b7d927590f2d2226fa06f3c11a2faf974e575810ecc5afd453/cloudformation-cli-java-plugin-2.0.3.tar.gz"
+    sha256 "cc9bf7d55bca90bbed405971f016db4f5e6325856d2902f5aa5f768fe26ded5a"
   end
 
   resource "colorama" do
@@ -64,13 +64,13 @@ class CloudformationCli < Formula
   end
 
   resource "docker" do
-    url "https://files.pythonhosted.org/packages/b3/48/014af5285463adb8079f32f603c0d6d19c16d92a113ebacc6b07522dcff5/docker-4.3.1.tar.gz"
-    sha256 "bad94b8dd001a8a4af19ce4becc17f41b09f228173ffe6a4e0355389eef142f2"
+    url "https://files.pythonhosted.org/packages/51/ef/db02e409aa964ae590b8750d032afaafa60ab04d89ee7df0456101e77275/docker-4.4.0.tar.gz"
+    sha256 "cffc771d4ea1389fc66bc95cb72d304aa41d1a1563482a9a000fba3a84ed5071"
   end
 
   resource "hypothesis" do
-    url "https://files.pythonhosted.org/packages/59/5e/b12e12ce567ca4d1983d621cd8d49d7747785ea13bbf7de33ca34bcb438d/hypothesis-5.41.2.tar.gz"
-    sha256 "f8c281355aaba1da696e40f1488c2bb47c42660424f5750daea45a85e2d047b3"
+    url "https://files.pythonhosted.org/packages/dd/50/d2d2840249aa01371da9a0d55c03f42989a6f28ae7f9bf9cf0eeeffef63b/hypothesis-5.41.3.tar.gz"
+    sha256 "6a3471ff74864ab04a0650c75500ef15f2f4a901d49ccbb7cbec668365736688"
   end
 
   resource "idna" do
@@ -101,6 +101,11 @@ class CloudformationCli < Formula
   resource "MarkupSafe" do
     url "https://files.pythonhosted.org/packages/b9/2e/64db92e53b86efccfaea71321f597fa2e1b2bd3853d8ce658568f7a13094/MarkupSafe-1.1.1.tar.gz"
     sha256 "29872e92839765e546828bb7754a68c418d927cd064fd4708fab9fe9c8bb116b"
+  end
+
+  resource "ordered-set" do
+    url "https://files.pythonhosted.org/packages/f5/ab/8252360bfe965bba31ec05112b3067bd129ce4800d89e0b85613bc6044f6/ordered-set-4.0.2.tar.gz"
+    sha256 "ba93b2df055bca202116ec44b9bead3df33ea63a7d5827ff8e16738b97f33a95"
   end
 
   resource "packaging" do
