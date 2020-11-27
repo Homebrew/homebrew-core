@@ -1,5 +1,5 @@
 class Tendermint < Formula
-  desc "BFT state machine replication for applications across all programming languages"
+  desc "BFT state machine replication for applications in any programming languages"
   homepage "https://tendermint.com/"
   url "https://github.com/tendermint/tendermint/archive/v0.34.0.tar.gz"
   sha256 "3a28fac4c5e610fc32763db1b717ec0a1e12d39262e321d6da223c3b0acfea7f"
@@ -14,7 +14,8 @@ class Tendermint < Formula
   end
 
   test do
-    shell_output("#{bin}/tendermint init --home /tmp")
+    mkdir(testpath/"staging")
+    shell_output("#{bin}/tendermint init --home #{testpath}/staging")
     assert_true File.exist?("/tmp/config/genesis.json")
     assert_true File.exist?("/tmp/config/config.toml")
     assert_true Dir.exist?("/tmp/data")
