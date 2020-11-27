@@ -12,7 +12,7 @@ class OpenshiftCli < Formula
 
   livecheck do
     url :head
-    regex(/^openshift-clients-(\d+(?:\.\d+)+)?(-\S*)?.*$/i)
+    regex(/^openshift-clients[._-](\d+(?:\.\d+)+)(?:[._-]p?\d+)*$/i)
   end
 
   bottle do
