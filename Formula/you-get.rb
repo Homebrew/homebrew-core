@@ -3,8 +3,8 @@ class YouGet < Formula
 
   desc "Dumb downloader that scrapes the web"
   homepage "https://you-get.org/"
-  url "https://github.com/soimort/you-get/archive/v0.4.1475.tar.gz"
-  sha256 "77928e28a93aca13f56ca32a977d793008a7a29930e85c75737366da708af877"
+  url "https://github.com/soimort/you-get/archive/v0.4.1488.tar.gz"
+  sha256 "ac486cc3aeadd38b49114705d83f15b35dba6886d73ff446e292ba9e791b8330"
   license "MIT"
   head "https://github.com/soimort/you-get.git", branch: "develop"
 
