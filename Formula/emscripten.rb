@@ -55,6 +55,11 @@ class Emscripten < Formula
         lld
       ]
 
+      targets = %w[
+        host
+        WebAssembly
+      ]
+
       llvmpath = Pathname.pwd/"llvm"
 
       # Apple's libstdc++ is too old to build LLVM
@@ -70,20 +75,12 @@ class Emscripten < Formula
       args = std_cmake_args.reject { |s| s["CMAKE_INSTALL_PREFIX"] } + %W[
         -DCMAKE_INSTALL_PREFIX=#{libexec}/llvm
         -DLLVM_ENABLE_PROJECTS=#{projects.join(";")}
-        -DLLVM_LINK_LLVM_DYLIB=ON
-        -DLLVM_BUILD_LLVM_C_DYLIB=ON
-        -DLLVM_ENABLE_EH=ON
-        -DLLVM_ENABLE_FFI=ON
-        -DLLVM_ENABLE_LIBCXX=ON
-        -DLLVM_ENABLE_RTTI=ON
-        -DLLVM_INCLUDE_DOCS=OFF
+        -DLLVM_TARGETS_TO_BUILD=#{targets.join(";")}
+        -DLLVM_INCLUDE_EXAMPLES=OFF
         -DLLVM_INCLUDE_TESTS=OFF
-        -DLLVM_ENABLE_Z3_SOLVER=OFF
-        -DLLVM_TARGETS_TO_BUILD=host;WebAssembly
-        -DLLVM_INSTALL_TOOLCHAIN_ONLY=ON
+        -DLLVM_INSTALL_UTILS=OFF
         -DFFI_INCLUDE_DIR=#{Formula["libffi"].opt_lib}/libffi-#{Formula["libffi"].version}/include
         -DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}
-        -DCLANG_INCLUDE_TESTS=OFF
       ]
 
       sdk = MacOS.sdk_path_if_needed
@@ -126,21 +123,21 @@ class Emscripten < Formula
     # so we check that it contains what is needed
     # llvm dependendencies listed at
     # https://github.com/emscripten-core/emscripten/blob/master/docs/packaging.md#dependencies
-    required_llvm_exec = %w[
-      clang
-      clang++
-      wasm-ld
-      llc
-      llvm-nm
-      llvm-ar
-      llvm-dis
-      llvm-dwarfdump
-    ]
+    # required_llvm_exec = %w[
+    #   clang
+    #   clang++
+    #   wasm-ld
+    #   llc
+    #   llvm-nm
+    #   llvm-ar
+    #   llvm-dis
+    #   llvm-dwarfdump
+    # ]
 
-    required_llvm_exec.each do |exec|
-      assert_predicate "#{libexec}/llvm/bin/#{exec}", :exist?,
-        "Missing LLVM dependency: #{exec}"
-    end
+    # required_llvm_exec.each do |exec|
+    #   assert_predicate "#{libexec}/llvm/bin/#{exec}", :exist?,
+    #     "Missing LLVM dependency: #{exec}"
+    # end
 
     # Fixes "Unsupported architecture" Xcode prepocessor error
     ENV.delete "CPATH"
