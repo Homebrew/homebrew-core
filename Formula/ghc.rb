@@ -33,10 +33,10 @@ class Ghc < Formula
   depends_on "sphinx-doc" => :build
 
   resource "gmp" do
-    url "https://ftp.gnu.org/gnu/gmp/gmp-6.1.2.tar.xz"
-    mirror "https://gmplib.org/download/gmp/gmp-6.1.2.tar.xz"
-    mirror "https://ftpmirror.gnu.org/gmp/gmp-6.1.2.tar.xz"
-    sha256 "87b565e89a9a684fe4ebeeddb8399dce2599f9c9049854ca8c0dfbdea0e21912"
+    url "https://ftp.gnu.org/gnu/gmp/gmp-6.2.1.tar.xz"
+    mirror "https://gmplib.org/download/gmp/gmp-6.2.1.tar.xz"
+    mirror "https://ftpmirror.gnu.org/gmp/gmp-6.2.1.tar.xz"
+    sha256 "fd4829912cddd12f84181c3451cc752be224643e87fac497b69edddadc49b4f2"
   end
 
   # https://www.haskell.org/ghc/download_ghc_8_10_1.html#macosx_x86_64
@@ -44,13 +44,13 @@ class Ghc < Formula
   # A binary of ghc is needed to bootstrap ghc
   resource "binary" do
     on_macos do
-      url "https://downloads.haskell.org/~ghc/8.10.1/ghc-8.10.1-x86_64-apple-darwin.tar.xz"
-      sha256 "65b1ca361093de4804a7e40b3e68178e1ef720f84f743641ec8d95e56a45b3a8"
+      url "https://downloads.haskell.org/~ghc/8.10.2/ghc-8.10.2-x86_64-apple-darwin.tar.xz"
+      sha256 "edb772b00c0d7f18bb56ad27765162ee09c508104d40f82128c9114a02f6cfc2"
     end
 
     on_linux do
-      url "https://downloads.haskell.org/~ghc/8.10.1/ghc-8.10.1-x86_64-deb9-linux.tar.xz"
-      sha256 "d1cf7886f27af070f3b7dbe1975a78b43ef2d32b86362cbe953e79464fe70761"
+      url "https://downloads.haskell.org/~ghc/8.10.2/ghc-8.10.2-x86_64-deb9-linux.tar.xz"
+      sha256 "4dbe3b479e76767bfeb4cbb7a4db8b761c4720266193483ca370b2ace3f10f7c"
     end
   end
 
