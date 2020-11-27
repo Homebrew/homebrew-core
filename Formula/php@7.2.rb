@@ -103,6 +103,15 @@ class PhpAT72 < Formula
     # Prevent homebrew from hardcoding path to sed shim in phpize script
     ENV["lt_cv_path_SED"] = "sed"
 
+    # Fix compilation with icu4c 68
+    # Workaround for https://bugs.php.net/80310
+    ENV["CFLAGS"] = "-DU_DEFINE_FALSE_AND_TRUE=1"
+    ENV["CXXFLAGS"] = "-DU_DEFINE_FALSE_AND_TRUE=1"
+
+    # Work around configure issues with Xcode 12
+    # https://github.com/php/php-src/commit/aa405b7da270595d349d0596ad31305a41d4b1c0
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
+
     # Each extension that is built on Mojave needs a direct reference to the
     # sdk path or it won't find the headers
     headers_path = "=#{MacOS.sdk_path_if_needed}/usr"
