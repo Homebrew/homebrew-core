@@ -10,10 +10,10 @@ class SafeRm < Formula
     url :stable
   end
 
-  bottle :unneeded
+  depends_on "rust" => :build
 
   def install
-    bin.install "safe-rm"
+    system "cargo", "install", *std_cargo_args
   end
 
   test do
