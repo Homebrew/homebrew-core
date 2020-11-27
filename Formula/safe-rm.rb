@@ -1,8 +1,8 @@
 class SafeRm < Formula
   desc "Wraps rm to prevent dangerous deletion of files"
   homepage "https://launchpad.net/safe-rm"
-  url "https://launchpad.net/safe-rm/trunk/0.13/+download/safe-rm-0.13.tar.gz"
-  sha256 "f0f792faa076fbf3dbffbb4bc8918fd6bf699775417fef3f5f408f0c69200c12"
+  url "https://launchpad.net/safe-rm/trunk/1.0.0/+download/safe-rm-1.0.0.tar.gz"
+  sha256 "7258a1ed4518598cef4d478ed43ff5677023b897a8941585eddbdf63a56718f5"
   license "GPL-3.0-or-later"
   head "https://git.launchpad.net/safe-rm"
 
