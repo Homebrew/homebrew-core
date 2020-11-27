@@ -1,8 +1,8 @@
 class Cuba < Formula
   desc "Library for multidimensional numerical integration"
   homepage "http://www.feynarts.de/cuba/"
-  url "http://www.feynarts.de/cuba/Cuba-4.2.tar.gz"
-  sha256 "da4197a194f7a79465dfb2c06c250caa8e76d731e9d6bdfd2dd6e81c8fc005e0"
+  url "http://www.feynarts.de/cuba/Cuba-4.2.1.tar.gz"
+  sha256 "84935a6f72712e183e8741715f09402c716d1cf816e452a47bdc5dd44b13567b"
   license "LGPL-3.0"
 
   livecheck do
