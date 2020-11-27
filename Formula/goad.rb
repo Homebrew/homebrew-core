@@ -16,6 +16,8 @@ class Goad < Formula
     sha256 "f0c6400909fbe194400717025ad64cba2ccd63b1db9cba5ec7a9195274614b41" => :el_capitan
   end
 
+  deprecate! because: :repo_archived
+
   depends_on "go" => :build
   depends_on "go-bindata" => :build
 
