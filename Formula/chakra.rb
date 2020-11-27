@@ -4,6 +4,7 @@ class Chakra < Formula
   url "https://github.com/Microsoft/ChakraCore/archive/v1.11.24.tar.gz"
   sha256 "b99e85f2d0fa24f2b6ccf9a6d2723f3eecfe986a9d2c4d34fa1fd0d015d0595e"
   license "MIT"
+  revision 1
 
   bottle do
     cellar :any
