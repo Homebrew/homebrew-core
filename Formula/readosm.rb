@@ -3,6 +3,7 @@ class Readosm < Formula
   homepage "https://www.gaia-gis.it/fossil/readosm/index"
   url "https://www.gaia-gis.it/gaia-sins/readosm-sources/readosm-1.1.0a.tar.gz"
   sha256 "db7c051d256cec7ecd4c3775ab9bc820da5a4bf72ffd4e9f40b911d79770f145"
+  license any_of: ["MPL-1.1", "GPL-2.0-or-later", "LGPL-2.1-or-later"]
 
   livecheck do
     url :homepage
