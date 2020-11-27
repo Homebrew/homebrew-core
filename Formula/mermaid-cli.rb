@@ -15,8 +15,8 @@ class MermaidCli < Formula
   end
 
   test do
-  
-  (testpath/"test.mmd").write <<~EOS
+
+  (testpath/"test.mmd").write <<  ~EOS
         sequenceDiagram
             participant Alice
             participant Bob
