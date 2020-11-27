@@ -3,8 +3,8 @@ class TrashCli < Formula
 
   desc "Command-line interface to the freedesktop.org trashcan"
   homepage "https://github.com/andreafrancia/trash-cli"
-  url "https://github.com/andreafrancia/trash-cli/archive/0.20.11.14.tar.gz"
-  sha256 "43e936a5795e076b9d8804394410145e1bd88dfa2f7c24f493098387bb0ab70f"
+  url "https://github.com/andreafrancia/trash-cli/archive/0.20.11.23.tar.gz"
+  sha256 "dbe59f60f3d0fbe95aedcc64b927e8d4d8ce62fc0dd9b6a0b8ffae2372865f36"
   license "GPL-2.0-or-later"
   head "https://github.com/andreafrancia/trash-cli.git"
 
