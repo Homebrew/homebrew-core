@@ -3,6 +3,7 @@ class Hmmer < Formula
   homepage "http://hmmer.org/"
   url "http://eddylab.org/software/hmmer/hmmer-3.3.2.tar.gz"
   sha256 "92fee9b5efe37a5276352d3502775e7c46e9f7a0ee45a331eacb2a0cac713c69"
+  license "BSD-3-Clause"
 
   livecheck do
     url "http://eddylab.org/software/hmmer/"
