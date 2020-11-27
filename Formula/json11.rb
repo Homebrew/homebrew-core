@@ -14,6 +14,8 @@ class Json11 < Formula
     sha256 "d5345ad5224fb7aeda2562d1a46350c44f66cf98486d142bc81b8186e5aa74cc" => :el_capitan
   end
 
+  deprecate! because: :repo_archived
+
   depends_on "cmake" => :build
 
   def install
