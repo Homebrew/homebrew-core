@@ -16,6 +16,8 @@ class Giflossy < Formula
     sha256 "50e8538008faf1bb05e8d44801cacd6e8f41fbf392ed23b639c7d05d36b5c8d8" => :el_capitan
   end
 
+  deprecate! because: :repo_archived
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
 
