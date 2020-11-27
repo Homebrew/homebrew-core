@@ -31,9 +31,8 @@ class Less < Formula
     uses_from_macos "perl" => :build
   end
 
+  depends_on "ncurses"
   depends_on "pcre"
-
-  uses_from_macos "ncurses"
 
   def install
     system "make", "-f", "Makefile.aut", "dist" if build.head?
