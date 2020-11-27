@@ -5,6 +5,11 @@ class Mp3info < Formula
   sha256 "0438ac68e9f04947fb14ca5573d27c62454cb9db3a93b7f1d2c226cd3e0b4e10"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://www.ibiblio.org/pub/linux/apps/sound/mp3-utils/mp3info/"
+    regex(/href=.*?mp3info[._-]v?(\d+(?:\.\d+)+(?:[._-]?[a-z]\d*)?)\.(t|zip)/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 1
