@@ -9,7 +9,7 @@ class Libcerf < Formula
 
   livecheck do
     url "https://jugit.fz-juelich.de/api/v4/projects/269/releases"
-    regex(/libcerf[._-]v?(1+(?:\.\d+)+)/i)
+    regex(/libcerf[._-]v?((?!2\.0)\d+(?:\.\d+)+)/i)
   end
 
   bottle do
