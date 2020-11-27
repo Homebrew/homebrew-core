@@ -7,8 +7,8 @@ class Mailhog < Formula
   head "https://github.com/mailhog/MailHog.git"
 
   stable do
-    url "https://github.com/mailhog/MailHog/archive/v1.0.0.tar.gz"
-    sha256 "472bf0895f33d49ec8f9bf665fdbda317e57855e846e38e6a6b8dcecdacd7bc5"
+    url "https://github.com/mailhog/MailHog/archive/v1.0.1.tar.gz"
+    sha256 "6227b566f3f7acbfee0011643c46721e20389eba4c8c2d795c0d2f4d2905f282"
 
     go_resource "github.com/gorilla/context" do
       url "https://github.com/gorilla/context.git",
