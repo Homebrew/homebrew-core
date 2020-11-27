@@ -25,7 +25,7 @@ class Emscripten < Formula
 
   depends_on "cmake" => :build
   depends_on "binaryen"
-  # error "fatal error: '__config' file not found" when building llvm 12 on High Sierra
+  depends_on "libffi"
   depends_on "node"
   depends_on "python@3.9"
   depends_on "yuicompressor"
@@ -55,13 +55,6 @@ class Emscripten < Formula
         lld
       ]
 
-      runtimes = %w[
-        compiler-rt
-        libcxx
-        libcxxabi
-        libunwind
-      ]
-
       llvmpath = Pathname.pwd/"llvm"
 
       # Apple's libstdc++ is too old to build LLVM
@@ -77,8 +70,6 @@ class Emscripten < Formula
       args = std_cmake_args.reject { |s| s["CMAKE_INSTALL_PREFIX"] } + %W[
         -DCMAKE_INSTALL_PREFIX=#{libexec}/llvm
         -DLLVM_ENABLE_PROJECTS=#{projects.join(";")}
-        -DLLVM_ENABLE_RUNTIMES=#{runtimes.join(";")}
-        -DLLVM_BUILD_EXTERNAL_COMPILER_RT=ON
         -DLLVM_LINK_LLVM_DYLIB=ON
         -DLLVM_BUILD_LLVM_C_DYLIB=ON
         -DLLVM_ENABLE_EH=ON
@@ -87,18 +78,11 @@ class Emscripten < Formula
         -DLLVM_ENABLE_RTTI=ON
         -DLLVM_INCLUDE_DOCS=OFF
         -DLLVM_INCLUDE_TESTS=OFF
-        -DLLVM_INSTALL_UTILS=ON
         -DLLVM_ENABLE_Z3_SOLVER=OFF
-        -DLLVM_OPTIMIZED_TABLEGEN=ON
         -DLLVM_TARGETS_TO_BUILD=host;WebAssembly
+        -DLLVM_INSTALL_TOOLCHAIN_ONLY=ON
         -DFFI_INCLUDE_DIR=#{Formula["libffi"].opt_lib}/libffi-#{Formula["libffi"].version}/include
         -DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}
-        -DLLVM_CREATE_XCODE_TOOLCHAIN=#{MacOS::Xcode.installed? ? "ON" : "OFF"}
-        -DLLDB_USE_SYSTEM_DEBUGSERVER=ON
-        -DLLDB_ENABLE_PYTHON=OFF
-        -DLLDB_ENABLE_LUA=OFF
-        -DLLDB_ENABLE_LZMA=OFF
-        -DLIBOMP_INSTALL_ALIASES=OFF
         -DCLANG_INCLUDE_TESTS=OFF
       ]
 
@@ -113,9 +97,8 @@ class Emscripten < Formula
 
       mkdir llvmpath/"build" do
         system "cmake", "-G", "Unix Makefiles", "..", *args
-        system "make"
-        system "make", "install"
-        system "make", "install-xcode-toolchain" if MacOS::Xcode.installed?
+        system "cmake", "--build", "."
+        system "cmake", "--build", ".", "--target", "install"
       end
     end
 
@@ -139,6 +122,26 @@ class Emscripten < Formula
   end
 
   test do
+    # A stripped down non-stable build of llvm is packaged with emscripten,
+    # so we check that it contains what is needed
+    # llvm dependendencies listed at
+    # https://github.com/emscripten-core/emscripten/blob/master/docs/packaging.md#dependencies
+    required_llvm_exec = %w[
+      clang
+      clang++
+      wasm-ld
+      llc
+      llvm-nm
+      llvm-ar
+      llvm-dis
+      llvm-dwarfdump
+    ]
+
+    required_llvm_exec.each do |exec|
+      assert_predicate "#{libexec}/llvm/bin/#{exec}", :exist?,
+        "Missing LLVM dependency: #{exec}"
+    end
+
     # Fixes "Unsupported architecture" Xcode prepocessor error
     ENV.delete "CPATH"
 
