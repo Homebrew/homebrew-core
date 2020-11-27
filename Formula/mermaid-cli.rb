@@ -16,22 +16,21 @@ class MermaidCli < Formula
 
   test do
   
-  shell_output("\
-      cat << EOF | mmdc -o testpath/out.svg\
-      sequenceDiagram\
-          participant Alice\
-          participant Bob\
-          Alice->>John: Hello John, how are you?\
-          loop Healthcheck\
-              John->>John: Fight against hypochondria\
-          end\
-          Note right of John: Rational thoughts <br/>prevail!\
-          John-->>Alice: Great!\
-          John->>Bob: How about you?\
-          Bob-->>John: Jolly good!\
-      EOF\
-    ")
-  
+  (testpath/"test.mmd").write <<~EOS
+        sequenceDiagram
+            participant Alice
+            participant Bob
+            Alice->>John: Hello John, how are you?
+            loop Healthcheck
+                John->>John: Fight against hypochondria
+            end
+            Note right of John: Rational thoughts <br/>prevail!
+            John-->>Alice: Great!
+            John->>Bob: How about you?
+            Bob-->>John: Jolly good!
+      EOS
+    system "mmdc -i #{testpath}/test.mmd -o #{testpath}/out.svg"
+
     assert_predicate(testpath/"out.svg", :exist?)
   
   end
