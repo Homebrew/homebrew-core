@@ -4,7 +4,7 @@ class Pazpar2 < Formula
   url "http://ftp.indexdata.dk/pub/pazpar2/pazpar2-1.14.0.tar.gz"
   sha256 "3b0012450c66d6932009ac0decb72436690cc939af33e2ad96c0fec85863d13d"
   license "GPL-2.0"
-  revision 2
+  revision 3
 
   livecheck do
     url "http://ftp.indexdata.dk/pub/pazpar2/"
