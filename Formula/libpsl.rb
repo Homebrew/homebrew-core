@@ -4,7 +4,7 @@ class Libpsl < Formula
   url "https://github.com/rockdaboot/libpsl/releases/download/0.21.1/libpsl-0.21.1.tar.gz"
   sha256 "ac6ce1e1fbd4d0254c4ddb9d37f1fa99dec83619c1253328155206b896210d4c"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
