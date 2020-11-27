@@ -6,6 +6,7 @@ class PhpAT74 < Formula
   mirror "https://fossies.org/linux/www/php-7.4.13.tar.xz"
   sha256 "aead303e3abac23106529560547baebbedba0bb2943b91d5aa08fff1f41680f4"
   license "PHP-3.01"
+  revision 1
 
   bottle do
     sha256 "1e326adac9efbbe064c834b4277bb0edfda4072d4fbf783982fab4b70b06ac42" => :big_sur
@@ -24,7 +25,7 @@ class PhpAT74 < Formula
   depends_on "argon2"
   depends_on "aspell"
   depends_on "autoconf"
-  depends_on "curl-openssl"
+  depends_on "curl"
   depends_on "freetds"
   depends_on "gd"
   depends_on "gettext"
