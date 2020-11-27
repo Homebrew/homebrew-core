@@ -1,8 +1,8 @@
 class Rain < Formula
   desc "Command-line tool for working with AWS CloudFormation"
   homepage "https://github.com/aws-cloudformation/rain"
-  url "https://github.com/aws-cloudformation/rain/archive/v1.0.3.tar.gz"
-  sha256 "d79afec4780e6fd9561793a40f5d080d91edf7ea5e3fbeb7c5f8ad6accdd812f"
+  url "https://github.com/aws-cloudformation/rain/archive/v1.1.0.tar.gz"
+  sha256 "a255a1e76569a2cbe3f9a876a27f49d56d87e7569d737517917334c4277d2c0a"
   license "Apache-2.0"
 
   bottle do
