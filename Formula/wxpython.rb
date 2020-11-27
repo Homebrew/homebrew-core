@@ -60,7 +60,7 @@ class Wxpython < Formula
     inreplace "buildtools/build_wxwidgets.py" do |s|
       s.gsub! "#wxpy_configure_opts.append(\"--enable-monolithic\")",
               "wxpy_configure_opts.append(\"--disable-precomp-headers\")"
-      s.gsub! "--with-macosx-version-min=10.9",
+      s.gsub! "--with-macosx-version-min=10.10",
               "--with-macosx-version-min=#{MacOS.version}"
     end
 
