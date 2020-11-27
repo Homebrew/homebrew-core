@@ -3,7 +3,7 @@ class Qscintilla2 < Formula
   homepage "https://www.riverbankcomputing.com/software/qscintilla/intro"
   url "https://www.riverbankcomputing.com/static/Downloads/QScintilla/2.11.6/QScintilla-2.11.6.tar.gz"
   sha256 "e7346057db47d2fb384467fafccfcb13aa0741373c5d593bc72b55b2f0dd20a7"
-  license "GPL-3.0"
+  license "GPL-3.0-only"
 
   livecheck do
     url "https://www.riverbankcomputing.com/software/qscintilla/download"
