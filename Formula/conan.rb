@@ -3,14 +3,13 @@ class Conan < Formula
 
   desc "Distributed, open source, package manager for C/C++"
   homepage "https://conan.io"
-  url "https://github.com/conan-io/conan/archive/1.31.4.tar.gz"
-  sha256 "14d8cbb93d1d2fa8448c5e7fb39d1ea8498cda594ea5c5341103ea7febeb3492"
+  url "https://files.pythonhosted.org/packages/40/c4/8db2001a7e62ed6677d2dbe80d37ae91c6f8aed5499605016b08916bfd82/conan-1.31.4.tar.gz"
+  sha256 "423617208d142a0cd95673f03a68c9256f6098356d1d061f1f7fd28d4384c219"
   license "MIT"
   head "https://github.com/conan-io/conan.git"
 
   livecheck do
-    url "https://github.com/conan-io/conan/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
   end
 
   bottle do
@@ -101,8 +100,8 @@ class Conan < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/55/fd/fc1aca9cf51ed2f2c11748fa797370027babd82f87829c7a8e6dbe720145/packaging-20.4.tar.gz"
-    sha256 "4357f74f47b9c12db93624a82154e9b120fa8293699949152b22065d556079f8"
+    url "https://files.pythonhosted.org/packages/61/b8/5a96ce56fcdf1bf7494f642ec7fad3e8c192b3a5b2116b59955ff32f70de/packaging-20.5.tar.gz"
+    sha256 "5d21ed3d936beb102850195eadaa1371bfb4b93da6ad63d231410c6dca25a665"
   end
 
   resource "patch-ng" do
@@ -161,8 +160,8 @@ class Conan < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/db/af/6af426ad64a4e89696069f8a87d985c10a79e4c6f975ac772b676afc21a5/tqdm-4.53.0.tar.gz"
-    sha256 "3d3f1470d26642e88bd3f73353cb6ff4c51ef7d5d7efef763238f4bc1f7e4e81"
+    url "https://files.pythonhosted.org/packages/3a/76/467422c5a0157c92a8b8e1ffe14411443682e2951e6f6dde3748e47b31ba/tqdm-4.54.0.tar.gz"
+    sha256 "5c0d04e06ccc0da1bd3fa5ae4550effcce42fcad947b4a6cafa77bdc9b09ff22"
   end
 
   resource "urllib3" do
