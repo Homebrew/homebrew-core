@@ -14,6 +14,8 @@ class Gofabric8 < Formula
     sha256 "b727813219f939d47303e0ed627d778747ba890456d7f571675e6caf79b92ea1" => :el_capitan
   end
 
+  deprecate! because: :repo_archived
+
   depends_on "go" => :build
 
   def install
