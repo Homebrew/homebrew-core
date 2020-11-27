@@ -48,11 +48,6 @@ class Wxpython < Formula
     sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
   end
 
-  resource "wxPython" do
-    url "https://files.pythonhosted.org/packages/b0/4d/80d65c37ee60a479d338d27a2895fb15bbba27a3e6bb5b6d72bb28246e99/wxPython-4.1.1.tar.gz"
-    sha256 "00e5e3180ac7f2852f342ad341d57c44e7e4326de0b550b9a5c4a8361b6c3528"
-  end
-
   def install
     # Fix build of included wxwidgets:
     # https://github.com/wxWidgets/Phoenix/issues/1247
@@ -60,8 +55,6 @@ class Wxpython < Formula
     inreplace "buildtools/build_wxwidgets.py" do |s|
       s.gsub! "#wxpy_configure_opts.append(\"--enable-monolithic\")",
               "wxpy_configure_opts.append(\"--disable-precomp-headers\")"
-      s.gsub! "--with-macosx-version-min=10.10",
-              "--with-macosx-version-min=#{MacOS.version}"
     end
 
     inreplace "wscript", "MACOSX_DEPLOYMENT_TARGET = \"10.6\"",
