@@ -3,7 +3,7 @@ class Dialog < Formula
   homepage "https://invisible-island.net/dialog/"
   url "https://invisible-mirror.net/archives/dialog/dialog-1.3-20201126.tgz"
   sha256 "c9233a6c8ea33a59e2378e5146ae2bd13b519744cfdb647af7420adac5ad3866"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
 
   livecheck do
     url "https://invisible-mirror.net/archives/dialog/"
