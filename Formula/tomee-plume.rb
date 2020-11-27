@@ -1,9 +1,9 @@
 class TomeePlume < Formula
   desc "Apache TomEE Plume"
   homepage "https://tomee.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=tomee/tomee-8.0.4/apache-tomee-8.0.4-plume.tar.gz"
-  mirror "https://archive.apache.org/dist/tomee/tomee-8.0.4/apache-tomee-8.0.4-plume.tar.gz"
-  sha256 "fff4d98606f023b11c37bb7b4ceb74600552ff2953dc90fb484456236da34663"
+  url "https://www.apache.org/dyn/closer.lua?path=tomee/tomee-8.0.5/apache-tomee-8.0.5-plume.tar.gz"
+  mirror "https://archive.apache.org/dist/tomee/tomee-8.0.5/apache-tomee-8.0.5-plume.tar.gz"
+  sha256 "cff68e05fac82f115b2abef7cff5c80e02ed0cd04cfba44cc6e3155334345bf1"
   license "Apache-2.0"
 
   livecheck do
@@ -11,6 +11,8 @@ class TomeePlume < Formula
   end
 
   bottle :unneeded
+
+  depends_on "openjdk"
 
   def install
     # Remove Windows scripts
@@ -21,7 +23,8 @@ class TomeePlume < Formula
     # Install files
     prefix.install %w[NOTICE LICENSE RELEASE-NOTES RUNNING.txt]
     libexec.install Dir["*"]
-    bin.install_symlink "#{libexec}/bin/startup.sh" => "tomee-plume-startup"
+    bin.env_script_all_files(libexec/"bin", Language::Java.overridable_java_home_env)
+    bin.install_symlink "#{bin}/startup.sh" => "tomee-plume-startup"
   end
 
   def caveats
