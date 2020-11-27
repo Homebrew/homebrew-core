@@ -7,7 +7,7 @@ class CairommAT114 < Formula
 
   livecheck do
     url "https://cairographics.org/releases/?C=M&O=D"
-    regex(/href=.*?cairomm[._-]v?(\d+\.\d*[02468](?:\.\d+)*)\.t/i)
+    regex(/href=.*?cairomm[._-]v?(1\.14\.\d*[02468](?:\.\d+)*)\.t/i)
   end
 
   bottle do
@@ -16,6 +16,8 @@ class CairommAT114 < Formula
     sha256 "89fc4b03efa9136f5a828959c3263b36dfb209d303b62192d57d6d6aed4058ef" => :catalina
     sha256 "b9eff4d0aca913e713ee870137962be2a44c498936f1c915e459eb95002e60ef" => :mojave
   end
+
+  keg_only :versioned_formula
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
