@@ -109,6 +109,7 @@ class Gdal < Formula
       # Explicitly disable some features
       "--with-armadillo=no",
       "--with-qhull=no",
+      "--without-exr",
       "--without-grass",
       "--without-jasper",
       "--without-jpeg12",
