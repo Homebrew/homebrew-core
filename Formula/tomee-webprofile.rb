@@ -1,9 +1,9 @@
 class TomeeWebprofile < Formula
   desc "All-Apache Java EE 7 Web Profile stack"
   homepage "https://tomee.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=tomee/tomee-8.0.4/apache-tomee-8.0.4-webprofile.tar.gz"
-  mirror "https://archive.apache.org/dist/tomee/tomee-8.0.4/apache-tomee-8.0.4-webprofile.tar.gz"
-  sha256 "13b0817a17e54069c39c3878d7a271b52fe5adceb6ddef3fe1147f2cea2d78ac"
+  url "https://www.apache.org/dyn/closer.lua?path=tomee/tomee-8.0.5/apache-tomee-8.0.5-webprofile.tar.gz"
+  mirror "https://archive.apache.org/dist/tomee/tomee-8.0.5/apache-tomee-8.0.5-webprofile.tar.gz"
+  sha256 "51deb024888fa5b7ef169c07f0d3bc43c13f9e8e7d00bf07d1f6f0cfaaeb7d88"
   license "Apache-2.0"
 
   livecheck do
@@ -11,6 +11,8 @@ class TomeeWebprofile < Formula
   end
 
   bottle :unneeded
+
+  depends_on "openjdk"
 
   def install
     # Remove Windows scripts
@@ -21,7 +23,8 @@ class TomeeWebprofile < Formula
     # Install files
     prefix.install %w[NOTICE LICENSE RELEASE-NOTES RUNNING.txt]
     libexec.install Dir["*"]
-    bin.install_symlink "#{libexec}/bin/startup.sh" => "tomee-webprofile-startup"
+    (bin/"tomee-webprofile-startup").write_env_script "#{libexec}/bin/startup.sh",
+        JAVA_HOME: Formula["openjdk"].opt_prefix
   end
 
   def caveats
