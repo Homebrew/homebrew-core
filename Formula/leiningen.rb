@@ -4,6 +4,7 @@ class Leiningen < Formula
   url "https://github.com/technomancy/leiningen/archive/2.9.4.tar.gz"
   sha256 "be1b1e43c5376f2fdc8666aeb671df16c19776d5cfe64339292a3d35ce3a7faa"
   license "EPL-1.0"
+  revision 1
   head "https://github.com/technomancy/leiningen.git"
 
   bottle do
@@ -12,6 +13,8 @@ class Leiningen < Formula
     sha256 "3e65cbf112fe60434c3b6f748342de048feeaa63f10da2e26721ce9e83dea081" => :mojave
     sha256 "3e65cbf112fe60434c3b6f748342de048feeaa63f10da2e26721ce9e83dea081" => :high_sierra
   end
+
+  depends_on "openjdk@8"
 
   resource "jar" do
     url "https://github.com/technomancy/leiningen/releases/download/2.9.4/leiningen-2.9.4-standalone.zip", using: :nounzip
