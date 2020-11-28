@@ -3,8 +3,8 @@ class Molecule < Formula
 
   desc "Automated testing for Ansible roles"
   homepage "https://molecule.readthedocs.io"
-  url "https://files.pythonhosted.org/packages/c9/13/a09e3f14d0bf07c042ea8bdd971769e342e0a7a345b52acf4141c98d320c/molecule-3.1.5.tar.gz"
-  sha256 "79e42e9b896e1b587fc28262185553f1796d898703559423d3ede647756db7e6"
+  url "https://files.pythonhosted.org/packages/45/e0/42e0c4387ffdb09d25580a14aff211844ee5df854499714d757d65df3144/molecule-3.2.0.tar.gz"
+  sha256 "dd6e23b0f3a39e9fabe6913b3149619f118f7135b05413966dd6f5c53e1efee3"
   license "MIT"
 
   livecheck do
@@ -33,8 +33,8 @@ class Molecule < Formula
   #  python-vagrant
 
   resource "ansible" do
-    url "https://files.pythonhosted.org/packages/4b/69/c8aef60ce070fe6872e27db65f588bd0ffe8892a980cd3f4d844d8b72152/ansible-2.9.12.tar.gz"
-    sha256 "7e95ddf719190b068fafc7d7c7877c218054cc5da4f6d9d794faf7bc66dab774"
+    url "https://files.pythonhosted.org/packages/9c/f4/c156b10d7ae90ba6b99b1b126f7d30628adc1e733a6fbd63569852948f21/ansible-2.10.3.tar.gz"
+    sha256 "eb1d08b9b98a60e90e7123a12f40770780f29f9d73168da55d449106a9f4d348"
   end
 
   resource "arrow" do
@@ -58,13 +58,13 @@ class Molecule < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/40/a7/ded59fa294b85ca206082306bba75469a38ea1c7d44ea7e1d64f5443d67a/certifi-2020.6.20.tar.gz"
-    sha256 "5930595817496dd21bb8dc35dad090f1c2cd0adfaf21204bf6732ca5d8ee34d3"
+    url "https://files.pythonhosted.org/packages/e6/de/879cf857ae6f890dfa23c3d6239814c5471936b618c8fb0c8732ad5da885/certifi-2020.11.8.tar.gz"
+    sha256 "f05def092c44fbf25834a51509ef6e631dc19765ab8a57b4e7ab85531f0a9cf4"
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/cb/ae/380e33d621ae301770358eb11a896a34c34f30db188847a561e8e39ee866/cffi-1.14.3.tar.gz"
-    sha256 "f92f789e4f9241cd262ad7a555ca2c648a98178a953af117ef7fad46aa1d5591"
+    url "https://files.pythonhosted.org/packages/66/6a/98e023b3d11537a5521902ac6b50db470c826c682be6a8c661549cb7717a/cffi-1.14.4.tar.gz"
+    sha256 "1a465cbe98a7fd391d47dce4b8f7e5b921e6cd805ef421d04f5f66ba8f06086c"
   end
 
   resource "chardet" do
@@ -117,6 +117,11 @@ class Molecule < Formula
     sha256 "6ce3270bcaf404cc4c3e27e4b6c70d3521deae82fb508767870fdbf772d584d4"
   end
 
+  resource "enrich" do
+    url "https://files.pythonhosted.org/packages/d3/a0/0ce36c81ae4f3fd80cfad1da2c35d8deeb3647599162eebfa67326ec023f/enrich-1.2.3.tar.gz"
+    sha256 "586c142edd2e03bb2e4fa60f14afd134a4aa63e2bb73000d28dba72dc6f6e5c9"
+  end
+
   resource "idna" do
     url "https://files.pythonhosted.org/packages/ea/b7/e0e3c1c467636186c39925827be42f16fee389dc404ac29e930e9136be70/idna-2.10.tar.gz"
     sha256 "b307872f855b18632ce0c21c5e45be78c0ea7ae4c15c828c20788b26921eb3f6"
@@ -138,8 +143,8 @@ class Molecule < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/55/fd/fc1aca9cf51ed2f2c11748fa797370027babd82f87829c7a8e6dbe720145/packaging-20.4.tar.gz"
-    sha256 "4357f74f47b9c12db93624a82154e9b120fa8293699949152b22065d556079f8"
+    url "https://files.pythonhosted.org/packages/61/b8/5a96ce56fcdf1bf7494f642ec7fad3e8c192b3a5b2116b59955ff32f70de/packaging-20.5.tar.gz"
+    sha256 "5d21ed3d936beb102850195eadaa1371bfb4b93da6ad63d231410c6dca25a665"
   end
 
   resource "paramiko" do
@@ -148,8 +153,8 @@ class Molecule < Formula
   end
 
   resource "pathspec" do
-    url "https://files.pythonhosted.org/packages/93/9c/4bb0a33b0ec07d2076f0b3d7c6aae4dad0a99f9a7a14f7f7ff6f4ed7fa38/pathspec-0.8.0.tar.gz"
-    sha256 "da45173eb3a6f2a5a487efba21f050af2b41948be6ab52b6a1e3ff22bb8b7061"
+    url "https://files.pythonhosted.org/packages/b7/64/e097eea8dcd2b2f7df6e4425fc98e7494e37b1a6e149603c31d327080a05/pathspec-0.8.1.tar.gz"
+    sha256 "86379d6b86d75816baba717e64b1a3a3469deb93bb76d613c9ce79edc5cb68fd"
   end
 
   resource "pexpect" do
@@ -213,18 +218,18 @@ class Molecule < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/da/67/672b422d9daf07365259958912ba533a0ecab839d4084c487a5fe9a5405f/requests-2.24.0.tar.gz"
-    sha256 "b3559a131db72c33ee969480840fff4bb6dd111de7dd27c8ee1f820f4f00231b"
+    url "https://files.pythonhosted.org/packages/9f/14/4a6542a078773957aa83101336375c9597e6fe5889d20abda9c38f9f3ff2/requests-2.25.0.tar.gz"
+    sha256 "7f1a0b932f4a60a1a65caa4263921bb7d9ee911957e0ae4a23a6dd08185ad5f8"
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/7c/7b/aa24eb7b8a7cd3d974ca47e9a95a9d462856543162944658689a07d665c5/rich-9.1.0.tar.gz"
-    sha256 "05f1cf4dc191c483867b098d8572546de266440d61911d8270069023e325d14a"
+    url "https://files.pythonhosted.org/packages/c5/5f/f0a36649beefeaa70c1086451fc936b22afb0c34879930d97d3b129aadc6/rich-9.2.0.tar.gz"
+    sha256 "7003a1cce3b79bf4d34a26099b00a4b67e208d4a6896a1c25368603d5f49f295"
   end
 
   resource "sh" do
-    url "https://files.pythonhosted.org/packages/c9/3b/2c9a22bf1c48ced7ff3a11d4a862682c21d825c35f9d025811ad9808d263/sh-1.13.1.tar.gz"
-    sha256 "97a3d2205e3c6a842d87ebbc9ae93acae5a352b1bc4609b428d0fd5bb9e286a3"
+    url "https://files.pythonhosted.org/packages/f6/d4/e80280b1eba9597d16144f71d12cdf62d0e66170d289880f307cf905d327/sh-1.14.1.tar.gz"
+    sha256 "39aa9af22f6558a0c5d132881cf43e34828ca03e4ae11114852ca6a55c7c1d8e"
   end
 
   resource "shellingham" do
@@ -235,6 +240,11 @@ class Molecule < Formula
   resource "six" do
     url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
     sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
+  end
+
+  resource "subprocess-tee" do
+    url "https://files.pythonhosted.org/packages/c6/53/7021fda11db9ce7c02d220b1bcc311a41e83e1d38a069020662a425b5535/subprocess-tee-0.1.5.tar.gz"
+    sha256 "46995b7cc6d3f84f7bcb5921b45e08287c9d26c2bc87b50ae1d4d8b980e29db2"
   end
 
   resource "text-unidecode" do
@@ -253,8 +263,8 @@ class Molecule < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/76/d9/bbbafc76b18da706451fa91bc2ebe21c0daf8868ef3c30b869ac7cb7f01d/urllib3-1.25.11.tar.gz"
-    sha256 "8d7eaa5a82a1cac232164990f04874c594c9453ec55eef02eab885aa02fc17a2"
+    url "https://files.pythonhosted.org/packages/29/e6/d1a1d78c439cad688757b70f26c50a53332167c364edb0134cadd280e234/urllib3-1.26.2.tar.gz"
+    sha256 "19188f96923873c92ccb987120ec4acaa12f0461fa9ce5d3d0772bc965a39e08"
   end
 
   resource "websocket_client" do
@@ -269,8 +279,8 @@ class Molecule < Formula
 
   # Plugins
   resource "molecule-vagrant" do
-    url "https://files.pythonhosted.org/packages/02/a9/24dd64f6b20ddaf795f2e0f851f183da8103ad205736495f0b6381c1c291/molecule-vagrant-0.3.tar.gz"
-    sha256 "94b9aec5b1c7b499f549539bdd8d73c74afcce0a20776efd82f3f4ebae40ca98"
+    url "https://files.pythonhosted.org/packages/a9/55/d1cb8ed9a7588f1b3fbbb229d8875a1725a2076084a8174c0a999716c600/molecule-vagrant-0.5.tar.gz"
+    sha256 "4e8f112ddb04b4a80cc824652e800dce19c6567bb5c06d238665e452540f3509"
   end
 
   def install
