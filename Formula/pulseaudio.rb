@@ -1,9 +1,8 @@
 class Pulseaudio < Formula
   desc "Sound system for POSIX OSes"
   homepage "https://wiki.freedesktop.org/www/Software/PulseAudio/"
-  url "https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-13.0.tar.xz"
-  sha256 "961b23ca1acfd28f2bc87414c27bb40e12436efcf2158d29721b1e89f3f28057"
-  revision 1
+  url "https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-14.0.tar.xz"
+  sha256 "a834775d9382b055504e5ee7625dc50768daac29329531deb6597bf05e06c261"
 
   # The regex here avoids x.99 releases, as they're pre-release versions.
   livecheck do
