@@ -28,7 +28,14 @@ class MermaidCli < Formula
           John->>Bob: How about you?
           Bob-->>John: Jolly good!
     EOS
-    system "mmdc", "-i", "#{testpath}/test.mmd", "-o", "#{testpath}/out.svg"
+
+    (testpath/"puppeteer-config.json").write <<~EOS
+      {
+        "args": ["--no-sandbox"]
+      }
+    EOS
+
+    system "mmdc", "-p", "puppeteer-config.json", "-i", "#{testpath}/test.mmd", "-o", "#{testpath}/out.svg"
 
     assert_predicate(testpath/"out.svg", :exist?)
   end
