@@ -121,7 +121,7 @@ class PythonAT39 < Formula
       cflags << "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers"
     end
     # Avoid linking to libgcc https://mail.python.org/pipermail/python-dev/2012-February/116205.html
-    args << "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
+    args << "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version.to_f}"
 
     # We want our readline! This is just to outsmart the detection code,
     # superenv makes cc always find includes/libs!
