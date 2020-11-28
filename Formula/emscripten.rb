@@ -49,6 +49,8 @@ class Emscripten < Formula
     # repository.
     libexec.install Dir["*"]
 
+    # emscripten needs an llvm build with the following executables:
+    # https://github.com/emscripten-core/emscripten/blob/#{version}/docs/packaging.md#dependencies
     resource("llvm").stage do
       projects = %w[
         clang
@@ -76,9 +78,11 @@ class Emscripten < Formula
         -DCMAKE_INSTALL_PREFIX=#{libexec}/llvm
         -DLLVM_ENABLE_PROJECTS=#{projects.join(";")}
         -DLLVM_TARGETS_TO_BUILD=#{targets.join(";")}
+        -DLLVM_LINK_LLVM_DYLIB=ON
+        -DLLVM_BUILD_LLVM_DYLIB=ON
         -DLLVM_INCLUDE_EXAMPLES=OFF
         -DLLVM_INCLUDE_TESTS=OFF
-        -DLLVM_INSTALL_UTILS=OFF
+        -DLLVM_INSTALL_TOOLCHAIN_ONLY=ON
         -DFFI_INCLUDE_DIR=#{Formula["libffi"].opt_lib}/libffi-#{Formula["libffi"].version}/include
         -DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}
       ]
@@ -119,25 +123,9 @@ class Emscripten < Formula
   end
 
   test do
-    # A stripped down non-stable build of llvm is packaged with emscripten,
-    # so we check that it contains what is needed
-    # llvm dependendencies listed at
-    # https://github.com/emscripten-core/emscripten/blob/master/docs/packaging.md#dependencies
-    # required_llvm_exec = %w[
-    #   clang
-    #   clang++
-    #   wasm-ld
-    #   llc
-    #   llvm-nm
-    #   llvm-ar
-    #   llvm-dis
-    #   llvm-dwarfdump
-    # ]
-
-    # required_llvm_exec.each do |exec|
-    #   assert_predicate "#{libexec}/llvm/bin/#{exec}", :exist?,
-    #     "Missing LLVM dependency: #{exec}"
-    # end
+    # Minimal llvm install test
+    llvm_prefix = "#{libexec}/llvm"
+    assert_equal llvm_prefix, shell_output("#{llvm_prefix}/bin/llvm-config --prefix").chomp
 
     # Fixes "Unsupported architecture" Xcode prepocessor error
     ENV.delete "CPATH"
