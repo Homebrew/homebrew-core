@@ -6,6 +6,15 @@ jobs:
   triage:
     runs-on: ubuntu-latest
     steps:
+      - name: Check commit format
+        uses: Homebrew/actions/check-commit-format@master
+        with:
+          token: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
+      - name: Cancel previous runs
+        uses: Homebrew/actions/cancel-previous-runs@master
+        if: always()
+        with:
+          token: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
       - name: Label pull request
         uses: Homebrew/actions/label-pull-requests@master
         if: always()
@@ -103,16 +112,7 @@ jobs:
                     "content": "system \"swift\", \"build\""
                 }, {
                     "label": "automerge-skip",
-                    "path": "Formula/(patchelf|binutils).rb"
+                    "path": "Formula/(patchelf|binutils).rb",
+                    "keep_if_no_match" true
                 }
             ]
-      - name: Check commit format
-        uses: Homebrew/actions/check-commit-format@master
-        if: always()
-        with:
-          token: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
-      - name: Cancel previous runs
-        uses: Homebrew/actions/cancel-previous-runs@master
-        if: always()
-        with:
-          token: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
