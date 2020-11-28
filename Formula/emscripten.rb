@@ -25,7 +25,6 @@ class Emscripten < Formula
 
   depends_on "cmake" => :build
   depends_on "binaryen"
-  depends_on "libffi"
   depends_on "node"
   depends_on "python@3.9"
   depends_on "yuicompressor"
@@ -82,9 +81,7 @@ class Emscripten < Formula
         -DLLVM_BUILD_LLVM_DYLIB=ON
         -DLLVM_INCLUDE_EXAMPLES=OFF
         -DLLVM_INCLUDE_TESTS=OFF
-        -DLLVM_INSTALL_TOOLCHAIN_ONLY=ON
-        -DFFI_INCLUDE_DIR=#{Formula["libffi"].opt_lib}/libffi-#{Formula["libffi"].version}/include
-        -DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}
+        -DLLVM_INSTALL_UTILS=OFF
       ]
 
       sdk = MacOS.sdk_path_if_needed
@@ -123,10 +120,6 @@ class Emscripten < Formula
   end
 
   test do
-    # Minimal llvm install test
-    llvm_prefix = "#{libexec}/llvm"
-    assert_equal llvm_prefix, shell_output("#{llvm_prefix}/bin/llvm-config --prefix").chomp
-
     # Fixes "Unsupported architecture" Xcode prepocessor error
     ENV.delete "CPATH"
 
