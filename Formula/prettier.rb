@@ -3,8 +3,8 @@ require "language/node"
 class Prettier < Formula
   desc "Code formatter for JavaScript, CSS, JSON, GraphQL, Markdown, YAML"
   homepage "https://prettier.io/"
-  url "https://registry.npmjs.org/prettier/-/prettier-2.2.0.tgz"
-  sha256 "45f36cf58d92794a881fde256102aab7fca78754a22370c1dcb4c91c8409a6e0"
+  url "https://registry.npmjs.org/prettier/-/prettier-2.2.1.tgz"
+  sha256 "8a1c8e42a692691469bd57b6a44369f0c4e661ff5b6527b30e5598517b06d238"
   license "MIT"
   head "https://github.com/prettier/prettier.git"
 
