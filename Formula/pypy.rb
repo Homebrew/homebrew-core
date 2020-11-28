@@ -1,10 +1,9 @@
 class Pypy < Formula
   desc "Highly performant implementation of Python 2 in Python"
   homepage "https://pypy.org/"
-  url "https://downloads.python.org/pypy/pypy2.7-v7.3.1-src.tar.bz2"
-  sha256 "fa3771514c8a354969be9bd3b26d65a489c30e28f91d350e4ad2f4081a9c9321"
+  url "https://downloads.python.org/pypy/pypy2.7-v7.3.3-src.tar.bz2"
+  sha256 "f63488051ba877fd65840bf8d53822a9c6423d947839023b8720139f4b6e2336"
   license "MIT"
-  revision 1
   head "https://foss.heptapod.net/pypy/pypy", using: :hg
 
   livecheck do
@@ -24,49 +23,49 @@ class Pypy < Formula
   depends_on "gdbm"
   # pypy does not find system libffi, and its location cannot be given
   # as a build option
-  depends_on "libffi" if DevelopmentTools.clang_build_version >= 1000
+  depends_on "libffi"
   depends_on "openssl@1.1"
   depends_on "sqlite"
   depends_on "tcl-tk"
 
   uses_from_macos "expat"
-  uses_from_macos "libffi"
   uses_from_macos "unzip"
   uses_from_macos "zlib"
 
   resource "bootstrap" do
-    url "https://downloads.python.org/pypy/pypy2.7-v7.3.0-osx64.tar.bz2"
-    version "7.3.0"
-    sha256 "ca7b056b243a6221ad04fa7fc8696e36a2fb858396999dcaa31dbbae53c54474"
+    url "https://downloads.python.org/pypy/pypy2.7-v7.3.2-osx64.tar.bz2"
+    version "7.3.2"
+    sha256 "10ca57050793923aea3808b9c8669cf53b7342c90c091244e9660bf797d397c7"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/b5/96/af1686ea8c1e503f4a81223d4a3410e7587fd52df03083de24161d0df7d4/setuptools-46.1.3.zip"
-    sha256 "795e0475ba6cd7fa082b1ee6e90d552209995627a2a227a47c6ea93282f4bfb1"
+    url "https://files.pythonhosted.org/packages/a7/e0/30642b9c2df516506d40b563b0cbd080c49c6b3f11a70b4c7a670f13a78b/setuptools-50.3.2.zip"
+    sha256 "ed0519d27a243843b05d82a5e9d01b0b083d9934eaa3d02779a23da18077bd3c"
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/8e/76/66066b7bc71817238924c7e4b448abdb17eb0c92d645769c223f9ace478f/pip-20.0.2.tar.gz"
-    sha256 "7db0c8ea4c7ea51c8049640e8e6e7fde949de672bfa4949920675563a5a6967f"
+    url "https://files.pythonhosted.org/packages/0b/f5/be8e741434a4bf4ce5dbc235aa28ed0666178ea8986ddc10d035023744e6/pip-20.2.4.tar.gz"
+    sha256 "85c99a857ea0fb0aedf23833d9be5c40cf253fe24443f0829c7b472e23c364a1"
   end
 
   def install
-    ENV.prepend_path "PKG_CONFIG_PATH", "#{prefix}/opt/tcl-tk/lib/pkgconfig"
-    ENV.prepend "LDFLAGS", "-L#{prefix}/opt/tcl-tk/lib"
-    ENV.prepend "CPPFLAGS", "-I#{prefix}/opt/tcl-tk/include"
+    # Fix Xcode 12 implicit function declaration errors.
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
     # Having PYTHONPATH set can cause the build to fail if another
     # Python is present, e.g. a Homebrew-provided Python 2.x
     # See https://github.com/Homebrew/homebrew/issues/24364
     ENV["PYTHONPATH"] = ""
     ENV["PYPY_USESSION_DIR"] = buildpath
 
-    # Fix build on High Sierra
-    inreplace "lib_pypy/_tkinter/tklib_build.py" do |s|
-      s.gsub! "/System/Library/Frameworks/Tk.framework/Versions/Current/Headers/",
-              "#{prefix}/opt/tcl-tk/include"
-      s.gsub! "libdirs = []",
-              "libdirs = ['#{prefix}/opt/tcl-tk/lib']"
-    end
+    # Brutally hack at RPython internals to return the correct path to libc.
+    # CPython attempts to read from this file, which doesn't exist on Big Sur due to
+    # the shared dylib cache. This has been patched by CPython upstream and is fixed
+    # in Apple's Python but hasn't yet been backported to RPython.
+    # https://github.com/python/cpython/pull/21241
+    # https://foss.heptapod.net/pypy/pypy/-/issues/3314
+    # The correct path can be found with:
+    #   /usr/bin/python -c "import ctypes.util; print(ctypes.util.find_library('c'))"
+    inreplace "rpython/rlib/clibffi.py", "ctypes.util.find_library('c')", "'/usr/lib/libc.dylib'"
 
     resource("bootstrap").stage buildpath/"bootstrap"
     python = buildpath/"bootstrap/bin/pypy"
