@@ -1,10 +1,14 @@
 class Gping < Formula
   desc "Ping, but with a graph"
   homepage "https://github.com/orf/gping"
-  url "https://github.com/orf/gping/archive/v0.1.7.tar.gz"
-  sha256 "5c2ff5e1d72fe1cc55b69eab073bb6ddec0fca1303313865e9c1d43bc52e85a3"
+  url "https://github.com/orf/gping/archive/v1.0.1.tar.gz"
+  sha256 "8275c02c903e49d3d6bf30b3d3a279d00a8c3ef4ac9e13e406f19a81356ec5af"
   license "MIT"
   head "https://github.com/orf/gping.git"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
@@ -36,8 +40,7 @@ class Gping < Formula
       replace: "")
     screenlog.gsub! /\e\[([;\d]+)?m/, ""
 
-    assert_match "Pinging", screenlog
-    assert_match "google.com", screenlog
+    assert_match "google.com (", screenlog
   ensure
     Process.kill("TERM", pid)
   end
