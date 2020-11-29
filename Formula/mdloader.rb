@@ -3,6 +3,7 @@ class Mdloader < Formula
   homepage "https://github.com/Massdrop/mdloader"
   url "https://github.com/Massdrop/mdloader/archive/1.0.5.tar.gz"
   sha256 "2b2e88e2d66165f2160a0673dcacd94dbcb4f96c855fc0b4923ae569cd8f9e34"
+  license "GPL-3.0-only"
   head "https://github.com/Massdrop/mdloader"
 
   patch :DATA
