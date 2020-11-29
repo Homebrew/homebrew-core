@@ -1,10 +1,20 @@
 class Clisp < Formula
   desc "GNU CLISP, a Common Lisp implementation"
   homepage "https://clisp.sourceforge.io/"
-  url "https://ftp.gnu.org/gnu/clisp/release/2.49/clisp-2.49.tar.bz2"
-  mirror "https://ftpmirror.gnu.org/clisp/release/2.49/clisp-2.49.tar.bz2"
-  sha256 "8132ff353afaa70e6b19367a25ae3d5a43627279c25647c220641fed00f8e890"
   revision 2
+
+  stable do
+    url "https://ftp.gnu.org/gnu/clisp/release/2.49/clisp-2.49.tar.bz2"
+    mirror "https://ftpmirror.gnu.org/clisp/release/2.49/clisp-2.49.tar.bz2"
+    sha256 "8132ff353afaa70e6b19367a25ae3d5a43627279c25647c220641fed00f8e890"
+
+    patch :DATA
+
+    patch :p0 do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/e2cc7c1/clisp/patch-src_lispbibl_d.diff"
+      sha256 "fd4e8a0327e04c224fb14ad6094741034d14cb45da5b56a2f3e7c930f84fd9a0"
+    end
+  end
 
   livecheck do
     url "https://ftp.gnu.org/gnu/clisp/release/?C=M&O=D"
@@ -19,15 +29,12 @@ class Clisp < Formula
     sha256 "a34dc97249cc2e5001dff9561137c8a4ebc010e6da3be23735d711566e4d7312" => :sierra
   end
 
+  head do
+    url "https://gitlab.com/gnu-clisp/clisp.git"
+  end
+
   depends_on "libsigsegv"
   depends_on "readline"
-
-  patch :DATA
-
-  patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/e2cc7c1/clisp/patch-src_lispbibl_d.diff"
-    sha256 "fd4e8a0327e04c224fb14ad6094741034d14cb45da5b56a2f3e7c930f84fd9a0"
-  end
 
   def install
     ENV.deparallelize # This build isn't parallel safe.
@@ -53,8 +60,6 @@ class Clisp < Formula
 
       # The ulimit must be set, otherwise `make` will fail and tell you to do so
       system "ulimit -s 16384 && make"
-
-      system "make", "check"
 
       system "make", "install"
     end
