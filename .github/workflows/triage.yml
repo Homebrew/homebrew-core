@@ -113,6 +113,6 @@ jobs:
                 }, {
                     "label": "automerge-skip",
                     "path": "Formula/(patchelf|binutils).rb",
-                    "keep_if_no_match" true
+                    "keep_if_no_match": true
                 }
             ]
