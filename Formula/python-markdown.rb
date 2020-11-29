@@ -2,9 +2,9 @@ class PythonMarkdown < Formula
   include Language::Python::Virtualenv
 
   desc "Python implementation of Markdown"
-  homepage "https://pypi.python.org/pypi/Markdown"
-  url "https://github.com/Python-Markdown/markdown/archive/3.3.3.tar.gz"
-  sha256 "45cd8917edfc46a24ad9203d8f13a6b7032a9e109afc0a944dbde8e25a7f0eeb"
+  homepage "https://python-markdown.github.io"
+  url "https://files.pythonhosted.org/packages/fd/d6/9eeda2f440ef798c8222b77d7355199345ce3477941d8a02a2024ccb9ed2/Markdown-3.3.3.tar.gz"
+  sha256 "5d9f2b5ca24bc4c7a390d22323ca4bad200368612b5aaa7796babf971d2b2f18"
   license "BSD-3-Clause"
   head "https://github.com/Python-Markdown/markdown.git"
 
