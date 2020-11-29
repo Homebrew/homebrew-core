@@ -4,7 +4,7 @@ class Toot < Formula
   homepage "https://toot.readthedocs.io/en/latest/index.html"
   url "https://files.pythonhosted.org/packages/45/5c/fec823ef310fbaacf478796cd8d26326995160f8d000bd25a0be42b38ed9/toot-0.27.0.tar.gz"
   sha256 "1dfdba9acc8555fa3b4db903cbf806a639bf43c7855d324233041c655fc5cbd5"
-  license "GPL-3.0"
+  license "GPL-3.0-only"
   revision 1
   head "https://github.com/ihabunek/toot.git"
 
