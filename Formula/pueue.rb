@@ -1,8 +1,8 @@
 class Pueue < Formula
   desc "Command-line tool for managing long-running shell commands"
   homepage "https://github.com/Nukesor/pueue"
-  url "https://github.com/Nukesor/pueue/archive/v0.8.1.tar.gz"
-  sha256 "65a2d2849e2c3bb00f9d990727bc2536202cc2629c3a6399726d47ff6c01c3ab"
+  url "https://github.com/Nukesor/pueue/archive/v0.8.2.tar.gz"
+  sha256 "8db2b7b27edb968889e2027dc6543225b07d37e61728e2bee1de441d5e5a9b7a"
   license "MIT"
   head "https://github.com/Nukesor/pueue.git"
 
@@ -15,6 +15,12 @@ class Pueue < Formula
   end
 
   depends_on "rust" => :build
+
+  # remove in next release
+  patch do
+    url "https://github.com/Nukesor/pueue/commit/4a3c21953c0fe7553f4b0347d9012f997bd6b840.patch?full_index=1"
+    sha256 "bd9cc57aef24c2c84681b020beff1c8560a8ac14910aa789db3cc669ba7fd842"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args
