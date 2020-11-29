@@ -50,5 +50,7 @@ class GstPluginsUgly < Formula
     gst = Formula["gstreamer"].opt_bin/"gst-inspect-1.0"
     output = shell_output("#{gst} --plugin dvdsub")
     assert_match version.to_s, output
+    output = shell_output("#{gst} --plugin x264")
+    assert_match version.to_s, output
   end
 end
