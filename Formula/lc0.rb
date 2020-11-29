@@ -17,7 +17,7 @@ class Lc0 < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.8" => :build # required to compile .pb files
+  depends_on "python@3.9" => :build # required to compile .pb files
   depends_on "eigen"
 
   resource "network" do
