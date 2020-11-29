@@ -31,6 +31,10 @@ class Groonga < Formula
   depends_on "openssl@1.1"
   depends_on "pcre"
 
+  on_linux do
+    depends_on "glib"
+  end
+
   link_overwrite "lib/groonga/plugins/normalizers/"
   link_overwrite "share/doc/groonga-normalizer-mysql/"
   link_overwrite "lib/pkgconfig/groonga-normalizer-mysql.pc"
