@@ -14,12 +14,15 @@ class Pegtl < Formula
   end
 
   depends_on "cmake" => :build
+  # Fix `error: 'path' is unavailable: introduced in macOS 10.15`
+  depends_on macos: :catalina
 
   def install
     mkdir "build" do
       system "cmake", "..", *std_cmake_args,
                             "-DPEGTL_BUILD_TESTS=OFF",
-                            "-DPEGTL_BUILD_EXAMPLES=OFF"
+                            "-DPEGTL_BUILD_EXAMPLES=OFF",
+                            "-DCMAKE_CXX_STANDARD=17"
       system "make", "install"
     end
     rm "src/example/pegtl/CMakeLists.txt"
@@ -27,7 +30,7 @@ class Pegtl < Formula
   end
 
   test do
-    system ENV.cxx, pkgshare/"examples/hello_world.cpp", "-std=c++11", "-o", "helloworld"
+    system ENV.cxx, pkgshare/"examples/hello_world.cpp", "-std=c++17", "-o", "helloworld"
     assert_equal "Good bye, homebrew!\n", shell_output("./helloworld 'Hello, homebrew!'")
   end
 end
