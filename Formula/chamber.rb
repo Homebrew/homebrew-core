@@ -6,6 +6,11 @@ class Chamber < Formula
   license "MIT"
   head "https://github.com/segmentio/chamber.git"
 
+  livecheck do
+    url "https://github.com/segmentio/chamber/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "f8d3c3b564b93f43dad680f787460c1784e06d4e554941b6d861721d45fb0b74" => :big_sur
