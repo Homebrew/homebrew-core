@@ -20,12 +20,6 @@ class Ninja < Formula
 
   depends_on "python@3.9"
 
-  # from https://github.com/ninja-build/ninja/pull/1836, remove in next release
-  patch do
-    url "https://github.com/ninja-build/ninja/commit/2f3e5275e2ea67cb634488957adbb997c2ff685f.patch?full_index=1"
-    sha256 "77e96405d6f2d4dbeee07b07186b5963257573fd470894a1ed78e5e6a288e5eb"
-  end
-
   def install
     py = Formula["python@3.9"].opt_bin/"python3"
     system py, "./configure.py", "--bootstrap", "--verbose", "--with-python=#{py}"
