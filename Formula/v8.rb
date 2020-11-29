@@ -5,6 +5,7 @@ class V8 < Formula
   url "https://github.com/v8/v8/archive/8.7.220.25.tar.gz"
   sha256 "44d2f91fd413a3fde637b724a8ef7ad81c5a564b9cb2b9adcbd893ae08a923fc"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url "https://omahaproxy.appspot.com/all.json?os=mac&channel=stable"
@@ -100,6 +101,7 @@ class V8 < Formula
       clang_use_chrome_plugins:     false, # disable the usage of Google's custom clang plugins
       use_custom_libcxx:            false, # uses system libc++ instead of Google's custom one
       treat_warnings_as_errors:     false, # ignore not yet supported clang argument warnings
+      v8_enable_reverse_jsargs:     false, # Can be removed for version 8.8
     }
 
     # use clang from homebrew llvm formula for XCode 11- , because the system clang is too old for V8
