@@ -17,8 +17,6 @@ class CairommAT114 < Formula
     sha256 "b9eff4d0aca913e713ee870137962be2a44c498936f1c915e459eb95002e60ef" => :mojave
   end
 
-  keg_only :versioned_formula
-
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
