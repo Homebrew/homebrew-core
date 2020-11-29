@@ -10,6 +10,7 @@ on:
 
 jobs:
   stale:
+    if: startsWith(github.repository, 'Homebrew/')
     runs-on: ubuntu-latest
     steps:
       - name: Mark/Close Stale Issues and Pull Requests
