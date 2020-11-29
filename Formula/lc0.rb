@@ -13,10 +13,12 @@ class Lc0 < Formula
     sha256 "a3a61d73914a71d5633b08c9a10591d2bf2e4896fcfbd463fe21fa8a97d4f445" => :high_sierra
   end
 
-  depends_on "eigen" => :build
+  depends_on "cmake" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
+  depends_on "pkg-config" => :build
   depends_on "python@3.8" => :build # required to compile .pb files
+  depends_on "eigen"
 
   resource "network" do
     url "https://training.lczero.org/get_network?sha=00af53b081e80147172e6f281c01daf5ca19ada173321438914c730370aa4267", using: :nounzip
