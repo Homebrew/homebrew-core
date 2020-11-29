@@ -13,6 +13,7 @@ class Lc0 < Formula
     sha256 "a3a61d73914a71d5633b08c9a10591d2bf2e4896fcfbd463fe21fa8a97d4f445" => :high_sierra
   end
 
+  depends_on "eigen" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "python@3.8" => :build # required to compile .pb files
