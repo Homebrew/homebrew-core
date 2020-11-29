@@ -1,8 +1,8 @@
 class Hatari < Formula
   desc "Atari ST/STE/TT/Falcon emulator"
   homepage "https://hatari.tuxfamily.org"
-  url "https://download.tuxfamily.org/hatari/2.2.1/hatari-2.2.1.tar.bz2"
-  sha256 "11afef30a274be84696588583d5a1d65c8046934670f718c311c956ef7106f60"
+  url "https://download.tuxfamily.org/hatari/2.3.0/hatari-2.3.0.tar.bz2"
+  sha256 "bf48161903930f6470eca1d9c293f51b09b8c54695f5ee213af141316253b8a5"
   head "https://git.tuxfamily.org/hatari/hatari.git"
 
   bottle do
@@ -17,6 +17,7 @@ class Hatari < Formula
   depends_on "cmake" => :build
   depends_on "libpng"
   depends_on "portaudio"
+  depends_on "python@3.9"
   depends_on "sdl2"
 
   # Download EmuTOS ROM image
@@ -28,7 +29,7 @@ class Hatari < Formula
   def install
     # Set .app bundle destination
     inreplace "src/CMakeLists.txt", "/Applications", prefix
-    system "cmake", *std_cmake_args
+    system "cmake", *std_cmake_args, "-DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3"
     system "make"
     prefix.install "src/Hatari.app"
     bin.write_exec_script "#{prefix}/Hatari.app/Contents/MacOS/hatari"
