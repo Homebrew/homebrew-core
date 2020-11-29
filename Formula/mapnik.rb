@@ -4,12 +4,12 @@ class Mapnik < Formula
   url "https://github.com/mapnik/mapnik/releases/download/v3.0.23/mapnik-v3.0.23.tar.bz2"
   sha256 "4b1352e01f7ce25ab099e586d7ae98e0b74145a3bf94dd365cb0a2bdab3b9dc2"
   license "LGPL-2.1"
-  revision 3
+  revision 4
   head "https://github.com/mapnik/mapnik.git"
 
   livecheck do
-    url "https://github.com/mapnik/mapnik/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
@@ -32,6 +32,13 @@ class Mapnik < Formula
   depends_on "postgresql"
   depends_on "proj"
   depends_on "webp"
+
+  on_macos do
+    patch :p1 do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/57e635431e09fa1b00f3e1fd9574ad516de13308/mapnik/mapnik-2.0.23.patch"
+      sha256 "b946071a95a52757e1aabb03ed7768408b864e20f46cbea39bda2cd1499b256c"
+    end
+  end
 
   def install
     ENV.cxx11
