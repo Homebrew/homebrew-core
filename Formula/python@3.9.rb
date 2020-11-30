@@ -4,7 +4,7 @@ class PythonAT39 < Formula
   url "https://www.python.org/ftp/python/3.9.0/Python-3.9.0.tar.xz"
   sha256 "9c73e63c99855709b9be0b3cc9e5b072cb60f37311e8c4e50f15576a0bf82854"
   license "Python-2.0"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -66,8 +66,8 @@ class PythonAT39 < Formula
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/0b/f5/be8e741434a4bf4ce5dbc235aa28ed0666178ea8986ddc10d035023744e6/pip-20.2.4.tar.gz"
-    sha256 "85c99a857ea0fb0aedf23833d9be5c40cf253fe24443f0829c7b472e23c364a1"
+    url "https://files.pythonhosted.org/packages/03/41/6da553f689d530bc2c337d2c496a40dc9c0fdc6481e5df1f3ee3b8574479/pip-20.3.tar.gz"
+    sha256 "9ae7ca6656eac22d2a9b49d024fc24e00f68f4c4d4db673d2d9b525c3dea6e0e"
   end
 
   resource "wheel" do
@@ -82,6 +82,13 @@ class PythonAT39 < Formula
     patch do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/33a9d63f/python/arm64-3.9.patch"
       sha256 "167e328cf68e9ec142f483fda9fafbb903be9a47dee2826614fdc24b2fbe6e06"
+    end
+
+    # Further patch for Big Sur, remove in 3.9.2
+    # https://github.com/python/cpython/pull/23556
+    patch do
+      url "https://github.com/fxcoudert/cpython/commit/cd26ccbb.patch?full_index=1"
+      sha256 "59c98f991f839d610d53ca5c4af1464a99adf6c85e807f8a676b3e41c5dbe0a2"
     end
   end
 
