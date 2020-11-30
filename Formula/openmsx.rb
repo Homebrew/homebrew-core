@@ -19,6 +19,7 @@ class Openmsx < Formula
     sha256 "86fff1a90fff96cb0398184ef7ebdeb804edda4c9d34ee5e7278159df64b10e3" => :high_sierra
   end
 
+  depends_on "alsa-lib"
   depends_on "freetype"
   depends_on "glew"
   depends_on "libogg"
