@@ -22,7 +22,6 @@ class GithubMarkdownToc < Formula
 
   test do
     (testpath/"README.md").write("# Header")
-    assert_match version.to_s, shell_output("#{bin}/gh-md-toc --version 2>&1")
     assert_match "* [Header](#header)", shell_output("#{bin}/gh-md-toc ./README.md")
   end
 end
