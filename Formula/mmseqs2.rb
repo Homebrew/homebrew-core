@@ -5,6 +5,7 @@ class Mmseqs2 < Formula
   version "12-113e3"
   sha256 "81fa0d77eab9d74b429567da00aa7ec2d46049537ce469595d7356b6d8b5458a"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/soedinglab/MMseqs2.git"
 
   bottle do
@@ -30,7 +31,11 @@ class Mmseqs2 < Formula
   def install
     args = *std_cmake_args << "-DHAVE_TESTS=0" << "-DHAVE_MPI=0"
     args << "-DVERSION_OVERRIDE=#{version}"
-    args << "-DHAVE_SSE4_1=1"
+    args << if Hardware::CPU.arm?
+      "-DHAVE_ARM8=1"
+    else
+      "-DHAVE_SSE4_1=1"
+    end
 
     libomp = Formula["libomp"]
     args << "-DOpenMP_C_FLAGS=-Xpreprocessor\ -fopenmp\ -I#{libomp.opt_include}"
