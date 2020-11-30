@@ -27,12 +27,17 @@ class Qemu < Formula
   depends_on "pixman"
   depends_on "snappy"
   depends_on "vde"
+  depends_on "ninja"
 
   # 820KB floppy disk image file of FreeDOS 1.2, used to test QEMU
   resource "test-image" do
     url "https://dl.bintray.com/homebrew/mirror/FD12FLOPPY.zip"
     sha256 "81237c7b42dc0ffc8b32a2f5734e3480a3f9a470c50c14a9c4576a2561a35807"
   end
+
+    head do
+      patch :p1, :DATA
+    end
 
   def install
     ENV["LIBTOOL"] = "glibtool"
@@ -103,3 +108,29 @@ class Qemu < Formula
     assert_match "file format: raw", shell_output("#{bin}/qemu-img info FLOPPY.img")
   end
 end
+
+# See https://github.com/qemu/qemu/commit/ca31e3072fa74a8de5a02311eb62396087774cf7#commitcomment-44652367
+__END__
+diff --git a/meson.build b/meson.build
+index e3386196ba..fbf72bc118 100644
+--- a/meson.build
++++ b/meson.build
+@@ -500,8 +500,9 @@ if have_system and not get_option('curses').disabled()
+     endif
+   endforeach
+   msg = get_option('curses').enabled() ? 'curses library not found' : ''
++  curses_compile_args = ['-DNCURSES_WIDECHAR']
+   if curses.found()
+-    if cc.links(curses_test, dependencies: [curses])
++    if cc.links(curses_test, args: curses_compile_args, dependencies: [curses])
+       curses = declare_dependency(compile_args: '-DNCURSES_WIDECHAR', dependencies: [curses])
+     else
+       msg = 'curses package not usable'
+@@ -509,7 +510,6 @@ if have_system and not get_option('curses').disabled()
+     endif
+   endif
+   if not curses.found()
+-    curses_compile_args = ['-DNCURSES_WIDECHAR']
+     has_curses_h = cc.has_header('curses.h', args: curses_compile_args)
+     if targetos != 'windows' and not has_curses_h
+       message('Trying with /usr/include/ncursesw')
