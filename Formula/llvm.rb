@@ -71,6 +71,11 @@ class Llvm < Formula
     sha256 "70fe3836b423e593688cd1cc7a3d76ee6406e64b9909f1a2f780c6f018f89b1e"
   end
 
+  patch do
+    url "https://github.com/llvm/llvm-project/commit/03565ffd5da8370f5b89b69cd9868f32e2d75403.patch?full_index=1"
+    sha256 "4992364c7f4c0a20ae8bf26cce0e76307c0ccf2de0066aa819ca394bd490f43f"
+  end
+
   def install
     projects = %w[
       clang
