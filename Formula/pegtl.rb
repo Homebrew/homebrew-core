@@ -14,7 +14,7 @@ class Pegtl < Formula
   end
 
   depends_on "cmake" => :build
-  
+
   if MacOS.version <= :mojave
     depends_on "gcc"
     fails_with :clang do
