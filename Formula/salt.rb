@@ -57,13 +57,17 @@ class Salt < Formula
   end
 
   def install
+    python = Formula["python@3.9"].bin/"python3.9"
+    xy = Language::Python.major_minor_version python
+
     ENV["SWIG_FEATURES"]="-I#{Formula["openssl@1.1"].opt_include}"
 
+    ENV["USE_STATIC_REQUIREMENTS"] = "1"
     # Do not install PyObjC since it causes broken linkage
     # https://github.com/Homebrew/homebrew-core/pull/52835#issuecomment-617502578
-    File.write(buildpath/"pkg/osx/req_pyobjc.txt", "")
+    inreplace buildpath/"requirements/static/pkg/py#{xy}/darwin.txt", /^pyobjc.*$/, ""
 
-    venv = virtualenv_create(libexec, Formula["python@3.9"].bin/"python3.9")
+    venv = virtualenv_create(libexec, python)
     venv.pip_install resources
 
     system libexec/"bin/pip", "install", "-v", "--ignore-installed", buildpath
