@@ -4,7 +4,7 @@ class Aspell < Formula
   url "https://ftp.gnu.org/gnu/aspell/aspell-0.60.8.tar.gz"
   mirror "https://ftpmirror.gnu.org/aspell/aspell-0.60.8.tar.gz"
   sha256 "f9b77e515334a751b2e60daab5db23499e26c9209f5e7b7443b05235ad0226f2"
-  license "LGPL-2.1"
+  license "LGPL-2.1-only"
 
   livecheck do
     url :stable
@@ -552,8 +552,6 @@ class Aspell < Formula
     mirror "https://ftpmirror.gnu.org/aspell/dict/zu/aspell-zu-0.50-0.tar.bz2"
     sha256 "3fa255cd0b20e6229a53df972fd3c5ed8481db11cfd0347dd3da629bbb7a6796"
   end
-
-  uses_from_macos "ncurses"
 
   # const problems with llvm: https://www.freebsd.org/cgi/query-pr.cgi?pr=180565&cat=
   patch :DATA
