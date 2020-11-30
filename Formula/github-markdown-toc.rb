@@ -16,12 +16,19 @@ class GithubMarkdownToc < Formula
 
   depends_on "go" => :build
 
+  # remove in next release
+  patch do
+    url "https://github.com/ekalinin/github-markdown-toc.go/pull/27/commits/0870681.patch?full_index=1"
+    sha256 "c0780978e3a9af2590c3f164d4bce459cb77f8c4bc3d95e3132759c59fc4d4f0"
+  end
+
   def install
-    system "go", "build", "-trimpath", "-o", bin/"gh-md-toc"
+    system "go", "build", *std_go_args, "-o", bin/"gh-md-toc"
   end
 
   test do
     (testpath/"README.md").write("# Header")
+    assert_match version.to_s, shell_output("#{bin}/gh-md-toc --version 2>&1")
     assert_match "* [Header](#header)", shell_output("#{bin}/gh-md-toc ./README.md")
   end
 end
