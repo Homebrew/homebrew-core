@@ -1,11 +1,10 @@
 class Octave < Formula
   desc "High-level interpreted language for numerical computing"
   homepage "https://www.gnu.org/software/octave/index.html"
-  url "https://ftp.gnu.org/gnu/octave/octave-5.2.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/octave/octave-5.2.0.tar.xz"
-  sha256 "2757b5cc1854c9326d6c99d2900c7cec2909ac7ed500212d170d0df592bfd26b"
+  url "https://ftp.gnu.org/gnu/octave/octave-6.1.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/octave/octave-6.1.0.tar.xz"
+  sha256 "d6cd6b79ef023e300b9287b56aa79333cfb6b651771d43ade7cbde63ca5a6010"
   license "GPL-3.0"
-  revision 10
 
   livecheck do
     url :stable
@@ -65,14 +64,6 @@ class Octave < Formula
 
   # Dependencies use Fortran, leading to spurious messages about GCC
   cxxstdlib_check :skip
-
-  # Octave fails to build due to error with java. See also
-  # https://github.com/Homebrew/homebrew-core/issues/39848
-  # Patch submitted upstream at: https://savannah.gnu.org/patch/index.php?9806
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a8124b73c5216cc81d63627a4b41203ab1d91a4d/octave/5.1.0-java-version.patch"
-    sha256 "7ea1e9b410a759fa136d153fb8482ecfc3425a39bfe71c1e71b3ff0f7d9a0b54"
-  end
 
   def install
     # Default configuration passes all linker flags to mkoctfile, to be
