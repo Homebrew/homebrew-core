@@ -18,8 +18,8 @@ class GithubMarkdownToc < Formula
 
   # remove in next release
   patch do
-    url "https://github.com/ekalinin/github-markdown-toc.go/pull/27/commits/0870681.patch?full_index=1"
-    sha256 "c0780978e3a9af2590c3f164d4bce459cb77f8c4bc3d95e3132759c59fc4d4f0"
+    url "https://github.com/chenrui333/github-markdown-toc.go/commit/0870681.patch?full_index=1"
+    sha256 "e7e316610b05dbb8c31acf3cbf10a39078a1620875a93cad3c76159a5f96a257"
   end
 
   def install
