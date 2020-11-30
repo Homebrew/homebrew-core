@@ -14,8 +14,13 @@ class Pegtl < Formula
   end
 
   depends_on "cmake" => :build
-  # Fix `error: 'path' is unavailable: introduced in macOS 10.15`
-  depends_on macos: :catalina
+  
+  if MacOS.version <= :mojave
+    depends_on "gcc"
+    fails_with :clang do
+      cause "'path' is unavailable: introduced in macOS 10.15"
+    end
+  end
 
   def install
     mkdir "build" do
