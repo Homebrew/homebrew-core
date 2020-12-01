@@ -2,11 +2,10 @@ class Vgmstream < Formula
   desc "Library for playing streamed audio formats from video games"
   homepage "https://hcs64.com/vgmstream.html"
   url "https://github.com/losnoco/vgmstream.git",
-      tag:      "r1050-3312-g70d20924",
-      revision: "70d20924341e1df3e4f76b4c4a6e414981950f8e"
-  version "r1050-3312-g70d20924"
+      tag:      "r1050-3448-g77cc431b",
+      revision: "77cc431be77846f95eccca49170878434935622f"
+  version "r1050-3448-g77cc431b"
   license "ISC"
-  revision 2
   version_scheme 1
   head "https://github.com/losnoco/vgmstream.git"
 
