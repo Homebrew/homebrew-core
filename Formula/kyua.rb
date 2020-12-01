@@ -4,7 +4,7 @@ class Kyua < Formula
   url "https://github.com/jmmv/kyua/releases/download/kyua-0.13/kyua-0.13.tar.gz"
   sha256 "db6e5d341d5cf7e49e50aa361243e19087a00ba33742b0855d2685c0b8e721d6"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "888d669ac50da9075895a0702e7b119fa00a5822e9ce57afe3216c00659fe339" => :big_sur
