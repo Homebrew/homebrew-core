@@ -3,8 +3,8 @@ class Termius < Formula
 
   desc "CLI tool for termius.com (aka serverauditor.com)"
   homepage "https://termius.com"
-  url "https://github.com/termius/termius-cli/archive/v1.2.13.tar.gz"
-  sha256 "74866c3602e92bca0174e129ee46fce08ec34048ce890d659de832de69b9fce9"
+  url "https://github.com/termius/termius-cli/archive/v1.2.14.tar.gz"
+  sha256 "4713012b0ee7174deb769f1ee4383d6f5d2dd51a42e20d05187e494461457dfe"
   license "BSD-3-Clause"
   head "https://github.com/termius/termius-cli.git", branch: "master"
 
