@@ -1,8 +1,8 @@
 require "language/node"
 
 class Copilot < Formula
-  desc "CLI tool for Amazon ECS and AWS Fargate"
-  homepage "https://github.com/aws/copilot-cli/wiki"
+  desc "Copilot CLI - build, release and operate your container apps on AWS"
+  homepage "https://aws.github.io/copilot-cli/"
   url "https://github.com/aws/copilot-cli.git",
     tag:      "v1.0.0",
     revision: "238fd708679d4534b2f4c58cc3b7a85e6e1a768d"
@@ -24,6 +24,7 @@ class Copilot < Formula
 
     system "make", "tools"
     system "make", "package-custom-resources"
+    system "make", "packr-build"
     system "make", "build"
 
     bin.install "bin/local/copilot"
@@ -36,10 +37,7 @@ class Copilot < Formula
   end
 
   test do
-    assert_match "Welcome to the Copilot CLI! We're going to walk you through some questions",
-      shell_output("#{bin}/copilot init 2>&1", 1)
-
-    assert_match "list environments for application : MissingRegion: could not find region",
-      shell_output("#{bin}/copilot pipeline init 2>&1", 1)
+    assert_match "Launch and manage applications",
+      shell_output("#{bin}/copilot --help")
   end
 end
