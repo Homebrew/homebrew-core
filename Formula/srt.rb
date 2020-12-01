@@ -22,6 +22,9 @@ class Srt < Formula
     openssl = Formula["openssl@1.1"]
     system "cmake", ".", "-DWITH_OPENSSL_INCLUDEDIR=#{openssl.opt_include}",
                          "-DWITH_OPENSSL_LIBDIR=#{openssl.opt_lib}",
+                         "-DCMAKE_INSTALL_BINDIR=bin",
+                         "-DCMAKE_INSTALL_LIBDIR=lib",
+                         "-DCMAKE_INSTALL_INCLUDEDIR=include",
                          *std_cmake_args
     system "make", "install"
   end
