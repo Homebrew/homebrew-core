@@ -4,6 +4,7 @@ class Rclone < Formula
   url "https://github.com/rclone/rclone/archive/v1.53.3.tar.gz"
   sha256 "46fb317057ada21add1fa683a004e1ad5b2a1523c381f59b40ed1b18f2856ad0"
   license "MIT"
+  revision 1
   head "https://github.com/rclone/rclone.git"
 
   bottle do
@@ -16,7 +17,13 @@ class Rclone < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-tags", "brew", *std_go_args
+    args = *std_go_args
+    on_macos do
+      args += ["-tags", "brew"]
+    end
+    system "go", "build",
+      "-ldflags", "-s -X github.com/rclone/rclone/fs.Version=v#{version}",
+      *args
     man1.install "rclone.1"
     system bin/"rclone", "genautocomplete", "bash", "rclone.bash"
     system bin/"rclone", "genautocomplete", "zsh", "_rclone"
@@ -26,7 +33,7 @@ class Rclone < Formula
 
   def caveats
     <<~EOS
-      Homebrew's installation does not include the `mount` subcommand.
+      Homebrew's installation does not include the `mount` subcommand on MacOS.
     EOS
   end
 
