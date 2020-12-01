@@ -3,7 +3,7 @@ class Rubberband < Formula
   homepage "https://breakfastquay.com/rubberband/"
   url "https://breakfastquay.com/files/releases/rubberband-1.9.0.tar.bz2"
   sha256 "4f5b9509364ea876b4052fc390c079a3ad4ab63a2683aad09662fb905c2dc026"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
   head "https://hg.sr.ht/~breakfastquay/rubberband", using: :hg
 
   livecheck do
@@ -30,6 +30,11 @@ class Rubberband < Formula
     depends_on "vamp-plugin-sdk"
   end
 
+  if Hardware::CPU.arm?
+    # Remove patch after upstream supports Apple Silicon
+    patch :DATA
+  end
+
   def install
     system "make", "-f", "Makefile.osx"
     # HACK: Manual install because "make install" is broken
@@ -50,3 +55,20 @@ class Rubberband < Formula
     assert_match "Pass 2: Processing...", output
   end
 end
+# Remove patch after upstream supports Apple Silicon
+# https://github.com/breakfastquay/rubberband/issues/31
+__END__
+diff --git a/Makefile.osx b/Makefile.osx
+index 642533f..d39b044 100644
+--- a/Makefile.osx
++++ b/Makefile.osx
+@@ -2,8 +2,8 @@
+ PREFIX		:= /usr/local
+ CXX		:= clang++ -stdlib=libc++
+ CC		:= clang
+-ARCHFLAGS	:= -arch x86_64 -mmacosx-version-min=10.7
+-OPTFLAGS	:= -DNDEBUG -ffast-math -mfpmath=sse -msse -msse2 -O3 -ftree-vectorize
++ARCHFLAGS	:= -arch arm -mmacosx-version-min=11.0
++OPTFLAGS	:= -DNDEBUG -ffast-math -O3 -ftree-vectorize
+ 
+ CXXFLAGS	:= $(ARCHFLAGS) $(OPTFLAGS) -I. -Isrc -Irubberband -I/usr/local/include -DUSE_PTHREADS -DMALLOC_IS_ALIGNED -DHAVE_VDSP -DUSE_SPEEX -DNO_THREAD_CHECKS -DNO_TIMING
