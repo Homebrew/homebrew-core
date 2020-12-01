@@ -3,7 +3,8 @@ class KyotoTycoon < Formula
   homepage "https://fallabs.com/kyototycoon/"
   url "https://fallabs.com/kyototycoon/pkg/kyototycoon-0.9.56.tar.gz"
   sha256 "553e4ea83237d9153cc5e17881092cefe0b224687f7ebcc406b061b2f31c75c6"
-  revision 3
+  license "GPL-3.0-or-later"
+  revision 4
 
   bottle do
     sha256 "2f430dc00ac505a7098596c769cc1c03d6d7a3fdc35ba7bc55fcd707576ac9a2" => :catalina
@@ -12,10 +13,22 @@ class KyotoTycoon < Formula
     sha256 "e75c60a4417bc00d04e1f24241320329f01b0d3076de2585e92375b12c4ef31d" => :sierra
   end
 
+  depends_on "lua" => :build
+  depends_on "pkg-config" => :build
   depends_on "kyoto-cabinet"
-  depends_on "lua"
+  depends_on "zlib"
 
-  patch :DATA
+  # Build patch (submitted upstream)
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/955ce09/kyoto-tycoon/0.9.56.patch"
+    sha256 "7a5efe02a38e3f5c96fd5faa81d91bdd2c1d2ffeb8c3af52878af4a2eab3d830"
+  end
+
+  # Homebrew-specific patch to support testing with ephemeral ports (submitted upstream)
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/9925c07/kyoto-tycoon/ephemeral-ports.patch"
+    sha256 "736603b28e9e7562837d0f376d89c549f74a76d31658bf7d84b57c5e66512672"
+  end
 
   def install
     system "./configure", "--prefix=#{prefix}",
@@ -24,18 +37,26 @@ class KyotoTycoon < Formula
     system "make"
     system "make", "install"
   end
+
+  test do
+    (testpath/"test.lua").write <<~EOS
+      kt = __kyototycoon__
+      db = kt.db
+      -- echo back the input data as the output data
+      function echo(inmap, outmap)
+         for key, value in pairs(inmap) do
+            outmap[key] = value
+         end
+         return kt.RVSUCCESS
+      end
+    EOS
+    port = free_port
+
+    fork do
+      exec bin/"ktserver", "-port", port.to_s, "-scr", testpath/"test.lua"
+    end
+    sleep 5
+
+    assert_match "Homebrew\tCool", shell_output("#{bin}/ktremotemgr script -port #{port} echo Homebrew Cool 2>&1")
+  end
 end
-
-
-__END__
---- a/ktdbext.h  2013-11-08 09:34:53.000000000 -0500
-+++ b/ktdbext.h  2013-11-08 09:35:00.000000000 -0500
-@@ -271,7 +271,7 @@
-       if (!logf("prepare", "started to open temporary databases under %s", tmppath.c_str()))
-         err = true;
-       stime = kc::time();
--      uint32_t pid = getpid() & kc::UINT16MAX;
-+      uint32_t pid = kc::getpid() & kc::UINT16MAX;
-       uint32_t tid = kc::Thread::hash() & kc::UINT16MAX;
-       uint32_t ts = kc::time() * 1000;
-       for (size_t i = 0; i < dbnum_; i++) {
