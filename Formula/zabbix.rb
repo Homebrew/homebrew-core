@@ -1,8 +1,8 @@
 class Zabbix < Formula
   desc "Availability and monitoring solution"
   homepage "https://www.zabbix.com/"
-  url "https://cdn.zabbix.com/zabbix/sources/stable/5.0/zabbix-5.0.5.tar.gz"
-  sha256 "ec6d35202bf0308af7897e744f0867121fd54e191fcfa395bf2275ca94ef9280"
+  url "https://cdn.zabbix.com/zabbix/sources/stable/5.0/zabbix-5.0.6.tar.gz"
+  sha256 "53c55ae9a0898b7e523712db0fe2daf00d88d6df7188ad14e8ea07d8b3b2cdc8"
   license "GPL-2.0-or-later"
 
   # As of writing, the Zabbix SourceForge repository is missing the latest
