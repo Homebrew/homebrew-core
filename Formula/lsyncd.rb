@@ -4,6 +4,7 @@ class Lsyncd < Formula
   url "https://github.com/axkibe/lsyncd/archive/release-2.2.3.tar.gz"
   sha256 "7bcd0f4ae126040bb078c482ff856c87e61c22472c23fa3071798dcb1dc388dd"
   license "GPL-2.0"
+  revision 1
 
   bottle do
     cellar :any
@@ -15,7 +16,10 @@ class Lsyncd < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "lua"
+
+  # lua 5.4 support tracking issue:
+  # https://github.com/axkibe/lsyncd/issues/621
+  depends_on "lua@5.3"
 
   xnu_headers = {
     "10.7"    => ["xnu-1699.22.73.tar.gz",  "c9d24560af543e6099b6248bdbcef3581e7ba4af3afd92974719f7c5a8db5bd2"],
