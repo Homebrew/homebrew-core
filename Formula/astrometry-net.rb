@@ -10,7 +10,7 @@ class AstrometryNet < Formula
 
   livecheck do
     url "https://github.com/dstndstn/astrometry.net/releases/latest"
-    regex(%r{href=.*?/astrometry\.net[._-]v?(\d+(?:[._]\d+)+)\.t}i)
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
   end
 
   bottle do
