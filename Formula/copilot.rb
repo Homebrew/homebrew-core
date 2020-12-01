@@ -1,7 +1,7 @@
 require "language/node"
 
 class Copilot < Formula
-  desc "Copilot CLI - build, release and operate your container apps on AWS"
+  desc "Build, release and operate your container apps on AWS"
   homepage "https://aws.github.io/copilot-cli/"
   url "https://github.com/aws/copilot-cli.git",
     tag:      "v1.0.0",
