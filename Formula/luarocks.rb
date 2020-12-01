@@ -4,6 +4,7 @@ class Luarocks < Formula
   url "https://luarocks.org/releases/luarocks-3.4.0.tar.gz"
   sha256 "62ce5826f0eeeb760d884ea8330cd1552b5d432138b8bade0fa72f35badd02d0"
   license "MIT"
+  revision 1
   head "https://github.com/luarocks/luarocks.git"
 
   bottle do
@@ -27,7 +28,7 @@ class Luarocks < Formula
   def caveats
     <<~EOS
       LuaRocks supports multiple versions of Lua. By default it is configured
-      to use Lua5.3, but you can require it to use another version at runtime
+      to use Lua#{Formula["lua"].version.major_minor}, but you can require it to use another version at runtime
       with the `--lua-dir` flag, like this:
 
         luarocks --lua-dir=#{Formula["lua@5.1"].opt_prefix} install say
@@ -35,17 +36,17 @@ class Luarocks < Formula
   end
 
   test do
-    ENV["LUA_PATH"] = "#{testpath}/share/lua/5.3/?.lua"
-    ENV["LUA_CPATH"] = "#{testpath}/lib/lua/5.3/?.so"
+    ENV["LUA_PATH"] = "#{testpath}/share/lua/5.4/?.lua"
+    ENV["LUA_CPATH"] = "#{testpath}/lib/lua/5.4/?.so"
 
-    (testpath/"lfs_53test.lua").write <<~EOS
+    (testpath/"lfs_54test.lua").write <<~EOS
       require("lfs")
       print(lfs.currentdir())
     EOS
 
     system "#{bin}/luarocks", "--tree=#{testpath}", "install", "luafilesystem"
     system "lua", "-e", "require('lfs')"
-    assert_match testpath.to_s, shell_output("lua lfs_53test.lua")
+    assert_match testpath.to_s, shell_output("lua lfs_54test.lua")
 
     ENV["LUA_PATH"] = "#{testpath}/share/lua/5.1/?.lua"
     ENV["LUA_CPATH"] = "#{testpath}/lib/lua/5.1/?.so"
