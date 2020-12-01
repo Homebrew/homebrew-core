@@ -4,8 +4,8 @@ class Tracebox < Formula
   url "https://github.com/tracebox/tracebox.git",
       tag:      "v0.4.4",
       revision: "4fc12b2e330e52d340ecd64b3a33dbc34c160390"
-  license "GPL-2.0"
-  revision 2
+  license "GPL-2.0-only"
+  revision 3
   head "https://github.com/tracebox/tracebox.git"
 
   bottle do
@@ -17,14 +17,18 @@ class Tracebox < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "json-c"
+  depends_on "libpcap"
   depends_on "lua"
 
   def install
+    ENV.append_to_cflags "-I#{Formula["libpcap"].opt_include}"
+    ENV.append "LIBS", "-L#{Formula["libpcap"].opt_lib} -lpcap"
     ENV.libcxx
     system "autoreconf", "--install"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
+                          "--with-libpcap=yes",
                           "--prefix=#{prefix}"
     system "make"
     system "make", "install"
