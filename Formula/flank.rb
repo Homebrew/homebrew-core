@@ -5,6 +5,11 @@ class Flank < Formula
   sha256 "09b05bc4586a5415b3ec986c7cdbfe9a77c5df94b732197ddafdb46020f3fc48"
   license "Apache-2.0"
 
+  livecheck do
+    url "https://github.com/Flank/flank/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
