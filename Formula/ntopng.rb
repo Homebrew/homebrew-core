@@ -1,7 +1,8 @@
 class Ntopng < Formula
   desc "Next generation version of the original ntop"
   homepage "https://www.ntop.org/products/traffic-analysis/ntop/"
-  license "GPL-3.0"
+  license "GPL-3.0-only"
+  revision 1
 
   stable do
     url "https://github.com/ntop/ntopng/archive/4.2.tar.gz"
@@ -33,12 +34,12 @@ class Ntopng < Formula
   depends_on "gnutls" => :build
   depends_on "json-glib" => :build
   depends_on "libtool" => :build
+  depends_on "lua" => :build
   depends_on "pkg-config" => :build
   depends_on "zeromq" => :build
   depends_on "geoip"
   depends_on "json-c"
   depends_on "libmaxminddb"
-  depends_on "lua"
   depends_on "mysql-client"
   depends_on "redis"
   depends_on "rrdtool"
@@ -56,6 +57,19 @@ class Ntopng < Formula
   end
 
   test do
-    system "#{bin}/ntopng", "-V"
+    redis_port = free_port
+    redis_bin = Formula["redis"].bin
+    fork do
+      exec redis_bin/"redis-server", "--port", redis_port.to_s
+    end
+    sleep 3
+
+    mkdir testpath/"ntopng"
+    fork do
+      exec bin/"ntopng", "-i", test_fixtures("test.pcap"), "-d", testpath/"ntopng", "-r", "localhost:#{redis_port}"
+    end
+    sleep 15
+
+    assert_match "list", shell_output("#{redis_bin}/redis-cli -p #{redis_port} TYPE ntopng.trace")
   end
 end
