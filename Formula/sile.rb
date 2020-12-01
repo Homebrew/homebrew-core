@@ -4,6 +4,7 @@ class Sile < Formula
   url "https://github.com/sile-typesetter/sile/releases/download/v0.10.13/sile-0.10.13.tar.xz"
   sha256 "d207d0ee9749a6da16fa2db217f51d3586955387a132c45423b47eedf8c964a6"
   license "MIT"
+  revision 1
   head "https://github.com/sile-typesetter/sile.git", shallow: false
 
   bottle do
@@ -25,7 +26,12 @@ class Sile < Formula
   depends_on "harfbuzz"
   depends_on "icu4c"
   depends_on "libpng"
-  depends_on "lua"
+
+  # Unable to upgrade to lua5.4 due to test failure.
+  # For a suggested fix:
+  # https://github.com/sile-typesetter/sile/issues/1115
+  depends_on "lua@5.3"
+
   depends_on "openssl@1.1"
   depends_on "zlib"
 
@@ -105,25 +111,64 @@ class Sile < Formula
   end
 
   def install
+    lua = Formula["lua@5.3"]
+    luaprefix = lua.opt_prefix
+    luaversion = lua.version.major_minor
     luapath = libexec/"vendor"
-    ENV["LUA_PATH"] =
-      "#{luapath}/share/lua/5.3/?.lua;#{luapath}/share/lua/5.3/?/init.lua;#{luapath}/share/lua/5.3/lxp/?.lua"
-    ENV["LUA_CPATH"] = "#{luapath}/lib/lua/5.3/?.so"
+
+    paths = %W[
+      #{luapath}/share/lua/#{luaversion}/?.lua
+      #{luapath}/share/lua/#{luaversion}/?/init.lua
+      #{luapath}/share/lua/#{luaversion}/lxp/?.lua
+    ]
+
+    ENV["LUA_PATH"] = paths.join(";")
+    ENV["LUA_CPATH"] = "#{luapath}/lib/lua/#{luaversion}/?.so"
+
+    ENV.prepend "CPPFLAGS", "-I#{lua.opt_include}/lua"
+    ENV.prepend "LDFLAGS", "-L#{lua.opt_lib}"
 
     resources.each do |r|
       r.stage do
         case r.name
         when "lua-zlib"
           # https://github.com/brimworks/lua-zlib/commit/08d6251700965
-          mv "lua-zlib-1.1-0.rockspec", "lua-zlib-1.2-0.rockspec"
-          system "luarocks", "make", "#{r.name}-#{r.version}-0.rockspec", "--tree=#{luapath}",
-                             "ZLIB_DIR=#{Formula["zlib"].opt_prefix}"
+          # https://github.com/brimworks/lua-zlib/issues/49
+          mv "lua-zlib-1.1-0.rockspec", "lua-zlib-1.2-1.rockspec"
+
+          # rockspec needs to be updated to accommodate lua5.4:
+          # https://github.com/brimworks/lua-zlib/pull/50
+          # Note that the maintainer prefers the upper bound of `<= 5.4`,
+          # so this may lead to subtle breakage if lua5.5 is ever released.
+          # https://github.com/brimworks/lua-zlib/pull/51
+          # Remove this when `lua-zlib` is updated.
+          inreplace "lua-zlib-1.2-1.rockspec" do |s|
+            s.gsub! "1.2-0", "1.2-1"
+            s.gsub! ", <= 5.3", ""
+          end
+
+          system "luarocks", "make",
+                             "#{r.name}-#{r.version}-1.rockspec",
+                             "ZLIB_DIR=#{Formula["zlib"].opt_prefix}",
+                             "--tree=#{luapath}",
+                             "--lua-dir=#{luaprefix}"
         when "luaexpat"
-          system "luarocks", "build", r.name, "--tree=#{luapath}", "EXPAT_DIR=#{Formula["expat"].opt_prefix}"
+          system "luarocks", "build",
+                             r.name,
+                             "EXPAT_DIR=#{Formula["expat"].opt_prefix}",
+                             "--tree=#{luapath}",
+                             "--lua-dir=#{luaprefix}"
         when "luasec"
-          system "luarocks", "build", r.name, "--tree=#{luapath}", "OPENSSL_DIR=#{Formula["openssl@1.1"].opt_prefix}"
+          system "luarocks", "build",
+                             r.name,
+                             "OPENSSL_DIR=#{Formula["openssl@1.1"].opt_prefix}",
+                             "--tree=#{luapath}",
+                             "--lua-dir=#{luaprefix}"
         else
-          system "luarocks", "build", r.name, "--tree=#{luapath}"
+          system "luarocks", "build",
+                             r.name,
+                             "--tree=#{luapath}",
+                             "--lua-dir=#{luaprefix}"
         end
       end
     end
