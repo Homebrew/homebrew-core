@@ -28,6 +28,7 @@ class Libslax < Formula
   depends_on "openssl@1.1"
 
   conflicts_with "genometools", because: "both install `bin/gt`"
+  conflicts_with "libxi", because: "both install `libxi.a`"
 
   def install
     # configure remembers "-lcrypto" but not the link path.
