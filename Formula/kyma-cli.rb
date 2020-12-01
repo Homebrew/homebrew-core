@@ -1,9 +1,8 @@
 class KymaCli < Formula
   desc "Kyma command-line interface"
   homepage "https://kyma-project.io"
-  url "https://github.com/kyma-project/cli.git",
-      tag:      "1.15.1",
-      revision: "5513567a73cc8d4104b6965937a15771a066e6ed"
+  url "https://github.com/kyma-project/cli/archive/1.17.0.tar.gz"
+  sha256 "dc700e977cc7e1b12b3dd9f12e3ae5276cb710c98dd01f9d336c360f9a605777"
   license "Apache-2.0"
   head "https://github.com/kyma-project/cli.git"
 
@@ -18,8 +17,12 @@ class KymaCli < Formula
   depends_on "go@1.14" => :build
 
   def install
-    system "make", "build-darwin"
-    bin.install "bin/kyma-darwin" => "kyma"
+    ldflags = %W[
+      -s -w
+      -X github.com/kyma-project/cli/cmd/kyma/version.Version=#{version}
+    ].join(" ")
+
+    system "go", "build", *std_go_args, "-o", bin/"kyma", "-ldflags", ldflags, "./cmd"
   end
 
   test do
