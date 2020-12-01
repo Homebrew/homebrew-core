@@ -75,7 +75,6 @@
   "libcppa": "caf",
   "libmongoclient": "mongo-cxx-driver",
   "lua51": "lua@5.1",
-  "lua@5.3": "lua",
   "mat": "mat2",
   "maven32": "maven@3.2",
   "mkl-dnn": "onednn",
