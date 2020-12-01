@@ -4,6 +4,7 @@ class OsrmBackend < Formula
   url "https://github.com/Project-OSRM/osrm-backend/archive/v5.23.0.tar.gz"
   sha256 "8527ce7d799123a9e9e99551936821cc0025baae6f2120dbf2fbc6332c709915"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/Project-OSRM/osrm-backend.git"
 
   livecheck do
@@ -24,7 +25,11 @@ class OsrmBackend < Formula
   depends_on "libstxxl"
   depends_on "libxml2"
   depends_on "libzip"
-  depends_on "lua"
+
+  # Possible patch for lua5.4 support:
+  # https://github.com/Project-OSRM/osrm-backend/pull/5783
+  # Upgrade me to lua5.4 at the next version bump.
+  depends_on "lua@5.3"
 
   # "invalid use of non-static data member 'offset'"
   # https://github.com/Project-OSRM/osrm-backend/issues/3719
