@@ -19,6 +19,8 @@ class Libxi < Formula
   depends_on "libxfixes"
   depends_on "xorgproto"
 
+  conflicts_with "libslax", because: "both install `libxi.a`"
+
   def install
     args = %W[
       --prefix=#{prefix}
