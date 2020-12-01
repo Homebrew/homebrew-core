@@ -4,7 +4,7 @@ class Clingo < Formula
   url "https://github.com/potassco/clingo/archive/v5.4.0.tar.gz"
   sha256 "e2de331ee0a6d254193aab5995338a621372517adcf91568092be8ac511c18f3"
   license "MIT"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://github.com/potassco/clingo/releases/latest"
