@@ -7,7 +7,7 @@ class Libcaca < Formula
   version "0.99b19"
   sha256 "128b467c4ed03264c187405172a4e83049342cc8cc2f655f53a2d0ee9d3772f4"
   license "WTFPL"
-  revision 2
+  revision 3
 
   # The regex here matches unstable releases and is loose about it (`.*`), as
   # there are currently only beta releases and we don't know if there will be
