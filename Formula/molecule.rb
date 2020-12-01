@@ -26,14 +26,14 @@ class Molecule < Formula
     depends_on "pkg-config" => :build
   end
 
-  # Collect requirements from:
-  #  molecule
-  #  docker-py
-  #  python-vagrant
+  # Instructions for updating the resource blocks:
+  # 1. Run `brew update-python-resources molecule --extra-packages docker-py,python-vagrant`
+  # 2. Manually re-add the `molecule-vagrant` resource using the link and checksum found at
+  #    `https://pypi.org/project/molecule-vagrant/#files`
 
-  resource "ansible" do
-    url "https://files.pythonhosted.org/packages/9c/f4/c156b10d7ae90ba6b99b1b126f7d30628adc1e733a6fbd63569852948f21/ansible-2.10.3.tar.gz"
-    sha256 "eb1d08b9b98a60e90e7123a12f40770780f29f9d73168da55d449106a9f4d348"
+  resource "molecule-vagrant" do
+    url "https://files.pythonhosted.org/packages/fa/b6/eaaf1ec5a9337d2498db3e41d09a8742035dbda9c61b283df4d8abb50ef6/molecule-vagrant-0.6.tar.gz"
+    sha256 "81fb401ffc5c4a1f5ff84e9a90ded4ecf3e8361db44b7e60e7745afb42db1273"
   end
 
   resource "arrow" do
@@ -82,8 +82,8 @@ class Molecule < Formula
   end
 
   resource "click-help-colors" do
-    url "https://files.pythonhosted.org/packages/cc/3f/6d6f3edb803eb58cd619a19f3af073f9e1b80529c73e8b02b8cc12e0ee3c/click-help-colors-0.8.tar.gz"
-    sha256 "119e5faf69cfc919c995c5962326ac8fd87f11e56a371af594e3dfd8458f4c6e"
+    url "https://files.pythonhosted.org/packages/28/03/81e8bd0e9dedcb7813d02864a08997a1fa1fda3f8293c2710842b9239e1e/click-help-colors-0.8.1.tar.gz"
+    sha256 "9f660cb64b9ed0927c906af51169ad27c60771c14e6bc9076d490b05bfa7befd"
   end
 
   resource "colorama" do
@@ -142,8 +142,8 @@ class Molecule < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/61/b8/5a96ce56fcdf1bf7494f642ec7fad3e8c192b3a5b2116b59955ff32f70de/packaging-20.5.tar.gz"
-    sha256 "5d21ed3d936beb102850195eadaa1371bfb4b93da6ad63d231410c6dca25a665"
+    url "https://files.pythonhosted.org/packages/16/7c/33ae3aa02eb10ca726b21aa88d338e3f619c674e4fb8544eb352330d880a/packaging-20.7.tar.gz"
+    sha256 "05af3bb85d320377db281cf254ab050e1a7ebcbf5410685a9a407e18a1f81236"
   end
 
   resource "paramiko" do
@@ -156,11 +156,6 @@ class Molecule < Formula
     sha256 "86379d6b86d75816baba717e64b1a3a3469deb93bb76d613c9ce79edc5cb68fd"
   end
 
-  resource "pexpect" do
-    url "https://files.pythonhosted.org/packages/e5/9b/ff402e0e930e70467a7178abb7c128709a30dfb22d8777c043e501bc1b10/pexpect-4.8.0.tar.gz"
-    sha256 "fc65a43959d153d0114afe13997d439c22823a27cefceb5ff35c2178c6784c0c"
-  end
-
   resource "pluggy" do
     url "https://files.pythonhosted.org/packages/f8/04/7a8542bed4b16a65c2714bf76cf5a0b026157da7f75e87cc88774aa10b14/pluggy-0.13.1.tar.gz"
     sha256 "15b2acde666561e1298d71b523007ed7364de07029219b604cf808bfa1c765b0"
@@ -169,11 +164,6 @@ class Molecule < Formula
   resource "poyo" do
     url "https://files.pythonhosted.org/packages/7d/56/01b496f36bbd496aed9351dd1b06cf57fd2f5028480a87adbcf7a4ff1f65/poyo-0.5.0.tar.gz"
     sha256 "e26956aa780c45f011ca9886f044590e2d8fd8b61db7b1c1cf4e0869f48ed4dd"
-  end
-
-  resource "ptyprocess" do
-    url "https://files.pythonhosted.org/packages/7d/2d/e4b8733cf79b7309d84c9081a4ab558c89d8c89da5961bf4ddb050ca1ce0/ptyprocess-0.6.0.tar.gz"
-    sha256 "923f299cc5ad920c68f2bc0bc98b75b9f838b93b599941a6b63ddbc2476394c0"
   end
 
   resource "pycparser" do
@@ -222,13 +212,8 @@ class Molecule < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/c5/5f/f0a36649beefeaa70c1086451fc936b22afb0c34879930d97d3b129aadc6/rich-9.2.0.tar.gz"
-    sha256 "7003a1cce3b79bf4d34a26099b00a4b67e208d4a6896a1c25368603d5f49f295"
-  end
-
-  resource "sh" do
-    url "https://files.pythonhosted.org/packages/f6/d4/e80280b1eba9597d16144f71d12cdf62d0e66170d289880f307cf905d327/sh-1.14.1.tar.gz"
-    sha256 "39aa9af22f6558a0c5d132881cf43e34828ca03e4ae11114852ca6a55c7c1d8e"
+    url "https://files.pythonhosted.org/packages/de/11/2a232286a0831e4f560b5fba6dfaf344a1afa2bab1bb7a03f8235f3e149c/rich-9.3.0.tar.gz"
+    sha256 "ca1008c18e91c2d0345764ddb871cc284feadc467241fbb468f14280b791388a"
   end
 
   resource "shellingham" do
@@ -251,11 +236,6 @@ class Molecule < Formula
     sha256 "bad6603bb14d279193107714b288be206cac565dfa49aa5b105294dd5c4aab93"
   end
 
-  resource "tree-format" do
-    url "https://files.pythonhosted.org/packages/0d/91/8d860c75c3e70e6bbec7b898b5f753bf5da404be9296e245034360759645/tree-format-0.1.2.tar.gz"
-    sha256 "a538523aa78ae7a4b10003b04f3e1b37708e0e089d99c9d3b9e1c71384c9a7f9"
-  end
-
   resource "typing-extensions" do
     url "https://files.pythonhosted.org/packages/16/06/0f7367eafb692f73158e5c5cbca1aec798cdf78be5167f6415dd4205fa32/typing_extensions-3.7.4.3.tar.gz"
     sha256 "99d4073b617d30288f569d3f13d2bd7548c3a7e4c8de87db09a9d29bb3a4a60c"
@@ -274,12 +254,6 @@ class Molecule < Formula
   resource "yamllint" do
     url "https://files.pythonhosted.org/packages/75/33/c8014b6678936daf30e15291bfb9d608fff1d8adafa024a6565d225e6f4c/yamllint-1.25.0.tar.gz"
     sha256 "b1549cbe5b47b6ba67bdeea31720f5c51431a4d0c076c1557952d841f7223519"
-  end
-
-  # Plugins
-  resource "molecule-vagrant" do
-    url "https://files.pythonhosted.org/packages/a9/55/d1cb8ed9a7588f1b3fbbb229d8875a1725a2076084a8174c0a999716c600/molecule-vagrant-0.5.tar.gz"
-    sha256 "4e8f112ddb04b4a80cc824652e800dce19c6567bb5c06d238665e452540f3509"
   end
 
   def install
