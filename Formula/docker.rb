@@ -2,8 +2,8 @@ class Docker < Formula
   desc "Pack, ship and run any application as a lightweight container"
   homepage "https://www.docker.com/"
   url "https://github.com/docker/docker-ce.git",
-      tag:      "v19.03.13",
-      revision: "4484c46d9d1a2d10b8fc662923ad586daeedb04f"
+      tag:      "v19.03.14",
+      revision: "5eb3275d4006e4093807c35b4f7776ecd73b13a7"
   license "Apache-2.0"
 
   bottle do
