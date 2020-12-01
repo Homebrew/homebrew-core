@@ -3,6 +3,8 @@ class Wordgrinder < Formula
   homepage "https://cowlark.com/wordgrinder"
   url "https://github.com/davidgiven/wordgrinder/archive/0.8.tar.gz"
   sha256 "856cbed2b4ccd5127f61c4997a30e642d414247970f69932f25b4b5a81b18d3f"
+  license "MIT"
+  revision 1
   head "https://github.com/davidgiven/wordgrinder.git"
 
   bottle do
@@ -13,9 +15,9 @@ class Wordgrinder < Formula
     sha256 "7fe55fe2030606991d37ca2d0541674e3761e17dc02192ab62e54e8fceaec3f0" => :high_sierra
   end
 
+  depends_on "lua" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "lua"
   depends_on "ncurses"
 
   uses_from_macos "zlib"
