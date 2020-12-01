@@ -1,11 +1,10 @@
 class Libpulsar < Formula
   desc "Apache Pulsar C++ library"
   homepage "https://pulsar.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=pulsar/pulsar-2.6.2/apache-pulsar-2.6.2-src.tar.gz"
-  mirror "https://archive.apache.org/dist/pulsar/pulsar-2.6.2/apache-pulsar-2.6.2-src.tar.gz"
-  sha256 "10dbb8679df49a0b5c2f0e24962c1044772a93276e92fcea7095fc73f490b98a"
+  url "https://www.apache.org/dyn/closer.lua?path=pulsar/pulsar-2.7.0/apache-pulsar-2.7.0-src.tar.gz"
+  mirror "https://archive.apache.org/dist/pulsar/pulsar-2.7.0/apache-pulsar-2.7.0-src.tar.gz"
+  sha256 "f1e8168b7f2b8bfc06c84f743eb4f3dfa5f8f376f087c5ef1532f998cf56bab4"
   license "Apache-2.0"
-  revision 1
 
   livecheck do
     url :stable
