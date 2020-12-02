@@ -76,11 +76,11 @@ class Wireshark < Formula
       This formula only installs the command-line utilities by default.
 
       Install Wireshark.app with Homebrew Cask:
-        brew cask install wireshark
+        brew install --cask wireshark
 
       If your list of available capture interfaces is empty
       (default macOS behavior), install ChmodBPF:
-        brew cask install wireshark-chmodbpf
+        brew install --cask wireshark-chmodbpf
     EOS
   end
 
