@@ -39,7 +39,7 @@ class Copilot < Formula
   test do
     assert_match "Launch and manage applications",
       shell_output("#{bin}/copilot --help")
-    
+
     assert_match "list environments for application : MissingRegion: could not find region",
       shell_output("#{bin}/copilot pipeline init 2>&1", 1)
   end
