@@ -42,7 +42,7 @@ class Platypus < Formula
         https://sveinbjorn.org/platypus
 
       Alternatively, install with Homebrew Cask:
-        brew cask install platypus
+        brew install --cask platypus
     EOS
   end
 
