@@ -4,7 +4,7 @@ class PythonAT39 < Formula
   url "https://www.python.org/ftp/python/3.9.0/Python-3.9.0.tar.xz"
   sha256 "9c73e63c99855709b9be0b3cc9e5b072cb60f37311e8c4e50f15576a0bf82854"
   license "Python-2.0"
-  revision 3
+  revision 4
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -87,8 +87,8 @@ class PythonAT39 < Formula
     # Further patch for Big Sur, remove in 3.9.2
     # https://github.com/python/cpython/pull/23556
     patch do
-      url "https://github.com/fxcoudert/cpython/commit/cd26ccbb.patch?full_index=1"
-      sha256 "59c98f991f839d610d53ca5c4af1464a99adf6c85e807f8a676b3e41c5dbe0a2"
+      url "https://github.com/fxcoudert/cpython/commit/6511bf56.patch?full_index=1"
+      sha256 "3a34fea8a133305bc337d67acfacc36dc8f9d47a808dd592f5b0cd8c9c9384d2"
     end
   end
 
