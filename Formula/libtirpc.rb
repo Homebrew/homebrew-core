@@ -1,8 +1,8 @@
 class Libtirpc < Formula
   desc "Port of Sun's Transport-Independent RPC library to Linux"
   homepage "https://sourceforge.net/projects/libtirpc/"
-  url "https://downloads.sourceforge.net/project/libtirpc/libtirpc/1.2.6/libtirpc-1.2.6.tar.bz2"
-  sha256 "4278e9a5181d5af9cd7885322fdecebc444f9a3da87c526e7d47f7a12a37d1cc"
+  url "https://downloads.sourceforge.net/project/libtirpc/libtirpc/1.3.1/libtirpc-1.3.1.tar.bz2"
+  sha256 "245895caf066bec5e3d4375942c8cb4366adad184c29c618d97f724ea309ee17"
   license "BSD-3-Clause"
 
   depends_on "krb5"
