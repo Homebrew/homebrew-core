@@ -3,7 +3,12 @@ class Zxcc < Formula
   homepage "https://www.seasip.info/Unix/Zxcc/"
   url "https://www.seasip.info/Unix/Zxcc/zxcc-0.5.7.tar.gz"
   sha256 "6095119a31a610de84ff8f049d17421dd912c6fd2df18373e5f0a3bc796eb4bf"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?zxcc[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 "55897339c53884d74e51e270e458085e4c1a3c8494b7053d40205d511ae0759a" => :big_sur
