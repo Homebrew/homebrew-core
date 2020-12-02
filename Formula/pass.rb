@@ -3,7 +3,7 @@ class Pass < Formula
   homepage "https://www.passwordstore.org/"
   url "https://git.zx2c4.com/password-store/snapshot/password-store-1.7.3.tar.xz"
   sha256 "2b6c65846ebace9a15a118503dcd31b6440949a30d3b5291dfb5b1615b99a3f4"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   head "https://git.zx2c4.com/password-store.git"
 
   livecheck do
@@ -24,6 +24,11 @@ class Pass < Formula
   depends_on "gnupg"
   depends_on "qrencode"
   depends_on "tree"
+
+  patch do
+    url "https://git.zx2c4.com/password-store/patch/?id=07b169ec32ad6961ed8625a0b932a663abcb01d2"
+    sha256 "626ceb894a1b7367e90ee2a6b1ebf43528ebd2d28b70e3c4d39fb3e2ba7896bc"
+  end
 
   def install
     system "make", "PREFIX=#{prefix}", "WITH_ALLCOMP=yes", "BASHCOMPDIR=#{bash_completion}",
