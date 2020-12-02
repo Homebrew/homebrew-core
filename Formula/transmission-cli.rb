@@ -53,7 +53,7 @@ class TransmissionCli < Formula
         https://www.transmissionbt.com/
 
       Alternatively, install with Homebrew Cask:
-        brew cask install transmission
+        brew install --cask transmission
     EOS
   end
 
