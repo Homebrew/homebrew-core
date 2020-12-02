@@ -1,8 +1,8 @@
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
-  url "https://github.com/hashicorp/terraform/archive/v0.13.5.tar.gz"
-  sha256 "c4bdb9e636550795862f13e0ae667a1d381bf2f6cd30c4dde54411afdd07aeab"
+  url "https://github.com/hashicorp/terraform/archive/v0.14.0.tar.gz"
+  sha256 "3f50b6c5aed44746e42ebbf00375717d352128f49f8eb16903acd95cd64750d0"
   license "MPL-2.0"
   head "https://github.com/hashicorp/terraform.git"
 
@@ -19,7 +19,7 @@ class Terraform < Formula
     sha256 "94b57cec31514334a68b6b31939f7bd465fb792cf663a04bde9ca4752d77aed5" => :mojave
   end
 
-  depends_on "go@1.14" => :build
+  depends_on "go" => :build
 
   conflicts_with "tfenv", because: "tfenv symlinks terraform binaries"
 
@@ -32,7 +32,7 @@ class Terraform < Formula
     # https://github.com/hashicorp/terraform/issues/26532#issuecomment-720570774
     ENV["CGO_ENABLED"] = "1"
 
-    system "go", "build", *std_go_args, "-ldflags", "-s -w", "-mod=vendor"
+    system "go", "build", *std_go_args, "-ldflags", "-s -w"
   end
 
   test do
