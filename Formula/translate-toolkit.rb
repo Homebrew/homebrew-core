@@ -6,6 +6,7 @@ class TranslateToolkit < Formula
   url "https://github.com/translate/translate/archive/3.2.0.tar.gz"
   sha256 "f55afa52e24f0327f8dfd53ae139d6123b4bfef89630d17517272c96f187b29c"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/translate/translate.git"
 
   bottle do
@@ -28,6 +29,11 @@ class TranslateToolkit < Formula
     sha256 "a809a996d0f09b9bbd59e9bbd0b71eed8c807922512910e05cbd3f9480712ddb"
   end
 
+  resource "lxml" do
+    url "https://files.pythonhosted.org/packages/db/f7/43fecb94d66959c1e23aa53d6161231dca0e93ec500224cf31b3c4073e37/lxml-4.6.2.tar.gz"
+    sha256 "cd11c7e8d21af997ee8079037fff88f16fda188a9776eb4b81c7e4c9c0a7d7fc"
+  end
+
   resource "Python-Levenshtein" do
     url "https://files.pythonhosted.org/packages/42/a9/d1785c85ebf9b7dfacd08938dd028209c34a0ea3b1bcdb895208bd40a67d/python-Levenshtein-0.12.0.tar.gz"
     sha256 "033a11de5e3d19ea25c9302d11224e1a1898fe5abd23c61c7c360c25195e3eb1"
@@ -44,5 +50,6 @@ class TranslateToolkit < Formula
 
   test do
     system bin/"pretranslate", "-h"
+    system bin/"podebug", "-h"
   end
 end
