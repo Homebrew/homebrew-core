@@ -4,8 +4,8 @@ class Liblouis < Formula
   license all_of: ["GPL-3.0-or-later", "LGPL-2.1-or-later"]
 
   stable do
-    url "https://github.com/liblouis/liblouis/releases/download/v3.16.0/liblouis-3.16.0.tar.gz"
-    sha256 "88cda9ad95ce7fdd5a28d75b0a8ed7097fb24aa0112ebce110c505fd200080aa"
+    url "https://github.com/liblouis/liblouis/releases/download/v3.16.1/liblouis-3.16.1.tar.gz"
+    sha256 "7ca90c52c1fb04b22cd976495b2325700c7d0135c929a42707fab7bab03658e9"
     depends_on "help2man" => :build
     depends_on "pkg-config" => :build
     depends_on "python@3.9"
