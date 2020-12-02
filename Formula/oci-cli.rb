@@ -3,8 +3,8 @@ class OciCli < Formula
 
   desc "Oracle Cloud Infrastructure CLI"
   homepage "https://docs.cloud.oracle.com/iaas/Content/API/Concepts/cliconcepts.htm"
-  url "https://files.pythonhosted.org/packages/9d/d0/3fa3d2ccc740e878e9f9fd6aa7c47de0842d17b043c4d6576009f1a0b77f/oci-cli-2.15.0.tar.gz"
-  sha256 "852f46dd215a05900ea0696d54132f04bd290cec230de7463200bc49c30b448c"
+  url "https://files.pythonhosted.org/packages/7a/b3/ae0b6a6397bb0c0bd73c0882a2f8220741c8289db6162e6eac4134e9e3b7/oci-cli-2.16.0.tar.gz"
+  sha256 "8ebc9414c77638bf425f4b7121ab17d961c725fcaf5356c4c3b27c1fbb2833b4"
   license any_of: ["UPL-1.0", "Apache-2.0"]
   head "https://github.com/oracle/oci-cli.git"
 
@@ -28,8 +28,8 @@ class OciCli < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/cb/ae/380e33d621ae301770358eb11a896a34c34f30db188847a561e8e39ee866/cffi-1.14.3.tar.gz"
-    sha256 "f92f789e4f9241cd262ad7a555ca2c648a98178a953af117ef7fad46aa1d5591"
+    url "https://files.pythonhosted.org/packages/66/6a/98e023b3d11537a5521902ac6b50db470c826c682be6a8c661549cb7717a/cffi-1.14.4.tar.gz"
+    sha256 "1a465cbe98a7fd391d47dce4b8f7e5b921e6cd805ef421d04f5f66ba8f06086c"
   end
 
   resource "click" do
@@ -43,8 +43,8 @@ class OciCli < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/be/60/da377e1bed002716fb2d5d1d1cab720f298cb33ecff7bf7adea72788e4e4/cryptography-2.8.tar.gz"
-    sha256 "3cda1f0ed8747339bbdf71b9f38ca74c7b592f24f65cdb3ab3765e4b02871651"
+    url "https://files.pythonhosted.org/packages/94/5c/42de91c7fbdb817b2d9a4e64b067946eb38a4eb36c1a09c96c87a0f86a82/cryptography-3.2.1.tar.gz"
+    sha256 "d3d5e10be0cf2a12214ddee45c6bd203dab435e3d83b4560c03066eda600bfe3"
   end
 
   resource "jmespath" do
@@ -53,8 +53,8 @@ class OciCli < Formula
   end
 
   resource "oci" do
-    url "https://files.pythonhosted.org/packages/4f/4b/94106909d482bbe2de7c27cc14959d5b77dfe523c7fa11873af77ecb6b4f/oci-2.24.0.tar.gz"
-    sha256 "d76f66c118596dc08a84db64409ec370a7e146944292e2a533dac3236689ff44"
+    url "https://files.pythonhosted.org/packages/b1/1a/971a2661da8ca9660cc622624602f63b533766458ddc2033acd8246e96b6/oci-2.25.0.tar.gz"
+    sha256 "19ac3c928f2fa92bdf2bbaca5d71635d309c77b14e1e9b348283d3a52e200449"
   end
 
   resource "pycparser" do
@@ -63,8 +63,8 @@ class OciCli < Formula
   end
 
   resource "pyOpenSSL" do
-    url "https://files.pythonhosted.org/packages/9b/7c/ee600b2a9304d260d96044ab5c5e57aa489755b92bbeb4c0803f9504f480/pyOpenSSL-18.0.0.tar.gz"
-    sha256 "6488f1423b00f73b7ad5167885312bb0ce410d3312eb212393795b53c8caa580"
+    url "https://files.pythonhosted.org/packages/0d/1d/6cc4bd4e79f78be6640fab268555a11af48474fac9df187c3361a1d1d2f0/pyOpenSSL-19.1.0.tar.gz"
+    sha256 "9a24494b2602aaf402be5c9e30a0b82d4a5c67528fe8fb475e3f3bc00dd69507"
   end
 
   resource "python-dateutil" do
