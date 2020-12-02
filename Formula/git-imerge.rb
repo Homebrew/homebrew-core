@@ -20,6 +20,8 @@ class GitImerge < Formula
 
   depends_on "python@3.9"
 
+  # PR ref, https://github.com/mhagger/git-imerge/pull/176
+  # remove in next release
   patch :DATA
 
   def install
