@@ -30,6 +30,7 @@ class Postgresql < Formula
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
   uses_from_macos "perl"
+  uses_from_macos "python"
 
   on_linux do
     depends_on "util-linux"
@@ -57,6 +58,7 @@ class Postgresql < Formula
       --with-openssl
       --with-pam
       --with-perl
+	  --with-python
       --with-tcl
       --with-uuid=e2fs
     ]
