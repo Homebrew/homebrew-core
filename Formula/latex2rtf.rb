@@ -7,6 +7,7 @@ class Latex2rtf < Formula
 
   livecheck do
     url :stable
+    regex(%r{url=.*?/latex2rtf/files/latex2rtf-unix/[^/]+/latex2rtf[._-](\d+(?:[-.]\d+)+[a-z]?)\.t}i)
   end
 
   bottle do
