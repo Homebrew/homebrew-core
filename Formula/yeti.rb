@@ -4,7 +4,6 @@ class Yeti < Formula
   url "https://github.com/mth/yeti/archive/v1.0.tar.gz"
   sha256 "f1451a7c58cecaee41c46e886eb714a81e0dfe5557c10568421dcbd33ab9357c"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/mth/yeti.git"
 
   bottle do
