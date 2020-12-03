@@ -1,8 +1,8 @@
 class FluentBit < Formula
   desc "Data Collector for IoT"
   homepage "https://github.com/fluent/fluent-bit"
-  url "https://github.com/fluent/fluent-bit/archive/v1.6.6.tar.gz"
-  sha256 "b38126c557b635590fb73ae8271f3f9e0bc2bd0ac46db0bdbe743e67129e226b"
+  url "https://github.com/fluent/fluent-bit/archive/v1.6.8.tar.gz"
+  sha256 "214c800d8f1f0cd74cdc772775481e054546228194b4e49b50fe36e924b6ea03"
   license "Apache-2.0"
   head "https://github.com/fluent/fluent-bit.git"
 
