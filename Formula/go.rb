@@ -38,8 +38,8 @@ class Go < Formula
   # Don't update this unless this version cannot bootstrap the new version.
   resource "gobootstrap" do
     on_macos do
-      url "https://storage.googleapis.com/golang/go1.7.darwin-amd64.tar.gz"
-      sha256 "51d905e0b43b3d0ed41aaf23e19001ab4bc3f96c3ca134b48f7892485fc52961"
+      url "https://storage.googleapis.com/golang/go1.15.darwin-amd64.tar.gz"
+      sha256 "8a5fb9c8587854a84957a79b9616070b63d8842d4001c3c7d86f261cd7b5ffb6"
     end
 
     on_linux do
@@ -53,8 +53,22 @@ class Go < Formula
     ENV["GOROOT_BOOTSTRAP"] = buildpath/"gobootstrap"
 
     cd "src" do
+      arch_args = []
+      if Hardware::CPU.arm?
+        ENV["GOARCH"] = "arm64"
+        # Workaround Rosetta 2 signals issues.
+        # See https://golang.org/issue/42700.
+        ENV["GODEBUG"] = "asyncpreemptoff=1"
+        arch_args = ["arch", "-x86_64"]
+      end
+
       ENV["GOROOT_FINAL"] = libexec
-      system "./make.bash", "--no-clean"
+      system(*arch_args, "./make.bash", "--no-clean")
+    end
+
+    if Hardware::CPU.arm?
+      mv Dir["bin/*_arm64/*"], "bin"
+      rm_rf Dir["pkg/*_amd64", "pkg/tool/*_amd64"]
     end
 
     (buildpath/"pkg/obj").rmtree
