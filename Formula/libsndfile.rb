@@ -4,6 +4,7 @@ class Libsndfile < Formula
   url "https://github.com/erikd/libsndfile/releases/download/v1.0.30/libsndfile-1.0.30.tar.bz2"
   sha256 "9df273302c4fa160567f412e10cc4f76666b66281e7ba48370fb544e87e4611a"
   license "LGPL-2.1-or-later"
+  revision 1
 
   livecheck do
     url "https://github.com/erikd/libsndfile/releases/latest"
@@ -27,6 +28,14 @@ class Libsndfile < Formula
   depends_on "libogg"
   depends_on "libvorbis"
   depends_on "opus"
+
+  # Upstream commit to fix autotools configure on macOS, fixes
+  # https://github.com/libsndfile/libsndfile/issues/642
+  # Upstream fix is expected in release v1.0.31
+  patch do
+    url "https://github.com/libsndfile/libsndfile/commit/ecd63961.patch?full_index=1"
+    sha256 "419aad070487685157a515adf4c6de25ffbd34adb0ab52b6df0f7c1ed0644893"
+  end
 
   def install
     system "autoreconf", "-fvi"
