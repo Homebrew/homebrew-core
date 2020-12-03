@@ -6,6 +6,11 @@ class Vlang < Formula
   sha256 "5f2be9765e7ec6fb79286b973d319359377dcf78a0470652048a261d77a6ae14"
   license "MIT"
 
+  livecheck do
+    url "https://raw.githubusercontent.com/vlang/v/master/CHANGELOG.md"
+    regex(/## v?\s?(\d+(?:\.\d+)+)/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "4e3d0af15fbd9cfd98157e468e6479f04666c7ffda7bb092c356228867579a03" => :big_sur
