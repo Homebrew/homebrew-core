@@ -122,10 +122,10 @@ class PythonAT39 < Formula
       cflags << "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers"
     end
     # Avoid linking to libgcc https://mail.python.org/pipermail/python-dev/2012-February/116205.html
-    if MacOS.version >= :big_sur
-      args << "MACOSX_DEPLOYMENT_TARGET=11.0.1"
+    args << if MacOS.version >= :big_sur
+      "MACOSX_DEPLOYMENT_TARGET=11.0.1"
     else
-      args << "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
+      "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
     end
 
     # We want our readline! This is just to outsmart the detection code,
