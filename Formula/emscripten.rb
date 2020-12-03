@@ -3,12 +3,15 @@ require "language/node"
 class Emscripten < Formula
   desc "LLVM bytecode to JavaScript compiler"
   homepage "https://emscripten.org/"
-  url "https://github.com/emscripten-core/emscripten/archive/2.0.7.tar.gz"
-  sha256 "ffe4a1e6b6cb223bfcb2f8ca28d39b23c4ae7102b36f69f40669739762d91445"
+  url "https://github.com/emscripten-core/emscripten/archive/2.0.10.tar.gz"
+  sha256 "e37d625c2cdf5cfcccaaa58ec1a4e60b126b9d738fafc1caa7effd4c22fde136"
   # Emscripten is available under 2 licenses, the MIT license and the
   # University of Illinois/NCSA Open Source License.
-  license "MIT"
-  revision 1
+  license all_of: [
+    "MIT",
+    "Apache-2.0", # binaryen
+    "Apache-2.0" => { with: "LLVM-exception" }, # llvm
+  ]
   head "https://github.com/emscripten-core/emscripten.git"
 
   livecheck do
@@ -25,10 +28,16 @@ class Emscripten < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "binaryen"
   depends_on "node"
   depends_on "python@3.9"
   depends_on "yuicompressor"
+
+  # Use emscripten's recommended binaryen revision to avoid build failures.
+  # See llvm resource below for instructions on how to update this.
+  resource "binaryen" do
+    url "https://github.com/WebAssembly/binaryen.git",
+      revision: "bd9872ddf850bf177298a5274a15807e6227cd3d"
+  end
 
   # emscripten needs argument '-fignore-exceptions', which is only available in llvm >= 12
   # To find the correct llvm revision, find a corresponding commit at:
@@ -38,7 +47,7 @@ class Emscripten < Formula
   # Then use the listed llvm_project_revision for the resource below.
   resource "llvm" do
     url "https://github.com/llvm/llvm-project.git",
-        revision: "25a8881b724abf7251a9278e72224af7e82cb9c2"
+        revision: "445289aa63e1b82b9eea6497fb2d0443813a9d4e"
   end
 
   def install
@@ -95,10 +104,21 @@ class Emscripten < Formula
       end
 
       mkdir llvmpath/"build" do
+        # We can use `make` and `make install` here, but prefer these commands
+        # for consistency with the llvm formula.
         system "cmake", "-G", "Unix Makefiles", "..", *args
         system "cmake", "--build", "."
         system "cmake", "--build", ".", "--target", "install"
       end
+    end
+
+    resource("binaryen").stage do
+      args = std_cmake_args.reject { |s| s["CMAKE_INSTALL_PREFIX"] } + %W[
+        -DCMAKE_INSTALL_PREFIX=#{libexec}/binaryen
+      ]
+
+      system "cmake", ".", *args
+      system "make", "install"
     end
 
     cd libexec do
@@ -116,7 +136,7 @@ class Emscripten < Formula
     system bin/"emcc"
     inreplace "#{libexec}/.emscripten" do |s|
       s.gsub! /^(LLVM_ROOT.*)/, "#\\1\nLLVM_ROOT = \"#{opt_libexec}/llvm/bin\"\\2"
-      s.gsub! /^(BINARYEN_ROOT.*)/, "#\\1\nBINARYEN_ROOT = \"#{Formula["binaryen"].opt_prefix}\"\\2"
+      s.gsub! /^(BINARYEN_ROOT.*)/, "#\\1\nBINARYEN_ROOT = \"#{opt_libexec}/binaryen\"\\2"
     end
   end
 
