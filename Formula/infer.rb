@@ -6,7 +6,6 @@ class Infer < Formula
       tag:      "v0.17.0",
       revision: "99464c01da5809e7159ed1a75ef10f60d34506a4"
   license "MIT"
-  revision 1
 
   livecheck do
     url :stable
