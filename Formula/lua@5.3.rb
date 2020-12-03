@@ -63,7 +63,7 @@ class LuaAT53 < Formula
     <<~EOS
       V= #{version.major_minor}
       R= #{version}
-      prefix=#{HOMEBREW_PREFIX}
+      prefix=#{opt_prefix}
       INSTALL_BIN= ${prefix}/bin
       INSTALL_INC= ${prefix}/include/lua
       INSTALL_LIB= ${prefix}/lib
@@ -78,7 +78,7 @@ class LuaAT53 < Formula
       Description: An Extensible Extension Language
       Version: #{version}
       Requires:
-      Libs: -L${libdir} -llua -lm
+      Libs: -L${libdir} -llua.#{version.major_minor} -lm
       Cflags: -I${includedir}
     EOS
   end
