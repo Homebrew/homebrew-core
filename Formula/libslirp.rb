@@ -1,8 +1,8 @@
 class Libslirp < Formula
   desc "General purpose TCP-IP emulator"
   homepage "https://gitlab.freedesktop.org/slirp/libslirp"
-  url "https://elmarco.fedorapeople.org/libslirp-4.3.1.tar.xz"
-  sha256 "388b4b08a8cc0996cc5155cb027a097dc1a7f2cfe84b1121496608ab5366cc48"
+  url "https://gitlab.freedesktop.org/slirp/libslirp/-/archive/v4.4.0/libslirp-v4.4.0.tar.gz"
+  sha256 "43513390c57bee8c23b31545bfcb765200fccf859062b1c8101e72befdabce2e"
   license "BSD-3-Clause"
 
   bottle do
@@ -19,7 +19,6 @@ class Libslirp < Formula
   depends_on "glib"
 
   def install
-    inreplace "meson.build", ",--version-script", ""
     system "meson", "build", "-Ddefault_library=both", *std_meson_args
     system "ninja", "-C", "build", "install", "all"
   end
