@@ -1,8 +1,8 @@
 class Lua < Formula
   desc "Powerful, lightweight programming language"
   homepage "https://www.lua.org/"
-  url "https://www.lua.org/ftp/lua-5.4.1.tar.gz"
-  sha256 "4ba786c3705eb9db6567af29c91a01b81f1c0ac3124fdbf6cd94bdd9e53cca7d"
+  url "https://www.lua.org/ftp/lua-5.4.2.tar.gz"
+  sha256 "11570d97e9d7303c0a59567ed1ac7c648340cd0db10d5fd594c09223ef2f524f"
   license "MIT"
 
   livecheck do
@@ -103,7 +103,7 @@ index 1797df9..2f80d16 100644
  TO_BIN= lua luac
  TO_INC= lua.h luaconf.h lualib.h lauxlib.h lua.hpp
 -TO_LIB= liblua.a
-+TO_LIB= liblua.5.4.1.dylib
++TO_LIB= liblua.5.4.2.dylib
  TO_MAN= lua.1 luac.1
 
  # Lua version and release.
@@ -111,7 +111,7 @@ index 1797df9..2f80d16 100644
  	cd src && $(INSTALL_DATA) $(TO_INC) $(INSTALL_INC)
  	cd src && $(INSTALL_DATA) $(TO_LIB) $(INSTALL_LIB)
  	cd doc && $(INSTALL_DATA) $(TO_MAN) $(INSTALL_MAN)
-+	ln -s -f liblua.5.4.1.dylib $(INSTALL_LIB)/liblua.5.4.dylib
++	ln -s -f liblua.5.4.2.dylib $(INSTALL_LIB)/liblua.5.4.dylib
 +	ln -s -f liblua.5.4.dylib $(INSTALL_LIB)/liblua.dylib
 
  uninstall:
@@ -125,7 +125,7 @@ index 514593d..90c78b8 100644
  PLATS= guess aix bsd c89 freebsd generic linux linux-readline macosx mingw posix solaris
 
 -LUA_A=	liblua.a
-+LUA_A=	liblua.5.4.1.dylib
++LUA_A=	liblua.5.4.2.dylib
  CORE_O=	lapi.o lcode.o lctype.o ldebug.o ldo.o ldump.o lfunc.o lgc.o llex.o lmem.o lobject.o lopcodes.o lparser.o lstate.o lstring.o ltable.o ltm.o lundump.o lvm.o lzio.o
  LIB_O=	lauxlib.o lbaselib.o lcorolib.o ldblib.o liolib.o lmathlib.o loadlib.o loslib.o lstrlib.o ltablib.o lutf8lib.o linit.o
  BASE_O= $(CORE_O) $(LIB_O) $(MYOBJS)
@@ -136,12 +136,12 @@ index 514593d..90c78b8 100644
 -	$(AR) $@ $(BASE_O)
 -	$(RANLIB) $@
 +	$(CC) -dynamiclib -install_name @LUA_PREFIX@/lib/liblua.5.4.dylib \
-+		-compatibility_version 5.4 -current_version 5.4.1 \
-+		-o liblua.5.4.1.dylib $^
++		-compatibility_version 5.4 -current_version 5.4.2 \
++		-o liblua.5.4.2.dylib $^
 
  $(LUA_T): $(LUA_O) $(LUA_A)
 -	$(CC) -o $@ $(LDFLAGS) $(LUA_O) $(LUA_A) $(LIBS)
-+	$(CC) -fno-common $(MYLDFLAGS) -o $@ $(LUA_O) $(LUA_A) -L. -llua.5.4.1 $(LIBS)
++	$(CC) -fno-common $(MYLDFLAGS) -o $@ $(LUA_O) $(LUA_A) -L. -llua.5.4.2 $(LIBS)
 
  $(LUAC_T): $(LUAC_O) $(LUA_A)
  	$(CC) -o $@ $(LDFLAGS) $(LUAC_O) $(LUA_A) $(LIBS)
