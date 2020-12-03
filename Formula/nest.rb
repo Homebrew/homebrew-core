@@ -3,7 +3,7 @@ class Nest < Formula
   homepage "https://www.nest-simulator.org/"
   url "https://github.com/nest/nest-simulator/archive/v2.20.1.tar.gz"
   sha256 "df3d32b5899d5d444f708037b290f889ac6ff8eae6b7be9e9faee2c0d660d8e5"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 "e90e5350135e68e68a3f8eda5d382d4e207401181fd0c4c1e2a185faa30ef6a3" => :big_sur
