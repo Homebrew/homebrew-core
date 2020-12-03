@@ -2,9 +2,11 @@ class Vlang < Formula
   desc "V programming language"
   homepage "https://vlang.io"
   # NOTE: Keep this in sync with V compiler below when updating
-  url "https://github.com/vlang/v/archive/0.1.30.tar.gz"
-  sha256 "5f2be9765e7ec6fb79286b973d319359377dcf78a0470652048a261d77a6ae14"
+  url "https://github.com/vlang/v/archive/weekly.2020.48.2.tar.gz"
+  version "0.1.30"
+  sha256 "15921991779262dfcf01cc3399ceccd831588ce313b99a46dcb7bed9dbabcc2c"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://raw.githubusercontent.com/vlang/v/master/CHANGELOG.md"
