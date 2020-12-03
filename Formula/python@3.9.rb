@@ -83,7 +83,13 @@ class PythonAT39 < Formula
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/33a9d63f/python/arm64-3.9.patch"
       sha256 "167e328cf68e9ec142f483fda9fafbb903be9a47dee2826614fdc24b2fbe6e06"
     end
-
+    
+  # Further patch for Big Sur, remove in 3.9.2
+     # https://github.com/python/cpython/pull/23556
+     patch do
+       url "https://github.com/fxcoudert/cpython/commit/cd26ccbb.patch?full_index=1"
+       sha256 "59c98f991f839d610d53ca5c4af1464a99adf6c85e807f8a676b3e41c5dbe0a2"
+     end
   end
 
   def install
