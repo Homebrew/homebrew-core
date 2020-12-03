@@ -12,22 +12,24 @@ class Jena < Formula
 
   bottle :unneeded
 
-  def shim_script(target)
-    <<~EOS
-      #!/usr/bin/env bash
-      export JENA_HOME="#{libexec}"
-      "$JENA_HOME/bin/#{target}" "$@"
-    EOS
-  end
+  depends_on "openjdk"
 
   def install
+    env = {
+      JAVA_HOME: Formula["openjdk"].opt_prefix,
+      JENA_HOME: libexec,
+    }
+
     rm_rf "bat" # Remove Windows scripts
 
-    prefix.install %w[LICENSE NOTICE README]
     libexec.install Dir["*"]
-    Dir.glob("#{libexec}/bin/*") do |path|
-      bin_name = File.basename(path)
-      (bin/bin_name).write shim_script(bin_name)
+    Pathname.glob("#{libexec}/bin/*") do |file|
+      next if file.directory?
+
+      basename = file.basename
+      next if basename.to_s == "service"
+
+      (bin/basename).write_env_script file, env
     end
   end
 
