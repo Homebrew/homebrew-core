@@ -84,12 +84,6 @@ class PythonAT39 < Formula
       sha256 "167e328cf68e9ec142f483fda9fafbb903be9a47dee2826614fdc24b2fbe6e06"
     end
 
-    # Further patch for Big Sur, remove in 3.9.2
-    # https://github.com/python/cpython/pull/23556
-    patch do
-      url "https://github.com/fxcoudert/cpython/commit/cd26ccbb.patch?full_index=1"
-      sha256 "59c98f991f839d610d53ca5c4af1464a99adf6c85e807f8a676b3e41c5dbe0a2"
-    end
   end
 
   def install
@@ -128,7 +122,11 @@ class PythonAT39 < Formula
       cflags << "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers"
     end
     # Avoid linking to libgcc https://mail.python.org/pipermail/python-dev/2012-February/116205.html
-    args << "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
+    if MacOS.version >= :big_sur
+      args << "MACOSX_DEPLOYMENT_TARGET=11.0.1"
+    else
+      args << "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
+    end
 
     # We want our readline! This is just to outsmart the detection code,
     # superenv makes cc always find includes/libs!
