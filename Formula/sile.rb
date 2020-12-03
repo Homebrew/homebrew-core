@@ -4,7 +4,7 @@ class Sile < Formula
   url "https://github.com/sile-typesetter/sile/releases/download/v0.10.13/sile-0.10.13.tar.xz"
   sha256 "d207d0ee9749a6da16fa2db217f51d3586955387a132c45423b47eedf8c964a6"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/sile-typesetter/sile.git", shallow: false
 
   bottle do
@@ -26,14 +26,14 @@ class Sile < Formula
   depends_on "harfbuzz"
   depends_on "icu4c"
   depends_on "libpng"
-
-  # Unable to upgrade to lua5.4 due to test failure.
-  # For a suggested fix:
-  # https://github.com/sile-typesetter/sile/issues/1115
-  depends_on "lua@5.3"
-
+  depends_on "lua"
   depends_on "openssl@1.1"
   depends_on "zlib"
+
+  resource "bit32" do
+    url "https://github.com/keplerproject/lua-compat-5.3/archive/v0.10.tar.gz"
+    sha256 "d1ed32f091856f6fffab06232da79c48b437afd4cd89e5c1fc85d7905b011430"
+  end
 
   resource "cassowary" do
     url "https://github.com/sile-typesetter/cassowary.lua/archive/v2.2.tar.gz"
@@ -111,7 +111,7 @@ class Sile < Formula
   end
 
   def install
-    lua = Formula["lua@5.3"]
+    lua = Formula["lua"]
     luaprefix = lua.opt_prefix
     luaversion = lua.version.major_minor
     luapath = libexec/"vendor"
