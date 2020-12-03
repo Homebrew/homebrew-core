@@ -8,7 +8,7 @@ class Mosquitto < Formula
   license "EPL-1.0"
 
   livecheck do
-    url "https://mosquitto.org/files/source/"
+    url "https://mosquitto.org/download/"
     regex(/href=.*?mosquitto[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
