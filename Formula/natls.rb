@@ -12,6 +12,6 @@ class Natls < Formula
   end
 
   test do
-    system "#{bin}/natls", "-v"
+    system "#{bin}/natls", "-V"
   end
 end
