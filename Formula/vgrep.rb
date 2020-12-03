@@ -1,8 +1,8 @@
 class Vgrep < Formula
   desc "User-friendly pager for grep"
   homepage "https://github.com/vrothberg/vgrep"
-  url "https://github.com/vrothberg/vgrep/archive/v2.3.3.tar.gz"
-  sha256 "062145687d4c33f66b35be15633ff60cd24fd467bf2791f1a8c3ffb069935aa4"
+  url "https://github.com/vrothberg/vgrep/archive/v2.5.1.tar.gz"
+  sha256 "7516d16d87c118c081f43ec74e091d02c194afa984e7dc63a46cb24b149896c4"
   license "GPL-3.0"
 
   livecheck do
