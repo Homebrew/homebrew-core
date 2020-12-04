@@ -30,9 +30,13 @@ class DosboxStaging < Formula
       --enable-core-inline
     ]
 
+    ENV.append_to_cflags "-DNDEBUG"
+    ENV.append_to_cflags "-O3"
+    ENV.append_to_cflags "-fno-math-errno"
+    ENV.append_to_cflags "-fno-strict-aliasing"
     system "./autogen.sh"
     system "./configure", *args
-    system "make", "install"
+    system "make", "CXXFLAGS=#{ENV.cflags}", "install"
     mv bin/"dosbox", bin/"dosbox-staging"
     mv man1/"dosbox.1", man1/"dosbox-staging.1"
   end
