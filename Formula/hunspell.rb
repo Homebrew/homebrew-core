@@ -31,8 +31,6 @@ class Hunspell < Formula
     system "make"
     system "make", "check"
     system "make", "install"
-
-    pkgshare.install "tests"
   end
 
   def caveats
