@@ -39,6 +39,7 @@ class Ntopng < Formula
   depends_on "geoip"
   depends_on "json-c"
   depends_on "libmaxminddb"
+  depends_on "libsodium"
   depends_on "mysql-client"
   depends_on "redis"
   depends_on "rrdtool"

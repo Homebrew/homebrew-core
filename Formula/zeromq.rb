@@ -28,6 +28,7 @@ class Zeromq < Formula
   depends_on "asciidoc" => :build
   depends_on "pkg-config" => [:build, :test]
   depends_on "xmlto" => :build
+  depends_on "libsodium"
 
   def install
     # Work around "error: no member named 'signbit' in the global namespace"
@@ -42,7 +43,7 @@ class Zeromq < Formula
     # https://github.com/Homebrew/homebrew-core/pull/35940#issuecomment-454177261
 
     system "./autogen.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}", "--with-libsodium"
     system "make"
     system "make", "install"
   end
