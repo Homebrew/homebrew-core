@@ -14,7 +14,8 @@ class PostgresqlAT94 < Formula
 
   keg_only :versioned_formula
 
-  deprecate! date: "2020-02-13", because: :versioned_formula
+  # https://www.postgresql.org/support/versioning/
+  deprecate! date: "2020-02-13", because: :unsupported
 
   depends_on "openssl@1.1"
   depends_on "readline"
