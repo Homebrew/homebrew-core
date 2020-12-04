@@ -37,7 +37,7 @@ class Gnirehtet < Formula
       At runtime, adb must be accessible from your PATH.
 
       You can install adb from Homebrew Cask:
-        brew cask install android-platform-tools
+        brew install --cask android-platform-tools
     EOS
   end
 
