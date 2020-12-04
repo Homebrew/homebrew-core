@@ -4,6 +4,7 @@ class Druid < Formula
   url "https://www.apache.org/dyn/closer.lua?path=druid/0.20.0/apache-druid-0.20.0-bin.tar.gz"
   mirror "https://archive.apache.org/dist/druid/0.20.0/apache-druid-0.20.0-bin.tar.gz"
   sha256 "734f836375bc1121100712b0501149f8bcbcb6d4cf2109b522af06367a8b1cb5"
+  license "Apache-2.0"
 
   livecheck do
     url "https://druid.apache.org/downloads.html"
