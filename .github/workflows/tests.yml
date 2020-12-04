@@ -50,7 +50,7 @@ jobs:
     runs-on: ${{ matrix.version }}
     timeout-minutes: 4320
     env:
-      PATH: '/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin'
+      PATH: '/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin'
       HOMEBREW_DEVELOPER: 1
       GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED: 1
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
