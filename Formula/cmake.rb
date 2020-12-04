@@ -28,7 +28,7 @@ class Cmake < Formula
 
   # The `with-qt` GUI option was removed due to circular dependencies if
   # CMake is built with Qt support and Qt is built with MySQL support as MySQL uses CMake.
-  # For the GUI application please instead use `brew cask install cmake`.
+  # For the GUI application please instead use `brew install --cask cmake`.
 
   def install
     args = %W[
