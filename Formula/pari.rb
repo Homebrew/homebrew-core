@@ -38,7 +38,7 @@ class Pari < Formula
   def caveats
     <<~EOS
       If you need the graphical plotting functions you need to install X11 with:
-        brew cask install xquartz
+        brew install --cask xquartz
     EOS
   end
 
