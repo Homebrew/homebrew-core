@@ -12,17 +12,20 @@ class Fuseki < Formula
 
   bottle :unneeded
 
+  depends_on "openjdk"
+
   def install
     prefix.install "bin"
 
     %w[fuseki-server fuseki].each do |exe|
       libexec.install exe
       (bin/exe).write_env_script(libexec/exe,
+                                 JAVA_HOME:   Formula["openjdk"].opt_prefix,
                                  FUSEKI_BASE: var/"fuseki",
                                  FUSEKI_HOME: libexec,
                                  FUSEKI_LOGS: var/"log/fuseki",
                                  FUSEKI_RUN:  var/"run")
-      chmod 0755, libexec/exe
+      (libexec/exe).chmod 0755
     end
 
     # Non-symlinked binaries and application files
