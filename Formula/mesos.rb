@@ -1,11 +1,10 @@
 class Mesos < Formula
   desc "Apache cluster manager"
   homepage "https://mesos.apache.org"
-  url "https://www.apache.org/dyn/closer.lua?path=mesos/1.10.0/mesos-1.10.0.tar.gz"
-  mirror "https://archive.apache.org/dist/mesos/1.10.0/mesos-1.10.0.tar.gz"
-  sha256 "f4b9e8a1e9f905334adf4d349a2ed33a4cfa43278381cd34fb4fc7e9df9e12a1"
+  url "https://www.apache.org/dyn/closer.lua?path=mesos/1.11.0/mesos-1.11.0.tar.gz"
+  mirror "https://archive.apache.org/dist/mesos/1.11.0/mesos-1.11.0.tar.gz"
+  sha256 "ce08cb648a21502a4a0c45d240a596d9ac860fcaf717f9a3dc986da9d406fe34"
   license "Apache-2.0"
-  revision 1
 
   livecheck do
     url :stable
