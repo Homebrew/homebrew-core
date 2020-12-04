@@ -54,7 +54,7 @@ class Fontforge < Formula
         https://fontforge.github.io
 
       Alternatively, install with Homebrew Cask:
-        brew cask install fontforge
+        brew install --cask fontforge
     EOS
   end
 
