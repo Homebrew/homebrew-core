@@ -27,12 +27,15 @@ class Geos < Formula
       s.gsub! /PYTHON_CPPFLAGS=.*/, %Q(PYTHON_CPPFLAGS="#{`python3-config --includes`.strip}")
       s.gsub! /PYTHON_LDFLAGS=.*/, 'PYTHON_LDFLAGS="-Wl,-undefined,dynamic_lookup"'
     end
+    args = %W[
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --enable-python
+      PYTHON=#{Formula["python@3.9"].opt_bin}/python3
+    ]
+    args << "--disable-inline" if Hardware::CPU.arm?
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--enable-python",
-                          "PYTHON=#{Formula["python@3.9"].opt_bin}/python3",
-                          "--disable-inline"
+    system "./configure", *args
     system "make", "install"
   end
 
