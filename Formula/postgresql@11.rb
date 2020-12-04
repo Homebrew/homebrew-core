@@ -13,6 +13,9 @@ class PostgresqlAT11 < Formula
 
   keg_only :versioned_formula
 
+  # https://www.postgresql.org/support/versioning/
+  deprecate! date: "2023-11-09", because: :unsupported
+
   depends_on "pkg-config" => :build
   depends_on "icu4c"
   depends_on "openssl@1.1"
