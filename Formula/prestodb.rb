@@ -1,8 +1,8 @@
 class Prestodb < Formula
   desc "Distributed SQL query engine for big data"
   homepage "https://prestodb.io"
-  url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-server/0.244/presto-server-0.244.tar.gz"
-  sha256 "715473df9cc9bb1bceaeb1c4fdaa26f0c0cb0c66a82f0c5af5e2ce3140889950"
+  url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-server/0.244.1/presto-server-0.244.1.tar.gz"
+  sha256 "6eb166c6d1548eb608a9e1299897d3fd01e22fd12f6f81b3ced31bfb970d1f5e"
   license "Apache-2.0"
 
   # The source of the Presto download page at https://prestodb.io/download.html
