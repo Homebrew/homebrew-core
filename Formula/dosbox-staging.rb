@@ -26,6 +26,7 @@ class DosboxStaging < Formula
     args = %W[
       --prefix=#{prefix}
       --disable-dependency-tracking
+      --disable-fluidsynth
       --disable-sdltest
       --enable-core-inline
     ]
