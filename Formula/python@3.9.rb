@@ -4,7 +4,7 @@ class PythonAT39 < Formula
   url "https://www.python.org/ftp/python/3.9.0/Python-3.9.0.tar.xz"
   sha256 "9c73e63c99855709b9be0b3cc9e5b072cb60f37311e8c4e50f15576a0bf82854"
   license "Python-2.0"
-  revision 4
+  revision 5
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -72,8 +72,8 @@ class PythonAT39 < Formula
   end
 
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/57/73/1911bfa69482de2a6327db4ca5eda87ae7599160018910007d6d6a1d3ada/wheel-0.36.0.tar.gz"
-    sha256 "e17f05e14282d0e666327f800ef43123b40f3dbc13a86193b604f2ebfae0dabc"
+    url "https://files.pythonhosted.org/packages/d4/cf/732e05dce1e37b63d54d1836160b6e24fb36eeff2313e93315ad047c7d90/wheel-0.36.1.tar.gz"
+    sha256 "aaef9b8c36db72f8bf7f1e54f85f875c4d466819940863ca0b3f3f77f0a1646f"
   end
 
   # Remove this block when upstream adds arm64 and Big Sur compatibility
