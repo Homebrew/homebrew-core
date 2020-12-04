@@ -3,8 +3,8 @@ class Commitizen < Formula
 
   desc "Defines a standard way of committing rules and communicating it"
   homepage "https://commitizen-tools.github.io/commitizen/"
-  url "https://files.pythonhosted.org/packages/0d/b1/aa55046b895f56aad830dbedc1a44352246e3430ce60db0c0c6e6aeff95f/commitizen-2.8.2.tar.gz"
-  sha256 "9a57c1d9951276cc48f2c57174aec599915cade83b6530d3b4846628866f1d45"
+  url "https://files.pythonhosted.org/packages/89/bc/2d4f1e8199f10ae141c4e8196105ff4bc66569cf4a6dc00014415ba901db/commitizen-2.10.0.tar.gz"
+  sha256 "33e515940e49355381d29f41081124c0203d92dfce399b82ea4b04a74fc16cba"
   license "MIT"
   head "https://github.com/commitizen-tools/commitizen.git"
 
@@ -20,6 +20,11 @@ class Commitizen < Formula
   end
 
   depends_on "python@3.9"
+
+  resource "argcomplete" do
+    url "https://files.pythonhosted.org/packages/cb/53/d2e3d11726367351b00c8f078a96dacb7f57aef2aca0d3b6c437afc56b55/argcomplete-1.12.2.tar.gz"
+    sha256 "de0e1282330940d52ea92a80fea2e4b9e0da1932aaa570f84d268939d1897b04"
+  end
 
   resource "colorama" do
     url "https://files.pythonhosted.org/packages/1f/bb/5d3246097ab77fa083a61bd8d3d527b7ae063c7d8e8671b1cf8c4ec10cbe/colorama-0.4.4.tar.gz"
@@ -42,8 +47,8 @@ class Commitizen < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/55/fd/fc1aca9cf51ed2f2c11748fa797370027babd82f87829c7a8e6dbe720145/packaging-20.4.tar.gz"
-    sha256 "4357f74f47b9c12db93624a82154e9b120fa8293699949152b22065d556079f8"
+    url "https://files.pythonhosted.org/packages/16/7c/33ae3aa02eb10ca726b21aa88d338e3f619c674e4fb8544eb352330d880a/packaging-20.7.tar.gz"
+    sha256 "05af3bb85d320377db281cf254ab050e1a7ebcbf5410685a9a407e18a1f81236"
   end
 
   resource "prompt-toolkit" do
@@ -64,11 +69,6 @@ class Commitizen < Formula
   resource "questionary" do
     url "https://files.pythonhosted.org/packages/89/a5/12f446d595f3db937da1689f5ebf672bdbaa777fa0577b3e099924317f9b/questionary-1.8.1.tar.gz"
     sha256 "f2999f01735db77a80d6cb119766cb15b84c468cab325168941a3e0d91207437"
-  end
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
-    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
   end
 
   resource "termcolor" do
