@@ -32,8 +32,8 @@ class Geeqie < Formula
   depends_on "imagemagick"
   depends_on "jpeg"
   depends_on "libtiff"
-  depends_on "little-cms2"
   depends_on "libx11"
+  depends_on "little-cms2"
   depends_on "pango"
 
   def install
