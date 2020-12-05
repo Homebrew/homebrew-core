@@ -1,12 +1,12 @@
 class Ballerina < Formula
   desc "Programming Language for Network Distributed Applications"
   homepage "https://ballerina.io"
-  url "https://dist.ballerina.io/downloads/1.2.10/ballerina-1.2.10.zip"
-  sha256 "3441300795ec8f931545304c286cd19ca2d9e010e43ef9cddb6b63455cf0bae5"
+  url "https://dist.ballerina.io/downloads/1.2.11/ballerina-1.2.11.zip"
+  sha256 "c7b62a5a52fa9dde5180ee108cc5931a18d505abfceeec28554bda77f8d72b4c"
   license "Apache-2.0"
 
   livecheck do
-    url "https://ballerina.io/learn/installing-ballerina/"
+    url "https://dist.ballerina.io/downloads/1.2.11/ballerina-1.2.11.zip"
     regex(/href=.*?ballerina[._-]v?(\d+(?:\.\d+)+)/i)
   end
 
