@@ -7,12 +7,14 @@ class Liquibase < Formula
 
   bottle :unneeded
 
+  depends_on "openjdk"
+
   def install
     rm_f Dir["*.bat"]
     chmod 0755, "liquibase"
     prefix.install_metafiles
     libexec.install Dir["*"]
-    bin.install_symlink libexec/"liquibase"
+    (bin/"liquibase").write_env_script libexec/"liquibase", JAVA_HOME: Formula["openjdk"].opt_prefix
     (libexec/"lib").install_symlink Dir["#{libexec}/sdk/lib-sdk/slf4j*"]
   end
 
