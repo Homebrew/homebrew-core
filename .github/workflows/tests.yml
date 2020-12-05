@@ -55,6 +55,9 @@ jobs:
       GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED: 1
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
     steps:
+      - name: Force vendored Ruby on Catalina
+        if: matrix.version == '10.15'
+        run: echo 'HOMEBREW_FORCE_VENDOR_RUBY=1' >> $GITHUB_ENV
       - name: Set up Homebrew
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
