@@ -18,8 +18,8 @@ class ManDb < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "groff"
 
-  uses_from_macos "groff"
   uses_from_macos "zlib"
 
   on_linux do
