@@ -7,6 +7,7 @@ env:
   HOMEBREW_DEVELOPER: 1
   HOMEBREW_GITHUB_ACTIONS: 1
   HOMEBREW_NO_AUTO_UPDATE: 1
+  HOMEBREW_CHANGE_ARCH_TO_ARM: 1
 jobs:
   tap_syntax:
     if: github.repository == 'Homebrew/homebrew-core'
@@ -45,7 +46,7 @@ jobs:
     if: github.event_name == 'pull_request' && ! contains(github.event.pull_request.labels.*.name, 'CI-syntax-only')
     strategy:
       matrix:
-        version: ['11.0', '10.15', '10.14']
+        version: ['11-arm', '11.0', '10.15', '10.14']
       fail-fast: false
     runs-on: ${{ matrix.version }}
     timeout-minutes: 4320
