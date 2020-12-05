@@ -15,6 +15,8 @@ class Luarocks < Formula
   end
 
   depends_on "lua@5.1" => :test
+  depends_on "lua@5.3" => :test
+  depends_on "luajit" => :test
   depends_on "lua"
 
   def install
@@ -35,32 +37,49 @@ class Luarocks < Formula
   end
 
   test do
-    ENV["LUA_PATH"] = "#{testpath}/share/lua/5.4/?.lua"
-    ENV["LUA_CPATH"] = "#{testpath}/lib/lua/5.4/?.so"
+    luas = [
+      Formula["lua"],
+      Formula["lua@5.3"],
+      Formula["lua@5.1"],
+    ]
 
-    (testpath/"lfs_54test.lua").write <<~EOS
-      require("lfs")
-      print(lfs.currentdir())
-    EOS
+    luas.each do |lua|
+      luaversion = lua.version.major_minor
+      luaexec = "#{lua.bin}/lua-#{luaversion}"
+      ENV["LUA_PATH"] = "#{testpath}/share/lua/#{luaversion}/?.lua"
+      ENV["LUA_CPATH"] = "#{testpath}/lib/lua/#{luaversion}/?.so"
 
-    system "#{bin}/luarocks", "--tree=#{testpath}", "install", "luafilesystem"
-    system "lua", "-e", "require('lfs')"
-    assert_match testpath.to_s, shell_output("lua lfs_54test.lua")
+      system "#{bin}/luarocks", "install",
+                                "luafilesystem",
+                                "--tree=#{testpath}",
+                                "--lua-dir=#{lua.opt_prefix}"
 
-    ENV["LUA_PATH"] = "#{testpath}/share/lua/5.1/?.lua"
-    ENV["LUA_CPATH"] = "#{testpath}/lib/lua/5.1/?.so"
+      system luaexec, "-e", "require('lfs')"
 
-    (testpath/"lfs_51test.lua").write <<~EOS
-      require("lfs")
-      lfs.mkdir("blank_space")
-    EOS
+      case luaversion
+      when "5.1"
+        (testpath/"lfs_#{luaversion}test.lua").write <<~EOS
+          require("lfs")
+          lfs.mkdir("blank_space")
+        EOS
 
-    system "#{bin}/luarocks", "--tree=#{testpath}",
-                              "--lua-dir=#{Formula["lua@5.1"].opt_prefix}",
-                              "install", "luafilesystem"
-    system "lua5.1", "-e", "require('lfs')"
-    system "lua5.1", "lfs_51test.lua"
-    assert_predicate testpath/"blank_space", :directory?,
-      "Luafilesystem failed to create the expected directory"
+        system luaexec, "lfs_#{luaversion}test.lua"
+        assert_predicate testpath/"blank_space", :directory?,
+          "Luafilesystem failed to create the expected directory"
+
+        # LuaJIT is compatible with lua5.1, so we can also test it here
+        rmdir testpath/"blank_space"
+        system "#{Formula["luajit"].bin}/luajit", "lfs_#{luaversion}test.lua"
+        assert_predicate testpath/"blank_space", :directory?,
+          "Luafilesystem failed to create the expected directory"
+      else
+        (testpath/"lfs_#{luaversion}test.lua").write <<~EOS
+          require("lfs")
+          print(lfs.currentdir())
+        EOS
+
+        assert_match testpath.to_s, shell_output("#{luaexec} lfs_#{luaversion}test.lua")
+      end
+    end
   end
 end
