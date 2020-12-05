@@ -25,5 +25,34 @@ class Optool < Formula
       result = shell_output("#{bin}/optool 2>&1", 13)
       assert_match "optool v#{version}", result
     end
+
+    (testpath/"test.c").write <<~EOS
+      #include <stdio.h>
+      int main()
+      {
+        printf("Hello World!\\n");
+        return 0;
+      }
+    EOS
+
+    # Build dynamic library fixture
+    system ENV.cc, "test.c",
+                   "-shared", "-Wl,-install_name,@executable_path/libtest.dylib",
+                    "-o", "libtest.dylib"
+
+    # Build MachO binary fixture
+    system ENV.cc, "test.c",
+                   "-o", "test"
+
+    # Test insertion of load command for dynamic library into binary
+    system "#{bin}/optool", "install",
+                            "--command", "load",
+                            "--payload", "@executable_path/libtest.dylib",
+                            "--target", "#{testpath}/test"
+
+    # Test removal of load command for dynamic library into binary
+    system "#{bin}/optool", "uninstall",
+                            "--payload", "@executable_path/libtest.dylib",
+                            "--target", "#{testpath}/test"
   end
 end
