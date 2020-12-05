@@ -1,6 +1,6 @@
 class Sollya < Formula
   desc "Library for safe floating-point code development"
-  homepage "https://sollya.gforge.inria.fr/"
+  homepage "https://www.sollya.org/"
   url "https://gforge.inria.fr/frs/download.php/file/37749/sollya-7.0.tar.gz"
   sha256 "30487b8242fb40ba0f4bc2ef23a8ef216477e57b1db277712fde1f53ceebb92a"
   revision 1
