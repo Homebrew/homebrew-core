@@ -7,8 +7,12 @@ class Ktlint < Formula
 
   bottle :unneeded
 
+  depends_on "openjdk"
+
   def install
-    bin.install "ktlint"
+    libexec.install "ktlint"
+    (libexec/"ktlint").chmod 0755
+    (bin/"ktlint").write_env_script libexec/"ktlint", JAVA_HOME: Formula["openjdk"].opt_prefix
   end
 
   test do
