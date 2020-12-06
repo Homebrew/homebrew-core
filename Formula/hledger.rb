@@ -6,7 +6,8 @@ class Hledger < Formula
   license "GPL-3.0-or-later"
 
   livecheck do
-    url :stable
+    url "https://github.com/simonmichael/hledger/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
   end
 
   bottle do
