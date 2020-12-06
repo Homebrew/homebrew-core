@@ -3,8 +3,8 @@ class CfnLint < Formula
 
   desc "Validate CloudFormation templates against the CloudFormation spec"
   homepage "https://github.com/aws-cloudformation/cfn-python-lint/"
-  url "https://files.pythonhosted.org/packages/ef/e6/dd77dff535a23e0174761e81b4878ca202485ceb0d0b25abfa8691f8393b/cfn-lint-0.42.0.tar.gz"
-  sha256 "8cd2987e547f2779257de7e47b09ac7dbd14f788f19dc4892a3f32cc7d08599c"
+  url "https://files.pythonhosted.org/packages/b8/3a/3ec48b116f99e48679c60cc7fd04815b5ad9eadeba661b07de5becf48d3d/cfn-lint-0.43.0.tar.gz"
+  sha256 "58e554b967c6d3ab63885551ebf8381e36a51c1c77a6ee1770e996a627acde80"
   license "MIT"
 
   livecheck do
@@ -26,18 +26,18 @@ class CfnLint < Formula
   end
 
   resource "aws-sam-translator" do
-    url "https://files.pythonhosted.org/packages/31/60/4ef2e58bacbc84f12edb702a7f9ffc30def8b9390522e19bb9bf1f91b15f/aws-sam-translator-1.31.0.tar.gz"
-    sha256 "3a1d73d098161e60966b0d53bb310c98e4f66101688cce3d1697903643782d79"
+    url "https://files.pythonhosted.org/packages/07/19/709a069a5f6ee48af17bdcf3df4a264366fb60312c50792b24890213c80e/aws-sam-translator-1.32.0.tar.gz"
+    sha256 "8cbfac02529b79703541e25541b01c80868f11b0ff2a8f9032b235130d9d56ae"
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/94/53/eeff6079218be23b94b2ff0365a2ba1e82583318194400ca1bfe0a9973ea/boto3-1.16.25.tar.gz"
-    sha256 "13e6ab0abe10b4de54583067d12ed48c8477d91b7a7a8e6097d366a2a3631d17"
+    url "https://files.pythonhosted.org/packages/55/b6/a25bc0f8bf88b993a62a18e349aafb2aa83ca7590dce84d9c88383e86221/boto3-1.16.30.tar.gz"
+    sha256 "848aa8d11c9927daa13512072a501e2fc70ba86b073fc6927b86466f4a459b4d"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/0e/e9/b8d6489412435e4d18d763cf0c30d5059854cea2886510c8b4d2d3e50093/botocore-1.19.25.tar.gz"
-    sha256 "ccaf3979590b72625b3699d93dabf48f350f9a3304c127fc6830e8ac842b0d96"
+    url "https://files.pythonhosted.org/packages/55/6f/4a60722aa8766329c403630f95931c1cfb66fdc4bc0e50f0f9759f3b2280/botocore-1.19.30.tar.gz"
+    sha256 "822f9dd11f11c54b9c4666cfec9b7246a32990dbca1be27528a75a8dabed4dc2"
   end
 
   resource "decorator" do
@@ -51,8 +51,8 @@ class CfnLint < Formula
   end
 
   resource "jsonpatch" do
-    url "https://files.pythonhosted.org/packages/ed/db/3119f10b6f4b5ec409fbe0cb4b7b7da0f66dc4b9fadc54276c30b3d90c0b/jsonpatch-1.27.tar.gz"
-    sha256 "4d08af10d71723b5b2924da6ba90f273a4d1a5c6accfb605eb970cb2f9b29cf9"
+    url "https://files.pythonhosted.org/packages/4f/42/c171c0090a5cd8e4b59515b35ac0bcc1a097481a738cadccdaf7aff87094/jsonpatch-1.28.tar.gz"
+    sha256 "e930adc932e4d36087dbbf0f22e1ded32185dfb20662f2e3dd848677a5295a14"
   end
 
   resource "jsonpointer" do
