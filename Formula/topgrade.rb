@@ -1,8 +1,8 @@
 class Topgrade < Formula
   desc "Upgrade all the things"
   homepage "https://github.com/r-darwish/topgrade"
-  url "https://github.com/r-darwish/topgrade/archive/v6.0.1.tar.gz"
-  sha256 "454004ea828e5ae35e1a4e8b269e0d85d8fbb924b1c695d8bcaca5ccf92d5bc4"
+  url "https://github.com/r-darwish/topgrade/archive/v6.0.2.tar.gz"
+  sha256 "c06ebb0e2c4b2b49751c4ba7cfb8ce4ec7fe2f9247faac3edd4256c215c8bfba"
   license "GPL-3.0-or-later"
 
   bottle do
