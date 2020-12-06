@@ -1,8 +1,10 @@
 class Udptunnel < Formula
   desc "Tunnel UDP packets over a TCP connection"
+  # The original webpage (and download) is still available at the original
+  # site, but currently www.cs.columbia.edu returns a 404 error if you
+  # try to fetch them over https instead of http
   homepage "https://web.archive.org/web/20161224191851/www.cs.columbia.edu/~lennox/udptunnel/"
-  url "https://web.archive.org/web/20161224191851/www.cs.columbia.edu/~lennox/udptunnel/udptunnel-1.1.tar.gz"
-  mirror "https://ftp.nsysu.edu.tw/FreeBSD/ports/local-distfiles/leeym/udptunnel-1.1.tar.gz"
+  url "https://sources.voidlinux.org/udptunnel-1.1/udptunnel-1.1.tar.gz"
   sha256 "45c0e12045735bc55734076ebbdc7622c746d1fe4e6f7267fa122e2421754670"
   license "BSD-3-Clause"
 
@@ -21,6 +23,10 @@ class Udptunnel < Formula
   depends_on "automake" => :build
 
   def install
+    # Work around build issues with Xcode 12:
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
+
+    system "autoreconf", "--verbose", "--install", "--force"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
