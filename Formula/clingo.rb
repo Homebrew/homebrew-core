@@ -42,6 +42,6 @@ class Clingo < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/clingo --version")
+    assert_match "clingo version", shell_output("#{bin}/clingo --version")
   end
 end
