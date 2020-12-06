@@ -22,7 +22,9 @@ class Sha2 < Formula
   end
 
   def install
-    system ENV.cc, "-o", "sha2", "sha2prog.c", "sha2.c"
+    # Xcode 12 made -Wimplicit-function-declaration an error by default so we need to
+    # disable that warning to successfully compile:
+    system ENV.cc, "-o", "sha2", "-Wno-implicit-function-declaration", "sha2prog.c", "sha2.c"
     system "perl", "sha2test.pl"
     bin.install "sha2"
   end
