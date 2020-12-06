@@ -22,7 +22,7 @@ class Fd < Formula
     man1.install "doc/fd.1"
     bash_completion.install "fd.bash"
     fish_completion.install "fd.fish"
-    zsh_completion.install "_fd"
+    zsh_completion.install "contrib/completion/_fd"
   end
 
   test do
