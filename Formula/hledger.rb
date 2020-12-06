@@ -5,8 +5,11 @@ class Hledger < Formula
   sha256 "d5c1eb6d8de5cf2d82771db1796b57a304095fa940773a6405c9cd8085f3da71"
   license "GPL-3.0-or-later"
 
+  # A new version is sometimes present on Hackage before it's officially
+  # released on the upstream homepage, so we check the first-party download
+  # page instead.
   livecheck do
-    url "https://github.com/simonmichael/hledger/releases/latest"
+    url "https://hledger.org/download.html"
     regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
   end
 
