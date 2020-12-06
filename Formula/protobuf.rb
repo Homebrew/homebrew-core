@@ -35,6 +35,8 @@ class Protobuf < Formula
     sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
   end
 
+  # Fix build on Big Sur, remove in next version
+  # https://github.com/protocolbuffers/protobuf/pull/8126
   patch do
     url "https://github.com/atomiix/protobuf/commit/d065bd6910a0784232dbbbfd3e5806922d69c622.patch?full_index=1"
     sha256 "5433b6247127f9ca622b15c9f669efbaac830fa717ed6220081bc1fc3c735f91"
