@@ -27,6 +27,6 @@ class Inspectrum < Formula
   end
 
   test do
-    assert_match "-r, --rate <Hz>  Set sample rate.", shell_output("#{bin}/inspectrum -h").strip
+    assert_match "-r, --rate <Hz>     Set sample rate.", shell_output("#{bin}/inspectrum -h").strip
   end
 end
