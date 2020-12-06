@@ -1,8 +1,8 @@
 class Inspectrum < Formula
   desc "Offline radio signal analyser"
   homepage "https://github.com/miek/inspectrum"
-  url "https://github.com/miek/inspectrum/archive/v0.2.2.tar.gz"
-  sha256 "9e513101a59822c86b84cb7717f395c59bb27a6c192fe021cf4ffb7cf1d09c78"
+  url "https://github.com/miek/inspectrum/archive/v0.2.3.tar.gz"
+  sha256 "7be5be96f50b0cea5b3dd647f06cc00adfa805a395484aa2ab84cf3e49b7227b"
   license "GPL-3.0"
   head "https://github.com/miek/inspectrum.git"
 
