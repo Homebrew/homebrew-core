@@ -15,8 +15,8 @@ class TreeSitter < Formula
   end
 
   depends_on "rust" => :build
-  depends_on "emscripten"
-  depends_on "node"
+  depends_on "emscripten" => :test
+  depends_on "node" => :test
 
   def install
     system "make"
