@@ -5,6 +5,11 @@ class Jack < Formula
   sha256 "e176d04de94dcaa3f9d32ca1825091e1b938783a78c84e7466abd06af7637d37"
   license "GPL-2.0-or-later"
 
+  livecheck do
+    url "https://github.com/jackaudio/jack2/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     sha256 "8700de5add46350491add58d820108aabb5ab18545a4fab4fa20b2f05287e9ef" => :big_sur
     sha256 "0c30bbc478e9305530f69fee884640dee62e5613c997dca8c99e736d8c943899" => :catalina
