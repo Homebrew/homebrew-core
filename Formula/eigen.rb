@@ -1,10 +1,9 @@
 class Eigen < Formula
   desc "C++ template library for linear algebra"
   homepage "https://eigen.tuxfamily.org/"
-  url "https://gitlab.com/libeigen/eigen/-/archive/3.3.8/eigen-3.3.8.tar.gz"
-  sha256 "146a480b8ed1fb6ac7cd33fec9eb5e8f8f62c3683b3f850094d9d5c35a92419a"
+  url "https://gitlab.com/libeigen/eigen/-/archive/3.3.9/eigen-3.3.9.tar.gz"
+  sha256 "7985975b787340124786f092b3a07d594b2e9cd53bbfe5f3d9b1daee7d55f56f"
   license "MPL-2.0"
-  revision 1
   head "https://gitlab.com/libeigen/eigen.git"
 
   bottle do
@@ -18,12 +17,6 @@ class Eigen < Formula
   depends_on "cmake" => :build
 
   conflicts_with "freeling", because: "freeling ships its own copy of eigen"
-
-  # Emergency fix for build failures with OpenMP. Remove with the next release.
-  patch do
-    url "https://gitlab.com/libeigen/eigen/-/commit/ef3cc72cb65e2d500459c178c63e349bacfa834f.patch?full_index=1"
-    sha256 "c04d624d550b119be0f810786baba7e0d7809edefd4854a2db6dbd98a7da5a7d"
-  end
 
   def install
     mkdir "eigen-build" do
