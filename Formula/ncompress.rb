@@ -2,7 +2,7 @@ class Ncompress < Formula
   desc "Fast, simple LZW file compressor"
   homepage "https://github.com/vapier/ncompress"
   url "https://github.com/vapier/ncompress/archive/v4.2.4.6.tar.gz"
-  sha256 "fb7b6a00060bd4c6e35ba4cc96a5ca7e78c193e6267487dd53376d80e061836b"
+  sha256 "112acfc76382e7b631d6cfc8e6ff9c8fd5b3677e5d49d3d9f1657bc15ad13d13"
   license "Unlicense"
   head "https://github.com/vapier/ncompress.git"
 
