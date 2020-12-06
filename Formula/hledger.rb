@@ -1,8 +1,8 @@
 class Hledger < Formula
   desc "Easy plain text accounting with command-line, terminal and web UIs"
   homepage "https://hledger.org/"
-  url "https://hackage.haskell.org/package/hledger-1.19.1/hledger-1.19.1.tar.gz"
-  sha256 "d5c1eb6d8de5cf2d82771db1796b57a304095fa940773a6405c9cd8085f3da71"
+  url "https://hackage.haskell.org/package/hledger-1.20/hledger-1.20.tar.gz"
+  sha256 "6096ac52c07e40461166efe86e0b888ebd5ca88f01c172bdcfbd18697fc9254a"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -23,16 +23,16 @@ class Hledger < Formula
   uses_from_macos "zlib"
 
   resource "hledger-lib" do
-    url "https://hackage.haskell.org/package/hledger-lib-1.19.1/hledger-lib-1.19.1.tar.gz"
-    sha256 "cabf263fe8a3c38822c9146b54a519fe56d369456c72be6db5a88c1c0208c15f"
+    url "https://hackage.haskell.org/package/hledger-lib-1.20/hledger-lib-1.20.tar.gz"
+    sha256 "6d092f0224c4c188583c17890d8ce15ce04760324a088f24d8ccbe8b5c4088f4"
   end
   resource "hledger-ui" do
-    url "https://hackage.haskell.org/package/hledger-ui-1.19.1/hledger-ui-1.19.1.tar.gz"
-    sha256 "d4154c33712b003dc15d795c92da59158d2ca5e02660234f731d2794a5403f9e"
+    url "https://hackage.haskell.org/package/hledger-ui-1.20/hledger-ui-1.20.tar.gz"
+    sha256 "b8521b20240095781fecbb82957d0aef81c0381f58a2dd6f64e20abd2bc8dd4d"
   end
   resource "hledger-web" do
-    url "https://hackage.haskell.org/package/hledger-web-1.19.1/hledger-web-1.19.1.tar.gz"
-    sha256 "6085cb69bdc3808f929cc6ee621c0d3ffc773debe42bc1aaf0c7c1fe1a988a0f"
+    url "https://hackage.haskell.org/package/hledger-web-1.20/hledger-web-1.20.tar.gz"
+    sha256 "e365664602b4af455078d4ff0f74e084349ee5b80113477450ba6e71d2fc5b21"
   end
 
   def install
@@ -44,7 +44,7 @@ class Hledger < Formula
       system "stack", "init", "--resolver=lts-16.12"
       system "stack", "install", "--system-ghc", "--no-install-ghc", "--local-bin-path=#{bin}"
 
-      man1.install "hledger-1.19.1/hledger.1"
+      man1.install "hledger-1.20/hledger.1"
       man1.install "hledger-ui/hledger-ui.1"
       man1.install "hledger-web/hledger-web.1"
       man5.install "hledger-lib/hledger_csv.5"
@@ -52,7 +52,7 @@ class Hledger < Formula
       man5.install "hledger-lib/hledger_timeclock.5"
       man5.install "hledger-lib/hledger_timedot.5"
 
-      info.install "hledger-1.19.1/hledger.info"
+      info.install "hledger-1.20/hledger.info"
       info.install "hledger-lib/hledger_csv.info"
       info.install "hledger-lib/hledger_journal.info"
       info.install "hledger-lib/hledger_timeclock.info"
