@@ -7,9 +7,9 @@ class Gopls < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "95cd968334a8a6241bb2acd424c1d77c2f58d071262e0a81959e77e8af03e89f" => :big_sur
-    sha256 "b54631dfb3f05d793b9d49709afcb720275fe3bf68e5f636d2192081db7dced2" => :catalina
-    sha256 "46a478aabd95d7121cef40ea6ca53a70957262df969b101b3164187ab8679970" => :mojave
+    sha256 "8eae69564bfa8cfed1029f7a34b5f7133ce2842271cae300b5e291eaca1c83b6" => :big_sur
+    sha256 "4fc207319168895d23299c5c461134391479d70781b6ed7f148526f8dc430bb0" => :catalina
+    sha256 "f1ee8e73a322e36be90cabe8fa6558c641733baf0148c4b27163fb6afea07a02" => :mojave
   end
 
   depends_on "go" => :build
