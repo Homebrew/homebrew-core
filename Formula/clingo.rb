@@ -30,12 +30,6 @@ class Clingo < Formula
   link_overwrite "bin/lpconvert"
   link_overwrite "bin/reify"
 
-  # Patch adds Python 3.8 compatibility
-  patch do
-    url "https://github.com/potassco/clingo/commit/13a896b6a762e48c2396e3dc9f2e794020f4e6e8.patch?full_index=1"
-    sha256 "f2840bc4ab5159c253c5390c845f0d003f5fef813f49ddca27dbd5245f535e79"
-  end
-
   def install
     system "cmake", ".", "-DCLINGO_BUILD_WITH_PYTHON=ON",
                          "-DCLINGO_BUILD_PY_SHARED=ON",
