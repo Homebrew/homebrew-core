@@ -21,7 +21,6 @@ class Zstd < Formula
     system "make", "install", "PREFIX=#{prefix}/"
 
     # Build parallel version
-    system "make", "-C", "contrib/pzstd", "googletest"
     system "make", "-C", "contrib/pzstd", "PREFIX=#{prefix}"
     bin.install "contrib/pzstd/pzstd"
   end
