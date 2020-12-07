@@ -114,8 +114,8 @@ class PythonAT39 < Formula
       --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
     ]
 
-    cflags   = []
-    ldflags  = []
+    cflags   = ["-I#{HOMEBREW_PREFIX}/include"]
+    ldflags  = ["-L#{HOMEBREW_PREFIX}/lib"]
     cppflags = []
 
     if MacOS.sdk_path_if_needed
