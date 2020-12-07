@@ -6,6 +6,7 @@ class YoutubeDl < Formula
   url "https://files.pythonhosted.org/packages/96/50/a91e7e398c359fd01293f82298d903fea182b744f98682e772b6f8d1ae3c/youtube_dl-2020.12.7.tar.gz"
   sha256 "bd127c3251a8e9f7a0eb18e4bbcf98409c0365354f735c985325bc19af669a24"
   license "Unlicense"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
