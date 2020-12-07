@@ -45,6 +45,7 @@ jobs:
     - name: Check for CI-syntax-only label
       id: check-labels
       uses: actions/github-script@v3
+      if: github.event_name == 'pull_request'
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         script: |
