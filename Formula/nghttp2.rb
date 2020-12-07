@@ -4,6 +4,7 @@ class Nghttp2 < Formula
   url "https://github.com/nghttp2/nghttp2/releases/download/v1.42.0/nghttp2-1.42.0.tar.xz"
   sha256 "c5a7f09020f31247d0d1609078a75efadeccb7e5b86fc2e4389189b1b431fe63"
   license "MIT"
+  revision 1
 
   bottle do
     rebuild 1
@@ -20,26 +21,26 @@ class Nghttp2 < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "cunit" => :build
   depends_on "pkg-config" => :build
-  depends_on "sphinx-doc" => :build
   depends_on "c-ares"
-  depends_on "jansson"
   depends_on "jemalloc"
   depends_on "libev"
-  depends_on "libevent"
   depends_on "openssl@1.1"
 
   uses_from_macos "libxml2"
   uses_from_macos "zlib"
 
   def install
-    ENV.cxx11
+    # fix for clang not following C++14 behaviour
+    # https://github.com/macports/macports-ports/commit/54d83cca9fc0f2ed6d3f873282b6dd3198635891
+    inreplace "src/shrpx_client_handler.cc", "return dconn;", "return std::move(dconn);"
 
     args = %W[
       --prefix=#{prefix}
       --disable-silent-rules
       --enable-app
+      --disable-examples
+      --disable-hpack-tools
       --disable-python-bindings
       --without-systemd
     ]
@@ -47,7 +48,6 @@ class Nghttp2 < Formula
     system "autoreconf", "-ivf" if build.head?
     system "./configure", *args
     system "make"
-    system "make", "check"
     system "make", "install"
   end
 
