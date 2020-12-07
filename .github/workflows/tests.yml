@@ -11,6 +11,8 @@ jobs:
   tap_syntax:
     if: github.repository == 'Homebrew/homebrew-core'
     runs-on: ubuntu-latest
+    outputs:
+      run-tests: ${{ steps.check-labels.outputs.result }}
     env:
       HOMEBREW_FORCE_HOMEBREW_ON_LINUX: 1
     steps:
@@ -40,9 +42,26 @@ jobs:
           fi
         done
 
+    - name: Check for CI-syntax-only label
+      id: check-labels
+      uses: actions/github-script@v3
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        script: |
+          const { data: { labels: labels } } = await github.pulls.get({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            pull_number: context.issue.number
+          })
+          if (!labels.map(label => label.name).includes('CI-syntax-only')) {
+            console.log('No CI-syntax-only label found. Running tests.')
+            return true
+          }
+          console.log('CI-syntax-only label found. Skipping tests.')
+
   tests:
     needs: tap_syntax
-    if: github.event_name == 'pull_request' && ! contains(github.event.pull_request.labels.*.name, 'CI-syntax-only')
+    if: github.event_name == 'pull_request' && needs.tap_syntax.outputs.run-tests
     strategy:
       matrix:
         version: ['11.0', '10.15', '10.14']
