@@ -3,8 +3,8 @@ class Lsyncd < Formula
   homepage "https://github.com/axkibe/lsyncd"
   url "https://github.com/axkibe/lsyncd/archive/release-2.2.3.tar.gz"
   sha256 "7bcd0f4ae126040bb078c482ff856c87e61c22472c23fa3071798dcb1dc388dd"
-  license "GPL-2.0"
-  revision 1
+  license "GPL-2.0-or-later"
+  revision 2
 
   bottle do
     cellar :any
@@ -14,10 +14,7 @@ class Lsyncd < Formula
   end
 
   depends_on "cmake" => :build
-
-  # lua 5.4 support tracking issue:
-  # https://github.com/axkibe/lsyncd/issues/621
-  depends_on "lua@5.3"
+  depends_on "lua"
 
   xnu_headers = {
     "10.7"    => ["xnu-1699.22.73.tar.gz",  "c9d24560af543e6099b6248bdbcef3581e7ba4af3afd92974719f7c5a8db5bd2"],
@@ -92,11 +89,25 @@ class Lsyncd < Formula
     sha256 checksum
   end
 
+  # CMake needs help finding lua.
+  # See https://github.com/axkibe/lsyncd/issues/502
+  # Remove at next version bump.
+  patch do
+    url "https://github.com/axkibe/lsyncd/commit/0af99d8d5ba35118e8799684a2d4a8ea4b0c6957.patch?full_index=1"
+    sha256 "a4f9eba3246c611febec68a0599935fa5ec0e4ad16a165ae19cd634afea45523"
+  end
+
   def install
+    lua = Formula["lua"]
+    luaversion = lua.version.major_minor
     inreplace "CMakeLists.txt", "DESTINATION man", "DESTINATION share/man/man1"
     resource("xnu").stage buildpath/"xnu"
-    system "cmake", ".", "-DWITH_INOTIFY=OFF", "-DWITH_FSEVENTS=ON",
-                         "-DXNU_DIR=#{buildpath}/xnu", *std_cmake_args
+    system "cmake", ".", "-DWITH_INOTIFY=OFF",
+                         "-DWITH_FSEVENTS=ON",
+                         "-DLUA_INCLUDE_DIR=#{lua.opt_include}/lua#{luaversion}",
+                         "-DLUA_LIBRARY=#{lua.opt_lib}/liblua.#{luaversion}.dylib",
+                         "-DXNU_DIR=#{buildpath}/xnu",
+                         *std_cmake_args
     system "make", "install"
   end
 
