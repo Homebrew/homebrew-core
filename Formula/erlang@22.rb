@@ -2,8 +2,8 @@ class ErlangAT22 < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url "https://github.com/erlang/otp/archive/OTP-22.3.4.12.tar.gz"
-  sha256 "5607b27169edb2c02806f21330a3d430c55f21580292743d25b29b678e951aaf"
+  url "https://github.com/erlang/otp/archive/OTP-22.3.4.13.tar.gz"
+  sha256 "0da6f7702301d237f82514898f5ec8669412a60fc3b8ea6ce2c168bec1edf7fb"
   license "Apache-2.0"
 
   livecheck do
@@ -40,6 +40,12 @@ class ErlangAT22 < Formula
     sha256 "9b01c61f2898235e7f6643c66215d6419f8706c8fdd7c3e0123e68960a388c34"
   end
 
+  # Remove macOS version checking
+  patch do
+    url "https://github.com/erlang/otp/commit/d827997dd9679d8b628dd042c4d64e0bf4cd2ab9.patch?full_index=1"
+    sha256 "e960a1064b57b48e1cef7f4a6a99be2596e4c9f54bd5a60bbdc3f1510c501cf9"
+  end
+
   # Fix build on Xcode 12
   patch do
     url "https://github.com/erlang/otp/commit/388622e9b626039c1e403b4952c2c905af364a96.patch?full_index=1"
@@ -47,6 +53,10 @@ class ErlangAT22 < Formula
   end
 
   def install
+    on_macos do
+      ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
+    end
+
     # Unset these so that building wx, kernel, compiler and
     # other modules doesn't fail with an unintelligable error.
     %w[LIBS FLAGS AFLAGS ZFLAGS].each { |k| ENV.delete("ERL_#{k}") }
