@@ -1,20 +1,10 @@
 class Mlt < Formula
   desc "Author, manage, and run multitrack audio/video compositions"
   homepage "https://www.mltframework.org/"
+  url "https://github.com/mltframework/mlt/releases/download/v6.24.0/mlt-6.24.0.tar.gz"
+  sha256 "3b977c5632329fca7634d0034162df6d5b79cde3256bac43e7ba8353acced61e"
   license "LGPL-2.1-only"
-  revision 3
   head "https://github.com/mltframework/mlt.git"
-
-  stable do
-    url "https://github.com/mltframework/mlt/archive/v6.22.1.tar.gz"
-    sha256 "a3debdf0b8811f0d20c902cc3df3d05dad7d3ff36d1db16c0a7338d0d5989998"
-
-    # fix compilaton with opencv4
-    patch do
-      url "https://github.com/mltframework/mlt/commit/08ed33a9551a0e4c0685e13da3b98bf37e08ecad.patch?full_index=1"
-      sha256 "86aa10881ce223f67e93ae7c051287744c01416bbc0cedf75224262b33a2175d"
-    end
-  end
 
   bottle do
     sha256 "6009bac52fe24d7179c1568615853b166f86c30ac9cf6253ddbd596331ac1798" => :big_sur
@@ -54,6 +44,6 @@ class Mlt < Formula
   end
 
   test do
-    system "#{bin}/melt", "-version"
+    assert_match "help", shell_output("#{bin}/melt -help")
   end
 end
