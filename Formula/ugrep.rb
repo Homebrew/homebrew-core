@@ -1,8 +1,8 @@
 class Ugrep < Formula
   desc "Ultra fast grep with query UI, fuzzy search, archive search, and more"
   homepage "https://github.com/Genivia/ugrep"
-  url "https://github.com/Genivia/ugrep/archive/v2.5.6.tar.gz"
-  sha256 "02fc3e3575a6d5482d19e748331c4e3a0e5c85d95c96dbceb06abbab5cbb8cdf"
+  url "https://github.com/Genivia/ugrep/archive/v3.0.6.tar.gz"
+  sha256 "2042e7109a139849dc70e00393707c46755567349d4983d8b0f828a81ab24999"
   license "BSD-3-Clause"
 
   bottle do
@@ -17,10 +17,6 @@ class Ugrep < Formula
   depends_on "xz"
 
   def install
-    ENV.O2
-    ENV.deparallelize
-    ENV.delete("CFLAGS")
-    ENV.delete("CXXFLAGS")
     system "./configure", "--enable-color",
                           "--disable-debug",
                           "--disable-dependency-tracking",
