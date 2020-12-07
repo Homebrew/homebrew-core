@@ -19,7 +19,31 @@ on:
       - "Formula/linux-headers.rb"
       - "Formula/strace.rb"
 jobs:
+  check_labels_linux:
+    runs-on: ubuntu-latest
+    outputs:
+      run-tests: ${{ steps.check-labels.outputs.result }}
+    steps:
+      - name: Check for CI-syntax-only label
+        id: check-labels
+        uses: actions/github-script@v3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { data: { labels: labels } } = await github.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number
+            })
+            if (!labels.map(label => label.name).includes('CI-syntax-only')) {
+              console.log('No CI-syntax-only label found. Running tests.')
+              return true
+            }
+            console.log('CI-syntax-only label found. Skipping tests.')
+
   tests_linux:
+    needs: check_labels_linux
+    if: needs.check_labels_linux.outputs.run-tests
     runs-on: ubuntu-latest
     container:
       image: homebrew/ubuntu16.04:master
