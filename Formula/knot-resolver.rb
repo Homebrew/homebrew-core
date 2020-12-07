@@ -5,6 +5,7 @@ class KnotResolver < Formula
   sha256 "8824267ca3331fa06d418c1351b68c648da0af121bcbc84c6e08f5b1e28d9433"
   license all_of: ["CC0-1.0", "GPL-3.0-or-later", "LGPL-2.1-or-later", "MIT"]
   head "https://gitlab.labs.nic.cz/knot/knot-resolver.git"
+  revision 1
 
   livecheck do
     url "https://secure.nic.cz/files/knot-resolver/"
@@ -35,6 +36,10 @@ class KnotResolver < Formula
     end
   end
 
+  def post_install
+    (var/"knot-resolver").mkpath
+  end
+
   # DNSSEC root anchor published by IANA (https://www.iana.org/dnssec/files)
   def root_keys
     <<~EOS
@@ -53,16 +58,15 @@ class KnotResolver < Formula
         <key>Label</key>
         <string>#{plist_name}</string>
         <key>WorkingDirectory</key>
-        <string>#{var}/kresd</string>
+        <string>#{var}/knot-resolver</string>
         <key>RunAtLoad</key>
         <true/>
         <key>ProgramArguments</key>
         <array>
           <string>#{sbin}/kresd</string>
           <string>-c</string>
-          <string>#{etc}/kresd/config</string>
-          <string>-f</string>
-          <string>1</string>
+          <string>#{etc}/knot-resolver/kresd.conf</string>
+          <string>-n</string>
         </array>
         <key>StandardInPath</key>
         <string>/dev/null</string>
