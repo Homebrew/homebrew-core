@@ -28,6 +28,7 @@ class Imagemagick < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "libtool"
+  depends_on "libx11"
   depends_on "little-cms2"
   depends_on "openexr"
   depends_on "openjpeg"
@@ -63,7 +64,6 @@ class Imagemagick < Formula
       --with-lqr
       --without-fftw
       --without-pango
-      --without-x
       --without-wmf
       --enable-openmp
       ac_cv_prog_c_openmp=-Xpreprocessor\ -fopenmp
