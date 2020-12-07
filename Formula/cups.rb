@@ -14,13 +14,15 @@ class Cups < Formula
 
   keg_only :provided_by_macos
 
+  uses_from_macos "krb5"
   uses_from_macos "zlib"
 
   def install
     system "./configure", "--disable-debug",
                           "--with-components=core",
                           "--without-bundledir",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "--libdir=#{lib}"
     system "make", "install"
   end
 
