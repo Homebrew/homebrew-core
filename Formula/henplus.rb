@@ -19,8 +19,6 @@ class Henplus < Formula
 
   disable! date: "2020-12-08", because: :unmaintained
 
-  deprecate! because: :does_not_build
-
   depends_on "ant" => :build
   depends_on "libreadline-java"
   depends_on "openjdk@8"
