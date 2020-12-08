@@ -7,7 +7,7 @@ class ProcyonDecompiler < Formula
 
   bottle :unneeded
 
-  disable! because: :repo_removed
+  disable! date: "2020-08-22", because: :repo_removed
 
   depends_on "openjdk"
 
