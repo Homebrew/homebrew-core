@@ -14,14 +14,8 @@ class Leiningen < Formula
   end
 
   resource "jar" do
-    url "https://github.com/technomancy/leiningen/releases/download/2.9.4/leiningen-2.9.4-standalone.zip", using: :nounzip
-    sha256 "0e3c339480347df0445317d329accbd4a578ebbd8d91e568e661feb1b388706c"
-  end
-
-  # Remove patch when updated to next release
-  patch do
-    url "https://github.com/technomancy/leiningen/commit/7677dabea40a2d17a42a718ca8c7e450b09e153c.patch?full_index=1"
-    sha256 "91260bb1ce6974fe0134dfa46548a6083c0ae347c2acf8ef7e57b0adef8e8df2"
+    url "https://github.com/technomancy/leiningen/releases/download/2.9.5/leiningen-2.9.5-standalone.zip", using: :nounzip
+    sha256 "df490c98bfe8d667bc5d83b80238528877234c285d0d48f61a4c8743c2db1eea"
   end
 
   def install
