@@ -18,7 +18,7 @@ class TerraformProvisionerAnsible < Formula
   end
 
   # https://github.com/jonmorehouse/terraform-provisioner-ansible/issues/41
-  disable! because: :no_license
+  disable! date: "2020-08-02", because: :no_license
 
   depends_on "go" => :build
   depends_on "terraform"
