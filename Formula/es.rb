@@ -16,6 +16,8 @@ class Es < Formula
     sha256 "14f203383d01f581bdb63e7240ff57d1174553467314351d49ea41d3052148f9" => :mavericks
   end
 
+  disable! date: "2020-12-08", because: :unmaintained
+
   def install
     system "./configure", "--prefix=#{prefix}", "--with-editline"
     system "make"
