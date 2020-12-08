@@ -16,6 +16,8 @@ class Colorsvn < Formula
     sha256 "2711d058fa4c892f350b6309a82f7eeb85455bc1b336afc75587c467121a553d" => :mavericks
   end
 
+  disable! date: "2020-12-08", because: :unmaintained
+
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/colorsvn/0.3.3.patch"
     sha256 "2fa2c40e90c04971865894933346f43fc1d85b8b4ba4f1c615a0b7ab0fea6f0a"
