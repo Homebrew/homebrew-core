@@ -17,6 +17,8 @@ class Mlkit < Formula
     sha256 "5df6b95fad69e10b31352824433251d3306a42c55c5e7164b0c47b986ea1009d" => :sierra
   end
 
+  disable! date: "2020-12-08", because: :unmaintained
+
   depends_on "autoconf" => :build
   depends_on "mlton" => :build
   depends_on "gmp"
