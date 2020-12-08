@@ -13,7 +13,7 @@ class Fceux < Formula
   end
 
   # Does not build: some build scripts rely on Python 2 syntax
-  disable! because: :does_not_build
+  disable! date: "2020-06-30", because: :does_not_build
 
   depends_on "pkg-config" => :build
   depends_on "scons" => :build
