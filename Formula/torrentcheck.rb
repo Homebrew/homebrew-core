@@ -19,6 +19,8 @@ class Torrentcheck < Formula
     sha256 "ed300dfc8d1f7f7fe3c9c161b8f86cc6a379c7a4cca3914bb0c665d66ec6596a" => :mavericks
   end
 
+  disable! date: "2020-12-08", because: :unmaintained
+
   def install
     inreplace "torrentcheck.c", "#include <malloc.h>", ""
     system ENV.cc, "torrentcheck.c", "sha1.c", "-o", "torrentcheck", *ENV.cflags.to_s.split
