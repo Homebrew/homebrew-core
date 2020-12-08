@@ -15,6 +15,8 @@ class Postmark < Formula
     sha256 "2ccb3812b371bc02e66d84ff853cb9684f8941485af3287424b4c183205bc649" => :mavericks
   end
 
+  disable! date: "2020-12-08", because: :unmaintained
+
   def install
     system ENV.cc, "-o", "postmark", "postmark-#{version}.c"
     bin.install "postmark"
