@@ -16,6 +16,8 @@ class Vavrdiasm < Formula
     sha256 "f881c5a6d94581c4fc9efb13118c84c40700f13d130302f6ee4cb16968d1f6b0" => :mavericks
   end
 
+  disable! date: "2020-12-08", because: :unmaintained
+
   # Patch:
   # - BSD `install(1)' does not have a GNU-compatible `-D' (create intermediate
   #   directories) flag. Switch to using `mkdir -p'.
