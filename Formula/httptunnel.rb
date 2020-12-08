@@ -18,6 +18,8 @@ class Httptunnel < Formula
     sha256 "cd8ea90f49b98d3cbe213bfd750eb0a095d06a19a4705a9e7e08b153571c27a9" => :mojave
   end
 
+  disable! date: "2020-12-08", because: :unmaintained
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
 
