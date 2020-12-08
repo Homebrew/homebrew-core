@@ -5,6 +5,7 @@ class Oil < Formula
   sha256 "4286eebb190f020e5c2472a48b0aa16a5abecfbf60068d1d9ad57d694e3ffc0a"
   license "Apache-2.0"
   head "https://github.com/oilshell/oil.git"
+  revision 1
 
   livecheck do
     url "https://www.oilshell.org/releases.html"
@@ -17,8 +18,11 @@ class Oil < Formula
     sha256 "107d9f64b0b71b8764b268bf6046587718aa6e90c07866fd5178065c15695383" => :mojave
   end
 
+  depends_on "readline"
+
   def install
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}",
+                          "--with-readline=#{Formula["readline"].opt_prefix}"
     system "make"
     system "./install"
   end
