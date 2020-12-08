@@ -15,6 +15,8 @@ class Kakasi < Formula
     sha256 "86403b2e2a45e2ea81b78bbe7edc7bf2b01d464f351ea265441413e63bf85822" => :mavericks
   end
 
+  disable! date: "2020-12-08", because: :unmaintained
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
