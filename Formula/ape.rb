@@ -14,6 +14,8 @@ class Ape < Formula
     sha256 "83c7ef23309dec2e7bd4bec3ae75b6f0e04fcfecbda489c90810b6948eb3bb28" => :mavericks
   end
 
+  disable! date: "2020-12-08", because: :unmaintained
+
   def install
     system "./build.sh"
     # The Makefile installs a configuration file in the bindir which our bot red-flags
