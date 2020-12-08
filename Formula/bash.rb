@@ -5,6 +5,7 @@ class Bash < Formula
   mirror "https://ftpmirror.gnu.org/bash/bash-5.1.tar.gz"
   mirror "https://mirrors.kernel.org/gnu/bash/bash-5.1.tar.gz"
   mirror "https://mirrors.ocf.berkeley.edu/gnu/bash/bash-5.1.tar.gz"
+  sha256 "cc012bc860406dcf42f64431bcd3d2fa7560c02915a601aba9cd597a39329baa"
   license "GPL-3.0-or-later"
   head "https://git.savannah.gnu.org/git/bash.git"
 
