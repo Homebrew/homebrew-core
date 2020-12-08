@@ -13,7 +13,7 @@ class Ocamlsdl < Formula
     sha256 "6ae2abcf123aef7ce6cc2c5aad0d912bc459fdd9e7e2abfa99135d672767ddb7" => :high_sierra
   end
 
-  disable! because: :unmaintained
+  disable! date: "2020-09-21", because: :unmaintained
 
   depends_on "ocaml"
   depends_on "sdl"
