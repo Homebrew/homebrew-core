@@ -16,6 +16,8 @@ class Libbind < Formula
     sha256 "f59cf59e14f6192c962592a4411391413d929c8dfff81fdd8b4a82ce7c0d3f02" => :mavericks
   end
 
+  disable! date: "2020-12-08", because: :unmaintained
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make" # You need to call make, before you can call make install
