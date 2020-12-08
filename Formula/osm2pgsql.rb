@@ -40,6 +40,6 @@ class Osm2pgsql < Formula
 
   test do
     assert_match "Connection to database failed: could not connect to server",
-                 shell_output("#{bin}/osm2pgsql /dev/null 2>&1", 2)
+                 shell_output("#{bin}/osm2pgsql /dev/null 2>&1", 1)
   end
 end
