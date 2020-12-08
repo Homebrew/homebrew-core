@@ -15,7 +15,7 @@ class AuroraCli < Formula
 
   # Does not build on Catalina
   # Has been moved to the Apache Attic: https://github.com/apache/attic-aurora
-  disable! because: :does_not_build
+  disable! date: "2020-05-06", because: :does_not_build
 
   depends_on "python@3.7"
 
