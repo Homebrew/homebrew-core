@@ -15,6 +15,8 @@ class Bbcolors < Formula
     sha256 "68b63b5913be9e20b8ebc726c5272e030f7572aeb6baab709a70725f632c69b1" => :mavericks
   end
 
+  disable! date: "2020-12-08", because: :unmaintained
+
   def install
     bin.install "bbcolors"
   end
