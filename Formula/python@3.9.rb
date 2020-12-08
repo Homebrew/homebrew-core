@@ -129,6 +129,8 @@ class PythonAT39 < Formula
     end
     # Avoid linking to libgcc https://mail.python.org/pipermail/python-dev/2012-February/116205.html
     args << "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
+    cflags << "-I#{Formula["gdbm"].opt_include}"
+    ldflags << "-L#{Formula["gdbm"].opt_lib}"
 
     # We want our readline! This is just to outsmart the detection code,
     # superenv makes cc always find includes/libs!
@@ -138,6 +140,8 @@ class PythonAT39 < Formula
 
     inreplace "setup.py" do |s|
       s.gsub! "sqlite_setup_debug = False", "sqlite_setup_debug = True"
+      s.gsub! "db_setup_debug = False", "db_setup_debug = True"
+      s.gsub! "dbm_setup_debug = False", "dbm_setup_debug = True"
       s.gsub! "for d_ in self.inc_dirs + sqlite_inc_paths:",
               "for d_ in ['#{Formula["sqlite"].opt_include}']:"
     end
