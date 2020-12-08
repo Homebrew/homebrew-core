@@ -16,6 +16,8 @@ class Namazu < Formula
     sha256 "ca6e854a626eaafd4ac26661b9a3db86dc9bc140f4aa98effd5843882aba7ecb" => :mavericks
   end
 
+  disable! date: "2020-12-08", because: :unmaintained
+
   def install
     cd "File-MMagic" do
       system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
