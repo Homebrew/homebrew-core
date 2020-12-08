@@ -20,6 +20,8 @@ class Mboxgrep < Formula
     sha256 "bb5cefa83e2fb8b37dac858f3119aedb338b29e0eb2715cbff08b4644689ad86" => :mavericks
   end
 
+  disable! date: "2020-12-08", because: :unmaintained
+
   depends_on "pcre"
 
   def install
