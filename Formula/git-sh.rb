@@ -17,6 +17,8 @@ class GitSh < Formula
     sha256 "1b9aa141f32145516db62304dda799611e1fc35ec57275ee75bf566325a6bfa5" => :mavericks
   end
 
+  disable! date: "2020-12-08", because: :unmaintained
+
   def install
     system "make"
     system "make", "install", "PREFIX=#{prefix}"
