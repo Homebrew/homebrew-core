@@ -20,6 +20,8 @@ class Makeicns < Formula
     sha256 "8c54ce9e5f819dda4eb274f8bf8a22d49e1d0086e33300f236840acf1a46837f" => :mavericks
   end
 
+  disable! date: "2020-12-08", because: :unmaintained
+
   patch :p0 do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/e59da9d/makeicns/patch-IconFamily.m.diff"
     sha256 "f5ddbf6a688d6f153cf6fc2e15e75309adaf61677ab423cb67351e4fbb26066e"
