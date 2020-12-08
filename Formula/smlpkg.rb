@@ -13,6 +13,8 @@ class Smlpkg < Formula
     sha256 "27f4bec44d28a9903d720632f1a2ac71c0091a564a0e26c0e896fac4f2becf22" => :high_sierra
   end
 
+  disable! date: "2020-12-08", because: :unmaintained
+
   depends_on "mlkit"
 
   def install
