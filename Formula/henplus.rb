@@ -17,6 +17,8 @@ class Henplus < Formula
     sha256 "21f7ee166b94b30dd78cee8a6757fecd285544b8b12b332db9141e6a94eb29a7" => :mavericks
   end
 
+  disable! date: "2020-12-08", because: :unmaintained
+
   deprecate! because: :does_not_build
 
   depends_on "ant" => :build
