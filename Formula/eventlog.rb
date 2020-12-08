@@ -16,6 +16,8 @@ class Eventlog < Formula
     sha256 "9d747019f60dfa8fc13472815c18c20c46c2cb2cd53dd754a99e8029afb85cbf" => :mavericks
   end
 
+  disable! date: "2020-12-08", because: :unmaintained
+
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
