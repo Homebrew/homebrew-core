@@ -17,6 +17,8 @@ class Libpuzzle < Formula
     sha256 "ed3d860aa40203a73921fc7f6919828599a28fb39e2d95f0c963ae4eb5c7811b" => :mavericks
   end
 
+  disable! date: "2020-12-08", because: :unmaintained
+
   depends_on "gd"
 
   def install
