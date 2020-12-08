@@ -18,7 +18,7 @@ class Pegtl < Formula
   if MacOS.version <= :mojave
     depends_on "gcc"
     fails_with :clang do
-      cause "'path' is unavailable: introduced in macOS 10.15"
+      cause "'path' is unavailable in c++ < 17: introduced in macOS 10.15"
     end
   end
 
