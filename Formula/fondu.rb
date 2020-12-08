@@ -16,6 +16,8 @@ class Fondu < Formula
     sha256 "cc8bb3c5213b0b792929fa1658077da60717993f0dbdaa56c0fe6004930309f4" => :mavericks
   end
 
+  disable! date: "2020-12-08", because: :unmaintained
+
   conflicts_with "cspice", because: "both install `tobin` binaries"
 
   resource "cminch.ttf" do
