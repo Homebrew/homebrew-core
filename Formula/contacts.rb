@@ -19,7 +19,7 @@ class Contacts < Formula
     sha256 "9a9c89e40f9ccf4ec45cf63414eaf31266dfc9b71dc96d8c02f7ab2b38e8f346" => :mavericks
   end
 
-  deprecate! because: :repo_archived
+  disable! date: "2020-12-08", because: :unmaintained
 
   depends_on xcode: :build
 
