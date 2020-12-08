@@ -12,6 +12,8 @@ class Cpmtools < Formula
     sha256 "e3fdab874e376cacefccd916de4c96bfaada75d1cc5af6f53e6bf9a625d3aa72" => :el_capitan
   end
 
+  disable! date: "2020-12-08", because: :unmaintained
+
   depends_on "libdsk"
 
   def install
