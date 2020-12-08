@@ -19,6 +19,8 @@ class Luabind < Formula
     sha256 "171123f48a6cf2431d6b143b84bf31dbb955f103195aa30597a61b7a61943982" => :yosemite
   end
 
+  disable! date: "2020-12-08", because: :unmaintained
+
   depends_on "boost-build" => :build
   depends_on "boost"
   depends_on "lua@5.1"
