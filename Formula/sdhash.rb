@@ -20,7 +20,7 @@ class Sdhash < Formula
   #   make it compatible with Python 3.7, but so far it hasn't been merged
   # If there is ever a post-4.0 release on github this formula might be resurrected
   # but for now it seems dead.
-  disable! because: :does_not_build
+  disable! date: "2020-12-06", because: :does_not_build
 
   depends_on "openssl@1.1"
 
