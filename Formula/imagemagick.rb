@@ -28,7 +28,6 @@ class Imagemagick < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "libtool"
-  depends_on "libx11"
   depends_on "little-cms2"
   depends_on "openexr"
   depends_on "openjpeg"
@@ -38,6 +37,10 @@ class Imagemagick < Formula
   uses_from_macos "bzip2"
   uses_from_macos "libxml2"
   uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "libx11"
+  end
 
   skip_clean :la
 
@@ -70,6 +73,10 @@ class Imagemagick < Formula
       ac_cv_prog_cxx_openmp=-Xpreprocessor\ -fopenmp
       LDFLAGS=-lomp\ -lz
     ]
+
+    on_macos do
+      args << "--without-x"
+    end
 
     # versioned stuff in main tree is pointless for us
     inreplace "configure", "${PACKAGE_NAME}-${PACKAGE_VERSION}", "${PACKAGE_NAME}"
