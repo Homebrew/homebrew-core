@@ -4,7 +4,6 @@ class Oil < Formula
   url "https://www.oilshell.org/download/oil-0.8.5.tar.gz"
   sha256 "4286eebb190f020e5c2472a48b0aa16a5abecfbf60068d1d9ad57d694e3ffc0a"
   license "Apache-2.0"
-  head "https://github.com/oilshell/oil.git"
   revision 1
 
   livecheck do
