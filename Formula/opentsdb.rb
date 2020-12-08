@@ -17,7 +17,7 @@ class Opentsdb < Formula
     sha256 "5bcdc828069e124c16e1e6c8b2eb6732d0ef88533c27f60fcbb0bec369aca375" => :high_sierra
   end
 
-  deprecate! because: :does_not_build
+  deprecate! date: "2020-11-13", because: :does_not_build
 
   depends_on "gnuplot"
   depends_on "hbase"
