@@ -21,6 +21,8 @@ class Marst < Formula
     sha256 "7fddf8023d17c4bfcb6fc4141c6202b3e856ee2ecd684236daef058592b79335" => :mavericks
   end
 
+  disable! date: "2020-12-08", because: :unmaintained
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
