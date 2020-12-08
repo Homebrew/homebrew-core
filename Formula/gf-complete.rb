@@ -15,6 +15,8 @@ class GfComplete < Formula
     sha256 "9f82edf4ac3d0207b91075dbc7656ab21f6ab82b7df12053bdbcbf9886109cd3" => :mavericks
   end
 
+  disable! date: "2020-12-08", because: :unmaintained
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
