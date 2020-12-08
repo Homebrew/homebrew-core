@@ -1,9 +1,8 @@
 class Vis < Formula
   desc "Vim-like text editor"
   homepage "https://github.com/martanne/vis"
-  url "https://github.com/martanne/vis/archive/v0.6.tar.gz"
-  sha256 "9ab4a3f1c5953475130b3c286af272fe5cfdf7cbb7f9fbebd31e9ea4f34e487d"
-  revision 1
+  url "https://github.com/martanne/vis/archive/v0.7.tar.gz"
+  sha256 "359ebb12a986b2f4e2a945567ad7587eb7d354301a5050ce10d51544570635eb"
   head "https://github.com/martanne/vis.git"
 
   bottle do
