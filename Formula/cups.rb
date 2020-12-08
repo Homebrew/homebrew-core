@@ -27,13 +27,14 @@ class Cups < Formula
   end
 
   test do
+    port = free_port.to_s
     pid = fork do
-      exec "#{bin}/ippeveprinter", "Homebrew Test Printer"
+      exec "#{bin}/ippeveprinter", "-p", port, "Homebrew Test Printer"
     end
 
     begin
       sleep 2
-      system "#{bin}/ippfind"
+      assert_match("Homebrew Test Printer", shell_output("curl localhost:#{port}"))
     ensure
       Process.kill("TERM", pid)
       Process.wait(pid)
