@@ -1,9 +1,9 @@
 class Autoconf < Formula
   desc "Automatic configure script builder"
   homepage "https://www.gnu.org/software/autoconf"
-  url "https://ftp.gnu.org/gnu/autoconf/autoconf-2.69.tar.gz"
-  mirror "https://ftpmirror.gnu.org/autoconf/autoconf-2.69.tar.gz"
-  sha256 "954bd69b391edc12d6a4a51a2dd1476543da5c6bbf05a95b59dc0dd6fd4c2969"
+  url "https://ftp.gnu.org/gnu/autoconf/autoconf-2.70.tar.gz"
+  mirror "https://ftpmirror.gnu.org/autoconf/autoconf-2.70.tar.gz"
+  sha256 "f05f410fda74323ada4bdc4610db37f8dbd556602ba65bc843edb4d4d4a1b2b7"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -43,7 +43,19 @@ class Autoconf < Formula
   end
 
   test do
-    cp pkgshare/"autotest/autotest.m4", "autotest.m4"
-    system bin/"autoconf", "autotest.m4"
+    (testpath/"configure.ac").write <<~EOS
+      AC_INIT([hello], [1.0])
+      AC_CONFIG_SRCDIR([hello.c])
+      AC_PROG_CC
+      AC_OUTPUT
+    EOS
+    (testpath/"hello.c").write <<~EOS
+      int foo(void) { return 42; }
+    EOS
+
+    system bin/"autoconf"
+    system "./configure"
+    assert_predicate testpath/"config.status", :exist?
+    assert_match /\nCC=.*clang/, File.read("config.log")
   end
 end
