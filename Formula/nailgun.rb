@@ -13,7 +13,7 @@ class Nailgun < Formula
     sha256 "7f5d7051e631b174fd1d7d0c0aea2b957d3b4946e2176828ec687baddaaa4e04" => :high_sierra
   end
 
-  deprecate! because: :does_not_build
+  deprecate! date: "2020-11-13", because: :does_not_build
 
   depends_on "maven" => :build
   depends_on "openjdk@8"
