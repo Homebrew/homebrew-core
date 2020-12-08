@@ -46,8 +46,8 @@ class Cpr < Formula
       }
     EOS
 
-    system ENV.cxx, "-std=c++11", "-I#{include}", "-L#{lib}", "-lcpr",
-                    "test.cpp", "-o", testpath/"test"
+    system ENV.cxx, "test.cpp", "-std=c++11", "-I#{include}", "-L#{lib}",
+                    "-lcpr", "-o", testpath/"test"
     assert_match "200", shell_output("./test")
   end
 end
