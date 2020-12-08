@@ -14,7 +14,7 @@ class ProtobufSwift < Formula
   end
 
   # https://github.com/Homebrew/homebrew-core/pull/54471#issuecomment-627430555
-  disable! because: :unmaintained
+  disable! date: "2020-05-10", because: :unmaintained
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
