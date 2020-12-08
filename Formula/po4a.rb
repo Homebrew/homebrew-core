@@ -5,9 +5,9 @@ class Po4a < Formula
 
   desc "Documentation translation maintenance tool"
   homepage "https://po4a.org"
-  url "https://github.com/mquinson/po4a/releases/download/v0.61/po4a-0.61.tar.gz"
-  sha256 "62954cb0537eff33124a45fa194ae3b92552ee6f6eef74f4953a577f640b86db"
-  license "GPL-2.0"
+  url "https://github.com/mquinson/po4a/releases/download/v0.62/po4a-0.62.tar.gz"
+  sha256 "0eb510a66f59de68cf7a205342036cc9fc08b39334b91f1456421a5f3359e68b"
+  license "GPL-2.0-or-later"
   head "https://github.com/mquinson/po4a.git"
 
   bottle do
@@ -71,6 +71,13 @@ class Po4a < Formula
     resources.each do |r|
       r.stage do
         system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}", "NO_MYMETA=1"
+
+        # Work around restriction on 10.15+ where .bundle files cannot be loaded
+        # from a relative path -- while in the middle of our build we need to
+        # refer to them by their full path.  Workaround adapted from:
+        #   https://github.com/fink/fink-distributions/issues/461#issuecomment-563331868
+        inreplace "Makefile", "blib/", "$(shell pwd)/blib/" if r.name == "TermReadKey"
+
         system "make", "install"
       end
     end
