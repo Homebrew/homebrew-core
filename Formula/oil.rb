@@ -24,8 +24,10 @@ class Oil < Formula
   end
 
   test do
-    script = 'path=$(pwd); echo -n "$path"'
-    assert_equal testpath.to_s, shell_output("#{bin}/osh -c '#{script}'")
-    assert_match "name=val isn't allowed", shell_output("#{bin}/oil -c '#{script}' 2>&1", 2)
+    system "#{bin}/osh -c 'shopt -q parse_backticks'"
+    assert_equal testpath.to_s, shell_output("#{bin}/osh -c 'echo `pwd -P`'").strip
+
+    system "#{bin}/oil -c 'shopt -q parse_equals'"
+    assert_equal "bar", shell_output("#{bin}/oil -c 'var foo = \"bar\"; write $foo'").strip
   end
 end
