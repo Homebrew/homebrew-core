@@ -20,6 +20,8 @@ class Makepp < Formula
     sha256 "d54e884aac7589f363d2c67920c87861878777a59771cd2457ed86053cf6e6b8" => :mavericks
   end
 
+  disable! date: "2020-12-08", because: :unmaintained
+
   def install
     system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
     system "make", "install"
