@@ -16,6 +16,8 @@ class Zdelta < Formula
     sha256 "86f93c2e260d321d3bf30b34c2313d2cec5bc6d23bfb5a86cf99ab6b5f64f157" => :mavericks
   end
 
+  disable! date: "2020-12-08", because: :unmaintained
+
   def install
     system "make"
     system "make", "install", "prefix=#{prefix}"
