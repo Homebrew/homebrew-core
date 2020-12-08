@@ -21,6 +21,8 @@ class M2c < Formula
     sha256 "7bf62153eeb0976851785db04e1319f745709294aa9d0bc99e47ffee3eba1315" => :mavericks
   end
 
+  disable! date: "2020-12-08", because: :unmaintained
+
   # Hacks purely for this 0.7 release. Git head already fixes installation glitches.
   # Will remove hacks on release of next version.
   def install
