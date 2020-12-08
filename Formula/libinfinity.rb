@@ -16,7 +16,7 @@ class Libinfinity < Formula
   # libinfinity is only used by gobby
   # latest 0.7.1 does not work with gobby 0.5.0 due to open issue, https://github.com/gobby/gobby/issues/143
   # gobby is disabled per #57501
-  disable! because: "is only used by gobby (which has been disabled)"
+  disable! date: "2020-07-06", because: "is only used by gobby (which has been disabled)"
 
   depends_on "pkg-config" => :build
   depends_on "glib"
