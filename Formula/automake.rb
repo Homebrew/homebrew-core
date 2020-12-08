@@ -5,6 +5,7 @@ class Automake < Formula
   mirror "https://ftpmirror.gnu.org/automake/automake-1.16.3.tar.xz"
   sha256 "ff2bf7656c4d1c6fdda3b8bebb21f09153a736bcba169aaf65eab25fa113bf3a"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -19,20 +20,9 @@ class Automake < Formula
 
   depends_on "autoconf"
 
-  # Download more up-to-date config scripts.
-  resource "config" do
-    url "https://git.savannah.gnu.org/cgit/config.git/snapshot/config-0b5188819ba6091770064adf26360b204113317e.tar.gz"
-    sha256 "3dfb73df7d073129350b6896d62cabb6a70f479d3951f00144b408ba087bdbe8"
-    version "2020-08-17"
-  end
-
   def install
     on_macos do
       ENV["PERL"] = "/usr/bin/perl"
-    end
-
-    resource("config").stage do
-      cp Dir["config.*"], buildpath/"lib"
     end
 
     system "./configure", "--prefix=#{prefix}"
