@@ -16,7 +16,7 @@ class Md < Formula
   end
 
   # https://github.com/Homebrew/homebrew-core/pull/66347#issuecomment-739548996
-  disable! because: :unmaintained
+  disable! date: "2020-12-08", because: :unmaintained
 
   def install
     cd "md" do
