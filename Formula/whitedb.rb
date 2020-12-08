@@ -16,6 +16,8 @@ class Whitedb < Formula
     sha256 "ba756975f0dbdfa4259a5a4271414765644b0abe8c771d0c091238909f0968d2" => :mavericks
   end
 
+  disable! date: "2020-12-08", because: :unmaintained
+
   def install
     # https://github.com/priitj/whitedb/issues/15
     ENV.append "CFLAGS", "-std=gnu89"
