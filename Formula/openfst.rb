@@ -20,7 +20,11 @@ class Openfst < Formula
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "--enable-fsts",
+                          "--enable-compress",
+                          "--enable-grm",
+                          "--enable-special"
     system "make"
     system "make", "install"
   end
