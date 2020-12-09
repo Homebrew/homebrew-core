@@ -4,7 +4,7 @@ class SafeRm < Formula
   url "https://launchpad.net/safe-rm/trunk/1.0.0/+download/safe-rm-1.0.0.tar.gz"
   sha256 "7258a1ed4518598cef4d478ed43ff5677023b897a8941585eddbdf63a56718f5"
   license "GPL-3.0-or-later"
-  head "https://git.launchpad.net/safe-rm"
+  head "https://git.launchpad.net/safe-rm", using: :git
 
   livecheck do
     url :stable
