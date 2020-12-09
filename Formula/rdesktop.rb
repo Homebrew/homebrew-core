@@ -13,7 +13,7 @@ class Rdesktop < Formula
     sha256 "84ca9f1d74ad63108e320f2cae63a2afdfafd3995aa2d37837d551cc5dda8688" => :high_sierra
   end
 
-  deprecate! because: :unmaintained
+  deprecate! date: "2020-11-12", because: :unmaintained
 
   depends_on "pkg-config" => :build
   depends_on "gnutls"
