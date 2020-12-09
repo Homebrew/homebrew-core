@@ -20,7 +20,7 @@ class GitHooks < Formula
   # have moved to an alternative location. There is a rewrite in Go by a
   # different author which someone may want to work into a new formula as a
   # replacement: https://github.com/git-hooks/git-hooks
-  deprecate! because: :repo_removed
+  deprecate! date: "2020-06-25", because: :repo_removed
 
   def install
     bin.install "git-hooks"
