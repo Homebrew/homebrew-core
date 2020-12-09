@@ -47,6 +47,7 @@ class Curl < Formula
       --disable-debug
       --disable-dependency-tracking
       --disable-silent-rules
+      --enable-hsts
       --prefix=#{prefix}
       --with-ssl=#{openssl.opt_prefix}
       --with-ca-bundle=#{openssl.pkgetc}/cert.pem
@@ -59,7 +60,6 @@ class Curl < Formula
       --with-librtmp
       --with-libssh2
       --without-libpsl
-      --enable-hsts
     ]
 
     system "./configure", *args
