@@ -12,7 +12,7 @@ class Xmount < Formula
     sha256 "a4436c7060d9b84abfa6450c7156cd994f42c130eebf1281e21319d6e5c00415" => :high_sierra
   end
 
-  deprecate! because: "requires FUSE"
+  deprecate! date: "2020-11-10", because: "requires FUSE"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
