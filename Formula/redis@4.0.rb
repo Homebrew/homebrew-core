@@ -16,7 +16,7 @@ class RedisAT40 < Formula
 
   keg_only :versioned_formula
 
-  deprecate! because: :versioned_formula
+  deprecate! date: "2020-04-30", because: :versioned_formula
 
   def install
     system "make", "install", "PREFIX=#{prefix}", "CC=#{ENV.cc}"
