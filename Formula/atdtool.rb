@@ -20,7 +20,7 @@ class Atdtool < Formula
     sha256 "267d97304c449f94707c4fac451331d1c9e38e07b774cc4fd78043a0bc94c197" => :mojave
   end
 
-  deprecate! because: :repo_archived
+  deprecate! date: "2020-11-18", because: :repo_archived
 
   depends_on "python@3.9"
 
