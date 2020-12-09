@@ -16,7 +16,7 @@ class Ext2fuse < Formula
     sha256 "0b8e89292e91a8fbe00430ae16a3ebbfdbba1017f6dee4801bcf8e63d238962f" => :high_sierra
   end
 
-  deprecate! because: "requires FUSE"
+  deprecate! date: "2020-11-10", because: "requires FUSE"
 
   depends_on "e2fsprogs"
   depends_on :osxfuse
