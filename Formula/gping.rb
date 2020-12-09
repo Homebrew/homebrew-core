@@ -6,6 +6,10 @@ class Gping < Formula
   license "MIT"
   head "https://github.com/orf/gping.git"
 
+  # The GitHub repository has a "latest" release but it can sometimes point to
+  # a release like `v1.2.3-post`, `v1.2.3-post2`, etc. We're checking the Git
+  # tags because the author of `gping` requested that we omit `post` releases:
+  # https://github.com/Homebrew/homebrew-core/pull/66366#discussion_r537339032
   livecheck do
     url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
