@@ -12,7 +12,7 @@ class SimpleMtpfs < Formula
     sha256 "0a22b0fd5ea759ce48068efabf40ac09b4a76d5dcf942db8b672edfd3e1b90a8" => :high_sierra
   end
 
-  deprecate! because: "requires FUSE"
+  deprecate! date: "2020-11-10", because: "requires FUSE"
 
   depends_on "autoconf" => :build
   depends_on "autoconf-archive" => :build # required for AX_CXX_COMPILE_STDCXX_17
