@@ -2,7 +2,7 @@ class Sdl < Formula
   desc "Low-level access to audio, keyboard, mouse, joystick and graphics"
   homepage "https://www.libsdl.org/"
   license "LGPL-2.1-only"
-  revision 2
+  revision 3
 
   stable do
     url "https://www.libsdl.org/release/SDL-1.2.15.tar.gz"
@@ -33,6 +33,14 @@ class Sdl < Formula
       patch do
         url "https://bugzilla-attachments.libsdl.org/attachment.cgi?id=4288"
         sha256 "5a89ddce5deaf72348792d33e12b5f66d0dab4f9747718bb5021d3067bdab283"
+      end
+    end
+
+    # Fix audio initialization issues on Big Sur
+    if MacOS.version >= :big_sur
+      patch do
+        url "http://hg.libsdl.org/SDL/raw-rev/45055c672931"
+        sha256 "4bc838bcfe8f671e016d22d9319cb39ca94052b86ad45b805d9b4d32564ef836"
       end
     end
   end
