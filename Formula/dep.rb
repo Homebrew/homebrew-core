@@ -15,7 +15,7 @@ class Dep < Formula
     sha256 "a86103fd9d7349cde0906850b1adaaa4e9b6c787cb11b0a791127c9af16ede8a" => :mojave
   end
 
-  deprecate! because: :repo_archived
+  deprecate! date: "2020-11-25", because: :repo_archived
 
   depends_on "go"
 
