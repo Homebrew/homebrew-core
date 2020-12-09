@@ -14,7 +14,7 @@ class Corectl < Formula
     sha256 "89e963f61102d26d5fe756b06f50aa73bf9f827f81f92cefa2da6c195b7865da" => :sierra
   end
 
-  deprecate! because: :unmaintained
+  deprecate! date: "2020-11-14", because: :unmaintained
 
   depends_on "aspcud" => :build
   depends_on "go" => :build
