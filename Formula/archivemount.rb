@@ -16,7 +16,7 @@ class Archivemount < Formula
     sha256 "428113b60673b6bb8be9467587f1d82bf4c9447c7f0bbdea47749bed3ec86798" => :high_sierra
   end
 
-  deprecate! because: "requires FUSE"
+  deprecate! date: "2020-11-10", because: "requires FUSE"
 
   depends_on "pkg-config" => :build
   depends_on "libarchive"
