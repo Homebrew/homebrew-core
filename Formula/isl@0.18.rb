@@ -22,7 +22,7 @@ class IslAT018 < Formula
 
   keg_only :versioned_formula
 
-  deprecate! because: :versioned_formula
+  deprecate! date: "2020-11-05", because: :versioned_formula
 
   depends_on "gmp"
 
