@@ -20,7 +20,7 @@ class Infer < Formula
     sha256 "7630571f8e391ce0ba991ffe7a5d7b2b4a1029cda1d56497800d8ae0a260d4b6" => :high_sierra
   end
 
-  deprecate! because: :does_not_build
+  deprecate! date: "2020-11-13", because: :does_not_build
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
