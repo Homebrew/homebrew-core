@@ -3,10 +3,9 @@ class NicotinePlus < Formula
 
   desc "Graphical client for the SoulSeek peer-to-peer system"
   homepage "https://www.nicotine-plus.org/"
-  url "https://github.com/Nicotine-Plus/nicotine-plus/archive/2.1.2.tar.gz"
-  sha256 "3ed18ade97183c632836eb8e304a515fc19a35babb46cc6e6747bcfd8205dcdf"
+  url "https://github.com/Nicotine-Plus/nicotine-plus/archive/2.2.0.tar.gz"
+  sha256 "604b81d26670b4c04240e3a922cd90b1b8aa575deb155d2e1209deaddb0e4026"
   license "GPL-3.0-or-later"
-  revision 1
   head "https://github.com/Nicotine-Plus/nicotine-plus.git"
 
   bottle do
