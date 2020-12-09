@@ -15,15 +15,21 @@ class Vc < Formula
   end
 
   test do
-    # `test do` will create, run in and delete a temporary directory.
-    #
-    # This test will fail and we won't accept that! For Homebrew/homebrew-core
-    # this will need to be a test that verifies the functionality of the
-    # software. Run the test with `brew test Vc`. Options passed
-    # to `brew install` such as `--HEAD` also need to be provided to `brew test`.
-    #
-    # The installed folder is not in the path, so use the entire path to any
-    # executables being tested: `system "#{bin}/program", "do", "something"`.
-    system "false"
+    (testpath/"test.cpp").write <<~EOS
+      #include <Vc/Vc>
+
+      using Vc::float_v;
+      using Vec3D = std::array<float_v, 3>;
+
+      float_v scalar_product(Vec3D a, Vec3D b) {
+        return a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
+       }
+
+       int main(){
+         return 0;
+       }
+    EOS
+    system ENV.cc, "test.cpp", "-std=c++11", "-L#{lib}", "-lvc", "-o", "test"
+    system "./test"
   end
 end
