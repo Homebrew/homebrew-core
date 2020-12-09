@@ -13,7 +13,7 @@ class Ifuse < Formula
     sha256 "ff5577f28749cf18671eecd953e96f0c52a06dccf827dcf08e2d64f894dfdd5e" => :high_sierra
   end
 
-  deprecate! because: "requires FUSE"
+  deprecate! date: "2020-11-10", because: "requires FUSE"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
