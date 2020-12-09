@@ -2,8 +2,8 @@ class Stolon < Formula
   desc "Cloud native PostgreSQL manager for high availability"
   homepage "https://github.com/sorintlab/stolon"
   url "https://github.com/sorintlab/stolon.git",
-    tag:      "v0.16.0",
-    revision: "920fe4b83c158a6fe496dd6427a3715b84c0b4e2"
+      tag:      "v0.16.0",
+      revision: "920fe4b83c158a6fe496dd6427a3715b84c0b4e2"
   license "Apache-2.0"
 
   bottle do

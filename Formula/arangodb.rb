@@ -24,8 +24,8 @@ class Arangodb < Formula
   # with a unified CLI
   resource "starter" do
     url "https://github.com/arangodb-helper/arangodb.git",
-      tag:      "0.14.15",
-      revision: "e32307e9ae5a0046214cb066355a8577e6fc4148"
+        tag:      "0.14.15",
+        revision: "e32307e9ae5a0046214cb066355a8577e6fc4148"
   end
 
   # Fix compilation with Xcode 12, remove in next release

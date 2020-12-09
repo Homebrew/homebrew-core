@@ -2,8 +2,8 @@ class Envconsul < Formula
   desc "Launch process with environment variables from Consul and Vault"
   homepage "https://github.com/hashicorp/envconsul"
   url "https://github.com/hashicorp/envconsul.git",
-    tag:      "v0.11.0",
-    revision: "c3eeb0d39addb0ceb81cca91d4202cfc667fddd7"
+      tag:      "v0.11.0",
+      revision: "c3eeb0d39addb0ceb81cca91d4202cfc667fddd7"
   license "MPL-2.0"
 
   bottle do

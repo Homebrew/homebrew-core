@@ -27,43 +27,43 @@ class V8 < Formula
   # e.g. for CIPD dependency gn: https://github.com/v8/v8/blob/7.6.303.27/DEPS#L15
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-      revision: "e002e68a48d1c82648eadde2f6aafa20d08c36f2"
+        revision: "e002e68a48d1c82648eadde2f6aafa20d08c36f2"
   end
 
   # e.g.: https://github.com/v8/v8/blob/7.6.303.27/DEPS#L60 for the revision of build for v8 7.6.303.27
   resource "v8/build" do
     url "https://chromium.googlesource.com/chromium/src/build.git",
-      revision: "38a49c12ded01dd8c4628b432cb7eebfb29e77f1"
+        revision: "38a49c12ded01dd8c4628b432cb7eebfb29e77f1"
   end
 
   resource "v8/third_party/icu" do
     url "https://chromium.googlesource.com/chromium/deps/icu.git",
-      revision: "aef20f06d47ba76fdf13abcdb033e2a408b5a94d"
+        revision: "aef20f06d47ba76fdf13abcdb033e2a408b5a94d"
   end
 
   resource "v8/base/trace_event/common" do
     url "https://chromium.googlesource.com/chromium/src/base/trace_event/common.git",
-      revision: "23ef5333a357fc7314630ef88b44c3a545881dee"
+        revision: "23ef5333a357fc7314630ef88b44c3a545881dee"
   end
 
   resource "v8/third_party/googletest/src" do
     url "https://chromium.googlesource.com/external/github.com/google/googletest.git",
-      revision: "4fe018038f87675c083d0cfb6a6b57c274fb1753"
+        revision: "4fe018038f87675c083d0cfb6a6b57c274fb1753"
   end
 
   resource "v8/third_party/jinja2" do
     url "https://chromium.googlesource.com/chromium/src/third_party/jinja2.git",
-      revision: "a82a4944a7f2496639f34a89c9923be5908b80aa"
+        revision: "a82a4944a7f2496639f34a89c9923be5908b80aa"
   end
 
   resource "v8/third_party/markupsafe" do
     url "https://chromium.googlesource.com/chromium/src/third_party/markupsafe.git",
-      revision: "f2fb0f21ef1e1d4ffd43be8c63fc3d4928dea7ab"
+        revision: "f2fb0f21ef1e1d4ffd43be8c63fc3d4928dea7ab"
   end
 
   resource "v8/third_party/zlib" do
     url "https://chromium.googlesource.com/chromium/src/third_party/zlib.git",
-      revision: "4668feaaa47973a6f9d9f9caeb14cd03731854f1"
+        revision: "4668feaaa47973a6f9d9f9caeb14cd03731854f1"
   end
 
   def install

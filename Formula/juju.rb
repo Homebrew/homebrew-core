@@ -2,8 +2,8 @@ class Juju < Formula
   desc "DevOps management tool"
   homepage "https://juju.is/"
   url "https://github.com/juju/juju.git",
-    tag:      "juju-2.8.6",
-    revision: "5d0442d3e15952bfc0ce059cb43ef7949ca71aaa"
+      tag:      "juju-2.8.6",
+      revision: "5d0442d3e15952bfc0ce059cb43ef7949ca71aaa"
   license "AGPL-3.0-only"
   revision 1
   version_scheme 1

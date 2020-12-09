@@ -5,8 +5,7 @@ class Consul < Formula
       tag:      "v1.9.0",
       revision: "a417fe51040a33039d3282e31c6c6b6f4fd1f886"
   license "MPL-2.0"
-  head "https://github.com/hashicorp/consul.git",
-       shallow: false
+  head "https://github.com/hashicorp/consul.git", shallow: false
 
   livecheck do
     url :head
