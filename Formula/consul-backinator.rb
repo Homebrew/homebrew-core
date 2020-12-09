@@ -16,27 +16,16 @@ class ConsulBackinator < Formula
     sha256 "bb39c88ad9e3e5aa6b12ea08bbd6ec2b31601d0c14f943aaaf10bfcf14cc5b8d" => :el_capitan
   end
 
-  depends_on "glide" => :build
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
-
-    dir = buildpath/"src/github.com/myENA/consul-backinator"
-    dir.install buildpath.children
-
-    cd dir do
-      system "glide", "install"
-      system "go", "build", "-v", "-ldflags",
-             "-X main.appVersion=#{version}", "-o",
-             bin/"consul-backinator"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args, "-ldflags", "-s -w -X main.appVersion=#{version}"
   end
 
   test do
-    output = shell_output("#{bin}/consul-backinator --version 2>&1")
-    assert_equal version.to_s, output.strip
+    assert_equal version.to_s, shell_output("#{bin}/consul-backinator --version 2>&1").strip
+
+    assert_match "[Error] Failed to backup key data:",
+      shell_output("#{bin}/consul-backinator backup 2>&1", 1)
   end
 end
