@@ -1,8 +1,8 @@
 class Helib < Formula
   desc "Implementation of homomorphic encryption"
   homepage "https://github.com/homenc/HElib"
-  url "https://github.com/homenc/HElib/archive/v1.2.0.tar.gz"
-  sha256 "17e0448a3255ab01a1ebd8382f9d08a318e3d192b56d062a1fd65fbb0aadaf67"
+  url "https://github.com/homenc/HElib/archive/v1.3.0.tar.gz"
+  sha256 "f3c7411a4d1cdb935b49df68dbb6a2dcd77f597fb4e3abaae2f15b70db691a19"
   license "Apache-2.0"
 
   bottle do
@@ -27,7 +27,7 @@ class Helib < Formula
   test do
     cp pkgshare/"examples/BGV_country_db_lookup/BGV_country_db_lookup.cpp", testpath/"test.cpp"
     mkdir "build"
-    system ENV.cxx, "-std=c++14", "-L#{lib}", "-L#{Formula["ntl"].opt_lib}",
+    system ENV.cxx, "-std=c++17", "-L#{lib}", "-L#{Formula["ntl"].opt_lib}",
                     "-lhelib", "-lntl", "test.cpp", "-o", "build/BGV_country_db_lookup"
 
     cp_r pkgshare/"examples/tests", testpath
