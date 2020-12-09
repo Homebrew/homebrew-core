@@ -16,6 +16,7 @@ class Kubevela < Formula
   depends_on "go" => :build
 
   def install
+    system "go", "run", "hack/chart/generate.go"
     system "make", "vela-cli", "VELA_VERSION=#{version}"
     bin.install "bin/vela"
 
