@@ -13,6 +13,8 @@ class Leiningen < Formula
     sha256 "3e65cbf112fe60434c3b6f748342de048feeaa63f10da2e26721ce9e83dea081" => :high_sierra
   end
 
+  depends_on "openjdk"
+
   resource "jar" do
     url "https://github.com/technomancy/leiningen/releases/download/2.9.5/leiningen-2.9.5-standalone.zip", using: :nounzip
     sha256 "df490c98bfe8d667bc5d83b80238528877234c285d0d48f61a4c8743c2db1eea"
@@ -29,7 +31,9 @@ class Leiningen < Formula
       s.change_make_var! "LEIN_JAR", libexec/jar
     end
 
-    bin.install "bin/lein-pkg" => "lein"
+    (libexec/"bin").install "bin/lein-pkg" => "lein"
+    (libexec/"bin/lein").chmod 0755
+    (bin/"lein").write_env_script libexec/"bin/lein", Language::Java.overridable_java_home_env
     bash_completion.install "bash_completion.bash" => "lein-completion.bash"
     zsh_completion.install "zsh_completion.zsh" => "_lein"
   end
