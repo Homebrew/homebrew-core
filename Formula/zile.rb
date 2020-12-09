@@ -4,6 +4,7 @@ class Zile < Formula
   url "https://ftp.gnu.org/gnu/zile/zile-2.6.0.90.tar.gz"
   mirror "https://ftpmirror.gnu.org/zile/zile-2.6.0.90.tar.gz"
   sha256 "239b5b9575e3310205912cb87a25a6bff0d951feb7623722041ee2aa95e50dae"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url :stable
