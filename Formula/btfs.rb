@@ -13,7 +13,7 @@ class Btfs < Formula
     sha256 "934b8849eaecd08113b01e222c9583f9293100889f3f40f8452a476a6491e0d0" => :high_sierra
   end
 
-  deprecate! because: "requires FUSE"
+  deprecate! date: "2020-11-10", because: "requires FUSE"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
