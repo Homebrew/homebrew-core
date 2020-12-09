@@ -18,7 +18,7 @@ class Cryfs < Formula
     url "https://github.com/cryfs/cryfs.git", branch: "develop", shallow: false
   end
 
-  deprecate! because: "requires FUSE"
+  deprecate! date: "2020-11-10", because: "requires FUSE"
 
   depends_on "cmake" => :build
   depends_on "boost"
