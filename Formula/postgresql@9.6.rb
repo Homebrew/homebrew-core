@@ -6,8 +6,8 @@ class PostgresqlAT96 < Formula
   license "PostgreSQL"
 
   livecheck do
-    url "https://www.postgresql.org/docs/9.6/static/release.html"
-    regex(/Release v?(\d+(?:\.\d+)+)/i)
+    url "https://ftp.postgresql.org/pub/source/"
+    regex(%r{href=["']?v?(9\.6(?:\.\d+)*)/?["' >]}i)
   end
 
   bottle do

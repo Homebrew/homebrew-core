@@ -7,8 +7,8 @@ class Postgresql < Formula
   head "https://github.com/postgres/postgres.git"
 
   livecheck do
-    url "https://www.postgresql.org/docs/current/static/release.html"
-    regex(/Release v?(\d+(?:\.\d+)*)/i)
+    url "https://ftp.postgresql.org/pub/source/"
+    regex(%r{href=["']?v?(\d+(?:\.\d+)*)/?["' >]}i)
   end
 
   bottle do

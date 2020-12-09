@@ -5,6 +5,11 @@ class PostgresqlAT10 < Formula
   sha256 "5956bce0becffa77883c41594c95a23110b94f10cd66a1157e373c3575921f7e"
   license "PostgreSQL"
 
+  livecheck do
+    url "https://ftp.postgresql.org/pub/source/"
+    regex(%r{href=["']?v?(10(?:\.\d+)*)/?["' >]}i)
+  end
+
   bottle do
     sha256 "0f46b9ebfcb7549d7c1b01eed0aee17a0e2d0e48ecad0a532bddc6da10b7a46a" => :big_sur
     sha256 "cf0a50442e13e4e6bb3dba192bfa8248d542d0090cfd841d86cd11fe7c94f629" => :arm64_big_sur
