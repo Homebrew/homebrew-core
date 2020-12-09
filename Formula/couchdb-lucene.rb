@@ -4,7 +4,7 @@ class CouchdbLucene < Formula
   url "https://github.com/rnewson/couchdb-lucene/archive/v2.1.0.tar.gz"
   sha256 "8297f786ab9ddd86239565702eb7ae8e117236781144529ed7b72a967224b700"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
@@ -15,7 +15,7 @@ class CouchdbLucene < Formula
 
   depends_on "maven" => :build
   depends_on "couchdb"
-  depends_on "openjdk@8"
+  depends_on "openjdk"
 
   def install
     system "mvn"
@@ -25,22 +25,16 @@ class CouchdbLucene < Formula
     rm_rf Dir["bin/*.bat"]
     libexec.install Dir["*"]
 
+    env = Language::Java.overridable_java_home_env
+    env["CL_BASEDIR"] = libexec/"bin"
     Dir.glob("#{libexec}/bin/*") do |path|
       bin_name = File.basename(path)
       cmd = "cl_#{bin_name}"
-      (bin/cmd).write shim_script(bin_name)
+      (bin/cmd).write_env_script libexec/"bin/#{bin_name}", env
       (libexec/"clbin").install_symlink bin/cmd => bin_name
     end
 
     ini_path.write(ini_file) unless ini_path.exist?
-  end
-
-  def shim_script(target)
-    <<~EOS
-      #!/bin/bash
-      export CL_BASEDIR=#{libexec}/bin
-      exec "$CL_BASEDIR/#{target}" "$@"
-    EOS
   end
 
   def ini_path
@@ -102,8 +96,8 @@ class CouchdbLucene < Formula
     # This seems to be the easiest way to make the test play nicely in our
     # sandbox. If it works here, it'll work in the normal location though.
     cp_r Dir[opt_prefix/"*"], testpath
-    inreplace "bin/cl_run", "CL_BASEDIR=#{libexec}/bin",
-                            "CL_BASEDIR=#{testpath}/libexec/bin"
+    inreplace "bin/cl_run", "CL_BASEDIR=\"#{libexec}/bin\"",
+                            "CL_BASEDIR=\"#{testpath}/libexec/bin\""
     port = free_port
     inreplace "libexec/conf/couchdb-lucene.ini", "port=5985", "port=#{port}"
 
