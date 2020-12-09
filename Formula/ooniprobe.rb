@@ -29,57 +29,8 @@ class Ooniprobe < Formula
   end
 
   def post_install
-    (prefix/"share/daily-config.json").write <<~EOS
-      {
-        "_version": 3,
-        "_informed_consent": true,
-        "sharing": {
-          "include_ip": false,
-          "include_asn": true,
-          "upload_results": true
-        },
-        "nettests": {
-          "websites_url_limit": 0,
-          "websites_enabled_category_codes": [
-            "ALDR",
-            "ANON",
-            "COMM",
-            "COMT",
-            "CTRL",
-            "CULTR",
-            "DATE",
-            "ECON",
-            "ENV",
-            "FILE",
-            "GAME",
-            "GMB",
-            "GOVT",
-            "GRP",
-            "HACK",
-            "HATE",
-            "HOST",
-            "HUMR",
-            "IGO",
-            "LGBT",
-            "MILX",
-            "MISC",
-            "MMED",
-            "NEWS",
-            "POLR",
-            "PORN",
-            "PROV",
-            "PUBH",
-            "REL",
-            "SRCH",
-            "XED"
-          ]
-        },
-        "advanced": {
-          "send_crash_reports": true,
-          "collect_usage_stats": true
-        }
-      }
-    EOS
+    ENV["OONI_HOME"] = "#{HOMEBREW_PREFIX}/var/ooniprobe"
+    system bin/"ooniprobe", "onboard", "--yes"
   end
 
   def caveats
@@ -123,7 +74,6 @@ class Ooniprobe < Formula
           <key>ProgramArguments</key>
           <array>
               <string>#{opt_bin}/ooniprobe</string>
-              <string>--config=#{prefix}/share/daily-config.json</string>
               <string>--log-handler=syslog</string>
               <string>run</string>
               <string>unattended</string>
