@@ -162,6 +162,11 @@ class Ooniprobe < Formula
 
     mkdir_p "#{testpath}/ooni_home"
     ENV["OONI_HOME"] = "#{testpath}/ooni_home"
-    system bin/"ooniprobe", "--config", testpath/"config.json", "run", "websites"
+    Open3.popen3(bin/"ooniprobe", "--config", testpath/"config.json", "run", "websites", "--batch") do |_, _, stderr|
+      stderr.to_a.each do |line|
+        j_line = JSON.parse(line)
+        assert_equal j_line["level"], "info"
+      end
+    end
   end
 end
