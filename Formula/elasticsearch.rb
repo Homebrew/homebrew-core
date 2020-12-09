@@ -1,8 +1,8 @@
 class Elasticsearch < Formula
   desc "Distributed search & analytics engine"
   homepage "https://www.elastic.co/products/elasticsearch"
-  url "https://github.com/elastic/elasticsearch/archive/v7.10.0.tar.gz"
-  sha256 "f9ed6fab9c34dd77e21ed5bbc88256b54674295455c72b79490476f71de38440"
+  url "https://github.com/elastic/elasticsearch/archive/v7.10.1.tar.gz"
+  sha256 "993ec62f0185ca4a9f96e5f06617967e3d29e9186d0651bb1663e486f862078f"
   license "Apache-2.0"
 
   bottle do
