@@ -13,7 +13,7 @@ class RofsFiltered < Formula
     sha256 "74277c4f4cc2c60534cda38627450176f356da5bb7120334fd667eaa261fea7b" => :high_sierra
   end
 
-  deprecate! because: "requires FUSE"
+  deprecate! date: "2020-11-10", because: "requires FUSE"
 
   depends_on "cmake" => :build
   depends_on :osxfuse
