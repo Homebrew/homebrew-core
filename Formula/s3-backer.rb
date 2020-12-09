@@ -17,7 +17,7 @@ class S3Backer < Formula
     sha256 "4d23cfd2c126c5f3efa1023e7c061830de6f1fdda69760bbd3ed70a169def288" => :high_sierra
   end
 
-  deprecate! because: "requires FUSE"
+  deprecate! date: "2020-11-10", because: "requires FUSE"
 
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
