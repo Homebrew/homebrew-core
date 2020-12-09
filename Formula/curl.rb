@@ -59,6 +59,7 @@ class Curl < Formula
       --with-librtmp
       --with-libssh2
       --without-libpsl
+      --enable-hsts
     ]
 
     system "./configure", *args
