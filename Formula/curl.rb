@@ -1,12 +1,13 @@
 class Curl < Formula
   desc "Get a file from an HTTP, HTTPS or FTP server"
-  homepage "https://curl.haxx.se/"
-  url "https://curl.haxx.se/download/curl-7.74.0.tar.bz2"
+  homepage "https://curl.se/"
+  url "https://curl.se/download/curl-7.74.0.tar.bz2"
   sha256 "0f4d63e6681636539dc88fa8e929f934cd3a840c46e0bf28c73be11e521b77a5"
   license "curl"
+  revision 1
 
   livecheck do
-    url "https://curl.haxx.se/download/"
+    url "https://curl.se/download/"
     regex(/href=.*?curl[._-]v?(.*?)\.t/i)
   end
 
