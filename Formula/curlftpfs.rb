@@ -18,7 +18,7 @@ class Curlftpfs < Formula
     sha256 "5734dbff6e2a7c18232d08d22fe64e19610f32b07e48b276996df759baaef407" => :sierra
   end
 
-  deprecate! because: "requires FUSE"
+  deprecate! date: "2020-11-10", because: "requires FUSE"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
