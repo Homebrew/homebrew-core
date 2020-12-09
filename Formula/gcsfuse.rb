@@ -18,7 +18,7 @@ class Gcsfuse < Formula
     sha256 "e0f04b45a7fe6583e424fc81a7c34dace7b01e215739758930b6baab14d3d50c" => :high_sierra
   end
 
-  deprecate! because: "requires FUSE"
+  deprecate! date: "2020-11-10", because: "requires FUSE"
 
   depends_on "go" => :build
   depends_on :osxfuse
