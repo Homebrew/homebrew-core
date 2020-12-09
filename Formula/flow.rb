@@ -4,8 +4,8 @@ class Flow < Formula
   url "https://github.com/facebook/flow/archive/v0.138.0.tar.gz"
   sha256 "f98e813a66186938666d3503f5aa4717c676b07d3fb7e5dac260029135dfbb37"
   license "MIT"
-  head "https://github.com/facebook/flow.git"
   revision 1
+  head "https://github.com/facebook/flow.git"
 
   bottle do
     cellar :any_skip_relocation

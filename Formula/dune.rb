@@ -4,8 +4,8 @@ class Dune < Formula
   url "https://github.com/ocaml/dune/releases/download/2.7.1/dune-2.7.1.tbz"
   sha256 "c3528f2f8b3a2e3fe18e166fc823e6caeee8b7c78ade6b6fe4d2fa978070925d"
   license "MIT"
-  head "https://github.com/ocaml/dune.git"
   revision 1
+  head "https://github.com/ocaml/dune.git"
 
   bottle do
     cellar :any_skip_relocation

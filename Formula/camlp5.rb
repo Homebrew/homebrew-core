@@ -5,8 +5,8 @@ class Camlp5 < Formula
   version "7.13"
   sha256 "bc73a8810552fbd0c905364aba34dba46e3cadae483f89e7e39fa7f7d3be720c"
   license "BSD-3-Clause"
-  head "https://github.com/camlp5/camlp5.git"
   revision 1
+  head "https://github.com/camlp5/camlp5.git"
 
   livecheck do
     url :homepage
