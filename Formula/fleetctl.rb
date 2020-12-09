@@ -16,7 +16,7 @@ class Fleetctl < Formula
     sha256 "578bc15de6d87d53165ff70805388b41388f01d10a7c5d809fafd46c4d9040aa" => :high_sierra
   end
 
-  deprecate! because: :repo_archived
+  deprecate! date: "2020-11-15", because: :repo_archived
 
   depends_on "go" => :build
 
