@@ -19,7 +19,7 @@ class Bindfs < Formula
     depends_on "libtool" => :build
   end
 
-  deprecate! because: "requires FUSE"
+  deprecate! date: "2020-11-10", because: "requires FUSE"
 
   depends_on "pkg-config" => :build
   depends_on :osxfuse
