@@ -14,7 +14,7 @@ class Tidyp < Formula
     sha256 "267b4c383278baa37d4bab8e10aba1ee73d2eba642332414fad77d262b602099" => :high_sierra
   end
 
-  deprecate! because: :repo_archived
+  deprecate! date: "2020-11-10", because: :repo_archived
 
   uses_from_macos "libxslt" => :build
 
