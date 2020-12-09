@@ -1,8 +1,8 @@
 class Hledger < Formula
   desc "Easy plain text accounting with command-line, terminal and web UIs"
   homepage "https://hledger.org/"
-  url "https://hackage.haskell.org/package/hledger-1.19.1/hledger-1.19.1.tar.gz"
-  sha256 "d5c1eb6d8de5cf2d82771db1796b57a304095fa940773a6405c9cd8085f3da71"
+  url "https://hackage.haskell.org/package/hledger-1.20.1/hledger-1.20.1.tar.gz"
+  sha256 "799e9523cf4704e1ec90dbd3f856249405eaa6876edba954f07b78175db9c1a5"
   license "GPL-3.0-or-later"
 
   # A new version is sometimes present on Hackage before it's officially
@@ -20,23 +20,23 @@ class Hledger < Formula
     sha256 "31d4beba55f2acbe521b255b40e9751cba33065193be8be102381cfffcc98f62" => :high_sierra
   end
 
-  depends_on "ghc@8.8" => :build
+  depends_on "ghc" => :build
   depends_on "haskell-stack" => :build
 
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
   resource "hledger-lib" do
-    url "https://hackage.haskell.org/package/hledger-lib-1.19.1/hledger-lib-1.19.1.tar.gz"
-    sha256 "cabf263fe8a3c38822c9146b54a519fe56d369456c72be6db5a88c1c0208c15f"
+    url "https://hackage.haskell.org/package/hledger-lib-1.20.1/hledger-lib-1.20.1.tar.gz"
+    sha256 "c14bc3e1b704f657ece7741566330c44be1009ae66e14d98374aa513992e06ce"
   end
   resource "hledger-ui" do
-    url "https://hackage.haskell.org/package/hledger-ui-1.19.1/hledger-ui-1.19.1.tar.gz"
-    sha256 "d4154c33712b003dc15d795c92da59158d2ca5e02660234f731d2794a5403f9e"
+    url "https://hackage.haskell.org/package/hledger-ui-1.20.1/hledger-ui-1.20.1.tar.gz"
+    sha256 "cc1b0b307e89d525b6393a5c07733f531cf13e69eb9235e3aef2c7fdbf0fa737"
   end
   resource "hledger-web" do
-    url "https://hackage.haskell.org/package/hledger-web-1.19.1/hledger-web-1.19.1.tar.gz"
-    sha256 "6085cb69bdc3808f929cc6ee621c0d3ffc773debe42bc1aaf0c7c1fe1a988a0f"
+    url "https://hackage.haskell.org/package/hledger-web-1.20.1/hledger-web-1.20.1.tar.gz"
+    sha256 "14c93f228e28fc63122db7b2b6af70fb15a581f612165b6a9ee46ee6f6789b68"
   end
 
   def install
@@ -45,18 +45,30 @@ class Hledger < Formula
     (buildpath/"../hledger-web").install resource("hledger-web")
     cd ".." do
       system "stack", "update"
-      system "stack", "init", "--resolver=lts-16.12"
-      system "stack", "install", "--system-ghc", "--no-install-ghc", "--local-bin-path=#{bin}"
+      (buildpath/"../stack.yaml").write <<~EOS
+        resolver: lts-16.27
+        compiler: ghc-#{Formula["ghc"].version}
+        compiler-check: newer-minor
+        packages:
+        - hledger-#{version}
+        - hledger-lib
+        - hledger-ui
+        - hledger-web
+        extra-deps:
+        - pretty-simple-4.0.0.0
+        - prettyprinter-1.7.0
+      EOS
+      system "stack", "install", "--system-ghc", "--no-install-ghc", "--skip-ghc-check", "--local-bin-path=#{bin}"
 
-      man1.install "hledger-1.19.1/hledger.1"
-      man1.install "hledger-ui/hledger-ui.1"
-      man1.install "hledger-web/hledger-web.1"
+      man1.install "hledger-#{version}/hledger.1"
       man5.install "hledger-lib/hledger_csv.5"
       man5.install "hledger-lib/hledger_journal.5"
       man5.install "hledger-lib/hledger_timeclock.5"
       man5.install "hledger-lib/hledger_timedot.5"
+      man1.install "hledger-ui/hledger-ui.1"
+      man1.install "hledger-web/hledger-web.1"
 
-      info.install "hledger-1.19.1/hledger.info"
+      info.install "hledger-#{version}/hledger.info"
       info.install "hledger-lib/hledger_csv.info"
       info.install "hledger-lib/hledger_journal.info"
       info.install "hledger-lib/hledger_timeclock.info"
@@ -68,26 +80,7 @@ class Hledger < Formula
 
   test do
     system "#{bin}/hledger", "test"
-
-    File.open(".hledger.journal", "w") do |f|
-      f.write <<~EOS
-        2020/1/1
-          boat  123
-          cash
-      EOS
-    end
-
     system "#{bin}/hledger-ui", "--version"
-
-    pid = fork do
-      exec "#{bin}/hledger-web", "--serve"
-    end
-    sleep 1
-    begin
-      assert_match /boat +123/, shell_output("curl -s http://127.0.0.1:5000/journal")
-    ensure
-      Process.kill("SIGINT", pid)
-      Process.wait(pid)
-    end
+    system "#{bin}/hledger-web", "--test"
   end
 end
