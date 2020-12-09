@@ -19,7 +19,7 @@ class Sshfs < Formula
     sha256 "dc4a7f24c2cbebd7c35891200b043d737ba6586a28992708ef849ffedff7bb01" => :sierra
   end
 
-  deprecate! because: "requires FUSE"
+  deprecate! date: "2020-11-10", because: "requires FUSE"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
