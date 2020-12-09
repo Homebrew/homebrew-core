@@ -28,6 +28,16 @@ class Sbt < Formula
       export JAVA_HOME="${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
       exec "#{libexec}/bin/sbt" "$@"
     EOS
+
+    (bin/"sbtn").write <<~EOS
+      #!/bin/sh
+      if [ -f "$HOME/.sbtconfig" ]; then
+        echo "Use of ~/.sbtconfig is deprecated, please migrate global settings to #{etc}/sbtopts" >&2
+        . "$HOME/.sbtconfig"
+      fi
+      export JAVA_HOME="${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
+      exec "#{libexec}/bin/sbtn-x86_64-apple-darwin" "$@"
+    EOS
   end
 
   def caveats
@@ -42,5 +52,7 @@ class Sbt < Formula
     ENV.append "_JAVA_OPTIONS", "-Dsbt.log.noformat=true"
     system "#{bin}/sbt", "about"
     assert_match version.to_s, shell_output("#{bin}/sbt sbtVersion")
+    system "#{bin}/sbtn", "about"
+    system "#{bin}/sbtn", "shutdown"
   end
 end
