@@ -18,7 +18,6 @@ class Ooniprobe < Formula
   depends_on "go@1.14" => :build
 
   def install
-    ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
     (buildpath/"src/github.com/ooni/probe-cli").install buildpath.children
 
     cd "src/github.com/ooni/probe-cli" do
