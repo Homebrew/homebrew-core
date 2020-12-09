@@ -14,7 +14,7 @@ class Govendor < Formula
     sha256 "28492791ec9b8c58e472a7276c9b86450112ef642e2aa10d025eb623e0921f40" => :mojave
   end
 
-  deprecate! because: :repo_archived
+  deprecate! date: "2020-11-15", because: :repo_archived
 
   depends_on "go"
 
