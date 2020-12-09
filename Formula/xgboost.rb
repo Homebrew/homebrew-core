@@ -16,16 +16,8 @@ class Xgboost < Formula
 
   depends_on "cmake" => :build
   depends_on "libomp"
-
-  resource "numpy" do
-    url "https://files.pythonhosted.org/packages/bf/e8/15aea783ea72e2d4e51e3ec365e8dc4a1a32c9e5eb3a6d695b0d58e67cdd/numpy-1.19.2.zip"
-    sha256 "0d310730e1e793527065ad7dde736197b705d0e4c9999775f212b03c44a8484c"
-  end
-
-  resource "scipy" do
-    url "https://files.pythonhosted.org/packages/93/63/4a566494594a13697c5d5d8a754d6e329d018ddf881520775e0229fa29ef/scipy-1.5.3.tar.gz"
-    sha256 "ddae76784574cc4c172f3d5edd7308be16078dd3b977e8746860c76c195fa707"
-  end
+  depends_on "numpy"
+  depends_on "scipy"
 
   def install
     mkdir "build" do
