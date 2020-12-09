@@ -17,7 +17,7 @@ class Lesstif < Formula
     sha256 "6bc0a2511a83a9a15bc27a2385aa7fd944836eb4e685ee7878e590be7680e713" => :high_sierra
   end
 
-  deprecate! because: :unmaintained
+  deprecate! date: "2020-11-14", because: :unmaintained
 
   depends_on "freetype"
   depends_on "libice"
