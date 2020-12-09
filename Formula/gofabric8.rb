@@ -13,7 +13,7 @@ class Gofabric8 < Formula
     sha256 "6fefb818e47769d4c0811db307d5000aa7d3d48bcdae42e24b0a27272e01641f" => :mojave
   end
 
-  deprecate! because: :repo_archived
+  deprecate! date: "2020-11-27", because: :repo_archived
 
   depends_on "go" => :build
 
