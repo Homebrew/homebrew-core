@@ -36,7 +36,8 @@ class Sdl < Formula
       end
     end
 
-    # Fix audio initialization issues on Big Sur
+    # Fix audio initialization issues on Big Sur, upstream patch
+    # http://hg.libsdl.org/SDL/rev/45055c672931
     if MacOS.version >= :big_sur
       patch do
         url "http://hg.libsdl.org/SDL/raw-rev/45055c672931"
