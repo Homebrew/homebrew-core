@@ -63,11 +63,18 @@ class PythonAT38 < Formula
   end
 
   # Remove this block when upstream adds arm64 compatibility
-  if Hardware::CPU.arm?
+  if MacOS.version >= :big_sur
     # Upstream PRs #20171, #21114, #21224 and #21249
     patch do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/113aa84/python/3.8.3.patch"
       sha256 "9c0d7c28c33c6036860457bd9c5a03026c71bd034907b77fbf861ff5fe216ed0"
+    end
+
+    # Further patch for Big Sur, remove in next version if backported
+    # https://github.com/python/cpython/pull/23556
+    patch do
+      url "https://github.com/fxcoudert/cpython/commit/6511bf56.patch?full_index=1"
+      sha256 "3a34fea8a133305bc337d67acfacc36dc8f9d47a808dd592f5b0cd8c9c9384d2"
     end
   end
 
