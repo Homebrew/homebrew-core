@@ -15,7 +15,7 @@ class Afuse < Formula
     sha256 "2a57c7752c7b461f6b628a1c30e845fe13685eab394d933e8da3aebf7102ae9c" => :yosemite
   end
 
-  deprecate! because: "requires FUSE"
+  deprecate! date: "2020-11-10", because: "requires FUSE"
 
   depends_on "pkg-config" => :build
   depends_on :osxfuse
