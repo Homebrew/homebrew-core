@@ -16,7 +16,7 @@ class Cquery < Formula
     sha256 "555804325cb45d5450c0d8b47096b71b8445af5370a9fc1e71acb1a6e86d3398" => :high_sierra
   end
 
-  deprecate! because: :repo_archived
+  deprecate! date: "2020-11-15", because: :repo_archived
 
   depends_on "cmake" => :build
   depends_on "llvm"
