@@ -20,7 +20,7 @@ class FuseZip < Formula
     sha256 "e72d442a43e1396c8a744e73bc9d197cbef7bb996bba97bff4b377c253c12ed8" => :high_sierra
   end
 
-  deprecate! because: "requires FUSE"
+  deprecate! date: "2020-11-10", because: "requires FUSE"
 
   depends_on "pkg-config" => :build
   depends_on "libzip"
