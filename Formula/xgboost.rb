@@ -31,7 +31,7 @@ class Xgboost < Formula
   test do
     cp_r (pkgshare/"demo"), testpath
     cd "demo/data" do
-      cp "../binary_classification/mushroom.conf", "."
+      cp "../CLI/binary_classification/mushroom.conf", "."
       system "#{bin}/xgboost", "mushroom.conf"
     end
   end
