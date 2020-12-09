@@ -1,9 +1,12 @@
 class Cups < Formula
   desc "Common UNIX Printing System"
-  homepage "https://www.cups.org"
-  url "https://github.com/apple/cups/releases/download/v2.3.3/cups-2.3.3-source.tar.gz"
-  sha256 "261fd948bce8647b6d5cb2a1784f0c24cc52b5c4e827b71d726020bcc502f3ee"
+  homepage "https://github.com/OpenPrinting/cups"
+  url "https://github.com/OpenPrinting/cups/releases/download/v2.3.3op1/cups-2.3.3op1-source.tar.gz"
+  # This is the author's fork of CUPS. Debian have switched to this fork:
+  # https://lists.debian.org/debian-printing/2020/12/msg00006.html
+  sha256 "5cf7988081d9003f589ba173b37bc2bbf81db43bb94e5e7d3e7d4c0afb0f9bc2"
   license "Apache-2.0"
+  head "https://github.com/OpenPrinting/cups.git"
 
   bottle do
     sha256 "00bdcf0cb9e681d4e10bc7ec87eb57ccc9c63a5b76816a8545b77e454a8a0021" => :big_sur
