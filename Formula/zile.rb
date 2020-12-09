@@ -22,6 +22,7 @@ class Zile < Formula
   depends_on "pkg-config" => :build
   depends_on "bdw-gc"
   depends_on "glib"
+  depends_on "libgee"
 
   uses_from_macos "ncurses"
 
