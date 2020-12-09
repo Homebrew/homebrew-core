@@ -14,7 +14,7 @@ class Giflossy < Formula
     sha256 "02eeb9a6b44178fdf1df803346dceedda853c7245cd51a1a6166290a73fb51f4" => :mojave
   end
 
-  deprecate! because: :repo_archived
+  deprecate! date: "2020-11-27", because: :repo_archived
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
