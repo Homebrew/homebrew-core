@@ -16,7 +16,7 @@ class S3ql < Formula
     sha256 "63b52252fa9acd84fe7af0812241ab35e72062044cfe0659163a39e47a76581d" => :high_sierra
   end
 
-  # Requires fuse3, while osxfusy only has fuse2 API
+  # Requires fuse3, while osxfuse only has fuse2 API
   # https://github.com/s3ql/s3ql/issues/192
   # Moreover, we disable all FUSE-based formulas anyway
   deprecate! date: "2020-08-08", because: :does_not_build
