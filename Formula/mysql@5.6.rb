@@ -46,6 +46,7 @@ class MysqlAT56 < Formula
       -DMYSQL_DATADIR=#{datadir}
       -DSYSCONFDIR=#{etc}
       -DWITH_EDITLINE=system
+      -DWITH_NUMA=OFF
       -DWITH_SSL=yes
       -DWITH_UNIT_TESTS=OFF
       -DWITH_EMBEDDED_SERVER=ON
