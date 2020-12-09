@@ -16,7 +16,7 @@ class Gitfs < Formula
     sha256 "218c5f19bcecb33e4f18c19cf0f56ce6d9628d4cfad9f095fbb1071af3cd79c2" => :high_sierra
   end
 
-  deprecate! because: "requires FUSE"
+  deprecate! date: "2020-11-10", because: "requires FUSE"
 
   depends_on "libgit2"
   depends_on :osxfuse
