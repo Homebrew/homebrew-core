@@ -16,7 +16,7 @@ class Infrakit < Formula
     sha256 "8db80c4d2d7842486a4cedfa4952ed06e453f2e61f4e6818a08b17fa694d1a1c" => :sierra
   end
 
-  deprecate! because: :repo_archived
+  deprecate! date: "2020-10-25", because: :repo_archived
 
   depends_on "go" => :build
   depends_on "libvirt" => :build
