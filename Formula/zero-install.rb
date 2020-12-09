@@ -6,6 +6,7 @@ class ZeroInstall < Formula
       revision: "4a837bd638d93905b96d073c28c644894f8d4a0b"
   license "LGPL-2.1-or-later"
   head "https://github.com/0install/0install.git"
+  revision 1
 
   livecheck do
     url :head

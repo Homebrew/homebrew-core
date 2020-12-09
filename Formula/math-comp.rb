@@ -5,6 +5,7 @@ class MathComp < Formula
   sha256 "a57b79a280e7e8527bf0d8710c1f65cde00032746b52b87be1ab12e6213c9783"
   license "CECILL-B"
   head "https://github.com/math-comp/math-comp.git"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation

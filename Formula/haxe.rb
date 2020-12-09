@@ -5,6 +5,7 @@ class Haxe < Formula
       tag:      "4.1.4",
       revision: "7d0faa039ffe5e618587e2417323b59044282177"
   head "https://github.com/HaxeFoundation/haxe.git", branch: "development"
+  revision 1
 
   livecheck do
     url "https://github.com/HaxeFoundation/haxe/releases/latest"

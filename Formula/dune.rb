@@ -5,6 +5,7 @@ class Dune < Formula
   sha256 "c3528f2f8b3a2e3fe18e166fc823e6caeee8b7c78ade6b6fe4d2fa978070925d"
   license "MIT"
   head "https://github.com/ocaml/dune.git"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation

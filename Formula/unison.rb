@@ -5,6 +5,7 @@ class Unison < Formula
   sha256 "0c287d17f52729440b2bdc28edf4d19b2d5ea5869983d78e780d501c5866914b"
   license "GPL-3.0-or-later"
   head "https://github.com/bcpierce00/unison.git", branch: "master"
+  revision 1
 
   livecheck do
     url "https://github.com/bcpierce00/unison/releases/latest"

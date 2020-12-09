@@ -3,6 +3,7 @@ class Ledit < Formula
   homepage "http://pauillac.inria.fr/~ddr/ledit/"
   url "http://pauillac.inria.fr/~ddr/ledit/distrib/src/ledit-2.04.tgz"
   sha256 "484897016b001b6d64eb24e38a213177b230ebf8e0d9808a969b62f012e70ee4"
+  revision 1
 
   livecheck do
     url :homepage

@@ -4,6 +4,7 @@ class Comby < Formula
   url "https://github.com/comby-tools/comby/archive/1.0.0.tar.gz"
   sha256 "755075e71059b908779ce7078bd9514128107e9c6e90cb150c4346621a88cde2"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     cellar :any

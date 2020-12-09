@@ -8,6 +8,7 @@ class Semgrep < Formula
     revision: "89af0791f91c738b1bbf36696e34ceaacd317a60"
   license "LGPL-2.1-only"
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
+  revision 1
 
   livecheck do
     url :stable
