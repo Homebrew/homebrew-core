@@ -8,6 +8,13 @@ class Ooniprobe < Formula
   license "BSD-3-Clause"
   revision 1
 
+  bottle do
+    cellar :any
+    sha256 "9a5d8c8b6bda3609642113631ba7c39b2cbf4fc27b09bd4b2fccc832befdd3e5" => :catalina
+    sha256 "e8e120b4342f22d48efbcfa45cde2faa28c9edd045121373f3b2ba8349e1d6fc" => :mojave
+    sha256 "3e13549c0175e9f3167f24526ed0c45bd7096b84c0360042654be9b4dff980f7" => :high_sierra
+  end
+
   depends_on "go@1.14" => :build
 
   def install
@@ -17,14 +24,12 @@ class Ooniprobe < Formula
     cd "src/github.com/ooni/probe-cli" do
       system "./build.sh macos"
       bin.install "CLI/darwin/amd64/ooniprobe"
-      prefix.install_metafiles
     end
+    ooni_home = Pathname.new "#{var}/ooniprobe"
+    ooni_home.mkpath
   end
 
   def post_install
-    ooni_home = Pathname.new "#{var}/ooniprobe"
-    ooni_home.mkpath
-
     (prefix/"share/daily-config.json").write <<~EOS
       {
         "_version": 3,
@@ -112,8 +117,6 @@ class Ooniprobe < Formula
 
           <key>EnvironmentVariables</key>
           <dict>
-            <key>PATH</key>
-            <string>#{HOMEBREW_PREFIX}/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
             <key>OONI_HOME</key>
             <string>#{HOMEBREW_PREFIX}/var/ooniprobe</string>
           </dict>
