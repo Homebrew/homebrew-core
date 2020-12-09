@@ -3,7 +3,7 @@ class Sipsak < Formula
   homepage "https://github.com/nils-ohlmeier/sipsak/"
   url "https://github.com/nils-ohlmeier/sipsak/releases/download/0.9.8/sipsak-0.9.8.tar.gz"
   sha256 "c506e6eebcde678be224230858564a21dc2b58114a723a726c0b263832ca2546"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
     cellar :any
