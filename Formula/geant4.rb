@@ -4,6 +4,8 @@ class Geant4 < Formula
   url "https://geant4-data.web.cern.ch/geant4-data/releases/source/geant4.10.07.tar.gz"
   version "10.7.0"
   sha256 "776ea45230d26fffebf0cf7a342af5131135759a0f70e1b4a1a401f1d1eaad4a"
+  # Geant4 is licensed under the Geant4 license, not listed in SPDX
+  # https://geant4.web.cern.ch/license/LICENSE.html
   license :cannot_represent
 
   bottle do
@@ -99,6 +101,8 @@ class Geant4 < Formula
     resources.each do |r|
       (share/"Geant4-#{version}/data/#{r.name}#{r.version}").install r
     end
+
+    doc.install "LICENSE"
   end
 
   def caveats
