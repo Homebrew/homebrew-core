@@ -4,6 +4,7 @@ class Geant4 < Formula
   url "https://geant4-data.web.cern.ch/geant4-data/releases/source/geant4.10.07.tar.gz"
   version "10.7.0"
   sha256 "776ea45230d26fffebf0cf7a342af5131135759a0f70e1b4a1a401f1d1eaad4a"
+  license :cannot_represent
 
   bottle do
     cellar :any
