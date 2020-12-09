@@ -12,7 +12,7 @@ class Mp3fs < Formula
     sha256 "b3b2e431e9a782dbde9d758505c372a0d6ed60eff44ebc21c9b979c01b0df189" => :high_sierra
   end
 
-  deprecate! because: "requires FUSE"
+  deprecate! date: "2020-11-10", because: "requires FUSE"
 
   depends_on "pkg-config" => :build
   depends_on "flac"
