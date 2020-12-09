@@ -15,7 +15,7 @@ class CoreosCt < Formula
     sha256 "9a48da5217b7e4b57e56702ee884fbc3067ccd895c2144cf7b02571cbcb80b42" => :el_capitan
   end
 
-  deprecate! because: :repo_archived
+  deprecate! date: "2020-11-10", because: :repo_archived
 
   depends_on "go" => :build
 
