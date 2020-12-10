@@ -22,7 +22,7 @@ class MoltenVk < Formula
   # MoltenVK depends on very specific revisions of its dependencies.
   # For each resource the path to the file describing the expected
   # revision is listed.
- 
+  
   def install
     system "./fetchDependencies --macos"
     resources.each do |res|
