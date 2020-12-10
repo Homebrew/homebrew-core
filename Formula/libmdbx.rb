@@ -15,8 +15,8 @@ class Libmdbx < Formula
     include.install "mdbx.h", "mdbx.h++"
 
     man.mkpath
-    man1.install("main1/mdbx_stat.1", "main1/mdbx_copy.1", "main1/mdbx_dump.1",
-      "main1/mdbx_load.1", "main1/mdbx_chk.1")
+    man1.install("man1/mdbx_stat.1", "man1/mdbx_copy.1", "man1/mdbx_dump.1",
+      "man1/mdbx_load.1", "man1/mdbx_chk.1")
   end
 
   test do
