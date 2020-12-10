@@ -7,9 +7,13 @@ class Puzzles < Formula
   sha256 "fd49aabdd7c7e521c990991dab59700a40719cca172113ac8df693afe11d284d"
   head "https://git.tartarus.org/simon/puzzles.git"
 
+  # There's no directory listing page and the homepage only lists an unversioned
+  # tarball. The Git repository doesn't report any tags when we use that. The
+  # version in the footer of the first-party documentation seems to be the only
+  # available source that's up to date (as of writing).
   livecheck do
-    url "https://www.freshports.org/games/sgt-puzzles"
-    regex(/puzzles[._-]v?(\d{6,8})\..*?\.t/i)
+    url "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/doc/"
+    regex(/version v?(\d{6,8})(?:\.[a-z0-9]+)?/i)
   end
 
   bottle do
