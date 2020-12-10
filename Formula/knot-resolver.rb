@@ -73,13 +73,14 @@ class KnotResolver < Formula
         <key>StandardOutPath</key>
         <string>/dev/null</string>
         <key>StandardErrorPath</key>
-        <string>#{var}/log/kresd.log</string>
+        <string>#{var}/log/knot-resolver.log</string>
       </dict>
       </plist>
     EOS
   end
 
   test do
+    assert_path_exist var/"knot-resolver"
     system sbin/"kresd", "--version"
   end
 end
