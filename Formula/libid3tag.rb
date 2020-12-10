@@ -67,7 +67,10 @@ class Libid3tag < Formula
   end
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--disable-debug", "--disable-dependency-tracking"
+    configure_args = ["./configure", "--prefix=#{prefix}", "--disable-debug", "--disable-dependency-tracking"]
+    configure_args << "--build=arm" if Hardware::CPU.arm?
+
+    system(*configure_args)
     system "make", "install"
 
     (lib+"pkgconfig/id3tag.pc").write pc_file
