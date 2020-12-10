@@ -4,7 +4,7 @@ class Inframap < Formula
   url "https://github.com/cycloidio/inframap/archive/v0.4.0.tar.gz"
   sha256 "65182e1c84f33a00a2acab3bb1e6dbcc3de579bab5480016748be94e51a6a2bd"
   license "MIT"
-  head "https://github.com/inframap/inframap.git"
+  head "https://github.com/cycloidio/inframap.git"
 
   depends_on "go" => :build
 
