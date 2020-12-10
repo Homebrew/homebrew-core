@@ -15,6 +15,6 @@ class Xcinfo < Formula
   end
 
   test do
-    system "true"
+    assert_match /12.3 RC 1 \(12C33\)/, shell_output("#{bin}/xcinfo list --all --no-ansi")
   end
 end
