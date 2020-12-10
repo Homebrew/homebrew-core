@@ -4,7 +4,7 @@ class ArduinoCli < Formula
   url "https://github.com/arduino/arduino-cli.git",
      tag:      "0.14.0",
      revision: "a86b21d99e2af9e0857da0ce4ab80baf1d3afb55"
-  license "GPL-3.0"
+  license "GPL-3.0-only"
   head "https://github.com/arduino/arduino-cli.git"
 
   livecheck do
