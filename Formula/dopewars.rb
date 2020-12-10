@@ -22,7 +22,7 @@ class Dopewars < Formula
 
   def install
     inreplace "src/Makefile.in", "$(dopewars_DEPENDENCIES)", ""
-    inreplace "ltmain.sh", "need_relink=yes", "need_relink=no"
+    inreplace "auxbuild/ltmain.sh", "need_relink=yes", "need_relink=no"
     inreplace "src/plugins/Makefile.in", "LIBADD =", "LIBADD = -module -avoid-version"
     system "./configure", "--disable-gui-client",
                           "--disable-gui-server",
