@@ -3,6 +3,7 @@ class Portmidi < Formula
   homepage "https://sourceforge.net/projects/portmedia/"
   url "https://downloads.sourceforge.net/project/portmedia/portmidi/217/portmidi-src-217.zip"
   sha256 "08e9a892bd80bdb1115213fb72dc29a7bf2ff108b378180586aa65f3cfd42e0f"
+  license "MIT"
   revision 2
 
   livecheck do
@@ -19,6 +20,12 @@ class Portmidi < Formula
   end
 
   depends_on "cmake" => :build
+
+  # Do not build pmjni.
+  patch do
+    url "https://sources.debian.org/data/main/p/portmidi/1:217-6/debian/patches/13-disablejni.patch"
+    sha256 "c11ce1e8fe620d5eb850a9f1ca56506f708e37d4390f1e7edb165544f717749e"
+  end
 
   def install
     ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra || MacOS.version == :el_capitan
@@ -37,5 +44,23 @@ class Portmidi < Formula
 
     system "make", "-f", "pm_mac/Makefile.osx"
     system "make", "-f", "pm_mac/Makefile.osx", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include <portmidi.h>
+
+      int main()
+      {
+        int count = -1;
+        count = Pm_CountDevices();
+        if(count >= 0)
+            return 0;
+        else
+            return 1;
+      }
+    EOS
+    system ENV.cc, "test.c", "-L#{lib}", "-lportmidi", "-o", "test"
+    system "./test"
   end
 end
