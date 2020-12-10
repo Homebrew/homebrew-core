@@ -18,6 +18,6 @@ class Semtag < Formula
     system "git", "commit", "-m'test'"
     system bin/"semtag", "final"
     output = shell_output("git tag --list")
-    assert_match "v0.1.1", output
+    assert_match "v0.0.1", output
   end
 end
