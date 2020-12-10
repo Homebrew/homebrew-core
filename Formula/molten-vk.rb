@@ -17,7 +17,7 @@ class MoltenVk < Formula
   depends_on "python@3.9" => :build
   depends_on xcode: ["11.0", :build]
   # Requires IOSurface/IOSurfaceRef.h.
-  depends_on macos: :sierra
+  depends_on macos: :mojave
 
   # MoltenVK depends on very specific revisions of its dependencies.
   # For each resource the path to the file describing the expected
@@ -61,7 +61,7 @@ class MoltenVk < Formula
   resource "SPIRV-Headers" do
     # External/glslang/known_good.json
     url "https://github.com/KhronosGroup/SPIRV-Headers.git",
-        revision: "f027d53ded7e230e008d37c8b47ede7cd308e19d"
+        revision: "f8bf11a0253a32375c32cad92c841237b96696c0"
   end
 
   resource "Vulkan-Tools" do
