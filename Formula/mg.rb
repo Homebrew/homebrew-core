@@ -1,8 +1,8 @@
 class Mg < Formula
   desc "Small Emacs-like editor"
   homepage "https://github.com/ibara/mg"
-  url "https://github.com/ibara/mg/releases/download/mg-6.7/mg-6.7.tar.gz"
-  sha256 "02583d90df743e994fb1e411befbd23488fd1eaeb82c9db1fd4957d1a8f1abde"
+  url "https://github.com/ibara/mg/releases/download/mg-6.8.1/mg-6.8.1.tar.gz"
+  sha256 "a4af7afa77fed691096be8e2ff0507cc6bdd8efe7255916f714168d02790044c"
   version_scheme 1
 
   bottle do
