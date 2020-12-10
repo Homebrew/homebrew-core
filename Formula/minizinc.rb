@@ -15,6 +15,8 @@ class Minizinc < Formula
 
   depends_on "cmake" => :build
   depends_on arch: :x86_64
+  depends_on "cbc"
+  depends_on "gecode"
 
   def install
     mkdir "build" do
@@ -24,6 +26,18 @@ class Minizinc < Formula
   end
 
   test do
-    system bin/"mzn2doc", pkgshare/"std/all_different.mzn"
+    (testpath/"satisfy.mzn").write <<~EOS
+      array[1..2] of var bool: x;
+      constraint x[1] xor x[2];
+      solve satisfy;
+    EOS
+    assert_match "----------", shell_output("#{bin}/minizinc --solver gecode_presolver satisfy.mzn").strip
+
+    (testpath/"optimise.mzn").write <<~EOS
+      array[1..2] of var 1..3: x;
+      constraint x[1] < x[2];
+      solve maximize sum(x);
+    EOS
+    assert_match "==========", shell_output("#{bin}/minizinc --solver cbc optimise.mzn").strip
   end
 end
