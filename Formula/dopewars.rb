@@ -3,6 +3,7 @@ class Dopewars < Formula
   homepage "https://dopewars.sourceforge.io"
   url "https://downloads.sourceforge.net/project/dopewars/dopewars/1.6.0/dopewars-1.6.0.tar.gz"
   sha256 "f8543d6cb73074a63c75409a60e8c739bc6cf121328f939f99ac86df2fe89d3d"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :stable
