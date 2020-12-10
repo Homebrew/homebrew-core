@@ -22,55 +22,9 @@ class MoltenVk < Formula
   # MoltenVK depends on very specific revisions of its dependencies.
   # For each resource the path to the file describing the expected
   # revision is listed.
-  resource "cereal" do
-    # ExternalRevisions/cereal_repo_revision
-    url "https://github.com/USCiLab/cereal.git",
-        revision: "8bd726281f6679cc4ea2ae4cf9e5b8c0349737be"
-  end
-
-  resource "Vulkan-Headers" do
-    # ExternalRevisions/Vulkan-Headers_repo_revision
-    url "https://github.com/KhronosGroup/Vulkan-Headers.git",
-        revision: "fe9850767d00e46b230da6cfbc15eb86636017bd"
-  end
-
-  resource "Vulkan-Portability" do
-    # ExternalRevisions/Vulkan-Portability_repo_revision
-    url "https://github.com/KhronosGroup/Vulkan-Portability.git",
-        revision: "5c01eaded5d956ac150295775fdcc76c99ae002a"
-  end
-
-  resource "SPIRV-Cross" do
-    # ExternalRevisions/SPIRV-Cross_repo_revision
-    url "https://github.com/KhronosGroup/SPIRV-Cross.git",
-        revision: "8891bd35120ca91c252a66ccfdc3f9a9d03c70cd"
-  end
-
-  resource "glslang" do
-    # ExternalRevisions/glslang_repo_revision
-    url "https://github.com/KhronosGroup/glslang.git",
-        revision: "c594de23cdd790d64ad5f9c8b059baae0ee2941d"
-  end
-
-  resource "SPIRV-Tools" do
-    # External/glslang/known_good.json
-    url "https://github.com/KhronosGroup/SPIRV-Tools.git",
-        revision: "895927bd3f2d653f40cebab55aa6c7eabde30a86"
-  end
-
-  resource "SPIRV-Headers" do
-    # External/glslang/known_good.json
-    url "https://github.com/KhronosGroup/SPIRV-Headers.git",
-        revision: "f8bf11a0253a32375c32cad92c841237b96696c0"
-  end
-
-  resource "Vulkan-Tools" do
-    # ExternalRevisions/Vulkan-Tools_repo_revision
-    url "https://github.com/KhronosGroup/Vulkan-Tools.git",
-        revision: "06635c10cd45361f0df70b4506ec611099bd16d8"
-  end
-
+ 
   def install
+    system "./fetchDependencies --macos"
     resources.each do |res|
       res.stage(buildpath/"External"/res.name)
     end
