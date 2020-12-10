@@ -96,6 +96,10 @@ class Root < Formula
     cxx_version = (MacOS.version < :mojave) ? 14 : 17
     args << "-DCMAKE_CXX_STANDARD=#{cxx_version}"
 
+    # Homebrew now sets CMAKE_INSTALL_LIBDIR to /lib, which is incorrect
+    # for ROOT with gnuinstall, so we set it back here.
+    args << "-DCMAKE_INSTALL_LIBDIR=lib/root"
+
     # Workaround the shim directory being embedded into the output
     inreplace "build/unix/compiledata.sh", "`type -path $CXX`", ENV.cxx
 
