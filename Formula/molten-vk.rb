@@ -4,13 +4,16 @@ class MoltenVk < Formula
   url "https://github.com/KhronosGroup/MoltenVK/archive/v1.1.1.tar.gz"
   sha256 "cd1712c571d4155f4143c435c8551a5cb8cbb311ad7fff03595322ab971682c0"
   license "Apache-2.0"
+  revision 2
 
   bottle do
     cellar :any
+    sha256 "2e0b63c01b8f4d6994f7ecfb96c837a33cb4bc1ede187aa9a5effc0034ec4369" => :big_sur
+    sha256 "3eda5e70c4f70cdea90c46180574d6b61c8849ca2eeec033ab9c33bb3cae5280" => :catalina
+    sha256 "a6875344cb7327b6dd804a82ebd348fda81bb93d2160d0b756a2f133a38e7299" => :mojave
   end
 
   depends_on "cmake" => :build
-  depends_on "glslang" => :build
   depends_on "python@3.9" => :build
   depends_on xcode: ["11.0", :build]
   # Requires IOSurface/IOSurfaceRef.h.
@@ -61,12 +64,6 @@ class MoltenVk < Formula
         revision: "f027d53ded7e230e008d37c8b47ede7cd308e19d"
   end
 
-  resource "LunarGLASS" do
-    # External/glslang/known_good.json
-    url "https://github.com/LunarG/LunarGLASS.git",
-        revision: "012965ae9214daba0eb2bded1324e58ea8ceb6ea"
-  end
-
   resource "Vulkan-Tools" do
     # ExternalRevisions/Vulkan-Tools_repo_revision
     url "https://github.com/KhronosGroup/Vulkan-Tools.git",
@@ -92,13 +89,11 @@ class MoltenVk < Formula
                "SYMROOT=External/build", "OBJROOT=External/build",
                "build"
 
-    =begin
     xcodebuild "-project", "MoltenVKPackaging.xcodeproj",
-               "-scheme", "MoltenVK Package (macOS only)",
+               "-scheme", "MoltenVK Package",
                "SYMROOT=#{buildpath}/build", "OBJROOT=build",
                "build"
-=end
-    make all
+
     (libexec/"lib").install Dir["External/build/macOS/lib{SPIRVCross,SPIRVTools,glslang}.a"]
     glslang_dir = Pathname.new("External/glslang")
     Pathname.glob("External/glslang/{glslang,SPIRV}/**/*.{h,hpp}") do |header|
