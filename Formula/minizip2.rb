@@ -46,7 +46,7 @@ class Minizip2 < Formula
     EOS
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}",
                    "-lminizip", "-lz", "-lbz2", "-liconv",
-                   "-L#{Formula["zstd"].opt_lib}", "-lzstd",
+                   "-L#{Formula["zstd"].opt_lib}", "-lzstd", "-llzma",
                    "-framework", "CoreFoundation", "-framework", "Security", "-o", "test"
     system "./test"
   end
