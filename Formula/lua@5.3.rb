@@ -7,7 +7,7 @@ class LuaAT53 < Formula
 
   livecheck do
     url "https://www.lua.org/ftp/"
-    regex(/href=.*?lua[._-]v?(5.3+(?:\.\d+)+)\.t/i)
+    regex(/href=.*?lua[._-]v?(5\.3(?:\.\d+)*)\.t/i)
   end
 
   bottle do
