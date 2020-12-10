@@ -2,8 +2,8 @@ class Datasette < Formula
   include Language::Python::Virtualenv
   desc "Open source multi-tool for exploring and publishing data"
   homepage "https://docs.datasette.io/en/stable/"
-  url "https://files.pythonhosted.org/packages/a1/ac/b51c1709c4723f8cc3bba123f8e4516daedfcce0daed138a9c0354705833/datasette-0.52.4.tar.gz"
-  sha256 "ff19595caf143069bb3c98fba3fcc7c061b500b0d9c90bef4a2f8395d5634636"
+  url "https://files.pythonhosted.org/packages/df/9a/88963c9e1fec4094ecef62a17b22e1e6acef6eac7105460b4dc435c96ea9/datasette-0.52.5.tar.gz"
+  sha256 "d6ab865092b04d554678fe91ff068adbc11d69cb5c9ed29bcf78dc2c0dcff61e"
   license "Apache-2.0"
   head "https://github.com/simonw/datasette.git"
 
@@ -36,8 +36,8 @@ class Datasette < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/e6/de/879cf857ae6f890dfa23c3d6239814c5471936b618c8fb0c8732ad5da885/certifi-2020.11.8.tar.gz"
-    sha256 "f05def092c44fbf25834a51509ef6e631dc19765ab8a57b4e7ab85531f0a9cf4"
+    url "https://files.pythonhosted.org/packages/06/a9/cd1fd8ee13f73a4d4f491ee219deeeae20afefa914dfb4c130cfc9dc397a/certifi-2020.12.5.tar.gz"
+    sha256 "1a4995114262bffbc2413b159f2a1a480c969de6e6eb13ee966d470af86af59c"
   end
 
   resource "click" do
@@ -151,8 +151,8 @@ class Datasette < Formula
   end
 
   resource "uvicorn" do
-    url "https://files.pythonhosted.org/packages/89/e8/75ea123f733aefac57d43b37cb81f24f16e5d71d3f9cf7cf25c0f5a9a274/uvicorn-0.12.3.tar.gz"
-    sha256 "5836edaf4d278fe67ba0298c0537bdb6398cf359eb644f79e6500ca1aad232b3"
+    url "https://files.pythonhosted.org/packages/7d/e0/a5a876987a267b50edd1ec4a922348809b67c21db7a36c90c1094ea1c4b9/uvicorn-0.13.0.tar.gz"
+    sha256 "28420526640d800aabe648038f8e2ea8ba2a8bdc363002eecd5dfc57a0f75ab7"
   end
 
   def install
