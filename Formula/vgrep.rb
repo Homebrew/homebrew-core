@@ -19,6 +19,7 @@ class Vgrep < Formula
   end
 
   depends_on "go" => :build
+  depends_on "go-md2man" => :build
 
   def install
     system "make", "release"
