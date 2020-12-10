@@ -22,6 +22,14 @@ class UutilsCoreutils < Formula
   conflicts_with "aardvark_shell_utils", because: "both install `realpath` binaries"
   conflicts_with "truncate", because: "both install `truncate` binaries"
 
+  # Remove this patch at the next version bump.
+  # Needed to fix build failures. See
+  # https://github.com/uutils/coreutils/issues/1555
+  patch do
+    url "https://github.com/uutils/coreutils/commit/54ada642322b9f5ab0d507aff856fd1ea97c6259.patch?full_index=1"
+    sha256 "853c94d75c012e01b435d95775b1c53e82072161692855f55869cbe4a2cf8140"
+  end
+
   def install
     man1.mkpath
 
