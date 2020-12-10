@@ -15,6 +15,7 @@ class Minizip2 < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "xz"
   depends_on "zstd"
 
   uses_from_macos "bzip2"
