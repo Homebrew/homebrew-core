@@ -1,9 +1,9 @@
 class Superlu < Formula
   desc "Solve large, sparse nonsymmetric systems of equations"
   homepage "https://portal.nersc.gov/project/sparse/superlu/"
-  url "https://portal.nersc.gov/project/sparse/superlu/superlu_5.2.1.tar.gz"
-  sha256 "28fb66d6107ee66248d5cf508c79de03d0621852a0ddeba7301801d3d859f463"
-  revision 4
+  url "https://portal.nersc.gov/project/sparse/superlu/superlu_5.2.2.tar.gz"
+  sha256 "470334a72ba637578e34057f46948495e601a5988a602604f5576367e606a28c"
+  license "BSD-3-Clause-LBNL"
 
   livecheck do
     url :homepage
@@ -19,25 +19,21 @@ class Superlu < Formula
     sha256 "f2038e0b4edb755631cc4f9b42dc362996d8161fa9aad306a412c7e8ff39d9f8" => :sierra
   end
 
+  depends_on "cmake" => :build
   depends_on "gcc"
   depends_on "openblas"
 
   def install
-    ENV.deparallelize
-    cp "MAKE_INC/make.mac-x", "./make.inc"
+    args = std_cmake_args + %W[
+      -Denable_internal_blaslib=NO
+      -DTPL_BLAS_LIBRARIES=#{Formula["openblas"].opt_lib}/#{shared_library("libopenblas")}
+    ]
 
-    args = ["SuperLUroot=#{buildpath}",
-            "SUPERLULIB=$(SuperLUroot)/lib/libsuperlu.a",
-            "CC=#{ENV.cc}",
-            "BLASLIB=-L#{Formula["openblas"].opt_lib} -lopenblas"]
-
-    system "make", "lib", *args
-    cd "EXAMPLE" do
-      system "make", *args
+    mkdir "build" do
+      system "cmake", "..", *args
+      system "make"
+      system "make", "install"
     end
-    lib.install Dir["lib/*"]
-    (include/"superlu").install Dir["SRC/*.h"]
-    doc.install Dir["Doc/*"]
 
     # Source and data for test
     pkgshare.install "EXAMPLE/dlinsol.c"
