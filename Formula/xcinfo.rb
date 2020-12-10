@@ -9,9 +9,9 @@ class Xcinfo < Formula
 
   def install
     system "swift", "build",
-        "--configuration", "release",
-        "--disable-sandbox"
-    bin.install '.build/release/xcinfo'
+           "--configuration", "release",
+           "--disable-sandbox"
+    bin.install ".build/release/xcinfo"
   end
 
   test do
