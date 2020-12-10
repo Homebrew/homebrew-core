@@ -5,20 +5,18 @@ class Libmdbx < Formula
   sha256 "c35cc53d66d74ebfc86e39441ba26276541ac7892bf91dba1e70c83665a02767"
   license "OLDAP-2.8"
 
-  TOOLS = %w[mdbx_stat mdbx_copy mdbx_dump mdbx_load mdbx_chk].freeze
-  MANPAGES = TOOLS.map { |tool| "man1/#{tool}.1" }.freeze
-
   def install
     system "make", "all"
 
-    bin.install(*TOOLS)
+    bin.install("mdbx_stat", "mdbx_copy", "mdbx_dump", "mdbx_load", "mdbx_chk")
 
     lib.install "libmdbx.dylib"
     lib.install "libmdbx.a"
     include.install "mdbx.h", "mdbx.h++"
 
     man.mkpath
-    man1.install(*MANPAGES)
+    man1.install("main1/mdbx_stat.1", "main1/mdbx_copy.1", "main1/mdbx_dump.1",
+      "main1/mdbx_load.1", "main1/mdbx_chk.1")
   end
 
   test do
@@ -29,6 +27,6 @@ class Libmdbx < Formula
     system "#{bin}/mdbx_load", "-f", srcfile, "-T", dbdir
 
     assert_predicate dbdir, :directory?
-    assert_match /No error is detected/i, shell_output("#{bin}/mdbx_chk #{dbdir}")
+    assert_match "No error is detected", shell_output("#{bin}/mdbx_chk #{dbdir}")
   end
 end
