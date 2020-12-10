@@ -6,8 +6,8 @@ class BashCompletionAT2 < Formula
   license "GPL-2.0"
 
   livecheck do
-    url "https://github.com/scop/bash-completion/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

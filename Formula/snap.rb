@@ -7,8 +7,8 @@ class Snap < Formula
   license "GPL-3.0-only"
 
   livecheck do
-    url "https://github.com/snapcore/snapd/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

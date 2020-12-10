@@ -7,8 +7,8 @@ class Fnm < Formula
   head "https://github.com/Schniz/fnm.git"
 
   livecheck do
-    url "https://github.com/Schniz/fnm/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

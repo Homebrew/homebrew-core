@@ -8,8 +8,8 @@ class SyncGateway < Formula
   head "https://github.com/couchbase/sync_gateway.git"
 
   livecheck do
-    url "https://github.com/couchbase/sync_gateway/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

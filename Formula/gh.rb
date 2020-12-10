@@ -6,8 +6,8 @@ class Gh < Formula
   license "MIT"
 
   livecheck do
-    url "https://github.com/cli/cli/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

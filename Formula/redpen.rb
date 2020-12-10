@@ -6,7 +6,8 @@ class Redpen < Formula
   license "Apache-2.0"
 
   livecheck do
-    url "https://github.com/redpen-cc/redpen/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/(?:redpen[._-])?v?(\d+(?:\.\d+)+)["' >]}i)
   end
 

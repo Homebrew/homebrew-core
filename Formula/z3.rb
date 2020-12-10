@@ -8,7 +8,8 @@ class Z3 < Formula
   head "https://github.com/Z3Prover/z3.git"
 
   livecheck do
-    url "https://github.com/Z3Prover/z3/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/z3[._-]v?(\d+(?:\.\d+)+)["' >]}i)
   end
 

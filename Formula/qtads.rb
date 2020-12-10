@@ -34,8 +34,8 @@ class Qtads < Formula
   end
 
   livecheck do
-    url "https://github.com/realnc/qtads/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :head
+    strategy :github_latest
   end
 
   bottle do

@@ -10,7 +10,8 @@ class Lammps < Formula
   license "GPL-2.0-only"
 
   livecheck do
-    url "https://github.com/lammps/lammps/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/stable[._-](\d+\w+\d+)["' >]}i)
   end
 

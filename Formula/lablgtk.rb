@@ -7,8 +7,8 @@ class Lablgtk < Formula
   revision 1
 
   livecheck do
-    url "https://github.com/garrigue/lablgtk/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

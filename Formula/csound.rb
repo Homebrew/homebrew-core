@@ -9,8 +9,8 @@ class Csound < Formula
   head "https://github.com/csound/csound.git", branch: "develop"
 
   livecheck do
-    url "https://github.com/csound/csound/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

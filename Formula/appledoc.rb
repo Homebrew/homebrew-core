@@ -7,8 +7,8 @@ class Appledoc < Formula
   head "https://github.com/tomaz/appledoc.git"
 
   livecheck do
-    url "https://github.com/tomaz/appledoc/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

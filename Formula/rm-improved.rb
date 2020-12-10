@@ -7,8 +7,8 @@ class RmImproved < Formula
   head "https://github.com/nivekuil/rip.git"
 
   livecheck do
-    url "https://github.com/nivekuil/rip/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

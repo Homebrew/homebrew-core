@@ -8,7 +8,8 @@ class Wolfssl < Formula
   head "https://github.com/wolfSSL/wolfssl.git"
 
   livecheck do
-    url "https://github.com/wolfSSL/wolfssl/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)[._-]stable["' >]}i)
   end
 

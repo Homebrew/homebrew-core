@@ -6,8 +6,8 @@ class Jack < Formula
   license "GPL-2.0-or-later"
 
   livecheck do
-    url "https://github.com/jackaudio/jack2/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

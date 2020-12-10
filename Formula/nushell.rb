@@ -7,7 +7,8 @@ class Nushell < Formula
   head "https://github.com/nushell/nushell.git", branch: "main"
 
   livecheck do
-    url "https://github.com/nushell/nushell/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/v?(\d+(?:[._]\d+)+)["' >]}i)
   end
 

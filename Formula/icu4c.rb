@@ -7,7 +7,8 @@ class Icu4c < Formula
   license "ICU"
 
   livecheck do
-    url "https://github.com/unicode-org/icu/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/release[._-]v?(\d+(?:[.-]\d+)+)["' >]}i)
   end
 

@@ -6,8 +6,8 @@ class Libplctag < Formula
   license any_of: ["LGPL-2.0-or-later", "MPL-2.0"]
 
   livecheck do
-    url "https://github.com/libplctag/libplctag/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

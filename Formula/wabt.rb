@@ -7,8 +7,8 @@ class Wabt < Formula
   license "Apache-2.0"
 
   livecheck do
-    url "https://github.com/WebAssembly/wabt/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

@@ -7,8 +7,8 @@ class Fcct < Formula
   head "https://github.com/coreos/fcct.git"
 
   livecheck do
-    url "https://github.com/coreos/fcct/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

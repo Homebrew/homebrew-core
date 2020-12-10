@@ -12,7 +12,8 @@ class RomTools < Formula
   # text for the release title, since it contains the properly formatted version
   # (e.g., 0.226).
   livecheck do
-    url "https://github.com/mamedev/mame/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{release-header.*?/releases/tag/mame[._-]?\d+(?:\.\d+)*["' >]>MAME v?(\d+(?:\.\d+)+)}im)
   end
 

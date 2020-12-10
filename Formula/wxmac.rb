@@ -8,8 +8,8 @@ class Wxmac < Formula
   head "https://github.com/wxWidgets/wxWidgets.git"
 
   livecheck do
-    url "https://github.com/wxWidgets/wxWidgets/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

@@ -7,8 +7,8 @@ class Opensc < Formula
   head "https://github.com/OpenSC/OpenSC.git"
 
   livecheck do
-    url "https://github.com/OpenSC/OpenSC/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

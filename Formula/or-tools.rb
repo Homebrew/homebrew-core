@@ -7,8 +7,8 @@ class OrTools < Formula
   head "https://github.com/google/or-tools.git"
 
   livecheck do
-    url "https://github.com/google/or-tools/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

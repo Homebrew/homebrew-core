@@ -7,8 +7,8 @@ class FaasCli < Formula
   license "MIT"
 
   livecheck do
-    url "https://github.com/openfaas/faas-cli/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

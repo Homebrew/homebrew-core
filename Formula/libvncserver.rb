@@ -6,7 +6,8 @@ class Libvncserver < Formula
   license "GPL-2.0-or-later"
 
   livecheck do
-    url "https://github.com/LibVNC/libvncserver/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/(?:LibVNCServer[._-])?v?(\d+(?:\.\d+)+)["' >]}i)
   end
 

@@ -7,8 +7,8 @@ class HaskellStack < Formula
   head "https://github.com/commercialhaskell/stack.git"
 
   livecheck do
-    url "https://github.com/commercialhaskell/stack/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

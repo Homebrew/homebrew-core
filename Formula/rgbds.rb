@@ -7,8 +7,8 @@ class Rgbds < Formula
   head "https://github.com/rednex/rgbds.git"
 
   livecheck do
-    url "https://github.com/gbdev/rgbds/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

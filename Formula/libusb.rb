@@ -6,8 +6,8 @@ class Libusb < Formula
   license "LGPL-2.1"
 
   livecheck do
-    url "https://github.com/libusb/libusb/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

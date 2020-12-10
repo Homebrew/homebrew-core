@@ -7,7 +7,8 @@ class Pkcs11Helper < Formula
   head "https://github.com/OpenSC/pkcs11-helper.git"
 
   livecheck do
-    url "https://github.com/OpenSC/pkcs11-helper/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/pkcs11-helper[._-]v?(\d+(?:\.\d+)+)["' >]}i)
   end
 

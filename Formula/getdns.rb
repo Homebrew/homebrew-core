@@ -10,8 +10,8 @@ class Getdns < Formula
   # since the aforementioned first-party URL has a tendency to lead to an
   # `execution expired` error.
   livecheck do
-    url "https://github.com/getdnsapi/getdns/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :head
+    strategy :github_latest
   end
 
   bottle do

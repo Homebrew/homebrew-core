@@ -8,7 +8,8 @@ class Mbedtls < Formula
   head "https://github.com/ARMmbed/mbedtls.git", branch: "development"
 
   livecheck do
-    url "https://github.com/ARMmbed/mbedtls/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/(?:mbedtls[._-])?v?(\d+(?:\.\d+)+)["' >]}i)
   end
 

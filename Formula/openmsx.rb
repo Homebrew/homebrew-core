@@ -8,7 +8,8 @@ class Openmsx < Formula
   head "https://github.com/openMSX/openMSX.git"
 
   livecheck do
-    url "https://github.com/openMSX/openMSX/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/RELEASE[._-]v?(\d+(?:[._]\d+)+)["' >]}i)
   end
 

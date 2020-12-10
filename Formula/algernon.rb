@@ -9,8 +9,8 @@ class Algernon < Formula
   head "https://github.com/xyproto/algernon.git"
 
   livecheck do
-    url "https://github.com/xyproto/algernon/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

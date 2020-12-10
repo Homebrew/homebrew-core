@@ -8,8 +8,8 @@ class Bluepill < Formula
   head "https://github.com/linkedin/bluepill.git"
 
   livecheck do
-    url "https://github.com/linkedin/bluepill/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

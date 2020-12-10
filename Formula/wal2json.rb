@@ -6,7 +6,8 @@ class Wal2json < Formula
   license "BSD-3-Clause"
 
   livecheck do
-    url "https://github.com/eulerto/wal2json/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/(?:wal2json[._-])?v?(\d+(?:[._]\d+)+)["' >]}i)
   end
 

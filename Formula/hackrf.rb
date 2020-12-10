@@ -7,8 +7,8 @@ class Hackrf < Formula
   head "https://github.com/mossmann/hackrf.git"
 
   livecheck do
-    url "https://github.com/mossmann/hackrf/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

@@ -7,8 +7,8 @@ class Ldc < Formula
   head "https://github.com/ldc-developers/ldc.git", shallow: false
 
   livecheck do
-    url "https://github.com/ldc-developers/ldc/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

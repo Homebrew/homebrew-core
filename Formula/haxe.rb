@@ -7,8 +7,8 @@ class Haxe < Formula
   head "https://github.com/HaxeFoundation/haxe.git", branch: "development"
 
   livecheck do
-    url "https://github.com/HaxeFoundation/haxe/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

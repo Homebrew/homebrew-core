@@ -5,8 +5,8 @@ class Vfuse < Formula
   sha256 "fbf5f8a1c664b03c7513a70aa05c3fc501a7ebdb53f128f1f05c24395871a314"
 
   livecheck do
-    url "https://github.com/chilcote/vfuse/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle :unneeded

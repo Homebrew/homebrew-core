@@ -7,7 +7,8 @@ class Cbc < Formula
   license "EPL-1.0"
 
   livecheck do
-    url "https://github.com/coin-or/Cbc/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/(?:releases%2F)?v?(\d+(?:\.\d+)+)["' >]}i)
   end
 

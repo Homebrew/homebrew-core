@@ -11,7 +11,8 @@ class Proftpd < Formula
   # maintenance releases. Versions like `1.2.3a` and `1.2.3b` are not alpha and
   # beta respectively. Prerelease versions use a format like `1.2.3rc1`.
   livecheck do
-    url "https://github.com/proftpd/proftpd/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+[a-z]?)["' >]}i)
   end
 

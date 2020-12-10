@@ -7,8 +7,8 @@ class Libgit2 < Formula
   head "https://github.com/libgit2/libgit2.git"
 
   livecheck do
-    url "https://github.com/libgit2/libgit2/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

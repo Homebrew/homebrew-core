@@ -6,7 +6,8 @@ class Mp3unicode < Formula
   license "GPL-2.0-only"
 
   livecheck do
-    url "https://github.com/alonbl/mp3unicode/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/(?:mp3unicode[._-])?v?(\d+(?:\.\d+)+)["' >]}i)
   end
 

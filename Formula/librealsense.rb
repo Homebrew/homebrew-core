@@ -7,8 +7,8 @@ class Librealsense < Formula
   head "https://github.com/IntelRealSense/librealsense.git"
 
   livecheck do
-    url "https://github.com/IntelRealSense/librealsense/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

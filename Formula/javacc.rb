@@ -6,7 +6,8 @@ class Javacc < Formula
   license "BSD-3-Clause"
 
   livecheck do
-    url "https://github.com/javacc/javacc/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/javacc[._-]v?(\d+(?:\.\d+)+)["' >]}i)
   end
 

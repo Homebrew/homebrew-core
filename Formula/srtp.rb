@@ -7,8 +7,8 @@ class Srtp < Formula
   head "https://github.com/cisco/libsrtp.git"
 
   livecheck do
-    url "https://github.com/cisco/libsrtp/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

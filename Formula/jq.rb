@@ -6,7 +6,8 @@ class Jq < Formula
   license "MIT"
 
   livecheck do
-    url "https://github.com/stedolan/jq/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/jq[._-]v?(\d+(?:\.\d+)+)["' >]}i)
   end
 

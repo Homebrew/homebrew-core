@@ -7,8 +7,8 @@ class CdogsSdl < Formula
   head "https://github.com/cxong/cdogs-sdl.git"
 
   livecheck do
-    url "https://github.com/cxong/cdogs-sdl/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

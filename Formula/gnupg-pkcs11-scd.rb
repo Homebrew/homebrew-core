@@ -7,7 +7,8 @@ class GnupgPkcs11Scd < Formula
   revision 1
 
   livecheck do
-    url "https://github.com/alonbl/gnupg-pkcs11-scd/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/gnupg-pkcs11-scd[._-]v?(\d+(?:\.\d+)+)["' >]}i)
   end
 

@@ -8,8 +8,8 @@ class Mgba < Formula
   head "https://github.com/mgba-emu/mgba.git"
 
   livecheck do
-    url "https://github.com/mgba-emu/mgba/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

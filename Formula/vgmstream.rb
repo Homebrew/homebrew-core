@@ -10,7 +10,8 @@ class Vgmstream < Formula
   head "https://github.com/losnoco/vgmstream.git"
 
   livecheck do
-    url "https://github.com/losnoco/vgmstream/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/([^"' >]+)["' >]}i)
   end
 

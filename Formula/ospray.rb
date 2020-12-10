@@ -7,8 +7,8 @@ class Ospray < Formula
   head "https://github.com/ospray/ospray.git"
 
   livecheck do
-    url "https://github.com/ospray/ospray/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

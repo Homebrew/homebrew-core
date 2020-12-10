@@ -8,7 +8,8 @@ class MinioMc < Formula
   license "Apache-2.0"
 
   livecheck do
-    url "https://github.com/minio/mc/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/(?:RELEASE[._-]?)?([^"' >]+)["' >]}i)
   end
 

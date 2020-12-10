@@ -6,7 +6,8 @@ class Gperftools < Formula
   license "BSD-3-Clause"
 
   livecheck do
-    url "https://github.com/gperftools/gperftools/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/gperftools[._-]v?(\d+(?:\.\d+)+)["' >]}i)
   end
 

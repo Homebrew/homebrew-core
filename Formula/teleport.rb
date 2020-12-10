@@ -7,8 +7,8 @@ class Teleport < Formula
   head "https://github.com/gravitational/teleport.git"
 
   livecheck do
-    url "https://github.com/gravitational/teleport/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
