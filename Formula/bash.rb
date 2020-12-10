@@ -10,8 +10,8 @@ class Bash < Formula
   head "https://git.savannah.gnu.org/git/bash.git"
 
   livecheck do
-    url "http://www.ravenports.com/catalog/bucket_C8/bash/standard/"
-    regex(%r{<td id="pkgversion">v?(\d+(?:\.\d+)+)(?:_\d+)?</td>}i)
+    url :stable
+    regex(/href=.*?bash[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
