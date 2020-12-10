@@ -66,12 +66,13 @@ class Libid3tag < Formula
     sha256 "5e86270ebb179d82acee686700d203e90f42e82beeed455b0163d8611657d395"
   end
 
-  patch do
-    url "https://gist.githubusercontent.com/osheroff/afa7452c4512e5d045564f7cca37155f/raw/6c668888b01818865c1dc1ad6c58eeb2518116af/libid3tag_autoconf.patch"
-    sha256 "205df514ff15ab5f1d472d5603d4657e7eec38a629e7a77c2c4720565c5c7f5e"
-  end
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
 
   def install
+    system "touch NEWS AUTHORS ChangeLog"
+    system "autoreconf --install -f"
     system "./configure", "--prefix=#{prefix}", "--disable-debug", "--disable-dependency-tracking"
     system "make", "install"
 
