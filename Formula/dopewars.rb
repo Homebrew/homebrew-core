@@ -18,6 +18,8 @@ class Dopewars < Formula
   depends_on "pkg-config" => :build
   depends_on "glib"
 
+  uses_from_macos "curl"
+
   def install
     inreplace "src/Makefile.in", "$(dopewars_DEPENDENCIES)", ""
     inreplace "auxbuild/ltmain.sh", "need_relink=yes", "need_relink=no"
