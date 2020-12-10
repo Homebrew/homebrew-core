@@ -5,6 +5,11 @@ class Cdo < Formula
   sha256 "959b5b58f495d521a7fd1daa84644888ec87d6a0df43f22ad950d17aee5ba98d"
   license "GPL-2.0-only"
 
+  livecheck do
+    url "https://code.mpimet.mpg.de/projects/cdo/files"
+    regex(/href=.*?cdo[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "a9b7acb1b9e16a835b5c7430f0283d3eb1d58261e2c0a2187646276e90867021" => :big_sur
