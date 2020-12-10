@@ -24,6 +24,10 @@ class Libid3tag < Formula
 
   uses_from_macos "zlib"
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+
   on_linux do
     depends_on "gperf"
 
@@ -66,13 +70,9 @@ class Libid3tag < Formula
     sha256 "5e86270ebb179d82acee686700d203e90f42e82beeed455b0163d8611657d395"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
-
   def install
     system "touch NEWS AUTHORS ChangeLog"
-    system "autoreconf", "-fiv"
+    system "autoreconf -fiv"
     system "./configure", "--prefix=#{prefix}", "--disable-debug", "--disable-dependency-tracking"
     system "make", "install"
 
