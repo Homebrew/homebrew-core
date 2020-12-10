@@ -3,7 +3,7 @@ class Ortp < Formula
   homepage "https://www.linphone.org/technical-corner/ortp"
   url "https://gitlab.linphone.org/BC/public/ortp/-/archive/4.4.13/ortp-4.4.13.tar.bz2"
   sha256 "70c527a6ad1988e3f212d1c44d78d0cc8f49900f4602b991bbd316c70e2eac95"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
   head "https://gitlab.linphone.org/BC/public/ortp.git"
 
   bottle do
