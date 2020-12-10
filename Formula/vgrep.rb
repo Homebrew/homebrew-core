@@ -29,7 +29,7 @@ class Vgrep < Formula
 
   test do
     (testpath/"test.txt").write "Hello from Homebrew!\n"
-    output = shell_output("#{bin}/vgrep -w Homebrew --no-less")
+    output = shell_output("#{bin}/vgrep -w Homebrew --no-less .")
     assert_match "Hello from \e[01;31m\e[KHomebrew\e[m\e[K!\n", output
   end
 end
