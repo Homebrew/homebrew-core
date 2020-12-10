@@ -46,6 +46,6 @@ class ArduinoCli < Formula
     assert File.directory?("#{testpath}/test_sketch")
 
     version_output = shell_output("#{bin}/arduino-cli version 2>&1")
-    assert_match "arduino-cli Version: #{version}", version_output
+    assert_match "arduino-cli alpha Version: #{version}", version_output
   end
 end
