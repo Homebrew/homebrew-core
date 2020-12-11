@@ -5,11 +5,6 @@ class MariadbAT101 < Formula
   sha256 "069d58b1e2c06bb1e6c31249eda34138f41fb8ae3dec7ecaeba8035812c87cf9"
   license "GPL-2.0-only"
 
-  livecheck do
-    url "https://downloads.mariadb.org/"
-    regex(/Download v?(10\.1(?:\.\d+)+) Stable Now/i)
-  end
-
   bottle do
     sha256 "6f47a7d1b4ad988b5a15e44b12a21774323b5dd6daf63525bebdeec98eda0599" => :big_sur
     sha256 "e1335be8a1627fec5f9f8b423b81498805f15ce3daf4169f7449eeb974094b6f" => :catalina
@@ -18,6 +13,9 @@ class MariadbAT101 < Formula
   end
 
   keg_only :versioned_formula
+
+  # See: https://mariadb.com/kb/en/changes-improvements-in-mariadb-101/
+  deprecate! date: "2020-10-01", because: :unsupported
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
