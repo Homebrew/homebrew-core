@@ -35,10 +35,17 @@ class Starship < Formula
 
     fish_output = Utils.safe_popen_read("#{bin}/starship", "completions", "fish")
     (fish_completion/"starship.fish").write fish_output
+
+    zsh_prompt = Utils.safe_popen_read("#{bin}/starship", "init", "zsh", "--print-full-init")
+    prompt_setup = "prompt_starship_setup"
+    (zsh_function/prompt_setup).write "#{prompt_setup}() {\n#{zsh_prompt}\n}\n#{prompt_setup}"
   end
 
   test do
     ENV["STARSHIP_CONFIG"] = ""
     assert_equal "[1;32m❯[0m ", shell_output("#{bin}/starship module character")
+
+    prompt = "autoload -Uz promptinit; promptinit && prompt -p starship"
+    assert_match "starship theme:", shell_output("zsh -c '#{prompt}'")
   end
 end
