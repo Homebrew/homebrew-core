@@ -3,6 +3,7 @@ class Libid3tag < Formula
   homepage "https://www.underbit.com/products/mad/"
   url "https://downloads.sourceforge.net/project/mad/libid3tag/0.15.1b/libid3tag-0.15.1b.tar.gz"
   sha256 "63da4f6e7997278f8a3fef4c6a372d342f705051d1eeb6a46a86b03610e26151"
+  license "GPL-2.0-only"
 
   livecheck do
     url :stable
@@ -22,11 +23,11 @@ class Libid3tag < Formula
     sha256 "d832f73e16b185fed6a66d2f00199a7d76411e438854988262463f4769b40d5b" => :mavericks
   end
 
-  uses_from_macos "zlib"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+
+  uses_from_macos "zlib"
 
   on_linux do
     depends_on "gperf"
