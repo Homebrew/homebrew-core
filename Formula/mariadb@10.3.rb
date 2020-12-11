@@ -19,6 +19,9 @@ class MariadbAT103 < Formula
 
   keg_only :versioned_formula
 
+  # See: https://mariadb.com/kb/en/changes-improvements-in-mariadb-103/
+  deprecate! date: "2023-05-01", because: :unsupported
+
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "groonga"
