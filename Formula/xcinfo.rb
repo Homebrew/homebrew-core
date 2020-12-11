@@ -5,6 +5,7 @@ class Xcinfo < Formula
   sha256 "07b6c2f5a5b6a5f3cd6d190ac16c36c5011a87f2a1da2a109ccaa909eb6bcc2c"
   license "MIT"
 
+  depends_on macos: :catalina
   depends_on xcode: "12.0"
 
   def install
