@@ -1,10 +1,9 @@
 class Torchvision < Formula
   desc "Datasets, transforms, and models for computer vision"
   homepage "https://github.com/pytorch/vision"
-  url "https://github.com/pytorch/vision/archive/v0.8.1.tar.gz"
-  sha256 "c46734c679c99f93e5c06654f4295a05a6afe6c00a35ebd26a2cce507ae1ccbd"
+  url "https://github.com/pytorch/vision/archive/v0.8.2.tar.gz"
+  sha256 "9a866c3c8feb23b3221ce261e6153fc65a98ce9ceaa71ccad017016945c178bf"
   license "BSD-3-Clause"
-  revision 1
 
   bottle do
     sha256 "2828abf349caac3222b45341460359d7601c004a6d49df38d2493ee807242e3d" => :big_sur
@@ -13,10 +12,10 @@ class Torchvision < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.9" => :build
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtorch"
+  depends_on "python@3.9"
 
   def install
     mkdir "build" do
