@@ -21,20 +21,12 @@ class Sbt < Formula
 
     (bin/"sbt").write <<~EOS
       #!/bin/sh
-      if [ -f "$HOME/.sbtconfig" ]; then
-        echo "Use of ~/.sbtconfig is deprecated, please migrate global settings to #{etc}/sbtopts" >&2
-        . "$HOME/.sbtconfig"
-      fi
       export JAVA_HOME="${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
       exec "#{libexec}/bin/sbt" "$@"
     EOS
 
     (bin/"sbtn").write <<~EOS
       #!/bin/sh
-      if [ -f "$HOME/.sbtconfig" ]; then
-        echo "Use of ~/.sbtconfig is deprecated, please migrate global settings to #{etc}/sbtopts" >&2
-        . "$HOME/.sbtconfig"
-      fi
       export JAVA_HOME="${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
       exec "#{libexec}/bin/sbtn-x86_64-apple-darwin" "$@"
     EOS
