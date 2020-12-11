@@ -72,7 +72,7 @@ class Libid3tag < Formula
   end
 
   def install
-    system "touch NEWS AUTHORS ChangeLog"
+    system "touch", "NEWS", "AUTHORS", "ChangeLog"
     system "autoreconf -fiv"
     system "./configure", "--prefix=#{prefix}", "--disable-debug", "--disable-dependency-tracking"
     system "make", "install"
