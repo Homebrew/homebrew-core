@@ -1,8 +1,8 @@
 class Deno < Formula
   desc "Secure runtime for JavaScript and TypeScript"
   homepage "https://deno.land/"
-  url "https://github.com/denoland/deno/releases/download/v1.5.3/deno_src.tar.gz"
-  sha256 "a85d6bf67e3dc0adaf87fe785351a34a0331571970f8229b652175a884bc9599"
+  url "https://github.com/denoland/deno/releases/download/v1.6.0/deno_src.tar.gz"
+  sha256 "60491d842e04ce162face61bb8857bf18a41726afbcbcd9fa532055ace7431ae"
   license "MIT"
 
   bottle do
@@ -48,7 +48,7 @@ class Deno < Formula
     EOS
     assert_match "hello deno", shell_output("#{bin}/deno run hello.ts")
     assert_match "console.log",
-      shell_output("#{bin}/deno run --allow-read=#{testpath} https://deno.land/std@0.50.0/examples/cat.ts " \
+      shell_output("#{bin}/deno run --allow-read=#{testpath} https://deno.land/std@0.80.0/examples/cat.ts " \
                    "#{testpath}/hello.ts")
   end
 end
