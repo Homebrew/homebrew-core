@@ -17,9 +17,11 @@ class Ortp < Formula
   depends_on "pkg-config" => :build
   depends_on "mbedtls"
 
+  # bctoolbox appears to follow ortp's version. This can be verified at the GitHub mirror:
+  # https://github.com/BelledonneCommunications/bctoolbox
   resource "bctoolbox" do
-    url "https://gitlab.linphone.org/BC/public/bctoolbox/-/archive/4.3.1/bctoolbox-4.3.1.tar.bz2"
-    sha256 "1b7ec1a7fa2af2a6741ebda7602c82996752aa46fb17d6c9ddb2ed0846872384"
+    url "https://gitlab.linphone.org/BC/public/bctoolbox/-/archive/4.4.13/bctoolbox-4.4.13.tar.bz2"
+    sha256 "41a0505db2a34051b8466423a01b280a54dd47b72ca39969011fc085a98f4ba9"
   end
 
   def install
