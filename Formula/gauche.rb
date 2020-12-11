@@ -1,12 +1,13 @@
 class Gauche < Formula
   desc "R7RS Scheme implementation, developed to be a handy script interpreter"
   homepage "https://practical-scheme.net/gauche/"
-  url "https://downloads.sourceforge.net/project/gauche/Gauche/Gauche-0.9.9.tgz"
-  sha256 "4ca9325322a7efadb9680d156eb7b53521321c9ca4955c4cbe738bc2e1d7f7fb"
+  url "https://github.com/shirok/Gauche/releases/download/release0_9_10/Gauche-0.9.10.tgz"
+  sha256 "0f39df1daec56680b542211b085179cb22e8220405dae15d9d745c56a63a2532"
 
   livecheck do
     url :stable
-    regex(%r{url=.*?/Gauche[._-]v?(\d+(?:\.\d+)+)\.t}i)
+    strategy :github_latest
+    regex(/Gauche-([0-9.]+)\.t/i)
   end
 
   bottle do
@@ -16,11 +17,12 @@ class Gauche < Formula
     sha256 "719f5826572a2aec1383ef5501ee4f92580f8a769205c03e47f9e610fa0b5abd" => :high_sierra
   end
 
+  depends_on "mbedtls"
+
   def install
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking",
                           "--enable-multibyte=utf-8"
     system "make"
-    system "make", "check"
     system "make", "install"
   end
 
