@@ -1,16 +1,24 @@
-name: Triage issues on a schedule
+# This file is synced from the `.github` repository, do not modify it directly.
+name: Triage issues
 
 on:
   push:
     paths:
-    - .github/workflows/scheduled-triage.yml
+    - .github/workflows/triage-issues.yml
   schedule:
     # Once every day at midnight UTC
     - cron: "0 0 * * *"
+  issue_comment:
 
 jobs:
-  scheduled-triage:
-    if: startsWith(github.repository, 'Homebrew/')
+  stale:
+    if: >
+      startsWith(github.repository, 'Homebrew/') && (
+        github.event_name != 'issue_comment' || (
+          contains(github.event.issue.labels.*.name, 'stale') ||
+          contains(github.event.pull_request.labels.*.name, 'stale')
+        )
+      )
     runs-on: ubuntu-latest
     steps:
       - name: Mark/Close Stale Issues and Pull Requests
@@ -28,6 +36,10 @@ jobs:
           exempt-issue-labels: 'gsoc-outreachy,help wanted,in progress'
           exempt-pr-labels: 'gsoc-outreachy,help wanted,in progress'
 
+  lock-threads:
+    if: startsWith(github.repository, 'Homebrew/') && github.event_name != 'issue_comment'
+    runs-on: ubuntu-latest
+    steps:
       - name: Lock Outdated Threads
         uses: dessant/lock-threads@63786a6c74ee3cfc4584f36de4360305c55e5126
         with:
