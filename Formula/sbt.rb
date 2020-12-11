@@ -25,11 +25,7 @@ class Sbt < Formula
       exec "#{libexec}/bin/sbt" "$@"
     EOS
 
-    (bin/"sbtn").write <<~EOS
-      #!/bin/sh
-      export JAVA_HOME="${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
-      exec "#{libexec}/bin/sbtn-x86_64-apple-darwin" "$@"
-    EOS
+    (bin/"sbtn").write_env_script libexec/"bin/sbtn-x86_64-apple-darwin", Language::Java.overridable_java_home_env
   end
 
   def caveats
