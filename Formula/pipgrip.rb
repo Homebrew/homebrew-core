@@ -3,10 +3,9 @@ class Pipgrip < Formula
 
   desc "Lightweight pip dependency resolver"
   homepage "https://github.com/ddelange/pipgrip"
-  url "https://files.pythonhosted.org/packages/23/ae/2fd700b44b86f4bfbb0943be60043e92a35c73e96f3b075ba295cf687d34/pipgrip-0.6.1.tar.gz"
-  sha256 "b2dcd453e509185fba95ba36c14955ed27c81f5ab8f620818a21b8d7c5909737"
+  url "https://files.pythonhosted.org/packages/73/3a/02c79107df8aa23def1022cdaf7a874ee266487ea8f7ac9a0de74ce7e57a/pipgrip-0.6.2.tar.gz"
+  sha256 "5faf98aba48af53f67aecd1a5bda307c3def56e72f77d67c6533d7f33a4eebaa"
   license "BSD-3-Clause"
-  revision 1
 
   livecheck do
     url :stable
@@ -33,13 +32,13 @@ class Pipgrip < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/55/fd/fc1aca9cf51ed2f2c11748fa797370027babd82f87829c7a8e6dbe720145/packaging-20.4.tar.gz"
-    sha256 "4357f74f47b9c12db93624a82154e9b120fa8293699949152b22065d556079f8"
+    url "https://files.pythonhosted.org/packages/16/7c/33ae3aa02eb10ca726b21aa88d338e3f619c674e4fb8544eb352330d880a/packaging-20.7.tar.gz"
+    sha256 "05af3bb85d320377db281cf254ab050e1a7ebcbf5410685a9a407e18a1f81236"
   end
 
   resource "pkginfo" do
-    url "https://files.pythonhosted.org/packages/6c/04/fd6683d24581894be8b25bc8c68ac7a0a73bf0c4d74b888ac5fe9a28e77f/pkginfo-1.5.0.1.tar.gz"
-    sha256 "7424f2c8511c186cd5424bbf31045b77435b37a8d604990b79d4e70d741148bb"
+    url "https://files.pythonhosted.org/packages/30/e3/5b17405ee8c8a78b5ae6ede4c5f296bebd97eb5982b28bbe37d61802bbc5/pkginfo-1.6.1.tar.gz"
+    sha256 "a6a4ac943b496745cec21f14f021bbd869d5e9b4f6ec06918cffea5a2f4b9193"
   end
 
   resource "pyparsing" do
