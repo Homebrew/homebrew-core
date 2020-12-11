@@ -62,26 +62,21 @@ class GrafanaCloudAgent < Formula
   end
 
   test do
-    begin
-      port = free_port
+    port = free_port
 
-      (testpath/"grafana-cloud-agent.yml").write <<~EOS
-        server:
-          log_level: info
-          http_listen_port: #{port}
-          grpc_listen_port: #{free_port}
-      EOS
+    (testpath/"grafana-cloud-agent.yml").write <<~EOS
+      server:
+        log_level: info
+        http_listen_port: #{port}
+        grpc_listen_port: #{free_port}
+    EOS
 
-      pid = fork do
-        exec bin/"grafana-cloud-agent", "-config.file=#{testpath}/grafana-cloud-agent.yml"
-      end
-      sleep 3
-      
-      output = shell_output("curl -s -XGET 127.0.0.1:#{port}/metrics")
-      assert_match "agent_build_info", output
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
+    fork do
+      exec bin/"grafana-cloud-agent", "-config.file=#{testpath}/grafana-cloud-agent.yml"
     end
+    sleep 3
+
+    output = shell_output("curl -s -XGET 127.0.0.1:#{port}/metrics")
+    assert_match "agent_build_info", output
   end
 end
