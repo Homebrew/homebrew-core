@@ -109,6 +109,8 @@ class MariadbAT103 < Formula
   end
 
   def post_install
+    return if ENV["CI"]
+
     # Make sure the var/mysql directory exists
     (var/"mysql").mkpath
     unless File.exist? "#{var}/mysql/mysql/user.frm"
@@ -157,6 +159,15 @@ class MariadbAT103 < Formula
   end
 
   test do
-    system bin/"mysqld", "--version"
+    (testpath/"mysql").mkpath
+    port = free_port
+    system "#{bin}/mysql_install_db", "--verbose", "--user=#{ENV["USER"]}",
+      "--basedir=#{prefix}", "--datadir=#{testpath}/mysql", "--tmpdir=/tmp"
+    fork do
+      system "#{bin}/mysqld", "--datadir=#{testpath}/mysql", "--port=#{port}"
+    end
+    sleep 5
+    assert_match "information_schema",
+      shell_output("#{bin}/mysql --port=#{port} --user=''@localhost --execute='show databases;'")
   end
 end
