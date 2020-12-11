@@ -18,7 +18,7 @@ class GrafanaCloudAgent < Formula
 
     system "make", "agent"
 
-    bin.install "./cmd/agent/agent", "grafana-cloud-agent"
+    bin.install "./cmd/agent/agent" => "grafana-cloud-agent"
 
     (etc/"grafana-cloud-agent").mkpath
   end
