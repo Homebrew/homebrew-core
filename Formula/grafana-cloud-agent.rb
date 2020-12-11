@@ -18,8 +18,7 @@ class GrafanaCloudAgent < Formula
 
     system "make", "agent"
 
-    bin.install "./cmd/agent/agent"
-    mv "#{bin}/agent", "#{bin}/grafana-cloud-agent"
+    bin.install "./cmd/agent/agent", "grafana-cloud-agent"
   end
 
   def post_install
