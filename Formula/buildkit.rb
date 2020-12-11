@@ -5,6 +5,7 @@ class Buildkit < Formula
       tag:      "v0.8.0",
       revision: "73fe4736135645a342abc7b587bba0994cccf0f9"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/moby/buildkit.git"
 
   livecheck do
