@@ -43,12 +43,19 @@ class Mame < Formula
   uses_from_macos "expat"
   uses_from_macos "zlib"
 
+  # Disable BGFX threading. Remove in next version.
+  patch do
+    url "https://github.com/mamedev/mame/commit/48d1f0de37fc6c429051dd1bcd1a49dbef581b1a.patch?full_index=1"
+    sha256 "9f9aba588ab1e82d927d1c101780415672c54cb463e80d435be3cb1d0ec34217"
+  end
+
   def install
     # Cut sdl2-config's invalid option.
     inreplace "scripts/src/osd/sdl.lua", "--static", ""
 
     # Use bundled asio and lua instead of latest version.
-    # See: <https://github.com/mamedev/mame/issues/5721>
+    # https://github.com/mamedev/mame/issues/5721
+    # https://github.com/mamedev/mame/issues/5349
     system "make", "PYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3",
                    "USE_LIBSDL=1",
                    "USE_SYSTEM_LIB_EXPAT=1",
