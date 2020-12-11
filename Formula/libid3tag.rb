@@ -73,7 +73,9 @@ class Libid3tag < Formula
 
   def install
     # Run autoconf because config.{guess,sub} are outdated
-    touch "NEWS", "AUTHORS", "ChangeLog"
+    touch "NEWS"
+    touch "AUTHORS"
+    touch "ChangeLog"
     system "autoreconf", "-fiv"
 
     system "./configure", "--prefix=#{prefix}", "--disable-debug", "--disable-dependency-tracking"
