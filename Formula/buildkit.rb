@@ -3,7 +3,7 @@ class Buildkit < Formula
   homepage "https://github.com/moby/buildkit"
   url "https://github.com/moby/buildkit.git",
       tag:      "v0.8.0",
-      revision: "d5f179bb796e385076ec57978c08d8a4427b2f74"
+      revision: "73fe4736135645a342abc7b587bba0994cccf0f9"
   license "Apache-2.0"
   head "https://github.com/moby/buildkit.git"
 
