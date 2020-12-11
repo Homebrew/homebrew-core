@@ -4,6 +4,7 @@ class Armadillo < Formula
   url "https://downloads.sourceforge.net/project/arma/armadillo-10.1.2.tar.xz"
   sha256 "96ef79b65c9cecbfcafac6113da85e695c97e796ffffd04b4280c7a8daf5635d"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
