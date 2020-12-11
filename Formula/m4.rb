@@ -25,6 +25,19 @@ class M4 < Formula
     end
   end
 
+  on_linux do
+    # Glibc no longer provides several required symbols since version 2.28.
+    # Gnulib, bundled into m4, and the dependent of those removed symbols
+    # would no longer compile without an upstream fix applied.
+    # - https://github.com/coreutils/gnulib/commit/4af4a4a71827c0bc5e0ec67af23edef4f15cee8e#diff-5bcce8ce55246264586c4aed2a45ff89
+    # Patch the copy of gnulib bundled with the m4 1.4.18 distribution.
+    # - https://lists.gnu.org/archive/html/bug-m4/2018-08/msg00000.html
+    patch do
+      url "https://raw.githubusercontent.com/archlinux/svntogit-packages/19e203625ecdf223400d523f3f8344f6ce96e0c2/trunk/m4-1.4.18-glibc-change-work-around.patch"
+      sha256 "fc9b61654a3ba1a8d6cd78ce087e7c96366c290bc8d2c299f09828d793b853c8"
+    end
+  end
+
   def install
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make"
