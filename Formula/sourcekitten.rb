@@ -14,7 +14,7 @@ class Sourcekitten < Formula
     sha256 "654be477731626a28cc48c675fb8402f9c3728c957698ca93bce5ae0d2a66c8d" => :mojave
   end
 
-  depends_on xcode: ["10.2", :build]
+  depends_on xcode: ["11.4", :build]
   depends_on xcode: "6.0"
 
   def install
