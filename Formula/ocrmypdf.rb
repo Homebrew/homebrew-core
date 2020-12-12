@@ -3,8 +3,8 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://github.com/jbarlow83/OCRmyPDF"
-  url "https://files.pythonhosted.org/packages/d7/e0/1c3f7b6caa09383a518049249442eec50a5808aef87454c350660d8ce9c5/ocrmypdf-11.3.4.tar.gz"
-  sha256 "91e7394172cedb3be801a229dbd3d308fb5ae80cbc3a77879fa7954beea407b1"
+  url "https://files.pythonhosted.org/packages/ac/71/b79e48a31570d61c312194055ba89d4a67d87e6e1c1ef02b49938313c470/ocrmypdf-11.4.0.tar.gz"
+  sha256 "92b6b7119f98e0ce6e7f5423c1473a05cf271eaa258e38b6db0e6a37aedcd4a3"
   license "MPL-2.0"
 
   livecheck do
@@ -43,23 +43,23 @@ class Ocrmypdf < Formula
   end
 
   resource "chardet" do
-    url "https://files.pythonhosted.org/packages/fc/bb/a5768c230f9ddb03acc9ef3f0d4a3cf93462473795d18e9535498c8f929d/chardet-3.0.4.tar.gz"
-    sha256 "84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae"
+    url "https://files.pythonhosted.org/packages/ee/2d/9cdc2b527e127b4c9db64b86647d567985940ac3698eeabc7ffaccb4ea61/chardet-4.0.0.tar.gz"
+    sha256 "0d6f53a15db4120f2b08c94f11e7d93d2c911ee118b6b30a04ec3ee8310179fa"
   end
 
   resource "coloredlogs" do
-    url "https://files.pythonhosted.org/packages/84/1b/1ecdd371fa68839cfbda15cc671d0f6c92d2c42688df995a9bf6e36f3511/coloredlogs-14.0.tar.gz"
-    sha256 "a1fab193d2053aa6c0a97608c4342d031f1f93a3d1218432c59322441d31a505"
+    url "https://files.pythonhosted.org/packages/ce/ef/bfca8e38c1802896f67045a0c9ea0e44fc308b182dbec214b9c2dd54429a/coloredlogs-15.0.tar.gz"
+    sha256 "5e78691e2673a8e294499e1832bb13efcfb44a86b92e18109fa18951093218ab"
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/94/5c/42de91c7fbdb817b2d9a4e64b067946eb38a4eb36c1a09c96c87a0f86a82/cryptography-3.2.1.tar.gz"
-    sha256 "d3d5e10be0cf2a12214ddee45c6bd203dab435e3d83b4560c03066eda600bfe3"
+    url "https://files.pythonhosted.org/packages/b7/82/f7a4ddc1af185936c1e4fa000942ffa8fb2d98cff26b75afa7b3c63391c4/cryptography-3.3.1.tar.gz"
+    sha256 "7e177e4bea2de937a584b13645cab32f25e3d96fc0bc4a4cf99c27dc77682be6"
   end
 
   resource "humanfriendly" do
-    url "https://files.pythonhosted.org/packages/1f/6c/bddbe81bb6b0f03088069ef3a7346be5218cb0689025fa6c6c8dc1886da2/humanfriendly-9.0.tar.gz"
-    sha256 "175ffa628aa76da2c17369a5da5856084562cc66dfe7f82ae93ca3ef175277a6"
+    url "https://files.pythonhosted.org/packages/31/0e/a2e882aaaa0a378aa6643f4bbb571399aede7dbb5402d3a1ee27a201f5f3/humanfriendly-9.1.tar.gz"
+    sha256 "066562956639ab21ff2676d1fda0b5987e985c534fc76700a19bd54bcb81121d"
   end
 
   resource "img2pdf" do
@@ -113,8 +113,8 @@ class Ocrmypdf < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/3a/76/467422c5a0157c92a8b8e1ffe14411443682e2951e6f6dde3748e47b31ba/tqdm-4.54.0.tar.gz"
-    sha256 "5c0d04e06ccc0da1bd3fa5ae4550effcce42fcad947b4a6cafa77bdc9b09ff22"
+    url "https://files.pythonhosted.org/packages/80/e9/a51c724ce67ff24a18861af5b0c6f9468e4b4ecdbd53fd43a9288b856372/tqdm-4.54.1.tar.gz"
+    sha256 "38b658a3e4ecf9b4f6f8ff75ca16221ae3378b2e175d846b6b33ea3a20852cf5"
   end
 
   def install
