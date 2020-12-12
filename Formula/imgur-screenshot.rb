@@ -8,6 +8,11 @@ class ImgurScreenshot < Formula
 
   bottle :unneeded
 
+  depends_on "jq"
+  depends_on "terminal-notifier"
+
+  uses_from_macos "curl"
+
   def install
     bin.install "imgur-screenshot"
     bin.install_symlink "imgur-screenshot" => "imgur-screenshot.sh"
