@@ -1,8 +1,8 @@
 class Qemu < Formula
   desc "Emulator for x86 and PowerPC"
   homepage "https://www.qemu.org/"
-  url "https://download.qemu.org/qemu-5.1.0.tar.xz"
-  sha256 "c9174eb5933d9eb5e61f541cd6d1184cd3118dfe4c5c4955bc1bdc4d390fa4e5"
+  url "https://download.qemu.org/qemu-5.2.0.tar.xz"
+  sha256 "cb18d889b628fbe637672b0326789d9b0e3b8027e0445b936537c78549df17bc"
   license "GPL-2.0-only"
   head "https://git.qemu.org/git/qemu.git"
 
@@ -14,6 +14,8 @@ class Qemu < Formula
   end
 
   depends_on "libtool" => :build
+  depends_on "ninja" => :build
+  depends_on "meson" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "gnutls"
@@ -32,6 +34,18 @@ class Qemu < Formula
   resource "test-image" do
     url "https://dl.bintray.com/homebrew/mirror/FD12FLOPPY.zip"
     sha256 "81237c7b42dc0ffc8b32a2f5734e3480a3f9a470c50c14a9c4576a2561a35807"
+  end
+
+  # remove in next release
+  patch do
+    url "https://git.qemu.org/?p=qemu.git;a=patch;h=0dbce6efb5ff2e7113734d3a0cabbf87fc56feec"
+    sha256 "8ced33c7f829216544b762d8db0f143dbea04fa5a1ce41b491bbd7808f64a944"
+  end
+
+  # remove in next release
+  patch do
+    url "https://git.qemu.org/?p=qemu.git;a=patch;h=cb7abd8319d19000b57ae6c5c474c2635db054c6"
+    sha256 "818ad42f0cb25ab5df37058e27d7f879e4389489f692da4404c1f15dde5b2c4d"
   end
 
   def install
