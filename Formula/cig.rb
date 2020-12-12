@@ -17,14 +17,17 @@ class Cig < Formula
   end
 
   depends_on "go" => :build
-  depends_on "godep" => :build
+
+  # Patch to remove godep dependency.
+  # Remove when the following PR is merged into release:
+  # https://github.com/stevenjack/cig/pull/44
+  patch do
+    url "https://github.com/stevenjack/cig/compare/2d834ee..f0e78f0.patch?full_index"
+    sha256 "3aa14ecfa057ec6aba08d6be3ea0015d9df550b4ede1c3d4eb76bdc441a59a47"
+  end
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/stevenjack").mkpath
-    ln_s buildpath, "src/github.com/stevenjack/cig"
-    system "godep", "restore"
-    system "go", "build", "-o", bin/"cig"
+    system "go", "build", *std_go_args
   end
 
   test do
