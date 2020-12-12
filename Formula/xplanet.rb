@@ -3,6 +3,7 @@ class Xplanet < Formula
   homepage "https://xplanet.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/xplanet/xplanet/1.3.1/xplanet-1.3.1.tar.gz"
   sha256 "4380d570a8bf27b81fb629c97a636c1673407f4ac4989ce931720078a90aece7"
+  license "GPL-2.0-or-later"
   revision 4
 
   livecheck do
@@ -38,18 +39,23 @@ class Xplanet < Formula
   end
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--with-aqua",
-                          "--without-cspice",
-                          "--without-cygwin",
-                          "--with-gif",
-                          "--with-jpeg",
-                          "--with-libtiff",
-                          "--without-pango",
-                          "--without-pnm",
-                          "--without-x",
-                          "--without-xscreensaver"
+    args = [
+      "--disable-dependency-tracking",
+      "--prefix=#{prefix}",
+      "--without-cspice",
+      "--without-cygwin",
+      "--with-gif",
+      "--with-jpeg",
+      "--with-libtiff",
+      "--without-pango",
+      "--without-pnm",
+      "--without-x",
+      "--without-xscreensaver",
+    ]
+    on_macos do
+      args << "--with-aqua"
+    end
+    system "./configure", *args
 
     system "make", "install"
   end
