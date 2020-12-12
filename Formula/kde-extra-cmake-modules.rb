@@ -1,8 +1,8 @@
 class KdeExtraCmakeModules < Formula
   desc "Extra modules and scripts for CMake"
   homepage "https://api.kde.org/frameworks/extra-cmake-modules/html/index.html"
-  url "https://download.kde.org/stable/frameworks/5.76/extra-cmake-modules-5.76.0.tar.xz"
-  sha256 "4845e9e0a43ba15158c0cfdc7ab594e7d02692fab9083201715270a096704a32"
+  url "https://download.kde.org/stable/frameworks/5.77/extra-cmake-modules-5.77.0.tar.xz"
+  sha256 "42f071f628b192122894026de20097cb0b3de411cb41c6935b48eb86ce992a65"
   head "https://invent.kde.org/frameworks/extra-cmake-modules.git"
 
   livecheck do
