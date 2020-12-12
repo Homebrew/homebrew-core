@@ -39,6 +39,7 @@ class Ortp < Formula
     args = std_cmake_args + %W[
       -DCMAKE_PREFIX_PATH=#{libexec}
       -DCMAKE_C_FLAGS=-I#{libexec}/include
+      -DCMAKE_CXX_FLAGS=-I#{libexec}/include
       -DENABLE_DOC=NO
     ]
     mkdir "build" do
