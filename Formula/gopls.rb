@@ -6,7 +6,8 @@ class Gopls < Formula
   license "BSD-3-Clause"
 
   livecheck do
-    url "https://github.com/golang/tools/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/(?:gopls%2F)?v?(\d+(?:\.\d+)+)["' >]}i)
   end
 
