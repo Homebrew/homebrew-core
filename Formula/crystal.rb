@@ -2,7 +2,7 @@ class Crystal < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   stable do
     url "https://github.com/crystal-lang/crystal/archive/0.35.1.tar.gz"
@@ -43,7 +43,7 @@ class Crystal < Formula
   depends_on "gmp" # std uses it but it's not linked
   depends_on "libevent"
   depends_on "libyaml"
-  depends_on "llvm"
+  depends_on "llvm@9"
   depends_on "openssl@1.1" # std uses it but it's not linked
   depends_on "pcre"
   depends_on "pkg-config" # @[Link] will use pkg-config if available
@@ -111,8 +111,15 @@ class Crystal < Formula
     # Install shards
     resource("shards").stage do
       ENV["CRYSTAL_OPTS"] = "--release --no-debug"
+      shards = nil
+      on_macos do
+        shards = buildpath/"boot/embedded/bin/shards"
+      end
+      on_linux do
+        shards = buildpath/"boot/bin/shards"
+      end
       system "make", "bin/shards", "CRYSTAL=#{buildpath/"bin/crystal"}",
-                                   "SHARDS=#{buildpath/"boot/embedded/bin/shards"}"
+                                   "SHARDS=#{shards}"
 
       # Install shards
       bin.install "bin/shards"
