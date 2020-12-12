@@ -7,7 +7,7 @@ class Gauche < Formula
   livecheck do
     url :stable
     strategy :github_latest
-    regex(/Gauche-([0-9.]+)\.t/i)
+    regex(/href=.*?Gauche[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
