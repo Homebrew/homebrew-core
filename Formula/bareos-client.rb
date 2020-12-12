@@ -3,7 +3,7 @@ class BareosClient < Formula
   homepage "https://www.bareos.org/"
   url "https://github.com/bareos/bareos/archive/Release/19.2.9.tar.gz"
   sha256 "ea203d4bdacc8dcc86164a74f628888ce31cc90858398498137bd25900b8f723"
-  license "AGPL-3.0"
+  license "AGPL-3.0-only"
 
   livecheck do
     url "https://github.com/bareos/bareos.git"
