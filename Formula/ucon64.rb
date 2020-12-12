@@ -1,8 +1,8 @@
 class Ucon64 < Formula
   desc "ROM backup tool and emulator's Swiss Army knife program"
   homepage "https://ucon64.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/ucon64/ucon64/ucon64-2.2.0/ucon64-2.2.0-src.tar.gz"
-  sha256 "5727e0be9ee878bba84d204135a7ca25662db6b56fee6895301e50c1bdda70af"
+  url "https://downloads.sourceforge.net/project/ucon64/ucon64/ucon64-2.2.1/ucon64-2.2.1-src.tar.gz"
+  sha256 "e814f427a59866e16fe757bf4af51004ac68be29cabd78944590878f1df73f79"
   license "GPL-2.0"
   head "https://svn.code.sf.net/p/ucon64/svn/trunk/ucon64"
 
@@ -26,14 +26,6 @@ class Ucon64 < Formula
     sha256 "d74cb3ba11a4ef5d0f8d224325958ca1203b0d8bb4a7a79867e412d987f0b846"
   end
 
-  # Fixes an upstream issue which incorrectly attempts to use a Linux-only
-  # function on macOS. Should be in the next release.
-  # https://sourceforge.net/p/ucon64/svn/2763/
-  patch do
-    url "https://github.com/Homebrew/formula-patches/raw/23a80b586dd35fdde1bf575c57a1b468631e644e/ucon64/sched_setscheduler.diff"
-    sha256 "bb7bf52ec016092bf84b0a5eebb4295394288985993d4ab7a6b69a78c1c3ce77"
-  end
-
   def install
     # ucon64's normal install process installs the discmage library in
     # the user's home folder. We want to store it inside the prefix, so
@@ -47,7 +39,8 @@ class Ucon64 < Formula
       system "./configure", "--disable-debug",
                             "--disable-dependency-tracking",
                             "--disable-silent-rules",
-                            "--prefix=#{prefix}"
+                            "--prefix=#{prefix}",
+                            "--with-libdiscmage"
       system "make"
       bin.install "ucon64"
       libexec.install "libdiscmage/#{shared_library("discmage")}" => shared_library("libdiscmage")
