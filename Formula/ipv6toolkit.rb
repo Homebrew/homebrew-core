@@ -8,7 +8,6 @@ class Ipv6toolkit < Formula
 
   livecheck do
     url "http://pages.cs.wisc.edu/~plonka/ipv6toolkit/"
-    strategy :page_match
     regex(/href=.*?ipv6toolkit[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
