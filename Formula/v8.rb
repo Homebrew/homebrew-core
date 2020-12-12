@@ -2,8 +2,8 @@ class V8 < Formula
   desc "Google's JavaScript engine"
   homepage "https://github.com/v8/v8/wiki"
   # Track V8 version from Chrome stable: https://omahaproxy.appspot.com
-  url "https://github.com/v8/v8/archive/8.7.220.25.tar.gz"
-  sha256 "44d2f91fd413a3fde637b724a8ef7ad81c5a564b9cb2b9adcbd893ae08a923fc"
+  url "https://github.com/v8/v8/archive/8.7.220.29.tar.gz"
+  sha256 "36ebf7a55ccc0f2c765a45f23ed152caceb7612f31ce29d3f49ff1614afbe54d"
   license "BSD-3-Clause"
 
   livecheck do
@@ -24,13 +24,13 @@ class V8 < Formula
   depends_on xcode: ["10.0", :build] # required by v8
 
   # Look up the correct resource revisions in the DEP file of the specific releases tag
-  # e.g. for CIPD dependency gn: https://github.com/v8/v8/blob/7.6.303.27/DEPS#L15
+  # e.g. for CIPD dependency gn: https://github.com/v8/v8/blob/8.7.220.29/DEPS#L44
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
         revision: "e002e68a48d1c82648eadde2f6aafa20d08c36f2"
   end
 
-  # e.g.: https://github.com/v8/v8/blob/7.6.303.27/DEPS#L60 for the revision of build for v8 7.6.303.27
+  # e.g.: https://github.com/v8/v8/blob/8.7.220.29/DEPS#L85 for the revision of build for v8 8.7.220.29
   resource "v8/build" do
     url "https://chromium.googlesource.com/chromium/src/build.git",
         revision: "38a49c12ded01dd8c4628b432cb7eebfb29e77f1"
