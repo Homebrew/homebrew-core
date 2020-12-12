@@ -3,6 +3,7 @@ class KdeKdoctools < Formula
   homepage "https://api.kde.org/frameworks/kdoctools/html/index.html"
   url "https://download.kde.org/stable/frameworks/5.77/kdoctools-5.77.0.tar.xz"
   sha256 "a78c44534f85824ed8168670d2880d3735083129635109dfe54fc21f16fb6d44"
+  license all_of: ["BSD-3-Clause", "GPL-2.0-or-later", "LGPL-2.1-only", "LGPL-2.1-or-later", "LGPL-3.0-only"]
   head "https://invent.kde.org/frameworks/kdoctools.git"
 
   bottle do
