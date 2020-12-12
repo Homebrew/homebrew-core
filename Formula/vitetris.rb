@@ -1,8 +1,8 @@
 class Vitetris < Formula
   desc "Terminal-based Tetris clone"
   homepage "https://www.victornils.net/tetris/"
-  url "https://github.com/vicgeralds/vitetris/archive/v0.58.0.tar.gz"
-  sha256 "e7e7cb74bb814b9fec80fe4ede3c3f04134d8217d630e092a097238248d604f9"
+  url "https://github.com/vicgeralds/vitetris/archive/v0.59.0.tar.gz"
+  sha256 "8a3fd7ad6cef51eb49deb812d2bf2c9489647115fdf95506657cf9d7361b1f54"
   license "BSD-2-Clause"
 
   bottle do
