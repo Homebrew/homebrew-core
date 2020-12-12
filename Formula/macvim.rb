@@ -2,11 +2,10 @@
 class Macvim < Formula
   desc "GUI for vim, made for macOS"
   homepage "https://github.com/macvim-dev/macvim"
-  url "https://github.com/macvim-dev/macvim/archive/snapshot-166.tar.gz"
-  version "8.2-166"
-  sha256 "d9745f01c45fb2c1c99ce3b74bf1db6b888805bbb2d2a570bfb5742828ca601a"
+  url "https://github.com/macvim-dev/macvim/archive/snapshot-169.tar.gz"
+  version "8.2-169"
+  sha256 "3b5bd8631ada8566d7d575696fbe2e0df760f3cdd31c09b47980e3d62e523cc7"
   license "Vim"
-  revision 2
   head "https://github.com/macvim-dev/macvim.git"
 
   bottle do
@@ -24,13 +23,6 @@ class Macvim < Formula
 
   conflicts_with "vim",
     because: "vim and macvim both install vi* binaries"
-
-  # Fix for Big Sur bug, remove in next version
-  # https://github.com/macvim-dev/macvim/issues/1113
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/bd6637/macvim/big_sur.patch"
-    sha256 "1d3737d664b39f902d22da392869c66397b6b5d8a420d1a83f34f9ffaf963c38"
-  end
 
   def install
     # Avoid issues finding Ruby headers
@@ -56,7 +48,8 @@ class Macvim < Formula
                           "--with-lua-prefix=#{Formula["lua"].opt_prefix}",
                           "--enable-luainterp",
                           "--enable-python3interp",
-                          "--disable-sparkle"
+                          "--disable-sparkle",
+                          "--with-macarchs=#{Hardware::CPU.arch}"
     system "make"
 
     prefix.install "src/MacVim/build/Release/MacVim.app"
