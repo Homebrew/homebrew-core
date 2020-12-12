@@ -2,8 +2,8 @@ class Yash < Formula
   desc "Yet another shell: a POSIX-compliant command-line shell"
   homepage "https://yash.osdn.jp/"
   # Canonical: https://osdn.net/dl/yash/yash-*
-  url "https://dotsrc.dl.osdn.net/osdn/yash/73097/yash-2.50.tar.xz"
-  sha256 "b6e0e2e607ab449947178da227fa739db4b13c8af9dfe8116b834964b980e24b"
+  url "https://dotsrc.dl.osdn.net/osdn/yash/74064/yash-2.51.tar.xz"
+  sha256 "6f15e68eeb63fd42e91c3ce75eccf325f2c938fa1dc248e7213af37c043aeaf8"
   license "GPL-2.0"
 
   livecheck do
