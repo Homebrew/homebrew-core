@@ -3,7 +3,7 @@ class Depqbf < Formula
   homepage "https://lonsing.github.io/depqbf/"
   url "https://github.com/lonsing/depqbf/archive/version-6.03.tar.gz"
   sha256 "9684bb1562bfe14559007401f52975554373546d3290a19618ee71d709bce76e"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
   head "https://github.com/lonsing/depqbf.git"
 
   bottle do
@@ -32,7 +32,13 @@ class Depqbf < Formula
     (buildpath/"picosat-960").install resource("picosat")
     system "./compile.sh"
     bin.install "depqbf"
-    lib.install "libqdpll.a", "libqdpll.1.0.dylib"
+    lib.install "libqdpll.a"
+    on_macos do
+      lib.install "libqdpll.1.0.dylib"
+    end
+    on_linux do
+      lib.install "libqdpll.so.1.0"
+    end
   end
 
   test do
