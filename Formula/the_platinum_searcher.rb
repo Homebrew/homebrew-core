@@ -17,17 +17,16 @@ class ThePlatinumSearcher < Formula
   end
 
   depends_on "go" => :build
-  depends_on "godep" => :build
+
+  # Patch to remove godep dependency. Remove when this is merged into release:
+  # https://github.com/monochromegane/the_platinum_searcher/pull/211
+  patch do
+    url "https://github.com/monochromegane/the_platinum_searcher/commit/763f368fe26fa44a12e1a37598185322aa30ba8f.patch?full_index=1"
+    sha256 "2ee0f53065663f22f3c44b30c5804e37b8cb49200a30c4513b9ef668441dd543"
+  end
 
   def install
-    ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/github.com/monochromegane/the_platinum_searcher"
-    dir.install buildpath.children
-    cd dir do
-      system "godep", "restore"
-      system "go", "build", "-o", bin/"pt", ".../cmd/pt"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args, "-o", bin/"pt", "./cmd/pt"
   end
 
   test do
