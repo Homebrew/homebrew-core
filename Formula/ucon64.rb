@@ -3,7 +3,7 @@ class Ucon64 < Formula
   homepage "https://ucon64.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/ucon64/ucon64/ucon64-2.2.1/ucon64-2.2.1-src.tar.gz"
   sha256 "e814f427a59866e16fe757bf4af51004ac68be29cabd78944590878f1df73f79"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   head "https://svn.code.sf.net/p/ucon64/svn/trunk/ucon64"
 
   livecheck do
