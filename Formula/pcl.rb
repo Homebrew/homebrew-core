@@ -14,7 +14,7 @@ class Pcl < Formula
   end
 
   depends_on "cmake" => [:build, :test]
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => [:build, :test]
   depends_on "boost"
   depends_on "cminpack"
   depends_on "eigen"
