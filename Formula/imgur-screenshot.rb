@@ -20,7 +20,7 @@ class ImgurScreenshot < Formula
 
   test do
     # Check deps
-    system bin/"imgur-screenshot", "--check"
-    system bin/"imgur-screenshot.sh", "--check"
+    system bin/"imgur-screenshot", test_fixtures("test.jpg")
+    system bin/"imgur-screenshot.sh", test_fixtures("test.png")
   end
 end
