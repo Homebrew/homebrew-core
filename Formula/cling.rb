@@ -4,9 +4,7 @@ class Cling < Formula
   url "https://github.com/root-project/cling.git",
       tag:      "v0.7",
       revision: "70163975eee5a76b45a1ca4016bfafebc9b57e07"
-  # You may license this software under one of the following licenses, marked
-  # "UI/NCSAOSL" and "LGPL".
-  license "LGPL-2.1"
+  license any_of: ["LGPL-2.1-only", "NCSA"]
 
   livecheck do
     url :stable
