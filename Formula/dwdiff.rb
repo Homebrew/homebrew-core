@@ -3,6 +3,7 @@ class Dwdiff < Formula
   homepage "https://os.ghalkes.nl/dwdiff.html"
   url "https://os.ghalkes.nl/dist/dwdiff-2.1.4.tar.bz2"
   sha256 "df16fec44dcb467d65a4246a43628f93741996c1773e930b90c6dde22dd58e0a"
+  license "GPL-3.0-only"
 
   livecheck do
     url "https://os.ghalkes.nl/dist/"
