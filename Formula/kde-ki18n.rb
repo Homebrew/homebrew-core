@@ -3,7 +3,11 @@ class KdeKi18n < Formula
   homepage "https://api.kde.org/frameworks/ki18n/html/index.html"
   url "https://download.kde.org/stable/frameworks/5.77/ki18n-5.77.0.tar.xz"
   sha256 "b2e1b74dedc1a3af88f04c470922d1fafb892d5846ea91ad139d421070cff357"
-  license all_of: ["BSD-3-Clause", "LGPL-2.0-or-later", "LGPL-2.1-only", "LGPL-3.0-only"]
+  license all_of: [
+    "BSD-3-Clause",
+    "LGPL-2.0-or-later",
+    any_of: ["LGPL-2.1-only", "LGPL-3.0-only"],
+  ]
   head "https://invent.kde.org/frameworks/ki18n.git"
 
   bottle do
