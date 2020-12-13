@@ -4,7 +4,7 @@ class Pike < Formula
   url "https://pike.lysator.liu.se/pub/pike/latest-stable/Pike-v8.0.702.tar.gz"
   sha256 "c47aad2e4f2c501c0eeea5f32a50385b46bda444f922a387a5c7754302f12a16"
   license any_of: ["GPL-2.0-only", "LGPL-2.1-only", "MPL-1.1"]
-  revision 2
+  revision 3
 
   livecheck do
     url "https://pike.lysator.liu.se/download/pub/pike/latest-stable/"
@@ -19,7 +19,6 @@ class Pike < Formula
   end
 
   depends_on "gmp"
-  depends_on "librsvg"
   depends_on "libtiff"
   depends_on "nettle"
   depends_on "pcre"
