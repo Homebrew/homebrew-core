@@ -3,6 +3,7 @@ class Gauche < Formula
   homepage "https://practical-scheme.net/gauche/"
   url "https://github.com/shirok/Gauche/releases/download/release0_9_10/Gauche-0.9.10.tgz"
   sha256 "0f39df1daec56680b542211b085179cb22e8220405dae15d9d745c56a63a2532"
+  revision 1
 
   livecheck do
     url :stable
