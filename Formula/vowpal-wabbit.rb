@@ -5,6 +5,7 @@ class VowpalWabbit < Formula
   url "https://github.com/VowpalWabbit/vowpal_wabbit.git",
     tag:      "8.9.0",
     revision: "d1ead9a0a9afd56d2ee11a72e0c1aaa7702ee281"
+  license "BSD-3-Clause"
   head "https://github.com/VowpalWabbit/vowpal_wabbit.git"
 
   bottle do
