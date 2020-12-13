@@ -27,24 +27,18 @@ class Vitetris < Formula
     system "#{bin}/tetris", "-hiscore"
   end
 end
+
 __END__
---- a/Makefile  2013-10-07 11:57:18.000000000 +0200
-+++ b/Makefile  2013-10-07 11:57:29.000000000 +0200
-@@ -5,7 +5,7 @@
- # Uncomment to change the default.  (Only used in Unix-like systems.)
- #HISCORE_FILENAME = /var/games/vitetris-hiscores
-
--INSTALL = install -oroot -groot
-+INSTALL = install
-
- default: build
-	@echo Done.
-@@ -18,7 +18,7 @@
-  cd src; $(MAKE) tetris
-	mv -f src/tetris$(EXE) $(PROGNAME)
-	@echo stripping symbols to reduce program size:
--	-strip --strip-all $(PROGNAME)
-+	-strip $(PROGNAME)
+diff --git a/Makefile b/Makefile
+index 164e69e..aae92bc 100644
+--- a/Makefile
++++ b/Makefile
+@@ -18,7 +18,7 @@ build: src/src-conf.mk
+        cd src; $(MAKE) tetris
+        mv -f src/tetris$(EXE) $(PROGNAME)
+        @echo stripping symbols to reduce program size:
+-       -strip --strip-all $(PROGNAME)
++       -strip $(PROGNAME)
 
  gameserver: src/netw/gameserver.c
-	cd src/netw; $(MAKE) gameserver
+        cd src/netw; $(MAKE) gameserver
