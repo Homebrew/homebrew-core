@@ -3,6 +3,7 @@ class GnuCobol < Formula
   homepage "https://sourceforge.net/projects/gnucobol/"
   url "https://downloads.sourceforge.net/project/gnucobol/gnucobol/3.1/gnucobol-3.1.1.tar.xz"
   sha256 "c1b1d7dead3b141ed2f30102934e94b48d01845c79fccf19110f34016970f423"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url :stable
