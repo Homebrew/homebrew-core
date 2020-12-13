@@ -6,6 +6,12 @@ class Vips < Formula
   license "LGPL-2.1-or-later"
   revision 4
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
+
   bottle do
     sha256 "dd25f969679d33294b24b5e9747b71a2027ca5233f28505299c172901d8de253" => :big_sur
     sha256 "973a9f7c048c0cd8a6accbbf17f6d50eff097ddf173936e67d0343d374dc8d8f" => :catalina
