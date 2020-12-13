@@ -3,7 +3,12 @@ class KdeKarchive < Formula
   homepage "https://api.kde.org/frameworks/karchive/html/index.html"
   url "https://download.kde.org/stable/frameworks/5.77/karchive-5.77.0.tar.xz"
   sha256 "2239af811b9205d9f4486791f4b25ff5ea299b3873021a646e1c8b9d44c2be36"
-  license all_of: ["BSD-2-Clause", "LGPL-2.0-only", "LGPL-2.0-or-later", "LGPL-3.0-only"]
+  license all_of: [
+    "BSD-2-Clause",
+    "LGPL-2.0-only",
+    "LGPL-2.0-or-later",
+    any_of: ["LGPL-2.0-only", "LGPL-3.0-only"],
+  ]
   head "https://invent.kde.org/frameworks/karchive.git"
 
   bottle do
