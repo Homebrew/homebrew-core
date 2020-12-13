@@ -6,6 +6,10 @@ class Redsocks < Formula
   license "Apache-2.0"
   revision 2
 
+  # 0.5 build did not get addressed and no release since 2016-12-27
+  # https://github.com/darkk/redsocks/issues/96
+  disable! date: "2020-12-13", because: :unmaintained
+
   bottle do
     cellar :any
     sha256 "56c01e00be78f835dbf5201d2f90fdee9670e3faa4781a2b3c55702b67a47b28" => :big_sur
