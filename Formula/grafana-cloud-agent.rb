@@ -8,13 +8,10 @@ class GrafanaCloudAgent < Formula
   depends_on "go" => :build
 
   def install
-    mkdir_p buildpath/"src/github.com/grafana"
-    ln_sf buildpath, buildpath/"src/github.com/grafana/agent"
+    system "go", "build", *std_go_args, "./cmd/agent"
+  end
 
-    system "make", "agent"
-
-    bin.install "./cmd/agent/agent" => "grafana-cloud-agent"
-
+  def post_install
     (etc/"grafana-cloud-agent").mkpath
   end
 
