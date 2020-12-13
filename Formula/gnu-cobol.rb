@@ -1,9 +1,8 @@
 class GnuCobol < Formula
   desc "Implements much of the COBOL 85 and COBOL 2002 standards"
-  homepage "https://sourceforge.net/projects/open-cobol/"
-  url "https://downloads.sourceforge.net/project/open-cobol/gnucobol/2.2/gnucobol-2.2.tar.xz"
-  sha256 "dc18fc45c269debfe86a4bbe20a7250983cba6238ea1917e135df5926cd024a0"
-  revision 1
+  homepage "https://sourceforge.net/projects/gnucobol/"
+  url "https://downloads.sourceforge.net/project/gnucobol/gnucobol/3.1/gnucobol-3.1.1.tar.xz"
+  sha256 "c1b1d7dead3b141ed2f30102934e94b48d01845c79fccf19110f34016970f423"
 
   livecheck do
     url :stable
