@@ -19,10 +19,20 @@ class Influxdb < Formula
     sha256 "958b7dbbb9f7b7879ab9a9bc8b408c3ffe43027557dc7c3a3a9d73257ff6a820" => :high_sierra
   end
 
+  depends_on "flux" => :build
   depends_on "go" => :build
+
+  resource "pkg-config" do
+    url "https://github.com/influxdata/pkg-config/archive/v0.2.6.tar.gz"
+    sha256 "cfad979e92b986fb13d6a7bee72fccd726848d40326959ccab3d524602282be3"
+  end
 
   def install
     ENV["GOBIN"] = buildpath
+
+    resource("pkg-config").stage do
+      system "go", "build", "-o", bin/"pkg-config"
+    end
 
     system "go", "install", "-ldflags", "-X main.version=#{version}", "./..."
     bin.install %w[influxd influx influx_tsm influx_stress influx_inspect]
