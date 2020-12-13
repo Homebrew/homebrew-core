@@ -142,6 +142,11 @@ class Httpd < Formula
           <string>-D</string>
           <string>FOREGROUND</string>
         </array>
+        <key>EnvironmentVariables</key>
+        <dict>
+          <key>PATH</key>
+          <string>#{HOMEBREW_PREFIX}/bin:#{HOMEBREW_PREFIX}/sbin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+        </dict>
         <key>RunAtLoad</key>
         <true/>
       </dict>
