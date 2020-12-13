@@ -1,8 +1,8 @@
 class Mongoose < Formula
   desc "Web server build on top of Libmongoose embedded library"
   homepage "https://github.com/cesanta/mongoose"
-  url "https://github.com/cesanta/mongoose/archive/6.17.tar.gz"
-  sha256 "5bff3cc70bb2248cf87d06a3543f120f3b29b9368d25a7715443cb10612987cc"
+  url "https://github.com/cesanta/mongoose/archive/7.0.tar.gz"
+  sha256 "28206185873b5c448765f56e54d86a7af5a856b0b5f241aa44ac94bf34af7eee"
   license "GPL-2.0-only"
 
   bottle do
@@ -20,15 +20,15 @@ class Mongoose < Formula
   def install
     # No Makefile but is an expectation upstream of binary creation
     # https://github.com/cesanta/mongoose/issues/326
-    cd "examples/simplest_web_server" do
-      system "make"
-      bin.install "simplest_web_server" => "mongoose"
+    cd "examples/desktop-server" do
+      system "make", "mongoose_mac"
+      bin.install "mongoose_mac" => "mongoose"
     end
 
     system ENV.cc, "-dynamiclib", "mongoose.c", "-o", "libmongoose.dylib"
     include.install "mongoose.h"
     lib.install "libmongoose.dylib"
-    pkgshare.install "examples", "jni"
+    pkgshare.install "examples"
     doc.install Dir["docs/*"]
   end
 
