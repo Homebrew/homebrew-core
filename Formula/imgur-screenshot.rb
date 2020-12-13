@@ -8,6 +8,7 @@ class ImgurScreenshot < Formula
 
   bottle :unneeded
 
+  depends_on "bash"
   depends_on "jq"
   depends_on "terminal-notifier"
 
