@@ -5,11 +5,6 @@ class GrafanaCloudAgent < Formula
   sha256 "44d872044e0621a77e05f5608ba1bde68e39ddc2aaf0c1c64c53fa3cc7991aa1"
   license "Apache-2.0"
 
-  livecheck do
-    url "https://github.com/grafana/agent/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
-  end
-
   depends_on "go" => :build
 
   def install
