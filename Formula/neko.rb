@@ -4,7 +4,7 @@ class Neko < Formula
   url "https://github.com/HaxeFoundation/neko/archive/v2-3-0/neko-2.3.0.tar.gz"
   sha256 "850e7e317bdaf24ed652efeff89c1cb21380ca19f20e68a296c84f6bad4ee995"
   license "MIT"
-  revision 2
+  revision 3
   head "https://github.com/HaxeFoundation/neko.git"
 
   bottle do
@@ -26,6 +26,10 @@ class Neko < Formula
     inreplace "libs/mysql/CMakeLists.txt",
               %r{https://downloads.mariadb.org/f/},
               "https://downloads.mariadb.com/Connectors/c/"
+
+    # Workaround for Xcode/Clang 12. Tracking issue:
+    # https://github.com/HaxeFoundation/neko/issues/215
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
 
     # Let cmake download its own copy of MariaDBConnector during build and statically link it.
     # It is because there is no easy way to define we just need any one of mariadb, mariadb-connector-c,
