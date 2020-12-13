@@ -14,11 +14,11 @@ class Vitetris < Formula
     sha256 "6cb9f1f8d9492c7a652d32115ae488dd19282aa94261957115b50e97c74f06f4" => :sierra
   end
 
-  # remove a 'strip' option not supported on OS X and root options for
-  # 'install'
-  patch :DATA
-
   def install
+    # remove a 'strip' option not supported on OS X and root options for
+    # 'install'
+    inreplace "Makefile", "-strip --strip-all $(PROGNAME)", "-strip $(PROGNAME)"
+
     system "./configure", "--prefix=#{prefix}", "--without-xlib"
     system "make", "install"
   end
@@ -27,18 +27,3 @@ class Vitetris < Formula
     system "#{bin}/tetris", "-hiscore"
   end
 end
-
-__END__
-diff --git a/Makefile b/Makefile
-index 164e69e..aae92bc 100644
---- a/Makefile
-+++ b/Makefile
-@@ -18,7 +18,7 @@ build: src/src-conf.mk
-        cd src; $(MAKE) tetris
-        mv -f src/tetris$(EXE) $(PROGNAME)
-        @echo stripping symbols to reduce program size:
--       -strip --strip-all $(PROGNAME)
-+       -strip $(PROGNAME)
-
- gameserver: src/netw/gameserver.c
-        cd src/netw; $(MAKE) gameserver
