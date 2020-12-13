@@ -5,7 +5,6 @@ class ApacheDrill < Formula
   mirror "https://archive.apache.org/dist/drill/drill-1.18.0/apache-drill-1.18.0.tar.gz"
   sha256 "e58fc1bed0fe3a0ef101a0705404e887af3f79beaccde8b225e884c06d336597"
   license "Apache-2.0"
-  revision 1
 
   livecheck do
     url "https://drill.apache.org/download/"
