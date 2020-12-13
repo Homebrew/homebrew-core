@@ -306,15 +306,23 @@ class Dvc < Formula
   def install
     venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
 
+    # NOTE: pyarrow is already installed as a part of apache-arrow package,
+    # so we don't need to specify `hdfs` option.
+    extras = %w[gs s3 azure ssh gdrive webdav]
+
+    if MacOS.version <= :big_sur
+      # NOTE: currently unable to build pycryptodome dependency for oss.
+      # See https://github.com/Homebrew/homebrew-core/pull/66130
+      extras << "oss"
+    end
+
     system libexec/"bin/pip", "install",
       "--no-binary", ":all:",
       # NOTE: we will uninstall Pillow anyway, so there is no need to build it
       # from source.
       "--only-binary", "Pillow",
       "--ignore-installed",
-      # NOTE: pyarrow is already installed as a part of apache-arrow package,
-      # so we don't need to specify `hdfs` option.
-      ".[gs,s3,azure,oss,ssh,gdrive,webdav]"
+      ".[#{extras.join(",")}]"
 
     # NOTE: dvc depends on asciimatics, which depends on Pillow, which
     # uses liblcms2.2.dylib that causes troubles on mojave. See [1]
