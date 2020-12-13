@@ -1,8 +1,8 @@
 class Dwdiff < Formula
   desc "Diff that operates at the word level"
   homepage "https://os.ghalkes.nl/dwdiff.html"
-  url "https://os.ghalkes.nl/dist/dwdiff-2.1.3.tar.bz2"
-  sha256 "211ddbfaa2e6fcc85d5c88b5141c62a22a13ed0fecffc22fe6dded07e4cf2382"
+  url "https://os.ghalkes.nl/dist/dwdiff-2.1.4.tar.bz2"
+  sha256 "df16fec44dcb467d65a4246a43628f93741996c1773e930b90c6dde22dd58e0a"
 
   livecheck do
     url "https://os.ghalkes.nl/dist/"
