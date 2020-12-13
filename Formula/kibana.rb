@@ -2,8 +2,8 @@ class Kibana < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
-      tag:      "v7.10.0",
-      revision: "1796b5ec8fa1e60ccea63f2e5c25ccc665b92fdc"
+      tag:      "v7.10.1",
+      revision: "608c5e5dd32659e8afadd520d0cdc58766ba505b"
   license "Apache-2.0"
   head "https://github.com/elastic/kibana.git"
 
