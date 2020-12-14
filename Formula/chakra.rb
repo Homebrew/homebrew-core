@@ -19,7 +19,7 @@ class Chakra < Formula
     args = [
       "--lto-thin",
       "--icu=#{Formula["icu4c"].opt_include}",
-      "--extra-defines=U_USING_ICU_NAMESPACE=1", # icu4c 61.1 compatability
+      "--extra-defines=U_USING_ICU_NAMESPACE=1", # icu4c 61.1 compatibility
       "-j=#{ENV.make_jobs}",
       "-y",
     ]
