@@ -45,7 +45,7 @@ class FsUae < Formula
     system "make"
     system "make", "install"
 
-    # Remove unncessary files
+    # Remove unnecessary files
     (share/"applications").rmtree
     (share/"icons").rmtree
     (share/"mime").rmtree
