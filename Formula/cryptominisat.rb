@@ -1,12 +1,11 @@
 class Cryptominisat < Formula
   desc "Advanced SAT solver"
   homepage "https://www.msoos.org/cryptominisat5/"
-  url "https://github.com/msoos/cryptominisat/archive/5.6.8.tar.gz"
-  sha256 "38add382c2257b702bdd4f1edf73544f29efc6e050516b6cacd2d81e35744b55"
+  url "https://github.com/msoos/cryptominisat/archive/5.8.0.tar.gz"
+  sha256 "50153025c8503ef32f32fff847ee24871bb0fc1f0b13e17fe01aa762923f6d94"
   # Everything that's needed to run/build/install/link the system is MIT licensed. This allows
   # easy distribution and running of the system everywhere.
   license "MIT"
-  revision 2
 
   livecheck do
     url "https://github.com/msoos/cryptominisat.git"
@@ -25,6 +24,9 @@ class Cryptominisat < Formula
   depends_on "python@3.9"
 
   def install
+    # fix audit failure with `lib/libcryptominisat5.5.7.dylib`
+    inreplace "src/GitSHA1.cpp.in", "@CMAKE_CXX_COMPILER@", "/usr/bin/clang++"
+
     mkdir "build" do
       system "cmake", "..", *std_cmake_args, "-DNOM4RI=ON"
       system "make", "install"
