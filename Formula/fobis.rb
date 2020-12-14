@@ -1,7 +1,7 @@
 class Fobis < Formula
   include Language::Python::Virtualenv
 
-  desc "KISS build tool for automaticaly building modern Fortran projects"
+  desc "KISS build tool for automatically building modern Fortran projects"
   homepage "https://github.com/szaghi/FoBiS"
   url "https://files.pythonhosted.org/packages/53/3a/5533ab0277977027478b4c1285bb20b6beb221b222403b10398fb24e81a2/FoBiS.py-3.0.5.tar.gz"
   sha256 "ef23fde4199277abc693d539a81e0728571c349174da6b7476579f82482ab96c"
