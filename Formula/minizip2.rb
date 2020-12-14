@@ -27,7 +27,9 @@ class Minizip2 < Formula
     because: "libtcod, libzip and minizip2 install a `zip.h` header"
 
   def install
-    system "cmake", ".", *std_cmake_args, "-DIconv_IS_BUILT_IN=on"
+    system "cmake", ".", "-DIconv_IS_BUILT_IN=on",
+                         "-DMZ_FETCH_LIBS=OFF",
+                         *std_cmake_args
     system "make", "install"
   end
 
