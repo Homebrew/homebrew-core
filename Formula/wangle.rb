@@ -75,7 +75,7 @@ class Wangle < Formula
     sleep 1
     Process.kill("TERM", pid)
     output = r.read
-    assert_match("received back: Hello from Homebrew!", output)
-    assert_match("received back: Another test line.", output)
+    assert_match("Hello from Homebrew!", output)
+    assert_match("Another test line.", output)
   end
 end
