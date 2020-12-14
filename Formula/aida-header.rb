@@ -5,8 +5,7 @@ class AidaHeader < Formula
   sha256 "882d351bc09e830ae2eb512a2cbf44af5a82ef8efe31fbe0d047363da8314c81"
   license "LGPL-3.0-or-later"
   def install
-    mkdir_p(include.to_s)
-    cp_r("src/cpp/AIDA", "#{include}/.")
+    include.install "src/cpp/AIDA"
   end
   test do
     (testpath/"test.cpp").write <<~EOS
@@ -19,6 +18,6 @@ class AidaHeader < Formula
     EOS
 
     system ENV.cxx, "test.cpp", "-I#{include}"
-    system "./a.out"
+    assert_match "AIDA version 3.2.1", shell_output("./a.out")
   end
 end
