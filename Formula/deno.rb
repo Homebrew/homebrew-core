@@ -4,6 +4,7 @@ class Deno < Formula
   url "https://github.com/denoland/deno/releases/download/v1.6.0/deno_src.tar.gz"
   sha256 "60491d842e04ce162face61bb8857bf18a41726afbcbcd9fa532055ace7431ae"
   license "MIT"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
