@@ -1,9 +1,9 @@
 class KimApi < Formula
   desc "Knowledgebase of Interatomic Models (KIM) API"
   homepage "https://openkim.org"
-  url "https://s3.openkim.org/kim-api/kim-api-2.1.3.txz"
-  sha256 "88a5416006c65a2940d82fad49de0885aead05bfa8b59f87d287db5516b9c467"
-  revision 1
+  url "https://s3.openkim.org/kim-api/kim-api-2.2.1.txz"
+  sha256 "1d5a12928f7e885ebe74759222091e48a7e46f77e98d9147e26638c955efbc8e"
+  license "CDDL-1.0"
 
   livecheck do
     url "https://openkim.org/kim-api/previous-versions/"
