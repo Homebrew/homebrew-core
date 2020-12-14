@@ -3,8 +3,8 @@ class Twarc < Formula
 
   desc "Command-line tool and Python library for archiving Twitter JSON"
   homepage "https://github.com/DocNow/twarc"
-  url "https://files.pythonhosted.org/packages/fc/56/bf9186110d7828bfb08b51ff39ade13fe00232c78338f58d8cd2c47c6d12/twarc-1.12.0.tar.gz"
-  sha256 "05d50876a9d8c4ff5319645711a9265849fda1b2d552cb44d927690a49431cd9"
+  url "https://files.pythonhosted.org/packages/ad/98/bedad6cd82b25cb58cedea72103c8c17eab1251b9cbf8a9f3b695460b77a/twarc-1.12.1.tar.gz"
+  sha256 "72f860e93002dd38cf8b79b48618634e5d141d9884f7e15ef54611f282b3a8cd"
   license "MIT"
 
   livecheck do
@@ -26,8 +26,8 @@ class Twarc < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/e6/de/879cf857ae6f890dfa23c3d6239814c5471936b618c8fb0c8732ad5da885/certifi-2020.11.8.tar.gz"
-    sha256 "f05def092c44fbf25834a51509ef6e631dc19765ab8a57b4e7ab85531f0a9cf4"
+    url "https://files.pythonhosted.org/packages/06/a9/cd1fd8ee13f73a4d4f491ee219deeeae20afefa914dfb4c130cfc9dc397a/certifi-2020.12.5.tar.gz"
+    sha256 "1a4995114262bffbc2413b159f2a1a480c969de6e6eb13ee966d470af86af59c"
   end
 
   resource "chardet" do
@@ -51,8 +51,8 @@ class Twarc < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/16/7c/33ae3aa02eb10ca726b21aa88d338e3f619c674e4fb8544eb352330d880a/packaging-20.7.tar.gz"
-    sha256 "05af3bb85d320377db281cf254ab050e1a7ebcbf5410685a9a407e18a1f81236"
+    url "https://files.pythonhosted.org/packages/d7/c5/e81b9fb8033fe78a2355ea7b1774338e1dca2c9cbd2ee140211a9e6291ab/packaging-20.8.tar.gz"
+    sha256 "78598185a7008a470d64526a8059de9aaa449238f280fc9eb6b13ba6c4109093"
   end
 
   resource "pluggy" do
@@ -61,8 +61,8 @@ class Twarc < Formula
   end
 
   resource "py" do
-    url "https://files.pythonhosted.org/packages/97/a6/ab9183fe08f69a53d06ac0ee8432bc0ffbb3989c575cc69b73a0229a9a99/py-1.9.0.tar.gz"
-    sha256 "9ca6883ce56b4e8da7e79ac18787889fa5206c79dcc67fb065376cd2fe03f342"
+    url "https://files.pythonhosted.org/packages/0d/8c/50e9f3999419bb7d9639c37e83fa9cdcf0f601a9d407162d6c37ad60be71/py-1.10.0.tar.gz"
+    sha256 "21b81bda15b66ef5e1a777a21c4dcd9c20ad3efd0b3f817e7a809035269e1bd3"
   end
 
   resource "pyparsing" do
@@ -71,8 +71,8 @@ class Twarc < Formula
   end
 
   resource "pytest" do
-    url "https://files.pythonhosted.org/packages/d4/df/bd7c25c4fe809a17315b3fc9878edf48d31dde7b431b6836848b063c0428/pytest-6.1.2.tar.gz"
-    sha256 "c0a7e94a8cdbc5422a51ccdad8e6f1024795939cc89159a0ae7f0b316ad3823e"
+    url "https://files.pythonhosted.org/packages/9d/f8/d45fb06f5eca788003c089600ee775243960f9f7696097812572e01a6ebc/pytest-6.2.0.tar.gz"
+    sha256 "b12e09409c5bdedc28d308469e156127004a436b41e9b44f9bff6446cbab9152"
   end
 
   resource "python-dateutil" do
