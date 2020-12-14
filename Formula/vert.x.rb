@@ -1,14 +1,9 @@
 class VertX < Formula
   desc "Toolkit for building reactive applications on the JVM"
   homepage "https://vertx.io/"
-  url "https://bintray.com/vertx/downloads/download_file?file_path=vert.x-3.9.4-full.zip"
-  sha256 "ea81f1c64333d2372cc9a628c7a7c3491b4ba5b059558fb84137c5b2bf4ecc9e"
+  url "https://bintray.com/vertx/downloads/download_file?file_path=vert.x-3.9.5-full.zip"
+  sha256 "fd8eb693f34f526280b7b2d7e6032212dbd56665b023a855ae69cb01a464de75"
   license any_of: ["EPL-2.0", "Apache-2.0"]
-
-  livecheck do
-    url "https://vertx.io/download/"
-    regex(/href=.*?vert\.x[._-]v?(\d+(?:\.\d+)+)-full\.t/i)
-  end
 
   bottle :unneeded
 
