@@ -47,7 +47,7 @@ class Mono < Formula
   # https://github.com/mono/mono/blob/mono-#{version}/packaging/MacSDK/msbuild.py
   resource "msbuild" do
     url "https://github.com/mono/msbuild.git",
-        revision: "ad9c9926a76e3db0d2b878a24d44446d73640d19"
+        revision: "db750f72af92181ec860b5150b40140583972c22"
   end
 
   def install
