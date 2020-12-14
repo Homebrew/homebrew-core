@@ -200,7 +200,7 @@ __END__
 @@ -143,7 +185,7 @@
  #endif
  
- /* This function supports releasing coalesed segments */
+ /* This function supports releasing coalesced segments */
 -static LJ_AINLINE int CALL_MUNMAP(void *ptr, size_t size)
 +static int CALL_MUNMAP(void *ptr, size_t size)
  {
