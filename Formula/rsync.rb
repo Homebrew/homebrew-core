@@ -48,7 +48,7 @@ class Rsync < Formula
     ]
 
     # SIMD code throws ICE or is outright unsupported due to lack of support for
-    # function multiversioning on older verions of macOS
+    # function multiversioning on older versions of macOS
     args << "--disable-simd" if MacOS.version < :catalina
 
     system "./configure", *args
