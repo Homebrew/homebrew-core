@@ -28,7 +28,7 @@ class Mlton < Formula
     on_macos do
       # https://github.com/Homebrew/homebrew-core/pull/58438#issuecomment-665375929
       # new `mlton-20201002-1.amd64-darwin-17.7.gmp-static.tgz` artifact
-      # used here for bootraping all homebrew versions
+      # used here for bootstrapping all homebrew versions
       url "https://downloads.sourceforge.net/project/mlton/mlton/20201002/mlton-20201002-1.amd64-darwin-17.7.gmp-static.tgz"
       sha256 "737adc5590b9d010ba3654344103418bf6c70aebc66d98849f7e0f37ef386114"
     end
