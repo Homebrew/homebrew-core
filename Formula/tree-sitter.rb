@@ -69,7 +69,7 @@ class TreeSitter < Formula
           return 1;
         }
         // Because we have no language libraries installed, we cannot
-        // actually parse a string succesfully. But, we can verify
+        // actually parse a string successfully. But, we can verify
         // that it can at least be attempted.
         const char *source_code = "empty";
         TSTree *tree = ts_parser_parse_string(
