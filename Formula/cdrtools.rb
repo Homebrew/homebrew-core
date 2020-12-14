@@ -25,7 +25,7 @@ class Cdrtools < Formula
 
   def install
     # Speed-up the build by skipping the compilation of the profiled libraries.
-    # This could be done by dropping each occurence of *_p.mk from the definition
+    # This could be done by dropping each occurrence of *_p.mk from the definition
     # of MK_FILES in every lib*/Makefile. But it is much easier to just remove all
     # lib*/*_p.mk files. The latter method produces warnings but works fine.
     rm_f Dir["lib*/*_p.mk"]
