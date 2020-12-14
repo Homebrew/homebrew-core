@@ -31,7 +31,7 @@ class Ktmpl < Formula
       objects:
         - kind: "Service"
           apiVersion: "v1"
-          metdata:
+          metadata:
             name: "test"
           spec:
             ports:
