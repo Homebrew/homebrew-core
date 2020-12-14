@@ -3,8 +3,8 @@ class Localstack < Formula
 
   desc "Fully functional local AWS cloud stack"
   homepage "https://github.com/localstack/localstack"
-  url "https://files.pythonhosted.org/packages/15/3b/12da1acea1b10e26ad1c57fdff882a03cb623ff50d29f507cea7e3d2db0e/localstack-0.12.2.tar.gz"
-  sha256 "1d7e55e8c89dbfc283e97910ce4c10a6be7dc552b50bbf3f12b7a541cf59ec5e"
+  url "https://files.pythonhosted.org/packages/47/6a/98c58efc414af91b0f2b9827206acf1e33fd65122e2f6875301d09262f8e/localstack-0.12.3.tar.gz"
+  sha256 "f2d3fa98d884ef94ffceb8b0ec4e166686732fdcc60bc4bffcf113fb3f224aa9"
   license "Apache-2.0"
 
   bottle do
@@ -19,18 +19,18 @@ class Localstack < Formula
   depends_on "python@3.9"
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/ee/7a/6474dbeca4843fa61430d5dc704d01db62ced59f7ad201f9d9515ae4b0af/boto3-1.16.12.tar.gz"
-    sha256 "f1cad6493686f6ad5b84a671cea86401330ab3992c9b427833741c9c028f2059"
+    url "https://files.pythonhosted.org/packages/16/ed/205f4ac5e3d017cb261f96ff98b0ff7d311d2688f3484afaa2720ddda119/boto3-1.16.35.tar.gz"
+    sha256 "a35e0915547ea659ddd832c9aaf55038c56fa894c4cc2a2a46cd6c642494012a"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/49/7f/6b805c4e52750f19bebbba3faaa4f0a565bd46bd6bf1cb058cb76074a569/botocore-1.19.12.tar.gz"
-    sha256 "bb14ea33b32b831262610ed5525770c49da42d1a6cbbc1839d11e6a05bad96fc"
+    url "https://files.pythonhosted.org/packages/82/86/f0c0cd4a3b442464babf1feaa3325e2ff7eaddae293f628c181af81e9151/botocore-1.19.35.tar.gz"
+    sha256 "633aa910509b060717df4130f7e2841f1101c0c47fd5871f4903b4b1dbab7e23"
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/40/a7/ded59fa294b85ca206082306bba75469a38ea1c7d44ea7e1d64f5443d67a/certifi-2020.6.20.tar.gz"
-    sha256 "5930595817496dd21bb8dc35dad090f1c2cd0adfaf21204bf6732ca5d8ee34d3"
+    url "https://files.pythonhosted.org/packages/06/a9/cd1fd8ee13f73a4d4f491ee219deeeae20afefa914dfb4c130cfc9dc397a/certifi-2020.12.5.tar.gz"
+    sha256 "1a4995114262bffbc2413b159f2a1a480c969de6e6eb13ee966d470af86af59c"
   end
 
   resource "chardet" do
@@ -64,13 +64,13 @@ class Localstack < Formula
   end
 
   resource "localstack-client" do
-    url "https://files.pythonhosted.org/packages/dd/af/0b15cb060e41f4a82bd8445a85dc4b8e10303800bfa97a18f352cc651c0c/localstack-client-1.7.tar.gz"
-    sha256 "dcf3600ad036f3a29646ed41978ffc82ee8956a5a6004b1927b7ecccf9ca3fa0"
+    url "https://files.pythonhosted.org/packages/d3/41/1468bc8fce2b2abff02dbd26bd043c46c1a900c13f8be8c297ff3fbc4110/localstack-client-1.10.tar.gz"
+    sha256 "1b9fa8c61f1bcc9d3e5b0fb8d7fe553f2e59f19ec5238eadc8f65af733497729"
   end
 
   resource "localstack-ext" do
-    url "https://files.pythonhosted.org/packages/0b/1e/ecf042b7fd17c90099ddfe84c3f9e736d217ee18022bf81a7c2bb3d27ba2/localstack-ext-0.11.45.1.tar.gz"
-    sha256 "c624004f2738d8729708de6cb347ae1da7d30b273423907de562c584083fd199"
+    url "https://files.pythonhosted.org/packages/a5/6b/f02ef1c4b3f072c1d868d656b11cd11b82256846fd1fc5a98cbe15f8d237/localstack-ext-0.12.1.3.tar.gz"
+    sha256 "78d8de385ef7e81cbbd64ee4b6d1eac73fd7961965df0352cf150d8e674465b5"
   end
 
   resource "pyaes" do
@@ -84,8 +84,8 @@ class Localstack < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/da/67/672b422d9daf07365259958912ba533a0ecab839d4084c487a5fe9a5405f/requests-2.24.0.tar.gz"
-    sha256 "b3559a131db72c33ee969480840fff4bb6dd111de7dd27c8ee1f820f4f00231b"
+    url "https://files.pythonhosted.org/packages/9f/14/4a6542a078773957aa83101336375c9597e6fe5889d20abda9c38f9f3ff2/requests-2.25.0.tar.gz"
+    sha256 "7f1a0b932f4a60a1a65caa4263921bb7d9ee911957e0ae4a23a6dd08185ad5f8"
   end
 
   resource "s3transfer" do
@@ -99,8 +99,8 @@ class Localstack < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/76/d9/bbbafc76b18da706451fa91bc2ebe21c0daf8868ef3c30b869ac7cb7f01d/urllib3-1.25.11.tar.gz"
-    sha256 "8d7eaa5a82a1cac232164990f04874c594c9453ec55eef02eab885aa02fc17a2"
+    url "https://files.pythonhosted.org/packages/29/e6/d1a1d78c439cad688757b70f26c50a53332167c364edb0134cadd280e234/urllib3-1.26.2.tar.gz"
+    sha256 "19188f96923873c92ccb987120ec4acaa12f0461fa9ce5d3d0772bc965a39e08"
   end
 
   def install
