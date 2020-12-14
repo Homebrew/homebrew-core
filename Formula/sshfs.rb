@@ -31,7 +31,7 @@ class Sshfs < Formula
   # Apply patch that clears one remaining roadblock that prevented setting
   # a custom I/O buffer size on macOS. With this patch in place, it's
   # recommended to use e.g. `-o iosize=1048576` (or other, reasonable value)
-  # when lauching `sshfs`, for improved performance.
+  # when launching `sshfs`, for improved performance.
   # See also: https://github.com/libfuse/sshfs/issues/11
   patch do
     url "https://github.com/libfuse/sshfs/commit/667cf34622e2e873db776791df275c7a582d6295.patch?full_index=1"
