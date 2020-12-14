@@ -20,6 +20,10 @@ class Googletest < Formula
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"
+
+    # for use case like `#include "googletest/googletest/src/gtest-all.cc"`
+    (include/"googlemock/googlemock/src").install Dir["googlemock/src/*"]
+    (include/"googletest/googletest/src").install Dir["googletest/src/*"]
   end
 
   test do
