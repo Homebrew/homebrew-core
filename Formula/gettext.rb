@@ -27,7 +27,6 @@ class Gettext < Formula
       "--disable-silent-rules",
       "--disable-debug",
       "--prefix=#{prefix}",
-      "--with-included-gettext",
       "--with-included-glib",
       "--with-included-libcroco",
       "--with-included-libunistring",
@@ -41,6 +40,14 @@ class Gettext < Formula
       "--without-cvs",
       "--without-xz",
     ]
+    on_macos do
+      # Ship libintl.h. Disabled on linux as libintl.h is provided by glibc
+      # https://gcc-help.gcc.gnu.narkive.com/CYebbZqg/cc1-undefined-reference-to-libintl-textdomain
+      # There should never be a need to install gettext's libintl.h on
+      # GNU/Linux systems using glibc. If you have it installed you've borked
+      # your system somehow.
+      args << "--with-included-gettext"
+    end
     on_linux do
       args << "--with-libxml2-prefix=#{Formula["libxml2"].opt_prefix}"
     end
