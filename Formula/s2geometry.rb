@@ -4,7 +4,7 @@ class S2geometry < Formula
   url "https://github.com/google/s2geometry/archive/v0.9.0.tar.gz"
   sha256 "54c09b653f68929e8929bffa60ea568e26f3b4a51e1b1734f5c3c037f1d89062"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   livecheck do
     url :homepage
@@ -22,22 +22,12 @@ class S2geometry < Formula
 
   depends_on "cmake" => :build
   depends_on "glog" => :build
+  depends_on "googletest" => :build
   depends_on "openssl@1.1"
-
-  resource "gtest" do
-    url "https://github.com/google/googletest/archive/release-1.8.1.tar.gz"
-    sha256 "9bf1fe5182a604b4135edc1a425ae356c9ad15e9b23f9f12a02e80184c3a249c"
-  end
 
   def install
     ENV["OPENSSL_ROOT_DIR"] = Formula["openssl@1.1"].opt_prefix
-
-    (buildpath/"gtest").install resource "gtest"
-    (buildpath/"gtest/googletest").cd do
-      system "cmake", "."
-      system "make"
-    end
-    ENV["CXXFLAGS"] = "-I../gtest/googletest/include"
+    ENV.append "CXXFLAGS", "-I#{Formula["googletest"].opt_include}"
 
     args = std_cmake_args + %w[
       -DWITH_GLOG=1
