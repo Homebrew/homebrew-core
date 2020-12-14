@@ -49,6 +49,7 @@ class Mpv < Formula
       --datadir=#{pkgshare}
       --mandir=#{man}
       --docdir=#{doc}
+      --bashdir=#{bash_completion}
       --zshdir=#{zsh_completion}
       --lua=51deb
     ]
@@ -56,10 +57,13 @@ class Mpv < Formula
     system Formula["python@3.9"].opt_bin/"python3", "bootstrap.py"
     system Formula["python@3.9"].opt_bin/"python3", "waf", "configure", *args
     system Formula["python@3.9"].opt_bin/"python3", "waf", "install"
+    system Formula["python@3.9"].opt_bin/"python3", "TOOLS/osxbundle.py", "build/mpv"
+    prefix.install "build/mpv.app"
   end
 
   test do
     system bin/"mpv", "--ao=null", test_fixtures("test.wav")
     assert_match "vapoursynth", shell_output(bin/"mpv --vf=help")
+    system "#{opt_prefix}/mpv.app/Contents/MacOS/mpv", "--version"
   end
 end
