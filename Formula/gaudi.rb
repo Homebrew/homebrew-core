@@ -4,7 +4,7 @@ class Gaudi < Formula
   url "https://gitlab.cern.ch/gaudi/Gaudi/-/archive/v35r0/Gaudi-v35r0.tar.gz"
   sha256 "c01b822f9592a7bf875b9997cbeb3c94dea97cb13d523c12649dbbf5d69b5fa6"
   license "Apache-2.0"
-  head "ssh://git@gitlab.cern.ch:7999/gaudi/Gaudi.git"
+  head "https://gitlab.cern.ch/gaudi/Gaudi.git"
 
   depends_on "cmake" => :build
   depends_on "aida-header"
@@ -16,20 +16,19 @@ class Gaudi < Formula
   depends_on "gperftools"
   depends_on "heppdt2"
   depends_on "jemalloc"
-  depends_on "python"
+  depends_on "python@3.9"
   depends_on "root"
   depends_on "tbb"
   depends_on "xerces-c"
 
   def install
     # Fix cmake issue with Foundation framework
-    text = File.read("GaudiKernel/CMakeLists.txt")
-    replace = text.gsub(/target_link_libraries\(GaudiKernel PUBLIC Foundation\)/,
-                        "target_link_libraries(GaudiKernel PUBLIC ${Foundation_FRAMEWORK})")
-    File.open("GaudiKernel/CMakeLists.txt", "w") { |file| file.puts replace }
 
+    inreplace("GaudiKernel/CMakeLists.txt", /target_link_libraries\(GaudiKernel PUBLIC Foundation\)/,
+                        "target_link_libraries(GaudiKernel PUBLIC ${Foundation_FRAMEWORK})")
+    
     system "cmake", ".", "-DBoost_NO_BOOST_CMAKE=ON", "-DGAUDI_USE_UNWIND=OFF", *std_cmake_args
-    system "make", "-j4"
+    system "make"
 
     # Remove the .db extension otherwise, the installation will crash
     File.rename("Gaudi.confdb2.db", "Gaudi.confdb2")
