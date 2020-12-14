@@ -1,8 +1,8 @@
 class Deno < Formula
   desc "Secure runtime for JavaScript and TypeScript"
   homepage "https://deno.land/"
-  url "https://github.com/denoland/deno/releases/download/v1.6.0/deno_src.tar.gz"
-  sha256 "60491d842e04ce162face61bb8857bf18a41726afbcbcd9fa532055ace7431ae"
+  url "https://github.com/denoland/deno/releases/download/v1.7.0/deno_src.tar.gz"
+  sha256 "f215103d0bea381495008a8f9e90c467248a2a14d3357c6d105c084186423072"
   license "MIT"
 
   bottle do
@@ -19,13 +19,6 @@ class Deno < Formula
 
   uses_from_macos "xz"
 
-  # Remove at next version bump. Check that new release includes:
-  # https://github.com/denoland/deno/pull/8718
-  patch do
-    url "https://github.com/denoland/deno/commit/cea42bec3272a8020f1d94afcf1a4cd7e3985553.patch?full_index=1"
-    sha256 "640ece7aab8e7486ea0ec4bfd29ac7e980822a57d12123e802d022bdc7bbaed7"
-  end
-
   def install
     # env args for building a release build with our clang, ninja and gn
     ENV["GN"] = buildpath/"gn/out/gn"
@@ -41,11 +34,12 @@ class Deno < Formula
       system "cargo", "install", "-vv", *std_cargo_args
     end
 
-    # Install bash and zsh completion
-    output = Utils.safe_popen_read("#{bin}/deno", "completions", "bash")
-    (bash_completion/"deno").write output
-    output = Utils.safe_popen_read("#{bin}/deno", "completions", "zsh")
-    (zsh_completion/"_deno").write output
+    bash_output = Utils.safe_popen_read("#{bin}/deno", "completions", "bash")
+    (bash_completion/"deno").write bash_output
+    zsh_output = Utils.safe_popen_read("#{bin}/deno", "completions", "zsh")
+    (zsh_completion/"_deno").write zsh_output
+    fish_output = Utils.safe_popen_read("#{bin}/deno", "completions", "fish")
+    (fish_completion/"deno.fish").write fish_output
   end
 
   test do
