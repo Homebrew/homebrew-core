@@ -41,7 +41,16 @@ class Petsc < Formula
 
     # Avoid references to Homebrew shims
     rm_f lib/"petsc/conf/configure-hash"
-    inreplace lib/"petsc/conf/petscvariables", "#{HOMEBREW_SHIMS_PATH}/mac/super/", ""
+
+    on_macos do
+      inreplace lib/"petsc/conf/petscvariables", "#{HOMEBREW_SHIMS_PATH}/mac/super/", ""
+    end
+
+    on_linux do
+      if File.readlines("#{lib}/petsc/conf/petscvariables").grep(/#{HOMEBREW_SHIMS_PATH}/o).any?
+        inreplace lib/"petsc/conf/petscvariables", "#{HOMEBREW_SHIMS_PATH}/linux/super/", ""
+      end
+    end
   end
 
   test do
