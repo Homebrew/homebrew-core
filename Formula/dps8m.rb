@@ -23,7 +23,7 @@ class Dps8m < Formula
   uses_from_macos "expect" => :test
 
   def install
-    # Reported 23 Jul 2017 "make dosn't create bin directory"
+    # Reported 23 Jul 2017 "make doesn't create bin directory"
     # See https://sourceforge.net/p/dps8m/mailman/message/35960505/
     bin.mkpath
 
