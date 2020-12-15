@@ -57,11 +57,7 @@ jobs:
 
       - run: brew test-bot --only-cleanup-before
 
-      - name: Run brew test-bot --only-formulae
-        run: |
-          mkdir ~/bottles
-          cd ~/bottles
-          brew test-bot --only-formulae
+      - run: brew test-bot --only-formulae --build-from-source
 
       - name: Output brew test-bot --only-formulae failures
         if: always()
