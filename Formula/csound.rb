@@ -5,7 +5,7 @@ class Csound < Formula
       tag:      "6.15.0",
       revision: "18c2c7897425f462b9a7743cee157cb410c88198"
   license "LGPL-2.1-or-later"
-  revision 3
+  revision 4
   head "https://github.com/csound/csound.git", branch: "develop"
 
   livecheck do
@@ -50,8 +50,8 @@ class Csound < Formula
   conflicts_with "pkcrack", because: "both install `extract` binaries"
 
   resource "ableton-link" do
-    url "https://github.com/Ableton/link/archive/Link-3.0.2.tar.gz"
-    sha256 "2716e916a9dd9445b2a4de1f2325da818b7f097ec7004d453c83b10205167100"
+    url "https://github.com/Ableton/link/archive/Link-3.0.3.tar.gz"
+    sha256 "195b46f7a33bb88800de19bb08065ec0235e5a920d203a4b2c644c18fbcaff11"
   end
 
   resource "getfem" do
