@@ -6,10 +6,6 @@ class Redsocks < Formula
   license "Apache-2.0"
   revision 2
 
-  # 0.5 build did not get addressed and no release since 2016-12-27
-  # https://github.com/darkk/redsocks/issues/96
-  disable! date: "2020-12-13", because: :unmaintained
-
   bottle do
     cellar :any
     sha256 "56c01e00be78f835dbf5201d2f90fdee9670e3faa4781a2b3c55702b67a47b28" => :big_sur
@@ -18,6 +14,10 @@ class Redsocks < Formula
     sha256 "4f8630032cb62bc1cc9f318a837ea0f42964704e2310115696766c8a51f8b5f2" => :high_sierra
     sha256 "9b528c2ce745b2402d15073e7da4fb62789789caa70e5373946ae1699f663b8b" => :sierra
   end
+
+  # 0.5 build did not get addressed and no release since 2016-12-27
+  # https://github.com/darkk/redsocks/issues/96
+  disable! date: "2020-12-13", because: :unmaintained
 
   depends_on "libevent"
 
