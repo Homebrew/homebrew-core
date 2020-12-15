@@ -4,9 +4,11 @@ class AidaHeader < Formula
   url "ftp://ftp.slac.stanford.edu/software/freehep/AIDA/v3.2.1/aida-3.2.1-src.tar.gz"
   sha256 "882d351bc09e830ae2eb512a2cbf44af5a82ef8efe31fbe0d047363da8314c81"
   license "LGPL-3.0-or-later"
+
   def install
     include.install "src/cpp/AIDA"
   end
+
   test do
     (testpath/"test.cpp").write <<~EOS
       #include <AIDA/AIDA.h>
