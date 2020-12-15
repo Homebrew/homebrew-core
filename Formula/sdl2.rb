@@ -22,7 +22,7 @@ class Sdl2 < Formula
       sha256 "df68efb43e451789c1bf2873dabc9a70c66264f8b7ad360a71ea4c643c6acc37"
     end
 
-    # Fix make install command.
+    # Fix make install command. Patch should be removed when updating to next version.
     # https://bugzilla.libsdl.org/show_bug.cgi?id=5399
     patch do
       url "https://hg.libsdl.org/SDL/raw-rev/cf83f816421c"
