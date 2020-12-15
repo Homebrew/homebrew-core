@@ -14,6 +14,11 @@ class FlowCli < Formula
   end
 
   test do
-    system "#{bin}/flow", "version"
+    (testpath/"hello.cdc").write <<~EOS
+      pub fun main() {
+        log("Hello, world!")
+      }
+    EOS
+    system "#{bin}/flow", "cadence", "hello.cdc"
   end
 end
