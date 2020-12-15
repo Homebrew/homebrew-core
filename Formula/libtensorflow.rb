@@ -66,7 +66,7 @@ class Libtensorflow < Formula
     system "bazel", "build", *bazel_args, *targets
 
     lib.install Dir["bazel-bin/tensorflow/*.so*", "bazel-bin/tensorflow/*.dylib*"]
-    (include/"tensorflow/c").install Dir["bazel-bin/tensorflow/include/tensorflow/c/*"]
+    include.install "bazel-bin/tensorflow/include/tensorflow"
     bin.install %w[
       bazel-bin/tensorflow/tools/benchmark/benchmark_model
       bazel-bin/tensorflow/tools/graph_transforms/summarize_graph
