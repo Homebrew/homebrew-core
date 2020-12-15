@@ -37,25 +37,6 @@ class Gaudi < Formula
   end
 
   test do
-    system "#{bin}/test_GAUDI-905"
-    system "#{bin}/test_GAUDI-973"
-    system "#{bin}/test_PropertyHolder"
-    system "#{bin}/test_Property"
-    system "#{bin}/test_WeakPropertyRef"
-    system "#{bin}/test_StatusCode"
-    system "#{bin}/test_EventIDBase"
-    system "#{bin}/test_EventIDRange"
-    system "#{bin}/test_SystemTypeinfoName"
-    system "#{bin}/test_SystemCmdLineArgs"
-    system "#{bin}/test_compose"
-    system "#{bin}/test_reverse"
-    system "#{bin}/test_Counters"
-    system "#{bin}/test_MonotonicArena"
     system "#{bin}/test_GaudiTimer"
-    system "#{bin}/test_SerializeSTL"
-    system "#{bin}/test_AnyDataObject"
-    system "#{bin}/test_DataHandleVector"
-    system "#{bin}/test_GaudiTime"
-    system "#{bin}/test_LockedHandle"
   end
 end
