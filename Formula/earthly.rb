@@ -23,11 +23,12 @@ class Earthly < Formula
         "-tags", tags,
         "-ldflags", ldflags,
         *std_go_args,
-        "-o", bin/"earth",
+        "-o", bin/"earthly",
         "./cmd/earth/main.go"
-    bash_output = Utils.safe_popen_read("#{bin}/earth", "bootstrap", "--source", "bash")
+    bin.install_symlink "earthly" => "earth"
+    bash_output = Utils.safe_popen_read("#{bin}/earthly", "bootstrap", "--source", "bash")
     (bash_completion/"earth").write bash_output
-    zsh_output = Utils.safe_popen_read("#{bin}/earth", "bootstrap", "--source", "zsh")
+    zsh_output = Utils.safe_popen_read("#{bin}/earthly", "bootstrap", "--source", "zsh")
     (zsh_completion/"_earth").write zsh_output
   end
 
@@ -38,7 +39,7 @@ class Earthly < Formula
       \tRUN echo Homebrew
     EOS
 
-    output = shell_output("#{bin}/earth --buildkit-host 127.0.0.1 +default 2>&1", 1).strip
+    output = shell_output("#{bin}/earthly --buildkit-host 127.0.0.1 +default 2>&1", 1).strip
     assert_match "Error while dialing invalid address 127.0.0.1", output
   end
 end
