@@ -6,7 +6,7 @@ class FlowCli < Formula
   license "Apache-2.0"
   head "https://github.com/onflow/flow-cli.git"
 
-  depends_on "go@1.14" => :build
+  depends_on "go" => :build
 
   def install
     system "make", "cmd/flow/flow", "VERSION=v0.12.1"
