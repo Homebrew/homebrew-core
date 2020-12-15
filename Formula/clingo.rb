@@ -34,8 +34,9 @@ class Clingo < Formula
     system "cmake", ".", "-DCLINGO_BUILD_WITH_PYTHON=ON",
                          "-DCLINGO_BUILD_PY_SHARED=ON",
                          "-DPYCLINGO_USE_INSTALL_PREFIX=ON",
+                         "-DPYCLINGO_USER_INSTALL=OFF",
                          "-DCLINGO_BUILD_WITH_LUA=ON",
-                         "-DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3",
+                         "-DPython_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3",
                          "-DPYCLINGO_DYNAMIC_LOOKUP=OFF",
                          *std_cmake_args
     system "make", "install"
