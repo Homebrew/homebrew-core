@@ -26,7 +26,7 @@ class Zbar < Formula
   depends_on "pkg-config" => :build
   depends_on "xmlto" => :build
   depends_on "freetype"
-  depends_on "imagemagick"
+  depends_on "graphicsmagick"
   depends_on "jpeg"
   depends_on "libtool"
   depends_on "ufraw"
@@ -43,6 +43,8 @@ class Zbar < Formula
       --disable-video
       --without-gtk
       --without-x
+      --with-graphicsmagick
+      --disable-nls
     ]
 
     system "./configure", *args
