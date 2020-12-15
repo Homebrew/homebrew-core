@@ -58,9 +58,3 @@ jobs:
       - run: brew test-bot --only-cleanup-before
 
       - run: brew test-bot --only-formulae --build-from-source
-
-      - name: Output brew test-bot --only-formulae failures
-        if: always()
-        run: |
-          cat ~/bottles/steps_output.txt
-          rm ~/bottles/steps_output.txt
