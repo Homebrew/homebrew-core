@@ -17,6 +17,5 @@ class Muffet < Formula
         shell_output("#{bin}/muffet https://does.not.exist 2>&1", 1)
 
     system bin/"muffet", "https://httpbin.org/"
-    assert_equal 0, $CHILD_STATUS.exitstatus
   end
 end
