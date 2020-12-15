@@ -5,12 +5,6 @@ class Clingo < Formula
   sha256 "ac6606388abfe2482167ce8fd4eb0737ef6abeeb35a9d3ac3016c6f715bfee02"
   license "MIT"
 
-  head do
-    url "https://github.com/potassco/clingo.git"
-    depends_on "bison" => :build
-    depends_on "re2c" => :build
-  end
-
   livecheck do
     url :stable
     strategy :github_latest
@@ -21,6 +15,12 @@ class Clingo < Formula
     sha256 "89d4cb89080b15aae7e9c53a9d2cb16f4782e704d7af991098ca2310ad29a947" => :arm64_big_sur
     sha256 "5c6dd1f45a2cfe48e4616c6e4bcc45a8b9b5ab050016ad8db6c38bd810129985" => :catalina
     sha256 "55a5d161667e66004aa6d56f92ab00ccefb6863094fd2ba3c113b6d20d741968" => :mojave
+  end
+
+  head do
+    url "https://github.com/potassco/clingo.git"
+    depends_on "bison" => :build
+    depends_on "re2c" => :build
   end
 
   depends_on "cmake" => :build
