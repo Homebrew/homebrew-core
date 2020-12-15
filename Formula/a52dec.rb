@@ -30,6 +30,11 @@ class A52dec < Formula
       ENV.append_to_cflags "-fPIC"
     end
 
+    on_macos do
+      # Fixes duplicate symbols errors on arm64
+      ENV.append_to_cflags "-std=gnu89"
+    end
+
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
