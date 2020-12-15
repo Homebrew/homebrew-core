@@ -18,7 +18,7 @@ class Swiftlint < Formula
   depends_on xcode: "8.0"
 
   def install
-    system "swift", "build", "--configuration", "release", "-Xswiftc", "-static-stdlib"
+    system "swift", "build", "--disable-sandbox", "--configuration", "release", "-Xswiftc", "-static-stdlib"
     bin.install ".build/release/swiftlint"
   end
 
