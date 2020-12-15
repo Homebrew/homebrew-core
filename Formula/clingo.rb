@@ -5,6 +5,12 @@ class Clingo < Formula
   sha256 "ac6606388abfe2482167ce8fd4eb0737ef6abeeb35a9d3ac3016c6f715bfee02"
   license "MIT"
 
+  head do
+    url "https://github.com/potassco/clingo.git"
+    depends_on "bison" => :build
+    depends_on "re2c" => :build
+  end
+
   livecheck do
     url :stable
     strategy :github_latest
