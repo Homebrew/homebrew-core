@@ -1,10 +1,9 @@
 class KnotResolver < Formula
   desc "Minimalistic, caching, DNSSEC-validating DNS resolver"
   homepage "https://www.knot-resolver.cz"
-  url "https://secure.nic.cz/files/knot-resolver/knot-resolver-5.2.0.tar.xz"
-  sha256 "8824267ca3331fa06d418c1351b68c648da0af121bcbc84c6e08f5b1e28d9433"
+  url "https://secure.nic.cz/files/knot-resolver/knot-resolver-5.2.1.tar.xz"
+  sha256 "aa37b744c400f437acba7a54aebcbdbe722ece743d342cbc39f2dd8087f05826"
   license all_of: ["CC0-1.0", "GPL-3.0-or-later", "LGPL-2.1-or-later", "MIT"]
-  revision 1
   head "https://gitlab.labs.nic.cz/knot/knot-resolver.git"
 
   livecheck do
@@ -37,13 +36,6 @@ class KnotResolver < Formula
 
   def post_install
     (var/"knot-resolver").mkpath
-  end
-
-  # DNSSEC root anchor published by IANA (https://www.iana.org/dnssec/files)
-  def root_keys
-    <<~EOS
-      . IN DS 20326 8 2 e06d44b80b8f1d39a95c0b0d7c65d08458e880409bbc683457104237c7f8ec8d
-    EOS
   end
 
   plist_options startup: true
