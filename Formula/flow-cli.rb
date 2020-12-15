@@ -9,7 +9,7 @@ class FlowCli < Formula
   depends_on "go" => :build
 
   def install
-    system "make", "cmd/flow/flow", "VERSION=v0.12.1"
+    system "make", "cmd/flow/flow", "VERSION=v#{version}"
     bin.install "cmd/flow/flow"
   end
 
