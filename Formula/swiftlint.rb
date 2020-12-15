@@ -14,11 +14,12 @@ class Swiftlint < Formula
     sha256 "0f5a693a08771785c53265863fe234823e5819032bf0971207b0b205d357a464" => :mojave
   end
 
-  depends_on xcode: ["10.2", :build]
+  depends_on xcode: ["11.4", :build]
   depends_on xcode: "8.0"
 
   def install
-    system "make", "prefix_install", "PREFIX=#{prefix}", "TEMPORARY_FOLDER=#{buildpath}/SwiftLint.dst"
+    system "swift", "build", "--configuration", "release", "-Xswiftc", "-static-stdlib"
+    bin.install ".build/release/swiftlint"
   end
 
   test do
