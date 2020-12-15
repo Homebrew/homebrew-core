@@ -1,8 +1,8 @@
 class Cpm < Formula
   desc "Fast CPAN module installer"
   homepage "https://metacpan.org/pod/cpm"
-  url "https://cpan.metacpan.org/authors/id/S/SK/SKAJI/App-cpm-0.993.tar.gz"
-  sha256 "07f66930cd173b314cc745706dc75d5cd873c498aebc65d9cecbd353cd5f9aee"
+  url "https://cpan.metacpan.org/authors/id/S/SK/SKAJI/App-cpm-0.996.tar.gz"
+  sha256 "5684535511e5abc0aa8eb6105b13f5759b5d03b6808f30149508358b0a11f595"
 
   bottle do
     cellar :any_skip_relocation
@@ -40,13 +40,13 @@ class Cpm < Formula
   end
 
   resource "Class::Tiny" do
-    url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Class-Tiny-1.006.tar.gz"
-    sha256 "2efcbd31528be51d3022c616768558b78c6172df5f03c5dc698939f65488cb4e"
+    url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Class-Tiny-1.008.tar.gz"
+    sha256 "ee058a63912fa1fcb9a72498f56ca421a2056dc7f9f4b67837446d6421815615"
   end
 
   resource "Command::Runner" do
-    url "https://cpan.metacpan.org/authors/id/S/SK/SKAJI/Command-Runner-0.102.tar.gz"
-    sha256 "3177c395bac36e5c26bd27145b23b2c480bff1081b9d99d6aee2ce680fc7dd35"
+    url "https://cpan.metacpan.org/authors/id/S/SK/SKAJI/Command-Runner-0.103.tar.gz"
+    sha256 "0f180b5c3b3fc9db7b83d4a5fdd959db34f7d6d2472f817dbf8b4b795a9dc82a"
   end
 
   resource "ExtUtils::Config" do
@@ -85,8 +85,8 @@ class Cpm < Formula
   end
 
   resource "HTTP::Tinyish" do
-    url "https://cpan.metacpan.org/authors/id/M/MI/MIYAGAWA/HTTP-Tinyish-0.16.tar.gz"
-    sha256 "1a3318b89987c2aa5dd18990a109e8af63049f87e4e1a9357583beed1c3bfbda"
+    url "https://cpan.metacpan.org/authors/id/M/MI/MIYAGAWA/HTTP-Tinyish-0.17.tar.gz"
+    sha256 "47bd111e474566d733c41870e2374c81689db5e0b5a43adc48adb665d89fb067"
   end
 
   resource "IPC::Run3" do
@@ -115,8 +115,8 @@ class Cpm < Formula
   end
 
   resource "Parse::PMFile" do
-    url "https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/Parse-PMFile-0.42.tar.gz"
-    sha256 "e7f6c70932b86eb4a2426569e33d2b651b52a24e5d0c0dcb3849d045b52c736c"
+    url "https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/Parse-PMFile-0.43.tar.gz"
+    sha256 "be61e807204738cf0c52ed321551992fdc7fa8faa43ed43ff489d0c269900623"
   end
 
   resource "String::ShellQuote" do
@@ -130,8 +130,8 @@ class Cpm < Formula
   end
 
   resource "URI" do
-    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-1.76.tar.gz"
-    sha256 "b2c98e1d50d6f572483ee538a6f4ccc8d9185f91f0073fd8af7390898254413e"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-5.05.tar.gz"
+    sha256 "a5c113d2d02706d9fbdca6a86f290c5b05b2f86836d4e7fe1447f063261b79ec"
   end
 
   resource "Win32::ShellQuote" do
