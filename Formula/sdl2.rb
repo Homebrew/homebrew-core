@@ -21,6 +21,13 @@ class Sdl2 < Formula
       url "https://hg.libsdl.org/SDL/raw-rev/af22dd6c0787"
       sha256 "df68efb43e451789c1bf2873dabc9a70c66264f8b7ad360a71ea4c643c6acc37"
     end
+
+    # Fix make install command.
+    # https://bugzilla.libsdl.org/show_bug.cgi?id=5399
+    patch do
+      url "https://hg.libsdl.org/SDL/raw-rev/cf83f816421c"
+      sha256 "6a5979e05872d2d86df2cab5db30489ba2e7c743596c8c3ed0c4a2f2969f3970"
+    end
   end
 
   livecheck do
