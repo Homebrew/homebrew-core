@@ -26,8 +26,18 @@ class RmImproved < Formula
   end
 
   test do
-    touch "test_file"
-    system "#{bin}/rip", "--graveyard", ".graveyard", "test_file"
-    assert_predicate testpath/".graveyard", :exist?
+    trash = testpath/"trash"
+    ENV["GRAVEYARD"] = trash
+
+    source_file = testpath/"testfile"
+    deleted_file = Pathname.new File.join(trash, source_file)
+    touch source_file
+
+    system "rip", source_file
+    assert_match deleted_file.to_s, shell_output("#{bin}/rip -s")
+    assert_predicate deleted_file, :exist?
+
+    system "rip", "-u", deleted_file
+    assert_predicate source_file, :exist?
   end
 end
