@@ -20,6 +20,7 @@ class Forego < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "off"
     (buildpath/"src/github.com/ddollar/forego").install buildpath.children
     cd "src/github.com/ddollar/forego" do
       system "go", "build", "-o", bin/"forego", "-ldflags",
