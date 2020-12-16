@@ -3,6 +3,7 @@ class Dmalloc < Formula
   homepage "https://dmalloc.com/"
   url "https://dmalloc.com/releases/dmalloc-5.6.1.tgz"
   sha256 "4ac877aec5c8934ce075a14c5f637e5483186c7506acd23a186cc8f5eb3c0d71"
+  license "ISC"
 
   bottle do
     cellar :any_skip_relocation
