@@ -20,15 +20,13 @@ class Pgrouting < Formula
 
   depends_on "cmake" => :build
   depends_on "boost"
-  depends_on "cgal"
-  depends_on "gmp"
   depends_on "postgis"
   depends_on "postgresql"
 
   def install
     mkdir "stage"
     mkdir "build" do
-      system "cmake", "-DWITH_DD=ON", "..", *std_cmake_args
+      system "cmake", "..", *std_cmake_args
       system "make"
       system "make", "install", "DESTDIR=#{buildpath}/stage"
     end
