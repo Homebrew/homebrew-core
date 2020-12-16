@@ -1,8 +1,8 @@
 class Solidity < Formula
   desc "Contract-oriented programming language"
-  homepage "https://solidity.readthedocs.io"
-  url "https://github.com/ethereum/solidity/releases/download/v0.7.5/solidity_0.7.5.tar.gz"
-  sha256 "b0b0f010ddcd7d77dc78fbc0458001476a4d0fc2d325a7a26208fb357ce5e571"
+  homepage "https://soliditylang.org"
+  url "https://github.com/ethereum/solidity/releases/download/v0.8.0/solidity_0.8.0.tar.gz"
+  sha256 "5a8f9f421dcf65d552b2e6fea4929aef68706a8db8b2e626e7a81e4e5ee11549"
   license all_of: ["GPL-3.0-or-later", "MIT", "BSD-3-Clause", "Apache-2.0", "CC0-1.0"]
 
   livecheck do
@@ -31,7 +31,7 @@ class Solidity < Formula
   test do
     (testpath/"hello.sol").write <<~EOS
       // SPDX-License-Identifier: GPL-3.0
-      pragma solidity ^0.7.0;
+      pragma solidity ^0.8.0;
       contract HelloWorld {
         function helloWorld() external pure returns (string memory) {
           return "Hello, World!";
