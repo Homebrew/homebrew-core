@@ -14,9 +14,9 @@ class Xcbeautify < Formula
   end
 
   test do
-    (testpath/"xcodebuild.log").write "CompileStoryboard /Users/admin/MyApp/MyApp/Main.storyboard (in target: MyApp)"
+    log = "CompileStoryboard /Users/admin/MyApp/MyApp/Main.storyboard (in target: MyApp)"
     assert_match "[\u{1B}[36mMyApp\u{1B}[0m] \u{1B}[1mCompiling\u{1B}[0m Main.storyboard",
-      shell_output("cat xcodebuild.log | #{bin}/xcbeautify").chomp
+      pipe_output("#{bin}/xcbeautify", log).chomp
     assert_match version.to_s,
       shell_output("#{bin}/xcbeautify --version").chomp
   end
