@@ -6,8 +6,8 @@ class MysqlAT56 < Formula
   license "GPL-2.0-only"
 
   livecheck do
-    url "https://dev.mysql.com/downloads/mysql/5.6.html"
-    regex(/href=.*?mysql[._-]v?(\d+.\d+.\d+)-/i)
+    url "https://dev.mysql.com/downloads/mysql/5.6.html?tpl=files&os=src&version=5.6"
+    regex(/href=.*?mysql[._-]v?(5\.6(?:\.\d+)*)\.t/i)
   end
 
   bottle do
