@@ -5,6 +5,11 @@ class Vcprompt < Formula
   sha256 "fdf26566e2bd73cf734b7228f78c09a0f53d0166662fcd482a076ed01c9dbe36"
   license "GPL-2.0-or-later"
 
+  livecheck do
+    url "https://hg.gerg.ca/vcprompt/tags"
+    regex(%r{href=.*?/v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
+
   bottle do
     cellar :any
     rebuild 2
