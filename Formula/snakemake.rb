@@ -3,8 +3,8 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/fa/33/0d730e083525b4d0d5d597eff47d934c9883402a1161ab1ba8931189cb23/snakemake-5.30.1.tar.gz"
-  sha256 "edaed8bca9478e0393106e817a576260a1bed5e8b3bfa55e1706ef0efcffd6f6"
+  url "https://files.pythonhosted.org/packages/49/d3/3bbf733d288a70c0839cf5ab6dea540b1525a37fd930368c7add6b1808e6/snakemake-5.30.2.tar.gz"
+  sha256 "c4264da7462839fc21a724f23b366efafaf2ecbcf6a5f9287ae84ae871b66683"
   license "MIT"
   head "https://github.com/snakemake/snakemake.git"
 
@@ -38,8 +38,8 @@ class Snakemake < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/e6/de/879cf857ae6f890dfa23c3d6239814c5471936b618c8fb0c8732ad5da885/certifi-2020.11.8.tar.gz"
-    sha256 "f05def092c44fbf25834a51509ef6e631dc19765ab8a57b4e7ab85531f0a9cf4"
+    url "https://files.pythonhosted.org/packages/06/a9/cd1fd8ee13f73a4d4f491ee219deeeae20afefa914dfb4c130cfc9dc397a/certifi-2020.12.5.tar.gz"
+    sha256 "1a4995114262bffbc2413b159f2a1a480c969de6e6eb13ee966d470af86af59c"
   end
 
   resource "chardet" do
@@ -103,8 +103,8 @@ class Snakemake < Formula
   end
 
   resource "PuLP" do
-    url "https://files.pythonhosted.org/packages/25/f7/a8f9105d5a7c364949f19620d166bf96745ae221d6863b4d09291ac8e0c5/PuLP-2.3.1.tar.gz"
-    sha256 "5bbe53f854fb3b689e4faacac5bdb5fa576cb270fc12c78edef827dd46a4fb50"
+    url "https://files.pythonhosted.org/packages/4d/44/10b21fb51c4b394f8876cbd7831bd1f152c5cec81d70f099250dd30f3704/PuLP-2.4.tar.gz"
+    sha256 "b2aff10989b3692e3a59301a0cb0acddeb25dcea378f8804c86007075eae55b5"
   end
 
   resource "pyparsing" do
