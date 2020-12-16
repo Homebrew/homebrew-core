@@ -3,8 +3,8 @@ class Dvc < Formula
 
   desc "Git for data science projects"
   homepage "https://dvc.org"
-  url "https://files.pythonhosted.org/packages/62/4d/f60f3ba1ffd218496e1f4c75f5cbf4dd2aab4d12a24cca38d000316d8313/dvc-1.11.4.tar.gz"
-  sha256 "b72c87317a0a98bfdb6162d7ee372f2736baf8340b0b03da8ed076bf3b54927f"
+  url "https://files.pythonhosted.org/packages/6b/5a/e0bd5a20f9c9668c9e738af36b2cc60b7d23985146a2a264d29094e64db2/dvc-1.11.7.tar.gz"
+  sha256 "044c6fcbe4e2025635c580860edb27a21cca483da0f2eb570890c2e6ca1513c6"
   license "Apache-2.0"
 
   livecheck do
@@ -144,8 +144,8 @@ class Dvc < Formula
   end
 
   resource "networkx" do
-    url "https://files.pythonhosted.org/packages/bf/63/7b579dd3b1c49ce6b7fd8f6f864038f255201410905dd183cf7f4a3845cf/networkx-2.4.tar.gz"
-    sha256 "f8f4ff0b6f96e4f9b16af6b84622597b5334bf9cae8cf9b2e42e7985d5c95c64"
+    url "https://files.pythonhosted.org/packages/ef/d0/f706a9e5814a42c544fa1b2876fc33e5d17e1f2c92a5361776632c4f41ab/networkx-2.5.tar.gz"
+    sha256 "7978955423fbc9639c10498878be59caf99b44dc304c2286162fd24b458c1602"
   end
 
   resource "packaging" do
