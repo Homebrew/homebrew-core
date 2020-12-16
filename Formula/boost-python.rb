@@ -14,6 +14,8 @@ class BoostPython < Formula
     sha256 "7300cdd1653d195336215d7c2374377e575f770b8b37ac6722abf41b65a86c46" => :high_sierra
   end
 
+  deprecate! date: "2020-01-01", because: "uses Python 2, which is no longer supported"
+
   depends_on "boost"
   depends_on :macos # Due to Python 2
 
