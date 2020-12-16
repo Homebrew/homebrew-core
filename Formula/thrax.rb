@@ -4,6 +4,7 @@ class Thrax < Formula
   url "http://www.openfst.org/twiki/pub/GRM/ThraxDownload/thrax-1.3.5.tar.gz"
   sha256 "823182c9bca7f866437c0d8db9fc4c90688766f4492239bfbd73be20687c622e"
   license "Apache-2.0"
+  
   depends_on "openfst"
 
   def install
