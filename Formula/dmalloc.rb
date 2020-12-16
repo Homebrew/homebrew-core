@@ -1,8 +1,8 @@
 class Dmalloc < Formula
   desc "Debug versions of system memory management routines"
   homepage "https://dmalloc.com/"
-  url "https://dmalloc.com/releases/dmalloc-5.5.2.tgz"
-  sha256 "d3be5c6eec24950cb3bd67dbfbcdf036f1278fae5fd78655ef8cdf9e911e428a"
+  url "https://dmalloc.com/releases/dmalloc-5.6.1.tgz"
+  sha256 "4ac877aec5c8934ce075a14c5f637e5483186c7506acd23a186cc8f5eb3c0d71"
 
   bottle do
     cellar :any_skip_relocation
