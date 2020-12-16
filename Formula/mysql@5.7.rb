@@ -6,8 +6,8 @@ class MysqlAT57 < Formula
   license "GPL-2.0"
 
   livecheck do
-    url "https://dev.mysql.com/downloads/mysql/5.7.html"
-    regex(/href=.*?mysql[._-]v?(\d+.\d+.\d+)-/i)
+    url "https://dev.mysql.com/downloads/mysql/5.7.html?tpl=files&os=src&version=5.7"
+    regex(/href=.*?mysql[._-](?:boost[._-])?v?(5\.7(?:\.\d+)*)\.t/i)
   end
 
   bottle do
