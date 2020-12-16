@@ -1,20 +1,20 @@
 class Tfsec < Formula
   desc "Static analysis powered security scanner for your terraform code"
   homepage "https://github.com/tfsec/tfsec"
-  url "https://github.com/tfsec/tfsec/archive/v0.36.9.tar.gz"
-  sha256 "d7ab52319fd254a6b8e15d3d07b6d25727cfe5ef3dae76926ea592c9700a6a3d"
+  url "https://github.com/tfsec/tfsec/archive/v0.36.10.tar.gz"
+  sha256 "9859f4764c2564639f1a11901af8add7d6215d1d3237811a28f85b85c2b6a091"
   license "MIT"
 
   livecheck do
-    url "https://github.com/tfsec/tfsec/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "689e7df8b33ff0e6f9b67dfa2e16a9cd937ddcaf963a48d1d84ecb298be6acab" => :big_sur
-    sha256 "32e62377f5fd98f9523830aa32ac3a594514e615d7c1eb595a46f6e33e7c0558" => :catalina
-    sha256 "8c25e7b018cae3f5127726f2be7ff485894968bb1e712330c9c8e562b85d9667" => :mojave
+    sha256 "8dc0f3c4bed705438c27a83139ac837410c81300729ed2a6dc10fa0e2583d741" => :big_sur
+    sha256 "2817724ee161f0dbd90ed8bbb8758d0419425b196b5ec0cd7d90370fea761e42" => :catalina
+    sha256 "1635b24a6daf72e43a28c5efe885d7ea1ebae2ed07ba692cde66e10e1f757d25" => :mojave
   end
 
   depends_on "go" => :build

@@ -12,15 +12,17 @@ class Mame < Formula
   # text for the release title, since it contains the properly formatted version
   # (e.g., 0.226).
   livecheck do
-    url "https://github.com/mamedev/mame/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{release-header.*?/releases/tag/mame[._-]?\d+(?:\.\d+)*["' >]>MAME v?(\d+(?:\.\d+)+)}im)
   end
 
   bottle do
     cellar :any
-    sha256 "8e1a4d788bf147d8c1b382a38fb4f2563d64fd3bec2cf9f7e7a7ec8aa79e6ebe" => :catalina
-    sha256 "cd0b9807e479bca5b2901073ddfe95a85b1f53f5ee509a238b3309f8d10652c9" => :mojave
-    sha256 "777250b5d11fec842d04a7af26ca8a0d26455f27fbbc8805cfd9d61d6c17a86e" => :high_sierra
+    rebuild 1
+    sha256 "df514e97b41c36a65fb3d0729f8e927887cd9d1f7b3f23a189e4430a1e48bb76" => :big_sur
+    sha256 "9bc14fa247f653226bcdc771ad60ba70d2dc5e19b3386b547cf9b02c6f760615" => :catalina
+    sha256 "ca698bbefa83ddc6be99d0a471fe7f6303b35a6c757bb5b6b73a70acf8281c3f" => :mojave
   end
 
   depends_on "glm" => :build
@@ -42,12 +44,19 @@ class Mame < Formula
   uses_from_macos "expat"
   uses_from_macos "zlib"
 
+  # Disable BGFX threading. Remove in next version.
+  patch do
+    url "https://github.com/mamedev/mame/commit/48d1f0de37fc6c429051dd1bcd1a49dbef581b1a.patch?full_index=1"
+    sha256 "9f9aba588ab1e82d927d1c101780415672c54cb463e80d435be3cb1d0ec34217"
+  end
+
   def install
     # Cut sdl2-config's invalid option.
     inreplace "scripts/src/osd/sdl.lua", "--static", ""
 
     # Use bundled asio and lua instead of latest version.
-    # See: <https://github.com/mamedev/mame/issues/5721>
+    # https://github.com/mamedev/mame/issues/5721
+    # https://github.com/mamedev/mame/issues/5349
     system "make", "PYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3",
                    "USE_LIBSDL=1",
                    "USE_SYSTEM_LIB_EXPAT=1",

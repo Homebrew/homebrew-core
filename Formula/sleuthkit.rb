@@ -6,7 +6,8 @@ class Sleuthkit < Formula
   license "GPL-2.0"
 
   livecheck do
-    url "https://github.com/sleuthkit/sleuthkit/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/sleuthkit[._-]v?(\d+(?:\.\d+)+)["' >]}i)
   end
 

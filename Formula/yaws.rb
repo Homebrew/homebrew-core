@@ -7,7 +7,8 @@ class Yaws < Formula
   head "https://github.com/erlyaws/yaws.git"
 
   livecheck do
-    url "https://github.com/erlyaws/yaws/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/yaws[._-]v?(\d+(?:\.\d+)+)["' >]}i)
   end
 

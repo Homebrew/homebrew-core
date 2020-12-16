@@ -14,6 +14,7 @@ class Autoconf < Formula
     cellar :any_skip_relocation
     rebuild 4
     sha256 "4a05c5734bd99dc0adca0160e1ca79a291f2bd7fb8d52dd4605df0da3063c891" => :big_sur
+    sha256 "ee8ad69c8878c8c3786e10feb1c4c2d73d6f8f2fd5ae19da0678fecfe583e1cf" => :arm64_big_sur
     sha256 "ca510b350e941fb9395522a03f9d2fb5df276085d806ceead763acb95889a368" => :catalina
     sha256 "9724736d34773b6e41e2434ffa28fe79feccccf7b7786e54671441ca75115cdb" => :mojave
     sha256 "63957a3952b7af5496012b3819c9956822fd7d895d63339c23fdc65c502e1a40" => :high_sierra

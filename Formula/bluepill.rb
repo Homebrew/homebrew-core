@@ -2,14 +2,14 @@ class Bluepill < Formula
   desc "Testing tool for iOS that runs UI tests using multiple simulators"
   homepage "https://github.com/linkedin/bluepill"
   url "https://github.com/linkedin/bluepill.git",
-    tag:      "v5.4.2",
-    revision: "506e39951ea835b9240b15bd6a6bf593cf6534f9"
+      tag:      "v5.4.2",
+      revision: "506e39951ea835b9240b15bd6a6bf593cf6534f9"
   license "BSD-2-Clause"
   head "https://github.com/linkedin/bluepill.git"
 
   livecheck do
-    url "https://github.com/linkedin/bluepill/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

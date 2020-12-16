@@ -3,16 +3,16 @@ require "language/node"
 class Chronograf < Formula
   desc "Open source monitoring and visualization UI for the TICK stack"
   homepage "https://docs.influxdata.com/chronograf/latest/"
-  url "https://github.com/influxdata/chronograf/archive/1.8.9.tar.gz"
-  sha256 "804a09b39bdc14ec468b760af92daf32d1430f2ee50d30520a0ecdf2b62edcaa"
-  license "AGPL-3.0"
+  url "https://github.com/influxdata/chronograf/archive/1.8.9.1.tar.gz"
+  sha256 "edf5038b301bc0cf49b2f74f1fcdc0a2d66fe5e4b69f753fd879972b7e04a7ee"
+  license "AGPL-3.0-or-later"
   head "https://github.com/influxdata/chronograf.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "708af52804da0a12ecb7f232a1da2284acb9b5edb8d87e6a672898244f891efb" => :big_sur
-    sha256 "ea62d0aede2ffcb7064f0834c10439eb30a49c1f0505c62f868053b34181443f" => :catalina
-    sha256 "d34fdbffb029805dbb960339a29b38da0aced55f2fbe8a0086b0986813173387" => :mojave
+    sha256 "9c3ca12cf1f5694468d1b38f5306467e5720feab4e6d99f3c9fd4f26a623bea3" => :big_sur
+    sha256 "0dc8c14ac9fe9d682d7459a69f4208e36471e2f7f791b3719c872294b068ad4e" => :catalina
+    sha256 "23e175b2e6c9d10af4e8a67e2bb53eee074facf82299336a9d5869731d161e44" => :mojave
   end
 
   depends_on "go" => :build

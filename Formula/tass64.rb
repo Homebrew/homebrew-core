@@ -19,7 +19,7 @@ class Tass64 < Formula
   def install
     system "make", "install", "CPPFLAGS=-D_XOPEN_SOURCE", "prefix=#{prefix}"
 
-    # `make install` does not install syntax highlighting defintions
+    # `make install` does not install syntax highlighting definitions
     pkgshare.install "syntax"
   end
 

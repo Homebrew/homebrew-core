@@ -31,7 +31,7 @@ class Squashfuse < Formula
     system "make", "install"
   end
 
-  # Unfortunately, making/testing a squash mount requires sudo priviledges, so
+  # Unfortunately, making/testing a squash mount requires sudo privileges, so
   # just test that squashfuse execs for now.
   test do
     output = shell_output("#{bin}/squashfuse --version 2>&1", 254)

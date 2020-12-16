@@ -1,10 +1,9 @@
 class Atkmm < Formula
   desc "Official C++ interface for the ATK accessibility toolkit library"
   homepage "https://www.gtkmm.org/"
-  url "https://download.gnome.org/sources/atkmm/2.28/atkmm-2.28.0.tar.xz"
-  sha256 "4c4cfc917fd42d3879ce997b463428d6982affa0fb660cafcc0bc2d9afcedd3a"
+  url "https://download.gnome.org/sources/atkmm/2.28/atkmm-2.28.1.tar.xz"
+  sha256 "116876604770641a450e39c1f50302884848ce9cc48d43c5dc8e8efc31f31bad"
   license "LGPL-2.1-or-later"
-  revision 2
 
   livecheck do
     url :stable
@@ -12,21 +11,24 @@ class Atkmm < Formula
 
   bottle do
     cellar :any
-    sha256 "299011b76d8471172bd8c6739e61f87165a249a9fbb44ee161177aa788a89aa5" => :big_sur
-    sha256 "65dca5000702ffcabc191ed84c33cef365056f4c853c8630a094c6e917b5e6c7" => :catalina
-    sha256 "41fa55c1a359635acac27990de9ef7d4c84c6e45f43b54b4fecd0c85010d5ed0" => :mojave
-    sha256 "cc4325eb5abdb8248ea4d4ec36f5ab37abfce03459034c700b92cfaa757392e8" => :high_sierra
-    sha256 "918691593ee2144c7aae041f3f83a3f961af0408329b69907a893669f267f5b1" => :sierra
+    sha256 "d73e0275bfffc8bdc929fe516aad75f00efbee6598befe12db38e631c1df19e7" => :big_sur
+    sha256 "00335e73e1a1762f39503a2cb506db672dadfd7f0ee19e43e5a3e6cda2d50971" => :catalina
+    sha256 "8237cb4ef54a09a2478f2a08a8994ef79ac28fdbbf098f0807d159dd606fa386" => :mojave
   end
 
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "atk"
   depends_on "glibmm"
 
   def install
     ENV.cxx11
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args, ".."
+      system "ninja"
+      system "ninja", "install"
+    end
   end
 
   test do
@@ -52,6 +54,7 @@ class Atkmm < Formula
       -I#{glibmm.opt_include}/glibmm-2.4
       -I#{glibmm.opt_lib}/glibmm-2.4/include
       -I#{include}/atkmm-1.6
+      -I#{lib}/atkmm-1.6/include
       -I#{libsigcxx.opt_include}/sigc++-2.0
       -I#{libsigcxx.opt_lib}/sigc++-2.0/include
       -L#{atk.opt_lib}

@@ -6,8 +6,8 @@ class Upscaledb < Formula
 
   stable do
     url "https://github.com/cruppstahl/upscaledb.git",
-      tag:      "release-2.2.1",
-      revision: "60d39fc19888fbc5d8b713d30373095a41bf9ced"
+        tag:      "release-2.2.1",
+        revision: "60d39fc19888fbc5d8b713d30373095a41bf9ced"
 
     patch do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/31fa2b66ae637e8f1dc2864af869baa34604f8fe/upscaledb/2.2.1.diff"

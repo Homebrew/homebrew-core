@@ -4,7 +4,7 @@ class Libglademm < Formula
   url "https://download.gnome.org/sources/libglademm/2.6/libglademm-2.6.7.tar.bz2"
   sha256 "38543c15acf727434341cc08c2b003d24f36abc22380937707fc2c5c687a2bc3"
   license "LGPL-2.1-or-later"
-  revision 7
+  revision 8
 
   livecheck do
     url :stable
@@ -12,9 +12,9 @@ class Libglademm < Formula
 
   bottle do
     cellar :any
-    sha256 "37c03968fa84ae1e17ff42b38dc5484812b5629232a126efdae669530aa4fa2c" => :big_sur
-    sha256 "f0244dbfff89400b592ccd70e8723f19ccc22c5979ba7b6d94fc4c49ce843d96" => :catalina
-    sha256 "ac71dcf2ad2efbed3c260933d4ac3c388b9798bb5b826bb9edb13d9929d77ac3" => :mojave
+    sha256 "a365dd28fd7579c31f7795dab854f78a26c834a975c702cc0ee167509b5691a6" => :big_sur
+    sha256 "a94c7ef493683fba1cc6510faaa5772c3f73adc19398d379d5a94f55d2b535fd" => :catalina
+    sha256 "dbba0fcc341dc1585aa803b631334311e0b46f647a2a346e7c48204e50317615" => :mojave
   end
 
   depends_on "pkg-config" => :build
@@ -64,6 +64,7 @@ class Libglademm < Formula
     flags = %W[
       -I#{atk.opt_include}/atk-1.0
       -I#{atkmm.opt_include}/atkmm-1.6
+      -I#{atkmm.opt_lib}/atkmm-1.6/include
       -I#{cairo.opt_include}/cairo
       -I#{cairomm.opt_include}/cairomm-1.0
       -I#{cairomm.opt_lib}/cairomm-1.0/include

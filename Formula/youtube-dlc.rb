@@ -7,7 +7,8 @@ class YoutubeDlc < Formula
   head "https://github.com/blackjack4494/yt-dlc.git"
 
   livecheck do
-    url "https://github.com/blackjack4494/yt-dlc/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/v?(\d+(?:[.-]\d+)+)["' >]}i)
   end
 

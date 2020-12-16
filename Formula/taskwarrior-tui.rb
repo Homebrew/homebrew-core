@@ -7,8 +7,8 @@ class TaskwarriorTui < Formula
   head "https://github.com/kdheepak/taskwarrior-tui.git"
 
   livecheck do
-    url "https://github.com/kdheepak/taskwarrior-tui/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

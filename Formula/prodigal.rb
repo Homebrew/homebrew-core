@@ -6,8 +6,8 @@ class Prodigal < Formula
   license "GPL-3.0-or-later"
 
   livecheck do
-    url "https://github.com/hyattpd/Prodigal/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

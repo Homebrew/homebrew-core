@@ -7,7 +7,7 @@ class LuaAT53 < Formula
 
   livecheck do
     url "https://www.lua.org/ftp/"
-    regex(/href=.*?lua[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    regex(/href=.*?lua[._-]v?(5\.3(?:\.\d+)*)\.t/i)
   end
 
   bottle do
@@ -32,7 +32,7 @@ class LuaAT53 < Formula
   patch :DATA
 
   def install
-    # Subtitute formula prefix in `src/Makefile` for install name (dylib ID).
+    # Substitute formula prefix in `src/Makefile` for install name (dylib ID).
     # Use our CC/CFLAGS to compile.
     inreplace "src/Makefile" do |s|
       s.gsub! "@LUA_PREFIX@", prefix

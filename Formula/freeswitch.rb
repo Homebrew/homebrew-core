@@ -7,8 +7,8 @@ class Freeswitch < Formula
 
   stable do
     url "https://github.com/signalwire/freeswitch.git",
-      tag:      "v1.10.5",
-      revision: "25569c16311afb3fe04a445830a8ab5c88488a5e"
+        tag:      "v1.10.5",
+        revision: "25569c16311afb3fe04a445830a8ab5c88488a5e"
 
     # Fix find_if_index
     # see https://github.com/signalwire/freeswitch/issues/859 and https://github.com/signalwire/freeswitch/pull/863
@@ -134,19 +134,19 @@ class Freeswitch < Formula
   # There's no tags for now https://github.com/freeswitch/spandsp/issues/13
   resource "spandsp" do
     url "https://github.com/freeswitch/spandsp.git",
-      revision: "6351b1824a7634853bf963c0ec399e783e35d4d1"
+        revision: "6351b1824a7634853bf963c0ec399e783e35d4d1"
   end
 
   resource "libks" do
     url "https://github.com/signalwire/libks.git",
-      tag:      "1.6.0",
-      revision: "637e0e3db192a6d73a248cf0e794a4b03424805b"
+        tag:      "1.6.0",
+        revision: "637e0e3db192a6d73a248cf0e794a4b03424805b"
   end
 
   resource "signalwire-c" do
     url "https://github.com/signalwire/signalwire-c.git",
-      tag:      "1.3.0",
-      revision: "e2f3abf59c800c6d39234e9f0a85fb15d1486d8d"
+        tag:      "1.3.0",
+        revision: "e2f3abf59c800c6d39234e9f0a85fb15d1486d8d"
   end
 
   def install

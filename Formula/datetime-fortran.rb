@@ -32,8 +32,8 @@ class DatetimeFortran < Formula
   end
 
   test do
-    system "gfortran", "-o", "test", "-I#{include}", "-L#{lib}", "-ldatetime",
-                       pkgshare/"test/datetime_tests.f90"
+    system "gfortran", "-I#{include}", pkgshare/"test/datetime_tests.f90",
+                       "-L#{lib}", "-ldatetime", "-o", "test"
     system "./test"
   end
 end

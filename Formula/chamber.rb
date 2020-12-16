@@ -7,8 +7,8 @@ class Chamber < Formula
   head "https://github.com/segmentio/chamber.git"
 
   livecheck do
-    url "https://github.com/segmentio/chamber/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

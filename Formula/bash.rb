@@ -10,13 +10,14 @@ class Bash < Formula
   head "https://git.savannah.gnu.org/git/bash.git"
 
   livecheck do
-    url "http://www.ravenports.com/catalog/bucket_C8/bash/standard/"
-    regex(%r{<td id="pkgversion">v?(\d+(?:\.\d+)+)(?:_\d+)?</td>}i)
+    url :stable
+    regex(/href=.*?bash[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
     rebuild 1
     sha256 "5bbdf900514e74d1f951c72df0ef6dc1765996f0c30ab1ef29f252e8761ec7b7" => :big_sur
+    sha256 "dd353e632f37c9e8f101ec802d59fc99bdeb9464d6e9770edc7e61c1edcdc952" => :arm64_big_sur
     sha256 "5b2eb18068b921fc3539eeba06c6846634f4a8f811dce022670a0ac1fbbf136d" => :catalina
     sha256 "ce8a6ffd1e5df2014d7d7290a08f0682d5124c43cee4ae2ec2ac4d49155978ff" => :mojave
   end

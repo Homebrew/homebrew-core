@@ -1,17 +1,16 @@
 class Dbdeployer < Formula
   desc "Tool to deploy sandboxed MySQL database servers"
   homepage "https://github.com/datacharmer/dbdeployer"
-  url "https://github.com/datacharmer/dbdeployer/archive/v1.56.0.tar.gz"
-  sha256 "2f0a6273a2971df62b783cbdae787c306f59250d9d52ad466242152406d1d006"
+  url "https://github.com/datacharmer/dbdeployer/archive/v1.58.0.tar.gz"
+  sha256 "a73473db5fe8a8ef0fe6f2d791ecad3dfd7f1f331ab0ddffe20ff20187892093"
   license "Apache-2.0"
   head "https://github.com/datacharmer/dbdeployer.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cdf6561ab8357d0e86c01bc6f589f5ac5eac5b0a6e5d9c75e24003f1e8d21429" => :big_sur
-    sha256 "1d30b95db8de59f1bdeb25cc5dce634d7b33a4e27f67092e349dc2e468f2c4eb" => :catalina
-    sha256 "9aedf4a705ae17ffacf901735f14c9d831b4684588e8cca20e56f34f17407b82" => :mojave
-    sha256 "0290db070ad96f26e51a57346a0ea6118d5cfb877eadcda206674bed30dba1fc" => :high_sierra
+    sha256 "5043c477646836ffd7de406d7df9f3e9f86e2232977cc55f1a017c4f5008df2b" => :big_sur
+    sha256 "3fdeaef9fdfbb94691c536174bd8c2eab50f1aa39b7e338e6e87d170800abb6c" => :catalina
+    sha256 "8cf62628751ee37aa674caac618790f8fc1276cff2fadb0b2adceb71e58bd43c" => :mojave
   end
 
   depends_on "go" => :build

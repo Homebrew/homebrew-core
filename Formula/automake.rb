@@ -13,6 +13,7 @@ class Automake < Formula
   bottle do
     cellar :any_skip_relocation
     sha256 "b19be0f4672d3ed2c258eee5f676d27429e5da189c80dc04ba8d01bc44ead320" => :big_sur
+    sha256 "578d2bd1c19ec51e97fded940744ae7a576fea5b627a8d09268e295b5a62fa2f" => :arm64_big_sur
     sha256 "25fe47e5fb1af734423e1e73f0dc53637e89d825ef8d8199add239352b5b974e" => :catalina
     sha256 "6e25193e573d0e11376322018c9cdf96ddd68ad7e4fe7bb464212380d5e6b9cf" => :mojave
   end

@@ -1,36 +1,22 @@
 class Readline < Formula
   desc "Library for command-line editing"
   homepage "https://tiswww.case.edu/php/chet/readline/rltop.html"
-  url "https://ftp.gnu.org/gnu/readline/readline-8.0.tar.gz"
-  mirror "https://ftpmirror.gnu.org/readline/readline-8.0.tar.gz"
-  version "8.0.4"
-  sha256 "e339f51971478d369f8a053a330a190781acb9864cf4c541060f12078948e461"
-  license "GPL-3.0"
-
-  %w[
-    001 d8e5e98933cf5756f862243c0601cb69d3667bb33f2c7b751fe4e40b2c3fd069
-    002 36b0febff1e560091ae7476026921f31b6d1dd4c918dcb7b741aa2dad1aec8f7
-    003 94ddb2210b71eb5389c7756865d60e343666dfb722c85892f8226b26bb3eeaef
-    004 b1aa3d2a40eee2dea9708229740742e649c32bb8db13535ea78f8ac15377394c
-  ].each_slice(2) do |p, checksum|
-    patch :p0 do
-      url "https://ftp.gnu.org/gnu/readline/readline-8.0-patches/readline80-#{p}"
-      mirror "https://ftpmirror.gnu.org/readline/readline-8.0-patches/readline80-#{p}"
-      sha256 checksum
-    end
-  end
+  url "https://ftp.gnu.org/gnu/readline/readline-8.1.tar.gz"
+  mirror "https://ftpmirror.gnu.org/readline/readline-8.1.tar.gz"
+  sha256 "f8ceb4ee131e3232226a17f51b164afc46cd0b9e6cef344be87c65962cb82b02"
+  license "GPL-3.0-or-later"
 
   livecheck do
-    url "http://www.ravenports.com/catalog/bucket_2D/readline/standard/"
-    regex(%r{<td id="pkgversion">v?(\d+(?:\.\d+)+)(?:_\d+)?</td>}i)
+    url :stable
+    regex(/href=.*?readline[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
     cellar :any
-    sha256 "0a6b12ddbee78cf31dfd744c0b0eaaa8cb88d6506d4a3915feb432b67e21a898" => :big_sur
-    sha256 "6ae1c8e7c783f32bd22c6085caa4d838fed7fb386da7e40ca47b87ec9b1237d6" => :catalina
-    sha256 "29f7102a730ab39c8312cad1e7e439f6da2a67c452ce2b3380581eb185a5d8e8" => :mojave
-    sha256 "896a3d50ce8962ba56e853bdd590fadeabc00ab36475d143d6c2bea5cc15bb28" => :high_sierra
+    sha256 "2cc3a9582e3c7e21eb3c2c8964abd33e9720fb4a9588c626d8424ff8cc9b1aed" => :big_sur
+    sha256 "26971810ce31d63cd0966c733a132b47e7df5eb790dcbd3f38947cc5d3114ce0" => :arm64_big_sur
+    sha256 "fe4de019cf549376a7743dcb0c86db8a08ca2b6d0dd2f8cb796dd7cf973dc2e9" => :catalina
+    sha256 "1ea5a8050482911b319dc3e1436ee03310ba79d75d855d40114ba6067e01b9c5" => :mojave
   end
 
   keg_only :shadowed_by_macos, "macOS provides BSD libedit"

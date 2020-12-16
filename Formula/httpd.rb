@@ -11,10 +11,10 @@ class Httpd < Formula
   end
 
   bottle do
-    sha256 "4ee95e54fafe11688a5f37136592eb0d40fe965004d15e813f086514b70abb2c" => :big_sur
-    sha256 "8c6b348427bd5c43d784dd5ae6261304e4218607cace3f264e016819c3118527" => :catalina
-    sha256 "e561f825dc044083a10d85d0faa4f785d95466e827d20264702078c58fd900ac" => :mojave
-    sha256 "aede7239a3d25119c493644cac072fc953f3b1d5a4c490558781ad9ac5000504" => :high_sierra
+    rebuild 1
+    sha256 "52044b82ea97ef07416b50c9a5a4814d01826f216aacaed18b421fe8dcdacf3f" => :big_sur
+    sha256 "a927b3b0661465316615333e7ae7836b14188691b36d7ede06fb30ac1fe00aee" => :catalina
+    sha256 "c31ed64fef5c5a063ac3d973533d1e71d01baa4f342e9811191ca65f7ad57a6e" => :mojave
   end
 
   depends_on "apr"
@@ -142,6 +142,11 @@ class Httpd < Formula
           <string>-D</string>
           <string>FOREGROUND</string>
         </array>
+        <key>EnvironmentVariables</key>
+        <dict>
+          <key>PATH</key>
+          <string>#{HOMEBREW_PREFIX}/bin:#{HOMEBREW_PREFIX}/sbin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+        </dict>
         <key>RunAtLoad</key>
         <true/>
       </dict>

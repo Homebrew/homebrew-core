@@ -7,6 +7,7 @@ class OpenOcd < Formula
 
   livecheck do
     url :stable
+    regex(%r{url=.*?/openocd[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
   bottle do

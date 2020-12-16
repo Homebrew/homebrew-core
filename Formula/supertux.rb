@@ -8,8 +8,8 @@ class Supertux < Formula
   head "https://github.com/SuperTux/supertux.git"
 
   livecheck do
-    url "https://github.com/SuperTux/supertux/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

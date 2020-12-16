@@ -36,7 +36,7 @@ class Libpqxx < Formula
     EOS
     system ENV.cxx, "-std=c++17", "test.cpp", "-L#{lib}", "-lpqxx",
            "-I#{include}", "-o", "test"
-    # Running ./test will fail because there is no runnning postgresql server
+    # Running ./test will fail because there is no running postgresql server
     # system "./test"
   end
 end

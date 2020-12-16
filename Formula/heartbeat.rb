@@ -2,17 +2,16 @@ class Heartbeat < Formula
   desc "Lightweight Shipper for Uptime Monitoring"
   homepage "https://www.elastic.co/beats/heartbeat"
   url "https://github.com/elastic/beats.git",
-      tag:      "v7.10.0",
-      revision: "1428d58cf2ed945441fb2ed03961cafa9e4ad3eb"
+      tag:      "v7.10.1",
+      revision: "1da173a9e716715a7a54bb3ff4db05b5c24fc8ce"
   license "Apache-2.0"
   head "https://github.com/elastic/beats.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b813874bd01480464805e9f5f33e862ff7f3c177cf0109c2fc909d70ae0fb630" => :big_sur
-    sha256 "6d3024005b78edf808ca58c5eb3c5d8e1ac3c4c5511e2b4fe337f5222bb5458b" => :catalina
-    sha256 "2149137945717856ca8c393f287c397d4109719d100b3c41a7c751f18eec6e22" => :mojave
-    sha256 "5107cd9fd07f2a995ac43bc31416fa87c0585c52588d2b6c90c340fcfbf92e62" => :high_sierra
+    sha256 "fdc912ed5adb070c061a707fd5cac12e48ea3accf58f7f98f22f22d6519ad6e7" => :big_sur
+    sha256 "d08b6d1d0c1f2761f763b285c068270c4ecc6c11efba9bdf2a6300739e4b1e03" => :catalina
+    sha256 "1ddb9cf4183f87fdbd67892bd1ce014ca5b778962f2d3e956db6205d6388a16f" => :mojave
   end
 
   depends_on "go" => :build

@@ -12,6 +12,7 @@ class Zsh < Formula
 
   bottle do
     sha256 "a93717bcbb1a41829ac7549f7dea0e2be4bb11985be734f03801150338d6b8e6" => :big_sur
+    sha256 "4101d9bea971c7f01e2f007eefaf198419d18e9d40b25a8937f82c3d5c8595ab" => :arm64_big_sur
     sha256 "aaf19f69f79ac2ef80ff31d3b2f0017f400bf40022f8626d5ae046990961a5f5" => :catalina
     sha256 "a40a54e4b686eb75f04e7dcc57391245a4f6b08a39825f7f6ebc9f76ebcbff46" => :mojave
     sha256 "edfbc09a9571fadf351e0f94e545a88aa33763518a3330c0bae497a6a259d63f" => :high_sierra

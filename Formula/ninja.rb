@@ -7,12 +7,13 @@ class Ninja < Formula
   head "https://github.com/ninja-build/ninja.git"
 
   livecheck do
-    url "https://github.com/ninja-build/ninja/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
     sha256 "e5e8174fb4bce324cfb42226d46ce1433f34866f0c06ce930a3bbdb40cadd395" => :big_sur
+    sha256 "50bdc78ccf06bd0cf9a95e26240ec8098457e6574fbed13770d95bb72bb141d0" => :arm64_big_sur
     sha256 "5eb553057f7595f0c607b100ac263ab5834a057b11e8aca512555f5129f6d544" => :catalina
     sha256 "8d7775944ef67e3f8884bff5ea0013a80c4811be8c268fdd9b37cc377eb9ec1b" => :mojave
   end

@@ -8,8 +8,8 @@ class Glm < Formula
   head "https://github.com/g-truc/glm.git"
 
   livecheck do
-    url "https://github.com/g-truc/glm/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

@@ -6,7 +6,8 @@ class Nexus < Formula
   license "EPL-1.0"
 
   livecheck do
-    url "https://github.com/sonatype/nexus-public/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/release[._-]v?(\d+(?:[.-]\d+)+)["' >]}i)
   end
 

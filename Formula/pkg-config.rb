@@ -15,6 +15,7 @@ class PkgConfig < Formula
   bottle do
     cellar :any_skip_relocation
     sha256 "0040b6ebe07f60549800b211343fd5fb3cf83c866d9f62e40f5fb2f38b71e161" => :big_sur
+    sha256 "ca127ae8b9237e53d6945c6d4a51db1ffefef48a72d2e9499caf5564fe5502c0" => :arm64_big_sur
     sha256 "80f141e695f73bd058fd82e9f539dc67471666ff6800c5e280b5af7d3050f435" => :catalina
     sha256 "0d14b797dba0e0ab595c9afba8ab7ef9c901b60b4f806b36580ef95ebb370232" => :mojave
     sha256 "8c6160305abd948b8cf3e0d5c6bb0df192fa765bbb9535dda0b573cb60abbe52" => :high_sierra

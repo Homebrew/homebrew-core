@@ -14,6 +14,7 @@ class Gdbm < Formula
   bottle do
     cellar :any
     sha256 "36b492f1b0910367dd394cbdcffe1606f64ab41ec6701210becfb591a8557dee" => :big_sur
+    sha256 "d5ae1727d7a669559f4f9333d165006ee5d2d7282a3e3a7aa1a28fddcdac6da2" => :arm64_big_sur
     sha256 "f7b5ab7363961fa6defcb66b4ffdf5365264fcb97d35bc413e754f173a3b1912" => :catalina
     sha256 "0f65874bcd50d31aaf8b2e6c8ef414cb65a8d8b9eb6d1fa4ef179c6e0a94983c" => :mojave
     sha256 "4a644af2fcc2781c3a161209deff7b62d760058bc1bac7c4f91a5ce5738f0798" => :high_sierra

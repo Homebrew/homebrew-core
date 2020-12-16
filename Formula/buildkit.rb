@@ -3,8 +3,9 @@ class Buildkit < Formula
   homepage "https://github.com/moby/buildkit"
   url "https://github.com/moby/buildkit.git",
       tag:      "v0.8.0",
-      revision: "d5f179bb796e385076ec57978c08d8a4427b2f74"
+      revision: "73fe4736135645a342abc7b587bba0994cccf0f9"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/moby/buildkit.git"
 
   livecheck do
@@ -14,9 +15,9 @@ class Buildkit < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f34fdd44e61c1ab563bd7bbd2a8a5f53d7b4442016bc4144ae9bc7151459a35a" => :big_sur
-    sha256 "ca5c093acb45400e32fa5267667e3c3bd95dd1052273737ca28e5dcc082d37b4" => :catalina
-    sha256 "89c49ae30f571168014007ea11966aff9cbd355672d47ce11a6365f529387509" => :mojave
+    sha256 "44ed9f2463553fc3fad6d21062327e86c4681d06e4ab6ae102a88aa3fa8a24bc" => :big_sur
+    sha256 "60fe6f4e4181818d22e5df5add1bb981c8378c94ca6bfa902739374021116b7a" => :catalina
+    sha256 "ffd11913f4f57d402b91668bbc3f2bf3d44031ff4bf991f419a54e2e7201898f" => :mojave
   end
 
   depends_on "go" => :build

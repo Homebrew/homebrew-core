@@ -16,11 +16,10 @@ class S3ql < Formula
     sha256 "63b52252fa9acd84fe7af0812241ab35e72062044cfe0659163a39e47a76581d" => :high_sierra
   end
 
-  deprecate! because: "requires FUSE"
-
-  # disable due to osxfuse API is with fuse2
-  # logged an issue, https://github.com/s3ql/s3ql/issues/192
-  deprecate! because: :does_not_build
+  # Requires fuse3, while osxfuse only has fuse2 API
+  # https://github.com/s3ql/s3ql/issues/192
+  # Moreover, we disable all FUSE-based formulas anyway
+  deprecate! date: "2020-08-08", because: :does_not_build
 
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"

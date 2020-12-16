@@ -4,13 +4,13 @@ class Hashlink < Formula
   url "https://github.com/HaxeFoundation/hashlink/archive/1.11.tar.gz"
   sha256 "b087ded7b93c7077f5b093b999f279a37aa1e31df829d882fa965389b5ad1aea"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/HaxeFoundation/hashlink.git"
 
   bottle do
-    sha256 "1c227ae285dbcc62a997a8a440e1d9b4050d2ec4a4620e5d92933553cab9e394" => :catalina
-    sha256 "46dd6be20bd51812ef4b616fdb0a33fa75b283887751b8d075ac42db3be3928b" => :mojave
-    sha256 "5f2623ecf5e734ea67092e79b7624476914e7c1febea452313a8e26d234f50ac" => :high_sierra
+    sha256 "2854d13e66bfcc6cd612c3fc5144812a2b19e62201629054d36c0f9dc7943a44" => :big_sur
+    sha256 "859d700dd2fce986a79bc12f7d3d3ec175a554a12ed91d0d6b8d41515408ca00" => :catalina
+    sha256 "973181bf2e0bd06c4cdace139173a0c52e0aea5d91a3f47e54f5330aa41d25ca" => :mojave
   end
 
   depends_on "haxe" => :test

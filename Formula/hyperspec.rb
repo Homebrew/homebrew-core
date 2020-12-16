@@ -14,7 +14,7 @@ class Hyperspec < Formula
   def caveats
     <<~EOS
       To use this copy of the HyperSpec with SLIME, put the following in
-      you .emacs intialization file:
+      your .emacs initialization file:
 
       (eval-after-load "slime"
         '(progn

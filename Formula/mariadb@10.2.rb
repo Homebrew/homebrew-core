@@ -11,13 +11,16 @@ class MariadbAT102 < Formula
   end
 
   bottle do
-    sha256 "3d6766c25029eb473e23ee8b5f1087e648d450fb239761eafa045787cd04be42" => :big_sur
-    sha256 "49ee54b5851c2c7319ba3a6b197546c47ddeed4470c090baf4c66a9f4a4a3d0c" => :catalina
-    sha256 "55b500d26c5c41b3c4db7415ac2208c2d76bc839cd43c8e2eb5e016fbf9277f7" => :mojave
-    sha256 "9630fbada4370ee79a97adc06dbd4eacfd492ea3e29d5522f9b4f7ba62db664a" => :high_sierra
+    rebuild 1
+    sha256 "c2501e6d92de0975f5ad19fbfc62245338c2f29a6fa08eb8069f95ba4dc9e9d6" => :big_sur
+    sha256 "2db8118d48d5a60baf02578bfee76a629a5e018a222494702cf011ddd5a065fb" => :catalina
+    sha256 "bdcc71b7912793ca6ca3833c2c2b06a8053500a735f2bce2dbf4d680863dc17a" => :mojave
   end
 
   keg_only :versioned_formula
+
+  # See: https://mariadb.com/kb/en/changes-improvements-in-mariadb-102/
+  deprecate! date: "2022-05-01", because: :unsupported
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
@@ -107,6 +110,8 @@ class MariadbAT102 < Formula
   end
 
   def post_install
+    return if ENV["CI"]
+
     # Make sure the var/mysql directory exists
     (var/"mysql").mkpath
     unless File.exist? "#{var}/mysql/mysql/user.frm"
@@ -155,6 +160,15 @@ class MariadbAT102 < Formula
   end
 
   test do
-    system bin/"mysqld", "--version"
+    (testpath/"mysql").mkpath
+    port = free_port
+    system "#{bin}/mysql_install_db", "--verbose", "--user=#{ENV["USER"]}",
+      "--basedir=#{prefix}", "--datadir=#{testpath}/mysql", "--tmpdir=/tmp"
+    fork do
+      system "#{bin}/mysqld", "--datadir=#{testpath}/mysql", "--port=#{port}"
+    end
+    sleep 5
+    assert_match "information_schema",
+      shell_output("#{bin}/mysql --port=#{port} --user=''@localhost --execute='show databases;'")
   end
 end

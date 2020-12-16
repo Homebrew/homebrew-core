@@ -4,20 +4,23 @@ class Abseil < Formula
   url "https://github.com/abseil/abseil-cpp/archive/20200923.2.tar.gz"
   sha256 "bf3f13b13a0095d926b25640e060f7e13881bd8a792705dd9e161f3c2b9aa976"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "cd6167a70f1f6ba6b09309a2db53f900e72f8a8faf06bd5cca5ccebda3300a44" => :big_sur
-    sha256 "427d76ee4e58414546725bab7720284f0e513fa4317c4259ad1a4ffdc1f6be56" => :catalina
-    sha256 "60c98f7731cf9de032fe54a3691f648908f12ae462590b1e0a99e607abe5b939" => :mojave
-    sha256 "ad2c933b411cbfc06f39e6abed04f26522d7ea9eaea9bf47887a0eca7c6754c7" => :high_sierra
+    cellar :any
+    sha256 "cdc118ef74853d48c17c41e64da5c03b016249aaad0c1288bcd57685c3be3fea" => :big_sur
+    sha256 "0571787ca3fd57f3b271c5944dafdf550f05a3dd5cc6e4f4ce820f9dff27b160" => :catalina
+    sha256 "115c52f0799b9be98996b302c3906d230da318b0286694ef83bb90d603b1e432" => :mojave
   end
 
   depends_on "cmake" => :build
 
   def install
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DCMAKE_CXX_STANDARD=17"
+      system "cmake", "..",
+                      *std_cmake_args,
+                      "-DCMAKE_CXX_STANDARD=17",
+                      "-DBUILD_SHARED_LIBS=ON"
       system "make"
       system "make", "install"
     end

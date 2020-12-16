@@ -16,8 +16,8 @@ class Mongrel2 < Formula
   end
 
   livecheck do
-    url "https://github.com/mongrel2/mongrel2/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

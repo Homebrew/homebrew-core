@@ -8,8 +8,8 @@ class Pyenv < Formula
   head "https://github.com/pyenv/pyenv.git"
 
   livecheck do
-    url "https://github.com/pyenv/pyenv/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

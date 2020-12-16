@@ -5,8 +5,7 @@ class Jbigkit < Formula
   mirror "https://deb.debian.org/debian/pool/main/j/jbigkit/jbigkit_2.1.orig.tar.gz"
   sha256 "de7106b6bfaf495d6865c7dd7ac6ca1381bd12e0d81405ea81e7f2167263d932"
   license "GPL-2.0"
-  head "https://www.cl.cam.ac.uk/~mgk25/git/jbigkit",
-       using: :git
+  head "https://www.cl.cam.ac.uk/~mgk25/git/jbigkit", using: :git
 
   bottle do
     cellar :any_skip_relocation

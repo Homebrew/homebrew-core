@@ -6,15 +6,15 @@ class MysqlAT56 < Formula
   license "GPL-2.0-only"
 
   livecheck do
-    url "https://dev.mysql.com/downloads/mysql/5.6.html"
-    regex(/href=.*?mysql[._-]v?(\d+.\d+.\d+)-/i)
+    url "https://dev.mysql.com/downloads/mysql/5.6.html?tpl=files&os=src&version=5.6"
+    regex(/href=.*?mysql[._-]v?(5\.6(?:\.\d+)*)\.t/i)
   end
 
   bottle do
-    rebuild 1
-    sha256 "ecf43b8c250b4098c3af4bca4add92e1238ee16d01ec53836b6c681c9652c3a4" => :big_sur
-    sha256 "232d2bad4ac4816687a3972e2e34b0ed57bce6c1a5b0e60fc6f8bbf4ecc54ae8" => :catalina
-    sha256 "9b8dfc84b6732315d2bc1d224c9f631505faf900ac6e9431454bfe5d761541a9" => :mojave
+    rebuild 2
+    sha256 "4682d77e9e07fbada76340fe5101163373ecca62619beced780c053516228019" => :big_sur
+    sha256 "3d25ca89293a7e4e4ac702f4494815c343a610fda7c23334ef55ecf98345b05b" => :catalina
+    sha256 "8c2dcd492f329bfe298725920ed9db5c73858b7af6df393bf358ab133a9deac1" => :mojave
   end
 
   keg_only :versioned_formula
@@ -97,6 +97,8 @@ class MysqlAT56 < Formula
   end
 
   def post_install
+    return if ENV["CI"]
+
     # Make sure the datadir exists
     datadir.mkpath
     unless (datadir/"mysql/general_log.CSM").exist?

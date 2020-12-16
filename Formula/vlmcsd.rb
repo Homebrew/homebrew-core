@@ -7,7 +7,8 @@ class Vlmcsd < Formula
   head "https://github.com/Wind4/vlmcsd.git"
 
   livecheck do
-    url "https://github.com/Wind4/vlmcsd/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/([^"' >]+)["' >]}i)
   end
 

@@ -6,7 +6,8 @@ class Heimdal < Formula
   license "BSD-3-Clause"
 
   livecheck do
-    url "https://github.com/heimdal/heimdal/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/heimdal[._-]v?(\d+(?:\.\d+)+)["' >]}i)
   end
 

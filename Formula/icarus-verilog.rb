@@ -8,7 +8,8 @@ class IcarusVerilog < Formula
   head "https://github.com/steveicarus/iverilog.git"
 
   livecheck do
-    url "https://github.com/steveicarus/iverilog/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/v?(\d+(?:[._]\d+)+)["' >]}i)
   end
 

@@ -6,7 +6,8 @@ class Ace < Formula
   license "DOC"
 
   livecheck do
-    url "https://github.com/DOCGroup/ACE_TAO/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/ACE(?:%2B[A-Z]+)*?[._-]v?(\d+(?:[._]\d+)+)["' >]}i)
   end
 

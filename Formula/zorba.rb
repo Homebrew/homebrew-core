@@ -22,7 +22,7 @@ class Zorba < Formula
   conflicts_with "xqilla", because: "both supply `xqc.h`"
 
   def install
-    # icu4c 61.1 compatability
+    # icu4c 61.1 compatibility
     ENV.append "CXXFLAGS", "-DU_USING_ICU_NAMESPACE=1"
 
     ENV.cxx11

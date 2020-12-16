@@ -6,8 +6,8 @@ class Dynamips < Formula
   license "GPL-2.0"
 
   livecheck do
-    url "https://github.com/GNS3/dynamips/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

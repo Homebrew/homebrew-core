@@ -38,7 +38,7 @@ class ErlangAT20 < Formula
 
   def install
     # Unset these so that building wx, kernel, compiler and
-    # other modules doesn't fail with an unintelligable error.
+    # other modules doesn't fail with an unintelligible error.
     %w[LIBS FLAGS AFLAGS ZFLAGS].each { |k| ENV.delete("ERL_#{k}") }
 
     # Do this if building from a checkout to generate configure

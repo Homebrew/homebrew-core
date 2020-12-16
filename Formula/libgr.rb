@@ -4,12 +4,12 @@ class Libgr < Formula
   url "https://github.com/sciapp/gr/archive/v0.53.0.tar.gz"
   sha256 "a348602c3e2d928b5c293a19ed91e126bf56e23720d4f0e12aa92767da767276"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "74e780077f603713e35d583f2db4fef09a80f012c76f5ca35472a4fe875459fc" => :big_sur
-    sha256 "8ea42749d5fe7799b1c18a184141990e847ae7a05b980d04a76b0416e7d37edb" => :catalina
-    sha256 "d0b0b7a1d0da60f9c42256f7975f648ef81f58040d4e1d92544a5b1a681b8da8" => :mojave
+    sha256 "1ae1c4c80659db2c9505449acc52f0f6328054caa287af5bcc9e755771d8c382" => :big_sur
+    sha256 "504017bdc9b08bfc637c26f2c4f9ad6a2a6f02c96ecb00f76768e9a039ddb77b" => :catalina
+    sha256 "1ba1b40c849d496da5d24d924a9211a25bacd7a4cd5eafb0e9a2be970a694686" => :mojave
   end
 
   depends_on "cmake" => :build
@@ -19,6 +19,13 @@ class Libgr < Formula
   depends_on "qhull"
   depends_on "qt"
   depends_on "zeromq"
+
+  # Use .dylib extension on macOS
+  # https://github.com/sciapp/gr/pull/128
+  patch do
+    url "https://github.com/sciapp/gr/commit/81f6f66b9766eb876e64dff43a6b1a802536ccac.patch?full_index=1"
+    sha256 "15dd98e65172a7354dc27d4858c6e06ccafa040d451171bf5e770596668478d4"
+  end
 
   def install
     mkdir "build" do

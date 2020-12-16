@@ -1,9 +1,9 @@
 class GnuCobol < Formula
   desc "Implements much of the COBOL 85 and COBOL 2002 standards"
-  homepage "https://sourceforge.net/projects/open-cobol/"
-  url "https://downloads.sourceforge.net/project/open-cobol/gnucobol/2.2/gnucobol-2.2.tar.xz"
-  sha256 "dc18fc45c269debfe86a4bbe20a7250983cba6238ea1917e135df5926cd024a0"
-  revision 1
+  homepage "https://sourceforge.net/projects/gnucobol/"
+  url "https://downloads.sourceforge.net/project/gnucobol/gnucobol/3.1/gnucobol-3.1.1.tar.xz"
+  sha256 "c1b1d7dead3b141ed2f30102934e94b48d01845c79fccf19110f34016970f423"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url :stable
@@ -11,10 +11,9 @@ class GnuCobol < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 "5f7a515f0ee41a8c841fb06e4cf1b662d52eaff20145d894ac4cb851cbae1bd3" => :catalina
-    sha256 "62df1877f13b109a5ab0c775d1419fb687a6c47356333190367ab356165524f3" => :mojave
-    sha256 "257ab86b68ebb00c5e29ae347cd71f041644a779ab0c1dcf6146509546603a46" => :high_sierra
+    sha256 "d9d87cf03319065de1c261067af6e566b261bbab31d79703efe13de185e3db60" => :big_sur
+    sha256 "14fe1b09a70cadf72f9f9eecd887dcdbb901e27b0c2cd708fe746f6ea0c4dda4" => :catalina
+    sha256 "42f1271d839b9c9f829d235ba1c298ea80d3545d9667ddde8b1eab50539b7e4f" => :mojave
   end
 
   depends_on "berkeley-db"

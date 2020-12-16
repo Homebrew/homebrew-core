@@ -12,6 +12,7 @@ class Poppler < Formula
   end
 
   bottle do
+    sha256 "43c62d655b06eff1848328b02eff7767ab225f78e4de61c72663581bb316d327" => :big_sur
     sha256 "d89f6b867a6f012f44886b157f35f33179c583af93ace39329e7b62d2482eb31" => :catalina
     sha256 "82aef6a8cbbb04adb24d95a8069bfd042f7afed4de2caa7b55990d2f5c35f8db" => :mojave
   end

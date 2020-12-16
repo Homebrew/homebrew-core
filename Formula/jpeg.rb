@@ -15,6 +15,7 @@ class Jpeg < Formula
   bottle do
     cellar :any
     sha256 "c565929a4901365a3408b57275802f943625c1e29e1b48a186edd2e97d8c0bdb" => :big_sur
+    sha256 "2cf8ad76d3666caf5d380aa584d95a8a6b76b5f4cf256608bd89e14d0af4cf26" => :arm64_big_sur
     sha256 "8f7b82a952fb3937889c7f22da1403e5338cd320495917eb26b0c5b2e614791c" => :catalina
     sha256 "b931e7725c83275c56f962b51b83c10f31a01ac8d823c6722edaf16d893970b1" => :mojave
     sha256 "64286932634fbe1e0d07eacda334d2f4967b20bce0737424df56ec5eaa34ccca" => :high_sierra

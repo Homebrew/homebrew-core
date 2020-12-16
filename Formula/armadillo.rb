@@ -4,6 +4,7 @@ class Armadillo < Formula
   url "https://downloads.sourceforge.net/project/arma/armadillo-10.1.2.tar.xz"
   sha256 "96ef79b65c9cecbfcafac6113da85e695c97e796ffffd04b4280c7a8daf5635d"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -12,10 +13,9 @@ class Armadillo < Formula
 
   bottle do
     cellar :any
-    sha256 "02975e5c376769d1d3a1cd7c6b04e49e19c78e331aec08d7a262061540a467a6" => :big_sur
-    sha256 "9b87b8586a1ca8f0b24e448004956588f918bb407bfc3b8ed7dd3f5263408400" => :catalina
-    sha256 "9ffb259fb092520458e93f2065f6fbaae2e66414a0708ae45147c40b0bddf1f0" => :mojave
-    sha256 "314cefb9fa4143d92ae255e2903ca3fb5d21b4d8cf7228f4460174e8ce341938" => :high_sierra
+    sha256 "6b9bf3296a1628c00475eede060d51431d3db25249386a297f08bbf58c1ba7bd" => :big_sur
+    sha256 "adcb8c3ada2084116b2e5d988f953e6c8cc8ce127ebd5f430999d5c6461053fe" => :catalina
+    sha256 "81ef27a12a9ffb99deacaa3a94bf1d0f0af97f7ab45884280c41a63b12a7fd99" => :mojave
   end
 
   depends_on "cmake" => :build

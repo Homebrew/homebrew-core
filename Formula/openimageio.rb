@@ -9,7 +9,8 @@ class Openimageio < Formula
   head "https://github.com/OpenImageIO/oiio.git"
 
   livecheck do
-    url "https://github.com/OpenImageIO/oiio/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/Release[._-]v?(\d+(?:\.\d+)+)["' >]}i)
   end
 

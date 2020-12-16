@@ -89,7 +89,7 @@ class Nagios < Formula
         sudo chgrp _www #{nagios_var}/rw
         sudo chmod 2775 #{nagios_var}/rw
 
-      Then install the Nagios web frontend into Apple's build-in Apache:
+      Then install the Nagios web frontend into Apple's built-in Apache:
 
         1) Turn on Personal Web Sharing.
 

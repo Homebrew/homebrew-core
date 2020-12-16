@@ -7,7 +7,8 @@ class WlaDx < Formula
   revision 1
 
   livecheck do
-    url "https://github.com/vhelin/wla-dx/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)(?:-fix)*["' >]}i)
   end
 

@@ -7,8 +7,8 @@ class Hashpump < Formula
   revision 5
 
   livecheck do
-    url "https://github.com/bwall/HashPump/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

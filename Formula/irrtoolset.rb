@@ -7,7 +7,8 @@ class Irrtoolset < Formula
   head "https://github.com/irrtoolset/irrtoolset.git"
 
   livecheck do
-    url "https://github.com/irrtoolset/irrtoolset/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/[^"' >]*?v?(\d+(?:[._-]\d+)+)["' >]}i)
   end
 

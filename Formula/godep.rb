@@ -15,7 +15,7 @@ class Godep < Formula
     sha256 "ed88d3864defb8f4773327d81be0f23c154669b4025a20ed5f92647c5b145d1a" => :high_sierra
   end
 
-  deprecate! date: "2018-01-26", because: :repo_archived
+  disable! date: "2018-01-26", because: :unmaintained
 
   depends_on "go"
 

@@ -53,14 +53,20 @@ class Bind < Formula
     # Fix "configure: error: xml2-config returns badness"
     ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra || MacOS.version == :el_capitan
 
-    system "./configure", "--prefix=#{prefix}",
-                          "--with-json-c",
-                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}",
-                          "--with-libjson=#{Formula["json-c"].opt_prefix}",
-                          "--with-python-install-dir=#{vendor_site_packages}",
-                          "--with-python=#{Formula["python@3.9"].opt_bin}/python3",
-                          "--without-lmdb",
-                          "--with-libidn2=#{Formula["libidn2"].opt_prefix}"
+    args = [
+      "--prefix=#{prefix}",
+      "--with-json-c",
+      "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}",
+      "--with-libjson=#{Formula["json-c"].opt_prefix}",
+      "--with-python-install-dir=#{vendor_site_packages}",
+      "--with-python=#{Formula["python@3.9"].opt_bin}/python3",
+      "--without-lmdb",
+      "--with-libidn2=#{Formula["libidn2"].opt_prefix}",
+    ]
+    on_linux do
+      args << "--disable-linux-caps"
+    end
+    system "./configure", *args
 
     system "make"
     system "make", "install"

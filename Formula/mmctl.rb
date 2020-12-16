@@ -7,6 +7,11 @@ class Mmctl < Formula
   license "Apache-2.0"
   head "https://github.com/mattermost/mmctl.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "9e68bbf4eb9ecfead97a1ff81b346ca41afa0c6161f7f105ca9286956f13e6f4" => :big_sur

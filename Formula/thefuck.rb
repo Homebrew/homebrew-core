@@ -1,7 +1,7 @@
 class Thefuck < Formula
   include Language::Python::Virtualenv
 
-  desc "Programatically correct mistyped console commands"
+  desc "Programmatically correct mistyped console commands"
   homepage "https://github.com/nvbn/thefuck"
   url "https://files.pythonhosted.org/packages/46/ed/11176f81a85876f4016c18907d6e085862df464a76628b91b3e91f080c7e/thefuck-3.30.tar.gz"
   sha256 "32b41db4360a810d8e761e80fe09868ce634476ee1829e26869d49484b7a95cc"

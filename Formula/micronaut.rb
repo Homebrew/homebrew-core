@@ -6,8 +6,8 @@ class Micronaut < Formula
   license "Apache-2.0"
 
   livecheck do
-    url "https://github.com/micronaut-projects/micronaut-starter/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

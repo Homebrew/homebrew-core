@@ -4,7 +4,7 @@ class Inxi < Formula
   url "https://github.com/smxi/inxi/archive/3.1.09-1.tar.gz"
   version "3.1.09"
   sha256 "2212ad21238b60238b00c8826e2659f4283198c154ebcf24f0d5174fffcd6949"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
   head "https://github.com/smxi/inxi.git"
 
   bottle :unneeded

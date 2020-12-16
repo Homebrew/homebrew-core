@@ -7,8 +7,8 @@ class Sentencepiece < Formula
   head "https://github.com/google/sentencepiece.git"
 
   livecheck do
-    url "https://github.com/google/sentencepiece/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

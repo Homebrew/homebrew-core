@@ -41,6 +41,7 @@ class Libgcrypt < Formula
       MachO::Tools.change_install_name("#{buildpath}/tests/.libs/random",
                                        "#{lib}/libgcrypt.20.dylib",
                                        "#{buildpath}/src/.libs/libgcrypt.20.dylib")
+      MachO.codesign!("#{buildpath}/tests/.libs/random") if Hardware::CPU.arm?
     end
 
     system "make", "check"

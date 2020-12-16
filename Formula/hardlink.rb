@@ -20,6 +20,10 @@ class Hardlink < Formula
   depends_on "gnu-getopt"
   depends_on "pcre"
 
+  on_linux do
+    depends_on "attr"
+  end
+
   def install
     system "make", "PREFIX=#{prefix}", "MANDIR=#{man}", "BINDIR=#{bin}", "install"
   end

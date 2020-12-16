@@ -4,7 +4,7 @@ class Libgnomecanvasmm < Formula
   url "https://download.gnome.org/sources/libgnomecanvasmm/2.26/libgnomecanvasmm-2.26.0.tar.bz2"
   sha256 "996577f97f459a574919e15ba7fee6af8cda38a87a98289e9a4f54752d83e918"
   license "LGPL-2.1-or-later"
-  revision 7
+  revision 8
 
   livecheck do
     url :stable
@@ -12,9 +12,9 @@ class Libgnomecanvasmm < Formula
 
   bottle do
     cellar :any
-    sha256 "f1243acfac1c6c43cfd1f1b6f3d45d189701818f61f4ae712ca53b1d58f8c10c" => :big_sur
-    sha256 "c7f9a1811003baa37eafb98770e35d144a743f43f2abda7b9b8fb921c250dda2" => :catalina
-    sha256 "5f04e3ed31fd7387c330cf4e5711c210b1709a4f54cd8081937c2b9da8efd76e" => :mojave
+    sha256 "03e7fbc5f98dec59febc28204f44c1c234fe262c22880a67ff16233b52a02151" => :big_sur
+    sha256 "f508bba657813902a852511f2e3a0ec6ad120974295222b8d17a77af32f26a7c" => :catalina
+    sha256 "181fb0d2d21fabcfc5be071a087e50cb873cdaa4b8f0fef2334f68454e6e6a61" => :mojave
   end
 
   depends_on "pkg-config" => :build
@@ -59,6 +59,7 @@ class Libgnomecanvasmm < Formula
     flags = %W[
       -I#{atk.opt_include}/atk-1.0
       -I#{atkmm.opt_include}/atkmm-1.6
+      -I#{atkmm.opt_lib}/atkmm-1.6/include
       -I#{cairo.opt_include}/cairo
       -I#{cairomm.opt_include}/cairomm-1.0
       -I#{cairomm.opt_lib}/cairomm-1.0/include

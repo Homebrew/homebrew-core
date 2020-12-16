@@ -1,18 +1,16 @@
 class Cminpack < Formula
   desc "Solves nonlinear equations and nonlinear least squares problems"
   homepage "http://devernay.free.fr/hacks/cminpack/cminpack.html"
-  url "https://github.com/devernay/cminpack/archive/v1.3.6.tar.gz"
-  sha256 "3c07fd21308c96477a2c900032e21d937739c233ee273b4347a0d4a84a32d09f"
+  url "https://github.com/devernay/cminpack/archive/v1.3.7.tar.gz"
+  sha256 "b891f33ffcfb8b246bb6147a4da6308cdb2386ca42a99892ff9b2e884f8b0386"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/devernay/cminpack.git"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "50f427121fa86f4f7e438ac8d726878c3207c5ee23d673ddd29de33841a92be4" => :big_sur
-    sha256 "4b84066225947b0be564dee31f170bd7ca199f7d4d79a5d36856dfaa50274b3c" => :catalina
-    sha256 "ed324431e08d77b33855bea05a3c3ea719991d80f5eb79b97b32e624ea6a82b2" => :mojave
+    sha256 "86d43532f7780d59fa03678ef2c292bfd1008cb93d0a218e6f910260aa41a2b2" => :big_sur
+    sha256 "5ca34e952085713f2afe3a21c8bf814bbd769aef29c4ade57d0d0545c8479b6f" => :catalina
+    sha256 "ee0d22eff273b198c9392c33c14a57a53d9a7cf7332ae5019055332addd4c235" => :mojave
   end
 
   depends_on "cmake" => :build

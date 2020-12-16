@@ -2,8 +2,8 @@ class Dive < Formula
   desc "Tool for exploring each layer in a docker image"
   homepage "https://github.com/wagoodman/dive"
   url "https://github.com/wagoodman/dive.git",
-    tag:      "v0.9.2",
-    revision: "0872cc18d44a96ed9f59202ac95c556f7e7919a7"
+      tag:      "v0.9.2",
+      revision: "0872cc18d44a96ed9f59202ac95c556f7e7919a7"
   license "MIT"
 
   bottle do
@@ -15,6 +15,12 @@ class Dive < Formula
   end
 
   depends_on "go" => :build
+
+  on_linux do
+    depends_on "gpgme" => :build
+    depends_on "pkg-config" => :build
+    depends_on "device-mapper"
+  end
 
   def install
     system "go", "build", "-ldflags", "-s -w -X main.version=#{version}", "-trimpath", "-o", bin/"dive"

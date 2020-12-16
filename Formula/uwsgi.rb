@@ -1,12 +1,12 @@
 class Uwsgi < Formula
   desc "Full stack for building hosting services"
   homepage "https://uwsgi-docs.readthedocs.io/en/latest/"
-  revision 5
+  license "GPL-2.0-or-later"
   head "https://github.com/unbit/uwsgi.git"
 
   stable do
-    url "https://projects.unbit.it/downloads/uwsgi-2.0.18.tar.gz"
-    sha256 "4972ac538800fb2d421027f49b4a1869b66048839507ccf0aa2fda792d99f583"
+    url "https://files.pythonhosted.org/packages/c7/75/45234f7b441c59b1eefd31ba3d1041a7e3c89602af24488e2a22e11e7259/uWSGI-2.0.19.1.tar.gz"
+    sha256 "faa85e053c0b1be4d5585b0858d3a511d2cd10201802e8676060fd0a109e5869"
 
     # Fix "library not found for -lgcc_s.10.5" with 10.14 SDK
     # Remove in next release
@@ -17,10 +17,9 @@ class Uwsgi < Formula
   end
 
   bottle do
-    sha256 "74b43633e464fc0e7c77a5878c6c30653c281d1803accab14449cef015e55360" => :big_sur
-    sha256 "54ef215cc4b0dd34c256e757b8ab6bfe691e061429dd51909af1c3c08cf4a580" => :catalina
-    sha256 "f3ce20a0196e32d76e0c355672bc9401fa390f8fc2e64d28e011e07d65b6c8f9" => :mojave
-    sha256 "4508c03d1f3e7df0dadb55f6dfe48d9fb360aaab51195b52784c15791f3f2da6" => :high_sierra
+    sha256 "3ff3a21eaf20a4132dc2b2da9405129a9aae59584c422b57cfa6f6cdfa29937c" => :big_sur
+    sha256 "339d8ce59b4cd8657a62b322b26e89649847d32c4c8a1ff149e2e16dd4cc4ff2" => :catalina
+    sha256 "f885fbd73900a196ff2438bc5c14771b0bc8c9cad0a7f59c1cbb39f484205ed5" => :mojave
   end
 
   depends_on "pkg-config" => :build

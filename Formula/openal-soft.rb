@@ -20,7 +20,7 @@ class OpenalSoft < Formula
   depends_on "pkg-config" => :build
 
   def install
-    # Please don't reenable example building. See:
+    # Please don't re-enable example building. See:
     # https://github.com/Homebrew/homebrew/issues/38274
     args = std_cmake_args + %w[
       -DALSOFT_BACKEND_PORTAUDIO=OFF

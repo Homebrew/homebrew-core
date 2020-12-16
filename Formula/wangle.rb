@@ -1,16 +1,16 @@
 class Wangle < Formula
   desc "Modular, composable client/server abstractions framework"
   homepage "https://github.com/facebook/wangle"
-  url "https://github.com/facebook/wangle/releases/download/v2020.11.09.00/wangle-v2020.11.09.00.tar.gz"
-  sha256 "dbaa947f65e3017baca3f0b19b54ca0ceda3de27d5f6b24409b5545e4cf39c92"
+  url "https://github.com/facebook/wangle/releases/download/v2020.11.23.00/wangle-v2020.11.23.00.tar.gz"
+  sha256 "3629b00f9e057d8fcfdc122fbe1570465ca3d5eb207d392815b71048a8154574"
   license "Apache-2.0"
   head "https://github.com/facebook/wangle.git"
 
   bottle do
     cellar :any
-    sha256 "7142c2712a4d3e9cc04fe0feb56c3d8784514b7f600230167b726a02363e01da" => :catalina
-    sha256 "d8ff1c0b1cdb0c771040e16dfdf2bf1ea7851da6af0501ed5ad169d80c4a20b8" => :mojave
-    sha256 "bac59773d8cfe9a1780d3d7970db202261b6ee50d4fa4827a3c7bbec9056a002" => :high_sierra
+    sha256 "2686ae2afb6865f53421ffd01a869ce6ca4ab2618329aef82149db6149f5178d" => :big_sur
+    sha256 "74ba97566da37dd176d5fc66aca6a1a89764168f09738d2b3f27206044a6e2b8" => :catalina
+    sha256 "30e555b84de7030a59436208dd95092471ec0e73e48ab4200323c725e25ec974" => :mojave
   end
 
   depends_on "cmake" => :build
@@ -75,7 +75,7 @@ class Wangle < Formula
     sleep 1
     Process.kill("TERM", pid)
     output = r.read
-    assert_match("received back: Hello from Homebrew!", output)
-    assert_match("received back: Another test line.", output)
+    assert_match("Hello from Homebrew!", output)
+    assert_match("Another test line.", output)
   end
 end

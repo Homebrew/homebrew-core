@@ -7,8 +7,8 @@ class TodoTxt < Formula
   head "https://github.com/todotxt/todo.txt-cli.git"
 
   livecheck do
-    url "https://github.com/todotxt/todo.txt-cli/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle :unneeded

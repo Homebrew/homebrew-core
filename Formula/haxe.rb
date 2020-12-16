@@ -8,15 +8,15 @@ class Haxe < Formula
   head "https://github.com/HaxeFoundation/haxe.git", branch: "development"
 
   livecheck do
-    url "https://github.com/HaxeFoundation/haxe/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
     cellar :any
-    sha256 "4d198b6fe5ad9addbaadd2aba3a43e4f0a356cfd632e389af76c83a8eb1246a6" => :catalina
-    sha256 "077d47ef86c0c3ccdc5f4c7c92b5485e76727afc3096d19bf149125e60ad5ce3" => :mojave
-    sha256 "3c8e7a07d745f290ef54154a05b730440cb319ec84319e6117e59936510b3234" => :high_sierra
+    sha256 "2dd8ce7d51cc9fc0f81a4bd3fd7cc768c17d1b82ca8258cd725505a2a93f47ce" => :big_sur
+    sha256 "78bf7c08233e8c8d1b5adf3ced4281bcf946500ca3943900b7814383f6e41718" => :catalina
+    sha256 "a14642ba794f4bf71a0db224452511da6c630f574f2f940e6ee509bfe514569b" => :mojave
   end
 
   depends_on "cmake" => :build

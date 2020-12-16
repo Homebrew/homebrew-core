@@ -4,21 +4,20 @@ class Libtorch < Formula
   desc "Tensors and dynamic neural networks"
   homepage "https://pytorch.org/"
   url "https://github.com/pytorch/pytorch.git",
-      tag:      "v1.7.0",
-      revision: "e85d494707b835c12165976b8442af54b9afcb26"
+      tag:      "v1.7.1",
+      revision: "57bffc3a8e4fee0cce31e1ff1f662ccf7b16db57"
   license "BSD-3-Clause"
-  revision 1
 
   livecheck do
-    url "https://github.com/pytorch/pytorch/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
     cellar :any
-    sha256 "0f9d686e509011d1444c5198319bb77a37a85e40a1364ddafea44a9399ef344e" => :big_sur
-    sha256 "64270c51a13983beaef8a4952f0bb36e35d7d3a11b3eeec971d1ce282c1bce7b" => :catalina
-    sha256 "498844eca8d7f00375425cff86801e9d8caa35aacc5527d4c39c22e927ad0baa" => :mojave
+    sha256 "2423ea34ec448f50ae6006464386fe2c692bf046c2b6b6e3e912c1f93646f5df" => :big_sur
+    sha256 "761764c7160cd4abc0fd54b4d55ab7befb63f0c7e3d734adc78a168eae17cb1a" => :catalina
+    sha256 "7624a54fe176c8c4e84f26cba71d96740e157d7ee93f8a222557db42736f11ce" => :mojave
   end
 
   depends_on "cmake" => :build

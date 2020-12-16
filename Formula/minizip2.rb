@@ -1,19 +1,20 @@
 class Minizip2 < Formula
   desc "Zip file manipulation library with minizip 1.x compatibility layer"
   homepage "https://github.com/nmoinvaz/minizip"
-  url "https://github.com/nmoinvaz/minizip/archive/2.10.1.tar.gz"
-  sha256 "34f9cf28ee8d933835d476f50dcbb9e3fed56b48bfbcda1a561ce0d3affea663"
+  url "https://github.com/nmoinvaz/minizip/archive/2.10.5.tar.gz"
+  sha256 "1c6420d3f3509e722178d9130a57cb77537b34900e7b67acca7e3e2858846939"
   license "Zlib"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a0db47f939999744ce22d9da8677622e6f77d61a93d80e598c6a90a52adb62c8" => :big_sur
-    sha256 "b208e4f752e1964b913c1bda42b129e267093ab8a58abeb41fdccb06ae38714f" => :catalina
-    sha256 "fb797578c5c50b1b96f9a77cd0d65f0aa2b5e0d778854749c79ace40f44eaaaa" => :mojave
-    sha256 "aea49e67aca487df03c509928714689b292792149fa585764a85c453ff17f511" => :high_sierra
+    sha256 "a31d89be3574f9bff5a437254b3bb3245ce73e8c02952d36f20195a100f5b0bd" => :big_sur
+    sha256 "cc7cb586eead3a60df1605d9b7bf9b6b90205cf49869a9ce6f781b45a4ae693c" => :catalina
+    sha256 "76afb235aea00f06858d62369363ce01e06f7c009afc380b41f5d6a88bc6a8f7" => :mojave
   end
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
+  depends_on "xz"
   depends_on "zstd"
 
   uses_from_macos "bzip2"
@@ -26,7 +27,9 @@ class Minizip2 < Formula
     because: "libtcod, libzip and minizip2 install a `zip.h` header"
 
   def install
-    system "cmake", ".", *std_cmake_args, "-DIconv_IS_BUILT_IN=on"
+    system "cmake", ".", "-DIconv_IS_BUILT_IN=on",
+                         "-DMZ_FETCH_LIBS=OFF",
+                         *std_cmake_args
     system "make", "install"
   end
 
@@ -44,7 +47,7 @@ class Minizip2 < Formula
     EOS
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}",
                    "-lminizip", "-lz", "-lbz2", "-liconv",
-                   "-L#{Formula["zstd"].opt_lib}", "-lzstd",
+                   "-L#{Formula["zstd"].opt_lib}", "-lzstd", "-llzma",
                    "-framework", "CoreFoundation", "-framework", "Security", "-o", "test"
     system "./test"
   end

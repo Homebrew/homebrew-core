@@ -6,7 +6,8 @@ class Jbig2dec < Formula
   license "AGPL-3.0-or-later"
 
   livecheck do
-    url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/jbig2dec[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 

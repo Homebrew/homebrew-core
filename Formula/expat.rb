@@ -6,7 +6,8 @@ class Expat < Formula
   license "MIT"
 
   livecheck do
-    url "https://github.com/libexpat/libexpat/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(/href=.*?expat[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 

@@ -4,14 +4,14 @@ class Ensmallen < Formula
   url "https://github.com/mlpack/ensmallen/archive/2.15.1.tar.gz"
   sha256 "c2123487633f6711180e3b75b78cd78e3b58735bb14bf9ba99efe5ae72e61b0e"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/mlpack/ensmallen.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "674c213991c16278a2b83d10f3f66a0bf2f6a9a31b762cc01c026f6061d5461d" => :big_sur
-    sha256 "cf68516cb03954178975000e32770434ca57fe6ff7cd3049060edfa2963848d6" => :catalina
-    sha256 "7625ecf3f624fa12c42742842d0e6e01c373acf3d7e075f96d911e834ab13d54" => :mojave
-    sha256 "070c51440d22bdbdd03ea2547f72b2aab52486786dc9887af32a375710f618da" => :high_sierra
+    sha256 "898ed64373a7bca9f23396704ca2823521fdbbd92842607803ef445ea9ab9a5d" => :big_sur
+    sha256 "8a2e13ad95a4ecb25beab404dcd9ac25bfcba1d9d0ed1abfae07657ab4f284f3" => :catalina
+    sha256 "67ca6c31a9b776d73dbc6326794d394b60d4f9d558fe5361f9793f04f2212859" => :mojave
   end
 
   depends_on "cmake" => :build

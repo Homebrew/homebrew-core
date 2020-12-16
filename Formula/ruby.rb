@@ -12,6 +12,7 @@ class Ruby < Formula
 
   bottle do
     sha256 "39e7896f6b1c365dcff147f41ca2072d901b4edadb16e6d9e8cd7a6084be9e04" => :big_sur
+    sha256 "bb33bb8eadf710528572a76e8c55be99eba99875798c646c9df641ccfc92201b" => :arm64_big_sur
     sha256 "c5c8fef5a6068f0657558662aaf83abd21d4d456f2bf5f5152d932dae09ab3fd" => :catalina
     sha256 "0c46013234250f1bea09127fa33899a51bbae47109dc9eb3ac6f883ab394e43f" => :mojave
     sha256 "ea7555713b598bb8c21a1af1554658c65ca8e9368f663a44540343122008afc3" => :high_sierra
@@ -63,10 +64,17 @@ class Ruby < Formula
       --with-opt-dir=#{paths.join(":")}
       --without-gmp
     ]
-    args << "--disable-dtrace" unless MacOS::CLT.installed?
+    on_macos do
+      args << "--disable-dtrace" unless MacOS::CLT.installed?
+    end
 
     # Correct MJIT_CC to not use superenv shim
-    args << "MJIT_CC=/usr/bin/clang"
+    on_macos do
+      args << "MJIT_CC=/usr/bin/clang"
+    end
+    on_linux do
+      args << "MJIT_CC=/usr/bin/gcc"
+    end
 
     system "./configure", *args
 

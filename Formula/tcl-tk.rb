@@ -14,6 +14,7 @@ class TclTk < Formula
   bottle do
     rebuild 1
     sha256 "b7c942f7fc15b6a402bf4d071dcea29682db9364d47ca34fcb3b7cd72c254968" => :big_sur
+    sha256 "033d2be63780ddf898f32fb5569af169977dfd4f69434a1f8549c8b4516ec93c" => :arm64_big_sur
     sha256 "4740b30b97f0308ecc59c1308945c38ddca5d3da528d779f38199a2dad905fa1" => :catalina
     sha256 "1851fee12a3ee44648845d8663a192712ce6827ef8fe167301d2638ac9ddb96c" => :mojave
     sha256 "d1d689cc3e9cf08b2a42d487db3c4142e7ee4ff322bef22d6187fc67a5b776b7" => :high_sierra
@@ -24,6 +25,7 @@ class TclTk < Formula
   depends_on "openssl@1.1"
 
   on_linux do
+    depends_on "freetype" => :build
     depends_on "pkg-config" => :build
   end
 

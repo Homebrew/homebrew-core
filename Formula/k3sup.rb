@@ -7,7 +7,8 @@ class K3sup < Formula
   license "MIT"
 
   livecheck do
-    url "https://github.com/alexellis/k3sup/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/?(\d+(?:\.\d+)+)["' >]}i)
   end
 

@@ -8,8 +8,8 @@ class JdnssecTools < Formula
   head "https://github.com/dblacka/jdnssec-tools.git"
 
   livecheck do
-    url "https://github.com/dblacka/jdnssec-tools/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

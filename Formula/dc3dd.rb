@@ -1,8 +1,7 @@
 class Dc3dd < Formula
   desc "Patched GNU dd that is intended for forensic acquisition of data"
   homepage "https://sourceforge.net/projects/dc3dd/"
-  url "https://downloads.sourceforge.net/project/dc3dd/dc3dd/7.2.646/dc3dd%207.2.646/dc3dd-7.2.646.zip",
-      using: :nounzip
+  url "https://downloads.sourceforge.net/project/dc3dd/dc3dd/7.2.646/dc3dd%207.2.646/dc3dd-7.2.646.zip", using: :nounzip
   sha256 "c4e325e5cbdae49e3855b0849ea62fed17d553428724745cea53fe6d91fd2b7f"
   revision 2
 

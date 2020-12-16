@@ -3,6 +3,7 @@ class OrcTools < Formula
   homepage "https://orc.apache.org/"
   url "https://search.maven.org/remotecontent?filepath=org/apache/orc/orc-tools/1.6.5/orc-tools-1.6.5-uber.jar"
   sha256 "3e3a0a3676a5c94d51dc0a5fda072eafa6a1ac09c9831b7d592c866ac1f02d67"
+  license "Apache-2.0"
 
   bottle :unneeded
 

@@ -8,15 +8,15 @@ class TreeSitter < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "c89bc31148685aa6c2abe0aca99d0283f3ac7ca8b95fdfd31f1b38c8e955ee7e" => :big_sur
-    sha256 "affadea701f887e8ae3f757ce88c3aa9cbc558887dfcf997c167f93e3a94af57" => :catalina
-    sha256 "1b745dd2fbd391ce0e26b639cb3202606f1d4f745e86a98a6f0d5c34ed3f8106" => :mojave
+    rebuild 2
+    sha256 "242c2c1e1867674641caec723aa5d8865f6912f83c2475de2c43fdad25282e36" => :big_sur
+    sha256 "97c837df6b17cdaa5653638e48d043750e3917b3681b76000fdfaae31b8f667d" => :catalina
+    sha256 "d9302818f0caddc5a60e0c5a6a3f9f316da0c76322fc55d986ad4982e6661e30" => :mojave
   end
 
   depends_on "rust" => :build
-  depends_on "emscripten"
-  depends_on "node"
+  depends_on "emscripten" => :test
+  depends_on "node" => :test
 
   def install
     system "make"
@@ -69,7 +69,7 @@ class TreeSitter < Formula
           return 1;
         }
         // Because we have no language libraries installed, we cannot
-        // actually parse a string succesfully. But, we can verify
+        // actually parse a string successfully. But, we can verify
         // that it can at least be attempted.
         const char *source_code = "empty";
         TSTree *tree = ts_parser_parse_string(

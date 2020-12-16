@@ -8,7 +8,8 @@ class Clojurescript < Formula
   head "https://github.com/clojure/clojurescript.git"
 
   livecheck do
-    url "https://github.com/clojure/clojurescript/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/r?(\d+(?:\.\d+)+)["' >]}i)
   end
 

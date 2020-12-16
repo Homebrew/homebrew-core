@@ -6,8 +6,8 @@ class Nco < Formula
   license "BSD-3-Clause"
 
   livecheck do
-    url "https://github.com/nco/nco/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

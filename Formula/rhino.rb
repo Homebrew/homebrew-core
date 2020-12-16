@@ -6,7 +6,8 @@ class Rhino < Formula
   license "MPL-2.0"
 
   livecheck do
-    url "https://github.com/mozilla/rhino/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/.*?>Rhino (\d+(?:\.\d+)+)<}i)
   end
 

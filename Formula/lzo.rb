@@ -13,6 +13,7 @@ class Lzo < Formula
   bottle do
     cellar :any
     sha256 "fcd3c9f7042104ca13be96fd0ec53acdc7da1480c16140441b2e66d4e7c5eb78" => :big_sur
+    sha256 "417214a2dde43b25a7ea79363380270f07b146c4f7d089a6bc0f9ae46e502cd7" => :arm64_big_sur
     sha256 "c8f55ba0de85273c1851136f47b89f43ba3cce9cbf0ba9f2bba7db311544a000" => :catalina
     sha256 "84f4e3223c03375b0be93bd87be98f512e092621b4f6b4216e3da7210c56ddad" => :mojave
     sha256 "2420aac02d4765ecfd5e9b4d05402f42416c438e8bbaa43dca19e03ecff2a670" => :high_sierra

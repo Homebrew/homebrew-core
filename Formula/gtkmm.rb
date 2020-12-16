@@ -4,7 +4,7 @@ class Gtkmm < Formula
   url "https://download.gnome.org/sources/gtkmm/2.24/gtkmm-2.24.5.tar.xz"
   sha256 "0680a53b7bf90b4e4bf444d1d89e6df41c777e0bacc96e9c09fc4dd2f5fe6b72"
   license "LGPL-2.1-or-later"
-  revision 4
+  revision 5
 
   livecheck do
     url :stable
@@ -13,9 +13,9 @@ class Gtkmm < Formula
 
   bottle do
     cellar :any
-    sha256 "50ce927a7a3cfc0148eb14bcbfc026fca79a4cb066cae096abd7ccd2dbba1776" => :big_sur
-    sha256 "55cd46de396ea48d5677d2fb016e26812456114c6c857ca68b5e17634be2493a" => :catalina
-    sha256 "e1bcfde04c939fd6f5894853ce34ed515d929e8419d05d28d3713eb02e80b229" => :mojave
+    sha256 "c9e5728a06139ff573e5629975dc9e43d96223533fac5eb3e994c8b0da1ac258" => :big_sur
+    sha256 "2abecc62affcdfd0d4f9f3609a10e239f518af89526c3083a81acc29a256da0f" => :catalina
+    sha256 "ed81ab47fb417cde880d799998dcbeb6fc1c8ac52554a4470f9275a4751cc4e9" => :mojave
   end
 
   depends_on "pkg-config" => :build
@@ -61,6 +61,7 @@ class Gtkmm < Formula
     flags = %W[
       -I#{atk.opt_include}/atk-1.0
       -I#{atkmm.opt_include}/atkmm-1.6
+      -I#{atkmm.opt_lib}/atkmm-1.6/include
       -I#{cairo.opt_include}/cairo
       -I#{cairomm.opt_include}/cairomm-1.0
       -I#{cairomm.opt_lib}/cairomm-1.0/include

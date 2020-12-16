@@ -5,6 +5,11 @@ class Sshtrix < Formula
   sha256 "30d1d69c1cac92836e74b8f7d0dc9d839665b4994201306c72e9929bee32e2e0"
   license "GPL-3.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?sshtrix[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "b3962b5211858eb4f6e1478665bfbb578c1f9d1c393237b841f9261aab4cdbf9" => :big_sur

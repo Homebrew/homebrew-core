@@ -24,7 +24,7 @@ class Dafny < Formula
 
   resource "boogie" do
     url "https://github.com/boogie-org/boogie.git",
-      revision: "9e74c3271f430adb958908400c6f6fce5b59000a"
+        revision: "9e74c3271f430adb958908400c6f6fce5b59000a"
   end
 
   def install

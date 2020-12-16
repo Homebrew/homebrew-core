@@ -6,7 +6,7 @@ class GraphTool < Formula
   url "https://downloads.skewed.de/graph-tool/graph-tool-2.35.tar.bz2"
   sha256 "2395823c33d4d12cc8465782a640b99ec7bddf074a7a02e9c1eab4eb3f8ce9ba"
   license "LGPL-3.0"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://downloads.skewed.de/graph-tool/"
@@ -14,9 +14,9 @@ class GraphTool < Formula
   end
 
   bottle do
-    sha256 "34cfb22a1e00efca115f0bbd8b946b7ac3d73513f7fc550c70c248ac70c768f1" => :big_sur
-    sha256 "c8af988b1eb5413389d99ed356270483db48b7fb0f8e72aea12a11f7452d6c7c" => :catalina
-    sha256 "be31e6dfa44335e66f140c88bf7343bb494fe2cbfb7f0a7e1ee53ca92b7d8cdb" => :mojave
+    sha256 "7b306992341901769282d80ae82de613fdbe9091cad02f17a0bb72adc52cc301" => :big_sur
+    sha256 "1f0882fe071c1784cd723bd6c8fbf0b684803d3a51d3fb0d88bd5a9f95f11ebc" => :catalina
+    sha256 "b23c8ca241e78a0cf6aa882284f64580329121874c37b0142772a4bc9c60c323" => :mojave
   end
 
   depends_on "autoconf" => :build

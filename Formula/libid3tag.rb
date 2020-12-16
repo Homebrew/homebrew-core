@@ -3,6 +3,7 @@ class Libid3tag < Formula
   homepage "https://www.underbit.com/products/mad/"
   url "https://downloads.sourceforge.net/project/mad/libid3tag/0.15.1b/libid3tag-0.15.1b.tar.gz"
   sha256 "63da4f6e7997278f8a3fef4c6a372d342f705051d1eeb6a46a86b03610e26151"
+  license "GPL-2.0-only"
 
   livecheck do
     url :stable
@@ -11,16 +12,15 @@ class Libid3tag < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "d3e84c9c6bf940c28930c2c74edb9fd23765e8de20ebfa4c24d16612c0551da0" => :big_sur
-    sha256 "2827ea8d45b9d7bdf88dfc4c7b2addb55cc056250f05720ef140e3ade774e2ff" => :catalina
-    sha256 "51257e9e96bedecb39c15f25bdefc4150ba636f76c828240df0c214c6dc8381f" => :mojave
-    sha256 "42909989a248048c3c03c64d937ab3ffc655dbf8fc90d6deffaa74f979bdbdba" => :high_sierra
-    sha256 "f80ff2abda5796fcabba3ff54405d9626628c3969f844723e9232d66e85e745f" => :sierra
-    sha256 "75e446174dd2a9dc17326c998757c4218a89cddb734f3000d0b0506de801732a" => :el_capitan
-    sha256 "07ef662e3ab9be0cce16eabb13dbc046fc60c42184ac003285371dc955859697" => :yosemite
-    sha256 "d832f73e16b185fed6a66d2f00199a7d76411e438854988262463f4769b40d5b" => :mavericks
+    rebuild 2
+    sha256 "ef38d5804e95cf7f2096c9e8ec31e568170c6e238e43e7ddc3df914ded26f07b" => :big_sur
+    sha256 "93b071dac99b3d85dac56e59af42e28d5de959bed9fd37a9a2178c02c8b20f17" => :catalina
+    sha256 "1186600473728830dbb65189d11912e2abf42dac5fcbf7ee38629784cc83b310" => :mojave
   end
+
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
 
   uses_from_macos "zlib"
 
@@ -67,6 +67,12 @@ class Libid3tag < Formula
   end
 
   def install
+    # Run autoconf because config.{guess,sub} are outdated
+    touch "NEWS"
+    touch "AUTHORS"
+    touch "ChangeLog"
+    system "autoreconf", "-fiv"
+
     system "./configure", "--prefix=#{prefix}", "--disable-debug", "--disable-dependency-tracking"
     system "make", "install"
 

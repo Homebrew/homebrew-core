@@ -2,15 +2,15 @@ class Csound < Formula
   desc "Sound and music computing system"
   homepage "https://csound.com"
   url "https://github.com/csound/csound.git",
-    tag:      "6.15.0",
-    revision: "18c2c7897425f462b9a7743cee157cb410c88198"
+      tag:      "6.15.0",
+      revision: "18c2c7897425f462b9a7743cee157cb410c88198"
   license "LGPL-2.1-or-later"
   revision 3
   head "https://github.com/csound/csound.git", branch: "develop"
 
   livecheck do
-    url "https://github.com/csound/csound/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

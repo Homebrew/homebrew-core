@@ -28,7 +28,7 @@ class Mpgtx < Formula
                           "--manprefix=#{man}"
     # Unset LFLAGS, "-s" causes the linker to crash
     system "make", "LFLAGS="
-    # Overide BSD incompatible cp flags set in makefile
+    # Override BSD incompatible cp flags set in makefile
     system "make", "install", "cpflags=RP"
   end
 

@@ -18,8 +18,7 @@ class ContainerStructureTest < Formula
 
   # Small Docker image to run tests against
   resource "busybox-image-tar" do
-    url "https://gist.github.com/AndiDog/1fab301b2dbc812b1544cd45db939e94/raw/5160ab30de17833fdfe183fc38e4e5f69f7bbae0/busybox-1.31.1.tar",
-      using: :nounzip
+    url "https://gist.github.com/AndiDog/1fab301b2dbc812b1544cd45db939e94/raw/5160ab30de17833fdfe183fc38e4e5f69f7bbae0/busybox-1.31.1.tar", using: :nounzip
     sha256 "ab5088c314316f39ff1d1a452b486141db40813351731ec8d5300db3eb35a316"
   end
 

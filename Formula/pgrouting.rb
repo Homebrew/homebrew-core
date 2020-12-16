@@ -7,8 +7,8 @@ class Pgrouting < Formula
   head "https://github.com/pgRouting/pgrouting.git"
 
   livecheck do
-    url "https://github.com/pgRouting/pgrouting/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

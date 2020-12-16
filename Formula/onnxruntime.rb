@@ -2,20 +2,20 @@ class Onnxruntime < Formula
   desc "Cross-platform, high performance scoring engine for ML models"
   homepage "https://github.com/microsoft/onnxruntime"
   url "https://github.com/microsoft/onnxruntime.git",
-    tag:      "v1.5.3",
-    revision: "7bcf796a0d3208b0c193d1758708495b09281e0a"
+      tag:      "v1.6.0",
+      revision: "718ca7f92085bef4b19b1acc71c1e1f3daccde94"
   license "MIT"
 
   livecheck do
-    url "https://github.com/microsoft/onnxruntime/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
     cellar :any
-    sha256 "7c06aa23f92080bef06db9b6b1d4e48bd51a5444bc289c27e095b5d38e986f05" => :big_sur
-    sha256 "a41b686ad0849a7fb6814fbbebfc18686fce539a77c52ae7968f63a799b22d20" => :catalina
-    sha256 "7b76307e0d98e604ce75a035444aeb1949df34a753eb49ddd84f1edff1f881b3" => :mojave
+    sha256 "337d7698df55dc5e51642648c48b197d16b16724a18f8b3f2dd8d945ab3d9570" => :big_sur
+    sha256 "abba47ba776200c08639652a71b543152a60cb665cfeba5a6d10802329ac3637" => :catalina
+    sha256 "66ad4dd817c95e4f47e29ee2728d0f0e4e1e5e21b0bcb69cee1153b08fe115c9" => :mojave
   end
 
   depends_on "cmake" => :build

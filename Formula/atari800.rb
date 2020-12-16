@@ -6,7 +6,8 @@ class Atari800 < Formula
   license "GPL-2.0"
 
   livecheck do
-    url "https://github.com/atari800/atari800/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/ATARI800[._-]v?(\d+(?:[._]\d+)+)["' >]}i)
   end
 

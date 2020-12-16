@@ -13,6 +13,7 @@ class Pixman < Formula
   bottle do
     cellar :any
     sha256 "0114710dd922d5e4839c9dea3b72cd5fbe6f00157dd63457c99ca15554cf8d7f" => :big_sur
+    sha256 "407a75479328d4999a378f520fa9d97985a8e507e015bf53c790175485f3c4fb" => :arm64_big_sur
     sha256 "1862e6826a4bedb97af8dcb9ab849c69754226ed92e5ee19267fa33ee96f94f8" => :catalina
     sha256 "70a476e6b14fdfa42188d3df2797f8c13f25bd633528164b0d42c5fb70dfb431" => :mojave
     sha256 "e5b78e3dca71370ccc06a013ebda8b9f1c2b89a238e2f3ef11a8086560e3c07b" => :high_sierra

@@ -7,8 +7,8 @@ class Lizard < Formula
   version_scheme 1
 
   livecheck do
-    url "https://github.com/inikep/lizard/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

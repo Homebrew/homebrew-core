@@ -6,14 +6,15 @@ class Protobuf < Formula
   license "BSD-3-Clause"
 
   livecheck do
-    url "https://github.com/protocolbuffers/protobuf/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
     cellar :any
     rebuild 1
     sha256 "b06e8c4247465d7773a359eeeaa39385e564fefab77dbbb245ac928eea334ce9" => :big_sur
+    sha256 "d552ba31a02e48f9eaba685dc56955a7ff5620283f3763bab684b9fe07b81042" => :arm64_big_sur
     sha256 "8d53111626404e2b4f27718127a313dceea600a74a4d38ffe0870812d8f57eb4" => :catalina
     sha256 "0070627fe9b8c1818e54480c272cc00fa71bd5bd944b04d37ebe2e31604cb9c9" => :mojave
   end

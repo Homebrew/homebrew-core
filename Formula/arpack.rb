@@ -1,18 +1,16 @@
 class Arpack < Formula
   desc "Routines to solve large scale eigenvalue problems"
   homepage "https://github.com/opencollab/arpack-ng"
-  url "https://github.com/opencollab/arpack-ng/archive/3.7.0.tar.gz"
-  sha256 "972e3fc3cd0b9d6b5a737c9bf6fd07515c0d6549319d4ffb06970e64fa3cc2d6"
+  url "https://github.com/opencollab/arpack-ng/archive/3.8.0.tar.gz"
+  sha256 "ada5aeb3878874383307239c9235b716a8a170c6d096a6625bfd529844df003d"
   license "BSD-3-Clause"
-  revision 5
   head "https://github.com/opencollab/arpack-ng.git"
 
   bottle do
     cellar :any
-    sha256 "25278eee735d9e738952ef825983bc545783c40c0adb6489bd95cf1c9a8b2796" => :big_sur
-    sha256 "c4d53dfa06e56a05dfe6c53020a8c5d867b6cf9d0cc37de9b6debc80d1af0d44" => :catalina
-    sha256 "a5b2d5d34b7c9650d54b7985a4edf979e9c43ddc29830676f042c112f4025967" => :mojave
-    sha256 "152d4a439d8309460a8d2da947eb611aa5c6dd9fa77bba9afa2db60c09f807f4" => :high_sierra
+    sha256 "70435f04200e15435d5441ff19ba648bc10e56a7287593a4ab06e756469a8717" => :big_sur
+    sha256 "b0ff545b53f2300baa9f9ba1f13c5c45c376b8968dae71d870b9b7b0a9c753d7" => :catalina
+    sha256 "7cc29abdc6d90601ff9182120c2e1cf24e298338e15ec33cf205d10e7d76bcff" => :mojave
   end
 
   depends_on "autoconf" => :build

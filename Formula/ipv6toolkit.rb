@@ -6,6 +6,11 @@ class Ipv6toolkit < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/fgont/ipv6toolkit.git"
 
+  livecheck do
+    url "http://pages.cs.wisc.edu/~plonka/ipv6toolkit/"
+    regex(/href=.*?ipv6toolkit[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 2

@@ -2,8 +2,8 @@ class Cayley < Formula
   desc "Graph database inspired by Freebase and Knowledge Graph"
   homepage "https://github.com/cayleygraph/cayley"
   url "https://github.com/cayleygraph/cayley.git",
-    tag:      "v0.7.7",
-    revision: "dcf764fef381f19ee49fad186b4e00024709f148"
+      tag:      "v0.7.7",
+      revision: "dcf764fef381f19ee49fad186b4e00024709f148"
   license "Apache-2.0"
 
   bottle do

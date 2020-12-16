@@ -47,6 +47,9 @@ class Hdf5 < Formula
       --enable-fortran
       --enable-cxx
     ]
+    on_linux do
+      args << "--with-zlib=#{Formula["zlib"].opt_prefix}"
+    end
 
     system "./configure", *args
 

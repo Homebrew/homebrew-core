@@ -7,8 +7,8 @@ class Ompl < Formula
   head "https://github.com/ompl/ompl.git"
 
   livecheck do
-    url "https://github.com/ompl/ompl/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

@@ -1,16 +1,16 @@
 class Direnv < Formula
   desc "Load/unload environment variables based on $PWD"
   homepage "https://direnv.net/"
-  url "https://github.com/direnv/direnv/archive/v2.25.0.tar.gz"
-  sha256 "f1100333be9045e83285a175a0937b96fd9d211519333234815eb4aa7c719f5b"
+  url "https://github.com/direnv/direnv/archive/v2.25.2.tar.gz"
+  sha256 "c42624086c9fb5dd66e4d49e2a30907dd3038126a5dad3369c5a1c6f15d7b9ec"
   license "MIT"
   head "https://github.com/direnv/direnv.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f8b6768c9df0f097a87708b77f6cd1f68808c81567609e7f6a4f6c86fcd3bcc9" => :big_sur
-    sha256 "66b13f4889a97b487f9dd2a6b5a02724dc229cbc33ece4c6458e6fa2a2194e34" => :catalina
-    sha256 "183d350c5096cbb818b08fd71b30ffe5e27ed4b27a6cb1211edb90226645c968" => :mojave
+    sha256 "c79af7963300877b62c3debbe068b9323579586f7a1b934a4e86f91cdaa65b30" => :big_sur
+    sha256 "cc182495b66533285fc592dae75c76bcb034ae214b2eed34220ecbd60bbfe8a8" => :catalina
+    sha256 "b9b3f2b300c8928de283e76cf3685c6efddf4435032c86e374827567cbffda95" => :mojave
   end
 
   depends_on "go" => :build

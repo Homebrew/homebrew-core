@@ -6,6 +6,11 @@ class PhoronixTestSuite < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/phoronix-test-suite/phoronix-test-suite.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle :unneeded
 
   def install

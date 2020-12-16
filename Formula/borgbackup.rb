@@ -9,8 +9,8 @@ class Borgbackup < Formula
   revision 2
 
   livecheck do
-    url "https://github.com/borgbackup/borg/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

@@ -1,10 +1,10 @@
 class OpensslAT11 < Formula
   desc "Cryptography and SSL/TLS Toolkit"
   homepage "https://openssl.org/"
-  url "https://www.openssl.org/source/openssl-1.1.1h.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.1.1h.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.1h.tar.gz"
-  sha256 "5c9ca8774bd7b03e5784f26ae9e9e6d749c9da2438545077e6b3d755a06595d9"
+  url "https://www.openssl.org/source/openssl-1.1.1i.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.1.1i.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.1i.tar.gz"
+  sha256 "e8be6a35fe41d10603c3cc635e93289ed00bf34b79671a3a4de64fcee00d5242"
   license "OpenSSL"
   version_scheme 1
 
@@ -14,10 +14,10 @@ class OpensslAT11 < Formula
   end
 
   bottle do
-    sha256 "81fe98e819f1d3554d98cbf615c848cc1837c65b6026cb561b0d58531b0ab65e" => :big_sur
-    sha256 "4e5357c0cfd55cfa4ef0b632c6fc9f49d39337dd070dc12d3c862e28bd28f079" => :catalina
-    sha256 "d4ef27b41d0596d20b79a43a43554d4ea1395f0ef9affdcf0ce74114a00e2572" => :mojave
-    sha256 "face6b0b99e7d628232e379f02aeb9d0eb7d1b5efba77561e0fd9edba130393d" => :high_sierra
+    sha256 "8008537d37a7f09eedbcd03c575e15206c54f97fe162c6d36da904897e9cee31" => :big_sur
+    sha256 "14646cc636f207b835b12172b2ca2cd908e2955bf537d72be6ab049285db7398" => :arm64_big_sur
+    sha256 "066b9f114617872e77fa3d4afee2337daabc2c181d7564fe60a5b26d89d69742" => :catalina
+    sha256 "f5a348793735d449d990693ab687049fb11c08ade0b74c6f7337a56fc0a77908" => :mojave
   end
 
   keg_only :shadowed_by_macos, "macOS provides LibreSSL"
@@ -44,13 +44,6 @@ class OpensslAT11 < Formula
       url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.48.tar.gz"
       sha256 "94e64a630fc37e80c0ca02480dccfa5f2f4ca4b0dd4eeecc1d65acd321c68289"
     end
-  end
-
-  # Add darwin64-arm64-cc build target.
-  # See: https://github.com/openssl/openssl/pull/12369
-  patch do
-    url "https://github.com/stuartcarnie/openssl/commit/4907cf01f63cc966a40d67eb2e030c4d8eb1d528.patch?full_index=1"
-    sha256 "2c0af13764c9d52bb9e04687d430d5e2682bb877b790f089c348c8de0434ad00"
   end
 
   # SSLv2 died with 1.1.0, so no-ssl2 no longer required.

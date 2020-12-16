@@ -14,6 +14,7 @@ class Libtool < Formula
   bottle do
     cellar :any
     sha256 "b5dba5a59ae66f42b012998e08edbeaed9e2456c0d1670307b8f46be5ef3b9fa" => :big_sur
+    sha256 "818e60ab14a61d7c7de318539d8a7d3a3673f1d8cd610173c294d57331b17366" => :arm64_big_sur
     sha256 "af317b35d0a394b7ef55fba4950735b0392d9f31bececebf9c412261c23a01fc" => :catalina
     sha256 "77ca68934e7ed9b9b0b8ce17618d7f08fc5d5a95d7b845622bf57345ffb1c0d6" => :mojave
     sha256 "60c7d86f9364e166846f8d3fb2ba969e6ca157e7ecbbb42a1de259116618c2ba" => :high_sierra

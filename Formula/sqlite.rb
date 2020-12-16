@@ -14,6 +14,7 @@ class Sqlite < Formula
   bottle do
     cellar :any
     sha256 "cdf256befc0752680a6742469b217e0dae42c691cb3565923d4bf2c5a0583152" => :big_sur
+    sha256 "0871704527baf297f2d8cc322a5e5dffb2dfa4551e0746802094542d462e402a" => :arm64_big_sur
     sha256 "7e04c1fcd0294ec7625e43eea05714d8bb4d15d24675c99484f1403fdcb438ec" => :catalina
     sha256 "64729f1390a8379a9c7e6c8579dda0a0c450328868ebeb7e7e632aa448bda2d1" => :mojave
   end

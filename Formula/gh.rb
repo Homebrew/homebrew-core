@@ -1,20 +1,20 @@
 class Gh < Formula
   desc "GitHub command-line tool"
   homepage "https://github.com/cli/cli"
-  url "https://github.com/cli/cli/archive/v1.3.1.tar.gz"
-  sha256 "5e5dca830aa5012fa1851513c10c0a5de4d3f38c16a172928b1d8e9dd9c75957"
+  url "https://github.com/cli/cli/archive/v1.4.0.tar.gz"
+  sha256 "9f8851264938e48f5ccabe12e4de404ee0f94c8e33c107b818c4e324dbafa558"
   license "MIT"
 
   livecheck do
-    url "https://github.com/cli/cli/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6f01868e74ff2082b19d5000502206875d86cd54cf5a6c2f503ead46d48a38ac" => :big_sur
-    sha256 "ec0ae34ee04b4f9e0ffe813957ae5fd0fd28b895dbb327d0244e97d0e992d87f" => :catalina
-    sha256 "924ff3e546d4f0eec09a4dd8679d1a74f99f771a9f00bf0a7b130d2ffd0b0e1a" => :mojave
+    sha256 "daf4c5b566b1a1b9f00ac73aeffcc72792479da9ddebfdb3a91ce5d19fbba309" => :big_sur
+    sha256 "70c9d617f18341ab35bebc17b1916ec79cc053dbed5782eb34656babdb6908a8" => :catalina
+    sha256 "930dd87d86bcc1b6ac220cc488766df4fc00472d49221b37f51281970015cabe" => :mojave
   end
 
   depends_on "go" => :build

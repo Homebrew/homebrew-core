@@ -7,8 +7,8 @@ class Exercism < Formula
   head "https://github.com/exercism/cli.git"
 
   livecheck do
-    url "https://github.com/exercism/cli/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

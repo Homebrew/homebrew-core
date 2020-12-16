@@ -7,7 +7,8 @@ class Stockfish < Formula
   head "https://github.com/official-stockfish/Stockfish.git"
 
   livecheck do
-    url "https://github.com/official-stockfish/Stockfish/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/(?:sf[._-])?v?(\d+(?:\.\d+)*)["' >]}i)
   end
 

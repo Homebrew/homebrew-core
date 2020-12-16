@@ -2,9 +2,9 @@ class Zydis < Formula
   desc "Fast and lightweight x86/x86_64 disassembler library"
   homepage "https://zydis.re"
   url "https://github.com/zyantific/zydis.git",
-    tag:      "v3.1.0",
-    revision: "bfee99f49274a0eec3ffea16ede3a5bda9cda88f",
-    shallow:  false
+      tag:      "v3.1.0",
+      revision: "bfee99f49274a0eec3ffea16ede3a5bda9cda88f",
+      shallow:  false
   license "MIT"
   head "https://github.com/zyantific/zydis.git"
 

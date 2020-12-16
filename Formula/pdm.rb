@@ -3,8 +3,8 @@ class Pdm < Formula
 
   desc "Modern Python package manager with PEP 582 support"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/3d/f8/1bf4cb20fb05c3b128b84d58dedb6df50db7e8cf2f00a694f137042cdfc9/pdm-0.12.0.tar.gz"
-  sha256 "edc6c5c871ac0eb2d7d5ddb4f8db9077126884447fa994a442bee66a9fbd2ecf"
+  url "https://files.pythonhosted.org/packages/d4/93/26d266eeb0606eae65f81b400a7947c964fa0eb11d754fab5c202ad1f721/pdm-0.12.1.tar.gz"
+  sha256 "725a1affdcea065ba8a8cb5c9daa03bf5412d8599a0889961483b00807c8f115"
   license "MIT"
   head "https://github.com/frostming/pdm.git"
 
@@ -14,9 +14,9 @@ class Pdm < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d05e6bd69e3b29bd3bb2801f935d925377fb8dae74ced92a1e13cf43c86e4856" => :big_sur
-    sha256 "f58537861e94379403ec660ab8c3e06094d3ec5aa69ab3e721267627c7e78fda" => :catalina
-    sha256 "6c8394fcfd1477bd9247782bbe680ed61fdb40f02d43c31c9369e52e9dc21a5b" => :mojave
+    sha256 "7a7854bd76ab6b71262d6c86589869d84c361c26fcbd32b11ba46e9e51bb8035" => :big_sur
+    sha256 "627abe5904dfc788ad45f8fee5e05ad8cd93ba2acad13b6aaf3b77a06f01f032" => :catalina
+    sha256 "ca02ed342b0b391f2ca2e37b5042e0ade590edb6212bc8ceec071eec639d3c06" => :mojave
   end
 
   depends_on "python@3.9"
@@ -52,8 +52,8 @@ class Pdm < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/16/7c/33ae3aa02eb10ca726b21aa88d338e3f619c674e4fb8544eb352330d880a/packaging-20.7.tar.gz"
-    sha256 "05af3bb85d320377db281cf254ab050e1a7ebcbf5410685a9a407e18a1f81236"
+    url "https://files.pythonhosted.org/packages/d7/c5/e81b9fb8033fe78a2355ea7b1774338e1dca2c9cbd2ee140211a9e6291ab/packaging-20.8.tar.gz"
+    sha256 "78598185a7008a470d64526a8059de9aaa449238f280fc9eb6b13ba6c4109093"
   end
 
   resource "pdm-pep517" do

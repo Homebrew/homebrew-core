@@ -3,7 +3,8 @@ class Pike < Formula
   homepage "https://pike.lysator.liu.se/"
   url "https://pike.lysator.liu.se/pub/pike/latest-stable/Pike-v8.0.702.tar.gz"
   sha256 "c47aad2e4f2c501c0eeea5f32a50385b46bda444f922a387a5c7754302f12a16"
-  revision 1
+  license any_of: ["GPL-2.0-only", "LGPL-2.1-only", "MPL-1.1"]
+  revision 2
 
   livecheck do
     url "https://pike.lysator.liu.se/download/pub/pike/latest-stable/"
@@ -12,19 +13,27 @@ class Pike < Formula
 
   bottle do
     cellar :any
-    sha256 "ae20ba3c7fd69c026892555798559bd2da90d53dc3cf07eb5d7423af505082d5" => :catalina
-    sha256 "ff1e2f11d0beec51cc41d9eb566a80cbf53b51933158c6083054e3b91dfa251c" => :mojave
-    sha256 "10eb373d72d3c178dc1f560a7e1c35f8b6dc51412d7eb4f4cf4f751109d4fd9d" => :high_sierra
+    sha256 "3c0bea5143c0630461de47b17cf4fc3511c234b0041d430bbbe235f254ba864f" => :big_sur
+    sha256 "5757d1aa50ab2cea5a849c0175c5f7e7d9474be370488be306e67caa2edb7389" => :catalina
+    sha256 "fbecbf5e9013c9ed5bfdd2d0c81b6f6df929b99b3e4e8aa2d9a11dc25f78ac4a" => :mojave
   end
 
   depends_on "gmp"
+  depends_on "librsvg"
   depends_on "libtiff"
   depends_on "nettle"
   depends_on "pcre"
 
+  on_linux do
+    depends_on "jpeg"
+  end
+
   def install
     ENV.append "CFLAGS", "-m64"
     ENV.deparallelize
+
+    # Workaround for https://git.lysator.liu.se/pikelang/pike/-/issues/10058
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
 
     system "make", "CONFIGUREARGS='--prefix=#{prefix} --without-bundles --with-abi=64'"
 

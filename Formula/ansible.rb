@@ -3,10 +3,9 @@ class Ansible < Formula
 
   desc "Automate deployment, configuration, and upgrading"
   homepage "https://www.ansible.com/"
-  url "https://files.pythonhosted.org/packages/9c/f4/c156b10d7ae90ba6b99b1b126f7d30628adc1e733a6fbd63569852948f21/ansible-2.10.3.tar.gz"
-  sha256 "eb1d08b9b98a60e90e7123a12f40770780f29f9d73168da55d449106a9f4d348"
+  url "https://files.pythonhosted.org/packages/01/ff/0bdc7b0698f7d4e02e7da6e96d7d856a42667419c5c48bbfc3f8dda9a80e/ansible-2.10.4.tar.gz"
+  sha256 "98e718aea82199be62db7731373d660627aa1e938d34446588f2f49c228638ee"
   license "GPL-3.0-or-later"
-  revision 1
   head "https://github.com/ansible/ansible.git", branch: "devel"
 
   livecheck do
@@ -15,9 +14,9 @@ class Ansible < Formula
 
   bottle do
     cellar :any
-    sha256 "bccc1cdb7938643294de525018c130dc5c0ef2b5aa3590230920af2ca434511d" => :big_sur
-    sha256 "0079aa8e1548e9027c6d3a0e88ffa6d5816d0f88a68b24e3fe3704bf7b8ddc34" => :catalina
-    sha256 "3d994c03f745c38a953a2663cf81479c2ba00630f3b0c7b53a10a35b0d8620a3" => :mojave
+    sha256 "f37d6b4d9f678ad34d8e6842354dcc64ca6777a925333eaf1071dd14e0b02ebd" => :big_sur
+    sha256 "6c4fe1373f9fac5367b970fd2a361295d970ff40977f9161806e46ef676320eb" => :catalina
+    sha256 "90ee5b88d11409334cf150d14d85cbd5dc2d7564380b1765977e90694765bef2" => :mojave
   end
 
   depends_on "pkg-config" => :build
@@ -70,8 +69,8 @@ class Ansible < Formula
 
   ### extras for requests[security]
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/94/5c/42de91c7fbdb817b2d9a4e64b067946eb38a4eb36c1a09c96c87a0f86a82/cryptography-3.2.1.tar.gz"
-    sha256 "d3d5e10be0cf2a12214ddee45c6bd203dab435e3d83b4560c03066eda600bfe3"
+    url "https://files.pythonhosted.org/packages/b7/82/f7a4ddc1af185936c1e4fa000942ffa8fb2d98cff26b75afa7b3c63391c4/cryptography-3.3.1.tar.gz"
+    sha256 "7e177e4bea2de937a584b13645cab32f25e3d96fc0bc4a4cf99c27dc77682be6"
   end
 
   resource "idna" do
@@ -80,8 +79,8 @@ class Ansible < Formula
   end
 
   resource "pyOpenSSL" do
-    url "https://files.pythonhosted.org/packages/0d/1d/6cc4bd4e79f78be6640fab268555a11af48474fac9df187c3361a1d1d2f0/pyOpenSSL-19.1.0.tar.gz"
-    sha256 "9a24494b2602aaf402be5c9e30a0b82d4a5c67528fe8fb475e3f3bc00dd69507"
+    url "https://files.pythonhosted.org/packages/09/67/38a1080fabbb908515c47694238e00b6a73a82d9dbc76372263a231abfcb/pyOpenSSL-20.0.0.tar.gz"
+    sha256 "92f08eccbd73701cf744e8ffd6989aa7842d48cbe3fea8a7c031c5647f590ac5"
   end
   ### end
 
@@ -173,8 +172,8 @@ class Ansible < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/cb/ae/380e33d621ae301770358eb11a896a34c34f30db188847a561e8e39ee866/cffi-1.14.3.tar.gz"
-    sha256 "f92f789e4f9241cd262ad7a555ca2c648a98178a953af117ef7fad46aa1d5591"
+    url "https://files.pythonhosted.org/packages/66/6a/98e023b3d11537a5521902ac6b50db470c826c682be6a8c661549cb7717a/cffi-1.14.4.tar.gz"
+    sha256 "1a465cbe98a7fd391d47dce4b8f7e5b921e6cd805ef421d04f5f66ba8f06086c"
   end
 
   resource "chardet" do

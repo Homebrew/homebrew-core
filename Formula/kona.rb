@@ -7,7 +7,8 @@ class Kona < Formula
   head "https://github.com/kevinlawler/kona.git"
 
   livecheck do
-    url "https://github.com/kevinlawler/kona/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/(?:Win(?:64)?[._-])?v?(\d+(?:\.\d+)*)[^"' >]*["' >]}i)
   end
 

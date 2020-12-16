@@ -7,8 +7,8 @@ class Dcm2niix < Formula
   head "https://github.com/rordenlab/dcm2niix.git"
 
   livecheck do
-    url "https://github.com/rordenlab/dcm2niix/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

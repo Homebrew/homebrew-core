@@ -7,8 +7,8 @@ class Coredns < Formula
   head "https://github.com/coredns/coredns.git"
 
   livecheck do
-    url "https://github.com/coredns/coredns/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

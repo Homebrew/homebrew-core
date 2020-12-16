@@ -9,6 +9,7 @@ class Abcde < Formula
 
   bottle do
     cellar :any
+    sha256 "c9668232e677e92b51210a0563c2156f030837b1fb221de60d16c83c466620b2" => :big_sur
     sha256 "fa00c7fc4b6b4ab794439f619ba00961358a4e5684a0ae2412fbd78ba2497df1" => :catalina
     sha256 "c2ef29d1b906767727d858047ddab9516f14c70073b30174a6222b1300446432" => :mojave
     sha256 "2a81af2921befb14f0a96e66ebc3884bd33f8bab156f7dc27e2816a956d033cb" => :high_sierra

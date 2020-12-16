@@ -7,8 +7,8 @@ class ShairportSync < Formula
   head "https://github.com/mikebrady/shairport-sync.git", branch: "development"
 
   livecheck do
-    url "https://github.com/mikebrady/shairport-sync/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

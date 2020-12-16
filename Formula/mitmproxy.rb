@@ -3,17 +3,16 @@ class Mitmproxy < Formula
 
   desc "Intercept, modify, replay, save HTTP/S traffic"
   homepage "https://mitmproxy.org"
-  url "https://github.com/mitmproxy/mitmproxy/archive/v5.3.0.tar.gz"
-  sha256 "e4a3de2fdc2c169f0e9c3a04c39de14d2650edf46b3157645339e4920b3a8e26"
+  url "https://github.com/mitmproxy/mitmproxy/archive/v6.0.1.tar.gz"
+  sha256 "094c1481583ae27f96bbd93f117cbd3e9cc64b2a2a4fa386ccd2b615735c1f94"
   license "MIT"
-  revision 1
   head "https://github.com/mitmproxy/mitmproxy.git"
 
   bottle do
     cellar :any
-    sha256 "e57218bd5a1f33c1a5200a2585ac763a15b9432afb9e56e737be48c9206fc0b9" => :big_sur
-    sha256 "f7d046fdd398dc6407b4d9253844259054cc2ac67411cb0948624eacc4568d35" => :catalina
-    sha256 "62b4c30625c6e012df12389782f55c142ab537438361ab1a57e1f499b84ab23f" => :mojave
+    sha256 "1f044ea429f8b28ae6557f1977a3c010613a0cdbd865c3e65073e1f041e01654" => :big_sur
+    sha256 "833dba8b032c8c5094d6d7868c37ee6ddc2c25da9c8eace8728d9e15b2ee6977" => :catalina
+    sha256 "d044a44c793c389b5ae086b07c47eb64c1d4815de492525fc1190890a74b7ba2" => :mojave
   end
 
   depends_on "openssl@1.1"
@@ -27,8 +26,8 @@ class Mitmproxy < Formula
   end
 
   resource "asgiref" do
-    url "https://files.pythonhosted.org/packages/3e/34/fb6c2b2b858d27cdc6703e26e304d56e2300c33719b9407eae54a6b80423/asgiref-3.3.0.tar.gz"
-    sha256 "cd88907ecaec59d78e4ac00ea665b03e571cb37e3a0e37b3702af1a9e86c365a"
+    url "https://files.pythonhosted.org/packages/e9/d1/096b5b0b411a1a53c294a508fdc51542de77bc193df5c8230ff9445e4ff3/asgiref-3.3.1.tar.gz"
+    sha256 "7162a3cb30ab0609f1a4c95938fd73e8604f63bdba516a7f7d64b83ff09478f0"
   end
 
   resource "blinker" do
@@ -42,13 +41,13 @@ class Mitmproxy < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/40/a7/ded59fa294b85ca206082306bba75469a38ea1c7d44ea7e1d64f5443d67a/certifi-2020.6.20.tar.gz"
-    sha256 "5930595817496dd21bb8dc35dad090f1c2cd0adfaf21204bf6732ca5d8ee34d3"
+    url "https://files.pythonhosted.org/packages/06/a9/cd1fd8ee13f73a4d4f491ee219deeeae20afefa914dfb4c130cfc9dc397a/certifi-2020.12.5.tar.gz"
+    sha256 "1a4995114262bffbc2413b159f2a1a480c969de6e6eb13ee966d470af86af59c"
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/cb/ae/380e33d621ae301770358eb11a896a34c34f30db188847a561e8e39ee866/cffi-1.14.3.tar.gz"
-    sha256 "f92f789e4f9241cd262ad7a555ca2c648a98178a953af117ef7fad46aa1d5591"
+    url "https://files.pythonhosted.org/packages/66/6a/98e023b3d11537a5521902ac6b50db470c826c682be6a8c661549cb7717a/cffi-1.14.4.tar.gz"
+    sha256 "1a465cbe98a7fd391d47dce4b8f7e5b921e6cd805ef421d04f5f66ba8f06086c"
   end
 
   resource "click" do
@@ -57,8 +56,8 @@ class Mitmproxy < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/94/5c/42de91c7fbdb817b2d9a4e64b067946eb38a4eb36c1a09c96c87a0f86a82/cryptography-3.2.1.tar.gz"
-    sha256 "d3d5e10be0cf2a12214ddee45c6bd203dab435e3d83b4560c03066eda600bfe3"
+    url "https://files.pythonhosted.org/packages/b7/82/f7a4ddc1af185936c1e4fa000942ffa8fb2d98cff26b75afa7b3c63391c4/cryptography-3.3.1.tar.gz"
+    sha256 "7e177e4bea2de937a584b13645cab32f25e3d96fc0bc4a4cf99c27dc77682be6"
   end
 
   resource "Flask" do
@@ -112,8 +111,8 @@ class Mitmproxy < Formula
   end
 
   resource "msgpack" do
-    url "https://files.pythonhosted.org/packages/e4/4f/057549afbd12fdd5d9aae9df19a6773a3d91988afe7be45b277e8cee2f4d/msgpack-1.0.0.tar.gz"
-    sha256 "9534d5cc480d4aff720233411a1f765be90885750b07df772380b34c10ecb5c0"
+    url "https://files.pythonhosted.org/packages/1e/92/9a38750369d8f323d4ef31927119bfbc3d8bcce5b01f52950d873318b26b/msgpack-1.0.1.tar.gz"
+    sha256 "7033215267a0e9f60f4a5e4fb2228a932c404f237817caff8dc3115d9e7cd975"
   end
 
   resource "passlib" do
@@ -122,8 +121,8 @@ class Mitmproxy < Formula
   end
 
   resource "protobuf" do
-    url "https://files.pythonhosted.org/packages/25/ef/8f36bc7e4c3dcad241a9e7a51520d30712a7abc034343bed841ff4ea3289/protobuf-3.13.0.tar.gz"
-    sha256 "6a82e0c8bb2bf58f606040cc5814e07715b2094caeba281e2e7d0b0e2e397db5"
+    url "https://files.pythonhosted.org/packages/12/ba/d6d9f1432663ab5623f761c86be11e7f2f6fb28348612f48fb082d3cfcea/protobuf-3.14.0.tar.gz"
+    sha256 "1d63eb389347293d8915fb47bee0951c7b5dab522a4a60118b9a18f33e21f8ce"
   end
 
   resource "publicsuffix2" do
@@ -142,8 +141,8 @@ class Mitmproxy < Formula
   end
 
   resource "pyOpenSSL" do
-    url "https://files.pythonhosted.org/packages/0d/1d/6cc4bd4e79f78be6640fab268555a11af48474fac9df187c3361a1d1d2f0/pyOpenSSL-19.1.0.tar.gz"
-    sha256 "9a24494b2602aaf402be5c9e30a0b82d4a5c67528fe8fb475e3f3bc00dd69507"
+    url "https://files.pythonhosted.org/packages/09/67/38a1080fabbb908515c47694238e00b6a73a82d9dbc76372263a231abfcb/pyOpenSSL-20.0.0.tar.gz"
+    sha256 "92f08eccbd73701cf744e8ffd6989aa7842d48cbe3fea8a7c031c5647f590ac5"
   end
 
   resource "pyparsing" do
@@ -161,19 +160,14 @@ class Mitmproxy < Formula
     sha256 "076cc0bc34f1966d920a49f18b52b6ad559fbe656a0748e3535cf7b3f29ebf9e"
   end
 
-  resource "ruamel.yaml.clib" do
-    url "https://files.pythonhosted.org/packages/fa/a1/f9c009a633fce3609e314294c7963abe64934d972abea257dce16a15666f/ruamel.yaml.clib-0.2.2.tar.gz"
-    sha256 "2d24bd98af676f4990c4d715bcdc2a60b19c56a3fb3a763164d2d8ca0e806ba7"
-  end
-
   resource "six" do
     url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
     sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
   end
 
   resource "sortedcontainers" do
-    url "https://files.pythonhosted.org/packages/3b/fb/48f6fa11e4953c530b09fa0f2976df5234b0eaabcd158625c3e73535aeb8/sortedcontainers-2.2.2.tar.gz"
-    sha256 "4e73a757831fc3ca4de2859c422564239a31d8213d09a2a666e375807034d2ba"
+    url "https://files.pythonhosted.org/packages/14/10/6a9481890bae97da9edd6e737c9c3dec6aea3fc2fa53b0934037b35c89ea/sortedcontainers-2.3.0.tar.gz"
+    sha256 "59cc937650cf60d677c16775597c89a960658a09cf7c1a668f86e1e4464b10a1"
   end
 
   resource "tornado" do
@@ -192,13 +186,13 @@ class Mitmproxy < Formula
   end
 
   resource "wsproto" do
-    url "https://files.pythonhosted.org/packages/7b/5c/7b125c14fbdbeb7913d61e5841e20a453d71d5a5d961354a384c3ceeb81c/wsproto-0.15.0.tar.gz"
-    sha256 "614798c30e5dc2b3f65acc03d2d50842b97621487350ce79a80a711229edfa9d"
+    url "https://files.pythonhosted.org/packages/2b/a4/aded0882f8f1cddd68dcd531309a15bf976f301e6a3554055cc06213c227/wsproto-1.0.0.tar.gz"
+    sha256 "868776f8456997ad0d9720f7322b746bbe9193751b5b290b7f924659377c8c38"
   end
 
   resource "zstandard" do
-    url "https://files.pythonhosted.org/packages/1b/a7/97b157508923ec0c2d27cdc23003cb096fa50ae38ded6e54adcbca3dca35/zstandard-0.14.0.tar.gz"
-    sha256 "9052398da52e8702cf9929999c8986b0f68b18c793e309cd8dff5cb7863d7652"
+    url "https://files.pythonhosted.org/packages/30/bb/551cd25042138bdd2c36168b837c4ed6196da58fa1cfe3d9de8e70ac23dc/zstandard-0.14.1.tar.gz"
+    sha256 "5dd700e52ec28c64d43f681ccde76b6436c8f89a332d6c9e22a6b629f28daeb5"
   end
 
   def install

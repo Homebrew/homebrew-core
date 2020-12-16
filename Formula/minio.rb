@@ -9,7 +9,8 @@ class Minio < Formula
   head "https://github.com/minio/minio.git"
 
   livecheck do
-    url "https://github.com/minio/minio/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/(?:RELEASE[._-]?)?([^"' >]+)["' >]}i)
   end
 

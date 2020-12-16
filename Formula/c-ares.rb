@@ -14,6 +14,7 @@ class CAres < Formula
   bottle do
     cellar :any
     sha256 "514de64e48f4d2c6e448547a30ba03f613b899f30f97f9026740c59eb3f49aeb" => :big_sur
+    sha256 "9422e03b1243eca4090da965a0b33c3f136ce6db294ecc25f3e22b4100ad9c21" => :arm64_big_sur
     sha256 "3fc1e6a9c560039998b288db7dfb268c87db614841a6fa1048880b8b6bdd6e4c" => :catalina
     sha256 "8785faa759b2f10fcaefef1e7398b9ffe79b76b2339b4bc4b552fd9c418b1097" => :mojave
   end

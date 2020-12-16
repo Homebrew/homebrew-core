@@ -1,16 +1,15 @@
 class Deno < Formula
   desc "Secure runtime for JavaScript and TypeScript"
   homepage "https://deno.land/"
-  url "https://github.com/denoland/deno/releases/download/v1.5.3/deno_src.tar.gz"
-  sha256 "a85d6bf67e3dc0adaf87fe785351a34a0331571970f8229b652175a884bc9599"
+  url "https://github.com/denoland/deno/releases/download/v1.6.0/deno_src.tar.gz"
+  sha256 "60491d842e04ce162face61bb8857bf18a41726afbcbcd9fa532055ace7431ae"
   license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "190465b6a68bae086d5ae26d97e9b293a4be7a246eb2ada4aac4c5d94f681435" => :big_sur
-    sha256 "8095e1d9e273f8ce1adac4c0b1693b1df6faa129d5296c5b82804671bf1eac66" => :catalina
-    sha256 "87f6302f877d9c74ea3ad828cf24d2a52dcb1bb2ce1d7c9aa2ad76b2b2316a09" => :mojave
-    sha256 "247cda1c657ebe3995be4ad958631f61b9270d16abe76fecb1e5a10870ac917c" => :high_sierra
+    sha256 "f57ffbf236768e798bda681cf9d6809752fb53763469c37164ab7e5bf71d98ef" => :big_sur
+    sha256 "6a100d4b0384eae1eec6bb8bd52587b99633d13a07ad8811759216aef45366db" => :catalina
+    sha256 "1bb8ada642868d8741e44316c3b7d69b6a2bd1741d4653d5b19f6c6749e5c07e" => :mojave
   end
 
   depends_on "llvm" => :build
@@ -19,6 +18,13 @@ class Deno < Formula
   depends_on :macos # Due to Python 2 (see https://github.com/denoland/deno/issues/2893)
 
   uses_from_macos "xz"
+
+  # Remove at next version bump. Check that new release includes:
+  # https://github.com/denoland/deno/pull/8718
+  patch do
+    url "https://github.com/denoland/deno/commit/cea42bec3272a8020f1d94afcf1a4cd7e3985553.patch?full_index=1"
+    sha256 "640ece7aab8e7486ea0ec4bfd29ac7e980822a57d12123e802d022bdc7bbaed7"
+  end
 
   def install
     # env args for building a release build with our clang, ninja and gn

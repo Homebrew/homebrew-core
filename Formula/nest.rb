@@ -66,7 +66,7 @@ class Nest < Formula
       system "make", "installcheck"
     end
 
-    # Replace internally accessible gcc with externally accesible version
+    # Replace internally accessible gcc with externally accessible version
     # in nest-config if required
     inreplace bin/"nest-config",
         %r{#{HOMEBREW_REPOSITORY}/Library/Homebrew/shims.*/super}o,

@@ -11,9 +11,10 @@ class Gnuplot < Formula
   end
 
   bottle do
-    sha256 "796d40d70299b5528aaa962506a000b9c7287a7185730bf5a04a9021868bbe06" => :big_sur
-    sha256 "820888da02746b6c31747ba1244b9b668e757d28445e12b2f6e56ca72ae07e2b" => :catalina
-    sha256 "a0089a7ae448a0f387cf70b69f0e8d9ffe4adc5c5ae40ee1026e66db34769d8c" => :mojave
+    rebuild 1
+    sha256 "9a9db26ab2b8537521d4ff508d4797c8535434ddd34748ab4044867d8eef65a0" => :big_sur
+    sha256 "1de9920502210ab56fbedc9bf4025ab8f0c88d164f022a1e767863f64b6e9954" => :catalina
+    sha256 "19ed248f7d406ade2e6fd1faa28069878cd5b2a0b73911d735289478faaab8c3" => :mojave
   end
 
   head do
@@ -45,6 +46,7 @@ class Gnuplot < Formula
       --disable-wxwidgets
       --with-qt
       --without-x
+      --without-latex
     ]
 
     system "./prepare" if build.head?

@@ -6,8 +6,8 @@ class Metabase < Formula
   license "AGPL-3.0-only"
 
   livecheck do
-    url "https://github.com/metabase/metabase/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :head
+    strategy :github_latest
   end
 
   head do

@@ -6,8 +6,8 @@ class Keychain < Formula
   sha256 "16f5949b606691dea6e1832a77e697b8c0b2a536abfbd29e3a3f47222259c3b2"
 
   livecheck do
-    url "https://github.com/funtoo/keychain/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url "https://github.com/funtoo/keychain.git"
+    strategy :github_latest
   end
 
   bottle :unneeded

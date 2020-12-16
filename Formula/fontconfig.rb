@@ -12,6 +12,7 @@ class Fontconfig < Formula
 
   bottle do
     sha256 "ee5961891c9e943c8bea6ad280d2346caa2d3efafdbd726670e663d0bdfdb010" => :big_sur
+    sha256 "a50894cc51a6d0e85d83c2386399f8f5d0d356f48660ede8b307976b2d1672a1" => :arm64_big_sur
     sha256 "64ff208b28613dfe2a65b9d74fd9b0129f3ca7e423db78329144cdaf51b36f70" => :catalina
     sha256 "1c704a5a4249252bf42dc4f2a458f911a7858a931858ad257d9ec39978ca5095" => :mojave
     sha256 "3b763143a4d6e3c74b3a8b237d2e5a383696347ea3599d07957f73a3f6521d23" => :high_sierra

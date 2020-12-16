@@ -5,6 +5,12 @@ class Gopls < Formula
   sha256 "08d477a7c35021ec5d8950e25e1fcac86d7ec0ce8a421c20d932029e00efb1d8"
   license "BSD-3-Clause"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+    regex(%r{href=.*?/tag/(?:gopls%2F)?v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "8eae69564bfa8cfed1029f7a34b5f7133ce2842271cae300b5e291eaca1c83b6" => :big_sur

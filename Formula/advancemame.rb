@@ -6,8 +6,8 @@ class Advancemame < Formula
   license "GPL-2.0"
 
   livecheck do
-    url "https://github.com/amadvance/advancemame/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
