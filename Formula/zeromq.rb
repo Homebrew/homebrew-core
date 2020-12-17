@@ -3,6 +3,8 @@ class Zeromq < Formula
   homepage "https://zeromq.org/"
   url "https://github.com/zeromq/libzmq/releases/download/v4.3.3/zeromq-4.3.3.tar.gz"
   sha256 "9d9285db37ae942ed0780c016da87060497877af45094ff9e1a1ca736e3875a2"
+  license "LGPL-3.0-or-later" => { with: "LGPL-3.0-linking-exception" }
+  revision 1
 
   livecheck do
     url :head
@@ -29,6 +31,8 @@ class Zeromq < Formula
   depends_on "pkg-config" => [:build, :test]
   depends_on "xmlto" => :build
 
+  depends_on "libsodium"
+
   def install
     # Work around "error: no member named 'signbit' in the global namespace"
     if MacOS.version == :high_sierra
@@ -42,7 +46,7 @@ class Zeromq < Formula
     # https://github.com/Homebrew/homebrew-core/pull/35940#issuecomment-454177261
 
     system "./autogen.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}", "--with-libsodium"
     system "make"
     system "make", "install"
   end
