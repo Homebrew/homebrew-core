@@ -3,8 +3,8 @@ class Commitizen < Formula
 
   desc "Defines a standard way of committing rules and communicating it"
   homepage "https://commitizen-tools.github.io/commitizen/"
-  url "https://files.pythonhosted.org/packages/c1/50/97c40f32d39ec823fc98000993f941122b0b2339e6c932888379d7671afe/commitizen-2.11.0.tar.gz"
-  sha256 "4137806045a43c31cb8e3c7c80f64b1eca10231879546c5408f03f793388bbf7"
+  url "https://files.pythonhosted.org/packages/f0/c8/1f4086495a830a9dbb325b955d68a01a593a8a8bf54d44d0ca365bc40116/commitizen-2.11.1.tar.gz"
+  sha256 "a141ba4317256daf6b6a9f4f390cd57fc53e63df7989ba46019b10c75a101359"
   license "MIT"
   head "https://github.com/commitizen-tools/commitizen.git"
 
@@ -47,8 +47,8 @@ class Commitizen < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/16/7c/33ae3aa02eb10ca726b21aa88d338e3f619c674e4fb8544eb352330d880a/packaging-20.7.tar.gz"
-    sha256 "05af3bb85d320377db281cf254ab050e1a7ebcbf5410685a9a407e18a1f81236"
+    url "https://files.pythonhosted.org/packages/d7/c5/e81b9fb8033fe78a2355ea7b1774338e1dca2c9cbd2ee140211a9e6291ab/packaging-20.8.tar.gz"
+    sha256 "78598185a7008a470d64526a8059de9aaa449238f280fc9eb6b13ba6c4109093"
   end
 
   resource "prompt-toolkit" do
