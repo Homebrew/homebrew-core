@@ -3,7 +3,8 @@ class Rocksdb < Formula
   homepage "https://rocksdb.org/"
   url "https://github.com/facebook/rocksdb/archive/v6.14.6.tar.gz"
   sha256 "fa61c55735a4911f36001a98aa2f5df1ffe4b019c492133d0019f912191209ce"
-  license "GPL-2.0"
+  license any_of: ["GPL-2.0-only", "Apache-2.0"]
+  revision 1
 
   bottle do
     cellar :any
@@ -34,6 +35,11 @@ class Rocksdb < Formula
     args << "-DPORTABLE=ON"
     args << "-DUSE_RTTI=ON"
     args << "-DWITH_BENCHMARK_TOOLS=OFF"
+    args << "-DWITH_BZ2=ON"
+    args << "-DWITH_LZ4=ON"
+    args << "-DWITH_SNAPPY=ON"
+    args << "-DWITH_ZLIB=ON"
+    args << "-DWITH_ZSTD=ON"
 
     # build regular rocksdb
     system "cmake", ".", *args
@@ -96,5 +102,17 @@ class Rocksdb < Formula
     assert_match "rocksdb_repl_stress:", shell_output("#{bin}/rocksdb_repl_stress --help 2>&1", 1)
     assert_match "rocksdb_dump:", shell_output("#{bin}/rocksdb_dump --help 2>&1", 1)
     assert_match "rocksdb_undump:", shell_output("#{bin}/rocksdb_undump --help 2>&1", 1)
+
+    db = testpath / "db"
+    %w[no snappy zlib bzip2 lz4 zstd].each_with_index do |comp, idx|
+      key = "key-#{idx}"
+      value = "value-#{idx}"
+
+      put_cmd = "#{bin}/rocksdb_ldb put --db=#{db} --create_if_missing --compression_type=#{comp} #{key} #{value}"
+      assert_equal "OK", shell_output(put_cmd).chomp
+
+      get_cmd = "#{bin}/rocksdb_ldb get --db=#{db} #{key}"
+      assert_equal value, shell_output(get_cmd).chomp
+    end
   end
 end
