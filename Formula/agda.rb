@@ -71,11 +71,12 @@ class Agda < Formula
 
     system "cabal", "v2-install", "-f", "cpphs", *std_cabal_v2_args
 
-    # generate the standard library's documentation
+    # generate the standard library's documentation and vim highlighting files
     resource("stdlib").stage lib/"agda"
     cd lib/"agda" do
       system "cabal", "v2-install", *cabal_args, "--installdir=#{lib}/agda"
       system "./GenerateEverything"
+      system bin/"agda", "-i", ".", "-i", "src", "--html", "--vim", "README.agda"
     end
 
     # Clean up references to Homebrew shims
@@ -136,13 +137,14 @@ class Agda < Formula
       main = return tt
     EOS
 
+    # we need a test-local copy of the stdlib as the test writes to
+    # the stdlib directory
+    resource("stdlib").stage testpath/"lib/agda"
+
     # typecheck a simple module
     system bin/"agda", simpletest
 
     # typecheck a module that uses the standard library
-    # we need a test-local copy of the stdlib as the test writes to
-    # the stdlib directory
-    resource("stdlib").stage testpath/"lib/agda"
     system bin/"agda", "-i", testpath/"lib/agda/src", stdlibtest
 
     # compile a simple module using the JS backend
@@ -152,6 +154,7 @@ class Agda < Formula
     cabal_args = std_cabal_v2_args.reject { |s| s["installdir"] }
     system "cabal", "v2-update"
     system "cabal", "v2-install", "ieee754", "--lib", *cabal_args
+
     # compile and run a simple program
     system bin/"agda", "-c", iotest
     assert_equal "", shell_output(testpath/"IOTest")
