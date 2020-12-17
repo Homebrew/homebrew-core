@@ -2,8 +2,8 @@ class Erlang < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url "https://github.com/erlang/otp/archive/OTP-23.1.5.tar.gz"
-  sha256 "31719b8681e7f9ad6f30e329a0a0e5c4dd23dea858021573395fcdbea0d7702c"
+  url "https://github.com/erlang/otp/archive/OTP-23.2.tar.gz"
+  sha256 "79f2233a960cc427607d52a7b7e9e5b08afba96a4d87ced4efb64e902b44160c"
   license "Apache-2.0"
   head "https://github.com/erlang/otp.git"
 
@@ -28,14 +28,10 @@ class Erlang < Formula
   uses_from_macos "m4" => :build
 
   resource "html" do
-    url "https://www.erlang.org/download/otp_doc_html_23.1.tar.gz"
-    mirror "https://fossies.org/linux/misc/otp_doc_html_23.1.tar.gz"
-    sha256 "0e0075f174db2f9b5a0f861263062942e5a721c40ec747356e482e3be2fb8931"
+    url "https://www.erlang.org/download/otp_doc_html_23.2.tar.gz"
+    mirror "https://fossies.org/linux/misc/otp_doc_html_23.2.tar.gz"
+    sha256 "1f58e16826a8b9f86e10ca057f4e3e3e0304dcd3cf46fe2cef6f5c1d56196fc8"
   end
-
-  # Fix for Big Sur, remove in next version
-  # https://github.com/erlang/otp/pull/2865
-  patch :DATA
 
   def install
     # Unset these so that building wx, kernel, compiler and
@@ -115,17 +111,3 @@ class Erlang < Formula
     assert_match "factorial 42 = 1405006117752879898543142606244511569936384000000000", shell_output("./factorial 42")
   end
 end
-__END__
-diff --git a/make/configure.in b/make/configure.in
-index bf6ee284343..898aa40c4a0 100644
---- a/make/configure.in
-+++ b/make/configure.in
-@@ -398,7 +398,7 @@ if test $CROSS_COMPILING = no; then
- 	       [1-9][0-9].[0-9])
- 	          int_macosx_version=`echo $macosx_version | sed 's|\([^\.]*\)\.\([^\.]*\)|\10\200|'`;;
- 	       [1-9][0-9].[0-9].[0-9])
--	          int_macosx_version=`echo $macosx_version | sed 's|\([^\.]*\)\.\([^\.]*\)\.\([^\.]*\)|\1\2\3|'`;;
-+	          int_macosx_version=`echo $macosx_version | sed 's|\([^\.]*\)\.\([^\.]*\)\.\([^\.]*\)|\10\20\3|'`;;
- 	       [1-9][0-9].[1-9][0-9])
- 	          int_macosx_version=`echo $macosx_version | sed 's|\([^\.]*\)\.\([^\.]*\)|\1\200|'`;;
- 	       [1-9][0-9].[1-9][0-9].[0-9])
