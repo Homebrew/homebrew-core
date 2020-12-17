@@ -1,8 +1,8 @@
 class Earthly < Formula
   desc "Build automation tool for the post-container era"
   homepage "https://earthly.dev/"
-  url "https://github.com/earthly/earthly/archive/v0.3.19.tar.gz"
-  sha256 "4ab1b3cba1e59717ea16a6a5f4882e9ab7987b5a10b97aeb0c15795de63ad98d"
+  url "https://github.com/earthly/earthly/archive/v0.4.0.tar.gz"
+  sha256 "6fe61534dd28fd8c749365d1b99b4e97cb0d482f49e4f309a15ce5155dec3018"
   license "MPL-2.0"
   head "https://github.com/earthly/earthly.git"
 
@@ -16,29 +16,29 @@ class Earthly < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-X main.DefaultBuildkitdImage=earthly/buildkitd:v#{version} -X main.Version=v#{version} " \
-              "-X main.GitSha=15320ce66408df05cfa6918a5ad69bd4d5b4cb0f "
+    ldflags = "-X main.DefaultBuildkitdImage=earthly/buildkitd:v#{version} -X main.Version=v#{version} -X" \
+              " main.GitSha=9b79e2f1e4f5dc4220c8a34372d9774dfe4d4d5b "
     tags = "dfrunmount dfrunsecurity dfsecrets dfssh dfrunnetwork"
     system "go", "build",
         "-tags", tags,
         "-ldflags", ldflags,
         *std_go_args,
-        "-o", bin/"earth",
-        "./cmd/earth/main.go"
-    bash_output = Utils.safe_popen_read("#{bin}/earth", "bootstrap", "--source", "bash")
-    (bash_completion/"earth").write bash_output
-    zsh_output = Utils.safe_popen_read("#{bin}/earth", "bootstrap", "--source", "zsh")
-    (zsh_completion/"_earth").write zsh_output
+        "./cmd/earthly/main.go"
+
+    bash_output = Utils.safe_popen_read("#{bin}/earthly", "bootstrap", "--source", "bash")
+    (bash_completion/"earthly").write bash_output
+    zsh_output = Utils.safe_popen_read("#{bin}/earthly", "bootstrap", "--source", "zsh")
+    (zsh_completion/"_earthly").write zsh_output
   end
 
   test do
-    (testpath/"build.earth").write <<~EOS
+    (testpath/"build.earthly").write <<~EOS
 
       default:
       \tRUN echo Homebrew
     EOS
 
-    output = shell_output("#{bin}/earth --buildkit-host 127.0.0.1 +default 2>&1", 1).strip
+    output = shell_output("#{bin}/earthly --buildkit-host 127.0.0.1 +default 2>&1", 1).strip
     assert_match "Error while dialing invalid address 127.0.0.1", output
   end
 end
