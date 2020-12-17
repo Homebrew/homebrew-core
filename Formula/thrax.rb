@@ -15,7 +15,7 @@ class Thrax < Formula
 
   test do
     # see http://www.openfst.org/twiki/bin/view/GRM/ThraxQuickTour
-    cp_r share/"thrax/grammars", testpath
+    cp_r pkgshare/"grammars", testpath
     cd "grammars" do
       system "#{bin}/thraxmakedep", "example.grm"
       system "make"
