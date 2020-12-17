@@ -136,16 +136,6 @@ class Agda < Formula
       main = return tt
     EOS
 
-    stdlibiotest = testpath/"StdlibIOTest.agda"
-    stdlibiotest.write <<~EOS
-      module StdlibIOTest where
-
-      open import IO
-
-      main : _
-      main = run (putStr "Hello, world!")
-    EOS
-
     # typecheck a simple module
     system bin/"agda", simpletest
 
@@ -165,8 +155,5 @@ class Agda < Formula
     # compile and run a simple program
     system bin/"agda", "-c", iotest
     assert_equal "", shell_output(testpath/"IOTest")
-    # compile and run a program that uses the standard library
-    system bin/"agda", "-c", "-i", testpath/"lib/agda/src", stdlibiotest
-    assert_equal "Hello, world!", shell_output(testpath/"StdlibIOTest")
   end
 end
