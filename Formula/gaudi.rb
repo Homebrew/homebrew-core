@@ -25,8 +25,8 @@ class Gaudi < Formula
     # Fix cmake issue with Foundation framework
 
     inreplace "GaudiKernel/CMakeLists.txt", /target_link_libraries\(GaudiKernel PUBLIC Foundation\)/,
-                        "target_link_libraries(GaudiKernel PUBLIC ${Foundation_FRAMEWORK})"
-    
+              "target_link_libraries(GaudiKernel PUBLIC ${Foundation_FRAMEWORK})"
+
     system "cmake", ".", "-DBoost_NO_BOOST_CMAKE=ON", "-DGAUDI_USE_UNWIND=OFF", *std_cmake_args
     system "make"
 
