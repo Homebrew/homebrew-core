@@ -4,10 +4,11 @@ class Discount < Formula
   url "https://www.pell.portland.or.us/~orc/Code/discount/discount-2.2.7.tar.bz2"
   sha256 "b1262be5d7b04f3c4e2cee3a0937369b12786af18f65f599f334eefbc0ee9508"
   license "BSD-3-Clause"
+  head "https://github.com/Orc/discount.git"
 
   livecheck do
-    url :homepage
-    regex(/href=.*?discount[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t/i)
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
