@@ -3,8 +3,8 @@ class Pdm < Formula
 
   desc "Modern Python package manager with PEP 582 support"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/d4/93/26d266eeb0606eae65f81b400a7947c964fa0eb11d754fab5c202ad1f721/pdm-0.12.1.tar.gz"
-  sha256 "725a1affdcea065ba8a8cb5c9daa03bf5412d8599a0889961483b00807c8f115"
+  url "https://files.pythonhosted.org/packages/49/a2/3d9c7a439934fc1d2722bb58252080c48a3e1675bf11d7b3630ecf9ee489/pdm-0.12.2.tar.gz"
+  sha256 "6add8a788770ae53d3ce0c0809ffb8a8f01748c3bcf0dd8e97450b46ec278ea7"
   license "MIT"
   head "https://github.com/frostming/pdm.git"
 
@@ -64,11 +64,6 @@ class Pdm < Formula
   resource "pep517" do
     url "https://files.pythonhosted.org/packages/31/65/399b2e85e1ee5e34d797643b1d1ce3ec3f2b612e0680d6b7b455c24cb7a7/pep517-0.9.1.tar.gz"
     sha256 "aeb78601f2d1aa461960b43add204cc7955667687fbcf9cdb5170f00556f117f"
-  end
-
-  resource "pip-shims" do
-    url "https://files.pythonhosted.org/packages/d7/01/7a797f03c3a61b09edd51b54e8d3cc0c70159ba76a1fcd57654baffcd5bd/pip_shims-0.5.3.tar.gz"
-    sha256 "05b00ade9d1e686a98bb656dd9b0608a933897283dc21913fad6ea5409ff7e91"
   end
 
   resource "pycomplete" do
