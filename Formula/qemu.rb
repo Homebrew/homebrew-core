@@ -1,8 +1,8 @@
 class Qemu < Formula
   desc "Emulator for x86 and PowerPC"
   homepage "https://www.qemu.org/"
-  url "https://download.qemu.org/qemu-5.1.0.tar.xz"
-  sha256 "c9174eb5933d9eb5e61f541cd6d1184cd3118dfe4c5c4955bc1bdc4d390fa4e5"
+  url "https://download.qemu.org/qemu-5.2.0.tar.xz"
+  sha256 "cb18d889b628fbe637672b0326789d9b0e3b8027e0445b936537c78549df17bc"
   license "GPL-2.0-only"
   head "https://git.qemu.org/git/qemu.git"
 
