@@ -3,7 +3,7 @@ class Osm < Formula
   homepage "https://openservicemesh.io/"
   url "https://github.com/openservicemesh/osm/archive/v0.6.0.tar.gz"
   sha256 "303471eb096ffcedfb433d8531ab685aacd587f43a86021561d38d2a42fa523d"
-  license "MIT"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
