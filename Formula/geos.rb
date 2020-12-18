@@ -1,9 +1,8 @@
 class Geos < Formula
   desc "Geometry Engine"
   homepage "https://trac.osgeo.org/geos"
-  url "https://download.osgeo.org/geos/geos-3.8.1.tar.bz2"
-  sha256 "4258af4308deb9dbb5047379026b4cd9838513627cb943a44e16c40e42ae17f7"
-  revision 2
+  url "https://download.osgeo.org/geos/geos-3.9.0.tar.bz2"
+  sha256 "bd8082cf12f45f27630193c78bdb5a3cba847b81e72b20268356c2a4fc065269"
 
   livecheck do
     url "https://download.osgeo.org/geos/"
