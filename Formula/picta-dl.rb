@@ -5,7 +5,7 @@ class PictaDl < Formula
     homepage "https://github.com/oleksis/picta-dl/"
     url "https://github.com/oleksis/picta-dl/archive/v#{version}.zip"
     sha256 ""
-    license "Unlicense"
+    license "MIT"
   
     depends_on "python@3.9"
     
