@@ -27,6 +27,8 @@ class Glpk < Formula
                           "--disable-dependency-tracking",
                           "--with-gmp"
     system "make", "install"
+    # Install the examples so we can easily write a meaningful test
+    pkgshare.install "examples"
   end
 
   test do
@@ -42,5 +44,10 @@ class Glpk < Formula
     EOS
     system ENV.cc, "test.c", "-L#{lib}", "-I#{include}", "-lglpk", "-o", "test"
     assert_match version.to_s, shell_output("./test")
+
+    system ENV.cc, pkgshare/"examples/sample.c",
+                   "-L#{lib}", "-I#{include}",
+                   "-lglpk", "-o", "test"
+    assert_match /OPTIMAL LP SOLUTION FOUND/, shell_output("./test")
   end
 end
