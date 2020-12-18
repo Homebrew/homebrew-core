@@ -22,11 +22,6 @@ class Geos < Formula
   depends_on "python@3.9"
 
   def install
-    # https://trac.osgeo.org/geos/ticket/771
-    inreplace "configure" do |s|
-      s.gsub! /PYTHON_CPPFLAGS=.*/, %Q(PYTHON_CPPFLAGS="#{`python3-config --includes`.strip}")
-      s.gsub! /PYTHON_LDFLAGS=.*/, 'PYTHON_LDFLAGS="-Wl,-undefined,dynamic_lookup"'
-    end
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
