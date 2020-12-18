@@ -3,10 +3,9 @@ class GrOsmosdr < Formula
 
   desc "Osmocom GNU Radio Blocks"
   homepage "https://osmocom.org/projects/sdr/wiki/GrOsmoSDR"
-  url "https://github.com/osmocom/gr-osmosdr/archive/v0.2.2.tar.gz"
-  sha256 "5a7ce7afee38a56191b5d16cb4a91c92476729ff16ed09cbba5a3851ac619713"
+  url "https://github.com/osmocom/gr-osmosdr/archive/v0.2.3.tar.gz"
+  sha256 "11b1eb13725ced5ded9121a10aaf7bccf2430c5c69d020791408219968665b71"
   license "GPL-3.0-or-later"
-  revision 3
 
   bottle do
     sha256 "615d2cc006b9128bedb04beebfcf597fd538a6c0d995aa559ea8782835d4e055" => :big_sur
