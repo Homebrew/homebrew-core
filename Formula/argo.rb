@@ -14,7 +14,7 @@ class Argo < Formula
   end
 
   depends_on "go" => :build
-  depends_on "node" => :build
+  depends_on "node@14" => :build
   depends_on "yarn" => :build
 
   def install
