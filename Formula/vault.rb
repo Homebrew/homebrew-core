@@ -5,8 +5,8 @@ class Vault < Formula
   desc "Secures, stores, and tightly controls access to secrets"
   homepage "https://vaultproject.io/"
   url "https://github.com/hashicorp/vault.git",
-      tag:      "v1.6.0",
-      revision: "7ce0bd9691998e0443bc77e98b1e2a4ab1e965d4"
+      tag:      "v1.6.1",
+      revision: "6d2db3f033e02e70202bef9ec896360062b88b03"
   license "MPL-2.0"
   head "https://github.com/hashicorp/vault.git"
 
@@ -17,10 +17,9 @@ class Vault < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "3598ed488978ce4fd61e1e5fe52b2dbc0df5c7ffda92d42f97eb5c078b8a8f43" => :big_sur
-    sha256 "2bbff9f9a7826fd4c16d569f25b146d009c946e6c977e148ee48bd8676aaf012" => :catalina
-    sha256 "314868275bdfb1d4bc696a0dc28fac078417b4255cc427c23f05fb5915a52108" => :mojave
+    sha256 "1555821f878b60445d22fecf2c7c8985b9d1aa1d2af62580e2ad6e0f338feb90" => :big_sur
+    sha256 "074038967a6c49ec0fb380d35808885cb658fe93851f180261e8b77ee0029dda" => :catalina
+    sha256 "bf0e522e936f71d02e6fd33b167392b9987c6052d34adce4337be834525a7c4a" => :mojave
   end
 
   depends_on "go" => :build

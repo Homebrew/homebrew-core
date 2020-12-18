@@ -33,7 +33,7 @@ class Kubeless < Formula
       loop do
         socket = server.accept
         request = socket.gets
-        request_path = request.split(" ")[1]
+        request_path = request.split[1]
         response = case request_path
         when "/api/v1/namespaces/kubeless/configmaps/kubeless-config"
           '{

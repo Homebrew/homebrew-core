@@ -20,6 +20,7 @@ on:
       - "Formula/linux-headers.rb"
       - "Formula/strace.rb"
       - "Formula/wayland.rb"
+      - "Formula/wayland-protocols.rb"
 jobs:
   check_labels_linux:
     runs-on: ubuntu-latest

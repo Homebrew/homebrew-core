@@ -43,7 +43,7 @@ class Pybind11 < Formula
       example.add(1,2)
     EOS
 
-    python_flags = `#{Formula["python@3.9"].opt_bin}/python3-config --cflags --ldflags --embed`.split(" ")
+    python_flags = `#{Formula["python@3.9"].opt_bin}/python3-config --cflags --ldflags --embed`.split
     system ENV.cxx, "-O3", "-shared", "-std=c++11", *python_flags, "example.cpp", "-o", "example.so"
     system Formula["python@3.9"].opt_bin/"python3", "example.py"
   end

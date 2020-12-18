@@ -123,7 +123,7 @@ class Libtensorflow < Formula
     assert_not_nil benchmark_model_match,
       "Unexpected summarize_graph output for graph-new.pb (no benchmark_model example)"
 
-    benchmark_model_args = benchmark_model_match[1].split(" ")
+    benchmark_model_args = benchmark_model_match[1].split
     benchmark_model_args.delete("--show_flops")
 
     benchmark_model_command = [

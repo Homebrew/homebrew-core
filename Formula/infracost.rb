@@ -1,16 +1,16 @@
 class Infracost < Formula
   desc "Cost estimates for Terraform"
   homepage "https://www.infracost.io/docs/"
-  url "https://github.com/infracost/infracost/archive/v0.7.8.tar.gz"
-  sha256 "8d8a7b87ce7a260d1cb57034ea66bdb81ebbde3a00667e1ff83eb2bddc07806c"
+  url "https://github.com/infracost/infracost/archive/v0.7.10.tar.gz"
+  sha256 "4b710923810d924ebca059ed941f69e9404d0dcd5114a8e4b2fc3cff04e725f2"
   license "Apache-2.0"
   head "https://github.com/infracost/infracost.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "762c7a4822c042715a056e1a3fc6b0a3e29f73b9baacdfcc1821f3c06da361ab" => :big_sur
-    sha256 "a0ab092baa39a4b1faeaca4708348b7519e9ec9fd2f406506acf3821fde01b7a" => :catalina
-    sha256 "176f7e1ca835b8f6cfda2da1ce1824e2f80ab94aaa2ac08010a7a34d7b052c44" => :mojave
+    sha256 "23e2b89883e79e8945d0e82fd70c8e859561afc3576828e98648465130eb0ca4" => :big_sur
+    sha256 "c077c3ba63518d9ddf215ddeaee424dcf05ab4532bddd86843e8d96121b422e8" => :catalina
+    sha256 "877bad5a8a4b51b83e335faa5ea3f31e10ca4144b6951f4b378df26b7718762b" => :mojave
   end
 
   depends_on "go" => :build

@@ -16,6 +16,8 @@ class Dlite < Formula
     sha256 "d1244ccccc75ab8747a86c01aceeb25fee219617d9d4a2c3a3c6cd0bad45c0ee" => :yosemite
   end
 
+  disable! date: "2020-12-17", because: :unmaintained
+
   depends_on "go" => :build
 
   def install

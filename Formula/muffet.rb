@@ -1,16 +1,16 @@
 class Muffet < Formula
   desc "Fast website link checker in Go"
   homepage "https://github.com/raviqqe/muffet"
-  url "https://github.com/raviqqe/muffet/archive/v2.3.0.tar.gz"
-  sha256 "6a84c058054586eadae3a0cdfab1ffe173e44f2eadce91d2a7e928018a340682"
+  url "https://github.com/raviqqe/muffet/archive/v2.3.1.tar.gz"
+  sha256 "83aa39d35c95cb836c1b6adb6e178625cde80ef97cf4a7a2339c62dce10a4229"
   license "MIT"
   head "https://github.com/raviqqe/muffet.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fbf4fe5c9e0422c2f032428ec4af6579e8b9bc1589d015ca9b6dbe83fa5773be" => :big_sur
-    sha256 "b98ea175fa41b49e6106ad5bede8ca34038c5c474fdb9d6a1587c4b2dba1cdb7" => :catalina
-    sha256 "abc9c60df720e0799f8952cf285c6b1c3c9937d9fb9240d7201b1e6812476dbe" => :mojave
+    sha256 "e38e6f43851743efa2d25d1ffab71f7312385825ecfd8b29b1edfa14853427dd" => :big_sur
+    sha256 "32a9fed5222519754a3302d0a7b48e5598cd5408cec55d0357ed4c9ba9902c56" => :catalina
+    sha256 "51e5cb6791fc75534d3cc31aff5d2826955d646dac379c88d161f3da6675d4bf" => :mojave
   end
 
   depends_on "go" => :build

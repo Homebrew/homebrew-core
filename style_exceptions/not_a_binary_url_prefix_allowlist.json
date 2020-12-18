@@ -9,6 +9,5 @@
   "gcore",
   "cspice",
   "x264",
-  "vifm",
-  "logstash"
+  "vifm"
 ]

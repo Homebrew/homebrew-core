@@ -3,8 +3,8 @@ class Glib < Formula
 
   desc "Core application library for C"
   homepage "https://developer.gnome.org/glib/"
-  url "https://download.gnome.org/sources/glib/2.66/glib-2.66.3.tar.xz"
-  sha256 "79f31365a99cb1cc9db028625635d1438890702acde9e2802eae0acebcf7b5b1"
+  url "https://download.gnome.org/sources/glib/2.66/glib-2.66.4.tar.xz"
+  sha256 "97df8670e32f9fd4f7392b0980e661dd625012015d58350da1e58e343f4af984"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -12,9 +12,9 @@ class Glib < Formula
   end
 
   bottle do
-    sha256 "73f1a9e418347126cfe43f42a4735da078c1d9abd6825064dd5cf25f2daf197c" => :big_sur
-    sha256 "765956dc4f0852ca3827cc16bb4a30f0065fe705f136ed52c7996cea976fb67e" => :catalina
-    sha256 "6fab3d72bc8e8f88b2c5fdb353d799fc8cb25196942e68e48f64ec07deb07b9e" => :mojave
+    sha256 "d91f0d628868133fc5477a90adc10297701b10aad761d1076fd46f51fd980ca9" => :big_sur
+    sha256 "65d130d343e12482908e6faa372af3c80dbcd5d02652cab648282a733c5e4f93" => :catalina
+    sha256 "48e7761d5a9cf09d2b8c46568458944f4d6654ffd0be9bc18a992c1e9f4b59f7" => :mojave
   end
 
   depends_on "meson" => :build
@@ -35,6 +35,13 @@ class Glib < Formula
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/6164294a75541c278f3863b111791376caa3ad26/glib/hardcoded-paths.diff"
     sha256 "a57fec9e85758896ff5ec1ad483050651b59b7b77e0217459ea650704b7d422b"
+  end
+
+  # required for gtk+4
+  # see discussion at https://gitlab.gnome.org/GNOME/gtk/-/issues/3477
+  patch do
+    url "https://gitlab.gnome.org/GNOME/glib/-/commit/8c76bec77985be7f4c81a052ec649232341369f6.patch"
+    sha256 "333aa937d87431d6fd01bd3ca1cc684a9562dd1c2c327a7c0f0c463b6a384e25"
   end
 
   def install

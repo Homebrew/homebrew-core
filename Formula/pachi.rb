@@ -1,17 +1,16 @@
 class Pachi < Formula
   desc "Software for the Board Game of Go/Weiqi/Baduk"
   homepage "https://pachi.or.cz/"
-  url "https://github.com/pasky/pachi/archive/pachi-12.50.tar.gz"
-  sha256 "62c8d44bd4610fe9534a1f21bb092da209c9fb8dcb8d39558d79adabe31e740a"
+  url "https://github.com/pasky/pachi/archive/pachi-12.60.tar.gz"
+  sha256 "3c05cf4fe5206ba4cbe0e0026ec3225232261b44e9e05e45f76193b4b31ff8e9"
   license "GPL-2.0"
   head "https://github.com/pasky/pachi.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9b1ae6a01f632409937bb18ac34b7e75e6142c101a629d951d17c0d8f756d37c" => :big_sur
-    sha256 "e1cac19564a176a50d27f08b4e395a53ff4144dc17fd93dcaa013adfc8cca83a" => :catalina
-    sha256 "76edc1b521dfb93e8c6573b689c8bc5a01103888f2f7310fd46aa53d8b6ea0dc" => :mojave
-    sha256 "476509041b907edfd0380bc91a3fd4fc41b359bae58524ab4ab8017df4f61fe0" => :high_sierra
+    sha256 "d14dec70d5fedd0d7ba63b05f175b06b12c40e1da71d24da64712ce63858dae1" => :big_sur
+    sha256 "9a2adc64bf7dbfbaf9e3d9ff940d6c5bcb0e4040160ed62f57751ec87281132e" => :catalina
+    sha256 "c88f24dd1e7a267848eab540dc2b0961962825ab6e7088fc24b335159dacf31c" => :mojave
   end
 
   resource "patterns" do
