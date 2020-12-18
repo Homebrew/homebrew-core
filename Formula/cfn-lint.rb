@@ -3,8 +3,8 @@ class CfnLint < Formula
 
   desc "Validate CloudFormation templates against the CloudFormation spec"
   homepage "https://github.com/aws-cloudformation/cfn-python-lint/"
-  url "https://files.pythonhosted.org/packages/b8/3a/3ec48b116f99e48679c60cc7fd04815b5ad9eadeba661b07de5becf48d3d/cfn-lint-0.43.0.tar.gz"
-  sha256 "58e554b967c6d3ab63885551ebf8381e36a51c1c77a6ee1770e996a627acde80"
+  url "https://files.pythonhosted.org/packages/de/f1/73d8f24c50fdefc1ea7d4ddcb4108d98b36dc948548b46ae887eff506992/cfn-lint-0.44.0.tar.gz"
+  sha256 "87869944c66046466090c66bea75355506422b65e1ccd9bffcde35c6dc82c933"
   license "MIT"
 
   livecheck do
@@ -26,18 +26,18 @@ class CfnLint < Formula
   end
 
   resource "aws-sam-translator" do
-    url "https://files.pythonhosted.org/packages/07/19/709a069a5f6ee48af17bdcf3df4a264366fb60312c50792b24890213c80e/aws-sam-translator-1.32.0.tar.gz"
-    sha256 "8cbfac02529b79703541e25541b01c80868f11b0ff2a8f9032b235130d9d56ae"
+    url "https://files.pythonhosted.org/packages/e1/78/c1b9a8c89aa1a21b07823c6363cc1eefd2c08fc193ba9ffddcc6e8fd0294/aws-sam-translator-1.33.0.tar.gz"
+    sha256 "9f3767614746a38300ee988ef70d6f862e71e59ea536252bbf9a319daaac1fff"
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/55/b6/a25bc0f8bf88b993a62a18e349aafb2aa83ca7590dce84d9c88383e86221/boto3-1.16.30.tar.gz"
-    sha256 "848aa8d11c9927daa13512072a501e2fc70ba86b073fc6927b86466f4a459b4d"
+    url "https://files.pythonhosted.org/packages/a8/61/e2720d714f2c69cfffe4fc9b15c16296b936e8f7f25a7b50ec8f9eaeaa1c/boto3-1.16.39.tar.gz"
+    sha256 "a05614300fd404c7952a55ae92e106b9400ae65886425aaab3104527be833848"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/55/6f/4a60722aa8766329c403630f95931c1cfb66fdc4bc0e50f0f9759f3b2280/botocore-1.19.30.tar.gz"
-    sha256 "822f9dd11f11c54b9c4666cfec9b7246a32990dbca1be27528a75a8dabed4dc2"
+    url "https://files.pythonhosted.org/packages/89/6e/f4ebd8048f77fb7dd5243b1f2b2f337b42ed84290910b74eb8ac71a1a7c7/botocore-1.19.39.tar.gz"
+    sha256 "e0d0386098a072abd7b6c087e6149d997377c969a823ebe01b3f5bfabe9bfac0"
   end
 
   resource "decorator" do
