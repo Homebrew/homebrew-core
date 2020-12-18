@@ -27,6 +27,11 @@ class Glpk < Formula
                           "--disable-dependency-tracking",
                           "--with-gmp"
     system "make", "install"
+
+    # Sanitise references to Homebrew shims
+    rm "examples/Makefile"
+    rm "examples/glpsol"
+
     # Install the examples so we can easily write a meaningful test
     pkgshare.install "examples"
   end
