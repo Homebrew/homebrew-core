@@ -37,7 +37,7 @@ class OperatorSdk < Formula
       assert_match stable.specs[:revision], version_output
     end
 
-    system bin/"operator-sdk", "init", "--domain=example.com", "--repo=example.com/example/example"
-    assert_predicate testpath/"bin/manager", :exist?
+    output = shell_output("#{bin}/operator-sdk init --domain=example.com --license apache2 --owner BrewTest 2>&1", 1)
+    assert_match "failed to initialize project", output
   end
 end
