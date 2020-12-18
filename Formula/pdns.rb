@@ -33,10 +33,6 @@ class Pdns < Formula
 
   uses_from_macos "curl"
 
-  # fix for compatibility issue with boost 1.73
-  # port of PR https://github.com/PowerDNS/pdns/pull/9070
-  patch :DATA
-
   def install
     # Fix "configure: error: cannot find boost/program_options.hpp"
     ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
@@ -86,64 +82,3 @@ class Pdns < Formula
     assert_match "PowerDNS Authoritative Server #{version}", output
   end
 end
-
-__END__
-diff --git a/pdns/ixfrdist-web.cc b/pdns/ixfrdist-web.cc
-index 485e720..58e4720 100644
---- a/pdns/ixfrdist-web.cc
-+++ b/pdns/ixfrdist-web.cc
-@@ -32,7 +32,7 @@ IXFRDistWebServer::IXFRDistWebServer(const ComboAddress &listenAddress, const Ne
- {
-   d_ws->setACL(acl);
-   d_ws->setLogLevel(loglevel);
--  d_ws->registerWebHandler("/metrics", boost::bind(&IXFRDistWebServer::getMetrics, this, _1, _2));
-+  d_ws->registerWebHandler("/metrics", std::bind(&IXFRDistWebServer::getMetrics, this, std::placeholders::_1, std::placeholders::_2));
-   d_ws->bind();
- }
-
-diff --git a/pdns/webserver.cc b/pdns/webserver.cc
-index eafd305..8b19b76 100644
---- a/pdns/webserver.cc
-+++ b/pdns/webserver.cc
-@@ -107,7 +107,7 @@ static void bareHandlerWrapper(WebServer::HandlerFunction handler, YaHTTP::Reque
-
- void WebServer::registerBareHandler(const string& url, HandlerFunction handler)
- {
--  YaHTTP::THandlerFunction f = boost::bind(&bareHandlerWrapper, handler, _1, _2);
-+  YaHTTP::THandlerFunction f = std::bind(&bareHandlerWrapper, handler, std::placeholders::_1, std::placeholders::_2);
-   YaHTTP::Router::Any(url, f);
- }
-
-@@ -179,7 +179,7 @@ void WebServer::apiWrapper(WebServer::HandlerFunction handler, HttpRequest* req,
- }
-
- void WebServer::registerApiHandler(const string& url, HandlerFunction handler, bool allowPassword) {
--  HandlerFunction f = boost::bind(&WebServer::apiWrapper, this, handler, _1, _2, allowPassword);
-+  HandlerFunction f = std::bind(&WebServer::apiWrapper, this, handler, std::placeholders::_1, std::placeholders::_2, allowPassword);
-   registerBareHandler(url, f);
- }
-
-@@ -196,7 +196,7 @@ void WebServer::webWrapper(WebServer::HandlerFunction handler, HttpRequest* req,
- }
-
- void WebServer::registerWebHandler(const string& url, HandlerFunction handler) {
--  HandlerFunction f = boost::bind(&WebServer::webWrapper, this, handler, _1, _2);
-+  HandlerFunction f = std::bind(&WebServer::webWrapper, this, handler, std::placeholders::_1, std::placeholders::_2);
-   registerBareHandler(url, f);
- }
-
-diff --git a/pdns/ws-auth.cc b/pdns/ws-auth.cc
-index 8a8c433..df0e633 100644
---- a/pdns/ws-auth.cc
-+++ b/pdns/ws-auth.cc
-@@ -2328,8 +2328,8 @@ void AuthWebServer::webThread()
-       d_ws->registerApiHandler("/api", &apiDiscovery);
-     }
-     if (::arg().mustDo("webserver")) {
--      d_ws->registerWebHandler("/style.css", boost::bind(&AuthWebServer::cssfunction, this, _1, _2));
--      d_ws->registerWebHandler("/", boost::bind(&AuthWebServer::indexfunction, this, _1, _2));
-+      d_ws->registerWebHandler("/style.css", std::bind(&AuthWebServer::cssfunction, this, std::placeholders::_1, std::placeholders::_2));
-+      d_ws->registerWebHandler("/", std::bind(&AuthWebServer::indexfunction, this, std::placeholders::_1, std::placeholders::_2));
-     }
-     d_ws->go();
-   }
