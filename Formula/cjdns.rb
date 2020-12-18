@@ -1,8 +1,8 @@
 class Cjdns < Formula
   desc "Advanced mesh routing system with cryptographic addressing"
   homepage "https://github.com/cjdelisle/cjdns/"
-  url "https://github.com/cjdelisle/cjdns/archive/cjdns-v21.tar.gz"
-  sha256 "6dfb1fe18c9689324f36c8d33e660972aac5af4579fcaa9c4730179bc8d67c69"
+  url "https://github.com/cjdelisle/cjdns/archive/cjdns-v21.1.tar.gz"
+  sha256 "a6158ce7847159aa44e86f74ccc7b6ded6910a230ed8f3830db53cda5838f0b0"
   license all_of: ["GPL-3.0-or-later", "GPL-2.0-or-later", "BSD-3-Clause", "MIT"]
   head "https://github.com/cjdelisle/cjdns.git"
 
