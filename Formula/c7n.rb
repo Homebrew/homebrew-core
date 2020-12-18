@@ -22,8 +22,8 @@ class C7n < Formula
   depends_on "python@3.9"
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/45/bd/98dfd56ea8f6b2b7dd89bea8b067a55a6dbaec7b4cc28186cbafe2e1d24e/argcomplete-1.12.1.tar.gz"
-    sha256 "849c2444c35bb2175aea74100ca5f644c29bf716429399c0f2203bb5d9a8e4e6"
+    url "https://files.pythonhosted.org/packages/cb/53/d2e3d11726367351b00c8f078a96dacb7f57aef2aca0d3b6c437afc56b55/argcomplete-1.12.2.tar.gz"
+    sha256 "de0e1282330940d52ea92a80fea2e4b9e0da1932aaa570f84d268939d1897b04"
   end
 
   resource "attrs" do
@@ -32,13 +32,13 @@ class C7n < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/1a/ec/b970ae04958b51dab82b848ede21bbf98ef927a158aa968f6d082f18bd6c/boto3-1.16.20.tar.gz"
-    sha256 "6c5d952f97e13997b1c7463038d96469355595cd37f87b43451759cc03756322"
+    url "https://files.pythonhosted.org/packages/07/f6/b12ccd6484c15a6d22aaeda6d7aac4278d923a327f63eda6e61072b02f26/boto3-1.16.32.tar.gz"
+    sha256 "21a482c23cedf06eab040a5ca770d7b9e9d00c5bcd1dd3ef22c1fdce4371de27"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/b6/94/5ef34edc107ddc091cf0ca0c26fcad782058445e510878ed599840c72fa8/botocore-1.19.19.tar.gz"
-    sha256 "8c06e3a4d6472e46cd2d31976df3e7fb1cd158f96d7f4c38116abf3e818692a1"
+    url "https://files.pythonhosted.org/packages/40/c3/5fd80e8fc843fe8596eeee430375a81716e91ebed6a0607614c80df12800/botocore-1.19.32.tar.gz"
+    sha256 "6631e4bb9f2fc1bede6e6ee538255e0af944d4f71e1530c2e39d03b64baa0bf1"
   end
 
   resource "importlib-metadata" do
