@@ -6,6 +6,8 @@ class Dlite < Formula
   license "MIT"
   head "https://github.com/nlf/dlite.git"
 
+  disable! date: "2020-12-17", because: :unmaintained
+
   bottle do
     cellar :any_skip_relocation
     sha256 "03fc30a6130e255cefda07f80ca76331b02dd244510d1dfaca00bec9f2c8c933" => :catalina
