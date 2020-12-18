@@ -1,9 +1,9 @@
 class Glpk < Formula
   desc "Library for Linear and Mixed-Integer Programming"
   homepage "https://www.gnu.org/software/glpk/"
-  url "https://ftp.gnu.org/gnu/glpk/glpk-4.65.tar.gz"
-  mirror "https://ftpmirror.gnu.org/glpk/glpk-4.65.tar.gz"
-  sha256 "4281e29b628864dfe48d393a7bedd781e5b475387c20d8b0158f329994721a10"
+  url "https://ftp.gnu.org/gnu/glpk/glpk-5.0.tar.gz"
+  mirror "https://ftpmirror.gnu.org/glpk/glpk-5.0.tar.gz"
+  sha256 "4a1013eebb50f728fc601bdd833b0b2870333c3b3e5a816eeba921d95bec6f15"
   license "GPL-3.0"
 
   livecheck do
