@@ -4,7 +4,7 @@ class Glpk < Formula
   url "https://ftp.gnu.org/gnu/glpk/glpk-5.0.tar.gz"
   mirror "https://ftpmirror.gnu.org/glpk/glpk-5.0.tar.gz"
   sha256 "4a1013eebb50f728fc601bdd833b0b2870333c3b3e5a816eeba921d95bec6f15"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url :stable
