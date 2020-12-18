@@ -35,7 +35,7 @@ class G3log < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "-std=c++14", "test.cpp", "-L#{lib}", "-lg3logger", "-o", "test"
+    system ENV.cxx, "-std=c++14", "test.cpp", "-L#{lib}", "-lg3log", "-o", "test"
     system "./test"
     Dir.glob(testpath/"test.g3log.*.log").any?
   end
