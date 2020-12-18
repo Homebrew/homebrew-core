@@ -34,9 +34,6 @@ class Pdns < Formula
   uses_from_macos "curl"
 
   def install
-    # Fix "configure: error: cannot find boost/program_options.hpp"
-    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
-
     args = %W[
       --prefix=#{prefix}
       --sysconfdir=#{etc}/powerdns
