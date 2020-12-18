@@ -3,7 +3,7 @@ class Diamond < Formula
   homepage "https://www.wsi.uni-tuebingen.de/lehrstuehle/algorithms-in-bioinformatics/software/diamond/"
   url "https://github.com/bbuchfink/diamond/archive/v2.0.6.tar.gz"
   sha256 "4231f6ed75191fc9757f22b60f9068f4b4412918bf2e8c37367880d189667f80"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   bottle do
     cellar :any_skip_relocation
