@@ -6,6 +6,12 @@ class Libvnc < Formula
   license "GPL-2.0-only"
   head "https://github.com/LibVNC/libvncserver.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+    regex(%r{href=.*?/tag/LibVNCServer[._-]v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "ea5e78dfaf457a33519debdc579dfd868f6503ef93b526d0f57fcab73997f298" => :big_sur
