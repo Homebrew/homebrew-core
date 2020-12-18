@@ -40,6 +40,16 @@ class Qt < Formula
     sha256 "fa99c7ffb8a510d140c02694a11e6c321930f43797dbf2fe8f2476680db4c2b2"
   end
 
+  # Patch for qmake on ARM
+  # https://codereview.qt-project.org/c/qt/qtbase/+/327649
+  if Hardware::CPU.arm?
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/9dc732/qt/qt-split-arch.patch"
+      sha256 "36915fde68093af9a147d76f88a4e205b789eec38c0c6f422c21ae1e576d45c0"
+      directory "qtbase"
+    end
+  end
+
   def install
     args = %W[
       -verbose
@@ -56,8 +66,15 @@ class Qt < Formula
       -no-rpath
       -pkg-config
       -dbus-runtime
-      -proprietary-codecs
     ]
+
+    if Hardware::CPU.arch == :arm64
+      # Temporarily fixes for Apple Silicon
+      args << "-skip" << "qtwebengine" << "-no-assimp"
+    else
+      # Should be reenabled unconditionnaly once it is fixed on Apple Silicon
+      args << "-proprietary-codecs"
+    end
 
     system "./configure", *args
 
@@ -88,10 +105,19 @@ class Qt < Formula
   end
 
   def caveats
-    <<~EOS
+    s = <<~EOS
       We agreed to the Qt open source license for you.
       If this is unacceptable you should uninstall.
     EOS
+
+    if Hardware::CPU.arm?
+      s += <<~EOS
+
+        This version of Qt on Apple Silicon does not include QtWebEngine
+      EOS
+    end
+
+    s
   end
 
   test do
@@ -116,6 +142,9 @@ class Qt < Formula
         return 0;
       }
     EOS
+
+    # Work around "error: no member named 'signbit' in the global namespace"
+    ENV.delete "CPATH"
 
     system bin/"qmake", testpath/"hello.pro"
     system "make"
