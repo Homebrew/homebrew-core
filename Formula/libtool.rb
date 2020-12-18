@@ -4,7 +4,7 @@ class Libtool < Formula
   url "https://ftp.gnu.org/gnu/libtool/libtool-2.4.6.tar.xz"
   mirror "https://ftpmirror.gnu.org/libtool/libtool-2.4.6.tar.xz"
   sha256 "7c87a8c2c8c0fc9cd5019e402bed4292462d00a718a7cd5f11218153bf28b26f"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   revision 2
 
   livecheck do
@@ -37,22 +37,40 @@ class Libtool < Formula
     end
 
     ENV["SED"] = "sed" # prevent libtool from hardcoding sed path from superenv
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--program-prefix=g",
-                          "--enable-ltdl-install"
+
+    args = %W[
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --enable-ltdl-install
+    ]
+
+    on_macos do
+      args << "--program-prefix=g"
+    end
+
+    system "./configure", *args
     system "make", "install"
+
+    on_linux do
+      bin.install_symlink "libtool" => "glibtool"
+      bin.install_symlink "libtoolize" => "glibtoolize"
+
+      # Avoid references to the Homebrew shims directory
+      inreplace bin/"libtool", HOMEBREW_SHIMS_PATH/"linux/super/", "/usr/bin/"
+    end
   end
 
   def caveats
-    <<~EOS
-      In order to prevent conflicts with Apple's own libtool we have prepended a "g"
-      so, you have instead: glibtool and glibtoolize.
-    EOS
+    on_macos do
+      <<~EOS
+        In order to prevent conflicts with Apple's own libtool we have prepended a "g"
+        so, you have instead: glibtool and glibtoolize.
+      EOS
+    end
   end
 
   test do
-    system "#{bin}/glibtool", "execute", "/usr/bin/true"
+    system "#{bin}/glibtool", "execute", File.executable?("/usr/bin/true") ? "/usr/bin/true" : "/bin/true"
     (testpath/"hello.c").write <<~EOS
       #include <stdio.h>
       int main() { puts("Hello, world!"); return 0; }
