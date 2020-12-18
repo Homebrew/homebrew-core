@@ -7,9 +7,6 @@ class DockerMachineDriverXhyve < Formula
   license "BSD-3-Clause"
   head "https://github.com/machine-drivers/docker-machine-driver-xhyve.git"
 
-  # xhyve is no longer used by Docker, replaced by hyperkit
-  deprecate! date: "2020-12-18", because: :does_not_build
-
   bottle do
     cellar :any_skip_relocation
     rebuild 1
@@ -17,6 +14,9 @@ class DockerMachineDriverXhyve < Formula
     sha256 "b7e9879c8c5c734da5bd83ae00496dc26dcf8133e354662e7b6a8846bfbfc989" => :mojave
     sha256 "282868271a1e504ca8643bb6507eb2f99f8f8703d64050886e00175182b35668" => :high_sierra
   end
+
+  # xhyve is no longer used by Docker, replaced by hyperkit
+  deprecate! date: "2020-12-18", because: :does_not_build
 
   depends_on "go" => :build
   depends_on "docker-machine"
