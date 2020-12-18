@@ -3,6 +3,7 @@ class Geos < Formula
   homepage "https://trac.osgeo.org/geos"
   url "https://download.osgeo.org/geos/geos-3.9.0.tar.bz2"
   sha256 "bd8082cf12f45f27630193c78bdb5a3cba847b81e72b20268356c2a4fc065269"
+  license "LGPL-2.1"
 
   livecheck do
     url "https://download.osgeo.org/geos/"
