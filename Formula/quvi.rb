@@ -3,7 +3,7 @@ class Quvi < Formula
   homepage "https://quvi.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/quvi/0.9/quvi/quvi-0.9.5.tar.xz"
   sha256 "cb3918aad990b9bc49828a5071159646247199a63de0dd4c706adc5c8cd0a2c0"
-  license "LGPL-2.1"
+  license "AGPL-3.0-or-later"
 
   livecheck do
     url :stable
