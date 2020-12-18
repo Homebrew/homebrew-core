@@ -291,7 +291,7 @@ class Llvm < Formula
     # was known to output incorrect linker flags; e.g., `-llibxml2.tbd` instead of `-lxml2`.
     # On the other hand, note that a fully qualified path to `dylib` or `tbd` is OK, e.g.,
     # `/usr/local/lib/libxml2.tbd` or `/usr/local/lib/libxml2.dylib`.
-    shell_output("#{bin}/llvm-config --system-libs").chomp.strip.split(" ").each do |lib|
+    shell_output("#{bin}/llvm-config --system-libs").chomp.strip.split.each do |lib|
       if lib.start_with?("-l")
         assert !lib.end_with?(".tbd"), "expected abs path when lib reported as .tbd"
         assert !lib.end_with?(".dylib"), "expected abs path when lib reported as .dylib"

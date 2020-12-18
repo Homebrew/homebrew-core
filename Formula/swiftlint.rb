@@ -2,23 +2,23 @@ class Swiftlint < Formula
   desc "Tool to enforce Swift style and conventions"
   homepage "https://github.com/realm/SwiftLint"
   url "https://github.com/realm/SwiftLint.git",
-      tag:      "0.41.0",
-      revision: "d91c2179bb55111790e7053c039d5d7a600dfa3d"
+      tag:      "0.42.0",
+      revision: "d53fc2664df92ef322bfa9ce5238d34f1461526a"
   license "MIT"
   head "https://github.com/realm/SwiftLint.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ea458356bba88a0fd9f74e4c4676663ffc43b648138dd7d537ecba2ced7cf85a" => :big_sur
-    sha256 "3e6cbf8f6968fd1f5f08f602ae4feb3df4d42eda57b33395f0599fbb6a707b1e" => :catalina
-    sha256 "0f5a693a08771785c53265863fe234823e5819032bf0971207b0b205d357a464" => :mojave
+    sha256 "1a0540f0ff6cac2da0a51672db7963aef71cc58954c34791e9b01dafd63c5898" => :big_sur
+    sha256 "e9023ed754eb8cb78a9f2b469a90875ca42a7afffd3e96f8142252e81d889793" => :catalina
   end
 
-  depends_on xcode: ["10.2", :build]
+  depends_on xcode: ["11.4", :build]
   depends_on xcode: "8.0"
 
   def install
-    system "make", "prefix_install", "PREFIX=#{prefix}", "TEMPORARY_FOLDER=#{buildpath}/SwiftLint.dst"
+    system "swift", "build", "--disable-sandbox", "--configuration", "release"
+    bin.install ".build/release/swiftlint"
   end
 
   test do

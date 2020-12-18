@@ -12,15 +12,20 @@ class Openfst < Formula
 
   bottle do
     cellar :any
-    sha256 "5fd5b3e6e1cab084de39129ee2a5ac9512a45bf564029682598bea2c4fd83aed" => :big_sur
-    sha256 "520a3a1fe07f55b4d12de03cc259b19e12152f3e02b7991abb8512c6d94208bb" => :catalina
-    sha256 "ab87b1086002ff7ce0174cf9fc6e6336960b4e23c890ac9a0572ccc44e5cda5c" => :mojave
+    rebuild 1
+    sha256 "44287522a924816ee4c94f9b2e5e2c88caf0033e1b939ec6f21bd597fc8abfdb" => :big_sur
+    sha256 "b49da4e3ff869f532bb920a61523f65f131e5fbfe4de034a4422664ca10bb92e" => :catalina
+    sha256 "06cd8774b212aca225964d495f1627dd8e4bc4b58b7d527f9b32bc3a974c69e6" => :mojave
   end
 
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "--enable-fsts",
+                          "--enable-compress",
+                          "--enable-grm",
+                          "--enable-special"
     system "make"
     system "make", "install"
   end

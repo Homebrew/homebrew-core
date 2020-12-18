@@ -5,7 +5,7 @@ class Csound < Formula
       tag:      "6.15.0",
       revision: "18c2c7897425f462b9a7743cee157cb410c88198"
   license "LGPL-2.1-or-later"
-  revision 3
+  revision 4
   head "https://github.com/csound/csound.git", branch: "develop"
 
   livecheck do
@@ -14,9 +14,9 @@ class Csound < Formula
   end
 
   bottle do
-    sha256 "fe156a8b5d87b8339fc8a0176c29a2ceaa5b0e41f8abac916585eaf1dc0eca41" => :catalina
-    sha256 "d5c6e5ef29d0d16e33ba5ca97869fca304e73ce223fbcaddf8b423bf7fe39729" => :mojave
-    sha256 "1a3c4ff27f85e70974ff6b66e3d6daab7b2ec7ddd411c31cd36a7a868caaaa82" => :high_sierra
+    sha256 "cd7229bcb6dd8b392641af2cf3590a75b98c1f37d6b48c46cdcb06b5508b10f6" => :big_sur
+    sha256 "0376c79adfaa8db7ea5ae58ae1b7a46c03bf1243fa04ec944f8b8699d57872be" => :catalina
+    sha256 "f2fcfd3dcb10ac3e02920f006b4c09e39365ea4da09c7322b825a766c0e5ec8a" => :mojave
   end
 
   depends_on "asio" => :build
@@ -50,8 +50,8 @@ class Csound < Formula
   conflicts_with "pkcrack", because: "both install `extract` binaries"
 
   resource "ableton-link" do
-    url "https://github.com/Ableton/link/archive/Link-3.0.2.tar.gz"
-    sha256 "2716e916a9dd9445b2a4de1f2325da818b7f097ec7004d453c83b10205167100"
+    url "https://github.com/Ableton/link/archive/Link-3.0.3.tar.gz"
+    sha256 "195b46f7a33bb88800de19bb08065ec0235e5a920d203a4b2c644c18fbcaff11"
   end
 
   resource "getfem" do

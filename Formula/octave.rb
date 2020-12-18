@@ -5,15 +5,16 @@ class Octave < Formula
   mirror "https://ftpmirror.gnu.org/octave/octave-6.1.0.tar.xz"
   sha256 "d6cd6b79ef023e300b9287b56aa79333cfb6b651771d43ade7cbde63ca5a6010"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
   end
 
   bottle do
-    sha256 "efcf591df4a8a2acc37fcb9318236f7707d4740f437ad78f661a5ecb1a54a464" => :big_sur
-    sha256 "4bbd1ad9938b8c109147e27b88f602a0ce2e5d484d6abf0c4b8e8a2862c5604c" => :catalina
-    sha256 "a9150b5d2a3919be506ded34f87aefd90b92db66a5bf7b52b925ffccd2cbe695" => :mojave
+    sha256 "be7e3a520db1d6c684120effd115170f49d2cf41c4ee24a9e17af349ef3f9db2" => :big_sur
+    sha256 "7a2372bb936b1b09db7deb5b8f39a777a03f5f8238a4a4be4434f27deb4d1d52" => :catalina
+    sha256 "08d3f28fda600a60b0f0759efaf5b6e2f56124de3d2822758fbf1ba5caaad01f" => :mojave
   end
 
   head do

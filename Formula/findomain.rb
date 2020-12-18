@@ -1,15 +1,16 @@
 class Findomain < Formula
   desc "Cross-platform subdomain enumerator"
-  homepage "https://github.com/Edu4rdSHL/findomain"
-  url "https://github.com/Edu4rdSHL/findomain/archive/2.1.5.tar.gz"
+  homepage "https://github.com/Findomain/findomain"
+  url "https://github.com/Findomain/findomain/archive/2.1.5.tar.gz"
   sha256 "31182a63f2d2002e5dc99e8f809157c18e660a9964cbbc9faa249e131493c635"
   license "GPL-3.0-or-later"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5b88284143788c5087624b04d751dbedb156e896bfde3ed346b98086ee344524" => :big_sur
-    sha256 "79d8984a41b38f074d1ec4012e5dc88141385ac65f0c56cf6dafd6d6b3642011" => :catalina
-    sha256 "ccfba6e85598fbbf8530070b04b9534cafa9ebf53817926f6c988e5281580929" => :mojave
+    rebuild 1
+    sha256 "4ad50723952f3be57618a6d8abe573a0ee3485bcd132f6ef7f6747a676236c8e" => :big_sur
+    sha256 "fe80011577eafc2f17973ea265859b41a13064e039179fa663a7cdbcf9199d45" => :catalina
+    sha256 "4f19c79953f6e322684eeeda38a79c3a0bdeb05b6665007aa042d8644e555a8d" => :mojave
   end
 
   depends_on "rust" => :build

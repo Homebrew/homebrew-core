@@ -4,14 +4,14 @@ class Volk < Formula
   desc "Vector Optimized Library of Kernels"
   homepage "https://libvolk.org"
   url "https://github.com/gnuradio/volk.git",
-      tag:      "v2.4.0",
-      revision: "99404d8f73172285bb299301f3aa778868f59f83"
+      tag:      "v2.4.1",
+      revision: "797b0ac846858d081fbb53ed50e98765ec9cb6b2"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 "e554a50c7257d17453071ef6359819c5130079b59bafbded22888acb39057070" => :big_sur
-    sha256 "f34bc3e707bb18791f429d777ca2e4e8e4f0c6bd1b318778d2fde8492eaff4df" => :catalina
-    sha256 "7325e401a79b42a9146acd1e5c2c32346529530e579e1cafa8353d8bf6649ed0" => :mojave
+    sha256 "0324fc38e4ca9a378fa863af8543af8dbfd2eb83a4a22e008f5df434857b655a" => :big_sur
+    sha256 "96cdb958c8c97d9ddc96b3aee4aff3101952183c034f9a4d5b750a157756e693" => :catalina
+    sha256 "2cc90d04c112cf63c00b8f39c6e3ba297f963b3266ddd144b2924df7519e6e56" => :mojave
   end
 
   depends_on "cmake" => :build

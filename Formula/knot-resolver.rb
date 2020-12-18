@@ -1,10 +1,9 @@
 class KnotResolver < Formula
   desc "Minimalistic, caching, DNSSEC-validating DNS resolver"
   homepage "https://www.knot-resolver.cz"
-  url "https://secure.nic.cz/files/knot-resolver/knot-resolver-5.2.0.tar.xz"
-  sha256 "8824267ca3331fa06d418c1351b68c648da0af121bcbc84c6e08f5b1e28d9433"
+  url "https://secure.nic.cz/files/knot-resolver/knot-resolver-5.2.1.tar.xz"
+  sha256 "aa37b744c400f437acba7a54aebcbdbe722ece743d342cbc39f2dd8087f05826"
   license all_of: ["CC0-1.0", "GPL-3.0-or-later", "LGPL-2.1-or-later", "MIT"]
-  revision 1
   head "https://gitlab.labs.nic.cz/knot/knot-resolver.git"
 
   livecheck do
@@ -13,9 +12,9 @@ class KnotResolver < Formula
   end
 
   bottle do
-    sha256 "bbec75c2f3de52cbf8a2ab852dee823db89951b712e7df236d9897cceb1280e6" => :big_sur
-    sha256 "c363703881715c4cc61c0809dc38984bc249a064be46f533b950988c821e76dc" => :catalina
-    sha256 "e340d3c2341cfd0e9c71ab49f4f92823b3aae0df69d568ce8d09af0436c2eda9" => :mojave
+    sha256 "f4a73132e03dfdff1f370ccaabff44f14bccf46d4f4b7f7f91f653bf98d28252" => :big_sur
+    sha256 "47a56833e4c305195e188b8eb616ee232cb6738a7929c18df556ec5962a8171f" => :catalina
+    sha256 "af1a5075c8b0bc38054b0466d4475e7b4f2839fe386dc419d1be33ec448c328e" => :mojave
   end
 
   depends_on "meson" => :build
@@ -37,13 +36,6 @@ class KnotResolver < Formula
 
   def post_install
     (var/"knot-resolver").mkpath
-  end
-
-  # DNSSEC root anchor published by IANA (https://www.iana.org/dnssec/files)
-  def root_keys
-    <<~EOS
-      . IN DS 20326 8 2 e06d44b80b8f1d39a95c0b0d7c65d08458e880409bbc683457104237c7f8ec8d
-    EOS
   end
 
   plist_options startup: true

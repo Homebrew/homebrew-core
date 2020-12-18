@@ -1,16 +1,15 @@
 class Zstd < Formula
   desc "Zstandard is a real-time compression algorithm"
   homepage "https://facebook.github.io/zstd/"
-  url "https://github.com/facebook/zstd/archive/v1.4.5.tar.gz"
-  sha256 "734d1f565c42f691f8420c8d06783ad818060fc390dee43ae0a89f86d0a4f8c2"
+  url "https://github.com/facebook/zstd/archive/v1.4.7.tar.gz"
+  sha256 "085500c8d0b9c83afbc1dc0d8b4889336ad019eba930c5d6a9c6c86c20c769c8"
   license "BSD-3-Clause"
 
   bottle do
     cellar :any
-    sha256 "4143146aa691738893d19f6dc7de4ae983dbbf7023717094df8ff2d36cb839b5" => :big_sur
-    sha256 "2375c206a934090c4ba53362d038e4e191d8dd09eec734e8e72106089aa24e9d" => :catalina
-    sha256 "86b04bfd318315486d772b29d30b361e734a74269ae48805eeb3eae1d562b984" => :mojave
-    sha256 "61de5a45183f4d029c66024d645ad44b0a625d58f9f583b47af42346a7c90fe5" => :high_sierra
+    sha256 "c63e0f718a982cd54363e6ceff21928b579c062e7efbcc41316f31c608f449b5" => :big_sur
+    sha256 "e767a1ae6f1508ccaaaaf8375ce266d8ce955500f7d8aa1715176449cb6fa89c" => :catalina
+    sha256 "1dd32be9ba8c0281996b4ee75e04deec3b35ee7f71abba46195c0f3840bba1a0" => :mojave
   end
 
   depends_on "cmake" => :build

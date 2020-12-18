@@ -23,6 +23,10 @@ class Krb5 < Formula
 
   uses_from_macos "bison"
 
+  on_linux do
+    depends_on "gettext"
+  end
+
   def install
     cd "src" do
       # Newer versions of clang are very picky about missing includes.

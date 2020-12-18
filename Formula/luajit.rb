@@ -50,6 +50,10 @@ class Luajit < Formula
     system "make", "amalg", *args
     system "make", "install", *args
 
+    # Unstable branch doesn't install symlink for luajit.
+    # This breaks tools like `luarock` who requires the `luajit` bin to be present.
+    bin.install_symlink Dir[bin/"luajit-*"].first => "luajit" if build.head?
+
     # LuaJIT doesn't automatically symlink unversioned libraries:
     # https://github.com/Homebrew/homebrew/issues/45854.
     lib.install_symlink lib/"libluajit-5.1.dylib" => "libluajit.dylib"

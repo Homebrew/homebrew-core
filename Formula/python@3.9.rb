@@ -4,6 +4,7 @@ class PythonAT39 < Formula
   url "https://www.python.org/ftp/python/3.9.1/Python-3.9.1.tar.xz"
   sha256 "991c3f8ac97992f3d308fefeb03a64db462574eadbff34ce8bc5bb583d9903ff"
   license "Python-2.0"
+  revision 1
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -11,10 +12,9 @@ class PythonAT39 < Formula
   end
 
   bottle do
-    sha256 "341bf346d9754ec96aec17b381cae65a0714deaa5d91d6eae9fe07ff879933f1" => :big_sur
-    sha256 "81143f2cc607e657f9a69f88a177a4c7225bd13c1a4ebe2b06423b7654cb9818" => :arm64_big_sur
-    sha256 "2b9946108e230384c48fcb4fcc07febd31e3987a7b9e66ee952e2c4f153a5dee" => :catalina
-    sha256 "5a4691a91e9c16cd07600b4afba9fe35ef475d816df3033e530dcce9f34f34a4" => :mojave
+    sha256 "1c4b459f6c4929f723275620e867cb600805c5590f2475ec91a7ee2675a69e27" => :big_sur
+    sha256 "367924e7be7a76f966acf68c0d909fb34cf8c22959a71769a6838c9bb35fbe87" => :catalina
+    sha256 "502d5df2a1d26d52e55f1e26e19408786d55275a67dd06481bb5622646ed7d99" => :mojave
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -107,7 +107,6 @@ class PythonAT39 < Formula
       --datarootdir=#{share}
       --datadir=#{share}
       --enable-loadable-sqlite-extensions
-      --without-ensurepip
       --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
     ]
 
@@ -245,16 +244,50 @@ class PythonAT39 < Formula
     rm_rf Dir["#{site_packages}/setuptools*"]
     rm_rf Dir["#{site_packages}/distribute*"]
     rm_rf Dir["#{site_packages}/pip[-_.][0-9]*", "#{site_packages}/pip"]
+    rm_rf Dir["#{site_packages}/wheel*"]
 
-    %w[setuptools pip wheel].each do |pkg|
-      (libexec/pkg).cd do
-        system bin/"python3", "-s", "setup.py", "--no-user-cfg", "install",
-               "--force", "--verbose", "--install-scripts=#{bin}",
-               "--install-lib=#{site_packages}",
-               "--single-version-externally-managed",
-               "--record=installed.txt"
+    system bin/"python3", "-m", "ensurepip"
+
+    # Get set of ensurepip-installed files for later cleanup
+    ensurepip_files = Set.new(Dir["#{site_packages}/setuptools-*"]) +
+                      Set.new(Dir["#{site_packages}/pip-*"]) +
+                      Set.new(Dir["#{site_packages}/wheel-*"])
+
+    # Remove Homebrew distutils.cfg if it exists, since it prevents the subsequent
+    # pip install command from succeeding (it will be recreated afterwards anyways)
+    rm_f lib_cellar/"distutils/distutils.cfg"
+
+    # Install desired versions of setuptools, pip, wheel using the version of
+    # pip bootstrapped by ensurepip
+    system bin/"pip3", "install", "-v", "--global-option=--no-user-cfg",
+           "--install-option=--force",
+           "--install-option=--single-version-externally-managed",
+           "--install-option=--record=installed.txt",
+           "--upgrade",
+           "--target=#{site_packages}",
+           libexec/"setuptools",
+           libexec/"pip",
+           libexec/"wheel"
+
+    # Get set of files installed via pip install
+    pip_files = Set.new(Dir["#{site_packages}/setuptools-*"]) +
+                Set.new(Dir["#{site_packages}/pip-*"]) +
+                Set.new(Dir["#{site_packages}/wheel-*"])
+
+    # Clean up the bootstrapped copy of setuptools/pip provided by ensurepip.
+    # Also consider the corner case where our desired version of tools is
+    # the same as those provisioned via ensurepip. In this case, don't clean
+    # up, or else we'll have no working setuptools, pip, wheel
+    if pip_files != ensurepip_files
+      ensurepip_files.each do |dir|
+        rm_rf dir
       end
     end
+
+    # pip install with --target flag will just place the bin folder into the
+    # target, so move its contents into the appropriate location
+    mv (site_packages/"bin").children, bin
+    rmdir site_packages/"bin"
 
     rm_rf [bin/"pip", bin/"easy_install"]
     mv bin/"wheel", bin/"wheel3"

@@ -3,8 +3,8 @@ require "language/node"
 class MarkdownlintCli < Formula
   desc "CLI for Node.js style checker and lint tool for Markdown files"
   homepage "https://github.com/igorshubovych/markdownlint-cli"
-  url "https://registry.npmjs.org/markdownlint-cli/-/markdownlint-cli-0.25.0.tgz"
-  sha256 "f3a849acf2915b60e12622688c2fdcc10ad7162fad61e5df415676460c3592a3"
+  url "https://registry.npmjs.org/markdownlint-cli/-/markdownlint-cli-0.26.0.tgz"
+  sha256 "4e17cf1e576d2538a64997d43017a4a4a3b8f691cb20694cffc3e710ff868d87"
   license "MIT"
 
   livecheck do
@@ -13,9 +13,9 @@ class MarkdownlintCli < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "be59aed4f278ac2de86f37b9f1a1f898fd250d9054713ee53c24db965837e9d0" => :big_sur
-    sha256 "0caeb7da8c602a705b14cdd12e0192c6e785be1c0e3da4101747f59df18df0e0" => :catalina
-    sha256 "fc935b883eb497dde56b4aad7392cbfda610eec0efc5039bbfda849ede091587" => :mojave
+    sha256 "64694b55b90f8d406f4eb1d622de12a887b87307f324e3cc6ce6c0e96092aaf3" => :big_sur
+    sha256 "a5e680650b4a1f8b1cbb56cda18bd8853c5a9dde962a018b4ccdd682c1b0847c" => :catalina
+    sha256 "61a7787aad97d225fad9e8258f4535fefdc75e8bc38e7a621e6aa1f2606633ea" => :mojave
   end
 
   depends_on "node"

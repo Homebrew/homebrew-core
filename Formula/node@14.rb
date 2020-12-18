@@ -1,8 +1,8 @@
 class NodeAT14 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v14.15.1/node-v14.15.1.tar.gz"
-  sha256 "a1120472bf55aea745287693a6651e16973e1008c9d6107df350126adf9716fe"
+  url "https://nodejs.org/dist/v14.15.3/node-v14.15.3.tar.gz"
+  sha256 "d23a5c354f1c30278477e4e8d1ecb4c12660a4d1ba2476feeed9434e6bf5b96e"
   license "MIT"
 
   livecheck do
@@ -12,9 +12,9 @@ class NodeAT14 < Formula
 
   bottle do
     cellar :any
-    sha256 "d088b6042d19c589fcc3e560b6e328f2103eaf5c4da27eacce4546099d730fb8" => :big_sur
-    sha256 "8cdba504d69fd36df4305c8faa5068cbc5bca86c6fa8e3ef394dbcf93d66408c" => :catalina
-    sha256 "250f2c07578d5561e7b6e6f597666696bcc8a547eb12788589945f97c7322377" => :mojave
+    sha256 "0ede98b0577ebe9819a7c4ff8b9139a2a9c0f333e6736fd4c1aeb726aedc89e8" => :big_sur
+    sha256 "959b8286beaf6895fc9904fda08c00921dec27a6a84fa3a57e60b55231060155" => :catalina
+    sha256 "69af1cd92b03f230cb51dd4e32d7227a18b43e8874d9ecd3b26887212c04fd5d" => :mojave
   end
 
   keg_only :versioned_formula

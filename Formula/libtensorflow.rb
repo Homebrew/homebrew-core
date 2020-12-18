@@ -3,17 +3,15 @@ class Libtensorflow < Formula
 
   desc "C interface for Google's OS library for Machine Intelligence"
   homepage "https://www.tensorflow.org/"
-  url "https://github.com/tensorflow/tensorflow/archive/v2.3.1.tar.gz"
-  sha256 "ee534dd31a811f7a759453567257d1e643f216d8d55a25c32d2fbfff8153a1ac"
+  url "https://github.com/tensorflow/tensorflow/archive/v2.4.0.tar.gz"
+  sha256 "26c833b7e1873936379e810a39d14700281125257ddda8cd822c89111db6f6ae"
   license "Apache-2.0"
-  revision 2
 
   bottle do
     cellar :any
-    sha256 "c48e0b193c0094c2235d480177b74d9c7719c90da5ddb99f4a048504022f43f4" => :big_sur
-    sha256 "0d95170da7f97c7744ad544c0ebd7a2c69db7b463c6dca5f9c082976452e96f6" => :catalina
-    sha256 "2fa9f87fe4706c9c3a020b16ec26ea9dbec18ace6d5d98c29bd341ec13d67878" => :mojave
-    sha256 "2e405f287eb13ef4c6837ee66cf48afdda2d86849c8785c14c4ed399e56cd400" => :high_sierra
+    sha256 "45b7357ed368a5a9496602f12811638188459313134097a8b601568f4ca1164a" => :big_sur
+    sha256 "3ebda3961055aafd377ab4ed1578d21c3dc0191eb6dbbc01aedbb256e848d9a3" => :catalina
+    sha256 "2d6f2fd224f97509fab9b98fe0e67b77f4af839332395b8a170b8e60b81d6cfe" => :mojave
   end
 
   depends_on "bazel" => :build
@@ -67,7 +65,7 @@ class Libtensorflow < Formula
     system "bazel", "build", *bazel_args, *targets
 
     lib.install Dir["bazel-bin/tensorflow/*.so*", "bazel-bin/tensorflow/*.dylib*"]
-    (include/"tensorflow/c").install Dir["bazel-bin/tensorflow/include/tensorflow/c/*"]
+    include.install "bazel-bin/tensorflow/include/tensorflow"
     bin.install %w[
       bazel-bin/tensorflow/tools/benchmark/benchmark_model
       bazel-bin/tensorflow/tools/graph_transforms/summarize_graph
@@ -125,7 +123,7 @@ class Libtensorflow < Formula
     assert_not_nil benchmark_model_match,
       "Unexpected summarize_graph output for graph-new.pb (no benchmark_model example)"
 
-    benchmark_model_args = benchmark_model_match[1].split(" ")
+    benchmark_model_args = benchmark_model_match[1].split
     benchmark_model_args.delete("--show_flops")
 
     benchmark_model_command = [

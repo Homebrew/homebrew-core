@@ -74,7 +74,7 @@ class Termshark < Formula
     system [
       "#{bin}/termshark -r #{HOMEBREW_TEMP}/termshark-test.pcap",
       " | grep 192.168.44.123",
-    ].join("")
+    ].join
 
     # Pretend to be a tty and run termshark with the temporary pcap. Queue up
     # 'q' and 'enter' to terminate.  Rely on the exit code of termshark, which
@@ -90,13 +90,13 @@ class Termshark < Formula
       "#{bin}/termshark -r #{HOMEBREW_TEMP}/termshark-test.pcap",
       "\\\"',pty,setsid,ctty > /dev/null",
     ]
-    system testcmds.join("")
+    system testcmds.join
 
     # "Scrape" the terminal UI for a specific IP address contained in the test
     # pcap. Since the output contains ansi terminal codes, use the -a flag to
     # grep to ensure it's not treated as binary input.
     testcmds[5] = "\\\"',pty,setsid,ctty | grep -a 192.168.44.123 > /dev/null"
-    system testcmds.join("")
+    system testcmds.join
 
     # Clean up.
     File.delete("#{HOMEBREW_TEMP}/termshark-test.pcap")

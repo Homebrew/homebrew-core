@@ -3,16 +3,16 @@ class Theharvester < Formula
 
   desc "Gather materials from public sources (for pen testers)"
   homepage "http://www.edge-security.com/theharvester.php"
-  url "https://github.com/laramies/theHarvester/archive/3.2.0.tar.gz"
-  sha256 "872cb0d49ca61de259fa5e2743eb26d52154c1dacc974d1365894ab4abf1a1bd"
+  url "https://github.com/laramies/theHarvester/archive/3.2.2.tar.gz"
+  sha256 "597b5fdfccf76a30258d56e9c62dffc56fdd78682f75f2ed5b62b5a703d633b4"
   license "GPL-2.0-only"
   head "https://github.com/laramies/theHarvester.git"
 
   bottle do
     cellar :any
-    sha256 "8ede7178e65a77fefe2f6bb806a350e334a81e38077296c933759132646fb6bc" => :big_sur
-    sha256 "5097a7fbf2a5a0a6fd8718d3510eea17ba0b3b99b79008b01f850248532141ca" => :catalina
-    sha256 "a838c99579ddee4d320ca90e9a092d7075df4e5577482b5b804b3ac2a1510fd0" => :mojave
+    sha256 "004da10e5f04fb2116b54f9a968ee43c0411900eb919912981a1b5650434f3e1" => :big_sur
+    sha256 "cf89c8f5cc56749e4ccce6e2d9d6b24660bdf6513bd08acab447d2b67eafb8ba" => :catalina
+    sha256 "8105bda4a6e4ac00808559e59a5a178835410ee76e709f4a48426dee424928e4" => :mojave
   end
 
   depends_on "libyaml"

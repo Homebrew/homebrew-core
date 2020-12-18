@@ -42,7 +42,7 @@ class Periscope < Formula
 
     # scan + summary is correct
     shell_output "#{bin}/psc scan 2>/dev/null"
-    summary = shell_output("#{bin}/psc summary").strip.split("\n").map { |l| l.strip.split(" ") }
+    summary = shell_output("#{bin}/psc summary").strip.split("\n").map { |l| l.strip.split }
     assert_equal [["tracked", "2"], ["unique", "1"], ["duplicate", "1"], ["overhead", "4", "B"]], summary
 
     # rm allows deleting dupes but not uniques

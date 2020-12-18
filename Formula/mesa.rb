@@ -3,8 +3,8 @@ class Mesa < Formula
 
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://mesa.freedesktop.org/archive/mesa-20.3.0.tar.xz"
-  sha256 "2999738e888731531cd62b27519fa37566cc0ea2cd7d4d97f46abaa3e949c630"
+  url "https://mesa.freedesktop.org/archive/mesa-20.3.1.tar.xz"
+  sha256 "af751b49bb2ab0264d58c31e73d869e80333de02b2d1becc93f1b28c67aa780f"
   license "MIT"
   head "https://gitlab.freedesktop.org/mesa/mesa.git"
 
@@ -13,9 +13,9 @@ class Mesa < Formula
   end
 
   bottle do
-    sha256 "17102cdc4cb95cfbfdc154a5d0412863c22688caa4978cb1c75c02c1be66d0cc" => :big_sur
-    sha256 "083ebe4e77c62675367764e71cb372eda5d03c09960acd3a56b7dbc1fd5ec5d6" => :catalina
-    sha256 "e32052ed6993ee7fd970122ca2c97b9379e616fe4e74cd9987737f30811ebe3b" => :mojave
+    sha256 "5f27f0ebe825e601032269563dc0952469d717c36330f1f7168132142731818a" => :big_sur
+    sha256 "0e11b188a0f24b12fccbfb7e0a20843ac73bfd4184be0a6c4d1f57e0ff942d7d" => :catalina
+    sha256 "5c68d4275cddb201114e2a1f5bf3bba0909e66b5fac3f67388aab0823dcc77eb" => :mojave
   end
 
   depends_on "meson" => :build
@@ -42,6 +42,11 @@ class Mesa < Formula
   resource "gl_wrap.h" do
     url "https://gitlab.freedesktop.org/mesa/demos/-/raw/faaa319d704ac677c3a93caadedeb91a4a74b7a7/src/util/gl_wrap.h"
     sha256 "c727b2341d81c2a1b8a0b31e46d24f9702a1ec55c8be3f455ddc8d72120ada72"
+  end
+
+  patch do
+    url "https://gitlab.freedesktop.org/mesa/mesa/-/commit/50064ad367449afad03c927f7e572c138b05c5d4.patch"
+    sha256 "aa3fa361a8626d442aefdac922a7193612b77cab2410452acee40b6dbc10a800"
   end
 
   def install

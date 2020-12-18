@@ -13,10 +13,10 @@ class Simgrid < Formula
   end
 
   bottle do
-    sha256 "beea9ed8a14d679d2f9aef9be80b61cfe152e0cc1078837ef6c1c1e5f5c04c94" => :big_sur
-    sha256 "f735fe9ac565cd1fe49b9117be9ca64a3a15a8dd69dbbf2a4385a82bfd201b4e" => :catalina
-    sha256 "9fa0989ffe0e2018e105f8a22ab9e9178bc456dd5430d8468866c6b57ed3bf26" => :mojave
-    sha256 "eefddfa608d34b725af614af41a93ca017a761f877257300b182df0f56ad6bfe" => :high_sierra
+    rebuild 1
+    sha256 "263b044587eb968bd376738ed9ffb4f329f4776a7b1873ca23d0d4b155546338" => :big_sur
+    sha256 "d92cfa559b260f2ef1caf1e2d941e25dec386c0456799ddb7677f948c25069b6" => :catalina
+    sha256 "390ad77f58384303c8d687a1ff89992af9d4a2db6254b2661a49e57521a0bced" => :mojave
   end
 
   depends_on "cmake" => :build
@@ -31,11 +31,30 @@ class Simgrid < Formula
     inreplace "src/smpi/smpicc.in", "@CMAKE_C_COMPILER@", "/usr/bin/clang"
     inreplace "src/smpi/smpicxx.in", "@CMAKE_CXX_COMPILER@", "/usr/bin/clang++"
 
+    # FindPythonInterp is broken in CMake 3.19+
+    # REMOVE ME AT VERSION BUMP (after 3.25)
+    # https://framagit.org/simgrid/simgrid/-/issues/59
+    # https://framagit.org/simgrid/simgrid/-/commit/3a987e0a881dc1a0bb5a6203814f7960a5f4b07e
+    inreplace "CMakeLists.txt", "include(FindPythonInterp)", ""
+    python = Formula["python@3.9"]
+    python_version = python.version
+    # We removed CMake's ability to find Python, so we have to point to it ourselves
+    args = %W[
+      -DPYTHONINTERP_FOUND=TRUE
+      -DPYTHON_EXECUTABLE=#{python.opt_bin}/python3
+      -DPYTHON_VERSION_STRING=#{python_version}
+      -DPYTHON_VERSION_MAJOR=#{python_version.major}
+      -DPYTHON_VERSION_MINOR=#{python_version.minor}
+      -DPYTHON_VERSION_PATCH=#{python_version.patch}
+    ]
+    # End of local workaround, remove the above at version bump
+
     system "cmake", ".",
                     "-Denable_debug=on",
                     "-Denable_compile_optimizations=off",
                     "-Denable_fortran=off",
-                    *std_cmake_args
+                    *std_cmake_args,
+                    *args # Part of workaround, remove at version bump
     system "make", "install"
 
     bin.find { |f| rewrite_shebang detected_python_shebang, f }

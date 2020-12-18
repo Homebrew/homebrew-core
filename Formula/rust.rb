@@ -4,22 +4,21 @@ class Rust < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.47.0-src.tar.gz"
-    sha256 "3185df064c4747f2c8b9bb8c4468edd58ff4ad6d07880c879ac1b173b768d81d"
+    url "https://static.rust-lang.org/dist/rustc-1.48.0-src.tar.gz"
+    sha256 "0e763e6db47d5d6f91583284d2f989eacc49b84794d1443355b85c58d67ae43b"
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
-          tag:      "0.47.0",
-          revision: "149022b1d8f382e69c1616f6a46b69ebf59e2dea"
+          tag:      "0.49.0",
+          revision: "65cbdd2dc0b7e877577474b98b7d071308d0bb6f"
     end
   end
 
   bottle do
     cellar :any
-    sha256 "9658dfa0ecf5f57b14223b56d60c4d303db1939174ae3bd9c3aea2918c3fafb6" => :big_sur
-    sha256 "643cb64baa823b8db5e7a4848ec157f45811db9891a641569a3963b0a6d75c6d" => :catalina
-    sha256 "5d24baae2f6e47a826849f61b7ac370dcfd3616802617b41a82501cc576e9e3f" => :mojave
-    sha256 "eba5a173f9a7db88af4999c3ba1743cf564d31f367a5c941147306cb39797ae2" => :high_sierra
+    sha256 "da85eda34441caa60b6a639e5fc4dd23705c8716b4c9c6384b84305e96e4bd8c" => :big_sur
+    sha256 "52aa819637578a4ee9c75fdbc4c449b4d78c932294970d1e2480827d8c07dff0" => :catalina
+    sha256 "edc2eff4e9253ddf0d3f7b5058ee1065d6db584849fe2fdee42930fe77e0a5ca" => :mojave
   end
 
   head do
@@ -31,6 +30,7 @@ class Rust < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "ninja" => :build
   depends_on "python@3.9" => :build
   depends_on "libssh2"
   depends_on "openssl@1.1"
@@ -42,14 +42,14 @@ class Rust < Formula
   resource "cargobootstrap" do
     on_macos do
       # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
-      url "https://static.rust-lang.org/dist/2020-08-27/cargo-0.47.0-x86_64-apple-darwin.tar.gz"
-      sha256 "6e8f3319069dd14e1ef756906fa0ef3799816f1aba439bdeea9d18681c353ad6"
+      url "https://static.rust-lang.org/dist/2020-11-19/cargo-1.48.0-x86_64-apple-darwin.tar.gz"
+      sha256 "ce00d796cf5a9ac8d88d9df94c408e5d7ccd3541932a829eae833cc8e57efb15"
     end
 
     on_linux do
       # From: https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
-      url "https://static.rust-lang.org/dist/2020-08-27/cargo-0.47.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "30e494f3848d0335870698e438eaa22388d3226c9786aa282e4fd41fb9cd164d"
+      url "https://static.rust-lang.org/dist/2020-11-19/cargo-1.48.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "52bf632e337a5e7464cb961766638e30dfa28edb3036428296678d1aaf7d8ede"
     end
   end
 
@@ -78,8 +78,17 @@ class Rust < Formula
     else
       args << "--release-channel=stable"
     end
-    system "./configure", *args
-    system "make"
+    # Cross-compile arm64 with x86_64 bootstrap compiler.
+    if Hardware::CPU.arch == :arm64
+      args << "--build=x86_64-apple-darwin"
+      args << "--host=aarch64-apple-darwin"
+      args << "--target=aarch64-apple-darwin"
+      system "./configure", *args
+      system "arch", "-x86_64", "make"
+    else
+      system "./configure", *args
+      system "make"
+    end
     system "make", "install"
 
     resource("cargobootstrap").stage do

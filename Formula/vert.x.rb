@@ -1,13 +1,13 @@
 class VertX < Formula
   desc "Toolkit for building reactive applications on the JVM"
   homepage "https://vertx.io/"
-  url "https://bintray.com/vertx/downloads/download_file?file_path=vert.x-3.9.4-full.zip"
-  sha256 "ea81f1c64333d2372cc9a628c7a7c3491b4ba5b059558fb84137c5b2bf4ecc9e"
+  url "https://search.maven.org/remotecontent?filepath=io/vertx/vertx-stack-manager/4.0.0/vertx-stack-manager-4.0.0-full.tar.gz"
+  sha256 "e4f95891f2d2775802799eaa01c293e0cc04f93c5fe77edcffbcf020f5db4334"
   license any_of: ["EPL-2.0", "Apache-2.0"]
 
   livecheck do
-    url "https://vertx.io/download/"
-    regex(/href=.*?vert\.x[._-]v?(\d+(?:\.\d+)+)-full\.t/i)
+    url "https://search.maven.org/remotecontent?filepath=io/vertx/vertx-stack-manager/"
+    regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
   bottle :unneeded

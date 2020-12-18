@@ -8,9 +8,10 @@ class GoJsonnet < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "23f5eb16c0d2b90ec651b9fb0e92d7aa1fa457bcde5fa0d4357e1693a93b4718" => :big_sur
-    sha256 "887524b030cf86ef63cef5157e420efda21d14826ad19060aa06c22aa38d1398" => :catalina
-    sha256 "97f7f9d9a73b46f100483396d228b158f6cbdeb85cb9d72406a6319f2ac11791" => :mojave
+    rebuild 1
+    sha256 "e79f3ad29f00746532ded81842fae95a980fba36980e8d6299aa7195eb0de0da" => :big_sur
+    sha256 "9e5ee375c84608de8566d017c9e8a0f9b3806c44156b56650918b78ffc0db9f9" => :catalina
+    sha256 "83baf9f7af774dcdc0fb3484eef18c74d6ee20b2ca1e2c1b37f470c76d8d5d21" => :mojave
   end
 
   depends_on "go" => :build
@@ -20,6 +21,8 @@ class GoJsonnet < Formula
   def install
     system "go", "build", "-o", bin/"jsonnet", "./cmd/jsonnet"
     system "go", "build", "-o", bin/"jsonnetfmt", "./cmd/jsonnetfmt"
+    system "go", "build", "-o", bin/"jsonnet-lint", "./cmd/jsonnet-lint"
+    system "go", "build", "-o", bin/"jsonnet-deps", "./cmd/jsonnet-deps"
   end
 
   test do

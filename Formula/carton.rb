@@ -7,6 +7,10 @@ class Carton < Formula
   revision 2
   head "https://github.com/perl-carton/carton.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "a8346120d0c0c90969deffae1f9f6a62cd801b85d960236a027ac01a66bb8764" => :big_sur

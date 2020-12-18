@@ -15,6 +15,9 @@ class DockerMachineDriverXhyve < Formula
     sha256 "282868271a1e504ca8643bb6507eb2f99f8f8703d64050886e00175182b35668" => :high_sierra
   end
 
+  # xhyve is no longer used by Docker, replaced by hyperkit
+  deprecate! date: "2020-12-18", because: :does_not_build
+
   depends_on "go" => :build
   depends_on "docker-machine"
 

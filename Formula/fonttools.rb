@@ -3,16 +3,16 @@ class Fonttools < Formula
 
   desc "Library for manipulating fonts"
   homepage "https://github.com/fonttools/fonttools"
-  url "https://files.pythonhosted.org/packages/d0/82/7508f35aa3a13a07d9e28785797db3189a0dd9a2366a6314591074f811f3/fonttools-4.18.1.zip"
-  sha256 "9054ec33beb043d7d5bd48a7964eb9f8a42464de9f9a335768de4ee183e64551"
+  url "https://files.pythonhosted.org/packages/3d/f9/ebd619f1393d4536bbf4becb9ffc41d95d01b38441244b28fa39b827db4a/fonttools-4.18.2.zip"
+  sha256 "5c50af6fb9b4de4609c0e5558f3444c20f8632aa319319a7ef14fd5ba677c9f8"
   license "MIT"
   head "https://github.com/fonttools/fonttools.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3a9f36af7ec6c64152dfd95f875fe00d3a3e11a7b1b1bb80425ac8bb435aa19f" => :big_sur
-    sha256 "a10eb2cbd10dcee3579acd1c7ad6a4cee20d3843883f9b2a957cde9a5dffe3b6" => :catalina
-    sha256 "8e85e062949689308c138692222e140a29a8ccb21da7349936fcb5498c082667" => :mojave
+    sha256 "2fc8e51466b4fc346c8ce3780692c1176a266b9d6aadbc16a748725684e89495" => :big_sur
+    sha256 "98704bad103b75973589ab1eb1e488509394430e0dd7f226ff67dfadd246800e" => :catalina
+    sha256 "a4a4710e08590d88df88822ec506a34adbc6cd95d17e10f542300f52c155f62b" => :mojave
   end
 
   depends_on "python@3.9"

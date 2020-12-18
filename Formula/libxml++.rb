@@ -3,6 +3,7 @@ class Libxmlxx < Formula
   homepage "https://libxmlplusplus.sourceforge.io/"
   url "https://download.gnome.org/sources/libxml++/2.42/libxml++-2.42.0.tar.xz"
   sha256 "3d032aede98a033eb5e815b4bfa9fa7b4e745268e6fd1ce8b1d0f70bcaf4736d"
+  license "LGPL-2.1-or-later"
 
   livecheck do
     url :stable

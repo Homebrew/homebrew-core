@@ -8,15 +8,23 @@ class Stern < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e2ef4eb2ba0ef91c0b687801b2d36eeecad1c4bfdba0d547c30bad07cb24ec4a" => :big_sur
-    sha256 "161fa35aea584ef3065d55441602e6a453bc2b55deb52691b5bd23eb4a9bdbfa" => :catalina
-    sha256 "4a520ca8ac031e5bfe72ebab6d535f5d0d15918ff0e23348df66694050f92c6e" => :mojave
+    rebuild 1
+    sha256 "fcb10818d0cbb75c642f304c81d22176a010a42ee60a9c4a1853129380ae5805" => :big_sur
+    sha256 "f42887e06595cc6f75e4600860f7795c71b5582476307c5222d612aed2a8c018" => :catalina
+    sha256 "f2bcd849ee63b84a23c8d2ed75ad123d70af5d73a7456feba9c332399f42658f" => :mojave
   end
 
   depends_on "go" => :build
 
   def install
     system "go", "build", "-ldflags", "-s -w -X github.com/stern/stern/cmd.version=#{version}", *std_go_args
+
+    # Install shell completion
+    output = Utils.safe_popen_read("#{bin}/stern", "--completion=bash")
+    (bash_completion/"stern").write output
+
+    output = Utils.safe_popen_read("#{bin}/stern", "--completion=zsh")
+    (zsh_completion/"_stern").write output
   end
 
   test do
