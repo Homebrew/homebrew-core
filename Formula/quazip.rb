@@ -3,7 +3,9 @@ class Quazip < Formula
   homepage "https://github.com/stachenov/quazip/"
   url "https://github.com/stachenov/quazip/archive/v1.1.tar.gz"
   sha256 "54edce9c11371762bd4f0003c2937b5d8806a2752dd9c0fd9085e90792612ad0"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later" => {
+    with: "Classpath-exception-2.0",
+  }
 
   bottle do
     cellar :any
