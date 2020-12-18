@@ -3,6 +3,7 @@ class ShibbolethSp < Formula
   homepage "https://wiki.shibboleth.net/confluence/display/SHIB2"
   url "https://shibboleth.net/downloads/service-provider/3.2.0/shibboleth-sp-3.2.0.tar.bz2"
   sha256 "639939ee8a7bfc3790e10be92695b35465cd9c89e83a1005c4667ca3d7d66fea"
+  license "Apache-2.0"
 
   livecheck do
     url "https://shibboleth.net/downloads/service-provider/latest/"
