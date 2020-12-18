@@ -7,6 +7,11 @@ class DockerMachineDriverXhyve < Formula
   license "BSD-3-Clause"
   head "https://github.com/machine-drivers/docker-machine-driver-xhyve.git"
 
+  # xhyve is no longer used by Docker. 
+  # It was introduced with 10.9 or 10.10 to take advantage of macOS' new Hyperkit.framework. 
+  # Docker replaced it with hyperkit (which is based on xhyve and maintained).
+  disable! date: "2020-12-18", because: :does_not_build
+
   bottle do
     cellar :any_skip_relocation
     rebuild 1
