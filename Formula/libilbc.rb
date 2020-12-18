@@ -1,8 +1,8 @@
 class Libilbc < Formula
   desc "Packaged version of iLBC codec from the WebRTC project"
   homepage "https://github.com/TimothyGu/libilbc"
-  url "https://github.com/TimothyGu/libilbc/releases/download/v2.0.2/libilbc-2.0.2.tar.gz"
-  sha256 "84d5c99087a35bda3463bcb993245b4f8c28c04fe037215a5ec56570f68ce519"
+  url "https://github.com/TimothyGu/libilbc/releases/download/v3.0.2/libilbc-3.0.2.tar.gz"
+  sha256 "e82cbc41c8c84c0828af869a9c6bbb62e06dece0d17d069c8b9db95082f0a4ce"
   license "BSD-3-Clause"
 
   bottle do
