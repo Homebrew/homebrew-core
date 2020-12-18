@@ -17,5 +17,5 @@ class PictaDl < Formula
   
   test do
     assert_match version, shell_output("picta-dl")
-    end
   end
+end
