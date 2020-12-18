@@ -1,9 +1,8 @@
 class PictaDl < Formula
-  version "2020.12.14"  
+  version "2020.12.14"
   desc "Download videos from Picta.cu Plataforma de Contenidos Audiovisuales"
   homepage "https://github.com/oleksis/picta-dl/"
   url "https://github.com/oleksis/picta-dl/archive/v#{version}.zip"
-  sha256 ""
   license "Unlicense"
   
   depends_on "python@3.9"
