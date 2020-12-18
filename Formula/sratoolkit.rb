@@ -1,8 +1,8 @@
 class Sratoolkit < Formula
   desc "Data tools for INSDC Sequence Read Archive"
   homepage "https://github.com/ncbi/sra-tools"
-  url "https://github.com/ncbi/sra-tools/archive/2.10.8.tar.gz"
-  sha256 "4adb969a9a998f6a50020f99aa66f6ae27916f7dc83ddf6722fc0fea4a3a4d17"
+  url "https://github.com/ncbi/sra-tools/archive/2.10.9.tar.gz"
+  sha256 "9f9f31cd861bb52a49114c553ea38a0166e4e161345f12c364167865f4dbdaae"
   head "https://github.com/ncbi/sra-tools.git"
 
   bottle do
@@ -59,13 +59,13 @@ class Sratoolkit < Formula
   end
 
   resource "ngs-sdk" do
-    url "https://github.com/ncbi/ngs/archive/2.10.8.tar.gz"
-    sha256 "f20fae21439b69b6a3573c864a175e0f9aa47ca6dd12bea15e429b7c5a9b81b5"
+    url "https://github.com/ncbi/ngs/archive/2.10.9.tar.gz"
+    sha256 "1372695af5ac2599c9dad0b8cdce857c95c7827ff831a6709343276a29438b1e"
   end
 
   resource "ncbi-vdb" do
-    url "https://github.com/ncbi/ncbi-vdb/archive/2.10.8.tar.gz"
-    sha256 "7a593aa22584db9443bb56ac01409707bca01b8f9601fe530dac81b73f1a44df"
+    url "https://github.com/ncbi/ncbi-vdb/archive/2.10.9.tar.gz"
+    sha256 "3707f81412dbf6ce2b29d3e65e364116c86acc534543e5a084cf8a666b81960d"
   end
 
   def install
