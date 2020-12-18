@@ -4,10 +4,9 @@ class Networkit < Formula
   desc "Performance toolkit for large-scale network analysis"
   homepage "https://networkit.github.io"
   url "https://github.com/networkit/networkit.git",
-      tag:      "7.1",
-      revision: "4c6dcc4367b51005a34221242048609c357ffbd6"
+      tag:      "8.0",
+      revision: "bdbb926e7d3102c32a3fc54d4cfa769bfac822f4"
   license "MIT"
-  revision 1
 
   bottle do
     sha256 "23f70cc4fa3dc267391415b12f871ef39e27cca750e2e3a638b9075075ef4314" => :arm64_big_sur
