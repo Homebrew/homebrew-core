@@ -3,6 +3,7 @@ class Opensaml < Formula
   homepage "https://wiki.shibboleth.net/confluence/display/OpenSAML/Home"
   url "https://shibboleth.net/downloads/c++-opensaml/3.2.0/opensaml-3.2.0.tar.bz2"
   sha256 "8c3ba09febcb622f930731f8766e57b3c154987e8807380a4228fbf90e6e1441"
+  license "Apache-2.0"
 
   livecheck do
     url "https://shibboleth.net/downloads/c++-opensaml/latest/"
