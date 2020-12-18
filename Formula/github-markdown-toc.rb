@@ -14,12 +14,6 @@ class GithubMarkdownToc < Formula
 
   depends_on "go" => :build
 
-  # remove in next release
-  patch do
-    url "https://github.com/chenrui333/github-markdown-toc.go/commit/0870681.patch?full_index=1"
-    sha256 "e7e316610b05dbb8c31acf3cbf10a39078a1620875a93cad3c76159a5f96a257"
-  end
-
   def install
     system "go", "build", *std_go_args, "-o", bin/"gh-md-toc"
   end
