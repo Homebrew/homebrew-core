@@ -5,6 +5,11 @@ class Pugixml < Formula
   sha256 "9dce9f0a3756c5ab84ab7466c99972d030021d81d674f5d38b9e30e9a3ec4922"
   license "MIT"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "5d7799fddd33ce3760df300562b251806a3560719b71f1e9ca4203b3bd61d2d1" => :big_sur
