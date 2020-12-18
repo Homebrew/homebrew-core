@@ -3,6 +3,7 @@ class XmlToolingC < Formula
   homepage "https://wiki.shibboleth.net/confluence/display/OpenSAML/XMLTooling-C"
   url "https://shibboleth.net/downloads/c++-opensaml/3.2.0/xmltooling-3.2.0.tar.bz2"
   sha256 "635ce0e912d8fbd450103c274237067923efac3e1b3662b4d3040f3ac5eb2e86"
+  license "Apache-2.0"
 
   livecheck do
     url "https://shibboleth.net/downloads/c++-opensaml/latest/"
