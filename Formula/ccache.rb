@@ -17,7 +17,18 @@ class Ccache < Formula
   depends_on "zstd"
 
   def install
-    system "cmake", ".", *std_cmake_args
+    # ccache SIMD checks are broken in 4.1, disable manually for now:
+    # https://github.com/ccache/ccache/pull/735
+    extra_args = []
+    if Hardware::CPU.arm?
+      extra_args << "-DHAVE_C_SSE2=0"
+      extra_args << "-DHAVE_C_SSE41=0"
+      extra_args << "-DHAVE_AVX2=0"
+      extra_args << "-DHAVE_C_AVX2=0"
+      extra_args << "-DHAVE_C_AVX512=0"
+    end
+
+    system "cmake", ".", *extra_args, *std_cmake_args
     system "make", "install"
 
     libexec.mkpath
