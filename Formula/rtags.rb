@@ -7,6 +7,11 @@ class Rtags < Formula
   license "GPL-3.0"
   head "https://github.com/Andersbakken/rtags.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     cellar :any
     sha256 "8412892ed1cfce17e4575a7bad34fd208fcc80d44b263460bb75c2d8d9346f3c" => :big_sur
