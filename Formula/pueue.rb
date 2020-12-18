@@ -15,12 +15,6 @@ class Pueue < Formula
 
   depends_on "rust" => :build
 
-  # remove in next release
-  patch do
-    url "https://github.com/Nukesor/pueue/commit/4a3c21953c0fe7553f4b0347d9012f997bd6b840.patch?full_index=1"
-    sha256 "bd9cc57aef24c2c84681b020beff1c8560a8ac14910aa789db3cc669ba7fd842"
-  end
-
   def install
     system "cargo", "install", *std_cargo_args
 
