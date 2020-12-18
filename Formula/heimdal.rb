@@ -54,6 +54,7 @@ class Heimdal < Formula
       --enable-pthread-support
       --disable-afs-support
       --disable-ndbm-db
+      --disable-heimdal-documentation
       --with-openldap=#{Formula["openldap"].opt_prefix}
       --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
       --with-hcrypto-default-backend=ossl
