@@ -1,9 +1,9 @@
 class Texmath < Formula
   desc "Haskell library for converting LaTeX math to MathML"
   homepage "https://johnmacfarlane.net/texmath.html"
-  url "https://hackage.haskell.org/package/texmath-0.12.0.2/texmath-0.12.0.2.tar.gz"
-  sha256 "2fec285a2266e56bba17914c122045f31b38de3efcd202dcf32a4f8b830bd184"
-  license "GPL-2.0"
+  url "https://hackage.haskell.org/package/texmath-0.12.0.3/texmath-0.12.0.3.tar.gz"
+  sha256 "318771c696dfa4fc57edf984f3aa35f0cb1792119cf2e27601b6267d9e1d4918"
+  license "GPL-2.0-only"
 
   livecheck do
     url :stable
@@ -21,7 +21,7 @@ class Texmath < Formula
 
   def install
     system "cabal", "v2-update"
-    system "cabal", "v2-install", *std_cabal_v2_args
+    system "cabal", "v2-install", *std_cabal_v2_args, "-fexecutable"
   end
 
   test do
