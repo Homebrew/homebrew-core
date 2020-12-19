@@ -381,12 +381,16 @@ class PythonAT39 < Formula
     # Check if sqlite is ok, because we build with --enable-loadable-sqlite-extensions
     # and it can occur that building sqlite silently fails if OSX's sqlite is used.
     system "#{bin}/python#{version.major_minor}", "-c", "import sqlite3"
+
     # Check if some other modules import. Then the linked libs are working.
-    on_macos do
-      system "#{bin}/python#{version.major_minor}", "-c", "import tkinter; root = tkinter.Tk()"
-    end
     system "#{bin}/python#{version.major_minor}", "-c", "import _gdbm"
     system "#{bin}/python#{version.major_minor}", "-c", "import zlib"
+    on_macos do
+      # Temporary failure on macOS 11.1 due to https://bugs.python.org/issue42480
+      # Reenable unconditionnaly once Apple fixes the Tcl/Tk issue
+      system "#{bin}/python#{version.major_minor}", "-c", "import tkinter; root = tkinter.Tk()" if MacOS.full_version < "11.1"
+    end
+
     system bin/"pip3", "list", "--format=columns"
   end
 end
