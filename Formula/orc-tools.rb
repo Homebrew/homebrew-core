@@ -7,6 +7,8 @@ class OrcTools < Formula
 
   bottle :unneeded
 
+  depends_on "openjdk"
+
   def install
     libexec.install "orc-tools-#{version}-uber.jar"
     bin.write_jar_script libexec/"orc-tools-#{version}-uber.jar", "orc-tools"
