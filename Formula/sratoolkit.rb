@@ -3,6 +3,7 @@ class Sratoolkit < Formula
   homepage "https://github.com/ncbi/sra-tools"
   url "https://github.com/ncbi/sra-tools/archive/2.10.9.tar.gz"
   sha256 "9f9f31cd861bb52a49114c553ea38a0166e4e161345f12c364167865f4dbdaae"
+  license all_of: [:public_domain, "GPL-3.0-or-later", "MIT"]
   head "https://github.com/ncbi/sra-tools.git"
 
   bottle do
