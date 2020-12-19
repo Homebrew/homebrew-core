@@ -4,6 +4,7 @@ class Arb < Formula
   url "https://github.com/fredrik-johansson/arb/archive/2.19.0.tar.gz"
   sha256 "0aec6b492b6e9a543bdb3287a91f976951e2ba74fd4de942e692e21f7edbcf13"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/fredrik-johansson/arb.git"
 
   bottle do
