@@ -3,7 +3,7 @@ class Texmath < Formula
   homepage "https://johnmacfarlane.net/texmath.html"
   url "https://hackage.haskell.org/package/texmath-0.12.0.3/texmath-0.12.0.3.tar.gz"
   sha256 "318771c696dfa4fc57edf984f3aa35f0cb1792119cf2e27601b6267d9e1d4918"
-  license "GPL-2.0-only"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :stable
