@@ -21,12 +21,6 @@ class AppscaleTools < Formula
   uses_from_macos "libffi"
   uses_from_macos "ssh-copy-id"
 
-  # Python 2 needs setuptools < 45.0.0 (https://github.com/pypa/setuptools/issues/2094)
-  resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/b2/40/4e00501c204b457f10fe410da0c97537214b2265247bc9a5bc6edd55b9e4/setuptools-44.1.1.zip"
-    sha256 "c67aa55db532a0dadc4d2e20ba9961cbd3ccc84d544e9029699822542b5a476b"
-  end
-
   resource "adal" do
     url "https://files.pythonhosted.org/packages/ae/8d/530a05e4e21759a3bd59ed75aed73056398906999e23a7a758c714d87762/adal-1.2.5.tar.gz"
     sha256 "8003ba03ef04170195b3eddda8a5ab43649ef2c5f0287023d515affb1ccfcfc3"
@@ -35,6 +29,11 @@ class AppscaleTools < Formula
   resource "appscale-agents" do
     url "https://files.pythonhosted.org/packages/ae/98/c03c30e991b4ff6729937578b33ce2c54e9272384a134e09615449d8182f/appscale-agents-3.8.1.tar.gz"
     sha256 "a6a962e3e1caa852a7b9855778b0df4ee6804a112a5fb08f073bf611c9c91f59"
+  end
+
+  resource "argparse" do
+    url "https://files.pythonhosted.org/packages/18/dd/e617cfc3f6210ae183374cd9f6a26b20514bbb5a792af97949c5aacddf0f/argparse-1.4.0.tar.gz"
+    sha256 "62b089a55be1d8949cd2bc7e0df0bddb9e028faefc8c32038cc84862aefdd6e4"
   end
 
   resource "azure" do
@@ -412,6 +411,11 @@ class AppscaleTools < Formula
     sha256 "4d4631f6062e658e9007ab3149a9b914f3548cb38bfb021c64f39a025ce578ae"
   end
 
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/dc/8c/7c9869454bdc53e72fb87ace63eac39336879eef6f2bf96e946edbf03e90/setuptools-33.1.1.zip"
+    sha256 "6b20352ed60ba08c43b3611bdb502286f7a869fbfcf472f40d7279f1e77de145"
+  end
+
   resource "six" do
     url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
     sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
@@ -467,7 +471,8 @@ class AppscaleTools < Formula
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
+    vendor_site_packages = libexec/"vendor/lib/python2.7/site-packages"
+    ENV.prepend_create_path "PYTHONPATH", vendor_site_packages
     resources.each do |r|
       r.stage do
         system "python", *Language::Python.setup_install_args(libexec/"vendor")
@@ -478,8 +483,16 @@ class AppscaleTools < Formula
     ENV.prepend_create_path "PYTHONPATH", site_packages
     system "python", *Language::Python.setup_install_args(libexec)
 
-    # appscale is a namespace package
-    touch site_packages/"appscale/__init__.py"
+    # python2 doesn't play nicely with packages namespaces
+    namespace_import_workaround = <<~EOS
+      if __name__ != '__main__':
+        try:
+          __import__('pkg_resources').declare_namespace(__name__)
+        except ImportError:
+          __path__ = __import__('pkgutil').extend_path(__path__, __name__)
+    EOS
+    (vendor_site_packages/"appscale/__init__.py").write namespace_import_workaround
+    (site_packages/"appscale/__init__.py").write namespace_import_workaround
 
     bin.install Dir[libexec/"bin/*"]
     bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
