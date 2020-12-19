@@ -52,6 +52,6 @@ class Ola < Formula
   end
 
   test do
-    system bin/"ola_dev_info"
+    system bin/"ola_plugin_info"
   end
 end
