@@ -17,11 +17,13 @@ class Libilbc < Formula
     sha256 "7aa8495e4050ea38152ec218452d6fac97387ad385a6d63806238e838664471b" => :mavericks
   end
 
+  depends_on "cmake" => :build
+
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON"
+      system "make", "install"
+    end
   end
 
   test do
