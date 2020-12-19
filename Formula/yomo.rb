@@ -5,9 +5,6 @@ class Yomo < Formula
   sha256 "309095eadd8f1d8230a79ad47aa20728edcde55089077f210f06fa8a11627760"
   license "Apache-2.0"
 
-  bottle do
-  end
-
   depends_on "go" => :build
 
   def install
@@ -16,6 +13,7 @@ class Yomo < Formula
   end
 
   test do
-    assert_equal "Run a YoMo Serverless Function in development mode", shell_output("#{bin}/yomo -h").lines.first.chomp
+    assert_equal "Run a YoMo Serverless Function in development mode",
+    shell_output("#{bin}/yomo -h").lines.first.chomp
   end
 end
