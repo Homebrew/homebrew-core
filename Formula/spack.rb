@@ -6,6 +6,11 @@ class Spack < Formula
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/spack/spack.git", branch: "develop"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle :unneeded
 
   depends_on "python@3.9"
