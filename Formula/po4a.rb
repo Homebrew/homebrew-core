@@ -5,9 +5,9 @@ class Po4a < Formula
 
   desc "Documentation translation maintenance tool"
   homepage "https://po4a.org"
-  url "https://github.com/mquinson/po4a/releases/download/v0.61/po4a-0.61.tar.gz"
-  sha256 "62954cb0537eff33124a45fa194ae3b92552ee6f6eef74f4953a577f640b86db"
-  license "GPL-2.0"
+  url "https://github.com/mquinson/po4a/releases/download/v0.62/po4a-0.62.tar.gz"
+  sha256 "0eb510a66f59de68cf7a205342036cc9fc08b39334b91f1456421a5f3359e68b"
+  license "GPL-2.0-or-later"
   head "https://github.com/mquinson/po4a.git"
 
   bottle do
@@ -19,8 +19,9 @@ class Po4a < Formula
 
   depends_on "docbook-xsl" => :build
   depends_on "gettext"
-
-  uses_from_macos "perl"
+  # Term::ReadKey will not build using system perl on Big Sur, so we use Homebrew perl.
+  # If this changes, we can switch back.
+  depends_on "perl"
 
   resource "Locale::gettext" do
     url "https://cpan.metacpan.org/authors/id/P/PV/PVANDRY/gettext-1.07.tar.gz"
@@ -28,8 +29,6 @@ class Po4a < Formula
   end
 
   resource "Module::Build" do
-    # po4a requires Module::Build v0.4200 and above, while standard
-    # MacOS Perl installation has 0.4003
     url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4231.tar.gz"
     sha256 "7e0f4c692c1740c1ac84ea14d7ea3d8bc798b2fb26c09877229e04f430b2b717"
   end
@@ -71,11 +70,21 @@ class Po4a < Formula
     resources.each do |r|
       r.stage do
         system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}", "NO_MYMETA=1"
+
+        # Work around restriction on 10.15+ where .bundle files cannot be loaded
+        # from a relative path -- while in the middle of our build we need to
+        # refer to them by their full path.  Workaround adapted from:
+        #   https://github.com/fink/fink-distributions/issues/461#issuecomment-563331868
+        inreplace "Makefile", "blib/", "$(shell pwd)/blib/" if r.name == "TermReadKey"
+
         system "make", "install"
       end
     end
 
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
+
+    # This can be removed once po4a updates to 0.63
+    inreplace "Po4aBuilder.pm", "PERL5LIB=lib perl", "perl -Ilib"
 
     system "perl", "Build.PL", "--install_base", libexec
     system "./Build"
