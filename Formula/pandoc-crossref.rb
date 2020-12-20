@@ -1,8 +1,8 @@
 class PandocCrossref < Formula
   desc "Pandoc filter for numbering and cross-referencing"
   homepage "https://github.com/lierdakil/pandoc-crossref"
-  url "https://hackage.haskell.org/package/pandoc-crossref-0.3.8.4/pandoc-crossref-0.3.8.4.tar.gz"
-  sha256 "4b0b6607271be348b2b9494ea3c3a294915172dedea31b15dce2d56cacb81d25"
+  url "https://hackage.haskell.org/package/pandoc-crossref-0.3.9.0/pandoc-crossref-0.3.9.0.tar.gz"
+  sha256 "88883763f9b73e17538edec6ec05eae8119a3b5b5a473bc8183e2d42f3df1da2"
   license "GPL-2.0-or-later"
 
   livecheck do
