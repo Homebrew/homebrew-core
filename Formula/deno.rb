@@ -41,11 +41,14 @@ class Deno < Formula
       system "cargo", "install", "-vv", *std_cargo_args
     end
 
-    # Install bash and zsh completion
-    output = Utils.safe_popen_read("#{bin}/deno", "completions", "bash")
-    (bash_completion/"deno").write output
-    output = Utils.safe_popen_read("#{bin}/deno", "completions", "zsh")
-    (zsh_completion/"_deno").write output
+    bash_output = Utils.safe_popen_read("#{bin}/deno", "completions", "bash")
+    (bash_completion/"deno").write bash_output
+
+    zsh_output = Utils.safe_popen_read("#{bin}/deno", "completions", "zsh")
+    (zsh_completion/"_deno").write zsh_output
+
+    fish_output = Utils.safe_popen_read("#{bin}/deno", "completions", "fish"
+    (fish_completion/"deno.fish").write fish_output
   end
 
   test do
