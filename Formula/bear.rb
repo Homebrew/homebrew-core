@@ -3,10 +3,9 @@ class Bear < Formula
 
   desc "Generate compilation database for clang tooling"
   homepage "https://github.com/rizsotto/Bear"
-  url "https://github.com/rizsotto/Bear/archive/2.4.4.tar.gz"
-  sha256 "5e95c9fe24714bcb98b858f0f0437aff76ad96b1d998940c0684c3a9d3920e82"
+  url "https://github.com/rizsotto/Bear/archive/3.0.4.tar.gz"
+  sha256 "b6cc49ad54684a5915bffa285d0d576b6a3f827deb40e2268b66e7c607d08959"
   license "GPL-3.0-or-later"
-  revision 1
   head "https://github.com/rizsotto/Bear.git"
 
   bottle do
@@ -18,11 +17,24 @@ class Bear < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
+  depends_on "grpc"
+  depends_on "protobuf"
   depends_on "python@3.9"
+
+  if MacOS.version <= :mojave
+    depends_on "gcc"
+    fails_with :clang do
+      cause "'path' is unavailable in c++ < 17: introduced in macOS 10.15"
+    end
+  end
 
   def install
     args = std_cmake_args + %W[
       -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
+      -DCMAKE_CXX_STANDARD=17
+      -DENABLE_UNIT_TESTS=OFF
+      -DENABLE_FUNC_TESTS=OFF
     ]
     system "cmake", ".", *args
     system "make", "install"
