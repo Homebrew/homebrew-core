@@ -9,7 +9,6 @@ class Attr < Formula
   depends_on :linux
 
   def install
-    ENV.append "LDFLAGS", "-lintl"
     system "./configure",
            "--disable-debug",
            "--disable-dependency-tracking",
