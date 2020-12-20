@@ -42,7 +42,8 @@ class Krb5 < Formula
                             "--disable-dependency-tracking",
                             "--disable-silent-rules",
                             "--prefix=#{prefix}",
-                            "--without-system-verto"
+                            "--without-system-verto",
+                            "--without-keyutils"
       system "make"
       system "make", "install"
     end
