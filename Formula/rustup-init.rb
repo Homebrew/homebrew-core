@@ -20,7 +20,7 @@ class RustupInit < Formula
     ENV["CARGO_HOME"] = cargo_home
 
     system "cargo", "install", "--features", "no-self-update", *std_cargo_args
-    
+
     bash_output = Utils.safe_popen_read("#{bin}/rustup", "completions", "bash")
     (bash_completion/"rustup").write bash_output
 
