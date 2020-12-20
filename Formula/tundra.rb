@@ -18,13 +18,11 @@ class Tundra < Formula
     sha256 "065e6fc51e912585a278de152b5b149c1d86fc6dd3843d5add5b0a0230c6b118" => :high_sierra
   end
 
-  resource "gtest" do
-    url "https://github.com/google/googletest/archive/release-1.10.0.tar.gz"
-    sha256 "9dc9157a9a1551ec7a7e43daea9a694a0bb5fb8bec81235d8a1e6ef64c716dcb"
-  end
+  depends_on "googletest" => :build
 
   def install
-    (buildpath/"unittest/googletest").install resource("gtest")
+    ENV.append "CFLAGS", "-I#{Formula["googletest"].opt_include}/googletest/googletest"
+
     system "make"
     system "make", "install", "PREFIX=#{prefix}"
   end
