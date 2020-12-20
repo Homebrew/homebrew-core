@@ -6,7 +6,9 @@ class GlibmmAT264 < Formula
   license "LGPL-2.1-or-later"
 
   livecheck do
-    url :stable
+    url "https://download.gnome.org/sources/glibmm/2.64/"
+    strategy :page_match
+    regex(/href=.*?glibmm[._-]v?(2\.64(?:\.\d+)+)\.t/i)
   end
 
   bottle do
