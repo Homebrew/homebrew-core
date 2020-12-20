@@ -21,7 +21,7 @@ class RustupInit < Formula
 
     system "cargo", "install", "--features", "no-self-update", *std_cargo_args
     
-    bash_output = Utils.safe_popen_read("#{bin}/rustup", "completions", "bash"
+    bash_output = Utils.safe_popen_read("#{bin}/rustup", "completions", "bash")
     (bash_completion/"rustup").write bash_output
 
     zsh_output = Utils.safe_popen_read("#{bin}/rustup", "completions", "zsh")
