@@ -1,8 +1,8 @@
 class F3d < Formula
   desc "Fast and minimalist 3D viewer"
   homepage "https://kitware.github.io/F3D/"
-  url "https://gitlab.kitware.com/f3d/f3d/-/archive/v1.0.1/f3d-v1.0.1.tar.gz"
-  sha256 "fb362dba3ccf49db9e8841d8a5310f37399bfea8866b6e040ce85670d54b97f7"
+  url "https://gitlab.kitware.com/f3d/f3d/-/archive/v1.1.0/f3d-v1.1.0.tar.gz"
+  sha256 "93aa9759efcc4e77beac4568280aaeaca21bfb233d3c9f60262207ca595bde79"
   license "BSD-3-Clause"
 
   bottle do
@@ -16,12 +16,6 @@ class F3d < Formula
   depends_on "vtk"
 
   def install
-    # Is fixed upstream, remove this line for v1.1
-    inreplace "src/F3DOptions.cxx",
-      "directoryPath = vtksys::SystemTools::GetProgramPath(programFilePath);",
-      "programFilePath = vtksys::SystemTools::GetRealPath(programFilePath);" \
-      "directoryPath = vtksys::SystemTools::GetProgramPath(programFilePath);"
-
     args = std_cmake_args + %W[
       -DMACOSX_BUILD_BUNDLE:BOOL=OFF
       -DBUILD_SHARED_LIBS:BOOL=ON
