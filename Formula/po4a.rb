@@ -19,9 +19,8 @@ class Po4a < Formula
 
   depends_on "docbook-xsl" => :build
   depends_on "gettext"
-  # Term::ReadKey will not build using system perl on Big Sur, so we use Homebrew perl.
-  # If this changes, we can switch back.
-  depends_on "perl"
+
+  uses_from_macos "perl"
 
   resource "Locale::gettext" do
     url "https://cpan.metacpan.org/authors/id/P/PV/PVANDRY/gettext-1.07.tar.gz"
@@ -29,6 +28,8 @@ class Po4a < Formula
   end
 
   resource "Module::Build" do
+    # po4a requires Module::Build v0.4200 and above, while standard
+    # MacOS Perl installation has 0.4003
     url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4231.tar.gz"
     sha256 "7e0f4c692c1740c1ac84ea14d7ea3d8bc798b2fb26c09877229e04f430b2b717"
   end
@@ -43,7 +44,7 @@ class Po4a < Formula
     sha256 "550c9245291c8df2242f7e88f7921a0f636c7eec92c644418e7d89cfea70b2bd"
   end
 
-  resource "Term::ReadKey" do
+  resource "TermReadKey" do
     url "https://cpan.metacpan.org/authors/id/J/JS/JSTOWE/TermReadKey-2.38.tar.gz"
     sha256 "5a645878dc570ac33661581fbb090ff24ebce17d43ea53fd22e105a856a47290"
   end
@@ -82,10 +83,7 @@ class Po4a < Formula
     end
 
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
-
-    # This can be removed once po4a updates to 0.63
-    inreplace "Po4aBuilder.pm", "PERL5LIB=lib perl", "perl -Ilib"
-
+    
     system "perl", "Build.PL", "--install_base", libexec
     system "./Build"
     system "./Build", "install"
