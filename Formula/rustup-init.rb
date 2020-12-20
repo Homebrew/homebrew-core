@@ -27,7 +27,7 @@ class RustupInit < Formula
     zsh_output = Utils.safe_popen_read("#{bin}/rustup", "completions", "zsh")
     (zsh_completion/"_rustup").write zsh_output
 
-    fish_output = Utils.safe_popen_read("#{bin}/rustup", "completions", "fish"
+    fish_output = Utils.safe_popen_read("#{bin}/rustup", "completions", "fish")
     (fish_completion/"rustup.fish").write fish_output
   end
 
