@@ -6,6 +6,11 @@ class Volta < Formula
       revision: "3594af004be527ec007918ddaa52c477ec9d2394"
   license "BSD-2-Clause"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "1f8252db32da052bd833de2f3e71bfd73b9c35e8b45e18c59130de3e60f73970" => :big_sur
