@@ -47,7 +47,7 @@ class Deno < Formula
     zsh_output = Utils.safe_popen_read("#{bin}/deno", "completions", "zsh")
     (zsh_completion/"_deno").write zsh_output
 
-    fish_output = Utils.safe_popen_read("#{bin}/deno", "completions", "fish"
+    fish_output = Utils.safe_popen_read("#{bin}/deno", "completions", "fish")
     (fish_completion/"deno.fish").write fish_output
   end
 
