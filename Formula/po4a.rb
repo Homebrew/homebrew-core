@@ -83,7 +83,7 @@ class Po4a < Formula
     end
 
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
- 
+
     system "perl", "Build.PL", "--install_base", libexec
     system "./Build"
     system "./Build", "install"
