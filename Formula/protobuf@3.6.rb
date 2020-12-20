@@ -19,6 +19,7 @@ class ProtobufAT36 < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "cmake" => :build
+  depends_on "googletest" => :build
   depends_on "libtool" => :build
   depends_on "python@3.9"
 
@@ -27,18 +28,8 @@ class ProtobufAT36 < Formula
     sha256 "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
   end
 
-  resource "gtest" do
-    url "https://github.com/google/googletest/archive/release-1.8.1.tar.gz"
-    sha256 "9bf1fe5182a604b4135edc1a425ae356c9ad15e9b23f9f12a02e80184c3a249c"
-  end
-
   def install
-    (buildpath/"gtest").install resource "gtest"
-    (buildpath/"gtest/googletest").cd do
-      system "cmake", ".", *std_cmake_args
-      system "make"
-    end
-    ENV["CXXFLAGS"] = "-I../gtest/googletest/include"
+    ENV["CXXFLAGS"] = "-I#{Formula["googletest"].opt_include}"
 
     # Don't build in debug mode. See:
     # https://github.com/Homebrew/homebrew/issues/9279
