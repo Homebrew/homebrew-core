@@ -14,7 +14,7 @@ class Xcbeautify < Formula
     sha256 "c1c8db06d34a1d8cea60edf06143abe926b89715539f4b66d4377d25a93e2e02" => :mojave
   end
 
-  depends_on xcode: ["10.0", :build]
+  depends_on xcode: ["11.4", :build]
 
   def install
     system "swift", "build", "--disable-sandbox", "--configuration", "release"
