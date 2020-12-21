@@ -5,6 +5,11 @@ class Daemontools < Formula
   sha256 "a55535012b2be7a52dcd9eccabb9a198b13be50d0384143bd3b32b8710df4c1f"
   revision 1
 
+  livecheck do
+    url "https://cr.yp.to/daemontools/install.html"
+    regex(/href=.*?daemontools-(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "9481a0cc89388de2cb60631505e1a9f865ee33b1ae3600a054d2cfab9826eaa8" => :big_sur
