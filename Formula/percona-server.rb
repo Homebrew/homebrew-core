@@ -172,21 +172,18 @@ class PerconaServer < Formula
   end
 
   test do
-    # Expects datadir to be a completely clean dir, which testpath isn't.
-    dir = Dir.mktmpdir
-    system bin/"mysqld", "--initialize-insecure", "--user=#{ENV["USER"]}",
-    "--basedir=#{prefix}", "--datadir=#{dir}", "--tmpdir=#{dir}"
-
-    pid = fork do
-      exec bin/"mysqld", "--bind-address=127.0.0.1", "--datadir=#{dir}"
+    (testpath/"mysql").mkpath
+    (testpath/"tmp").mkpath
+    system bin/"mysqld", "--no-defaults", "--initialize-insecure", "--user=#{ENV["USER"]}",
+      "--basedir=#{prefix}", "--datadir=#{testpath}/mysql", "--tmpdir=#{testpath}/tmp"
+    port = free_port
+    fork do
+      system "#{bin}/mysqld", "--no-defaults", "--user=#{ENV["USER"]}",
+        "--datadir=#{testpath}/mysql", "--port=#{port}", "--tmpdir=#{testpath}/tmp"
     end
-    sleep 2
-
-    output = shell_output("curl 127.0.0.1:3306")
-    output.force_encoding("ASCII-8BIT") if output.respond_to?(:force_encoding)
-    assert_match version.to_s, output
-  ensure
-    Process.kill(9, pid)
-    Process.wait(pid)
+    sleep 5
+    assert_match "information_schema",
+      shell_output("#{bin}/mysql --port=#{port} --user=root --password= --execute='show databases;'")
+    system "#{bin}/mysqladmin", "--port=#{port}", "--user=root", "--password=", "shutdown"
   end
 end
