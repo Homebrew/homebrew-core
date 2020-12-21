@@ -2,7 +2,7 @@ class Ncmpcpp < Formula
   desc "Ncurses-based client for the Music Player Daemon"
   homepage "https://rybczak.net/ncmpcpp/"
   url "https://rybczak.net/ncmpcpp/stable/ncmpcpp-0.9.tar.bz2"
-  sha256 "8fb311943abdd8aa9b7c2d0303e6be5bcfdeda0b6d2a91ef28ab8e27e403fd69"
+  sha256 "4148687f481b8eb016aa5889f74b4ae8871920d46c0a6c004a9ede140d2f1667"
   license "GPL-2.0"
 
   bottle do
