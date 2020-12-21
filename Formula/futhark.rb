@@ -5,6 +5,7 @@ class Futhark < Formula
   sha256 "262dd8024c58ebb05964010227bc76907c873f261ab3348ffeab5fa5b1def022"
   license "ISC"
   head "https://github.com/diku-dk/futhark.git"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -22,7 +23,8 @@ class Futhark < Formula
 
   def install
     system "cabal", "v2-update"
-    system "cabal", "v2-install", *std_cabal_v2_args
+    # see https://github.com/ddssff/listlike/issues/8#issuecomment-748985462 for detail
+    system "cabal", "v2-install", *std_cabal_v2_args, "--constraint=bytestring==0.10.10.1"
 
     system "make", "-C", "docs", "man"
     man1.install Dir["docs/_build/man/*.1"]
