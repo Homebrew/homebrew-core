@@ -19,10 +19,16 @@ class Optipng < Formula
     sha256 "f59e3cedb808003915ee214f6487b968e3e6dcea669452f0a732fcced03aaa8f" => :el_capitan
   end
 
+  depends_on "libpng"
+
   uses_from_macos "zlib"
 
   def install
+    # find Homebrew's libpng
+    ENV.append "CPPFLAGS", "-I#{Formula["libpng"].opt_include}"
+    ENV.append "LDFLAGS", "-L#{Formula["libpng"].opt_lib}"
     system "./configure", "--with-system-zlib",
+                          "--with-system-libpng",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}"
     system "make", "install"
