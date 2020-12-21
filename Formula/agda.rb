@@ -52,6 +52,13 @@ class Agda < Formula
     sha256 "3b1d3a8f93a2723b554d9f07b2cd136be1a7b2fcab1855b12b7aab5cbac8868c"
   end
 
+  # Enable build with ghc 8.10.3. Remove at version bump, but verify that it includes:
+  # https://github.com/agda/agda/commit/76278c23d447b49f59fac581ca4ac605792aabbc
+  patch do
+    url "https://github.com/agda/agda/commit/76278c23d447b49f59fac581ca4ac605792aabbc.patch?full_index=1"
+    sha256 "c045c0426b867db1dedcee9c1b7a8514967226acf33e4be3ceba98d1d876aabb"
+  end
+
   def install
     ENV["CABAL_DIR"] = prefix/"cabal"
     system "cabal", "v2-update"
