@@ -21,13 +21,13 @@ class RustupInit < Formula
 
     system "cargo", "install", "--features", "no-self-update", *std_cargo_args
 
-    bash_output = Utils.safe_popen_read("#{bin}/rustup", "completions", "bash")
+    bash_output = Utils.safe_popen_read("#{bin}/rustup-init", "completions", "bash")
     (bash_completion/"rustup").write bash_output
 
-    zsh_output = Utils.safe_popen_read("#{bin}/rustup", "completions", "zsh")
+    zsh_output = Utils.safe_popen_read("#{bin}/rustup-init", "completions", "zsh")
     (zsh_completion/"_rustup").write zsh_output
 
-    fish_output = Utils.safe_popen_read("#{bin}/rustup", "completions", "fish")
+    fish_output = Utils.safe_popen_read("#{bin}/rustup-init", "completions", "fish")
     (fish_completion/"rustup.fish").write fish_output
   end
 
