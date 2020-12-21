@@ -1,10 +1,14 @@
 class Zile < Formula
   desc "Text editor development kit"
   homepage "https://www.gnu.org/software/zile/"
-  url "https://ftp.gnu.org/gnu/zile/zile-2.6.0.90.tar.gz"
-  mirror "https://ftpmirror.gnu.org/zile/zile-2.6.0.90.tar.gz"
-  sha256 "239b5b9575e3310205912cb87a25a6bff0d951feb7623722041ee2aa95e50dae"
+  # For version bumps, check the NEWS file in the tarball to make sure that
+  # this is a stable release. For context, see
+  # https://github.com/Homebrew/homebrew-core/issues/67379
+  url "https://ftp.gnu.org/gnu/zile/zile-2.4.15.tar.gz"
+  mirror "https://ftpmirror.gnu.org/zile/zile-2.4.15.tar.gz"
+  sha256 "39c300a34f78c37ba67793cf74685935a15568e14237a3a66fda8fcf40e3035e"
   license "GPL-3.0-or-later"
+  version_scheme 1
 
   livecheck do
     url :stable
@@ -20,8 +24,6 @@ class Zile < Formula
   depends_on "help2man" => :build
   depends_on "pkg-config" => :build
   depends_on "bdw-gc"
-  depends_on "glib"
-  depends_on "libgee"
 
   uses_from_macos "ncurses"
 
