@@ -23,6 +23,8 @@ class XcbUtilWm < Formula
   depends_on "pkg-config" => [:build, :test]
   depends_on "libxcb"
 
+  uses_from_macos "m4" => :build
+
   def install
     system "./autogen.sh" if build.head?
     system "./configure", "--prefix=#{prefix}",
