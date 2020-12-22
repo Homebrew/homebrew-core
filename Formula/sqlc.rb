@@ -9,7 +9,7 @@ class Sqlc < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-trimpath", "-o", bin/"sqlc", "./cmd/sqlc"
+    system "go", "build", *std_go_args, "./cmd/sqlc"
   end
 
   test do
