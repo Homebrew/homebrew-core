@@ -18,9 +18,9 @@ class Torsocks < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
-  # https://trac.torproject.org/projects/tor/ticket/28538
+  # https://gitlab.torproject.org/legacy/trac/-/issues/28538
   patch do
-    url "https://trac.torproject.org/projects/tor/raw-attachment/ticket/28538/0001-Fix-macros-for-accept4-2.patch"
+    url "https://gitlab.torproject.org/legacy/trac/uploads/9efc1c0c47b3950aa91e886b01f7e87d/0001-Fix-macros-for-accept4-2.patch"
     sha256 "97881f0b59b3512acc4acb58a0d6dfc840d7633ead2f400fad70dda9b2ba30b0"
   end
 
