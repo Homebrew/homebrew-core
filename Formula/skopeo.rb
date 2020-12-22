@@ -17,6 +17,7 @@ class Skopeo < Formula
 
   on_linux do
     depends_on "pkg-config" => :build
+    depends_on "device-mapper"
   end
 
   def install
