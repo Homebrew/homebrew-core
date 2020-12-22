@@ -3,7 +3,7 @@ class Libpinyin < Formula
   homepage "https://github.com/libpinyin/libpinyin"
   url "https://github.com/libpinyin/libpinyin/archive/2.6.0.tar.gz"
   sha256 "2b52f617a99567a8ace478ee82ccc62d1761e3d1db2f1e05ba05b416708c35d2"
-  license "GPL-3.0-only"
+  license "GPL-3.0-or-later"
 
   bottle do
     cellar :any
