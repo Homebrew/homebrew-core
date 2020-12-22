@@ -1,14 +1,26 @@
 class Gcc < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
-  url "https://ftp.gnu.org/gnu/gcc/gcc-10.2.0/gcc-10.2.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gcc/gcc-10.2.0/gcc-10.2.0.tar.xz"
-  sha256 "b8dd4368bb9c7f0b98188317ee0254dd8cc99d1e3a18d0ff146c855fe16c1d8c"
+  if Hardware::CPU.arch == :arm64
+    # Branch from the Darwin maintainer of GCC with Apple Silicon support,
+    # located at https://github.com/iains/gcc-darwin-arm64 and
+    # backported with his help to gcc-10 branch. Too big for a patch.
+    url "https://github.com/fxcoudert/gcc/archive/gcc-10-arm-20201223.tar.gz"
+    sha256 "e4ec9a37bc96adb6a29e88dbef1b2dbe43e0b4014e91450d6b95ec7d238cdddb"
+    version "10.2.0"
+  else
+    url "https://ftp.gnu.org/gnu/gcc/gcc-10.2.0/gcc-10.2.0.tar.xz"
+    mirror "https://ftpmirror.gnu.org/gcc/gcc-10.2.0/gcc-10.2.0.tar.xz"
+    sha256 "b8dd4368bb9c7f0b98188317ee0254dd8cc99d1e3a18d0ff146c855fe16c1d8c"
+  end
   license "GPL-3.0"
   head "https://gcc.gnu.org/git/gcc.git"
 
   livecheck do
-    url :stable
+    # Should be
+    # url :stable
+    # but that does not work with the ARM-specific branch above
+    url "https://ftp.gnu.org/gnu/gcc/gcc-10.2.0"
     regex(%r{href=.*?gcc[._-]v?(\d+(?:\.\d+)+)(?:/?["' >]|\.t)}i)
   end
 
@@ -37,11 +49,13 @@ class Gcc < Formula
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
 
-  # Patch for Big Sur version numbering, remove with GCC 11
-  # https://github.com/iains/gcc-darwin-arm64/commit/556ab512
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/7baf6e2f/gcc/bigsur.diff"
-    sha256 "42de3bc4889b303258a4075f88ad8624ea19384cab57a98a5270638654b83f41"
+  if Hardware::CPU.arch != :arm64
+    # Patch for Big Sur version numbering, remove with GCC 11
+    # https://github.com/iains/gcc-darwin-arm64/commit/556ab512
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/7baf6e2f/gcc/bigsur.diff"
+      sha256 "42de3bc4889b303258a4075f88ad8624ea19384cab57a98a5270638654b83f41"
+    end
   end
 
   def version_suffix
@@ -63,9 +77,10 @@ class Gcc < Formula
     languages = %w[c c++ objc obj-c++ fortran]
 
     pkgversion = "Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip
+    cpu = Hardware::CPU.arm? ? "aarch64" : "x86_64"
 
     args = %W[
-      --build=x86_64-apple-darwin#{OS.kernel_version.major}
+      --build=#{cpu}-apple-darwin#{OS.kernel_version.major}
       --prefix=#{prefix}
       --libdir=#{lib}/gcc/#{version_suffix}
       --disable-nls
