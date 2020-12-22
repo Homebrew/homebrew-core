@@ -25,9 +25,6 @@ class Optipng < Formula
   uses_from_macos "zlib"
 
   def install
-    # find Homebrew's libpng
-    ENV.append "CPPFLAGS", "-I#{Formula["libpng"].opt_include}"
-    ENV.append "LDFLAGS", "-L#{Formula["libpng"].opt_lib}"
     system "./configure", "--with-system-zlib",
                           "--with-system-libpng",
                           "--prefix=#{prefix}",
