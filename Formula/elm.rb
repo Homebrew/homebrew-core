@@ -18,10 +18,15 @@ class Elm < Formula
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
-  def install
-    # elm-compiler needs to be staged in a subdirectory for the build process to succeed
-    (buildpath/"elm-compiler").install Dir["*"]
+  patch do
+    # elm's tarball is not a proper cabal tarball, it contains multiple cabal files.
+    # Add `cabal.project` lets cabal-install treat this tarball as cabal project correctly.
+    # https://github.com/elm/compiler/pull/2159
+    url "https://github.com/elm/compiler/commit/eb566e901a419a6620e43c18faf89f57f0827124.patch?full_index=1"
+    sha256 "556ff15fb4d8e5ca6e853280e35389c8875fa31a543204b315b55ec2ac967624"
+  end
 
+  def install
     system "cabal", "v2-update"
     system "cabal", "v2-install", *std_cabal_v2_args
   end
