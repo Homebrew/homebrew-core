@@ -1,8 +1,8 @@
 class CassandraReaper < Formula
   desc "Management interface for Cassandra"
   homepage "https://cassandra-reaper.io/"
-  url "https://github.com/thelastpickle/cassandra-reaper/releases/download/2.1.2/cassandra-reaper-2.1.2-release.tar.gz"
-  sha256 "30868c4373c40bbc3cf5238357bbcd19dcb5a24a895e435ef5e090568a5e2d09"
+  url "https://github.com/thelastpickle/cassandra-reaper/releases/download/2.1.3/cassandra-reaper-2.1.3-release.tar.gz"
+  sha256 "ba9a925c512996f55481914f6c02832c96d3c334722f7d611a76d30c1a9c16ee"
   license "Apache-2.0"
 
   depends_on "openjdk@8"
