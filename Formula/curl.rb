@@ -42,15 +42,15 @@ class Curl < Formula
   def install
     system "./buildconf" if build.head?
 
-    openssl = Formula["openssl@1.1"]
     args = %W[
       --disable-debug
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
-      --with-ssl=#{openssl.opt_prefix}
-      --with-ca-bundle=#{openssl.pkgetc}/cert.pem
-      --with-ca-path=#{openssl.pkgetc}/certs
+      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
+      --without-ca-bundle
+      --without-ca-path
+      --with-ca-fallback
       --with-secure-transport
       --with-default-ssl-backend=openssl
       --with-gssapi
