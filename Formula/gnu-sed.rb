@@ -4,7 +4,7 @@ class GnuSed < Formula
   url "https://ftp.gnu.org/gnu/sed/sed-4.8.tar.xz"
   mirror "https://ftpmirror.gnu.org/sed/sed-4.8.tar.xz"
   sha256 "f79b0cfea71b37a8eeec8490db6c5f7ae7719c35587f21edb0617f370eeff633"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url :stable
@@ -45,13 +45,15 @@ class GnuSed < Formula
   end
 
   def caveats
-    <<~EOS
-      GNU "sed" has been installed as "gsed".
-      If you need to use it as "sed", you can add a "gnubin" directory
-      to your PATH from your bashrc like:
+    on_macos do
+      <<~EOS
+        GNU "sed" has been installed as "gsed".
+        If you need to use it as "sed", you can add a "gnubin" directory
+        to your PATH from your bashrc like:
 
-          PATH="#{opt_libexec}/gnubin:$PATH"
-    EOS
+            PATH="#{opt_libexec}/gnubin:$PATH"
+      EOS
+    end
   end
 
   test do
