@@ -32,6 +32,8 @@ class Grpc < Formula
   depends_on "protobuf"
   depends_on "re2"
 
+  uses_from_macos "zlib"
+
   def install
     mkdir "cmake/build" do
       args = %w[
@@ -63,7 +65,7 @@ class Grpc < Formula
       system "cmake", *args
       system "make", "grpc_cli"
       bin.install "grpc_cli"
-      lib.install Dir["libgrpc++_test_config*.dylib"]
+      lib.install Dir["libgrpc++_test_config*.{dylib,so}.*"]
     end
   end
 
