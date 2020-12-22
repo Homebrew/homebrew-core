@@ -3,6 +3,7 @@ class GeocodeGlib < Formula
   homepage "https://developer.gnome.org/geocode-glib"
   url "https://download.gnome.org/sources/geocode-glib/3.26/geocode-glib-3.26.2.tar.xz"
   sha256 "01fe84cfa0be50c6e401147a2bc5e2f1574326e2293b55c69879be3e82030fd1"
+  license "GPL-2.0-or-later"
   revision 1
 
   livecheck do
@@ -61,8 +62,10 @@ class GeocodeGlib < Formula
       -lgio-2.0
       -lglib-2.0
       -lgobject-2.0
-      -lintl
     ]
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
