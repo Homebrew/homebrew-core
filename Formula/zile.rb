@@ -11,7 +11,7 @@ class Zile < Formula
   version_scheme 1
 
   livecheck do
-    url :stable
+    skip "Version string does not distinguish stable from beta"
   end
 
   bottle do
