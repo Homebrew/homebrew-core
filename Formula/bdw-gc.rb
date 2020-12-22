@@ -4,6 +4,7 @@ class BdwGc < Formula
   url "https://github.com/ivmai/bdwgc/releases/download/v8.0.4/gc-8.0.4.tar.gz"
   sha256 "436a0ddc67b1ac0b0405b61a9675bca9e075c8156f4debd1d06f3a56c7cd289d"
   license "MIT"
+  revision 1
 
   bottle do
     cellar :any
