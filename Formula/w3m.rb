@@ -36,6 +36,11 @@ class W3m < Formula
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "gettext"
+    depends_on "libbsd"
+  end
+
   def install
     # Work around configure issues with Xcode 12
     ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
