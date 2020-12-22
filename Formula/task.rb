@@ -26,6 +26,8 @@ class Task < Formula
   depends_on "gnutls"
 
   on_linux do
+    depends_on "linux-headers"
+    depends_on "readline"
     depends_on "util-linux"
   end
 
