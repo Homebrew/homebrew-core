@@ -3,7 +3,7 @@ class Visp < Formula
   homepage "https://visp.inria.fr/"
   url "https://gforge.inria.fr/frs/download.php/latestfile/475/visp-3.3.0.tar.gz"
   sha256 "f2ed11f8fee52c89487e6e24ba6a31fa604b326e08fb0f561a22c877ebdb640d"
-  revision 10
+  revision 11
 
   livecheck do
     url "https://visp.inria.fr/download/"
@@ -117,7 +117,7 @@ index dd5cabf..23ed382 100644
 --- a/modules/vision/src/key-point/vpKeyPoint.cpp
 +++ b/modules/vision/src/key-point/vpKeyPoint.cpp
 @@ -2269,7 +2269,7 @@ void vpKeyPoint::initDetector(const std::string &detectorName)
- 
+
    if (detectorNameTmp == "SIFT") {
  #ifdef VISP_HAVE_OPENCV_XFEATURES2D
 -    cv::Ptr<cv::FeatureDetector> siftDetector = cv::xfeatures2d::SIFT::create();
