@@ -4,8 +4,8 @@ class Futhark < Formula
   url "https://github.com/diku-dk/futhark/archive/v0.18.4.tar.gz"
   sha256 "262dd8024c58ebb05964010227bc76907c873f261ab3348ffeab5fa5b1def022"
   license "ISC"
-  head "https://github.com/diku-dk/futhark.git"
   revision 1
+  head "https://github.com/diku-dk/futhark.git"
 
   bottle do
     cellar :any_skip_relocation
