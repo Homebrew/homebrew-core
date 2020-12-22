@@ -4,7 +4,7 @@ class GnuTime < Formula
   url "https://ftp.gnu.org/gnu/time/time-1.9.tar.gz"
   mirror "https://ftpmirror.gnu.org/time/time-1.9.tar.gz"
   sha256 "fbacf0c81e62429df3e33bda4cee38756604f18e01d977338e23306a3e3b521e"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url :stable
@@ -38,13 +38,15 @@ class GnuTime < Formula
   end
 
   def caveats
-    <<~EOS
-      GNU "time" has been installed as "gtime".
-      If you need to use it as "time", you can add a "gnubin" directory
-      to your PATH from your bashrc like:
+    on_macos do
+      <<~EOS
+        GNU "time" has been installed as "gtime".
+        If you need to use it as "time", you can add a "gnubin" directory
+        to your PATH from your bashrc like:
 
-          PATH="#{opt_libexec}/gnubin:$PATH"
-    EOS
+            PATH="#{opt_libexec}/gnubin:$PATH"
+      EOS
+    end
   end
 
   test do
