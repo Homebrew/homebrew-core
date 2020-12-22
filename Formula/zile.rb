@@ -1,8 +1,8 @@
 class Zile < Formula
   desc "Text editor development kit"
   homepage "https://www.gnu.org/software/zile/"
-  # For version bumps, check the NEWS file in the tarball to make sure that
-  # this is a stable release. For context, see
+  # For version bumps, check the NEWS file in the tarball to
+  # make sure that this is a stable release. For context, see
   # https://github.com/Homebrew/homebrew-core/issues/67379
   url "https://ftp.gnu.org/gnu/zile/zile-2.4.15.tar.gz"
   mirror "https://ftpmirror.gnu.org/zile/zile-2.4.15.tar.gz"
@@ -11,7 +11,7 @@ class Zile < Formula
   version_scheme 1
 
   livecheck do
-    skip "Version string does not distinguish stable from beta"
+    url :stable
   end
 
   bottle do
