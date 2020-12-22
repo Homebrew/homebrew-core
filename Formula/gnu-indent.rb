@@ -4,6 +4,7 @@ class GnuIndent < Formula
   url "https://ftp.gnu.org/gnu/indent/indent-2.2.12.tar.gz"
   mirror "https://ftpmirror.gnu.org/indent/indent-2.2.12.tar.gz"
   sha256 "e77d68c0211515459b8812118d606812e300097cfac0b4e9fb3472664263bb8b"
+  license "GPL-3.0-or-later"
   revision 1
 
   livecheck do
@@ -45,13 +46,15 @@ class GnuIndent < Formula
   end
 
   def caveats
-    <<~EOS
-      GNU "indent" has been installed as "gindent".
-      If you need to use it as "indent", you can add a "gnubin" directory
-      to your PATH from your bashrc like:
+    on_macos do
+      <<~EOS
+        GNU "indent" has been installed as "gindent".
+        If you need to use it as "indent", you can add a "gnubin" directory
+        to your PATH from your bashrc like:
 
-          PATH="#{opt_libexec}/gnubin:$PATH"
-    EOS
+            PATH="#{opt_libexec}/gnubin:$PATH"
+      EOS
+    end
   end
 
   test do
