@@ -7,8 +7,7 @@ class Liblwgeom < Formula
   head "https://git.osgeo.org/gitea/postgis/postgis.git"
 
   livecheck do
-    url "https://download.osgeo.org/postgis/source/"
-    regex(/href=.*?postgis[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    skip "Not maintained"
   end
 
   bottle do
