@@ -16,6 +16,7 @@ class Xcproj < Formula
     sha256 "8e20d277d1927c425544654cd8613765460f0b9bbbb8133b0ac04ebdff5d6f0e" => :yosemite
   end
 
+  depends_on :macos
   depends_on :xcode
 
   def install
