@@ -40,7 +40,7 @@ class Subversion < Formula
   depends_on "gettext"
   depends_on "lz4"
   depends_on "openssl@1.1" # For Serf
-  depends_on "perl"
+  depends_on "perl" if Hardware::CPU.intel?
   depends_on "sqlite"
   depends_on "utf8proc"
 
@@ -143,25 +143,25 @@ class Subversion < Formula
       ENV.deparallelize
       system "make", "javahl"
       system "make", "install-javahl"
+
+      archlib = Utils.safe_popen_read("perl", "-MConfig", "-e", "print $Config{archlib}")
+      perl_core = Pathname.new(archlib)/"CORE"
+      onoe "'#{perl_core}' does not exist" unless perl_core.exist?
+
+      inreplace "Makefile" do |s|
+        s.change_make_var! "SWIG_PL_INCLUDES",
+          "$(SWIG_INCLUDES) -arch x86_64 -g -pipe -fno-common " \
+          "-DPERL_DARWIN -fno-strict-aliasing -I#{HOMEBREW_PREFIX}/include -I#{perl_core}"
+      end
+      system "make", "swig-pl"
+      system "make", "install-swig-pl"
+
+      # This is only created when building against system Perl, but it isn't
+      # purged by Homebrew's post-install cleaner because that doesn't check
+      # "Library" directories. It is however pointless to keep around as it
+      # only contains the perllocal.pod installation file.
+      rm_rf prefix/"Library/Perl"
     end
-
-    archlib = Utils.safe_popen_read("perl", "-MConfig", "-e", "print $Config{archlib}")
-    perl_core = Pathname.new(archlib)/"CORE"
-    onoe "'#{perl_core}' does not exist" unless perl_core.exist?
-
-    inreplace "Makefile" do |s|
-      s.change_make_var! "SWIG_PL_INCLUDES",
-        "$(SWIG_INCLUDES) -arch x86_64 -g -pipe -fno-common " \
-        "-DPERL_DARWIN -fno-strict-aliasing -I#{HOMEBREW_PREFIX}/include -I#{perl_core}"
-    end
-    system "make", "swig-pl"
-    system "make", "install-swig-pl"
-
-    # This is only created when building against system Perl, but it isn't
-    # purged by Homebrew's post-install cleaner because that doesn't check
-    # "Library" directories. It is however pointless to keep around as it
-    # only contains the perllocal.pod installation file.
-    rm_rf prefix/"Library/Perl"
   end
 
   def caveats
@@ -181,7 +181,7 @@ class Subversion < Formula
   test do
     system "#{bin}/svnadmin", "create", "test"
     system "#{bin}/svnadmin", "verify", "test"
-    system "perl", "-e", "use SVN::Client; new SVN::Client()"
+    system "perl", "-e", "use SVN::Client; new SVN::Client()" if Hardware::CPU.intel?
   end
 end
 
