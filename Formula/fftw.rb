@@ -35,7 +35,8 @@ class Fftw < Formula
 
     # FFTW supports runtime detection of CPU capabilities, so it is safe to
     # use with --enable-avx and the code will still run on all CPUs
-    simd_args = ["--enable-sse2", "--enable-avx"]
+    simd_args = []
+    simd_args << "--enable-sse2" << "--enable-avx" if Hardware::CPU.intel?
 
     # single precision
     # enable-sse2, enable-avx and enable-avx2 work for both single and double precision
