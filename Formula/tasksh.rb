@@ -4,6 +4,7 @@ class Tasksh < Formula
   url "https://taskwarrior.org/download/tasksh-1.2.0.tar.gz"
   sha256 "6e42f949bfd7fbdde4870af0e7b923114cc96c4344f82d9d924e984629e21ffd"
   license "MIT"
+  revision 1
   head "https://github.com/GothenburgBitFactory/taskshell.git", branch: "1.3.0"
 
   # We check the upstream Git repository tags because the first-party download
