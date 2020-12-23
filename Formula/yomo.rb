@@ -48,4 +48,3 @@ class Yomo < Formula
     assert_match "yomo version #{version}", shell_output("#{bin}/yomo version")
   end
 end
-
