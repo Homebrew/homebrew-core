@@ -18,6 +18,9 @@ class Exomizer < Formula
     sha256 "6c6389b18ce3be2c7ffdb919e79273ecc8e26b9067bd06b29474d37c9e162e83" => :sierra
   end
 
+  # custom license
+  disable! date: "2020-12-24", because: "custom license"
+
   def install
     cd "src" do
       system "make"
