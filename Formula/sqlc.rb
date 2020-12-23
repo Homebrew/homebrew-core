@@ -28,12 +28,12 @@ class Sqlc < Formula
       }
     SQLC
 
-    (testpath/"query.sql").write <<~SQL
+    (testpath/"query.sql").write <<~EOS
       CREATE TABLE foo (bar text);
 
       -- name: SelectFoo :many
       SELECT * FROM foo;
-    SQL
+    EOS
 
     system bin/"sqlc", "generate"
     assert_predicate testpath/"db.go", :exist?
