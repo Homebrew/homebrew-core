@@ -8,8 +8,8 @@ class Kamel < Formula
   head "https://github.com/apache/camel-k.git"
 
   livecheck do
-    url :head
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
