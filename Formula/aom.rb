@@ -5,6 +5,7 @@ class Aom < Formula
       tag:      "v2.0.1",
       revision: "b52ee6d44adaef8a08f6984390de050d64df9faa"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -24,11 +25,13 @@ class Aom < Formula
 
   def install
     mkdir "macbuild" do
-      args = std_cmake_args.concat(["-DENABLE_DOCS=off",
+      args = std_cmake_args.concat(["-DCMAKE_INSTALL_RPATH=#{lib}",
+                                    "-DENABLE_DOCS=off",
                                     "-DENABLE_EXAMPLES=on",
                                     "-DENABLE_TESTDATA=off",
                                     "-DENABLE_TESTS=off",
-                                    "-DENABLE_TOOLS=off"])
+                                    "-DENABLE_TOOLS=off",
+                                    "-DBUILD_SHARED_LIBS=on"])
       # Runtime CPU detection is not currently enabled for ARM on macOS.
       args << "-DCONFIG_RUNTIME_CPU_DETECT=0" if Hardware::CPU.arm?
       system "cmake", "..", *args
