@@ -59,13 +59,15 @@ class GnuTar < Formula
   end
 
   def caveats
-    <<~EOS
-      GNU "tar" has been installed as "gtar".
-      If you need to use it as "tar", you can add a "gnubin" directory
-      to your PATH from your bashrc like:
+    on_macos do
+      <<~EOS
+        GNU "tar" has been installed as "gtar".
+        If you need to use it as "tar", you can add a "gnubin" directory
+        to your PATH from your bashrc like:
 
-          PATH="#{opt_libexec}/gnubin:$PATH"
-    EOS
+            PATH="#{opt_libexec}/gnubin:$PATH"
+      EOS
+    end
   end
 
   test do
