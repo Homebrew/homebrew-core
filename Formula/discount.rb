@@ -6,6 +6,10 @@ class Discount < Formula
   license "BSD-3-Clause"
   head "https://github.com/Orc/discount.git"
 
+  # We check the upstream GitHub repository because the homepage doesn't always
+  # update to list the latest version in a timely manner. As of writing, the
+  # homepage has been showing an older version for months, so it doesn't seem
+  # like a reliable source for the latest version information, unfortunately.
   livecheck do
     url :head
     regex(/^v?(\d+(?:\.\d+)+)$/i)
