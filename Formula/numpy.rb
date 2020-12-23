@@ -23,6 +23,13 @@ class Numpy < Formula
   depends_on "openblas"
   depends_on "python@3.9"
 
+  # Upstream fix for Apple Silicon, remove in next version
+  # https://github.com/numpy/numpy/pull/17906
+  patch do
+    url "https://github.com/numpy/numpy/commit/1ccb4c6d.patch?full_index=1"
+    sha256 "7777fa6691d4f5a8332538b634d4327313e9cf244bb2bbc25c64acfb64c92602"
+  end
+
   def install
     openblas = Formula["openblas"].opt_prefix
     ENV["ATLAS"] = "None" # avoid linking against Accelerate.framework
