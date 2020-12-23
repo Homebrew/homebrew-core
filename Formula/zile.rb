@@ -1,9 +1,9 @@
 class Zile < Formula
   desc "Text editor development kit"
   homepage "https://www.gnu.org/software/zile/"
-  # For version bumps, check the NEWS file in the tarball to
-  # make sure that this is a stable release. For context, see
-  # https://github.com/Homebrew/homebrew-core/issues/67379
+  # Before bumping to a new version, check the NEWS file to make sure it is a
+  # stable release: https://git.savannah.gnu.org/cgit/zile.git/plain/NEWS
+  # For context, see: https://github.com/Homebrew/homebrew-core/issues/67379
   url "https://ftp.gnu.org/gnu/zile/zile-2.4.15.tar.gz"
   mirror "https://ftpmirror.gnu.org/zile/zile-2.4.15.tar.gz"
   sha256 "39c300a34f78c37ba67793cf74685935a15568e14237a3a66fda8fcf40e3035e"
