@@ -7,7 +7,7 @@ class Daemontools < Formula
 
   livecheck do
     url "https://cr.yp.to/daemontools/install.html"
-    regex(/href=.*?daemontools-(\d+(?:\.\d+)+)\.t/i)
+    regex(/href=.*?daemontools[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
