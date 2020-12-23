@@ -6,10 +6,6 @@ class Liblwgeom < Formula
   revision 1
   head "https://git.osgeo.org/gitea/postgis/postgis.git"
 
-  livecheck do
-    skip "Not maintained"
-  end
-
   bottle do
     cellar :any
     rebuild 1
