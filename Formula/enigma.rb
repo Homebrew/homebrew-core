@@ -7,8 +7,8 @@ class Enigma < Formula
   revision 4
 
   livecheck do
-    url :homepage
-    regex(/v?(\d+(?:\.\d+)+) Released/i)
+    url :stable
+    regex(%r{url=.*?/enigma[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
   bottle do
