@@ -14,8 +14,6 @@ class Radare2 < Formula
   end
 
   def install
-    # Workaround for Xcode 12 from https://github.com/radareorg/radare2/pull/17879/files
-    inreplace "mk/darwin.mk", "$(XCODE_VERSION_MAJOR),11", "$(shell test $(XCODE_VERSION_MAJOR) -gt 10;echo $$?),0"
     system "./configure", "--prefix=#{prefix}"
     system "make"
     system "make", "install"
