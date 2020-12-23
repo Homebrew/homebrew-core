@@ -7,8 +7,8 @@ class Cmake < Formula
   head "https://gitlab.kitware.com/cmake/cmake.git"
 
   livecheck do
-    url "https://cmake.org/download/"
-    regex(/Latest Release \(v?(\d+(?:\.\d+)+)\)/i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
