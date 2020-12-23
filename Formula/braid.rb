@@ -17,6 +17,15 @@ class Braid < Formula
 
   depends_on "ruby" if MacOS.version <= :sierra
 
+  on_linux do
+    depends_on "ruby"
+
+    resource "json" do
+      url "https://rubygems.org/gems/json-2.1.0.gem"
+      sha256 "b76fd09b881088c6c64a12721a1528f2f747a1c2ee52fab4c1f60db8af946607"
+    end
+  end
+
   resource "arrayfields" do
     url "https://rubygems.org/gems/arrayfields-4.9.2.gem"
     sha256 "1593f0bac948e24aa5e5099b7994b0fb5da69b6f29a82804ccf496bc125de4ab"
