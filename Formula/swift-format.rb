@@ -8,6 +8,11 @@ class SwiftFormat < Formula
   version_scheme 1
   head "https://github.com/apple/swift-format.git", branch: "main"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "7db963099096dac3d24d2d3095286791c55837506c12d8ebde3560c2c169890b" => :big_sur
