@@ -1,8 +1,8 @@
 class Bullet < Formula
   desc "Physics SDK"
   homepage "https://bulletphysics.org/"
-  url "https://github.com/bulletphysics/bullet3/archive/2.89.tar.gz"
-  sha256 "621b36e91c0371933f3c2156db22c083383164881d2a6b84636759dc4cbb0bb8"
+  url "https://github.com/bulletphysics/bullet3/archive/3.07.tar.gz"
+  sha256 "068ecf8acbf256d3976eebee75d7d6f5af16c049f10f6b2d8ba28bb638bef3b0"
   license "Zlib"
   head "https://github.com/bulletphysics/bullet3.git"
 
@@ -15,11 +15,15 @@ class Bullet < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
+  depends_on "python@3.9" => :build
 
   def install
     args = std_cmake_args + %W[
-      -DBUILD_BULLET2_DEMOS=OFF
-      -DBUILD_PYBULLET=OFF
+      -DBUILD_PYBULLET=ON
+      -DBUILD_PYBULLET_NUMPY=ON
+      -DUSE_DOUBLE_PRECISION=ON
+      -DBT_USE_EGL=ON
       -DBUILD_UNIT_TESTS=OFF
       -DCMAKE_INSTALL_RPATH=#{lib}
       -DINSTALL_EXTRA_LIBS=ON
