@@ -29,6 +29,10 @@ class Grails < Formula
   end
 
   test do
+    system bin/"grails", "create-app", "brew-test"
+    assert_predicate testpath/"brew-test/gradle.properties", :exist?
+    assert_match "brew.test", File.read(testpath/"brew-test/build.gradle")
+
     assert_match "Grails Version: #{version}", shell_output("#{bin}/grails -v")
   end
 end
