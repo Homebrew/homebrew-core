@@ -5,6 +5,11 @@ class Immudb < Formula
   sha256 "35f8a35fe1048b0ce30c8a9bd97a53b40063e3e5c87e85360fe9cdc363258d9f"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "4766b2e2443fa6bb2ee8693a085aee84c78315ef29a98a904b36b833fb10c409" => :big_sur
