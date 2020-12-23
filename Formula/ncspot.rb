@@ -12,7 +12,7 @@ class Ncspot < Formula
     sha256 "765ec65802d29d0b65130d5333fdf6d0c9460204ae9f8d3e9d59c2dc2a8471b6" => :mojave
   end
 
-  depends_on "python3" => :build
+  depends_on "python@3.9" => :build
   depends_on "rust" => :build
 
   def install
