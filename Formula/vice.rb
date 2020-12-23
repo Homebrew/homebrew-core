@@ -3,6 +3,7 @@ class Vice < Formula
   homepage "https://sourceforge.net/projects/vice-emu/"
   url "https://downloads.sourceforge.net/project/vice-emu/releases/vice-3.5.tar.gz"
   sha256 "56b978faaeb8b2896032bd604d03c3501002187eef1ca58ceced40f11a65dc0e"
+  license "GPL-2.0-or-later"
   head "https://svn.code.sf.net/p/vice-emu/code/trunk/vice"
 
   livecheck do
