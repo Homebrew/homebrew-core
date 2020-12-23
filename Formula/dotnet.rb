@@ -23,7 +23,7 @@ class Dotnet < Formula
   depends_on xcode: :build
   depends_on "curl"
   depends_on "icu4c"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     # Arguments needed to not artificially time-limit downloads from Azure.
