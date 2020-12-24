@@ -3,8 +3,8 @@ class LiterateGit < Formula
 
   desc "Render hierarchical git repositories into HTML"
   homepage "https://github.com/bennorth/literate-git"
-  url "https://github.com/bennorth/literate-git/archive/v0.3.1.tar.gz"
-  sha256 "f1dec77584236a5ab2bcee9169e16b5d976e83cd53d279512136bdc90b04940a"
+  url "https://files.pythonhosted.org/packages/47/c3/0a18e062fd6f6f9a6e5e9d18ca1dccc04da70d5cf95a31086dad876c089c/literategit-0.3.1.tar.gz"
+  sha256 "08426f3396e07846242d35147799b22d33c884381eb2c85bcf9f4ac06c805de9"
   license "GPL-3.0-or-later"
   revision 5
 
