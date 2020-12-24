@@ -9,10 +9,16 @@ class Lammps < Formula
   sha256 "759705e16c1fedd6aa6e07d028cc0c78d73c76b76736668420946a74050c3726"
   license "GPL-2.0-only"
 
+  # The `strategy` block below is used to massage upstream tags into the
+  # YYYY-MM-DD format we use in the `version`. This is necessary for livecheck
+  # to be able to do proper `Version` comparison.
   livecheck do
     url :stable
-    strategy :github_latest
-    regex(%r{href=.*?/tag/stable[._-](\d+\w+\d+)["' >]}i)
+    regex(%r{href=.*?/tag/stable[._-](\d{1,2}\w+\d{2,4})["' >]}i)
+    strategy :github_latest do |page, regex|
+      date_str = page[regex, 1]
+      date_str.present? ? Date.parse(date_str).to_s : []
+    end
   end
 
   bottle do
