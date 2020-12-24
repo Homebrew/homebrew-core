@@ -3,8 +3,8 @@ class Gitless < Formula
 
   desc "Simplified version control system on top of git"
   homepage "https://gitless.com/"
-  url "https://github.com/gitless-vcs/gitless/archive/v0.8.8.tar.gz"
-  sha256 "470aab13d51baec2ab54d7ceb6d12b9a2937f72d840516affa0cb34a6360523c"
+  url "https://files.pythonhosted.org/packages/9c/2e/457ae38c636c5947d603c84fea1cf51b7fcd0c8a5e4a9f2899b5b71534a0/gitless-0.8.8.tar.gz"
+  sha256 "590d9636d2ca743fdd972d9bf1f55027c1d7bc2ab1d5e877868807c3359b78ef"
   license "MIT"
   revision 6
 
