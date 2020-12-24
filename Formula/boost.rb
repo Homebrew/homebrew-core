@@ -5,6 +5,7 @@ class Boost < Formula
   mirror "https://dl.bintray.com/homebrew/mirror/boost_1_75_0.tar.bz2"
   sha256 "953db31e016db7bb207f11432bef7df100516eeb746843fa0486a222e3fd49cb"
   license "BSL-1.0"
+  revision 1
   head "https://github.com/boostorg/boost.git"
 
   livecheck do
@@ -24,6 +25,13 @@ class Boost < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
+
+  # Reduce INTERFACE_LINK_LIBRARIES exposure for shared libraries. Remove with the next release.
+  patch do
+    url "https://github.com/boostorg/boost_install/commit/7b3fc734242eea9af734d6cd8ccb3d8f6b64c5b2.patch?full_index=1"
+    sha256 "cd96f5c51fa510fa6cd194eb011c0a6f9beb377fa2e78821133372f76a3be349"
+    directory "tools/boost_install"
+  end
 
   # Fix build on 64-bit arm
   patch do
