@@ -2,8 +2,8 @@ class EfmLangserver < Formula
   desc "General purpose Language Server"
   homepage "https://github.com/mattn/efm-langserver"
   url "https://github.com/mattn/efm-langserver.git",
-    tag:      "v0.0.25",
-    revision: "fe9ae6a689918107a65d4f992efc59af3c99f83f"
+    tag:      "v0.0.26",
+    revision: "26be4445542b8aa1aa0233a856ade7161644035c"
   license "MIT"
   head "https://github.com/mattn/efm-langserver.git"
 
