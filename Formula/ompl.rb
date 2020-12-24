@@ -6,9 +6,11 @@ class Ompl < Formula
   license "BSD-3-Clause"
   head "https://github.com/ompl/ompl.git"
 
+  # We check the first-party download page because the "latest" GitHub release
+  # isn't a reliable indicator of the latest version on this repository.
   livecheck do
-    url :stable
-    strategy :github_latest
+    url "https://ompl.kavrakilab.org/download.html"
+    regex(%r{href=.*?/ompl/ompl/archive/v?(\d+(?:\.\d+)+)\.t}i)
   end
 
   bottle do
