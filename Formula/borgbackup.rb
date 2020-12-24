@@ -10,7 +10,6 @@ class Borgbackup < Formula
 
   livecheck do
     url :stable
-    strategy :github_latest
   end
 
   bottle do
