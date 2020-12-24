@@ -3,8 +3,8 @@ class Vit < Formula
 
   desc "Full-screen terminal interface for Taskwarrior"
   homepage "https://taskwarrior.org/news/news.20140406.html"
-  url "https://github.com/scottkosty/vit/archive/v2.0.0.tar.gz"
-  sha256 "0c8739c16b5922880e762bd38f887240923d16181b2f85bb88c4f9f6faf38d6d"
+  url "https://files.pythonhosted.org/packages/ea/7e/b54db7887238ed3830200072d0414dfbabc64890a0f18ebcbef5b03359da/vit-2.0.0.tar.gz"
+  sha256 "5282d8076d9814d9248071aec8784cffbd968601542533ccb28ca61d1d08205e"
   license "MIT"
   revision 2
   head "https://github.com/scottkosty/vit.git", branch: "2.x"
