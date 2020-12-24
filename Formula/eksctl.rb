@@ -14,9 +14,18 @@ class Eksctl < Formula
     sha256 "0262d856dd6219204730bd3fa3bac93866e6f0cefd7e0c9b5ab637424d5a42f7" => :mojave
   end
 
+  depends_on "counterfeiter" => :build
   depends_on "go" => :build
   depends_on "go-bindata" => :build
+  depends_on "mockery" => :build
   depends_on "aws-iam-authenticator"
+
+  # PR ref, https://github.com/weaveworks/eksctl/pull/2987
+  # remove in next release
+  patch do
+    url "https://github.com/chenrui333/eksctl/commit/2207612.patch?full_index=1"
+    sha256 "50870dd22647f6b6252678fb5302c81aa89ca04177f3f327a044d301eb483c14"
+  end
 
   def install
     ENV["GOBIN"] = HOMEBREW_PREFIX/"bin"
