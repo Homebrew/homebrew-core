@@ -3,8 +3,8 @@ class Gcalcli < Formula
 
   desc "Easily access your Google Calendar(s) from a command-line"
   homepage "https://github.com/insanum/gcalcli"
-  url "https://github.com/insanum/gcalcli/archive/v4.3.0.tar.gz"
-  sha256 "597d96ee1c8b5f094cca75a059cb1a0056a612e734c32012ef0d41219ac3b0cd"
+  url "https://files.pythonhosted.org/packages/e8/d9/9d1f03b9b47c3082bf664a2f789a3aded0674dca9e0b894540d754b937cc/gcalcli-4.3.0.tar.gz"
+  sha256 "d00081460276027196e8fb957880b29ba4f22ea43136f9e232a9408016abc110"
   license "MIT"
   head "https://github.com/insanum/gcalcli.git"
 
