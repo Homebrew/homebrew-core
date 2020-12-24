@@ -25,6 +25,7 @@ on:
       - "Formula/libunwind.rb"
       - "Formula/libva.rb"
       - "Formula/linux-headers.rb"
+      - "Formula/linux-pam.rb"
       - "Formula/lttng-ust.rb"
       - "Formula/numactl.rb"
       - "Formula/strace.rb"
