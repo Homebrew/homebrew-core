@@ -20,6 +20,8 @@ class Amap < Formula
     sha256 "1361e89caf2590146c5872907f90ad67ac9b99d2198320691e9f6df0cfdbe16c" => :sierra
   end
 
+  disable! date: "2020-11-12", because: :unmaintained
+
   depends_on "openssl@1.1"
 
   def install
