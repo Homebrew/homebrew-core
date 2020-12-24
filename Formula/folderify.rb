@@ -10,8 +10,7 @@ class Folderify < Formula
   head "https://github.com/lgarron/folderify.git", branch: "main"
 
   livecheck do
-    url :head
-    regex(/^v\d+\.\d+\.\d+$/i)
+    url :stable
   end
 
   bottle do
