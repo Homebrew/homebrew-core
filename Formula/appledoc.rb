@@ -20,6 +20,7 @@ class Appledoc < Formula
 
   depends_on xcode: :build
   depends_on arch: :x86_64
+  depends_on :macos
 
   def install
     xcodebuild "-project", "appledoc.xcodeproj",
