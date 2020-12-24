@@ -1,8 +1,8 @@
 class Dmagnetic < Formula
   desc "Magnetic Scrolls Interpreter"
   homepage "https://www.dettus.net/dMagnetic/"
-  url "https://www.dettus.net/dMagnetic/dMagnetic_0.28.tar.bz2"
-  sha256 "21f9c22e2a0650a8c84fe836093d443f4095dd60ba92e3d03f7309e2b7ec1e03"
+  url "https://www.dettus.net/dMagnetic/dMagnetic_0.29.tar.bz2"
+  sha256 "a980e35f85c9661fe0d98c670f9d6be56000da2bbc8b3e8e78697eac05ae5b47"
   license "BSD-2-Clause"
 
   bottle do
