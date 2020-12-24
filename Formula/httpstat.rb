@@ -1,8 +1,8 @@
 class Httpstat < Formula
   desc "Curl statistics made simple"
   homepage "https://github.com/reorx/httpstat"
-  url "https://github.com/reorx/httpstat/archive/1.3.0.tar.gz"
-  sha256 "8d529527d8a22419a99ce00895b5f7d95d035d2b2a8003d6bf661f875c797c31"
+  url "https://github.com/reorx/httpstat/archive/1.3.1.tar.gz"
+  sha256 "7bfaa0428fe806ad4a68fc2db0aedf378f2e259d53f879372835af4ef14a6d41"
   license "MIT"
 
   bottle :unneeded
