@@ -19,12 +19,14 @@ class Vice < Formula
     sha256 "d2532e0ccc1a84a9896a611c9ac7eac15342f7ebbaedba7c0b29f36c178a0c27" => :high_sierra
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "pkg-config" => :build
   depends_on "texinfo" => :build
   depends_on "xa" => :build
   depends_on "yasm" => :build
-  depends_on "autoconf"
-  depends_on "automake"
+
+  depends_on "dos2unix"
   depends_on "ffmpeg"
   depends_on "flac"
   depends_on "giflib"
@@ -38,14 +40,16 @@ class Vice < Formula
   depends_on "mpg123"
   depends_on "portaudio"
   depends_on "sdl2" unless build.head?
+  depends_on "sdl2_image"
   depends_on "xz"
 
   def install
-    configure_flags = [
-      "--prefix=#{prefix}",
-      "--disable-dependency-tracking",
-      "--disable-arch",
-      "--enable-external-ffmpeg",
+    configure_flags = %W[
+      --prefix=#{prefix}
+      --disable-dependency-tracking
+      --disable-arch
+      --disable-pdf-docs
+      --enable-external-ffmpeg
     ]
 
     configure_flags << if build.head?
