@@ -81,12 +81,14 @@ class UtilLinux < Formula
       wall wdctl
       zramctl
     ]
-    <<~EOS
-      The following tools are not supported under macOS, and are therefore not included:
-      #{Formatter.wrap(Formatter.columns(linux_only_bins), 80)}
-      The following tools are already shipped by macOS, and are therefore not included:
-      #{Formatter.wrap(Formatter.columns(system_bins), 80)}
-    EOS
+    on_macos do
+      <<~EOS
+        The following tools are not supported for macOS, and are therefore not included:
+        #{Formatter.columns(linux_only_bins)}
+        The following tools are shipped by macOS, and are therefore not included:
+        #{Formatter.columns(system_bins)}
+      EOS
+    end
   end
 
   test do
