@@ -5,8 +5,8 @@ class Bumpversion < Formula
   homepage "https://pypi.python.org/pypi/bumpversion"
   # maintained fork for the project
   # Ongoing maintenance discussion for the project, https://github.com/c4urself/bump2version/issues/86
-  url "https://github.com/c4urself/bump2version/archive/v1.0.1.tar.gz"
-  sha256 "b0864d58b0ef231f99fef85ee028633d9366557a748e29cd92df0aa94f83f5fc"
+  url "https://files.pythonhosted.org/packages/29/2a/688aca6eeebfe8941235be53f4da780c6edee05dbbea5d7abaa3aab6fad2/bump2version-1.0.1.tar.gz"
+  sha256 "762cb2bfad61f4ec8e2bdf452c7c267416f8c70dd9ecb1653fd0bbb01fa936e6"
   license "MIT"
 
   bottle do
