@@ -17,6 +17,7 @@ class GhcAT88 < Formula
 
   depends_on "python@3.9" => :build
   depends_on "sphinx-doc" => :build
+  depends_on arch: :x86_64
 
   resource "gmp" do
     url "https://ftp.gnu.org/gnu/gmp/gmp-6.1.2.tar.xz"
