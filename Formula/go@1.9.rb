@@ -18,6 +18,8 @@ class GoAT19 < Formula
 
   deprecate! date: "2018-08-04", because: :unsupported
 
+  depends_on arch: :x86_64
+
   resource "gotools" do
     url "https://go.googlesource.com/tools.git",
         branch: "release-branch.go1.9"
