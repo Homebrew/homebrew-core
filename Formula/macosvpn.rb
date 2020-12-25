@@ -5,6 +5,11 @@ class Macosvpn < Formula
   sha256 "bcc1ddb7714c1c0030f1cf97c581dd03b30b189ffc33fd1f805dd9d0bd3e0363"
   license "MIT"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "7b19c777696fa4283b7d7193f933fc5fd51aad0535b811586da4cfd3a528abdc" => :big_sur
