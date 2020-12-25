@@ -16,10 +16,10 @@ class LeakcanaryShark < Formula
 
   def install
     # Remove Windows scripts
-    rm_rf Dir["bin/*.bat"]
+    rm_rf Dir["bin/shark-cli.bat"]
 
     libexec.install Dir["*"]
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    (bin/"shark-cli").write_env_script libexec/"bin/shark-cli", Language::Java.overridable_java_home_env
   end
 
   test do
