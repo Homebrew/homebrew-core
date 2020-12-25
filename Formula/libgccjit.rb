@@ -1,15 +1,28 @@
 class Libgccjit < Formula
+  # This is a spin-off of the GCC formula and they should remain as close as possible.
   desc "JIT library for the GNU compiler collection"
   homepage "https://gcc.gnu.org/"
-  url "https://ftp.gnu.org/gnu/gcc/gcc-10.2.0/gcc-10.2.0.tar.xz"
-  sha256 "b8dd4368bb9c7f0b98188317ee0254dd8cc99d1e3a18d0ff146c855fe16c1d8c"
-  license "GPL-3.0-or-later" => {
-    with: "GCC-exception-3.1",
-  }
+  if Hardware::CPU.arch == :arm64
+    # Branch from the Darwin maintainer of GCC with Apple Silicon support,
+    # located at https://github.com/iains/gcc-darwin-arm64 and
+    # backported with his help to gcc-10 branch. Too big for a patch.
+    url "https://github.com/fxcoudert/gcc/archive/gcc-10-arm-20201223.tar.gz"
+    sha256 "e4ec9a37bc96adb6a29e88dbef1b2dbe43e0b4014e91450d6b95ec7d238cdddb"
+    version "10.2.0"
+  else
+    url "https://ftp.gnu.org/gnu/gcc/gcc-10.2.0/gcc-10.2.0.tar.xz"
+    mirror "https://ftpmirror.gnu.org/gcc/gcc-10.2.0/gcc-10.2.0.tar.xz"
+    sha256 "b8dd4368bb9c7f0b98188317ee0254dd8cc99d1e3a18d0ff146c855fe16c1d8c"
+  end
+  license any_of: ["GPL-3.0-or-later"]
+  revision 1
   head "https://gcc.gnu.org/git/gcc.git"
 
   livecheck do
-    url :stable
+    # Should be
+    # url :stable
+    # but that does not work with the ARM-specific branch above
+    url "https://ftp.gnu.org/gnu/gcc/gcc-10.2.0"
     regex(%r{href=.*?gcc[._-]v?(\d+(?:\.\d+)+)(?:/?["' >]|\.t)}i)
   end
 
@@ -27,7 +40,6 @@ class Libgccjit < Formula
     satisfy { MacOS::CLT.installed? }
   end
 
-  depends_on "gcc" => :test
   depends_on "gmp"
   depends_on "isl"
   depends_on "libmpc"
@@ -35,22 +47,45 @@ class Libgccjit < Formula
 
   uses_from_macos "zlib"
 
+  conflicts_with "gcc", because: "both install `gcc` binaries & headers"
+
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
+
+  if Hardware::CPU.arch != :arm64
+    # Patch for Big Sur version numbering, remove with GCC 11
+    # https://github.com/iains/gcc-darwin-arm64/commit/556ab512
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/7baf6e2f/gcc/bigsur.diff"
+      sha256 "42de3bc4889b303258a4075f88ad8624ea19384cab57a98a5270638654b83f41"
+    end
+  end
+
+  def version_suffix
+    if build.head?
+      "HEAD"
+    else
+      version.major.to_s
+    end
+  end
 
   def install
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete "LD"
 
-    osmajor = `uname -r`.split(".").first
+    languages = %w[jit]
+
     pkgversion = "Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip
+    cpu = Hardware::CPU.arm? ? "aarch64" : "x86_64"
 
     args = %W[
-      --build=x86_64-apple-darwin#{osmajor}
+      --build=#{cpu}-apple-darwin#{OS.kernel_version.major}
       --prefix=#{prefix}
-      --libdir=#{lib}/gcc/#{version.major}
+      --libdir=#{lib}/gcc/#{version_suffix}
       --disable-nls
       --enable-checking=release
+      --enable-languages=#{languages.join(",")}
+      --program-suffix=-#{version_suffix}
       --with-gmp=#{Formula["gmp"].opt_prefix}
       --with-mpfr=#{Formula["mpfr"].opt_prefix}
       --with-mpc=#{Formula["libmpc"].opt_prefix}
@@ -85,10 +120,39 @@ class Libgccjit < Formula
       system "make", "install"
     end
 
-    # We only install the relevant libgccjit files from libexec and delete the rest.
-    Dir["#{prefix}/**/*"].each do |f|
-      rm_rf f unless File.directory?(f) || File.basename(f).to_s.start_with?("libgccjit")
+    #
+    # Do some cleanup after installation so we keep only the things that
+    # we actually need to use libgccjit (compilation & runtime).
+    #
+
+    # we need to keep one of the binaries in #{prefix}/bin as that is used
+    # for gcc driver in libgccjit
+    # -- see https://gcc.gnu.org/onlinedocs/jit/internals/index.html#envvar-PATH
+    osmajor = `uname -r`.split(".").first
+
+    Dir["#{bin}/*"].each do |f|
+      rm_rf f unless File.basename(f).to_s == "#{cpu}-apple-darwin#{osmajor}-gcc-#{version}"
     end
+
+    Dir["#{lib}/**/*"].each do |f|
+      rm_rf f unless File.directory?(f) || File.basename(f).to_s.start_with?("libgcc")
+    end
+
+    rm_rf libexec
+  end
+
+  def caveats
+    <<~EOS
+      libgccjit requires LIBRARY_PATH to be set to #{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}
+      in runtime.
+
+      Add the following line to your .bashrc or equivalent:
+
+        export LIBRARY_PATH="#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}:$LIBRARY_PATH"
+
+      Please see https://gcc.gnu.org/onlinedocs/jit/internals/index.html#environment-variables
+      for more details.
+    EOS
   end
 
   test do
@@ -143,11 +207,7 @@ class Libgccjit < Formula
       }
     EOS
 
-    gcc_major_ver = Formula["gcc"].any_installed_version.major
-    gcc = Formula["gcc"].opt_bin/"gcc-#{gcc_major_ver}"
-    libs = "#{HOMEBREW_PREFIX}/lib/gcc/#{gcc_major_ver}"
-
-    system gcc.to_s, "-I#{include}", "test-libgccjit.c", "-o", "test", "-L#{libs}", "-lgccjit"
+    system ENV.cc, "-I#{include}", "test-libgccjit.c", "-o", "test", "-L#{lib}/gcc/#{version_suffix}", "-lgccjit"
     assert_equal "hello world", shell_output("./test")
   end
 end
