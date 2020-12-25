@@ -10,7 +10,7 @@ class LeakcanaryShark < Formula
   depends_on "openjdk"
 
   resource "sample_hprof" do
-    url "https://github.com/square/leakcanary/raw/v2.2/shark-android/src/test/resources/leak_asynctask_m.hprof"
+    url "https://github.com/square/leakcanary/raw/v2.6/shark-android/src/test/resources/leak_asynctask_m.hprof"
     sha256 "7575158108b701e0f7233bc208decc243e173c75357bf0be9231a1dcb5b212ab"
   end
 
