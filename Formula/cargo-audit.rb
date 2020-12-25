@@ -7,6 +7,7 @@ class CargoAudit < Formula
   head "https://github.com/RustSec/cargo-audit.git"
 
   depends_on "rust" => :build
+  depends_on "openssl@1.1"
 
   def install
     system "cargo", "install", *std_cargo_args
