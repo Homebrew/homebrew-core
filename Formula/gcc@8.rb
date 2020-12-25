@@ -25,6 +25,7 @@ class GccAT8 < Formula
     satisfy { MacOS::CLT.installed? }
   end
 
+  depends_on arch: :x86_64
   depends_on "gmp"
   depends_on "isl"
   depends_on "libmpc"
