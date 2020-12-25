@@ -22,6 +22,13 @@ class Coturn < Formula
   depends_on "libpq"
   depends_on "openssl@1.1"
 
+  # fix compilation on macOS Big Sur
+  # remove in next release
+  patch do
+    url "https://github.com/coturn/coturn/commit/5b07b98.patch?full_index=1"
+    sha256 "186cbd35d74d440abfddf5a04c46a7ce781ceca7af989b1000feb5f98b2c270a"
+  end
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
