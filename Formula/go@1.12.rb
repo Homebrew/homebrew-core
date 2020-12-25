@@ -18,6 +18,8 @@ class GoAT112 < Formula
 
   deprecate! date: "2020-02-25", because: :unsupported
 
+  depends_on arch: :x86_64
+
   resource "gotools" do
     url "https://go.googlesource.com/tools.git",
         branch: "release-branch.go1.12"
