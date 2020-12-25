@@ -19,6 +19,8 @@ class GoAT114 < Formula
 
   keg_only :versioned_formula
 
+  depends_on arch: :x86_64
+
   resource "gotools" do
     url "https://go.googlesource.com/tools.git",
         branch: "release-branch.go1.14"
