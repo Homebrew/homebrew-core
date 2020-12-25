@@ -18,6 +18,9 @@ class Alure < Formula
     sha256 "031b2eb61f6206879b76a7276298f1db9875fa996467327b519ccc6d1622a158" => :high_sierra
   end
 
+  # raise issue in here, https://github.com/kcat/alure/issues/47
+  disable! date: "2020-12-24", because: :repo_removed
+
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
 
