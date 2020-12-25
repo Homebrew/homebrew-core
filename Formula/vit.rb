@@ -9,6 +9,10 @@ class Vit < Formula
   revision 2
   head "https://github.com/vit-project/vit.git", branch: "2.x"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "7f92f4eedad20637f8f99d531fcc89e9d44514df8ab46421059c0b06497f59de" => :big_sur
