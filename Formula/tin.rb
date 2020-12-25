@@ -3,6 +3,7 @@ class Tin < Formula
   homepage "http://www.tin.org"
   url "https://www.nic.funet.fi/pub/unix/news/tin/v2.4/tin-2.4.5.tar.xz"
   sha256 "1a14e6a49a3627230f792eb48936d39d0abd7b04d958083a6296bb4210c6c512"
+  license "BSD-3-Clause"
 
   livecheck do
     url :homepage
