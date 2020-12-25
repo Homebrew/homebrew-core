@@ -20,6 +20,7 @@ class Spidermonkey < Formula
     sha256 "8cda55126be55fce01a82cf60e10522e211e7d8d384a0935c74a9d524256127f" => :mojave
   end
 
+  depends_on :macos # Due to Python 2
   depends_on "nspr"
   depends_on "readline"
 
