@@ -24,9 +24,14 @@ class Borgbackup < Formula
   depends_on "lz4"
   depends_on "openssl@1.1"
   depends_on "python@3.9"
+  depends_on "xxhash"
   depends_on "zstd"
 
   def install
+    ENV["BORG_LIBB2_PREFIX"] = Formula["libb2"].prefix
+    ENV["BORG_LIBLZ4_PREFIX"] = Formula["lz4"].prefix
+    ENV["BORG_LIBXXHASH_PREFIX"] = Formula["xxhash"].prefix
+    ENV["BORG_LIBZSTD_PREFIX"] = Formula["zstd"].prefix
     ENV["BORG_OPENSSL_PREFIX"] = Formula["openssl@1.1"].prefix
     virtualenv_install_with_resources
   end
