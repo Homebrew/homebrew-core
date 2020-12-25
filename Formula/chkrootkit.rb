@@ -4,6 +4,7 @@ class Chkrootkit < Formula
   url "ftp://ftp.pangeia.com.br/pub/seg/pac/chkrootkit-0.54.tar.gz"
   mirror "https://fossies.org/linux/misc/chkrootkit-0.54.tar.gz"
   sha256 "154c926921f53db60728a7cbc97ca88658b694c14b7d288efe383e0849915607"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :homepage
