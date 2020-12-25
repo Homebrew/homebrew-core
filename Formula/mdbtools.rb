@@ -3,7 +3,7 @@ class Mdbtools < Formula
   homepage "https://github.com/brianb/mdbtools/"
   url "https://github.com/mdbtools/mdbtools/releases/download/v0.9.0/mdbtools-0.9.0.tar.gz"
   sha256 "8ce95f62c32f9c5c1c1dcb1c853a35b735e2158bf5ceb0c041e2e9557ff536af"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
     cellar :any
