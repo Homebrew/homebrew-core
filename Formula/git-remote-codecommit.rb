@@ -9,6 +9,10 @@ class GitRemoteCodecommit < Formula
   revision 1
   head "https://github.com/aws/git-remote-codecommit.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "3b2128aaacc269dc6e1a48e4fd83c1eb1eb3a74e66c5555e856d1bde562d24e7" => :big_sur
