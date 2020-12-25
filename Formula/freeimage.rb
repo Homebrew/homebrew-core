@@ -25,6 +25,10 @@ class Freeimage < Formula
   end
 
   def install
+    if Hardware::CPU.arch == :arm64
+      ENV.append "CFLAGS", "-DPNG_ARM_NEON_OPT=0"
+      ENV.append "CXXFLAGS", "-DPNG_ARM_NEON_OPT=0"
+    end
     system "make", "-f", "Makefile.gnu"
     system "make", "-f", "Makefile.gnu", "install", "PREFIX=#{prefix}"
     system "make", "-f", "Makefile.fip"
