@@ -1,8 +1,8 @@
 class Txr < Formula
   desc "Original, new programming language for convenient data munging"
   homepage "https://www.nongnu.org/txr/"
-  url "http://www.kylheku.com/cgit/txr/snapshot/txr-244.tar.bz2"
-  sha256 "192cebb4edf89fcf0010cf3982a058ee5019abf28336bcf47cd3a5c1bb392b58"
+  url "http://www.kylheku.com/cgit/txr/snapshot/txr-246.tar.bz2"
+  sha256 "5873993746e80bb3c293ce5c650c22ddf7a089d7819aed1838df25ac12d5c794"
   license "BSD-2-Clause"
 
   livecheck do
@@ -18,11 +18,13 @@ class Txr < Formula
     sha256 "4def7304997039f48be24742fa670c5e8f292dd3256793696b09bf9da31cafd7" => :high_sierra
   end
 
+  depends_on "libffi"
+
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
 
   def install
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}", "--inline=static inline"
     system "make"
     system "make", "install"
   end
