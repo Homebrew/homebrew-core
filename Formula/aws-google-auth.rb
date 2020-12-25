@@ -9,6 +9,10 @@ class AwsGoogleAuth < Formula
   revision 2
   head "https://github.com/cevoaustralia/aws-google-auth.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any
     sha256 "67eb5983db407f9a4b8565a1e34837b0c8c3490b2e0d2d14f6154db86fd34c55" => :big_sur
