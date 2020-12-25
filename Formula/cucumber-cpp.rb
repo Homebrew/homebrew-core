@@ -33,14 +33,8 @@ class CucumberCpp < Formula
   test do
     ENV["GEM_HOME"] = testpath
     ENV["BUNDLE_PATH"] = testpath
-    if MacOS.version >= :mojave && MacOS::CLT.installed?
-      ENV.delete("CPATH")
-      ENV["SDKROOT"] = MacOS::CLT.sdk_path(MacOS.version)
-    elsif MacOS.version == :high_sierra
-      ENV.delete("CPATH")
-      ENV.delete("SDKROOT")
-    end
-    system "gem", "install", "cucumber", "-v", "3.0.0"
+
+    system "gem", "install", "cucumber", "-v", "5.2.0"
 
     (testpath/"features/test.feature").write <<~EOS
       Feature: Test
@@ -79,7 +73,7 @@ class CucumberCpp < Formula
         1 scenario \(1 passed\)
         3 steps \(3 passed\)
       EOS
-      assert_match expected, shell_output(testpath/"bin/cucumber")
+      assert_match expected, shell_output("#{testpath}/bin/cucumber --publish-quiet")
     ensure
       Process.kill("SIGINT", pid)
       Process.wait(pid)
