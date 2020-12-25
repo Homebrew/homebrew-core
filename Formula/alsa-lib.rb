@@ -5,6 +5,11 @@ class AlsaLib < Formula
   sha256 "f7554be1a56cdff468b58fc1c29b95b64864c590038dd309c7a978c7116908f7"
   license "LGPL-2.1-or-later"
 
+  livecheck do
+    url "https://www.alsa-project.org/files/pub/lib"
+    regex(/href=.*?alsa-lib[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   depends_on :linux
 
   def install
