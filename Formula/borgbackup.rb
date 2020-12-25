@@ -27,6 +27,7 @@ class Borgbackup < Formula
   depends_on "zstd"
 
   def install
+    ENV["BORG_OPENSSL_PREFIX"] = Formula["openssl@1.1"].prefix
     virtualenv_install_with_resources
   end
 
