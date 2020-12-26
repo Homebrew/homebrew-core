@@ -3,15 +3,14 @@ class Ykman < Formula
 
   desc "Tool for managing your YubiKey configuration"
   homepage "https://developers.yubico.com/yubikey-manager/"
-  url "https://developers.yubico.com/yubikey-manager/Releases/yubikey-manager-3.1.1.tar.gz"
+  url "https://files.pythonhosted.org/packages/9d/27/2f40f6b7ffc5f4e36da4d75780d818f3b74fb5394f2b043b04cd34bf1ecc/yubikey-manager-3.1.1.tar.gz"
   sha256 "68ef41ac3cd2e891019e755a492427ecdd63d8816525d05f2f32c37b8c440cfa"
   license "BSD-2-Clause"
   revision 2
   head "https://github.com/Yubico/yubikey-manager.git"
 
   livecheck do
-    url "https://developers.yubico.com/yubikey-manager/Releases/"
-    regex(/href=.*?yubikey-manager[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url :stable
   end
 
   bottle do
