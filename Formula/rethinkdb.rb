@@ -26,6 +26,8 @@ class Rethinkdb < Formula
 
   uses_from_macos "curl"
 
+  # patch submitted to upstream, https://github.com/rethinkdb/rethinkdb/pull/6934
+  # remove in next release
   patch :DATA
 
   def install
