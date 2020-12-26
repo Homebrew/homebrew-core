@@ -22,6 +22,11 @@ class Fig2dev < Formula
   depends_on "libpng"
   depends_on "netpbm"
 
+  # fix `'endian.h' file not found`
+  # commit ref, https://sourceforge.net/p/mcj/fig2dev/ci/3897c8034f2eecfa99c645f2b8efa400505a9e27/
+  # remove in next release
+  patch :DATA
+
   def install
     args = %W[
       --prefix=#{prefix}
@@ -44,3 +49,17 @@ class Fig2dev < Formula
     assert_predicate testpath/"patterns.png", :exist?, "Failed to create PNG"
   end
 end
+
+__END__
+diff --git a/fig2dev/dev/genemf.h b/fig2dev/dev/genemf.h
+index 46e0964..4e0d215 100644
+--- a/fig2dev/dev/genemf.h
++++ b/fig2dev/dev/genemf.h
+@@ -30,8 +30,6 @@
+ #include "config.h"
+ #endif
+
+-#include <endian.h>
+-
+ typedef unsigned char  uchar;
+ typedef unsigned short TCHAR;
