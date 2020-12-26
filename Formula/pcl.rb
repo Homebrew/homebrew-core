@@ -100,6 +100,10 @@ class Pcl < Formula
       }
     EOS
     mkdir "build" do
+      # the following line is needed to workaround a bug in test-bot
+      # (Homebrew/homebrew-test-bot#544) when bumping the boost
+      # revision without bumping this formula's revision as well
+      ENV.prepend_path "PKG_CONFIG_PATH", Formula["eigen"].opt_share/"pkgconfig"
       system "cmake", "..", *std_cmake_args
       system "make"
       system "./pcd_write"
