@@ -8,6 +8,10 @@ class Scour < Formula
   license "Apache-2.0"
   head "https://github.com/scour-project/scour.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "59c8544ab5300901bbe06b2279cfd2e81db2b2341506b14522d8f9d1630a3f00" => :big_sur
