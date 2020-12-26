@@ -3,15 +3,14 @@ class Pyinvoke < Formula
 
   desc "Pythonic task management & command execution"
   homepage "https://www.pyinvoke.org/"
-  url "https://github.com/pyinvoke/invoke/archive/1.4.1.tar.gz"
-  sha256 "ac5880fb5d21f06cc1b29f89736cb8a43b85abea9204b4bb4277458ae025d0b7"
+  url "https://files.pythonhosted.org/packages/b6/08/b345475cfaaa542ae78a172d5b23979ad0577f15a32b16e5e54b2a7e80c6/invoke-1.4.1.tar.gz"
+  sha256 "de3f23bfe669e3db1085789fd859eb8ca8e0c5d9c20811e2407fa042e8a5e15d"
   license "BSD-2-Clause"
   revision 2
   head "https://github.com/pyinvoke/invoke.git"
 
   livecheck do
     url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
