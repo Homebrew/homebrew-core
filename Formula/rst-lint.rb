@@ -3,8 +3,8 @@ class RstLint < Formula
 
   desc "ReStructuredText linter"
   homepage "https://github.com/twolfson/restructuredtext-lint"
-  url "https://github.com/twolfson/restructuredtext-lint/archive/1.3.2.tar.gz"
-  sha256 "07bcdb8365918412865de169e3070028bf58f57af23023dd859f5e772f894783"
+  url "https://files.pythonhosted.org/packages/45/69/5e43d0e8c2ca903aaa2def7f755b97a3aedc5793630abbd004f2afc3b295/restructuredtext_lint-1.3.2.tar.gz"
+  sha256 "d3b10a1fe2ecac537e51ae6d151b223b78de9fafdd50e5eb6b08c243df173c80"
   license "Unlicense"
 
   bottle do
