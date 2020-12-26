@@ -8,6 +8,10 @@ class Restview < Formula
   license "GPL-3.0"
   revision 3
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "4ba3029792fba4cc83b0b623744f972c28cdb923fcffadeac09529f338705287" => :big_sur
