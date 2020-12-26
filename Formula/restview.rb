@@ -3,8 +3,8 @@ class Restview < Formula
 
   desc "Viewer for ReStructuredText documents that renders them on the fly"
   homepage "https://mg.pov.lt/restview/"
-  url "https://github.com/mgedmin/restview/archive/2.9.2.tar.gz"
-  sha256 "155a5744111d3d1f9e7903f4445ff41c04b42c0be29705f57fb98b3d33b283bd"
+  url "https://files.pythonhosted.org/packages/e6/40/b4ef5c90297b9d37248090b9fde3a9aa1ef25e87ebd17b363760fec39a78/restview-2.9.2.tar.gz"
+  sha256 "790097eb587c0465126dde73ca06c7a22c5007ce1be4a1de449a13c0767b32dc"
   license "GPL-3.0"
   revision 3
 
