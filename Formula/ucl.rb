@@ -18,11 +18,19 @@ class Ucl < Formula
     sha256 "89c37d38b41d5107f85c0880eb1599c885dafc2a7150a378c645b3fbe1f0e5ef" => :mojave
   end
 
+  depends_on "automake" => :build
+
   def install
     # Workaround for ancient ./configure file
     # Normally it would be cleaner to run "autoremake" to get a more modern one,
     # but the tarball doesn't seem to include all of the local m4 files that were used
     ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
+    # Workaround for ancient config.sub files not recognising aarch64 macos.
+    # As above, autoremake would be nicer, but that does not work.
+    %w[config.guess config.sub].each do |fn|
+      cp "#{Formula["automake"].opt_prefix}/share/automake-#{Formula["automake"].version.major_minor}/#{fn}",
+         "acconfig/#{fn}"
+    end
 
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
