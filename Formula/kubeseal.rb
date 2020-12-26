@@ -6,6 +6,12 @@ class Kubeseal < Formula
       revision: "378897421ef6ef3ba600b48607988f75fa32b528"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    regex(%r{href=.*?/tag/(?:helm[._-])?v?(.+?)["' >]}i)
+    strategy :github_latest
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "33b659b0f8b22a8bafa97325c31fb91401e12c37fa9c79338b039544c76ceab9" => :big_sur
