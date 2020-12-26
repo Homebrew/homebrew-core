@@ -6,6 +6,7 @@ class YoutubeDlc < Formula
   sha256 "649f8ba9a6916ca45db0b81fbcec3485e79895cec0f29fd25ec33520ffffca84"
   license "Unlicense"
   head "https://github.com/blackjack4494/yt-dlc.git"
+  # Comment to force bottle rebuild
 
   livecheck do
     url :stable
