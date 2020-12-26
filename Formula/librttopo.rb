@@ -4,6 +4,12 @@ class Librttopo < Formula
   url "https://git.osgeo.org/gitea/rttopo/librttopo/archive/librttopo-1.1.0.tar.gz"
   sha256 "2e2fcabb48193a712a6c76ac9a9be2a53f82e32f91a2bc834d9f1b4fa9cd879f"
   license "GPL-2.0-or-later"
+  head "https://git.osgeo.org/gitea/rttopo/librttopo.git"
+
+  livecheck do
+    url :head
+    regex(/^(?:librttopo[._-])?v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     cellar :any
@@ -37,6 +43,6 @@ class Librttopo < Formula
       }
     EOS
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lrttopo", "-o", "test"
-    assert_equal version.to_s, shell_output("./test")
+    assert_equal stable.version.to_s, shell_output("./test")
   end
 end
