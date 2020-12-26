@@ -9,6 +9,10 @@ class ShallowBackup < Formula
   revision 1
   head "https://github.com/alichtman/shallow-backup.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "ed8d7fd1723a6cc043f76799099cf7267f96baa8e9d2a9ea01f6b29ba1167c27" => :big_sur
