@@ -5,6 +5,7 @@ class Vdirsyncer < Formula
   homepage "https://github.com/pimutils/vdirsyncer"
   url "https://files.pythonhosted.org/packages/9a/fc/9a8d00e7909d40417b866e7019c2d5fb6830e45d64264d7a66d51b95853b/vdirsyncer-0.16.8.tar.gz"
   sha256 "bfdb422f52e1d4d60bd0635d203fb59fa7f613397d079661eb48e79464ba13c5"
+  license "BSD-3-Clause"
   revision 2
   head "https://github.com/pimutils/vdirsyncer.git"
 
