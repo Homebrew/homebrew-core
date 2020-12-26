@@ -5,6 +5,12 @@ class Hatari < Formula
   sha256 "bf48161903930f6470eca1d9c293f51b09b8c54695f5ee213af141316253b8a5"
   head "https://git.tuxfamily.org/hatari/hatari.git"
 
+  livecheck do
+    url "https://hatari.tuxfamily.org/news.html"
+    strategy :page_match
+    regex(/Version v?(\d+(?:\.\d+)+)/i)
+  end
+
   bottle do
     cellar :any
     sha256 "0baa34a4ce8960b24721e9423b9b3cf37c221a7ccba2aee3f948ecbf453daeea" => :big_sur
