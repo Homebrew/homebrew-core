@@ -3,10 +3,15 @@ class Termtosvg < Formula
 
   desc "Record terminal sessions as SVG animations"
   homepage "https://nbedos.github.io/termtosvg"
-  url "https://github.com/nbedos/termtosvg/archive/1.1.0.tar.gz"
-  sha256 "53e9ad5976978684699d14b83cac37bf173d76c787f1b849859ad8aef55f22d2"
+  url "https://files.pythonhosted.org/packages/7b/73/94c8a5b6f53864704d5b763b0502e6d6c502db5e614d56820ab52aef1e18/termtosvg-1.1.0.tar.gz"
+  sha256 "ed38f1615d7f873e784761d1b406ac73abbd2bbf0c517362f5c2fdc1919d65ee"
   license "BSD-3-Clause"
   revision 2
+  head "https://github.com/nbedos/termtosvg.git"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
