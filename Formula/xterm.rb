@@ -6,6 +6,11 @@ class Xterm < Formula
   sha256 "1d4ffe226fa8f021859bbc3007788ff63a46a31242d9bd9a7bd7ebe24e81aca2"
   license :cannot_represent
 
+  livecheck do
+    url "https://invisible-mirror.net/archives/xterm/"
+    regex(/href=.*?xterm[._-]v?(\d+(?:\.\d+)*)\.t/i)
+  end
+
   bottle do
     sha256 "3c3eddaf030860352a88988fbaf010dca4b2fd915b4722e655b98ce37c7416a6" => :big_sur
     sha256 "28e883a95daea3c12aa593cabb9f359e54eed2b6d99c80c0d940cfef36f6d154" => :arm64_big_sur
