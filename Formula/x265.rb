@@ -4,7 +4,7 @@ class X265 < Formula
   url "https://bitbucket.org/multicoreware/x265_git/get/3.4.tar.gz"
   sha256 "7f2771799bea0f53b5ab47603d5bea46ea2a221e047a7ff398115e9976fd5f86"
   license "GPL-2.0-only"
-  revision 1
+  revision 2
   head "https://bitbucket.org/multicoreware/x265_git.git"
 
   livecheck do
