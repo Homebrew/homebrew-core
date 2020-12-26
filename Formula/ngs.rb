@@ -22,6 +22,7 @@ class Ngs < Formula
   depends_on "json-c"
   depends_on "pcre"
   depends_on "peg"
+  depends_on "python@3.9"
 
   uses_from_macos "libffi"
 
