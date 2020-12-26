@@ -3,8 +3,8 @@ class Mkvtomp4 < Formula
 
   desc "Convert mkv files to mp4"
   homepage "https://github.com/gavinbeatty/mkvtomp4/"
-  url "https://github.com/gavinbeatty/mkvtomp4/archive/mkvtomp4-v2.0.tar.gz"
-  sha256 "0f9aa1754d4b33a6a83c0a71a373836d4872b3288dae9cfb6168c35f09887f2d"
+  url "https://files.pythonhosted.org/packages/89/27/7367092f0d5530207e049afc76b167998dca2478a5c004018cf07e8a5653/mkvtomp4-2.0.tar.gz"
+  sha256 "8514aa744963ea682e6a5c4b3cfab14c03346bfc78194c3cdc8b3a6317902f12"
   license "MIT"
   revision 2
 
