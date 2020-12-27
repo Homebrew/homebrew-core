@@ -3,6 +3,7 @@ class Wimlib < Formula
   homepage "https://wimlib.net/"
   url "https://wimlib.net/downloads/wimlib-1.13.3.tar.gz"
   sha256 "8a0741d07d9314735b040cea6168f6daf1ac1c72d350d703f286b118135dfa7e"
+  license "GPL-3.0-or-later"
   revision 1
 
   livecheck do
