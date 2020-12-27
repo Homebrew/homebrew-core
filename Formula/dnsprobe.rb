@@ -13,6 +13,9 @@ class Dnsprobe < Formula
     sha256 "f6c2b6edb0f8c482488b325400f1d712687a369c8b8fd7fb9e0d0cba1def2273" => :high_sierra
   end
 
+  # repo derecated in favor of `projectdiscovery/dnsx`
+  deprecate! date: "2020-11-13", because: :repo_archived
+
   depends_on "go" => :build
 
   def install
