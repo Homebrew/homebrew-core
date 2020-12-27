@@ -7,10 +7,14 @@ class Rttr < Formula
   head "https://github.com/rttrorg/rttr.git"
 
   depends_on "cmake" => :build
+  depends_on "doxygen" => :build
 
   def install
+    args = std_cmake_args
+    args << "-DBUILD_UNIT_TESTS=OFF"
+
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "..", *args
       system "make", "install"
     end
   end
