@@ -3,7 +3,6 @@ class Graphicsmagick < Formula
   homepage "http://www.graphicsmagick.org/"
   url "https://downloads.sourceforge.net/project/graphicsmagick/graphicsmagick/1.3.36/GraphicsMagick-1.3.36.tar.xz"
   sha256 "5d5b3fde759cdfc307aaf21df9ebd8c752e3f088bb051dd5df8aac7ba7338f46"
-  license "MIT"
   head "http://hg.code.sf.net/p/graphicsmagick/code", using: :hg
 
   livecheck do
