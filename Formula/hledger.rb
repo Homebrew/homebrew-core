@@ -45,6 +45,14 @@ class Hledger < Formula
     (buildpath/"../hledger-web").install resource("hledger-web")
     cd ".." do
       system "stack", "update"
+      # For the moment we use a custom stack.yaml file to help build
+      # with ghc 8.10.3, which does not yet have a stackage snapshot,
+      # and to declare some needed extra dependencies that are not yet
+      # in stackage. When stackage catches up, we can drop this and go
+      # back to an install command something like:
+      # system "stack", "install", "--local-bin-path=#{bin}",
+      #   "--system-ghc", "--no-install-ghc", "--skip-ghc-check", "--resolver=nightly-2021-01-15",
+      #   "./hledger-#{version}", "./hledger-lib", "./hledger-ui", "./hledger-web"
       (buildpath/"../stack.yaml").write <<~EOS
         resolver: lts-16.27
         compiler: ghc-#{Formula["ghc"].version}
