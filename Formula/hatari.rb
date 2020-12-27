@@ -3,6 +3,7 @@ class Hatari < Formula
   homepage "https://hatari.tuxfamily.org"
   url "https://download.tuxfamily.org/hatari/2.3.0/hatari-2.3.0.tar.bz2"
   sha256 "bf48161903930f6470eca1d9c293f51b09b8c54695f5ee213af141316253b8a5"
+  license "GPL-2.0-or-later"
   head "https://git.tuxfamily.org/hatari/hatari.git"
 
   livecheck do
