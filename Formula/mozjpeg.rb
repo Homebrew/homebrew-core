@@ -25,7 +25,8 @@ class Mozjpeg < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      args = std_cmake_args - %w[-DCMAKE_INSTALL_LIBDIR=lib]
+      system "cmake", "..", *args, "-DCMAKE_INSTALL_LIBDIR=#{lib}"
       system "make"
       system "make", "install"
     end
