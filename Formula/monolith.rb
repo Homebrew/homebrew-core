@@ -23,6 +23,6 @@ class Monolith < Formula
   end
 
   test do
-    system bin/"monolith", "https://lyrics.github.io/db/p/portishead/dummy/roads"
+    system bin/"monolith", "https://lyrics.github.io/db/P/Portishead/Dummy/Roads/"
   end
 end
