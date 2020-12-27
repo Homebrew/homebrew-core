@@ -28,7 +28,10 @@ class Rethinkdb < Formula
 
   # patch submitted to upstream, https://github.com/rethinkdb/rethinkdb/pull/6934
   # remove in next release
-  patch :DATA
+  patch do
+    url "https://github.com/chenrui333/rethinkdb/commit/d7d22b4.patch?full_index=1"
+    sha256 "45d387c3360cf6265e27485c273c37224b2ef0000ebd4fdd361dcecc4d2e9791"
+  end
 
   def install
     # rethinkdb requires that protobuf be linked against libc++
@@ -83,35 +86,3 @@ class Rethinkdb < Formula
     assert File.read("test/metadata").start_with?("RethinkDB")
   end
 end
-__END__
-diff --git a/src/rdb_protocol/datum.cc b/src/rdb_protocol/datum.cc
-index 31e0a72..24fa9b7 100644
---- a/src/rdb_protocol/datum.cc
-+++ b/src/rdb_protocol/datum.cc
-@@ -12,7 +12,7 @@
- #include <iterator>
- 
- #include "errors.hpp"
--#include <boost/detail/endian.hpp>
-+#include <boost/predef/other/endian.h>
- 
- #include "arch/runtime/coroutines.hpp"
- #include "cjson/json.hpp"
-@@ -1122,7 +1122,7 @@ std::string datum_t::encode_tag_num(uint64_t tag_num) {
-             "tag_size constant is assumed to be the size of a uint64_t.");
- #if defined(__s390x__)
-     tag_num = __builtin_bswap64(tag_num);
--#elif !defined(BOOST_LITTLE_ENDIAN)
-+#elif !defined(BOOST_ENDIAN_LITTLE_BYTE)
-     static_assert(false, "This piece of code will break on big-endian systems.");
- #endif
-     return std::string(reinterpret_cast<const char *>(&tag_num), tag_size);
-@@ -1251,7 +1251,7 @@ components_t parse_secondary(const std::string &key) THROWS_NOTHING {
-         uint64_t t = *reinterpret_cast<const uint64_t *>(tag_str.data());
- #if defined(__s390x__)
-         t = __builtin_bswap64(t);
--#elif !defined(BOOST_LITTLE_ENDIAN)
-+#elif !defined(BOOST_ENDIAN_LITTLE_BYTE)
-         static_assert(false, "This piece of code will break on big endian systems.");
- #endif
-         tag_num.set(t);
