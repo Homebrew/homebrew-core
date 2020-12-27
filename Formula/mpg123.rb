@@ -4,7 +4,7 @@ class Mpg123 < Formula
   url "https://www.mpg123.de/download/mpg123-1.26.4.tar.bz2"
   mirror "https://downloads.sourceforge.net/project/mpg123/mpg123/1.26.4/mpg123-1.26.4.tar.bz2"
   sha256 "081991540df7a666b29049ad870f293cfa28863b36488ab4d58ceaa7b5846454"
-  license "LGPL-2.1"
+  license "LGPL-2.1-only"
 
   livecheck do
     url "https://www.mpg123.de/download/"
@@ -24,8 +24,14 @@ class Mpg123 < Formula
       --prefix=#{prefix}
       --with-default-audio=coreaudio
       --with-module-suffix=.so
-      --with-cpu=x86-64
     ]
+
+    args << if Hardware::CPU.arm?
+      "--with-cpu=aarch64"
+    else
+      "--with-cpu=x86-64"
+    end
+
     system "./configure", *args
     system "make", "install"
   end
