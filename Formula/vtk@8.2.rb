@@ -4,7 +4,7 @@ class VtkAT82 < Formula
   url "https://www.vtk.org/files/release/8.2/VTK-8.2.0.tar.gz"
   sha256 "34c3dc775261be5e45a8049155f7228b6bd668106c72a3c435d95730d17d57bb"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "961f425ff924bcb05d4968fec2ab3a883b1b079b3547966753ccdd86a05ff81b" => :big_sur
