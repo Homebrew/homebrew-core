@@ -22,7 +22,10 @@ class JpegTurbo < Formula
   depends_on "nasm" => :build
 
   def install
-    system "cmake", ".", "-DWITH_JPEG8=1", *std_cmake_args
+    args = std_cmake_args - %w[-DCMAKE_INSTALL_LIBDIR=lib]
+    system "cmake", ".", "-DWITH_JPEG8=1",
+                         "-DCMAKE_INSTALL_LIBDIR=#{lib}",
+                         *args
     system "make"
     system "make", "test"
     system "make", "install"
