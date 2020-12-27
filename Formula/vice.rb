@@ -4,6 +4,7 @@ class Vice < Formula
   url "https://downloads.sourceforge.net/project/vice-emu/releases/vice-3.5.tar.gz"
   sha256 "56b978faaeb8b2896032bd604d03c3501002187eef1ca58ceced40f11a65dc0e"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://svn.code.sf.net/p/vice-emu/code/trunk/vice"
 
   livecheck do
@@ -19,27 +20,24 @@ class Vice < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "dos2unix" => :build
   depends_on "pkg-config" => :build
   depends_on "texinfo" => :build
   depends_on "xa" => :build
   depends_on "yasm" => :build
 
-  depends_on "dos2unix"
+  depends_on "adwaita-icon-theme"
   depends_on "ffmpeg"
   depends_on "flac"
   depends_on "giflib"
-  depends_on "gtk+3" if build.head?
+  depends_on "glew"
+  depends_on "gtk+3"
   depends_on "jpeg"
   depends_on "lame"
-  depends_on "libnet"
   depends_on "libogg"
   depends_on "libpng"
+  depends_on "librsvg"
   depends_on "libvorbis"
-  depends_on "mpg123"
-  depends_on "portaudio"
-  depends_on "sdl2" unless build.head?
-  depends_on "sdl2_image"
-  depends_on "xz"
 
   def install
     configure_flags = %W[
@@ -47,28 +45,25 @@ class Vice < Formula
       --disable-dependency-tracking
       --disable-arch
       --disable-pdf-docs
+      --enable-native-gtk3ui
+      --enable-midi
+      --enable-lame
       --enable-external-ffmpeg
+      --enable-ethernet
+      --enable-cpuhistory
+      --with-flac
+      --with-vorbis
+      --with-gif
+      --with-jpeg
+      --with-png
     ]
-
-    configure_flags << if build.head?
-      "--enable-native-gtk3ui"
-    else
-      "--enable-sdlui2"
-    end
 
     system "./autogen.sh"
     system "./configure", *configure_flags
     system "make", "install"
   end
 
-  def caveats
-    <<~EOS
-      App bundles are no longer built for each emulator. The binaries are
-      available in #{HOMEBREW_PREFIX}/bin directly instead.
-    EOS
-  end
-
   test do
-    assert_match "Usage", shell_output("#{bin}/petcat -help", 1)
+    assert_match "cycle limit reached", shell_output("#{bin}/x64sc -console -limitcycles 1000000 -logfile -", 1)
   end
 end
