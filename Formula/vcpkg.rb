@@ -25,6 +25,13 @@ class Vcpkg < Formula
     end
   end
 
+  # build fix for arm
+  # remove in next release
+  patch do
+    url "https://github.com/microsoft/vcpkg/commit/7f328aa.patch?full_index=1"
+    sha256 "afe40ee3c294b85f062dc1598ff0cd7ae4f550336ac0b13f2a4f0226c50c501e"
+  end
+
   def install
     # fix for conflicting declaration of 'char* ctermid(char*)' on Mojave
     # https://github.com/microsoft/vcpkg/issues/9029
