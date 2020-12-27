@@ -7,9 +7,8 @@ class Hatari < Formula
   head "https://git.tuxfamily.org/hatari/hatari.git"
 
   livecheck do
-    url "https://hatari.tuxfamily.org/news.html"
-    strategy :page_match
-    regex(/Version v?(\d+(?:\.\d+)+)/i)
+    url "https://download.tuxfamily.org/hatari/"
+    regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
   bottle do
