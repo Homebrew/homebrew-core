@@ -3,7 +3,7 @@ class Rubberband < Formula
   homepage "https://breakfastquay.com/rubberband/"
   url "https://breakfastquay.com/files/releases/rubberband-1.9.0.tar.bz2"
   sha256 "4f5b9509364ea876b4052fc390c079a3ad4ab63a2683aad09662fb905c2dc026"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   head "https://hg.sr.ht/~breakfastquay/rubberband", using: :hg
 
   livecheck do
@@ -31,7 +31,11 @@ class Rubberband < Formula
   end
 
   def install
-    system "make", "-f", "Makefile.osx"
+    # Pass OPTFLAGS and ARCHFLAGS to avoid Intel-specific flags
+    system "make", "-f", "Makefile.osx",
+                   "OPTFLAGS='-DNDEBUG -ffast-math -O3 -ftree-vectorize'",
+                   "ARCHFLAGS="
+
     # HACK: Manual install because "make install" is broken
     # https://github.com/Homebrew/homebrew-core/issues/28660
     bin.install "bin/rubberband"
