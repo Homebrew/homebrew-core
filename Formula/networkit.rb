@@ -3,9 +3,8 @@ class Networkit < Formula
 
   desc "Performance toolkit for large-scale network analysis"
   homepage "https://networkit.github.io"
-  url "https://github.com/networkit/networkit.git",
-      tag:      "8.0",
-      revision: "bdbb926e7d3102c32a3fc54d4cfa769bfac822f4"
+  url "https://github.com/networkit/networkit/archive/8.0.tar.gz"
+  sha256 "cdf9571043edbe76c447622ed33efe9cba2880f887ca231d98f6d3c22027e20e"
   license "MIT"
 
   bottle do
@@ -17,12 +16,18 @@ class Networkit < Formula
 
   depends_on "cmake" => :build
   depends_on "cython" => :build
+  depends_on "tlx" => :build
+
   depends_on "libnetworkit"
   depends_on "numpy"
   depends_on "python@3.9"
   depends_on "scipy"
 
   def install
+    # fix tlx path reference
+    inreplace "setup.py", "\"-DCMAKE_BUILD_TYPE=Release\"",
+                          "\"-DCMAKE_BUILD_TYPE=Release\", \"-DNETWORKIT_EXT_TLX=#{Formula["tlx"].opt_prefix}\""
+
     xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     rpath_addons = Formula["libnetworkit"].opt_lib
 
@@ -30,7 +35,7 @@ class Networkit < Formula
     ENV.append_path "PYTHONPATH", Formula["cython"].opt_libexec/"lib/python#{xy}/site-packages"
     system Formula["python@3.9"].opt_bin/"python3", "setup.py", "build_ext",
           "--networkit-external-core",
-           "--rpath=@loader_path;#{rpath_addons}"
+          "--rpath=@loader_path;#{rpath_addons}"
     system Formula["python@3.9"].opt_bin/"python3", "setup.py", "install",
            "--single-version-externally-managed",
            "--record=installed.txt",
