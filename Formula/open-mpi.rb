@@ -5,6 +5,13 @@ class OpenMpi < Formula
   sha256 "c58f3863b61d944231077f344fe6b4b8fbb83f3d1bc93ab74640bf3e5acac009"
   license "BSD-3-Clause"
 
+  head do
+    url "https://github.com/open-mpi/ompi.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   livecheck do
     url :homepage
     regex(/MPI v?(\d+(?:\.\d+)+) release/i)
@@ -16,13 +23,6 @@ class OpenMpi < Formula
     sha256 "fd21d8d449c7fee6126f11994b6e0d12178b1eab55cbb17f99056d535cb1ace4" => :catalina
     sha256 "f3a7dca683792a4fe866b62004351b1dae6acf2376609cf36bdc771d9e9104ef" => :mojave
     sha256 "33d3cd119f7f7d7d3154d758cc0ad68ad513624c9a648c9b87d732ea6a8e6068" => :high_sierra
-  end
-
-  head do
-    url "https://github.com/open-mpi/ompi.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   # Regenerate for Big Sur due to configure issues
