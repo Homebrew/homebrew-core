@@ -14,6 +14,14 @@ class Libcaca < Formula
   # releases candidates, etc. before there's a stable release. Hopefully we can
   # restrict this to stable releases in the future but it has to be loose for
   # the moment.
+  head do
+    url "https://github.com/cacalabs/libcaca.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   livecheck do
     url :head
     regex(/^v?(\d+(?:\.\d+)+.*)/i)
@@ -25,14 +33,6 @@ class Libcaca < Formula
     sha256 "49547bb139e2ed778c36c881a73d0ec51d3c0b978873db0587b3936b87c55d0b" => :arm64_big_sur
     sha256 "3d2d080e206d0d7d9720687aadfce949e78588df510b9039ff1b8f4277015d6d" => :catalina
     sha256 "38488f0e4363948a80d60201da73c6c67856525ff0b67cfd53dc3caa16de602e" => :mojave
-  end
-
-  head do
-    url "https://github.com/cacalabs/libcaca.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "pkg-config" => :build
