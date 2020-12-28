@@ -13,13 +13,6 @@ class Audacious < Formula
     end
   end
 
-  bottle do
-    sha256 "263228588ae36e89a4996042689d621c8160118f0e93b48fa76948e98fae6b34" => :big_sur
-    sha256 "b91911a8c81456b650fb88eb7f9dda4844538632b034a783eb209524aa6a2467" => :catalina
-    sha256 "09a4731e3df8b48e43305051a64ca73b07fec7ff76cf1cee1edc734a3cac99ea" => :mojave
-    sha256 "49a8da44d9aabfeb8d45057d7f04270a6cc0efc65f703d1e810edf74437691af" => :high_sierra
-  end
-
   head do
     url "https://github.com/audacious-media-player/audacious.git"
 
@@ -30,6 +23,13 @@ class Audacious < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
+  end
+
+  bottle do
+    sha256 "263228588ae36e89a4996042689d621c8160118f0e93b48fa76948e98fae6b34" => :big_sur
+    sha256 "b91911a8c81456b650fb88eb7f9dda4844538632b034a783eb209524aa6a2467" => :catalina
+    sha256 "09a4731e3df8b48e43305051a64ca73b07fec7ff76cf1cee1edc734a3cac99ea" => :mojave
+    sha256 "49a8da44d9aabfeb8d45057d7f04270a6cc0efc65f703d1e810edf74437691af" => :high_sierra
   end
 
   depends_on "gettext" => :build
