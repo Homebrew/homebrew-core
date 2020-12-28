@@ -5,6 +5,15 @@ class OpenOcd < Formula
   sha256 "7312e7d680752ac088b8b8f2b5ba3ff0d30e0a78139531847be4b75c101316ae"
   license "GPL-2.0"
 
+  head do
+    url "https://git.code.sf.net/p/openocd/code.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+    depends_on "texinfo" => :build
+  end
+
   livecheck do
     url :stable
     regex(%r{url=.*?/openocd[._-]v?(\d+(?:\.\d+)+)\.t}i)
@@ -18,15 +27,6 @@ class OpenOcd < Formula
     sha256 "491bec9acdc4e446a6515975041f21dec919ba330f88b5a69e8651ddd9c07468" => :mojave
     sha256 "0258f4d658907060d890c978a4d122ac5501119c4d28bb272e4bf5bc59bd8852" => :high_sierra
     sha256 "790605e83cc22ab4a455a382f7b6a434d44c19f82e0b8a0ee6a3bf28ac6f9f31" => :sierra
-  end
-
-  head do
-    url "https://git.code.sf.net/p/openocd/code.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-    depends_on "texinfo" => :build
   end
 
   depends_on "pkg-config" => :build
