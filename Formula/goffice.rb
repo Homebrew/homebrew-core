@@ -5,6 +5,14 @@ class Goffice < Formula
   sha256 "a439162fa26a0e58117e07b82b37000a7f421088ad379eb1f6a1cdee101ecefc"
   license any_of: ["GPL-3.0-only", "GPL-2.0-only"]
 
+  head do
+    url "https://github.com/GNOME/goffice.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "gtk-doc" => :build
+    depends_on "libtool" => :build
+  end
+
   livecheck do
     url :stable
   end
@@ -15,14 +23,6 @@ class Goffice < Formula
     sha256 "3e05167a37c42bfa01acf4be7055a52e3c2a03c990536ae5562b2c0aa4812e42" => :catalina
     sha256 "9edf36fd2ffb0a116e4e5f69cd00a04dd29eda04c1a3069b0e4da8950573c0a4" => :mojave
     sha256 "7043808e39862444e7aaae796137b30fadefb142dea291f9d8ce23228d635264" => :high_sierra
-  end
-
-  head do
-    url "https://github.com/GNOME/goffice.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "gtk-doc" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "intltool" => :build
