@@ -4,6 +4,7 @@ class Broot < Formula
   url "https://github.com/Canop/broot/archive/v1.1.10.tar.gz"
   sha256 "f40e63cf8bcf7d70a42d528696fe0355ff5a4a80cfd654593dabdd866613bc60"
   license "MIT"
+  revision 1
   head "https://github.com/Canop/broot.git"
 
   bottle do
