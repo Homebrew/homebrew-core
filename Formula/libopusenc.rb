@@ -5,6 +5,14 @@ class Libopusenc < Formula
   sha256 "8298db61a8d3d63e41c1a80705baa8ce9ff3f50452ea7ec1c19a564fe106cbb9"
   license "BSD-3-Clause"
 
+  head do
+    url "https://gitlab.xiph.org/xiph/libopusenc.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   bottle do
     cellar :any
     rebuild 1
@@ -13,14 +21,6 @@ class Libopusenc < Formula
     sha256 "593106e48c86436fd1908c79f1ef54f206bb37f0983ccb3901190cebe6e78cea" => :catalina
     sha256 "96a05dd8d0071fb38ed14f4f5b64af576baee3719a16fc8fc331ddfa1a4d65ec" => :mojave
     sha256 "e5cfb0433abe565b11351f9d6ec3fb44852a8aeb99ef8f6710ee9d899eb97ab3" => :high_sierra
-  end
-
-  head do
-    url "https://gitlab.xiph.org/xiph/libopusenc.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "pkg-config" => :build
