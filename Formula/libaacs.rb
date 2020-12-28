@@ -5,6 +5,14 @@ class Libaacs < Formula
   sha256 "6d884381fbb659e2a565eba91e72499778635975e4b3d6fd94ab364a25965387"
   license "LGPL-2.1"
 
+  head do
+    url "https://code.videolan.org/videolan/libaacs.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   bottle do
     cellar :any
     sha256 "edf22602c987a889624eb8feb1ef3c13b8bbbb2397af0d4334379992c85b492b" => :big_sur
@@ -12,14 +20,6 @@ class Libaacs < Formula
     sha256 "74f17ba980a3b1d763f09869541542716979e8fe8e6ee299a00a9d5fe68bbb5b" => :catalina
     sha256 "97fbb158456e2b35633e387e239a5ccc5e90041a0bba15a139dbf32ea4de872b" => :mojave
     sha256 "6ac467398d3fb886cee220bd7724f1341631b1ac31220e3ee504d687347a731f" => :high_sierra
-  end
-
-  head do
-    url "https://code.videolan.org/videolan/libaacs.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "bison" => :build
