@@ -5,6 +5,15 @@ class Ghostscript < Formula
   sha256 "96d04e4e464bddb062c1774ea895c4f1c1c94e6c4b62f5d32218ebd44dd65ba1"
   license "AGPL-3.0-or-later"
 
+  head do
+    # Can't use shallow clone. Doing so = fatal errors.
+    url "https://git.ghostscript.com/ghostpdl.git", shallow: false
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   livecheck do
     url :head
     regex(/^ghostpdl[._-]v?(\d+(?:\.\d+)+)$/i)
@@ -16,15 +25,6 @@ class Ghostscript < Formula
     sha256 "caa01f55ea6cd83330bed227c20036d1ad8511bd0692c8e2bc6072afa2ba9ca9" => :arm64_big_sur
     sha256 "373a240a3f4ea7777f47fcc69e1f9d26c2e3228d7a321864a04271184cf44fc3" => :catalina
     sha256 "c7460443feef247ce962a7bfa15aa231b0a066b0f24c4ee844e0be7452495dbd" => :mojave
-  end
-
-  head do
-    # Can't use shallow clone. Doing so = fatal errors.
-    url "https://git.ghostscript.com/ghostpdl.git", shallow: false
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "pkg-config" => :build
