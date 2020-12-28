@@ -5,6 +5,13 @@ class Libchewing < Formula
   sha256 "9708c63415fa6034435c0f38100e7d30d0e1bac927f67bec6dfeb3fef016172b"
   license "LGPL-2.1"
 
+  head do
+    url "https://github.com/chewing/libchewing.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   bottle do
     cellar :any
     rebuild 1
@@ -13,13 +20,6 @@ class Libchewing < Formula
     sha256 "19b9c38b3036f5ad16c413135e5424c8174789129cafe3c488fecdaffa39f281" => :catalina
     sha256 "b00710a74c619461b99eb3043b927248ccc0e2c2f3607683dfbcad61b82e4fe3" => :mojave
     sha256 "c346c2dbf72ea2d97f88cc9fc694b61eccc7db44c38092e9d652a31612f60ef1" => :high_sierra
-  end
-
-  head do
-    url "https://github.com/chewing/libchewing.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "texinfo" => :build
