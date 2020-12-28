@@ -6,6 +6,14 @@ class Libsodium < Formula
   license "ISC"
   revision 1
 
+  head do
+    url "https://github.com/jedisct1/libsodium.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   livecheck do
     url "https://download.libsodium.org/libsodium/releases/"
     regex(/href=.*?libsodium[._-]v?(\d+(?:\.\d+)+)\.t/i)
@@ -18,14 +26,6 @@ class Libsodium < Formula
     sha256 "db372521cd0b1861a5b578bee22426f3a1f4f7cb3c382be1f842da4715dc65bd" => :catalina
     sha256 "55245bfcf6654b0914d3f7459b99a08c54ef2560587bf583a1c1aff4cfc81f28" => :mojave
     sha256 "fc972755eb60f4221d7b32e58fc0f94e99b913fefefc84c4c76dc4bca1c5c445" => :high_sierra
-  end
-
-  head do
-    url "https://github.com/jedisct1/libsodium.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   def install
