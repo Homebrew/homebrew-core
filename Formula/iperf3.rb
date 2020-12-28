@@ -5,6 +5,14 @@ class Iperf3 < Formula
   sha256 "c6d8076b800f2b51f92dc941b0a9b77fbf2a867f623b5cb3cbf4754dabc40899"
   license "BSD-3-Clause"
 
+  head do
+    url "https://github.com/esnet/iperf.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   bottle do
     cellar :any
     sha256 "03bc9b67b96e6ce9aaa7a9b42a488821f2ac6aa886a4c705def1a4711040cbc9" => :big_sur
@@ -12,14 +20,6 @@ class Iperf3 < Formula
     sha256 "de2b4908fa73a967a17802a38447db1292e77842635eb905cda9fb776544e4fd" => :catalina
     sha256 "a17ff5710f6dd6cf26d85044be605580b4174e03f4b655f37b18279bf072f10c" => :mojave
     sha256 "ab41072fd6fb38994bbcedd1fa1cd1ad78feef49ecf56e45d0dcc96812cdf666" => :high_sierra
-  end
-
-  head do
-    url "https://github.com/esnet/iperf.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "openssl@1.1"
