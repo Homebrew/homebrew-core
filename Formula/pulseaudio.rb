@@ -5,6 +5,15 @@ class Pulseaudio < Formula
   sha256 "a834775d9382b055504e5ee7625dc50768daac29329531deb6597bf05e06c261"
 
   # The regex here avoids x.99 releases, as they're pre-release versions.
+  head do
+    url "https://gitlab.freedesktop.org/pulseaudio/pulseaudio.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "gettext" => :build
+    depends_on "intltool" => :build
+  end
+
   livecheck do
     url :stable
     regex(/href=["']?pulseaudio[._-]v?((?!\d+\.9\d+)\d+(?:\.\d+)+)\.t/i)
@@ -15,15 +24,6 @@ class Pulseaudio < Formula
     sha256 "b395d9b2f2c5a89971b5fa65abeb9c7a3469f4572a496b554eacbaaff09a6586" => :arm64_big_sur
     sha256 "fc7ff97eaf91b6bcfeeb391b6c885c2fd9c6d3843ab668d9e85a68d7bb55f92d" => :catalina
     sha256 "78718069edbad1c576f4abf5c6fa2e6945e08699b006863dc3e94e27990f044c" => :mojave
-  end
-
-  head do
-    url "https://gitlab.freedesktop.org/pulseaudio/pulseaudio.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "gettext" => :build
-    depends_on "intltool" => :build
   end
 
   depends_on "pkg-config" => :build
