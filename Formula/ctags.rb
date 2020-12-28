@@ -15,6 +15,11 @@ class Ctags < Formula
     end
   end
 
+  head do
+    url "https://svn.code.sf.net/p/ctags/code/trunk"
+    depends_on "autoconf" => :build
+  end
+
   livecheck do
     url :stable
     regex(%r{url=.*?/ctags[._-]v?(\d+(?:\.\d+)+)\.t}i)
@@ -28,11 +33,6 @@ class Ctags < Formula
     sha256 "0f9bebdadd76a7ec818b904d6266eae183e869bf6f83302d836b93fc50a03714" => :catalina
     sha256 "da05bcfc8536c7e627dbea17e67997b45388706ba9bb84e521682c0358cf18b5" => :mojave
     sha256 "169b9d458f2db04d609c86c36e9d9dd4ee2474b7c472a1a11c766454e4bba1a4" => :high_sierra
-  end
-
-  head do
-    url "https://svn.code.sf.net/p/ctags/code/trunk"
-    depends_on "autoconf" => :build
   end
 
   # fixes https://sourceforge.net/p/ctags/bugs/312/
