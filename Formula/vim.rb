@@ -37,9 +37,6 @@ class Vim < Formula
   end
 
   def install
-    # Fix error: '__declspec' attributes are not enabled
-    ENV.append_to_cflags "-fdeclspec"
-
     ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
 
     # https://github.com/Homebrew/homebrew-core/pull/1046
