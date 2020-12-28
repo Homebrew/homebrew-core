@@ -6,6 +6,13 @@ class Scrub < Formula
   sha256 "43d98d3795bc2de7920efe81ef2c5de4e9ed1f903c35c939a7d65adc416d6cb8"
   license "GPL-2.0"
 
+  head do
+    url "https://github.com/chaos/scrub.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 1
@@ -18,13 +25,6 @@ class Scrub < Formula
     sha256 "82343d8c3b64b876f8afb208059c3a916590b45fe7998ee412d91d3df161fc92" => :el_capitan
     sha256 "40363789d6def7a867c3268832449f4f2ae5b3394f84c9063af2417c024f0eca" => :yosemite
     sha256 "2439531406dc59f8358b9a3fe242fd867643dd30c67a810e18ffb12dc09d9954" => :mavericks
-  end
-
-  head do
-    url "https://github.com/chaos/scrub.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   def install
