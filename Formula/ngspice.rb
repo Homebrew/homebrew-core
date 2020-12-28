@@ -4,6 +4,15 @@ class Ngspice < Formula
   url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/33/ngspice-33.tar.gz"
   sha256 "b99db66cc1c57c44e9af1ef6ccb1dcbc8ae1df3e35acf570af578f606f8541f1"
 
+  head do
+    url "https://git.code.sf.net/p/ngspice/ngspice.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "bison" => :build
+    depends_on "libtool" => :build
+  end
+
   livecheck do
     url :stable
     regex(%r{url=.*?/ngspice[._-]v?(\d+(?:\.\d+)*)\.t}i)
@@ -15,15 +24,6 @@ class Ngspice < Formula
     sha256 "947aa81277b9bfdfe5b9a52ba502f146cb2c7e5125e88770255a40f6799685bd" => :catalina
     sha256 "0d880665db391a48e55b133b6fea6cbf7f0e56c0428045b4d046b03dfff95685" => :mojave
     sha256 "9f048cc3f136b84cfd2f76afe91f39d7bf844c00e442a9fbb7363f84fa44a8c7" => :high_sierra
-  end
-
-  head do
-    url "https://git.code.sf.net/p/ngspice/ngspice.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "bison" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "fftw"
