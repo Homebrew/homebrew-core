@@ -24,21 +24,8 @@ class Mrboom < Formula
   end
 
   test do
-    require "pty"
-    require "expect"
-    require "timeout"
-    PTY.spawn(bin/"mrboom", "-m", "-f 0", "-z") do |r, _w, pid|
-      sleep 1
-      Process.kill "SIGINT", pid
-      assert_match "monster", r.expect(/monster/, 10)[0]
-    ensure
-      begin
-        Timeout.timeout(10) do
-          Process.wait pid
-        end
-      rescue Timeout::Error
-        Process.kill "KILL", pid
-      end
-    end
+    # gui app
+    assert_match "Set joysticks dead zone, default is 8000",
+      shell_output("#{bin}/mrboom --help")
   end
 end
