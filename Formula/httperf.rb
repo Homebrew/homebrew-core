@@ -8,6 +8,14 @@ class Httperf < Formula
 
   # Until the upstream GitHub repository creates a new release (something after
   # 0.9.0), we're unable to create a check that can identify new versions.
+  head do
+    url "https://github.com/httperf/httperf.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   livecheck do
     skip "No version information available to check"
   end
@@ -20,14 +28,6 @@ class Httperf < Formula
     sha256 "390d46278c9e7bd0f58003ba49bc1a0ab110ab24864029d6ae9fd8d3f491b57c" => :mojave
     sha256 "5c049e4bfc272313e7c1051da7430bc09e712d5a70f1593c5ecf08ac94b3b238" => :high_sierra
     sha256 "015d2ce99b57fa808ae284f44904ca209e11603bf66085bf64a8270c45203490" => :sierra
-  end
-
-  head do
-    url "https://github.com/httperf/httperf.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "openssl@1.1"
