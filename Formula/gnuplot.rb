@@ -6,6 +6,14 @@ class Gnuplot < Formula
   license "gnuplot"
   revision 1
 
+  head do
+    url "https://git.code.sf.net/p/gnuplot/gnuplot-main.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   livecheck do
     url :stable
   end
@@ -16,14 +24,6 @@ class Gnuplot < Formula
     sha256 "72a503fc93c60629c22d4f286d45365037d792d76c2f7ff8a76e6469641b0cc7" => :arm64_big_sur
     sha256 "1de9920502210ab56fbedc9bf4025ab8f0c88d164f022a1e767863f64b6e9954" => :catalina
     sha256 "19ed248f7d406ade2e6fd1faa28069878cd5b2a0b73911d735289478faaab8c3" => :mojave
-  end
-
-  head do
-    url "https://git.code.sf.net/p/gnuplot/gnuplot-main.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "pkg-config" => :build
