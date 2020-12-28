@@ -17,6 +17,14 @@ class Audiofile < Formula
     end
   end
 
+  head do
+    url "https://github.com/mpruett/audiofile.git"
+    depends_on "asciidoc" => :build
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   bottle do
     cellar :any
     rebuild 1
@@ -25,14 +33,6 @@ class Audiofile < Formula
     sha256 "86f668b5e2ddbbbb8c156a3145382431865936ba8e54469a565101e9b28de3a4" => :catalina
     sha256 "b3f405c20f331ae6ded75f702bd68e45994c3c81eaf23abf650233859a830769" => :mojave
     sha256 "daf0e362bb9e6c4fb3e6e04b0309a975d94893e5240bf394038693b9b1a2a024" => :high_sierra
-  end
-
-  head do
-    url "https://github.com/mpruett/audiofile.git"
-    depends_on "asciidoc" => :build
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   on_linux do
