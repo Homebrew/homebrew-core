@@ -5,6 +5,15 @@ class Freetds < Formula
   sha256 "a02c27802da15a3ade85bbaab6197713cd286f036409af9bba2ab4c63bdf57c3"
   license "LGPL-2.0-or-later"
 
+  head do
+    url "https://github.com/FreeTDS/freetds.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "gettext" => :build
+    depends_on "libtool" => :build
+  end
+
   livecheck do
     url "https://www.freetds.org/files/stable/"
     regex(/href=.*?freetds[._-]v?(\d+(?:\.\d+)+)\.t/i)
@@ -15,15 +24,6 @@ class Freetds < Formula
     sha256 "52a717a13ff3fb2541c2dd1ff55448f9201712acf875f740282b5ebf3c207128" => :arm64_big_sur
     sha256 "d50d6963a87b72230cdd9c30e17a05baf73970b26d2ef031e9496181bb41afad" => :catalina
     sha256 "fce5977a4c8d363777846b434747d5dd6207e00273769e31354d090ed35d9a00" => :mojave
-  end
-
-  head do
-    url "https://github.com/FreeTDS/freetds.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "gettext" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "pkg-config" => :build
