@@ -4,6 +4,7 @@ class Glow < Formula
   url "https://github.com/charmbracelet/glow/archive/v1.3.0.tar.gz"
   sha256 "828d8453f026a24cd7a6dcf8d97213fe713cadcfab7ca969d5f4c8338d88bb86"
   license "MIT"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
