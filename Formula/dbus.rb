@@ -6,6 +6,15 @@ class Dbus < Formula
   mirror "https://deb.debian.org/debian/pool/main/d/dbus/dbus_1.12.20.orig.tar.gz"
   sha256 "f77620140ecb4cdc67f37fb444f8a6bea70b5b6461f12f1cbe2cec60fa7de5fe"
 
+  head do
+    url "https://gitlab.freedesktop.org/dbus/dbus.git"
+
+    depends_on "autoconf" => :build
+    depends_on "autoconf-archive" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   livecheck do
     url :head
     regex(/^dbus[._-]v?(\d+\.\d*?[02468](?:\.\d+)*)$/i)
@@ -17,15 +26,6 @@ class Dbus < Formula
     sha256 "23513ea5d75203fe4374ab37cc4226f23f34ec604449ef572fd6a2b48a612ff3" => :catalina
     sha256 "912da7c3211a981762dc45e4f67fbedd1afd379459a40244340c83caa4134382" => :mojave
     sha256 "6c98efff3cb8fdbba552351a2953f85953f053e12a8af891461118d37affdb73" => :high_sierra
-  end
-
-  head do
-    url "https://gitlab.freedesktop.org/dbus/dbus.git"
-
-    depends_on "autoconf" => :build
-    depends_on "autoconf-archive" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "xmlto" => :build
