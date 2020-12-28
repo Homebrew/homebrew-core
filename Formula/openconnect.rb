@@ -6,6 +6,13 @@ class Openconnect < Formula
   sha256 "30e64c6eca4be47bbf1d61f53dc003c6621213738d4ea7a35e5cf1ac2de9bab1"
   license "LGPL-2.1-only"
 
+  head do
+    url "git://git.infradead.org/users/dwmw2/openconnect.git", shallow: false
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   livecheck do
     url "https://www.infradead.org/openconnect/download.html"
     regex(/href=.*?openconnect[._-]v?(\d+(?:\.\d+)+)\.t/i)
@@ -17,13 +24,6 @@ class Openconnect < Formula
     sha256 "b4144970e695adc8f049319408cd431c96eb2ca4714feb903e0f01f3926dfd1f" => :catalina
     sha256 "5f4d9cb8a0a39983205bad4e1e6d7a2ae586f0725571fa83eac6421b8d6f4b9a" => :mojave
     sha256 "4d306766b4a334c7dcc8497b0684005c9011cd8913131b25bae2f56f3b3217d1" => :high_sierra
-  end
-
-  head do
-    url "git://git.infradead.org/users/dwmw2/openconnect.git", shallow: false
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "pkg-config" => :build
