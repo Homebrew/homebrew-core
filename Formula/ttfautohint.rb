@@ -4,6 +4,15 @@ class Ttfautohint < Formula
   url "https://downloads.sourceforge.net/project/freetype/ttfautohint/1.8.3/ttfautohint-1.8.3.tar.gz"
   sha256 "87bb4932571ad57536a7cc20b31fd15bc68cb5429977eb43d903fa61617cf87e"
 
+  head do
+    url "https://repo.or.cz/ttfautohint.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "bison" => :build
+    depends_on "libtool" => :build
+    depends_on "pkg-config" => :build
+  end
+
   livecheck do
     url :stable
     regex(%r{url=.*?/ttfautohint[._-]v?(\d+(?:\.\d+)+)\.t}i)
@@ -17,15 +26,6 @@ class Ttfautohint < Formula
     sha256 "04ca530843887602e80fde17d24f4ed8e19d1248bd71c81c925c161770dbdf56" => :mojave
     sha256 "a6573ae816a7555d62308759c2d64f9fb955ba056d856d904a522996ba0a0c83" => :high_sierra
     sha256 "d45d8d85d3ffa162326ea8e2f63778f4fe583c41bc316c15c5a63b3625beb0ff" => :sierra
-  end
-
-  head do
-    url "https://repo.or.cz/ttfautohint.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "bison" => :build
-    depends_on "libtool" => :build
-    depends_on "pkg-config" => :build
   end
 
   depends_on "pkg-config" => :build
