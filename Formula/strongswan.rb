@@ -4,6 +4,17 @@ class Strongswan < Formula
   url "https://download.strongswan.org/strongswan-5.9.1.tar.bz2"
   sha256 "a337c9fb63d973b8440827755c784031648bf423b7114a04918b0b00fd42cafb"
 
+  head do
+    url "https://git.strongswan.org/strongswan.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "bison" => :build
+    depends_on "gettext" => :build
+    depends_on "libtool" => :build
+    depends_on "pkg-config" => :build
+  end
+
   livecheck do
     url "https://download.strongswan.org/"
     regex(/href=.*?strongswan[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t/i)
@@ -15,17 +26,6 @@ class Strongswan < Formula
     sha256 "5d8438b75c7f6a14fc90968cd6adf0a4bd90071568b4ded22c8fa494cc26fa5b" => :catalina
     sha256 "c742593fc457f35256ff47ffa4fce347f5bd1d635320572f6ba107aa6e06b73d" => :mojave
     sha256 "420d23c085cb5f125043f23239e3d3dbf9f023e825766a43c963f7be75f416a7" => :high_sierra
-  end
-
-  head do
-    url "https://git.strongswan.org/strongswan.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "bison" => :build
-    depends_on "gettext" => :build
-    depends_on "libtool" => :build
-    depends_on "pkg-config" => :build
   end
 
   depends_on "openssl@1.1"
