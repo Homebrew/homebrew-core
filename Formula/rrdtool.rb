@@ -6,19 +6,19 @@ class Rrdtool < Formula
   license "GPL-2.0"
   revision 1
 
+  head do
+    url "https://github.com/oetiker/rrdtool-1.x.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   bottle do
     sha256 "9d4f04228051780a37f8351c79773e3ed7492d5989b75e403e307d819163f35a" => :big_sur
     sha256 "ad12dac7aa98a147308996e0428a0a1c7cd00ad61a79b4256fc4b328037f11a8" => :arm64_big_sur
     sha256 "ce57cda576f452e7790e091d645887231d4aa5b691e2c33b4ea93b3dd92d7757" => :catalina
     sha256 "fae6691230b527c93670d1d00b266e43497744fc09df06c9977265e578b529fc" => :mojave
     sha256 "858013744cfc3d31a47b7e3629198922d1994f20d0d44c11f6c921ce6f2b9942" => :high_sierra
-  end
-
-  head do
-    url "https://github.com/oetiker/rrdtool-1.x.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "pkg-config" => :build
