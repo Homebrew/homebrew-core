@@ -4,6 +4,13 @@ class Theora < Formula
   url "https://downloads.xiph.org/releases/theora/libtheora-1.1.1.tar.bz2"
   sha256 "b6ae1ee2fa3d42ac489287d3ec34c5885730b1296f0801ae577a35193d3affbc"
 
+  head do
+    url "https://gitlab.xiph.org/xiph/theora.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
   livecheck do
     url "https://www.theora.org/downloads/"
     regex(/href=.*?libtheora[._-]v?(\d+(?:\.\d+)+)\.t/i)
@@ -16,13 +23,6 @@ class Theora < Formula
     sha256 "1e5271cb88e3dad8eb5f06460e7f3f2cec0129679c7f7fb4f84db1d09664b827" => :arm64_big_sur
     sha256 "1fcbd50039f580bd85554af2d831c28f83613b5d26969f577f7fe87b3c55db67" => :catalina
     sha256 "6fdb09d75fc6e64b266a185e711c2964e803d8f10c0d40ccb8d572c536c24d3a" => :mojave
-  end
-
-  head do
-    url "https://gitlab.xiph.org/xiph/theora.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
   end
 
   depends_on "libtool" => :build
