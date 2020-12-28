@@ -5,6 +5,7 @@ class Supervisor < Formula
   homepage "http://supervisord.org/"
   url "https://files.pythonhosted.org/packages/11/35/eab03782aaf70d87303b21a67c345b953d3b59d4e3971a568c51e523f5c0/supervisor-4.2.1.tar.gz"
   sha256 "c479c875853e9c013d1fa73e529fd2165ff1ecaecc7e82810ba57e7362ae984d"
+  license :cannot_represent
   revision 1
   head "https://github.com/Supervisor/supervisor.git"
 
