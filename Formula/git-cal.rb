@@ -8,7 +8,7 @@ class GitCal < Formula
   head "https://github.com/k4rthik/git-cal.git"
 
   livecheck do
-    url :head
+    url :stable
     strategy :github_latest
   end
 
