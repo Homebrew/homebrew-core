@@ -6,6 +6,14 @@ class Loudmouth < Formula
   license "LGPL-2.1"
   revision 2
 
+  head do
+    url "https://github.com/mcabber/loudmouth.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   bottle do
     cellar :any
     sha256 "61b2b7a8995a3cc43c2acee5cff2571e961581d4a77235e0415c25efcd850995" => :big_sur
@@ -14,14 +22,6 @@ class Loudmouth < Formula
     sha256 "43052aa18cefe00338ba03fe866badd2b2f17cb6766ae2a1203bdcd54cf2ca6b" => :mojave
     sha256 "28635ff511d03492181d4b2c9f4cfe5b65600f512bc4ed8dc02611ff1c4b1b56" => :high_sierra
     sha256 "72854a1ff4e2492f0b90d1f435c523ae3801e1ea60d65e033909043081004db0" => :sierra
-  end
-
-  head do
-    url "https://github.com/mcabber/loudmouth.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "pkg-config" => :build
