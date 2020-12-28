@@ -7,6 +7,12 @@ class Pcb < Formula
   revision 1
   version_scheme 1
 
+  head do
+    url "git://git.geda-project.org/pcb.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
   livecheck do
     url :stable
     regex(%r{url=.*?/pcb[._-]v?(\d+(?:\.\d+)+)\.t}i)
@@ -17,12 +23,6 @@ class Pcb < Formula
     sha256 "2b9c6d5652265df79bbfabd9c44d536eda042ca96477d2f3a73dfb75e74c97eb" => :arm64_big_sur
     sha256 "5b2b7bf29ad42bcecc53dbb0cee9b4801f64205db7f6a89277f9ee6fed5db050" => :catalina
     sha256 "2312c4e25ecb5197ce93bf288b898efa5918b1f8084921ded604503c84ed2d33" => :mojave
-  end
-
-  head do
-    url "git://git.geda-project.org/pcb.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
   end
 
   depends_on "intltool" => :build
