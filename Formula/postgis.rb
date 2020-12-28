@@ -5,6 +5,14 @@ class Postgis < Formula
   sha256 "da06e2456876cd0c6a9bee0636ff700982e900c597d1e4cb80a99a2623400201"
   license "GPL-2.0-or-later"
 
+  head do
+    url "https://git.osgeo.org/gitea/postgis/postgis.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   livecheck do
     url "https://download.osgeo.org/postgis/source/"
     regex(/href=.*?postgis[._-]v?(\d+(?:\.\d+)+)\.t/i)
@@ -15,14 +23,6 @@ class Postgis < Formula
     sha256 "9f52ae374944fdd7b69b09aa005181f9ae0e93283c4a231dfe1a33e460aaaf3e" => :big_sur
     sha256 "7db7c50975f2a5ed18c61cfb3746b92638e0db5da7cd5204ee332c7d88ee893c" => :catalina
     sha256 "653a92373cdbe27a2c95594d26a0745a81df8814147b8bc55e07b688f85198d8" => :mojave
-  end
-
-  head do
-    url "https://git.osgeo.org/gitea/postgis/postgis.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "gpp" => :build
