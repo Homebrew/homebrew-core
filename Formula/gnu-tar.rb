@@ -6,6 +6,14 @@ class GnuTar < Formula
   sha256 "b59549594d91d84ee00c99cf2541a3330fed3a42c440503326dab767f2fbb96c"
   license "GPL-3.0"
 
+  head do
+    url "https://git.savannah.gnu.org/git/tar.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "gettext" => :build
+  end
+
   livecheck do
     url :stable
   end
@@ -18,14 +26,6 @@ class GnuTar < Formula
     sha256 "158cb67ea9e02435d671013b4d0d7369822758d9f7ff400ce2512a03f2f7f4e4" => :catalina
     sha256 "1034894e78bb22b0fcf0c8114666d4dc3eb82345a5ca83797ca3bda367d998ac" => :mojave
     sha256 "3771cead286229786d9d92a7697bc6e0de576ec9cae1f881017884ceb3e24f17" => :high_sierra
-  end
-
-  head do
-    url "https://git.savannah.gnu.org/git/tar.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "gettext" => :build
   end
 
   def install
