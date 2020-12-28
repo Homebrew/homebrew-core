@@ -4,6 +4,7 @@ class GitDelta < Formula
   url "https://github.com/dandavison/delta/archive/0.4.5.tar.gz"
   sha256 "e19ab2d6a7977a3aa939a2d70b6d007aad8b494a901d47a3e0c2357eedad0c80"
   license "MIT"
+  revision 1
   head "https://github.com/dandavison/delta.git"
 
   bottle do
