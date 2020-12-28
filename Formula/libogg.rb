@@ -14,6 +14,14 @@ class Libogg < Formula
     end
   end
 
+  head do
+    url "https://gitlab.xiph.org/xiph/ogg.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   bottle do
     cellar :any
     rebuild 1
@@ -22,14 +30,6 @@ class Libogg < Formula
     sha256 "b95bbf935f48878bd96d1c0e6557a017aa18cb17a080bc3ef9308b6415c278ef" => :catalina
     sha256 "3cc7656859154f6eb98d3ddbe4b74c810b505e2162af1357b3ed6b70cad35125" => :mojave
     sha256 "95f271ec181f6b999674636272a3414db4242eabd0a0b0572cfa0f1f324f5ef8" => :high_sierra
-  end
-
-  head do
-    url "https://gitlab.xiph.org/xiph/ogg.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   resource("oggfile") do
