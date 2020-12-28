@@ -6,6 +6,13 @@ class FsUae < Formula
   license "GPL-2.0"
   revision 1
 
+  head do
+    url "https://github.com/FrodeSolheim/fs-uae.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   livecheck do
     url "https://fs-uae.net/download"
     regex(/href=.*?fs-uae[._-]v?(\d+(?:\.\d+)+)\.t/i)
@@ -17,13 +24,6 @@ class FsUae < Formula
     sha256 "ab0fdecdc3ee1e4ed70baf7a57bc46d92b85b684c97d680c9fbfab5b280a7da4" => :catalina
     sha256 "223c490857dc42ec051f68531fbcc2ceffd142cd8f56b4b18a0d1c2134c6fb03" => :mojave
     sha256 "61bfc89218feb2fb4ae2da82e68d4d81dcb40d7ce6003d0a5d39f675b6327f11" => :high_sierra
-  end
-
-  head do
-    url "https://github.com/FrodeSolheim/fs-uae.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "pkg-config" => :build
