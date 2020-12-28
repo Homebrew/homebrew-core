@@ -5,6 +5,13 @@ class Cgdb < Formula
   sha256 "bb723be58ec68cb59a598b8e24a31d10ef31e0e9c277a4de07b2f457fe7de198"
   license "GPL-2.0"
 
+  head do
+    url "https://github.com/cgdb/cgdb.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
   livecheck do
     url "https://cgdb.me/files/"
     regex(/href=.*?cgdb[._-]v?(\d+(?:\.\d+)+)\.t/i)
@@ -16,13 +23,6 @@ class Cgdb < Formula
     sha256 "8f361fcad59ddf4825f4d42b516a099ba75bfffc0b885d42aeb875dbd1b2a1d4" => :mojave
     sha256 "9ab4c0a880cb71903094929b04eada3c279a48ddb00b651a8a93d55cd523d380" => :high_sierra
     sha256 "db6c63b20e2185ecaaf3ddef92d1ff052f0b0322c727f3f0429ef0d38ac9d269" => :sierra
-  end
-
-  head do
-    url "https://github.com/cgdb/cgdb.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
   end
 
   depends_on "help2man" => :build
