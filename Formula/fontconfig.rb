@@ -5,6 +5,15 @@ class Fontconfig < Formula
   sha256 "f655dd2a986d7aa97e052261b36aa67b0a64989496361eca8d604e6414006741"
   license "MIT"
 
+  head do
+    url "https://gitlab.freedesktop.org/fontconfig/fontconfig.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "gettext" => :build
+    depends_on "libtool" => :build
+  end
+
   livecheck do
     url :stable
     regex(/href=.*?fontconfig[._-]v?(\d+\.\d+\.(?:\d|[0-8]\d+))\.t/i)
@@ -25,15 +34,6 @@ class Fontconfig < Formula
     # c.f. the identical hack in lua
     # https://github.com/Homebrew/homebrew/issues/47173
     satisfy { HOMEBREW_PREFIX.to_s == Homebrew::DEFAULT_PREFIX }
-  end
-
-  head do
-    url "https://gitlab.freedesktop.org/fontconfig/fontconfig.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "gettext" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "pkg-config" => :build
