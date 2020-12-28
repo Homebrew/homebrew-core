@@ -5,20 +5,20 @@ class XcbUtilCursor < Formula
   sha256 "05a10a0706a1a789a078be297b5fb663f66a71fb7f7f1b99658264c35926394f"
   license "X11"
 
-  bottle do
-    cellar :any
-    sha256 "b9b3844d3e15c8c500ce203cc958a5b7ccc1967679b16b205f9256252776b206" => :big_sur
-    sha256 "6fc14a705728b1de306bd923af2f36c103dc03da004b6074c5319af1ed8745a1" => :arm64_big_sur
-    sha256 "7ed2fb722987ea7c6028969752d1b82df9db956bfeffbd05dfaa5689814a9b77" => :catalina
-    sha256 "a2eea37585cc157739f19d770f3d921fb5eaf708bd74b0c7c2fb878e90761e8e" => :mojave
-  end
-
   head do
     url "https://gitlab.freedesktop.org/xorg/lib/libxcb-cursor.git"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
     depends_on "util-macros" => :build
+  end
+
+  bottle do
+    cellar :any
+    sha256 "b9b3844d3e15c8c500ce203cc958a5b7ccc1967679b16b205f9256252776b206" => :big_sur
+    sha256 "6fc14a705728b1de306bd923af2f36c103dc03da004b6074c5319af1ed8745a1" => :arm64_big_sur
+    sha256 "7ed2fb722987ea7c6028969752d1b82df9db956bfeffbd05dfaa5689814a9b77" => :catalina
+    sha256 "a2eea37585cc157739f19d770f3d921fb5eaf708bd74b0c7c2fb878e90761e8e" => :mojave
   end
 
   depends_on "pkg-config" => [:build, :test]
