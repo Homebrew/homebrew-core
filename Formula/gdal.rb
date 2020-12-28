@@ -6,6 +6,11 @@ class Gdal < Formula
   license "MIT"
   revision 1
 
+  head do
+    url "https://github.com/OSGeo/gdal.git"
+    depends_on "doxygen" => :build
+  end
+
   livecheck do
     url "https://download.osgeo.org/gdal/CURRENT/"
     regex(/href=.*?gdal[._-]v?(\d+(?:\.\d+)+)\.t/i)
@@ -15,11 +20,6 @@ class Gdal < Formula
     sha256 "9bd0f40b59d27f00e1c7f13708ba696dc468953e5aea4b3424379d31b60c4a2b" => :big_sur
     sha256 "44123d30fa54f66b366bf8c8bb241d92a5ad1a2c57fe29719de3c841b9f7248e" => :catalina
     sha256 "91528c91fff12e5a48cf4c4488c38a112dbf6c45798d9daf12a43b57cc2a8b53" => :mojave
-  end
-
-  head do
-    url "https://github.com/OSGeo/gdal.git"
-    depends_on "doxygen" => :build
   end
 
   depends_on "pkg-config" => :build
