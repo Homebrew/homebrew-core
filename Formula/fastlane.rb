@@ -4,7 +4,7 @@ class Fastlane < Formula
   url "https://github.com/fastlane/fastlane/archive/2.170.0.tar.gz"
   sha256 "d3b2f592b01e565d6fcb37199ad1efeb97f1879751995d676b0d66c7b78e1a43"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/fastlane/fastlane.git"
 
   livecheck do
@@ -20,7 +20,7 @@ class Fastlane < Formula
     sha256 "7803913c4ec30f8e4daaa0821e4bde930ba04a1d558f78b5b18176224df68c9a" => :mojave
   end
 
-  depends_on "ruby@2.6"
+  depends_on "ruby@2.7"
 
   def install
     ENV["GEM_HOME"] = libexec
@@ -31,7 +31,7 @@ class Fastlane < Formula
 
     (bin/"fastlane").write <<~EOS
       #!/bin/bash
-      export PATH="#{Formula["ruby@2.6"].opt_bin}:#{libexec}/bin:$PATH"
+      export PATH="#{Formula["ruby@2.7"].opt_bin}:#{libexec}/bin:$PATH"
       export FASTLANE_INSTALLED_VIA_HOMEBREW="true"
       GEM_HOME="#{libexec}" GEM_PATH="#{libexec}" \\
         exec "#{libexec}/bin/fastlane" "$@"
