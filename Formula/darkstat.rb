@@ -4,6 +4,12 @@ class Darkstat < Formula
   url "https://unix4lyfe.org/darkstat/darkstat-3.0.719.tar.bz2"
   sha256 "aeaf909585f7f43dc032a75328fdb62114e58405b06a92a13c0d3653236dedd7"
 
+  head do
+    url "https://www.unix4lyfe.org/git/darkstat", using: :git
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 1
@@ -14,12 +20,6 @@ class Darkstat < Formula
     sha256 "70eae96655d9872851ea02e44709155a6a9df509210fd2b49b0b72de334248f3" => :high_sierra
     sha256 "680c9a1143b9a95990d246d7ba8357baa0ec1142545252d89734d98b8046337a" => :sierra
     sha256 "4e67244fc36d17dbdbe9ae33cc38bd79d2e016eeed0139c164d323e89b15c15e" => :el_capitan
-  end
-
-  head do
-    url "https://www.unix4lyfe.org/git/darkstat", using: :git
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
   end
 
   # Patch reported to upstream on 2017-10-08
