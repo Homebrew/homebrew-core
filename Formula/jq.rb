@@ -5,6 +5,14 @@ class Jq < Formula
   sha256 "5de8c8e29aaa3fb9cc6b47bb27299f271354ebb72514e3accadc7d38b5bbaa72"
   license "MIT"
 
+  head do
+    url "https://github.com/stedolan/jq.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   livecheck do
     url :stable
     strategy :github_latest
@@ -20,14 +28,6 @@ class Jq < Formula
     sha256 "71f0e76c5b22e5088426c971d5e795fe67abee7af6c2c4ae0cf4c0eb98ed21ff" => :mojave
     sha256 "dffcffa4ea13e8f0f2b45c5121e529077e135ae9a47254c32182231662ee9b72" => :high_sierra
     sha256 "bb4d19dc026c2d72c53eed78eaa0ab982e9fcad2cd2acc6d13e7a12ff658e877" => :sierra
-  end
-
-  head do
-    url "https://github.com/stedolan/jq.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "oniguruma"
