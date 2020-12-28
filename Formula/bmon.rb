@@ -6,6 +6,12 @@ class Bmon < Formula
   license "BSD-2-Clause"
   revision 2
 
+  head do
+    url "https://github.com/tgraf/bmon.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
   bottle do
     cellar :any
     rebuild 1
@@ -13,12 +19,6 @@ class Bmon < Formula
     sha256 "8f20f07b392953df52502a35c4430ae3f080e4cf8b932a95fa66c149e04ff149" => :arm64_big_sur
     sha256 "0e5a38ac18b9a385c33eeedd7c64c649bad0a6160aada5725cf3c1b2557b74f8" => :catalina
     sha256 "54c90f958df855b99cc0b6fa4cbabd4b135e7913b844d774e607fb6d14045dcf" => :mojave
-  end
-
-  head do
-    url "https://github.com/tgraf/bmon.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
   end
 
   depends_on "pkg-config" => :build
