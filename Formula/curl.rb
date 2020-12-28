@@ -40,6 +40,7 @@ class Curl < Formula
   depends_on "rtmpdump"
   depends_on "zstd"
 
+  uses_from_macos "krb5"
   uses_from_macos "zlib"
 
   def install
@@ -63,6 +64,14 @@ class Curl < Formula
       --with-libssh2
       --without-libpsl
     ]
+
+    on_macos do
+      args << "--with-gssapi"
+    end
+
+    on_linux do
+      args << "--with-gssapi=#{Formula["krb5"].opt_prefix}"
+    end
 
     system "./configure", *args
     system "make", "install"
