@@ -5,6 +5,10 @@ class Libplist < Formula
   sha256 "7e654bdd5d8b96f03240227ed09057377f06ebad08e1c37d0cfa2abe6ba0cee2"
   license "LGPL-2.1"
 
+  head do
+    url "https://git.sukimashita.com/libplist.git"
+  end
+
   bottle do
     cellar :any
     sha256 "1ac05ef69cc02f4663fbb1c3d6d6e964c70a5ba0743d7e9e242da06864a63a70" => :big_sur
@@ -12,10 +16,6 @@ class Libplist < Formula
     sha256 "20faf60d286c8ceed790a9b6e34245acf7bafacc7fcbcb390d6b62e194b323e6" => :catalina
     sha256 "768453f8710ec1c3e074ad0ebc7723da88c2b8575e5de6962ca6f1d4a85cb61d" => :mojave
     sha256 "02291f2f28099a73de8fa37b49962fe575a434be63af356cceff9200c6d73f37" => :high_sierra
-  end
-
-  head do
-    url "https://git.sukimashita.com/libplist.git"
   end
 
   depends_on "autoconf" => :build
