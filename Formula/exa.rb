@@ -6,6 +6,11 @@ class Exa < Formula
   license "MIT"
   revision 1
 
+  head do
+    url "https://github.com/ogham/exa.git"
+    depends_on "pandoc" => :build
+  end
+
   livecheck do
     url :stable
     strategy :github_latest
@@ -16,11 +21,6 @@ class Exa < Formula
     sha256 "3ee8e461f50fa870cd035a44ba9973e26192953e235adef9d2936f2bdab0b1d3" => :big_sur
     sha256 "33332800316bd21da72087c8d21d2948e7b0bf678fc9d3c562c9e84c139b6de3" => :catalina
     sha256 "507c870baae72b7961d695abbbee5029b86aee3e88037fafd08f4b55d78257b2" => :mojave
-  end
-
-  head do
-    url "https://github.com/ogham/exa.git"
-    depends_on "pandoc" => :build
   end
 
   depends_on "rust" => :build
