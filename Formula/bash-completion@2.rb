@@ -5,6 +5,13 @@ class BashCompletionAT2 < Formula
   sha256 "73a8894bad94dee83ab468fa09f628daffd567e8bef1a24277f1e9a0daf911ac"
   license "GPL-2.0"
 
+  head do
+    url "https://github.com/scop/bash-completion.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
   livecheck do
     url :stable
     strategy :github_latest
@@ -17,13 +24,6 @@ class BashCompletionAT2 < Formula
     sha256 "3fe7e4021769be9a92eac055496e6189996c3527270db1dfdd4b0eb8cd7b4192" => :catalina
     sha256 "3fe7e4021769be9a92eac055496e6189996c3527270db1dfdd4b0eb8cd7b4192" => :mojave
     sha256 "3fe7e4021769be9a92eac055496e6189996c3527270db1dfdd4b0eb8cd7b4192" => :high_sierra
-  end
-
-  head do
-    url "https://github.com/scop/bash-completion.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
   end
 
   depends_on "bash"
