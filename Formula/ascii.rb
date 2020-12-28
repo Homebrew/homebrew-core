@@ -5,6 +5,11 @@ class Ascii < Formula
   sha256 "728422d5f4da61a37a17b4364d06708e543297de0a5f70305243236d80df072d"
   license "BSD-2-Clause"
 
+  head do
+    url "https://gitlab.com/esr/ascii.git"
+    depends_on "xmlto" => :build
+  end
+
   livecheck do
     url :homepage
     regex(/ascii[._-]v?(\d+(?:\.\d+)+)/i)
@@ -20,11 +25,6 @@ class Ascii < Formula
     sha256 "52fb2a78a1409f4f6db0b59589f773c4427c87a84a7fee1809e5f0a4d50e4d65" => :sierra
     sha256 "bbb5f365f96e42dfaa8af31f21daa8809b0a628451599fab7bc7509ceeb0d14f" => :el_capitan
     sha256 "ab520ebbe64a946a0ac0466537a0e207e49cd85979e41582ab542dcaef9db3ff" => :yosemite
-  end
-
-  head do
-    url "https://gitlab.com/esr/ascii.git"
-    depends_on "xmlto" => :build
   end
 
   def install
