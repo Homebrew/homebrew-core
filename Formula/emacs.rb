@@ -24,6 +24,14 @@ class Emacs < Formula
     end
   end
 
+  head do
+    url "https://github.com/emacs-mirror/emacs.git"
+
+    depends_on "autoconf" => :build
+    depends_on "gnu-sed" => :build
+    depends_on "texinfo" => :build
+  end
+
   livecheck do
     url :stable
   end
@@ -34,14 +42,6 @@ class Emacs < Formula
     sha256 "6586559b5aa8c51ce6cc7738abe4796ef7e803ab3389dc2e30eda7bb5e46b85d" => :catalina
     sha256 "6704d9430ac4b602a5dc7046f845d8b93d00cb509fc70244403f14af6c97bc3b" => :mojave
     sha256 "a4808d9f5433bcc9512ae4c62dba04b7954a1c0ee47e01b34ba5a401f227f375" => :high_sierra
-  end
-
-  head do
-    url "https://github.com/emacs-mirror/emacs.git"
-
-    depends_on "autoconf" => :build
-    depends_on "gnu-sed" => :build
-    depends_on "texinfo" => :build
   end
 
   depends_on "pkg-config" => :build
