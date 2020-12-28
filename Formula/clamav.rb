@@ -6,6 +6,14 @@ class Clamav < Formula
   sha256 "32a9745277bfdda80e77ac9ca2f5990897418e9416880f3c31553ca673e80546"
   license "GPL-2.0-or-later"
 
+  head do
+    url "https://github.com/Cisco-Talos/clamav-devel.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   livecheck do
     url "https://www.clamav.net/downloads"
     regex(/href=.*?clamav[._-]v?(\d+(?:\.\d+)+)\.t/i)
@@ -17,14 +25,6 @@ class Clamav < Formula
     sha256 "223f07db86b0ed0e4e51db8d634111bb842dcc49c01df6dbe5dedcf46e786e44" => :catalina
     sha256 "8155acb6f0bf2f1fd110612e8eda7ade7845f3fc3310332af6ae182660ab7692" => :mojave
     sha256 "458d060d70d37beb01b924ada3be7474b25f4a4c8a2bfb33f6bfb0251ab19024" => :high_sierra
-  end
-
-  head do
-    url "https://github.com/Cisco-Talos/clamav-devel.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "pkg-config" => :build
