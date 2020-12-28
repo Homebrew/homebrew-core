@@ -7,6 +7,13 @@ class Libffi < Formula
   sha256 "72fba7922703ddfa7a028d513ac15a85c8d54c8d67f55fa5a4802885dc652056"
   license "MIT"
 
+  head do
+    url "https://github.com/atgreen/libffi.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   bottle do
     cellar :any
     sha256 "76e28c8fbcddd000f371ce146ee3ca980b7feb54596d649e9309a1edc3225a99" => :big_sur
@@ -14,13 +21,6 @@ class Libffi < Formula
     sha256 "dd94d39946f53a8f11f78e998f22e46be9666bb265f80bb4714d5d63c1e16a68" => :catalina
     sha256 "d6e5efd7521676dfc58fcba567514b898091c8580df4d6253f5dd40a7ee67c82" => :mojave
     sha256 "7065f0d426921fa069c2494beded9de61e8720954f3f346103c8f871daa4ff8b" => :high_sierra
-  end
-
-  head do
-    url "https://github.com/atgreen/libffi.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   keg_only :provided_by_macos
