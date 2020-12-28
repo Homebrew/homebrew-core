@@ -6,19 +6,19 @@ class Nghttp2 < Formula
   license "MIT"
   revision 1
 
-  bottle do
-    sha256 "3d0437a63bcc51ec17d456847bcc0a624be2e00755ecc96b8445bc15020ff413" => :big_sur
-    sha256 "b42fa3e6e332f1a4efc34773894606e17e5dcd34c8d12735e83d6464b92af888" => :arm64_big_sur
-    sha256 "ddc63177feae52a5d07ec0f5793a8dcb5a344f0bdd4f4ba0633dacfd8249b0be" => :catalina
-    sha256 "e7a509ec209f20e204f82009b2dec7667e6a28958d018d8f1ee0fefbe4b73999" => :mojave
-  end
-
   head do
     url "https://github.com/nghttp2/nghttp2.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
+  end
+
+  bottle do
+    sha256 "3d0437a63bcc51ec17d456847bcc0a624be2e00755ecc96b8445bc15020ff413" => :big_sur
+    sha256 "b42fa3e6e332f1a4efc34773894606e17e5dcd34c8d12735e83d6464b92af888" => :arm64_big_sur
+    sha256 "ddc63177feae52a5d07ec0f5793a8dcb5a344f0bdd4f4ba0633dacfd8249b0be" => :catalina
+    sha256 "e7a509ec209f20e204f82009b2dec7667e6a28958d018d8f1ee0fefbe4b73999" => :mojave
   end
 
   depends_on "pkg-config" => :build
