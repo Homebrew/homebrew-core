@@ -14,6 +14,14 @@ class Crystal < Formula
     end
   end
 
+  head do
+    url "https://github.com/crystal-lang/crystal.git"
+
+    resource "shards" do
+      url "https://github.com/crystal-lang/shards.git"
+    end
+  end
+
   livecheck do
     url :head
     regex(/^v?(\d+(?:\.\d+)+)$/i)
@@ -24,14 +32,6 @@ class Crystal < Formula
     sha256 "c382e452d3586561986a8eea143dc09fb3ca089c989d9c54a7a3cd4d054f1624" => :big_sur
     sha256 "e3907b45ca9c3e0344d130141d23915c5825d34b27660b6f1ea847351b127fb5" => :catalina
     sha256 "0aa5aa3835d42d9139ede2d3e134d29db4d43cc29f0e735f17c48c1bdcc7ea0a" => :mojave
-  end
-
-  head do
-    url "https://github.com/crystal-lang/crystal.git"
-
-    resource "shards" do
-      url "https://github.com/crystal-lang/shards.git"
-    end
   end
 
   depends_on "autoconf"      => :build # for building bdw-gc
