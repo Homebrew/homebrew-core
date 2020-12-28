@@ -5,6 +5,13 @@ class CrushTools < Formula
   sha256 "ef2f9c919536a2f13b3065af3a9a9756c90ede53ebd67d3e169c90ad7cd1fb05"
   license "Apache-2.0"
 
+  head do
+    url "https://github.com/google/crush-tools.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   bottle do
     cellar :any
     sha256 "1e4c85501024bcfef0641f3e16abd540597f68accc5118b6da5a7f24218fba00" => :big_sur
@@ -16,13 +23,6 @@ class CrushTools < Formula
     sha256 "0c7c58b9f2ec87237934eda55932b200c6d7b7f6dbb07a35e0a49ed389e984d3" => :el_capitan
     sha256 "90c901bd6daf8178407232c6b3be7f3c5056e9cf2ab88750d09b151e0973d4ff" => :yosemite
     sha256 "f1319787a7aafc6610f0217299791c428e5784d11cc93c8cd623e8a5cba5c414" => :mavericks
-  end
-
-  head do
-    url "https://github.com/google/crush-tools.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "pcre"
