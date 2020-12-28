@@ -12,6 +12,13 @@ class Intercal < Formula
   # reference the tags. We work around this by restricting matching to 0.x
   # releases for now. If the major version reaches 1.x in the future, this
   # check will also need to be updated.
+  head do
+    url "https://gitlab.com/esr/intercal.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
   livecheck do
     url :head
     regex(/^v?(0(?:\.\d+)+)$/i)
@@ -23,13 +30,6 @@ class Intercal < Formula
     sha256 "d048d5c58fd1fc3b17c44103b3bbddd445a657415c215916587d9eb8e7f9c2da" => :mojave
     sha256 "c0569e08915adc912bdc3fb149d0d3c50e7a2d941fff8b2d951b22fcfaf4539f" => :high_sierra
     sha256 "b00c959878aaead39f9106ef199d7082b4e1a62ef6957f11796a99650678c9b2" => :sierra
-  end
-
-  head do
-    url "https://gitlab.com/esr/intercal.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
   end
 
   def install
