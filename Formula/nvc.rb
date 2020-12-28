@@ -6,17 +6,17 @@ class Nvc < Formula
   license "GPL-3.0"
   revision 1
 
-  bottle do
-    sha256 "7ba6e4a374fa45ac6727a3a94b68ec1e317989999aeace6e16e2d2374f1adef9" => :catalina
-    sha256 "f7096c9a1f5430b7540a5384c21548e3d58937a571b894362d00326400ec52cb" => :mojave
-    sha256 "9235685aba9cdb880d6d76336fa94e918762bbd5e7de2c150a5ab4d887ec2b74" => :high_sierra
-  end
-
   head do
     url "https://github.com/nickg/nvc.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
+  end
+
+  bottle do
+    sha256 "7ba6e4a374fa45ac6727a3a94b68ec1e317989999aeace6e16e2d2374f1adef9" => :catalina
+    sha256 "f7096c9a1f5430b7540a5384c21548e3d58937a571b894362d00326400ec52cb" => :mojave
+    sha256 "9235685aba9cdb880d6d76336fa94e918762bbd5e7de2c150a5ab4d887ec2b74" => :high_sierra
   end
 
   depends_on "check" => :build
