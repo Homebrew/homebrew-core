@@ -6,11 +6,6 @@ class Gcsfuse < Formula
   license "Apache-2.0"
   head "https://github.com/GoogleCloudPlatform/gcsfuse.git"
 
-  livecheck do
-    url :stable
-    strategy :github_latest
-  end
-
   bottle do
     cellar :any_skip_relocation
     sha256 "59df52ee1b44a532d2ebe8c83d0c9d2d3706da8510c9daf0b53d46c3aa156664" => :catalina
