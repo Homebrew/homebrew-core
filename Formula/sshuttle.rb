@@ -6,7 +6,7 @@ class Sshuttle < Formula
   url "https://files.pythonhosted.org/packages/ee/5d/8eb1de9ed90732309cc8c64256d2e35de3f269713d707e1074a37d794665/sshuttle-1.0.4.tar.gz"
   sha256 "21a11f3f0f710de92241d8ffca58bebb969f689f650d59e97ba366d7407e16e5"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
   head "https://github.com/sshuttle/sshuttle.git"
 
   livecheck do
