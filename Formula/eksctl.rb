@@ -5,6 +5,7 @@ class Eksctl < Formula
       tag:      "0.35.0",
       revision: "1eafbc7b3fa3d9c31575b51b8fbac718ec108051"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/weaveworks/eksctl.git"
 
   bottle do
