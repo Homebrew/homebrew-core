@@ -5,6 +5,14 @@ class Wolfmqtt < Formula
   sha256 "fd9aa74e4c7ad4fec8f2d4c40ce32785b5bb55d7c013c5acc846062583f09a9c"
   license "GPL-2.0-or-later"
 
+  head do
+    url "https://github.com/wolfSSL/wolfMQTT.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   bottle do
     cellar :any
     sha256 "e07f57c741c69ef671c74c08a2dc9207235c9f31392a147570f27c17bfe532a9" => :big_sur
@@ -12,14 +20,6 @@ class Wolfmqtt < Formula
     sha256 "073807b984df8fb86ffde192cb3c0ace7c7f139d81da937e71874fcaa02e820b" => :catalina
     sha256 "32e32e9f2d87974550fdc18e054f639d0a138e74aace8a2ceb639b992cdd54f1" => :mojave
     sha256 "3e2a29fd675291511f203d094e235461483a7a0d8135b286c94900dd9e25f963" => :high_sierra
-  end
-
-  head do
-    url "https://github.com/wolfSSL/wolfMQTT.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "wolfssl"
