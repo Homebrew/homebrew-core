@@ -6,6 +6,11 @@ class Enigma < Formula
   license "GPL-2.0"
   revision 4
 
+  head do
+    url "https://github.com/Enigma-Game/Enigma.git"
+    depends_on "texi2html" => :build
+  end
+
   livecheck do
     url :stable
     regex(%r{url=.*?/enigma[._-]v?(\d+(?:\.\d+)+)\.t}i)
@@ -17,11 +22,6 @@ class Enigma < Formula
     sha256 "8011aae1fa4e166dd9fb406844b1efcb246eb26ecc4e29c67dec71a3f8a7b231" => :mojave
     sha256 "9eeb7a516f7188b38bc1a9e9ea2450db22391e65401d1377028881c11acbcc15" => :high_sierra
     sha256 "cdca7a198f3decfc3d387d590f84a7c3125adb06185469afa737eb5d61c150b3" => :sierra
-  end
-
-  head do
-    url "https://github.com/Enigma-Game/Enigma.git"
-    depends_on "texi2html" => :build
   end
 
   depends_on "autoconf" => :build
