@@ -6,6 +6,13 @@ class Patchutils < Formula
   sha256 "8875b0965fe33de62b890f6cd793be7fafe41a4e552edbf641f1fed5ebbf45ed"
   license "GPL-2.0"
 
+  head do
+    url "https://github.com/twaugh/patchutils.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "docbook" => :build
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "2305540f050f688ecb19afbd61daaee0dc51cf27d43cd2baff3e8542ea631680" => :big_sur
@@ -13,13 +20,6 @@ class Patchutils < Formula
     sha256 "3ee4d0c62b3f2b26e28fbf476c37eaeb8ccca9000c4f8f2766cd2c662de855bc" => :catalina
     sha256 "12cd388801c5c628db409cb043d6a2fc436f44ae8f01a754f430763380043af4" => :mojave
     sha256 "84b5013e7c6647e1cda9faa1ab9b31834ed6e2ef6c1a48d21ab7c459dc4462b3" => :high_sierra
-  end
-
-  head do
-    url "https://github.com/twaugh/patchutils.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "docbook" => :build
   end
 
   depends_on "xmlto" => :build
