@@ -5,6 +5,15 @@ class Pdns < Formula
   sha256 "40cb81d9e0d34edcc7c95435a06125bde0bd1a51692e1db52413e31d7ede0b39"
   license "GPL-2.0-or-later"
 
+  head do
+    url "https://github.com/powerdns/pdns.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool"  => :build
+    depends_on "ragel"
+  end
+
   livecheck do
     url "https://downloads.powerdns.com/releases/"
     regex(/href=.*?pdns[._-]v?(\d+(?:\.\d+)*)\.t/i)
@@ -15,15 +24,6 @@ class Pdns < Formula
     sha256 "f3fe8ff82dcfb910ceee21d2a58a93c34c8e8b2b4dcdb626a3c3a126d0fbf33f" => :arm64_big_sur
     sha256 "7e011f3e8ef5765023f9c9a2f37e623d793879a68289f7efd19f044b9067a9ff" => :catalina
     sha256 "bc758310a198a7339455d1727270283019189a9c3e08db9d76d00734c8f79bf5" => :mojave
-  end
-
-  head do
-    url "https://github.com/powerdns/pdns.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool"  => :build
-    depends_on "ragel"
   end
 
   depends_on "pkg-config" => :build
