@@ -5,6 +5,13 @@ class UnittestCpp < Formula
   sha256 "1d1b118518dc200e6b87bbf3ae7bfd00a0cfc6be708255f98e5e3d627a7c9f98"
   license "MIT"
 
+  head do
+    url "https://github.com/unittest-cpp/unittest-cpp.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   bottle do
     cellar :any
     sha256 "ea9e79c44e4bc95225504ea78baf0ae87b440f3a555239725672b3b5b205ebc5" => :big_sur
@@ -15,13 +22,6 @@ class UnittestCpp < Formula
     sha256 "91d028b464f32fcf6edda6b791be2b70d9b770934edd7af7d2b8ff24e9c5eb06" => :sierra
     sha256 "6136d8cdc420681130c59d9f77327ddad6b46a35d29da5be760b522c7456e2a2" => :el_capitan
     sha256 "573f6f3a83ba0d2d0e3b54314a5eb93affd11f03bcc409d381ef8253d7e03c4c" => :yosemite
-  end
-
-  head do
-    url "https://github.com/unittest-cpp/unittest-cpp.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   def install
