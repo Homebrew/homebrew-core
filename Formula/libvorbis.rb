@@ -5,6 +5,14 @@ class Libvorbis < Formula
   sha256 "b33cc4934322bcbf6efcbacf49e3ca01aadbea4114ec9589d1b1e9d20f72954b"
   license "BSD-3-Clause"
 
+  head do
+    url "https://gitlab.xiph.org/xiph/vorbis.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   bottle do
     cellar :any
     sha256 "05e639c274f52924cbf31fb4337888ab51554a66597486aeed8e5942d267c586" => :big_sur
@@ -12,14 +20,6 @@ class Libvorbis < Formula
     sha256 "432eb21045d9dfac3ef879648d845d894cc828862f5498448fe98c0141ef5cd0" => :catalina
     sha256 "59509a351e88352f01512b54cc5cb849c2551623f7d6dcd6679d38b5e96032ed" => :mojave
     sha256 "3e6609520d0ffd7179f721c23c1291f2735b70384d56d1c1dd10185ae355c4b2" => :high_sierra
-  end
-
-  head do
-    url "https://gitlab.xiph.org/xiph/vorbis.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "pkg-config" => :build
