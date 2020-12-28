@@ -5,6 +5,10 @@ class Libvirt < Formula
   sha256 "30cfc1365b7a62bf08c5254103087fac51c4210343aa958a7d38cedd280ed2aa"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
 
+  head do
+    url "https://github.com/libvirt/libvirt.git"
+  end
+
   livecheck do
     url "https://libvirt.org/sources/"
     regex(/href=.*?libvirt[._-]v?([\d.]+)\.t/i)
@@ -14,10 +18,6 @@ class Libvirt < Formula
     sha256 "0691fb2e0adb30adb37933107a1ac5c34f01656438fa6840dd650fa63ebf93f6" => :big_sur
     sha256 "e28aaebcf0a86ae8e2906bbd0c228abbe86512184d6d82be01f98e10acc9a2ba" => :catalina
     sha256 "178e78989b00690c1407d6c2e31703040dc69b7a0af096c18d95619fdedf4136" => :mojave
-  end
-
-  head do
-    url "https://github.com/libvirt/libvirt.git"
   end
   depends_on "docutils" => :build
   depends_on "meson" => :build
