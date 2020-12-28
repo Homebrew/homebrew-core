@@ -23,9 +23,7 @@ class Futhark < Formula
 
   def install
     system "cabal", "v2-update"
-    # Remove the `--constraint` flag at version bump
-    # see https://github.com/ddssff/listlike/issues/8#issuecomment-748985462 for detail
-    system "cabal", "v2-install", *std_cabal_v2_args, "--constraint=bytestring==0.10.10.1"
+    system "cabal", "v2-install", *std_cabal_v2_args
 
     system "make", "-C", "docs", "man"
     man1.install Dir["docs/_build/man/*.1"]
