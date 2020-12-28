@@ -5,17 +5,17 @@ class Valgrind < Formula
   sha256 "c91f3a2f7b02db0f3bc99479861656154d241d2fdb265614ba918cc6720a33ca"
   license "GPL-2.0"
 
-  livecheck do
-    url "https://sourceware.org/pub/valgrind/"
-    regex(/href=.*?valgrind[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   head do
     url "https://sourceware.org/git/valgrind.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
+  end
+
+  livecheck do
+    url "https://sourceware.org/pub/valgrind/"
+    regex(/href=.*?valgrind[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   depends_on :linux
