@@ -22,7 +22,7 @@ class Pod2man < Formula
   uses_from_macos "perl"
 
   def install
-    system "perl", "Makefile.PL", "INSTALL_BASE=#{prefix}"
+    system "perl", "Makefile.PL", "INSTALL_BASE=#{prefix}",
                    "INSTALLSCRIPT=#{bin}",
                    "INSTALLMAN1DIR=#{man1}", "INSTALLMAN3DIR=#{man3}"
     system "make"
