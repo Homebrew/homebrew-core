@@ -6,6 +6,12 @@ class Tarsnap < Formula
   license "0BSD"
   revision 1
 
+  head do
+    url "https://github.com/Tarsnap/tarsnap.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
   livecheck do
     url "https://www.tarsnap.com/download/"
     regex(/href=.*?tarsnap-autoconf[._-]v?(\d+(?:\.\d+)+)\.t/i)
@@ -19,12 +25,6 @@ class Tarsnap < Formula
     sha256 "c6c97cd8e16ba02f7997d1d269373dca82d4a3d188b89dc3532c8149e277bd02" => :mojave
     sha256 "847aae76230beaedfa23ea0a0f375864a8af6063c8539634637ab218a425540d" => :high_sierra
     sha256 "dbf1a477d46c723a3cebb6b1001771bf51956035ea3369b5e2451c091cad5930" => :sierra
-  end
-
-  head do
-    url "https://github.com/Tarsnap/tarsnap.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
   end
 
   depends_on "openssl@1.1"
