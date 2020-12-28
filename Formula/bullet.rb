@@ -4,6 +4,7 @@ class Bullet < Formula
   url "https://github.com/bulletphysics/bullet3/archive/3.08.tar.gz"
   sha256 "05826c104b842bcdd1339b86894cb44c84ac2525ac296689d34b38a14bbba0dd"
   license "Zlib"
+  revision 1
   head "https://github.com/bulletphysics/bullet3.git"
 
   bottle do
