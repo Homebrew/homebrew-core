@@ -35,7 +35,7 @@ class MermaidCli < Formula
       }
     EOS
 
-    system "mmdc", "-p", "puppeteer-config.json", "-i", "#{testpath}/test.mmd", "-o", "#{testpath}/out.svg"
+    system bin/"mmdc", "-p", "puppeteer-config.json", "-i", "#{testpath}/test.mmd", "-o", "#{testpath}/out.svg"
 
     assert_predicate testpath/"out.svg", :exist?
   end
