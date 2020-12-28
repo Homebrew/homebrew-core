@@ -5,6 +5,13 @@ class Ideviceinstaller < Formula
   sha256 "deb883ec97f2f88115aab39f701b83c843e9f2b67fe02f5e00a9a7d6196c3063"
   license "GPL-2.0"
 
+  head do
+    url "https://git.sukimashita.com/ideviceinstaller.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   bottle do
     cellar :any
     sha256 "6d98523b90770662e350311c375f1157ac0c708769ce2145036aeed451e26621" => :big_sur
@@ -12,13 +19,6 @@ class Ideviceinstaller < Formula
     sha256 "6ee12db78e8c224c0eb0cf88eb4f43242eb1ba672eb006636273b99b75b02a87" => :catalina
     sha256 "6ed5e4f7ace33fd5f4d1b4c6b9f0fd519836080e170b981e63942087698351c6" => :mojave
     sha256 "0dfe944eaa47cad87ad22f70dbbcefdb6b27bbeb83ca1f7a229827c03054c07c" => :high_sierra
-  end
-
-  head do
-    url "https://git.sukimashita.com/ideviceinstaller.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "pkg-config" => :build
