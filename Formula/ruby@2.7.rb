@@ -7,7 +7,7 @@ class RubyAT27 < Formula
 
   livecheck do
     url "https://www.ruby-lang.org/en/downloads/"
-    regex(/href=.*?ruby[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    regex(/href=.*?ruby[._-]v?(2\.7(?:\.\d+)+)\.t/i)
   end
 
   bottle do
