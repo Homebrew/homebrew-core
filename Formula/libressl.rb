@@ -7,6 +7,14 @@ class Libressl < Formula
   sha256 "412dc2baa739228c7779e93eb07cd645d5c964d2f2d837a9fd56db7498463d73"
   license "OpenSSL"
 
+  head do
+    url "https://github.com/libressl-portable/portable.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   livecheck do
     url :homepage
     regex(/latest stable release is (\d+(?:\.\d+)+)/i)
@@ -17,14 +25,6 @@ class Libressl < Formula
     sha256 "f4d6d7f7decf667206d58554e63810eec52a20e869d4a74c6c1756ceef77ac8d" => :arm64_big_sur
     sha256 "4a11c712731e131c223b4b73f25507b1c1c826821257b538b1b5f5f05c0f0736" => :catalina
     sha256 "a84aa0482ece558c5afe0f2bae8ea6175f61e912778a5e9effa1c959b68a56b6" => :mojave
-  end
-
-  head do
-    url "https://github.com/libressl-portable/portable.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   keg_only :provided_by_macos
