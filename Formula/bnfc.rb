@@ -1,9 +1,9 @@
 class Bnfc < Formula
   desc "BNF Converter"
   homepage "https://bnfc.digitalgrammars.com/"
-  url "https://github.com/BNFC/bnfc/archive/v2.8.4.tar.gz"
-  sha256 "69a9cdd602bd7c96f5bc622645f88c8cb54231c7bad52974470dd0937df43f68"
-  license "GPL-2.0"
+  url "https://github.com/BNFC/bnfc/archive/v2.9.0.tar.gz"
+  sha256 "677715b204a047a986656ab76cc850488cfabdb9eb6e3f37663b55d708207238"
+  license "BSD-3-Clause"
   head "https://github.com/BNFC/bnfc.git"
 
   bottle do
@@ -31,7 +31,7 @@ class Bnfc < Formula
     cd "source" do
       system "cabal", "v2-update"
       system "cabal", "v2-install", *std_cabal_v2_args
-      doc.install "changelog"
+      doc.install "CHANGELOG.md"
       doc.install "src/BNF.cf" => "BNF.cf"
     end
     cd "docs" do
