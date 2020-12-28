@@ -5,17 +5,17 @@ class Metabase < Formula
   sha256 "758fc6c0ad3ce70aefe36099dd2859e118dee1a3fe1416c99d730c56cf0ae850"
   license "AGPL-3.0-only"
 
-  livecheck do
-    url :head
-    strategy :github_latest
-  end
-
   head do
     url "https://github.com/metabase/metabase.git"
 
     depends_on "leiningen" => :build
     depends_on "node" => :build
     depends_on "yarn" => :build
+  end
+
+  livecheck do
+    url :head
+    strategy :github_latest
   end
 
   bottle :unneeded
