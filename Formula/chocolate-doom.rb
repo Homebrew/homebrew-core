@@ -5,6 +5,13 @@ class ChocolateDoom < Formula
   sha256 "d435d6177423491d60be706da9f07d3ab4fabf3e077ec2a3fc216e394fcfc8c7"
   license "GPL-2.0"
 
+  head do
+    url "https://github.com/chocolate-doom/chocolate-doom.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
   livecheck do
     url "https://www.chocolate-doom.org/downloads/"
     regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
@@ -17,13 +24,6 @@ class ChocolateDoom < Formula
     sha256 "91f8a622d0299afd99d6eb4768184100addb0d1a804683aa6486548ed5a14d8d" => :catalina
     sha256 "9090cd83e434977b523647ea125b5de78ca8c2b434f1933a606200999e137a30" => :mojave
     sha256 "c4799300dc6c4b10d68e0764cb57eec612fbe3d07a2ce7eeb0cf6bc60905a687" => :high_sierra
-  end
-
-  head do
-    url "https://github.com/chocolate-doom/chocolate-doom.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
   end
 
   depends_on "pkg-config" => :build
