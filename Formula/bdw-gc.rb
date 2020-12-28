@@ -6,6 +6,13 @@ class BdwGc < Formula
   license "MIT"
   revision 1
 
+  head do
+    url "https://github.com/ivmai/bdwgc.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool"  => :build
+  end
+
   bottle do
     cellar :any
     rebuild 1
@@ -13,13 +20,6 @@ class BdwGc < Formula
     sha256 "928805b89e3de74d9d45043077ee9e64de15079ae9730216a604603afb17b810" => :arm64_big_sur
     sha256 "31634ad61ce92329e34154feb1ad14e4786592555ef9a14259a09ea0648d5af7" => :catalina
     sha256 "898aa902c343deda1046532d36351a9d0a08d619dda393f4e50dbc78c674a580" => :mojave
-  end
-
-  head do
-    url "https://github.com/ivmai/bdwgc.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool"  => :build
   end
 
   depends_on "libatomic_ops" => :build
