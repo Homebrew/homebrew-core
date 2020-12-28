@@ -5,6 +5,10 @@ class Cryfs < Formula
   sha256 "5531351b67ea23f849b71a1bc44474015c5718d1acce039cf101d321b27f03d5"
   license "LGPL-3.0"
 
+  head do
+    url "https://github.com/cryfs/cryfs.git", branch: "develop", shallow: false
+  end
+
   bottle do
     cellar :any
     rebuild 1
@@ -12,10 +16,6 @@ class Cryfs < Formula
     sha256 "cc94e5ba2d13205b0199e59779cecd7dd094965ee22c4ebf92d53ecaa65f8be7" => :mojave
     sha256 "daa6d8961ef98fc509e806614c4daf6f589ee7d76bbb483066962b6bd700a2fe" => :high_sierra
     sha256 "252aa90f3281ccff1b9d0c6292856df1a08be17ada7aacd320f05d2d2508565f" => :sierra
-  end
-
-  head do
-    url "https://github.com/cryfs/cryfs.git", branch: "develop", shallow: false
   end
 
   deprecate! date: "2020-11-10", because: "requires FUSE"
