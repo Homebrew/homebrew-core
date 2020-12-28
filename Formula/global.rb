@@ -6,16 +6,6 @@ class Global < Formula
   sha256 "987e8cb956c53f8ebe4453b778a8fde2037b982613aba7f3e8e74bcd05312594"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
-  bottle do
-    sha256 "748524c4b316196e41e0f54df683117c61f7dfdbab1c3e641c36ae4eed7f1013" => :catalina
-    sha256 "848b4e78c1f507bc4356b285164368641125194e730accf46c540af5806a600f" => :mojave
-    sha256 "ba9cdd8c988ca4aff95538b8d30cb9f97c99dd6f5e91e296db121c8b53459cf0" => :high_sierra
-  end
-
   head do
     url ":pserver:anonymous:@cvs.savannah.gnu.org:/sources/global", using: :cvs
 
@@ -25,6 +15,16 @@ class Global < Formula
     depends_on "flex" => :build
     ## gperf is provided by OSX Command Line Tools.
     depends_on "libtool" => :build
+  end
+
+  livecheck do
+    url :stable
+  end
+
+  bottle do
+    sha256 "748524c4b316196e41e0f54df683117c61f7dfdbab1c3e641c36ae4eed7f1013" => :catalina
+    sha256 "848b4e78c1f507bc4356b285164368641125194e730accf46c540af5806a600f" => :mojave
+    sha256 "ba9cdd8c988ca4aff95538b8d30cb9f97c99dd6f5e91e296db121c8b53459cf0" => :high_sierra
   end
 
   depends_on "ctags"
