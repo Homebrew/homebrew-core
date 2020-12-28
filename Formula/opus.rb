@@ -5,6 +5,14 @@ class Opus < Formula
   sha256 "65b58e1e25b2a114157014736a3d9dfeaad8d41be1c8179866f144a2fb44ff9d"
   license "BSD-3-Clause"
 
+  head do
+    url "https://gitlab.xiph.org/xiph/opus.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   livecheck do
     url "https://archive.mozilla.org/pub/opus/"
     regex(%r{href=(?:["']?|.*?/)opus[._-]v?(\d+(?:\.\d+)+)\.t}i)
@@ -18,14 +26,6 @@ class Opus < Formula
     sha256 "5cb191f66da0ef2b8d03985c79cb18a59506aaba8a01cc0b1a821c293e88d576" => :catalina
     sha256 "21fa4c22a63bccc5e188dabb9c85af63a57d19582c4f616716bccb063e2befec" => :mojave
     sha256 "8b45ac09baae56bdc2c7ee224d5a1ae68efb826a9aec2220e0b27e8ce633b8aa" => :high_sierra
-  end
-
-  head do
-    url "https://gitlab.xiph.org/xiph/opus.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   def install
