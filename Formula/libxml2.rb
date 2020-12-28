@@ -7,6 +7,15 @@ class Libxml2 < Formula
   license "MIT"
   revision 2
 
+  head do
+    url "https://gitlab.gnome.org/GNOME/libxml2.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+    depends_on "pkg-config" => :build
+  end
+
   livecheck do
     url "http://xmlsoft.org/sources"
     regex(/href=.*?libxml2[._-]v?([\d.]+\.[\d.]+\.[\d.]+)\.t/i)
@@ -19,15 +28,6 @@ class Libxml2 < Formula
     sha256 "2983d5a448504389888720bf951713114ed7f010d96cde9289fdc5c4b539d303" => :catalina
     sha256 "7bcd780db5693475c7711eefbbcf703507865e06483e7338ab61027ec375c4bc" => :mojave
     sha256 "34d84eaef7f80632a6547903d640be06c6d92b9ca2b815b64b74943b4cf73e63" => :high_sierra
-  end
-
-  head do
-    url "https://gitlab.gnome.org/GNOME/libxml2.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-    depends_on "pkg-config" => :build
   end
 
   keg_only :provided_by_macos
