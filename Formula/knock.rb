@@ -5,6 +5,13 @@ class Knock < Formula
   sha256 "9938479c321066424f74c61f6bee46dfd355a828263dc89561a1ece3f56578a4"
   license "GPL-2.0"
 
+  head do
+    url "https://github.com/jvinet/knock.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
   livecheck do
     url "https://www.zeroflux.org/projects/knock"
     regex(%r{The current version of knockd is <strong>v?(\d+(?:\.\d+)+)</strong>}i)
@@ -21,13 +28,6 @@ class Knock < Formula
     sha256 "030dc0a7c3ea623eb3d8e11374f744ad79f8aee8b7b75210f1a183b4d6d978de" => :el_capitan
     sha256 "aac645d3c392386d99cb19200465a439639c8d3e7f8eac7021dbb677939cf155" => :yosemite
     sha256 "eb180c87d84707199ef6279a4709d76630a2089b331fb9ebc6c2bf58389fc921" => :mavericks
-  end
-
-  head do
-    url "https://github.com/jvinet/knock.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
   end
 
   def install
