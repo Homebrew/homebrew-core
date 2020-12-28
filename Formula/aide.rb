@@ -5,6 +5,12 @@ class Aide < Formula
   sha256 "17f998ae6ae5afb9c83578e4953115ab8a2705efc50dee5c6461cef3f521b797"
   license "GPL-2.0-or-later"
 
+  head do
+    url "https://github.com/aide/aide.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
   bottle do
     cellar :any
     sha256 "ed33989aed9c6b7a0a20753d567694c5204d96f4f9b2d91888c3f79172b4359f" => :big_sur
@@ -13,12 +19,6 @@ class Aide < Formula
     sha256 "bb68fa349609a0221b2138e3596ceb803242862b771bb0b76440057e31201050" => :mojave
     sha256 "fff1a3e469346d9181f73d8c3d734801b900c765308f3c36495b1801fb3ad897" => :high_sierra
     sha256 "77aef168355fa73b01b0967d80058582f7387997ba2c7f7b7aad0eb335939488" => :sierra
-  end
-
-  head do
-    url "https://github.com/aide/aide.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
   end
 
   depends_on "libgcrypt"
