@@ -8,6 +8,15 @@ class Gtkx < Formula
     sha256 "ac2ac757f5942d318a311a54b0c80b5ef295f299c2a73c632f6bfb1ff49cc6da"
   end
 
+  head do
+    url "https://gitlab.gnome.org/GNOME/gtk.git", branch: "gtk-2-24"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "gtk-doc" => :build
+    depends_on "libtool" => :build
+  end
+
   livecheck do
     url :stable
     regex(/gtk\+[._-]v?(2\.([0-8]\d*?)?[02468](?:\.\d+)*?)\.t/i)
@@ -18,15 +27,6 @@ class Gtkx < Formula
     sha256 "b304a9f2d24f97e179cb5731713fc4876a730b507eb057bba4f9097af46d7708" => :arm64_big_sur
     sha256 "3900f64476d7988670b5d0c855f072fba0af2b1bb323acf4f126f70c95a38616" => :catalina
     sha256 "10d1f2a81a115b9cf1e8c76fbd6cdc58f5b4593eb7f9e15cbe0127e14221dd06" => :mojave
-  end
-
-  head do
-    url "https://gitlab.gnome.org/GNOME/gtk.git", branch: "gtk-2-24"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "gtk-doc" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "gobject-introspection" => :build
