@@ -4,6 +4,11 @@ class Libxmp < Formula
   url "https://downloads.sourceforge.net/project/xmp/libxmp/4.4.1/libxmp-4.4.1.tar.gz"
   sha256 "353535cc84c8cddae8decec4e65fa4c51fc64f22eb0891bc3dae6eaf25f9cccf"
 
+  head do
+    url "https://git.code.sf.net/p/xmp/libxmp.git"
+    depends_on "autoconf" => :build
+  end
+
   livecheck do
     url :stable
   end
@@ -18,11 +23,6 @@ class Libxmp < Formula
     sha256 "019ff8e51453bf527ba6ec46fd289acc5396208e230445afb0332a18752d72e2" => :sierra
     sha256 "8da81ed699c312c831be38295df20218663fef23aec1cab91afa7e425baaa4ab" => :el_capitan
     sha256 "dd80b8a6786f265488503234bb7aecffa15ab0a5c099677fd0989fd3329709d2" => :yosemite
-  end
-
-  head do
-    url "https://git.code.sf.net/p/xmp/libxmp.git"
-    depends_on "autoconf" => :build
   end
 
   # CC BY-NC-ND licensed set of five mods by Keith Baylis/Vim! for testing purposes
