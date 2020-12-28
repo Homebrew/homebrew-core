@@ -6,6 +6,14 @@ class Libbdplus < Formula
   sha256 "a631cae3cd34bf054db040b64edbfc8430936e762eb433b1789358ac3d3dc80a"
   license "LGPL-2.1"
 
+  head do
+    url "https://code.videolan.org/videolan/libbdplus.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   bottle do
     cellar :any
     sha256 "2641a985c689b115e5c4725688caa4728d1e8aab80b8b7e8763a362406c2d04d" => :big_sur
@@ -17,14 +25,6 @@ class Libbdplus < Formula
     sha256 "7136cdf433318efb9691d43d078eb20e9647f2ae4999b42cf791736d95047a81" => :el_capitan
     sha256 "13f271c0bb73d496cda7314d6665478c19193f0eb3b9b7a9fbc1eb4a957894c9" => :yosemite
     sha256 "e2189073d60ed520ed852355aebf1a5137fec5bead346ebc68f2b202d495db36" => :mavericks
-  end
-
-  head do
-    url "https://code.videolan.org/videolan/libbdplus.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "libgcrypt"
