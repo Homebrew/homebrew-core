@@ -2,8 +2,8 @@ class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
   # NOTE: Please keep these values in sync with git-gui.rb when updating.
-  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.29.2.tar.xz"
-  sha256 "f2fc436ebe657821a1360bcd1e5f4896049610082419143d60f6fa13c2f607c1"
+  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.30.0.tar.xz"
+  sha256 "55735021109565721af805af382c45cce73c3cfaa59daad22443d1477d334d19"
   license "GPL-2.0-only"
   head "https://github.com/git/git.git", shallow: false
 
@@ -24,13 +24,13 @@ class Git < Formula
   depends_on "pcre2"
 
   resource "html" do
-    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-htmldocs-2.29.2.tar.xz"
-    sha256 "f7c762cc5c8c5230885b76134cbc801f6149c29c812d3f276ff1914176a7dab8"
+    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-htmldocs-2.30.0.tar.xz"
+    sha256 "820132c62ade3df12b4178857cfc5c92276b847b2307a5f7f4d24c27774f962f"
   end
 
   resource "man" do
-    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-manpages-2.29.2.tar.xz"
-    sha256 "e2d44a2a30b9d43a770262f1328b77df2f532f16c2dcd235655e5c9bd39bd792"
+    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-manpages-2.30.0.tar.xz"
+    sha256 "7b2b8405d5bdd149e3891617053de37f7e8d5a5b3834317a5af9f30ccc93cf76"
   end
 
   resource "Net::SMTP::SSL" do
