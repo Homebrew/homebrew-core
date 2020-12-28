@@ -5,6 +5,15 @@ class CmuPocketsphinx < Formula
   sha256 "874c4c083d91c8ff26a2aec250b689e537912ff728923c141c4dac48662cce7a"
   license "BSD-2-Clause"
 
+  head do
+    url "https://github.com/cmusphinx/pocketsphinx.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+    depends_on "swig" => :build
+  end
+
   livecheck do
     url :stable
     regex(%r{url=.*?/pocketsphinx[._-]v?(\d+(?:\.\d+)+)\.t}i)
@@ -20,15 +29,6 @@ class CmuPocketsphinx < Formula
     sha256 "2f1f4738dbcf7641a530b82c4dc6447ecadb5f9b60cd2484c33c379efb5c46e5" => :el_capitan
     sha256 "dea4e6a8e131f68c94a6b9fb783a0445476354a90629001d5007fe3b4e5247bd" => :yosemite
     sha256 "9d49cd11915d906db23021eeaed8bed1ee5e565eaad03a1a96cbb03448ae6867" => :mavericks
-  end
-
-  head do
-    url "https://github.com/cmusphinx/pocketsphinx.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-    depends_on "swig" => :build
   end
 
   depends_on "pkg-config" => :build
