@@ -15,6 +15,14 @@ class ArxLibertatis < Formula
     end
   end
 
+  head do
+    url "https://github.com/arx/ArxLibertatis.git"
+
+    resource "arx-libertatis-data" do
+      url "https://github.com/arx/ArxLibertatisData.git"
+    end
+  end
+
   livecheck do
     url :head
     regex(/^v?(\d+(?:\.\d+)+)$/i)
@@ -27,14 +35,6 @@ class ArxLibertatis < Formula
     sha256 "b93ffc0870dffd0bab99117814e3c094fc019c2315bdd8fc35f687c1009dd661" => :catalina
     sha256 "39fc49249e5a82bd067c05bcd056b454a90ace91f364b3c33534901827247b2c" => :mojave
     sha256 "2fe2043845655c6f3e75be1dc7213826fd142f806fd7b59006fdef940584e92a" => :high_sierra
-  end
-
-  head do
-    url "https://github.com/arx/ArxLibertatis.git"
-
-    resource "arx-libertatis-data" do
-      url "https://github.com/arx/ArxLibertatisData.git"
-    end
   end
 
   depends_on "boost" => :build
