@@ -6,6 +6,13 @@ class Mfterm < Formula
   license "GPL-3.0"
   revision 2
 
+  head do
+    url "https://github.com/4ZM/mfterm.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
   bottle do
     cellar :any
     sha256 "18cc9c42960d0accd760293232f236ad1d35e0fc1e7e8f44061b72db2c2acf64" => :big_sur
@@ -13,13 +20,6 @@ class Mfterm < Formula
     sha256 "1c9230a17ab7102f4b171e37a972ade6c7e2d5708102a17ea5494be0b1d1a42e" => :catalina
     sha256 "2b4c61222b70b25c523c6083efd85ff53f1187a6afd7d88115f12cb788fa6b13" => :mojave
     sha256 "c481733fcc5f8057aac9fa38d5445a88e6faf54a016533bcc72eba2335d9754b" => :high_sierra
-  end
-
-  head do
-    url "https://github.com/4ZM/mfterm.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
   end
 
   depends_on "libnfc"
