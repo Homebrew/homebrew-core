@@ -5,6 +5,14 @@ class NeopopSdl < Formula
   sha256 "2df1b717faab9e7cb597fab834dc80910280d8abf913aa8b0dcfae90f472352e"
   license "GPL-2.0"
 
+  head do
+    url "https://hg.nih.at/NeoPop-SDL/", using: :hg
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "pkg-config" => :build
+    depends_on "ffmpeg"
+  end
+
   bottle do
     cellar :any
     sha256 "53e2a47e1f4e3bc4b35a31ea06f757ef62fc11de24347fcca5f4d1799f1adf94" => :big_sur
@@ -14,14 +22,6 @@ class NeopopSdl < Formula
     sha256 "3510d31984f2f46a59390617e2af3941638a4eb20a42131fc804e5d307cb5059" => :sierra
     sha256 "e115fe849a0b8e1921a6c36c3d34fcc00b911f0504a0e32543656e76513384ad" => :el_capitan
     sha256 "a8de30162f9e5146ee7c39480e83588f8036c0b965215e7ce1894c79855c8687" => :yosemite
-  end
-
-  head do
-    url "https://hg.nih.at/NeoPop-SDL/", using: :hg
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "pkg-config" => :build
-    depends_on "ffmpeg"
   end
 
   depends_on "libpng"
