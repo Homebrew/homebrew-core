@@ -4,6 +4,14 @@ class Putty < Formula
   url "https://the.earth.li/~sgtatham/putty/0.74/putty-0.74.tar.gz"
   sha256 "ddd5d388e51dd9e6e294005b30037f6ae802239a44c9dc9808c779e6d11b847d"
 
+  head do
+    url "https://git.tartarus.org/simon/putty.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "halibut" => :build
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "c15a7253a5548f318e45e619e831475ddfb59f314e286b99c9f03164830233f2" => :big_sur
@@ -11,14 +19,6 @@ class Putty < Formula
     sha256 "d5e454c08c5d06394527aa7141a332eb721097068f25deff3b4affa847837178" => :catalina
     sha256 "5f9844fc7464fefd987780b3579a33b2ca37673be56c2a8249c312a19e20faea" => :mojave
     sha256 "6621f31a41a8eedbbb2fda99a0548deed80d432216469105bac8084df66dbcbf" => :high_sierra
-  end
-
-  head do
-    url "https://git.tartarus.org/simon/putty.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "halibut" => :build
   end
 
   depends_on "pkg-config" => :build
