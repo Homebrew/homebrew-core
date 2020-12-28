@@ -1,5 +1,5 @@
 class Massdns < Formula
-  desc "Particle library for 3D graphics"
+  desc "A high-performance DNS stub resolver"
   homepage "https://github.com/blechschmidt/massdns"
   url "https://github.com/blechschmidt/massdns/archive/1.0.0.tar.gz"
   sha256 "0eba00a03e74a02a78628819741c75c2832fb94223d0ff632249f2cc55d0fdbb"
