@@ -5,6 +5,14 @@ class Protobuf < Formula
   sha256 "6dd0f6b20094910fbb7f1f7908688df01af2d4f6c5c21331b9f636048674aebf"
   license "BSD-3-Clause"
 
+  head do
+    url "https://github.com/protocolbuffers/protobuf.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   livecheck do
     url :stable
     strategy :github_latest
@@ -17,14 +25,6 @@ class Protobuf < Formula
     sha256 "67c2e767fbab9efc667ea729cfd08d081a1d3d7e93d7a86f68f8bd4a26ca5e8f" => :arm64_big_sur
     sha256 "8d53111626404e2b4f27718127a313dceea600a74a4d38ffe0870812d8f57eb4" => :catalina
     sha256 "0070627fe9b8c1818e54480c272cc00fa71bd5bd944b04d37ebe2e31604cb9c9" => :mojave
-  end
-
-  head do
-    url "https://github.com/protocolbuffers/protobuf.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "python@3.9" => [:build, :test]
