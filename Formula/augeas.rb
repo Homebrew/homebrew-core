@@ -5,6 +5,15 @@ class Augeas < Formula
   sha256 "321942c9cc32185e2e9cb72d0a70eea106635b50269075aca6714e3ec282cb87"
   license "LGPL-2.1"
 
+  head do
+    url "https://github.com/hercules-team/augeas.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "bison" => :build
+    depends_on "libtool" => :build
+  end
+
   livecheck do
     url "http://download.augeas.net/"
     regex(/href=.*?augeas[._-]v?(\d+(?:\.\d+)+)\.t/i)
@@ -17,15 +26,6 @@ class Augeas < Formula
     sha256 "9a561491e3574dfe2cfe7da2a618c12d02218f88f760de46722d9b603e4f27ba" => :mojave
     sha256 "0e1477f692cf67442dfcaf7c20a24733838df072ec867f59322070a7eaf3f925" => :high_sierra
     sha256 "55b3fab93f2ec4a703dc2bb3b3d58c47375456bdb5f0308e0856b231d309c02d" => :sierra
-  end
-
-  head do
-    url "https://github.com/hercules-team/augeas.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "bison" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "pkg-config" => :build
