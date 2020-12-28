@@ -5,6 +5,14 @@ class Mplayer < Formula
   sha256 "82596ed558478d28248c7bc3828eb09e6948c099bbd76bb7ee745a0e3275b548"
   revision 2
 
+  head do
+    url "svn://svn.mplayerhq.hu/mplayer/trunk"
+
+    # When building SVN, configure prompts the user to pull FFmpeg from git.
+    # Don't do that.
+    patch :DATA
+  end
+
   livecheck do
     url "https://mplayerhq.hu/MPlayer/releases/"
     regex(/href=.*?MPlayer[._-]v?(\d+(?:\.\d+)+)\.t/i)
@@ -15,14 +23,6 @@ class Mplayer < Formula
     sha256 "acaa1e3eefe8b4cdf1ec9280897ccf9105df580ad3912a41c8cbe1d7d6572d62" => :big_sur
     sha256 "0dd16cbb1ae697835329526876e76bea3801b6e0282a224bdb8ad80a8ff34442" => :catalina
     sha256 "e2ffb89894320617bd3dd058060f1a99d94a3b18b8daa349cea6cdd15385adfb" => :mojave
-  end
-
-  head do
-    url "svn://svn.mplayerhq.hu/mplayer/trunk"
-
-    # When building SVN, configure prompts the user to pull FFmpeg from git.
-    # Don't do that.
-    patch :DATA
   end
 
   depends_on "pkg-config" => :build
