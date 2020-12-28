@@ -6,6 +6,13 @@ class LibtorrentRasterbar < Formula
   license "BSD-3-Clause"
   revision 1
 
+  head do
+    url "https://github.com/arvidn/libtorrent.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   livecheck do
     url :head
     regex(/^libtorrent[._-]v?(\d+(?:[-_.]\d+)+)$/i)
@@ -17,13 +24,6 @@ class LibtorrentRasterbar < Formula
     sha256 "2b5460c509171200053dbb6d0eb45b71737695239beff530d63c55265c89fec5" => :catalina
     sha256 "593dae5994fb2e71c44f0150196d8cb719872b15e6212a8d669b1ed43c4f8f90" => :mojave
     sha256 "9f140786725e1a24971d5d3a99ff77cb35ec713f6fb6fd871b40633d4a322ea3" => :high_sierra
-  end
-
-  head do
-    url "https://github.com/arvidn/libtorrent.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "pkg-config" => :build
