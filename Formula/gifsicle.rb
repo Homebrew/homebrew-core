@@ -5,6 +5,13 @@ class Gifsicle < Formula
   sha256 "5ab556c01d65fddf980749e3ccf50b7fd40de738b6df679999294cc5fabfce65"
   license "GPL-2.0"
 
+  head do
+    url "https://github.com/kohler/gifsicle.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "cb3eefd1feccd5bda0979aa5ccf1cc1198b599654a43d33328912733c6644f91" => :big_sur
@@ -13,13 +20,6 @@ class Gifsicle < Formula
     sha256 "52be1cd49246909777199147dcbbeb6f490580558615138ae063b6149cfbe53c" => :mojave
     sha256 "a7cfb607906023c5bdb56a49f8a75ce0b3e2c76a971266bb530d04ed29be74f9" => :high_sierra
     sha256 "746d071f268950c6af18704590b981f5f965d35e2adf6c202aa3df0f13e943e9" => :sierra
-  end
-
-  head do
-    url "https://github.com/kohler/gifsicle.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
   end
 
   conflicts_with "giflossy",
