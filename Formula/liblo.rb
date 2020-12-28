@@ -5,6 +5,14 @@ class Liblo < Formula
   sha256 "2b4f446e1220dcd624ecd8405248b08b7601e9a0d87a0b94730c2907dbccc750"
   license "LGPL-2.1"
 
+  head do
+    url "https://git.code.sf.net/p/liblo/git.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   livecheck do
     url :stable
   end
@@ -16,14 +24,6 @@ class Liblo < Formula
     sha256 "aac4280d5e147a6baab53c252bbf7cda296fe5bdeceb26d7aa60acb10ecc5444" => :catalina
     sha256 "3310110ec91fb412b8d5c727bda03454aebec087d78ebada20bb53ad9582088e" => :mojave
     sha256 "034eaec236ee4df490d16db9998ec7a4d88223d929b333c8b08ade641bc74bcb" => :high_sierra
-  end
-
-  head do
-    url "https://git.code.sf.net/p/liblo/git.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   def install
