@@ -5,6 +5,13 @@ class Libirecovery < Formula
   sha256 "cda0aba10a5b6fc2e1d83946b009e3e64d0be36912a986e35ad6d34b504ad9b4"
   license "LGPL-2.1-only"
 
+  head do
+    url "https://git.libimobiledevice.org/libirecovery.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   bottle do
     cellar :any
     sha256 "4237290aa629bfa59e546e4da6d76d190ca44df8a6205dccf8974541b0d3bc1e" => :big_sur
@@ -12,13 +19,6 @@ class Libirecovery < Formula
     sha256 "a2733550b10ce601236c7e88f8bf689371c42d83e11875459f57a2da8b5bd4e0" => :catalina
     sha256 "09cc0a8c6798d5b9ce0bd08bebdec68ef774f5e3ab4e41837c342c07f888b7bb" => :mojave
     sha256 "04679d947675817c497d74a4a36714ef89a865425c05bc2b936b9bbb9806fe18" => :high_sierra
-  end
-
-  head do
-    url "https://git.libimobiledevice.org/libirecovery.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   def install
