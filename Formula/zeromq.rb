@@ -6,6 +6,14 @@ class Zeromq < Formula
   license "LGPL-3.0-or-later" => { with: "LGPL-3.0-linking-exception" }
   revision 1
 
+  head do
+    url "https://github.com/zeromq/libzmq.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   livecheck do
     url :head
     regex(/^v?(\d+(?:\.\d+)+)$/i)
@@ -17,14 +25,6 @@ class Zeromq < Formula
     sha256 "2d79d98097eb803e649f836f6cb9365915f447b6837a5a1255483e386b60048a" => :arm64_big_sur
     sha256 "5dbb8f4b8ffca7829eedea2a30ca8c85f98f03e221d9274ae9856d3b155fb5e0" => :catalina
     sha256 "a1d0f42e686c108d06ad4f376f8e8c666fda1edd1947edc772669062f3ccb1ff" => :mojave
-  end
-
-  head do
-    url "https://github.com/zeromq/libzmq.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "asciidoc" => :build
