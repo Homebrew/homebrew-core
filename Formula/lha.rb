@@ -12,6 +12,12 @@ class Lha < Formula
   # page source. As such, we identify versions from the release names instead.
   # The portion of the regex that captures the version is looser than usual
   # because the version format is unusual and may change in the future.
+  head do
+    url "https://github.com/jca02266/lha.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
   livecheck do
     url "https://osdn.net/projects/lha/releases/"
     regex(%r{href=.*?/projects/lha/releases/[^>]+?>\s*?v?(\d+(?:[.-][\da-z]+)+)}im)
@@ -24,12 +30,6 @@ class Lha < Formula
     sha256 "d328d1b1740353a2e04c6f79dc863f3fa2caca9380e76b3e48b4b72f5e1ad32b" => :arm64_big_sur
     sha256 "429d3165a0f986e815f09ea3f6b2d93e1bd0feef01b6df6159a983e8118244a4" => :catalina
     sha256 "12b5c79de56f71138c64d517ffc0091bc313f4cc0f174e10276b248b06e2fa0f" => :mojave
-  end
-
-  head do
-    url "https://github.com/jca02266/lha.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
   end
 
   conflicts_with "lhasa", because: "both install a `lha` binary"
