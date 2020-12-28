@@ -5,6 +5,12 @@ class MoonBuggy < Formula
   sha256 "f8296f3fabd93aa0f83c247fbad7759effc49eba6ab5fdd7992f603d2d78e51a"
   license "GPL-3.0"
 
+  head do
+    url "https://github.com/seehuhn/moon-buggy.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
   bottle do
     sha256 "f4b3e7e9c36f357c628328b247bbe187467f16dde745acfd7ff2f668c22c379e" => :big_sur
     sha256 "c7c5841b86bbd9271fb84c33e12babaf31e670dad45b2f65618e052dfbfae7ae" => :arm64_big_sur
@@ -14,12 +20,6 @@ class MoonBuggy < Formula
     sha256 "fb2abda84d3e2b20f286caa036fadb9bfd6c4df151352a171385a54ca43acda9" => :sierra
     sha256 "b71bfe4abfb1d2c3d35db544850cb56f1b2ba50df18d27d3fef3ed5845b30e76" => :el_capitan
     sha256 "08b485a97197d8a0a2733e74622a232a8a1407ebd2564caccdffb9438176c1ee" => :yosemite
-  end
-
-  head do
-    url "https://github.com/seehuhn/moon-buggy.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
   end
 
   def install
