@@ -6,6 +6,13 @@ class Libsigsegv < Formula
   sha256 "3ae1af359eebaa4ffc5896a1aee3568c052c99879316a1ab57f8fe1789c390b6"
   license "GPL-2.0-or-later"
 
+  head do
+    url "https://git.savannah.gnu.org/git/libsigsegv.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
   livecheck do
     url :stable
   end
@@ -16,13 +23,6 @@ class Libsigsegv < Formula
     sha256 "8f4dde47fdc37a7d8bfe2e5fb5a6935df61933ac0c261c7e84a779ea9d1571f9" => :big_sur
     sha256 "3f08091c87658aaf556a9309ce98146faee3d9be07e72380fdab78449111195c" => :catalina
     sha256 "f883382e7eb115a7ea8f660487b40f186d2d422f16d0bceaa58ceca19f7279f9" => :mojave
-  end
-
-  head do
-    url "https://git.savannah.gnu.org/git/libsigsegv.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
   end
 
   def install
