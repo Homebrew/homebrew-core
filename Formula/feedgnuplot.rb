@@ -3,8 +3,8 @@ class Feedgnuplot < Formula
   homepage "https://github.com/dkogan/feedgnuplot"
   url "https://github.com/dkogan/feedgnuplot/archive/v1.55.tar.gz"
   sha256 "1205afedf8ce79d8531e0d0f8f9565df365a568a0ee6a8e17738602682095303"
-  # licensed under either "GPL-3.0" or "Artistic-1.0"
-  license "GPL-3.0"
+  license any_of: ["GPL-1.0-or-later", "Artistic-1.0"]
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -16,7 +16,7 @@ class Feedgnuplot < Formula
   depends_on "gnuplot"
 
   def install
-    system "perl", "Makefile.PL", "prefix=#{prefix}"
+    system "perl", "Makefile.PL", "INSTALL_BASE=#{prefix}"
     system "make"
     system "make", "install"
 
