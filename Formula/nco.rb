@@ -5,6 +5,12 @@ class Nco < Formula
   sha256 "2b3da28e12e873ebf2ae154f1366827adfe51e4d7b65d2e44895b5d8920fbe92"
   license "BSD-3-Clause"
 
+  head do
+    url "https://github.com/nco/nco.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
   livecheck do
     url :stable
     strategy :github_latest
@@ -15,12 +21,6 @@ class Nco < Formula
     sha256 "cd27bac9350db6d3c23f462672cb4b67dfabd9004dc911473cb31967c027ba0c" => :big_sur
     sha256 "ec9295ebe49e0cb81d2806cf66780a95998e3268608c8a9607ec5391d41facf3" => :catalina
     sha256 "aa9c507422bbc6b950847bfc30e4b3a4632baf0cff10213da3ca09da529f1797" => :mojave
-  end
-
-  head do
-    url "https://github.com/nco/nco.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
   end
 
   depends_on "antlr@2" # requires C++ interface in Antlr2
