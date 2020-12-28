@@ -16,6 +16,10 @@ class Clisp < Formula
     end
   end
 
+  head do
+    url "https://gitlab.com/gnu-clisp/clisp.git"
+  end
+
   livecheck do
     url "https://ftp.gnu.org/gnu/clisp/release/?C=M&O=D"
     strategy :page_match
@@ -28,10 +32,6 @@ class Clisp < Formula
     sha256 "05bfe89f749c669150e3c9d4589a18ac0e5ffe9d3c27cc3da67fa41ad20a9258" => :big_sur
     sha256 "b6a273e26d27a1bd3c8654631f2cd6fe964f0b9fc83d11ddb74513243378217e" => :catalina
     sha256 "ee265923cfb2f5943d513a98b4205b57df9317ebf36a0faa4f29f3ee0c3734c2" => :mojave
-  end
-
-  head do
-    url "https://gitlab.com/gnu-clisp/clisp.git"
   end
 
   depends_on "libsigsegv"
