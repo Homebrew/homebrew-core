@@ -13,6 +13,14 @@ class GitFlowAvh < Formula
     end
   end
 
+  head do
+    url "https://github.com/petervanderdoes/gitflow-avh.git", branch: "develop"
+
+    resource "completion" do
+      url "https://github.com/petervanderdoes/git-flow-completion.git", branch: "develop"
+    end
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "908021867768ca0b772288052b4518aeec2e682d2141b6b912c539176a069fce" => :big_sur
@@ -21,14 +29,6 @@ class GitFlowAvh < Formula
     sha256 "945e9ba05a169b32c86f5bd347542e803625791cf9a4b50a4a42fafb5e0b9c85" => :mojave
     sha256 "945e9ba05a169b32c86f5bd347542e803625791cf9a4b50a4a42fafb5e0b9c85" => :high_sierra
     sha256 "0e68b196dd24d9d41f9b0c5545d115c9ca8327dd799facbed2e619f8ceea221b" => :sierra
-  end
-
-  head do
-    url "https://github.com/petervanderdoes/gitflow-avh.git", branch: "develop"
-
-    resource "completion" do
-      url "https://github.com/petervanderdoes/git-flow-completion.git", branch: "develop"
-    end
   end
 
   depends_on "gnu-getopt"
