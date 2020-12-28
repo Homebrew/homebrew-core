@@ -5,6 +5,14 @@ class Sshguard < Formula
   sha256 "875d02e6e67dced614790ed5e36aef1160edea940f353a79306cbb1852af3c67"
   version_scheme 1
 
+  head do
+    url "https://bitbucket.org/sshguard/sshguard.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "docutils" => :build
+  end
+
   livecheck do
     url :stable
   end
@@ -16,14 +24,6 @@ class Sshguard < Formula
     sha256 "77cd7948bbc56730642e7698416d00b8313cb1273919d762f55d6054c1631e25" => :catalina
     sha256 "6b817c8751e409999328cdf22aba24701af0ab9c02d1d9c652285dacaa4968bd" => :mojave
     sha256 "0f006d36404600cb1053df6073142d394cbe166525ab37cb62a4a8c56b7f369f" => :high_sierra
-  end
-
-  head do
-    url "https://bitbucket.org/sshguard/sshguard.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "docutils" => :build
   end
 
   def install
