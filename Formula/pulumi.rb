@@ -5,6 +5,7 @@ class Pulumi < Formula
       tag:      "v2.16.2",
       revision: "58c07c52c8d4db037c284b66d432d96db6081ca9"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/pulumi/pulumi.git"
 
   bottle do
