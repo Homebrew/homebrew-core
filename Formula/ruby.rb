@@ -4,6 +4,7 @@ class Ruby < Formula
   url "https://cache.ruby-lang.org/pub/ruby/3.0/ruby-3.0.0.tar.xz"
   sha256 "68bfaeef027b6ccd0032504a68ae69721a70e97d921ff328c0c8836c798f6cb1"
   license "Ruby"
+  revision 1
 
   livecheck do
     url "https://www.ruby-lang.org/en/downloads/"
