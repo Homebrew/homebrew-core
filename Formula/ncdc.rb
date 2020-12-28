@@ -5,6 +5,13 @@ class Ncdc < Formula
   sha256 "d15fd378aa345f423e59a38691c668f69b516cd4b8afbbcdc446007740c3afad"
   license "MIT"
 
+  head do
+    url "https://g.blicky.net/ncdc.git", shallow: false
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
   bottle do
     cellar :any
     sha256 "f0ea06824da1588311108a37cd60eb32692383a062c0d59f7c366f870692ca1f" => :big_sur
@@ -13,13 +20,6 @@ class Ncdc < Formula
     sha256 "4490571bb2101e00e3edc39ab25baf75a63dfd9617381ae0f102a274a2fbf622" => :mojave
     sha256 "bd143dd032839762597253796c562607e43c654c128d4f4162fd382fd660dbfd" => :high_sierra
     sha256 "59f5011b9c39b78c75a2bf5d93ae398a16660852a3b8fd8ed3a3389ea463fbf7" => :sierra
-  end
-
-  head do
-    url "https://g.blicky.net/ncdc.git", shallow: false
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
   end
 
   depends_on "pkg-config" => :build
