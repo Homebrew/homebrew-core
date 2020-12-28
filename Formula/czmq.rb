@@ -5,6 +5,14 @@ class Czmq < Formula
   sha256 "cfab29c2b3cc8a845749758a51e1dd5f5160c1ef57e2a41ea96e4c2dcc8feceb"
   license "MPL-2.0"
 
+  head do
+    url "https://github.com/zeromq/czmq.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   bottle do
     cellar :any
     rebuild 1
@@ -12,14 +20,6 @@ class Czmq < Formula
     sha256 "f8b5ef84a357ca7fbd03d2a0a5fc5f5714cf28dc5321479f0dc715c348df75c9" => :arm64_big_sur
     sha256 "c20bd8fd5e9c223824b1b50e829fb6c1ff1096951b20379f5f070b300d7e67d8" => :catalina
     sha256 "e64d0f79d6a05b5648695e3d06331bb34e8b85ae5920f429f3b44b7eee23cf5e" => :mojave
-  end
-
-  head do
-    url "https://github.com/zeromq/czmq.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "asciidoc" => :build
