@@ -4,6 +4,7 @@ class Lazygit < Formula
   url "https://github.com/jesseduffield/lazygit/archive/v0.24.2.tar.gz"
   sha256 "95f629d57b459a3414af0582c20835edc970ec83a2c791cff97e5b8aac3b7025"
   license "MIT"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
