@@ -5,6 +5,12 @@ class MesaGlu < Formula
   sha256 "fb5a4c2dd6ba6d1c21ab7c05129b0769544e1d68e1e3b0ffecb18e73c93055bc"
   license any_of: ["GPL-3.0-or-later", "GPL-2.0-or-later", "MIT", "SGI-B-2.0"]
 
+  head do
+    url "https://gitlab.freedesktop.org/mesa/glu.git"
+
+    depends_on "automake" => :build
+  end
+
   livecheck do
     url :head
     regex(/^(?:glu[._-])?v?(\d+(?:\.\d+)+)$/i)
@@ -17,12 +23,6 @@ class MesaGlu < Formula
     sha256 "977fc1911d5d0334c56b9d287de0ee2f716fc23b5fde21404415bf89ce46cfce" => :catalina
     sha256 "ddfad217be6c1f0ea8f22d17348d901ad999365a01f824ab6f51a911eee654e1" => :mojave
     sha256 "598992b552b004eb5e06460a3c84de6ff39f6d7a7112be2819f99280d33f3fa9" => :high_sierra
-  end
-
-  head do
-    url "https://gitlab.freedesktop.org/mesa/glu.git"
-
-    depends_on "automake" => :build
   end
 
   depends_on "libtool" => :build
