@@ -46,6 +46,14 @@ class Sdl < Formula
     end
   end
 
+  head do
+    url "https://hg.libsdl.org/SDL", branch: "SDL-1.2", using: :hg
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   livecheck do
     url "https://www.libsdl.org/release/"
     regex(/href=.*?SDL[._-]v?(\d+(?:\.\d+)+)\.t/i)
@@ -57,14 +65,6 @@ class Sdl < Formula
     sha256 "c3fda7b3047ffff537ba6f2a5711fd03f50fa776546d7788f42a4df325944fcf" => :arm64_big_sur
     sha256 "060c0297dd0af2e289196aa196341ece04f3ab4a3458d173e74f2a3865046a8f" => :catalina
     sha256 "683450f850acbc501144207d237d28a9c3d0af86533065db7bf7b23ae2d1f6e5" => :mojave
-  end
-
-  head do
-    url "https://hg.libsdl.org/SDL", branch: "SDL-1.2", using: :hg
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   def install
