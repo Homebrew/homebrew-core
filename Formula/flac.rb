@@ -4,6 +4,14 @@ class Flac < Formula
   url "https://downloads.xiph.org/releases/flac/flac-1.3.3.tar.xz"
   sha256 "213e82bd716c9de6db2f98bcadbc4c24c7e2efe8c75939a1a84e28539c4e1748"
 
+  head do
+    url "https://gitlab.xiph.org/xiph/flac.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   livecheck do
     url "https://downloads.xiph.org/releases/flac/"
     regex(/href=.*?flac[._-]v?(\d+(?:\.\d+)+)\.t/i)
@@ -17,14 +25,6 @@ class Flac < Formula
     sha256 "3d33119f1e513ad58f20722e41498fc23315d756a834d8b346cee6842f45fea1" => :catalina
     sha256 "ffadc5a1825acd43aee92ea2523a1b46b3c63820f5cf59f61ee2972571454755" => :mojave
     sha256 "53562e93cd58b45d15fb5303938b1718298d69101a53612fd53075e881cbfc95" => :high_sierra
-  end
-
-  head do
-    url "https://gitlab.xiph.org/xiph/flac.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "pkg-config" => :build
