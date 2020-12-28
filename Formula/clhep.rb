@@ -5,6 +5,13 @@ class Clhep < Formula
   sha256 "5df78c11733a091da9ae5a24ce31161d44034dd45f20455587db85f1ca1ba539"
   license "GPL-3.0"
 
+  head do
+    url "https://gitlab.cern.ch/CLHEP/CLHEP.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
   livecheck do
     url :homepage
     regex(%r{atest release.*?<b>v?(\d+(?:\.\d+)+)</b>}im)
@@ -17,13 +24,6 @@ class Clhep < Formula
     sha256 "029450b4260d87bffc05d876e62a5fb51b285757c8e589debc609728e71c0da2" => :catalina
     sha256 "abf5e7c7c0490a2f82eaf5654670db7e5b0f38df0e9d739d28d233343e54f129" => :mojave
     sha256 "6a643d6bc0031270e6a85f4cb2f7e66e18e22c9925988f191384ec3dea90f1e7" => :high_sierra
-  end
-
-  head do
-    url "https://gitlab.cern.ch/CLHEP/CLHEP.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
   end
 
   depends_on "cmake" => :build
