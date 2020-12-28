@@ -13,6 +13,14 @@ class Agda < Formula
     end
   end
 
+  head do
+    url "https://github.com/agda/agda.git"
+
+    resource "stdlib" do
+      url "https://github.com/agda/agda-stdlib.git"
+    end
+  end
+
   livecheck do
     url :stable
   end
@@ -22,14 +30,6 @@ class Agda < Formula
     sha256 "23ff8d4cfc8b39f2059a3c92b999a48548d8efb0546494438a337f716017c2f6" => :big_sur
     sha256 "656972ecb09c1fea73920f0d4c8a3666581d2e347036d0b0df398063062aad20" => :catalina
     sha256 "1059ee247f77d6175f182e8fe96ee1b8ffa7000efa9385583c9a041516592292" => :mojave
-  end
-
-  head do
-    url "https://github.com/agda/agda.git"
-
-    resource "stdlib" do
-      url "https://github.com/agda/agda-stdlib.git"
-    end
   end
 
   depends_on "cabal-install"
