@@ -5,6 +5,14 @@ class Libusb < Formula
   sha256 "7efd2685f7b327326dcfb85cee426d9b871fd70e22caa15bb68d595ce2a2b12a"
   license "LGPL-2.1-or-later"
 
+  head do
+    url "https://github.com/libusb/libusb.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   livecheck do
     url :stable
     strategy :github_latest
@@ -16,14 +24,6 @@ class Libusb < Formula
     sha256 "1c40f64450705461a5373c3d54257e646d39914d44bffaf9d957bbe063db2129" => :arm64_big_sur
     sha256 "034ae259f17afb5894860cdb1786fd6d391359e8d221c0f765eceed6210b60df" => :catalina
     sha256 "1318e1155192bdaf7d159562849ee8f73cb0f59b0cb77c142f8be99056ba9d9e" => :mojave
-  end
-
-  head do
-    url "https://github.com/libusb/libusb.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   def install
