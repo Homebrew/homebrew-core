@@ -6,6 +6,14 @@ class Gtmess < Formula
   license "GPL-2.0"
   revision 2
 
+  head do
+    url "https://github.com/geotz/gtmess.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   livecheck do
     url :stable
   end
@@ -17,14 +25,6 @@ class Gtmess < Formula
     sha256 "9b5e2ecdb133c3a069305f572ec6d172dfaf10371459e44cc84574b08d2db19c" => :mojave
     sha256 "90d1a2aeab88db7022e64335d101d2a10a045a3b8d6c443381ade99b2c13e2d1" => :high_sierra
     sha256 "e8568ea56b4f24521472ae51b4f00bcd704791ec1bcbd6a8a250c7a1e2c43c04" => :sierra
-  end
-
-  head do
-    url "https://github.com/geotz/gtmess.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "openssl@1.1"
