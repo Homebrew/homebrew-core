@@ -6,6 +6,14 @@ class Libewf < Formula
   sha256 "b2c3a04ea7f49646518d108df8ea00fc0d2ca670064bb59428d8878ed8aef80d"
   license "LGPL-3.0-or-later"
 
+  head do
+    url "https://github.com/libyal/libewf.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "gettext" => :build
+    depends_on "libtool" => :build
+  end
+
   livecheck do
     url :stable
   end
@@ -16,14 +24,6 @@ class Libewf < Formula
     sha256 "b2eb1858fa0942fea2edc3db283fe0c09f20ba79fa25ec0b7a4b7547f98a4124" => :arm64_big_sur
     sha256 "a40427480d4e53c8f3886868bb01551a94e3edb14b959465ee4083c9a25f581b" => :catalina
     sha256 "4af14fb4edc94c14ad5400024865c91fb545190abbe5b763e43fb25bd30d33ab" => :mojave
-  end
-
-  head do
-    url "https://github.com/libyal/libewf.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "gettext" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "pkg-config" => :build
