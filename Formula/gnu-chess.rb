@@ -6,6 +6,14 @@ class GnuChess < Formula
   sha256 "e536675a61abe82e61b919f6b786755441d9fcd4c21e1c82fb9e5340dd229846"
   license "GPL-3.0"
 
+  head do
+    url "https://svn.savannah.gnu.org/svn/chess/trunk"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "help2man" => :build
+    depends_on "gettext"
+  end
+
   livecheck do
     url :stable
     regex(/href=.*?gnuchess[._-]v?(\d+(?:\.\d+)+)\.t/i)
@@ -17,14 +25,6 @@ class GnuChess < Formula
     sha256 "85423112485c7dbe474c99c93008b8a7a7a8c9a9737bbda3e372fde8674cbef1" => :catalina
     sha256 "4bc514e190844faa459fbbc204c7bdd4699cb6cd09011811ae0999429343f0da" => :mojave
     sha256 "81883d1506513bdb4feff2617b492237aef06a2f17f3bd4eb81e68142c4d73af" => :high_sierra
-  end
-
-  head do
-    url "https://svn.savannah.gnu.org/svn/chess/trunk"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "help2man" => :build
-    depends_on "gettext"
   end
 
   depends_on "readline"
