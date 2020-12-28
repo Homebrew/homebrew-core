@@ -6,6 +6,14 @@ class MidnightCommander < Formula
   sha256 "ffc19617f20ebb23330acd3998b7fd559a042d172fa55746d53d246697b2548a"
   license "GPL-3.0"
 
+  head do
+    url "https://github.com/MidnightCommander/mc.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   livecheck do
     url "https://ftp.osuosl.org/pub/midnightcommander/"
     regex(/href=.*?mc[._-]v?(\d+(?:\.\d+)+)\.t/i)
@@ -17,14 +25,6 @@ class MidnightCommander < Formula
     sha256 "2c36f252c47b8ecff2fa4afb4191a963af7c3d30a8aeb267a40f967873a01643" => :catalina
     sha256 "224d6aa6577e51952833ee65888bb99eacb89508dc9ac2f82a0e679b4635d7e3" => :mojave
     sha256 "79c2208b2097941cf3a792f47ad1f280ddbc3add7bd631084484163b7ba14ae9" => :high_sierra
-  end
-
-  head do
-    url "https://github.com/MidnightCommander/mc.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "pkg-config" => :build
