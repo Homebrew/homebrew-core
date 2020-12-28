@@ -6,6 +6,14 @@ class Redshift < Formula
   license "GPL-3.0"
   revision 1
 
+  head do
+    url "https://github.com/jonls/redshift.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   bottle do
     sha256 "0d12842206f6644ec971b204ecf5d4889f868e3c26f9596e541f1977eb901feb" => :big_sur
     sha256 "2c802664981ccedd90f69895e4389461fb631acc1766226b1d8ff3bc51be7988" => :arm64_big_sur
@@ -13,14 +21,6 @@ class Redshift < Formula
     sha256 "197ca4060616fbb79a6e64b93760f60ef581d5d76f838ab099b97076e3e569fe" => :mojave
     sha256 "f07311c326eb8c2310d509ffbcb5424d7783a1b0b675d47ac32026116086a39d" => :high_sierra
     sha256 "89ab02396a2d3694923f8496217a5d5a47c1cc35e167205cf4bb74033de92ab3" => :sierra
-  end
-
-  head do
-    url "https://github.com/jonls/redshift.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "intltool" => :build
