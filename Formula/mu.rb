@@ -11,6 +11,12 @@ class Mu < Formula
   # We restrict matching to versions with an even-numbered minor version number,
   # as an odd-numbered minor version number indicates a development version:
   # https://github.com/djcb/mu/commit/23f4a64bdcdee3f9956a39b9a5a4fd0c5c2370ba
+  head do
+    url "https://github.com/djcb/mu.git"
+
+    depends_on "autoconf-archive" => :build
+  end
+
   livecheck do
     url :head
     regex(/^v?(\d+\.\d*[02468](?:\.\d+)*)$/i)
@@ -23,12 +29,6 @@ class Mu < Formula
     sha256 "c2db643c69aaae50c5127dafd2018de2239c344c2b3a1cacb80cdb77d3710469" => :catalina
     sha256 "c547ba5d0d7272e92a75c0c4476979b4e56066c6e1c5b98eff408bc5f87f7d8a" => :mojave
     sha256 "a7f8c294053aa05cfe1942361471f4f27cf0c2631940952d44ebe1c6455adab0" => :high_sierra
-  end
-
-  head do
-    url "https://github.com/djcb/mu.git"
-
-    depends_on "autoconf-archive" => :build
   end
 
   depends_on "autoconf" => :build
