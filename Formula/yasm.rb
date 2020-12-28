@@ -6,6 +6,14 @@ class Yasm < Formula
   sha256 "3dce6601b495f5b3d45b59f7d2492a340ee7e84b5beca17e48f862502bd5603f"
   revision 2
 
+  head do
+    url "https://github.com/yasm/yasm.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "gettext"
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 1
@@ -14,14 +22,6 @@ class Yasm < Formula
     sha256 "9aa61930f25fe305dc5364e72f539b0a225702b5f1dc222a9dde1216e901f7ab" => :catalina
     sha256 "0dc797b72ee3bad9c6a52276c871ac745207b5626722e805fa642d7a872847fc" => :mojave
     sha256 "7f31deeff91c5929f2cd52eca6b636669f9c8966f6d4777e89fa4b04e541ad85" => :high_sierra
-  end
-
-  head do
-    url "https://github.com/yasm/yasm.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "gettext"
   end
 
   def install
