@@ -20,7 +20,7 @@ class Feedgnuplot < Formula
   def install
     system "perl", "Makefile.PL", "INSTALL_BASE=#{prefix}", "INSTALLSITEMAN1DIR=#{man1}"
     system "make"
-    system "make", "install"
+    system "make", "install", "mandir=#{man}"
 
     bash_completion.install "completions/bash/feedgnuplot"
     zsh_completion.install "completions/zsh/_feedgnuplot"
