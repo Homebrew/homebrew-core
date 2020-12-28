@@ -21,6 +21,14 @@ class Go < Formula
     end
   end
 
+  head do
+    url "https://go.googlesource.com/go.git"
+
+    resource "gotools" do
+      url "https://go.googlesource.com/tools.git"
+    end
+  end
+
   livecheck do
     url "https://golang.org/dl/"
     regex(/href=.*?go[._-]?v?(\d+(?:\.\d+)+)[._-]src\.t/i)
@@ -31,14 +39,6 @@ class Go < Formula
     sha256 "c2bd24b5a24c19bfdf97a8904aaa76c4db2a8f59096aade83310fee7af4b186c" => :arm64_big_sur
     sha256 "9dac57ef268c5fee434ac7896fc77f16f16f34462822e216c9973ade6a768e0b" => :catalina
     sha256 "af0b8702944cde293206a5847bea8fb5aed66babed82fb202aff696ac5211691" => :mojave
-  end
-
-  head do
-    url "https://go.googlesource.com/go.git"
-
-    resource "gotools" do
-      url "https://go.googlesource.com/tools.git"
-    end
   end
 
   # Don't update this unless this version cannot bootstrap the new version.
