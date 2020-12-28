@@ -8,6 +8,12 @@ class Zshdb < Formula
   # We check the "zshdb" directory page because the bashdb project contains
   # various software and zshdb releases may be pushed out of the SourceForge
   # RSS feed.
+  head do
+    url "https://github.com/rocky/zshdb.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
   livecheck do
     url "https://sourceforge.net/projects/bashdb/files/zshdb/"
     strategy :page_match
@@ -21,12 +27,6 @@ class Zshdb < Formula
     sha256 "2bdc583e95b4d4bd92624d48ce804561e3a337792dbba74f451a2507eb939704" => :catalina
     sha256 "2bdc583e95b4d4bd92624d48ce804561e3a337792dbba74f451a2507eb939704" => :mojave
     sha256 "2bdc583e95b4d4bd92624d48ce804561e3a337792dbba74f451a2507eb939704" => :high_sierra
-  end
-
-  head do
-    url "https://github.com/rocky/zshdb.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
   end
 
   depends_on "zsh"
