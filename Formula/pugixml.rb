@@ -4,7 +4,7 @@ class Pugixml < Formula
   url "https://github.com/zeux/pugixml/releases/download/v1.11.4/pugixml-1.11.4.tar.gz"
   sha256 "8ddf57b65fb860416979a3f0640c2ad45ddddbbafa82508ef0a0af3ce7061716"
   license "MIT"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
