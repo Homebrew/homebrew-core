@@ -4,6 +4,7 @@ class Ghostscript < Formula
   url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs9533/ghostpdl-9.53.3.tar.gz"
   sha256 "96d04e4e464bddb062c1774ea895c4f1c1c94e6c4b62f5d32218ebd44dd65ba1"
   license "AGPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url :head
