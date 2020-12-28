@@ -6,6 +6,15 @@ class Guile < Formula
   sha256 "6b7947dc2e3d115983846a268b8f5753c12fd5547e42fbf2b97d75a3b79f0d31"
   license "LGPL-3.0-or-later"
 
+  head do
+    url "https://git.savannah.gnu.org/git/guile.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "gettext" => :build
+    uses_from_macos "flex" => :build
+  end
+
   livecheck do
     url :stable
   end
@@ -17,15 +26,6 @@ class Guile < Formula
     sha256 "677c227a6a9b67df6592ffc26478ce5daa10f84eec4ed2ec7818f2012bb582f7" => :catalina
     sha256 "a4f0eeab635c5360ba0dea52358aa9ee8ebd841d2a53e3ccda8b65f5684f679f" => :mojave
     sha256 "5f83affb2fa8fda3734c2379260a4df5372432b3b399cd9af195fa0fb94da578" => :high_sierra
-  end
-
-  head do
-    url "https://git.savannah.gnu.org/git/guile.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "gettext" => :build
-    uses_from_macos "flex" => :build
   end
 
   depends_on "gnu-sed" => :build
