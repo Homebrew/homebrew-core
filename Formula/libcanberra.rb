@@ -4,6 +4,14 @@ class Libcanberra < Formula
   url "http://0pointer.de/lennart/projects/libcanberra/libcanberra-0.30.tar.xz"
   sha256 "c2b671e67e0c288a69fc33dc1b6f1b534d07882c2aceed37004bf48c601afa72"
 
+  head do
+    url "git://git.0pointer.de/libcanberra"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "gtk-doc"
+  end
+
   bottle do
     cellar :any
     rebuild 1
@@ -12,14 +20,6 @@ class Libcanberra < Formula
     sha256 "34ff83c6dc8af0afc1f1988ebde1ccb4c17d4604fa6d36567daedef43da3047d" => :catalina
     sha256 "3d32a254ac069ef41b785f6950e3eea625de6faaf99d2402236b451f8c765b05" => :mojave
     sha256 "561aa9aba4e6b5f191b74d3dd1c96de9951e3dc5b696d93abaeaa301aa117bae" => :high_sierra
-  end
-
-  head do
-    url "git://git.0pointer.de/libcanberra"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "gtk-doc"
   end
 
   depends_on "pkg-config" => :build
