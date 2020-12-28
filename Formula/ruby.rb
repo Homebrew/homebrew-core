@@ -5,6 +5,11 @@ class Ruby < Formula
   sha256 "68bfaeef027b6ccd0032504a68ae69721a70e97d921ff328c0c8836c798f6cb1"
   license "Ruby"
 
+  head do
+    url "https://github.com/ruby/ruby.git", branch: "trunk"
+    depends_on "autoconf" => :build
+  end
+
   livecheck do
     url "https://www.ruby-lang.org/en/downloads/"
     regex(/href=.*?ruby[._-]v?(\d+(?:\.\d+)+)\.t/i)
@@ -15,11 +20,6 @@ class Ruby < Formula
     sha256 "16813d6b4a821c6f97b14f97a08de10219b07d5d67b27b2b03c12a5d901290a5" => :arm64_big_sur
     sha256 "8ac76da7189d330564486386b5f420faddc6eca602e9d0bd62aaaf6305e40947" => :catalina
     sha256 "1e6a2b72bdf846f56df42e6b8e5f19376190bb04852d67d46f4b9602ed9b8678" => :mojave
-  end
-
-  head do
-    url "https://github.com/ruby/ruby.git", branch: "trunk"
-    depends_on "autoconf" => :build
   end
 
   keg_only :provided_by_macos
