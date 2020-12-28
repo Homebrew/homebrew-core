@@ -5,18 +5,18 @@ class Nim < Formula
   sha256 "03a47583777dd81380a3407aa6a788c9aa8a67df4821025770c9ac4186291161"
   license "MIT"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "a0bd46ce2277fd158cc74f3ff1b628a043602048a45cc5a8308a9555fafb950c" => :big_sur
-    sha256 "b7c2cde81c13442221e9145469d36bc3bfb97ee75b41cc34e5be42d09a8688cc" => :catalina
-    sha256 "55f94a676d4b5c3c362cb61866a19915ef6bd146dc9b8b601b89c69fcf4808bd" => :mojave
-  end
-
   head do
     url "https://github.com/nim-lang/Nim.git", branch: "devel"
     resource "csources" do
       url "https://github.com/nim-lang/csources.git"
     end
+  end
+
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "a0bd46ce2277fd158cc74f3ff1b628a043602048a45cc5a8308a9555fafb950c" => :big_sur
+    sha256 "b7c2cde81c13442221e9145469d36bc3bfb97ee75b41cc34e5be42d09a8688cc" => :catalina
+    sha256 "55f94a676d4b5c3c362cb61866a19915ef6bd146dc9b8b601b89c69fcf4808bd" => :mojave
   end
 
   depends_on "help2man" => :build
