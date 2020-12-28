@@ -8,6 +8,7 @@ class ImagemagickAT6 < Formula
   mirror "https://www.imagemagick.org/download/releases/ImageMagick-6.9.11-53.tar.xz"
   sha256 "57a3e09885cb917666d28326dd28e199f0bafc3d8688b5be430bf141d5e412bc"
   license "ImageMagick"
+  revision 1
   head "https://github.com/imagemagick/imagemagick6.git"
 
   livecheck do
