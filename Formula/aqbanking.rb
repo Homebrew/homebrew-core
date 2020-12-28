@@ -5,6 +5,14 @@ class Aqbanking < Formula
   sha256 "cf5b060e3ec7e3fc925687caf044d4df3dbf9595f23c4fe8ffad78f44af0d6df"
   license "GPL-2.0-or-later"
 
+  head do
+    url "https://git.aquamaniac.de/git/aqbanking.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   livecheck do
     url "https://www.aquamaniac.de/rdm/projects/aqbanking/files"
     regex(/href=.*?aqbanking[._-](\d+(?:\.\d+)+)\.t/i)
@@ -15,14 +23,6 @@ class Aqbanking < Formula
     sha256 "630a89380604bf0f7e0f0a9e02a94bb3e9f6d440288e48977d15b62270073d6e" => :catalina
     sha256 "6bedce92b40d4f2ce98fceca64afb4188e286bfd5387fda1233950e8cc2efd17" => :mojave
     sha256 "086f77cd676c597f9963a1ccac53d960d4a9ef832431245928b5e81c3f59ad13" => :high_sierra
-  end
-
-  head do
-    url "https://git.aquamaniac.de/git/aqbanking.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "gettext"
