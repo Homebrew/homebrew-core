@@ -6,16 +6,16 @@ class Freerdp < Formula
   license "Apache-2.0"
   revision 2
 
+  head do
+    url "https://github.com/FreeRDP/FreeRDP.git"
+    depends_on xcode: :build
+  end
+
   bottle do
     sha256 "dd8fc56553931bdc70efae9305b68b9061092f4f1cf901df4a3f499419de7608" => :big_sur
     sha256 "56880920e2d57fdff6796b585cecf14fc6b3464914e76617eaf4178f497c0552" => :arm64_big_sur
     sha256 "cae2807414c8e79c8bab0e044fa02946c0eba15a3ceba56d156b12bb8867bed0" => :catalina
     sha256 "bf764412f282f795ec8bf58055ff54489c75cd344f2c5f901d7eadd15b9201ee" => :mojave
-  end
-
-  head do
-    url "https://github.com/FreeRDP/FreeRDP.git"
-    depends_on xcode: :build
   end
 
   depends_on "cmake" => :build
