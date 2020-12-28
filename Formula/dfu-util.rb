@@ -5,6 +5,13 @@ class DfuUtil < Formula
   sha256 "a03dc58dfc79c056819c0544b2a5970537566460102b3d82cfb038c60e619b42"
   license "GPL-2.0"
 
+  head do
+    url "https://git.code.sf.net/p/dfu-util/dfu-util.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   livecheck do
     url :stable
   end
@@ -15,13 +22,6 @@ class DfuUtil < Formula
     sha256 "387d614558287e0b5b7f6911d30f0f362d37771f21e7ee11f678859c0447ecea" => :arm64_big_sur
     sha256 "3baa1c97498ad73a60b12c1d1ffa192a9b57946be6ced7ab826f3e1135113a74" => :catalina
     sha256 "6bc199867512701a02e09aeea49adfefb5d38f413e8401b35025a827fbcc4036" => :mojave
-  end
-
-  head do
-    url "https://git.code.sf.net/p/dfu-util/dfu-util.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "pkg-config" => :build
