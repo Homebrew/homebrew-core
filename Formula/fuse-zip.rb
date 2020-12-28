@@ -8,10 +8,6 @@ class FuseZip < Formula
   license "GPL-3.0-or-later"
   head "https://bitbucket.org/agalanin/fuse-zip", using: :hg
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     cellar :any
     rebuild 1
