@@ -4,7 +4,7 @@ class Freerdp < Formula
   url "https://github.com/FreeRDP/FreeRDP/archive/2.2.0.tar.gz"
   sha256 "883bc0396c6be9aba6bc07ebc8ff08457125868ada0f06554e62ef072f90cf59"
   license "Apache-2.0"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "dd8fc56553931bdc70efae9305b68b9061092f4f1cf901df4a3f499419de7608" => :big_sur
