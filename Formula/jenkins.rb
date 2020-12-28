@@ -5,14 +5,14 @@ class Jenkins < Formula
   sha256 "2eae6dadf4c55b1ee8007726dfa95ad5400767985667ea31fe2183fbdcc65d00"
   license "MIT"
 
-  livecheck do
-    url :head
-    regex(/^jenkins[._-]v?(\d+(?:\.\d+)+)$/i)
-  end
-
   head do
     url "https://github.com/jenkinsci/jenkins.git"
     depends_on "maven" => :build
+  end
+
+  livecheck do
+    url :head
+    regex(/^jenkins[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle :unneeded
