@@ -15,6 +15,8 @@ class Feedgnuplot < Formula
 
   depends_on "gnuplot"
 
+  uses_from_macos "perl"
+
   def install
     system "perl", "Makefile.PL", "INSTALL_BASE=#{prefix}"
     system "make"
