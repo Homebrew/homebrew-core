@@ -6,20 +6,20 @@ class Znc < Formula
   license "Apache-2.0"
   revision 1
 
-  bottle do
-    sha256 "3ee6a7b433414a20d4497d267711ae787f1f0c985e89f40352ae0e8db8fd7a6e" => :big_sur
-    sha256 "a4fb4117aeb8ffc30b301d9f030b4c7b52103fbd79c6b69e336bd5ce966f7e3a" => :arm64_big_sur
-    sha256 "0968a0d12ce30428023911e4074b276b1d5e80f689fabf5cdb4ff72a3f57e721" => :catalina
-    sha256 "476fe82c16953d5e0645f59128e8dd86cb1cba86bb798a483d2b3ef394b8e28e" => :mojave
-    sha256 "512c83a43b82c84dc773a603e3ccc21f1f315fd8bcef1e259cc4a50c46359e2e" => :high_sierra
-  end
-
   head do
     url "https://github.com/znc/znc.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
+  end
+
+  bottle do
+    sha256 "3ee6a7b433414a20d4497d267711ae787f1f0c985e89f40352ae0e8db8fd7a6e" => :big_sur
+    sha256 "a4fb4117aeb8ffc30b301d9f030b4c7b52103fbd79c6b69e336bd5ce966f7e3a" => :arm64_big_sur
+    sha256 "0968a0d12ce30428023911e4074b276b1d5e80f689fabf5cdb4ff72a3f57e721" => :catalina
+    sha256 "476fe82c16953d5e0645f59128e8dd86cb1cba86bb798a483d2b3ef394b8e28e" => :mojave
+    sha256 "512c83a43b82c84dc773a603e3ccc21f1f315fd8bcef1e259cc4a50c46359e2e" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
