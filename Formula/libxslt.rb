@@ -6,6 +6,14 @@ class Libxslt < Formula
   license "X11"
   revision 1
 
+  head do
+    url "https://gitlab.gnome.org/GNOME/libxslt.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   livecheck do
     url "http://xmlsoft.org/sources/"
     regex(/href=.*?libxslt[._-]v?(\d+(?:\.\d+)+)\.t/i)
@@ -17,14 +25,6 @@ class Libxslt < Formula
     sha256 "8ec4882a50963dc9e2fd75d6ef9ad8758f8471d8d4fe6acd2f1ca70e5b855f84" => :arm64_big_sur
     sha256 "00b65e03cb4e10b0a5fc325afe63c7fb227bd5bb74e91d8832c70c040f200aa4" => :catalina
     sha256 "61161548ecff81c00db284f921f7435ac1ae2395d1feead4d207caf5c62edcba" => :mojave
-  end
-
-  head do
-    url "https://gitlab.gnome.org/GNOME/libxslt.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   keg_only :provided_by_macos
