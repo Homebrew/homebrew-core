@@ -6,13 +6,6 @@ class OsmGpsMap < Formula
   license "GPL-2.0"
   revision 5
 
-  bottle do
-    sha256 "1f7e957d457ba285d3cfe1ed7993455a5283f48941ba3a6de0c1add17a5b61f7" => :big_sur
-    sha256 "cbaa9aca7464061d5eb6bb92c24df2a643e065156d67d3615c18c7581e839eda" => :catalina
-    sha256 "da1513dbd5379a9176ab65fcd908892332cbc441757aaa4bdd9c7acd8b35c953" => :mojave
-    sha256 "25403998f03d0079d5bfecd396f58b5f3ba8277b3af6f76e506c33f0f09a4cad" => :high_sierra
-  end
-
   head do
     url "https://github.com/nzjrs/osm-gps-map.git"
     depends_on "autoconf" => :build
@@ -20,6 +13,13 @@ class OsmGpsMap < Formula
     depends_on "gnome-common" => :build
     depends_on "gtk-doc" => :build
     depends_on "libtool" => :build
+  end
+
+  bottle do
+    sha256 "1f7e957d457ba285d3cfe1ed7993455a5283f48941ba3a6de0c1add17a5b61f7" => :big_sur
+    sha256 "cbaa9aca7464061d5eb6bb92c24df2a643e065156d67d3615c18c7581e839eda" => :catalina
+    sha256 "da1513dbd5379a9176ab65fcd908892332cbc441757aaa4bdd9c7acd8b35c953" => :mojave
+    sha256 "25403998f03d0079d5bfecd396f58b5f3ba8277b3af6f76e506c33f0f09a4cad" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build
