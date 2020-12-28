@@ -6,6 +6,18 @@ class Coreutils < Formula
   sha256 "4458d8de7849df44ccab15e16b1548b285224dbba5f08fac070c1c0e0bcc4cfa"
   license "GPL-3.0-or-later"
 
+  head do
+    url "https://git.savannah.gnu.org/git/coreutils.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "bison" => :build
+    depends_on "gettext" => :build
+    depends_on "texinfo" => :build
+    depends_on "wget" => :build
+    depends_on "xz" => :build
+  end
+
   livecheck do
     url :stable
   end
@@ -17,18 +29,6 @@ class Coreutils < Formula
     sha256 "f40ba727ec1bb54300c7c79804f410a62341b63f3fba41d78ef34e5d369fe9fc" => :catalina
     sha256 "91cd269ea5eff54a3074e0c3cd0995911c5989a4eb87a3c27b17a765c48f494e" => :mojave
     sha256 "25c71d9d9a156cc8dfaa52b35dad1f9d49df55e97748fb5ab9522f65aeed4dca" => :high_sierra
-  end
-
-  head do
-    url "https://git.savannah.gnu.org/git/coreutils.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "bison" => :build
-    depends_on "gettext" => :build
-    depends_on "texinfo" => :build
-    depends_on "wget" => :build
-    depends_on "xz" => :build
   end
 
   conflicts_with "aardvark_shell_utils", because: "both install `realpath` binaries"
