@@ -5,6 +5,12 @@ class Nsuds < Formula
   sha256 "6d9b3e53f3cf45e9aa29f742f6a3f7bc83a1290099a62d9b8ba421879076926e"
   license "GPL-2.0"
 
+  head do
+    url "https://git.code.sf.net/p/nsuds/code.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
   livecheck do
     url :stable
     regex(%r{url=.*?/nsuds[._-]v?(\d+(?:\.\d+)+[A-Z]?)\.t}i)
@@ -18,12 +24,6 @@ class Nsuds < Formula
     sha256 "89ae2f310d8b21d98ababce7110f20d3d41da06b7a751447c56aa6dbd13a1950" => :sierra
     sha256 "596fc55d7e2cc63e8fdc4f3648a23d2c3c9c9eee9775a6579410c28708c0a358" => :el_capitan
     sha256 "9bc60ceced759f079112d97d9fc0a408fbe6d7d18d21d3cdcf5a3a2cbf2185cc" => :yosemite
-  end
-
-  head do
-    url "https://git.code.sf.net/p/nsuds/code.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
   end
 
   def install
