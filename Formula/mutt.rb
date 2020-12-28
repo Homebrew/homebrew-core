@@ -14,6 +14,14 @@ class Mutt < Formula
   sha256 "9c327cafb7acbfd4a57e7c817148fe438720a4545a5f628926f7745bc752c1ed"
   license "GPL-2.0-or-later"
 
+  head do
+    url "https://gitlab.com/muttmua/mutt.git"
+
+    resource "html" do
+      url "https://muttmua.gitlab.io/mutt/manual-dev.html"
+    end
+  end
+
   livecheck do
     url :stable
   end
@@ -23,14 +31,6 @@ class Mutt < Formula
     sha256 "92aa5abe2dc224414af27c80242ca78885e0747fcdd58b9f8681adc65636f769" => :arm64_big_sur
     sha256 "4e8df3b2820dacc5bfe4655493eba33242f0cc9dffcc3396f526450449384053" => :catalina
     sha256 "c89714afec1d8120aa175957dc8629963e650f80be0ce108f083f0d10c325bca" => :mojave
-  end
-
-  head do
-    url "https://gitlab.com/muttmua/mutt.git"
-
-    resource "html" do
-      url "https://muttmua.gitlab.io/mutt/manual-dev.html"
-    end
   end
 
   depends_on "autoconf" => :build
