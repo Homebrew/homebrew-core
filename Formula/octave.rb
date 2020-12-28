@@ -7,16 +7,6 @@ class Octave < Formula
   license "GPL-3.0-or-later"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
-  bottle do
-    sha256 "be7e3a520db1d6c684120effd115170f49d2cf41c4ee24a9e17af349ef3f9db2" => :big_sur
-    sha256 "7a2372bb936b1b09db7deb5b8f39a777a03f5f8238a4a4be4434f27deb4d1d52" => :catalina
-    sha256 "08d3f28fda600a60b0f0759efaf5b6e2f56124de3d2822758fbf1ba5caaad01f" => :mojave
-  end
-
   head do
     url "https://hg.savannah.gnu.org/hgweb/octave", branch: "default", using: :hg
 
@@ -25,6 +15,16 @@ class Octave < Formula
     depends_on "bison" => :build
     depends_on "icoutils" => :build
     depends_on "librsvg" => :build
+  end
+
+  livecheck do
+    url :stable
+  end
+
+  bottle do
+    sha256 "be7e3a520db1d6c684120effd115170f49d2cf41c4ee24a9e17af349ef3f9db2" => :big_sur
+    sha256 "7a2372bb936b1b09db7deb5b8f39a777a03f5f8238a4a4be4434f27deb4d1d52" => :catalina
+    sha256 "08d3f28fda600a60b0f0759efaf5b6e2f56124de3d2822758fbf1ba5caaad01f" => :mojave
   end
 
   # Complete list of dependencies at https://wiki.octave.org/Building
