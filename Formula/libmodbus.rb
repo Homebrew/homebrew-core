@@ -5,6 +5,14 @@ class Libmodbus < Formula
   sha256 "d7d9fa94a16edb094e5fdf5d87ae17a0dc3f3e3d687fead81835d9572cf87c16"
   license "LGPL-2.1"
 
+  head do
+    url "https://github.com/stephane/libmodbus.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   bottle do
     cellar :any
     sha256 "46814e801373eb51c88d17dcd044c0c6260d1866e27315ae431cbd90236c0f36" => :big_sur
@@ -13,14 +21,6 @@ class Libmodbus < Formula
     sha256 "0dd32373b5988d09317728357780b3cdc54cad290afcb51b390f33a50fa653e0" => :mojave
     sha256 "d821c77d787cf51c96811c37374d5cc42c7948636c84d7b7b6251a7e0afa29a0" => :high_sierra
     sha256 "462dd4e48e87bab1e48ef64f3f3a907392994a9f8c0753c8b739ca5207882b32" => :sierra
-  end
-
-  head do
-    url "https://github.com/stephane/libmodbus.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   def install
