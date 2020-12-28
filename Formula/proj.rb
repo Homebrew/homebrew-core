@@ -5,19 +5,19 @@ class Proj < Formula
   sha256 "2957798e5fe295ff96a2af1889d0428e486363d210889422f76dd744f7885763"
   license "MIT"
 
+  head do
+    url "https://github.com/OSGeo/proj.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   bottle do
     sha256 "495e52db81783a1a043c21c22b56feea8c28f3eee8e7bc0f8023e1ab83247f07" => :big_sur
     sha256 "695cb8c3d9e8217c23544aa199bc33f7f4762ffa35724b2332ee19c3644de870" => :arm64_big_sur
     sha256 "29d73567f5e9bef026df4f1d52578d4220cf14ff3b855d1e3ac3754514071722" => :catalina
     sha256 "c531a12ccc387d6e05f159ce6dd8dca7e01da4ffeff590728cb0861c9838f7aa" => :mojave
     sha256 "4fa482aa21e501e70b3954d633d45ba2dd9fd3e17af02811646d283e8f9db144" => :high_sierra
-  end
-
-  head do
-    url "https://github.com/OSGeo/proj.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "pkg-config" => :build
