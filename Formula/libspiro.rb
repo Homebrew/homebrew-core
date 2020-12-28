@@ -6,6 +6,14 @@ class Libspiro < Formula
   license "GPL-3.0"
   version_scheme 1
 
+  head do
+    url "https://github.com/fontforge/libspiro.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   bottle do
     cellar :any
     sha256 "76ef3ec2cffe248bceafb680e741fc062d1c3b115d5b105632678d34eeb62f20" => :big_sur
@@ -13,14 +21,6 @@ class Libspiro < Formula
     sha256 "238761be2cd640f6c3f59f0461ce7f5b73dc71c9613236e180bc55f4231e167b" => :catalina
     sha256 "fb1b2e548eddc684a5b615cedabc2c6403e0c87409fdb419369ca40e2b70aa52" => :mojave
     sha256 "b7155fe14b9909a06a9044ca2d3275f5b2cbcd9aac23583b3819ba53898ff120" => :high_sierra
-  end
-
-  head do
-    url "https://github.com/fontforge/libspiro.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   def install
