@@ -5,6 +5,12 @@ class HicolorIconTheme < Formula
   sha256 "317484352271d18cbbcfac3868eab798d67fff1b8402e740baa6ff41d588a9d8"
   license "GPL-2.0"
 
+  head do
+    url "https://gitlab.freedesktop.org/xdg/default-icon-theme.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "f4cd50751f22d1aae6156ce3e552dbe0afb21ce1aaa5a7cc7ce284c867a20865" => :big_sur
@@ -15,12 +21,6 @@ class HicolorIconTheme < Formula
     sha256 "cd8699f3944eb87b76fc89e4ca69f19df5d66aa8a4c89d636660d299e807f5b0" => :sierra
     sha256 "cd8699f3944eb87b76fc89e4ca69f19df5d66aa8a4c89d636660d299e807f5b0" => :el_capitan
     sha256 "cd8699f3944eb87b76fc89e4ca69f19df5d66aa8a4c89d636660d299e807f5b0" => :yosemite
-  end
-
-  head do
-    url "https://gitlab.freedesktop.org/xdg/default-icon-theme.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
   end
 
   def install
