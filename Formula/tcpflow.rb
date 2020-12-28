@@ -6,6 +6,13 @@ class Tcpflow < Formula
   license "GPL-3.0"
   revision 1
 
+  head do
+    url "https://github.com/simsong/tcpflow.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   livecheck do
     url "http://downloads.digitalcorpora.org/downloads/tcpflow/"
     regex(/href=.*?tcpflow[._-]v?(\d+(?:\.\d+)+)\.t/i)
@@ -19,13 +26,6 @@ class Tcpflow < Formula
     sha256 "ae7eb58e5d805e61b4fc79165574796bf59d2172977579b8716c2ea95631aa42" => :mojave
     sha256 "3b29b20c24395a16a17236a89a5b4ff1121ae2227af79717517b02825a4a7dd7" => :high_sierra
     sha256 "881535a6ab635522f3a64aa9b568ee9fc67476f4636236f17d2828c02518b8bf" => :sierra
-  end
-
-  head do
-    url "https://github.com/simsong/tcpflow.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "boost" => :build
