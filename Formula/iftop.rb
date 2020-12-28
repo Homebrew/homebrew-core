@@ -10,6 +10,12 @@ class Iftop < Formula
   # We have to allow the regex to match prerelease versions (e.g., 1.0pre4)
   # until there's a new stable version. The newest version was released on
   # 2014-01-19, so it could be a while.
+  head do
+    url "https://code.blinkace.com/pdw/iftop.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
   livecheck do
     url "https://www.ex-parrot.com/pdw/iftop/download/"
     regex(/href=.*?iftop[._-]v?(\d+(?:\.\d+)+(?:pre\d+)?)\.t/i)
@@ -26,12 +32,6 @@ class Iftop < Formula
     sha256 "e7b9ed6bef435d7de8e986cedfc76779f2655bfac7ed780afb33a42e92b8d01d" => :el_capitan
     sha256 "5ac910598f86716e0dc676f0fd44af51da141ad84dfbaf5535a31f11ab91ffd7" => :yosemite
     sha256 "9563857745dca2db9f91388d3f0d0fae4b6cdc2fc6ff84ffce14325c0cafee0f" => :mavericks
-  end
-
-  head do
-    url "https://code.blinkace.com/pdw/iftop.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
   end
 
   def install
