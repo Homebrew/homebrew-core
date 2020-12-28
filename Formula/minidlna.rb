@@ -6,6 +6,14 @@ class Minidlna < Formula
   license "GPL-2.0-only"
   revision 5
 
+  head do
+    url "https://git.code.sf.net/p/minidlna/git.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "gettext" => :build
+    depends_on "libtool" => :build
+  end
+
   livecheck do
     url :stable
   end
@@ -15,14 +23,6 @@ class Minidlna < Formula
     sha256 "0f008dfaac0220cdd26995d5f5fa00560328a6a30dd6d2ab8b78e23efd559337" => :catalina
     sha256 "befb568924df8d3b17095d864b84c11733b40e4860a7aecd65f1f4d19f9c343b" => :mojave
     sha256 "cfaad3159ef845f063cbe32262a59d98d0e0415f15d0ce41321993c2767972cf" => :high_sierra
-  end
-
-  head do
-    url "https://git.code.sf.net/p/minidlna/git.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "gettext" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "ffmpeg"
