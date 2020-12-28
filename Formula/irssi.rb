@@ -6,6 +6,14 @@ class Irssi < Formula
   license "GPL-2.0"
   revision 1
 
+  head do
+    url "https://github.com/irssi/irssi.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+    depends_on "lynx" => :build
+  end
+
   livecheck do
     url "https://irssi.org/download/"
     regex(%r{<p>Latest release version: <strong>v?(\d+(?:\.\d+)+)</strong>}i)
@@ -19,14 +27,6 @@ class Irssi < Formula
     sha256 "e25efab5dc0b20925d920aca182f713fa54b3d781bbea7ff0ff98606a29e8553" => :mojave
     sha256 "92ce3e102445bc1248daf5404b9045088dde6a8f4e185c5f2a98982e692b4b26" => :high_sierra
     sha256 "5f2f66c2581189d52bab585f5a1731f2382a29d7125d782856b6b0944515b1bd" => :sierra
-  end
-
-  head do
-    url "https://github.com/irssi/irssi.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-    depends_on "lynx" => :build
   end
 
   depends_on "pkg-config" => :build
