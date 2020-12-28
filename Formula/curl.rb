@@ -5,6 +5,14 @@ class Curl < Formula
   sha256 "0f4d63e6681636539dc88fa8e929f934cd3a840c46e0bf28c73be11e521b77a5"
   license "curl"
 
+  head do
+    url "https://github.com/curl/curl.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   livecheck do
     url "https://curl.haxx.se/download/"
     regex(/href=.*?curl[._-]v?(.*?)\.t/i)
@@ -17,14 +25,6 @@ class Curl < Formula
     sha256 "2727fbadda487785e7e7033b045196f6e5f65670d3984366d535f4e7f01dad3d" => :arm64_big_sur
     sha256 "f3d93b2c3ba69e5c7afd8bb2ff2b2daf67ddc9c5b0a5184a2fa565d9a05b26b2" => :catalina
     sha256 "c305611273c90a9b973df642e60f31b931ba1276294406d3a910d36472ad45ba" => :mojave
-  end
-
-  head do
-    url "https://github.com/curl/curl.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   keg_only :provided_by_macos
