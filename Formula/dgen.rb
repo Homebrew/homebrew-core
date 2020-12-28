@@ -4,6 +4,12 @@ class Dgen < Formula
   url "https://downloads.sourceforge.net/project/dgen/dgen/1.33/dgen-sdl-1.33.tar.gz"
   sha256 "99e2c06017c22873c77f88186ebcc09867244eb6e042c763bb094b02b8def61e"
 
+  head do
+    url "https://git.code.sf.net/p/dgen/dgen.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
   livecheck do
     url :stable
   end
@@ -17,12 +23,6 @@ class Dgen < Formula
     sha256 "50383807ec76387aa156cf6157ea537465bf20ad35e4e9eddda7d34685ded635" => :sierra
     sha256 "ebcab68ba8d0aa9c6aacae94d43a67ce016dcdd219c5770c3b7d6d9c3590ef9f" => :el_capitan
     sha256 "53f1fc72dbaab000eae45e143ca46a054a6ff655f91190d6aa30e71e8e505494" => :yosemite
-  end
-
-  head do
-    url "https://git.code.sf.net/p/dgen/dgen.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
   end
 
   depends_on "libarchive"
