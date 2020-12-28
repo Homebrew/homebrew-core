@@ -16,6 +16,15 @@ class Libdc1394 < Formula
     end
   end
 
+  head do
+    url "https://git.code.sf.net/p/libdc1394/code.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+    depends_on "pkg-config" => :build
+    depends_on "libusb"
+  end
+
   livecheck do
     url :stable
   end
@@ -28,15 +37,6 @@ class Libdc1394 < Formula
     sha256 "6cf02c5500f83fa2ccd1ff9b880f44f9652d68b0e90a2345d6c62fb92a988f0a" => :mojave
     sha256 "536cbd34a43886d63a3dba41e7877ed63ad0fbe1a5e21cde499bd2c9e1e37e52" => :high_sierra
     sha256 "ff1d7c6b07f21d8cd485574b10091eb21c2316390a7d4cfa84d29cccce8097e6" => :sierra
-  end
-
-  head do
-    url "https://git.code.sf.net/p/libdc1394/code.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-    depends_on "pkg-config" => :build
-    depends_on "libusb"
   end
 
   depends_on "sdl"
