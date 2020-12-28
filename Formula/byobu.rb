@@ -5,6 +5,13 @@ class Byobu < Formula
   sha256 "4d8ea48f8c059e56f7174df89b04a08c32286bae5a21562c5c6f61be6dab7563"
   license "GPL-3.0"
 
+  head do
+    url "https://github.com/dustinkirkland/byobu.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
   livecheck do
     url :stable
   end
@@ -16,13 +23,6 @@ class Byobu < Formula
     sha256 "39b468dabc1497338b4511f9f565f9adcdd058a99207de345da28b18a0826ae6" => :catalina
     sha256 "39b468dabc1497338b4511f9f565f9adcdd058a99207de345da28b18a0826ae6" => :mojave
     sha256 "39b468dabc1497338b4511f9f565f9adcdd058a99207de345da28b18a0826ae6" => :high_sierra
-  end
-
-  head do
-    url "https://github.com/dustinkirkland/byobu.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
   end
 
   depends_on "coreutils"
