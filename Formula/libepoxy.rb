@@ -4,6 +4,7 @@ class Libepoxy < Formula
   url "https://download.gnome.org/sources/libepoxy/1.5/libepoxy-1.5.5.tar.xz"
   sha256 "261663db21bcc1cc232b07ea683252ee6992982276536924271535875f5b0556"
   license "MIT"
+  revision 1
 
   # We use a common regex because libepoxy doesn't use GNOME's "even-numbered
   # minor is stable" version scheme.
