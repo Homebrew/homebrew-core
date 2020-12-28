@@ -6,6 +6,14 @@ class Ykneomgr < Formula
   license "LGPL-3.0"
   revision 2
 
+  head do
+    url "https://github.com/Yubico/libykneomgr.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "gengetopt" => :build
+    depends_on "libtool" => :build
+  end
+
   bottle do
     cellar :any
     sha256 "8eaee6c402117972a2b3ec4db714594b9e6ddce1bb23c795db3650b576deda38" => :catalina
@@ -13,14 +21,6 @@ class Ykneomgr < Formula
     sha256 "256291cea42d30f95754e2203cec73a7acef9436be3ad0040ce7d966fc9d8470" => :high_sierra
     sha256 "7917d4068d2c68d3309b32ff443622c0540829a9e3cf0053913697c321c74067" => :sierra
     sha256 "4ee15391465d785920dde2347b716af4f9c2aa9b38faf8021d7d18f041b7c277" => :el_capitan
-  end
-
-  head do
-    url "https://github.com/Yubico/libykneomgr.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "gengetopt" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "help2man" => :build
