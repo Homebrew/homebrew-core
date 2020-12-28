@@ -5,6 +5,14 @@ class OpusTools < Formula
   sha256 "b4e56cb00d3e509acfba9a9b627ffd8273b876b4e2408642259f6da28fa0ff86"
   license "BSD-2-Clause"
 
+  head do
+    url "https://gitlab.xiph.org/xiph/opus-tools.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   bottle do
     cellar :any
     rebuild 1
@@ -13,14 +21,6 @@ class OpusTools < Formula
     sha256 "964b3493cffeb5e32411c7a34e1813e8e83e940419aca39f50be7db9b0c8fab2" => :catalina
     sha256 "c4059aca471c3b1ec384323c1c801b844a2d2b61f17434ebc43c0accffde9f9b" => :mojave
     sha256 "0f8828cf6044f2d7b0cac9c591295b420244e8f086dc0afae9ae5420e6be7cb9" => :high_sierra
-  end
-
-  head do
-    url "https://gitlab.xiph.org/xiph/opus-tools.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "pkg-config" => :build
