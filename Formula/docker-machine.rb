@@ -21,6 +21,7 @@ class DockerMachine < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     (buildpath/"src/github.com/docker/machine").install buildpath.children
     cd "src/github.com/docker/machine" do
       system "make", "build"
