@@ -6,7 +6,7 @@ class Macvim < Formula
   version "8.2-169"
   sha256 "3b5bd8631ada8566d7d575696fbe2e0df760f3cdd31c09b47980e3d62e523cc7"
   license "Vim"
-  revision 1
+  revision 2
   head "https://github.com/macvim-dev/macvim.git"
 
   bottle do
