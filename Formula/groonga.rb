@@ -5,6 +5,13 @@ class Groonga < Formula
   sha256 "33358afc3e978ce526792bb8508c6d77de046193845793a88c66a26d15563aa4"
   license "LGPL-2.1-or-later"
 
+  head do
+    url "https://github.com/groonga/groonga.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   livecheck do
     url :homepage
     regex(%r{>v?(\d+(?:\.\d+)+)</a> is the latest release}i)
@@ -15,13 +22,6 @@ class Groonga < Formula
     sha256 "d6c84a01765a25be383cb05710ecf7a0a0e64798c76a2322cc8a304a4b19b8ee" => :arm64_big_sur
     sha256 "4794a5af4bba7ab5e81bde545bd3f9b2f6bd7b496052d0b5ec318371ed6f0101" => :catalina
     sha256 "a6ea4629bac56b603aeff04517edce52d2cfe5720da6fea5b1437ec8715ff3ff" => :mojave
-  end
-
-  head do
-    url "https://github.com/groonga/groonga.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "pkg-config" => :build
