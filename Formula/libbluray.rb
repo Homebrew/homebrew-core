@@ -5,6 +5,14 @@ class Libbluray < Formula
   sha256 "5223e83f7988ea2cc860b5cadcaf9cf971087b0c80ca7b60cc17c8300cae36ec"
   license "LGPL-2.1-or-later"
 
+  head do
+    url "https://code.videolan.org/videolan/libbluray.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   livecheck do
     url "https://download.videolan.org/pub/videolan/libbluray/"
     regex(%r{>([\d.]+)/<}i)
@@ -16,14 +24,6 @@ class Libbluray < Formula
     sha256 "829e85f1a3c7ddce0c377fcfc4ebe0cebd5dc64d3ef29421ff1dbc8b5d50738a" => :catalina
     sha256 "0258d74ee2371c29c389d619a412661eeb1fc29b4f284d707d90b68ddb0b798b" => :mojave
     sha256 "b610d2d4065288546df4b6ce56a709fce3f542e67118b3fac84d649a035491eb" => :high_sierra
-  end
-
-  head do
-    url "https://code.videolan.org/videolan/libbluray.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "ant" => :build
