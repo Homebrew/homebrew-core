@@ -6,10 +6,6 @@ class Curlftpfs < Formula
   revision 1
   head ":pserver:anonymous:@curlftpfs.cvs.sourceforge.net:/cvsroot/curlftpfs", using: :cvs
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     cellar :any
     sha256 "2d3fea0aecd1856a956cedcf8ab992f217bd730371c6eb80900158c69f138aa8" => :catalina
