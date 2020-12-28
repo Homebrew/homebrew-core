@@ -6,6 +6,14 @@ class Ganglia < Formula
   license "BSD-3-Clause"
   revision 3
 
+  head do
+    url "https://github.com/ganglia/monitor-core.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   livecheck do
     url :stable
     regex(%r{url=.*?/ganglia[._-]v?(\d+(?:\.\d+)+)\.t}i)
@@ -18,14 +26,6 @@ class Ganglia < Formula
     sha256 "d375f0a7bc5caff2ff825ac487530b0e78efb1521b8ea2b4ef7f15a002526941" => :high_sierra
     sha256 "c295e711dd78ca5a19e3b7f8c5534b049217664701c13312795bf035a3db2017" => :sierra
     sha256 "e2fe6f3370fa84645ff858ef651b54aee84b0522a8da0e529d6a98c465d6c8ad" => :el_capitan
-  end
-
-  head do
-    url "https://github.com/ganglia/monitor-core.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "pkg-config" => :build
