@@ -6,13 +6,6 @@ class Dynare < Formula
   license "GPL-3.0-or-later"
   revision 16
 
-  bottle do
-    cellar :any
-    sha256 "82f10ec400a45d52308681a31da463f233158f3a73a7ec51da4bfbe322fb2ae8" => :big_sur
-    sha256 "ce1fca3d77fe15fb198a3610524f3b0210f57b6757ba36f171705060ee8d1074" => :catalina
-    sha256 "da202eccfc7d8235160d974ebe88021d10efd5be016fd0d78f77c2837e6f6fd3" => :mojave
-  end
-
   head do
     url "https://git.dynare.org/Dynare/dynare.git"
 
@@ -20,6 +13,13 @@ class Dynare < Formula
     depends_on "automake" => :build
     depends_on "bison" => :build
     depends_on "flex" => :build
+  end
+
+  bottle do
+    cellar :any
+    sha256 "82f10ec400a45d52308681a31da463f233158f3a73a7ec51da4bfbe322fb2ae8" => :big_sur
+    sha256 "ce1fca3d77fe15fb198a3610524f3b0210f57b6757ba36f171705060ee8d1074" => :catalina
+    sha256 "da202eccfc7d8235160d974ebe88021d10efd5be016fd0d78f77c2837e6f6fd3" => :mojave
   end
 
   depends_on "boost" => :build
