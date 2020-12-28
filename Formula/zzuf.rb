@@ -5,6 +5,15 @@ class Zzuf < Formula
   sha256 "04353d94c68391b3945199f100ab47fc5ff7815db1e92581a600d4175e3a6872"
   license "WTFPL"
 
+  head do
+    url "https://github.com/samhocevar/zzuf.git"
+
+    depends_on "autoconf"   => :build
+    depends_on "automake"   => :build
+    depends_on "libtool"    => :build
+    depends_on "pkg-config" => :build
+  end
+
   bottle do
     sha256 "284b235c4c744d7be86fbe6175a8d67a743a429c8021437182a31e6184105437" => :big_sur
     sha256 "7ff801dd276cdd8f830d07d01c97a83207ed8ac77c6023ff21b29a2ec536637b" => :arm64_big_sur
@@ -15,15 +24,6 @@ class Zzuf < Formula
     sha256 "5f0c55658fba6bbf225b6001b5be75c38f7a375322bd4b23944f3c7239dae0c7" => :el_capitan
     sha256 "7f260ec41af74aa8b99df4a89f202382c72067e34b4bb3ac0a0e3fb0be6f8ed0" => :yosemite
     sha256 "52460ee4dcac540298fa8f0e07225bc01d5592fd4ff558f1cfd129b329e87639" => :mavericks
-  end
-
-  head do
-    url "https://github.com/samhocevar/zzuf.git"
-
-    depends_on "autoconf"   => :build
-    depends_on "automake"   => :build
-    depends_on "libtool"    => :build
-    depends_on "pkg-config" => :build
   end
 
   def install
