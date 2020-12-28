@@ -5,6 +5,15 @@ class Freeciv < Formula
   sha256 "bd04ac03c1505582309dd62bcc4710002a3cfb4b2b38c28af33047dd2fb7585e"
   license "GPL-2.0-or-later"
 
+  head do
+    url "https://github.com/freeciv/freeciv.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "gettext" => :build
+    depends_on "libtool" => :build
+  end
+
   livecheck do
     url :stable
     regex(%r{url=.*?/freeciv[._-]v?(\d+(?:\.\d+)+)\.(?:t|zip)/}i)
@@ -15,15 +24,6 @@ class Freeciv < Formula
     sha256 "bbfa9ab1b85454c31f7970e52e7f4d1cae80aea4952fade625a434cd1b9cccb8" => :arm64_big_sur
     sha256 "f29bd227e4735a4e6fde10ffa6810460437f8a1fa47f42694f2fa82d6db213fe" => :catalina
     sha256 "909bc9989745d0626fdf8d985598d01a7b6ee97b8550bdf701470e991e2e0ab2" => :mojave
-  end
-
-  head do
-    url "https://github.com/freeciv/freeciv.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "gettext" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "pkg-config" => :build
