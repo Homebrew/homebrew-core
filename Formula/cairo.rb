@@ -6,6 +6,13 @@ class Cairo < Formula
   license any_of: ["LGPL-2.1-only", "MPL-1.1"]
   revision 3
 
+  head do
+    url "https://gitlab.freedesktop.org/cairo/cairo.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   livecheck do
     url "https://cairographics.org/releases/?C=M&O=D"
     regex(%r{href=(?:["']?|.*?/)cairo[._-]v?(\d+\.\d*[02468](?:\.\d+)*)\.t}i)
@@ -17,13 +24,6 @@ class Cairo < Formula
     sha256 "16848c3cd0434010d03c3210fd1cb67ba01d799a3e6417dbeec1ba3d8363593f" => :arm64_big_sur
     sha256 "909d9d93758a1924ed2aa868d8efcbdf298806412d6ec3607dedac4ccf1b9a91" => :catalina
     sha256 "68ab9e19b6ff25f94cb0296e9b54b9346b7c2d13c88e4ad89cadd998fd88b5d5" => :mojave
-  end
-
-  head do
-    url "https://gitlab.freedesktop.org/cairo/cairo.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "pkg-config" => :build
