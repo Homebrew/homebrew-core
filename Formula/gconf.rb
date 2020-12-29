@@ -5,10 +5,6 @@ class Gconf < Formula
   sha256 "1912b91803ab09a5eed34d364bf09fe3a2a9c96751fde03a4e0cfa51a04d784c"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 "4c434b1dd944001776c5aae9924d0e3724a8682114924f8847aad30d990deccd" => :mojave
     sha256 "e8a40df67c6816854cdfa9530e4c3b437907f5f92c32e8292f239d957dc1c0c8" => :high_sierra
