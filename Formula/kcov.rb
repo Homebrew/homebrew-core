@@ -7,8 +7,8 @@ class Kcov < Formula
   revision 1
   head "https://github.com/SimonKagstrom/kcov.git"
 
-  # add livecheck to avoid release tags like `pre-v40`
-  # which is tagged as latest release as well
+  # We check the Git tags because, as of writing, the "latest" release on GitHub
+  # is a prerelease version (`pre-v40`), so we can't rely on it being correct.
   livecheck do
     url :stable
     regex(/^v?(\d+(?:\.\d+)*)$/i)
