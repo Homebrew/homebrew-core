@@ -15,6 +15,7 @@ class CartridgeCli < Formula
   end
 
   depends_on "go" => :build
+  depends_on "mage" => :build
 
   def install
     commit = Utils.safe_popen_read("git", "rev-parse", "--short", "HEAD").chomp
@@ -25,7 +26,8 @@ class CartridgeCli < Formula
       -X github.com/tarantool/cartridge-cli/cli/version.gitCommit=#{commit}
     ]
 
-    system "go", "build", "-o", bin/"cartridge", "-ldflags", ldflags.join(" "), "cli/main.go"
+    system "mage", "build"
+    bin.install "cartridge"
     system bin/"cartridge", "gen", "completion"
 
     bash_completion.install "completion/bash/cartridge"
