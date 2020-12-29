@@ -6,11 +6,6 @@ class Mlkit < Formula
   license "GPL-2.0"
   head "https://github.com/melsman/mlkit.git"
 
-  livecheck do
-    url :head
-    regex(/mlkit[._-]v?(\d+(?:\.\d+)+)$/i)
-  end
-
   bottle do
     sha256 "52ac5d00915774111535053f287c05a63976c83ed7a5a900bbc263f030ea6900" => :mojave
     sha256 "79694e15c915cb2c08b680b2b4404cfbbb6fff56e8f6b5f0196fcc485466d41b" => :high_sierra
