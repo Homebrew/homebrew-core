@@ -6,11 +6,6 @@ class M2c < Formula
   license "GPL-2.0"
   head "https://git.savannah.nongnu.org/git/m2c.git"
 
-  livecheck do
-    url "https://download.savannah.gnu.org/releases/m2c/"
-    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
-  end
-
   bottle do
     sha256 "41ec9e9d3cb13e9964934a337daf04567b82591aa00dcd37a2bff6211cc98f08" => :catalina
     sha256 "aa393a46d4182ad747153a3f7dbd4f8188b35f9677e0fce322ac6d0c5c86fa21" => :mojave
