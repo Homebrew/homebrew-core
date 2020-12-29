@@ -109,7 +109,7 @@ class Gcc < Formula
 
     # Mojave uses the Catalina SDK which causes issues like
     # https://github.com/Homebrew/homebrew-core/issues/46393
-    args << "ac_cv_func_aligned_alloc=no" if MacOS.version == :mojave
+    ENV["ac_cv_func_aligned_alloc"] = "no" if MacOS.version == :mojave
 
     # Avoid reference to sed shim
     args << "SED=/usr/bin/sed"
