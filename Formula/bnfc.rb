@@ -32,7 +32,7 @@ class Bnfc < Formula
       system "cabal", "v2-update"
       system "cabal", "v2-install", *std_cabal_v2_args
       doc.install "CHANGELOG.md"
-      doc.install "src/BNF.cf" => "BNF.cf"
+      doc.install "src/BNFC.cf" => "BNFC.cf"
     end
     cd "docs" do
       system "make", "text", "man", "SPHINXBUILD=#{Formula["sphinx-doc"].bin/"sphinx-build"}"
