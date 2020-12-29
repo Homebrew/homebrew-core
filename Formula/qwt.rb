@@ -1,8 +1,10 @@
 class Qwt < Formula
   desc "Qt Widgets for Technical Applications"
   homepage "https://qwt.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/qwt/qwt/6.1.5/qwt-6.1.5.tar.bz2"
-  sha256 "4076de63ec2b5e84379ddfebf27c7b29b8dc9074f3db7e2ca61d11a1d8adc041"
+  url "https://downloads.sourceforge.net/project/qwt/qwt/6.1.6/qwt-6.1.6.tar.bz2"
+  sha256 "99460d31c115ee4117b0175d885f47c2c590d784206f09815dc058fbe5ede1f6"
+
+  license "LGPL-2.1-only" => { with: "Qwt-exception-1.0" }
 
   bottle do
     sha256 big_sur:     "1abf218dc1a4cd47873267d984c71cc6aac3830d19cd6dea6de7d67ee00aec40"
@@ -27,11 +29,13 @@ class Qwt < Formula
     end
 
     args = ["-config", "release", "-spec"]
-    args << if ENV.compiler == :clang
+    spec = if ENV.compiler == :clang
       "macx-clang"
     else
       "macx-g++"
     end
+    spec << "-arm64" if Hardware::CPU.arm?
+    args << spec
 
     system "qmake", *args
     system "make"
