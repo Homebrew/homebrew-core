@@ -18,14 +18,6 @@ class CartridgeCli < Formula
   depends_on "mage" => :build
 
   def install
-    commit = Utils.safe_popen_read("git", "rev-parse", "--short", "HEAD").chomp
-
-    ldflags = %W[
-      -s -w
-      -X github.com/tarantool/cartridge-cli/cli/version.gitTag=#{version}
-      -X github.com/tarantool/cartridge-cli/cli/version.gitCommit=#{commit}
-    ]
-
     system "mage", "build"
     bin.install "cartridge"
     system bin/"cartridge", "gen", "completion"
