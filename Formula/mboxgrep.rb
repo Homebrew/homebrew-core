@@ -5,10 +5,6 @@ class Mboxgrep < Formula
   sha256 "78d375a05c3520fad4bca88509d4da0dbe9fba31f36790bd20880e212acd99d7"
   license "GPL-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     cellar :any
     sha256 "abf21ae4b879f4a3e4c9c9b3d6640d4a104bb6d640c9f485bfecd261d217ca40" => :catalina
