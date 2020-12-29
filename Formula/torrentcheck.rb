@@ -4,10 +4,6 @@ class Torrentcheck < Formula
   url "https://downloads.sourceforge.net/project/torrentcheck/torrentcheck-1.00.zip"
   sha256 "a839f9ac9669d942f83af33db96ce9902d84f85592c99b568ef0f5232ff318c5"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     cellar :any_skip_relocation
     sha256 "b8100aac4cf74924411b389b8e2c45656d621e8ef3281b21e761188859a36f2e" => :catalina
