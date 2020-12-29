@@ -1,10 +1,10 @@
 class Tarantool < Formula
   desc "In-memory database and Lua application server"
   homepage "https://tarantool.org/"
-  url "https://download.tarantool.org/tarantool/2.5/src/tarantool-2.5.2.0.tar.gz"
-  sha256 "f64b8ef772d42017bd938770912b4a1727ce6302087efcd5c7faac9e425d9ac4"
+  url "https://download.tarantool.org/tarantool/2.6/src/tarantool-2.6.2.0.tar.gz"
+  sha256 "eb605672493b89b182421f335d527139ab01c9abef036dc72014793b519f03a0"
   license "BSD-2-Clause"
-  head "https://github.com/tarantool/tarantool.git", branch: "2.5", shallow: false
+  head "https://github.com/tarantool/tarantool.git", shallow: false
 
   bottle do
     cellar :any
@@ -22,7 +22,13 @@ class Tarantool < Formula
   uses_from_macos "ncurses"
 
   def install
-    sdk = MacOS::CLT.installed? ? "" : MacOS.sdk_path
+    if MacOS.version >= :big_sur
+      sdk = MacOS.sdk_path_if_needed
+      lib_suffix = "tbd"
+    else
+      sdk = ""
+      lib_suffix = "dylib"
+    end
 
     # Necessary for luajit to build on macOS Mojave (see luajit formula)
     ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
@@ -41,10 +47,10 @@ class Tarantool < Formula
     args << "-DREADLINE_ROOT=#{Formula["readline"].opt_prefix}"
     args << "-DENABLE_BUNDLED_LIBCURL=OFF"
     args << "-DCURL_INCLUDE_DIR=#{sdk}/usr/include"
-    args << "-DCURL_LIBRARY=/usr/lib/libcurl.dylib"
+    args << "-DCURL_LIBRARY=#{sdk}/usr/lib/libcurl.#{lib_suffix}"
     args << "-DCURSES_NEED_NCURSES=TRUE"
     args << "-DCURSES_NCURSES_INCLUDE_PATH=#{sdk}/usr/include"
-    args << "-DCURSES_NCURSES_LIBRARY=/usr/lib/libncurses.dylib"
+    args << "-DCURSES_NCURSES_LIBRARY=#{sdk}/usr/lib/libncurses.#{lib_suffix}"
     args << "-DICONV_INCLUDE_DIR=#{sdk}/usr/include"
 
     system "cmake", ".", *args
