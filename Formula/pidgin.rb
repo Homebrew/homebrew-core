@@ -3,7 +3,8 @@ class Pidgin < Formula
   homepage "https://pidgin.im/"
   url "https://downloads.sourceforge.net/project/pidgin/Pidgin/2.14.1/pidgin-2.14.1.tar.bz2"
   sha256 "f132e18d551117d9e46acce29ba4f40892a86746c366999166a3862b51060780"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -79,6 +80,10 @@ class Pidgin < Formula
   end
 
   test do
-    system "#{bin}/finch", "--version"
+    io = IO.popen("#{bin}/pidgin --debug", "r")
+    assert_match "jabber: creating hash tables for data objects", io.read(4096)
+  ensure
+    Process.kill("TERM", io.pid)
+    Process.wait(io.pid)
   end
 end
