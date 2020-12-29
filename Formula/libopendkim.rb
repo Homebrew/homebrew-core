@@ -5,11 +5,6 @@ class Libopendkim < Formula
   sha256 "43a0ba57bf942095fe159d0748d8933c6b1dd1117caf0273fa9a0003215e681b"
   revision 2
 
-  livecheck do
-    url :stable
-    regex(%r{url=.*?/opendkim[._-]v?(\d+(?:\.\d+)+)\.t}i)
-  end
-
   bottle do
     cellar :any
     sha256 "76268e02f90b0931a9fd8d2ae933d334c2efb9ee34dc85c77d8eecc25b48c68b" => :mojave
