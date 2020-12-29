@@ -7,6 +7,13 @@ class Kcov < Formula
   revision 1
   head "https://github.com/SimonKagstrom/kcov.git"
 
+  # add livecheck to avoid release tags like `pre-v40`
+  # which is tagged as latest release as well
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)*)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "6e098f67e1795b2e1e9a8075c05a16cbb5b113a6158b8d071a0d5f366e2e96e0" => :big_sur
