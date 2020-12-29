@@ -25,7 +25,7 @@ class Freeimage < Formula
   end
 
   def install
-    if Hardware::CPU.arch == :arm64
+    if Hardware::CPU.arm?
       ENV.append "CFLAGS", "-DPNG_ARM_NEON_OPT=0"
       ENV.append "CXXFLAGS", "-DPNG_ARM_NEON_OPT=0"
     end
