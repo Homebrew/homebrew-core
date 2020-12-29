@@ -27,8 +27,8 @@ class Sbcl < Formula
       sha256 "057d3a1c033fb53deee994c0135110636a04f92d2f88919679864214f77d0452"
     end
     on_linux do
-      url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.3.3/sbcl-1.3.3-x86-64-linux-binary.tar.bz2"
-      sha256 "e8b1730c42e4a702f9b4437d9842e91cb680b7246f88118c7443d7753e61da65"
+      url "https://downloads.sourceforge.net/project/sbcl/sbcl/2.1.0/sbcl-2.1.0-x86-64-linux-binary.tar.bz2"
+      sha256 "4ab9a3dd8989427f7a27762ab7e0488e21603bd45aeac593d1667ad672e7fa35"
     end
   end
 
