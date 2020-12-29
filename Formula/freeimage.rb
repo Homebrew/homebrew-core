@@ -26,6 +26,7 @@ class Freeimage < Formula
 
   def install
     # Temporary workaround for ARM. Upstream tracking issue:
+    # https://sourceforge.net/p/freeimage/bugs/325/
     # https://sourceforge.net/p/freeimage/discussion/36111/thread/cc4cd71c6e/
     if Hardware::CPU.arm?
       ENV.append "CFLAGS", "-DPNG_ARM_NEON_OPT=0"
