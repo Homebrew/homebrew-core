@@ -19,10 +19,6 @@ class Wxmaxima < Formula
   depends_on "wxmac"
 
   def install
-    # en_US.UTF8 is not a valid locale for macOS
-    # https://github.com/wxMaxima-developers/wxmaxima/issues/1402
-    inreplace "src/StreamUtils.cpp", "en_US.UTF8", "en_US.UTF-8"
-
     mkdir "build-wxm" do
       system "cmake", "..", "-GNinja", *std_cmake_args
       system "ninja"
