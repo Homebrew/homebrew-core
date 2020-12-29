@@ -13,7 +13,7 @@ class Xclogparser < Formula
     sha256 "1b241c193fb22f5efac69aa76a3af7dd1859feb9e79e8fc1a5d6726adb975ca1" => :mojave
   end
 
-  depends_on xcode: "11.0"
+  depends_on xcode: "12.0"
 
   resource "test_log" do
     url "https://github.com/tinder-maxwellelliott/XCLogParser/releases/download/0.2.9/test.xcactivitylog"
