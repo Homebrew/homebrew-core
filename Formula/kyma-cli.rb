@@ -4,6 +4,7 @@ class KymaCli < Formula
   url "https://github.com/kyma-project/cli/archive/1.18.0.tar.gz"
   sha256 "698f693f5f70a7f2ff91831d6ef8fdc10d1ceace81e985b4c2ca02a73fddcc48"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/kyma-project/cli.git"
 
   bottle do
@@ -19,6 +20,8 @@ class KymaCli < Formula
     ldflags = %W[
       -s -w
       -X github.com/kyma-project/cli/cmd/kyma/version.Version=#{version}
+      -X github.com/kyma-project/cli/cmd/kyma/install.DefaultKymaVersion=master
+      -X github.com/kyma-project/cli/cmd/kyma/upgrade.DefaultKymaVersion=master
     ].join(" ")
 
     system "go", "build", *std_go_args, "-o", bin/"kyma", "-ldflags", ldflags, "./cmd"
