@@ -3,7 +3,7 @@ class Unac < Formula
   homepage "https://savannah.nongnu.org/projects/unac"
   url "https://deb.debian.org/debian/pool/main/u/unac/unac_1.8.0.orig.tar.gz"
   sha256 "29d316e5b74615d49237556929e95e0d68c4b77a0a0cfc346dc61cf0684b90bf"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
     cellar :any
