@@ -1,8 +1,8 @@
 class S3Backer < Formula
   desc "FUSE-based single file backing store via Amazon S3"
   homepage "https://github.com/archiecobbs/s3backer"
-  url "https://archie-public.s3.amazonaws.com/s3backer/s3backer-1.5.6.tar.gz"
-  sha256 "deea48205347b24d1298fa16bf3252d9348d0fe81dde9cb20f40071b8de60519"
+  url "https://archie-public.s3.amazonaws.com/s3backer/s3backer-1.6.1.tar.gz"
+  sha256 "ec91b1c2ec2eadd945e1745fdeccc49baeb357a4040fd9ea8605a9bcdc96c29f"
   license "GPL-2.0-or-later"
 
   bottle do
