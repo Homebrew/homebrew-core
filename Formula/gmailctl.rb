@@ -16,11 +16,18 @@ class Gmailctl < Formula
 
   depends_on "go" => :build
 
+  # patch go.sum
+  # remove in next release
+  patch do
+    url "https://github.com/chenrui333/gmailctl/commit/63504e4.patch?full_index=1"
+    sha256 "e93ebc411b590c4966c115dfbf567271a77c51a4e3ae5b93fd114cf18ef4ecdd"
+  end
+
   def install
     system "go", "build", "-ldflags", "-s -w -X main.version=#{version}", *std_go_args, "cmd/gmailctl/main.go"
   end
 
   test do
-    assert_includes shell_output("#{bin}/gmailctl init"), "The credentials are not initialized"
+    assert_includes shell_output("#{bin}/gmailctl init 2>&1"), "The credentials are not initialized"
   end
 end
