@@ -1,4 +1,4 @@
-class Gtkx4 < Formula
+class Gtk4 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "https://gtk.org/"
   url "https://download.gnome.org/sources/gtk/4.0/gtk-4.0.0.tar.xz"
@@ -8,13 +8,6 @@ class Gtkx4 < Formula
   livecheck do
     url :stable
     regex(/gtk[._-](4\.([0-8]\d*?)?[02468](?:\.\d+)*?)\.t/i)
-  end
-
-  bottle do
-    sha256 "393079a26d13a3bdbfb52a806af74a6a2a677619912549c966dd9eb6d4a151ce" => :big_sur
-    sha256 "22d8d06d4e3ff5e3e300f4b77d899ed3330cb643af5f8a4114fe6b213513115a" => :arm64_big_sur
-    sha256 "0c74e511794ab314900f21300ad9a2c3d93edc83604dbf99ca5c57dc9a81f24c" => :catalina
-    sha256 "320f43ecc1ea6ec38a28cc5e344d2d393318ef5bb661aeab6a34c5211d421259" => :mojave
   end
 
   depends_on "docbook" => :build

@@ -52,6 +52,7 @@
   "grunt": "grunt-cli",
   "gst-validate": "gst-devtools",
   "gtef": "tepl",
+  "gtk+4": "gtk4",
   "gtksourceview@4": "gtksourceview4",
   "gutenberg": "zola",
   "hamsterdb": "upscaledb",
