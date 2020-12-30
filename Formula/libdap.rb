@@ -3,7 +3,7 @@ class Libdap < Formula
   homepage "https://www.opendap.org/"
   url "https://www.opendap.org/pub/source/libdap-3.20.7.tar.gz"
   sha256 "6856813d0b29e70a36e8a53e9cf20ad680d21d615952263e9c6586704539e78c"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
 
   livecheck do
     url "https://www.opendap.org/pub/source/"
