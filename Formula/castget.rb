@@ -5,6 +5,11 @@ class Castget < Formula
   sha256 "438b5f7ec7e31a45ed3756630fe447f42015acda53ec09202f48628726b5e875"
   license "LGPL-2.1-only"
 
+  livecheck do
+    url "https://savannah.nongnu.org/download/castget/"
+    regex(/href=.*?castget[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "b91da84bac0b31dfb521f193b519c984cf943f15974f9427fa3e780028ea07aa" => :big_sur
