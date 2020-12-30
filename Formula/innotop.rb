@@ -18,6 +18,8 @@ class Innotop < Formula
   depends_on "mysql-client"
   depends_on "openssl@1.1"
 
+  uses_from_macos "perl"
+
   resource "Devel::CheckLib" do
     url "https://cpan.metacpan.org/authors/id/M/MA/MATTN/Devel-CheckLib-1.14.tar.gz"
     sha256 "f21c5e299ad3ce0fdc0cb0f41378dca85a70e8d6c9a7599f0e56a957200ec294"
