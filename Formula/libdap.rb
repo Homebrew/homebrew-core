@@ -1,8 +1,8 @@
 class Libdap < Formula
   desc "Framework for scientific data networking"
   homepage "https://www.opendap.org/"
-  url "https://www.opendap.org/pub/source/libdap-3.20.6.tar.gz"
-  sha256 "35cc7f952d72de4936103e8a95c67ac8f9b855c9211fae73ad065331515cc54a"
+  url "https://www.opendap.org/pub/source/libdap-3.20.7.tar.gz"
+  sha256 "6856813d0b29e70a36e8a53e9cf20ad680d21d615952263e9c6586704539e78c"
   license "LGPL-2.1"
 
   livecheck do
