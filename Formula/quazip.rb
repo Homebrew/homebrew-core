@@ -14,14 +14,14 @@ class Quazip < Formula
     sha256 "632c10f191326e2afc006c9a065f40af0f5ab8d6b562b4013ecdf77e79ed1eaf" => :high_sierra
   end
 
+  depends_on xcode: :build
   depends_on "cmake" => :build
   depends_on "qt"
 
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args
-      system "make", "install"
-    end
+    system "cmake", "-DQUAZIP_DIR_NAME=", ".", *std_cmake_args
+    system "cmake", "--build", "."
+    system "cmake", "--build", ".", "--target", "install"
   end
 
   test do
@@ -37,7 +37,7 @@ class Quazip < Formula
     EOS
 
     (testpath/"test.cpp").write <<~EOS
-      #include <quazip/quazipfile.h>
+      #include <quazip/quazip.h>
       int main() {
         QuaZip zip;
         return 0;
