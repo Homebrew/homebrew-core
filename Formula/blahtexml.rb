@@ -3,6 +3,7 @@ class Blahtexml < Formula
   homepage "http://gva.noekeon.org/blahtexml/"
   url "http://gva.noekeon.org/blahtexml/blahtexml-0.9-src.tar.gz"
   sha256 "c5145b02bdf03cd95b7b136de63286819e696639824961d7408bec4591bc3737"
+  license "BSD-3-Clause"
   revision 1
 
   bottle do
