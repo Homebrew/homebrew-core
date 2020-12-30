@@ -16,6 +16,8 @@ class Ack < Formula
 
   bottle :unneeded
 
+  uses_from_macos "perl"
+
   def install
     if build.head?
       ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
