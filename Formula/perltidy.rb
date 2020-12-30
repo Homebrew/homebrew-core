@@ -18,6 +18,8 @@ class Perltidy < Formula
     sha256 "98b81cb9520970e285d8249fa27d1d3cd1fcaaae8dc453a1b10c6bea1d2ab9ed" => :mojave
   end
 
+  uses_from_macos "perl"
+
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
     system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}",
