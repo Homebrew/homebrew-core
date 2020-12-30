@@ -25,7 +25,7 @@ class Libgcrypt < Formula
   # Important on non /usr/local prefixes
   # https://git.gnupg.org/cgi-bin/gitweb.cgi?p=libgcrypt.git;a=commit;h=761d12f140b77b907087590646651d9578b68a54
   patch do
-    url "https://github.com/Homebrew/formula-patches/raw/a367916e22d086d683ebed52f99a63bda2fc83a3/libgcrypt/libgcrypt.pc.in.patch"
+    url "https://git.gnupg.org/cgi-bin/gitweb.cgi?p=libgcrypt.git;a=patch;h=761d12f140b77b907087590646651d9578b68a54"
     sha256 "f4da2d8c93bc52a26efa429a81d32141246d163d752464cd17ac9cce27d1fc64"
   end
 
