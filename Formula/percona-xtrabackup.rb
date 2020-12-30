@@ -25,6 +25,8 @@ class PerconaXtrabackup < Formula
   depends_on "mysql-client"
   depends_on "openssl@1.1"
 
+  uses_from_macos "perl"
+
   conflicts_with "protobuf", because: "both install libprotobuf(-lite) libraries"
   conflicts_with "percona-server", because: "both install comp_err.1 man page"
 
