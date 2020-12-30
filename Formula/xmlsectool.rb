@@ -3,6 +3,7 @@ class Xmlsectool < Formula
   homepage "https://wiki.shibboleth.net/confluence/display/XSTJ3/Home"
   url "https://shibboleth.net/downloads/tools/xmlsectool/3.0.0/xmlsectool-3.0.0-bin.zip"
   sha256 "5b430dda0bf78df224495b39f83cf043d96c0ab9c8ccaa23fbdb56068c46abbc"
+  license "Apache-2.0"
 
   bottle :unneeded
 
