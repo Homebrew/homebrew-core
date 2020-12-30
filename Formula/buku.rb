@@ -5,7 +5,7 @@ class Buku < Formula
   homepage "https://github.com/jarun/buku"
   url "https://files.pythonhosted.org/packages/d5/af/90b27f5e932ae7bf7ccdc86f0619a8726cd61233258faac51caafe7116b8/buku-4.5.tar.gz"
   sha256 "b148fd335fe532b46616587f5d7a5c338202b99ae71ae777a44591a1bc8063ae"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
   head "https://github.com/jarun/buku.git"
 
   livecheck do
