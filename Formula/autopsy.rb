@@ -5,7 +5,7 @@ class Autopsy < Formula
   sha256 "ad198aa48a0f60bc574605ce168b3330f73d4f89351e7f68e79ce2df5e38bff4"
 
   livecheck do
-    url "https://github.com/sleuthkit/autopsy.git"
+    url :stable
     strategy :github_latest
     regex(%r{href=.*?/tag/autopsy[._-]v?(\d+(?:\.\d+)+)["' >]}i)
   end
