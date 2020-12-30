@@ -5,6 +5,11 @@ class Xmlsectool < Formula
   sha256 "5b430dda0bf78df224495b39f83cf043d96c0ab9c8ccaa23fbdb56068c46abbc"
   license "Apache-2.0"
 
+  livecheck do
+    url "https://shibboleth.net/downloads/tools/xmlsectool/latest/"
+    regex(/href=.*?xmlsectool[._-]v?(\d+(?:\.\d+)+)(?:-bin)?\./i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
