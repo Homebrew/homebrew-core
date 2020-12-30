@@ -23,6 +23,8 @@ class Winexe < Formula
   depends_on "autoconf" => :build
   depends_on "pkg-config" => :build
 
+  uses_from_macos "perl"
+
   # This Winexe uses "getopts.pl" that is no longer supplied with newer
   # versions of Perl
   resource "Perl4::CoreLibs" do
