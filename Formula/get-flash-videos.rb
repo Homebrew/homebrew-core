@@ -16,6 +16,8 @@ class GetFlashVideos < Formula
 
   depends_on "rtmpdump"
 
+  uses_from_macos "perl"
+
   on_linux do
     resource "Module::Find" do
       url "https://cpan.metacpan.org/authors/id/C/CR/CRENZ/Module-Find-0.13.tar.gz"
