@@ -20,6 +20,8 @@ class Ddclient < Formula
     sha256 "45b2b534058896de6f98ab1da92d8a1f4ab71fc952b97129e94ae074cfa80b91" => :high_sierra
   end
 
+  uses_from_macos "perl"
+
   resource "Data::Validate::IP" do
     url "https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Data-Validate-IP-0.27.tar.gz"
     sha256 "e1aa92235dcb9c6fd9b6c8cda184d1af73537cc77f4f83a0f88207a8bfbfb7d6"
