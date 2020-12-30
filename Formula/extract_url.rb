@@ -17,6 +17,8 @@ class ExtractUrl < Formula
     sha256 "d16fcc4c81a2ffb7f384f104396aae674bb8f6f08d336056ab858924d545f205" => :yosemite
   end
 
+  uses_from_macos "perl"
+
   resource "MIME::Parser" do
     url "https://cpan.metacpan.org/authors/id/D/DS/DSKOLL/MIME-tools-5.508.tar.gz"
     sha256 "adffe86cd0b045d5a1553f48e72e89b9834fbda4f334c98215995b98cb17c917"
