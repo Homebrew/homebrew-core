@@ -4,7 +4,7 @@ class R < Formula
   url "https://cran.r-project.org/src/base/R-4/R-4.0.3.tar.gz"
   sha256 "09983a8a78d5fb6bc45d27b1c55f9ba5265f78fa54a55c13ae691f87c5bb9e0d"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://cran.rstudio.com/banner.shtml"
@@ -23,6 +23,7 @@ class R < Formula
   depends_on "gettext"
   depends_on "jpeg"
   depends_on "libpng"
+  depends_on "openblas"
   depends_on "pcre2"
   depends_on "readline"
   depends_on "tcl-tk"
@@ -38,6 +39,10 @@ class R < Formula
       ENV["ac_cv_have_decl_clock_gettime"] = "no"
     end
 
+    # Upstream report in progress (bugzilla antispam built-in delay...)
+    # BLAS detection fails with Xcode 12 due to missing prototype
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
+
     args = [
       "--prefix=#{prefix}",
       "--enable-memory-profiling",
@@ -46,7 +51,7 @@ class R < Formula
       "--with-tcl-config=#{Formula["tcl-tk"].opt_lib}/tclConfig.sh",
       "--with-tk-config=#{Formula["tcl-tk"].opt_lib}/tkConfig.sh",
       "--with-aqua",
-      "--with-lapack",
+      "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas",
       "--enable-R-shlib",
       "SED=/usr/bin/sed", # don't remember Homebrew's sed shim
       "--disable-java",
