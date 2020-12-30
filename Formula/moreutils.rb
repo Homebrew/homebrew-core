@@ -24,6 +24,8 @@ class Moreutils < Formula
   uses_from_macos "libxml2" => :build
   uses_from_macos "libxslt" => :build
 
+  uses_from_macos "perl"
+
   conflicts_with "parallel", because: "both install a `parallel` executable"
   conflicts_with "pwntools", because: "both install an `errno` executable"
   conflicts_with "sponge", because: "both install a `sponge` executable"
