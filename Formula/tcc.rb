@@ -3,6 +3,7 @@ class Tcc < Formula
   homepage "https://bellard.org/tcc/"
   url "https://download.savannah.nongnu.org/releases/tinycc/tcc-0.9.27.tar.bz2"
   sha256 "de23af78fca90ce32dff2dd45b3432b2334740bb9bb7b05bf60fdbfc396ceb9c"
+  license "LGPL-2.0-or-later"
   revision 1
 
   livecheck do
