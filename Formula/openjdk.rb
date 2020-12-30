@@ -18,8 +18,16 @@ class Openjdk < Formula
   depends_on "autoconf" => :build
 
   on_linux do
-    depends_on "pkg-config" => :build
-    depends_on "alsa-lib"
+    depends_on "cups"
+    depends_on "fontconfig"
+    depends_on "libx11"
+    depends_on "libxext"
+    depends_on "libxrandr"
+    depends_on "libxrender"
+    depends_on "libxt"
+    depends_on "libxtst"
+    depends_on "unzip"
+    depends_on "zip"
   end
 
   # From https://jdk.java.net/archive/
@@ -28,6 +36,7 @@ class Openjdk < Formula
       url "https://download.java.net/java/GA/jdk14.0.2/205943a0976c4ed48cb16f1043c5c647/12/GPL/openjdk-14.0.2_osx-x64_bin.tar.gz"
       sha256 "386a96eeef63bf94b450809d69ceaa1c9e32a97230e0a120c1b41786b743ae84"
     end
+
     on_linux do
       url "https://download.java.net/java/GA/jdk14.0.2/205943a0976c4ed48cb16f1043c5c647/12/GPL/openjdk-14.0.2_linux-x64_bin.tar.gz"
       sha256 "91310200f072045dc6cef2c8c23e7e6387b37c46e9de49623ce0fa461a24623d"
@@ -73,28 +82,60 @@ class Openjdk < Formula
                 .max
     raise "cannot find build number in .hg_archival.txt" if build.nil?
 
+    args = %W[
+      --disable-warnings-as-errors
+      --with-boot-jdk-jvmargs=#{java_options}
+      --with-boot-jdk=#{boot_jdk}
+      --with-debug-level=release
+      --with-jvm-variants=server
+      --with-native-debug-symbols=none
+      --with-toolchain-path=/usr/bin
+      --with-vendor-bug-url=#{CoreTap.instance.issues_url}
+      --with-vendor-name=Homebrew
+      --with-vendor-url=https://brew.sh
+      --with-vendor-version-string=Homebrew
+      --with-vendor-vm-bug-url=#{CoreTap.instance.issues_url}
+      --with-version-build=#{build}
+      --without-version-opt
+      --without-version-pre
+    ]
+
+    on_macos do
+      args += %W[
+        --with-sysroot=#{MacOS.sdk_path}
+        --with-extra-ldflags=-headerpad_max_install_names
+        --enable-dtrace
+      ]
+    end
+
+    on_linux do
+      args += %W[
+        --with-x=#{HOMEBREW_PREFIX}
+        --with-cups=#{HOMEBREW_PREFIX}
+        --with-fontconfig=#{HOMEBREW_PREFIX}
+      ]
+    end
+
     chmod 0755, "configure"
-    system "./configure", "--without-version-pre",
-                          "--without-version-opt",
-                          "--with-version-build=#{build}",
-                          "--with-toolchain-path=/usr/bin",
-                          "--with-sysroot=#{MacOS.sdk_path}",
-                          "--with-extra-ldflags=-headerpad_max_install_names",
-                          "--with-boot-jdk=#{boot_jdk}",
-                          "--with-boot-jdk-jvmargs=#{java_options}",
-                          "--with-debug-level=release",
-                          "--with-native-debug-symbols=none",
-                          "--enable-dtrace",
-                          "--with-jvm-variants=server"
+    system "./configure", *args
 
     ENV["MAKEFLAGS"] = "JOBS=#{ENV.make_jobs}"
     system "make", "images"
 
-    jdk = Dir["build/*/images/jdk-bundle/*"].first
-    libexec.install jdk => "openjdk.jdk"
-    bin.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/bin/*"]
-    include.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/include/*.h"]
-    include.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/include/darwin/*.h"]
+    on_macos do
+      jdk = Dir["build/*/images/jdk-bundle/*"].first
+      libexec.install jdk => "openjdk.jdk"
+      bin.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/bin/*"]
+      include.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/include/*.h"]
+      include.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/include/darwin/*.h"]
+    end
+
+    on_linux do
+      libexec.install Dir["build/linux-x86_64-server-release/images/jdk/*"]
+      bin.install_symlink Dir["#{libexec}/bin/*"]
+      include.install_symlink Dir["#{libexec}/include/*.h"]
+      include.install_symlink Dir["#{libexec}/include/linux/*.h"]
+    end
   end
 
   def caveats
