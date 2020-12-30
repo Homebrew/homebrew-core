@@ -7,7 +7,7 @@ class Xmlsectool < Formula
 
   livecheck do
     url "https://shibboleth.net/downloads/tools/xmlsectool/latest/"
-    regex(/href=.*?xmlsectool[._-]v?(\d+(?:\.\d+)+)(?:-bin)?\./i)
+    regex(/href=.*?xmlsectool[._-]v?(\d+(?:\.\d+)+)(?:-bin)?\.zip/i)
   end
 
   bottle :unneeded
