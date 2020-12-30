@@ -1,10 +1,9 @@
 class Idris2 < Formula
   desc "Pure functional programming language with dependent types"
   homepage "https://www.idris-lang.org/"
-  url "https://github.com/idris-lang/Idris2/archive/v0.2.1.tar.gz"
-  sha256 "7be16253c9592802f0ab1ebb1b635bd3e254577205e1fd7d8139b1683732fcc7"
+  url "https://github.com/idris-lang/Idris2/archive/v0.2.2.tar.gz"
+  sha256 "e6eef9010a9ccd4859135d548f1b6803a80b5aa9da88b69075712bb3c0acd09b"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/idris-lang/Idris2.git"
 
   bottle do
