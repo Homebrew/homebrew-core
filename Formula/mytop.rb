@@ -22,6 +22,8 @@ class Mytop < Formula
   depends_on "mysql-client"
   depends_on "openssl@1.1"
 
+  uses_from_macos "perl"
+
   conflicts_with "mariadb", because: "both install `mytop` binaries"
 
   resource "List::Util" do
