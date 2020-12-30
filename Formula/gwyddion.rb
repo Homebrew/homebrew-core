@@ -3,7 +3,7 @@ class Gwyddion < Formula
   homepage "http://gwyddion.net/"
   url "http://gwyddion.net/download/2.57/gwyddion-2.57.tar.gz"
   sha256 "667655c3a006e517861bef51196cb41e1335051d0fa66ae8dc481d01bf2abf38"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "http://gwyddion.net/download.php"
