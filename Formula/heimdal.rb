@@ -27,6 +27,8 @@ class Heimdal < Formula
   depends_on "openldap"
   depends_on "openssl@1.1"
 
+  uses_from_macos "perl"
+
   resource "JSON" do
     url "https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/JSON-4.02.tar.gz"
     sha256 "444a88755a89ffa2a5424ab4ed1d11dca61808ebef57e81243424619a9e8627c"
