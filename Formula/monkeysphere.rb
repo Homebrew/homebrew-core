@@ -26,6 +26,8 @@ class Monkeysphere < Formula
   depends_on "libgpg-error"
   depends_on "openssl@1.1"
 
+  uses_from_macos "perl"
+
   resource "Crypt::OpenSSL::Bignum" do
     url "https://cpan.metacpan.org/authors/id/K/KM/KMX/Crypt-OpenSSL-Bignum-0.09.tar.gz"
     sha256 "234e72fb8396d45527e6fd45e43759c5c3f3a208cf8f29e6a22161a996fd42dc"
