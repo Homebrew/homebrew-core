@@ -3,6 +3,11 @@ class Apachetop < Formula
   homepage "https://web.archive.org/web/20170809160553/freecode.com/projects/apachetop"
   url "https://deb.debian.org/debian/pool/main/a/apachetop/apachetop_0.19.7.orig.tar.gz"
   sha256 "88abf58ee5d7882e4cc3fa2462865ebbf0e8f872fdcec5186abe16e7bff3d4a5"
+  license "BSD-3-Clause"
+
+  livecheck do
+    url "https://github.com/tessus/apachetop.git"
+  end
 
   bottle do
     cellar :any
