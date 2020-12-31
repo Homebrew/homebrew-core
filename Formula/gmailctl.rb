@@ -25,9 +25,14 @@ class Gmailctl < Formula
 
   def install
     system "go", "build", "-ldflags", "-s -w -X main.version=#{version}", *std_go_args, "cmd/gmailctl/main.go"
+    pkgshare.install ["default-config.jsonnet", "gmailctl.libsonnet"]
   end
 
   test do
-    assert_includes shell_output("#{bin}/gmailctl init 2>&1"), "The credentials are not initialized"
+    cp pkgshare/"default-config.jsonnet", testpath
+    cp pkgshare/"gmailctl.libsonnet", testpath
+
+    assert_includes shell_output("#{bin}/gmailctl init --config #{testpath} 2>&1"),
+      "The credentials are not initialized"
   end
 end
