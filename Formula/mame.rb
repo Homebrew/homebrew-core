@@ -1,9 +1,10 @@
 class Mame < Formula
   desc "Multiple Arcade Machine Emulator"
   homepage "https://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/mame0226.tar.gz"
-  version "0.226"
-  sha256 "7c4c9ec232ba988e65fd29665c9b8e40b5ac3aa9f561eeb107cebbf08ba94baf"
+  # NOTE: Please keep these values in sync with rom-tools.rb when updating.
+  url "https://github.com/mamedev/mame/archive/mame0227.tar.gz"
+  version "0.227"
+  sha256 "95dbce00a4f05a35f66ef966fe9efad1e4e78ce62e0eba3f7031dfa6737829a5"
   license "GPL-2.0-or-later"
   head "https://github.com/mamedev/mame.git"
 
@@ -43,12 +44,6 @@ class Mame < Formula
 
   uses_from_macos "expat"
   uses_from_macos "zlib"
-
-  # Disable BGFX threading. Remove in next version.
-  patch do
-    url "https://github.com/mamedev/mame/commit/48d1f0de37fc6c429051dd1bcd1a49dbef581b1a.patch?full_index=1"
-    sha256 "9f9aba588ab1e82d927d1c101780415672c54cb463e80d435be3cb1d0ec34217"
-  end
 
   def install
     # Cut sdl2-config's invalid option.
