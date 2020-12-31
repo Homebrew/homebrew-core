@@ -26,8 +26,6 @@ class Libbluray < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "ant" => :build
-  depends_on "openjdk" => :build
   depends_on "pkg-config" => :build
   depends_on "fontconfig"
   depends_on "freetype"
@@ -35,10 +33,7 @@ class Libbluray < Formula
   uses_from_macos "libxml2"
 
   def install
-    # Build system doesn't detect Java version if this is set
-    ENV.delete "_JAVA_OPTIONS"
-
-    args = %W[--prefix=#{prefix} --disable-dependency-tracking --disable-silent-rules]
+    args = %W[--prefix=#{prefix} --disable-dependency-tracking --disable-silent-rules --disable-bdjava-jar]
 
     system "./bootstrap" if build.head?
     system "./configure", *args
