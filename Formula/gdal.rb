@@ -4,7 +4,7 @@ class Gdal < Formula
   url "https://download.osgeo.org/gdal/3.2.0/gdal-3.2.0.tar.xz"
   sha256 "b051f852600ffdf07e337a7f15673da23f9201a9dbb482bd513756a3e5a196a6"
   license "MIT"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://download.osgeo.org/gdal/CURRENT/"
@@ -26,6 +26,9 @@ class Gdal < Formula
   depends_on "pkg-config" => :build
 
   depends_on "cfitsio"
+  # Work around "Symbol not found: _curl_mime_addpart"
+  # due to mismatched SDK version in Mojave.
+  depends_on "curl" if MacOS.version == :mojave
   depends_on "epsilon"
   depends_on "expat"
   depends_on "freexl"
@@ -78,7 +81,6 @@ class Gdal < Formula
       "--with-pcraster=internal",
 
       # Homebrew backends
-      "--with-curl=/usr/bin/curl-config",
       "--with-expat=#{Formula["expat"].prefix}",
       "--with-freexl=#{Formula["freexl"].opt_prefix}",
       "--with-geos=#{Formula["geos"].opt_prefix}/bin/geos-config",
@@ -139,11 +141,12 @@ class Gdal < Formula
       "--without-sosi",
     ]
 
-    # Work around "error: no member named 'signbit' in the global namespace"
-    # Remove once support for macOS 10.12 Sierra is dropped
-    if DevelopmentTools.clang_build_version >= 900
-      ENV.delete "SDKROOT"
-      ENV.delete "HOMEBREW_SDKROOT"
+    # Work around "Symbol not found: _curl_mime_addpart"
+    # due to mismatched SDK version in Mojave.
+    args << if MacOS.version == :mojave
+      "--with-curl=#{Formula["curl"].opt_prefix}/bin/curl-config"
+    else
+      "--with-curl=/usr/bin/curl-config"
     end
 
     system "./configure", *args
