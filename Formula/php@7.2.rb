@@ -23,6 +23,7 @@ class PhpAT72 < Formula
   depends_on "xz" => :build
   depends_on "apr"
   depends_on "apr-util"
+  depends_on arch: :x86_64
   depends_on "argon2"
   depends_on "aspell"
   depends_on "autoconf"
