@@ -79,7 +79,7 @@ class MingwW64 < Formula
         --target=#{target}
         --with-sysroot=#{arch_dir}
         --prefix=#{arch_dir}
-        --with-bugurl=#{CoreTap.instance.issues_url}
+        --with-bugurl=#{tap.issues_url}
         --enable-languages=c,c++,fortran
         --with-ld=#{arch_dir}/bin/#{target}-ld
         --with-as=#{arch_dir}/bin/#{target}-as
