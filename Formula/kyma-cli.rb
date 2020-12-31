@@ -20,8 +20,8 @@ class KymaCli < Formula
     ldflags = %W[
       -s -w
       -X github.com/kyma-project/cli/cmd/kyma/version.Version=#{version}
-      -X github.com/kyma-project/cli/cmd/kyma/install.DefaultKymaVersion=master
-      -X github.com/kyma-project/cli/cmd/kyma/upgrade.DefaultKymaVersion=master
+      -X github.com/kyma-project/cli/cmd/kyma/install.DefaultKymaVersion=#{version}
+      -X github.com/kyma-project/cli/cmd/kyma/upgrade.DefaultKymaVersion=#{version}
     ].join(" ")
 
     system "go", "build", *std_go_args, "-o", bin/"kyma", "-ldflags", ldflags, "./cmd"
