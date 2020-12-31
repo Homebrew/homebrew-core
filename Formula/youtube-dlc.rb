@@ -21,7 +21,6 @@ class YoutubeDlc < Formula
     sha256 "8a375f9a0651590aaf8259be15e84700f25ad6dba4a97dbeb57c74f3fa523e03" => :mojave
   end
 
-  depends_on "make" => :build
   depends_on "pandoc" => :build
   depends_on "python@3.9"
   uses_from_macos "zip" => :build
