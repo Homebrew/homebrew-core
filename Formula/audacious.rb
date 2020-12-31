@@ -33,7 +33,6 @@ class Audacious < Formula
   end
 
   depends_on "gettext" => :build
-  depends_on "make" => :build
   depends_on "pkg-config" => :build
   depends_on "faad2"
   depends_on "ffmpeg"
