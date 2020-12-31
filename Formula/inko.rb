@@ -16,16 +16,14 @@ class Inko < Formula
   end
 
   depends_on "coreutils" => :build
-  depends_on "make" => :build
   depends_on "rust" => :build
   depends_on "libffi"
 
   uses_from_macos "ruby", since: :sierra
 
   def install
-    make = Formula["make"].opt_bin/"gmake"
-    system make, "build", "PREFIX=#{libexec}", "FEATURES=libinko/libffi-system"
-    system make, "install", "PREFIX=#{libexec}"
+    system "make", "build", "PREFIX=#{libexec}", "FEATURES=libinko/libffi-system"
+    system "make", "install", "PREFIX=#{libexec}"
     bin.install Dir[libexec/"bin/*"]
   end
 
