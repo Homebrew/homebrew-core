@@ -5,6 +5,11 @@ class Openjdk < Formula
   sha256 "9c5be662f5b166b5c82c27de29b71f867cff3ff4570f4c8fa646490c4529135a"
   license :cannot_represent
 
+  livecheck do
+    url "https://hg.openjdk.java.net/jdk-updates/jdk#{version.major}u/tags"
+    regex(/>\s*?jdk[._-]v?(\d+(?:\.\d+)*)-ga\s*?</i)
+  end
+
   bottle do
     cellar :any
     sha256 "6f31366f86a5eacf66673fca9ad647b98b207820f8cfea49a22af596395d3dba" => :big_sur
