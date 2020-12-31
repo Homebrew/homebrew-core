@@ -6,6 +6,7 @@ class Allureofthestars < Formula
   license all_of: ["AGPL-3.0-or-later", "GPL-2.0-or-later", "OFL-1.1", "MIT", :cannot_represent]
   revision 1
   head "https://github.com/AllureOfTheStars/Allure.git"
+  # Test, do not merge
 
   livecheck do
     url :stable
