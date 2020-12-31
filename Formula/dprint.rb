@@ -9,6 +9,7 @@ class Dprint < Formula
   depends_on "rust" => :build
 
   def install
+    # replace `--path` arg with `./crates/dprint`
     args = std_cargo_args.map { |s| s == "." ? "./crates/dprint" : s }
     system "cargo", "install", *args
   end
