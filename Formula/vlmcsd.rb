@@ -21,7 +21,6 @@ class Vlmcsd < Formula
     sha256 "0cb2abe0a85b0ca14602d565b6ef3c69afa1f466123b37503936dfe064581b54" => :high_sierra
   end
 
-  depends_on "make" => :build
   uses_from_macos "llvm" => :build
 
   def install
