@@ -32,7 +32,6 @@ class Sslyze < Formula
   end
 
   depends_on "pipenv" => :build
-  depends_on arch: :x86_64
   depends_on "libffi"
   depends_on "openssl@1.1"
   depends_on "python@3.9"
