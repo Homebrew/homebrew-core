@@ -4,7 +4,7 @@ class Mkvtoolnix < Formula
   url "https://mkvtoolnix.download/sources/mkvtoolnix-51.0.0.tar.xz"
   sha256 "c17aa010a13c943b1347c5a20f7f6e05337a7d90317f525345813bcbcdcf4c70"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://mkvtoolnix.download/sources/"
@@ -27,7 +27,6 @@ class Mkvtoolnix < Formula
 
   depends_on "docbook-xsl" => :build
   depends_on "pkg-config" => :build
-  depends_on "pugixml" => :build
   depends_on "boost"
   depends_on "flac"
   depends_on "fmt"
@@ -39,6 +38,7 @@ class Mkvtoolnix < Formula
   depends_on "libvorbis"
   depends_on macos: :mojave # C++17
   depends_on "pcre2"
+  depends_on "pugixml"
 
   uses_from_macos "libxslt" => :build
   uses_from_macos "ruby" => :build
