@@ -80,7 +80,7 @@ class Poppler < Formula
       *Dir["#{bin}/*"],
     ].each do |f|
       macho = MachO.open(f)
-      macho.change_dylib("@rpath/#{libpoppler}", "#{opt_prefix}/lib/#{libpoppler}")
+      macho.change_dylib("@rpath/#{libpoppler}", "#{opt_lib}/#{libpoppler}")
       macho.write!
     end
   end
