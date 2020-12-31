@@ -18,6 +18,10 @@ class Appledoc < Formula
     sha256 "a2530c73cfaa02a2a40be2b823d8c2115ce5fe8d0a59c765829aad55bf3e7c33" => :mojave
   end
 
+  # Includes prebuild Library/*.a files (Intel-only)
+  # so it does not build fully from source
+  disable! date: "2020-12-31", because: :does_not_build
+
   depends_on xcode: :build
   depends_on arch: :x86_64
   depends_on :macos
@@ -25,8 +29,6 @@ class Appledoc < Formula
   def install
     xcodebuild "-project", "appledoc.xcodeproj",
                "-target", "appledoc",
-               # The 2.2.1 tarball includes prebuild Library/*.a files which only
-               # are built for intel:
                "-arch", "x86_64",
                "-configuration", "Release",
                "clean", "install",
