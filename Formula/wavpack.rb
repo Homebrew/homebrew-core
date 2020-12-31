@@ -23,6 +23,10 @@ class Wavpack < Formula
   def install
     args = %W[--prefix=#{prefix} --disable-dependency-tracking]
 
+    # ARM assembly not currently supported
+    # https://github.com/dbry/WavPack/issues/93
+    args << "--disable-asm" if Hardware::CPU.arm?
+
     if build.head?
       system "./autogen.sh", *args
     else
