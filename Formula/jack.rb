@@ -26,6 +26,22 @@ class Jack < Formula
   depends_on "libsndfile"
   depends_on "python@3.9"
 
+  # Three upstream patches below for ARM compatibility
+  patch do
+    url "https://github.com/jackaudio/jack2/commit/1a81aa0e.patch?full_index=1"
+    sha256 "fec9b9490e9ba9523fa755af8138c0a25b3bbba120dc1c039b8e91c1073ec404"
+  end
+
+  patch do
+    url "https://github.com/jackaudio/jack2/commit/a92df441.patch?full_index=1"
+    sha256 "c1390eaca5d7c762f1f6885de1dba4b30c0f751d47d0e60666e1cf4106dfbd02"
+  end
+
+  patch do
+    url "https://github.com/jackaudio/jack2/commit/94a59faa.patch?full_index=1"
+    sha256 "026d2cdb264b398b8a9828382871aa5447cefb90584ddb534dbf8fc8b364fc6d"
+  end
+
   def install
     # See https://github.com/jackaudio/jack2/issues/640#issuecomment-723022578
     ENV.append "LDFLAGS", "-Wl,-compatibility_version,1" if MacOS.version <= :high_sierra
