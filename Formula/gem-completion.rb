@@ -7,6 +7,10 @@ class GemCompletion < Formula
   license "MIT"
   head "https://github.com/mernen/completion-ruby.git"
 
+  livecheck do
+    skip "No version information available"
+  end
+
   bottle :unneeded
 
   def install
