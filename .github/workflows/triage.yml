@@ -35,6 +35,11 @@ jobs:
                     "path": "Formula/.+",
                     "content": "\n  (bottle :unneeded|depends_on :linux)\n"
                 }, {
+                    "label": "no ARM bottle",
+                    "path": "Formula/.+",
+                    "content": "\n    sha256 \"[a-fA-F0-9]+\" => :big_sur\n"
+                    "missing_content": "\n    sha256 \"[a-fA-F0-9]+\" => :arm64_big_sur\n"
+                }, {
                     "label": "formula deprecated",
                     "path": "Formula/.+",
                     "content": "\n  deprecate!.*\n"
