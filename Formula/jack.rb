@@ -89,7 +89,7 @@ class Jack < Formula
     source_name = "test_source"
     sink_name = "test_sink"
     fork do
-      exec "#{bin}/jackd", "-X", "coremidi", "-d", "dummy"
+      exec "#{bin}/jackd", "-d", "dummy"
     end
     system "#{bin}/jack_wait", "--wait", "--timeout", "10"
     fork do
