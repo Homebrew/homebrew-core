@@ -4,6 +4,7 @@ class Haxe < Formula
   url "https://github.com/HaxeFoundation/haxe.git",
       tag:      "4.1.5",
       revision: "5e33a78aad9a6733f4aa3a4b99f7c14555523a36"
+  license all_of: ["GPL-2.0-or-later", "MIT"]
   head "https://github.com/HaxeFoundation/haxe.git", branch: "development"
 
   livecheck do
