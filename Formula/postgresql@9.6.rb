@@ -22,6 +22,7 @@ class PostgresqlAT96 < Formula
   # https://www.postgresql.org/support/versioning/
   deprecate! date: "2021-11-11", because: :unsupported
 
+  depends_on arch: :x86_64
   depends_on "openssl@1.1"
   depends_on "readline"
 
