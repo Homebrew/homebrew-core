@@ -79,7 +79,7 @@ class MingwW64 < Formula
         --target=#{target}
         --with-sysroot=#{arch_dir}
         --prefix=#{arch_dir}
-        --with-bugurl=https://github.com/Homebrew/homebrew-core/issues
+        --with-bugurl=#{CoreTap.instance.issues_url}
         --enable-languages=c,c++,fortran
         --with-ld=#{arch_dir}/bin/#{target}-ld
         --with-as=#{arch_dir}/bin/#{target}-as
@@ -91,6 +91,8 @@ class MingwW64 < Formula
         --disable-nls
         --enable-threads=posix
       ]
+      # Avoid reference to sed shim
+      args << "SED=/usr/bin/sed"
 
       mkdir "#{buildpath}/gcc/build-#{arch}" do
         system "../configure", *args
