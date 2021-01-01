@@ -4,6 +4,7 @@ class Qmmp < Formula
   url "https://downloads.sourceforge.net/project/qmmp-dev/qmmp/qmmp-1.4.3.tar.bz2"
   sha256 "293dbe5e64bc7c1a6f40a7b34dadc84d4689cb1339a49aa79c3ebe1963318b48"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://svn.code.sf.net/p/qmmp-dev/code/branches/qmmp-1.4/"
 
   livecheck do
