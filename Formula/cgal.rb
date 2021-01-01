@@ -4,6 +4,7 @@ class Cgal < Formula
   url "https://github.com/CGAL/cgal/releases/download/v5.2/CGAL-5.2.tar.xz"
   sha256 "744c86edb6e020ab0238f95ffeb9cf8363d98cde17ebb897d3ea93dac4145923"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
