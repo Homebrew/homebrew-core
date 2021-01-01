@@ -6,7 +6,7 @@ class Gnuradio < Formula
   url "https://github.com/gnuradio/gnuradio/releases/download/v3.8.2.0/gnuradio-3.8.2.0.tar.gz"
   sha256 "3e293541a9ac8d78660762bae8b80c0f6195b3494e1c50c01a9fd79cc60bb624"
   license "GPL-3.0-or-later"
-  revision 6
+  revision 7
   head "https://github.com/gnuradio/gnuradio.git"
 
   bottle do
