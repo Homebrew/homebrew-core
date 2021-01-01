@@ -7,10 +7,8 @@ class Symlinks < Formula
 
   def install
     system ENV.cc, "-Wall", "-Wstrict-prototypes", "-O2", "-o", "symlinks", "symlinks.c"
-    mkdir man
-    cp "symlinks.8", man
-    mkdir bin
-    cp "symlinks", "#{bin}/"
+    bin.install "symlinks"
+    man.install "symlinks.8"
   end
 
   test do
