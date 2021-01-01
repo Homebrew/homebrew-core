@@ -3,7 +3,7 @@ class SharedMimeInfo < Formula
   homepage "https://wiki.freedesktop.org/www/Software/shared-mime-info"
   url "https://gitlab.freedesktop.org/xdg/shared-mime-info/uploads/0ee50652091363ab0d17e335e5e74fbe/shared-mime-info-2.1.tar.xz"
   sha256 "b2d40cfcdd84e835d0f2c9107b3f3e77e9cf912f858171fe779946da634e8563"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
 
   livecheck do
     url "https://gitlab.freedesktop.org/api/v4/projects/1205/releases"
