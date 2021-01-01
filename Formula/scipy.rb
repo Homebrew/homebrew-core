@@ -1,8 +1,8 @@
 class Scipy < Formula
   desc "Software for mathematics, science, and engineering"
   homepage "https://www.scipy.org"
-  url "https://files.pythonhosted.org/packages/aa/d5/dd06fe0e274e579e1dff21aa021219c039df40e39709fabe559faed072a5/scipy-1.5.4.tar.gz"
-  sha256 "4a453d5e5689de62e5d38edf40af3f17560bfd63c9c5bd228c18c1f99afa155b"
+  url "https://files.pythonhosted.org/packages/16/48/ff7026d26dfd92520f00b109333e22c05a235f0c9115a5a2d7679cdf39ef/scipy-1.6.0.tar.gz"
+  sha256 "cb6dc9f82dfd95f6b9032a8d7ea70efeeb15d5b5fd6ed4e8537bb3c673580566"
   license "BSD-3-Clause"
   head "https://github.com/scipy/scipy.git"
 
@@ -27,6 +27,11 @@ class Scipy < Formula
   depends_on "python@3.9"
 
   cxxstdlib_check :skip
+
+  resource "numpy" do
+    url "https://files.pythonhosted.org/packages/c5/63/a48648ebc57711348420670bb074998f79828291f68aebfff1642be212ec/numpy-1.19.4.zip"
+    sha256 "141ec3a3300ab89c7f2b0775289954d193cc8edb621ea05f99db9cb181530512"
+  end
 
   def install
     # Fix for current GCC on Big Sur, which does not like 11 as version value
