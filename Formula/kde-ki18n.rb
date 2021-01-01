@@ -8,6 +8,7 @@ class KdeKi18n < Formula
     "LGPL-2.0-or-later",
     any_of: ["LGPL-2.1-only", "LGPL-3.0-only"],
   ]
+  revision 1
   head "https://invent.kde.org/frameworks/ki18n.git"
 
   bottle do
