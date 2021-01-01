@@ -28,11 +28,6 @@ class Scipy < Formula
 
   cxxstdlib_check :skip
 
-  resource "numpy" do
-    url "https://files.pythonhosted.org/packages/c5/63/a48648ebc57711348420670bb074998f79828291f68aebfff1642be212ec/numpy-1.19.4.zip"
-    sha256 "141ec3a3300ab89c7f2b0775289954d193cc8edb621ea05f99db9cb181530512"
-  end
-
   def install
     # Fix for current GCC on Big Sur, which does not like 11 as version value
     # (reported at https://github.com/iains/gcc-darwin-arm64/issues/31#issuecomment-750343944)
