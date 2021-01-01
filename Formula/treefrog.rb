@@ -4,6 +4,7 @@ class Treefrog < Formula
   url "https://github.com/treefrogframework/treefrog-framework/archive/v1.30.0.tar.gz"
   sha256 "e91384f5ed6c14e0a0eccec5467425d598d58dfa4909cf7619bda0f85e6c6aee"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/treefrogframework/treefrog-framework.git"
 
   bottle do
