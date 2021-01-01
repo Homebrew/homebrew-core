@@ -14,7 +14,15 @@ class Symlinks < Formula
   end
 
   test do
-    system "#{bin}/symlinks", "-h"
+    # write a generic file
+    (testpath/"test.txt").write <<~EOS
+      hello world
+    EOS
+    # make a full-path link, which we want symlinks to clean up
+    ln_s "#{testpath}/test.txt", "#{testpath}/test2.txt"
+    # do the cleanup
+    system "#{bin}/symlinks", "-c", testpath
+    # test that symlinks made a relative link
+    assert_equal "test.txt", File.readlink("#{testpath}/test2.txt")
   end
 end
-
