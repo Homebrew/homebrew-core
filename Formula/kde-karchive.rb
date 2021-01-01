@@ -9,6 +9,7 @@ class KdeKarchive < Formula
     "LGPL-2.0-or-later",
     any_of: ["LGPL-2.0-only", "LGPL-3.0-only"],
   ]
+  revision 1
   head "https://invent.kde.org/frameworks/karchive.git"
 
   bottle do
