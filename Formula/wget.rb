@@ -34,6 +34,10 @@ class Wget < Formula
     depends_on "util-linux"
   end
 
+  # commit ref, https://git.savannah.gnu.org/cgit/gnulib.git/patch/?id=6a76832db224ac5671599ce332717f985a2addc7
+  # remove in next release
+  patch :DATA
+
   def install
     system "./bootstrap", "--skip-po" if build.head?
     system "./configure", "--prefix=#{prefix}",
@@ -51,3 +55,16 @@ class Wget < Formula
     system bin/"wget", "-O", "/dev/null", "https://google.com"
   end
 end
+
+__END__
+diff --git a/lib/utime.c b/lib/utime.c
+index bf7d7c5..3372179 100644
+--- a/lib/utime.c
++++ b/lib/utime.c
+@@ -261,6 +261,7 @@ utime (const char *name, const struct utimbuf *ts)
+
+ #else
+
++# include <errno.h>
+ # include <sys/stat.h>
+ # include "filename.h"
