@@ -4,6 +4,7 @@ class Qtkeychain < Formula
   url "https://github.com/frankosterfeld/qtkeychain/archive/v0.12.0.tar.gz"
   sha256 "cc547d58c1402f6724d3ff89e4ca83389d9e2bdcfd9ae3d695fcdffa50a625a8"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
     cellar :any
