@@ -2,7 +2,7 @@ class Qca < Formula
   desc "Qt Cryptographic Architecture (QCA)"
   homepage "https://userbase.kde.org/QCA"
   license "LGPL-2.1"
-  revision 3
+  revision 4
   head "https://invent.kde.org/libraries/qca.git"
 
   stable do
