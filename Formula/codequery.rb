@@ -4,6 +4,7 @@ class Codequery < Formula
   url "https://github.com/ruben2020/codequery/archive/v0.23.0.tar.gz"
   sha256 "c8d1cac148de8979fa4fb4455edc7610e36519503bf9848b6edd008b00c41690"
   license "MPL-2.0"
+  revision 1
 
   bottle do
     cellar :any
