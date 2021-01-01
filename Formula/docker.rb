@@ -19,7 +19,7 @@ class Docker < Formula
   def install
     ENV["GOPATH"] = buildpath
     dir = buildpath/"src/github.com/docker/cli"
-    dir.install (buildpath/"components/cli").children
+    dir.install (buildpath/"").children
     cd dir do
       commit = Utils.safe_popen_read("git", "rev-parse", "--short", "HEAD").chomp
       build_time = Utils.safe_popen_read("date -u +'%Y-%m-%dT%H:%M:%SZ' 2> /dev/null").chomp
