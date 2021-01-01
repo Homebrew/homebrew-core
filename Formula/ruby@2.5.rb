@@ -14,6 +14,8 @@ class RubyAT25 < Formula
 
   keg_only :versioned_formula
 
+  deprecate! date: "2021-03-31", because: :unsupported
+
   depends_on "pkg-config" => :build
   depends_on "libyaml"
   depends_on "openssl@1.1"
