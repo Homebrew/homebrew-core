@@ -4,7 +4,7 @@ class Cairo < Formula
   url "https://cairographics.org/releases/cairo-1.16.0.tar.xz"
   sha256 "5e7b29b3f113ef870d1e3ecf8adf21f923396401604bda16d44be45e66052331"
   license any_of: ["LGPL-2.1-only", "MPL-1.1"]
-  revision 3
+  revision 4
 
   livecheck do
     url "https://cairographics.org/releases/?C=M&O=D"
@@ -41,6 +41,13 @@ class Cairo < Formula
     depends_on "libxcb"
     depends_on "libxext"
     depends_on "libxrender"
+  end
+
+  # Avoid segfaults on Big Sur. Remove at version bump.
+  # https://gitlab.freedesktop.org/cairo/cairo/-/issues/420
+  patch do
+    url "https://gitlab.freedesktop.org/cairo/cairo/-/commit/e22d7212acb454daccc088619ee147af03883974.patch"
+    sha256 "363a6018efc52721e2eace8df3aa319c93f3ad765ef7e3ea04e2ddd4ee94d0e1"
   end
 
   def install
