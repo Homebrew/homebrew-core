@@ -4,7 +4,7 @@ class Gsasl < Formula
   url "https://ftp.gnu.org/gnu/gsasl/gsasl-1.10.0.tar.gz"
   mirror "https://ftpmirror.gnu.org/gsasl/gsasl-1.10.0.tar.gz"
   sha256 "85bcbd8ee6095ade7870263a28ebcb8832f541ea7393975494926015c07568d3"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url :stable
