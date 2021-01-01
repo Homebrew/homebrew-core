@@ -1,9 +1,9 @@
 class Ispell < Formula
   desc "International Ispell"
   homepage "https://www.cs.hmc.edu/~geoff/ispell.html"
-  url "https://www.cs.hmc.edu/~geoff/tars/ispell-3.4.00.tar.gz"
-  mirror "https://deb.debian.org/debian/pool/main/i/ispell/ispell_3.4.00.orig.tar.gz"
-  sha256 "5dc42e458635f218032d3ae929528e5587b1e7247564f0e9f9d77d5ccab7aec2"
+  url "https://www.cs.hmc.edu/~geoff/tars/ispell-3.4.01.tar.gz"
+  mirror "https://deb.debian.org/debian/pool/main/i/ispell/ispell_3.4.01.orig.tar.gz"
+  sha256 "4b1e0e56f90cf68e201eea5f8af8849e94590e0d1d054f1016fdb0451ed37b80"
 
   livecheck do
     url :homepage
