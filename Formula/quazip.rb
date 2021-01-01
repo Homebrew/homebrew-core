@@ -4,6 +4,7 @@ class Quazip < Formula
   url "https://github.com/stachenov/quazip/archive/v0.9.1.tar.gz"
   sha256 "5d36b745cb94da440432690050e6db45b99b477cfe9bc3b82fd1a9d36fff95f5"
   license "LGPL-2.1"
+  revision 1
 
   bottle do
     cellar :any
