@@ -4,6 +4,7 @@ class Inspectrum < Formula
   url "https://github.com/miek/inspectrum/archive/v0.2.3.tar.gz"
   sha256 "7be5be96f50b0cea5b3dd647f06cc00adfa805a395484aa2ab84cf3e49b7227b"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/miek/inspectrum.git"
 
   bottle do
