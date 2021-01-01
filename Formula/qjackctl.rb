@@ -4,6 +4,7 @@ class Qjackctl < Formula
   url "https://downloads.sourceforge.net/project/qjackctl/qjackctl/0.9.0/qjackctl-0.9.0.tar.gz"
   sha256 "5196c5c01b7948c1a8ca37cd3198a7f0fe095a99a34a67086abd3466855b4abd"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://git.code.sf.net/p/qjackctl/code.git"
 
   livecheck do
