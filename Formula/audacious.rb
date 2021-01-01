@@ -2,6 +2,7 @@ class Audacious < Formula
   desc "Free and advanced audio player based on GTK+"
   homepage "https://audacious-media-player.org/"
   license "BSD-2-Clause"
+  revision 1
 
   stable do
     url "https://distfiles.audacious-media-player.org/audacious-4.0.5.tar.bz2"
