@@ -27,9 +27,11 @@ class Cppad < Formula
   def install
     mkdir "build" do
       system "cmake", "..", *std_cmake_args,
-                      "-Dcppad_prefix=#{prefix}"
+                      "-Dcppad_prefix=#{prefix}",
+                      "-DCMAKE_CXX_STANDARD=17"
       system "make", "install"
     end
+
     pkgshare.install "example"
   end
 
