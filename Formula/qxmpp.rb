@@ -4,6 +4,7 @@ class Qxmpp < Formula
   url "https://github.com/qxmpp-project/qxmpp/archive/v1.3.1.tar.gz"
   sha256 "812e718a2dd762ec501a9012a1281b9b6c6d46ec38adbc6eec242309144e1c55"
   license "LGPL-2.1"
+  revision 1
 
   bottle do
     cellar :any
