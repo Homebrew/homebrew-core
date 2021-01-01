@@ -4,7 +4,7 @@ class Libgr < Formula
   url "https://github.com/sciapp/gr/archive/v0.53.0.tar.gz"
   sha256 "a348602c3e2d928b5c293a19ed91e126bf56e23720d4f0e12aa92767da767276"
   license "MIT"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "1ae1c4c80659db2c9505449acc52f0f6328054caa287af5bcc9e755771d8c382" => :big_sur
