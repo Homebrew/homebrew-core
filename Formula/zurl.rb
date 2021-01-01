@@ -4,7 +4,7 @@ class Zurl < Formula
   url "https://dl.bintray.com/fanout/source/zurl-1.11.0.tar.bz2"
   sha256 "18aa3b077aefdba47cc46c5bca513ca2e20f2564715be743f70e4efa4fdccd7a"
   license "GPL-3.0-or-later"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
