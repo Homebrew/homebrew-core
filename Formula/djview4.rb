@@ -4,6 +4,7 @@ class Djview4 < Formula
   url "https://downloads.sourceforge.net/project/djvu/DjView/4.12/djview-4.12.tar.gz"
   sha256 "5673c6a8b7e195b91a1720b24091915b8145de34879db1158bc936b100eaf3e3"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
