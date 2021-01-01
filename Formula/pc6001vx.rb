@@ -4,6 +4,7 @@ class Pc6001vx < Formula
   url "https://eighttails.up.seesaa.net/image/PC6001VX_3.6.0_src.tar.gz"
   sha256 "5c67c4d392c399e98c65bcd8518b0cf92551813f70357c41403b100981c1d4e8"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/eighttails/PC6001VX.git"
 
   bottle do
