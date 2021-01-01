@@ -23,7 +23,9 @@ class Cpprestsdk < Formula
   depends_on "openssl@1.1"
 
   def install
-    system "cmake", "-DBUILD_SAMPLES=OFF", "-DBUILD_TESTS=OFF", "Release", *std_cmake_args
+    system "cmake", "-DBUILD_SAMPLES=OFF", "-DBUILD_TESTS=OFF",
+                    "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"]}.opt_prefix",
+                    "Release", *std_cmake_args
     system "make", "install"
   end
 
