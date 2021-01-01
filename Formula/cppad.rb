@@ -25,10 +25,11 @@ class Cppad < Formula
   depends_on "cmake" => :build
 
   def install
+    ENV.cxx11
+
     mkdir "build" do
       system "cmake", "..", *std_cmake_args,
-                      "-Dcppad_prefix=#{prefix}",
-                      "-DCMAKE_CXX_STANDARD=17"
+                      "-Dcppad_prefix=#{prefix}"
       system "make", "install"
     end
 
