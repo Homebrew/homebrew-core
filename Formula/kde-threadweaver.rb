@@ -4,6 +4,7 @@ class KdeThreadweaver < Formula
   url "https://download.kde.org/stable/frameworks/5.77/threadweaver-5.77.0.tar.xz"
   sha256 "4f898107074943f103fd9d4ee2b82cddcb705382424bd47fcca21b11c167d8f2"
   license "LGPL-2.0-or-later"
+  revision 1
   head "https://invent.kde.org/frameworks/threadweaver.git"
 
   bottle do
