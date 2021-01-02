@@ -4,7 +4,7 @@ class Pdf2svg < Formula
   url "https://github.com/db9052/pdf2svg/archive/v0.2.3.tar.gz"
   sha256 "4fb186070b3e7d33a51821e3307dce57300a062570d028feccd4e628d50dea8a"
   license "GPL-2.0"
-  revision 5
+  revision 6
 
   bottle do
     cellar :any
