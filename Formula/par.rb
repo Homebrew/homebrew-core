@@ -4,6 +4,11 @@ class Par < Formula
   url "http://www.nicemice.net/par/Par-1.53.0.tar.gz"
   sha256 "c809c620eb82b589553ac54b9898c8da55196d262339d13c046f2be44ac47804"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?Par[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "9af002ed591438fc64cf745df797fdd4c6138a847c6ffe650a8371ef6a2243fa" => :big_sur
