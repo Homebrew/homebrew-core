@@ -6,7 +6,7 @@ class Symlinks < Formula
   license "MIT"
 
   def install
-    system ENV.cc, "-Wall", "-Wstrict-prototypes", "-O2", "-o", "symlinks", "symlinks.c"
+    system "make", "CC=#{ENV.cc}", "symlinks"
     bin.install "symlinks"
     man.install "symlinks.8"
   end
