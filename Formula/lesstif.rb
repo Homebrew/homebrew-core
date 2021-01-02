@@ -6,10 +6,6 @@ class Lesstif < Formula
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later"]
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 "49ec8eeeb266caef90b7fee6151d7292e4b636256863a9a4b67abdf965aba33b" => :big_sur
     sha256 "b21ba8ea2bfc016141ab76a3021c7a941f1a682840cec111bc2bc2b8adc53af6" => :arm64_big_sur
