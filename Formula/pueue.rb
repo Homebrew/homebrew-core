@@ -22,6 +22,7 @@ class Pueue < Formula
     system "./build_completions.sh"
     bash_completion.install "utils/completions/pueue.bash" => "pueue"
     fish_completion.install "utils/completions/pueue.fish" => "pueue.fish"
+    zsh_completion.install "utils/completions/_pueue" => "_pueue"
 
     prefix.install_metafiles
   end
