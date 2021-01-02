@@ -21,7 +21,7 @@ class OpenOcd < Formula
   end
 
   head do
-    url "https://git.code.sf.net/p/openocd/code.git"
+    url "https://github.com/ntfreak/openocd.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
