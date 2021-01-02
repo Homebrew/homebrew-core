@@ -4,6 +4,7 @@ class Pdfpc < Formula
   url "https://github.com/pdfpc/pdfpc/archive/v4.4.1.tar.gz"
   sha256 "4adb42fd1844a7e2ab44709dd043ade618c87f2aaec03db64f7ed659e8d3ddad"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/pdfpc/pdfpc.git"
 
   bottle do
