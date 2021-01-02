@@ -4,7 +4,7 @@ class DiffPdf < Formula
   url "https://github.com/vslavik/diff-pdf/releases/download/v0.4.1/diff-pdf-0.4.1.tar.gz"
   sha256 "0eb81af6b06593488acdc5924a199f74fe3df6ecf2a0f1be208823c021682686"
   license "GPL-2.0-only"
-  revision 9
+  revision 10
 
   bottle do
     cellar :any
