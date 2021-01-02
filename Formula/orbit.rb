@@ -7,10 +7,6 @@ class Orbit < Formula
   revision 1
   head "https://gitlab.gnome.org/Archive/orbit2.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 3
     sha256 "d39f55257c7d7eff2ecb9bb03c596a23d53abf2c081b87bf06f1b93415dda0b4" => :big_sur
