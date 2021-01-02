@@ -4,6 +4,11 @@ class Libcanberra < Formula
   url "http://0pointer.de/lennart/projects/libcanberra/libcanberra-0.30.tar.xz"
   sha256 "c2b671e67e0c288a69fc33dc1b6f1b534d07882c2aceed37004bf48c601afa72"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?libcanberra[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     rebuild 1
