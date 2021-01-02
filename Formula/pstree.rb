@@ -8,6 +8,15 @@ class Pstree < Formula
   mirror "https://fossies.org/linux/misc/pstree-2.39.tar.gz"
   sha256 "7c9bc3b43ee6f93a9bc054eeff1e79d30a01cac13df810e2953e3fc24ad8479f"
 
+  # The stable archive is fetched over FTP and there doesn't appear to be a link
+  # to it on the first-party website. As of writing, the homepage lists an older
+  # version than the README, so checking the README is likely our best option
+  # at the moment.
+  livecheck do
+    url "http://www.thp.uni-duisburg.de/pstree/README"
+    regex(/This is pstree V?\s*?(\d+(?:\.\d+)+)/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 2
