@@ -3,7 +3,7 @@ class Moreutils < Formula
   homepage "https://joeyh.name/code/moreutils/"
   url "https://git.joeyh.name/git/moreutils.git",
       tag:      "0.65",
-      revision: "c1a5c2bdac966c7baa6b03bdbd39fde1cd0728ca"
+      revision: "c3261f4190c3803177b6c50ec43fd302171dd48e"
   license all_of: [
     "GPL-2.0-or-later",
     { any_of: ["GPL-2.0-only", "Artistic-2.0"] },
