@@ -3,6 +3,7 @@ class Nuxeo < Formula
   homepage "https://nuxeo.github.io/"
   url "https://cdn.nuxeo.com/nuxeo-10.10/nuxeo-server-10.10-tomcat.zip"
   sha256 "93a923a6e654d216a57fc91767a428e8c22cf5a879f264474f8976016e34ca6f"
+  revision 1
 
   bottle :unneeded
 
