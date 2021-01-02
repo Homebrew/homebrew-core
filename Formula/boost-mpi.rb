@@ -19,6 +19,14 @@ class BoostMpi < Formula
   depends_on "boost"
   depends_on "open-mpi"
 
+  # Fix build system issues on Apple silicon. This change has aleady
+  # been merged upstream, remove this patch once it lands in a release.
+  patch do
+    url "https://github.com/boostorg/build/commit/456be0b7ecca065fbccf380c2f51e0985e608ba0.patch?full_index=1"
+    sha256 "e7a78145452fc145ea5d6e5f61e72df7dcab3a6eebb2cade6b4cfae815687f3a"
+    directory "tools/build"
+  end
+
   def install
     # "layout" should be synchronized with boost
     args = %W[
