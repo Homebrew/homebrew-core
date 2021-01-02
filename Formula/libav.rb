@@ -7,11 +7,6 @@ class Libav < Formula
   revision 8
   head "https://git.libav.org/libav.git"
 
-  livecheck do
-    url "https://libav.org/releases/"
-    regex(/href=.*?libav[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     cellar :any
     sha256 "0bd97c8c39f11b5b29d5c271a28eb4ea4a40b4062a4331f8d97f738c9a82fb05" => :big_sur
@@ -20,6 +15,7 @@ class Libav < Formula
     sha256 "f71b7acc7dd972d60176b7d6c9bfe247181867d98ff991d771dcff54a6beace5" => :mojave
   end
 
+  # See: https://lists.libav.org/pipermail/libav-devel/2020-April/086589.html
   deprecate! date: "2019-04-16", because: :unmaintained
 
   depends_on "pkg-config" => :build
