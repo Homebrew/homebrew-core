@@ -8,10 +8,6 @@ class Atdtool < Formula
   license "BSD-3-Clause"
   revision 4
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     cellar :any_skip_relocation
     rebuild 1
