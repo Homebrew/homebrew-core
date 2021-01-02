@@ -5,10 +5,12 @@ class Nexus < Formula
   sha256 "a1223bbc91ced7b16175b2e872957397b9d58508d08cd7c5d44f5e378c3adeab"
   license "EPL-1.0"
 
+  # As of writing, upstream is publishing both v2 and v3 releases. The "latest"
+  # release on GitHub isn't reliable, as it can point to a release from either
+  # one of these major versions depending on which was published most recently.
   livecheck do
     url :stable
-    strategy :github_latest
-    regex(%r{href=.*?/tag/release[._-]v?(\d+(?:[.-]\d+)+)["' >]}i)
+    regex(/^(?:release[._-])?v?(\d+(?:[.-]\d+)+)$/i)
   end
 
   bottle do
