@@ -67,7 +67,8 @@ class OpencvAT2 < Formula
     # https://github.com/Homebrew/homebrew-science/issues/2302
     args << "-DCMAKE_PREFIX_PATH=#{py_prefix}"
 
-    args << "-DENABLE_SSE41=ON" << "-DENABLE_SSE42=ON" if MacOS.version.requires_sse42?
+    args << "-DENABLE_SSE41=ON" << "-DENABLE_SSE42=ON" \
+      if Hardware::CPU.intel? && MacOS.version.requires_sse42?
 
     mkdir "build" do
       system "cmake", "..", *args
