@@ -15,10 +15,10 @@ class Glide < Formula
     sha256 "d665d8221c75985ffde8357c5ebfd53c2cb3398ac699a1afc1ebf8000e5206cc" => :sierra
   end
 
-  depends_on "go"
-
   # See: https://github.com/Masterminds/glide/commit/c64b14592409a83052f7735a01d203ff1bab0983
   deprecate! date: "2021-01-02", because: :deprecated_upstream
+
+  depends_on "go"
 
   def install
     ENV["GOPATH"] = buildpath
