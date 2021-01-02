@@ -18,6 +18,7 @@ class Docker < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     dir = buildpath/"src/github.com/docker/cli"
     dir.install (buildpath/"").children
     cd dir do
