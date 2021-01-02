@@ -6,7 +6,7 @@ class Pympress < Formula
   url "https://files.pythonhosted.org/packages/92/80/c63ad7748e877dfeb5d7d756c1bdd4c2657e5a857814b4d6edf96d44678c/pympress-1.5.3.tar.gz"
   sha256 "d8c10c286d1de2210c19a3e752542b61c8bcc592c48553f7c7043e943a87d05d"
   license "GPL-2.0"
-  revision 1
+  revision 2
   head "https://github.com/Cimbali/pympress.git"
 
   livecheck do
