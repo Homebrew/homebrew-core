@@ -24,13 +24,6 @@ class Scrcpy < Formula
     sha256 "11b5ad2d1bc9b9730fb7254a78efd71a8ff46b1938ff468e47a21b653a1b6725"
   end
 
-  # Fix build on Xcode 12 (https://github.com/Genymobile/scrcpy/issues/1726)
-  # Remove in the next release
-  patch do
-    url "https://github.com/Genymobile/scrcpy/commit/bd9f656933e79f7b21b42993f8a70a761ab47226.patch?full_index=1"
-    sha256 "3ab1c2d4b9cc38fe94ae24c49c74b4008a36ffb8079442545feeffa5d3448540"
-  end
-
   def install
     r = resource("prebuilt-server")
     r.fetch
