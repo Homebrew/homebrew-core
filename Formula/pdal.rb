@@ -4,7 +4,7 @@ class Pdal < Formula
   url "https://github.com/PDAL/PDAL/releases/download/2.2.0/PDAL-2.2.0-src.tar.gz"
   sha256 "421e94beafbfda6db642e61199bc4605eade5cab5d2e54585e08f4b27438e568"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/PDAL/PDAL.git"
 
   bottle do
