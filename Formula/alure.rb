@@ -5,11 +5,6 @@ class Alure < Formula
   sha256 "465e6adae68927be3a023903764662d64404e40c4c152d160e3a8838b1d70f71"
   revision 1
 
-  livecheck do
-    url "https://kcat.strangesoft.net/alure-releases/"
-    regex(/alure[._-]v?(\d+(?:\.\d+)+)/i)
-  end
-
   bottle do
     cellar :any
     rebuild 1
