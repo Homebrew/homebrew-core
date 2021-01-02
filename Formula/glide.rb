@@ -17,6 +17,9 @@ class Glide < Formula
 
   depends_on "go"
 
+  # See: https://github.com/Masterminds/glide/commit/c64b14592409a83052f7735a01d203ff1bab0983
+  deprecate! date: "2021-01-02", because: :deprecated_upstream
+
   def install
     ENV["GOPATH"] = buildpath
     glidepath = buildpath/"src/github.com/Masterminds/glide"
