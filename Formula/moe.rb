@@ -4,7 +4,7 @@ class Moe < Formula
   url "https://ftp.gnu.org/gnu/moe/moe-1.11.tar.lz"
   mirror "https://ftpmirror.gnu.org/moe/moe-1.11.tar.lz"
   sha256 "0efbcbcf5a4a8d966541c6cb099ba0ab6416780366dbce82d9ff995a85a5e2f9"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :stable
