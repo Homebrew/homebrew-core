@@ -3,6 +3,7 @@ class Rex < Formula
   homepage "https://www.rexify.org"
   url "https://cpan.metacpan.org/authors/id/F/FE/FERKI/Rex-1.13.2.tar.gz"
   sha256 "0e994a13374295b9ac0803795b3c7296b73009f22e9210ce8c24716535b690bb"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
