@@ -39,7 +39,7 @@ class Glib < Formula
     sha256 "a57fec9e85758896ff5ec1ad483050651b59b7b77e0217459ea650704b7d422b"
   end
 
-  # required for gtk+4
+  # required for gtk4
   # see discussion at https://gitlab.gnome.org/GNOME/gtk/-/issues/3477
   patch do
     url "https://gitlab.gnome.org/GNOME/glib/-/commit/8c76bec77985be7f4c81a052ec649232341369f6.patch"
