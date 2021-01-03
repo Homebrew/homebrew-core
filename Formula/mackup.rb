@@ -5,7 +5,7 @@ class Mackup < Formula
   homepage "https://github.com/lra/mackup"
   url "https://files.pythonhosted.org/packages/cd/28/f3479110f5d628c3df724091300ccffa792e79340513026ea3c5b6d4b7c1/mackup-0.8.30.tar.gz"
   sha256 "c4288e5e5082e3e1d0f2f1654f1c459256413606a9f0a771271ed27882cf6451"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
   head "https://github.com/lra/mackup.git"
 
   livecheck do
