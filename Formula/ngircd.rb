@@ -4,6 +4,7 @@ class Ngircd < Formula
   url "https://ngircd.barton.de/pub/ngircd/ngircd-26.1.tar.xz"
   mirror "https://ngircd.sourceforge.io/pub/ngircd/ngircd-26.1.tar.xz"
   sha256 "55c16fd26009f6fc6a007df4efac87a02e122f680612cda1ce26e17a18d86254"
+  license "GPL-2.0-or-later"
 
   bottle do
     rebuild 1
