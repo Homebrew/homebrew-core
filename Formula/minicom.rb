@@ -3,6 +3,7 @@ class Minicom < Formula
   homepage "https://packages.debian.org/sid/minicom"
   url "https://deb.debian.org/debian/pool/main/m/minicom/minicom_2.8.orig.tar.bz2"
   sha256 "38cea30913a20349326ff3f1763ee1512b7b41601c24f065f365e18e9db0beba"
+  license "GPL-2-or-later"
 
   livecheck do
     url "https://deb.debian.org/debian/pool/main/m/minicom/"
