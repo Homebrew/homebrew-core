@@ -22,7 +22,7 @@ class Gtkmm4 < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => [:build, :test]
   depends_on "cairomm"
-  depends_on "gtk+4"
+  depends_on "gtk4"
   depends_on "pangomm"
 
   def install
