@@ -3,7 +3,7 @@ class Sqlmap < Formula
   homepage "http://sqlmap.org"
   url "https://github.com/sqlmapproject/sqlmap/archive/1.5.tar.gz"
   sha256 "18c38c4ccf04e81e540527abc63130eced72b157da1d705e3af26b1d4768671d"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   head "https://github.com/sqlmapproject/sqlmap.git"
 
   bottle :unneeded
