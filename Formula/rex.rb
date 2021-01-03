@@ -219,12 +219,6 @@ class Rex < Formula
       end
     end
 
-    resources.each do |res|
-      res.stage do
-        perl_build
-      end
-    end
-
     perl_build
     (libexec/"lib").install "blib/lib/Rex", "blib/lib/Rex.pm"
     inreplace "bin/rex", "#!perl", "#!/usr/bin/env perl"
