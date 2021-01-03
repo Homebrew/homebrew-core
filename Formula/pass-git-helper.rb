@@ -5,7 +5,7 @@ class PassGitHelper < Formula
   homepage "https://github.com/languitar/pass-git-helper"
   url "https://github.com/languitar/pass-git-helper/archive/v1.1.1.tar.gz"
   sha256 "17a4c36d0fe67a7a4a709da3c0649d10efb02df266e62765661eac2ced4bc03d"
-  license "LGPL-3.0"
+  license "LGPL-3.0-or-later"
 
   bottle do
     cellar :any_skip_relocation
