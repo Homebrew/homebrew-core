@@ -1,8 +1,8 @@
 class Rex < Formula
   desc "Command-line tool which executes commands on remote servers"
   homepage "https://www.rexify.org"
-  url "https://cpan.metacpan.org/authors/id/F/FE/FERKI/Rex-1.11.0.tar.gz"
-  sha256 "73269e5ddad0b88f1cf269173a9eff2f2addff230c303112fda5f43e269c49c5"
+  url "https://cpan.metacpan.org/authors/id/F/FE/FERKI/Rex-1.13.2.tar.gz"
+  sha256 "0e994a13374295b9ac0803795b3c7296b73009f22e9210ce8c24716535b690bb"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,16 +15,16 @@ class Rex < Formula
 
   on_macos do
     resource "LWP::UserAgent" do
-      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.43.tar.gz"
-      sha256 "e9849d7ee6fd0e89cc999e63d7612c951afd6aeea6bc721b767870d9df4ac40d"
+      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.51.tar.gz"
+      sha256 "6444154f5c2b410627de2e73cc70e48a181e857c8fb4ffce29e4bdef60b8f9a3"
     end
   end
 
   resource "Module::Build" do
     # AWS::Signature4 requires Module::Build v0.4205 and above, while standard
     # MacOS Perl installation has 0.4003
-    url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4229.tar.gz"
-    sha256 "1fe491a6cda914b01bc8e592faa2b5404e9f35915ca15322f8f2a8d8f9008c18"
+    url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4231.tar.gz"
+    sha256 "7e0f4c692c1740c1ac84ea14d7ea3d8bc798b2fb26c09877229e04f430b2b717"
   end
 
   resource "AWS::Signature4" do
@@ -48,13 +48,13 @@ class Rex < Formula
   end
 
   resource "Exporter::Tiny" do
-    url "https://cpan.metacpan.org/authors/id/T/TO/TOBYINK/Exporter-Tiny-1.002001.tar.gz"
-    sha256 "a82c334c02ce4b0f9ea77c67bf77738f76a9b8aa4bae5c7209d1c76453d3c48d"
+    url "https://cpan.metacpan.org/authors/id/T/TO/TOBYINK/Exporter-Tiny-1.002002.tar.gz"
+    sha256 "00f0b95716b18157132c6c118ded8ba31392563d19e490433e9a65382e707101"
   end
 
   resource "ExtUtils::MakeMaker" do
-    url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.44.tar.gz"
-    sha256 "52a18f8271250faf5f3527499dd2b78d3b4fd3b064408d0cfdda9a3538887188"
+    url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.58.tar.gz"
+    sha256 "aa73736cd926536c0f393f441d1b8742453573ad6efa2d855471e772f84c1eee"
   end
 
   resource "File::Listing" do
@@ -73,13 +73,13 @@ class Rex < Formula
   end
 
   resource "HTTP::Cookies" do
-    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Cookies-6.08.tar.gz"
-    sha256 "49ebb73576eb41063c04bc079477df094496deec805ae033f3be338c23c3af59"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Cookies-6.09.tar.gz"
+    sha256 "903f017afaa5b78599cc90efc14ecccc8cc2ebfb636eb8c02f8f16ba861d1fe0"
   end
 
   resource "HTTP::Daemon" do
-    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Daemon-6.06.tar.gz"
-    sha256 "fc03a161b54553f766457a4267e7066767f54ad01cacfe9a91d7caa2a0319bad"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Daemon-6.12.tar.gz"
+    sha256 "df47bed10c38670c780fd0116867d5fd4693604acde31ba63380dce04c4e1fa6"
   end
 
   resource "HTTP::Date" do
@@ -88,8 +88,8 @@ class Rex < Formula
   end
 
   resource "HTTP::Message" do
-    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.22.tar.gz"
-    sha256 "970efd151b81c95831d2a5f9e117f8032b63a1768cd2cd3f092ad634c85175c3"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.26.tar.gz"
+    sha256 "6ce6c359de75c3bb86696a390189b485ec93e3ffc55326b6d044fa900f1725e1"
   end
 
   resource "HTTP::Negotiate" do
@@ -103,8 +103,8 @@ class Rex < Formula
   end
 
   resource "IO::HTML" do
-    url "https://cpan.metacpan.org/authors/id/C/CJ/CJM/IO-HTML-1.001.tar.gz"
-    sha256 "ea78d2d743794adc028bc9589538eb867174b4e165d7d8b5f63486e6b828e7e0"
+    url "https://cpan.metacpan.org/authors/id/C/CJ/CJM/IO-HTML-1.004.tar.gz"
+    sha256 "c87b2df59463bbf2c39596773dfb5c03bde0f7e1051af339f963f58c1cbd8bf5"
   end
 
   resource "IO::String" do
@@ -123,13 +123,18 @@ class Rex < Formula
   end
 
   resource "List::MoreUtils" do
-    url "https://cpan.metacpan.org/authors/id/R/RE/REHSACK/List-MoreUtils-0.428.tar.gz"
-    sha256 "713e0945d5f16e62d81d5f3da2b6a7b14a4ce439f6d3a7de74df1fd166476cc2"
+    url "https://cpan.metacpan.org/authors/id/R/RE/REHSACK/List-MoreUtils-0.430.tar.gz"
+    sha256 "63b1f7842cd42d9b538d1e34e0330de5ff1559e4c2737342506418276f646527"
   end
 
   resource "List::MoreUtils::XS" do
-    url "https://cpan.metacpan.org/authors/id/R/RE/REHSACK/List-MoreUtils-XS-0.428.tar.gz"
-    sha256 "9d9fe621429dfe7cf2eb1299c192699ddebf060953e5ebdc1b4e293c6d6dd62d"
+    url "https://cpan.metacpan.org/authors/id/R/RE/REHSACK/List-MoreUtils-XS-0.430.tar.gz"
+    sha256 "e8ce46d57c179eecd8758293e9400ff300aaf20fefe0a9d15b9fe2302b9cb242"
+  end
+
+  resource "List::Util" do
+    url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Scalar-List-Utils-1.55.tar.gz"
+    sha256 "4d2bdc1c72a7bc4d69d6a5cc85bc7566497c3b183c6175b832784329d58feb4b"
   end
 
   resource "Net::HTTP" do
@@ -138,13 +143,13 @@ class Rex < Formula
   end
 
   resource "Net::OpenSSH" do
-    url "https://cpan.metacpan.org/authors/id/S/SA/SALVA/Net-OpenSSH-0.78.tar.gz"
-    sha256 "8f10844542a2824389decdb8edec7561d8199dc5f0250e849a0bb56f7aee880c"
+    url "https://cpan.metacpan.org/authors/id/S/SA/SALVA/Net-OpenSSH-0.80.tar.gz"
+    sha256 "fee093657df2b361472a2982859588a6e4bc5e1aee8118ece5eebfeafa8daeb3"
   end
 
   resource "PadWalker" do
-    url "https://cpan.metacpan.org/authors/id/R/RO/ROBIN/PadWalker-2.3.tar.gz"
-    sha256 "2a6c44fb600861e54568e74081a8d1f121f0060076069ceab34b1ae89d6588cf"
+    url "https://cpan.metacpan.org/authors/id/R/RO/ROBIN/PadWalker-2.5.tar.gz"
+    sha256 "07b26abb841146af32072a8d68cb90176ffb176fd9268e6f2f7d106f817a0cd0"
   end
 
   resource "Sort::Naturally" do
@@ -200,6 +205,18 @@ class Rex < Formula
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
     ENV.prepend_path "PERL5LIB", libexec/"lib"
+
+    resources.each do |r|
+      r.stage do
+        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+        # Work around restriction on 10.15+ where .bundle files cannot be loaded
+        # from a relative path -- while in the middle of our build we need to
+        # refer to them by their full path.  Workaround adapted from:
+        #   https://github.com/fink/fink-distributions/issues/461#issuecomment-563331868
+        inreplace "Makefile", "blib/", "$(shell pwd)/blib/" if r.name == "Term::ReadKey"
+        system "make", "install"
+      end
+    end
 
     resources.each do |res|
       res.stage do
