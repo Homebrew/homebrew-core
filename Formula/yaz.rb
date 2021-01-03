@@ -5,6 +5,12 @@ class Yaz < Formula
   sha256 "f0497fd8420574efab4e5738ea3b70787a6e8042f585156baa30bdc1911ba552"
   license "BSD-3-Clause"
 
+  # avoid release like `5.30.3_windows` and also capture `github_latest` semantics
+  livecheck do
+    url "https://github.com/indexdata/yaz.git"
+    strategy :github_latest
+  end
+
   bottle do
     cellar :any
     sha256 "bae268483a7bf1bbf81bf4930cb34145b1c5172f1e1737f8b07cf220a3566711" => :big_sur
