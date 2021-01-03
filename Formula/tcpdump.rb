@@ -25,7 +25,6 @@ class Tcpdump < Formula
 
   def install
     system "./configure", "--prefix=#{prefix}",
-                          "--enable-ipv6",
                           "--disable-smb",
                           "--disable-universal"
     system "make", "install"
