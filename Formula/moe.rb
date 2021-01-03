@@ -1,9 +1,9 @@
 class Moe < Formula
   desc "Console text editor for ISO-8859 and ASCII"
   homepage "https://www.gnu.org/software/moe/moe.html"
-  url "https://ftp.gnu.org/gnu/moe/moe-1.10.tar.lz"
-  mirror "https://ftpmirror.gnu.org/moe/moe-1.10.tar.lz"
-  sha256 "8cfd44ab5623ed4185ee53962b879fd9bdd18eab47bf5dd9bdb8271f1bf7d53b"
+  url "https://ftp.gnu.org/gnu/moe/moe-1.11.tar.lz"
+  mirror "https://ftpmirror.gnu.org/moe/moe-1.11.tar.lz"
+  sha256 "0efbcbcf5a4a8d966541c6cb099ba0ab6416780366dbce82d9ff995a85a5e2f9"
   license "GPL-2.0"
 
   livecheck do
