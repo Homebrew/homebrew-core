@@ -5,6 +5,8 @@ class Gfxutil < Formula
   sha256 "2aecb08afc46ebb5507a8003bf034c1422d70adf46508affc45bd232695374d9"
   license "GPL-2.0-or-later"
 
+  bottle :unneeded
+
   def install
     bin.install "gfxutil"
   end
