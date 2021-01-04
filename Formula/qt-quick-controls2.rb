@@ -5,12 +5,6 @@ class QtQuickControls2 < Formula
   sha256 "03fd2dbf030bf859e8069144bb6a282517063589c9d4025293eb89bcc580253b"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
 
-  bottle do
-    root_url "https://dl.bintray.com/paperchalice/dev-bottle"
-    cellar :any
-    sha256 "190599bf51c90dee19c09cc306b10fa52cc5c95d5aa4d59fd706285b6c22587e" => :big_sur
-  end
-
   depends_on "cmake" => :build
   depends_on "ninja" => :build
 

@@ -5,12 +5,6 @@ class QtSvg < Formula
   sha256 "9703c9a69e21ad373fb52d0107338da7ef0a46966f69107b0d879e9c366dd91b"
   license all_of: ["GPL-2.0-only", "LGPL-3.0-only"]
 
-  bottle do
-    root_url "https://dl.bintray.com/paperchalice/dev-bottle"
-    cellar :any
-    sha256 "f0e1f6b22b1e6b144788132801b51523637306cd46b1a8d479b72adbdd716812" => :big_sur
-  end
-
   depends_on "cmake" => :build
   depends_on "ninja" => :build
 

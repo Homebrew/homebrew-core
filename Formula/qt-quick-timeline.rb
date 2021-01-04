@@ -5,12 +5,6 @@ class QtQuickTimeline < Formula
   sha256 "7a71495c07a98279a852d518bc9ca0f07b49b495ceb65bfdd000c826ee156b0c"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
 
-  bottle do
-    root_url "https://dl.bintray.com/paperchalice/dev-bottle"
-    cellar :any
-    sha256 "ba0a762a018572d784bdf9c91ee68065c7b9568f9d5361ac27d406de2c37164e" => :big_sur
-  end
-
   depends_on "cmake" => :build
   depends_on "ninja" => :build
 

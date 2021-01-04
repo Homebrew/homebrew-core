@@ -5,12 +5,6 @@ class QtShaderTools < Formula
   sha256 "201b1376b65ef9f7fd19789781e0378ea813385217cd392c5c896699e6108e6c"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
 
-  bottle do
-    root_url "https://dl.bintray.com/paperchalice/dev-bottle"
-    cellar :any
-    sha256 "8e0a867ce0857625d81ba690712e1f8ac6789a7c2b2daedc0d720c471eb74bf6" => :big_sur
-  end
-
   depends_on "cmake" => :build
   depends_on "ninja" => :build
 

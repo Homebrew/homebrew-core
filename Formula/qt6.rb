@@ -5,12 +5,6 @@ class Qt6 < Formula
   sha256 "d39a1a557a0dc8dc5ea2eaaee0fa015c71dcbb79c25a6aea421c594227565296"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
 
-  bottle do
-    root_url "https://dl.bintray.com/paperchalice/dev-bottle"
-    cellar :any
-    sha256 "7c053c70c30ae040244cf5043a384c6222b47dc1339754d0bb5e82182203d73b" => :big_sur
-  end
-
   keg_only :versioned_formula
 
   depends_on "cmake" => :build

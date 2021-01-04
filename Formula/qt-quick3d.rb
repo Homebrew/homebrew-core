@@ -5,12 +5,6 @@ class QtQuick3d < Formula
   sha256 "0a9a3e765c343b55511900b173f9591df88b0787f67b9ecfb8f25203bfdb0aa8"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
 
-  bottle do
-    root_url "https://dl.bintray.com/paperchalice/dev-bottle"
-    cellar :any
-    sha256 "01e453f720d1025ebd4fa80cb62a55e45556b039fd7a8453b10ee2b7a1363370" => :big_sur
-  end
-
   depends_on "cmake" => :build
   depends_on "ninja" => :build
 

@@ -5,12 +5,6 @@ class QtBase < Formula
   sha256 "ae227180272d199cbb15318e3353716afada5c57fd5185b812ae26912c958656"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
 
-  bottle do
-    root_url "https://dl.bintray.com/paperchalice/dev-bottle"
-    cellar :any
-    sha256 "d836c8cd5cd9d10b3a00580853cf52db7e88e7fbbad9117e04bdd4aa625215b3" => :big_sur
-  end
-
   depends_on "cmake" => :build
   depends_on "ninja" => :build
   depends_on xcode: :build # for xcodebuild to get version

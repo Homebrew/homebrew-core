@@ -5,12 +5,6 @@ class QtCore5Compat < Formula
   sha256 "13b9d78aa698609d07376e3e9e9d1a82a96084236aba0642f8ac695c181ab25f"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
 
-  bottle do
-    root_url "https://dl.bintray.com/paperchalice/dev-bottle"
-    cellar :any
-    sha256 "f67414810be33b2ec67dd48f25e6bc2df82ff0ccdd15916faa3de6a9dbbd1e35" => :big_sur
-  end
-
   depends_on "cmake" => :build
   depends_on "ninja" => :build
 

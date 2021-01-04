@@ -5,12 +5,6 @@ class QtDoc < Formula
   sha256 "476108d92506d93d5df227f275d653abba57b3b1694afbf2965e0c74e8c0a5a8"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
 
-  bottle do
-    root_url "https://homebrew.bintray.com/bottles-dev"
-    cellar :any_skip_relocation
-    sha256 "54fe0927736427a9f26fa368b0d23bd067e9db13a6d18a949e1234d7f9f25fad" => :big_sur
-  end
-
   depends_on "cmake" => :build
   depends_on "ninja" => :build
   depends_on "qt-tools" => :build

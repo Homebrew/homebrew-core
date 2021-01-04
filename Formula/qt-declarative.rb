@@ -5,12 +5,6 @@ class QtDeclarative < Formula
   sha256 "8535fe31fa3e876b8f2d3954efcdca47b3813adf228c1640608fb9f4c7b2c1a6"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
 
-  bottle do
-    root_url "https://dl.bintray.com/paperchalice/dev-bottle"
-    cellar :any
-    sha256 "8614b55f5cb5a1d3406198a9eef055206dffb0f9917b648e956573690fe27cf4" => :big_sur
-  end
-
   depends_on "cmake" => :build
   depends_on "ninja" => :build
 
