@@ -3,6 +3,7 @@ class Libfixbuf < Formula
   homepage "https://tools.netsa.cert.org/fixbuf/"
   url "https://tools.netsa.cert.org/releases/libfixbuf-2.4.1.tar.gz"
   sha256 "8c535d48120b08df1731de709f2dbd2ba8bce568ad64cac34826102caf594d84"
+  license "LGPL-3.0-only"
 
   livecheck do
     url "https://tools.netsa.cert.org/fixbuf/download.html"
