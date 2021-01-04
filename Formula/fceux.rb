@@ -21,9 +21,7 @@ class Fceux < Formula
   depends_on "sdl2"
 
   def install
-    if build.stable?
-      ENV['CXXFLAGS'] = " -DPUBLIC_RELEASE=1 "
-    end
+    ENV["CXXFLAGS"] = "-DPUBLIC_RELEASE=1" if build.stable?
     system "cmake", ".", *std_cmake_args
     system "make"
     cp "src/auxlib.lua", "output/luaScripts"
