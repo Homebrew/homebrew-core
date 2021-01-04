@@ -5,10 +5,9 @@ class Yaz < Formula
   sha256 "f0497fd8420574efab4e5738ea3b70787a6e8042f585156baa30bdc1911ba552"
   license "BSD-3-Clause"
 
-  # avoid release like `5.30.3_windows` and also capture `github_latest` semantics
   livecheck do
-    url "https://github.com/indexdata/yaz.git"
-    strategy :github_latest
+    url "http://ftp.indexdata.dk/pub/yaz/"
+    regex(/href=.*?yaz[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
