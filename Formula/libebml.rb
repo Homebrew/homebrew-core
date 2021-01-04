@@ -3,7 +3,7 @@ class Libebml < Formula
   homepage "https://www.matroska.org/"
   url "https://dl.matroska.org/downloads/libebml/libebml-1.4.1.tar.xz"
   sha256 "6e94c669405061aa0d25a523b9f1bea8ac73536e37721a110b3372c7f8717032"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
   head "https://github.com/Matroska-Org/libebml.git"
 
   bottle do
