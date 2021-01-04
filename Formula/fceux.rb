@@ -1,9 +1,7 @@
 class Fceux < Formula
   desc "All-in-one NES/Famicom Emulator"
   homepage "https://fceux.com/"
-  # version "2.3.0"
   license "GPL-2.0-only"
-  revision 1
 
   stable do
     url "https://downloads.sourceforge.net/project/fceultra/Binaries/2.3.0/fceux-2.3.0.tar.gz"
