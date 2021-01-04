@@ -207,15 +207,9 @@ class Rex < Formula
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
     ENV.prepend_path "PERL5LIB", libexec/"lib"
 
-    resources.each do |r|
-      r.stage do
-        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
-        # Work around restriction on 10.15+ where .bundle files cannot be loaded
-        # from a relative path -- while in the middle of our build we need to
-        # refer to them by their full path.  Workaround adapted from:
-        #   https://github.com/fink/fink-distributions/issues/461#issuecomment-563331868
-        inreplace "Makefile", "blib/", "$(shell pwd)/blib/" if r.name == "Term::ReadKey"
-        system "make", "install"
+    resources.each do |res|
+      res.stage do
+        perl_build
       end
     end
 
