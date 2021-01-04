@@ -6,6 +6,11 @@ class V2ray < Formula
   license all_of: ["MIT", "CC-BY-SA-4.0"]
   head "https://github.com/v2fly/v2ray-core.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "124dd5f5dc2499ae80e44fa6763afa47852466de0454838dd71b0a405969e950" => :big_sur
