@@ -1,8 +1,8 @@
 class Clair < Formula
   desc "Vulnerability Static Analysis for Containers"
   homepage "https://github.com/quay/clair"
-  url "https://github.com/quay/clair/archive/v2.1.6.tar.gz"
-  sha256 "51e3c1e13c7670406097b447d385cdac9a0509e6bcb71bf89c29d6143ed4f464"
+  url "https://github.com/quay/clair/archive/v4.0.0.tar.gz"
+  sha256 "a49228c581367a4048d2c6f7f8148ebb264457ad3a26065812b64e165395ad95"
   license "Apache-2.0"
 
   livecheck do
@@ -22,15 +22,27 @@ class Clair < Formula
   depends_on "rpm"
   depends_on "xz"
 
+  # revert back to config.yaml.sample
+  # remove in next release
+  resource "test_resource" do
+    url "https://raw.githubusercontent.com/quay/clair/6e195c99a14139360c8d09f90c94024eb7d27b67/config.yaml.sample"
+    sha256 "4efbe587cdc074d29cfa9fe539d97304a33c28fcaeb986d6c8e4db7f8c705812"
+  end
+
   def install
-    system "go", "build", *std_go_args, "./cmd/clair"
-    (etc/"clair").install "config.example.yaml" => "config.yaml"
+    ldflags = %W[
+      -s -w
+      -X main.Version=#{version}
+    ].join(" ")
+
+    system "go", "build", *std_go_args, "-ldflags", ldflags, "./cmd/clair"
+    (etc/"clair").install resource("test_resource")
   end
 
   test do
-    cp etc/"clair/config.yaml", testpath
-    output = shell_output("#{bin}/clair -config=config.yaml", 1)
+    cp etc/"clair/config.yaml.sample", testpath
+    output = shell_output("#{bin}/clair -conf #{testpath}/config.yaml.sample -mode combo 2>&1", 1)
     # requires a Postgres database
-    assert_match "pgsql: could not open database", output
+    assert_match "initialized failed: failed to initialize libindex: failed to create ConnPool", output
   end
 end
