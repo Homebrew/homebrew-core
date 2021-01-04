@@ -3,8 +3,8 @@ class SphinxDoc < Formula
 
   desc "Tool to create intelligent and beautiful documentation"
   homepage "https://www.sphinx-doc.org/"
-  url "https://files.pythonhosted.org/packages/4f/76/daa2e41de4e31788fc48c77d98e5113809f65b516b359503113e1b681dc0/Sphinx-3.4.1.tar.gz"
-  sha256 "e450cb205ff8924611085183bf1353da26802ae73d9251a8fcdf220a8f8712ef"
+  url "https://files.pythonhosted.org/packages/ef/47/807912d1723226d57871c50cf27fa14a167dde2a5d97ef78a435ab35b66f/Sphinx-3.4.2.tar.gz"
+  sha256 "77dec5ac77ca46eee54f59cf477780f4fb23327b3339ef39c8471abb829c1285"
   license "BSD-2-Clause"
 
   livecheck do
@@ -87,8 +87,8 @@ class SphinxDoc < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/09/07/448a8887c7195450604dfc0305d80d74324c36ee18ed997664051d4bffe3/pytz-2020.4.tar.gz"
-    sha256 "3e6b7dd2d1e0a59084bcee14a17af60c5c562cdc16d828e8eba2e683d3a7e268"
+    url "https://files.pythonhosted.org/packages/70/44/404ec10dca553032900a65bcded8b8280cf7c64cc3b723324e2181bf93c9/pytz-2020.5.tar.gz"
+    sha256 "180befebb1927b16f6b57101720075a984c019ac16b1b7575673bea42c6c3da5"
   end
 
   resource "requests" do
