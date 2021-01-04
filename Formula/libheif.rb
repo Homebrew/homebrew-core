@@ -14,6 +14,7 @@ class Libheif < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "aom"
   depends_on "jpeg"
   depends_on "libde265"
   depends_on "libpng"
@@ -26,6 +27,7 @@ class Libheif < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
     pkgshare.install "examples/example.heic"
+    pkgshare.install "examples/example.avif"
   end
 
   def post_install
@@ -35,10 +37,17 @@ class Libheif < Formula
   test do
     output = "File contains 2 images"
     example = pkgshare/"example.heic"
-    exout = testpath/"example.jpg"
+    exout = testpath/"exampleheic.jpg"
 
     assert_match output, shell_output("#{bin}/heif-convert #{example} #{exout}")
-    assert_predicate testpath/"example-1.jpg", :exist?
-    assert_predicate testpath/"example-2.jpg", :exist?
+    assert_predicate testpath/"exampleheic-1.jpg", :exist?
+    assert_predicate testpath/"exampleheic-2.jpg", :exist?
+
+    output = "File contains 1 images"
+    example = pkgshare/"example.avif"
+    exout = testpath/"exampleavif.jpg"
+
+    assert_match output, shell_output("#{bin}/heif-convert #{example} #{exout}")
+    assert_predicate testpath/"exampleavif.jpg", :exist?
   end
 end
