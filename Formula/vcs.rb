@@ -3,7 +3,7 @@ class Vcs < Formula
   homepage "https://p.outlyer.net/vcs/"
   url "https://p.outlyer.net/files/vcs/vcs-1.13.4.tar.gz"
   sha256 "dc1d6145e10eeed61d16c3591cfe3496a6ac392c9c2f7c2393cbdb0cf248544b"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://p.outlyer.net/files/vcs/?C=M&O=D"
