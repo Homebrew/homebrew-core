@@ -4,6 +4,7 @@ class Qcli < Formula
   url "https://github.com/bavc/qctools/archive/v1.2.tar.gz"
   sha256 "d648a5fb6076c6367e4eac320018ccbd1eddcb2160ce175b361b46fcf0d4a710"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/bavc/qctools.git"
 
   bottle do
