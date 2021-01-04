@@ -1,8 +1,8 @@
 class Netcat < Formula
   desc "Utility for managing network connections"
-  homepage "https://netcat.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/netcat/netcat/0.7.1/netcat-0.7.1.tar.bz2"
-  sha256 "b55af0bbdf5acc02d1eb6ab18da2acd77a400bafd074489003f3df09676332bb"
+  homepage "https://nc110.sourceforge.io/"
+  url "https://sourceforge.net/projects/nc110/files/community%20releases/nc110.20180111.tar.xz"
+  sha256 "9c223f2472fc5b0d77c29a88536913e6573217cbc028dd276c30e689feeb182d"
   license "GPL-2.0"
 
   livecheck do
