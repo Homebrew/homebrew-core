@@ -7,6 +7,7 @@ class Ffms2 < Formula
   # The FFMS2 source is licensed under the MIT license, but its binaries
   # are licensed under the GPL because GPL components of FFmpeg are used.
   license "GPL-2.0"
+  revision 1
   head "https://github.com/FFMS/ffms2.git"
 
   bottle do
