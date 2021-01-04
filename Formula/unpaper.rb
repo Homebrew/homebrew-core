@@ -3,7 +3,7 @@ class Unpaper < Formula
   homepage "https://www.flameeyes.com/projects/unpaper"
   url "https://www.flameeyes.com/files/unpaper-6.1.tar.xz"
   sha256 "237c84f5da544b3f7709827f9f12c37c346cdf029b1128fb4633f9bafa5cb930"
-  revision 6
+  revision 7
 
   bottle do
     cellar :any
