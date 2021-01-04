@@ -19,10 +19,13 @@ class Libfixbuf < Formula
   end
 
   depends_on "pkg-config" => :build
+
   depends_on "glib"
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
+                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}"
     system "make"
