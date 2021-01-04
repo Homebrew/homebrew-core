@@ -1,9 +1,9 @@
 class Nettle < Formula
   desc "Low-level cryptographic library"
   homepage "https://www.lysator.liu.se/~nisse/nettle/"
-  url "https://ftp.gnu.org/gnu/nettle/nettle-3.6.tar.gz"
-  mirror "https://ftpmirror.gnu.org/nettle/nettle-3.6.tar.gz"
-  sha256 "d24c0d0f2abffbc8f4f34dcf114b0f131ec3774895f3555922fe2f40f3d5e3f1"
+  url "https://ftp.gnu.org/gnu/nettle/nettle-3.7.tar.gz"
+  mirror "https://ftpmirror.gnu.org/nettle/nettle-3.7.tar.gz"
+  sha256 "f001f64eb444bf13dd91bceccbc20acbc60c4311d6e2b20878452eb9a9cec75a"
   license any_of: ["GPL-2.0-or-later", "LGPL-3.0-or-later"]
 
   livecheck do
