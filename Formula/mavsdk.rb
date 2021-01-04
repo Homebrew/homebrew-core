@@ -23,7 +23,7 @@ class Mavsdk < Formula
   def install
     system "cmake", *std_cmake_args,
                     "-Bbuild/default",
-                    "-DBUILD_BACKEND=ON",
+                    "-DBUILD_MAVSDK_SERVER=ON",
                     "-H."
     system "cmake", "--build", "build/default", "--target", "install"
   end
