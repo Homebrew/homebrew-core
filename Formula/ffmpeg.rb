@@ -4,7 +4,7 @@ class Ffmpeg < Formula
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   license "GPL-2.0-or-later"
-  revision 6
+  revision 7
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   stable do
@@ -64,6 +64,7 @@ class Ffmpeg < Formula
   depends_on "xvid"
   depends_on "xz"
   depends_on "zeromq"
+  depends_on "zimg"
 
   uses_from_macos "bzip2"
   uses_from_macos "libxml2"
@@ -114,6 +115,7 @@ class Ffmpeg < Formula
       --enable-libsoxr
       --enable-videotoolbox
       --enable-libzmq
+      --enable-libzimg
       --disable-libjack
       --disable-indev=jack
     ]
