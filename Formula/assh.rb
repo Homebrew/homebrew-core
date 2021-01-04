@@ -1,8 +1,8 @@
 class Assh < Formula
   desc "Advanced SSH config - Regex, aliases, gateways, includes and dynamic hosts"
   homepage "https://manfred.life/assh"
-  url "https://github.com/moul/assh/archive/v2.10.0.tar.gz"
-  sha256 "7cc2ff54c5fc04d2b5cbe0b073ef2fef112e5b3ef9185408b708625e572c83c1"
+  url "https://github.com/moul/assh/archive/v2.11.0.tar.gz"
+  sha256 "8819b847cabddbd1a36893dfeadbbf60346bed14d38e36726248817ff101489c"
   license "MIT"
   head "https://github.com/moul/assh.git"
 
@@ -17,8 +17,7 @@ class Assh < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"assh"
-    prefix.install_metafiles
+    system "go", "build", *std_go_args, "-ldflags", "-s -w"
   end
 
   test do
