@@ -2,7 +2,7 @@ class Fceux < Formula
   desc "All-in-one NES/Famicom Emulator"
   homepage "https://fceux.com/"
   url "https://github.com/TASVideos/fceux.git",
-      tag: "fceux-2.3.0",
+      tag:      "fceux-2.3.0",
       revision: "65c5b0d2a1c08db75bb41340bfa5534578926944"
   license "GPL-2.0-only"
   head "https://github.com/TASVideos/fceux.git"
