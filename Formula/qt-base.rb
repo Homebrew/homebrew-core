@@ -5,7 +5,7 @@ class QtBase < Formula
   sha256 "ae227180272d199cbb15318e3353716afada5c57fd5185b812ae26912c958656"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
 
-   bottle do
+  bottle do
     root_url "https://dl.bintray.com/paperchalice/dev-bottle"
     cellar :any
     sha256 "d836c8cd5cd9d10b3a00580853cf52db7e88e7fbbad9117e04bdd4aa625215b3" => :big_sur
@@ -109,6 +109,7 @@ class QtBase < Formula
 
     # FIXME: remove this toolchain file seems not good
     rm lib/"cmake/Qt6/qt.toolchain.cmake"
+
     # The pkg-config files installed suggest that headers can be found in the
     # `include` directory. Make this so by creating symlinks from `include` to
     # the Frameworks' Headers folders.
