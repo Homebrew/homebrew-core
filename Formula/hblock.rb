@@ -12,6 +12,7 @@ class Hblock < Formula
   end
 
   test do
-    system "#{bin}/hblock", "--version"
+    output = shell_output("#{bin}/hblock -H none -F none -S none -A none -D none -qO-")
+    assert_match "Blocked domains:", output
   end
 end
