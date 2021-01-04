@@ -1,19 +1,17 @@
-class Prestosql < Formula
+class Trino < Formula
   desc "Distributed SQL query engine for big data"
-  homepage "https://prestosql.io"
-  url "https://search.maven.org/remotecontent?filepath=io/prestosql/presto-server/344/presto-server-344.tar.gz"
-  sha256 "9ae950f2901efd5cb1ca7d1bbd8a4cbb01d16dfe9c4fe702db2ee147ab841a8b"
+  homepage "https://trino.io"
+  url "https://search.maven.org/remotecontent?filepath=io/trino/trino-server/351/trino-server-351.tar.gz"
+  sha256 "e4d50a4179868ee08dd879a50b6c9e2cadf3e7ccce93c6fe9b40f8f7f973e158"
   license "Apache-2.0"
 
   bottle :unneeded
 
   depends_on "openjdk"
 
-  conflicts_with "prestodb", because: "both install `presto` and `presto-server` binaries"
-
-  resource "presto-cli" do
-    url "https://search.maven.org/remotecontent?filepath=io/prestosql/presto-cli/344/presto-cli-344-executable.jar"
-    sha256 "92de6ce3afa29acea4e9527a1f2e20889008d72ee94cdd34b55c072fd805503e"
+  resource "trino-cli" do
+    url "https://search.maven.org/remotecontent?filepath=io/trino/trino-cli/351/trino-cli-351-executable.jar"
+    sha256 "f525c91d2872a9bad7cc5bd83131eba30ef48c3e61378858c5a2d8471bc03605"
   end
 
   def install
@@ -22,7 +20,7 @@ class Prestosql < Formula
     (libexec/"etc/node.properties").write <<~EOS
       node.environment=dev
       node.id=dev
-      node.data-dir=#{var}/presto/data
+      node.data-dir=#{var}/trino/data
     EOS
 
     (libexec/"etc/jvm.config").write <<~EOS
@@ -44,33 +42,33 @@ class Prestosql < Formula
     EOS
 
     (libexec/"etc/log.properties").write <<~EOS
-      io.prestosql=INFO
+      io.trino=INFO
     EOS
 
     (libexec/"etc/catalog/jmx.properties").write <<~EOS
       connector.name=jmx
     EOS
 
-    (bin/"presto-server").write_env_script libexec/"bin/launcher", Language::Java.overridable_java_home_env
+    (bin/"trino-server").write_env_script libexec/"bin/launcher", Language::Java.overridable_java_home_env
 
-    resource("presto-cli").stage do
-      libexec.install "presto-cli-#{version}-executable.jar"
-      bin.write_jar_script libexec/"presto-cli-#{version}-executable.jar", "presto"
+    resource("trino-cli").stage do
+      libexec.install "trino-cli-#{version}-executable.jar"
+      bin.write_jar_script libexec/"trino-cli-#{version}-executable.jar", "trino"
     end
   end
 
   def post_install
-    (var/"presto/data").mkpath
+    (var/"trino/data").mkpath
   end
 
   def caveats
     <<~EOS
       Add connectors to #{opt_libexec}/etc/catalog/. See:
-      https://prestosql.io/docs/current/connector.html
+      https://trino.io/docs/current/connector.html
     EOS
   end
 
-  plist_options manual: "presto-server run"
+  plist_options manual: "trino-server run"
 
   def plist
     <<~EOS
@@ -89,7 +87,7 @@ class Prestosql < Formula
           <string>#{opt_libexec}</string>
           <key>ProgramArguments</key>
           <array>
-            <string>#{opt_bin}/presto-server</string>
+            <string>#{opt_bin}/trino-server</string>
             <string>run</string>
           </array>
         </dict>
@@ -98,7 +96,7 @@ class Prestosql < Formula
   end
 
   test do
-    system bin/"presto-server", "run", "--help"
-    assert_match "Presto CLI #{version}", shell_output("#{bin}/presto --version").chomp
+    system bin/"trino-server", "run", "--help"
+    assert_match "Trino CLI #{version}", shell_output("#{bin}/trino --version").chomp
   end
 end
