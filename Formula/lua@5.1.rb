@@ -19,6 +19,8 @@ class LuaAT51 < Formula
     sha256 "e43d1c75fe4462c5dca2d95ebee9b0e4897c872f03c4331d5898a06a408cbcb3" => :el_capitan
   end
 
+  deprecate! date: "2012-02-17", because: :unsupported
+
   # Be sure to build a dylib, or else runtime modules will pull in another static copy of liblua = crashy
   # See: https://github.com/Homebrew/homebrew/pull/5043
   patch :DATA
