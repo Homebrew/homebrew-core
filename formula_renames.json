@@ -98,7 +98,7 @@
   "postgresql95": "postgresql@9.5",
   "presto": "prestodb",
   "pyqt5": "pyqt",
-  "qt5": "qt",
+  "qt5": "qt@5",
   "racket": "minimal-racket",
   "rebar@3": "rebar3",
   "recipes": "gnome-recipes",
