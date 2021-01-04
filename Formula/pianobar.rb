@@ -4,6 +4,7 @@ class Pianobar < Formula
   url "https://6xq.net/pianobar/pianobar-2020.11.28.tar.bz2"
   sha256 "653bfb96b548259e3ac360752f66fdb77e8e220312e52a43c652f7eb96e7d4fe"
   license "MIT"
+  revision 1
   head "https://github.com/PromyLOPh/pianobar.git"
 
   bottle do
