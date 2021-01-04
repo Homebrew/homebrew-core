@@ -15,9 +15,7 @@ class Fceux < Formula
     sha256 "3f587de213706a92fb02b14676514f6cba079e3c3b7ded2e57a8e718ebf9cf20" => :high_sierra
   end
 
-  head do
-    url "https://github.com/TASVideos/fceux.git"
-  end
+  head "https://github.com/TASVideos/fceux.git"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
