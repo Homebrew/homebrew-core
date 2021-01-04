@@ -3,6 +3,7 @@ class LibunwindHeaders < Formula
   homepage "https://opensource.apple.com/"
   url "https://opensource.apple.com/tarballs/libunwind/libunwind-35.4.tar.gz"
   sha256 "5ca0fcb257a33eb376b19cd26ddc5f34d00f9099c8ffb462d7484bfdca654d7d"
+  license "APSL-2.0"
 
   bottle :unneeded
 
