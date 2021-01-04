@@ -2,6 +2,7 @@ class Fceux < Formula
   desc "All-in-one NES/Famicom Emulator"
   homepage "https://fceux.com/"
   license "GPL-2.0-only"
+  head "https://github.com/TASVideos/fceux.git"
 
   stable do
     url "https://downloads.sourceforge.net/project/fceultra/Binaries/2.3.0/fceux-2.3.0.tar.gz"
@@ -14,8 +15,6 @@ class Fceux < Formula
     sha256 "800e46a45f554876ad2a63ea6a62f6d672e5aefd2c9cca8f58fe615b82eb9ea7" => :mojave
     sha256 "3f587de213706a92fb02b14676514f6cba079e3c3b7ded2e57a8e718ebf9cf20" => :high_sierra
   end
-
-  head "https://github.com/TASVideos/fceux.git"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
