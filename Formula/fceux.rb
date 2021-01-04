@@ -1,13 +1,10 @@
 class Fceux < Formula
   desc "All-in-one NES/Famicom Emulator"
   homepage "https://fceux.com/"
+  url "https://downloads.sourceforge.net/project/fceultra/Binaries/2.3.0/fceux-2.3.0.tar.gz"
+  sha256 "f166f2fea084162f5b823bbbc6843141e23908ae4ee69c8c4e0849b320d7a1dc"
   license "GPL-2.0-only"
   head "https://github.com/TASVideos/fceux.git"
-
-  stable do
-    url "https://downloads.sourceforge.net/project/fceultra/Binaries/2.3.0/fceux-2.3.0.tar.gz"
-    sha256 "f166f2fea084162f5b823bbbc6843141e23908ae4ee69c8c4e0849b320d7a1dc"
-  end
 
   bottle do
     cellar :any
