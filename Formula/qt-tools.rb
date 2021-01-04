@@ -8,7 +8,7 @@ class QtTools < Formula
   depends_on "cmake" => :build
   depends_on "ninja" => :build
 
-  depends_on "llvm"
+  depends_on "llvm" # need cmake related files
   depends_on "qt-base"
 
   def install

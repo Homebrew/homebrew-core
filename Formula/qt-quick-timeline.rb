@@ -1,5 +1,5 @@
 class QtQuickTimeline < Formula
-  desc "Module for keyframe-based timeline construction."
+  desc "Module for keyframe-based timeline construction"
   homepage "https://www.qt.io/"
   url "https://download.qt.io/archive/qt/6.0/6.0.0/submodules/qtquicktimeline-everywhere-src-6.0.0.tar.xz"
   sha256 "7a71495c07a98279a852d518bc9ca0f07b49b495ceb65bfdd000c826ee156b0c"

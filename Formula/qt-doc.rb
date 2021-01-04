@@ -17,7 +17,7 @@ class QtDoc < Formula
     system "cmake", "-G", "Ninja", ".", *args
     system "ninja", "docs"
     system "ninja", "install_docs"
-    
+
     Pathname.glob("share/qt/doc/*") do |path|
       doc.install path
     end
