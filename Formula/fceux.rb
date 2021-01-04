@@ -1,8 +1,7 @@
 class Fceux < Formula
   desc "All-in-one NES/Famicom Emulator"
   homepage "https://fceux.com/"
-  url "https://downloads.sourceforge.net/project/fceultra/Binaries/2.3.0/fceux-2.3.0.tar.gz"
-  sha256 "f166f2fea084162f5b823bbbc6843141e23908ae4ee69c8c4e0849b320d7a1dc"
+  url "https://github.com/TASVideos/fceux.git", using: :git, tag: "fceux-2.3.0", revision: "65c5b0d2a1c08db75bb41340bfa5534578926944"
   license "GPL-2.0-only"
   head "https://github.com/TASVideos/fceux.git"
 
@@ -20,6 +19,9 @@ class Fceux < Formula
   depends_on "sdl2"
 
   def install
+    if build.stable?
+      ENV['CXXFLAGS'] = " -DPUBLIC_RELEASE=1 "
+    end
     system "cmake", ".", *std_cmake_args
     system "make"
     cp "src/auxlib.lua", "output/luaScripts"
