@@ -3,6 +3,7 @@ class Yaf < Formula
   homepage "https://tools.netsa.cert.org/yaf/"
   url "https://tools.netsa.cert.org/releases/yaf-2.12.1.tar.gz"
   sha256 "53bbdfddd4d6f59ac0d866fdb20e59653cc7f8541b44044bbb1ec1f981e21e27"
+  license "GPL-2.0-only"
 
   livecheck do
     url "https://tools.netsa.cert.org/yaf/download.html"
