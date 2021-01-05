@@ -14,7 +14,6 @@ class Treefrog < Formula
   end
 
   depends_on xcode: ["8.0", :build]
-  depends_on macos: :el_capitan
   depends_on "mongo-c-driver"
   depends_on "qt"
 
