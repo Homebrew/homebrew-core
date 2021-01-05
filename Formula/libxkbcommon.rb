@@ -4,6 +4,7 @@ class Libxkbcommon < Formula
   url "https://xkbcommon.org/download/libxkbcommon-1.0.3.tar.xz"
   sha256 "a2202f851e072b84e64a395212cbd976ee18a8ee602008b0bad02a13247dbc52"
   license "MIT"
+  revision 1
   head "https://github.com/xkbcommon/libxkbcommon.git"
 
   bottle do
@@ -28,7 +29,7 @@ class Libxkbcommon < Formula
       -Denable-wayland=false
       -Denable-docs=false
       -Dxkb-config-root=#{HOMEBREW_PREFIX}/share/X11/xkb
-      -Dxkb-config-root=#{HOMEBREW_PREFIX}/share/X11/locale
+      -Dx-locale-root=#{HOMEBREW_PREFIX}/share/X11/locale
     ]
     mkdir "build" do
       system "meson", *std_meson_args, *args, ".."
