@@ -32,7 +32,7 @@ class Doxymacs < Formula
 
   def install
     # Fix undefined symbols errors for _xmlCheckVersion and other symbols
-    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra || MacOS.version == :el_capitan
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version <= :sierra
 
     # https://sourceforge.net/p/doxymacs/support-requests/5/
     ENV.append "CFLAGS", "-std=gnu89"
