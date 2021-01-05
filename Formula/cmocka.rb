@@ -21,7 +21,6 @@ class Cmocka < Formula
   def install
     args = std_cmake_args
     args << "-DWITH_STATIC_LIB=ON" << "-DWITH_CMOCKERY_SUPPORT=ON" << "-DUNIT_TESTING=ON"
-    args << "-DHAVE_CLOCK_GETTIME:INTERNAL=0" if MacOS.version == "10.11" && MacOS::Xcode.version >= "8.0"
 
     mkdir "build" do
       system "cmake", "..", *args
