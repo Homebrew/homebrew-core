@@ -3,6 +3,7 @@ class Llvm < Formula
   homepage "https://llvm.org/"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0"
+  revision 1
   head "https://github.com/llvm/llvm-project.git"
 
   stable do
