@@ -1,7 +1,7 @@
 class Gcc < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
-  if Hardware::CPU.arch == :arm64
+  if Hardware::CPU.arm?
     # Branch from the Darwin maintainer of GCC with Apple Silicon support,
     # located at https://github.com/iains/gcc-darwin-arm64 and
     # backported with his help to gcc-10 branch. Too big for a patch.
@@ -49,7 +49,7 @@ class Gcc < Formula
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
 
-  if Hardware::CPU.arch != :arm64
+  if Hardware::CPU.arm?
     # Patch for Big Sur version numbering, remove with GCC 11
     # https://github.com/iains/gcc-darwin-arm64/commit/556ab512
     patch do
