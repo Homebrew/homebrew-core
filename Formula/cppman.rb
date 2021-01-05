@@ -5,7 +5,7 @@ class Cppman < Formula
   homepage "https://github.com/aitjcize/cppman"
   url "https://files.pythonhosted.org/packages/39/65/7b2e4041ed2f64295ad7b872bbc7a807f47baba75f29652e790fdd5dc432/cppman-0.5.2.tar.gz"
   sha256 "f7c37a2fcfa5a0dc622da87dbc36c1b24339592c28be57012aab6cdeefe48dcc"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url :stable
