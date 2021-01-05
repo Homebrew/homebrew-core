@@ -20,10 +20,8 @@ class JpegXl < Formula
     mkdir "build" do
       system "cmake", "..", "-DBUILD_TESTING=OFF", *std_cmake_args
       system "cmake", "--build", "."
+      system "cmake", "--build", ".", "--target", "install"
     end
-    bin.install "build/tools/benchmark_xl" => "benchmark_xl"
-    bin.install "build/tools/cjxl" => "cjxl"
-    bin.install "build/tools/djxl" => "djxl"
   end
 
   test do
