@@ -17,7 +17,6 @@ class Binaryen < Formula
 
   depends_on "cmake" => :build
   depends_on "python@3.9" => :build
-  depends_on macos: :el_capitan # needs thread-local storage
 
   def install
     ENV.cxx11
