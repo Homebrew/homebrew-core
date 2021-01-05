@@ -25,7 +25,6 @@ class JpegXl < Formula
   end
 
   test do
-    # system "false"
     system "cjxl", test_fixtures("test.jpg"), "test.jxl"
     assert_predicate testpath/"test.jxl", :exist?
   end
