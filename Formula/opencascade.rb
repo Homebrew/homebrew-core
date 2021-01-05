@@ -22,7 +22,6 @@ class Opencascade < Formula
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
-  depends_on "pkg-config" => :build
   depends_on "rapidjson" => :build
   depends_on "freeimage"
   depends_on "freetype"
@@ -30,6 +29,7 @@ class Opencascade < Formula
   depends_on "tcl-tk"
 
   def install
+    tcltk = Formula["tcl-tk"]
     system "cmake", ".",
                     "-DUSE_FREEIMAGE=ON",
                     "-DUSE_RAPIDJSON=ON",
@@ -40,6 +40,14 @@ class Opencascade < Formula
                     "-D3RDPARTY_RAPIDJSON_DIR=#{Formula["rapidjson"].opt_prefix}",
                     "-D3RDPARTY_RAPIDJSON_INCLUDE_DIR=#{Formula["rapidjson"].opt_include}",
                     "-D3RDPARTY_TBB_DIR=#{Formula["tbb"].opt_prefix}",
+                    "-D3RDPARTY_TCL_DIR:PATH=#{tcltk.opt_prefix}",
+                    "-D3RDPARTY_TK_DIR:PATH=#{tcltk.opt_prefix}",
+                    "-D3RDPARTY_TCL_INCLUDE_DIR:PATH=#{tcltk.opt_include}",
+                    "-D3RDPARTY_TK_INCLUDE_DIR:PATH=#{tcltk.opt_include}",
+                    "-D3RDPARTY_TCL_LIBRARY_DIR:PATH=#{tcltk.opt_lib}",
+                    "-D3RDPARTY_TK_LIBRARY_DIR:PATH=#{tcltk.opt_lib}",
+                    "-D3RDPARTY_TCL_LIBRARY:FILEPATH=#{tcltk.opt_lib}/libtcl#{tcltk.version.major_minor}.dylib",
+                    "-D3RDPARTY_TK_LIBRARY:FILEPATH=#{tcltk.opt_lib}/libtk#{tcltk.version.major_minor}.dylib",
                     *std_cmake_args
     system "make", "install"
 
