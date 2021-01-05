@@ -36,12 +36,9 @@ class CrosstoolNg < Formula
   depends_on "xz"
 
   uses_from_macos "flex" => :build
+  uses_from_macos "gperf" => :build
   uses_from_macos "texinfo" => :build
   uses_from_macos "unzip" => :build
-
-  on_linux do
-    depends_on "gperf" => :build
-  end
 
   def install
     system "./bootstrap" if build.head?
