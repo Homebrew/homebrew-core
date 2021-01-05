@@ -6,10 +6,11 @@ class Unison < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/bcpierce00/unison.git", branch: "master"
 
+  # The "latest" release on GitHub sometimes points to unstable versions (e.g.,
+  # release candidates), so we check the Git tags instead.
   livecheck do
     url :stable
-    strategy :github_latest
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+(?:v\d+)?)["' >]}i)
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
