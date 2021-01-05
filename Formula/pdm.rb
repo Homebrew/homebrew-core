@@ -3,8 +3,8 @@ class Pdm < Formula
 
   desc "Modern Python package manager with PEP 582 support"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/e9/a5/0cc1063633a961e9cb37807150891cc1418bf4eeff618cfd59bae0e28c83/pdm-0.12.3.tar.gz"
-  sha256 "084714024b53110c7cd2a9c76d74bddf68c5c972d7690dc2bb529193a55b4594"
+  url "https://files.pythonhosted.org/packages/31/1d/cdc46957943d55ebf27d18ec0f8df6905d22544e0a84edc16a3183e12c8c/pdm-1.0.0.tar.gz"
+  sha256 "a1e969fb9cc28ca0491f91cbc6e1b574803c9c3c32d8188a6dad50f5f8d30ca5"
   license "MIT"
   head "https://github.com/frostming/pdm.git"
 
@@ -58,8 +58,8 @@ class Pdm < Formula
   end
 
   resource "pdm-pep517" do
-    url "https://files.pythonhosted.org/packages/f8/ff/52a5536a593cbca888c8725a989c33efc73a2e850a6f30003a07e7c816bb/pdm-pep517-0.2.1.tar.gz"
-    sha256 "c8fd5d86cae9d304363950590e97793128c5bbc2a5c009054d60d645e53017cb"
+    url "https://files.pythonhosted.org/packages/e0/38/09010920c54d92d5d4d9bede860204cbba26a115c188cf7130bff8a07df9/pdm-pep517-0.4.0.tar.gz"
+    sha256 "82005cbc901d39140818898eecb911ec1c6f90465ab8e897b307d94852c613e6"
   end
 
   resource "pep517" do
@@ -68,8 +68,8 @@ class Pdm < Formula
   end
 
   resource "pycomplete" do
-    url "https://files.pythonhosted.org/packages/42/3d/d125a7a64ec1e9573025bc080de566fc7aca209f2956091c4bdc3939a4e7/pycomplete-0.3.1.tar.gz"
-    sha256 "7f7532f7e0950e4e8c8017f89acb3f3e645cce1f164020ab9792fd5100c11211"
+    url "https://files.pythonhosted.org/packages/28/ab/e08452acd7775aff9afd981ad08955dd25243f9411cf23c69a17724d5731/pycomplete-0.3.2.tar.gz"
+    sha256 "671bfba70b6f2eecedad6b6daabac2aa3f1573cd790cc56ccd48b8067f584391"
   end
 
   resource "pyparsing" do
@@ -93,8 +93,8 @@ class Pdm < Formula
   end
 
   resource "resolvelib" do
-    url "https://files.pythonhosted.org/packages/a8/ca/9f92802ed6febce80807487bf435187319310b6559eda716884b8594aaaa/resolvelib-0.5.3.tar.gz"
-    sha256 "c59eaf306b1735337b1eaf693514bc1adafad4a164a2c163b2cab3794a0f950c"
+    url "https://files.pythonhosted.org/packages/8f/7f/b8b2c7e8b2030710b6ef2d14b2201272dfe437d6c37cec29c60f38d3139d/resolvelib-0.5.4.tar.gz"
+    sha256 "9b9b80d5c60e4c2a8b7fbf0712c3449dc01d74e215632e5199850c9eca687628"
   end
 
   resource "shellingham" do
