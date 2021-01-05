@@ -29,6 +29,8 @@ class Neovim < Formula
   depends_on "msgpack"
   depends_on "unibilium"
 
+  uses_from_macos "gperf" => :build
+
   # Keep resources updated according to:
   # https://github.com/neovim/neovim/blob/v#{version}/third-party/CMakeLists.txt
 
