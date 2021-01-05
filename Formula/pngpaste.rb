@@ -14,11 +14,6 @@ class Pngpaste < Formula
     sha256 "eed393d2dbd516f60bdaa445df330a140853bee95cd49b0c3730345f57136676" => :high_sierra
   end
 
-  # Sierra's CLT is sufficient, but El Capitain's isn't
-  depends_on xcode: ["8.0", :build] if MacOS.version < :sierra
-
-  depends_on macos: :el_capitan # needs NSBitmapImageFileTypePNG, etc.
-
   def install
     system "make", "all"
     bin.install "pngpaste"
