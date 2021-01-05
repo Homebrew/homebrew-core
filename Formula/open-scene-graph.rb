@@ -29,7 +29,7 @@ class OpenSceneGraph < Formula
   def install
     # Fix "fatal error: 'os/availability.h' file not found" on 10.11 and
     # "error: expected function body after function declarator" on 10.12
-    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra || MacOS.version == :el_capitan
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version <= :sierra
 
     args = std_cmake_args + %w[
       -DBUILD_DOCUMENTATION=ON
