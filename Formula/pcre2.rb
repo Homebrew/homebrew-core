@@ -31,7 +31,9 @@ class Pcre2 < Formula
       --enable-pcre2grep-libz
       --enable-pcre2grep-libbz2
     ]
-    args << "--enable-jit" if Hardware::CPU.arch == :x86_64
+
+    # JIT not currently supported for Apple Silicon
+    args << "--enable-jit" unless Hardware::CPU.arm?
 
     system "./configure", *args
     system "make"
