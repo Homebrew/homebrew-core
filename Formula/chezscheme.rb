@@ -18,17 +18,6 @@ class Chezscheme < Formula
   uses_from_macos "ncurses"
 
   def install
-    # dyld: lazy symbol binding failed: Symbol not found: _clock_gettime
-    # Reported 20 Feb 2017 https://github.com/cisco/ChezScheme/issues/146
-    if MacOS.version == "10.11" && MacOS::Xcode.version >= "8.0"
-      inreplace "c/stats.c" do |s|
-        s.gsub! "CLOCK_MONOTONIC", "UNDEFINED_GIBBERISH"
-        s.gsub! "CLOCK_PROCESS_CPUTIME_ID", "UNDEFINED_GIBBERISH"
-        s.gsub! "CLOCK_REALTIME", "UNDEFINED_GIBBERISH"
-        s.gsub! "CLOCK_THREAD_CPUTIME_ID", "UNDEFINED_GIBBERISH"
-      end
-    end
-
     inreplace "configure", "/opt/X11", Formula["libx11"].opt_prefix
     inreplace Dir["c/Mf-*osx"], "/opt/X11", Formula["libx11"].opt_prefix
     inreplace "c/version.h", "/usr/X11R6", Formula["libx11"].opt_prefix
