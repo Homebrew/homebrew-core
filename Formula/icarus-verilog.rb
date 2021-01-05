@@ -26,11 +26,11 @@ class IcarusVerilog < Formula
   depends_on "bison" => :build
 
   uses_from_macos "flex" => :build
+  uses_from_macos "gperf" => :build
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "gperf" => :build
     depends_on "readline"
   end
 
