@@ -23,11 +23,10 @@ class Libid3tag < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
+  uses_from_macos "gperf"
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "gperf"
-
     # fix build with gperf
     # https://bugs.gentoo.org/show_bug.cgi?id=605158
     patch do
