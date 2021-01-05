@@ -37,9 +37,7 @@ class Guile < Formula
   depends_on "pkg-config" # guile-config is a wrapper around pkg-config.
   depends_on "readline"
 
-  on_linux do
-    depends_on "gperf"
-  end
+  uses_from_macos "gperf"
 
   def install
     # Avoid superenv shim
