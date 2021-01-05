@@ -5,6 +5,7 @@ class Freeimage < Formula
   version "3.18.0"
   sha256 "f41379682f9ada94ea7b34fe86bf9ee00935a3147be41b6569c9605a53e438fd"
   license "FreeImage"
+  head "https://svn.code.sf.net/p/freeimage/svn/FreeImage/trunk/"
 
   livecheck do
     url :stable
