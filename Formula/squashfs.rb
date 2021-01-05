@@ -6,9 +6,8 @@ class Squashfs < Formula
   license "GPL-2.0"
   head "https://github.com/plougher/squashfs-tools.git"
 
-  # upstream adds `4.4-git.1` tag as prerelease tag for testing,
-  # which disrupts livecheck flow, thus adding livecheck block in here
-  # see discussions in here, https://github.com/plougher/squashfs-tools/issues/96
+  # Tags like `4.4-git.1` are not release versions and the regex omits these
+  # (see: https://github.com/plougher/squashfs-tools/issues/96).
   livecheck do
     url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
