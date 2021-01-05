@@ -21,7 +21,6 @@ class Mvtools < Formula
   depends_on "nasm" => :build
   depends_on "pkg-config" => :build
   depends_on "fftw"
-  depends_on macos: :el_capitan # due to zimg
   depends_on "vapoursynth"
 
   def install
