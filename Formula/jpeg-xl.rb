@@ -1,7 +1,9 @@
 class JpegXl < Formula
   desc "New file format for still image compression"
   homepage "https://jpeg.org/jpegxl/index.html"
-  url "https://gitlab.com/wg1/jpeg-xl.git", tag: "v0.2", revision: "31c71b0f61123a40789b0b8f54feb70e5995420e"
+  url "https://gitlab.com/wg1/jpeg-xl.git",
+    tag:      "v0.2",
+    revision: "31c71b0f61123a40789b0b8f54feb70e5995420e"
   license "Apache-2.0"
 
   depends_on "cmake" => :build
@@ -17,7 +19,7 @@ class JpegXl < Formula
   def install
     mkdir "build" do
       system "cmake", "-DCMAKE_BUILD_TYPE=Release", "-DBUILD_TESTING=OFF", ".."
-      system "cmake", "--build", ".", "--", "-j"
+      system "cmake", "--build", "."
     end
     bin.install "build/tools/benchmark_xl" => "benchmark_xl"
     bin.install "build/tools/cjxl" => "cjxl"
@@ -26,7 +28,7 @@ class JpegXl < Formula
 
   test do
     # system "false"
-    system "cjxl", "/usr/local/Homebrew/Library/Homebrew//test/support/fixtures/test.jpg", "test.jxl"
+    system "cjxl", test_fixtures("test.jpg"), "test.jxl"
     assert_predicate testpath/"test.jxl", :exist?
   end
 end
