@@ -5,7 +5,7 @@ class Yomo < Formula
   sha256 "d7180d867837af03d53ee0f50e04ae09c56f60574d8a29afd3244c66300f9c5a"
   license "Apache-2.0"
 
-  depends_on "go" => [:build, :test]
+  depends_on "go"
 
   def install
     ENV["YOMO_VERSION"] = version.to_s
