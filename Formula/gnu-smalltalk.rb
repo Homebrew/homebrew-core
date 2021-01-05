@@ -31,9 +31,6 @@ class GnuSmalltalk < Formula
   depends_on "readline"
 
   def install
-    # Fix build failure "Symbol not found: _clock_gettime"
-    ENV["ac_cv_search_clock_gettime"] = "no" if MacOS.version == "10.11" && MacOS::Xcode.version >= "8.0"
-
     args = %W[
       --disable-debug
       --disable-dependency-tracking
