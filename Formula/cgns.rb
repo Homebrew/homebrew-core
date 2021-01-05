@@ -28,10 +28,11 @@ class Cgns < Formula
   uses_from_macos "zlib"
 
   def install
-    args = std_cmake_args
-    args << "-DCGNS_ENABLE_64BIT=YES" if Hardware::CPU.is_64_bit?
-    args << "-DCGNS_ENABLE_FORTRAN=YES"
-    args << "-DCGNS_ENABLE_HDF5=YES"
+    args = std_cmake_args + %w[
+      -DCGNS_ENABLE_64BIT=YES
+      -DCGNS_ENABLE_FORTRAN=YES
+      -DCGNS_ENABLE_HDF5=YES
+    ]
 
     mkdir "build" do
       system "cmake", "..", *args
