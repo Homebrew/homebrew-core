@@ -35,11 +35,8 @@ class Poppler < Formula
   depends_on "openjpeg"
   depends_on "qt"
 
+  uses_from_macos "gperf" => :build
   uses_from_macos "curl"
-
-  on_linux do
-    depends_on "gperf"
-  end
 
   conflicts_with "pdftohtml", "pdf2image", "xpdf",
     because: "poppler, pdftohtml, pdf2image, and xpdf install conflicting executables"
