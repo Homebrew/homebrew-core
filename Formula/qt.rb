@@ -30,6 +30,7 @@ class Qt < Formula
   depends_on xcode: :build
   depends_on macos: :sierra
 
+  uses_from_macos "gperf" => :build
   uses_from_macos "bison"
   uses_from_macos "flex"
   uses_from_macos "sqlite"
