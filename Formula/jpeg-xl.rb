@@ -18,7 +18,7 @@ class JpegXl < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "-DCMAKE_BUILD_TYPE=Release", "-DBUILD_TESTING=OFF", ".."
+      system "cmake", "..", "-DBUILD_TESTING=OFF", *std_cmake_args
       system "cmake", "--build", "."
     end
     bin.install "build/tools/benchmark_xl" => "benchmark_xl"
