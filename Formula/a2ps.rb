@@ -24,6 +24,8 @@ class A2ps < Formula
     satisfy { HOMEBREW_PREFIX.to_s == Homebrew::DEFAULT_PREFIX }
   end
 
+  uses_from_macos "gperf"
+
   on_macos do
     # Software was last updated in 2007.
     # https://trac.macports.org/ticket/18255
@@ -37,10 +39,6 @@ class A2ps < Formula
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/0ae366e6/a2ps/patch-lib__xstrrpl.c"
       sha256 "89fa3c95c329ec326e2e76493471a7a974c673792725059ef121e6f9efb05bf4"
     end
-  end
-
-  on_linux do
-    depends_on "gperf"
   end
 
   def install
