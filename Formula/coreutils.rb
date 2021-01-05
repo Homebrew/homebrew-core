@@ -31,6 +31,8 @@ class Coreutils < Formula
     depends_on "xz" => :build
   end
 
+  uses_from_macos "gperf" => :build
+
   conflicts_with "aardvark_shell_utils", because: "both install `realpath` binaries"
   conflicts_with "b2sum", because: "both install `b2sum` binaries"
   conflicts_with "ganglia", because: "both install `gstat` binaries"
