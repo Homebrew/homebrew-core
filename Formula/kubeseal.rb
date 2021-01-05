@@ -8,8 +8,7 @@ class Kubeseal < Formula
 
   livecheck do
     url :stable
-    regex(%r{href=.*?/tag/(?:helm[._-])?v?(.+?)["' >]}i)
-    strategy :github_latest
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
