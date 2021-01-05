@@ -51,7 +51,7 @@ class Bind < Formula
     end
 
     # Fix "configure: error: xml2-config returns badness"
-    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra || MacOS.version == :el_capitan
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version <= :sierra
 
     args = [
       "--prefix=#{prefix}",
