@@ -8,7 +8,6 @@ class JpegXl < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-
   depends_on "gcc"
   depends_on "giflib"
   depends_on "ilmbase"
