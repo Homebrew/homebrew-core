@@ -5,7 +5,7 @@ class Subversion < Formula
   mirror "https://archive.apache.org/dist/subversion/subversion-1.14.0.tar.bz2"
   sha256 "6ba8e218f9f97a83a799e58a3c6da1221d034b18d9d8cbbcb6ec52ab11722102"
   license "Apache-2.0"
-  revision 6
+  revision 7
 
   livecheck do
     url :stable
@@ -37,16 +37,16 @@ class Subversion < Formula
   depends_on "apr-util"
 
   # build against Homebrew versions of
-  # gettext, lz4, perl, sqlite and utf8proc for consistency
+  # gettext, lz4, sqlite and utf8proc for consistency
   depends_on "gettext"
   depends_on "lz4"
   depends_on "openssl@1.1" # For Serf
-  depends_on "perl" if Hardware::CPU.intel?
   depends_on "sqlite"
   depends_on "utf8proc"
 
   uses_from_macos "expat"
   uses_from_macos "krb5"
+  uses_from_macos "perl"
   uses_from_macos "ruby"
   uses_from_macos "zlib"
 
@@ -145,9 +145,18 @@ class Subversion < Formula
       system "make", "javahl"
       system "make", "install-javahl"
 
-      archlib = Utils.safe_popen_read("perl", "-MConfig", "-e", "print $Config{archlib}")
-      perl_core = Pathname.new(archlib)/"CORE"
-      onoe "'#{perl_core}' does not exist" unless perl_core.exist?
+      perl_archlib = Utils.safe_popen_read("perl", "-MConfig", "-e", "print $Config{archlib}")
+      perl_core = Pathname.new(perl_archlib)/"CORE"
+      perl_extern_h = perl_core/"EXTERN.h"
+
+      unless perl_extern_h.exist?
+        # No EXTERN.h, maybe it's system perl
+        perl_version = Utils.safe_popen_read("perl", "--version")[/v(\d+\.\d+)(?:\.\d+)?/, 1]
+        perl_core = MacOS.sdk_path/"System/Library/Perl"/perl_version/"darwin-thread-multi-2level/CORE"
+        perl_extern_h = perl_core/"EXTERN.h"
+      end
+
+      onoe "'#{perl_extern_h}' does not exist" unless perl_extern_h.exist?
 
       inreplace "Makefile" do |s|
         s.change_make_var! "SWIG_PL_INCLUDES",
@@ -182,7 +191,12 @@ class Subversion < Formula
   test do
     system "#{bin}/svnadmin", "create", "test"
     system "#{bin}/svnadmin", "verify", "test"
-    system "perl", "-e", "use SVN::Client; new SVN::Client()" if Hardware::CPU.intel?
+
+    if Hardware::CPU.intel?
+      perl_version = Utils.safe_popen_read("perl", "--version")[/v(\d+\.\d+(?:\.\d+)?)/, 1]
+      ENV["PERL5LIB"] = "#{lib}/perl5/site_perl/#{perl_version}/darwin-thread-multi-2level"
+      system "perl", "-e", "use SVN::Client; new SVN::Client()"
+    end
   end
 end
 
