@@ -28,11 +28,7 @@ class Freeimage < Formula
     # Temporary workaround for ARM. Upstream tracking issue:
     # https://sourceforge.net/p/freeimage/bugs/325/
     # https://sourceforge.net/p/freeimage/discussion/36111/thread/cc4cd71c6e/
-    if Hardware::CPU.arm?
-    ENV["CFLAGS"] = "-O3 -fPIC -fexceptions -fvisibility=hidden -DPNG_ARM_NEON_OPT=0" \
-      if build.stable?
-      ENV.append "CXXFLAGS", "-DPNG_ARM_NEON_OPT=0"
-    end
+    ENV["CFLAGS"] = "-O3 -fPIC -fexceptions -fvisibility=hidden -DPNG_ARM_NEON_OPT=0" if Hardware::CPU.arm?
     system "make", "-f", "Makefile.gnu"
     system "make", "-f", "Makefile.gnu", "install", "PREFIX=#{prefix}"
     system "make", "-f", "Makefile.fip"
