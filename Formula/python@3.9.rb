@@ -4,7 +4,7 @@ class PythonAT39 < Formula
   url "https://www.python.org/ftp/python/3.9.1/Python-3.9.1.tar.xz"
   sha256 "991c3f8ac97992f3d308fefeb03a64db462574eadbff34ce8bc5bb583d9903ff"
   license "Python-2.0"
-  revision 4
+  revision 5
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -307,6 +307,23 @@ class PythonAT39 < Formula
     # post_install happens after link
     %W[pip3 wheel3 pip#{version.major_minor} easy_install-#{version.major_minor}].each do |e|
       (HOMEBREW_PREFIX/"bin").install_symlink bin/e
+    end
+
+    # Replace bundled setuptools/pip with our own
+    rm Dir["#{lib_cellar}/ensurepip/_bundled/{setuptools,pip}-*.whl"]
+    system bin/"pip3", "wheel", "--wheel-dir=#{lib_cellar}/ensurepip/_bundled",
+           libexec/"setuptools", libexec/"pip"
+
+    # Patch ensurepip to bootstrap our updated versions of setuptools/pip
+    setuptools_whl = Dir["#{lib_cellar}/ensurepip/_bundled/setuptools-*.whl"][0]
+    setuptools_version = Pathname(setuptools_whl).basename.to_s.split("-")[1]
+
+    pip_whl = Dir["#{lib_cellar}/ensurepip/_bundled/pip-*.whl"][0]
+    pip_version = Pathname(pip_whl).basename.to_s.split("-")[1]
+
+    inreplace lib_cellar/"ensurepip/__init__.py" do |s|
+      s.gsub! /_SETUPTOOLS_VERSION = .*/, "_SETUPTOOLS_VERSION = \"#{setuptools_version}\""
+      s.gsub! /_PIP_VERSION = .*/, "_PIP_VERSION = \"#{pip_version}\""
     end
 
     # Help distutils find brewed stuff when building extensions
