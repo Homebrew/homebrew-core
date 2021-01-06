@@ -1,10 +1,9 @@
 class Mapnik < Formula
   desc "Toolkit for developing mapping applications"
   homepage "https://mapnik.org/"
-  url "https://github.com/mapnik/mapnik/releases/download/v3.0.23/mapnik-v3.0.23.tar.bz2"
-  sha256 "4b1352e01f7ce25ab099e586d7ae98e0b74145a3bf94dd365cb0a2bdab3b9dc2"
-  license "LGPL-2.1"
-  revision 4
+  url "https://github.com/mapnik/mapnik/releases/download/v3.0.24/mapnik-v3.0.24.tar.bz2"
+  sha256 "75520a98ff688f48e4dd36e86199530ea084b296f2d4972478db1fcb3475d71c"
+  license "LGPL-2.1-or-later"
   head "https://github.com/mapnik/mapnik.git"
 
   livecheck do
