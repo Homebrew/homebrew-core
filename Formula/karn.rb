@@ -18,13 +18,7 @@ class Karn < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/prydonius/karn").install buildpath.children
-
-    cd "src/github.com/prydonius/karn" do
-      system "go", "build", "-o", bin/"karn", "./cmd/karn/karn.go"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args, "-ldflags", "-s -w", "./cmd/karn/karn.go"
   end
 
   test do
