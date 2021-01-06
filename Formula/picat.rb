@@ -7,7 +7,7 @@ class Picat < Formula
 
   livecheck do
     url "http://picat-lang.org/updates.txt"
-    regex(%r{Version (\d+\.\d+#\d+)}i)
+    regex(/Version (\d+\.\d+#\d+)/)
   end
 
   bottle do
