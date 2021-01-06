@@ -15,7 +15,7 @@ class JpegXl < Formula
   depends_on "brotli"
   depends_on "jpeg"
   depends_on "libpng"
-  depends_on "webp" => :recommended
+  depends_on "webp"
   depends_on "openexr"
 
   fails_with :clang
