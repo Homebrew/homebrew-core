@@ -29,7 +29,8 @@ class Freeimage < Formula
     # https://sourceforge.net/p/freeimage/bugs/325/
     # https://sourceforge.net/p/freeimage/discussion/36111/thread/cc4cd71c6e/
     if Hardware::CPU.arm?
-      ENV.append "CFLAGS", "-DPNG_ARM_NEON_OPT=0"
+    ENV["CFLAGS"] = "-O3 -fPIC -fexceptions -fvisibility=hidden -DPNG_ARM_NEON_OPT=0" \
+      if build.stable?
       ENV.append "CXXFLAGS", "-DPNG_ARM_NEON_OPT=0"
     end
     system "make", "-f", "Makefile.gnu"
