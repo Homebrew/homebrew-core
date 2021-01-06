@@ -1,8 +1,8 @@
 class Karn < Formula
   desc "Manage multiple Git identities"
   homepage "https://github.com/prydonius/karn"
-  url "https://github.com/prydonius/karn/archive/v0.0.4.tar.gz"
-  sha256 "68d244558ef62cf1da2b87927a0a2fbf907247cdd770fc8c84bf72057195a6cb"
+  url "https://github.com/prydonius/karn/archive/v0.0.5.tar.gz"
+  sha256 "bb3e6d93a4202cde22f8ea0767c994dfebd018fba1f4c1876bf9ab0e765aa45c"
   license "MIT"
 
   bottle do
