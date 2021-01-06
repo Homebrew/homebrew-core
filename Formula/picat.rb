@@ -1,3 +1,6 @@
+# typed: false
+# frozen_string_literal: true
+
 class Picat < Formula
   desc "Simple, and yet powerful, logic-based multi-paradigm programming language"
   homepage "http://picat-lang.org/"
@@ -8,7 +11,7 @@ class Picat < Formula
 
   livecheck do
     url "http://picat-lang.org/updates.txt"
-    regex(/Version (\d+\.\d+#\d+)/)
+    regex(/Version (\d+\.\d+#\d+)/i)
   end
 
   bottle do
