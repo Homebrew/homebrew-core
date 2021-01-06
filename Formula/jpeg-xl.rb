@@ -7,11 +7,15 @@ class JpegXl < Formula
   license "Apache-2.0"
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
+
   depends_on "gcc"
   depends_on "giflib"
   depends_on "ilmbase"
+  depends_on "brotli"
   depends_on "jpeg"
   depends_on "libpng"
+  depends_on "webp" => :recommended
   depends_on "openexr"
 
   fails_with :clang
