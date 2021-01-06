@@ -4,6 +4,7 @@ class Picat < Formula
   url "http://picat-lang.org/download/picat30_4_src.tar.gz"
   version "3.0#4"
   sha256 "125f1b4fc932a99833f5ea7d839ca9dc4c211fca02ea50b68022da5309b191e7"
+  license "MPL-2.0"
 
   livecheck do
     url "http://picat-lang.org/updates.txt"
