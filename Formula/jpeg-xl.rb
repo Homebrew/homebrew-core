@@ -2,8 +2,8 @@ class JpegXl < Formula
   desc "New file format for still image compression"
   homepage "https://jpeg.org/jpegxl/index.html"
   url "https://gitlab.com/wg1/jpeg-xl.git",
-    tag:      "v0.2",
-    revision: "31c71b0f61123a40789b0b8f54feb70e5995420e"
+      tag:      "v0.2",
+      revision: "31c71b0f61123a40789b0b8f54feb70e5995420e"
   license "Apache-2.0"
 
   depends_on "cmake" => :build
