@@ -3,10 +3,9 @@ class LibtensorflowAT1 < Formula
 
   desc "C interface for Google's OS library for Machine Intelligence"
   homepage "https://www.tensorflow.org/"
-  url "https://github.com/tensorflow/tensorflow/archive/v1.15.4.tar.gz"
-  sha256 "e18c55e771ad136f9bf3a70ea8f0e2d36662b2ba7c890f9eaf7950554557c7fa"
+  url "https://github.com/tensorflow/tensorflow/archive/v1.15.5.tar.gz"
+  sha256 "4c4d23e311093ded2d2e287b18d7c45b07b5984ab88a1d2f91f8f13c886123db"
   license "Apache-2.0"
-  revision 1
 
   bottle do
     cellar :any
@@ -22,10 +21,7 @@ class LibtensorflowAT1 < Formula
   depends_on "python@3.9" => :build
 
   def install
-    venv_root = "#{buildpath}/venv"
-    virtualenv_create(venv_root, "python3")
-
-    ENV["PYTHON_BIN_PATH"] = "#{venv_root}/bin/python"
+    ENV["PYTHON_BIN_PATH"] = Formula["python@3.9"].opt_bin/"python3"
     ENV["CC_OPT_FLAGS"] = "-march=native"
     ENV["TF_IGNORE_MAX_BAZEL_VERSION"] = "1"
     ENV["TF_NEED_JEMALLOC"] = "1"
