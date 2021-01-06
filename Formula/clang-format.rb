@@ -7,22 +7,22 @@ class ClangFormat < Formula
   head "https://github.com/llvm/llvm-project.git"
 
   stable do
-    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.0/llvm-11.0.0.src.tar.xz"
-    sha256 "913f68c898dfb4a03b397c5e11c6a2f39d0f22ed7665c9cefa87a34423a72469"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.1/llvm-11.0.1.src.tar.xz"
+    sha256 "ccd87c254b6aebc5077e4e6977d08d4be888e7eb672c6630a26a15d58b59b528"
 
     resource "clang" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.0/clang-11.0.0.src.tar.xz"
-      sha256 "0f96acace1e8326b39f220ba19e055ba99b0ab21c2475042dbc6a482649c5209"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.1/clang-11.0.1.src.tar.xz"
+      sha256 "73f572c2eefc5a155e01bcd84815751d722a4d3925f53c144acfb93eeb274b4d"
     end
 
     resource "libcxx" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.0/libcxx-11.0.0.src.tar.xz"
-      sha256 "6c1ee6690122f2711a77bc19241834a9219dda5036e1597bfa397f341a9b8b7a"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.1/libcxx-11.0.1.src.tar.xz"
+      sha256 "9fd5f669621ffea88a2b93e3d99f3a958b5defb954f71bf754709b63275f5e3d"
     end
 
     resource "libcxxabi" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.0/libcxxabi-11.0.0.src.tar.xz"
-      sha256 "58697d4427b7a854ec7529337477eb4fba16407222390ad81a40d125673e4c15"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.1/libcxxabi-11.0.1.src.tar.xz"
+      sha256 "4a697056a5c08621a8380dcaf3836525835aa76b3008d9e8f27abf9270bf683f"
     end
   end
 
