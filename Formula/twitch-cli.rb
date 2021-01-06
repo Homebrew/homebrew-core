@@ -8,7 +8,8 @@ class TwitchCli < Formula
   depends_on "go" => :build
 
   def install
-    system "go build --ldflags \"-X main.buildVersion=0.1.0\""
+    ldflags = "-X main.buildVersion=#{version}"
+    system "go", "build", "-ldflags=#{ldflags}"
     bin.install "twitch-cli" => "twitch"
   end
 
