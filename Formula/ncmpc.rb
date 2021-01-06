@@ -23,15 +23,9 @@ class Ncmpc < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "gcc" if DevelopmentTools.clang_build_version <= 800
   depends_on "gettext"
   depends_on "libmpdclient"
   depends_on "pcre"
-
-  fails_with :clang do
-    build 800
-    cause "error: no matching constructor for initialization of 'value_type'"
-  end
 
   # remove in next release
   # commit reference, https://github.com/MusicPlayerDaemon/ncmpc/commit/1a45eab
