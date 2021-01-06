@@ -8,10 +8,11 @@ class Vtk < Formula
   head "https://github.com/Kitware/VTK.git"
 
   bottle do
-    sha256 "ea36dc06606798e1348a8ca2938feca695a1acbeca4302d1423dffd9b0cc8424" => :big_sur
-    sha256 "d54edd53d051987fa5e6b9ee5351ce5c6c97a1053b374275e5f81fe5ab3c2a76" => :arm64_big_sur
-    sha256 "be3d8520d149de99a4770dfbdc101af4ea0a415a3a0d356132e9cdd5f28f1e17" => :catalina
-    sha256 "e336aad63691695bc958ef52bfc456a7f8ab2970292b69463515f9e777b6eac5" => :mojave
+    rebuild 1
+    sha256 "61c252de19459e69ba40d309e7ecbb76d2344da49ca4cd1b4e9001e8ad0648bf" => :big_sur
+    sha256 "e6f3c3eed81540d13324e11c69dffd1e1bb4125adab4bfb887b751b4eeef53c1" => :arm64_big_sur
+    sha256 "e86b086258803d2976412041b9e63cedad4b3f6370487a26cddd2f0aaa771677" => :catalina
+    sha256 "74398387250003929ee4df43e584a36d54e0b59fb9024446fd24156d809a5167" => :mojave
   end
 
   depends_on "cmake" => [:build, :test]
