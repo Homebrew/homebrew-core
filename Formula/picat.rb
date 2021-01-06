@@ -1,6 +1,7 @@
 # typed: false
 # frozen_string_literal: true
 
+# Picat formula for homebrew
 class Picat < Formula
   desc "Simple, and yet powerful, logic-based multi-paradigm programming language"
   homepage "http://picat-lang.org/"
