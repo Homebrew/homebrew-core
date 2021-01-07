@@ -1,9 +1,9 @@
 class TclTk < Formula
   desc "Tool Command Language"
   homepage "https://www.tcl-lang.org"
-  url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.10/tcl8.6.10-src.tar.gz"
-  mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/tcl/tcl8.6.10-src.tar.gz"
-  sha256 "5196dbf6638e3df8d5c87b5815c8c2b758496eb6f0e41446596c9a4e638d87ed"
+  url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.11/tcl8.6.11-src.tar.gz"
+  mirror "https://fossies.org/linux/misc/tcl8.6.11-src.tar.gz"
+  sha256 "8c0486668586672c5693d7d95817cb05a18c5ecca2f40e2836b9578064088258"
   license "TCL"
 
   livecheck do
@@ -30,8 +30,8 @@ class TclTk < Formula
   end
 
   resource "critcl" do
-    url "https://github.com/andreas-kupries/critcl/archive/3.1.18.tar.gz"
-    sha256 "6fb0263cc8dfb787ab162ae130570c19f665a03229b8a046ec1c11809c2ff70e"
+    url "https://github.com/andreas-kupries/critcl/archive/3.1.18.1.tar.gz"
+    sha256 "51bc4b099ecf59ba3bada874fc8e1611279dfd30ad4d4074257084763c49fd86"
   end
 
   resource "tcllib" do
@@ -40,14 +40,14 @@ class TclTk < Formula
   end
 
   resource "tcltls" do
-    url "https://core.tcl-lang.org/tcltls/uv/tcltls-1.7.20.tar.gz"
-    sha256 "397a4e7cd4ea7a6dbf8a1a664e73945b91828c7c76d02474875261d22fb4e4ca"
+    url "https://core.tcl-lang.org/tcltls/uv/tcltls-1.7.22.tar.gz"
+    sha256 "e84e2b7a275ec82c4aaa9d1b1f9786dbe4358c815e917539ffe7f667ff4bc3b4"
   end
 
   resource "tk" do
-    url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.10/tk8.6.10-src.tar.gz"
-    mirror "https://fossies.org/linux/misc/tk8.6.10-src.tar.gz"
-    sha256 "63df418a859d0a463347f95ded5cd88a3dd3aaa1ceecaeee362194bc30f3e386"
+    url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.11/tk8.6.11-src.tar.gz"
+    mirror "https://fossies.org/linux/misc/tk8.6.11-src.tar.gz"
+    sha256 "5228a8187a7f70fa0791ef0f975270f068ba9557f57456f51eb02d9d4ea31282"
   end
 
   resource "itk4" do
