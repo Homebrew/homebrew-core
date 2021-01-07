@@ -18,13 +18,19 @@ class Cryfs < Formula
     url "https://github.com/cryfs/cryfs.git", branch: "develop", shallow: false
   end
 
-  deprecate! date: "2020-11-10", because: "requires FUSE"
-
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "libomp"
   depends_on "openssl@1.1"
-  depends_on :osxfuse
+
+  on_macos do
+    deprecate! date: "2020-11-10", because: "requires FUSE"
+    depends_on :osxfuse
+  end
+
+  on_linux do
+    depends_on "libfuse"
+  end
 
   def install
     configure_args = [
