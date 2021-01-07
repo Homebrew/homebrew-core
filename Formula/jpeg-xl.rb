@@ -8,16 +8,13 @@ class JpegXl < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "gcc"
+  depends_on "brotli"
   depends_on "giflib"
   depends_on "ilmbase"
-  depends_on "brotli"
   depends_on "jpeg"
   depends_on "libpng"
-  depends_on "webp"
   depends_on "openexr"
-
-  fails_with :clang
+  depends_on "webp"
 
   def install
     mkdir "build" do
