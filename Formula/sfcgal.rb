@@ -3,7 +3,7 @@ class Sfcgal < Formula
   homepage "http://sfcgal.org/"
   url "https://gitlab.com/Oslandia/SFCGAL/-/archive/v1.3.9/SFCGAL-v1.3.9.tar.gz"
   sha256 "2451cb6df24853c7e59173eec0068e3263ab625fcf61add4624f8bf8366ae4e3"
-  license "LGPL-2.0+"
+  license "LGPL-2.0-or-later"
   revision 1
 
   bottle do
@@ -18,6 +18,13 @@ class Sfcgal < Formula
   depends_on "cgal"
   depends_on "gmp"
   depends_on "mpfr"
+
+  # Build against boost >= 1.75
+  # https://gitlab.com/Oslandia/SFCGAL/-/issues/238
+  patch do
+    url "https://gitlab.com/Oslandia/SFCGAL/-/commit/d07ed747e7f06acb22d5891ece789b331cff14c5.patch"
+    sha256 "158b68643ff4de03aed064d1e494dd7e27acf86da3ae8949fddd78d5b73d6d73"
+  end
 
   def install
     system "cmake", ".", *std_cmake_args
