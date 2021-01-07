@@ -12,14 +12,20 @@ class Mp3fs < Formula
     sha256 "b3b2e431e9a782dbde9d758505c372a0d6ed60eff44ebc21c9b979c01b0df189" => :high_sierra
   end
 
-  deprecate! date: "2020-11-10", because: "requires FUSE"
-
   depends_on "pkg-config" => :build
   depends_on "flac"
   depends_on "lame"
   depends_on "libid3tag"
   depends_on "libvorbis"
-  depends_on :osxfuse
+
+  on_macos do
+    deprecate! date: "2020-11-10", because: "requires FUSE"
+    depends_on :osxfuse
+  end
+
+  on_linux do
+    depends_on "libfuse"
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
