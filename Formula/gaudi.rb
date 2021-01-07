@@ -26,17 +26,16 @@ class Gaudi < Formula
   depends_on "xerces-c"
 
   def install
-    # Fix cmake issue with Foundation framework. Git issue here https://gitlab.cern.ch/gaudi/Gaudi/-/issues/158 and associated MR https://gitlab.cern.ch/gaudi/Gaudi/-/merge_requests/1158
-
+    # Fix cmake issue with Foundation framework. Git issue here https://gitlab.cern.ch/gaudi/Gaudi/-/issues/158
     inreplace "GaudiKernel/CMakeLists.txt", /target_link_libraries\(GaudiKernel PUBLIC Foundation\)/,
               "target_link_libraries(GaudiKernel PUBLIC ${Foundation_FRAMEWORK})"
-    
+
     cmake_args = std_cmake_args + %W[
-        -DBoost_NO_BOOST_CMAKE=ON
-        -DGAUDI_USE_UNWIND=OFF
-        -DRANGEV3_INCLUDE_DIR=#{Formula["range-v3"].opt_include}
+      -DBoost_NO_BOOST_CMAKE=ON
+      -DGAUDI_USE_UNWIND=OFF
+      -DRANGEV3_INCLUDE_DIR=#{Formula["range-v3"].opt_include}
     ]
-    
+
     system "cmake", ".", *cmake_args
     system "make"
 
