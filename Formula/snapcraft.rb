@@ -7,6 +7,7 @@ class Snapcraft < Formula
       tag:      "4.4.1",
       revision: "24162f9de394d11e9debf166f59fe190c9dcff3a"
   license "GPL-3.0-only"
+  revision 1
 
   livecheck do
     url :stable
@@ -38,8 +39,8 @@ class Snapcraft < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/05/54/3324b0c46340c31b909fcec598696aaec7ddc8c18a63f2db352562d3354c/cffi-1.14.0.tar.gz"
-    sha256 "2d384f4a127a15ba701207f7639d94106693b6cd64173d6c8988e2c25f3ac2b6"
+    url "https://files.pythonhosted.org/packages/66/6a/98e023b3d11537a5521902ac6b50db470c826c682be6a8c661549cb7717a/cffi-1.14.4.tar.gz"
+    sha256 "1a465cbe98a7fd391d47dce4b8f7e5b921e6cd805ef421d04f5f66ba8f06086c"
   end
 
   resource "chardet" do
