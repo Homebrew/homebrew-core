@@ -6,7 +6,7 @@ class Statik < Formula
   url "https://files.pythonhosted.org/packages/c1/f7/c1dc03a0ed218cb5d3e72f0983dcc18b441cc9d3275b527a5cb0a479dc2a/statik-0.23.0.tar.gz"
   sha256 "9ce2c5a76284aa7d3eba2dc5b167c39d0249f96da08213a14c89f0b7edcb7746"
   license "MIT"
-  revision 2
+  revision 3
   head "https://github.com/thanethomson/statik.git"
 
   livecheck do
@@ -48,8 +48,8 @@ class Statik < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/05/54/3324b0c46340c31b909fcec598696aaec7ddc8c18a63f2db352562d3354c/cffi-1.14.0.tar.gz"
-    sha256 "2d384f4a127a15ba701207f7639d94106693b6cd64173d6c8988e2c25f3ac2b6"
+    url "https://files.pythonhosted.org/packages/66/6a/98e023b3d11537a5521902ac6b50db470c826c682be6a8c661549cb7717a/cffi-1.14.4.tar.gz"
+    sha256 "1a465cbe98a7fd391d47dce4b8f7e5b921e6cd805ef421d04f5f66ba8f06086c"
   end
 
   resource "chardet" do
