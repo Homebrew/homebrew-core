@@ -1,10 +1,24 @@
 class JpegXl < Formula
   desc "New file format for still image compression"
   homepage "https://jpeg.org/jpegxl/index.html"
-  license "Apache-2.0"
-
   url "https://gitlab.com/wg1/jpeg-xl/-/archive/v0.2/jpeg-xl-v0.2.tar.bz2"
   sha256 "f0933c796f95ee905efa7a677367c0d57678b9587c2e967ea30d72e9405cca72"
+  license "Apache-2.0"
+
+  depends_on "clang-format" => :build
+  depends_on "cmake" => :build
+  depends_on "coreutils" => :build
+  depends_on "llvm" => :build
+  depends_on "ninja" => :build
+  depends_on "parallel" => :build
+  depends_on "pkg-config" => :build
+  depends_on "brotli"
+  depends_on "giflib"
+  depends_on "ilmbase"
+  depends_on "jpeg"
+  depends_on "libpng"
+  depends_on "openexr"
+  depends_on "webp"
 
   resource "highway" do
     revision = "311c183c9d96e69b123f61eedc21025dd27be000"
@@ -26,21 +40,6 @@ class JpegXl < Formula
     sha256 "f9e8a0f34cd34e216d1736142a5040a8542cf6b1526421d82f33b159cbf910a7"
     url "https://skia.googlesource.com/skcms/+archive/#{revision}.tar.gz"
   end
-
-  depends_on "cmake" => :build
-  depends_on "pkg-config" => :build
-  depends_on "llvm" => :build
-  depends_on "clang-format" => :build
-  depends_on "coreutils" => :build
-  depends_on "parallel" => :build
-  depends_on "ninja" => :build
-  depends_on "brotli"
-  depends_on "giflib"
-  depends_on "ilmbase"
-  depends_on "jpeg"
-  depends_on "libpng"
-  depends_on "openexr"
-  depends_on "webp"
 
   def install
     mkdir "build" do
