@@ -12,11 +12,17 @@ class S3Backer < Formula
     sha256 "4d23cfd2c126c5f3efa1023e7c061830de6f1fdda69760bbd3ed70a169def288" => :high_sierra
   end
 
-  deprecate! date: "2020-11-10", because: "requires FUSE"
-
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
-  depends_on :osxfuse
+
+  on_macos do
+    deprecate! date: "2020-11-10", because: "requires FUSE"
+    depends_on :osxfuse
+  end
+
+  on_linux do
+    depends_on "libfuse"
+  end
 
   def install
     inreplace "configure", "-lfuse", "-losxfuse"
