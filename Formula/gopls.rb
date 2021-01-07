@@ -32,6 +32,6 @@ class Gopls < Formula
     output = JSON.parse(output)
 
     assert_equal "gopls.generate", output["Commands"][0]["Command"]
-    assert_equal "false", output["Options"]["Debugging"][0]["Default"]
+    assert_equal "buildFlags", output["Options"]["User"][0]["Name"]
   end
 end
