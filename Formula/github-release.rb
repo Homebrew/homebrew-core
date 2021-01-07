@@ -1,8 +1,8 @@
 class GithubRelease < Formula
   desc "Create and edit releases on Github (and upload artifacts)"
   homepage "https://github.com/github-release/github-release"
-  url "https://github.com/github-release/github-release/archive/v0.9.0.tar.gz"
-  sha256 "d421bee3af352ab79058d1e37b8f97d0772f890cd850ae2a21a7060e81985e1f"
+  url "https://github.com/github-release/github-release/archive/v0.10.0.tar.gz"
+  sha256 "79bfaa465f549a08c781f134b1533f05b02f433e7672fbaad4e1764e4a33f18a"
   license "MIT"
   head "https://github.com/github-release/github-release.git"
 
