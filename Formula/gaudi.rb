@@ -31,7 +31,7 @@ class Gaudi < Formula
     inreplace "GaudiKernel/CMakeLists.txt", /target_link_libraries\(GaudiKernel PUBLIC Foundation\)/,
               "target_link_libraries(GaudiKernel PUBLIC ${Foundation_FRAMEWORK})"
 
-    system "cmake", ".", "-DBoost_NO_BOOST_CMAKE=ON", "-DGAUDI_USE_UNWIND=OFF", "-DRANGEV3_INCLUDE_DIR=%s/include" % Formula["range-v3"].opt_prefix, *std_cmake_args
+    system "cmake", ".", "-DBoost_NO_BOOST_CMAKE=ON", "-DGAUDI_USE_UNWIND=OFF", "-DRANGEV3_INCLUDE_DIR=#{Formula["range-v3"].opt_include}", *std_cmake_args
     system "make"
 
     # Remove the .db extension otherwise, the installation will crash
