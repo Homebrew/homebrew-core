@@ -6,6 +6,7 @@ class Dxpy < Formula
   url "https://files.pythonhosted.org/packages/1c/bc/268976aa00e5decccdf767aff1a36624c90bf4fcc3edbc6619efd933ce6a/dxpy-0.303.1.tar.gz"
   sha256 "d5e38966d7f8e0e9ee4d60b105dfff8862dd91e1151c17f78ba12b7bce5221ca"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -45,8 +46,8 @@ class Dxpy < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/cb/ae/380e33d621ae301770358eb11a896a34c34f30db188847a561e8e39ee866/cffi-1.14.3.tar.gz"
-    sha256 "f92f789e4f9241cd262ad7a555ca2c648a98178a953af117ef7fad46aa1d5591"
+    url "https://files.pythonhosted.org/packages/66/6a/98e023b3d11537a5521902ac6b50db470c826c682be6a8c661549cb7717a/cffi-1.14.4.tar.gz"
+    sha256 "1a465cbe98a7fd391d47dce4b8f7e5b921e6cd805ef421d04f5f66ba8f06086c"
   end
 
   resource "chardet" do
