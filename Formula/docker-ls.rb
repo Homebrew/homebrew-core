@@ -17,16 +17,10 @@ class DockerLs < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
+    system "go", "generate", "./lib"
 
-    (buildpath/"src/github.com/mayflower/docker-ls").install buildpath.children
-
-    system "go", "generate", "github.com/mayflower/docker-ls/lib"
-
-    cd "src/github.com/mayflower/docker-ls" do
-      system "go", "build", "-o", bin/"docker-ls", "./cli/docker-ls"
-      system "go", "build", "-o", bin/"docker-rm", "./cli/docker-rm"
-      prefix.install_metafiles
+    %w[docker-ls docker-rm].each do |name|
+      system "go", "build", "-trimpath", "-o", bin/name, "-ldflags", "-s -w", "./cli/#{name}"
     end
   end
 
