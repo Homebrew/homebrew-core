@@ -18,8 +18,7 @@ class SsllabsScan < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    system "go", "build", "-o", bin/"ssllabs-scan", "ssllabs-scan-v3.go"
+    system "go", "build", *std_go_args, "-ldflags", "-s -w", "ssllabs-scan-v3.go"
   end
 
   def caveats
