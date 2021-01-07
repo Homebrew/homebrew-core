@@ -1,8 +1,8 @@
 class SpotifyTui < Formula
   desc "Terminal-based client for Spotify"
   homepage "https://github.com/Rigellute/spotify-tui"
-  url "https://github.com/Rigellute/spotify-tui/archive/v0.22.0.tar.gz"
-  sha256 "3bac0ca34db6b71721af66ba423cea59780c43410bfb52d870198facc6a6a906"
+  url "https://github.com/Rigellute/spotify-tui/archive/v0.23.0.tar.gz"
+  sha256 "836a686c78599431b7e4dcf4a2830d16b25d28bdc4f35d79f0d5e8c000788da7"
   license "MIT"
   head "https://github.com/Rigellute/spotify-tui.git"
 
