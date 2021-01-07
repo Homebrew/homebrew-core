@@ -13,8 +13,6 @@ class Ifuse < Formula
     sha256 "ff5577f28749cf18671eecd953e96f0c52a06dccf827dcf08e2d64f894dfdd5e" => :high_sierra
   end
 
-  deprecate! date: "2020-11-10", because: "requires FUSE"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
@@ -22,7 +20,15 @@ class Ifuse < Formula
   depends_on "glib"
   depends_on "libimobiledevice"
   depends_on "libplist"
-  depends_on :osxfuse
+
+  on_macos do
+    deprecate! date: "2020-11-10", because: "requires FUSE"
+    depends_on :osxfuse
+  end
+
+  on_linux do
+    depends_on "libfuse"
+  end
 
   def install
     system "./autogen.sh"
