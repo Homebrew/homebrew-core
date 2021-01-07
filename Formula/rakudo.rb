@@ -5,6 +5,7 @@ class Rakudo < Formula
   url "https://github.com/rakudo/rakudo/releases/download/2020.12/rakudo-2020.12.tar.gz"
   sha256 "c7ccfbb832b97607282d2cd4747e68522e522fe254e329a869053145218f6cbc"
   license "Artistic-2.0"
+  revision 1
 
   bottle do
     rebuild 1
