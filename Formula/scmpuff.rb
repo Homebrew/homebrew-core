@@ -18,13 +18,7 @@ class Scmpuff < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
-    (buildpath/"src/github.com/mroth/scmpuff").install buildpath.children
-    cd "src/github.com/mroth/scmpuff" do
-      system "go", "build", "-ldflags", "-X main.VERSION=#{version}",
-                   "-o", bin/"scmpuff"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args, "-ldflags", "-s -v -X main.VERSION=#{version}"
   end
 
   test do
