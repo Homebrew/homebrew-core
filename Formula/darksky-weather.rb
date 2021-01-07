@@ -17,16 +17,12 @@ class DarkskyWeather < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
-    (buildpath/"src/github.com/genuinetools/weather").install buildpath.children
-
-    cd "src/github.com/genuinetools/weather" do
-      project = "github.com/genuinetools/weather"
-      ldflags = ["-X #{project}/version.GITCOMMIT=homebrew",
-                 "-X #{project}/version.VERSION=v#{version}"]
-      system "go", "build", "-o", bin/"weather", "-ldflags", ldflags.join(" ")
-      prefix.install_metafiles
-    end
+    project = "github.com/genuinetools/weather"
+    ldflags = ["-s -w",
+               "-X #{project}/version.GITCOMMIT=homebrew",
+               "-X #{project}/version.VERSION=v#{version}"]
+    system "go", "build", *std_go_args, "-ldflags", ldflags.join(" ")
+    mv bin/"darksky-weather", bin/"weather"
   end
 
   test do
