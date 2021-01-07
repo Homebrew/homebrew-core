@@ -19,13 +19,8 @@ class GoStatik < Formula
   conflicts_with "statik", because: "both install `statik` binaries"
 
   def install
-    ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
-    (buildpath/"src/github.com/rakyll/statik").install buildpath.children
-
-    cd "src/github.com/rakyll/statik" do
-      system "go", "build", "-o", bin/"statik"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args, "-ldflags", "-s -w"
+    mv bin/"go-statik", bin/"statik"
   end
 
   test do
