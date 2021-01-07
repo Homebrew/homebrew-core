@@ -3,8 +3,8 @@ class Jc < Formula
 
   desc "Serializes the output of command-line tools to structured JSON output"
   homepage "https://github.com/kellyjonbrazil/jc"
-  url "https://files.pythonhosted.org/packages/28/da/b60b06b0158a6e651706facfc500b2b61bf21046530889ee9c6815de8b31/jc-1.14.0.tar.gz"
-  sha256 "562d9c2fdd44786b88ddac879617c4c7eeb0e05b854fc4743c7394e7a756a6c5"
+  url "https://files.pythonhosted.org/packages/e1/7f/eda44d7d881bd0356038382741bacd93ff93546c75a8a2af0271f882ff6e/jc-1.14.1.tar.gz"
+  sha256 "b6bfde3079d4385a643d9eb31c1c554e122ac32e594318363306375b25269473"
   license "MIT"
 
   livecheck do
