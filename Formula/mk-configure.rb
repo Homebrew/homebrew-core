@@ -1,8 +1,8 @@
 class MkConfigure < Formula
   desc "Lightweight replacement for GNU autotools"
   homepage "https://github.com/cheusov/mk-configure"
-  url "https://downloads.sourceforge.net/project/mk-configure/mk-configure/mk-configure-0.35.0/mk-configure-0.35.0.tar.gz"
-  sha256 "7487cb26969f3e8f155c2a4d1b7d75599c60d593c10917462c1b505fa5a53bc1"
+  url "https://downloads.sourceforge.net/project/mk-configure/mk-configure/mk-configure-0.36.0/mk-configure-0.36.0.tar.gz"
+  sha256 "a7becc4411dc2b137110b1543c6067b3db11db6baa4a6b303916605f0f2d55ea"
 
   livecheck do
     url :stable
