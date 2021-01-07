@@ -6,6 +6,7 @@ class Salt < Formula
   url "https://files.pythonhosted.org/packages/b5/45/a20ff8a3cad48b50a924ee9c65f2df0e214de4fa282c4feef2e1d6a0b886/salt-3002.2.tar.gz"
   sha256 "bd6d29621ce8e099412777cd396af35474aa112bb0999b5da804387d87290075"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/saltstack/salt.git", branch: "develop", shallow: false
 
   livecheck do
@@ -37,8 +38,8 @@ class Salt < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/cb/ae/380e33d621ae301770358eb11a896a34c34f30db188847a561e8e39ee866/cffi-1.14.3.tar.gz"
-    sha256 "f92f789e4f9241cd262ad7a555ca2c648a98178a953af117ef7fad46aa1d5591"
+    url "https://files.pythonhosted.org/packages/66/6a/98e023b3d11537a5521902ac6b50db470c826c682be6a8c661549cb7717a/cffi-1.14.4.tar.gz"
+    sha256 "1a465cbe98a7fd391d47dce4b8f7e5b921e6cd805ef421d04f5f66ba8f06086c"
   end
 
   resource "M2Crypto" do
@@ -66,6 +67,10 @@ class Salt < Formula
     # Do not install PyObjC since it causes broken linkage
     # https://github.com/Homebrew/homebrew-core/pull/52835#issuecomment-617502578
     inreplace buildpath/"requirements/static/pkg/py#{xy}/darwin.txt", /^pyobjc.*$/, ""
+    # Use our preferred version of cffi. See
+    # https://github.com/Homebrew/homebrew-core/issues/68463
+    # https://github.com/Homebrew/homebrew-core/pull/62864#issuecomment-709094985
+    inreplace buildpath/"requirements/static/pkg/py#{xy}/darwin.txt", /^cffi.*$/, "cffi==#{resource("cffi").version}"
 
     venv = virtualenv_create(libexec, python)
     venv.pip_install resources
