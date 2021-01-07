@@ -16,16 +16,19 @@ class Gitfs < Formula
     sha256 "218c5f19bcecb33e4f18c19cf0f56ce6d9628d4cfad9f095fbb1071af3cd79c2" => :high_sierra
   end
 
-  deprecate! date: "2020-11-10", because: "requires FUSE"
-
   depends_on "libgit2"
-  depends_on :osxfuse
   depends_on "python@3.9"
 
   uses_from_macos "libffi"
 
+  on_macos do
+    deprecate! date: "2020-11-10", because: "requires FUSE"
+    depends_on :osxfuse
+  end
+
   on_linux do
     depends_on "pkg-config" => :build
+    depends_on "libfuse"
   end
 
   resource "atomiclong" do
