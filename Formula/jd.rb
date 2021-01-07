@@ -16,14 +16,7 @@ class Jd < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/github.com/josephburnett/jd"
-    dir.install buildpath.children
-
-    cd dir do
-      system "go", "build", "-o", bin/"jd"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args, "-ldflags", "-s -w"
   end
 
   test do
