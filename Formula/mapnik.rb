@@ -34,13 +34,6 @@ class Mapnik < Formula
   depends_on "proj"
   depends_on "webp"
 
-  on_macos do
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/57e635431e09fa1b00f3e1fd9574ad516de13308/mapnik/mapnik-2.0.23.patch"
-      sha256 "b946071a95a52757e1aabb03ed7768408b864e20f46cbea39bda2cd1499b256c"
-    end
-  end
-
   # Fix for Boost >= 1.75
   # https://github.com/mapnik/mapnik/issues/4201
   patch do
