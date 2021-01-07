@@ -31,6 +31,7 @@ class Physfs < Formula
     mkdir "macbuild" do
       args = std_cmake_args
       args << "-DPHYSFS_BUILD_TEST=TRUE"
+      args << "-DCMAKE_INSTALL_RPATH=#{lib}"
       args << "-DPHYSFS_BUILD_WX_TEST=FALSE" unless build.head?
       system "cmake", "..", *args
       system "make", "install"
