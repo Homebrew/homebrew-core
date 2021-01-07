@@ -11,11 +11,17 @@ class Archivemount < Formula
     sha256 "428113b60673b6bb8be9467587f1d82bf4c9447c7f0bbdea47749bed3ec86798" => :high_sierra
   end
 
-  deprecate! date: "2020-11-10", because: "requires FUSE"
-
   depends_on "pkg-config" => :build
   depends_on "libarchive"
-  depends_on :osxfuse
+
+  on_macos do
+    deprecate! date: "2020-11-10", because: "requires FUSE"
+    depends_on :osxfuse
+  end
+
+  on_linux do
+    depends_on "libfuse"
+  end
 
   def install
     ENV.append_to_cflags "-I/usr/local/include/osxfuse"
