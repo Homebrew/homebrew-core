@@ -13,10 +13,16 @@ class RofsFiltered < Formula
     sha256 "74277c4f4cc2c60534cda38627450176f356da5bb7120334fd667eaa261fea7b" => :high_sierra
   end
 
-  deprecate! date: "2020-11-10", because: "requires FUSE"
-
   depends_on "cmake" => :build
-  depends_on :osxfuse
+
+  on_macos do
+    deprecate! date: "2020-11-10", because: "requires FUSE"
+    depends_on :osxfuse
+  end
+
+  on_linux do
+    depends_on "libfuse"
+  end
 
   def install
     mkdir "build" do
