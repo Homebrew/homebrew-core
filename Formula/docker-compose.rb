@@ -6,7 +6,7 @@ class DockerCompose < Formula
   url "https://files.pythonhosted.org/packages/4a/b1/a1fdbc631212d9e27cc462d6b01a7ec50eed32ce1b5de80b2eb690b382c8/docker-compose-1.27.4.tar.gz"
   sha256 "5a5690f24c27d4b43dcbe6b3fae91ba680713208e99ee863352b3bae37bcaa83"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/docker/compose.git"
 
   livecheck do
@@ -48,8 +48,8 @@ class DockerCompose < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/cb/ae/380e33d621ae301770358eb11a896a34c34f30db188847a561e8e39ee866/cffi-1.14.3.tar.gz"
-    sha256 "f92f789e4f9241cd262ad7a555ca2c648a98178a953af117ef7fad46aa1d5591"
+    url "https://files.pythonhosted.org/packages/66/6a/98e023b3d11537a5521902ac6b50db470c826c682be6a8c661549cb7717a/cffi-1.14.4.tar.gz"
+    sha256 "1a465cbe98a7fd391d47dce4b8f7e5b921e6cd805ef421d04f5f66ba8f06086c"
   end
 
   resource "chardet" do
