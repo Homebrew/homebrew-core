@@ -18,14 +18,7 @@ class Slackcat < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    src = buildpath/"src/github.com/vektorlab/slackcat"
-    src.install buildpath.children
-    src.cd do
-      system "go", "build", "-o", bin/"slackcat", "-ldflags", "-X main.version=#{version}"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args, "-ldflags", "-s -w -X main.version=#{version}"
   end
 
   test do
