@@ -22,18 +22,18 @@ class JpegXl < Formula
 
   resource "highway" do
     revision = "311c183c9d96e69b123f61eedc21025dd27be000"
-    sha256 "51045c5eaf8ef6f1c610c31a22ff7ddf243c98227f3f35871e9a9a4b2caf7d0d"
-    url "https://github.com/google/highway/tarball/#{revision}"
+    sha256 "40a4aaafbda61dd93803d8c830971f77d1b0b33c648ed29b5032f8798d293f21"
+    url "https://github.com/google/highway/archive/#{revision}.tar.gz"
   end
   resource "lodepng" do
     revision = "48e5364ef48ec2408f44c727657ac1b6703185f8"
-    sha256 "f38176fc103fe1f6d23ba6addd5b14e6a54d546dfaa64663306acfe7b6d912ea"
-    url "https://github.com/lvandeve/lodepng/tarball/#{revision}"
+    sha256 "c47c48c77a205f1af484b7b5a847290af65de3ea6f15817aa27c5ec7cc5208fd"
+    url "https://github.com/lvandeve/lodepng/archive/#{revision}.tar.gz"
   end
   resource "sjpeg" do
     revision = "868ab558fad70fcbe8863ba4e85179eeb81cc840"
-    sha256 "2d0306d7273b74e51a61e49483770d83bc27e4dc51efd3ee8e7f4f45996b9f20"
-    url "https://github.com/webmproject/sjpeg/tarball/#{revision}"
+    sha256 "72279cd6d4089b62a49cb127353bf875cb35844eda42d90901dd32f08992060e"
+    url "https://github.com/webmproject/sjpeg/archive/#{revision}.tar.gz"
   end
   resource "skcms" do
     revision = "64374756e03700d649f897dbd98c95e78c30c7da"
