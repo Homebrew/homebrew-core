@@ -22,6 +22,7 @@ class Lxc < Formula
   def install
     ENV["GOPATH"] = buildpath
     ENV["GOBIN"] = bin
+    ENV["GO111MODULE"] = "auto"
 
     ln_s buildpath/"_dist/src", buildpath/"src"
     system "go", "install", "-v", "github.com/lxc/lxd/lxc"
