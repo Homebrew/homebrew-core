@@ -14,15 +14,21 @@ class Squashfuse < Formula
     sha256 "bf4e6ca88d094fd7d92fbab61dd1c3a4e71b60d7668d23b6044c90e8167833c5" => :el_capitan
   end
 
-  deprecate! date: "2020-11-10", because: "requires FUSE"
-
   depends_on "pkg-config" => :build
   depends_on "lz4"
   depends_on "lzo"
-  depends_on :osxfuse
   depends_on "squashfs"
   depends_on "xz"
   depends_on "zstd"
+
+  on_macos do
+    deprecate! date: "2020-11-10", because: "requires FUSE"
+    depends_on :osxfuse
+  end
+
+  on_linux do
+    depends_on "libfuse"
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking",
