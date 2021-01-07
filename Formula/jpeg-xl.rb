@@ -5,10 +5,11 @@ class JpegXl < Formula
   sha256 "f0933c796f95ee905efa7a677367c0d57678b9587c2e967ea30d72e9405cca72"
   license "Apache-2.0"
 
+  # The build dependencies are documented on the jpeg-xl osx-build page
+  # https://gitlab.com/wg1/jpeg-xl/-/blob/master/README.OSX.md
   depends_on "clang-format" => :build
   depends_on "cmake" => :build
   depends_on "coreutils" => :build
-  depends_on "llvm" => :build
   depends_on "ninja" => :build
   depends_on "parallel" => :build
   depends_on "pkg-config" => :build
@@ -20,6 +21,8 @@ class JpegXl < Formula
   depends_on "openexr"
   depends_on "webp"
 
+  # These resources are versioned according to the script supplied with jpeg-xl to download the dependencies:
+  # https://gitlab.com/wg1/jpeg-xl/-/blob/master/deps.sh
   resource "highway" do
     revision = "311c183c9d96e69b123f61eedc21025dd27be000"
     sha256 "40a4aaafbda61dd93803d8c830971f77d1b0b33c648ed29b5032f8798d293f21"
