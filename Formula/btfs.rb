@@ -13,13 +13,19 @@ class Btfs < Formula
     sha256 "934b8849eaecd08113b01e222c9583f9293100889f3f40f8452a476a6491e0d0" => :high_sierra
   end
 
-  deprecate! date: "2020-11-10", because: "requires FUSE"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
   depends_on "libtorrent-rasterbar"
-  depends_on :osxfuse
+
+  on_macos do
+    deprecate! date: "2020-11-10", because: "requires FUSE"
+    depends_on :osxfuse
+  end
+
+  on_linux do
+    depends_on "libfuse"
+  end
 
   def install
     ENV.cxx11
