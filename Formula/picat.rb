@@ -7,8 +7,8 @@ class Picat < Formula
   license "MPL-2.0"
 
   livecheck do
-    url "http://picat-lang.org/updates.txt"
-    regex(/Version (\d+\.\d+#\d+)/i)
+    url "http://picat-lang.org/download.html"
+    regex(/>\s*?Released version v?(\d+(?:[.#]\d+)+)\s*?,/i)
   end
 
   bottle do
