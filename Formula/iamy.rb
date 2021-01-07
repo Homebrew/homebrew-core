@@ -20,14 +20,8 @@ class Iamy < Formula
   depends_on "awscli"
 
   def install
-    ENV["GOPATH"] = buildpath
-    src = buildpath/"src/github.com/99designs/iamy"
-    src.install buildpath.children
-    src.cd do
-      system "go", "build", "-o", bin/"iamy", "-ldflags",
-             "-X main.Version=v#{version}"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args, "-ldflags",
+            "-s -w -X main.Version=v#{version}"
   end
 
   test do
