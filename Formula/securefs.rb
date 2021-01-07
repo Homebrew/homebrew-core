@@ -14,10 +14,16 @@ class Securefs < Formula
     sha256 "632496d8e9ed9fe91d18e9a2c9fef49c920dc091e10108246f8ab2056f75ea38" => :high_sierra
   end
 
-  deprecate! date: "2020-11-10", because: "requires FUSE"
-
   depends_on "cmake" => :build
-  depends_on :osxfuse
+
+  on_macos do
+    deprecate! date: "2020-11-10", because: "requires FUSE"
+    depends_on :osxfuse
+  end
+
+  on_linux do
+    depends_on "libfuse"
+  end
 
   def install
     system "cmake", ".", *std_cmake_args
