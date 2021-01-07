@@ -17,26 +17,18 @@ class Velero < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/github.com/vmware-tanzu/velero"
-    dir.install buildpath.children - [buildpath/".brew_home"]
+    system "go", "build", *std_go_args, "-installsuffix", "static",
+                  "-ldflags",
+                  "-s -w -X github.com/vmware-tanzu/velero/pkg/buildinfo.Version=v#{version}",
+                  "./cmd/velero"
 
-    cd dir do
-      system "go", "build", "-o", bin/"velero", "-installsuffix", "static",
-                   "-ldflags",
-                   "-X github.com/vmware-tanzu/velero/pkg/buildinfo.Version=v#{version}",
-                   "./cmd/velero"
+    # Install bash completion
+    output = Utils.safe_popen_read("#{bin}/velero", "completion", "bash")
+    (bash_completion/"velero").write output
 
-      # Install bash completion
-      output = Utils.safe_popen_read("#{bin}/velero", "completion", "bash")
-      (bash_completion/"velero").write output
-
-      # Install zsh completion
-      output = Utils.safe_popen_read("#{bin}/velero", "completion", "zsh")
-      (zsh_completion/"_velero").write output
-
-      prefix.install_metafiles
-    end
+    # Install zsh completion
+    output = Utils.safe_popen_read("#{bin}/velero", "completion", "zsh")
+    (zsh_completion/"_velero").write output
   end
 
   test do
