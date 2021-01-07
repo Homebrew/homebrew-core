@@ -15,7 +15,7 @@ class Tctl < Formula
     bin_path.install Dir["*"]
     cd bin_path do
       # Install the compiled binary into Homebrew's `bin`
-      system "go", "build", "-o", bin/"tctl", "cmd/tools/cli/main.go"
+      system "go", "build", *std_go_args, "cmd/tools/cli/main.go"
     end
   end
 
@@ -23,5 +23,8 @@ class Tctl < Formula
     # Given tctl is pointless without a server, not much intersting to test here.
     run_output = shell_output("#{bin}/tctl --version 2>&1")
     assert_match "tctl version", run_output
+    
+    run_output = shell_output("#{bin}/tctl --ad 192.0.2.0:1234 n l 2>&1", 1)
+    assert_match "rpc error", run_output
   end
 end
