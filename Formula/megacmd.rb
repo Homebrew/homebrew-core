@@ -19,12 +19,7 @@ class Megacmd < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/t3rm1n4l/megacmd").install buildpath.children
-    cd "src/github.com/t3rm1n4l/megacmd" do
-      system "go", "build", "-o", bin/"megacmd"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args, "-ldflags", "-s -w"
   end
 
   test do
