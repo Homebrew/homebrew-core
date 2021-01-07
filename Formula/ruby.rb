@@ -70,12 +70,7 @@ class Ruby < Formula
     end
 
     # Correct MJIT_CC to not use superenv shim
-    on_macos do
-      args << "MJIT_CC=/usr/bin/clang"
-    end
-    on_linux do
-      args << "MJIT_CC=/usr/bin/gcc"
-    end
+    args << "MJIT_CC=/usr/bin/#{DevelopmentTools.default_compiler}"
 
     system "./configure", *args
 
