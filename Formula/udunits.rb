@@ -3,6 +3,7 @@ class Udunits < Formula
   homepage "https://www.unidata.ucar.edu/software/udunits/"
   url "https://github.com/Unidata/UDUNITS-2/archive/v2.2.27.6.tar.gz"
   sha256 "74fd7fb3764ce2821870fa93e66671b7069a0c971513bf1904c6b053a4a55ed1"
+  revision 1
 
   bottle do
     sha256 "06ce12b4caedfc807687c9ab8d2fdacf6a4dd7a26299a2bc6039a690d380e27f" => :big_sur
@@ -21,6 +22,10 @@ class Udunits < Formula
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
       system "make", "install"
+      system "make", "clean"
+      system "cmake", "..", *std_cmake_args, "-DBUILD_SHARED_LIBS=OFF"
+      system "make"
+      lib.install "lib/libudunits2.a"
     end
   end
 
