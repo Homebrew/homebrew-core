@@ -13,10 +13,16 @@ class Tup < Formula
     sha256 "78c5c8e96892dd07c467f7b86d3312689d33474e7e6a07d4c69905aa60941e10" => :high_sierra
   end
 
-  deprecate! date: "2020-11-10", because: "requires FUSE"
-
   depends_on "pkg-config" => :build
-  depends_on :osxfuse
+
+  on_macos do
+    deprecate! date: "2020-11-10", because: "requires FUSE"
+    depends_on :osxfuse
+  end
+
+  on_linux do
+    depends_on "libfuse"
+  end
 
   def install
     ENV["TUP_LABEL"] = version
