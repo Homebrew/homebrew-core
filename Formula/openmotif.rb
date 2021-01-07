@@ -33,6 +33,8 @@ class Openmotif < Formula
   depends_on "libxt"
   depends_on "xbitmaps"
 
+  uses_from_macos "flex" => :build
+
   conflicts_with "lesstif",
     because: "both Lesstif and Openmotif are complete replacements for each other"
 
