@@ -16,17 +16,23 @@ class S3ql < Formula
     sha256 "63b52252fa9acd84fe7af0812241ab35e72062044cfe0659163a39e47a76581d" => :high_sierra
   end
 
-  # Requires fuse3, while osxfuse only has fuse2 API
-  # https://github.com/s3ql/s3ql/issues/192
-  # Moreover, we disable all FUSE-based formulas anyway
-  deprecate! date: "2020-08-08", because: :does_not_build
-
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
-  depends_on :osxfuse
   depends_on "python@3.8"
 
   uses_from_macos "libffi"
+
+  on_macos do
+    # Requires fuse3, while osxfuse only has fuse2 API
+    # https://github.com/s3ql/s3ql/issues/192
+    # Moreover, we disable all FUSE-based formulas anyway
+    deprecate! date: "2020-11-10", because: "requires FUSE"
+    depends_on :osxfuse
+  end
+
+  on_linux do
+    depends_on "libfuse"
+  end
 
   resource "apsw" do
     url "https://files.pythonhosted.org/packages/b5/a1/3de5a2d35fc34939672f4e1bd7d68cca359a31b76926f00d95f434c63aaa/apsw-3.9.2-r1.tar.gz"
