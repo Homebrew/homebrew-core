@@ -40,7 +40,7 @@ class Libxc < Formula
         printf(\"%d.%d.%d\", major, minor, micro);
       }
     EOS
-    system ENV.cc, "test.c", "-L#{lib}", "-lxc", "-I#{include}", "-o", "ctest"
+    system ENV.cc, "test.c", "-L#{lib}", "-I#{include}", "-lm", "-lxc", "-o", "ctest"
     system "./ctest"
 
     (testpath/"test.f90").write <<~EOS
