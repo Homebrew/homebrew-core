@@ -17,14 +17,7 @@ class Up < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
-    dir = buildpath/"src/github.com/akavel/up"
-    dir.install buildpath.children
-
-    cd dir do
-      system "go", "build", "-o", bin/"up", "up.go"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args, "-ldflags", "-s -w", "up.go"
   end
 
   test do
