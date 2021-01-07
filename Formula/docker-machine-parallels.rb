@@ -1,8 +1,9 @@
 class DockerMachineParallels < Formula
   desc "Parallels Driver for Docker Machine"
   homepage "https://github.com/Parallels/docker-machine-parallels"
-  url "https://github.com/Parallels/docker-machine-parallels/archive/v2.0.1.tar.gz"
-  sha256 "af52903482bff0f13200cc5aca39037cd8625cc663120e1e4d3be13aeda2720d"
+  url "https://github.com/Parallels/docker-machine-parallels.git",
+      tag:      "v2.0.1",
+      revision: "a1c3d495487413bdd24a562c0edee1af1cfc2f0f"
   license "MIT"
   head "https://github.com/Parallels/docker-machine-parallels.git"
 
@@ -19,17 +20,8 @@ class DockerMachineParallels < Formula
   depends_on "docker-machine"
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    path = buildpath/"src/github.com/Parallels/docker-machine-parallels"
-    path.install Dir["*"]
-
-    cd path do
-      system "make", "build"
-      bin.install "bin/docker-machine-driver-parallels"
-    end
-
-    prefix.install_metafiles path
+    system "make", "build"
+    bin.install "bin/docker-machine-driver-parallels"
   end
 
   test do
