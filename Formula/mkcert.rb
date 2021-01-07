@@ -16,13 +16,7 @@ class Mkcert < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
-    (buildpath/"src/github.com/FiloSottile/mkcert").install buildpath.children
-
-    cd "src/github.com/FiloSottile/mkcert" do
-      system "go", "build", "-o", bin/"mkcert", "-ldflags", "-X main.Version=v#{version}"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args, "-ldflags", "-s -w -X main.Version=v#{version}"
   end
 
   test do
