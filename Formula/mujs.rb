@@ -6,6 +6,7 @@ class Mujs < Formula
       tag:      "1.0.9",
       revision: "6871e5b41c07558b17340f985f2af39717d3ba77"
   license "ISC"
+  revision 1
   head "https://github.com/ccxvii/mujs.git"
 
   bottle do
@@ -20,6 +21,7 @@ class Mujs < Formula
   def install
     system "make", "release"
     system "make", "prefix=#{prefix}", "install"
+    system "make", "prefix=#{prefix}", "install-shared"
   end
 
   test do
