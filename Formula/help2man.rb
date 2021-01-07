@@ -19,7 +19,7 @@ class Help2man < Formula
     sha256 "46f3e7058af47162c5649eed42b2e573b27ac2187f0c397e83357e0ba0724e93" => :high_sierra
   end
 
-  depends_on "gettext"
+  depends_on "gettext" if Hardware::CPU.intel?
 
   uses_from_macos "perl"
 
@@ -31,11 +31,9 @@ class Help2man < Formula
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
 
-    resources.each do |r|
-      r.stage do
-        args = ["INSTALL_BASE=#{libexec}"]
-        args.unshift "--defaultdeps" if r.name == "MIME::Charset"
-        system "perl", "Makefile.PL", *args
+    if Hardware::CPU.intel?
+      resource("Locale::gettext").stage do
+        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
         system "make", "install"
       end
     end
@@ -44,13 +42,22 @@ class Help2man < Formula
     # see https://github.com/Homebrew/homebrew/issues/12609
     ENV.deparallelize
 
-    system "./configure", "--prefix=#{prefix}", "--enable-nls"
+    args = []
+    args << "--enable-nls" if Hardware::CPU.intel?
+
+    system "./configure", "--prefix=#{prefix}", *args
     system "make", "install"
     (libexec/"bin").install "#{bin}/help2man"
     (bin/"help2man").write_env_script("#{libexec}/bin/help2man", PERL5LIB: ENV["PERL5LIB"])
   end
 
   test do
-    assert_match "help2man #{version}", shell_output("#{bin}/help2man --locale=en_US.UTF-8 #{bin}/help2man")
+    out = if Hardware::CPU.intel?
+      shell_output("#{bin}/help2man --locale=en_US.UTF-8 #{bin}/help2man")
+    else
+      shell_output("#{bin}/help2man #{bin}/help2man")
+    end
+
+    assert_match "help2man #{version}", out
   end
 end
