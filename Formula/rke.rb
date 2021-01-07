@@ -1,8 +1,8 @@
 class Rke < Formula
   desc "Rancher Kubernetes Engine, a Kubernetes installer that works everywhere"
   homepage "https://rancher.com/docs/rke/latest/en/"
-  url "https://github.com/rancher/rke/archive/v1.2.3.tar.gz"
-  sha256 "bd6e740fb78cd3be4f92eb50359242a4e028c126143a320b6bf3f8ca717b7983"
+  url "https://github.com/rancher/rke/archive/v1.2.4.tar.gz"
+  sha256 "834ddf2a1cf567fc903579a6b1ac76ba73ebc750ed1759df6fe852d95ab2edde"
   license "Apache-2.0"
 
   bottle do
