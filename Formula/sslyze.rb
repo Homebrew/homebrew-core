@@ -4,6 +4,7 @@ class Sslyze < Formula
   desc "SSL scanner"
   homepage "https://github.com/nabla-c0d3/sslyze"
   license "AGPL-3.0-only"
+  revision 1
 
   stable do
     url "https://files.pythonhosted.org/packages/44/07/c4e389c55664524869b06043112ab5bbca6ea7fd39d7c03947cb475df85e/sslyze-3.1.0.tar.gz"
@@ -12,6 +13,14 @@ class Sslyze < Formula
     resource "nassl" do
       url "https://github.com/nabla-c0d3/nassl/archive/3.1.0.tar.gz"
       sha256 "a94b7e8ac29fbdf8112efb8aa65e49d5d74ce2aeebbf3f00364a10016427ef63"
+
+      # Patch to fix M1 build. Remove when nassl resource is bumped.
+      # https://github.com/nabla-c0d3/nassl/pull/70
+      # https://github.com/nabla-c0d3/nassl/issues/69
+      patch do
+        url "https://github.com/nabla-c0d3/nassl/commit/9ced8f4f62658d5bc33cda8ae98e1320d2230524.patch?full_index=1"
+        sha256 "1d467164fd9e1ca6e314e31936fcde16d3eddf11a8818d5f4fcd4b4ed4dae8ff"
+      end
     end
   end
 
@@ -37,8 +46,8 @@ class Sslyze < Formula
   depends_on "python@3.9"
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/cb/ae/380e33d621ae301770358eb11a896a34c34f30db188847a561e8e39ee866/cffi-1.14.3.tar.gz"
-    sha256 "f92f789e4f9241cd262ad7a555ca2c648a98178a953af117ef7fad46aa1d5591"
+    url "https://files.pythonhosted.org/packages/66/6a/98e023b3d11537a5521902ac6b50db470c826c682be6a8c661549cb7717a/cffi-1.14.4.tar.gz"
+    sha256 "1a465cbe98a7fd391d47dce4b8f7e5b921e6cd805ef421d04f5f66ba8f06086c"
   end
 
   resource "cryptography" do
