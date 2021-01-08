@@ -339,7 +339,11 @@ class PythonAT37 < Formula
     # and it can occur that building sqlite silently fails if OSX's sqlite is used.
     system "#{bin}/python#{xy}", "-c", "import sqlite3"
     # Check if some other modules import. Then the linked libs are working.
-    system "#{bin}/python#{xy}", "-c", "import tkinter; root = tkinter.Tk()"
+
+    # Temporary failure on macOS 11.1 due to https://bugs.python.org/issue42480
+    # Reenable unconditionnaly once Apple fixes the Tcl/Tk issue
+    system "#{bin}/python#{xy}", "-c", "import tkinter; root = tkinter.Tk()" if MacOS.full_version < "11.1"
+
     system "#{bin}/python#{xy}", "-c", "import _gdbm"
     system "#{bin}/python#{xy}", "-c", "import zlib"
     system bin/"pip3", "list", "--format=columns"
