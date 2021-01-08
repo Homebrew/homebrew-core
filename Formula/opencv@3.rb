@@ -4,7 +4,7 @@ class OpencvAT3 < Formula
   url "https://github.com/opencv/opencv/archive/3.4.13.tar.gz"
   sha256 "70230049194ae03ed8bfaab6cd1388569aa1b5c482d8b50d3af1cd2ae5a0b95d"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "840f44a759eb210d46cda9731ef54915b39b2406fbc917f50a194248da7c9339" => :big_sur
