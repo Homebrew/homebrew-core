@@ -19,6 +19,13 @@ class Luaradio < Formula
   depends_on "liquid-dsp"
   depends_on "luajit"
 
+  #  fix waiting for SIGCHLD with timeout on osx in _reap()
+  # remove in next release
+  patch do
+    url "https://github.com/vsergeev/luaradio/commit/2a54b6cdea50ed05a7996f851bdea6d9d22f5a70.patch?full_index=1"
+    sha256 "ac7b07bab53134311034456996ffce6fa8d856fe517d2d3ae1cfb47ed4625d00"
+  end
+
   def install
     cd "embed" do
       # Ensure file placement is compatible with HOMEBREW_SANDBOX.
