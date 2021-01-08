@@ -6,6 +6,7 @@ class Ocrmypdf < Formula
   url "https://files.pythonhosted.org/packages/61/da/c95cdef733b639abcf8f4d93f4e4cd691c052ebafae1200376e100fca27e/ocrmypdf-11.4.5.tar.gz"
   sha256 "416a9c4321bfc844f250694b8c68ebb538f60609bbc8686bd9f84a13c5127d68"
   license "MPL-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -24,6 +25,7 @@ class Ocrmypdf < Formula
   depends_on "jbig2enc"
   depends_on "jpeg"
   depends_on "leptonica"
+  depends_on "libffi"
   depends_on "libpng"
   depends_on "pngquant"
   depends_on "pybind11"
@@ -32,7 +34,6 @@ class Ocrmypdf < Formula
   depends_on "tesseract"
   depends_on "unpaper"
 
-  uses_from_macos "libffi"
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
   uses_from_macos "zlib"
