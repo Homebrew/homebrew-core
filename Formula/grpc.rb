@@ -6,7 +6,7 @@ class Grpc < Formula
       revision: "ee5b762f33a42170144834f5ab7efda9d76c480b",
       shallow:  false
   license "Apache-2.0"
-  revision 3
+  revision 4
   head "https://github.com/grpc/grpc.git"
 
   livecheck do
@@ -36,10 +36,11 @@ class Grpc < Formula
 
   def install
     mkdir "cmake/build" do
-      args = %w[
+      args = %W[
         ../..
         -DCMAKE_CXX_STANDARD=17
         -DCMAKE_CXX_STANDARD_REQUIRED=TRUE
+        -DCMAKE_INSTALL_RPATH=#{lib}
         -DBUILD_SHARED_LIBS=ON
         -DgRPC_BUILD_TESTS=OFF
         -DgRPC_INSTALL=ON
@@ -54,10 +55,11 @@ class Grpc < Formula
       system "cmake", *args
       system "make", "install"
 
-      args = %w[
+      args = %W[
         ../..
         -DCMAKE_EXE_LINKER_FLAGS=-lgflags
         -DCMAKE_SHARED_LINKER_FLAGS=-lgflags
+        -DCMAKE_INSTALL_RPATH=#{lib}
         -DBUILD_SHARED_LIBS=ON
         -DgRPC_BUILD_TESTS=ON
         -DgRPC_GFLAGS_PROVIDER=package
@@ -66,6 +68,12 @@ class Grpc < Formula
       system "make", "grpc_cli"
       bin.install "grpc_cli"
       lib.install Dir["libgrpc++_test_config*.{dylib,so}*"]
+    end
+
+    # Manually add `opt_lib` to RPATH otherwise
+    # grpc can't find its own libraries
+    bin.children.each do |exec|
+      MachO::Tools.add_rpath(exec, opt_lib.to_s) if File.executable? exec
     end
   end
 
