@@ -7,6 +7,17 @@ class Re2 < Formula
   license "BSD-3-Clause"
   head "https://github.com/google/re2.git"
 
+  # The `strategy` block below is used to massage upstream tags into the
+  # YYYYMMDD format used in the `version`. This is necessary for livecheck
+  # to be able to do proper `Version` comparison.
+  livecheck do
+    url :stable
+    regex(/^(\d{2,4}-\d{2}-\d{2})$/i)
+    strategy :git do |tags, regex|
+      tags.map { |tag| tag[regex, 1]&.gsub(/\D/, "") }.compact
+    end
+  end
+
   bottle do
     cellar :any
     sha256 "02fed353151f3d3d936af926e1fcd18cd68ca0e51694eb48acccbc5280316ce2" => :big_sur
