@@ -7,8 +7,7 @@ class Yarn < Formula
   license "BSD-2-Clause"
 
   livecheck do
-    url "https://yarnpkg.com/en/"
-    regex(/Stable:.*?v?(\d+(?:\.\d+)+)/im)
+    skip("1.x line is frozen and features/bugfixes only happen on 2.x")
   end
 
   bottle :unneeded
