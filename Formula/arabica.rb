@@ -7,10 +7,14 @@ class Arabica < Formula
   license "BSD-3-Clause"
   head "https://github.com/jezhiggins/arabica.git"
 
+  # The `strategy` block below is used to generate a version from the datetime
+  # of the "latest" release on GitHub, so it will match the formula `version`.
   livecheck do
     url :stable
-    strategy :github_latest
-    regex(%r{href=.*?/tag/([^"' >]+)["' >]}i)
+    regex(/datetime=["']?(\d{4}-\d{2}-\d{2})T/i)
+    strategy :github_latest do |page, regex|
+      page.scan(regex).map { |match| match&.first&.gsub(/\D/, "") }
+    end
   end
 
   bottle do
