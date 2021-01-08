@@ -21,11 +21,7 @@ class Stockfish < Formula
   end
 
   def install
-    arch = if MacOS.version.requires_popcnt?
-      "x86-64-modern"
-    else
-      "x86-64"
-    end
+    arch = Hardware::CPU.arm? ? "apple-silicon" : "x86-64-modern"
 
     system "make", "-C", "src", "build", "ARCH=#{arch}"
     bin.install "src/stockfish"
