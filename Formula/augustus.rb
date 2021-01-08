@@ -1,10 +1,9 @@
 class Augustus < Formula
   desc "Predict genes in eukaryotic genomic sequences"
   homepage "https://bioinf.uni-greifswald.de/augustus/"
-  url "https://github.com/Gaius-Augustus/Augustus/releases/download/v3.3.3/augustus-3.3.3.tar.gz"
-  sha256 "4cc4d32074b18a8b7f853ebaa7c9bef80083b38277f8afb4d33c755be66b7140"
+  url "https://github.com/Gaius-Augustus/Augustus/releases/download/v3.4.0/augustus-3.4.0.tar.gz"
+  sha256 "246772737862d16755ab0197bb1d4656cafb31db9b38c2cd991a8e8db6f116c8"
   license "Artistic-1.0"
-  revision 1
   head "https://github.com/Gaius-Augustus/Augustus.git"
 
   livecheck do
@@ -20,24 +19,26 @@ class Augustus < Formula
     sha256 "b5077e94d1ee68864ed0d89bfc892ad80dcd37b89e149b23733bd9280d54771b" => :high_sierra
   end
 
-  depends_on "boost" => :build
   depends_on "bamtools"
+  depends_on "boost"
   depends_on "gcc"
 
   def install
     # Avoid "fatal error: 'sam.h' file not found" by not building bam2wig
-    inreplace "auxprogs/Makefile", "cd bam2wig; make;", "#cd bam2wig; make;"
+    inreplace "auxprogs/Makefile", "cd bam2wig; make;", "#\\0"
 
     # Fix error: api/BamReader.h: No such file or directory
-    inreplace "auxprogs/bam2hints/Makefile",
-      "INCLUDES = /usr/include/bamtools",
-      "INCLUDES = #{Formula["bamtools"].include/"bamtools"}"
-    inreplace "auxprogs/filterBam/src/Makefile",
-      "BAMTOOLS = /usr/include/bamtools",
-      "BAMTOOLS= #{Formula["bamtools"].include/"bamtools"}"
+    inreplace ["auxprogs/bam2hints/Makefile", "auxprogs/filterBam/src/Makefile"],
+      "/usr/include/bamtools",
+      "#{Formula["bamtools"].opt_include}/bamtools"
 
     # Prevent symlinking into /usr/local/bin/
-    inreplace "Makefile", %r{ln -sf.*/usr/local/bin/}, "#ln -sf"
+    inreplace "Makefile", %r{\t(.*ln -sf.*/usr/local/bin/)}, "\t#\\1"
+
+    inreplace "common.mk" do |s|
+      # Build without comparative gene prediction mode (CGP)
+      s.change_make_var! "COMPGENEPRED", "false"
+    end
 
     # Compile executables for macOS. Tarball ships with executables for Linux.
     system "make", "clean"
