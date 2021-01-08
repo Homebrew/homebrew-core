@@ -6,6 +6,7 @@ class Awscurl < Formula
   url "https://files.pythonhosted.org/packages/79/0f/5e011f592861d0c582abd628cb8ef35ec42ae442674760268392ec0cc46e/awscurl-0.21.tar.gz"
   sha256 "b0e2aa95160917e8b7320fe3ea35b31536d61b1084541f0ff249c44250a92c53"
   license "MIT"
+  revision 1
   head "https://github.com/okigan/awscurl.git"
 
   livecheck do
@@ -35,8 +36,8 @@ class Awscurl < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/cb/ae/380e33d621ae301770358eb11a896a34c34f30db188847a561e8e39ee866/cffi-1.14.3.tar.gz"
-    sha256 "f92f789e4f9241cd262ad7a555ca2c648a98178a953af117ef7fad46aa1d5591"
+    url "https://files.pythonhosted.org/packages/66/6a/98e023b3d11537a5521902ac6b50db470c826c682be6a8c661549cb7717a/cffi-1.14.4.tar.gz"
+    sha256 "1a465cbe98a7fd391d47dce4b8f7e5b921e6cd805ef421d04f5f66ba8f06086c"
   end
 
   resource "chardet" do
