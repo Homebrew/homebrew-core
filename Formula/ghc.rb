@@ -6,7 +6,8 @@ class Ghc < Formula
   license "BSD-3-Clause"
 
   livecheck do
-    url :stable
+    url "https://www.haskell.org/ghc/download.html"
+    regex(/href=.*?download[._-]ghc[._-][^"' >]+?\.html[^>]*?>\s*?v?(\d+(?:\.\d+)+)\s*?</i)
   end
 
   bottle do
