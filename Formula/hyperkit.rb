@@ -1,8 +1,8 @@
 class Hyperkit < Formula
   desc "Toolkit for embedding hypervisor capabilities in your application"
   homepage "https://github.com/moby/hyperkit"
-  url "https://github.com/moby/hyperkit/archive/v0.20200908.tar.gz"
-  sha256 "e13bdb9dc5c18ca59ae6cd2b447d704d8d58f27cf4ae5a1f0a026deeb13bd0d7"
+  url "https://github.com/moby/hyperkit/archive/v0.20210107.tar.gz"
+  sha256 "095f5f5ef550d7cad10e4d13e9c9ce8b58cc319d654a6d837d8d87ee70537835"
   license "BSD-2-Clause"
 
   bottle do
@@ -15,6 +15,7 @@ class Hyperkit < Formula
   depends_on "aspcud" => :build
   depends_on "ocaml" => :build
   depends_on "opam" => :build
+  depends_on "pkg-config" => :build
   depends_on xcode: ["9.0", :build]
 
   depends_on "libev"
@@ -35,9 +36,9 @@ class Hyperkit < Formula
     ENV.prepend_path "PATH", "#{opam_dir}/system/bin"
 
     system "opam", "config", "exec", "--",
-           "opam", "install", "-y", "uri.3.1.0", "qcow.0.11.0", "conduit.2.1.0", "lwt.5.3.0",
-           "qcow-tool.0.11.0", "mirage-block-unix.2.12.0", "conf-libev.4-11", "logs.0.7.0", "fmt.0.8.8",
-           "mirage-unix.4.0.0", "prometheus-app.0.7"
+           "opam", "install", "-y", "uri.4.1.0", "qcow.0.11.0", "conduit.2.1.0", "lwt.5.3.0",
+           "qcow-tool.0.11.0", "mirage-block-unix.2.12.1", "conf-libev.4-11", "logs.0.7.0", "fmt.0.8.9",
+           "mirage-unix.4.0.0", "prometheus-app.1.0"
 
     args = []
     args << "GIT_VERSION=#{version}"
