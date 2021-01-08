@@ -4,7 +4,7 @@ class PythonAT37 < Formula
   url "https://www.python.org/ftp/python/3.7.9/Python-3.7.9.tar.xz"
   sha256 "91923007b05005b5f9bd46f3b9172248aea5abc1543e8a636d59e629c3331b01"
   license "Python-2.0"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -111,12 +111,12 @@ class PythonAT37 < Formula
     if MacOS.sdk_path_if_needed
       # Help Python's build system (setuptools/pip) to build things on SDK-based systems
       # The setup.py looks at "-isysroot" to get the sysroot (and not at --sysroot)
-      cflags  << "-isysroot #{MacOS.sdk_path}" << "-I#{MacOS.sdk_path}/usr/include"
+      cflags  << "-isysroot #{MacOS.sdk_path}"
       ldflags << "-isysroot #{MacOS.sdk_path}"
       # For the Xlib.h, Python needs this header dir with the system Tk
       # Yep, this needs the absolute path where zlib needed a path relative
       # to the SDK.
-      cflags << "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers"
+      cflags << "-isystem #{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers"
     end
     # Avoid linking to libgcc https://mail.python.org/pipermail/python-dev/2012-February/116205.html
     args << "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
