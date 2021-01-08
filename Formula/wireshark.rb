@@ -60,6 +60,11 @@ class Wireshark < Formula
     system "cmake", *args, "."
     system "make", "install"
 
+    # Manually add `lib` to each executable's RPATH
+    bin.children.each do |exec|
+      MachO::Tools.add_rpath(exec, lib.to_s) if File.executable? exec
+    end
+
     # Install headers
     (include/"wireshark").install Dir["*.h"]
     (include/"wireshark/epan").install Dir["epan/*.h"]
