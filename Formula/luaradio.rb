@@ -1,8 +1,8 @@
 class Luaradio < Formula
   desc "Lightweight, embeddable flow graph signal processing framework for SDR"
   homepage "https://luaradio.io/"
-  url "https://github.com/vsergeev/luaradio/archive/v0.9.0.tar.gz"
-  sha256 "8ed52290f218350f536b7d8cccb0bd4fa618fbb35e60d6f9c26a267439a6dda8"
+  url "https://github.com/vsergeev/luaradio/archive/v0.9.1.tar.gz"
+  sha256 "25150fa6b2cfd885d59453a9c4599811573176451c659278c12d50fece69f7f3"
   license "MIT"
   head "https://github.com/vsergeev/luaradio.git"
 
@@ -18,13 +18,6 @@ class Luaradio < Formula
   depends_on "fftw"
   depends_on "liquid-dsp"
   depends_on "luajit"
-
-  #  fix waiting for SIGCHLD with timeout on osx in _reap()
-  # remove in next release
-  patch do
-    url "https://github.com/vsergeev/luaradio/commit/2a54b6cdea50ed05a7996f851bdea6d9d22f5a70.patch?full_index=1"
-    sha256 "ac7b07bab53134311034456996ffce6fa8d856fe517d2d3ae1cfb47ed4625d00"
-  end
 
   def install
     cd "embed" do
