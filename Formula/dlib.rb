@@ -28,11 +28,13 @@ class Dlib < Formula
       -Dcblas_lib=#{Formula["openblas"].opt_lib}/libopenblas.dylib
       -Dlapack_lib=#{Formula["openblas"].opt_lib}/libopenblas.dylib
       -DDLIB_NO_GUI_SUPPORT=ON
-      -DUSE_SSE2_INSTRUCTIONS=ON
       -DBUILD_SHARED_LIBS=ON
     ]
 
-    args << "-DUSE_SSE4_INSTRUCTIONS=ON" if MacOS.version.requires_sse4?
+    if Hardware::CPU.intel?
+      args << "-DUSE_SSE2_INSTRUCTIONS=ON"
+      args << "-DUSE_SSE4_INSTRUCTIONS=ON" if MacOS.version.requires_sse4?
+    end
 
     mkdir "dlib/build" do
       system "cmake", "..", *args
