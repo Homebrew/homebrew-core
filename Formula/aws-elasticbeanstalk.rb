@@ -6,6 +6,7 @@ class AwsElasticbeanstalk < Formula
   url "https://files.pythonhosted.org/packages/84/0e/0df616d87aaa363454dbf342f7f3996bf036c1a4d5dbf64e8f046fd89142/awsebcli-3.19.2.tar.gz"
   sha256 "bd5221c26b3c7eb64597c6ae03b76c2025ed210e68d3702819bdfa1afb015230"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -63,8 +64,8 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/cb/ae/380e33d621ae301770358eb11a896a34c34f30db188847a561e8e39ee866/cffi-1.14.3.tar.gz"
-    sha256 "f92f789e4f9241cd262ad7a555ca2c648a98178a953af117ef7fad46aa1d5591"
+    url "https://files.pythonhosted.org/packages/66/6a/98e023b3d11537a5521902ac6b50db470c826c682be6a8c661549cb7717a/cffi-1.14.4.tar.gz"
+    sha256 "1a465cbe98a7fd391d47dce4b8f7e5b921e6cd805ef421d04f5f66ba8f06086c"
   end
 
   resource "chardet" do
