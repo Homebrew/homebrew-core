@@ -59,7 +59,7 @@ class Webpack < Formula
       document.body.appendChild(component());
     EOS
 
-    system bin/"webpack", testpath/"index.js"
+    system bin/"webpack", "bundle", "--mode", "production", "--entry", testpath/"index.js"
     assert_match "const e=document\.createElement(\"div\");", File.read(testpath/"dist/main.js")
   end
 end
