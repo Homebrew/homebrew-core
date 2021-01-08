@@ -6,6 +6,11 @@ class ServerGo < Formula
       revision: "53d0a8d6fbf982a20651d0c420eca3b1f1e95523"
   license "MIT"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "0e168e5705de596db16a8b7e5bfbb07fc8d25d52ce7536badfa2ca06963e27fd" => :big_sur
