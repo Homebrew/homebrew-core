@@ -3,7 +3,7 @@ class Basex < Formula
   homepage "https://basex.org"
   url "https://files.basex.org/releases/9.4.6/BaseX946.zip"
   version "9.4.6"
-  sha256 "c6dd9ac56e72de19c88152c76a6e4052deccd4f0db7a4b072aaaa560b92318a5"
+  sha256 "96012025d749062540f9b16f830d7b99876696b66534da2fe27c833d1b1fc43b"
   license "BSD-3-Clause"
 
   livecheck do
