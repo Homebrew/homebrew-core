@@ -19,7 +19,9 @@ class Wasmer < Formula
   depends_on "wabt" => :build
 
   def install
-    system "cargo", "install", *std_cargo_args
+    chdir "lib/cli" do
+      system "cargo", "install", *std_cargo_args
+    end
   end
 
   test do
