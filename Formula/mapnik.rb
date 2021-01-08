@@ -1,10 +1,9 @@
 class Mapnik < Formula
   desc "Toolkit for developing mapping applications"
   homepage "https://mapnik.org/"
-  url "https://github.com/mapnik/mapnik/releases/download/v3.0.24/mapnik-v3.0.24.tar.bz2"
-  sha256 "75520a98ff688f48e4dd36e86199530ea084b296f2d4972478db1fcb3475d71c"
+  url "https://github.com/mapnik/mapnik/releases/download/v3.1.0/mapnik-v3.1.0.tar.bz2"
+  sha256 "43d76182d2a975212b4ad11524c74e577576c11039fdab5286b828397d8e6261"
   license "LGPL-2.1-or-later"
-  revision 1
   head "https://github.com/mapnik/mapnik.git"
 
   livecheck do
@@ -33,13 +32,6 @@ class Mapnik < Formula
   depends_on "postgresql"
   depends_on "proj"
   depends_on "webp"
-
-  # Fix for Boost >= 1.75
-  # https://github.com/mapnik/mapnik/issues/4201
-  patch do
-    url "https://github.com/mapnik/mapnik/commit/49e0ef18.patch?full_index=1"
-    sha256 "d8f12a85ad78f95e3cb2b3b5485e586c250fe2230a90874c0a70843189cc42f5"
-  end
 
   def install
     ENV.cxx11
