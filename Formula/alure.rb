@@ -7,7 +7,7 @@ class Alure < Formula
 
   livecheck do
     url "https://kcat.tomasu.net/alure-releases/"
-    regex(/alure[._-]v?(\d+(?:\.\d+)+)/i)
+    regex(/href=.*?alure[._-]v?(\d+(?:\.\d+)+)(?:[._-]src)?\.t/i)
   end
 
   bottle do
