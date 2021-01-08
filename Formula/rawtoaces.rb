@@ -14,6 +14,8 @@ class Rawtoaces < Formula
     sha256 "de3645e35d6e0ba3ed7cf3890bc94f5009d426e39d682e767a3d861056aa6d18" => :high_sierra
   end
 
+  disable! date: "2021-01-06", because: :does_not_build
+
   depends_on "cmake" => :build
   depends_on "aces_container"
   depends_on "boost"
