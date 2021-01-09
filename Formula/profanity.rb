@@ -3,7 +3,7 @@ class Profanity < Formula
   homepage "https://profanity-im.github.io"
   url "https://profanity-im.github.io/profanity-0.10.0.tar.gz"
   sha256 "4a05e32590f9ec38430e33735bd02cfa199b257922b4116613f23912ca39ff8c"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   bottle do
     sha256 "e674dc595aef44e934d0ae9ca90b46a42b2b10295b8dcd732f55475cb20c1acb" => :big_sur
