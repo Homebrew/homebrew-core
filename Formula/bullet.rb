@@ -4,7 +4,7 @@ class Bullet < Formula
   url "https://github.com/bulletphysics/bullet3/archive/3.08.tar.gz"
   sha256 "05826c104b842bcdd1339b86894cb44c84ac2525ac296689d34b38a14bbba0dd"
   license "Zlib"
-  revision 1
+  revision 2
   head "https://github.com/bulletphysics/bullet3.git"
 
   bottle do
@@ -22,7 +22,6 @@ class Bullet < Formula
     args = std_cmake_args + %W[
       -DBUILD_PYBULLET=ON
       -DBUILD_PYBULLET_NUMPY=ON
-      -DUSE_DOUBLE_PRECISION=ON
       -DBT_USE_EGL=ON
       -DBUILD_UNIT_TESTS=OFF
       -DCMAKE_INSTALL_RPATH=#{lib}
