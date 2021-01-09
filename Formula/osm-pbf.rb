@@ -1,10 +1,9 @@
 class OsmPbf < Formula
   desc "Tools related to PBF (an alternative to XML format)"
   homepage "https://wiki.openstreetmap.org/wiki/PBF_Format"
-  url "https://github.com/scrosby/OSM-binary/archive/v1.3.3.tar.gz"
-  sha256 "a109f338ce6a8438a8faae4627cd08599d0403b8977c185499de5c17b92d0798"
+  url "https://github.com/scrosby/OSM-binary/archive/v1.5.0.tar.gz"
+  sha256 "2abf3126729793732c3380763999cc365e51bffda369a008213879a3cd90476c"
   license "LGPL-3.0"
-  revision 6
 
   bottle do
     cellar :any_skip_relocation
@@ -14,15 +13,16 @@ class OsmPbf < Formula
     sha256 "324c716503518b77533db927144643db877d3cf3297234333c056ae45f85d911" => :mojave
   end
 
+  depends_on "cmake" => :build
   depends_on "protobuf"
 
   def install
-    ENV.cxx11
+    system "cmake", ".", *std_cmake_args
+    system "make", "install"
+    pkgshare.install "resources/sample.pbf"
+  end
 
-    cd "src" do
-      system "make"
-      lib.install "libosmpbf.a"
-    end
-    include.install Dir["include/*"]
+  test do
+    assert_match "OSMHeader", shell_output("#{bin}/osmpbf-outline #{pkgshare}/sample.pbf")
   end
 end
