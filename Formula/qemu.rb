@@ -48,7 +48,9 @@ class Qemu < Formula
     system ("git checkout master -b wip/hvf")
     system ("curl 'https://patchwork.kernel.org/series/400619/mbox/'|git am --3way")
     system "./configure", *args
-    system "make", "V=1", "install"
+   # system "make", "V=1", "install"
+    system "make -j"
+    system "make install"
   end
 
   test do
