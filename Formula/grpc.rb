@@ -70,10 +70,9 @@ class Grpc < Formula
       lib.install Dir["libgrpc++_test_config*.{dylib,so}*"]
     end
 
-    # Manually add `opt_lib` to RPATH otherwise
-    # grpc can't find its own libraries
+    # Manually add lib to RPATH otherwise grpc can't find its own libraries
     bin.children.each do |exec|
-      MachO::Tools.add_rpath(exec, opt_lib.to_s) if File.executable? exec
+      MachO::Tools.add_rpath(exec, "@loader_path/../lib") if File.executable? exec
     end
   end
 
