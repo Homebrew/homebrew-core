@@ -34,14 +34,6 @@ class Qemu < Formula
       --prefix=#{prefix}
       --cc=#{ENV.cc}
       --host-cc=#{ENV.cc}
-      --disable-bsd-user
-      --disable-guest-agent
-      --enable-curses
-      --enable-libssh
-      --enable-vde
-      --extra-cflags=-DNCURSES_WIDECHAR=1
-      --disable-sdl
-      --disable-gtk
     ]
     # Sharing Samba directories in QEMU requires the samba.org smbd which is
     # incompatible with the macOS-provided version. This will lead to
