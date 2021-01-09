@@ -3,10 +3,9 @@ class Dnsviz < Formula
 
   desc "Tools for analyzing and visualizing DNS and DNSSEC behavior"
   homepage "https://github.com/dnsviz/dnsviz/"
-  url "https://files.pythonhosted.org/packages/25/d2/0ebfe23440a1adfdca403d7773570d3c05a3a8c5bcbaa0c091b5114d0224/dnsviz-0.8.2.tar.gz"
-  sha256 "a81ff254c23718cd6f364b03bf6e9c80468fa4663fd5be66043de7b0bece1cab"
+  url "https://files.pythonhosted.org/packages/c1/e8/263e91aa263eab8c3152d2860e805440d3d7b5e28f33200c0922ce8a9a38/dnsviz-0.9.0.tar.gz"
+  sha256 "505dd9aa3397fab4f3f61a9bf0e658316fd9cb1e3b3a8f0de563401aece30678"
   license "GPL-2.0"
-  revision 5
 
   livecheck do
     url :stable
@@ -34,18 +33,18 @@ class Dnsviz < Formula
   end
 
   resource "dnspython" do
-    url "https://files.pythonhosted.org/packages/67/d0/639a9b5273103a18c5c68a7a9fc02b01cffa3403e72d553acec444f85d5b/dnspython-2.0.0.zip"
-    sha256 "044af09374469c3a39eeea1a146e8cac27daec951f1f1f157b1962fc7cb9d1b7"
+    url "https://files.pythonhosted.org/packages/13/27/5277de856f605f3429d752a39af3588e29d10181a3aa2e2ee471d817485a/dnspython-2.1.0.zip"
+    sha256 "e4a87f0b573201a0f3727fa18a516b055fd1107e0e5477cded4a2de497df1dd4"
   end
 
   resource "libnacl" do
-    url "https://files.pythonhosted.org/packages/08/9b/16725e8cbb278569db379ea6e4eb24b2e8c574be1ec7617ac2dff8f91b2b/libnacl-1.7.1.tar.gz"
-    sha256 "33f31c4686541aee24876706b46a846f93c60e62d6b4211bc16bd08ba71d8fb8"
+    url "https://files.pythonhosted.org/packages/5e/a2/5c8cdfa3a30efaf9d503217a5b8a70be2ee551cb5a7150047d43428ea023/libnacl-1.7.2.tar.gz"
+    sha256 "b53999817435d24bf87bc9c7a2fb95e865f8ff7dc6a36655c28d6c62443c3d6b"
   end
 
   resource "M2Crypto" do
-    url "https://files.pythonhosted.org/packages/ff/df/84609ed874b5e6fcd3061a517bf4b6e4d0301f553baf9fa37bef2b509797/M2Crypto-0.36.0.tar.gz"
-    sha256 "1542c18e3ee5c01db5031d0b594677536963e3f54ecdf5315aeecb3a595b4dc1"
+    url "https://files.pythonhosted.org/packages/aa/36/9fef97358e378c1d3bd567c4e8f8ca0428a8d7e869852cef445ee6da91fd/M2Crypto-0.37.1.tar.gz"
+    sha256 "e4e42f068b78ccbf113e5d0a72ae5f480f6c3ace4940b91e4fff5598cfff6fb3"
   end
 
   resource "pygraphviz" do
