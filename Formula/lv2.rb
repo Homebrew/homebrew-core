@@ -1,8 +1,9 @@
 class Lv2 < Formula
   desc "Portable plugin standard for audio systems"
   homepage "https://lv2plug.in/"
-  url "https://lv2plug.in/spec/lv2-1.18.0.tar.bz2"
-  sha256 "90a3e5cf8bdca81b49def917e89fd6bba1d5845261642cd54e7888df0320473f"
+  url "https://lv2plug.in/spec/lv2-1.18.2.tar.bz2"
+  sha256 "4e891fbc744c05855beb5dfa82e822b14917dd66e98f82b8230dbd1c7ab2e05e"
+  license "ISC"
 
   livecheck do
     url "https://lv2plug.in/spec/"
