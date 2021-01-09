@@ -1,9 +1,9 @@
 class Findutils < Formula
   desc "Collection of GNU find, xargs, and locate"
   homepage "https://www.gnu.org/software/findutils/"
-  url "https://ftp.gnu.org/gnu/findutils/findutils-4.7.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/findutils/findutils-4.7.0.tar.xz"
-  sha256 "c5fefbdf9858f7e4feb86f036e1247a54c79fc2d8e4b7064d5aaa1f47dfa789a"
+  url "https://ftp.gnu.org/gnu/findutils/findutils-4.8.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/findutils/findutils-4.8.0.tar.xz"
+  sha256 "57127b7e97d91282c6ace556378d5455a9509898297e46e10443016ea1387164"
   license "GPL-3.0"
 
   livecheck do
