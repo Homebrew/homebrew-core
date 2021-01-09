@@ -38,6 +38,7 @@ class Qemu < Formula
     ENV["LIBTOOL"] = "glibtool"
 
     args = %W[
+      --target-list=aarch64-softmmu
       --prefix=#{prefix}
       --cc=#{ENV.cc}
       --host-cc=#{ENV.cc}
@@ -60,7 +61,8 @@ class Qemu < Formula
     on_macos do
       args << "--enable-cocoa"
     end
-
+    system ("git checkout master -b wip/hvf")
+    system ("curl 'https://patchwork.kernel.org/series/400619/mbox/'|git am --3way")
     system "./configure", *args
     system "make", "V=1", "install"
   end
