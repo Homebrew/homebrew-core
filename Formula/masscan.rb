@@ -1,8 +1,8 @@
 class Masscan < Formula
   desc "TCP port scanner, scans entire Internet in under 5 minutes"
   homepage "https://github.com/robertdavidgraham/masscan/"
-  url "https://github.com/robertdavidgraham/masscan/archive/1.0.5.tar.gz"
-  sha256 "a0686929888674892f464014806444d26ded56838d45035221ff88ee9f6ead73"
+  url "https://github.com/robertdavidgraham/masscan/archive/1.3.0.tar.gz"
+  sha256 "a6c0f0c95d3205110f67e8887d8164ece4c2b40bf099978f0ee1668d0f091820"
   license "AGPL-3.0"
   head "https://github.com/robertdavidgraham/masscan.git"
 
