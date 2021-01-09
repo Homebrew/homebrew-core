@@ -14,7 +14,7 @@ class MacosTrash < Formula
     sha256 "030b17bc67400a3f0873bd6983954fe0b55166b26c764e77b1d8cd1adc1bc1b7" => :mojave
   end
 
-  depends_on xcode: ["11.0", :build]
+  depends_on xcode: ["12.0", :build]
 
   conflicts_with "trash", because: "both install a `trash` binary"
   conflicts_with "trash-cli", because: "both install a `trash` binary"
