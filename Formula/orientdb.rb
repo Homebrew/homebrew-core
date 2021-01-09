@@ -5,6 +5,11 @@ class Orientdb < Formula
   sha256 "e548b40cb974cbd8a014ee6dcae6e0cd1fc5d8a6473166d18c08fe1f3bbbb077"
   license "Apache-2.0"
 
+  livecheck do
+    url "https://orientdb.org/download"
+    regex(/href=.*?orientdb[._-]v?(\d+(?:\.\d+)+)\.zip/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 1
