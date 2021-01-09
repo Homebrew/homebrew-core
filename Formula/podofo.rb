@@ -3,6 +3,7 @@ class Podofo < Formula
   homepage "https://podofo.sourceforge.io"
   url "https://downloads.sourceforge.net/project/podofo/podofo/0.9.7/podofo-0.9.7.tar.gz"
   sha256 "7cf2e716daaef89647c54ffcd08940492fd40c385ef040ce7529396bfadc1eb8"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :stable
