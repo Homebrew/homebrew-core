@@ -4,8 +4,8 @@ class Checkov < Formula
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
   # checkov should only be updated every 15 releases on multiples of 15
-  url "https://files.pythonhosted.org/packages/ec/07/a83bf966d44dcae1c5b96345c6847cc6f01804f8013965a1dedd6980998e/checkov-1.0.675.tar.gz"
-  sha256 "1c9a6cd31ff8668280b2f94a60e5cb15ec5a340f59d7c2e1d8ffc77c9c0ef289"
+  url "https://files.pythonhosted.org/packages/fa/f3/b934b8e17eb34e10565fae6ae572af7dcaf396d4a7dc9a228ecb408caf63/checkov-1.0.690.tar.gz"
+  sha256 "3b1673e07d7bdc763ce68f4f1acad16e27a6c841f84dbd8d2ca0aef9f2a1a0da"
   license "Apache-2.0"
 
   bottle do
@@ -24,13 +24,13 @@ class Checkov < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/59/01/b16cde7f316d90e67634edfc4d626fbcb188f8824c28b1e03a95b49c5aba/boto3-1.16.41.tar.gz"
-    sha256 "0d84e86ee02e32c86d30e35de9680303a480873dd2e99dcdc83486b92dffb03c"
+    url "https://files.pythonhosted.org/packages/7f/d2/f94d742fda62b5f0dce27fd966cafbdd88bc2691f623b49ba7eac6d94a69/boto3-1.16.51.tar.gz"
+    sha256 "11dc492682cf2a4f8ff397b0a109837340ef93e77ca2e65715ce24ecf043717c"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/f9/eb/635846c4879cfb5afe6a5441a3d8e64acd343f6a3879411b890e91243947/botocore-1.19.41.tar.gz"
-    sha256 "54a8a59497a83ba2d89fb94f86dd07b622d7b5f1d6e9925222ebbc45eb0d63ac"
+    url "https://files.pythonhosted.org/packages/0b/31/d4505c314b4d9643f1b32a34c97f6d8fecf20d4f8611520bc07f2747794e/botocore-1.19.51.tar.gz"
+    sha256 "b204c5b477b043c7f61cba5db479c6b25f684f7409b71a8ecdb5a6b3f57b5cb4"
   end
 
   resource "certifi" do
@@ -64,8 +64,8 @@ class Checkov < Formula
   end
 
   resource "GitPython" do
-    url "https://files.pythonhosted.org/packages/85/3d/ee9aa9c77a3c0e9074461d2d8da86c3564ed96abd28fa099dc3e05338a72/GitPython-3.1.11.tar.gz"
-    sha256 "befa4d101f91bad1b632df4308ec64555db684c360bd7d2130b4807d49ce86b8"
+    url "https://files.pythonhosted.org/packages/ec/4d/e6553122c85ec7c4c3e702142cc0f5ed02e5cf1b4d7ecea86a07e45725a0/GitPython-3.1.12.tar.gz"
+    sha256 "42dbefd8d9e2576c496ed0059f3103dcef7125b9ce16f9d5f9c834aed44a1dac"
   end
 
   resource "idna" do
@@ -144,8 +144,8 @@ class Checkov < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/80/e9/a51c724ce67ff24a18861af5b0c6f9468e4b4ecdbd53fd43a9288b856372/tqdm-4.54.1.tar.gz"
-    sha256 "38b658a3e4ecf9b4f6f8ff75ca16221ae3378b2e175d846b6b33ea3a20852cf5"
+    url "https://files.pythonhosted.org/packages/9c/97/6627aaf69c42a41d0d22a54ad2bf420290e07da82448823dcd6851de427e/tqdm-4.55.1.tar.gz"
+    sha256 "556c55b081bd9aa746d34125d024b73f0e2a0e62d5927ff0e400e20ee0a03b9a"
   end
 
   resource "update-checker" do
