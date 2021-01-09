@@ -1,8 +1,9 @@
 class Clzip < Formula
   desc "C language version of lzip"
   homepage "https://www.nongnu.org/lzip/clzip.html"
-  url "https://download.savannah.gnu.org/releases/lzip/clzip/clzip-1.11.tar.gz"
-  sha256 "d9d51212afa80371dc2546d278ef8ebbb3cd57c06fdd761b7b204497586d24c0"
+  url "https://download.savannah.gnu.org/releases/lzip/clzip/clzip-1.12.tar.gz"
+  mirror "https://download-mirror.savannah.gnu.org/releases/lzip/clzip/clzip-1.12.tar.gz"
+  sha256 "fcc92b3006d87b7c4affa03fe9dcc4869a802253052653200c26f6ba718bfee8"
   license "GPL-2.0"
 
   livecheck do
