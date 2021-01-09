@@ -3,8 +3,8 @@ class Jupyterlab < Formula
 
   desc "Interactive environments for writing and running code"
   homepage "https://jupyter.org/"
-  url "https://files.pythonhosted.org/packages/3d/6f/c759057300607362e0c24163cad4a34dfdbd98fe05d55351f3b29a2ac0ae/jupyterlab-3.0.1.tar.gz"
-  sha256 "72759e43d6063d4b3bf5bc4fa5ef72dd970bc43bdcb82d87affee73bbdb5be34"
+  url "https://files.pythonhosted.org/packages/18/58/987c00f0a707ccd68804457147a2b2c4034e1166fa8d4b00c5f40dd48e8b/jupyterlab-3.0.3.tar.gz"
+  sha256 "505220e6d812e267aecacb12a310a6044c526cf67f85eb22917685fc8824edb6"
   license "BSD-3-Clause"
 
   livecheck do
@@ -107,8 +107,8 @@ class Jupyterlab < Formula
   end
 
   resource "jedi" do
-    url "https://files.pythonhosted.org/packages/ac/11/5c542bf206efbae974294a61febc61e09d74cb5d90d8488793909db92537/jedi-0.18.0.tar.gz"
-    sha256 "92550a404bad8afed881a137ec9a461fed49eca661414be45059329614ed0707"
+    url "https://files.pythonhosted.org/packages/39/67/50d1653038dafe06ca2cc55c4598c5f8318d519c12a7a288d7826280ee22/jedi-0.17.2.tar.gz"
+    sha256 "86ed7d9b750603e4ba582ea8edc678657fb4007894a12bcf6f4bb97892f31d20"
   end
 
   resource "Jinja2" do
@@ -127,8 +127,8 @@ class Jupyterlab < Formula
   end
 
   resource "jupyter-client" do
-    url "https://files.pythonhosted.org/packages/c3/7a/53e652fb8cbca92ae5f325cbd8b2ba123b57fbc1cc5e8a47ad1c62d75e93/jupyter_client-6.1.7.tar.gz"
-    sha256 "49e390b36fe4b4226724704ea28d9fb903f1a3601b6882ce3105221cd09377a1"
+    url "https://files.pythonhosted.org/packages/c2/ad/5f491f09a1d2f56abfe4dc97ed70f4ce155295e6ed8770b053897d0b18a3/jupyter_client-6.1.10.tar.gz"
+    sha256 "a1b38ebc768cd28715934e82abbf35c51d2fcd026f30ab0d4b7fb2b754d1fca4"
   end
 
   resource "jupyter-core" do
@@ -137,8 +137,8 @@ class Jupyterlab < Formula
   end
 
   resource "jupyter-server" do
-    url "https://files.pythonhosted.org/packages/aa/d3/6779ca0da27e861696032eaf7a7dcc2d1be8fe332448ff69a2b1b321faaf/jupyter_server-1.1.4.tar.gz"
-    sha256 "b939a28709b38cf9e0b1ad4b1b6896ac0f78f6bb26eda0612f73649ad137b92b"
+    url "https://files.pythonhosted.org/packages/a5/c9/598bb365be05b65184b2bf62ae4f66a5dd61a10f3bf955477e730c3619fd/jupyter_server-1.2.1.tar.gz"
+    sha256 "5c55bdd098159f3e57faad102fa91de5b3f2f46ca8be01ad3d289e85a5beba9c"
   end
 
   resource "jupyterlab-pygments" do
@@ -147,8 +147,8 @@ class Jupyterlab < Formula
   end
 
   resource "jupyterlab-server" do
-    url "https://files.pythonhosted.org/packages/30/ae/414e265f15b8cbc199255b13c93becf39e5509ff0bb3cee024526c2cf69d/jupyterlab_server-2.0.0.tar.gz"
-    sha256 "1350c36954d3d16c71129b30b60b9df11e8fcf2f3acf88596f6abc8a79b0c918"
+    url "https://files.pythonhosted.org/packages/4c/32/6255b553c5d4435b5d6319ba8703f078c27fffac294f4a115ba68ec68304/jupyterlab_server-2.1.1.tar.gz"
+    sha256 "67bfd4acfef24cf94e3dc0971cf6fa0eee13cc84ee47cdcd704257a0975b22ad"
   end
 
   resource "MarkupSafe" do
@@ -162,8 +162,8 @@ class Jupyterlab < Formula
   end
 
   resource "nbclassic" do
-    url "https://files.pythonhosted.org/packages/7f/bb/8934730affc5a155d39766c15f92317484e16d011030420d09f2626127b9/nbclassic-0.2.5.tar.gz"
-    sha256 "e6da2116ab76a63de62f42cf8ea93c9a0c564aaf8315834f7c52efb85b4640ab"
+    url "https://files.pythonhosted.org/packages/f5/a5/0af0271fd66195bfbdaa03b873b8d14e9050a5c5921afe8c35d80dd61417/nbclassic-0.2.6.tar.gz"
+    sha256 "b649436ff85dc731ba8115deef089e5abbe827d7a6dccbad42c15b8d427104e8"
   end
 
   resource "nbclient" do
@@ -202,8 +202,8 @@ class Jupyterlab < Formula
   end
 
   resource "parso" do
-    url "https://files.pythonhosted.org/packages/5d/62/31ce4b24055558771af3498266852e1a89b4ca43ecec251b16122da32dbd/parso-0.8.1.tar.gz"
-    sha256 "8519430ad07087d4c997fda3a7918f7cfa27cb58972a8c89c2a0295a1c940e9e"
+    url "https://files.pythonhosted.org/packages/40/01/e0b8d2168fb299af90a78a5919257f821e5c21399bf0906c14c9e573db3f/parso-0.7.1.tar.gz"
+    sha256 "caba44724b994a8a5e086460bb212abc5a8bc46951bf4a9a1210745953622eb9"
   end
 
   resource "pexpect" do
@@ -222,8 +222,8 @@ class Jupyterlab < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/fc/92/43d0c652f1537bff7bc49370e05c8b29992f270bbbbf82357b3e185c7c5f/prompt_toolkit-3.0.9.tar.gz"
-    sha256 "c5eeab58dd31b541442825d7870777f2a2f764eb5fda03334d5219cd84b9722f"
+    url "https://files.pythonhosted.org/packages/4f/18/77e8da1f8342f561c7fccb5701398200bd7c9b1227ee15ad370086bc71d8/prompt_toolkit-3.0.10.tar.gz"
+    sha256 "b8b3d0bde65da350290c46a8f54f336b3cbf5464a4ac11239668d986852e79d5"
   end
 
   resource "ptyprocess" do
