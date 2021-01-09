@@ -5,7 +5,7 @@ class Dnsviz < Formula
   homepage "https://github.com/dnsviz/dnsviz/"
   url "https://files.pythonhosted.org/packages/c1/e8/263e91aa263eab8c3152d2860e805440d3d7b5e28f33200c0922ce8a9a38/dnsviz-0.9.0.tar.gz"
   sha256 "505dd9aa3397fab4f3f61a9bf0e658316fd9cb1e3b3a8f0de563401aece30678"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :stable
