@@ -2,6 +2,7 @@
   "elm-format": "0.8.3",
   "get-flash-videos": "1.25.99.03",
   "gitless": "0.8.8",
+  "gron": "all",
   "riff": "0.5.0",
   "telegram-cli": "1.3.1",
   "volta": "0.8.6"
