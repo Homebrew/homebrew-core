@@ -1,8 +1,8 @@
 class FseventWatch < Formula
   desc "macOS FSEvents client"
   homepage "https://github.com/proger/fsevent_watch"
-  url "https://github.com/proger/fsevent_watch/archive/v0.1.tar.gz"
-  sha256 "260979f856a61230e03ca1f498c590dd739fd51aba9fa36b55e9cae776dcffe3"
+  url "https://github.com/proger/fsevent_watch/archive/v0.2.tar.gz"
+  sha256 "1cfd66d551bb5a7ef80b53bcc7952b766cf81ce2059aacdf7380a9870aa0af6c"
   license "MIT"
   head "https://github.com/proger/fsevent_watch.git"
 
