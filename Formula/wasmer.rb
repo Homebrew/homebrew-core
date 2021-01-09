@@ -1,8 +1,8 @@
 class Wasmer < Formula
   desc "🚀 The Universal WebAssembly Runtime"
   homepage "https://wasmer.io"
-  url "https://github.com/wasmerio/wasmer/archive/0.16.2.tar.gz"
-  sha256 "c2a5aa609fae558d07a24f268489d748093ae8e7c6f42699d1f7316ac3b44968"
+  url "https://github.com/wasmerio/wasmer/archive/1.0.0.tar.gz"
+  sha256 "1526fadeb8cec686373bfe0ef9f497a08ebfb936e9e6dba8a6b091680ea05190"
   license "MIT"
   head "https://github.com/wasmerio/wasmer.git"
 
@@ -19,13 +19,15 @@ class Wasmer < Formula
   depends_on "wabt" => :build
 
   def install
-    system "cargo", "install", *std_cargo_args
+    chdir "lib/cli" do
+      system "cargo", "install", "--features", "cranelift", *std_cargo_args
+    end
   end
 
   test do
     wasm = ["0061736d0100000001070160027f7f017f030201000707010373756d00000a09010700200020016a0b"].pack("H*")
     (testpath/"sum.wasm").write(wasm)
-    assert_equal "sum([I32(1), I32(2)]) returned [I32(3)]\n",
+    assert_equal "3\n",
       shell_output("#{bin}/wasmer run #{testpath/"sum.wasm"} --invoke sum 1 2")
   end
 end
