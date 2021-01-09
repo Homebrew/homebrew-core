@@ -8,15 +8,7 @@ class Tctl < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    bin_path = buildpath/"src/temporal.io/tctl_staging"
-    # Copy all files from their current location (GOPATH root) to the binpath
-    bin_path.install Dir["*"]
-    cd bin_path do
-      # Install the compiled binary into Homebrew's `bin`
-      system "go", "build", *std_go_args, "cmd/tools/cli/main.go"
-    end
+    system "go", "build", *std_go_args, "-ldflags", "-s -w", "./cmd/tools/cli/main.go"
   end
 
   test do
