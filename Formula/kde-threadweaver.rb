@@ -1,8 +1,8 @@
 class KdeThreadweaver < Formula
   desc "Helper for multithreaded programming"
   homepage "https://api.kde.org/frameworks/threadweaver/html/index.html"
-  url "https://download.kde.org/stable/frameworks/5.77/threadweaver-5.77.0.tar.xz"
-  sha256 "4f898107074943f103fd9d4ee2b82cddcb705382424bd47fcca21b11c167d8f2"
+  url "https://download.kde.org/stable/frameworks/5.78/threadweaver-5.78.0.tar.xz"
+  sha256 "d972e78e5ce89004d52c08e689b539877f20c036a1ef0383d2be02bc6e7598d2"
   license "LGPL-2.0-or-later"
   head "https://invent.kde.org/frameworks/threadweaver.git"
 
