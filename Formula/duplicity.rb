@@ -3,10 +3,9 @@ class Duplicity < Formula
 
   desc "Bandwidth-efficient encrypted backup"
   homepage "https://launchpad.net/duplicity"
-  url "https://code.launchpad.net/duplicity/0.8-series/0.8.17/+download/duplicity-0.8.17.tar.gz"
-  sha256 "a273b1e74d8d0b7825572f51be9c8284e579961e01f4fc1473048e95dce49984"
+  url "https://code.launchpad.net/duplicity/0.8-series/0.8.18/+download/duplicity-0.8.18.tar.gz"
+  sha256 "2643fea0f52920a0fb114069c78389f9621f1c24db7f26bda77bbc239b01ae53"
   license "GPL-2.0-or-later"
-  revision 1
 
   livecheck do
     url :stable
@@ -21,6 +20,7 @@ class Duplicity < Formula
   end
 
   depends_on "gnupg"
+  depends_on "libffi"
   depends_on "librsync"
   depends_on "libyaml"
   depends_on "openssl@1.1"
@@ -52,13 +52,13 @@ class Duplicity < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/5a/e7/bea8c234b88ae9736f7b123cb27df2bab304d0e64e2c3c835f437f302829/boto3-1.16.46.tar.gz"
-    sha256 "d6991e6fd7d0f63bf94282687700a91f5299b807e544cb3367e9b2faeeaf8c62"
+    url "https://files.pythonhosted.org/packages/7f/d2/f94d742fda62b5f0dce27fd966cafbdd88bc2691f623b49ba7eac6d94a69/boto3-1.16.51.tar.gz"
+    sha256 "11dc492682cf2a4f8ff397b0a109837340ef93e77ca2e65715ce24ecf043717c"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/62/11/bc6d4ca0f4dfbdbfb2579187d38e196093e0a01cbd7af7b0156b90c4dbd7/botocore-1.19.46.tar.gz"
-    sha256 "85ca6915ad5471e7f6cd1b00610b74601d2970cbf8e9b1bf255697154cf621a3"
+    url "https://files.pythonhosted.org/packages/0b/31/d4505c314b4d9643f1b32a34c97f6d8fecf20d4f8611520bc07f2747794e/botocore-1.19.51.tar.gz"
+    sha256 "b204c5b477b043c7f61cba5db479c6b25f684f7409b71a8ecdb5a6b3f57b5cb4"
   end
 
   resource "cachetools" do
@@ -242,8 +242,8 @@ class Duplicity < Formula
   end
 
   resource "rsa" do
-    url "https://files.pythonhosted.org/packages/a2/d5/04b8a9719149583fec76efdff2e7a81c6e3cc34909ee818d3fbf115edc2e/rsa-4.6.tar.gz"
-    sha256 "109ea5a66744dd859bf16fe904b8d8b627adafb9408753161e766a92e7d681fa"
+    url "https://files.pythonhosted.org/packages/22/4e/772004168e23d2ac5987e189e3b4a4305169e45057d8776e9d36c1ef250f/rsa-4.7.tar.gz"
+    sha256 "69805d6b69f56eb05b62daea3a7dbd7aa44324ad1306445e05da8060232d00f4"
   end
 
   resource "s3transfer" do
@@ -262,8 +262,8 @@ class Duplicity < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/de/ea/171518e4f9aacbfd71ca969251f3b1508b00b35562cd5fe8fd47647f6253/tqdm-4.55.0.tar.gz"
-    sha256 "f4f80b96e2ceafea69add7bf971b8403b9cba8fb4451c1220f91c79be4ebd208"
+    url "https://files.pythonhosted.org/packages/b6/d1/39a24ca38121a29c6ba4a85fb6cbe4429448a6d1e02944625933367a872f/tqdm-4.55.2.tar.gz"
+    sha256 "86ca00c4942c3b3dc7ed31bae44cd2db38ef85ca05a7920f6a6c52ad7fcac904"
   end
 
   resource "uritemplate" do
