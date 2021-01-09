@@ -27,13 +27,6 @@ class Podofo < Formula
   depends_on "libtiff"
   depends_on "openssl@1.1"
 
-  # Upstream commit to fix cmake 3.12.0 build issue, remove in >= 0.9.7
-  # https://sourceforge.net/p/podofo/tickets/24/
-  patch :p0 do
-    url "https://sourceforge.net/p/podofo/tickets/24/attachment/podofo-cmake-3.12.patch"
-    sha256 "33e8bd8b57cc04884528d64c80624a852f61c8918b6fe320d26ca7d4905bdd54"
-  end
-
   def install
     args = std_cmake_args + %W[
       -DCMAKE_INSTALL_NAME_DIR=#{opt_lib}
