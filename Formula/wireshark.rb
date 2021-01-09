@@ -62,7 +62,7 @@ class Wireshark < Formula
 
     # Manually add `lib` to each executable's RPATH
     bin.children.each do |exec|
-      MachO::Tools.add_rpath(exec, lib.to_s) if File.executable? exec
+      MachO::Tools.add_rpath(exec, "@loader_path/../lib") if File.executable? exec
     end
 
     # Install headers
