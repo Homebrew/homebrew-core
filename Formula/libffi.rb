@@ -25,10 +25,12 @@ class Libffi < Formula
 
   keg_only :provided_by_macos
 
-  # Improved aarch64-apple-darwin support. See https://github.com/libffi/libffi/pull/565
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a4a91e61/libffi/libffi-3.3-arm64.patch"
-    sha256 "ee084f76f69df29ed0fa1bc8957052cadc3bbd8cd11ce13b81ea80323f9cb4a3"
+  on_macos do
+    # Improved aarch64-apple-darwin support. See https://github.com/libffi/libffi/pull/565
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/a4a91e61/libffi/libffi-3.3-arm64.patch"
+      sha256 "ee084f76f69df29ed0fa1bc8957052cadc3bbd8cd11ce13b81ea80323f9cb4a3"
+    end
   end
 
   def install
