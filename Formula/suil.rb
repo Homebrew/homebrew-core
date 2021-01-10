@@ -5,6 +5,11 @@ class Suil < Formula
   sha256 "91cd87e17e80d2e43d64700369b93a5c2d0f1648e36411e0233253a0c3840f40"
   license "ISC"
 
+  livecheck do
+    url "https://download.drobilla.net/"
+    regex(/href=.*?suil[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "aea75cb3be00abce7094eed0be51b10ce8fd5d7ac8bd3514989dfa5e9e209880" => :big_sur
     sha256 "8594e4cb706f8fe8ec8b8b3c5d3663e0d0d7741f3a1f818263fd12477354c0d7" => :arm64_big_sur
