@@ -3,7 +3,7 @@ class Bup < Formula
   homepage "https://bup.github.io/"
   url "https://github.com/bup/bup/archive/0.32.tar.gz"
   sha256 "a894cfa96c44b9ef48003b2c2104dc5fa6361dd2f4d519261a93178984a51259"
-  license "LGPL-2.1"
+  license all_of: ["BSD-2-Clause", "LGPL-2.0-only"]
   head "https://github.com/bup/bup.git"
 
   bottle do
