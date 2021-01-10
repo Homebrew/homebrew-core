@@ -1,8 +1,8 @@
 class Gjs < Formula
   desc "JavaScript Bindings for GNOME"
   homepage "https://gitlab.gnome.org/GNOME/gjs/wikis/Home"
-  url "https://download.gnome.org/sources/gjs/1.66/gjs-1.66.1.tar.xz"
-  sha256 "8d4240455eff642c8bf6d9805077e33e0a60cb2ea13f77a55f7f30c29668344c"
+  url "https://download.gnome.org/sources/gjs/1.66/gjs-1.66.2.tar.xz"
+  sha256 "bd7f5f8b171277cc0bb9ee1754b0240b62f06a76b8b18c968cf471b34ab34e59"
   license all_of: ["LGPL-2.0-or-later", "MIT"]
 
   livecheck do
@@ -22,7 +22,7 @@ class Gjs < Formula
   depends_on "python@3.8" => :build
   depends_on "rust" => :build
   depends_on "gobject-introspection"
-  depends_on "gtk+3"
+  depends_on "gtk4"
   depends_on "llvm"
   depends_on "nspr"
   depends_on "readline"
