@@ -3,8 +3,8 @@ class Molecule < Formula
 
   desc "Automated testing for Ansible roles"
   homepage "https://molecule.readthedocs.io"
-  url "https://files.pythonhosted.org/packages/78/ab/b816db4b4cb1e7ca591c03d0fe837efdfc11ebb6c9b20ebf4b080678ac53/molecule-3.2.1.tar.gz"
-  sha256 "b85e078fe24c53022ac14e406a11088bd3e1dc388d94dfbee5fe6aa5f5dff584"
+  url "https://files.pythonhosted.org/packages/dc/7b/04113eec790197889b82702380e4f596f8e3419e21bfd73a768b1c4fa091/molecule-3.2.2.tar.gz"
+  sha256 "9e360073598d45ec86036d84084fc6493dfc4270fd7600ee9ebe0ce03a0af6e5"
   license "MIT"
 
   livecheck do
@@ -105,11 +105,6 @@ class Molecule < Formula
   resource "cryptography" do
     url "https://files.pythonhosted.org/packages/b7/82/f7a4ddc1af185936c1e4fa000942ffa8fb2d98cff26b75afa7b3c63391c4/cryptography-3.3.1.tar.gz"
     sha256 "7e177e4bea2de937a584b13645cab32f25e3d96fc0bc4a4cf99c27dc77682be6"
-  end
-
-  resource "distro" do
-    url "https://files.pythonhosted.org/packages/a6/a4/75064c334d8ae433445a20816b788700db1651f21bdb0af33db2aab142fe/distro-1.5.0.tar.gz"
-    sha256 "0e58756ae38fbd8fc3020d54badb8eae17c5b9dcbed388b17bb55b8a5928df92"
   end
 
   resource "docker-py" do
@@ -218,13 +213,8 @@ class Molecule < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/39/8f/8cbda9eb259d37e0c6b21c67edfae7b13b1d2feed0ee3d7372da02fc0e75/rich-9.5.1.tar.gz"
-    sha256 "8b937e2d2c4ff9dcfda8a5910a8cd384bd30f50ec92346d616f62065c662df5f"
-  end
-
-  resource "selinux" do
-    url "https://files.pythonhosted.org/packages/1a/f1/5755b134895bb9b29d6937cae52d0f58140bb97df0f72c33231345294e80/selinux-0.2.1.tar.gz"
-    sha256 "d435f514e834e3fdc0941f6a29d086b80b2ea51b28112aee6254bd104ee42a74"
+    url "https://files.pythonhosted.org/packages/67/47/765d57cdd54d74d2a70de26d7ffad1109745f14f3c425015905e6749d3b9/rich-9.7.0.tar.gz"
+    sha256 "25583ce533afae71de086ca97cf0aa883a5e1a220dfcc6049a2809a74bc79ca0"
   end
 
   resource "shellingham" do
