@@ -23,8 +23,11 @@ class Pipemeter < Formula
                           "--prefix=#{prefix}",
                           "--mandir=#{man}"
 
-    # Fix the man1 directory location
-    inreplace "Makefile", "$(PREFIX)/man/man1", man1
+    # Fix GNU `install -D` syntax issue
+    inreplace "Makefile", "install -Dp -t $(DESTDIR)$(PREFIX)/bin pipemeter",
+                          "install -p pipemeter $(PREFIX)/bin"
+    inreplace "Makefile", "install -Dp -t $(DESTDIR)$(PREFIX)/man/man1 pipemeter.1",
+                          "install -p pipemeter.1 $(PREFIX)/share/man/man1"
 
     bin.mkpath
     man1.mkpath
