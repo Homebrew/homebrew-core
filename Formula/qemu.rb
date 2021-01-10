@@ -33,15 +33,12 @@ class Qemu < Formula
       --target-list=aarch64-softmmu
       --enable-cocoa
       --prefix=#{prefix}
-      --cc=#{ENV.cc}
-      --host-cc=#{ENV.cc}
     ]
     # Sharing Samba directories in QEMU requires the samba.org smbd which is
     # incompatible with the macOS-provided version. This will lead to
     # silent runtime failures, so we set it to a Homebrew path in order to
     # obtain sensible runtime errors. This will also be compatible with
     # Samba installations from external taps.
-    args << "--smbd=#{HOMEBREW_PREFIX}/sbin/samba-dot-org-smbd"
     
     system ("git checkout master -b wip/hvf")
     system ("curl 'https://patchwork.kernel.org/series/400619/mbox/'|git am --3way")
