@@ -1,8 +1,8 @@
 class Pipemeter < Formula
   desc "Shows speed of data moving from input to output"
   homepage "https://launchpad.net/pipemeter"
-  url "https://launchpad.net/pipemeter/trunk/1.1.4/+download/pipemeter-1.1.4.tar.gz"
-  sha256 "dfdea37fcc236c32cb4739665d13cff56c3e46d3b28eed5d96e62a565472474a"
+  url "https://launchpad.net/pipemeter/trunk/1.1.5/+download/pipemeter-1.1.5.tar.gz"
+  sha256 "e470ac5f3e71b5eee1a925d7174a6fa8f0753f2107e067fbca3f383fab2e87d8"
   license "GPL-2.0-or-later"
 
   livecheck do
