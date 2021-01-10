@@ -46,6 +46,7 @@ class Qemu < Formula
    # system "make", "V=1", "install"
     system "make -j"
     system "make install"
+    system "cp accel/hvf/entitlements.plist /tmp"
   end
   
   test do
@@ -87,7 +88,7 @@ class Qemu < Formula
   end
 
   def post_install
-    system "codesign --entitlements accel/hvf/entitlements.plist --force -s - ", "#{prefix}/bin/qemu-system-aarch64"
+    system "codesign --entitlements /tmp/entitlements.plist --force -s - ", "#{prefix}/bin/qemu-system-aarch64"
   end
   
 end
