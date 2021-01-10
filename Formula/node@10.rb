@@ -19,6 +19,8 @@ class NodeAT10 < Formula
 
   keg_only :versioned_formula
 
+  deprecate! date: "2021-04-30", because: :unsupported
+
   depends_on "pkg-config" => :build
   depends_on "icu4c"
   depends_on :macos # Due to Python 2 (Will not work with Python 3 without extensive patching)
