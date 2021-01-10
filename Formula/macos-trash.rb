@@ -20,8 +20,8 @@ class MacosTrash < Formula
   conflicts_with "trash-cli", because: "both install a `trash` binary"
 
   def install
-    system "./build"
-    bin.install "trash"
+    system "swift", "build", "--disable-sandbox", "-c", "release"
+    bin.install ".build/release/trash"
   end
 
   test do
