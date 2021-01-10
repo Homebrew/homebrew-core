@@ -6,6 +6,11 @@ class Calcurse < Formula
   license "BSD-2-Clause"
   head "https://git.calcurse.org/calcurse.git"
 
+  livecheck do
+    url "https://calcurse.org/downloads/"
+    regex(/href=.*?calcurse[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "12fe7aff828aaabcff46bfa31195b5f0c61e2402f670d54ad4cdb76e5c9290f8" => :big_sur
     sha256 "5aaa47c9b5dd34f3c40b7e5a22b09b380cebe35322cef729c54bffb9600fd695" => :arm64_big_sur
