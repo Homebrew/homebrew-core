@@ -88,7 +88,7 @@ class Qemu < Formula
   end
 
   def post_install
-    system "codesign --entitlements /tmp/entitlements.plist --force -s - ", "#{prefix}/bin/qemu-system-aarch64"
+    system "codesign --entitlements /tmp/entitlements.plist --force -s -", "#{prefix}/bin/qemu-system-aarch64"
   end
   
 end
