@@ -1,10 +1,9 @@
 class ProtocGenGogo < Formula
   desc "Protocol Buffers for Go with Gadgets"
   homepage "https://github.com/gogo/protobuf"
-  url "https://github.com/gogo/protobuf/archive/v1.3.1.tar.gz"
-  sha256 "5184f06decd681fcc82f6583976111faf87189c0c2f8063b34ac2ea9ed997236"
+  url "https://github.com/gogo/protobuf/archive/v1.3.2.tar.gz"
+  sha256 "2bb4b13d6e56b3911f09b8e9ddd15708477fbff8823c057cc79dd99c9a452b34"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/gogo/protobuf.git"
 
   bottle do
