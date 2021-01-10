@@ -1,5 +1,3 @@
-require "base64"
-
 class Deark < Formula
   desc "File conversion utility for older formats"
   homepage "https://entropymine.com/deark/"
@@ -26,6 +24,8 @@ class Deark < Formula
   end
 
   test do
+    require "base64"
+
     (testpath/"test.gz").write ::Base64.decode64 <<~EOS
       H4sICKU51VoAA3Rlc3QudHh0APNIzcnJ11HwyM9NTSpKLVfkAgBuKJNJEQAAAA==
     EOS
