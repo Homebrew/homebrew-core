@@ -1,9 +1,11 @@
 class RipgrepAll < Formula
   desc "Wrapper around ripgrep that adds multiple rich file types"
   homepage "https://github.com/phiresky/ripgrep-all"
+  # Remove "Cargo.lock" resource at version bump!
   url "https://github.com/phiresky/ripgrep-all/archive/v0.9.6.tar.gz"
   sha256 "8cd7c5d13bd90ef0582168cd2bef73ca13ca6e0b1ecf24b9a5cd7cb886259023"
   license "AGPL-3.0"
+  revision 1
   head "https://github.com/phiresky/ripgrep-all.git"
 
   bottle do
@@ -19,7 +21,15 @@ class RipgrepAll < Formula
 
   uses_from_macos "zip" => :test
 
+  # Replace stale lock file. Remove at version bump.
+  resource "Cargo.lock" do
+    url "https://raw.githubusercontent.com/phiresky/ripgrep-all/fb8354ccd9ae4d6d41bd6c1b24f1c351da5ea24c/Cargo.lock"
+    sha256 "6400f855e43228c93909cf1bf70950d44f7cb0b6ab43170bca47d5a7a08142a5"
+  end
+
   def install
+    rm_f "Cargo.lock"
+    resource("Cargo.lock").stage buildpath
     system "cargo", "install", *std_cargo_args
   end
 
