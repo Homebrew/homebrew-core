@@ -28,7 +28,6 @@ class Qemu < Formula
 
   def install
     ENV["LIBTOOL"] = "glibtool"
-    ENV["CODE_SIGNING_REQUIRED"] = "NO"
     
     args = %W[
       --target-list=aarch64-softmmu
@@ -47,7 +46,8 @@ class Qemu < Formula
    # system "make", "V=1", "install"
     system "make -j"
     system "make install"
-    
+    system "codesign --entitlements accel/hvf/entitlements.plist --force -s - 'which qemu-system-aarch64'"
+
   end
 
   test do
