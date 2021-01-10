@@ -5,6 +5,11 @@ class Kubie < Formula
   sha256 "a88f07c49cf3a0683564117684aa28240e4749cc1d81d366d7076d4ffccfba30"
   license "Zlib"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "ece936adc6cd39b11ab17e90bd4eac82a071a94f8acde1a2ebd6fd2e7138eba5" => :big_sur
