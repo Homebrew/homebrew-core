@@ -28,7 +28,8 @@ class Qemu < Formula
 
   def install
     ENV["LIBTOOL"] = "glibtool"
-
+    ENV["CODE_SIGNING_REQUIRED"] = "NO"
+    
     args = %W[
       --target-list=aarch64-softmmu
       --enable-cocoa
@@ -46,6 +47,7 @@ class Qemu < Formula
    # system "make", "V=1", "install"
     system "make -j"
     system "make install"
+    
   end
 
   test do
