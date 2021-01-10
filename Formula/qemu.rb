@@ -31,6 +31,7 @@ class Qemu < Formula
 
     args = %W[
       --target-list=aarch64-softmmu
+      --enable-cocoa
       --prefix=#{prefix}
       --cc=#{ENV.cc}
       --host-cc=#{ENV.cc}
@@ -41,10 +42,7 @@ class Qemu < Formula
     # obtain sensible runtime errors. This will also be compatible with
     # Samba installations from external taps.
     args << "--smbd=#{HOMEBREW_PREFIX}/sbin/samba-dot-org-smbd"
-
-    on_macos do
-      args << "--enable-cocoa"
-    end
+    
     system ("git checkout master -b wip/hvf")
     system ("curl 'https://patchwork.kernel.org/series/400619/mbox/'|git am --3way")
     system "./configure", *args
