@@ -20,6 +20,7 @@ class Gpsd < Formula
     sha256 "bc0775e450c0129fd71a4abd163a7645ac9b3e1698009b2735fafeb838e09e79" => :high_sierra
   end
 
+  depends_on "asciidoctor" => :build
   depends_on "scons" => :build
 
   def install
