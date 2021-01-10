@@ -46,10 +46,8 @@ class Qemu < Formula
    # system "make", "V=1", "install"
     system "make -j"
     system "make install"
-    system "codesign --entitlements accel/hvf/entitlements.plist --force -s - ", "#{prefix}/bin/qemu-system-aarch64"
-
   end
-
+  
   test do
     expected = build.stable? ? version.to_s : "QEMU Project"
     assert_match expected, shell_output("#{bin}/qemu-system-aarch64 --version")
@@ -87,4 +85,9 @@ class Qemu < Formula
     resource("test-image").stage testpath
     assert_match "file format: raw", shell_output("#{bin}/qemu-img info FLOPPY.img")
   end
+
+  def post_install
+    system "codesign --entitlements accel/hvf/entitlements.plist --force -s - ", "#{prefix}/bin/qemu-system-aarch64"
+  end
+  
 end
