@@ -1,4 +1,6 @@
 class Repo < Formula
+  include Language::Python::Shebang
+
   desc "Repository tool for Android development"
   homepage "https://source.android.com/source/developing.html"
   url "https://gerrit.googlesource.com/git-repo.git",
@@ -13,6 +15,8 @@ class Repo < Formula
 
   def install
     bin.install "repo"
+    rewrite_shebang detected_python_shebang, bin/"repo"
+
     doc.install (buildpath/"docs").children
   end
 
