@@ -3,7 +3,7 @@ class BwmNg < Formula
   homepage "https://www.gropp.org/?id=projects&sub=bwm-ng"
   url "https://github.com/vgropp/bwm-ng/archive/v0.6.3.tar.gz"
   sha256 "c1a552b6ff48ea3e4e10110a7c188861abc4750befc67c6caaba8eb3ecf67f46"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   head "https://github.com/vgropp/bwm-ng.git"
 
   bottle do
