@@ -46,7 +46,7 @@ class Qemu < Formula
    # system "make", "V=1", "install"
     system "make -j"
     system "make install"
-    system "cp accel/hvf/entitlements.plist /tmp"
+    system "cp accel/hvf/entitlements.plist /tmp/entitlements.plist"
   end
   
   test do
