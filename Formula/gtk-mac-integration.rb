@@ -3,7 +3,7 @@ class GtkMacIntegration < Formula
   homepage "https://wiki.gnome.org/Projects/GTK+/OSX/Integration"
   url "https://download.gnome.org/sources/gtk-mac-integration/2.1/gtk-mac-integration-2.1.3.tar.xz"
   sha256 "d5f72302daad1f517932194d72967a32e72ed8177cfa38aaf64f0a80564ce454"
-  license "LGPL-2.1"
+  license "LGPL-2.1-only"
   revision 6
 
   # We use a common regex because gtk-mac-integration doesn't use GNOME's
@@ -21,18 +21,19 @@ class GtkMacIntegration < Formula
 
   head do
     url "https://github.com/jralls/gtk-mac-integration.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "gtk-doc" => :build
-    depends_on "libtool" => :build
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "gobject-introspection" => :build
+  depends_on "gtk-doc" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "gtk+"
   depends_on "gtk+3"
+
+  patch :DATA
 
   def install
     args = %W[
@@ -45,11 +46,7 @@ class GtkMacIntegration < Formula
       --enable-python=no
     ]
 
-    if build.head?
-      system "./autogen.sh", *args
-    else
-      system "./configure", *args
-    end
+    system "./autogen.sh", *args
     system "make", "install"
   end
 
@@ -117,3 +114,64 @@ class GtkMacIntegration < Formula
     system "./test"
   end
 end
+
+__END__
+diff --git a/src/Makefile.am b/src/Makefile.am
+index 3180e5e..2915df5 100644
+--- a/src/Makefile.am
++++ b/src/Makefile.am
+@@ -13,11 +13,7 @@ SOURCES = \
+ 	cocoa_menu_item.c				\
+ 	gtkosxapplication_quartz.c		\
+ 	gtkosxapplication.c				\
+-	gtkosx-image.c					\
+-	gtk-mac-dock.c					\
+-	gtk-mac-bundle.c				\
+-	gtk-mac-menu.c					\
+-	gtk-mac-image-utils.c
++	gtkosx-image.c
+
+ HEADER = \
+ 	cocoa_menu.h              \
+@@ -26,12 +22,6 @@ HEADER = \
+ 	GNSMenuBar.h              \
+ 	GNSMenuDelegate.h         \
+ 	GNSMenuItem.h             \
+-	gtk-mac-bundle.h          \
+-	gtk-mac-dock.h            \
+-	gtk-mac-image-utils.h     \
+-	gtk-mac-integration.h     \
+-	gtk-mac-menu.h            \
+-	gtk-mac-private.h         \
+ 	GtkApplicationDelegate.h  \
+ 	GtkApplicationNotify.h    \
+ 	gtkosx-image.h            \
+@@ -45,7 +35,7 @@ libgtkmacintegration_gtk3_la_SOURCES = $(SOURCES)
+ libgtkmacintegration_gtk3_la_CFLAGS = $(GTK3_CFLAGS) -xobjective-c
+ libgtkmacintegration_gtk3_la_OBJCFLAGS = $(GTK3_CFLAGS)
+ libgtkmacintegration_gtk3_la_LIBADD =  $(GTK3_LIBS) -lobjc
+-libgtkmacintegration_gtk3_la_LDFLAGS = -framework Carbon -framework ApplicationServices -version-info $(GTK_MAC_INTEGRATION_LT_VERSION)
++libgtkmacintegration_gtk3_la_LDFLAGS = -framework ApplicationServices -version-info $(GTK_MAC_INTEGRATION_LT_VERSION)
+ endif
+ if WITH_GTK2
+ lib_LTLIBRARIES += libgtkmacintegration-gtk2.la
+@@ -53,16 +43,12 @@ libgtkmacintegration_gtk2_la_SOURCES = $(SOURCES)
+ libgtkmacintegration_gtk2_la_CFLAGS = $(GTK2_CFLAGS) -xobjective-c
+ libgtkmacintegration_gtk2_la_OBJCFLAGS = $(GTK2_CFLAGS)
+ libgtkmacintegration_gtk2_la_LIBADD = $(GTK2_LIBS) -lobjc
+-libgtkmacintegration_gtk2_la_LDFLAGS = -framework Carbon -framework ApplicationServices -version-info $(GTK_MAC_INTEGRATION_LT_VERSION)
++libgtkmacintegration_gtk2_la_LDFLAGS = -framework ApplicationServices -version-info $(GTK_MAC_INTEGRATION_LT_VERSION)
+ endif
+
+ integration_includedir = $(includedir)/gtkmacintegration
+ integration_include_HEADERS =				\
+-	gtk-mac-integration.h				\
+-	gtkosxapplication.h				\
+-	gtk-mac-menu.h					\
+-	gtk-mac-dock.h					\
+-	gtk-mac-bundle.h
++	gtkosxapplication.h
+
+ noinst_PROGRAMS =
+ test_integration_gtk3_CFLAGS =
+
