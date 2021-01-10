@@ -3,6 +3,7 @@ class Deark < Formula
   homepage "https://entropymine.com/deark/"
   url "https://entropymine.com/deark/releases/deark-1.5.7.tar.gz"
   sha256 "b50ff49d13cfa3621721bac8c9af05e3ccb091852ddee0bc2e06a05e43d2ee9c"
+  license "MIT"
 
   livecheck do
     url "https://entropymine.com/deark/releases/"
