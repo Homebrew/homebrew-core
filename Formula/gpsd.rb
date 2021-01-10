@@ -4,6 +4,7 @@ class Gpsd < Formula
   url "https://download.savannah.gnu.org/releases/gpsd/gpsd-3.22.tar.xz"
   mirror "https://download-mirror.savannah.gnu.org/releases/gpsd/gpsd-3.22.tar.xz"
   sha256 "68d2a04e237a02ce42158ceda462a24afe11eeaa2b13482e94ac7ef66693f3a0"
+  license "BSD-2-Clause"
 
   livecheck do
     url "https://download.savannah.gnu.org/releases/gpsd/"
