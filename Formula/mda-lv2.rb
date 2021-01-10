@@ -5,6 +5,11 @@ class MdaLv2 < Formula
   sha256 "a81a00e19594881174526cd6ee7a3e301236e0ca25191982f5c9af5eb8d96ca8"
   license "GPL-3.0"
 
+  livecheck do
+    url "https://download.drobilla.net"
+    regex(/href=.*?mda-lv2[._-]v?(\d+.\d+.\d+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "c98df66e1d834f99c433066c4b64114c61b8a6f0b69d2efec156e27d229c3864" => :big_sur
