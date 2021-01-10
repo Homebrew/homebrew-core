@@ -1,8 +1,8 @@
 class GhzWeb < Formula
   desc "Web interface for ghz"
   homepage "https://ghz.sh"
-  url "https://github.com/bojand/ghz/archive/v0.80.0.tar.gz"
-  sha256 "ac0e071608a93c283405290d33939865bb71082a4c2dcb2780c860683542cda4"
+  url "https://github.com/bojand/ghz/archive/v0.90.0.tar.gz"
+  sha256 "fbfd832bd81d4ae5b9bcd90b6a441dcfcd63e6519eda16dcab6282ddb06cbc8f"
   license "Apache-2.0"
 
   bottle do
