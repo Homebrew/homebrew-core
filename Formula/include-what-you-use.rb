@@ -35,13 +35,7 @@ class IncludeWhatYouUse < Formula
     args = std_cmake_args + %W[
       -DCMAKE_INSTALL_PREFIX=#{libexec}
       -DCMAKE_PREFIX_PATH=#{Formula["llvm"].opt_lib}
-    ]
-
-    # IWYU does not build with Apple Clang. Upstream issue:
-    # https://github.com/include-what-you-use/include-what-you-use/issues/867
-    args += %W[
-      -DCMAKE_C_COMPILER=#{Formula["llvm"].opt_bin}/clang
-      -DCMAKE_CXX_COMPILER=#{Formula["llvm"].opt_bin}/clang++
+      -DCMAKE_CXX_FLAGS=-std=gnu++14
     ]
 
     mkdir "build" do
