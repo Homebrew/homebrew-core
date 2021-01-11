@@ -23,7 +23,11 @@ class Qscintilla2 < Formula
   depends_on "sip"
 
   def install
-    spec = (ENV.compiler == :clang) ? "macx-clang" : "macx-g++"
+    spec = if Hardware::CPU.arm?
+      "macx-clang-arm64"
+    else
+      (ENV.compiler == :clang) ? "macx-clang" : "macx-g++"
+    end
     args = %W[-config release -spec #{spec}]
 
     cd "Qt4Qt5" do
