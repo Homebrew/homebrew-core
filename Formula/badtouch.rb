@@ -1,9 +1,9 @@
 class Badtouch < Formula
   desc "Scriptable network authentication cracker"
   homepage "https://github.com/kpcyrd/badtouch"
-  url "https://github.com/kpcyrd/badtouch/archive/v0.7.1.tar.gz"
-  sha256 "c188bb1df106761a436fd25d3530323a47633c4c937d186e82c00981ffc94b5f"
-  license "GPL-3.0"
+  url "https://github.com/kpcyrd/badtouch/archive/v0.7.2.tar.gz"
+  sha256 "f3e384ccd9ff90c19f081c8cb240aff28bac42e7b318b5a04f50a70fc75537a4"
+  license "GPL-3.0-or-later"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,6 +17,13 @@ class Badtouch < Formula
   depends_on "openssl@1.1"
 
   uses_from_macos "zlib"
+
+  # Patch to avoid ULIMIT failures on Mojave and Catalina. Remove at version bump.
+  # https://github.com/kpcyrd/badtouch/pull/79
+  patch do
+    url "https://github.com/kpcyrd/badtouch/commit/0fe3c3fe877ccf948b8fe1b4eaa1a34de6d84882.patch?full_index=1"
+    sha256 "ff22b7a8a2047502f3a486bd4c7853466da702f93f673e0c8c6a3cd79f119886"
+  end
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
