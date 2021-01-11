@@ -1,10 +1,9 @@
 class Aspcud < Formula
   desc "Package dependency solver"
   homepage "https://potassco.org/aspcud/"
-  url "https://github.com/potassco/aspcud/archive/v1.9.4.tar.gz"
-  sha256 "3645f08b079e1cc80e24cd2d7ae5172a52476d84e3ec5e6a6c0034492a6ea885"
+  url "https://github.com/potassco/aspcud/archive/v1.9.5.tar.gz"
+  sha256 "9cd3a9490d377163d87b16fa1a10cc7254bc2dbb9f60e846961ac8233f3835cf"
   license "MIT"
-  revision 1
 
   bottle do
     rebuild 1
@@ -17,10 +16,6 @@ class Aspcud < Formula
   depends_on "cmake" => :build
   depends_on "re2c" => :build
   depends_on "clingo"
-
-  # Fix for compatibility with Boost >= 1.74
-  # https://github.com/potassco/aspcud/issues/7
-  patch :DATA
 
   def install
     args = std_cmake_args
@@ -44,16 +39,3 @@ class Aspcud < Formula
     system "#{bin}/aspcud", "in.cudf", "out.cudf"
   end
 end
-__END__
-diff -pur aspcud-1.9.4-old/libcudf/src/dependency.cpp aspcud-1.9.4/libcudf/src/dependency.cpp
---- aspcud-1.9.4-old/libcudf/src/dependency.cpp	2017-09-19 12:48:41.000000000 +0200
-+++ aspcud-1.9.4/libcudf/src/dependency.cpp	2020-11-17 15:39:33.000000000 +0100
-@@ -473,7 +473,7 @@ void ConflictGraph::cliques_(bool verbos
-         }
-         else {
-             PackageList candidates = component, next;
--            boost::sort(candidates, boost::bind(&ConflictGraph::edgeSort, this, _1, _2));
-+            boost::sort(candidates, boost::bind(&ConflictGraph::edgeSort, this, boost::placeholders::_1, boost::placeholders::_2));
-             // TODO: sort by out-going edges
-             do {
-                 cliques.push_back(PackageList());
