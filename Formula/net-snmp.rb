@@ -5,7 +5,6 @@ class NetSnmp < Formula
   sha256 "04303a66f85d6d8b16d3cc53bde50428877c82ab524e17591dfceaeb94df6071"
   license "Net-SNMP"
   head "https://github.com/net-snmp/net-snmp.git"
-  # ...previously used "https://git.code.sf.net/p/net-snmp/code" but github seems more current
 
   livecheck do
     url :stable
@@ -33,6 +32,15 @@ class NetSnmp < Formula
   patch do
     url "https://github.com/net-snmp/net-snmp/commit/a7c8c26c48c954a19bca5fdc6ba285396610d7aa.patch?full_index=1"
     sha256 "8ccc46a3c15d145e5034c0749f3c0e7bd11eca451809ae7f2312dab459e07cec"
+  end
+
+  # Apple Silicon support
+  # https://github.com/net-snmp/net-snmp/issues/228
+  if Hardware::CPU.arm?
+    patch do
+      url "https://github.com/net-snmp/net-snmp/commit/bcc654e7.patch?full_index=1"
+      sha256 "b5e35ef021e1962bd2fbf675f05eb43cc75bd7d417687d736a4c4b508a9eed47"
+    end
   end
 
   def install
