@@ -6,7 +6,6 @@ class BandcampDl < Formula
   url "https://github.com/iheanyi/bandcamp-dl/archive/0.0.10.tar.gz"
   sha256 "778899a166d5c242a75eef7f95b7e8b2dba7b8e8fcaa7a8f8e5ae64b13afefc2"
   license "Unlicense"
-  revision 6
   head "https://github.com/iheanyi/bandcamp-dl.git"
 
   bottle do
