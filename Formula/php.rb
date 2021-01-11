@@ -6,6 +6,7 @@ class Php < Formula
   mirror "https://fossies.org/linux/www/php-8.0.1.tar.xz"
   sha256 "208b3330af881b44a6a8c6858d569c72db78dab97810332978cc65206b0ec2dc"
   license "PHP-3.01"
+  revision 1
 
   livecheck do
     url "https://www.php.net/releases/feed.php"
