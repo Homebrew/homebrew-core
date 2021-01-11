@@ -30,7 +30,8 @@ class Grace < Formula
   depends_on "libxpm"
   depends_on "libxt"
   depends_on "openmotif"
-  depends_on "pdflib-lite"
+  # pdflib-lite is not essential and does not currently support Apple Silicon
+  depends_on "pdflib-lite" if Hardware::CPU.intel?
 
   def install
     ENV.O1 # https://github.com/Homebrew/homebrew/issues/27840#issuecomment-38536704
