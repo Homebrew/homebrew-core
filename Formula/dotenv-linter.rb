@@ -21,7 +21,7 @@ class DotenvLinter < Formula
   end
 
   test do
-    checks = shell_output("#{bin}/dotenv-linter --show-checks").split("\n")
+    checks = shell_output("#{bin}/dotenv-linter list").split("\n")
     assert_includes checks, "DuplicatedKey"
     assert_includes checks, "UnorderedKey"
     assert_includes checks, "LeadingCharacter"
