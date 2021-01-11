@@ -192,9 +192,9 @@ class Subversion < Formula
     system "#{bin}/svnadmin", "verify", "test"
 
     if Hardware::CPU.intel?
-      perl_version = Utils.safe_popen_read("perl", "--version")[/v(\d+\.\d+(?:\.\d+)?)/, 1]
+      perl_version = Utils.safe_popen_read("/usr/bin/perl", "--version")[/v(\d+\.\d+(?:\.\d+)?)/, 1]
       ENV["PERL5LIB"] = "#{lib}/perl5/site_perl/#{perl_version}/darwin-thread-multi-2level"
-      system "perl", "-e", "use SVN::Client; new SVN::Client()"
+      system "/usr/bin/perl", "-e", "use SVN::Client; new SVN::Client()"
     end
   end
 end
