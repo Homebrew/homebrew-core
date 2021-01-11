@@ -10,6 +10,11 @@ class Cproto < Formula
     "GPL-3.0-or-later" => { with: "Autoconf-exception-3.0" },
   ]
 
+  livecheck do
+    url "https://invisible-mirror.net/archives/cproto/"
+    regex(/href=.*?cproto[._-]v?(\d+(?:[.-]\d+)+[a-z])\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "74853b756108f1bc8cea4d4f64affa9cbb8b5cd1d95c249c84657e87454830b7" => :big_sur
