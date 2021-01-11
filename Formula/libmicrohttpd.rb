@@ -22,6 +22,7 @@ class Libmicrohttpd < Formula
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
+                          "--enable-https",
                           "--prefix=#{prefix}"
     system "make", "install"
     (pkgshare/"examples").install Dir.glob("doc/examples/*.c")
