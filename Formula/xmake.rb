@@ -1,8 +1,9 @@
 class Xmake < Formula
   desc "Cross-platform build utility based on Lua"
   homepage "https://xmake.io/"
-  url "https://github.com/xmake-io/xmake/releases/download/v2.3.9/xmake-v2.3.9.tar.gz"
-  sha256 "74ac394a71a137874393ff0f112b048a3c1c88c05efaa0059bb2268de9f4f672"
+  url "https://github.com/xmake-io/xmake/releases/download/v2.3.9/xmake-v2.3.9.m1.tar.gz"
+  version "2.3.9.m1"
+  sha256 "25a8fc39c6859854d26cec918eca94e16427d76870a9f29f4b302f7d300674a2"
   license "Apache-2.0"
   head "https://github.com/xmake-io/xmake.git"
 
@@ -21,6 +22,7 @@ class Xmake < Formula
     on_linux do
       ENV["XMAKE_ROOT"] = "y" if ENV["CI"]
     end
+
     system "make", "build"
     system "make", "install", "prefix=#{prefix}"
   end
