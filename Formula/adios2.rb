@@ -1,10 +1,9 @@
 class Adios2 < Formula
   desc "Next generation of ADIOS developed in the Exascale Computing Program"
   homepage "https://adios2.readthedocs.io"
-  url "https://github.com/ornladios/ADIOS2/archive/v2.6.0.tar.gz"
-  sha256 "45b41889065f8b840725928db092848b8a8b8d1bfae1b92e72f8868d1c76216c"
+  url "https://github.com/ornladios/ADIOS2/archive/v2.7.0.tar.gz"
+  sha256 "4b5df1a1f92d7ff380416dec7511cfcfe3dc44da27e486ed63c3e6cffb173924"
   license "Apache-2.0"
-  revision 3
   head "https://github.com/ornladios/ADIOS2.git", branch: "master"
 
   bottle do
@@ -26,14 +25,6 @@ class Adios2 < Formula
   depends_on "python@3.9"
   depends_on "zeromq"
   uses_from_macos "bzip2"
-
-  # macOS 10.13 configuration-time issue detecting float types
-  # reference: https://github.com/ornladios/ADIOS2/pull/2305
-  # can be removed after v2.6.0
-  patch do
-    url "https://github.com/ornladios/ADIOS2/commit/e92f052bc26816b30d3399343a005ea82b88afaf.patch?full_index=1"
-    sha256 "6d0b84af71d6ccf4cf1cdad5e064cca837d505334316e7e78d18fa30a959666a"
-  end
 
   def install
     # fix `include/adios2/common/ADIOSConfig.h` file audit failure
