@@ -1,8 +1,8 @@
 class Kubie < Formula
   desc "Much more powerful alternative to kubectx and kubens"
   homepage "https://blog.sbstp.ca/introducing-kubie/"
-  url "https://github.com/sbstp/kubie/archive/v0.12.0.tar.gz"
-  sha256 "a88f07c49cf3a0683564117684aa28240e4749cc1d81d366d7076d4ffccfba30"
+  url "https://github.com/sbstp/kubie/archive/v0.12.1.tar.gz"
+  sha256 "cc902e58bbfc59529d3734eb53a9abff75b8c5e01379aed76bde10c0be1d1d3d"
   license "Zlib"
 
   livecheck do
