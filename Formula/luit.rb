@@ -3,6 +3,7 @@ class Luit < Formula
   homepage "https://invisible-island.net/luit/"
   url "https://invisible-mirror.net/archives/luit/luit-20201003.tgz"
   sha256 "c948da3c8b163e8e8f23cbe1255e7f3fa234c48aaf470b201ce55a3ecb4ad985"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
