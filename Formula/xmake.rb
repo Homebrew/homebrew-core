@@ -21,8 +21,14 @@ class Xmake < Formula
     on_linux do
       ENV["XMAKE_ROOT"] = "y" if ENV["CI"]
     end
-    system "make", "build"
-    system "make", "install", "prefix=#{prefix}"
+
+    # This should probably be automatic in future versions
+    # https://github.com/xmake-io/xmake/issues/1190
+    args = []
+    args << "BUILD_ARCH=arm64" if Hardware::CPU.arm?
+
+    system "make", "-j1", *args
+    system "make", "install", "prefix=#{prefix}", *args
   end
 
   test do
