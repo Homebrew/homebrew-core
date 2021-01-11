@@ -3,7 +3,7 @@ class MdaLv2 < Formula
   homepage "https://drobilla.net/software/mda-lv2/"
   url "https://download.drobilla.net/mda-lv2-1.2.6.tar.bz2"
   sha256 "cd66117024ae049cf3aca83f9e904a70277224e23a969f72a9c5d010a49857db"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url "https://download.drobilla.net"
