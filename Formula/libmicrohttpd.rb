@@ -4,6 +4,7 @@ class Libmicrohttpd < Formula
   url "https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-0.9.72.tar.gz"
   mirror "https://ftpmirror.gnu.org/libmicrohttpd/libmicrohttpd-0.9.72.tar.gz"
   sha256 "0ae825f8e0d7f41201fd44a0df1cf454c1cb0bc50fe9d59c26552260264c2ff8"
+  license "LGPL-2.1-or-later"
 
   livecheck do
     url :stable
