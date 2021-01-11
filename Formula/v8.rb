@@ -19,7 +19,7 @@ class V8 < Formula
     sha256 "b8222edfa40c8838b910eefe67b17c5b278447e94dc4d365ae9cb55d0e35d7e9" => :mojave
   end
 
-  depends_on "llvm" => :build if DevelopmentTools.clang_build_version < 1200
+  depends_on "llvm" => :build if DevelopmentTools.clang_build_version < 1200 || Hardware::CPU.arm?
   depends_on "ninja" => :build
 
   depends_on xcode: ["10.0", :build] # required by v8
@@ -104,7 +104,7 @@ class V8 < Formula
     }
 
     # use clang from homebrew llvm formula for XCode 11- , because the system clang is too old for V8
-    if DevelopmentTools.clang_build_version < 1200
+    if DevelopmentTools.clang_build_version < 1200 || Hardware::CPU.arm?
       ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib # but link against system libc++
       gn_args[:clang_base_path] = "\"#{Formula["llvm"].prefix}\""
     end
