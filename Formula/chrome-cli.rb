@@ -37,6 +37,13 @@ class ChromeCli < Formula
     inreplace "chrome-cli/App.m", "com.google.Chrome.canary", "org.Chromium.chromium"
     xcodebuild "SDKROOT=", "SYMROOT=build"
     bin.install "build/Release/chrome-cli" => "chromium-cli"
+
+    # Brave builds; see:
+    # https://github.com/prasmussen/chrome-cli/issues/57
+    rm_rf "build"
+    inreplace "chrome-cli/App.m", "org.Chromium.chromium", "com.brave.Browser"
+    xcodebuild "SDKROOT=", "SYMROOT=build"
+    bin.install "build/Release/chrome-cli" => "brave-cli"
   end
 
   test do
