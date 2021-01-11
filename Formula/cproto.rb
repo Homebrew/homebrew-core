@@ -12,7 +12,7 @@ class Cproto < Formula
 
   livecheck do
     url "https://invisible-mirror.net/archives/cproto/"
-    regex(/href=.*?cproto[._-]v?(\d+(?:[.-]\d+)+[a-z])\.t/i)
+    regex(/href=.*?cproto[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t/i)
   end
 
   bottle do
