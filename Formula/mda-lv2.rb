@@ -1,8 +1,8 @@
 class MdaLv2 < Formula
   desc "LV2 port of the MDA plugins"
   homepage "https://drobilla.net/software/mda-lv2/"
-  url "https://download.drobilla.net/mda-lv2-1.2.4.tar.bz2"
-  sha256 "a81a00e19594881174526cd6ee7a3e301236e0ca25191982f5c9af5eb8d96ca8"
+  url "https://download.drobilla.net/mda-lv2-1.2.6.tar.bz2"
+  sha256 "cd66117024ae049cf3aca83f9e904a70277224e23a969f72a9c5d010a49857db"
   license "GPL-3.0"
 
   livecheck do
