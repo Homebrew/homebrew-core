@@ -1,8 +1,8 @@
 class Xmake < Formula
   desc "Cross-platform build utility based on Lua"
   homepage "https://xmake.io/"
-  url "https://github.com/xmake-io/xmake/releases/download/v2.3.9/xmake-v2.3.9.tar.gz"
-  sha256 "74ac394a71a137874393ff0f112b048a3c1c88c05efaa0059bb2268de9f4f672"
+  url "https://github.com/xmake-io/xmake/releases/download/v2.3.9/xmake-v2.3.9.m1.tar.gz"
+  sha256 "421313877b56129674441d88bbc129bd60445d8106a6cb97f8c799864b1fd51f"
   license "Apache-2.0"
   head "https://github.com/xmake-io/xmake.git"
 
@@ -25,7 +25,7 @@ class Xmake < Formula
     # This should probably be automatic in future versions
     # https://github.com/xmake-io/xmake/issues/1190
     args = []
-    args << "BUILD_ARCH=arm64" if Hardware::CPU.arm?
+    #args << "BUILD_ARCH=arm64" if Hardware::CPU.arm?
 
     system "make", "-j1", *args
     system "make", "install", "prefix=#{prefix}", *args
