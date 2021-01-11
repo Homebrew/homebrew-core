@@ -18,7 +18,6 @@ class Libmicrohttpd < Formula
   end
 
   depends_on "gnutls"
-  depends_on "libgcrypt"
 
   def install
     system "./configure", "--disable-dependency-tracking",
