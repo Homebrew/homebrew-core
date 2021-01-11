@@ -25,6 +25,10 @@ class Verilator < Formula
 
   skip_clean "bin" # Allows perl scripts to keep their executable flag
 
+  depends_on "python@3.9" => :build
+
+  uses_from_macos "perl"
+
   def install
     system "autoconf" if build.head?
     system "./configure", "--prefix=#{prefix}"
