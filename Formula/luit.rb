@@ -4,6 +4,11 @@ class Luit < Formula
   url "https://invisible-mirror.net/archives/luit/luit-20190106.tgz"
   sha256 "2b900f65ccdc38f8bfc11c6020069d055ba63fce6f90baefe8efc222a5ca3920"
 
+  livecheck do
+    url "https://invisible-mirror.net/archives/luit/"
+    regex(/href=.*?luit[._-]v?(\d+(?:[.-]\d+)*)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "94866891c1da82fe283a81563f768a43d495c59db3fad393a717b7c5343868b6" => :big_sur
