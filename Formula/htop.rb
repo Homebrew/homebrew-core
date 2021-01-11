@@ -1,8 +1,8 @@
 class Htop < Formula
   desc "Improved top (interactive process viewer)"
   homepage "https://htop.dev/"
-  url "https://github.com/htop-dev/htop/archive/3.0.4.tar.gz"
-  sha256 "d8a0536ce95e3d59f8e292e73ee037033a74a8cc118fd10d22048bd4aeb61324"
+  url "https://github.com/htop-dev/htop/archive/3.0.5.tar.gz"
+  sha256 "4c2629bd50895bd24082ba2f81f8c972348aa2298cc6edc6a21a7fa18b73990c"
   license "GPL-2.0-or-later"
   head "https://github.com/htop-dev/htop.git"
 
