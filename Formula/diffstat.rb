@@ -4,6 +4,11 @@ class Diffstat < Formula
   url "https://invisible-mirror.net/archives/diffstat/diffstat-1.63.tgz"
   sha256 "7eddd53401b99b90bac3f7ebf23dd583d7d99c6106e67a4f1161b7a20110dc6f"
 
+  livecheck do
+    url "https://invisible-mirror.net/archives/diffstat/"
+    regex(/href=.*?diffstat[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "6dcd1fba2f36a3a67c68f97de8f8d350cfd04e20b2874889815520d2cc166432" => :big_sur
