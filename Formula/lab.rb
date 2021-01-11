@@ -48,6 +48,6 @@ class Lab < Formula
     %w[haunted house].each { |f| touch testpath/f }
     system "git", "add", "haunted", "house"
     system "git", "commit", "-a", "-m", "Initial Commit"
-    assert_equal "haunted\nhouse", shell_output("#{bin}/lab ls-files").strip
+    assert_match "haunted\nhouse", shell_output("#{bin}/lab ls-files").strip
   end
 end
