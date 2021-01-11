@@ -1,10 +1,10 @@
 class Ed < Formula
   desc "Classic UNIX line editor"
   homepage "https://www.gnu.org/software/ed/ed.html"
-  url "https://ftp.gnu.org/gnu/ed/ed-1.16.tar.lz"
-  mirror "https://ftpmirror.gnu.org/ed/ed-1.16.tar.lz"
-  sha256 "cfc07a14ab048a758473ce222e784fbf031485bcd54a76f74acfee1f390d8b2c"
-  revision 1
+  url "https://ftp.gnu.org/gnu/ed/ed-1.17.tar.lz"
+  mirror "https://ftpmirror.gnu.org/ed/ed-1.17.tar.lz"
+  sha256 "71de39883c25b6fab44add80635382a10c9bf154515b94729f4a6529ddcc5e54"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url :stable
