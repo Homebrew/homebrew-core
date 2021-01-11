@@ -3,6 +3,7 @@ class Mlpack < Formula
   homepage "https://www.mlpack.org"
   url "https://mlpack.org/files/mlpack-3.4.2.tar.gz"
   sha256 "9e5c4af5c276c86a0dcc553289f6fe7b1b340d61c1e59844b53da0debedbb171"
+  license all_of: ["BSD-3-Clause", "MPL-2.0", "BSL-1.0", "MIT"]
 
   bottle do
     cellar :any
