@@ -17,7 +17,7 @@ class Lab < Formula
 
   depends_on "go" => :build
 
-  # test the patch
+  # fix the build and remove in next release
   patch do
     url "https://github.com/prarit/lab/commit/4f7ea880d638647ec907f7e5e6395498588b7bcb.patch?full_index=1"
     sha256 "49e571927e5b85c226eacf55ad0b3918932ee526703fafb01002b541b011e80a"
