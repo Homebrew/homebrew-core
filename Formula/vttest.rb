@@ -5,6 +5,11 @@ class Vttest < Formula
   sha256 "069db5efca2325280bc14ffe14ff7085e3ddfe6ae152499155daa28d94b90421"
   license "BSD-3-Clause"
 
+  livecheck do
+    url "https://invisible-mirror.net/archives/vttest/"
+    regex(/href=.*?vttest[._-]v?(\d+(?:[.-]\d+)*)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "d99c891ef72835d79954094937d025a7e78d62c7ac6daccb9f924e20cff191bd" => :big_sur
