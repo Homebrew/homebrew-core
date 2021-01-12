@@ -19,6 +19,8 @@ class Sslh < Formula
   depends_on "libconfig"
   depends_on "pcre"
 
+  uses_from_macos "netcat" => :test
+
   def install
     ENV.deparallelize
     system "make", "install", "PREFIX=#{prefix}"
