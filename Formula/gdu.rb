@@ -1,8 +1,8 @@
 class Gdu < Formula
   desc "Disk usage analyzer with console interface written in Go"
   homepage "https://github.com/dundee/gdu"
-  url "https://github.com/dundee/gdu/archive/v2.2.0.tar.gz"
-  sha256 "94f4faaee6c1676b73bb75f031cc3d004b8df713fb12d1dfc90ed592bf302df7"
+  url "https://github.com/dundee/gdu/archive/v2.3.0.tar.gz"
+  sha256 "bd5e08dfbbb2ed4c1ba6c960365f34d916e913030e94d3f0515fedafa9a2c8bf"
   license "MIT"
 
   bottle do
@@ -20,7 +20,12 @@ class Gdu < Formula
   end
 
   test do
+    mkdir_p testpath/"test_dir"
+    (testpath/"test_dir"/"file1").write "hello"
+    (testpath/"test_dir"/"file2").write "brew"
+
     assert_match version.to_s, shell_output("#{bin}/gdu -v")
     assert_match "colorized", shell_output("#{bin}/gdu --help 2>&1")
+    assert_match "5 B file1", shell_output("#{bin}/gdu -non-interactive -no-progress #{testpath}/test_dir 2>&1")
   end
 end
