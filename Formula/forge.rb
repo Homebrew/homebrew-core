@@ -5,6 +5,11 @@ class Forge < Formula
   sha256 "4ed631cfde6a9c0daf786d68b47719edec024928b3e23dbfb2e786e60ab01097"
   license "BSD-3-Clause"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     cellar :any
     sha256 "af25416dba5b9b0ea4fd3cc26270a9ee9cd955d5f265e3b2e325dc89628be568" => :big_sur
