@@ -6,6 +6,7 @@ class Cpprestsdk < Formula
       tag:      "2.10.17",
       revision: "41e7d0074b6cb5b22c89f835b4531d848ab66987"
   license "MIT"
+  revision 1
   head "https://github.com/Microsoft/cpprestsdk.git", branch: "development"
 
   bottle do
