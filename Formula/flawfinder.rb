@@ -3,10 +3,9 @@ class Flawfinder < Formula
 
   desc "Examines code and reports possible security weaknesses"
   homepage "https://www.dwheeler.com/flawfinder/"
-  url "https://www.dwheeler.com/flawfinder/flawfinder-2.0.11.tar.gz"
-  sha256 "9b4929fca5c6703880d95f201e470b7f19262ff63e991b3ac4ea3257f712f5ec"
+  url "https://www.dwheeler.com/flawfinder/flawfinder-2.0.15.tar.gz"
+  sha256 "0a65cf93b1d380669476e576abbb04ea0766a557ce2bf75d9e71f387fcd74406"
   license "GPL-2.0"
-  revision 2
   head "https://github.com/david-a-wheeler/flawfinder.git"
 
   livecheck do
