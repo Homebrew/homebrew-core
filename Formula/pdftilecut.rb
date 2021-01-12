@@ -6,8 +6,8 @@ class Pdftilecut < Formula
   license "BSD-3-Clause"
 
   depends_on "go" => :build
-  depends_on "jpeg-turbo" => :build
-  depends_on "qpdf" => :build
+  depends_on "jpeg-turbo"
+  depends_on "qpdf"
 
   def install
     system "go", "build", *std_go_args
