@@ -20,6 +20,8 @@ class Pdftilecut < Formula
   end
 
   test do
-    system bin/"pdftilecut", "-h"
+    testpdf = test_fixtures("test.pdf")
+    system "#{bin}/pdftilecut", "-tile-size", "A6", "-in", testpdf, "-out", "split.pdf"
+    assert (testpath/"split.pdf").file?
   end
 end
