@@ -24,6 +24,8 @@ class Mosquitto < Formula
   depends_on "libwebsockets"
   depends_on "openssl@1.1"
 
+  uses_from_macos "libxslt" => :build
+
   on_linux do
     depends_on "util-linux"
   end
