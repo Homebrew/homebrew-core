@@ -4,7 +4,7 @@ class Jpeg < Formula
   url "https://www.ijg.org/files/jpegsrc.v9d.tar.gz"
   mirror "https://dl.bintray.com/homebrew/mirror/jpeg-9d.tar.gz"
   mirror "https://fossies.org/linux/misc/jpegsrc.v9d.tar.gz"
-  sha256 "99cb50e48a4556bc571dadd27931955ff458aae32f68c4d9c39d624693f69c32"
+  sha256 "6c434a3be59f8f62425b2e3c077e785c9ce30ee5874ea1c270e843f273ba71ee"
   license "IJG"
 
   livecheck do
