@@ -7,8 +7,8 @@ class VaultCli < Formula
   head "https://github.com/apache/jackrabbit-filevault.git"
 
   livecheck do
-    url "https://repo1.maven.org/maven2/org/apache/jackrabbit/vault/vault-cli/"
-    regex(%r{href=.*?(\d+(?:\.\d+)+)/?["' >]}i)
+    url "https://search.maven.org/remotecontent?filepath=org/apache/jackrabbit/vault/vault-cli/"
+    regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
   bottle :unneeded
