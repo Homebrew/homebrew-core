@@ -5,6 +5,7 @@ class GitGui < Formula
   url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.30.0.tar.xz"
   sha256 "55735021109565721af805af382c45cce73c3cfaa59daad22443d1477d334d19"
   license "GPL-2.0"
+  revision 1
   head "https://github.com/git/git.git", shallow: false
 
   bottle do
@@ -16,6 +17,13 @@ class GitGui < Formula
   end
 
   depends_on "tcl-tk"
+
+  # Patch to fix Homebrew/homebrew-core#68798.
+  # Remove at version bump
+  patch do
+    url "https://github.com/git/git/commit/1db62e44b7ec93b6654271ef34065b31496cd02e.patch?full_index=1"
+    sha256 "0c7816ee9c8ddd7aa38aa29541c9138997650713bce67bdef501b1de0b50f539"
+  end
 
   def install
     # build verbosely
