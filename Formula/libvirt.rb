@@ -18,6 +18,9 @@ class Libvirt < Formula
 
   head do
     url "https://github.com/libvirt/libvirt.git"
+    patch do 
+      url "https://gist.githubusercontent.com/m-bers/656d736686ebc240d76407ebdd4221f6/raw/3d923b8c5f029d992d6d69119a96ff3f4018ba38/cpu_arm_m1.patch"
+    end
   end
   depends_on "docutils" => :build
   depends_on "meson" => :build
