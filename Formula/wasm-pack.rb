@@ -1,8 +1,11 @@
 class WasmPack < Formula
   desc "Your favorite rust -> wasm workflow tool!"
   homepage "https://rustwasm.github.io/wasm-pack/"
+  # Remove "Cargo.lock" resource at version bump!
   url "https://github.com/rustwasm/wasm-pack/archive/v0.9.1.tar.gz"
   sha256 "56930d1f15bbcc85771e9b8e5c1b7bb6734b2c410c353ecd11eae828e35d5fb0"
+  license all_of: ["Apache-2.0", "MIT"]
+  revision 1
   head "https://github.com/rustwasm/wasm-pack.git"
 
   bottle do
@@ -16,7 +19,16 @@ class WasmPack < Formula
   depends_on "rust" => :build
   depends_on "rustup-init"
 
+  # Replaces stale lockfile. Remove at version bump.
+  resource "Cargo.lock" do
+    url "https://raw.githubusercontent.com/rustwasm/wasm-pack/fe254c638c8c8c58cee1136f63f10d23fabce6fd/Cargo.lock"
+    sha256 "1361832c389c10bda5bf9ced0f29da2452b3407418415132f5611e817c33a3d9"
+  end
+
   def install
+    # Replaces stale lockfile. Remove these two lines at version bump.
+    rm_f "Cargo.lock"
+    resource("Cargo.lock").stage buildpath
     system "cargo", "install", *std_cargo_args
   end
 
