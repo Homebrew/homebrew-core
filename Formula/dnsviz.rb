@@ -6,6 +6,7 @@ class Dnsviz < Formula
   url "https://files.pythonhosted.org/packages/c1/e8/263e91aa263eab8c3152d2860e805440d3d7b5e28f33200c0922ce8a9a38/dnsviz-0.9.0.tar.gz"
   sha256 "505dd9aa3397fab4f3f61a9bf0e658316fd9cb1e3b3a8f0de563401aece30678"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -23,7 +24,6 @@ class Dnsviz < Formula
   depends_on "swig" => :build
   depends_on "bind" => :test
   depends_on "graphviz"
-  depends_on "libsodium"
   depends_on "openssl@1.1"
   depends_on "python@3.9"
 
@@ -35,11 +35,6 @@ class Dnsviz < Formula
   resource "dnspython" do
     url "https://files.pythonhosted.org/packages/13/27/5277de856f605f3429d752a39af3588e29d10181a3aa2e2ee471d817485a/dnspython-2.1.0.zip"
     sha256 "e4a87f0b573201a0f3727fa18a516b055fd1107e0e5477cded4a2de497df1dd4"
-  end
-
-  resource "libnacl" do
-    url "https://files.pythonhosted.org/packages/5e/a2/5c8cdfa3a30efaf9d503217a5b8a70be2ee551cb5a7150047d43428ea023/libnacl-1.7.2.tar.gz"
-    sha256 "b53999817435d24bf87bc9c7a2fb95e865f8ff7dc6a36655c28d6c62443c3d6b"
   end
 
   resource "M2Crypto" do
