@@ -1,8 +1,9 @@
 class Baresip < Formula
   desc "Modular SIP useragent"
   homepage "https://github.com/baresip/baresip"
-  url "https://github.com/baresip/baresip/releases/download/v0.6.5/baresip-0.6.5.tar.gz"
-  sha256 "2b035bd8b2121c72bec674768579a3bdcc5d1d567ecb0a84125864d69807b18d"
+  url "https://github.com/baresip/baresip/archive/v1.0.0.tar.gz"
+  sha256 "7b008c0a5b4fccfa0a4003f86dc4aaafeaabbdd259ece4757898e9cb5f04fdcf"
+  license "BSD-3-Clause"
 
   bottle do
     sha256 "26b195eb72f39e12b796100935469105d0a07968cf38d9dc1febec3322e40939" => :big_sur
@@ -11,8 +12,12 @@ class Baresip < Formula
     sha256 "b99e262d153eb3414c2a6fe813be98e78f71da205d66ede0ec799d1e07f0341a" => :high_sierra
   end
 
-  depends_on "libre"
   depends_on "librem"
+
+  resource "libre" do
+    url "https://github.com/baresip/re/archive/v1.1.0.tar.gz"
+    sha256 "82afc903a6b1e436b357f05eb11560ec681712291dd9c83c408465c895f28b5d"
+  end
 
   def install
     # baresip doesn't like the 10.11 SDK when on Yosemite
@@ -21,11 +26,15 @@ class Baresip < Formula
       ENV.delete("HOMEBREW_SDKROOT") if MacOS::Xcode.without_clt?
     end
 
-    libre = Formula["libre"]
+
+    resource("libre").stage do
+      system "make", "SYSROOT=#{MacOS.sdk_path}/usr", "install", "PREFIX=#{libexec}/libre"
+    end
+
     system "make", "install", "PREFIX=#{prefix}",
-                              "LIBRE_MK=#{libre.opt_share}/re/re.mk",
-                              "LIBRE_INC=#{libre.opt_include}/re",
-                              "LIBRE_SO=#{libre.opt_lib}",
+                              "LIBRE_MK=#{libexec}/libre/share/re/re.mk",
+                              "LIBRE_INC=#{libexec}/libre/include/re",
+                              "LIBRE_SO=#{libexec}/libre/lib",
                               "MOD_AUTODETECT=",
                               "USE_AVCAPTURE=1",
                               "USE_COREAUDIO=1",
@@ -37,6 +46,6 @@ class Baresip < Formula
   end
 
   test do
-    system "#{bin}/baresip", "-f", "#{ENV["HOME"]}/.baresip", "-t"
+    system "#{bin}/baresip", "-f", "#{ENV["HOME"]}/.baresip", "-t", "1"
   end
 end
