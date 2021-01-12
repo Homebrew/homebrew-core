@@ -4,6 +4,7 @@ class Ncmpcpp < Formula
   url "https://rybczak.net/ncmpcpp/stable/ncmpcpp-0.9.1.tar.bz2"
   sha256 "cb814a39c975f5b19c466188433644d1cbdb6db0abe1481d525587b149b36574"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     cellar :any
