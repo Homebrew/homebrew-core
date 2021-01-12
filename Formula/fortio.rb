@@ -6,6 +6,11 @@ class Fortio < Formula
       revision: "696d6ace5d1ac8535ee5e49b20bcfa9a779035e2"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 "7abc5fc9821fb5247e4904b565303e4df7576fdf51a768179324b803eb48c2af" => :big_sur
     sha256 "9513e525fc8c109ad78fa2e6469a989d61df1ee25765058c3689eadd5f0f960d" => :arm64_big_sur
