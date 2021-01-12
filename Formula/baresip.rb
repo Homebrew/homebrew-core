@@ -26,7 +26,6 @@ class Baresip < Formula
       ENV.delete("HOMEBREW_SDKROOT") if MacOS::Xcode.without_clt?
     end
 
-
     resource("libre").stage do
       system "make", "SYSROOT=#{MacOS.sdk_path}/usr", "install", "PREFIX=#{libexec}/libre"
     end
