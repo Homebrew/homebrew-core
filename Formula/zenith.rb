@@ -6,6 +6,11 @@ class Zenith < Formula
   license "MIT"
   head "https://github.com/bvaisvil/zenith.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 1
