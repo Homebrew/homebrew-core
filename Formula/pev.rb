@@ -21,13 +21,6 @@ class Pev < Formula
   depends_on "openssl@1.1"
   depends_on "pcre"
 
-  # Upstream fix for compatibility with OpenSSL 1.1
-  # https://github.com/merces/pev/pull/104
-  patch do
-    url "https://github.com/merces/pev/commit/53eb494b.patch?full_index=1"
-    sha256 "851a7db93c75766bfcf0da4fe5485dc1965672be9bc9a992fe57b52c93958a31"
-  end
-
   def install
     ENV.deparallelize
     system "make", "prefix=#{prefix}", "CC=#{ENV.cc}"
