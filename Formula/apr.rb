@@ -5,7 +5,7 @@ class Apr < Formula
   mirror "https://archive.apache.org/dist/apr/apr-1.7.0.tar.bz2"
   sha256 "e2e148f0b2e99b8e5c6caa09f6d4fb4dd3e83f744aa72a952f94f5a14436f7ea"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -32,6 +32,13 @@ class Apr < Formula
   patch :p0 do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/7e2246542543bbd3111a4ec29f801e6e4d538f88/apr/r1871981-macos11.patch"
     sha256 "8754b8089d0eb53a7c4fd435c9a9300560b675a8ff2c32315a5e9303408447fe"
+  end
+
+  # Apply r1882980+1882981 to fix implicit exit() declaration
+  # Remove with the next release, along with the autoconf call & dependency.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/fa29e2e398c638ece1a72e7a4764de108bd09617/apr/r1882980%2B1882981-configure.patch"
+    sha256 "24189d95ab1e9523d481694859b277c60ca29bfec1300508011794a78dfed127"
   end
 
   def install
