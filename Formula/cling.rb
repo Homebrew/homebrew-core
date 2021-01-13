@@ -2,8 +2,8 @@ class Cling < Formula
   desc "C++ interpreter"
   homepage "https://root.cern.ch/cling"
   url "https://github.com/root-project/cling.git",
-      tag:      "v0.7",
-      revision: "70163975eee5a76b45a1ca4016bfafebc9b57e07"
+      tag:      "v0.8",
+      revision: "3407406efafa9da3661f8a3594416c4226b461c7"
   license any_of: ["LGPL-2.1-only", "NCSA"]
 
   livecheck do
@@ -23,7 +23,7 @@ class Cling < Formula
 
   resource "clang" do
     url "http://root.cern.ch/git/clang.git",
-        tag:      "cling-v0.7",
+        tag:      "cling-v0.8",
         revision: "354b25b5d915ff3b1946479ad07f3f2768ea1621"
   end
 
