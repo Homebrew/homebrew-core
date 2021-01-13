@@ -119,7 +119,7 @@ class Mpd < Formula
     pid = fork do
       exec "#{bin}/mpd --stdout --no-daemon #{testpath}/mpd.conf"
     end
-    sleep 5
+    sleep 20
 
     begin
       ohai "Connect to MPD command (localhost:#{port})"
