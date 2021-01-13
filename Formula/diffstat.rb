@@ -3,6 +3,7 @@ class Diffstat < Formula
   homepage "https://invisible-island.net/diffstat/"
   url "https://invisible-mirror.net/archives/diffstat/diffstat-1.64.tgz"
   sha256 "b8aee38d9d2e1d05926e6b55810a9d2c2dd407f24d6a267387563a4436e3f7fc"
+  license "MIT-CMU"
 
   livecheck do
     url "https://invisible-mirror.net/archives/diffstat/"
