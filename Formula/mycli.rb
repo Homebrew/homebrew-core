@@ -5,6 +5,7 @@ class Mycli < Formula
   homepage "https://www.mycli.net/"
   url "https://files.pythonhosted.org/packages/63/5f/8d0796b8189bd3e8262352b84a06687e17cf1c891f11698b73698c12b678/mycli-1.23.0.tar.gz"
   sha256 "935507a44a2ccd3854be82f8879f6f199ef56c0c76e95274893fd8b95424fcb9"
+  license "BSD-3-Clause"
 
   livecheck do
     url :stable
