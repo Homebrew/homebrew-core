@@ -112,7 +112,7 @@ class Minidlna < Formula
     fork do
       exec "#{sbin}/minidlnad", "-d", "-f", "minidlna.conf", "-p", port.to_s, "-P", testpath/"minidlna.pid"
     end
-    sleep 2
+    sleep 20
 
     assert_match /MiniDLNA #{version}/, shell_output("curl localhost:#{port}")
   end
