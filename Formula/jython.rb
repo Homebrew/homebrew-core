@@ -6,7 +6,7 @@ class Jython < Formula
   license "PSF-2.0"
 
   livecheck do
-    url "https://github.com/jythontools/jython.git"
+    url "https://github.com/jython/jython.git"
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
