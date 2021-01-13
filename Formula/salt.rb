@@ -21,12 +21,17 @@ class Salt < Formula
 
   depends_on "pkg-config" => :build
   depends_on "swig" => :build
-  depends_on "libffi"
   depends_on "libgit2"
   depends_on "libyaml"
   depends_on "openssl@1.1"
   depends_on "python@3.9"
   depends_on "zeromq"
+
+  uses_from_macos "libffi"
+
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
 
   # Homebrew installs optional dependencies: M2Crypto, pygit2
   #
