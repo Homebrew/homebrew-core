@@ -16,6 +16,13 @@ class Fio < Formula
 
   uses_from_macos "zlib"
 
+  # Upstream fix for "ld: weak import of symbol '___darwin_check_fd_set_overflow' not supported because of option: -no_weak_imports for architecture x86_64"
+  # https://github.com/axboe/fio/commit/b6a1e63a1.diff
+  patch do
+    url "https://github.com/axboe/fio/commit/b6a1e63a1.diff"
+    sha256 "839cad74c7f5b8b2bb4610643cbf20c833b0b1a65272fa202358ea00ea578d3d"
+  end
+
   def install
     system "./configure"
     # fio's CFLAGS passes vital stuff around, and crushing it will break the build
