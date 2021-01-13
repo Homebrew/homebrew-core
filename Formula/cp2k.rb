@@ -1,9 +1,9 @@
 class Cp2k < Formula
   desc "Quantum chemistry and solid state physics software package"
   homepage "https://www.cp2k.org/"
-  url "https://github.com/cp2k/cp2k/releases/download/v7.1.0/cp2k-7.1.tar.bz2"
-  sha256 "ccd711a09a426145440e666310dd01cc5772ab103493c4ae6a3470898cd0addb"
-  license "GPL-2.0-or-later"
+  url "https://github.com/cp2k/cp2k/releases/download/v8.1.0/cp2k-8.1.tar.bz2"
+  sha256 "7f37aead120730234a60b2989d0547ae5e5498d93b1e9b5eb548c041ee8e7772"
+  license "GPL-2.0"
 
   bottle do
     sha256 "034084d10f7a0e4a59b1532263ac7b06187ef1ce051182390eaf17ccbe0ce4b6" => :big_sur
@@ -67,7 +67,7 @@ class Cp2k < Formula
               "-lfftw3", "-lfftw3 -lfftw3_threads"
 
     # Now we build
-    %w[sopt ssmp popt psmp].each do |exe|
+    %w[ssmp psmp].each do |exe|
       system "make", "ARCH=Darwin-IntelMacintosh-gfortran", "VERSION=#{exe}"
       bin.install "../exe/Darwin-IntelMacintosh-gfortran/cp2k.#{exe}"
       bin.install "../exe/Darwin-IntelMacintosh-gfortran/cp2k_shell.#{exe}"
