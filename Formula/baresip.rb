@@ -42,6 +42,7 @@ class Baresip < Formula
                               "USE_STDIO=1",
                               "USE_UUID=1",
                               "HAVE_GETOPT=1"
+    lib.install "#{libexec}/libre/lib/libre.dylib"
   end
 
   test do
