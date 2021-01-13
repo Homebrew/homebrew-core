@@ -1,10 +1,9 @@
 class Pev < Formula
   desc "PE analysis toolkit"
   homepage "https://pev.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/pev/pev-0.80/pev-0.80.tar.gz"
-  sha256 "f68c8596f16d221d9a742812f6f728bcc739be90957bc1b00fbaa5943ffc5cfa"
+  url "https://downloads.sourceforge.net/project/pev/pev-0.81/pev-0.81.tar.gz"
+  sha256 "921b2831ca956aedc272d8580b2ff1a2cb54fb895cabeb81c907fe62b6ac83fb"
   license "GPL-2.0"
-  revision 1
   head "https://github.com/merces/pev.git"
 
   livecheck do
