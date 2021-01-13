@@ -1,6 +1,6 @@
 class NumUtils < Formula
   desc "Programs for dealing with numbers from the command-line"
-  homepage "https://suso.suso.org/programs/num-utils/"
+  homepage "https://suso.suso.org/xulu/Num-utils"
   url "https://suso.suso.org/programs/num-utils/downloads/num-utils-0.5.tar.gz"
   mirror "https://deb.debian.org/debian/pool/main/n/num-utils/num-utils_0.5.orig.tar.gz"
   sha256 "03592760fc7844492163b14ddc9bb4e4d6526e17b468b5317b4a702ea7f6c64e"
@@ -15,8 +15,6 @@ class NumUtils < Formula
     sha256 "41a55ac6c46aca45473ca365443fb1fd2d77fdb6e4540edbe849d723d31ba0e0" => :yosemite
     sha256 "188ff1f94691f8bf5099ec1012d4732be8fa385bf738671f86780376dd2597b9" => :mavericks
   end
-
-  disable! date: "2020-12-08", because: :unmaintained
 
   conflicts_with "normalize", because: "both install `normalize` binaries"
   conflicts_with "crush-tools", because: "both install an `range` binary"
