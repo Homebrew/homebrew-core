@@ -4,6 +4,7 @@ class NumUtils < Formula
   url "https://suso.suso.org/programs/num-utils/downloads/num-utils-0.5.tar.gz"
   mirror "https://deb.debian.org/debian/pool/main/n/num-utils/num-utils_0.5.orig.tar.gz"
   sha256 "03592760fc7844492163b14ddc9bb4e4d6526e17b468b5317b4a702ea7f6c64e"
+  license "GPL-2.0-or-later"
 
   bottle do
     cellar :any_skip_relocation
