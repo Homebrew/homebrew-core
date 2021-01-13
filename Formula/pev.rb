@@ -3,7 +3,7 @@ class Pev < Formula
   homepage "https://pev.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/pev/pev-0.81/pev-0.81.tar.gz"
   sha256 "921b2831ca956aedc272d8580b2ff1a2cb54fb895cabeb81c907fe62b6ac83fb"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   head "https://github.com/merces/pev.git"
 
   livecheck do
