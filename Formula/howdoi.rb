@@ -3,8 +3,8 @@ class Howdoi < Formula
 
   desc "Instant coding answers via the command-line"
   homepage "https://github.com/gleitz/howdoi"
-  url "https://files.pythonhosted.org/packages/a4/20/09fad4f722863494d075c1c5deb1b448042c65af99bf20d4d28274cefbd8/howdoi-2.0.8.tar.gz"
-  sha256 "9b7cabab87cd614e26b408653bc8937ec27b79ca2fde6b9457da55d2541f75fb"
+  url "https://files.pythonhosted.org/packages/f4/de/60955d2759b108bd6fd31ace9bec1943fc9836fa0201da85c18dba6baf27/howdoi-2.0.9.tar.gz"
+  sha256 "2a5a27d5fa9645bc83cfc44c441db01b66042c090d958e0fe84440570bd4e3ec"
   license "MIT"
 
   livecheck do
@@ -40,8 +40,8 @@ class Howdoi < Formula
   end
 
   resource "chardet" do
-    url "https://files.pythonhosted.org/packages/fc/bb/a5768c230f9ddb03acc9ef3f0d4a3cf93462473795d18e9535498c8f929d/chardet-3.0.4.tar.gz"
-    sha256 "84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae"
+    url "https://files.pythonhosted.org/packages/ee/2d/9cdc2b527e127b4c9db64b86647d567985940ac3698eeabc7ffaccb4ea61/chardet-4.0.0.tar.gz"
+    sha256 "0d6f53a15db4120f2b08c94f11e7d93d2c911ee118b6b30a04ec3ee8310179fa"
   end
 
   resource "click" do
@@ -75,13 +75,13 @@ class Howdoi < Formula
   end
 
   resource "PyGithub" do
-    url "https://files.pythonhosted.org/packages/2c/9c/2df0cad1eb058efc15fd435e825c88748ace27e279743d444d84f8f90dd6/PyGithub-1.54.tar.gz"
-    sha256 "14c96d55e3c0e295598e52fbbbf2a7862a293723482ae9000cb9c816faab4fb4"
+    url "https://files.pythonhosted.org/packages/6f/d6/831918fd574b687e7aa3caada99ce7c7c917275677a04c373631ff974be7/PyGithub-1.54.1.tar.gz"
+    sha256 "300bc16e62886ca6537b0830e8f516ea4bc3ef12d308e0c5aff8bdbd099173d4"
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/29/60/8ff9dcb5eac7f4da327ba9ecb74e1ad783b2d32423c06ef599e48c79b1e1/Pygments-2.7.3.tar.gz"
-    sha256 "ccf3acacf3782cbed4a989426012f1c535c9a90d3a7fc3f16d231b9372d2b716"
+    url "https://files.pythonhosted.org/packages/e1/86/8059180e8217299079d8719c6e23d674aadaba0b1939e25e0cc15dcf075b/Pygments-2.7.4.tar.gz"
+    sha256 "df49d09b498e83c1a73128295860250b0b7edd4c723a32e9bc0d295c7c2ec337"
   end
 
   resource "PyJWT" do
@@ -95,8 +95,8 @@ class Howdoi < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/da/67/672b422d9daf07365259958912ba533a0ecab839d4084c487a5fe9a5405f/requests-2.24.0.tar.gz"
-    sha256 "b3559a131db72c33ee969480840fff4bb6dd111de7dd27c8ee1f820f4f00231b"
+    url "https://files.pythonhosted.org/packages/6b/47/c14abc08432ab22dc18b9892252efaf005ab44066de871e72a38d6af464b/requests-2.25.1.tar.gz"
+    sha256 "27973dd4a904a4f13b263a19c866c13b92a39ed1c964655f025f3f8d3d75b804"
   end
 
   resource "terminaltables" do
@@ -105,8 +105,8 @@ class Howdoi < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/76/d9/bbbafc76b18da706451fa91bc2ebe21c0daf8868ef3c30b869ac7cb7f01d/urllib3-1.25.11.tar.gz"
-    sha256 "8d7eaa5a82a1cac232164990f04874c594c9453ec55eef02eab885aa02fc17a2"
+    url "https://files.pythonhosted.org/packages/29/e6/d1a1d78c439cad688757b70f26c50a53332167c364edb0134cadd280e234/urllib3-1.26.2.tar.gz"
+    sha256 "19188f96923873c92ccb987120ec4acaa12f0461fa9ce5d3d0772bc965a39e08"
   end
 
   resource "wrapt" do
