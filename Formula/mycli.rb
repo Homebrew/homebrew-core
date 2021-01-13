@@ -3,9 +3,8 @@ class Mycli < Formula
 
   desc "CLI for MySQL with auto-completion and syntax highlighting"
   homepage "https://www.mycli.net/"
-  url "https://files.pythonhosted.org/packages/67/51/89811ac28b7ae365be43359e7612d19c4342a12483880d7a963e6d31193a/mycli-1.22.2.tar.gz"
-  sha256 "fb2e5dc74a8ec75049ebf02c0d7f14238a279a7eacb31138ac6d8f524aea02d3"
-  revision 2
+  url "https://files.pythonhosted.org/packages/63/5f/8d0796b8189bd3e8262352b84a06687e17cf1c891f11698b73698c12b678/mycli-1.23.0.tar.gz"
+  sha256 "935507a44a2ccd3854be82f8879f6f199ef56c0c76e95274893fd8b95424fcb9"
 
   livecheck do
     url :stable
@@ -53,8 +52,8 @@ class Mycli < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/fc/92/43d0c652f1537bff7bc49370e05c8b29992f270bbbbf82357b3e185c7c5f/prompt_toolkit-3.0.9.tar.gz"
-    sha256 "c5eeab58dd31b541442825d7870777f2a2f764eb5fda03334d5219cd84b9722f"
+    url "https://files.pythonhosted.org/packages/4f/18/77e8da1f8342f561c7fccb5701398200bd7c9b1227ee15ad370086bc71d8/prompt_toolkit-3.0.10.tar.gz"
+    sha256 "b8b3d0bde65da350290c46a8f54f336b3cbf5464a4ac11239668d986852e79d5"
   end
 
   resource "pycparser" do
@@ -63,13 +62,18 @@ class Mycli < Formula
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/29/60/8ff9dcb5eac7f4da327ba9ecb74e1ad783b2d32423c06ef599e48c79b1e1/Pygments-2.7.3.tar.gz"
-    sha256 "ccf3acacf3782cbed4a989426012f1c535c9a90d3a7fc3f16d231b9372d2b716"
+    url "https://files.pythonhosted.org/packages/e1/86/8059180e8217299079d8719c6e23d674aadaba0b1939e25e0cc15dcf075b/Pygments-2.7.4.tar.gz"
+    sha256 "df49d09b498e83c1a73128295860250b0b7edd4c723a32e9bc0d295c7c2ec337"
   end
 
   resource "PyMySQL" do
-    url "https://files.pythonhosted.org/packages/2b/c4/3c3e7e598b1b490a2525068c22f397fda13f48623b7bd54fb209cd0ab774/PyMySQL-1.0.0.tar.gz"
-    sha256 "b2508a7dc6b626210e52f711d2c2361d102d8d9b8b144e63b2512e748de1a49b"
+    url "https://files.pythonhosted.org/packages/60/ea/33b8430115d9b617b713959b21dfd5db1df77425e38efea08d121e83b712/PyMySQL-1.0.2.tar.gz"
+    sha256 "816927a350f38d56072aeca5dfb10221fe1dc653745853d30a216637f5d7ad36"
+  end
+
+  resource "pyperclip" do
+    url "https://files.pythonhosted.org/packages/6f/4c/0b1d507ad7e8bc31d690d04b4f475e74c2002d060f7994ce8c09612df707/pyperclip-1.8.1.tar.gz"
+    sha256 "9abef1e79ce635eb62309ecae02dfb5a3eb952fa7d6dce09c1aef063f81424d3"
   end
 
   resource "six" do
