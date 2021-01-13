@@ -3,6 +3,7 @@ class Pulseaudio < Formula
   homepage "https://wiki.freedesktop.org/www/Software/PulseAudio/"
   url "https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-14.1.tar.xz"
   sha256 "b0bcca2a45e4fe1f73c7709dcf75a17dd5235688d5d150069e765dda4884b837"
+  license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later", "BSD-3-Clause"]
 
   # The regex here avoids x.99 releases, as they're pre-release versions.
   livecheck do
