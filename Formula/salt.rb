@@ -20,6 +20,7 @@ class Salt < Formula
   end
 
   depends_on "swig" => :build
+  depends_on "libffi"
   depends_on "libgit2"
   depends_on "libyaml"
   depends_on "openssl@1.1"
