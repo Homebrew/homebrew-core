@@ -3,8 +3,8 @@ class Dxpy < Formula
 
   desc "DNAnexus toolkit utilities and platform API bindings for Python"
   homepage "https://github.com/dnanexus/dx-toolkit"
-  url "https://files.pythonhosted.org/packages/8e/79/cdb48a5e3b576221563d7a5faa39eb3da1353146d26c327fceec94745c62/dxpy-0.304.1.tar.gz"
-  sha256 "b402f4df520bb9b75ce5b7c04d16ac244ab5e77adce917a5a4e30700d4157554"
+  url "https://files.pythonhosted.org/packages/33/bf/be976e6aeeae38398e730a1a0f2323dd889a10c80c59a51b8a5ae222537a/dxpy-0.305.0.tar.gz"
+  sha256 "e2fe6c430b63c96b13062975fdf9cae5624d5c431af81479fadfa650290e7910"
   license "Apache-2.0"
 
   livecheck do
@@ -33,11 +33,6 @@ class Dxpy < Formula
   resource "argcomplete" do
     url "https://files.pythonhosted.org/packages/cb/53/d2e3d11726367351b00c8f078a96dacb7f57aef2aca0d3b6c437afc56b55/argcomplete-1.12.2.tar.gz"
     sha256 "de0e1282330940d52ea92a80fea2e4b9e0da1932aaa570f84d268939d1897b04"
-  end
-
-  resource "beautifulsoup4" do
-    url "https://files.pythonhosted.org/packages/26/79/ef9a8bcbec5abc4c618a80737b44b56f1cb393b40238574078c5002b97ce/beautifulsoup4-4.4.1.tar.gz"
-    sha256 "87d4013d0625d4789a4f56b8d79a04d5ce6db1152bb65f1d39744f7709a366b4"
   end
 
   resource "certifi" do
@@ -80,11 +75,6 @@ class Dxpy < Formula
   resource "python-dateutil" do
     url "https://files.pythonhosted.org/packages/be/ed/5bbc91f03fa4c839c4c7360375da77f9659af5f7086b7a7bdda65771c8e0/python-dateutil-2.8.1.tar.gz"
     sha256 "73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c"
-  end
-
-  resource "python-magic" do
-    url "https://files.pythonhosted.org/packages/21/57/57c47169c651534014a9852ec690fc0893bab2f67e24d6dab3c945522e7d/python-magic-0.4.6.tar.gz"
-    sha256 "903d3d3c676e2b1244892954e2bbbe27871a633385a9bfe81f1a81a7032df2fe"
   end
 
   resource "requests" do
