@@ -9,8 +9,8 @@ class Icu4c < Formula
   livecheck do
     url :stable
     regex(%r{href=.*?/tag/release[._-]v?(\d+(?:[.-]\d+)+)["' >]}i)
-    strategy :github_latest do |page, regex|
-      page.scan(regex).map { |match| match&.first&.gsub(/-/, ".") }
+    strategy :git do |tags, regex|
+      tags.map { |tag| tag[regex, 1]&.gsub("-", ".") }.compact
     end
   end
 
