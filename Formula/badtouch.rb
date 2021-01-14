@@ -1,9 +1,9 @@
 class Badtouch < Formula
   desc "Scriptable network authentication cracker"
   homepage "https://github.com/kpcyrd/badtouch"
-  url "https://github.com/kpcyrd/badtouch/archive/v0.7.1.tar.gz"
-  sha256 "c188bb1df106761a436fd25d3530323a47633c4c937d186e82c00981ffc94b5f"
-  license "GPL-3.0"
+  url "https://github.com/kpcyrd/badtouch/archive/v0.7.3.tar.gz"
+  sha256 "cb09ae83bbe37e17ce1d5e86ba1c9f8b8dd1dc1b30e3f7d69d7cfd8db7ae5547"
+  license "GPL-3.0-or-later"
 
   bottle do
     cellar :any_skip_relocation
