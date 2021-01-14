@@ -1,7 +1,7 @@
 class Gleam < Formula
   desc "✨ A statically typed language for the Erlang VM"
   homepage "https://gleam.run"
-  url "https://github.com/lpil/gleam/archive/v0.13.0.tar.gz"
+  url "https://github.com/gleam-lang/gleam/archive/v0.13.0.tar.gz"
   sha256 "aca2a0ec1a9f9e492ef73b64ac4a5d0bd6f37eaf3eb74e8a35dff6469111652c"
   license "Apache-2.0"
 
@@ -19,6 +19,14 @@ class Gleam < Formula
 
   on_linux do
     depends_on "pkg-config" => :build
+  end
+
+  # Update stale Cargo.lock file. Remove at version bump.
+  # https://github.com/gleam-lang/gleam/pull/921
+  # https://github.com/gleam-lang/gleam/issues/920
+  patch do
+    url "https://github.com/gleam-lang/gleam/commit/de5558211bddcf95650b8134abb8c9d5a1cca5f8.patch?full_index=1"
+    sha256 "7ab714dec653994f67f38431e7f06eb9131f5a109926f814a92a66f1a183c2e4"
   end
 
   def install
