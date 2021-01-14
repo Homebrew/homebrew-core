@@ -37,7 +37,7 @@ class Envoy < Formula
   test do
     port = free_port
 
-    cp pkgshare/"configs/google_com_proxy.v2.yaml", testpath/"envoy.yaml"
+    cp pkgshare/"configs/envoyproxy_io_proxy.yaml", testpath/"envoy.yaml"
     inreplace "envoy.yaml" do |s|
       s.gsub! "port_value: 9901", "port_value: #{port}"
       s.gsub! "port_value: 10000", "port_value: #{free_port}"
