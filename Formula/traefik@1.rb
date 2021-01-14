@@ -1,12 +1,12 @@
 class TraefikAT1 < Formula
   desc "Modern reverse proxy (v1.7)"
   homepage "https://traefik.io/"
-  url "https://github.com/containous/traefik/releases/download/v1.7.28/traefik-v1.7.28.src.tar.gz"
+  url "https://github.com/traefik/traefik/releases/download/v1.7.28/traefik-v1.7.28.src.tar.gz"
   sha256 "1baa2ca726c4eac71931284229b867a7f15cecb41c3ce8df3619502880ab6719"
   license "MIT"
 
   livecheck do
-    url "https://github.com/containous/traefik.git"
+    url "https://github.com/traefik/traefik.git"
     regex(/^v?(1(?:\.\d+)+)$/i)
   end
 
@@ -27,9 +27,9 @@ class TraefikAT1 < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/containous/traefik").install buildpath.children
+    (buildpath/"src/github.com/traefik/traefik").install buildpath.children
 
-    cd "src/github.com/containous/traefik" do
+    cd "src/github.com/traefik/traefik" do
       cd "webui" do
         system "yarn", "upgrade"
         system "yarn", "install"
