@@ -4,6 +4,7 @@ class DosboxStaging < Formula
   url "https://github.com/dosbox-staging/dosbox-staging/archive/v0.76.0.tar.gz"
   sha256 "7df53c22f7ce78c70afb60b26b06742b90193b56c510219979bf12e0bb2dc6c7"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/dosbox-staging/dosbox-staging.git"
 
   bottle do
@@ -17,6 +18,7 @@ class DosboxStaging < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
+  depends_on "fluid-synth"
   depends_on "libpng"
   depends_on "opusfile"
   depends_on "sdl2"
@@ -26,7 +28,6 @@ class DosboxStaging < Formula
     args = %W[
       --prefix=#{prefix}
       --disable-dependency-tracking
-      --disable-fluidsynth
       --disable-sdltest
       --enable-core-inline
     ]
@@ -35,6 +36,7 @@ class DosboxStaging < Formula
     system "./configure", *args
     system "make", "install"
     mv bin/"dosbox", bin/"dosbox-staging"
+    mv man1/"dosbox.1", man1/"dosbox-staging.1"
   end
 
   test do
