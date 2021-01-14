@@ -1,10 +1,11 @@
 class Exa < Formula
   desc "Modern replacement for 'ls'"
   homepage "https://the.exa.website"
+  # Remove Cargo.lock resource at version bump!
   url "https://github.com/ogham/exa/archive/v0.9.0.tar.gz"
   sha256 "96e743ffac0512a278de9ca3277183536ee8b691a46ff200ec27e28108fef783"
   license "MIT"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -31,7 +32,19 @@ class Exa < Formula
     depends_on "libgit2"
   end
 
+  # Replace stale lock file. Remove at version bump.
+  resource "Cargo.lock" do
+    url "https://raw.githubusercontent.com/ogham/exa/61c5df7c111fc7451bf6b8f0dfdcb2b6b46577d0/Cargo.lock"
+    sha256 "0bc38c483120874c42b9ada35d13530f16850274cfa8ff1defc1e55bba509698"
+  end
+
   def install
+    # Remove at version bump
+    unless build.head?
+      rm_f "Cargo.lock"
+      resource("Cargo.lock").stage buildpath
+    end
+
     system "cargo", "install", *std_cargo_args
 
     # Remove in 0.9+
