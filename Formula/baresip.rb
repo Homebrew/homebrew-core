@@ -14,6 +14,8 @@ class Baresip < Formula
 
   depends_on "librem"
 
+  conflicts_with "libre", because: "both install `libre` lib"
+
   resource "libre" do
     url "https://github.com/baresip/re/archive/v1.1.0.tar.gz"
     sha256 "82afc903a6b1e436b357f05eb11560ec681712291dd9c83c408465c895f28b5d"
