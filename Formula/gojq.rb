@@ -9,7 +9,6 @@ class Gojq < Formula
 
   def install
     system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"gojq", "cmd/gojq/main.go"
-    prefix.install_metafiles
   end
 
   test do
