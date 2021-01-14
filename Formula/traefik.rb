@@ -4,7 +4,7 @@ class Traefik < Formula
   url "https://github.com/traefik/traefik/releases/download/v2.3.7/traefik-v2.3.7.src.tar.gz"
   sha256 "23920765851c058f3a2429bd88f5168dbe8ba41f67056ff5e4f507118a5d272a"
   license "MIT"
-  head "https://github.com/containous/traefik.git"
+  head "https://github.com/traefik/traefik.git"
 
   bottle do
     cellar :any_skip_relocation
