@@ -6,7 +6,7 @@ class Spades < Formula
   url "https://cab.spbu.ru/files/release3.15.0/SPAdes-3.15.0.tar.gz"
   mirror "https://github.com/ablab/spades/releases/download/v3.15.0/SPAdes-3.15.0.tar.gz"
   sha256 "6719489fa4bed6dd96d78bdd4001a30806d5469170289085836711d1ffb8b28b"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
 
   livecheck do
     url "https://cab.spbu.ru/files/?C=M&O=D"
