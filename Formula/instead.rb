@@ -4,7 +4,7 @@ class Instead < Formula
   url "https://github.com/instead-hub/instead/archive/3.3.2.tar.gz"
   sha256 "bdb827f36e693dc7b443e69d4678d24f1ccc20dc093c22f58b8d78192da15f2e"
   license "MIT"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "bd0463eca5582cfb5e6a5db1befaa55a0fa7be8580296fc32b690873fb134e1e" => :big_sur
@@ -13,16 +13,19 @@ class Instead < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "luajit"
+  depends_on "luajit-openresty"
   depends_on "sdl2"
   depends_on "sdl2_image"
   depends_on "sdl2_mixer"
   depends_on "sdl2_ttf"
 
   def install
+    luajit = Formula["luajit-openresty"]
     mkdir "build" do
       system "cmake", "..", "-DWITH_GTK2=OFF",
                             "-DWITH_LUAJIT=ON",
+                            "-DLUA_INCLUDE_DIR=#{luajit.opt_include}/luajit-2.1",
+                            "-DLUA_LIBRARY=#{luajit.opt_lib}/libluajit.dylib",
                             *std_cmake_args
       system "make", "install"
     end
