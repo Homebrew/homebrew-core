@@ -32,8 +32,8 @@ class Grafana < Formula
     system "node_modules/grunt-cli/bin/grunt", "build"
 
     on_macos do
-      bin.install "bin/darwin-amd64/grafana-cli"
-      bin.install "bin/darwin-amd64/grafana-server"
+      bin.install Dir["bin/darwin-*/grafana-cli"]
+      bin.install Dir["bin/darwin-*/grafana-server"]
     end
     on_linux do
       bin.install "bin/linux-amd64/grafana-cli"
