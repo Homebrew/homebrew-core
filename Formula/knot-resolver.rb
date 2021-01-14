@@ -4,6 +4,7 @@ class KnotResolver < Formula
   url "https://secure.nic.cz/files/knot-resolver/knot-resolver-5.2.1.tar.xz"
   sha256 "aa37b744c400f437acba7a54aebcbdbe722ece743d342cbc39f2dd8087f05826"
   license all_of: ["CC0-1.0", "GPL-3.0-or-later", "LGPL-2.1-or-later", "MIT"]
+  revision 1
   head "https://gitlab.labs.nic.cz/knot/knot-resolver.git"
 
   livecheck do
@@ -24,7 +25,7 @@ class KnotResolver < Formula
   depends_on "knot"
   depends_on "libuv"
   depends_on "lmdb"
-  depends_on "luajit"
+  depends_on "luajit-openresty"
 
   def install
     mkdir "build" do
