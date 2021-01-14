@@ -3,7 +3,8 @@ class Dnsdist < Formula
   homepage "https://www.dnsdist.org/"
   url "https://downloads.powerdns.com/releases/dnsdist-1.5.1.tar.bz2"
   sha256 "cae759729a87703f4d09b0ed4227cb224aaaa252fa92f2432fd7116f560afbf1"
-  revision 1
+  license "GPL-2.0-only"
+  revision 2
 
   livecheck do
     url "https://downloads.powerdns.com/releases/"
@@ -22,7 +23,7 @@ class Dnsdist < Formula
   depends_on "fstrm"
   depends_on "h2o"
   depends_on "libsodium"
-  depends_on "luajit"
+  depends_on "luajit-openresty"
   depends_on "openssl@1.1"
   depends_on "protobuf"
   depends_on "re2"
