@@ -8,7 +8,7 @@ class Gojq < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"gojq", "cmd/gojq/main.go"
+    system "go", "build", *std_go_args, "./cmd/gojq"
   end
 
   test do
