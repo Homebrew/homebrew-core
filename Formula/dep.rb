@@ -22,13 +22,15 @@ class Dep < Formula
   conflicts_with "deployer", because: "both install `dep` binaries"
 
   def install
+    arch = Hardware::CPU.arm? ? "arm64" : "amd64"
+
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/golang/dep").install buildpath.children
     cd "src/github.com/golang/dep" do
       ENV["DEP_BUILD_PLATFORMS"] = "darwin"
-      ENV["DEP_BUILD_ARCHS"] = "amd64"
+      ENV["DEP_BUILD_ARCHS"] = arch
       system "hack/build-all.bash"
-      bin.install "release/dep-darwin-amd64" => "dep"
+      bin.install "release/dep-darwin-#{arch}" => "dep"
       prefix.install_metafiles
     end
   end
