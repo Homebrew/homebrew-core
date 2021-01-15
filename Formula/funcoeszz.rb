@@ -1,8 +1,8 @@
 class Funcoeszz < Formula
   desc "Dozens of command-line mini-applications (Portuguese)"
   homepage "https://funcoeszz.net/"
-  url "https://funcoeszz.net/download/funcoeszz-18.3.sh"
-  sha256 "c1348fbaf79e7ac97568785674edee602077c3a747d3a1bfa4cf63af343c4352"
+  url "https://funcoeszz.net/download/funcoeszz-21.1.sh"
+  sha256 "630017119208b576387e18db8734dbda9d9e7750c742f9c3ffec7232b7636856"
 
   livecheck do
     url "https://funcoeszz.net/download/"
