@@ -14,14 +14,38 @@ class Luvit < Formula
     sha256 "2c704b1f98b965c0b6010a897a0c951f47cb896bbbf5381e7d4ee80238692033" => :high_sierra
   end
 
+  depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "luajit"
   depends_on "openssl@1.1"
 
+  # To update this resource, check LIT_VERSION in the Makefile.
+  resource "lit" do
+    url "https://github.com/luvit/lit.git",
+        tag:      "3.8.1",
+        revision: "27114d94b9299437b2229eac6a6c3a9ef41fa83a"
+  end
+
+  # To update this resource, check LUVI_VERSION in
+  # https://github.com/luvit/lit/raw/$(LIT_VERSION)/get-lit.sh
+  resource "luvi" do
+    url "https://github.com/luvit/luvi.git",
+        tag:      "v2.11.0",
+        revision: "9da12caaf01337ef0609d07b2af9a5296c13922a"
+  end
+
   def install
-    ENV["USE_SYSTEM_SSL"] = "1"
-    ENV["USE_SYSTEM_LUAJIT"] = "1"
     ENV["PREFIX"] = prefix
+
+    resource("luvi").stage do
+      system "make", "regular-shared"
+      system "make"
+      buildpath.install "build/luvi"
+    end
+
+    resource("lit").stage do
+      system buildpath/"luvi", ".", "--", "make", ".", buildpath/"lit", buildpath/"luvi"
+    end
+
     system "make"
     system "make", "install"
   end
