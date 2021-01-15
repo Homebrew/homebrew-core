@@ -3,8 +3,8 @@ require "language/node"
 class AngularCli < Formula
   desc "CLI tool for Angular"
   homepage "https://cli.angular.io/"
-  url "https://registry.npmjs.org/@angular/cli/-/cli-11.0.6.tgz"
-  sha256 "ba9ef79db0ea510b17de0a7cd77c31f6971b6832da94d81f4102184988594755"
+  url "https://registry.npmjs.org/@angular/cli/-/cli-11.0.7.tgz"
+  sha256 "46f6bc79195c0026739b98a91084345cee1caac71edcd435f1ab97ecdf8a71bb"
   license "MIT"
 
   livecheck do
