@@ -1,8 +1,8 @@
 class Virtualpg < Formula
   desc "Loadable dynamic extension for SQLite and SpatiaLite"
   homepage "https://www.gaia-gis.it/fossil/virtualpg/index"
-  url "https://www.gaia-gis.it/gaia-sins/virtualpg-1.0.2.tar.gz"
-  sha256 "37abd56b2899c90b355e50d843ba019af540b83e7af1da110a766f041abb514e"
+  url "https://www.gaia-gis.it/gaia-sins/virtualpg-2.0.1.tar.gz"
+  sha256 "be2aebeb8c9ff274382085f51d422e823858bca4f6bc2fa909816464c6a1e08b"
 
   bottle do
     cellar :any
@@ -22,8 +22,8 @@ class Virtualpg < Formula
     # See: https://groups.google.com/forum/#!topic/spatialite-users/EqJAB8FYRdI
     # needs upstream fixes in both SQLite and libtool
     inreplace "configure",
-    "shrext_cmds='`test .$module = .yes && echo .so || echo .dylib`'",
-    "shrext_cmds='.dylib'"
+              "shrext_cmds='`test .$module = .yes && echo .so || echo .dylib`'",
+              "shrext_cmds='.dylib'"
 
     system "./configure", "--enable-shared=yes",
                           "--disable-dependency-tracking",
