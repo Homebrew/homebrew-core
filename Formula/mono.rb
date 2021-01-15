@@ -1,8 +1,8 @@
 class Mono < Formula
   desc "Cross platform, open source .NET development framework"
   homepage "https://www.mono-project.com/"
-  url "https://download.mono-project.com/sources/mono/mono-6.12.0.90.tar.xz"
-  sha256 "51de5c02ad511333f93ff585bca54c8784de35af4ff27b759d16b46c4402cdac"
+  url "https://download.mono-project.com/sources/mono/mono-6.12.0.107.tar.xz"
+  sha256 "61f3cd629f8e99371c6b47c1f8d96b8ac46d9e851b5531eef20cdf9ab60d2a5f"
   license "MIT"
 
   livecheck do
@@ -47,7 +47,7 @@ class Mono < Formula
   # https://github.com/mono/mono/blob/mono-#{version}/packaging/MacSDK/msbuild.py
   resource "msbuild" do
     url "https://github.com/mono/msbuild.git",
-        revision: "ad9c9926a76e3db0d2b878a24d44446d73640d19"
+        revision: "db750f72af92181ec860b5150b40140583972c22"
   end
 
   def install
