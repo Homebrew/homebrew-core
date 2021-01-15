@@ -1,8 +1,8 @@
 class Hledger < Formula
   desc "Easy plain text accounting with command-line, terminal and web UIs"
   homepage "https://hledger.org/"
-  url "https://hackage.haskell.org/package/hledger-1.20.2/hledger-1.20.2.tar.gz"
-  sha256 "7915448f4e8d04ab3c5dc659111f1114316f804cf33f3a114bb1402e956967d6"
+  url "https://hackage.haskell.org/package/hledger-1.20.3/hledger-1.20.3.tar.gz"
+  sha256 "a9638c12d1eb7325af057d225d77411d60b0f144d907012617b44ec5ee2dc4f3"
   license "GPL-3.0-or-later"
 
   # A new version is sometimes present on Hackage before it's officially
@@ -27,16 +27,16 @@ class Hledger < Formula
   uses_from_macos "zlib"
 
   resource "hledger-lib" do
-    url "https://hackage.haskell.org/package/hledger-lib-1.20.2/hledger-lib-1.20.2.tar.gz"
-    sha256 "2bbc51be838162be6e85849e9c5a23f7937085901071a801901abe38a5343f82"
+    url "https://hackage.haskell.org/package/hledger-lib-1.20.3/hledger-lib-1.20.3.tar.gz"
+    sha256 "97a10c74fad977628e6ab9c3262db69e531598d5577f753a7933cf50e364a65e"
   end
   resource "hledger-ui" do
-    url "https://hackage.haskell.org/package/hledger-ui-1.20.2/hledger-ui-1.20.2.tar.gz"
-    sha256 "fc17b080c3892f5166b5e6278597d1aa3a0fe02990de46cbcbc3f675abfc41db"
+    url "https://hackage.haskell.org/package/hledger-ui-1.20.3/hledger-ui-1.20.3.tar.gz"
+    sha256 "81fe2b4480cc0291a90e0b4c7d36cf5174d859327c6a998d94ee18177bebe609"
   end
   resource "hledger-web" do
-    url "https://hackage.haskell.org/package/hledger-web-1.20.2/hledger-web-1.20.2.tar.gz"
-    sha256 "ae07ed6d0adf96157214694c356b3121adbc3d9bbe7312339adf114f9ab62821"
+    url "https://hackage.haskell.org/package/hledger-web-1.20.3/hledger-web-1.20.3.tar.gz"
+    sha256 "0493a7fa977910abbd5c6076cd10ef03f4148408aac1226d6e9536832ea7e3b7"
   end
 
   def install
@@ -45,16 +45,8 @@ class Hledger < Formula
     (buildpath/"../hledger-web").install resource("hledger-web")
     cd ".." do
       system "stack", "update"
-      # For the moment we use a custom stack.yaml file to help build
-      # with ghc 8.10.3, which does not yet have a stackage snapshot,
-      # and to declare some needed extra dependencies that are not yet
-      # in stackage. When stackage catches up, we can drop this and go
-      # back to an install command something like:
-      # system "stack", "install", "--local-bin-path=#{bin}",
-      #   "--system-ghc", "--no-install-ghc", "--skip-ghc-check", "--resolver=nightly-2021-01-15",
-      #   "./hledger-#{version}", "./hledger-lib", "./hledger-ui", "./hledger-web"
       (buildpath/"../stack.yaml").write <<~EOS
-        resolver: lts-16.27
+        resolver: nightly-2021-01-15
         compiler: ghc-#{Formula["ghc"].version}
         compiler-check: newer-minor
         packages:
@@ -62,9 +54,6 @@ class Hledger < Formula
         - hledger-lib
         - hledger-ui
         - hledger-web
-        extra-deps:
-        - pretty-simple-4.0.0.0
-        - prettyprinter-1.7.0
       EOS
       system "stack", "install", "--system-ghc", "--no-install-ghc", "--skip-ghc-check", "--local-bin-path=#{bin}"
 
