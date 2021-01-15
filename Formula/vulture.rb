@@ -3,8 +3,8 @@ class Vulture < Formula
 
   desc "Find dead Python code"
   homepage "https://github.com/jendrikseipp/vulture"
-  url "https://files.pythonhosted.org/packages/44/a5/bfc438b2e5d06440c7340d7eeefe98e3af69b3053698cf30ac662f4ebc96/vulture-2.1.tar.gz"
-  sha256 "933bf7f3848e9e39ecab6a12faa59d5185471c887534abac13baea6fe8138cc2"
+  url "https://files.pythonhosted.org/packages/0b/60/07bfccf5eae1502272fca50cbba2f8262be752dba8203baefe477598f62b/vulture-2.2.tar.gz"
+  sha256 "490085bb7fdea45d5d398ba2774ca18a825b47d034b79689c42071cbab7e84e4"
   license "MIT"
   head "https://github.com/jendrikseipp/vulture.git"
 
