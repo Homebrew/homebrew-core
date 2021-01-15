@@ -111,6 +111,8 @@ class Mpd < Formula
   end
 
   test do
+    require "expect"
+
     port = free_port
 
     (testpath/"mpd.conf").write <<~EOS
@@ -118,23 +120,16 @@ class Mpd < Formula
       port "#{port}"
     EOS
 
-    pid = fork do
-      exec "#{bin}/mpd --stdout --no-daemon #{testpath}/mpd.conf"
-    end
-    sleep 20
+    io = IO.popen("#{bin}/mpd --stdout --no-daemon #{testpath}/mpd.conf 2>&1", "r")
+    io.expect("output: Successfully detected a osx audio device", 30)
 
-    begin
-      ohai "Connect to MPD command (localhost:#{port})"
-      TCPSocket.open("localhost", port) do |sock|
-        assert_match "OK MPD", sock.gets
-        ohai "Ping server"
-        sock.puts("ping")
-        assert_match "OK", sock.gets
-        sock.close
-      end
-    ensure
-      Process.kill "SIGINT", pid
-      Process.wait pid
+    ohai "Connect to MPD command (localhost:#{port})"
+    TCPSocket.open("localhost", port) do |sock|
+      assert_match "OK MPD", sock.gets
+      ohai "Ping server"
+      sock.puts("ping")
+      assert_match "OK", sock.gets
+      sock.close
     end
   end
 end
