@@ -1,8 +1,9 @@
 class Elasticsearch < Formula
   desc "Distributed search & analytics engine"
   homepage "https://www.elastic.co/products/elasticsearch"
-  url "https://github.com/elastic/elasticsearch/archive/v7.10.1.tar.gz"
-  sha256 "993ec62f0185ca4a9f96e5f06617967e3d29e9186d0651bb1663e486f862078f"
+  # NOTE: Do not bump version to one with a non-open-source license
+  url "https://github.com/elastic/elasticsearch/archive/v7.10.2.tar.gz"
+  sha256 "bdb7811882a0d9436ac202a947061b565aa71983c72e1c191e7373119a1cdd1c"
   license "Apache-2.0"
 
   bottle do
@@ -11,6 +12,10 @@ class Elasticsearch < Formula
     sha256 "e5e6791161d94f09b1bd0e7823c9e3fa414b120405af0ba6666ca2e1380183e4" => :catalina
     sha256 "20056758a9acc1f9de8d4adac2fde028154a1b5b1ce4d7062474a69bc1595233" => :mojave
   end
+
+  # elasticsearch will be relicensed before v7.11.
+  # https://www.elastic.co/blog/licensing-change
+  deprecate! date: "2021-01-14", because: "is switching to an incompatible license"
 
   depends_on "gradle" => :build
   depends_on "openjdk"
