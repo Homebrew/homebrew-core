@@ -22,8 +22,8 @@ class Cp2k < Formula
   fails_with :clang # needs OpenMP support
 
   resource "libint" do
-    url "https://github.com/cp2k/libint-cp2k/releases/download/v2.6.0/libint-v2.6.0-cp2k-lmax-4.tgz"
-    sha256 "7c8d28bfb03920936231228b79686ba0fd87ea922c267199789bc131cf21ac08"
+    url "https://github.com/cp2k/libint-cp2k/releases/download/v2.7.0-beta.5/libint-v2.7.0-beta.5-cp2k-lmax-4.tgz"
+    sha256 "149cc8e773de29405b26348f2545ea51546b44cf502dd60a0143a8b427b01197"
   end
 
   def install
