@@ -4,6 +4,7 @@ class Luaradio < Formula
   url "https://github.com/vsergeev/luaradio/archive/v0.9.1.tar.gz"
   sha256 "25150fa6b2cfd885d59453a9c4599811573176451c659278c12d50fece69f7f3"
   license "MIT"
+  revision 1
   head "https://github.com/vsergeev/luaradio.git"
 
   bottle do
@@ -16,7 +17,7 @@ class Luaradio < Formula
   depends_on "pkg-config" => :build
   depends_on "fftw"
   depends_on "liquid-dsp"
-  depends_on "luajit"
+  depends_on "luajit-openresty"
 
   def install
     cd "embed" do
@@ -29,6 +30,14 @@ class Luaradio < Formula
       end
       system "make", "install", "PREFIX=#{prefix}"
     end
+
+    env = {
+      PATH:      "#{Formula["luajit-openresty"].opt_bin}:$PATH",
+      LUA_PATH:  "#{lib}/lua/5.1/?.lua${LUA_PATH:+:$LUA_PATH}",
+      LUA_CPATH: "#{lib}/lua/5.1/?.so${LUA_CPATH:+:$LUA_CPATH}",
+    }
+
+    bin.env_script_all_files libexec/"bin", env
   end
 
   test do
