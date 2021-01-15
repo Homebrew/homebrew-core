@@ -1,8 +1,8 @@
 class Gdu < Formula
   desc "Disk usage analyzer with console interface written in Go"
   homepage "https://github.com/dundee/gdu"
-  url "https://github.com/dundee/gdu/archive/v2.3.0.tar.gz"
-  sha256 "bd5e08dfbbb2ed4c1ba6c960365f34d916e913030e94d3f0515fedafa9a2c8bf"
+  url "https://github.com/dundee/gdu/archive/v3.0.0.tar.gz"
+  sha256 "9a1d14662a76265faab369a2a2bbe47429405bd8dee1d096d75822a1b27e1b15"
   license "MIT"
 
   bottle do
@@ -16,7 +16,17 @@ class Gdu < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args, "-ldflags", "-s -w -X main.AppVersion=v#{version}"
+    time = Time.new
+    user = Utils.safe_popen_read("id", "-u", "-n")
+
+    ldflags = %W[
+      -s -w
+      -X 'github.com/dundee/gdu/build.Version=v#{version}'
+      -X 'github.com/dundee/gdu/build.Time=#{time}'
+      -X 'github.com/dundee/gdu/build.User=#{user}'
+    ]
+
+    system "go", "build", *std_go_args, "-ldflags", ldflags.join(" ")
   end
 
   test do
@@ -26,6 +36,6 @@ class Gdu < Formula
 
     assert_match version.to_s, shell_output("#{bin}/gdu -v")
     assert_match "colorized", shell_output("#{bin}/gdu --help 2>&1")
-    assert_match "5 B file1", shell_output("#{bin}/gdu -non-interactive -no-progress #{testpath}/test_dir 2>&1")
+    assert_match "5 B file1", shell_output("#{bin}/gdu --non-interactive --no-progress #{testpath}/test_dir 2>&1")
   end
 end
