@@ -1,8 +1,8 @@
 class Tarantool < Formula
   desc "In-memory database and Lua application server"
   homepage "https://tarantool.org/"
-  url "https://download.tarantool.org/tarantool/2.7/src/tarantool-2.7.1.0.tar.gz"
-  sha256 "3c86d62de7cdc2b5f34162c60ad837c82219b65308c5f034aa05030c4fad3b52"
+  url "https://download.tarantool.org/tarantool/2.8/src/tarantool-2.8.0.0.tar.gz"
+  sha256 "8cda90de57471bfde3af30aec984c5a138e76dd0171c853ce2d8514096802527"
   license "BSD-2-Clause"
   head "https://github.com/tarantool/tarantool.git", shallow: false
 
