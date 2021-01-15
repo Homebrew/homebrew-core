@@ -100,6 +100,8 @@ class Minidlna < Formula
   end
 
   test do
+    require "expect"
+
     (testpath/".config/minidlna/media").mkpath
     (testpath/".config/minidlna/cache").mkpath
     (testpath/"minidlna.conf").write <<~EOS
@@ -111,10 +113,9 @@ class Minidlna < Formula
 
     port = free_port
 
-    fork do
-      exec "#{sbin}/minidlnad", "-d", "-f", "minidlna.conf", "-p", port.to_s, "-P", testpath/"minidlna.pid"
-    end
-    sleep 20
+    io = IO.popen("#{sbin}/minidlnad -d -f minidlna.conf -p #{port} -P #{testpath}/minidlna.pid", "r")
+    io.expect("debug: Initial file scan completed", 30)
+    assert_predicate testpath/"minidlna.pid", :exist?
 
     assert_match /MiniDLNA #{version}/, shell_output("curl localhost:#{port}")
   end
