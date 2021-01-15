@@ -3,8 +3,8 @@ class Howdoi < Formula
 
   desc "Instant coding answers via the command-line"
   homepage "https://github.com/gleitz/howdoi"
-  url "https://files.pythonhosted.org/packages/f4/de/60955d2759b108bd6fd31ace9bec1943fc9836fa0201da85c18dba6baf27/howdoi-2.0.9.tar.gz"
-  sha256 "2a5a27d5fa9645bc83cfc44c441db01b66042c090d958e0fe84440570bd4e3ec"
+  url "https://files.pythonhosted.org/packages/b2/5a/772880d8d561efa885395befa6614aa5ca2117c49a9594e960d4377b0c74/howdoi-2.0.10.tar.gz"
+  sha256 "e561e3c5d4f39ab1f86e9f24bb0b2803ee6e312de61e90907f739aa638f35215"
   license "MIT"
 
   livecheck do
