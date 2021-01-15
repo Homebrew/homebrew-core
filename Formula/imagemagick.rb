@@ -58,6 +58,7 @@ class Imagemagick < Formula
       --enable-shared
       --enable-static
       --with-freetype=yes
+      --with-gvc=no
       --with-modules
       --with-openjp2
       --with-openexr
