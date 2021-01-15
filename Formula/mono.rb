@@ -48,6 +48,13 @@ class Mono < Formula
   resource "msbuild" do
     url "https://github.com/mono/msbuild.git",
         revision: "db750f72af92181ec860b5150b40140583972c22"
+
+    # Remove in next release
+    # https://github.com/dotnet/msbuild/issues/6041
+    patch do
+      url "https://github.com/mono/msbuild/commit/e2e4dfee543269ccb0a459263985b1c993feacec.patch?full_index=1"
+      sha256 "b64e93fbe1f5a5b8bcdb46ddd7d51a714f0e671b1b8ce2d1c2a0b80710ecb293"
+    end
   end
 
   def install
