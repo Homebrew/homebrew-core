@@ -3,6 +3,7 @@ class Funcoeszz < Formula
   homepage "https://funcoeszz.net/"
   url "https://funcoeszz.net/download/funcoeszz-21.1.sh"
   sha256 "630017119208b576387e18db8734dbda9d9e7750c742f9c3ffec7232b7636856"
+  license "GPL-2.0-only"
 
   livecheck do
     url "https://funcoeszz.net/download/"
