@@ -17,8 +17,8 @@ class Osqp < Formula
   depends_on "cmake" => [:build, :test]
 
   resource "qdldl" do
-    url "https://github.com/oxfordcontrol/qdldl/archive/v0.1.3.tar.gz"
-    sha256 "a2c3a7d0c6a48b2fab7400fa8ca72a34fb1e3a19964b281c73564178f97afe54"
+    url "https://github.com/oxfordcontrol/qdldl/archive/v0.1.5.tar.gz"
+    sha256 "2868b0e61b7424174e9adef3cb87478329f8ab2075211ef28fe477f29e0e5c99"
   end
 
   def install
