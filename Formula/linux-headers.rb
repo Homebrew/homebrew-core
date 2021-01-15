@@ -1,8 +1,8 @@
 class LinuxHeaders < Formula
   desc "Header files of the Linux kernel"
   homepage "https://kernel.org/"
-  url "https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.4.80.tar.gz"
-  sha256 "291d844619b5e7c43bd5aa0b2c286274fc5ffe31494ba475f167a21157e88186"
+  url "https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.9.16.tar.gz"
+  sha256 "f4e27357aba6d5a69ab473e53a93353f9bed1a7e8ee43a6d8e186770d6a79586"
   license "GPL-2.0-only"
 
   depends_on :linux
