@@ -21,13 +21,6 @@ class Eksctl < Formula
   depends_on "mockery" => :build
   depends_on "aws-iam-authenticator"
 
-  # PR ref, https://github.com/weaveworks/eksctl/pull/2987
-  # remove in next release
-  patch do
-    url "https://github.com/chenrui333/eksctl/commit/2207612.patch?full_index=1"
-    sha256 "50870dd22647f6b6252678fb5302c81aa89ca04177f3f327a044d301eb483c14"
-  end
-
   def install
     ENV["GOBIN"] = HOMEBREW_PREFIX/"bin"
     system "make", "build"
