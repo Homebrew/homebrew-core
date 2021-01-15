@@ -38,9 +38,9 @@ class Mono < Formula
   link_overwrite "lib/cli"
 
   resource "fsharp" do
-    url "https://github.com/fsharp/fsharp.git",
-        tag:      "10.2.3",
-        revision: "e31bc96e8a5e5742af1c6c45d55d5cc06bb524cb"
+    url "https://github.com/dotnet/fsharp.git",
+        tag:      "v11.0.0",
+        revision: "1e9d40c8897796e21850bd6dca40e15df69a1c97"
   end
 
   # When upgrading Mono, make sure to use the revision from
