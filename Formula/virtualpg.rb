@@ -3,6 +3,7 @@ class Virtualpg < Formula
   homepage "https://www.gaia-gis.it/fossil/virtualpg/index"
   url "https://www.gaia-gis.it/gaia-sins/virtualpg-1.0.2.tar.gz"
   sha256 "37abd56b2899c90b355e50d843ba019af540b83e7af1da110a766f041abb514e"
+  license "MPL-1.1"
 
   livecheck do
     url :homepage
