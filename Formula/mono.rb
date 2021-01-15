@@ -51,9 +51,18 @@ class Mono < Formula
 
     # Remove in next release
     # https://github.com/dotnet/msbuild/issues/6041
+    # https://github.com/dotnet/msbuild/pull/5381
     patch do
       url "https://github.com/mono/msbuild/commit/e2e4dfee543269ccb0a459263985b1c993feacec.patch?full_index=1"
       sha256 "b64e93fbe1f5a5b8bcdb46ddd7d51a714f0e671b1b8ce2d1c2a0b80710ecb293"
+    end
+    patch do
+      url "https://github.com/mono/msbuild/commit/509c3190cf77be9422bddfad30b89e158f6229c3.patch?full_index=1"
+      sha256 "cf5fc342319cc1cb3b7bff02ec7d7d69af07f2777cf5b1910274d757cb14d92a"
+    end
+    patch do
+      url "https://github.com/mono/msbuild/commit/70bf6710473a2b6ffe363ea588f7b3ab87682a8d.patch?full_index=1"
+      sha256 "630b4187e882c162cd09e14f16ef2cca29b588dbea71bc444d925e5ef3f8f067"
     end
   end
 
