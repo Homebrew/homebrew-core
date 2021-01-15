@@ -1,8 +1,8 @@
 class Libusrsctp < Formula
   desc "Portable SCTP userland stack"
   homepage "https://github.com/sctplab/usrsctp"
-  url "https://github.com/sctplab/usrsctp/archive/0.9.4.0.tar.gz"
-  sha256 "e7b8f908d71dc69c9a2bf55d609e8fdbb2fa7cc647f8b23a837d36a05c59cd77"
+  url "https://github.com/sctplab/usrsctp/archive/0.9.5.0.tar.gz"
+  sha256 "260107caf318650a57a8caa593550e39bca6943e93f970c80d6c17e59d62cd92"
   license "BSD-3-Clause"
   head "https://github.com/sctplab/usrsctp.git"
 
