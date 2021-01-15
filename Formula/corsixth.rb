@@ -9,6 +9,7 @@ class Corsixth < Formula
 
   bottle do
     sha256 "9852913d485e6fce557001d16f78dac562b205c44810d93b133b539c02ed0436" => :big_sur
+    sha256 "fb20eddb21a89396791d6ab3dfdf13c0bde91c44ba0a6f068b59194b361c4690" => :arm64_big_sur
     sha256 "bad3d139e3cac3c277a9bea632819fe27b90abfd7d5305813f839d78f5854ca6" => :catalina
     sha256 "a68aaf41d6feda1bbed25fa4fbb7ff73dc4b5049e23c13fb9377b22cb23c17a4" => :mojave
   end

@@ -3,8 +3,8 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/35/9a/bd112ddcb2ebaa1c812e312123dfca23e4ac99c9eb36bc936f65825ed325/snakemake-5.31.1.tar.gz"
-  sha256 "ac4bb3bf330378f6207b645eba3637a5f1d8074be93c4ec4079782b2025d1ee4"
+  url "https://files.pythonhosted.org/packages/0e/35/02480c0af1cdc810abe6cc2f5d301ef57ac7ee3da7bcfb6b69fc998d65ee/snakemake-5.32.0.tar.gz"
+  sha256 "793a6ccf54461078fd79849702a5338f5ace533bac32b2f4088e5b5da2f10567"
   license "MIT"
   head "https://github.com/snakemake/snakemake.git"
 
@@ -14,10 +14,10 @@ class Snakemake < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0dc20b9a90940bd4a56a92681d39b0deda6587e82ca32fd67ae92d558082ad4b" => :big_sur
-    sha256 "fffc172a8b3c3c4258b934bc5c9e95f1ced8e3c80c1709678625e0420e9cde5f" => :arm64_big_sur
-    sha256 "8a17f2296b4567487eec27d21034ea7eb7fe33faa357f3125f189eb4f847f6d5" => :catalina
-    sha256 "e7477fc027c377956d1584f3302452ea4249be2ecb881b4735c3bcc061d433b3" => :mojave
+    sha256 "4115bdd503a5481502974b540b7270bdc4bc7161711f652dc97d4fe26345ef9b" => :big_sur
+    sha256 "d0bcb9a2f9d299bd55731b46cff980afaf58a6769c0b14251078069408659b42" => :arm64_big_sur
+    sha256 "f7e6fc4408e917d78746ffc53dcd0b2f9f37e5c1b295f358be5d41a25e7d60de" => :catalina
+    sha256 "3e21ecc1441c7c5a18acf827a4aeaf808b2a6c1ff915c868c34947d1c9086775" => :mojave
   end
 
   depends_on "cbc"
@@ -69,8 +69,8 @@ class Snakemake < Formula
   end
 
   resource "GitPython" do
-    url "https://files.pythonhosted.org/packages/85/3d/ee9aa9c77a3c0e9074461d2d8da86c3564ed96abd28fa099dc3e05338a72/GitPython-3.1.11.tar.gz"
-    sha256 "befa4d101f91bad1b632df4308ec64555db684c360bd7d2130b4807d49ce86b8"
+    url "https://files.pythonhosted.org/packages/ec/4d/e6553122c85ec7c4c3e702142cc0f5ed02e5cf1b4d7ecea86a07e45725a0/GitPython-3.1.12.tar.gz"
+    sha256 "42dbefd8d9e2576c496ed0059f3103dcef7125b9ce16f9d5f9c834aed44a1dac"
   end
 
   resource "idna" do
@@ -94,8 +94,8 @@ class Snakemake < Formula
   end
 
   resource "nbformat" do
-    url "https://files.pythonhosted.org/packages/ad/6c/ab9715323ed5c0893f619788e5c0a452c42fce4a42c032245eae2c2fa31d/nbformat-5.0.8.tar.gz"
-    sha256 "f545b22138865bfbcc6b1ffe89ed5a2b8e2dc5d4fe876f2ca60d8e6f702a30f8"
+    url "https://files.pythonhosted.org/packages/4e/4d/36023eaabe8ec48635178558015d14572835c24adbf7c3cd1107b748317b/nbformat-5.1.2.tar.gz"
+    sha256 "1d223e64a18bfa7cdf2db2e9ba8a818312fc2a0701d2e910b58df66809385a56"
   end
 
   resource "psutil" do

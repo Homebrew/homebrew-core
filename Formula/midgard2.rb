@@ -8,6 +8,7 @@ class Midgard2 < Formula
 
   bottle do
     sha256 "e0e95184827d7b69fa0c39d3bca827d600e38db97541606f48edd14c08d3a2a3" => :big_sur
+    sha256 "60df7b2c0c5128949c9ad6c8cea8bce50b2abbbf1405da2e2a7681745eea90d0" => :arm64_big_sur
     sha256 "c3ed243fb5c433a40f959a357c8c78258a62b2fcc7eb5f3e6d94ca0b9cae3159" => :catalina
     sha256 "d37c0fefe73ad6e8360585d80e26e11f7e1f5735fdf8382f0c3795f95fa93d68" => :mojave
     sha256 "08df9e1d7487d38c8174047aa9d0620bc1f430f23602acba90c2ec9978a3fdd9" => :high_sierra

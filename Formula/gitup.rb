@@ -6,7 +6,7 @@ class Gitup < Formula
   url "https://files.pythonhosted.org/packages/7f/07/4835f8f4de5924b5f38b816c648bde284f0cec9a9ae65bd7e5b7f5867638/gitup-0.5.1.tar.gz"
   sha256 "4f787079cd65d8f60c5842181204635e1b72d3533ae91f0c619624c6b20846dd"
   license "MIT"
-  revision 3
+  revision 4
   head "https://github.com/earwig/git-repo-updater.git"
 
   livecheck do
@@ -15,11 +15,10 @@ class Gitup < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "75267b1b78d901d02d25d3ffb0f867a5428319a5e7f71852549e610d92aef4e9" => :big_sur
-    sha256 "cac513baa7ac0514017dbb53996278e12f42cb9f8995c5404e332d4e742260f0" => :arm64_big_sur
-    sha256 "24a5b0141173ca61a85b8b7aeec68dce1d43d17d67e7edf92d4197241b977c91" => :catalina
-    sha256 "2ef7af3d0f8928ef352902bb7d583684adda069580d13af4c3d26818e5808d3a" => :mojave
+    sha256 "5ea818d777b458b351c6dba3fced8dfe0b2872855041f2f4dce01751e4ead21c" => :big_sur
+    sha256 "756252ddabb0074e82777e094dc48b873f9d92654b1af72a3818a0d5e1dfca33" => :arm64_big_sur
+    sha256 "741ddc9b31fff9cab313a9bd9da4ef42d94946887b730db62a1ca437bd67b485" => :catalina
+    sha256 "30d5bfe2d496259630b86658d0269cdb8ae6039e8edc77f9651d21a74c6f2b3e" => :mojave
   end
 
   depends_on "python@3.9"
@@ -35,8 +34,8 @@ class Gitup < Formula
   end
 
   resource "GitPython" do
-    url "https://files.pythonhosted.org/packages/85/3d/ee9aa9c77a3c0e9074461d2d8da86c3564ed96abd28fa099dc3e05338a72/GitPython-3.1.11.tar.gz"
-    sha256 "befa4d101f91bad1b632df4308ec64555db684c360bd7d2130b4807d49ce86b8"
+    url "https://files.pythonhosted.org/packages/ec/4d/e6553122c85ec7c4c3e702142cc0f5ed02e5cf1b4d7ecea86a07e45725a0/GitPython-3.1.12.tar.gz"
+    sha256 "42dbefd8d9e2576c496ed0059f3103dcef7125b9ce16f9d5f9c834aed44a1dac"
   end
 
   resource "smmap" do
@@ -71,10 +70,10 @@ class Gitup < Formula
 
     system bin/"gitup", "first", "second"
 
-    first_head = `cd first ; git rev-parse HEAD`.split.first
+    first_head = Utils.git_head(testpath/"first")
     assert_not_equal first_head, first_head_start
 
-    second_head = `cd second ; git rev-parse HEAD`.split.first
+    second_head = Utils.git_head(testpath/"second")
     assert_not_equal second_head, second_head_start
 
     third_head_start = "f47ab45abdbc77e518776e5dc44f515721c523ae"
@@ -85,7 +84,7 @@ class Gitup < Formula
     system bin/"gitup", "--add", "third"
 
     system bin/"gitup"
-    third_head = `cd third ; git rev-parse HEAD`.split.first
+    third_head = Utils.git_head(testpath/"third")
     assert_not_equal third_head, third_head_start
 
     assert_match %r{#{Dir.pwd}/third}, `#{bin}/gitup --list`.strip

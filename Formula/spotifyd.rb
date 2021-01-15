@@ -1,8 +1,8 @@
 class Spotifyd < Formula
   desc "Spotify daemon"
   homepage "https://github.com/Spotifyd/spotifyd"
-  url "https://github.com/Spotifyd/spotifyd/archive/v0.2.25.tar.gz"
-  sha256 "67dc4ef97a4a3ffcfb137b0409e4428ff9b9ace49d9fdd5cbc216e147edbf925"
+  url "https://github.com/Spotifyd/spotifyd/archive/v0.3.0.tar.gz"
+  sha256 "47b3d9a87a9bc8ff5a46b9ba3ccb5ea0b305964c6f334e601a0316697d8bcd4a"
   license "GPL-3.0-only"
   head "https://github.com/Spotifyd/spotifyd.git"
 
@@ -13,9 +13,9 @@ class Spotifyd < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "24711d5f11e5076b3ece1a6626ddb5f11bbbd10f7162144453d07b98f9df397a" => :big_sur
-    sha256 "22f12967cd75f7143216d78c1209c7dc3cf109a35841df8655bb11bf8a047848" => :catalina
-    sha256 "c26863911357d1af34bc6f1c65b21c10879f311486134fa9693ca507c089d376" => :mojave
+    sha256 "fdc3e5aeee7705fad20e9c5278d21a2e0590d622ec929494ecc2eaed7220a6f9" => :big_sur
+    sha256 "ce40421f0813e1652b241385eabffe4c06f1fce26de182f36907a739e38b14b3" => :catalina
+    sha256 "4c0ad2cabb7962b0f798c74fc0d6246c4b430b2350e5672b1a23a89efc981cd9" => :mojave
   end
 
   depends_on "pkg-config" => :build

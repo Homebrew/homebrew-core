@@ -14,6 +14,7 @@ class Sleuthkit < Formula
   bottle do
     cellar :any
     sha256 "c1ab47b1de34253319907d3ce1f9742109b225168ad5adec25d1abb62340543e" => :big_sur
+    sha256 "6aff4ffcdfd49eb927b027f16b5ddb02bb7d74d24382ea3ed56fb0e14dee8af1" => :arm64_big_sur
     sha256 "32169b058d0500b740d6496bd5b9d1f87920d0d4a2c4b466f72d5857db88c449" => :catalina
     sha256 "96242dd0f595b9384e9d73e0c272c7105a98f13a66a010db796c538ec848bf24" => :mojave
     sha256 "076912d050385aca70b18f1a681c69cfcaa7237d87517b5d15457351701e7329" => :high_sierra

@@ -2,16 +2,16 @@ class Kibana < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
-      tag:      "v7.10.1",
-      revision: "608c5e5dd32659e8afadd520d0cdc58766ba505b"
+      tag:      "v7.10.2",
+      revision: "a0b793698735eb1d0ab1038f8e5d7a951524e929"
   license "Apache-2.0"
   head "https://github.com/elastic/kibana.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fee3e848d8b9c2889b7fa89b7a6cdfbfa85b2dbf23712a5b07b58d676f60f73c" => :big_sur
-    sha256 "5d8234a00c1b04278c083dd3deede12eb622c887e3338fc6e5906651dbb216a0" => :catalina
-    sha256 "454a4b3df30516055103c0bbd0783705d26d92659352ec2e3d37a2c0bb6326d2" => :mojave
+    sha256 "c218ab10fca2ebdddd11ab27326d0a6d0530a7f26bc2adc26d1751e4326b0198" => :big_sur
+    sha256 "c1ee01e41c34677dba144152142808d469db2855658fdd3e4fcafbae77a10774" => :catalina
+    sha256 "fb818924d852b07ab0417e8ff52899400b98f25bd24714f77a8c472224269690" => :mojave
   end
 
   depends_on "python@3.9" => :build

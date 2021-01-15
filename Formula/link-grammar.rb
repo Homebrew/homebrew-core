@@ -13,6 +13,7 @@ class LinkGrammar < Formula
 
   bottle do
     sha256 "6416c4a870cf3a11a345ffc0d1fecfb64e402dc264648febe89c6b9cb903f514" => :big_sur
+    sha256 "2ff86c07dc50539754a20b35fbd548c421f9822b39ab43053f2721ee6841fd43" => :arm64_big_sur
     sha256 "d2125eec68c573874249d6b3629b54b9c55c7c378343f9ae969440dfdbb3497d" => :catalina
     sha256 "5c6e347b0c82683ae1a3c8838bec8bf9b840c06fbe33e59a494ea3495256b0e0" => :mojave
     sha256 "64a9aa4bebc23fe23063f436cd18bca518e11f3be4322ca60d2d710c9ed6cd8c" => :high_sierra

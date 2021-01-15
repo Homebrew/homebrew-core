@@ -5,20 +5,22 @@ class Goreleaser < Formula
       tag:      "v0.154.0",
       revision: "e8ea231122dc98ec2315eff2df2defc5191764d6"
   license "MIT"
+  head "https://github.com/goreleaser/goreleaser.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "50e7d5997d9e7dc20583969885dafbbec85fbeae733232feb49219f5df7163a0" => :big_sur
-    sha256 "a1d96297b63e7372d082e750d08fc45f4d8b2ccb14cd1755eff442148da9006f" => :arm64_big_sur
-    sha256 "ee5db7c6ea67d0925f8f88a9930b9a925d45e7ac6102f7ae18cd5154196d8c2f" => :catalina
-    sha256 "923a80f28f496a69b5aaa70de720a37c1d70c687d48a4e2d861b4c2f2f6e05e9" => :mojave
+    rebuild 1
+    sha256 "02fa6cfd01100acf7644c2c28e2379ebab709c60d4b1043324e4fa361b7a0469" => :big_sur
+    sha256 "2b9d6def5fd76689701e63f9c6caa6f58055b360c356a20872735cf0c234f598" => :arm64_big_sur
+    sha256 "673fb1e121047103f4dcdd0b731cd981943736863505bf2c82655005e6be3206" => :catalina
+    sha256 "46f547da7ed472a9d098c152134227157b3ae72e4977747425622303a5234742" => :mojave
   end
 
   depends_on "go" => :build
 
   def install
     system "go", "build", "-ldflags",
-             "-s -w -X main.version=#{version} -X main.commit=#{stable.specs[:revision]} -X main.builtBy=homebrew",
+             "-s -w -X main.version=#{version} -X main.commit=#{Utils.git_head} -X main.builtBy=homebrew",
              *std_go_args
   end
 

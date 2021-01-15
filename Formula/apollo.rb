@@ -11,6 +11,7 @@ class Apollo < Formula
     cellar :any_skip_relocation
     rebuild 2
     sha256 "b4ecc23c2aa054e69b8de5531d80315b5ed2746ea7cd438e66317bc666903a8b" => :big_sur
+    sha256 "305849117548586243e45c96c3b55660c9635d7efa24a727f66bc256a892df86" => :arm64_big_sur
     sha256 "81b2a6a1110da6cf58c6725eb6e2c331668fa39d01644e0a754a2eb9241fdccd" => :catalina
     sha256 "81b2a6a1110da6cf58c6725eb6e2c331668fa39d01644e0a754a2eb9241fdccd" => :mojave
     sha256 "81b2a6a1110da6cf58c6725eb6e2c331668fa39d01644e0a754a2eb9241fdccd" => :high_sierra

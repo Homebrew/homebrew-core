@@ -12,6 +12,7 @@ class SpiceGtk < Formula
 
   bottle do
     sha256 "668a907575696c6fbbcc26cb5ebc831d1e4a80b90607e6cc44758c27923ec565" => :big_sur
+    sha256 "2862755e39cbb944a342dde00d8ee52cdd3a285359cf8a7c9f33fa2dab869fdb" => :arm64_big_sur
     sha256 "0e79a73e33dd941c0011d5dab31fd330bd7fe7833d4a16f3d66ebf0fa431a2c3" => :catalina
     sha256 "429a96412033c4c47ce892cbac6a43b7e9ad8523438f6d0ad532d8c8d3ee53ce" => :mojave
     sha256 "32a55dcaa4902143f4fda24ca035ee3f1be41267d862e46bc3f7ba7a7181d026" => :high_sierra

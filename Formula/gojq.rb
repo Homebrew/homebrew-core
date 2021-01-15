@@ -1,22 +1,31 @@
 class Gojq < Formula
   desc "Pure Go implementation of jq"
   homepage "https://github.com/itchyny/gojq"
-  url "https://github.com/itchyny/gojq/archive/v0.12.0.tar.gz"
-  sha256 "3f280536f53ab6670b89424b0cd295d096b2d2928a5ed5d53bc3a23333051c05"
+  url "https://github.com/itchyny/gojq.git",
+      tag:      "v0.12.0",
+      revision: "203d5e1dfd435460500ea5b00f71eca48bf1cb88"
   license "MIT"
+  revision 1
+  head "https://github.com/itchyny/gojq.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b8937d8be16fa3f13d0e9f971d2d7e5c0ff0f8cb4cfb02ec53d72344ecd84cf6" => :big_sur
-    sha256 "7ab6960bd90fb64aeff25ce6af2fc96e1bafc2128501e4096e6f4fc442f1034b" => :arm64_big_sur
-    sha256 "522b3e31ccd269471af44917ecde15099000bb78505bbf31d2879faa1af7af4f" => :catalina
-    sha256 "dd0167516da92c42f829858caf8fddbb8ee55f060ee622fd187fc10bd25c0a0d" => :mojave
+    sha256 "ad78551a822854e217254f26bbbd525b682230f963c09d10ccf74da9836e5fe1" => :big_sur
+    sha256 "c62a35dbdc15769f738df060e9958b4d10e33cb5ae0f5bc3230f376924030176" => :arm64_big_sur
+    sha256 "92a338b37470bae5a7fe9806184433f936abc129c0e78534bc8ae96098116648" => :catalina
+    sha256 "e1bae1fe7ee90021eb5733192e413a6584d3c49f29a458dfbf82630af32707c3" => :mojave
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args, "./cmd/gojq"
+    revision = Utils.git_short_head
+    ldflags = %W[
+      -s -w
+      -X github.com/itchyny/gojq/cli.revision=#{revision}
+    ]
+    system "go", "build", "-ldflags", ldflags.join(" "), *std_go_args, "./cmd/gojq"
+    zsh_completion.install "_gojq"
   end
 
   test do

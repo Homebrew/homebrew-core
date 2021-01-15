@@ -26,12 +26,10 @@ class Kapacitor < Formula
     ENV["GOPATH"] = buildpath
     kapacitor_path = buildpath/"src/github.com/influxdata/kapacitor"
     kapacitor_path.install Dir["*"]
-    revision = Utils.safe_popen_read("git", "rev-parse", "HEAD").strip
-    version = Utils.safe_popen_read("git", "describe", "--tags").strip
 
     cd kapacitor_path do
       system "go", "install",
-             "-ldflags", "-X main.version=#{version} -X main.commit=#{revision}",
+             "-ldflags", "-X main.version=#{version} -X main.commit=#{Utils.git_head}",
              "./cmd/..."
     end
 

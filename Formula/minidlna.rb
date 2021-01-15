@@ -12,11 +12,11 @@ class Minidlna < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "94228e90b5a315e668aecd6890dba7e857a1366cb7086e5e3f559c15a58c5eb5" => :big_sur
-    sha256 "62d4cffaf85a758edf20d9c91884789de481a483dc5337e4ae6ed415ac1eab53" => :arm64_big_sur
-    sha256 "fe71689f51142e3017edb49dc9288c28c2f9c5826f002389add9e90fb512eb3e" => :catalina
-    sha256 "0df8b04dfa0ac6638070b206705d3f1c582bebd7441916fae9037a9e2c380c51" => :mojave
+    rebuild 2
+    sha256 "64273a6f63b56cd58250376532c19056b6fb8f7643138f07d87ad6b6b723ef5a" => :big_sur
+    sha256 "a43c1572b1372465439fd3403ff1d2b0f02a48df614a64e9e6b1114dd0834663" => :arm64_big_sur
+    sha256 "c6697e115a8a54ba719b651d38e1ec442f0a240b87f9d3eeca5997e3768b10ef" => :catalina
+    sha256 "1e12dd0996bdaff3055d9c08c9c82f7ee30e2374d55ba4d8e789d7213d02b0f5" => :mojave
   end
 
   head do
@@ -100,6 +100,8 @@ class Minidlna < Formula
   end
 
   test do
+    require "expect"
+
     (testpath/".config/minidlna/media").mkpath
     (testpath/".config/minidlna/cache").mkpath
     (testpath/"minidlna.conf").write <<~EOS
@@ -111,10 +113,9 @@ class Minidlna < Formula
 
     port = free_port
 
-    fork do
-      exec "#{sbin}/minidlnad", "-d", "-f", "minidlna.conf", "-p", port.to_s, "-P", testpath/"minidlna.pid"
-    end
-    sleep 20
+    io = IO.popen("#{sbin}/minidlnad -d -f minidlna.conf -p #{port} -P #{testpath}/minidlna.pid", "r")
+    io.expect("debug: Initial file scan completed", 30)
+    assert_predicate testpath/"minidlna.pid", :exist?
 
     assert_match /MiniDLNA #{version}/, shell_output("curl localhost:#{port}")
   end

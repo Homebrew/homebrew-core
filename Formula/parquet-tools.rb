@@ -11,6 +11,7 @@ class ParquetTools < Formula
   bottle do
     cellar :any_skip_relocation
     sha256 "1c92af57c5d3e5df830feb8143737a6bddbe986169a80b6457fbd725c7509d06" => :big_sur
+    sha256 "d9b85d31e4b7d62fe66178eb6e1c16f1ef21672cdefee382492eee1a30cc5934" => :arm64_big_sur
     sha256 "9a8d696b41cd9b0c06a79aefeab6f1c8dd3124dec409390563adc2a2976e3a9b" => :catalina
     sha256 "90f8b4dc30bb841afe9a1e1654d95a4e7fe6fd3338196ea7c82e503c8a88b1d8" => :mojave
     sha256 "3fba4dc621d0ddb6e8cb648dba43398d98e37e0f954130353f368b6f849e6f06" => :high_sierra

@@ -1,16 +1,18 @@
 class Tarantool < Formula
   desc "In-memory database and Lua application server"
   homepage "https://tarantool.org/"
-  url "https://download.tarantool.org/tarantool/2.7/src/tarantool-2.7.1.0.tar.gz"
-  sha256 "3c86d62de7cdc2b5f34162c60ad837c82219b65308c5f034aa05030c4fad3b52"
+  url "https://download.tarantool.org/tarantool/2.6/src/tarantool-2.6.2.0.tar.gz"
+  sha256 "eb605672493b89b182421f335d527139ab01c9abef036dc72014793b519f03a0"
   license "BSD-2-Clause"
+  version_scheme 1
   head "https://github.com/tarantool/tarantool.git", shallow: false
 
   bottle do
     cellar :any
-    sha256 "a1eaa268c366a1b20e59ba2f7932870d92005608f0e7aea7a03f65cc0b4493e3" => :big_sur
-    sha256 "ee91a9e75061f77529a009a0f74941eb71e5ef24f366f2cf6d8d54c25f2cc584" => :catalina
-    sha256 "85a7f3bad21f346523588872b4c255f344c399c0d0b32a850a380babe5560026" => :mojave
+    rebuild 1
+    sha256 "c0a2afa9c2da936cebea4e6b5f4c6561da7be569f4ec2deb6c7b188301dc1423" => :big_sur
+    sha256 "1805dcec3744599008545b53bab9cbf71444af21057fc5844740b47f925e3502" => :catalina
+    sha256 "20ad831370ca85ede5c0fd325c216e1d59641b03603a653ca6673ca93728bbf0" => :mojave
   end
 
   depends_on "cmake" => :build
