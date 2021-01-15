@@ -28,7 +28,6 @@ class Mame < Formula
 
   depends_on "glm" => :build
   depends_on "pkg-config" => :build
-  depends_on "pugixml" => :build
   depends_on "python@3.9" => :build
   depends_on "rapidjson" => :build
   depends_on "sphinx-doc" => :build
@@ -38,6 +37,7 @@ class Mame < Formula
   depends_on macos: :high_sierra
   depends_on "portaudio"
   depends_on "portmidi"
+  depends_on "pugixml"
   depends_on "sdl2"
   depends_on "sqlite"
   depends_on "utf8proc"
