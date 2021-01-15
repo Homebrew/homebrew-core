@@ -1,9 +1,12 @@
 class Gojq < Formula
   desc "Pure Go implementation of jq"
   homepage "https://github.com/itchyny/gojq"
-  url "https://github.com/itchyny/gojq/archive/v0.12.0.tar.gz"
-  sha256 "3f280536f53ab6670b89424b0cd295d096b2d2928a5ed5d53bc3a23333051c05"
+  url "https://github.com/itchyny/gojq.git",
+      tag:      "v0.12.0",
+      revision: "203d5e1dfd435460500ea5b00f71eca48bf1cb88"
   license "MIT"
+  revision 1
+  head "https://github.com/itchyny/gojq.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,7 +19,13 @@ class Gojq < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args, "./cmd/gojq"
+    revision = Utils.git_short_head
+    ldflags = %W[
+      -s -w
+      -X github.com/itchyny/gojq/cli.revision=#{revision}
+    ]
+    system "go", "build", "-ldflags", ldflags.join(" "), *std_go_args, "./cmd/gojq"
+    zsh_completion.install "_gojq"
   end
 
   test do
