@@ -7,6 +7,11 @@ class Gor < Formula
   license "LGPL-3.0"
   head "https://github.com/buger/goreplay.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "b02c8cacea6257c1faf97f6c3a686f09fc1519e54cbd80713b19c95b9c03ced2" => :big_sur
