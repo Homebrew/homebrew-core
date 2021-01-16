@@ -2,11 +2,13 @@ class Volk < Formula
   include Language::Python::Virtualenv
 
   desc "Vector Optimized Library of Kernels"
-  homepage "https://libvolk.org"
+  homepage "https://www.libvolk.org/"
   url "https://github.com/gnuradio/volk.git",
       tag:      "v2.4.1",
       revision: "797b0ac846858d081fbb53ed50e98765ec9cb6b2"
   license "GPL-3.0-or-later"
+
+  revision 1
 
   bottle do
     sha256 big_sur:  "0324fc38e4ca9a378fa863af8543af8dbfd2eb83a4a22e008f5df434857b655a"
@@ -21,8 +23,8 @@ class Volk < Formula
   depends_on "python@3.9"
 
   resource "Mako" do
-    url "https://files.pythonhosted.org/packages/72/89/402d2b4589e120ca76a6aed8fee906a0f5ae204b50e455edd36eda6e778d/Mako-1.1.3.tar.gz"
-    sha256 "8195c8c1400ceb53496064314c6736719c6f25e7479cd24c77be3d9361cddc27"
+    url "https://files.pythonhosted.org/packages/5c/db/2d2d88b924aa4674a080aae83b59ea19d593250bfe5ed789947c21736785/Mako-1.1.4.tar.gz"
+    sha256 "17831f0b7087c313c0ffae2bcbbd3c1d5ba9eeac9c38f2eb7b50e8c99fe9d5ab"
   end
 
   def install
