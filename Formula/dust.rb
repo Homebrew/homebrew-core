@@ -1,8 +1,8 @@
 class Dust < Formula
   desc "More intuitive version of du in rust"
   homepage "https://github.com/bootandy/dust"
-  url "https://github.com/bootandy/dust/archive/v0.5.3.tar.gz"
-  sha256 "f8401257e1cae721019da05a11dd00c2f114121ccd525452b783d472da59b6e8"
+  url "https://github.com/bootandy/dust/archive/v0.5.4.tar.gz"
+  sha256 "395f0d5f44d5000468dc51a195e4b8e8c0b710a1c75956fb1f9ad08f2fbbc935"
   license "Apache-2.0"
   head "https://github.com/bootandy/dust.git"
 
