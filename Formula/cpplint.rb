@@ -2,7 +2,7 @@ class Cpplint < Formula
   include Language::Python::Virtualenv
 
   desc "Static code checker for C++"
-  homepage "https://github.com/cpplint/cpplint"
+  homepage "https://pypi.org/project/cpplint/"
   url "https://github.com/cpplint/cpplint/archive/1.5.4.tar.gz"
   sha256 "e254b5620fb039689b8f5e64b07384ee53beb695304c5c01195133be662b4457"
   license "Apache-2.0"
