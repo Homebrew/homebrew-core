@@ -7,8 +7,8 @@ class Task < Formula
   head "https://github.com/GothenburgBitFactory/taskwarrior.git", branch: "2.6.0", shallow: false
 
   livecheck do
-    url "https://taskwarrior.org/download/"
-    regex(/href=.*?task[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
