@@ -19,7 +19,7 @@ class Periscope < Formula
 
   def install
     system "go", "build", "-ldflags",
-      "-s -w -X main.version=#{version} -X main.commit=#{stable.specs[:revision]}",
+      "-s -w -X main.version=#{version} -X main.commit=#{Utils.git_head}",
       "-trimpath", "./cmd/psc"
 
     bin.install "psc"
