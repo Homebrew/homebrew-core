@@ -13,6 +13,8 @@ class MoltenVk < Formula
     sha256 "a6875344cb7327b6dd804a82ebd348fda81bb93d2160d0b756a2f133a38e7299" => :mojave
   end
 
+  deprecate! date: "2021-01-16", because: "outdated and broken with the latest version"
+
   depends_on "cmake" => :build
   depends_on "python@3.9" => :build
   depends_on xcode: ["11.0", :build]
