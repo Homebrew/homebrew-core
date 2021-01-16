@@ -36,7 +36,7 @@ class Sfst < Formula
     Open3.popen3("#{bin}/fst-mor", "foo.a") do |stdin, stdout, _|
       stdin.write("Hello")
       stdin.close
-      expected_output = "reading transducer...\nfinished.\nHello\n"
+      expected_output = "Hello\n"
       actual_output = stdout.read
       assert_equal expected_output, actual_output
     end
