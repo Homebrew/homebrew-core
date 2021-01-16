@@ -1,8 +1,8 @@
 class WildflyAs < Formula
   desc "Managed application runtime for building applications"
   homepage "https://wildfly.org/"
-  url "https://download.jboss.org/wildfly/21.0.2.Final/wildfly-21.0.2.Final.tar.gz"
-  sha256 "e809c1abe943f827da675aaa0338a7b836dac8c3f02423e734775a4b3ec972ac"
+  url "https://download.jboss.org/wildfly/22.0.0.Final/wildfly-22.0.0.Final.tar.gz"
+  sha256 "af5381b54d426ee12c52d90468cf0e4d0ee0ac1d1734ff63a6d2b375953600f9"
   license "LGPL-2.1-or-later"
 
   livecheck do
