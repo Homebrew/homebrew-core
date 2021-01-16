@@ -87,13 +87,17 @@ class PreCommit < Formula
 
   # Avoid relative paths
   def post_install
-    lib_python_path = Pathname.glob(libexec/"lib/python*").first
-    lib_python_path.each_child do |f|
-      next unless f.symlink?
+    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    bin_python_path = Pathname(libexec/"bin")
+    lib_python_path = Pathname(libexec/"lib/python#{xy}")
+    [lib_python_path, bin_python_path].each do |folder|
+      folder.each_child do |f|
+        next unless f.symlink?
 
-      realpath = f.realpath
-      rm f
-      ln_s realpath, f
+        realpath = f.realpath
+        rm f
+        ln_s realpath, f
+      end
     end
   end
 
