@@ -7,6 +7,11 @@ class Libbladerf < Formula
   license "GPL-2.0"
   head "https://github.com/Nuand/bladeRF.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 "53852b1fb3d6fcebfacc6778666f5da33e016324a81b413854ff07717ff99174" => :big_sur
     sha256 "69f5a01be75ac5237cf278c76449f3a09ba60a1d284412a82040b4687b4b3244" => :arm64_big_sur
