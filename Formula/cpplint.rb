@@ -11,14 +11,34 @@ class Cpplint < Formula
     url :stable
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
+
+  # Just for test
+  resource "testfixtures" do
+    url "https://files.pythonhosted.org/packages/ee/7b/0bcd797f4d75348bd123ef3b5760edef1767a9dd1e3f2e6b2098f51a5102/testfixtures-6.17.1.tar.gz"
+    sha256 "5ec3a0dd6f71cc4c304fbc024a10cc293d3e0b852c868014b9f233203e149bda"
+  end
 
   def install
     virtualenv_install_with_resources
+
+    # install test data
+    (share/"test/").install "samples"
+    (share/"test/").install "cpplint_clitest.py"
   end
 
   test do
     output = shell_output("#{bin}/cpplint --version")
     assert_match "cpplint 1.5.4", output.strip
+
+    cp "#{share}/test/cpplint_clitest.py", testpath/"cpplint_clitest.py"
+    cp_r "#{share}/test/samples", testpath
+
+    inreplace "#{testpath}/cpplint_clitest.py", "#!/usr/bin/env python",
+      "#!#{libexec/"bin/python3.9"}"
+    inreplace "#{testpath}/cpplint_clitest.py",
+      "sys.executable + ' ' + os.path.abspath('./cpplint.py ')", "'#{bin}/cpplint '"
+
+    shell_output(testpath/"cpplint_clitest.py")
   end
 end
