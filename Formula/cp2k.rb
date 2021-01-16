@@ -26,6 +26,13 @@ class Cp2k < Formula
     sha256 "149cc8e773de29405b26348f2545ea51546b44cf502dd60a0143a8b427b01197"
   end
 
+  # Patch for malloc build errors. Remove at version bump.
+  # https://github.com/cp2k/cp2k/pull/1301
+  patch do
+    url "https://github.com/cp2k/cp2k/commit/4139ab6cd2d60c112964a6c75c5d52576ac49e6b.patch?full_index=1"
+    sha256 "e00f77b06c7049d616b16804dcac8597408252a2e861a8e05d76810a07a112e5"
+  end
+
   def install
     resource("libint").stage do
       system "./configure", "--prefix=#{libexec}", "--enable-eri=1",
