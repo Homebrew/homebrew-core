@@ -40,5 +40,8 @@ class Cpplint < Formula
       "sys.executable + ' ' + os.path.abspath('./cpplint.py ')", "'#{bin}/cpplint '"
 
     shell_output(testpath/"cpplint_clitest.py")
+
+    output = shell_output("#{bin}/cpplint #{testpath}/samples/v8-sample/src/interface-descriptors.h", 1)
+    assert_match "Total errors found: 2", output
   end
 end
