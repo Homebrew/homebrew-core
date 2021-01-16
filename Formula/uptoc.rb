@@ -19,9 +19,9 @@ class Uptoc < Formula
 
   def install
     system "go", "build", "-ldflags",
-             "-s -w -X main.release=#{version} -X main.commit=#{stable.specs[:revision]} -X main.repo=#{stable.url}",
-             *std_go_args,
-             "./cmd"
+      "-s -w -X main.release=#{version} -X main.commit=#{Utils.git_head} -X main.repo=#{stable.url}",
+      *std_go_args,
+      "./cmd"
   end
 
   test do
