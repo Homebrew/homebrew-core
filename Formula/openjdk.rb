@@ -30,6 +30,7 @@ class Openjdk < Formula
   keg_only "it shadows the macOS `java` wrapper"
 
   depends_on "autoconf" => :build
+  depends_on xcode: :build if Hardware::CPU.arm?
 
   on_linux do
     depends_on "pkg-config" => :build
@@ -70,13 +71,13 @@ class Openjdk < Formula
     end
   end
 
-  # Calculate Xcode's dual-arch JavaNativeFoundation.framework path
-  def framework_path
-    File.expand_path("../SharedFrameworks/ContentDeliveryServices.framework/Versions/Current/itms/java/Frameworks",
-                     MacOS::Xcode.prefix)
-  end
-
   def install
+    # Path to dual-arch JavaNativeFoundation.framework from Xcode
+    framework_path = File.expand_path(
+      "../SharedFrameworks/ContentDeliveryServices.framework/Versions/Current/itms/java/Frameworks",
+      MacOS::Xcode.prefix,
+    )
+
     boot_jdk_dir = Pathname.pwd/"boot-jdk"
     resource("boot-jdk").stage boot_jdk_dir
     boot_jdk = boot_jdk_dir/"Contents/Home"
@@ -147,14 +148,15 @@ class Openjdk < Formula
     bin.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/bin/*"]
     include.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/include/*.h"]
     include.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/include/darwin/*.h"]
-  end
 
-  def post_install
-    # Copy JavaNativeFoundation.framework from Xcode after install to avoid signature corruption
     if Hardware::CPU.arm?
-      cp_r "#{framework_path}/JavaNativeFoundation.framework",
-           "#{libexec}/openjdk.jdk/Contents/Home/lib/JavaNativeFoundation.framework",
-           remove_destination: true
+      dest = libexec/"openjdk.jdk/Contents/Home/lib/JavaNativeFoundation.framework"
+      # Copy JavaNativeFoundation.framework from Xcode
+      # https://gist.github.com/claui/ea4248aa64d6a1b06c6d6ed80bc2d2b8#gistcomment-3539574
+      cp_r "#{framework_path}/JavaNativeFoundation.framework", dest, remove_destination: true
+
+      # Replace Apple signature by ad-hoc one (otherwise relocation will break it)
+      system "codesign", "-f", "-s", "-", "#{dest}/Versions/A/JavaNativeFoundation"
     end
   end
 
