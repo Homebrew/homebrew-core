@@ -23,5 +23,9 @@ class Hexo < Formula
   test do
     output = shell_output("#{bin}/hexo --help")
     assert_match "Usage: hexo <command>", output.strip
+
+    output = shell_output("#{bin}/hexo init blog --no-install")
+    assert_match "Cloning hexo-starter", output.strip
+    assert_predicate testpath/"blog/_config.yml", :exist?
   end
 end
