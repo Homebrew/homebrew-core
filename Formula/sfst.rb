@@ -1,10 +1,9 @@
 class Sfst < Formula
   desc "Toolbox for morphological analysers and other FST-based tools"
   homepage "https://www.cis.uni-muenchen.de/~schmid/tools/SFST/"
-  url "https://www.cis.uni-muenchen.de/~schmid/tools/SFST/data/SFST-1.4.7e.tar.gz"
-  sha256 "4c5de5ace89cb564acd74224074bbb32a72c8cf744dc8ef565971da3f22299e4"
+  url "https://www.cis.uni-muenchen.de/~schmid/tools/SFST/data/SFST-1.4.7f.zip"
+  sha256 "31f331a1cc94eb610bcefc42b18a7cf62c55f894ac01a027ddff29e2a71cc31b"
   license "GPL-2.0-only"
-  revision 1
 
   livecheck do
     url :homepage
