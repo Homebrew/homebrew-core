@@ -1,7 +1,7 @@
 require "language/node"
 
 class Hexo < Formula
-  desc "Hexo: A fast, simple & powerful blog framework"
+  desc "Fast, simple & powerful blog framework"
   homepage "https://hexo.io/"
   url "https://registry.npmjs.org/hexo/-/hexo-5.3.0.tgz"
   sha256 "fe9f025d1f0d51e27a9a66cc691748c730f126b50bcc0c99bee239a582fd1ed8"
