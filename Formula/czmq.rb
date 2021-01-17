@@ -28,16 +28,6 @@ class Czmq < Formula
   depends_on :macos # Due to Python 2
   depends_on "zeromq"
 
-  # These two patches together fix https://github.com/zeromq/czmq/issues/2125
-  patch do
-    url "https://github.com/zeromq/czmq/commit/ace06a41da51b1196eef411669343cdf7e8665e2.patch?full_index=1"
-    sha256 "d5e8ed6d96ba63ebb8128032cc4ffef2cbd49b9af9692ad60b89bb3bcf6b2b4c"
-  end
-  patch do
-    url "https://github.com/zeromq/czmq/commit/0c7cac3be12707225d03888a6047e5133d926751.patch?full_index=1"
-    sha256 "62e6b211018a837ad1b8aed82c14740b87c13509e4a444a9cfeb5a50188eaf5e"
-  end
-
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
