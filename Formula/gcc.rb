@@ -48,7 +48,7 @@ class Gcc < Formula
 
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
-  
+
   if Hardware::CPU.intel?
     # Patch for Big Sur version numbering, remove with GCC 11
     # https://github.com/iains/gcc-darwin-arm64/commit/556ab512
