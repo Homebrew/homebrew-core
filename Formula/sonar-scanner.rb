@@ -15,6 +15,7 @@ class SonarScanner < Formula
     rm_rf Dir["bin/*.bat"]
     libexec.install Dir["*"]
     bin.install libexec/"bin/sonar-scanner"
+    lib.install libexec/"lib/sonar-scanner-cli-#{version}.jar"
     etc.install libexec/"conf/sonar-scanner.properties"
     ln_s etc/"sonar-scanner.properties", libexec/"conf/sonar-scanner.properties"
 
