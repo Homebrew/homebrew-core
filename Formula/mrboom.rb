@@ -1,8 +1,8 @@
 class Mrboom < Formula
   desc "Eight player Bomberman clone"
   homepage "http://mrboom.mumblecore.org/"
-  url "https://github.com/Javanaise/mrboom-libretro/releases/download/5.1/MrBoom-src-5.1.tar.gz"
-  sha256 "776fc2998825f8234bc57d0ab243c2f29b5ab888763d7fb066e6b839c99a4054"
+  url "https://github.com/Javanaise/mrboom-libretro/releases/download/5.2/MrBoom-src-5.2.tar.gz"
+  sha256 "45da5386be8407fef7e979e69020f365c9ce58b506ccca91676230e75eb02032"
   license "MIT"
 
   bottle do
@@ -24,8 +24,21 @@ class Mrboom < Formula
   end
 
   test do
-    # gui app
-    assert_match "Set joysticks dead zone, default is 8000",
-      shell_output("#{bin}/mrboom --help")
+    require "pty"
+    require "expect"
+    require "timeout"
+    PTY.spawn(bin/"mrboom", "-m", "-f 0", "-z") do |r, _w, pid|
+      sleep 1
+      Process.kill "SIGINT", pid
+      assert_match "monster", r.expect(/monster/, 10)[0]
+    ensure
+      begin
+        Timeout.timeout(10) do
+          Process.wait pid
+        end
+      rescue Timeout::Error
+        Process.kill "KILL", pid
+      end
+    end
   end
 end
