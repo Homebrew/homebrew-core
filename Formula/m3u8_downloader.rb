@@ -9,6 +9,6 @@ class M3u8Downloader < Formula
   end
 
   test do
-    assert_match "M3U8 downloader 1.0.0", shell_output("m3u8_downloader")
+    assert_match "M3U8 downloader 1.0.0", shell_output("m3u8_downloader -V")
   end
 end
