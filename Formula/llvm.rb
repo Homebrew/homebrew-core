@@ -29,6 +29,14 @@ class Llvm < Formula
       url "https://github.com/llvm/llvm-project/commit/c4d7536136b331bada079b2afbb2bd09ad8296bf.patch?full_index=1"
       sha256 "2b894cbaf990510969bf149697882c86a068a1d704e749afa5d7b71b6ee2eb9f"
     end
+
+    # Upstream ARM patch for OpenMP runtime, remove in next version
+    # https://reviews.llvm.org/D91002
+    # https://bugs.llvm.org/show_bug.cgi?id=47609
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/6166a68c/llvm/openmp_arm.patch"
+      sha256 "70fe3836b423e593688cd1cc7a3d76ee6406e64b9909f1a2f780c6f018f89b1e"
+    end
   end
 
   livecheck do
@@ -63,14 +71,6 @@ class Llvm < Formula
   uses_from_macos "libxml2"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
-
-  # Upstream ARM patch for OpenMP runtime, remove in next version
-  # https://reviews.llvm.org/D91002
-  # https://bugs.llvm.org/show_bug.cgi?id=47609
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/6166a68c/llvm/openmp_arm.patch"
-    sha256 "70fe3836b423e593688cd1cc7a3d76ee6406e64b9909f1a2f780c6f018f89b1e"
-  end
 
   def install
     projects = %w[
