@@ -1,10 +1,9 @@
 class Zeromq < Formula
   desc "High-performance, asynchronous messaging library"
   homepage "https://zeromq.org/"
-  url "https://github.com/zeromq/libzmq/releases/download/v4.3.3/zeromq-4.3.3.tar.gz"
-  sha256 "9d9285db37ae942ed0780c016da87060497877af45094ff9e1a1ca736e3875a2"
+  url "https://github.com/zeromq/libzmq/releases/download/v4.3.4/zeromq-4.3.4.tar.gz"
+  sha256 "c593001a89f5a85dd2ddf564805deb860e02471171b3f204944857336295c3e5"
   license "LGPL-3.0-or-later" => { with: "LGPL-3.0-linking-exception" }
-  revision 1
 
   livecheck do
     url :head
