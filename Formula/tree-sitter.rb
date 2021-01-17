@@ -26,7 +26,7 @@ class TreeSitter < Formula
       system "npm", "install", *Language::Node.local_npm_install_args
     end
     system "script/build-wasm"
-    %w[tree-sitter.js tree-sitter-web.d.ts tree-sitter.wasm package.json]. each do |file|
+    %w[tree-sitter.js tree-sitter-web.d.ts tree-sitter.wasm package.json].each do |file|
       (lib/"binding_web").install "lib/binding_web/#{file}"
     end
 
