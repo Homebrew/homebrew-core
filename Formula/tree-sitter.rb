@@ -26,11 +26,9 @@ class TreeSitter < Formula
       system "npm", "install", *Language::Node.local_npm_install_args
     end
     system "script/build-wasm"
-    mkdir_p lib/"binding_web"
-    cp "lib/binding_web/tree-sitter.js", lib/"binding_web/"
-    cp "lib/binding_web/tree-sitter-web.d.ts", lib/"binding_web/"
-    cp "lib/binding_web/tree-sitter.wasm", lib/"binding_web/"
-    cp "lib/binding_web/package.json", lib/"binding_web/"
+    %w[tree-sitter.js tree-sitter-web.d.ts tree-sitter.wasm package.json]. each do |file|
+      (lib/"binding_web").install "lib/binding_web/#{file}"
+    end
 
     system "make"
     system "make", "install", "PREFIX=#{prefix}"
