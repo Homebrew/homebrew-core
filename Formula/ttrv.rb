@@ -63,6 +63,10 @@ class Ttrv < Formula
   end
 
   test do
-    assert_match "ttrv 1.27.3", shell_output("#{bin}/ttrv -V")
+    pid = fork { exec "#{bin}/ttrv --log debug.log 2>&1 >/dev/null" }
+    sleep 2
+    Process.kill "TERM", pid
+
+    assert_match ":DEBUG:connectionpool.py:971:Starting new HTTPS connection (1)", File.read("debug.log")
   end
 end
