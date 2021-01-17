@@ -13,17 +13,14 @@ class Goose < Formula
     sha256 "0e8c6ed483b244eac2370dad2d7fa59a6a7f1075305577553aac66463c7b0062" => :high_sierra
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/pressly/goose").install buildpath.children
-    cd "src/github.com/pressly/goose" do
-      system "dep", "ensure"
-      system "go", "build", "-o", bin/"goose", ".../cmd/goose"
-      prefix.install_metafiles
-    end
+    # raise a quesiton about this setup, https://github.com/pressly/goose/issues/238
+    mv "_go.mod", "go.mod"
+    mv "_go.sum", "go.sum"
+
+    system "go", "build", *std_go_args, "-ldflags", "-s -w", "./cmd/goose"
   end
 
   test do
