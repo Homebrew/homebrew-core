@@ -1,8 +1,8 @@
 class Tmx < Formula
   desc "Portable C library to load tiled maps in your games"
   homepage "https://github.com/baylej/tmx"
-  url "https://github.com/baylej/tmx/archive/tmx_1.2.0.tar.gz"
-  sha256 "6f9ecb91beba1f73d511937fba3a04306a5af0058a4c2b623ad2219929a4116a"
+  url "https://github.com/baylej/tmx/archive/tmx_1.4.0.tar.gz"
+  sha256 "5ab52e72976141260edd1b15ea34e1626c0f4ba9b8d2afe7f4d68b51fc9fedf7"
   license "BSD-2-Clause"
 
   bottle do
