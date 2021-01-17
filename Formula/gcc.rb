@@ -13,7 +13,7 @@ class Gcc < Formula
     mirror "https://ftpmirror.gnu.org/gcc/gcc-10.2.0/gcc-10.2.0.tar.xz"
     sha256 "b8dd4368bb9c7f0b98188317ee0254dd8cc99d1e3a18d0ff146c855fe16c1d8c"
   end
-  license "GPL-3.0-or-later => { with: "GCC-exception-3.1" }"
+  license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
   revision 2
   head "https://gcc.gnu.org/git/gcc.git"
 
