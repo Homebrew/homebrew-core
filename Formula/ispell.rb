@@ -17,6 +17,7 @@ class Ispell < Formula
     sha256 "14e8be247605fc01cacfeb0d115945217b028a1ff372f33fbe8132f03f88e9d8" => :mojave
   end
 
+  uses_from_macos "bison" => :build
   uses_from_macos "ncurses"
 
   def install
