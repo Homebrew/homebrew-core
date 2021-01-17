@@ -1,5 +1,5 @@
 class Prestd < Formula
-  desc "Simplify and accelerate development, ⚡ instant, realtime, high-performance on any Postgres application, existing or new"
+  desc "Simplify and accelerate development on any Postgres application, existing or new"
   homepage "https://github.com/prest/prest"
   url "https://github.com/prest/prest/archive/v1.0.5.tar.gz"
   sha256 "a11aad345212e12d461fbe5410e25be0e1c934f6c7afec50307f6520adb33240"
