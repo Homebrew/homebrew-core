@@ -13,7 +13,7 @@ class Gcc < Formula
     mirror "https://ftpmirror.gnu.org/gcc/gcc-10.2.0/gcc-10.2.0.tar.xz"
     sha256 "b8dd4368bb9c7f0b98188317ee0254dd8cc99d1e3a18d0ff146c855fe16c1d8c"
   end
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
   revision 2
   head "https://gcc.gnu.org/git/gcc.git"
 
@@ -48,15 +48,6 @@ class Gcc < Formula
 
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
-
-  if Hardware::CPU.arm?
-    # Patch for Big Sur version numbering, remove with GCC 11
-    # https://github.com/iains/gcc-darwin-arm64/commit/556ab512
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/7baf6e2f/gcc/bigsur.diff"
-      sha256 "42de3bc4889b303258a4075f88ad8624ea19384cab57a98a5270638654b83f41"
-    end
-  end
 
   def version_suffix
     if build.head?
