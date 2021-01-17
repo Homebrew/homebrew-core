@@ -48,6 +48,15 @@ class Gcc < Formula
 
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
+  
+  if Hardware::CPU.intel?
+    # Patch for Big Sur version numbering, remove with GCC 11
+    # https://github.com/iains/gcc-darwin-arm64/commit/556ab512
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/7baf6e2f/gcc/bigsur.diff"
+      sha256 "42de3bc4889b303258a4075f88ad8624ea19384cab57a98a5270638654b83f41"
+    end
+  end
 
   def version_suffix
     if build.head?
