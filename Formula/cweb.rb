@@ -1,9 +1,9 @@
 class Cweb < Formula
   desc "Literate documentation system for C, C++, and Java"
   homepage "https://cs.stanford.edu/~knuth/cweb.html"
-  url "https://cs.stanford.edu/pub/cweb/cweb-3.64b.tar.gz"
-  mirror "https://www.ctan.org/tex-archive/web/c_cpp/cweb/cweb-3.64b.tar.gz"
-  sha256 "038b0bf4d8297f0a98051ca2b4664abbf9d72b0b67963a2c7700d2f11cd25595"
+  url "https://cs.stanford.edu/pub/cweb/cweb-3.64c.tar.gz"
+  mirror "https://www.ctan.org/tex-archive/web/c_cpp/cweb/cweb-3.64c.tar.gz"
+  sha256 "efbd6fbeca9b3e75629b69e9565ac6a0e4067f55bda6a0a3b7b6f9449d9ed81f"
 
   bottle do
     sha256 "2f85582d6fc749f9341029f816b40ee3cf9950413c17009beeb38f6343e50e00" => :big_sur
