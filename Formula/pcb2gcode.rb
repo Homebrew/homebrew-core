@@ -19,8 +19,8 @@ class Pcb2gcode < Formula
   depends_on "atkmm" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "cairomm@1.14" => :build
   depends_on "boost" => :build
+  depends_on "cairomm@1.14" => :build
   depends_on "glibmm" => :build
   depends_on "gtkmm" => :build
   depends_on "librsvg" => :build
