@@ -1,3 +1,5 @@
+require "language/node"
+
 class TreeSitter < Formula
   desc "Parser generator tool and incremental parsing library"
   homepage "https://tree-sitter.github.io/"
@@ -15,10 +17,21 @@ class TreeSitter < Formula
     sha256 "fbef61fe89cc07c5af05a06185ccb91cfa9c34773ab6b26b751ae0171e3806a2" => :mojave
   end
 
+  depends_on "emscripten" => [:build, :test]
+  depends_on "node" => [:build, :test]
   depends_on "rust" => :build
-  depends_on "node" => :test
 
   def install
+    cd "lib/binding_web" do
+      system "npm", "install", *Language::Node.local_npm_install_args
+    end
+    system "script/build-wasm"
+    mkdir_p lib/"binding_web"
+    cp "lib/binding_web/tree-sitter.js", lib/"binding_web/"
+    cp "lib/binding_web/tree-sitter-web.d.ts", lib/"binding_web/"
+    cp "lib/binding_web/tree-sitter.wasm", lib/"binding_web/"
+    cp "lib/binding_web/package.json", lib/"binding_web/"
+
     system "make"
     system "make", "install", "PREFIX=#{prefix}"
 
@@ -40,7 +53,7 @@ class TreeSitter < Formula
         }
       });
     EOS
-    system "#{bin}/tree-sitter", "generate"
+    system bin/"tree-sitter", "generate"
 
     # test `tree-sitter parse`
     (testpath/"test/corpus/hello.txt").write <<~EOS
@@ -88,5 +101,14 @@ class TreeSitter < Formula
     EOS
     system ENV.cc, "test_program.c", "-L#{lib}", "-ltree-sitter", "-o", "test_program"
     assert_equal "tree creation failed", shell_output("./test_program")
+
+    # test `tree-sitter web-ui`
+    ENV.delete "CPATH"
+    system bin/"tree-sitter", "build-wasm"
+    fork do
+      exec bin/"tree-sitter", "web-ui"
+    end
+    sleep 10
+    system "killall", "tree-sitter"
   end
 end
