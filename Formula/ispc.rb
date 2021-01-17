@@ -48,8 +48,16 @@ class Ispc < Formula
         }
       }
     EOS
-    system bin/"ispc", "--arch=x86-64", "--target=sse2", testpath/"simple.ispc",
-      "-o", "simple_ispc.o", "-h", "simple_ispc.h"
+
+    if Hardware::CPU.intel?
+      arch = "x86-64"
+      target = "sse2"
+    else
+      arch = "aarch64"
+      target = "neon"
+    end
+    system bin/"ispc", "--arch=#{arch}", "--target=#{target}", "simple.ispc",
+                       "-o", "simple_ispc.o", "-h", "simple_ispc.h"
 
     (testpath/"simple.cpp").write <<~EOS
       #include "simple_ispc.h"
