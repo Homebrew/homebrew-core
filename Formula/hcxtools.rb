@@ -14,6 +14,7 @@ class Hcxtools < Formula
     sha256 "0f7a126b9cef14368f13a494ed1465668ba83f6050e0b5d778adea34fdc795ab" => :mojave
   end
 
+  depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
 
   def install
