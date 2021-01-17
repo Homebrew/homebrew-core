@@ -11,8 +11,10 @@ class Remake < Formula
   # RSS feed.
   livecheck do
     url "https://sourceforge.net/projects/bashdb/files/remake/"
-    strategy :page_match
     regex(%r{href=.*?remake/v?(\d+(?:\.\d+)+(?:(?:%2Bdbg)?[._-]\d+(?:\.\d+)+)?)/?["' >]}i)
+    strategy :page_match do |page, regex|
+      page.scan(regex).map { |match| match&.first&.sub(/%2Bdbg/i, "") }
+    end
   end
 
   bottle do
