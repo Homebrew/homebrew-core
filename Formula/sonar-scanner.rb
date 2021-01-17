@@ -8,13 +8,22 @@ class SonarScanner < Formula
 
   bottle :unneeded
 
+  # https://github.com/SonarSource/sonar-scanner-cli/blob/master/pom.xml#L48-L53
+  depends_on "openjdk@11"
+
   def install
     rm_rf Dir["bin/*.bat"]
     libexec.install Dir["*"]
     bin.install libexec/"bin/sonar-scanner"
     etc.install libexec/"conf/sonar-scanner.properties"
     ln_s etc/"sonar-scanner.properties", libexec/"conf/sonar-scanner.properties"
-    bin.env_script_all_files libexec/"bin/", SONAR_SCANNER_HOME: libexec
+
+    env = { JAVA_HOME: "${JAVA_HOME:-#{Formula["openjdk@11"].opt_prefix}}", SONAR_SCANNER_HOME: libexec }
+    Pathname.glob("#{libexec}/bin/*") do |file|
+      next if file.directory?
+
+      (bin/file.basename).write_env_script file, env
+    end
   end
 
   test do
