@@ -22,6 +22,7 @@ class Bigloo < Formula
   depends_on "libtool" => :build
 
   depends_on "gmp"
+  depends_on "openjdk"
   depends_on "openssl@1.1"
 
   def install
