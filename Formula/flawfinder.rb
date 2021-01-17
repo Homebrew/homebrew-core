@@ -5,7 +5,7 @@ class Flawfinder < Formula
   homepage "https://www.dwheeler.com/flawfinder/"
   url "https://www.dwheeler.com/flawfinder/flawfinder-2.0.15.tar.gz"
   sha256 "0a65cf93b1d380669476e576abbb04ea0766a557ce2bf75d9e71f387fcd74406"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   head "https://github.com/david-a-wheeler/flawfinder.git"
 
   livecheck do
@@ -24,7 +24,7 @@ class Flawfinder < Formula
   depends_on "python@3.9"
 
   resource "flaws" do
-    url "https://www.dwheeler.com/flawfinder/test.c"
+    url "https://dwheeler.com/flawfinder/test.c"
     sha256 "4a9687a091b87eed864d3e35a864146a85a3467eb2ae0800a72e330496f0aec3"
   end
 
