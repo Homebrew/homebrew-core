@@ -1,5 +1,5 @@
-class Prest < Formula
-  desc "Serve a RESTful API from any PostgreSQL database"
+class Prestd < Formula
+  desc "Simplify and accelerate development, ⚡ instant, realtime, high-performance on any Postgres application, existing or new"
   homepage "https://github.com/prest/prest"
   url "https://github.com/prest/prest/archive/v1.0.5.tar.gz"
   sha256 "a11aad345212e12d461fbe5410e25be0e1c934f6c7afec50307f6520adb33240"
@@ -23,9 +23,9 @@ class Prest < Formula
   end
 
   test do
-    output = shell_output("prest migrate up --path .", 255)
+    output = shell_output("prestd migrate up --path .", 255)
     assert_match "connect: connection refused", output
 
-    assert_match version.to_s, shell_output("prest version")
+    assert_match version.to_s, shell_output("prestd version")
   end
 end
