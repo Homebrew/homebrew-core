@@ -20,6 +20,7 @@ class Pcb2gcode < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "cairomm@1.14" => :build
+  depends_on "boost" => :build
   depends_on "glibmm" => :build
   depends_on "gtkmm" => :build
   depends_on "librsvg" => :build
@@ -29,64 +30,12 @@ class Pcb2gcode < Formula
   depends_on "pkg-config" => :build
   depends_on "gerbv"
 
-  # Upstream maintainer claims that the geometry library from boost >= 1.67
-  # is severely broken. Remove the vendoring once fixed.
-  # See https://github.com/Homebrew/homebrew-core/pull/30914#issuecomment-411662760
-  # and https://svn.boost.org/trac10/ticket/13645
-  resource "boost" do
-    url "https://dl.bintray.com/boostorg/release/1.66.0/source/boost_1_66_0.tar.bz2"
-    sha256 "5721818253e6a0989583192f96782c4a98eb6204965316df9f5ad75819225ca9"
-
-    # Fix build on Xcode 11.4
-    patch do
-      url "https://github.com/boostorg/build/commit/b3a59d265929a213f02a451bb63cea75d668a4d9.patch?full_index=1"
-      sha256 "04a4df38ed9c5a4346fbb50ae4ccc948a1440328beac03cb3586c8e2e241be08"
-      directory "tools/build"
-    end
-  end
-
   def install
-    resource("boost").stage do
-      # Force boost to compile with the desired compiler
-      open("user-config.jam", "a") do |file|
-        file.write "using darwin : : #{ENV.cxx} ;\n"
-      end
-
-      bootstrap_args = %W[
-        --prefix=#{buildpath}/boost
-        --libdir=#{buildpath}/boost/lib
-        --with-libraries=program_options
-        --without-icu
-      ]
-
-      args = %W[
-        --prefix=#{buildpath}/boost
-        --libdir=#{buildpath}/boost/lib
-        -d2
-        -j#{ENV.make_jobs}
-        --ignore-site-config
-        --layout=tagged
-        --user-config=user-config.jam
-        install
-        threading=multi
-        link=static
-        optimization=space
-        variant=release
-        cxxflags=-std=c++11
-      ]
-
-      args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++" if ENV.compiler == :clang
-
-      system "./bootstrap.sh", *bootstrap_args
-      system "./b2", "headers"
-      system "./b2", *args
-    end
-
     system "autoreconf", "-fvi"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
-                          "--with-boost=#{buildpath}/boost",
+                          "--with-boost=#{Formula["boost"].opt_prefix}",
                           "--enable-static-boost"
     system "make", "install"
   end
