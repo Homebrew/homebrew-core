@@ -23,20 +23,18 @@ class Flawfinder < Formula
 
   depends_on "python@3.9"
 
-  resource "flaws" do
-    url "https://dwheeler.com/flawfinder/test.c"
-    sha256 "4a9687a091b87eed864d3e35a864146a85a3467eb2ae0800a72e330496f0aec3"
-  end
-
   def install
     rewrite_shebang detected_python_shebang, "flawfinder"
     system "make", "prefix=#{prefix}", "install"
   end
 
   test do
-    resource("flaws").stage do
-      assert_match "Hits = 36",
-                   shell_output("#{bin}/flawfinder test.c")
-    end
+    (testpath/"test.c").write <<~EOS
+      int demo(char *a, char *b) {
+        strcpy(a, "\n");
+        strcpy(a, gettext("Hello there"));
+      }
+    EOS
+    assert_match("Hits = 2\n", shell_output("#{bin}/flawfinder test.c"))
   end
 end
