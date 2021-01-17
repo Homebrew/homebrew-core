@@ -97,6 +97,7 @@
   "polarssl": "mbedtls",
   "postgresql94": "postgresql@9.4",
   "postgresql95": "postgresql@9.5",
+  "prest": "prestd",
   "presto": "prestodb",
   "pyqt5": "pyqt",
   "qt5": "qt@5",
