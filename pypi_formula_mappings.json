@@ -9,6 +9,9 @@
     "extra_packages": ["ipykernel"]
   },
   "molecule": false,
+  "pdm": {
+    "extra_packages": ["wheel"]
+  },
   "salt": {
     "extra_packages": ["M2Crypto", "pygit2"]
   },
