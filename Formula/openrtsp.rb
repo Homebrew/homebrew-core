@@ -20,6 +20,9 @@ class Openrtsp < Formula
     sha256 "c99d793ff2f28434edbadc70d466a7316ef7d7b8095002d78090218a9b4abe76" => :high_sierra
   end
 
+  # could not get it build since 2020.11.22
+  disable! date: "2021-01-18", because: :does_not_build
+
   depends_on "openssl@1.1"
 
   def install
