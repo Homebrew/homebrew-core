@@ -1,8 +1,8 @@
 class Ortp < Formula
   desc "Real-time transport protocol (RTP, RFC3550) library"
   homepage "https://www.linphone.org/technical-corner/ortp"
-  url "https://gitlab.linphone.org/BC/public/ortp/-/archive/4.4.22/ortp-4.4.22.tar.bz2"
-  sha256 "c2a58f1ecc37231499cb414fd4d5b2cdefc5b293f81db6603c9250c971646935"
+  url "https://gitlab.linphone.org/BC/public/ortp/-/archive/4.4.24/ortp-4.4.24.tar.bz2"
+  sha256 "b7f1549c61df2b06307e9911dd2ef84a8dc4d7435fa2e14aa3910feb587dcbaa"
   license "GPL-3.0-or-later"
   head "https://gitlab.linphone.org/BC/public/ortp.git"
 
