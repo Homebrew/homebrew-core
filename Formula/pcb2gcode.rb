@@ -1,8 +1,8 @@
 class Pcb2gcode < Formula
   desc "Command-line tool for isolation, routing and drilling of PCBs"
   homepage "https://github.com/pcb2gcode/pcb2gcode"
-  url "https://github.com/pcb2gcode/pcb2gcode/archive/v2.2.0.tar.gz"
-  sha256 "b6c0daeeaaf1a53fda9d7821694839dcb3c0b2c4115cfc1a748d0e51a8676aa8"
+  url "https://github.com/pcb2gcode/pcb2gcode/archive/v2.2.2.tar.gz"
+  sha256 "6f29b535119d1968849fdc90e2ffedb614a047a5bdd57deeab3a98ab2f605999"
   license "GPL-3.0-or-later"
   head "https://github.com/pcb2gcode/pcb2gcode.git"
 
