@@ -21,6 +21,7 @@ class Openrtsp < Formula
   end
 
   # could not get it build since 2020.11.22
+  # upstream open issue, https://github.com/rgaufman/live555/issues/29
   disable! date: "2021-01-18", because: :does_not_build
 
   depends_on "openssl@1.1"
