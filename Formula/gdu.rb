@@ -15,6 +15,8 @@ class Gdu < Formula
 
   depends_on "go" => :build
 
+  conflicts_with "coreutils", because: "both install `gdu` binaries"
+
   def install
     time = Time.new
     user = Utils.safe_popen_read("id", "-u", "-n")
