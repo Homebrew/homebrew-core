@@ -1,9 +1,21 @@
+class Python3Requirement < Requirement
+  fatal true
+  satisfy { which "python3" }
+  def message
+    <<~EOS
+      An existing Python 3 installation is required in order to avoid cyclic
+      dependencies (as Homebrew's Python depends on xcb-proto).
+    EOS
+  end
+end
+
 class Libxcb < Formula
   desc "X.Org: Interface to the X Window System protocol"
   homepage "https://www.x.org/"
   url "https://xcb.freedesktop.org/dist/libxcb-1.14.tar.gz"
   sha256 "2c7fcddd1da34d9b238c9caeda20d3bd7486456fc50b3cc6567185dbd5b0ad02"
   license "MIT"
+  revision 1
 
   bottle do
     cellar :any
@@ -15,7 +27,9 @@ class Libxcb < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.9" => :build
+  # Use existing Python 3, to avoid a cyclic dependency on Linux:
+  # python3 -> tcl-tk -> libx11 -> libxcb -> python3
+  depends_on Python3Requirement => :build
   depends_on "xcb-proto" => :build
   depends_on "libpthread-stubs"
   depends_on "libxau"
