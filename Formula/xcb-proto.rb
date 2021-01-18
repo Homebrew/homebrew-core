@@ -1,10 +1,21 @@
+class Python3Requirement < Requirement
+  fatal true
+  satisfy { which "python3" }
+  def message
+    <<~EOS
+      An existing Python 3 installation is required in order to avoid cyclic
+      dependencies (as Homebrew's Python depends on libxcb).
+    EOS
+  end
+end
+
 class XcbProto < Formula
   desc "X.Org: XML-XCB protocol descriptions for libxcb code generation"
   homepage "https://www.x.org/"
   url "https://xcb.freedesktop.org/dist/xcb-proto-1.14.tar.gz"
   sha256 "1c3fa23d091fb5e4f1e9bf145a902161cec00d260fabf880a7a248b02ab27031"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
@@ -15,7 +26,9 @@ class XcbProto < Formula
   end
 
   depends_on "pkg-config" => [:build, :test]
-  depends_on "python@3.9" => :build
+  # Use Python 3, to avoid a cyclic dependency on Linux:
+  # python3 -> tcl-tk -> libx11 -> libxcb -> xcb-proto -> python3
+  depends_on Python3Requirement => :build
 
   # Fix for Python 3.9. Use math.gcd() for Python >= 3.5.
   # fractions.gcd() has been deprecated since Python 3.5.
