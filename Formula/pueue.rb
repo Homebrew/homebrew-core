@@ -18,7 +18,8 @@ class Pueue < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", *std_cargo_args
+    system "cargo", "install", "--locked", "--root", libexec, "--path", "pueue"
+    bin.install [libexec/"bin/pueue", libexec/"bin/pueued"]
 
     system "./build_completions.sh"
     bash_completion.install "utils/completions/pueue.bash" => "pueue"
@@ -72,7 +73,10 @@ class Pueue < Formula
       Process.kill("TERM", pid)
     end
 
-    assert_match "Pueue daemon #{version}", shell_output("#{bin}/pueued --version")
-    assert_match "Pueue client #{version}", shell_output("#{bin}/pueue --version")
+    # bug report about the version in the release artifact
+    # hopefully revert the change in next release
+    # https://github.com/Nukesor/pueue/issues/169
+    assert_match "Pueue daemon #{version.major_minor}", shell_output("#{bin}/pueued --version")
+    assert_match "Pueue client #{version.major_minor}", shell_output("#{bin}/pueue --version")
   end
 end
