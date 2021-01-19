@@ -6,8 +6,6 @@ class Sbt < Formula
   sha256 "86a6f28e79966074101066ab1aa19267d0c8d44eae21daa93c9c6056ca6f9da4"
   license "Apache-2.0"
 
-  # cannot use `https://www.scala-sbt.org/download.html`,
-  # as it still lists `1.4.5` as the latest release
   livecheck do
     url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
