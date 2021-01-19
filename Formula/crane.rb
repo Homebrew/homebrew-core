@@ -22,9 +22,8 @@ class Crane < Formula
   end
 
   test do
-    json_output = shell_output("#{bin}/crane manifest homebrew/brew")
+    json_output = shell_output("#{bin}/crane manifest gcr.io/go-containerregistry/crane")
     manifest = JSON.parse(json_output)
     assert_equal manifest["schemaVersion"], 2
-    assert_equal manifest["config"]["mediaType"], "application/vnd.docker.container.image.v1+json"
   end
 end
