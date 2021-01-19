@@ -31,12 +31,13 @@ class Autojump < Formula
 
   def caveats
     <<~EOS
-      Add the following line to your ~/.bash_profile or ~/.zshrc file (and remember
-      to source the file to update your current session):
+      Add the following line to your ~/.bash_profile or ~/.zshrc file:
         [ -f #{etc}/profile.d/autojump.sh ] && . #{etc}/profile.d/autojump.sh
 
       If you use the Fish shell then add the following line to your ~/.config/fish/config.fish:
         [ -f #{HOMEBREW_PREFIX}/share/autojump/autojump.fish ]; and source #{HOMEBREW_PREFIX}/share/autojump/autojump.fish
+
+      Restart your terminal for the settings to take effect.
     EOS
   end
 
