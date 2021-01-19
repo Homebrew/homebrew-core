@@ -51,6 +51,13 @@ class Dotnet < Formula
     (bin/"dotnet").write_env_script libexec/"dotnet", DOTNET_ROOT: libexec
   end
 
+  def caveats
+    <<~EOS
+      For other software to find dotnet you may need to set:
+        export DOTNET_ROOT="#{opt_libexec}"
+    EOS
+  end
+
   test do
     target_framework = "net#{version.major_minor}"
     (testpath/"test.cs").write <<~EOS
