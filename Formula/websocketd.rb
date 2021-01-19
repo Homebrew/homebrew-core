@@ -16,15 +16,8 @@ class Websocketd < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    src = buildpath/"src/github.com/joewalnes/websocketd"
-    src.install buildpath.children
-    src.cd do
-      system "go", "build", "-ldflags", "-X main.version=#{version}", "-o", bin/"websocketd"
-      man1.install "release/websocketd.man" => "websocketd.1"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-ldflags", "-X main.version=#{version}", *std_go_args
+    man1.install "release/websocketd.man" => "websocketd.1"
   end
 
   test do
