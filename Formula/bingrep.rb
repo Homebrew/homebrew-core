@@ -1,8 +1,8 @@
 class Bingrep < Formula
   desc "Greps through binaries from various OSs and architectures"
   homepage "https://github.com/m4b/bingrep"
-  url "https://github.com/m4b/bingrep/archive/v0.8.4.tar.gz"
-  sha256 "4853c88dd35db334090e3d0846b72627ca13492ad459bedb8835982591159073"
+  url "https://github.com/m4b/bingrep/archive/v0.8.5.tar.gz"
+  sha256 "082119e776009b8cb2293b90b49386bfedf2fccaef95130c1f1e3454f6e74e55"
   license "MIT"
 
   bottle do
