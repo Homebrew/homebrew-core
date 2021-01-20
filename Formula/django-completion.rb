@@ -8,7 +8,7 @@ class DjangoCompletion < Formula
 
   livecheck do
     url :homepage
-    regex(%r{latest release: .*?v?(\d+(?:\.\d+)+)<}i)
+    regex(/latest release: .*?v?(\d+(?:\.\d+)+)</i)
   end
 
   bottle :unneeded
