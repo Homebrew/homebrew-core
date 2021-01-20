@@ -6,6 +6,7 @@ class Scons < Formula
   url "https://files.pythonhosted.org/packages/07/81/d73f00bd5bfcd8a654b250a64c03e445beb8d382f3d2d2fda2b49e413c91/SCons-4.1.0.tar.gz"
   mirror "https://downloads.sourceforge.net/project/scons/scons/4.1.0/scons-4.1.0.tar.gz"
   sha256 "accb8035be2c9cfbab06471286eaeff86a10037a8064cf4ef4c3df04ea5a7387"
+  license "MIT"
 
   livecheck do
     url :stable
