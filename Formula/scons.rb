@@ -3,10 +3,9 @@ class Scons < Formula
 
   desc "Substitute for classic 'make' tool with autoconf/automake functionality"
   homepage "https://www.scons.org/"
-  url "https://files.pythonhosted.org/packages/ae/a4/2eb8d05b0ac9e168e8ff0681624c123a123c743487e528757c68ea995d20/SCons-4.0.1.tar.gz"
-  mirror "https://downloads.sourceforge.net/project/scons/scons/4.0.1/scons-4.0.1.tar.gz"
-  sha256 "722ed104b5c624ecdc89bd4e02b094d2b14d99d47b5d0501961e47f579a2007c"
-  revision 1
+  url "https://files.pythonhosted.org/packages/07/81/d73f00bd5bfcd8a654b250a64c03e445beb8d382f3d2d2fda2b49e413c91/SCons-4.1.0.tar.gz"
+  mirror "https://downloads.sourceforge.net/project/scons/scons/4.1.0/scons-4.1.0.tar.gz"
+  sha256 "accb8035be2c9cfbab06471286eaeff86a10037a8064cf4ef4c3df04ea5a7387"
 
   livecheck do
     url :stable
