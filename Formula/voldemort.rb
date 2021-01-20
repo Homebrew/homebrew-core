@@ -4,7 +4,7 @@ class Voldemort < Formula
   url "https://github.com/voldemort/voldemort/archive/release-1.10.26-cutoff.tar.gz"
   sha256 "8bd41b53c3b903615d281e7277d5a9225075c3d00ea56c6e44d73f6327c73d55"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -28,10 +28,10 @@ class Voldemort < Formula
     libexec.install "bin"
     pkgshare.install "config" => "config-examples"
     (etc/"voldemort").mkpath
-    env = {
-      VOLDEMORT_HOME:       libexec,
-      VOLDEMORT_CONFIG_DIR: etc/"voldemort",
-    }
+
+    env = Language::Java.overridable_java_home_env("1.8")
+    env["VOLDEMORT_HOME"] = libexec
+    env["VOLDEMORT_CONFIG_DIR"] = etc/"voldemort"
     bin.env_script_all_files(libexec/"bin", env)
   end
 
