@@ -24,14 +24,6 @@ class Ooniprobe < Formula
     (var/"ooniprobe").mkpath
   end
 
-  def caveats
-    <<~EOS
-      To enable automatic testing run:
-
-        ooniprobe autorun start
-    EOS
-  end
-
   test do
     (testpath/"config.json").write <<~EOS
       {
