@@ -10,8 +10,7 @@ class DockerCompose < Formula
   head "https://github.com/docker/compose.git"
 
   livecheck do
-    url :head
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    url :stable
   end
 
   bottle do
