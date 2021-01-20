@@ -60,23 +60,26 @@ class Pueue < Formula
   end
 
   test do
-    mkdir testpath/"Library/Preferences"
+    pid = fork do
+      exec bin/"pueued"
+    end
+    sleep 2
 
     begin
-      pid = fork do
-        exec bin/"pueued"
-      end
-      sleep 5
-      cmd = "#{bin}/pueue status"
-      assert_match /Task list is empty.*/m, shell_output(cmd)
+      mkdir testpath/"Library/Preferences"
+      output = shell_output("#{bin}/pueue status")
+      assert_match "Task list is empty. Add tasks with `pueue add -- [cmd]`", output
+
+      output = shell_output("#{bin}/pueue add x")
+      assert_match "New task added (id 0).", output
+
+      output = shell_output("#{bin}/pueue status")
+      assert_match "(1 parallel): running", output
     ensure
       Process.kill("TERM", pid)
     end
 
-    # bug report about the version in the release artifact
-    # hopefully revert the change in next release
-    # https://github.com/Nukesor/pueue/issues/169
-    assert_match "Pueue daemon #{version.major_minor}", shell_output("#{bin}/pueued --version")
-    assert_match "Pueue client #{version.major_minor}", shell_output("#{bin}/pueue --version")
+    assert_match "Pueue daemon #{version}", shell_output("#{bin}/pueued --version")
+    assert_match "Pueue client #{version}", shell_output("#{bin}/pueue --version")
   end
 end
