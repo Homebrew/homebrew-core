@@ -4,7 +4,6 @@ class Ooniprobe < Formula
   url "https://github.com/ooni/probe-cli/archive/v3.3.0.tar.gz"
   sha256 "f5b7473a9a67ee3c4c417651359939b3933256af10bb2019b12176fb7c249c11"
   license "BSD-3-Clause"
-  revision 1
 
   bottle do
     cellar :any
@@ -22,8 +21,7 @@ class Ooniprobe < Formula
       system "./build.sh", "macos"
       bin.install "CLI/darwin/amd64/ooniprobe"
     end
-    ooni_home = Pathname.new "#{var}/ooniprobe"
-    ooni_home.mkpath
+    (var/"ooniprobe").mkpath
   end
 
   def caveats
