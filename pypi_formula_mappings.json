@@ -9,6 +9,9 @@
     "extra_packages": ["ipykernel"]
   },
   "molecule": false,
+  "openstackclient": {
+    "extra_packages": ["python-heatclient"]
+  },
   "pdm": {
     "extra_packages": ["wheel"]
   },
