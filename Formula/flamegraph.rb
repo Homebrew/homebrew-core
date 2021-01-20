@@ -4,6 +4,7 @@ class Flamegraph < Formula
   url "https://github.com/brendangregg/FlameGraph/archive/v1.0.tar.gz"
   sha256 "c5ba824228a4f7781336477015cb3b2d8178ffd86bccd5f51864ed52a5ad6675"
   license "CDDL-1.0"
+  revision 1
   head "https://github.com/brendangregg/FlameGraph.git"
 
   bottle :unneeded
@@ -16,7 +17,7 @@ class Flamegraph < Formula
                 "stackcollapse-instruments.pl", "stackcollapse-jstack.pl", "stackcollapse-ljp.awk",
                 "stackcollapse-perf-sched.awk", "stackcollapse-perf.pl", "stackcollapse-pmc.pl",
                 "stackcollapse-recursive.pl", "stackcollapse-sample.awk", "stackcollapse-stap.pl",
-                "stackcollapse-vsprof.pl", "stackcollapse-vtune.pl"
+                "stackcollapse-vsprof.pl", "stackcollapse-vtune.pl", "stackcollapse.pl"
     bin.install "files.pl", "pkgsplit-perf.pl", "range-perf.pl"
 
     if build.head?
