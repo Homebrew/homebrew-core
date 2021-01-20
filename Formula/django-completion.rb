@@ -7,8 +7,7 @@ class DjangoCompletion < Formula
   head "https://github.com/django/django.git"
 
   livecheck do
-    url :homepage
-    regex(/latest release: .*?v?(\d+(?:\.\d+)+)</i)
+    url :stable
   end
 
   bottle :unneeded
