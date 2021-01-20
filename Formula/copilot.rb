@@ -40,7 +40,7 @@ class Copilot < Formula
     assert_match "Welcome to the Copilot CLI! We're going to walk you through some questions",
       shell_output("#{bin}/copilot init 2>&1", 1)
 
-    assert_match "list environments for application : MissingRegion: could not find region",
+    assert_match "could not find an application attached to this workspace, please run `app init` first",
       shell_output("#{bin}/copilot pipeline init 2>&1", 1)
   end
 end
