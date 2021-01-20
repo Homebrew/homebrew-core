@@ -16,8 +16,8 @@ class Xtensor < Formula
   depends_on "cmake" => :build
 
   resource "xtl" do
-    url "https://github.com/xtensor-stack/xtl/archive/0.6.20.tar.gz"
-    sha256 "fe25d8ae90e2598221f4dd330cfa390efbf256b48ab72a00bc2290b45f3a59cc"
+    url "https://github.com/xtensor-stack/xtl/archive/0.6.23.tar.gz"
+    sha256 "aac8bb21e025a26698fed898c1c0f40c83a18846148cb3fbd67bc924f3269743"
   end
 
   def install
