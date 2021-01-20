@@ -6,6 +6,11 @@ class Cadence < Formula
   license "Apache-2.0"
   head "https://github.com/onflow/cadence.git"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "8c31a5e9a59b01306129b01f73a38f575306f135e11a756db16652d9c4abcb43" => :big_sur
