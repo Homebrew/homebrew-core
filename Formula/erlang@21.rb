@@ -54,6 +54,10 @@ class ErlangAT21 < Formula
   end
 
   def install
+    # Fix for current GCC on Big Sur, which does not like 11 as version value
+    # (reported at https://github.com/iains/gcc-darwin-arm64/issues/31#issuecomment-750343944)
+    ENV["MACOSX_DEPLOYMENT_TARGET"] = "11.0" if MacOS.version == :big_sur
+
     # Unset these so that building wx, kernel, compiler and
     # other modules doesn't fail with an unintelligible error.
     %w[LIBS FLAGS AFLAGS ZFLAGS].each { |k| ENV.delete("ERL_#{k}") }
