@@ -24,8 +24,8 @@ class Webpack < Formula
   depends_on "node"
 
   resource "webpack-cli" do
-    url "https://registry.npmjs.org/webpack-cli/-/webpack-cli-4.3.1.tgz"
-    sha256 "9d12d225e965d5c7d7d7145b215d297b93f47dc621f61a3185e0c69f09a64d43"
+    url "https://registry.npmjs.org/webpack-cli/-/webpack-cli-4.4.0.tgz"
+    sha256 "11fcc682d0a7ec669415518b80c874be348d865997bddf8a2b8cd801918157ae"
   end
 
   def install
