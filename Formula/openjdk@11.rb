@@ -1,8 +1,8 @@
 class OpenjdkAT11 < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://hg.openjdk.java.net/jdk-updates/jdk11u/archive/jdk-11.0.9-ga.tar.bz2"
-  sha256 "0f35778a120da24dff1f752d128029d87448777a6ab9401c7cf5bc875f127d80"
+  url "https://hg.openjdk.java.net/jdk-updates/jdk11u/archive/jdk-11.0.10-ga.tar.bz2"
+  sha256 "d77a4fa45358f61dea0dbf504f513915c35e71a648b5ddfaad062ac5649589ad"
   license "GPL-2.0-only"
 
   bottle do
@@ -42,14 +42,8 @@ class OpenjdkAT11 < Formula
   if Hardware::CPU.arm?
     # Patch for Apple Silicon support
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/906561d5/openjdk%4011/aarch64.diff"
-      sha256 "67fbb8622df80e0ee86d6511fb07981f9c0288b9e75c4625b93add394828d658"
-    end
-  else
-    # Fix build on Xcode 12
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/2087f9d0/openjdk%4011/xcode12.diff"
-      sha256 "d995c4bd49fc41ff47c4dab6f83b79b4e639c423040b7340ea13db743dfced70"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/6e757d7b/openjdk%4011/aarch64.diff"
+      sha256 "4425b53eac3cc1a3531972f8b4982ba8dc87d6bc763cfcd19b6cab1cbaa9e6ca"
     end
   end
 
