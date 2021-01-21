@@ -40,13 +40,21 @@ class Gox < Formula
 
   test do
     ENV["GOPATH"] = testpath
+    ENV["GO111MODULE"] = "auto"
     (testpath/"src/github.com/ericchiang/pup").install resource("pup")
+
+    arch = if Hardware::CPU.intel?
+      "amd64"
+    else
+      Hardware::CPU.arch.to_s
+    end
+
     cd "src/github.com/ericchiang/pup" do
-      output = shell_output("#{bin}/gox -arch amd64 -os darwin -os freebsd")
+      output = shell_output("#{bin}/gox -arch #{arch} -os darwin -os freebsd")
       assert_match "parallel", output
-      assert_predicate Pathname.pwd/"pup_darwin_amd64", :executable?
-      assert_predicate Pathname.pwd/"pup_freebsd_amd64", :executable?
-      refute_predicate Pathname.pwd/"pup_linux_amd64", :exist?
+      assert_predicate Pathname.pwd/"pup_darwin_#{arch}", :executable?
+      assert_predicate Pathname.pwd/"pup_freebsd_#{arch}", :executable?
+      refute_predicate Pathname.pwd/"pup_linux_#{arch}", :exist?
     end
   end
 end
