@@ -4,6 +4,7 @@ class Widelands < Formula
   url "https://launchpad.net/widelands/build21/build21/+download/widelands-build21-source.tar.gz"
   version "21"
   sha256 "601e0e4c6f91b3fb0ece2cd1b83ecfb02344a1b9194fbb70ef3f70e06994e357"
+  license "GPL-2.0-or-later"
   revision 4
 
   livecheck do
@@ -18,14 +19,14 @@ class Widelands < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "doxygen" => :build
+  depends_on "lua" => :build
+  depends_on "minizip" => :build
   depends_on "boost"
-  depends_on "doxygen"
   depends_on "gettext"
   depends_on "glew"
   depends_on "icu4c"
   depends_on "libpng"
-  depends_on "lua"
-  depends_on "minizip"
   depends_on "sdl2_image"
   depends_on "sdl2_mixer"
   depends_on "sdl2_ttf"
@@ -48,6 +49,13 @@ class Widelands < Formula
   end
 
   test do
-    system bin/"widelands", "--version"
+    mkdir testpath/".widelands"
+    cp_r "#{pkgshare}/data/maps/Firegames.wmf", testpath/".widelands/test.wmf"
+    mkdir testpath/".widelands/test.wmf/scripting"
+    (testpath/".widelands/test.wmf/scripting/init.lua").write <<~'EOS'
+      print "Hello world"
+      os.exit() -- This triggers a deliberate app abend
+    EOS
+    assert_match "Hello world", shell_output("#{bin}/widelands --scenario=test.wmf 2>&1")
   end
 end
