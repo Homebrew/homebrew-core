@@ -3,6 +3,7 @@ class Trader < Formula
   homepage "https://www.zap.org.au/projects/trader/"
   url "https://ftp.zap.org.au/pub/trader/unix/trader-7.16.tar.xz"
   sha256 "7fced3adfe61099679cec67dd7d7187314b0f6d4378a4aece1a1b5eab9f81ef2"
+  license "GPL-3.0-or-later"
 
   bottle do
     sha256 "cacf85ddfc82657267a51c2a6159b0b5f4f5f26029bc32a5cdf895e433578158" => :big_sur
