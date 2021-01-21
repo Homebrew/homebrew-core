@@ -2,8 +2,9 @@ class MinimalRacket < Formula
   desc "Modern programming language in the Lisp/Scheme family"
   homepage "https://racket-lang.org/"
   url "https://mirror.racket-lang.org/installers/7.9/racket-minimal-7.9-src-builtpkgs.tgz"
-  sha256 "293aa8ef709a6240472f16833351ba66a9e461261d2813c7fb1cc5ddf59c3000"
+  sha256 "85b201aebc1ad1ec98ac590e18052d7ef8a81af280244d00ca1c28e8543b3fe9"
   license any_of: ["MIT", "Apache-2.0"]
+  revision 1
 
   livecheck do
     url "https://download.racket-lang.org/all-versions.html"
@@ -11,7 +12,6 @@ class MinimalRacket < Formula
   end
 
   bottle do
-    cellar :any
     sha256 "330c0724e1315eaec481eaa96842cda06c6b33c613d10fed2c619c4f675c5bd2" => :catalina
     sha256 "809d6cf0d6e8af29fe6175b5442bdd064b875b1a7653b570353b536f83ff3901" => :mojave
     sha256 "13c1be2585bffe2252ce5cdc1357ba0bc9f5675cbd4ffd4d474e1a40c597ef20" => :high_sierra
