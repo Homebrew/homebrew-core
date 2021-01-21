@@ -9,7 +9,7 @@ class Gnparser < Formula
 
   def install
     man1.install "man/gnparser.1"
-    system "go", "build", "-o", "#{bin}/gnparser", "./gnparser"
+    system "go", "build", *std_go_args, "./gnparser"
   end
 
   test do
