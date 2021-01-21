@@ -54,22 +54,6 @@ class Openjdk < Formula
     end
   end
 
-  unless Hardware::CPU.arm?
-    # Fix build on Xcode 12
-    # https://bugs.openjdk.java.net/browse/JDK-8253375
-    patch do
-      url "https://github.com/openjdk/jdk/commit/f80a6066e45c3d53a61715abfe71abc3b2e162a1.patch?full_index=1"
-      sha256 "5320e5e8db5f94432925d7c240f41c12b10ff9a0afc2f7a8ab0728a114c43cdb"
-    end
-
-    # Fix build on Xcode 12
-    # https://bugs.openjdk.java.net/browse/JDK-8253791
-    patch do
-      url "https://github.com/openjdk/jdk/commit/4622a18a72c30c4fc72c166bee7de42903e1d036.patch?full_index=1"
-      sha256 "4e4448a5bf68843c21bf96f510ea270aa795c5fac41fd9088f716822788d0f57"
-    end
-  end
-
   def install
     # Path to dual-arch JavaNativeFoundation.framework from Xcode
     framework_path = File.expand_path(
