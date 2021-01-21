@@ -66,33 +66,32 @@ class Openjdk < Formula
     boot_jdk = boot_jdk_dir/"Contents/Home"
     java_options = ENV.delete("_JAVA_OPTIONS")
 
-    # Inspecting .hg_archival.txt to find a build number
+    # Inspecting .hgtags to find a build number
     # The file looks like this:
     #
-    # repo: fd16c54261b32be1aaedd863b7e856801b7f8543
-    # node: e3f940bd3c8fcdf4ca704c6eb1ac745d155859d5
-    # branch: default
-    # tag: jdk-15+36
-    # tag: jdk-15-ga
+    # 1613004c47e9dc867a2c2c43d716533b1aaedc5f jdk-15.0.2+0
+    # cc4fdb537bc14734064a9a8eadb091fd1c12b36e jdk-15.0.2+1
+    # d24e907486b3f90691980b0dde01efca5840abc6 jdk-15.0.2+2
+    # dbb11e11955ad1240ba775ab0007a14547e14ce6 jdk-15.0.2+3
+    # 4c4a2eb7b19ecb31620e6bb120e40f8a5fd1737a jdk-15.0.2+4
+    # e431a9461b1356c4b763443e5333b3f4a8695eaf jdk-15.0.2+5
+    # d5977ee56509ceaa3d3c8e1aebbca76651358da4 jdk-15.0.2+6
+    # 38912b2a5bcb396c75f8707e300773c874327451 jdk-15.0.2+7
     #
     # Since openjdk has move their development from mercurial to git and GitHub
     # this approach may need some changes in the future
     #
-    if Hardware::CPU.arm?
-      build = File.read(".hgtags")
-                  .scan(/ jdk-16\+(.+)$/)
-                  .map(&:first)
-                  .map(&:to_i)
-                  .max
-      raise "cannot find build number in .hgtags" if build.nil?
+    version_to_parse = if Hardware::CPU.arm?
+      "16"
     else
-      build = File.read(".hg_archival.txt")
-                  .scan(/^tag: jdk-#{version}\+(.+)$/)
-                  .map(&:first)
-                  .map(&:to_i)
-                  .max
-      raise "cannot find build number in .hg_archival.txt" if build.nil?
+      version
     end
+    build = File.read(".hgtags")
+                .scan(/ jdk-#{version_to_parse}\+(.+)$/)
+                .map(&:first)
+                .map(&:to_i)
+                .max
+    raise "cannot find build number in .hgtags" if build.nil?
 
     args = %W[
       --without-version-pre
