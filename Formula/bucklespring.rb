@@ -5,9 +5,8 @@ class Bucklespring < Formula
   sha256 "b38b2c0ec905573a243cb9db543f8eeb92e4d040025ef338d8bcfcfd5ccd5348"
   license "GPL-2.0-only"
 
-  depends_on "make" => :build
-  depends_on "alure"
-  depends_on "pkg-config"
+  depends_on "alure" => :build
+  depends_on "pkg-config" => :build
 
   def install
     system "
