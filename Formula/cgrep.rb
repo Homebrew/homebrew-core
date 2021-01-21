@@ -3,7 +3,7 @@ class Cgrep < Formula
   homepage "https://github.com/awgn/cgrep"
   url "https://github.com/awgn/cgrep/archive/v6.6.33.tar.gz"
   sha256 "f0d7114e9c26dc3ff3515711cce63864f3995ac06ed3743acf2560fc5a1eb78e"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   head "https://github.com/awgn/cgrep.git"
 
   bottle do
