@@ -15,12 +15,7 @@ class Swctl < Formula
   end
 
   test do
-<<<<<<< HEAD
-    version_output = shell_output("#{bin}/swctl version 2>&1")
-    assert_match "Version:\"v#{version}\"", version_output
-=======
     system "#{bin}/swctl", "version"
     assert_predicate testpath/"bin/swctl", :exist?
->>>>>>> 81c54604b31d2a5e9594d77ae4078496198c92c2
   end
 end
