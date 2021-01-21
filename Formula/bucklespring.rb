@@ -9,11 +9,10 @@ class Bucklespring < Formula
   depends_on "pkg-config" => :build
 
   def install
-    system "
-      cp /usr/local/lib/pkgconfig/alure.pc mac/lib/pkgconfig/ ;
-      sed -i '' 's/-Wall -Werror/-Wall/' Makefile ;
-      PATH_AUDIO=#{prefix}/wav make
-    "
+    inreplace "Makefile", "-Wall -Werror", "-Wall"
+    ENV["PATH_AUDIO"] = prefix/"wav"
+    system "make"
+    (lib/"pkgconfig").install Dir["mac/lib/pkgconfig/*"]
     bin.install "buckle"
     prefix.install "wav"
   end
