@@ -5,7 +5,7 @@ class Kustomize < Formula
       tag:      "kustomize/v3.9.2",
       revision: "e98eada7365fc564c9aba392e954f306a9cbf1dd"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/kubernetes-sigs/kustomize.git"
 
   livecheck do
@@ -36,6 +36,15 @@ class Kustomize < Formula
       ]
       system "go", "build", "-ldflags", ldflags.join(" "), "-o", bin/"kustomize"
     end
+
+    output = Utils.safe_popen_read("#{bin}/kustomize", "completion", "bash")
+    (bash_completion/"kustomize").write output
+
+    output = Utils.safe_popen_read("#{bin}/kustomize", "completion", "zsh")
+    (zsh_completion/"_kustomize").write output
+
+    output = Utils.safe_popen_read("#{bin}/kustomize", "completion", "fish")
+    (fish_completion/"kustomize.fish").write output
   end
 
   test do
