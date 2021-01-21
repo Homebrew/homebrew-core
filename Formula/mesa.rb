@@ -6,6 +6,7 @@ class Mesa < Formula
   url "https://mesa.freedesktop.org/archive/mesa-20.3.3.tar.xz"
   sha256 "f74e212d4838e982a10c203ffa998817d1855c5cf448ae87b58f96edea61d156"
   license "MIT"
+  revision 1
   head "https://gitlab.freedesktop.org/mesa/mesa.git"
 
   livecheck do
@@ -31,8 +32,8 @@ class Mesa < Formula
   depends_on "libxext"
 
   resource "Mako" do
-    url "https://files.pythonhosted.org/packages/72/89/402d2b4589e120ca76a6aed8fee906a0f5ae204b50e455edd36eda6e778d/Mako-1.1.3.tar.gz"
-    sha256 "8195c8c1400ceb53496064314c6736719c6f25e7479cd24c77be3d9361cddc27"
+    url "https://files.pythonhosted.org/packages/5c/db/2d2d88b924aa4674a080aae83b59ea19d593250bfe5ed789947c21736785/Mako-1.1.4.tar.gz"
+    sha256 "17831f0b7087c313c0ffae2bcbbd3c1d5ba9eeac9c38f2eb7b50e8c99fe9d5ab"
   end
 
   resource "glxgears.c" do
