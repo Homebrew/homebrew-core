@@ -30,6 +30,11 @@ class Folly < Formula
   depends_on "xz"
   depends_on "zstd"
 
+  patch do
+    url "https://github.com/facebook/folly/commit/3fa09cb1c576bad42ce57c7380d78935f4c0dcec.patch?full_index=1"
+    sha256 "3c975fc17809f2059a298742f8d5a7c0be43ae5417748673dfdc81c154116fd2"
+  end
+
   def install
     mkdir "_build" do
       args = std_cmake_args + %w[
