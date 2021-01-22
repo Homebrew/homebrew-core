@@ -18,6 +18,14 @@ class Bazel < Formula
 
   uses_from_macos "zip"
 
+  # Fix compilation on macOS 10.14 Mojave
+  # Remove in the next release
+  # See https://github.com/bazelbuild/bazel/pull/12882
+  patch do
+    url "https://github.com/bazelbuild/bazel/commit/092b4c10fa2a2552dc3a98544d637c02ea2865c7.patch?full_index=1"
+    sha256 "273cf54bf4c0fe42fe8da959dc76fc1a3e768f3f3d4108bfd280728db022a308"
+  end
+
   def install
     ENV["EMBED_LABEL"] = "#{version}-homebrew"
     # Force Bazel ./compile.sh to put its temporary files in the buildpath
