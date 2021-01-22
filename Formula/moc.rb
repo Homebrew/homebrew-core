@@ -36,6 +36,11 @@ class Moc < Formula
     end
   end
 
+  livecheck do
+    url "http://ftp.daper.net/pub/soft/moc/stable/"
+    regex(/href=.*?moc[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "4910b2a48422741e1002b79d2bb985fc470da2e4322d31b862f994709376525a" => :big_sur
     sha256 "c2fce2f2fdc2d5eb7efddf393de7dc3d75ca4e387d84ae10029120eb5e2a4e53" => :catalina
