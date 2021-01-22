@@ -3,10 +3,9 @@ class Ykman < Formula
 
   desc "Tool for managing your YubiKey configuration"
   homepage "https://developers.yubico.com/yubikey-manager/"
-  url "https://files.pythonhosted.org/packages/9d/27/2f40f6b7ffc5f4e36da4d75780d818f3b74fb5394f2b043b04cd34bf1ecc/yubikey-manager-3.1.1.tar.gz"
-  sha256 "68ef41ac3cd2e891019e755a492427ecdd63d8816525d05f2f32c37b8c440cfa"
+  url "https://files.pythonhosted.org/packages/78/eb/a48c359b32ad81e6c5ea0141ef9139859ef43dc4640d5ced721bba4ae1cc/yubikey-manager-3.1.2.tar.gz"
+  sha256 "7709c83aebb443259197a452772430edd1ac019e31a57a71ea33a90a4a7879f1"
   license "BSD-2-Clause"
-  revision 3
   head "https://github.com/Yubico/yubikey-manager.git"
 
   livecheck do
@@ -40,13 +39,13 @@ class Ykman < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/f8/5c/f60e9d8a1e77005f664b76ff8aeaee5bc05d0a91798afd7f53fc998dbc47/Click-7.0.tar.gz"
-    sha256 "5b94b49521f6456670fdb30cd82a4eca9412788a93fa6dd6df72c94d5a8ff2d7"
+    url "https://files.pythonhosted.org/packages/27/6f/be940c8b1f1d69daceeb0032fee6c34d7bd70e3e649ccac0951500b4720e/click-7.1.2.tar.gz"
+    sha256 "d2b5255c7c6349bc1bd1e59e08cd12acbbd63ce649f2588755783aa94dfb6b1a"
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/be/60/da377e1bed002716fb2d5d1d1cab720f298cb33ecff7bf7adea72788e4e4/cryptography-2.8.tar.gz"
-    sha256 "3cda1f0ed8747339bbdf71b9f38ca74c7b592f24f65cdb3ab3765e4b02871651"
+    url "https://files.pythonhosted.org/packages/b7/82/f7a4ddc1af185936c1e4fa000942ffa8fb2d98cff26b75afa7b3c63391c4/cryptography-3.3.1.tar.gz"
+    sha256 "7e177e4bea2de937a584b13645cab32f25e3d96fc0bc4a4cf99c27dc77682be6"
   end
 
   resource "fido2" do
@@ -55,28 +54,28 @@ class Ykman < Formula
   end
 
   resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/68/9e/49196946aee219aead1290e00d1e7fdeab8567783e83e1b9ab5585e6206a/pycparser-2.19.tar.gz"
-    sha256 "a988718abfad80b6b157acce7bf130a30876d27603738ac39f140993246b25b3"
+    url "https://files.pythonhosted.org/packages/0f/86/e19659527668d70be91d0369aeaa055b4eb396b0f387a4f92293a20035bd/pycparser-2.20.tar.gz"
+    sha256 "2d475327684562c3a96cc71adf7dc8c4f0565175cf86b6d7a404ff4c771f15f0"
   end
 
   resource "pyOpenSSL" do
-    url "https://files.pythonhosted.org/packages/0d/1d/6cc4bd4e79f78be6640fab268555a11af48474fac9df187c3361a1d1d2f0/pyOpenSSL-19.1.0.tar.gz"
-    sha256 "9a24494b2602aaf402be5c9e30a0b82d4a5c67528fe8fb475e3f3bc00dd69507"
+    url "https://files.pythonhosted.org/packages/98/cd/cbc9c152daba9b5de6094a185c66f1c6eb91c507f378bb7cad83d623ea88/pyOpenSSL-20.0.1.tar.gz"
+    sha256 "4c231c759543ba02560fcd2480c48dcec4dae34c9da7d3747c508227e0624b51"
   end
 
   resource "pyscard" do
-    url "https://files.pythonhosted.org/packages/ed/dd/c575bb75122c250cbed3f70440cb8e25582bf991855bb4eb27371fb8d962/pyscard-1.9.9.tar.gz"
-    sha256 "e6bde541990183858740793806b1c7f4e798670519ae4c96145f35d5d7944c20"
+    url "https://files.pythonhosted.org/packages/2b/98/fd2a827eed42ca3dcd7a433ee75a9868bfe3fc1428839a2831ab9dd90c69/pyscard-2.0.0.tar.gz"
+    sha256 "b364d9d9186e793c1c4709eb72a4d29e09067d36ca463b2c2abd995bd1055779"
   end
 
   resource "pyusb" do
-    url "https://files.pythonhosted.org/packages/5f/34/2095e821c01225377dda4ebdbd53d8316d6abb243c9bee43d3888fa91dd6/pyusb-1.0.2.tar.gz"
-    sha256 "4e9b72cc4a4205ca64fbf1f3fff39a335512166c151ad103e55c8223ac147362"
+    url "https://files.pythonhosted.org/packages/b9/8d/25c4e446a07e918eb39b5af25c4a83a89db95ae44e4ed5a46c3c53b0a4d6/pyusb-1.1.1.tar.gz"
+    sha256 "7d449ad916ce58aff60b89aae0b65ac130f289c24d6a5b7b317742eccffafc38"
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/94/3e/edcf6fef41d89187df7e38e868b2dd2182677922b600e880baad7749c865/six-1.13.0.tar.gz"
-    sha256 "30f610279e8b2578cab6db20741130331735c781b56053c59c4076da27f06b66"
+    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
+    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
   end
 
   def install
