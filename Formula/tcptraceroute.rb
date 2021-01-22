@@ -17,6 +17,13 @@ class Tcptraceroute < Formula
     end
   end
 
+  # This regex is open-ended because the newest version is a beta version and
+  # we need to match these versions until there's a new stable release.
+  livecheck do
+    url :stable
+    regex(/^(?:tcptraceroute[._-])?v?(\d+(?:\.\d+)+.*)/i)
+  end
+
   bottle do
     cellar :any
     sha256 "cc82e1da8c8ddfcaf62dbf23fdf0aa76817c8f8c57c822577d82282bb51dbcb3" => :big_sur
