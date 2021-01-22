@@ -28,7 +28,7 @@ class JettyRunner < Formula
     pid = fork do
       exec "#{bin}/jetty-runner --port #{port} test.war"
     end
-    sleep 5
+    sleep 10
 
     begin
       output = shell_output("curl -I http://localhost:#{port}")
