@@ -4,7 +4,7 @@ class MidnightCommander < Formula
   url "https://www.midnight-commander.org/downloads/mc-4.8.26.tar.xz"
   mirror "https://ftp.osuosl.org/pub/midnightcommander/mc-4.8.26.tar.xz"
   sha256 "c6deadc50595f2d9a22dc6c299a9f28b393e358346ebf6ca444a8469dc166c27"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url "https://ftp.osuosl.org/pub/midnightcommander/"
