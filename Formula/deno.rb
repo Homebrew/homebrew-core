@@ -13,22 +13,35 @@ class Deno < Formula
   end
 
   depends_on "llvm" => :build
+  depends_on "ninja" => :build
   depends_on "rust" => :build
+  depends_on "sccache" => :build
   depends_on xcode: ["10.0", :build] # required by v8 7.9+
   depends_on :macos # Due to Python 2 (see https://github.com/denoland/deno/issues/2893)
 
   uses_from_macos "xz"
 
+  resource "gn" do
+    url "https://gn.googlesource.com/gn.git",
+        revision: "53d92014bf94c3893886470a1c7c1289f8818db0"
+  end
+
   def install
     # env args for building a release build with our clang, ninja and gn
     ENV["GN"] = buildpath/"gn/out/gn"
+    ENV["NINJA"] = Formula["ninja"].opt_bin/"ninja"
+    ENV["SCCACHE"] = Formula["sccache"].opt_bin/"sccache"
     # build rusty_v8 from source
     ENV["V8_FROM_SOURCE"] = "1"
-    # overwrite Chromium minimum sdk version of 10.15
-    ENV["FORCE_MAC_SDK_MIN"] = "10.13"
-    # build with llvm and link against system libc++ (no runtime dep)
+    # Build with llvm. We don't remove llvm from HOMEBREW_LIBRARY_PATHS
+    # as this causes build failures. This does not create runtime dependencies.
     ENV["CLANG_BASE_PATH"] = Formula["llvm"].prefix
-    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
+
+    resource("gn").stage buildpath/"gn"
+    cd "gn" do
+      system "python", "build/gen.py"
+      system "ninja", "-C", "out"
+    end
 
     cd "cli" do
       system "cargo", "install", "-vv", *std_cargo_args
