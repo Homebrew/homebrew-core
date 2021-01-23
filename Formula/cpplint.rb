@@ -30,7 +30,7 @@ class Cpplint < Formula
     output = shell_output("#{bin}/cpplint --version")
     assert_match "cpplint #{version}", output.strip
 
-    output = shell_output("#{bin}/cpplint #{share}/test/samples/v8-sample/src/interface-descriptors.h", 1)
+    output = shell_output("#{bin}/cpplint #{pkgshare}/samples/v8-sample/src/interface-descriptors.h", 1)
     assert_match "Total errors found: 2", output
   end
 end
