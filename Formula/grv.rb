@@ -15,6 +15,10 @@ class Grv < Formula
     sha256 "19f2e8bedb458d0b339160b275e196add00abcca7db92ba141aaccae255bb973" => :sierra
   end
 
+  # Reported upstream at
+  # https://github.com/rgburke/grv/issues/107
+  disable! date: "2021-08-11", because: :does_not_build
+
   depends_on "cmake" => :build
   depends_on "go" => :build
   depends_on "pkg-config" => :build
