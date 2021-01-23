@@ -4,7 +4,6 @@ class Jrnl < Formula
   desc "Command-line note taker"
   homepage "https://jrnl.sh/"
   url "https://files.pythonhosted.org/packages/42/03/23da43bd2d7e3bfb9492ed27815dbbb7ece978bf440ac31df734d5480412/jrnl-2.7.tar.gz"
-  version "2.7"
   sha256 "7eacdee43675cc2b9ac091e5a843ccbd334d83d8802c7097bd71d0f2b0d3ba58"
   license "GPL-3.0-only"
 
