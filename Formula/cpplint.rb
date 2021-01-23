@@ -28,7 +28,7 @@ class Cpplint < Formula
 
   test do
     output = shell_output("#{bin}/cpplint --version")
-    assert_match "cpplint 1.5.4", output.strip
+    assert_match "cpplint #{version}", output.strip
 
     output = shell_output("#{bin}/cpplint #{share}/test/samples/v8-sample/src/interface-descriptors.h", 1)
     assert_match "Total errors found: 2", output
