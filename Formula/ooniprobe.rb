@@ -15,12 +15,7 @@ class Ooniprobe < Formula
   depends_on "go" => :build
 
   def install
-    (buildpath/"src/github.com/ooni/probe-cli").install buildpath.children
-
-    cd "src/github.com/ooni/probe-cli" do
-      system "./build.sh", "macos"
-      bin.install "CLI/darwin/amd64/ooniprobe"
-    end
+    system "go", "build", *std_go_args, "-ldflags", "-s -w", "./cmd/ooniprobe"
     (var/"ooniprobe").mkpath
   end
 
