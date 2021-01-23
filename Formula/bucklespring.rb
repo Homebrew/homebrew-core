@@ -5,8 +5,8 @@ class Bucklespring < Formula
   sha256 "b38b2c0ec905573a243cb9db543f8eeb92e4d040025ef338d8bcfcfd5ccd5348"
   license "GPL-2.0-only"
 
-  depends_on "alure"
   depends_on "pkg-config" => :build
+  depends_on "alure"
 
   def install
     inreplace "Makefile", "-Wall -Werror", "-Wall"
