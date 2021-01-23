@@ -11,7 +11,8 @@ class Bucklespring < Formula
   def install
     inreplace "Makefile", "-Wall -Werror", "-Wall"
     cp Dir[HOMEBREW_PREFIX/"lib/pkgconfig/alure.pc"], "mac/lib/pkgconfig/"
-    system "PATH_AUDIO=#{prefix}/wav make"
+    ENV["PATH_AUDIO"] = "#{prefix}/wav"
+    system "make"
     bin.install "buckle"
     prefix.install "wav"
   end
