@@ -3,8 +3,8 @@ class Richmd < Formula
 
   desc "Format Markdown in the terminal with Rich"
   homepage "https://github.com/willmcgugan/rich"
-  url "https://files.pythonhosted.org/packages/fb/96/b268c7ac622597f8660e14e01d8b66b84a34fbbaed3b920bfca440f742fe/rich-9.8.2.tar.gz"
-  sha256 "c0d5903b463f015b254d6f52da82af3821d266fe516ae05fdc266e6abba5c3a8"
+  url "https://files.pythonhosted.org/packages/5a/2d/5e92c69f971cb2a373a5203fe2ff0a06751b3eea918c709318e19f7caf62/rich-9.9.0.tar.gz"
+  sha256 "0bd8f42c3a03b7ef5e311d5e37f47bea9d268f541981c169072be5869c007957"
   license "MIT"
 
   bottle do
