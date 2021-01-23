@@ -22,13 +22,12 @@ class Glide < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     glidepath = buildpath/"src/github.com/Masterminds/glide"
     glidepath.install buildpath.children
 
     cd glidepath do
-      system "go", "build", "-o", "glide", "-ldflags", "-X main.version=#{version}"
-      bin.install "glide"
-      prefix.install_metafiles
+      system "go", "build", *std_go_args, "-ldflags", "-X main.version=#{version}"
     end
   end
 
