@@ -3,8 +3,8 @@ class Diffoscope < Formula
 
   desc "In-depth comparison of files, archives, and directories"
   homepage "https://diffoscope.org"
-  url "https://files.pythonhosted.org/packages/91/1a/f15768b9af208111eec34135f26e0993e0e3b33164b2742d684dc29fcc1c/diffoscope-164.tar.gz"
-  sha256 "bc269a39ec72261d9fead55bd951f6cbbe3d2ccce1481f974665999a5b141fff"
+  url "https://files.pythonhosted.org/packages/d6/13/d2c9f32aaf2f90a51ff84e0ea69c5ea6e0867f7f8faccdd39141da8239a6/diffoscope-165.tar.gz"
+  sha256 "c25b9e4f03ee6c1ad94024a95bd4e572d25372ed457b6cb7ef18cb01d9fdf9a4"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -41,8 +41,8 @@ class Diffoscope < Formula
   end
 
   resource "python-magic" do
-    url "https://files.pythonhosted.org/packages/e3/85/1aff76b966622868a73717abd8b501a3c91890e23a65e5f574ff6df1970f/python-magic-0.4.18.tar.gz"
-    sha256 "b757db2a5289ea3f1ced9e60f072965243ea43a2221430048fd8cacab17be0ce"
+    url "https://files.pythonhosted.org/packages/2a/d5/2ad6bba29e8f6911d0b1719370e11d5961f4ba6f71845f6421c0ba2badb3/python-magic-0.4.20.tar.gz"
+    sha256 "0cc52ccad086c377b9194014e3dbf98d94b194344630172510a6a3e716b47801"
   end
 
   def install
