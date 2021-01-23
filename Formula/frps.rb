@@ -64,6 +64,6 @@ class Frps < Formula
     sleep 3
 
     output = read.gets
-    assert_match "frps tcp listen on", output
+    assert_match "frps uses command line arguments for config", output
   end
 end
