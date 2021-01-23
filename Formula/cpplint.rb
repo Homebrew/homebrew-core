@@ -24,24 +24,13 @@ class Cpplint < Formula
 
     # install test data
     (share/"test/").install "samples"
-    (share/"test/").install "cpplint_clitest.py"
   end
 
   test do
     output = shell_output("#{bin}/cpplint --version")
     assert_match "cpplint 1.5.4", output.strip
 
-    cp "#{share}/test/cpplint_clitest.py", testpath/"cpplint_clitest.py"
-    cp_r "#{share}/test/samples", testpath
-
-    inreplace "#{testpath}/cpplint_clitest.py", "#!/usr/bin/env python",
-      "#!#{libexec/"bin/python3.9"}"
-    inreplace "#{testpath}/cpplint_clitest.py",
-      "sys.executable + ' ' + os.path.abspath('./cpplint.py ')", "'#{bin}/cpplint '"
-
-    shell_output(testpath/"cpplint_clitest.py")
-
-    output = shell_output("#{bin}/cpplint #{testpath}/samples/v8-sample/src/interface-descriptors.h", 1)
+    output = shell_output("#{bin}/cpplint #{share}/test/samples/v8-sample/src/interface-descriptors.h", 1)
     assert_match "Total errors found: 2", output
   end
 end
