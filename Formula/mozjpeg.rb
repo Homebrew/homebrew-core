@@ -1,8 +1,8 @@
 class Mozjpeg < Formula
   desc "Improved JPEG encoder"
   homepage "https://github.com/mozilla/mozjpeg"
-  url "https://github.com/mozilla/mozjpeg/archive/v4.0.0.tar.gz"
-  sha256 "961e14e73d06a015e9b23b8af416f010187cc0bec95f6e3b0fcb28cc7e2cbdd4"
+  url "https://github.com/mozilla/mozjpeg/archive/v4.0.2.tar.gz"
+  sha256 "ad94b259279e4ea6fa7463062ebb279840d8cec43f730eef8c40b6abfef38940"
   license "BSD-3-Clause"
 
   livecheck do
