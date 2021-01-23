@@ -23,7 +23,7 @@ class Cpplint < Formula
     virtualenv_install_with_resources
 
     # install test data
-    (share/"test/").install "samples"
+    pkgshare.install "samples"
   end
 
   test do
