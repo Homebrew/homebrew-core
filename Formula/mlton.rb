@@ -1,8 +1,8 @@
 class Mlton < Formula
   desc "Whole-program, optimizing compiler for Standard ML"
   homepage "http://mlton.org"
-  url "https://downloads.sourceforge.net/project/mlton/mlton/20201002/mlton-20201002.src.tgz"
-  sha256 "ec189157de69e4d1fd6413452b7386c6622696c01200632176a08904f98be9e6"
+  url "https://downloads.sourceforge.net/project/mlton/mlton/20210117/mlton-20210117.src.tgz"
+  sha256 "ec7a5a54deb39c7c0fa746d17767752154e9cb94dbcf3d15b795083b3f0f154b"
   license "HPND"
   head "https://github.com/MLton/mlton.git"
 
