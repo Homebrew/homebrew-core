@@ -28,7 +28,7 @@ class Flux < Formula
     system "go", "build", "./cmd/flux"
     bin.install %w[flux]
     include.install "libflux/include/influxdata"
-    lib.install Dir["libflux/target/*/release/libflux.{dylib,a}"]
+    lib.install Dir["libflux/target/*/release/libflux.{dylib,a,so}"]
   end
 
   test do
