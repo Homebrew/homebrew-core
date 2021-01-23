@@ -13,12 +13,6 @@ class Cpplint < Formula
 
   depends_on "python@3.9"
 
-  # Just for test
-  resource "testfixtures" do
-    url "https://files.pythonhosted.org/packages/ee/7b/0bcd797f4d75348bd123ef3b5760edef1767a9dd1e3f2e6b2098f51a5102/testfixtures-6.17.1.tar.gz"
-    sha256 "5ec3a0dd6f71cc4c304fbc024a10cc293d3e0b852c868014b9f233203e149bda"
-  end
-
   def install
     virtualenv_install_with_resources
 
