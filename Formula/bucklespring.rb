@@ -10,7 +10,7 @@ class Bucklespring < Formula
 
   def install
     inreplace "Makefile", "-Wall -Werror", "-Wall"
-    cp Formula["pkg-config"].opt_lib/"alure.pc" "mac/lib/pkgconfig/"
+    cp Formula["pkg-config"].opt_lib/"alure.pc", "mac/lib/pkgconfig/"
     system "PATH_AUDIO=#{prefix}/wav make"
     bin.install "buckle"
     prefix.install "wav"
