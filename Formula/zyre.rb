@@ -1,8 +1,8 @@
 class Zyre < Formula
   desc "Local Area Clustering for Peer-to-Peer Applications"
   homepage "https://github.com/zeromq/zyre"
-  url "https://github.com/zeromq/zyre/releases/download/v2.0.0/zyre-2.0.0.tar.gz"
-  sha256 "8735bdf11ad9bcdccd4c4fd05cebfbbaea8511e21376bc7ad22f3cbbc038e263"
+  url "https://github.com/zeromq/zyre/archive/v2.0.1.tar.gz"
+  sha256 "e85ca9ec1f3e927429db62c5feca16f06d99eec3d7d1c552a6ca75f491f3e9ed"
 
   bottle do
     cellar :any
