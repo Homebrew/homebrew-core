@@ -14,7 +14,7 @@ class Gcc < Formula
     sha256 "b8dd4368bb9c7f0b98188317ee0254dd8cc99d1e3a18d0ff146c855fe16c1d8c"
   end
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
-  revision 2
+  revision 3
   head "https://gcc.gnu.org/git/gcc.git"
 
   livecheck do
@@ -51,11 +51,11 @@ class Gcc < Formula
   cxxstdlib_check :skip
 
   if Hardware::CPU.intel?
-    # Patch for Big Sur version numbering, remove with GCC 11
-    # https://github.com/iains/gcc-darwin-arm64/commit/556ab512
+    # Patch for Big Sur, remove with GCC 10.3
+    # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=98805
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/7baf6e2f/gcc/bigsur.diff"
-      sha256 "42de3bc4889b303258a4075f88ad8624ea19384cab57a98a5270638654b83f41"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/6a83f36d/gcc/bigsur_2.patch"
+      sha256 "347a358b60518e1e0fe3c8e712f52bdac1241e44e6c7738549d969c24095f65b"
     end
   end
 
@@ -159,9 +159,13 @@ class Gcc < Formula
 
     (testpath/"hello-cc.cc").write <<~EOS
       #include <iostream>
+      struct exception { };
       int main()
       {
         std::cout << "Hello, world!" << std::endl;
+        try { throw exception{}; }
+          catch (exception) { }
+          catch (...) { }
         return 0;
       }
     EOS
