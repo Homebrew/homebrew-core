@@ -3,7 +3,7 @@ class Mcrypt < Formula
   homepage "https://mcrypt.sourceforge.io"
   url "https://downloads.sourceforge.net/project/mcrypt/MCrypt/2.6.8/mcrypt-2.6.8.tar.gz"
   sha256 "5145aa844e54cca89ddab6fb7dd9e5952811d8d787c4f4bf27eb261e6c182098"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url :stable
