@@ -4,6 +4,7 @@ class X8664ElfBinutils < Formula
   url "https://ftp.gnu.org/gnu/binutils/binutils-2.36.tar.gz"
   mirror "https://ftpmirror.gnu.org/binutils/binutils-2.36.tar.gz"
   sha256 "f67c632ccd81137d745681672bb4515a3411afa53722ccf01caa07d798fd8fb0"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url :stable
