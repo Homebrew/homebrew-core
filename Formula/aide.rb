@@ -21,6 +21,7 @@ class Aide < Formula
     depends_on "automake" => :build
   end
 
+  depends_on "pkg-config" => :build
   depends_on "libgcrypt"
   depends_on "libgpg-error"
   depends_on "pcre"
@@ -30,6 +31,9 @@ class Aide < Formula
   uses_from_macos "curl"
 
   def install
+    inreplace "include/aide.h", "#include \"error.h\"", ""
+    ENV.append_to_cflags "-DHAVE_STRNSTR"
+
     system "sh", "./autogen.sh" if build.head?
 
     args = %W[
@@ -53,13 +57,13 @@ class Aide < Formula
 
   test do
     (testpath/"aide.conf").write <<~EOS
-      database = file:/var/lib/aide/aide.db
+      database_in = file:/var/lib/aide/aide.db
       database_out = file:/var/lib/aide/aide.db.new
       database_new = file:/var/lib/aide/aide.db.new
       gzip_dbout = yes
-      summarize_changes = yes
-      grouped = yes
-      verbose = 7
+      report_summarize_changes = yes
+      report_grouped = yes
+      log_level = info
       database_attrs = sha256
       /etc p+i+u+g+sha256
     EOS
