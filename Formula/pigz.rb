@@ -3,6 +3,7 @@ class Pigz < Formula
   homepage "https://zlib.net/pigz/"
   url "https://zlib.net/pigz/pigz-2.5.tar.gz"
   sha256 "a006645702caaecace633a89eb5c371482b44a48d04f34e0058e2b85d75d4c36"
+  license "Zlib"
 
   livecheck do
     url :homepage
