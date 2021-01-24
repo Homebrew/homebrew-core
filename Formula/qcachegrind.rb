@@ -25,8 +25,10 @@ class Qcachegrind < Formula
   depends_on "qt"
 
   def install
+    spec = (ENV.compiler == :clang) ? "macx-clang" : "macx-g++"
+    spec << "-arm64" if Hardware::CPU.arm?
     cd "qcachegrind" do
-      system "#{Formula["qt"].opt_bin}/qmake", "-spec", "macx-clang",
+      system "#{Formula["qt"].opt_bin}/qmake", "-spec", spec,
                                                "-config", "release"
       system "make"
       prefix.install "qcachegrind.app"
