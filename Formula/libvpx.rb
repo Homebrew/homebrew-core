@@ -21,7 +21,6 @@ class Libvpx < Formula
     args = %W[
       --prefix=#{prefix}
       --disable-dependency-tracking
-      --disable-examples
       --disable-unit-tests
       --enable-pic
       --enable-vp9-highbitdepth
