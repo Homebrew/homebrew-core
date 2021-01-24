@@ -1,8 +1,8 @@
 class Pigz < Formula
   desc "Parallel gzip"
   homepage "https://zlib.net/pigz/"
-  url "https://zlib.net/pigz/pigz-2.4.tar.gz"
-  sha256 "a4f816222a7b4269bd232680590b579ccc72591f1bb5adafcd7208ca77e14f73"
+  url "https://zlib.net/pigz/pigz-2.5.tar.gz"
+  sha256 "a006645702caaecace633a89eb5c371482b44a48d04f34e0058e2b85d75d4c36"
 
   livecheck do
     url :homepage
