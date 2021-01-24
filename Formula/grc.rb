@@ -7,7 +7,7 @@ class Grc < Formula
   sha256 "b167babd8f073a68f5a3091f833e4036fb8d86504e746694747a3ee5048fa7a9"
   license "GPL-2.0"
   revision 2
-  head "https://github.com/garabik/grc.git"
+  head "https://github.com/garabik/grc.git", branch: "devel"
 
   bottle :unneeded
 
