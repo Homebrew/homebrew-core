@@ -17,6 +17,9 @@ class Mcrypt < Formula
     sha256 "55b9b6cb471b312208afddc9bbc9caaf8be6043d2b1cc7e32161633f83e226e5" => :mojave
   end
 
+  # Added automake as a build dependency to update config files in libmcrypt.
+  # Please remove in future if there is a patch upstream which recognises aarch64 macos.
+  depends_on "automake" => :build
   depends_on "mhash"
 
   uses_from_macos "zlib"
@@ -35,6 +38,11 @@ class Mcrypt < Formula
     ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
 
     resource("libmcrypt").stage do
+      # Workaround for ancient config files not recognising aarch64 macos.
+      %w[config.guess config.sub].each do |fn|
+        cp "#{Formula["automake"].opt_prefix}/share/automake-#{Formula["automake"].version.major_minor}/#{fn}", fn
+      end
+
       system "./configure", "--prefix=#{prefix}",
                             "--mandir=#{man}"
       system "make", "install"
