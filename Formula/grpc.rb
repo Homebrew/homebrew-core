@@ -2,11 +2,10 @@ class Grpc < Formula
   desc "Next generation open source RPC library and framework"
   homepage "https://grpc.io/"
   url "https://github.com/grpc/grpc.git",
-      tag:      "v1.33.2",
-      revision: "ee5b762f33a42170144834f5ab7efda9d76c480b",
+      tag:      "v1.35.0",
+      revision: "257d0045ab958eb767a3591c88e9d0c2bdf4b916",
       shallow:  false
   license "Apache-2.0"
-  revision 3
   head "https://github.com/grpc/grpc.git"
 
   livecheck do
@@ -27,7 +26,6 @@ class Grpc < Formula
   depends_on "libtool" => :build
   depends_on "abseil"
   depends_on "c-ares"
-  depends_on "gflags"
   depends_on "openssl@1.1"
   depends_on "protobuf"
   depends_on "re2"
@@ -36,10 +34,11 @@ class Grpc < Formula
 
   def install
     mkdir "cmake/build" do
-      args = %w[
+      args = %W[
         ../..
         -DCMAKE_CXX_STANDARD=17
         -DCMAKE_CXX_STANDARD_REQUIRED=TRUE
+        -DCMAKE_INSTALL_RPATH=#{lib}
         -DBUILD_SHARED_LIBS=ON
         -DgRPC_BUILD_TESTS=OFF
         -DgRPC_INSTALL=ON
@@ -54,18 +53,22 @@ class Grpc < Formula
       system "cmake", *args
       system "make", "install"
 
-      args = %w[
-        ../..
-        -DCMAKE_EXE_LINKER_FLAGS=-lgflags
-        -DCMAKE_SHARED_LINKER_FLAGS=-lgflags
-        -DBUILD_SHARED_LIBS=ON
-        -DgRPC_BUILD_TESTS=ON
-        -DgRPC_GFLAGS_PROVIDER=package
-      ] + std_cmake_args
-      system "cmake", *args
-      system "make", "grpc_cli"
-      bin.install "grpc_cli"
-      lib.install Dir["libgrpc++_test_config*.{dylib,so}*"]
+      # grpc_cli does not build correctly with a non-/usr/local prefix.
+      # Reported upstream at https://github.com/grpc/grpc/issues/25176
+      # When removing the `unless` block, make sure to do the same for
+      # the test block.
+      unless Hardware::CPU.arm?
+        args = %W[
+          ../..
+          -DCMAKE_INSTALL_RPATH=#{lib}
+          -DBUILD_SHARED_LIBS=ON
+          -DgRPC_BUILD_TESTS=ON
+        ] + std_cmake_args
+        system "cmake", *args
+        system "make", "grpc_cli"
+        bin.install "grpc_cli"
+        lib.install Dir[shared_library("libgrpc++_test_config", "*")]
+      end
     end
   end
 
@@ -80,7 +83,9 @@ class Grpc < Formula
     EOS
     system ENV.cc, "test.cpp", "-I#{include}", "-L#{lib}", "-lgrpc", "-o", "test"
     system "./test"
-    output = shell_output("grpc_cli ls localhost:#{free_port} 2>&1", 1)
-    assert_match "Received an error when querying services endpoint.", output
+    unless Hardware::CPU.arm?
+      output = shell_output("grpc_cli ls localhost:#{free_port} 2>&1", 1)
+      assert_match "Received an error when querying services endpoint.", output
+    end
   end
 end
