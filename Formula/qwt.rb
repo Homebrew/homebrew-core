@@ -31,11 +31,13 @@ class Qwt < Formula
     end
 
     args = ["-config", "release", "-spec"]
-    args << if ENV.compiler == :clang
+    spec = if ENV.compiler == :clang
       "macx-clang"
     else
       "macx-g++"
     end
+    spec << "-arm64" if Hardware::CPU.arm?
+    args << spec
 
     system "qmake", *args
     system "make"
