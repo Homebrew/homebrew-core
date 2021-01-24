@@ -27,14 +27,6 @@ class Libsndfile < Formula
   depends_on "libvorbis"
   depends_on "opus"
 
-  # Upstream commit to fix autotools configure on macOS, fixes
-  # https://github.com/libsndfile/libsndfile/issues/642
-  # Upstream fix is expected in release v1.0.31
-  patch do
-    url "https://github.com/libsndfile/libsndfile/commit/ecd63961.patch?full_index=1"
-    sha256 "419aad070487685157a515adf4c6de25ffbd34adb0ab52b6df0f7c1ed0644893"
-  end
-
   def install
     system "autoreconf", "-fvi"
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
