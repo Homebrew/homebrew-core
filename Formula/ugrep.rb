@@ -1,8 +1,8 @@
 class Ugrep < Formula
   desc "Ultra fast grep with query UI, fuzzy search, archive search, and more"
   homepage "https://github.com/Genivia/ugrep"
-  url "https://github.com/Genivia/ugrep/archive/v3.1.3.tar.gz"
-  sha256 "6416e06d1358316aafa147aa74e5bc7d05502f1d78d742248b3fdce0f6fbeae1"
+  url "https://github.com/Genivia/ugrep/archive/v3.1.4.tar.gz"
+  sha256 "3de80f56e82ac21fda574334a1e55d3a9027c156d4b1ce1b0e96ea99b25cda32"
   license "BSD-3-Clause"
 
   bottle do
