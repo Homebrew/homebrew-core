@@ -1,7 +1,8 @@
 class Ctags < Formula
   desc "Reimplementation of ctags(1)"
   homepage "https://ctags.sourceforge.io/"
-  revision 1
+  license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
+  revision 2
 
   stable do
     url "https://downloads.sourceforge.net/project/ctags/ctags/5.8/ctags-5.8.tar.gz"
@@ -46,6 +47,9 @@ class Ctags < Formula
       system "autoheader"
       system "autoconf"
     end
+
+    # Work around configure issues with Xcode 12
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
     system "./configure", "--prefix=#{prefix}",
                           "--enable-macro-patterns",
                           "--mandir=#{man}",
@@ -80,5 +84,6 @@ class Ctags < Formula
     EOS
     system "#{bin}/ctags", "-R", "."
     assert_match /func.*test\.c/, File.read("tags")
+    assert_match "+regex", shell_output("ctags --version")
   end
 end
