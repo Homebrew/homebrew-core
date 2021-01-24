@@ -4,6 +4,7 @@ class Qscintilla2 < Formula
   url "https://www.riverbankcomputing.com/static/Downloads/QScintilla/2.11.6/QScintilla-2.11.6.tar.gz"
   sha256 "e7346057db47d2fb384467fafccfcb13aa0741373c5d593bc72b55b2f0dd20a7"
   license "GPL-3.0-only"
+  revision 1
 
   livecheck do
     url "https://www.riverbankcomputing.com/software/qscintilla/download"
@@ -22,8 +23,14 @@ class Qscintilla2 < Formula
   depends_on "qt"
   depends_on "sip"
 
+  # Fix for rpath in library install name. Taken from
+  # https://github.com/macports/macports-ports/pull/7790
+  # https://www.riverbankcomputing.com/pipermail/qscintilla/2020-March/001444.html
+  patch :DATA
+
   def install
     spec = (ENV.compiler == :clang) ? "macx-clang" : "macx-g++"
+    spec << "-arm64" if Hardware::CPU.arm?
     args = %W[-config release -spec #{spec}]
 
     cd "Qt4Qt5" do
@@ -79,3 +86,20 @@ class Qscintilla2 < Formula
     system Formula["python@3.9"].opt_bin/"python3", "test.py"
   end
 end
+
+__END__
+diff --git a/Qt4Qt5/qscintilla.pro b/Qt4Qt5/qscintilla.pro
+index 35b37da..7953c1b 100644
+--- a/Qt4Qt5/qscintilla.pro
++++ b/Qt4Qt5/qscintilla.pro
+@@ -37,10 +37,6 @@ CONFIG(debug, debug|release) {
+     TARGET = qscintilla2_qt$${QT_MAJOR_VERSION}
+ }
+ 
+-macx:!CONFIG(staticlib) {
+-    QMAKE_POST_LINK += install_name_tool -id @rpath/$(TARGET1) $(TARGET)
+-}
+-
+ INCLUDEPATH += . ../include ../lexlib ../src
+ 
+ !CONFIG(staticlib) {
