@@ -3,6 +3,7 @@ class Qwt < Formula
   homepage "https://qwt.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/qwt/qwt/6.1.5/qwt-6.1.5.tar.bz2"
   sha256 "4076de63ec2b5e84379ddfebf27c7b29b8dc9074f3db7e2ca61d11a1d8adc041"
+  revision 1
 
   livecheck do
     url :stable
