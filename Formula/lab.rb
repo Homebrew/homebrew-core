@@ -1,8 +1,8 @@
 class Lab < Formula
   desc "Git wrapper for GitLab"
   homepage "https://zaquestion.github.io/lab"
-  url "https://github.com/zaquestion/lab/archive/v0.18.0.tar.gz"
-  sha256 "b34b08cb20d16f541eb3bf428e0224b4905ee40bda9394e7da4df756ba1aa109"
+  url "https://github.com/zaquestion/lab/archive/v0.19.0.tar.gz"
+  sha256 "7d8c3c88ac944b50137200ef565a42029e590bc66edb8eecf74ceb7aa0c0b908"
   license "CC0-1.0"
   head "https://github.com/zaquestion/lab.git"
 
