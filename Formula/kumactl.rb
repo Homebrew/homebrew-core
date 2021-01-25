@@ -4,6 +4,7 @@ class Kumactl < Formula
   url "https://github.com/kumahq/kuma/archive/1.0.6.tar.gz"
   sha256 "3d93c7508174d456a1d8a50f64227d243fa1226f8116c3dac6c044b246698415"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -24,6 +25,15 @@ class Kumactl < Formula
       system "make", "build/kumactl", "BUILD_INFO_VERSION=#{version}"
       bin.install Dir["build/artifacts-*/kumactl/kumactl"].first
     end
+
+    output = Utils.safe_popen_read("#{bin}/kumactl", "completion", "bash")
+    (bash_completion/"kumactl").write output
+
+    output = Utils.safe_popen_read("#{bin}/kumactl", "completion", "zsh")
+    (zsh_completion/"_kumactl").write output
+
+    output = Utils.safe_popen_read("#{bin}/kumactl", "completion", "fish")
+    (fish_completion/"kumactl.fish").write output
   end
 
   test do
