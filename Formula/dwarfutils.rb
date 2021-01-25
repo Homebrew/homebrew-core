@@ -3,6 +3,7 @@ class Dwarfutils < Formula
   homepage "https://www.prevanders.net/dwarf.html"
   url "https://www.prevanders.net/libdwarf-20201201.tar.gz"
   sha256 "62db1028dfd8fd877d01ae75873ac1fe311437012ef48a0ac4157189e1e9b2c9"
+  license all_of: ["BSD-2-Clause", "LGPL-2.1-or-later", "GPL-2.0-or-later"]
 
   livecheck do
     url :homepage
@@ -57,7 +58,7 @@ class Dwarfutils < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-L#{lib}", "-I#{include}", "-ldwarf", "test.c", "-o", "test"
+    system ENV.cc, "-I#{include}", "test.c", "-L#{lib}", "-ldwarf", "-o", "test"
     system "./test"
   end
 end
