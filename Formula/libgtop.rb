@@ -52,8 +52,10 @@ class Libgtop < Formula
       -L#{lib}
       -lglib-2.0
       -lgtop-2.0
-      -lintl
     ]
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
