@@ -3,8 +3,8 @@ class Bpython < Formula
 
   desc "Fancy interface to the Python interpreter"
   homepage "https://bpython-interpreter.org"
-  url "https://files.pythonhosted.org/packages/80/34/a79eb10051fcff79d0a63f402154c6c9397d5a8370b6e31a937a9a715d03/bpython-0.20.1.tar.gz"
-  sha256 "6e7738806013b469be57b0117082b9c4557ed7c92c70ceb79f96d674d89c7503"
+  url "https://files.pythonhosted.org/packages/8f/34/7bdeba9999d2dfe5c0682291966bfa7edcedf2859885fa0037b8a38d0878/bpython-0.21.tar.gz"
+  sha256 "88aa9b89974f6a7726499a2608fa7ded216d84c69e78114ab2ef996a45709487"
   license "MIT"
   head "https://github.com/bpython/bpython.git"
 
@@ -34,13 +34,18 @@ class Bpython < Formula
   end
 
   resource "curtsies" do
-    url "https://files.pythonhosted.org/packages/71/1c/e02ad3efff0bd806d774aa8e9f26f0ac4398d557b7929038e7defde161b2/curtsies-0.3.4.tar.gz"
-    sha256 "4ca543998d8bbba7185db099f8b7bb30baeb47426f7ac1a271e4d9ca8bbb2b05"
+    url "https://files.pythonhosted.org/packages/ee/17/9647eb1c537734adba77bd4613a2a6563a1439444827323cfe37652f9822/curtsies-0.3.5.tar.gz"
+    sha256 "a587ff3335667a32be7afed163f60a1c82c5d9c848d8297534a06fd29de20dbd"
+  end
+
+  resource "cwcwidth" do
+    url "https://files.pythonhosted.org/packages/77/3a/7674069b8b8a40b1e25eea33c3a228b8d57c24f3e286e6de1825e0e02437/cwcwidth-0.1.1.tar.gz"
+    sha256 "042cdf80d80a836935f700d8e1c34270f82a627fc07f7b5ec1e8cec486e1d755"
   end
 
   resource "greenlet" do
-    url "https://files.pythonhosted.org/packages/72/0c/fd07c7674ad6eded937194b84d8453425c36c6ef118536907b0185624d82/greenlet-0.4.17.tar.gz"
-    sha256 "41d8835c69a78de718e466dd0e6bfd4b46125f21a67c3ff6d76d8d8059868d6b"
+    url "https://files.pythonhosted.org/packages/92/be/878cc5314fa5aadce33e68738c1a24debe317605196bdfc2049e66bc9c30/greenlet-1.0.0.tar.gz"
+    sha256 "719e169c79255816cdcf6dccd9ed2d089a72a9f6c42273aae12d55e8d35bdcf8"
   end
 
   resource "idna" do
@@ -51,6 +56,11 @@ class Bpython < Formula
   resource "Pygments" do
     url "https://files.pythonhosted.org/packages/e1/86/8059180e8217299079d8719c6e23d674aadaba0b1939e25e0cc15dcf075b/Pygments-2.7.4.tar.gz"
     sha256 "df49d09b498e83c1a73128295860250b0b7edd4c723a32e9bc0d295c7c2ec337"
+  end
+
+  resource "pyxdg" do
+    url "https://files.pythonhosted.org/packages/6f/2e/2251b5ae2f003d865beef79c8fcd517e907ed6a69f58c32403cec3eba9b2/pyxdg-0.27.tar.gz"
+    sha256 "80bd93aae5ed82435f20462ea0208fb198d8eec262e831ee06ce9ddb6b91c5a5"
   end
 
   resource "requests" do
@@ -66,11 +76,6 @@ class Bpython < Formula
   resource "urllib3" do
     url "https://files.pythonhosted.org/packages/29/e6/d1a1d78c439cad688757b70f26c50a53332167c364edb0134cadd280e234/urllib3-1.26.2.tar.gz"
     sha256 "19188f96923873c92ccb987120ec4acaa12f0461fa9ce5d3d0772bc965a39e08"
-  end
-
-  resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/89/38/459b727c381504f361832b9e5ace19966de1a235d73cdbdea91c771a1155/wcwidth-0.2.5.tar.gz"
-    sha256 "c4d647b99872929fdb7bdcaa4fbe7f01413ed3d98077df798530e5b04f116c83"
   end
 
   def install
