@@ -1,11 +1,10 @@
 class Binutils < Formula
   desc "GNU binary tools for native development"
   homepage "https://www.gnu.org/software/binutils/binutils.html"
-  url "https://ftp.gnu.org/gnu/binutils/binutils-2.35.1.tar.xz"
-  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.35.1.tar.xz"
-  sha256 "3ced91db9bf01182b7e420eab68039f2083aed0a214c0424e257eae3ddee8607"
+  url "https://ftp.gnu.org/gnu/binutils/binutils-2.36.tar.xz"
+  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.36.tar.xz"
+  sha256 "5788292cc5bbcca0848545af05986f6b17058b105be59e99ba7d0f9eb5336fb8"
   license all_of: ["GPL-2.0-or-later", "GPL-3.0-or-later", "LGPL-2.0-or-later", "LGPL-3.0-only"]
-  revision 1
 
   livecheck do
     url :stable
@@ -36,7 +35,9 @@ class Binutils < Formula
                           "--enable-64-bit-bfd",
                           "--enable-gold",
                           "--enable-plugins",
-                          "--enable-targets=all"
+                          "--enable-targets=all",
+                          "--with-system-zlib",
+                          "--disable-nls"
     system "make"
     system "make", "install"
     bin.install_symlink "ld.gold" => "gold"
