@@ -1,9 +1,8 @@
 class Lego < Formula
-  desc "Let's Encrypt client"
+  desc "Let's Encrypt client and ACME library"
   homepage "https://go-acme.github.io/lego/"
-  url "https://github.com/go-acme/lego.git",
-      tag:      "v4.2.0",
-      revision: "52e6721dca65e1618067db242a61baf523140b71"
+  url "https://github.com/go-acme/lego/archive/v4.2.0.tar.gz"
+  sha256 "d43068499b259dd5c75137d443b2bafe36a72415355f859ba01bb4c0b9a51f9b"
   license "MIT"
 
   bottle do
@@ -17,11 +16,16 @@ class Lego < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-ldflags", "-s -w -X main.version=#{version}", "-trimpath",
-        "-o", bin/"lego", "cmd/lego/main.go"
+    system "go", "build", *std_go_args, "-ldflags", "-s -w -X main.version=#{version}", "./cmd/lego"
   end
 
   test do
+    output = shell_output("lego -a --email test@brew.sh --dns digitalocean -d brew.test run", 1)
+    assert_match "some credentials information are missing: DO_AUTH_TOKEN", output
+
+    output = shell_output("DO_AUTH_TOKEN=xx lego -a --email test@brew.sh --dns digitalocean -d brew.test run 2>&1", 1)
+    assert_match "Could not obtain certificates", output
+
     assert_match version.to_s, shell_output("#{bin}/lego -v")
   end
 end
