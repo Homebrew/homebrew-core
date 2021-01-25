@@ -6,7 +6,7 @@ class Grcov < Formula
   license "MPL-2.0"
   head "https://github.com/mozilla/grcov.git"
 
-  depends_on "rust" => :build
+  depends_on "rust" => [:build, :test]
 
   def install
     system "cargo", "install", *std_cargo_args
