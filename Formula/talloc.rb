@@ -3,6 +3,7 @@ class Talloc < Formula
   homepage "https://talloc.samba.org/"
   url "https://www.samba.org/ftp/talloc/talloc-2.3.2.tar.gz"
   sha256 "27a03ef99e384d779124df755deb229cd1761f945eca6d200e8cfd9bf5297bd7"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url "https://www.samba.org/ftp/talloc/"
