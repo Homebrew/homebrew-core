@@ -4,6 +4,7 @@ class LuajitOpenresty < Formula
   url "https://github.com/openresty/luajit2/archive/v2.1-20201229.tar.gz"
   sha256 "4275bf97356d713826e7195d1c330568b6089ff1fd4c6954f998e0f60a2baa30"
   license "MIT"
+  revision 1
   head "https://github.com/openresty/luajit2.git", branch: "v2.1-agentzh"
 
   bottle do
@@ -49,10 +50,6 @@ class LuajitOpenresty < Formula
               "INSTALL_LMOD=#{HOMEBREW_PREFIX}/share/lua/${abiver}"
       s.gsub! "INSTALL_CMOD=${prefix}/${multilib}/lua/${abiver}",
               "INSTALL_CMOD=#{HOMEBREW_PREFIX}/${multilib}/lua/${abiver}"
-      unless build.head?
-        s.gsub! "Libs:",
-                "Libs: -pagezero_size 10000 -image_base 100000000"
-      end
     end
 
     # Having an empty Lua dir in lib/share can mess with other Homebrew Luas.
