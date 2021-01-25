@@ -4,6 +4,7 @@ class Dynare < Formula
   url "https://www.dynare.org/release/source/dynare-4.6.3.tar.xz"
   sha256 "1e346fc70a8ab47cad115ecb7116d98c920b366069a2491170661c51664352fd"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     cellar :any
@@ -51,6 +52,21 @@ class Dynare < Formula
   def install
     ENV.cxx11
 
+    (buildpath/"statistics").install resource("statistics")
+    (buildpath/"io").install resource("io")
+
+    # Octave needs the resource tarballs, so we tar them back up
+    system "tar", "-zcf", "statistics.tar.gz", "./statistics"
+    system "tar", "-zcf", "io.tar.gz", "./io"
+
+    (buildpath/"dynare_pkg.m").write <<~EOS
+      pkg prefix #{pkgshare}
+      pkg install io.tar.gz
+      pkg install statistics.tar.gz
+    EOS
+
+    system Formula["octave"].opt_bin/"octave", "--no-gui", "dynare_pkg.m"
+
     resource("slicot").stage do
       system "make", "lib", "OPTS=-fPIC", "SLICOTLIB=../libslicot_pic.a",
              "FORTRAN=gfortran", "LOADER=gfortran"
@@ -90,29 +106,23 @@ class Dynare < Formula
     <<~EOS
       To get started with Dynare, open Octave and type
         addpath #{opt_lib}/dynare/matlab
+      The io and Statistics packages for Octave have been
+      installed at
+        #{pkgshare}
     EOS
   end
 
   test do
     ENV.cxx11
 
-    (testpath/"statistics").install resource("statistics")
-    (testpath/"io").install resource("io")
-
-    # Octave needs the resource tarballs, so we tar them back up
-    system "tar", "-zcf", "statistics.tar.gz", "./statistics"
-    system "tar", "-zcf", "io.tar.gz", "./io"
-
     cp lib/"dynare/examples/bkk.mod", testpath
-
-    (testpath/"test.m").write <<~EOS
-      pkg prefix #{testpath}/octave
-      pkg install io.tar.gz
-      pkg install statistics.tar.gz
+    (testpath/"dynare_test.m").write <<~EOS
+      pkg prefix #{pkgshare}
+      pkg load statistics
       dynare bkk.mod console
     EOS
 
     system Formula["octave"].opt_bin/"octave", "--no-gui",
-           "-H", "--path", "#{lib}/dynare/matlab", "test.m"
+           "-H", "--path", "#{lib}/dynare/matlab", "dynare_test.m"
   end
 end
