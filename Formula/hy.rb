@@ -3,10 +3,9 @@ class Hy < Formula
 
   desc "Dialect of Lisp that's embedded in Python"
   homepage "https://github.com/hylang/hy"
-  url "https://files.pythonhosted.org/packages/e2/a8/d2118cf14aab7652d54283e6a9a199177f528610348e3712509a8596c0d0/hy-0.19.0.tar.gz"
-  sha256 "3a5a1d76ddeb2f1d5de71ad1b1167799850db955b5eb0258e351fb182b2e6016"
+  url "https://files.pythonhosted.org/packages/2d/80/c9de6ace090a06f42ef68e746f1430d0074a33d21e46839813c764934d64/hy-0.20.0.tar.gz"
+  sha256 "1b72863754fb57e2dd275a9775bf621cb50a565e76733a2e74e9954e7fbb060e"
   license "MIT"
-  revision 1
 
   livecheck do
     url :stable
@@ -34,8 +33,8 @@ class Hy < Formula
   end
 
   resource "colorama" do
-    url "https://files.pythonhosted.org/packages/82/75/f2a4c0c94c85e2693c229142eb448840fba0f9230111faa889d1f541d12d/colorama-0.4.3.tar.gz"
-    sha256 "e96da0d330793e2cb9485e9ddfd918d456036c7149416295932478192f4436a1"
+    url "https://files.pythonhosted.org/packages/1f/bb/5d3246097ab77fa083a61bd8d3d527b7ae063c7d8e8671b1cf8c4ec10cbe/colorama-0.4.4.tar.gz"
+    sha256 "5941b2b48a20143d2267e95b1c2a7603ce057ee39fd88e7329b0c292aa16869b"
   end
 
   resource "funcparserlib" do
