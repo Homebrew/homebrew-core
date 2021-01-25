@@ -72,9 +72,11 @@ class Libnice < Formula
       -lgio-2.0
       -lglib-2.0
       -lgobject-2.0
-      -lintl
       -lnice
     ]
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cc, *flags, "test.c", "-o", "test"
     system "./test"
   end
