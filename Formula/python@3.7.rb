@@ -72,6 +72,15 @@ class PythonAT37 < Formula
     sha256 "ed5eee1974372595f9e416cc7bbeeb12335201d8081ca8a0743c954d4446e5cb"
   end
 
+  # Patch for MACOSX_DEPLOYMENT_TARGET on Big Sur. Upstream currently does
+  # not have plans to backport the fix to 3.7, so we're maintaining this patch
+  # ourselves.
+  # https://bugs.python.org/issue42504
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/05a27807/python/3.7.9.patch"
+    sha256 "486188ac1a4af4565de5ad54949939bb69bffc006297e8eac9339f19d7d7492b"
+  end
+
   def install
     # Unset these so that installing pip and setuptools puts them where we want
     # and not into some other Python the user has installed.
