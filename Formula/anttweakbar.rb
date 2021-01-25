@@ -12,6 +12,8 @@ class Anttweakbar < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "438ba46ecc4b5f2d77b58281c4ae004c7e255710240f0b498322c55acae08618" => :big_sur
+    sha256 "b4a716baa513d973f69724c84783e1a9644a1b5f2ca04640d9fd71da4c397fca" => :arm64_big_sur
     sha256 "38b3f17cf22401dd83d9f2ea375b14b31fbd011e0e2b6cbb8b5be894ac49db0b" => :catalina
     sha256 "2e68286a46381829f51a5bb91eb03bcdc876b79445c86672395517b4f3322652" => :mojave
     sha256 "393b87de789337afebed9196404af46fa660fea3b476d874d77b48bb35c8079b" => :high_sierra

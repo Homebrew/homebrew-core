@@ -8,6 +8,7 @@ class Libpcl < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "2ed8a2eb0ff0c53cb2a2653991386ceded74a41a8a215e0d641221092917e361" => :big_sur
     sha256 "11984be842d85e685f2e52d4d5155f24123a44e0f1855970c5fed1e8cb2172f5" => :catalina
     sha256 "3eb3bf64576a13da02b76cf21bfd37a9889e48d3e7c0df06bd5767c61cc09d06" => :mojave
     sha256 "2d7ce1c2a11e762dacf0e28f92a1b1f6b6a45ea4564ac579b4c0683c61ac61f7" => :high_sierra

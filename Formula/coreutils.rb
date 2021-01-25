@@ -11,10 +11,11 @@ class Coreutils < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 "f40ba727ec1bb54300c7c79804f410a62341b63f3fba41d78ef34e5d369fe9fc" => :catalina
-    sha256 "91cd269ea5eff54a3074e0c3cd0995911c5989a4eb87a3c27b17a765c48f494e" => :mojave
-    sha256 "25c71d9d9a156cc8dfaa52b35dad1f9d49df55e97748fb5ab9522f65aeed4dca" => :high_sierra
+    rebuild 2
+    sha256 "371ec57703b3646e0113331308b6e03617c2a7f91e15e113380b605455daba20" => :big_sur
+    sha256 "e7d88d2b7a91a57dfd37c2ea14752d1bb116f25694eab1161d6e8088f7db5921" => :arm64_big_sur
+    sha256 "7a97ad96dfbe6abbb5c94424518a077e040af8a77d1946ca960a5f33cd237551" => :catalina
+    sha256 "10fbad2e35846c7e835cb979b5beb9edf07f3a9742ddcc3c28d9abd5fe9ccb1b" => :mojave
   end
 
   head do
@@ -29,9 +30,12 @@ class Coreutils < Formula
     depends_on "xz" => :build
   end
 
+  uses_from_macos "gperf" => :build
+
   conflicts_with "aardvark_shell_utils", because: "both install `realpath` binaries"
   conflicts_with "b2sum", because: "both install `b2sum` binaries"
   conflicts_with "ganglia", because: "both install `gstat` binaries"
+  conflicts_with "gdu", because: "both install `gdu` binaries"
   conflicts_with "gegl", because: "both install `gcut` binaries"
   conflicts_with "idutils", because: "both install `gid` and `gid.1`"
   conflicts_with "md5sha1sum", because: "both install `md5sum` and `sha1sum` binaries"
@@ -46,9 +50,6 @@ class Coreutils < Formula
       --program-prefix=g
       --without-gmp
     ]
-
-    # Work around a gnulib issue with macOS Catalina
-    args << "gl_cv_func_ftello_works=yes"
 
     system "./configure", *args
     system "make", "install"

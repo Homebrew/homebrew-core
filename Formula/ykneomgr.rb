@@ -3,16 +3,16 @@ class Ykneomgr < Formula
   homepage "https://developers.yubico.com/libykneomgr/"
   url "https://developers.yubico.com/libykneomgr/Releases/libykneomgr-0.1.8.tar.gz"
   sha256 "2749ef299a1772818e63c0ff5276f18f1694f9de2137176a087902403e5df889"
-  license "LGPL-3.0"
+  license "LGPL-3.0-or-later"
   revision 2
 
   bottle do
     cellar :any
-    sha256 "8eaee6c402117972a2b3ec4db714594b9e6ddce1bb23c795db3650b576deda38" => :catalina
-    sha256 "42dbcc5c2c3f33b3c6cfa6a87be4a37153ef68d361374d2cec410cb406a62bb9" => :mojave
-    sha256 "256291cea42d30f95754e2203cec73a7acef9436be3ad0040ce7d966fc9d8470" => :high_sierra
-    sha256 "7917d4068d2c68d3309b32ff443622c0540829a9e3cf0053913697c321c74067" => :sierra
-    sha256 "4ee15391465d785920dde2347b716af4f9c2aa9b38faf8021d7d18f041b7c277" => :el_capitan
+    rebuild 1
+    sha256 "d08813317ba58b25a12d90485c20e372922bde6bda948a4b4979eccb07374e5f" => :big_sur
+    sha256 "75e8cb3042d639b8271057b9d3e77c2786e66527a8c8602709dff4624b06d134" => :arm64_big_sur
+    sha256 "583b882ed5705cfbde73f815689c7fcf70aec84b42a8de606dd847f99afc93b7" => :catalina
+    sha256 "0fee721a06b166425760bdc5b65349f374ac6512ce09404cdc2c4d82f621022e" => :mojave
   end
 
   head do
@@ -22,6 +22,8 @@ class Ykneomgr < Formula
     depends_on "gengetopt" => :build
     depends_on "libtool" => :build
   end
+
+  deprecate! date: "2020-12-28", because: :deprecated_upstream  # ... in favor of ykman
 
   depends_on "help2man" => :build
   depends_on "pkg-config" => :build
@@ -37,6 +39,6 @@ class Ykneomgr < Formula
   end
 
   test do
-    assert_match "0.1.8", shell_output("#{bin}/ykneomgr --version")
+    assert_match version.to_s, shell_output("#{bin}/ykneomgr --version")
   end
 end

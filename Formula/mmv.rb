@@ -12,6 +12,8 @@ class Mmv < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "888b4c1d8edf7aa5a71615d0ff82c6b6c83f349b5e8735beed129c357f24b47e" => :big_sur
+    sha256 "fd9be2c2eefa079d30767a2198631bf35394d18b2d518b57f1ea49427266ea26" => :arm64_big_sur
     sha256 "51d7db3a7205fc98d83a432261c2f86bc6992a30716fb8bbcb6c60c571cde00f" => :catalina
     sha256 "d754f546b6e586df4ec307e930c6b2e60dd51b0a0929a0240f3b896177909118" => :mojave
     sha256 "b9076fa267efcabf04184a8ed20d072c1fd33b753ac2f6883495f2f6b4f8a108" => :high_sierra

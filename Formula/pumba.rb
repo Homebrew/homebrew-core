@@ -1,16 +1,18 @@
 class Pumba < Formula
   desc "Chaos testing tool for Docker"
   homepage "https://github.com/alexei-led/pumba"
-  url "https://github.com/alexei-led/pumba/archive/0.7.6.tar.gz"
-  sha256 "4155f68f38499130a061f4a287137e266446907935d719e6be0a436efdb00d16"
+  url "https://github.com/alexei-led/pumba/archive/0.7.7.tar.gz"
+  sha256 "974f17df36bfdbb510b303db7acf1c3d637d7d50c87f3120b07e1e363792cf87"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/alexei-led/pumba.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "16134112a01371f366f64ec7ffaf992f57957d2eff9102afd4e9a822eaebb09e" => :catalina
-    sha256 "2ae012db84d882725c825f4269e813bc133244ead9fa55dd7bf13b73c9565bfc" => :mojave
-    sha256 "9ba93aa20ff6d7233190f82a10962ae30d43fe57bd403ac457796c3ccd98ace3" => :high_sierra
+    sha256 "ab72f222b8eeaadf48320af5f87db33697cafa4a519010d200a377f16f81cef2" => :big_sur
+    sha256 "23ea7c27073d54ac360deae32dd52388dcda30a72ca7e3f7c34fd715533d9c45" => :arm64_big_sur
+    sha256 "9aacdeac788678e480042779b159e00f80f06886d89c5a61f601741349a4cefa" => :catalina
+    sha256 "32e9cf47edec277ec8ec83e8a5536018133ab7ba8d2532dc7fdf8c8e624bafc3" => :mojave
   end
 
   depends_on "go" => :build

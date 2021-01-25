@@ -5,16 +5,19 @@ class Mmseqs2 < Formula
   version "12-113e3"
   sha256 "81fa0d77eab9d74b429567da00aa7ec2d46049537ce469595d7356b6d8b5458a"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/soedinglab/MMseqs2.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "19e991c528466e6443a0772d6ea2c373b5323f3b6d919adde3ec2cd6958c6e04" => :catalina
-    sha256 "f31e32a418bb6a407be63e5d60c4bcc10497c3412b07fe270ac523851fbeeea7" => :mojave
-    sha256 "6a92a84f48542cac881e7bf4de5c7946d8038e8da1c799c98fe0992ed3f4d1a0" => :high_sierra
+    rebuild 1
+    sha256 "680c7da7213bd418914740e3b7136ab839003ac287b586240982adecf8b1eaeb" => :big_sur
+    sha256 "586f29f2865f69e7947fd57f7da464a0437f13a3c47924ec857b4f89e7c7ffa5" => :arm64_big_sur
+    sha256 "2187f9ec5272d2f5c51fbe24d8b3a266b0441b17cd88b48cc9e30f28cfb9c8e6" => :catalina
+    sha256 "024422927bed2dd5a769255b6639d76ca4128bd27cd3d0717866847fa4d4468f" => :mojave
   end
 
-  depends_on "cmake" => :build
+  depends_on "cmake" => [:build, :test]
   depends_on "libomp"
   depends_on "wget"
 
@@ -26,10 +29,19 @@ class Mmseqs2 < Formula
         revision: "d53d8be3761ee625b0dcddda29b092bbd02244ef"
   end
 
+  resource "testdata" do
+    url "https://github.com/soedinglab/MMseqs2/releases/download/12-113e3/MMseqs2-Regression-Minimal.zip"
+    sha256 "ab0c2953d1c27736c22a57a1ccbb976c1320435fad82b5c579dbd716b7bae4ce"
+  end
+
   def install
     args = *std_cmake_args << "-DHAVE_TESTS=0" << "-DHAVE_MPI=0"
     args << "-DVERSION_OVERRIDE=#{version}"
-    args << "-DHAVE_SSE4_1=1"
+    args << if Hardware::CPU.arm?
+      "-DHAVE_ARM8=1"
+    else
+      "-DHAVE_SSE4_1=1"
+    end
 
     libomp = Formula["libomp"]
     args << "-DOpenMP_C_FLAGS=-Xpreprocessor\ -fopenmp\ -I#{libomp.opt_include}"
@@ -50,14 +62,12 @@ class Mmseqs2 < Formula
   end
 
   def caveats
-    "MMseqs2 requires at least SSE4.1 CPU instruction support." unless Hardware::CPU.sse4?
+    "MMseqs2 requires at least SSE4.1 CPU instruction support." if !Hardware::CPU.sse4? && !Hardware::CPU.arm?
   end
 
   test do
-    system "#{bin}/mmseqs", "createdb", "#{pkgshare}/examples/QUERY.fasta", "q"
-    system "#{bin}/mmseqs", "cluster", "q", "res", "tmp", "-s", "1"
-    system "#{bin}/mmseqs", "createtsv", "q", "q", "res", "res.tsv"
-    assert_predicate testpath/"res.tsv", :exist?
-    assert_predicate (testpath/"res.tsv").size, :positive?
+    resource("testdata").stage do
+      system "./run_regression.sh", "#{bin}/mmseqs", "scratch"
+    end
   end
 end

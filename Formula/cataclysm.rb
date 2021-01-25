@@ -1,22 +1,24 @@
 class Cataclysm < Formula
   desc "Fork/variant of Cataclysm Roguelike"
   homepage "https://github.com/CleverRaven/Cataclysm-DDA"
-  url "https://github.com/CleverRaven/Cataclysm-DDA/archive/0.E.tar.gz"
-  version "0.E"
-  sha256 "b0af9a9292929e17332edcea770bca9a91f1d08ea47726d78a47e09281a42fa3"
+  url "https://github.com/CleverRaven/Cataclysm-DDA/archive/0.E-3.tar.gz"
+  version "0.E-3"
+  sha256 "21ac5226a996ac465842f188cadea8815eae7309fe38cf8d94de2f8ac97cd820"
   license "CC-BY-SA-3.0"
   head "https://github.com/CleverRaven/Cataclysm-DDA.git"
 
   livecheck do
-    url "https://github.com/CleverRaven/Cataclysm-DDA/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/([^"' >]+)["' >]}i)
   end
 
   bottle do
     cellar :any
-    sha256 "bbd96abbc2ac1ddfabb2ab2febff1b0653d95210b84e6ea8a1dec73a530d8647" => :catalina
-    sha256 "c2c44f2a965153e4258c8c3daf6772bd7f5c9935320d2e1975cb63fb6909f095" => :mojave
-    sha256 "1eb07ba0e992116ae94d8b380d520139d686997e6700834f2db4bb1cded1401f" => :high_sierra
+    sha256 "0e93a967d9e4e01129912388ef9b9b0de954d25088ee65c05a6fea80aca7acbb" => :big_sur
+    sha256 "aacc35c573fa5f841054e73d76c1c954086a990f5821372ab0716652d4b7ee7a" => :arm64_big_sur
+    sha256 "c81600f8324c60d92121e5134fbb26a1212375c5e0c017363cceb473e0ef10e7" => :catalina
+    sha256 "2a3c5ef376aaeb2ee93ddbf3b6ebbb1997056411d48369454283b9518a4da345" => :mojave
   end
 
   depends_on "pkg-config" => :build
@@ -63,7 +65,7 @@ class Cataclysm < Formula
     pid = fork do
       exec bin/"cataclysm"
     end
-    sleep 7
+    sleep 30
     assert_predicate user_config_dir/"config",
                      :exist?, "User config directory should exist"
     assert_predicate user_config_dir/"templates",

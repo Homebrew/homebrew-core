@@ -1,16 +1,13 @@
 class Librem < Formula
   desc "Toolkit library for real-time audio and video processing"
-  homepage "http://www.creytiv.com"
-  url "http://www.creytiv.com/pub/rem-0.6.0.tar.gz"
+  homepage "https://github.com/creytiv/rem"
+  url "https://github.com/creytiv/rem/releases/download/v0.6.0/rem-0.6.0.tar.gz"
   sha256 "417620da3986461598aef327c782db87ec3dd02c534701e68f4c255e54e5272c"
-
-  livecheck do
-    url "http://www.creytiv.com/pub/"
-    regex(/href=.*?rem[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
 
   bottle do
     cellar :any
+    sha256 "73f0aada894d478840f2999cee4b106c72f05799a1d4e43a6923a0c11ac626dd" => :big_sur
+    sha256 "6fb5875de23967552524a374db07d928596fcf813fd659395dab15ffc93f8381" => :arm64_big_sur
     sha256 "95862b3451f24c02dd50da1b7c5dfe798370431994f0b26f4418f6e68bc461ec" => :catalina
     sha256 "0303178e3833e6799d2863835cdd3a6c9e639b2fdcf5b3925bae1fb2690419f1" => :mojave
     sha256 "7b2cfbb41f81dd14636626f5d6e325d79cd7a69af540ddf722a7943a934c92ea" => :high_sierra

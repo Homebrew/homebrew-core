@@ -2,17 +2,18 @@
 class Macvim < Formula
   desc "GUI for vim, made for macOS"
   homepage "https://github.com/macvim-dev/macvim"
-  url "https://github.com/macvim-dev/macvim/archive/snapshot-166.tar.gz"
-  version "8.2-166"
-  sha256 "d9745f01c45fb2c1c99ce3b74bf1db6b888805bbb2d2a570bfb5742828ca601a"
+  url "https://github.com/macvim-dev/macvim/archive/snapshot-169.tar.gz"
+  version "8.2-169"
+  sha256 "3b5bd8631ada8566d7d575696fbe2e0df760f3cdd31c09b47980e3d62e523cc7"
   license "Vim"
-  revision 1
+  revision 2
   head "https://github.com/macvim-dev/macvim.git"
 
   bottle do
-    sha256 "7f672f36e953d8eee8136c9303ac3679da19834e9fea06df2c6735aa3108dd98" => :catalina
-    sha256 "1f352a5857f1c071fec1e8acb2a1634d48b2b991b5bc47e50725a3d497aaf4b2" => :mojave
-    sha256 "b1cafc8cea7e9f3c3a1692b0c4b33c3f9347626a78bc7171e9013c54494a9994" => :high_sierra
+    sha256 "9016642d7b60229617dee39cb75b3385e4980859cc23e09c6d77275a5aa904db" => :big_sur
+    sha256 "e6f2475157275a9f8a7cedc26108c31ee388506fee5c45120527b01249865e5a" => :arm64_big_sur
+    sha256 "d04cb82219fb8f8f746a61d5b7087e29c14c9058e838206fca1308592d9cd25c" => :catalina
+    sha256 "020114123f6107a9f97921a5c148603d2b0c9e40ced1c626a1afa5269fa705de" => :mojave
   end
 
   depends_on xcode: :build
@@ -26,6 +27,10 @@ class Macvim < Formula
     because: "vim and macvim both install vi* binaries"
 
   def install
+    # Fix error: '__declspec' attributes are not enabled
+    # Remove with next release (> 8.2-169)
+    ENV.append_to_cflags "-fdeclspec" if ENV.compiler == :clang
+
     # Avoid issues finding Ruby headers
     ENV.delete("SDKROOT")
 
@@ -49,7 +54,8 @@ class Macvim < Formula
                           "--with-lua-prefix=#{Formula["lua"].opt_prefix}",
                           "--enable-luainterp",
                           "--enable-python3interp",
-                          "--disable-sparkle"
+                          "--disable-sparkle",
+                          "--with-macarchs=#{Hardware::CPU.arch}"
     system "make"
 
     prefix.install "src/MacVim/build/Release/MacVim.app"

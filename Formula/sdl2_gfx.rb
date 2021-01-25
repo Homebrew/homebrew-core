@@ -2,6 +2,7 @@ class Sdl2Gfx < Formula
   desc "SDL2 graphics drawing primitives and other support functions"
   homepage "https://www.ferzkopp.net/wordpress/2016/01/02/sdl_gfx-sdl2_gfx/"
   url "https://www.ferzkopp.net/Software/SDL2_gfx/SDL2_gfx-1.0.4.tar.gz"
+  mirror "https://sources.voidlinux.org/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4.tar.gz"
   sha256 "63e0e01addedc9df2f85b93a248f06e8a04affa014a835c2ea34bfe34e576262"
 
   livecheck do
@@ -11,6 +12,8 @@ class Sdl2Gfx < Formula
 
   bottle do
     cellar :any
+    sha256 "9466b3ad0c9a29ca01a8c804b529ad7c89bd42c4d8b79b37bc079419464cc9f2" => :big_sur
+    sha256 "7c632415953aecce33ea6b66b0d0b75461db7987bf560802e408d308bcd9b653" => :arm64_big_sur
     sha256 "9db41c0f2fd4897456594769a4a549b5261c3027dde8fc6da7160faf7db0a539" => :catalina
     sha256 "0854ac56a8c0e0b3b5f7fe380fb0bde03dfb2da984920bcbc61ba6e4738f9ca6" => :mojave
     sha256 "6563ae4bda51a996e537cfe88509da94402b52469e11b92211b5bca58800ab24" => :high_sierra
@@ -21,9 +24,13 @@ class Sdl2Gfx < Formula
   depends_on "sdl2"
 
   def install
+    extra_args = []
+    extra_args << "--disable-mmx" if Hardware::CPU.arm?
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--disable-sdltest"
+                          "--disable-sdltest",
+                          *extra_args
     system "make", "install"
   end
 

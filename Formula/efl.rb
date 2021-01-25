@@ -4,6 +4,7 @@ class Efl < Formula
   url "https://download.enlightenment.org/rel/libs/efl/efl-1.25.1.tar.xz"
   sha256 "351ca0211ca000234527a503585f039f985607ec9439e34b49d8b8bbf35a7e6b"
   license all_of: ["GPL-2.0-only", "LGPL-2.1-only", "BSD-2-Clause", "FTL", "zlib-acknowledgement"]
+  revision 3
 
   livecheck do
     url "https://download.enlightenment.org/rel/libs/efl/"
@@ -11,9 +12,9 @@ class Efl < Formula
   end
 
   bottle do
-    sha256 "ea5807f392fcde52a309485fd4549a4950a8de48d567d4e69f3d56548091fe89" => :catalina
-    sha256 "fce32b43f89cee7d1b952e8d8aef5d65f8476e26c166e59b0bd4ae68611d6038" => :mojave
-    sha256 "980a333028f8ee49d8e86928ff29ab781369d98a7c99cf3f3663594956b7dc84" => :high_sierra
+    sha256 "1d1b1c21d3699c59be49171c4e5c24fc9f77021338ef15dba46683d47242ec26" => :big_sur
+    sha256 "49489a9dbdf02a63c5659f2eae01b190883eb499200345a77b5e1226836fd875" => :catalina
+    sha256 "0050be647d2f1b3378e2d75f6c80726c37d839c2fe35df5794221306a0572c42" => :mojave
   end
 
   depends_on "meson" => :build

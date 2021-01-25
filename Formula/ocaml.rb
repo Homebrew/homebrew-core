@@ -19,12 +19,13 @@ class Ocaml < Formula
   head "https://github.com/ocaml/ocaml.git", branch: "trunk"
 
   livecheck do
-    url "https://ocaml.org/releases"
+    url "https://ocaml.org/releases/"
     regex(/href=.*?v?(\d+(?:\.\d+)+)\.html/i)
   end
 
   bottle do
     cellar :any
+    sha256 "e6258cd7012b9c0d8e961eb661cc11bc42c388d2153a9f8b9f0a37cf4e63a0f7" => :big_sur
     sha256 "0870fc3042b3725fb2c6f131c4d6f78aec9f19d553e054ba4890773ef69e45a7" => :catalina
     sha256 "b43a7247e3d3848d5f20d2432d4996e41049e79c738762f1026f4376ec7e80d3" => :mojave
     sha256 "a534347814298cc8e66e321384f16eac85f2a59aaa2f536e542fb4870386bc2b" => :high_sierra

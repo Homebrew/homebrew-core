@@ -13,6 +13,8 @@ class Gplcver < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "43a4cecb99e48c33a4136346b110d56c8a91472634524071727c5b88afe67fba" => :big_sur
+    sha256 "fcf72ee125083159c6ab19cf20f0b5e1aeebcba61210776afe558f7eefe7e3ae" => :arm64_big_sur
     sha256 "e0db2e2d2f4331ecbe4ead3c8f9d4f239c6b9427472ea959dd394544fbbf7b43" => :catalina
     sha256 "fb50587552693b0c0c26ee074c52766c097f90afc6492a0bcf75cc65aaf2f031" => :mojave
     sha256 "2460dcc2da525280cd5b7d2452abe922874291b92f0ba3abd1316da2e5ff40f7" => :high_sierra

@@ -11,6 +11,7 @@ class Shapelib < Formula
 
   bottle do
     cellar :any
+    sha256 "dfae7491c46ca8ed8b587dd6dfa885b4ec6db8520095b1f1ae44becd28ca76d2" => :big_sur
     sha256 "9800e87eaeeca3eca0d59c3bca555c0211df96f021735251964981ac2b16bd90" => :catalina
     sha256 "90f9b9b0ccadf93be027e515be356d0b92f4dfb33979f11df9fc7570c3249d0e" => :mojave
     sha256 "f1242aaf566b272f69331d16441171b12d0b4cef8396b56e0a8246fe7618ca68" => :high_sierra

@@ -7,6 +7,8 @@ class Scws < Formula
 
   bottle do
     cellar :any
+    sha256 "6d87c6c7431b97511b7ce3ec42493bff7685c6ee2682d9733428a71826a8b300" => :big_sur
+    sha256 "ac7b0ac31fb12e9c1e4611e00dc70e5a5a4eedec4cc3d700826937eb4f67f5a6" => :arm64_big_sur
     sha256 "4dedb954c6d17b1cc42d41a978e41a897110e042bbd6099f82bdbd0ff86b7aad" => :catalina
     sha256 "feb648d3c6c98b2e693086371dae419f88b56b6d58e5ede76ffa882a6f9be4b6" => :mojave
     sha256 "94977ce56fa0c3c9d2fb21fe52067b49be65247b41d723893ac8c91f0e2dbbf3" => :high_sierra

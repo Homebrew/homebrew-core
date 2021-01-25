@@ -1,10 +1,9 @@
 class Stress < Formula
   desc "Tool to impose load on and stress test a computer system"
-  homepage "https://people.seas.harvard.edu/~apw/stress/"
-  url "https://people.seas.harvard.edu/~apw/stress/stress-1.0.4.tar.gz"
-  mirror "https://deb.debian.org/debian/pool/main/s/stress/stress_1.0.4.orig.tar.gz"
+  homepage "https://web.archive.org/web/20190702093856/https://people.seas.harvard.edu/~apw/stress/"
+  url "https://deb.debian.org/debian/pool/main/s/stress/stress_1.0.4.orig.tar.gz"
   sha256 "057e4fc2a7706411e1014bf172e4f94b63a12f18412378fca8684ca92408825b"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://deb.debian.org/debian/pool/main/s/stress/"
@@ -13,13 +12,11 @@ class Stress < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ca9674089210d1cac7af47b5f8402ce41bcbc8348892a72f226bb4d29587b349" => :catalina
-    sha256 "57923f0549beb3e528ad7683a09d615096d875512fb46b9ed7c54aa6382ca793" => :mojave
-    sha256 "3087af5469f5867b82ab85158c7268d0172b58da91baec06916659bb0fd2f930" => :high_sierra
-    sha256 "1a18d667f7804579758079e3a3f94683a64687120b5f4b77cf25a63f3f8cec39" => :sierra
-    sha256 "b4635c185bfba65271d74aaff155161d2df388be303d135315066260e9699c5e" => :el_capitan
-    sha256 "845f44585d0a3749c163300029f832125950d37af4a5b53c0b20fb143e6db014" => :yosemite
-    sha256 "6741dc72df4a43cfe2c947d9e50d08df1e35029025ff2436d5a20a01117f4fb6" => :mavericks
+    rebuild 1
+    sha256 "0e595d39f5d02ac50b4ef52311ef96bdd6d669fb1cff4fd9a9e99c105156a1c8" => :big_sur
+    sha256 "8189828c418971cd3fc6aff2a4b5fbb7ceb8932e989614d5a9aeff29bc54459c" => :arm64_big_sur
+    sha256 "c5da803a76518e3441f5e7da17a6c1972f0db3d8e407edb95a364aee3d9f7c7e" => :catalina
+    sha256 "6b20923f6f1f46c8e71b4e6a9546dff1f4b290d94805a35e8f3ddffad9cbbfbd" => :mojave
   end
 
   def install

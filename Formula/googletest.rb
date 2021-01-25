@@ -7,16 +7,24 @@ class Googletest < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ebe4172d84fd8d29282e61c810e1f99b3b6b78ac0369381b617755cd070371c6" => :catalina
-    sha256 "7eface4df1365cd951d402e244a28984a2f656afb2e3fee31cf046f1a8aefaff" => :mojave
-    sha256 "595a13da3151557305ddf8fc479fcab3cd6041c2ee9832fe18a9f717046116b1" => :high_sierra
+    rebuild 1
+    sha256 "66021a83c2dfe2a3baba769a76babde2f7224e9d6b555d8909995765bc555231" => :big_sur
+    sha256 "b31c1f09e496782c536ece5a805b12e7d5db3250bf89657d55885366c37bb6df" => :arm64_big_sur
+    sha256 "f9819a67ff4c54bfde932f1d83d9db44f8ca0e7b65e77dd812d4f71931d3deed" => :catalina
+    sha256 "58f238b7d2fea41af22c3e4bc6b52d79510c84adba6b6145f548a248a2687f16" => :mojave
   end
 
   depends_on "cmake" => :build
 
+  conflicts_with "nss", because: "both install `libgtest.a`"
+
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"
+
+    # for use case like `#include "googletest/googletest/src/gtest-all.cc"`
+    (include/"googlemock/googlemock/src").install Dir["googlemock/src/*"]
+    (include/"googletest/googletest/src").install Dir["googletest/src/*"]
   end
 
   test do

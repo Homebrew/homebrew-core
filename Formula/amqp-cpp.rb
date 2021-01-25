@@ -1,16 +1,23 @@
 class AmqpCpp < Formula
   desc "C++ library for communicating with a RabbitMQ message broker"
   homepage "https://github.com/CopernicaMarketingSoftware/AMQP-CPP"
-  url "https://github.com/CopernicaMarketingSoftware/AMQP-CPP/archive/v4.1.7.tar.gz"
-  sha256 "71b504f21f62b69c76b371fe7044e0dfc6d42650a15c267431c5084badb0ade7"
+  url "https://github.com/CopernicaMarketingSoftware/AMQP-CPP/archive/v4.3.11.tar.gz"
+  sha256 "be2b11ada1020f77b859857310be54bd073c3a4f579d99a5e251a738576ca28c"
   license "Apache-2.0"
   head "https://github.com/CopernicaMarketingSoftware/AMQP-CPP.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     cellar :any_skip_relocation
-    sha256 "1bc7470b4ede09d2c270b3581f0e0c791943f050be7c2695dfc6f983a5dfc93a" => :catalina
-    sha256 "dc608777daa46c2b4ac309992b6e958446e812efcd511f4670cef9dc9cf10aeb" => :mojave
-    sha256 "2e4c08dc2967f679c6dc9179dd6d1513309843bf40ab56fee369f863a44e3912" => :high_sierra
+    rebuild 1
+    sha256 "1442f286a2b310a52bb50fe96a3a7ed9c0195d5ce56c6b57d6bb113622e08798" => :big_sur
+    sha256 "754684e971db63046c2ba2aae19a4a2d6b0e33b18e07aa7ee324b9df5fd6c8ad" => :arm64_big_sur
+    sha256 "1360b3ab9cdd7a8deed94088bbfaf3851ff505f2f395e407ea80ae3526d3b3fb" => :catalina
+    sha256 "9a18301146ab0ea720276fdc838f00841e1c3ea9a80dd2688ff6e1c054432c99" => :mojave
   end
 
   depends_on "cmake" => :build
@@ -36,7 +43,7 @@ class AmqpCpp < Formula
       }
     EOS
     system ENV.cxx, "test.cpp", "-std=c++11", "-L#{lib}", "-o",
-                    "test", "-lc++", "-lamqpcpp"
+                    "test", "-lamqpcpp"
     system "./test"
   end
 end

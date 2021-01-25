@@ -1,33 +1,28 @@
 class Libphonenumber < Formula
   desc "C++ Phone Number library by Google"
   homepage "https://github.com/google/libphonenumber"
-  url "https://github.com/google/libphonenumber/archive/v8.12.11.tar.gz"
-  sha256 "7cc2c1fe99eb760be02f0fc1effed1e349bb261fd2bbeb2392d7661c11295d0e"
+  url "https://github.com/google/libphonenumber/archive/v8.12.16.tar.gz"
+  sha256 "b97d25d884f596f819679039d4ce34cbf5965e8e4681cacd9bd24fd93b4cf44b"
   license "Apache-2.0"
 
   bottle do
     cellar :any
-    sha256 "a9c22019d5ecd9bb8cdaa86f58d4a6b071185c5c98094f5f52e5020a947e4a75" => :catalina
-    sha256 "f500292a6581098279b7db107bdde04cd26ae83dc7b99433ce5ca3045fda3f22" => :mojave
-    sha256 "ab49263a9fcf6c933b1a7969f2500e1e8be6d620ad424034a0bc941455368faf" => :high_sierra
+    sha256 "03228a25ff7a53f1d583765badfd91f2411b797e85e752fce94bacb59b4cc483" => :big_sur
+    sha256 "7b9d1d3ac5878888b651c36632d1fc735fccc49a0205115e6cc27586fb210ff7" => :arm64_big_sur
+    sha256 "f2ab269cbf8146d93453344ce168f11749d202aec6ddfc02aa88daa1c002da40" => :catalina
+    sha256 "e861f54b8c6ac3292fcac64325195f28cd57abfea01276f6327e1266687eb4ee" => :mojave
   end
 
   depends_on "cmake" => :build
+  depends_on "googletest" => :build
   depends_on "boost"
   depends_on "icu4c"
   depends_on "protobuf"
   depends_on "re2"
 
-  resource "gtest" do
-    url "https://github.com/google/googletest/archive/release-1.10.0.tar.gz"
-    sha256 "9dc9157a9a1551ec7a7e43daea9a694a0bb5fb8bec81235d8a1e6ef64c716dcb"
-  end
-
   def install
     ENV.cxx11
-    (buildpath/"gtest").install resource("gtest")
-    system "cmake", "cpp", "-DGTEST_SOURCE_DIR=gtest/googletest",
-                           "-DGTEST_INCLUDE_DIR=gtest/googletest/include",
+    system "cmake", "cpp", "-DGTEST_INCLUDE_DIR=#{Formula["googletest"].include}",
                            *std_cmake_args
     system "make", "install"
   end

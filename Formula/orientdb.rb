@@ -1,15 +1,20 @@
 class Orientdb < Formula
   desc "Graph database"
   homepage "https://orientdb.org/"
-  url "https://s3.us-east-2.amazonaws.com/orientdb3/releases/3.1.2/orientdb-3.1.2.zip"
-  sha256 "14fdd2e2ca596f0336175590851fa3a10130a7265f4df5ef8c0c1faf8253f8df"
+  url "https://s3.us-east-2.amazonaws.com/orientdb3/releases/3.1.7/orientdb-3.1.7.zip"
+  sha256 "ffef19a44a3535d3b25da562692dbe492dab8f9020a1756e5389f21783e7e5b5"
   license "Apache-2.0"
+
+  livecheck do
+    url "https://orientdb.org/download"
+    regex(/href=.*?orientdb[._-]v?(\d+(?:\.\d+)+)\.zip/i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ef2465b839a30dd67f22aa7a3289d828521643e2c33d05246dd6b44fbb45bae7" => :catalina
-    sha256 "a28ce4d0f02308ba641d1cf897a188b8883c555da30a119651b7aa05c73eca32" => :mojave
-    sha256 "dd002904aa68d93e9c76e55662df768b90cce7cbbf2c2734f0a1fb4a08ed9a67" => :high_sierra
+    sha256 "8990f9bada5df7ebf63f980ddeb788dc67494dc9a75d313f993265498bbd2ff6" => :big_sur
+    sha256 "e41ff9abf7d75033235b6335d147cce869d4b303a77f453657e5223a88a62afe" => :catalina
+    sha256 "eb908bf503563e75e24eb8ff4166b3a28b7b057cf6b6df36a0267bb86bccc871" => :mojave
   end
 
   depends_on "maven" => :build

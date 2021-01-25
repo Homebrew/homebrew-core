@@ -6,6 +6,8 @@ class KyotoCabinet < Formula
   license "GPL-3.0"
 
   bottle do
+    sha256 "d378396d5ea0974ddcd3fa105618bfb826da0f5280b2310a64d85f7bb570cf91" => :big_sur
+    sha256 "1ca68b35195efd332074aeee92585a14d4dd1b4f54e1d5b398c3b74429c00329" => :arm64_big_sur
     sha256 "444a9c86b36b081cc9ad31ef68d8c4e03f0861b9f0603a7fe5c99780cdab3926" => :catalina
     sha256 "ddd2f1b0f1985ad81b04b29dbd54f95c5f7c88f7427b559e9f298a6473a820b0" => :mojave
     sha256 "e4b99c22b5aebf85986e5c172ec61768833708acbb04318335f6641bea1f77ef" => :high_sierra

@@ -13,6 +13,8 @@ class Libgxps < Formula
 
   bottle do
     cellar :any
+    sha256 "2b3f7d48efd67aae795cbe831c3f6016ef3935927bc277e605525a9a29d38e45" => :big_sur
+    sha256 "985cab45b1a3186698595bd51e153806d10ff3e6ae014793e4dafeb14f4ef703" => :arm64_big_sur
     sha256 "dd6c63cf7f8af07a9ea8bbe4ee902d55a834652f4100780affab11dd38a3deb0" => :catalina
     sha256 "a71f1a595fe620805393786fe14dedc8fe3fb6f75a812536ba5acc00e9ec9c07" => :mojave
     sha256 "ed21a1e2b30b473883f54fa09c7a1707eb6ae2a78946ecbb1d1d11f5f340154a" => :high_sierra

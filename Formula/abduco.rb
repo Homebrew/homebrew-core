@@ -8,6 +8,8 @@ class Abduco < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "a010ab98531eaafdb9d35a7f2ca6a0583b6566be603f95b721f41e1037eafacb" => :big_sur
+    sha256 "e261303a69440aa46e09bfc3be3b7fb0c5cb6b2a3f6fbeb94338491a8538a90a" => :arm64_big_sur
     sha256 "6d78f6c36e0933f3c55bc96d4ca5c0e4e24030598702423ed752130721e7b8dc" => :catalina
     sha256 "b3c5d87a9da3f70e3fd16fdf7a3d2327b41c96ab74d62e2a6efa2e3733ec78f3" => :mojave
     sha256 "8ca092b6fd5a6ad39e3c91186421bca2943af6bfdbae4ea95254b36d1e109a78" => :high_sierra

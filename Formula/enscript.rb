@@ -12,6 +12,8 @@ class Enscript < Formula
   end
 
   bottle do
+    sha256 "97b523c5513e54b82d963a7b34a4cfbcbe0af74399bc48839b5285cfce29a9a1" => :big_sur
+    sha256 "18c0e8fd04b918f671236e5feffe8406c8368369eb08fe301f817e59233659c0" => :arm64_big_sur
     sha256 "3611a6a01c76502ae6d4b1ff13d802acc5b2a2a3f2cf647e6b9323b7e40bde7e" => :catalina
     sha256 "a8bbba8f7d64eed40dd59a9db980b049ec786e148d31a0aeb92556959b4ad0b0" => :mojave
     sha256 "00045dff3bdf7ac98a19236838d7af7101cc1fc002e55550312042bb2e4d7426" => :high_sierra

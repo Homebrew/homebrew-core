@@ -12,6 +12,8 @@ class Nkf < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "40a30c72ca018734cf05b3e029d4e5d3eb6297f847da07e699f9891558480ad4" => :big_sur
+    sha256 "85bfff310d48fea503f95092b12a3a2fa19b48ba634cbbdb84c083b8701cd948" => :arm64_big_sur
     sha256 "4a0694aedea8fcf96ecdfb6c60c0e14825591e7e7247e3944a00966d883398e6" => :catalina
     sha256 "85183c457daaecd9a3ce59cea556189ad0131c6134d77e7890643a3fb75e3965" => :mojave
     sha256 "9af47f293d4531c8d7ec5a81bd041349773f982b9710edca03eb3eb59b02a8b5" => :high_sierra

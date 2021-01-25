@@ -3,8 +3,8 @@ class Cairo < Formula
   homepage "https://cairographics.org/"
   url "https://cairographics.org/releases/cairo-1.16.0.tar.xz"
   sha256 "5e7b29b3f113ef870d1e3ecf8adf21f923396401604bda16d44be45e66052331"
-  license "LGPL-2.1"
-  revision 3
+  license any_of: ["LGPL-2.1-only", "MPL-1.1"]
+  revision 4
 
   livecheck do
     url "https://cairographics.org/releases/?C=M&O=D"
@@ -12,13 +12,14 @@ class Cairo < Formula
   end
 
   bottle do
-    sha256 "6a23a68837269a8410a54950fdc8883feda091f221118370f1bfd3adbf5ee89c" => :catalina
-    sha256 "0984045234fb22fa3e54a337137e9e43a1bf997f5d77692ed02249dfdee2b1bf" => :mojave
-    sha256 "5c383ad4625fb1bd15e44e99fba1201490fa478b26178abaca5abb0fdb51510e" => :high_sierra
+    sha256 "45f0b6aa6d76fa7806e1eeb066d6737033da3de74ac247a27735ff3a29b1b62b" => :big_sur
+    sha256 "eb04d54ac340a4954a178e99d3ea064913d3fe89184b1edd479c2a96260bb989" => :arm64_big_sur
+    sha256 "3d772a45e12f548338893e11cff0cd5c6a0a929bc214de8aa8cb6995c359bae9" => :catalina
+    sha256 "9ab59fee2cf7e7c331b95a9d5f026dbfdc03b6fa761304f729cdf87921c786bf" => :mojave
   end
 
   head do
-    url "https://anongit.freedesktop.org/git/cairo.git"
+    url "https://gitlab.freedesktop.org/cairo/cairo.git"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
@@ -35,25 +36,50 @@ class Cairo < Formula
   uses_from_macos "zlib"
 
   on_linux do
+    depends_on "libx11"
+    depends_on "libxcb"
     depends_on "libxext"
     depends_on "libxrender"
   end
 
+  # Avoid segfaults on Big Sur. Remove at version bump.
+  # https://gitlab.freedesktop.org/cairo/cairo/-/issues/420
+  patch do
+    url "https://gitlab.freedesktop.org/cairo/cairo/-/commit/e22d7212acb454daccc088619ee147af03883974.patch"
+    sha256 "363a6018efc52721e2eace8df3aa319c93f3ad765ef7e3ea04e2ddd4ee94d0e1"
+  end
+
   def install
+    args = %W[
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --enable-gobject
+      --enable-svg
+      --enable-tee
+      --disable-valgrind
+    ]
+    on_macos do
+      args += %w[
+        --enable-quartz-image
+        --disable-xcb
+        --disable-xlib
+        --disable-xlib-xrender
+      ]
+    end
+    on_linux do
+      args += %w[
+        --enable-xcb
+        --enable-xlib
+        --enable-xlib-xrender
+      ]
+    end
+
     if build.head?
       ENV["NOCONFIGURE"] = "1"
       system "./autogen.sh"
     end
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--enable-gobject=yes",
-                          "--enable-svg=yes",
-                          "--enable-tee=yes",
-                          "--enable-quartz-image",
-                          "--enable-xcb=no",
-                          "--enable-xlib=no",
-                          "--enable-xlib-xrender=no"
+    system "./configure", *args
     system "make", "install"
   end
 

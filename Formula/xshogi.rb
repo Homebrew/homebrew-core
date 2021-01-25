@@ -5,23 +5,27 @@ class Xshogi < Formula
   mirror "https://ftpmirror.gnu.org/gnushogi/xshogi-1.4.2.tar.gz"
   sha256 "2e2f1145e3317143615a764411178f538bd54945646b14fc2264aaeaa105dab6"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "09ccace2697472b65f34ca8ae2e770dd2cab177936541fbb7229ccbbcb5dfd04" => :catalina
-    sha256 "dab2f19b43434783e84f86e0bc3dd293e49bfd8a036117be63225f82c0e92692" => :mojave
-    sha256 "c78625da6cc10502df9274bff0680a1af6316c125b6ce482ab9d79ad745e6e55" => :high_sierra
-    sha256 "4877493db0e9536a1282b9aa79d3cd38357a4b8e767533cfb6c4dce941faed23" => :sierra
-    sha256 "a4bfc78e6d2f10e6bf4c813a2e847963d6dd6d939a522934717ff6d35acafcc9" => :el_capitan
-    sha256 "62c11f796225f439e5698ad87abafbfe55d2184d895b86fd13abe3dc924b2030" => :yosemite
+    cellar :any
+    sha256 "998ba1de10cc68bfa3c111576e0ea9bc09cab9a8cc308590e3d0914482b62178" => :big_sur
+    sha256 "fc650945fdedff5236f9cd3ca7e04732e67e3c46a7c3ca1e592be1dfe16c69c3" => :arm64_big_sur
+    sha256 "32cdfaceb15bbd7ebc4e2a8d26ca31c0008ce2ed1ef90f6f5309d7157ab722f6" => :catalina
+    sha256 "378503de599c2f121c06902aa2235a059b9e47963a80b1f29f7eb4b37b950479" => :mojave
+    sha256 "a52ad3a749214e18e02807f479b428f909d87c556cbeeb015dbf1b7b27d1fcb5" => :high_sierra
   end
 
   depends_on "gnu-shogi"
-  depends_on :x11
+  depends_on "libx11"
+  depends_on "libxaw"
+  depends_on "libxext"
+  depends_on "libxmu"
+  depends_on "libxt"
 
   def install
     system "./configure", "--prefix=#{prefix}",

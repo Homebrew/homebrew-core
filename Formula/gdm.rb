@@ -10,6 +10,7 @@ class Gdm < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "fc0e6626aec33649015a5808dd6c2b2d5b73051ff71231c6b482bba9e599efc1" => :big_sur
     sha256 "a9801987792b8b32d8e1a30d668e43a36c798f2901149dbd49f4f8f0f79b45b7" => :catalina
     sha256 "655848c2fdb17aea2fd7f3f80a537d115b6e31232927c7cda7fac3b22f5d47a5" => :mojave
     sha256 "f9d1d9d11a51359be57311d0e896dc797637905d0b8e68340a3e5d6ad2dc962d" => :high_sierra

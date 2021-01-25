@@ -1,9 +1,10 @@
 class Libodfgen < Formula
   desc "ODF export library for projects using librevenge"
   homepage "https://sourceforge.net/p/libwpd/wiki/libodfgen/"
-  url "https://dev-www.libreoffice.org/src/libodfgen-0.1.7.tar.xz"
-  mirror "https://downloads.sourceforge.net/project/libwpd/libodfgen/libodfgen-0.1.7/libodfgen-0.1.7.tar.xz"
-  sha256 "323e491f956c8ca2abb12c998e350670930a32317bf9662b0615dd4b3922b831"
+  url "https://dev-www.libreoffice.org/src/libodfgen-0.1.8.tar.xz"
+  mirror "https://downloads.sourceforge.net/project/libwpd/libodfgen/libodfgen-0.1.8/libodfgen-0.1.8.tar.xz"
+  sha256 "55200027fd46623b9bdddd38d275e7452d1b0ff8aeddcad6f9ae6dc25f610625"
+  license any_of: ["MPL-2.0", "LGPL-2.1-or-later"]
 
   livecheck do
     url "https://dev-www.libreoffice.org/src/"
@@ -12,10 +13,10 @@ class Libodfgen < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "25fb42ad5715c87c0a23547b59515aa5c0d7cba2e0a5d09d2d2a8eeb06217677" => :catalina
-    sha256 "f90434da376c3af4b55640d1c5a870c28339a9174dfda56b7bc79dc6b6b60ec8" => :mojave
-    sha256 "b80178fdbf5ca0816879466adc8fbedd671d57db3378ee3c708fefdf9b8f87e3" => :high_sierra
+    sha256 "f53270e1f9060d1e2074a89444899e540e3307270fbd94c6a5186e9a05ecda45" => :big_sur
+    sha256 "db9ec11161a89cadc0cc829f021fbb1a26ffd96ca7962788013b6a83efa35440" => :arm64_big_sur
+    sha256 "f019ef9174156093d5592556fac3fb5e87a38a90882572a3ff4a15b7d9227c8c" => :catalina
+    sha256 "b8bcc9b962fa97d431fb4a27a924a18b37b264e43bb5e881b67668aa18633edd" => :mojave
   end
 
   depends_on "boost" => :build

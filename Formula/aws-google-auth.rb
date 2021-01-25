@@ -3,17 +3,23 @@ class AwsGoogleAuth < Formula
 
   desc "Acquire AWS credentials using Google Apps"
   homepage "https://github.com/cevoaustralia/aws-google-auth"
-  url "https://github.com/cevoaustralia/aws-google-auth/archive/0.0.36.tar.gz"
-  sha256 "c880633b2813b3fd2312fd1301a8927ebc7b13c3405932bd0ec760cecfb7c780"
+  url "https://files.pythonhosted.org/packages/6c/cc/f4c6e51c6dfa2800f9c89c639786b61e766c07752385333374c5291510fe/aws-google-auth-0.0.36.tar.gz"
+  sha256 "2fae0f2f9963e0e3e99007adc23d679eb1f92f834da05ebf27435f48a8ae3765"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/cevoaustralia/aws-google-auth.git"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any
-    sha256 "5f2d53fa169e9c42d50a9531a2db7a6f8d4a0881c7a13391cc6eb801acda9320" => :catalina
-    sha256 "81751cb1187b9df1f7b03d93788113d9f0269c5d5998734bf2d2abf87142962b" => :mojave
-    sha256 "02b918441939858990b6da801818e599f505656a39bd0bf88edda2e57a3eec32" => :high_sierra
+    rebuild 2
+    sha256 "b136bd2033917f9270659aa25a27c58ae5b61298abac0d8d780082fc1a5dbffb" => :big_sur
+    sha256 "e2166acc3d9bd78f4376ab3e68333ad87c7be2f384d1100d7a1b0901214c219f" => :arm64_big_sur
+    sha256 "3e1e3f7997feb294582626b7ae2dbdf4e8c29aba79116ec4726988ea579b5ecf" => :catalina
+    sha256 "7e8275e413dec455d05420a7193a5317e6634aafb7291c2c8cdfb2472fa06ef8" => :mojave
   end
 
   depends_on "freetype"
@@ -64,8 +70,8 @@ class AwsGoogleAuth < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/05/8c/40cd6949373e23081b3ea20d5594ae523e681b6f472e600fbc95ed046a36/urllib3-1.25.9.tar.gz"
-    sha256 "3018294ebefce6572a474f0604c2021e33b3fd8006ecd11d62107a5d2a963527"
+    url "https://files.pythonhosted.org/packages/29/e6/d1a1d78c439cad688757b70f26c50a53332167c364edb0134cadd280e234/urllib3-1.26.2.tar.gz"
+    sha256 "19188f96923873c92ccb987120ec4acaa12f0461fa9ce5d3d0772bc965a39e08"
   end
 
   resource "botocore" do
@@ -124,8 +130,8 @@ class AwsGoogleAuth < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/f5/4f/280162d4bd4d8aad241a21aecff7a6e46891b905a4341e7ab549ebaf7915/requests-2.23.0.tar.gz"
-    sha256 "b3f43d496c6daba4493e7c431722aeb7dbc6288f52a6e04e7b6023b0247817e6"
+    url "https://files.pythonhosted.org/packages/9f/14/4a6542a078773957aa83101336375c9597e6fe5889d20abda9c38f9f3ff2/requests-2.25.0.tar.gz"
+    sha256 "7f1a0b932f4a60a1a65caa4263921bb7d9ee911957e0ae4a23a6dd08185ad5f8"
   end
 
   resource "tabulate" do

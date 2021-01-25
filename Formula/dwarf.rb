@@ -8,6 +8,8 @@ class Dwarf < Formula
 
   bottle do
     cellar :any
+    sha256 "b0bec07c54898e3506e249b3c18fde361772367f1e2d8cc2ee6726a678aea7cd" => :big_sur
+    sha256 "30b7f9852b68c70d6e8e07c0de3e9075a4e0edd0facc219970de6535e5931b4d" => :arm64_big_sur
     sha256 "1d0e1d803ab771d58a56cd52939d01b7c9e1a8474cb80c21b2251320340e5dc2" => :catalina
     sha256 "c10f3ccbb2dc59b7c76c9dd46a71f1e41d7c7faa8fab5f4326599b3a5467c770" => :mojave
     sha256 "92db022169f222a0ce002e6c20e6256cc5636f61c1e6fa1c44b56481c5a2422d" => :high_sierra

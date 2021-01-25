@@ -5,7 +5,13 @@ class OpenkimModels < Formula
   sha256 "50338084ece92ec0fb13b0bbdf357b5d7450e26068ba501f23c315f814befc26"
   revision 1
 
+  livecheck do
+    url "https://s3.openkim.org/archives/collection/"
+    regex(/href=.*?openkim-models[._-]v?(\d+(?:-\d+)+)\.t/i)
+  end
+
   bottle do
+    sha256 "d8eb0ffb78085bf3d5770d022378d82631e75c8975611bcd4f6b63a33f0ef74c" => :big_sur
     sha256 "9420d4f91176705c43778e8566407d3310924b35dc0e10c3ceaaac86dc5c3713" => :catalina
     sha256 "236e77924307da8aa61a6a34242dd1623d501db8ef408e3c33d3ca8b4ca387f4" => :mojave
     sha256 "d962559c861be90a61189489af855947e8cd883a3480863c4097a3b1a0410e6f" => :high_sierra

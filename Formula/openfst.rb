@@ -1,8 +1,8 @@
 class Openfst < Formula
   desc "Library for weighted finite-state transducers"
   homepage "http://www.openfst.org/twiki/bin/view/FST/WebHome"
-  url "http://openfst.org/twiki/pub/FST/FstDownload/openfst-1.7.9.tar.gz"
-  sha256 "9319aeb31d1e2950ae25449884e255cc2bc9dfaf987f601590763e61a10fbdde"
+  url "http://openfst.org/twiki/pub/FST/FstDownload/openfst-1.8.0.tar.gz"
+  sha256 "9730f1934f60f1320e46af44826e954bc6f7a695946548005ac33c1821745440"
   license "Apache-2.0"
 
   livecheck do
@@ -12,15 +12,21 @@ class Openfst < Formula
 
   bottle do
     cellar :any
-    sha256 "b32fb6cb0eb43a7d8775d8bfc760c49471586eeb33797f3d44a8b53cd45dc792" => :catalina
-    sha256 "7e5a450f383ddfeddcb7ee8d240e7db576fcc32a25c199d6a35eba40fea920d9" => :mojave
-    sha256 "0635e790f390be0a97c78a434e723280339fe0f0d86ee55c4a34339840f160a7" => :high_sierra
+    rebuild 1
+    sha256 "44287522a924816ee4c94f9b2e5e2c88caf0033e1b939ec6f21bd597fc8abfdb" => :big_sur
+    sha256 "683c64892ce67d682098c5f4fd6969c15f98af009ccd61331489b3c9c040d8a4" => :arm64_big_sur
+    sha256 "b49da4e3ff869f532bb920a61523f65f131e5fbfe4de034a4422664ca10bb92e" => :catalina
+    sha256 "06cd8774b212aca225964d495f1627dd8e4bc4b58b7d527f9b32bc3a974c69e6" => :mojave
   end
 
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "--enable-fsts",
+                          "--enable-compress",
+                          "--enable-grm",
+                          "--enable-special"
     system "make"
     system "make", "install"
   end

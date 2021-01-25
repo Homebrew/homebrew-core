@@ -1,15 +1,17 @@
 class GitAbsorb < Formula
   desc "Automatic git commit --fixup"
   homepage "https://github.com/tummychow/git-absorb"
-  url "https://github.com/tummychow/git-absorb/archive/0.6.5.tar.gz"
-  sha256 "0c8bf3520209f6d292515ccaaa4b91d7d5e18bd8abe41fad049b5a2797386892"
+  url "https://github.com/tummychow/git-absorb/archive/0.6.6.tar.gz"
+  sha256 "955069cc70a34816e6f4b6a6bd1892cfc0ae3d83d053232293366eb65599af2f"
   license "BSD-3-Clause"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "32fc0d304fa59c9193d7cf28ff21b0d606b0e1d22a8b3fe2b10a2efe2267e03e" => :catalina
-    sha256 "559229de495315dfc22fbffa16540a12e2c80ed0fc422e0e379b23adf52e1f18" => :mojave
-    sha256 "19d4cc345118a1ca56d2bdfdf2de2b4200004172af49969a0b2c4d9290ed87ca" => :high_sierra
+    sha256 "1a960e64840655e62b5bfdbdf5b235650b6d6655c32eaac05f9afb1b472893ef" => :big_sur
+    sha256 "c990b0116058e091c06b246e985bdd81e84a88f7078254c1253f0b2ea41ccd28" => :arm64_big_sur
+    sha256 "663a57962ac9400e4b35164b82358025b1304c5097ff8841043a8885ba8881ea" => :catalina
+    sha256 "afa2140c2f7e4f26c4027c3871a1f6b9f1522b9ef64b59cec358383247ae8263" => :mojave
+    sha256 "42f677cb8adf051c212bc04ada5a0527289a0491d58d1b0ea71dbe4a04115c39" => :high_sierra
   end
 
   depends_on "rust" => :build

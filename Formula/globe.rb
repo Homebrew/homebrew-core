@@ -7,6 +7,8 @@ class Globe < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "d0c0291f6767d96e3e5e21dfbdd71f793e83208841de96b1d2907c509b5dc62d" => :big_sur
+    sha256 "d614010f862d04bbc2fc08ba4f220fde562ee07f08fe7f2fe15470afa2ad09c1" => :arm64_big_sur
     sha256 "813ec2be614ca68c63af2b1830b6aa5129c5b65ce3c0d3aa6fa6d8f826f674e5" => :catalina
     sha256 "a5a07b3dfade00debcfe123b8ce103ec33649c9152f89676fce5b70c0f0fec8a" => :mojave
     sha256 "f61e4026debce10b4611ce963f5387721296b9bd84120eecfcff275facf76f32" => :high_sierra

@@ -1,8 +1,8 @@
 class Devil < Formula
   desc "Cross-platform image library"
   homepage "https://sourceforge.net/projects/openil/"
-  license "LGPL-2.1"
-  revision 1
+  license "LGPL-2.1-only"
+  revision 2
   head "https://github.com/DentonW/DevIL.git"
 
   stable do
@@ -24,6 +24,12 @@ class Devil < Formula
       url "https://github.com/DentonW/DevIL/commit/4a2d7822.patch?full_index=1"
       sha256 "7e74a4366ef485beea1c4285f2b371b6bfa0e2513b83d4d45e4e120690c93f1d"
     end
+
+    # allow compiling against jasper >= 2.0.17
+    patch do
+      url "https://github.com/DentonW/DevIL/commit/42a62648.patch?full_index=1"
+      sha256 "b3a99c34cd7f9a5681f43dc0886fe360ba7d1df2dd1eddd7fcdcae7898f7a68e"
+    end
   end
 
   livecheck do
@@ -32,12 +38,10 @@ class Devil < Formula
 
   bottle do
     cellar :any
-    sha256 "8d4739b13ed6e20bc9f87c7f5e06ae2742df94386a80ebae30a9eddf1c70c140" => :catalina
-    sha256 "222751818b34131dcc58e7832cd652e9684c2b957cd1430a87ce19d0dd33e449" => :mojave
-    sha256 "7cb8354e26e1d30503c5f232f70c45fad049be1b1a341fa5cc99cb57741c4e61" => :high_sierra
-    sha256 "25bd964db15fdfa4085b73bd1014044f36b877285db451089b4fa7928b02d555" => :sierra
-    sha256 "d3821710ef1409df56d15f6e277e3863abfbf568517f57a83eeafccd02afac2b" => :el_capitan
-    sha256 "5812c01a10936b7f7083d82f2a39d509fe630e41b78e2164f0482ab558026c69" => :yosemite
+    sha256 "620f8f3092f690123ed2365fec5c39a1258e0705e8b5df5de5120102e6fca007" => :big_sur
+    sha256 "5091d86828c5b1c88ba853fdcf0fa90a8ff6b3ba0d682330ecb3740b91453d37" => :arm64_big_sur
+    sha256 "4ab10b6765d5417246c6a7cf2a6fef05969c7216fe353c0ee5a9b562afe03d3e" => :catalina
+    sha256 "3031f881197694ff89cbe658af6e15a4abe11d995cd280eb38e1c5b1ba622b82" => :mojave
   end
 
   depends_on "cmake" => :build

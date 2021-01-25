@@ -8,12 +8,14 @@ class Supertux < Formula
   head "https://github.com/SuperTux/supertux.git"
 
   livecheck do
-    url "https://github.com/SuperTux/supertux/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
     cellar :any
+    sha256 "7dba4235519691bd4a1cffb0764d8e88563936ff98f88dae6db324aca59b06e8" => :big_sur
+    sha256 "c5a594ef5892731a556b3956b4633c576a8450939188493556b406ed0941254c" => :arm64_big_sur
     sha256 "2180590875a08d8aa1a03303090ecf34ff3a01bca1084db4b0fba6437090d100" => :catalina
     sha256 "a3e03cceaedb6ab9dec08e4dc01882e259de440132d06f9c1f50cebd8b61c483" => :mojave
     sha256 "6f1c9c50af7ccbe9632e1211b81a6bef05ad7d1e0d9c5c20c88386ab3b07cc30" => :high_sierra

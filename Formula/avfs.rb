@@ -4,11 +4,6 @@ class Avfs < Formula
   url "https://downloads.sourceforge.net/project/avf/avfs/1.1.3/avfs-1.1.3.tar.bz2"
   sha256 "4f4ec1e8c0d5da94949e3dab7500ee29fa3e0dda723daf8e7d60e5f3ce4450df"
 
-  livecheck do
-    url :stable
-    regex(%r{url=.*?/avfs[._-]v?(\d+(?:\.\d+)+)\.t}i)
-  end
-
   bottle do
     sha256 "6f496a30b6bd1c8eba1005e4bc0da26b53353effab3f447cf8d43a669ad7a6b5" => :catalina
     sha256 "1e75ce4753a0d9a9af12e4a718537a9e2398fd535413b72505dd126a33610fe6" => :mojave
@@ -18,8 +13,16 @@ class Avfs < Formula
   depends_on "pkg-config" => :build
   depends_on macos: :sierra # needs clock_gettime
   depends_on "openssl@1.1"
-  depends_on :osxfuse
   depends_on "xz"
+
+  on_macos do
+    deprecate! date: "2020-11-10", because: "requires FUSE"
+    depends_on :osxfuse
+  end
+
+  on_linux do
+    depends_on "libfuse"
+  end
 
   def install
     args = %W[

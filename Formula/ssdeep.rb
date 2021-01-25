@@ -7,6 +7,8 @@ class Ssdeep < Formula
 
   bottle do
     cellar :any
+    sha256 "07e5950c12637cccbba297963ea3cb11ee93e9e71185ae13d3a3e5a61d3ed2a3" => :big_sur
+    sha256 "ee64c7c583f39962316b19684461489bf1c23ec97d910987430905f8c0b3e26c" => :arm64_big_sur
     sha256 "f497e16679d8c9a4e04bc3e2458b5d02f5d2899b1be522df2cfcac88fbd5a672" => :catalina
     sha256 "89e84b13c5e104f7b03a2cf3e9d679a3af57c6432f3c9daa313f9b1caa4cdfb0" => :mojave
     sha256 "1c8a9a487676961755daf5688ec478a5925f3a0dfe36faeb7027878600ef2384" => :high_sierra

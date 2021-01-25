@@ -8,6 +8,8 @@ class G2 < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "08b8c6538687a2994e8e589ed75b64e161e9865b49a039a7b6d622186450350a" => :big_sur
+    sha256 "e41e0df4fe1e129acfc132add642219228b9bafafef804ad6528e8a42b3ed7d6" => :arm64_big_sur
     sha256 "e9350d1a2278bc954807b784dd6f34044ba69bcbeef3c91410f4bac9affdc0ca" => :catalina
     sha256 "64107e7e395a373205f8e4953082f90e86736b27c01198836ea3915a40362dc5" => :mojave
     sha256 "172bb101cd40ab61ea7a6ce85798556da5bbb980ae050023e8e8ff9f4d2e2c52" => :high_sierra

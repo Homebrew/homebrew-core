@@ -5,25 +5,26 @@ class Geckodriver < Formula
   head "https://hg.mozilla.org/mozilla-central/", using: :hg
 
   stable do
-    # Get the hg_revision for stable releases from https://github.com/mozilla/geckodriver/releases
-    hg_revision = "90ec81285ff6287cb2824b29ddebb7818cc7b96b"
+    # Get the hg_revision for stable releases from
+    # https://searchfox.org/mozilla-central/source/testing/geckodriver/CHANGES.md
+    hg_revision = "cf6956a5ec8e21896736f96237b1476c9d0aaf45"
     url "https://hg.mozilla.org/mozilla-central/archive/#{hg_revision}.zip/testing/geckodriver/"
-    version "0.27.0"
-    sha256 "06d92c830016edd9c4f88c9a659343fd9c35cae168820f6808f5486b3e42456f"
+    version "0.29.0"
+    sha256 "26b86be8c1fe47d1a7b25ae6dfc280776567c9d48b6c7491eb0e7fcc1944a8d2"
 
     resource "webdriver" do
       url "https://hg.mozilla.org/mozilla-central/archive/#{hg_revision}.zip/testing/webdriver/"
-      sha256 "88ceccaba4df4ba57bdf3c9238a9834695fb51d67b749e37e1c158662ea2a6ef"
+      sha256 "d8579cd155aad688931361b3ca8f1e8260592641162d5e51a78b59e189e44c56"
     end
 
     resource "mozbase" do
       url "https://hg.mozilla.org/mozilla-central/archive/#{hg_revision}.zip/testing/mozbase/rust/"
-      sha256 "65c723351868f2a8b2c8dc7cb72b06ed0372dbef34ca21420162cf870c4f8b5a"
+      sha256 "d3693c78c0186b34197b1fdfd34a2694a155dc36ce0a50d5ccfc558aca54fd0b"
     end
 
     resource "Cargo.lock" do
       url "https://hg.mozilla.org/mozilla-central/raw-file/#{hg_revision}/Cargo.lock"
-      sha256 "cb3d9f8f6daa3bc5cb884312c03cbd25fc754e7899c6c3ed90c452d1a90cb6ae"
+      sha256 "048970448a118b1569b9e70192c0214a86363e0c25094819d4cf6b99ee54eef0"
     end
   end
 
@@ -34,9 +35,10 @@ class Geckodriver < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bd5e9db1c72e65e9af516a5c8bc43c8896808b636b036b1467447418cb34a235" => :catalina
-    sha256 "d4d308dede5f3762694b6da1d21426e470bc8973b8e0084e1a44272b9673204d" => :mojave
-    sha256 "c1ccd105a99db9ad2cdbba28d2502ff3a215479e83248b419c44799c0ee68dec" => :high_sierra
+    sha256 "5e3b3b2ea70199fbfb3dc656eab997e2d99cc298579fdf03097f11ab4d046161" => :big_sur
+    sha256 "22254633b2eb8926074a54c4304df503d44e52ba91192aa248143df17c91fd30" => :arm64_big_sur
+    sha256 "2831a5194598fa63d7c5db952c14e9a95371db0ebf0fb93c88e992181c64e36a" => :catalina
+    sha256 "c8b8c5e4de9f8e6746b1e6a565bea4438274d021fee94d0976f8ad46092e1955" => :mojave
   end
 
   depends_on "rust" => :build

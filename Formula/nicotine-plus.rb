@@ -1,40 +1,33 @@
 class NicotinePlus < Formula
   include Language::Python::Virtualenv
 
-  desc "Graphical client for the SoulSeek peer-to-peer system"
-  homepage "https://www.nicotine-plus.org/"
-  url "https://github.com/Nicotine-Plus/nicotine-plus/archive/2.1.2.tar.gz"
-  sha256 "3ed18ade97183c632836eb8e304a515fc19a35babb46cc6e6747bcfd8205dcdf"
+  desc "Graphical client for the Soulseek file sharing network"
+  homepage "https://nicotine-plus.github.io/nicotine-plus/"
+  url "https://files.pythonhosted.org/packages/1e/d5/35536e21b33b881d2cd13c79f6404691a23268eafad00300214788b3ca2c/nicotine-plus-2.2.2.tar.gz"
+  sha256 "6913aabd98cb841d6c05213f8004300c2e90d9afdaf5aa081269b272494762f5"
   license "GPL-3.0-or-later"
   head "https://github.com/Nicotine-Plus/nicotine-plus.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
-    cellar :any
-    sha256 "79f838b75ca361f58760ba72b1249c7713def0cd7aecf4f6d08ea111989cee50" => :catalina
-    sha256 "21e9579eb01c586c391a5d23785021ea10be26fd493bce2592cb1ea7af59c582" => :mojave
-    sha256 "c82082e0ff3002617e91804a3539c34c19170bb1f33c057c7f69198569a1177a" => :high_sierra
+    cellar :any_skip_relocation
+    rebuild 2
+    sha256 "c6b26f5e472d343bd5f6190af50d15326df5d4b249c973bb997de195d7af26fa" => :big_sur
+    sha256 "284ab0e4d1fdfc9bab0c6478ed2c354c1f047f39d0658f1b073dd2a9a37b84ce" => :arm64_big_sur
+    sha256 "f03e6e761f7a8062d506738b544762e89a020f626d8ba154b7c838a44dbd5af4" => :catalina
+    sha256 "52431db05bd1e9c96594a8e1168c9e3645c53f582df85841d5e04ddf5b8bc1dd" => :mojave
   end
 
   depends_on "adwaita-icon-theme"
   depends_on "gtk+3"
   depends_on "pygobject3"
-  depends_on "python@3.8"
-  depends_on "taglib"
-
-  resource "miniupnpc" do
-    url "https://files.pythonhosted.org/packages/0c/e8/dbb2747230dfd98a6138cb65b322072eade4d92e1006e518c8711f8f5b85/miniupnpc-2.0.2.tar.gz"
-    sha256 "7ea46c93486fe1bdb31f0e0c2d911d224fce70bf5ea120e4295d647dfe274931"
-  end
-
-  resource "pytaglib" do
-    url "https://files.pythonhosted.org/packages/c7/44/f054737af93d8bc57c3a23906e4e7d1b5538c7d96577746e5c4b2f92b181/pytaglib-1.4.6.tar.gz"
-    sha256 "16daf54e78fb56442293d20d7659097470ecac9031f33037f9d53baa31382952"
-  end
+  depends_on "python@3.9"
 
   def install
-    venv = virtualenv_create(libexec, "python3")
-    venv.pip_install resources
-    venv.pip_install_and_link buildpath
+    virtualenv_install_with_resources
   end
 
   test do

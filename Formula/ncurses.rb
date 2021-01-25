@@ -11,6 +11,8 @@ class Ncurses < Formula
   end
 
   bottle do
+    sha256 "b34b4aa433f23405c6104bf810836eed2686f11c660b8668a7af86f99be2329f" => :big_sur
+    sha256 "111ab64b5ffbe5aebe18096a2ff95e8e8f6426955799181db8338677e8f853e4" => :arm64_big_sur
     sha256 "eae51ad3391edafe3d6c649ba44f607ee1464b4b5d9ee48770e9817ee5f0ccdd" => :catalina
     sha256 "1771e0ce821cf8cbe38d0ce8d1843fd559532923222edc5dbf5b31fcf24fed90" => :mojave
     sha256 "4648be8457b081026d3da80f290abaf3fbfdcb49d62914861a63fc706f9adabe" => :high_sierra
@@ -19,6 +21,10 @@ class Ncurses < Formula
   keg_only :provided_by_macos
 
   depends_on "pkg-config" => :build
+
+  on_linux do
+    depends_on "gpatch" => :build
+  end
 
   def install
     system "./configure", "--prefix=#{prefix}",
@@ -40,15 +46,29 @@ class Ncurses < Formula
     major = version.major
 
     %w[form menu ncurses panel].each do |name|
-      lib.install_symlink "lib#{name}w.#{major}.dylib" => "lib#{name}.dylib"
-      lib.install_symlink "lib#{name}w.#{major}.dylib" => "lib#{name}.#{major}.dylib"
+      on_macos do
+        lib.install_symlink "lib#{name}w.#{major}.dylib" => "lib#{name}.dylib"
+        lib.install_symlink "lib#{name}w.#{major}.dylib" => "lib#{name}.#{major}.dylib"
+      end
+      on_linux do
+        lib.install_symlink "lib#{name}w.so.#{major}" => "lib#{name}.so"
+        lib.install_symlink "lib#{name}w.so.#{major}" => "lib#{name}.so.#{major}"
+      end
       lib.install_symlink "lib#{name}w.a" => "lib#{name}.a"
       lib.install_symlink "lib#{name}w_g.a" => "lib#{name}_g.a"
     end
 
     lib.install_symlink "libncurses++w.a" => "libncurses++.a"
     lib.install_symlink "libncurses.a" => "libcurses.a"
-    lib.install_symlink "libncurses.dylib" => "libcurses.dylib"
+    lib.install_symlink shared_library("libncurses") => shared_library("libcurses")
+    on_linux do
+      # libtermcap and libtinfo are provided by ncurses and have the
+      # same api. Help some older packages to find these dependencies.
+      # https://bugs.centos.org/view.php?id=11423
+      # https://bugs.launchpad.net/ubuntu/+source/ncurses/+bug/259139
+      lib.install_symlink "libncurses.so" => "libtermcap.so"
+      lib.install_symlink "libncurses.so" => "libtinfo.so"
+    end
 
     (lib/"pkgconfig").install_symlink "ncursesw.pc" => "ncurses.pc"
     (lib/"pkgconfig").install_symlink "formw.pc" => "form.pc"

@@ -3,7 +3,7 @@ class Mcrypt < Formula
   homepage "https://mcrypt.sourceforge.io"
   url "https://downloads.sourceforge.net/project/mcrypt/MCrypt/2.6.8/mcrypt-2.6.8.tar.gz"
   sha256 "5145aa844e54cca89ddab6fb7dd9e5952811d8d787c4f4bf27eb261e6c182098"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url :stable
@@ -11,12 +11,16 @@ class Mcrypt < Formula
 
   bottle do
     cellar :any
-    rebuild 2
-    sha256 "c9d3313218375e8bca6e22b00fcb47f11550c386ae64422bb59869af161cf6eb" => :catalina
-    sha256 "b79e4ba583c523e382d1cc08430c96252c8e048cc1661ab3a9bed90468c8b06c" => :mojave
-    sha256 "e11c2a7a1caf26c2a1d3d171d3291888e065ba0328f6934882cffcaec72475cd" => :high_sierra
+    rebuild 4
+    sha256 "e3182ac2f12baccfab81146bb4c6944b05154259a65165d694ca64e43d1f03f7" => :big_sur
+    sha256 "849ffa4e23dff9bff130c10d8ace02994034120b7d97ad36e9d7f6e8c048f97a" => :arm64_big_sur
+    sha256 "a52070083dfe080bbe0b8f71597a8a619c6b1421970c4670c6f40f5f2ba0fafe" => :catalina
+    sha256 "6a23409a37396e2b2256485737a8195b06dcdea3607583e509f1d87d6a75faec" => :mojave
   end
 
+  # Added automake as a build dependency to update config files in libmcrypt.
+  # Please remove in future if there is a patch upstream which recognises aarch64 macos.
+  depends_on "automake" => :build
   depends_on "mhash"
 
   uses_from_macos "zlib"
@@ -31,7 +35,15 @@ class Mcrypt < Formula
   patch :DATA
 
   def install
+    # Work around configure issues with Xcode 12
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
+
     resource("libmcrypt").stage do
+      # Workaround for ancient config files not recognising aarch64 macos.
+      %w[config.guess config.sub].each do |fn|
+        cp "#{Formula["automake"].opt_prefix}/share/automake-#{Formula["automake"].version.major_minor}/#{fn}", fn
+      end
+
       system "./configure", "--prefix=#{prefix}",
                             "--mandir=#{man}"
       system "make", "install"

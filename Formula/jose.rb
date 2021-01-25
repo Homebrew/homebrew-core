@@ -8,6 +8,8 @@ class Jose < Formula
 
   bottle do
     cellar :any
+    sha256 "0ec2b6ee1c5b94c0eee5edd20e8e619cf341afa0c16e5873abb5ba8afb0e6558" => :big_sur
+    sha256 "2cd4169ce2cfbcee491a79cf4ce414c33e663361ea3203d10f9d7c2cacab6864" => :arm64_big_sur
     sha256 "359c58b36bb631623273a77d13431f29ff467e9602f1500f9e4fa761ed0719be" => :catalina
     sha256 "358a06afd49f1390ca917969dbb434a75a91bd0de3d8ac981d3eab969670cfe2" => :mojave
     sha256 "7a84bdaece281b98dc4a7b0a7fbf05976297126966d14ee2862e007521cdd4ea" => :high_sierra

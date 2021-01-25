@@ -16,6 +16,8 @@ class Balance < Formula
     sha256 "ee916620a28cde87c90824125bf418b61eea80bc99e3aa32936e39af8acf0432" => :mavericks
   end
 
+  disable! date: "2020-12-08", because: :unmaintained
+
   def install
     system "make"
     bin.install "balance"

@@ -8,6 +8,8 @@ class Onetime < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "3537657d8ff718b94fa84714b0105b95ef613fe778d04ff573a19df687798747" => :big_sur
+    sha256 "d6b4a7ac553f33266044258c1b8cc8e703428990ec7c329ec1abcec649c94eaf" => :arm64_big_sur
     sha256 "b55bb2391f7518b4139e2e57f851d0805329191be23630a6cf4d2a154a0e416c" => :catalina
     sha256 "0394155a2171bb959017a677a428403c0220c8f1cf39af2af72ce95f921396ed" => :mojave
     sha256 "9f73f9cdb465fce1aefc3cf80c00bc8e43b41a33c3e999fb3ec531251cfc3da0" => :high_sierra

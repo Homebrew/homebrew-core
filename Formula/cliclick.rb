@@ -8,6 +8,8 @@ class Cliclick < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "bb164e96e155204666a83d0731f2115a13ecabc4ba07f8885a1194418ecd2068" => :big_sur
+    sha256 "0e97f9a134eea73034dc32929f85e4206976925ee75a8e9f07dff74c86d1b16f" => :arm64_big_sur
     sha256 "9ffcef6839fb396f022e415925f0e5f2cd1434d0eb723694d950d84fbaa3fcda" => :catalina
     sha256 "bc373ee9ec978d416491fd82b3c25d02755b004b0abc1f5a73ff0b39e57b6b33" => :mojave
     sha256 "c371cb5b700e4a5f6495545b5f83e5414fc0e0cb98be05231a7abdf6c6607ff4" => :high_sierra

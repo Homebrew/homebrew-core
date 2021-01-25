@@ -8,6 +8,8 @@ class Odt2txt < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 2
+    sha256 "255a40ee5035ec02702587440eee33cbfd83d110daf1c90a965c4de5f92a34f0" => :big_sur
+    sha256 "00a813eeef30b44f3c760435055a40f5471aa64fac6f390fcbc5bea64f34e9cd" => :arm64_big_sur
     sha256 "31e17f05898b06469cbc33244f357c61baf059120e96b34d472325e38adfa4d7" => :catalina
     sha256 "eb4ea913c8c1f5108adae12acf43ada9033c3bdd2e6976fcce9726108b47df2b" => :mojave
     sha256 "02dd0957fda7e5845824951a3e98d2ac9a1a623a02709631d26496bbe0353dee" => :high_sierra

@@ -14,18 +14,21 @@ class Qcachegrind < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "dc39ea438ea591b5aec09e7aa88b82af413100df0b6c689f7930df16953f87e0" => :catalina
-    sha256 "6b27fca8ce13fc1a9cf62bcc85cbcb3f08149dde15f12012aeea6d61ce1bae77" => :mojave
-    sha256 "7635d2f92941c12efce0a89e526198d5b730979511010e7af181f83fe48ff078" => :high_sierra
+    rebuild 2
+    sha256 "65b5858aa4f3313bf7782bbb09de8d83f72a15da02bcf981da016a8216ff20a1" => :big_sur
+    sha256 "e41ff7b471b679c92de77708248ae2a42948b39a945ac89de73d85756ed0f3f2" => :arm64_big_sur
+    sha256 "8ce1697e577f363929ff9ef3a112513d840da04331c0d907a03c5970f8f04807" => :catalina
+    sha256 "a64cb74efa08ddc452e3f29eb956a2c89dd9f7eb0f5943731559fca9815350d7" => :mojave
   end
 
   depends_on "graphviz"
   depends_on "qt"
 
   def install
+    spec = (ENV.compiler == :clang) ? "macx-clang" : "macx-g++"
+    spec << "-arm64" if Hardware::CPU.arm?
     cd "qcachegrind" do
-      system "#{Formula["qt"].opt_bin}/qmake", "-spec", "macx-clang",
+      system "#{Formula["qt"].opt_bin}/qmake", "-spec", spec,
                                                "-config", "release"
       system "make"
       prefix.install "qcachegrind.app"

@@ -1,16 +1,16 @@
 class Libfido2 < Formula
   desc "Provides library functionality for FIDO U2F & FIDO 2.0, including USB"
   homepage "https://developers.yubico.com/libfido2/"
-  url "https://github.com/Yubico/libfido2/archive/1.5.0.tar.gz"
-  sha256 "5990f923c9390fe1e6a00ba5d1d1f74030e7344b855e971d9fb7223e70ff3122"
+  url "https://github.com/Yubico/libfido2/archive/1.6.0.tar.gz"
+  sha256 "6aed47aafd22be49c38f9281fb88ccd08c98678d9b8c39cdc87d1bb3ea2c63e4"
   license "BSD-2-Clause"
-  revision 1
 
   bottle do
     cellar :any
-    sha256 "3160d880a6c2175777523c26a82629500ea2cea52aabc54d31b868c15ad823c2" => :catalina
-    sha256 "ff215921abe2965e55f66bab26eaa5cc6b6d822d0b9068f0a6e85b3e2a071586" => :mojave
-    sha256 "018430b7f86e69a66fa01c1400054e5e05b7cbf44a95622909b9c010f313c736" => :high_sierra
+    sha256 "3194f38a17f35276bb4e8863048d640a4115e5c059be92b10641f3bfe7c8e0c3" => :big_sur
+    sha256 "491588603fb5af1e9f0cedd7506a2b005d85e2ee8ddde9e8150149c8bd0462fb" => :arm64_big_sur
+    sha256 "7325754f60c62f8015cdbdd2d8c301f3b3caec734f01f23f6f62a4d4347b6fe1" => :catalina
+    sha256 "4349516e03fb119f1acf3e06604501e2906c4eb030e8260fdaa786f651ddb05e" => :mojave
   end
 
   depends_on "cmake" => :build

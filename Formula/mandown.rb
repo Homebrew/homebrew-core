@@ -7,6 +7,8 @@ class Mandown < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "dd0e5fef1f35544524a29e7704d68ccce992ee099a34a088155c9fc579da5cf7" => :big_sur
+    sha256 "d0b7966c93183b64046728563d3f9f95fd54e836f74cd13560ea013f1261aee3" => :arm64_big_sur
     sha256 "09ad2e54a3b54c9687580b4499f4c5247dfd2e18fb64230b3c255fbc7df1c5be" => :catalina
     sha256 "9186b868866dd17f080343297e145161f3fe6303701a12bd0a47f8ef246f6630" => :mojave
     sha256 "acf617ed0300f38b429ed05504c47bb9e403441316d335ae83bf28c18baa63a6" => :high_sierra

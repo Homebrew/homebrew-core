@@ -6,6 +6,8 @@ class Raptor < Formula
 
   bottle do
     cellar :any
+    sha256 "5b58712f0ba9fc647c6b241f80ce3697e25c851f80b26cb8f89f28809905126f" => :big_sur
+    sha256 "2970bdade24bb5ec9afe4b79e89234016147cb506f6b450bcfd66c50fce1cede" => :arm64_big_sur
     sha256 "d0be0655a9546fe278830f8b60a19f66dcc10a77445e2bf2cf76ad61a0a802e2" => :catalina
     sha256 "cbfcd2b8ce9fa8701a15eba572e766e3a9b3b19eba8438d41618e6ee3ab4501d" => :mojave
     sha256 "194f9a66e1aeccb23185abd6f1f1408422594dfd54cad5460c5a5ac3f5e0c48c" => :high_sierra

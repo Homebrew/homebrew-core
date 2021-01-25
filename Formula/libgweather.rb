@@ -10,6 +10,8 @@ class Libgweather < Formula
   end
 
   bottle do
+    sha256 "fbed23f116de31b6c729671e719bb88246ed66007f779fef5289be3519de3223" => :big_sur
+    sha256 "ea89b381f0cb180a44a1ab0d106693a8874fb785221cc6840092da07ed4960ec" => :arm64_big_sur
     sha256 "46c6e704f4d42d0032888a87cd2d0ce2fd2ce0a9b8027123976857d242c1b0f3" => :catalina
     sha256 "b8db1057908c9723c708b919330b9a58cdbdb9e6a6c7b053242fb8c965171eff" => :mojave
     sha256 "267bff5a8951012a4df193baed3816552028de9c44ae26d977e932a75a655d88" => :high_sierra

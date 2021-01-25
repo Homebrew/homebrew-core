@@ -8,6 +8,8 @@ class Mapcrafter < Formula
 
   bottle do
     cellar :any
+    sha256 "6b8ce30b655e743288ca868c0bdf231f45c6c7b094eb62797d3fa87c5b98e118" => :big_sur
+    sha256 "b6a779b0bcd0f98e5b07cb6f2c9474b8974da9cba0f82e55311a8b253b74cd56" => :arm64_big_sur
     sha256 "986224321f7be4d777cb1ac012a237535c2cbb44586e86327cf84589fe85c327" => :catalina
     sha256 "ef50257242f50111c034ddc97be5d592b8a91d255053a2bb50b6cb9ea791e930" => :mojave
     sha256 "f3ce96014ce5e35f2a40034bd0498a583d4c92fe27ecc5ed3039733c1b049757" => :high_sierra

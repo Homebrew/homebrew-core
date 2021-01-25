@@ -1,7 +1,7 @@
 class Swift < Formula
   desc "High-performance system programming language"
   homepage "https://swift.org"
-  # Note: Keep version in sync with resources below
+  # NOTE: Keep version in sync with resources below
   url "https://github.com/apple/swift/archive/swift-5.2.5-RELEASE.tar.gz"
   sha256 "2353bb00dada11160945729a33af94150b7cf0a6a38fbe975774a6e244dbc548"
   license "Apache-2.0"

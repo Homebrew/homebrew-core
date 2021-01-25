@@ -8,6 +8,8 @@ class Libucl < Formula
   bottle do
     cellar :any
     rebuild 3
+    sha256 "bc12495d53c1480a146b64d6f4312fdbfe10b5e7c7dc5d465255aab13b0b510e" => :big_sur
+    sha256 "55fcc8229b3dece974f8dad4e4c27ff4777817d0a19fa8399c822b4c869d05c2" => :arm64_big_sur
     sha256 "8ff53b6da5423f7b6e11b6173b4b720d3563b1a24243ea4f977cf269d67aeb4c" => :catalina
     sha256 "1ffddb657d95f504ba3b7331f5dbbd995c5d237cda3f736e99182a16a8e8181d" => :mojave
     sha256 "dd5dbb4eb7e3d37816acc4f3bc2842c8e91caeb4a6f058eed75cab9d72192315" => :high_sierra

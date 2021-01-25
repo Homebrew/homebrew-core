@@ -7,6 +7,7 @@ class Geogram < Formula
 
   bottle do
     rebuild 1
+    sha256 "16a2b60356439f3a481677989c256085696690a1599636859bc18a31723e075d" => :big_sur
     sha256 "4345844b616fb74fbb2124a0c7bdaeb222c62704908b358427bce7122cb9404d" => :catalina
     sha256 "f263799496ffc570463ce635eedd9287f81502b06f72142a7829c0b857185079" => :mojave
     sha256 "f0eedab23f61affd89684a7e1492cfc2cc8deffa4ca7ebc8459a5768a05876f3" => :high_sierra

@@ -6,6 +6,8 @@ class Zsync < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "1be9e390c02555dbce349a76e0beb63231bc327f4326580b18679ff0307db446" => :big_sur
+    sha256 "0ee85fb722fa125e4323e14732d4de448f3751e9445e2ec6933fce0ee38d5a90" => :arm64_big_sur
     sha256 "333d4b2be5c1b6621bf7e7ac87199da1c5ec24a3cdb408c97ed733b6fafb89a1" => :catalina
     sha256 "9fa9f958c45a87c1a4e9b2ccdc95e732bb8ab248843ec3f0554e5b412d7f1ae5" => :mojave
     sha256 "b766bfc58f753376213e234d8e0e4238af1be39f77f239370583464040758fd6" => :high_sierra

@@ -4,14 +4,16 @@ class LibjsonRpcCpp < Formula
   url "https://github.com/cinemast/libjson-rpc-cpp/archive/v1.3.0.tar.gz"
   sha256 "cf132ad9697b034f22ff37d12a1f1c6f2647ec2236701de5e76f6036ab664156"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/cinemast/libjson-rpc-cpp.git"
 
   bottle do
     cellar :any
-    sha256 "b8a99a97b7ebbcb40cc19ad3f4805a93270e376fe7ef4ccbc02235c0f94f4c74" => :catalina
-    sha256 "15fbc327291d065a0a691f14ea90367923296da22a4012247a2083ebec8eca3b" => :mojave
-    sha256 "d3e24865583d50b44a833b08fb90093a2db62bda4615e3c734ffe5cd2bda23ff" => :high_sierra
+    rebuild 1
+    sha256 "96c5a539ae83af10f043b89d47dd4e433089a658c3676a9533716e3e04edb440" => :big_sur
+    sha256 "0fdc2ac320638aff5068d94d4115182edebd6f705a4d705924abcfb26d4b602a" => :arm64_big_sur
+    sha256 "451b43048c296d53ea5ca91c6894cbc638710cfc6006426ebc536f143d8c1f04" => :catalina
+    sha256 "88c6224dddcb78a2662b1fdecaae8944132fc7b3aec8b0b69b78b73134b52342" => :mojave
   end
 
   depends_on "cmake" => :build
@@ -21,6 +23,12 @@ class LibjsonRpcCpp < Formula
   depends_on "libmicrohttpd"
 
   uses_from_macos "curl"
+
+  # Fix for https://github.com/cinemast/libjson-rpc-cpp/issues/298
+  patch do
+    url "https://github.com/cinemast/libjson-rpc-cpp/commit/fa163678134aced775651558f91a006791e26ef8.patch?full_index=1"
+    sha256 "80a8cdfa40aba3dc71fbab77b0137f7f03bb9c969b9845e68f83181b4d8550f6"
+  end
 
   def install
     system "cmake", ".", *std_cmake_args, "-DCOMPILE_EXAMPLES=OFF", "-DCOMPILE_TESTS=OFF"

@@ -10,22 +10,18 @@ class Libstxxl < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d8789eb30edee21c2800e2f93f70a2187a9a62ec193ec4d63ed5788cffdd9c0d" => :catalina
-    sha256 "be650cf787270080a323cbebf05109bcc72d94ea508b0e7c265c6592b871065a" => :mojave
-    sha256 "a8b116ba332c5d32055f754db6fb491e3c3fd87b4b4a317213a2e0963d34ddeb" => :high_sierra
-    sha256 "0f9cb534bcdc8d344dd5da5b8381cca527e515d1a3df2bf5b3785783f7f482d7" => :sierra
-    sha256 "8753b0c9ec11f1f6195fa52c346b4d6015652931908156dcdb4468cc94103d1c" => :el_capitan
-    sha256 "fbefd1ceb6f328ef77b9a005f5bc3c93fe23fa68d60b4a5e126a68a6a9d8e17d" => :yosemite
-    sha256 "5a64626281265368e41f51089271c031ae8782651d65fe012f8a86949e37573b" => :mavericks
+    rebuild 1
+    sha256 "c3f8dceb4e0a1716a2c193daf4b5eeb4ae3e8e96224bdc78ae8f74c2a3059152" => :big_sur
+    sha256 "8454123ffed231405d684ed18c2ef1a0ab1bd118d74614748a5b5df23d8bb5fe" => :arm64_big_sur
+    sha256 "b4d5ef6b70735617973eb1f45214b11e3e6baec242bc6aa5ba9ed4da1834f6ad" => :catalina
+    sha256 "9b179722c61ea55b352c9196ae38d6915a3625096117088d43f854bee4eb6a39" => :mojave
   end
 
   depends_on "cmake" => :build
 
   def install
-    args = std_cmake_args - %w[-DCMAKE_BUILD_TYPE=None]
-    args << "-DCMAKE_BUILD_TYPE=Release"
     mkdir "build" do
-      system "cmake", "..", *args
+      system "cmake", "..", *std_cmake_args
       system "make", "install"
     end
   end

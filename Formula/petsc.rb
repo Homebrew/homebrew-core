@@ -1,8 +1,8 @@
 class Petsc < Formula
   desc "Portable, Extensible Toolkit for Scientific Computation (real)"
   homepage "https://www.mcs.anl.gov/petsc/"
-  url "https://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.14.0.tar.gz"
-  sha256 "a8f9caba03e0d57d8452c08505cf96be5f6949adaa266e819382162c03ddb9c5"
+  url "https://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.14.3.tar.gz"
+  sha256 "63ed7e3440f2bbc732a6c44aa878364f88f5016ab375d9b36d742893a049053d"
   license "BSD-2-Clause"
 
   livecheck do
@@ -11,9 +11,10 @@ class Petsc < Formula
   end
 
   bottle do
-    sha256 "1a5028e4c8baf9dd929aebcf7c3174c993232997b562b96f9b9c2ead8f8af334" => :catalina
-    sha256 "2b2a4e039f735d89f4415b8364a9fe7f8ad38b65099158986ee08938740f5d6c" => :mojave
-    sha256 "7a7621d259a39bee23285b4469be89fa8dd1ee01650cd669266526fa1605db96" => :high_sierra
+    sha256 "0e97e5534d00c0a8a31d26ae076e75b33d46dbf455e1b798dd92f3ffeb38ed05" => :big_sur
+    sha256 "53da9a4931a0489f7538753c3145337d16b5d4d777723c65ad6a01ef9cfe9b2c" => :arm64_big_sur
+    sha256 "bce874f9194d5ab7d8843daeb9a1d300176ee2545ef31c37856f4407e7135869" => :catalina
+    sha256 "35df8810e1276179fe904d72c50a4f4d6214467f01f7970171c8cb2356f8a979" => :mojave
   end
 
   depends_on "hdf5"
@@ -41,7 +42,16 @@ class Petsc < Formula
 
     # Avoid references to Homebrew shims
     rm_f lib/"petsc/conf/configure-hash"
-    inreplace lib/"petsc/conf/petscvariables", "#{HOMEBREW_SHIMS_PATH}/mac/super/", ""
+
+    on_macos do
+      inreplace lib/"petsc/conf/petscvariables", "#{HOMEBREW_SHIMS_PATH}/mac/super/", ""
+    end
+
+    on_linux do
+      if File.readlines("#{lib}/petsc/conf/petscvariables").grep(/#{HOMEBREW_SHIMS_PATH}/o).any?
+        inreplace lib/"petsc/conf/petscvariables", "#{HOMEBREW_SHIMS_PATH}/linux/super/", ""
+      end
+    end
   end
 
   test do

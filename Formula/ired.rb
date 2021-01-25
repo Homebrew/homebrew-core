@@ -7,6 +7,8 @@ class Ired < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "383839a113477cfad0b9197aa5e1e5c07ca5248057da840617354552ea35e6dc" => :big_sur
+    sha256 "8c5fc028d62ce70b95c2f4ae6e9ec78c88b1083d7244263e5cae2734f9f1f682" => :arm64_big_sur
     sha256 "e74475e811c38aa46bf3e7e69e0a264a2d30c08cfcbd801433e03c14944b8366" => :catalina
     sha256 "7821d818af4c7d28b4cbf26c627685b77f18a1004369d4a57bee2582620008b7" => :mojave
     sha256 "f6af714455a74c02769c9726855a92832e43c37c79a0c589a0c7744beac8956c" => :high_sierra

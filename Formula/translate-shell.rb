@@ -8,6 +8,8 @@ class TranslateShell < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "d45fe158215b99a8f120db0b02fd139ab0401154cb910ff9b79664a1c1e1d64e" => :big_sur
+    sha256 "7cec38b70fbd8dbe6a45d76eb290b6c906e00e32029487c2cd6328bc5d6108e2" => :arm64_big_sur
     sha256 "858d52386202bbcb1313a72b642d9d5f4cbfe2ca35fd9556f6cf5275d7d2b9a1" => :catalina
     sha256 "858d52386202bbcb1313a72b642d9d5f4cbfe2ca35fd9556f6cf5275d7d2b9a1" => :mojave
     sha256 "858d52386202bbcb1313a72b642d9d5f4cbfe2ca35fd9556f6cf5275d7d2b9a1" => :high_sierra

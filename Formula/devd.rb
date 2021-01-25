@@ -8,22 +8,19 @@ class Devd < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "26a21f49c1abdafb1be22d48bc4186c18c0ff53620cc60a35ac778ed22a46c5a" => :catalina
-    sha256 "21b10d2ef5cdb6a11cb0fa64da6cb4ef5049d5bc9bc411ad4192127224709f2e" => :mojave
-    sha256 "2cc541a0a844b83e60b89f79e1f296d391737fb635f1bd43ff5dd022a07dc67b" => :high_sierra
+    rebuild 2
+    sha256 "9dad47b2a2c803d6ddf5a4153359a2d8e9188f37f745e964fed2a56159731597" => :big_sur
+    sha256 "89f6654470b9ef03bd42046e147f0ae372c607428f7bb934b5474f76ff397e3c" => :catalina
+    sha256 "8806190656fd2634dadf577e7df5957b5bcaca434585f10f2a82197d8e59f03a" => :mojave
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOOS"] = "darwin"
-    ENV["GOARCH"] = "amd64"
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/cortesi/devd").install buildpath.children
     cd "src/github.com/cortesi/devd" do
-      system "go", "build", "-o", bin/"devd", ".../cmd/devd"
-      prefix.install_metafiles
+      system "go", "build", *std_go_args, "./cmd/devd"
     end
   end
 

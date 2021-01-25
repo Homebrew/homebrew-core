@@ -8,6 +8,8 @@ class Ioping < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "5a4e1fd55d87324605c6af3b70fecb3780ab00ddea13fc058a7911688014ef35" => :big_sur
+    sha256 "e8b319c5bec1083064f584e6760a1db5a93e588e64983f0306e474ae277357a7" => :arm64_big_sur
     sha256 "622678afe9bf88bae08cc264dece76f0abefc854915f5b3d5355cde767aa61e1" => :catalina
     sha256 "4c88038d68f17bbc405c5ed253542890e0fc1e44ece8650f1a68b6ff6df7fabf" => :mojave
     sha256 "9a5ee7cd526c89d70c75fe6fcf61d7b0a777d8bf3a823fe99348864a9838b6ff" => :high_sierra

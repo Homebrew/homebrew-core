@@ -1,17 +1,18 @@
 class Liberasurecode < Formula
   desc "Erasure Code API library written in C with pluggable backends"
   homepage "https://github.com/openstack/liberasurecode"
-  url "https://github.com/openstack/liberasurecode/archive/1.6.1.tar.gz"
-  sha256 "958b01ff91efe7b21a19ca72937a93b2a5c7af41c08790d4fe9df82d8c5e24f0"
+  url "https://github.com/openstack/liberasurecode/archive/1.6.2.tar.gz"
+  sha256 "f11752f41e652e62d0feb095a118a8fe1b5d43910d3d31a0de99b789070d7788"
   license "BSD-2-Clause"
 
   bottle do
     cellar :any
-    sha256 "f50f0786b554d9e619da955a98785a8ff6513bd4d244d80a37582a35a9f0adc9" => :catalina
-    sha256 "fba6eb4f5a66f164cb2938a5a2981d4879915a225edefb4ff857910170e52e7a" => :mojave
-    sha256 "7d96611a687605c4856d139d6b1c6305ed686587ee67683c7f3068fa6e5332b0" => :high_sierra
-    sha256 "d7a79bb75e8f7c5099a453ec3a4c2dca8d78d3823101158be68f005e068311fc" => :sierra
+    sha256 "0252ffca75211c217bee75061bb6a62dc2982334b66d95fbfcdc2e686480d1fb" => :catalina
+    sha256 "0073290d5c19d629b70f6e4be0677931f625e07e79d2dacea25b333f7d820933" => :mojave
+    sha256 "2f0bb8a2f295cff0ba42097db3f31103f2f10637faa66ba2028bc746934b58d0" => :high_sierra
   end
+
+  disable! date: "2020-12-08", because: "Depends on gf-complete which has been disabled"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build

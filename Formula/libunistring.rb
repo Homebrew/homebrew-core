@@ -12,6 +12,8 @@ class Libunistring < Formula
 
   bottle do
     cellar :any
+    sha256 "5d336bd939f678b48dc1ced97ed0def383999638d80caa8cb2da780594556524" => :big_sur
+    sha256 "73cc290ebcefd6354329317266d9e110e3a5967d0a8260d2cf7d4dd3edc9218c" => :arm64_big_sur
     sha256 "ce746662b98d93511b86920011b5cafcd2eecbce4c9c40d8c52a143cdf708456" => :catalina
     sha256 "1d0c8e266acddcebeef3d9f6162d6f7fa0b193f5f71837174fb2ef0b39d324f3" => :mojave
     sha256 "5eeec8fdede3d6ae2c1082179879a41d3b600a36e7d83acc5ea0587ad85d5a9d" => :high_sierra

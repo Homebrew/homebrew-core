@@ -6,6 +6,8 @@ class Unittest < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8f449bf2ba73aaf03dd8316d6057639bd2c3a38ef347157f3721cbabfb60212f" => :big_sur
+    sha256 "2da59f3f0206902816c2dac6c273768858f092eb917b696b0a8b04096ea97007" => :arm64_big_sur
     sha256 "ef8f5c6e18c32b813cb825ce467a6997592dca4762833f8e03f156629ffa74f9" => :catalina
     sha256 "a1ab22f2b4904a5c03ea8642fa096166b9fcc131e535a1d15e07772e1fbcea8d" => :mojave
     sha256 "b34ab2aa983e33bf86eda07a58af410a769da7e969620e479c6f7e965de2c397" => :high_sierra

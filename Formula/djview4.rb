@@ -1,9 +1,9 @@
 class Djview4 < Formula
   desc "Viewer for the DjVu image format"
   homepage "https://djvu.sourceforge.io/djview4.html"
-  url "https://downloads.sourceforge.net/project/djvu/DjView/4.10/djview-4.10.6.tar.gz"
-  sha256 "8446f3cd692238421a342f12baa365528445637bffb96899f319fe762fda7c21"
-  revision 1
+  url "https://downloads.sourceforge.net/project/djvu/DjView/4.12/djview-4.12.tar.gz"
+  sha256 "5673c6a8b7e195b91a1720b24091915b8145de34879db1158bc936b100eaf3e3"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :stable
@@ -12,10 +12,9 @@ class Djview4 < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "11c318b224adb9e2575c754c1a3ad6a4c5f4e2febe4dd0a81d63e6ee748af765" => :catalina
-    sha256 "f8e5afe939077fd62f6c946323e9f857572ba8c696dd6f1caccb33fbe84dd328" => :mojave
-    sha256 "a9c95fcc6bf1dec71109b4bf32f827db003375682b522efe20743f6cb2e8a800" => :high_sierra
+    sha256 "6dd9895644f2bc9be226ccab8affe012c31cd9a27835cd62dd3d4edddd2c0049" => :big_sur
+    sha256 "67dc7e3fab1c0c1407ec62c346071ec45e2981185948ec6015e75762e179cf0f" => :catalina
+    sha256 "6ae80a29abde4d055c6ee544f997a8cd6bfe5bc5d9a0fa3bd7584d29cd32c73f" => :mojave
   end
 
   depends_on "autoconf" => :build
@@ -26,7 +25,6 @@ class Djview4 < Formula
   depends_on "qt"
 
   def install
-    inreplace "src/djview.pro", "10.6", MacOS.version
     system "autoreconf", "-fiv"
 
     system "./configure", "--disable-debug",
@@ -37,8 +35,13 @@ class Djview4 < Formula
     system "make", "CC=#{ENV.cc}", "CXX=#{ENV.cxx}"
 
     # From the djview4.8 README:
-    # Note3: Do not use command "make install".
+    # NOTE: Do not use command "make install".
     # Simply copy the application bundle where you want it.
-    prefix.install "src/djview.app"
+    on_macos do
+      prefix.install "src/djview.app"
+    end
+    on_linux do
+      prefix.install "src/djview"
+    end
   end
 end

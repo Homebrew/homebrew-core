@@ -1,16 +1,17 @@
 class Sdns < Formula
   desc "Privacy important, fast, recursive dns resolver server with dnssec support"
   homepage "https://sdns.dev"
-  url "https://github.com/semihalev/sdns/archive/v1.1.6.tar.gz"
-  sha256 "5ddd6ad256ba9add7792d239a7f8a45c68c2f02770ed788da3132ee933e3962e"
+  url "https://github.com/semihalev/sdns/archive/v1.1.7.tar.gz"
+  sha256 "f7c809f61483a3235f820ba3ccab1816fc8a9e6174c644eda31840f76017781e"
   license "MIT"
   head "https://github.com/semihalev/sdns.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f3adab56dd15cdc30a5ece4f24a7c2ef3900cc1ae779660609885ecbe9c9add0" => :catalina
-    sha256 "6bed2b4a199ac0851bc2afd974013245c7b9625a40b25db03a6d08344867f37e" => :mojave
-    sha256 "6ba4e92207324f66de1bcff838fe1898f057d102d076568c18c842afbeb717aa" => :high_sierra
+    sha256 "82ae1e7bea85f50fcf84de51fb0fb790faf88d0cefaf8532f587047e8fe842a5" => :big_sur
+    sha256 "21793de02e83d10ac51abae2ba85addcbac395b39ee37fc41ca8847974eec92b" => :arm64_big_sur
+    sha256 "b1dd23b40afd486a0343af0b6e2b738d5c4a19869484e01de28889e7abc6ae5b" => :catalina
+    sha256 "aa9dd1a91d45ddcc4574ca51084f6d57885541d6e495230e2870e60bf1d2395a" => :mojave
   end
 
   depends_on "go" => :build

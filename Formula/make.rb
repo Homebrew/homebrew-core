@@ -4,30 +4,39 @@ class Make < Formula
   url "https://ftp.gnu.org/gnu/make/make-4.3.tar.lz"
   mirror "https://ftpmirror.gnu.org/make/make-4.3.tar.lz"
   sha256 "de1a441c4edf952521db30bfca80baae86a0ff1acd0a00402999344f04c45e82"
-  license "GPL-3.0"
+  license "GPL-3.0-only"
 
   livecheck do
     url :stable
   end
 
   bottle do
-    sha256 "b2cbb6b854495469de4d065825c94540ad3053a1ff7c1832f4eb7781ee6b8231" => :catalina
-    sha256 "50ac9c7185e08349c35531d8ee30e755713aec340229cab2008ba1a2ceac15c9" => :mojave
-    sha256 "e7f49884dbeaae3e7ccc9dc3a58fec587c2a594f50314dbc33cde44c6f807f53" => :high_sierra
+    rebuild 1
+    sha256 "2019ba646e4471d42e09c28a0992c59dd82e292bf8275b0b3bfcce3220ef9c1b" => :big_sur
+    sha256 "eab3fbc3688aecec0fe90b8d0fe3cb7beb84ed773ba0411fc2f855c66deaf882" => :arm64_big_sur
+    sha256 "39fc5ebff5ff708c2e3eea597b9f2eb79b910a122d30c3ac9bb93ebe313f030c" => :catalina
+    sha256 "0c0a08eef68bcd78b0345f5f57a6efffcc7be877bcb3b803f39ac8916b882477" => :mojave
+    sha256 "429177235322c3209e1657bea36364cd84222075b636939f6ed93a1cd04aeb21" => :high_sierra
   end
+
+  conflicts_with "remake", because: "both install texinfo files for make"
 
   def install
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
-      --program-prefix=g
     ]
 
+    on_macos do
+      args << "--program-prefix=g"
+    end
     system "./configure", *args
     system "make", "install"
 
-    (libexec/"gnubin").install_symlink bin/"gmake" =>"make"
-    (libexec/"gnuman/man1").install_symlink man1/"gmake.1" => "make.1"
+    on_macos do
+      (libexec/"gnubin").install_symlink bin/"gmake" =>"make"
+      (libexec/"gnuman/man1").install_symlink man1/"gmake.1" => "make.1"
+    end
 
     libexec.install_symlink "gnuman" => "man"
   end
@@ -48,7 +57,12 @@ class Make < Formula
       \t@echo Homebrew
     EOS
 
-    assert_equal "Homebrew\n", shell_output("#{bin}/gmake")
-    assert_equal "Homebrew\n", shell_output("#{opt_libexec}/gnubin/make")
+    on_macos do
+      assert_equal "Homebrew\n", shell_output("#{bin}/gmake")
+      assert_equal "Homebrew\n", shell_output("#{opt_libexec}/gnubin/make")
+    end
+    on_linux do
+      assert_equal "Homebrew\n", shell_output("#{bin}/make")
+    end
   end
 end

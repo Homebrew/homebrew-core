@@ -3,7 +3,8 @@ class Whohas < Formula
   homepage "http://www.philippwesche.org/200811/whohas/intro.html"
   url "https://github.com/whohas/whohas/releases/download/0.29.1/whohas-0.29.1.tar.gz"
   sha256 "dbf2396838cb0f97726041213c04426b818d48cc510bd529faf30a8411682878"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
+  head "https://github.com/whohas/whohas.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,6 +15,9 @@ class Whohas < Formula
     sha256 "5b879543999158c4f55a52fdb9e643267ac1ad46aa69e56448f43799f1cce771" => :el_capitan
   end
 
+  # https://github.com/Homebrew/homebrew-core/pull/67838#issuecomment-751575192
+  disable! date: "2020-12-28", because: :unmaintained
+
   resource "Acme::Damn" do
     url "https://cpan.metacpan.org/authors/id/I/IB/IBB/Acme-Damn-0.08.tar.gz"
     sha256 "310d2d03ff912dcd42e4d946174099f41fe3a2dd57a497d6bd65baf1759b7e0e"
@@ -22,6 +26,12 @@ class Whohas < Formula
   resource "forks" do
     url "https://cpan.metacpan.org/authors/id/R/RY/RYBSKEJ/forks-0.36.tar.gz"
     sha256 "61be24e44f4c6fea230e8354678beb5b7adcfefd909a47db8f0a251b0ab65993"
+
+    # https://rt.cpan.org/Public/Bug/Display.html?id=102730
+    patch do
+      url "https://rt.cpan.org/Public/Ticket/Attachment/1843053/990585/forks-0.36-rt102730.patch"
+      sha256 "9cab4d2858b471dba880bcb6f719b86d54f0c60f55c4b07cb6a8375598298806"
+    end
   end
 
   resource "Sys::SigAction" do
@@ -47,6 +57,6 @@ class Whohas < Formula
   end
 
   test do
-    assert_match "NetBSD", shell_output("#{bin}/whohas whohas 2>&1")
+    assert_match "Source Mage", shell_output("#{bin}/whohas whohas 2>&1")
   end
 end

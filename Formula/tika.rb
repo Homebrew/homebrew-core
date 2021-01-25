@@ -1,11 +1,10 @@
 class Tika < Formula
   desc "Content analysis toolkit"
   homepage "https://tika.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=tika/tika-app-1.24.1.jar"
-  mirror "https://archive.apache.org/dist/tika/tika-app-1.24.1.jar"
-  sha256 "e56d2e38be4755c78b511f316bda2a55af5c3b3b36e7e5536d3584c71239b187"
+  url "https://www.apache.org/dyn/closer.lua?path=tika/tika-app-1.25.jar"
+  mirror "https://archive.apache.org/dist/tika/tika-app-1.25.jar"
+  sha256 "7a9965d6f69ef1dc5189179f3ac95ca243b07d9f80c63b753219f9ca1261e6df"
   license "Apache-2.0"
-  revision 1
 
   livecheck do
     url :stable

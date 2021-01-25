@@ -4,14 +4,14 @@ class Pdf2svg < Formula
   url "https://github.com/db9052/pdf2svg/archive/v0.2.3.tar.gz"
   sha256 "4fb186070b3e7d33a51821e3307dce57300a062570d028feccd4e628d50dea8a"
   license "GPL-2.0"
-  revision 5
+  revision 6
 
   bottle do
     cellar :any
-    sha256 "8350da4f06838454cf26788b9ea27cbd9255d567be906d4fde5dea332b035734" => :catalina
-    sha256 "3999f52a6638bd2090feabd62cf91112a6b98bf6577a112771941ec6781eabd8" => :mojave
-    sha256 "9477928316e8a5cb7edc7d03568a22a2f2fb87e1440a96e100c79695c1b5cde9" => :high_sierra
-    sha256 "ec7f985d7a62787268265f4e05c87d59926a7f242c22972e32418e7cfaa5448e" => :sierra
+    sha256 "3a8d825e70e419c4f7cc783d472eec8cd384764c351c131780c2a0b691cda24d" => :big_sur
+    sha256 "dc5018cf8ccb7b474fe5c575d562c59e361c3c251ce88d9e36b7636d1f77ef3b" => :arm64_big_sur
+    sha256 "a2af2e44c752994638edbd3aa7684290d116d20f1da2fe3e4490527be5b23bac" => :catalina
+    sha256 "b0cf8046c13335a16496cc5601af7a82f14b45c866cf9f3ae9072075ccc867fe" => :mojave
   end
 
   depends_on "pkg-config" => :build

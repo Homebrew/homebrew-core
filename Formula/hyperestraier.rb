@@ -7,6 +7,7 @@ class Hyperestraier < Formula
 
   bottle do
     cellar :any
+    sha256 "98338e8f67c7cba1df436607f09415415e39a38f695805ddd94720326eae9212" => :big_sur
     sha256 "0304cb2db3ed4e35c12ccaac0251ea19f7fd4c0f2a5b9f3ffad0f201f7f4357c" => :catalina
     sha256 "4275d3ad552f225c5b686532d6cc2703481284fa73eaf3c5b35bc5551dc95761" => :mojave
     sha256 "f0eeb8e60dc0639fdbf5c15fc22c954a627b5136525021706876972b5bfdd816" => :high_sierra

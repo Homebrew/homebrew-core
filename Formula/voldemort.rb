@@ -4,6 +4,7 @@ class Voldemort < Formula
   url "https://github.com/voldemort/voldemort/archive/release-1.10.26-cutoff.tar.gz"
   sha256 "8bd41b53c3b903615d281e7277d5a9225075c3d00ea56c6e44d73f6327c73d55"
   license "Apache-2.0"
+  revision 2
 
   livecheck do
     url :stable
@@ -12,14 +13,13 @@ class Voldemort < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cf54d4426d88d2cff21c465a7df3bbe25b6079610be947eb0613fa0760c3372b" => :catalina
-    sha256 "25ce694b1f816f5004a21399d514cf44be904f8e575d8df4f0911370ac1fba19" => :mojave
-    sha256 "9a4436d48d7908470727c7c4bbc9d6ed34ef45f2512646823418651f4aa6a991" => :high_sierra
-    sha256 "e1509d1ec241f1d5c693ba6aeb00938fb0cbc7d7f4e92bab54d2dafdbe631849" => :sierra
+    sha256 "dfd48d6516ae04989d577dc18fe490a678c2fccc562d62f9832e2dcc0449a191" => :big_sur
+    sha256 "f0b69b617d5a983452c62ad06b316a3faf7ae088528afc492a660d370c120e2f" => :catalina
+    sha256 "c9b88175b71d839d1afe3d4a3407f982f14f31194065f87bbaff8dbc33198e0b" => :mojave
   end
 
   depends_on "gradle" => :build
-  depends_on java: "1.8"
+  depends_on "openjdk@8"
 
   def install
     system "./gradlew", "build", "-x", "test"
@@ -28,10 +28,10 @@ class Voldemort < Formula
     libexec.install "bin"
     pkgshare.install "config" => "config-examples"
     (etc/"voldemort").mkpath
-    env = {
-      VOLDEMORT_HOME:       libexec,
-      VOLDEMORT_CONFIG_DIR: etc/"voldemort",
-    }
+
+    env = Language::Java.overridable_java_home_env("1.8")
+    env["VOLDEMORT_HOME"] = libexec
+    env["VOLDEMORT_CONFIG_DIR"] = etc/"voldemort"
     bin.env_script_all_files(libexec/"bin", env)
   end
 

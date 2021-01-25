@@ -7,10 +7,16 @@ env:
   HOMEBREW_DEVELOPER: 1
   HOMEBREW_GITHUB_ACTIONS: 1
   HOMEBREW_NO_AUTO_UPDATE: 1
+  HOMEBREW_CHANGE_ARCH_TO_ARM: 1
 jobs:
   tap_syntax:
     if: github.repository == 'Homebrew/homebrew-core'
     runs-on: ubuntu-latest
+    outputs:
+      run-tests: ${{ steps.check-labels.outputs.result }}
+      skip-arm-tests: ${{ steps.check-arm-labels.outputs.result }}
+    env:
+      HOMEBREW_FORCE_HOMEBREW_ON_LINUX: 1
     steps:
     - name: Set up Homebrew
       id: set-up-homebrew
@@ -36,27 +42,66 @@ jobs:
             echo ".github/workflows/tests-linux.yml is testing a non existing file: $FILE"
             exit 1
           fi
-          if ! grep -q "depends_on :linux" "$FILE"; then
-            echo "$FILE is not a linux-only formula."
-            exit 1
-          fi
         done
+
+    - name: Check for CI-syntax-only label
+      id: check-labels
+      uses: actions/github-script@v3
+      if: github.event_name == 'pull_request'
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        script: |
+          const { data: { labels: labels } } = await github.pulls.get({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            pull_number: context.issue.number
+          })
+          if (!labels.map(label => label.name).includes('CI-syntax-only')) {
+            console.log('No CI-syntax-only label found. Running tests.')
+            return true
+          }
+          console.log('CI-syntax-only label found. Skipping tests.')
+
+    - name: Check for CI-force-arm label
+      id: check-arm-labels
+      uses: actions/github-script@v3
+      if: github.event_name == 'pull_request'
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        script: |
+          const { data: { labels: labels } } = await github.pulls.get({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            pull_number: context.issue.number
+          })
+          if (!labels.map(label => label.name).includes('CI-force-arm')) {
+            console.log('No CI-force-arm label found.')
+            return true
+          }
+          console.log('CI-force-arm label found.')
 
   tests:
     needs: tap_syntax
-    if: github.event_name == 'pull_request' && ! contains(github.event.pull_request.labels.*.name, 'CI-syntax-only')
+    if: github.event_name == 'pull_request' && needs.tap_syntax.outputs.run-tests
     strategy:
       matrix:
-        version: [10.15, 10.14, 10.13]
+        version: ['11-arm', '11.0', '10.15', '10.14']
       fail-fast: false
     runs-on: ${{ matrix.version }}
     timeout-minutes: 4320
     env:
-      PATH: '/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin'
+      PATH: '/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin'
       HOMEBREW_DEVELOPER: 1
       GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED: 1
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      HOMEBREW_GITHUB_API_TOKEN: ${{secrets.GITHUB_TOKEN}}
     steps:
+      - name: Check whether ARM tests will be forced
+        if: needs.tap_syntax.outputs.skip-arm-tests
+        run: echo 'HOMEBREW_REQUIRE_BOTTLED_ARM=1' >> $GITHUB_ENV
+      - name: Force vendored Ruby on Catalina
+        if: matrix.version == '10.15'
+        run: echo 'HOMEBREW_FORCE_VENDOR_RUBY=1' >> $GITHUB_ENV
       - name: Set up Homebrew
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master

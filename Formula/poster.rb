@@ -7,6 +7,8 @@ class Poster < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "1dfc4b7649d3ad9c7b22693d9dd966c395a11385c6f5ecea07ab879972f5845f" => :big_sur
+    sha256 "ebf74df79fee5779f0a6631c938af2db579bfdf27c077fadcca06f21579bfee1" => :arm64_big_sur
     sha256 "e0afaa430ab84862c5a481145e73affbb572c008c1b40d6b8cd93eb465163b4e" => :catalina
     sha256 "110db1120ca8bcf6b68f14cfb24cf92f0027b6897fb9a44a8c067f4feca54182" => :mojave
     sha256 "74db7055649cd3f68316b99db48139641f916b4434008300f2bfcd1146f92c77" => :high_sierra

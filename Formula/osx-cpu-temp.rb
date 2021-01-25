@@ -7,6 +7,8 @@ class OsxCpuTemp < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "d4bcaab258eb1c75078e767a24c615bc82274e672ce6fd15c2a766b0b0bd8a46" => :big_sur
+    sha256 "d072b980bb252ce0c91fbfafdbcf20f0119d003cbfe35779c78fc262fec8a509" => :arm64_big_sur
     sha256 "e1df41402ed817941f591a5cc094fe4491b092de8d5177dd363eccecff811bec" => :catalina
     sha256 "c0301d2c47c23bc8ed0042fbaf447e82ca8dbbf10b1939d9a4f684961a24d0d2" => :mojave
     sha256 "2255aa28242ce07a62fc0eabaf146592fb70745e641cfc775a21f99841cec625" => :high_sierra

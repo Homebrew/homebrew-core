@@ -1,16 +1,21 @@
 class Elasticsearch < Formula
   desc "Distributed search & analytics engine"
   homepage "https://www.elastic.co/products/elasticsearch"
-  url "https://github.com/elastic/elasticsearch/archive/v7.9.3.tar.gz"
-  sha256 "b378ebfcfcfa8c75007b7a6a06d2591d784902e08dc833e004007146fa5733cc"
+  # NOTE: Do not bump version to one with a non-open-source license
+  url "https://github.com/elastic/elasticsearch/archive/v7.10.2.tar.gz"
+  sha256 "bdb7811882a0d9436ac202a947061b565aa71983c72e1c191e7373119a1cdd1c"
   license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c78835b3d8e5fb975e27c1ef38abc9e72bb268a3bca9b712c09635e5d1fe5ec6" => :catalina
-    sha256 "f6ba4eebaf3c49cd2949425ba8e666efd8e99173821e5db5084ebefee40c2c29" => :mojave
-    sha256 "65556c7ca4c84b773787c527b59454eec4c8aefdfbda98f37ac97cbfee68c6c6" => :high_sierra
+    sha256 "e199fbcb913252e2f60134de2dfff98bff9ae3f1a28f30f3f44c8b0174e189fb" => :big_sur
+    sha256 "6bb47c36590116e78d14b1d3bdce0aa091867f5a30007018b9fcac14ca0c3d8b" => :catalina
+    sha256 "dbc33bf97783ffae45b4438219a8e4586b82f9939d7c9cdb2398bace6f8ade8b" => :mojave
   end
+
+  # elasticsearch will be relicensed before v7.11.
+  # https://www.elastic.co/blog/licensing-change
+  deprecate! date: "2021-01-14", because: "is switching to an incompatible license"
 
   depends_on "gradle" => :build
   depends_on "openjdk"

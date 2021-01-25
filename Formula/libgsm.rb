@@ -11,6 +11,8 @@ class Libgsm < Formula
 
   bottle do
     cellar :any
+    sha256 "c5bee474fc90a4c08f5e0b7e3eb589c363501cd479f2fdb5369e37c7d0824539" => :big_sur
+    sha256 "6bc94981bf0d1334af48e47e8692d094367793b511a0df113a48266ab6f0c698" => :arm64_big_sur
     sha256 "9a3eaa556cd1a5429c458ee11c29b5c757ee6f32fbc334355110a37622357dc4" => :catalina
     sha256 "f7a7683ef5f7f916e81e3ed51aa754da92ca2b993533608f8fc95187baaf8b3c" => :mojave
     sha256 "5a2b52e7ed65f005f32bb56519dd425b26e537f888b49402322fe1424f0901e4" => :high_sierra

@@ -1,10 +1,10 @@
 class Ed < Formula
   desc "Classic UNIX line editor"
   homepage "https://www.gnu.org/software/ed/ed.html"
-  url "https://ftp.gnu.org/gnu/ed/ed-1.16.tar.lz"
-  mirror "https://ftpmirror.gnu.org/ed/ed-1.16.tar.lz"
-  sha256 "cfc07a14ab048a758473ce222e784fbf031485bcd54a76f74acfee1f390d8b2c"
-  revision 1
+  url "https://ftp.gnu.org/gnu/ed/ed-1.17.tar.lz"
+  mirror "https://ftpmirror.gnu.org/ed/ed-1.17.tar.lz"
+  sha256 "71de39883c25b6fab44add80635382a10c9bf154515b94729f4a6529ddcc5e54"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url :stable
@@ -12,9 +12,10 @@ class Ed < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c8ffa15f236faed29b760318f598903144a8f30ed6a09161f67578b9789760c9" => :catalina
-    sha256 "2d8205eb80873325eb1b485238270df1d0e4ad71212d02f48dffbbdb77b529ed" => :mojave
-    sha256 "57b85675d5c24f9fa076b9e115274f03c8ec136a36400956b488d6e11fb37e5c" => :high_sierra
+    sha256 "57c700308a2ae32fb9a161f33665e040432a0bce4eafc746ece9c1a515b4097d" => :big_sur
+    sha256 "5c564d371bbcdfbbe568291254d591c12d220b23a502944aa68d3a890d4f73e3" => :arm64_big_sur
+    sha256 "7ed89b34fe7b4120255d4a6bd493a924c07c3ad31f3e8099a81ef526dc60b704" => :catalina
+    sha256 "2de3bede199b9f95bb617315e8eb8c8e30276dfcda7f17836c9fcc2dc5253580" => :mojave
   end
 
   keg_only :provided_by_macos

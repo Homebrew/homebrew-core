@@ -1,12 +1,12 @@
 class Uwsgi < Formula
   desc "Full stack for building hosting services"
   homepage "https://uwsgi-docs.readthedocs.io/en/latest/"
-  revision 4
+  license "GPL-2.0-or-later"
   head "https://github.com/unbit/uwsgi.git"
 
   stable do
-    url "https://projects.unbit.it/downloads/uwsgi-2.0.18.tar.gz"
-    sha256 "4972ac538800fb2d421027f49b4a1869b66048839507ccf0aa2fda792d99f583"
+    url "https://files.pythonhosted.org/packages/c7/75/45234f7b441c59b1eefd31ba3d1041a7e3c89602af24488e2a22e11e7259/uWSGI-2.0.19.1.tar.gz"
+    sha256 "faa85e053c0b1be4d5585b0858d3a511d2cd10201802e8676060fd0a109e5869"
 
     # Fix "library not found for -lgcc_s.10.5" with 10.14 SDK
     # Remove in next release
@@ -17,15 +17,16 @@ class Uwsgi < Formula
   end
 
   bottle do
-    sha256 "6c82bba2d7564bd3409867d304c578c7823d7c1db019d8b4c8223ae569a5f247" => :catalina
-    sha256 "2a3b1c26400d68491409b8625f56c730a2f69bbb5acc2596c80ea4cba3435fad" => :mojave
-    sha256 "2c511739e0317173b7c82b15a87a0eade429ed88be667801b477c95dc2affd72" => :high_sierra
+    sha256 "3ff3a21eaf20a4132dc2b2da9405129a9aae59584c422b57cfa6f6cdfa29937c" => :big_sur
+    sha256 "4128d2e3c32af1db0ca94dc74f30d07076b5190668630a68f68cb898441c0b9a" => :arm64_big_sur
+    sha256 "339d8ce59b4cd8657a62b322b26e89649847d32c4c8a1ff149e2e16dd4cc4ff2" => :catalina
+    sha256 "f885fbd73900a196ff2438bc5c14771b0bc8c9cad0a7f59c1cbb39f484205ed5" => :mojave
   end
 
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
   depends_on "pcre"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "yajl"
 
   uses_from_macos "curl"
@@ -36,7 +37,7 @@ class Uwsgi < Formula
   def install
     # Fix file not found errors for /usr/lib/system/libsystem_symptoms.dylib and
     # /usr/lib/system/libsystem_darwin.dylib on 10.11 and 10.12, respectively
-    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra || MacOS.version == :el_capitan
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version <= :sierra
 
     openssl = Formula["openssl@1.1"]
     ENV.prepend "CFLAGS", "-I#{openssl.opt_include}"

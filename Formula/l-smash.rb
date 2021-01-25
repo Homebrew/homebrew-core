@@ -21,7 +21,7 @@ class LSmash < Formula
 
   # failed to upgrade since 02-11-2018
   # https://github.com/l-smash/l-smash/issues/80
-  disable! because: "is unable to be upgraded, necessary patches not merged upstream"
+  disable! date: "2020-12-08", because: :unmaintained
 
   def install
     system "./configure", "--prefix=#{prefix}", "--enable-shared"

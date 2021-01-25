@@ -8,6 +8,8 @@ class Gomplate < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "28edf3db993c7ac945d22a1feb00267d5c4de78c502fa73eb90df9957dc26520" => :big_sur
+    sha256 "fe90b91653bb5cc93e97d6174eb2ef0f5a51b84bae4d5cebb06ddc7d1a5cd0b9" => :arm64_big_sur
     sha256 "52cc95df2ec8d4a0c4f09ceaf3145161e435fc85106f4265ba24a5159f9019e9" => :catalina
     sha256 "e90c04a70f742766bd71ec4fc74c3aa7f6d5fcaf1147032ec52787e5bb326445" => :mojave
     sha256 "2fad9d3647034db30eaee6f556ba9930f8d448e287bdac70ad0b0cfa7332cf47" => :high_sierra

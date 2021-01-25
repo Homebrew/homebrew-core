@@ -7,6 +7,8 @@ class Netris < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9f7c51618024abd332dafe7c9075896fdfefbd80819a4b0c42bf493637947bd2" => :big_sur
+    sha256 "a7b88fa79c440ed0dc4c971eb32197e9f88b34afbf50cd6d9e8929f2e03d7866" => :arm64_big_sur
     sha256 "25697a4b18177f5e976dd5510b68cac949a589a7c9abe2e2d148b930db0d1f89" => :mojave
     sha256 "2ba4eea757cc21504d1da74796a29fcd23264b5d735c0c6debe1083614c2d57a" => :high_sierra
     sha256 "4ac49c49b3d000fcb5c9161f4b217231e9bee9faf29d5e4e7fc9f5d8e10772ec" => :sierra

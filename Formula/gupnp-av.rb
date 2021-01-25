@@ -10,6 +10,8 @@ class GupnpAv < Formula
   end
 
   bottle do
+    sha256 "bc30eb6638541401da64805ddbdf10303a1908ab3393cb7b6c73c199f853ca90" => :big_sur
+    sha256 "3e52333c72d83f4c403225a56687a9cdbb51e8f546d207d8d0cb56cbeafb43f0" => :arm64_big_sur
     sha256 "6e0cf541932104a1259005b3d125d96c72c80e2dffc7d8d4b5ddb199c7bdd237" => :catalina
     sha256 "15f5c2ec832094d098ebbc52c1a327ce7e6125293180e7acc377bc7dcc3d5210" => :mojave
     sha256 "7149d11d69541003e8fc3b1d0da0b125b6dac5329db3017a735858363f31e78c" => :high_sierra

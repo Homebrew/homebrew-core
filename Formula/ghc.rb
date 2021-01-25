@@ -1,46 +1,29 @@
-require "language/haskell"
-
 class Ghc < Formula
-  include Language::Haskell::Cabal
-
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
-  url "https://downloads.haskell.org/~ghc/8.10.1/ghc-8.10.1-src.tar.xz"
-  sha256 "4e3b07f83a266b3198310f19f71e371ebce97c769b14f0d688f4cbf2a2a1edf5"
+  url "https://downloads.haskell.org/~ghc/8.10.3/ghc-8.10.3-src.tar.xz"
+  sha256 "ccdc8319549028a708d7163e2967382677b1a5a379ff94d948195b5cf46eb931"
   license "BSD-3-Clause"
-  revision 2
 
   livecheck do
-    url :stable
+    url "https://www.haskell.org/ghc/download.html"
+    regex(/href=.*?download[._-]ghc[._-][^"' >]+?\.html[^>]*?>\s*?v?(\d+(?:\.\d+)+)\s*?</i)
   end
 
   bottle do
-    sha256 "1fc15705e5b9a24ca773d2df745345e75496ec3f227ea518d9945d6e1add6e18" => :catalina
-    sha256 "cf8e2755d55d2a6479e4cebbee041ff63bece9bbae7d514c0b7601f6542b8081" => :mojave
-    sha256 "40e2b31e3390cf784dedcd4357362bee577b6a5c1d911f5c072828fe01f42e8f" => :high_sierra
-  end
-
-  head do
-    url "https://gitlab.haskell.org/ghc/ghc.git", branch: "ghc-8.10"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-
-    resource "cabal" do
-      url "https://hackage.haskell.org/package/cabal-install-3.2.0.0/cabal-install-3.2.0.0.tar.gz"
-      sha256 "a0555e895aaf17ca08453fde8b19af96725da8398e027aa43a49c1658a600cb0"
-    end
+    sha256 "5ed34f95506b09b1b722fbcbb2ab050854d1ade4dcc6c6b5a3220fd9f78a76f6" => :big_sur
+    sha256 "1259e7d41e9ba1c89f648e412d12c70f4472f96ba969741c116c157239699d9d" => :catalina
+    sha256 "eb32eeadb989c83317d8509764f8c3584df9c7f5c168d930e074f24630c94969" => :mojave
   end
 
   depends_on "python@3.9" => :build
   depends_on "sphinx-doc" => :build
 
   resource "gmp" do
-    url "https://ftp.gnu.org/gnu/gmp/gmp-6.1.2.tar.xz"
-    mirror "https://gmplib.org/download/gmp/gmp-6.1.2.tar.xz"
-    mirror "https://ftpmirror.gnu.org/gmp/gmp-6.1.2.tar.xz"
-    sha256 "87b565e89a9a684fe4ebeeddb8399dce2599f9c9049854ca8c0dfbdea0e21912"
+    url "https://ftp.gnu.org/gnu/gmp/gmp-6.2.1.tar.xz"
+    mirror "https://gmplib.org/download/gmp/gmp-6.2.1.tar.xz"
+    mirror "https://ftpmirror.gnu.org/gmp/gmp-6.2.1.tar.xz"
+    sha256 "fd4829912cddd12f84181c3451cc752be224643e87fac497b69edddadc49b4f2"
   end
 
   # https://www.haskell.org/ghc/download_ghc_8_10_1.html#macosx_x86_64
@@ -48,21 +31,17 @@ class Ghc < Formula
   # A binary of ghc is needed to bootstrap ghc
   resource "binary" do
     on_macos do
-      url "https://downloads.haskell.org/~ghc/8.10.1/ghc-8.10.1-x86_64-apple-darwin.tar.xz"
-      sha256 "65b1ca361093de4804a7e40b3e68178e1ef720f84f743641ec8d95e56a45b3a8"
+      url "https://downloads.haskell.org/~ghc/8.10.3/ghc-8.10.3-x86_64-apple-darwin.tar.xz"
+      sha256 "2635f35d76e44e69afdfd37cae89d211975cc20f71f784363b72003e59f22015"
     end
 
     on_linux do
-      url "https://downloads.haskell.org/~ghc/8.10.1/ghc-8.10.1-x86_64-deb9-linux.tar.xz"
-      sha256 "d1cf7886f27af070f3b7dbe1975a78b43ef2d32b86362cbe953e79464fe70761"
+      url "https://downloads.haskell.org/~ghc/8.10.3/ghc-8.10.3-x86_64-deb9-linux.tar.xz"
+      sha256 "95e4aadea30701fe5ab84d15f757926d843ded7115e11c4cd827809ca830718d"
     end
   end
 
   def install
-    # Work around Xcode 11 clang bug
-    # https://bitbucket.org/multicoreware/x265/issues/514/wrong-code-generated-on-macos-1015
-    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
-
     ENV["CC"] = ENV.cc
     ENV["LD"] = "ld"
     ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
@@ -83,21 +62,6 @@ class Ghc < Formula
     args = ["--with-gmp-includes=#{gmp}/include",
             "--with-gmp-libraries=#{gmp}/lib"]
 
-    # As of Xcode 7.3 (and the corresponding CLT) `nm` is a symlink to `llvm-nm`
-    # and the old `nm` is renamed `nm-classic`. Building with the new `nm`, a
-    # segfault occurs with the following error:
-    #   make[1]: * [compiler/stage2/dll-split.stamp] Segmentation fault: 11
-    # Upstream is aware of the issue and is recommending the use of nm-classic
-    # until Apple restores POSIX compliance:
-    # https://ghc.haskell.org/trac/ghc/ticket/11744
-    # https://ghc.haskell.org/trac/ghc/ticket/11823
-    # https://mail.haskell.org/pipermail/ghc-devs/2016-April/011862.html
-    # LLVM itself has already fixed the bug: llvm-mirror/llvm@ae7cf585
-    # rdar://25311883 and rdar://25299678
-    if DevelopmentTools.clang_build_version >= 703 && DevelopmentTools.clang_build_version < 800
-      args << "--with-nm=#{`xcrun --find nm-classic`.chomp}"
-    end
-
     resource("binary").stage do
       binary = buildpath/"binary"
 
@@ -105,22 +69,6 @@ class Ghc < Formula
       ENV.deparallelize { system "make", "install" }
 
       ENV.prepend_path "PATH", binary/"bin"
-    end
-
-    if build.head?
-      resource("cabal").stage do
-        system "sh", "bootstrap.sh", "--sandbox"
-        (buildpath/"bootstrap-tools/bin").install ".cabal-sandbox/bin/cabal"
-      end
-
-      ENV.prepend_path "PATH", buildpath/"bootstrap-tools/bin"
-
-      cabal_sandbox do
-        cabal_install "--only-dependencies", "happy", "alex"
-        cabal_install "--prefix=#{buildpath}/bootstrap-tools", "happy", "alex"
-      end
-
-      system "./boot"
     end
 
     system "./configure", "--prefix=#{prefix}", *args

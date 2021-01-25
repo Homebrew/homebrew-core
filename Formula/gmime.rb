@@ -10,6 +10,8 @@ class Gmime < Formula
   end
 
   bottle do
+    sha256 "3714b2907a93c2495efb79c0cf870bdab5683c64c17696836b19e5b34108b852" => :big_sur
+    sha256 "0c12167da5badd3447325e0770666c1e7f5e5e8945613e4c54c4e3e5ef1915fa" => :arm64_big_sur
     sha256 "877f2024cc0d97bc94f559ad992f87bdf6fdc23f9a1acc7b5bb13f0711b734c3" => :catalina
     sha256 "7a0bda5bca906bc62e3ab24fc39752e2858fce861ba759040fc864928ab18d96" => :mojave
     sha256 "0bb48841eae316695037bcd793673d518d0f2be20968a115a81c92824fb77ac0" => :high_sierra
@@ -67,8 +69,10 @@ class Gmime < Formula
       -lglib-2.0
       -lgmime-3.0
       -lgobject-2.0
-      -lintl
     ]
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cc, "-o", "test", "test.c", *flags
     system "./test"
   end

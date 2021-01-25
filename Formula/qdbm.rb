@@ -8,6 +8,8 @@ class Qdbm < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "7257a9e22ee3661fc2213d5ff60148b44e5e217781a3af807405c239020b3c6a" => :big_sur
+    sha256 "5b0f851a602c8cb4f0fab49204037f7a6d28bc311a30559c7f08c37c36b66add" => :arm64_big_sur
     sha256 "0a0ba32270742fbd821ba60bbc6452e6b6b6a476d72e719bdb33fdf535e316f0" => :catalina
     sha256 "4861035c21a7fcd02efca60c922d06a45f3078eaffa374784a533932f9efa806" => :mojave
     sha256 "4ec4e60b16efb21fd7835c182fcf5d8f43c4af4329dd8afb07b4900bc1b17f60" => :high_sierra
@@ -23,9 +25,16 @@ class Qdbm < Formula
                           "--enable-bzip",
                           "--enable-zlib",
                           "--enable-iconv"
-    system "make", "mac"
-    system "make", "check-mac"
-    system "make", "install-mac"
+    on_macos do
+      system "make", "mac"
+      system "make", "check-mac"
+      system "make", "install-mac"
+    end
+    on_linux do
+      system "make"
+      system "make", "check"
+      system "make", "install"
+    end
   end
 
   test do

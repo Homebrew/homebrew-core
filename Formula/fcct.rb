@@ -1,16 +1,22 @@
 class Fcct < Formula
   desc "Fedora CoreOS Config Transpiler"
   homepage "https://github.com/coreos/fcct"
-  url "https://github.com/coreos/fcct/archive/v0.6.0.tar.gz"
-  sha256 "2cd630f37fcd549e931df9a01f94f0f783e06463701b9f8b5ab9b293515f9915"
+  url "https://github.com/coreos/fcct/archive/v0.9.0.tar.gz"
+  sha256 "1d937294bf82512b0b030421c49a837529f5b3c116ed480543d8c9663c488388"
   license "Apache-2.0"
   head "https://github.com/coreos/fcct.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     cellar :any_skip_relocation
-    sha256 "1b525343e7d1401c4de2694c7ed25a40d05e607900519ce36c63e76166fde16b" => :catalina
-    sha256 "6b968d4d747e4eb678ab899ff539e49ed771f5a0cc2f87a359e2e404b1e7f12b" => :mojave
-    sha256 "bd2d80c315a29dba226b390329418701e2a149d50c4a16a5fad4a9083f26b433" => :high_sierra
+    sha256 "ebe717abe749c01afdead955cd5f53a37a3cfc2272acc138e7d12fbfe33358a8" => :big_sur
+    sha256 "66f683e925f258e4392bbe26d6ca2652f5cf4f038e856dbeecfeffbc18cc78a3" => :arm64_big_sur
+    sha256 "c113ecd134bea6273e4cf66f59b7a646278ae5f9ea0b55b2266a207814788171" => :catalina
+    sha256 "7cb56820d1a8fc8db365477f1af7e346484e159747fc86f0ad0e11f9e1fbf6e5" => :mojave
   end
 
   depends_on "go" => :build

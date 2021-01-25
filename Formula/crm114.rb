@@ -6,6 +6,8 @@ class Crm114 < Formula
 
   bottle do
     cellar :any
+    sha256 "c00ea54f01bfa748d4a48123c7140fd4e8abb200b8c42ca0ab016272f72eeb8c" => :big_sur
+    sha256 "24d3e83ee6c91b1fbed3b83aefbd17c2a93119b12d6cf7a9cea10090e52af6a8" => :arm64_big_sur
     sha256 "f6ebd35ffbae26d9cf77de3f165c13ec170b8123d527369f43e9a862f14eb287" => :catalina
     sha256 "38a8c208a23dc67027eb63e9a8a6782cdb0763caa061fbf74525003d028d0558" => :mojave
     sha256 "1871f19d45d9d9d5f84663acde3f7e9177fd9a44bfe50532ed123314e360f690" => :high_sierra

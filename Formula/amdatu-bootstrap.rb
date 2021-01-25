@@ -3,6 +3,8 @@ class AmdatuBootstrap < Formula
   homepage "https://bitbucket.org/amdatuadm/amdatu-bootstrap/"
   url "https://bitbucket.org/amdatuadm/amdatu-bootstrap/downloads/bootstrap-bin-r9.zip"
   sha256 "937ef932a740665439ea0118ed417ff7bdc9680b816b8b3c81ecfd6d0fc4773b"
+  license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://bitbucket.org/amdatuadm/amdatu-bootstrap/downloads/"
@@ -11,7 +13,7 @@ class AmdatuBootstrap < Formula
 
   bottle :unneeded
 
-  depends_on java: "1.8"
+  depends_on "openjdk@8"
 
   def install
     libexec.install %w[amdatu-bootstrap bootstrap.jar conf]

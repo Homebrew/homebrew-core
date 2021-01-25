@@ -1,18 +1,16 @@
 class Bsdconv < Formula
   desc "Charset/encoding converter library"
   homepage "https://github.com/buganini/bsdconv"
-  url "https://github.com/buganini/bsdconv/archive/11.5.tar.gz"
-  sha256 "20137c6937a5785467296e12b18b1b9dff55f021bae3f3eb3eb4fa5826689692"
+  url "https://github.com/buganini/bsdconv/archive/11.6.tar.gz"
+  sha256 "e856e24474deb3731ac059a96af0078ba951895f2cb3b31f125148a29cc32b70"
   license "BSD-2-Clause"
   head "https://github.com/buganini/bsdconv.git"
 
   bottle do
-    sha256 "ea7dbfdeede5b0144d00533798f4b76a4af216b12c37a5e5ecaeaac030eab507" => :catalina
-    sha256 "c4133e2b55be3a74a241941b4ee3bf4a1a9cacbbe0e5a41827b1229698d79215" => :mojave
-    sha256 "ddbd2053b0cff3e0d5c635b370138d5e4de8f5353621dbcabe616f014f3362c1" => :high_sierra
-    sha256 "9afd5dd285b98bf656bbd0e29fa3594128a312e525e079e4348b1a706e16b16a" => :sierra
-    sha256 "565a934e96be6ef7726d1c03dbd6eec63ac5ad82678192b544cfe2bff706b1b7" => :el_capitan
-    sha256 "ccb11937d94df29b9434925b9416291f9d927c2e4669fb39cad96c47912662e5" => :yosemite
+    sha256 "18fa8aff61b229d34b05516953d49aa807edb4f2231108e84bbe5c4847aac9e0" => :big_sur
+    sha256 "92a2e9b7e7389c00556c577f05e2e7d6ff39919d62153fb07dd98df8ba6347ab" => :arm64_big_sur
+    sha256 "c7c3ee826009c6a77d2e435b56deee58b3243e7dc2ac54a7ddea90555a16ef7a" => :catalina
+    sha256 "8ae3048037104e7a91ffd76ff6ef1910c8252d050e98b03e4083841525d19a0c" => :mojave
   end
 
   def install

@@ -4,6 +4,7 @@ class Coturn < Formula
   url "http://turnserver.open-sys.org/downloads/v4.5.1.3/turnserver-4.5.1.3.tar.gz"
   sha256 "408bf7fde455d641bb2a23ba2df992ea0ae87b328de74e66e167ef58d8e9713a"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url "http://turnserver.open-sys.org/downloads/"
@@ -11,15 +12,24 @@ class Coturn < Formula
   end
 
   bottle do
-    sha256 "027e54c623df2dca0cb5b281123a01b5ab4625d277d7a1f7ac2bd998df790b01" => :catalina
-    sha256 "f5d4351c3ae9d4b8949012379f6b7cb680f4f0fdb6b01c55ff84bd735bd3a490" => :mojave
-    sha256 "4bfb3e74a8d467f7935ccb316097a70b3b14018b31316bccf7c758e65f2479e8" => :high_sierra
+    rebuild 1
+    sha256 "83258540358e8a1b03e504eca1494841efaf5ff3d8d2bab21be3889fec3b1b53" => :big_sur
+    sha256 "9de50fb73d1af5224a577444d395fdc77395a7fbc42010a8dfb8cb40d2b5078e" => :arm64_big_sur
+    sha256 "62ad808fb17756704e5fbec7f1f6acb7246545e27b05cf537ab3a716c0fcbec7" => :catalina
+    sha256 "e9601d4fca70c049a01145aee4f09aac8efad87d73de706dd3ea580f6be7e875" => :mojave
   end
 
   depends_on "hiredis"
   depends_on "libevent"
   depends_on "libpq"
   depends_on "openssl@1.1"
+
+  # fix compilation on macOS Big Sur
+  # remove in next release
+  patch do
+    url "https://github.com/coturn/coturn/commit/5b07b98.patch?full_index=1"
+    sha256 "186cbd35d74d440abfddf5a04c46a7ce781ceca7af989b1000feb5f98b2c270a"
+  end
 
   def install
     system "./configure", "--disable-debug",

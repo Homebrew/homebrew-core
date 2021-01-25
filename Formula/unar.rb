@@ -13,6 +13,8 @@ class Unar < Formula
   bottle do
     cellar :any
     rebuild 2
+    sha256 "7b7680e174418478cb59d65815d7fb0799888247013eee04fc1bd88c43d3d49e" => :big_sur
+    sha256 "bac059a80b30bd4ab2290e31bff0e93f933ddb6631252d6e1fab50b8f3c1736d" => :arm64_big_sur
     sha256 "366fc5e1d3587148e089214a91cd23a96eae1b0aefebcd2e9813b1cc2f6593c2" => :catalina
     sha256 "7bc711ae9affa86d2bc6b29df427dbc900afa6f18bcf13dc4fcf0518f0a50ffa" => :mojave
     sha256 "311cdc91d8897b3ebe20ea6b9e62bb2e4bc4bc15c9d2f321567cd010031df78a" => :high_sierra

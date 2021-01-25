@@ -1,16 +1,17 @@
 class Jerryscript < Formula
   desc "Ultra-lightweight JavaScript engine for the Internet of Things"
   homepage "https://jerryscript.net"
-  url "https://github.com/jerryscript-project/jerryscript/archive/v2.3.0.tar.gz"
-  sha256 "75f039f2e7eb55e3ce5d48fd6f9c4e8ec643a94654070125a6d76a906218e0fa"
+  url "https://github.com/jerryscript-project/jerryscript/archive/v2.4.0.tar.gz"
+  sha256 "5850947c23db6fbce032d15560551408ab155b16a94a7ac4412dc3bb85762d2d"
   license "Apache-2.0"
   head "https://github.com/jerryscript-project/jerryscript.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "30cce6deddb3cd879374dd6e80fc0a7ec7fcf32aa5b940713c60ee520b9b030a" => :catalina
-    sha256 "aecaf8cb9cc69ed2ac8694691f3f8b40b16fe72ce30f1a571244aa9cbe0c0591" => :mojave
-    sha256 "8c9890bfc739d8903d493316d3d1e258f6883d15115d247a8493aa259823cf47" => :high_sierra
+    sha256 "b7884dc63baf21ca21f882e25f93397f0478dba8e0c4728a7efc7bfb198673ff" => :big_sur
+    sha256 "cf6ac8f80cc4c6b10bd27113e49727d31cd6f8237e55362bd5fc6cb10fdfa9b8" => :arm64_big_sur
+    sha256 "e6e1907eb1af3d6aab2f3447a0aa2e6c709ebb040d6198fefa7c12a1e256b8bd" => :catalina
+    sha256 "c091f4246186278785265a7c378f2cd37db337d4c9419afc8348bcdd4d74e8ab" => :mojave
   end
 
   depends_on "cmake" => :build

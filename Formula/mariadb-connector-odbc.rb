@@ -1,14 +1,20 @@
 class MariadbConnectorOdbc < Formula
   desc "Database driver using the industry standard ODBC API"
   homepage "https://downloads.mariadb.org/connector-odbc/"
-  url "https://downloads.mariadb.org/f/connector-odbc-3.1.9/mariadb-connector-odbc-3.1.9-ga-src.tar.gz"
-  sha256 "5ead3f69ccde539fd7e3de6f4b8f0e6f9f6c32b4b4f082adf0e2ff110971fe1e"
-  license "LGPL-2.1"
+  url "https://downloads.mariadb.org/f/connector-odbc-3.1.11/mariadb-connector-odbc-3.1.11-ga-src.tar.gz"
+  sha256 "d81a35cd9c9d2e1e732b7bd9ee704eb83775ed74bcc38d6cd5d367a3fc525a34"
+  license "LGPL-2.1-or-later"
+
+  livecheck do
+    url :homepage
+    regex(/Download (\d+(?:\.\d+)+) Stable Now!/i)
+  end
 
   bottle do
-    sha256 "339b4c5fa7121936bd5ed68e5d6c507400e43445bc46b63f6cea6212e047c66f" => :catalina
-    sha256 "4ba2a2852289ab5843bba747e84188d0c663d39129be4bb57ef23307ffc93261" => :mojave
-    sha256 "49f91ee3450c6650885b90efa9c07ca5d23f72fdd8a37387302cdf5c0ad548a9" => :high_sierra
+    sha256 "8ecf2575cfb6897176626d13821da084b97a86fff29103f21a6122fb508234c6" => :big_sur
+    sha256 "14eab02c927c39019801250936766b9f913ccee3ce1ebc0a10d87753ec46e5c3" => :arm64_big_sur
+    sha256 "9e026906501acc48c754a22cd3415f968121d378d9b23ae02d09a92e771634b9" => :catalina
+    sha256 "7291bc304b018ed6f5b9edbc5dcc35de99135be517eb559217148ae3f9d333c2" => :mojave
   end
 
   depends_on "cmake" => :build
@@ -23,6 +29,10 @@ class MariadbConnectorOdbc < Formula
                          "-DWITH_SSL=OPENSSL",
                          "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}",
                          "-DWITH_IODBC=0",
+                         # Workaround 3.1.11 issues finding system's built-in -liconv
+                         # See https://jira.mariadb.org/browse/ODBC-299
+                         "-DICONV_LIBRARIES=#{MacOS.sdk_path}/usr/lib/libiconv.tbd",
+                         "-DICONV_INCLUDE_DIR=/usr/include",
                          *std_cmake_args
 
     # By default, the installer pkg is built - we don't want that.

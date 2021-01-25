@@ -8,6 +8,8 @@ class Sheldon < Formula
 
   bottle do
     cellar :any
+    sha256 "1acd1c15437fbe6c58223e5dbd14c14fdb79e5b5cb5ee6f5505ab1fc3fa65432" => :big_sur
+    sha256 "a0968805397cf22b45b76d7fbe74764ad03b4dd4a45b8417b69fbfc01fa95d8a" => :arm64_big_sur
     sha256 "7bbb0e9ca7d115d7ed4c310248c3937e7117feab47ba13683a80f675d76b4c44" => :catalina
     sha256 "72906d43188f39876956cea5803662f6eba42c59b285ae48e46853e671f9312f" => :mojave
     sha256 "ab46bcf3bdea25e2f39aa079044d9bf3ccd691697296e6747f9f63fe09c316b4" => :high_sierra

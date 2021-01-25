@@ -1,17 +1,19 @@
 class Lldpd < Formula
   desc "Implementation of IEEE 802.1ab (LLDP)"
   homepage "https://vincentbernat.github.io/lldpd/"
-  url "https://media.luffy.cx/files/lldpd/lldpd-1.0.6.tar.gz"
-  sha256 "25e15bc3407c1cbf2d0b2f21993561a57b7e2fdc5cebfcf6df4ce5ce376aaeec"
+  url "https://media.luffy.cx/files/lldpd/lldpd-1.0.8.tar.gz"
+  sha256 "98d200e76e30f6262c4a4493148c1840827898329146a57a34f8f0f928ca3def"
+  license "ISC"
 
   livecheck do
     url "https://github.com/vincentbernat/lldpd.git"
   end
 
   bottle do
-    sha256 "31d0013804445cc7b674ae9f7cabe736fbfab7a4d03ed88cbe205e97e76c1567" => :catalina
-    sha256 "986c8754cbb606db48dcee2230a097ec40629d5353b3c7f811be0153669fd18c" => :mojave
-    sha256 "ae25b1716c60ab6441d445af1c2053712bdc54358ae5f524cb6aff1c192b39bb" => :high_sierra
+    sha256 "9c55269d6b7bac30bd47b0733056f87c4aa7e38a44b55b806aae7ef3cc270ffc" => :big_sur
+    sha256 "015c4c0324661d90e06436a348dfc37af918e7bbea32ee63e2db58469a5a230e" => :arm64_big_sur
+    sha256 "9c82d5c9c454ce3cd453b379e31bd79922ebe5e0b7377c6e845cb039ca3fddf1" => :catalina
+    sha256 "2f35d49b7ca199a2980f08816bc055cfec43f29b0c2c55a05cb55dcc72b9ccea" => :mojave
   end
 
   depends_on "pkg-config" => :build

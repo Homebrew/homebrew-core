@@ -9,6 +9,8 @@ class Cpputest < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "37ccb80c5598e80ecacd6b5b33a610ce38666e9878cb7365a0f79e5705df49a0" => :big_sur
+    sha256 "51cc4f2febbce066e2c57af7a50c816cbb02ec5c61394657e9fb4fef5977e8d0" => :arm64_big_sur
     sha256 "9e06d26ed7a552c818c7f1d6bb68ef16e7185238a14bdf0ae337a410ecb46384" => :catalina
     sha256 "59881c464ae17f1a2381145f78f614d174c83fbe8f4900e362e9a6830fcf446e" => :mojave
     sha256 "9cea67d4098efe30dd499d1a999467800ff91a9e7954ec6407b03d181a20761d" => :high_sierra

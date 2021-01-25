@@ -6,12 +6,14 @@ class Libffi < Formula
   mirror "https://github.com/libffi/libffi/releases/download/v3.3/libffi-3.3.tar.gz"
   sha256 "72fba7922703ddfa7a028d513ac15a85c8d54c8d67f55fa5a4802885dc652056"
   license "MIT"
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "dd94d39946f53a8f11f78e998f22e46be9666bb265f80bb4714d5d63c1e16a68" => :catalina
-    sha256 "d6e5efd7521676dfc58fcba567514b898091c8580df4d6253f5dd40a7ee67c82" => :mojave
-    sha256 "7065f0d426921fa069c2494beded9de61e8720954f3f346103c8f871daa4ff8b" => :high_sierra
+    sha256 "b554c360440795f08f6afa353f467e152d82a80195ccca3f6e235d84366fea18" => :big_sur
+    sha256 "101f73c4097df830a5f5ab4ad77da81c8dd1ce9c82e38676f7302aa09c3c236c" => :arm64_big_sur
+    sha256 "1e976844c53c2a2462da41f0b6091e97dc82ecee6d2cf3063f818d44d8616cd7" => :catalina
+    sha256 "3edbb019a2b682f31991ee1e520caf773254060b4cbaa78639c2f226b543a07c" => :mojave
   end
 
   head do
@@ -23,15 +25,27 @@ class Libffi < Formula
 
   keg_only :provided_by_macos
 
+  on_macos do
+    if Hardware::CPU.arm?
+      # Improved aarch64-apple-darwin support. See https://github.com/libffi/libffi/pull/565
+      patch do
+        url "https://raw.githubusercontent.com/Homebrew/formula-patches/a4a91e61/libffi/libffi-3.3-arm64.patch"
+        sha256 "ee084f76f69df29ed0fa1bc8957052cadc3bbd8cd11ce13b81ea80323f9cb4a3"
+      end
+    end
+  end
+
   def install
-    # This can be removed in the future when libffi properly detects the CPU on ARM.
-    # https://github.com/libffi/libffi/issues/571#issuecomment-655223391
-    extra_args = []
-    extra_args << "--build=aarch64-apple-darwin#{OS.kernel_version}" if Hardware::CPU.arm?
+    args = std_configure_args
+
+    on_macos do
+      # This can be removed in the future when libffi properly detects the CPU on ARM.
+      # https://github.com/libffi/libffi/issues/571#issuecomment-655223391
+      args << "--build=aarch64-apple-darwin#{OS.kernel_version}" if Hardware::CPU.arm?
+    end
 
     system "./autogen.sh" if build.head?
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}", *extra_args
+    system "./configure", *args
     system "make", "install"
   end
 

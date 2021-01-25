@@ -7,6 +7,8 @@ class Noti < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c62799cbbb117b38b1aa7115d9ca4e823caf6eba30bc509638445d82ea7aaa99" => :big_sur
+    sha256 "a4eb0ad59a65cb3c8c870aef3b96754c2ec1b3e62ca79d30bad2abdf746ce9e3" => :arm64_big_sur
     sha256 "fd5b46d0b59943d06196923e4ba4f5628816d3c051d3b982939e3e64d2397fdf" => :catalina
     sha256 "83a2ca79439aaaa5872597f0d937facea22e69eba196eade49a20099c5b6b120" => :mojave
     sha256 "f622905f1a8f1ce308b629de6521c17be579de1019a3727ec568a359f852d135" => :high_sierra

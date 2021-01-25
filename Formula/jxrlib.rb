@@ -6,6 +6,8 @@ class Jxrlib < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8cd0235dd1a6537562f6c7939ffd99bab6568eab5b72326ef6670ee1299fe5dc" => :big_sur
+    sha256 "54cfa4c3ba6f80ae22012ceb65b6c50340489d6a8cf99b0abd26a93e4be16628" => :arm64_big_sur
     sha256 "51c5db55544b873ddbb50eb5681ab3d6ce1552df452bc31f3865d33e36176888" => :catalina
     sha256 "923729f8257b2ff225affe4a2a822f2dd40e799ca45be9ac423f04b5e4e603f0" => :mojave
     sha256 "6d24053d591022594ab92f880c56da4057a9e4f8d8ecb6f942e3558900385def" => :high_sierra

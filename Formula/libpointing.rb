@@ -7,6 +7,8 @@ class Libpointing < Formula
 
   bottle do
     cellar :any
+    sha256 "e9168eee924fc759e012e3ef41d64750d732f0d09a7af068fd935746835da472" => :big_sur
+    sha256 "19de172dd9ad6744f9939955a5c526d3626400727631cdd07a6e22d8791fbf48" => :arm64_big_sur
     sha256 "d56d66f5df0d6e1c80cc4e4951e8add9cbb0c5fb76080c9107f66665b8b46e48" => :catalina
     sha256 "adecdbec3a556dfd78dd1aa24f6868814fc4b3243310311192fee4e9de912c62" => :mojave
     sha256 "97e7550c8e3c3007df96cc98eab35a297ed857a6fd1bc24011d1dea8350966e5" => :high_sierra

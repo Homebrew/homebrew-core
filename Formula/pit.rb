@@ -30,6 +30,8 @@ class Pit < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "853489d4ee4f37e97f89415f5a3d1e0c225cb2dace8f61680293bb61ad57dd52" => :big_sur
+    sha256 "2d3857a0cf9c47d2d53f87109d87a4823fed481398cf2adb6c9f3809b8085985" => :arm64_big_sur
     sha256 "3ff5098a860de65a101fafe58d9ef76ac4c392f0b127720ecb34f0141554c27d" => :catalina
     sha256 "7c23637b9f925de09953cc5288e884ee9c08a5b62b2a16a3596cf6fcfc3c0677" => :mojave
     sha256 "0fcb58f56565c207f8030853336ba313d93ba9bd3f1c09480a0ad37de1d961f2" => :high_sierra

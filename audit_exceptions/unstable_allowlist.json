@@ -1,0 +1,15 @@
+{
+  "aalib": "1.4rc",
+  "automysqlbackup": "3.0-rc",
+  "aview": "1.3.0rc",
+  "ftgl": "2.1.3-rc",
+  "go": "1.15.",
+  "libcaca": "0.99b",
+  "premake": "4.4-beta",
+  "pwnat": "0.3-beta",
+  "recode": "3.7-beta",
+  "rust": "1.48.",
+  "tcptraceroute": "1.5beta",
+  "tiny-fugue": "5.0b",
+  "vbindiff": "3.0_beta"
+}

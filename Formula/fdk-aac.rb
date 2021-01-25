@@ -10,6 +10,8 @@ class FdkAac < Formula
 
   bottle do
     cellar :any
+    sha256 "aacfb5ad63c65fd2a2de00ce2bb20e2b620b26e21e9c76cafbf967327d03a49d" => :big_sur
+    sha256 "90dee33598510f7bca41e3da463e18f5400d71639af4394668ade28b89dc6175" => :arm64_big_sur
     sha256 "526c83a79b7f208f07e8d04ad5ce47c8104d90a76034e42422d124fba128ba3c" => :catalina
     sha256 "9353da38e4b43913964f9cdc5fc2a28c4b6c0a19ceef4e2a58db62ba3fdb4d49" => :mojave
     sha256 "a8812e355f28272c7d8153bcda0e48a58c0bd0a880ed0256a2bc460143d1df78" => :high_sierra

@@ -11,6 +11,7 @@ class Hello < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "69489ae397e4645127aa7773211310f81ebb6c99e1f8e3e22c5cdb55333f5408" => :big_sur
     sha256 "449de5ea35d0e9431f367f1bb34392e450f6853cdccdc6bd04e6ad6471904ddb" => :catalina
     sha256 "f9d6285eafa4317c5a653bd02832bdabe4df9f6b18702274d551b28cc45d8b23" => :mojave
     sha256 "1b66790d42664fe95d44f56d2c82db7ea2ce03e01bda0c8e9932f3b768342c7b" => :high_sierra

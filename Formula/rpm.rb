@@ -1,9 +1,10 @@
 class Rpm < Formula
   desc "Standard unix software packaging tool"
   homepage "https://rpm.org/"
-  url "http://ftp.rpm.org/releases/rpm-4.15.x/rpm-4.15.1.tar.bz2"
-  sha256 "ddef45f9601cd12042edfc9b6e37efcca32814e1e0f4bb8682d08144a3e2d230"
-  revision 1
+  url "http://ftp.rpm.org/releases/rpm-4.16.x/rpm-4.16.1.2.tar.bz2"
+  mirror "https://ftp.osuosl.org/pub/rpm/releases/rpm-4.16.x/rpm-4.16.1.2.tar.bz2"
+  sha256 "8357329ceefc92c41687988b22198b26f74a12a9a68ac00728f934a5c4b4cacc"
+  license "GPL-2.0-only"
   version_scheme 1
 
   livecheck do
@@ -12,9 +13,9 @@ class Rpm < Formula
   end
 
   bottle do
-    sha256 "e5d398daca37da278add441d2cb0825c019fed8bcfb33bd4abb01dad3dce42e0" => :catalina
-    sha256 "0b5556d33614062b0b9d39cc8d3f4046d562cbaa9b03498cf4b11c57debb38fe" => :mojave
-    sha256 "a59870c437fe72ce7438726f79a44111d8352dbe50b7f6cf9d147210034a764b" => :high_sierra
+    sha256 "92fc083ce834a3ac5600b1acec267db2877c57d41a22057aa3bd5bc2924e9ac0" => :big_sur
+    sha256 "a30f423573c7209e08c2d4ec57b4a545c710549e61b300b041f7720c9c600c05" => :catalina
+    sha256 "96d7d9c474f2efb780ec64a28ee112640be8a37af6246f9f2fb01bfd5dc14280" => :mojave
   end
 
   depends_on "berkeley-db"

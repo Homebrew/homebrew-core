@@ -13,6 +13,8 @@ class OmegaRpg < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "cc9ea79ad3baebccf29fa3e16fe023a05564ca2f4c8c9f67bf45c3f0d471993e" => :big_sur
+    sha256 "38000e1217562bc9cf2db49e0eb16aa4e7b5648010539fc5c9bb0608f3e1fc20" => :arm64_big_sur
     sha256 "4ab6747f5c291b26c9ba5b750d98ee6368f42dc35039bf23b2e401a318fb87f6" => :catalina
     sha256 "8161e569d07cae64b550fa2f2e795171ca82b65b283cf1e45056b61d12fa71f5" => :mojave
     sha256 "0b08d090868aa2b1da56645e74ea87d6a15043c473aba35e56f3fbf2e4b4f4d4" => :high_sierra

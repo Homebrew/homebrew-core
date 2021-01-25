@@ -1,8 +1,8 @@
 class DfuUtil < Formula
   desc "USB programmer"
   homepage "https://dfu-util.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/dfu-util/dfu-util-0.9.tar.gz"
-  sha256 "36428c6a6cb3088cad5a3592933385253da5f29f2effa61518ee5991ea38f833"
+  url "https://downloads.sourceforge.net/project/dfu-util/dfu-util-0.10.tar.gz"
+  sha256 "a03dc58dfc79c056819c0544b2a5970537566460102b3d82cfb038c60e619b42"
   license "GPL-2.0"
 
   livecheck do
@@ -11,13 +11,10 @@ class DfuUtil < Formula
 
   bottle do
     cellar :any
-    sha256 "742ed4829d01efdb37854b29e5f2199b4674b310cdad87f8cfdbeedc3ed97c7e" => :catalina
-    sha256 "811d4e5d574bf5d3cb8783374927c6861c083e05711f538925a819490c5a49c7" => :mojave
-    sha256 "c1e5f33cee759c8273ed5b9088262c442773342378939cecd374c99889126f8b" => :high_sierra
-    sha256 "3b9f9f6cf990becc1f2979fbec2cf2833d6f0ee2ab1ba3db4979203f1d591ee2" => :sierra
-    sha256 "49975a34b6bacad4549871097effce90e376d3cd26ed24b2d7dfd925a199f0f8" => :el_capitan
-    sha256 "776c3ed14def87511f9280201a95490145a9d469e2c1e29873c335e2c39ed279" => :yosemite
-    sha256 "75c7ffa4e2d5067618c41f999f3d0c8a9aac1080e9eb8cd1f9bec8dd154aa1c1" => :mavericks
+    sha256 "1e960a2b57fd6fa0fbfe5a9bb7aa0e35e24664ee65d686eb8fbef724152bc0d0" => :big_sur
+    sha256 "387d614558287e0b5b7f6911d30f0f362d37771f21e7ee11f678859c0447ecea" => :arm64_big_sur
+    sha256 "3baa1c97498ad73a60b12c1d1ffa192a9b57946be6ced7ab826f3e1135113a74" => :catalina
+    sha256 "6bc199867512701a02e09aeea49adfefb5d38f413e8401b35025a827fbcc4036" => :mojave
   end
 
   head do

@@ -10,6 +10,8 @@ class Mp3splt < Formula
   end
 
   bottle do
+    sha256 "0a597bd74402f6d597569b670cf6c0208d24de58c00e27a7b4a91a1fffeaa689" => :big_sur
+    sha256 "ffb07bf57273a24cb35a8e2805f34b817f3c90847c05978bc1cb7d9d7a08252d" => :arm64_big_sur
     sha256 "d2a1ca7bd32f12b0cb152031cf812ab5af2fcef906f4a5d4fc1939f5d6b37e12" => :catalina
     sha256 "fb9ec207370028ac673f0f4e067dbae93d19e567ca80ab46e9e49d895262ac81" => :mojave
     sha256 "5dac4b6a6632c234ad5137084275924e1fcc32833a333924cc55fc50da51afe3" => :high_sierra

@@ -4,10 +4,6 @@ class Torrentcheck < Formula
   url "https://downloads.sourceforge.net/project/torrentcheck/torrentcheck-1.00.zip"
   sha256 "a839f9ac9669d942f83af33db96ce9902d84f85592c99b568ef0f5232ff318c5"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     cellar :any_skip_relocation
     sha256 "b8100aac4cf74924411b389b8e2c45656d621e8ef3281b21e761188859a36f2e" => :catalina
@@ -18,6 +14,8 @@ class Torrentcheck < Formula
     sha256 "46426cdf1c627f448d54895b7f08379b90948030be346753104f5f6a5fabca3b" => :yosemite
     sha256 "ed300dfc8d1f7f7fe3c9c161b8f86cc6a379c7a4cca3914bb0c665d66ec6596a" => :mavericks
   end
+
+  disable! date: "2020-12-08", because: :unmaintained
 
   def install
     inreplace "torrentcheck.c", "#include <malloc.h>", ""

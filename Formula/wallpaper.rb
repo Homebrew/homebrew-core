@@ -9,6 +9,8 @@ class Wallpaper < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "3a4cb8a6ee394116921c900caf783e14eccd0f36bc75d1490b879fa613503922" => :big_sur
+    sha256 "c287fd0c20f380e5da1a0d164b7199b8280f868dd994a86002f06481fc5db36a" => :arm64_big_sur
     sha256 "2a2ca640dde6aed8dab04983c680d60532eefcadc11f3c0b379e7754d4d9a662" => :catalina
   end
 

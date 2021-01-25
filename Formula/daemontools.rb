@@ -5,11 +5,18 @@ class Daemontools < Formula
   sha256 "a55535012b2be7a52dcd9eccabb9a198b13be50d0384143bd3b32b8710df4c1f"
   revision 1
 
+  livecheck do
+    url "https://cr.yp.to/daemontools/install.html"
+    regex(/href=.*?daemontools[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
-    sha256 "650688484d7de25a026916c90a0109f05d33ec8401cc007e6ae805d2cedb9a16" => :catalina
-    sha256 "d34c1e242009de743a2d58fc52bf56cd24a69eb940f74bf8af2b168f76010dd1" => :mojave
-    sha256 "a5a9bd96a04e3cbcbb15170bb7af3b7128e85d1e9c23b18bf0a76922f3beaff0" => :high_sierra
+    rebuild 1
+    sha256 "2de015542410e14eb8e17bb9affc37f19fc81e7005e4bec60ecd64c13629b02a" => :big_sur
+    sha256 "4970abde6563bd8fa9cae9478b81d241ce0ad0c4d1504aa84269c55ccb45a499" => :arm64_big_sur
+    sha256 "0a39db96c9e2926beea8224ca844264d4ddec3b6561d5dfc019f3ecfd7cc86fe" => :catalina
+    sha256 "6516ee63288eab3eab3ee418ce070d711f483a5f6ebc147cb7039a9404bbaa0a" => :mojave
   end
 
   def install

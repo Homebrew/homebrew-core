@@ -8,6 +8,8 @@ class Cxxopts < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "40c3c76fe2008d8a31f51748970af0873b622d3540ccde6462caac0e1322fbca" => :big_sur
+    sha256 "dffc57a1cc6de42f042163c6d44e42e24a778bd1cdf7f7e45e96f9b07b64880c" => :arm64_big_sur
     sha256 "d4a289fb314e5efdb8c889c560340c259c04b19b9d1e7087b58d0d24aafd5ed2" => :catalina
     sha256 "d4a289fb314e5efdb8c889c560340c259c04b19b9d1e7087b58d0d24aafd5ed2" => :mojave
     sha256 "d4a289fb314e5efdb8c889c560340c259c04b19b9d1e7087b58d0d24aafd5ed2" => :high_sierra

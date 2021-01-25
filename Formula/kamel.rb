@@ -1,33 +1,32 @@
 class Kamel < Formula
   desc "Apache Camel K CLI"
   homepage "https://camel.apache.org/"
-
   url "https://github.com/apache/camel-k.git",
-    tag:      "v1.2.0",
-    revision: "ab1a566458962b18fef1a1b594efe7d269fb85af"
+      tag:      "v1.2.1",
+      revision: "476ed0e600abe6fe54de19225f8f0c18d6bcbfa9"
   license "Apache-2.0"
   head "https://github.com/apache/camel-k.git"
 
   livecheck do
-    url :head
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fa9acf81f26ce32fc964b554c2b1314c3c5eed7158ae505b90a56c7f24ec2cbe" => :catalina
-    sha256 "a5d74c1db351e9399770854f859e0de5f6a92aef3e512e391cf1ecfcbd924697" => :mojave
-    sha256 "d40704f099605507c7ad82a8571a87b79ce8a3a64b7b6b1cfbec7ffd5c1cf37e" => :high_sierra
+    sha256 "5c7d830dca2368d17098a2566dc51f302105bedca5c31a5163c3effb8fdcb8bb" => :big_sur
+    sha256 "09309c3959ff88f0f8757dfda6f867a1dd7a34d39df6a4dd993a87f3f17a5608" => :arm64_big_sur
+    sha256 "6c26b781979d7aa4270d382f8b7644fe7fb4f64d3439637945c60ce2a9eddbe6" => :catalina
+    sha256 "2764ee91d35712ebf2930df31e3254ccb0c31b60f42288e5963bf2f79729ddb3" => :mojave
   end
 
   depends_on "go" => :build
-  depends_on "openjdk" => :build
+  depends_on "openjdk@11" => :build
 
   def install
+    ENV["JAVA_HOME"] = Language::Java.java_home("11")
     system "make"
     bin.install "kamel"
-
-    prefix.install_metafiles
 
     output = Utils.safe_popen_read("#{bin}/kamel", "completion", "bash")
     (bash_completion/"kamel").write output

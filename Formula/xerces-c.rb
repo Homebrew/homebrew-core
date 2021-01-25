@@ -11,10 +11,11 @@ class XercesC < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "8bcfddab9276b6f09c9af5bd8be60d500cd5107795c25495b53ef5e0734ae617" => :catalina
-    sha256 "502d34b51931ead6b1db27ca1a71eed465ecd4da5dbdeaa51c0ae77e77dc25ea" => :mojave
-    sha256 "8b30ad6819fc3628b706a18193d45b96c13749e7d1e27f5392cf91e48fe7d63b" => :high_sierra
+    rebuild 1
+    sha256 "9707a1e03e5d7b38851d080b2248103ce1780b0ae76d8ad1579187b2178700c0" => :big_sur
+    sha256 "482e14a0ff78e66b3f701a744411b2144479f69a7d4b876def7723d4683ae81a" => :arm64_big_sur
+    sha256 "3591a0891b6796e46eb12c7ba5fdac497e96e624eae13f0596a3cc58e64d3f29" => :catalina
+    sha256 "3ae5c637d059994fb5549ecd066a16f690a8974dd9284161fa5aa84854b4b9c3" => :mojave
   end
 
   depends_on "cmake" => :build
@@ -25,12 +26,12 @@ class XercesC < Formula
     ENV.cxx11
 
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "..", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{lib}"
       system "make"
       system "ctest", "-V"
       system "make", "install"
       system "make", "clean"
-      system "cmake", "..", "-DBUILD_SHARED_LIBS=OFF", *std_cmake_args
+      system "cmake", "..", "-DBUILD_SHARED_LIBS=OFF", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{lib}"
       system "make"
       lib.install Dir["src/*.a"]
     end

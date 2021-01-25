@@ -6,8 +6,8 @@ class Scalariform < Formula
   license "MIT"
 
   livecheck do
-    url "https://github.com/scala-ide/scalariform/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   head do

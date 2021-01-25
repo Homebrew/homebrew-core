@@ -2,15 +2,16 @@ class PhpAT72 < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-7.2.33.tar.xz"
-  mirror "https://fossies.org/linux/www/php-7.2.33.tar.xz"
-  sha256 "0f160a3483ffce36be5962fab7bcf09d605ee66c5707df83e4195cb796bbb03a"
+  url "https://www.php.net/distributions/php-7.2.34.tar.xz"
+  mirror "https://fossies.org/linux/www/php-7.2.34.tar.xz"
+  sha256 "409e11bc6a2c18707dfc44bc61c820ddfd81e17481470f3405ee7822d8379903"
   license "PHP-3.01"
+  revision 1
 
   bottle do
-    sha256 "b86f79fa92eee0dba80c2a5fdc958613a013db6e9d4f9a902e41afe3f3a10561" => :catalina
-    sha256 "2c9d66ca8e40ccfd9f58eed7775a248d061b539551c9cdc105c4e80df5be48d0" => :mojave
-    sha256 "88bdd9f91682b8cd1cd47214976cf443a7e22485e361f8036e54c6d2b63ed37d" => :high_sierra
+    sha256 "e39495f5389c97e3e3e1c2b0ea47832cdff5e5db25e671da0f918d0fc74a7137" => :big_sur
+    sha256 "0069df02b747f6e26b3e3ec5550cc83b96abd7858a6f53c6ff37f839d145fb71" => :catalina
+    sha256 "37be2c076029d9e1884c38166d3120be4ac93bd1db22cb3175d1894b830b73d1" => :mojave
   end
 
   keg_only :versioned_formula
@@ -22,10 +23,11 @@ class PhpAT72 < Formula
   depends_on "xz" => :build
   depends_on "apr"
   depends_on "apr-util"
+  depends_on arch: :x86_64
   depends_on "argon2"
   depends_on "aspell"
   depends_on "autoconf"
-  depends_on "curl-openssl"
+  depends_on "curl"
   depends_on "freetds"
   depends_on "freetype"
   depends_on "gettext"
@@ -57,6 +59,10 @@ class PhpAT72 < Formula
   def install
     # Ensure that libxml2 will be detected correctly in older MacOS
     ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :el_capitan || MacOS.version == :sierra
+
+    # Work around configure issues with Xcode 12
+    # See https://bugs.php.net/bug.php?id=80171
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
 
     # buildconf required due to system library linking bug patch
     system "./buildconf", "--force"
@@ -94,7 +100,7 @@ class PhpAT72 < Formula
     # Prevent system pear config from inhibiting pear install
     (config_path/"pear.conf").delete if (config_path/"pear.conf").exist?
 
-    # Prevent homebrew from harcoding path to sed shim in phpize script
+    # Prevent homebrew from hardcoding path to sed shim in phpize script
     ENV["lt_cv_path_SED"] = "sed"
 
     # Each extension that is built on Mojave needs a direct reference to the
@@ -134,7 +140,7 @@ class PhpAT72 < Formula
       --enable-zip
       --with-apxs2=#{Formula["httpd"].opt_bin}/apxs
       --with-bz2#{headers_path}
-      --with-curl=#{Formula["curl-openssl"].opt_prefix}
+      --with-curl=#{Formula["curl"].opt_prefix}
       --with-fpm-user=_www
       --with-fpm-group=_www
       --with-freetype-dir=#{Formula["freetype"].opt_prefix}

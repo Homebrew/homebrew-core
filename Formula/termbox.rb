@@ -8,6 +8,8 @@ class Termbox < Formula
 
   bottle do
     cellar :any
+    sha256 "5d46efcf1e3af391155631f2f067897f65465ed80588135ca0b69f70fb04f99e" => :big_sur
+    sha256 "ca14c123586c33205ece77cd40df64e240d90cc8ded2646880b6cdf0fd8ee083" => :arm64_big_sur
     sha256 "994e3fcbc3c4824c37de23df653950408aa32db24ef76e55986dc772aa01c048" => :catalina
     sha256 "a2d151f7fd74514d23a009b498c5fde9db4a781cd0052386e39a50b054b4cc49" => :mojave
     sha256 "338467da37e0f1a93eda52353d50805b84be1a63135e3979120fe660422a9dd8" => :high_sierra

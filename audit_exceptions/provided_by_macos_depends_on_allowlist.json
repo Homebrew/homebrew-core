@@ -1,0 +1,7 @@
+[
+  "apr",
+  "apr-util",
+  "libressl",
+  "openblas",
+  "openssl@1.1"
+]

@@ -8,6 +8,8 @@ class Makefile2graph < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c8278a8691b682c5499295a79b73e18e18e87c879384b7d44dbcc0f70178ee58" => :big_sur
+    sha256 "fbd6818dca98ad31cba381f503da9757dc4aebc6f450e8eb22b24d5bc2c04841" => :arm64_big_sur
     sha256 "af7dba0cbb045f067076706310b30c52eddbd6732e60d16017ccbfadd4bc866d" => :catalina
     sha256 "5b5cb69a698628af41b3de70146580bbcb2e88a8b6d87d7fe9b4f58a2f2fdfb2" => :mojave
     sha256 "51231ed0ef44fd31a10f4ea0a7500570181332786ddd5a8a9a886958ad1b1408" => :high_sierra

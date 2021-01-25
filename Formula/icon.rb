@@ -1,16 +1,21 @@
 class Icon < Formula
   desc "General-purpose programming language"
   homepage "https://www.cs.arizona.edu/icon/"
-  url "https://www2.cs.arizona.edu/icon/ftp/packages/unix/icon-v951src.tgz"
-  version "9.5.1"
-  sha256 "062a680862b1c10c21789c0c7c7687c970a720186918d5ed1f7aad9fdc6fa9b9"
+  url "https://github.com/gtownsend/icon/archive/v9.5.20i.tar.gz"
+  version "9.5.20i"
+  sha256 "3ebfcc89f3f3f7acc5afe61402f6b3b168b8cd83f79021c98bbd791e92c4cbe8"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+[a-z]?)$/i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "a4f708b77cf3147ad2bc029577a7f56aa4cd2a4d192e9fc0a28eb34dcc08775f" => :catalina
-    sha256 "3b97859fb6ac03f3420628fef5d660fbbf6208f642a979307b6bc85e063eb5c3" => :mojave
-    sha256 "f0f50c06a2355371e01ea83f95a1743d94815f3029c0d74ce5888f446c07ab18" => :high_sierra
+    sha256 "14023318a41cfb25dc16580def3078398493ed67a6c17bcf4fef748ef8bf2779" => :big_sur
+    sha256 "1d414ead849c9d0c8f20fdbba672c2ffc0cc32d3522cb8bf3aa0dc20324ac875" => :arm64_big_sur
+    sha256 "fc52931ec8205d4bce4a9d7b2d8d8a12bcca9c55ac3e0fa8a1c1e5550f193ccc" => :catalina
+    sha256 "7375228280ad4b34aa3e703da54e6af031c78c644636f1e1e45f0b776b4f5b18" => :mojave
   end
 
   def install

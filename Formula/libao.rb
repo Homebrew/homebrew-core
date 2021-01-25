@@ -8,6 +8,8 @@ class Libao < Formula
 
   bottle do
     rebuild 2
+    sha256 "32055ce76b17a9f7410574c27b314905f3e9c42f979cc72bbbca060194ba9d9d" => :big_sur
+    sha256 "0af71783215ee0b302a2240954652c3f2db3f515ef4bc70b5e58a5e197778256" => :arm64_big_sur
     sha256 "703bfcae17a364ad0e526d5556b3583d1864c6db4c52ba85ef64dc0600039372" => :catalina
     sha256 "932b3a41565e678489471dae66b29fea1ca2de6013c2559f9c34cc5e9bd5a33f" => :mojave
     sha256 "d7144edd6dc64b987d9a9d584799fe20a76ed92f2b1b18c074a6846926f23169" => :high_sierra

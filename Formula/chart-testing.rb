@@ -2,15 +2,16 @@ class ChartTesting < Formula
   desc "Testing and linting Helm charts"
   homepage "https://github.com/helm/chart-testing"
   url "https://github.com/helm/chart-testing.git",
-      tag:      "v3.1.1",
-      revision: "3fc5a5010805e92d099ecacfba57b7c60c12d44a"
+      tag:      "v3.3.1",
+      revision: "71d0e1e82c5c8b66ce4d9704426dc13b7075829d"
   license "Apache-2.0"
+  head "https://github.com/helm/chart-testing.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ec0538becd4578009f8b9928b324fdd0eef66c94668ca74f072c339974c9a343" => :catalina
-    sha256 "df94b17e1da3410a44ac91a711c3ec8c507d2a32d8f01a660ce0e0ac640837aa" => :mojave
-    sha256 "e431688deb0a4de84d7ff6203e8399a8559f307ad672f6950e4568c32a0708b5" => :high_sierra
+    sha256 "eafbb9e075ec41b2ea96b341173a286be38928eac51dc8b24796c45ace00a6a1" => :big_sur
+    sha256 "fedd5373948e1ddd30e95f903a29d7173f069660ec4b0bed91f7ce8bf9d3ef40" => :catalina
+    sha256 "ef933f0c425753b905cee3d9a66be61e58c1bf4e31fca67b2ade2daed2a1642a" => :mojave
   end
 
   depends_on "go" => :build
@@ -18,10 +19,9 @@ class ChartTesting < Formula
   depends_on "yamllint" => :test
 
   def install
-    commit = Utils.safe_popen_read("git", "rev-parse", "HEAD").chomp
     ldflags = %W[
       -X github.com/helm/chart-testing/v#{version.major}/ct/cmd.Version=#{version}
-      -X github.com/helm/chart-testing/v#{version.major}/ct/cmd.GitCommit=#{commit}
+      -X github.com/helm/chart-testing/v#{version.major}/ct/cmd.GitCommit=#{Utils.git_head}
       -X github.com/helm/chart-testing/v#{version.major}/ct/cmd.BuildDate=#{Date.today}
     ].join(" ")
     system "go", "build", *std_go_args, "-ldflags", ldflags, "-o", bin/"ct", "./ct/main.go"

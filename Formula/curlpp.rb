@@ -4,15 +4,14 @@ class Curlpp < Formula
   url "https://github.com/jpbarrette/curlpp/archive/v0.8.1.tar.gz"
   sha256 "97e3819bdcffc3e4047b6ac57ca14e04af85380bd93afe314bee9dd5c7f46a0a"
   license "MIT"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "8497c5ce375090d76c17a9197a07f2f55019ec2704e78208306a4e545e67bd46" => :catalina
-    sha256 "4a8dc2ab4cb65ed349477a0cced49ea3e6ee19aa49983313f8221bf2da303bf4" => :mojave
-    sha256 "0e5f9adbb17bd9e725fbe7ec11ada7a6d73e4a8ffb2448570b6ed16ed9fd2701" => :high_sierra
-    sha256 "0d721493b94879cdf25162903fd5d10299b5d8386942efb0969c470afeef6b35" => :sierra
-    sha256 "fd5c8375a1f4ef8aa20cfb740e8bac45c381ce6dbadc90f731e47b00c8a404b3" => :el_capitan
-    sha256 "fd39edf63c0745f9d39a76f7b428eba285af313967ad4697d4fb08b705ee3eef" => :yosemite
+    sha256 "1629615065defd61af8480c484f801e47e35c268defee303929003f7170d30ee" => :big_sur
+    sha256 "f727b823c94be8f12ab6ba0eb8ac326b19ac823f3313b9ff0a8ab43c1a21a4ec" => :arm64_big_sur
+    sha256 "d3ca609dae4e9f2038c6cd39ce0123fc8eb70bc235519079d526d529cedf0878" => :catalina
+    sha256 "206a7c8881489554e00c1a365b58a7c39922e5d66fca19b3f7296eb7472ef220" => :mojave
   end
 
   depends_on "cmake" => :build
@@ -21,6 +20,7 @@ class Curlpp < Formula
     ENV.cxx11
     system "cmake", ".", *std_cmake_args
     system "make", "install"
+    inreplace bin/"curlpp-config", "#{HOMEBREW_LIBRARY}/Homebrew/shims/mac/super/clang", "/usr/bin/clang"
   end
 
   test do

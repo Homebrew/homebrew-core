@@ -11,6 +11,8 @@ class Exempi < Formula
 
   bottle do
     cellar :any
+    sha256 "3dca3e311a819ad927266feecc2a0fa06a6baf196290655b5531ec02ea97dddd" => :big_sur
+    sha256 "9993c63e20e0f25bec9217f10830945e93554caeb9ed96530b31386205f3b963" => :arm64_big_sur
     sha256 "3ef58fd5cbd177ac785cfab9b58f813ce24320a507243d9d7b6c940fd463564f" => :catalina
     sha256 "189bb3c57e78845c33678353cb877ad7cdedd665087c0a4525397f32088abc39" => :mojave
     sha256 "0843f9bc589fd3c9ed0f5dfd724ba60eea4832410a0b6ff831bdb22c6563eafd" => :high_sierra

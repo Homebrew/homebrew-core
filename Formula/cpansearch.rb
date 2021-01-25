@@ -8,6 +8,8 @@ class Cpansearch < Formula
 
   bottle do
     cellar :any
+    sha256 "5cf4f854e56de6fb4d1b992f8c3ba9004dac26aa676007841042e8a30e0539c3" => :big_sur
+    sha256 "37c73b9a5acde5677d8cb3d423c671eba4f0fae0e01fd057789c20184b033a54" => :arm64_big_sur
     sha256 "f5ad7240f2e1d3004c9b80d232192bbc50dcf777bdfe92fa73172e93476f5ef2" => :catalina
     sha256 "5d583c37a54d9d6f96c625faf75b40c53a2ae59b8c9960f51a6f9bc215fa5bae" => :mojave
     sha256 "e8197124d1341e8e5d8348cd322eac2bfa782d885c808b5322a340eb7b91ba8b" => :high_sierra

@@ -1,15 +1,16 @@
 class Zola < Formula
   desc "Fast static site generator in a single binary with everything built-in"
   homepage "https://www.getzola.org/"
-  url "https://github.com/getzola/zola/archive/v0.12.2.tar.gz"
-  sha256 "1c0cb37e9a3d9f7ff41012996eb068fb5453c9727f107ac817429cbdae4dae84"
+  url "https://github.com/getzola/zola/archive/v0.13.0.tar.gz"
+  sha256 "84c20cf5c851a465266c5cc343623752102c53929f6da31b2a4ce747a87c5c23"
   license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a16ab6a5bc7c04cf10f6266ce79921c607b6c19226190e65c420776595ed26d7" => :catalina
-    sha256 "62c8164ec43c9c6090ff3be1b33ab2f2731894e626d2b2ac660b52f0f6902a36" => :mojave
-    sha256 "4f726fe8708e96ab25f2830dfbb751ef67a34221621312604d6a2bd86bc87d72" => :high_sierra
+    sha256 "d4ecc13ce735449bbba5e83c57617ce03b939e69493e9e65d2c23a294ff6ea2e" => :big_sur
+    sha256 "3578486fdec183e82c51c5c489e9a78f9f997cbc05ebcb541fc60059163a9b44" => :arm64_big_sur
+    sha256 "aaccf8b7fe4e9256c38021902dcffca291d02de1ac662ce0219a1fca0e8fac0a" => :catalina
+    sha256 "d883c9f8439ee6226f1392f1350ce974b4312367e026c1ae756fd7c1765d5bf5" => :mojave
   end
 
   depends_on "cmake" => :build
@@ -20,6 +21,9 @@ class Zola < Formula
   end
 
   def install
+    on_linux do
+      ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
+    end
     system "cargo", "install", *std_cargo_args
 
     bash_completion.install "completions/zola.bash"

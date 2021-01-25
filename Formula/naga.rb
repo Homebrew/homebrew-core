@@ -7,6 +7,8 @@ class Naga < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "58d4a48fe33e676993449a2cdf332f74b6858681bc5519374d6e7a8842df9434" => :big_sur
+    sha256 "5598664fc7fd64d0f76d0291bbe79c209a65fd8142d6cbf7f7164531d538b9c5" => :arm64_big_sur
     sha256 "4a397ca0cf60725415818826e47fbf20c4b9cad2bc754128ece0d50279b715fd" => :catalina
     sha256 "0deef9e2936b7e5256c4f3e6f22c85389e3b8e53a586018854cbad3b983adc53" => :mojave
     sha256 "324d31a0ae721075843ff5e326f35efcd1a03d784e92ef8419b954b40a55fae3" => :high_sierra

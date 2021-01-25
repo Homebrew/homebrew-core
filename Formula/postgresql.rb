@@ -1,20 +1,21 @@
 class Postgresql < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v13.0/postgresql-13.0.tar.bz2"
-  sha256 "80e750be8d436b54197636a02636f8fd3263ba6779bf865b04832495ea592296"
+  url "https://ftp.postgresql.org/pub/source/v13.1/postgresql-13.1.tar.bz2"
+  sha256 "12345c83b89aa29808568977f5200d6da00f88a035517f925293355432ffe61f"
   license "PostgreSQL"
   head "https://github.com/postgres/postgres.git"
 
   livecheck do
-    url "https://www.postgresql.org/docs/current/static/release.html"
-    regex(/Release v?(\d+(?:\.\d+)*)/i)
+    url "https://ftp.postgresql.org/pub/source/"
+    regex(%r{href=["']?v?(\d+(?:\.\d+)*)/?["' >]}i)
   end
 
   bottle do
-    sha256 "0c8e80038485e0e398210b87b309da03e409dab0b0f78d2b7a3be9f51a3d30c0" => :catalina
-    sha256 "74499938a2f7bde3c33fb158161566eaf61a70975e69d1c59b491deff94826dd" => :mojave
-    sha256 "5175c72b20e73566ef1dadc07286a68b70ae4f31eacc484ad11c4f90f39fd840" => :high_sierra
+    sha256 "e4d523c7171f265b340df22a88ff78e6fba4aed46afcf3f4e5bd4ac4b94e8a16" => :big_sur
+    sha256 "6939bfae5047a585985ef45d71a04b88ef8ccbced5d35a3ccce4a9aa452087aa" => :arm64_big_sur
+    sha256 "13939e578f0a48c78966c2527dc48391b19650b51f7489767b5237e3bab16793" => :catalina
+    sha256 "1826c98f6d117bd040fbb307c1c95dfa2dee6ff8647ec8010e1b79386aa59eb0" => :mojave
   end
 
   depends_on "pkg-config" => :build
@@ -80,10 +81,20 @@ class Postgresql < Formula
     return if ENV["CI"]
 
     (var/"log").mkpath
-    (var/"postgres").mkpath
-    unless File.exist? "#{var}/postgres/PG_VERSION"
-      system "#{bin}/initdb", "--locale=C", "-E", "UTF-8", "#{var}/postgres"
-    end
+    postgresql_datadir.mkpath
+    system "#{bin}/initdb", "--locale=C", "-E", "UTF-8", postgresql_datadir unless pg_version_exists?
+  end
+
+  def postgresql_datadir
+    var/"postgres"
+  end
+
+  def postgresql_log_path
+    var/"log/postgres.log"
+  end
+
+  def pg_version_exists?
+    (postgresql_datadir/"PG_VERSION").exist?
   end
 
   def caveats
@@ -92,7 +103,7 @@ class Postgresql < Formula
         brew postgresql-upgrade-database
 
       This formula has created a default database cluster with:
-        initdb --locale=C -E UTF-8 #{var}/postgres
+        initdb --locale=C -E UTF-8 #{postgresql_datadir}
       For more details, read:
         https://www.postgresql.org/docs/#{version.major}/app-initdb.html
     EOS
@@ -114,16 +125,16 @@ class Postgresql < Formula
         <array>
           <string>#{opt_bin}/postgres</string>
           <string>-D</string>
-          <string>#{var}/postgres</string>
+          <string>#{postgresql_datadir}</string>
         </array>
         <key>RunAtLoad</key>
         <true/>
         <key>WorkingDirectory</key>
         <string>#{HOMEBREW_PREFIX}</string>
         <key>StandardOutPath</key>
-        <string>#{var}/log/postgres.log</string>
+        <string>#{postgresql_log_path}</string>
         <key>StandardErrorPath</key>
-        <string>#{var}/log/postgres.log</string>
+        <string>#{postgresql_log_path}</string>
       </dict>
       </plist>
     EOS

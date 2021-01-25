@@ -11,6 +11,8 @@ class Stm32flash < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "87f174898ba1c72a3d3b5e71f197681af38ed2715b7f52a27336d0664686f347" => :big_sur
+    sha256 "7372711f48071b5bed9d390c94e882dc3aba62219ed608ca824490b7e64e0d01" => :arm64_big_sur
     sha256 "ad0d22f81963099a648b32697bf1a14ca3ee51cd45f8e73f0f701d5836faecee" => :catalina
     sha256 "14bbc585e618bf4c223e0008503f9007ef3686e3472a1a1f2bfc8122af42793c" => :mojave
     sha256 "2cbbf094a7f2777b674909a5f846bba0cb613a5c2c38e980b67bd769b924e5f5" => :high_sierra

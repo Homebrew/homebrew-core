@@ -13,6 +13,8 @@ class Libreplaygain < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "b7a2c4c9ab84445dbe76e5ba32cc84e5f64b4dca4bd0c6ceda202d024a4fcbe6" => :big_sur
+    sha256 "e1cafa5a3cc922c818b746cea6e697757dfd1450703678dc0f6ba89eb41c94ac" => :arm64_big_sur
     sha256 "34a785ef56c26e506e4e225ace636163dd3b5dd310448a7b63d1ba1c99a2ea77" => :catalina
     sha256 "13df0590c2056af8071e5c182bc1b73cfd52b6ad7afb561d16a1ac3ddf0df179" => :mojave
     sha256 "c2d3becfcd2f629fb875b6d6c907505489381e5ea3893b0a882510ebbee9951a" => :high_sierra

@@ -3,33 +3,59 @@ class Esptool < Formula
 
   desc "ESP8266 and ESP32 serial bootloader utility"
   homepage "https://github.com/espressif/esptool"
-  url "https://github.com/espressif/esptool/archive/v2.8.tar.gz"
-  sha256 "f6187ab0467e05bff6ef4e777bde5ee8eb57a74154865d30491ebb42b228c617"
-  license "GPL-2.0"
-  revision 3
+  url "https://files.pythonhosted.org/packages/dd/3d/d1d4c004927e6e6807c441ce70330ed969c725d2906053fbd2ff994b4439/esptool-3.0.tar.gz"
+  sha256 "87953d235fed2c9adb1292b3769df0149686c9afdb1896dd963f730453cbc934"
+  license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "5604775a4ca2fd6862321cea2669d433ca6e787dd3067f906253850b916dbd55" => :catalina
-    sha256 "d4042620d6ea819adf11e05d909d77a1872a0d100cd47bed163514994a9f81b9" => :mojave
-    sha256 "62c206f044e3b712ae9068919882a5f311cae0740affe3846043407439d8183c" => :high_sierra
+    cellar :any
+    sha256 "e3c17a512c81223bae4c55166a8fc874a66ea48a5da20815ec1657811f22c42d" => :big_sur
+    sha256 "2fb146758042785524015dbe58968da27d78ad916068ea19fad51e91fa29e760" => :arm64_big_sur
+    sha256 "408f012ae8967304352d8820df10a9af55a3025e0a1cbf8939cb73d4c93bc2f2" => :catalina
+    sha256 "8c65d474b25e28d3774b46fff5db3480fd36b33fa23fa0edfed50e06cc0a33cd" => :mojave
   end
 
   depends_on "python@3.9"
 
-  resource "ecdsa" do
-    url "https://files.pythonhosted.org/packages/f9/e5/99ebb176e47f150ac115ffeda5fedb6a3dbb3c00c74a59fd84ddf12f5857/ecdsa-0.13.tar.gz"
-    sha256 "64cf1ee26d1cde3c73c6d7d107f835fed7c6a2904aef9eac223d57ad800c43fa"
+  resource "bitstring" do
+    url "https://files.pythonhosted.org/packages/c3/fc/ffac2c199d2efe1ec5111f55efeb78f5f2972456df6939fea849f103f9f5/bitstring-3.1.7.tar.gz"
+    sha256 "fdf3eb72b229d2864fb507f8f42b1b2c57af7ce5fec035972f9566de440a864a"
   end
 
-  resource "pyaes" do
-    url "https://files.pythonhosted.org/packages/44/66/2c17bae31c906613795711fc78045c285048168919ace2220daa372c7d72/pyaes-1.6.1.tar.gz"
-    sha256 "02c1b1405c38d3c370b085fb952dd8bea3fadcee6411ad99f312cc129c536d8f"
+  resource "cffi" do
+    url "https://files.pythonhosted.org/packages/66/6a/98e023b3d11537a5521902ac6b50db470c826c682be6a8c661549cb7717a/cffi-1.14.4.tar.gz"
+    sha256 "1a465cbe98a7fd391d47dce4b8f7e5b921e6cd805ef421d04f5f66ba8f06086c"
+  end
+
+  resource "cryptography" do
+    url "https://files.pythonhosted.org/packages/b7/82/f7a4ddc1af185936c1e4fa000942ffa8fb2d98cff26b75afa7b3c63391c4/cryptography-3.3.1.tar.gz"
+    sha256 "7e177e4bea2de937a584b13645cab32f25e3d96fc0bc4a4cf99c27dc77682be6"
+  end
+
+  resource "ecdsa" do
+    url "https://files.pythonhosted.org/packages/1d/d4/0684a83b3c16a9d1446ace27a506cef1db9b23984ac7ed6aaf764fdd56e8/ecdsa-0.16.1.tar.gz"
+    sha256 "cfc046a2ddd425adbd1a78b3c46f0d1325c657811c0f45ecc3a0a6236c1e50ff"
+  end
+
+  resource "pycparser" do
+    url "https://files.pythonhosted.org/packages/0f/86/e19659527668d70be91d0369aeaa055b4eb396b0f387a4f92293a20035bd/pycparser-2.20.tar.gz"
+    sha256 "2d475327684562c3a96cc71adf7dc8c4f0565175cf86b6d7a404ff4c771f15f0"
   end
 
   resource "pyserial" do
-    url "https://files.pythonhosted.org/packages/cc/74/11b04703ec416717b247d789103277269d567db575d2fd88f25d9767fe3d/pyserial-3.4.tar.gz"
-    sha256 "6e2d401fdee0eab996cf734e67773a0143b932772ca8b42451440cfed942c627"
+    url "https://files.pythonhosted.org/packages/1e/7d/ae3f0a63f41e4d2f6cb66a5b57197850f919f59e558159a4dd3a818f5082/pyserial-3.5.tar.gz"
+    sha256 "3c77e014170dfffbd816e6ffc205e9842efb10be9f58ec16d3e8675b4925cddb"
+  end
+
+  resource "reedsolo" do
+    url "https://files.pythonhosted.org/packages/c8/cb/bb2ddbd00c9b4215dd57a2abf7042b0ae222b44522c5eb664a8fd9d786da/reedsolo-1.5.4.tar.gz"
+    sha256 "b8b25cdc83478ccb06361a0e8fadc27b376a3dfabbb1dc6bb583a998a22c0127"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
+    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
   end
 
   def install
@@ -39,9 +65,9 @@ class Esptool < Formula
   test do
     require "base64"
 
-    assert_match(/#{version}/, shell_output("#{bin}/esptool.py version"))
-    assert_match(/#{version}/, shell_output("#{bin}/espefuse.py --help"))
-    assert_match(/#{version}/, shell_output("#{bin}/espsecure.py --help"))
+    assert_match version.to_s, shell_output("#{bin}/esptool.py version")
+    assert_match "usage: espefuse.py", shell_output("#{bin}/espefuse.py --help")
+    assert_match version.to_s, shell_output("#{bin}/espsecure.py --help")
 
     (testpath/"helloworld-esp8266.bin").write ::Base64.decode64 <<~EOS
       6QIAICyAEEAAgBBAMAAAAFDDAAAAgP4/zC4AQMwkAEAh/P8SwfAJMQH8/8AAACH5/wH6/8AAAAb//wAABvj/AACA/j8QAAAASGVsbG8gd29ybGQhCgAAAAAAAAAAAAAD

@@ -11,6 +11,8 @@ class Lout < Formula
   end
 
   bottle do
+    sha256 "744551b3b7479af62015ceb2f54736ea4f4c68f4c87862a0fb0af62c731ed454" => :big_sur
+    sha256 "3164a9e3f8d721f43d2596518c15493ee8d0ab9817f799c2cbcb72f9ca3e5a67" => :arm64_big_sur
     sha256 "67aec968bd2e1957d7b4fe7a2ae201b701ef45dd98c9766ffbc7a0ae3ca1af70" => :catalina
     sha256 "2f69e0d4097fbf53f05855b5eeb2def0efcaf08c3a5b2487b1fa041031c2eacc" => :mojave
     sha256 "2de1b1b7526f7427b8a57b6239a5a8c199ee05365ead7ed8d722a9e7e3123a0e" => :high_sierra

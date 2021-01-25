@@ -1,15 +1,16 @@
 class Opendetex < Formula
   desc "Tool to strip TeX or LaTeX commands from documents"
   homepage "https://github.com/pkubowicz/opendetex"
-  url "https://github.com/pkubowicz/opendetex/releases/download/v2.8.8/opendetex-2.8.8.tar.bz2"
-  sha256 "085a149f64bf497fbcc07745969c5c1e423c95a8f4caaadb36ed3f2287fb2ee1"
+  url "https://github.com/pkubowicz/opendetex/releases/download/v2.8.9/opendetex-2.8.9.tar.bz2"
+  sha256 "0d6b8cb1f3394b790dd757b0171ad8b398c48e306fa6339e86ed8303c51df084"
   license "BSD-3-Clause"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "db8c07a7987de189582449f403d15ecbcf7867cac9b1a6694ffe91217fa3f2cb" => :catalina
-    sha256 "d9b5550e47478394dd53f9b307bd0398488ac93311a4aa1544f9b7172a0a310c" => :mojave
-    sha256 "59bfca18bfe6cf097d158a3e411e0f24f4c800b52d4d43d4f939c8e23082d009" => :high_sierra
+    sha256 "ce26ea02e5c47385374aba395951434319d5e48e6dbda94f7ffa25e4632b54a6" => :big_sur
+    sha256 "9416484618318a11e895667857e7d8b39598bc31c2c1d8fbdbb7914176345e5e" => :arm64_big_sur
+    sha256 "46db3f033cb646e360fcabc83eb6fabba87b858eb1cc3e32d4bad78e73816bc6" => :catalina
+    sha256 "92d55157d568aa004dd09342308f8e4be8dfb6a95f9719646c5d9792b677f7a2" => :mojave
   end
 
   uses_from_macos "flex" => :build

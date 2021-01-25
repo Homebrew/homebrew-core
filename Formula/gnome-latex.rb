@@ -10,6 +10,8 @@ class GnomeLatex < Formula
   end
 
   bottle do
+    sha256 "dc38c7827663f49f553996a757415dfe20d92c8c0dea83c462c887c8daf69f5f" => :big_sur
+    sha256 "8ea1216cd53e87eb4c9667c90e29cfc007f115129070ef1dd205f2a2480900f9" => :arm64_big_sur
     sha256 "f1dbea254436194246d1ea3fcd47a5b08b394efb3a08f48a9a3decd85120ce90" => :catalina
     sha256 "c8f5a18378b6a759f3f4614baedf693814b61da0dfecd2f0d8d6ad93bef3fa25" => :mojave
     sha256 "7a9d3285f2457fecacc4e0840e32ac940b0e77041dd30839e6a7af7ad55453dd" => :high_sierra

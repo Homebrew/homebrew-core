@@ -4,34 +4,31 @@ class X265 < Formula
   url "https://bitbucket.org/multicoreware/x265_git/get/3.4.tar.gz"
   sha256 "7f2771799bea0f53b5ab47603d5bea46ea2a221e047a7ff398115e9976fd5f86"
   license "GPL-2.0-only"
-  head "https://bitbucket.org/multicoreware/x265_git"
+  revision 2
+  head "https://bitbucket.org/multicoreware/x265_git.git"
 
   livecheck do
     url :stable
   end
 
   bottle do
-    cellar :any
-    rebuild 1
-    sha256 "a24f202256e98285ed39c80277b2aa5d9eba2b5f37ee7f05993b269b3033684e" => :catalina
-    sha256 "5a0033bb9c6b2cf12f5836a1ad3f887f61df55eceecedc2d3414665282e576f2" => :mojave
-    sha256 "fc09819e3bba1189d57b7708ad0fcccc359b160ea380574796d7eb4a71e139ac" => :high_sierra
+    sha256 "8db84444f732498e1f1e3f8564b3091360ebb277a9c7f5d0bd457893a194f5a6" => :big_sur
+    sha256 "89918f59466d00820cd7e978c89b405959d082f108db2382bd76fe2bdedcfc5c" => :arm64_big_sur
+    sha256 "c7be7296406476bf93e13580eab209646680bafaa5fb46d31cf491ef3e3f0a25" => :catalina
+    sha256 "d6bce1ae70ea86a7203a42ab807e1a2334550a9b4af5ca7ebb9a0e89139c8444" => :mojave
   end
 
   depends_on "cmake" => :build
-  depends_on "nasm" => :build
+  depends_on "nasm" => :build if Hardware::CPU.intel?
 
   def install
-    # Work around Xcode 11 clang bug
-    # https://bitbucket.org/multicoreware/x265/issues/514/wrong-code-generated-on-macos-1015
-    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
-
     # Build based off the script at ./build/linux/multilib.sh
-    args = std_cmake_args + %w[
+    args = std_cmake_args + %W[
       -DLINKED_10BIT=ON
       -DLINKED_12BIT=ON
       -DEXTRA_LINK_FLAGS=-L.
       -DEXTRA_LIB=x265_main10.a;x265_main12.a
+      -DCMAKE_INSTALL_RPATH=#{lib}
     ]
     high_bit_depth_args = std_cmake_args + %w[
       -DHIGH_BIT_DEPTH=ON -DEXPORT_C_API=OFF
@@ -40,7 +37,7 @@ class X265 < Formula
     (buildpath/"8bit").mkpath
 
     mkdir "10bit" do
-      system "cmake", buildpath/"source", *high_bit_depth_args
+      system "cmake", buildpath/"source", "-DENABLE_HDR10_PLUS=ON", *high_bit_depth_args
       system "make"
       mv "libx265.a", buildpath/"8bit/libx265_main10.a"
     end

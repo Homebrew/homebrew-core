@@ -6,6 +6,8 @@ class OpenZwave < Formula
   license "LGPL-3.0"
 
   bottle do
+    sha256 "ca1c3e4e29bb19f377f169a015112818ebb69320ff76f05de671a857a28a4670" => :big_sur
+    sha256 "d7ac3272c8e97d579bd7cbf660d0831b282d426344d1c66d1d6273665972c5ac" => :arm64_big_sur
     sha256 "28b55791a9d9ab0a1c772e11ba7459d42b5e9cbed50d9e1db4af154b2ad84d5e" => :catalina
     sha256 "7e79dc03f657d9d92305f036d6118df60b56e2ddcbf8506234aa8b73dd9f4d31" => :mojave
     sha256 "e3bc4eeb04ec86a43d3a63f263db9aa28090123822de81869c44dcef4af08f8d" => :high_sierra

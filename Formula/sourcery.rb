@@ -1,18 +1,18 @@
 class Sourcery < Formula
   desc "Meta-programming for Swift, stop writing boilerplate code"
   homepage "https://github.com/krzysztofzablocki/Sourcery"
-  url "https://github.com/krzysztofzablocki/Sourcery/archive/1.0.0.tar.gz"
-  sha256 "5947267143fc63504bb21c094accad8c51160834f204a9b108211f28525bfbe4"
+  url "https://github.com/krzysztofzablocki/Sourcery/archive/1.0.2.tar.gz"
+  sha256 "8125f7e7be289053d2a66a853dac0cf8d18e8b93ccd6bdf1ae70cd688232135d"
   license "MIT"
   head "https://github.com/krzysztofzablocki/Sourcery.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "18df6fc42860b714ce6f2e31e0c2df6409927d793d4c5594b3e752feae42d6a7" => :catalina
-    sha256 "adbafe637b3ffb78250e1ad95514d1c9fe597331fe13e89925381783803bf255" => :mojave
+    sha256 "f717a8df9128e3714c72edea739f7ea8fa1aebce8a5204d7ac7ac2f03c7c6b16" => :big_sur
+    sha256 "7374695fa0685ccb4f432b260c8a2bd33e7d9f8ade55ae7ade0dece6771006bb" => :catalina
   end
 
-  depends_on xcode: "10.2"
+  depends_on xcode: "12.0"
 
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release", "-Xswiftc",

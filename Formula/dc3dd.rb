@@ -1,8 +1,7 @@
 class Dc3dd < Formula
   desc "Patched GNU dd that is intended for forensic acquisition of data"
   homepage "https://sourceforge.net/projects/dc3dd/"
-  url "https://downloads.sourceforge.net/project/dc3dd/dc3dd/7.2.646/dc3dd%207.2.646/dc3dd-7.2.646.zip",
-      using: :nounzip
+  url "https://downloads.sourceforge.net/project/dc3dd/dc3dd/7.2.646/dc3dd%207.2.646/dc3dd-7.2.646.zip", using: :nounzip
   sha256 "c4e325e5cbdae49e3855b0849ea62fed17d553428724745cea53fe6d91fd2b7f"
   revision 2
 
@@ -11,6 +10,7 @@ class Dc3dd < Formula
   end
 
   bottle do
+    sha256 "4b01295bd5bab46484c16fd08989ea81bb69711daa15696dee756f75323e9ed2" => :big_sur
     sha256 "da27e2227f7fac70c613c4677ec597255c13b1253bc7c79cf58f7321a0a6427e" => :mojave
     sha256 "b906b2d7009282e22eb97a1ad07982f3e4545fa4791cb2bc2eaf1e0c101ebaed" => :high_sierra
     sha256 "581af2165e8c666a92060e8354107cd0b27ada0143b4e0f5416b1d76739f45b7" => :sierra

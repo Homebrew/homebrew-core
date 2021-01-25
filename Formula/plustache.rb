@@ -7,13 +7,15 @@ class Plustache < Formula
 
   bottle do
     cellar :any
-    sha256 "e3348a3114faa9ae6a989344d69a594e5cacaacd927b847213f75f97d399bce1" => :catalina
-    sha256 "853b1c9c7d7f1c8cf8b7c6a1d0928a991b9c5646a326fe520d90a2cd28fc42dc" => :mojave
-    sha256 "7be831bc5c4402d088a31cd3e3c55e9e0ae105d969eea9a676744b212bdbc446" => :high_sierra
-    sha256 "5122ac5404ae416955c5f3b64b63bfd617a530e746194590d3779ae61710f281" => :sierra
-    sha256 "d5a98c71ef6162127b0a9017a85e929effff39ce1d75318a75cfca93086ff922" => :el_capitan
-    sha256 "71e6a72ee994c2cabe2639dcd030a2ee577c1ceced012027766e108812bf7505" => :yosemite
+    rebuild 1
+    sha256 "7a9331bddff426646291a13c0cde40ecc1399acc8a44db3073d6756d56ca5621" => :big_sur
+    sha256 "0ef2e1ec65b8dfd26c959c5511d645c239fb8ec29343c1785df52d6abbafd466" => :arm64_big_sur
+    sha256 "c851f4db6bd4095dd61c1f4a2b192f39b21f05aa8c6e994b9f75d6f183e0bbb8" => :catalina
+    sha256 "e6edf87d690e5c17b32a04d0da7ffe6cdf185cb6273a23058c56373b62bd554d" => :mojave
+    sha256 "046e756acf6694ae9b8768c62981f807a93aaef52d175bbff7005a29bb23aa00" => :high_sierra
   end
+
+  deprecate! date: "2020-11-15", because: :repo_archived
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build

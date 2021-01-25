@@ -7,6 +7,8 @@ class Rlog < Formula
 
   bottle do
     cellar :any
+    sha256 "4d6953945346cc4b3548510ebad0bd441246101be7c7a8c633b98c6e94c9fdaa" => :big_sur
+    sha256 "543009caf7c0dede6026949c6ccd5569183cabd78414542efcc3a43ae1a25cfa" => :arm64_big_sur
     sha256 "42b1e5a687f78df9121a75bc0b1194a534f31b8476521592879ea5fe381d634f" => :catalina
     sha256 "4ceb686581d1dad40fbbd4dec3d26205f56d9c25179ca4880158a06c2895f197" => :mojave
     sha256 "5d85e13db4c6dd2892d136a96af4ac46d72254a39b842559ac9a4f9f3841af3e" => :high_sierra

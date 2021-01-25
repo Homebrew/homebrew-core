@@ -1,26 +1,33 @@
 class NotmuchMutt < Formula
   desc "Notmuch integration for Mutt"
   homepage "https://notmuchmail.org/"
-  url "https://notmuchmail.org/releases/notmuch-0.30.tar.xz"
-  sha256 "5e3baa6fe11d65c67e26ae488be11b320bae04e336acc9c64621f7e3449096fa"
-  license "GPL-3.0"
+  url "https://notmuchmail.org/releases/notmuch-0.31.3.tar.xz"
+  sha256 "484041aed08f88f3a528a5b82489b6cda4090764228813bca73678da3a753aca"
+  license "GPL-3.0-or-later"
   head "https://git.notmuchmail.org/git/notmuch", using: :git
+
+  livecheck do
+    url "https://notmuchmail.org/releases/"
+    regex(/href=.*?notmuch[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     cellar :any
-    sha256 "a3f8a11f72c219bcc2f6eb0c6e8a5a1b5656e3364257e45c1716a8bf685fa412" => :catalina
-    sha256 "a31991d286a3d3aaf904c49100c7379ca44c0802fbaa62e222d897a157576ff0" => :mojave
-    sha256 "7774d94c0fae96c5dd3d0ea1a71c0f3f9d230b507f4759756bbb9ddebd25dfa9" => :high_sierra
+    sha256 "a52c995dbe47709f3255c201a170036097fb7d97abb2be895da431a203e83158" => :big_sur
+    sha256 "c493d6777556ba34075f6df48cfa0fe540a3b74f9640ec8205cc171d3f3de5a7" => :arm64_big_sur
+    sha256 "13105777242c90e0c612f2042f472c08acaafaf85a9bdf78a5726730c9f605a6" => :catalina
+    sha256 "edb9c664706a7a139df2ad602b97a8cf67bb57751997cbcb5f940495754a7c9c" => :mojave
   end
 
+  depends_on "notmuch"
   depends_on "readline"
 
   uses_from_macos "perl"
   uses_from_macos "pod2man"
 
   resource "Term::ReadLine::Gnu" do
-    url "https://cpan.metacpan.org/authors/id/H/HA/HAYASHI/Term-ReadLine-Gnu-1.36.tar.gz"
-    sha256 "9a08f7a4013c9b865541c10dbba1210779eb9128b961250b746d26702bab6925"
+    url "https://cpan.metacpan.org/authors/id/H/HA/HAYASHI/Term-ReadLine-Gnu-1.37.tar.gz"
+    sha256 "3bd31a998a9c14748ee553aed3e6b888ec47ff57c07fc5beafb04a38a72f0078"
   end
 
   resource "String::ShellQuote" do
@@ -29,8 +36,8 @@ class NotmuchMutt < Formula
   end
 
   resource "Mail::Box::Maildir" do
-    url "https://cpan.metacpan.org/authors/id/M/MA/MARKOV/Mail-Box-3.008.tar.gz"
-    sha256 "b51a50945db1335503e1414d76dcc74e669c4179ea07852f9800b270d5c0d297"
+    url "https://cpan.metacpan.org/authors/id/M/MA/MARKOV/Mail-Box-3.009.tar.gz"
+    sha256 "9185216b0e14c919ec2384769525559491ed7d56d27adb1bc985a1fbeb799165"
   end
 
   resource "Mail::Header" do
@@ -39,13 +46,13 @@ class NotmuchMutt < Formula
   end
 
   resource "Mail::Reporter" do
-    url "https://cpan.metacpan.org/authors/id/M/MA/MARKOV/Mail-Message-3.009.tar.gz"
-    sha256 "39d2cf98a24f786c119ff04df9b44662970bc2110d1bc6ad33ba64c06d97cf1a"
+    url "https://cpan.metacpan.org/authors/id/M/MA/MARKOV/Mail-Message-3.010.tar.gz"
+    sha256 "58414b1ae382988153a915d317245d89dd450f186ecf6d383c964b3673a78b13"
   end
 
   resource "MIME::Types" do
-    url "https://cpan.metacpan.org/authors/id/M/MA/MARKOV/MIME-Types-2.17.tar.gz"
-    sha256 "e04ed7d42f1ff3150a303805f2689c28f80b92c511784d4641cb7f040d3e8ff6"
+    url "https://cpan.metacpan.org/authors/id/M/MA/MARKOV/MIME-Types-2.18.tar.gz"
+    sha256 "31ca35a41f2ae998ccd7d33c19e42023ee6540fd9ded619b9abd48ff06a095be"
   end
 
   resource "Object::Realize::Later" do
@@ -70,6 +77,10 @@ class NotmuchMutt < Formula
     resource("Term::ReadLine::Gnu").stage do
       # Prevent the Makefile to try and build universal binaries
       ENV.refurbish_args
+
+      # Work around issue with Makefile.PL not detecting -ltermcap
+      # https://rt.cpan.org/Public/Bug/Display.html?id=133846
+      inreplace "Makefile.PL", "my $TERMCAP_LIB =", "my $TERMCAP_LIB = '-lncurses'; 0 &&"
 
       system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}",
                      "--includedir=#{Formula["readline"].opt_include}",

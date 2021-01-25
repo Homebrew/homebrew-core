@@ -1,20 +1,20 @@
 class ElasticsearchAT6 < Formula
   desc "Distributed search & analytics engine"
   homepage "https://www.elastic.co/products/elasticsearch"
-  url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-oss-6.8.11.tar.gz"
-  sha256 "2d136743072ca810f1af982f1c5a270b9fcc970be923ca1ee967aa7b9836cd3e"
+  url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-oss-6.8.13.tar.gz"
+  sha256 "e3a41d1a58898c18e9f80d45b1bf9f413779bdda9621027a6fe87f3a0f59ec90"
   license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "216e813f6a02fd87a7eb8fc19052cf99c7c6357a5977c5d15f35edbecfed5625" => :catalina
-    sha256 "dccf4a7e06e585eb81769211286ee183bc34721338970389a7adf29e8d910f5a" => :mojave
-    sha256 "dccf4a7e06e585eb81769211286ee183bc34721338970389a7adf29e8d910f5a" => :high_sierra
+    sha256 "5a169338be55587bc70f8d297a5ade7ab075540935af491d1eee1ec9e64cc200" => :big_sur
+    sha256 "21760b4a0752ec2f70597637ebeb255d3b218605f5117764451c382ecabffeec" => :catalina
+    sha256 "c5b912c15f7add574bcf572818b4b1ac40f7b27ddbcad3eff0303a15e9acb174" => :mojave
   end
 
   keg_only :versioned_formula
 
-  depends_on java: "1.8"
+  depends_on "openjdk@8"
 
   def cluster_name
     "elasticsearch_#{ENV["USER"]}"

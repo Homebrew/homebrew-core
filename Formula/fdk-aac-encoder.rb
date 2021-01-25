@@ -7,6 +7,8 @@ class FdkAacEncoder < Formula
 
   bottle do
     cellar :any
+    sha256 "2bb1d960c47fca61a9b677314b64dc2ab1311111c7b36818a46e47aa13bcc675" => :big_sur
+    sha256 "cb07e4fec67df342a3a6d9cae8d40e9a2d8436618c4b11f1183145d1eb01faa4" => :arm64_big_sur
     sha256 "ce0c1d5ff1bc3cc3483d2602fdbb1f3f0e6b8124c821f13f7d22c931bdd64303" => :catalina
     sha256 "251c3f283f5bf30c69b05b69fb80e3ef497d17d0f3290e1d11021d51950910ce" => :mojave
     sha256 "6bd9626cca01c6d07b55143acd321676a573f68ba2ec7734922b936332fab567" => :high_sierra

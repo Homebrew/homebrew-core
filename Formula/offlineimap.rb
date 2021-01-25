@@ -12,6 +12,8 @@ class Offlineimap < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "d93a65acab0ec67ba0a7cec1788aaea55f345a328720d521c87e7eb2cc18121e" => :big_sur
+    sha256 "af9077e9c6a1a2530d512d313a67a804cec500d88751ca2ab3525659a50a0c33" => :arm64_big_sur
     sha256 "2d21d8216b9d9ad3197181632dd8583d8bd15f46851365e906d9581ae67ff30e" => :catalina
     sha256 "ff922fc76e1e5571628d7ecb4bd436180895352768979c2cd9bcfee048b5d0f4" => :mojave
     sha256 "ff922fc76e1e5571628d7ecb4bd436180895352768979c2cd9bcfee048b5d0f4" => :high_sierra

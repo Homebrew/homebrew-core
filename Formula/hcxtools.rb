@@ -1,18 +1,20 @@
 class Hcxtools < Formula
   desc "Utils for conversion of cap/pcap/pcapng WiFi dump files"
   homepage "https://github.com/ZerBea/hcxtools"
-  url "https://github.com/ZerBea/hcxtools/archive/6.1.3.tar.gz"
-  sha256 "15f02189a235b28d6853f231b5cef871a6d487414c3e631971226e8fed88dbcb"
+  url "https://github.com/ZerBea/hcxtools/archive/6.1.5.tar.gz"
+  sha256 "6229e46a1298ee6f883e25dafbf837fe6314476d4b3201e1ba63645569c862c7"
   license "MIT"
   head "https://github.com/ZerBea/hcxtools.git"
 
   bottle do
     cellar :any
-    sha256 "84df63e72e4a3af6321db5fddc230dadb5af2cf5140c1636a3cf870163b9f1d9" => :catalina
-    sha256 "c3fece3c09f757513484007d5e366366724a3570d3a614309bb40a855f936ade" => :mojave
-    sha256 "04f86422166a904d573bf86f08e561615f23b86f65b1b56db4f032fbe4021d49" => :high_sierra
+    sha256 "99013be82236937ee4f100fc0e52b19d45a6e2c15952e116fcf1394873b8af9d" => :big_sur
+    sha256 "7203d4127bf7bffe5ef0ce0ac53bf06ef4d3d46f5acad23eb084268a1fd68df1" => :arm64_big_sur
+    sha256 "d8f6de053a88b742ac743f88d8f22f49e4f01fe6ea3f3be2fa235b2db80cd38f" => :catalina
+    sha256 "57d98cd8c5744413822fd26bd3445c076a22c24a664451a2b64d413e8a2a5ca5" => :mojave
   end
 
+  depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
 
   def install

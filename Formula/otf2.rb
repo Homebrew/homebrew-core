@@ -3,18 +3,20 @@ class Otf2 < Formula
   homepage "https://www.vi-hps.org/projects/score-p/"
   url "https://www.vi-hps.org/cms/upload/packages/otf2/otf2-2.2.tar.gz"
   sha256 "d0519af93839dc778eddca2ce1447b1ee23002c41e60beac41ea7fe43117172d"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "4c532e5cb9864669bc29b6ad5007669c92a6abb3e069d7904ab3b102169ec2bc" => :catalina
-    sha256 "ec63ae3bd66e7231b05f6bbd5ce8b0606126ad25e871f59d9e066fa62b9e26d8" => :mojave
-    sha256 "dbf4c3c761e51a184a675d369a54dea5247d25d96e78899ca3b268a04c629c48" => :high_sierra
+    sha256 "bb192fd9ff10ead28b7025a1aa426b7cba4149dac8de2a873efa28f6ca804dbc" => :big_sur
+    sha256 "8c8c0f0f92d88b2439cdcb808ba2318a3cd54b7c929a6743a473105fd177fe38" => :arm64_big_sur
+    sha256 "9bbb9997272253be31bcefb9b398b6d46725ff18bc6d5097c16e59fab6fece0f" => :catalina
+    sha256 "befb628ab3134837d2d6f442ac9b12da47d813adb5b13f8839c66993c0b0e6cf" => :mojave
+    sha256 "5866bf0afb7c3fb48e718d209019f1ac3574c221c862b2e35ea9ea907ed91008" => :high_sierra
   end
 
   depends_on "sphinx-doc" => :build
   depends_on "gcc"
   depends_on "open-mpi"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "future" do
     url "https://files.pythonhosted.org/packages/45/0b/38b06fd9b92dc2b68d58b75f900e97884c45bedd2ff83203d933cf5851c9/future-0.18.2.tar.gz"
@@ -22,7 +24,7 @@ class Otf2 < Formula
   end
 
   def install
-    python3 = Formula["python@3.8"].opt_bin/"python3"
+    python3 = Formula["python@3.9"].opt_bin/"python3"
     xy = Language::Python.major_minor_version python3
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
 

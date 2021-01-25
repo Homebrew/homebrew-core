@@ -11,6 +11,8 @@ class Sdl2Image < Formula
 
   bottle do
     cellar :any
+    sha256 "d106f96771895c1b6faa9864e3605d301cdbe658672900108605c521616a8bf6" => :big_sur
+    sha256 "2a4cd10f3598553180559df330435f359703eaa02a77c12bf9667d953fa2b5a3" => :arm64_big_sur
     sha256 "691d5407fef2bc374ac3b7c2fafbe46a6bc0f9ed609f98812b24fec33ab9bd27" => :catalina
     sha256 "1b3a464579d9ef25b3bdd9276119efffd0134fda5c5dc27051a35f1b21c00cfd" => :mojave
     sha256 "55c1f996fb523c2727d2b103f0a5ecfd7a073f55ff9a7230bb609d22bbf5a576" => :high_sierra

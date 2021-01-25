@@ -10,6 +10,8 @@ class Scrollkeeper < Formula
   end
 
   bottle do
+    sha256 "0cdfc1e87fe8d2281867eb923dfce700906894f6593a763fe79f4afc936f2ad2" => :big_sur
+    sha256 "88e96878a9f7cef658edaf418c55f7c9e6904aead82bd3102384cbdfb342a400" => :arm64_big_sur
     sha256 "9bd348638b9e3492db3549c7ac0756975ca2c57303ec58685bb3e6694fff1dd1" => :catalina
     sha256 "0d7cbee6e25a46848d7c387ba07c4ee110ae2256953d2e5addd26f68e21c645d" => :mojave
     sha256 "efa4637b9d1b3942192dca6fb4602ef72ec6b285ba424c087d290c8feb5e2c5b" => :high_sierra

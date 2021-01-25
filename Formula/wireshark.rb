@@ -1,10 +1,11 @@
 class Wireshark < Formula
   desc "Graphical network analyzer and capture tool"
   homepage "https://www.wireshark.org"
-  url "https://www.wireshark.org/download/src/all-versions/wireshark-3.2.7.tar.xz"
-  mirror "https://1.eu.dl.wireshark.org/src/all-versions/wireshark-3.2.7.tar.xz"
-  sha256 "be832fb86d9c455c5be8b225a755cdc77cb0e92356bdfc1fe4b000d93f7d70da"
-  head "https://code.wireshark.org/review/wireshark", using: :git
+  url "https://www.wireshark.org/download/src/all-versions/wireshark-3.4.2.tar.xz"
+  mirror "https://1.na.dl.wireshark.org/src/wireshark-3.4.2.tar.xz"
+  sha256 "de9868729e426a469baabd8d444240d84fa5445020e92c842dd19afd0d47a4c4"
+  license "GPL-2.0-or-later"
+  head "https://gitlab.com/wireshark/wireshark.git"
 
   livecheck do
     url "https://www.wireshark.org/download.html"
@@ -12,9 +13,9 @@ class Wireshark < Formula
   end
 
   bottle do
-    sha256 "56e153eb88d099004475e721b08968f617991ea8c35f11e411fc77d9d1b35ed8" => :catalina
-    sha256 "4fa7905354fa591917f8295a54d65aa246fad2c1796f7af7125031deb53f17c9" => :mojave
-    sha256 "b8fb1209b735d6044f047a00adf05007111cf589b2bf5ad53fc3932acf2a0cff" => :high_sierra
+    sha256 "a7574115b2e92bbdc12108e14641e7e77f6a8613126e04960ce4f133025b6f71" => :big_sur
+    sha256 "8f09f802d20dc9d86b77482004347f034a3875e9d2c1ea3bf4d72dc937e78655" => :catalina
+    sha256 "e363ca19a898a0f480ec35fac73dc3fdbc6cbe75428edb03c74b5ee478cedeb6" => :mojave
   end
 
   depends_on "cmake" => :build
@@ -74,11 +75,11 @@ class Wireshark < Formula
       This formula only installs the command-line utilities by default.
 
       Install Wireshark.app with Homebrew Cask:
-        brew cask install wireshark
+        brew install --cask wireshark
 
       If your list of available capture interfaces is empty
       (default macOS behavior), install ChmodBPF:
-        brew cask install wireshark-chmodbpf
+        brew install --cask wireshark-chmodbpf
     EOS
   end
 

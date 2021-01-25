@@ -8,6 +8,8 @@ class Sparkey < Formula
 
   bottle do
     cellar :any
+    sha256 "6f469c28584124f46a7fa9835dee3311ef02d5a48f2d8fb8c8eb29f2c6688986" => :big_sur
+    sha256 "1b2b1cc05fd4af9994aa34e57bc8767bdb567455e27458e1a9ac38e340603c68" => :arm64_big_sur
     sha256 "b7e64101995d257df010edb67bafcd60745f09c7b0ebb9650c817eb7343f1899" => :catalina
     sha256 "438c323c343b7aade2da46316d24bcc4d5c7a95910a43914d70125af14a17636" => :mojave
     sha256 "4acbb473ce3be942b808af45789ccb7ede8199c728f7c381cd0dda1a105c8a9e" => :high_sierra

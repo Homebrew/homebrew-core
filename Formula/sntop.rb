@@ -7,6 +7,8 @@ class Sntop < Formula
 
   bottle do
     rebuild 1
+    sha256 "ea8df8c0dbf95ed5686009df6bd7742d6f4a4a2e4c6132a02e6273ccfd21cc67" => :big_sur
+    sha256 "0674ad1a5387fadc27e9132d36bef2178e3ea821e9e05fadcc3a4d97b90a5758" => :arm64_big_sur
     sha256 "886a981f2c95a8a17d4bfb44c27d99cde66faeb4f2942d1c43757e8d702509c6" => :catalina
     sha256 "d010bc2fa761320d0d0f4948d5f95392d892e7bd7815418e9881ec90049d4036" => :mojave
     sha256 "c22d769ddb8599acf3f03db2ef85eef5ee28e41f9ec3011e9b23f6168ceb0a76" => :high_sierra

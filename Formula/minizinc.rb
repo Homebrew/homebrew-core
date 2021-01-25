@@ -1,20 +1,23 @@
 class Minizinc < Formula
   desc "Medium-level constraint modeling language"
   homepage "https://www.minizinc.org/"
-  url "https://github.com/MiniZinc/libminizinc/archive/2.5.0.tar.gz"
-  sha256 "a92be5e1f0d7a2d7177341650cbb976114aa4e1e2f260b1e9dada28ebf044b30"
+  url "https://github.com/MiniZinc/libminizinc/archive/2.5.3.tar.gz"
+  sha256 "07982723009fcb50ae190bf17277e8c91e6279f319521f571d253ba27e2c2b1b"
   license "MPL-2.0"
   head "https://github.com/MiniZinc/libminizinc.git", branch: "develop"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "3761bf1a5f715d47c2292fa0e71d5edaf66dc5d18362952a19c9ab61bdb5f4dd" => :catalina
-    sha256 "10169d25a64dd162ac28aaccd6296efaa084c380942115c0ce7ba17ac7a0ffc7" => :mojave
-    sha256 "ea375d5c130fa16354d6b48c01aa32752593da13526afabab3bf3e79c93953f7" => :high_sierra
+    cellar :any
+    rebuild 1
+    sha256 "1c54e2022738c39dd339bec62ba9d933b5b44fc07587c51361492cdfd5a961db" => :big_sur
+    sha256 "d3e7df985149ff4c1b12782a94b0ccfb5d862dd3e186e6c934d6e9d70dc21c3e" => :arm64_big_sur
+    sha256 "2ee5718af0ff50473754355384284e29162d2dff60c7b433d312c9cef0e21ff0" => :catalina
+    sha256 "9d2af2903a893c0dadeddecbdbbdd2fb55fac3b1f37364881b4648fd90c037b2" => :mojave
   end
 
   depends_on "cmake" => :build
-  depends_on arch: :x86_64
+  depends_on "cbc"
+  depends_on "gecode"
 
   def install
     mkdir "build" do
@@ -24,6 +27,18 @@ class Minizinc < Formula
   end
 
   test do
-    system bin/"mzn2doc", pkgshare/"std/all_different.mzn"
+    (testpath/"satisfy.mzn").write <<~EOS
+      array[1..2] of var bool: x;
+      constraint x[1] xor x[2];
+      solve satisfy;
+    EOS
+    assert_match "----------", shell_output("#{bin}/minizinc --solver gecode_presolver satisfy.mzn").strip
+
+    (testpath/"optimise.mzn").write <<~EOS
+      array[1..2] of var 1..3: x;
+      constraint x[1] < x[2];
+      solve maximize sum(x);
+    EOS
+    assert_match "==========", shell_output("#{bin}/minizinc --solver cbc optimise.mzn").strip
   end
 end

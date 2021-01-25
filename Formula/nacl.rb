@@ -8,6 +8,7 @@ class Nacl < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 2
+    sha256 "89574694f733c8aa852e09e3828f10dd6ce2ece4219bd825e5f6c18253bddb28" => :big_sur
     sha256 "b9fb1445709388168d0e1c56964a7540e8ff4e6294d31eb23c62368ce56e6d1b" => :catalina
     sha256 "bb0b22e1aa3a87657b064def3d19bcad419a4339889046f931a5eac7e5bc8bc1" => :mojave
     sha256 "43fffe959f6a95aacff4d5d4b7bfbb34f835a2487e8bff0645473d8ec1de83b6" => :high_sierra

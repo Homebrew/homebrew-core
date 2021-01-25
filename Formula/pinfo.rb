@@ -7,6 +7,8 @@ class Pinfo < Formula
   revision 1
 
   bottle do
+    sha256 "9d4ae5da430d85f09f2ef7a2b5292976c3db781f80fd1b249e9d0caa05f74c4e" => :big_sur
+    sha256 "2592140c0bf2f8e5889f3e2020e163d097b6256bde001139dd88b778f7a985a6" => :arm64_big_sur
     sha256 "a41b568910292b2119d0f63f53d5015d781b03576a58f08d397535560d407bf5" => :catalina
     sha256 "b81b1202add75d938802681618f5bf95dd245e03ff80f5f0ca67a5ba8b7bfb84" => :mojave
     sha256 "84edf6ec00f570004abc6f3d0335196b513a4a52e589919ca1e70c35b31525cc" => :high_sierra

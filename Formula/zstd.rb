@@ -1,15 +1,16 @@
 class Zstd < Formula
   desc "Zstandard is a real-time compression algorithm"
   homepage "https://facebook.github.io/zstd/"
-  url "https://github.com/facebook/zstd/archive/v1.4.5.tar.gz"
-  sha256 "734d1f565c42f691f8420c8d06783ad818060fc390dee43ae0a89f86d0a4f8c2"
+  url "https://github.com/facebook/zstd/archive/v1.4.8.tar.gz"
+  sha256 "f176f0626cb797022fbf257c3c644d71c1c747bb74c32201f9203654da35e9fa"
   license "BSD-3-Clause"
 
   bottle do
     cellar :any
-    sha256 "2375c206a934090c4ba53362d038e4e191d8dd09eec734e8e72106089aa24e9d" => :catalina
-    sha256 "86b04bfd318315486d772b29d30b361e734a74269ae48805eeb3eae1d562b984" => :mojave
-    sha256 "61de5a45183f4d029c66024d645ad44b0a625d58f9f583b47af42346a7c90fe5" => :high_sierra
+    sha256 "d015379ee322c5984c55803256ac876ed1389eca2c15767b251232a81f45b08b" => :big_sur
+    sha256 "d3810a086fabf6504862103baf4026bac4c47fa185b748b319106c8bd0fd9e3c" => :arm64_big_sur
+    sha256 "ad897f36994db64c4ec410c1e9324b66dcf4f2175cf7d24c62ec647921b5dc7d" => :catalina
+    sha256 "936b64748f097bf20c380f06ea3d8dc963e6051240d92935b36776546c406ade" => :mojave
   end
 
   depends_on "cmake" => :build
@@ -20,7 +21,6 @@ class Zstd < Formula
     system "make", "install", "PREFIX=#{prefix}/"
 
     # Build parallel version
-    system "make", "-C", "contrib/pzstd", "googletest"
     system "make", "-C", "contrib/pzstd", "PREFIX=#{prefix}"
     bin.install "contrib/pzstd/pzstd"
   end

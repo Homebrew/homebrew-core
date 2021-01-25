@@ -8,6 +8,8 @@ class Pgpdump < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c87222c16b88f4f1a34504d503eb7bebd6559da8029cd4cd374d27bb694cbc88" => :big_sur
+    sha256 "e2be885245f927b5cc3203bff8af2f063d60853d2c7627100ef46f8cd4eb730d" => :arm64_big_sur
     sha256 "60bbe481621cc653edc834b9d54b910deb3c1634cc7155dd1e9aca9e3f207ca4" => :catalina
     sha256 "8141ac85359c7be7ac5ef51075823612582ecd0e02f0048cace4b4bae2217771" => :mojave
     sha256 "2d5ad982f29c20cad30f5a90d4fcd8af3d369432e2c4ab4f35fcfa3b31712a1f" => :high_sierra

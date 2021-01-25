@@ -10,6 +10,8 @@ class Bsdsfv < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "3fe4cd9e74eb5d55bf3ecc10a675600ade3b4f0d56b94d2bcfd9d71e91cae302" => :big_sur
+    sha256 "1f2a24ab528de05007b43da3e52628380f4bf6acf8d0d9d2d52cd3defd0c429c" => :arm64_big_sur
     sha256 "3abfd33001c44edc6b03905559f8565f923001aa1ccc3a3247ebd073d226ccaa" => :catalina
     sha256 "e500396c1a26993727df9ccc8d878e0a4fbc353326206dffcbd18b9fc8071247" => :mojave
     sha256 "28bee35fbc8c0be9e1182287c58340898d29d9ba0f910109974af6efcb5cd61f" => :high_sierra

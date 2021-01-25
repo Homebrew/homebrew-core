@@ -12,6 +12,8 @@ class Links < Formula
 
   bottle do
     cellar :any
+    sha256 "4e8063e73e66dc0650d28ea07dea15e4a05659664185e96c26c716263e29cf2b" => :big_sur
+    sha256 "4f1d1a7db600814dc6ba06ba8d146d1449ea34a706bc651e44a5205739bd07f7" => :arm64_big_sur
     sha256 "c43cf180508872a2e5461af4c3c80a58d2d8824d1bb8b0c1a7d0f890aa12ef49" => :catalina
     sha256 "aef8fa60ec4bdc8adca1cab129a2a8fd0a44888d867e7b468a1ed7672f7c7550" => :mojave
     sha256 "6660756b8d9ac4a433212c44067fd1627e96c3bcf7996f4a51da1affe39e29e5" => :high_sierra

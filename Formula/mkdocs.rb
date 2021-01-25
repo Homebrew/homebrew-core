@@ -14,6 +14,8 @@ class Mkdocs < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c632678896672c74e404e891f8ed7c94fbbef5d73c38397f0f77398ea98d8162" => :big_sur
+    sha256 "83bca122681942a19f62221116cccb1f86bda80fcac623b6a6e9c30deb841998" => :arm64_big_sur
     sha256 "13c230e5bf220b7263cbf1313da9cf65bae3c00e3be2539578393ace54aa9b28" => :catalina
     sha256 "638c33971c1a7ee2c005e7904ed055b6ed73cc93fadab1366192a6e909bafe0c" => :mojave
     sha256 "98ef5fb680e42e9ac1e49a27c4583959496f68df2be46f61ed33752ff27fae87" => :high_sierra

@@ -3,7 +3,8 @@ class Gtksourceviewmm3 < Formula
   homepage "https://developer.gnome.org/gtksourceviewmm/"
   url "https://download.gnome.org/sources/gtksourceviewmm/3.18/gtksourceviewmm-3.18.0.tar.xz"
   sha256 "51081ae3d37975dae33d3f6a40621d85cb68f4b36ae3835eec1513482aacfb39"
-  revision 5
+  license "LGPL-2.1-or-later"
+  revision 9
 
   livecheck do
     url :stable
@@ -12,12 +13,13 @@ class Gtksourceviewmm3 < Formula
 
   bottle do
     cellar :any
-    sha256 "d35b302c510fb00351509ce3e0be7b9987e5e85f82ce081c193c7ede8e23222c" => :catalina
-    sha256 "b3c787892287e10195221b827bb4a98e93cbe374ff5d157a093e1439d2cb3f8f" => :mojave
-    sha256 "f0c576ddf05f4098af489f9cd7aa228e9c996fa77a81b820ac52fc1353119719" => :high_sierra
+    sha256 "8c4f4dccd8d2863584a97ade21f7548043396608735140da1e1486f856a8a32d" => :big_sur
+    sha256 "73a527b55ab4b0474b2ff5aa5dd416be5b59e181ad995348b4896c6b9b60dcb9" => :arm64_big_sur
+    sha256 "0b7aaa428f4ac5c494ac82dc385d6fe170d33e6f09f88f90bb76d85181449a8f" => :catalina
+    sha256 "7e6ea75a77e09751dba728dec6b7d87f74a99400fa2c29ea1246f39f57f907fc" => :mojave
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => [:build, :test]
   depends_on "gtkmm3"
   depends_on "gtksourceview3"
 
@@ -37,100 +39,8 @@ class Gtksourceviewmm3 < Formula
       }
     EOS
     ENV.libxml2
-    atk = Formula["atk"]
-    atkmm = Formula["atkmm"]
-    cairo = Formula["cairo"]
-    cairomm = Formula["cairomm"]
-    fontconfig = Formula["fontconfig"]
-    freetype = Formula["freetype"]
-    gdk_pixbuf = Formula["gdk-pixbuf"]
-    gettext = Formula["gettext"]
-    glib = Formula["glib"]
-    glibmm = Formula["glibmm"]
-    gtkx3 = Formula["gtk+3"]
-    gtkmm3 = Formula["gtkmm3"]
-    gtksourceview3 = Formula["gtksourceview3"]
-    harfbuzz = Formula["harfbuzz"]
-    libepoxy = Formula["libepoxy"]
-    libpng = Formula["libpng"]
-    libsigcxx = Formula["libsigc++@2"]
-    pango = Formula["pango"]
-    pangomm = Formula["pangomm"]
-    pixman = Formula["pixman"]
-    flags = %W[
-      -I#{atk.opt_include}/atk-1.0
-      -I#{atkmm.opt_include}/atkmm-1.6
-      -I#{cairo.opt_include}/cairo
-      -I#{cairomm.opt_include}/cairomm-1.0
-      -I#{cairomm.opt_lib}/cairomm-1.0/include
-      -I#{fontconfig.opt_include}
-      -I#{freetype.opt_include}/freetype2
-      -I#{gdk_pixbuf.opt_include}/gdk-pixbuf-2.0
-      -I#{gettext.opt_include}
-      -I#{glib.opt_include}/gio-unix-2.0/
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
-      -I#{glibmm.opt_include}/giomm-2.4
-      -I#{glibmm.opt_include}/glibmm-2.4
-      -I#{glibmm.opt_lib}/giomm-2.4/include
-      -I#{glibmm.opt_lib}/glibmm-2.4/include
-      -I#{gtkmm3.opt_include}/gdkmm-3.0
-      -I#{gtkmm3.opt_include}/gtkmm-3.0
-      -I#{gtkmm3.opt_lib}/gdkmm-3.0/include
-      -I#{gtkmm3.opt_lib}/gtkmm-3.0/include
-      -I#{gtksourceview3.opt_include}/gtksourceview-3.0
-      -I#{gtkx3.opt_include}/gtk-3.0
-      -I#{gtkx3.opt_include}/gtk-3.0/unix-print
-      -I#{harfbuzz.opt_include}/harfbuzz
-      -I#{include}/gtksourceviewmm-3.0
-      -I#{libepoxy.opt_include}
-      -I#{libpng.opt_include}/libpng16
-      -I#{libsigcxx.opt_include}/sigc++-2.0
-      -I#{libsigcxx.opt_lib}/sigc++-2.0/include
-      -I#{lib}/gtksourceviewmm-3.0/include
-      -I#{pango.opt_include}/pango-1.0
-      -I#{pangomm.opt_include}/pangomm-1.4
-      -I#{pangomm.opt_lib}/pangomm-1.4/include
-      -I#{pixman.opt_include}/pixman-1
-      -D_REENTRANT
-      -L#{atk.opt_lib}
-      -L#{atkmm.opt_lib}
-      -L#{cairo.opt_lib}
-      -L#{cairomm.opt_lib}
-      -L#{gdk_pixbuf.opt_lib}
-      -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
-      -L#{glibmm.opt_lib}
-      -L#{gtkmm3.opt_lib}
-      -L#{gtksourceview3.opt_lib}
-      -L#{gtkx3.opt_lib}
-      -L#{libsigcxx.opt_lib}
-      -L#{lib}
-      -L#{pango.opt_lib}
-      -L#{pangomm.opt_lib}
-      -latk-1.0
-      -latkmm-1.6
-      -lcairo
-      -lcairo-gobject
-      -lcairomm-1.0
-      -lgdk-3
-      -lgdk_pixbuf-2.0
-      -lgdkmm-3.0
-      -lgio-2.0
-      -lgiomm-2.4
-      -lglib-2.0
-      -lglibmm-2.4
-      -lgobject-2.0
-      -lgtk-3
-      -lgtkmm-3.0
-      -lgtksourceview-3.0
-      -lgtksourceviewmm-3.0
-      -lintl
-      -lpango-1.0
-      -lpangocairo-1.0
-      -lpangomm-1.4
-      -lsigc-2.0
-    ]
+    command = "#{Formula["pkg-config"].opt_bin}/pkg-config --cflags --libs gtksourceviewmm-3.0"
+    flags = shell_output(command).strip.split
     system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", *flags
     system "./test"
   end

@@ -2,16 +2,15 @@ class Carrot2 < Formula
   desc "Search results clustering engine"
   homepage "https://project.carrot2.org"
   url "https://github.com/carrot2/carrot2.git",
-      tag:      "release/4.0.4",
-      revision: "8c0d13f0c5aee8dbc23fe0893bfacc60d8cfc254"
+      tag:      "release/4.1.0",
+      revision: "84fab40554501d653194c8f233ec4b137cd881ae"
   license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "7dd4787aef0833a6147df58a89d9c3183ac96cddc724f6ae04ac39bb7b5e95f2" => :catalina
-    sha256 "4499a0e7e0bc182c03b01aafb70e189c7fc6dbb04308ba92ba2dc2ffa8904202" => :mojave
-    sha256 "952d43fdc6efa2a79d7cd206561f6392ef65f6f53699f584d26e5b9e8b7f8dde" => :high_sierra
+    sha256 "e3c921aca1359a03cf59c4c86398bb60d40bfda7016d724a3bdaf142f217ce1c" => :big_sur
+    sha256 "2bc7f90be9567d859e9536d567bd3337a8c7947cd064f4bf8a7e675f3e0e672a" => :catalina
+    sha256 "575a9813da9b3211549e0a9a9b77d080a979c7dc4387809ba9b7184aeb22eb47" => :mojave
   end
 
   depends_on "gradle" => :build

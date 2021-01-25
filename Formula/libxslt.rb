@@ -3,6 +3,8 @@ class Libxslt < Formula
   homepage "http://xmlsoft.org/XSLT/"
   url "http://xmlsoft.org/sources/libxslt-1.1.34.tar.gz"
   sha256 "98b1bd46d6792925ad2dfe9a87452ea2adebf69dcb9919ffd55bf926a7f93f7f"
+  license "X11"
+  revision 2
 
   livecheck do
     url "http://xmlsoft.org/sources/"
@@ -11,9 +13,10 @@ class Libxslt < Formula
 
   bottle do
     cellar :any
-    sha256 "cbadecf3186f45754220dff4cbdfbb576882a211d615b52249a4c9d8ba4d7c3a" => :catalina
-    sha256 "6feb1b8d57dd0d8b651733720d4dac728d2e27cf8c9fa9f88e60612fe0a0c882" => :mojave
-    sha256 "733c15b756070866d08196dcd5eef9facea1ce98d9c233cd6bf73fa426e0d062" => :high_sierra
+    sha256 "61c11bb170d9ba4bd079a2c81887b9d82cb34a3de110117d61d75f7f050b90d3" => :big_sur
+    sha256 "7f0dcf602ce806db8ce41b1e8d4ef352823f7343f258cd0519e6ad1885f3c593" => :arm64_big_sur
+    sha256 "7f1626b1ae090f561ed8d7c2a3c7e9067ad29d68b547d91ff5a2e83d346183bc" => :catalina
+    sha256 "6c73651ec7791877fe42675f9de291709300a2c3aa0da3e859d139e4121a5a18" => :mojave
   end
 
   head do
@@ -26,6 +29,7 @@ class Libxslt < Formula
 
   keg_only :provided_by_macos
 
+  depends_on "libgcrypt"
   depends_on "libxml2"
 
   def install
@@ -35,6 +39,7 @@ class Libxslt < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
                           "--without-python",
+                          "--with-crypto",
                           "--with-libxml-prefix=#{Formula["libxml2"].opt_prefix}"
     system "make"
     system "make", "install"
@@ -49,5 +54,15 @@ class Libxslt < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/xslt-config --version")
+    (testpath/"test.c").write <<~EOS
+      #include <libexslt/exslt.h>
+      int main(int argc, char *argv[]) {
+        exsltCryptoRegister();
+        return 0;
+      }
+    EOS
+    flags = shell_output("#{bin}/xslt-config --cflags --libs").chomp.split
+    system ENV.cc, "test.c", "-o", "test", *flags, "-lexslt"
+    system "./test"
   end
 end

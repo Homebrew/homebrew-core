@@ -7,6 +7,8 @@ class Libmusicbrainz < Formula
 
   bottle do
     cellar :any
+    sha256 "a03a79657821636633079121735346d0b50ac66ab13e7a0da695b4f8e8499464" => :big_sur
+    sha256 "cd8eb4a4a2aaf1d9328c3b84439f16996b5e586d1069edcb28d4dcf8c994a30e" => :arm64_big_sur
     sha256 "3ff30e82e933e84fdaacc2a0d8c568678adfabb0b7771667cbcaf07132f59a14" => :catalina
     sha256 "420d6867aa3d20d9148d4546a154e7059467cc4ca8d861dfb173c9ea35f10dab" => :mojave
     sha256 "99b598b941ac0ce3747d8821943a1e730f3673b721421d9c0428b70259e789c0" => :high_sierra

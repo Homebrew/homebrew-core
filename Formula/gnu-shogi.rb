@@ -11,6 +11,8 @@ class GnuShogi < Formula
   end
 
   bottle do
+    sha256 "70258434181a6f40b0c3cddb7e2a5f0119bf953bff5dbd3e795533f558a104ea" => :big_sur
+    sha256 "106fee874d8adf30ee887dcf7aa6149cd469c3e629861d105a278a9a66318aea" => :arm64_big_sur
     sha256 "6c559fdfcd24543c1f83f681fe3337048783d17649804b642fb0063dee88d7c8" => :catalina
     sha256 "c52d5743a6b9b6aeff9ba4b87104fa7adb58e7752683420e2c038f0216a2447d" => :mojave
     sha256 "20895a9d3fe87357df4dad1aaae16fee4d7a0c70e95119756c8ab2928817c161" => :high_sierra

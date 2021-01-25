@@ -1,17 +1,17 @@
 class Hidapi < Formula
   desc "Library for communicating with USB and Bluetooth HID devices"
   homepage "https://github.com/libusb/hidapi"
-  url "https://github.com/libusb/hidapi/archive/hidapi-0.9.0.tar.gz"
-  sha256 "630ee1834bdd5c5761ab079fd04f463a89585df8fcae51a7bfe4229b1e02a652"
-  license "GPL-3.0"
+  url "https://github.com/libusb/hidapi/archive/hidapi-0.10.1.tar.gz"
+  sha256 "f71dd8a1f46979c17ee521bc2117573872bbf040f8a4750e492271fc141f2644"
+  license :cannot_represent
   head "https://github.com/libusb/hidapi.git"
 
   bottle do
     cellar :any
-    sha256 "08ed41cd6127ccaa6c4e60f34e663bd020e5ceb335c8b6fcfc7454ee75cbf948" => :catalina
-    sha256 "8e4c1959c227e51e8bc8e45532838dff3fd5c58aff90a03eb1e19d9cd51f7160" => :mojave
-    sha256 "0b972366a1dc78445d448b40892ef7885fb682eb2042e41723274d2e50388732" => :high_sierra
-    sha256 "befada3ffe32de1d7363d0a958aec534b248d8cd45111c4f30a6f46bb0ac401b" => :sierra
+    sha256 "98f2859ea147e9c92e4925f0887062c8b6f5177eb98a1012b95d3b788cb58ea5" => :big_sur
+    sha256 "b9a374fd0f191883bb75c4b881d24e569d547675d4cedbe3339c7aa6c3fe60b3" => :arm64_big_sur
+    sha256 "9287809ecfeaeb3c89b1f9bf8babb31a8971b41c4a9795922ab774bfcc66559d" => :catalina
+    sha256 "e9c2bec30d5d1e9e0f9f91c43510071ba17234cd968b33f161c56cbee23a4d8d" => :mojave
   end
 
   depends_on "autoconf" => :build

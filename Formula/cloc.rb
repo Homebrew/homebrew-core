@@ -8,10 +8,14 @@ class Cloc < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9f1cc1669e19c4a9a539f0c8aaa91dccf74572a6ccb38948c3d60efe0c966ed6" => :big_sur
+    sha256 "debaf5cbb9e961ea9c7192d2a98ae8349a1e8e7a085bd5fdf3d7c3a0858fe2e5" => :arm64_big_sur
     sha256 "f287c5bccd7c70cd25a17eaa235b392c6b3f27da6a9d4c47d5b0cbd45608dc84" => :catalina
     sha256 "eda8d2e68c995503592bc9b2ec5e49fb30e93464df512d20ba45c08d0a9e8886" => :mojave
     sha256 "24d26f59347952a7469fdb10830486a0f34b5c11884f5c4da05d34a858c8bd20" => :high_sierra
   end
+
+  uses_from_macos "perl"
 
   resource "Regexp::Common" do
     url "https://cpan.metacpan.org/authors/id/A/AB/ABIGAIL/Regexp-Common-2017060201.tar.gz"

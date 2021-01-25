@@ -1,16 +1,17 @@
 class Flann < Formula
   desc "Fast Library for Approximate Nearest Neighbors"
-  homepage "https://www.cs.ubc.ca/research/flann/"
+  homepage "https://github.com/mariusmuja/flann"
   url "https://github.com/mariusmuja/flann/archive/1.9.1.tar.gz"
   sha256 "b23b5f4e71139faa3bcb39e6bbcc76967fbaf308c4ee9d4f5bfbeceaa76cc5d3"
   license "BSD-3-Clause"
-  revision 9
+  revision 10
 
   bottle do
     cellar :any
-    sha256 "8bee2438249ae71560fb12fd9d2b7b8a63f09d29f09d11628f8603a4c3f14d8d" => :catalina
-    sha256 "234f35c606e1d5a6420a8ad8b26ef40234497caf757358063a71dd672d0436da" => :mojave
-    sha256 "f23d114ea25d8dcf60d14a829d79293b6bc1b868900c8a0abae25c0c45a68bba" => :high_sierra
+    sha256 "f6555dce8d62d9dde8da5ee6ea7a6efc1e9a80339060bb4b7af3fd1e7e845584" => :big_sur
+    sha256 "1d8425ca4d79dcf978e9bb43e7b1a52480febf9b9deadc8b966ffa2d004b2971" => :arm64_big_sur
+    sha256 "101ec3e673a5b69c5f6cf6c79af0fbfca3a00ef90b7a4dde0a4bad638a187d1a" => :catalina
+    sha256 "ab351183f61258ac6fefd9f64677c4b917929674fb36eff89aa9d85c825dfef8" => :mojave
   end
 
   depends_on "cmake" => :build

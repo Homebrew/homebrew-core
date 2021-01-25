@@ -7,6 +7,8 @@ class Voroxx < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "36e9ac6de84545992490e09c1ff6202988bafc4e99a164907338d3117bcefe3c" => :big_sur
+    sha256 "fe957e10239223b1027bb38058a9b6275af5b11bef45ec2c92ad6e718c48df87" => :arm64_big_sur
     sha256 "d3e73665fab068af530be8c745fbe03498a3d2060110264e99e17935f0980581" => :catalina
     sha256 "cd60116a442b685c8275ba23f64fd453b01b517247d0a7c969d3b4fe5a7ae706" => :mojave
     sha256 "72c8a07d26abe320651fb74425c67baecd8044e23f2951d86704c8dba88f3871" => :high_sierra

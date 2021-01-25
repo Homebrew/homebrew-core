@@ -9,6 +9,8 @@ class Scrub < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "ebb6d9f6cab14e6a4d7cab7336aa033c7e02b8ec50b4c0af6f8734ce92766e58" => :big_sur
+    sha256 "5ae1b98ef6a66707490f04eb3d5a14c7536b9509c90213fb3bb397a993ca79cc" => :arm64_big_sur
     sha256 "01146146976c9be7bf2b74b018e7b98a158407f7318ffe604bee4603270e6f4f" => :catalina
     sha256 "9343d2cc328739d3315f319eeb6704cbd8e98e8105065ff194fcb51456114c4e" => :mojave
     sha256 "c9e96dce0a6f2d7c3b32d481aae3a3aa2c0f42cd3c53b10e2fd60c6479ebf128" => :high_sierra

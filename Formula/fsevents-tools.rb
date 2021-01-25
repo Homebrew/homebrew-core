@@ -7,6 +7,8 @@ class FseventsTools < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "da9e4eed81589e2ea9e7f6a9186cd178ad965d5cba6b71ed2a3515729cd1cfb7" => :big_sur
+    sha256 "613a2ee6e962c3681f00a36382fe87089c92a235d2db0dec7e8fb8e74f993b0e" => :arm64_big_sur
     sha256 "a59b40a61a49089e4a3ba5bbf0bd51790f043975c51c05c8eec39bf54425ae2e" => :catalina
     sha256 "a233fef52b36139d243cc0c5ff038600961560d25311b63d0693482c3433b67c" => :mojave
     sha256 "5dcd2647ccf02d20d42f3df513901714185ab717857cdb42a7f4a1e908ec7aae" => :high_sierra

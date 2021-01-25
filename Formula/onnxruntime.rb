@@ -2,28 +2,34 @@ class Onnxruntime < Formula
   desc "Cross-platform, high performance scoring engine for ML models"
   homepage "https://github.com/microsoft/onnxruntime"
   url "https://github.com/microsoft/onnxruntime.git",
-    tag:      "v1.3.1",
-    revision: "530117cfdb230228c3429ab39d1b7cf1f68c0567"
+      tag:      "v1.6.0",
+      revision: "718ca7f92085bef4b19b1acc71c1e1f3daccde94"
   license "MIT"
+
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   bottle do
     cellar :any
-    sha256 "8523ac42679c8d4ab9b7224468020781a2654abad851d7e95a3d570cd29456c2" => :catalina
-    sha256 "c9f06b98661dfba06e3bdebc1743274f1a77c0af78f3f7b5290c01f900e5ee2d" => :mojave
-    sha256 "21055d5a282b4c9501d3623a6d3b5dae04954e6cf925fbdc93d4d9723d634e7d" => :high_sierra
+    rebuild 1
+    sha256 "d7883b8f973ba719e20283677ee50d42f64157217477adc22d54c6fbf0501a91" => :big_sur
+    sha256 "9f3e990083162dcee2d6162833ad33093565629ef5a6be16207c130f04424a03" => :arm64_big_sur
+    sha256 "5482c3326db23684cae036c35d311d21e9828fa7324646a3eb29cafd1390cf08" => :catalina
+    sha256 "61a7101bc2a72943b88fd82aab691ad5dabb58798ac55807b6c8b9c88dfd4c94" => :mojave
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
 
   def install
     cmake_args = %W[
       -Donnxruntime_RUN_ONNX_TESTS=OFF
       -Donnxruntime_GENERATE_TEST_REPORTS=OFF
-      -DPYTHON_EXECUTABLE=#{Formula["python@3.8"].opt_bin}/python3
+      -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
       -Donnxruntime_BUILD_SHARED_LIB=ON
       -Donnxruntime_BUILD_UNIT_TESTS=OFF
-      -DCMAKE_BUILD_TYPE=Release
     ]
 
     mkdir "build" do

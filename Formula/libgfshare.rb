@@ -6,6 +6,8 @@ class Libgfshare < Formula
 
   bottle do
     cellar :any
+    sha256 "619b6bee51163d432b903899d6d86223824e055124ead1856bc6c4399fef4fca" => :big_sur
+    sha256 "d8fc2d9c78a69fc3fe30913aeaa6f1dbeea7091d78d50bd6e6fafcf4dc6dc212" => :arm64_big_sur
     sha256 "59d6afbdff08b3b457ae3bf6284859eb200929dbcf38c7a2e4f6025a45fe02dc" => :catalina
     sha256 "23c584fb3f3edcb9516beacb9cc3448c6bd2352ce44063e609d7a3e9aaeadd34" => :mojave
     sha256 "0079ff7fef137a59579eb12e9f15087573ad2c19c8d7a4d53e2a7d8d378e6af1" => :high_sierra

@@ -8,6 +8,8 @@ class Wellington < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "1042d237d74c534c987e63bb1e4eef6ec4070a1c9b080e52283d65c5edd9e40a" => :big_sur
+    sha256 "27f36c238e415ad9209494e1760b9bcb64fddc52fd45c8b7a4cd218e603e6503" => :arm64_big_sur
     sha256 "9aaeb3a098cbee88efc4e60d1edbfec242d6b2271f821b4d096fe6acb3d16987" => :catalina
     sha256 "a49538429713f2f7b979ab533d4231de84140d9e4e63b5658941552c1c99117a" => :mojave
     sha256 "53a61eeebc1e787fa7870437ce089276c5f1daad26430078e988d1b6aa50c7b8" => :high_sierra

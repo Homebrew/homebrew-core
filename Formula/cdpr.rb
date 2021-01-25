@@ -10,6 +10,8 @@ class Cdpr < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "256d525f93fcdfb7f8c765ca45c6c3b422f00386045a9feb3bd99a083382c9c8" => :big_sur
+    sha256 "f2818981f1d2a090f072741028fc22ca8b420f6956661678b2768311f11f7064" => :arm64_big_sur
     sha256 "62e58521757a1dd5020d962dc9a5d00647e920a66347b5d5e58c1e8920db822f" => :catalina
     sha256 "ae75b31d4fb195d0735784d7fb86924821ad07dfc5c5b4ff91597f6e0ceb5fba" => :mojave
     sha256 "ce836a4189c94a1441cb417f36699fca01e3cf30b69bcc5a3ec8307c51d0f66e" => :high_sierra

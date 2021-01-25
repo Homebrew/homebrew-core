@@ -14,6 +14,8 @@ class KeepkeyAgent < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "3cf82088797d4ae0b693d840d59cabbaa07dfbad5e997ad500a0245b9c534413" => :big_sur
+    sha256 "cfd630395342344277c614e67fb6bf28aae72314987efb7cbb2a6bf23cc019e1" => :arm64_big_sur
     sha256 "6e0175e5f051ad05cbb26fcc2975632e1ffb8373e08c1235b4d7cd61f7cc1cf8" => :catalina
     sha256 "27e81313d7690b317eb8f9a11a413c7b1529d2272bcbcf70b8263b41a406b0f8" => :mojave
     sha256 "572d3d43c959597434419201e1ab260cafea2e7e7a9f3f07cfd6d2a1d20ab7d3" => :high_sierra

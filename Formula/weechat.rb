@@ -1,16 +1,17 @@
 class Weechat < Formula
   desc "Extensible IRC client"
   homepage "https://www.weechat.org"
-  url "https://weechat.org/files/src/weechat-2.9.tar.xz"
-  sha256 "eab406c385c3a10d0107ddc3aac6596ae8c59af99e9158c6d769e90ec9adfa0e"
+  url "https://weechat.org/files/src/weechat-3.0.tar.xz"
+  sha256 "6cb7d25a363b66b835f1b9f29f3580d6f09ac7d38505b46a62c178b618d9f1fb"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 4
   head "https://github.com/weechat/weechat.git"
 
   bottle do
-    sha256 "65a4c84a1d5b2104a7c3885ad2f82434143dbffc4def32983bcb422050e88f90" => :catalina
-    sha256 "46489201131cdbe9cd2ac3859b117c88f2cc1da87ba2508aa41642ae01c6ef13" => :mojave
-    sha256 "7355d5708e6a661ce974c565c835fbe1bce28fa57f2a872900f9cfe41ad48002" => :high_sierra
+    sha256 "7d81a7239c7446a38b3e6d7f9e98b4dfce7fd4c0e5b9295db3ea479e79c5d1aa" => :big_sur
+    sha256 "5836f21a2e0538ddaf7f9f43095da934acd4c837925134b70fabadccc5752b2c" => :arm64_big_sur
+    sha256 "97bd849e8338428f259f10e7c50a6d82b62a0519c53d866ca646e02f3a85bb63" => :catalina
+    sha256 "6ceb833768e2b6cbcde434e4c0fb5582ab04d72e97ceaf16a71c52ebcd5ef193" => :mojave
   end
 
   depends_on "asciidoctor" => :build
@@ -38,6 +39,10 @@ class Weechat < Formula
       -DENABLE_JAVASCRIPT=OFF
       -DENABLE_PHP=OFF
     ]
+
+    # Fix error: '__declspec' attributes are not enabled
+    # See https://github.com/weechat/weechat/issues/1605
+    args << "-DCMAKE_C_FLAGS=-fdeclspec" if ENV.compiler == :clang
 
     # Fix system gem on Mojave
     ENV["SDKROOT"] = ENV["HOMEBREW_SDKROOT"]

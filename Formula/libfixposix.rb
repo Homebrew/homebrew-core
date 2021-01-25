@@ -8,6 +8,8 @@ class Libfixposix < Formula
 
   bottle do
     cellar :any
+    sha256 "a4b0ddb0d3adfce835d9916672a92a9ae7c566e9abedcb602dc4f257b4a9ca5f" => :big_sur
+    sha256 "091b714f986845a8c360b666155235dcb2f2b9db2bcdb76734656237135e5b74" => :arm64_big_sur
     sha256 "a87f0db9cf7ac7714d603eb0388127e0a20e1ac7ae1d7b2359de2cea71c330d6" => :catalina
     sha256 "4d8da5161cd9a60d02a086dc3f2a083277cad6a2116689015d9bbaf255eea4e8" => :mojave
     sha256 "eaf5641bda4184e3092f7f2b0c9e61afa120df85df837377ead98de643a7e21e" => :high_sierra

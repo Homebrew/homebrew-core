@@ -1,18 +1,16 @@
 class Dmalloc < Formula
   desc "Debug versions of system memory management routines"
   homepage "https://dmalloc.com/"
-  url "https://dmalloc.com/releases/dmalloc-5.5.2.tgz"
-  sha256 "d3be5c6eec24950cb3bd67dbfbcdf036f1278fae5fd78655ef8cdf9e911e428a"
+  url "https://dmalloc.com/releases/dmalloc-5.6.5.tgz"
+  sha256 "480e3414ab6cedca837721c756b7d64b01a84d2d0e837378d98444e2f63a7c01"
+  license "ISC"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bb7efa95445722da981fd93013f07db5124aa2b74470d783ac4a18df869a6e8c" => :catalina
-    sha256 "f4bd200bf3b14f68387a1110588f10cbd813b5fddcb585d0edf48d48ece5a8ee" => :mojave
-    sha256 "ad501bd5d70dfd3ede2258c0a7c0535b29eba957b67271e4db930ecf6bcc845f" => :high_sierra
-    sha256 "9807e6014702bc1350fe0931dbd9bdabcca169b6c8f196ddf37c9f0abfa1b722" => :sierra
-    sha256 "9e1b5dad96d27fbd31e249de7965963fa2e8028286a5e41ce7ddf4555b344162" => :el_capitan
-    sha256 "9283914d34d43556b6a3779523834a056c78d565efacf4316846b1af90cedaf5" => :yosemite
-    sha256 "182c639d938b8b4fb237f7068bc295debba2539bf500adbb8761dabd99b3fcbf" => :mavericks
+    sha256 "300f9e7b54c15071bc36fb861cc6b75ef671052c8be6096a99314b1ca0077565" => :big_sur
+    sha256 "c8e1beff8a66f4a5d7a90fa8c5f9836ed79b9241ab642966d82550916a3af5c1" => :arm64_big_sur
+    sha256 "770699ff908a65026ecdebbe57272a50e57f60341c2918302ee4b6729e866533" => :catalina
+    sha256 "40c8cf6501477c243064179e7b634da0d9d32348155d3aee9fbf6631ffdc7ba7" => :mojave
   end
 
   def install

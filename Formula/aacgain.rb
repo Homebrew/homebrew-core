@@ -16,6 +16,8 @@ class Aacgain < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "f2adb8395d6c19e95733f54bf0665cca7f405f9d4489544d69d86704da3d545c" => :big_sur
+    sha256 "5d09e7e41cb2fa9ab670f19797812669151b4b74c308ced6f00dfa8cfc83de0c" => :arm64_big_sur
     sha256 "a8ec07d22279b4bdd471ee7a307e6d365a906432ef49533afeca2de53add8d55" => :catalina
     sha256 "a6d9e4d4f20311e0a91bdbc6f42ef8894e6a6b9f4d8290938d14f02868821c0d" => :mojave
     sha256 "eda9c36cf9517c9f342031632b9fb38f77d8150cc2a7cf88b57e46f77395c96e" => :high_sierra

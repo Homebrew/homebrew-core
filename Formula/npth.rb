@@ -13,6 +13,8 @@ class Npth < Formula
 
   bottle do
     cellar :any
+    sha256 "dde67b8b6f6ad244e560de1d041864a7f35a89c252447a5b9aedec52ac6ba3ac" => :big_sur
+    sha256 "17c2bebc1b58d15726610a97771d156f4b6bf723d6b2d205c53744bed8024c7d" => :arm64_big_sur
     sha256 "ecb35292b1cbcf24e42f9dd0691dc9030345e8b8b1b7f9c9a865fca2fb25932c" => :catalina
     sha256 "bb0232908eedb717f98d636b910478ef4ce044866545725344ecae0b85251e1d" => :mojave
     sha256 "51a68f02a29f9b1a596048894be6425696872ddbbc928b372c07a5e256df8ba8" => :high_sierra

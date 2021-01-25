@@ -1,16 +1,16 @@
 class UutilsCoreutils < Formula
   desc "Cross-platform Rust rewrite of the GNU coreutils"
   homepage "https://github.com/uutils/coreutils"
-  url "https://github.com/uutils/coreutils/archive/0.0.1.tar.gz"
-  sha256 "67b3fafd21e204cef4ffe04b055e148799523bc021a8ae08a399a9c847ce8e7f"
+  url "https://github.com/uutils/coreutils/archive/0.0.2.tar.gz"
+  sha256 "bfa81e57aede1993582f77965f35b2c9b9018ed1ffc1a04116078141f576649a"
   license "MIT"
   head "https://github.com/uutils/coreutils.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bd2d08c082e4249d9d73dcdc251f8a441d6dad6f949547110ecb96a023c7f84e" => :catalina
-    sha256 "421ae0f39ebdea7acf3bfd9f569f376ee9008b4e7bb72340c09628e5b50021d1" => :mojave
-    sha256 "b8eb6f2ff0292941b52d1b1ecafad239844b8447a0bce67792b7d4b61b7aece8" => :high_sierra
+    sha256 "ef3d13967768ce2ed6eedb0c5af97e4fd59f80ad62b55c735d4a2170d987dee4" => :big_sur
+    sha256 "b963b9a054f6f256a683bca32ac132ef97e6b517884c18d18439993fece4c746" => :catalina
+    sha256 "3a6b5f46e37fff916ddef446ef9e70432858900983720630fb262b4af0c7fbcd" => :mojave
   end
 
   depends_on "make" => :build

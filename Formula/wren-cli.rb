@@ -7,6 +7,8 @@ class WrenCli < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "d5304fb08746fd9b3a796adc0c0c15398153cca662d64047f9424e039d4b446f" => :big_sur
+    sha256 "c3bfd34fe266901e7d729780778390e1e3f9d65f96f25473add41c4572f43979" => :arm64_big_sur
     sha256 "c7f9b2cc6e9913517f802d8ef0142484fd86cb2b972ceb670f1b791b65144937" => :catalina
     sha256 "9bf6170802498342b99b6fb167a6ff9254601e911b5c7c74605145985909e6ff" => :mojave
     sha256 "074f4d9634a9e8e7fc33cd302778116121874851aa854830d41e3b73ba50500b" => :high_sierra

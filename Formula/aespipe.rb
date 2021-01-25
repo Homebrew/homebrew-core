@@ -6,6 +6,8 @@ class Aespipe < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "b94579255152f8761049784697e757d2399f075bb77b7c194741311aad2943c3" => :big_sur
+    sha256 "204ddb0b9c6fde98f4bdec7c3c93aa2ad95cde565dd22538f2c61a55875a398e" => :arm64_big_sur
     sha256 "c96c3f1ba5bcd7672630d7c9d693cb5d9333e3473ecdca6771290a68ac54db2e" => :catalina
     sha256 "f52e6c3afc951ca588522d8073b62300113a30cb6d3927a25de643cc10622d74" => :mojave
     sha256 "00d7cb8240e8e1beb4b8cf701bf38961531df8a9f2d497c4ff5a95747ac3dbae" => :high_sierra

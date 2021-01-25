@@ -6,6 +6,8 @@ class Avimetaedit < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c8cbab65b9f81a1015a5550b042fcc91471b288d8e256723be694f5caf402767" => :big_sur
+    sha256 "e9e10cf64f7d87cdc85102dffea61ac546b0877896ff721a55857a2e80eb0475" => :arm64_big_sur
     sha256 "f3b1bacfbd6b2c53421e97c37eaeee7783c1cda0e614e9a27ba34ae048bbb5c5" => :catalina
     sha256 "2ee42355aa90d5bc5ca8c61dc0c02274edd9c723b8a5b65595285319e9b7dda6" => :mojave
     sha256 "323673de85bd3c8f272d5f8d0b32d34304faaa02f88c2ce44f08c697266e889e" => :high_sierra

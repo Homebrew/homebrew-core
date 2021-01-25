@@ -1,10 +1,10 @@
 class ApacheGeode < Formula
   desc "In-memory Data Grid for fast transactional data processing"
   homepage "https://geode.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=geode/1.13.0/apache-geode-1.13.0.tgz"
-  mirror "https://archive.apache.org/dist/geode/1.13.0/apache-geode-1.13.0.tgz"
-  mirror "https://downloads.apache.org/geode/1.13.0/apache-geode-1.13.0.tgz"
-  sha256 "8caf6dcafa5c6bb7c10dc7d512d0569dd16e463e01c18997118e20a5f43e6097"
+  url "https://www.apache.org/dyn/closer.lua?path=geode/1.13.1/apache-geode-1.13.1.tgz"
+  mirror "https://archive.apache.org/dist/geode/1.13.1/apache-geode-1.13.1.tgz"
+  mirror "https://downloads.apache.org/geode/1.13.1/apache-geode-1.13.1.tgz"
+  sha256 "3239522afee932e0a06246b2b4130bc8a5cbae71aa5244cc4dcb24d4329044c3"
   license "Apache-2.0"
 
   livecheck do
@@ -13,7 +13,7 @@ class ApacheGeode < Formula
 
   bottle :unneeded
 
-  depends_on java: "1.8"
+  depends_on "openjdk@8"
 
   def install
     rm_f "bin/gfsh.bat"

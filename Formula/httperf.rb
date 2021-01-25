@@ -14,6 +14,8 @@ class Httperf < Formula
 
   bottle do
     cellar :any
+    sha256 "5c8f3e33c44d4d705ea1e23663ac922cc61019299787defcf60df6161608a5de" => :big_sur
+    sha256 "2628055d8209f52ee35bd325c155bb506c36b581fa697d013f6fe32ed6ab0b2f" => :arm64_big_sur
     sha256 "80a2634adda8fe39ebda84ccdf6cbbb0357668da3615067b6f9714229801d085" => :catalina
     sha256 "390d46278c9e7bd0f58003ba49bc1a0ab110ab24864029d6ae9fd8d3f491b57c" => :mojave
     sha256 "5c049e4bfc272313e7c1051da7430bc09e712d5a70f1593c5ecf08ac94b3b238" => :high_sierra

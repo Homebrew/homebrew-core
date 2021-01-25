@@ -7,6 +7,7 @@ class Gradio < Formula
   revision 1
 
   bottle do
+    sha256 "e6468d6afe0f7e65ebf642bf4a5935464b0e390f6c607f58573221e8a0ff03f4" => :big_sur
     sha256 "80de210e71cbf7bd18f125ed1b74c58939046418905bbbbe03892b1b7d4dc8ca" => :catalina
     sha256 "afed2590e43bb873751bf147da70228edf518aaa4da9a47a8e74a339385e7407" => :mojave
     sha256 "772bc7cd809b085f9eaf2419ae9ddae50e80cbaaace480fe1f3d23c26bd8f164" => :high_sierra

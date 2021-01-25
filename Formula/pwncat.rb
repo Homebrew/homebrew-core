@@ -13,6 +13,8 @@ class Pwncat < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "4c25ffa0c2a969ee67ecbb252c841471c5ea9e2ce87e581c130ec800db482b51" => :big_sur
+    sha256 "3858b6511e81b5b8cee59724213d438f042f3cc80e3d87fb4eaa7df6771dd326" => :arm64_big_sur
     sha256 "192c19f127e900be34ca58bc3b7dec8b2fae412e53d2613396233f9e3fbb6123" => :catalina
     sha256 "5eedc0f7cdfa07a82325e09c5a3bc37e7250ad1fc87f48062c99a3a21f5964ac" => :mojave
     sha256 "9448463d98056aa3b6049f00261fea896e2a16712407f8c10fdf61d9d82dd61b" => :high_sierra

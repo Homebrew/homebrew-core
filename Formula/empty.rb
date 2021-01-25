@@ -12,6 +12,8 @@ class Empty < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "e33747b4b2d1fc4e3fcfd35471c283e64c60c6cf6d558c6783d7a076cb84e233" => :big_sur
+    sha256 "b330bcc238599680bc706db6b9f5a2947ad46c60196afce716811ccd2deb0ce0" => :arm64_big_sur
     sha256 "8eac558272ccf2338a374ea2e7158a4b0cf9008cc0111fefa8c85a80cfab2ee1" => :catalina
     sha256 "8fb4ab0e88893f107afe0e69a48ed6f257a11b370bd56b2237ecadec771e1a17" => :mojave
     sha256 "3c5daa156ad925469841f360ca2687011a96086f7d6c5b8af0fedea97ee059ca" => :high_sierra

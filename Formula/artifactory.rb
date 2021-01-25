@@ -1,9 +1,9 @@
 class Artifactory < Formula
   desc "Manages binaries"
   homepage "https://www.jfrog.com/artifactory/"
-  url "https://dl.bintray.com/jfrog/artifactory/jfrog-artifactory-oss-6.23.0.zip"
-  sha256 "760302ecd706a06f9084313615a3fe7410b63ff953058cb73de2406f90dc1c6a"
-
+  url "https://dl.bintray.com/jfrog/artifactory/jfrog-artifactory-oss-6.23.7.zip"
+  sha256 "39b54a9126e2e55359d95c20a0eae81a4beb77f63b9fe8a915d26d4c195a44b8"
+  license "AGPL-3.0-or-later"
   livecheck do
     url "https://dl.bintray.com/jfrog/artifactory/"
     regex(/href=.*?jfrog-artifactory-oss[._-]v?(\d+(?:\.\d+)+)\.zip/i)

@@ -15,6 +15,8 @@ class Libsvm < Formula
 
   bottle do
     cellar :any
+    sha256 "da8cea69e489c678a06f28ba6032a8f3f8f899ac344741bd4b1090da8e33eafe" => :big_sur
+    sha256 "4d6fc26a72ff158d865cd8d4dc5354d7a1ff0f294e292bd4c872ddb9fadf9e49" => :arm64_big_sur
     sha256 "8dded17ad2e22342ae25d392d5e4d9776572f8b5081e62064e97c027f8c481e6" => :catalina
     sha256 "4db9a3e77edfda475ca8bdcad82ce1443ed50df41b28b59d726b1fa81944e2c7" => :mojave
     sha256 "5d4ee9cec3a0048ef8abd328022fa3752c3dc2ead9d86d9995b79558700dbbd2" => :high_sierra

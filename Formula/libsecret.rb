@@ -10,6 +10,8 @@ class Libsecret < Formula
   end
 
   bottle do
+    sha256 "68da058738e04fd8a7ec9713df527afec9dc8076a219548dc194184df337fe8a" => :big_sur
+    sha256 "115ff8e5af3b0bffd370a47d7165664dda193b4a2ac00e2054b455cbd77e6d6e" => :arm64_big_sur
     sha256 "8fc40fdf1fda5a1bd12661b96a1b0398cc0b600e9f43ef44384ffa82fa6b3133" => :catalina
     sha256 "80fa9108466d6fac5f752ce926a9f6175e4f701764d2b077a3cdee0109be8ba6" => :mojave
     sha256 "9663806ffb17b3c50eb015c43b2763ff47e12624e56d694d454f238748ea17e2" => :high_sierra

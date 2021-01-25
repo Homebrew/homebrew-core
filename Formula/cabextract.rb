@@ -12,6 +12,8 @@ class Cabextract < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "1ddac23f5e64926d1f2cd400e6fa0739db93dc0517712965b2b0ca1b3e74eabd" => :big_sur
+    sha256 "f421b4d93548f37080a4041a1ae83cffa6e0407489913ea09525e3e3f482d39e" => :arm64_big_sur
     sha256 "d60179c028ac5fb69580f2f01cd9f59c1d1544c8f6d84a230a7dd3587f3c27e0" => :catalina
     sha256 "cd27b939a0191d4dfff8ae13300b260b5ae01c563a21613718160012a982d5e8" => :mojave
     sha256 "c77caa7c32b4320f9e887abeea99261345e83f03e2c321ec9e99ddd9c75f5d98" => :high_sierra

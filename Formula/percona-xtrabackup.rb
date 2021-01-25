@@ -11,6 +11,8 @@ class PerconaXtrabackup < Formula
   end
 
   bottle do
+    sha256 "cf46ee03c9f8b1f4f2d5ddaae73144aad4f941c1a02e88339859483b716e399d" => :big_sur
+    sha256 "5a745dcfeb0c1b18f06b1f116a1bbfded138331f3d66654b13185a28347025cf" => :arm64_big_sur
     sha256 "2f35a444086da15b1e05ec9ac225f153376abb81546db4490fbf34b4096ec6c0" => :catalina
     sha256 "a4f1233ebde9ab66010214fa21c739ae9f97cffcb739bdd51fe542511d5571e1" => :mojave
     sha256 "7238c7d0e4977dcdba034ded3aa5ed9cd71884ba060894060755428aa85ea29a" => :high_sierra
@@ -23,8 +25,10 @@ class PerconaXtrabackup < Formula
   depends_on "mysql-client"
   depends_on "openssl@1.1"
 
-  conflicts_with "protobuf",
-    because: "both install libprotobuf(-lite) libraries"
+  uses_from_macos "perl"
+
+  conflicts_with "protobuf", because: "both install libprotobuf(-lite) libraries"
+  conflicts_with "percona-server", because: "both install comp_err.1 man page"
 
   resource "DBI" do
     url "https://cpan.metacpan.org/authors/id/T/TI/TIMB/DBI-1.641.tar.gz"

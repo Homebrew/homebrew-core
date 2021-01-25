@@ -1,25 +1,27 @@
 class Mbedtls < Formula
   desc "Cryptographic & SSL/TLS library"
   homepage "https://tls.mbed.org/"
-  url "https://github.com/ARMmbed/mbedtls/archive/mbedtls-2.24.0.tar.gz"
-  sha256 "b5a779b5f36d5fc4cba55faa410685f89128702423ad07b36c5665441a06a5f3"
+  url "https://github.com/ARMmbed/mbedtls/archive/mbedtls-2.25.0.tar.gz"
+  sha256 "ea2049c2dd4868693998d5a9780e198194be5aea1706ff4a9d4f882f18c0a101"
   license "Apache-2.0"
   head "https://github.com/ARMmbed/mbedtls.git", branch: "development"
 
   livecheck do
-    url "https://github.com/ARMmbed/mbedtls/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/(?:mbedtls[._-])?v?(\d+(?:\.\d+)+)["' >]}i)
   end
 
   bottle do
     cellar :any
-    sha256 "5b8870d06fd1d2bfb485c05e1bb424e19610d1e36f896e1eced0a6fa82fb876c" => :catalina
-    sha256 "20631d8cdd6f543f60753e121b6470e645a52eedf4b6289893e6a17deeff7b24" => :mojave
-    sha256 "245e4e38268cb102f21fa4b4c7d63ebe105b5941ed1edc69059a7c7395f51470" => :high_sierra
+    sha256 "35a4787c9909ce5a07a2493a66f29a9c28b15adf22c1a11aed84fc4af473e51c" => :big_sur
+    sha256 "785f8faddef2276f59790346f8841f4e330482d438e3bbfd9f4108dfb5ca279e" => :arm64_big_sur
+    sha256 "62225a9f1f13ac7994b6fd5d842ff98177b5c91acbfeae9fdf1e6dd8d38ed767" => :catalina
+    sha256 "141066621c3a63f86614e3d13b781e33f80816119f8adf50a07c014537eb891d" => :mojave
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
 
   def install
     inreplace "include/mbedtls/config.h" do |s|
@@ -30,7 +32,7 @@ class Mbedtls < Formula
     end
 
     system "cmake", "-DUSE_SHARED_MBEDTLS_LIBRARY=On",
-      "-DPython3_EXECUTABLE=#{Formula["python@3.8"].opt_bin}/python3",
+      "-DPython3_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3",
       *std_cmake_args
     system "make"
     system "make", "install"

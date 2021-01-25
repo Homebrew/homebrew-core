@@ -12,6 +12,8 @@ class Libicns < Formula
 
   bottle do
     cellar :any
+    sha256 "6d503b029cbb646b11bae4d81c3537ea14f8c415039b196dace05a6ea691a846" => :big_sur
+    sha256 "06b49357685dcaef31f7e32c7901ec217074a3b17d24c7a46456239e04ec3a9b" => :arm64_big_sur
     sha256 "33e4b9bf7de81d160ba9f8802c24e89c90903e6be9a3103c7e296536b1fe1511" => :catalina
     sha256 "fe7c57605e6f9b5626f5c2048aacd121c2c8973d24113f03275ed0659392a9fb" => :mojave
     sha256 "a2c03e94df9a8291b73c544d188d9e796161f49e0f14b8c88f94da40d3cfa04f" => :high_sierra

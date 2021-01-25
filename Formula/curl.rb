@@ -1,8 +1,8 @@
 class Curl < Formula
   desc "Get a file from an HTTP, HTTPS or FTP server"
   homepage "https://curl.haxx.se/"
-  url "https://curl.haxx.se/download/curl-7.73.0.tar.bz2"
-  sha256 "cf34fe0b07b800f1c01a499a6e8b2af548f6d0e044dca4a29d88a4bee146d131"
+  url "https://curl.haxx.se/download/curl-7.74.0.tar.bz2"
+  sha256 "0f4d63e6681636539dc88fa8e929f934cd3a840c46e0bf28c73be11e521b77a5"
   license "curl"
 
   livecheck do
@@ -12,9 +12,11 @@ class Curl < Formula
 
   bottle do
     cellar :any
-    sha256 "98f3bd49f4eae8638edc391afdbc57433d81e749e310a069d670e12f5941a4ce" => :catalina
-    sha256 "dc41d1f29bc7d8b7c89b3526a426cdab854e8d56b4c686d187e4995adbd092e3" => :mojave
-    sha256 "ec6ba585b8bbcb5c17feb51efcf8df1048318368376bd7142b6a047374c010e5" => :high_sierra
+    rebuild 2
+    sha256 "8189929ebd121b28fc04b5c93503cd7af1e3d5755ccfea080d47056e6068f86f" => :big_sur
+    sha256 "0c9ae84590dcd9d4700fc2fe47badb20cdb6c948c1e351a8a588b23b11087556" => :arm64_big_sur
+    sha256 "18e818ff24895ffd9355c34f79dd92aaf220e16d71ffdef6e2a07c0a6ddb4637" => :catalina
+    sha256 "eb84c59697457a6162f7275f0eff0eefc6ec03de13e467e550d35a496ca19425" => :mojave
   end
 
   head do
@@ -28,12 +30,18 @@ class Curl < Formula
   keg_only :provided_by_macos
 
   depends_on "pkg-config" => :build
+  depends_on "brotli"
+  depends_on "libidn2"
+  depends_on "libmetalink"
+  depends_on "libssh2"
+  depends_on "nghttp2"
+  depends_on "openldap"
+  depends_on "openssl@1.1"
+  depends_on "rtmpdump"
+  depends_on "zstd"
 
+  uses_from_macos "krb5"
   uses_from_macos "zlib"
-
-  on_linux do
-    depends_on "openssl@1.1"
-  end
 
   def install
     system "./buildconf" if build.head?
@@ -43,10 +51,27 @@ class Curl < Formula
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
-      --with-secure-transport
+      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
       --without-ca-bundle
       --without-ca-path
+      --with-ca-fallback
+      --with-secure-transport
+      --with-default-ssl-backend=openssl
+      --with-gssapi
+      --with-libidn2
+      --with-libmetalink
+      --with-librtmp
+      --with-libssh2
+      --without-libpsl
     ]
+
+    on_macos do
+      args << "--with-gssapi"
+    end
+
+    on_linux do
+      args << "--with-gssapi=#{Formula["krb5"].opt_prefix}"
+    end
 
     system "./configure", *args
     system "make", "install"

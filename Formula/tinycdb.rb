@@ -6,6 +6,8 @@ class Tinycdb < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9e3f2a46d163d0503ac66b177ed0e8ad0848115c782469fd7fa58f49219b4726" => :big_sur
+    sha256 "ce0db392cd0f531c5fdc9b3c463a9a26b8389dbb75be6f51bea2fcd0a57bed4e" => :arm64_big_sur
     sha256 "9493c656d7faf05c57439f251587db9ea5bb6371031f2d08ad04f22398c72a12" => :catalina
     sha256 "6ccb5ea327e61b14af89692af32c9fe6fbd9c2d04447ef92970b6f7909fba26b" => :mojave
     sha256 "7b3ca0152fa89592ce48a85cca3aad67b3c1f0ad35e153a52bbb8a772540dd3d" => :high_sierra

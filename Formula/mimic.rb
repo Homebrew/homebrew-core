@@ -5,6 +5,8 @@ class Mimic < Formula
   sha256 "9041f5c7d3720899c90c890ada179c92c3b542b90bb655c247e4a4835df79249"
 
   bottle do
+    sha256 "ef5067be11a74cc8cd63e266a775ece9ebcf59c9995b630f9717d7333dbdd924" => :big_sur
+    sha256 "72107347e7fd6f6ca1af6808fe3ea5b428e3dee2f733743a0d44cd9b9e67d492" => :arm64_big_sur
     sha256 "72b346f8eefbbc70abc0a67bc72265b3bec7f99e53b18418ad6835df52518f1e" => :catalina
     sha256 "a185641e0d84aae004df33923ca0612b9ba0d59c9a1d4a5fd80ebd6d1de69f58" => :mojave
     sha256 "98a927ebfffb3a965506102d758fe4a5e76d0c6bd732972e6b113505d28241c8" => :high_sierra

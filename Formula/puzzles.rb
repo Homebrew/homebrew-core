@@ -2,21 +2,26 @@ class Puzzles < Formula
   desc "Collection of one-player puzzle games"
   homepage "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/"
   # Extract https://www.chiark.greenend.org.uk/~sgtatham/puzzles/puzzles.tar.gz to get the version number
-  url "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/puzzles-20200610.9aa7b7c.tar.gz"
-  version "20200610"
-  sha256 "6e50becfe22f5b48d463293145a1b6dc8f7e7eb89de44c3cfe2165750e0b2d67"
+  url "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/puzzles-20201208.84cb4c6.tar.gz"
+  version "20201208"
+  sha256 "fd49aabdd7c7e521c990991dab59700a40719cca172113ac8df693afe11d284d"
   head "https://git.tartarus.org/simon/puzzles.git"
 
+  # There's no directory listing page and the homepage only lists an unversioned
+  # tarball. The Git repository doesn't report any tags when we use that. The
+  # version in the footer of the first-party documentation seems to be the only
+  # available source that's up to date (as of writing).
   livecheck do
-    url "https://www.freshports.org/games/sgt-puzzles"
-    regex(/puzzles[._-]v?(\d{6,8})\..*?\.t/i)
+    url "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/doc/"
+    regex(/version v?(\d{6,8})(?:\.[a-z0-9]+)?/i)
   end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ceafdd23c80d3b19927950e42b87589c577842e0617771cf3cda4696215ad201" => :catalina
-    sha256 "0aefe3d23e5dc7a2a8ef7414b81f5ebc12566b0b712d67c7328f7ceec67bb6cb" => :mojave
-    sha256 "e70e7726c99542aa47fd5ff918a121ca0967c3ef5ab4e69d026eefb63141d8ff" => :high_sierra
+    sha256 "40e28c1005919ab7dcbb215f5d51abbca00297816e0a4b170f4e0410d17cb713" => :big_sur
+    sha256 "9b1eca473055fc6962f69daa3cb7367262e9dadf2a01e3223e1a2e7aff956b38" => :arm64_big_sur
+    sha256 "ecdd353296ae643d50a67f5abbdac3d878ab3bc4fcb044b7a9d38b39ac281f43" => :catalina
+    sha256 "aaf4ab9bb3026b8749235052b2f82eb7fb3f4eb8ad4ff418ebe35256f0421d99" => :mojave
   end
 
   depends_on "halibut"

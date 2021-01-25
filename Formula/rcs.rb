@@ -1,10 +1,10 @@
 class Rcs < Formula
   desc "GNU revision control system"
   homepage "https://www.gnu.org/software/rcs/"
-  url "https://ftp.gnu.org/gnu/rcs/rcs-5.9.4.tar.xz"
-  mirror "https://ftpmirror.gnu.org/rcs/rcs-5.9.4.tar.xz"
-  sha256 "063d5a0d7da1821754b80c639cdae2c82b535c8ff4131f75dc7bbf0cd63a5dff"
-  revision 1
+  url "https://ftp.gnu.org/gnu/rcs/rcs-5.10.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/rcs/rcs-5.10.0.tar.xz"
+  sha256 "3a0d9f958c7ad303e475e8634654974edbe6deb3a454491f3857dc1889bac5c5"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url :stable
@@ -12,26 +12,11 @@ class Rcs < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "48a77f06f4568a177b0b2e10fde07ee3c2833f34478472cf6b3ce94124d10ee2" => :catalina
-    sha256 "f24fb3b2f14d19bf02bc5b4c325f7735ec4657b43fac8e6a8a7e6a2e5551851c" => :mojave
-    sha256 "f43c9160cbc605578af4473892f71f733dc05a9ab836d280400acece9cb75708" => :high_sierra
-    sha256 "f082af49e1b1570892fa76b91bed0246e9ad63e59f953e0388b20dbf55edc485" => :sierra
-    sha256 "4681c5fae05b4f4b267a9bccc9032de2b216437105d591ec5de7a10ca31e0441" => :el_capitan
-  end
-
-  # Fixes use of _Noreturn attribute
-  # This patch is a commit from the upstream git repo; will be in the next release.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/3fff7c990b8df4174045834b9c1210e7736ff5a4/rcs/noreturn.patch"
-    sha256 "ac2f5ad1df932361e19c6184d2dfddfbe7664184ac4c24a3224c85707cd4da9f"
-  end
-
-  if MacOS.version >= :high_sierra
-    patch :p0 do
-      url "https://raw.githubusercontent.com/macports/macports-ports/b76d1e48dac/editors/nano/files/secure_snprintf.patch"
-      sha256 "57f972940a10d448efbd3d5ba46e65979ae4eea93681a85e1d998060b356e0d2"
-    end
+    sha256 "88ee0070ccfd3c5172b97c342c197c00a8643d8ca832477b7f0fe994bb204a56" => :big_sur
+    sha256 "94c2394da4a1f2a0fc57c82952526c1bf89d8ec977db1c9235e0e1167bad4ff2" => :arm64_big_sur
+    sha256 "a16720713ee2f30c3f126ca4716b4df5e1e5e68c24d31fd93ea312c2900d2b4f" => :catalina
+    sha256 "fddb77e2b68d2f0f4f8264d7c44127cb0bd407a275e4123f5096f89be4734fa7" => :mojave
+    sha256 "f429e435048ad65275519c990aa4c2c437fd3b5d682865c057fe7f001e93946f" => :high_sierra
   end
 
   def install

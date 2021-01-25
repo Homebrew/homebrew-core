@@ -9,6 +9,8 @@ class Libtommath < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "fde5371efe622e6a4f425e8294e742879b57aa355e2b1a593ff18cac2cb29840" => :big_sur
+    sha256 "efe92758582143141223011809f6f9d243e970a788669a3ba6eb0de6db9772a7" => :arm64_big_sur
     sha256 "700d1c4dfecd1016215158de7436d02452a149c5882ba3fda1201a72d6c3d5ea" => :catalina
     sha256 "9832ceb97e387a519d6ae9b66bb3a7066c1d112d947667527a5edfcc692e4983" => :mojave
     sha256 "26e39af069485ef58c3517fb765db3a5e8dba0f253aac3d0d5968ff2a35e595b" => :high_sierra
@@ -16,7 +18,7 @@ class Libtommath < Formula
 
   # Fixes mp_set_double being missing on macOS.
   # This is needed by some dependents in homebrew-core.
-  # Note: this patch has been merged upstream but we take a backport
+  # NOTE: This patch has been merged upstream but we take a backport
   # from a fork due to file name differences between 1.2.0 and master.
   # Remove with the next version.
   patch do
@@ -26,9 +28,6 @@ class Libtommath < Formula
 
   def install
     ENV["DESTDIR"] = prefix
-
-    # Work around Xcode 11 clang bug
-    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
 
     system "make"
     system "make", "test_standalone"

@@ -1,5 +1,5 @@
 class Npush < Formula
-  desc "Logic game simliar to Sokoban and Boulder Dash"
+  desc "Logic game similar to Sokoban and Boulder Dash"
   homepage "https://npush.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/npush/npush/0.7/npush-0.7.tgz"
   sha256 "f216d2b3279e8737784f77d4843c9e6f223fa131ce1ebddaf00ad802aba2bcd9"
@@ -12,6 +12,8 @@ class Npush < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "d3b1eb1513919a4120a9c2b6541872b39ef78d9eb618df96e62a1cc6f28d53ff" => :big_sur
+    sha256 "b0be6b0d7949e3e6b3322089f84c10c60c15ea41a0a7ebdaa7ff04862c1be103" => :arm64_big_sur
     sha256 "fdb6d7cd95fa85086a4dc01edfb5859fcf65d2932c56d931d716814157f5449e" => :catalina
     sha256 "fb3618689797a95b8296a7b37f3c8f2e9cb29fdcbd9b2fc9ac9d585e46d6eab3" => :mojave
     sha256 "c3d40f8709487c01053f5ea09e35c047ae6bfede34d21e97703d38c9985d67b0" => :high_sierra

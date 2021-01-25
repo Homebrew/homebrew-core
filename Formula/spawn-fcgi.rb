@@ -8,6 +8,8 @@ class SpawnFcgi < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "23c10df486a01421d25bf7ffa44e42f4cc0c14a4fe4c81b6de1eaaf498bcabd1" => :big_sur
+    sha256 "89bc1faf59756165a4a27cd43fdbac4c5d81ba5e12613fc1152c181a60f5c0df" => :arm64_big_sur
     sha256 "a0665cd25e441b8f798073125e2f4151588aed54408b17f894e62a353ca73d47" => :catalina
     sha256 "2512789a14b629470c684a4694e7f26fb28a9734b156f0756279bc8f40c2f2bd" => :mojave
     sha256 "31c9d255c30ac65009b0972c7b9fe8a8835f8c305800c1b147471b44113fd285" => :high_sierra

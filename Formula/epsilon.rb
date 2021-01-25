@@ -12,6 +12,8 @@ class Epsilon < Formula
 
   bottle do
     cellar :any
+    sha256 "86724d0787346a00a324bc0204d7b141b43cee6969069351747626354f80507d" => :big_sur
+    sha256 "38532cb4e33c6bb1da6f76c3e218c141ccf6888a56200807d05358d64a6709c7" => :arm64_big_sur
     sha256 "62d1ce5e34b79a09f68f079ec79768e85677ab5d6f3c13caedae9bd41399e052" => :catalina
     sha256 "102517b4fb6cb9eccc86a50b774424748805bf14f2d2cc53f08e558f43c3f602" => :mojave
     sha256 "87935305d8659e6cdcde272d469768c48dd870f227ab894aa71a6b206be5fa1f" => :high_sierra

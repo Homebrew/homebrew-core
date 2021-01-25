@@ -12,6 +12,8 @@ class Dns2tcp < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "09b03661d759932c928ae63c72af41a528f6378d6f23e67e0341592ecba34a47" => :big_sur
+    sha256 "7342bad79a49f0cd2049fe73e9545ae691d83087e285d97b926bd3e29b7f0643" => :arm64_big_sur
     sha256 "f1517166d8e8e02dbefbb654214012a6bf089ab78a1a237c9ec7d86c356da97f" => :catalina
     sha256 "f44f4f2e761da51c4552b6c394ae3ee48e2c1ff8b1b506cf35e648b3331b49dd" => :mojave
     sha256 "d6fb240175854e0a0b5069544a58c4fbcd161d3337288c2f289f48999c4dde10" => :high_sierra

@@ -14,9 +14,11 @@ class CfrDecompiler < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "05d1bff6093077a4f9789606c7b8d77d26f66f341aa491a9412da3e85669c932" => :catalina
-    sha256 "0235b4a3204736079b3790db8de5bb02f99162318bff390aea45168f2bd1ea48" => :mojave
-    sha256 "c6866f8e6b6c8e849936d2b5a45c3827dda9acacfe49ca2e831041e633617ac5" => :high_sierra
+    rebuild 1
+    sha256 "c57a78cf07cfa022d923fdd3ae4a3121009745e27aef50ff44a64a3144732552" => :big_sur
+    sha256 "0fdf9bba0c9eab8903844218862ae65cbbae69f97b35f36024877d3d087702a5" => :arm64_big_sur
+    sha256 "15268d8c8cb85a283c6f122331cdfbbf380c097e8c0faeea53b92970569d95e1" => :catalina
+    sha256 "735f265fa827e2989a77f35781ca0f5ebae56c076c39a0368d41025d3a28edb5" => :mojave
   end
 
   depends_on "maven" => :build
@@ -36,7 +38,7 @@ class CfrDecompiler < Formula
       if build.head?
         lib_jar = Dir["cfr-*-SNAPSHOT.jar"]
         doc_jar = Dir["cfr-*-SNAPSHOT-javadoc.jar"]
-        odie "Unexpected number of artifacts!" unless (lib_jar.length == 1) && (doc_jar.length == 1)
+        odie "Unexpected number of artifacts!" if (lib_jar.length != 1) || (doc_jar.length != 1)
         lib_jar = lib_jar[0]
         doc_jar = doc_jar[0]
       else

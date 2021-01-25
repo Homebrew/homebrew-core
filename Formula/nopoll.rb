@@ -8,6 +8,8 @@ class Nopoll < Formula
 
   bottle do
     cellar :any
+    sha256 "ebfbacc4b27be046d30500356f15c6752ffc4d083e723017aa7ca5baa6fd9651" => :big_sur
+    sha256 "e83bf8232d6018d6b7df08407aeeb44ba8ef4b0d740b0b1b849b303ef50ce27c" => :arm64_big_sur
     sha256 "e2cb3119545fe042968b9df9d19a94cc5c02f9f3ab04fcdd91bc1a8670dfa496" => :catalina
     sha256 "dcd358fc9a1f1e106aae15d59b1190956f0ac4e7f52673d24833edca3c1146cb" => :mojave
     sha256 "16bde638c91fd329d946b5854cd44291cbf516af2888e7880c5fa47dcb777936" => :high_sierra

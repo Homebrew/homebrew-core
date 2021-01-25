@@ -11,6 +11,7 @@ class Timidity < Formula
   end
 
   bottle do
+    sha256 "b7f6a933b163f87baad3e1799160fc42bf1b14829a5223e903ae38a26dc2c4c2" => :big_sur
     sha256 "4ebc752f9ca4fcfa88ade5f6806037678d855d97470adb5507c1290527fe6260" => :catalina
     sha256 "2cae56b69dc38af0de2d80816539ac5d6c78da535d20d63a2103dcf907ec9b80" => :mojave
     sha256 "563d4ffe26aff2b7b4453d5cb159cc596bae4f804cc977978cb01856184ed9c7" => :high_sierra

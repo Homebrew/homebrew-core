@@ -1,20 +1,22 @@
 class Pushpin < Formula
   desc "Reverse proxy for realtime web services"
   homepage "https://pushpin.org/"
-  url "https://dl.bintray.com/fanout/source/pushpin-1.30.0.tar.bz2"
-  sha256 "927d83919d193e19e03d9217ece495c1a5c22bfcc344b19a6e948d206c3e1ddc"
-  license "AGPL-3.0"
+  url "https://dl.bintray.com/fanout/source/pushpin-1.31.0.tar.bz2"
+  sha256 "62504863297a8ec1833486affaff91fade7a970dd43b9c8c2add5944603481ac"
+  license "AGPL-3.0-or-later"
   head "https://github.com/fanout/pushpin.git"
 
   bottle do
-    sha256 "fb327658cb0ef2bf33dc3fb05f408be1259599f8fecdbed69ed6b0047554e5f0" => :catalina
-    sha256 "1adb40fa7bd2f3bd4da17b01c70e9943d5fe6b0f92c80bc1b686e28d00420039" => :mojave
-    sha256 "5086194596827f97006317c6c15f521c8f213aca8d269a2baae423b4362f0edd" => :high_sierra
+    sha256 "2ecabfaf77c7baa3a348b52c04e5d631decf56497f9c243308a4d3ecde956962" => :big_sur
+    sha256 "cba8efdcbb2ce8e426ff46e450fbc686653a902f17d9cd7eb940be072e14914d" => :catalina
+    sha256 "466d8d74ad32796a9d6d1aa1ea19746570d6f5a6763d55ba829c01b9c6ea4656" => :mojave
+    sha256 "326bb88e58a9ab6087ce7c4de8097f62cae5930c2dd469fe847760c467761b94" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
+  depends_on "condure"
   depends_on "mongrel2"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "qt"
   depends_on "zeromq"
   depends_on "zurl"
@@ -83,7 +85,7 @@ class Pushpin < Formula
 
     begin
       sleep 3 # make sure pushpin processes have started
-      system Formula["python@3.8"].opt_bin/"python3", runfile
+      system Formula["python@3.9"].opt_bin/"python3", runfile
     ensure
       Process.kill("TERM", pid)
       Process.wait(pid)

@@ -7,6 +7,8 @@ class Scale2x < Formula
 
   bottle do
     cellar :any
+    sha256 "9ba9679c817187ca44e3074c102572781ad4e90abb1aa8a41d452e5d6814d046" => :big_sur
+    sha256 "f7d4ecfe86027e9aec4928c84ba6262e7f8633796ed3317da93a2d8b2e1a5b58" => :arm64_big_sur
     sha256 "83ab737ffb44b1b2913244a82c63d754057e79034bcf455d75b9150b630f85c7" => :catalina
     sha256 "da91fa8382839f9cf1b9d58b1e38b1d2f6d3cc1fef3cd0dce1481774397ebe35" => :mojave
     sha256 "2a3519bdbba8ff6caa1ca9b48d461866b8121dfd224a2c25da106087bb3cfd61" => :high_sierra

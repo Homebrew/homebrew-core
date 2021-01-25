@@ -7,12 +7,13 @@ class Wapm < Formula
   head "https://github.com/wasmerio/wapm-cli.git"
 
   livecheck do
-    url "https://github.com/wasmerio/wapm-cli/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "0486738558d41ea02a4798cf54538942d1fd4f292ff230cd522f51d27b91e376" => :big_sur
     sha256 "4f1c18ce08a6f4a483a50888ad9769898a203bd826b992f877010f38a80ca710" => :catalina
     sha256 "db34bd4d679207ae7d903a4beada8e30e3568f16c55fd610a196931c440716ef" => :mojave
     sha256 "70e4c8f038838547a2e70116567c1042f2f4cec53542e0750d4d061f80dc7b23" => :high_sierra

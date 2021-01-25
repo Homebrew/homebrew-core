@@ -8,6 +8,8 @@ class Tpl < Formula
 
   bottle do
     cellar :any
+    sha256 "cdfa3d793f5b6086e7f50abdce45fd21bb869444dc202e285f8c486f18e9f1f8" => :big_sur
+    sha256 "28d206fb0a8b3d318bbb8281a2cf64cb371f6a78896bc6c4b0b4187a2c109e96" => :arm64_big_sur
     sha256 "25b8a5fa1deda50c6dd07d69e96dd41e647b78b0f57f2696e5ddd056e509c71b" => :catalina
     sha256 "668ff54097397dbf1f934f6fc380611459c1ec0c36336d1058171d4eeb349ad7" => :mojave
     sha256 "18b15a737709ac6d8ec47963fb02fba255b5e9f6c8968c126dc60bb3a0d7adee" => :high_sierra

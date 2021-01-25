@@ -1,8 +1,8 @@
 class Glade < Formula
   desc "RAD tool for the GTK+ and GNOME environment"
   homepage "https://glade.gnome.org/"
-  url "https://download.gnome.org/sources/glade/3.38/glade-3.38.1.tar.xz"
-  sha256 "171a50be4930d4806fc8ce7f5ce3a75b49e9916f9d3037a5b50d35799bd0cfcd"
+  url "https://download.gnome.org/sources/glade/3.38/glade-3.38.2.tar.xz"
+  sha256 "98fc87647d88505c97dd2f30f2db2d3e9527515b3af11694787d62a8d28fbab7"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -10,9 +10,10 @@ class Glade < Formula
   end
 
   bottle do
-    sha256 "3187701f15fe07fa109f2a842dcbb87cb1bc0f9e8d0acd8062460cff9b4f5eef" => :catalina
-    sha256 "251a6d9af41c33cad41380ce09146638c29bb547e38ada77d1c076a9edeeff82" => :mojave
-    sha256 "42fc02ee56dc09c6c30438591327ee82cf1ecc5c93e96d5687b81995ebab9f61" => :high_sierra
+    sha256 "0fb77b21e6176c6690410a76d843f4582c1ef833e54ce5efa620bfce514e7af7" => :big_sur
+    sha256 "2a55e22c571d0d158c1b66bf18c35c44aeaed0694d139f13c48f5a6642b4785b" => :arm64_big_sur
+    sha256 "e5c239c3d05350ff8a8710ce6beecf7fd22461336e77d55febb338b6a1456a61" => :catalina
+    sha256 "0b641d56f385a798fafe8fe424191de83207dea5b0edcf9d06c8b8b03ad0c68f" => :mojave
   end
 
   depends_on "docbook-xsl" => :build
@@ -24,9 +25,12 @@ class Glade < Formula
   depends_on "adwaita-icon-theme"
   depends_on "gettext"
   depends_on "gtk+3"
-  depends_on "gtk-mac-integration"
   depends_on "hicolor-icon-theme"
   depends_on "libxml2"
+
+  on_macos do
+    depends_on "gtk-mac-integration"
+  end
 
   def install
     # Find our docbook catalog
@@ -111,11 +115,13 @@ class Glade < Formula
       -lglib-2.0
       -lgobject-2.0
       -lgtk-3
-      -lintl
       -lpango-1.0
       -lpangocairo-1.0
       -lxml2
     ]
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

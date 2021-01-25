@@ -13,6 +13,8 @@ class Nyx < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "a78e5ce784aeefb44ab69069294cf4aa306e8d9c3ed03ba6bf6883729094e396" => :big_sur
+    sha256 "0588b4c6b3df71714a500b85096f5b83d2773cff86bec2d77ae11139117385ed" => :arm64_big_sur
     sha256 "23791dab3ee8f90133cb743c9bdc2e16ac65ffe2346bba10c14f1a0bf8d553c3" => :catalina
     sha256 "4a219bd35ad035daf11653bc1f98c245fcb380c674f218598e6aeedc3271c4b6" => :mojave
     sha256 "50bf36b910c98d16a0bdee31c76ec4ba1a0ef4b8f6ad1cad7ebdb035f05fd286" => :high_sierra

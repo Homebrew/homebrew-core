@@ -13,6 +13,8 @@ class Msdl < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "a8703e042137fa27ddbda861bc9e04cea40edb5d3d3c6b4a90f5e850ee01326a" => :big_sur
+    sha256 "5afd80d5dc62ee3c7a65fe5214d2fe51d89f8eda7ae9bb358bab102f5dd65e6a" => :arm64_big_sur
     sha256 "71fb71cf2c24085221ee1d24c57fbe07f1b6cc437d84385d22231a4723771207" => :catalina
     sha256 "30deed1f7ba83c707aa002a217438e341aae978e27cfc6d39239a063f2b14cde" => :mojave
     sha256 "5f2922fa4f3b69f3f00cb7e29854c5a43c163e209c87d961253da9c4a7c3ec73" => :high_sierra

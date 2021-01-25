@@ -13,14 +13,15 @@ class ErlangAT20 < Formula
     sha256 "a401feb22927ecc0e649f3f2f7aeba331725b6390985f826ed5639d59732ee6a" => :high_sierra
   end
 
-  # Deprecated with OTP-23 release (https://erlang.org/pipermail/erlang-questions/2020-July/099747.html)
-  deprecate! date: "2020-05-13", because: :unsupported
-
   keg_only :versioned_formula
+
+  # Deprecated with OTP-23 release (https://erlang.org/pipermail/erlang-questions/2020-July/099747.html)
+  disable! date: "2020-05-13", because: :unmaintained
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on arch: :x86_64
   depends_on "openssl@1.1"
   depends_on "wxmac"
 
@@ -37,12 +38,8 @@ class ErlangAT20 < Formula
   end
 
   def install
-    # Work around Xcode 11 clang bug
-    # https://bitbucket.org/multicoreware/x265/issues/514/wrong-code-generated-on-macos-1015
-    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
-
     # Unset these so that building wx, kernel, compiler and
-    # other modules doesn't fail with an unintelligable error.
+    # other modules doesn't fail with an unintelligible error.
     %w[LIBS FLAGS AFLAGS ZFLAGS].each { |k| ENV.delete("ERL_#{k}") }
 
     # Do this if building from a checkout to generate configure
@@ -62,10 +59,12 @@ class ErlangAT20 < Formula
       --enable-wx
       --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
       --without-javac
-      --enable-darwin-64bit
     ]
 
-    args << "--with-dynamic-trace=dtrace" if MacOS::CLT.installed?
+    on_macos do
+      args << "--enable-darwin-64bit"
+      args << "--with-dynamic-trace=dtrace" if MacOS::CLT.installed?
+    end
 
     system "./configure", *args
     system "make"

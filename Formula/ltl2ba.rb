@@ -6,6 +6,8 @@ class Ltl2ba < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c85c152985dcdd33f028941a0b2e62d20d5f247142111b9fb30c11ea9dd424b7" => :big_sur
+    sha256 "577639caaf79515113fee790d593bc735b9f54bbb2bf93ae2788655a455aecaa" => :arm64_big_sur
     sha256 "ede3b5e5b22b886bce4f6f2ead352dc4a676e3d8a95f9543930f2be2b3a0b4b4" => :catalina
     sha256 "3e5ddce23730195799dfe85c97a57d63e892f168cda5207c72c68b459e5a92a0" => :mojave
     sha256 "533a278e70570b8f83550c784ccb7c921d9fb5b93ac613c3f971703090dd7921" => :high_sierra

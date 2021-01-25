@@ -3,10 +3,9 @@ class Pipenv < Formula
 
   desc "Python dependency management tool"
   homepage "https://pipenv.pypa.io/"
-  url "https://files.pythonhosted.org/packages/cc/0a/ed147c6bb2245ac9b275ef28db37b338181f1afe696317e0372786b57107/pipenv-2020.8.13.tar.gz"
-  sha256 "eff0e10eadb330f612edfa5051d3d8e775e9e0e918c3c50361da703bd0daa035"
+  url "https://files.pythonhosted.org/packages/76/70/3a3fdf4549cff4e9969b2db4ea924c340969b586bf441967ab9c7d90eb52/pipenv-2020.11.15.tar.gz"
+  sha256 "8253fe6f9cfb3791a54da8a0571f73c918cb3457dd908684c1800a13a06ec4c1"
   license "MIT"
-  revision 1
 
   livecheck do
     url :stable
@@ -14,9 +13,11 @@ class Pipenv < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "57dd9bd11dbd7672c92f6c4608a54f993e9116208f011234e3f2db643d3c7efc" => :catalina
-    sha256 "7181c3e9b1f54851fb987b832207f3a723c997df4dd4ef79d76807e28473f41f" => :mojave
-    sha256 "564b119e61e3514b6fd2bf28e47f62802bebc063859568d6cd35c0830f3322f4" => :high_sierra
+    sha256 "58c0ee0415d06fc54e2411ca16257185512e677060f209c4b3cbd00d0c42f0d6" => :big_sur
+    sha256 "b78375585379d8b156b5cfd886c644cd088a0fc32d5ba567a12f610d1abdd0be" => :arm64_big_sur
+    sha256 "23aac8a0694ad16b9185f0f25c3cb3c4b7c0e3841d6a99515253b8e582a01243" => :catalina
+    sha256 "d0bc55ec7c8cd72b022202023de6c5573528bdf8f7a0665d826e8edb30fc6b48" => :mojave
+    sha256 "2abc2c4af6e6bbc6aa6c1af5993ad35e56e823d0b8867ec21164a0c824dd10f2" => :high_sierra
   end
 
   depends_on "python@3.9"
@@ -27,8 +28,8 @@ class Pipenv < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/40/a7/ded59fa294b85ca206082306bba75469a38ea1c7d44ea7e1d64f5443d67a/certifi-2020.6.20.tar.gz"
-    sha256 "5930595817496dd21bb8dc35dad090f1c2cd0adfaf21204bf6732ca5d8ee34d3"
+    url "https://files.pythonhosted.org/packages/e6/de/879cf857ae6f890dfa23c3d6239814c5471936b618c8fb0c8732ad5da885/certifi-2020.11.8.tar.gz"
+    sha256 "f05def092c44fbf25834a51509ef6e631dc19765ab8a57b4e7ab85531f0a9cf4"
   end
 
   resource "distlib" do
@@ -47,8 +48,8 @@ class Pipenv < Formula
   end
 
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/fb/f8/5a5fd05ee4b85b819bc7c11d287a32f6925a970fe2f867eac1889b8760ed/virtualenv-20.0.30.tar.gz"
-    sha256 "7b54fd606a1b85f83de49ad8d80dbec08e983a2d2f96685045b262ebc7481ee5"
+    url "https://files.pythonhosted.org/packages/06/8c/eb8a0ae49eba5be054ca32b3a1dca432baee1d83c4f125d276c6a5fd2d20/virtualenv-20.1.0.tar.gz"
+    sha256 "b8d6110f493af256a40d65e29846c69340a947669eec8ce784fcf3dd3af28380"
   end
 
   resource "virtualenv-clone" do

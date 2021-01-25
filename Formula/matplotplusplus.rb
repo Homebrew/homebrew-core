@@ -7,6 +7,8 @@ class Matplotplusplus < Formula
 
   bottle do
     cellar :any
+    sha256 "a1f77bf8f309843d278ea940822578bf48d2aaf9697566ed46287a20ad1896bb" => :big_sur
+    sha256 "979279ad16e5e814b368c88c46cc5d995367c245100b033fade178ef3ab3cbeb" => :arm64_big_sur
     sha256 "e24805c80b41e2d9957c1757e3f7cb329b39302127eeced2c81c9091487986db" => :catalina
     sha256 "e522028527552e68faedc2377ff419ea08986b10f0a5b74e1f573537e99ee41c" => :mojave
     sha256 "c17c5db0287c73c0d126c0d459a32c1c56ebb702e19f8c53f8d8d91880dfc75a" => :high_sierra

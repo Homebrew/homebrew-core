@@ -7,6 +7,8 @@ class ExtractUrl < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "1418a8148c3fbeb60fbb976b52b5fa59d3702ba5e69fe02179588ab3ba343001" => :big_sur
+    sha256 "950f85ce128891278f41aa0b2c7fcaf0cce890055be40741ed8cac6db35c0a73" => :arm64_big_sur
     sha256 "f25df47b8114db594552372e4ee1f9bf7337ab14996429dda0981c93c74afcfe" => :catalina
     sha256 "e8061e3ca6f23c1ae9a042960d05b8ff23887a684c6b37cc831f17fdab4936de" => :mojave
     sha256 "2880b669c381e7c7a2420d71c673d68d988223dc63bad9f14b1c62495973f362" => :high_sierra
@@ -14,6 +16,8 @@ class ExtractUrl < Formula
     sha256 "96d599a0f724f6f09e261c8b0a1c8bbf69ce1b199d311527636f8a5d42f197c6" => :el_capitan
     sha256 "d16fcc4c81a2ffb7f384f104396aae674bb8f6f08d336056ab858924d545f205" => :yosemite
   end
+
+  uses_from_macos "perl"
 
   resource "MIME::Parser" do
     url "https://cpan.metacpan.org/authors/id/D/DS/DSKOLL/MIME-tools-5.508.tar.gz"

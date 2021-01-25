@@ -7,6 +7,8 @@ class Ldpl < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "528888090d44cc065bcd6fdb941bfa751dba25e66c086cf4b427cc1e86549783" => :big_sur
+    sha256 "5c7715953497aa0104ad8262e84757529b33d1af90b9a41288895018515bea7f" => :arm64_big_sur
     sha256 "7e5cd92ebf4f0babb34d7af78189e7915731fad5fac39e66d63ecbbce86a72d0" => :catalina
     sha256 "b9a0fdeb6134828ef4f60d81339185c5ac5a86123d6301035cbfb3b45c1a91ed" => :mojave
     sha256 "01f2a987ba4b74d1b50374c7a9a616703a2a8ad479aaad8b80ed8e936af91d80" => :high_sierra

@@ -1,9 +1,9 @@
 class Activemq < Formula
   desc "Apache ActiveMQ: powerful open source messaging server"
   homepage "https://activemq.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=activemq/5.16.0/apache-activemq-5.16.0-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/activemq/5.16.0/apache-activemq-5.16.0-bin.tar.gz"
-  sha256 "d399f51a34944a48b49153ffbeb50cef42666185efbec6d5aa588a0d2ca1c874"
+  url "https://www.apache.org/dyn/closer.lua?path=activemq/5.16.1/apache-activemq-5.16.1-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/activemq/5.16.1/apache-activemq-5.16.1-bin.tar.gz"
+  sha256 "43d3f3a890bffae85c6f1002e9cf950fcc1fd17f3f5e55dc3b85d39d09e2e323"
   license "Apache-2.0"
 
   livecheck do
@@ -15,7 +15,9 @@ class Activemq < Formula
   depends_on "openjdk"
 
   def install
-    rm_rf Dir["bin/linux-x86-*"]
+    on_macos do
+      rm_rf Dir["bin/linux-x86-*"]
+    end
     libexec.install Dir["*"]
     (bin/"activemq").write_env_script libexec/"bin/activemq", JAVA_HOME: Formula["openjdk"].opt_prefix
   end

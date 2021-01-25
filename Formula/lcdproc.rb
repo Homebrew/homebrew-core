@@ -6,6 +6,7 @@ class Lcdproc < Formula
   license "GPL-2.0"
 
   bottle do
+    sha256 "6ae05c9a6476f0c469cd9e434f486cc7900745a70605df3b70827738fcd83538" => :big_sur
     sha256 "73cd6420af4af10ee768e8aa5e9fd17621d9216d55a3cb9d3b96a94955166a16" => :catalina
     sha256 "1a875cd265136e02f28f31cd9138c8814deaf793704792be5f2cccf5aa6736fb" => :mojave
     sha256 "59439a9e18e3e8e636a60e1710cd10f8a4bad8632d08782fc4442a2427fe1ddb" => :high_sierra

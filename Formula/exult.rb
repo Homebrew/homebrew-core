@@ -3,13 +3,20 @@ class Exult < Formula
   homepage "https://exult.sourceforge.io/"
   url "https://github.com/exult/exult/archive/v1.6.tar.gz"
   sha256 "6176d9feba28bdf08fbf60f9ebb28a530a589121f3664f86711ff8365c86c17a"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   head "https://github.com/exult/exult.git"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256 "6b3f2e032a2a04e9e3bb2101d91af3fec63195f5e66c9174b976204465a99125" => :catalina
-    sha256 "7a3891dc200ec4d01222b3ab7fbc2d4db4d94a8b91f9144fd7e6ab3a79fd8cc7" => :mojave
-    sha256 "de9329e08a29b01601a40218bd82746a122294e5322529ca1e678e0aa63ccebb" => :high_sierra
+    rebuild 1
+    sha256 "af93f694844a8f0abdf22f7f8048ffac29992b6d027841fde98d98509876a00b" => :big_sur
+    sha256 "1dafcc7b0c6a54ced59284c8109a01deb628a8bd7e8b2138e38cc540280fa97c" => :arm64_big_sur
+    sha256 "1b5343fcca2332c05f7b75412dccdc0bb84fb7dd2cceb47fdb3ed7a8cdb319ae" => :catalina
+    sha256 "45efe9a12cb0a446543a03c45f412c96355ef4d7dd4bef4b016b8e9bc98e3df7" => :mojave
   end
 
   depends_on "autoconf" => :build
@@ -19,6 +26,12 @@ class Exult < Formula
   depends_on "libogg"
   depends_on "libvorbis"
   depends_on "sdl2"
+
+  # Xcode 12 compile fix for 1.6.x branch - https://github.com/exult/exult/pull/61
+  patch do
+    url "https://github.com/exult/exult/commit/b98a9eb195bf8b3f55df56499d2a7c2c5d8809d0.patch?full_index=1"
+    sha256 "c1c5b1e9e4994ecdfaba6285b86222123ee6b5590bcd8e7400871a4e65836fe0"
+  end
 
   def install
     # Use ~/Library/... instead of /Library for the games

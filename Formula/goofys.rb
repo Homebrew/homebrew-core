@@ -16,7 +16,15 @@ class Goofys < Formula
   end
 
   depends_on "go" => :build
-  depends_on :osxfuse
+
+  on_macos do
+    deprecate! date: "2020-11-10", because: "requires FUSE"
+    depends_on :osxfuse
+  end
+
+  on_linux do
+    depends_on "libfuse"
+  end
 
   def install
     contents = Dir["*"]
@@ -26,9 +34,7 @@ class Goofys < Formula
     ENV["GOPATH"] = gopath
 
     cd gopath/"src/github.com/kahing/goofys" do
-      commit = Utils.safe_popen_read("git", "rev-parse", "HEAD").chomp
-      system "go", "build", "-o", "goofys", "-ldflags",
-             "-X main.Version=#{commit}"
+      system "go", "build", "-o", "goofys", "-ldflags", "-X main.Version=#{Utils.git_head}"
       bin.install "goofys"
       prefix.install_metafiles
     end

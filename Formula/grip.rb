@@ -14,6 +14,8 @@ class Grip < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "030e8c707b32fddf61e3d5d566fc0c5e6e89d34e92aaecbb33fa3f60abf63b64" => :big_sur
+    sha256 "4dad17672896ca2ca357ba82c4779b9def18535b3a14ba460724d3a764329b13" => :arm64_big_sur
     sha256 "373f8ccd90c2cb8d753f1ceab1b50ff568be4a782761402e0db137dfd5a946f3" => :catalina
     sha256 "d8aa30db0652b18890baa83a7ae4c529a346f068e799ddadada6dae8771c46fc" => :mojave
     sha256 "3c5e3c5e4e928803ec821c7624014bf3740566dd2741a02cfdac541d4162860a" => :high_sierra

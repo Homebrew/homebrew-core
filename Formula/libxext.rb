@@ -7,6 +7,8 @@ class Libxext < Formula
 
   bottle do
     cellar :any
+    sha256 "8a037408ba5c4c95c33af0d022edd631b744823bb9fa522a06b502ed9bf1fbc5" => :big_sur
+    sha256 "24e44ef107138f015271fcd5aaa400403594adf7c64cf4a628b0cfe44d4e9fc6" => :arm64_big_sur
     sha256 "20cc49734eba43e2e9f058fa12f3782c76ac232fada3f6d297f91dca6e0582be" => :catalina
     sha256 "3f2da07d877e158f41231d088f0ffe5551132beaf2f3df683dae0ac2c11817cb" => :mojave
     sha256 "0070b8ea70006d011aac1c617e1a5f88caa2ae351b637858f828f859cb72d813" => :high_sierra

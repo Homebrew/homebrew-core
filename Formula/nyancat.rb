@@ -7,6 +7,7 @@ class Nyancat < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "e15caf1bc3a60334cb7e38466e50005cfbb15dd5e143abc876983fcb3d3a41d7" => :arm64_big_sur
     sha256 "997fc4e89ef493a356e781543d69343e96a08547aba3bec53bd1db64b48f3436" => :catalina
     sha256 "6f14b77291021020bc45ea2182063fe16215faee9862786763798362ac664822" => :mojave
     sha256 "2272aa5028ca779224f68fd25a3c07ff41c71bb7d14511186808a6b59bfe32c3" => :high_sierra

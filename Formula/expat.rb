@@ -6,12 +6,15 @@ class Expat < Formula
   license "MIT"
 
   livecheck do
-    url "https://github.com/libexpat/libexpat/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(/href=.*?expat[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
     cellar :any
+    sha256 "bdc39dc9c66e5efa771a59842102be8f35e8bab1f11f2b2353af0d986df95ec0" => :big_sur
+    sha256 "5e3abf13602731bb6eb80eb0cb5fd4acb0bfe24e561f7a608b6c92b7c7c5b4a9" => :arm64_big_sur
     sha256 "1a8b10b3ce11187fbc9d26013ac5939d69f53ad7e0768ecb3d026ae6007005ac" => :catalina
     sha256 "0715be3a1c1f7472cb662c640b263ed8c78da9cc20ebadb3f8df40e2300a87a8" => :mojave
     sha256 "f1d65a87a4535918db8fb7cae639335e70e0a0ac780a000f5ddb4685a47526e2" => :high_sierra

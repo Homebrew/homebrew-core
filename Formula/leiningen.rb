@@ -1,27 +1,24 @@
 class Leiningen < Formula
   desc "Build tool for Clojure"
   homepage "https://github.com/technomancy/leiningen"
-  url "https://github.com/technomancy/leiningen/archive/2.9.4.tar.gz"
-  sha256 "be1b1e43c5376f2fdc8666aeb671df16c19776d5cfe64339292a3d35ce3a7faa"
+  url "https://github.com/technomancy/leiningen/archive/2.9.5.tar.gz"
+  sha256 "a29b45966e5cc1a37d5dc07fe436ed7cb172c88c53d44a049956ff53a096d43e"
   license "EPL-1.0"
   head "https://github.com/technomancy/leiningen.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3e65cbf112fe60434c3b6f748342de048feeaa63f10da2e26721ce9e83dea081" => :catalina
-    sha256 "3e65cbf112fe60434c3b6f748342de048feeaa63f10da2e26721ce9e83dea081" => :mojave
-    sha256 "3e65cbf112fe60434c3b6f748342de048feeaa63f10da2e26721ce9e83dea081" => :high_sierra
+    sha256 "f9aface1f4c962c0e00bf8300b33eb453734972dc11cc299c1ca0851de7b1940" => :big_sur
+    sha256 "5bd84d71583cc06ab837b857db70e16a8061abdb44c6855bd66fd06b021b88aa" => :arm64_big_sur
+    sha256 "7c29f1583ec0deb5b873547b3d9366d9d90f00728dd24e52d2538d5131f0dedb" => :catalina
+    sha256 "c1df069aa1d80a6005c7536a88ecb28440c1a8d1e8b82314784f63f033002831" => :mojave
   end
+
+  depends_on "openjdk"
 
   resource "jar" do
-    url "https://github.com/technomancy/leiningen/releases/download/2.9.4/leiningen-2.9.4-standalone.zip", using: :nounzip
-    sha256 "0e3c339480347df0445317d329accbd4a578ebbd8d91e568e661feb1b388706c"
-  end
-
-  # Remove patch when updated to next release
-  patch do
-    url "https://github.com/technomancy/leiningen/commit/7677dabea40a2d17a42a718ca8c7e450b09e153c.patch?full_index=1"
-    sha256 "91260bb1ce6974fe0134dfa46548a6083c0ae347c2acf8ef7e57b0adef8e8df2"
+    url "https://github.com/technomancy/leiningen/releases/download/2.9.5/leiningen-2.9.5-standalone.zip", using: :nounzip
+    sha256 "df490c98bfe8d667bc5d83b80238528877234c285d0d48f61a4c8743c2db1eea"
   end
 
   def install
@@ -35,7 +32,9 @@ class Leiningen < Formula
       s.change_make_var! "LEIN_JAR", libexec/jar
     end
 
-    bin.install "bin/lein-pkg" => "lein"
+    (libexec/"bin").install "bin/lein-pkg" => "lein"
+    (libexec/"bin/lein").chmod 0755
+    (bin/"lein").write_env_script libexec/"bin/lein", Language::Java.overridable_java_home_env
     bash_completion.install "bash_completion.bash" => "lein-completion.bash"
     zsh_completion.install "zsh_completion.zsh" => "_lein"
   end

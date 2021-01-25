@@ -11,6 +11,8 @@ class Camellia < Formula
 
   bottle do
     cellar :any
+    sha256 "84ce9367fd905515a5532cd64be374177b369f8c1797808a2ec95b5c89799965" => :big_sur
+    sha256 "ecd83455b65819e9275ead160b6fca0a1a13e8b85d00c63e394ecdb5818b3a78" => :arm64_big_sur
     sha256 "c7d2e77a15331cebfeff928b67bd32ee5b0a9325ac5cbea022b2c6ddbe585ff6" => :catalina
     sha256 "347284dc085d1cd6acad286e8797ba3e001190e7cb04934b1f96d1e67481f302" => :mojave
     sha256 "fc8cb8a0f24226fd1f93b32192f290107d44283196e1edb48458b184597aa729" => :high_sierra

@@ -11,6 +11,8 @@ class SdlNet < Formula
 
   bottle do
     cellar :any
+    sha256 "53bf15367d717f52383f6221a46c2103ed88beb591830f7d6269b9ae993521f7" => :big_sur
+    sha256 "99b9b5259989971316f1ab7d1c785949868b329abe2e73b0034bdfe5f447eeb8" => :arm64_big_sur
     sha256 "4c4cf23a69b5bc903e23e919a87ab1c02ed2e65580b8071ea7fe4d40fdb6de55" => :catalina
     sha256 "42ba6a6ea66082574335d2db119cdeedb53865f01344a8bab255094b09223bc7" => :mojave
     sha256 "6ef784ef221c9eeea648834070ec1d20bac11cdc9754f5af2fe5dd6fa04e0f10" => :high_sierra

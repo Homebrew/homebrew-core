@@ -7,22 +7,17 @@ class Scmpuff < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3e191a0aa602fb00cd35bc729261b2b377472b7f8add3d56263680d11ac7183b" => :catalina
-    sha256 "304cb27623cc21878468793b8b8375a8a89f4f050cda665d301ecc025690e712" => :mojave
-    sha256 "604d1805e793cbf6e0b07e030389a0275ccc98db832ff7564522496302e04985" => :high_sierra
-    sha256 "15a2fd8febc6ac36cb3429979fd5c8f88f230ae6276c073a0eedc5ac7e7abf69" => :sierra
+    rebuild 1
+    sha256 "0741427c472b244575c9d7735e85f971677645107ea91ae99f32cc0377dc93ca" => :big_sur
+    sha256 "152725eafc16f39267d4ffc3bf99953be7fe024b01593721fc5adadc244ddbfe" => :arm64_big_sur
+    sha256 "0d673b2326d88ca0b4c952122f37d8c2cc269bf687e62f0161a9a75288b6ccbb" => :catalina
+    sha256 "30853a0768a6b6c65bdd0522854ae335f50f80ea24bbc64fd16a5411fcd7f2d6" => :mojave
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
-    (buildpath/"src/github.com/mroth/scmpuff").install buildpath.children
-    cd "src/github.com/mroth/scmpuff" do
-      system "go", "build", "-ldflags", "-X main.VERSION=#{version}",
-                   "-o", bin/"scmpuff"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args, "-ldflags", "-s -v -X main.VERSION=#{version}"
   end
 
   test do

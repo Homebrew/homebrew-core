@@ -12,6 +12,8 @@ class Libdnet < Formula
 
   bottle do
     cellar :any
+    sha256 "8e5f269aa55ecbf1a5f6855ef355696159b6155ea338cfb1e3b3b4ae8409bb72" => :big_sur
+    sha256 "54a55ad8719e269c07cbef8a5c61924e2431a5a5c88cce4148dbeffede79a353" => :arm64_big_sur
     sha256 "f8c9ace5eb112c484f50da7624df13c551b14114ece91a155ce2394b30e264b7" => :catalina
     sha256 "1e967ac6c5b9c70f72efba9082844c755dba2d62054a4c4dfbd5629da3cb0b76" => :mojave
     sha256 "fd53de5c1830dcdb52ecba97cf0c9c6afccf44037e6df6f64ef1d163d6c6adff" => :high_sierra

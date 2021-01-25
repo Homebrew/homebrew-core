@@ -6,8 +6,8 @@ class Jython < Formula
   license "PSF-2.0"
 
   livecheck do
-    url "https://github.com/jythontools/jython.git"
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    url "https://search.maven.org/remotecontent?filepath=org/python/jython-installer/"
+    regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
   # This isn't accidental; there is actually a compile process here.

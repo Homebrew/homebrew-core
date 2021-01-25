@@ -3,15 +3,22 @@ class Streamlink < Formula
 
   desc "CLI for extracting streams from various websites to a video player"
   homepage "https://streamlink.github.io/"
-  url "https://github.com/streamlink/streamlink/releases/download/1.7.0/streamlink-1.7.0.tar.gz"
-  sha256 "f87a62a47212d94769929bd040d9c186b461643bdbda06f839b99ec9efefb87a"
+  url "https://files.pythonhosted.org/packages/b4/d6/4981231ee8d23a7898d44efb3cf36e3a7820eb485c937f67d02428c6c585/streamlink-2.0.0.tar.gz"
+  sha256 "c0ead9e961638d41cab9bd9677cdc701f2313bfd4d23cd8158410932839c62db"
   license "BSD-2-Clause"
+  revision 1
+  head "https://github.com/streamlink/streamlink.git"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "94c9bbc54f6d4acd49a2e5d66e73a84ecb65a21d5c0728043bbaff512a4e8808" => :catalina
-    sha256 "e258065cdaa91ea8b28ee8821200981596285160bf62f81f809c8eeb8409341b" => :mojave
-    sha256 "63ae898d941b2e92fff7f8d79c36e2f69a47cd4201055bad72770483a8e0fc70" => :high_sierra
+    sha256 "667e16ecc596e88508591b2a616dd90d609af5303daf333b5551a9376164e1c8" => :big_sur
+    sha256 "fd9b93cc41448ba2f1d79d5c10f1e12a680707080945e00cf9f18822af95c0c1" => :arm64_big_sur
+    sha256 "7b56adfd1c5dc642365ccea36e7ba55493f9f1cfd231b0eee6c3741dedb9d8b9" => :catalina
+    sha256 "5d726e98e4a496094e43200e49749eb28d5ddb20e46f0264b3c2bad5c8b7a40b" => :mojave
   end
 
   depends_on "python@3.9"
@@ -23,13 +30,13 @@ class Streamlink < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/40/a7/ded59fa294b85ca206082306bba75469a38ea1c7d44ea7e1d64f5443d67a/certifi-2020.6.20.tar.gz"
-    sha256 "5930595817496dd21bb8dc35dad090f1c2cd0adfaf21204bf6732ca5d8ee34d3"
+    url "https://files.pythonhosted.org/packages/06/a9/cd1fd8ee13f73a4d4f491ee219deeeae20afefa914dfb4c130cfc9dc397a/certifi-2020.12.5.tar.gz"
+    sha256 "1a4995114262bffbc2413b159f2a1a480c969de6e6eb13ee966d470af86af59c"
   end
 
   resource "chardet" do
-    url "https://files.pythonhosted.org/packages/fc/bb/a5768c230f9ddb03acc9ef3f0d4a3cf93462473795d18e9535498c8f929d/chardet-3.0.4.tar.gz"
-    sha256 "84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae"
+    url "https://files.pythonhosted.org/packages/ee/2d/9cdc2b527e127b4c9db64b86647d567985940ac3698eeabc7ffaccb4ea61/chardet-4.0.0.tar.gz"
+    sha256 "0d6f53a15db4120f2b08c94f11e7d93d2c911ee118b6b30a04ec3ee8310179fa"
   end
 
   resource "idna" do
@@ -53,8 +60,8 @@ class Streamlink < Formula
   end
 
   resource "pycryptodome" do
-    url "https://files.pythonhosted.org/packages/4c/2b/eddbfc56076fae8deccca274a5c70a9eb1e0b334da0a33f894a420d0fe93/pycryptodome-3.9.8.tar.gz"
-    sha256 "0e24171cf01021bc5dc17d6a9d4f33a048f09d62cc3f62541e95ef104588bda4"
+    url "https://files.pythonhosted.org/packages/c4/3a/5bca2cb1648b171afd6b7d29a11c6bca8b305bb75b7e2d78a0f5c61ff95e/pycryptodome-3.9.9.tar.gz"
+    sha256 "910e202a557e1131b1c1b3f17a63914d57aac55cf9fb9b51644962841c3995c4"
   end
 
   resource "PySocks" do
@@ -63,8 +70,8 @@ class Streamlink < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/da/67/672b422d9daf07365259958912ba533a0ecab839d4084c487a5fe9a5405f/requests-2.24.0.tar.gz"
-    sha256 "b3559a131db72c33ee969480840fff4bb6dd111de7dd27c8ee1f820f4f00231b"
+    url "https://files.pythonhosted.org/packages/6b/47/c14abc08432ab22dc18b9892252efaf005ab44066de871e72a38d6af464b/requests-2.25.1.tar.gz"
+    sha256 "27973dd4a904a4f13b263a19c866c13b92a39ed1c964655f025f3f8d3d75b804"
   end
 
   resource "six" do
@@ -73,8 +80,8 @@ class Streamlink < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/81/f4/87467aeb3afc4a6056e1fe86626d259ab97e1213b1dfec14c7cb5f538bf0/urllib3-1.25.10.tar.gz"
-    sha256 "91056c15fa70756691db97756772bb1eb9678fa585d9184f24534b100dc60f4a"
+    url "https://files.pythonhosted.org/packages/29/e6/d1a1d78c439cad688757b70f26c50a53332167c364edb0134cadd280e234/urllib3-1.26.2.tar.gz"
+    sha256 "19188f96923873c92ccb987120ec4acaa12f0461fa9ce5d3d0772bc965a39e08"
   end
 
   resource "websocket_client" do

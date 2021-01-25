@@ -10,6 +10,8 @@ class Gitslave < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9975ca2bcb400d61bb8a456c951d9a069cff60f90efa440f211916fbc32bb5b0" => :big_sur
+    sha256 "8d2048c8edb96fe0dd49b8cd52aa1139f63fb275523022cd2c4e7a6ab45a496a" => :arm64_big_sur
     sha256 "dd32d79091815434db1c465b3f7caa6c6c346449558d82023a6d88ff92c6ba6b" => :catalina
     sha256 "0a6c3ead2d8834fb3e728c06bb72d1102ff516cfafd8283e96b03c5a13a44b89" => :mojave
     sha256 "53cbfbd7d9f86fa6ee98b46356d76db4c952adbf9e3cf913f0a3136da56bcb69" => :high_sierra

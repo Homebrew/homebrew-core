@@ -3,6 +3,7 @@ class GeocodeGlib < Formula
   homepage "https://developer.gnome.org/geocode-glib"
   url "https://download.gnome.org/sources/geocode-glib/3.26/geocode-glib-3.26.2.tar.xz"
   sha256 "01fe84cfa0be50c6e401147a2bc5e2f1574326e2293b55c69879be3e82030fd1"
+  license "GPL-2.0-or-later"
   revision 1
 
   livecheck do
@@ -11,6 +12,8 @@ class GeocodeGlib < Formula
 
   bottle do
     cellar :any
+    sha256 "7a36865ee432311c7a36e3541a430a1f32c80935e6b16e11d5454c09a8f773de" => :big_sur
+    sha256 "878e80675652cec9dd995eb7d896681db3203a8567cce2b35577fbc952cb8be0" => :arm64_big_sur
     sha256 "52ce343c52ad20417f87bde9889b0086768b657874d94fd39eb54141f20fcedd" => :catalina
     sha256 "e7d30594593bc5fcc430f548d304ec88ff053ab5eebcd6f4bd696fd8b0c4acc7" => :mojave
     sha256 "74d7d13e5d99f9d4f07674faa262d68b57d86b550e0504dbf0797e84de9e52fa" => :high_sierra
@@ -60,8 +63,10 @@ class GeocodeGlib < Formula
       -lgio-2.0
       -lglib-2.0
       -lgobject-2.0
-      -lintl
     ]
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

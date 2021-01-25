@@ -14,6 +14,8 @@ class Coconut < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "987bf18d2f7bb2378ae95c21e2a2ede148c02086099c661081040a3b69b6a0d3" => :big_sur
+    sha256 "ebbb005b2c3a3848f5593718d8a21a98adade56ef4bb4239fe553a60fc3f9a17" => :arm64_big_sur
     sha256 "4a4707189427a591dde0fd1897af8c31e64e350fbc8598bd2d929aa6df726cc9" => :catalina
     sha256 "088c30ab276e9a04cf3ea31a65f96ca532d6f3870d55673cc0784fe83aaa6652" => :mojave
     sha256 "97e617049fd9e250dfd0c3353441595fb1d4a8bacd6a0ec73eefb15fe2a0e63c" => :high_sierra

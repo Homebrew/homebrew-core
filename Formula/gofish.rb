@@ -8,6 +8,8 @@ class Gofish < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "6192b146fa5b8bd4f9383b5b342cb432e465395ad5e786cca0ad0f5f97311a9e" => :big_sur
+    sha256 "3afbc92954f09ba10ee34967de7884b82dd9bf6d539eb9051847423501149161" => :arm64_big_sur
     sha256 "db76c4f80f2bcc9de811fb78d24ef3352a18072720edd3ba8fd0c985fdc1a41a" => :catalina
     sha256 "c2571af53fe2460268ad217cfb20fdcf187d29a5106393949ca22b64cfc69c49" => :mojave
     sha256 "97f68fea6cc4d9e3f7fe5cb6256f7fe7d3558df6067106d17adc274728464635" => :high_sierra

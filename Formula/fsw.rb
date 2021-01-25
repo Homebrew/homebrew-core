@@ -8,6 +8,8 @@ class Fsw < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 2
+    sha256 "5f9bbefcdf5b7c82abb30844c9680b9d99ab14aaac142372fc9b7e83d287d343" => :big_sur
+    sha256 "0713fafa231ce12c9eaa0e98b495402abe6ce46002140c5a6355fdd032ba69a8" => :arm64_big_sur
     sha256 "749f3025e6383ae635a30302a3c61a191e57fbe88a7c74b3650749de7e9c8dad" => :catalina
     sha256 "90779855faefd63a20e1e60406430bfec63d4ce766e253dae595f01acbebbf62" => :mojave
     sha256 "d16086899f7ae88e0fd4eeaac5ede4e5749d688e9bb2385686f824f0a0e24677" => :high_sierra

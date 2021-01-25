@@ -10,6 +10,8 @@ class Ghex < Formula
   end
 
   bottle do
+    sha256 "3c7a8c7f133ff63b1398074340ed06140645d258b94e971d897f912b8631f609" => :big_sur
+    sha256 "0b3953f55c7d99378104344d01d3f3207cf4e0f8364906c90561ca43484e9d34" => :arm64_big_sur
     sha256 "b152b5f03f5bc0d7a50a834fef582ea7fb477dd7560afb4a0b1f4df88e229970" => :catalina
     sha256 "c2e68caac31470d6dbc66050b2dc42333b3dfc6956ee7453fba9032b5cf894a4" => :mojave
     sha256 "4de4a0a7ee3f81c7f7b36d7368380b2ff2a063c5d444302cd5979ee33727fb1c" => :high_sierra

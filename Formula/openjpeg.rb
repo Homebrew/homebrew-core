@@ -1,17 +1,17 @@
 class Openjpeg < Formula
   desc "Library for JPEG-2000 image manipulation"
   homepage "https://www.openjpeg.org/"
-  url "https://github.com/uclouvain/openjpeg/archive/v2.3.1.tar.gz"
-  sha256 "63f5a4713ecafc86de51bfad89cc07bb788e9bba24ebbf0c4ca637621aadb6a9"
+  url "https://github.com/uclouvain/openjpeg/archive/v2.4.0.tar.gz"
+  sha256 "8702ba68b442657f11aaeb2b338443ca8d5fb95b0d845757968a7be31ef7f16d"
   license "BSD-2-Clause"
   head "https://github.com/uclouvain/openjpeg.git"
 
   bottle do
     cellar :any
-    sha256 "29b9e0e1ed01683fd26a2fb07d7ee354d8d236033305d8b0ca1dd5f36568fc65" => :catalina
-    sha256 "6de317bfef3ab808ff5f3eb9c1aa47f77e7236fba8ad0d606b29b38eb47c321e" => :mojave
-    sha256 "1eb8b2f698ecf16196e06a2d9f7ba20eb7f0ba447d351e36eb3344d3ed6c5c58" => :high_sierra
-    sha256 "d2b377424ff5387892bc1af653654fdcc70702e4524f3309b3f0874ac6e2d84c" => :sierra
+    sha256 "43c37565eb2eec2b41dee3f1cc26e3324a42a368cb88092fe1b0dbc941f7678f" => :big_sur
+    sha256 "b57a02c3bc4ee8a43e47df5015e6e40a04d7149e172806157e279b1b03c715ef" => :arm64_big_sur
+    sha256 "80426609c75b98ee0ee394e9017bb621dc73dd2d6f60d0c851f6940d0b268676" => :catalina
+    sha256 "e26d092b6177ee282d3724dea5ea4cb76af3645472791c3fefb002e2638588b0" => :mojave
   end
 
   depends_on "cmake" => :build

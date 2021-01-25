@@ -10,6 +10,8 @@ class Duff < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "37eec490b6068cb6cb98f430740042712203e2bd2db39bfe25eeb5143f444965" => :big_sur
+    sha256 "a56fadd23b68f73dc6800cb2d13435b8bc8893b3b1cf3ce48660663840cab8a9" => :arm64_big_sur
     sha256 "9c383331f4c0f5f8efb8364079dd76994d6e210e4bdd4d6f8e96c53d55ee88d0" => :catalina
     sha256 "b2f5b9c19bb74d92c6b43482b77bf6d852355b83ddfda7ca4f6340a8075067f4" => :mojave
     sha256 "a30c57c79b3cef30518fccc5227e954dd9a2383e15458f85706733dcc1fe188a" => :high_sierra

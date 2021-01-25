@@ -14,8 +14,10 @@ class PostgresqlAT94 < Formula
 
   keg_only :versioned_formula
 
-  deprecate! date: "2020-02-13", because: :versioned_formula
+  # https://www.postgresql.org/support/versioning/
+  deprecate! date: "2020-02-13", because: :unsupported
 
+  depends_on arch: :x86_64
   depends_on "openssl@1.1"
   depends_on "readline"
 
@@ -28,7 +30,7 @@ class PostgresqlAT94 < Formula
 
   def install
     # Fix "configure: error: readline library not found"
-    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra || MacOS.version == :el_capitan
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version <= :sierra
 
     ENV.prepend "LDFLAGS", "-L#{Formula["openssl@1.1"].opt_lib} -L#{Formula["readline"].opt_lib}"
     ENV.prepend "CPPFLAGS", "-I#{Formula["openssl@1.1"].opt_include} -I#{Formula["readline"].opt_include}"
@@ -66,8 +68,20 @@ class PostgresqlAT94 < Formula
     return if ENV["CI"]
 
     (var/"log").mkpath
-    (var/name).mkpath
-    system "#{bin}/initdb", "#{var}/#{name}" unless File.exist? "#{var}/#{name}/PG_VERSION"
+    postgresql_datadir.mkpath
+    system "#{bin}/initdb", postgresql_datadir unless pg_version_exists?
+  end
+
+  def postgresql_datadir
+    var/name
+  end
+
+  def postgresql_log_path
+    var/"log/#{name}.log"
+  end
+
+  def pg_version_exists?
+    (postgresql_datadir/"PG_VERSION").exist?
   end
 
   def caveats
@@ -76,9 +90,6 @@ class PostgresqlAT94 < Formula
       you may need to remove the previous version first. See:
         https://github.com/Homebrew/legacy-homebrew/issues/2510
 
-      To migrate existing data from a previous major version (pre-9.3) of PostgreSQL, see:
-        https://www.postgresql.org/docs/9.3/static/upgrading.html
-
       When installing the postgres gem, including ARCHFLAGS is recommended:
         ARCHFLAGS="-arch x86_64" gem install pg
 
@@ -86,7 +97,7 @@ class PostgresqlAT94 < Formula
         https://docs.brew.sh/Gems,-Eggs-and-Perl-Modules
 
       This formula has created a default database cluster with:
-        initdb #{var}/postgres
+        initdb #{postgresql_datadir}
       For more details, read:
         https://www.postgresql.org/docs/#{version.major}/app-initdb.html
     EOS
@@ -108,14 +119,14 @@ class PostgresqlAT94 < Formula
         <array>
           <string>#{opt_bin}/postgres</string>
           <string>-D</string>
-          <string>#{var}/#{name}</string>
+          <string>#{postgresql_datadir}</string>
         </array>
         <key>RunAtLoad</key>
         <true/>
         <key>WorkingDirectory</key>
         <string>#{HOMEBREW_PREFIX}</string>
         <key>StandardErrorPath</key>
-        <string>#{var}/log/#{name}.log</string>
+        <string>#{postgresql_log_path}</string>
       </dict>
       </plist>
     EOS

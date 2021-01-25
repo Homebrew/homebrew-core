@@ -11,6 +11,8 @@ class Viennacl < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "696235e232844f8af5d062bc9197ab87fcacb012da49304b7cce059b145255cf" => :big_sur
+    sha256 "a59335b82a9f92448236ec0278d156f2425995d48fddcef730b906ca63aea6f9" => :arm64_big_sur
     sha256 "6fa1cf4450123da7e4af2910f6a9c41e7005d5591e05d035c06adddff44f25e0" => :catalina
     sha256 "0d2ae6a32779520d35e8194948a0df499bc147743fd54f59fe3c69e833e84f1c" => :mojave
     sha256 "7be4bc5f161868a9646a575530acd83034e7af6e39439e262c499b219738e74e" => :high_sierra

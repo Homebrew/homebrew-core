@@ -9,6 +9,8 @@ class Libconfig < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "3b66cbc5fae338f422386f6a2eecd650a64391da8d2f7fba259af614729844da" => :big_sur
+    sha256 "4f8ed5fc70f9240873fa41d407fb56b21b3d528609c3c66246faee586196a8d9" => :arm64_big_sur
     sha256 "5133affbfe2df2eccf05017748542e521e70a8db8763c8d8e39e00aec78fe3f8" => :catalina
     sha256 "b1c005fc0d3a811efcef915d8e84d9cc2828d6c35c5649f71fab3c714b2ae1ea" => :mojave
     sha256 "5762b7106a3e4ecc470193cd8abcfd40de090c456d42b413e545402246d73f69" => :high_sierra

@@ -4,23 +4,22 @@ class Sslyze < Formula
   desc "SSL scanner"
   homepage "https://github.com/nabla-c0d3/sslyze"
   license "AGPL-3.0-only"
-  revision 1
 
   stable do
-    url "https://github.com/nabla-c0d3/sslyze/archive/3.0.8.tar.gz"
-    sha256 "9a4d2354a0db53a70a4329e63af9ecc4639c74f9048811c2a3f03a41695c3cbe"
+    url "https://files.pythonhosted.org/packages/0b/85/a3a05d338c1860caf491dfa92517c93088f7e9c852600735c83f31375b6a/sslyze-4.0.1.tar.gz"
+    sha256 "c5b64a3c13b7a5e9f23ee04158bdcc408822834adb711cfcc98dfcd587eb86dc"
 
     resource "nassl" do
-      url "https://github.com/nabla-c0d3/nassl/archive/3.0.0.tar.gz"
-      sha256 "d340c176e497d8cf0a9233d36905195aec7d0ae9eabd9c837de8e0ad19019921"
+      url "https://github.com/nabla-c0d3/nassl/archive/4.0.0.tar.gz"
+      sha256 "b8a00062bf4cc7cf4fd09600d0a6845840833a8d3c593c0e615d36abac74f36e"
     end
   end
 
   bottle do
     cellar :any
-    sha256 "24f2434acae3f307fa6c3ec7394ca0a2aa937d7175a6e2302557633712287569" => :catalina
-    sha256 "35c1c6318e9848301e172869631a20fcc888f8709f217925aa0bf7ac8ebb6fac" => :mojave
-    sha256 "e6ead41b3aa4a17fb3058ad81e3ad5396dd90538d0be3a93095ac228667da2c1" => :high_sierra
+    sha256 "803e170a2e6371f96887741e51ae8cca487ebfdf7b864d1c871fd00c14a3ec1c" => :big_sur
+    sha256 "59f008974fe6cf172d5dd1ec69e144f76208d63688569683980cda09b709d899" => :catalina
+    sha256 "80662343bef03f1da2339aa77942455e265e16cd13f2c1e367abcbaf19dd9d1c" => :mojave
   end
 
   head do
@@ -32,19 +31,18 @@ class Sslyze < Formula
   end
 
   depends_on "pipenv" => :build
-  depends_on arch: :x86_64
   depends_on "libffi"
   depends_on "openssl@1.1"
   depends_on "python@3.9"
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/05/54/3324b0c46340c31b909fcec598696aaec7ddc8c18a63f2db352562d3354c/cffi-1.14.0.tar.gz"
-    sha256 "2d384f4a127a15ba701207f7639d94106693b6cd64173d6c8988e2c25f3ac2b6"
+    url "https://files.pythonhosted.org/packages/66/6a/98e023b3d11537a5521902ac6b50db470c826c682be6a8c661549cb7717a/cffi-1.14.4.tar.gz"
+    sha256 "1a465cbe98a7fd391d47dce4b8f7e5b921e6cd805ef421d04f5f66ba8f06086c"
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/9d/0a/d7060601834b1a0a84845d6ae2cd59be077aafa2133455062e47c9733024/cryptography-2.9.tar.gz"
-    sha256 "0cacd3ef5c604b8e5f59bf2582c076c98a37fe206b31430d0cd08138aff0986e"
+    url "https://files.pythonhosted.org/packages/b7/82/f7a4ddc1af185936c1e4fa000942ffa8fb2d98cff26b75afa7b3c63391c4/cryptography-3.3.1.tar.gz"
+    sha256 "7e177e4bea2de937a584b13645cab32f25e3d96fc0bc4a4cf99c27dc77682be6"
   end
 
   resource "pycparser" do

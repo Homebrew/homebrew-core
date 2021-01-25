@@ -1,15 +1,16 @@
 class Navi < Formula
   desc "Interactive cheatsheet tool for the command-line"
   homepage "https://github.com/denisidoro/navi"
-  url "https://github.com/denisidoro/navi/archive/v2.12.1.tar.gz"
-  sha256 "167c1781062d2621f2d07059e71f5b1e1aa0560798d7799971681808a6d42ed0"
+  url "https://github.com/denisidoro/navi/archive/v2.14.0.tar.gz"
+  sha256 "544c01e9d10dfcdcdded7758411e90d69e9b4734dfda1c0908359a72ba7b2bee"
   license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "171dd5b3887c1728a16cdb1169c49c2ed1440647ad4541aa9afae6ac60dbfad1" => :catalina
-    sha256 "a55e7861b4604c1ba8acac766cd1b89a83a6d0ee644def396f89baae26a5aff0" => :mojave
-    sha256 "14297fa981aa825970ca6ea22369faea3056ca2c381a45195195698fa060d71c" => :high_sierra
+    sha256 "85d58e075944fcde015a3e45ed06668e64d72cd0b49afd5e719877da83863392" => :big_sur
+    sha256 "d4d7330da91c8993867b2c2443cad374b07d063a1ea4587e404fe6b99705f83b" => :arm64_big_sur
+    sha256 "2aa8fa7b3e54b886bcdec48fc5985ec0ad5f839f60e3ceeee385ba440277106b" => :catalina
+    sha256 "b03eabbab9d70619bbbef6a6b97cf86f46cf6f64f3dca444ea7da818813693cb" => :mojave
   end
 
   depends_on "rust" => :build
@@ -22,6 +23,7 @@ class Navi < Formula
   test do
     assert_match "navi " + version, shell_output("#{bin}/navi --version")
     (testpath/"cheats/test.cheat").write "% test\n\n# foo\necho bar\n\n# lorem\necho ipsum\n"
-    assert_match "bar", shell_output("export RUST_BACKTRACE=1; #{bin}/navi --path #{testpath}/cheats best foo")
+    assert_match "bar",
+        shell_output("export RUST_BACKTRACE=1; #{bin}/navi --path #{testpath}/cheats --query foo --best-match")
   end
 end

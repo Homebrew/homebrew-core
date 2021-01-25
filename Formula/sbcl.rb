@@ -1,8 +1,8 @@
 class Sbcl < Formula
   desc "Steel Bank Common Lisp system"
   homepage "http://www.sbcl.org/"
-  url "https://downloads.sourceforge.net/project/sbcl/sbcl/2.0.9/sbcl-2.0.9-source.tar.bz2"
-  sha256 "c4f700350c113fe003ee93a9922146209d6fa50b63c6accc4abf90fb38cb9b9f"
+  url "https://downloads.sourceforge.net/project/sbcl/sbcl/2.0.11/sbcl-2.0.11-source.tar.bz2"
+  sha256 "87d2aa53cef092119a1c8b2f3de48d209375a674c3b60e08596838013bd7971d"
   license all_of: [:public_domain, "MIT", "Xerox", "BSD-3-Clause"]
 
   livecheck do
@@ -11,10 +11,12 @@ class Sbcl < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "76e2f2cd95b959dc8491cbba16e8d2ee2782d778b564e6707812315c168a450f" => :catalina
-    sha256 "20fb22efdea18605e1f4b6e0f3c86e69dc208aadeb7058a01d6ede1963b75e4b" => :mojave
-    sha256 "7519da8f9d9c5b9bd22fcf638917e4b25040e666cfaae4b733923200a2bae891" => :high_sierra
+    sha256 "e6a0d4ba798d435a261e93062461a15801a42af1cab9344cdeab824b00112318" => :big_sur
+    sha256 "82afe9ba6dad370ba0895be28b3591eeae9bb88fbba93a916637cea1e6b140c3" => :catalina
+    sha256 "a8eadb8a7b8a092995d0f29f4b68cf5450c070dd41bdf3f9f15e4907b516d48b" => :mojave
   end
+
+  depends_on arch: :x86_64
 
   uses_from_macos "zlib"
 

@@ -7,24 +7,22 @@ class DarkskyWeather < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "64aac1bb9c9f6fc856fdb6e818b11d715addb17c6f35480abf0a337c1dcaa311" => :catalina
-    sha256 "ae72f00275774f08c66fb8f90697545b97701c4fb819416fb6215779ec775cab" => :mojave
-    sha256 "b621c14d94f6e0e1c350e0bc78c0269bed889b065d811acb8da39d137de5ac4f" => :high_sierra
+    rebuild 1
+    sha256 "af8fc6e9a4a4ed68bd19daabdce01d846f4e8d88028bccca8c9bec090cf53e29" => :big_sur
+    sha256 "d21740455ddc5db0a56e33e5f96dd7248d46b680414f5cff834faf3fb670b618" => :arm64_big_sur
+    sha256 "736015c107e06e6251e4007ebc838addfe37ad6fa32683c05fb89be3d1b800f6" => :catalina
+    sha256 "a38cef91ca53c2d452353cf3a15198b9946b67e7b601627b5e414359d23fa559" => :mojave
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
-    (buildpath/"src/github.com/genuinetools/weather").install buildpath.children
-
-    cd "src/github.com/genuinetools/weather" do
-      project = "github.com/genuinetools/weather"
-      ldflags = ["-X #{project}/version.GITCOMMIT=homebrew",
-                 "-X #{project}/version.VERSION=v#{version}"]
-      system "go", "build", "-o", bin/"weather", "-ldflags", ldflags.join(" ")
-      prefix.install_metafiles
-    end
+    project = "github.com/genuinetools/weather"
+    ldflags = ["-s -w",
+               "-X #{project}/version.GITCOMMIT=homebrew",
+               "-X #{project}/version.VERSION=v#{version}"]
+    system "go", "build", *std_go_args, "-ldflags", ldflags.join(" ")
+    mv bin/"darksky-weather", bin/"weather"
   end
 
   test do

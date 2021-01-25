@@ -5,16 +5,15 @@ class Portaudio < Formula
   version "19.6.0"
   sha256 "f5a21d7dcd6ee84397446fa1fa1a0675bb2e8a4a6dceb4305a8404698d8d1513"
   version_scheme 1
-  head "https://git.assembla.com/portaudio.git"
+  head "https://github.com/PortAudio/portaudio.git"
 
   bottle do
     cellar :any
-    sha256 "fef3e25b903e0e22e1899afe1a456ccb8f372e7123c17eda90607cc5e98271b4" => :catalina
-    sha256 "54d0d7a2e270221cef38c5405a5102a0efc19df4aa88d907d74d0eefebbc31ba" => :mojave
-    sha256 "c8c55723ecdb61b8e4f4431062814d6ce8a267a19fe3e34c70b2bd677a0e20f9" => :high_sierra
-    sha256 "4fb62387583b02607e013f376c02b4a1f6c2a2fa9b68ee43e79c9c04d12f9a45" => :sierra
-    sha256 "96afa37e0de1723e4fa206360f189ed0486ecd74a5554dcab75eb47395be78db" => :el_capitan
-    sha256 "64b21e55c28066264ee09918c045b77c0b1049a19f8df4636283ce17b1d84944" => :yosemite
+    rebuild 2
+    sha256 "15cafef0378ce5a162f4210be1809c22358ca22bfd6f199fb8fe0448ef9f4812" => :big_sur
+    sha256 "f28bf56e8387efa44468a1dd8b6b57a0075580a4a27d075a762469ef244f94d2" => :arm64_big_sur
+    sha256 "752ecb3b066e413e83b40c2d9f1170927a600711deccb3ca861fc4a4137622f7" => :catalina
+    sha256 "7aaae4d4ce8ecabf6470178d71aa826ea2808009ceb602cb52fa17658d34cc61" => :mojave
   end
 
   depends_on "pkg-config" => :build

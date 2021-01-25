@@ -1,8 +1,8 @@
 class Gromacs < Formula
   desc "Versatile package for molecular dynamics calculations"
-  homepage "http://www.gromacs.org/"
-  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2020.4.tar.gz"
-  sha256 "5519690321b5500c7951aaf53ff624042c3edd1a5f5d6dd1f2d802a3ecdbf4e6"
+  homepage "https://www.gromacs.org/"
+  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2020.5.tar.gz"
+  sha256 "7b6aff647f7c8ee1bf12204d02cef7c55f44402a73195bd5f42cf11850616478"
 
   livecheck do
     url "https://ftp.gromacs.org/pub/gromacs/"
@@ -10,9 +10,10 @@ class Gromacs < Formula
   end
 
   bottle do
-    sha256 "a47955588b6626afba661dd5a72b7b2e4669f28e59060ebfd9e033f2739ba56e" => :catalina
-    sha256 "3741e067b76102f12bd52d2a9f5cfb5ff2a437f60c09788f8a4cd2b066966cf9" => :mojave
-    sha256 "931193676d571f0418f11bf67885b2a0d0f5c94ce0e6f2bcd7f6f5910ec5ebd1" => :high_sierra
+    sha256 "649f05f376aa374b060807f2d6409c2d7e3ea4e96ec6736a0e8759446604597a" => :big_sur
+    sha256 "695030d3fca2b654f2b1a9abcf5bcd0b29adc917d12633312bdfd201e8ea84d1" => :arm64_big_sur
+    sha256 "14af8abdc37c7dfad95a33545c510244ec1af163fde27a96d21f5ac7256ae93a" => :catalina
+    sha256 "d3da525c518fcf8401382ce76081a07de31f09b89ae9a6fc4d4f2807f9a6ea3b" => :mojave
   end
 
   depends_on "cmake" => :build

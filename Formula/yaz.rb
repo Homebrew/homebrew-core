@@ -5,8 +5,15 @@ class Yaz < Formula
   sha256 "f0497fd8420574efab4e5738ea3b70787a6e8042f585156baa30bdc1911ba552"
   license "BSD-3-Clause"
 
+  livecheck do
+    url "http://ftp.indexdata.dk/pub/yaz/"
+    regex(/href=.*?yaz[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
+    sha256 "bae268483a7bf1bbf81bf4930cb34145b1c5172f1e1737f8b07cf220a3566711" => :big_sur
+    sha256 "410d2e4b4dde8c3392375c3b37aedc1911fbd80c389c68d4eae5619c0593a555" => :arm64_big_sur
     sha256 "3e99cfd562ae262f299752a7d92dbad3f9b67dd37726e90b1109684f0deac7d1" => :catalina
     sha256 "0fb86a32e27613df4ef17bc76556364a85d220c9d044f6f2c515ca0bb2e94c6a" => :mojave
     sha256 "a3dd5357b88bd5780a90dc1fb51c12943d3a8ba6ce69073fb262116c9b050b3e" => :high_sierra

@@ -3,20 +3,22 @@ class Xclip < Formula
   homepage "https://github.com/astrand/xclip"
   url "https://github.com/astrand/xclip/archive/0.13.tar.gz"
   sha256 "ca5b8804e3c910a66423a882d79bf3c9450b875ac8528791fb60ec9de667f758"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c3b3e66635b85111a16a3a9ab1fedbe9872d2848d2dbba421fac8b8bf081a759" => :catalina
-    sha256 "7bb1acc9b968eba155874f614dbfea960e883121321b063faf81f106f2521014" => :mojave
-    sha256 "0963015158b7d4ae2981503edc18427737a0586b7155da5cd2ddaa93fb3b92bd" => :high_sierra
-    sha256 "bb26c2bb6d7ce8f15ab50144f38d11ddde113bb400326ccea990ca9a5d0a9c69" => :sierra
-    sha256 "9e17790e9a94ae1e29317f013a65f2d639ae9063db48ed7fa0aed7449f221abb" => :el_capitan
+    cellar :any
+    sha256 "4b3d034f8770dd75585b98910ce1ad1c0bbe010f91f61c814f9b655cc978e122" => :big_sur
+    sha256 "2a9e42621fbc329856454f299e2da20b8776de9136cf1233a97ec4662ef2b5fe" => :arm64_big_sur
+    sha256 "2229de2d3139a5a916be1d7e6c3227ef989ff20ce4322f0881eaeb22ee34caf1" => :catalina
+    sha256 "7bacdf14b8a248a969952c6cba098e01b15d63b280b95a453164d2b0117400dc" => :mojave
+    sha256 "4ff44edecff889254b56f12f261127e90f20c8b0f8d10e0d7f6b41788be0b2e4" => :high_sierra
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on :x11
+  depends_on "libx11"
+  depends_on "libxmu"
 
   def install
     system "autoreconf", "-fiv"

@@ -11,6 +11,8 @@ class Smpeg < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "1b667d8cc8548a25b1a5c16e706f9fba9a0a4a3380c1674ba64444abb3d18837" => :big_sur
+    sha256 "1078558dafa6125c781a6b50242fc8def024f36dc3d8f4c1ae719c05779f12c2" => :arm64_big_sur
     sha256 "929cb2fe89f7525acbf38a269bde8aaf07f7b2d406007ee9df2d21051a0ccba6" => :catalina
     sha256 "6e826bd49ceb171cc36877c0498d8ccfc3c614f39b684728e0c307b69942d58c" => :mojave
     sha256 "2779c8aba2aed376076e53fc9e2e694e8b5fabca0096ae91eed786b73ef3704f" => :high_sierra

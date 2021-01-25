@@ -1,9 +1,9 @@
 class Ats2Postiats < Formula
   desc "Programming language with formal specification features"
   homepage "http://www.ats-lang.org/"
-  url "https://downloads.sourceforge.net/project/ats2-lang/ats2-lang/ats2-postiats-0.4.1/ATS2-Postiats-0.4.1.tgz"
-  sha256 "03f4bf7205f76732624c32a4bf0b346ddace23fdb5a1cde25c378d33043aaa3c"
-  license "GPL-3.0"
+  url "https://downloads.sourceforge.net/project/ats2-lang/ats2-lang/ats2-postiats-0.4.2/ATS2-Postiats-0.4.2.tgz"
+  sha256 "a6facf2ba3e8bb0b3ca9b62fd0d679c31a152842414fccd34079101739042c59"
+  license "GPL-3.0-only"
 
   livecheck do
     url :stable
@@ -12,9 +12,11 @@ class Ats2Postiats < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "31e2f0c1a4e5e24ff4dfe3249f3713ef233c9440e4f14919faec3d330f8442c6" => :catalina
-    sha256 "8c92d41d016bfdbbe3e8a85cd2732eed7ad829ce3195b1179022fc21fffd7788" => :mojave
-    sha256 "c468d51fd400472c4c311dd3649bff46c4d43c38c29b17b47e08ec1b0d73e869" => :high_sierra
+    sha256 "2e7267a095f51b3cdc898bb3dd5c051613383a7b79019b291c1586b3d8fe2ec0" => :big_sur
+    sha256 "938b458e7e8701d45fdc90ce46157b9e75017efee8cb20b089d5964419bb4922" => :arm64_big_sur
+    sha256 "19ea3eb93cc5ba40ce3c1bdc48666edd4a8cd00027fbb4531392a0f15ecc7a94" => :catalina
+    sha256 "9e0b2824b0ea3d67e22c6690d3608c5d09d9855075e9811ad71b5f2703be9304" => :mojave
+    sha256 "91d683a9f1c94daff0e9b089cc7a5ceda949eb4b5aa7d286c554d9506ee6d49c" => :high_sierra
   end
 
   depends_on "gmp"

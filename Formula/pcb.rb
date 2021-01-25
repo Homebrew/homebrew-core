@@ -4,6 +4,7 @@ class Pcb < Formula
   url "https://downloads.sourceforge.net/project/pcb/pcb/pcb-4.2.2/pcb-4.2.2.tar.gz"
   sha256 "1ceeaf1bdbe0508b9b140ca421eb600836579114c04dee939341c5d594f36e5d"
   license "GPL-2.0"
+  revision 1
   version_scheme 1
 
   livecheck do
@@ -12,9 +13,10 @@ class Pcb < Formula
   end
 
   bottle do
-    sha256 "a1dca0926d6752943013906f21eb4f1d14156fcbb3dfc9906953df52ab7e7b51" => :catalina
-    sha256 "0f598ed594a62cf96451a20635e186967957db8a536c20398285d26d88505772" => :mojave
-    sha256 "95e752fd6939e81b4fe3a1b5e035a2240921e8ad9e507373735b5c81336978e1" => :high_sierra
+    sha256 "04cf9052dcb362c237c6f0b6d08a6c552379a3ee02313c342c2878bb59c87495" => :big_sur
+    sha256 "2b9c6d5652265df79bbfabd9c44d536eda042ca96477d2f3a73dfb75e74c97eb" => :arm64_big_sur
+    sha256 "5b2b7bf29ad42bcecc53dbb0cee9b4801f64205db7f6a89277f9ee6fed5db050" => :catalina
+    sha256 "2312c4e25ecb5197ce93bf288b898efa5918b1f8084921ded604503c84ed2d33" => :mojave
   end
 
   head do

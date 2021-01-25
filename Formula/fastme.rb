@@ -7,6 +7,8 @@ class Fastme < Formula
 
   bottle do
     cellar :any
+    sha256 "ce3fa9ef0eac119aebbdb0feb8f588c54ff423f1a0cdc1e0c0d489f19a86e745" => :big_sur
+    sha256 "833dd8f14112444ba2131ea4d2213a4ebff23842882460139ae46e75ce6ce778" => :arm64_big_sur
     sha256 "ef8226e09481486fa3e047ee5145cfc0dc370fceaa702095b835ad701eebf9fe" => :catalina
     sha256 "517b3f8d0fe9b403b9de35ebca8af530f859a66ae788ee779e21b9d62e9c5c6f" => :mojave
     sha256 "25cf8eb54ef7416842036f83c99eebb5a5881267d642f4a2c84c94fb5892a511" => :high_sierra

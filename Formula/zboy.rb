@@ -13,6 +13,8 @@ class Zboy < Formula
 
   bottle do
     cellar :any
+    sha256 "932d9411d6f5119849d230a6747e7bd65cade0d64c80128ea2ffee8096797dd2" => :big_sur
+    sha256 "3ca2df4138ab68a6124473e973ac17161cbb8850388c21cf768008f204361eb6" => :arm64_big_sur
     sha256 "9e143e9227bc22e48d66f7e9f3239374d4d22edc4d0867ffe50f8f60180d27db" => :catalina
     sha256 "8e8a1a05aef5dbfde8ab113ef4e2da14bcf440a7bdb7a001a4913e60b90c23b0" => :mojave
     sha256 "52b7fa6f933809f05ba692036e78233bb0da2947b5cfc8d1a85ab37037f0cac9" => :high_sierra

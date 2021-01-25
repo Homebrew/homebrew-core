@@ -13,6 +13,8 @@ class Ipmitool < Formula
 
   bottle do
     cellar :any
+    sha256 "6dd8c02b3e556949c98d40980dd9c1b456d1fa078d9d7792f36977e7d239a4ac" => :big_sur
+    sha256 "3223279b0188313a5d87ede24617f6bda5921acc1ce135c30c7c43823f14913f" => :arm64_big_sur
     sha256 "926d5c49a0a1b9411e45c54e412403003266c27127059edb50b40e07adaf2260" => :catalina
     sha256 "3bf8d00d62c2e1dc781493d448062ad365ac8e7c73010ee37ba2040a48513c10" => :mojave
     sha256 "04462f0b4129d34cbf7e8e5c72591360e89dd6d6cef20008567015d57ab611c4" => :high_sierra

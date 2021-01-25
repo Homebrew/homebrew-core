@@ -8,6 +8,8 @@ class Capstone < Formula
 
   bottle do
     cellar :any
+    sha256 "21dd5b41e81b165e0419901103aa46ab8afee2be5453b2076c8f7a5b94fdf211" => :big_sur
+    sha256 "5c2d67aeb32a36c76d1918ec10de347971b385fc73b3025c97639467dc5302e2" => :arm64_big_sur
     sha256 "b434ee96e9d7c413e289340b280705a6c3b9929cf1859de865d88bc012c34396" => :catalina
     sha256 "c90885740ef54af155c2a0151dc85f728a3aa7ca304a45510e5524ac7fecb7fc" => :mojave
     sha256 "c6d974a3c237fc36bfea2042d95551f2be7197d37fc0df6c7b9ea2179cd01084" => :high_sierra

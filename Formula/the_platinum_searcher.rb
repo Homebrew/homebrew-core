@@ -8,25 +8,24 @@ class ThePlatinumSearcher < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fbaca6dca74533a513f9b483607a75fe1ae1b772e39bd3e051d3c859bf378f84" => :catalina
-    sha256 "b2e99bee242a5b9a1667a321de1e777eb83a8023b034ebe0da3fc0953a193f26" => :mojave
-    sha256 "5b85047b2b893e8ec45e3f68b37c09cfb80ceb0a7c2b9c70937f2f2ca1f6f0bc" => :high_sierra
-    sha256 "1e952c6a666f180343cfdc1afa859f702638276e597d4292520fa6cf91ac82b8" => :sierra
-    sha256 "3439437518655cdd74c95eda5a161c01d5fe80604ef9c3e8936449a96ba3dcc1" => :el_capitan
+    rebuild 1
+    sha256 "63cc973af4c1fc612acb86c7a928f1680f84db7edfae52f374b95925c00761dc" => :big_sur
+    sha256 "0f3097b2d88f4b8479ecb3e3439f6688656fc1c5e20f18a4c300edf9ea953874" => :arm64_big_sur
+    sha256 "79066cac44fd6cd21b8feadc9737045f98846832f15bd2a2e1fdaae3a8165e6d" => :catalina
+    sha256 "6b7fb2ff2ca2b5a0d264a7733a59eb0e1b68e211d15a261f6bbcab5664bb6ff7" => :mojave
   end
 
   depends_on "go" => :build
-  depends_on "godep" => :build
+
+  # Patch to remove godep dependency. Remove when this is merged into release:
+  # https://github.com/monochromegane/the_platinum_searcher/pull/211
+  patch do
+    url "https://github.com/monochromegane/the_platinum_searcher/commit/763f368fe26fa44a12e1a37598185322aa30ba8f.patch?full_index=1"
+    sha256 "2ee0f53065663f22f3c44b30c5804e37b8cb49200a30c4513b9ef668441dd543"
+  end
 
   def install
-    ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/github.com/monochromegane/the_platinum_searcher"
-    dir.install buildpath.children
-    cd dir do
-      system "godep", "restore"
-      system "go", "build", "-o", bin/"pt", ".../cmd/pt"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args, "-o", bin/"pt", "./cmd/pt"
   end
 
   test do

@@ -9,6 +9,8 @@ class Kubebuilder < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c9fbe3f2af36d56afc501528827dd63aa7c2e450ae55d29372ea83b717b34d59" => :big_sur
+    sha256 "6c271a2044413fe81d9c4671efbd2a66bce5ee9693731bfb2001292be1901a76" => :arm64_big_sur
     sha256 "b587ddd6d67b12a7fd2635f8f4da56402133a036fe79e635b08427b401a9b71b" => :catalina
     sha256 "7de399f00ecd47e3150e05d213a44886f499456ed5480c095100e329203ab399" => :mojave
     sha256 "62040031af53761dbe639796b5dc95278be2a048380f691563fb9cd4ef7f8041" => :high_sierra

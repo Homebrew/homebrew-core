@@ -2,6 +2,7 @@ class Antiword < Formula
   desc "Utility to read Word (.doc) files"
   homepage "http://www.winfield.demon.nl/"
   url "http://www.winfield.demon.nl/linux/antiword-0.37.tar.gz"
+  mirror "https://fossies.org/linux/misc/old/antiword-0.37.tar.gz"
   sha256 "8e2c000fcbc6d641b0e6ff95e13c846da3ff31097801e86702124a206888f5ac"
 
   livecheck do
@@ -10,6 +11,8 @@ class Antiword < Formula
   end
 
   bottle do
+    sha256 "d155e9094844588db872b6791fe727bb72fac4a72d9897bac768a813c1bf273a" => :big_sur
+    sha256 "b47c2693abcaa8e3b9bc14a4239b1cd857f66f1fa381009659b7e1bc7f7d52c2" => :arm64_big_sur
     sha256 "7f62624bf238ba077370f6e8e223704b57eee461f2bbaddc47de8e4b5c5a4eda" => :catalina
     sha256 "63b4aa9e31936c405039161b1ae728d76472bb9932a7b460e1fdd7a1276ee5ad" => :mojave
     sha256 "cacd3e8a83231fd139a5b845f17fb99a34f728d10df2eb6289457037ee8c827f" => :high_sierra

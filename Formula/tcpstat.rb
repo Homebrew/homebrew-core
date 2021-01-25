@@ -9,6 +9,8 @@ class Tcpstat < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "1a8c9f2f529162b1b5fecee421aaa0c99b80864f752717142fb7f77c5f5acc43" => :big_sur
+    sha256 "0f5880a02d97d890364b5e98871dabb0682bf1d73d43f6a2cf92f0039f29619c" => :arm64_big_sur
     sha256 "86c1f5aad64e2d611dcb9d74b4eb0f51f24f79d1cdcaf636f62199099d625fa1" => :catalina
     sha256 "805b8444d7bcf36e2da7285474b20f5193f8e104fd990e9f87fa922bdb13801d" => :mojave
     sha256 "164e0b5ef61bb28432b7a3d5aa23ca78d291130aa9473b9019dce643ac93bc03" => :high_sierra

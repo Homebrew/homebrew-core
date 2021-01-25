@@ -7,6 +7,8 @@ class Minimodem < Formula
 
   bottle do
     cellar :any
+    sha256 "09ee4e144cb7484994278cf3698474f9d205fb38d926c1936046c422eb772a99" => :big_sur
+    sha256 "659dd378a4d6fc0f96d3752b6fd8303f0f6c79beeb0424fa8456ec33d270fb02" => :arm64_big_sur
     sha256 "5f9cd0c17ee17754bfe88c6e275111270e0a0d0cdebb663a0045d6ad49c8b9a8" => :catalina
     sha256 "4c89fe35fbc5478c20d1db50f023c7c89467b7fbd17bd77810a6e8ff63e4b945" => :mojave
     sha256 "091170cbfa058de152f2f1af5f2436963297c01e323e80fdfcd5bcf6d8c9cabd" => :high_sierra

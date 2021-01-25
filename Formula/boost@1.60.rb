@@ -17,7 +17,7 @@ class BoostAT160 < Formula
 
   keg_only :versioned_formula
 
-  disable! because: :versioned_formula
+  disable! date: "2020-09-01", because: :versioned_formula
 
   uses_from_macos "bzip2"
   uses_from_macos "zlib"

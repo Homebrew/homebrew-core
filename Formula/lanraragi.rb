@@ -3,16 +3,17 @@ require "language/node"
 class Lanraragi < Formula
   desc "Web application for archival and reading of manga/doujinshi"
   homepage "https://github.com/Difegue/LANraragi"
-  url "https://github.com/Difegue/LANraragi/archive/v.0.7.3.tar.gz"
-  sha256 "1a094d32c14aee98844bfe18c828dc894d1d896f489a1f8bb8b1547f72eed4ee"
+  url "https://github.com/Difegue/LANraragi/archive/v.0.7.6.tar.gz"
+  sha256 "2c498cc6a18b9fbb77c52ca41ba329c503aa5d4ec648075c3ebb72bfa7102099"
   license "MIT"
   head "https://github.com/Difegue/LANraragi.git"
 
   bottle do
     cellar :any
-    sha256 "bf89ef8d01201a2c8c7f4b3f021e0b8a7f2fc0ce735dfcbdf27eb24cce83c8f2" => :catalina
-    sha256 "480c60d88cdb9ab9eaf4c029c1d3b8177cb1bc09dbaa82f5a6d7a3b084877511" => :mojave
-    sha256 "42582dedd46c0bc79b72e42a8f984319f6e0d6dc400ae12c67d41592601fd6d8" => :high_sierra
+    sha256 "5b9611acede455e4cf1824e66a679e85afd16a42415ba99ebd5e2fa003f0e8e3" => :big_sur
+    sha256 "5148e0c27b0c846b47e07709881535bb5f9275bb56ee1606ae8dcf4187c2e2a4" => :arm64_big_sur
+    sha256 "29db68f2046e913cb84ab42287f11a3947e7254880f1c62d681a3dc615419829" => :catalina
+    sha256 "3dd8f138db740d32a6f1b6c87687efa307dc0c88e7d61375d203b20070a41955" => :mojave
   end
 
   depends_on "pkg-config" => :build
@@ -29,14 +30,13 @@ class Lanraragi < Formula
   uses_from_macos "libarchive"
 
   resource "Image::Magick" do
-    url "https://cpan.metacpan.org/authors/id/J/JC/JCRISTY/PerlMagick-6.89-1.tar.gz"
-    sha256 "c8f81869a4f007be63e67fddf724b23256f6209f16aa95e14d0eaef283772a59"
+    url "https://cpan.metacpan.org/authors/id/J/JC/JCRISTY/PerlMagick-6.9.11.tar.gz"
+    sha256 "3af99fb4625fe6c7ccb55c79709afe31df4af66886a35e5c5a494507a0814061"
   end
 
-  # libarchive headers from macOS 10.15 source
-  resource "libarchive-headers-10.15" do
-    url "https://opensource.apple.com/tarballs/libarchive/libarchive-72.11.2.tar.gz"
-    sha256 "655b9270db794ba0b27052fd37b1750514b06769213656ab81e30727322e401f"
+  resource "libarchive-headers" do
+    url "https://opensource.apple.com/tarballs/libarchive/libarchive-83.40.4.tar.gz"
+    sha256 "20ad61b1301138bc7445e204dd9e9e49145987b6655bbac39f6cad3c75b10369"
   end
 
   resource "Archive::Peek::Libarchive" do
@@ -45,13 +45,15 @@ class Lanraragi < Formula
   end
 
   def install
-    ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
-    ENV.prepend_path "PERL5LIB", libexec/"lib"
-    ENV["CFLAGS"] = "-I"+libexec/"include"
+    ENV.prepend_create_path "PERL5LIB", "#{libexec}/lib/perl5"
+    ENV.prepend_path "PERL5LIB", "#{libexec}/lib"
+    ENV["CFLAGS"] = "-I#{libexec}/include"
 
+    imagemagick = Formula["imagemagick@6"]
     resource("Image::Magick").stage do
       inreplace "Makefile.PL" do |s|
-        s.gsub! "/usr/local/include/ImageMagick-6", "#{Formula["imagemagick@6"].opt_include}/ImageMagick-6"
+        s.gsub! "/usr/local/include/ImageMagick-#{imagemagick.version.major}",
+                "#{imagemagick.opt_include}/ImageMagick-#{imagemagick.version.major}"
       end
 
       system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
@@ -59,9 +61,10 @@ class Lanraragi < Formula
       system "make", "install"
     end
 
-    resource("libarchive-headers-10.15").stage do
-      (libexec/"include").install "libarchive/libarchive/archive.h"
-      (libexec/"include").install "libarchive/libarchive/archive_entry.h"
+    resource("libarchive-headers").stage do
+      cd "libarchive/libarchive" do
+        (libexec/"include").install "archive.h", "archive_entry.h"
+      end
     end
 
     resource("Archive::Peek::Libarchive").stage do
@@ -79,15 +82,12 @@ class Lanraragi < Formula
     system "perl", "./tools/install.pl", "install-full"
 
     prefix.install "README.md"
-    bin.install "tools/build/homebrew/lanraragi"
     (libexec/"lib").install Dir["lib/*"]
-    libexec.install "script"
-    libexec.install "package.json"
-    libexec.install "public"
-    libexec.install "templates"
-    libexec.install "tests"
-    libexec.install "tools/build/homebrew/redis.conf"
-    libexec.install "lrr.conf"
+    libexec.install "script", "package.json", "public", "templates", "tests", "lrr.conf"
+    cd "tools/build/homebrew" do
+      bin.install "lanraragi"
+      libexec.install "redis.conf"
+    end
   end
 
   def caveats

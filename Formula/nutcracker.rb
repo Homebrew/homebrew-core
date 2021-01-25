@@ -8,6 +8,8 @@ class Nutcracker < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "52b41a5455e35d0002ab058b42205c2d0df6a58797e8f5cbf1dc294ededf4ffb" => :big_sur
+    sha256 "88e41fafc9595aa7c4b1274d9168b9ef5455393f37ba3ea278b375180d1fd0bd" => :arm64_big_sur
     sha256 "ffac57428129de09b69d1cff52add5e369dc61a7ff70882c44bebe05d1705ae0" => :catalina
     sha256 "e089d40fa4c225d6d8a2f5d7aec22d073fabdcd99d38ad3f99fd292fed534d8a" => :mojave
     sha256 "8d4ab58ba04b1c0622915d080a4b12e6c70b2c338df40ad357b217a6a8ac43e5" => :high_sierra

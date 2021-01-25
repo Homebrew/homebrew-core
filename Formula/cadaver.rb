@@ -5,7 +5,9 @@ class Cadaver < Formula
   mirror "https://src.fedoraproject.org/repo/pkgs/cadaver/cadaver-0.23.3.tar.gz/502ecd601e467f8b16056d2acca39a6f/cadaver-0.23.3.tar.gz"
   mirror "https://web.archive.org/web/20170629224036/www.webdav.org/cadaver/cadaver-0.23.3.tar.gz"
   sha256 "fd4ce68a3230ba459a92bcb747fc6afa91e46d803c1d5ffe964b661793c13fca"
+  license "GPL-2.0-or-later"
   revision 5
+  head "https://github.com/notroj/cadaver.git"
 
   livecheck do
     url :homepage
@@ -13,10 +15,11 @@ class Cadaver < Formula
   end
 
   bottle do
-    sha256 "44367afa090d79665cfc760d44daa172e1489627aaf7b8a125af8701b2b813e4" => :catalina
-    sha256 "57ebca208464b812e3bbb1df71e68369227d29005a15c990087f7de761007458" => :mojave
-    sha256 "d828c3a7454ea82ec5e575aebc3f57911ee3f08e45ed64ae1293026fc0ee8380" => :high_sierra
-    sha256 "2a80f1355db0d31d395596ab4941565af8f3d6dda36952c834e2ebeaadb9d65b" => :sierra
+    rebuild 1
+    sha256 "240a41ea5b71aa144bea0fdb28b6233130d5368e8a221171eaa7bee24f5075a6" => :big_sur
+    sha256 "859215276f7fda671ceee3b7908772d84fccd12873e6bb6cac0f90c50982cbcc" => :arm64_big_sur
+    sha256 "da94dea10afd90e1d0e41f24d4319ea006bf909381de2c2379c3144374c3feff" => :catalina
+    sha256 "a232491b47135718f6cf65d00954099d92a43f5fcc6b01838a676faa77f2ed13" => :mojave
   end
 
   depends_on "pkg-config" => :build
@@ -50,7 +53,7 @@ __END__
      if test "$ne_cv_lib_neon" = "yes"; then
         ne_cv_lib_neonver=no
 -       for v in 27 28 29; do
-+       for v in 27 28 29 30; do
++       for v in 27 28 29 30 31; do
            case $ne_libver in
            0.$v.*) ne_cv_lib_neonver=yes ;;
            esac
@@ -60,8 +63,8 @@ __END__
  else
 -    { $as_echo "$as_me:$LINENO: incompatible neon library version $ne_libver: wanted 0.27 28 29" >&5
 -$as_echo "$as_me: incompatible neon library version $ne_libver: wanted 0.27 28 29" >&6;}
-+    { $as_echo "$as_me:$LINENO: incompatible neon library version $ne_libver: wanted 0.27 28 29 30" >&5
-+$as_echo "$as_me: incompatible neon library version $ne_libver: wanted 0.27 28 29 30" >&6;}
++    { $as_echo "$as_me:$LINENO: incompatible neon library version $ne_libver: wanted 0.27 28 29 30 31" >&5
++$as_echo "$as_me: incompatible neon library version $ne_libver: wanted 0.27 28 29 30 31" >&6;}
      neon_got_library=no
  fi
  

@@ -6,6 +6,8 @@ class Aoeui < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "80411e75607878170abd4516b4ff368d8b4a8d1da0855c540d069d5b4cb88464" => :big_sur
+    sha256 "daa6bd80f0cf479ba65187c2834ce38add2aeb37f93094596dcac9eda5001a68" => :arm64_big_sur
     sha256 "79a6d037053bc2b3fcd21870ccc274ad02f8e47bde5c9755b8665c25609ddd3a" => :catalina
     sha256 "c1e5c83add4ecaae6e45f5bed048045a0b2e81794244daf93028161bdd71e031" => :mojave
     sha256 "946acae5b1b88cb67bf805e6b8a8d591e3267d799c9d1a924e60217218166e78" => :high_sierra

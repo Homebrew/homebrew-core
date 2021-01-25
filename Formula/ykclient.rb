@@ -1,16 +1,27 @@
 class Ykclient < Formula
   desc "Library to validate YubiKey OTPs against YubiCloud"
   homepage "https://developers.yubico.com/yubico-c-client/"
-  url "https://developers.yubico.com/yubico-c-client/Releases/ykclient-2.15.tar.gz"
-  sha256 "f461cdefe7955d58bbd09d0eb7a15b36cb3576b88adbd68008f40ea978ea5016"
   license "BSD-2-Clause"
+  revision 1
+
+  stable do
+    url "https://developers.yubico.com/yubico-c-client/Releases/ykclient-2.15.tar.gz"
+    sha256 "f461cdefe7955d58bbd09d0eb7a15b36cb3576b88adbd68008f40ea978ea5016"
+
+    # Use HTTPS and disable old v1 API tests; without this patch "make check" fails
+    # to work against api.yubico.com
+    patch do
+      url "https://github.com/Yubico/yubico-c-client/commit/0d45452e7fbe47e77e78ff23b480c77fd9c06f2b.patch?full_index=1"
+      sha256 "1e4e85d9d009488cd81a87f54be0f67a5a4cee03d34e1f0afadbc92f5194e93a"
+    end
+  end
 
   bottle do
-    rebuild 2
-    sha256 "73b153bb1d9f5df3aa3a4ffed206c60bd1f207946b9cb43116985ed0cf76de8e" => :mojave
-    sha256 "3e1459f192f7f1df756e2071c78ee41fd163b3dee1f09254e8e5ffc0442a2205" => :high_sierra
-    sha256 "aec1bc9640c8a84089b1d749d689b59862fce858478d180cd6a34a93a34eb370" => :sierra
-    sha256 "deee73fbd68f44bd86fb07d1f2179313dac4679395d861b821ccf218745ab1c8" => :el_capitan
+    cellar :any
+    sha256 "9763765c3a3eb3d2fac970755b9c0ed1c48c8d74d7dd767dd824c8b0b3cfffd7" => :big_sur
+    sha256 "39c01c0420ae7a6f3af3a97f9e413b3137730f251d4784bb5ab7f878793c34c1" => :arm64_big_sur
+    sha256 "1a0d524e983bd1b22c012a00d60c4529b776640386e978fb3f6046b52e17eed7" => :catalina
+    sha256 "6e1365c8a6d412ae2a65c65b741ab666340bbb384b730989e2833fe96e0b8e92" => :mojave
   end
 
   head do

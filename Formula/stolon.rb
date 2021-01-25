@@ -2,12 +2,13 @@ class Stolon < Formula
   desc "Cloud native PostgreSQL manager for high availability"
   homepage "https://github.com/sorintlab/stolon"
   url "https://github.com/sorintlab/stolon.git",
-    tag:      "v0.16.0",
-    revision: "920fe4b83c158a6fe496dd6427a3715b84c0b4e2"
+      tag:      "v0.16.0",
+      revision: "920fe4b83c158a6fe496dd6427a3715b84c0b4e2"
   license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "6ddbacf93e9ab9f5bbf6e60011f398d5718d7d1ed9f66134e517d4caeeb9e852" => :big_sur
     sha256 "8bbf533b32cba6f798e17aad03e6268c6fe66be84cac9801226217e40c9cc0a9" => :catalina
     sha256 "fac96dde0102d1b0b7cd6e6dad8cb3bb3b7dfdee16f0fe98cbb439e4602a48e5" => :mojave
     sha256 "3f82acb97ffd0f586b5c6c643237205f0df3c5d03ed2cbd01143aba404d0e1b7" => :high_sierra

@@ -3,8 +3,8 @@ require "language/node"
 class Typescript < Formula
   desc "Language for application scale JavaScript development"
   homepage "https://www.typescriptlang.org/"
-  url "https://registry.npmjs.org/typescript/-/typescript-4.0.3.tgz"
-  sha256 "84457b86a8bc4be5421e4d8212367aa1a6afa744af2324ba9c33f76b46bdeac4"
+  url "https://registry.npmjs.org/typescript/-/typescript-4.1.3.tgz"
+  sha256 "213b2677e1f29700601c29e4a603eabe63f87f14fa02fd3633bf141aaa4e0e7e"
   license "Apache-2.0"
   head "https://github.com/Microsoft/TypeScript.git"
 
@@ -14,9 +14,10 @@ class Typescript < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "33f62b2282d4059fe7836f970954a533224ba6cbbd74b6278295e2b84273be01" => :catalina
-    sha256 "590500cd03d273ae11644c6487f91b496f904da41e99a5b6e23dc1eb045a9cb9" => :mojave
-    sha256 "c365cce4f325c8c8860a924a93b20c8edf39d292079c7fa334315765cf963124" => :high_sierra
+    sha256 "221b4f01eff3ac25750ac019c95380cf9136ab71d9885c99d0a17f9f1521af95" => :big_sur
+    sha256 "e07a4be146fef8a1edc015fd84635d2ee0a8d1ec7358258a6fc21444554a05c0" => :arm64_big_sur
+    sha256 "21fbdafc6132436663714241829b4b58eba7c714ca741beb2b1bf918fa9b75dc" => :catalina
+    sha256 "a5927aa302e6bcef5fd359d0bef1be2928c26f013e9730bfb9f82798b1f6290f" => :mojave
   end
 
   depends_on "node"

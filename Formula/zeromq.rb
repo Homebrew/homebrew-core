@@ -1,8 +1,9 @@
 class Zeromq < Formula
   desc "High-performance, asynchronous messaging library"
   homepage "https://zeromq.org/"
-  url "https://github.com/zeromq/libzmq/releases/download/v4.3.3/zeromq-4.3.3.tar.gz"
-  sha256 "9d9285db37ae942ed0780c016da87060497877af45094ff9e1a1ca736e3875a2"
+  url "https://github.com/zeromq/libzmq/releases/download/v4.3.4/zeromq-4.3.4.tar.gz"
+  sha256 "c593001a89f5a85dd2ddf564805deb860e02471171b3f204944857336295c3e5"
+  license "LGPL-3.0-or-later" => { with: "LGPL-3.0-linking-exception" }
 
   livecheck do
     url :head
@@ -11,9 +12,10 @@ class Zeromq < Formula
 
   bottle do
     cellar :any
-    sha256 "5310a4204987850db552bb2746c48171a0faf51692c9f52debf10f85ac4db569" => :catalina
-    sha256 "b67097dee2a42630e01978befe5c173f2a976c16fe4190873997776a584e4559" => :mojave
-    sha256 "fee7be7f0a0762755037f3cd2ab1207dc9af43b0b75bf517d5f6f522a315a3bd" => :high_sierra
+    sha256 "579862174f4ce6883fe9871e52d0d4306c8daa67ecc7b5ab94c6174e29bb54bb" => :big_sur
+    sha256 "eb0ee61f9c1e894c9ad5e55a5a8bc0b3859d56fab57179f82e3e41df6ca4b9f5" => :arm64_big_sur
+    sha256 "64bdc5d8d6cc656f1a086157bdbe565f658996f93e8d65af2ad222d80b23aa08" => :catalina
+    sha256 "ee58ce5abf154406908cbc5104126d543ff47d62ae90319b4b7227726adb885b" => :mojave
   end
 
   head do
@@ -28,6 +30,8 @@ class Zeromq < Formula
   depends_on "pkg-config" => [:build, :test]
   depends_on "xmlto" => :build
 
+  depends_on "libsodium"
+
   def install
     # Work around "error: no member named 'signbit' in the global namespace"
     if MacOS.version == :high_sierra
@@ -41,7 +45,7 @@ class Zeromq < Formula
     # https://github.com/Homebrew/homebrew-core/pull/35940#issuecomment-454177261
 
     system "./autogen.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}", "--with-libsodium"
     system "make"
     system "make", "install"
   end

@@ -10,6 +10,8 @@ class IconNamingUtils < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "f5f035a7553f25b130f64662cfea9fe25d8db0b7697f7f61e6ad52be8b8f24c5" => :big_sur
+    sha256 "b212434c2f761da7a71beffe6984969eda3f0b97853ad70a2c4b9318efb35f06" => :arm64_big_sur
     sha256 "6ed447fa2e57d32cc048b551ee67339d2be52d89f124e9dfddb3322cc0882883" => :catalina
     sha256 "7845482b7512d560f5363c75ae0e6d457bb22d9f2bd1820052b580f65a689a1f" => :mojave
     sha256 "1ab22bc216fc60fe05436993a1d451542a5f57a12ecf835c85f5c850574e54f3" => :high_sierra

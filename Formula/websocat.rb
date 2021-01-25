@@ -12,6 +12,8 @@ class Websocat < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "0eb4c8f2100c0d41bd382ff9e4c8bdee1df19e5dbb60053dce90a24339466fec" => :big_sur
+    sha256 "c26d1b774a4bb88e0ecee4cdcf459ec3a22142af55f07fc93fab6bf6e433ff0b" => :arm64_big_sur
     sha256 "b9ec3480735006f0603df6a0f4ba123f3bf807f8b2c731070975263088b6cc8f" => :catalina
     sha256 "cfb99f76c48c5ef48ee89118012a75a8b78c1f3602db084407e3fd4e7f0922eb" => :mojave
     sha256 "c865fed700599d7619e91ecb815b2672b9a1d9da6b4289383cd5455d82d79743" => :high_sierra

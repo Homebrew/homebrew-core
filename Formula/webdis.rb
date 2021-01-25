@@ -1,15 +1,16 @@
 class Webdis < Formula
   desc "Redis HTTP interface with JSON output"
   homepage "https://webd.is/"
-  url "https://github.com/nicolasff/webdis/archive/0.1.11.tar.gz"
-  sha256 "76f90e42d82a97c319f19005a8729d257d870869d5f0085db7d9c84745833715"
+  url "https://github.com/nicolasff/webdis/archive/0.1.12.tar.gz"
+  sha256 "9f7eb4c7f9a06978611c8d2e38e919d81a288fd656fc815b0cd4392add7020ee"
   license "BSD-2-Clause"
 
   bottle do
     cellar :any
-    sha256 "d0f5052f9479bba534cdc8f5acfb047207d46b7e03aa3bea8bc9b17a07a27948" => :catalina
-    sha256 "e27da82c3099bbc9194c2a53dd3113580874e06ac8dc206f1523636cb678d3a2" => :mojave
-    sha256 "1947a8b3ffcb642053eefc5fa48aca88604148713fe8ae57eb4ab80a6991b097" => :high_sierra
+    sha256 "fe2d73994d25c1291c308573029c7b408f9b3e3a76b62f9e96b6f54539abadf0" => :big_sur
+    sha256 "651e74b178a69eb2c1b1415343417d77c01c93adcfc7ebd1985067c613418519" => :arm64_big_sur
+    sha256 "11103600a67450f841b39f74739c2a381142f6562bb77d7bfe9ae9ae745c300c" => :catalina
+    sha256 "cef141b4ce5b61b6b616e7247e39cae283efc3e1774eae1678f6d525d4ed497f" => :mojave
   end
 
   depends_on "libevent"

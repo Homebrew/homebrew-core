@@ -4,7 +4,7 @@ class GccAT7 < Formula
   url "https://ftp.gnu.org/gnu/gcc/gcc-7.5.0/gcc-7.5.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/gcc/gcc-7.5.0/gcc-7.5.0.tar.xz"
   sha256 "b81946e7f01f90528a1f7352ab08cc602b9ccc05d4e44da4bd501c5a189ee661"
-  revision 2
+  revision 3
 
   livecheck do
     url :stable
@@ -12,9 +12,9 @@ class GccAT7 < Formula
   end
 
   bottle do
-    sha256 "4dca3b07173bffba262e003b345970119626a4d60a25c167d6bc216c46f1d83e" => :catalina
-    sha256 "5d4086421866078dc4d9bfe623a38160dbcf04ff88b4d0284dee9da66ff50f4c" => :mojave
-    sha256 "3c2135fc0b1c7f0ce048c1f610d2131a237911bdbd66d8bff731bbf9c6d84bcc" => :high_sierra
+    sha256 "409c5750e7ab215efe0ce92dcc9d9b5b51a629faf938e29fd9437830ae0a07f9" => :big_sur
+    sha256 "180258666ecfdf71545ff5b9965d9b59bcd661769069acc6d57664b0065fabba" => :catalina
+    sha256 "f4ba3ab7fcb98d471d380076837b9f946cc188960acb231d972f10249f3c2016" => :mojave
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -24,6 +24,7 @@ class GccAT7 < Formula
     satisfy { MacOS::CLT.installed? }
   end
 
+  depends_on arch: :x86_64
   depends_on "gmp"
   depends_on "isl"
   depends_on "libmpc"

@@ -5,16 +5,18 @@ class Lensfun < Formula
   homepage "https://lensfun.github.io/"
   url "https://downloads.sourceforge.net/project/lensfun/0.3.95/lensfun-0.3.95.tar.gz"
   sha256 "82c29c833c1604c48ca3ab8a35e86b7189b8effac1b1476095c0529afb702808"
-  revision 2
+  revision 3
 
   livecheck do
     url :stable
   end
 
   bottle do
-    sha256 "66ab460c11f7476a85c31f9941d2b2f35a416d1f2db9a75b029ed038ff63cf0c" => :catalina
-    sha256 "913b9cebd837443975420bf43b32076b6cd52ca3358599f5ea05229f08e4cc9e" => :mojave
-    sha256 "6c9f55d9fcc97aeb95654086f739b0ddfc95febb76e9c68037a262a535b3f87e" => :high_sierra
+    sha256 "10c8d68811e3d286d340b8cdea0fff28380d719402f25e85ddc280e9d0a4b1fd" => :big_sur
+    sha256 "d88e64dba59fb70ca04c45029ba2908d9d731dd94b835cbf88f488dd66c8c96c" => :arm64_big_sur
+    sha256 "1e83aa5f7ebcb3d3952a384244adfacbf82b2954637cd3df02337f52de1d7b67" => :catalina
+    sha256 "d0d64a98f863a5001667095eba97f55500a87610e00955c0edb95f70300e21c1" => :mojave
+    sha256 "0050ca39268f8201a1c28169da62380385ba5e77954142404465e6b3cba909d7" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -22,7 +24,7 @@ class Lensfun < Formula
   depends_on "gettext"
   depends_on "glib"
   depends_on "libpng"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
     system "cmake", ".", *std_cmake_args

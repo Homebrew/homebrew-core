@@ -7,6 +7,8 @@ class Fileicon < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "1ea828e58968967a95fdf3ece8ffa79b4bbe5b984e942c6db50119e4befb1b8d" => :big_sur
+    sha256 "74fd8797923e791df971d389dd62649a8717a60fa6108677bec35628a8216fab" => :arm64_big_sur
     sha256 "154c80c94f29f209b78252e71d914647a8300c66c02acda672b8574e8e704e92" => :catalina
     sha256 "154c80c94f29f209b78252e71d914647a8300c66c02acda672b8574e8e704e92" => :mojave
     sha256 "154c80c94f29f209b78252e71d914647a8300c66c02acda672b8574e8e704e92" => :high_sierra

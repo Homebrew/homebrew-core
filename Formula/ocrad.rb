@@ -12,6 +12,8 @@ class Ocrad < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "59bfd9714c393b8910fdd9cbc337dfeaf431f78215820ffe47fe59841231e7f4" => :big_sur
+    sha256 "bfbe36f994bcbba6286b9bec6206e314d405a42ca222821648a6962b17a2aecb" => :arm64_big_sur
     sha256 "6533cd452587714531d20b4aa74ea7fc1e323ff893c8a7c9729655ede1ec9df7" => :catalina
     sha256 "3d1c85bb36faedf5ab12f78e8c3511dcc4164561ba8bc09924b48f6aa3fa0b37" => :mojave
     sha256 "ba9b30eeabc11634502e30fd9a730d5727668550f9708d46fbefc03bcb3917de" => :high_sierra

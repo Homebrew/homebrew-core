@@ -11,11 +11,11 @@ class Physfs < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "31693a34c610ea382a1b0832065db2b223db549ced6fe6a2f8c569d6b58bf19a" => :catalina
-    sha256 "cb97a3a17728f3173d4c19fde495cffbddce965bbf6015e45882e3c27f267cf3" => :mojave
-    sha256 "296927566472c976a578f89c4bd6bf0f518427a53d586499a8e202896d469ee3" => :high_sierra
-    sha256 "6742501c33943dcdab748b3c2188cf6292f462b82896da001cdbcfbbcc01e489" => :sierra
+    rebuild 1
+    sha256 "9b5564d6d9ced39825e762700cc50c7acfe3c37ef8d3afb89f4d67467b731614" => :big_sur
+    sha256 "4c7ece7b4677172dfcf85c0bf0d2b5487252528f6015c12db90cba2e51e59c9d" => :arm64_big_sur
+    sha256 "f5c4de02a3b305b0f9e0f1a76856b53542f92b5711ce2724d28797b44220e685" => :catalina
+    sha256 "20e3f8285d418477a07926a137dfe7750831bff2399b6b4ce4eb99ba942e1205" => :mojave
   end
 
   depends_on "cmake" => :build
@@ -30,6 +30,7 @@ class Physfs < Formula
     mkdir "macbuild" do
       args = std_cmake_args
       args << "-DPHYSFS_BUILD_TEST=TRUE"
+      args << "-DCMAKE_INSTALL_RPATH=#{lib}"
       args << "-DPHYSFS_BUILD_WX_TEST=FALSE" unless build.head?
       system "cmake", "..", *args
       system "make", "install"

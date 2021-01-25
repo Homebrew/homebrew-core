@@ -8,10 +8,11 @@ class LibbitcoinDatabase < Formula
 
   bottle do
     cellar :any
-    sha256 "dd2b10d8efa0f54a4901362dd3e984a11ca9fb2636e563508fd9b78f74dd71a9" => :catalina
-    sha256 "fe18418b3e78225ccddb6cfe254472203fe738eb3a017be989a8d946591dea06" => :mojave
-    sha256 "bc255c8b65b73c1b3d8f88deb484501287f39ff72513f6ea5e12d5ac6e494b8e" => :high_sierra
-    sha256 "8d9e51707d54aa7df20b81602dc489bcea2d851416d9187ba9f297ced969123b" => :sierra
+    rebuild 1
+    sha256 "f80eeb0824322169fb89bff9cd94dff0142380c35bd3e452fcf1e01174f955aa" => :big_sur
+    sha256 "c1d506851f55d14f591199679e0d69194e0d5f3beb33661aa1f3039f1ac53ee8" => :arm64_big_sur
+    sha256 "1acfc0d126ed7e1be41052065e8f47df77768d80caf16a6a51cbed22b1538e28" => :catalina
+    sha256 "4d4976669d9eb758689b8b5e55a31d2d9bd9b03e0422f67bcddb4fdd9a1009ac" => :mojave
   end
 
   depends_on "autoconf" => :build
@@ -26,7 +27,8 @@ class LibbitcoinDatabase < Formula
     system "./autogen.sh"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "--with-boost-libdir=#{Formula["boost"].opt_lib}"
     system "make", "install"
   end
 

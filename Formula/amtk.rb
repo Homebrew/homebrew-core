@@ -10,6 +10,8 @@ class Amtk < Formula
   end
 
   bottle do
+    sha256 "6ab887f121458fad7c480b897bb296d48daf01e3379b96098ce18ca2ae9da7b7" => :big_sur
+    sha256 "d540852fa3ee1d9af33c5c1effe96547a98c7e03d20064b508662b14c6da202f" => :arm64_big_sur
     sha256 "89e24e19e0614b13d387b9c0d2ccf89ac15f485edf49c7c39bcaa4f80deba3c1" => :catalina
     sha256 "004425110c03c91144cfd53df0f6141b05e38d86b64e96303cd6760db9e66a42" => :mojave
     sha256 "67ad617a78c6922647c2af49225a5f4b8fd7eff3635d0e7f8b4320687b896b60" => :high_sierra
@@ -79,7 +81,6 @@ class Amtk < Formula
       -L#{lib}
       -L#{pango.opt_lib}
       -latk-1.0
-      -lamtk-5.0
       -lcairo
       -lcairo-gobject
       -lgdk-3
@@ -88,10 +89,16 @@ class Amtk < Formula
       -lglib-2.0
       -lgobject-2.0
       -lgtk-3
-      -lintl
       -lpango-1.0
       -lpangocairo-1.0
     ]
+    on_macos do
+      flags << "-lintl"
+      flags << "-lamtk-5.0"
+    end
+    on_linux do
+      flags << "-lamtk-5"
+    end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

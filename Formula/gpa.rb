@@ -4,7 +4,7 @@ class Gpa < Formula
   url "https://gnupg.org/ftp/gcrypt/gpa/gpa-0.10.0.tar.bz2"
   mirror "https://deb.debian.org/debian/pool/main/g/gpa/gpa_0.10.0.orig.tar.bz2"
   sha256 "95dbabe75fa5c8dc47e3acf2df7a51cee096051e5a842b4c9b6d61e40a6177b1"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://gnupg.org/ftp/gcrypt/gpa/"
@@ -12,10 +12,10 @@ class Gpa < Formula
   end
 
   bottle do
-    sha256 "296e517c02d381101befecef3700d17c12a9542dd0b105912f304846a7d54fb2" => :catalina
-    sha256 "183d889ae94650931d7ed470ec643a9e5b02843e037a97de2669f2d48076e996" => :mojave
-    sha256 "dc9d49486a627330931c0d2caeb6af4629e3871bdbff840ae33e5afb97c087ba" => :high_sierra
-    sha256 "73e3e3c27b72b36ed733b01435dd4eb9538f036cf1a817d48a171e58b70de395" => :sierra
+    sha256 "b4476f76bdd1e9b7acb836a49cb7e216726d277d04d24ce1b5c2d3d7e392adf0" => :big_sur
+    sha256 "77f73e7161f535ed00a02c8df2f5818dad8574a0ff52f339949b1030a0bd7454" => :arm64_big_sur
+    sha256 "c598e546d83f042d3de1011bff926a839c34e56c06a4c9cc6dbab25ff9c19df6" => :catalina
+    sha256 "14eace8606e49fe9d3d2fa39a9f79fbbaca7cff7d78c0cb7027033f92133fa04" => :mojave
   end
 
   depends_on "pkg-config" => :build

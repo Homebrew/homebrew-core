@@ -12,6 +12,8 @@ class Libbs2b < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "b7cd734ae3c6870fc16092a076d343efd1325ff1188062d2a63971df783507c0" => :big_sur
+    sha256 "348394113062af5f31f9dfd6617f8d248b9bdeba11d28711d83e3e5d9326437f" => :arm64_big_sur
     sha256 "61ba0d4bf4a016a7634256d2c7eef59d55dacb3f33730d8f2905f9fa35db0108" => :catalina
     sha256 "b1236f81550a661e9b6ca6db5c828465d32cf0ca8e7db9504cb94871760c4a22" => :mojave
     sha256 "0d2faffb7452ddd66d306746065dc7264d66c3e8f60a3525ee4eb911cd546bcd" => :high_sierra

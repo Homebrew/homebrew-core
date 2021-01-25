@@ -10,6 +10,8 @@ class Gtranslator < Formula
   end
 
   bottle do
+    sha256 "87af99ef6bff1ac84eb04b70b0923040af2588909078f42ee2926620ebf9fd5c" => :big_sur
+    sha256 "5d5883134917ac1a97cdaafd240fc9f162843e8cc053954bce1381e893663d23" => :arm64_big_sur
     sha256 "ca6600f0f0d75cc1f9c2a063ac2ad6bdfe790fe89a72533307deda968903eb2b" => :catalina
     sha256 "d46199ba9a6eb1a9cf068fe5a9ae34529ab60b70ebdaca2f29c82e4eef86d34b" => :mojave
     sha256 "13cc15d49f5c39f4be9f28860b6e99d7186d7b985fa03308f3a185692f57ad3b" => :high_sierra

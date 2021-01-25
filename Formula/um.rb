@@ -7,6 +7,8 @@ class Um < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "cdec90ed59042a6701044f4bbc22e6b355426f9ba711f400899b672c1300d487" => :big_sur
+    sha256 "d8adee04ef491baecd2fb172ce7382a8082ba320b39f0d37ebe569a587ef145c" => :arm64_big_sur
     sha256 "266b397cd3e24060e7926f438279325aed89643070618add3db64175e348c04b" => :catalina
     sha256 "a4d8c9ddc2b46076eaccf3e3d4eaa43918f3d156e8abd16ad1415ea85f2da8f5" => :mojave
     sha256 "a479ed6f535f228d1bfa15a7292e58d06a4f07d1238c4fa83f1b99c80564a24e" => :high_sierra

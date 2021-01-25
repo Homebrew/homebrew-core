@@ -1,8 +1,8 @@
 class Libxmlsec1 < Formula
   desc "XML security library"
   homepage "https://www.aleksey.com/xmlsec/"
-  url "https://www.aleksey.com/xmlsec/download/xmlsec1-1.2.30.tar.gz"
-  sha256 "2d84360b03042178def1d9ff538acacaed2b3a27411db7b2874f1612ed71abc8"
+  url "https://www.aleksey.com/xmlsec/download/xmlsec1-1.2.31.tar.gz"
+  sha256 "9b10bc52cc31e4f76162e3975e50db26b71ab49c571d810b311ca626be5a0b26"
   license "MIT"
 
   livecheck do
@@ -12,10 +12,11 @@ class Libxmlsec1 < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "9d94c0416c6d394cc9a4608c5d12b4a9f104691f4ce9aed8be1a56623ae6c6cc" => :catalina
-    sha256 "6929b0991d99dd1b46fc8f8563e2de6c35675e2162d338d3bb8f0cc4af3feb61" => :mojave
-    sha256 "b6e43e91234ac2f5061d31a80ac623519b6f78847439b58ee1303804b1804790" => :high_sierra
+    sha256 "af7411c43a003e9e77219c4b00857b0f99a75546426750ad0aff1e1e5b6cfa41" => :big_sur
+    sha256 "03549710a64505e61e3e185998a92df43b577bb494cce4ffab915301f149b19a" => :arm64_big_sur
+    sha256 "c802faa7f7b56c286aa82b9c5d2041b19513848c54cd8f8b2d55e62c810cd247" => :catalina
+    sha256 "cde9ec0c2240211d002b575f17028ff43284c6f47fbe26ecf9fa131aa94a373c" => :mojave
+    sha256 "bf6bdda2fb39e06e3db72e491fdb0327aab691b15cc8e47a1c5eb74828356d2b" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

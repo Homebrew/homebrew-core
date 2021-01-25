@@ -7,6 +7,8 @@ class Ddate < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "9e7f00a11029e70caa333a3c33367e564631fcea1d08b36f02437af7b03f810c" => :big_sur
+    sha256 "f45b9a3b64d14ae95d1aabb359535c7394fbb9781618992e0d8987009d1b306b" => :arm64_big_sur
     sha256 "2b9be177e37cb4650bae50a9527315e700592bdd8a5546cfb7b40cf201bb680c" => :catalina
     sha256 "bac9bcfe773de4c34915a353fe6f8808ac26f8253d0da9d43ab9787b4988ff44" => :mojave
     sha256 "31a72f135768fdf09ddc40539e3860e3489cf478cca07f6af71d8d3428447a78" => :high_sierra

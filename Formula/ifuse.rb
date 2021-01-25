@@ -20,7 +20,15 @@ class Ifuse < Formula
   depends_on "glib"
   depends_on "libimobiledevice"
   depends_on "libplist"
-  depends_on :osxfuse
+
+  on_macos do
+    deprecate! date: "2020-11-10", because: "requires FUSE"
+    depends_on :osxfuse
+  end
+
+  on_linux do
+    depends_on "libfuse"
+  end
 
   def install
     system "./autogen.sh"

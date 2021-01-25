@@ -8,6 +8,8 @@ class Libchewing < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "e1d6473e63dc121157f7afd61991b57335bac48f4d842262ac7c43e5b637b7eb" => :big_sur
+    sha256 "1424757d5ef5bb08e8fe1949a9b53cf40af8aab8806b7dd22f2aa5e15d57d7ab" => :arm64_big_sur
     sha256 "19b9c38b3036f5ad16c413135e5424c8174789129cafe3c488fecdaffa39f281" => :catalina
     sha256 "b00710a74c619461b99eb3043b927248ccc0e2c2f3607683dfbcad61b82e4fe3" => :mojave
     sha256 "c346c2dbf72ea2d97f88cc9fc694b61eccc7db44c38092e9d652a31612f60ef1" => :high_sierra

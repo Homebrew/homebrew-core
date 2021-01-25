@@ -1,8 +1,8 @@
 class Lighttpd < Formula
   desc "Small memory footprint, flexible web-server"
   homepage "https://www.lighttpd.net/"
-  url "https://download.lighttpd.net/lighttpd/releases-1.4.x/lighttpd-1.4.55.tar.xz"
-  sha256 "6a0b50e9c9d5cc3d9e48592315c25a2d645858f863e1ccd120507a30ce21e927"
+  url "https://download.lighttpd.net/lighttpd/releases-1.4.x/lighttpd-1.4.58.tar.xz"
+  sha256 "267feffda13a190ebdce7b15172d8be16da98008457f30fddecd72832d126d0e"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,9 +11,10 @@ class Lighttpd < Formula
   end
 
   bottle do
-    sha256 "7cb7b6026dbba9a3afde8a0e2e2740499564687fb61ee6c49d5cabc29f780a2d" => :catalina
-    sha256 "432da2049539f4416d952ecdfcfefc5b5230447edaebfd63b958a92581ae57ab" => :mojave
-    sha256 "c7e9b87c219d8bf64561c185c6fcc68c2caafded7a4e980d379fd4fbbe00bd1d" => :high_sierra
+    sha256 "ae1d303787fd7ca9a7c568ad6d6433c6fb8a1e5c3a635ce0557c466f2e591690" => :big_sur
+    sha256 "0a51151b104b49f3441184f4ca6ca217c652205433284673904f74264c9cb7c6" => :arm64_big_sur
+    sha256 "5c4a953e2c563c975d3a8d835614a49d8aebf9daa8e9a1eaa1d426aa2e524d5e" => :catalina
+    sha256 "0742066005e53a6cfa4d4aad06f3ff16f82439932ec0f265f0a8812cb52bce66" => :mojave
   end
 
   depends_on "autoconf" => :build
@@ -80,7 +81,6 @@ class Lighttpd < Formula
 
         s.sub!(/^server\.username\s*=\s*".+"$/, 'server.username  = "_www"')
         s.sub!(/^server\.groupname\s*=\s*".+"$/, 'server.groupname = "_www"')
-        s.sub!(/^server\.event-handler\s*=\s*"linux-sysepoll"$/, 'server.event-handler = "select"')
         s.sub!(/^server\.network-backend\s*=\s*"sendfile"$/, 'server.network-backend = "writev"')
 
         # "max-connections == max-fds/2",

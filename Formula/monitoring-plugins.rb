@@ -1,16 +1,15 @@
 class MonitoringPlugins < Formula
   desc "Plugins for nagios compatible monitoring systems"
   homepage "https://www.monitoring-plugins.org"
-  url "https://www.monitoring-plugins.org/download/monitoring-plugins-2.2.tar.gz"
-  sha256 "296a538f00a9cbef7f528ff2d43af357a44b384dc98a32389a675b62a6dd3665"
-  revision 1
+  url "https://www.monitoring-plugins.org/download/monitoring-plugins-2.3.tar.gz"
+  sha256 "3fd96efaa751c7646fe3ba25f9714859a204176a155d12fe0ee420e39e90f56c"
 
   bottle do
     cellar :any
-    sha256 "24ba799d36a93d5cde26e1e52616166881164cabddd6c1c14a19316a07eebd6b" => :catalina
-    sha256 "3aa775909751c2a826325b07f0a9b77df5160af6bacfa4f8cb082e635045c620" => :mojave
-    sha256 "81f794e4736584eba6ecfc32b6c79b877579b3841e66b9f70754f98c499a5098" => :high_sierra
-    sha256 "0fa42fdf9687faa06a7566322cf9014d06040338e5a988da6aef130b15e2953a" => :sierra
+    sha256 "2affcbde085b468167dbc0806e2b328b2ce8e155e08369e4df0d968e2568723d" => :big_sur
+    sha256 "e96b7ab01d8202e55df025b8570d42d338241b828ede6c2f4eda0f9681fe0b1b" => :arm64_big_sur
+    sha256 "918135f3648b566cfa9908d0fbbd65079d0a3c0c8794167aebe43aa2dd739fe7" => :catalina
+    sha256 "c98c17126372176090c58eef202309972dc44f1d34be28ffc96c30a37d3f3217" => :mojave
   end
 
   depends_on "openssl@1.1"

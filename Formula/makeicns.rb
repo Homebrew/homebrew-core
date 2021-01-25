@@ -5,10 +5,6 @@ class Makeicns < Formula
   sha256 "10e44b8d84cb33ed8d92b9c2cfa42f46514586d2ec11ae9832683b69996ddeb8"
   head "https://bitbucket.org/mkae/makeicns", using: :hg
 
-  livecheck do
-    skip "Bitbucket repository is missing"
-  end
-
   bottle do
     cellar :any_skip_relocation
     sha256 "c2a5afff3eee709316951ad70c8244fe5c628ae98fdb2e15ea607c7638733d63" => :catalina
@@ -19,6 +15,8 @@ class Makeicns < Formula
     sha256 "40c3d4befe2d4625d7013ea40f307b4f5b26e122a6dad51706a25bb22734f075" => :yosemite
     sha256 "8c54ce9e5f819dda4eb274f8bf8a22d49e1d0086e33300f236840acf1a46837f" => :mavericks
   end
+
+  disable! date: "2020-12-08", because: :repo_removed
 
   patch :p0 do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/e59da9d/makeicns/patch-IconFamily.m.diff"

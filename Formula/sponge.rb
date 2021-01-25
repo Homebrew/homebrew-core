@@ -8,6 +8,8 @@ class Sponge < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "2c0cedfe7ba4f0130001c764671275f4ca2f7c649105fb2433905c9af5fc9912" => :big_sur
+    sha256 "5b0e74d146e19640d3075302bdd5ad212bee4971c12b3420f043d61c5a037081" => :arm64_big_sur
     sha256 "b913bb8811814b0541192ab204784859bc30af5003cf8d2b462722003d2038f9" => :catalina
     sha256 "19df51f19f13b1742b5f81bebd1c68cf2bb7d9693c3dae587e171ab57cb7fdca" => :mojave
     sha256 "c25d99fcacc21592944ed74b6390ce8f81d60dbd03e2122b75a544542ec18cb8" => :high_sierra

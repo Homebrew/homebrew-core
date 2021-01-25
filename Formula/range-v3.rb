@@ -7,6 +7,8 @@ class RangeV3 < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "f22133b9d6ec765bef17f0ad8a81796ceafff1067954eb46a019b63e6aaa4f91" => :big_sur
+    sha256 "2500d54ef2231b737505f3cad48f4a3ffb996b3941b8cbee4f8e2b1a44692aec" => :arm64_big_sur
     sha256 "bffbe0872b344db9b7838d3a63b10e95df57385d26bfaeffc4da5a3d940893c6" => :catalina
     sha256 "bffbe0872b344db9b7838d3a63b10e95df57385d26bfaeffc4da5a3d940893c6" => :mojave
     sha256 "bffbe0872b344db9b7838d3a63b10e95df57385d26bfaeffc4da5a3d940893c6" => :high_sierra

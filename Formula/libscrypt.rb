@@ -7,6 +7,8 @@ class Libscrypt < Formula
 
   bottle do
     cellar :any
+    sha256 "c2c67b09b54467e47709dbe7340c1916e0802a5423b4f2224156ce7bb977e389" => :big_sur
+    sha256 "1073aa38a72ed089bf6e6a6a4fbddb6e6123b394e7562d1e1ad5b26cc67906dd" => :arm64_big_sur
     sha256 "66ea017c5361346903add978ce85b09a2a6f2e8eabdf9fb2cfb58809da1d29cd" => :catalina
     sha256 "81c603f27fbda0bde330506d2745f62d3ba16d3290addc5f1eeecbcd110aa801" => :mojave
     sha256 "46cf17f2a05e5e418822a306899de14be3fbdfe71fc017f6eb1169fc3ad1de3a" => :high_sierra

@@ -8,6 +8,8 @@ class Publish < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "a627b7ae09db7019e5940f4d2d7c78b5a44b651f80634b4eb98055a7902342d9" => :big_sur
+    sha256 "dfa8cf3fdcdf4cdb847d3238c645db2ef8895cd1c8b871f5497b35e6031a289e" => :arm64_big_sur
     sha256 "08f17da7227cb766787838cb6c1d53ac0498cbde6245da0470f8379e84b476aa" => :catalina
   end
 

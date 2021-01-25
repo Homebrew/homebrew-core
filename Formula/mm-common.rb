@@ -4,6 +4,7 @@ class MmCommon < Formula
   url "https://download.gnome.org/sources/mm-common/1.0/mm-common-1.0.2.tar.xz"
   sha256 "a2a99f3fa943cf662f189163ed39a2cfc19a428d906dd4f92b387d3659d1641d"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,14 +12,16 @@ class MmCommon < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8c0ecc8d52d9bb2c9f90341fbfaf9013abb1aa31308a1c601b1afc356f2246ab" => :catalina
-    sha256 "acbd3eb9fc8c3b1d91eedee2d89119f10cd7aae5e1cfbe8eb3e80bb4f53d79ea" => :mojave
-    sha256 "baf753d8db7373f6c117ed53856c288a934f529435117a68ea040832a807a9df" => :high_sierra
+    sha256 "a416e9010403d5ee9e6c80ffa384a31b8989613109e9ceb047d48d2538f75ceb" => :big_sur
+    sha256 "1b2bf5b4980df003eb2917c33583345183dad27ccf27663bf0aead7747ece3c4" => :arm64_big_sur
+    sha256 "0848953327bb61223c30f3fc08c3cf8845c8e7387cafeaca31001967e990c2ae" => :catalina
+    sha256 "82e99d77f2e543ebda262f6bf98cef0cfde5142a95a09a2374358f9ba7d3c781" => :mojave
+    sha256 "292ce8133ff860d6083d049fa2e6d1cb357e8ce9c41453894fbba742ea7bdc20" => :high_sierra
   end
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
     mkdir "build" do

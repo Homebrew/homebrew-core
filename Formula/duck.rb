@@ -2,8 +2,8 @@ class Duck < Formula
   desc "Command-line interface for Cyberduck (a multi-protocol file transfer tool)"
   homepage "https://duck.sh/"
   # check the changelog for the latest stable version: https://cyberduck.io/changelog/
-  url "https://dist.duck.sh/duck-src-7.6.2.33520.tar.gz"
-  sha256 "89312b9d2aea4c388b7aabf8d0f0f1e048442aa49c66d30b7554069337593a17"
+  url "https://dist.duck.sh/duck-src-7.8.1.34119.tar.gz"
+  sha256 "ea61c7ef8a01058b22bdf70cf17631b6d2a5a7a9c6c248df2161d7fb7c405592"
   license "GPL-3.0-only"
   head "https://svn.cyberduck.io/trunk/"
 
@@ -14,9 +14,10 @@ class Duck < Formula
 
   bottle do
     cellar :any
-    sha256 "49db8c11b1f4fe0ddf1236dcfb61f2d7875f67b946f967de818532dbfc6ca36b" => :catalina
-    sha256 "11210e14dc5df4327df3d5f066ae31f6f44da3872e82139fda1516bc966cce8b" => :mojave
-    sha256 "d86be08f6dcb03c093ff76740428b412041b19c3f797ac2753882533133e876a" => :high_sierra
+    sha256 "8fb3d350f06541e8145e38a8ca06cc74a105863fc805b9b4e66622c3a028f6ba" => :big_sur
+    sha256 "4f0862871a55a3afc6ac5f93fa5584db0403e6d33790bc2af3407baab82f9dcb" => :arm64_big_sur
+    sha256 "95360e1bc4b967811e40d2164007d5df695272dea00458ec2292a0a675f31f36" => :catalina
+    sha256 "13d5d1736f118b42c003c6158566486aed8fe1dc1ff020bc835c4f3ece3a55cc" => :mojave
   end
 
   depends_on "ant" => :build

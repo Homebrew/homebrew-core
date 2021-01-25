@@ -12,6 +12,8 @@ class Bazaar < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "a1d2989bccb0bd569ec1ca4425399cbd85a14564265cf8b79db45d575da7f8c1" => :big_sur
+    sha256 "294ae3a44a6579e80834a4e4b2afa3fd8b20c96f60a0d4fa3df714e89fa79c90" => :arm64_big_sur
     sha256 "c9ab575e1e27fe8e550690c760464c37890ca5c1fa8ea111c74d0172d0fa1453" => :catalina
     sha256 "32411a9e28eb27b3637bc915150581524897a18ba223313e5bc2f776785aae9b" => :mojave
     sha256 "cb1c0c8b5f19abef4043195d8cbd19f363a78581596de1ddcc763621964335b3" => :high_sierra

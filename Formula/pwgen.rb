@@ -11,6 +11,8 @@ class Pwgen < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "0a47de6eec09b1a2e938da0bebca8386261bb63040f9ca77fadfc3d28db7efc8" => :big_sur
+    sha256 "cc4d1e845384c5170c9fd6e9c5b054e152b8690763a55b3c9a1a0e51fbee31c4" => :arm64_big_sur
     sha256 "725911d1fd71b259acb7b907c09ef86a03545afe95e161856130992fc0789ffc" => :catalina
     sha256 "2f35a2d575e16a2ab0497cabfc927a7b40aba68edba574889bf9bbdf03572c12" => :mojave
     sha256 "185f2f56eb03da60277520734452204ec2e0059cbc1f0af5d0fec1e7fa837658" => :high_sierra

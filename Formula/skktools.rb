@@ -8,6 +8,8 @@ class Skktools < Formula
 
   bottle do
     cellar :any
+    sha256 "3a36d3ceab583dd2518b5dde10b8d443fbaf30e1de0d867f095effa5982fa1f3" => :big_sur
+    sha256 "4a56dad3435d1507d1fa2a087f4294d9955eb30993a70955c75e972a5c4ddb6b" => :arm64_big_sur
     sha256 "c10f7baf6bc379ed47fc82b5bf1dd2ae8cbc53c358f5c838e87d8440ae8c5ebd" => :catalina
     sha256 "e3e3033a8f0d05939c9ebe2ab73cff7377351a36b8276337c920026c27d0a127" => :mojave
     sha256 "65826868e8d1ca3d310ebc14e2aadc281b09751220e3310643b4e2aa4ab9ee68" => :high_sierra

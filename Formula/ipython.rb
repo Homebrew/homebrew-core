@@ -3,8 +3,8 @@ class Ipython < Formula
 
   desc "Interactive computing in Python"
   homepage "https://ipython.org/"
-  url "https://files.pythonhosted.org/packages/ed/c6/2c40e1fc10690dfbe891a948aa1b0dd4890fd2bce9d2eb29c97a84bb0fcb/ipython-7.18.1.tar.gz"
-  sha256 "a331e78086001931de9424940699691ad49dfb457cea31f5471eae7b78222d5e"
+  url "https://files.pythonhosted.org/packages/cf/65/1224bc51f155ebf098eaeef02bb7fdeb380b2e03986b626d1811921db16f/ipython-7.19.0.tar.gz"
+  sha256 "cbb2ef3d5961d44e6a963b9817d4ea4e1fa2eb589c371a470fed14d8d40cbd6a"
   license "BSD-3-Clause"
   head "https://github.com/ipython/ipython.git"
 
@@ -14,12 +14,14 @@ class Ipython < Formula
 
   bottle do
     cellar :any
-    sha256 "02a8edee16108cef627e7c98cc73b021aa64f274df901c6518077d1fb930db32" => :catalina
-    sha256 "4e2b941df0b13d103bdbc047b69144e5ad373cd92ff434b2751ca300961685ce" => :mojave
-    sha256 "3912624b50eb2b825cbf1d5d03b5e3e18d51e209686f315790d2699b4022c5a4" => :high_sierra
+    sha256 "7571a028baedf9efcbcab4d7c3176f63481c78eed59d9e685aebb3b5c66f3d5b" => :big_sur
+    sha256 "1e92112db8aa18d11f029d3fb91c44c24d79f3cc16578b60a71b75df548cf334" => :arm64_big_sur
+    sha256 "7eca58dc8500fa3ede9601ef4522a655157ef85deb681b9f80a04140bc01c78f" => :catalina
+    sha256 "f8b788219306e0920d0cc7b613a649fdd6a113d6dcaa86ced739bc98b930ce49" => :mojave
+    sha256 "a4e03d1d7a88b346d565ca921f665d515dcad1aedeaa9c2b69d69f138b487747" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "zeromq"
 
   # use resources from ipykernel (which includes ipython)
@@ -79,8 +81,8 @@ class Ipython < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/18/0f/ae4b350b969dc1d8ecfcbdc1060d59ff025336a23f153ece49aa662a1309/prompt_toolkit-3.0.7.tar.gz"
-    sha256 "822f4605f28f7d2ba6b0b09a31e25e140871e96364d1d377667b547bb3bf4489"
+    url "https://files.pythonhosted.org/packages/d4/12/7fe77b49d67845a378cfadb484b64218ed09d0e8bf420c663b4fe28f0631/prompt_toolkit-3.0.8.tar.gz"
+    sha256 "25c95d2ac813909f813c93fde734b6e44406d1477a9faef7c915ff37d39c0a8c"
   end
 
   resource "ptyprocess" do
@@ -89,8 +91,8 @@ class Ipython < Formula
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/6e/4d/4d2fe93a35dfba417311a4ff627489a947b01dc0cc377a3673c00cf7e4b2/Pygments-2.6.1.tar.gz"
-    sha256 "647344a061c249a3b74e230c739f434d7ea4d8b1d5f3721bc0f3558049b38f44"
+    url "https://files.pythonhosted.org/packages/5d/0e/ff13c055b014d634ed17e9e9345a312c28ec6a06448ba6d6ccfa77c3b5e8/Pygments-2.7.2.tar.gz"
+    sha256 "381985fcc551eb9d37c52088a32914e00517e57f4a21609f48141ba08e193fa0"
   end
 
   resource "python-dateutil" do
@@ -109,13 +111,13 @@ class Ipython < Formula
   end
 
   resource "tornado" do
-    url "https://files.pythonhosted.org/packages/95/84/119a46d494f008969bf0c775cb2c6b3579d3c4cc1bb1b41a022aa93ee242/tornado-6.0.4.tar.gz"
-    sha256 "0fe2d45ba43b00a41cd73f8be321a44936dc1aba233dee979f17a042b83eb6dc"
+    url "https://files.pythonhosted.org/packages/cf/44/cc9590db23758ee7906d40cacff06c02a21c2a6166602e095a56cbf2f6f6/tornado-6.1.tar.gz"
+    sha256 "33c6e81d7bd55b468d2e793517c909b139960b6c790a60b7991b9b6b76fb9791"
   end
 
   resource "traitlets" do
-    url "https://files.pythonhosted.org/packages/75/b0/43deb021bc943f18f07cbe3dac1d681626a48997b7ffa1e7fb14ef922b21/traitlets-4.3.3.tar.gz"
-    sha256 "d023ee369ddd2763310e4c3eae1ff649689440d4ae59d7485eb4cfbbe3e359f7"
+    url "https://files.pythonhosted.org/packages/b8/24/e6dfe45ecfc4c2b0d6774565e631dc1b9e50de2c3536625d377963d56cae/traitlets-5.0.5.tar.gz"
+    sha256 "178f4ce988f69189f7e523337a3e11d91c786ded9360174a3d9ca83e79bc5396"
   end
 
   resource "wcwidth" do
@@ -124,20 +126,20 @@ class Ipython < Formula
   end
 
   def install
-    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
+    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
 
     # install other resources
     ipykernel = resource("ipykernel")
     (resources - [ipykernel]).each do |r|
       r.stage do
-        system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
+        system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
 
     # install and link IPython
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
-    system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(libexec)
+    system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(libexec)
     bin.install libexec/"bin/ipython"
     bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"] + "${PYTHONPATH:+:}$PYTHONPATH")
 
@@ -146,7 +148,7 @@ class Ipython < Formula
 
     # install IPyKernel
     ipykernel.stage do
-      system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
+      system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
     end
 
     # install kernel

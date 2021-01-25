@@ -13,6 +13,7 @@ class ScummvmTools < Formula
 
   bottle do
     cellar :any
+    sha256 "4b1a47fd6bd0890f4c10b2feb784b5c2cece304cfd106bd214ce8233688e72a3" => :big_sur
     sha256 "4d43c5933986b4c011c5cf9f45bd853cf0faabb652aab2ce53f9e5cfc5d95ae0" => :catalina
     sha256 "64cce3aa4cfbb11ee9223bb1037cf85e8cec3ab78d2206aeb93f2605ea7cf327" => :mojave
     sha256 "0c207fc3e8ee9b54b1c6f85d1461458cbe3ba05b591f87807ff4e534c4baec17" => :high_sierra

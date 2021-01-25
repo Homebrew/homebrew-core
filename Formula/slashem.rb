@@ -14,6 +14,8 @@ class Slashem < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "580468c6703c09d86a0904bb838e3bf8f98a1a21d7a694147b8bb61ea3428f88" => :big_sur
+    sha256 "a7fcb3b60e93f0119b791410997a9552c4dd409061eeb06d7b5461a4ab75a52b" => :arm64_big_sur
     sha256 "96fc5b1abd0e8deff9573c43656e7f3caa25b51d28eb8f426cec7c28131ab4b0" => :catalina
     sha256 "7a764f6117556d92fad752ec06dc28626c0e250632eac85cfa8d841f7c770819" => :mojave
     sha256 "5bac56b4e76ea1db5b5e211ac88c4f10c2fa8b179ada29512f41868af1669b3d" => :high_sierra

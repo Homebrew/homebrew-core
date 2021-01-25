@@ -1,8 +1,8 @@
 class OsrmBackend < Formula
   desc "High performance routing engine"
   homepage "http://project-osrm.org/"
-  url "https://github.com/Project-OSRM/osrm-backend/archive/v5.22.0.tar.gz"
-  sha256 "df0987a04bcf65d74f9c4e18f34a01982bf3bb97aa47f9d86cfb8b35f17a6a55"
+  url "https://github.com/Project-OSRM/osrm-backend/archive/v5.23.0.tar.gz"
+  sha256 "8527ce7d799123a9e9e99551936821cc0025baae6f2120dbf2fbc6332c709915"
   license "BSD-2-Clause"
   revision 2
   head "https://github.com/Project-OSRM/osrm-backend.git"
@@ -14,10 +14,10 @@ class OsrmBackend < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "12ec9670281dc1918f3d22cd39fc8f710008ee729b9997d65c10b6cfd4d6de1d" => :catalina
-    sha256 "db542349d5f721c7746b8222902d451828d593d7fe8d2b9235a6eb31ca3fffbc" => :mojave
-    sha256 "b43652ac087d596ecb02d922a88e9fc82769bf2d8a55be424ca6102807a03e45" => :high_sierra
+    sha256 "ac9ddfcdb59f49d02ab37712b21a69daf0893d41c75b6e8079d29c8d7eda73d8" => :big_sur
+    sha256 "412443e54733b82f7349d436efe0a9a7a171873c098167e87fc856eca37cc0e3" => :arm64_big_sur
+    sha256 "8281188a00e51a463f91ad206ccfa6603046b392ea2cfb7f35d659a6b80024f4" => :catalina
+    sha256 "fc2d5a305403213f22f77f8d4de6859541ca8d43c7e40d3cabbc8c4bb3756809" => :mojave
   end
 
   depends_on "cmake" => :build
@@ -26,16 +26,16 @@ class OsrmBackend < Formula
   depends_on "libxml2"
   depends_on "libzip"
   depends_on "lua"
-
-  # "invalid use of non-static data member 'offset'"
-  # https://github.com/Project-OSRM/osrm-backend/issues/3719
-  depends_on macos: :el_capitan
-
   depends_on "tbb"
 
   def install
+    lua = Formula["lua"]
+    luaversion = lua.version.major_minor
     mkdir "build" do
-      system "cmake", "..", "-DENABLE_CCACHE:BOOL=OFF", *std_cmake_args
+      system "cmake", "..", "-DENABLE_CCACHE:BOOL=OFF",
+                            "-DLUA_INCLUDE_DIR=#{lua.opt_include}/lua#{luaversion}",
+                            "-DLUA_LIBRARY=#{lua.opt_lib}/liblua.#{luaversion}.dylib",
+                            *std_cmake_args
       system "make"
       system "make", "install"
     end

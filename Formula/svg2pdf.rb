@@ -6,8 +6,14 @@ class Svg2pdf < Formula
   license "LGPL-2.1"
   revision 1
 
+  livecheck do
+    url "https://cairographics.org/snapshots/"
+    regex(/href=.*?svg2pdf[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
+    sha256 "358f4578b7a5fb09569411c4ac192314e2fa082aeb14cba604f2275ed888b72a" => :big_sur
     sha256 "7dff42459bf1ab33b0938f062d42c1857cb8274d1935f356b4f7dec76aac865c" => :catalina
     sha256 "ba3e83fc0bf7a58166f2c4449b0f0d4590b5902ac2072ece48b9ca5eed13429a" => :mojave
     sha256 "7a1c4ac8748a9c9013d6d6e50bd04b024e092dd718c878a0b7bcde3d9ca51a97" => :high_sierra

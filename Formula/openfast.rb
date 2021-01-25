@@ -1,15 +1,15 @@
 class Openfast < Formula
   desc "NREL-supported OpenFAST whole-turbine simulation code"
   homepage "https://openfast.readthedocs.io"
-  url "https://github.com/openfast/openfast/archive/v2.4.0.tar.gz"
-  sha256 "3f10e9c056677ad107e72051ebcd3430645589f01f90ca556d29cee56af17772"
+  url "https://github.com/openfast/openfast/archive/v2.5.0.tar.gz"
+  sha256 "b3d9cfcdd87a8fa0e8e62d08bf65a9a9ee69e16a5221e6fb0d3b7f4226971d0e"
   license "Apache-2.0"
 
   bottle do
     cellar :any
-    sha256 "4002905c49121e6d207f019001aafe98fe40e001a8e0507c91e36a5942f2e528" => :catalina
-    sha256 "975d21ae1596c7ed4f23119e7008d61c88d386eff9ff29bc3ad594cbea722c25" => :mojave
-    sha256 "36c1b0f032d686639382774346c7c71f25fc09db6ff1733b46939c4728199f1d" => :high_sierra
+    sha256 "59580daa33a07c7e6e82457b95c1c29f9a0c7771e3660f05a540055f61d4de84" => :big_sur
+    sha256 "65291fb3a065b7f618be694e47e97acaf676a6e791577f32166c8097cfb897a3" => :catalina
+    sha256 "8c7af9c78eb329aa2e6804080862c8996693ee35fb076aef1142cbdc4e09766a" => :mojave
   end
 
   depends_on "cmake" => :build

@@ -21,6 +21,8 @@ class Screen < Formula
   end
 
   bottle do
+    sha256 "6a4935174331a3d96eb0fb5e05af4a095d188565f5f87d7e6dbf6a8478490644" => :big_sur
+    sha256 "8ba1521db91bbc7fe1852d22c56b1de1c14e93fd8d4510b627948b211ee90f77" => :arm64_big_sur
     sha256 "f3787a0e1c889106ab14d89c4f1bed001716ce1eb79e44e56b20e71b7448e172" => :catalina
     sha256 "30dfe7b1bc6c74d64be57224852e50ebd5d4c6d4939872eaceac5f06d9935208" => :mojave
     sha256 "1e63b4fd4ae798111980a7d9ed47c3fcb867cbad2c4253164b55722efc65d53e" => :high_sierra
@@ -42,6 +44,10 @@ class Screen < Formula
     # because of trying to compile files which depend osdef.h
     # before osdef.sh script generates it.
     ENV.deparallelize
+
+    # Fix for Xcode 12 build errors.
+    # https://savannah.gnu.org/bugs/index.php?59465
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
 
     system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}",

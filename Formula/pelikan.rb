@@ -8,6 +8,8 @@ class Pelikan < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "98b69e12d5ba1d3e8824e87f3fa5773a3bf7ba63dc2c32c73f07839b2c9d0e81" => :big_sur
+    sha256 "22f695e695353e9317b34caf92789363464100d5ef63a7883a393767030e9951" => :arm64_big_sur
     sha256 "61441ad2aeeb6d14ab8fa6183944c1f4ab0733776e3f810ad17b80faf2f25faf" => :catalina
     sha256 "a313660eb003974995537cef07e391d3051218f7c65f3326c270b68f0855a59f" => :mojave
     sha256 "a80ae1b508d4eae75d03fc5ad07477039a50a37419681b2472af4f9dc5f240ea" => :high_sierra

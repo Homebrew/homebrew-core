@@ -1,36 +1,37 @@
 class SpirvTools < Formula
   desc "API and commands for processing SPIR-V modules"
   homepage "https://github.com/KhronosGroup/SPIRV-Tools"
-  url "https://github.com/KhronosGroup/SPIRV-Tools/archive/v2020.3.tar.gz"
-  sha256 "8b538a1cb2a4275ef9617abcb047d54e8292f975ac1d93323d5dd1e19c85280b"
+  url "https://github.com/KhronosGroup/SPIRV-Tools/archive/v2020.6.tar.gz"
+  sha256 "de2392682df8def7ac666a2a320cd475751badf4790b01c7391b7644ecb550a3"
   license "Apache-2.0"
 
   bottle do
     cellar :any
-    sha256 "eb2e8acb244d040f0bbc586c037650a13672c32b5894fbe54be1531eb649ee35" => :catalina
-    sha256 "5874ff4a3b024d83c6b203e75087717951b571352bf1a25a59aeb4e58e5194fc" => :mojave
-    sha256 "f9f5ffdf2de7a2650b251aad002e94b27d16818172f2a168ca51cda8b80bf74a" => :high_sierra
+    sha256 "3e11043908ed15d64d1ae3f8f7938d107e861d6fab9334d8a1738a8faeb99c97" => :big_sur
+    sha256 "de0e45feb7b2342392980d3d9ee58098615296a0c3f7ff7f02b785fb75fd83ba" => :arm64_big_sur
+    sha256 "e51201b6a2af7e6a557c044325b62e2388a08e44a5e4f3e57db544d000860c6d" => :catalina
+    sha256 "c98af1a7354aecc6ff40d15025a83c60ab00e55e73252f9b292cf5c2dad2a420" => :mojave
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
 
   resource "re2" do
     # revision number could be found in ./DEPS
     url "https://github.com/google/re2.git",
-        revision: "5bd613749fd530b576b890283bfb6bc6ea6246cb"
+        revision: "ca11026a032ce2a3de4b3c389ee53d2bdc8794d6"
   end
 
   resource "effcee" do
     # revision number could be found in ./DEPS
     url "https://github.com/google/effcee.git",
-        revision: "cd25ec17e9382f99a895b9ef53ff3c277464d07d"
+        revision: "2ec8f8738118cc483b67c04a759fee53496c5659"
   end
 
   resource "spirv-headers" do
     # revision number could be found in ./DEPS
     url "https://github.com/KhronosGroup/SPIRV-Headers.git",
-        revision: "f8bf11a0253a32375c32cad92c841237b96696c0"
+        revision: "f027d53ded7e230e008d37c8b47ede7cd308e19d"
   end
 
   def install

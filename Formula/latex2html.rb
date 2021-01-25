@@ -1,9 +1,9 @@
 class Latex2html < Formula
   desc "LaTeX-to-HTML translator"
   homepage "https://www.latex2html.org"
-  url "https://github.com/latex2html/latex2html/archive/v2020.2.tar.gz"
-  sha256 "09f2d7f086fee9538523fd5074ada8ebadbdbc2227ca11d9d36189e698e5cfaf"
-  license "GPL-2.0"
+  url "https://github.com/latex2html/latex2html/archive/v2021.tar.gz"
+  sha256 "872fe7a53f91ababaafc964847639e3644f2b9fab3282ea059788e4e18cbba47"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :stable
@@ -12,9 +12,10 @@ class Latex2html < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f5448ddd27e175bc6cf388581f3332a188bc52a15c69d41b8002cc5303471cf4" => :catalina
-    sha256 "fc170658ac170d9bf484a05d99fc052fdefdf9d39ada1cb0b2cffa20950e7ed5" => :mojave
-    sha256 "1057bbb3c6c991e3ce62425b2b11852558d40be5fab478560784ee2b60ec2591" => :high_sierra
+    sha256 "6872bf6979572c46b6440b7e3a54caa49661fb98348b4eb3be91022f133dede7" => :big_sur
+    sha256 "0b92290fc7fb156b76df56ee8992b272fca29ccbe1ec50e7637df550939fcf0d" => :arm64_big_sur
+    sha256 "fed2600e8edb14f29596c2b89720a1e21d19ae27c0c39bdf565c2320b147f553" => :catalina
+    sha256 "02ffab1491227b84d0accbf77265ae229ac104f5a3b62a51c8c69371d7f976d5" => :mojave
   end
 
   depends_on "ghostscript"

@@ -2,9 +2,10 @@ class Kustomize < Formula
   desc "Template-free customization of Kubernetes YAML manifests"
   homepage "https://github.com/kubernetes-sigs/kustomize"
   url "https://github.com/kubernetes-sigs/kustomize.git",
-      tag:      "kustomize/v3.8.5",
-      revision: "4052cd4fd8c76a17b5f64e32509f3fba9713fe75"
+      tag:      "kustomize/v3.9.2",
+      revision: "e98eada7365fc564c9aba392e954f306a9cbf1dd"
   license "Apache-2.0"
+  revision 2
   head "https://github.com/kubernetes-sigs/kustomize.git"
 
   livecheck do
@@ -14,25 +15,36 @@ class Kustomize < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ae6590ed9ddd4bf5697034c6dfa8a12e93d1eee46f07dcf9ec496aef309f1357" => :catalina
-    sha256 "3f1a26e793438964f70a3800eb478bf24c17372addac545ecb29efb490f6eae5" => :mojave
-    sha256 "c359c96d2b8ee8cfc28ea78483f653b46df0bdcfb57a8df082e43588d183d2b4" => :high_sierra
+    sha256 "75e67191c19af18ced915e0b1e54aafe1d1c23bd000575766d938aed13f1a7e4" => :big_sur
+    sha256 "521a2cb12359f6dac37604ef15995e4ffba2fc86ef1512bb04b302bbf5156c54" => :arm64_big_sur
+    sha256 "b0c24578d829ae5ee53debb872488220c6410e39a605c4976b720d6ac105935a" => :catalina
+    sha256 "c5540417ed2d8db9a313defd9494fa688ae5068c6125d076c131936b6daa43a7" => :mojave
   end
 
   depends_on "go" => :build
 
   def install
-    revision = Utils.safe_popen_read("git", "rev-parse", "HEAD").strip
+    commit = Utils.git_head
     tag = Utils.safe_popen_read("git", "tag", "--contains", "HEAD").strip
 
     cd "kustomize" do
       ldflags = %W[
-        -s -X sigs.k8s.io/kustomize/api/provenance.version=#{tag}
-        -X sigs.k8s.io/kustomize/api/provenance.gitCommit=#{revision}
+        -s
+        -X sigs.k8s.io/kustomize/api/provenance.version=#{tag}
+        -X sigs.k8s.io/kustomize/api/provenance.gitCommit=#{commit}
         -X sigs.k8s.io/kustomize/api/provenance.buildDate=#{Time.now.iso8601}
       ]
       system "go", "build", "-ldflags", ldflags.join(" "), "-o", bin/"kustomize"
     end
+
+    output = Utils.safe_popen_read("#{bin}/kustomize", "completion", "bash")
+    (bash_completion/"kustomize").write output
+
+    output = Utils.safe_popen_read("#{bin}/kustomize", "completion", "zsh")
+    (zsh_completion/"_kustomize").write output
+
+    output = Utils.safe_popen_read("#{bin}/kustomize", "completion", "fish")
+    (fish_completion/"kustomize.fish").write output
   end
 
   test do

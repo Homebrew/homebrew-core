@@ -7,6 +7,8 @@ class Radamsa < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "925d63ed4fd304e24832bfff8acc6ae75d3549ad6f893292a4865ab7cd77c499" => :big_sur
+    sha256 "5ee7ab43bc7155d05030cffef87111083e9d5b55b96d51c1ea54fc76fc9ce8fc" => :arm64_big_sur
     sha256 "97fe42099e0b4278519ee560af5a38dd0cb5055e7542cd892d4c4f96d93960c5" => :catalina
     sha256 "a4d9d9e07ff76b8bb51333a04d645ea0213663dc635bdea890b1cffb7f2e6543" => :mojave
     sha256 "82d2231dcb25adb55f62690bd34d2b4b8978a3d22b956c0f0f2e20640d31c7a0" => :high_sierra

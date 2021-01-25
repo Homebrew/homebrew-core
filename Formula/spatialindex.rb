@@ -8,6 +8,8 @@ class Spatialindex < Formula
 
   bottle do
     cellar :any
+    sha256 "49ef8e79ee6c7348b438d2b174effd66a2a7136a12c58645a0a37a5c22740ce3" => :big_sur
+    sha256 "5786e51306b202e51c9a81b4bc6c7b593027c8e88b777d142e486bf012eebe34" => :arm64_big_sur
     sha256 "fbcbfaf6510137f3168a0dc57cbac8c8b1435094b1ede9d35a30fa6ccaea28f4" => :catalina
     sha256 "a5cbdfb3acddb053e596fc56e7653559581923e48ed6815503fffc47c7a16660" => :mojave
     sha256 "cace27981cc1e5143a48e8b700d6823dff9d8049140683e0e536c476894ede91" => :high_sierra

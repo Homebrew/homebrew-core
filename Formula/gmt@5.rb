@@ -6,12 +6,12 @@ class GmtAT5 < Formula
   mirror "https://fossies.org/linux/misc/GMT/gmt-5.4.5-src.tar.gz"
   sha256 "225629c7869e204d5f9f1a384c4ada43e243f83e1ed28bdca4f7c2896bf39ef6"
   license "LGPL-3.0"
-  revision 6
+  revision 8
 
   bottle do
-    sha256 "ccbfdc5293e264dfa68d6bd0bc6bbe84cda41df4b0dae485f44921a918762ff0" => :catalina
-    sha256 "470de2773519e927fcf3c10b5d9128c31f151c348ef752cad40190fe7790195d" => :mojave
-    sha256 "032dca5dd465eb6ba588a02df5c3912835cfc0412a595d6895c44e0e71c99162" => :high_sierra
+    sha256 "e93f97c3d5a207755822613ab93855ccb63632cd8e6a52e92c32572a42ae4392" => :big_sur
+    sha256 "384da7de72dff2ba60d184bbf86fa4b1bc29d192eda5eae64cab1a748ad044cd" => :catalina
+    sha256 "729293041d98bbfde07882587e72e6009bd43ae5edb58f1a7a4092d9db6a98b3" => :mojave
   end
 
   keg_only :versioned_formula

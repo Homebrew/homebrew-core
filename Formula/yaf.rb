@@ -1,9 +1,9 @@
 class Yaf < Formula
   desc "Yet another flowmeter: processes packet data from pcap(3)"
   homepage "https://tools.netsa.cert.org/yaf/"
-  url "https://tools.netsa.cert.org/releases/yaf-2.11.0.tar.gz"
-  sha256 "5e2523eeeaa5ac7e08f73b38c599f321ba93f239011efec9c39cfcbc30489dca"
-  revision 1
+  url "https://tools.netsa.cert.org/releases/yaf-2.12.1.tar.gz"
+  sha256 "53bbdfddd4d6f59ac0d866fdb20e59653cc7f8541b44044bbb1ec1f981e21e27"
+  license "GPL-2.0-only"
 
   livecheck do
     url "https://tools.netsa.cert.org/yaf/download.html"
@@ -12,11 +12,10 @@ class Yaf < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "62355ef76633be429f5a281b1a357fa74d12e33ffaf5c2e38b0291442cb1f9fd" => :catalina
-    sha256 "7395026369a9b4b30f6614ab98baa1d810de2af29511b635b3ba2ad5a3d82289" => :mojave
-    sha256 "3e4ba45a90c4a47bcb4edc7dd9d9bf227d8b70af3989368bbf6cc4b006d2a9f7" => :high_sierra
-    sha256 "f9f45a164b81d2b4d4ef3b45664faa81d8317039cee93b69a1f4dc2d55786068" => :sierra
+    sha256 "c1b74fbe1059282892a5b6ffaa20ab78a2a826e012dd9660ca3d47620cf5c5c4" => :big_sur
+    sha256 "76f4110e69d43358fe777fb8592a1b70a7d559f5907f7e8a49498ceffaefb58a" => :arm64_big_sur
+    sha256 "916e896ce18eac857a04e804dd1e71b5db9d35bb140c07dbf6da3db392022ca9" => :catalina
+    sha256 "a3cc7c4da5056644725dfe0316140886199c6151bf868e62765ba4c2fe07d0e1" => :mojave
   end
 
   depends_on "pkg-config" => :build

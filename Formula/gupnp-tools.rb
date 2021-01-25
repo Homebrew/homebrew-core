@@ -10,6 +10,8 @@ class GupnpTools < Formula
   end
 
   bottle do
+    sha256 "38763acd7675374f6fb83bb6fc9c11fd66cc0b0e76b1dc1f16a1602ea73cecc9" => :big_sur
+    sha256 "f1686d0d5c09941c2b86710da491917d38e0a6395a035048079f324e4ef6220d" => :arm64_big_sur
     sha256 "4100de40650880fa3ad8023c65e07c651aaf1286da8865a3e865f55016eb330e" => :catalina
     sha256 "6a4d56ae6c680111619ad67125ffe3ee96944404771bbfdf7cdf6db0322a5379" => :mojave
     sha256 "b4e8473364799562c90c9637f33b5ef999c53d7404eac8f6ce2921f62d056324" => :high_sierra

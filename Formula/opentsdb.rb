@@ -6,8 +6,8 @@ class Opentsdb < Formula
   license "LGPL-2.1"
 
   livecheck do
-    url "https://github.com/OpenTSDB/opentsdb/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
@@ -17,10 +17,12 @@ class Opentsdb < Formula
     sha256 "5bcdc828069e124c16e1e6c8b2eb6732d0ef88533c27f60fcbb0bec369aca375" => :high_sierra
   end
 
+  deprecate! date: "2020-11-13", because: :does_not_build
+
   depends_on "gnuplot"
   depends_on "hbase"
-  depends_on java: "1.8"
   depends_on "lzo"
+  depends_on "openjdk@8"
 
   def install
     system "./configure",

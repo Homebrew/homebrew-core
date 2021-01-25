@@ -1,15 +1,16 @@
 class Quantlib < Formula
   desc "Library for quantitative finance"
   homepage "https://www.quantlib.org/"
-  url "https://dl.bintray.com/quantlib/releases/QuantLib-1.19.tar.gz"
-  sha256 "4a5ff7d53ed5590944f2f0d6b96dd6fba041cc7601e25bc06b040257a455813a"
+  url "https://dl.bintray.com/quantlib/releases/QuantLib-1.21.tar.gz"
+  sha256 "3d3296fb13f822de6b980692604e2b1ba0d1b45e0e32d67d80b4cc9725b87d1b"
   license "BSD-3-Clause"
 
   bottle do
     cellar :any
-    sha256 "bd0a2d672f32543a7b3f2fa859b64080a80499abea18d5dba84dc1c3fd1e08da" => :catalina
-    sha256 "0b94a2a8fc76cdf2a86418f58ad95068341f8eedb98a9ff23546fc5d26310933" => :mojave
-    sha256 "cb5b462641d2412e03a1f14ff1dd04fd49e11bd792fbc26431caec15713bd231" => :high_sierra
+    sha256 "d5e6c206260e8ef5e297e464dd45979fe56bdaa938c75a071f70fce97b1b391e" => :big_sur
+    sha256 "b930efbd942abbb5f9317d3d15fc0ca6a551cc3f7d5c3eb7cdb77464770d5ae0" => :arm64_big_sur
+    sha256 "18dd1cc854b50e811fec338ba31f7ea3d6aacf80a4f0c1f90c8d8db8d891b2b7" => :catalina
+    sha256 "03c142589e975e9ba78966cd9f813fc77ae22aefea1049b43f3e7406cd090193" => :mojave
   end
 
   head do

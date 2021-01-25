@@ -1,15 +1,16 @@
 class Tmx < Formula
   desc "Portable C library to load tiled maps in your games"
   homepage "https://github.com/baylej/tmx"
-  url "https://github.com/baylej/tmx/archive/tmx_1.1.0.tar.gz"
-  sha256 "79a9a72fea3c512969e8262a6abbb5886ad39eefe2762b3554f7538c59be6b74"
+  url "https://github.com/baylej/tmx/archive/tmx_1.4.0.tar.gz"
+  sha256 "5ab52e72976141260edd1b15ea34e1626c0f4ba9b8d2afe7f4d68b51fc9fedf7"
   license "BSD-2-Clause"
 
   bottle do
     cellar :any
-    sha256 "e751f5545befe34c2e3b531c6c1adb6b256539ed613c1cd4bd3c44be05d5a3a3" => :catalina
-    sha256 "20b8c3c1335eb81aace022bbf1086faaaff0aa5aa4e6d6f8858ec62a834e702a" => :mojave
-    sha256 "71310fb31b83e16bd21269c8a4c7f396f8e47eda535ede4fc01b61108867c9a6" => :high_sierra
+    sha256 "91e9846b6d59e0694918753e357736c229c2a70d8021fdbaa2eb506e5be746c2" => :big_sur
+    sha256 "770cdb601ea6b496a29832960cb5fd79626a99f55f01c635985aa921f3e5f31d" => :arm64_big_sur
+    sha256 "1013715fdb263f6d6985c9145a5dbc05d2e41ba6c4aa28af766f0bc82a87f2c5" => :catalina
+    sha256 "060eab2a5090afed9dfbf6ca716a2867b956be2222e6a623a5b98774bf06ef6e" => :mojave
   end
 
   depends_on "cmake" => :build

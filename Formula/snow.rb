@@ -10,6 +10,8 @@ class Snow < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "4cf930203ae4748152f58f0d7a6e8c93eb5d2f6ca1d0498c882da68da599847a" => :big_sur
+    sha256 "82e4eb39adb51efc80eb91bcbdee8f4ca6f64efd91c38a6aba5a1e1e3bb71cec" => :arm64_big_sur
     sha256 "9c662e59ae80a814b726baa86faa4e37e85f504e368579ede9e88254af4b8bde" => :catalina
     sha256 "bed2d75f7d4210b5bebd533b656bf0ee641f6aaa4665b6c914071d7d1a4a7f04" => :mojave
     sha256 "7db54bdc60bd0db33bc854e5b95a928183479d1f2d9ec65d69f36d3d8ccdae6a" => :high_sierra

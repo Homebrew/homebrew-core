@@ -1,8 +1,8 @@
 class Biosig < Formula
   desc "Tools for biomedical signal processing and data conversion"
   homepage "https://biosig.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/biosig/BioSig%20for%20C_C%2B%2B/src/biosig-2.1.0.src.tar.gz"
-  sha256 "562ff3d5aee834dc7d676128e769c8762e23a40e0c18e6995628ffdcaa3e1c7e"
+  url "https://downloads.sourceforge.net/project/biosig/BioSig%20for%20C_C%2B%2B/src/biosig-2.1.2.src.tar.gz"
+  sha256 "1b5bf62739faf3caef7cb7fbb14c7f1dea352caa548b08c7bb5adaaef2f4d1b4"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -12,9 +12,9 @@ class Biosig < Formula
 
   bottle do
     cellar :any
-    sha256 "7ddfff1529286000cd32a28ce1bf735cfe810804c08b20eaa2fe39a587f8b73b" => :catalina
-    sha256 "4786b282a950d325f91d681615a9d60cc8335703f818d527c5d55f7718b206e9" => :mojave
-    sha256 "0818b0bdfe19286f9d18de35d5fa72981b4b1e1403083c92136c7d5c937dbe6f" => :high_sierra
+    sha256 "1e3c9542d6b888e11a4058e205ea6ae16a616d8b8adfa6d45ddc373b0782829d" => :big_sur
+    sha256 "99d889246651cf3b64abc120d33350fbf36b42f9e476d2796378af8fc5a8ad11" => :catalina
+    sha256 "4a134de8195065854403b1f3d94e48b1a764d9dbcd9d09352eca0a3ecebc4526" => :mojave
   end
 
   depends_on "gawk" => :build

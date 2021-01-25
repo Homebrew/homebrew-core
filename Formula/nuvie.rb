@@ -12,6 +12,8 @@ class Nuvie < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "71b1a9ea103fe37952db150053066dfbf96678106bd3d369f9ac417bc2586a76" => :big_sur
+    sha256 "ec6682677f932e9214822c36b6c50a6bcd7e6fe9549e096e051fb4fd1e981aa5" => :arm64_big_sur
     sha256 "286980f2c5b977f355d59bf2b10366b3c38613764b66707852e2934649089bc6" => :catalina
     sha256 "b1cefbd62e4b350d330853e14f789cc0b137c19b434271d1837114e10a73b0ca" => :mojave
     sha256 "f066beb078dd00f4b339ce25b7ff06dadd6ddf62283008ee149d2758c80e439b" => :high_sierra

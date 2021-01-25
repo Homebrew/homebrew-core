@@ -1,16 +1,16 @@
 class Futhark < Formula
   desc "Data-parallel functional programming language"
   homepage "https://futhark-lang.org/"
-  url "https://github.com/diku-dk/futhark/archive/v0.18.1.tar.gz"
-  sha256 "b9d9abf7b5c5204c12d5fbde6b60bcd9a8692f171b8fd70a67213ba5092e5bfa"
+  url "https://github.com/diku-dk/futhark/archive/v0.18.5.tar.gz"
+  sha256 "62e40af86afb357cf443861ae4f10662effff42f2981d103943ea20aefc6d076"
   license "ISC"
   head "https://github.com/diku-dk/futhark.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f118ffa2a1850d2cc4b913b730d643028b524bf7e0680a142c0150f04da70ba6" => :catalina
-    sha256 "26298e76327b8504f57fc2b0762f1b0680519184881678161b299fd904f4b168" => :mojave
-    sha256 "9272b36bd8044cb7521c17bc777a50734223a50f5460a33b96fcf997777863d7" => :high_sierra
+    sha256 "b509a18e2eb41e66a85c7f654a80a6fe58adfca07c46d32b5b50abf92a40d530" => :big_sur
+    sha256 "d1cd16cbd7ea1cedb79facaff8a6e882f379c5e24dd9d9919ca772d686a15717" => :catalina
+    sha256 "42a14f360798bf51d8262706c1b1c36c71a073bb162fa46f5001892db71aec05" => :mojave
   end
 
   depends_on "cabal-install" => :build
@@ -22,7 +22,9 @@ class Futhark < Formula
 
   def install
     system "cabal", "v2-update"
-    system "cabal", "v2-install", *std_cabal_v2_args
+    # Remove the `--constraint` flag at version bump
+    # see https://github.com/ddssff/listlike/issues/8#issuecomment-748985462 for detail
+    system "cabal", "v2-install", *std_cabal_v2_args, "--constraint=bytestring==0.10.10.1"
 
     system "make", "-C", "docs", "man"
     man1.install Dir["docs/_build/man/*.1"]

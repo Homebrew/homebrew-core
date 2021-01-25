@@ -1,8 +1,8 @@
 class Vte3 < Formula
   desc "Terminal emulator widget used by GNOME terminal"
   homepage "https://developer.gnome.org/vte/"
-  url "https://download.gnome.org/sources/vte/0.62/vte-0.62.1.tar.xz"
-  sha256 "c369e87c0c8284e09109d0a9aac821f543558f51c0cb9c7acfff3df64153308d"
+  url "https://download.gnome.org/sources/vte/0.62/vte-0.62.2.tar.xz"
+  sha256 "b0300bbcf0c02df5812a10a3cb8e4fff723bab92c08c97a0a90c167cf543aff0"
   license "LGPL-2.0-or-later"
 
   livecheck do
@@ -10,8 +10,10 @@ class Vte3 < Formula
   end
 
   bottle do
-    sha256 "682bd63b12521e701f58b13f72f0a9f3449314670320e491b06d437de309daff" => :catalina
-    sha256 "617d21b21c0ffc0d53dea2ca5dc4ebf796afc9e3f0a46fc0c85ef9a01b2d6e28" => :mojave
+    sha256 "4c9b4f83588414498702a755ed85adf8f82336e96904d53360430ed625f63b0f" => :big_sur
+    sha256 "e4dffc796de1262ba9e996770f1077ae04f57c9f3309ade7acdd7d98e3e90e27" => :arm64_big_sur
+    sha256 "0bee470e969ca07f5d19e6fd644fbf35b72a73c919c197b67e75d6fa1b24d569" => :catalina
+    sha256 "f5e60ee9050f2139f97f6a75d9571fd65c9e60ab4421277bed993a4741069da6" => :mojave
   end
 
   depends_on "gobject-introspection" => :build
@@ -111,12 +113,14 @@ class Vte3 < Formula
       -lgnutls
       -lgobject-2.0
       -lgtk-3
-      -lintl
       -lpango-1.0
       -lpangocairo-1.0
       -lvte-2.91
       -lz
     ]
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

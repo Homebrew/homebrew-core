@@ -2,7 +2,7 @@ class Sdl < Formula
   desc "Low-level access to audio, keyboard, mouse, joystick and graphics"
   homepage "https://www.libsdl.org/"
   license "LGPL-2.1-only"
-  revision 2
+  revision 3
 
   stable do
     url "https://www.libsdl.org/release/SDL-1.2.15.tar.gz"
@@ -35,6 +35,15 @@ class Sdl < Formula
         sha256 "5a89ddce5deaf72348792d33e12b5f66d0dab4f9747718bb5021d3067bdab283"
       end
     end
+
+    # Fix audio initialization issues on Big Sur, upstream patch
+    # http://hg.libsdl.org/SDL/rev/45055c672931
+    if MacOS.version >= :big_sur
+      patch do
+        url "http://hg.libsdl.org/SDL/raw-rev/45055c672931"
+        sha256 "4bc838bcfe8f671e016d22d9319cb39ca94052b86ad45b805d9b4d32564ef836"
+      end
+    end
   end
 
   livecheck do
@@ -44,9 +53,10 @@ class Sdl < Formula
 
   bottle do
     cellar :any
-    sha256 "d3d792b866320f064fa3c399a8f89a905ef72a73237d73b8f2c0125db2cbf74a" => :catalina
-    sha256 "fc4018807cc7dcb4e3682a2e301b85e932cebd1ffff38117a466f46055a513d8" => :mojave
-    sha256 "7284c872248c61d8016c7e200a218bd9533f346b7b5c6f9c818eeb82c60841c3" => :high_sierra
+    sha256 "d97aac056338f24b09ff065d8a80c6f5e9b6e16aed93003764054f6703093ecd" => :big_sur
+    sha256 "c3fda7b3047ffff537ba6f2a5711fd03f50fa776546d7788f42a4df325944fcf" => :arm64_big_sur
+    sha256 "060c0297dd0af2e289196aa196341ece04f3ab4a3458d173e74f2a3865046a8f" => :catalina
+    sha256 "683450f850acbc501144207d237d28a9c3d0af86533065db7bf7b23ae2d1f6e5" => :mojave
   end
 
   head do

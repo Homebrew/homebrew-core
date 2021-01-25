@@ -5,18 +5,18 @@ class Wordnet < Formula
   # Version 3.1 is version 3.0 with the 3.1 dictionary.
   version "3.1"
   sha256 "6c492d0c7b4a40e7674d088191d3aa11f373bb1da60762e098b8ee2dda96ef22"
+  license :cannot_represent
+  revision 1
 
   bottle do
-    sha256 "a815dc11f451a82c84ed37266010f81bc4f5993467c1e6063edb3fc3f0fd95c5" => :catalina
-    sha256 "142195600ccc68f0140352b71e9976e61758b9212d84c69dedd759cdd7a450ac" => :mojave
-    sha256 "307362dabf35eb3deb0c75154245df65a166655973a822d901a20fcad3a01f5a" => :high_sierra
-    sha256 "873bcb33510b3211fc34bb986f9527ab554f01177fb765c7db48509291a6f7cb" => :sierra
-    sha256 "412b4cc4b65d5083176aa69647ab5a15b96b63b758fa8900c80b402c5a9d2cb6" => :el_capitan
-    sha256 "876de343c8e2d508af818a7aacdcc8015f7e662edf8f08e068ca7800f48d50d4" => :yosemite
-    sha256 "786bc9b811d958b71888cc87e0ef75a6cd66ebc05202278b7827f847f6b4dfe5" => :mavericks
+    sha256 "603c49d51a805975f31491b9f0faec95900cc9bde2042a3ce042c14ed4a2a808" => :big_sur
+    sha256 "48c70e44e65ff918d9a7c59999af788a00a29ed67419a411c789ae8e2f29684d" => :arm64_big_sur
+    sha256 "56264f8aa182e0fb8d64b0166e2583465b6e373b5d69c7e2247e5ec011467a91" => :catalina
+    sha256 "8fedff541aa821dbee4d0396c2137c1cdc43968e6772a69caa664ffabbc23dbe" => :mojave
+    sha256 "2e7eb00a5f63eec2972c927c4e566cf51121e61f95d5f04e4e29443950e3b42f" => :high_sierra
   end
 
-  depends_on :x11
+  depends_on "tcl-tk"
 
   resource "dict" do
     url "https://wordnetcode.princeton.edu/wn3.1.dict.tar.gz"
@@ -32,8 +32,8 @@ class Wordnet < Formula
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}",
-                          "--with-tcl=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework",
-                          "--with-tk=#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework"
+                          "--with-tcl=#{Formula["tcl-tk"].opt_prefix}/lib",
+                          "--with-tk=#{Formula["tcl-tk"].opt_prefix}/lib"
     ENV.deparallelize
     system "make", "install"
   end

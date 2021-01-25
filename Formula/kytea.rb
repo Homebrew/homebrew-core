@@ -6,6 +6,8 @@ class Kytea < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 "2efc4bc6d1c77859c5012819331672e30b9e8c4491c696aac132e8356e08b483" => :big_sur
+    sha256 "e6507d77b03cee09e01eed90d0eb1c724c8acce9ffb7ad0d75a4dfc7ba434fe8" => :arm64_big_sur
     sha256 "927aac3d562cc2977f84670c850ab262a05a010bfe7e7f16aa0eb7d9532eae7b" => :catalina
     sha256 "57c8c3acf60417d44d7df27445d667dd03095f1afdad70aeb63cf68e0cbc64c0" => :mojave
     sha256 "bcdb450698d5065cf82b7726d6dc21381632c41352237dc547c05cc62e4b7e59" => :high_sierra

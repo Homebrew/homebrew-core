@@ -8,11 +8,12 @@ class Ocamlbuild < Formula
   head "https://github.com/ocaml/ocamlbuild.git"
 
   livecheck do
-    url "https://github.com/ocaml/ocamlbuild/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
+    sha256 "3daa705ce9d023a2679f609671d06de48e8dd1dd13ece8db46068802abbdd41f" => :big_sur
     sha256 "8f6fc7e7413b24faa041b7651349a3128f9eadefae5c9aa0c50f0d1a56e010f6" => :catalina
     sha256 "04fed811edb4dd3903f742ec6678643f9959e85c4fcb763972c8779dec059515" => :mojave
     sha256 "e4cd0274f9657874e29add30545055af4ea8697d426ed95f799ddce63aef5cfe" => :high_sierra

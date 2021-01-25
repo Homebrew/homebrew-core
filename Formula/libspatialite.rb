@@ -1,19 +1,11 @@
 class Libspatialite < Formula
   desc "Adds spatial SQL capabilities to SQLite"
   homepage "https://www.gaia-gis.it/fossil/libspatialite/index"
-  revision 8
-
-  stable do
-    url "https://www.gaia-gis.it/gaia-sins/libspatialite-sources/libspatialite-4.3.0a.tar.gz"
-    mirror "https://ftp.netbsd.org/pub/pkgsrc/distfiles/libspatialite-4.3.0a.tar.gz"
-    mirror "https://www.mirrorservice.org/sites/ftp.netbsd.org/pub/pkgsrc/distfiles/libspatialite-4.3.0a.tar.gz"
-    sha256 "88900030a4762904a7880273f292e5e8ca6b15b7c6c3fb88ffa9e67ee8a5a499"
-
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/27a0e51936e01829d0a6f3c75a7fbcaf92bb133f/libspatialite/sqlite310.patch"
-      sha256 "459434f5e6658d6f63d403a7795aa5b198b87fc9f55944c714180e7de662fce2"
-    end
-  end
+  url "https://www.gaia-gis.it/gaia-sins/libspatialite-sources/libspatialite-5.0.0.tar.gz"
+  mirror "https://ftp.netbsd.org/pub/pkgsrc/distfiles/libspatialite-5.0.0.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.netbsd.org/pub/pkgsrc/distfiles/libspatialite-5.0.0.tar.gz"
+  sha256 "7b7fd70243f5a0b175696d87c46dde0ace030eacc27f39241c24bac5dfac6dac"
+  license any_of: ["MPL-1.1", "GPL-2.0-or-later", "LGPL-2.1-or-later"]
 
   livecheck do
     url "https://www.gaia-gis.it/gaia-sins/libspatialite-sources/"
@@ -22,9 +14,10 @@ class Libspatialite < Formula
 
   bottle do
     cellar :any
-    sha256 "e8bd429119857fab4cb51f3ba7b64024b51eb2400873e71fc9d6aad297c109ce" => :catalina
-    sha256 "8fcc2ccaf861f94c3fb41b1c6435e86f52a7fe70e66d9e02a5acb16d285c4360" => :mojave
-    sha256 "a77ac13e3758d389ccf42fa62d8a7bb528062c215e2b380b8d3df7211696712f" => :high_sierra
+    sha256 "18444b8c0c78ed66b7dd84e50bbf24b67b0d955c2f1fd8716bbe77b41353a7bf" => :big_sur
+    sha256 "ba20ea1010d62219b45458ad9768f963ff0684497834d00a81a398c3ed6e1dbb" => :arm64_big_sur
+    sha256 "e4a083ce451aa9bad3ca209a042c32f946a9ed3964d498790c6d141ac9d70aab" => :catalina
+    sha256 "3c8bedbf668ba7627e00dfb7dc4b16eab35681fec2d0a06275d40f5091e278a2" => :mojave
   end
 
   head do
@@ -37,11 +30,10 @@ class Libspatialite < Formula
   depends_on "pkg-config" => :build
   depends_on "freexl"
   depends_on "geos"
+  depends_on "librttopo"
   depends_on "libxml2"
+  depends_on "minizip"
   depends_on "proj"
-  # Needs SQLite > 3.7.3 which rules out system SQLite on Snow Leopard and
-  # below. Also needs dynamic extension support which rules out system SQLite
-  # on Lion. Finally, RTree index support is required as well.
   depends_on "sqlite"
 
   def install
@@ -61,15 +53,12 @@ class Libspatialite < Formula
     ENV.append "LDFLAGS", "-L#{sqlite.opt_lib}"
     ENV.append "CFLAGS", "-I#{sqlite.opt_include}"
 
-    # Use Proj 6.0.0 compatibility headers.
-    # Remove in libspatialite 5.0.0
-    ENV.append_to_cflags "-DACCEPT_USE_OF_DEPRECATED_PROJ_API_H"
-
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
       --with-sysroot=#{HOMEBREW_PREFIX}
       --enable-geocallbacks
+      --enable-rttopo=yes
     ]
 
     system "./configure", *args

@@ -1,10 +1,20 @@
 class Clisp < Formula
   desc "GNU CLISP, a Common Lisp implementation"
   homepage "https://clisp.sourceforge.io/"
-  url "https://ftp.gnu.org/gnu/clisp/release/2.49/clisp-2.49.tar.bz2"
-  mirror "https://ftpmirror.gnu.org/clisp/release/2.49/clisp-2.49.tar.bz2"
-  sha256 "8132ff353afaa70e6b19367a25ae3d5a43627279c25647c220641fed00f8e890"
   revision 2
+
+  stable do
+    url "https://ftp.gnu.org/gnu/clisp/release/2.49/clisp-2.49.tar.bz2"
+    mirror "https://ftpmirror.gnu.org/clisp/release/2.49/clisp-2.49.tar.bz2"
+    sha256 "8132ff353afaa70e6b19367a25ae3d5a43627279c25647c220641fed00f8e890"
+
+    patch :DATA
+
+    patch :p0 do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/e2cc7c1/clisp/patch-src_lispbibl_d.diff"
+      sha256 "fd4e8a0327e04c224fb14ad6094741034d14cb45da5b56a2f3e7c930f84fd9a0"
+    end
+  end
 
   livecheck do
     url "https://ftp.gnu.org/gnu/clisp/release/?C=M&O=D"
@@ -14,20 +24,18 @@ class Clisp < Formula
 
   bottle do
     cellar :any
-    sha256 "d71cf96b9d303ec2de1cb091043a0ad1befa590bbe3ee027f7f94c03daf9f6a1" => :mojave
-    sha256 "5bf6cb7c640be9841f8a433f2bdbbd872aaf01352355d8765266d19a699e23c1" => :high_sierra
-    sha256 "a34dc97249cc2e5001dff9561137c8a4ebc010e6da3be23735d711566e4d7312" => :sierra
+    rebuild 1
+    sha256 "05bfe89f749c669150e3c9d4589a18ac0e5ffe9d3c27cc3da67fa41ad20a9258" => :big_sur
+    sha256 "b6a273e26d27a1bd3c8654631f2cd6fe964f0b9fc83d11ddb74513243378217e" => :catalina
+    sha256 "ee265923cfb2f5943d513a98b4205b57df9317ebf36a0faa4f29f3ee0c3734c2" => :mojave
+  end
+
+  head do
+    url "https://gitlab.com/gnu-clisp/clisp.git"
   end
 
   depends_on "libsigsegv"
   depends_on "readline"
-
-  patch :DATA
-
-  patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/e2cc7c1/clisp/patch-src_lispbibl_d.diff"
-    sha256 "fd4e8a0327e04c224fb14ad6094741034d14cb45da5b56a2f3e7c930f84fd9a0"
-  end
 
   def install
     ENV.deparallelize # This build isn't parallel safe.
@@ -53,8 +61,6 @@ class Clisp < Formula
 
       # The ulimit must be set, otherwise `make` will fail and tell you to do so
       system "ulimit -s 16384 && make"
-
-      system "make", "check"
 
       system "make", "install"
     end

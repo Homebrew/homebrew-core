@@ -1,16 +1,16 @@
 class Cppcheck < Formula
   desc "Static analysis of C and C++ code"
   homepage "https://sourceforge.net/projects/cppcheck/"
-  url "https://github.com/danmar/cppcheck/archive/2.2.tar.gz"
-  sha256 "ad96290a1842c5934bf9c4268cb270953f3078d4ce33a9a53922d6cb6daf61aa"
+  url "https://github.com/danmar/cppcheck/archive/2.3.tar.gz"
+  sha256 "3c622628ebf46f68909c7a96743b07b6207894a0772fbe802603732152ab1035"
   license "GPL-3.0-or-later"
-  revision 1
   head "https://github.com/danmar/cppcheck.git"
 
   bottle do
-    sha256 "b126ab11f1a38e53d94f4f58a5f5f48d0e0cb7cc2a24fd104e0d8a4526f8455f" => :catalina
-    sha256 "e2f6f74f00041c30404a337c78c6b15e7a189a94398cfec1bcae3ccc48c4ba98" => :mojave
-    sha256 "a43ed45890d3253137ca3b47d7c2562951abd5791a404a29c121461fda28813d" => :high_sierra
+    sha256 "d43b72a935d69d6a170289be18dc91677021ce79e3a9b3098d185e74f86a76ef" => :big_sur
+    sha256 "48ddb6efdcb51f6bd829057f467e4b8cf99fabefe9be834a17fc0bcfc58ad9f9" => :arm64_big_sur
+    sha256 "e5e9dcaa609ee6d13d4a49597bde145f7264cf9ea18b9bd4f8b3bd6733c6f56f" => :catalina
+    sha256 "fc7ad924b5ab15d44cd6496d8fad5a5e1df639541bc04a67c9f68cd0ab909409" => :mojave
   end
 
   depends_on "python@3.9" => :test

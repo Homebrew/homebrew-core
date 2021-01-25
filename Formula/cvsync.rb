@@ -12,6 +12,8 @@ class Cvsync < Formula
   bottle do
     cellar :any
     rebuild 2
+    sha256 "2af52706862f05ef89344f0f18bd95948c675e489912ae90840c7b010720ed9c" => :big_sur
+    sha256 "7dd613fd76d65b1e25ca4a75c9828173b74351a441b69a59ba9f49fc9b8497a6" => :arm64_big_sur
     sha256 "da10e78630bf61ac77576e3f10033730bf335e24324681f32c973cd9a2d645be" => :catalina
     sha256 "1a7f82970b208df4bafed99ce20de7f4d94be51f79152ad75c85fb69ecaff51e" => :mojave
     sha256 "1ea4fcb1bcb64f91915919e485b374eb2e16b69fb60f589242c3a140d3c16c7f" => :high_sierra

@@ -6,7 +6,7 @@ class Eralchemy < Formula
   url "https://files.pythonhosted.org/packages/87/40/07b58c29406ad9cc8747e567e3e37dd74c0a8756130ad8fd3a4d71c796e3/ERAlchemy-1.2.10.tar.gz"
   sha256 "be992624878278195c3240b90523acb35d97453f1a350c44b4311d4333940f0d"
   license "Apache-2.0"
-  revision 4
+  revision 5
 
   livecheck do
     url :stable
@@ -14,16 +14,18 @@ class Eralchemy < Formula
 
   bottle do
     cellar :any
-    sha256 "f975a2f702c46fa5671609a90f0a8a3cd236e455e9fe4f0b45c76b2019bf980b" => :catalina
-    sha256 "39f9bb996cdef1cfae44748f5fc5e499f5c05d5683cd2cbe1f4482fdbb474c47" => :mojave
-    sha256 "aaa199ac1ad4d9a687ceb5973d11d44c25cb49cb8b4f808ab96d2a4996248021" => :high_sierra
+    sha256 "2a5ce41209235c75eeb092f0b6c17c6c46c03f2faada2b2a337fcda7f28a4288" => :big_sur
+    sha256 "d925eb8686a32d2bbf7b9bab62f65f6b761952dcb32923ef7b6428f5325c11a1" => :arm64_big_sur
+    sha256 "e844701e7824dc9497969cc6592302bf56ac060d5aa18105e1ee2887411a5f12" => :catalina
+    sha256 "cfb423a7299d1d307e58aa756675f26ea65ad405e6e2fb707727de49aa36eb64" => :mojave
+    sha256 "cb2442baa298aa27c860ad7d80116131f286ea283625dbd809d4b518ba81707a" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "graphviz"
   depends_on "libpq"
   depends_on "openssl@1.1"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "psycopg2" do
     url "https://files.pythonhosted.org/packages/fd/ae/98cb7a0cbb1d748ee547b058b14604bd0e9bf285a8e0cc5d148f8a8a952e/psycopg2-2.8.6.tar.gz"
@@ -46,7 +48,7 @@ class Eralchemy < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
+    venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
 
     res = resources.reject { |r| r.name == "er_example" }
     res.each do |r|

@@ -1,13 +1,13 @@
 class Ckan < Formula
   desc "Comprehensive Kerbal Archive Network"
   homepage "https://github.com/KSP-CKAN/CKAN/"
-  url "https://github.com/KSP-CKAN/CKAN/releases/download/v1.28.0/ckan.exe"
-  sha256 "2486d98e06c247a61a94e583c202b8a4c74a439de3ea271b769d041aa78d21cd"
+  url "https://github.com/KSP-CKAN/CKAN/releases/download/v1.29.2/ckan.exe"
+  sha256 "f0248b7795967010c44747b4fa4fc33d0a81b558a75973edaafb78c16b306d83"
   license "MIT"
 
   livecheck do
-    url "https://github.com/KSP-CKAN/CKAN/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle :unneeded

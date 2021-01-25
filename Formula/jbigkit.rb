@@ -5,11 +5,12 @@ class Jbigkit < Formula
   mirror "https://deb.debian.org/debian/pool/main/j/jbigkit/jbigkit_2.1.orig.tar.gz"
   sha256 "de7106b6bfaf495d6865c7dd7ac6ca1381bd12e0d81405ea81e7f2167263d932"
   license "GPL-2.0"
-  head "https://www.cl.cam.ac.uk/~mgk25/git/jbigkit",
-       using: :git
+  head "https://www.cl.cam.ac.uk/~mgk25/git/jbigkit", using: :git
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "568ea0a6734dc1da5d50b5261f43753f7cf1089fae9c786e7859a8ec22562144" => :big_sur
+    sha256 "cda73dea9c469f1ad380c7fe90b75dfe22d1dcc9ba51593ba59493656cf76c94" => :arm64_big_sur
     sha256 "16936e06d59fe44d40a3829bc60fec43cb7ca23d54b5fdf9510aca78df648460" => :catalina
     sha256 "887d4f100ed2264220232720a7732a969ee97df32a1c87f03897952920b6019a" => :mojave
     sha256 "c8a003d12559b6f506fbd912c3b68163f7ab6022fd53e069bfbd55c813f52df5" => :high_sierra

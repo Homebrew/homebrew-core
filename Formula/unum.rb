@@ -6,6 +6,8 @@ class Unum < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "afd2c20350cee5b3af9ae6f0c539be5ae7c3c4c882056671242ac447e655166d" => :big_sur
+    sha256 "68d0229aa7501537118e7e352c13a37cd5756517f176a7751f9c758e5790c493" => :arm64_big_sur
     sha256 "e2ee19c28d058e0874fc5eb6008229305c471eac5a60c88ab99ef0917b907eb7" => :catalina
     sha256 "e2ee19c28d058e0874fc5eb6008229305c471eac5a60c88ab99ef0917b907eb7" => :mojave
     sha256 "270c0296d036b4be85368539d895d27f0630e3f6a4106cc8758747e5f2371471" => :high_sierra

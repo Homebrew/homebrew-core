@@ -7,6 +7,7 @@ class Bwa < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "d67267aeea4145fef5e65fe1c8d9f9b34121c0339badf703811027db2570967a" => :big_sur
     sha256 "59b821b80f729fef923c3edb048478836c72d6aea34b245d1b292b2c3f893432" => :catalina
     sha256 "6b07cef5ea1955d8a83e7b59ef8458a7604998f735f0eab85889fa3aedc7e953" => :mojave
     sha256 "02da3eecd6569c193a55436f705c8d351d052e44b79a43d6afc50f7308603a73" => :high_sierra

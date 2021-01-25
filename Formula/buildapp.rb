@@ -4,15 +4,13 @@ class Buildapp < Formula
   url "https://github.com/xach/buildapp/archive/release-1.5.6.tar.gz"
   sha256 "d77fb6c151605da660b909af058206f7fe7d9faf972e2c30876d42cb03d6a3ed"
   license "BSD-2-Clause"
-  revision 1
+  revision 3
   head "https://github.com/xach/buildapp.git"
 
   bottle do
-    sha256 "7954a9008618ee64fbf2b93b1b2f503e25e979efaf5f10afee916d455ac3e231" => :catalina
-    sha256 "86fa0142bbde84222c65edec4f082b99d7fbd67c4767723025fd12c9f60b2db4" => :mojave
-    sha256 "aa14506cc1ab8eb712c9b1fdb71af45c9041b327c9ecdf9d48541b652e3da3be" => :high_sierra
-    sha256 "15e1be1e7928770abfdb801e67435b9d7c1bc36923bc6d9d5281d9ceab0d9abd" => :sierra
-    sha256 "49d62ce2b8564d5456725d1a7cedafb38690d9bcdf5e7b6f279805665ed65833" => :el_capitan
+    sha256 "55bb441ef8f0eed0e698f246541dcf874bbe652de2897d9deb89a2999c2c239b" => :big_sur
+    sha256 "631fa946cd687d3cc593fa43e489c96814de75fc6b98adebf11258d1f2043bd5" => :catalina
+    sha256 "607c7238095cd1da76f2439679ed77ec4467649febfbbf99a24aefe0f23616b9" => :mojave
   end
 
   depends_on "sbcl"

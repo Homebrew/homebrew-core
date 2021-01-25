@@ -4,11 +4,6 @@ class Makepp < Formula
   url "https://downloads.sourceforge.net/project/makepp/2.0/makepp-2.0.tgz"
   sha256 "d1b64c6f259ed50dfe0c66abedeb059e5043fc02ca500b2702863d96cdc15a19"
 
-  livecheck do
-    url :stable
-    regex(%r{url=.*?/makepp[._-]v?(\d+\.\d+)\.t}i)
-  end
-
   bottle do
     cellar :any_skip_relocation
     sha256 "0dfbbcc3fafad36964f7e4c0820726c9764d89a9b56aa190a5cfd44cd0a53dc8" => :catalina
@@ -19,6 +14,8 @@ class Makepp < Formula
     sha256 "9ccedb5776a953719caa8cb8154a8dea1e633fca632eee9ff3ef286e4539f0e8" => :yosemite
     sha256 "d54e884aac7589f363d2c67920c87861878777a59771cd2457ed86053cf6e6b8" => :mavericks
   end
+
+  disable! date: "2020-12-08", because: :unmaintained
 
   def install
     system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"

@@ -8,6 +8,8 @@ class Netperf < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "de1b7e8643383ecc20cdd23742d2d7518dcb8bf49b77c98f32abed7dbca70f73" => :big_sur
+    sha256 "fb2e8ee85592d6dff9445af33d752ea5e73abb92fe690a7844e556059ba9e9f9" => :arm64_big_sur
     sha256 "da28e83fa25e8284ee5acc7fa327d886bb53ab20035cd07703909b7556ab25e1" => :catalina
     sha256 "cdd840b5e300383245d703973fcd238d58b4bd89d2ae3ba6769db297b2ddb1f9" => :mojave
     sha256 "cf086e0d276a572aba8318f7080cedc94b36a7b612cdbb4bcc3ceefef0080c53" => :high_sierra

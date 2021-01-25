@@ -1,13 +1,13 @@
 class Flyway < Formula
   desc "Database version control to control migrations"
   homepage "https://flywaydb.org/"
-  url "https://search.maven.org/remotecontent?filepath=org/flywaydb/flyway-commandline/7.0.4/flyway-commandline-7.0.4.tar.gz"
-  sha256 "bca5bdbbba0fb7182029f2a57bb9a962cfa0e43b13d78635900f501144c6e8ab"
+  url "https://search.maven.org/remotecontent?filepath=org/flywaydb/flyway-commandline/7.5.1/flyway-commandline-7.5.1.tar.gz"
+  sha256 "d046b62c4b0bae44c82a90eb34f9bd810cbade03628eda2bd8f4e3ed73b24342"
   license "Apache-2.0"
 
   livecheck do
-    url :homepage
-    regex(/Get Started with Flyway\s+v?(\d+(?:\.\d+)+) </im)
+    url "https://flywaydb.org/documentation/usage/maven/"
+    regex(/&lt;version&gt;.*?v?(\d+(?:\.\d+)+)&lt;/im)
   end
 
   bottle :unneeded

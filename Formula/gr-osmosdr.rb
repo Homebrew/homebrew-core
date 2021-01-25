@@ -3,15 +3,18 @@ class GrOsmosdr < Formula
 
   desc "Osmocom GNU Radio Blocks"
   homepage "https://osmocom.org/projects/sdr/wiki/GrOsmoSDR"
-  url "https://github.com/osmocom/gr-osmosdr/archive/v0.2.2.tar.gz"
-  sha256 "5a7ce7afee38a56191b5d16cb4a91c92476729ff16ed09cbba5a3851ac619713"
+  url "https://github.com/osmocom/gr-osmosdr/archive/v0.2.3.tar.gz"
+  sha256 "11b1eb13725ced5ded9121a10aaf7bccf2430c5c69d020791408219968665b71"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 "fe44d2d7c7191673e63737c5d836d678db4118c3642ac2bb8bb1a2ac9c9748c1" => :catalina
-    sha256 "eda09b693472907745359cbc0f98bf8bb684d74d1cbca4d057683efa989a59aa" => :mojave
-    sha256 "a7688b87b3100710348257944d22b23cadd98edd9fb06e145c8db1b80ad476a8" => :high_sierra
+    sha256 "54c41d6a6ad6ff508d1a9fb3fcebf1d245ecd50eded905b9ca51f26fb6f4d01a" => :big_sur
+    sha256 "781bf31b9c0ef7764dad1509148fadade96b1c8c43042951bf3e0b3ade05ae3e" => :catalina
+    sha256 "1316ec1150647972436f96a9d957b5c5b7889f6f962217b181e6185a939aa2e2" => :mojave
   end
+
+  # gr-osmosdr does not build with gnuradio 3.9+
+  disable! date: "2021-01-17", because: :does_not_build
 
   depends_on "cmake" => :build
   depends_on "swig" => :build
@@ -47,6 +50,10 @@ class GrOsmosdr < Formula
 
     system "cmake", ".", *std_cmake_args, "-DPYTHON_EXECUTABLE=#{venv_root}/bin/python"
     system "make", "install"
+
+    # Leave a pointer to our Python module directory where GNU Radio can find it
+    site_packages = lib/"python#{xy}/site-packages"
+    (etc/"gnuradio/plugins.d/gr-osmosdr.pth").write "#{site_packages}\n"
   end
 
   test do
@@ -59,5 +66,9 @@ class GrOsmosdr < Formula
     EOS
     system ENV.cxx, "test.cpp", "-L#{lib}", "-lgnuradio-osmosdr", "-o", "test"
     system "./test"
+
+    # Make sure GNU Radio's Python can find our module
+    (testpath/"testimport.py").write "import osmosdr\n"
+    system Formula["gnuradio"].libexec/"venv/bin/python", testpath/"testimport.py"
   end
 end

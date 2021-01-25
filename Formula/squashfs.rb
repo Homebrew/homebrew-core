@@ -4,12 +4,19 @@ class Squashfs < Formula
   url "https://github.com/plougher/squashfs-tools/archive/4.4.tar.gz"
   sha256 "a7fa4845e9908523c38d4acf92f8a41fdfcd19def41bd5090d7ad767a6dc75c3"
   license "GPL-2.0"
-  head "https://github.com/plougher/squashfs-tools",
-    using:  :git,
-    commit: "52eb4c279cd283ed9802dd1ceb686560b22ffb67"
+  head "https://github.com/plougher/squashfs-tools.git"
+
+  # Tags like `4.4-git.1` are not release versions and the regex omits these
+  # (see: https://github.com/plougher/squashfs-tools/issues/96).
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     cellar :any
+    sha256 "4eaaf37caa9e67d1c53458418a0b9bfee298fbc61f1e22df33a99c10ccb1b499" => :big_sur
+    sha256 "2736438cecb39403db925177d00e14677b7505b608da61ca61c05289b58c6558" => :arm64_big_sur
     sha256 "e8657da9ab4faa089486fd3af04a3f0b63b13e609cdde57be57d92336592297a" => :catalina
     sha256 "f3e200ecf28cf1fec5fb11e1cd210d8e935db314c39bda62095614e08d9e7477" => :mojave
     sha256 "855306e06f9eeaa7b3cb8960f0c75fe097921a2b99efe8064a6cc97c8b2f579b" => :high_sierra

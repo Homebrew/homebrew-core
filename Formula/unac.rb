@@ -3,10 +3,12 @@ class Unac < Formula
   homepage "https://savannah.nongnu.org/projects/unac"
   url "https://deb.debian.org/debian/pool/main/u/unac/unac_1.8.0.orig.tar.gz"
   sha256 "29d316e5b74615d49237556929e95e0d68c4b77a0a0cfc346dc61cf0684b90bf"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
     cellar :any
+    sha256 "434a30fa5bd969126e166925e6509885bb45e12977f4690c08b2b4fbcfb20dd4" => :big_sur
+    sha256 "5d58477a342637a20d39e60b0164846f14e8f2aac2d1fc01e162e8eefef63af7" => :arm64_big_sur
     sha256 "c065103ee8b1c39a665dcca68787edadc6a60620e627912a721b3d5732ff0152" => :catalina
     sha256 "29753f2d4ea3f9a56f9a3d8fdca4c4fe47044ff1bc986d9ecc06d5f376197da6" => :mojave
     sha256 "eade4a2fba6e5828dccd3779b5e6681ca2558dbde421639624f089be835c55e8" => :high_sierra

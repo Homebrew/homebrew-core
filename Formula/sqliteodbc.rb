@@ -6,12 +6,13 @@ class Sqliteodbc < Formula
   sha256 "fabcbec73f98d1a34911636c02c29fc64147d27516b142e8e132c68c05a6065b"
 
   livecheck do
-    url "http://www.ch-werner.de/sqliteodbc/"
+    url :homepage
     regex(/href=.*?sqliteodbc[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
     cellar :any
+    sha256 "5f98876aef9733997e750451ee0e3db30cc2bd1f371aa690f08d7e4038f11958" => :big_sur
     sha256 "d0105cc73d44561e636923adb520710cdd7e0db835c6b31f151fe8a66a1b4fcc" => :catalina
     sha256 "6499af774d13212bf19dfdbd14c18feadf516a5d6afbd2ebe7718d99db1723eb" => :mojave
     sha256 "6220e24f32b5b26c5c983c9f9fb1aaa6aba7c13cad44a7500ecb72c7d7723a80" => :high_sierra

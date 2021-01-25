@@ -4,14 +4,13 @@ class Kyua < Formula
   url "https://github.com/jmmv/kyua/releases/download/kyua-0.13/kyua-0.13.tar.gz"
   sha256 "db6e5d341d5cf7e49e50aa361243e19087a00ba33742b0855d2685c0b8e721d6"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "181ef5174cbb2f2ab2dd0e011d597a1124bd0e359de33967d89730cd5d708529" => :catalina
-    sha256 "a210c64c138b1656093b103ae27d9354972d7c2ec1e7220b0d94a9bc6806522c" => :mojave
-    sha256 "ecf3850322d6a575b63519a21f6bfe7eb652c67564f7292f017306d468cbf49d" => :high_sierra
-    sha256 "b533f71a13a6b8bdbbc4778515f5701774175879d6171804f43c1da8e12b4217" => :sierra
-    sha256 "e2449019eb1bd161b222fc73136990a4bed0ab4349b288ceff49add0b8958572" => :el_capitan
+    sha256 "33c93cc065968275bdee21b772ada29ebe3776f7c1dacb297e6c3cb2804fcb20" => :big_sur
+    sha256 "0de5560c3fe849a4d1739c041b4b70a235929ac1323a9e7f1a1769c69ae6b363" => :arm64_big_sur
+    sha256 "5fba6da95b5e79c1fda0d118b0d67a4c74629a28e348ae4fab0dee1b770dccd4" => :catalina
+    sha256 "b0d437da5f3f873795d6157dcc545a3ca72fef19d5288369a95b58ba5c8f4cc5" => :mojave
   end
 
   depends_on "pkg-config" => :build

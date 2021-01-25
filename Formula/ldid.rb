@@ -10,6 +10,8 @@ class Ldid < Formula
 
   bottle do
     cellar :any
+    sha256 "51d2565a2994575aeee0f3b9e9a2d16ecf58f6159cad2b890896a761946f0499" => :big_sur
+    sha256 "5ca1576c3de007da8135ffcab00306a0a67c223261bdf22c9c2d867b71b817f9" => :arm64_big_sur
     sha256 "fdd2c5d784f91bcbe6117d16763c3b552f08c8aa1783cb0d7017fb1832f353d3" => :catalina
     sha256 "b76050d24afe9f92eb6a7f53233c27a530ae59454f7193ff82bcade593022645" => :mojave
     sha256 "2a0dd3dd8e0b34980260054420212932e4010eea4e4245307919527aaca7df58" => :high_sierra

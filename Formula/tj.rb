@@ -14,7 +14,7 @@ class Tj < Formula
   end
 
   # https://github.com/sgreben/tj/issues/5
-  disable! because: :no_license
+  disable! date: "2020-08-02", because: :no_license
 
   depends_on "go" => :build
 

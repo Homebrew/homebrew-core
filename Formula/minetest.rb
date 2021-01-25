@@ -14,14 +14,15 @@ class Minetest < Formula
   end
 
   livecheck do
-    url "https://github.com/minetest/minetest/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
-    sha256 "4442b3b3093e256ba969209a654394ca82de909b1f2b182ff690b543741277c6" => :catalina
-    sha256 "e00fbd45f80e2527940738850f7841c0627704f05bfb15ca8cc02e1fa16d3b34" => :mojave
-    sha256 "f75c155307545d8627d676182c4b175dfeaeeeda87d50e893f50b58feedbdfeb" => :high_sierra
+    rebuild 1
+    sha256 "1a0e503d7c53c7a62650c0f5b0f76ba3e6b51d10ac07d9a17b0d8c56a2900234" => :big_sur
+    sha256 "92e0b98ccb73b2ab82272dd9a165007e84dcd493453cb3701c6881b44758654d" => :catalina
+    sha256 "c42e63842c20316be1582bca49e00da8302e11409a388cd6f537148d2740d400" => :mojave
   end
 
   head do
@@ -44,8 +45,8 @@ class Minetest < Formula
   def install
     (buildpath/"games/minetest_game").install resource("minetest_game")
 
-    args = std_cmake_args - %w[-DCMAKE_BUILD_TYPE=None]
-    args << "-DCMAKE_BUILD_TYPE=Release" << "-DBUILD_CLIENT=1" << "-DBUILD_SERVER=0"
+    args = std_cmake_args
+    args << "-DBUILD_CLIENT=1" << "-DBUILD_SERVER=0"
     args << "-DENABLE_FREETYPE=1" << "-DCMAKE_EXE_LINKER_FLAGS='-L#{Formula["freetype"].opt_lib}'"
     args << "-DENABLE_GETTEXT=1" << "-DCUSTOM_GETTEXT_PATH=#{Formula["gettext"].opt_prefix}"
 

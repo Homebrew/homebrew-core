@@ -10,6 +10,8 @@ class Mp3blaster < Formula
   end
 
   bottle do
+    sha256 "7a507393848bbaa8d06f64be1b528256589a3627577f1298dea50353f3303cef" => :big_sur
+    sha256 "638fe9765eebafa021a8fb328ef8dd742e047eceb540706792cf828abd4382ab" => :arm64_big_sur
     sha256 "5345ef5c262adc849318b2ee1cb092d794be9b9b952ebf23b0dbf666f8a5f460" => :catalina
     sha256 "8d7c349befa2a093cee2b1fea30ece26393069c19508defb4582a5f7e8200dda" => :mojave
     sha256 "da013614ce379f9037f2e6fc684adfe51918e40659577650a229dbd1c6f53847" => :high_sierra

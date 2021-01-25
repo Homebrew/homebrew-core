@@ -1,17 +1,21 @@
 class Minbif < Formula
   desc "IRC-to-other-IM-networks gateway using Pidgin library"
-  homepage "https://symlink.me/projects/minbif/wiki/"
+  homepage "https://web.archive.org/web/20180831190920/https://symlink.me/projects/minbif/wiki/"
   url "https://deb.debian.org/debian/pool/main/m/minbif/minbif_1.0.5+git20150505.orig.tar.gz"
   version "1.0.5-20150505"
   sha256 "4e264fce518a0281de9fc3d44450677c5fa91097a0597ef7a0d2a688ee66d40b"
+  license "GPL-2.0-only"
   revision 3
 
   bottle do
     cellar :any
+    sha256 "fe93338a9056edd1860252df688c5924ec0b5846455a4b171360495c9a9f05fb" => :arm64_big_sur
     sha256 "57dc630a96ec93b8168d569cc1ff0152f381ca52c10d2b6b7bffc1d91cbc14a2" => :catalina
     sha256 "479cfbb3b59f2c0c05b0553188ae2497ee313b02e5850172bb7055231def61b8" => :mojave
     sha256 "5b8a0fd609cda94163f95c7d0b6620c143b3ff127178d37a57b76493231c73cc" => :sierra
   end
+
+  deprecate! date: "2020-12-29", because: :unmaintained
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
@@ -44,7 +48,7 @@ class Minbif < Formula
       Minbif must be passed its config as first argument:
           minbif #{etc}/minbif/minbif.conf
 
-      Learn more about minbif: https://symlink.me/projects/minbif/wiki/Quick_start
+      Learn more about minbif: https://web.archive.org/web/20160714124330/https://symlink.me/projects/minbif/wiki/Quick_start
     EOS
   end
 

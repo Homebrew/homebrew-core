@@ -11,6 +11,8 @@ class Rtf2latex2e < Formula
   end
 
   bottle do
+    sha256 "c0348eb7e801057a74bedb8665b51ab62d9239ee7d6fff51d2c094ce092b6e6e" => :big_sur
+    sha256 "35639bec913a1d60de52ac3d15d633bc17878c06829a1e5338272bae0f2399cd" => :arm64_big_sur
     sha256 "c7c3d46cf3f0b3a18dcb01aa9e1f2be4573f236e52f466d78eda4d659084e5bf" => :catalina
     sha256 "bed54dc624378c20df3c352618645058a3ae3956d9cb5811af63836ffaa2dd10" => :mojave
     sha256 "b31c9387003920d4c27cb846da71203d69711638ed284825861a12247eeabca9" => :high_sierra

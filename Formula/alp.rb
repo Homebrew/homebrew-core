@@ -8,6 +8,8 @@ class Alp < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "3837b0cf543bb9631ba7efc66fc76af80e23c62d9f5aa25425515d44fd30aa58" => :big_sur
+    sha256 "9bac17fb8bf2721b8c18047a65b4953c867f2f12bceda3e374654d4c7e8ec439" => :arm64_big_sur
     sha256 "755f952f59a31722a849a195b1cc9aaab82d427e104ece552088f322477f1e73" => :catalina
     sha256 "bda205a8a157441a4a9aebe3c1881575d8a801bf8f8edc3cccdba9607163661e" => :mojave
     sha256 "2b8f514b8c7540a6db9fc6a70a4b803dbf864e35eb1410e6cc874915485fbbfb" => :high_sierra

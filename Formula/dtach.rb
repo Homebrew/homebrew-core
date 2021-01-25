@@ -11,6 +11,8 @@ class Dtach < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "2037a41545a48ffd293c55deb33a675a6d304df1f25c46e6f9b85969e0968d78" => :big_sur
+    sha256 "e90da47e413ace287b5144813af99ee9f2bb8cac8c435189557db29aa597c681" => :arm64_big_sur
     sha256 "67d1aed450f459a8883148d7ce9bf89cd98025232ae6ec061381297e54276e8c" => :catalina
     sha256 "8126575ec7b9f9a4e9ba092e8d2c706c7a162c6dd7678c8dbbdc42676aae7eb6" => :mojave
     sha256 "286aa27d4de791d50bb7c16c57682174a9fbfd73890e7f58fa2681f48dc12c75" => :high_sierra

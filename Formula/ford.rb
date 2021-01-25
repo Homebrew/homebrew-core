@@ -6,18 +6,20 @@ class Ford < Formula
   url "https://github.com/cmacmackin/ford/archive/v6.0.0.tar.gz"
   sha256 "45fd53c7e5263fea2e751c436de6a1513d250647e98e32668b9965677974309e"
   license "GPL-3.0"
-  revision 2
+  revision 3
   head "https://github.com/cmacmackin/ford.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3eb76094046483b936f34931c7b93c9d793478c6228579b1c8c456093981befc" => :catalina
-    sha256 "8990b0e28b63d0351570feec384adff4b97bd5cdca722c829a63d45d2a15dd20" => :mojave
-    sha256 "6c9d98f4b9b0716dc0de0f0afd61024e68b073dd6baea816ff65cd838b31e90b" => :high_sierra
+    sha256 "9aab668aebf8641782123a24d00dc367e0f41e21dfabc05cfbd82ed4e3a402f0" => :big_sur
+    sha256 "004dc7234aa36e6fb9fab6c0ba7330a8df69edaa4e0eab9279e9c2dc5a76cb5e" => :arm64_big_sur
+    sha256 "1d645364d5ef8813745637cc83089a521306e319104eeccca786af71c3b937e8" => :catalina
+    sha256 "0779dbcb80b7076526778d04d0ee35346973a34b5bc1eb945d26e0fe1c2beac3" => :mojave
+    sha256 "3a4005e1f83a4c86dfde8adc54ef2e0bf592c347020e56b26e961cc71b88bf44" => :high_sierra
   end
 
   depends_on "graphviz"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"

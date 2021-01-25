@@ -1,15 +1,16 @@
 class Lightgbm < Formula
   desc "Fast, distributed, high performance gradient boosting framework"
   homepage "https://github.com/microsoft/LightGBM"
-  url "https://github.com/microsoft/LightGBM/archive/v3.0.0.tar.gz"
-  sha256 "940563ece81d94eb843c2d1dc702da5af7c2a67fb1ccf31d64b39e00262d35b5"
+  url "https://github.com/microsoft/LightGBM/archive/v3.1.1.tar.gz"
+  sha256 "a1e64bff404f448681ee33fb131a6218c4388574b83df0d25f45e63268a03b44"
   license "MIT"
 
   bottle do
     cellar :any
-    sha256 "24a02453d33224cbe3f0d5f2f623d1356eb4b26c6bb6367e0da4c644ffaedd60" => :catalina
-    sha256 "681eaac747cc86830db2d7162715803a794b95678af3d9072dafa80483ee6699" => :mojave
-    sha256 "8cbaa97be86257f42bcaecfc1b8ee805558351e11438976606f9f58a897ed23d" => :high_sierra
+    sha256 "e439b3e99f5df4196b48c937cd6b38be16fd566c04e3b52ba78610eaaa8c6185" => :big_sur
+    sha256 "b5003bf5c04772c9fad6c34134bee20ec9bd25cb1e9b7c438e704b0f88aa325b" => :arm64_big_sur
+    sha256 "ff1a50ff028ff22997b0a2807f50bec7d4ef8a297ee0a0965d938166983943a0" => :catalina
+    sha256 "055dbb284840813e365d14b020d9c01c96491ce6586fe6f1b9e90236f8d9f605" => :mojave
   end
 
   depends_on "cmake" => :build

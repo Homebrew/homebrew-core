@@ -7,6 +7,8 @@ class Libxft < Formula
 
   bottle do
     cellar :any
+    sha256 "5351d66133130a06528dbb2c4e5f68b96b3373df1fe632436586143d2a99d3f6" => :big_sur
+    sha256 "f0b3ad1d1305417c5f3d8721a7a5cf1311b464cad8c99a94e4e1468cd756498d" => :arm64_big_sur
     sha256 "468e6b59613df1504055545f7e1662141b159b158856b41288f017e2b975e852" => :catalina
     sha256 "c571235a69c34bf95279c8e415b34f8c8fad9a21eac4a05c55b1beec584f6757" => :mojave
     sha256 "d8a6efe662c060ebe7a638fcd4b1ffc3ba34beb53586827cef583948be17b802" => :high_sierra

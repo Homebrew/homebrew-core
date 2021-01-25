@@ -2,12 +2,14 @@ class Colortail < Formula
   desc "Like tail(1), but with various colors for specified output"
   homepage "https://github.com/joakim666/colortail"
   url "https://github.com/joakim666/colortail.git",
-    revision: "f44fce0dbfd6bd38cba03400db26a99b489505b5"
+      revision: "f44fce0dbfd6bd38cba03400db26a99b489505b5"
   version "0.3.4"
   license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "1cbd1fd25ee747f5c8db91de50511cc93ded9deb1b6daf99b343f5efaf449cda" => :big_sur
+    sha256 "2d7e35ff95a2d161fc60fcefa368c901dbe3ff1c973025f7f4c96617fd959fc3" => :arm64_big_sur
     sha256 "76e327c10e6614aed10396f4da1008eda7d0574c77b009e6c4cc109829033bb1" => :catalina
     sha256 "f68bafd58bcff89453bf8f81331eb968c5bde460821a885523863ec4ee9482fb" => :mojave
     sha256 "a7974ddb2f0bd3a7946bb5d06fe637f94c7a8776f9cd811bf8fbd530caa92816" => :high_sierra

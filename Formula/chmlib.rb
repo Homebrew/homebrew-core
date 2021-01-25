@@ -9,6 +9,7 @@ class Chmlib < Formula
   bottle do
     cellar :any
     rebuild 2
+    sha256 "af369d3e427b36281f053f65a0d5be2a269c2a0fb80c87443baa066892d0652c" => :big_sur
     sha256 "96d7cb33260c72012f24f383054b7f2505f815f0e3e24298229b5712f8a66cfa" => :catalina
     sha256 "1718a0a9343788718b4207596ebff457f5214879319292cc1608254374720944" => :mojave
     sha256 "426b95744d071ad76399ee240400ab74bcec9057735cbfeb2d433501105060ef" => :high_sierra

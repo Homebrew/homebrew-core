@@ -4,17 +4,19 @@ class CucumberCpp < Formula
   url "https://github.com/cucumber/cucumber-cpp/archive/v0.5.tar.gz"
   sha256 "9e1b5546187290b265e43f47f67d4ce7bf817ae86ee2bc5fb338115b533f8438"
   license "MIT"
-  revision 7
+  revision 8
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "278bdf3528a7b8bac8ec0ea20e1a57a16eaba54929ce4c544cbe4ce1c8a5279f" => :catalina
-    sha256 "5c1dede434bdd00e19cbd82e42236c18fa1ce5f7cf172fce972185249f94ddc7" => :mojave
-    sha256 "d12e60f17d95446ccc80dffdb74c77b554121b9d1ce58beabec041f9232a891c" => :high_sierra
+    rebuild 2
+    sha256 "530841b3b6fe59be5a5ea5fdb4fd3fea2acdf69945b20fc8aa8bf9a7c3d625aa" => :big_sur
+    sha256 "d8e4ee459e5958caea72acc108997caadf550d9a4436b4f8e27623a79befd2bd" => :arm64_big_sur
+    sha256 "c7ef7cd101beced9c438b3186da6993b5732f2098c7d7e03735d01687ec7655e" => :catalina
+    sha256 "754750a86eb2236fca926fcae27d58976798d7f817e97cc5263673be3dbce3ea" => :mojave
   end
 
   depends_on "cmake" => :build
-  depends_on "ruby" => :test if MacOS.version <= :sierra
+  depends_on "ruby" => :test
   depends_on "boost"
 
   def install
@@ -31,16 +33,11 @@ class CucumberCpp < Formula
   end
 
   test do
+    ENV.prepend_path "PATH", Formula["ruby"].opt_bin
     ENV["GEM_HOME"] = testpath
     ENV["BUNDLE_PATH"] = testpath
-    if MacOS.version >= :mojave && MacOS::CLT.installed?
-      ENV.delete("CPATH")
-      ENV["SDKROOT"] = MacOS::CLT.sdk_path(MacOS.version)
-    elsif MacOS.version == :high_sierra
-      ENV.delete("CPATH")
-      ENV.delete("SDKROOT")
-    end
-    system "gem", "install", "cucumber", "-v", "3.0.0"
+
+    system "gem", "install", "cucumber", "-v", "5.2.0"
 
     (testpath/"features/test.feature").write <<~EOS
       Feature: Test
@@ -79,7 +76,7 @@ class CucumberCpp < Formula
         1 scenario \(1 passed\)
         3 steps \(3 passed\)
       EOS
-      assert_match expected, shell_output(testpath/"bin/cucumber")
+      assert_match expected, shell_output("#{testpath}/bin/cucumber --publish-quiet")
     ensure
       Process.kill("SIGINT", pid)
       Process.wait(pid)

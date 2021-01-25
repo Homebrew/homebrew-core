@@ -17,9 +17,11 @@ class Groovyserv < Formula
     sha256 "51aef6e15608021ae127aaa93e2aa39bfaf52cfea688b45841d315b6a04b55aa" => :el_capitan
   end
 
+  deprecate! date: "2020-11-13", because: :does_not_build
+
   depends_on "go" => :build
   depends_on "groovy"
-  depends_on java: "1.8"
+  depends_on "openjdk@8"
 
   def install
     # Sandbox fix to stop it ignoring our temporary $HOME variable.

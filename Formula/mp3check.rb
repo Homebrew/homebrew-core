@@ -7,6 +7,8 @@ class Mp3check < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "943c98e4c93c300a781541927303207319ba030227a0e1dd123fd83abb782ad0" => :big_sur
+    sha256 "c0c683cf446e72e17104142e290f2bf3fea6fd01fcf1534ba1c61c7d5a85bb05" => :arm64_big_sur
     sha256 "a98298c030d1ee1a28e2227ed41970fcad21d2af6486c471d045b07010ac232b" => :catalina
     sha256 "e19a17b2360f7a7974fe798cc68a12735155b14c68bb8c0d7a13439dd3fa5a29" => :mojave
     sha256 "99c5e5b8458a0cda5f50d92d858ccbd968f059a3b639130a3378c499331e427e" => :high_sierra

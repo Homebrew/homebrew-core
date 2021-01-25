@@ -2,15 +2,15 @@ class Cbmc < Formula
   desc "C Bounded Model Checker"
   homepage "https://www.cprover.org/cbmc/"
   url "https://github.com/diffblue/cbmc.git",
-      tag:      "cbmc-5.17.0",
-      revision: "1c4e0c495dab131f88f0ab0710c3bba4e9c61097"
+      tag:      "5.22.0",
+      revision: "08c9ae9e571495d8ab010ef1ce6eff63b9561f43"
   license "BSD-4-Clause"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bdfdf7ca5f685d13fed0c73b391328ad1c95ade0c8778bb2c2dca3a6a98a31aa" => :catalina
-    sha256 "0f6fdb19e315487633cb4526e7c52d617da9264f96d7829548d3d0d2fb8950b0" => :mojave
-    sha256 "b3dc17e74dedc5ad60e909638077ec790cbd091283057cbf2df96f44eb97b3d6" => :high_sierra
+    sha256 "980ed108f3bbdb2cd9e5911d28020c9720a5a23968915a6d70fa142cfb2c8793" => :big_sur
+    sha256 "a277c6ae472142c60967a7ff248ffa5b8c6ab030f6b79e093142f237ea735824" => :catalina
+    sha256 "05c6405fb07aba85223f028436f8b1bf9c6626fa867f8f381e9c2f0c10b1defc" => :mojave
   end
 
   depends_on "cmake" => :build
@@ -18,8 +18,12 @@ class Cbmc < Formula
   depends_on "openjdk" => :build
 
   def install
+    args = std_cmake_args + %w[
+      -DCMAKE_C_COMPILER=/usr/bin/clang
+    ]
+
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "..", *args
       system "cmake", "--build", "."
       system "make", "install"
     end

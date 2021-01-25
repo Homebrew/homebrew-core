@@ -7,6 +7,8 @@ class Clfft < Formula
 
   bottle do
     cellar :any
+    sha256 "d4c32426e87a7aa85c3767cf983a290ccd35aa0cb4b3344859be7ba5e93b2892" => :big_sur
+    sha256 "4e3ae9eb8cce23e1c7b8c3a48b907a18c978984c23110f8097171c534c3e835a" => :arm64_big_sur
     sha256 "419694c9a979ae22c673a79bf2fa29fe6888f7243dcdd7dd38882af4ead720d6" => :catalina
     sha256 "2f502a8f1c11e5c01dd0141d83935cfd0e357dd75a352848564260c49da400aa" => :mojave
     sha256 "1e3aca16a694b761c0267c0dfdd9933d43cddd3ed0ea9d20fd4016222a7748f9" => :high_sierra

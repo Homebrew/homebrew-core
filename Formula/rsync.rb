@@ -14,6 +14,8 @@ class Rsync < Formula
 
   bottle do
     cellar :any
+    sha256 "def7f5cd96f4abc05ef344a16c084c11879dca54b91ea5dd56a6de63298cc1dd" => :big_sur
+    sha256 "05437fe41f5c05db284cb9b70c14ad47071976d3720d2148b62f83a2bfb0391a" => :arm64_big_sur
     sha256 "fd92045e16b9b83ab6c281a1e658e27731ef9af53fcb6bb7ce6b9533851e728e" => :catalina
     sha256 "1be1e9754c4f4a4b043aece33299d90f50d01274682f63c29eca7d9bcb8a2090" => :mojave
     sha256 "5cf9c6e0014687c4abb4044e7f5e12d5d453b81c5dbadd472438b4131c655a1f" => :high_sierra
@@ -47,7 +49,7 @@ class Rsync < Formula
     ]
 
     # SIMD code throws ICE or is outright unsupported due to lack of support for
-    # function multiversioning on older verions of macOS
+    # function multiversioning on older versions of macOS
     args << "--disable-simd" if MacOS.version < :catalina
 
     system "./configure", *args

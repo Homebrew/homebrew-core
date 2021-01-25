@@ -10,6 +10,8 @@ class Msitools < Formula
   end
 
   bottle do
+    sha256 "0c1f853fe5b312dead4d5d805f17b9620b8c5a759167e8ea38fea102bcd7579f" => :big_sur
+    sha256 "524ebab8f0758feefa9560aadfaf06bbdc133cd76584524dc7804306c3b467db" => :arm64_big_sur
     sha256 "f9b65f68c973c323e96a0492df562bae32e3ede79d9e5a6f24b89f53ef085883" => :catalina
     sha256 "b7646423954ae62a8dcb8ee413f98e0f5e1c4b8a73876255fcd2f0371e547f92" => :mojave
     sha256 "fd8689ba0902ed4d784f85969d281a0e1c58bb76f0fe17a93d96ba2d3f845cdb" => :high_sierra

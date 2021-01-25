@@ -2,13 +2,15 @@ class Cayley < Formula
   desc "Graph database inspired by Freebase and Knowledge Graph"
   homepage "https://github.com/cayleygraph/cayley"
   url "https://github.com/cayleygraph/cayley.git",
-    tag:      "v0.7.7",
-    revision: "dcf764fef381f19ee49fad186b4e00024709f148"
+      tag:      "v0.7.7",
+      revision: "dcf764fef381f19ee49fad186b4e00024709f148"
   license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
     rebuild 2
+    sha256 "9217369e4d1d1863fd23a2694a3962510a52380b385c199008191c302629f0ac" => :big_sur
+    sha256 "ead8a905c38526bdc7812eb1d500cf9dcb90c8c9dbb73126e1b3da463a4520c9" => :arm64_big_sur
     sha256 "7fe446d8eaa6ed43ae226027feec3878e437708d4a59c5aab761ab249bc9ba56" => :catalina
     sha256 "7084bd5b3b7dc66c9c50266f2831951f995901f2a326905c760646ebe66a3b96" => :mojave
     sha256 "0dc598decbc9c70660d22fc670f71581e7fec09e5c9d9bc13ccee4c88c758338" => :high_sierra
@@ -26,12 +28,10 @@ class Cayley < Formula
       # Run packr to generate .go files that pack the static files into bytes that can be bundled into the Go binary.
       system "go", "run", "github.com/gobuffalo/packr/v2/packr2"
 
-      commit = Utils.safe_popen_read("git", "rev-parse", "--short", "HEAD").chomp
-
       ldflags = %W[
         -s -w
         -X github.com/cayleygraph/cayley/version.Version=#{version}
-        -X github.com/cayleygraph/cayley/version.GitHash=#{commit}
+        -X github.com/cayleygraph/cayley/version.GitHash=#{Utils.git_short_head}
       ]
 
       # Build the binary

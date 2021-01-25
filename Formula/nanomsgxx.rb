@@ -9,6 +9,8 @@ class Nanomsgxx < Formula
   bottle do
     cellar :any
     rebuild 2
+    sha256 "a6eba6de285e05c979bc694c6aec53b51ccb764bd5578af5fe484fa1f198efde" => :big_sur
+    sha256 "e60ddc9b8115ed727673f40c00a2c6fd25b6b60337786d376d4f348b99095be9" => :arm64_big_sur
     sha256 "3c094b3df14d706b6824d0f0e4ec90e2d6aace65e8f7fe484b38fc51b2fe298f" => :catalina
     sha256 "b4e9a2d42d4307ef122c71288afed6662f0db91be922c73324abe6e5a2b08735" => :mojave
     sha256 "c48e210289abc4d384fc1139d4565616bb04fbced6f6fae9a6817f2c710ba118" => :high_sierra

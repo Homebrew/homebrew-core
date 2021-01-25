@@ -8,6 +8,8 @@ class Overmind < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "756aeec8ddea0b78c4159ddfe851b1db8e5e9baa0c9726134fc0db73dd34e991" => :big_sur
+    sha256 "b2b0ee512f0512b1f8c720341d903f672356ec17c5548e7065c85aa87d80a249" => :arm64_big_sur
     sha256 "dd22cafb2c5437c5e33ea1d7354b6477f743adb23393b9f0c8794cd2ae8ff213" => :catalina
     sha256 "cdb7478361214b56df089ea7038c4747a2430defc6af864c66fe95796a3b5ce6" => :mojave
     sha256 "5304546181f4a8da0604296b277000c16143862a11def6b48cab969e2a34ee62" => :high_sierra

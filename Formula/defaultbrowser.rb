@@ -7,6 +7,8 @@ class Defaultbrowser < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "e796471951ee1290e11172aea1fff0b59c70cdbbfef43303bf11a3178e676a7f" => :big_sur
+    sha256 "19e88d5316731019db1bafd3361af53fe3a4dd40348ac5a30bf34754b250f992" => :arm64_big_sur
     sha256 "e03bfa37fde424b0d7e76e6d2f99a26bad458e9d2bdf912db06d83d64bfe5a17" => :catalina
     sha256 "3a02a1fd0321f5070fa4ec9088a4a58a28ddb561bef5b94a0ccc31fdb896efa6" => :mojave
     sha256 "d07cc35e06f440584d698cde7ae5f27b09acfeafacc1499d331aa8553e945961" => :high_sierra

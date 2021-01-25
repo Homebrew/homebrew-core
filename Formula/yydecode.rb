@@ -12,6 +12,8 @@ class Yydecode < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "4700a77bb5b4bbce8b34f92662661cf13f9560c1637256fd8dc9581ec7caf077" => :big_sur
+    sha256 "83fcf98a8fbf68bf2ce8c5847b53730856f65f8139bda8506a912e4650020e8d" => :arm64_big_sur
     sha256 "206152a71458e053c332c7ca52f6db716b146e993c08384afb98e56a43c043b6" => :catalina
     sha256 "18d815befe31bcdeaac8edff43cb878f53c34a608fa946c13a14143139bf887a" => :mojave
     sha256 "e2e7285f1f2b18b4b99800602d15932dba435f6480c5776e5b57b734727f652f" => :high_sierra

@@ -6,6 +6,8 @@ class Libexif < Formula
   license "LGPL-2.1"
 
   bottle do
+    sha256 "93faf9081e80a6b1b30fd4dd941fa650d431b3064aeef00c9a7bccd042ff1bda" => :big_sur
+    sha256 "33b373742f33b8f182efd02d8bd6387db49a6f96c9cb13868f904ae59791c99d" => :arm64_big_sur
     sha256 "7379f6990018006122bba69098864e8877e8e6e7be3af535f7e301d8ff097e98" => :catalina
     sha256 "c20d311fbd1846ce2603950ec9ad9b3b6e8202bf2f97e9aab328c05dc568fcfe" => :mojave
     sha256 "8b1c7cf6ec777090ce22ccf5c426867948a54da9378e0c9b91d85175eaea4f81" => :high_sierra

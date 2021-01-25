@@ -11,6 +11,8 @@ class Nettoe < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "2387ff01457bbf7019cff906e9503de1b7cc718f055abd3eaa9523b847d951a5" => :big_sur
+    sha256 "a9f2e1b0a27c15f903c42fd54af41f52553d9027cde5aff110e7f8a895b934a8" => :arm64_big_sur
     sha256 "59cab1291f69cb1c35a269d18343a3d07eaf55d6f0d178c9548afb282497fc50" => :catalina
     sha256 "2d45bfae915cfc4425e45393a9868c4e586379c05e61f35aaf704cc54376c17c" => :mojave
     sha256 "0349c1335e428d5f0b620043259908b5af60feed84d9dea911033e0d65704488" => :high_sierra

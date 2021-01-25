@@ -20,7 +20,14 @@ class S3fs < Formula
   depends_on "libgcrypt"
   depends_on "nettle"
 
-  depends_on :osxfuse
+  on_macos do
+    deprecate! date: "2020-11-10", because: "requires FUSE"
+    depends_on :osxfuse
+  end
+
+  on_linux do
+    depends_on "libfuse"
+  end
 
   def install
     system "./autogen.sh"

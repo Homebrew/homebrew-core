@@ -10,6 +10,8 @@ class Redo < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "0615d83e9b519ec99eda993775fbea61fe32a0a83cd5a2ffc7c3da0323cd0322" => :big_sur
+    sha256 "925acd1a773f80586f5f5d1d086b91f9f50aadfa7583e0c20ee192680d0dd335" => :arm64_big_sur
     sha256 "4531c1e25405e7cc940e109fdc7f028cfc84b6b224874d861f112371da993fac" => :catalina
     sha256 "9b3f873c69959f246ea6c8abbea58f875e436fa260aefcb2697d798cfd803b3e" => :mojave
     sha256 "0e30bad1e3dad48d66fb4061e4fb7dbd7b5b3450a53a93275990a66b2bc558dc" => :high_sierra

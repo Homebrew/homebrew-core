@@ -1,15 +1,17 @@
 class Zoxide < Formula
   desc "Shell extension to navigate your filesystem faster"
   homepage "https://github.com/ajeetdsouza/zoxide"
-  url "https://github.com/ajeetdsouza/zoxide/archive/v0.4.3.tar.gz"
-  sha256 "cfcbbe7b73a2a149e2b38ac6dd4bd4a6c1bdd6cf6f2a2bab49f6aeec3c705357"
+  url "https://github.com/ajeetdsouza/zoxide/archive/v0.5.0.tar.gz"
+  sha256 "62b7a2ced73d5ac0a183b3855d54d6619166b4d8d8c74299bb610265ccc4b193"
   license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "40e1d6f7e805a4627a0c9c8c2f743db1f86ff4d20ffe8ee8986d536d9d937728" => :catalina
-    sha256 "ed59dfdf07cd7c9581b0d5f57be454a99b480a5bd916b7b67254a7a3197efa34" => :mojave
-    sha256 "8a64fa405d29a1981c71994138fe00b2af2c344c15fd40ceabafa8cd996ff6f5" => :high_sierra
+    sha256 "2d39de2508929c51d9d5e8e188a1752fa72b71fc2119e1cd9edae56cfc63fbfb" => :big_sur
+    sha256 "1ff7824ea9968caf95eb41e946f844a1f42026eca85aa61b5a8c76528812c8db" => :arm64_big_sur
+    sha256 "0752c35a480b33fe21e6b336ebfd192b913817d649de9baf1e7d1b69e84f3a83" => :catalina
+    sha256 "e9070115cff363740372b028958e590405663813526d77cfbf40b3b0abb9b9d0" => :mojave
+    sha256 "9c85724a7f8272fa6fb29cd894ec78bcf4034178d88fd37cd332dec0ce34de30" => :high_sierra
   end
 
   depends_on "rust" => :build

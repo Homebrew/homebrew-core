@@ -5,16 +5,16 @@ class Po4a < Formula
 
   desc "Documentation translation maintenance tool"
   homepage "https://po4a.org"
-  url "https://github.com/mquinson/po4a/releases/download/v0.61/po4a-0.61.tar.gz"
-  sha256 "62954cb0537eff33124a45fa194ae3b92552ee6f6eef74f4953a577f640b86db"
-  license "GPL-2.0"
+  url "https://github.com/mquinson/po4a/releases/download/v0.62/po4a-0.62.tar.gz"
+  sha256 "0eb510a66f59de68cf7a205342036cc9fc08b39334b91f1456421a5f3359e68b"
+  license "GPL-2.0-or-later"
   head "https://github.com/mquinson/po4a.git"
 
   bottle do
     cellar :any
-    sha256 "8caa5beaaa149a61cc1e491e2d38311dfaf4d5079bb059e407a97338780d6674" => :catalina
-    sha256 "d6fab13fda127a91eeadbb7e4d031cc7e9d0f7292fef8579539db76228b908f9" => :mojave
-    sha256 "31ef1111f0d6d4a1ff0f50d37dbacaef5e0d017fa0f95c621d4d395bcda9b616" => :high_sierra
+    sha256 "be07a4aa6a8aa9a7af23395b0147145bd6657d35d9893aa721fd147b95894812" => :big_sur
+    sha256 "8a72e398989f8092295c86e17cf6b83bc7c17b59db65dd3f1c7c1da735cd4e9a" => :catalina
+    sha256 "789846cb0a70c89373554db39fb5bc710e0c2d5207becf96edde186e2e8ba606" => :mojave
   end
 
   depends_on "docbook-xsl" => :build
@@ -44,7 +44,7 @@ class Po4a < Formula
     sha256 "550c9245291c8df2242f7e88f7921a0f636c7eec92c644418e7d89cfea70b2bd"
   end
 
-  resource "Term::ReadKey" do
+  resource "TermReadKey" do
     url "https://cpan.metacpan.org/authors/id/J/JS/JSTOWE/TermReadKey-2.38.tar.gz"
     sha256 "5a645878dc570ac33661581fbb090ff24ebce17d43ea53fd22e105a856a47290"
   end
@@ -71,6 +71,13 @@ class Po4a < Formula
     resources.each do |r|
       r.stage do
         system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}", "NO_MYMETA=1"
+
+        # Work around restriction on 10.15+ where .bundle files cannot be loaded
+        # from a relative path -- while in the middle of our build we need to
+        # refer to them by their full path.  Workaround adapted from:
+        #   https://github.com/fink/fink-distributions/issues/461#issuecomment-563331868
+        inreplace "Makefile", "blib/", "$(shell pwd)/blib/" if r.name == "TermReadKey"
+
         system "make", "install"
       end
     end

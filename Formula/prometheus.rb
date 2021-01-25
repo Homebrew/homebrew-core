@@ -1,20 +1,20 @@
 class Prometheus < Formula
   desc "Service monitoring system and time series database"
   homepage "https://prometheus.io/"
-  url "https://github.com/prometheus/prometheus/archive/v2.22.0.tar.gz"
-  sha256 "9390cbd338d253956184d0f0a6719d21cb5719f0319fc48ee08d5bd48fc87cc2"
+  url "https://github.com/prometheus/prometheus/archive/v2.24.1.tar.gz"
+  sha256 "9e08bacde869c6c4b68a9e34c7074b812be1391b33d033d3072a5e1ad2debd87"
   license "Apache-2.0"
 
   livecheck do
-    url "https://github.com/prometheus/prometheus/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bcfd058fb587129e4625791cff61d8d8a6b52c334723cd14d084bf514ec2ca67" => :catalina
-    sha256 "1eefa8f7386f0430a537de99850c5f4d06d7bed1810c165fbe61d78b1f5cf206" => :mojave
-    sha256 "6dabae2805697ccfcdd4d55618ac77bfafad6ceeb3f62558d766763e7b192050" => :high_sierra
+    sha256 "c5cbdea828cf28fea47e39c71afc225c2cfc25e95e8663f29d18ba405c41a37a" => :big_sur
+    sha256 "8b6eb42cbd4d6872b3bc6fcf8c594d3705c917251ffa7952ef465cc78692cfdf" => :catalina
+    sha256 "099892345326997c00185ce1000db81b82ca34ffbf0fc0a4729e2fd3a31df37d" => :mojave
   end
 
   depends_on "go" => :build

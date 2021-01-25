@@ -15,15 +15,17 @@ class Mongrel2 < Formula
     end
   end
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     cellar :any
-    sha256 "a8fec9c22f23f3347c2ffff44b25e07920ba8dd7e24c0001f0b3fc73fce07407" => :catalina
-    sha256 "cfda97fdc8cf6fa5ee0b4f1b48b07840b1560bd73ced286bb574f838148e6f25" => :mojave
-    sha256 "67696f654ab1d878ac7c2a3fa254b0ee86c1d444578045997a971ca44189b2fe" => :high_sierra
-    sha256 "293b0edc8bcc0b7e3a97748a6accbc5000916ed145fd467aeb809303438a207a" => :sierra
-    sha256 "7a6880cbc814b084a3ac91e379b7a720438951e31a18119c232f976fded229c3" => :el_capitan
-    sha256 "0b2926fe3d79ab934e95f0e5c067e8bb23b6900b99255482defee9388a0dee07" => :yosemite
-    sha256 "dd07092a2384c243fcd8c54ed67f2a728f3da698276540fc1c9b201eb3c5cbbb" => :mavericks
+    rebuild 1
+    sha256 "8f991bcd7c13374bb5cdea84d551da20b5c15885c54c1d9cee8dfc960776cb1d" => :big_sur
+    sha256 "b410e2526d00b6ba46854e3924889cd96d23c871f9351fb7f050234bbe332904" => :catalina
+    sha256 "c0e9720ac266d01411da10390981f34f63308e42b7a5738bebc5378d9c18f134" => :mojave
   end
 
   depends_on "zeromq"
@@ -37,7 +39,9 @@ class Mongrel2 < Formula
 
     # Mongrel2 pulls from these ENV vars instead
     ENV["OPTFLAGS"] = "#{ENV.cflags} #{ENV.cppflags}"
-    ENV["OPTLIBS"] = "#{ENV.ldflags} -undefined dynamic_lookup"
+    on_macos do
+      ENV["OPTLIBS"] = "#{ENV.ldflags} -undefined dynamic_lookup"
+    end
 
     system "make", "all"
     system "make", "install", "PREFIX=#{prefix}"

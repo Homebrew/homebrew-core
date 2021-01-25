@@ -1,26 +1,27 @@
 class Chezmoi < Formula
-  desc "Manage your dotfiles across multiple machines, securely"
+  desc "Manage your dotfiles across multiple diverse machines, securely"
   homepage "https://chezmoi.io/"
   url "https://github.com/twpayne/chezmoi.git",
-      tag:      "v1.8.7",
-      revision: "3b285d96b45f4f832775b771d39c83e6442d3b4d"
+      tag:      "v1.8.10",
+      revision: "11ed57d9a7e86434744f336b595ed0fd19aff6f5"
   license "MIT"
+  head "https://github.com/twpayne/chezmoi.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7b3efdba6cf70301eef4fb4e27504a0dee3f7f9238c1302d487db9def578820b" => :catalina
-    sha256 "0c710e1df5eb10c66d50b3e38876a3b502c3fddc3ca3f48d599e925bf93f108b" => :mojave
-    sha256 "081bc4f957503b67e14c5dc5b0ae327cd014260af68c7d51022d63e026eb94df" => :high_sierra
+    sha256 "3119ebdb1123a77c18fb6d4429bb4f747fcbce8a79f81b45238504ee97bbccf7" => :big_sur
+    sha256 "f0c06a684a52e886e70fbb9dbae0a2152597a0fcc5d13e90f0ee0e04b0cbaa70" => :arm64_big_sur
+    sha256 "6b01e98eec925df06c02cb47ee33136d340d9410570862a69de7a5aa8b820968" => :catalina
+    sha256 "369c634fdc904be8d9c9af0ce2afe6adb7f90f8c43a15fc54a2969d2115715eb" => :mojave
   end
 
   depends_on "go" => :build
 
   def install
-    commit = Utils.safe_popen_read("git", "rev-parse", "HEAD").chomp
     ldflags = %W[
       -s -w
       -X main.version=#{version}
-      -X main.commit=#{commit}
+      -X main.commit=#{Utils.git_head}
       -X main.date=#{Time.now.utc.rfc3339}
       -X main.builtBy=homebrew
     ].join(" ")

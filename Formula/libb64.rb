@@ -10,9 +10,11 @@ class Libb64 < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ee788cea9a073c456398f86661ea27e092c3d327ea8b0792643ed7d38bd402d0" => :catalina
-    sha256 "7a53661bc0fe2bea875f0a14cc66b6352694f1e797e4506ad2c8ef35dfcc2169" => :mojave
-    sha256 "3b5266e99b78c81ae7ec00c19aa7e9d3fad7f47611fc1332710bd8e03f48da55" => :high_sierra
+    rebuild 1
+    sha256 "155001ff9b7e697215db86e40e861308d601c7077c6ec10ef99acf007558415c" => :big_sur
+    sha256 "56d58f54a9441400aa4558ea15ced076cc3d712fbdc2801b786b923b7db2220a" => :arm64_big_sur
+    sha256 "f2bdf6ee59f94515b24aaf0a2feb4fdce2b93910b9a802973434d2c7e769bc42" => :catalina
+    sha256 "6b4f2d282b1ed8e03c4f86a937bcdbf3c8f79679a88568462133440f06d349e7" => :mojave
   end
 
   def install
@@ -36,7 +38,7 @@ class Libb64 < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-L/usr/local/lib", "-lb64", "-o", "test"
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lb64", "-o", "test"
     system "./test"
   end
 end

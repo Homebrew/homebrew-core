@@ -9,6 +9,7 @@ class Fairymax < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "497488cd10ab4c0e87e6fc38cfa250b275e1ceea07ac7694b4ae37996da32c9d" => :big_sur
     sha256 "8dad1d34ed2ce478abebc9ac986bbf5d7d0bf7af5f8326839da735d8fb3d11c6" => :catalina
     sha256 "5c4d837d9726fd83661fac0703cda7829f2c81e48f69ac98016915f97dad15cf" => :mojave
     sha256 "7da2c1f0d3c9f8cdfd5729c22b16bb3a0c81e0189988e4afe43ccaa69518beda" => :high_sierra

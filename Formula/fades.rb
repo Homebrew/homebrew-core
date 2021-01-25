@@ -13,6 +13,8 @@ class Fades < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "21973bd9531e3c6af4359e51ac9e31982bfbdf024843b02226168910a39aabd2" => :big_sur
+    sha256 "7bc2eb2954b2600729559c9f2f58b89b00ad958499aeddaeec1533160907831b" => :arm64_big_sur
     sha256 "78532c867a5ab35381edeb565f094fff1d2d269c169f903e10bde65a2ee2b3c7" => :catalina
     sha256 "bc2264df647adc84ef4f5321258ee9030da3269a66d4f50ed5faf0cc3185bd83" => :mojave
     sha256 "bdf1c47688725b9335adaca1dae977fba9aa534d44f4c65b4a1a684d6fc7930e" => :high_sierra

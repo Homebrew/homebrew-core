@@ -1,29 +1,28 @@
 class Tundra < Formula
   desc "Code build system that tries to be fast for incremental builds"
   homepage "https://github.com/deplinenoise/tundra"
-  url "https://github.com/deplinenoise/tundra/archive/v2.14.tar.gz"
-  sha256 "db3d4b13820373a038a08b8751376e3ecdf49355f329a7909cd2f836372dffe1"
+  url "https://github.com/deplinenoise/tundra/archive/v2.15.tar.gz"
+  sha256 "c4656a8fb97b0488bda3bfadeb36c3f9d64d9a20095d81f93d59db7d24e34e2b"
   license "MIT"
 
   livecheck do
-    url "https://github.com/deplinenoise/tundra/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bafe878e5e83d8edb27eac2b645afd1898045c50d50d169a65398a31a7c23baf" => :catalina
-    sha256 "3f22d2d8ee09acdb42cb4c9c6b0a87496696999ee0ce95c26842d0200f26d356" => :mojave
-    sha256 "37c6abc51fbabc29bed3c7e7dbb7d7264d0113f98470ce8a82449227da172433" => :high_sierra
+    rebuild 1
+    sha256 "dbbb68b203aa7c4550f6c16fcf5ad2ad848c2f5620cbbd8218398d69671bc3e7" => :big_sur
+    sha256 "f36ca8b0357c6687cc29a58cca525de2f5f2abbd8d1ec69137cbc5a511745492" => :catalina
+    sha256 "d89e65ad931ef48f287108e2a06e5b64f34ecb82a00c6b0413833b867c27c764" => :mojave
   end
 
-  resource "gtest" do
-    url "https://github.com/google/googletest/archive/release-1.10.0.tar.gz"
-    sha256 "9dc9157a9a1551ec7a7e43daea9a694a0bb5fb8bec81235d8a1e6ef64c716dcb"
-  end
+  depends_on "googletest" => :build
 
   def install
-    (buildpath/"unittest/googletest").install resource("gtest")
+    ENV.append "CFLAGS", "-I#{Formula["googletest"].opt_include}/googletest/googletest"
+
     system "make"
     system "make", "install", "PREFIX=#{prefix}"
   end

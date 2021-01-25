@@ -7,13 +7,27 @@ class Pcapplusplus < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "92055e1311b0ef55f5e65481de87e64269b7a170713575ca167649c547fd0954" => :catalina
-    sha256 "25b1bf8b919fd755be9bd070265ee0f2b72de51375fc711af2de03ec4a73e046" => :mojave
-    sha256 "77422853771c5a32b0d7551e5acb9db83507c8072bc39d6fa84dfab161a30643" => :high_sierra
+    rebuild 1
+    sha256 "a85939e3b64f246eb7b4c7d0e0c8ec7eac3a108c17b33af1328d6c54a30dfeb0" => :big_sur
+    sha256 "fb22355c98d5c62862816ed1ed211986cef53c1bfc3debe1eaee2a19c7249d6d" => :arm64_big_sur
+    sha256 "d0f032c98d420d3b340e5b6421877e5c89dcf31e74b2dbb6fbed33bd153ab6be" => :catalina
+    sha256 "30ad1d79f76c841448e3e76bd25c9ddeae2c0ba543d11fbd621799f8da81077f" => :mojave
   end
 
   def install
     system "./configure-mac_os_x.sh", "--install-dir", prefix
+
+    # Fix OS/X build issue in v20.08 which inclues <in.h> whether it exists or not,
+    # can be removed next release:
+    inreplace %w[Examples/DnsSpoofing/main.cpp
+                 Examples/HttpAnalyzer/main.cpp
+                 Examples/IPDefragUtil/main.cpp
+                 Examples/IPFragUtil/main.cpp
+                 Examples/IcmpFileTransfer/Common.cpp
+                 Examples/IcmpFileTransfer/IcmpFileTransfer-catcher.cpp
+                 Examples/IcmpFileTransfer/IcmpFileTransfer-pitcher.cpp
+                 Examples/PcapSplitter/IPPortSplitters.h
+                 Examples/SSLAnalyzer/main.cpp], "#include <in.h>", "#include <netinet/in.h>"
 
     # library requires to run 'make all' and
     # 'make install' in two separate commands.

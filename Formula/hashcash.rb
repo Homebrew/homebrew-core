@@ -6,6 +6,8 @@ class Hashcash < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "4d72206542ef1e5c627cd54327baa1fa5b5c669445ba4879aac6dbe4c23876a3" => :big_sur
+    sha256 "a58aab9f64cd4e97938df6d17e88f8d07549d9d84d3499e0c2d071664660132c" => :arm64_big_sur
     sha256 "1865d8db05d392b73cf26b0d873b397b087ac76f6a71c6bdbbf9f5888d46ef15" => :catalina
     sha256 "775184aba3e61dcabed2020c4f2bdda029561badd41aae6d75c56b7bb564a7a3" => :mojave
     sha256 "acb58644b209a262a1f8aea8c4f40e078f4e76742d0339c4e240f92bdd2fb290" => :high_sierra

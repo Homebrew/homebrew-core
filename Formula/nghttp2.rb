@@ -1,15 +1,16 @@
 class Nghttp2 < Formula
   desc "HTTP/2 C Library"
   homepage "https://nghttp2.org/"
-  url "https://github.com/nghttp2/nghttp2/releases/download/v1.41.0/nghttp2-1.41.0.tar.xz"
-  sha256 "abc25b8dc601f5b3fefe084ce50fcbdc63e3385621bee0cbfa7b57f9ec3e67c2"
+  url "https://github.com/nghttp2/nghttp2/releases/download/v1.42.0/nghttp2-1.42.0.tar.xz"
+  sha256 "c5a7f09020f31247d0d1609078a75efadeccb7e5b86fc2e4389189b1b431fe63"
   license "MIT"
   revision 1
 
   bottle do
-    sha256 "ae423161fb662dbd308578a9d20917392ee019878eb59e39779ab7e852b3fd21" => :catalina
-    sha256 "2f79858dc2901da2c314468d39b07506f10c9d8f543a95308f8610f2f00888a4" => :mojave
-    sha256 "34f66d7f13b502faa96a34cf936710ed8910e7d789d430eaeb452d011a0842df" => :high_sierra
+    sha256 "3d0437a63bcc51ec17d456847bcc0a624be2e00755ecc96b8445bc15020ff413" => :big_sur
+    sha256 "b42fa3e6e332f1a4efc34773894606e17e5dcd34c8d12735e83d6464b92af888" => :arm64_big_sur
+    sha256 "ddc63177feae52a5d07ec0f5793a8dcb5a344f0bdd4f4ba0633dacfd8249b0be" => :catalina
+    sha256 "e7a509ec209f20e204f82009b2dec7667e6a28958d018d8f1ee0fefbe4b73999" => :mojave
   end
 
   head do
@@ -20,36 +21,43 @@ class Nghttp2 < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "cunit" => :build
   depends_on "pkg-config" => :build
-  depends_on "sphinx-doc" => :build
   depends_on "c-ares"
-  depends_on "jansson"
   depends_on "jemalloc"
   depends_on "libev"
-  depends_on "libevent"
   depends_on "openssl@1.1"
 
+  uses_from_macos "libxml2"
   uses_from_macos "zlib"
 
+  on_linux do
+    # Fix: shrpx_api_downstream_connection.cc:57:3: error:
+    # array must be initialized with a brace-enclosed initializer
+    # https://github.com/nghttp2/nghttp2/pull/1269
+    patch do
+      url "https://github.com/nghttp2/nghttp2/commit/829258e7038fe7eff849677f1ccaeca3e704eb67.patch?full_index=1"
+      sha256 "c4bcf5cf73d5305fc479206676027533bb06d4ff2840eb672f6265ba3239031e"
+    end
+  end
+
   def install
-    ENV.cxx11
+    # fix for clang not following C++14 behaviour
+    # https://github.com/macports/macports-ports/commit/54d83cca9fc0f2ed6d3f873282b6dd3198635891
+    inreplace "src/shrpx_client_handler.cc", "return dconn;", "return std::move(dconn);"
 
     args = %W[
       --prefix=#{prefix}
       --disable-silent-rules
       --enable-app
+      --disable-examples
+      --disable-hpack-tools
       --disable-python-bindings
-      --with-xml-prefix=/usr
+      --without-systemd
     ]
-
-    # requires thread-local storage features only available in 10.11+
-    args << "--disable-threads" if MacOS.version < :el_capitan
 
     system "autoreconf", "-ivf" if build.head?
     system "./configure", *args
     system "make"
-    system "make", "check"
     system "make", "install"
   end
 

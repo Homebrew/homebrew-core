@@ -6,11 +6,12 @@ class Sysdig < Formula
   license "Apache-2.0"
 
   livecheck do
-    url "https://github.com/draios/sysdig/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
+    sha256 "9a5db7570b079c111525694e6aef53bab77f7633fd30550c174fdd0d8b241ce1" => :big_sur
     sha256 "a3343b2e42ca8df82c537170b0338d965bc0c92619f760d86f30d6f898610e5f" => :catalina
     sha256 "843c5ff29eb7787e1bfc5393f0562e6f97c121504f652f5fd806943dc971b97e" => :mojave
     sha256 "f314c5445253bd052d4a7f50b3e879a81514f14c4d44b3887da26e69fbdce17f" => :high_sierra

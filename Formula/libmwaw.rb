@@ -11,6 +11,8 @@ class Libmwaw < Formula
 
   bottle do
     cellar :any
+    sha256 "a070c58f39b1cec0e17145f3c48ab2f42c6d4cfb3b6d1f10d55d6f215b725c7f" => :big_sur
+    sha256 "36820eedbe0a09fdb594c065effba926ef287dae4ffe1f141a2a55615c46d4e2" => :arm64_big_sur
     sha256 "807cff54beea1a3e68897da872ba18fcff59a6f617d46080beb95c769c97db2f" => :catalina
     sha256 "2c2d73c68fd3b5f0b3b1c028fda9900d9c75589e498b16bf275eafc3f414c8ab" => :mojave
     sha256 "7d29c815ecf0f72bc8623a1b13fc5d8e6786b54dd27609490ed75b720cdd5d90" => :high_sierra

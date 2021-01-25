@@ -6,12 +6,16 @@ class RubyAT25 < Formula
   license "Ruby"
 
   bottle do
+    sha256 "e1c9a7e1f481bdb5390b911e17616f96e2dd4824ef15d134cb96bf579991fb29" => :big_sur
+    sha256 "bbae2085587722707f40c1edff065697a150902c171c1c1279ff2d2d54b291d6" => :arm64_big_sur
     sha256 "77c3f363f6d159824f6a6b1b80ac7e1d2bcb79528f79a0bf78ab3feaa837ad94" => :catalina
     sha256 "bbd75b74d1694bfb1378de37a21d692ca4ecdf3e4c5f6ad7f381ab1ac4942119" => :mojave
     sha256 "cb21f7f22afc2f304a9dc9ab7aba730563656a054b0407943ba0cb1f68b010a2" => :high_sierra
   end
 
   keg_only :versioned_formula
+
+  deprecate! date: "2021-03-31", because: :unsupported
 
   depends_on "pkg-config" => :build
   depends_on "libyaml"
@@ -42,7 +46,9 @@ class RubyAT25 < Formula
       --with-opt-dir=#{paths.join(":")}
       --without-gmp
     ]
-    args << "--disable-dtrace" unless MacOS::CLT.installed?
+    on_macos do
+      args << "--disable-dtrace" unless MacOS::CLT.installed?
+    end
 
     system "./configure", *args
 

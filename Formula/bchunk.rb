@@ -8,6 +8,8 @@ class Bchunk < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "bf3ec0f873db02e0234790bc8b700e4f1b989877742cf1560854e7b561698f4b" => :big_sur
+    sha256 "94279b4e400c05770ec6c5cce6fe7ef50a062835508add3e981942944bb3eecc" => :arm64_big_sur
     sha256 "b9f7bc758711585d7a016b7b3ddefe3256a368c00b21c51691481c7fbfc2823a" => :catalina
     sha256 "232935a7e7291016af594df742848d851ceca12ff9c06e183485c6a184c1df38" => :mojave
     sha256 "d6183607b5b987345ee3380263819f1d5e12f2f3cc9f6fd55accfbf92c26d5ef" => :high_sierra

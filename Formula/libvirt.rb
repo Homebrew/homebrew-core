@@ -1,8 +1,8 @@
 class Libvirt < Formula
   desc "C virtualization API"
   homepage "https://www.libvirt.org"
-  url "https://libvirt.org/sources/libvirt-6.8.0.tar.xz"
-  sha256 "0c2d7f6ed8bc4956bf7f0c8ca2897c6c82ddb91e3118ab7a588b25eedd16ef69"
+  url "https://libvirt.org/sources/libvirt-7.0.0.tar.xz"
+  sha256 "ca3833844d08c22867f1d1a46edc36bda7d6fe1a4f267e7d77100b79fc9ddd89"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
 
   livecheck do
@@ -11,9 +11,9 @@ class Libvirt < Formula
   end
 
   bottle do
-    sha256 "11960b9158da8591ea8deb2099f4ab4db9466e9a10b42f9f8b49affa8abba086" => :catalina
-    sha256 "3286f6941d6cf23468906cf1e628714b860487f44bb26d6f62d89701878d510d" => :mojave
-    sha256 "2ece1e584d23edf04c7aec70cd9a8586484aeb4fad0887886c8fe5b1d2505f67" => :high_sierra
+    sha256 "e938967382f8bbaf26fa13347af40cd447277bcefd66363057a16aa84599dc71" => :big_sur
+    sha256 "34251a1f80e19044ac5b7f59978fef583ca543ec0da3a2ce202274585ccb14af" => :catalina
+    sha256 "c067a0606d1ed6bdf8d9a3338bfc31c3ee4e856ee9b55f52b8bc004b39db5083" => :mojave
   end
 
   head do
@@ -24,7 +24,7 @@ class Libvirt < Formula
   depends_on "ninja" => :build
   depends_on "perl" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
   depends_on "rpcgen" => :build
   depends_on "gettext"
   depends_on "glib"

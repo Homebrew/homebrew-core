@@ -2,7 +2,7 @@ class Qca < Formula
   desc "Qt Cryptographic Architecture (QCA)"
   homepage "https://userbase.kde.org/QCA"
   license "LGPL-2.1"
-  revision 2
+  revision 3
   head "https://invent.kde.org/libraries/qca.git"
 
   stable do
@@ -24,9 +24,10 @@ class Qca < Formula
 
   bottle do
     cellar :any
-    sha256 "beffb3f0ec64707df65d6debe01378970a64a09bd1f3e62a75135fceb05fad2a" => :catalina
-    sha256 "1698ced59723dd813b0d844557701ff944e2392877bdf6ef3c5dbf6d2dbbc60b" => :mojave
-    sha256 "adf5f64082417a58d3472fbd8a57b1b2f9b37cb5a9410cf1db86b8fa44868cf5" => :high_sierra
+    sha256 "0ce2bbd226e16d2e037c61f404123be202e6b3be814f3eab5be83f95f6803978" => :big_sur
+    sha256 "4d4c37739a1afeeb5623bdbc7800b82652a93e02770cdc06b63379ae35746223" => :arm64_big_sur
+    sha256 "55a109c49bc235dd6423f5924b3879c3c9677670bc45650306aa5f14cf9877aa" => :catalina
+    sha256 "41ba9d1f97eab606b1cf30566fa3b8f4a3c1bdf06b32c74deab067896fa6db7a" => :mojave
   end
 
   depends_on "cmake" => :build

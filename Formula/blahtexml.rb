@@ -3,10 +3,13 @@ class Blahtexml < Formula
   homepage "http://gva.noekeon.org/blahtexml/"
   url "http://gva.noekeon.org/blahtexml/blahtexml-0.9-src.tar.gz"
   sha256 "c5145b02bdf03cd95b7b136de63286819e696639824961d7408bec4591bc3737"
+  license "BSD-3-Clause"
   revision 1
 
   bottle do
     cellar :any
+    sha256 "b65b2c94d4c7b015a9ebf54ca27d71d52e09fc946ea1ecd170c952f3d262a599" => :big_sur
+    sha256 "83b3c821686faba9f464198f22fc7432001e93d09c66192ff95c8d9ddbb69a80" => :arm64_big_sur
     sha256 "3f883672f92e2039c22bb278ca50ece210c2c01e58f4c230c3ab1e3101eeb74f" => :catalina
     sha256 "23f943fa053e861b0f6c9f2e9cfa1c74d6b8966ac698e6650386d44f7d7de31b" => :mojave
     sha256 "c2696cdaa1724541f0d07900219247365e30061a471df0b80f6469b3bc2b4a14" => :high_sierra
@@ -29,10 +32,15 @@ class Blahtexml < Formula
 
   def install
     ENV.cxx11
-
-    system "make", "blahtex-mac"
+    on_macos do
+      system "make", "blahtex-mac"
+      system "make", "blahtexml-mac"
+    end
+    on_linux do
+      system "make", "blahtex-linux"
+      system "make", "blahtexml-linux"
+    end
     bin.install "blahtex"
-    system "make", "blahtexml-mac"
     bin.install "blahtexml"
   end
 

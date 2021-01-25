@@ -12,9 +12,12 @@ class Hdf5 < Formula
 
   bottle do
     cellar :any
-    sha256 "e0990f7a52f3f66fd8d546ff1e1d26d4a0cec5ebc9a45ec21fb5335359d6878a" => :catalina
-    sha256 "3b681a12f21a576b4c80d84d52dbe8ff9380ecc517f9b742dbe26faf5ffc289a" => :mojave
-    sha256 "331f9a49fb5abb3344a6dc7ff626e37d799418d8de507487c30aff91e2b22265" => :high_sierra
+    rebuild 1
+    sha256 "7cd7cdc13241744c74a94eb578575c357cf263ff0228251a7882a9b7452bac92" => :big_sur
+    sha256 "2eb3e73920211c3b9f2b8fb3e2bd39d00dfd5069812e3639bb39d4cfe7d78cab" => :arm64_big_sur
+    sha256 "ff70299b918490134fb3e883110f0092d591885db3fc798f2cc0f48cd9472f36" => :catalina
+    sha256 "450afa0c0e0783b416e67df0d2a56c5f12518df65ba0326884e06f3388c5c445" => :mojave
+    sha256 "541d0b241a81248d8b6c3d3b205fb3f319e5cefe751d7750aa2749b9696ff749" => :high_sierra
   end
 
   depends_on "autoconf" => :build
@@ -45,8 +48,15 @@ class Hdf5 < Formula
       --enable-fortran
       --enable-cxx
     ]
+    on_linux do
+      args << "--with-zlib=#{Formula["zlib"].opt_prefix}"
+    end
 
     system "./configure", *args
+
+    # Avoid shims in settings file
+    inreplace "src/libhdf5.settings", HOMEBREW_LIBRARY/"Homebrew/shims/mac/super/clang", "/usr/bin/clang"
+
     system "make", "install"
   end
 

@@ -13,6 +13,8 @@ class Rlwrap < Formula
   end
 
   bottle do
+    sha256 "d1569b44bcf5e3cbc42a6c9e456ad57a56cdf2906eab3a7ec837f5e83f3e838c" => :big_sur
+    sha256 "1749685e3fdae4734269eff4de64dcaf09d5aaa0664998f2f6061918d05167a6" => :arm64_big_sur
     sha256 "d4a2ef8e6f2c143c9156ed301d9b835b74b8e1c8bb232feb7fd8494e5262441c" => :catalina
     sha256 "1bd82e889c7f88df7b45b31201d563d7185c362c7a5d3814b5474d295de65f22" => :mojave
     sha256 "d8d5c5402f1b0041bc26c2161b2822cfd025e93674a7a5dc0046185d5870181d" => :high_sierra

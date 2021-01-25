@@ -13,6 +13,8 @@ class Py2cairo < Formula
 
   bottle do
     cellar :any
+    sha256 "80feea24d8039acef848c76075f8911493762d75b883b56bf4d87f14d5a3bbac" => :big_sur
+    sha256 "de68fca224353b7e7b8426e24324fdb6fd0cc5a6180db4ad0ccd02b43919b0bc" => :arm64_big_sur
     sha256 "78ab70984d612ac9feba4d673615e3918110aebc4aa0b360a854e81fc7ac0ea7" => :catalina
     sha256 "f01c39e8f71339cdec156309fb7358f5bb3e292fb0a84a071c3a935b58234120" => :mojave
     sha256 "76dbdbbd42c2a59cae7e9ddc05ad26d331194c8a132e24e7316ceb551a40272b" => :high_sierra

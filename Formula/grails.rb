@@ -1,8 +1,8 @@
 class Grails < Formula
   desc "Web application framework for the Groovy language"
   homepage "https://grails.org"
-  url "https://github.com/grails/grails-core/releases/download/v4.0.4/grails-4.0.4.zip"
-  sha256 "2b1bbe93f931bf6eab468575c40e6582881e6c3a3b6b2fb4aee6ad685fa2dcb6"
+  url "https://github.com/grails/grails-core/releases/download/v4.0.6/grails-4.0.6.zip"
+  sha256 "77a3d01ce99d07717c799449c73275c4c93c39393e0eb05d33bd3fe36a408346"
   license "Apache-2.0"
 
   livecheck do
@@ -29,6 +29,10 @@ class Grails < Formula
   end
 
   test do
+    system bin/"grails", "create-app", "brew-test"
+    assert_predicate testpath/"brew-test/gradle.properties", :exist?
+    assert_match "brew.test", File.read(testpath/"brew-test/build.gradle")
+
     assert_match "Grails Version: #{version}", shell_output("#{bin}/grails -v")
   end
 end

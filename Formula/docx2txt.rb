@@ -11,6 +11,8 @@ class Docx2txt < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "3d8f83b8f721e0e232b81a6a35345634ee180065682cb542d10e99894a9e69b0" => :big_sur
+    sha256 "2d6e1722f2db28c4cd573b95de24ca37c4166ef25d7769b766d88e5f73140bf3" => :arm64_big_sur
     sha256 "5fd07512b1396d0cda3b025352da258523470374318723c5d0bdf41a7d174e8c" => :catalina
     sha256 "b7540b467b577f25c72f86a0d23581f6eb613bcd6482de7ea5b01405cf2f6358" => :mojave
     sha256 "fb8efe02d448cdbda874a9fe06b11ebd0ace98b88d4e1792aab632fd0371e178" => :high_sierra

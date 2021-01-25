@@ -8,6 +8,8 @@ class Jbig2enc < Formula
 
   bottle do
     cellar :any
+    sha256 "7fa06f2fcbf711d175510a4161ca495bb5ab41cee3052090a650cc9053008ff1" => :big_sur
+    sha256 "a9971ddbeaf06085f531d9fb58f823360e73561f8703111d3c8ed0340413281a" => :arm64_big_sur
     sha256 "1c24750a1e84a128012a71d0cc47812c29c32136b31dc9c8a15d71d124701c90" => :catalina
     sha256 "62cbf2c1eab2eb5cfe0060887f96d8408fb05a4214580bef8da8a593962b436d" => :mojave
     sha256 "7431e5b6cf8354ab27bbb7710b2133eb3d381f3c6a30b7143332fba5e7fe82f7" => :high_sierra

@@ -7,12 +7,17 @@ class Icu4c < Formula
   license "ICU"
 
   livecheck do
-    url "https://github.com/unicode-org/icu/releases/latest"
-    regex(%r{href=.*?/tag/release[._-]v?(\d+(?:[.-]\d+)+)["' >]}i)
+    url :stable
+    regex(/^release[._-]v?(\d+(?:[.-]\d+)+)$/i)
+    strategy :git do |tags, regex|
+      tags.map { |tag| tag[regex, 1]&.gsub("-", ".") }.compact
+    end
   end
 
   bottle do
     cellar :any
+    sha256 "114cce72e22c5eb713f56b9f91a076b2f2d5930152d3638a95c6decee511aa3e" => :big_sur
+    sha256 "28603c8d1cc113f70ad4042548f8f6585606025b48d315958236531e8f8d8550" => :arm64_big_sur
     sha256 "2d1e91b5127f66e7941790c004817c94c892725c88f84f1e4c37297fcbc0c72f" => :catalina
     sha256 "b6069459c78f18045ee922ce5cb5b235d4b479597d79c3c298d09e0de3d70794" => :mojave
     sha256 "0720bd47f020d5ca895ae79eb61623ed3c7de0d4c4f221613105f47147aec01f" => :high_sierra

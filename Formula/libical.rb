@@ -1,17 +1,15 @@
 class Libical < Formula
   desc "Implementation of iCalendar protocols and data formats"
   homepage "https://libical.github.io/libical/"
-  url "https://github.com/libical/libical/releases/download/v3.0.8/libical-3.0.8.tar.gz"
-  sha256 "09fecacaf75ba5a242159e3a9758a5446b5ce4d0ab684f98a7040864e1d1286f"
-  # license ["LGPL-2.1", "MPL-2.0"] - pending https://github.com/Homebrew/brew/pull/7953
-  license "LGPL-2.1"
-  revision 2
+  url "https://github.com/libical/libical/releases/download/v3.0.9/libical-3.0.9.tar.gz"
+  sha256 "bd26d98b7fcb2eb0cd5461747bbb02024ebe38e293ca53a7dfdcb2505265a728"
+  license any_of: ["LGPL-2.1-or-later", "MPL-2.0"]
 
   bottle do
     cellar :any
-    sha256 "aee72172114e605f00d453d7a2f5e7be3b813fcc56d05463c97de76f579db5f4" => :catalina
-    sha256 "93bd93bbad50f91aaa215ba2f764046fef919790a4ff227328a309b2ad2490d2" => :mojave
-    sha256 "3ff8dae7c504718bffd8fb8ce066c3b5c777d12250bdc87ff3fbb7f230284d1b" => :high_sierra
+    sha256 "e12adf682ea1f397351271c34de6ea2ef1d8d2b85f06fef6a6fa5e9c0639009e" => :big_sur
+    sha256 "36981c1f3b12fb5fb5b2b5cb9992c4fad91bbdcabb0ba3d369fb2e56c6c912c9" => :catalina
+    sha256 "31f627dd8dd297bc02be8c7a4b790058d9209d98839cb31e727b7a948e29a66a" => :mojave
   end
 
   depends_on "cmake" => :build

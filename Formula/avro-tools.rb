@@ -1,9 +1,9 @@
 class AvroTools < Formula
   desc "Avro command-line tools and utilities"
   homepage "https://avro.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=avro/avro-1.10.0/java/avro-tools-1.10.0.jar"
-  mirror "https://archive.apache.org/dist/avro/avro-1.10.0/java/avro-tools-1.10.0.jar"
-  sha256 "74c037354ba1bb43e07d336d46d95d54bc347f2d8073d7cf1087d447b5978a56"
+  url "https://www.apache.org/dyn/closer.lua?path=avro/avro-1.10.1/java/avro-tools-1.10.1.jar"
+  mirror "https://archive.apache.org/dist/avro/avro-1.10.1/java/avro-tools-1.10.1.jar"
+  sha256 "172bf20f983ab82c785ccbc31504fa6e6c44f3e93b78c0f201c25ce990d671cb"
   license "Apache-2.0"
 
   livecheck do
@@ -11,6 +11,8 @@ class AvroTools < Formula
   end
 
   bottle :unneeded
+
+  depends_on "openjdk"
 
   def install
     libexec.install "avro-tools-#{version}.jar"

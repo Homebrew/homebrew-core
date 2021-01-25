@@ -13,6 +13,8 @@ class Irssi < Formula
 
   bottle do
     rebuild 1
+    sha256 "777daa274e6a688f4d0878b5be6b7054f5be774ff8fc8c63649aeefc48509e8d" => :big_sur
+    sha256 "a10819692310e4e965cece210cc320eb31a8273b9b052ff423c01c24afce6ba7" => :arm64_big_sur
     sha256 "a8d0caa726da8abaa3942e154ea6d6501df46ea3ae7c24d3583d3a229fd92727" => :catalina
     sha256 "e25efab5dc0b20925d920aca182f713fa54b3d781bbea7ff0ff98606a29e8553" => :mojave
     sha256 "92ce3e102445bc1248daf5404b9045088dde6a8f4e185c5f2a98982e692b4b26" => :high_sierra
@@ -31,6 +33,7 @@ class Irssi < Formula
   depends_on "glib"
   depends_on "openssl@1.1"
 
+  uses_from_macos "ncurses"
   uses_from_macos "perl"
 
   def install
@@ -44,10 +47,16 @@ class Irssi < Formula
       --with-proxy
       --enable-true-color
       --with-socks=no
-      --with-ncurses=#{MacOS.sdk_path}/usr
       --with-perl=yes
       --with-perl-lib=#{lib}/perl5/site_perl
     ]
+
+    on_macos do
+      args << "--with-ncurses=#{MacOS.sdk_path/"usr"}"
+    end
+    on_linux do
+      args << "--with-ncurses=#{Formula["ncurses"].prefix}"
+    end
 
     if build.head?
       ENV["NOCONFIGURE"] = "yes"

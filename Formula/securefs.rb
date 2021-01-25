@@ -2,8 +2,8 @@ class Securefs < Formula
   desc "Filesystem with transparent authenticated encryption"
   homepage "https://github.com/netheril96/securefs"
   url "https://github.com/netheril96/securefs.git",
-    tag:      "0.11.1",
-    revision: "dfeebf8406871d020848edde668234715356158c"
+      tag:      "0.11.1",
+      revision: "dfeebf8406871d020848edde668234715356158c"
   license "MIT"
   head "https://github.com/netheril96/securefs.git"
 
@@ -15,7 +15,15 @@ class Securefs < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on :osxfuse
+
+  on_macos do
+    deprecate! date: "2020-11-10", because: "requires FUSE"
+    depends_on :osxfuse
+  end
+
+  on_linux do
+    depends_on "libfuse"
+  end
 
   def install
     system "cmake", ".", *std_cmake_args

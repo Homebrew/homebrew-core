@@ -8,6 +8,8 @@ class GitArchiveAll < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "13418fa4c3212278d566d1b4ee0a43f62727c71dfea8c268a8994e6aeb33d8f0" => :big_sur
+    sha256 "90de61e5da3d36a5c97afbc002d0f65ad88092a5551ce36e10e7d2901045f16b" => :arm64_big_sur
     sha256 "d83a7c27f97788c8a76ba8fc708a30795e6bede82329dd32e39a8dee6b907a79" => :catalina
     sha256 "d83a7c27f97788c8a76ba8fc708a30795e6bede82329dd32e39a8dee6b907a79" => :mojave
     sha256 "d83a7c27f97788c8a76ba8fc708a30795e6bede82329dd32e39a8dee6b907a79" => :high_sierra

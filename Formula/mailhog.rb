@@ -7,8 +7,8 @@ class Mailhog < Formula
   head "https://github.com/mailhog/MailHog.git"
 
   stable do
-    url "https://github.com/mailhog/MailHog/archive/v1.0.0.tar.gz"
-    sha256 "472bf0895f33d49ec8f9bf665fdbda317e57855e846e38e6a6b8dcecdacd7bc5"
+    url "https://github.com/mailhog/MailHog/archive/v1.0.1.tar.gz"
+    sha256 "6227b566f3f7acbfee0011643c46721e20389eba4c8c2d795c0d2f4d2905f282"
 
     go_resource "github.com/gorilla/context" do
       url "https://github.com/gorilla/context.git",
@@ -113,10 +113,9 @@ class Mailhog < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "e127d4cd9bc97838be1586912d0fa14370062f9f98f901ce0de9faf6c9d4fba4" => :catalina
-    sha256 "58b7a9427521adeb1f65aa961e7548532c3d2c1141bd167deba8ff031d90d2c9" => :mojave
-    sha256 "de3accd2587eb597e92b31fcf6dd93e78b0c0e52511680a6354d17d066ed776f" => :high_sierra
+    sha256 "f917aca265baff755eef3cba936e694f2bb214a0bc95e8bd9de08b283746d5cd" => :big_sur
+    sha256 "baf343b697366b603e680e27d3642ffa8b2b62d1b1be1f394260f85a058b1b95" => :catalina
+    sha256 "7ebea41ba2db7c5bd144dd2844415800853c56ddefcd587d94717229196c5535" => :mojave
   end
 
   depends_on "go" => :build

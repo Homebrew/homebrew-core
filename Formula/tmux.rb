@@ -1,21 +1,24 @@
 class Tmux < Formula
   desc "Terminal multiplexer"
   homepage "https://tmux.github.io/"
-  url "https://github.com/tmux/tmux/releases/download/3.1b/tmux-3.1b.tar.gz"
-  sha256 "d93f351d50af05a75fe6681085670c786d9504a5da2608e481c47cf5e1486db9"
+  url "https://github.com/tmux/tmux/releases/download/3.1c/tmux-3.1c.tar.gz"
+  sha256 "918f7220447bef33a1902d4faff05317afd9db4ae1c9971bef5c787ac6c88386"
   license "ISC"
+  revision 1
 
   livecheck do
-    url "https://github.com/tmux/tmux/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+[a-z]?)["' >]}i)
   end
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "785c1b2e2518478621eb5ac894b3f0ed06d8fdc4d223dd476451ab26974e3803" => :catalina
-    sha256 "a8fb2df02c2e094404b6c56e2b9d15a35abd012913771ad311e08cc3572f0e4b" => :mojave
-    sha256 "5d43e03fc71740ec38c98b309adb2b6d198a20fcb14f76bc163232fda61fac23" => :high_sierra
+    sha256 "6f9b667c08719ca7a164c571740d510236d55c922058b1d71fb38f66163a394e" => :big_sur
+    sha256 "b24cedca1ea1e8e343e5faf6acb509e3df2b3d91b6dcb2934b2c697d8d5b6b07" => :arm64_big_sur
+    sha256 "e1148f3043ef1e77e942bc654e6b3867f40401b0ba93e6d44a460467c51e0a3b" => :catalina
+    sha256 "3ba85f3524acbf5e1fb04135fa9b7f2bbdd5d3c8ed94189685be50ca19722bbe" => :mojave
+    sha256 "ec5fcbdc337221efdbf3f21121fb087b998dd7d3bf6dd5bb72e352d9c9463a57" => :high_sierra
   end
 
   head do
@@ -35,8 +38,8 @@ class Tmux < Formula
   depends_on "utf8proc" if MacOS.version >= :high_sierra
 
   resource "completion" do
-    url "https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/homebrew_1.0.0/completions/tmux"
-    sha256 "05e79fc1ecb27637dc9d6a52c315b8f207cf010cdcee9928805525076c9020ae"
+    url "https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/f5d53239f7658f8e8fbaf02535cc369009c436d6/completions/tmux"
+    sha256 "b5f7bbd78f9790026bbff16fc6e3fe4070d067f58f943e156bd1a8c3c99f6a6f"
   end
 
   def install

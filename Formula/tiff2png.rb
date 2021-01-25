@@ -8,6 +8,8 @@ class Tiff2png < Formula
 
   bottle do
     cellar :any
+    sha256 "6001968757ed9c3dd7f67c8d4f53cb57d3d8ae67de0ab995167bbf761e4a26a6" => :big_sur
+    sha256 "2afce14eed0478fdf2cdfdddf4d69264b91915f19081f5ea57073d9a7a2076e9" => :arm64_big_sur
     sha256 "7589c830ef81bd43dd0bd3d1ba65483965701dfff8f7c4d8760951f0cf47c378" => :catalina
     sha256 "e8cf86b68e703c8c5c6fc0f6e9ffee0e2823a103cb685d4a33d21fb626a96439" => :mojave
     sha256 "e20cc758aab7de1c1e9d286e469a444fe9e384bcffe472ec6a52c06b31131ac4" => :high_sierra

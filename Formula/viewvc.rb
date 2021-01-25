@@ -8,6 +8,8 @@ class Viewvc < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "6e18a6a9766105bad19b6030401ef95c3d8f634c86df22134a2fae667ef7a6e7" => :big_sur
+    sha256 "e630533119aa32963ecdab57a94339c2a4bcf22ec299f970a1aa705352566b76" => :arm64_big_sur
     sha256 "d56de2b10e8bd8f161071b9d39ae435ee1fc70e4be5056b39d48dec7e77f185e" => :catalina
     sha256 "6cd2fbb98cdc1ff4f689aae5ebea8cf4bee6f078671f812c492758274f22a5d6" => :mojave
     sha256 "19c07a79667814ccb1b14b6214a3d5fcca65ec31381e6e46a5db3ac3f72fc2d4" => :high_sierra

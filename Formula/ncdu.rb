@@ -7,6 +7,8 @@ class Ncdu < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "0761e7d2ca14605c0b5d122521c5f9d63f536fd37bb3cf46ae1367b36d4f166f" => :big_sur
+    sha256 "26eb6537a378702dc900546a2069472b51822fe086f380d0793c29adcc71166f" => :arm64_big_sur
     sha256 "994f7f4e9624a0984ec7c37b5b15b9ae5c24663ebffaba19b0979f4e99919fee" => :catalina
     sha256 "f7908eaf47c7842b15e56e17279583f4c938a9c920e1bae41f05d3e5506a99fb" => :mojave
     sha256 "d094385dbfd71831c5f2b03f0817a06df9471a44f5437aaf577676d2723bc865" => :high_sierra

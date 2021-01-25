@@ -1,15 +1,16 @@
 class Hstr < Formula
   desc "Bash and zsh history suggest box"
   homepage "https://github.com/dvorka/hstr"
-  url "https://github.com/dvorka/hstr/archive/2.2.tar.gz"
-  sha256 "886531ca9d8d1a5a93a3db96e9fc64154a03f6de428c74c722b41057bceca266"
+  url "https://github.com/dvorka/hstr/archive/2.3.tar.gz"
+  sha256 "c7e7408671757b3f4be9c5a59b4e2d56e7a7b601ace2a94eb6b2b61f20ee890b"
   license "Apache-2.0"
 
   bottle do
     cellar :any
-    sha256 "5b3c9395c5d63b3a75bad4ef78ec8eb7d1e359fd72904feab750bf9d162f44ec" => :catalina
-    sha256 "99916c805fb5e557e366c1c0cff89d160148607f0a401084fd555c4ba6619c4d" => :mojave
-    sha256 "a8477c9cd9c66f9d9045328615941f0d1366441cf282c2011f71c4f7061302ba" => :high_sierra
+    sha256 "23a7e98369fa1ef412f6f374d24a1828b5131425b39b828688004cf6e4cedda8" => :big_sur
+    sha256 "6f1758717c6c34317a775a0975864d66bdd2696f491859627a00641966ce6ece" => :arm64_big_sur
+    sha256 "eb5a750b04ba6c1908bde96a1bd7fb8733a80632953eeb5d43ad51b7747cc191" => :catalina
+    sha256 "723f7aec818080a72e40a3eda2aad8669d5d952927a7894718946cc0b788ff27" => :mojave
   end
 
   depends_on "autoconf" => :build

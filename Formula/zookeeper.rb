@@ -5,6 +5,7 @@ class Zookeeper < Formula
   mirror "https://archive.apache.org/dist/zookeeper/zookeeper-3.6.2/apache-zookeeper-3.6.2.tar.gz"
   sha256 "62d9e865a7b1da5e906ff39ebf40cfa1880303c04b4cf38e2c88d328bc2bcd6f"
   license "Apache-2.0"
+  revision 1
   head "https://gitbox.apache.org/repos/asf/zookeeper.git"
 
   livecheck do
@@ -13,9 +14,10 @@ class Zookeeper < Formula
 
   bottle do
     cellar :any
-    sha256 "bfcc5a911c89d2b1d535a4f2dfad833cc89b84d410fdc9bce4adda5d4abfe4cb" => :catalina
-    sha256 "799dcedfc580923f05b1634fead93e5b4d570bf499f4c52e732cb123d3d9a928" => :mojave
-    sha256 "1e47078cd2e2275fff519fd4f258d9b3df93f79499ba03534cba8dac56877bd0" => :high_sierra
+    sha256 "5ff355365ea58279fd5702e194f45871779548d7b9a044e271e91f8824ed018f" => :big_sur
+    sha256 "418667fe02a90fc96ea22a9331c0f39639041c77a8d9f7c9b07535a100102564" => :catalina
+    sha256 "ea6c5aa3aa78b6ef735bd28c31bdb8097981cecf641afbcdab2dfcd6f4094c02" => :mojave
+    sha256 "a6022a25669efa984068971483c90eb50fa9fe17d9d34f8d5554621ebe2f439f" => :high_sierra
   end
 
   depends_on "autoconf" => :build
@@ -25,14 +27,8 @@ class Zookeeper < Formula
   depends_on "maven" => :build
   depends_on "pkg-config" => :build
 
-  def shim_script(target)
-    <<~EOS
-      #!/usr/bin/env bash
-      . "#{etc}/zookeeper/defaults"
-      cd "#{libexec}/bin"
-      ./#{target} "$@"
-    EOS
-  end
+  depends_on "openjdk"
+  depends_on "openssl@1.1"
 
   def default_zk_env
     <<~EOS
@@ -74,19 +70,26 @@ class Zookeeper < Formula
 
       script_name = path.basename
       bin_name    = path.basename ".sh"
-      (bin+bin_name).write shim_script(script_name)
+      (bin+bin_name).write <<~EOS
+        #!/bin/bash
+        export JAVA_HOME="${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
+        . "#{etc}/zookeeper/defaults"
+        exec "#{libexec}/bin/#{script_name}" "$@"
+      EOS
     end
-
-    defaults = etc/"zookeeper/defaults"
-    defaults.write(default_zk_env) unless defaults.exist?
-
-    log4j_properties = etc/"zookeeper/log4j.properties"
-    log4j_properties.write(default_log4j_properties) unless log4j_properties.exist?
 
     inreplace "conf/zoo_sample.cfg",
               /^dataDir=.*/, "dataDir=#{var}/run/zookeeper/data"
     cp "conf/zoo_sample.cfg", "conf/zoo.cfg"
     (etc/"zookeeper").install ["conf/zoo.cfg", "conf/zoo_sample.cfg"]
+  end
+
+  def post_install
+    defaults = etc/"zookeeper/defaults"
+    defaults.write(default_zk_env) unless defaults.exist?
+
+    log4j_properties = etc/"zookeeper/log4j.properties"
+    log4j_properties.write(default_log4j_properties) unless log4j_properties.exist?
   end
 
   plist_options manual: "zkServer start"

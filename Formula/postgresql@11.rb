@@ -1,17 +1,26 @@
 class PostgresqlAT11 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v11.9/postgresql-11.9.tar.bz2"
-  sha256 "35618aa72e0372091f923c42389c6febd07513157b4fbb9408371706afbb6635"
+  url "https://ftp.postgresql.org/pub/source/v11.10/postgresql-11.10.tar.bz2"
+  sha256 "13e6d2f80662fe463bc7718cdf0de6a9ec67fc78afcc7a3ae66b9ea19bb97899"
   license "PostgreSQL"
 
+  livecheck do
+    url "https://ftp.postgresql.org/pub/source/"
+    regex(%r{href=["']?v?(11(?:\.\d+)*)/?["' >]}i)
+  end
+
   bottle do
-    sha256 "6ae4d48f4eb3af904ff8bb4a4cd6194500272847636261a049559059a312ac10" => :catalina
-    sha256 "816c4f41cc68aa079c3b8840a414ace69006bff6914160a8bfe86d5365cf84eb" => :mojave
-    sha256 "01b6df74f7598494a9d31a6c017bbc7b17e78c6606603387766006705a7914d7" => :high_sierra
+    sha256 "1be79dc456c13293c3f01c04e21004bd02c44f79cba83d2bde76195e35e0e02e" => :big_sur
+    sha256 "1cd0993f4b4fb154b3a028b3a795906f7938ad105ebcc8e8e371db408e9f6ea5" => :arm64_big_sur
+    sha256 "d0758c755abfe5516c4f9ea89fd1926733411d0f87a0b91502dbff09c6f78b86" => :catalina
+    sha256 "ea13e9ccace5efd7fdbb60b9af0ee2fa1f1751ff5aea0dbff913c7f62a876d35" => :mojave
   end
 
   keg_only :versioned_formula
+
+  # https://www.postgresql.org/support/versioning/
+  deprecate! date: "2023-11-09", because: :unsupported
 
   depends_on "pkg-config" => :build
   depends_on "icu4c"
@@ -71,19 +80,26 @@ class PostgresqlAT11 < Formula
     return if ENV["CI"]
 
     (var/"log").mkpath
-    (var/name).mkpath
-    unless File.exist? "#{var}/#{name}/PG_VERSION"
-      system "#{bin}/initdb", "--locale=C", "-E", "UTF-8", "#{var}/#{name}"
-    end
+    postgresql_datadir.mkpath
+    system "#{bin}/initdb", "--locale=C", "-E", "UTF-8", postgresql_datadir unless pg_version_exists?
+  end
+
+  def postgresql_datadir
+    var/name
+  end
+
+  def postgresql_log_path
+    var/"log/#{name}.log"
+  end
+
+  def pg_version_exists?
+    (postgresql_datadir/"PG_VERSION").exist?
   end
 
   def caveats
     <<~EOS
-      To migrate existing data from a previous major version of PostgreSQL run:
-        brew postgresql-upgrade-database
-
       This formula has created a default database cluster with:
-        initdb --locale=C -E UTF-8 #{var}/postgres
+        initdb --locale=C -E UTF-8 #{postgresql_datadir}
       For more details, read:
         https://www.postgresql.org/docs/#{version.major}/app-initdb.html
     EOS
@@ -105,16 +121,16 @@ class PostgresqlAT11 < Formula
         <array>
           <string>#{opt_bin}/postgres</string>
           <string>-D</string>
-          <string>#{var}/#{name}</string>
+          <string>#{postgresql_datadir}</string>
         </array>
         <key>RunAtLoad</key>
         <true/>
         <key>WorkingDirectory</key>
         <string>#{HOMEBREW_PREFIX}</string>
         <key>StandardOutPath</key>
-        <string>#{var}/log/#{name}.log</string>
+        <string>#{postgresql_log_path}</string>
         <key>StandardErrorPath</key>
-        <string>#{var}/log/#{name}.log</string>
+        <string>#{postgresql_log_path}</string>
       </dict>
       </plist>
     EOS

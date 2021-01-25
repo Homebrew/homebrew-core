@@ -1,15 +1,16 @@
 class Nudoku < Formula
   desc "Ncurses based sudoku game"
   homepage "https://jubalh.github.io/nudoku/"
-  url "https://github.com/jubalh/nudoku/archive/2.0.0.tar.gz"
-  sha256 "44d3ec1ff34a010910ac7a92f6d84e8a7a4678a966999b7be27d224609ae54e1"
-  license "GPL-3.0"
+  url "https://github.com/jubalh/nudoku/archive/2.1.0.tar.gz"
+  sha256 "eeff7f3adea5bfe7b88bf7683d68e9a597aabd1442d1621f21760c746400b924"
+  license "GPL-3.0-or-later"
   head "https://github.com/jubalh/nudoku.git"
 
   bottle do
-    sha256 "42af644b71eee33e827eb588221eddc0a2b16d552907f9bd80116177e91b748a" => :catalina
-    sha256 "c31813e8e20e6a7f3869bd0869d21e24877ee15de9f00f7eaf812bc81244418f" => :mojave
-    sha256 "fabdc0fc21df7b01f097ae89884d8234d8efe1a3b4335a4d2897f98df5291e67" => :high_sierra
+    sha256 "ec43523a92bb16fadd4ab7fe3f9189cb13849fc3919bf4525b9074a471453745" => :big_sur
+    sha256 "daa1278f79f9fdf5cd8780ba68d3bf89982728c1ddf636f89475e89b14bd9c64" => :arm64_big_sur
+    sha256 "e6aa92aabc32164b2cc69d55d4a243f6aafdd6d6a109a40339d6546548153174" => :catalina
+    sha256 "3afc049f852d205bff4b674e751fb1db83d73ab82ba15e5f38a1ba9c33ffd2e5" => :mojave
   end
 
   depends_on "autoconf" => :build
@@ -18,13 +19,6 @@ class Nudoku < Formula
   depends_on "gettext"
 
   uses_from_macos "ncurses"
-
-  # gettext 0.20 compatibility.
-  # Remove with next release.
-  patch do
-    url "https://github.com/jubalh/nudoku/commit/9a4ffc359fe72f6af0e3654ae19ae421ab941ea8.patch?full_index=1"
-    sha256 "e4b52f5ac48bfd192f28ae4b3a2fb146c7bc1bec1a441e8e10f4ad90550d4e66"
-  end
 
   def install
     system "autoreconf", "-fiv"

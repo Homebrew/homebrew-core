@@ -6,10 +6,6 @@ class Luabind < Formula
   license "MIT"
   revision 2
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     cellar :any
     sha256 "aa095d38915e09287c86d11d65871b5a4e6604799a961f0e055c9bf526ba403b" => :mojave
@@ -18,6 +14,8 @@ class Luabind < Formula
     sha256 "914a79679264790d9ffb0726a1f303954d816da3dd23db3b8816873cf467677f" => :el_capitan
     sha256 "171123f48a6cf2431d6b143b84bf31dbb955f103195aa30597a61b7a61943982" => :yosemite
   end
+
+  disable! date: "2020-12-08", because: :unmaintained
 
   depends_on "boost-build" => :build
   depends_on "boost"

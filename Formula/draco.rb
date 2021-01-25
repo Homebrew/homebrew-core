@@ -1,15 +1,16 @@
 class Draco < Formula
   desc "3D geometric mesh and point cloud compression library"
   homepage "https://google.github.io/draco/"
-  url "https://github.com/google/draco/archive/1.3.6.tar.gz"
-  sha256 "80eaa54ef5fc687c9aeebb9bd24d936d3e6d2c6048f358be8b83fa088ef4b2cb"
+  url "https://github.com/google/draco/archive/1.4.1.tar.gz"
+  sha256 "83aa5637d36a835103a61f96af7ff04c6d6528e643909466595d51ee715417a9"
   license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "54ea5852087b08f08945c7a73f6fc3b9d91958e6f23685c9848e08c2bce1ac03" => :catalina
-    sha256 "cd40c18a7c54185a154785e7245ae1b3ddeff275a96854488e625f9a1b6701a5" => :mojave
-    sha256 "341560bdd2d7831f274feaa1646f10c79a00618d8c00f9522e885f23af1f2f87" => :high_sierra
+    sha256 "8102f60a854f4b5bd365b10f1c5876459424191052811d0afb42aa037c0ada7d" => :big_sur
+    sha256 "834b335c5ea2e27b8256c6684fb1badeae6ad6b927436e329058dcbd51d85fca" => :arm64_big_sur
+    sha256 "4a1088d41275a89ed0238d3eacca9740d9455e9fd2fcbf79b3147ad72c942b4d" => :catalina
+    sha256 "45e5548e468c702c7508ec6f2ef7aa2c4862e38af9130511b36d910c069271a0" => :mojave
   end
 
   depends_on "cmake" => :build

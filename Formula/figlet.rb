@@ -12,6 +12,8 @@ class Figlet < Formula
   end
 
   bottle do
+    sha256 "c205792bc4f3305cc2fdccf672a9df7f2d415efc6c9b7ac2f00ccb44aa981cfc" => :big_sur
+    sha256 "c11153896e225e3ce85db5dda5c85455422e542871c0495683aa49c8929cc6f8" => :arm64_big_sur
     sha256 "b0ecddfbf1d1e1d45ff1d3cb1be1977fd80a7924c27a73d995435de9aff5ca66" => :catalina
     sha256 "906556c44706889c0170f4dfe7d7427f27122cee425042c3911f7266f9fc2e4c" => :mojave
     sha256 "3047847adef9cb5bd5588cf65f64bfcc0549ed44d4370a862071aba2f9d98ba6" => :high_sierra

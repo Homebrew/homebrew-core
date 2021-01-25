@@ -6,6 +6,8 @@ class ColladaDom < Formula
   head "https://github.com/rdiankov/collada-dom.git"
 
   bottle do
+    sha256 "b7c0c6d35d2af29ac7351dcdca28d85dc31a242c994ff5a4242982c3859380c0" => :big_sur
+    sha256 "74fdb739480d5afe0a658201d2ac35bbcc3612ba67760072fd6f9984bac0de89" => :arm64_big_sur
     sha256 "5e86a0dfc3311b0c2bc49017493f4c729a42b0a1d8e6c8a8bb2c7145197f9509" => :catalina
     sha256 "67da6177f67deeba4a08cc0648766856f647eb54ca9cfdf8fd61a2e665330614" => :mojave
     sha256 "a88714bbcd001a475d4222407031997af3cb34fe6214352a562021770a09a560" => :high_sierra

@@ -7,10 +7,14 @@ class Rawtoaces < Formula
   revision 10
 
   bottle do
+    sha256 "817835b2dc5f277e666a86930b614a5deed5cc28f9feadcd09d4279a8e0350e2" => :big_sur
+    sha256 "18f799bbe2b991360868a9464a74d4a724d4c80e7e2f467a3c4209e5958ce818" => :arm64_big_sur
     sha256 "bac6d5c1c94756f04bd9dd74093e0a4880bd558248771c2d33e7ad1818d8ded2" => :catalina
     sha256 "5ea5b07b5b3079318b9cf751664a2e822acff72c22eab7f7aa4673280ff9b241" => :mojave
     sha256 "de3645e35d6e0ba3ed7cf3890bc94f5009d426e39d682e767a3d861056aa6d18" => :high_sierra
   end
+
+  disable! date: "2021-01-06", because: :does_not_build
 
   depends_on "cmake" => :build
   depends_on "aces_container"

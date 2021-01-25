@@ -1,16 +1,17 @@
 class Pspg < Formula
   desc "Unix pager optimized for psql"
   homepage "https://github.com/okbob/pspg"
-  url "https://github.com/okbob/pspg/archive/3.1.4.tar.gz"
-  sha256 "a3a8e906aef3d8d9b92d290bb819a1232f6850c9933591cc8d35cca7fcdae2ec"
+  url "https://github.com/okbob/pspg/archive/4.0.1.tar.gz"
+  sha256 "b1133abcb34740612c6b533eb4c31ca90ae6c5c2f9abda53b1b1554b935cbe49"
   license "BSD-2-Clause"
   head "https://github.com/okbob/pspg.git"
 
   bottle do
     cellar :any
-    sha256 "f34e38bfca35c87d0123abf9c8e5918e798b138e599ff04f0460b9f268856673" => :catalina
-    sha256 "1cccf7bdc7938ec157d88c2dd0d5b692905cd6b89aae11c06419ddc086f6ac89" => :mojave
-    sha256 "a12012984efe2e0783cf08986837b09c393bcabd4eb800fe1286e4e4ad458210" => :high_sierra
+    sha256 "dad1cc71a6b4df146f669a8b6c2b8bd0c82edf6b9418fe9693e7a299e35befa5" => :big_sur
+    sha256 "df9e4e1d041674e9ca336de18370cb8ae2a8bfa668033f2625a1a4688cdd6ae0" => :arm64_big_sur
+    sha256 "030e7d79f91484e0d42906f3c91a4ec7b989dfd1b3a29d868ab016aa1d7652ba" => :catalina
+    sha256 "3eb4d388a5fe78d7d7c5c2f7040fc9e12bb1d0ec98cd2965e85b275d360f934e" => :mojave
   end
 
   depends_on "libpq"
@@ -33,6 +34,6 @@ class Pspg < Formula
   end
 
   test do
-    assert_match "pspg-#{version.to_f}", shell_output("#{bin}/pspg --version", 1)
+    assert_match "pspg-#{version}", shell_output("#{bin}/pspg --version")
   end
 end

@@ -12,6 +12,7 @@ class Daq < Formula
 
   bottle do
     cellar :any
+    sha256 "97b4ba11a541dc9720410792b363be14a190e5fbdb4f7ed473aef94f99dc0751" => :big_sur
     sha256 "3b1f25eab6e2c04f4b5e609a1d3e72c3eb55eb12d4a7acb61f43ae815bd10347" => :catalina
     sha256 "8d57a1f8536259612d6ce312b54a96e8d0fd5527000593d11765baf095d1fd2d" => :mojave
     sha256 "861fbfd197f0cef898687b427cfa259d6dbf15b2eace0036477910177b8c4c16" => :high_sierra

@@ -3,17 +3,54 @@ on:
   pull_request:
     paths:
       - "Formula/alsa-lib.rb"
+      - "Formula/attr.rb"
       - "Formula/device-mapper.rb"
       - "Formula/libaio.rb"
       - "Formula/ladspa-sdk.rb"
+      - "Formula/libbsd.rb"
+      - "Formula/libcap.rb"
+      - "Formula/libcap-ng.rb"
       - "Formula/libdrm.rb"
+      - "Formula/libfuse.rb"
       - "Formula/libmnl.rb"
       - "Formula/libnetfilter-queue.rb"
       - "Formula/libnfnetlink.rb"
+      - "Formula/libnsl.rb"
       - "Formula/libpciaccess.rb"
       - "Formula/libseccomp.rb"
+      - "Formula/libtirpc.rb"
+      - "Formula/libva.rb"
+      - "Formula/linux-headers.rb"
+      - "Formula/strace.rb"
+      - "Formula/valgrind.rb"
+      - "Formula/wayland.rb"
+      - "Formula/wayland-protocols.rb"
 jobs:
+  check_labels_linux:
+    runs-on: ubuntu-latest
+    outputs:
+      run-tests: ${{ steps.check-labels.outputs.result }}
+    steps:
+      - name: Check for CI-syntax-only label
+        id: check-labels
+        uses: actions/github-script@v3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { data: { labels: labels } } = await github.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number
+            })
+            if (!labels.map(label => label.name).includes('CI-syntax-only')) {
+              console.log('No CI-syntax-only label found. Running tests.')
+              return true
+            }
+            console.log('CI-syntax-only label found. Skipping tests.')
+
   tests_linux:
+    needs: check_labels_linux
+    if: needs.check_labels_linux.outputs.run-tests
     runs-on: ubuntu-latest
     container:
       image: homebrew/ubuntu16.04:master
@@ -26,8 +63,4 @@ jobs:
 
       - run: brew test-bot --only-cleanup-before
 
-      - name: Run brew test-bot --only-formulae
-        run: |
-          mkdir ~/bottles
-          cd ~/bottles
-          brew test-bot --only-formulae
+      - run: brew test-bot --only-formulae --build-from-source

@@ -2,6 +2,7 @@ class Cpl < Formula
   desc "ISO-C libraries for developing astronomical data-reduction tasks"
   homepage "https://www.eso.org/sci/software/cpl/index.html"
   url "ftp://ftp.eso.org/pub/dfs/pipelines/libraries/cpl/cpl-7.1.2.tar.gz"
+  mirror "https://src.fedoraproject.org/repo/pkgs/cpl/cpl-7.1.2.tar.gz/sha512/0835917153fdcf4e7908f9261e143dc54fe7b50dc7903c2041a23a1984554b94a99584def70a792d9fe44a42830bc2baee397635ce922848d514a580be59348a/cpl-7.1.2.tar.gz"
   sha256 "b6d20752420e2333e86d9a08c24a08057351a9fef97c32f5894e63fbfece463a"
   revision 6
 

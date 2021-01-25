@@ -13,6 +13,8 @@ class Disktype < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "06ea5af49f19f974e3d7f91f9a8e9e178f90b5e8390c59c324179773e17e21ac" => :big_sur
+    sha256 "4587dd61a91f93d065f3f169b690f8f194d1177c5b3cb7a78c0edec9bc0a23a9" => :arm64_big_sur
     sha256 "6821d802c4418c949b8e3394893f03cf6152020881096b304ab0c87313fff2e3" => :catalina
     sha256 "7b401cb017bbe0f119b590839941ca7a8d77136483f651504382ed595f4280ec" => :mojave
     sha256 "b6212feab524e86a8fc1f3c366092af206dee279900ea2753d331b295dd22c14" => :high_sierra

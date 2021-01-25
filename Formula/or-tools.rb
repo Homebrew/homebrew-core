@@ -1,16 +1,21 @@
 class OrTools < Formula
   desc "Google's Operations Research tools"
   homepage "https://developers.google.com/optimization/"
-  url "https://github.com/google/or-tools/archive/v8.0.tar.gz"
-  sha256 "ac01d7ebde157daaeb0e21ce54923a48e4f1d21faebd0b08a54979f150f909ee"
+  url "https://github.com/google/or-tools/archive/v8.1.tar.gz"
+  sha256 "beb9fe379977033151045d0815d26c628ad99d74d68b9f3b707578492723731e"
   license "Apache-2.0"
   head "https://github.com/google/or-tools.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     cellar :any
-    sha256 "7a119a20186b34d80b7a36e3cd18f2e7bc6561cd70e52ea05231422a38fdcd1f" => :catalina
-    sha256 "61e99ba40756cdc5d4fd5cbff6efc8ed3bf82ea187396895f0e310946105591a" => :mojave
-    sha256 "f5b9f71179930075b58dcc26f0ebe69a4ae34e7f528347f685116690cc23089d" => :high_sierra
+    sha256 "225e9d0e06a0d60d66d474d5b567d35b918726763f0a5220bd31715118ec8a0b" => :big_sur
+    sha256 "26aaa8b0bbea0325a86e44f76b2e1ebcb0be6f44e6448658b81d663821101b38" => :catalina
+    sha256 "98261b04fd5559a35aa399d01a6f1f806212b0c06445c46ba0ea5f677b5257aa" => :mojave
   end
 
   depends_on "cmake" => :build

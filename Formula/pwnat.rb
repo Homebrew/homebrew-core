@@ -8,6 +8,8 @@ class Pwnat < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "84fa7c77483a6aaeaa15e2b6514478bc0c1a292c001cf1e7a1fa82490a7dfd0c" => :big_sur
+    sha256 "25630303a2d2434a840a95274ff3063d8cdc702d00d31907d12cc8f1befb7180" => :arm64_big_sur
     sha256 "51a038c40431d552b19beb59e14de49984923d216b5d411646a32a2caed1eff8" => :catalina
     sha256 "483e476edd037e89dc1c24fbf115132a815a9a4d6fcb987ceea6a4c07a5944da" => :mojave
     sha256 "3a4bf09acd5eda4e54fbe21d0028948613fa398a3a1272722957079a9f18c836" => :high_sierra

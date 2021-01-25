@@ -5,8 +5,15 @@ class Duktape < Formula
   sha256 "96f4a05a6c84590e53b18c59bb776aaba80a205afbbd92b82be609ba7fe75fa7"
   license "MIT"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     cellar :any
+    sha256 "a433cc772fa217fdfc55adf56a0080eb6da1b8ff9434336318d20b924f36f0a3" => :big_sur
+    sha256 "c0557537b880f90bc30637561d9e749c0405c215afb951733da3368db82deb4e" => :arm64_big_sur
     sha256 "3abfb4891e9d485ed2e20ba42074a82a254f714ca646b1285cb08ce3cc56d23f" => :catalina
     sha256 "6eb347fe58ee46c3b915e81daae45fb3ebcb5f6a822482b5d4aa2f84df39481b" => :mojave
     sha256 "d2a496ae5d023333d5b904f8b92869e6bfa855b101c5313ed39f1f180eaf8833" => :high_sierra

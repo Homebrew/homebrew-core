@@ -1,22 +1,34 @@
 class ArchiSteamFarm < Formula
-  desc "ASF is a C# application that allows you to farm steam cards"
-  homepage "https://github.com/JustArchi/ArchiSteamFarm"
-  url "https://github.com/JustArchi/ArchiSteamFarm/releases/download/2.3.2.0/ASF.zip"
-  sha256 "1a9f50c3cf2eb00e5148bc21a209b0c7c275b6c36c8cae8b4d9b2469bee7ff33"
+  desc "Application for idling Steam cards from multiple accounts simultaneously"
+  homepage "https://github.com/JustArchiNET/ArchiSteamFarm"
+  url "https://github.com/JustArchiNET/ArchiSteamFarm.git",
+    tag:      "5.0.2.4",
+    revision: "08f35dd6e36a4d847a555405fd7a0242cd56fe4c"
   license "Apache-2.0"
+  head "https://github.com/JustArchiNET/ArchiSteamFarm.git"
 
-  bottle :unneeded
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "96264a2bcb5494cbb9cacfb2a7ee46e70f75a594699938bb6a762fd7be92dd74" => :big_sur
+    sha256 "774eb7f137b45fce2daf728d5a0dab6de159a9bf99c1e3dc48735045ff481f0c" => :catalina
+    sha256 "9126e87d0afe22979e67471b5b786309979160e0759a907a0801ec7b5f3f9b01" => :mojave
+  end
 
-  depends_on "mono"
+  depends_on "dotnet"
 
   def install
-    libexec.install "ASF.exe"
+    system "dotnet", "build", "ArchiSteamFarm",
+           "--configuration", "Release",
+           "--framework", "net#{Formula["dotnet"].version.major_minor}",
+           "--output", libexec
+
     (bin/"asf").write <<~EOS
-      #!/bin/bash
-      mono #{libexec}/ASF.exe "$@"
+      #!/bin/sh
+      exec "#{Formula["dotnet"].opt_bin}/dotnet" "#{libexec}/ArchiSteamFarm.dll" "$@"
     EOS
 
-    etc.install "config" => "asf"
+    etc.install libexec/"config" => "asf"
+    rm_rf libexec/"config"
     libexec.install_symlink etc/"asf" => "config"
   end
 
@@ -27,6 +39,9 @@ class ArchiSteamFarm < Formula
   end
 
   test do
-    assert_match "ASF V#{version}", shell_output("#{bin}/asf --client")
+    _, stdout, wait_thr = Open3.popen2("#{bin}/asf")
+    assert_match version.to_s, stdout.gets("\n")
+  ensure
+    Process.kill("TERM", wait_thr.pid)
   end
 end

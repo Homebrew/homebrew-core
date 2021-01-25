@@ -1,17 +1,18 @@
 class SimpleTiles < Formula
   desc "Image generation library for spatial data"
-  homepage "https://propublica.github.io/simple-tiles/"
+  homepage "https://github.com/propublica/simple-tiles"
   url "https://github.com/propublica/simple-tiles/archive/v0.6.1.tar.gz"
   sha256 "2391b2f727855de28adfea9fc95d8c7cbaca63c5b86c7286990d8cbbcd640d6f"
   license "MIT"
-  revision 8
+  revision 10
   head "https://github.com/propublica/simple-tiles.git"
 
   bottle do
     cellar :any
-    sha256 "4189c71a64c384fe516f1db1f20f9cd275e435f7b88995c21ce412ba272620f5" => :catalina
-    sha256 "80cf79f642357f6c408d0081020eca4638e13def659b2eb5f8a84cb3bf4e6392" => :mojave
-    sha256 "f737a155c3021b2c33655ce3f70f8d11d178197e8ce2d5669e73fede374c0d1b" => :high_sierra
+    sha256 "873d8f241263b0d5cc5e3d5b6cba535bdb953c8311703aae2e95406301ec5d10" => :big_sur
+    sha256 "14669b22f33782b72b0b2c8a0b37cbcbfe741d3923939eafe3546430d97e7683" => :arm64_big_sur
+    sha256 "8543798355cbb329814f4214639ff750690f496d75c3986c1756de28c2a6aace" => :catalina
+    sha256 "b2954855d7afd914fbac0bd06ed55b457c3d807285c24eb98f9641d88f7fa5ab" => :mojave
   end
 
   depends_on "pkg-config" => :build

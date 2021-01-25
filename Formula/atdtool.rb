@@ -8,16 +8,16 @@ class Atdtool < Formula
   license "BSD-3-Clause"
   revision 4
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     cellar :any_skip_relocation
-    sha256 "f9e3111dd7fc68392f8916623df911076d0c6ed2bcbb294eda942c136fd962c3" => :catalina
-    sha256 "d35df10b09cdcd186178a1101d181c662f37903179438f31d0ec142cc830da93" => :mojave
-    sha256 "5a11e4ab56f3b02990418612c81f0538b8ea6161d15e5bac2932208ee5293055" => :high_sierra
+    rebuild 1
+    sha256 "ed0bcc8c78addd4e072c55d8476e8ed4d5d5b4942df5c48b359c483a6dc2949f" => :big_sur
+    sha256 "e63fb91618eec0e6af69227020acdd1e9b12fedd834fa68dabc34168ec5f4dfe" => :arm64_big_sur
+    sha256 "df0ff285c54b4368cb9e6731a025551c7e73f76a61f38b1e03cf86d8768735fb" => :catalina
+    sha256 "267d97304c449f94707c4fac451331d1c9e38e07b774cc4fd78043a0bc94c197" => :mojave
   end
+
+  deprecate! date: "2020-11-18", because: :repo_archived
 
   depends_on "python@3.9"
 

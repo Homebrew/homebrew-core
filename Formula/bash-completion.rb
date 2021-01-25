@@ -13,6 +13,8 @@ class BashCompletion < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8fe573529e08174b26d4379d92a42a7c38138c712e4e998541e8892fc6a376e7" => :big_sur
+    sha256 "44be13e781914250b3c277ce3672b7a3c45974f80ae8a2b0c55ccf884faf5d6b" => :arm64_big_sur
     sha256 "bd0c84cc6df9d3ff06ac081d85fdcc052b9e63136f4e2aa5fd2f2a0b7f654c84" => :catalina
     sha256 "9219c2b46362677e9ae6e19b344b774c3e9f163ae6bf6cf2686da06419aaec89" => :mojave
     sha256 "b069be5574bdf6d12fd1fda17c3162467b68165541166d95d1a9474653a63abc" => :high_sierra

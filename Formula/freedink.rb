@@ -11,6 +11,8 @@ class Freedink < Formula
 
   bottle do
     rebuild 1
+    sha256 "fd45feffffd96dc600cda4e725619b326ec6a84e96c5844c156aca90fb2390b1" => :big_sur
+    sha256 "3d3c10351e92122890d83f912bafe794fa40a673783fa5d99b1bdfcdcd53f0cb" => :arm64_big_sur
     sha256 "b971d9badc94cb0075963c341ed11c1872e3157b279def6d91fd088743b5e5e4" => :catalina
     sha256 "d44bcab516f79beec47a1ebdc8ec68b66071a34e17abb8556407a3656946d454" => :mojave
     sha256 "d022642338ba2979982088f1b65d6230ab71478fdaadfe4966372aa15b909182" => :high_sierra

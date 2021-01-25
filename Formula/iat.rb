@@ -11,6 +11,8 @@ class Iat < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "a1a5029ab927dc08cf6cf89a583c52e475dd50521d461f5ed3d05056a7605dc1" => :big_sur
+    sha256 "d62b3a234d80f15acfed8e030897b09f88678213024c5b5f47ae667507984d24" => :arm64_big_sur
     sha256 "6400e0c863f951cf324e9630ad9de91cc099e5d3f9cfd34f3cfa4344eb747cf3" => :catalina
     sha256 "e10169c9c7101efb0cfa7670cadbed74dde199b1a8d034f73e906f897be1bbc2" => :mojave
     sha256 "799764ef75d9efdf93f92a2fbc2beaedecd6037eae45eaaf7ce888c2ef2b3eb3" => :high_sierra

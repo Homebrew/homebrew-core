@@ -4,7 +4,7 @@ class Fizmo < Formula
   url "https://fizmo.spellbreaker.org/source/fizmo-0.8.5.tar.gz"
   sha256 "1c259a29b21c9f401c12fc24d555aca4f4ff171873be56fb44c0c9402c61beaa"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://fizmo.spellbreaker.org/download/"
@@ -12,10 +12,11 @@ class Fizmo < Formula
   end
 
   bottle do
-    sha256 "a4eb5a9297a54cc301764b7fbbd059080a140916088e60cd4992bc1966fd2a6b" => :mojave
-    sha256 "5bc934e9ac29637cc4a533ffbac0d3e1807d6f70797920eeb80e2e0a9c0cae20" => :high_sierra
-    sha256 "86d6479347bf687c17da9b0b8eef22d0e332701c3ef7cfee50c7487273aa3445" => :sierra
-    sha256 "2b50bdff9322ebc50f10fba89a098f9fc05157243e0f0c1dcecf5686a6988fa2" => :el_capitan
+    sha256 "620198d285ed205b8feb79aae7f04be8450bbf32b627536cec8aa48caf91eaf7" => :big_sur
+    sha256 "905aa012a245080a6c58ec78c646916b988642cefd0fdb544135e61b66a50e9a" => :arm64_big_sur
+    sha256 "9f84f5f3d0f97f9637ad66d6d7906c53bd794518eab45c22f4eb51c153e31ac8" => :catalina
+    sha256 "e37b186ac0ed5c8cdf5f08a7f7bedd7e997454700b6b9a92e14c41f3afc4c9fd" => :mojave
+    sha256 "16992ff53e0327dfc9bce300d6a1c3a2e6e0874faf9ef3fb7638c3267ae09788" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -23,8 +24,8 @@ class Fizmo < Formula
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libsndfile"
+  depends_on "libx11"
   depends_on "sdl2"
-  depends_on :x11
 
   def install
     system "./configure", "--prefix=#{prefix}",

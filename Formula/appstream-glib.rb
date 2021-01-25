@@ -7,6 +7,8 @@ class AppstreamGlib < Formula
 
   bottle do
     cellar :any
+    sha256 "53c376cc800e6c8bf110d23f40f7012de3b426b29772a090306c03ab3545b6a1" => :big_sur
+    sha256 "9e362ed34b12416f44409293c6048caf732fadcfdafb9e2e03b66212505a145d" => :arm64_big_sur
     sha256 "387813e442c2da30f6b778c691b4306d5ab8b80ec388454e4883f2858b270ddf" => :catalina
     sha256 "b723129505d1a990f406e1ea49cb24c76b3d1ae5135625d2be213279858a730a" => :mojave
     sha256 "79165dd4badda969b194ab9333181bc81cca64bc161dc74e95bd643401764e5a" => :high_sierra

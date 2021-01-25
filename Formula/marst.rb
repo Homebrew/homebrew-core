@@ -5,10 +5,6 @@ class Marst < Formula
   sha256 "3ee7b9d1cbe3cd9fb5f622717da7bb5506f1a6da3b30f812e2384b87bce4da50"
   license "GPL-3.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     cellar :any
     rebuild 1
@@ -20,6 +16,8 @@ class Marst < Formula
     sha256 "6d8834fc64e1da37fce2ed9cae3c9f0e0dbfcb41f213c55c8413c2a522ed8811" => :yosemite
     sha256 "7fddf8023d17c4bfcb6fc4141c6202b3e856ee2ecd684236daef058592b79335" => :mavericks
   end
+
+  disable! date: "2020-12-08", because: :unmaintained
 
   def install
     system "./configure", "--disable-dependency-tracking",

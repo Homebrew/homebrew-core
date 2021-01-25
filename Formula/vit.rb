@@ -3,20 +3,26 @@ class Vit < Formula
 
   desc "Full-screen terminal interface for Taskwarrior"
   homepage "https://taskwarrior.org/news/news.20140406.html"
-  url "https://github.com/scottkosty/vit/archive/v2.0.0.tar.gz"
-  sha256 "0c8739c16b5922880e762bd38f887240923d16181b2f85bb88c4f9f6faf38d6d"
+  url "https://files.pythonhosted.org/packages/ea/7e/b54db7887238ed3830200072d0414dfbabc64890a0f18ebcbef5b03359da/vit-2.0.0.tar.gz"
+  sha256 "5282d8076d9814d9248071aec8784cffbd968601542533ccb28ca61d1d08205e"
   license "MIT"
-  revision 1
-  head "https://github.com/scottkosty/vit.git", branch: "2.x"
+  revision 2
+  head "https://github.com/vit-project/vit.git", branch: "2.x"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6d70b6f12fc488da934b045dd9acbd3e11c275e815330da15962834d7cf897f9" => :catalina
-    sha256 "c41b171a5b91015b5b291125081f135ef2c2fc3a7025e78dfaa42fed706d8ba2" => :mojave
-    sha256 "3498a07d7d7ebc8011585ca12a60657e97f28712f77b2d35ccd54bf6acc79a5c" => :high_sierra
+    rebuild 2
+    sha256 "facc1cfc1cad4655cc045ed25f2f134a2526eb4505a25f4ced073facbed9ebbb" => :big_sur
+    sha256 "a36d7446ff702acf2b57db04ccbe3f10d32086207d96ad34dc6e013f2a7fdfcf" => :arm64_big_sur
+    sha256 "be5b88c99d467dcacba5ec84bd12dce9d5196bd5479469d3aaa32744cf531787" => :catalina
+    sha256 "e1187a8c5a4b75d55bcda3758f1a70375f7cb8fd995239383de172dc408cf23e" => :mojave
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "task"
 
   resource "pytz" do

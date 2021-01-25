@@ -6,18 +6,30 @@ class Appledoc < Formula
   license "Apache-2.0"
   head "https://github.com/tomaz/appledoc.git"
 
-  bottle do
-    rebuild 1
-    sha256 "35ced2445cb6f9744a2b8ef09d1f5d504aefe4995a8463639bf4fa8b5271e5f8" => :catalina
-    sha256 "dd27c7222d181acb351bf33921ef203fcafc4df3e06618ad99b16cf069dd646c" => :mojave
-    sha256 "ccae984913f4bcd3c0ff8f9d527a3330445c432af0bf98da315edbea83ccd0a5" => :high_sierra
+  livecheck do
+    url :stable
+    strategy :github_latest
   end
 
+  bottle do
+    rebuild 3
+    sha256 "a44c317d4c80798c24e3c9b72b622dd037e3c73f47c21e8fce200958322e14f6" => :big_sur
+    sha256 "d4808573e4dd15de060e90374e77e43b1df1926cad45bec5331381d7dff1d1f3" => :catalina
+    sha256 "a2530c73cfaa02a2a40be2b823d8c2115ce5fe8d0a59c765829aad55bf3e7c33" => :mojave
+  end
+
+  # Includes prebuild Library/*.a files (Intel-only)
+  # so it does not build fully from source
+  disable! date: "2020-12-31", because: :does_not_build
+
   depends_on xcode: :build
+  depends_on arch: :x86_64
+  depends_on :macos
 
   def install
     xcodebuild "-project", "appledoc.xcodeproj",
                "-target", "appledoc",
+               "-arch", "x86_64",
                "-configuration", "Release",
                "clean", "install",
                "SYMROOT=build",
@@ -52,9 +64,11 @@ class Appledoc < Formula
     system bin/"appledoc", "--project-name", "Test",
                            "--project-company", "Homebrew",
                            "--create-html",
-                           "--no-install-docset",
+                           # docset tools were removed in Xcode 9.3:
+                           #   https://github.com/tomaz/appledoc/issues/628
+                           # ...so --no-create-docset is essentially required
+                           "--no-create-docset",
                            "--keep-intermediate-files",
-                           "--docset-install-path", testpath,
                            "--output", testpath,
                            testpath/"test.h"
   end

@@ -1,29 +1,38 @@
 class Libxkbcommon < Formula
   desc "Keyboard handling library"
   homepage "https://xkbcommon.org/"
-  url "https://xkbcommon.org/download/libxkbcommon-1.0.1.tar.xz"
-  sha256 "ab68b25341c99f2218d7cf3dad459c1827f411219901ade05bbccbdb856b6c8d"
+  url "https://xkbcommon.org/download/libxkbcommon-1.0.3.tar.xz"
+  sha256 "a2202f851e072b84e64a395212cbd976ee18a8ee602008b0bad02a13247dbc52"
   license "MIT"
+  revision 1
   head "https://github.com/xkbcommon/libxkbcommon.git"
 
   bottle do
-    rebuild 1
-    sha256 "d13e68cce3b98b2aa427a33b7f19277efdb5b09061bbf09457dfb8f58baeb531" => :catalina
-    sha256 "faa2d9bc12a5a7e1f56e1284abc06fcc795828f037ea9a0089f821f76e81d5fc" => :mojave
-    sha256 "08c07cb44b08aa8e0f1703632dd5e87795e79ec25389f6c841cd4a84236f5963" => :high_sierra
+    sha256 "64680f75763d17483d95ab7e60beb5190a04aa9c7586a938b35b4a15bbee479d" => :big_sur
+    sha256 "0641f9d91a998367985625f2ab546db32dbb66f4e1a08ce04a317a1d8398182f" => :arm64_big_sur
+    sha256 "e2c1dfba1e87800617b98cb440e15ca8d20fdec63c3591719ea8f74f8723727f" => :catalina
+    sha256 "c341c13c34ded7f977c5c93e723abb647845f86f18e1880252a958854c375b4e" => :mojave
   end
 
   depends_on "bison" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on :x11
+  depends_on "libx11"
+  depends_on "libxcb"
+  depends_on "xkeyboardconfig"
 
   uses_from_macos "libxml2"
 
   def install
+    args = %W[
+      -Denable-wayland=false
+      -Denable-docs=false
+      -Dxkb-config-root=#{HOMEBREW_PREFIX}/share/X11/xkb
+      -Dx-locale-root=#{HOMEBREW_PREFIX}/share/X11/locale
+    ]
     mkdir "build" do
-      system "meson", *std_meson_args, "-Denable-wayland=false", "-Denable-docs=false", ".."
+      system "meson", *std_meson_args, *args, ".."
       system "ninja", "install", "-v"
     end
   end

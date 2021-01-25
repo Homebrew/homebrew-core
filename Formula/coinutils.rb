@@ -15,6 +15,8 @@ class Coinutils < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "0fa99baebe3b99ff42b2d344806077f16afa0f8d9db076892030a0551fdac231" => :big_sur
+    sha256 "77667560f272c61296ff337793c19cd68a0803a2ba595afc617aa4ccd18819b7" => :arm64_big_sur
     sha256 "ec360d8c70a2f54dc6ab4cbabedf3e7f801bc1ae85e630ef9884d0a79ad706f0" => :catalina
     sha256 "eb85ec2e02aed09292625122dc05fbcf64b85d7f82cc6d001975eed43cfc1de1" => :mojave
     sha256 "f7bfde6c8c42b6f7d3925de0577d10bcef5b171b3337ea4c70b08a8ec20c026a" => :high_sierra

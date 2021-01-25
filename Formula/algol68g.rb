@@ -15,6 +15,8 @@ class Algol68g < Formula
   end
 
   bottle do
+    sha256 "7b7bb03b6cbe89d253b5e88294ecc4edf61a0687c4534f26ffb7422efe22e52d" => :big_sur
+    sha256 "5e90719ca013bddd6066b0e1e87d6162094ee73ef300233f1f75d9833bf4dc42" => :arm64_big_sur
     sha256 "046ba5e9ec0d0856557085fdf1acde227cd829d9955da28046e98c9a5ee84c09" => :catalina
     sha256 "7e1acd53615ebc407aaae64eb23af6047dbbd42f967e422b3fcfa0c6d01307b6" => :mojave
     sha256 "18013401e3eed914022e0a34c6b9b1ed415ec679113de78970d74aa52b0a35e8" => :high_sierra

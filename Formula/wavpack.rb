@@ -1,15 +1,16 @@
 class Wavpack < Formula
   desc "Hybrid lossless audio compression"
-  homepage "http://www.wavpack.com/"
-  url "http://www.wavpack.com/wavpack-5.3.0.tar.bz2"
-  sha256 "b6f00b3a2185a1d2df6cf8d893ec60fd645d2eb90db7428a617fd27c9e8a6a01"
+  homepage "https://www.wavpack.com/"
+  url "https://www.wavpack.com/wavpack-5.4.0.tar.bz2"
+  sha256 "0716a6dcf9a72d61005e1b09bbbd61aaf49837cb4e4a351992a6daed16cac034"
   license "BSD-3-Clause"
 
   bottle do
     cellar :any
-    sha256 "299242c1b63c8c7fa4119fd2bf4308f8cb0b49ac04f4d5502f64555be2cf06e2" => :catalina
-    sha256 "6985e1becaf974e8686208a038ade4eb333b68f0166c26cecf3b69f4a84797f0" => :mojave
-    sha256 "e767c61eade23b1624dd4d78ee67817ee2175fd42600680aae731b58a4024d12" => :high_sierra
+    sha256 "711535e6329af607e974ee9e3e957fd82b056af39e95a78226bd9e8f9a0025dd" => :big_sur
+    sha256 "3e51f2f593fffc58cd550236d6a9711900841d388d6ac7833c09f272270d5156" => :arm64_big_sur
+    sha256 "29360357a18df2827e8acb41fdd874495b62f431deb230c96b8d5dcca5f6d316" => :catalina
+    sha256 "89815dc5f1b4af0d647d2b1d3ad484ddce39208958bb315793240aa7be0c4565" => :mojave
   end
 
   head do
@@ -21,6 +22,10 @@ class Wavpack < Formula
 
   def install
     args = %W[--prefix=#{prefix} --disable-dependency-tracking]
+
+    # ARM assembly not currently supported
+    # https://github.com/dbry/WavPack/issues/93
+    args << "--disable-asm" if Hardware::CPU.arm?
 
     if build.head?
       system "./autogen.sh", *args

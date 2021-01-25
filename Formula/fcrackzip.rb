@@ -12,6 +12,8 @@ class Fcrackzip < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "416fdb06f1ed0911126a51809e350450db5b09b723fb3aa16d0fddf9e05bd9aa" => :big_sur
+    sha256 "30a4350e75184bde4f486b5291061e59fff1e3063aa2a0c24751d98c764f2b18" => :arm64_big_sur
     sha256 "553e2ed7eb76dcf4a216bf214e0ceed63a72bda2e7fe9f5fb5f2ed86d8e7bfb8" => :catalina
     sha256 "9ac33112f0cb584aca3ac383ca3551cdda570e6f7337607c7f7db9d7f51b2e3a" => :mojave
     sha256 "a90e9d404b0ef939f6419559ed58143f556eb3e0b4fb0b8053bae35b82cc7a15" => :high_sierra

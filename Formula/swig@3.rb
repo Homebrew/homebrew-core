@@ -5,6 +5,8 @@ class SwigAT3 < Formula
   sha256 "7cf9f447ae7ed1c51722efc45e7f14418d15d7a1e143ac9f09a668999f4fc94d"
 
   bottle do
+    sha256 "d0d9561bf105072f30a93f3914d05d58422f13c578de51f760e3822405dd5c36" => :big_sur
+    sha256 "233ac5b77d2e887d5d63f965897d0375101ef2ab16fd87e631e67030f553be06" => :arm64_big_sur
     sha256 "f50becfc883397db62530bab927dcf4b5a4db5f0bcbb2839d5ac795fb924c586" => :catalina
     sha256 "28e5c0a5e8aac0c0d5f58e4dd69c590f57d3a450d92aa35b18aee037ab7d8b60" => :mojave
     sha256 "730bd728981cc1534664ef35d08d0b285e79756c286913d868af6afa43f60f4d" => :high_sierra

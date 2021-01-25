@@ -10,6 +10,8 @@ class ReconNg < Formula
 
   bottle do
     cellar :any
+    sha256 "94a4b2b9faaf91757a9fe7bba0714a00f05992d829b29caab8254304b69647e7" => :big_sur
+    sha256 "96b36eec2f0dcd83de144758e888da8c38536f7848c94fbdc202cfb1ce6657af" => :arm64_big_sur
     sha256 "b93174a7fe5c779df7257c582718ae2558817a59e6c1a7d11ba13bcdf33306ec" => :catalina
     sha256 "40afc4b0ef762c32d86281ed20cd7d33b9424d0370e677a03277f303dc9b72b8" => :mojave
     sha256 "5ab42403952a0af2ac5e78e5dd779cd8ff380d678852e620215206bc63d3144e" => :high_sierra

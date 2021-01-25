@@ -1,8 +1,10 @@
 class Libarchive < Formula
   desc "Multi-format archive and compression library"
   homepage "https://www.libarchive.org"
-  url "https://www.libarchive.org/downloads/libarchive-3.4.3.tar.xz"
-  sha256 "0bfc3fd40491768a88af8d9b86bf04a9e95b6d41a94f9292dbc0ec342288c05f"
+  url "https://www.libarchive.org/downloads/libarchive-3.5.1.tar.xz"
+  sha256 "0e17d3a8d0b206018693b27f08029b598f6ef03600c2b5d10c94ce58692e299b"
+  license "BSD-2-Clause"
+  revision 1
 
   livecheck do
     url "https://libarchive.org/downloads/"
@@ -11,9 +13,10 @@ class Libarchive < Formula
 
   bottle do
     cellar :any
-    sha256 "ec29541614dd1acd7189e69c6e6a689f959d25e1fb52acf06e52b9a4c38166c4" => :catalina
-    sha256 "5cdfab0da88b4a1141cd2f512ad2815f69191bf7d9adc49e0cb9c814af286688" => :mojave
-    sha256 "df697f70e6100533afeffb949ec2c22c7fcdf23821a2a76c460977cecfbb01b8" => :high_sierra
+    sha256 "1c23bc3fa56221b24bf500672f2f2934cf3d5846d7a3dabda169f424955344a9" => :big_sur
+    sha256 "a7fde93723f788e76cdfaf0efbfdea736d7046306d72c558b2fec1596be7d584" => :arm64_big_sur
+    sha256 "7af1a019eb165fd3ca3ba1e6b09f2d1b44dc99d14a5d5b148462a8cd6b1d73b6" => :catalina
+    sha256 "b0bd53d1118459d5acdc4a22c77ba5d273cb8249b5cdbbaf2800d633debfa415" => :mojave
   end
 
   keg_only :provided_by_macos

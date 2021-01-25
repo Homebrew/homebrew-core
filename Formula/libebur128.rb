@@ -7,6 +7,8 @@ class Libebur128 < Formula
 
   bottle do
     cellar :any
+    sha256 "b8cf97cd17ccdc2daa202d568c409c4ce973bd55b68e38b31e2838ff5066c6b7" => :big_sur
+    sha256 "a7bf5352cb8a4609f3cc551bd5665c7153ceb9e01694c9b296733bf2451ec077" => :arm64_big_sur
     sha256 "f9bb6bf89d6a32835102ab859e88ab118812ea7920ab1e4416f7ff7f9b2692a6" => :catalina
     sha256 "c51ca6f8e17f7558f35f4c156e7baba1e2658d475dc09eea1b2695e1b1771d42" => :mojave
     sha256 "68c4f6d13808ad4d55d0a0f48384e9872286b6041a06f8c3984ccb96083fcbee" => :high_sierra

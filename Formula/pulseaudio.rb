@@ -1,9 +1,9 @@
 class Pulseaudio < Formula
   desc "Sound system for POSIX OSes"
   homepage "https://wiki.freedesktop.org/www/Software/PulseAudio/"
-  url "https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-13.0.tar.xz"
-  sha256 "961b23ca1acfd28f2bc87414c27bb40e12436efcf2158d29721b1e89f3f28057"
-  revision 1
+  url "https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-14.2.tar.xz"
+  sha256 "75d3f7742c1ae449049a4c88900e454b8b350ecaa8c544f3488a2562a9ff66f1"
+  license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later", "BSD-3-Clause"]
 
   # The regex here avoids x.99 releases, as they're pre-release versions.
   livecheck do
@@ -12,13 +12,14 @@ class Pulseaudio < Formula
   end
 
   bottle do
-    sha256 "0e9445dd8d49abd299324e93f00231605e993f791674997d9d2c35b88efec528" => :catalina
-    sha256 "ae68dfdb8ad584bf3f602ea7fb36d9bc1e4540e6905986a7129e45c6170d8d95" => :mojave
-    sha256 "687c4c646487eb8a9988303e279dc2ee542b6404504cb54fcfce1d6d6bcf949f" => :high_sierra
+    sha256 "79684acaac85e9b1b7de55fc7659844d9508c6264faa0aac311e0d8eaf4056b0" => :big_sur
+    sha256 "efcbf144da932e05394e9768bf27dfa1908dbb17f4b7c52f49e56c791dd51860" => :arm64_big_sur
+    sha256 "e1c181ae27f945ceee403e2e2ec80f44aebd52ac44b8e63140c1c9d2083a643b" => :catalina
+    sha256 "ae0d2ec72fc10a895c7efc330174abef08458576ed847fb4547301a2d8cc147e" => :mojave
   end
 
   head do
-    url "https://anongit.freedesktop.org/git/pulseaudio/pulseaudio.git"
+    url "https://gitlab.freedesktop.org/pulseaudio/pulseaudio.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

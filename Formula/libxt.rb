@@ -1,15 +1,16 @@
 class Libxt < Formula
   desc "X.Org: X Toolkit Intrinsics library"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libXt-1.2.0.tar.bz2"
-  sha256 "b31df531dabed9f4611fc8980bc51d7782967e2aff44c4105251a1acb5a77831"
+  url "https://www.x.org/archive/individual/lib/libXt-1.2.1.tar.bz2"
+  sha256 "679cc08f1646dbd27f5e48ffe8dd49406102937109130caab02ca32c083a3d60"
   license "MIT"
 
   bottle do
     cellar :any
-    sha256 "6b454a895e68fb652f1b54aaa4cdefa9282465d5bc4f6dbebd5fc499fea6a7d1" => :catalina
-    sha256 "c4522922f276b72a5ba605b80ca188ae8808d5f5d4cb0de8f4d0639669bd6232" => :mojave
-    sha256 "a68f79946b3061006f1b59c6b63f1dfc2f72565a15a05c6b91b1165946f952aa" => :high_sierra
+    sha256 "db76d4efdf96e00af7b4230245b81c26539b4ec20e93c1d379a3c92b39217885" => :big_sur
+    sha256 "0fd900ad5097946ee343ba7c15311a3b85540dcd058233e05f198c15405b9da0" => :arm64_big_sur
+    sha256 "a1bcc92d37e1602ef760fecb79f7729db7e38aee2835879689596d478480217b" => :catalina
+    sha256 "4bd6052344cc12c674d40f44c31083264f5ce097ec0d2f6111e726862a8a2b04" => :mojave
   end
 
   depends_on "pkg-config" => :build

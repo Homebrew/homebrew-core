@@ -8,6 +8,7 @@ class Zsdx < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "feec47a76110128d7dd9e3c2507cf581fa451a320f506f3c32a3c5b732b9afea" => :big_sur
     sha256 "9b245c7970507d8687420773853a820a0631eefad011cb602159007d11ee4fc7" => :catalina
     sha256 "dee683d31f1e6dd956c6e81351cf741e97ab0c1a4cdeb84fdc97b41e30bceeb8" => :mojave
     sha256 "fe2df4c5e3c1d21dfd67acb0b98156167e2a9f79d06fae5da7527eba074a8b8c" => :high_sierra

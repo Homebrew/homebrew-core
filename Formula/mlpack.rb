@@ -1,16 +1,15 @@
 class Mlpack < Formula
   desc "Scalable C++ machine learning library"
   homepage "https://www.mlpack.org"
-  url "https://mlpack.org/files/mlpack-3.3.2.tar.gz"
-  sha256 "11904a39a7e34ee66028292fd054afb460eacd07ec5e6c63789aba117e4d854c"
-  revision 1
+  url "https://mlpack.org/files/mlpack-3.4.2.tar.gz"
+  sha256 "9e5c4af5c276c86a0dcc553289f6fe7b1b340d61c1e59844b53da0debedbb171"
+  license all_of: ["BSD-3-Clause", "MPL-2.0", "BSL-1.0", "MIT"]
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "3b98834eb65f185a1b8d6c2d505995e51ee77443dad98da8c1f16b5ad5e665ee" => :catalina
-    sha256 "bee3717f1ce59530b51fed4f454fc0f56d459e15cf04cd262d9896ab98c3f0ac" => :mojave
-    sha256 "42fba9f2653c3deab2acec2de9276dd9787b09ce902ea5857d4bef9f10593ab1" => :high_sierra
+    sha256 "55819c54944eabc313874577f91e448decc0e28edb029f66417a900b7f9aba78" => :big_sur
+    sha256 "baa0ddc38114b9c207c3c6839d683fa4580b8227bad3c4b6cae06c0110b7fe68" => :catalina
+    sha256 "b00745a4f66ea745c28ad1c64829a278c4def5fc8458f277ca90f04e306838d4" => :mojave
   end
 
   depends_on "cmake" => :build

@@ -6,8 +6,8 @@ class Asuka < Formula
   license "MIT"
 
   livecheck do
-    url "https://git.sr.ht/~julienxx/asuka/refs"
-    regex(%r{href=.*?/archive/v?(\d+(?:\.\d+)+)\.t}i)
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do

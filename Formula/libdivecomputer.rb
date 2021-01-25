@@ -8,6 +8,8 @@ class Libdivecomputer < Formula
 
   bottle do
     cellar :any
+    sha256 "a75f2bfefc391e7064b57d3a372aac193d307ab8be911a32b0aca011f29629ab" => :big_sur
+    sha256 "d3e4b45b8b1118b83084477da48b00a56b36e3a1c945a3155dca5bc59d13b798" => :arm64_big_sur
     sha256 "77d221b1a1761aaab3beb86663f18f2610874a9b95158aef7b5620f12bc39310" => :catalina
     sha256 "d27cbe3800c83225dade44ea62ae7ddfa4018866ed1a6628b6f3bda6abf68df7" => :mojave
     sha256 "09dd65b72be93f3364b0b0da389fc4aa4d1fea2094ffe53275544e74ac6a7674" => :high_sierra

@@ -14,6 +14,8 @@ class Hy < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "15bce8a17bdf2b9331df03dee4bf33cc9f397bb76438e79f39bb543a580a6128" => :big_sur
+    sha256 "12e1268704a5e05621258cdd082cf1a8d2118bd55a7f0edd7ed629df4b32a931" => :arm64_big_sur
     sha256 "8d26542c3b7206359d5a67555e30ea778d96be433a2bfc3539b4b593f50cb2d4" => :catalina
     sha256 "1a466ad15fbd8e08b20da924b51464674842074a1ff50722df4150675c122789" => :mojave
     sha256 "3517d09c61dac52cabd9dadead19f34280c5560e491fb2dfe46f47a55927d556" => :high_sierra

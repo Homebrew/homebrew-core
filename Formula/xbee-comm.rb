@@ -11,6 +11,8 @@ class XbeeComm < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9d163cd9e888a337b0bc39bc3af871a0ed0b8efadb75933e4a4273fbccdfd90d" => :big_sur
+    sha256 "a4dda0f81a92b04ac242a71d3b233da85abdcc767b8c5ec956e3285565eef994" => :arm64_big_sur
     sha256 "4c4eb5e75f59ac2527ec72d41e5e11ae156243278b7c92186fdccec62435a783" => :catalina
     sha256 "c5358f469073875537f489d59525c3c9022cebbd3fb77f418b4abba96cd24bf4" => :mojave
     sha256 "935948849935f3f11e6cf8992b1c6ad79e92716583c6b5685bf55cc6c4bd2d7a" => :high_sierra

@@ -4,9 +4,17 @@ class Peg < Formula
   url "https://www.piumarta.com/software/peg/peg-0.1.18.tar.gz"
   mirror "https://deb.debian.org/debian/pool/main/p/peg/peg_0.1.18.orig.tar.gz"
   sha256 "20193bdd673fc7487a38937e297fff08aa73751b633a086ac28c3b34890f9084"
+  license "MIT"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?peg[._-]v?(\d+(?:\.\d+)+)(?:\.orig)?\.t/i)
+  end
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "7f1a4a1e00c14050d3246b66cf554797b184e5c6be2eb53ebb2edfe6845412e5" => :big_sur
+    sha256 "1b9a4c3a056a8c36357592bec0a6b3f72d8741f6b2dad69e68d3653799628012" => :arm64_big_sur
     sha256 "bb6bfe4999b4675d3e3d16a52552fe571430fa5956fdff245837f922d7e39842" => :catalina
     sha256 "335fda7dd0c4cbd0a2c929daf19693729b3e1592f1880f5a1cb2ebd5ae587c3c" => :mojave
     sha256 "622cd7695294bcac63049e45e934ea1936dfc0f9373046dd028f63a3fe6fa2a4" => :high_sierra

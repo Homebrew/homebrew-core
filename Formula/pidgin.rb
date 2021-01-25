@@ -3,7 +3,8 @@ class Pidgin < Formula
   homepage "https://pidgin.im/"
   url "https://downloads.sourceforge.net/project/pidgin/Pidgin/2.14.1/pidgin-2.14.1.tar.bz2"
   sha256 "f132e18d551117d9e46acce29ba4f40892a86746c366999166a3862b51060780"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,9 +12,10 @@ class Pidgin < Formula
   end
 
   bottle do
-    sha256 "4634da7bc606d00dcdc9e3ea42f00d33a9764d6d231b6a7baef0c7a3ef451e74" => :catalina
-    sha256 "a549ae59ccff2482dd02c9eea51db80fb831ab7e720f7f2ec7df37c60eb7f1d8" => :mojave
-    sha256 "99708561a57b3e47d603b8b46b9f3a7dd8fc7f6bb08746ce996130c10ef13784" => :high_sierra
+    sha256 "ffbc6daf100dda1b80d898692dd77dbde42fe5223e74316252bed2173197f2ed" => :big_sur
+    sha256 "d8ecf79354ce2ec2c060b58305743452f40e148a72ba5d72612b0f018ab00144" => :arm64_big_sur
+    sha256 "c5dc52dceddf5a7084b84b3c9515a0d08149f934420a08b12bc7f89ed4b7afe0" => :catalina
+    sha256 "14c679b8cca37387b9ca473d09b24fa89b61986bef017f94733a58a4fd97d069" => :mojave
   end
 
   depends_on "intltool" => :build
@@ -78,5 +80,10 @@ class Pidgin < Formula
 
   test do
     system "#{bin}/finch", "--version"
+    system "#{bin}/pidgin", "--version"
+
+    pid = fork { exec "#{bin}/pidgin", "--config=#{testpath}" }
+    sleep 5
+    Process.kill "SIGTERM", pid
   end
 end

@@ -7,6 +7,8 @@ class Ccfits < Formula
 
   bottle do
     cellar :any
+    sha256 "c15ddcdce98436a8c8dfb72a43586d23061b7199953aec9b1b5a0a2c544eb1d0" => :big_sur
+    sha256 "957e2589c467c78c2e134476b0fe123d470a3e402e37ddef27965d706c1fdbe7" => :arm64_big_sur
     sha256 "bcf673522fe7245b6ca8c93139793acf10c0fb3e351de96cfd634e296a5be813" => :catalina
     sha256 "22aa452875d79f09825a87f9f3e384552e7fd92e5d954cd361a1b92cd9e52513" => :mojave
     sha256 "b527e857acac1d749786f44a06af0cfa5f19f34c568c5f21c65675fa04b97f26" => :high_sierra

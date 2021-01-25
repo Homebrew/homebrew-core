@@ -11,6 +11,8 @@ class Libmikmod < Formula
 
   bottle do
     cellar :any
+    sha256 "7f99f24d853fa01e073fe73cecabf1a8ec8f871f354e21da5b5003bc2de85ad2" => :big_sur
+    sha256 "59bf02931bcc7553745595b3859277cbb471ef5cf6f644a9251ddde4fc8a9513" => :arm64_big_sur
     sha256 "2151c9e70ca92a911af8cf769c18541c5d107df349b44987f716909c67216c59" => :catalina
     sha256 "c69fe0dbab9fb93187e1388d4e388c00c73930dfb3bdd668a0a60228cd8d681b" => :mojave
     sha256 "062f1a9e2c4d5ebc6cfb08e70abbdf4ebd85b06519345ed8bde301e62d0cd860" => :high_sierra

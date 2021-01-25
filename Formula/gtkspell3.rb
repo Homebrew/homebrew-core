@@ -10,6 +10,8 @@ class Gtkspell3 < Formula
   end
 
   bottle do
+    sha256 "a3ad550626760e585e9474fd8a548315f02b113bb2a0d823957e809d848da464" => :big_sur
+    sha256 "17e1dd6d234ee6ce072ab846cdccc3fb2f672f809b4e9a2af0d55d92600e66d7" => :arm64_big_sur
     sha256 "b3b9eff2b9b11085e6b16cf50165031ab7446cd78aa125afd358747a67419bd8" => :catalina
     sha256 "1d41a37ab6c27e572e59bf7a0aaf1f66cfbbe587fffb5e9fdcc2749c24be4b26" => :mojave
     sha256 "590fb3c9f5b1f978d385128db8c8aec91b0285a3dbead32bc19c127d9a35bb50" => :high_sierra

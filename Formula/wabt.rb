@@ -2,24 +2,26 @@ class Wabt < Formula
   desc "Web Assembly Binary Toolkit"
   homepage "https://github.com/WebAssembly/wabt"
   url "https://github.com/WebAssembly/wabt.git",
-    tag:      "1.0.19",
-    revision: "cd5ff133f84854f0b269f5cb06193ad8205f05d3"
+      tag:      "1.0.20",
+      revision: "830d32a41449278cacb0bf17530618d47c43340b"
   license "Apache-2.0"
 
   livecheck do
-    url "https://github.com/WebAssembly/wabt/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "60d464680e3e70f9db8e079d1e6cb4d45f9c9994025cb3ba0f2b3a98c422f132" => :catalina
-    sha256 "e19ec65d36ef68a8f5637dcc8d9728642fc0887e9f8655b912ec906c1e686d34" => :mojave
-    sha256 "992e3b6ca47b54df5755d37e5968f15a2dda4070ec1f94d96c1e9a82828289d6" => :high_sierra
+    sha256 "06bedfd798d896d5530c8801f830b1ace48bcce10ff438a393e2e01d4b8d1a7c" => :big_sur
+    sha256 "f83360b912798f372cb57827a7b5cc89063f9d79c4eabf845429ccbf49c37e63" => :arm64_big_sur
+    sha256 "910d30dea89023dadf308768eee1f8d186e88ff50210a5603c392e3dc33546b7" => :catalina
+    sha256 "e9eba56a16e053365d515a6637a1b12217cf65c2c3f81988a0d80af8fc2f0094" => :mojave
+    sha256 "77e89094c8a0d95abeb513f6ff3bbfcecab82ed4cc740b7be1445cee79eef6a0" => :high_sierra
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
 
   def install
     mkdir "build" do

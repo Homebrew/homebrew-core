@@ -12,6 +12,8 @@ class Rpm2cpio < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "605d2412f20fb282a4b7bf18f67b1ac63382965714f7d6711d13a317e626ae8d" => :big_sur
+    sha256 "532dfd83bf5efec35d5dad581695ac40e830e9545cf5e2599520e18e385d2d5c" => :arm64_big_sur
     sha256 "8655ba73b79595a55d289c2c969e027f2034c0af88263f9fa8c5cb8a1184a823" => :catalina
     sha256 "081902485154a2061d890e6421a55d15bfe5072c05109c79e0ef50f2a11b96e5" => :mojave
     sha256 "804dccff2726a9ac18a1002cd8adb06aacd07ce1fff93b995c042d4e78775176" => :high_sierra

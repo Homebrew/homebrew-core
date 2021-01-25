@@ -22,6 +22,8 @@ class Libdc1394 < Formula
 
   bottle do
     cellar :any
+    sha256 "7eef59a97b33666b144d68181b081eba93c4c23c58f159a67684d2ed2d043080" => :big_sur
+    sha256 "8af168268139e714a725ab1d4384a34ef092a3e50e081baba66fdf583fef3711" => :arm64_big_sur
     sha256 "57080908a5da9abb2c0d83d4ad25450a507de8140a812112d9e5751f4004e4d0" => :catalina
     sha256 "6cf02c5500f83fa2ccd1ff9b880f44f9652d68b0e90a2345d6c62fb92a988f0a" => :mojave
     sha256 "536cbd34a43886d63a3dba41e7877ed63ad0fbe1a5e21cde499bd2c9e1e37e52" => :high_sierra

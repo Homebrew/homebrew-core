@@ -12,6 +12,8 @@ class Telnet < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "e6fb7de53e703755a72e227752f81023c2935567d935af638959e986da910b3e" => :big_sur
+    sha256 "563fcbef08590e48a07079f00877e14f22f54849db11ee02ba7c935499a7ccd1" => :arm64_big_sur
     sha256 "7435a9fd2515158762a85197a4ad7141e430383e185e002da169dbbb638c952f" => :catalina
     sha256 "d5009f496dc6cf0c13b936996f98b91b0f12733ea9462843b56a39fc53b20fe0" => :mojave
     sha256 "af38f3c6dd4ff5eda2248671958e66595b39e74cdeecca52af4efb495bc659a7" => :high_sierra
@@ -52,7 +54,7 @@ class Telnet < Formula
   end
 
   test do
-    output = shell_output("#{bin}/telnet 94.142.241.111 666", 1)
-    assert_match "Connected to towel.blinkenlights.nl.", output
+    output = shell_output("#{bin}/telnet india.colorado.edu 13", 1)
+    assert_match "Connected to india.colorado.edu.", output
   end
 end

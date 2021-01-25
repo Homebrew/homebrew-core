@@ -2,7 +2,7 @@ class RubyCompletion < Formula
   desc "Bash completion for Ruby"
   homepage "https://github.com/mernen/completion-ruby"
   url "https://github.com/mernen/completion-ruby.git",
-    revision: "f3e4345042b0cc48317e45b673dfd3d23904b9a7"
+      revision: "f3e4345042b0cc48317e45b673dfd3d23904b9a7"
   version "2"
   license "MIT"
   head "https://github.com/mernen/completion-ruby.git"

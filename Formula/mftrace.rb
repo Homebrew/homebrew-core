@@ -5,12 +5,14 @@ class Mftrace < Formula
   mirror "https://dl.bintray.com/homebrew/mirror/mftrace-1.2.20.tar.gz"
   sha256 "626b7a9945a768c086195ba392632a68d6af5ea24ef525dcd0a4a8b199ea5f6f"
   license "GPL-2.0"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "175bd6e04490a7aa2bc79be8057c5708eb4fd8ec36c521e111bb5dd33b472725" => :catalina
-    sha256 "de07330354ae8048feccc55e6ad551a13fedc82408718d33c5b93a96aff4ab0b" => :mojave
-    sha256 "90e60837a6d4c750d0634ff3bfc84b373b6c89a1deaa4792c82e94f52e06c072" => :high_sierra
+    sha256 "09ca3daeb696824e12655d6dbd0c768a0dcc07306c35001bc7b90417fb2b38c6" => :big_sur
+    sha256 "da5fc2002936d2260121ce8134472bce14e8bccfb406fe9e1e56591037aa9751" => :catalina
+    sha256 "d4b3535bdd69a89c59c4b7d7011ccb06544108c376e6313f62062c32991dece2" => :mojave
+    sha256 "e1d8b241eb03982520cf2b4b2f8794fe74afb240247e4ea7c8164b1c9a22e974" => :high_sierra
   end
 
   head do
@@ -20,7 +22,7 @@ class Mftrace < Formula
 
   depends_on "fontforge"
   depends_on "potrace"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "t1utils"
 
   # Fixed in https://github.com/hanwen/mftrace/pull/14

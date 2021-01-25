@@ -4,14 +4,14 @@ class ProtobufAT36 < Formula
   url "https://github.com/protocolbuffers/protobuf/archive/v3.6.1.3.tar.gz"
   sha256 "73fdad358857e120fd0fa19e071a96e15c0f23bb25f85d3f7009abfd4f264a2a"
   license "BSD-3-Clause"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "6d2da9252d93ab92e216192a91e71445325e82a660580a63867820d013eb849c" => :catalina
-    sha256 "4bf947fba8c49983858b40906e8cb56adca645d645bc3a5f3561c6fc76e9f5eb" => :mojave
-    sha256 "b58011315d7163fcb54491c60f7151cf79eb71bca9c78395d9d2a365ed374626" => :high_sierra
+    sha256 "e3d0f6755411406d0ce9958c75f0bcdc508cd866d82ab5f098ac21c03470d916" => :big_sur
+    sha256 "48adfce2c3ec0a17271946db21810b6d9302aae0d471eab5d17fdae532d4aeea" => :catalina
+    sha256 "5682ac1576b18fb20b6e91d30e99822c66884a9aab048896a3c7297aefe94504" => :mojave
+    sha256 "aa953ecc3fcb17999d0cdaa36898ad6700952fae1730f263b2a8e1e090d0faa7" => :high_sierra
   end
 
   keg_only :versioned_formula
@@ -20,7 +20,7 @@ class ProtobufAT36 < Formula
   depends_on "automake" => :build
   depends_on "cmake" => :build
   depends_on "libtool" => :build
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "six" do
     url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
@@ -60,14 +60,14 @@ class ProtobufAT36 < Formula
     ENV.append_to_cflags "-L#{lib}"
 
     resource("six").stage do
-      system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(libexec)
+      system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(libexec)
     end
     chdir "python" do
-      system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(libexec),
+      system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(libexec),
                                                       "--cpp_implementation"
     end
 
-    version = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
+    version = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     site_packages = "lib/python#{version}/site-packages"
     pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
     (prefix/site_packages/"homebrew-protobuf.pth").write pth_contents

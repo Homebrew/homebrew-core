@@ -15,6 +15,8 @@ class Libnotify < Formula
 
   bottle do
     cellar :any
+    sha256 "415ef3754d6910255fc161e352b0b5a7006efe3aa5684fbf8abeb98514358562" => :big_sur
+    sha256 "49e795c1869eb3f544ef5710861ec3ef0f829f6b8db64b3c44722025e2c4ba97" => :arm64_big_sur
     sha256 "367a8d51cb565452392b9bc92c753ca641c23f91fc4ff93fb6166b63f2beafda" => :catalina
     sha256 "e6d5a6a87f885bf421e6a70c9cef1c6aaf89db46a98216af6c06754246a8f896" => :mojave
     sha256 "0560e601843a3e42a4823904dd5534212efd823292444a9588f1cf99ea8bc8f5" => :high_sierra

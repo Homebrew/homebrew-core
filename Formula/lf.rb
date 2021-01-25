@@ -1,21 +1,22 @@
 class Lf < Formula
   desc "Terminal file manager"
   homepage "https://godoc.org/github.com/gokcehan/lf"
-  url "https://github.com/gokcehan/lf/archive/r17.tar.gz"
-  sha256 "a6906f6c40de8cbd643d0dc6a7a25b83a6403f0e87a8352289189bea17123342"
+  url "https://github.com/gokcehan/lf/archive/r19.tar.gz"
+  sha256 "8808069021ee1c0012440edabdc239b9f58f36bdd44d27b07eae7c91b97afdef"
   license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "577b07faf529ac6934b52a8c34453d76865938876b34ad8c860e14fbec5732b6" => :catalina
-    sha256 "7381c831dc9444b1b151d6b9c8bb8d4c6a8bf0030ebf6dee7fa0e34b00b5a78b" => :mojave
-    sha256 "6231de35fbdbc59be8ce3fb69cd5e87fee84dbfcb5aa81300835900109cc8161" => :high_sierra
+    sha256 "496309156a027b573f6d73a3d7acb0e794ac03ecfde74a0b5a54c1fd158c3e15" => :big_sur
+    sha256 "a388d6b2d666b774315ea2076903ba406798e12b25e6c965ee920f5104d9f6fa" => :arm64_big_sur
+    sha256 "07775e12ccff3030f3ec36153cc98b96e63fe134d32ffd96de21083a4d4f4aab" => :catalina
+    sha256 "4f476517105c8b84ede38445a56dbf9215ecae4b510eaf69fe0274eca2963b03" => :mojave
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args, "-ldflags", "-X main.gVersion=#{version}"
+    system "go", "build", *std_go_args, "-ldflags", "-s -w -X main.gVersion=#{version}"
     man1.install "lf.1"
     zsh_completion.install "etc/lf.zsh" => "_lf"
     fish_completion.install "etc/lf.fish"

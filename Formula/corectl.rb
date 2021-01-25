@@ -14,11 +14,12 @@ class Corectl < Formula
     sha256 "89e963f61102d26d5fe756b06f50aa73bf9f827f81f92cefa2da6c195b7865da" => :sierra
   end
 
+  deprecate! date: "2020-11-14", because: :unmaintained
+
   depends_on "aspcud" => :build
   depends_on "go" => :build
   depends_on "ocaml" => :build
   depends_on "opam" => :build
-  depends_on x11: :build
   depends_on "libev"
 
   def install
@@ -54,11 +55,8 @@ class Corectl < Formula
 
   def caveats
     <<~EOS
-      Starting with 0.7 "corectl" has a client/server architecture. So before you
-      can use the "corectl" cli, you have to start the server daemon:
-
-      $ corectld start
-
+      Start the server daemon with:
+        corectld start
     EOS
   end
 

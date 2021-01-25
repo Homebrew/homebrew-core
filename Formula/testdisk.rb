@@ -12,6 +12,8 @@ class Testdisk < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "fa46e925f4438d7f9cb855efd07499daa5622b331a8b16a22684633650d7315d" => :big_sur
+    sha256 "b4c61e6cdb6119dacda42b08e912bdaa5a08dc380e40c6d80de5c1a1b7e60d48" => :arm64_big_sur
     sha256 "66c4088c77794a244fd5b38fa39216eb8d6a09b9e4efd5e68a249e9b5df65606" => :catalina
     sha256 "1e77fbc276d986fcf378901b2ba0d5957f17b569e512980017ecd09926505a4a" => :mojave
     sha256 "8cd43adea2ddf632e5c9305609cf377b47fcf5836805075d06dd3ccd2142ccc6" => :high_sierra
@@ -28,7 +30,8 @@ class Testdisk < Formula
 
   test do
     path = "test.dmg"
-    system "hdiutil", "create", "-megabytes", "10", path
+    cp test_fixtures(path + ".gz"), path + ".gz"
+    system "gunzip", path
     system "#{bin}/testdisk", "/list", path
   end
 end

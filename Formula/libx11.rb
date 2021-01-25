@@ -1,15 +1,15 @@
 class Libx11 < Formula
   desc "X.Org: Core X11 protocol client library"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libX11-1.6.9.tar.bz2"
-  sha256 "9cc7e8d000d6193fa5af580d50d689380b8287052270f5bb26a5fb6b58b2bed1"
+  url "https://www.x.org/archive/individual/lib/libX11-1.7.0.tar.bz2"
+  sha256 "36c8f93b6595437c8cfbc9f08618bcb3041cbd303e140a0013f88e4c2977cb54"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 "3d43199780211678460636fd1a9b82c6edd33135a7945cbad3f056b732306663" => :catalina
-    sha256 "e5755ec184d3b40c251c15440e09a1f8ccd85d630bb1b1f31e29dabf32fd5401" => :mojave
-    sha256 "e2fdce1536a452844604fa15eec928af8d8fbca4cb3a86b9852e1ec0f855a97e" => :high_sierra
+    sha256 "8663963c8520d669be3a5cf7e49bc253dc39ea3aba8d35b01cdd9103a058041f" => :big_sur
+    sha256 "dcef5a7d1e2ba4b3ce4169f6b7504ca4875ba7e70742609342bcb5f4b8d6001c" => :arm64_big_sur
+    sha256 "59b7a9aa7a99a4f7257617558c71b1ca0ccf34f065dda785a3616b3c5ec75754" => :catalina
+    sha256 "b3f38839b3b3a024247ffb43324f6a53ecc45ec8bd32de3d7bfbc1142385488a" => :mojave
   end
 
   depends_on "pkg-config" => :build

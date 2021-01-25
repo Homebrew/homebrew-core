@@ -7,6 +7,7 @@ class Akamai < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "6a34e6b26f58c2401efee9e063d44db8e753672751c3f7e9a6783e87f1ba8c70" => :big_sur
     sha256 "a986f3bfc261227cd44447d5ff9cdfb461c50c002118d36caed068f5859432e1" => :catalina
     sha256 "ce3ea6b8dba89d48bfec3be3bbf5701e7b1dcdde7a2f76a97dd668752b1e95fb" => :mojave
     sha256 "2b6d07c4926858e1be33bef070a925a6746f396fa27566aaa313d5a2673cb25f" => :high_sierra

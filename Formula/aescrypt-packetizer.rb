@@ -11,6 +11,8 @@ class AescryptPacketizer < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ab6619fc5b646e2cd062f887735b95b9ba26b53b684a5d6318f2d99974dc2885" => :big_sur
+    sha256 "a8c3dda5abdaa6d42a63a7fdd2c38c910b3286404313ef0195cebc50b433503a" => :arm64_big_sur
     sha256 "1615637765b9c2c4aa26bb5c858962d2b5614d7098aa45ebb8154c839fcde13a" => :catalina
     sha256 "063038d7a6789ce5052fa1f7bf1be43ab9cd5c4157d5f9d1d37a91382b007958" => :mojave
     sha256 "ad36c0bff9d673c364b18795669f51329d8e7c5ea862af2ef3614051976cf601" => :high_sierra
@@ -31,8 +33,16 @@ class AescryptPacketizer < Formula
     if build.head?
       cd "linux"
       system "autoreconf", "-ivf"
-      system "./configure", "prefix=#{prefix}", "--enable-iconv",
-              "--disable-gui"
+
+      args = %W[
+        prefix=#{prefix}
+        --disable-gui
+      ]
+      on_macos do
+        args << "--enable-iconv"
+      end
+
+      system "./configure", *args
       system "make", "install"
     else
       cd "src" do

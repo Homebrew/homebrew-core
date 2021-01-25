@@ -9,6 +9,8 @@ class Bochs < Formula
   end
 
   bottle do
+    sha256 "9fc8197b7d04be3b5eafcc970ea167d3a91997ad5e4b30a7d56c0725f61190d4" => :big_sur
+    sha256 "6d5a614bcdfd6fd732e1d970a20cf41ef138544c2fc83c01e40fa76d182d4e7c" => :arm64_big_sur
     sha256 "b6d43a6a60360e0d84ebd2ad9ae7724c413a1f2332c59065fb09c2004d76b723" => :catalina
     sha256 "74fb37178645c4d2b52eec5684931ca215dc2f75794e1cf45b3f6e2b85263819" => :mojave
     sha256 "f8c79923292849eebece21d9c5ed1028db729d4d25dc1e045a7c8e0f0dcf450b" => :high_sierra

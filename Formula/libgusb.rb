@@ -4,7 +4,7 @@ class Libgusb < Formula
   desc "GObject wrappers for libusb1"
   homepage "https://github.com/hughsie/libgusb"
   license "LGPL-2.1-only"
-  revision 1
+  revision 2
   head "https://github.com/hughsie/libgusb.git"
 
   stable do
@@ -20,16 +20,18 @@ class Libgusb < Formula
   end
 
   bottle do
-    sha256 "3c176659cddf1f71c982e2efc194b64f7fd0cef2ccf9892eb4d7ce109fbf4b97" => :catalina
-    sha256 "219f238b82296a7bb25e448d6bcf32e3e5435a9b6191346e233af597d2d62726" => :mojave
-    sha256 "291bb9edfa1f084b5c14016dfacaf16fb9d0d8d27d097fb382569691e01bd740" => :high_sierra
+    sha256 "7fe394a32e306eb3a5acc9f51b6f07cc46243bb863b15f17eea800d2a1a09231" => :big_sur
+    sha256 "934cca2fcf888878cf8da4b40cdbd6548d060f09318242c2818ee3686104ee72" => :arm64_big_sur
+    sha256 "4a5345775e87130c47c9c78a9fbe16d28c6dcfc7f74dc76850cae8e1a24ad948" => :catalina
+    sha256 "571f51cd56f7ed502e349d63909977cdf44629976ce7b81a765d6dce39be8fa4" => :mojave
+    sha256 "570e84e48faa46bb217f581272679c26cb47c13e0bfe25a33916782e7cdebfdf" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
   depends_on "vala" => :build
   depends_on "glib"
   depends_on "libusb"

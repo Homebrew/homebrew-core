@@ -9,6 +9,8 @@ class Rssh < Formula
   end
 
   bottle do
+    sha256 "c2725b75d2f60da89130f9755da6044aaf5f8342215e6a0cece480f73c657626" => :big_sur
+    sha256 "ff8805cca497fcf8b6335aabcd2a468e54c1a425e18ab8a7cab685b7d0a37d11" => :arm64_big_sur
     sha256 "320bd3daa0a9cf214c46eaacc16b9a69d3854d8dbac7ed432db91d8afd241790" => :catalina
     sha256 "d31053458aa5853114ce8f1b7adf2aa8f6faee7cba5e7270be783f55d8311791" => :mojave
     sha256 "05dd4375824810caf77f7b40d2b1ff0a229e6743f46c755427c428d5ca31f173" => :high_sierra

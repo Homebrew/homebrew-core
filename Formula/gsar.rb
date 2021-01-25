@@ -8,6 +8,8 @@ class Gsar < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ae21f0b2eb41982c4c78ad3fdf0aab16e839a40761d7e98e31ce6f3f52e3fa9c" => :big_sur
+    sha256 "422050c4abb86641242bd8649dc39b83bf9a0bff0b2f57c0011d59baefaa87ac" => :arm64_big_sur
     sha256 "be008a03610074b4c66f775ae1802ed214006e6ba21150da886c8f4aa97362a4" => :catalina
     sha256 "b357c58535d31278d9b815770aa10e9f7d496849ecf58e131a23ea2182c7cbc3" => :mojave
     sha256 "07872ab6e21c22fe0ff901974ff6772d934bebc6f574a8908e6e3600a0fb6fb9" => :high_sierra

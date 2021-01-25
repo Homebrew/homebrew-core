@@ -6,6 +6,8 @@ class Einstein < Formula
 
   bottle do
     cellar :any
+    sha256 "79969ac055b92c9d66391bc912592df75af67046abd57bde81c248a4a68dbfbe" => :big_sur
+    sha256 "6499a95257a847e4d273da330d52a71da6dcf4f3de754515eb158ab850f5e0f2" => :arm64_big_sur
     sha256 "54ce5ebd0b06256ecdda309bc0a0b500a0bf29411021fb5525dd647b923c3354" => :catalina
     sha256 "1430c04b154114c5ada29708033872f75a1c1ca361d997747aac748806d0182d" => :mojave
     sha256 "faa76a6c3363ec2c5f814940560db5fb52d8d7af89149dae7bbdf14967c51e3a" => :high_sierra

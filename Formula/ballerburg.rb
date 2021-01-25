@@ -8,6 +8,8 @@ class Ballerburg < Formula
 
   bottle do
     cellar :any
+    sha256 "94691e7d7c914ce603ffdcf611159d2fd8fa63616f9f35f6bed3c58d72571bea" => :big_sur
+    sha256 "a82163254a4f1ff916e0d7ba0387914f529ffa67955495e146be69b5c2b2f31e" => :arm64_big_sur
     sha256 "5459d5bc2baba43a0ad3a32dde1c3e6adbd02dfdce1f43bcb4c1d9ebf8f73b01" => :catalina
     sha256 "e31d8c383d0abfbd5ff700683d225b3d34345cd9c89c8fdaec34813cfbee47d2" => :mojave
     sha256 "23ecdb1ee06b96cff2e51117b3ff0bf8f0b6f29195e3d2d6323ca8dd72c79074" => :high_sierra

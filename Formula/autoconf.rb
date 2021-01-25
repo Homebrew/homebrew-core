@@ -4,7 +4,7 @@ class Autoconf < Formula
   url "https://ftp.gnu.org/gnu/autoconf/autoconf-2.69.tar.gz"
   mirror "https://ftpmirror.gnu.org/autoconf/autoconf-2.69.tar.gz"
   sha256 "954bd69b391edc12d6a4a51a2dd1476543da5c6bbf05a95b59dc0dd6fd4c2969"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :stable
@@ -13,6 +13,8 @@ class Autoconf < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 4
+    sha256 "4a05c5734bd99dc0adca0160e1ca79a291f2bd7fb8d52dd4605df0da3063c891" => :big_sur
+    sha256 "e56508f2b40d96057225de13bc9ac27f1c64f4c120a5c73f34864a1669073fc9" => :arm64_big_sur
     sha256 "ca510b350e941fb9395522a03f9d2fb5df276085d806ceead763acb95889a368" => :catalina
     sha256 "9724736d34773b6e41e2434ffa28fe79feccccf7b7786e54671441ca75115cdb" => :mojave
     sha256 "63957a3952b7af5496012b3819c9956822fd7d895d63339c23fdc65c502e1a40" => :high_sierra
@@ -26,12 +28,14 @@ class Autoconf < Formula
   uses_from_macos "perl"
 
   def install
-    ENV["PERL"] = "/usr/bin/perl"
+    on_macos do
+      ENV["PERL"] = "/usr/bin/perl"
 
-    # force autoreconf to look for and use our glibtoolize
-    inreplace "bin/autoreconf.in", "libtoolize", "glibtoolize"
-    # also touch the man page so that it isn't rebuilt
-    inreplace "man/autoreconf.1", "libtoolize", "glibtoolize"
+      # force autoreconf to look for and use our glibtoolize
+      inreplace "bin/autoreconf.in", "libtoolize", "glibtoolize"
+      # also touch the man page so that it isn't rebuilt
+      inreplace "man/autoreconf.1", "libtoolize", "glibtoolize"
+    end
 
     system "./configure", "--prefix=#{prefix}", "--with-lispdir=#{elisp}"
     system "make", "install"

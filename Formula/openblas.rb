@@ -1,17 +1,17 @@
 class Openblas < Formula
   desc "Optimized BLAS library"
   homepage "https://www.openblas.net/"
-  url "https://github.com/xianyi/OpenBLAS/archive/v0.3.10.tar.gz"
-  sha256 "0484d275f87e9b8641ff2eecaa9df2830cbe276ac79ad80494822721de6e1693"
+  url "https://github.com/xianyi/OpenBLAS/archive/v0.3.13.tar.gz"
+  sha256 "79197543b17cc314b7e43f7a33148c308b0807cd6381ee77f77e15acf3e6459e"
   license "BSD-3-Clause"
-  revision 2
   head "https://github.com/xianyi/OpenBLAS.git", branch: "develop"
 
   bottle do
     cellar :any
-    sha256 "30b44b63c1dcbd46ffaf78a03caa423e198c5827ccc4f14ef847a66d05c3223e" => :catalina
-    sha256 "2a924ce4abd8558cfbbc53c124c50fb188e34c318a98c38136962201b6d92549" => :mojave
-    sha256 "e99c28e8e72f7ac07277b2cf1511bcd1abdf7091b723c9605a70c4551f603b44" => :high_sierra
+    sha256 "daa8f1e3c94b3dff6a696886e92dd4edcdef12c2d4c68a689c16697ac4590692" => :big_sur
+    sha256 "9ac956e8d8704e272b0cf2ddc83c8fd6a78e04fd46b10b5be778d83a6ef24c06" => :arm64_big_sur
+    sha256 "71191dd65059b73a8dffea7f55c06a3bcaefa27cf0946116f63efd6f976ee9fd" => :catalina
+    sha256 "10012e1adcafdf18ac06f457c6069805266301879a42453ec0587ffe9647c751" => :mojave
   end
 
   keg_only :shadowed_by_macos, "macOS provides BLAS in Accelerate.framework"
@@ -19,17 +19,19 @@ class Openblas < Formula
   depends_on "gcc" # for gfortran
   fails_with :clang
 
-  # This patch fixes a known issue with large matrices in numpy on Haswell and later
-  # chipsets.  See https://github.com/xianyi/OpenBLAS/pull/2729 for details
+  # Build script fix. Remove at version bump.
+  # https://github.com/xianyi/OpenBLAS/pull/3038
   patch do
-    url "https://github.com/xianyi/OpenBLAS/commit/6c33764ca43c7311bdd61e2371b08395cf3e3f01.patch?full_index=1"
-    sha256 "a945a8df0a77c25e7c3540a8d3b998b567b207f5d104cbb723de3d8dcb43dd5c"
+    url "https://github.com/xianyi/OpenBLAS/commit/00ce35336ee1eb1089f30d1e117a8a6a933f9654.patch?full_index=1"
+    sha256 "555e3a8ab042bef2320549db2bad57249d9cf351a6f28e82d6ba53f008920465"
   end
 
   def install
     ENV["DYNAMIC_ARCH"] = "1"
     ENV["USE_OPENMP"] = "1"
     ENV["NO_AVX512"] = "1"
+    # Force a large NUM_THREADS to support larger Macs than the VMs that build the bottles
+    ENV["NUM_THREADS"] = "56"
     ENV["TARGET"] = case Hardware.oldest_cpu
     when :arm_vortex_tempest
       "VORTEX"

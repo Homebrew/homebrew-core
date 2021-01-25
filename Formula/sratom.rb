@@ -1,8 +1,8 @@
 class Sratom < Formula
   desc "Library for serializing LV2 atoms to/from RDF"
   homepage "https://drobilla.net/software/sratom/"
-  url "https://download.drobilla.net/sratom-0.6.6.tar.bz2"
-  sha256 "fb910bf62a5e69f4430bf09653d386fc4de9ff02bfd58635e1d45cbd31481b9d"
+  url "https://download.drobilla.net/sratom-0.6.8.tar.bz2"
+  sha256 "3acb32b1adc5a2b7facdade2e0818bcd6c71f23f84a1ebc17815bb7a0d2d02df"
   license "ISC"
 
   livecheck do
@@ -12,9 +12,10 @@ class Sratom < Formula
 
   bottle do
     cellar :any
-    sha256 "eb959c7930bef09a0d25e5213b387c28d0bcfe5567fe97327699c36ae966d7a9" => :catalina
-    sha256 "9a1ae4be9fbf3643fd782aef40928125d257244c368fa7e748df04b5ceb31a1d" => :mojave
-    sha256 "acbfea6ae53d91a461eedfe7ad0467be9fe2fe18ae34bb45896efa936b3684ce" => :high_sierra
+    sha256 "8f20c286f07c722945a6bd3afd0b44ce62dbd0bb39777d90cbeea43b8e65df4d" => :big_sur
+    sha256 "922ad15a5f15bf4c54ef685106b70658dce53581ae0ce680e13bc870fc1eab85" => :arm64_big_sur
+    sha256 "1ef0da557a528c1b979b78624de2bd6ff6b23beca8918ca94dadc4e5faa7783f" => :catalina
+    sha256 "881192ccb8c3553de14975ab6175614170c3cba891760e82d58a1ad194b70269" => :mojave
   end
 
   depends_on "pkg-config" => :build

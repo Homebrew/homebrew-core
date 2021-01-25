@@ -7,6 +7,8 @@ class Libgaiagraphics < Formula
 
   bottle do
     cellar :any
+    sha256 "71019ebb245fbf75794ffc377be75d4a9731a7cc842a458d630ef7fb9d824741" => :big_sur
+    sha256 "735b5cc5e33f5b3bd886ba97093edc71a4ad2dd02703870f4a8d1b309b2dbf45" => :arm64_big_sur
     sha256 "05b3806c31a6e084eeeec2e44c83b8fb728cd0de4cc22dae14888ff52e290cca" => :catalina
     sha256 "bfaf50e26b9312c1ef7d9b62677e92099339d14393ce855b870fe9288503c5df" => :mojave
     sha256 "20a230ae5fccd2d5114e8ab7a128dd57834104461e5a7cbc2f7c7e63075214d9" => :high_sierra

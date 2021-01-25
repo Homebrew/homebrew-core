@@ -7,6 +7,7 @@ class Libopennet < Formula
 
   bottle do
     cellar :any
+    sha256 "1c514ff48871809fd77cadcded9c2dc71f7913fde66c81fe3a9c6488b927d17f" => :big_sur
     sha256 "0f9b40e9c906fce8df8abc866680bf6fbe60cadc5af24dac309e1d51a0f5e99d" => :catalina
     sha256 "4702cca034bb0b60b4555615664cc4aedee95c189f37e23e93013594f1dc9321" => :mojave
     sha256 "82232ab7a71481570e3119e119bc93ef29a9d553c11e16fb93f157c66a7dfe8a" => :high_sierra

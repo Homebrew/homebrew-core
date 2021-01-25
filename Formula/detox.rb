@@ -6,6 +6,8 @@ class Detox < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 "b7e48d1a3aa5f3d49149400be5f228ddf997089cdf85139d1a8691c224f84c34" => :big_sur
+    sha256 "c79ab2ec6be240cc277dea257a526a406b6a41981dbb7e897dae7747df242d6e" => :arm64_big_sur
     sha256 "34cf8b1f4375e659bb76d81fbe298ae6afed01ecd6cd070755b3eabc409c329a" => :catalina
     sha256 "d8b6b72801850f3cf9ecc81e5dfbdcbc77de66c4dc65b49efd008dcb8aadc432" => :mojave
     sha256 "07b8fe6a481bac0864ccc50939980aad50772c4af9c15d57f95d81ad41acda8e" => :high_sierra

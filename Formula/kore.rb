@@ -1,15 +1,21 @@
 class Kore < Formula
   desc "Web application framework for writing web APIs in C"
   homepage "https://kore.io/"
-  url "https://kore.io/releases/kore-4.0.1.tar.gz"
-  sha256 "bc8bf755133faf67755c3a4ea53db49f208986efeed734ce6be562a3e5a81057"
+  url "https://kore.io/releases/kore-4.1.0.tar.gz"
+  sha256 "b7d73b005fde0ea01c356a54e4bbd8a209a4dff9cf315802a127ce7267efbe61"
   license "ISC"
   head "https://github.com/jorisvink/kore.git"
 
+  livecheck do
+    url "https://kore.io/source"
+    regex(/href=.*?kore[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
-    sha256 "ad77b830ab7265b3f1f3be5f25b82949672369ab53478b35428ccc39dc770c5f" => :catalina
-    sha256 "766a72d1382f2edff8a4a479e6528fd3b3e952b978224d139dd1c602ea9c39c5" => :mojave
-    sha256 "f474c6f87252bf4e96ea2c14db3d10246b91bfb41ab366fffb598649366317be" => :high_sierra
+    sha256 "b9ee5f484ac7eb75b1282afee33da589de37ce1787b15eea441e63526996e47c" => :big_sur
+    sha256 "27b9278bca42a66ef991c721a6e9d4910c72eb5fd4fec1530cebb20444f65d6a" => :arm64_big_sur
+    sha256 "1c361e384d9d76c042624f56a0e847f12e9db63a5e0fd49016827bcbdb71eb95" => :catalina
+    sha256 "111923e46a1a868241cea5eeed3477ef6de321684308168c8ffac582620ba95a" => :mojave
   end
 
   depends_on macos: :sierra # needs clock_gettime

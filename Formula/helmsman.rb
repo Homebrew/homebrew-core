@@ -2,15 +2,15 @@ class Helmsman < Formula
   desc "Helm Charts as Code tool"
   homepage "https://github.com/Praqma/helmsman"
   url "https://github.com/Praqma/helmsman.git",
-    tag:      "v3.4.6",
-    revision: "e43f983f52c4d4dad07b56439a8a29dbed35889b"
+      tag:      "v3.6.4",
+      revision: "d77cf03aef82851ab3da0c4c1134673844faaa50"
   license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "711bbb7d5b362cecd257a1c46dc73257ff7e5f9ba9b3e0c190874c73d8dcd423" => :catalina
-    sha256 "2c044815fd6196791a4b46d30a469abc41b063e572393c83c2dc992a1e7754eb" => :mojave
-    sha256 "9da4d396d0a14ae5288441de8c033d4aceb3c0d7fedde0dfa42404a90c9b6d84" => :high_sierra
+    sha256 "dac90517617b5d9f6d9b80b783f5e089a96e8cd89254c994b5615b57874fa69f" => :big_sur
+    sha256 "b75b6387c3b3f853252aee65583262d5c5a63b36a6a5d5e0ee5eb51b11c204f0" => :catalina
+    sha256 "afd929bf50f142dddc7af348d611848cdb2f9be24f437bc9981b0e2ca229e6ab" => :mojave
   end
 
   depends_on "go" => :build
@@ -18,10 +18,7 @@ class Helmsman < Formula
   depends_on "kubernetes-cli"
 
   def install
-    system "go", "build",
-      "-ldflags", "-s -w -X main.version=#{version}",
-      "-trimpath", "-o", bin/"helmsman", "cmd/helmsman/main.go"
-    prefix.install_metafiles
+    system "go", "build", *std_go_args, "-ldflags", "-s -w -X main.version=#{version}", "./cmd/helmsman"
     pkgshare.install "examples/example.yaml"
   end
 

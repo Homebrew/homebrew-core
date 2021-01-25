@@ -1,21 +1,22 @@
 class Pgrouting < Formula
   desc "Provides geospatial routing for PostGIS/PostgreSQL database"
   homepage "https://pgrouting.org/"
-  url "https://github.com/pgRouting/pgrouting/releases/download/v3.1.0/pgrouting-3.1.0.tar.gz"
-  sha256 "c32c4b6153c6cf1716549f60bde85454e5246e41db92d06cc9669dbe2ab464d9"
-  license "GPL-2.0"
+  url "https://github.com/pgRouting/pgrouting/releases/download/v3.1.3/pgrouting-3.1.3.tar.gz"
+  sha256 "54b58e8c4ac997d130e894f6311a28238258b224bb824b83f5bfa0fb4ee79c60"
+  license "GPL-2.0-or-later"
   head "https://github.com/pgRouting/pgrouting.git"
 
   livecheck do
-    url "https://github.com/pgRouting/pgrouting/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b3aa8eceb62d44771da5531da4510686e3fde40ce094bc3499a39444ffaacb46" => :catalina
-    sha256 "d21137db3123b293308e209419048a68ed675c2a0ae037f3cd8bcfe466bb949b" => :mojave
-    sha256 "6749c0af036ad6e74d7777f12e2fcbff5e10479e318d4b9fb7d33028dcef6c07" => :high_sierra
+    sha256 "7424d8d1bdd429b880334d99310c96a818081dbd0ff7e53dba6b9c02d6ff255c" => :big_sur
+    sha256 "287799f4aa536484337fae2c368adb56b956d24f9b8f5000b9de3ac766c3a86d" => :arm64_big_sur
+    sha256 "e5405302217126a60aca29ba25e2329dccccce81295f56134e1aeda600502950" => :catalina
+    sha256 "ec66fa1e4d1251ddd476aeef4287cfee248991fb094472b7baf41b3e922bcb6b" => :mojave
   end
 
   depends_on "cmake" => :build

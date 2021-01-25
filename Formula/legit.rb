@@ -15,6 +15,8 @@ class Legit < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "73161b2eb5a55db6d984dbf1b1aae96072419b500672bf6d58c0352e840cbc73" => :big_sur
+    sha256 "b991a34a3b1731bcd71a09aecf6b974b0b2fcb3a8fd42c3d34e7b553f840b640" => :arm64_big_sur
     sha256 "3564e73b3de899626951b43275564ad6435816d0ad540c3f6c7941c89f6c6b60" => :catalina
     sha256 "175045954b783f943c2e8b27d5df01d0a8bf21034439f7f9abd99cc8ced744e3" => :mojave
     sha256 "b4a46a53103b33f06eefdee01e64f87839b28c41288f96388a7f5e311234115e" => :high_sierra

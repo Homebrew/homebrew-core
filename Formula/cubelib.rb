@@ -5,6 +5,8 @@ class Cubelib < Formula
   sha256 "98f66837b4a834b1aacbcd4480a242d7a8c4a1b8dd44e02e836b8c7a4f0ffd98"
 
   bottle do
+    sha256 "1bb7866dcb7fc2ce761bd1b99245f27d5642f7d1aed778f535dbad1f2df3a89e" => :big_sur
+    sha256 "7bcb9029d69ad9a4e15bd3d890b07068b1f8307c54024e4091b3ff44cd4dc0c9" => :arm64_big_sur
     sha256 "038e4978220fae83b1469f2a22f05c3fa01876c9dd6f9d3f7da13b6bc6335a87" => :catalina
     sha256 "ff5079cb8ddf09f12f73649cea99460b3fd112ba1dfc8791ed315d7b103031ba" => :mojave
     sha256 "8147b72304638d649a1416edca7616f68580af6c60a4b29e4ac2f8057ed258d5" => :high_sierra

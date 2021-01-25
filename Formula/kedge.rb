@@ -7,6 +7,7 @@ class Kedge < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "045212f9d7e995b765d681d7f6b3478fe976907cc867e663dcf6ed791e258e41" => :big_sur
     sha256 "3edff5947ad6460ff5132a9f1722d12e9da6c3644138275b0f3423dc14efac3b" => :catalina
     sha256 "2302d114b01411cef00669faf00e32f1db551a9ba10402398720ca7a56cac0ec" => :mojave
     sha256 "ff1bf61801e5c5e17ba83abe714c4d30914a458291cdc0fc4654ee952a919c4c" => :high_sierra

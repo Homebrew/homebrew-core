@@ -3,21 +3,28 @@ class Tgif < Formula
   homepage "http://bourbon.usc.edu/tgif/"
   url "https://downloads.sourceforge.net/project/tgif/tgif/4.2.5/tgif-QPL-4.2.5.tar.gz"
   sha256 "2f24e9fecafae6e671739bd80691a06c9d032bdd1973ca164823e72ab1c567ba"
+  license "QPL-1.0"
+  revision 1
 
   livecheck do
     url :stable
   end
 
   bottle do
-    sha256 "057f91cf9ac5c38a46b158878f82ca57a5a1caa6589448ff90021fa80c0c6d00" => :catalina
-    sha256 "4067b1468cc15d199a88629b19a677bd1d97462478a48d6a751aca6c1802e738" => :mojave
-    sha256 "4023a1df9a1b9ee248891d2d54ce00127407ce80f89d2b1edef05fe2e4c8cf1f" => :high_sierra
-    sha256 "d96d0bafe9c364642e354a6d80ffce48d532a8ed161372cf549c213b9a0a8a30" => :sierra
-    sha256 "9912995702f73e3add877e329b9bd894e9a7f5fe2024161b27b6d81462aeda9d" => :el_capitan
-    sha256 "df95673872cdb34ca9cccfaa456bdc4a35e29d720b8ffa4875501cf864d399bd" => :yosemite
+    sha256 "0488ea1c1291ea86653e1f5e3b0a9d7499ee101ccec3a5cb8f1e855aa445181d" => :big_sur
+    sha256 "29699e47040d83ff53dbe9800a053ba9a41fe1ae1834e08ede2844ec59803662" => :arm64_big_sur
+    sha256 "ce5a689942aed9986f74150bddebb09a129aba97810658fc67a6060519eacd86" => :catalina
+    sha256 "3ab28b39b5a4b0c5cea21b096c0e8b2317725f8b6da6455ab365e8d13ac644a4" => :mojave
+    sha256 "9c35ee5713a7efcdedb42d4602213dd94e84385bb8c5b0f9331706d6e897d08c" => :high_sierra
   end
 
-  depends_on :x11
+  depends_on "libice"
+  depends_on "libidn"
+  depends_on "libsm"
+  depends_on "libx11"
+  depends_on "libxext"
+  depends_on "libxmu"
+  depends_on "libxt"
 
   def install
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"

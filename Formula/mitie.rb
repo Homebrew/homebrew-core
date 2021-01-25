@@ -9,6 +9,8 @@ class Mitie < Formula
 
   bottle do
     cellar :any
+    sha256 "26424cf75f07bf9970c4a5ef979b33f9bffdbcf8b98bdda56759f7b49ed3757d" => :big_sur
+    sha256 "49066ada52cbf94e095569f97b8d629f2e54b19fa4dfcffbc4ad12bf3728e656" => :arm64_big_sur
     sha256 "7190df4ed270f1ed0d6b09ea3410b673af9bf8de7349db5cc7c58a8596d10094" => :catalina
     sha256 "523dbdb69c94746e8e451c01a400897e294f414981bacc7c3933e3cefef590c5" => :mojave
     sha256 "36a3671f823322c4542af4c555ccfcc1f69ce7c50360f17903b0decc34ddb63e" => :high_sierra

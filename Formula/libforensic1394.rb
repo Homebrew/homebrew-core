@@ -8,6 +8,8 @@ class Libforensic1394 < Formula
 
   bottle do
     cellar :any
+    sha256 "f7405930e26a2b4c9cbe939e6121fe0c20fc3b68015f899e91ba4bba75bdbdbb" => :big_sur
+    sha256 "e199817199f736890486c3667735acf01876563584bdcde56b2671ac85707ba9" => :arm64_big_sur
     sha256 "4b9746197d1e43ee78530b552e42a6e6cc96908267db1685076f6e283983ab0f" => :catalina
     sha256 "90e2abdc0baef51cfb97b8f9d130f99e2ad5e1eda990f7e6fc29c0e0d1e2f79a" => :mojave
     sha256 "5e919cf8bce0747630324f0c203bbd1aef4d7e17d278f42bcbece48da2229c8f" => :high_sierra

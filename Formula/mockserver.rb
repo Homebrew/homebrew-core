@@ -1,8 +1,9 @@
 class Mockserver < Formula
   desc "Mock HTTP server and proxy"
   homepage "https://www.mock-server.com/"
-  url "https://oss.sonatype.org/content/repositories/releases/org/mock-server/mockserver-netty/5.11.1/mockserver-netty-5.11.1-brew-tar.tar"
-  sha256 "9ceacc0be86fcbd24fe3bdc1e0160d15228e8adabc866aa73887a2cc24a72a6a"
+  url "https://oss.sonatype.org/content/repositories/releases/org/mock-server/mockserver-netty/5.11.2/mockserver-netty-5.11.2-brew-tar.tar"
+  sha256 "1758bb80c3e5cd250b55757a53105db7b03ff1b05d2dfca501ce5795feff8756"
+  license "Apache-2.0"
 
   livecheck do
     url "https://oss.sonatype.org/content/repositories/releases/org/mock-server/mockserver-netty/"

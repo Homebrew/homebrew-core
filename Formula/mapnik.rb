@@ -1,22 +1,22 @@
 class Mapnik < Formula
   desc "Toolkit for developing mapping applications"
   homepage "https://mapnik.org/"
-  url "https://github.com/mapnik/mapnik/releases/download/v3.0.23/mapnik-v3.0.23.tar.bz2"
-  sha256 "4b1352e01f7ce25ab099e586d7ae98e0b74145a3bf94dd365cb0a2bdab3b9dc2"
-  license "LGPL-2.1"
-  revision 3
+  url "https://github.com/mapnik/mapnik/releases/download/v3.1.0/mapnik-v3.1.0.tar.bz2"
+  sha256 "43d76182d2a975212b4ad11524c74e577576c11039fdab5286b828397d8e6261"
+  license "LGPL-2.1-or-later"
   head "https://github.com/mapnik/mapnik.git"
 
   livecheck do
-    url "https://github.com/mapnik/mapnik/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
     cellar :any
-    sha256 "ba583ea99a13377783c2dabc25c55ccc2d1a296cfb1f52e9a4a08dc82a0b0576" => :catalina
-    sha256 "5c6ebca702fb213f0ca8a678726a57c54d1b97a48d88d61b90ccfb6bd2b0d605" => :mojave
-    sha256 "ef6e65090ed5b627874c66ab30e5365ffcd90c7c9b4f810b318113c014b7a528" => :high_sierra
+    sha256 "393431760e716e1486d6db7444a4eda2b5af3d778b11f5cfcec3d2866cc9c338" => :big_sur
+    sha256 "f8e6c2aebb84d38a4e93b17bba0b9210f61b5d3f4034963440c20af45b8e02ec" => :arm64_big_sur
+    sha256 "fc68ba4d5314b418a23bc78578cc4e3579d31832d3a49031a2e40c07ed83a3ec" => :catalina
+    sha256 "ff48d9d688e35d2d683089500267e193e0b11ff55053176c2d81d09b629ef52a" => :mojave
   end
 
   depends_on "pkg-config" => :build

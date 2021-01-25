@@ -13,6 +13,8 @@ class CashCli < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "17d36688d320b64dd29f64127d3c05e2cb03de8a3a4e45d4a18016ae58abc675" => :big_sur
+    sha256 "11e8b5cf3e977adc9dde41f31173b5a1403d72da4dcdefc277e31ea22cf30612" => :arm64_big_sur
     sha256 "f22f6404f47adb8a6c0253362d61fb529da4d6a71045a2902407ed112329310d" => :catalina
     sha256 "7aa6e66eef5defae364924b00859ad4d884a15563c52488462ab489676f02141" => :mojave
     sha256 "903fde1135bcc71b70d74b852084897a2708f1d87ad00c200c793600472c42aa" => :high_sierra

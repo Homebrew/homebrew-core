@@ -7,6 +7,8 @@ class KnownHosts < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9d89c5861e842476e98fe66ec06b418b328fa0c9d9827aba4d4063fc6c69eeb1" => :big_sur
+    sha256 "bf3e0af3ffe33fc928ada23b36fd1549b8435234480371f678cb125ecdf3cb74" => :arm64_big_sur
     sha256 "dcf7fb7a2fc7436eb50d0ded0dd0059f082cb6652ea107c6f37696d1fe08bd70" => :catalina
     sha256 "62e7b000f7c4ba73c10a879a8ad9c1b14e356799204de92249f1e3bdcd577359" => :mojave
     sha256 "8e823e73e385c7d11c19e02a0fad28751447a96332222fed825505b98e5c4003" => :high_sierra

@@ -6,8 +6,16 @@ class WlaDx < Formula
   license "GPL-2.0"
   revision 1
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)(?:-fix)*["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
+    sha256 "66a1b0e894ef405ba43690d9692c03756db1698deca8f40b6b15340519ec07d9" => :big_sur
+    sha256 "41cd8a0b00bcbc303b13c333cb84b275cf432c67190d85a24e83660fdc9ce5b5" => :arm64_big_sur
     sha256 "8f0d4747eb9ef0885ddf6c08b3d4ac980bd2b6dbaaa9f5048ea7aa4bc6f681b8" => :catalina
     sha256 "b515cc9b31fd4d978143c518555b02873fabff5ef390d369575c3d3e99606326" => :mojave
     sha256 "0ed73304d947e4ea44431c06df38bb6887a7551f575ade25a6b63ce7b27187c7" => :high_sierra

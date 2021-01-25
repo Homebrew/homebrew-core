@@ -1,16 +1,18 @@
 class GitCinnabar < Formula
   desc "Git remote helper to interact with mercurial repositories"
   homepage "https://github.com/glandium/git-cinnabar"
-  url "https://github.com/glandium/git-cinnabar/archive/0.5.5.tar.gz"
-  sha256 "7e0a935966ab5b434f4c60335808be167e4b300d8cb0b0feb987adb7fc562521"
-  license "GPL-2.0"
+  url "https://github.com/glandium/git-cinnabar/archive/0.5.6.tar.gz"
+  sha256 "64c483e93eea5ec9ef142988e272f949428db2ef685aecc31ce112e24f55f3c9"
+  license "GPL-2.0-only"
   head "https://github.com/glandium/git-cinnabar.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "63fcc4e7b3080280b06da11e5c86f17d5f120984ea104f9983f4e9b4a12ba9bc" => :catalina
-    sha256 "384bddafdfea606547c363e9f53a0ddf97ccd5a407077c3200019e43e8d4853e" => :mojave
-    sha256 "8db1f3570d953a49235634aac491322fd68132c036b959fb9c5ff6960f1b4b58" => :high_sierra
+    sha256 "c5a93076b2e9594362fa665edf9aab87ad5f6861a179ec2e16fb87241caf135d" => :big_sur
+    sha256 "1944a8e26196b0c068235d412a08abe53e8e8ef9e7fec9e6c3e18ad73837301d" => :arm64_big_sur
+    sha256 "074ae846819011d8632aadec2f3532dd2c1bf8c36385f09b09b7d8d977c3f411" => :catalina
+    sha256 "049b1d43555be25052dd9857fbdb35a871daf0c4b25b23568d881bac4e69aa75" => :mojave
+    sha256 "ab04140cfeea3a7c0370aae72b4b0ebf98bb5c6b72aaf1fc02cd9cdf7eb3ecce" => :high_sierra
   end
 
   depends_on :macos # Due to Python 2

@@ -12,6 +12,8 @@ class I2util < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "f3e907bcbbb2fb450d4566e5f3fd5e1481d16a6e1008142e13b8c0f3fa396b56" => :big_sur
+    sha256 "15ccc5cf4852a0d03f022a6127de5ef518a162e8e9cd69ec3800a8c9a42e2c1b" => :arm64_big_sur
     sha256 "583442b07b8d0007ad6b3302daefd4bc5d2ce0b71ed3bc7f73c68eb3fb3e3fdd" => :catalina
     sha256 "39d1540d90f798d79b38844fe234329513548c6882204fb69c1b5f372d1f7c5e" => :mojave
     sha256 "47c66cf5e0bfec05a5c254dc4088fe2ec3dd45772d729bd0b38146afdfbd0f0a" => :high_sierra

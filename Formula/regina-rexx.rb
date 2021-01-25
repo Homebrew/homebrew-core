@@ -9,6 +9,8 @@ class ReginaRexx < Formula
   end
 
   bottle do
+    sha256 "1afeefc231cf72467ed8f8c28e2671707d779f91eb6d736d672e6dfe30c4841f" => :big_sur
+    sha256 "f3360bfae946de69ba78cd467e4904e7ebbd722b9a2e9ea8b2e9a2052dc78a1d" => :arm64_big_sur
     sha256 "7d39d4158fe41ecbd85c8c05f27d1b291883730ae1b745e1920e14ab41dfa0dc" => :catalina
     sha256 "396fe213db316516ff28a135217b9c660969244494cb8807111e71b37d5451c9" => :mojave
     sha256 "c8e204d8fb1154c31a4be3d571f4bbcc9e9b9ec5406feb61be82f7c567f9c8a7" => :high_sierra

@@ -9,6 +9,7 @@ class Cql < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "f8c84bc3df9fd6eb3252f38ef53af69f2b8e4d6ee4af6c40ddbd1ddb642cf9f3" => :big_sur
     sha256 "6910f358939ba05d8db050688abe4d6df42ce12801949e8be7f49743023d572f" => :catalina
     sha256 "dd644eb78e0c68e04fcde376481d12ab7d5a0cfddcd844fe3529d8129fec262b" => :mojave
     sha256 "623599aba9f2a656f5ee530dd367b0741b6b1e7a3e564c629adf29b5ef3a290e" => :high_sierra

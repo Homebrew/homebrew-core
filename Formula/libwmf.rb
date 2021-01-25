@@ -11,6 +11,8 @@ class Libwmf < Formula
   end
 
   bottle do
+    sha256 "2c1e4e481c00fdc9a6590bb65d39df1b87bbd054a1ecf20369049127b198c3a9" => :big_sur
+    sha256 "641d8c9c953f8b1e5c5b122a38582ccfdeeb37f92d11dbe0f353bed473053c92" => :arm64_big_sur
     sha256 "4fa5b3dc0b38f72ac7c4d15f4e23bc96c0808d48de28005c4dc74d50292ddf62" => :catalina
     sha256 "3e0e8ecd7072819856393b472017d1e7fc3995a6d8568c6ad65b7d1055efc2e7" => :mojave
     sha256 "a96fe2e0aef8cd0f8eecce05b8789c2637f973a6ae358924c451b8f36b3a70ef" => :high_sierra

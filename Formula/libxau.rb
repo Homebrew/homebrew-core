@@ -7,6 +7,8 @@ class Libxau < Formula
 
   bottle do
     cellar :any
+    sha256 "b21411d706ca7a61346e6d9e62bda5fb34e46f5d9ed4ca96b4c52f3f4a1c6ef8" => :big_sur
+    sha256 "c266397e5e2417a4dc5827a504f27153c12a3938a91b19697abf24d3cfba8ac5" => :arm64_big_sur
     sha256 "d10771f476b47134c9c3f18a33fb4d4d86c37e2a4d6dbbc87c13b7ffd06c7248" => :catalina
     sha256 "3a34b529a2092bf1aaffc6603056871c2b0c4b8bd1fe728a14ae6b35e8cf3f77" => :mojave
     sha256 "15522122382cdc3e364167c71835e4885a0241189be938853cc4744f38e82aa0" => :high_sierra

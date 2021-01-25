@@ -1,8 +1,8 @@
 class Libbluray < Formula
   desc "Blu-Ray disc playback library for media players like VLC"
   homepage "https://www.videolan.org/developers/libbluray.html"
-  url "https://download.videolan.org/videolan/libbluray/1.2.0/libbluray-1.2.0.tar.bz2"
-  sha256 "cd41ea06fd2512a77ebf63872873641908ef81ce2fe4e4c842f6035a47696c11"
+  url "https://download.videolan.org/videolan/libbluray/1.2.1/libbluray-1.2.1.tar.bz2"
+  sha256 "5223e83f7988ea2cc860b5cadcaf9cf971087b0c80ca7b60cc17c8300cae36ec"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -12,10 +12,11 @@ class Libbluray < Formula
 
   bottle do
     cellar :any
-    rebuild 2
-    sha256 "a6390593b5e2044ae683f2a8bb1c206c6eb705b570ffede50e478be63c07ff81" => :catalina
-    sha256 "b59b3ea706de1a5a0c5bae9db673e7659428ccb2b35c2b28a71aa5b6c91e996d" => :mojave
-    sha256 "957c062a77d5ad187c21388a41352e416b8b5be65696bd042fc422a547365a98" => :high_sierra
+    rebuild 1
+    sha256 "ddc9740b0ec3c919e709f163b694c3c00ad36a5c6f7ed9db244e08c73d12f7a4" => :big_sur
+    sha256 "fecb563ca1eefe2b784bec27c64b8bbe65850a8b483d12cee8123b3f9ff940de" => :arm64_big_sur
+    sha256 "8d2dbe765f837608676970568fe081ba91c12af436c2812c2224e4a878692e86" => :catalina
+    sha256 "cad2684af7571e916f43c0945324a2024de313f49e67829434f61ee413e02bb7" => :mojave
   end
 
   head do
@@ -26,8 +27,6 @@ class Libbluray < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "ant" => :build
-  depends_on "openjdk" => :build
   depends_on "pkg-config" => :build
   depends_on "fontconfig"
   depends_on "freetype"
@@ -35,10 +34,7 @@ class Libbluray < Formula
   uses_from_macos "libxml2"
 
   def install
-    # Build system doesn't detect Java version if this is set
-    ENV.delete "_JAVA_OPTIONS"
-
-    args = %W[--prefix=#{prefix} --disable-dependency-tracking --disable-silent-rules]
+    args = %W[--prefix=#{prefix} --disable-dependency-tracking --disable-silent-rules --disable-bdjava-jar]
 
     system "./bootstrap" if build.head?
     system "./configure", *args

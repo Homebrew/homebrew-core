@@ -14,6 +14,8 @@ class DockerSquash < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "5037e7ed624b62a548cb2d06398c78f4737c55c2203e59654886fef6c7d2ed3f" => :big_sur
+    sha256 "99a172715fd8867c336673dd127525bcf10074050d0d97173e26abdbe393d0c5" => :arm64_big_sur
     sha256 "8eba8e475bd16f666d5dcae8c86c6903a6284714fd39827ef022846436482ddc" => :catalina
     sha256 "e8f93445d63859ffbe3a7b3607f736c8171cbb34f5277dc99f9e5b431726d1bf" => :mojave
     sha256 "b808d930d8ac2950359fd87047dec4c8a04b771f54c41c632916761cff647d8f" => :high_sierra

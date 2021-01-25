@@ -2,22 +2,24 @@ class Periscope < Formula
   desc "Organize and de-duplicate your files without losing data"
   homepage "https://github.com/anishathalye/periscope"
   url "https://github.com/anishathalye/periscope.git",
-    tag:      "v0.2.0",
-    revision: "d672bf60f4b59c1f54fa3c26aef75d0593615c40"
+      tag:      "v0.2.0",
+      revision: "d672bf60f4b59c1f54fa3c26aef75d0593615c40"
   license "GPL-3.0-only"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "887b43d68fe6cfb92410ddd969d7ff9dfc6341e0108592b05c6fd246fe10d95c" => :catalina
-    sha256 "00f88c11b1826501afe3ff21fb1ae3ca082e72bd27060d9570dbb95d9383f0f3" => :mojave
-    sha256 "d768d1900b8996fe954d00a38c2665cc6154bd0f56554594fa84a44caae4a392" => :high_sierra
+    rebuild 1
+    sha256 "9824c9c61ed092523c30284612f1ddfa9c0725cd6c13c854340f47a4fa0ff6d3" => :big_sur
+    sha256 "8cfadad385f69d292c7fa21e74962839f802c4f715fdf90c3bd2a8b588c0ce91" => :arm64_big_sur
+    sha256 "9b11b76bc3d4a06f735e88293a5c2263dbea9c4ed6d023bd6b1d88c6ba73a5f6" => :catalina
+    sha256 "b86dff9739ead37c41f5a40f6641c1795d515517d99d134ad900bf47b383b453" => :mojave
   end
 
   depends_on "go" => :build
 
   def install
     system "go", "build", "-ldflags",
-      "-s -w -X main.version=#{version} -X main.commit=#{stable.specs[:revision]}",
+      "-s -w -X main.version=#{version} -X main.commit=#{Utils.git_head}",
       "-trimpath", "./cmd/psc"
 
     bin.install "psc"
@@ -41,7 +43,7 @@ class Periscope < Formula
 
     # scan + summary is correct
     shell_output "#{bin}/psc scan 2>/dev/null"
-    summary = shell_output("#{bin}/psc summary").strip.split("\n").map { |l| l.strip.split(" ") }
+    summary = shell_output("#{bin}/psc summary").strip.split("\n").map { |l| l.strip.split }
     assert_equal [["tracked", "2"], ["unique", "1"], ["duplicate", "1"], ["overhead", "4", "B"]], summary
 
     # rm allows deleting dupes but not uniques

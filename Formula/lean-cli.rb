@@ -1,16 +1,17 @@
 class LeanCli < Formula
   desc "Command-line tool to develop and manage LeanCloud apps"
   homepage "https://github.com/leancloud/lean-cli"
-  url "https://github.com/leancloud/lean-cli/archive/v0.24.0.tar.gz"
-  sha256 "588e1b3e52bc69087211bb68301f9958b008d97e532c0831a76ab734ddab5c81"
+  url "https://github.com/leancloud/lean-cli/archive/v0.24.2.tar.gz"
+  sha256 "c60a153482af5485089dd500d58f947f5e03688c4c572243e64b18eb0a064f52"
   license "Apache-2.0"
   head "https://github.com/leancloud/lean-cli.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0e82598e5c3b9745916643d9cd2583b4b0ce20a959b4e2e8771b005f08ea9771" => :catalina
-    sha256 "b4276d4e5b173681792e843c7bab6549f9c8e67bf02f9e4fae3a2763382375c6" => :mojave
-    sha256 "694ddcb9edd1bfe40673afbe0c01b1bb67d0c41ac3561ceb1855b47c56eea31a" => :high_sierra
+    sha256 "766c9c6bf48498015b6ba2a1a60d2e4743a668e33c3e12268d1bbd3142c6c425" => :big_sur
+    sha256 "04088e4e5a87da1e0266edac6c2ecb7b155e7cb8a776d9794729261d459d20a4" => :arm64_big_sur
+    sha256 "b717de9611edc3ec6fbde30c9391dabf469e4c2342cb30939b0ecc7ecbf7172d" => :catalina
+    sha256 "c46be6237896b2733a2f630087bd23bf70fa589a1aad5b67ceb66ccd57e2cd19" => :mojave
   end
 
   depends_on "go" => :build
@@ -18,7 +19,7 @@ class LeanCli < Formula
   def install
     build_from = build.head? ? "homebrew-head" : "homebrew"
     system "go", "build",
-            "-ldflags", "-X main.pkgType=#{build_from}",
+            "-ldflags", "-s -w -X main.pkgType=#{build_from}",
             *std_go_args,
             "-o", bin/"lean",
             "./lean"

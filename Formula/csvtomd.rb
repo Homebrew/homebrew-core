@@ -14,6 +14,8 @@ class Csvtomd < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9bf13d30c902c1c5fbdcdfd07aa29e4d0a698eaf39342ad3d2cb017fe2fe514d" => :big_sur
+    sha256 "6fd3c11c69283da1a7eea9160e5935a3ecb9b4e940d7522c7e10253bbbd8b93f" => :arm64_big_sur
     sha256 "c9749639795ac8d18278813fd8e8c62df76de23919cd58de6c65175539b7ec96" => :catalina
     sha256 "39dbb7e395b6dd34ca0e7ae1c723b586875551ab9a3cbff93b250a695ee25e64" => :mojave
     sha256 "4233cce0f722709b0d1b49c3af66faf3ea75ff5317a53d404dda2420ed147d75" => :high_sierra

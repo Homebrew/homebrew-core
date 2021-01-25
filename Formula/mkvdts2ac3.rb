@@ -19,6 +19,8 @@ class Mkvdts2ac3 < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "d146252c7f8a7e75a78bdde799e88156851d16974ae35c2e54397c7c3dc93d7c" => :big_sur
+    sha256 "19928b2ef2664b358d7dca5fd53a9098c260eed4c61d37227097981e619af504" => :arm64_big_sur
     sha256 "76873d06126eddea9f43414bbaa9b35d2aa50e9f17f3ab0a490d733c6cf71438" => :catalina
     sha256 "932762d9435e3ddd0fff7a1ead1e0c906bc505517545f0c10f877cd61dd77365" => :mojave
     sha256 "54e70bb92dfdfe615346d6ba815648b1714da8b08a2f361fa95d104f14cee367" => :high_sierra

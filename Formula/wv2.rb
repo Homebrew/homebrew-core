@@ -11,6 +11,8 @@ class Wv2 < Formula
 
   bottle do
     cellar :any
+    sha256 "097b7d4e10b4ef00d8298ef897acb9baa3c9b84aa0b7416e4e561700e8ab408b" => :big_sur
+    sha256 "e757d5cf4bd8db93cd2b4383b38c748ea78f0f301d1740aa661ec35ee9e9ea1d" => :arm64_big_sur
     sha256 "944451190aa61c6ea3dd74fffbc9e92e999b8eeb559a46f4c4708d5f9b4f154f" => :catalina
     sha256 "7bda8de476777410ab350ceca0e089e20169f17a3d9cb31d313653c906766a85" => :mojave
     sha256 "35120de253c5dcfd6da711f7529bd8e4a0ffd45eed540057ef57d1a9d2ab0091" => :high_sierra

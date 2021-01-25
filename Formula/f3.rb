@@ -1,17 +1,18 @@
 class F3 < Formula
   desc "Test various flash cards"
-  homepage "https://web.archive.org/web/20200110163924/oss.digirati.com.br/f3/"
-  url "https://github.com/AltraMayor/f3/archive/v7.2.tar.gz"
-  sha256 "ba9210a0fc3a42c2595fe19bf13b8114bb089c4f274b4813c8f525a695467f64"
-  license "GPL-3.0"
+  homepage "https://fight-flash-fraud.readthedocs.io/en/latest/"
+  url "https://github.com/AltraMayor/f3/archive/v8.0.tar.gz"
+  sha256 "fb5e0f3b0e0b0bff2089a4ea6af53278804dfe0b87992499131445732e311ab4"
+  license "GPL-3.0-only"
   head "https://github.com/AltraMayor/f3.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "470b2c09c266e1d53efbb7784bb697a22ee3ba6a24a0c3abdae1445692e41ef9" => :catalina
-    sha256 "5830e81dc3a83ed4ad4b2955d1775e63367d68a815299f99b7556cfe4aca38f7" => :mojave
-    sha256 "725c7f88756ea641e75796949e5c59fa7040a97b5ae6f8fd1e580a77a50cd0b6" => :high_sierra
-    sha256 "04f2d3dee579c8740b23f48f7df4160f2e680d92afb4f887bba65f87b804ed93" => :sierra
+    sha256 "ecef018e922b79da5bed5e91df0e8798c9240d527af23b6d5a78c65fed0f4e99" => :big_sur
+    sha256 "dd2510a756c154a088d7b1b10c532a1cd85f4699f52dabb09a340dca20a79d04" => :arm64_big_sur
+    sha256 "198f9b2d578a294fb61e2b9203cc1285c9c0a2fa6048fb1e34130f7d8a2039ff" => :catalina
+    sha256 "70d5966a5afb44fe91225d81f54adf80cd7b254ac9253423234d4c99d4a2435d" => :mojave
+    sha256 "55da39f3758797df44426b7744542b4322ddc84b20fc7a5664e2da672cef0d1a" => :high_sierra
   end
 
   depends_on "argp-standalone"

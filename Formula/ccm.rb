@@ -13,6 +13,8 @@ class Ccm < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "f0884f1aa2af574e62b130656d2110c9ad8d544caf6c984e08943c05a0bbf630" => :big_sur
+    sha256 "955fd74e54ceaed0772238587c7fe45600813c685cdd4c1af19a5c0c99462a1f" => :arm64_big_sur
     sha256 "22fd6d245793ee81816df4ecce043c3a7bda47809f7afacb0eb7d12c6cf23fa5" => :catalina
     sha256 "59242833ff1017ca8c5fa4a18d0ad7c1c6179b323daa473716c990db2c3d2e2f" => :mojave
     sha256 "d986995a2a6de7bce2eb538861c94c826bd7f0f38bd23fc999feef15204de8fa" => :high_sierra

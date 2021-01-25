@@ -15,6 +15,8 @@ class Passpie < Formula
 
   bottle do
     cellar :any
+    sha256 "e8550b5e5a4caa3515b9e726beeb3a571a98db40e3fc2731fc0a4460fe929a61" => :big_sur
+    sha256 "2bea6978498b4a19b59ba269d158c833d31ee75c10528f34ceb4eaa7ffe2293f" => :arm64_big_sur
     sha256 "29a24482b5c955a6d14b7a285d6937c04ab89a53f110c8343221d2ccef2cb508" => :catalina
     sha256 "9f524fdab59188aab2b53fe7c3e5084ecdc27149dd742abffdfb13af074ba0ee" => :mojave
     sha256 "acac2254266a3c741c15e28403482e67517d447dc4a4c0411934ec93ab902945" => :high_sierra

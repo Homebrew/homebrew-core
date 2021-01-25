@@ -12,6 +12,8 @@ class Mpc < Formula
 
   bottle do
     cellar :any
+    sha256 "cc01508026db65016ee6e2ec1f6663921a5c5ace5c76ea51ffbd1b0b7ade5e63" => :big_sur
+    sha256 "8062f7af33fe3603b4c625509f4c80570d790b15922287025ef7333748dae279" => :arm64_big_sur
     sha256 "341a4c3cef23004a47f37fa299047e63baedceb07405813d6fc112c9ad7d4ff2" => :catalina
     sha256 "29742180fafe0fffeba3fc09c3d355395084ef3d063004347a96bc37c72682db" => :mojave
     sha256 "84bd2c475a7880bf1f36c560a5696c12c27ff6cdb5cd907082d14ffd094b1081" => :high_sierra

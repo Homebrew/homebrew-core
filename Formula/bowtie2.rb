@@ -7,6 +7,7 @@ class Bowtie2 < Formula
 
   bottle do
     cellar :any
+    sha256 "5c80e63961045e5f2fa1df91a8d6b16d4c50c68db3cc8cba861c7235403e0119" => :big_sur
     sha256 "1fad17bb5fbdcbb626dcbdd236b41e7a0731099fe1960938aba01b6c1bf36d99" => :catalina
     sha256 "c3dd293bb8d6045279ba6673cba40efed562e26746c62b032d174c9fa72b049e" => :mojave
     sha256 "622aa5c50e75a72811b6f843bda9685d71d6a764af887641252226f7174ce4b6" => :high_sierra

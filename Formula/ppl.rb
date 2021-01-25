@@ -8,6 +8,8 @@ class Ppl < Formula
   revision 1
 
   bottle do
+    sha256 "ceae5dd7024558587efdf935a870154a38e0cbf7e4882ba507cb3cebf574bed3" => :big_sur
+    sha256 "f607e5d5ebefa0cb480bc84b1ba6e4eb1f2f07e7d7a00ae1f4c71958b5c82323" => :arm64_big_sur
     sha256 "65aa31c0201a860d32e874ab34cbdea7132101fc6461510e06641a11ca762e82" => :catalina
     sha256 "253714635b8718e7822853e1385c546b665450b7059e8067e4008ed865eae261" => :mojave
     sha256 "7a9b9ceabcf71bf31ed8185caaa6e78c065511ba3e6cf805be13402983c2a7e1" => :high_sierra

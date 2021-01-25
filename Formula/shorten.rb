@@ -15,6 +15,8 @@ class Shorten < Formula
     sha256 "a802da618fffa3eb292705140c882fcedbffae09017f0efdf69085004952a148" => :mavericks
   end
 
+  disable! date: "2020-12-08", because: :unmaintained
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",

@@ -12,6 +12,8 @@ class Libpagemaker < Formula
 
   bottle do
     cellar :any
+    sha256 "ccdd8cd950304039a111f5ee80658b809c040d83f6321701384bc96dc596b569" => :big_sur
+    sha256 "e95a8d6dca9411adefbeb5bebd6e34112f0deec1ec9fe0d8f9bea5502f2a7a37" => :arm64_big_sur
     sha256 "9759e3d26a09e7b99bbf3c49f05bfa7724334b639245f5791d9bada9df977d68" => :catalina
     sha256 "05fafc8fea710cc53cd310192364d72b9458114b5404fdff8f6adbff2f9175bf" => :mojave
     sha256 "db0f93e5cf4cb6dfe4810b7cb8240db5c2c439a717d09def2f6163e3db6984c6" => :high_sierra

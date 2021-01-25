@@ -1,16 +1,18 @@
 class Zrepl < Formula
   desc "One-stop ZFS backup & replication solution"
   homepage "https://zrepl.github.io"
-  url "https://github.com/zrepl/zrepl/archive/v0.3.0.tar.gz"
-  sha256 "669b59ca524f487a76145f7153b9c048442cd1b96a293e0dc18048f5024a2997"
+  url "https://github.com/zrepl/zrepl/archive/v0.3.1.tar.gz"
+  sha256 "46c4540c330ec68f30eafa9c44f27bfc04fcac85a2fe54b72b051c73cd11f66d"
   license "MIT"
   head "https://github.com/zrepl/zrepl.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d476be049ac26213db683e0d2bf9a2ec0d3e43dad951a10c20b40afa6ede42c3" => :catalina
-    sha256 "23f0442f06dd7faf6782d9ac79607ba43e31e5dfd6cfa3450063ed012514e091" => :mojave
-    sha256 "75334d924255ced1155afb9523258e53be8e1c2ad6538e6b88c79c19251a17b4" => :high_sierra
+    sha256 "04ba02a1867bf19002e289edbf40423a3eb1a95fea05ae813b1cff5fc71d3873" => :big_sur
+    sha256 "5b7ea253b2d72f513eeae44b390feed827cb09bed8dfe2df97500e0d269017d8" => :arm64_big_sur
+    sha256 "1314da8c7c65f89c93a17ca3dab945e0132e61a1e5cc2ec83f3e844bb1a475fc" => :catalina
+    sha256 "d4c76f92429aea1e62be4e187f263c478b60ab47bbd739d4c97f97fd3d852dab" => :mojave
+    sha256 "bf399e30a67a4cab316128ef33b9e1349bb51a32a0c6befeecb79ef2837c22b5" => :high_sierra
   end
 
   depends_on "go" => :build

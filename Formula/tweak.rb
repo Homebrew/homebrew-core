@@ -6,6 +6,8 @@ class Tweak < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "db84e159f437b7ba3c6592ee9564842e6d21823325777c2317acdda483d452bd" => :big_sur
+    sha256 "c5688f682787ca49543c2a6bed37237fc52c4ecd11707ec7d5688eaa60e9bf21" => :arm64_big_sur
     sha256 "a38441e05b3953b324cee772161ebb1ccf12bf2262c476af921fee963fdee413" => :catalina
     sha256 "82ec40f5ceaee7630a9bba6652c350388176c38908681fe4389a37d2e9605009" => :mojave
     sha256 "e36456b9e78dafa97c7c972a9c26bc274cc30dff8f50c2a736d2aaca8068dfa8" => :high_sierra

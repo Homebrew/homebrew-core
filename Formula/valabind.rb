@@ -1,17 +1,17 @@
 class Valabind < Formula
   desc "Vala bindings for radare, reverse engineering framework"
   homepage "https://github.com/radare/valabind"
-  url "https://github.com/radare/valabind/archive/1.7.1.tar.gz"
-  sha256 "b463b18419de656e218855a2f30a71051f03a9c4540254b4ceaea475fb79102e"
-  license "GPL-3.0"
-  revision 4
+  url "https://github.com/radare/valabind/archive/1.8.0.tar.gz"
+  sha256 "3eba8c36c923eda932a95b8d0c16b7b30e8cdda442252431990436519cf87cdd"
+  license "GPL-3.0-or-later"
   head "https://github.com/radare/valabind.git"
 
   bottle do
     cellar :any
-    sha256 "c5ad6fe97fa944521c3848f282a940aa3f37d22bc96a472d6f320715f679b38b" => :catalina
-    sha256 "e120768e4de31c6d5efcfd3e09eacf59c9b8d2388f3a402a296fc13a50c35263" => :mojave
-    sha256 "90ee3663f74b52b5efb182792bbb4bd76780929bc7444dd319dcf51d27888390" => :high_sierra
+    sha256 "cbaf377ea488bba4b372abe53eab42bdf84da7b93b00a827b847179477c59109" => :big_sur
+    sha256 "2fb4393d61be4746bc3dca065d162dc664035200ee4b326f64ce8b02908a6cc3" => :arm64_big_sur
+    sha256 "6a33a391be8a6d352504ba407afa44bca868d9065fac979ed7139edcb8797fef" => :catalina
+    sha256 "4503f99bdf938276cbdbb8b5312f6b380a13cf8d653b88c02be1dfa880a2803c" => :mojave
   end
 
   depends_on "pkg-config" => :build
@@ -20,12 +20,6 @@ class Valabind < Formula
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
-
-  # Vala 0.48 compatibility
-  patch do
-    url "https://github.com/radare/valabind/commit/9d4fb181e24346a8c5d570290fa9892ce10c8c3b.patch?full_index=1"
-    sha256 "817e68b784728102e7f182819e750af9a8d4338ded0517e426604a3561949c9a"
-  end
 
   def install
     system "make"

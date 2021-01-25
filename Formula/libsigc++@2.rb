@@ -1,25 +1,20 @@
 class LibsigcxxAT2 < Formula
   desc "Callback framework for C++"
   homepage "https://libsigcplusplus.github.io/libsigcplusplus/"
-  url "https://download.gnome.org/sources/libsigc++/2.10/libsigc++-2.10.4.tar.xz"
-  sha256 "1f5874358d9a21379024a4f4edba80a8a3aeb33f0531b192a6b1c35ed7dbfa3e"
+  url "https://download.gnome.org/sources/libsigc++/2.10/libsigc++-2.10.6.tar.xz"
+  sha256 "dda176dc4681bda9d5a2ac1bc55273bdd381662b7a6d49e918267d13e8774e1b"
   license "LGPL-3.0-or-later"
 
   bottle do
     cellar :any
-    sha256 "7154ac476939a124a9fce607a2e04179f769a942e4faac24f9e15d4e408d0bb1" => :catalina
-    sha256 "2ed859eacbb9d12487be891f1b3f06b1b5fffb1ccac3af37787ac174fabd934d" => :mojave
-    sha256 "0b46ff09499e252f0821f22cc1deff57a332130a807928bd018bdb4145705bac" => :high_sierra
+    sha256 "0caba6b60380a9dd449971df682f875ea8f7f57777ab3859c80a1d03ac6e7734" => :big_sur
+    sha256 "2f1e757e28977c97256660eeee90f850450d27cb2918b9c1aeecf87783309956" => :arm64_big_sur
+    sha256 "652d947c06d675a9c1945f7937b7862443c75b17eacf1d753af07425a30af892" => :catalina
+    sha256 "bea2ca5ade3269aa7d0bdeea604c1a25bdfebd36cd965108f74c0e06895e53b2" => :mojave
   end
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
-
-  # submitted upstream at https://github.com/libsigcplusplus/libsigcplusplus/pull/65
-  patch do
-    url "https://github.com/libsigcplusplus/libsigcplusplus/commit/2a7c936dfe4e5327372c17f8c45e333b5728608f.patch?full_index=1"
-    sha256 "bdac66d120906e355f3403c15e74ba931229c833fb4ad97888c475d71d02171c"
-  end
 
   def install
     ENV.cxx11

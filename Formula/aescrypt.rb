@@ -6,6 +6,8 @@ class Aescrypt < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "e41505ebcf2ca60292fd7391501ccc8d81ec41c96b23f2f50f21315bafc97f77" => :big_sur
+    sha256 "a6ca5e29be88eea7f2fe4faf1e57e3f827bfa86bae2726e5f83cedc79c091fcb" => :arm64_big_sur
     sha256 "c5dac9eb7f3ce8509c766d82ef5f972c8a41984284ae3e01651c6f308164c5bd" => :catalina
     sha256 "55bc9c5be0263f1659ab389b22e1e5f594b037a87d49aa5ed94ab5ccce3af3da" => :mojave
     sha256 "1b2326e6dbc73d394cb5d4d7bf655b026fa77a7d66d02da386bff16b84e84d83" => :high_sierra

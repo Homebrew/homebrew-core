@@ -8,6 +8,8 @@ class Iblinter < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "3f9a3f72361babe22192ee13b018db825938a93bc735a4e577c8e6ceef36cadf" => :big_sur
+    sha256 "a7f8d81e737bc81aebbe988e6c3056e215f9138ee3da42c546c993e1cbab604f" => :arm64_big_sur
     sha256 "c30f826110cae9b11d711b17d1ea2798e8fda1332acf85c1d39303e56e65fb3b" => :catalina
     sha256 "90a83ba6a62cdff672947d34182cc239688f3a11cd72343c2ce6745f42741dd2" => :mojave
   end

@@ -11,6 +11,8 @@ class Rush < Formula
   end
 
   bottle do
+    sha256 "c17a6969b3c949a756de8a5c60c8c916a485fffa6751aa8b365982ebfa66a676" => :big_sur
+    sha256 "e9969a26058fc567b5b5f342aabdc07a6c3ce7cebcf638e0b27a7dd4ef982a65" => :arm64_big_sur
     sha256 "a818df5c93d76a0a53c47108af3009a6d8265722d132204a636e29460693ac0d" => :catalina
     sha256 "5cdc9e464c7086e99e26063787dfefafd4805d90b0ea5aa40044b81f23d10db1" => :mojave
     sha256 "a76250fc5b34898050b9e18abd00dffbefd2c37dcd021b37d30bef75574abe49" => :high_sierra

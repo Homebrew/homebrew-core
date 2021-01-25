@@ -5,19 +5,20 @@ class Krew < Formula
       tag:      "v0.4.0",
       revision: "8bebb56d7295f361db3780fa18bd9f2f995ed48f"
   license "Apache-2.0"
+  head "https://github.com/kubernetes-sigs/krew.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0d9829908a9d668fc86eb86a675201202d42091ab93931b25f6b0f6f097191a1" => :catalina
-    sha256 "c4e11ef97fc169636f581737325617cc64e672c995c916bd6fb6a49d90268ab9" => :mojave
-    sha256 "cd01a286df37159eec08266e02ab5637fcb953418ec5c220c4718f73bac43d5d" => :high_sierra
+    rebuild 1
+    sha256 "805ecc421849656067f79bb29078044ef16f4e7666bb3733754efddd5d541849" => :big_sur
+    sha256 "ab1fd5afe499a31d731cc9b4395d3ae71eb4774682b5295e8376611c52f8a262" => :catalina
+    sha256 "316b12ecb167df6a8cff3521d9ab093f874f1d49379ffd639a0bc1c77a9c8e01" => :mojave
   end
 
   depends_on "go" => :build
   depends_on "kubernetes-cli"
 
   def install
-    commit = Utils.safe_popen_read("git", "rev-parse", "--short=8", "HEAD").chomp
     ENV["CGO_ENABLED"] = "0"
     # build in local dir to avoid this error:
     # go build: cannot write multiple packages to non-directory /usr/local/Cellar/krew/0.3.2/bin/krew
@@ -25,7 +26,7 @@ class Krew < Formula
 
     ldflags = %W[
       -w
-      -X sigs.k8s.io/krew/pkg/version.gitCommit=#{commit}
+      -X sigs.k8s.io/krew/pkg/version.gitCommit=#{Utils.git_short_head(length: 8)}
       -X sigs.k8s.io/krew/pkg/version.gitTag=v#{version}
     ]
 

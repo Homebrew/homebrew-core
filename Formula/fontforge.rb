@@ -1,15 +1,13 @@
 class Fontforge < Formula
   desc "Command-line outline and bitmap font editor/converter"
   homepage "https://fontforge.github.io"
-  url "https://github.com/fontforge/fontforge/archive/20200314.tar.gz"
-  sha256 "ad0eb017379c6f7489aa8e2d7c160f19140d1ac6351f20df1d9857d9428efcf2"
-  license "GPL-3.0"
-  revision 1
+  url "https://github.com/fontforge/fontforge/releases/download/20201107/fontforge-20201107.tar.xz"
+  sha256 "68bcba8f602819eddc29cd356ee13fafbad7a80d19b652d354c6791343476c78"
 
   bottle do
-    sha256 "6d2000c43d84a3353e7e27923c62ced0e5892338e69c6d341e61194cc70c1b4a" => :catalina
-    sha256 "3c94c039f0524bdf6e4748f65b7677c9d73ecd07718221dbc8eb1c143fe236d1" => :mojave
-    sha256 "1252f93604edae781fd5035ba5c367d820e341c13eec155bb24cf9ad5499dc4a" => :high_sierra
+    sha256 "fdadc5e603cec702c46ce7d7cf71bc39ea8b61c1d7e41baaa6347af596ea8d75" => :big_sur
+    sha256 "fa057842c812785b9fc515f8e52d50d5c05a18f1647474469edd34587e18e8c9" => :catalina
+    sha256 "e3e59082b1b97574d9ed2ebb644a38df2d94e31e37a61a01726f578c49beef7a" => :mojave
   end
 
   depends_on "cmake" => :build
@@ -28,17 +26,11 @@ class Fontforge < Formula
   depends_on "libtool"
   depends_on "libuninameslist"
   depends_on "pango"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "readline"
 
   uses_from_macos "libxml2"
 
-  # Remove with next release (cmake: adjust Python linkage)
-  # Original patchset: https://github.com/fontforge/fontforge/pull/4258
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/99af4b5/fontforge/20200314.patch"
-    sha256 "3deed4d79a1fdf5fb6de2fca7da8ffe14301acbeb015441574a7a28e902561f5"
-  end
   def install
     mkdir "build" do
       system "cmake", "..",
@@ -62,13 +54,13 @@ class Fontforge < Formula
         https://fontforge.github.io
 
       Alternatively, install with Homebrew Cask:
-        brew cask install fontforge
+        brew install --cask fontforge
     EOS
   end
 
   test do
     system bin/"fontforge", "-version"
     system bin/"fontforge", "-lang=py", "-c", "import fontforge; fontforge.font()"
-    system Formula["python@3.8"].opt_bin/"python3", "-c", "import fontforge; fontforge.font()"
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "import fontforge; fontforge.font()"
   end
 end

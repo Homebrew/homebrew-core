@@ -7,6 +7,8 @@ class Dwatch < Formula
 
   bottle do
     rebuild 2
+    sha256 "b7668fa89890e3a496c345d6c28e4c9fec9e9f36a0f6d8cd21c1b0bf4916d785" => :big_sur
+    sha256 "d685c1a752eea0246f6d5f5cc26a6594f36f1950112a3ed65934a52eb37185e9" => :arm64_big_sur
     sha256 "c79f51f4329569d682357a97014bd67a14ac1444e4fb983abd3a9e96339ba87a" => :catalina
     sha256 "69b3cb7cc60c1635c3134a0cd5e9dd884b3e28f52955e62da9beb0605e43cff5" => :mojave
     sha256 "fdf97f373c4bb18a3025d0f4acd9e16c826eca19cb60c9abd59d59bee8741c0f" => :high_sierra

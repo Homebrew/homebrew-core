@@ -3,16 +3,17 @@ class PreCommit < Formula
 
   desc "Framework for managing multi-language pre-commit hooks"
   homepage "https://pre-commit.com/"
-  url "https://github.com/pre-commit/pre-commit/archive/v2.7.1.tar.gz"
-  sha256 "b6ca162ba902dac6b0567d5b2ed3a7cc479ead512bdad5579e35a6836b8c1b0e"
+  url "https://files.pythonhosted.org/packages/b1/7b/1536387577a2f01d6aea901b9331319a9f927725bfbfae78ddb7200141cc/pre_commit-2.9.3.tar.gz"
+  sha256 "ee784c11953e6d8badb97d19bc46b997a3a9eded849881ec587accd8608d74a4"
   license "MIT"
-  revision 1
 
   bottle do
     cellar :any
-    sha256 "a726f725420715e597305e888b66c08b63a84d8bec811fa851a6d589775237e1" => :catalina
-    sha256 "e3da06e12e90323574d7fc9edff9d0d61bf0a842deb8e795ba2b88683e8a072a" => :mojave
-    sha256 "feda82f14ded0c20813e22d53fca6fa6375926b9cba6c925801dfb246554c16a" => :high_sierra
+    rebuild 1
+    sha256 "9f3e5baf1b9b60a24857b5b7f094856c586e26fe7e252db0884d62ff2ab29c4d" => :big_sur
+    sha256 "33f007b01f82457bcb6094a70546022f4b09fe083d2c2c6fec03a9175be7a07f" => :arm64_big_sur
+    sha256 "567656ee42a44152e91d1d5863b596a9ceb0af21fe2a4d948409392797df7d1e" => :catalina
+    sha256 "f8429a3459917cdff5b3c9ca240cdaaf8fdb5f1dcc2a4a511bc7ef7582c0d9dd" => :mojave
   end
 
   depends_on "libyaml"
@@ -39,8 +40,8 @@ class PreCommit < Formula
   end
 
   resource "identify" do
-    url "https://files.pythonhosted.org/packages/a0/67/ea89394e3f70feb3b9f8b753e75f2aa27a5d4e7b15063c740add20cea437/identify-1.4.28.tar.gz"
-    sha256 "d6ae6daee50ba1b493e9ca4d36a5edd55905d2cf43548fdc20b2a14edef102e7"
+    url "https://files.pythonhosted.org/packages/81/2d/e9ca41910763d4c9f3fd6773baafb513f14b3f1281723eed924847ea1f47/identify-1.5.10.tar.gz"
+    sha256 "943cd299ac7f5715fcb3f684e2fc1594c1e0f22a90d15398e5888143bd4144b5"
   end
 
   resource "nodeenv" do
@@ -59,13 +60,13 @@ class PreCommit < Formula
   end
 
   resource "toml" do
-    url "https://files.pythonhosted.org/packages/da/24/84d5c108e818ca294efe7c1ce237b42118643ce58a14d2462b3b2e3800d5/toml-0.10.1.tar.gz"
-    sha256 "926b612be1e5ce0634a2ca03470f95169cf16f939018233a670519cb4ac58b0f"
+    url "https://files.pythonhosted.org/packages/be/ba/1f744cdc819428fc6b5084ec34d9b30660f6f9daaf70eead706e3203ec3c/toml-0.10.2.tar.gz"
+    sha256 "b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"
   end
 
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/aa/bd/2a3082a5af997eef7324a3557d2ef3fa641e064c79c33404013310297e45/virtualenv-20.0.31.tar.gz"
-    sha256 "43add625c53c596d38f971a465553f6318decc39d98512bc100fa1b1e839c8dc"
+    url "https://files.pythonhosted.org/packages/c6/3e/d00f1500aa0e8a69323101c33f6e6910bbc68d34df3e8a0b1e510219a956/virtualenv-20.2.2.tar.gz"
+    sha256 "b7a8ec323ee02fb2312f098b6b4c9de99559b462775bc8fe3627a73706603c1b"
   end
 
   def install
@@ -87,13 +88,17 @@ class PreCommit < Formula
 
   # Avoid relative paths
   def post_install
-    lib_python_path = Pathname.glob(libexec/"lib/python*").first
-    lib_python_path.each_child do |f|
-      next unless f.symlink?
+    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    bin_python_path = Pathname(libexec/"bin")
+    lib_python_path = Pathname(libexec/"lib/python#{xy}")
+    [lib_python_path, bin_python_path].each do |folder|
+      folder.each_child do |f|
+        next unless f.symlink?
 
-      realpath = f.realpath
-      rm f
-      ln_s realpath, f
+        realpath = f.realpath
+        rm f
+        ln_s realpath, f
+      end
     end
   end
 

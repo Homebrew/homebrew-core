@@ -12,6 +12,8 @@ class Ragel < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "712245a75110f6628e7c07130d2905577f1a533bf760692e0f4b3071df20cc40" => :big_sur
+    sha256 "858ef57e50114e0406d7afc3beb7c06462bc1b5ce2155948af84af0c41d739f1" => :arm64_big_sur
     sha256 "a402204e97c35c6a9487d2b0707e27766d9b39c9c2116d49e9c561e1d0bd54b7" => :catalina
     sha256 "b9b1428abb19b6e6d8de2bccc58a059b75d7c08b38b73956bb40e764a9d0390f" => :mojave
     sha256 "8dc6d7e1a3617cd31d9738c5ae595fd57ddb157266c1970646a7d5fbba85a6ae" => :high_sierra

@@ -8,11 +8,12 @@ class Lablgtk < Formula
 
   livecheck do
     url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    strategy :github_latest
   end
 
   bottle do
     cellar :any
+    sha256 "597788b6c0736a9ef41a660fec64191b4c4556239fca28495b44099cd846a573" => :big_sur
     sha256 "e544b612c7067d60de3c58df5cc48f08ac32266dce56ef72a50b4895a841d21f" => :catalina
     sha256 "ff8fd335cb687977105f9b18efabc78abafa5965aafce64733888c0f035f92ae" => :mojave
     sha256 "127d47f712f5f0d914be06a87fa96344eaee9166cba08c50793cc28a8fef02dc" => :high_sierra

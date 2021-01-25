@@ -5,12 +5,14 @@ class ScalaAT211 < Formula
   mirror "https://downloads.typesafe.com/scala/2.11.12/scala-2.11.12.tgz"
   mirror "https://www.scala-lang.org/files/archive/scala-2.11.12.tgz"
   sha256 "b11d7d33699ca4f60bc3b2b6858fd953e3de2b8522c943f4cda4b674316196a8"
-
+  revision 1
   bottle :unneeded
 
   keg_only :versioned_formula
 
-  depends_on java: "1.8"
+  deprecate! date: "2017-11-09", because: :unsupported
+
+  depends_on "openjdk@8"
 
   def install
     rm_f Dir["bin/*.bat"]

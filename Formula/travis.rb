@@ -1,15 +1,17 @@
 class Travis < Formula
   desc "Command-line client for Travis CI"
   homepage "https://github.com/travis-ci/travis.rb/"
-  url "https://github.com/travis-ci/travis.rb/archive/v1.9.1.tar.gz"
-  sha256 "efe64321ba52e1ce62e46209a70c27d7909129bd0dd7c6166657e871b149a692"
+  url "https://github.com/travis-ci/travis.rb/archive/v1.10.0.tar.gz"
+  sha256 "b63991faebbd5da0e92bf1547775b69a0dbed01dd57e8b469d23a2a7bd79da43"
   license "MIT"
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "e73ded3bc90d895c4210b55d99589fd5b440e0c9fe655b9aeb923b79c061af56" => :catalina
-    sha256 "322f16ef370e8130d009d09da3538a779fcc9c96e642b9baf5dc65970f61a95b" => :mojave
-    sha256 "201f7ddbd12e090edcabc22264b0029d3063cd423301d7b82a7aeceb0107ccd0" => :high_sierra
+    sha256 "99dc7883369970404609ba84dae65605c9c53be3deda72591fe19ffc67c06ef7" => :big_sur
+    sha256 "8f1ccd0d3968312e30c5451e80704472d9b717275ad09d64c2d475fc92666d3e" => :arm64_big_sur
+    sha256 "cd76462008b4094ecc79d7b715bc8bbe25c16648c2ae4be0a939415fa61b6d02" => :catalina
+    sha256 "23356035200869589c3cf664a6d137477529a27c60bc1ce2a68e6fc6f084693d" => :mojave
   end
 
   depends_on "pkg-config" => :build
@@ -22,23 +24,23 @@ class Travis < Formula
   end
 
   resource "activesupport" do
-    url "https://rubygems.org/gems/activesupport-5.2.4.2.gem"
-    sha256 "8c3ae3df5b08b49b6b5d9c5028da1a1e582f1243b7362dbb9736f65ede492378"
+    url "https://rubygems.org/gems/activesupport-5.2.4.4.gem"
+    sha256 "8d3ddc9b86431f4e2df3c641c2f534c4c244621e57a7efa4f98e94a38198f636"
   end
 
   resource "concurrent-ruby" do
-    url "https://rubygems.org/gems/concurrent-ruby-1.1.6.gem"
-    sha256 "14da21d5cfe9ccb02e9359b01cb7291e0167ded0ec805d4f3a4b2b4ffa418324"
+    url "https://rubygems.org/gems/concurrent-ruby-1.1.7.gem"
+    sha256 "ff4befc88d522ccb2109596da26309f4b0b041683ca62d3cb903b313e1caddee"
   end
 
   resource "i18n" do
-    url "https://rubygems.org/gems/i18n-1.8.2.gem"
-    sha256 "95cf147081cc6f1dbfb32a8f29a03afe8b0f4da6a300d37d34e0f74a6868994b"
+    url "https://rubygems.org/gems/i18n-1.8.5.gem"
+    sha256 "f3bb7c9e89804cde8264b89f47f4746527f7293e7b5e4c74e66a9b70cfe97a94"
   end
 
   resource "minitest" do
-    url "https://rubygems.org/gems/minitest-5.14.0.gem"
-    sha256 "dfe35170edd195c3f32b43c2326a776e687f9efb330f185e43f0ca0a8be9e33c"
+    url "https://rubygems.org/gems/minitest-5.14.2.gem"
+    sha256 "9b401338e287c50cd2354353b4b781d3766d863cae413b2a1bf585d237131e9c"
   end
 
   resource "tzinfo" do
@@ -52,18 +54,23 @@ class Travis < Formula
   end
 
   resource "public_suffix" do
-    url "https://rubygems.org/gems/public_suffix-4.0.4.gem"
-    sha256 "3ff2a10253583b2780b6fb0ea643a2e877ae3bf719bd987fe5f16b550ec733d0"
+    url "https://rubygems.org/gems/public_suffix-4.0.6.gem"
+    sha256 "a99967c7b2d1d2eb00e1142e60de06a1a6471e82af574b330e9af375e87c0cf7"
   end
 
-  resource "ethon" do
-    url "https://rubygems.org/gems/ethon-0.12.0.gem"
-    sha256 "e99d3095e89f82c5a7e63d9261ddf4a21f28ae5d12a9d3abaa6920cce6cbef3d"
+  resource "diff-lcs" do
+    url "https://rubygems.org/gems/diff-lcs-1.4.4.gem"
+    sha256 "bf3a658875f70c1467fe7a3b302b795f074c84b28db6e4a2bd6b1ad6d12a2255"
+  end
+
+  resource "ruby2_keywords" do
+    url "https://rubygems.org/gems/ruby2_keywords-0.0.2.gem"
+    sha256 "145c91edd2ef4c509403328ed05ae4387a8841b7a3ae93679e71c0fd3860ec9e"
   end
 
   resource "faraday" do
-    url "https://rubygems.org/gems/faraday-1.0.1.gem"
-    sha256 "381aee04fcc9effbe5fa7cc703d8f5f20293722f987ded4f958f77514cd29373"
+    url "https://rubygems.org/gems/faraday-1.1.0.gem"
+    sha256 "6578c3ca23d2f63abf436031ca89b47ffe2c7b0d7952928ba079c75b22bfaa99"
   end
 
   resource "faraday_middleware" do
@@ -78,8 +85,8 @@ class Travis < Formula
   end
 
   resource "gh" do
-    url "https://rubygems.org/gems/gh-0.17.0.gem"
-    sha256 "7219a131780f2f21b7495e60e94dd5170e5ab6dc9a219f4623ca4175456d42da"
+    url "https://rubygems.org/gems/gh-0.18.0.gem"
+    sha256 "eb93f18a88db3ba92eb888610fc53fae731d9dacfe55922b58cc3f3aca776a47"
   end
 
   resource "highline" do
@@ -88,8 +95,13 @@ class Travis < Formula
   end
 
   resource "json" do
-    url "https://rubygems.org/gems/json-2.3.0.gem"
-    sha256 "b61691fd2087ac37141b75ff4287ce2c3f17251c713e97ef73b43b4bb2e0355b"
+    url "https://rubygems.org/gems/json-2.3.1.gem"
+    sha256 "3f9ebb42fcd46ec3ecad16c89c7b174dc539bdd353610c39c15aecca1d570e95"
+  end
+
+  resource "json_pure" do
+    url "https://rubygems.org/gems/json_pure-2.3.1.gem"
+    sha256 "9d06adb6c324d54e9fd363a55d5cdd3ce030e26cba189d82dc6872ec268fff02"
   end
 
   # launchy v2.5.0 requires ruby > 2.4.0
@@ -99,8 +111,8 @@ class Travis < Formula
   end
 
   resource "multi_json" do
-    url "https://rubygems.org/gems/multi_json-1.13.1.gem"
-    sha256 "db8613c039b9501e6b2fb85efe4feabb02f55c3365bae52bba35381b89c780e6"
+    url "https://rubygems.org/gems/multi_json-1.15.0.gem"
+    sha256 "1fd04138b6e4a90017e8d1b804c039031399866ff3fbabb7822aea367c78615d"
   end
 
   resource "multipart-post" do

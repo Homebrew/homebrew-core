@@ -12,6 +12,7 @@ class GitInteractiveRebaseTool < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "a04e9592263251aa339a90a19f2664db2490656c835e766f9f1b09f854c3ea0a" => :big_sur
     sha256 "ab2feae40a1c22695f88383fc0d25bd1ce90499cf74004719fbaf7540a673f09" => :catalina
     sha256 "50a7e6d5e3b6e0cdb75f9dd83fde8c9d473a632c8f22f575591fe4b5469a19bf" => :mojave
     sha256 "530ae677663e9773d05a17878a1e28e91e8751d9b9ac8cffdb0acaad7a7d1e8b" => :high_sierra

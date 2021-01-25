@@ -13,6 +13,8 @@ class Md5sha1sum < Formula
 
   bottle do
     cellar :any
+    sha256 "c3ce2a7048d5e035493c2f637249da99f726109a9a643498576441c4c9ec7d58" => :big_sur
+    sha256 "6d1aa8a6c57e734885363c8c2dec012e52716332706a7695f5d0994e75957fdf" => :arm64_big_sur
     sha256 "d498b282ccd1e70d8676184b3eda51eea4e99baacb92e6d69df2fd05a98d511f" => :catalina
     sha256 "b1dc1ded1df513c24b7eab764707b088f42661c2cf53395e42ee4e03c245ac5d" => :mojave
     sha256 "7ed564b5da0f1adf33c0242bffcd4e456d4e46540b578d3cdb810a9f6a28474b" => :high_sierra

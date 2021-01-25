@@ -1,18 +1,19 @@
 class Atomicparsley < Formula
   desc "MPEG-4 command-line tool"
   homepage "https://github.com/wez/atomicparsley"
-  url "https://github.com/wez/atomicparsley/archive/20200701.154658.b0d6223.tar.gz"
-  version "20200701.154658.b0d6223"
-  sha256 "52f11dc0cbd8964fcdaf019bfada2102f9ee716a1d480cd43ae5925b4361c834"
-  license "GPL-2.0"
+  url "https://github.com/wez/atomicparsley/archive/20210114.184825.1dbe1be.tar.gz"
+  version "20210114.184825.1dbe1be"
+  sha256 "8877262c86d0ad231a5b0eaa8ab9c0c1d4e06fafea0b96a819d9a5e565a28b8c"
+  license "GPL-2.0-or-later"
   version_scheme 1
   head "https://github.com/wez/atomicparsley.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6bc22e04f5d2863e73010606d823eb0768d637165d190d3889db3780bbbb724c" => :catalina
-    sha256 "204e206047f48cdffef4fa91f81dbce6db370f002dd883000798d91f2916c391" => :mojave
-    sha256 "ce2509fe2cc72c18b6b82c9df5e802e2503f61ebf841833618a974ac21fc92c3" => :high_sierra
+    sha256 "be1e8745667ef864650fff051ad1c14449401ecd407d16c737f58e38785ded95" => :big_sur
+    sha256 "a8e5692e8ef0283fd49d2f49c4496bfc89a083514da2334fa02eb6fc2f4e2989" => :arm64_big_sur
+    sha256 "49a797a44dce461bbd76fea51e4d4a855eec29bd6b83e592ff8acee2d44f8055" => :catalina
+    sha256 "a979f00c124189f4799f08b55b8554c5e36ddc17a1e682ac33e4d9615bdcc339" => :mojave
   end
 
   depends_on "cmake" => :build

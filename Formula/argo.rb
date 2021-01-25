@@ -2,19 +2,19 @@ class Argo < Formula
   desc "Get stuff done with container-native workflows for Kubernetes"
   homepage "https://argoproj.io"
   url "https://github.com/argoproj/argo.git",
-      tag:      "v2.11.6",
-      revision: "5eebce9af4409da9de536f189877542dd88692e0"
+      tag:      "v2.12.5",
+      revision: "53f022c3f740b5a8636d74873462011702403e42"
   license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4117cb5392f3dc58b7fa127ff5fcaeb094da95302ca4cdfa96e9564c62d0558a" => :catalina
-    sha256 "a3c878c148cba9e4853ff56aa9a0994ef79c620ae56364bc438c7c7798c747eb" => :mojave
-    sha256 "631cc45b6e65814d64ab5e425c4848efd9a73fada858b068251f52fc0f17c291" => :high_sierra
+    sha256 "68f0849f326afc1d77beb82cdeca8ef9b553869a08aafc41413a6b56ab12e424" => :big_sur
+    sha256 "ba77ab9b54808124026c52a68e2c396326e9ac57673a2892ed6c8993c3215c1c" => :catalina
+    sha256 "1f100dcd78d31d2be44177a4ee31745bdbc74ead094653ae5afd64d34ca3e612" => :mojave
   end
 
   depends_on "go" => :build
-  depends_on "node" => :build
+  depends_on "node@14" => :build
   depends_on "yarn" => :build
 
   def install
@@ -30,8 +30,8 @@ class Argo < Formula
   end
 
   test do
-    assert_match "argo is the command line interface to Argo",
-      shell_output("#{bin}/argo --help")
+    assert_match "argo:",
+      shell_output("#{bin}/argo version")
 
     # argo consumes the Kubernetes configuration with the `--kubeconfig` flag
     # Since it is an empty file we expect it to be invalid

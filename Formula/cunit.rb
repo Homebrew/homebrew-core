@@ -10,6 +10,8 @@ class Cunit < Formula
 
   bottle do
     cellar :any
+    sha256 "2d5e3e62c0d0cd5cbf119d93249ca2ab671bebf53c77947d5c59daaad55aefed" => :big_sur
+    sha256 "699850740de719430e01f95dcd1391d00d67f3b8e4a29201bdfc73cab9d2d04a" => :arm64_big_sur
     sha256 "5a03cc656131d1bcde14ec200be947c5b3caee6f5138e426b2b27b0286c59ee7" => :catalina
     sha256 "561baccf9e285cd65021b70342d1ba37b456a2f35c0324dfd2a65ea427641d27" => :mojave
     sha256 "23fdc88eeb1c4cf8d58e281e046f2e45a56860c0091e5c76f757f01679d143d2" => :high_sierra

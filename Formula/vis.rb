@@ -1,14 +1,16 @@
 class Vis < Formula
   desc "Vim-like text editor"
   homepage "https://github.com/martanne/vis"
-  url "https://github.com/martanne/vis/archive/v0.6.tar.gz"
-  sha256 "9ab4a3f1c5953475130b3c286af272fe5cfdf7cbb7f9fbebd31e9ea4f34e487d"
+  url "https://github.com/martanne/vis/archive/v0.7.tar.gz"
+  sha256 "359ebb12a986b2f4e2a945567ad7587eb7d354301a5050ce10d51544570635eb"
+  license "ISC"
   head "https://github.com/martanne/vis.git"
 
   bottle do
-    sha256 "370791e6f8c70327d9afc8049fe8f8ff16a9e843835efe9f606dbdef6c2319f3" => :catalina
-    sha256 "3f39518139d63c87a5a499a3ae53829bde4ed1b1eecbc5344d1bfe883ea16b7c" => :mojave
-    sha256 "166b64aad19e64712cfbf1f3da60cebf1fb6351b3f32921aa10060081cbcef3a" => :high_sierra
+    sha256 "4aeb0308a6d979940de003d4c2013c5c5b85eecf600b5f44351f5dae5bdfa99d" => :big_sur
+    sha256 "38e336f42ba65ee1cc621b885d364b0568fe8522ddf0ad370425b4409bc41f81" => :arm64_big_sur
+    sha256 "801a96b4aa47cbe0196af84017177d9e3bde18561a75bcf3e7bee970c491973a" => :catalina
+    sha256 "4abbde51b5cf5b4451678d2d4a6d8c1279c64cac44970b3715416beffb726b0f" => :mojave
   end
 
   depends_on "luarocks" => :build
@@ -22,9 +24,12 @@ class Vis < Formula
   end
 
   def install
+    # Make sure I point to the right version!
+    lua = Formula["lua"]
+
     luapath = libexec/"vendor"
-    ENV["LUA_PATH"] = "#{luapath}/share/lua/5.3/?.lua"
-    ENV["LUA_CPATH"] = "#{luapath}/lib/lua/5.3/?.so"
+    ENV["LUA_PATH"] = "#{luapath}/share/lua/#{lua.version.major_minor}/?.lua"
+    ENV["LUA_CPATH"] = "#{luapath}/lib/lua/#{lua.version.major_minor}/?.so"
 
     resource("lpeg").stage do
       system "luarocks", "build", "lpeg", "--tree=#{luapath}"

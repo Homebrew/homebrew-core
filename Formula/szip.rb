@@ -12,6 +12,8 @@ class Szip < Formula
 
   bottle do
     cellar :any
+    sha256 "1779ec8c3312993ef7e22679df6bbcd3adce9db28d3ad98adb54650c018ed294" => :big_sur
+    sha256 "8eaede9ea04a8c106c7f166f0922a1c3907a38b88867a2c51b48f060d51aaf6d" => :arm64_big_sur
     sha256 "e27bbc3b0a5d55b33051cb6ca509836e617b6f96361a70a187a6c8d53f2b520b" => :catalina
     sha256 "a6f7b3c066968d98311e0a1af58464562d586f0194f29d78d9ddbee59c96b833" => :mojave
     sha256 "3b84fc3869965a5851cd13554ab46283a13adfa568ca7df1288728b2cfde0c4a" => :high_sierra

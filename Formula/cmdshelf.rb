@@ -8,6 +8,8 @@ class Cmdshelf < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 2
+    sha256 "b6f07a011569e722624d846203a87807a5eee4dbbade4cd8b8d92f0b071ea884" => :big_sur
+    sha256 "9f40147d57994d19a28f05ef6bcb1c3f3382d17d46df244f34ed32e611de5729" => :arm64_big_sur
     sha256 "e4093bda9528ae027e122f321e2f1a44d3b4fc8b569e2bf0eba526399cccdacd" => :catalina
     sha256 "4c83af8661b368f727a389f12d434be45655d10aef9ae1acb8b2be830aae0558" => :mojave
     sha256 "c0cdc78df3f3896e4e8ba2112ec6e5189682da06419637ebfa9d660ff4fb902f" => :high_sierra

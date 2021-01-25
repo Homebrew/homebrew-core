@@ -7,19 +7,23 @@ class Ahcpd < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7440676cc30eed4de9c2cb3ad3c9a9691ba0da6636e4d38a33722ca54d168c9d" => :catalina
-    sha256 "8852e7e5e11d6ea413657d012e4d49ca0d9ac406e56da6bf7c0daa6d4d788a16" => :mojave
-    sha256 "ab3221a9f28ded916f8d2ef4b8377a2a793fa2fee5f891b9a97e3dede0d294ae" => :high_sierra
-    sha256 "d3a8a4efb712e2c6a8a055276e5d93d3275a638df4231a4dfe8d428a2606d776" => :sierra
-    sha256 "b37143ee365a4a3afd9623d5f49eab0bc4bdf9ac3662d22db9671cffa1078224" => :el_capitan
-    sha256 "36907bc1aadc9d9d874ebd74624d8c2c2e8b4057181df1e964720a41f72ccae8" => :yosemite
-    sha256 "8518f82187d2b8d2bc24648bd072f19073e159abb2bdaf5418ad31e3ab966d0b" => :mavericks
+    rebuild 1
+    sha256 "3f3e332726a04e2cb6a639b18d0092a80cf8d83a9363e75c6579d73ba8ac4d16" => :big_sur
+    sha256 "49ef92eb18038f60e6419a5dfecd11be62f3b69cb4778c473050e5443e72ac06" => :arm64_big_sur
+    sha256 "9320f1465296a364f0d55ffca9342f087b781f0853ad2213b278189bfc062202" => :catalina
+    sha256 "22a512b076e972064d6b0af3eb696a5d2ee62c06aadd2aea01a0bec886d28379" => :mojave
   end
 
   patch :DATA
 
   def install
-    system "make", "LDLIBS=''"
+    on_macos do
+      # LDLIBS='' fixes: ld: library not found for -lrt
+      system "make", "LDLIBS=''"
+    end
+    on_linux do
+      system "make"
+    end
     system "make", "install", "PREFIX=", "TARGET=#{prefix}"
   end
 

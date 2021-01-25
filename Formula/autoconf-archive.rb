@@ -13,6 +13,8 @@ class AutoconfArchive < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "4927fe28a3553eb7b369ae1c8f4c4ae52a8897f2409ca0438c2a334466c89163" => :big_sur
+    sha256 "c5adb533acd2e940523d4d49878a64ca53acd120144a448b55627ce6876af06e" => :arm64_big_sur
     sha256 "75309bbf34fa9694b048206e2f79c477e8259c22df8173b43b9ec4294cff0f63" => :catalina
     sha256 "18bec44cb2eb240971a855df50102aa6d5e6eadab4a325b3b562a04057991d0c" => :mojave
     sha256 "ef88538afd7d325b368f15e592a62e087b4bddc66f09e65551cc3597fb3da7a3" => :high_sierra

@@ -1,18 +1,29 @@
 class RomTools < Formula
   desc "Tools for Multiple Arcade Machine Emulator"
   homepage "https://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/mame0225.tar.gz"
-  version "0.225"
-  sha256 "ca4d5a429d72b30fd2bdf60350e490c7de4ac64b1e0dafcf38450f8ba84a1a95"
+  # NOTE: Please keep these values in sync with mame.rb when updating.
+  url "https://github.com/mamedev/mame/archive/mame0227.tar.gz"
+  version "0.227"
+  sha256 "95dbce00a4f05a35f66ef966fe9efad1e4e78ce62e0eba3f7031dfa6737829a5"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://github.com/mamedev/mame.git"
+
+  # MAME tags (and filenames) are formatted like `mame0226`, so livecheck will
+  # report the version like `0226`. We work around this by matching the link
+  # text for the release title, since it contains the properly formatted version
+  # (e.g., 0.226).
+  livecheck do
+    url :stable
+    strategy :github_latest
+    regex(%r{release-header.*?/releases/tag/mame[._-]?\d+(?:\.\d+)*["' >]>MAME v?(\d+(?:\.\d+)+)}im)
+  end
 
   bottle do
     cellar :any
-    sha256 "5e482f1c3f9837e960994bbffb0cea88c20adc5821801a33fefebeacdba862d4" => :catalina
-    sha256 "dac126e77bb27ddb02065cd7c85d3da6fd8643fb66c793592a524d7cccd9aab2" => :mojave
-    sha256 "78ccfc13ea500bdee82d66517c8786b46e0dd329e967c91f2591ea48141f0c73" => :high_sierra
+    sha256 "a3e44ba13e3b5ac1364b8e9f8dd69f94a80c04f9c2f32618ad4d92cca22b6089" => :big_sur
+    sha256 "ee6184ba808b242ccd16c67dad339734fa23f1c18701cd90ab0c7af5e9a833cd" => :arm64_big_sur
+    sha256 "01f4834ddf14b8104b3897be4a7a26afc8ed23448ccb4dee8eb3349922b46f42" => :catalina
+    sha256 "711ea5647b19ed358c6f0c5c2a2f9b4a3b08e9713d84ce307ca191e85719a242" => :mojave
   end
 
   depends_on "pkg-config" => :build

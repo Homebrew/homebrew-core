@@ -9,6 +9,8 @@ class Httpry < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "4be4a4e9939e75e8eb4854df6003265f986ada5b2d08ba96fbaf355323f184f2" => :big_sur
+    sha256 "96df271f206bb36741a419eb5dced955578cb462c849da52e61778102f8629d2" => :arm64_big_sur
     sha256 "322f399002eec5d9116942db65d231d7eed5bb1b46e9959cdb48c6eb10f41339" => :catalina
     sha256 "32bdf2c6b873fc531455da9f4658746c650203a017c8b367172efde8aa93f9ba" => :mojave
     sha256 "349ba4f39066cb02c151ab0f274f6bb9f4ee2cf558abdb2c5a3ecf0e563874fc" => :high_sierra

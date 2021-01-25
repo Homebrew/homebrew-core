@@ -1,15 +1,16 @@
 class Utf8proc < Formula
   desc "Clean C library for processing UTF-8 Unicode data"
   homepage "https://juliastrings.github.io/utf8proc/"
-  url "https://github.com/JuliaStrings/utf8proc/archive/v2.5.0.tar.gz"
-  sha256 "d4e8dfc898cfd062493cb7f42d95d70ccdd3a4cd4d90bec0c71b47cca688f1be"
+  url "https://github.com/JuliaStrings/utf8proc/archive/v2.6.1.tar.gz"
+  sha256 "4c06a9dc4017e8a2438ef80ee371d45868bda2237a98b26554de7a95406b283b"
   license all_of: ["MIT", "Unicode-DFS-2015"]
 
   bottle do
     cellar :any
-    sha256 "f215acf62769b7036110950b65285742b6550c631b0606befa12b98f32c53130" => :catalina
-    sha256 "1bd0f29df929fff62b33895ca76162b9d376aefea09115c84a3841793fa7a9a3" => :mojave
-    sha256 "12b05c0477b8f6fd029f3723d74712f267960fb9d212a21520f9a557d3cd516c" => :high_sierra
+    sha256 "7d57bb4f93fdfd377fda65e74b9bf1cb7b2b4875a4481682a4b2a39cfe65d3e7" => :big_sur
+    sha256 "e3845f14873623bba6259adc3f2b129d7a2ca41683764de6335eda07a30c3de7" => :arm64_big_sur
+    sha256 "cf77fdee400e5692c3b78f0fc599e575b071b11a70ff1f3443e22c8dd14bd0fe" => :catalina
+    sha256 "1bee383abb84a7f9921e1c6b3aa26de0c8c79295c4ae184959521bf537ba4552" => :mojave
   end
 
   def install

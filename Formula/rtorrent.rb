@@ -8,6 +8,8 @@ class Rtorrent < Formula
 
   bottle do
     cellar :any
+    sha256 "871a1aa520a4a0e35b354a2b350bf5db25e6ddce1f700aa8a222a3993872b124" => :big_sur
+    sha256 "8f52ee42bb5991c719be574ecc13975e0ff8ffd3adea9011aaae89944a90c893" => :arm64_big_sur
     sha256 "fb9d292ae3f773162316eac2516bcc12a5a63718d4638aa4ff08a7d57e8a853e" => :catalina
     sha256 "7bdf998faac16a4411e0f52ef906e09dff47507cef2b1218ac59b82d9298ae72" => :mojave
     sha256 "ac0c6f9edd1fc875266e08a9d7576251d8be88f86162e5a431b10a5c5bb5f0b0" => :high_sierra

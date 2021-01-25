@@ -15,6 +15,8 @@ class Udns < Formula
     sha256 "d6be7acb570845e63c6ac69b8169c4ce1d5a31f5f76f60bad10168a5b13126ff" => :mavericks
   end
 
+  disable! date: "2020-12-08", because: :unmaintained
+
   # Build target for dylib. See:
   # https://www.corpit.ru/pipermail/udns/2011q3/000154.html
   patch do

@@ -8,6 +8,8 @@ class Blazeblogger < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "595702af4db6b12264bffdfa430b29c55474e15fcb9fc95cf7dec509dbe1bce5" => :big_sur
+    sha256 "d7c1a4c1663a7da5774e534eec48e6ab245f22d20f1f98a3186b7877f8bc4bcf" => :arm64_big_sur
     sha256 "cb9f78c2ae445f20f90c62b634fa4ee32ac282fc0a005099dcb5593b5008f99e" => :catalina
     sha256 "c7350b4fc7cb74eb436f431aed0e54160bb2da31593f623573b6396287342148" => :mojave
     sha256 "7cb9d122a9c892a89d36a886c2be63536ca339def18d2766fde8f96e87c0d0cd" => :high_sierra

@@ -6,6 +6,8 @@ class Librsync < Formula
   license "LGPL-2.1"
 
   bottle do
+    sha256 "718cdee2aa974cb87367e5fcf26eee51e4d77552a9033622a8c3584e09f99f0e" => :big_sur
+    sha256 "f849718419f4b2bcd7411e9840a3f075ab8880794d342fc6eb3521c454d3ef8d" => :arm64_big_sur
     sha256 "eb1526a88a99556f1ae98c7fa008a8c17ddbe2efe2e55de0192ccbccf9840937" => :catalina
     sha256 "27f16505bf1b37a9701d70701e708451d47743a3b4d453dcc1d4048065af05af" => :mojave
     sha256 "20fd33975022b7caaa12b9906b726f1b9dd9a792d9291170e72298a351650610" => :high_sierra

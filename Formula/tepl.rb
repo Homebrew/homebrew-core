@@ -1,8 +1,8 @@
 class Tepl < Formula
   desc "GNOME Text Editor Product Line"
   homepage "https://wiki.gnome.org/Projects/Tepl"
-  url "https://download.gnome.org/sources/tepl/5.0/tepl-5.0.0.tar.xz"
-  sha256 "c6bd2904f53048b7d0149236610b38f502f2634d395d8b9b3c659553f4045a74"
+  url "https://download.gnome.org/sources/tepl/5.0/tepl-5.0.1.tar.xz"
+  sha256 "b1274967609f524484b38775fa9ecb296c6d6616aabd052f286339a289912804"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -10,9 +10,10 @@ class Tepl < Formula
   end
 
   bottle do
-    sha256 "c468b92600e689550cdf0afb8e2c3ad4591327c90d2caa9b39c8fb0727f650a4" => :catalina
-    sha256 "0593319d1424c613666c8af0e9e5846a2e2f6dde5f89d7d773229f20ee5fa3c1" => :mojave
-    sha256 "5bc47ec661d1b2b9e0545f71d02cb414eae1fdeeb8dfb615682ffc6e997407c5" => :high_sierra
+    sha256 "6c38d94b1b6229fc7d19d0e69f8ef120ce4240d37a92be886aeab5e34975b0b2" => :big_sur
+    sha256 "b004d7cbc84ea585b4314dbe7e74c067d8afbe91e74e332f791e943cccb29ca7" => :arm64_big_sur
+    sha256 "675eed4ccdb966979a976569153b4fc9e7523f33e745bf4af6816c57c110f753" => :catalina
+    sha256 "d2f9ce09157721d7c2b6b989c999b286e26e6cd626c98d8dd110cf5465091891" => :mojave
   end
 
   depends_on "gobject-introspection" => :build

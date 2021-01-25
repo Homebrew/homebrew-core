@@ -3,17 +3,23 @@ class Flake8 < Formula
 
   desc "Lint your Python code for style and logical errors"
   homepage "https://flake8.pycqa.org/"
-  url "https://gitlab.com/pycqa/flake8/-/archive/3.8.4/flake8-3.8.4.tar.bz2"
-  sha256 "66f65cf5614a24f813a76ab6388507ad8def068dcee859568a3c32a49a5d597b"
+  url "https://files.pythonhosted.org/packages/71/6a/b3341ef7e7f3585add027d876a7d9837cdfe3320b6c6b5fd0cddfa9ceeac/flake8-3.8.4.tar.gz"
+  sha256 "aadae8761ec651813c24be05c6f7b4680857ef6afaae4651a4eccaef97ce6c3b"
   license "MIT"
   revision 1
   head "https://gitlab.com/PyCQA/flake8.git", shallow: false
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
-    sha256 "77549fc69b29277ab03f89a5d0f266163fa3989f15c6bc69a3ed822e124c21a8" => :catalina
-    sha256 "6e6ed9e932cbf0bb54700d6e0e8d8433254b6fa250951f2b7ea27cdf53e6a32e" => :mojave
-    sha256 "57fef973e58c0e8bb0ac0030844c3cba24001fd3676c2f2c95d76ea74c460897" => :high_sierra
+    rebuild 1
+    sha256 "1897e2a2000df43795e4a1b1de0fecb1e0141e0abce4c0b8df3c6ebad065f8c0" => :big_sur
+    sha256 "919c2b7426270504f2cad10d6652336476d3cea402880c5de2653cf2ec21587b" => :arm64_big_sur
+    sha256 "136faaf5ecc55423194ac71a9eba7b1b03e694b0f7d4552c7c3d02cc3a7b1377" => :catalina
+    sha256 "77329693f9aaf1267a46c1fad72ccb976ccf9995767c256cf89458d36e27f663" => :mojave
   end
 
   depends_on "python@3.9"
@@ -38,10 +44,15 @@ class Flake8 < Formula
   end
 
   test do
-    (testpath/"test.py").write <<~EOS
+    (testpath/"test-bad.py").write <<~EOS
+      print ("Hello World!")
+    EOS
+
+    (testpath/"test-good.py").write <<~EOS
       print("Hello World!")
     EOS
 
-    system "#{bin}/flake8", "test.py"
+    assert_match "E211", shell_output("#{bin}/flake8 test-bad.py", 1)
+    assert_empty shell_output("#{bin}/flake8 test-good.py")
   end
 end

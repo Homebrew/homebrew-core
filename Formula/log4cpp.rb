@@ -12,6 +12,8 @@ class Log4cpp < Formula
 
   bottle do
     cellar :any
+    sha256 "ff54331ebc21d9e5bcc75faf5af6750ce944485bd6cac293bd879c04c762dc7c" => :big_sur
+    sha256 "6d5fcedb4afd7681c3ed5e6e65b300487527789144183e854d846a335c26b545" => :arm64_big_sur
     sha256 "3e08cff5384ae60222e67b63aadfda07534daa4d962b66167c5ffd8c1a55edf7" => :catalina
     sha256 "0e0950a9b99a406b035e13c8acae673ce190a436920940d8150abe0c90cf1e84" => :mojave
     sha256 "a80304325ab0f551054b169320c6f726f1c8a78d56eb56e7f14793c0f8cc8836" => :high_sierra

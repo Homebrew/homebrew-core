@@ -3,17 +3,22 @@ class Statik < Formula
 
   desc "Python-based, generic static web site generator aimed at developers"
   homepage "https://getstatik.com"
-  url "https://github.com/thanethomson/statik/archive/v0.23.0.tar.gz"
-  sha256 "6159066f486811e5773da318d6e8d1b1dd4c99ac140f1a3c660ef1c1f5e7124f"
+  url "https://files.pythonhosted.org/packages/c1/f7/c1dc03a0ed218cb5d3e72f0983dcc18b441cc9d3275b527a5cb0a479dc2a/statik-0.23.0.tar.gz"
+  sha256 "9ce2c5a76284aa7d3eba2dc5b167c39d0249f96da08213a14c89f0b7edcb7746"
   license "MIT"
-  revision 2
+  revision 3
   head "https://github.com/thanethomson/statik.git"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any
-    sha256 "60f8ec8cefcd4e7f98a894c35521fb635f033a1cdf9dede1a29b590afb5242a8" => :catalina
-    sha256 "910b7adb6ef7eece9cf1ebcc8ecc1d15377015467ca6de86e646d3141d31df0d" => :mojave
-    sha256 "c36c8cab174dba74e8e1998f7530609ef3514ad51f9a88a7b1471122a9829fa2" => :high_sierra
+    sha256 "4e57a49a51d642f6bf6aa16ec861e0d598099243b2f8adffd1bacc1c99f1c5e1" => :big_sur
+    sha256 "d8ccb5efc25d0435ccf7c543d86991a83622845d04426eb1823e7e670ac9dbcd" => :arm64_big_sur
+    sha256 "6ead20ec4625d2155252c892c47342571dcd390d630c38be2c73cf89b68c98ca" => :catalina
+    sha256 "5579aa466a747a15839a89b48c875b7afc6d225ff9af028a62ccc9eacee115c7" => :mojave
   end
 
   depends_on "libpq"
@@ -43,8 +48,8 @@ class Statik < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/05/54/3324b0c46340c31b909fcec598696aaec7ddc8c18a63f2db352562d3354c/cffi-1.14.0.tar.gz"
-    sha256 "2d384f4a127a15ba701207f7639d94106693b6cd64173d6c8988e2c25f3ac2b6"
+    url "https://files.pythonhosted.org/packages/66/6a/98e023b3d11537a5521902ac6b50db470c826c682be6a8c661549cb7717a/cffi-1.14.4.tar.gz"
+    sha256 "1a465cbe98a7fd391d47dce4b8f7e5b921e6cd805ef421d04f5f66ba8f06086c"
   end
 
   resource "chardet" do

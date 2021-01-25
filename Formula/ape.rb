@@ -1,6 +1,6 @@
 class Ape < Formula
   desc "Ajax Push Engine"
-  homepage "http://www.ape-project.org/"
+  homepage "https://web.archive.org/web/20200810042306/www.ape-project.org/"
   url "https://github.com/APE-Project/APE_Server/archive/v1.1.2.tar.gz"
   sha256 "c5f6ec0740f20dd5eb26c223149fc4bade3daadff02a851e2abb7e00be97db42"
   license "GPL-2.0"
@@ -13,6 +13,8 @@ class Ape < Formula
     sha256 "3859216e566e6faaccc7183d737527dd4785260a698c8344520e7951baebca76" => :yosemite
     sha256 "83c7ef23309dec2e7bd4bec3ae75b6f0e04fcfecbda489c90810b6948eb3bb28" => :mavericks
   end
+
+  disable! date: "2020-12-08", because: :unmaintained
 
   def install
     system "./build.sh"

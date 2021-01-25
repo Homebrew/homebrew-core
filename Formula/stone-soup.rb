@@ -1,10 +1,9 @@
 class StoneSoup < Formula
   desc "Dungeon Crawl Stone Soup: a roguelike game"
   homepage "https://crawl.develz.org/"
-  url "https://github.com/crawl/crawl/archive/0.25.1.tar.gz"
-  sha256 "41ddf73543940a4d16a7f23c618e2f464dd6d3dd3affc999d2412d8af3f01126"
+  url "https://github.com/crawl/crawl/archive/0.26.0.tar.gz"
+  sha256 "6306c835246057bf91b6690fde14c2c3433ebe1d526876f96c46fab6dc109d45"
   license "GPL-2.0"
-  revision 1
 
   livecheck do
     url "https://crawl.develz.org/download.htm"
@@ -12,9 +11,10 @@ class StoneSoup < Formula
   end
 
   bottle do
-    sha256 "d204a26d9742e6355a77d867878044e88302df1814c55c02ca0056698a6c668d" => :catalina
-    sha256 "55ca7e2a08746780c722188bfb5805369afbde633f819ebc88acc24cec478633" => :mojave
-    sha256 "6e0ff6160286762bce0fed0805ff0d9384f2c183fb351df174b4fe31705dab8d" => :high_sierra
+    sha256 "0023d33f5c5205df2d97ed298dc40155d90db29f986bf58825e1f8c33a4f5375" => :big_sur
+    sha256 "0985f51f3dec4da7085b6b8c4c28ad650f0abfcca0ff93b2f30b15b8bb408cba" => :arm64_big_sur
+    sha256 "b1f22b829dd8fd185559988b5f77519b388b9bb928ee4c8ab43b904898d3e07c" => :catalina
+    sha256 "73e93b52661b35d99cde73d7b9ce3ed655cd4da4389b2bed582f2c791745b9ed" => :mojave
   end
 
   depends_on "pkg-config" => :build

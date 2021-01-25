@@ -1,11 +1,10 @@
 class Nettle < Formula
   desc "Low-level cryptographic library"
   homepage "https://www.lysator.liu.se/~nisse/nettle/"
-  url "https://ftp.gnu.org/gnu/nettle/nettle-3.6.tar.gz"
-  mirror "https://ftpmirror.gnu.org/nettle/nettle-3.6.tar.gz"
-  sha256 "d24c0d0f2abffbc8f4f34dcf114b0f131ec3774895f3555922fe2f40f3d5e3f1"
-  # license ["GPL-2.0", "GPL-3.0", "LGPL-3.0"] - pending https://github.com/Homebrew/brew/pull/7953
-  license "GPL-2.0"
+  url "https://ftp.gnu.org/gnu/nettle/nettle-3.7.tar.gz"
+  mirror "https://ftpmirror.gnu.org/nettle/nettle-3.7.tar.gz"
+  sha256 "f001f64eb444bf13dd91bceccbc20acbc60c4311d6e2b20878452eb9a9cec75a"
+  license any_of: ["GPL-2.0-or-later", "LGPL-3.0-or-later"]
 
   livecheck do
     url :stable
@@ -13,9 +12,10 @@ class Nettle < Formula
 
   bottle do
     cellar :any
-    sha256 "7ac7677ba653dbef81dd83ed8cde3dfcb7b464d04442886c396179932f4f9faa" => :catalina
-    sha256 "d378b026725d8d449ca6497ce2158b93c991a0e0326921a5f914bc4847da3a92" => :mojave
-    sha256 "07c65cb4d172b05065dcceb702b41ca3408b31b6154690c7a4cfa430b2de074d" => :high_sierra
+    sha256 "e02e4ae1f73b54c0976a2e7afdbe2f461a202362c51c68e341f289477a9dfb6b" => :big_sur
+    sha256 "0f8cf7b90122188810887bd0b4b6230b1cf07898f7a135f8832db744fe89bd0d" => :arm64_big_sur
+    sha256 "d36ac9557eea88d8bbc2395a722af383f51f15dba6d1334bff024134579be7f7" => :catalina
+    sha256 "f3fd4302a0084c4be612b8f5d0968a86360bf5a080fa56977d9b293274144a13" => :mojave
   end
 
   depends_on "gmp"

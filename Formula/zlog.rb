@@ -7,6 +7,7 @@ class Zlog < Formula
 
   bottle do
     cellar :any
+    sha256 "07b323ff8ba13c92bf8c720b6fd0a760a776b5e9d6f46356700066ef2b3643a6" => :big_sur
     sha256 "31352f21933854c635450c9cc5c00f1dc1370a62a331a691879bea2eaba45582" => :catalina
     sha256 "170ffd446913b23c344d82160c19bfb1c8325c07dc31490a636e72345abe1c7b" => :mojave
     sha256 "332ed23525b10970bd5bc81052bae67755aee5f2651fdaafed5dd036da470239" => :high_sierra

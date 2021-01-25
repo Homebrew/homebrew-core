@@ -2,21 +2,21 @@ class Csound < Formula
   desc "Sound and music computing system"
   homepage "https://csound.com"
   url "https://github.com/csound/csound.git",
-    tag:      "6.15.0",
-    revision: "18c2c7897425f462b9a7743cee157cb410c88198"
+      tag:      "6.15.0",
+      revision: "18c2c7897425f462b9a7743cee157cb410c88198"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 4
   head "https://github.com/csound/csound.git", branch: "develop"
 
   livecheck do
-    url "https://github.com/csound/csound/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
-    sha256 "d0d9f99b5afdecb3df96968a547b907862c721c6ef903d4681df0036d1f5ac07" => :catalina
-    sha256 "b78a4d843e44cb5fa29122647abf2fa544e944b22e3b6637dc8e665e17db14d5" => :mojave
-    sha256 "9393b139b0ca4bcef998414750066c8539bc37aa299d962407f5e5cf5c712511" => :high_sierra
+    sha256 "cd7229bcb6dd8b392641af2cf3590a75b98c1f37d6b48c46cdcb06b5508b10f6" => :big_sur
+    sha256 "0376c79adfaa8db7ea5ae58ae1b7a46c03bf1243fa04ec944f8b8699d57872be" => :catalina
+    sha256 "f2fcfd3dcb10ac3e02920f006b4c09e39365ea4da09c7322b825a766c0e5ec8a" => :mojave
   end
 
   depends_on "asio" => :build
@@ -50,8 +50,8 @@ class Csound < Formula
   conflicts_with "pkcrack", because: "both install `extract` binaries"
 
   resource "ableton-link" do
-    url "https://github.com/Ableton/link/archive/Link-3.0.2.tar.gz"
-    sha256 "2716e916a9dd9445b2a4de1f2325da818b7f097ec7004d453c83b10205167100"
+    url "https://github.com/Ableton/link/archive/Link-3.0.3.tar.gz"
+    sha256 "195b46f7a33bb88800de19bb08065ec0235e5a920d203a4b2c644c18fbcaff11"
   end
 
   resource "getfem" do
@@ -88,7 +88,7 @@ class Csound < Formula
 
     libexec.install buildpath/"interfaces/ctcsound.py"
 
-    python_version = Language::Python.major_minor_version Formula["python@3.8"].bin/"python3"
+    python_version = Language::Python.major_minor_version Formula["python@3.9"].bin/"python3"
     (lib/"python#{python_version}/site-packages/homebrew-csound.pth").write <<~EOS
       import site; site.addsitedir('#{libexec}')
     EOS
@@ -153,7 +153,7 @@ class Csound < Formula
     system bin/"csound", "--orc", "--syntax-check-only", "opcode-existence.orc"
 
     with_env("DYLD_FRAMEWORK_PATH" => frameworks) do
-      system Formula["python@3.8"].bin/"python3", "-c", "import ctcsound"
+      system Formula["python@3.9"].bin/"python3", "-c", "import ctcsound"
     end
 
     (testpath/"test.java").write <<~EOS

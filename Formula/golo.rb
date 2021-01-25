@@ -7,6 +7,11 @@ class Golo < Formula
   revision 2
   head "https://github.com/eclipse/golo-lang.git"
 
+  livecheck do
+    url "https://golo-lang.org/download/"
+    regex(/href=.*?golo[._-]v?(\d+(?:\.\d+)+)\.zip/i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk@11"

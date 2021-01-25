@@ -7,6 +7,8 @@ class Memcacheq < Formula
 
   bottle do
     cellar :any
+    sha256 "cb5925b52641c27251a29e6f5e3cb81b1f076fad26b9c51872c84e771d81f431" => :big_sur
+    sha256 "f1f10acf0972b437479caeaa6e39cf7171d08b30f9ff61419d44fb49b980529c" => :arm64_big_sur
     sha256 "214615ae51f807fb4a2990c337545be6376b74741467e91faaff57fb49008ea0" => :catalina
     sha256 "3a41379223936c7802a6df61454f70cb14fb6df6ae43e46d32fea87b1194c11b" => :mojave
     sha256 "8e519465f17eadf1db20439176d6d4c120572ca700e3c6d33706df73788f88f7" => :high_sierra

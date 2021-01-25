@@ -23,6 +23,7 @@ class ErlangAT21 < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on arch: :x86_64
   depends_on "openssl@1.1"
   depends_on "wxmac" # for GUI apps like observer
 
@@ -54,7 +55,7 @@ class ErlangAT21 < Formula
 
   def install
     # Unset these so that building wx, kernel, compiler and
-    # other modules doesn't fail with an unintelligable error.
+    # other modules doesn't fail with an unintelligible error.
     %w[LIBS FLAGS AFLAGS ZFLAGS].each { |k| ENV.delete("ERL_#{k}") }
 
     # Do this if building from a checkout to generate configure
@@ -73,11 +74,13 @@ class ErlangAT21 < Formula
       --enable-wx
       --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
       --without-javac
-      --enable-darwin-64bit
     ]
 
-    args << "--enable-kernel-poll" if MacOS.version > :el_capitan
-    args << "--with-dynamic-trace=dtrace" if MacOS::CLT.installed?
+    on_macos do
+      args << "--enable-darwin-64bit"
+      args << "--enable-kernel-poll" if MacOS.version > :el_capitan
+      args << "--with-dynamic-trace=dtrace" if MacOS::CLT.installed?
+    end
 
     system "./configure", *args
     system "make"
@@ -113,10 +116,10 @@ class ErlangAT21 < Formula
           end;
       main(_) ->
           usage().
-      
+
       usage() ->
           io:format("usage: factorial integer\n").
-      
+
       fac(0) -> 1;
       fac(N) -> N * fac(N-1).
     EOS

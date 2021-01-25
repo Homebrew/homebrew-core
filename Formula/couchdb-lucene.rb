@@ -4,18 +4,18 @@ class CouchdbLucene < Formula
   url "https://github.com/rnewson/couchdb-lucene/archive/v2.1.0.tar.gz"
   sha256 "8297f786ab9ddd86239565702eb7ae8e117236781144529ed7b72a967224b700"
   license "Apache-2.0"
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "56e618fa1e535e061171d52dde83b617f4793b17654c4cc9adf1fc125607e096" => :catalina
-    sha256 "03b37461aeb2eb4172ee4ff18a44c9074d9b486bec0d3192a37bb22262e078c6" => :mojave
-    sha256 "2081b4665600643fd02deaac5b2177622d91729b6aec56197087b81412ecae35" => :high_sierra
+    sha256 "8c75a95f3c1909e99602f51ed4c55fc2eb495910d8772b9b693347c633141715" => :big_sur
+    sha256 "5888b91cbf5c0fe4744ee9f1cf0ca204f9dd89e125a06fc928375b1d2770ae87" => :catalina
+    sha256 "d7e8191c66bc938d7c8e15c10c13612be41ef601f5f6ab78b9ef5275c04bf89d" => :mojave
   end
 
   depends_on "maven" => :build
   depends_on "couchdb"
-  depends_on java: "1.8"
+  depends_on "openjdk"
 
   def install
     system "mvn"
@@ -25,22 +25,16 @@ class CouchdbLucene < Formula
     rm_rf Dir["bin/*.bat"]
     libexec.install Dir["*"]
 
+    env = Language::Java.overridable_java_home_env
+    env["CL_BASEDIR"] = libexec/"bin"
     Dir.glob("#{libexec}/bin/*") do |path|
       bin_name = File.basename(path)
       cmd = "cl_#{bin_name}"
-      (bin/cmd).write shim_script(bin_name)
+      (bin/cmd).write_env_script libexec/"bin/#{bin_name}", env
       (libexec/"clbin").install_symlink bin/cmd => bin_name
     end
 
     ini_path.write(ini_file) unless ini_path.exist?
-  end
-
-  def shim_script(target)
-    <<~EOS
-      #!/bin/bash
-      export CL_BASEDIR=#{libexec}/bin
-      exec "$CL_BASEDIR/#{target}" "$@"
-    EOS
   end
 
   def ini_path
@@ -102,8 +96,8 @@ class CouchdbLucene < Formula
     # This seems to be the easiest way to make the test play nicely in our
     # sandbox. If it works here, it'll work in the normal location though.
     cp_r Dir[opt_prefix/"*"], testpath
-    inreplace "bin/cl_run", "CL_BASEDIR=#{libexec}/bin",
-                            "CL_BASEDIR=#{testpath}/libexec/bin"
+    inreplace "bin/cl_run", "CL_BASEDIR=\"#{libexec}/bin\"",
+                            "CL_BASEDIR=\"#{testpath}/libexec/bin\""
     port = free_port
     inreplace "libexec/conf/couchdb-lucene.ini", "port=5985", "port=#{port}"
 

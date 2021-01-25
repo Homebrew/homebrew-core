@@ -1,9 +1,9 @@
 class Ibex < Formula
   desc "C++ library for constraint processing over real numbers"
   homepage "https://web.archive.org/web/20190826220512/www.ibex-lib.org/"
-  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.8.8.tar.gz"
-  sha256 "8de5012232009e29b833e68cffbb62be228a863aa57712207b1933199c3c8e11"
-  license "LGPL-3.0"
+  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.8.9.tar.gz"
+  sha256 "fee448b3fa3929a50d36231ff2f14e5480a0b82506594861536e3905801a6571"
+  license "LGPL-3.0-only"
   head "https://github.com/ibex-team/ibex-lib.git"
 
   livecheck do
@@ -13,9 +13,10 @@ class Ibex < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6c0ab52bf081342e3467176f3f777ca5825df8fae28e10d70cdad41978728a8c" => :catalina
-    sha256 "9ce827d5149844bcef31509aff4f4700865029ed6c21d941fc6d1301c1ab6a06" => :mojave
-    sha256 "ae4bc25a0504f206517129a809afa42c26bba93f93573c4cba97cddd0726f63f" => :high_sierra
+    sha256 "2fe73bcec8be89daf46ad449cced7ea3d5584d1eb8138343359fc0898e3ec826" => :big_sur
+    sha256 "838265b9b44453641e3cbc39dbbb8903666ba3413ef8c7dc68af69f9759f4351" => :catalina
+    sha256 "91e091b03e482a8bae5248a435a8e827c79923aaee9f98f99d33254e176560d2" => :mojave
+    sha256 "bb10a673525d7145196f523190401c2aa42345b5035ed2bcf261081e3653638f" => :high_sierra
   end
 
   depends_on "bison" => :build

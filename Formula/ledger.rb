@@ -4,7 +4,7 @@ class Ledger < Formula
   url "https://github.com/ledger/ledger/archive/v3.2.1.tar.gz"
   sha256 "92bf09bc385b171987f456fe3ee9fa998ed5e40b97b3acdd562b663aa364384a"
   license "BSD-3-Clause"
-  revision 2
+  revision 4
   head "https://github.com/ledger/ledger.git"
 
   livecheck do
@@ -13,22 +13,23 @@ class Ledger < Formula
   end
 
   bottle do
-    sha256 "9f19cc8b74fe91947ed39dfb1c7f69d98ffcd69ab8c3216c3406781a17471539" => :catalina
-    sha256 "1918009a3f3fbbd9347406bca4e3317d1b9215167eb9a6cbf09db6737f01cf1b" => :mojave
-    sha256 "f8db0f0c312bd26da3bb8e9a28abfeeae318aed1f99194bdbe815015ecb5029d" => :high_sierra
+    sha256 "b65a9b4ec2be3cc44503122ec6dcb41d1101fa3425a64b197b08743fe3aaad84" => :big_sur
+    sha256 "2606457bb4b8596b5502ce4a4f1e61d62e71fa29118987ff14eb6b7d26d81368" => :arm64_big_sur
+    sha256 "be65eaa4610eb98628f7c3abaf5582dd0ab145a991275e2550e48cebc313a012" => :catalina
+    sha256 "47990a19ee10042ffb198cb105cb9c56a11a3d8db606166f57a57c9a9c89620a" => :mojave
   end
 
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "gmp"
   depends_on "mpfr"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "groff"
 
   def install
     ENV.cxx11
-    ENV.prepend_path "PATH", Formula["python@3.8"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
 
     args = %W[
       --jobs=#{ENV.make_jobs}

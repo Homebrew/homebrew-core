@@ -10,6 +10,7 @@ class SagittariusScheme < Formula
   end
 
   bottle do
+    sha256 "571c191c879cfa536eb60639ad65f82bc30f2782c18ed747dae167254f1e1e8e" => :big_sur
     sha256 "7199d76824cd0de62da70f2eff3db66f0944c2851e4ee868359b7bdbe4685994" => :catalina
     sha256 "d350853fda37321efe29a14f988b3039126559e489b2fb93a41ca538ca7a2f29" => :mojave
     sha256 "8824ccf2baa439cc953d8b373010e5f00fabb51dd6837f68323993b69549bb84" => :high_sierra

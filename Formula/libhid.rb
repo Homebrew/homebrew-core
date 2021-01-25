@@ -13,6 +13,8 @@ class Libhid < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "33539f7a9be0592c28fc6b4c7d1866603cf115441fcf72db5ca67f99149b63c4" => :big_sur
+    sha256 "01170cf4863c640d89c02c1c8d10759aa9ab7b16a0ab88bccdefdf10c5174620" => :arm64_big_sur
     sha256 "049d5c106ab738e55af18878f19cc0510d78bbda54f0c5626e3ccb725e415c68" => :catalina
     sha256 "7457dc1791e661356e54059fb7b49f9629f2814694057bb38c6ad6698b3c4556" => :mojave
     sha256 "b2949cef974f368856304506aecea44d3daca81b2d8c798bc141ef376723eded" => :high_sierra

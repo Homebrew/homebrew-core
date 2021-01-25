@@ -12,6 +12,8 @@ class Elinks < Formula
 
   bottle do
     rebuild 1
+    sha256 "ba722b4af55c647152cfc0093d75df36af2bbe66898b402a10d9dd9e5b652d78" => :big_sur
+    sha256 "b8a3fabec047d5aa9245312dc431804cc51f8c4d4651556273e2b288a3ec8e2b" => :arm64_big_sur
     sha256 "67ab168d9d6d5bb65791d4c432e7e1e0109a09076039d4d6b2addec9219bef43" => :catalina
     sha256 "c48e70700c0ad0c4b66a376e6634417cd84c84de064bad74d384469d8f7597ab" => :mojave
     sha256 "219f12e44db5b6e966e2f8999fc1d5553c834b58645531f5167e6031aaa6e89b" => :high_sierra

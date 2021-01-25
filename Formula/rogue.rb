@@ -13,6 +13,8 @@ class Rogue < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "6eb14b09938ce303e8bd6b9f534c62f0003e6f95f9c12323a9d7924c5d997151" => :big_sur
+    sha256 "c05b978ec98eebbf1bcff942a8a621ee52e11d0e6860adc608f03010c9da5797" => :arm64_big_sur
     sha256 "d1837a65589cfc24e6ff05f585e4cb9991e06cecbccf119688cc95fd60dd1dc9" => :catalina
     sha256 "fe9135c4e75abf4298cc231e0372ff8088fa57450fbd8c718e8a0fb8ac3ed723" => :mojave
     sha256 "a65be75ef53988084ebe86a523e5fbda23205a2e5843b9015bfda312ade8e6f2" => :high_sierra

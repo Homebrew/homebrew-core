@@ -14,6 +14,8 @@ class Soundpipe < Formula
     sha256 "3975e1208784b80d78d9ad19b83836d1efe7b33d7e0e08d36c630863ee7a1a19" => :sierra
   end
 
+  disable! date: "2020-11-26", because: :repo_removed
+
   depends_on "libsndfile"
 
   def install

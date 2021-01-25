@@ -3,6 +3,7 @@ class Docbook < Formula
   homepage "https://docbook.org/"
   url "https://docbook.org/xml/5.1/docbook-v5.1-os.zip"
   sha256 "b3f3413654003c1e773360d7fc60ebb8abd0e8c9af8e7d6c4b55f124f34d1e7f"
+  license :cannot_represent
   revision 1
 
   livecheck do
@@ -12,6 +13,8 @@ class Docbook < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "2c4e8398b5548cef2830169aadaf6221ac9ee7e6733547642ccee1ea81e07e99" => :big_sur
+    sha256 "53a9dc79db8b2d06dc75009d5d09fc797ddcd5eb4ca040d606efd35ae4fa3829" => :arm64_big_sur
     sha256 "8152e5356c47a7b8282f3ed84ee3f29565e8ce620bddeaeaf23dfd1f5ef111a3" => :catalina
     sha256 "8152e5356c47a7b8282f3ed84ee3f29565e8ce620bddeaeaf23dfd1f5ef111a3" => :mojave
     sha256 "8152e5356c47a7b8282f3ed84ee3f29565e8ce620bddeaeaf23dfd1f5ef111a3" => :high_sierra

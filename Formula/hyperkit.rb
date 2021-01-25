@@ -15,7 +15,6 @@ class Hyperkit < Formula
   depends_on "aspcud" => :build
   depends_on "ocaml" => :build
   depends_on "opam" => :build
-  depends_on x11: :build
   depends_on xcode: ["9.0", :build]
 
   depends_on "libev"

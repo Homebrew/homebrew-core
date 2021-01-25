@@ -6,6 +6,8 @@ class Opendbx < Formula
   revision 2
 
   bottle do
+    sha256 "80d655556c77aeb341dd0fc52d70e61dfd8a3518cf689bcb68af6f0aacc04bd5" => :big_sur
+    sha256 "a849ec13147c5cb08b03376eae868b6c82ec075a60388bf7e6742fbb9f56b467" => :arm64_big_sur
     sha256 "9a95027d4121667ec569d3aac52ec540a0aacd393e584b503aae73f35808ab0d" => :catalina
     sha256 "9f4ed6175131681d7aa68a5cc62a3fab535f428f05982873c756d534ce4a71f9" => :mojave
     sha256 "8acc7893f16018ca7946d5a087459f7defbaa3fa3a17759d9eec5eaaffd27458" => :high_sierra

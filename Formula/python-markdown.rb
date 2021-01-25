@@ -2,9 +2,9 @@ class PythonMarkdown < Formula
   include Language::Python::Virtualenv
 
   desc "Python implementation of Markdown"
-  homepage "https://pypi.python.org/pypi/Markdown"
-  url "https://github.com/Python-Markdown/markdown/archive/3.3.1.tar.gz"
-  sha256 "5edc04d4afa4b4a6859f50d73c5e64bb4a1b5f44debe26398ee0f1040b0635a6"
+  homepage "https://python-markdown.github.io"
+  url "https://files.pythonhosted.org/packages/fd/d6/9eeda2f440ef798c8222b77d7355199345ce3477941d8a02a2024ccb9ed2/Markdown-3.3.3.tar.gz"
+  sha256 "5d9f2b5ca24bc4c7a390d22323ca4bad200368612b5aaa7796babf971d2b2f18"
   license "BSD-3-Clause"
   head "https://github.com/Python-Markdown/markdown.git"
 
@@ -14,9 +14,11 @@ class PythonMarkdown < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "86fdb3082a32df892f8344100929795de8aba2dac965677b0c7e7b6a4470729a" => :catalina
-    sha256 "80e595735252ab2d6ec6059bad7e4b1a976b5fd1ba11f8c28fad977c68ccf032" => :mojave
-    sha256 "a4fc3011403266446e0507eaa930908ba864b2fe199b7abb6bb14ecdaa81855d" => :high_sierra
+    rebuild 1
+    sha256 "5c0eca089cf51f1a18fa14b08ef2e453940d216bd28c971c1e32c1d92dc924c8" => :big_sur
+    sha256 "e15c00fbbc97ddc7727ed969fa6b66e39d14a0840c701a278cc7d936265b3820" => :arm64_big_sur
+    sha256 "2a5f0bc6b8f4e8f8910b638ca9de6d78d1721c670a58b04e85843e486f91b321" => :catalina
+    sha256 "800ed7fb5c992646e2f6486eeb369b41a35f38f6aa1b219f91535ebb7817b755" => :mojave
   end
 
   depends_on "python@3.9"

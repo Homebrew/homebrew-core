@@ -1,20 +1,22 @@
 class Orbit < Formula
   desc "CORBA 2.4-compliant object request broker (ORB)"
-  homepage "https://projects.gnome.org/ORBit2"
+  homepage "https://web.archive.org/web/20191222075841/projects-old.gnome.org/ORBit2/"
   url "https://download.gnome.org/sources/ORBit2/2.14/ORBit2-2.14.19.tar.bz2"
   sha256 "55c900a905482992730f575f3eef34d50bda717c197c97c08fa5a6eafd857550"
+  license all_of: ["GPL-2.0-or-later", "LGPL-2.0-only"]
   revision 1
-
-  livecheck do
-    url :stable
-  end
+  head "https://gitlab.gnome.org/Archive/orbit2.git"
 
   bottle do
-    rebuild 1
-    sha256 "a604838d3a9e9690eceefb5f798aa5c02a6d46b5e1f1cbb50bbc5cc95df451e9" => :catalina
-    sha256 "367cb438ac5ee8c44cd932d259f82b43458af90df8df28803e2248ad75952800" => :mojave
-    sha256 "50487080b7e4614d077b4cbb818a726a7bae7a7a281fc85fabd6ff88ed848016" => :high_sierra
+    rebuild 3
+    sha256 "d39f55257c7d7eff2ecb9bb03c596a23d53abf2c081b87bf06f1b93415dda0b4" => :big_sur
+    sha256 "42435b23e00c8227cd80af182e39c4f24ea2bd6e50b01c0df0cd171a92ba4c02" => :arm64_big_sur
+    sha256 "3108db04a65e53b067b29f700b1360e90badde53e891555f341fabe7c5dd5fe4" => :catalina
+    sha256 "638d7bc192d39014137dfe3508e935b0b129b78e1f6971c1342e8ed1a52b2900" => :mojave
   end
+
+  # GNOME 2.19 deprecated Orbit2 in 2007; now even their webpage for it is gone as of 2020
+  deprecate! date: "2020-12-25", because: :deprecated_upstream
 
   depends_on "pkg-config" => :build
   depends_on "glib"
@@ -32,6 +34,7 @@ class Orbit < Formula
   end
 
   def install
+    ENV.deparallelize
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"

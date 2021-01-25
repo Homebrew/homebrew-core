@@ -1,16 +1,16 @@
 class Hpack < Formula
   desc "Modern format for Haskell packages"
   homepage "https://github.com/sol/hpack"
-  url "https://github.com/sol/hpack/archive/0.34.2.tar.gz"
-  sha256 "1c23f0a14ca32c92a2b6522d047757850ae89be2b344b19a2df668607f5f72e7"
+  url "https://github.com/sol/hpack/archive/0.34.3.tar.gz"
+  sha256 "ca322e3a36852f3aec99969e9ba2f55efba8b6c1538bc1398716833d3b417040"
   license "MIT"
   head "https://github.com/sol/hpack.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e230f0684178727141cfb242d235de3f062a056816c06c1e882ad3c2caf34c35" => :catalina
-    sha256 "cc6b80c259ea44fdb961fc758c9472264b48ce481f5c9d436c325493d7d13c0a" => :mojave
-    sha256 "197fe924cebba40e09bf85adb60beeb889e576cc8600b1e92361f20a5e9c0a04" => :high_sierra
+    sha256 "466512c7e107af8fb86a9c9f99d4d7e503a34d619b2a52638f60664bf52fe1eb" => :big_sur
+    sha256 "042c0f105b04129a0963bc271af9a834d4ca51c30a228db9977ed89449c36435" => :catalina
+    sha256 "a66723dac94a75ca6c70edcfba4446bedad2bbcd66b688bf68e6a3425de75abe" => :mojave
   end
 
   depends_on "cabal-install" => :build

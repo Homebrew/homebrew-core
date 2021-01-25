@@ -1,17 +1,26 @@
 class PostgresqlAT10 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v10.14/postgresql-10.14.tar.bz2"
-  sha256 "381cd8f491d8f77db2f4326974542a50095b5fa7709f24d7c5b760be2518b23b"
+  url "https://ftp.postgresql.org/pub/source/v10.15/postgresql-10.15.tar.bz2"
+  sha256 "5956bce0becffa77883c41594c95a23110b94f10cd66a1157e373c3575921f7e"
   license "PostgreSQL"
 
+  livecheck do
+    url "https://ftp.postgresql.org/pub/source/"
+    regex(%r{href=["']?v?(10(?:\.\d+)*)/?["' >]}i)
+  end
+
   bottle do
-    sha256 "0d107a7007bfd7ad54bc2c341dd668b9b371d53a5bb51c18a32b6cc13fc6af95" => :catalina
-    sha256 "3802455dc7dedea458b92c3f79a178a6748bd4ea916226523d7ca7ebed05790e" => :mojave
-    sha256 "6bf09daea4f52334c0d42ceb1c461117fb3cda07f5d0eb9fc6d7b7185f5adc0d" => :high_sierra
+    sha256 "0f46b9ebfcb7549d7c1b01eed0aee17a0e2d0e48ecad0a532bddc6da10b7a46a" => :big_sur
+    sha256 "cf0a50442e13e4e6bb3dba192bfa8248d542d0090cfd841d86cd11fe7c94f629" => :arm64_big_sur
+    sha256 "081de285d1e263b609e62cb1f92b2d3d2885af81d844f62ae4ad5313198c761d" => :catalina
+    sha256 "ba91fc4dfb53e16d8dcde2c7c06fda44e1b7c88e3202f29da2376e592a277468" => :mojave
   end
 
   keg_only :versioned_formula
+
+  # https://www.postgresql.org/support/versioning/
+  deprecate! date: "2022-11-10", because: :unsupported
 
   depends_on "pkg-config" => :build
   depends_on "icu4c"
@@ -81,17 +90,26 @@ class PostgresqlAT10 < Formula
     return if ENV["CI"]
 
     (var/"log").mkpath
-    (var/name).mkpath
-    system "#{bin}/initdb", "#{var}/#{name}" unless File.exist? "#{var}/#{name}/PG_VERSION"
+    postgresql_datadir.mkpath
+    system "#{bin}/initdb", "--locale=C", "-E", "UTF-8", postgresql_datadir unless pg_version_exists?
+  end
+
+  def postgresql_datadir
+    var/name
+  end
+
+  def postgresql_log_path
+    var/"log/#{name}.log"
+  end
+
+  def pg_version_exists?
+    (postgresql_datadir/"PG_VERSION").exist?
   end
 
   def caveats
     <<~EOS
-      To migrate existing data from a previous major version of PostgreSQL run:
-        brew postgresql-upgrade-database
-
       This formula has created a default database cluster with:
-        initdb #{var}/postgres
+        initdb --locale=C -E UTF-8 #{postgresql_datadir}
       For more details, read:
         https://www.postgresql.org/docs/#{version.major}/app-initdb.html
     EOS
@@ -113,16 +131,16 @@ class PostgresqlAT10 < Formula
         <array>
           <string>#{opt_bin}/postgres</string>
           <string>-D</string>
-          <string>#{var}/#{name}</string>
+          <string>#{postgresql_datadir}</string>
         </array>
         <key>RunAtLoad</key>
         <true/>
         <key>WorkingDirectory</key>
         <string>#{HOMEBREW_PREFIX}</string>
         <key>StandardOutPath</key>
-        <string>#{var}/log/#{name}.log</string>
+        <string>#{postgresql_log_path}</string>
         <key>StandardErrorPath</key>
-        <string>#{var}/log/#{name}.log</string>
+        <string>#{postgresql_log_path}</string>
       </dict>
       </plist>
     EOS

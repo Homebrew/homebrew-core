@@ -10,6 +10,8 @@ class Rarian < Formula
   end
 
   bottle do
+    sha256 "12560010f5d31af2a399dd3cc9427ffc37474a9d6d04d1f8eac715956983cc56" => :big_sur
+    sha256 "d69d0f1b4d7ddae2d5d751a506a3515b1969c4caa56ea55a4a8220971eb72641" => :arm64_big_sur
     sha256 "6cd01a0bbc9d5168548c6735ddf1057ae3ef403d3868be499ff1ce3ba1cd6ab8" => :catalina
     sha256 "e727630f28efcdcb1a577f67525992f00a00c25ee1582277e1e91e2fa060187d" => :mojave
     sha256 "815aafc0d05198cd4e3880715a6ad5de21b3bf47ccf25ef4b91aa918848a67ee" => :high_sierra

@@ -11,6 +11,8 @@ class Doxymacs < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "761f34a12276f673ad5914b0b9caa8891eaab8fb213292a897e1000375a0370a" => :big_sur
+    sha256 "4ffe57742c559c3ef80b3bf338d2903c7fc0137d4d9cc96f2b23bea2e0cab832" => :arm64_big_sur
     sha256 "48298f0f0b797c18f3af78a77a0f09f9db3880dc9d85771794894da348aedf1c" => :mojave
     sha256 "29a4865170b12a2194c238c35ec5e0902b8e637e378f9013b7aef64fa21eb0fc" => :high_sierra
     sha256 "2fd3dc59a8c0c8fdccf8195265d320aaa7b5d67e9a81b5a085f27cc287e7370e" => :sierra
@@ -30,7 +32,7 @@ class Doxymacs < Formula
 
   def install
     # Fix undefined symbols errors for _xmlCheckVersion and other symbols
-    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra || MacOS.version == :el_capitan
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version <= :sierra
 
     # https://sourceforge.net/p/doxymacs/support-requests/5/
     ENV.append "CFLAGS", "-std=gnu89"

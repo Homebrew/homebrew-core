@@ -13,6 +13,8 @@ class Minidjvu < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "fee2aaa060b89cd006949111164d953b1da44d3f4367409cff38880aa175cebb" => :big_sur
+    sha256 "a0a735a5315eba83afe335cd152f428e292527df6a3d3c0ce06aecc29eb7efc4" => :arm64_big_sur
     sha256 "ac5ddf434a115b421a2fd20645d09c690b559e7c135bfa71687d540f80e9dadb" => :catalina
     sha256 "6bb235aea08165b0a9d359f3813fa3e1760ff283697734761d9663fe1488a0fb" => :mojave
     sha256 "e86d9876389882d5cc6db29798566bc845584280a4fb4f5baf6226313a74dd6d" => :high_sierra

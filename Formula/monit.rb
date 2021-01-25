@@ -1,8 +1,8 @@
 class Monit < Formula
   desc "Manage and monitor processes, files, directories, and devices"
   homepage "https://mmonit.com/monit/"
-  url "https://mmonit.com/monit/dist/monit-5.27.0.tar.gz"
-  sha256 "d8c0deef624f193a952502fe9baabfa66e3d8d057df5738da43f9a37792afca4"
+  url "https://mmonit.com/monit/dist/monit-5.27.2.tar.gz"
+  sha256 "d8809c78d5dc1ed7a7ba32a5a55c5114855132cc4da4805f8d3aaf8cf46eaa4c"
 
   livecheck do
     url "https://mmonit.com/monit/dist/"
@@ -11,9 +11,10 @@ class Monit < Formula
 
   bottle do
     cellar :any
-    sha256 "244bbb87c88f90a08e157cf9fb50e501d15369a1c79cf66badb766bdd8de6fbb" => :catalina
-    sha256 "dfe692f5f8a4320956f237dd920d59a06801c8e89dfcca6aba01a2e2f9a0bbab" => :mojave
-    sha256 "7548c14639efa1102971eaf6f1d61dd32e4a6384afe2cfb70e20333979aa7338" => :high_sierra
+    sha256 "604ca8a7fc489944c10ba977e347e8f32d1047eba3df964d2bc110688abf6c50" => :big_sur
+    sha256 "773afd93ee38969dc419d15268722ff26b00b4c757357a13a1db126a979f0ad8" => :arm64_big_sur
+    sha256 "a32c42c13cbdec8feb567fdfc6c11713804335f5a5bc39215d188672f0b584cc" => :catalina
+    sha256 "1b4d05159e7bc6101ff3f5cbb84f67ee941553927c23fc59780d84a4ed0d9023" => :mojave
   end
 
   depends_on "openssl@1.1"

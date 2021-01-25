@@ -2,16 +2,22 @@ class Octant < Formula
   desc "Kubernetes introspection tool for developers"
   homepage "https://octant.dev"
   url "https://github.com/vmware-tanzu/octant.git",
-      tag:      "v0.16.1",
-      revision: "8aebb34922f83894fb02ad393740e96ee1b3d8fe"
+      tag:      "v0.16.3",
+      revision: "656c7404e529262861eacb13e88d33dccd6035bf"
   license "Apache-2.0"
   head "https://github.com/vmware-tanzu/octant.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     cellar :any_skip_relocation
-    sha256 "30a8f2ff4c498c638647ce0c4a223ca1bb7712b940e2c333498b3c66b073ee76" => :catalina
-    sha256 "1327671fd6c2658fca5e9d7c2b1cc7be4e7971979dfee9a1867bb5a38ea0e9c7" => :mojave
-    sha256 "85cee095a6fcdd835de7ca830e9da0e92b00c0ccdbc9e4af2c2ecd3db91e554f" => :high_sierra
+    rebuild 1
+    sha256 "e5e053c672b960819d117b7aeb6af91810458d508ab6b366e23cfc27c7c6491f" => :big_sur
+    sha256 "27cbe24e2fe0f5284f39656bf19914274490fa3f400200b9e5b1f762de7428a9" => :catalina
+    sha256 "1fad5c7151847338d432789e3b579e36f96839dc8a820d66b41b8e1f46b2e0ee" => :mojave
   end
 
   depends_on "go" => :build
@@ -33,10 +39,9 @@ class Octant < Formula
       system "go", "generate", "./pkg/plugin/plugin.go"
       system "go", "run", "build.go", "web-build"
 
-      commit = Utils.safe_popen_read("git", "rev-parse", "HEAD").chomp
       build_time = Utils.safe_popen_read("date -u +'%Y-%m-%dT%H:%M:%SZ' 2> /dev/null").chomp
       ldflags = ["-X \"main.version=#{version}\"",
-                 "-X \"main.gitCommit=#{commit}\"",
+                 "-X \"main.gitCommit=#{Utils.git_head}\"",
                  "-X \"main.buildTime=#{build_time}\""]
 
       system "go", "build", "-o", bin/"octant", "-ldflags", ldflags.join(" "),

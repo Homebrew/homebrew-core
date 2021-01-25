@@ -8,6 +8,8 @@ class Zmap < Formula
   head "https://github.com/zmap/zmap.git"
 
   bottle do
+    sha256 "4fbcf0453c48feae254c0799fdb38dc489ab435a9fd8f71f4f40490cb61a7272" => :big_sur
+    sha256 "142f0a0643a81aa7c4cd350d60c0879406524e867b8d6891265a2260e22d6ccb" => :arm64_big_sur
     sha256 "7f3dce955fb01597407317a81e6d1e0b60d66756e64358f11106adf5335b820a" => :catalina
     sha256 "3014cc393e0d9b5e6705392a10da8588f26d668daa5660aebe252ed514bf176e" => :mojave
     sha256 "99c0f7e06b2789fb57bd465a5a1fe35628b6d5e624ebba32d7f1199abc78d8bf" => :high_sierra

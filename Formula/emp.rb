@@ -7,6 +7,7 @@ class Emp < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "fc362d246942141f91da093183c54a8ff679bf263f0a4326d5bed7f94cbc8f59" => :big_sur
     sha256 "8c4bca6eca037bbef2b1a65d1974b43b36c81274e20597a76e87703ec477ee1a" => :catalina
     sha256 "33eafe903efc393c0964ac05ab684508b98e72a4ee2f26272ee16eee159cd514" => :mojave
     sha256 "d96c6b3f2ee49480ddc0dac10484284e7620dce5499482bdaf12c26f42f93a13" => :high_sierra

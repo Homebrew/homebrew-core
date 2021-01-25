@@ -10,6 +10,7 @@ class Ppsspp < Formula
 
   bottle do
     cellar :any
+    sha256 "61164c952a552c94c384ba618b429e8725d812142b58e55c02b89962ce8b28c2" => :big_sur
     sha256 "637651f2a60d63b33d4944fb075b8e8a564a4a0b94ce824ccf0ba69b6d101f88" => :catalina
     sha256 "ef1850d442ed09bdec54ace53e6bedf2eb081ca3da4d2ca9fba91293a98f0f6e" => :mojave
     sha256 "a42d7af34d1aab6f25345aec6711fccedad54fd506eb12947c7c6c8b7e095a55" => :high_sierra

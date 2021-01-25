@@ -6,6 +6,8 @@ class Scheme48 < Formula
 
   bottle do
     rebuild 1
+    sha256 "c11d8062b6115384d18f174cd7f5ce5fef434b3ed35b914b85a7c9df041cc450" => :big_sur
+    sha256 "5a2ff16cfe2c0cad8648b4057552a19f3389408d3e90b884c0b4d4f3c4116d30" => :arm64_big_sur
     sha256 "50398406b73f7b6b5ce3c0f220694673e42b83bd63f11149a855498e4caf3c94" => :catalina
     sha256 "42cacccaf71990813012cdc819702fe24a93555998ac86d54e389ea40f6f2a87" => :mojave
     sha256 "590f06c7c31910eed48da06080959628982226e7b09e2aedd352fa6e4a6c2007" => :high_sierra

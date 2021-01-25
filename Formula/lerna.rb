@@ -13,6 +13,8 @@ class Lerna < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "0284f238fa3b15213745e9b41112bba211478c88c6912a8cc5cdaddae626f5ea" => :big_sur
+    sha256 "c83c1729e22b25ee574dd777aeafa6609354b28677a84edb4871c6316ec695a8" => :arm64_big_sur
     sha256 "5f2b51b458e4379c8f4bf192eb532e567fa2a209eff59fc78aa4a73a2c95c9a4" => :catalina
     sha256 "363088564849de9b6c79ac5cdbbb872ca43841b0d80af27c85c696cbd2dc75bb" => :mojave
     sha256 "833823b45ebd250a74b170f980861ae9cc6831040e5362309e637d13291a97af" => :high_sierra

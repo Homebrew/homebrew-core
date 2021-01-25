@@ -9,6 +9,7 @@ class Dcd < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "662c67e1be52c8a7421e8cd79e3a407e1d1c163e706db86729e0a01fd3f32bb8" => :big_sur
     sha256 "cb5a1d6c16b9e7a63583f65ef8eea364291b847897e53c7bf2b5533f1965477b" => :catalina
     sha256 "13afc1eaa6e87e1a37eb80d9eef2febdc9a91b7cb7b68a4ba438a48c29e66776" => :mojave
     sha256 "b72aa14601e382ab8ea67593dc0b365f7006a7d447291a8314af0bd47906e1ff" => :high_sierra

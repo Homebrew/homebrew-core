@@ -11,6 +11,8 @@ class LibxmpLite < Formula
 
   bottle do
     cellar :any
+    sha256 "8fd127bc9b8ddefedf784c9387b9b901a70917b600ce5f4e4087d0abbba530d1" => :big_sur
+    sha256 "c0529347eb14021e29716dc96c5d275efa984fb5aa2394dd116547342878e6ed" => :arm64_big_sur
     sha256 "a155be151ab2b536aae7aa7cb44999b8e1dc5a210b06af6f18265eb4037fd6ab" => :catalina
     sha256 "d1956ebfe2812cededb97f6717925f21ca1a71dbd8b4211792369cb0a9f3c74f" => :mojave
     sha256 "e0b20b3d4fcd64e4c90b9d704ee5621739bf633bdf8bd71bd1b2cb713a2b0284" => :high_sierra

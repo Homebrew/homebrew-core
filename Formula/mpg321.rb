@@ -10,6 +10,8 @@ class Mpg321 < Formula
   end
 
   bottle do
+    sha256 "f21a4649c7437144d8228ce229acf7dcd36541c8475ddc9e065bf62d7f501b35" => :big_sur
+    sha256 "0cde599f9f7a975ff76faddcdd85606f62445c2493e201db737916fd03ec907f" => :arm64_big_sur
     sha256 "fdea1076a22b6af12c33b02e9eb040fceb11d39ed2eaa7307574bf5331d8f8dc" => :catalina
     sha256 "d587b58200397ad4e8f7fa8c861e01c2c5e344d89a235e78d22fb7bd5ddf04f2" => :mojave
     sha256 "6a8f8f58c8bf02f99e8206a231fce4e9f2bd7333b888581dd1838246983d139f" => :high_sierra

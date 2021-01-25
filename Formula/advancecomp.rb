@@ -8,6 +8,8 @@ class Advancecomp < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "abda672de18fdc778a01f0aafa1bf2a9108fd1df2662afff7f849dafafa855d4" => :big_sur
+    sha256 "4316c90600aecfa083b3ed1047a433fb649e14cb67d5eca420030bf504bcd524" => :arm64_big_sur
     sha256 "fccdb14eb1a620c824c08e748db390d788ad797c30654cb6434205fb16c78784" => :catalina
     sha256 "798de4490c97283280259ffc1dc39159bd0ded85edb47f3212ad5ec9a174289e" => :mojave
     sha256 "fdb2a72157445c33a462388f05580489c427f4f0d2a3d4cdc1b7867ef69e7e53" => :high_sierra

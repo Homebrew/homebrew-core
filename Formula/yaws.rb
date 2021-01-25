@@ -7,12 +7,15 @@ class Yaws < Formula
   head "https://github.com/erlyaws/yaws.git"
 
   livecheck do
-    url "https://github.com/erlyaws/yaws/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/yaws[._-]v?(\d+(?:\.\d+)+)["' >]}i)
   end
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "3335822fd2d1607a87add7fd8e66e301ee3d871cac31f9bc2b60aea0ae390529" => :big_sur
+    sha256 "c2662269d0c221c95b3d3b02fdac694c7f2bb280a9126f03b13577fffb13faa2" => :arm64_big_sur
     sha256 "8f37611285571c333ea08c520a65644f984bc7ccbe81c78b5d6596853a7efeeb" => :catalina
     sha256 "a8af172fe0c1677ff0baa5aa06160ce15f8d69b8e31f7e5d36bc39ed9c11b1ec" => :mojave
     sha256 "e2871412886f0d452a576b25cbedecd415824edd19b479d90a068599de866e09" => :high_sierra

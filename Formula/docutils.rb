@@ -5,7 +5,7 @@ class Docutils < Formula
   homepage "https://docutils.sourceforge.io"
   url "https://downloads.sourceforge.net/project/docutils/docutils/0.16/docutils-0.16.tar.gz"
   sha256 "7d4e999cca74a52611773a42912088078363a30912e8822f7a3d38043b767573"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -13,12 +13,14 @@ class Docutils < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ed4972eaa10a0be627db7bc83f75f7537b1a6b3507bb7b3331ffa6afcfcc8f44" => :catalina
-    sha256 "ad73ff1ad1ea76399afbf1b988d956837dd9864eb287e8356760b2929d8cd875" => :mojave
-    sha256 "549d758b772b99e1f231b5c1e661f4a661dbcd5eb81092de92fad8f2b1f76a2c" => :high_sierra
+    sha256 "5a05e748f77245ccca711d5363d498b4c5c656fed6600bd3b011aa38b3d579fc" => :big_sur
+    sha256 "bf6ed6207b7aa3f030661e670e69a561af961c6ed3f920489997454c137480b4" => :arm64_big_sur
+    sha256 "b29e292e287170881f5e88d0e05fa41420515081126e486332d9036c8024f9ef" => :catalina
+    sha256 "8fe38011ae417e9f2476fdadc5a3c96558fa4f6ce7c86ac3961a71b9b35ecfbc" => :mojave
+    sha256 "771eee4e347d10e5e9722e2c74f99c31e4c712aa06d422bd1c03903b2bba7b97" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
     virtualenv_install_with_resources

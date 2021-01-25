@@ -15,6 +15,8 @@ class DocbookXsl < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "cfdfee3ff9db24a542cd8afd72cd05e67dffd88105b6af3bb1aabd9d48811dd2" => :big_sur
+    sha256 "9604b8989c3cc180c641b00f595e59d887aa85fbd410fb85bf4d459c6fb9f823" => :arm64_big_sur
     sha256 "65a5442556a88a865ef377cb73df0b3edf9ab2240e6f4bb2d71a71eabc74fa26" => :catalina
     sha256 "65a5442556a88a865ef377cb73df0b3edf9ab2240e6f4bb2d71a71eabc74fa26" => :mojave
     sha256 "65a5442556a88a865ef377cb73df0b3edf9ab2240e6f4bb2d71a71eabc74fa26" => :high_sierra
@@ -35,6 +37,7 @@ class DocbookXsl < Formula
   # see http://www.linuxfromscratch.org/blfs/view/9.1/pst/docbook-xsl.html for this patch
   patch do
     url "http://www.linuxfromscratch.org/patches/blfs/9.1/docbook-xsl-nons-1.79.2-stack_fix-1.patch"
+    mirror "https://raw.githubusercontent.com/Homebrew/formula-patches/5f2d6c1/docbook-xsl/docbook-xsl-nons-1.79.2-stack_fix-1.patch"
     sha256 "a92c39715c54949ba9369add1809527b8f155b7e2a2b2e30cb4b39ee715f2e30"
   end
 

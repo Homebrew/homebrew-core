@@ -6,6 +6,8 @@ class Cdparanoia < Formula
 
   bottle do
     cellar :any
+    sha256 "2b7649f89581be2a35b246e4aab15e936573d3920f794ae5187e23b796874dbf" => :big_sur
+    sha256 "79d03f652937117697ae235b7bbb8558be9cb86edc42c330316204a288d5cb59" => :arm64_big_sur
     sha256 "9a2def6e4aa8db0e7f35392dd73e2bbaf86a52ddc5cb6ff80e1fcf6f34f6133e" => :catalina
     sha256 "68b478e2d9e8f7121040f99551a45cab8dd8cd91d94e8690ea17103d884daeaf" => :mojave
     sha256 "8b8b1eeb36773ce01ef09232e2e7270fc759aedd1814218cbd8eb9f668a4bf73" => :high_sierra
@@ -18,9 +20,18 @@ class Cdparanoia < Formula
   depends_on "autoconf" => :build
 
   # Patches via MacPorts
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/2a22152/cdparanoia/osx_interface.patch"
-    sha256 "3eca8ff34d2617c460056f97457b5ac62db1983517525e5c73886a2dea9f06d9"
+  on_macos do
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/2a22152/cdparanoia/osx_interface.patch"
+      sha256 "3eca8ff34d2617c460056f97457b5ac62db1983517525e5c73886a2dea9f06d9"
+    end
+  end
+
+  on_linux do
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/bfad134/cdparanoia/linux_fpic.patch"
+      sha256 "496f53d21dde7e23f4c9cf1cc28219efcbb5464fe2abbd5a073635279281c9c4"
+    end
   end
 
   def install

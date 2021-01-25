@@ -12,6 +12,8 @@ class Nagios < Formula
 
   bottle do
     rebuild 1
+    sha256 "0e8c1624e0265e3889c16ce76609b49752ea8e2d3a3b55f5c48cb4e891db402f" => :big_sur
+    sha256 "7724f5ce89e429cd7483f7318ca1fbb0ffeb08d4045ae2a883ef9f80a76a698f" => :arm64_big_sur
     sha256 "a9c2c8baae137bfbfa46f67d62f7fb29a0fb4327b7a366cfe44a1502207d62fd" => :catalina
     sha256 "c074419ad5ee9d3446410e7ff05b8454c840771f5cae1246a9de20e33775d4f0" => :mojave
     sha256 "162b5d50061d7a2ef4bfa8a9899d7fad3558ccfea80e105c43a66061d1780cd9" => :high_sierra
@@ -88,7 +90,7 @@ class Nagios < Formula
         sudo chgrp _www #{nagios_var}/rw
         sudo chmod 2775 #{nagios_var}/rw
 
-      Then install the Nagios web frontend into Apple's build-in Apache:
+      Then install the Nagios web frontend into Apple's built-in Apache:
 
         1) Turn on Personal Web Sharing.
 

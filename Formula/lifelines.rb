@@ -9,6 +9,8 @@ class Lifelines < Formula
   end
 
   bottle do
+    sha256 "171cd3764cc895c2b4c7b9507a44da2aa2e13fe3a75df80af345500f81da3572" => :big_sur
+    sha256 "0d4bbac64c9f9bb282761727298fbe0b04c8c520a9641ae7d16cf69453a0db48" => :arm64_big_sur
     sha256 "3aa3d5f87691e0cffd46c05c0093164d6b2ea7cf3f99099fd98b40762654751d" => :catalina
     sha256 "ab730940d142073ed9424d0cf480a6a752d10ec54af14c54569b23292e1e503e" => :mojave
     sha256 "95457e5f439d945c32e65a32a43a5396b8c7f33466f0c83a0671936f095d649a" => :high_sierra

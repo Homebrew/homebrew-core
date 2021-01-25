@@ -6,12 +6,13 @@ class Dynamips < Formula
   license "GPL-2.0"
 
   livecheck do
-    url "https://github.com/GNS3/dynamips/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "1cf10fcefc4f6d8d2fff03b407e0d8b2730ef944c9d91762823ca1865b7b3f33" => :big_sur
     sha256 "ecf536589504e42389e91865495faa4eb30ba20adad56bc865c0481e80abefe4" => :catalina
     sha256 "db5398464afdb11af6f26cd4780f6e688bed0f35c9fea8f8308f11991987a037" => :mojave
     sha256 "cb9bf6eebd6a7987976e0e2543a807e1b0f16698a1c71eb64e7da56f320fd425" => :high_sierra

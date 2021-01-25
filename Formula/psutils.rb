@@ -7,9 +7,22 @@ class Psutils < Formula
   sha256 "3853eb79584ba8fbe27a815425b65a9f7f15b258e0d43a05a856bdb75d588ae4"
   license "psutils"
 
+  # This regex is open-ended (i.e., it doesn't contain a trailing delimiter like
+  # `\.t`), since the homepage only links to an unversioned archive file
+  # (`psutils.tar.gz`) or a versioned archive file with additional trailing text
+  # (`psutils-p17-a4-nt.zip`). Relying on the trailing text of the versioned
+  # archive file remaining the same could make this check liable to break, so
+  # we'll simply leave it looser until/unless it causes a problem.
+  livecheck do
+    url :homepage
+    regex(/href=.*?psutils[._-](p\d+)/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "229bde3f399638b21570063c1586fce976f4498475901f28bce30546a4e60220" => :big_sur
+    sha256 "02cd6e56f1a40d01069ee8d59ceafdab15e0c9ec6c75873f845f2588df87d31c" => :arm64_big_sur
     sha256 "c2aed2811e263c3e3abcf66eb27d6fdd1b622ca033fa2e3bf4e8095c733df08a" => :catalina
     sha256 "d2ba48c88116be774d989d71c791ef97f8eac3723e63a0924e08ea48f4b3ab39" => :mojave
     sha256 "d9408c8f70db105a621195339f357107d6f234c75be581b1ca8365d0e82e62c2" => :high_sierra

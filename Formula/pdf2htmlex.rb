@@ -3,15 +3,18 @@ class Pdf2htmlex < Formula
   homepage "https://coolwanglu.github.io/pdf2htmlEX/"
   url "https://github.com/coolwanglu/pdf2htmlEX/archive/v0.14.6.tar.gz"
   sha256 "320ac2e1c2ea4a2972970f52809d90073ee00a6c42ef6d9833fb48436222f0e5"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
   revision 24
   head "https://github.com/coolwanglu/pdf2htmlEX.git"
 
   bottle do
+    sha256 "8c29d3c811e6e6580644620a76848458db39181b996cc15e4df2589c8de40e27" => :arm64_big_sur
     sha256 "76c5b16da33231ee6d269f95c5b9b3f0f06b9f5d5634e003d55e6ad5e123a387" => :catalina
     sha256 "0cf6aa3cd87e96aab2fc58b618f8a9127edec88a624bd6cf2f5816fd575c0a50" => :mojave
     sha256 "8a55a7cd0d373d223162ee92bc6f02c269b4f17fe987471ba3388ea257cf870f" => :high_sierra
   end
+
+  deprecate! date: "2016-12-12", because: :repo_archived
 
   depends_on "autoconf" => :build # for fontforge
   depends_on "automake" => :build # for fontforge
@@ -56,8 +59,10 @@ class Pdf2htmlex < Formula
       # https://github.com/coolwanglu/pdf2htmlEX/issues/713
       inreplace "gutils/gimagereadgif.c", "DGifCloseFile(gif)", "DGifCloseFile(gif, NULL)"
 
-      # Fix linker error; see: https://trac.macports.org/ticket/25012
-      ENV.append "LDFLAGS", "-lintl"
+      on_macos do
+        # Fix linker error; see: https://trac.macports.org/ticket/25012
+        ENV.append "LDFLAGS", "-lintl"
+      end
 
       system "./autogen.sh"
       system "./configure", "--prefix=#{libexec}/fontforge",

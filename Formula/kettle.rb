@@ -1,8 +1,9 @@
 class Kettle < Formula
   desc "Pentaho Data Integration software"
-  homepage "https://community.hitachivantara.com/docs/DOC-1009931-downloads"
-  url "https://downloads.sourceforge.net/project/pentaho/Pentaho%209.0/client-tools/pdi-ce-9.0.0.0-423.zip"
-  sha256 "05adf26c8b51fb14d1ea75e73579a7718d881228f502a4be5d1ce3a27d5c7997"
+  homepage "https://www.hitachivantara.com/en-us/products/data-management-analytics.html"
+  url "https://downloads.sourceforge.net/project/pentaho/Pentaho%209.1/client-tools/pdi-ce-9.1.0.0-324.zip"
+  sha256 "ffbcb7bba736af765bbb14ccb0a5f2ae239e75b5aebf0ecfee924a5738d2c530"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,7 +12,7 @@ class Kettle < Formula
 
   bottle :unneeded
 
-  depends_on java: "1.8"
+  depends_on "openjdk@8"
 
   def install
     rm_rf Dir["*.{bat}"]

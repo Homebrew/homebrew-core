@@ -4,6 +4,8 @@ class ManDb < Formula
   url "https://download.savannah.gnu.org/releases/man-db/man-db-2.9.3.tar.xz"
   mirror "https://download-mirror.savannah.gnu.org/releases/man-db/man-db-2.9.3.tar.xz"
   sha256 "fa5aa11ab0692daf737e76947f45669225db310b2801a5911bceb7551c5597b8"
+  license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://download.savannah.gnu.org/releases/man-db/"
@@ -11,14 +13,15 @@ class ManDb < Formula
   end
 
   bottle do
-    sha256 "1f203de0472712f459bee1b66dc93d4fa0c6fc190bdf467c018319add61a22ff" => :catalina
-    sha256 "3eb1e906db4927d45eaa4cd26d28bd69cf62eaa94316f32c3f29266d0070a978" => :mojave
-    sha256 "6827bc87f0ccf3b9e3f04adb8e0aba1d63497291704773bd9f6691d73cf4ee1d" => :high_sierra
+    sha256 "e2b44b53a592dd2730f9d16426c61311f59d75b7a552f52a4d97a70cf07a9d5b" => :big_sur
+    sha256 "5ab9263c8026e1565fc943a7e2afca3005743d3708d98e791fe85e85db55c6c4" => :arm64_big_sur
+    sha256 "e16a1b87b4b431ff7013bda369abe3acdd3aa17323f5b1461f43e878c5f851a4" => :catalina
+    sha256 "1524da7565dc4ac2dea212276b7524dbb34a20415bed7ef3f1603bed8850de45" => :mojave
   end
 
   depends_on "pkg-config" => :build
+  depends_on "groff"
 
-  uses_from_macos "groff"
   uses_from_macos "zlib"
 
   on_linux do

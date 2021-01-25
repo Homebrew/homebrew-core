@@ -10,12 +10,14 @@ class Getdns < Formula
   # since the aforementioned first-party URL has a tendency to lead to an
   # `execution expired` error.
   livecheck do
-    url "https://github.com/getdnsapi/getdns/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :head
+    strategy :github_latest
   end
 
   bottle do
     cellar :any
+    sha256 "51668c45104b39417c144eb17583f7fb23b8fde01789a6bc1ce74afe45b158b2" => :big_sur
+    sha256 "e2c42a1a184ac62037b940d3dda3de8204212db716f712556cba00099697b557" => :arm64_big_sur
     sha256 "e921bc22b5d49af0cf93a3daf035828b286cf28faf4e3916c863214c58cb100d" => :catalina
     sha256 "dddc38b808f9901c02b56755838005ff9f04cb665f40d7145709838e8e38ef99" => :mojave
     sha256 "431361fe29326a2c2b8ecb57b87f8a09c26fc21b5e3170c74bfe61b9ce6b1864" => :high_sierra

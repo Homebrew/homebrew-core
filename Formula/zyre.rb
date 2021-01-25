@@ -6,12 +6,11 @@ class Zyre < Formula
 
   bottle do
     cellar :any
-    sha256 "789b7e1d186e2f53371c84b412b18df37c00e0a3aaaad02737e1c61460e06861" => :catalina
-    sha256 "0bcd7f6da37e2249b2a80b00703064ec2b1332bff9979a40bff84a19c38c1d3f" => :mojave
-    sha256 "7f9c25da501db588f3268e4f1fe99ec58357b41cd601a61859ebbce2eb875dee" => :high_sierra
-    sha256 "f8f694368da98cd4781d43b1e4e18db94584ce1f8508b41d492d81194a15db3c" => :sierra
-    sha256 "1402b11567fa689064366bf9f8fe9527dba8dfe9246e35b02130a344aa879a9b" => :el_capitan
-    sha256 "1170a594d0eff7a57df26150d92daa37382ca6469d320e84957afb184560f691" => :yosemite
+    rebuild 1
+    sha256 "b374dcd00327e30d0bb99288ca4dc1fd1304b28bbbc8e361cff80b50c7bdbe59" => :big_sur
+    sha256 "6ed734120e6a952217364ab40a993db6f9ef07cd4df83cc82424667cb253a1af" => :arm64_big_sur
+    sha256 "b394d2d699797fe05ea0f175af99782ac980aae7700354b2df18529aeffa86ec" => :catalina
+    sha256 "81de23b6fc5592333202d9cb96e66322e1f25925789a69aac62345068e5ef5b7" => :mojave
   end
 
   head do

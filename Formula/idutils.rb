@@ -13,6 +13,8 @@ class Idutils < Formula
 
   bottle do
     rebuild 1
+    sha256 "566c400425874363c736ef591555cadffe7a09875ae5d1e07cbd1c224effbd4d" => :big_sur
+    sha256 "226783d59f2f9d0d57462e16af1985c475af17ade456463c3c576804646adfe9" => :arm64_big_sur
     sha256 "5df54c76ae786e54f6994c1c65821adaa746c8a6b1aecbafbe3cd9f4f77f7c62" => :catalina
     sha256 "b48a4caf24a1eba916f1932c85970294e56a0559603a8289fe732c124fbf0811" => :mojave
     sha256 "95f118aa56026de98d148bccc5a807d609a2bfc54749e1d9051a5dce80f603ef" => :high_sierra

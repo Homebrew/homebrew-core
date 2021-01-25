@@ -18,6 +18,8 @@ class E2fsprogs < Formula
   end
 
   bottle do
+    sha256 "2df2ed4769e646b512faae1bba7f064bd2c181bd08598aa63fdfb69821cbf49a" => :big_sur
+    sha256 "a5f198879bda78305887d100698abc17c3fc551be452e2c2ebb8732da676c4a9" => :arm64_big_sur
     sha256 "bf44ad4af62150e9f29827532fced8640fdfcd9ef77e890347ce3eda288be30a" => :catalina
     sha256 "2986dc8e3be65b03e27990226e78ba8bcd2d512381836bb09223f04c94974837" => :mojave
     sha256 "0cdfcb50d1b1046d90d56ece1c4d1c7e624adf4c8b7f19587285bf77b10b7ec7" => :high_sierra

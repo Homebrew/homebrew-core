@@ -7,6 +7,8 @@ class Lcs < Formula
   head "https://svn.code.sf.net/p/lcsgame/code/trunk"
 
   bottle do
+    sha256 "9e3c6957bab58eaf828f8420fd7e493bb352544ec552c96eb24c8d1ec8d4adc6" => :big_sur
+    sha256 "1ec069485376de05c00be777102bcef25f3f1349d84ecfc2e53990d6c6e403dd" => :arm64_big_sur
     sha256 "65391613e5fd3ea3d8e5f7a2d5586105e3408bb09cddb77aebcfd4bcb7e3396a" => :catalina
     sha256 "91469578607a9f4d1ae989ee523f2b5dd97c976d32d9a822769129df828163e5" => :mojave
     sha256 "5b640b7b87dfe6603670addce1b6af77b0cd7ebbda10c445fddc6d365960e761" => :high_sierra

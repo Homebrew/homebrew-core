@@ -7,6 +7,8 @@ class Mdr < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "4540fb82156ec6317ae37ffc8889b1e11d6a0b6327528e53bca505057632c31f" => :big_sur
+    sha256 "4faacaab5dd0acefaee74a73abaa093d69bd6caefb764375d0565f20605b81c6" => :arm64_big_sur
     sha256 "9da0233ef931bc31dff9356e3298f5c838fbbe3422d64cbfa1e3751bd09545d0" => :catalina
     sha256 "6dec04545f16f59af2b9b2397d4ebf65c204c827fef52cb20ef81c12d2273cda" => :mojave
     sha256 "58d0fa82a0e6291d934bbc3f12f586fbb35282f9d15db017126e042f209dd664" => :high_sierra

@@ -7,6 +7,8 @@ class Libquantum < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "2d1e30b2ce9d0c775b23a46fb5eee3e19d6a610e800bdf4c740cecc64e18f74f" => :big_sur
+    sha256 "1788ce1a3fad430fe6579257b4f8144fc72dea392510f170a0c8f0c213d70d80" => :arm64_big_sur
     sha256 "0a58575e3f577ad9f8157546913669bac571462dd34d32e54c37e2935b126bed" => :catalina
     sha256 "0c7724330a9a2741d5b52521482fb4c4516d5dc7115538f6131894e4d2b31e10" => :mojave
     sha256 "1a93bf4fd93f8a68412b622fcf94eddd2fa9a86ada64dd8eb4cca27ccfaa8ce1" => :high_sierra

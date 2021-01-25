@@ -13,6 +13,8 @@ class Ivykis < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "b3a788209e93dab2e5056bacbe24b7efe5554131d9b26ace853ca68f42e9d23c" => :big_sur
+    sha256 "cd87cff2d6552030ba5b277853bf4f386bc28411ca0c9283e1ed90981f0ba6aa" => :arm64_big_sur
     sha256 "5da36891f20e60db1a94b7eafeaf35605a0a4b18e833721aec01ab68399653a3" => :catalina
     sha256 "dd4fa86f2988dd4c913fc443131ce519ebf034ff492b4760f323ca663fb1744c" => :mojave
     sha256 "1409aa60298ac27959cf5370b70d158843524e5f5638e28e9607ac7e8783b11e" => :high_sierra

@@ -1,10 +1,9 @@
 class Pypy < Formula
   desc "Highly performant implementation of Python 2 in Python"
   homepage "https://pypy.org/"
-  url "https://downloads.python.org/pypy/pypy2.7-v7.3.1-src.tar.bz2"
-  sha256 "fa3771514c8a354969be9bd3b26d65a489c30e28f91d350e4ad2f4081a9c9321"
+  url "https://downloads.python.org/pypy/pypy2.7-v7.3.3-src.tar.bz2"
+  sha256 "f63488051ba877fd65840bf8d53822a9c6423d947839023b8720139f4b6e2336"
   license "MIT"
-  revision 1
   head "https://foss.heptapod.net/pypy/pypy", using: :hg
 
   livecheck do
@@ -13,10 +12,8 @@ class Pypy < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "61e8cfe37e26b93cd72b7fa8d758d71c52181bc1e2a04f6221811018237bade1" => :catalina
-    sha256 "8b6ec82f015f6481f44f30d0d01907872129197efc03bebbc2c14edb54bf598d" => :mojave
-    sha256 "08f78b30b0a831ce06cfa27f9d1f82efbffa3ff9a3997ba8e6129bfefe9e337d" => :high_sierra
+    sha256 "4765094da8561c9b9c0c5e96923f1cd0f089eca8afdc39eca817ec503441ef66" => :catalina
+    sha256 "9034fe7056c1921c98e1d712202a87baf51b6da620d2ba32e2f071006e04a90f" => :mojave
   end
 
   depends_on "pkg-config" => :build
@@ -35,38 +32,29 @@ class Pypy < Formula
   uses_from_macos "zlib"
 
   resource "bootstrap" do
-    url "https://downloads.python.org/pypy/pypy2.7-v7.3.0-osx64.tar.bz2"
-    version "7.3.0"
-    sha256 "ca7b056b243a6221ad04fa7fc8696e36a2fb858396999dcaa31dbbae53c54474"
+    url "https://downloads.python.org/pypy/pypy2.7-v7.3.2-osx64.tar.bz2"
+    sha256 "10ca57050793923aea3808b9c8669cf53b7342c90c091244e9660bf797d397c7"
   end
 
+  # > Setuptools as a project continues to support Python 2 with bugfixes and important features on Setuptools 44.x.
+  # See https://setuptools.readthedocs.io/en/latest/python%202%20sunset.html#python-2-sunset
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/b5/96/af1686ea8c1e503f4a81223d4a3410e7587fd52df03083de24161d0df7d4/setuptools-46.1.3.zip"
-    sha256 "795e0475ba6cd7fa082b1ee6e90d552209995627a2a227a47c6ea93282f4bfb1"
+    url "https://files.pythonhosted.org/packages/b2/40/4e00501c204b457f10fe410da0c97537214b2265247bc9a5bc6edd55b9e4/setuptools-44.1.1.zip"
+    sha256 "c67aa55db532a0dadc4d2e20ba9961cbd3ccc84d544e9029699822542b5a476b"
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/8e/76/66066b7bc71817238924c7e4b448abdb17eb0c92d645769c223f9ace478f/pip-20.0.2.tar.gz"
-    sha256 "7db0c8ea4c7ea51c8049640e8e6e7fde949de672bfa4949920675563a5a6967f"
+    url "https://files.pythonhosted.org/packages/ca/1e/d91d7aae44d00cd5001957a1473e4e4b7d1d0f072d1af7c34b5899c9ccdf/pip-20.3.3.tar.gz"
+    sha256 "79c1ac8a9dccbec8752761cb5a2df833224263ca661477a2a9ed03ddf4e0e3ba"
   end
 
   def install
-    ENV.prepend_path "PKG_CONFIG_PATH", "#{prefix}/opt/tcl-tk/lib/pkgconfig"
-    ENV.prepend "LDFLAGS", "-L#{prefix}/opt/tcl-tk/lib"
-    ENV.prepend "CPPFLAGS", "-I#{prefix}/opt/tcl-tk/include"
-    # Having PYTHONPATH set can cause the build to fail if another
-    # Python is present, e.g. a Homebrew-provided Python 2.x
+    # Fix Xcode 12 implicit function declaration errors.
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
+
     # See https://github.com/Homebrew/homebrew/issues/24364
     ENV["PYTHONPATH"] = ""
     ENV["PYPY_USESSION_DIR"] = buildpath
-
-    # Fix build on High Sierra
-    inreplace "lib_pypy/_tkinter/tklib_build.py" do |s|
-      s.gsub! "/System/Library/Frameworks/Tk.framework/Versions/Current/Headers/",
-              "#{prefix}/opt/tcl-tk/include"
-      s.gsub! "libdirs = []",
-              "libdirs = ['#{prefix}/opt/tcl-tk/lib']"
-    end
 
     resource("bootstrap").stage buildpath/"bootstrap"
     python = buildpath/"bootstrap/bin/pypy"
@@ -116,15 +104,14 @@ class Pypy < Formula
 
     # Tell distutils-based installers where to put scripts
     scripts_folder.mkpath
-    (distutils+"distutils.cfg").atomic_write <<~EOS
+    (distutils/"distutils.cfg").atomic_write <<~EOS
       [install]
       install-scripts=#{scripts_folder}
     EOS
 
     %w[setuptools pip].each do |pkg|
       resource(pkg).stage do
-        system bin/"pypy", "-s", "setup.py", "--no-user-cfg", "install",
-               "--force", "--verbose"
+        system bin/"pypy", "-s", "setup.py", "--no-user-cfg", "install", "--force", "--verbose"
       end
     end
 
@@ -159,17 +146,17 @@ class Pypy < Formula
 
   # The HOMEBREW_PREFIX location of site-packages
   def prefix_site_packages
-    HOMEBREW_PREFIX+"lib/pypy/site-packages"
+    HOMEBREW_PREFIX/"lib/pypy/site-packages"
   end
 
   # Where setuptools will install executable scripts
   def scripts_folder
-    HOMEBREW_PREFIX+"share/pypy"
+    HOMEBREW_PREFIX/"share/pypy"
   end
 
   # The Cellar location of distutils
   def distutils
-    libexec+"lib-python/2.7/distutils"
+    libexec/"lib-python/2.7/distutils"
   end
 
   test do

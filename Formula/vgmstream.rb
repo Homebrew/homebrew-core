@@ -2,22 +2,30 @@ class Vgmstream < Formula
   desc "Library for playing streamed audio formats from video games"
   homepage "https://hcs64.com/vgmstream.html"
   url "https://github.com/losnoco/vgmstream.git",
-      tag:      "r1050-3312-g70d20924",
-      revision: "70d20924341e1df3e4f76b4c4a6e414981950f8e"
-  version "r1050-3312-g70d20924"
+      tag:      "r1050-3448-g77cc431b",
+      revision: "77cc431be77846f95eccca49170878434935622f"
+  version "r1050-3448-g77cc431b"
   license "ISC"
+  revision 2
   version_scheme 1
   head "https://github.com/losnoco/vgmstream.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+    regex(%r{href=.*?/tag/([^"' >]+)["' >]}i)
+  end
+
   bottle do
-    cellar :any
-    sha256 "9b28ea5e9373114cd0553a1da3ee0bcb424c5d99d967ca586e736b201ab9a07f" => :catalina
-    sha256 "298a3a24cf365b1600fb8cc4e393181e8f4674b40dfc1e536392d4e14299334f" => :mojave
-    sha256 "7ab68532f977a0ff2f0214d585c132ea68a825aad487aa98f43b68f33dfb998e" => :high_sierra
+    sha256 "a8b9e590e143c8a5820562376a4d8d6455b4aa3719d69134182ccdbe6e2bc940" => :big_sur
+    sha256 "f344401ea028c6fced781b98573acc97648380cbb3da37fccb614543528d58b3" => :arm64_big_sur
+    sha256 "ea5a421a93602621a8bf2a62b2eca9affa50790f16d7153bd3f901ef3edd9d9a" => :catalina
+    sha256 "1641ceee1b1849446b3aa2c1ccd07241c1641c9546fff3f785ae5f842b695fcc" => :mojave
   end
 
   depends_on "cmake" => :build
   depends_on "ffmpeg"
+  depends_on "jansson"
   depends_on "libao"
   depends_on "libvorbis"
   depends_on "mpg123"

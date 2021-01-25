@@ -1,18 +1,19 @@
 class Smartmontools < Formula
   desc "SMART hard drive monitoring"
   homepage "https://www.smartmontools.org/"
-  url "https://downloads.sourceforge.net/project/smartmontools/smartmontools/7.1/smartmontools-7.1.tar.gz"
-  sha256 "3f734d2c99deb1e4af62b25d944c6252de70ca64d766c4c7294545a2e659b846"
-  license "GPL-2.0"
+  url "https://downloads.sourceforge.net/project/smartmontools/smartmontools/7.2/smartmontools-7.2.tar.gz"
+  sha256 "5cd98a27e6393168bc6aaea070d9e1cd551b0f898c52f66b2ff2e5d274118cd6"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :stable
   end
 
   bottle do
-    sha256 "cc34524c76ff39abb4afc6794fe404e257cf04816c1d2c33f8edd158e5677239" => :catalina
-    sha256 "cce7b82f81c999afcd180dd7fb1ef471bfb24d9934dc3ad326d86db7ea478f2c" => :mojave
-    sha256 "77b4722b7ffc997a2b5482518f291640fcabc45468ae5fca12520943869263be" => :high_sierra
+    sha256 "9cccb94c747cd2897d458da6a31c2e5c03acfd81faa30c99260fe77ec8c140f0" => :big_sur
+    sha256 "27f51cc884f31b7ba77754294e701a9a219e06e8070d4e7630310cf1d01c0b1e" => :arm64_big_sur
+    sha256 "34aa008976f95dc5568c90c0b99eccdcec7983df3787ac4be1e02284f307c1e7" => :catalina
+    sha256 "3f699e7deb392d47d805cf4dad81e53cf67fe0186b00f42e798235fa9079f388" => :mojave
   end
 
   def install

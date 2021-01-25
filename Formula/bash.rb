@@ -5,52 +5,39 @@ class Bash < Formula
   head "https://git.savannah.gnu.org/git/bash.git"
 
   stable do
-    url "https://ftp.gnu.org/gnu/bash/bash-5.0.tar.gz"
-    mirror "https://ftpmirror.gnu.org/bash/bash-5.0.tar.gz"
-    mirror "https://mirrors.kernel.org/gnu/bash/bash-5.0.tar.gz"
-    mirror "https://mirrors.ocf.berkeley.edu/gnu/bash/bash-5.0.tar.gz"
-    sha256 "b4a80f2ac66170b2913efbfb9f2594f1f76c7b1afd11f799e22035d63077fb4d"
-    version "5.0.18"
+    url "https://ftp.gnu.org/gnu/bash/bash-5.1.tar.gz"
+    mirror "https://ftpmirror.gnu.org/bash/bash-5.1.tar.gz"
+    mirror "https://mirrors.kernel.org/gnu/bash/bash-5.1.tar.gz"
+    mirror "https://mirrors.ocf.berkeley.edu/gnu/bash/bash-5.1.tar.gz"
+    sha256 "cc012bc860406dcf42f64431bcd3d2fa7560c02915a601aba9cd597a39329baa"
+    version "5.1.4"
 
     %w[
-      001 f2fe9e1f0faddf14ab9bfa88d450a75e5d028fedafad23b88716bd657c737289
-      002 87e87d3542e598799adb3e7e01c8165bc743e136a400ed0de015845f7ff68707
-      003 4eebcdc37b13793a232c5f2f498a5fcbf7da0ecb3da2059391c096db620ec85b
-      004 14447ad832add8ecfafdce5384badd933697b559c4688d6b9e3d36ff36c62f08
-      005 5bf54dd9bd2c211d2bfb34a49e2c741f2ed5e338767e9ce9f4d41254bf9f8276
-      006 d68529a6ff201b6ff5915318ab12fc16b8a0ebb77fda3308303fcc1e13398420
-      007 17b41e7ee3673d8887dd25992417a398677533ab8827938aa41fad70df19af9b
-      008 eec64588622a82a5029b2776e218a75a3640bef4953f09d6ee1f4199670ad7e3
-      009 ed3ca21767303fc3de93934aa524c2e920787c506b601cc40a4897d4b094d903
-      010 d6fbc325f0b5dc54ddbe8ee43020bced8bd589ddffea59d128db14b2e52a8a11
-      011 2c4de332b91eaf797abbbd6c79709690b5cbd48b12e8dfe748096dbd7bf474ea
-      012 2943ee19688018296f2a04dbfe30b7138b889700efa8ff1c0524af271e0ee233
-      013 f5d7178d8da30799e01b83a0802018d913d6aa972dd2ddad3b927f3f3eb7099a
-      014 5d6eee6514ee6e22a87bba8d22be0a8621a0ae119246f1c5a9a35db1f72af589
-      015 a517df2dda93b26d5cbf00effefea93e3a4ccd6652f152f4109170544ebfa05e
-      016 ffd1d7a54a99fa7f5b1825e4f7e95d8c8876bc2ca151f150e751d429c650b06d
-      017 4cf3b9fafb8a66d411dd5fc9120032533a4012df1dc6ee024c7833373e2ddc31
-      018 7c314e375a105a6642e8ed44f3808b9def89d15f7492fe2029a21ba9c0de81d3
+      001 ebb07b3dbadd98598f078125d0ae0d699295978a5cdaef6282fe19adef45b5fa
+      002 15ea6121a801e48e658ceee712ea9b88d4ded022046a6147550790caf04f5dbe
+      003 22f2cc262f056b22966281babf4b0a2f84cb7dd2223422e5dcd013c3dcbab6b1
+      004 9aaeb65664ef0d28c0067e47ba5652b518298b3b92d33327d84b98b28d873c86
     ].each_slice(2) do |p, checksum|
       patch :p0 do
-        url "https://ftp.gnu.org/gnu/bash/bash-5.0-patches/bash50-#{p}"
-        mirror "https://ftpmirror.gnu.org/bash/bash-5.0-patches/bash50-#{p}"
-        mirror "https://mirrors.ocf.berkeley.edu/gnu/bash/bash-5.0-patches/bash50-#{p}"
-        mirror "https://mirrors.kernel.org/gnu/bash/bash-5.0-patches/bash50-#{p}"
+        url "https://ftp.gnu.org/gnu/bash/bash-5.1-patches/bash51-#{p}"
+        mirror "https://ftpmirror.gnu.org/bash/bash-5.1-patches/bash51-#{p}"
+        mirror "https://mirrors.ocf.berkeley.edu/gnu/bash/bash-5.1-patches/bash51-#{p}"
+        mirror "https://mirrors.kernel.org/gnu/bash/bash-5.1-patches/bash51-#{p}"
         sha256 checksum
       end
     end
   end
 
   livecheck do
-    url "http://www.ravenports.com/catalog/bucket_C8/bash/standard/"
-    regex(%r{<td id="pkgversion">v?(\d+(?:\.\d+)+)(?:_\d+)?</td>}i)
+    url :stable
+    regex(/href=.*?bash[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    sha256 "c6e7b7a521a1cfb21f2872bde253bfd40150bd4ba36ada62c05fcdb73ae094c6" => :catalina
-    sha256 "ba0617f6d3f4e691f9863e2f73596da94671f4c0ca21a95b99f19eced315f2d4" => :mojave
-    sha256 "46023d0bafe68b838ada45ff6a66e63f7eac814eeb84e15a09d4b84a790ef49d" => :high_sierra
+    sha256 "1c7c13309368474e6f7b3afd9c6ba13b213b00caeb9b990e171cf5e097e8e5e1" => :big_sur
+    sha256 "253a8f71bb8ca1444fa5951caa3e4d0e6f51ca6cd6d7c9fc9f79f0c58dc3e693" => :arm64_big_sur
+    sha256 "2195ea39cf6607ec440addd6aed524c5a66719e998d74d5f9595f594f6593b21" => :catalina
+    sha256 "4a294caec86652221a9901b9d892723a84e60d05bc91155efcb661829b13a898" => :mojave
   end
 
   def install

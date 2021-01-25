@@ -11,6 +11,8 @@ class Icbirc < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "60c1ccdb6ca739d0d4694d2f075507f4417cada103204c6b91ee966350ca745a" => :big_sur
+    sha256 "7b2e4accc4480ed21b70273e1bc92895e016e8100ce1e144b8dd3194d7d5217c" => :arm64_big_sur
     sha256 "c1a639673100e6c8f2f5116b11c4c7a8b38cc0af73841c4d13e611f7605a8c1e" => :catalina
     sha256 "c353062cf16183b658ca999e477f2f4ac6040dd8d3a995fe2736a382d989ca8e" => :mojave
     sha256 "e258e2ca2bf835d76b7d509eac5417629451068c85fe729cbab7fc64e89df9c0" => :high_sierra

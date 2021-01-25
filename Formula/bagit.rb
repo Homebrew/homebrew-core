@@ -16,6 +16,8 @@ class Bagit < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "86cf43159c0f34293039285a88480edf09369896665a75a075b69c2a0de57d38" => :big_sur
+    sha256 "77e0cf9a2484eed1d2822a20df071c490bcb3676fe554edd1ab71e44defa0256" => :arm64_big_sur
     sha256 "193388b8a93aa1d52e3cf8acd5da0d3d6dc0e71fbf598ea654b620ba377a7517" => :catalina
     sha256 "f1a211e58d9945524ab5aa5cc62ee180e553b8fde90d969fda952cf629e21c99" => :mojave
     sha256 "e3f52f281e13d9d333d4425b603c609f07e502b2ad8525dcf6b633da0e4a5721" => :high_sierra

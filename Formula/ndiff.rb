@@ -7,6 +7,8 @@ class Ndiff < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "409ac74964648efd98d55c7b07ffcb90066e23b08a50b495b4e43183fd3a9aef" => :big_sur
+    sha256 "c7c14877b300c9a36d4047b883e773397f819f60718b9e13d17ca4359b317541" => :arm64_big_sur
     sha256 "0998b523aa16873d2ed4d776d29df511154e941ffba972d7560176c82add4515" => :catalina
     sha256 "1849064e29be787191a0e1dba0322ca1f06361cff18127a26a926e5e7c12c79c" => :mojave
     sha256 "e07f1749ab348c33f3918e0278ac4dacbb6aee0553dbb62434a8b59174d20746" => :high_sierra

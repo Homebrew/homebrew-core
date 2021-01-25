@@ -7,6 +7,8 @@ class Cgit < Formula
 
   bottle do
     rebuild 1
+    sha256 "50e62177e147660e5a1c94892208381903a96f4b0b2771f05d63025ac83ec8a5" => :big_sur
+    sha256 "7a87dcf5cb65728d597942a23bca28ae960a54023b08728408adc099460661cb" => :arm64_big_sur
     sha256 "6ddf371689a429df59b81cc75ef3c491c58fa1536aeafb41eef0df89196405c6" => :catalina
     sha256 "0a8124c41a3e891d8ac8a9dc9391a1048deecb3b82a785d604bbf1d59125b010" => :mojave
     sha256 "b5dd8fcf3e81b7d320ea39d9de0b7a3b20b6522978e01f2527e14845d80454c4" => :high_sierra

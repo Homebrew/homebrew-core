@@ -6,6 +6,8 @@ class Jam < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8ec0896e57af05a0d2e6bfdb508e77b2b45d8fcea5baa82f00f5d0a8cf2b75d4" => :big_sur
+    sha256 "4c203e7cd06975b4a931ef7f79b150f3275c2b875aefc050893e7f7ffab76293" => :arm64_big_sur
     sha256 "0f2f2b4cac48c2ef9b11d86867c4e9d941a41a582754bfc470da25a7174dde9f" => :catalina
     sha256 "c19a32cbe0ffa2e7d2d826ee542a74307ca29b34ba28dc5ec6aea7ff7a9127c1" => :mojave
     sha256 "2927cebface8a3cbc00a23e7badb9e1676fda9bae282e78a1772b99aafba5014" => :high_sierra

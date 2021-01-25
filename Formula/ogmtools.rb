@@ -7,6 +7,8 @@ class Ogmtools < Formula
 
   bottle do
     cellar :any
+    sha256 "939be64a395371009f70c9c596e86df908e429ad6915dee142752c1114f2e1d3" => :big_sur
+    sha256 "34cfdabab2892f91fd6a6164a041f62eef1da1cf7a2097ad5fe5e2e904de21a3" => :arm64_big_sur
     sha256 "6a2e3ed95e0569dca709b5d0431ea309c008400f3f88b91133d6854340babed7" => :catalina
     sha256 "0c4c8271cbdc79f5d444aca60f7e32c489961f364923e475107021f857122b64" => :mojave
     sha256 "c84b3fe9a525a0f6719bab86a5b919af73b067b48134e9b9ff3225af9b728260" => :high_sierra

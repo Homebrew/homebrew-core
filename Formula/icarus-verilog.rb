@@ -1,22 +1,24 @@
 class IcarusVerilog < Formula
   desc "Verilog simulation and synthesis tool"
   homepage "http://iverilog.icarus.com/"
-  url "https://github.com/steveicarus/iverilog/archive/v10_3.tar.gz"
-  mirror "https://deb.debian.org/debian/pool/main/i/iverilog/iverilog_10.3.orig.tar.gz"
-  sha256 "4b884261645a73b37467242d6ae69264fdde2e7c4c15b245d902531efaaeb234"
+  url "https://github.com/steveicarus/iverilog/archive/v11_0.tar.gz"
+  mirror "https://deb.debian.org/debian/pool/main/i/iverilog/iverilog_11.0.orig.tar.gz"
+  sha256 "6327fb900e66b46803d928b7ca439409a0dc32731d82143b20387be0833f1c95"
   license "LGPL-2.1"
   head "https://github.com/steveicarus/iverilog.git"
 
   livecheck do
-    url "https://ftp.openbsd.org/pub/OpenBSD/distfiles/"
-    regex(/href=.*?verilog[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url :stable
+    strategy :github_latest
+    regex(%r{href=.*?/tag/v?(\d+(?:[._]\d+)+)["' >]}i)
   end
 
   bottle do
-    sha256 "bf40a384b8432dfb72276e31e87d550b9b47515dc68bdfb25f0cde9becd4ac10" => :catalina
-    sha256 "0237851e478bcb76567111f14c1e42fe79161a8cd28ca04127295fc40db14113" => :mojave
-    sha256 "96a15af23212d29f9410e073418c9388447955245fa8c38cf3b27ccf8fabd178" => :high_sierra
-    sha256 "ded40d14a1cd74f2b764d9cf667d48ee8b6c010e77d88ca47afc99188ace1255" => :sierra
+    sha256 "e4f89cc6c8f66d90e45af4357c496ec2ba49ea48ca04e552ca318ff31e825489" => :big_sur
+    sha256 "8c5b344e8564ddd8834922e65bb6ed4fd3951bfdbab3a80064cb8a40f53fc643" => :arm64_big_sur
+    sha256 "99791a3fd0891487586c49112fa3293e65320e651bbf9c03f15a58b456e96e6e" => :catalina
+    sha256 "92851adfb43caad0826da2bf74706c15e6fffc2e32b2b003e19659b0e6a4542b" => :mojave
+    sha256 "a92f6fe981238a8c2b9f47b99d77c1e8596bc74235b8f6601835aae8f9ad70a1" => :high_sierra
   end
 
   depends_on "autoconf" => :build
@@ -24,11 +26,11 @@ class IcarusVerilog < Formula
   depends_on "bison" => :build
 
   uses_from_macos "flex" => :build
+  uses_from_macos "gperf" => :build
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "gperf" => :build
     depends_on "readline"
   end
 

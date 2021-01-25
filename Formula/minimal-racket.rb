@@ -1,8 +1,10 @@
 class MinimalRacket < Formula
   desc "Modern programming language in the Lisp/Scheme family"
   homepage "https://racket-lang.org/"
-  url "https://mirror.racket-lang.org/installers/7.8/racket-minimal-7.8-src-builtpkgs.tgz"
-  sha256 "69b22b7f2054d5adb557fde42e6a3cf2f730bbc705ae7b8e5cba8c867f66c700"
+  url "https://mirror.racket-lang.org/installers/7.9/racket-minimal-7.9-src-builtpkgs.tgz"
+  sha256 "85b201aebc1ad1ec98ac590e18052d7ef8a81af280244d00ca1c28e8543b3fe9"
+  license any_of: ["MIT", "Apache-2.0"]
+  revision 1
 
   livecheck do
     url "https://download.racket-lang.org/all-versions.html"
@@ -10,10 +12,9 @@ class MinimalRacket < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "7bbc4358faae0aeb94e88a87016b4ecb899b9e188c5e318afabc151eb68f4300" => :catalina
-    sha256 "58f2fdad411b3e7852f1c442e2be4ccd01ed8ab3d563ef8c418de9101c989e88" => :mojave
-    sha256 "a9afe8d28a6c0a67b55d9bc46d5b30ee2f169db4ce25bef25355644fd4a83163" => :high_sierra
+    sha256 "e505c77a1703d75d214e081250cff9cbdbb13d604f8995703bd96f5a5454803d" => :big_sur
+    sha256 "68ce8bdaed9890086696fe63ce655c994848e58da24040363441bdc6eaa0d9d6" => :catalina
+    sha256 "4fd0070df83c2d0761bc64e31b479f776f9cee55fe51a770811748706742e528" => :mojave
   end
 
   uses_from_macos "libffi"
@@ -51,7 +52,7 @@ class MinimalRacket < Formula
         raco pkg install --auto drracket
 
       The full Racket distribution is available as a cask:
-        brew cask install racket
+        brew install --cask racket
     EOS
   end
 

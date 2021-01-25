@@ -1,16 +1,15 @@
 class Libosmium < Formula
   desc "Fast and flexible C++ library for working with OpenStreetMap data"
   homepage "https://osmcode.org/libosmium/"
-  url "https://github.com/osmcode/libosmium/archive/v2.15.6.tar.gz"
-  sha256 "55879b9da0f3756f3216f9fb857f35afb3b01294b5f18e0d1719334e7d4f5ac9"
+  url "https://github.com/osmcode/libosmium/archive/v2.16.0.tar.gz"
+  sha256 "42bbef97226d7db7ce3eeb474603e5b1f2f0f86cec85498868e9416e7cdf5bd5"
   license "BSL-1.0"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "dadd63f6645e8f030f245083218f5a6bfd60bf97a6fa7e8a212010a934fa0b1a" => :catalina
-    sha256 "dadd63f6645e8f030f245083218f5a6bfd60bf97a6fa7e8a212010a934fa0b1a" => :mojave
-    sha256 "dadd63f6645e8f030f245083218f5a6bfd60bf97a6fa7e8a212010a934fa0b1a" => :high_sierra
+    sha256 "920817014e8e37a9586ef09d17a3ea110e8bfa4615354b680e7a228a7169f5fa" => :big_sur
+    sha256 "536aed752034cfa5f2d3f1bf945872ece082afd3179b3403ea5aa649d7493c06" => :catalina
+    sha256 "2e053a4724e720c1355409fd2d3accaef046b9755d92f3bcfaf1dd7897739e24" => :mojave
   end
 
   depends_on "boost" => :build

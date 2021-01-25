@@ -1,16 +1,17 @@
 class Cddlib < Formula
   desc "Double description method for general polyhedral cones"
   homepage "https://www.inf.ethz.ch/personal/fukudak/cdd_home/"
-  url "https://github.com/cddlib/cddlib/releases/download/0.94l/cddlib-0.94l.tar.gz"
-  sha256 "1ef6b1ee44509a26d480cda699ca1a9a38ecc9a2aba5092dbd7390ca285769e0"
+  url "https://github.com/cddlib/cddlib/releases/download/0.94m/cddlib-0.94m.tar.gz"
+  sha256 "70dffdb3369b8704dc75428a1b3c42ab9047b81ce039f12f427e2eb2b1b0dee2"
   license "GPL-2.0-or-later"
   version_scheme 1
 
   bottle do
     cellar :any
-    sha256 "bc0694fdf7b7afba046f14a80b82af7caa2f943387624053f61c815e15114003" => :catalina
-    sha256 "baa41b3d46a96209da971ae0c3303607375a28c86363f713e0b4b828e082649b" => :mojave
-    sha256 "2797e2e9a97c62f7a065923cf9df35cf0f2a2f595bb321e4dd73af9c10b6cace" => :high_sierra
+    sha256 "2d9ded9039be48632f55065ccc0cac90ee53bb41e9a900bd955997ae113eabd8" => :big_sur
+    sha256 "a6cc39c5866ef92484b20b3e4fa71916e4fe02f91314f5a90e64a8ac6d477f5e" => :arm64_big_sur
+    sha256 "3e3369de96b6c33641ec2c5a3e490afb72ad94b6fb913385f574089ec4b2b0be" => :catalina
+    sha256 "362934e5d50dc994ce268a690706d6950f17e1b191f315617adc0eeacc0b51b2" => :mojave
   end
 
   depends_on "gmp"

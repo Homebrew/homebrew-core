@@ -8,6 +8,7 @@ class RedisLeveldb < Formula
 
   bottle do
     cellar :any
+    sha256 "ca866ff83813a3d7a06626608016aba38a40bd1e813f04079dd2221f5740336b" => :big_sur
     sha256 "d1c4da1f1f3e3afec9ec5d345743f9d49e85615fa3ffde619bad13e479ce670a" => :catalina
     sha256 "f2345f0e55d37343c3c7e2fb4c43e517d429db2bb284430d3db1222675b8b520" => :mojave
     sha256 "9efe9023206565f3d5557202465fa99440262aef2298894c1f738dba0a39ad10" => :high_sierra

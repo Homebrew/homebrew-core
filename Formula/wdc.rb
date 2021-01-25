@@ -6,6 +6,8 @@ class Wdc < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c0d2e5d13ef2dca786d050eb726cdd240a8c7da8f56868f2a85aae67ee99ee8c" => :big_sur
+    sha256 "be11e8b817c20749111b09db86ff335c6c97bad37575f715e9a7e7ec7ca0335a" => :arm64_big_sur
     sha256 "18365f76dafd05a312e9a7862f2fa747caa8c63e881469719a8ef45d07dce3c6" => :catalina
     sha256 "fbcaccbaa2440ac38f9efa41a342eef4d883e522fa5df7d642aaa1563d38f28b" => :mojave
     sha256 "92dcb68d02f64ff51446052bf5c41fa178cc48ade406a9533199461476f7c849" => :high_sierra

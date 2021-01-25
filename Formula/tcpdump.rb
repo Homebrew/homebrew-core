@@ -1,8 +1,8 @@
 class Tcpdump < Formula
   desc "Command-line packet analyzer"
   homepage "https://www.tcpdump.org/"
-  url "https://www.tcpdump.org/release/tcpdump-4.9.3.tar.gz"
-  sha256 "2cd47cb3d460b6ff75f4a9940f594317ad456cfbf2bd2c8e5151e16559db6410"
+  url "https://www.tcpdump.org/release/tcpdump-4.99.0.tar.gz"
+  sha256 "8cf2f17a9528774a7b41060323be8b73f76024f7778f59c34efa65d49d80b842"
   license "BSD-3-Clause"
   head "https://github.com/the-tcpdump-group/tcpdump.git"
 
@@ -13,9 +13,10 @@ class Tcpdump < Formula
 
   bottle do
     cellar :any
-    sha256 "d4a3781175e0ce1d1a1048a3e211b8775dcec91e362fb51b3384e7404be3b4b6" => :catalina
-    sha256 "6cd2cafe6229e2ccb97ba0b636e19a89c9e2f0ec85778910ed55498a30c03eb3" => :mojave
-    sha256 "22f03cae37a35d6369292efd2c661f781df8dc21184046e768e13c148dbb3f19" => :high_sierra
+    sha256 "2cb0b061f9e2dbe9d36ab328fbec36e0c948d7db076ae03e11046d4c78ed0ea3" => :big_sur
+    sha256 "603922412e7184c2f97aa7ab3757caad78105157ff486cd1fcd1fdc7b70c81ad" => :arm64_big_sur
+    sha256 "f39b833288b92843f5e8aabb519a7bf4368476297abfbc718b7438d7cdb9f190" => :catalina
+    sha256 "91d13cf3a6c5bf4eb37c04ab5efb30e006316c7e0a91e4d657ca9589d22a45e0" => :mojave
   end
 
   depends_on "libpcap"
@@ -23,13 +24,19 @@ class Tcpdump < Formula
 
   def install
     system "./configure", "--prefix=#{prefix}",
-                          "--enable-ipv6",
                           "--disable-smb",
                           "--disable-universal"
     system "make", "install"
   end
 
   test do
-    system sbin/"tcpdump", "--help"
+    output = shell_output("#{bin}/tcpdump --help 2>&1")
+
+    assert_match "tcpdump version #{version}", output
+    assert_match "libpcap version #{Formula["libpcap"].version}", output
+    assert_match "OpenSSL #{Formula["openssl@1.1"].version}", output
+
+    assert_match "tcpdump: (cannot open BPF device) /dev/bpf0: Operation not permitted",
+      shell_output("#{bin}/tcpdump ipv6 2>&1", 1)
   end
 end

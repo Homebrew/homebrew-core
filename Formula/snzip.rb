@@ -8,6 +8,8 @@ class Snzip < Formula
 
   bottle do
     cellar :any
+    sha256 "5a096df1810d044eca22e485e7046cc58b1c4a8ccf966476fcdf213973a0accf" => :big_sur
+    sha256 "77f41c9b756f8296621ba09b776da3afbdf396b29934a8ec8c5b3e4f7dd048eb" => :arm64_big_sur
     sha256 "1516b8b8808b7a76ace5a04d0d1b11edab13bd7cdb87d44f1831ca8dc203550c" => :catalina
     sha256 "0304142d75d2495662ea2dae386948830aada6a7f653a90a74a746e56a7e9ff8" => :mojave
     sha256 "fd4c734255707e1695f5d89a6dccc7d8b6a302771a71f6f6db0a054b9655d287" => :high_sierra

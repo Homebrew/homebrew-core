@@ -17,7 +17,9 @@ class Avian < Formula
     sha256 "20dd7125d138e05021b473d026190d8f4652e807afcfe057614e5c2e66ce0ed1" => :mavericks
   end
 
-  depends_on java: "1.8"
+  deprecate! date: "2020-11-12", because: :unmaintained
+
+  depends_on "openjdk@8"
 
   uses_from_macos "zlib"
 

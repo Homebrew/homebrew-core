@@ -3,14 +3,15 @@ class Ffmpeg2theora < Formula
   homepage "https://v2v.cc/~j/ffmpeg2theora/"
   url "https://v2v.cc/~j/ffmpeg2theora/downloads/ffmpeg2theora-0.30.tar.bz2"
   sha256 "4f6464b444acab5d778e0a3359d836e0867a3dcec4ad8f1cdcf87cb711ccc6df"
-  revision 6
+  revision 9
   head "https://gitlab.xiph.org/xiph/ffmpeg2theora.git"
 
   bottle do
     cellar :any
-    sha256 "8c9c5de4f7abb7aff89f0d29a5234e549dc9a3ab8a58f7dbc79ef84e290cf3c9" => :catalina
-    sha256 "955b11ab8815ad86a02fdd7f7454880108a191d8b406c499b5d5314f4498656c" => :mojave
-    sha256 "f91d9c881ea674c6b6b02f83a6ef53c6e30554c7b2828a9e706eb38cce33220f" => :high_sierra
+    sha256 "1c2718b1a6c348dfceaeef1bd155b6caf385cf4756feefb568cb6f42a6f099e2" => :big_sur
+    sha256 "114e5f48ead0a1375f4dab1217723fe5f6850529ee5fc3f5fe4042295adf327a" => :arm64_big_sur
+    sha256 "05f0fb622f434c062ea69f39a09ea1db62824efb26fcb8adf0921600785e0b3c" => :catalina
+    sha256 "30967cb12c298c6441bb8f4d283a9659c314639cc0409a1a446cb1a80216a31b" => :mojave
   end
 
   depends_on "pkg-config" => :build

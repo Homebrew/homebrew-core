@@ -8,6 +8,8 @@ class Dnstop < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "c07eca212e72ce354b9e29575efa61f607a9ba43dc07072247f925d331ce7763" => :big_sur
+    sha256 "9fba6f2f539b25ef2e918c9600a3027a72188984cad8748f2edd55c59712c414" => :arm64_big_sur
     sha256 "61522feaa64c92d28044e88366555a6f816366671728d71e286960b83a176417" => :catalina
     sha256 "fc741283d3b21ab68de0972c733b38ac01c363a0588254c41ad19f5591f32bda" => :mojave
     sha256 "4d6b9a2f15e3165ccf63b67752cd4f0d21b128f64b5f22beb2c2b0657e082709" => :high_sierra

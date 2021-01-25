@@ -8,6 +8,8 @@ class Pick < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c8da7b41b502c8c72b90fd41bf1570e840198fa6678cc5efca8a1c26a8d5557f" => :big_sur
+    sha256 "032d06aa754000e281f773bb857266efc79e1762e8f689617778a19e17505688" => :arm64_big_sur
     sha256 "754879e53b48743051bb1571bb4b6180a415ac36af8deaf335f5c193326d232f" => :catalina
     sha256 "55596e8ab28fd4fc36d064f6395c38ce51314bcc0d2f2f3862515a683bc92182" => :mojave
     sha256 "0fc521881c760d4f9e4f8625795716e0e1c0e1ed1522ccb5efd055313b2729bc" => :high_sierra

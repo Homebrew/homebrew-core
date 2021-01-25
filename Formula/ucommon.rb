@@ -10,6 +10,8 @@ class Ucommon < Formula
   end
 
   bottle do
+    sha256 "ca1bc13b9def95eb4839a628d6936ea799a284ac4d61dd53a77e77a046d3ffe1" => :big_sur
+    sha256 "1270ebc3579e74f3f044e88d7bca663efac0aa581ab214514f6345ade2a7ba16" => :arm64_big_sur
     sha256 "3040baab77d1ff69f36ff21ec9259c8512170f361119e66b446a48b86f157320" => :catalina
     sha256 "34ef3423a4f8f0de02e05e8a00a5f1cb12bd0b9790103354792c24b7613ccb80" => :mojave
     sha256 "650bda43b289012df676190269cde7bb3be3e1337f4f2eddc6f472ae38bbda1c" => :high_sierra

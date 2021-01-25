@@ -35,6 +35,11 @@ jobs:
                     "path": "Formula/.+",
                     "content": "\n  (bottle :unneeded|depends_on :linux)\n"
                 }, {
+                    "label": "no ARM bottle",
+                    "path": "Formula/.+",
+                    "content": "\n    sha256 \"[a-fA-F0-9]+\" => :big_sur\n",
+                    "missing_content": "\n    sha256 \"[a-fA-F0-9]+\" => :arm64_big_sur\n"
+                }, {
                     "label": "formula deprecated",
                     "path": "Formula/.+",
                     "content": "\n  deprecate!.*\n"
@@ -44,7 +49,12 @@ jobs:
                     "content": "\n  disable!.*\n"
                 }, {
                     "label": "legacy",
-                    "path": "Formula/.+@.+"
+                    "path": "Formula/.+@.+",
+                    "except": [
+                        "Formula/openssl@1.1.rb",
+                        "Formula/openssl@3.0.rb",
+                        "Formula/python@3.9.rb"
+                    ]
                 }, {
                     "label": "missing license",
                     "path": "Formula/.+",
@@ -65,6 +75,10 @@ jobs:
                     "label": "java",
                     "path": "Formula/.+",
                     "content": "depends_on \"?(?:java|openjdk@?).+"
+                }, {
+                    "label": "linux-only",
+                    "path": "Formula/.+",
+                    "content": "depends_on :linux"
                 }, {
                     "label": "lua",
                     "path": "Formula/.+",
@@ -101,5 +115,9 @@ jobs:
                     "label": "swift",
                     "path": "Formula/.+",
                     "content": "system \"swift\", \"build\""
+                }, {
+                    "label": "automerge-skip",
+                    "path": "Formula/(patchelf|binutils).rb",
+                    "keep_if_no_match": true
                 }
             ]

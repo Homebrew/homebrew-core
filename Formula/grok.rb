@@ -14,6 +14,8 @@ class Grok < Formula
 
   bottle do
     cellar :any
+    sha256 "02386bec2f8e4ac68e44c67c33a2a296457a8f055fbf0f177a78137b63a030ce" => :big_sur
+    sha256 "172f626c4eb3d62d2f7b7dcd2c94a4890cc69a835ae3f33ddcb7b74762e4c52e" => :arm64_big_sur
     sha256 "8e3f44420143e731799d52290c9823a42a1833c4bc51906af59d4cd7c284f391" => :catalina
     sha256 "b78cf21dd67826d14d99188e631ff1c431913744d91089c4cefd9b3c9e9d9a46" => :mojave
     sha256 "41889afb55bfcf1d8b41eda76ef2272d29225f4cc4a5690bd409198417d7cf98" => :high_sierra

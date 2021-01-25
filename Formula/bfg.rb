@@ -1,9 +1,9 @@
 class Bfg < Formula
   desc "Remove large files or passwords from Git history like git-filter-branch"
   homepage "https://rtyley.github.io/bfg-repo-cleaner/"
-  url "https://search.maven.org/remotecontent?filepath=com/madgag/bfg/1.13.0/bfg-1.13.0.jar"
-  sha256 "bf22bab9dd42d4682b490d6bc366afdad6c3da99f97521032d3be8ba7526c8ce"
-  revision 1
+  url "https://search.maven.org/remotecontent?filepath=com/madgag/bfg/1.13.2/bfg-1.13.2.jar"
+  sha256 "63671bdd52238c17d28af2db632253def925181832e26d2182be2dd103362fa3"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url "https://github.com/rtyley/bfg-repo-cleaner.git"

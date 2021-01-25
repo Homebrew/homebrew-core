@@ -3,8 +3,8 @@ class Bzt < Formula
 
   desc "BlazeMeter Taurus"
   homepage "https://gettaurus.org/"
-  url "https://files.pythonhosted.org/packages/fb/5c/b1b1418073a681280808180ba4627b5159d06dfa8203cd89e11aa6e1edef/bzt-1.15.0.tar.gz"
-  sha256 "c5e876c4ed8cb9bec0f949967a68c0686cf9bb010fbb98201ea1cb76995fe926"
+  url "https://files.pythonhosted.org/packages/cf/85/1a57663f5ae8b1fdf389ff7bad40f77dd95c11649aa76f9f1b3d560177ed/bzt-1.15.1.tar.gz"
+  sha256 "24c5a7197939f1d6687c61b55bbc24aee120df1d2493c2576eba26013ff466ab"
   license "Apache-2.0"
   head "https://github.com/Blazemeter/taurus.git"
 
@@ -14,9 +14,9 @@ class Bzt < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "005b5ccf365b60ec41f9842175ac0e2ddc49e95f854fa808f171cf3364b3b0cd" => :catalina
-    sha256 "0625ae9ddc783fc64aef537e5822403d6e24c39a974351dc4ee9c711bb314884" => :mojave
-    sha256 "62cc681776a079db76066ab787ca50eddf8f5517df9222a9356af87a7e27ae6c" => :high_sierra
+    sha256 "2914b239cc029c12f7242f5c36651d338810ba6e545e5fb2341946da28463be0" => :big_sur
+    sha256 "87ca5630f029a90be43ba9f1f00fe2fc945ea7d0e5179028f7fbaf987a1665f5" => :catalina
+    sha256 "bc97cf26a459d6492a916e677822c7d6c70044c404b99c357f83920086249d4b" => :mojave
   end
 
   # can only run with python 3.7 due to this issue, https://github.com/simonpercivall/astunparse/issues/43
@@ -53,8 +53,8 @@ class Bzt < Formula
   end
 
   resource "colorlog" do
-    url "https://files.pythonhosted.org/packages/8b/fc/3eb32cc3c4a85d7bf5f5974abd02b3d62d1db72e3cb6704e361cce2c944a/colorlog-4.2.1.tar.gz"
-    sha256 "75e55822c3a3387d721579241e776de2cf089c9ef9528b1f09e8b04d403ad118"
+    url "https://files.pythonhosted.org/packages/ae/03/358e034fb57c218408b24da4fab5bc07045664beb4de3a1520752f5d99bb/colorlog-4.4.0.tar.gz"
+    sha256 "0272c537469ab1e63b9915535874d15b671963c9325db0c4891a2aeff97ce3d1"
   end
 
   resource "cssselect" do
@@ -93,8 +93,8 @@ class Bzt < Formula
   end
 
   resource "iniconfig" do
-    url "https://files.pythonhosted.org/packages/aa/6e/60dafce419de21f2f3f29319114808cac9f49b6c15117a419737a4ce3813/iniconfig-1.0.1.tar.gz"
-    sha256 "e5f92f89355a67de0595932a6c6c02ab4afddc6fcdc0bfc5becd0d60884d3f69"
+    url "https://files.pythonhosted.org/packages/23/a2/97899f6bd0e873fed3a7e67ae8d3a08b21799430fb4da15cfedf10d6e2c2/iniconfig-1.1.1.tar.gz"
+    sha256 "bc3af051d7d14b2ee5ef9969666def0cd1a000e121eaea580d4a313df4b37f32"
   end
 
   resource "jsonpath-ng" do
@@ -103,8 +103,8 @@ class Bzt < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/2c/4d/3ec1ea8512a7fbf57f02dee3035e2cce2d63d0e9c0ab8e4e376e01452597/lxml-4.5.2.tar.gz"
-    sha256 "cdc13a1682b2a6241080745b1953719e7fe0850b40a5c71ca574f090a1391df6"
+    url "https://files.pythonhosted.org/packages/c5/2f/a0d8aa3eee6d53d5723d89e1fc32eee11e76801b424e30b55c7aa6302b01/lxml-4.6.1.tar.gz"
+    sha256 "c152b2e93b639d1f36ec5a8ca24cde4a8eefb2b6b83668fcd8e83a67badcb367"
   end
 
   resource "more-itertools" do
@@ -118,8 +118,8 @@ class Bzt < Formula
   end
 
   resource "numpy" do
-    url "https://files.pythonhosted.org/packages/bf/e8/15aea783ea72e2d4e51e3ec365e8dc4a1a32c9e5eb3a6d695b0d58e67cdd/numpy-1.19.2.zip"
-    sha256 "0d310730e1e793527065ad7dde736197b705d0e4c9999775f212b03c44a8484c"
+    url "https://files.pythonhosted.org/packages/cb/c0/7b3d69e6ee68bc54c97ba51f8c3c3e43ff1dbc7bd97347cc19a1f944e60a/numpy-1.19.3.zip"
+    sha256 "35bf5316af8dc7c7db1ad45bec603e5fb28671beb98ebd1d65e8059efcfd3b72"
   end
 
   resource "packaging" do
@@ -143,8 +143,8 @@ class Bzt < Formula
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/aa/3e/d18f2c04cf2b528e18515999b0c8e698c136db78f62df34eee89cee205f1/psutil-5.7.2.tar.gz"
-    sha256 "90990af1c3c67195c44c9a889184f84f5b2320dce3ee3acbd054e3ba0b4a7beb"
+    url "https://files.pythonhosted.org/packages/33/e0/82d459af36bda999f82c7ea86c67610591cf5556168f48fd6509e5fa154d/psutil-5.7.3.tar.gz"
+    sha256 "af73f7bcebdc538eda9cc81d19db1db7bf26f103f91081d780bbacfcb620dee2"
   end
 
   resource "py" do
@@ -158,8 +158,8 @@ class Bzt < Formula
   end
 
   resource "pytest" do
-    url "https://files.pythonhosted.org/packages/7b/ed/456fa3994bca2b104f83538a9eff606fa2b3856767af019d0906eb4fd141/pytest-6.0.2.tar.gz"
-    sha256 "c8f57c2a30983f469bf03e68cdfa74dc474ce56b8f280ddcb080dfd91df01043"
+    url "https://files.pythonhosted.org/packages/d4/df/bd7c25c4fe809a17315b3fc9878edf48d31dde7b431b6836848b063c0428/pytest-6.1.2.tar.gz"
+    sha256 "c0a7e94a8cdbc5422a51ccdad8e6f1024795939cc89159a0ae7f0b316ad3823e"
   end
 
   resource "python-Levenshtein" do
@@ -213,8 +213,8 @@ class Bzt < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/81/f4/87467aeb3afc4a6056e1fe86626d259ab97e1213b1dfec14c7cb5f538bf0/urllib3-1.25.10.tar.gz"
-    sha256 "91056c15fa70756691db97756772bb1eb9678fa585d9184f24534b100dc60f4a"
+    url "https://files.pythonhosted.org/packages/76/d9/bbbafc76b18da706451fa91bc2ebe21c0daf8868ef3c30b869ac7cb7f01d/urllib3-1.25.11.tar.gz"
+    sha256 "8d7eaa5a82a1cac232164990f04874c594c9453ec55eef02eab885aa02fc17a2"
   end
 
   resource "urwid" do

@@ -13,6 +13,8 @@ class Xidel < Formula
     sha256 "623ba6f72816f4d9cb2055539a023f36a620add9c77a61193fcaea88a08cedf5" => :sierra
   end
 
+  disable! date: "2020-12-08", because: :unmaintained
+
   depends_on "fpc"
   depends_on "openssl@1.1"
 

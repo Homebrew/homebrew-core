@@ -6,17 +6,18 @@ class LiterateGit < Formula
   url "https://github.com/bennorth/literate-git/archive/v0.3.1.tar.gz"
   sha256 "f1dec77584236a5ab2bcee9169e16b5d976e83cd53d279512136bdc90b04940a"
   license "GPL-3.0-or-later"
-  revision 3
+  revision 6
 
   bottle do
     cellar :any
-    sha256 "b704c927f102c0ce4fac2a02d6e0e3a93569179af257a0922b7b14b326d0bbe1" => :catalina
-    sha256 "6f82567697db68d8ff88fd5c493717cbba18869904252319daa4cfe26cc80b42" => :mojave
-    sha256 "237597cd7d2517d3b34144ba0eacd21a9d50d32e6bbe0ce496eaf8d1b9c9dab7" => :high_sierra
+    sha256 "7cf45d23a0f329ce3a0f4f6dbf714ba2ac6cacdebda0aadecb47cbab3c837296" => :big_sur
+    sha256 "331f2b1125935469948fb649b8ac5a8063bcb63e4a7023aa8db3c6ef63a43b31" => :arm64_big_sur
+    sha256 "3a9b77d11ab5cf7c11ca7c68e87facd315892aeb3b4f39eb2e620642bd0cbce4" => :catalina
+    sha256 "ab1381ddd5dca2639be003b01a67d62a4fe76b1fbf3572859d7b5adaa1e44303" => :mojave
   end
 
   depends_on "libgit2"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "libffi"
 
@@ -30,8 +31,8 @@ class LiterateGit < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/05/54/3324b0c46340c31b909fcec598696aaec7ddc8c18a63f2db352562d3354c/cffi-1.14.0.tar.gz"
-    sha256 "2d384f4a127a15ba701207f7639d94106693b6cd64173d6c8988e2c25f3ac2b6"
+    url "https://files.pythonhosted.org/packages/66/6a/98e023b3d11537a5521902ac6b50db470c826c682be6a8c661549cb7717a/cffi-1.14.4.tar.gz"
+    sha256 "1a465cbe98a7fd391d47dce4b8f7e5b921e6cd805ef421d04f5f66ba8f06086c"
   end
 
   resource "docopt" do
@@ -60,8 +61,8 @@ class LiterateGit < Formula
   end
 
   resource "pygit2" do
-    url "https://files.pythonhosted.org/packages/1d/c4/e0ba65178512a724a86b39565d7f9286c16d7f8e45e2f665973065c4a495/pygit2-1.1.1.tar.gz"
-    sha256 "9255d507d5d87bf22dfd57997a78908010331fc21f9a83eca121a53f657beb3c"
+    url "https://files.pythonhosted.org/packages/3a/42/f69de8c7a1e33f365a91fa39093f4e7a64609c2bd127203536edc813cbf7/pygit2-1.4.0.tar.gz"
+    sha256 "cbeb38ab1df9b5d8896548a11e63aae8a064763ab5f1eabe4475e6b8a78ee1c8"
   end
 
   resource "Pygments" do

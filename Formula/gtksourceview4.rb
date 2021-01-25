@@ -11,6 +11,8 @@ class Gtksourceview4 < Formula
   end
 
   bottle do
+    sha256 "55f60179bcb0bd14fa91391c8f338d5bac701c3bc6a31bb0c81ecd3a3532f23b" => :big_sur
+    sha256 "febc039b58b4157da86b02aae613be5584090cde469725a226ba7b7acef70792" => :arm64_big_sur
     sha256 "d49d932f5d0986c72d13d0750e1038ab18036da9539902a55d6cd856126bc452" => :catalina
     sha256 "bc2eae19e209fe125041648d1f45ab36a8609ac2a49c8bc9fe1aa604b8cc8d99" => :mojave
     sha256 "38fbfbe4cc2887532bf078e2a2b62a1d1102cb09bf4f8724d31e96d9a58a0148" => :high_sierra
@@ -94,11 +96,16 @@ class Gtksourceview4 < Formula
       -lglib-2.0
       -lgobject-2.0
       -lgtk-3
-      -lgtksourceview-4.0
-      -lintl
       -lpango-1.0
       -lpangocairo-1.0
     ]
+    on_macos do
+      flags << "-lintl"
+      flags << "-lgtksourceview-4.0"
+    end
+    on_linux do
+      flags << "-lgtksourceview-4"
+    end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

@@ -1,16 +1,16 @@
 class Cc65 < Formula
   desc "6502 C compiler"
   homepage "https://cc65.github.io/cc65/"
-  url "https://github.com/cc65/cc65/archive/V2.18.tar.gz"
-  sha256 "d14a22fb87c7bcbecd8a83d5362d5d317b19c6ce2433421f2512f28293a6eaab"
+  url "https://github.com/cc65/cc65/archive/V2.19.tar.gz"
+  sha256 "157b8051aed7f534e5093471e734e7a95e509c577324099c3c81324ed9d0de77"
   license "Zlib"
   head "https://github.com/cc65/cc65.git"
 
   bottle do
-    sha256 "8f64703adec128eede5e3a980d1898e2b13ed87441ef7fdb5d41400850b82989" => :catalina
-    sha256 "a84e72ecee825a41a9614a7563df24418d5173ff13ff767adf2a924e28b00fcb" => :mojave
-    sha256 "2fecec53d0f65fc2ae409fc29516207cf11377e6726574087da4f06502e10770" => :high_sierra
-    sha256 "e4bf2981ea6489e414bf2166f6e591612b2e589aa30a3beaab1fd0d7a2ca1207" => :sierra
+    sha256 "d0010fe7f4b58daea95dd57f4116668bd2bedfbd5392e73412162292034d456d" => :big_sur
+    sha256 "47405e34cd591b17d9ed65842f25ac7c6d9f61e98f21b9c403596257d7e23dae" => :arm64_big_sur
+    sha256 "a773d68d33b81899ebe7c10d294c0d6e2c2eab9063206f787b1e8c5b8e36f437" => :catalina
+    sha256 "bd750ae3470b736a6b7260723ead51d6e871edc8d8607f53b670f03c84932a00" => :mojave
   end
 
   conflicts_with "grc", because: "both install `grc` binaries"

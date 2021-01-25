@@ -8,6 +8,8 @@ class Dspdfviewer < Formula
   head "https://github.com/dannyedel/dspdfviewer.git"
 
   bottle do
+    sha256 "3a45a628615800fa2f18d8ec10dafed1c1ccecdd3d9603ef7561bb67faee8c89" => :big_sur
+    sha256 "2a375ddcdf1dfc4c53f7fb2bfa4146ca7a08de8fe0e24436593b7e645ac2c00e" => :arm64_big_sur
     sha256 "110de35c2516b74d0c6af47be2b1417f81a8805aae1a019b448e27e8dc03c362" => :catalina
     sha256 "f6063bf108432e891c5ec13665cde11d30498e99cf4d130236b78ea3a894c32c" => :mojave
     sha256 "93406709c843244b5c55b9f6167d67290899ac1aaa32bd32faa530fab66daae9" => :high_sierra

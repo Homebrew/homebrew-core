@@ -7,6 +7,8 @@ class Icemon < Formula
 
   bottle do
     cellar :any
+    sha256 "52c53c5f13f2d667d910b7d75701aaaa5270168194e0468fd8daf581185c9791" => :big_sur
+    sha256 "a975fb1f42d8a4f3b854f435998ea86629f275bce32ec9d66d49554d3677cc8d" => :arm64_big_sur
     sha256 "4a5b08e5bc831130b26e21e81456c56b01f3ca391ff822785fe4b2a9f005132e" => :catalina
     sha256 "0752b2d25bb1371bf42fd8a049b6c10d6e289d74cf6d9409dd9b268a4da70722" => :mojave
     sha256 "785d0af0e6f9900aa7bd1c60309385da28dee75380dd47a449286dae7e6c3df2" => :high_sierra

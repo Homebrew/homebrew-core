@@ -10,6 +10,8 @@ class FileFormula < Formula
 
   bottle do
     cellar :any
+    sha256 "bce0170e833223ef66813d4a7dacb045e55456c0b8fc539f3559d68406328493" => :big_sur
+    sha256 "f445ca085b3a17adff424d53d4870c85c8fe49ab170a0cef36439d1fd2cd1c0a" => :arm64_big_sur
     sha256 "8aa09b20fce4cadcb67695d44d7db1530767659b7880f4ff28147f3f8bd11cc1" => :catalina
     sha256 "d2f3b7a6a4661b5b3cae9a28edc24a3d56c417056ee1b526c83b14d3b3d4ee53" => :mojave
     sha256 "66591e58e59f306dffc9b6b644d48af675326d33712749ab0c0763f46d4a9af0" => :high_sierra

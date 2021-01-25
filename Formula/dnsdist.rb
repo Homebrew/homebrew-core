@@ -3,6 +3,7 @@ class Dnsdist < Formula
   homepage "https://www.dnsdist.org/"
   url "https://downloads.powerdns.com/releases/dnsdist-1.5.1.tar.bz2"
   sha256 "cae759729a87703f4d09b0ed4227cb224aaaa252fa92f2432fd7116f560afbf1"
+  revision 1
 
   livecheck do
     url "https://downloads.powerdns.com/releases/"
@@ -10,9 +11,9 @@ class Dnsdist < Formula
   end
 
   bottle do
-    sha256 "c21a37f8b202fe9c3257d3b3bc13058d5c55b2cb86dd2ca42af541bb27de9160" => :catalina
-    sha256 "18f713b5f63b18ac0aa5fa40ea0cbe088b209a5ed7c0c035cb6f8dedad2b891b" => :mojave
-    sha256 "5894b2dd3badaa2e8c7e4b3fe691870f0477d3b7c8461465cae6c6891d3fdc40" => :high_sierra
+    sha256 "85f26051fea25986ed2510c18ab9dcc29178c7a6acc4cdd01aa2fc3bf086c88a" => :big_sur
+    sha256 "61ec7c2d3aa37965c54474ba50f739658679d2dac84e46854e0ca6fbdf9b0058" => :catalina
+    sha256 "821cb52f93b00d1f596e40a9d905f2d7a01fbd26e44bbf48299b5123ed5bc7d6" => :mojave
   end
 
   depends_on "boost" => :build

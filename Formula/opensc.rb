@@ -1,20 +1,21 @@
 class Opensc < Formula
   desc "Tools and libraries for smart cards"
   homepage "https://github.com/OpenSC/OpenSC/wiki"
-  url "https://github.com/OpenSC/OpenSC/releases/download/0.20.0/opensc-0.20.0.tar.gz"
-  sha256 "bbf4b4f4a44463645c90a525e820a8059b2f742a53b7b944f941de3c97ba4863"
-  license "LGPL-2.1"
+  url "https://github.com/OpenSC/OpenSC/releases/download/0.21.0/opensc-0.21.0.tar.gz"
+  sha256 "2bfbbb1dcb4b8d8d75685a3e95c30798fb6411d4efab3690fd89d2cb25f3325e"
+  license "LGPL-2.1-or-later"
   head "https://github.com/OpenSC/OpenSC.git"
 
   livecheck do
-    url "https://github.com/OpenSC/OpenSC/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
-    sha256 "38a3b5cb96dc21a68ecb7a5ec55cb4e16245718f43494442c43c7bf1dfbc9cbd" => :catalina
-    sha256 "a4f9ffe8088a618dc349e74463ac7a846335dc847b8dc37c8037ec8c7e3244de" => :mojave
-    sha256 "ec40e0b292df9c7819244653977a7ce03b1121f2f98cf2960c0e6f611f18eaf1" => :high_sierra
+    sha256 "4a6b8c4b43e331548c53ef20d35be15156ff7cef5d3e6a2400f1e5eeff14c02b" => :big_sur
+    sha256 "7c2200588b517d1c797a8307031f2ca20a3145547ff4cd5ed182fc5680671e5b" => :arm64_big_sur
+    sha256 "5ba13391a55bcd288e0ab35458503bea761213e3e5a4395ea0966e2d19deb03f" => :catalina
+    sha256 "89526a544b8fb886dbbf62710c30a6c52f339d48240ca72afe1f99098394ee11" => :mojave
   end
 
   depends_on "autoconf" => :build

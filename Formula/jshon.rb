@@ -7,6 +7,8 @@ class Jshon < Formula
 
   bottle do
     cellar :any
+    sha256 "301ae5b178d603c79eb0ae2316647ea558c0eaea4331a525a9bc52f6f6387203" => :big_sur
+    sha256 "cda0d78d58a0f23419cef2718919688bef98ec7461e750e60f9a10dd528c02ff" => :arm64_big_sur
     sha256 "ec755371878b6471b6d5fb0dac981f7969dad3a42b9aa2e9be60f7a303b3fffe" => :catalina
     sha256 "5aa1d640857651175a6fe692f31c0a28b58c7d5b02aac1dc6945c2fce7b76a81" => :mojave
     sha256 "c32084666ea13118a66803175575de9b74ca5a04d5a32bdd91883007ef6822b8" => :high_sierra

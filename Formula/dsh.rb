@@ -11,6 +11,8 @@ class Dsh < Formula
   end
 
   bottle do
+    sha256 "8179e3e553da0ac7b40a6b69c0cd47283ce7ab80f399e0f84b57210fa8b6784b" => :big_sur
+    sha256 "5e691ea82431b5921a5ce57f26e0219c0f5c38decd4249c3fb49beed4f284c4b" => :arm64_big_sur
     sha256 "e978724605a216f2e3ffc5df3ba12bb53e3150aa63b7d18779723e563a35f867" => :mojave
     sha256 "5d553941319eae8d839a53063057fff05b359eb13e53da2d7313c3d41fae88b0" => :high_sierra
     sha256 "9d694a476e5d74d7c3edbf284628e3f68c96c5a30c91b7fd3c624630805636ea" => :sierra

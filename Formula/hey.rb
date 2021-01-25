@@ -7,6 +7,8 @@ class Hey < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "4a743f02a2abfd8fa424bb9ddc8b65ba3633f6b3b7b216da6763a5fe95c10501" => :big_sur
+    sha256 "45175c81eb26b54fcf4b865e97a3a075ea12a85657884aaf78d2626ee07232fe" => :arm64_big_sur
     sha256 "972cc3f6a520467db11ab9cef3aa5311c6813c203c23bb0173363a00a45cfc07" => :catalina
     sha256 "af9934ac04900c142879a97bcc9b376e25f4928239c0bb9bd68fdad0e4174ead" => :mojave
     sha256 "67fbe5a4b3574ea9025607e02b56c49572d4f184bcf1ae49fb5cb3eb05ede26c" => :high_sierra

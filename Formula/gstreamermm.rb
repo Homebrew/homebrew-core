@@ -3,7 +3,7 @@ class Gstreamermm < Formula
   homepage "https://gstreamer.freedesktop.org/bindings/cplusplus.html"
   url "https://download.gnome.org/sources/gstreamermm/1.10/gstreamermm-1.10.0.tar.xz"
   sha256 "be58fe9ef7d7e392568ec85e80a84f4730adbf91fb0355ff7d7c616675ea8d60"
-  revision 4
+  revision 5
 
   livecheck do
     url :stable
@@ -11,14 +11,14 @@ class Gstreamermm < Formula
 
   bottle do
     cellar :any
-    sha256 "2cd58f367c293ee4b19caddbc97ffb3be2fffb0382e0c0908bd4c2e604912ad7" => :catalina
-    sha256 "8249cddb44016172a38348a0d1f1092d07fe3848b0bbb0f2b964213305bc6be4" => :mojave
-    sha256 "fee76c2e868cd7f21a0953a53144ef5ee8a07960a1873cb0db84933baa471cfd" => :high_sierra
-    sha256 "c1fcf19c49b4cb0674bfb7deeb51c403093b53d0a03c5f3819d7905131f64a4e" => :sierra
+    sha256 "d30aeafe0ac35fa2ce631e2c8e47f72eebbfcf5e395f3e8703a72f8e68dfe136" => :big_sur
+    sha256 "f568885efde3d1d18801014eb944b87138db9ea2fa067aa9c714c0a0c404fad1" => :arm64_big_sur
+    sha256 "683541895f76162db0eb4f0637fd5d1e131d2385e68ac25b3401dcc991e496d3" => :catalina
+    sha256 "d11aaca4754a2420e206829837a34a8aaf16c2ad1ebaba5cd9a6f5d85e4f50cc" => :mojave
   end
 
   depends_on "pkg-config" => :build
-  depends_on "glibmm"
+  depends_on "glibmm@2.64"
   depends_on "gst-plugins-base"
   depends_on "gstreamer"
 
@@ -42,7 +42,7 @@ class Gstreamermm < Formula
     EOS
     gettext = Formula["gettext"]
     glib = Formula["glib"]
-    glibmm = Formula["glibmm"]
+    glibmm = Formula["glibmm@2.64"]
     gst_plugins_base = Formula["gst-plugins-base"]
     gstreamer = Formula["gstreamer"]
     libsigcxx = Formula["libsigc++@2"]
@@ -89,9 +89,11 @@ class Gstreamermm < Formula
       -lgstsdp-1.0
       -lgsttag-1.0
       -lgstvideo-1.0
-      -lintl
       -lsigc-2.0
     ]
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", *flags
     system "./test"
   end

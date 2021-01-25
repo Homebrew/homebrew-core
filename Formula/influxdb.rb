@@ -7,12 +7,14 @@ class Influxdb < Formula
   head "https://github.com/influxdata/influxdb.git"
 
   livecheck do
-    url "https://github.com/influxdata/influxdb/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "d0928a599343518868633d12bc52e8121bd2c44d218a3c913f251f99aea1c658" => :big_sur
+    sha256 "edac905379585ed2a862ce83292906e2badbaa9a851befc87fad96c521f3e2a9" => :arm64_big_sur
     sha256 "0a5b9d401065d2ce56013a334702c436370c088909a783371f7e690d97d2911d" => :catalina
     sha256 "bf43407cabefab4b3b76eb35a53ea835e43c6f50beb80c891f564bd06c7f8ca6" => :mojave
     sha256 "958b7dbbb9f7b7879ab9a9bc8b408c3ffe43027557dc7c3a3a9d73257ff6a820" => :high_sierra

@@ -3,13 +3,20 @@ class Libzdb < Formula
   homepage "https://tildeslash.com/libzdb/"
   url "https://tildeslash.com/libzdb/dist/libzdb-3.2.2.tar.gz"
   sha256 "d51e4e21ee1ee84ac8763de91bf485360cd76860b951ca998e891824c4f195ae"
-  license "GPL-3.0"
+  license "GPL-3.0-only"
+  revision 1
+
+  livecheck do
+    url :homepage
+    regex(%r{href=.*?dist/libzdb[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
 
   bottle do
     cellar :any
-    sha256 "114982357474fdd8af3df7d11a3575e81686ff55d6c2018b5385c7f5acfee7ed" => :catalina
-    sha256 "bc52a04fe2ae5500200c1521f4e32497c9eee2d2c4087e60c9ed11a09b2cac67" => :mojave
-    sha256 "123039235efee305797c3252e0e4b07c93989785165c044eefa9f86eae73f9b0" => :high_sierra
+    sha256 "ae4c8d97236e248f1fa8fe189a4f7c049009335bc8038f541c8faf6c47c3d0e4" => :big_sur
+    sha256 "db54eac2ef107864c43f2888628a30ed7af5d3eae6f892b491ea7f2fe542a35b" => :arm64_big_sur
+    sha256 "846888a4d5e47cccac9d41c95223974b16724b681c57e12e616a503409507014" => :catalina
+    sha256 "7040dee7ee6eeb60e81aeacf6cc33f2e6e1ea5895c9a53e4a2b94ca509852974" => :mojave
   end
 
   depends_on macos: :high_sierra # C++ 17 is required
@@ -21,7 +28,7 @@ class Libzdb < Formula
   def install
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
     system "make", "install"
-    pkgshare.install "test"
+    (pkgshare/"test").install Dir["test/*.{c,cpp}"]
   end
 
   test do

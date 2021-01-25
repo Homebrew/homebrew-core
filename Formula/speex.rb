@@ -12,6 +12,8 @@ class Speex < Formula
 
   bottle do
     cellar :any
+    sha256 "4eab5b7d16f9a249b65156765cfdf1fca13d59f9bdd599c266f075f740b0ff81" => :big_sur
+    sha256 "6fa6fadc24bf645344850be769b61adcefffa425c7cc456e127d35a4bb1b7b17" => :arm64_big_sur
     sha256 "0f83411cb7338f92a588672d127c902e0b45d1f7276befa2206bc870208d5bb0" => :catalina
     sha256 "ed212ec09c4a1a2c789e5c2a7a2679b56c75bcf252a52fe28d6615499d21534f" => :mojave
     sha256 "525970161e7c1629b242c91d889201ca368814945695efd5b441d58b5b5dcc75" => :high_sierra

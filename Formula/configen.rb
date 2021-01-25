@@ -8,6 +8,8 @@ class Configen < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "78a7c0604f2a98b2f488b2bfefebff47e08342e69d5f47b7123f15f71bcb9653" => :big_sur
+    sha256 "d7aa87ea082759093c1192bf7e0ee69c1146ef4626534731ff506a83ec682641" => :arm64_big_sur
     sha256 "9bdb2988618d5a1e9291a8579207d9dad1092f377d29d13af68cf6ef5afcb202" => :catalina
     sha256 "befb8801be997ff110c9ca0b817fed82b4e233842f5afe05e7ae372a10c4007f" => :mojave
   end

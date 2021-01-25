@@ -1,18 +1,27 @@
 class RustupInit < Formula
   desc "Rust toolchain installer"
-  homepage "https://github.com/rust-lang/rustup.rs"
-  url "https://github.com/rust-lang/rustup.rs/archive/1.22.1.tar.gz"
-  sha256 "ad46cc624f318a9493aa62fc9612a450564fe20ba93c689e0ad856bff3c64c5b"
+  homepage "https://github.com/rust-lang/rustup"
+  url "https://github.com/rust-lang/rustup/archive/1.23.1.tar.gz"
+  sha256 "0203231bfe405ee1c7d5e7e1c013b9b8a2dc87fbd8474e77f500331d8c26365f"
   license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "12bef1ce5ee98d022eee88019044b30d1c9919fd6f4b14e9ef876f8944e39a96" => :catalina
-    sha256 "a4f477ccd1472f43321452297aa935347fd8e12f96d7bd839239e669dd361000" => :mojave
-    sha256 "6a4ba7267ffa430c98cc4cf58026473ce07a47a97dcc40acd4031d8d82c209a5" => :high_sierra
+    sha256 "3ca4f2a444efa1b2304799b1f2ccc4d835f30b422e1281381d0ef417eecd57ce" => :big_sur
+    sha256 "f82e459b1ffaf2c3f7d33e0bf3f4044b66a6baecce1e20183009775de549eebf" => :arm64_big_sur
+    sha256 "bdde9b0a17227a4dbc37c52b66a921f95ac9c760c133c4b401f0abc42c05b1aa" => :catalina
+    sha256 "f8501b29816fb534524bd36dc46a679456361a7a0b35e6ebc6f5b0dd75083c00" => :mojave
   end
 
   depends_on "rust" => :build
+
+  uses_from_macos "curl"
+  uses_from_macos "xz"
+
+  on_linux do
+    depends_on "pkg-config" => :build
+    depends_on "openssl@1.1"
+  end
 
   def install
     cargo_home = buildpath/"cargo_home"

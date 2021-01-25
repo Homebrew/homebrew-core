@@ -1,16 +1,16 @@
 class Rmlint < Formula
   desc "Extremely fast tool to remove dupes and other lint from your filesystem"
   homepage "https://github.com/sahib/rmlint"
-  url "https://github.com/sahib/rmlint/archive/v2.9.0.tar.gz"
-  sha256 "a2d26863e0018efad60f0b1123e7cffd8ef764c8fb574a7987a49260e4e51c8f"
-  license "GPL-3.0"
+  url "https://github.com/sahib/rmlint/archive/v2.10.1.tar.gz"
+  sha256 "10e72ba4dd9672d1b6519c0c94eae647c5069c7d11f1409a46e7011dd0c6b883"
+  license "GPL-3.0-or-later"
 
   bottle do
     cellar :any
-    sha256 "ed346f576ec02c98e54c337e0370bb3b238abc0ccb90c84cd7d302ddd0d3713d" => :catalina
-    sha256 "155767f2b4bc9d03e965f56e2dd6b9b8bd2cde55fb6fb553ce05a00fad35bd2a" => :mojave
-    sha256 "9a05ea7f81263a7e2c0c6f2770b80ca942c92887906741dc3b8faba1d7a41d10" => :high_sierra
-    sha256 "3c0e9d07bd06e4e9785dc54ccee7a7d0cdd2a95b2fe6a7ff0e12f66e1bbc0a6d" => :sierra
+    sha256 "1f6f76bfe7c4f4c058b91a0808e6e19a0029f4a4017929615bc223666abddf5a" => :big_sur
+    sha256 "38f621eb2196afa5504087ef48cd19777efbd5da81302ea668b0efbd68cc20d7" => :catalina
+    sha256 "e7eac7ed5d93b19175c7860fe84faa34f878253c15bdbc280ee06cfd392f10e3" => :mojave
+    sha256 "b84e9cd89ef6b9d43f633226e0a7ecb85e5c75c65f3b50f83cf687862db8d191" => :high_sierra
   end
 
   depends_on "gettext" => :build
@@ -22,6 +22,16 @@ class Rmlint < Formula
   depends_on "libelf"
 
   def install
+    # patch to address bug affecting High Sierra & Mojave introduced in rmlint v2.10.0
+    # may be removed once the following issue / pull request are resolved & merged:
+    #   https://github.com/sahib/rmlint/issues/438
+    #   https://github.com/sahib/rmlint/pull/444
+    if MacOS.version < :catalina
+      inreplace "lib/cfg.c",
+      "    rc = faccessat(AT_FDCWD, path, R_OK, AT_EACCESS|AT_SYMLINK_NOFOLLOW);",
+      "    rc = faccessat(AT_FDCWD, path, R_OK, AT_EACCESS);"
+    end
+
     system "scons", "config"
     system "scons"
     bin.install "rmlint"

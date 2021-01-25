@@ -4,16 +4,19 @@ class Llnode < Formula
   url "https://github.com/nodejs/llnode/archive/v3.2.0.tar.gz"
   sha256 "499b970a5006c2e1057f6c61da79b5466715e830e4a91c71e6de9c1ff6fe1a52"
   license "MIT"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "7cae66b1f165be9e0167179b2512b232c367d226f0dd902e3a9ab9b5268592c3" => :catalina
-    sha256 "be4240e396ba27163184e031a6037461786ad13ae3c206e8f3461d546a472f01" => :mojave
-    sha256 "eed224951b899923a307415072bc9c4402e85d9e0d5f0aedc214cf1106f15935" => :high_sierra
+    sha256 "a82631c8b56f17bea8cf3f8e5f5077607d59ac52c743058bd1d150ff5e61ad2e" => :big_sur
+    sha256 "59c65b8dc37b82052e1ffe3ce845b975c04f0fd5a0a96ce75cc4d9f906239243" => :arm64_big_sur
+    sha256 "560fa7f91b9efca4de97feffe3bec3ee218eca2786df2a2e473009ab520f855b" => :catalina
+    sha256 "23c5930b1c3a4d3d9be6c410dc745014544331af8394917ecd9a928064d7ff49" => :mojave
+    sha256 "33842b20f13a721a880810a50422bfbf25b8c20a12f5e4882453939e7203ff1d" => :high_sierra
   end
 
   depends_on "node" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
 
   resource "lldb" do
     if DevelopmentTools.clang_build_version >= 1000
@@ -36,8 +39,7 @@ class Llnode < Formula
       # It claims it to be lldb 350.0 for Xcode 7.3, but in fact it is based
       # of 34.
       # Xcode < 7.3 uses 340.4, so I assume we should be safe to go with this.
-      url "https://llvm.org/svn/llvm-project/lldb/tags/RELEASE_34/final/",
-          using: :svn
+      url "https://llvm.org/svn/llvm-project/lldb/tags/RELEASE_34/final/", using: :svn
     end
   end
 

@@ -7,6 +7,7 @@ class GitSizer < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "f56872fa31991104cc094547c29ae3c3d5f33fe0ef7fce8cc54e98c29345d433" => :big_sur
     sha256 "5d465491e6d2fd3b025dd6ad8f1448ef6ee7dd18d84ef73e895cc483afb9b98c" => :catalina
     sha256 "4d4e1b47018c1b5efe0ae71996e1dad3f7b0ec4f9616793121463b1c092b03af" => :mojave
     sha256 "add468f96d564f1046a0908cc1f553c73a2ac672973f3c7a7bca47c12fd72867" => :high_sierra

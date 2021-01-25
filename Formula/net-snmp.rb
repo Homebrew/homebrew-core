@@ -4,6 +4,7 @@ class NetSnmp < Formula
   url "https://downloads.sourceforge.net/project/net-snmp/net-snmp/5.9/net-snmp-5.9.tar.gz"
   sha256 "04303a66f85d6d8b16d3cc53bde50428877c82ab524e17591dfceaeb94df6071"
   license "Net-SNMP"
+  head "https://github.com/net-snmp/net-snmp.git"
 
   livecheck do
     url :stable
@@ -11,25 +12,41 @@ class NetSnmp < Formula
   end
 
   bottle do
-    sha256 "46837a0296f9a9cb434371d7377800da0e0e06a09ef07a0d70bd79d8bbe3bfb2" => :catalina
-    sha256 "57dc4d78d02ec37a30d822b40aca17afc187de70c15d87c62bd660c5cc17d211" => :mojave
-    sha256 "8285c2dfee4c083c7ea0f5c99964aaa68c5cc26e4c223405727ec9fc85d636db" => :high_sierra
+    rebuild 2
+    sha256 "f76220e8e7bffba146b3886d46d61dca81e947d2d77937e8c756b1f6f242526d" => :big_sur
+    sha256 "546fe0a8e74e43d8e8ba6d5526a73096aa7e4e92b9f66d910b6146206753e556" => :arm64_big_sur
+    sha256 "04210e391fad9e36b9fe9945e4a8b6436263e64aaf24ac0069202c6581c8d624" => :catalina
+    sha256 "1ac45c38fa251f876c70073ef1757c0a3b7659fb8f2ce7f5ec41af2febb1cac9" => :mojave
   end
 
   keg_only :provided_by_macos
 
   depends_on "openssl@1.1"
 
+  # Fix "make install" bug with 5.9
+  patch do
+    url "https://github.com/net-snmp/net-snmp/commit/52d4a465dcd92db004c34c1ad6a86fe36726e61b.patch?full_index=1"
+    sha256 "669185758aa3a4815f4bbbe533795c4b6969c0c80c573f8c8abfa86911c57492"
+  end
+
+  # Clean up some Xcode 12 issues with ./configure
+  patch do
+    url "https://github.com/net-snmp/net-snmp/commit/a7c8c26c48c954a19bca5fdc6ba285396610d7aa.patch?full_index=1"
+    sha256 "8ccc46a3c15d145e5034c0749f3c0e7bd11eca451809ae7f2312dab459e07cec"
+  end
+
+  # Apple Silicon support
+  # https://github.com/net-snmp/net-snmp/issues/228
+  if Hardware::CPU.arm?
+    patch do
+      url "https://github.com/net-snmp/net-snmp/commit/bcc654e7.patch?full_index=1"
+      sha256 "b5e35ef021e1962bd2fbf675f05eb43cc75bd7d417687d736a4c4b508a9eed47"
+    end
+  end
+
   def install
-    # https://sourceforge.net/p/net-snmp/bugs/2504/
-    # I suspect upstream will fix this in the first post-Mojave release but
-    # if it's not fixed in that release this should be reported upstream.
-    (buildpath/"include/net-snmp/system/darwin18.h").write <<~EOS
-      #include <net-snmp/system/darwin17.h>
-    EOS
-    (buildpath/"include/net-snmp/system/darwin19.h").write <<~EOS
-      #include <net-snmp/system/darwin17.h>
-    EOS
+    # Workaround https://github.com/net-snmp/net-snmp/issues/226 in 5.9:
+    inreplace "agent/mibgroup/mibII/icmp.h", "darwin10", "darwin"
 
     args = %W[
       --disable-debugging

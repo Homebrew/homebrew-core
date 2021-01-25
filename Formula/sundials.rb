@@ -1,8 +1,8 @@
 class Sundials < Formula
   desc "Nonlinear and differential/algebraic equations solver"
-  homepage "https://computation.llnl.gov/casc/sundials/main.html"
-  url "https://computing.llnl.gov/projects/sundials/download/sundials-5.4.0.tar.gz"
-  sha256 "04d8a2ebe02cdaeef5a9e22ff7e3146bb563d8400f65772b6c7af80001413ffa"
+  homepage "https://computing.llnl.gov/projects/sundials"
+  url "https://computing.llnl.gov/projects/sundials/download/sundials-5.6.1.tar.gz"
+  sha256 "16b77999ec7e7f2157aa1d04ca1de4a2371ca8150e056d24951d0c58966f2a83"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,10 +11,10 @@ class Sundials < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "255e0fd809d33b45600fda734d1188d2298349b40e58d96c9e3954831325974a" => :catalina
-    sha256 "4a307d87e710ba9fdd05ee0e501fa115f960e26d27dad95e7fa264d81aa3c9f9" => :mojave
-    sha256 "6bc29efaf150b8810ee4a323a2dc95a431503f5fd18f7694ac01aa4c54b29e86" => :high_sierra
+    sha256 "3efeaeab0d7097370464a61085e8feddabf80436e092674f8ec36894406d791c" => :big_sur
+    sha256 "ce5c25344fa3d88cc89d4840706bc7b03ce0b8abcbe199f253da7fac03bfdd0f" => :arm64_big_sur
+    sha256 "db84818157b4d314de7ebc338f8c972cb026f84ff9234365b2e91bbc8a4caaf1" => :catalina
+    sha256 "1876f70f5c54be1cc4aadc7935385e65451f7612766f1a33a0850e12c152232f" => :mojave
   end
 
   depends_on "cmake" => :build

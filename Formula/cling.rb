@@ -2,11 +2,9 @@ class Cling < Formula
   desc "C++ interpreter"
   homepage "https://root.cern.ch/cling"
   url "https://github.com/root-project/cling.git",
-      tag:      "v0.6",
-      revision: "82ac7bf1870abbedb7fe44f8e34a429538f26a8d"
-  # You may license this software under one of the following licenses, marked
-  # "UI/NCSAOSL" and "LGPL".
-  license "LGPL-2.1"
+      tag:      "v0.7",
+      revision: "70163975eee5a76b45a1ca4016bfafebc9b57e07"
+  license any_of: ["LGPL-2.1-only", "NCSA"]
 
   livecheck do
     url :stable
@@ -15,17 +13,18 @@ class Cling < Formula
 
   bottle do
     cellar :any
-    sha256 "9ab4ced2f1cda06858656f78b5ffb7fd1ab680d8b26680e353e71eb7b6c5601b" => :catalina
-    sha256 "e630699239fadc14a1d6b2a62474a9e6c21f187642af66f92df1a49d5e7c899c" => :mojave
-    sha256 "381326c7944d38195c9b8507db18aa35fa636dc8c08f876472db0d7577ce597b" => :high_sierra
+    sha256 "4f7e4ff0e73858b0fc8f3f3ea004f3118da82108a6087ebdb21973116ff58cee" => :big_sur
+    sha256 "7c100296feb4998222916d3d3f98f22d1584031ec2115c83c562b53bb4025c91" => :arm64_big_sur
+    sha256 "743a41e996097da4d0d309839045c081dee5e2ec94ccb4839413003f632ffb98" => :catalina
+    sha256 "ccc594737e7a0b777ad5360566a0fa13f0584c6cdb0b4023ed0ff59ebac30112" => :mojave
   end
 
   depends_on "cmake" => :build
 
   resource "clang" do
     url "http://root.cern.ch/git/clang.git",
-        tag:      "cling-v0.6",
-        revision: "02c41d5edd15232b0b25ec1d842403552c2aceb4"
+        tag:      "cling-v0.7",
+        revision: "354b25b5d915ff3b1946479ad07f3f2768ea1621"
   end
 
   resource "llvm" do

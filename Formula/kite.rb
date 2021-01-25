@@ -5,6 +5,11 @@ class Kite < Formula
   sha256 "8f97e777c3ea8cb22fa1236758df3c479bba98be3deb4483ae9aff4cd39c01d5"
   revision 2
 
+  livecheck do
+    url "http://www.kite-language.org/files/"
+    regex(/href=.*?kite[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "b55449bb1c1b6a3f190926a44dcf090479a190bad3389372157137b46c1e20ca" => :mojave
     sha256 "3b293d215be3d011ec9110b6b3f8fad331f36eb8a4062cafa7c0601315454bfc" => :high_sierra

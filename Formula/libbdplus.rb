@@ -8,6 +8,8 @@ class Libbdplus < Formula
 
   bottle do
     cellar :any
+    sha256 "2641a985c689b115e5c4725688caa4728d1e8aab80b8b7e8763a362406c2d04d" => :big_sur
+    sha256 "9bd085bb8401db223ce376d6820337ce1fa5dbf87c4012e50eb203f608f25ab5" => :arm64_big_sur
     sha256 "0f6679a9e46eebf5d7a37a7b09d77b57512774fb3766eb4a359a60de8997a0e0" => :catalina
     sha256 "d8f4b53ec0ea12bbc02b2962e94dfe5df98ef55005f10209f4fd40213a80f601" => :mojave
     sha256 "478e405b0f9687edcea3f651f4ec922a1bd12c12476c3aa14d1a35d0bb0362bb" => :high_sierra

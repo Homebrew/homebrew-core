@@ -4,25 +4,24 @@ class Libtorch < Formula
   desc "Tensors and dynamic neural networks"
   homepage "https://pytorch.org/"
   url "https://github.com/pytorch/pytorch.git",
-      tag:      "v1.6.0",
-      revision: "b31f58de6fa8bbda5353b3c77d9be4914399724d"
+      tag:      "v1.7.1",
+      revision: "57bffc3a8e4fee0cce31e1ff1f662ccf7b16db57"
   license "BSD-3-Clause"
-  revision 1
 
   livecheck do
-    url "https://github.com/pytorch/pytorch/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
     cellar :any
-    sha256 "639c902bc29a3d3bc3da276a36d2ca4a1b652c3500544a959e8854ff8bbb3d94" => :catalina
-    sha256 "19826ceb6d2fb187fa62581e59eac8119c62a9848b26165db5a90782e6cd2e52" => :mojave
-    sha256 "7e8b575d15988304e31d00eeaedc2cc463fda10a12192ae598e3c7b28f70a6a3" => :high_sierra
+    sha256 "2423ea34ec448f50ae6006464386fe2c692bf046c2b6b6e3e912c1f93646f5df" => :big_sur
+    sha256 "761764c7160cd4abc0fd54b4d55ab7befb63f0c7e3d734adc78a168eae17cb1a" => :catalina
+    sha256 "7624a54fe176c8c4e84f26cba71d96740e157d7ee93f8a222557db42736f11ce" => :mojave
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
   depends_on "eigen"
   depends_on "libomp"
   depends_on "libyaml"
@@ -40,7 +39,7 @@ class Libtorch < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
+    venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
     venv.pip_install resources
 
     args = %W[

@@ -11,6 +11,8 @@ class Flac123 < Formula
 
   bottle do
     cellar :any
+    sha256 "898d28a19dd90787cf49ecb1af955f7f65da13423f5bbfdc43a1fd0c6993c4d0" => :big_sur
+    sha256 "beb35321efa9b0d023ede66ba6e8df9e906da354d654088a48e147f9f5c5dd6a" => :arm64_big_sur
     sha256 "e9d6f0e34bf00197859eb997f353123f67a75d644ed9a3dba400207a83a18d6b" => :catalina
     sha256 "c1aa5158e16136453e09b384480a6aa4faaefc818c14243a0c4b5359cdab2fb4" => :mojave
     sha256 "ac4ee518533f4b043fd380d0ed6e2077ec410c16acdf952b733df533a4750889" => :high_sierra

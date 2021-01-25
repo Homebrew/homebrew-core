@@ -8,14 +8,14 @@ class Rebar < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "9cf28b95d6114a6eb76e9378f117745bad0c4e304feebae67fb545a6166410b8" => :catalina
-    sha256 "6c6b5ff9c5b90070a6dcd9bc8d6a6b96807ed74eee4229389f30e3716b347bb8" => :mojave
-    sha256 "d5a5ed085e413f898c5a2f36f0696343b08e592d901bcb01ddc9c41098a8aadf" => :high_sierra
-    sha256 "9deae896b5a7656fdbbbcdb134f17f776b9ba3b320a007a9ea84c97f1242ea76" => :sierra
-    sha256 "dc9934c431b8435022a1b47400d04357ef1da4bc579e523c14d9e6ddf9d44715" => :el_capitan
-    sha256 "30b03e9b4d9405d3131cbc4d4303797496d264fafed8f708a7a862e73e2e99ea" => :yosemite
+    rebuild 2
+    sha256 "17b587b45197068cb021a40a4b8a82c69aac233a5f259986d7ad6bc8c41244b8" => :big_sur
+    sha256 "92373b3f954401cb022c08aa56b7e29c8f15cee4a370978c7486c16c2b91ebdd" => :arm64_big_sur
+    sha256 "1dca4b3d2760f3806569c7a455beb73508409177fd9a6f22816653f14e80fdee" => :catalina
+    sha256 "265cfa8851de8a55ff46346167f8670df48d8a731c427d51fe0da16cf2ee8b78" => :mojave
   end
+
+  deprecate! date: "2020-11-24", because: :repo_archived
 
   depends_on "erlang"
 

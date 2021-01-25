@@ -4,6 +4,7 @@ class R < Formula
   url "https://cran.r-project.org/src/base/R-4/R-4.0.3.tar.gz"
   sha256 "09983a8a78d5fb6bc45d27b1c55f9ba5265f78fa54a55c13ae691f87c5bb9e0d"
   license "GPL-2.0-or-later"
+  revision 2
 
   livecheck do
     url "https://cran.rstudio.com/banner.shtml"
@@ -11,9 +12,10 @@ class R < Formula
   end
 
   bottle do
-    sha256 "4050483a8ea4ff9fbe1531f5e9cbe98fb1c7d8091b42184e40a5bcc678733cf3" => :catalina
-    sha256 "59f6e7ec476e78f4dbd99e01100cd6e937d97a3ecd818a00ad8c60dcb8ee7bea" => :mojave
-    sha256 "a95f0100c9c16a0a45edd271dca3d70b20a4bc9599774510eb1544b901e3d89a" => :high_sierra
+    sha256 "d3859bfc06a1cac65a60a43f105aec2b3c2ebdb465b69eb6988a4686eefd0819" => :big_sur
+    sha256 "67c3d8b4f5adcfe3da2651c5f300b56a2129130db579c65eda952023ef305849" => :arm64_big_sur
+    sha256 "057a9e1fafd85ec2f65ecbfb651f6299cbbaab630158d6cf6d1057b43f7b9f29" => :catalina
+    sha256 "ffffeb9ad7f2892187d26fde97bc8f47ba4b27bf95ea8bcc1ce43a09771f7d51" => :mojave
   end
 
   depends_on "pkg-config" => :build
@@ -24,34 +26,33 @@ class R < Formula
   depends_on "openblas"
   depends_on "pcre2"
   depends_on "readline"
+  depends_on "tcl-tk"
   depends_on "xz"
 
   # needed to preserve executable permissions on files without shebangs
   skip_clean "lib/R/bin", "lib/R/doc"
 
   def install
-    # Fix dyld: lazy symbol binding failed: Symbol not found: _clock_gettime
-    if MacOS.version == "10.11" && MacOS::Xcode.installed? &&
-       MacOS::Xcode.version >= "8.0"
-      ENV["ac_cv_have_decl_clock_gettime"] = "no"
-    end
+    # BLAS detection fails with Xcode 12 due to missing prototype
+    # https://bugs.r-project.org/bugzilla/show_bug.cgi?id=18024
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
 
     args = [
       "--prefix=#{prefix}",
       "--enable-memory-profiling",
       "--without-cairo",
-      "--without-tcltk",
       "--without-x",
+      "--with-tcl-config=#{Formula["tcl-tk"].opt_lib}/tclConfig.sh",
+      "--with-tk-config=#{Formula["tcl-tk"].opt_lib}/tkConfig.sh",
       "--with-aqua",
-      "--with-lapack",
+      "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas",
       "--enable-R-shlib",
       "SED=/usr/bin/sed", # don't remember Homebrew's sed shim
       "--disable-java",
-      "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas",
     ]
 
     # Help CRAN packages find gettext and readline
-    ["gettext", "readline"].each do |f|
+    ["gettext", "readline", "xz"].each do |f|
       ENV.append "CPPFLAGS", "-I#{Formula[f].opt_include}"
       ENV.append "LDFLAGS", "-L#{Formula[f].opt_lib}"
     end
@@ -97,6 +98,8 @@ class R < Formula
   test do
     assert_equal "[1] 2", shell_output("#{bin}/Rscript -e 'print(1+1)'").chomp
     assert_equal ".dylib", shell_output("#{bin}/R CMD config DYLIB_EXT").chomp
+    assert_equal "[1] \"aqua\"",
+                 shell_output("#{bin}/Rscript -e 'library(tcltk)' -e 'tclvalue(.Tcl(\"tk windowingsystem\"))'").chomp
 
     system bin/"Rscript", "-e", "install.packages('gss', '.', 'https://cloud.r-project.org')"
     assert_predicate testpath/"gss/libs/gss.so", :exist?,

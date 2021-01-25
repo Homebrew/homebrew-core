@@ -3,16 +3,17 @@ class Gsmartcontrol < Formula
   homepage "https://gsmartcontrol.sourceforge.io"
   url "https://downloads.sourceforge.net/project/gsmartcontrol/1.1.3/gsmartcontrol-1.1.3.tar.bz2"
   sha256 "b64f62cffa4430a90b6d06cd52ebadd5bcf39d548df581e67dfb275a673b12a9"
-  revision 5
+  revision 8
 
   livecheck do
     url :stable
   end
 
   bottle do
-    sha256 "f013a063bc125ddf0eb174d8893edc7eea8433aac4ba910b0ed3a11337171fd4" => :catalina
-    sha256 "f07ac44ce8d76f469f2bd02da3476f41151416dacb64569a03cf936d8b50697f" => :mojave
-    sha256 "67fa6b9c4b3f203916bb66ca3b5b67c2171cbd2d0fd26886746408e09243577f" => :high_sierra
+    sha256 "a7edc375fddc2f1bd0a0ef54579aebb80941b51ce0b16d6dc0e6e174b894376b" => :big_sur
+    sha256 "87f1f004a8d37328c3a246bd66a3338ad14247ed38f7c7e75c5f8e274795b610" => :arm64_big_sur
+    sha256 "013dc10e96aee3db96ad08f2b460839cd1c2afa7440965b0f64f12dda5dd1728" => :catalina
+    sha256 "1fd22b0404a9b3da97aa728c6421340380d271d708c0c15734eadcf82bde6410" => :mojave
   end
 
   depends_on "pkg-config" => :build

@@ -1,16 +1,16 @@
 class Microplane < Formula
   desc "CLI tool to make git changes across many repos"
   homepage "https://github.com/Clever/microplane"
-  url "https://github.com/Clever/microplane/archive/v0.0.23.tar.gz"
-  sha256 "0243aa58559b8a43f5fa7324eee05d490899aa73294737e47451d1fc994769f5"
+  url "https://github.com/Clever/microplane/archive/v0.0.26.tar.gz"
+  sha256 "00d6abe55fedd7385f1782fc97a520c4c0aac1ff6d2cece88fc7a21c2c49f024"
   license "Apache-2.0"
   head "https://github.com/Clever/microplane.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "adfd90c4bbc09e44720f246cd719c508d7215b5ab6f9ad756c37018874e92dc4" => :catalina
-    sha256 "2e5906f81eb7ad280b115c22cd2e88a28daf2b612bb7f35744ace27ab0d2dd9c" => :mojave
-    sha256 "c5a414e1fa758fcb3d8b8a57b7edf3ea9174a7a71646d9a8e0f10dd2c07fb6ef" => :high_sierra
+    sha256 "dd71709815772fbf94f434f77f7426ce0544d2343471cfe7d9c71fd3e7e9567a" => :big_sur
+    sha256 "338b41245377f99989cc7ac786af29c075d7bec8764cedcb176fb21b9beb4ed7" => :catalina
+    sha256 "9adc70ddbc6fa4e70e1b006d33222de211caa09d58773e70d449e974482ddfc5" => :mojave
   end
 
   depends_on "dep" => :build

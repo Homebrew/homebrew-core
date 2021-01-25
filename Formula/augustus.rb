@@ -14,6 +14,7 @@ class Augustus < Formula
 
   bottle do
     cellar :any
+    sha256 "03665ee18df08813482e9ad6b91ff670ea332f828f6a0873ceef68dc0d574048" => :arm64_big_sur
     sha256 "9e6fc1d57f48cf314fa418059a9d619a8451d7e65ed8234225e52f311673cf6d" => :catalina
     sha256 "476eeca3de3f98c4e539cee89078a3f37f667ae7f47ef375115439154bc23e3c" => :mojave
     sha256 "b5077e94d1ee68864ed0d89bfc892ad80dcd37b89e149b23733bd9280d54771b" => :high_sierra

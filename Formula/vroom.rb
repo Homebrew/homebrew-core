@@ -7,6 +7,8 @@ class Vroom < Formula
 
   bottle do
     cellar :any
+    sha256 "0a8877fa647cc6998ec8ae81d39245b849805d0fe0d77e27456ba77da786f851" => :big_sur
+    sha256 "3647c26358309daf1436651727d47fbf230892e1dee393d8808a4af0f7fb79b9" => :arm64_big_sur
     sha256 "afa201989a1bd34ddf8dc96379bffe303eaa855a05dbbae570f44974bf5bf7e6" => :catalina
     sha256 "9ac415735021d7f3dd94247d0c9a8c7cfe2f4b1d1ec0ea1950663db92d70ff19" => :mojave
   end

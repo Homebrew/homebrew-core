@@ -1,8 +1,8 @@
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
-  url "https://github.com/hashicorp/terraform/archive/v0.13.5.tar.gz"
-  sha256 "c4bdb9e636550795862f13e0ae667a1d381bf2f6cd30c4dde54411afdd07aeab"
+  url "https://github.com/hashicorp/terraform/archive/v0.14.5.tar.gz"
+  sha256 "bf4e60f5da3f2d461d730ddc4d34ee9cc7ab57f29c22bdd518c7267697f30e50"
   license "MPL-2.0"
   head "https://github.com/hashicorp/terraform.git"
 
@@ -13,12 +13,12 @@ class Terraform < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7fdf6a1f6589963a78e95483ebe998df388141c3a9b18e3d05d1ae40a2fa0ad9" => :catalina
-    sha256 "03b00d2a93510312d3a84fdbccbfdd4257fb017efe8023f401f13a9ac8eba183" => :mojave
-    sha256 "86a8305cacb873ce72e4df54369ade49fde9c383c6da9781ec7aa267fb03a78c" => :high_sierra
+    sha256 "19e0e34fc342daaa3324de30d006afa502a8d819107b114a5618d5e98ece724c" => :big_sur
+    sha256 "abb24960f5171b6f89e4b301955f7dd20c42f34febce7a917747f9e017d46d3b" => :catalina
+    sha256 "b3f8d869d3c68436b9679b2daaee398b6f623a5166dfae024dfc55b32f945804" => :mojave
   end
 
-  depends_on "go@1.14" => :build
+  depends_on "go" => :build
 
   conflicts_with "tfenv", because: "tfenv symlinks terraform binaries"
 
@@ -27,8 +27,11 @@ class Terraform < Formula
     ENV.delete "AWS_ACCESS_KEY"
     ENV.delete "AWS_SECRET_KEY"
 
-    ENV["CGO_ENABLED"] = "0"
-    system "go", "build", *std_go_args, "-ldflags", "-s -w", "-mod=vendor"
+    # resolves issues fetching providers while on a VPN that uses /etc/resolv.conf
+    # https://github.com/hashicorp/terraform/issues/26532#issuecomment-720570774
+    ENV["CGO_ENABLED"] = "1"
+
+    system "go", "build", *std_go_args, "-ldflags", "-s -w"
   end
 
   test do

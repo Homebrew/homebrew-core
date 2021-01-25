@@ -11,6 +11,8 @@ class Mjpegtools < Formula
 
   bottle do
     cellar :any
+    sha256 "ff8f81930169f7581677b690fbc32ba8c3f818ca139fe4249c8606f309a0e298" => :big_sur
+    sha256 "0903181fb61252feccfb8d40a390a7d5c55ed1476d37d040983e5608efeaee1b" => :arm64_big_sur
     sha256 "5628d3b16a0e3172ba49a38b903b5be2fcb2595ce4919e32c41e39a89a250102" => :catalina
     sha256 "c8a22d895e9835274994bdf72b0ca6f3c0df523e5dc8e281ed7d1fd7ae3b41eb" => :mojave
     sha256 "7f47c9df784de38ee02726c1381b42a5924754c7702003ee8fafbae296302638" => :high_sierra

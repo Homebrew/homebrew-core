@@ -1,8 +1,9 @@
 class Tin < Formula
   desc "Threaded, NNTP-, and spool-based UseNet newsreader"
   homepage "http://www.tin.org"
-  url "https://www.nic.funet.fi/pub/unix/news/tin/v2.4/tin-2.4.4.tar.xz"
-  sha256 "9ff12cecf6005be4d150a26403cb736668bcedbc97fe7d6e6846559ea490ff02"
+  url "https://www.nic.funet.fi/pub/unix/news/tin/v2.4/tin-2.4.5.tar.xz"
+  sha256 "1a14e6a49a3627230f792eb48936d39d0abd7b04d958083a6296bb4210c6c512"
+  license "BSD-3-Clause"
 
   livecheck do
     url :homepage
@@ -10,9 +11,11 @@ class Tin < Formula
   end
 
   bottle do
-    sha256 "78c9d679c6669f6e9579c1de58e1769f8d5fdf0de54664aaeba49888811d33a5" => :catalina
-    sha256 "2fb85a878a4930f0d48a35fd3628621d5d0f3009d8283066ddfdc17a950153b8" => :mojave
-    sha256 "89b38a18627bac3b16f2c947350ce3e438793603d04b30fc09bea916f85cbd49" => :high_sierra
+    rebuild 1
+    sha256 "1c9c260926726183ef975425c557afbd9be80a2cab7eb2258d63945716153980" => :big_sur
+    sha256 "051423dd86f4bf45e3584e8aadd838e46bcc006c7322e7471b1158f4c156c84a" => :arm64_big_sur
+    sha256 "b3e2e78b8e6d0db0d04cb036454deb8bc718fb1c7cd489924ffcc548eacdeec4" => :catalina
+    sha256 "1170864e0be31fee55f0a49993e5d40908eafe0c8ed47eee2087236ad17ab988" => :mojave
   end
 
   depends_on "gettext"

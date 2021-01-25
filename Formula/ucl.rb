@@ -3,7 +3,7 @@ class Ucl < Formula
   homepage "https://www.oberhumer.com/opensource/ucl/"
   url "https://www.oberhumer.com/opensource/ucl/download/ucl-1.03.tar.gz"
   sha256 "b865299ffd45d73412293369c9754b07637680e5c826915f097577cd27350348"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://www.oberhumer.com/opensource/ucl/download/"
@@ -12,16 +12,27 @@ class Ucl < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5de2305d5da25469e7bf27d2e776a6e22b20806940ad1dea16d18b39a1125f7e" => :catalina
-    sha256 "b676bbfb2ff44a3ff71e96a11bc8ae86ea2466029faea800427196d3ece8261e" => :mojave
-    sha256 "95bba447faa9e980720b780e1db69bf59e72f026a19a965bbb1b18f3de9230de" => :high_sierra
-    sha256 "b2019331517fea2505cb2d25eebbdf6ceb9a45378525d0e36a096ea3c45ad9a8" => :sierra
-    sha256 "d56b0d36a68a2bc558742eac0c6632612180797cc45520389b5d87f09c23b1bd" => :el_capitan
-    sha256 "32a54309c092854fc5a4a443a1e9d33fb677ff257d983ea7d5b0eb7bb90d3b2e" => :yosemite
-    sha256 "3c334012766dce80dac49d279be1be1ae4a1fc5df188cc19a25ba1bec84305a9" => :mavericks
+    rebuild 1
+    sha256 "91ce0597dc8e648e4ee0d0caaa30bceb5f569acc90634d88fa5e7859f2ae682a" => :big_sur
+    sha256 "ef63a86669c63e486c3682494a93c9db453a33089a2a71398efb8e5e26cf5e44" => :arm64_big_sur
+    sha256 "116db1f8157bf88831fece730fb3e6fa82420d53c29b032afd63b979df42b386" => :catalina
+    sha256 "89c37d38b41d5107f85c0880eb1599c885dafc2a7150a378c645b3fbe1f0e5ef" => :mojave
   end
 
+  depends_on "automake" => :build
+
   def install
+    # Workaround for ancient ./configure file
+    # Normally it would be cleaner to run "autoremake" to get a more modern one,
+    # but the tarball doesn't seem to include all of the local m4 files that were used
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
+    # Workaround for ancient config.sub files not recognising aarch64 macos.
+    # As above, autoremake would be nicer, but that does not work.
+    %w[config.guess config.sub].each do |fn|
+      cp "#{Formula["automake"].opt_prefix}/share/automake-#{Formula["automake"].version.major_minor}/#{fn}",
+         "acconfig/#{fn}"
+    end
+
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}"

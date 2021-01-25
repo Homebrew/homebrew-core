@@ -6,7 +6,7 @@ class Gprof2dot < Formula
   url "https://files.pythonhosted.org/packages/fd/77/3158821acc45cc26d5815d4250275d03c254572ff53c0388af8df168ce78/gprof2dot-2019.11.30.tar.gz"
   sha256 "b43fe04ebb3dfe181a612bbfc69e90555b8957022ad6a466f0308ed9c7f22e99"
   license "LGPL-3.0"
-  revision 1
+  revision 2
   head "https://github.com/jrfonseca/gprof2dot.git"
 
   livecheck do
@@ -15,13 +15,15 @@ class Gprof2dot < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "974b8737cdc5d07b94c0292b27e015085ab8475757ea95b6cb42067fcafd5418" => :catalina
-    sha256 "c7ff44d15b136ccc9618d0f1e2363a75983bc6587924826e00fb283099edf235" => :mojave
-    sha256 "5626ffada5afc1e44178f1da5a4e041d733f6abe684e666de9679a791247d224" => :high_sierra
+    sha256 "e9834915198ff976dfc33b51aad580cdc585b19de21bae6ae2c23602e9d85c6f" => :big_sur
+    sha256 "684c64da289229aa5f3b0cba37aded80aa5ce8e771cd863d3b06788fdcce532a" => :arm64_big_sur
+    sha256 "088de0dd88acd16d009b57229dc45028277d9a3401e7902208e0cde1972d75e0" => :catalina
+    sha256 "0d693183049e2ee10e946134997c9a0cd23a8ca335705080b0dce1af1831884c" => :mojave
+    sha256 "b2396cc1daa5759af6642a8e85b66d447e3ff3f0395db74429d6969e62823f7c" => :high_sierra
   end
 
   depends_on "graphviz"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   on_linux do
     depends_on "libx11"

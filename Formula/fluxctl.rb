@@ -2,8 +2,8 @@ class Fluxctl < Formula
   desc "Command-line tool to access Weave Flux, the Kubernetes GitOps operator"
   homepage "https://github.com/fluxcd/flux"
   url "https://github.com/fluxcd/flux.git",
-      tag:      "1.21.0",
-      revision: "cb08da1b356a87cdcbc81c151826cad7e3b72a9a"
+      tag:      "1.21.1",
+      revision: "930a2cc43487033ac70e38f7389a2a573a55fdf5"
   license "Apache-2.0"
 
   livecheck do
@@ -13,9 +13,10 @@ class Fluxctl < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c4fc57db22d48f9d0abd9a077e4b9111eba82e08d6adb3db5edaf51751d0b893" => :catalina
-    sha256 "e7942d1b174b0ff28a7fad0b8d1a72bdb13d739d5748d8a53a70986de353905a" => :mojave
-    sha256 "554b1b055d2e4d3b650c5a5895b3e01a97606497cc7b6329225fc06ac8f88a49" => :high_sierra
+    sha256 "53227e9833e63f339d03dc38c1b542debe9bc00cc122e40b128f37be43a7b03f" => :big_sur
+    sha256 "21279a68c5e174c9dc901b9de1782716cbc7130d85259ac24234e339a2573945" => :arm64_big_sur
+    sha256 "18d0f73be5406c24147a4092f05aed13788032a51c8acb7e3a62709889d2313c" => :catalina
+    sha256 "26df944d2b25badcf9cb4a742b442f6e40657be2987b86ad0be7e7cf0296ebf0" => :mojave
   end
 
   depends_on "go" => :build

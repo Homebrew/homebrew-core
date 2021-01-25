@@ -2,8 +2,8 @@ class Asymptote < Formula
   desc "Powerful descriptive vector graphics language"
   homepage "https://asymptote.sourceforge.io"
   # Keep version in sync with manual below
-  url "https://downloads.sourceforge.net/project/asymptote/2.67/asymptote-2.67.src.tgz"
-  sha256 "8a1e574b81140b3fc1f5be659468bf90a313255a5a548ddd9fd11d4155e72d9b"
+  url "https://downloads.sourceforge.net/project/asymptote/2.68/asymptote-2.68.src.tgz"
+  sha256 "e1e85a5db14dc809a43189f85415bd0845bcb9eec7aea5533767838d045b02b2"
   license "LGPL-3.0-only"
 
   livecheck do
@@ -12,9 +12,10 @@ class Asymptote < Formula
   end
 
   bottle do
-    sha256 "386132f253683b60ef9204e88a1545f66ee03bf601e6ffa2d26be8e4d4cddd0d" => :catalina
-    sha256 "db70cf85ba7e962682817ba1dbcea83d092dd858ad221f3e398a06f033c4b9e5" => :mojave
-    sha256 "04f142eb358b5449850629c2262b268415cd4b3ec5b131ff77338017c4d20246" => :high_sierra
+    sha256 "6f1ebb862336eef8285a4b7dee6b4beff0720975cfa6d5927c638c354a62adf9" => :big_sur
+    sha256 "6b5ed92e317909ee5dd60b85d76998860f5388391ce4c109277262d47cdcbdfd" => :arm64_big_sur
+    sha256 "e0a8838e707147ab51685dfedbeefd089d43e4fac4b6d6743cbd9cf3d714f3c0" => :catalina
+    sha256 "300e42702c4b0cb41f14f1a5ddf28930d2b5b73e58a75706a026f85936c68134" => :mojave
   end
 
   depends_on "glm" => :build
@@ -26,8 +27,8 @@ class Asymptote < Formula
   uses_from_macos "ncurses"
 
   resource "manual" do
-    url "https://downloads.sourceforge.net/project/asymptote/2.67/asymptote.pdf"
-    sha256 "f1412782e639612050063eb66fcca6ecca415b1141b2142b3a310ccb21509694"
+    url "https://downloads.sourceforge.net/project/asymptote/2.68/asymptote.pdf"
+    sha256 "f41f62e58c7d3199a71136e89749afa7e242f501973d81516e1cac4fae88f889"
   end
 
   def install

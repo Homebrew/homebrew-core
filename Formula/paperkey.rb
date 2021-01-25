@@ -12,6 +12,8 @@ class Paperkey < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c6af240418bfb7c29113a1861966302d2be55fc578298f6fb0a4f71bc8dbf89e" => :big_sur
+    sha256 "71c9db30e077414c7504d8b20e9f5809b2cde37997881c1715e51e953d90d76d" => :arm64_big_sur
     sha256 "12be9f841cfb0d4069be3e461cd5e783ba4ea11195507a13763f90ccc026f31e" => :catalina
     sha256 "894ef3339013be6574f736e316c61cbf54fbc3dcac358df14f1d54b1d7387854" => :mojave
     sha256 "82e49c6aa559a349ce73521a90881acb74a540de03d355ad7461c177d00bb8e8" => :high_sierra

@@ -3,16 +3,20 @@ class PdfRedactTools < Formula
   homepage "https://github.com/firstlookmedia/pdf-redact-tools"
   url "https://github.com/firstlookmedia/pdf-redact-tools/archive/v0.1.2.tar.gz"
   sha256 "5874a7b76be15ccaa4c20874299ef51fbaf520a858229a58678bc72a305305fc"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
   revision 1
   head "https://github.com/firstlookmedia/pdf-redact-tools.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d36fd54bdf0fecba50c0d2e4c8ec7c4702bc626b7228f55482fa04527837e80a" => :catalina
-    sha256 "1d5dddb4adc486d89537a5368550c787b9dbae0c6cd9cddba9b2e45820b025e1" => :mojave
-    sha256 "1d5dddb4adc486d89537a5368550c787b9dbae0c6cd9cddba9b2e45820b025e1" => :high_sierra
+    rebuild 1
+    sha256 "7c70360f14e7dd09fe4d29e86fdd98a40688f60bbd24475b5c9ff54f8dc526db" => :big_sur
+    sha256 "7f949403c9b5927ae95adf02b32c8f7c74cff9ee14881d50f5634850fc418f2e" => :arm64_big_sur
+    sha256 "2b652f29d55bf7d476f02b6ac35c2aab3920709fe72e5390838ee4732a1210da" => :catalina
+    sha256 "e89303de13975510234c078756470ac529050a93a4e4a7592b94ef5971cea049" => :mojave
   end
+
+  deprecate! date: "2020-11-20", because: :unmaintained
 
   depends_on "exiftool"
   depends_on "ghostscript"

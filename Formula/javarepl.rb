@@ -4,11 +4,11 @@ class Javarepl < Formula
   url "https://github.com/albertlatacz/java-repl/releases/download/428/javarepl-428.jar"
   sha256 "d42de9405aa69ea6c4eb0e28a6b3cb09e3bd008649d9ac6c55a4aa798e284734"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   bottle :unneeded
 
-  depends_on java: "1.8"
+  depends_on "openjdk@8"
 
   def install
     libexec.install "javarepl-#{version}.jar"

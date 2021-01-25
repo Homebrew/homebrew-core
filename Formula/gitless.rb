@@ -3,20 +3,21 @@ class Gitless < Formula
 
   desc "Simplified version control system on top of git"
   homepage "https://gitless.com/"
-  url "https://github.com/gitless-vcs/gitless/archive/v0.8.8.tar.gz"
-  sha256 "470aab13d51baec2ab54d7ceb6d12b9a2937f72d840516affa0cb34a6360523c"
+  url "https://files.pythonhosted.org/packages/9c/2e/457ae38c636c5947d603c84fea1cf51b7fcd0c8a5e4a9f2899b5b71534a0/gitless-0.8.8.tar.gz"
+  sha256 "590d9636d2ca743fdd972d9bf1f55027c1d7bc2ab1d5e877868807c3359b78ef"
   license "MIT"
-  revision 4
+  revision 7
 
   bottle do
     cellar :any
-    sha256 "c0ffed9f5228aecb14175929167812114176ac2df5b9583161c4f3c0f7785da0" => :catalina
-    sha256 "f72efc4323f531adcb1a38c8d864a4bd464b4a7d67400623479f05d37a4332cd" => :mojave
-    sha256 "aa526af3aaa79be5c7d86d4265589194e331766ba138e5b74894ad8037224c5c" => :high_sierra
+    sha256 "4c845e5cc5e9fafccda5ab5b2dfeb1e9cbbbe8f67ab9c2f72060c09a8d7743e4" => :big_sur
+    sha256 "8fe3da387f2212fe2618a07b2e1682e3bae08be20f105734e21079f0f3df7d79" => :arm64_big_sur
+    sha256 "1f52f84f5a9f9c9633e7fc9ef7ef8227431abd37ca6629f33986766b61470cc0" => :catalina
+    sha256 "50884b829598dab4558bc9f338b96b6ac18302c426ad6cfd440d2d721b1cb30a" => :mojave
   end
 
   depends_on "libgit2"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "libffi"
 
@@ -35,8 +36,8 @@ class Gitless < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/93/1a/ab8c62b5838722f29f3daffcc8d4bd61844aa9b5f437341cc890ceee483b/cffi-1.12.3.tar.gz"
-    sha256 "041c81822e9f84b1d9c401182e174996f0bae9991f33725d059b771744290774"
+    url "https://files.pythonhosted.org/packages/66/6a/98e023b3d11537a5521902ac6b50db470c826c682be6a8c661549cb7717a/cffi-1.14.4.tar.gz"
+    sha256 "1a465cbe98a7fd391d47dce4b8f7e5b921e6cd805ef421d04f5f66ba8f06086c"
   end
 
   resource "clint" do
@@ -50,8 +51,8 @@ class Gitless < Formula
   end
 
   resource "pygit2" do
-    url "https://files.pythonhosted.org/packages/1d/c4/e0ba65178512a724a86b39565d7f9286c16d7f8e45e2f665973065c4a495/pygit2-1.1.1.tar.gz"
-    sha256 "9255d507d5d87bf22dfd57997a78908010331fc21f9a83eca121a53f657beb3c"
+    url "https://files.pythonhosted.org/packages/3a/42/f69de8c7a1e33f365a91fa39093f4e7a64609c2bd127203536edc813cbf7/pygit2-1.4.0.tar.gz"
+    sha256 "cbeb38ab1df9b5d8896548a11e63aae8a064763ab5f1eabe4475e6b8a78ee1c8"
   end
 
   resource "sh" do
@@ -64,12 +65,9 @@ class Gitless < Formula
     sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
   end
 
-  # Allow to be dependent on pygit2 1.1.1
+  # Allow to be dependent on pygit2 1.4.0
   # Remove for next version
-  patch do
-    url "https://github.com/gitless-vcs/gitless/commit/daf352cae1f830bd4ca9adc949884b606cccdf49.patch?full_index=1"
-    sha256 "fd4ef60552add5f95944083a8ba867a3b34a197bdbad6b13afcf5ab29ebe09be"
-  end
+  patch :DATA
 
   def install
     virtualenv_install_with_resources
@@ -85,3 +83,30 @@ class Gitless < Formula
     assert_equal "haunted\nhouse", shell_output("git ls-files").strip
   end
 end
+
+__END__
+diff --git a/requirements.txt b/requirements.txt
+index 05f190a..5eb025f 100644
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -1,6 +1,6 @@
+ # make sure to update setup.py
+
+-pygit2==0.28.2  # requires libgit2 0.28
++pygit2==1.4.0  # requires libgit2 0.28
+ clint==0.5.1
+ sh==1.12.14;sys_platform!='win32'
+ pbs==0.110;sys_platform=='win32'
+diff --git a/setup.py b/setup.py
+index 68a3a87..d1704a8 100755
+--- a/setup.py
++++ b/setup.py
+@@ -68,7 +68,7 @@ setup(
+     packages=['gitless', 'gitless.cli'],
+     install_requires=[
+       # make sure it matches requirements.txt
+-      'pygit2==0.28.2', # requires libgit2 0.28
++      'pygit2==1.4.0', # requires libgit2 0.28
+       'clint>=0.3.6',
+       'sh>=1.11' if sys.platform != 'win32' else 'pbs>=0.11'
+     ],

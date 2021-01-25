@@ -3,16 +3,22 @@ class Restview < Formula
 
   desc "Viewer for ReStructuredText documents that renders them on the fly"
   homepage "https://mg.pov.lt/restview/"
-  url "https://github.com/mgedmin/restview/archive/2.9.2.tar.gz"
-  sha256 "155a5744111d3d1f9e7903f4445ff41c04b42c0be29705f57fb98b3d33b283bd"
+  url "https://files.pythonhosted.org/packages/e6/40/b4ef5c90297b9d37248090b9fde3a9aa1ef25e87ebd17b363760fec39a78/restview-2.9.2.tar.gz"
+  sha256 "790097eb587c0465126dde73ca06c7a22c5007ce1be4a1de449a13c0767b32dc"
   license "GPL-3.0"
   revision 3
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
-    sha256 "a7d9331d1da6155733bd914f4d0d987887ddeb116d11d71a39161f9213d85e41" => :catalina
-    sha256 "cc035715443be21749ec92c08ca2e25b9f7773e1f6078d46deb9c754bea59a28" => :mojave
-    sha256 "b526e9a774ed4ef1b83d48c2367dafe105365f059f0085d12650bf4a1dee778c" => :high_sierra
+    rebuild 2
+    sha256 "9470d4f0e710da0bda1cb188f6a26ea8300fad4273c67d8362b95655a3131436" => :big_sur
+    sha256 "cb2eeee507bc57c0b8ea4daaa09beb5953ed23c6368279e0965d5db83da851d6" => :arm64_big_sur
+    sha256 "51774d5ba45376854bbccc90a94252cedc5c7e22efbe933305aa55c077a755ed" => :catalina
+    sha256 "9afe08d8d8f8f4cd5a64e2de7af17eff2de637442feccdedb36320afb8a0deb7" => :mojave
   end
 
   depends_on "python@3.9"

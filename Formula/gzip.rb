@@ -12,6 +12,8 @@ class Gzip < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c5193bef2b9a7974a169d32fd4e2191ea55b60aa31c3da5c4e2f8e132c0f71f7" => :big_sur
+    sha256 "2d064cf47cc31ea7238c17f5305a5ddfb0e464e0ecd9591632a18264ddf3b98c" => :arm64_big_sur
     sha256 "903289308ce89ae70f3f8116738834d2c18fed8c248c1da82fde69cdca2b34a9" => :catalina
     sha256 "9391f27b1cf04c20abb2320ba55e1f8ac186db22b7c07bf51ebccfab073f85dd" => :mojave
     sha256 "d639fe5a95eb7c0e12aa1577ca9b230cdbbd31b0ef51794d57415f9a9fa68f08" => :high_sierra

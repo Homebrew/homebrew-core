@@ -8,6 +8,8 @@ class Libmypaint < Formula
 
   bottle do
     cellar :any
+    sha256 "65d3c8c494c5e3a454526e4254c4f4c1a1883ca1e99c2dcb09c2abdff141d72a" => :big_sur
+    sha256 "4f5f706833fb183d4ad43a0b065b2b767a7787e7963eabced95016bd04ffdd12" => :arm64_big_sur
     sha256 "699014970a67055822e7ee2abc92c4ea2b45e51bcd58cfa01cb24c2ed08f6a2b" => :catalina
     sha256 "97ca6e5c0ae27513cc3af20c1256548d6a21e0a38bfdcea5a79f7fe1c0a6886d" => :mojave
     sha256 "4260697ececf5344aa3eacd16afdd5f4eff556cee6312e49a8e5544edb71aca1" => :high_sierra

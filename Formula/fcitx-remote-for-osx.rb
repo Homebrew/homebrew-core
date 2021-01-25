@@ -8,6 +8,8 @@ class FcitxRemoteForOsx < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "118a6409c3a5fb1702d3f9c7fa91959d3b38e480da77a88b49a8f7c605a7ae46" => :big_sur
+    sha256 "12913aa01bc77d930cef72d681c39e473cf5c1a5f412bf971d9eacefed65f586" => :arm64_big_sur
     sha256 "7e6f127565c5e0b1c842cf88ee440ac1e86d99a902c1f892008e146cfe86497a" => :catalina
     sha256 "63e285ce25dfefd7220ed07bb0c85f0b2f6e74997b0eb94117619cfdc04a5002" => :mojave
     sha256 "6c88cbd0c4ca46c2b0d809adc3e93c4be3178c014b55d377f95b7e0740cfab99" => :high_sierra

@@ -8,6 +8,8 @@ class OpenTyrian < Formula
 
   bottle do
     rebuild 1
+    sha256 "8c265532f9d757adbdad46208a926d6c5216f5f59c0ad2998a756ab6af8d5692" => :big_sur
+    sha256 "ea6b692f0a033ee9312793a19563517010626a790f3111b7a32295b500a90c2f" => :arm64_big_sur
     sha256 "5e66ea919c426dcce63be043164439b258a22a906ece3b3b1ec1e41147ac0b76" => :catalina
     sha256 "f49d2282ee86031f1c1442b6d1eb2fb2753286cb89207b63f03ee98e51e9221f" => :mojave
     sha256 "541d2f9a00f4a56b9464c44994c94da0afeab340c1b3809b61a0c437fda69b7f" => :high_sierra

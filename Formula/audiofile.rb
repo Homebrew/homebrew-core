@@ -20,6 +20,8 @@ class Audiofile < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "c5c43335ee45d57ae38dd1a8c762f7a9e288529942b356be9a1165d886fbacb4" => :big_sur
+    sha256 "7d21073f62480d59fd0c48a8b1709fec138136d158edd393b4923f18b19e5e2b" => :arm64_big_sur
     sha256 "86f668b5e2ddbbbb8c156a3145382431865936ba8e54469a565101e9b28de3a4" => :catalina
     sha256 "b3f405c20f331ae6ded75f702bd68e45994c3c81eaf23abf650233859a830769" => :mojave
     sha256 "daf0e362bb9e6c4fb3e6e04b0309a975d94893e5240bf394038693b9b1a2a024" => :high_sierra

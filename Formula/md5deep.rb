@@ -8,6 +8,7 @@ class Md5deep < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9a5cb4b8ece68c480cc2c62f5c93a16087ffcb8d32c0b3fd0580b7d87cea8526" => :big_sur
     sha256 "d97c8bf86272ad4201cb2050196185f420dc78579266dee86e7f1ac4a7f7eeb7" => :catalina
     sha256 "48fe3167c6211f51af6d8c1e39062438a7385e1b136078fbc0215170842ecbbe" => :mojave
     sha256 "5f5636f7731398f775d757cb4ae913762f725d4d7bd3060a2640c155207d7a2a" => :high_sierra

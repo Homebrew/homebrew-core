@@ -11,6 +11,7 @@ class Xboard < Formula
   end
 
   bottle do
+    sha256 "cd3b5c0a0ee1045a4ba3dc98077a2ed01fecb281bc6763ecd509b6f09efaf173" => :big_sur
     sha256 "561953a63ec6296b6faeb38b999f83ede6ba7c91501cce88eeb560c282985ee7" => :catalina
     sha256 "c94386e2985c9a4175aba3280658670810269c0a6fe8315676cc49198070bf14" => :mojave
     sha256 "eecee1fb605e34564d8906a72f41d1516a210cb41af86c9dd51cdd05376d8b48" => :high_sierra

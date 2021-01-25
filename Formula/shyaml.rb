@@ -3,10 +3,9 @@ class Shyaml < Formula
 
   desc "Command-line YAML parser"
   homepage "https://github.com/0k/shyaml"
-  url "https://files.pythonhosted.org/packages/bc/ca/d8c47fad7a6ce01ddd2b7093673433dbfae414015f971ea7ffda56da125f/shyaml-0.6.1.tar.gz"
-  sha256 "3a57e380f66043c661d417106a0f101f8068c80caa2afef57c90447b88526c3d"
+  url "https://files.pythonhosted.org/packages/b9/59/7e6873fa73a476de053041d26d112b65d7e1e480b88a93b4baa77197bd04/shyaml-0.6.2.tar.gz"
+  sha256 "696e94f1c49d496efa58e09b49c099f5ebba7e24b5abe334f15e9759740b7fd0"
   license "BSD-2-Clause"
-  revision 2
   head "https://github.com/0k/shyaml.git"
 
   livecheck do
@@ -15,9 +14,10 @@ class Shyaml < Formula
 
   bottle do
     cellar :any
-    sha256 "701dda753798f5e343311a1e8378614a572909b0b35b6882f6ac0be56ab9e16a" => :catalina
-    sha256 "ea8a71d7782e8bdf0c700e93e3455e7b4180ae86388f9631eaf1fca440b58e69" => :mojave
-    sha256 "b1dae6f7ee6138a7bd70301a4851720e693b45adceabd47184618d091d767fdb" => :high_sierra
+    sha256 "bdfdbc881e2ef1cc0ae52ad5cafae3715bdfaf76a1ac905a6e3aa3a7fc1736a2" => :big_sur
+    sha256 "ff1ab13915b1148905c77a4bac3ff65db4bc496d3b2fcdf031f30678f781c9f1" => :arm64_big_sur
+    sha256 "c95f616993a2fd70d3ed9fbb7556b582ef2aca26fbda97b36898bcfb9efbcee1" => :catalina
+    sha256 "1f157591a67c0165af8492b3cb1b6049a7e151b0770aaed4c176c15fe3050f68" => :mojave
   end
 
   depends_on "libyaml"

@@ -15,6 +15,8 @@ class Asciinema < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "0a5101fb3da7411764b53fb8dc6b8ab8a7c4a54ced892f9c832301ecbb9964a0" => :big_sur
+    sha256 "b681c70de003112e00b3c31555e06453e0d22483095713fd27cfe9113e5363c6" => :arm64_big_sur
     sha256 "caa76523c644cf5916cde300c407d89282509a0291cfa9c4812d888c26ce7f77" => :catalina
     sha256 "b1a1aff9cf3f46328f0df80773a85898db70453fff4785e26e7ee4d6f12ef408" => :mojave
     sha256 "4ce78d8edeeb635ad7cf2f5edd88770baaa72d623ecc471fb0e8f5e12efb0e04" => :high_sierra

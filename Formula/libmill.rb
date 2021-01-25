@@ -2,6 +2,7 @@ class Libmill < Formula
   desc "Go-style concurrency in C"
   homepage "http://libmill.org/"
   url "http://libmill.org/libmill-1.18.tar.gz"
+  mirror "https://github.com/sustrik/libmill/raw/gh-pages/libmill-1.8.tar.gz"
   sha256 "12e538dbee8e52fd719a9a84004e0aba9502a6e62cd813223316a1e45d49577d"
   license "MIT"
   head "https://github.com/sustrik/libmill.git"
@@ -14,6 +15,8 @@ class Libmill < Formula
     sha256 "37103d981777f9c30dda9add67a2cafc72b405ee7d10ac3a32b1f267b0b5cda5" => :el_capitan
     sha256 "4f8a2b4ddbcac88459c0f4b463e497a82e8d6a02b43419e29e2be8230c15123d" => :yosemite
   end
+
+  disable! date: "2020-12-08", because: :unmaintained
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build

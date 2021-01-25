@@ -1,10 +1,11 @@
 class Boost < Formula
   desc "Collection of portable C++ source libraries"
   homepage "https://www.boost.org/"
-  url "https://dl.bintray.com/boostorg/release/1.74.0/source/boost_1_74_0.tar.bz2"
-  mirror "https://dl.bintray.com/homebrew/mirror/boost_1_74_0.tar.bz2"
-  sha256 "83bfc1507731a0906e387fc28b7ef5417d591429e51e788417fe9ff025e116b1"
+  url "https://dl.bintray.com/boostorg/release/1.75.0/source/boost_1_75_0.tar.bz2"
+  mirror "https://dl.bintray.com/homebrew/mirror/boost_1_75_0.tar.bz2"
+  sha256 "953db31e016db7bb207f11432bef7df100516eeb746843fa0486a222e3fd49cb"
   license "BSL-1.0"
+  revision 1
   head "https://github.com/boostorg/boost.git"
 
   livecheck do
@@ -14,15 +15,23 @@ class Boost < Formula
 
   bottle do
     cellar :any
-    sha256 "0c3609787aac666de8db539259e2f604bda631bcc4fde5f5427ea83f4692dec1" => :catalina
-    sha256 "5e2e4d620e783c93a9f445a58b4814aab081ebea584b662b3f21a03155585ad9" => :mojave
-    sha256 "9237b5a9f73ff1783da15b6768cef723d4e8ffb4a129a2a00d0eb52d3ed4a7d4" => :high_sierra
+    sha256 "a262002a81f7dc7b6fb23287713b35b51887b3126be72b2446d4f7dc0b587a9e" => :big_sur
+    sha256 "8a97e74aca8be001c4db5516abcb7fabdf244d6ed0620be9b5b634f78f2279df" => :arm64_big_sur
+    sha256 "2da721bd2fefaaea273ed92b801e682ee180100189c113a8c8f1e97f9dff0e55" => :catalina
+    sha256 "5257405fda53160eaf020dc974cad328d90d698181cd126e970cdc0d93bfcf73" => :mojave
   end
 
   depends_on "icu4c"
 
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
+
+  # Reduce INTERFACE_LINK_LIBRARIES exposure for shared libraries. Remove with the next release.
+  patch do
+    url "https://github.com/boostorg/boost_install/commit/7b3fc734242eea9af734d6cd8ccb3d8f6b64c5b2.patch?full_index=1"
+    sha256 "cd96f5c51fa510fa6cd194eb011c0a6f9beb377fa2e78821133372f76a3be349"
+    directory "tools/boost_install"
+  end
 
   # Fix build on 64-bit arm
   patch do
@@ -77,19 +86,6 @@ class Boost < Formula
     system "./bootstrap.sh", *bootstrap_args
     system "./b2", "headers"
     system "./b2", *args
-  end
-
-  def caveats
-    s = ""
-    # ENV.compiler doesn't exist in caveats. Check library availability
-    # instead.
-    if Dir["#{lib}/libboost_log*"].empty?
-      s += <<~EOS
-        Building of Boost.Log is disabled because it requires newer GCC or Clang.
-      EOS
-    end
-
-    s
   end
 
   test do

@@ -8,17 +8,18 @@ class Snappystream < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a17c5546b26c7de0636bcbf8effce43c7c1735ccd0b4612684505c39421b350d" => :catalina
-    sha256 "3b4546ed797d251364320b9da77640c4980e913bb08b3376b7394a65833d8aa4" => :mojave
-    sha256 "75b9c1672f271ec42ca15cb6fa9b327bc3f081a2497804142961633a0ca57884" => :high_sierra
-    sha256 "0993bdf488fd8a1d59de3b5ecf3080d7ff4a6dee895dd801aff3687c5809d0ae" => :sierra
+    rebuild 1
+    sha256 "0259933ab01a0edf8162f901820728e9f36e0244e6dc34aa8de64caf95247bcb" => :big_sur
+    sha256 "4723ca8cfbd115326740f631b84db163cba902c1233c98e0b413a4250c228692" => :arm64_big_sur
+    sha256 "083a4297326a9171920d68c6f0d93891d1cef8971546efd0293360b8dfc4e564" => :catalina
+    sha256 "f768ccd06fd8d1cceb9905d71d7be38b55c3d2797df8d58a4f5528f22144db6d" => :mojave
   end
 
   depends_on "cmake" => :build
   depends_on "snappy"
 
   def install
-    system "cmake", ".", *std_cmake_args, "-DBUILD_TESTS=ON"
+    system "cmake", ".", *std_cmake_args, "-DBUILD_TESTS=ON", "-DCMAKE_CXX_STANDARD=11"
     system "make", "all", "test", "install"
   end
 

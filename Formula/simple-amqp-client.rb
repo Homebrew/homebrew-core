@@ -8,6 +8,7 @@ class SimpleAmqpClient < Formula
 
   bottle do
     cellar :any
+    sha256 "f2dd44e2182fa7da6d5e9dcc255ad06138b09be9e0619ecd07135e6fc2c35405" => :big_sur
     sha256 "97ceed4ae134cb5f01dc3c5efdafaccf3374aee7c748217eba9bb8624edb74dc" => :catalina
     sha256 "42bf1dcae157dc5e3ad6c274cfff63e0599d1c1fa2ed634696a26ec499e6b18f" => :mojave
     sha256 "0df2d53228ce5b30d670a67b36b8440158d4773c55c206456fc2762c7e820cec" => :high_sierra

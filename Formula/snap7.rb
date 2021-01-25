@@ -12,6 +12,7 @@ class Snap7 < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "52d04e1646b47ba15e5877e8c24b8f2d0267a51d8b7b07ee47330ecd2c44d95a" => :big_sur
     sha256 "015a23b1cb6728a86716811511e51fba427c69febabd1af5507af31d77523802" => :catalina
     sha256 "71aff7cbb3e78369d6b9a93887820dd7def1afe382ed82211be313942e1bb81d" => :mojave
     sha256 "b0d670ce6a2d780d13cfaa3346c6aa701f280a85be010dc42c802d6ebd028694" => :high_sierra

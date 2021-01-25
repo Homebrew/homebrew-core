@@ -6,6 +6,7 @@ class Jumanpp < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 "9c97f442fdad1ae3ab776ef16de98876db768134d50235e9ea683579fa8a85b7" => :big_sur
     sha256 "4b2c208b0954536aa3f2b838a525e2542a547a192a03951c0f8a7f69c082a60d" => :catalina
     sha256 "248e639859582dcf3613eb4eaf491e5ada0ed527e89595d6ba110219e8f8ab28" => :mojave
     sha256 "87555f0efa065cd86d3344c8304972567d4b8a84ef1c0e53acb09afabbd1fa9e" => :high_sierra

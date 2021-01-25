@@ -1,21 +1,21 @@
 class Libusb < Formula
   desc "Library for USB device access"
   homepage "https://libusb.info/"
-  url "https://github.com/libusb/libusb/releases/download/v1.0.23/libusb-1.0.23.tar.bz2"
-  sha256 "db11c06e958a82dac52cf3c65cb4dd2c3f339c8a988665110e0d24d19312ad8d"
-  license "LGPL-2.1"
+  url "https://github.com/libusb/libusb/releases/download/v1.0.24/libusb-1.0.24.tar.bz2"
+  sha256 "7efd2685f7b327326dcfb85cee426d9b871fd70e22caa15bb68d595ce2a2b12a"
+  license "LGPL-2.1-or-later"
 
   livecheck do
-    url "https://github.com/libusb/libusb/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "cbfd8044e5e595fcee3cbf62edac4b626a8c623be53ed76e7111fa235ff97668" => :catalina
-    sha256 "6dd71c1bc0bbe67ee8f76fb01d33d805bde20b7182695e338e080c9d443029a6" => :mojave
-    sha256 "312ca96b255aa045cd2c87150c58e020f49d50e7f354219d944a37de8ec0278c" => :high_sierra
+    sha256 "74e0067e968ddbea31e070885ae86bc1db5c66fd157588e84576e653e62894c8" => :big_sur
+    sha256 "1c40f64450705461a5373c3d54257e646d39914d44bffaf9d957bbe063db2129" => :arm64_big_sur
+    sha256 "034ae259f17afb5894860cdb1786fd6d391359e8d221c0f765eceed6210b60df" => :catalina
+    sha256 "1318e1155192bdaf7d159562849ee8f73cb0f59b0cb77c142f8be99056ba9d9e" => :mojave
   end
 
   head do

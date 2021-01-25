@@ -7,6 +7,8 @@ class Lrdf < Formula
 
   bottle do
     cellar :any
+    sha256 "860779b7babd494a2fa8833581bf5b518a7a8ec9c9b9ad7815f33fca52087e57" => :big_sur
+    sha256 "f8caf3278cac4e40b255d362d064ec73ea2f92f0580fa2c34f50165279219c49" => :arm64_big_sur
     sha256 "38b2c487542d1e264b31f560eb582829f178f2aa1abb28ce055475c9dffce9f4" => :catalina
     sha256 "1940f0eb408453bc179cc15c2588ad90eedeef608ec830a10881faee75c00d87" => :mojave
     sha256 "e15d0f6129cd4ba502860f0ab0367eceadf2a377be9dd25af30c52ebffd064c6" => :high_sierra

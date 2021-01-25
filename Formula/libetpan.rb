@@ -8,6 +8,8 @@ class Libetpan < Formula
 
   bottle do
     cellar :any
+    sha256 "9d2ac6a48a6c14f2894155162d52ad7e8cf219ab21245b429b83378662f4a7f7" => :big_sur
+    sha256 "c72a2eeaf1b3fd67a093375fd567ff97c329d5d503abd720572eefb8d88acac3" => :arm64_big_sur
     sha256 "2effe5528f31ea1edcdd0baf468bb1ebbfb0061cb8bf131f2636b5db6cc20550" => :catalina
     sha256 "ba4948b8f0169ee43ba18b0dbea0564bfd5a2c625834f6f5a5c4b9ac1d725334" => :mojave
     sha256 "6a2f29f42a39d9d3eee7bca1974118fdd8d44a745f61af686aa40c449157b733" => :high_sierra

@@ -1,15 +1,16 @@
 class Scrcpy < Formula
   desc "Display and control your Android device"
   homepage "https://github.com/Genymobile/scrcpy"
-  url "https://github.com/Genymobile/scrcpy/archive/v1.16.tar.gz"
-  sha256 "94cbd59e26faa08ca25d5126d6c8d45e831b6a9e716ce05cd57bc4bcc751f742"
+  url "https://github.com/Genymobile/scrcpy/archive/v1.17.tar.gz"
+  sha256 "c16f1fe1789290d0c7dd3a2778f33d6dc6347ffe3e78e64127b85eda52420d7f"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 "584738a06361a66960a1f15435ad4ed85409bb70a03baaa27a1f36b7cd156c62" => :catalina
-    sha256 "b41d43844a54e77169e91fecc064c30ee973da3a135c7ca8281d97463e8b09ca" => :mojave
-    sha256 "460868201832cd2771e7225ed248d4ab0ba7dddd9ad32a523b079960a1974657" => :high_sierra
+    sha256 "bc5af06f2c3de38ac6a5f6bd46ff0f8a048fcf610f1909065ed670112021f53e" => :big_sur
+    sha256 "c66169f203ac1714e6f632989c1b15c95907a67f943efd38303945a4d24f136f" => :arm64_big_sur
+    sha256 "55b97c706cc08908698b79d9d46bc091bcd746111ed834fbaa32a43f85833bfc" => :catalina
+    sha256 "f954665b6b5d479a4f6329e66cd3f8256fbb5ba165ac418f5a9bb2820e57c547" => :mojave
   end
 
   depends_on "meson" => :build
@@ -19,15 +20,8 @@ class Scrcpy < Formula
   depends_on "sdl2"
 
   resource "prebuilt-server" do
-    url "https://github.com/Genymobile/scrcpy/releases/download/v1.16/scrcpy-server-v1.16"
-    sha256 "94a79e05b4498d0460ab7bd9d12cbf05156e3a47bf0c5d1420cee1d4493b3832"
-  end
-
-  # Fix build on Xcode 12 (https://github.com/Genymobile/scrcpy/issues/1726)
-  # Remove in the next release
-  patch do
-    url "https://github.com/Genymobile/scrcpy/commit/bd9f656933e79f7b21b42993f8a70a761ab47226.patch?full_index=1"
-    sha256 "3ab1c2d4b9cc38fe94ae24c49c74b4008a36ffb8079442545feeffa5d3448540"
+    url "https://github.com/Genymobile/scrcpy/releases/download/v1.17/scrcpy-server-v1.17"
+    sha256 "11b5ad2d1bc9b9730fb7254a78efd71a8ff46b1938ff468e47a21b653a1b6725"
   end
 
   def install
@@ -49,7 +43,7 @@ class Scrcpy < Formula
       At runtime, adb must be accessible from your PATH.
 
       You can install adb from Homebrew Cask:
-        brew cask install android-platform-tools
+        brew install --cask android-platform-tools
     EOS
   end
 

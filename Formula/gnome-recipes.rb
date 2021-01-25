@@ -10,6 +10,8 @@ class GnomeRecipes < Formula
   end
 
   bottle do
+    sha256 "555f367e08429f2d3f3b7c328ae1ee3f98e6d814cbf74dff07082868e924e4ba" => :big_sur
+    sha256 "c2e5d814490f07f330d62591b7848c5b988706c74feeac8deb7a207201235045" => :arm64_big_sur
     sha256 "8525bf318111d8b1e5b8e1df89675c0994717820d6bf1da78f245ae80d571668" => :catalina
     sha256 "1dbaaf7bf99ef4f2e6f1a7ebbd092385661b0f8edbc174574d58024dd93fd2db" => :mojave
     sha256 "09462612f5370fae0aad9c0af904328c7fa37092ea81e8eda62e3f614bcdc479" => :high_sierra

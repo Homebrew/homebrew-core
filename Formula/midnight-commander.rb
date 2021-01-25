@@ -1,19 +1,21 @@
 class MidnightCommander < Formula
   desc "Terminal-based visual file manager"
   homepage "https://www.midnight-commander.org/"
-  url "https://www.midnight-commander.org/downloads/mc-4.8.25.tar.xz"
-  sha256 "ffc19617f20ebb23330acd3998b7fd559a042d172fa55746d53d246697b2548a"
-  license "GPL-3.0"
+  url "https://www.midnight-commander.org/downloads/mc-4.8.26.tar.xz"
+  mirror "https://ftp.osuosl.org/pub/midnightcommander/mc-4.8.26.tar.xz"
+  sha256 "c6deadc50595f2d9a22dc6c299a9f28b393e358346ebf6ca444a8469dc166c27"
+  license "GPL-3.0-or-later"
 
   livecheck do
-    url "http://ftp.midnight-commander.org"
+    url "https://ftp.osuosl.org/pub/midnightcommander/"
     regex(/href=.*?mc[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    sha256 "2c36f252c47b8ecff2fa4afb4191a963af7c3d30a8aeb267a40f967873a01643" => :catalina
-    sha256 "224d6aa6577e51952833ee65888bb99eacb89508dc9ac2f82a0e679b4635d7e3" => :mojave
-    sha256 "79c2208b2097941cf3a792f47ad1f280ddbc3add7bd631084484163b7ba14ae9" => :high_sierra
+    sha256 "2035ff99bbb38fe1f12f4cf5c311b453c89d295a988ff570a5c4cab2834a4232" => :big_sur
+    sha256 "e0dcbb747b0ed2e44c42ac024a42ac657da5b8d3898d1caa6d1bc029cbca13cb" => :arm64_big_sur
+    sha256 "9de49345aabc060d430d444b0b94b7e00593253ac1f21a3718c483303621abdf" => :catalina
+    sha256 "959dfb0d8538524172c68cb394046fb4c3be78803e8307a759bdc564ff86b783" => :mojave
   end
 
   head do

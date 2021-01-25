@@ -3,14 +3,15 @@ class Pytouhou < Formula
   homepage "https://pytouhou.linkmauve.fr/"
   url "https://hg.linkmauve.fr/touhou", revision: "5270c34b4c00", using: :hg
   version "634"
-  revision 7
+  revision 8
   head "https://hg.linkmauve.fr/touhou", using: :hg
 
   bottle do
     cellar :any
-    sha256 "e0470e99f10a318e152eeb46e7e555271234e1ee256d26d9115d947bd810beca" => :catalina
-    sha256 "038adcb10d7aa824288b6a67c85cdd7b950d6f3ec5bfefc9a2a37f55c6c96026" => :mojave
-    sha256 "5222b26c38e279f14622baf64a1d2dfab9decf6920533b353eed61b9d9f6b411" => :high_sierra
+    sha256 "f6cc4df128378963b11dad010097ffc897e195f578afd1cedf83869280748272" => :big_sur
+    sha256 "3a8cd72d8c0a67a8846d8c27a33bd7e3474827f44100b404dfbd71476a053a4c" => :arm64_big_sur
+    sha256 "68aa26a6209130a0bf44da6716964fcd97cd667daae9c3a600b6a19c33d91951" => :catalina
+    sha256 "7ef160097cf7d38842b5ad88403f6c410a9e90e93f4942df3b3019d8d4b9d514" => :mojave
   end
 
   depends_on "pkg-config" => :build
@@ -19,7 +20,7 @@ class Pytouhou < Formula
   depends_on "libepoxy"
   depends_on "py3cairo"
   depends_on "pygobject3"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "sdl2"
   depends_on "sdl2_image"
   depends_on "sdl2_mixer"
@@ -35,16 +36,16 @@ class Pytouhou < Formula
   patch :p0, :DATA
 
   def install
-    pyver = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
+    pyver = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{pyver}/site-packages"
     resource("Cython").stage do
-      system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
+      system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
     end
 
     # hg can't determine revision number (no .hg on the stage)
     inreplace "setup.py", /(version)=.+,$/, "\\1='#{version}',"
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{pyver}/site-packages"
-    system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(libexec)
+    system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(libexec)
 
     # Set default game path to pkgshare
     inreplace "#{libexec}/bin/pytouhou", /('path'): '\.'/, "\\1: '#{pkgshare}/game'"

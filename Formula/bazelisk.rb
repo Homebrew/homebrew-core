@@ -2,16 +2,17 @@ class Bazelisk < Formula
   desc "User-friendly launcher for Bazel"
   homepage "https://github.com/bazelbuild/bazelisk/"
   url "https://github.com/bazelbuild/bazelisk.git",
-      tag:      "v1.7.3",
-      revision: "dba981e4e82bec8e0de5a6587913e3341ed10081"
+      tag:      "v1.7.4",
+      revision: "3b5aa4468260727974ea62d4e9e810a17649f5b7"
   license "Apache-2.0"
   head "https://github.com/bazelbuild/bazelisk.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0cbe71f38984341f180816f109a0a92309ab6e3c44ea2b827c1ff06aff1e6e68" => :catalina
-    sha256 "31ccb18cd07eb6b7703ee66ad364e081b888e000d1c8c7dea892cb16fe33b67f" => :mojave
-    sha256 "2bda6c0f9a3a4e2a15feca1cc0224bba67548c24b2f046caf9a5ac6e2f80be82" => :high_sierra
+    rebuild 1
+    sha256 "354107c197c4d92a1d45d2bfe99f9b3c8b4f3aae98c4a4f72139ebffd35fd77e" => :big_sur
+    sha256 "3ec79ba1054922b260d6a1442534b192d190c009d821e70c8b761508c859a908" => :catalina
+    sha256 "adc2762a3a35e6bf944fdb82b9fc86bacac7362496e41d98b16aa487f66f152f" => :mojave
   end
 
   depends_on "go" => :build
@@ -19,14 +20,11 @@ class Bazelisk < Formula
   conflicts_with "bazel", because: "Bazelisk replaces the bazel binary"
 
   resource "bazel_zsh_completion" do
-    url "https://raw.githubusercontent.com/bazelbuild/bazel/3.4.1/scripts/zsh_completion/_bazel"
+    url "https://raw.githubusercontent.com/bazelbuild/bazel/036e533/scripts/zsh_completion/_bazel"
     sha256 "4094dc84add2f23823bc341186adf6b8487fbd5d4164bd52d98891c41511eba4"
   end
 
   def install
-    ENV["GOOS"] = "darwin"
-    ENV["GOARCH"] = "amd64"
-
     system "go", "build", *std_go_args, "-ldflags", "-X main.BazeliskVersion=#{version}"
 
     bin.install_symlink "bazelisk" => "bazel"

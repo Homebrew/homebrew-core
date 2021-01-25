@@ -9,6 +9,8 @@ class GtkVnc < Formula
   end
 
   bottle do
+    sha256 "959cf4a7bac1fee4f17fd571222b6bff7a3aa6b172b3abcc7af3088cd927b699" => :big_sur
+    sha256 "c4d93c7478a2c290005613240d088189785560435f8c4aa3031ec5af6c1196a3" => :arm64_big_sur
     sha256 "f6e79e525133ea8c72d4be4b0719299141a8b206b9f547fd27b882b06a817f01" => :catalina
     sha256 "1e932ef0f54e09e9cf107c6ef386ff49e1b1cfd107eca77e4d1c5569da71909d" => :mojave
     sha256 "efb82f38076361165896bbf906881331c349082464fa8fc0b6b81f4c58b52f0a" => :high_sierra

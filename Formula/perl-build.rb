@@ -8,6 +8,8 @@ class PerlBuild < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "5809680fbd6d8c77d5ad2473ab7763a709b664e9ed967becebc16b408da8f9c7" => :big_sur
+    sha256 "24d2f050faa5742dacaf94ef1969451d50f868e7deee91b5dc424b9e753c3b51" => :arm64_big_sur
     sha256 "21afa110a4b5fa7ed53d3e79fcf9f602fb8143902a6a0b0ba22be0aeadd9b98c" => :catalina
     sha256 "47c139b2b6d68fdc08742dbda4ebdde55ae23cae474818d7f15fcfa156554fe5" => :mojave
     sha256 "3bb5910f082f8936165523306b1762f18277f3aac1cdd4abdfb84dfd5d240e45" => :high_sierra

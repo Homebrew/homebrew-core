@@ -1,8 +1,9 @@
 class Gpgme < Formula
   desc "Library access to GnuPG"
   homepage "https://www.gnupg.org/related_software/gpgme/"
-  url "https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.14.0.tar.bz2"
-  sha256 "cef1f710a6b0d28f5b44242713ad373702d1466dcbe512eb4e754d7f35cd4307"
+  url "https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.15.1.tar.bz2"
+  sha256 "eebc3c1b27f1c8979896ff361ba9bb4778b508b2496c2fc10e3775a40b1de1ad"
+  license "LGPL-2.1-or-later"
 
   livecheck do
     url "https://gnupg.org/ftp/gcrypt/gpgme/"
@@ -11,19 +12,20 @@ class Gpgme < Formula
 
   bottle do
     cellar :any
-    sha256 "9adeee9e826faf7e4955cf5e7da6a3c17b6c31a8c96b27eb486201db01fae024" => :catalina
-    sha256 "8d5d6da3d5161f149e2b1b724b058f46c98c444af366a11165fb3cb2afd7cdf6" => :mojave
-    sha256 "370890e7494a7be13e88493520715c48d2d45217daf0419594c1e78d06c6d8ac" => :high_sierra
+    sha256 "b7db3dbcd653200ed5f08789582d27f5ada1d70373fc0deaa908167869415362" => :big_sur
+    sha256 "cb5bc3ae542bb57f6eb2ba0ec5e2980f34d43cfbaa1349a77c50b0caba2d2b69" => :arm64_big_sur
+    sha256 "d2f6e379b0c47d4b62275a588a69bd08fb1c79e153b348c96280f3162548a1e4" => :catalina
+    sha256 "4a783a98f9f37a905e5864a628fcbb955ee9f3fa5ddab7c95edad62abe38697f" => :mojave
   end
 
-  depends_on "python@3.8" => [:build, :test]
+  depends_on "python@3.9" => [:build, :test]
   depends_on "swig" => :build
   depends_on "gnupg"
   depends_on "libassuan"
   depends_on "libgpg-error"
 
   def install
-    ENV["PYTHON"] = Formula["python@3.8"].opt_bin/"python3"
+    ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
 
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
@@ -38,6 +40,6 @@ class Gpgme < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/gpgme-tool --lib-version")
-    system Formula["python@3.8"].opt_bin/"python3", "-c", "import gpg; print(gpg.version.versionstr)"
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "import gpg; print(gpg.version.versionstr)"
   end
 end

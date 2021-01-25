@@ -2,16 +2,17 @@ class Helm < Formula
   desc "Kubernetes package manager"
   homepage "https://helm.sh/"
   url "https://github.com/helm/helm.git",
-      tag:      "v3.3.4",
-      revision: "a61ce5633af99708171414353ed49547cf05013d"
+      tag:      "v3.5.0",
+      revision: "32c22239423b3b4ba6706d450bd044baffdcf9e6"
   license "Apache-2.0"
   head "https://github.com/helm/helm.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8ea831439125a0d31e243876dde7e30b6273e97adc6e45fd3f14cf8d097acb63" => :catalina
-    sha256 "e5af6006990de1e44bdb0fa789cd92a4ad78a5f6726545a7ddae3a6f5da401b8" => :mojave
-    sha256 "bb3bc2cdc2fa93491565d549579780248e84448a7b2a25bd13ac8d8f491bdde6" => :high_sierra
+    sha256 "3f3dadafcf2b3459c700710b81cefc40632a1da528d100db18aee39ebf7bc3d4" => :big_sur
+    sha256 "0ca0668ef02cba3c0d8c1292d755f4192c261bb91162e006fc1560d9ae1a3728" => :arm64_big_sur
+    sha256 "cdd5f1cb8e7ad44ee7d38bd623f3dd5e3f643fc49121a375330203d98b277b5f" => :catalina
+    sha256 "09c685f41aa2ac740b4efdf36b5ebeb2fa8345939de02bf1aa6ac6037dea4791" => :mojave
   end
 
   depends_on "go" => :build

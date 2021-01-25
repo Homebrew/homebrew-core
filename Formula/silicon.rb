@@ -1,15 +1,16 @@
 class Silicon < Formula
   desc "Create beautiful image of your source code"
   homepage "https://github.com/Aloxaf/silicon/"
-  url "https://github.com/Aloxaf/silicon/archive/v0.3.2.tar.gz"
-  sha256 "510e8d6a5cf856f5060088ea6d5d22a510b6adeea2ea5b71d4d186e417115061"
+  url "https://github.com/Aloxaf/silicon/archive/v0.4.0.tar.gz"
+  sha256 "423c03d9c92cbad8f5a136abaa680e85dfa5b5f31998aab4424c335d4d99b7ab"
   license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "85ae46889515c69afb54d056aabc2b5e0c96a17dac70b360e409f8904b26366f" => :catalina
-    sha256 "75a92b9eb7b41d836aed9adc37edeb45dd5b9d38921155ed60f568cdab97667b" => :mojave
-    sha256 "06dac3633cbe5c721ea96eac98fbc1347d62fd78e39a3ed328093d517f3eeb61" => :high_sierra
+    rebuild 1
+    sha256 "52f4652a0e234859610c0fe2ff510c6360548af5b275182fe42d1db55434d3ee" => :big_sur
+    sha256 "3ed95061624448f3cdb724c2ba8e195fabfcbee846fd66dfab08167bc748b562" => :catalina
+    sha256 "05a64aecf5f99a0e195aee75422356f0246381df8c11c31b891b223dab487ab7" => :mojave
   end
 
   depends_on "rust" => :build

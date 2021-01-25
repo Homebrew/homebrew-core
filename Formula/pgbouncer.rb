@@ -1,8 +1,8 @@
 class Pgbouncer < Formula
   desc "Lightweight connection pooler for PostgreSQL"
   homepage "https://www.pgbouncer.org/"
-  url "https://www.pgbouncer.org/downloads/files/1.14.0/pgbouncer-1.14.0.tar.gz"
-  sha256 "a0c13d10148f557e36ff7ed31793abb7a49e1f8b09aa2d4695d1c28fa101fee7"
+  url "https://www.pgbouncer.org/downloads/files/1.15.0/pgbouncer-1.15.0.tar.gz"
+  sha256 "e05a9e158aa6256f60aacbcd9125d3109155c1001a1d1c15d33a37c685d31380"
 
   livecheck do
     url "https://github.com/pgbouncer/pgbouncer"
@@ -10,9 +10,11 @@ class Pgbouncer < Formula
 
   bottle do
     cellar :any
-    sha256 "eaecbb143f281ccc047d7a63488038c2d53de7ffaf56b56e532dce7089e30106" => :catalina
-    sha256 "c86c7f6b7fa11965e9427aeb36bc334b6f7f31323d826350736813187622844f" => :mojave
-    sha256 "4e098f2929939ba16d03e194310df111929dd861e02e89f075ce726f8f67b49d" => :high_sierra
+    rebuild 1
+    sha256 "09f21ff3e7b2c125d793da2ba64110392227650ae8157ef987f041959af8fe7c" => :big_sur
+    sha256 "8107249d240e1a53f6ae84587c08129acf5c294c4022f92d5f1c731ea6956ea3" => :arm64_big_sur
+    sha256 "fad76f523bac43aaf7859fa0085ab7c6582f9d4aeb682e677db8f5acd9c4159a" => :catalina
+    sha256 "4187ceded551fad5801a26f790e61dd7d654acc675de73a1b4bf2858920d0734" => :mojave
   end
 
   depends_on "pkg-config" => :build
@@ -30,6 +32,11 @@ class Pgbouncer < Formula
       s.gsub! /auth_file = .*/, "auth_file = #{etc}/userlist.txt"
     end
     etc.install %w[etc/pgbouncer.ini etc/userlist.txt]
+  end
+
+  def post_install
+    (var/"log").mkpath
+    (var/"run").mkpath
   end
 
   def caveats

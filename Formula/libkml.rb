@@ -7,6 +7,8 @@ class Libkml < Formula
   bottle do
     cellar :any
     rebuild 2
+    sha256 "a0694686c535fa33f6222e11dde9858881e6a5eaa12c6b11c5ef310a32635087" => :big_sur
+    sha256 "589b147706bc4aec04f96039cb2e61e80d85bcbedf0e919ebcca29fe09d81e26" => :arm64_big_sur
     sha256 "2b73d6ea2eacd6e11229a0a9747444c28a455bb24943108b0351f689d17eb3d9" => :catalina
     sha256 "c79c73e048728d0497b7f91c0e174bd97e27f65ff471e00324483a3557b6a13f" => :mojave
     sha256 "31d567e2e0d87794adea3507cb34ace0483309de7ba5b32fc98bc1ca59a461c5" => :high_sierra

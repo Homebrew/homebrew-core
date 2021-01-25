@@ -10,6 +10,7 @@ class Wego < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ff772c99d0aebc8e471aa4785b7a429fda2c0af8ede5d43fb2ee1ba8c7617246" => :big_sur
     sha256 "5ac6a153a25c0d68564d000f52642d0891fc85de2183732b9d7b171b5e629146" => :catalina
     sha256 "436dbf3a2dd0f517635078c987d95985941be4aaae3efc65b5fb2e3562af87cd" => :mojave
     sha256 "dc3714d72fde13770cec00100aa1ee843b944512c454e00ad131c822e868cedb" => :high_sierra

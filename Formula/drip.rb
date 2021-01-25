@@ -16,11 +16,24 @@ class Drip < Formula
     sha256 "69207c24aa1f8e6ba406e6cc3f811cd7000ee14c713cc32b49d72f2c76a702bc" => :mavericks
   end
 
-  depends_on java: "1.8"
+  disable! date: "2020-12-08", because: :unmaintained
+
+  depends_on "openjdk@8"
 
   def install
     system "make"
     libexec.install %w[bin src Makefile]
     bin.install_symlink libexec/"bin/drip"
+  end
+
+  test do
+    (testpath/"Test.java").write <<~EOS
+      public class Test {
+        public static void main (String[] args) {
+          System.out.println("Homebrew");
+        }
+      }
+    EOS
+    assert_match "Homebrew", shell_output("#{bin}/drip Test.java")
   end
 end

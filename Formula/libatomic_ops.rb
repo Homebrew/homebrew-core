@@ -6,12 +6,14 @@ class LibatomicOps < Formula
   license "GPL-2.0"
 
   livecheck do
-    url "https://github.com/ivmai/libatomic_ops/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "cafd6f8c5d49f8d80e5c02a43fd3183c1abf3f26315c6c21344598df41e6134c" => :big_sur
+    sha256 "c9ba6b9de11add3a64743a7a29e55e9a08eec18df5258e3881126ba0157f32c3" => :arm64_big_sur
     sha256 "d102cc71b5959eac9f8ecbc5029801ea2a544ad5b6602c586e5d5d33c67ebd55" => :catalina
     sha256 "b509d8669c5336775b0462c3e1464419d083bccc0bf43f8dab8fa3eb0ac44405" => :mojave
     sha256 "2e3053c22101fd8baf693ca404f258763b15e77372b5293e999f8bbc8b032522" => :high_sierra

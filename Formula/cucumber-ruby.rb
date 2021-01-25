@@ -1,20 +1,21 @@
 class CucumberRuby < Formula
   desc "Cucumber for Ruby"
   homepage "https://cucumber.io"
-  url "https://github.com/cucumber/cucumber-ruby/archive/v5.1.3.tar.gz"
-  sha256 "6395f4a71f55489278c81b9e5a84dc6d3e9bea9daaf3f2886eac3cd5fc6f235f"
+  url "https://github.com/cucumber/cucumber-ruby/archive/v5.2.0.tar.gz"
+  sha256 "273c9d98c5de487d91a6f35f289dd305964611fd01d5080df346bd42f11fffba"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 "c4fb3a8d15b987dbdb1e8c7d10e1b646c3cdf2af77d71f7ebeb103a30d15f732" => :catalina
-    sha256 "09a27799d3ba6896e10d84d0c040cfecc8d63da04c98729987490db29941a373" => :mojave
-    sha256 "effc117d5594efbb573261c412c13cc4ba3c17a422d901c083ec020a3624c0e8" => :high_sierra
+    sha256 "7f15e3bf5bdeac38070b802f85d4828324d50085b5345e0148992af24b876181" => :big_sur
+    sha256 "2afca64d3f15f52839cdfcb903e07a0a781e3537316d46be2cece665cc07ee71" => :catalina
+    sha256 "05eb994b0c94f00ffe3bea8f740593f5c85fcfe4017e517a8b299ef2d78c34ba" => :mojave
   end
 
   depends_on "pkg-config" => :build
 
   uses_from_macos "libffi", since: :catalina
-  uses_from_macos "ruby", since: :catalina
+  uses_from_macos "ruby", since: :big_sur
 
   def install
     ENV["GEM_HOME"] = libexec

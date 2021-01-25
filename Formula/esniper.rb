@@ -12,6 +12,8 @@ class Esniper < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8533d8f2e0a0e4cafbc9f3305db9cd5eccdcdd0651d7bc8f8331b625395c1aab" => :big_sur
+    sha256 "6db787246047b9a9796d704b258f7f3c7a8f0d35eb77ea4eb5d766ee1c67895f" => :arm64_big_sur
     sha256 "609f0b7d7331c4e61d274a83cbfc7157394d905a5840c6df7547140b5b0a44da" => :catalina
     sha256 "09be416cfab61002deed7613c367ccfa56c53cbe4e7ec6e1bf07df769313a7dc" => :mojave
     sha256 "24cb48a074e7e13cdaa2f0c990ea184352cd06f572134640fa99a42d699939ff" => :high_sierra

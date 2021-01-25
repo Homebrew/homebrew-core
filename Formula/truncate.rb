@@ -8,6 +8,8 @@ class Truncate < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "114a1a8f6ad55877eed7574ee0e30c0f18535127ae173f55919fb0ead6c608cc" => :big_sur
+    sha256 "6608722fc6a0082220c5ea5b92abfe2753e5b11307f1d812cf79468456cfaa75" => :arm64_big_sur
     sha256 "268e41b71c41a6d5297c7659061953053e2e833bde60d23ff80296950ff4f006" => :catalina
     sha256 "99e774220ef9a0cdb89f4300c671ac9eb74840cf5ed2d0731f12d20e680ff939" => :mojave
     sha256 "e1386eda3a93dddd528d1c3bf33b78c9c4da12039d7434b8db956e05eace9482" => :high_sierra

@@ -3,8 +3,8 @@ require "language/node"
 class Triton < Formula
   desc "Joyent Triton CLI"
   homepage "https://www.npmjs.com/package/triton"
-  url "https://registry.npmjs.org/triton/-/triton-7.11.0.tgz"
-  sha256 "42a49cb112ae91015116b360a3d75da509d459d6f03d3c5b4c38ed20b6436294"
+  url "https://registry.npmjs.org/triton/-/triton-7.12.0.tgz"
+  sha256 "f9620dc4556f8eed13c59f1bfa90002095c888d29125a2c0420940cf31aa9f70"
   license "MPL-2.0"
 
   livecheck do
@@ -13,9 +13,10 @@ class Triton < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c641a16f691b80643d5d9bf68056953dba80044956b87bef3269f008433bbb0d" => :catalina
-    sha256 "64bf5b0274d9fd434c6d8d80489fd13ebebd1e2f1bd7acaed285fc2a4749b36d" => :mojave
-    sha256 "0893698205caab0e12f9a75291649de97d2e409e850fec41eac0373d3ea05964" => :high_sierra
+    sha256 "9eff2740d1ee43579704b15f6cc0ec3ded59d8f2c32991aef2e7dd4243081df1" => :big_sur
+    sha256 "0d26455a277496abe72df7663120b893aecdcde8acb71a210dc85a5944707191" => :arm64_big_sur
+    sha256 "0e80b4d4276d3e695321ce821101192f3b0becd70d7f4b90e31092cd2340cbb3" => :catalina
+    sha256 "690b346b720a50ee036fe590e5b508f1d4cab865f918bffb9ad0a5eb15f142c1" => :mojave
   end
 
   depends_on "node"

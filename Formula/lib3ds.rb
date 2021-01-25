@@ -8,6 +8,8 @@ class Lib3ds < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "175e42127a596271ed3347b35eeb8088d684b1b46f6efa4d1bbb8d8ef9776605" => :big_sur
+    sha256 "2959476e3f2e5a95ca23aa6a9fc4b11f9e8ca202e460d6b00ce2906f043c8936" => :arm64_big_sur
     sha256 "0a5a1fdac0c459e011ef64556c872fdc61678ccc7e06d507239d03729a0a8613" => :catalina
     sha256 "61004e5169608ab48287024f45c10f9f95eebd3117edce42cf3a3bf509b93166" => :mojave
     sha256 "1c6d7e3a2e800cf8fc9f6050032f28eec15bcc7c617622d58ba502c9c1afa740" => :high_sierra

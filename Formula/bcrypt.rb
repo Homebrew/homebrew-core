@@ -5,20 +5,19 @@ class Bcrypt < Formula
   sha256 "b9c1a7c0996a305465135b90123b0c63adbb5fa7c47a24b3f347deb2696d417d"
 
   livecheck do
-    url :homepage
+    url "http://bcrypt.sourceforge.net/"
     strategy :page_match
     regex(/href=.*?bcrypt[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1e9d946fdf6761cf3ef623ac4646f5d77107aca427ae5d986a25f5ef7de6ceea" => :catalina
-    sha256 "ef0fbaf77cad63f0450bde11bd6ba89fe2217ecb0f95b1952dd93c56730f615e" => :mojave
-    sha256 "70235a007382bbbaeddbfc52b503e86b6cadcb7d07b752d97c8ce0861bccd3a8" => :high_sierra
-    sha256 "913cfce96b6de1fce20ee1ff771ef22e3663f3da6c7529d7efc3a43b0e1d92b8" => :sierra
-    sha256 "d674203ce681f17519eee1ce7a3258615b2de5a8a12460d7de284af09028d7da" => :el_capitan
-    sha256 "dbd530bd84a1e92120aacf07f60e3b6131c92421702ab8b9f9e02d3b72a00ad6" => :yosemite
-    sha256 "2a0a662d778677d75222745b30e6c5e825078855d303cf853609f50b1ceca4a6" => :mavericks
+    rebuild 1
+    sha256 "9c3948e719b6b5cb195fc30c8e0fd555c35d9fcea7a5a6c607b094ce2e097f01" => :big_sur
+    sha256 "7b3e672ab9055b69dc1c7c5a7d13ad3a9a375f60de85cfcc5268f7eb139edcda" => :arm64_big_sur
+    sha256 "132998cb8e196f506666943a94a26927a19899cb1e45ee8eaf65e5ad0ee7ef8d" => :catalina
+    sha256 "bb843c3b04f9adf57df1c2d07e30303626eedb0f45695dcaf38d0835ea3e35fd" => :mojave
+    sha256 "883a4a97b7275e91cd90ab9d1ca69fa2a3c0db3544a2d77863a37bda16c51667" => :high_sierra
   end
 
   def install

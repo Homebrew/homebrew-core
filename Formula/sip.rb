@@ -4,6 +4,7 @@ class Sip < Formula
   url "https://www.riverbankcomputing.com/static/Downloads/sip/4.19.24/sip-4.19.24.tar.gz"
   sha256 "edcd3790bb01938191eef0f6117de0bf56d1136626c0ddb678f3a558d62e41e5"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
+  revision 1
   head "https://www.riverbankcomputing.com/hg/sip", using: :hg
 
   livecheck do
@@ -13,15 +14,17 @@ class Sip < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "27b5d4e78eee2d5cba8154d292b334e111a1d1e7c718bde664c352a542e15426" => :catalina
-    sha256 "59a0106736b84dd8f03c720ac425e5608e1bde788ba73ccc923397aa2dbdcef3" => :mojave
-    sha256 "a0f6f7d9f231644e1ab81c3a40de9e4f8afcae06b1d54959613263e84adfa958" => :high_sierra
+    sha256 "8325e469dc8c267c526034ce3ea3bc014c3f66dc05471e0af81bef9725cdb671" => :big_sur
+    sha256 "000960d8619e5dba18a9e5585e6eac8b9123977c448ea08024bf8fcab777d000" => :arm64_big_sur
+    sha256 "20c9e0745b80d218317e81bb81227b513c59d84524ad6cf44439d446cb289616" => :catalina
+    sha256 "5a64babc3b0e9058fce2b9963ef8193d6b8437de1d8119e43966b4ad42092590" => :mojave
+    sha256 "c555ded74a09732751261cfe7cd243ceb69bed86f489df8a80cc4e6a5819220c" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
-    ENV.prepend_path "PATH", Formula["python@3.8"].opt_bin
+    ENV.prepend_path "PATH", Formula["python@3.9"].opt_bin
     ENV.delete("SDKROOT") # Avoid picking up /Application/Xcode.app paths
 
     if build.head?

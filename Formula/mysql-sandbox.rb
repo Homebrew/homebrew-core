@@ -4,26 +4,37 @@ class MysqlSandbox < Formula
   url "https://github.com/datacharmer/mysql-sandbox/archive/3.2.17.tar.gz"
   sha256 "3af4af111536e4e690042bc80834392f46a7e55c7143332d229ff2eb32321e89"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/datacharmer/mysql-sandbox.git"
+
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "243b5248bbf998820b15079d4d2228a8289a9f48471723d06764ba4dc4a27a3e" => :catalina
-    sha256 "88eefc687a4a8344dfac002ea5a3183302de67d1a699324357115325f2e337cb" => :mojave
-    sha256 "da11d806c9d472f19514da7520ec448210e410983225a3b41c0459634a823ab7" => :high_sierra
-    sha256 "1829b23da5960830f426300cac7b4820f21a4f801a1260357394b205bb9340a4" => :sierra
-    sha256 "77ab4eb3bbd5d374020081b3505cd7f18de1500019af148f00ebef13a34e4222" => :el_capitan
+    sha256 "effaa2803c9302f19a2ed000d7fc6e07a718186102877822338a90c850b0ba69" => :big_sur
+    sha256 "7534bbd546393a62cfd0b6bf5022973094743219dee948d004e790b162152edb" => :arm64_big_sur
+    sha256 "0b01929ca2d5a53f9ea2c18dfcef7f4468b5d625ba75dcfcafe5f74ab8954bf6" => :catalina
+    sha256 "dc52de83d9b8f7d85273c64665a80165a8d13e8e4654a0655017d3453fac97ed" => :mojave
   end
 
-  def install
-    ENV["PERL_LIBDIR"] = libexec/"lib/perl5"
-    ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5/site_perl"
+  uses_from_macos "perl"
 
-    system "perl", "Makefile.PL", "PREFIX=#{libexec}"
+  def install
+    ENV["PERL_LIBDIR"] = lib/"perl5"
+    ENV.prepend_create_path "PERL5LIB", lib/"perl5"
+
+    system "perl", "Makefile.PL", "INSTALL_BASE=#{prefix}", "INSTALLSITEMAN3DIR=#{man3}"
     system "make", "test", "install"
 
-    bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
+    Pathname.glob("#{bin}/*") do |file|
+      next if file.extname == ".sh"
+
+      libexec.install(file)
+      file.write_env_script(libexec.join(file.basename), PERL5LIB: ENV["PERL5LIB"])
+    end
   end
 
   test do

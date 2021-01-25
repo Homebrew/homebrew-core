@@ -1,23 +1,28 @@
 class Rdesktop < Formula
   desc "UNIX client for connecting to Windows Remote Desktop Services"
-  homepage "https://www.rdesktop.org/"
+  homepage "https://github.com/rdesktop/rdesktop"
   url "https://github.com/rdesktop/rdesktop/releases/download/v1.9.0/rdesktop-1.9.0.tar.gz"
   sha256 "473c2f312391379960efe41caad37852c59312bc8f100f9b5f26609ab5704288"
-  license "GPL-3.0"
-  revision 1
+  license "GPL-3.0-or-later"
+  revision 2
 
   bottle do
-    sha256 "4b504df078255fec4d85c94f9a815eb26e55cec1cd38ebf2755ead4d0bcda3be" => :catalina
-    sha256 "12d99aa6dd32ee04b5c0030def99ec91ec9de695d11bd7e062429e760a5ece94" => :mojave
-    sha256 "16afb599f321df0271f1b7b10eb93884b111feefc4cfb7b116ccf7b90dfede46" => :high_sierra
+    sha256 "60d5a72e5a55cace788d0a28241b9080fbf039c25fd91eb3bf91a95a8e8e4a89" => :big_sur
+    sha256 "8b22a2d1f52ff40334a16fc4614bc2f2c9e50386f0732e8e4478f68c7008f961" => :catalina
+    sha256 "91b95a137be4361dee7d8bf2e442fa75eaf159469c09e238a127aa1186534638" => :mojave
+    sha256 "84ca9f1d74ad63108e320f2cae63a2afdfafd3995aa2d37837d551cc5dda8688" => :high_sierra
   end
+
+  deprecate! date: "2020-11-12", because: :unmaintained
 
   depends_on "pkg-config" => :build
   depends_on "gnutls"
   depends_on "libao"
   depends_on "libtasn1"
+  depends_on "libx11"
+  depends_on "libxcursor"
+  depends_on "libxrandr"
   depends_on "nettle"
-  depends_on :x11
 
   def install
     args = %W[
@@ -25,8 +30,6 @@ class Rdesktop < Formula
       --disable-credssp
       --enable-smartcard
       --with-sound=libao
-      --x-includes=#{MacOS::XQuartz.include}
-      --x-libraries=#{MacOS::XQuartz.lib}
     ]
 
     system "./configure", *args

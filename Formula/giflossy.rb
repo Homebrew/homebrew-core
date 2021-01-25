@@ -8,13 +8,14 @@ class Giflossy < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "e3b6e1b39169c52c0f96b02ff68b43f4e8f297c830d290288221e17a5c130839" => :catalina
-    sha256 "9a0c85d6e19b61c8f232ab36211f8952220a62e5ca0f1c1f57de8280782dbc36" => :mojave
-    sha256 "492ddf714381465db00b10689af119d8c225ca5138304d8f1e6c946b9cf67e76" => :high_sierra
-    sha256 "464798aef709d62f6bfb4cefd3cb9d084e3aced492766e63b113762f15347d19" => :sierra
-    sha256 "50e8538008faf1bb05e8d44801cacd6e8f41fbf392ed23b639c7d05d36b5c8d8" => :el_capitan
+    rebuild 2
+    sha256 "ad63a534a7e83c162d536cb43c421a78b089ca9921e89ed598c8ae13fe7adb1f" => :big_sur
+    sha256 "860d0bb8cd391ad3d2309613c18a5f4f80d1b12e1156a28eb81c2bf7a0f460b8" => :arm64_big_sur
+    sha256 "de5ae53cff723bbb5cbe11028d088f028053ebc70a14b6497dd7f5f9ca9651b4" => :catalina
+    sha256 "02eeb9a6b44178fdf1df803346dceedda853c7245cd51a1a6166290a73fb51f4" => :mojave
   end
+
+  deprecate! date: "2020-11-27", because: :repo_archived
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build

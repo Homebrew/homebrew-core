@@ -11,6 +11,8 @@ class Klavaro < Formula
   end
 
   bottle do
+    sha256 "e2443e25a1df331f8e13220e2e23d3969c76da569360298ce2a8e8ee6bf58c16" => :big_sur
+    sha256 "6d85b1d56ade7f5ec30aec8cfd4303a329bfe5436f88953f37efae9a740023c2" => :arm64_big_sur
     sha256 "cdcfb850a7948e249c28f38c29fd425bf4b60c36751d881a197bd027849f4cf6" => :catalina
     sha256 "ddd221d6a3d97da22c6a257076df29e1c8795dd2a47b4c9eb76782d451a26a35" => :mojave
     sha256 "3f75e1159ad6a743c00d9b00583bb8b99eaa66875f3316b437b6e3e63f99aa8a" => :high_sierra

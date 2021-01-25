@@ -1,14 +1,15 @@
 class Fplll < Formula
   desc "Lattice algorithms using floating-point arithmetic"
   homepage "https://github.com/fplll/fplll"
-  url "https://github.com/fplll/fplll/releases/download/5.3.3/fplll-5.3.3.tar.gz"
-  sha256 "5e7c46c30623795feeac19cf607583b7c82b0490ceb91498f0f712789be20ccd"
+  url "https://github.com/fplll/fplll/releases/download/5.4.0/fplll-5.4.0.tar.gz"
+  sha256 "fe192a65a56439b098e26e3b7ee224dda7c2c73a58f36ef2cc6f9185ae8c482b"
   license "LGPL-2.1"
 
   bottle do
-    sha256 "9201144fd0ef7be11fd0f2ee3f860fc62efa4202c46be0f47540198b11f8202a" => :catalina
-    sha256 "099b4cc18fe92f4a19d0ba8113190524bd24814dc967addb6c149aca32ec90c7" => :mojave
-    sha256 "6f73bbf1c544b88e525c1fbd17594d4a77c5dc10b283d5308b6f816fcac9cfc9" => :high_sierra
+    sha256 "3683b4c40387324054f6eb43ee129cd28cb7107e21cab7425b9da5fc1834578f" => :big_sur
+    sha256 "9818320e953a6a251958ee097350481f86952bfac55e9f8219ecac92071738fe" => :arm64_big_sur
+    sha256 "de1d71773f6fe6baaf83e6b7c8cbc1521842854536242482a35b70b1c37a4b7b" => :catalina
+    sha256 "dc27cc471e40516aba9bd490813f5853a9fe326ea490ee27f6cf57f5c916f1fb" => :mojave
   end
 
   depends_on "automake" => :build

@@ -9,6 +9,8 @@ class Jigdo < Formula
   revision 6
 
   bottle do
+    sha256 "4c2caa44c57e78c0ad0b41116add04c6f7ad34ca10a7a8cfaefb4abf336a0035" => :big_sur
+    sha256 "4a3da913acb523ae926b6ca674548b5cce5a833dd04bc0fa6ab113747f9384e5" => :arm64_big_sur
     sha256 "bcde67883304312dcb904e44b17928a16ec9cb1c8a469e37b2832104178eb7b1" => :catalina
     sha256 "eb44dc4044f003304fa8dcbf29a607b79e82e62ed1f106fb2172d1af30c139a0" => :mojave
     sha256 "dd14191d456b799e759d7adad19a1ca25a1791f63188d60db48460f76d4650fd" => :high_sierra

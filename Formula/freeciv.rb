@@ -1,10 +1,9 @@
 class Freeciv < Formula
   desc "Free and Open Source empire-building strategy game"
   homepage "http://freeciv.org"
-  url "https://downloads.sourceforge.net/project/freeciv/Freeciv%202.6/2.6.2/freeciv-2.6.2.tar.bz2"
-  sha256 "6181ef3d3c76264383aabbe0eaf1550d8a65ca42639e6c17cc2938165e176c8f"
-  license "GPL-2.0"
-  revision 1
+  url "https://downloads.sourceforge.net/project/freeciv/Freeciv%202.6/2.6.3/freeciv-2.6.3.tar.bz2"
+  sha256 "77432e027557a9eb407dac730ae9810ee172abe37111deb017fe72b8183ff8d1"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :stable
@@ -12,9 +11,10 @@ class Freeciv < Formula
   end
 
   bottle do
-    sha256 "ef6d245c1c9e7deae7ac7f7e76df10e7b6a8d49968bebc0b99f14729ceee290f" => :catalina
-    sha256 "3b488924c498bfd515785b3ce42f9b9fc75b82fa799fff77fd58c1b42038c2bb" => :mojave
-    sha256 "d7789957285649359ce9283b0cc4635fa6e94ca14856cfc922aef65810a41357" => :high_sierra
+    sha256 "57f0a07826b7fa224a79eda88041375d21fcd2787ab57bca311542da278da5a6" => :big_sur
+    sha256 "b32f1d068dac64d037bb4784d1bfe2f3d88801d45395647b46e83e9352428e97" => :arm64_big_sur
+    sha256 "c46864366282e6b626a787e45453f539c3604c334a84326a0c8cc4ab2511e7dd" => :catalina
+    sha256 "287706ed5964b4959c16017e641afe30e0348fd4840e9516525bceeb49ffa8d4" => :mojave
   end
 
   head do

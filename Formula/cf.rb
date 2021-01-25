@@ -1,11 +1,18 @@
 class Cf < Formula
-  desc "Filter to replace numeric timestamps with a formated date time"
+  desc "Filter to replace numeric timestamps with a formatted date time"
   homepage "https://ee.lbl.gov/"
   url "https://ee.lbl.gov/downloads/cf/cf-1.2.5.tar.gz"
   sha256 "ef65e9eb57c56456dfd897fec12da8617c775e986c23c0b9cbfab173b34e5509"
 
+  livecheck do
+    url "https://ee.lbl.gov/downloads/cf/"
+    regex(/href=.*?cf[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
+    sha256 "3919568fde666b68d1504741a9c4436bcd60f171fd445e378a718534889b98af" => :big_sur
+    sha256 "0ef3f980b358bb74cba8de7e264897d61e16f5e2cda94ca9c4219dcbb8c9307d" => :arm64_big_sur
     sha256 "14a240b51f627599ebd4cbbffc27c52d40790c6537f91f20d978d6054e62571b" => :catalina
     sha256 "0cbd888d1a69516d55ce6572208b6adbdcbe9df7195199ac5d6e678e3e794f85" => :mojave
     sha256 "b94cceb52c7da6995ed4acd014350e6d9b1dbeb7d03b0c8f2256a12e7f520b01" => :high_sierra

@@ -7,6 +7,7 @@ class Libcec < Formula
 
   bottle do
     cellar :any
+    sha256 "1a9bd5bc7213eef94c4bb9c1c3cfeffeb6dba606f0cbd227de515c04968bbc8f" => :big_sur
     sha256 "eef61bc6c5647a5b26f8949b53973e02ec44640d82ceff633183da7b20eac212" => :catalina
     sha256 "c64dda68a5e5d00d6867aff92b576a71b8550d7250bbe7f86d0c1a9b1b861613" => :mojave
     sha256 "2d7d295151c68aeaea3a269d66156b2d29f08a619d60079e79386d100c0adc1c" => :high_sierra

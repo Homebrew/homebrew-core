@@ -5,7 +5,7 @@ class Netcdf < Formula
   mirror "https://www.gfd-dennou.org/arch/netcdf/unidata-mirror/netcdf-c-4.7.4.tar.gz"
   sha256 "0e476f00aeed95af8771ff2727b7a15b2de353fb7bb3074a0d340b55c2bd4ea8"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/Unidata/netcdf-c.git"
 
   livecheck do
@@ -14,9 +14,10 @@ class Netcdf < Formula
   end
 
   bottle do
-    sha256 "0ae7c27bd0ac68071faecbd09f67fb2ce91d86b030b92488dca64851e6d40de0" => :catalina
-    sha256 "db149e5597eab59a0a908c48efc35df09735ddc8bac006c94b6a02a644822814" => :mojave
-    sha256 "c1704dcf4cd4d59e48b5e71e752c44220cc098810e67d49aaa8985cc09b5724b" => :high_sierra
+    sha256 "55caff29df9b25ee906d2dcce6c78e02b6e9ac163b42e06f53c45aa0f6ade645" => :big_sur
+    sha256 "26eaaca9d9cf3bddea87d982c76c31df6df91b198d04ac62f0084141109457dd" => :arm64_big_sur
+    sha256 "b3aeca909a91b47e8e0d3fdc9d209dd13ecfb2b1879bab5ea49d3dcfd6404ddd" => :catalina
+    sha256 "9504a25d84dd6afb80553576474420cc074c64821aa346a58271dad26982b187" => :mojave
   end
 
   depends_on "cmake" => :build
@@ -105,6 +106,14 @@ class Netcdf < Formula
       system "make"
       system "make", "install"
     end
+
+    # Remove some shims path
+    inreplace [
+      bin/"nf-config", bin/"ncxx4-config", bin/"nc-config",
+      lib/"pkgconfig/netcdf.pc", lib/"pkgconfig/netcdf-fortran.pc",
+      lib/"cmake/netCDF/netCDFConfig.cmake",
+      lib/"libnetcdf.settings", lib/"libnetcdf-cxx.settings"
+    ], HOMEBREW_LIBRARY/"Homebrew/shims/mac/super/clang", "/usr/bin/clang"
 
     # SIP causes system Python not to play nicely with @rpath
     libnetcdf = (lib/"libnetcdf.dylib").readlink

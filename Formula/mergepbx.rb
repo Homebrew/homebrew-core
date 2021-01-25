@@ -7,6 +7,8 @@ class Mergepbx < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "6968dbb45ad1d9aac2df4b002e0a487e7d460c30e82f1a77f2dfeba6b3f652a5" => :big_sur
+    sha256 "e8740ccec42d1737b1e70fb70f0dd13939d24c7cb81e6b2c400309e38763fa5c" => :arm64_big_sur
     sha256 "afb3b3ce84c58a241b7c96e81068851273d1fdd31403737a13ae1e75ba57240f" => :catalina
     sha256 "8188a967c09aadd08807dc11cb6695ebc6def26026532d426fd3bf1880fdc591" => :mojave
     sha256 "2e295ff99574735aa7d1bb5244f1207a1f6f2054c4ec9da322e9d0981bdd5dd3" => :high_sierra

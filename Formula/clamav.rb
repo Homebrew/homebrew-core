@@ -12,6 +12,8 @@ class Clamav < Formula
   end
 
   bottle do
+    sha256 "2d28fcabebc27f3c72a366c8ebce2ed82a86ac56ae4eafd152c251681666752b" => :big_sur
+    sha256 "f2620d623d65ebe6c2a10e6b6148b517e7424f4190393b0f8257ac3aeaf77d8d" => :arm64_big_sur
     sha256 "223f07db86b0ed0e4e51db8d634111bb842dcc49c01df6dbe5dedcf46e786e44" => :catalina
     sha256 "8155acb6f0bf2f1fd110612e8eda7ade7845f3fc3310332af6ae182660ab7692" => :mojave
     sha256 "458d060d70d37beb01b924ada3be7474b25f4a4c8a2bfb33f6bfb0251ab19024" => :high_sierra
@@ -54,10 +56,19 @@ class Clamav < Formula
       --with-libjson=#{Formula["json-c"].opt_prefix}
       --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
       --with-pcre=#{Formula["pcre2"].opt_prefix}
-      --with-zlib=#{MacOS.sdk_path_if_needed}/usr
-      --with-libbz2-prefix=#{MacOS.sdk_path_if_needed}/usr
-      --with-xml=#{MacOS.sdk_path_if_needed}/usr
     ]
+
+    on_macos do
+      args << "--with-zlib=#{MacOS.sdk_path_if_needed}/usr"
+      args << "--with-libbz2-prefix=#{MacOS.sdk_path_if_needed}/usr"
+      args << "--with-xml=#{MacOS.sdk_path_if_needed}/usr"
+    end
+    on_linux do
+      args << "--with-zlib=#{Formula["zlib"].opt_prefix}"
+      args << "--with-libbz2-prefix=#{Formula["bzip2"].opt_prefix}"
+      args << "--with-xml=#{Formula["libxml2"].opt_prefix}"
+      args << "--with-libcurl=#{Formula["curl"].opt_prefix}"
+    end
 
     pkgshare.mkpath
     system "autoreconf", "-fvi" if build.head?

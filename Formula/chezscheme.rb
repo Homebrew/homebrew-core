@@ -4,28 +4,24 @@ class Chezscheme < Formula
   url "https://github.com/cisco/ChezScheme/archive/v9.5.4.tar.gz"
   sha256 "258a4b5284bb13ac6e8b56acf89a7ab9e8726a90cc57ea1cd71c5da442323840"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ec01053507184a4f7974281be6484d44005ad3ee67b0ca76e87c18dda329050e" => :catalina
-    sha256 "2e483db1013a2045e245b81f869c0bbc348998e73463bcb225199c929416ffa2" => :mojave
-    sha256 "062b486d9b8fc1d81716361b5f0267a12599dea779f3cf37e5879c33b41bf568" => :high_sierra
+    sha256 "8eae7ff25a1c3b5a7d4192048f53f51904b997eda6c4c7a558e19a0cd461babe" => :big_sur
+    sha256 "54d8553a07253c0215f8654f1c54e9ac03734160544ac9823896601e86dd2c81" => :catalina
+    sha256 "a1f551093249b315e309f75e4174995b2d7f475376dc97c78f43e5302ec4b3a6" => :mojave
+    sha256 "cb114681db205f5b31da0c3b7906dba46633275b369f6bc3adef4e0411880982" => :high_sierra
   end
 
-  depends_on x11: :build
+  depends_on "libx11" => :build
+  depends_on "xterm"
   uses_from_macos "ncurses"
 
   def install
-    # dyld: lazy symbol binding failed: Symbol not found: _clock_gettime
-    # Reported 20 Feb 2017 https://github.com/cisco/ChezScheme/issues/146
-    if MacOS.version == "10.11" && MacOS::Xcode.version >= "8.0"
-      inreplace "c/stats.c" do |s|
-        s.gsub! "CLOCK_MONOTONIC", "UNDEFINED_GIBBERISH"
-        s.gsub! "CLOCK_PROCESS_CPUTIME_ID", "UNDEFINED_GIBBERISH"
-        s.gsub! "CLOCK_REALTIME", "UNDEFINED_GIBBERISH"
-        s.gsub! "CLOCK_THREAD_CPUTIME_ID", "UNDEFINED_GIBBERISH"
-      end
-    end
+    inreplace "configure", "/opt/X11", Formula["libx11"].opt_prefix
+    inreplace Dir["c/Mf-*osx"], "/opt/X11", Formula["libx11"].opt_prefix
+    inreplace "c/version.h", "/usr/X11R6", Formula["libx11"].opt_prefix
+    inreplace "c/expeditor.c", "/usr/X11/bin/resize", Formula["xterm"].opt_bin/"resize"
 
     system "./configure",
               "--installprefix=#{prefix}",

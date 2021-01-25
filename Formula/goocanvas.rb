@@ -10,6 +10,8 @@ class Goocanvas < Formula
   end
 
   bottle do
+    sha256 "31471c7264bf173c9f82ba40daec0555403f9007cc8046d7bee5b2406bfeedae" => :big_sur
+    sha256 "afc6329ef248fba21b033b7f9e409112260e28f0c9964e5748df4bed40a0cdae" => :arm64_big_sur
     sha256 "ff71ce064b86b1e8973ee5c6aaebdbba6a1159614f5c425d83cc3fb6b00e8b97" => :catalina
     sha256 "b9d36364339793b428077bbc7735981f8cd33e681971653806dc574236382778" => :mojave
     sha256 "6822fe0a452809ce94bc1fd70fb32b024ad52702a56878db381b7dad2e05aa28" => :high_sierra

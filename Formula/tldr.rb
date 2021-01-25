@@ -10,6 +10,8 @@ class Tldr < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "3369bd7f8eeb65d058ae02878d1c2f0d20f3754934aba468c4b2646040e6e7dd" => :big_sur
+    sha256 "1e59825a8fcafd2287531e1c54b7a60e528ac454a4c7a269c3910a13fd7b7249" => :arm64_big_sur
     sha256 "41a6db2e28eeae00ff6d1888948d8b7d0f01cd67b3f271341b856cded07ba6ca" => :catalina
     sha256 "7f10022d0c6648741457c2562bc5e521d8dd88dfc4c4d68d1c886739ffd7eb45" => :mojave
     sha256 "c932bd8516b6690c45dcbf90ced6ad94d4a0aa5a366de532fe90c4ab82b9a2ad" => :high_sierra

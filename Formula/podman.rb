@@ -1,15 +1,16 @@
 class Podman < Formula
   desc "Tool for managing OCI containers and pods"
   homepage "https://podman.io/"
-  url "https://github.com/containers/podman/archive/v2.1.1.tar.gz"
-  sha256 "5ebaa6e0dbd7fd1863f70d2bc71dc8a94e195c3339c17e3cac4560c9ec5747f8"
+  url "https://github.com/containers/podman/archive/v2.2.1.tar.gz"
+  sha256 "bd86b181251e2308cb52f18410fb52d89df7f130cecf0298bbf9a848fe7daf60"
   license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "eb411460ee3d91f8286df3eadd4dfd0fec63d61e29a8a6c29c581ac073642011" => :catalina
-    sha256 "09967354204cdd075332de1ba2eaf39ae154da5167200ead9e2db38d96f7a96b" => :mojave
-    sha256 "fb2ca2c9370177bddf1f1683cef3d121fbdb72126a3999eddc097f20ec637540" => :high_sierra
+    sha256 "9f1b52e8e1fbb23a43ed7e961cb5e119d38aaa6abec767d1c795ffcbb5a08d8f" => :big_sur
+    sha256 "2d4557414e96180dd119382303f932a685cfd9f810cb39c89e646f366d6e933c" => :arm64_big_sur
+    sha256 "c495895437ba8d9fbc999a74d3d8e465f7980fc78b846b383c396e96a220e5d7" => :catalina
+    sha256 "a608e53d52bfa2448c1ca8a48aa2702107d60bcd9bc351f4387c9c3922f3ca3f" => :mojave
   end
 
   depends_on "go" => :build

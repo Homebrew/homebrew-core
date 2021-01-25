@@ -7,6 +7,8 @@ class Qdae < Formula
 
   bottle do
     rebuild 1
+    sha256 "1e6b4a1ae9c0f6c69623f72e6d84429f57986b6560939cfa7ea02b36a2f39830" => :big_sur
+    sha256 "9551d2289bd90b76851cebd6d1f11e2e3b1c9ca856d8eb4f88312ec941efb097" => :arm64_big_sur
     sha256 "d951231205b4f4faf3e4f829665d25c82d236f3f52339dd5664fb8adb46e68eb" => :catalina
     sha256 "290d931e61684c53227e0a16d808427eb7218fbec76c57eb250c03dbf15bb6b8" => :mojave
     sha256 "945b28c4354053f3ebd81bb868ef6a14d8fef1c32d6cebd73455bd17f17332ae" => :high_sierra

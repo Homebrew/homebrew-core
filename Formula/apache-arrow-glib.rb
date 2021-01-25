@@ -1,9 +1,9 @@
 class ApacheArrowGlib < Formula
   desc "GLib bindings for Apache Arrow"
   homepage "https://arrow.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-1.0.1/apache-arrow-1.0.1.tar.gz"
-  mirror "https://archive.apache.org/dist/arrow/arrow-1.0.1/apache-arrow-1.0.1.tar.gz"
-  sha256 "149ca6aa969ac5742f3b30d1f69a6931a533fd1db8b96712e60bf386a26dc75c"
+  url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-2.0.0/apache-arrow-2.0.0.tar.gz"
+  mirror "https://archive.apache.org/dist/arrow/arrow-2.0.0/apache-arrow-2.0.0.tar.gz"
+  sha256 "be0342cc847bb340d86aeaef43596a0b6c1dbf1ede9c789a503d939e01c71fbe"
   license "Apache-2.0"
   head "https://github.com/apache/arrow.git"
 
@@ -12,21 +12,25 @@ class ApacheArrowGlib < Formula
   end
 
   bottle do
-    sha256 "f3f1d7961bdb3f3ad95232a37460d1a92a88e4846c794ab2d8501bacff6d0b76" => :catalina
-    sha256 "09ea05316802811d6b5d02ead1705ed795c7209a09362f7d1bc545ad0eb92924" => :mojave
-    sha256 "d281fe60e0aa6ef2485a8172ab45e64d62549429836ea9fb0a8a4a5dee07a2cf" => :high_sierra
+    cellar :any
+    rebuild 1
+    sha256 "915a5ef975e06d79c541d24e5106ecdb8740b8365ad5cf270dfc11b75d16e529" => :big_sur
+    sha256 "b51bf431c664c55d949ae469e69575aa170b6adf878a0692497c5b9556943a4e" => :catalina
+    sha256 "3e04b577e546fdcf67ab353f52091044658efc633ad69a2c08f748db5c483718" => :mojave
   end
 
   depends_on "gobject-introspection" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "apache-arrow"
   depends_on "glib"
 
   def install
-    cd "c_glib" do
-      system "./configure", "--prefix=#{prefix}"
-      system "make"
-      system "make", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args, "../c_glib"
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
     end
   end
 

@@ -1,8 +1,9 @@
 class Latexml < Formula
   desc "LaTeX to XML/HTML/MathML Converter"
   homepage "https://dlmf.nist.gov/LaTeXML/"
-  url "https://dlmf.nist.gov/LaTeXML/releases/LaTeXML-0.8.4.tar.gz"
-  sha256 "92599b45fb587ac14b2ba9cc84b85d9ddc2deaf1cbdc2e89e7a6559e1fbb34cc"
+  url "https://dlmf.nist.gov/LaTeXML/releases/LaTeXML-0.8.5.tar.gz"
+  sha256 "1de821d0df8c88041ee10820188f33feac77d5618de4c0798a296a425f4e2637"
+  license :public_domain
   head "https://github.com/brucemiller/LaTeXML.git"
 
   livecheck do
@@ -12,10 +13,10 @@ class Latexml < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "89177de9fcad665602e176c80095dc52ad5faebe5db384348ac7afaa67a37aab" => :catalina
-    sha256 "e7c78acf6bb580fdb949777719972a806c1d7d349d9e826b338572bedde6cf5c" => :mojave
-    sha256 "388dbf99df85e55879cccfa48eed9b6ef362d13f3ffe83dbfd09b1e7fb12fa1f" => :high_sierra
-    sha256 "b911ac9897012edcc7c32d96785e4ca3830ce8cbddff78da0942263c7fb0d0bb" => :sierra
+    sha256 "5311fc896eb2d27a5fa149bea4d30e6be0f6693cde9da9709b32f11212f726e1" => :big_sur
+    sha256 "1baf39e551bf724eec7bfa7f63e6f2f80307c3eb21f53ff05fad1bcd620a6ef9" => :arm64_big_sur
+    sha256 "3af6c43c91d733210e1e75db13093c72aa91addc1cc8ae94cd716de6ec73ea37" => :catalina
+    sha256 "f51f58dc03c62130191b1bf2bb223459da93cdb7a7a1c3052a227a4bdc67dfe9" => :mojave
   end
 
   uses_from_macos "libxml2"

@@ -1,8 +1,8 @@
 class SwiProlog < Formula
   desc "ISO/Edinburgh-style Prolog interpreter"
   homepage "https://www.swi-prolog.org/"
-  url "https://www.swi-prolog.org/download/stable/src/swipl-8.2.1.tar.gz"
-  sha256 "331bc5093d72af0c9f18fc9ed83b88ef9ddec0c8d379e6c49fa43739c8bda2fb"
+  url "https://www.swi-prolog.org/download/stable/src/swipl-8.2.3.tar.gz"
+  sha256 "9403972f9d87f1f4971fbd4a5644b4976b1b18fc174be84506c6b713bd1f9c93"
   license "BSD-2-Clause"
   head "https://github.com/SWI-Prolog/swipl-devel.git"
 
@@ -12,9 +12,10 @@ class SwiProlog < Formula
   end
 
   bottle do
-    sha256 "ff0b739f559d250bd0452f5567fa4484f8152145de2fc6d4854f74851bbbcd40" => :catalina
-    sha256 "2f6c8c976324d9afea6fcf4683ed4a953eb4fb14b168de03c7f00399db9707d0" => :mojave
-    sha256 "cbe5f89a9a2a0c6802dd731498e6bac1b44277123aa2b326193552d6b6e25165" => :high_sierra
+    sha256 "ebabde9df23a007923f7abb0c918fbc84f90bc92a170f101296befeb6efbf078" => :big_sur
+    sha256 "813121cc7c09abc0496773fd4b94c398761d492365bb255eabf92475bcac205a" => :arm64_big_sur
+    sha256 "4b34d51f13525d4ab94959b1734575819e451599f18978ebd7609aa515d092ca" => :catalina
+    sha256 "bb9d8579ddf8daaa068f40fc3084c23b204d6110789e08ebbb189196b6fe20e7" => :mojave
   end
 
   depends_on "cmake" => :build

@@ -7,6 +7,7 @@ class V8AT315 < Formula
 
   bottle do
     cellar :any
+    sha256 "8d1b84feddb4827106ad10d573f41fc6f4c1ddf6cbc65d78d8e168d7ab541e07" => :big_sur
     sha256 "588e9a3b61c54705d918bc783e1aa2efa1fd31626ca20181c7fe3c38d0d50ca5" => :catalina
     sha256 "38ef56c652ac4f91ec1ddac61b8719ffba4c949103a6636e15aa1cd768e2d14d" => :mojave
     sha256 "42c0c3b3f4dc7153023e14aef59c623f10c78ffe8f2d7a43ab984f2810a694dd" => :high_sierra

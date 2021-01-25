@@ -11,6 +11,7 @@ class Virtuoso < Formula
 
   bottle do
     cellar :any
+    sha256 "7f6b30ca0a581875e7efede66e4d57c6415b8ae1148a7294eb24cc89f556f2d6" => :big_sur
     sha256 "c4904ae739141d51638c3f33064c85498c20d32169053daa61203ff6706c1fa8" => :catalina
     sha256 "3a2375ce75d34e6fa2568aeb4bc3ac0239a4052c811eb3afeb7536166b05e67b" => :mojave
     sha256 "3abcc2f1444324d675af9014ac20555124c875d7e9a4ba9b021fd1ad7c570845" => :high_sierra
@@ -25,6 +26,7 @@ class Virtuoso < Formula
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
+  uses_from_macos "gperf" => :build
 
   conflicts_with "unixodbc", because: "both install `isql` binaries"
 

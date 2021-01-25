@@ -5,6 +5,7 @@ class Predictionio < Formula
   mirror "https://archive.apache.org/dist/predictionio/0.14.0/apache-predictionio-0.14.0-bin.tar.gz"
   sha256 "049c9147ad9a6e2beddc2befcac5c73071845b2150c05a71118164c975de6ed7"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -16,7 +17,7 @@ class Predictionio < Formula
   depends_on "elasticsearch@6"
   depends_on "hadoop"
   depends_on "hbase"
-  depends_on java: "1.8"
+  depends_on "openjdk@8"
 
   def install
     rm_f Dir["bin/*.bat"]

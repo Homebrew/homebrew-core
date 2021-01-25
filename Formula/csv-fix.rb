@@ -5,10 +5,6 @@ class CsvFix < Formula
   sha256 "32982aa0daa933140e1ea5a667fb71d8adc731cc96068de3a8e83815be62c52b"
   license "MIT"
 
-  livecheck do
-    skip "Bitbucket repository is missing"
-  end
-
   bottle do
     cellar :any_skip_relocation
     sha256 "3cc10313342650c680f23241e19ff8ec6b64df8fcc2123c5161b15e992c8973b" => :catalina
@@ -19,6 +15,8 @@ class CsvFix < Formula
     sha256 "b8dbaf2e14e35cc4c1d7b5d04a5615377f7eeb4d9b1f25fe554b8711511c28f6" => :yosemite
     sha256 "0b86933c8e32830d5abd0f26ef83b1a60e0254da67542b695fd50ab1e3ba2e68" => :mavericks
   end
+
+  disable! date: "2020-12-08", because: :repo_removed
 
   def install
     # clang on Mt. Lion will try to build against libstdc++,

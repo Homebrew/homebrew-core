@@ -7,6 +7,8 @@ class Cssembed < Formula
 
   bottle :unneeded
 
+  deprecate! date: "2020-11-10", because: :repo_archived
+
   def install
     libexec.install "cssembed-#{version}.jar"
     bin.write_jar_script libexec/"cssembed-#{version}.jar", "cssembed"

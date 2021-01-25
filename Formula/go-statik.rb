@@ -7,9 +7,11 @@ class GoStatik < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "923729f442bef89c09fc9818c4f2ff1689a099b7519285372d7f5448e5b88fcc" => :catalina
-    sha256 "3834b8aa037b4e5b84caaa68aa6170f482869e73098af131f0a93b0e4dba3454" => :mojave
-    sha256 "79b923320dfeb847b229ee880cd8aa1c11a77026d6070bb33ebaee1d76b67198" => :high_sierra
+    rebuild 1
+    sha256 "0f05d7b15227e1bdf7be3876d90135232083ae1789c08d32641777b9291ef8a7" => :big_sur
+    sha256 "5960b8ab88990df3e2a3ef0578da24b674d72c620466af263fdad6b479133fe9" => :arm64_big_sur
+    sha256 "d6d3e13adce186f49cf35be7be414baec7cfa02e8d884e0a97ec9f15108f4cb4" => :catalina
+    sha256 "93f27ec30935befbde2afab7ac3382a2e576b8a51024db2dd8a911860fb5b10f" => :mojave
   end
 
   depends_on "go" => :build
@@ -17,13 +19,8 @@ class GoStatik < Formula
   conflicts_with "statik", because: "both install `statik` binaries"
 
   def install
-    ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
-    (buildpath/"src/github.com/rakyll/statik").install buildpath.children
-
-    cd "src/github.com/rakyll/statik" do
-      system "go", "build", "-o", bin/"statik"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args, "-ldflags", "-s -w"
+    mv bin/"go-statik", bin/"statik"
   end
 
   test do

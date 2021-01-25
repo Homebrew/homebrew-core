@@ -1,9 +1,9 @@
 class Jsvc < Formula
   desc "Wrapper to launch Java applications as daemons"
   homepage "https://commons.apache.org/daemon/jsvc.html"
-  url "https://www.apache.org/dyn/closer.lua?path=commons/daemon/source/commons-daemon-1.2.3-src.tar.gz"
-  mirror "https://archive.apache.org/dist/commons/daemon/source/commons-daemon-1.2.3-src.tar.gz"
-  sha256 "37b8c461c52e76c1ed6cd290431237611dfe496df36cd70e5afa30659d9bce4c"
+  url "https://www.apache.org/dyn/closer.lua?path=commons/daemon/source/commons-daemon-1.2.4-src.tar.gz"
+  mirror "https://archive.apache.org/dist/commons/daemon/source/commons-daemon-1.2.4-src.tar.gz"
+  sha256 "5c2e31a7c1198ade5034d625ea10353cdcc4b6e99b84ed7fca4040e3df3339db"
   license "Apache-2.0"
 
   livecheck do
@@ -12,9 +12,10 @@ class Jsvc < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "43ff51b167da0ae5d591aa071b5901004bc5697ebc68347837008fa8f199e8ae" => :catalina
-    sha256 "edbe820236ac1a74c9a285720771e3e7475fdfa0c341e1b708865d84a5434a39" => :mojave
-    sha256 "78a38df683b1a1d51394559ad9df64d72e9f276ce896dd3f5815034f8f435907" => :high_sierra
+    sha256 "50894019268b0cc6757fb62da6756fbfe92138f79afa4eb363f0e14df81de9d4" => :big_sur
+    sha256 "771e112751eb5c424f61c04f9a4aec6c02e0001ce88b400565c7a2b8fce71a51" => :arm64_big_sur
+    sha256 "2e4c9e5eaf94ec1b3f9bc70288ea4dc4459e766dbc0f4df9c018f3bbdbf62456" => :catalina
+    sha256 "357dc6a1c7e9f7c5e07263e0e9985ed3e2a578e9319289479ca204f7c10efc8d" => :mojave
   end
 
   depends_on "openjdk"

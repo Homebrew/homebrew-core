@@ -4,13 +4,15 @@ class Mvtools < Formula
   url "https://github.com/dubhater/vapoursynth-mvtools/archive/v23.tar.gz"
   sha256 "3b5fdad2b52a2525764510a04af01eab3bc5e8fe6a02aba44b78955887a47d44"
   license "GPL-2.0"
+  revision 1
   head "https://github.com/dubhater/vapoursynth-mvtools.git"
 
   bottle do
     cellar :any
-    sha256 "0da74491af99cf7cb20d4387d449af550b94abdf6f5330fd95da083689bb80b0" => :catalina
-    sha256 "9349ea16136c2d54c9f132af9e5c1768f486ce4ed6bcababf3f1f2f1944a7389" => :mojave
-    sha256 "d8dfbb4ea0e148a954fb50745230b3827f4e02457d739599d2fdec76e31058d8" => :high_sierra
+    sha256 "df691836b6052e38806e3e4a662f0b5da22120f8f586ad6ea388e2673dcf01b3" => :big_sur
+    sha256 "01785cf0cea2080cb2b875df545e027aaaf339fbbddeca53fd5dae8f39bf4726" => :catalina
+    sha256 "0809f0353e48e30d8628bbe2124cebfa0ebd1a6add77e2d27798ce968dadb84d" => :mojave
+    sha256 "0a1bab6b74375cb11959d2100e562bb2cc8124da7115b754975cd70c31e676b2" => :high_sierra
   end
 
   depends_on "autoconf" => :build
@@ -19,7 +21,6 @@ class Mvtools < Formula
   depends_on "nasm" => :build
   depends_on "pkg-config" => :build
   depends_on "fftw"
-  depends_on macos: :el_capitan # due to zimg
   depends_on "vapoursynth"
 
   def install
@@ -44,6 +45,6 @@ class Mvtools < Formula
       core.std.LoadPlugin(path="#{lib}/#{shared_library("libmvtools")}")
     EOS
 
-    system Formula["python@3.8"].opt_bin/"python3", "-c", script
+    system Formula["python@3.9"].opt_bin/"python3", "-c", script
   end
 end

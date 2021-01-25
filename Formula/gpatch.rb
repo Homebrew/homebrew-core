@@ -12,6 +12,8 @@ class Gpatch < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "4c18141474072f9fac171680e75c77fa22af016d1cda998a052792980d9ce4f9" => :big_sur
+    sha256 "c90e7baee17d21e0cb594db676912e108f7df68b71509e15d37edfadcd6b12e9" => :arm64_big_sur
     sha256 "f539f83039bc989b16aac11becfaa933c6dc8088f6fa060a8e01e84ed0a61d77" => :catalina
     sha256 "c25bf27bae741a7ec1a16d19d449d28b4b4a2f225190f55badf86b64b0266f4d" => :mojave
     sha256 "418d7ea9c3948a5d70bdca202bd56e5554eef7f105fc25449f041331db7f4f96" => :high_sierra

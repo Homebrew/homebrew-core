@@ -11,9 +11,11 @@ class Homebank < Formula
   end
 
   bottle do
-    sha256 "a619932ee182db41e813df9229aa82ca6fc3c61f37c1e4f6cdd688010ac0736b" => :catalina
-    sha256 "f22d80fc1de3ee5075505c6d2bdc7a168f875ab6351cbda7c6ac2394d1281f8e" => :mojave
-    sha256 "871e8f75ea31d3c362497f0cf3a4ab87072efb6a3adf8e546763e182046720be" => :high_sierra
+    rebuild 1
+    sha256 "48cd56a0f840fedc0c6e4943e149da832ed2d0b86f5fef6f09b2da7402e5e656" => :big_sur
+    sha256 "d08ab0fa40f4b94917a8794da31f8c6149df98ba48ef5a49b39511d78d55ffa0" => :arm64_big_sur
+    sha256 "d985498d9c7916903d550cc5871e32c3730878f544aec6fb875d2c22768913ab" => :catalina
+    sha256 "e884c6c2ee8682be2a7895af8b8c001e8d59d8e1c28586302fabcaca622cafd4" => :mojave
   end
 
   depends_on "intltool" => :build

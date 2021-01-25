@@ -8,10 +8,10 @@ class Ktmpl < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "d8c1e6fd18fc96f615e119c64cd7df67940cb0a9b3113450e49f567b9875c9ee" => :catalina
-    sha256 "7c91c4a9674effc29e0ef187fc05163500a81ac5a7c0502552b12098c72633dd" => :mojave
-    sha256 "2cc0b69a68bbd12cfd02e17d079363f773006a7bd07b77588cf83d7207950b3f" => :high_sierra
+    rebuild 2
+    sha256 "f6c8b5ae8a73efae24f8cce662e6abe53deff77a9a0f01e4f3ba174e074461b4" => :big_sur
+    sha256 "922eb19c9c044634957bf1d9404b2319ae47b5998666ba30b7282728aaf7d3d0" => :catalina
+    sha256 "9573af681da2ecc9f8299ea83553b6c5728c1cf6f21d6495fa8d118610a3467c" => :mojave
   end
 
   depends_on "rust" => :build
@@ -30,7 +30,7 @@ class Ktmpl < Formula
       objects:
         - kind: "Service"
           apiVersion: "v1"
-          metdata:
+          metadata:
             name: "test"
           spec:
             ports:

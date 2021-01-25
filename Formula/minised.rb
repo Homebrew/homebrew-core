@@ -8,6 +8,8 @@ class Minised < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "bd2197173a324322c8081c7e603d7e7fd243906399bb93cac50abddbc9670960" => :big_sur
+    sha256 "9b2fc7359f26228e633280c4c4629564e707f0c9c66f3cc76afd8faee0ec915a" => :arm64_big_sur
     sha256 "64c474b8f3728b7593222b7218d5e5a1d17b9f1c33f4abb94eab2339a1398826" => :catalina
     sha256 "b43b719ac05f5c54e05d06941d1c2f69b960babef1772591e4fb16b3cf84a36c" => :mojave
     sha256 "e750f1dfe8ebc2f45837da1e20d1db531f896c5ce391250af45674c91b63f499" => :high_sierra

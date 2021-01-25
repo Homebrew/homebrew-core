@@ -1,16 +1,15 @@
 class Termshark < Formula
   desc "Terminal UI for tshark, inspired by Wireshark"
   homepage "https://termshark.io"
-  url "https://github.com/gcla/termshark/archive/v2.1.1.tar.gz"
-  sha256 "c02a21e0a61b791b1287b85acc33834ccd3bb4efb40be52e5a74d2b989d51416"
+  url "https://github.com/gcla/termshark/archive/v2.2.0.tar.gz"
+  sha256 "deefdb0b65e5d5b97c305cf280770724542f8dd122502f616e394c62c91db0c4"
   license "MIT"
-  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f5aa37f01cde3195529f2d712bf430eba6f2d72e55956a1da8adc82369ec7d6a" => :catalina
-    sha256 "fc4c36a57bb543b3fa5a78b0dbe75f6989a675789f0eeaaed84880c367a439fe" => :mojave
-    sha256 "16c5dd511a2fa621d103fc07ed93b0af39ac3b08d5976162f5881cc46095dce7" => :high_sierra
+    sha256 "c596db102b072f39e1e61c41ac2d09d616f65bc4e3b7a8ca6d0648c8a93f9808" => :big_sur
+    sha256 "0422a97e0be00df3518156332b95051687c24b53fbff5946f814fd5c6f96f5da" => :catalina
+    sha256 "f0c8ee7fdb686c2bfc788bc661d0e190af1146ebcc0960365369ad764e0ce4d2" => :mojave
   end
 
   depends_on "go" => :build
@@ -73,7 +72,7 @@ class Termshark < Formula
     system [
       "#{bin}/termshark -r #{HOMEBREW_TEMP}/termshark-test.pcap",
       " | grep 192.168.44.123",
-    ].join("")
+    ].join
 
     # Pretend to be a tty and run termshark with the temporary pcap. Queue up
     # 'q' and 'enter' to terminate.  Rely on the exit code of termshark, which
@@ -89,13 +88,13 @@ class Termshark < Formula
       "#{bin}/termshark -r #{HOMEBREW_TEMP}/termshark-test.pcap",
       "\\\"',pty,setsid,ctty > /dev/null",
     ]
-    system testcmds.join("")
+    system testcmds.join
 
     # "Scrape" the terminal UI for a specific IP address contained in the test
     # pcap. Since the output contains ansi terminal codes, use the -a flag to
     # grep to ensure it's not treated as binary input.
     testcmds[5] = "\\\"',pty,setsid,ctty | grep -a 192.168.44.123 > /dev/null"
-    system testcmds.join("")
+    system testcmds.join
 
     # Clean up.
     File.delete("#{HOMEBREW_TEMP}/termshark-test.pcap")

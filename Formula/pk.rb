@@ -7,6 +7,8 @@ class Pk < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "37e03d0ccea4bda2a3616ba39950d8c685e0a49775ed61abfd4b25649e4d2a25" => :big_sur
+    sha256 "410e868c6d09c373aba677fe256bea9dd1e3a09d867c009e0afba66c6c671c8e" => :arm64_big_sur
     sha256 "2f9c36e03681f154a24e063e2600d0de8f8afd5f9b114083ef1f34656a7721e8" => :catalina
     sha256 "56a1d31b7c52fddecdd11dba3c394b91b38cdf91a9d294c24ae849fa7e27321a" => :mojave
     sha256 "12cc1f5a82f305734355bc527d6dc936039a86f0b8888d226d0b36a9400d234f" => :high_sierra

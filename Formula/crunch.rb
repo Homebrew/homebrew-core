@@ -12,6 +12,8 @@ class Crunch < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "9cd9d5ae5afb6b6223e720b99d30990f1884cd8ed4e0b5654a9ab2d72cc4d132" => :big_sur
+    sha256 "dfc7c5b56963d28a58c64a2a28d0c19b61dfce141b83c9facaad0d8d606949b2" => :arm64_big_sur
     sha256 "67570938790b20aaabcb31c8ac86d4356702b87ce2ae8ea01d19553f531397a6" => :catalina
     sha256 "ad3bd04ba230c46df88ab4ab7a74efa3182cd65b804b65a28a327f74700641e8" => :mojave
     sha256 "c59cb398b0ed4f28e8d56c49709991f5ea61b61bad4d672f1a481730948cdeb0" => :high_sierra

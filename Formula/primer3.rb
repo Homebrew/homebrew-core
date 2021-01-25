@@ -12,6 +12,8 @@ class Primer3 < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ad1892c4c516bd5865fbf63eb5ee843c6c090c2977d762bf029b907bed2c4730" => :big_sur
+    sha256 "fff8629911a86916818473abdca4480363217ee8c371808bf22d87449c02df6c" => :arm64_big_sur
     sha256 "34845e20a0946fd5bc34d281766abddf173a836b492048e20488af58647904d7" => :catalina
     sha256 "42d8c134f8dde43bc127a0f5f66eda246de195604b952ed9b8ac6b3fa8aba373" => :mojave
     sha256 "f72fac01bb380b5ea55b41249b2d6bc2f799e9cb7cef55fae0a1f92e1de7ba64" => :high_sierra

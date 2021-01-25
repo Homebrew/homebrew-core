@@ -10,6 +10,8 @@ class Clutter < Formula
   end
 
   bottle do
+    sha256 "b6a60fc6c91f4e0a206e75c3fe5672215eb9460304202c4bfe1a4c7402ce9bd4" => :big_sur
+    sha256 "050dd98a11765590759dc9bfa5e289b50af4374b9deb126959c348057fc81642" => :arm64_big_sur
     sha256 "ccec39ce9c941de753798e466b8cfc2a69612319d8b5a422f6e4bde49db305b1" => :catalina
     sha256 "43da6f50107059a3c9b215e77d29724f9e71a17fd89f5e72a200cd021e32f471" => :mojave
     sha256 "2a1f93e956dbfc9dc4f3c47dd8923b224ed155f3b8dbf32df74f365a65052bbb" => :high_sierra

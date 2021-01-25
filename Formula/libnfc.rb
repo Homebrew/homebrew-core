@@ -6,6 +6,8 @@ class Libnfc < Formula
   license "LGPL-3.0"
 
   bottle do
+    sha256 "566a81b623abfb5d68480274b59b13c44fc098cd1d8cbf59dc112295a58a363c" => :big_sur
+    sha256 "6e97d8892b2129437513be8a21fccf7e3c6a23b14dd28e3d43aea1fce9b97ed7" => :arm64_big_sur
     sha256 "6659f67e40774cdb8e95548c03542bbc123ccabc0f4a6160504c03e43fa43c26" => :catalina
     sha256 "9bc90c84f89408a8960289a668af7ad9b7b17d34a02996b83ec960c5cbefafeb" => :mojave
     sha256 "8e6abd4d61ef9aff76ef25b092806b95614c07a9e46a0e13ca6e915271454a92" => :high_sierra

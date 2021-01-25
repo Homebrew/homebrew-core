@@ -1,19 +1,19 @@
 class Evince < Formula
   desc "GNOME document viewer"
   homepage "https://wiki.gnome.org/Apps/Evince"
-  url "https://download.gnome.org/sources/evince/3.38/evince-3.38.0.tar.xz"
-  sha256 "26df897a417545b476d2606b14731122e84278ae994bd64ea535449c3cf01948"
+  url "https://download.gnome.org/sources/evince/3.38/evince-3.38.1.tar.xz"
+  sha256 "00f6d6689cc22de3c005bd87d4c2ebf720064cb8dc6a1887816f8b7e082b2e63"
   license "GPL-2.0-or-later"
-  revision 1
 
   livecheck do
     url :stable
   end
 
   bottle do
-    sha256 "c478ef073510fbd09bfb5dfdec372786b1551466758f8040dfd9bb7da3af278e" => :catalina
-    sha256 "8c15ca0e3e33d14e7dbcc2d3bfbd42b6f928dcf2f8c7e87060d9b0f07cdb1153" => :mojave
-    sha256 "cc431bbeb099f242d052fc51cd169edf847e792b7e51e25905f89271910c3ad2" => :high_sierra
+    sha256 "d933c0ca5a4093c159cc5ca792399650da74f0064ee23fd9aa5e09bcca8ec373" => :big_sur
+    sha256 "4a439a49655288679024251e580de7fbfd34ccaf1a075c0f4eb66279d5139128" => :arm64_big_sur
+    sha256 "9ad3478e5b27d2d513875c107dd9823947df4d4258678da7a4ce7c4da7812558" => :catalina
+    sha256 "b9f92de5c2032ebcea7ab7d4f1a70a2b4f15fa2cd3db57e483a5e3ed4986fe99" => :mojave
   end
 
   depends_on "gobject-introspection" => :build
@@ -31,7 +31,7 @@ class Evince < Formula
   depends_on "libsecret"
   depends_on "libspectre"
   depends_on "poppler"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
     ENV["DESTDIR"] = "/"

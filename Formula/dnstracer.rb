@@ -7,6 +7,8 @@ class Dnstracer < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c6e0d89127fbc47d2b30cd7d2918279f858a79d87b2e32e63cccfcc4f92f3495" => :big_sur
+    sha256 "dc60fdb473c11615a27f62abb5aba5ae0a270c4b3d33001c07668266254c7486" => :arm64_big_sur
     sha256 "953752b2c3a012b0e92cd6fc78ef47d7b585e9a3034ef667a9ce3d353c4bb1db" => :catalina
     sha256 "8fceeded94f224e8204c253197d742e5d2f94a83684b5ca0613f50841bd0ebe6" => :mojave
     sha256 "29086b127a2967e8e481c60e397fe803165be2d1ad46be7176642567d8844cc0" => :high_sierra

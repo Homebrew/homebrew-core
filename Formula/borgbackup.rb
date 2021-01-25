@@ -3,40 +3,38 @@ class Borgbackup < Formula
 
   desc "Deduplicating archiver with compression and authenticated encryption"
   homepage "https://borgbackup.org/"
-  url "https://github.com/borgbackup/borg/releases/download/1.1.14/borgbackup-1.1.14.tar.gz"
-  sha256 "7dbb0747cc948673f695cd6de284af215f810fed2eb2a615ef26ddc7c691edba"
+  url "https://files.pythonhosted.org/packages/c9/4d/dd06d8787f8faa8c50a422abd9ba14be15ee0b5830e745033815c49d5313/borgbackup-1.1.15.tar.gz"
+  sha256 "49cb9eed98b8e32ae3b97beaedf94cdff46f796445043f1923fd0fce7ed3c2bc"
   license "BSD-3-Clause"
-  revision 1
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any
-    sha256 "c04342b9fb9a2ae30e7030fafb7ac38ef68a8cfb0c6f095bd66926dd41240bc9" => :catalina
-    sha256 "c0caa9585403c77102d7b9d31f38bbcfa9ed26e8b4a0893daa43e6fe2b03f6e7" => :mojave
-    sha256 "572afe4f34d36ae32c0ec48da8d4a2e9cc59b4ad891f884e5a1efe48e69c478c" => :high_sierra
+    rebuild 1
+    sha256 "0e44a5087964a741d4b08483ebf78537360be79f507e73561330a586d615a973" => :big_sur
+    sha256 "74defaac235883c8c4330ac0f5618ca30d17ff098d88fa83f158c6f4fef518c7" => :arm64_big_sur
+    sha256 "f5b616a9529e30fe7dab405cac668904f8e91b931540113bae52c70a2b182e8d" => :catalina
+    sha256 "8e85f89b4e7b5ec8643ac7909aaccbf39efd02d9f3aa25bc3f45e897a62b6c58" => :mojave
   end
 
-  depends_on osxfuse: :build
   depends_on "pkg-config" => :build
   depends_on "libb2"
   depends_on "lz4"
   depends_on "openssl@1.1"
   depends_on "python@3.9"
+  depends_on "xxhash"
   depends_on "zstd"
 
-  resource "llfuse" do
-    url "https://files.pythonhosted.org/packages/8f/73/d35aaf5f650250756b40c1e718ee6a2d552700729476dee24c9837608e1b/llfuse-1.3.8.tar.gz"
-    sha256 "b9b573108a840fbaa5c8f037160cc541f21b8cbdc15c5c8a39d5ac8c1b6c4cbc"
-  end
-
   def install
+    ENV["BORG_LIBB2_PREFIX"] = Formula["libb2"].prefix
+    ENV["BORG_LIBLZ4_PREFIX"] = Formula["lz4"].prefix
+    ENV["BORG_LIBXXHASH_PREFIX"] = Formula["xxhash"].prefix
+    ENV["BORG_LIBZSTD_PREFIX"] = Formula["zstd"].prefix
+    ENV["BORG_OPENSSL_PREFIX"] = Formula["openssl@1.1"].prefix
     virtualenv_install_with_resources
-  end
-
-  def caveats
-    <<~EOS
-      To use `borg mount`, install osxfuse with Homebrew Cask:
-        brew cask install osxfuse
-    EOS
   end
 
   test do

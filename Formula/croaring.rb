@@ -8,6 +8,8 @@ class Croaring < Formula
 
   bottle do
     cellar :any
+    sha256 "e586a64b1397c4e93e5dd19a15cf3e36b0bc6c51c2a0245579d4eb690e162125" => :big_sur
+    sha256 "7d95a68b3c0ea2bf0e538bdc34293e4dedd08ad0a2b8fa1e991e4e9e8615cb98" => :arm64_big_sur
     sha256 "755fadb67394a7b031626671412623348a561e290d379592b8c2925aa4e1f671" => :catalina
     sha256 "b70622cb9515f3702faa0cf8f60a26c5e7481399d1a244a5217bffdf1ab269d3" => :mojave
     sha256 "aee7d4e0440e29a2a27694bac0326758590bd36d86254de1888e4044b0de576e" => :high_sierra

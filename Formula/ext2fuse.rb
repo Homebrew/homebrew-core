@@ -5,10 +5,6 @@ class Ext2fuse < Formula
   sha256 "431035797b2783216ec74b6aad5c721b4bffb75d2174967266ee49f0a3466cd9"
   revision 2
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     cellar :any
     sha256 "41c770edbb267f3d8d1fe591d947148e7c190adec47940f7d0d6dd1516b6592c" => :catalina
@@ -17,7 +13,15 @@ class Ext2fuse < Formula
   end
 
   depends_on "e2fsprogs"
-  depends_on :osxfuse
+
+  on_macos do
+    deprecate! date: "2020-11-10", because: "requires FUSE"
+    depends_on :osxfuse
+  end
+
+  on_linux do
+    depends_on "libfuse"
+  end
 
   def install
     ENV.append "LIBS", "-losxfuse"

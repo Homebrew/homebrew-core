@@ -12,6 +12,8 @@ class Dps8m < Formula
 
   bottle do
     cellar :any
+    sha256 "a8f615026cb8660c2d7684387b17d1f39e9b93c547a18adf125a88610d5466d8" => :big_sur
+    sha256 "7b6df2db14bb9e099eb1b2003c0ba410e62d4bd81046e425f6db437894938e0c" => :arm64_big_sur
     sha256 "d9d967a0c7dad0b63ea6327102cb5d83345ff6b0bcdbf754398c1a5cdb0b0916" => :catalina
     sha256 "2c148e6bcd3a83e91b6b327d285bcfbb6490a3f7d8f08c4d904a6b907fbe61cf" => :mojave
     sha256 "600be3242396b61b2e807ed850cd65fc30a4676993c44c5171488954be496ce4" => :high_sierra
@@ -22,7 +24,7 @@ class Dps8m < Formula
   uses_from_macos "expect" => :test
 
   def install
-    # Reported 23 Jul 2017 "make dosn't create bin directory"
+    # Reported 23 Jul 2017 "make doesn't create bin directory"
     # See https://sourceforge.net/p/dps8m/mailman/message/35960505/
     bin.mkpath
 

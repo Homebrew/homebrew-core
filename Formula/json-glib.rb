@@ -10,6 +10,8 @@ class JsonGlib < Formula
   end
 
   bottle do
+    sha256 "9f694420f25e652d73e0e93798304ce26023e50bb5e4aeb5322e30b19e957ed0" => :big_sur
+    sha256 "f1bd5e3b5d7ece59dc8400c8570f4058ff3e6959d1b112d0144d270aa62bbc69" => :arm64_big_sur
     sha256 "7a4f86a42a66360951fcbeac7ddcda95288fa3cd7fc5aee8d297fe31540e048f" => :catalina
     sha256 "8f0e9b27a61d547cb185eb2952fb81e2bcf2ad502e459a7ec2037e505281e060" => :mojave
     sha256 "6b72cc181e7ee816a8444adc59373b51033712dc8fc58b73531cc9fefbd0bd5e" => :high_sierra
@@ -52,9 +54,11 @@ class JsonGlib < Formula
       -lgio-2.0
       -lglib-2.0
       -lgobject-2.0
-      -lintl
       -ljson-glib-1.0
     ]
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

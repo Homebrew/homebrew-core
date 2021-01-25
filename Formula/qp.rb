@@ -7,6 +7,8 @@ class Qp < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "83085c1f8cbeaf59a69f00f779a878ceb78b7aeaaf16278010d5d968c9d94742" => :big_sur
+    sha256 "2c583d1f819ffba8adcc8139efe3366ad4570f3efc7c94fb25742e4da602202e" => :arm64_big_sur
     sha256 "a65499deed12110ed5a21f3bbd657acdaaf1452dea48877caac93bda55759370" => :catalina
     sha256 "f119afd6bacbac5af055c398a2dfb5c4f62c8f113bcb9e12dab825800fd8e744" => :mojave
     sha256 "d9c595a53f82ddd9f086fac02a5f8da34e65d9b0e7564fce02148304704457ed" => :high_sierra

@@ -11,6 +11,8 @@ class Sc68 < Formula
   end
 
   bottle do
+    sha256 "d5ac6383a3b1f82707b9a981ca02ce6dee57cdc096adb16dbf044ef5c5a051c9" => :big_sur
+    sha256 "88997849149a628f35a9e44e3abe898c7db9458a796cc61275abfd26923de1bd" => :arm64_big_sur
     sha256 "1d06595617862cdb67d49f8bc8389e7e6cb4bd6f6ac81adf20969c68bbe80434" => :catalina
     sha256 "45e1df25bd1394d7e1985b5fdd96a1090ff82d245f3b26bdc5055ec6c80807dd" => :mojave
     sha256 "b3e4809754847ca52468463ed60293032efeecf42f24acd3026bb03d369a91d9" => :high_sierra

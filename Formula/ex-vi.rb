@@ -10,6 +10,8 @@ class ExVi < Formula
   end
 
   bottle do
+    sha256 "8cbdb5b3f60cec0b0b7dcfb9c11c06d159428b5d1c24a1b889fcf470839ff024" => :big_sur
+    sha256 "b5d40f595021f02eb45114157e2e62718b8ee1066ed90d1f4e05ba39f4aa1859" => :arm64_big_sur
     sha256 "843fceed3514fe1506e32619c15c092441d45d553a809b315f38e1b749623492" => :catalina
     sha256 "112fa443488e178fd67fe600de3e56ad40179e8aeb73314c1286cea827df3220" => :mojave
     sha256 "63c5da327ae066a381dab232102b82621379c70c700949b5dc31d87b3dd56f75" => :high_sierra

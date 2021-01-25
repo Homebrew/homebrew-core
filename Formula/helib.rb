@@ -1,15 +1,16 @@
 class Helib < Formula
   desc "Implementation of homomorphic encryption"
   homepage "https://github.com/homenc/HElib"
-  url "https://github.com/homenc/HElib/archive/v1.1.0.tar.gz"
-  sha256 "77a912ed3c86f8bde31b7d476321d0c2d810570c04a60fa95c4bd32a1955b5cf"
+  url "https://github.com/homenc/HElib/archive/v2.0.0.tar.gz"
+  sha256 "4e371807fe052ca27dce708ea302495a8dae8d1196e16e86df424fb5b0e40524"
   license "Apache-2.0"
 
   bottle do
     cellar :any
-    sha256 "072822b5f36b1c6ada8cfc05a8db3206fe8cfe2ab34ca97dd8c0c93ab30a30d1" => :catalina
-    sha256 "b0b8f49c6114141cd35afd1ce6b992e5e2e0acd83a5e426da9c209a76ff0c165" => :mojave
-    sha256 "d878fc06839eb4aa0beaa00ee556b2e9793485381c3fca511cad0397020bce1b" => :high_sierra
+    sha256 "be618fac7a91399ea6639c6854d79409d03b602c81252d20fd3c58ad8783af60" => :big_sur
+    sha256 "9ce026c3f27f43a2a83add1321b376fd5a5f058f3c727487b974e6a52ed4219f" => :arm64_big_sur
+    sha256 "f1d09887bf3f3ec3d99d69f3b88bade395061e0663252fc688cee9ed7ec0a583" => :catalina
+    sha256 "0bbf1b2dbe1998ae2d9c27b14bc73ab81fc90c2b910320adb3ec416b92603fc0" => :mojave
   end
 
   depends_on "cmake" => :build
@@ -27,7 +28,7 @@ class Helib < Formula
   test do
     cp pkgshare/"examples/BGV_country_db_lookup/BGV_country_db_lookup.cpp", testpath/"test.cpp"
     mkdir "build"
-    system ENV.cxx, "-std=c++14", "-L#{lib}", "-L#{Formula["ntl"].opt_lib}",
+    system ENV.cxx, "-std=c++17", "-L#{lib}", "-L#{Formula["ntl"].opt_lib}",
                     "-lhelib", "-lntl", "test.cpp", "-o", "build/BGV_country_db_lookup"
 
     cp_r pkgshare/"examples/tests", testpath

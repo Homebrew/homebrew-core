@@ -8,6 +8,8 @@ class Yajl < Formula
   bottle do
     cellar :any
     rebuild 4
+    sha256 "18bd8c54e847441959876cc9580db5ddcb7e3b92f2fc37ca49ce27d17c050df3" => :big_sur
+    sha256 "baefc7dc955217c4bdefd8dc798a6ad432131f449370a6249e31be6604842942" => :arm64_big_sur
     sha256 "65975afbeddbbd919282c04e53fccda191501eb4fa8992a2b4ab1b2be2e10151" => :catalina
     sha256 "ab562be70a8ff64861d52b170585f52af91a275e6b5974241eaabd0997b990f2" => :mojave
     sha256 "3213f11462b3c60a33209c4f5d36c96caf1a9409103012ffb427dd51770ac120" => :high_sierra

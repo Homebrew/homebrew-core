@@ -14,6 +14,9 @@ class HardlinkOsx < Formula
     sha256 "2ebdf76a67f7c63614d581963d92d79de15cf834b7e3857c139f474db71aab73" => :mavericks
   end
 
+  # https://github.com/selkhateeb/hardlink/issues/31
+  disable! date: "2020-12-21", because: "doesn't work under APFS, using on HFS+ can cause data loss after conversion"
+
   def install
     system "make"
     bin.mkdir

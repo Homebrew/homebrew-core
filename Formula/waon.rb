@@ -7,6 +7,8 @@ class Waon < Formula
 
   bottle do
     cellar :any
+    sha256 "1fb554284ace79c0c8eae1d7dc9b9e9ce9d7d90e35e97ad318f5cf7dcdaa059c" => :big_sur
+    sha256 "5c2460bd2671fbb035d30f61a80c470caca47d2cc2b84b103b1d9d25540dd233" => :arm64_big_sur
     sha256 "47eaaeeea5b323dced48d444ffc21c2f16b86443271952bceac22abd788ebd8f" => :catalina
     sha256 "22b3f3cc1a0796db2bf6b808b7157a2e1cacf30b6437998a9f5bdc9482bbfbf8" => :mojave
     sha256 "5c3c49f0740bfcf9d34fd9468af3d9caa8f19c53ee1d25f8d69442d63859c9ab" => :high_sierra

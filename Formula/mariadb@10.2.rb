@@ -1,8 +1,8 @@
 class MariadbAT102 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.org/f/mariadb-10.2.34/source/mariadb-10.2.34.tar.gz"
-  sha256 "f1be31a25f963c09b59149ea097c1bdf3855fc7a0a17392242dc8d562a5f0ad7"
+  url "https://downloads.mariadb.org/f/mariadb-10.2.36/source/mariadb-10.2.36.tar.gz"
+  sha256 "652997e5f11db8c3953aa01cd583513306a2571294020f3022ac2d7bd6f2d2c0"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,12 +11,16 @@ class MariadbAT102 < Formula
   end
 
   bottle do
-    sha256 "8cf1e7bc14e8bf84a32f5201d7c0d92e9ad60c3dd7a5be76b136ff7360ad920a" => :catalina
-    sha256 "24b28c501e066d0309606705870ed5228e6004db1da7e6a851ce1eae6e711a9c" => :mojave
-    sha256 "58e7c53c906865496cfc3fd2ca8a794cd36e75e2c65d76e306596bdc1ebd5386" => :high_sierra
+    rebuild 1
+    sha256 "c2501e6d92de0975f5ad19fbfc62245338c2f29a6fa08eb8069f95ba4dc9e9d6" => :big_sur
+    sha256 "2db8118d48d5a60baf02578bfee76a629a5e018a222494702cf011ddd5a065fb" => :catalina
+    sha256 "bdcc71b7912793ca6ca3833c2c2b06a8053500a735f2bce2dbf4d680863dc17a" => :mojave
   end
 
   keg_only :versioned_formula
+
+  # See: https://mariadb.com/kb/en/changes-improvements-in-mariadb-102/
+  deprecate! date: "2022-05-01", because: :unsupported
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
@@ -106,6 +110,8 @@ class MariadbAT102 < Formula
   end
 
   def post_install
+    return if ENV["CI"]
+
     # Make sure the var/mysql directory exists
     (var/"mysql").mkpath
     unless File.exist? "#{var}/mysql/mysql/user.frm"
@@ -154,6 +160,19 @@ class MariadbAT102 < Formula
   end
 
   test do
-    system bin/"mysqld", "--version"
+    (testpath/"mysql").mkpath
+    (testpath/"tmp").mkpath
+    system bin/"mysql_install_db", "--no-defaults", "--user=#{ENV["USER"]}",
+      "--basedir=#{prefix}", "--datadir=#{testpath}/mysql", "--tmpdir=#{testpath}/tmp",
+      "--auth-root-authentication-method=normal"
+    port = free_port
+    fork do
+      system "#{bin}/mysqld", "--no-defaults", "--user=#{ENV["USER"]}",
+        "--datadir=#{testpath}/mysql", "--port=#{port}", "--tmpdir=#{testpath}/tmp"
+    end
+    sleep 5
+    assert_match "information_schema",
+      shell_output("#{bin}/mysql --port=#{port} --user=root --password= --execute='show databases;'")
+    system "#{bin}/mysqladmin", "--port=#{port}", "--user=root", "--password=", "shutdown"
   end
 end

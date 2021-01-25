@@ -6,6 +6,8 @@ class AcesContainer < Formula
 
   bottle do
     cellar :any
+    sha256 "ab9e2e475f4b03c4d2ff8ecfb31f1254d862dcadb2baf8d76d143fd4ef8c74ee" => :big_sur
+    sha256 "0d1d573d700561a2cc168c20f2de1dd752553f142575c64c8b3235cfb2dc6133" => :arm64_big_sur
     sha256 "26cfdcca70d0fb62834376bfbda89af0acd57f0173a4a3c9bd0f77adf748c8b9" => :catalina
     sha256 "5f2c4a76a3a1082e3d969143455c8a47b8d05d7251424b7e8d821b4e73f46a9e" => :mojave
     sha256 "4297afa069f1cd305e93038ed43260b3643f0bd27f39e33355061fc111fb7f6f" => :high_sierra

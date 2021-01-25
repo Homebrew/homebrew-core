@@ -1,8 +1,8 @@
 class Libwebsockets < Formula
   desc "C websockets server library"
   homepage "https://libwebsockets.org"
-  url "https://github.com/warmcat/libwebsockets/archive/v4.0.21.tar.gz"
-  sha256 "6ece1f422c6d38aabedec2476f2ac12e9aede8691b08137068ad85545ce3ff78"
+  url "https://github.com/warmcat/libwebsockets/archive/v4.1.6.tar.gz"
+  sha256 "402e9a8df553c9cd2aff5d7a9758e9e5285bf3070c82539082864633db3deb83"
   license "MIT"
   head "https://github.com/warmcat/libwebsockets.git"
 
@@ -12,9 +12,10 @@ class Libwebsockets < Formula
   end
 
   bottle do
-    sha256 "00debd0d684c9f178d4e43aadf3b3fb3ee45ff32084cea0b026b13bb007e2bd3" => :catalina
-    sha256 "011f64fbfe3adf3efda20aa89deaeef93c9959e701496752b84ba190a0a6fede" => :mojave
-    sha256 "8c98c0f71a20ee3a8066f0bbb8e28104a8e0e8a65dbdbb93c8311f7ca7f4b2cf" => :high_sierra
+    sha256 "df63df86c111e9167d3a418f957ccab9ba1ce2d640d6824be2ab88dc4de00205" => :big_sur
+    sha256 "b9982b4bee7467522f5aa17ad1679378a7051a1b17196bb2f1efec44a1e89364" => :arm64_big_sur
+    sha256 "52c228ffcf9c7cfcdc9f11474bdf644118b2f887209d13d5855d98a773331cab" => :catalina
+    sha256 "6e1470908d767ad72e1a3cb7d9291a6f43906a46329b6b677f40f4932be06df4" => :mojave
   end
 
   depends_on "cmake" => :build

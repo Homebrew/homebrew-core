@@ -1,16 +1,16 @@
 class Sn0int < Formula
   desc "Semi-automatic OSINT framework and package manager"
   homepage "https://github.com/kpcyrd/sn0int"
-  url "https://github.com/kpcyrd/sn0int/archive/v0.19.1.tar.gz"
-  sha256 "4720736805bec49102f0622ba6b68cc63da0a023a029687140d5b4d2a4d637dc"
+  url "https://github.com/kpcyrd/sn0int/archive/v0.20.0.tar.gz"
+  sha256 "315061362aabfa3a0a8a5a15ecb06b41e8b9603cb3ef50219e4015f2ffea4184"
   license "GPL-3.0-or-later"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "5a6cc5bdf07a29ebf714aff83d338394d030780aaf69dda387499ca0db8138f2" => :catalina
-    sha256 "75c89017e8f92cc2ef2a1701554a2047ec1a4a42806bc47081c7af42935a8043" => :mojave
-    sha256 "0cf32130ed1155b959935202031f7d71c34f141a46c726233836e402c9bd8bc8" => :high_sierra
+    sha256 "c9b3cf070d01ecc5ad921e5654f5a7765e90a294e4e2bfd941a995308a4a5bad" => :big_sur
+    sha256 "cc24878380598597022557113c8355f9d97cffa69665022521cbde65886a26b5" => :arm64_big_sur
+    sha256 "9689b81c3e4e2a04cf05d150422949b87a7f24d219817716e2b82b58eb2191c5" => :catalina
+    sha256 "d2c817bf73cb79a88c208cb22bcb7e9cc24d4d37448d3cdc1bfec7b8efbab9cd" => :mojave
   end
 
   depends_on "pkg-config" => :build

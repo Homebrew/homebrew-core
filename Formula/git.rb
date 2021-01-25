@@ -1,9 +1,9 @@
 class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
-  # Note: Please keep these values in sync with git-gui.rb when updating.
-  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.29.0.tar.xz"
-  sha256 "28432d995257c4626fe0fb2091f588df6eed98e9571419e72c83bc23372e6b89"
+  # NOTE: Please keep these values in sync with git-gui.rb when updating.
+  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.30.0.tar.xz"
+  sha256 "55735021109565721af805af382c45cce73c3cfaa59daad22443d1477d334d19"
   license "GPL-2.0-only"
   head "https://github.com/git/git.git", shallow: false
 
@@ -13,22 +13,23 @@ class Git < Formula
   end
 
   bottle do
-    sha256 "ec73f2ef4364451a8bffef7af1f4f2fbb53145135ea6b9e595ce181bb7567314" => :catalina
-    sha256 "a5b8ca103d32cf62f1693e20f70335bd9e331e413e565b72c9ce7da33e5b923f" => :mojave
-    sha256 "d71e19675402b0f88a0bc8f0c6cb13b85a5ebf110adcb671a756a8ae740b51e1" => :high_sierra
+    sha256 "bd4dd57a4740df3c596377954d45fcf2b08db83f7d8853f5361db1d158a6bdb8" => :big_sur
+    sha256 "7e0f30621e1a5be89bf604eacdca8de9a79bd16c273a1d6f4dd39c6f806d4b98" => :arm64_big_sur
+    sha256 "091c6e512e9dd5c3373f75a9b495dbe42f9852d93dab4c72d3fb2c8e01738953" => :catalina
+    sha256 "bd96accac4e05c8799b062772ab943a10e9ff25784f2828c5c25b2debd3d2f13" => :mojave
   end
 
   depends_on "gettext"
   depends_on "pcre2"
 
   resource "html" do
-    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-htmldocs-2.29.0.tar.xz"
-    sha256 "c281a4f3486362b19f7f632260a120fa77bb085d1815ea3059df87962dd02628"
+    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-htmldocs-2.30.0.tar.xz"
+    sha256 "820132c62ade3df12b4178857cfc5c92276b847b2307a5f7f4d24c27774f962f"
   end
 
   resource "man" do
-    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-manpages-2.29.0.tar.xz"
-    sha256 "8d2e44513a58833fdd737ef9f262b3c4a390726df660548b44404fb4c25af0cb"
+    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-manpages-2.30.0.tar.xz"
+    sha256 "7b2b8405d5bdd149e3891617053de37f7e8d5a5b3834317a5af9f30ccc93cf76"
   end
 
   resource "Net::SMTP::SSL" do
@@ -75,14 +76,9 @@ class Git < Formula
       CFLAGS=#{ENV.cflags}
       LDFLAGS=#{ENV.ldflags}
       NO_TCLTK=1
+      NO_OPENSSL=1
+      APPLE_COMMON_CRYPTO=1
     ]
-
-    if MacOS.version < :yosemite
-      openssl_prefix = Formula["openssl@1.1"].opt_prefix
-      args += %W[NO_APPLE_COMMON_CRYPTO=1 OPENSSLDIR=#{openssl_prefix}]
-    else
-      args += %w[NO_OPENSSL=1 APPLE_COMMON_CRYPTO=1]
-    end
 
     system "make", "install", *args
 

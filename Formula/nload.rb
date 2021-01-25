@@ -13,6 +13,8 @@ class Nload < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "497154bd3de08b44994d05c69467266bb5ea54e6ddb7c9353bbf63bc77463447" => :big_sur
+    sha256 "2c5db3ac98383bf71154283dbca344ef7e4ac355338bdff337936cb4836b8ace" => :arm64_big_sur
     sha256 "2e566035d80abd97c43955ac5fa05ba347b67dbbd10d0543faef3cf5cc7b0bfb" => :catalina
     sha256 "1dbf614f22611f66ee49efa6b1f5a1af29066be04e461d56e9766b84aeb68077" => :mojave
     sha256 "3bcdee6e4f2e404d0ec728620b025524de265f94fccc290b29fc81f04f85be36" => :high_sierra

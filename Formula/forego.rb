@@ -8,6 +8,8 @@ class Forego < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "3aa5d4a73ba9ec2d2905bac72b65166394c33d7f6ade2cd842d7e7eeceaedd34" => :big_sur
+    sha256 "ae42636ee209a05effd8db31e34d9458bac997f778227eb9bab935fc3699f3fa" => :arm64_big_sur
     sha256 "3004f019d2361f0831bcd83d6f7f6d581f666be9c8a5a6e0a3b81f84d3170146" => :catalina
     sha256 "c4386b61dae5a4c4cae32db529099221663de4acb42db78e6daca3e5c018a31d" => :mojave
     sha256 "5a855ce2b4f4bd2349b6814c11ec85f788a9be510aff4f18df582141dbc15295" => :high_sierra
@@ -19,6 +21,7 @@ class Forego < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "off"
     (buildpath/"src/github.com/ddollar/forego").install buildpath.children
     cd "src/github.com/ddollar/forego" do
       system "go", "build", "-o", bin/"forego", "-ldflags",

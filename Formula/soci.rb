@@ -10,6 +10,7 @@ class Soci < Formula
   end
 
   bottle do
+    sha256 "1110442edee6672ede9b93dccef0a933508d6aa9936ad7d7c82b9429965092ff" => :big_sur
     sha256 "367f4d37091b11f2e63e220361f9344622a93f8c961122901889c5ef132fb0ec" => :catalina
     sha256 "c51aea80672de81e7663b36e6ff39ce9cc3025aa3c531539424dd089c1b347a8" => :mojave
     sha256 "6e6fced1aa11defaed5f6ea4461b5bbf763b8f55349035e587c80c4bbd68df27" => :high_sierra

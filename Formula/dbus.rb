@@ -12,13 +12,15 @@ class Dbus < Formula
   end
 
   bottle do
+    sha256 "e3ff464367ad79df35c0f81d70a58607a174e9fa63cd507b575f0988ec913b7d" => :big_sur
+    sha256 "98319ca7d3dda690a932243a20a1ebaebe89e2386282bad7232f842f2abecbc5" => :arm64_big_sur
     sha256 "23513ea5d75203fe4374ab37cc4226f23f34ec604449ef572fd6a2b48a612ff3" => :catalina
     sha256 "912da7c3211a981762dc45e4f67fbedd1afd379459a40244340c83caa4134382" => :mojave
     sha256 "6c98efff3cb8fdbba552351a2953f85953f053e12a8af891461118d37affdb73" => :high_sierra
   end
 
   head do
-    url "https://anongit.freedesktop.org/git/dbus/dbus.git"
+    url "https://gitlab.freedesktop.org/dbus/dbus.git"
 
     depends_on "autoconf" => :build
     depends_on "autoconf-archive" => :build

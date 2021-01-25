@@ -1,20 +1,23 @@
 class Ipv6toolkit < Formula
   desc "Security assessment and troubleshooting tool for IPv6"
-  homepage "https://www.si6networks.com/tools/ipv6toolkit/"
-  url "https://www.si6networks.com/tools/ipv6toolkit/ipv6toolkit-v2.0.tar.gz"
+  homepage "https://www.si6networks.com/research/tools/ipv6toolkit/"
+  url "http://pages.cs.wisc.edu/~plonka/ipv6toolkit/ipv6toolkit-v2.0.tar.gz"
   sha256 "16f13d3e7d17940ff53f028ef0090e4aa3a193a224c97728b07ea6e26a19e987"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
+  head "https://github.com/fgont/ipv6toolkit.git"
+
+  livecheck do
+    url "http://pages.cs.wisc.edu/~plonka/ipv6toolkit/"
+    regex(/href=.*?ipv6toolkit[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "cf001c12f138a06ba8e4a68935ef1f2e9da358cc2af2326d4faa6ff8a156f1be" => :catalina
-    sha256 "c46d5e8c7752380d8416e916a6b71c2630ed2a150fb3ecddea24bf559587aa04" => :mojave
-    sha256 "1d1069f07134e882a0d670210ea607f209007f89325e0d414a45c4423c7eaebf" => :high_sierra
-    sha256 "347e2904a6adc26c82a9a123636234cbc95694f4d94b948b922e137073c7081d" => :sierra
-    sha256 "1d7d0b6b4d248ccff98362f4d7707821ae2109591717d56d3b49f0c1d6b83b16" => :el_capitan
-    sha256 "d337148bcff3080cd4e94fee0adb1b5226421020bcc6296f97bcf1986dcbea6a" => :yosemite
-    sha256 "cd4b85ebae536aea022ab34174c36d360b2db31a9f5c11ad58ae6aa4644ff2b0" => :mavericks
+    rebuild 2
+    sha256 "7ccda456d8eb276a1a462bc06e63167984e5c1a45f58ba453063c5a22b5b31bd" => :big_sur
+    sha256 "ee329b82ef00e47b858fe38adc0e0320635c66847c3986dc2e1727fa529173af" => :arm64_big_sur
+    sha256 "6ab4963d7d80f42fb444fabe02122f0290842cffd620a38e15060ed1c1b120ef" => :catalina
+    sha256 "b589fdd1d51db357ecda7452f10ac8daa48266dc4bb52bd6f3b18864e8e8bcbb" => :mojave
   end
 
   def install

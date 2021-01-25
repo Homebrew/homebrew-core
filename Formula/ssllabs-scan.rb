@@ -7,17 +7,17 @@ class SsllabsScan < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6e5035b4bf3b2535da7964ea92672059f254df09f1dcaac94fa51e70a084861c" => :catalina
-    sha256 "eab95a02c320153e8bcc68bcbc960665fd7b755d9a339d4bdd6618d5d33714e6" => :mojave
-    sha256 "91041d74d4bd340c53f15bab9c43fb6d7757601e0da00d810cdc2733a6e6c9a5" => :high_sierra
-    sha256 "a2e66ec0c5e565428d2cc33906d8eecf38697e503cedb95f4817c8f186537f73" => :sierra
+    rebuild 1
+    sha256 "bedc2ae76ea62f469af8ca941f894016b053edd0c598e4845bcbe95e73c344a3" => :big_sur
+    sha256 "445a6d45341a1e6bf831f04eb00e87ca5e39df27685af0da5504e64e3fbb1efb" => :arm64_big_sur
+    sha256 "01c7e2503e8793f79149a3115dffff286ab0db876ccbfe6d8bb11ed54f27ba38" => :catalina
+    sha256 "eb44e540aba0e6a209ab3820a168184f39ddd470673093c7a3dc87a0e70eab42" => :mojave
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    system "go", "build", "-o", bin/"ssllabs-scan", "ssllabs-scan-v3.go"
+    system "go", "build", *std_go_args, "-ldflags", "-s -w", "ssllabs-scan-v3.go"
   end
 
   def caveats

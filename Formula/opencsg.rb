@@ -7,6 +7,8 @@ class Opencsg < Formula
 
   bottle do
     cellar :any
+    sha256 "2d663b21cd90f37d02e772426aba83c7f9e9451a8325a2caf99f926a2176a495" => :big_sur
+    sha256 "441628c8cb74c7bf2eb12999c0d6befd2f94e11597c6707df86512eed2efefa2" => :arm64_big_sur
     sha256 "d42c4c0c8aa5ef5abbe1f260e98f2652b0e7f78563415219b6b8c80fc4aa5859" => :catalina
     sha256 "41ca5a9f643f81e0c9ad862e5386994d85aed57c8c9b6a34493d97f7e66e7a53" => :mojave
     sha256 "67d059404b3a950b73ac4ab6096727c90f24fc1309871969c0d46a7df429de5b" => :high_sierra

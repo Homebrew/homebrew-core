@@ -11,6 +11,8 @@ class MacRobber < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "0cba6aa1a9eeca9b46559e0592b2b667d84d99f344781bce1b994aa5ad7a6e05" => :big_sur
+    sha256 "3b884509ff648339c4d66a27fff082ac80b7762c831ae9aa5599419c68d86cfd" => :arm64_big_sur
     sha256 "cb1d422835804b5ea784a2b9157ae77a0940902771397b235d4ad784b88f961a" => :catalina
     sha256 "e1fc7f112efeac70ca2583db78ad6436d5f6615a9959889f3e4c695aa72a27e8" => :mojave
     sha256 "20c99447899b82d2da937aa81a0b3afd2c865f67a97d2ca1183e01151fef9de0" => :high_sierra

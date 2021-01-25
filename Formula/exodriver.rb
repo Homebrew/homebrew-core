@@ -8,6 +8,8 @@ class Exodriver < Formula
 
   bottle do
     cellar :any
+    sha256 "5fbc6d425b55fc83fc05847a766fa74f33d932c495a4ab7c9b3469441552e489" => :big_sur
+    sha256 "fa9283c7c2a58da585d849ea514ac7f63a1bab2fa7205f24b5c6b7f122218e81" => :arm64_big_sur
     sha256 "aa86ed0ef4a6886bf65ba979938202a7bfabf2d844f2ffe14dee2466f3c65e59" => :catalina
     sha256 "9451412a4469cdf44e56eeac4c457a91b3363410859d4d48975ce3223f8b20d2" => :mojave
     sha256 "db8ef53e652b1296843207ee4d315b7ce5e7adf35ce5cf07f36d1d3f8dfdd28f" => :high_sierra

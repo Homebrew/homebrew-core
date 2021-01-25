@@ -12,6 +12,8 @@ class Icoutils < Formula
 
   bottle do
     cellar :any
+    sha256 "9c63325e7eb42817701d615003736bc2aa04656d5b6b56d475712056836dccce" => :big_sur
+    sha256 "f761caa78a9a27c9480f9e6e78e44f8fa38e48404c5ee7488eedeb4ea51eb224" => :arm64_big_sur
     sha256 "67e11f8966ff949902c637dccea47ee5ee341128519050f31f6c87eb74264d99" => :catalina
     sha256 "c22bed7e3ad43221011658fb8acd08481dccd11b0cc5750e6a21502d7da51fb9" => :mojave
     sha256 "50b8adff5f3364626026d19fba9a0c9fef8cf93104b8d6907bcbe8a5f4a136c2" => :high_sierra

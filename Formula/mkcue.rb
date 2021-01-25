@@ -9,6 +9,8 @@ class Mkcue < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 2
+    sha256 "daddca8c6a5648f6ac6b20228d3817515ea17396c4adfe53740b1ed8f79312b5" => :big_sur
+    sha256 "5ec6570740f47d54de601598229cfa9a2c320dc745fbd72173b0a906b13a65aa" => :arm64_big_sur
     sha256 "04a1028cdb9608369a30f1c7f54204963bfd9ccac697d098499846df035c2886" => :catalina
     sha256 "8efe5acfdcd27c465e5b570d4d0a602370912fa83dd6edbe73b26144e420429c" => :mojave
     sha256 "284cfe9fe5a81a75f59610d93710627167dbc48c1d72b89311562c87cea8f8ff" => :high_sierra

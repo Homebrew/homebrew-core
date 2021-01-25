@@ -13,6 +13,7 @@ class LibsvgCairo < Formula
 
   bottle do
     cellar :any
+    sha256 "d2d48b901a9ac8ad056adab1f6483d6ad17afcfeac95362ca7b32d473de84d69" => :big_sur
     sha256 "91b325120c82295bea226193e0c0e0a26ffc7a4e6dc07c41bc474676c3aa302c" => :catalina
     sha256 "573c68cc663ad978709b2f82072070e9d12be173665ef057d61c569bae428ad7" => :mojave
     sha256 "85692fcfce287f166fefa4fcc4f78b58c96eee3c94ff403e6ef42403c005c29a" => :high_sierra

@@ -11,6 +11,8 @@ class UcspiTcp < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "e6e117599fbdb3619aa5bbc6dbc0dad76b73c507cab9fcf90b4e258b3a3ffb9f" => :big_sur
+    sha256 "f12aad8b88657b73fa01910b07d03d0e2af44d2c4a14ed833acb25bfe1d55f6b" => :arm64_big_sur
     sha256 "7daae5b06fc2d2d42c1fcfc02368bf84e565d0557de006c14c2a31cc91cd25ee" => :catalina
     sha256 "f464584f762728957020fce03d331fb6e96c79a721cdd5911afb452d4b91da7b" => :mojave
     sha256 "b3f2714c61a157eb31ef53915901c29c24ad3dc5cf7d7c3403dcd501399e26b4" => :high_sierra

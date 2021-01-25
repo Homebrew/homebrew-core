@@ -2,15 +2,17 @@ class Calicoctl < Formula
   desc "Calico CLI tool"
   homepage "https://www.projectcalico.org"
   url "https://github.com/projectcalico/calicoctl.git",
-      tag:      "v3.16.4",
-      revision: "514180828955fc00887b61d89980cf269824c07b"
+      tag:      "v3.17.1",
+      revision: "8871aca3dc0b30d6143031e46498b648e153da2a"
   license "Apache-2.0"
+  head "https://github.com/projectcalico/calicoctl.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3698ba2efd7556e7387c796732cea0f25a43a8d11763505ee208d8787ca72738" => :catalina
-    sha256 "043f0c2660efc68aaa5e71867f57033f21d7dae59b37a87553c2a22b38c2531b" => :mojave
-    sha256 "bca2644f2894beb58e5c65462894845a3483cce49d175e1341f1b7f7c1ac6b58" => :high_sierra
+    sha256 "6ab5678c0037e96ba8efca1d2fad58a4051e6d9bb1b8cd48f7b149f8c12380b4" => :big_sur
+    sha256 "46dcad8fbdb7468ff86e47af5382dcb33a0c581d8e2521b13568f7d28cfd6376" => :arm64_big_sur
+    sha256 "bcc50b0b86619b2ac9a459d86f726e3595e9afd37e175d2d63edee8b402a2139" => :catalina
+    sha256 "b01d4c3fd2b8a6cf486dc98fbd9a7cca41ee2843a1f07ffdbfc1a24d73e0a6f8" => :mojave
   end
 
   depends_on "go" => :build
@@ -18,8 +20,8 @@ class Calicoctl < Formula
   def install
     commands = "github.com/projectcalico/calicoctl/calicoctl/commands"
     system "go", "build", *std_go_args,
-                          "-ldflags", "-X #{commands}.VERSION=#{stable.specs[:tag]} " \
-                                      "-X #{commands}.GIT_REVISION=#{stable.specs[:revision][0, 8]} " \
+                          "-ldflags", "-X #{commands}.VERSION=#{version} " \
+                                      "-X #{commands}.GIT_REVISION=#{Utils.git_short_head} " \
                                       "-s -w",
                           "calicoctl/calicoctl.go"
   end

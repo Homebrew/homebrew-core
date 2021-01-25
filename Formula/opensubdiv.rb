@@ -6,6 +6,8 @@ class Opensubdiv < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 "9c9da8838f7d8a088fae55beec22ff3e7b687994f2b14a37155fd5fafc66ad5a" => :big_sur
+    sha256 "5ebfe202d77f6bd92933301787141552e45d3694ceef3187a2f3c7b23edbf9e8" => :arm64_big_sur
     sha256 "ef8b813dc962503a90798c4327805730eb6eba3989dfa7a3a137ea6021777e56" => :catalina
     sha256 "8b00f0fe55b6163755170a122fa3dbceaf740fe806ae6b856a37cd7b5928a856" => :mojave
     sha256 "41f202b119fff15151d6d2c8259b71c94f9d129141fc16992e6b75552b0b1ec7" => :high_sierra

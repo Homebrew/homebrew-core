@@ -1,6 +1,6 @@
 class Libevhtp < Formula
   desc "Create extremely-fast and secure embedded HTTP servers with ease"
-  homepage "https://criticalstack.com/"
+  homepage "https://github.com/criticalstack/libevhtp/"
   url "https://github.com/criticalstack/libevhtp/archive/1.2.18.tar.gz"
   sha256 "316ede0d672be3ae6fe489d4ac1c8c53a1db7d4fe05edaff3c7c853933e02795"
   license "BSD-3-Clause"
@@ -8,6 +8,7 @@ class Libevhtp < Formula
 
   bottle do
     cellar :any
+    sha256 "12b7dadd090f1b53ac313baf685f7bb73640aa6dc8bb34566cddf8ebdaf438f6" => :arm64_big_sur
     sha256 "507466763ef1710ef11b82d02a5229d1445ba6393a553d75926b8fe5d727d871" => :catalina
     sha256 "bfd6cffbcad95d0db38d4b699af24dd3aab1a82b0bdfc7ea7136b212cecab37c" => :mojave
     sha256 "72be53d01a0ab668255e9ab605c4d7b6c16e4ca1a3f68b026c3c9ae1fe77af50" => :high_sierra

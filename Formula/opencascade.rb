@@ -1,9 +1,10 @@
 class Opencascade < Formula
   desc "3D modeling and numerical simulation software for CAD/CAM/CAE"
   homepage "https://www.opencascade.com/content/overview"
-  url "https://git.dev.opencascade.org/gitweb/?p=occt.git;a=snapshot;h=refs/tags/V7_4_0;sf=tgz"
-  version "7.4.0"
-  sha256 "655da7717dac3460a22a6a7ee68860c1da56da2fec9c380d8ac0ac0349d67676"
+  url "https://git.dev.opencascade.org/gitweb/?p=occt.git;a=snapshot;h=refs/tags/V7_5_0;sf=tgz"
+  version "7.5.0"
+  sha256 "c8df7d23051b86064f61299a5f7af30004c115bdb479df471711bab0c7166654"
+  license "LGPL-2.1-only"
   revision 1
 
   livecheck do
@@ -12,10 +13,11 @@ class Opencascade < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "c40f93c6b10493d4bba40d037128e7babd92beeb7881f21e79c307d8f5691be7" => :catalina
-    sha256 "6db3f5251bd8db10fcc4503f1be714d1689544013ddbd25d24c1f59f72cce80a" => :mojave
-    sha256 "9ea4dc36a4e19c022c7fdd40250e8272cfea1817ec516573a1d0994c7b62e797" => :high_sierra
+    rebuild 1
+    sha256 "51fd6769b4b4e75062fe5a6486dfe17166471519e1ea8bcb71d5b1f1756d28af" => :big_sur
+    sha256 "ca21853b2cb26e34cf5c3aa6b755689327e023c0b04e4a6d9ff4466a94d8b48e" => :arm64_big_sur
+    sha256 "fb7225acbf5c42a431a30667f5f7e227bf1f68fa1583ea987f0b3caf946c4cab" => :catalina
+    sha256 "1155bf50f284adb9ea20ffa2429a896505f2b7cdec1fe9a24654fb3b94a1f2e8" => :mojave
   end
 
   depends_on "cmake" => :build
@@ -24,8 +26,10 @@ class Opencascade < Formula
   depends_on "freeimage"
   depends_on "freetype"
   depends_on "tbb"
+  depends_on "tcl-tk"
 
   def install
+    tcltk = Formula["tcl-tk"]
     system "cmake", ".",
                     "-DUSE_FREEIMAGE=ON",
                     "-DUSE_RAPIDJSON=ON",
@@ -36,9 +40,15 @@ class Opencascade < Formula
                     "-D3RDPARTY_RAPIDJSON_DIR=#{Formula["rapidjson"].opt_prefix}",
                     "-D3RDPARTY_RAPIDJSON_INCLUDE_DIR=#{Formula["rapidjson"].opt_include}",
                     "-D3RDPARTY_TBB_DIR=#{Formula["tbb"].opt_prefix}",
-                    "-D3RDPARTY_TCL_DIR:PATH=#{MacOS.sdk_path_if_needed}/usr",
-                    "-D3RDPARTY_TCL_INCLUDE_DIR=#{MacOS.sdk_path_if_needed}/usr/include",
-                    "-D3RDPARTY_TK_INCLUDE_DIR=#{MacOS.sdk_path_if_needed}/usr/include",
+                    "-D3RDPARTY_TCL_DIR:PATH=#{tcltk.opt_prefix}",
+                    "-D3RDPARTY_TK_DIR:PATH=#{tcltk.opt_prefix}",
+                    "-D3RDPARTY_TCL_INCLUDE_DIR:PATH=#{tcltk.opt_include}",
+                    "-D3RDPARTY_TK_INCLUDE_DIR:PATH=#{tcltk.opt_include}",
+                    "-D3RDPARTY_TCL_LIBRARY_DIR:PATH=#{tcltk.opt_lib}",
+                    "-D3RDPARTY_TK_LIBRARY_DIR:PATH=#{tcltk.opt_lib}",
+                    "-D3RDPARTY_TCL_LIBRARY:FILEPATH=#{tcltk.opt_lib}/libtcl#{tcltk.version.major_minor}.dylib",
+                    "-D3RDPARTY_TK_LIBRARY:FILEPATH=#{tcltk.opt_lib}/libtk#{tcltk.version.major_minor}.dylib",
+                    "-DCMAKE_INSTALL_RPATH:FILEPATH=#{lib}",
                     *std_cmake_args
     system "make", "install"
 

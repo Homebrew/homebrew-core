@@ -9,6 +9,8 @@ class GitterCli < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "e35dc802e3dad7ce033c0489dc5939872715660c7dbdd812c84d3abe0a5a7f8d" => :big_sur
+    sha256 "db56401085f8c41a3892d4fed62af37b1a0b02bb435956a2ecc7b385c6d77ec7" => :arm64_big_sur
     sha256 "b65d3049c2aeb35b63aeece9d9a08f224ec9e4b3aa2d64c1d8a7850ea631f836" => :catalina
     sha256 "07256d350f14363a87f7bcf2457bd963f3dbe8f87cbb988319319340b02911d4" => :mojave
     sha256 "8a9a8bea2541bd954d589f4195665c8f2a36090fba16a6b652f88337a029c117" => :high_sierra

@@ -1,15 +1,21 @@
 class Immudb < Formula
   desc "Lightweight, high-speed immutable database"
   homepage "https://www.codenotary.io"
-  url "https://github.com/codenotary/immudb/archive/v0.8.0.tar.gz"
-  sha256 "35f8a35fe1048b0ce30c8a9bd97a53b40063e3e5c87e85360fe9cdc363258d9f"
+  url "https://github.com/codenotary/immudb/archive/v0.9.0.tar.gz"
+  sha256 "28c2ea31eaac4401c4b92290d4d3e16ac7c196aaed1aa065d71b211d306ed398"
   license "Apache-2.0"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c592a4c753771f52dd248eaba401b3a108e07fc07aabc87b0900c5649a8a34ab" => :catalina
-    sha256 "0c66b229f9192069dc5cbac020ff95cd181117990cb2037fa5686a9689d02077" => :mojave
-    sha256 "4ef807ed5bcfea9eb3beae5408bbecfe91ab76404db094aac12a0b5a512db056" => :high_sierra
+    sha256 "5f67d609e5ef9723a80719d36ad0893d282cfa1788d7e145945bfe52f34ce271" => :big_sur
+    sha256 "67fbddb2bb4c218f87ae0ab0f3d13d97b59b726674edea63227b3cf5cbab7db2" => :arm64_big_sur
+    sha256 "e6c40015f44470c6a2845f67f267e2f61c5a0ca67423178edb7df150d175aaf0" => :catalina
+    sha256 "6d9b56699399cea98af56a35e376262b223f264a2c04fe7e7a8b05eeda043d59" => :mojave
   end
 
   depends_on "go" => :build

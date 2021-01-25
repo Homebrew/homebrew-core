@@ -13,6 +13,8 @@ class GnuGo < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "41b40531006a8e8c83d81b0c7628b7bd25a946e9d322e0ac8d5b5a91c999c0d4" => :big_sur
+    sha256 "93fd32bdebd46174fe9d1ff0572dea0859c0a9f29dad7d9e20097da446cea7ab" => :arm64_big_sur
     sha256 "b756b9307e6ff0a0cb9c05eca13ae12b3a9f6ee44219fa4a899e5301fffa2483" => :catalina
     sha256 "75ae8e3e46982c28060396ad4cfaab92c0072f7f8191e21fe9b5b53b157fac06" => :mojave
     sha256 "5e6ee72c1ccd877c08591680117bf73d809f6422ea9855596b286970d165c14a" => :high_sierra

@@ -1,14 +1,21 @@
 class Diffstat < Formula
   desc "Produce graph of changes introduced by a diff file"
   homepage "https://invisible-island.net/diffstat/"
-  url "https://invisible-mirror.net/archives/diffstat/diffstat-1.63.tgz"
-  sha256 "7eddd53401b99b90bac3f7ebf23dd583d7d99c6106e67a4f1161b7a20110dc6f"
+  url "https://invisible-mirror.net/archives/diffstat/diffstat-1.64.tgz"
+  sha256 "b8aee38d9d2e1d05926e6b55810a9d2c2dd407f24d6a267387563a4436e3f7fc"
+  license "MIT-CMU"
+
+  livecheck do
+    url "https://invisible-mirror.net/archives/diffstat/"
+    regex(/href=.*?diffstat[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "056ed50b34a51b0f86dd9aad74785dc956e204621faa7c0ee4535e4bb54dfdfb" => :catalina
-    sha256 "ccdff1c449f1d218ae636de168f9f36fdc1fd8aee3dd71c83ad4d562c7cd4567" => :mojave
-    sha256 "aa3691a218fb3b34065729e648dbf4339150de2247f48c458832fba6221ca509" => :high_sierra
+    sha256 "6deaecbddb668e6a0beeadf19f80bede5756279949b872bd15ec2bdae432ed77" => :big_sur
+    sha256 "4ca28eac2743d6dea9f9128b51ac0107d627f64cc421033538468930f291f3fc" => :arm64_big_sur
+    sha256 "9d8296df829318dce8e829eef894867a74d3f18d438de98309b0c3fe02e065cf" => :catalina
+    sha256 "5b035ed0d84aa480965b56e0a8db59ebbb947dee3379297a3f05f88dcd610d81" => :mojave
   end
 
   def install
@@ -29,7 +36,7 @@ class Diffstat < Formula
       -  version '1.58'
       -  sha256 'fad5135199c3b9aea132c5d45874248f4ce0ff35f61abb8d03c3b90258713793'
       +  url 'https://deb.debian.org/debian/pool/main/d/diffstat/diffstat_1.61.orig.tar.gz'
-      +  sha256 '7eddd53401b99b90bac3f7ebf23dd583d7d99c6106e67a4f1161b7a20110dc6f'
+      +  sha256 'b8aee38d9d2e1d05926e6b55810a9d2c2dd407f24d6a267387563a4436e3f7fc'
     EOS
     output = shell_output("#{bin}/diffstat diff.diff")
     assert_match "2 insertions(+), 3 deletions(-)", output

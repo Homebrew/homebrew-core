@@ -1,14 +1,15 @@
 class Mapserver < Formula
   desc "Publish spatial data and interactive mapping apps to the web"
   homepage "https://mapserver.org/"
-  url "https://download.osgeo.org/mapserver/mapserver-7.6.1.tar.gz"
-  sha256 "2d250874d55bee44e0dbbb3a38e612f8572730705edada00c6ab8b2c9e890581"
+  url "https://download.osgeo.org/mapserver/mapserver-7.6.2.tar.gz"
+  sha256 "36768819f28024312f76a791085f3731d2cc451f7f0c9015c91c12b3929fe179"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "faf2ff8047cc0eb6a977d17a0c9bf47a495cf3e0d59b1bb582cd331e29181cb8" => :catalina
-    sha256 "c1a597de1545e32b9fdb8e13ca20e715ec8f23766a288c478dd67230ddbeaf24" => :mojave
-    sha256 "f0c3af55bbbde2ba31401443aec6f4908bde840dcf5d9bfaaab2cae51bb2f6b8" => :high_sierra
+    sha256 "79e5808f2f4fb786f71e210418a512b75dd17a158d7705b0d3d1f81e2cfceedd" => :big_sur
+    sha256 "1717fd24bea730366e323a38968a30e9478c0feaa10d57bf5dfb1b8a343caf14" => :catalina
+    sha256 "98591cd1dda572b8fb3ae6ffe1cc501aa0140447c8ecadbcd81183343ec20f0d" => :mojave
   end
 
   depends_on "cmake" => :build
@@ -25,7 +26,7 @@ class Mapserver < Formula
   depends_on "postgresql"
   depends_on "proj"
   depends_on "protobuf-c"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "curl"
 
@@ -48,7 +49,7 @@ class Mapserver < Formula
       -DWITH_SOS=ON
       -DWITH_WFS=ON
     ]
-    args << "-DPYTHON_EXECUTABLE=#{Formula["python@3.8"].opt_bin/"python3"}"
+    args << "-DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin/"python3"}"
     args << "-DPHP_EXTENSION_DIR=#{lib}/php/extensions"
 
     # Install within our sandbox
@@ -65,13 +66,13 @@ class Mapserver < Formula
       system "cmake", "..", *args
       system "make", "install"
       cd "mapscript/python" do
-        system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
+        system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
       end
     end
   end
 
   test do
     assert_match version.to_s, shell_output("#{bin}/mapserv -v")
-    system Formula["python@3.8"].opt_bin/"python3", "-c", "import mapscript"
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "import mapscript"
   end
 end

@@ -1,4 +1,4 @@
-# Note, the version of pstree used on Linux requires
+# NOTE: The version of pstree used on Linux requires
 # the /proc file system, which is not available on macOS.
 
 class Pstree < Formula
@@ -8,9 +8,20 @@ class Pstree < Formula
   mirror "https://fossies.org/linux/misc/pstree-2.39.tar.gz"
   sha256 "7c9bc3b43ee6f93a9bc054eeff1e79d30a01cac13df810e2953e3fc24ad8479f"
 
+  # The stable archive is fetched over FTP and there doesn't appear to be a link
+  # to it on the first-party website. As of writing, the homepage lists an older
+  # version than the README, so checking the README is likely our best option
+  # at the moment.
+  livecheck do
+    url "http://www.thp.uni-duisburg.de/pstree/README"
+    regex(/This is pstree V?\s*?(\d+(?:\.\d+)+)/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 2
+    sha256 "9e3f51c55862f554dfc3e3d70ffb435f6999c5b5592625ef4562633d7ffaed82" => :big_sur
+    sha256 "871eebe7b12c62d1086c8f1b0b8802d7a50d2080646e6c64b9b95fd1e3e6f8fc" => :arm64_big_sur
     sha256 "af4d6c7d6bffd6e12d3cb31ceb6bdd5292b66405ddd1be3a48870373829219a7" => :catalina
     sha256 "27b643077e6fa2e233945f505b024f3e725ed8b930bdd89a9df73817197acbea" => :mojave
     sha256 "426d5701e835bc1f9313c3b7cd630aa0f2b279ad5f95406bd73f50d174e8eaf1" => :high_sierra

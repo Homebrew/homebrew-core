@@ -1,17 +1,18 @@
 class Batik < Formula
   desc "Java-based toolkit for SVG images"
   homepage "https://xmlgraphics.apache.org/batik/"
-  url "https://www.apache.org/dyn/closer.lua?path=xmlgraphics/batik/binaries/batik-bin-1.13.tar.gz"
-  mirror "https://archive.apache.org/dist/xmlgraphics/batik/binaries/batik-bin-1.13.tar.gz"
-  sha256 "7c565899e4377a72edee216ffdf168d7b6928d5e1a8cdf477dfa1abd2c48589b"
+  url "https://www.apache.org/dyn/closer.lua?path=xmlgraphics/batik/binaries/batik-bin-1.14.tar.gz"
+  mirror "https://archive.apache.org/dist/xmlgraphics/batik/binaries/batik-bin-1.14.tar.gz"
+  sha256 "0f4eaa81be70752e406a19f39c39c018848f09963f08fa8974640547052c4618"
   license "Apache-2.0"
-  revision 1
 
   livecheck do
     url :stable
   end
 
   bottle :unneeded
+
+  depends_on "openjdk"
 
   def install
     libexec.install "lib", Dir["*.jar"]

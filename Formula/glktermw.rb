@@ -7,6 +7,8 @@ class Glktermw < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "d68c298b6f2c6a8b4275207809d3e075a3d8a0f4545660c3474803073385781e" => :big_sur
+    sha256 "c24eb437d3ffab00f829aec8fa2bec0846d97bd6cf34d8801235746aca61760c" => :arm64_big_sur
     sha256 "6959c1eebd57b190196abeee87a79bceffe67dfb1454c78d0068a576648fc4aa" => :catalina
     sha256 "cbb9467a9639470772bb010a05c79b396ab12bad33726f2fe6cb60dc29bda9b2" => :mojave
     sha256 "c8ecb98e15edfdb02c5aed42590291e45c0dae29640a209428f1382991a23a2a" => :high_sierra

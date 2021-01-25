@@ -3,7 +3,8 @@ class ZanataClient < Formula
   homepage "http://zanata.org/"
   url "https://search.maven.org/remotecontent?filepath=org/zanata/zanata-cli/4.6.2/zanata-cli-4.6.2-dist.tar.gz"
   sha256 "6d4bac8c5b908abf734ff23e0aca9b05f4bc13e66588c526448f241d90473132"
-  revision 1
+  license "LGPL-2.1-or-later"
+  revision 2
 
   livecheck do
     url "https://search.maven.org/remotecontent?filepath=org/zanata/zanata-cli/"
@@ -12,7 +13,7 @@ class ZanataClient < Formula
 
   bottle :unneeded
 
-  depends_on java: "1.8"
+  depends_on "openjdk@8"
 
   def install
     libexec.install Dir["*"]

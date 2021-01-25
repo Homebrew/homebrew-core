@@ -4,27 +4,34 @@ class Ncview < Formula
   url "ftp://cirrus.ucsd.edu/pub/ncview/ncview-2.1.8.tar.gz"
   mirror "https://dl.bintray.com/homebrew/mirror/ncview-2.1.8.tar.gz"
   sha256 "e8badc507b9b774801288d1c2d59eb79ab31b004df4858d0674ed0d87dfc91be"
-  revision 3
+  license "GPL-3.0-only"
+  revision 4
 
   # The stable archive in the formula is fetched over FTP and the website for
   # the software hasn't been updated to list the latest release (it has been
   # years now). We're checking Debian for now because it's potentially better
   # than having no check at all.
   livecheck do
-    url "http://ftp.debian.org/debian/pool/main/n/ncview/"
+    url "https://deb.debian.org/debian/pool/main/n/ncview/"
     regex(/href=.*?ncview[._-]v?(\d+(?:\.\d+)+)(?:\+ds)?\.orig\.t/i)
   end
 
   bottle do
-    sha256 "0a1594bb793189d1359cbd800e44d830cc9cf39b713d71128d41323b284e687a" => :catalina
-    sha256 "d0b8e9fb871edf26633325c7309269689d0b4bd858f16a45527230dc16533abf" => :mojave
-    sha256 "5511d243f73fd1a7867bb4dd0263afe215dd0e4e29ef77199efee5db08c2d207" => :high_sierra
+    rebuild 1
+    sha256 "62940cf53207de388e665e1d1376e48c684af71732422fff53c5ab660be55648" => :big_sur
+    sha256 "0c7b273ab3f81d8dece1035fb0170542287492dad9573dd2c9bd4726b9ac82cb" => :arm64_big_sur
+    sha256 "cd138ec52b70136fc6593d390a384490921b5cdfea173396e776f10f2fbc8466" => :catalina
+    sha256 "17d275efffcb75749da6a8ad011fcc675e2db41b57fd1948e4a7951a1495aa08" => :mojave
   end
 
+  depends_on "libice"
   depends_on "libpng"
+  depends_on "libsm"
+  depends_on "libx11"
+  depends_on "libxaw"
+  depends_on "libxt"
   depends_on "netcdf"
   depends_on "udunits"
-  depends_on :x11
 
   def install
     # Bypass compiler check (which fails due to netcdf's nc-config being
@@ -41,6 +48,6 @@ class Ncview < Formula
 
   test do
     assert_match "Ncview #{version}",
-                 shell_output("#{bin}/ncview -c 2>&1")
+                 shell_output("DISPLAY= #{bin}/ncview -c 2>&1", 1)
   end
 end

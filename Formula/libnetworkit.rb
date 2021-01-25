@@ -7,6 +7,8 @@ class Libnetworkit < Formula
 
   bottle do
     cellar :any
+    sha256 "2e0c3e5599416ae8007b4baf2b55fd6f6a63354727bafd978d4f654586c5ae77" => :big_sur
+    sha256 "456bcb891377b0666eaa4f068c5e0664b038474b10cb03475068109cc5c06b40" => :arm64_big_sur
     sha256 "ce41e3c47bba5ffc61f1b5ea65b908b64032b1af605e19c8a40f40f26bb946fa" => :catalina
     sha256 "f2dab092758749672edc5058fc89e53da086e1acec7756900be0e0d7d839bf16" => :mojave
     sha256 "94522c74e5a3867137849646c49d0e664fd298db24436bf2bfba2e7d725d9caa" => :high_sierra

@@ -3,10 +3,9 @@ class TwinePypi < Formula
 
   desc "Utilities for interacting with PyPI"
   homepage "https://github.com/pypa/twine"
-  url "https://files.pythonhosted.org/packages/14/54/2fc5732362649f4b6f4c245c17dc5a526148b1fb2c3a89176a2ef950628a/twine-3.2.0.tar.gz"
-  sha256 "34352fd52ec3b9d29837e6072d5a2a7c6fe4290e97bba46bb8d478b5c598f7ab"
+  url "https://files.pythonhosted.org/packages/f9/43/51c3139667e90399a4d7886013631ad020ad102db5c2907cb240ce56f3c1/twine-3.3.0.tar.gz"
+  sha256 "fcffa8fc37e8083a5be0728371f299598870ee1eccc94e9a25cef7b1dcfa8297"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/pypa/twine.git"
 
   livecheck do
@@ -15,31 +14,33 @@ class TwinePypi < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d94f3f8df7fda5c17f09d642d84145d538447eed181b0be2b87e685bb57f9b55" => :catalina
-    sha256 "d3be73663253bb1997b4450e8ad70f9dd1c01c135d8baf0fbca87f95590dbad9" => :mojave
-    sha256 "17010769531a56d929ceeaf35bf40f2cbbeb5673cd3728abc6bf035f88e12700" => :high_sierra
+    rebuild 1
+    sha256 "3dfd73691c5c4f51544c549d1531c1107d4b861f408402314b0b7d3b5cfebc37" => :big_sur
+    sha256 "d6393307a93838df3887785e056c9d6204904e0de0fc0aeec999700cfe175885" => :arm64_big_sur
+    sha256 "6c2ecc725d22194a0b921a334af114b03e3694c3d7a3f385e96466f02ad30de2" => :catalina
+    sha256 "44d5293d999bcb1b0398ab3096e28f899d401182921571e0b9f83a01abff616e" => :mojave
   end
 
   depends_on "python@3.9"
 
   resource "bleach" do
-    url "https://files.pythonhosted.org/packages/a9/ac/dc881fca3ac66d6f2c4c3ac46633af4e9c05ed5a0aa2e7e36dc096687dd7/bleach-3.1.5.tar.gz"
-    sha256 "3c4c520fdb9db59ef139915a5db79f8b51bc2a7257ea0389f30c846883430a4b"
+    url "https://files.pythonhosted.org/packages/04/2c/8e256291cfeaefb72d1dafc888b1ad447e754d8062520b41f1d3ffa7e139/bleach-3.2.1.tar.gz"
+    sha256 "52b5919b81842b1854196eaae5ca29679a2f2e378905c346d3ca8227c2c66080"
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/40/a7/ded59fa294b85ca206082306bba75469a38ea1c7d44ea7e1d64f5443d67a/certifi-2020.6.20.tar.gz"
-    sha256 "5930595817496dd21bb8dc35dad090f1c2cd0adfaf21204bf6732ca5d8ee34d3"
+    url "https://files.pythonhosted.org/packages/06/a9/cd1fd8ee13f73a4d4f491ee219deeeae20afefa914dfb4c130cfc9dc397a/certifi-2020.12.5.tar.gz"
+    sha256 "1a4995114262bffbc2413b159f2a1a480c969de6e6eb13ee966d470af86af59c"
   end
 
   resource "chardet" do
-    url "https://files.pythonhosted.org/packages/fc/bb/a5768c230f9ddb03acc9ef3f0d4a3cf93462473795d18e9535498c8f929d/chardet-3.0.4.tar.gz"
-    sha256 "84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae"
+    url "https://files.pythonhosted.org/packages/ee/2d/9cdc2b527e127b4c9db64b86647d567985940ac3698eeabc7ffaccb4ea61/chardet-4.0.0.tar.gz"
+    sha256 "0d6f53a15db4120f2b08c94f11e7d93d2c911ee118b6b30a04ec3ee8310179fa"
   end
 
   resource "colorama" do
-    url "https://files.pythonhosted.org/packages/82/75/f2a4c0c94c85e2693c229142eb448840fba0f9230111faa889d1f541d12d/colorama-0.4.3.tar.gz"
-    sha256 "e96da0d330793e2cb9485e9ddfd918d456036c7149416295932478192f4436a1"
+    url "https://files.pythonhosted.org/packages/1f/bb/5d3246097ab77fa083a61bd8d3d527b7ae063c7d8e8671b1cf8c4ec10cbe/colorama-0.4.4.tar.gz"
+    sha256 "5941b2b48a20143d2267e95b1c2a7603ce057ee39fd88e7329b0c292aa16869b"
   end
 
   resource "docutils" do
@@ -48,28 +49,28 @@ class TwinePypi < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/cb/19/57503b5de719ee45e83472f339f617b0c01ad75cba44aba1e4c97c2b0abd/idna-2.9.tar.gz"
-    sha256 "7588d1c14ae4c77d74036e8c22ff447b26d0fde8f007354fd48a7814db15b7cb"
+    url "https://files.pythonhosted.org/packages/ea/b7/e0e3c1c467636186c39925827be42f16fee389dc404ac29e930e9136be70/idna-2.10.tar.gz"
+    sha256 "b307872f855b18632ce0c21c5e45be78c0ea7ae4c15c828c20788b26921eb3f6"
   end
 
   resource "keyring" do
-    url "https://files.pythonhosted.org/packages/a6/52/eb8a0e13b54ec9240c7dd68fcd0951c52f62033d438af372831af770f7cc/keyring-21.2.1.tar.gz"
-    sha256 "c53e0e5ccde3ad34284a40ce7976b5b3a3d6de70344c3f8ee44364cc340976ec"
+    url "https://files.pythonhosted.org/packages/da/29/f6645f2a6f989b1c77f1a1da269ea1954981365d619a32b90f0d28a00289/keyring-21.7.0.tar.gz"
+    sha256 "a144f7e1044c897c3976202af868cb0ac860f4d433d5d0f8e750fa1a2f0f0b50"
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/55/fd/fc1aca9cf51ed2f2c11748fa797370027babd82f87829c7a8e6dbe720145/packaging-20.4.tar.gz"
-    sha256 "4357f74f47b9c12db93624a82154e9b120fa8293699949152b22065d556079f8"
+    url "https://files.pythonhosted.org/packages/d7/c5/e81b9fb8033fe78a2355ea7b1774338e1dca2c9cbd2ee140211a9e6291ab/packaging-20.8.tar.gz"
+    sha256 "78598185a7008a470d64526a8059de9aaa449238f280fc9eb6b13ba6c4109093"
   end
 
   resource "pkginfo" do
-    url "https://files.pythonhosted.org/packages/6c/04/fd6683d24581894be8b25bc8c68ac7a0a73bf0c4d74b888ac5fe9a28e77f/pkginfo-1.5.0.1.tar.gz"
-    sha256 "7424f2c8511c186cd5424bbf31045b77435b37a8d604990b79d4e70d741148bb"
+    url "https://files.pythonhosted.org/packages/30/e3/5b17405ee8c8a78b5ae6ede4c5f296bebd97eb5982b28bbe37d61802bbc5/pkginfo-1.6.1.tar.gz"
+    sha256 "a6a4ac943b496745cec21f14f021bbd869d5e9b4f6ec06918cffea5a2f4b9193"
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/6e/4d/4d2fe93a35dfba417311a4ff627489a947b01dc0cc377a3673c00cf7e4b2/Pygments-2.6.1.tar.gz"
-    sha256 "647344a061c249a3b74e230c739f434d7ea4d8b1d5f3721bc0f3558049b38f44"
+    url "https://files.pythonhosted.org/packages/29/60/8ff9dcb5eac7f4da327ba9ecb74e1ad783b2d32423c06ef599e48c79b1e1/Pygments-2.7.3.tar.gz"
+    sha256 "ccf3acacf3782cbed4a989426012f1c535c9a90d3a7fc3f16d231b9372d2b716"
   end
 
   resource "pyparsing" do
@@ -78,13 +79,13 @@ class TwinePypi < Formula
   end
 
   resource "readme-renderer" do
-    url "https://files.pythonhosted.org/packages/13/d6/8e241e4e40404a1f83567d6a29798abee0b9b50b08c8efc815ce11c41df9/readme_renderer-26.0.tar.gz"
-    sha256 "cbe9db71defedd2428a1589cdc545f9bd98e59297449f69d721ef8f1cfced68d"
+    url "https://files.pythonhosted.org/packages/a3/c4/03d640fbdb4d22830c98d1c76065f2cc40bc00994c7b7d365562d6b5492e/readme_renderer-28.0.tar.gz"
+    sha256 "6b7e5aa59210a40de72eb79931491eaf46fefca2952b9181268bd7c7c65c260a"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/da/67/672b422d9daf07365259958912ba533a0ecab839d4084c487a5fe9a5405f/requests-2.24.0.tar.gz"
-    sha256 "b3559a131db72c33ee969480840fff4bb6dd111de7dd27c8ee1f820f4f00231b"
+    url "https://files.pythonhosted.org/packages/6b/47/c14abc08432ab22dc18b9892252efaf005ab44066de871e72a38d6af464b/requests-2.25.1.tar.gz"
+    sha256 "27973dd4a904a4f13b263a19c866c13b92a39ed1c964655f025f3f8d3d75b804"
   end
 
   resource "requests-toolbelt" do
@@ -103,13 +104,13 @@ class TwinePypi < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/a9/03/df1d77e852dd697c0ff7b7b1b9888739517e5f97dfbd2cf7ebd13234084c/tqdm-4.46.1.tar.gz"
-    sha256 "cd140979c2bebd2311dfb14781d8f19bd5a9debb92dcab9f6ef899c987fcf71f"
+    url "https://files.pythonhosted.org/packages/80/e9/a51c724ce67ff24a18861af5b0c6f9468e4b4ecdbd53fd43a9288b856372/tqdm-4.54.1.tar.gz"
+    sha256 "38b658a3e4ecf9b4f6f8ff75ca16221ae3378b2e175d846b6b33ea3a20852cf5"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/05/8c/40cd6949373e23081b3ea20d5594ae523e681b6f472e600fbc95ed046a36/urllib3-1.25.9.tar.gz"
-    sha256 "3018294ebefce6572a474f0604c2021e33b3fd8006ecd11d62107a5d2a963527"
+    url "https://files.pythonhosted.org/packages/29/e6/d1a1d78c439cad688757b70f26c50a53332167c364edb0134cadd280e234/urllib3-1.26.2.tar.gz"
+    sha256 "19188f96923873c92ccb987120ec4acaa12f0461fa9ce5d3d0772bc965a39e08"
   end
 
   resource "webencodings" do

@@ -8,24 +8,19 @@ class Iamy < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a74e94857f4b788918ac74f9ef20c3c6c19a0e1164522a4591165b0d070795a4" => :catalina
-    sha256 "d24e802f1fc572c7d49620531e57a5e143956b2ce1e1d05b2320167b09fbf875" => :mojave
-    sha256 "aac8b68119dad48d8aca16a2355cc5c8605e8b1fe44b18e5eb8326216873d657" => :high_sierra
-    sha256 "1d22caa158fea3cb67ca07ef5f0785dc9f8568470d0323a5958229ed1f650f6c" => :sierra
+    rebuild 1
+    sha256 "02aa2ecaab3e449d3ca641e88a22dca829a969d6984190146514b807cdf2b3a2" => :big_sur
+    sha256 "9ebdffb035a4c24087c7f3a7f9918ab1734fd00c6baa64da4e49fc721d0ea553" => :arm64_big_sur
+    sha256 "f5b5f5a4db400dc6021f206a23e90fbff7666f92cfdef296efe86b2db3ba9aa4" => :catalina
+    sha256 "3f01263009a39e769d8144ba9c284d95421ab919c78f549f0e36cbf56985693c" => :mojave
   end
 
   depends_on "go" => :build
   depends_on "awscli"
 
   def install
-    ENV["GOPATH"] = buildpath
-    src = buildpath/"src/github.com/99designs/iamy"
-    src.install buildpath.children
-    src.cd do
-      system "go", "build", "-o", bin/"iamy", "-ldflags",
-             "-X main.Version=v#{version}"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args, "-ldflags",
+            "-s -w -X main.Version=v#{version}"
   end
 
   test do

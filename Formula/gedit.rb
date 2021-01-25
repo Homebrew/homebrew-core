@@ -1,18 +1,20 @@
 class Gedit < Formula
   desc "GNOME text editor"
   homepage "https://wiki.gnome.org/Apps/Gedit"
-  url "https://download.gnome.org/sources/gedit/3.38/gedit-3.38.0.tar.xz"
-  sha256 "46cf06806de58f6e5e95e34fd98ad0b2c0c50b3dae6d23ca57d16d5cc41856f8"
+  url "https://download.gnome.org/sources/gedit/3.38/gedit-3.38.1.tar.xz"
+  sha256 "0053853d2cd59cad8a1662f5b4fdcfab47b4c0940063bacd6790a9948642844d"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
   end
 
   bottle do
-    sha256 "20f526cd2c9cd65e6d3d5745291abab24e90da2297ba9cf3d968fb0a8bca61f1" => :catalina
-    sha256 "829baca554b2379332b40b23726cd07ea5df9c3bb0cde67b91e215aef73fd67f" => :mojave
-    sha256 "4466c99c2f70ddcacda0dd99c52bbc5d0f7094e4153144e8c20ae0300b2dabce" => :high_sierra
+    sha256 "21b705058ca192bd2e0d8ef85efa3d6161d893286d9b0696307f4bcbee0d8458" => :big_sur
+    sha256 "7e2ee800477f0616c684e787b666b70153bd89ea686db852e07d6ece2ddd7ee6" => :arm64_big_sur
+    sha256 "9fa220812eb73ae117aa410e438311ea6bb9f7477ba757dd9d5f706c8e65319d" => :catalina
+    sha256 "5b23b365f2b2a0308a3e28c82ee103d07bd2766559ed3a95c4d2101ae37336bf" => :mojave
   end
 
   depends_on "itstool" => :build

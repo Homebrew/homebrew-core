@@ -8,6 +8,8 @@ class Mobiledevice < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 2
+    sha256 "a9b9e20ce5c2142da8ea4a1bbc34ff433da46a1e12a522942c3b7c572be9f683" => :big_sur
+    sha256 "f7de95125177db2598a17b99514154a5414d74781c642397eae752645cae9c64" => :arm64_big_sur
     sha256 "6912247da18b0d7f033d37115939a67629b93d036458f1369944a58953c12f69" => :catalina
     sha256 "1d327ce17e123f4039b9b0e6c351277d8e781a6757dd23060b6b207d791380f8" => :mojave
     sha256 "7ac3822649356127001c8b452df55c1435c467938193f223da61bbcdf2a7c11b" => :high_sierra

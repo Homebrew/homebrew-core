@@ -5,9 +5,16 @@ class Wren < Formula
   sha256 "c566422b52a18693f57b15ae4c9459604e426ea64eddb5fbf2844d8781aa4eb7"
   license "MIT"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     cellar :any
     rebuild 1
+    sha256 "d9bad5cf08d732c215d5272618bdbe79ea9b5b8a57ab5879fdcc21bdd3ff073f" => :big_sur
+    sha256 "a60ed53ad23d2b9e4a1b8bcd59e4f48e2e6458ce23d61377add956c7c9128a8b" => :arm64_big_sur
     sha256 "21bb30d077f3de93293d6e6f3c41e8f923e6de7d8d04df2f48c7378f76b3d16f" => :catalina
     sha256 "d3837f28ed556d33753beb658f22b197f0afdb2aac3b30de26b2859397123d51" => :mojave
     sha256 "529a384d6d1665dd269ef7b6e8ea61f1edccddd5478ce82ec30839346af3d3b5" => :high_sierra

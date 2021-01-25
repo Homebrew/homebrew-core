@@ -10,6 +10,8 @@ class Rkhunter < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "398958bdafc37011a76efa6e6d2fefc8c34964eb6ba29a0f6823fb8c1058e9c5" => :big_sur
+    sha256 "7d560c35e3fef71d00f5ea9ee54e3f175f39e0c3fabdd1e141cc247c2a886d91" => :arm64_big_sur
     sha256 "e9bfbf9e122295e1fd4ac70dea7502856b3415e0eec187512f196d51a718ab92" => :catalina
     sha256 "a174d252c029e7336a559e44e5ea7139c943addee52cf11fd1fd4c03d564cf52" => :mojave
     sha256 "35df7b4e420968fc71fc0fc0217716393c624594ff51245c80a969a5bb1569eb" => :high_sierra

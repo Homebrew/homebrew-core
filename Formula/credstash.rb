@@ -3,17 +3,22 @@ class Credstash < Formula
 
   desc "Little utility for managing credentials in the cloud"
   homepage "https://github.com/fugue/credstash"
-  url "https://github.com/fugue/credstash/releases/download/v1.17.1/credstash-1.17.1.tar.gz"
+  url "https://files.pythonhosted.org/packages/b4/89/f929fda5fec87046873be2420a4c0cb40a82ab5e30c6d9cb22ddec41450b/credstash-1.17.1.tar.gz"
   sha256 "6c04e8734ef556ab459018da142dd0b244093ef176b3be5583e582e9a797a120"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/fugue/credstash.git"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any
-    sha256 "0b4ed42bb27bc5d5757716bf8ee62e39f34a4f65f524810e407ec32d6fa391eb" => :catalina
-    sha256 "9399dad416c93c1d966a9ec29a66ae4647a7ffed2566c230de748bc98349d789" => :mojave
-    sha256 "77db559935fa985d23b7bbbfe9c8a5a322d05136809024a7748171ead197481a" => :high_sierra
+    sha256 "014126c51fdc447aaf9cd276bcf1e5db3e7f47de375d7df6b5c987e707406fba" => :big_sur
+    sha256 "0158907bb9ea77ca4df22484d8f5706707e395963cedb88c2e8e9269b697c8fb" => :arm64_big_sur
+    sha256 "37f16c3f6d9c37adb3c4923005da62eb0bf76521e1650d414132b2b186cd3768" => :catalina
+    sha256 "59f8ed1c377249d7732b65bc9b20f17ca440d18ce019a0334d47db8c2cc36d49" => :mojave
   end
 
   depends_on "openssl@1.1"
@@ -26,34 +31,28 @@ class Credstash < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/2e/ed/c78be6e55442756a53c3dafe086e3c72534bfe7904e683ecca3678521f9b/boto3-1.12.39.tar.gz"
-    sha256 "970bd7b332e73d7b51077ed36772c634811b38c81b0cc6ed0f910e50d7ebadf8"
+    url "https://files.pythonhosted.org/packages/51/7c/de00a09b9a9395ea1698134635ded0880b20d3fbfd50ae6fdb79b7f411ca/boto3-1.16.18.tar.gz"
+    sha256 "51c419d890ae216b9b031be31f3182739dc3deb5b64351f286bffca2818ddb35"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/87/9e/8c548fc924e2ebee4d2723705c557234550af6872bc6d9e505d05b0eeee9/botocore-1.15.39.tar.gz"
-    sha256 "94232b44e1540b7e043e220bd43f855400d0a243e926b26b3fb72994e971d518"
+    url "https://files.pythonhosted.org/packages/0c/42/ed7176ab40118481a8445a779e24589acdfbfad68d27a9ff316cd7920bab/botocore-1.19.18.tar.gz"
+    sha256 "288d43e85f12e3c1d6a0535a585a182ca04e8c6e742ebaaf15357a0e3b37ca7a"
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/05/54/3324b0c46340c31b909fcec598696aaec7ddc8c18a63f2db352562d3354c/cffi-1.14.0.tar.gz"
-    sha256 "2d384f4a127a15ba701207f7639d94106693b6cd64173d6c8988e2c25f3ac2b6"
+    url "https://files.pythonhosted.org/packages/66/6a/98e023b3d11537a5521902ac6b50db470c826c682be6a8c661549cb7717a/cffi-1.14.4.tar.gz"
+    sha256 "1a465cbe98a7fd391d47dce4b8f7e5b921e6cd805ef421d04f5f66ba8f06086c"
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/9d/0a/d7060601834b1a0a84845d6ae2cd59be077aafa2133455062e47c9733024/cryptography-2.9.tar.gz"
-    sha256 "0cacd3ef5c604b8e5f59bf2582c076c98a37fe206b31430d0cd08138aff0986e"
-  end
-
-  # docutils<0.16,>=0.10
-  resource "docutils" do
-    url "https://files.pythonhosted.org/packages/93/22/953e071b589b0b1fee420ab06a0d15e5aa0c7470eb9966d60393ce58ad61/docutils-0.15.2.tar.gz"
-    sha256 "a2aeea129088da402665e92e0b25b04b073c04b2dce4ab65caaa38b7ce2e1a99"
+    url "https://files.pythonhosted.org/packages/94/5c/42de91c7fbdb817b2d9a4e64b067946eb38a4eb36c1a09c96c87a0f86a82/cryptography-3.2.1.tar.gz"
+    sha256 "d3d5e10be0cf2a12214ddee45c6bd203dab435e3d83b4560c03066eda600bfe3"
   end
 
   resource "jmespath" do
-    url "https://files.pythonhosted.org/packages/5c/40/3bed01fc17e2bb1b02633efc29878dfa25da479ad19a69cfb11d2b88ea8e/jmespath-0.9.5.tar.gz"
-    sha256 "cca55c8d153173e21baa59983015ad0daf603f9cb799904ff057bfb8ff8dc2d9"
+    url "https://files.pythonhosted.org/packages/3c/56/3f325b1eef9791759784aa5046a8f6a1aff8f7c898a2e34506771d3b99d8/jmespath-0.10.0.tar.gz"
+    sha256 "b85d0567b8666149a93172712e68920734333c0ce7e89b78b3e987f71e5ed4f9"
   end
 
   resource "pycparser" do
@@ -72,13 +71,13 @@ class Credstash < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/21/9f/b251f7f8a76dec1d6651be194dfba8fb8d7781d10ab3987190de8391d08e/six-1.14.0.tar.gz"
-    sha256 "236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a"
+    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
+    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/09/06/3bc5b100fe7e878d3dee8f807a4febff1a40c213d2783e3246edde1f3419/urllib3-1.25.8.tar.gz"
-    sha256 "87716c2d2a7121198ebcb7ce7cccf6ce5e9ba539041cfbaeecfb641dc0bf6acc"
+    url "https://files.pythonhosted.org/packages/29/e6/d1a1d78c439cad688757b70f26c50a53332167c364edb0134cadd280e234/urllib3-1.26.2.tar.gz"
+    sha256 "19188f96923873c92ccb987120ec4acaa12f0461fa9ce5d3d0772bc965a39e08"
   end
 
   def install

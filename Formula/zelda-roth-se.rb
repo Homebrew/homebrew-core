@@ -8,6 +8,7 @@ class ZeldaRothSe < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "28b1bd5308092389db177a9b277a29f1da892c1a4a71dd9b12e483a045e52808" => :big_sur
     sha256 "1531cd6fc89cca4cc08287e569cdd8b86e41a52bb8c66fb10f6a74bb5006bc24" => :catalina
     sha256 "b0451d1eb512280f9dcb2c6057188cbe02e9b2c71fbf337ac463a4e284ba1987" => :mojave
     sha256 "dcf7800dd6c2e8798abb867733a79acda20e3ce7745b7d489eeac3050a7bf829" => :high_sierra

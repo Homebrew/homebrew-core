@@ -6,6 +6,8 @@ class Xdelta < Formula
 
   bottle do
     cellar :any
+    sha256 "98fa35dfab2175bb199d3878788734096430e118f3f17cdde9c74ea99af62538" => :big_sur
+    sha256 "4bf8a2d96c0ee4e20beafd81762a80e21bbb9fe400796e02392cb18777f0c6a9" => :arm64_big_sur
     sha256 "5b5eae08cf9d1d5e37dc42f0d557670477bae10adf28278bbb4f88ec83a5a2c3" => :catalina
     sha256 "29a63934406537a96b023609a87998574d41943ed2cfe816b3febc24b7cc7db1" => :mojave
     sha256 "a65a726ce73eeebb9abfdf8069b08658dc4fad13527d4d162d1119cc32702b11" => :high_sierra

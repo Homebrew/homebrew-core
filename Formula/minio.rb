@@ -2,17 +2,27 @@ class Minio < Formula
   desc "High Performance, Kubernetes Native Object Storage"
   homepage "https://min.io"
   url "https://github.com/minio/minio.git",
-      tag:      "RELEASE.2020-10-03T02-19-42Z",
-      revision: "806625cbffcf7850720a45ff13aa25390ac757af"
-  version "20201003021942"
+      tag:      "RELEASE.2021-01-16T02-19-44Z",
+      revision: "7090bcc8e0cd31e44a6ee33cf8a9f83922159c6d"
+  version "20210116021944"
   license "Apache-2.0"
   head "https://github.com/minio/minio.git"
 
+  livecheck do
+    url :stable
+    regex(%r{href=.*?/tag/(?:RELEASE[._-]?)?([\d\-TZ]+)["' >]}i)
+    strategy :github_latest do |page, regex|
+      page.scan(regex).map { |match| match&.first&.gsub(/\D/, "") }
+    end
+  end
+
   bottle do
     cellar :any_skip_relocation
-    sha256 "006163c69ccbda35dab1ebceb135f81ed9e49c3e81ff2077712236e858e8707b" => :catalina
-    sha256 "0b071e11133716f7812785f636fd8c887fa5251bc80a47496b921306a0af7a94" => :mojave
-    sha256 "0a5a45d7e0568cb15f20473de46997d4db31584464ece41ed2cc20e6826912f3" => :high_sierra
+    rebuild 1
+    sha256 "cff634bd2a15ebdcf7aeb07ab19885ce27c02589436c4ab10dcf581b9a71d81e" => :big_sur
+    sha256 "ba4e4d7b9daea8cd374307b910002864c4cccc28560411dcd6e5a8999fa35203" => :arm64_big_sur
+    sha256 "b8c4db448af341741d743f108f46011323aff2fb803650375183d7e2dfd76c2f" => :catalina
+    sha256 "a5bfca75cb46a9ab77350ab0889c245f1288d8c602c6793ec9144186d024edf6" => :mojave
   end
 
   depends_on "go" => :build
@@ -23,13 +33,12 @@ class Minio < Formula
     else
       release = `git tag --points-at HEAD`.chomp
       version = release.gsub(/RELEASE\./, "").chomp.gsub(/T(\d+)-(\d+)-(\d+)Z/, 'T\1:\2:\3Z')
-      commit = `git rev-parse HEAD`.chomp
       proj = "github.com/minio/minio"
 
       system "go", "build", *std_go_args, "-ldflags", <<~EOS
         -X #{proj}/cmd.Version=#{version}
         -X #{proj}/cmd.ReleaseTag=#{release}
-        -X #{proj}/cmd.CommitID=#{commit}
+        -X #{proj}/cmd.CommitID=#{Utils.git_head}
       EOS
     end
   end

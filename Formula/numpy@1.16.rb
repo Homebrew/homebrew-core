@@ -8,6 +8,8 @@ class NumpyAT116 < Formula
 
   bottle do
     cellar :any
+    sha256 "0b95667bfd54232190975066a1e70a0770b84d37129c3fcda418bbba34926c88" => :big_sur
+    sha256 "b2d618920646238a8711dba0c021600ea1153a50490ba3e379107fb3f96d0e77" => :arm64_big_sur
     sha256 "fff9f604e35a06cc3197cc818a851d037f6d8f30df04fc7640144966bfb15c91" => :catalina
     sha256 "0d6a4439397cf4c684b6e01fb7038ed9b9943582d5ef15f080503755330ca615" => :mojave
     sha256 "ed8d4fa6634bea85689ae4d5e316e9a3546469e44358aba6a9f73183fdcb4272" => :high_sierra

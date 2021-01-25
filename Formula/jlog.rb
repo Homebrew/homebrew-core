@@ -8,6 +8,8 @@ class Jlog < Formula
 
   bottle do
     cellar :any
+    sha256 "bf009b8acfcfe3b702b017ef8e5c232fc791722fe505b71a0c3fabdeebd13443" => :big_sur
+    sha256 "aae9bc7604223b7535c8787af8737c7fb8e8e357a4106aafffcdc6ebf2d5e228" => :arm64_big_sur
     sha256 "28a606466256bf030942104c0e7b5618b442ecee7bcd7498cfac9f2cbb098ebc" => :catalina
     sha256 "e45a56ff580b67b3a17407996d72768b57f06b6f7878ca8320dc8befe8f2793f" => :mojave
     sha256 "583bdc22413565285d5f3551be33c17d12e18a25b665e57076332147cfb283d9" => :high_sierra

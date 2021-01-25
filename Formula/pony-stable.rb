@@ -13,6 +13,9 @@ class PonyStable < Formula
     sha256 "caf0c823ba581ab0e669d0372c06d1cb74262f05334814a5f49370659aa030d1" => :high_sierra
   end
 
+  # See https://github.com/ponylang/pony-stable/commit/efd64049752210a71796a125792aa01b74476912
+  deprecate! date: "2021-01-02", because: :repo_archived
+
   depends_on "ponyc"
 
   def install

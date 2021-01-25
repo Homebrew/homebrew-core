@@ -8,6 +8,8 @@ class Woff2 < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "1f49de0effd6a13416745b3b9329aa42cefb0801eaa4740931b9c6669d18e1c9" => :big_sur
+    sha256 "7ca5f49e0a75c2e9935606e2d065104bf7e29f48d767cdcd373e2f84a8a322b6" => :arm64_big_sur
     sha256 "7df9b4ada2d8a72546c5395fc92a7c5071f68be2fa12d336a194cee44adad5a5" => :catalina
     sha256 "d3ccc0d5d910483c5fa385cf213bb352bfe886f1b824f8c182d050ae96e77fdd" => :mojave
     sha256 "f0a9cba72030b62b02336c277f2688ad96bf45c1720e58205cfa597be9860296" => :high_sierra

@@ -3,15 +3,19 @@ require "language/node"
 class Cdktf < Formula
   desc "Cloud Development Kit for Terraform"
   homepage "https://github.com/hashicorp/terraform-cdk"
-  url "https://registry.npmjs.org/cdktf-cli/-/cdktf-cli-0.0.17.tgz"
-  sha256 "503d7ab540a30893fb386014db194822ffcd847d2d159bf8c8fe7752d541889e"
+  url "https://registry.npmjs.org/cdktf-cli/-/cdktf-cli-0.1.0.tgz"
+  sha256 "0b7e63dba77502e7f1710a5c0aed71fc8c33ed36c7bef8ab71c5b751a8b3dec6"
   license "MPL-2.0"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1137c985cd950432ce80b0e7b2477c145a683c7d70ce7be0080a49aa8c8299d0" => :catalina
-    sha256 "4abaf139e7febc8f59e5300d7b88df395b0f08d0b6c67754c2d2d7c2b1e6464a" => :mojave
-    sha256 "1bd41bbd22b239ae949a1aa409ef731a47c22b9e82a388e6c903de6eed327bc7" => :high_sierra
+    sha256 "2c0c649ff73fa68eea32584e0cbac50f86a5ca920c0493ed0146cf642b06a7d4" => :big_sur
+    sha256 "c84e60b9eded34da028aeb2aeed72931602b42020fa91df0d2d30b6717ff5e83" => :catalina
+    sha256 "3b6243b546cc8a34c8bbee4bb5df75ef2c098f455fad44f247ede3d8ff8c330d" => :mojave
   end
 
   depends_on "node"

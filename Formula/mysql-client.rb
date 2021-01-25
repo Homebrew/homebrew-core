@@ -1,8 +1,8 @@
 class MysqlClient < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/8.0/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.22.tar.gz"
-  sha256 "ba765f74367c638d7cd1c546c05c14382fd997669bcd9680278e907f8d7eb484"
+  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.23.tar.gz"
+  sha256 "1c7a424303c134758e59607a0b3172e43a21a27ff08e8c88c2439ffd4fc724a5"
 
   livecheck do
     url "https://github.com/mysql/mysql-server.git"
@@ -10,9 +10,10 @@ class MysqlClient < Formula
   end
 
   bottle do
-    sha256 "533b8b6535afa3463f01296e7c66c8c5b059684c2fafd841ba96fe29bfc14d8f" => :catalina
-    sha256 "3facd2969b6da9d1cde0d73a798b121c1a47cf507ed5a655ef8a288b92ddc23a" => :mojave
-    sha256 "fd77cb216f782f15d82a493ab9ec33d533e540027bb65aa406a3db5e134b821a" => :high_sierra
+    sha256 "02cad9438e1a062e2cf02f006390c7647ccd7c3c92f57cabd0e0d8b55259eecc" => :big_sur
+    sha256 "b2181da5d62a186b2793910d0e6bfe63034c987b5e2cb213ee06d59ca0e2f95b" => :arm64_big_sur
+    sha256 "3c25ba886b303c2598a2d874d00b8120a25391b48eac15bdaf1299c712ccc96a" => :catalina
+    sha256 "1c8d885052492be90fa3d3df356eafca578a6bf27c439635a2d5dddf9417c4c4" => :mojave
   end
 
   keg_only "it conflicts with mysql (which contains client libraries)"

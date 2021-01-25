@@ -17,6 +17,8 @@ class Svdlibc < Formula
     sha256 "3be9467077ff9035209957c3c8111b3a50be89cce873726119efba60856eca38" => :mavericks
   end
 
+  disable! date: "2020-12-08", because: :unmaintained
+
   def install
     # make only builds - no configure or install targets, have to copy files manually
     system "make", "HOSTTYPE=target"

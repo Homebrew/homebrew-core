@@ -3,8 +3,8 @@ class GraphTool < Formula
 
   desc "Efficient network analysis for Python 3"
   homepage "https://graph-tool.skewed.de/"
-  url "https://downloads.skewed.de/graph-tool/graph-tool-2.35.tar.bz2"
-  sha256 "2395823c33d4d12cc8465782a640b99ec7bddf074a7a02e9c1eab4eb3f8ce9ba"
+  url "https://downloads.skewed.de/graph-tool/graph-tool-2.37.tar.bz2"
+  sha256 "df472a0debb683d2f58243945bb9fd525dfdac9ee0b1e9e70f054cff49235170"
   license "LGPL-3.0"
 
   livecheck do
@@ -13,8 +13,10 @@ class GraphTool < Formula
   end
 
   bottle do
-    sha256 "f42bb4bb5110e563cfb7b611a7839d77a9ba69efdc1d22ff5886b872c8557881" => :catalina
-    sha256 "07f47233084f1f9c379dc8e4454975c5fd05d69186a06823959ca6d30db0ec6c" => :mojave
+    sha256 "8edad8f578e7c6b9a8a0c3cf9b521471c1bf7c0a71709dc1150e414def4d8dab" => :big_sur
+    sha256 "69579dc0987782c91a1d41af09bfe8fb2bcf62fc81090195d3cf532041ab35e1" => :arm64_big_sur
+    sha256 "5f37c6b03cdb754495bc6d54cb1f5d691a9d4caf53a7bc51f2ddabc1984dc3cf" => :catalina
+    sha256 "7da1c5cc5ef61975d4f61f4c6dd01c7e44b917e5b745b6031be4988fa334b71c" => :mojave
   end
 
   depends_on "autoconf" => :build
@@ -23,7 +25,7 @@ class GraphTool < Formula
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "boost-python3"
-  depends_on "cairomm"
+  depends_on "cairomm@1.14"
   depends_on "cgal"
   depends_on "google-sparsehash"
   depends_on "gtk+3"
@@ -32,7 +34,7 @@ class GraphTool < Formula
   depends_on "numpy"
   depends_on "py3cairo"
   depends_on "pygobject3"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "scipy"
 
   resource "Cycler" do
@@ -77,8 +79,8 @@ class GraphTool < Formula
 
   def install
     system "autoreconf", "-fiv"
-    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
-    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
+    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
 
     resources.each do |r|
       venv.pip_install_and_link r
@@ -115,6 +117,6 @@ class GraphTool < Formula
       assert g.num_edges() == 1
       assert g.num_vertices() == 2
     EOS
-    system Formula["python@3.8"].opt_bin/"python3", "test.py"
+    system Formula["python@3.9"].opt_bin/"python3", "test.py"
   end
 end

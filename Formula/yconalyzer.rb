@@ -11,6 +11,8 @@ class Yconalyzer < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "2e6c3b8964a0feb62dc624f9359bd48e44c07929b1952c36fbc4d05be76ef871" => :big_sur
+    sha256 "58d53e3cef900391c6b010c6e5e7a8643630155947068b9755bed061b46c94c7" => :arm64_big_sur
     sha256 "2e834b5134e7670fc97cb45131b732a7dc7a6f41598dacb20dd65b575713dc16" => :catalina
     sha256 "d5b2345a94b2590f9f533f30d3770cc2008ce294fd8c56015f025181ba951b35" => :mojave
     sha256 "4341ba620cc2724608dea783a2ddbd3bde93fd2017cc675e906f233941fb4ab3" => :high_sierra

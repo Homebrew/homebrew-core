@@ -4,14 +4,14 @@ class Ola < Formula
   url "https://github.com/OpenLightingProject/ola/releases/download/0.10.7/ola-0.10.7.tar.gz"
   sha256 "8a65242d95e0622a3553df498e0db323a13e99eeb1accc63a8a2ca8913ab31a0"
   license "GPL-2.0"
-  revision 4
+  revision 5
   head "https://github.com/OpenLightingProject/ola.git"
 
   bottle do
-    rebuild 1
-    sha256 "13a256a0bf648fd37be6190655af18b3d68d08cf6ccdc739870f2f89d6b5a11b" => :catalina
-    sha256 "3e18bbda8d9093ad9204067849de41c288d36154a4e3f5d71138254866a2cecb" => :mojave
-    sha256 "ca923883d08d515008ed578e1ebb6fa0c691c7e7f2c251958084bd2005185e86" => :high_sierra
+    sha256 "09501dc5e47fe41c1232ca432bb214443b3bb78e662571f4dc73905a40307534" => :big_sur
+    sha256 "0d1e17e8fe6fe3807861fd861d005f5bd9bdcd363d41d6c66839959dcd2b7fa5" => :catalina
+    sha256 "e34574637827ecc45ed31f9d4d1f628cf80ba567c1803436c3293126c2bd699d" => :mojave
+    sha256 "8297329aff21747ce86d0b182f2eb41f3982f9ed3d55e7c22f708a4ea83e584c" => :high_sierra
   end
 
   depends_on "autoconf" => :build
@@ -23,7 +23,7 @@ class Ola < Formula
   depends_on "libusb"
   depends_on "numpy"
   depends_on "protobuf@3.6"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   # remove in version 0.11
   patch do
@@ -39,7 +39,7 @@ class Ola < Formula
   end
 
   def install
-    xy = Language::Python.major_minor_version Formula["python@3.8"].bin/"python3"
+    xy = Language::Python.major_minor_version Formula["python@3.9"].bin/"python3"
     protobuf_pth = Formula["protobuf@3.6"].opt_lib/"python#{xy}/site-packages/homebrew-protobuf.pth"
     (buildpath/".brew_home/Library/Python/#{xy}/lib/python/site-packages").install_symlink protobuf_pth
 
@@ -53,7 +53,7 @@ class Ola < Formula
       --enable-rdm-tests
     ]
 
-    ENV["PYTHON"] = Formula["python@3.8"].bin/"python3"
+    ENV["PYTHON"] = Formula["python@3.9"].bin/"python3"
     system "autoreconf", "-fvi"
     system "./configure", *args
     system "make", "install"

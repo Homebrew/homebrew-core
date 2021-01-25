@@ -6,7 +6,7 @@ class Nbdime < Formula
   url "https://files.pythonhosted.org/packages/d8/55/34e050f939e37b79c1a6283ea6c8b411cfda21a12e5d492da32fbdac23d5/nbdime-2.1.0.tar.gz"
   sha256 "4e3efdcfda31c3074cb565cd8e76e2e5421b1c4560c3a00c56f8679dd15590e5"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -14,9 +14,10 @@ class Nbdime < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "363fbfa9e62b3fa5e1480a978fd711e441aa5bf3763d00c7c9b05ff5fba8d8f0" => :catalina
-    sha256 "5cfff6bdb2c2099a49e3e09306078c8f7d4ba7875b1bd61bcf5025b3c80ccd0d" => :mojave
-    sha256 "54176cb78ae39efe9c535b6594740884aabaf25c34d8e3f33bbed00fdfb8b58a" => :high_sierra
+    sha256 "0dd0c2df3e9634ac0fa0017da2079375e97c775aa2d3d67136c7fd95085d3d44" => :big_sur
+    sha256 "fefd12101c601131de3ba5551bcd94371a3f4c4093989cb7d7f1f141a0e29278" => :arm64_big_sur
+    sha256 "a74a5ce9fa60c24db89ca343b20b41c872ca890f18305a28fc5e318903ea267d" => :catalina
+    sha256 "f4925ca57d0fa45d7fb628a85d750e7259669840c360006717863a472035f76a" => :mojave
   end
 
   depends_on "python@3.9"
@@ -57,8 +58,8 @@ class Nbdime < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/cb/ae/380e33d621ae301770358eb11a896a34c34f30db188847a561e8e39ee866/cffi-1.14.3.tar.gz"
-    sha256 "f92f789e4f9241cd262ad7a555ca2c648a98178a953af117ef7fad46aa1d5591"
+    url "https://files.pythonhosted.org/packages/66/6a/98e023b3d11537a5521902ac6b50db470c826c682be6a8c661549cb7717a/cffi-1.14.4.tar.gz"
+    sha256 "1a465cbe98a7fd391d47dce4b8f7e5b921e6cd805ef421d04f5f66ba8f06086c"
   end
 
   resource "chardet" do

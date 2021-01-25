@@ -4,21 +4,20 @@ class Zpaq < Formula
   url "http://mattmahoney.net/dc/zpaq715.zip"
   version "7.15"
   sha256 "e85ec2529eb0ba22ceaeabd461e55357ef099b80f61c14f377b429ea3d49d418"
+  license "Unlicense"
   head "https://github.com/zpaq/zpaq.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "091d81c8f85afc293897a500209dcf1949cf14c7620c6fc3e1c6b226cba26f08" => :catalina
-    sha256 "bf0cfe4bbed251ea8a8503e310df77fe38d7da0180394e1e0deb313841ba48d2" => :mojave
-    sha256 "d6f9b354e10afef1ac343485074ec8c3a1379163aa1c57ed91813832b23572ef" => :high_sierra
-    sha256 "63f132c8cbff5b22daddc07289837ad710c4af7785fa36351a498cc99e77c6ec" => :sierra
-    sha256 "beafa9e6d0ba28368a77d9ddcbaf3b04a3f02716f08eb4b2a345745c45fcf9d2" => :el_capitan
-    sha256 "de09d5f93f86f77372ea01b40f23481bc3e6cd33b9b2ac67736c85167a760dbb" => :yosemite
+    rebuild 1
+    sha256 "2a840dbf456e81e691300d615db206c1c046fe99746db13e41f972d6707c6a72" => :big_sur
+    sha256 "5ac8de4997136cd5496e5480ce72421881da11cf0548cacbd2ed62b7e85dc0e5" => :catalina
+    sha256 "572127bcc5ca3efba20c4f61c385dbf48873a241efd9349e0759d0ca14afb79d" => :mojave
   end
 
   resource "test" do
     url "http://mattmahoney.net/dc/calgarytest2.zpaq"
-    sha256 "b110688939477bbe62263faff1ce488872c68c0352aa8e55779346f1bd1ed07e"
+    sha256 "ad3b58c245b2a54136d3ff28be78c069b0272eb31f808bf82014134e5913cf7e"
   end
 
   def install

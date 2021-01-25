@@ -1,8 +1,8 @@
 class Txr < Formula
   desc "Original, new programming language for convenient data munging"
   homepage "https://www.nongnu.org/txr/"
-  url "http://www.kylheku.com/cgit/txr/snapshot/txr-244.tar.bz2"
-  sha256 "192cebb4edf89fcf0010cf3982a058ee5019abf28336bcf47cd3a5c1bb392b58"
+  url "http://www.kylheku.com/cgit/txr/snapshot/txr-249.tar.bz2"
+  sha256 "b3f13bdacec70b24bbfae3d731b9986410901c1425f7024a2d8696827e76ae3e"
   license "BSD-2-Clause"
 
   livecheck do
@@ -11,17 +11,19 @@ class Txr < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "0ad6e1b88ac7dc2f29b99e1944c16a36479529af9e8154b94fd097c71bb12e18" => :catalina
-    sha256 "ce5b9bd68469716f93df3a30f5f0cc5348054ccc4206c181186afa3ffb812882" => :mojave
-    sha256 "4def7304997039f48be24742fa670c5e8f292dd3256793696b09bf9da31cafd7" => :high_sierra
+    cellar :any
+    sha256 "8f85096c67e6121717cd4613fed3c1eaf46270fca03ef176434a845c72676461" => :big_sur
+    sha256 "65be4809baf6a905d4293d5b322695e65ef73b6159991c8b9e6ebfc4223e8cac" => :catalina
+    sha256 "26340b55c6290b4bc1b4b258711ce51174e38cd8efcf83364e43bf18957a64b3" => :mojave
   end
+
+  depends_on "libffi"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
 
   def install
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}", "--inline=static inline"
     system "make"
     system "make", "install"
   end

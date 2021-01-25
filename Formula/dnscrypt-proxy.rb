@@ -1,8 +1,8 @@
 class DnscryptProxy < Formula
   desc "Secure communications between a client and a DNS resolver"
   homepage "https://dnscrypt.info"
-  url "https://github.com/DNSCrypt/dnscrypt-proxy/archive/2.0.44.tar.gz"
-  sha256 "c2c9968f07a414e973ec5734f4598d756a35c32beedb18268590ea1355794237"
+  url "https://github.com/DNSCrypt/dnscrypt-proxy/archive/2.0.45.tar.gz"
+  sha256 "f7aac28c6a60404683d436072b89d18ed3bb309f8d8a95c8e87ad250da190821"
   license "ISC"
   head "https://github.com/DNSCrypt/dnscrypt-proxy.git"
 
@@ -13,9 +13,10 @@ class DnscryptProxy < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7da6a093ba0eb0f91a5e0395c9d59c312ae0ba7ad4d768571084bf9910d4b89e" => :catalina
-    sha256 "902573b2edeac760122d4ef659865578d36ba7478d1c161649c53042fd745c8f" => :mojave
-    sha256 "19c5849e4acc8ba26110aff8d2dded822c406fd9f4fc41a20fe2a891d019c03d" => :high_sierra
+    sha256 "9a58ee4594cc5daa6f82bba96abb581fcad384f6704b11c9c79e17607ad6ca04" => :big_sur
+    sha256 "16c605c0d6830d94931709cac625d8d7085a56bb68336b79c84bf8bbd95ff99e" => :arm64_big_sur
+    sha256 "8e32c49eb1a77f48be69ab8acfa172d1573761e96d0136bc847df6c84f7d8166" => :catalina
+    sha256 "e8c973c0eb72df8b7cb0850c5a7d1d7ced8d811247fc497a631cee612d46e9d0" => :mojave
   end
 
   depends_on "go" => :build

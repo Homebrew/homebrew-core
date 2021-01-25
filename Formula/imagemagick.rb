@@ -1,9 +1,9 @@
 class Imagemagick < Formula
   desc "Tools and libraries to manipulate images in many formats"
   homepage "https://www.imagemagick.org/"
-  url "https://dl.bintray.com/homebrew/mirror/ImageMagick-7.0.10-34.tar.xz"
-  mirror "https://www.imagemagick.org/download/releases/ImageMagick-7.0.10-34.tar.xz"
-  sha256 "d35e02bab707611fa28f13244a0d91e251a9a8d6a4a8de405738f5ead49a06aa"
+  url "https://dl.bintray.com/homebrew/mirror/ImageMagick-7.0.10-59.tar.xz"
+  mirror "https://www.imagemagick.org/download/releases/ImageMagick-7.0.10-59.tar.xz"
+  sha256 "3c211e4fef172bc9fab3196f8beb313dfdee1d5e01676ecfeac3d77c8635295e"
   license "ImageMagick"
   head "https://github.com/ImageMagick/ImageMagick.git"
 
@@ -13,9 +13,10 @@ class Imagemagick < Formula
   end
 
   bottle do
-    sha256 "d486b811e4a2e01b5d45f10f7372a5b00c543b4205fe6336a6cf108f1f2e27e9" => :catalina
-    sha256 "01616d61e598b4b5b86d0ff49cece04b98ef2e142ffb0f8d526acced5db22ec5" => :mojave
-    sha256 "aab7d3ea92bab1986c3a0f9ffd895d705aaeff3fa072f6c5dd9ae439bf68add8" => :high_sierra
+    sha256 "60e893c4585b2b05c58a585b75e34c11b3471e677028540cb44dcff29bee52e1" => :big_sur
+    sha256 "3dde45bea71a3ea840d10026d93bad1f9d65d6c12ffd7330b9eeefc09e22ba0b" => :arm64_big_sur
+    sha256 "53977ba9661236286d439990c70372afe63865dd2cb77611713e9aa5b0cbeb7b" => :catalina
+    sha256 "7b5d95a2f0d2717431518dd6eed1b8dc8e13373cf308af0d51cee0c3303f65a4" => :mojave
   end
 
   depends_on "pkg-config" => :build
@@ -38,6 +39,10 @@ class Imagemagick < Formula
   uses_from_macos "libxml2"
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "libx11"
+  end
+
   skip_clean :la
 
   def install
@@ -53,6 +58,7 @@ class Imagemagick < Formula
       --enable-shared
       --enable-static
       --with-freetype=yes
+      --with-gvc=no
       --with-modules
       --with-openjp2
       --with-openexr
@@ -63,7 +69,6 @@ class Imagemagick < Formula
       --with-lqr
       --without-fftw
       --without-pango
-      --without-x
       --without-wmf
       --enable-openmp
       ac_cv_prog_c_openmp=-Xpreprocessor\ -fopenmp
@@ -71,8 +76,12 @@ class Imagemagick < Formula
       LDFLAGS=-lomp\ -lz
     ]
 
+    on_macos do
+      args << "--without-x"
+    end
+
     # versioned stuff in main tree is pointless for us
-    inreplace "configure", "${PACKAGE_NAME}-${PACKAGE_VERSION}", "${PACKAGE_NAME}"
+    inreplace "configure", "${PACKAGE_NAME}-${PACKAGE_BASE_VERSION}", "${PACKAGE_NAME}"
     system "./configure", *args
     system "make", "install"
   end

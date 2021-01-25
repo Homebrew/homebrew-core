@@ -7,6 +7,8 @@ class Dhcping < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "cea21616fd5abd22da30648e6744ff16630f3ead891b8336ca668c3fa3f93a0a" => :big_sur
+    sha256 "8126f3068682d4e4629158c4bec5f71fe557671ee93521d4a46286fcc8a9e53a" => :arm64_big_sur
     sha256 "6c8a4c00ebe101f4ad040238d79137025331d8af78327b77ef72d83da985402e" => :catalina
     sha256 "94dba411868455abd17d818d1009e71bae362cea093ec01437b19fbbb33a0cc2" => :mojave
     sha256 "e30ef14d867a06bcc9bcde18965fa00366780c3323841ca0fb25f864077044d6" => :high_sierra

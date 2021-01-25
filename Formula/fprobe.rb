@@ -11,6 +11,8 @@ class Fprobe < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "b0a00f4b300f319155db2ce5c159dd5731147380cb4b21cdd001e7b519d132b2" => :big_sur
+    sha256 "83c78c439cf2ec7338b3033e9cd623d04f8d19064ad566d206fc290d375f5472" => :arm64_big_sur
     sha256 "4684922307e7da6edc51c66f9ff647cf1d6b44bb75ab15deb4ea76629c8cbf2e" => :catalina
     sha256 "7867a9b5dc5014263723f471156464a641962249380494e4732785bafb7afeb2" => :mojave
     sha256 "31efd46250371cfd9ab386ff34cc41eb98d10758d550769ec72f8373ac1df800" => :high_sierra

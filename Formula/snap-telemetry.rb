@@ -8,6 +8,7 @@ class SnapTelemetry < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "4e8cca8dbc731cb1bf7b92a8f410f287678ab270450cd0f58ce6f10eb7e3e1d5" => :big_sur
     sha256 "6f52483af1ce2785dc7e9bf0fdc202430c61b804ef3a67e2487d669bf27edcb1" => :catalina
     sha256 "1cd9b411854596b3afe7afa22ed9041d31e21a860739246a5eeb47e03a6844e8" => :mojave
     sha256 "066cf3014caa27b6c3327f983cbe632cb85476c0731ec3fda40e85205c1a5f71" => :high_sierra

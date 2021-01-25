@@ -7,7 +7,7 @@ class HomesickCompletion < Formula
 
   bottle :unneeded
 
-  deprecate! because: :repo_archived
+  deprecate! date: "2020-08-10", because: :repo_archived
 
   def install
     bash_completion.install "homesick"

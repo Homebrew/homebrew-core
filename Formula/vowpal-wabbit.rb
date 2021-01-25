@@ -3,13 +3,14 @@ class VowpalWabbit < Formula
   homepage "https://github.com/VowpalWabbit/vowpal_wabbit"
   # pull from git tag to get submodules
   url "https://github.com/VowpalWabbit/vowpal_wabbit.git",
-    tag:      "8.8.1",
-    revision: "5ff219ec0ff28af5d35e452f5f18e6808993e08a"
+      tag:      "8.8.1",
+      revision: "5ff219ec0ff28af5d35e452f5f18e6808993e08a"
   revision 1
   head "https://github.com/VowpalWabbit/vowpal_wabbit.git"
 
   bottle do
     cellar :any
+    sha256 "4d54fdab146d4124696d312560093d004295b454e53596e20b697ab7cab3c368" => :big_sur
     sha256 "67b1a1ff72db3a4fb3a8feecf372999b09a9c0eb429d449fe3038aaf1c866a52" => :catalina
     sha256 "420d53c0004628986811ad2c7e0b83fd20bad1db5bac9b8775e40daf788b0a9b" => :mojave
     sha256 "ff5920ae1294c66d9b4752326818d4b9aa88f6ecfdffbd740691f13b99b4e6e7" => :high_sierra

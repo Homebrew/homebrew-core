@@ -4,8 +4,10 @@ class Ipfs < Formula
   url "https://github.com/ipfs/go-ipfs.git",
       tag:      "v0.7.0",
       revision: "ea77213e31ef2b3cad81d40bf82bb9baef3ea7b6"
-  # license ["Apache-2.0", "MIT"] - pending https://github.com/Homebrew/brew/pull/7953
-  license "Apache-2.0"
+  license all_of: [
+    "MIT",
+    any_of: ["MIT", "Apache-2.0"],
+  ]
   head "https://github.com/ipfs/go-ipfs.git"
 
   livecheck do
@@ -15,6 +17,7 @@ class Ipfs < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "b5b83542ce69104ccd4cc5c3b24b04f9901da8ffb0f7f59ab29b1b0cc0b3a2c9" => :big_sur
     sha256 "efa0829574ec0c1bb8191c3bfa0b5f146ad6a52123e6ac7aa66b318a5b2ef8a0" => :catalina
     sha256 "155e275561f4602feab774ea6519d61cab1bfb61a8fe33af94c8b8e5e5754d47" => :mojave
     sha256 "0bb55579cf672cba14ddc8e8bb52c1db3ec691a9bc4d07935cc1f4021e7403b4" => :high_sierra

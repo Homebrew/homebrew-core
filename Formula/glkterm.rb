@@ -7,6 +7,8 @@ class Glkterm < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "a82e9471f88cd16b842beb87305959fcdec9fbc083cb7e4b6b213cb7f7c9f701" => :big_sur
+    sha256 "dfa6c028a6b6c70b258e19faa4f274c5c993ee55d8fa21e7574aa1df32e6cd2c" => :arm64_big_sur
     sha256 "c337df9d5b7c6343fe21abf1f17143d51d4e61e747b1c6da7d31ad557653a7a0" => :catalina
     sha256 "34bba71e2063d751f179adf09caa65b6815b94b0f5c64436f20f3117e038e128" => :mojave
     sha256 "1e7d75d921b11cd91354b2f8acf8a63416709b7875146d095bcf1ce02cc6fdad" => :high_sierra

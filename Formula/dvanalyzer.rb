@@ -6,6 +6,8 @@ class Dvanalyzer < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c82268f8073ce66058329a7f3e17a8dffba0d811f82c1eb33a6a45144693bf17" => :big_sur
+    sha256 "2c3394dede8aedd03611a44ab7f0e9c0cf65de9343eea185575234571da63b76" => :arm64_big_sur
     sha256 "1e9397fde0dde748e89f06dabbcabce109fef89914a436b71b754bd32f179e8a" => :catalina
     sha256 "d688b087bb74bacc39b805a35b7db02c1291502003eb4904ef5ddbf3063b7c1e" => :mojave
     sha256 "59667b7174026e959f123ebbf8f8e30559dabb70814565f8bec8316c4b9c02b1" => :high_sierra

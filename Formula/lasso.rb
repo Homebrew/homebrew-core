@@ -4,16 +4,19 @@ class Lasso < Formula
   url "https://dev.entrouvert.org/releases/lasso/lasso-2.6.1.tar.gz"
   sha256 "f8a8dbce238802f6bb9c3b8bd528b4dce2a1dc44e2d34d8d839aa54fbc8ed1de"
   license "GPL-2.0"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "aecca2fc642d36e34cd455c69c22e9218c7189069cfebeeedace812308d3b09c" => :catalina
-    sha256 "aa800d43d4a10ef664f5cfbd323d1417bbafe5a59f6110814b74cd4eecfc51be" => :mojave
-    sha256 "ef80d2303bf630a7c077f404f948eaf0e960afb81b8dced7853cee50ccc2b7dc" => :high_sierra
+    sha256 "83fa7671b9b8635dbf79c5db616d72c0f8d53ca543a508effd4bf628f46af26e" => :big_sur
+    sha256 "aef8a4d9b81790ff84aad53da1c7d9a582ac69db8d775d930a30444174e186dc" => :arm64_big_sur
+    sha256 "bc1f4dc6fccff1c5631d37b4539d2d9a657357445488ce892756feccf98f660b" => :catalina
+    sha256 "d4bfe838fe8fd0b32ff7e19a4601c85a3b98a49ed8e1f05dc796ed5adf89005b" => :mojave
+    sha256 "8256178a39f08386db515226b334a93f895cb8d96c043acfe1a8d420efbb668f" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
   depends_on "glib"
   depends_on "libxmlsec1"
   depends_on "openssl@1.1"

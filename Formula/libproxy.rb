@@ -1,25 +1,25 @@
 class Libproxy < Formula
   desc "Library that provides automatic proxy configuration management"
   homepage "https://libproxy.github.io/libproxy/"
-  url "https://github.com/libproxy/libproxy/archive/0.4.15.tar.gz"
-  sha256 "18f58b0a0043b6881774187427ead158d310127fc46a1c668ad6d207fb28b4e0"
-  license "LGPL-2.1"
-  revision 2
+  url "https://github.com/libproxy/libproxy/archive/0.4.17.tar.gz"
+  sha256 "88c624711412665515e2800a7e564aabb5b3ee781b9820eca9168035b0de60a9"
+  license "LGPL-2.1-or-later"
   head "https://github.com/libproxy/libproxy.git"
 
   bottle do
-    sha256 "fbb6b461e2abfbd8f3c117c64410827fac0759cefab76cbccd4051f9d5b98d9c" => :catalina
-    sha256 "74b3f2231eaaaf6ca8cbcb7868b0cb71a62ed4228b1c6fb81ce1b9548819cdb6" => :mojave
-    sha256 "bf36cc90d464f46a70aca6407df2ea7c7b1b325d29346de3813298016cd0c324" => :high_sierra
+    sha256 "d094201c939cfab859da673186809a6c7a24b9a216829b862a1bb53059309d4c" => :big_sur
+    sha256 "aa72de0f8f5be2c730d84f20308df804c156e61ff321de0a4b63ba5623517ab7" => :arm64_big_sur
+    sha256 "c847a5adafa14e2614351edc46fdf1f8884908912845a9e425ce30925bb55e32" => :catalina
+    sha256 "5f6f14d95746e1b4c3328f23c7d9018e7e6a1fab70eba1255276ad89c0c405e5" => :mojave
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "perl"
 
   def install
-    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
+    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     args = std_cmake_args + %W[
       ..
       -DPYTHON3_SITEPKG_DIR=#{lib}/python#{xy}/site-packages

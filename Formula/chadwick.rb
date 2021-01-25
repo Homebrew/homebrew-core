@@ -12,6 +12,8 @@ class Chadwick < Formula
 
   bottle do
     cellar :any
+    sha256 "d03f388d1a56550fdc5b9832bf0a952c35a5b7d38f0661885c0dc4b7ee01d718" => :big_sur
+    sha256 "3feae6163c485d40c22f4dcbd0f2772245e8010e7beb4b9f9c399bd93d46f475" => :arm64_big_sur
     sha256 "693c6ee0980401936a83453bdbc398aeb0eb06ba9bb8e101046508b14edfdc98" => :catalina
     sha256 "a068fd25b1e8b3d6f9a56a8a1d4ac18a49f07f82450b1ab3f3766b86fb0a362a" => :mojave
     sha256 "427b5c0fca10b23b66c56bda3537080df2ba467edea59a9dfd2f0fba56f50f9b" => :high_sierra

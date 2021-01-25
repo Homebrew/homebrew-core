@@ -1,8 +1,8 @@
 class Urh < Formula
   desc "Universal Radio Hacker"
   homepage "https://github.com/jopohl/urh"
-  url "https://files.pythonhosted.org/packages/08/6b/00fc66ea878a26ff054562552bb9b966fc5bec8d7df1fc52134b6431af76/urh-2.8.9.tar.gz"
-  sha256 "d3cdc2612f5039b40cfccfb99e2ae7311cd1cd27011c857e0aec99b150c93919"
+  url "https://files.pythonhosted.org/packages/ea/ec/f091b8dd7636c1999a0cef0d6d0c5fe011e12e9a4c1809526bfa58c39197/urh-2.9.1.tar.gz"
+  sha256 "b93df6f8c67bbb1c08d4b837aa3783f6fa79d2bd69cb725744f9e01bd81aefe2"
   license "GPL-3.0"
   head "https://github.com/jopohl/urh.git"
 
@@ -12,9 +12,10 @@ class Urh < Formula
 
   bottle do
     cellar :any
-    sha256 "d236f616982bfd9dfe1b0990b4b46c240532d307419cffcc961625a62c7cc68e" => :catalina
-    sha256 "34a519bfcecfd9c648e802251b10e8a35391e2035298fe1e8f5ab01cd2eb630f" => :mojave
-    sha256 "584116a1fd9828369b4ac6c98f102654676972821371465febd46112c1bca9dc" => :high_sierra
+    sha256 "6115bada2ad182024453d7d29ea4df3e6761204a9aa5f4b598209344a7b73f48" => :big_sur
+    sha256 "f59be551336b3d01b468da371a51dc654a6833dcaf39c1f62dc3dd4e85b00aba" => :arm64_big_sur
+    sha256 "1f5710ff1c1c511793a55c7439162ba2869b58597c6336f4b0b0c2dc2d742f89" => :catalina
+    sha256 "048a777039cd82536d42b16a526171de0ddc982654f69008dfa33e282038c694" => :mojave
   end
 
   depends_on "pkg-config" => :build
@@ -22,33 +23,33 @@ class Urh < Formula
   depends_on "hackrf"
   depends_on "numpy"
   depends_on "pyqt"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/aa/3e/d18f2c04cf2b528e18515999b0c8e698c136db78f62df34eee89cee205f1/psutil-5.7.2.tar.gz"
-    sha256 "90990af1c3c67195c44c9a889184f84f5b2320dce3ee3acbd054e3ba0b4a7beb"
+    url "https://files.pythonhosted.org/packages/e1/b0/7276de53321c12981717490516b7e612364f2cb372ee8901bd4a66a000d7/psutil-5.8.0.tar.gz"
+    sha256 "0c9ccb99ab76025f2f0bbecf341d4656e9c1351db8cc8a03ccd62e318ab4b5c6"
   end
 
   def install
-    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
+    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
     resources.each do |r|
       r.stage do
-        system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
+        system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
 
     ENV.prepend_create_path "PYTHONPATH", Formula["cython"].opt_libexec/"lib/python#{xy}/site-packages"
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
 
-    system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(libexec)
+    system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(libexec)
 
     bin.install Dir[libexec/"bin/*"]
     bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
   end
 
   test do
-    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
+    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
     (testpath/"test.py").write <<~EOS
@@ -57,7 +58,7 @@ class Urh < Formula
       expected = [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0]
       assert(expected == c.crc([0, 1, 0, 1, 1, 0, 1, 0]).tolist())
     EOS
-    system Formula["python@3.8"].opt_bin/"python3", "test.py"
+    system Formula["python@3.9"].opt_bin/"python3", "test.py"
 
     # test command-line functionality
     output = shell_output("#{bin}/urh_cli -pm 0 0 -pm 1 100 -mo ASK -sps 100 -s 2e3 " \

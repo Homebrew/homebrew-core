@@ -10,6 +10,8 @@ class Dumb < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8ea105e8d30bae67ddb21a9e7eaba69cd2f372c41dd11d05f80756ec9d3fffee" => :big_sur
+    sha256 "d907efc07aefb58f43bca29a17b58957eb071c73e6aef3abd91e59687e5a78ed" => :arm64_big_sur
     sha256 "dbb9dbb86ec1c5ff1bc9da976fe3ec481888b4c3cd5cd8b10b6c803b83d934f2" => :catalina
     sha256 "e2956b48f246b68f98a5b39e81e371bd544d78b7bb0e97f5282cfc27e9b307cd" => :mojave
     sha256 "674db2be479a742057619122759da52683c74b724b3e318f2fc71a4fa6bd7287" => :high_sierra

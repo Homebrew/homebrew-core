@@ -11,6 +11,8 @@ class Dbacl < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "643c9891b075b1f8a766269cc1a9f5ec6b541e23055124f7cb2d289650bf08d0" => :big_sur
+    sha256 "267668662863b785760b49c085001924efb548d2a01e9be3a14e330233a58943" => :arm64_big_sur
     sha256 "d81fd1fc86703610737cfd9d24f8c3c8db2e97ef4148f1f7f91a43c81c8762c6" => :catalina
     sha256 "8a64ac80e91d8d5b2366046096098b851d503c58af65ef0858834c5794d039a5" => :mojave
     sha256 "42c1c03e8df0b4db91dc99ace3ec87f3901f1aa6975430d597240ab5f9182c1f" => :high_sierra

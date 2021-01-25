@@ -1,19 +1,21 @@
 class Libxcb < Formula
   desc "X.Org: Interface to the X Window System protocol"
   homepage "https://www.x.org/"
-  url "https://xcb.freedesktop.org/dist/libxcb-1.13.1.tar.bz2"
-  sha256 "a89fb7af7a11f43d2ce84a844a4b38df688c092bf4b67683aef179cdf2a647c4"
+  url "https://xcb.freedesktop.org/dist/libxcb-1.14.tar.gz"
+  sha256 "2c7fcddd1da34d9b238c9caeda20d3bd7486456fc50b3cc6567185dbd5b0ad02"
   license "MIT"
 
   bottle do
     cellar :any
-    sha256 "d94e980a6cbea6f1691809e9b504bf51b3c28d869f18f398f11fcfdabc7849e3" => :catalina
-    sha256 "c69762de3172dc88faf98a4c00f8db90ab1a367f722317d7cfa2f25b5c9aee6b" => :mojave
-    sha256 "dfb4fc4f1163c08754f4677d37e6385eea69328be7c5ce89d18a40bc1307eb49" => :high_sierra
+    sha256 "7d5c969ae5d67cba138c36d0ec758ef383763d58a615e1f0d9d8cc86c1c6d16d" => :big_sur
+    sha256 "7c30db7602fd32f2e5234a9faf9c28d9b27fa3d78afccf5a81a3e4eaaa660642" => :arm64_big_sur
+    sha256 "8775b3a19f927b57ca4077211b25898c6481318ff1cddb3098c61903ae832b1f" => :catalina
+    sha256 "8a13efa25000a0695280f5465186f7511e9083685a49560d0dc5d7cc837a1cfa" => :mojave
+    sha256 "e56b657f223ac78f4f600fe057dd8ab12303be5f4f0f5b61eb94443d10fb4cf4" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
   depends_on "xcb-proto" => :build
   depends_on "libpthread-stubs"
   depends_on "libxau"

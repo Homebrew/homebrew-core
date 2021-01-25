@@ -10,6 +10,7 @@ class TelegramCli < Formula
 
   bottle do
     rebuild 1
+    sha256 "a2cf1d0764a462e736640449bb3ca11522ec0c38a4dfb2e54ff3ccc3556f7ff9" => :big_sur
     sha256 "4c1a9d233c3b46d75badb6e89e007ff9763e55071474ce11d0e109e7ee24aefe" => :catalina
     sha256 "da9d09f1f4a317ed14c97e67fc2def18c4cd728a7023ab80424a8d548437ee74" => :mojave
     sha256 "410b56cc04620c7a1f495b500b41fa61339cc68444c1c65939bb4fb0c4cc96ef" => :high_sierra

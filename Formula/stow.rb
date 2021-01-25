@@ -12,6 +12,8 @@ class Stow < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "e2a4d5cae000bcb2a5464f618b0c1fb174f4c90f66793411ff3c3bdda0438083" => :big_sur
+    sha256 "f6dc9f73ac8ef55caa0f8204c893bf41dcdffbae22b39d95a85eee5c99507b55" => :arm64_big_sur
     sha256 "c99a90dc5e3db8ebcb017df044723fb4e6cce7fb94aa24cf46c8d2c0665bf9a0" => :catalina
     sha256 "409987564f7779d6a1db75f64e54c4713ecd9b9e006abac931f8e8d645bdac92" => :mojave
     sha256 "409987564f7779d6a1db75f64e54c4713ecd9b9e006abac931f8e8d645bdac92" => :high_sierra

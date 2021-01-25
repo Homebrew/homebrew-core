@@ -1,8 +1,8 @@
 class GitAnnex < Formula
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
-  url "https://hackage.haskell.org/package/git-annex-8.20201007/git-annex-8.20201007.tar.gz"
-  sha256 "0af92007388dbb0cbd02dc3d1565b6712bcae56de7089f31dfdff63909f3216c"
+  url "https://hackage.haskell.org/package/git-annex-8.20201129/git-annex-8.20201129.tar.gz"
+  sha256 "8324b71bafc5c30e630699534f410a9cfcfdfeed078dc62bc410f41244a1dd81"
   license all_of: ["AGPL-3.0-or-later", "BSD-2-Clause", "BSD-3-Clause",
                    "GPL-2.0-only", "GPL-3.0-or-later", "MIT"]
   head "git://git-annex.branchable.com/"
@@ -13,13 +13,13 @@ class GitAnnex < Formula
 
   bottle do
     cellar :any
-    sha256 "f2c38120494f3ad79479f71be3dea9c2d70835f4741f7b6e9895a5c134b33115" => :catalina
-    sha256 "b34d6d5111db90eef1df3557f2edc766d4e8ec77c68b16c395bd5b5c846dd81c" => :mojave
-    sha256 "0a5add918150d312a27174e8b04d0323a141cbe2db3667a8f804d50fbef1eae7" => :high_sierra
+    sha256 "0bbb56b04054ca98667fb71c8731b4d3894b436b9c04c3c030da01a6b939a7b5" => :big_sur
+    sha256 "ac8d58a49a0ea3d82e1796c33ee2e9032213db7c734dc0d12cf1bcd58e1cec13" => :catalina
+    sha256 "0235b53d49d4ba220139024aa924da0f14a12560a6beed7f1e8efa06cf5961a8" => :mojave
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@8.6" => :build
+  depends_on "ghc" => :build
   depends_on "pkg-config" => :build
   depends_on "gsasl"
   depends_on "libmagic"
@@ -74,7 +74,7 @@ class GitAnnex < Formula
     # make sure the various remotes were built
     assert_match shell_output("git annex version | grep 'remote types:'").chomp,
                  "remote types: git gcrypt p2p S3 bup directory rsync web bittorrent " \
-                 "webdav adb tahoe glacier ddar git-lfs httpalso hook external"
+                 "webdav adb tahoe glacier ddar git-lfs httpalso borg hook external"
 
     # The steps below are necessary to ensure the directory cleanly deletes.
     # git-annex guards files in a way that isn't entirely friendly of automatically

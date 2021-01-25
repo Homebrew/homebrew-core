@@ -1,19 +1,26 @@
 class Discount < Formula
   desc "C implementation of Markdown"
   homepage "https://www.pell.portland.or.us/~orc/Code/discount/"
-  url "https://www.pell.portland.or.us/~orc/Code/discount/discount-2.2.6.tar.bz2"
-  sha256 "ae68a4832ff8e620286304ec525c1fe8957be4d8f1e774588eb03d1c3deb74a7"
+  url "https://www.pell.portland.or.us/~orc/Code/discount/discount-2.2.7.tar.bz2"
+  sha256 "b1262be5d7b04f3c4e2cee3a0937369b12786af18f65f599f334eefbc0ee9508"
+  license "BSD-3-Clause"
+  head "https://github.com/Orc/discount.git"
 
+  # We check the upstream GitHub repository because the homepage doesn't always
+  # update to list the latest version in a timely manner. As of writing, the
+  # homepage has been showing an older version for months, so it doesn't seem
+  # like a reliable source for the latest version information, unfortunately.
   livecheck do
-    url :homepage
-    regex(/href=.*?discount[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t/i)
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "231a8ed8499ddec2aaad5731f273d84e5195a898f89fc7fc1548875c7fc7ddfe" => :catalina
-    sha256 "579d7cf9a3930a8b91b748de259387554d28f900d7e3bedd310f64f8d5cb291e" => :mojave
-    sha256 "c929af7cff8c87b6dcdf651009894659d3ca9ef7c21b1d935cf0889654b20a7b" => :high_sierra
+    sha256 "013c9e0bedb1a10f099e3b9a0c521c7e2f287602ae101284fc8d5bcbe76abfbf" => :big_sur
+    sha256 "6eb8a216722f471eb6475f13e7f02a079069667d9c428b93275a7424aaea9a75" => :arm64_big_sur
+    sha256 "dcec657eb504394b83d9d949f3e33463733a4410681d38826040aaf9084f8ed5" => :catalina
+    sha256 "a5848add43adaee78666b9fc29de442944066e6bcbf7d547b68346dfa665c65f" => :mojave
   end
 
   conflicts_with "markdown", because: "both install `markdown` binaries"

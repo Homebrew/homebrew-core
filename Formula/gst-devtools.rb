@@ -3,15 +3,16 @@ class GstDevtools < Formula
 
   desc "GStreamer development and validation tools"
   homepage "https://gstreamer.freedesktop.org/modules/gstreamer.html"
-  url "https://gstreamer.freedesktop.org/src/gst-devtools/gst-devtools-1.18.0.tar.xz"
-  sha256 "82337141b5654f11c440f783892ba9d9498b3b6b98c2286b000f96dce6945f16"
+  url "https://gstreamer.freedesktop.org/src/gst-devtools/gst-devtools-1.18.3.tar.xz"
+  sha256 "3025fee3607caf5069154c099533785675916e044ee92c936bbeacdda3750f26"
   license "LGPL-2.1-or-later"
-  head "https://anongit.freedesktop.org/git/gstreamer/gst-devtools.git"
+  head "https://gitlab.freedesktop.org/gstreamer/gst-devtools.git"
 
   bottle do
-    sha256 "f9f4c3b56900451560a484f7f08f566bb34c17b1bf63c32d8653851e7afe0f4c" => :catalina
-    sha256 "b38054091a5c0156951daa97288e4b6728b768774e6e479111cc3d75373f0fa8" => :mojave
-    sha256 "0c0d08f61c6c4a5589146edbdcb702831d7942c0a37b6bf64b22a30bab950828" => :high_sierra
+    sha256 "4c90295c25a0601c35262ee438eaaf9693cc0beb879fa8caab7c30be4115064c" => :big_sur
+    sha256 "a3662cb83ba270a922c7d9c24567583ed71554519f4f9e763c29d2a3ffbbd82a" => :arm64_big_sur
+    sha256 "51eca8aaf936f56140cc632f242a3124e49c4a9fcb8b44f5ae5eaf25e7936bfa" => :catalina
+    sha256 "2bc663d80768ec5c2b2ddcbbc689eea373179d2a8388f093dc2b90232fd31653" => :mojave
   end
 
   depends_on "gobject-introspection" => :build
@@ -22,7 +23,7 @@ class GstDevtools < Formula
   depends_on "gst-plugins-base"
   depends_on "gstreamer"
   depends_on "json-glib"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
     args = std_meson_args + %w[

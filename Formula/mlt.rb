@@ -1,25 +1,16 @@
 class Mlt < Formula
   desc "Author, manage, and run multitrack audio/video compositions"
   homepage "https://www.mltframework.org/"
+  url "https://github.com/mltframework/mlt/releases/download/v6.24.0/mlt-6.24.0.tar.gz"
+  sha256 "3b977c5632329fca7634d0034162df6d5b79cde3256bac43e7ba8353acced61e"
   license "LGPL-2.1-only"
-  revision 3
+  revision 1
   head "https://github.com/mltframework/mlt.git"
 
-  stable do
-    url "https://github.com/mltframework/mlt/archive/v6.22.1.tar.gz"
-    sha256 "a3debdf0b8811f0d20c902cc3df3d05dad7d3ff36d1db16c0a7338d0d5989998"
-
-    # fix compilaton with opencv4
-    patch do
-      url "https://github.com/mltframework/mlt/commit/08ed33a9551a0e4c0685e13da3b98bf37e08ecad.patch?full_index=1"
-      sha256 "86aa10881ce223f67e93ae7c051287744c01416bbc0cedf75224262b33a2175d"
-    end
-  end
-
   bottle do
-    sha256 "794d6664650f0c5215c8b22af27c26aafdfbd5665dc198f0defc12a1c869c5ef" => :catalina
-    sha256 "3d2e1ff77fba374f3b57b6e7022001fad3d294ba34ff319440c81fba01a93d56" => :mojave
-    sha256 "1b7ac52ac214cd75f5da3a91cdb4d3f8d35d451c2bb612dd2ae61a2c15274baf" => :high_sierra
+    sha256 "e11526070c750b8d4d27a3e7e7e61c74fb17c4bc95624f001876f2d2336bfd37" => :big_sur
+    sha256 "b25a49d0d108710e0defe0f8fa8662c5799140bbe0f56810ad9b9ff1652e1f1b" => :catalina
+    sha256 "0e14497ab767e5cb89bcc1b8a2f03fe80010dcc275b02c584f4cd6020def3163" => :mojave
   end
 
   depends_on "pkg-config" => :build
@@ -31,7 +22,7 @@ class Mlt < Formula
   depends_on "libexif"
   depends_on "libsamplerate"
   depends_on "libvorbis"
-  depends_on "opencv"
+  depends_on "opencv@3"
   depends_on "pango"
   depends_on "qt"
   depends_on "sdl2"
@@ -53,6 +44,6 @@ class Mlt < Formula
   end
 
   test do
-    system "#{bin}/melt", "-version"
+    assert_match "help", shell_output("#{bin}/melt -help")
   end
 end

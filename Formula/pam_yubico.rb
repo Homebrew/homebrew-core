@@ -13,6 +13,7 @@ class PamYubico < Formula
 
   bottle do
     cellar :any
+    sha256 "e4d52181c23e4dbb74d4a6a37c63bbaf13103bedc4e2b069951d70eaca3059e7" => :arm64_big_sur
     sha256 "6e4eb4afca28e15098998d561b21ab65930ab57898fcf26ed0ba657263d2f130" => :catalina
     sha256 "3679137d1149195219a4cc36154356f8d749b757d47ec7ab75850ae9eace84e8" => :mojave
     sha256 "a321eb909c66465f67e0a25e9e38df33cc2d76c6e9ac9c834cb7ba17b247597f" => :high_sierra

@@ -5,14 +5,17 @@ class Zlib < Formula
   mirror "https://downloads.sourceforge.net/project/libpng/zlib/1.2.11/zlib-1.2.11.tar.gz"
   sha256 "c3e5e9fdd5004dcb542feda5ee4f0ff0744628baf8ed2dd5d66f8ca1197cb1a1"
   license "Zlib"
+  head "https://github.com/madler/zlib.git", branch: "develop"
 
   livecheck do
-    url "https://github.com/madler/zlib.git"
+    url :head
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
     cellar :any
+    sha256 "b95aa332dfc7c6dfb5e86fd30068f78e2cf87ee0232e5bef0adddae8215f543d" => :big_sur
+    sha256 "b480ed6baf10880f61b5a3097fb0921d44466857e1dde53a09e2ae4e378b1a8c" => :arm64_big_sur
     sha256 "8ec66cf6faa310712767efc3022fdd16568a79234439f64bf579acb628f893bc" => :catalina
     sha256 "245a43a59c57f83848e7382974bb80a46eac1d53bcaefb1bdebd1f85107d4169" => :mojave
     sha256 "30548658b43cf66979f2756680fbb32d3c19c967e478ceea22d07f536b22bbce" => :high_sierra

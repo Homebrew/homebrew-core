@@ -11,6 +11,8 @@ class Libmms < Formula
   bottle do
     cellar :any
     rebuild 2
+    sha256 "49439ac923403c34c9fb042ed167a8830d424cd113303d66ed2d70f7aeb23840" => :big_sur
+    sha256 "23e8d5a9591a26c8f167f346cfd2c789f1241458338eb4ce5f90e9c440aab7f0" => :arm64_big_sur
     sha256 "15016ca7557449405339f310e6feeccbc04094702fcc7d4be53909fc738b05f4" => :catalina
     sha256 "4ac527e54af063a3fa760b1e4d43b56dd51ade89cbb971ac9bea9dd3500dfc70" => :mojave
     sha256 "adc24aaa1656c02f41b20b4453f6a2deda8f3597c919eed1ae8befb732fc920f" => :high_sierra

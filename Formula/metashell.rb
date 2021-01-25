@@ -7,6 +7,8 @@ class Metashell < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "a1fc773f5452ccb165e28e9ec0a79616c14ababc66ed3614a213bc86bbfcda84" => :big_sur
+    sha256 "3c7cbb01fe420183e802a5a974d5eea39f38333469674f8128d74db49376a726" => :arm64_big_sur
     sha256 "792f1b46b5f17933b21ec7adb62cf0b6add03ef94e8a73e5e691e12e9aa85049" => :catalina
     sha256 "4629398ca4b1bf5cf7779b8d5c9e6f066ea5e96f66063c265f0b13e106a0cba0" => :mojave
     sha256 "05387acf4adf651aaa011d02f5a08ddf49725a550440cc7eb496c1112166852b" => :high_sierra

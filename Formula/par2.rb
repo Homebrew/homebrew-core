@@ -6,12 +6,14 @@ class Par2 < Formula
   license "GPL-2.0"
 
   livecheck do
-    url "https://github.com/Parchive/par2cmdline/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8379fe417ad00b81929cef774072179d9f2497156a5b06b706a6cf182d2f93dd" => :big_sur
+    sha256 "1a31a28b5aa927f4b5fbf4778e0df5ce27e567cfd1db41f60ad5374c70a7d24b" => :arm64_big_sur
     sha256 "26609c45028599a4845f68cda2a5cd08c2a0dc37ae3987d4abf86aed99499f50" => :catalina
     sha256 "cded10d8f18c5ab236ceb624854afb672681bd1a86f21e47d70de793db378580" => :mojave
     sha256 "35477bcfecd91b7fe885739737f576b63545aab51ba997bc60f9a74927b775dc" => :high_sierra

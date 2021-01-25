@@ -6,19 +6,23 @@ class Stockfish < Formula
   license "GPL-3.0-only"
   head "https://github.com/official-stockfish/Stockfish.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+    regex(%r{href=.*?/tag/(?:sf[._-])?v?(\d+(?:\.\d+)*)["' >]}i)
+  end
+
   bottle do
     cellar :any_skip_relocation
-    sha256 "04832aaf954ad2c9f50909fc8d03958e445a9e784d4c43b04d5cdcbd8232b4dd" => :catalina
-    sha256 "a2fd4c1073710d99d49a34e4a77399915e13829dab269774beb71f48e087461f" => :mojave
-    sha256 "9c65cfd27113438abd3823e5172b58816b9081f8b41123e32da8c72d590121e2" => :high_sierra
+    rebuild 1
+    sha256 "80f4bffca9c15c8f2744876384f2a07d1184de36e67167b5730a9c7b32e11b9a" => :big_sur
+    sha256 "551132d7e63e86d86bf857b89cd6067b1c0b6461c8c2a48b9adf4edf9285ec12" => :arm64_big_sur
+    sha256 "54594ab09c5f7176a52ca9b8e1a8d937420d89f8ee98b17322a82396f88e14c2" => :catalina
+    sha256 "f0bf09f7f5b3a28debe09be7898bb6973524f13026d5c18eee6752450e778efe" => :mojave
   end
 
   def install
-    arch = if MacOS.version.requires_popcnt?
-      "x86-64-modern"
-    else
-      "x86-64"
-    end
+    arch = Hardware::CPU.arm? ? "apple-silicon" : "x86-64-modern"
 
     system "make", "-C", "src", "build", "ARCH=#{arch}"
     bin.install "src/stockfish"

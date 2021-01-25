@@ -6,11 +6,6 @@ class Libinfinity < Formula
   license "LGPL-2.1"
   revision 2
 
-  livecheck do
-    url "http://releases.0x539.de/libinfinity/"
-    regex(/href=.*?libinfinity[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     sha256 "4d367978cb9ee0612c37947080939b3006c5bb7972673cc2c6175242c5809c28" => :catalina
     sha256 "8c9bdd8c7cfb58b1f8c9ce451881c620d574ac749ff0f40e4efa87c0faebba26" => :mojave
@@ -18,16 +13,16 @@ class Libinfinity < Formula
     sha256 "6dd59d33bdc050e1e61d5a7a6efa79a83c0130c237f04c678f7e8fe6a455e4df" => :sierra
   end
 
+  # libinfinity is only used by gobby
+  # latest 0.7.1 does not work with gobby 0.5.0 due to open issue, https://github.com/gobby/gobby/issues/143
+  # gobby is disabled per #57501
+  disable! date: "2020-07-06", because: "is only used by gobby (which has been disabled)"
+
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "gnutls"
   depends_on "gsasl"
   depends_on "gtk+3"
-
-  # libinfinity is only used by gobby
-  # latest 0.7.1 does not work with gobby 0.5.0 due to open issue, https://github.com/gobby/gobby/issues/143
-  # gobby is disbled per #57501
-  disable! because: "is only used by gobby (which has been disabled)"
 
   # MacPorts patch to fix pam include. This is still applicable to 0.6.4.
   patch :p0 do
@@ -80,9 +75,11 @@ class Libinfinity < Formula
       -lgsasl
       -lgthread-2.0
       -linfinity-0.6
-      -lintl
       -lxml2
     ]
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

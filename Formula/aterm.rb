@@ -7,6 +7,8 @@ class Aterm < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "61e753af9203031d48ac690e61ba826dfa86ae26b9c2a3117caa0a1994de5cbc" => :big_sur
+    sha256 "7dda6c07018ede4897b320e3366ffbb09286150d1a03223fb921bc1f52185325" => :arm64_big_sur
     sha256 "9327ff2d137e5b01bc82a936c99bd844d29b03dc1043f9f241846564b2c78a96" => :catalina
     sha256 "302f12e90b83e896318e34a1931cdee75d7de43d1c8de9163f307a9d17f1668c" => :mojave
     sha256 "f56a13be464fa577fdad7fe82779f5e6bbe820995e1849b6741ca92807c10bf0" => :high_sierra

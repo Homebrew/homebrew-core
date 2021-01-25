@@ -8,6 +8,8 @@ class Png2ico < Formula
   bottle do
     cellar :any
     rebuild 2
+    sha256 "b1fd25cc9bdcb94af6aa9bfa1a3b3fb401561e1c923ba5d88eef9fd12dd62678" => :big_sur
+    sha256 "af73312990d3438e1a996e9f22cd034805b4851b2fa13d8fae17437e8123538b" => :arm64_big_sur
     sha256 "dfe2ebcf6a6b8c7e97e7b80c9d98aa46b27c27de7ace88464750d8db61aadf55" => :catalina
     sha256 "52180eb9b080ae4cfbe33f441e0119d2cbcd2654c2b7c7d1b37120912215df95" => :mojave
     sha256 "986b5a9efe66ddeec63f2f523a36214f0bbf3ce43a9697c83adb3c237912f38b" => :high_sierra

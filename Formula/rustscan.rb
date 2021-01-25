@@ -1,16 +1,16 @@
 class Rustscan < Formula
   desc "Modern Day Portscanner"
   homepage "https://github.com/rustscan/rustscan"
-  url "https://github.com/RustScan/RustScan/archive/1.10.1.tar.gz"
-  sha256 "fe47acf9f0fdabfc5e260b0a28cde9349acb347c4214767f89af2dfacff55717"
+  url "https://github.com/RustScan/RustScan/archive/2.0.1.tar.gz"
+  sha256 "1d458cb081cbed2db38472ff33f9546a6640632148b4396bd12f0229ca9de7eb"
   license "GPL-3.0-or-later"
-  revision 2
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "58250ffc55db4dffc1eaa2fbae4ec063dace9bbd85113de2a8d14bc592700c3d" => :catalina
-    sha256 "95aa6188106c8d0f70926ad1e31fdfaa43957a53d51e99e51dfd2b55e50015e0" => :mojave
-    sha256 "6b312149a1fd03b4e12fff33956d85b07deec6d0cee09f349ed0af25782884a5" => :high_sierra
+    sha256 "83c8a3e9b4a71e21590bd377b1db9518cb32794d341d161519e974dd3e837f2e" => :big_sur
+    sha256 "21f4b50689613475ca9194ecae3b062e874d49bb987b1949f453885360715200" => :catalina
+    sha256 "135ddda8cfa5a670c0c49e3730148e8f50dfa1b597d9bdf2c35b5fc4d5a8fd9e" => :mojave
+    sha256 "d830a6c803a7cd609c6287452f9c02bb855e1f193463b2655cc2df19e46e1f6a" => :high_sierra
   end
 
   depends_on "rust" => :build
@@ -21,7 +21,7 @@ class Rustscan < Formula
   end
 
   test do
-    assert_no_match /panic/, shell_output("#{bin}/rustscan --greppable 127.0.0.1")
-    assert_no_match /panic/, shell_output("#{bin}/rustscan --greppable 0.0.0.0")
+    assert_no_match /panic/, shell_output("#{bin}/rustscan --greppable -a 127.0.0.1")
+    assert_no_match /panic/, shell_output("#{bin}/rustscan --greppable -a 0.0.0.0")
   end
 end

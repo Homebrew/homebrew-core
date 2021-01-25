@@ -11,6 +11,8 @@ class Argtable < Formula
 
   bottle do
     cellar :any
+    sha256 "b5bd39e72d347c2b73845caefb3c44cb9988f3b35ea4fe4b43e765e292b28de4" => :big_sur
+    sha256 "ef0f7424fe4d4ec76d19cfaa8a7d4ceda2abcdd13942939f2f708c57b878de1f" => :arm64_big_sur
     sha256 "29bfa5bfd7e897512347ecf664c3e3a9bbe7ec585115c09167ca8b6c312be9d6" => :catalina
     sha256 "61ec2ac4b9e65f7965931dfd983848fae06130686c4f800eb9341f96a6f6d398" => :mojave
     sha256 "e68b3df66d638a024c3b57b069bcdebfbdabb230a9c851de886321c2b3df7099" => :high_sierra

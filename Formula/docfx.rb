@@ -1,8 +1,8 @@
 class Docfx < Formula
   desc "Tools for building and publishing API documentation for .NET projects"
   homepage "https://dotnet.github.io/docfx/"
-  url "https://github.com/dotnet/docfx/releases/download/v2.56.4/docfx.zip"
-  sha256 "4ed09c7e6dfed3a579a8a3d1678db270211064a1ffc884e865b7a74ad1adfb27"
+  url "https://github.com/dotnet/docfx/releases/download/v2.56.6/docfx.zip"
+  sha256 "1d5a205dd93e6a9fc457677fbe7bfca5507af3e1c702f644011b4b29d1a67d16"
   license "MIT"
 
   bottle :unneeded

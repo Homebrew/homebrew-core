@@ -6,13 +6,15 @@ class Alot < Formula
   url "https://github.com/pazz/alot/archive/0.9.1.tar.gz"
   sha256 "ee2c1ab1b43d022a8fe2078820ed57d8d72aec260a7d750776dac4ee841d1de4"
   license "GPL-3.0"
+  revision 1
   head "https://github.com/pazz/alot.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cca5bf15902a29f1160c3b8b9e6f9735332ee6d7a104af00b30c607854e2c9a4" => :catalina
-    sha256 "393a400bace4c3b8b40ec6cf0dd05c40ad5951d0058ed0a4ac28a15ecd1cfb56" => :mojave
-    sha256 "eac11abd553dd7f75db76aba7edf0875c35b2f30b4a23d6e761e7cd3f0f88487" => :high_sierra
+    sha256 "dd103cfc441ae5b5b4d7897d5cbf9f7e25b54e300a8fa4c7dda89f9c2018bd2d" => :big_sur
+    sha256 "0520e61b1690100b7d07128228a5b3fb134e9376a41062e9dd1f09ee75fac0cf" => :catalina
+    sha256 "3398a81c4ac4e39b95c2fcec3a856eac4a815f134fd580c762a58cc9e3ee761f" => :mojave
+    sha256 "b12fe26e7ba15d224db24d07b06b8655f9d9fb856200c27fb74981a8eed938a8" => :high_sierra
   end
 
   depends_on "sphinx-doc" => :build
@@ -20,7 +22,7 @@ class Alot < Formula
   depends_on "gpgme"
   depends_on "libmagic"
   depends_on "notmuch"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/98/c3/2c227e66b5e896e15ccdae2e00bbc69aa46e9a8ce8869cc5fa96310bf612/attrs-19.3.0.tar.gz"

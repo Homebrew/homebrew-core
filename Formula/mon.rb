@@ -8,6 +8,8 @@ class Mon < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "6530e73e7a94297f2646a079361df7076cbc6a881b5baf227a703f1edd92cecc" => :big_sur
+    sha256 "65f144b16a687002f9d30ac665886aa8b06bb914e4ff0fe04e692a6a153eb76b" => :arm64_big_sur
     sha256 "becdcce9ec6a3ec5156cf27db02c50c26e99a9db9626c864abf9eb2f178ea57e" => :catalina
     sha256 "ac4640eab6cb255b7cc14f7009b5e8c5a18f9b623559950a1e6d55eb134d483e" => :mojave
     sha256 "66fe59cb8307fd1371885fe1739a824d01becb1644a8480f8e27584726494f09" => :high_sierra

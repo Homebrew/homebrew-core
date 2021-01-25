@@ -8,12 +8,15 @@ class Opam < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f159a779ee6521c95c06b382fbea72bd1cedf6463d9be8bc85f5cfac4ef16b0d" => :catalina
-    sha256 "fec93e54a1a635c7d2b5ca4acfbd051665a606f6760b5336b846b23ca8663e23" => :mojave
-    sha256 "5fef1c5aca812af337373a34b9a97e2f0bd7bf3f22a36c3d184af73a4c2ea7f7" => :high_sierra
+    rebuild 1
+    sha256 "34baee7b82515f19b8b5163bb8dd410128519e67635c079e392fc35b4625deb9" => :big_sur
+    sha256 "2b1115dfcdfe71a806d07da60597a76f0e531c828e33e2c2c9901b0ef343c285" => :catalina
+    sha256 "39900786c86d1534586d261ced1876e9d0a90d119d41b37ba7eb2fbed948c033" => :mojave
+    sha256 "2d363ac12943a0505c55b9fe3249a5f12b37d666d6b811e374908ae2cbd22626" => :high_sierra
   end
 
   depends_on "ocaml" => [:build, :test]
+  depends_on "gpatch"
 
   uses_from_macos "unzip"
 

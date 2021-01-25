@@ -8,6 +8,7 @@ class Jsonpp < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "3711ce93b4d3874fbfe7967755b587f5787534dbdc12ab6f36eea6a41b54b712" => :big_sur
     sha256 "2b84ea4f8d4a4177064c1fbf024876439175c4e8c6576b33f93399c72afe3a5a" => :catalina
     sha256 "7c8dd8c69321e42c29e075a658840167138d16820ba6a0dd5f2f2425c87a569b" => :mojave
     sha256 "d81995103192bb58f66d7089939eb6682f117a7044d3a84804db62b4c31a3c81" => :high_sierra

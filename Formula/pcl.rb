@@ -4,17 +4,19 @@ class Pcl < Formula
   url "https://github.com/PointCloudLibrary/pcl/archive/pcl-1.11.1.tar.gz"
   sha256 "a61558e53abafbc909e0996f91cfd2d7a400fcadf6b8cfb0ea3172b78422c74e"
   license "BSD-3-Clause"
-  revision 5
+  revision 6
   head "https://github.com/PointCloudLibrary/pcl.git"
 
   bottle do
-    sha256 "4f30eecbee45043aa60e6b31d19d3ab012299a59ab1ac0fd816679fc3a412476" => :catalina
-    sha256 "332c08a85c3e459650c6be71f4e849b964a93ac918264bbda41c3bb0befefefe" => :mojave
-    sha256 "d5c26da04bbc6ef6b9bbcbb08b81feca2f6ac4decc20641d77946069931623f4" => :high_sierra
+    rebuild 2
+    sha256 "28d8084197443d83e2c645397f1ac02424a23a796d43c83818fc776504c5ff7e" => :big_sur
+    sha256 "1c063e5e8337be6c1f6f5ae157d667c35975f71f6fae04a442b8e744d3107d32" => :arm64_big_sur
+    sha256 "6fd5dffa364e69965ddc84b2567a9b5652c88f2fb9014f6a3bbc1d8fb612f089" => :catalina
+    sha256 "53a69083aa676db47ad798d9d519f6c7db2fd85e6eed02c463add06a7c0485ea" => :mojave
   end
 
   depends_on "cmake" => [:build, :test]
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => [:build, :test]
   depends_on "boost"
   depends_on "cminpack"
   depends_on "eigen"
@@ -98,6 +100,10 @@ class Pcl < Formula
       }
     EOS
     mkdir "build" do
+      # the following line is needed to workaround a bug in test-bot
+      # (Homebrew/homebrew-test-bot#544) when bumping the boost
+      # revision without bumping this formula's revision as well
+      ENV.prepend_path "PKG_CONFIG_PATH", Formula["eigen"].opt_share/"pkgconfig"
       system "cmake", "..", *std_cmake_args
       system "make"
       system "./pcd_write"

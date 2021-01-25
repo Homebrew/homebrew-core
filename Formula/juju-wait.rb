@@ -14,6 +14,8 @@ class JujuWait < Formula
 
   bottle do
     cellar :any
+    sha256 "6e73b48dd92446f5cb69ec22117b9907aeff53ea52524fc5a2a095425430e5a3" => :big_sur
+    sha256 "e6b5a2374dcc6b496d184050039dcb233fdc695219518949ccb7b9d65ca98ef6" => :arm64_big_sur
     sha256 "82f581e595e843682782737000c28646f59ce7ceda2572a094c616aeddf26709" => :catalina
     sha256 "3d09fe21c6290f6a055cae35c06e4cdd7682111b295eea2551430df1f618b3d0" => :mojave
     sha256 "5d6a6e8f8fe65ec7f7e0b132b75d85d3b918ec850f9f9b8d0f5742ab6d37f552" => :high_sierra
@@ -33,7 +35,7 @@ class JujuWait < Formula
   end
 
   test do
-    # Note: Testing this plugin requires a Juju environment that's in the
+    # NOTE: Testing this plugin requires a Juju environment that's in the
     # process of deploying big software. This plugin relies on those application
     # statuses to determine if an environment is completely deployed or not.
     system "#{bin}/juju-wait", "--version"

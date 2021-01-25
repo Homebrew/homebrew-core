@@ -1,8 +1,4 @@
-require "language/haskell"
-
 class GhcAT88 < Formula
-  include Language::Haskell::Cabal
-
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
   url "https://downloads.haskell.org/~ghc/8.8.4/ghc-8.8.4-src.tar.xz"
@@ -11,6 +7,7 @@ class GhcAT88 < Formula
   revision 1
 
   bottle do
+    sha256 "78a806d8c18645588e55422e2d67e19f1caaf8e869e98c7327a716a1ead63926" => :big_sur
     sha256 "de4d4235c849b5c8f07a3b4604b1e1e3c50b88f0deb4e97f9846ab8dde0d5d56" => :catalina
     sha256 "96b82af24e29043cd4f4c66b6871d40913ac58e30e2c0fced9ca3cc043408778" => :mojave
     sha256 "9d5a52d029125c10744cf20c500ff84d9602fd32f6d81e9ca0137aba508a7ec8" => :high_sierra
@@ -20,6 +17,7 @@ class GhcAT88 < Formula
 
   depends_on "python@3.9" => :build
   depends_on "sphinx-doc" => :build
+  depends_on arch: :x86_64
 
   resource "gmp" do
     url "https://ftp.gnu.org/gnu/gmp/gmp-6.1.2.tar.xz"
@@ -63,21 +61,6 @@ class GhcAT88 < Formula
     args = ["--with-gmp-includes=#{gmp}/include",
             "--with-gmp-libraries=#{gmp}/lib"]
 
-    # As of Xcode 7.3 (and the corresponding CLT) `nm` is a symlink to `llvm-nm`
-    # and the old `nm` is renamed `nm-classic`. Building with the new `nm`, a
-    # segfault occurs with the following error:
-    #   make[1]: * [compiler/stage2/dll-split.stamp] Segmentation fault: 11
-    # Upstream is aware of the issue and is recommending the use of nm-classic
-    # until Apple restores POSIX compliance:
-    # https://ghc.haskell.org/trac/ghc/ticket/11744
-    # https://ghc.haskell.org/trac/ghc/ticket/11823
-    # https://mail.haskell.org/pipermail/ghc-devs/2016-April/011862.html
-    # LLVM itself has already fixed the bug: llvm-mirror/llvm@ae7cf585
-    # rdar://25311883 and rdar://25299678
-    if DevelopmentTools.clang_build_version >= 703 && DevelopmentTools.clang_build_version < 800
-      args << "--with-nm=#{`xcrun --find nm-classic`.chomp}"
-    end
-
     resource("binary").stage do
       binary = buildpath/"binary"
 
@@ -85,22 +68,6 @@ class GhcAT88 < Formula
       ENV.deparallelize { system "make", "install" }
 
       ENV.prepend_path "PATH", binary/"bin"
-    end
-
-    if build.head?
-      resource("cabal").stage do
-        system "sh", "bootstrap.sh", "--sandbox"
-        (buildpath/"bootstrap-tools/bin").install ".cabal-sandbox/bin/cabal"
-      end
-
-      ENV.prepend_path "PATH", buildpath/"bootstrap-tools/bin"
-
-      cabal_sandbox do
-        cabal_install "--only-dependencies", "happy", "alex"
-        cabal_install "--prefix=#{buildpath}/bootstrap-tools", "happy", "alex"
-      end
-
-      system "./boot"
     end
 
     system "./configure", "--prefix=#{prefix}", *args

@@ -8,6 +8,7 @@ class Enigma < Formula
 
   livecheck do
     url :stable
+    regex(%r{url=.*?/enigma[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
   bottle do

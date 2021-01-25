@@ -12,6 +12,8 @@ class FreeradiusServer < Formula
   end
 
   bottle do
+    sha256 "d5870925f8214783c694f3c359d75a816c40f2e76ce0c0e7443357603cd0193e" => :big_sur
+    sha256 "4721314881382789163f956e5ab1edba62d3984a2d5b2ee714f57ed695ad03a4" => :arm64_big_sur
     sha256 "c3174a08eaeabce252f16224d93fcb1503584ac6b2d7733a6e80eb558cfefee5" => :catalina
     sha256 "4c4dc47fe8af598594c4dd24184f7b5400e383e7649c6f6aa98f1663997b04ec" => :mojave
     sha256 "2c8d33eddc1311f098175f2854173bbd4181d9f20fa0d1807950a84198fca6e1" => :high_sierra

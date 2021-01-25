@@ -7,6 +7,7 @@ class Polyml < Formula
   head "https://github.com/polyml/polyml.git"
 
   bottle do
+    sha256 "f1f5c8dfdf185d5fc562d3fdc80f30cd646bce0dde7cb9381a731372b22ff11b" => :big_sur
     sha256 "22f583ec73be6a469af9adff8eb3e3bc7b7ad7b40db56c16a91569f3d2097dbc" => :catalina
     sha256 "65a6a917d00e9bfb09705833ac96584f3e503edb3342c7203b083f17c8103d97" => :mojave
     sha256 "1f0d015938e838043ab26bffb144a2abe0cf5ad5944514c1a8497d79f02dbede" => :high_sierra

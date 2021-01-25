@@ -10,6 +10,8 @@ class Bitchx < Formula
   end
 
   bottle do
+    sha256 "5c97a97f3f4633129252dbe9691dbfd23960469fca3214326f465cb94f2089dd" => :big_sur
+    sha256 "628166ae821a5f6e24e522aacf347d3789f4c16deeb060e234ba333432ee6dd7" => :arm64_big_sur
     sha256 "9e24f64d188be8be36054aad67ead05bffd2f1b5a7c6bef6bc9f98f7ea92fb87" => :catalina
     sha256 "52939d589b5697402b6b5c658ab065651ac1943e8c7c7c9798aca5f76790be00" => :mojave
     sha256 "0a021e6d01b7f7d4ee9d048459ab7367b48da791896b2edeb96e270b196ff202" => :high_sierra

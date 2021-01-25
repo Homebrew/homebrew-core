@@ -13,6 +13,8 @@ class Plank < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ea5dbcccb44df98be951af22f29b81b24bdba7731f88a472708fe7c5bc3d53e3" => :big_sur
+    sha256 "ba560dc8f11ecdeef3e745cc00a0b7f6cae8074d4cfff100f43227e548c5db7a" => :arm64_big_sur
     sha256 "fc6838079a8a975c9bb77d17a050aa722d8446fcf9f62ca9fe09c8822d8651b4" => :catalina
     sha256 "04d2dddb094914fa219304fea8f6e5aa3315c2e51b63ef4077fcf25a54c8b268" => :mojave
   end

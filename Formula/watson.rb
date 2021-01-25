@@ -15,6 +15,8 @@ class Watson < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "1bcccec3931eb5ba2ae34d3d43ba2862d80c12974e34e1fb86fcc30f03cbde08" => :big_sur
+    sha256 "bbacc9c9851817a475dffab977b811aae3e458ec44764cc913c6e5e7a695a0cf" => :arm64_big_sur
     sha256 "66987a4358988a3de67d3f1d95c14f396d43d417f566b7e4747939374abfa011" => :catalina
     sha256 "ab7d7da5d7c96d4838fc631b648ab627fdd998909e34aa20d35723afb87f94d1" => :mojave
     sha256 "2dd361ff58ad7182aff12325fa5399afb667cee4d7a0d49beeb9c0cc5e906e39" => :high_sierra

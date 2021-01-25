@@ -6,6 +6,7 @@ class Breezy < Formula
   url "https://files.pythonhosted.org/packages/bf/52/2639c0653b0e64e49a6cae3a6b6f115e277ccbae47779af798fd903be6cb/breezy-3.1.0.tar.gz"
   sha256 "1eff207403f48898fa3b3ffa7a4275197c6c58fec105ef267caf1f5fd5a6c7be"
   license "GPL-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -13,16 +14,17 @@ class Breezy < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "62d9eebeddd2d53cc2fd55a8279ef68569432e9efafd808c80b32960221d4591" => :catalina
-    sha256 "351b1dd293f3be714605174c0f1cd4d2baade3679a6f57b00c97b4f085d2291d" => :mojave
-    sha256 "3e8d6bc11b32867e0243b9459981358cdf3628314e89e3927b3cfb9fb1f767f8" => :high_sierra
+    sha256 "573375e163fbfa507e6fbd20e52559b30ca1c97ba8ef2f45eecc3b4ae8b4bb0d" => :big_sur
+    sha256 "3b56b4e6ac7ad2470781467392aa0018754fc03e4f84bfee2d93a00e64c33afe" => :arm64_big_sur
+    sha256 "1a5f132188241df2ada428e97f0dc09712b9bbf803dc4ea974e07b38f9ddc247" => :catalina
+    sha256 "ef7f756a7ff7beb049bde8f7a9e41eba5cc2f331c7efdb9d8b5d8ff419836384" => :mojave
+    sha256 "d818d00021c542d21438b4014f5e9461378144de16d2525c52868d5d2998922c" => :high_sierra
   end
 
   depends_on "cython" => :build
   depends_on "gettext" => :build
   depends_on "openssl@1.1"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/40/a7/ded59fa294b85ca206082306bba75469a38ea1c7d44ea7e1d64f5443d67a/certifi-2020.6.20.tar.gz"

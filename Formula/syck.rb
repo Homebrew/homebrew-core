@@ -12,6 +12,8 @@ class Syck < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "bd7841201573c4b79fc9f28a1b5a981fb138553e5a3fc8712ccba26b16059504" => :big_sur
+    sha256 "00e98131174e989c13cde7eb0564b19581f0a60f0a5786c39d017ba7cd1ae893" => :arm64_big_sur
     sha256 "cc1bf3857c3d847854b54f45a25c5b1696c811f369c811521a07e2f5a4431e81" => :catalina
     sha256 "4baab04685bbb2fb536170a1bd069cfdec7fb5b2bc802ce6a80a4be933d8530a" => :mojave
     sha256 "a5a983847ae0e83a5f1d83adac736c602f7cce9ae00b9700d81ed766b4fe54bb" => :high_sierra

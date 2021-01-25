@@ -10,6 +10,8 @@ class Avanor < Formula
   end
 
   bottle do
+    sha256 "fe8fbd3aed29fc9c50753000036d9c13b5e8732f687d71b061d954e83517d403" => :big_sur
+    sha256 "6c2ae364f9e7c7ce1f3876a4ce9acb53489e9a17221646f004895ccd239e4646" => :arm64_big_sur
     sha256 "ecaf9be2ed4f7fac2f5cff16be121214bbbfd44477a5f3f5287ce26da94fed3e" => :catalina
     sha256 "ca4aef9b5bceb8f3dddd89f58846f4d9cfbddf2f108a7e8e39d262e92ea9bac4" => :mojave
     sha256 "d99615cac684c32894df532e78452b2542ba857ce69fa58d39e54bcc2fe4ca4a" => :high_sierra

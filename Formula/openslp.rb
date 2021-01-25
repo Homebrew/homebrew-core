@@ -9,6 +9,7 @@ class Openslp < Formula
   end
 
   bottle do
+    sha256 "3cc88f489dfe6e4e9566608ace194fb8e09a8cb28f80947d7454f03494d76341" => :big_sur
     sha256 "fee6eb82ad60bf1446278498ff8860584dcd2192a7505f3c57eec2bab55f337f" => :catalina
     sha256 "948182086a86baa001d9b8864715c91d5d9b9ec76ba7c072667dc0d58e983d12" => :mojave
     sha256 "3a933a2c697a2b7a00d9b1f9cc3a58664c43c18f7b4ff3d99afa7bc11d721da5" => :high_sierra

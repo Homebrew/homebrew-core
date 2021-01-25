@@ -9,6 +9,8 @@ class Fmdiff < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 2
+    sha256 "bf75678c84061a3bdcf2c0865bfa87c4453007abf21b3dad875f737ae48922b6" => :big_sur
+    sha256 "a49b1ebc974dfdea7865f1a4177f57fd85b64a138ab6273cd825e3739c9517cf" => :arm64_big_sur
     sha256 "4dc5d4eed6916cab57ab1350c7623014c1f2136b69dcb5593c9e344b86328f6c" => :catalina
     sha256 "4c5fb2bb25510c7269a40ef77d55a3d7e52377db2a012d60c3003a9512616314" => :mojave
     sha256 "03bf7b7acda053f3b96de99591fb97cef678297941eab37f52802a3c2734afdd" => :high_sierra

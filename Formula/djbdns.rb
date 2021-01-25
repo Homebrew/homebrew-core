@@ -6,6 +6,8 @@ class Djbdns < Formula
 
   bottle do
     rebuild 3
+    sha256 "1231622a14007c9ec76ef137a5e1a42a30ce4192b0fbba0cf768f981090059ce" => :big_sur
+    sha256 "62ab5e22e0c15787a98c84f23905dd569067cd4376dc8c472509ac5ee5d24955" => :arm64_big_sur
     sha256 "5b473b664d7370f2e838bd496555841e20a8ef13aaeee6b312fc6501911b7fe0" => :catalina
     sha256 "b57557c57ac07e053f78b2e73aed4cc9ec72a0c89d68e4ca8bc1dd3b2b9cddba" => :mojave
     sha256 "f6555710c361d47fabfeeb6d8148b84c3a7e973ba4407def4f0a37e327ac3a5b" => :high_sierra

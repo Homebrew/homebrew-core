@@ -8,6 +8,8 @@ class Taglib < Formula
 
   bottle do
     cellar :any
+    sha256 "403004b0afd61b06a1e018a20d2e7760f04daa78d262996e317d47051a57ee11" => :big_sur
+    sha256 "1345e85f67a1246d97fb16bc3c30db0a5e2ae469995261fbea632df757598975" => :arm64_big_sur
     sha256 "678392b9ac6fbc17a70433b5a98630ccbfa0b71eb1475402d826e4052086f246" => :catalina
     sha256 "98f103a3174694dd9ff58661cb83c08180049681ac1768b55b447dd99874150d" => :mojave
     sha256 "14e9be9fd1d5a86615d8b2b6ac51893eb6fab0eb6100f44547d297ccadc4497e" => :high_sierra

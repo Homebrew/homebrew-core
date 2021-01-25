@@ -11,6 +11,8 @@ class Gpp < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "78cea18184e8b89cdf57b98095da58be0aed6931d9015f346b59972416aab72b" => :big_sur
+    sha256 "614ed514c4443f444c66ba9f7da0a17ec8f3e2abb2469898e2c148462755893f" => :arm64_big_sur
     sha256 "f6dcf32a23b4dfab4c9fa231757f87a9eb8f4ea2fcd4e8146a02e8afe22b38cc" => :catalina
     sha256 "54f5f9b098335023273291b6ec95615148ab3fa02039a0d7c1645cd59d0eb134" => :mojave
     sha256 "d56879d518d9924d17327594b31501c8ea4eaa58295e12ae41fc74156cffc179" => :high_sierra

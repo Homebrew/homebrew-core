@@ -6,6 +6,7 @@ class Libgccjit < Formula
   license "GPL-3.0-or-later" => {
     with: "GCC-exception-3.1",
   }
+  revision 1
   head "https://gcc.gnu.org/git/gcc.git"
 
   livecheck do
@@ -14,9 +15,10 @@ class Libgccjit < Formula
   end
 
   bottle do
-    sha256 "4cf030080128753ca81ef1fd8a719435902b9153bc6549e6fa6cdafecebb2f49" => :catalina
-    sha256 "af284969d6667e78eb576672a76ad80e7c23979cfdf91b3daad6873521aed1ba" => :mojave
-    sha256 "c42884567811a2aae043a8fa44cbefe71da5bf2309e5e1489a22034b65736a19" => :high_sierra
+    rebuild 1
+    sha256 "84b3e7df022c08bd70d96a3897ef0391e48b8e796c49f6600e3b82b65e1120e6" => :big_sur
+    sha256 "014c277de860ab4862ef33a056c559d62693a06f1667ca0b267349ec8f58ddf0" => :catalina
+    sha256 "3b40caf5f7bb340467374f4f020028d1450226436a72290db55ed5eb5a3bfb3b" => :mojave
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -86,7 +88,7 @@ class Libgccjit < Formula
 
     # We only install the relevant libgccjit files from libexec and delete the rest.
     Dir["#{prefix}/**/*"].each do |f|
-      rm_rf f unless File.directory?(f) || File.basename(f).to_s.start_with?("libgccjit")
+      rm_rf f if !File.directory?(f) && !File.basename(f).to_s.start_with?("libgccjit")
     end
   end
 

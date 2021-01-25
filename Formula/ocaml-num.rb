@@ -1,16 +1,15 @@
 class OcamlNum < Formula
   desc "OCaml legacy Num library for arbitrary-precision arithmetic"
   homepage "https://github.com/ocaml/num"
-  url "https://github.com/ocaml/num/archive/v1.3.tar.gz"
-  sha256 "4f79c30e81ea9553c5b2c5b5b57bb19968ccad1e85256b3c446b5df58f33e94d"
+  url "https://github.com/ocaml/num/archive/v1.4.tar.gz"
+  sha256 "015088b68e717b04c07997920e33c53219711dfaf36d1196d02313f48ea00f24"
   license "LGPL-2.1"
-  revision 2
 
   bottle do
     cellar :any
-    sha256 "545f99711189baa3a903adc55ac696aa75dd954298fd6135edf11d2a4047dc3b" => :catalina
-    sha256 "26022dbe85f98f4f051dd33e1743ac7e631320a4a31583b825dcdfd69731fd5b" => :mojave
-    sha256 "50101019c768a94a15f1b387464b2280f7c8e0db8e1e1349bca070a9fb4506ba" => :high_sierra
+    sha256 "88c24c066deb255c20828f2032bbecf933a34acacb9fae21c99ba9ecd84f4449" => :big_sur
+    sha256 "54316af07e7b15e62d3ceadf03d71b9e1d1f8e15a0fc47bf832f7cf63de37168" => :catalina
+    sha256 "f2b4af09509f397488df55e809f90addde660c04322691cddf89de5e3934a35e" => :mojave
   end
 
   depends_on "ocaml-findlib" => :build
@@ -23,8 +22,9 @@ class OcamlNum < Formula
     cp Formula["ocaml"].opt_lib/"ocaml/Makefile.config", lib/"ocaml"
 
     # install in #{lib}/ocaml not #{HOMEBREW_PREFIX}/lib/ocaml
-    inreplace lib/"ocaml/Makefile.config", /^prefix=#{HOMEBREW_PREFIX}$/,
-                                           "prefix=#{prefix}"
+    inreplace lib/"ocaml/Makefile.config" do |s|
+      s.change_make_var! "prefix", prefix
+    end
 
     system "make"
     (lib/"ocaml/stublibs").mkpath # `make install` assumes this directory exists

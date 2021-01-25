@@ -3,11 +3,13 @@ class Depqbf < Formula
   homepage "https://lonsing.github.io/depqbf/"
   url "https://github.com/lonsing/depqbf/archive/version-6.03.tar.gz"
   sha256 "9684bb1562bfe14559007401f52975554373546d3290a19618ee71d709bce76e"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
   head "https://github.com/lonsing/depqbf.git"
 
   bottle do
     cellar :any
+    sha256 "e86513b7cd6ad6ac68c7aa8a1738d8586fe6e20a7a46237dcbc3d54d735ff6d0" => :big_sur
+    sha256 "afc477a7b941f95abf0a3e7db86d60b2ee9ef9e8b2f4ecb84d84044a9dbb0bdf" => :arm64_big_sur
     sha256 "432518e2ccee50695a9e79b4fe558142d78945ef96fcdbf7cccf090d72ec6543" => :catalina
     sha256 "210b2363035bf7772b275036b26938a8a286da0ddbd93d29a72cbbcb16237c23" => :mojave
     sha256 "7c956f3b4e86d6f60e90dde3e25f6b5ce75f2ba75e756c9e4dd6debe46d2ddea" => :high_sierra
@@ -31,7 +33,13 @@ class Depqbf < Formula
     (buildpath/"picosat-960").install resource("picosat")
     system "./compile.sh"
     bin.install "depqbf"
-    lib.install "libqdpll.a", "libqdpll.1.0.dylib"
+    lib.install "libqdpll.a"
+    on_macos do
+      lib.install "libqdpll.1.0.dylib"
+    end
+    on_linux do
+      lib.install "libqdpll.so.1.0"
+    end
   end
 
   test do

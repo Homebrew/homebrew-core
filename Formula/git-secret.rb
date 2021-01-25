@@ -5,15 +5,16 @@ class GitSecret < Formula
   head "https://github.com/sobolevn/git-secret.git"
 
   stable do
-    url "https://github.com/sobolevn/git-secret/archive/v0.3.2.tar.gz"
-    sha256 "07b32b096e5ff5b4818096b1858c1f69df4684bb0f256e620514cf88f44ded85"
+    url "https://github.com/sobolevn/git-secret/archive/v0.3.3.tar.gz"
+    sha256 "d8c19a5cbd174e95484a4233605985dd3b060a8a83d14d41c3bad1d534c6ab39"
   end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2fb53e4162baa1e614c3d73dbb24257604cf8b7864f73deeba21c784c6434193" => :catalina
-    sha256 "2fb53e4162baa1e614c3d73dbb24257604cf8b7864f73deeba21c784c6434193" => :mojave
-    sha256 "2fb53e4162baa1e614c3d73dbb24257604cf8b7864f73deeba21c784c6434193" => :high_sierra
+    sha256 "798cb8d91b23ac5ad8f8c4b2b74ddb2b531b4f6e3302d846f99f673b46558889" => :big_sur
+    sha256 "ec659e8eeebebff9eede384309558a94117185e9274699225da85762df656552" => :arm64_big_sur
+    sha256 "5680327a70bdc617206c09148e3c7107b10c1069fb31ef705369399c5ce09f8c" => :catalina
+    sha256 "39e2b5c3a4310bd28780e90d36f9a1efeff8f7397364306747416c3cef8faeba" => :mojave
   end
 
   depends_on "gawk"

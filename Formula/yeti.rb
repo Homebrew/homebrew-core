@@ -13,8 +13,10 @@ class Yeti < Formula
     sha256 "1c49573337d0ca872a060038e3c7e5496d02b025e442c062314d98a786ab708a" => :high_sierra
   end
 
+  deprecate! date: "2020-11-13", because: :does_not_build
+
   depends_on "ant" => :build
-  depends_on java: "1.8"
+  depends_on "openjdk@8"
 
   def install
     system "ant", "jar"

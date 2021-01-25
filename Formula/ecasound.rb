@@ -5,6 +5,7 @@ class Ecasound < Formula
   sha256 "468bec44566571043c655c808ddeb49ae4f660e49ab0072970589fd5a493f6d4"
 
   bottle do
+    sha256 "d3a693686266e5570afbd54ecaede7930145c6a69461e7839c97857b373c63f6" => :big_sur
     sha256 "f6fede56fea73bdfd32cebd514448b50dec47542ff7d76342f950a61160a9fff" => :catalina
     sha256 "38869046308b12e2d722f1bcb5e9a7085ffab93448e0490b161a6d18fc2fbd09" => :mojave
     sha256 "9dd2864d7b5a66bf3a7fc674b64a11d3cb1abeaf9fc4c65dd8898a2724c1a5a8" => :high_sierra

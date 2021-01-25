@@ -2,18 +2,17 @@ class Pcrexx < Formula
   desc "C++ wrapper for the Perl Compatible Regular Expressions"
   homepage "https://www.daemon.de/PCRE"
   url "https://www.daemon.de/idisk/Apps/pcre++/pcre++-0.9.5.tar.gz"
+  mirror "https://distfiles.openadk.org/pcre++-0.9.5.tar.gz"
   sha256 "77ee9fc1afe142e4ba2726416239ced66c3add4295ab1e5ed37ca8a9e7bb638a"
-  license "LGPL-2.1"
+  license "LGPL-2.1-only"
 
   bottle do
     cellar :any
-    sha256 "61b2942fa6a519289532736eaaa9754f8d0020ffca215eb8ba18324ed1682ab0" => :catalina
-    sha256 "74eb2f78269663a150978c7a221af9bb453c459f14838cbe551f9b25cba222ce" => :mojave
-    sha256 "65018b1dd42de0fc89e533f5343754cf8b07e0b989d0fc1820483fd76a36caab" => :high_sierra
-    sha256 "04da88d9c66600d7f636106f00b496e90fbd213431b7c4a2c20cc43f7e206a21" => :sierra
-    sha256 "5c30b4cbf987ad3b9a05521f83c672419b636277714838b6f7dee5a656c9868b" => :el_capitan
-    sha256 "c883ed380b38f020e7383643fedf80f4bad9ed1205592fe8127423e340c02c05" => :yosemite
-    sha256 "fd7050ff36dbb4c5605a4f0a9bb5d5de3ea01e6b959dd2026297a9ae35b99f51" => :mavericks
+    rebuild 2
+    sha256 "0b05be19479fa7181d354dfafc905f874a17c3135170bedfc324fe0873e113c4" => :big_sur
+    sha256 "1232e288cacfd0124da243208e1584caf1925be4dcdcc7b94b96585fb50bfabf" => :arm64_big_sur
+    sha256 "15b001d9d01f073cb76772112bc6b3ebac92a3337b19c6dee4eb54d39fe9b6f6" => :catalina
+    sha256 "fdaf9cab000ba7b2f7787acd98e53aa3cade6e6536c0c0ec32a010ecade2cb53" => :mojave
   end
 
   depends_on "autoconf" => :build
@@ -26,6 +25,10 @@ class Pcrexx < Formula
 
   def install
     pcre = Formula["pcre"]
+    # Don't install "config.log" into doc/ directory.  "brew audit" will complain
+    # about references to the compiler shims that exist there, and there doesn't
+    # seem to be much reason to keep it around
+    inreplace "doc/Makefile.am", "../config.log", ""
     system "autoreconf", "-fvi"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
@@ -47,6 +50,31 @@ class Pcrexx < Formula
       pcre in case-insensitive file system.  Please use "man pcre++"
       instead.
     EOS
+  end
+
+  test do
+    (testpath/"test.cc").write <<~EOS
+      #include <pcre++.h>
+      #include <iostream>
+
+      int main() {
+        pcrepp::Pcre reg("[a-z]+ [0-9]+", "i");
+        if (!reg.search("abc 512")) {
+          std::cerr << "search failed" << std::endl;
+          return 1;
+        }
+        if (reg.search("512 abc")) {
+          std::cerr << "search should not have passed" << std::endl;
+          return 2;
+        }
+        return 0;
+      }
+    EOS
+    flags = ["-I#{include}", "-L#{lib}",
+             "-I#{Formula["pcre"].opt_include}", "-L#{Formula["pcre"].opt_lib}",
+             "-lpcre++", "-lpcre"] + ENV.cflags.to_s.split
+    system ENV.cxx, "-o", "test_pcrepp", "test.cc", *flags
+    system "./test_pcrepp"
   end
 end
 

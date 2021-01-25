@@ -1,8 +1,8 @@
 class PythonAT38 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz"
-  sha256 "a9e0b79d27aa056eb9cce8d63a427b5f9bab1465dee3f942dcfdb25a82f4ab8a"
+  url "https://www.python.org/ftp/python/3.8.7/Python-3.8.7.tar.xz"
+  sha256 "ddcc1df16bb5b87aa42ec5d20a5b902f2d088caa269b28e01590f97a798ec50a"
   license "Python-2.0"
 
   livecheck do
@@ -11,9 +11,10 @@ class PythonAT38 < Formula
   end
 
   bottle do
-    sha256 "96e123a1befbb1a2f98577d728a52df126441de118e75edba0c1a3a1ca1380f3" => :catalina
-    sha256 "89bded8572c9b24f4075e258520352655338812fc7f28d8e34b4802452c77ab5" => :mojave
-    sha256 "0f1e7747bdbb87ef304f02bafc522a77132beb08de7081b2eb2662e1050df914" => :high_sierra
+    sha256 "6b0d7c5a104db889edc53d303af10186b525c5c82efb9453aea864b578172ec1" => :big_sur
+    sha256 "332f28558a2f59abc244a1aa921506de7221eb6784b86aaa54644992373694d5" => :arm64_big_sur
+    sha256 "be57e0e5df329ef97654e9f90a98039100768ceb4ad5eead89e4207e25d7dddb" => :catalina
+    sha256 "bd23bb30fba341753f8822307f877cc141813f304edab8711f2cc0e6dd4d13a2" => :mojave
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -26,6 +27,8 @@ class PythonAT38 < Formula
     EOS
     satisfy { MacOS::CLT.installed? }
   end
+
+  keg_only :versioned_formula
 
   depends_on "pkg-config" => :build
   depends_on "gdbm"
@@ -44,41 +47,35 @@ class PythonAT38 < Formula
   skip_clean "bin/easy_install3", "bin/easy_install-3.4", "bin/easy_install-3.5", "bin/easy_install-3.6",
              "bin/easy_install-3.7", "bin/easy_install-3.8"
 
-  link_overwrite "bin/2to3"
-  link_overwrite "bin/idle3"
-  link_overwrite "bin/pip3"
-  link_overwrite "bin/pydoc3"
-  link_overwrite "bin/python3"
-  link_overwrite "bin/python3-config"
-  link_overwrite "bin/wheel3"
-  link_overwrite "share/man/man1/python3.1"
-  link_overwrite "lib/pkgconfig/python3.pc"
-  link_overwrite "Frameworks/Python.framework/Headers"
-  link_overwrite "Frameworks/Python.framework/Python"
-  link_overwrite "Frameworks/Python.framework/Resources"
-  link_overwrite "Frameworks/Python.framework/Versions/Current"
-
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/7c/1b/9b68465658cda69f33c31c4dbd511ac5648835680ea8de87ce05c81f95bf/setuptools-50.3.0.zip"
-    sha256 "39060a59d91cf5cf403fa3bacbb52df4205a8c3585e0b9ba4b30e0e19d4c4b18"
+    url "https://files.pythonhosted.org/packages/94/23/e9e3d96500c063129a19feb854efbb01e6ffe7d913f1da8176692418ab8e/setuptools-51.1.1.tar.gz"
+    sha256 "0b43d1e0e0ac1467185581c2ceaf86b5c1a1bc408f8f6407687b0856302d1850"
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/59/64/4718738ffbc22d98b5223dbd6c5bb87c476d83a4c71719402935170064c7/pip-20.2.3.tar.gz"
-    sha256 "30c70b6179711a7c4cf76da89e8a0f5282279dfb0278bec7b94134be92543b6d"
+    url "https://files.pythonhosted.org/packages/ca/1e/d91d7aae44d00cd5001957a1473e4e4b7d1d0f072d1af7c34b5899c9ccdf/pip-20.3.3.tar.gz"
+    sha256 "79c1ac8a9dccbec8752761cb5a2df833224263ca661477a2a9ed03ddf4e0e3ba"
   end
 
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/83/72/611c121b6bd15479cb62f1a425b2e3372e121b324228df28e64cc28b01c2/wheel-0.35.1.tar.gz"
-    sha256 "99a22d87add3f634ff917310a3d87e499f19e663413a52eb9232c447aa646c9f"
+    url "https://files.pythonhosted.org/packages/ed/46/e298a50dde405e1c202e316fa6a3015ff9288423661d7ea5e8f22f589071/wheel-0.36.2.tar.gz"
+    sha256 "e11eefd162658ea59a60a0f6c7d493a7190ea4b9a85e335b33489d9f17e0245e"
   end
 
-  # Remove this block when upstream adds arm64 compatibility
+  # Patch for MACOSX_DEPLOYMENT_TARGET on Big Sur, not yet backported to the 3.8 branch
+  # https://bugs.python.org/issue42504
+  # https://github.com/python/cpython/pull/23556
+  patch do
+    url "https://github.com/python/cpython/commit/09a698b4.patch?full_index=1"
+    sha256 "a297c429ca83847d1d3ae84bdbb66e8a035731fd17955205de37c902d13300bf"
+  end
+
+  # Remove this block when upstream backports arm64 compatibility to the 3.8 branch
   if Hardware::CPU.arm?
     # Upstream PRs #20171, #21114, #21224 and #21249
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/113aa84/python/3.8.3.patch"
-      sha256 "9c0d7c28c33c6036860457bd9c5a03026c71bd034907b77fbf861ff5fe216ed0"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/cef51fde/python/3.8.7.patch"
+      sha256 "01ebca9fed99fd0b34abfd198e7d6137e3f851d9d1a07ded837b28c7998e810c"
     end
   end
 
@@ -103,9 +100,9 @@ class PythonAT38 < Formula
       --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
     ]
 
-    cflags   = []
-    ldflags  = []
-    cppflags = []
+    cflags   = ["-I#{HOMEBREW_PREFIX}/include"]
+    ldflags  = ["-L#{HOMEBREW_PREFIX}/lib"]
+    cppflags = ["-I#{HOMEBREW_PREFIX}/include"]
 
     if MacOS.sdk_path_if_needed
       # Help Python's build system (setuptools/pip) to build things on SDK-based systems
@@ -136,7 +133,8 @@ class PythonAT38 < Formula
     # even if homebrew is not a /usr/local/lib. Try this with:
     # `brew install enchant && pip install pyenchant`
     inreplace "./Lib/ctypes/macholib/dyld.py" do |f|
-      f.gsub! "DEFAULT_LIBRARY_FALLBACK = [", "DEFAULT_LIBRARY_FALLBACK = [ '#{HOMEBREW_PREFIX}/lib',"
+      f.gsub! "DEFAULT_LIBRARY_FALLBACK = [",
+              "DEFAULT_LIBRARY_FALLBACK = [ '#{HOMEBREW_PREFIX}/lib', '#{Formula["openssl@1.1"].opt_lib}',"
       f.gsub! "DEFAULT_FRAMEWORK_FALLBACK = [", "DEFAULT_FRAMEWORK_FALLBACK = [ '#{HOMEBREW_PREFIX}/Frameworks',"
     end
 
@@ -249,11 +247,6 @@ class PythonAT38 < Formula
       (libexec/"bin").install_symlink (bin/versioned_name).realpath => unversioned_name
     end
 
-    # post_install happens after link
-    %W[pip3 pip#{xy} easy_install-#{xy} wheel3].each do |e|
-      (HOMEBREW_PREFIX/"bin").install_symlink bin/e
-    end
-
     # Help distutils find brewed stuff when building extensions
     include_dirs = [HOMEBREW_PREFIX/"include", Formula["openssl@1.1"].opt_include,
                     Formula["sqlite"].opt_include]
@@ -302,9 +295,9 @@ class PythonAT38 < Formula
           # site_packages; prefer the shorter paths
           long_prefix = re.compile(r'#{rack}/[0-9\._abrc]+/Frameworks/Python\.framework/Versions/#{xy}/lib/python#{xy}/site-packages')
           sys.path = [long_prefix.sub('#{HOMEBREW_PREFIX/"lib/python#{xy}/site-packages"}', p) for p in sys.path]
-          # Set the sys.executable to use the opt_prefix, unless explicitly set
-          # with PYTHONEXECUTABLE:
-          if 'PYTHONEXECUTABLE' not in os.environ:
+          # Set the sys.executable to use the opt_prefix. Only do this if PYTHONEXECUTABLE is not
+          # explicitly set and we are not in a virtualenv:
+          if 'PYTHONEXECUTABLE' not in os.environ and sys.prefix == sys.base_prefix:
               sys.executable = '#{opt_bin}/python#{xy}'
     EOS
   end
@@ -317,14 +310,14 @@ class PythonAT38 < Formula
     end
     <<~EOS
       Python has been installed as
-        #{HOMEBREW_PREFIX}/bin/python3
+        #{opt_bin}/python3
 
       Unversioned symlinks `python`, `python-config`, `pip` etc. pointing to
       `python3`, `python3-config`, `pip3` etc., respectively, have been installed into
         #{opt_libexec}/bin
 
       You can install Python packages with
-        pip3 install <package>
+        #{opt_bin}/pip3 install <package>
       They will install into the site-package directory
         #{HOMEBREW_PREFIX/"lib/python#{xy}/site-packages"}
 
@@ -338,9 +331,13 @@ class PythonAT38 < Formula
     # and it can occur that building sqlite silently fails if OSX's sqlite is used.
     system "#{bin}/python#{xy}", "-c", "import sqlite3"
     # Check if some other modules import. Then the linked libs are working.
-    system "#{bin}/python#{xy}", "-c", "import tkinter; root = tkinter.Tk()"
     system "#{bin}/python#{xy}", "-c", "import _gdbm"
     system "#{bin}/python#{xy}", "-c", "import zlib"
+
+    # Temporary failure on macOS 11.1 due to https://bugs.python.org/issue42480
+    # Reenable unconditionnaly once Apple fixes the Tcl/Tk issue
+    system "#{bin}/python#{xy}", "-c", "import tkinter; root = tkinter.Tk()" if MacOS.full_version < "11.1"
+
     system bin/"pip3", "list", "--format=columns"
   end
 end

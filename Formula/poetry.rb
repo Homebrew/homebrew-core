@@ -3,8 +3,8 @@ class Poetry < Formula
 
   desc "Python package management tool"
   homepage "https://python-poetry.org/"
-  url "https://files.pythonhosted.org/packages/ee/b2/80558b17e2b69411efe23204ace752c730f26fa3005356a21a632b3dcd12/poetry-1.1.3.tar.gz"
-  sha256 "49eae89e2c44b0323214d0bbcefc21ebe3a19baa44db98eefabd4db9e82c7253"
+  url "https://files.pythonhosted.org/packages/94/89/92040eafbb76dcbb2b3ee185499b89281f712b34faa7673850778b0ddda4/poetry-1.1.4.tar.gz"
+  sha256 "946a5a1173be607c7c5c593358a0fb0c0d6af4400c978929ecdb19c3a37b53a8"
   license "MIT"
 
   livecheck do
@@ -13,9 +13,11 @@ class Poetry < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1cb823724a381fbbb73c31e64fe00ca8659f2fc53b3e1c0b19b2c270fdd90d06" => :catalina
-    sha256 "c4475da7729daaf03123bfe07cef2231b5715abb8c643acfd9efe6882c20918a" => :mojave
-    sha256 "8e9d76a262bbfd3f4d0df42c7b224ed390ef6f24f2e683e46d5f2c66ffc97334" => :high_sierra
+    rebuild 1
+    sha256 "5bed2df1069a4af8088e65aac9ed18ad6fb3887a2bf5c1681d40ab84ff3bf3ab" => :big_sur
+    sha256 "27c76026e47e0a8fc572fdaea9cde45b0dab4613bdf4d583b91c1561e640ee3f" => :arm64_big_sur
+    sha256 "8266e0c42f1da8180bc22fa150eb9a31b2d776d594ebbc6f9095c54f7beb0f51" => :catalina
+    sha256 "fcd488237a0e10f9d661f26bf22e69b90f179d380970b8aed333b73dc98c2608" => :mojave
   end
 
   depends_on "python@3.9"
@@ -111,8 +113,8 @@ class Poetry < Formula
   end
 
   resource "pkginfo" do
-    url "https://files.pythonhosted.org/packages/6c/04/fd6683d24581894be8b25bc8c68ac7a0a73bf0c4d74b888ac5fe9a28e77f/pkginfo-1.5.0.1.tar.gz"
-    sha256 "7424f2c8511c186cd5424bbf31045b77435b37a8d604990b79d4e70d741148bb"
+    url "https://files.pythonhosted.org/packages/22/f8/e591ddbef20e2edb244628863fb8640393baf4787a5b70c0a9a0f14b1dcd/pkginfo-1.6.0.tar.gz"
+    sha256 "dd008e95b13141ddd05d7e8881f0c0366a998ab90b25c2db794a1714b71583cc"
   end
 
   resource "poetry-core" do
@@ -156,13 +158,13 @@ class Poetry < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/81/f4/87467aeb3afc4a6056e1fe86626d259ab97e1213b1dfec14c7cb5f538bf0/urllib3-1.25.10.tar.gz"
-    sha256 "91056c15fa70756691db97756772bb1eb9678fa585d9184f24534b100dc60f4a"
+    url "https://files.pythonhosted.org/packages/76/d9/bbbafc76b18da706451fa91bc2ebe21c0daf8868ef3c30b869ac7cb7f01d/urllib3-1.25.11.tar.gz"
+    sha256 "8d7eaa5a82a1cac232164990f04874c594c9453ec55eef02eab885aa02fc17a2"
   end
 
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/e8/fe/9700d24a5b315a5493966ef901636570c995bbe678f5a27eca4b393ad2e2/virtualenv-20.0.34.tar.gz"
-    sha256 "4bf0e2bf99d33b123a895a5a244f0d7adb2a92171c6bbb31c3e2db235624abf1"
+    url "https://files.pythonhosted.org/packages/28/a8/96e411bfe45092f8aeebc5c154b2f0892bd9ea462d6934b534c1ce7b7402/virtualenv-20.0.35.tar.gz"
+    sha256 "2a72c80fa2ad8f4e2985c06e6fc12c3d60d060e410572f553c90619b0f6efaf3"
   end
 
   resource "webencodings" do
@@ -202,6 +204,11 @@ class Poetry < Formula
           from poetry.console import main
           main()
     PYTHON
+
+    # Install shell completions
+    (bash_completion/"poetry").write Utils.safe_popen_read("#{libexec}/bin/poetry", "completions", "bash")
+    (fish_completion/"poetry.fish").write Utils.safe_popen_read("#{libexec}/bin/poetry", "completions", "fish")
+    (zsh_completion/"_poetry").write Utils.safe_popen_read("#{libexec}/bin/poetry", "completions", "zsh")
   end
 
   test do

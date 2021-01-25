@@ -1,20 +1,22 @@
 class Arangodb < Formula
   desc "Multi-Model NoSQL Database"
   homepage "https://www.arangodb.com/"
-  url "https://download.arangodb.com/Source/ArangoDB-3.7.2-1.tar.gz"
-  sha256 "de79c04b6b15d9b7a415f8cbfd6682e000414725be1c25966aeab19dfbb49195"
+  url "https://download.arangodb.com/Source/ArangoDB-3.7.6.tar.gz"
+  sha256 "f9ca141e8535f9f40ec1c61d5f132122db100055057146a2cb8275f30e851426"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/arangodb/arangodb.git", branch: "devel"
 
   bottle do
-    sha256 "f66b2c46e2c8201e8e7a9ff32b5bf22cebe948d6d5dc1cedb1cc09f9dae72bd2" => :catalina
-    sha256 "4c6b0c1ecf14fdb837c52b3205ce98c820768b57a50526e51cb93133d95123ef" => :mojave
+    sha256 "135d6152a7c4a3ba7ec9e7d96f3808d448ed961faf83ab6ae994f07a3717b1b4" => :big_sur
+    sha256 "73aff6b8ab99cae8b62e3f5d6986f8886fce0b14864eba91440fe4b73fe832f4" => :catalina
+    sha256 "d3454eefc88b685a469284dc3135a87d2d530431e962def0a7da93cc5b1a5f9c" => :mojave
   end
 
   depends_on "ccache" => :build
   depends_on "cmake" => :build
   depends_on "go@1.13" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
   depends_on macos: :mojave
   depends_on "openssl@1.1"
 
@@ -23,23 +25,23 @@ class Arangodb < Formula
   # with a unified CLI
   resource "starter" do
     url "https://github.com/arangodb-helper/arangodb.git",
-      tag:      "0.14.15",
-      revision: "e32307e9ae5a0046214cb066355a8577e6fc4148"
+        tag:      "0.14.18",
+        revision: "79c60473bf243f2ea77c33f9cee032fd0696cde4"
   end
 
   def install
-    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
+    on_macos do
+      ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
+    end
 
     resource("starter").stage do
       ENV["GO111MODULE"] = "on"
       ENV["DOCKERCLI"] = ""
-      # use commit-id as projectBuild
-      commit = `git rev-parse HEAD`.chomp
       system "make", "deps"
       ldflags = %W[
         -s -w
         -X main.projectVersion=#{resource("starter").version}
-        -X main.projectBuild=#{commit}
+        -X main.projectBuild=#{Utils.git_head}
       ]
       system "go", "build", *std_go_args, "-ldflags", ldflags.join(" "), "github.com/arangodb-helper/arangodb"
     end
@@ -125,7 +127,7 @@ class Arangodb < Formula
       end
     ensure
       Process.kill "SIGINT", pid
-      ohai "shuting down #{pid}"
+      ohai "shutting down #{pid}"
     end
   end
 end

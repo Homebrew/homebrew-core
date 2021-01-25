@@ -13,6 +13,7 @@ class Nwchem < Formula
 
   bottle do
     cellar :any
+    sha256 "19b88aaef873c55da4554c3bca4ef88ca9987ce98e998f746048de6c35dd4469" => :big_sur
     sha256 "1dec7a63957c945ae1a4e4a9652ca9e509beda27aeba43f10688b68033a0e9a0" => :catalina
     sha256 "f906c312c4b8c57c5d31388d15db6b1e552f93ae153985b3bbb3b749a6dd1fa4" => :mojave
     sha256 "aef50a03a979cd3dae7f06709e6d99fb9d5f5bbfc6e595752cf6f36cf162f205" => :high_sierra

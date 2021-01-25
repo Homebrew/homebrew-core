@@ -3,22 +3,21 @@ class Gnuradio < Formula
 
   desc "SDK for signal processing blocks to implement software radios"
   homepage "https://gnuradio.org/"
-  url "https://github.com/gnuradio/gnuradio/releases/download/v3.8.2.0/gnuradio-3.8.2.0.tar.gz"
-  sha256 "3e293541a9ac8d78660762bae8b80c0f6195b3494e1c50c01a9fd79cc60bb624"
+  url "https://github.com/gnuradio/gnuradio/releases/download/v3.9.0.0/gnuradio-3.9.0.0.tar.xz"
+  sha256 "0a2622933c96a4b22405c7656b8af0db32762834317ec2b90bff0a0a5a4f75cb"
   license "GPL-3.0-or-later"
-  revision 2
   head "https://github.com/gnuradio/gnuradio.git"
 
   bottle do
-    sha256 "9b2bfcb60793a18bc86c177e2e8928660e2f684678a52271f67c7b3ee8c52df3" => :catalina
-    sha256 "8d2aa859b81111df00dcd8e29b7c6c5282fbb61feb92ab51b940f9a2739098f0" => :mojave
-    sha256 "8795f787c6b9b2028e4f4cff7a55d66a291ff801bc8330bb542829bbed00a9eb" => :high_sierra
+    sha256 "2fb96a376d20d91d429ee709d0b017a289f154463179875a0ede3d3b5a056bf2" => :big_sur
+    sha256 "f32a5198bcb6aebcedfaf85152b9e965a78a20bbec1d4ccc4783d727b8c2b697" => :catalina
+    sha256 "09a09ee785a52893ab9aa7edd6eab0364216a0e1acdcbc2610ee76fcb165fe97" => :mojave
   end
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "pkg-config" => :build
-  depends_on "swig" => :build
+  depends_on "pybind11" => :build
   depends_on "adwaita-icon-theme"
   depends_on "boost"
   depends_on "fftw"
@@ -30,7 +29,7 @@ class Gnuradio < Formula
   depends_on "portaudio"
   depends_on "pygobject3"
   depends_on "pyqt"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "qt"
   depends_on "qwt"
   depends_on "uhd"
@@ -38,8 +37,8 @@ class Gnuradio < Formula
   depends_on "zeromq"
 
   resource "Cheetah" do
-    url "https://files.pythonhosted.org/packages/50/d5/34b30f650e889d0d48e6ea9337f7dcd6045c828b9abaac71da26b6bdc543/Cheetah3-3.2.5.tar.gz"
-    sha256 "ececc9ca7c58b9a86ce71eb95594c4619949e2a058d2a1af74c7ae8222515eb1"
+    url "https://files.pythonhosted.org/packages/ee/6f/29c6d74d8536dede06815eeaebfad53699e3f3df0fb22b7a9801a893b426/Cheetah3-3.2.6.tar.gz"
+    sha256 "f1c2b693cdcac2ded2823d363f8459ae785261e61c128d68464c8781dba0466b"
   end
 
   resource "click" do
@@ -53,8 +52,8 @@ class Gnuradio < Formula
   end
 
   resource "Mako" do
-    url "https://files.pythonhosted.org/packages/72/89/402d2b4589e120ca76a6aed8fee906a0f5ae204b50e455edd36eda6e778d/Mako-1.1.3.tar.gz"
-    sha256 "8195c8c1400ceb53496064314c6736719c6f25e7479cd24c77be3d9361cddc27"
+    url "https://files.pythonhosted.org/packages/5c/db/2d2d88b924aa4674a080aae83b59ea19d593250bfe5ed789947c21736785/Mako-1.1.4.tar.gz"
+    sha256 "17831f0b7087c313c0ffae2bcbbd3c1d5ba9eeac9c38f2eb7b50e8c99fe9d5ab"
   end
 
   resource "six" do
@@ -72,18 +71,11 @@ class Gnuradio < Formula
     sha256 "964031c0944f913933f55ad1610938105a6657a69d1ac5a6dd50e16a679104d5"
   end
 
-  # patch for boost 1.73.0, remove after next release
-  # https://github.com/gnuradio/gnuradio/pull/3566
+  # patch to fix drag-and-drop in gnuradio-companion, remove after next release
+  # https://github.com/gnuradio/gnuradio/issues/2727
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/0d2af1812716a874d1e49268e999ea1a8ca9fc3c/gnuradio/boost-1.73.0.patch"
-    sha256 "7e4abd08210d242d65807b7e2419f163a58b4630027a3beaff0e325d044266d7"
-  end
-
-  # Add -undefined dynamic_lookup linker flag back for macOS
-  # https://github.com/gnuradio/gnuradio/pull/3674
-  patch do
-    url "https://github.com/gnuradio/gnuradio/commit/80ba62cb11cf604495e87a5e302e68eaf441eea9.patch?full_index=1"
-    sha256 "d12640f62b266b244950d84f2deb1544f41574229106a525e693159fb3fc80eb"
+    url "https://github.com/gnuradio/gnuradio/commit/518dc7eda3a2575292dc67374cad62c887f83d12.patch?full_index=1"
+    sha256 "88f28e204615c1893568cf72c3841cf372f7626e4e5aadd6a099fe4a3caa08a9"
   end
 
   def install
@@ -140,9 +132,27 @@ class Gnuradio < Formula
     mv Dir[lib/"python#{xy}/dist-packages/*"], lib/"python#{xy}/site-packages/"
     rm_rf lib/"python#{xy}/dist-packages"
 
+    # Create a directory for Homebrew to put .pth files pointing to GNU Radio
+    # plugins installed by other packages. An automatically-loaded module adds
+    # this directory to the package search path.
+    plugin_pth_dir = etc/"gnuradio/plugins.d"
+    mkdir plugin_pth_dir
+
     site_packages = lib/"python#{xy}/site-packages"
-    pth_contents = "import site; site.addsitedir('#{site_packages}')\n"
-    (venv_root/"lib/python#{xy}/site-packages/homebrew-gnuradio.pth").write pth_contents
+    venv_site_packages = venv_root/"lib/python#{xy}/site-packages"
+
+    (venv_site_packages/"homebrew_gr_plugins.py").write <<~EOS
+      import site
+      site.addsitedir("#{plugin_pth_dir}")
+    EOS
+
+    pth_contents = "#{site_packages}\nimport homebrew_gr_plugins\n"
+    (venv_site_packages/"homebrew-gnuradio.pth").write pth_contents
+
+    # Patch the grc config to change the search directory for blocks
+    inreplace etc/"gnuradio/conf.d/grc.conf" do |s|
+      s.gsub! share.to_s, "#{HOMEBREW_PREFIX}/share"
+    end
 
     rm bin.children.reject(&:executable?)
   end
@@ -210,6 +220,6 @@ class Gnuradio < Formula
 
       main()
     EOS
-    system "python3", testpath/"test.py"
+    system Formula["python@3.9"].opt_bin/"python3", testpath/"test.py"
   end
 end

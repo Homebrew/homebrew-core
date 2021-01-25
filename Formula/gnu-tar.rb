@@ -1,10 +1,10 @@
 class GnuTar < Formula
   desc "GNU version of the tar archiving utility"
   homepage "https://www.gnu.org/software/tar/"
-  url "https://ftp.gnu.org/gnu/tar/tar-1.32.tar.gz"
-  mirror "https://ftpmirror.gnu.org/tar/tar-1.32.tar.gz"
-  sha256 "b59549594d91d84ee00c99cf2541a3330fed3a42c440503326dab767f2fbb96c"
-  license "GPL-3.0"
+  url "https://ftp.gnu.org/gnu/tar/tar-1.33.tar.gz"
+  mirror "https://ftpmirror.gnu.org/tar/tar-1.33.tar.gz"
+  sha256 "7c77c427e8cce274d46a6325d45a55b08e13e2d2d0c9e6c0860a6d2b9589ff0e"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url :stable
@@ -12,10 +12,10 @@ class GnuTar < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "158cb67ea9e02435d671013b4d0d7369822758d9f7ff400ce2512a03f2f7f4e4" => :catalina
-    sha256 "1034894e78bb22b0fcf0c8114666d4dc3eb82345a5ca83797ca3bda367d998ac" => :mojave
-    sha256 "3771cead286229786d9d92a7697bc6e0de576ec9cae1f881017884ceb3e24f17" => :high_sierra
+    sha256 "14c85bf6742a4055f0a6d3444993af7866d4963cd264eb2f2419bfe07cafda74" => :big_sur
+    sha256 "992da32921e3033679cc2323a34f21e0c847661aedf0d8c59e04c2d6a47fed45" => :arm64_big_sur
+    sha256 "f99e9b8b33b9fd07a04bf6661cbc3e56267f2b682f2ffd12d3775c7838795381" => :catalina
+    sha256 "0320a427ff60c2665ee85898f45a96df4e0824d7ef0d985a8434d6fd4c1e0c74" => :mojave
   end
 
   head do
@@ -38,38 +38,47 @@ class GnuTar < Formula
     args = %W[
       --prefix=#{prefix}
       --mandir=#{man}
-      --program-prefix=g
     ]
 
-    # Work around a gnulib issue with macOS Catalina
-    args << "gl_cv_func_ftello_works=yes"
-
+    on_macos do
+      args << "--program-prefix=g"
+    end
     system "./bootstrap" if build.head?
     system "./configure", *args
     system "make", "install"
 
-    # Symlink the executable into libexec/gnubin as "tar"
-    (libexec/"gnubin").install_symlink bin/"gtar" =>"tar"
-    (libexec/"gnuman/man1").install_symlink man1/"gtar.1" => "tar.1"
+    on_macos do
+      # Symlink the executable into libexec/gnubin as "tar"
+      (libexec/"gnubin").install_symlink bin/"gtar" =>"tar"
+      (libexec/"gnuman/man1").install_symlink man1/"gtar.1" => "tar.1"
+    end
 
     libexec.install_symlink "gnuman" => "man"
   end
 
   def caveats
-    <<~EOS
-      GNU "tar" has been installed as "gtar".
-      If you need to use it as "tar", you can add a "gnubin" directory
-      to your PATH from your bashrc like:
+    on_macos do
+      <<~EOS
+        GNU "tar" has been installed as "gtar".
+        If you need to use it as "tar", you can add a "gnubin" directory
+        to your PATH from your bashrc like:
 
-          PATH="#{opt_libexec}/gnubin:$PATH"
-    EOS
+            PATH="#{opt_libexec}/gnubin:$PATH"
+      EOS
+    end
   end
 
   test do
     (testpath/"test").write("test")
-    system bin/"gtar", "-czvf", "test.tar.gz", "test"
-    assert_match /test/, shell_output("#{bin}/gtar -xOzf test.tar.gz")
+    on_macos do
+      system bin/"gtar", "-czvf", "test.tar.gz", "test"
+      assert_match /test/, shell_output("#{bin}/gtar -xOzf test.tar.gz")
+      assert_match /test/, shell_output("#{opt_libexec}/gnubin/tar -xOzf test.tar.gz")
+    end
 
-    assert_match /test/, shell_output("#{opt_libexec}/gnubin/tar -xOzf test.tar.gz")
+    on_linux do
+      system bin/"tar", "-czvf", "test.tar.gz", "test"
+      assert_match /test/, shell_output("#{bin}/tar -xOzf test.tar.gz")
+    end
   end
 end

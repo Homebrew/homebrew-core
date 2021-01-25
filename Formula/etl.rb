@@ -1,9 +1,10 @@
 class Etl < Formula
   desc "Extensible Template Library"
   homepage "https://synfig.org"
-  url "https://downloads.sourceforge.net/project/synfig/releases/1.2.2/source/ETL-1.2.2.tar.gz"
-  sha256 "0dc19c5a6c9e964054ca3af6dacd6ab0c198d78071cfab2aebac178afe454d8b"
-  license "GPL-3.0"
+  url "https://downloads.sourceforge.net/project/synfig/releases/1.4.0/source/ETL-1.4.0.tar.gz"
+  mirror "https://github.com/synfig/synfig/releases/download/v1.4.0/ETL-1.4.0.tar.gz"
+  sha256 "d43396c0ac356114713469216a9257247c2588d5475590a46db63cf201d1a011"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :stable
@@ -12,10 +13,10 @@ class Etl < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1ff4de15ba9b82ef2afe44be648f1c42031d7bc4e9e1538e3e1951cfa353ecaa" => :catalina
-    sha256 "b775dfeb3634c3b4ff3828239250394328b5c971e472cb775a0590d94bcdc6f8" => :mojave
-    sha256 "b775dfeb3634c3b4ff3828239250394328b5c971e472cb775a0590d94bcdc6f8" => :high_sierra
-    sha256 "507d4f4b35d0e075869446600e36e0f9f382014e99bf16a07d77f2c256cbc594" => :sierra
+    sha256 "3e50fc4f2e8a00bdb55f276839b7bebfde795c6da8a170395baa932009f1891c" => :big_sur
+    sha256 "8918bb95db8660e8b30ac2d0d508fc35272e5dea1585bc1c057cfd0cfd4cceb2" => :arm64_big_sur
+    sha256 "36399b703008be7d253bbbd1313c22929982319d3e7e52dbeb92a1acbc554cb4" => :catalina
+    sha256 "3499623804687865757dec0f5df9ae2b8c70ed8d8c8c6cfa2e8bd6bf839b55db" => :mojave
   end
 
   def install
@@ -35,7 +36,7 @@ class Etl < Formula
       }
     EOS
     flags = %W[
-      -I#{include}
+      -I#{include}/ETL
       -lpthread
     ]
     system ENV.cxx, "test.cpp", "-o", "test", *flags

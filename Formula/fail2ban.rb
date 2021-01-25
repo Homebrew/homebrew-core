@@ -1,29 +1,29 @@
 class Fail2ban < Formula
   desc "Scan log files and ban IPs showing malicious signs"
   homepage "https://www.fail2ban.org/"
-  url "https://github.com/fail2ban/fail2ban/archive/0.11.1.tar.gz"
-  sha256 "71d2a52b66bb0f87ac3812246bdd3819ec561913cd44afd39130a342f043aa6d"
+  url "https://github.com/fail2ban/fail2ban/archive/0.11.2.tar.gz"
+  sha256 "383108e5f8644cefb288537950923b7520f642e7e114efb843f6e7ea9268b1e0"
   license "GPL-2.0"
 
   livecheck do
-    url "https://github.com/fail2ban/fail2ban/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "74818c094f3afe181c5f6870331822d4bb32d99258f31f2dc30cfea89d111051" => :catalina
-    sha256 "01c86b6a7c231710a39884494ab6cca4f1568724bcb3abc3edade9c56207d236" => :mojave
-    sha256 "336d82f86f30d90847910f8ba414b6326104f1109fe7fad3fab1af3d62331be4" => :high_sierra
+    sha256 "dccbafae1bda5f12ef0ba27f74069fb179376e9a50adf0a597ff7d6d978c12f1" => :big_sur
+    sha256 "dc4e847cf92ddfbd7e70647f671de4e5f64a7752b7d9334455b528e0fc9318d9" => :catalina
+    sha256 "eb5646fd06a94a1638b44fc0afd4406bf88dc3bb4672ae68e264dc5455f10d05" => :mojave
   end
 
   depends_on "help2man" => :build
   depends_on "sphinx-doc" => :build
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python3.8/site-packages"
-    ENV["PYTHON"] = Formula["python@3.8"].opt_bin/"python3"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python3.9/site-packages"
+    ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
 
     rm "setup.cfg"
     Dir["config/paths-*.conf"].each do |r|
@@ -74,6 +74,7 @@ class Fail2ban < Formula
     inreplace "setup.py", "if os.path.exists('#{var}/run')", "if True"
     inreplace "setup.py", "platform_system in ('linux',", "platform_system in ('linux', 'darwin',"
 
+    system "./fail2ban-2to3"
     system "python3", "setup.py", "install", "--prefix=#{libexec}"
 
     cd "doc" do

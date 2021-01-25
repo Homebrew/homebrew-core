@@ -8,12 +8,13 @@ class Ott < Formula
   head "https://github.com/ott-lang/ott.git"
 
   livecheck do
-    url "https://github.com/ott-lang/ott/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "b1b1f04443bb7645a23898cb98a1308ebbf3033b2d9054e027ed59b722d6850b" => :big_sur
     sha256 "22f441ac37e494c9b667838b43e87f820dcf2fe090c4794db7eb0cc3cbd514a6" => :catalina
     sha256 "7f4274253521ef41f38b674247906a6f9567dce515c80a5150111a1da0dc5caf" => :mojave
     sha256 "a59bb92116efa3e1b7c13da59a95dd7ad7a2618c6efc4b09d74a59001478bde5" => :high_sierra

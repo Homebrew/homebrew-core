@@ -1,17 +1,19 @@
 class VapoursynthSub < Formula
   desc "VapourSynth filters - Subtitling filter"
   homepage "http://www.vapoursynth.com"
-  url "https://github.com/vapoursynth/vapoursynth/archive/R50.tar.gz"
-  sha256 "b9dc7ce904c6a3432df7491b7052bc4cf09ccf1e7a703053f8079a2267522f97"
-  license "LGPL-2.1"
+  url "https://github.com/vapoursynth/vapoursynth/archive/R52.tar.gz"
+  sha256 "4d5dc7950f4357da695d29708bc98013bc3e0bd72fc5d697f8c91ce3c4a4b2ac"
+  license "ISC"
   revision 1
   head "https://github.com/vapoursynth/vapoursynth.git"
 
   bottle do
     cellar :any
-    sha256 "61aa955a21de088cb8f53ef014a6ed0bbca3435ee70ac958f38bdec42540ca79" => :catalina
-    sha256 "deeea5620be2867e3fab4a89bbf93074bf9e8d10a3b01fba9e8161f333293bd3" => :mojave
-    sha256 "1f4e14c3572fcb8e1e65b59f41639bab5a7e28ff4509de6af42afc8e7f8931ff" => :high_sierra
+    rebuild 1
+    sha256 "f35a87fae9d63140f78a33f901599cbd86590bb2da555af4f3e3340d9dfda48c" => :big_sur
+    sha256 "f839dc3e4798aed76186c3b120196fc1a68bc834cbbbb400431e4c508ed3323e" => :arm64_big_sur
+    sha256 "502317a7a2b4c831d2ae2e581db7f58bf214baf86fa016245c4a279a3041f287" => :catalina
+    sha256 "ec16cf11157f1adf26cbf9b0439f7d7cc9504d345b68714c14f148cde27795f5" => :mojave
   end
 
   depends_on "autoconf" => :build
@@ -41,8 +43,8 @@ class VapoursynthSub < Formula
   end
 
   test do
-    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
+    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     ENV.prepend_path "PYTHONPATH", lib/"python#{xy}/site-packages"
-    system Formula["python@3.8"].opt_bin/"python3", "-c", "from vapoursynth import core; core.sub"
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "from vapoursynth import core; core.sub"
   end
 end

@@ -1,16 +1,16 @@
 class Ispc < Formula
   desc "Compiler for SIMD programming on the CPU"
   homepage "https://ispc.github.io"
-  url "https://github.com/ispc/ispc/archive/v1.14.1.tar.gz"
-  sha256 "3a7ee9ab90b9e9932b7b4effc9bb3ef45ca271d60d9ec6bc8c335242b5ec097b"
+  url "https://github.com/ispc/ispc/archive/v1.15.0.tar.gz"
+  sha256 "2658ff00dc045ac9fcefbf6bd26dffaf723b059a942a27df91bbb61bc503a285"
   license "BSD-3-Clause"
   revision 1
 
   bottle do
     cellar :any
-    sha256 "7d830ca3028045971afbd4bd9adc6c73caf6bc79d0da341bb72acef0067e978b" => :catalina
-    sha256 "a93ed9cd6c35b8b8cda6e0128438fa12f5f2bf8b92ced82d507c8f792a229634" => :mojave
-    sha256 "1607e7d662670ed74fe122004c1ac7ace19ab1eb6c3939fe196155e90ebbd897" => :high_sierra
+    sha256 "1ea73410e81f830f137d3aea93269480f821c417aa804330b4fe1d42e0df7b93" => :big_sur
+    sha256 "a0e3f1d9cd1abc2aefc1da0154707affcf44fef9646ec39379f2501e775bd87d" => :catalina
+    sha256 "cdfd24be494e49464be851a264d6db90e99f3a9d9f7d1241b050951c81bdd481" => :mojave
   end
 
   depends_on "bison" => :build

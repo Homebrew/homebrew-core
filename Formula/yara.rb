@@ -8,6 +8,8 @@ class Yara < Formula
 
   bottle do
     cellar :any
+    sha256 "115c610dcbbb1116c6892de82348d042822b19d92149bea22b9116f9caeb770b" => :big_sur
+    sha256 "1aa48e300745c22b0153b8cae3036e38a34d11c1cfce63eb8c98449bfc3f23da" => :arm64_big_sur
     sha256 "e0a9565366bfa84e65ebc338c7862848aac15345570433c632311c5e0c1b7811" => :catalina
     sha256 "9a376923b39660a19777e4d5ecad48251a8510309c69291dc877b75e97d91d66" => :mojave
     sha256 "769d58809bcba97950e18d7f9c1e8e45e113abe8b7c21c7f0f56674e0ac2f7d1" => :high_sierra

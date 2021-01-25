@@ -8,6 +8,8 @@ class Libchaos < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "2b51e7e88ad2f47cdb860d3edbf65a9db6a1a0feeefbb46dae978f3b4311f20f" => :big_sur
+    sha256 "e1b5eff28e28622055d915653c66c2448cba0cb207a8b8f243525c2deb1dd246" => :arm64_big_sur
     sha256 "8cd295f6ccf1c6a09ab87bef06331424da21b0b44da8f4440a11f4fccaf1370a" => :catalina
     sha256 "3add0509ec493248105ad81354c4ffccef85f37c0cc445db24f115b0b8fb3576" => :mojave
     sha256 "8d1f167a096fae20de66286d9f33a7b93e03fcfccaecd5b15611e3fcd7c4b09c" => :high_sierra

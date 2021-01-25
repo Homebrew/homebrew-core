@@ -7,6 +7,8 @@ class EotUtils < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "146f315f88dffb59c62cd7cec217851ecf5586c42e6317a453b3a635391eab28" => :big_sur
+    sha256 "8f017607b1caeb3d53e2054abe9b3a75cd8a513b3ef5874b297f7b076ecd5c9a" => :arm64_big_sur
     sha256 "8d2e463b47a858921b972403f2aa79c6fe80318973fbe5e3f272dc0e1b6dc5b0" => :catalina
     sha256 "9e3a062c4d2e5345703442a1428f51bcc1554d07a94f6e540d8a631c2ba2633d" => :mojave
     sha256 "56f30e1b637149b8b34d003ff4c43865175950eb25d528e0cda69dd4e9261b06" => :high_sierra

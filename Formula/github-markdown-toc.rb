@@ -1,22 +1,22 @@
 class GithubMarkdownToc < Formula
   desc "Easy TOC creation for GitHub README.md (in go)"
   homepage "https://github.com/ekalinin/github-markdown-toc.go"
-  url "https://github.com/ekalinin/github-markdown-toc.go/archive/1.0.0.tar.gz"
-  sha256 "0a13627a29114ee817160ecd3eba130c05f95c4aeedb9d0805d8b5a587fce55a"
+  url "https://github.com/ekalinin/github-markdown-toc.go/archive/1.2.0.tar.gz"
+  sha256 "6bfeab2b28e5c7ad1d5bee9aa6923882a01f56a7f2d0f260f01acde2111f65af"
   license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "b4f9d659136a64866c45db6175dd57c366a05b99228e59c889714ae07810a9d9" => :catalina
-    sha256 "599edae04915747981605739964b0f496e22d434005be54cc7102ff64e592ba7" => :mojave
-    sha256 "44e9a44b52c69571064b4d316f99b1b0ba9b87ac0453e2f0e69a8da65513c9f7" => :high_sierra
+    sha256 "aaeb4ccfaa12ec8914842a6a9f6b68cc1c393e617d17af87832b2d3500a41458" => :big_sur
+    sha256 "db9ca9d24519c3cf044a6c461533744a020a69e569929299159164406d80ccc2" => :arm64_big_sur
+    sha256 "1ab9219a4b4e5280248b2aab4ee29f3956dddff78c70b941800948e2f72132cd" => :catalina
+    sha256 "f4e584f9514dd801a4d3243e9d962f12fa32cd3c6c62bed6037f4d1232153d0a" => :mojave
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-trimpath", "-o", bin/"gh-md-toc"
+    system "go", "build", *std_go_args, "-o", bin/"gh-md-toc"
   end
 
   test do

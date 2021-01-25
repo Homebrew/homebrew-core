@@ -7,6 +7,7 @@ class Lm4tools < Formula
 
   bottle do
     cellar :any
+    sha256 "2fca09b10fef4d8304ba4acdce164bbfc5f4fa9b8dd1eb6fcb60b8a58c7ac8d3" => :big_sur
     sha256 "5d2e503a9c94226f9d3c6d1da1a54424be1c9a16279bcc94253ab0e2da2a3718" => :catalina
     sha256 "a0bb88705b97875de770b1979b5480521007b25efd627f092e178941b8ecd4ec" => :mojave
     sha256 "9c65eb6694f74b513b707c237cf13bb6a54b9e4a188582355f78e94f9ac53407" => :high_sierra

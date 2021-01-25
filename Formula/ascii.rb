@@ -12,6 +12,8 @@ class Ascii < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ae1f4bca216200b2633f93da6d99c991f15755a130bd1cbc680377c251555d32" => :big_sur
+    sha256 "961354b48b260c83374340b6f50bb440977edc81ffa6cb11293bd6265f94dd3e" => :arm64_big_sur
     sha256 "2c106e2d3ce3534f09a5ce147f6fc0778e884d06f15e7c272ee99ccabaf947bd" => :catalina
     sha256 "d5f4c8fe4ad1467c1708e49268a42f0d201f8c18ed912cf3de330bdf1f219cc1" => :mojave
     sha256 "858e5bd8f55367349f936f47346a7d4dc2afed7c8f3d9fca16c42071f537f644" => :high_sierra

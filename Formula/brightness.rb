@@ -7,6 +7,8 @@ class Brightness < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "687b60a636da1664c3c16ef69e84556cfe78d04e3e080de1ca0182847df2afc1" => :big_sur
+    sha256 "553772d87cb89c4f482c3b4ea48eeb404a7572b6277ced0d87625695e480b4e7" => :arm64_big_sur
     sha256 "d9a033e343696c88863a7d231197d27be9611a2c8c56c83b4fd2747e2a2e5a7e" => :catalina
     sha256 "de0ebf57bf951ab4e90a8bb90eeb0ec659a696a7c2f10a5c32d269cceee44dce" => :mojave
     sha256 "08b29843308b1cd3603aba3f2e5e3d2e7dec34dbe62bdb5e506b7bacdcff8df5" => :high_sierra

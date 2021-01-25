@@ -6,6 +6,8 @@ class Rats < Formula
   license "GPL-2.0"
 
   bottle do
+    sha256 "d71b401eb933729bd6d4b8f6cfdae7bbeb7f81de55b91f8d0aadcbb619c1fcce" => :big_sur
+    sha256 "bfe1ae23fc4335ffdc160f80613e519c810b259b48ddef7de9d0d227625a3407" => :arm64_big_sur
     sha256 "bf5da3e9088abba09350b4a812691a3f76b00bfce1c74947fb7c016d88eb89f9" => :catalina
     sha256 "77244d885c0f203d64bd4054105310a797a9b44333bf4ef1f7b7cec63b0a163f" => :mojave
     sha256 "6ae19bc72cfea62b56b83931f95a70f27ce9a13617026292861a272e22269135" => :high_sierra

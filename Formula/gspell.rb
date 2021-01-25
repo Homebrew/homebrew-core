@@ -4,15 +4,17 @@ class Gspell < Formula
   url "https://download.gnome.org/sources/gspell/1.8/gspell-1.8.4.tar.xz"
   sha256 "cf4d16a716e813449bd631405dc1001ea89537b8cdae2b8abfb3999212bd43b4"
   license "LGPL-2.1-or-later"
+  revision 1
 
   livecheck do
     url :stable
   end
 
   bottle do
-    sha256 "b7165cc3def086000bc01e62724c5ae303200ca3eff64f681ead49f80313db20" => :catalina
-    sha256 "eb478bbf00c69404e64f21db962abdcd237d146a326d2779aaeae08f6414b8a2" => :mojave
-    sha256 "24dd633197c7ea490125a506db6379f7b134efdd1f7426bb6d9c0830c1b09f98" => :high_sierra
+    sha256 "8f64c612f1821ce72363a92af87bd7b31a72a97b63979c890b2325397bdbd0f7" => :big_sur
+    sha256 "95eb286c8aeeb8ce8b3342e96b44c028d6e0d0a8480028a69fdba8571e97caf6" => :arm64_big_sur
+    sha256 "ddcf9d182d0248a598860a2657ab0fc029b5fe2c14c1079e9600355fa6fa5486" => :catalina
+    sha256 "0b780e3db25001367090861c8867b0b4f06a8df1512f7f32e858a7b0d1200b34" => :mojave
   end
 
   depends_on "autoconf" => :build
@@ -22,9 +24,14 @@ class Gspell < Formula
   depends_on "pkg-config" => :build
   depends_on "enchant"
   depends_on "gtk+3"
-  depends_on "gtk-mac-integration"
   depends_on "iso-codes"
   depends_on "vala"
+
+  uses_from_macos "libffi"
+
+  on_macos do
+    depends_on "gtk-mac-integration"
+  end
 
   patch :DATA
 
@@ -54,7 +61,6 @@ class Gspell < Formula
     gettext = Formula["gettext"]
     glib = Formula["glib"]
     gtkx3 = Formula["gtk+3"]
-    gtk_mac_integration = Formula["gtk-mac-integration"]
     harfbuzz = Formula["harfbuzz"]
     libepoxy = Formula["libepoxy"]
     libpng = Formula["libpng"]
@@ -71,7 +77,12 @@ class Gspell < Formula
       -I#{glib.opt_include}/gio-unix-2.0/
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include
-      -I#{gtk_mac_integration.opt_include}/gtkmacintegration
+    ]
+    on_macos do
+      gtk_mac_integration = Formula["gtk-mac-integration"]
+      flags << "-I#{gtk_mac_integration.opt_include}/gtkmacintegration"
+    end
+    flags += %W[
       -I#{gtkx3.opt_include}/gtk-3.0
       -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/gspell-1
@@ -99,10 +110,12 @@ class Gspell < Formula
       -lgobject-2.0
       -lgspell-1
       -lgtk-3
-      -lintl
       -lpango-1.0
       -lpangocairo-1.0
     ]
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cc, "test.c", "-o", "test", *flags
     ENV["G_DEBUG"] = "fatal-warnings"
 

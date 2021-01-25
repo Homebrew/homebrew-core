@@ -2,8 +2,8 @@ class Filebeat < Formula
   desc "File harvester to ship log files to Elasticsearch or Logstash"
   homepage "https://www.elastic.co/products/beats/filebeat"
   url "https://github.com/elastic/beats.git",
-      tag:      "v7.9.2",
-      revision: "2ab907f5ccecf9fd82fe37105082e89fd871f684"
+      tag:      "v7.10.2",
+      revision: "aacf9ecd9c494aa0908f61fbca82c906b16562a8"
   # Outside of the "x-pack" folder, source code in a given file is licensed
   # under the Apache License Version 2.0
   license "Apache-2.0"
@@ -11,9 +11,9 @@ class Filebeat < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c6a163da3fd8280864a0c07c19dfa200dba861bb528eed25f8402e7ff85d2b03" => :catalina
-    sha256 "97cdde0e266b291c42c2019cd364cc44ea0150f23c223adbc84f5e2081ba616e" => :mojave
-    sha256 "83ac38ff9816c33a39359277125e4cecf3fefd78972d5a454c164ea71dc99118" => :high_sierra
+    sha256 "e61cfbd9a512b682f92b4a8eb671de6e5e07eca094bade3aa228c337f2bf2c39" => :big_sur
+    sha256 "7f6f1c8c7a09a9e22b7851f09bcd5df276f0dd25a13356d7cbd92b12085a4352" => :catalina
+    sha256 "f5365d692e77423773f383e3cbf0d7d8469d0f54d0b202c42ae64507c795d025" => :mojave
   end
 
   depends_on "go" => :build
@@ -24,13 +24,6 @@ class Filebeat < Formula
   resource "virtualenv" do
     url "https://files.pythonhosted.org/packages/b1/72/2d70c5a1de409ceb3a27ff2ec007ecdd5cc52239e7c74990e32af57affe9/virtualenv-15.2.0.tar.gz"
     sha256 "1d7e241b431e7afce47e77f8843a276f652699d1fa4f93b9d8ce0076fd7b0b54"
-  end
-
-  # Update MarkupSafe to 1.1.1, remove with next release
-  # https://github.com/elastic/beats/pull/20105
-  patch do
-    url "https://github.com/elastic/beats/commit/5a6ca609259956ff5dd8e4ec80b73e6c96ff54b2.patch?full_index=1"
-    sha256 "b362f8921611297a0879110efcb88a04cf660d120ad81cd078356d502ba4c2ce"
   end
 
   def install

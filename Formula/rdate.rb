@@ -8,6 +8,8 @@ class Rdate < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "afe7b66e5e3a57f51a7a87567026c8b9688f4b7f0c8fd03314d400164c4ac532" => :big_sur
+    sha256 "b3606f3683c8c1465c87a5c3fe427c4e067420f7de3ff4abdabb61871105e190" => :arm64_big_sur
     sha256 "68597f7989ddba1ff853f54c0cf3adf36b3567268b69ca43d7b0795d290304b4" => :catalina
     sha256 "2d4c93b21caa56d3228d8ff2ff790f4142421ad6316cd74d77c568e84602a996" => :mojave
     sha256 "02e41a79e9aca3bad86802e1bc32c7148e8a2ea2f410c57765f9e9d8b2686fd1" => :high_sierra
@@ -26,7 +28,7 @@ class Rdate < Formula
   end
 
   test do
-    # note that the server must support RFC 868
+    # NOTE: The server must support RFC 868
     system "#{bin}/rdate", "-p", "-t", "10", "time-b-b.nist.gov"
   end
 end

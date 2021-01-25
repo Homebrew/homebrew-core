@@ -7,6 +7,8 @@ class Ssss < Formula
 
   bottle do
     cellar :any
+    sha256 "5ff50aef8004346c9cf21eb9aecae18ce2b7d4032c7460284b6c1903dc244d6f" => :big_sur
+    sha256 "c1656cbcd114f1e8269d54fa5b525ceababe178d0fddec508fdb568d747035f0" => :arm64_big_sur
     sha256 "ba1cd924e9aa97d91ff125c082ff9d1b2eb7ce3bea642edc1ae9c4f94340d19d" => :catalina
     sha256 "96db005b3a278b26b7756c3dde1f94975cd09d901191029cf35649dfc1ac1178" => :mojave
     sha256 "af51b1deda77dc64304532dbe4131a02520a8e619f5aea178eeef9d30f87f2c9" => :high_sierra

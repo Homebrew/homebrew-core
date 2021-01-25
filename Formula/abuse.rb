@@ -12,6 +12,8 @@ class Abuse < Formula
 
   bottle do
     cellar :any
+    sha256 "48a11a0a5f7f34c85c30b0cc4f259ea0352043b4c3e9dc81f2e4d8a743270edb" => :big_sur
+    sha256 "02c9bc66fbd8460ea0ecc0479806ab7e6a2ff982d38bd16068eba21348d54e41" => :arm64_big_sur
     sha256 "669679d60bb64b08d940f9f7c4b29faf340ff081d62b66f1764087db466fffe2" => :catalina
     sha256 "e2dd02d540aabb2943823051e4bf80ea1fbb80da1725462fb314f53a0c6800b2" => :mojave
     sha256 "3fdc2ccd00bf320b994747d982b5cbde4b73c45c094c9a0f89acf13aea3eb847" => :high_sierra

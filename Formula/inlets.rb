@@ -2,20 +2,23 @@ class Inlets < Formula
   desc "Expose your local endpoints to the Internet"
   homepage "https://github.com/inlets/inlets"
   url "https://github.com/inlets/inlets.git",
-      tag:      "2.7.6",
-      revision: "9d88c2ba279728412c7219772bd42fb2eca8d4c7"
+      tag:      "2.7.10",
+      revision: "9bbbd0ef498474b922830bd2bfaa6a1caf382660"
   license "MIT"
+  head "https://github.com/inlets/inlets.git"
 
   livecheck do
-    url "https://github.com/inlets/inlets/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b5425af7764a67a1267fc1706cd37113174af8c471e4db289a76aabf558ceef8" => :catalina
-    sha256 "2fe155a85f9c0f58381ea0a965810627cc1c81f3e6d48fb9643abbfa28129978" => :mojave
-    sha256 "863e1aab4656c01178121d27a0ebc2921e3580f967b7c31039c5a91e5086dd07" => :high_sierra
+    rebuild 1
+    sha256 "052259d2a17d8b058731069a1f9ab758666a627de97b50f26ebb1fa8a5eeed8f" => :big_sur
+    sha256 "85770ec2c276a31514842136787a23c3f831a6c1f298948d86de2e4a0ec1a741" => :arm64_big_sur
+    sha256 "233946f3d8ba38a665c5616ccb9f8431bcd99ac70648527814ee391bf589b0d4" => :catalina
+    sha256 "bc39ad9bd53852afeff5018f5ce7de82676df575c7d45c3d71e1eb93a04eabce" => :mojave
   end
 
   depends_on "go" => :build
@@ -23,10 +26,12 @@ class Inlets < Formula
   uses_from_macos "ruby" => :test
 
   def install
-    commit = Utils.safe_popen_read("git", "rev-parse", "HEAD").chomp
-    system "go", "build", *std_go_args,
-            "-ldflags", "-s -w -X main.GitCommit=#{commit} -X main.Version=#{version}",
-            "-a", "-installsuffix", "cgo"
+    ldflags = %W[
+      -s -w
+      -X main.GitCommit=#{Utils.git_head}
+      -X main.Version=#{version}
+    ]
+    system "go", "build", *std_go_args, "-ldflags", ldflags.join(" "), "-a", "-installsuffix", "cgo"
   end
 
   def cleanup(name, pid)
@@ -74,13 +79,11 @@ class Inlets < Formula
     end
 
     begin
-      stable_resource = stable.instance_variable_get(:@resource)
-      commit = stable_resource.instance_variable_get(:@specs)[:revision]
-
       # Basic --version test
+      commit_regex = /[a-f0-9]{40}/
       inlets_version = shell_output("#{bin}/inlets version")
-      assert_match /\s#{commit}$/, inlets_version
-      assert_match /\s#{version}$/, inlets_version
+      assert_match commit_regex, inlets_version
+      assert_match version.to_s, inlets_version
 
       # Client/Server e2e test
       # This test involves establishing a client-server inlets tunnel on the

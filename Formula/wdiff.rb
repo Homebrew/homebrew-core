@@ -11,6 +11,8 @@ class Wdiff < Formula
   end
 
   bottle do
+    sha256 "154c6f2169ae3406c43ef7373271499c15cb1954111dfa950ae809f2677ec9de" => :big_sur
+    sha256 "b9464ee06d7329a996f8546ee21a90847b3db438967f241d4c9adc8708ef6a21" => :arm64_big_sur
     sha256 "cd316e673c68a54b9be013a7a0fb96beba13648bd0048f7f1fd8b7a8b07ab821" => :catalina
     sha256 "89e0de3859b91c4dcdc4a9ac2ae4569f72cd472658e6d3dfa82e6acc919c68a1" => :mojave
     sha256 "579a8972310d39ac2e660f3114fc6d1536df7ad9f7659a9b00619cc7c50a2191" => :high_sierra

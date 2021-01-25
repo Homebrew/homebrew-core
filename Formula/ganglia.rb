@@ -12,6 +12,7 @@ class Ganglia < Formula
   end
 
   bottle do
+    sha256 "31b343fa942e30bddbbc737be768225774b0e7c182e278f85e16cd1b8b9d626e" => :big_sur
     sha256 "3201c7b103ad74ed63d7e4cda74da894a3e71443a8b2e79353dcf22874580c96" => :catalina
     sha256 "ff01d1a7d5457e2572273e61463a7a9c0da1b8a6c12a998b4c4da157163110c8" => :mojave
     sha256 "d375f0a7bc5caff2ff825ac487530b0e78efb1521b8ea2b4ef7f15a002526941" => :high_sierra

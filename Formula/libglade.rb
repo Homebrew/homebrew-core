@@ -11,6 +11,8 @@ class Libglade < Formula
 
   bottle do
     rebuild 1
+    sha256 "7408ed79b9c5c118628b566cda02c6fec57cb8cbdbad4db83759f41324d5171f" => :big_sur
+    sha256 "d4590501ed823f6ba28905f2a7ab3e5d64b6497393b11829fb753c7ed56cc1d3" => :arm64_big_sur
     sha256 "f87fe8b63946d78fd43586ef25fbd108d9f81fda2089a66f40cbdc0216601f8e" => :catalina
     sha256 "3fdb8055e888e22f7054432b185aad35a20c0d48b3c07c97429cab2b7a0bd3cc" => :mojave
     sha256 "fd198334f49180de53d5bde9406e17aa4e3051ee5c421defdab9dbb0f3a1e681" => :high_sierra

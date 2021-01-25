@@ -1,24 +1,25 @@
 class Imapfilter < Formula
   desc "IMAP message processor/filter"
   homepage "https://github.com/lefcha/imapfilter/"
-  url "https://github.com/lefcha/imapfilter/archive/v2.6.16.tar.gz"
-  sha256 "90af9bc9875e03fb5a09a3233287b74dd817867cb18ec9ff52fead615755563e"
+  url "https://github.com/lefcha/imapfilter/archive/v2.7.5.tar.gz"
+  sha256 "ab19f840712e6951e51c29e44c43b3b2fa42e93693f98f8969cc763a4fad56bf"
   license "MIT"
 
   bottle do
-    sha256 "bc61c3bb6e5679d7b4f8b767e659c0cb3d4ff2f4fdd9e66a0ae38bc7df693965" => :catalina
-    sha256 "5982d6a5404868c41dda6e3d2dedc2781ea45cebac19c8f58546d2f99865f492" => :mojave
-    sha256 "651e44b6067c219ac07da7770c3aade81536ce36cb16b574c4a6d88d3498d6e2" => :high_sierra
+    sha256 "a3f6c7500a3206466979cb184c75e5d06f2a478c04ba7de9a671e0ae4e578a65" => :big_sur
+    sha256 "e49fed469e38c13b29df94f07ce45bb40bdcf167961ba08e7199192346ce8cd7" => :arm64_big_sur
+    sha256 "4033f3f9c51c811a9bce55523d337f5d61ab987c742a90c02c12f97c00b768cb" => :catalina
+    sha256 "aa77cdfd4279e290c68fe6aa1af6d40d820e10f3f53513d17c4867fcfcade11e" => :mojave
   end
 
   depends_on "lua"
   depends_on "openssl@1.1"
-  depends_on "pcre"
+  depends_on "pcre2"
 
   def install
     # find Homebrew's libpcre and lua
     ENV.append "CPPFLAGS", "-I#{Formula["lua"].opt_include}/lua"
-    ENV.append "LDFLAGS", "-L#{Formula["pcre"].opt_lib}"
+    ENV.append "LDFLAGS", "-L#{Formula["pcre2"].opt_lib}"
     ENV.append "LDFLAGS", "-L#{Formula["lua"].opt_lib}"
     ENV.append "LDFLAGS", "-liconv"
     system "make", "PREFIX=#{prefix}", "MANDIR=#{man}", "MYCFLAGS=#{ENV.cflags}", "MYLDFLAGS=#{ENV.ldflags}"

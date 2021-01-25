@@ -14,6 +14,8 @@ class Libsamplerate < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "1181186b50d4232509d88f4f8f7fe8e016adb220cc529c5cc84b6d91abaef08c" => :big_sur
+    sha256 "15a9996d530a20df675b808e5cd2d90c506f419c083f0deeb7c361cb6776733d" => :arm64_big_sur
     sha256 "36215e2af706686ca333a685a08121d4516d831d0ab99e4188002b7ceb5886c9" => :catalina
     sha256 "cf0ae6a23af23ce858c7c4301e3c487013d46bca1859cf2b5642068a3b7da861" => :mojave
     sha256 "6003a546793b85dcba886124b962a3ea332ea35cacce64a1cb1af9af94437807" => :high_sierra

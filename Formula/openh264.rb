@@ -8,6 +8,8 @@ class Openh264 < Formula
 
   bottle do
     cellar :any
+    sha256 "8025149092f1d95f870524cb04786fa08f3f67e1e60e259b675ba2a03b38949a" => :big_sur
+    sha256 "548fde2cb583ccc88f96e931787b758c309100a6386cfd2bf9e4173cc1d99601" => :arm64_big_sur
     sha256 "40bbd156c791be70467bebecb927745edc9b54dd46aa2c4a317562a4cf1dce8e" => :catalina
     sha256 "952ae4b5cafae14722588046032ee363b7b027178aa30ec450e4ee916b85eb4b" => :mojave
     sha256 "de7a5593d7a401e606b44d88347e83651508538d2461e4510b024f41b8b0f42e" => :high_sierra

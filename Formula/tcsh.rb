@@ -1,15 +1,20 @@
 class Tcsh < Formula
   desc "Enhanced, fully compatible version of the Berkeley C shell"
   homepage "https://www.tcsh.org/"
-  url "https://astron.com/pub/tcsh/tcsh-6.22.02.tar.gz"
-  mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/tcsh/tcsh-6.22.02.tar.gz"
-  sha256 "ed287158ca1b00ba477e8ea57bac53609838ebcfd05fcb05ca95021b7ebe885b"
+  url "https://astron.com/pub/tcsh/tcsh-6.22.03.tar.gz"
+  mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/tcsh/tcsh-6.22.03.tar.gz"
+  sha256 "be2cfd653d2a0c7f506d2dd14c12324ba749bd484037be6df44a3973f52262b7"
+
+  livecheck do
+    url "https://astron.com/pub/tcsh/"
+    regex(/href=.*?tcsh[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    rebuild 1
-    sha256 "d885eaa1411e8fc46cb39e4a11254d37c8dc90aded6684631bfc312d7115c9fa" => :catalina
-    sha256 "a070c8c6b4f2ce38be5a84109d307078545911f2a731b0e5e140856a6711bce4" => :mojave
-    sha256 "2f81edc8ce902ce12e722003aec60d62d21ca7be7a944b3b2f571b9e9d7d1282" => :high_sierra
+    sha256 "e572fcc4259db31e54c25ccf22d736637cfce0801f038691b86d5d68847d6603" => :big_sur
+    sha256 "4984599cbefc72104b17434f89aa257e0b2de09605a53ac66e9d07e4804b344d" => :arm64_big_sur
+    sha256 "2feecc5bd032b40e4673125431957d89a37a54aac8d4e0b5849fd9fa33aa7bfa" => :catalina
+    sha256 "1a278f9965f6b362035623cf793afee82e0039277f61f06f32499f7bdf0ec0ad" => :mojave
   end
 
   uses_from_macos "ncurses"

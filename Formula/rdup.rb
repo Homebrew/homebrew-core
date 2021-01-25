@@ -9,6 +9,7 @@ class Rdup < Formula
 
   bottle do
     cellar :any
+    sha256 "72d7f3ffd694f739534d795c9e317e025037482956f810b312b5e483d8907213" => :big_sur
     sha256 "cf02c3004b312a3d90c6e47227f35e39319736270be76d7e4b0705568a21abec" => :catalina
     sha256 "fb091d60536b72e20dc5e1448d9876e7b2eaefd16d40f2bfbf7bba48059af348" => :mojave
     sha256 "417244fe66e0f47ab1afea65e9a52db01c15ac2f5db5e150ad65d80b2e85e2cc" => :high_sierra

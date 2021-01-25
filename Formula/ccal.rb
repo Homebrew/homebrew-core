@@ -9,6 +9,8 @@ class Ccal < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "82e5a0c59583063fdfa23e254f77ac5d7972a8fb5a3e36138233c7a47245abdf" => :big_sur
+    sha256 "e9555bba354683597a63cf86554624a01afbf7cc897c0e292b10edc3657f4572" => :arm64_big_sur
     sha256 "ea42afd04ed210cf6e0bedac3ab4ce6b3e37421ba8d79478769d2e117c38a41f" => :catalina
     sha256 "c3a4bead8506e0234e878727e6d7827925e600bcee3857859fd575d4bbb185cc" => :mojave
     sha256 "cd9bd38878cee9658e312142edfca7cf35e5223ef30b3a3effc9e4108ccf3d51" => :high_sierra

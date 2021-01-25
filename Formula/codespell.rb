@@ -3,10 +3,9 @@ class Codespell < Formula
 
   desc "Fix common misspellings in source code and text files"
   homepage "https://github.com/codespell-project/codespell"
-  url "https://files.pythonhosted.org/packages/7e/37/b15b4133e90bbef5acecfd2f3f3871c1352ee281c042fd64a22a72735fb8/codespell-1.17.1.tar.gz"
-  sha256 "25a2ecd86b9cdc111dc40a30d0ed28c578e13a0ce158d1c383f9d47811bfcd23"
-  license "GPL-2.0"
-  revision 1
+  url "https://files.pythonhosted.org/packages/f3/d1/0553aad57ca850516c2a666690fd818fa9e80f1293e460be976eee4dcc86/codespell-2.0.0.tar.gz"
+  sha256 "dd9983e096b9f7ba89dd2d2466d1fc37231d060f19066331b9571341363c77b8"
+  license "GPL-2.0-only"
 
   livecheck do
     url :stable
@@ -14,9 +13,10 @@ class Codespell < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4cb15e19443191ba519e77ae1503e645096fe38cebc29425f7aab0c1da0c0e96" => :catalina
-    sha256 "d2d93078208cbf498d4f18e6c7f1096a33b70ea00d8f7ef5e556150842d1c4fc" => :mojave
-    sha256 "5e533ea4ed12daf3435849cc585f880da3ef80edc51131e5b601dc91a41c5120" => :high_sierra
+    sha256 "c593fceba8be94074570221a350741dc1f11929f5c1176197e3962f34fb46363" => :big_sur
+    sha256 "75ab1ae15931e2358946065d9d9b53ec0a11516de94e69def4b097933207372e" => :arm64_big_sur
+    sha256 "2d338cbcf31abc4712005bca0cd59543403a1525a24952b14fadc6592c2c7791" => :catalina
+    sha256 "c53e89d6f26521dac01d2f26952674a12228e8f70070c9a02abd0c31744d2128" => :mojave
   end
 
   depends_on "python@3.9"
@@ -26,6 +26,6 @@ class Codespell < Formula
   end
 
   test do
-    assert_equal "1: teh\n\tteh ==> the\n", shell_output("echo teh | #{bin}/codespell -", 1)
+    assert_equal "1: teh\n\tteh ==> the\n", shell_output("echo teh | #{bin}/codespell -", 65)
   end
 end

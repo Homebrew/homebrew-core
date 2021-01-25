@@ -8,6 +8,8 @@ class Flatbuffers < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9af0beec65e79be83e699b65e8f149d02c3d5980cc65f8caa5dd33cf30882559" => :big_sur
+    sha256 "5f02d8f7be90f080e8682fa07365f72116f85449ff8176877b691bbe8c2b3696" => :arm64_big_sur
     sha256 "6af7ac37134539beb7c1003bd2cf8d1e530606cac616239acf4d2b1df31b0dbc" => :catalina
     sha256 "270bebda4048754554cd587d48db10ee5fe1a2795ef6e881cafd1b8f90c7af78" => :mojave
     sha256 "f45982e6ca71b10e59c607b9d984108e1b18fc84b8c52dd23325b6b9211e407f" => :high_sierra

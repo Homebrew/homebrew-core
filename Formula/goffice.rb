@@ -10,6 +10,8 @@ class Goffice < Formula
   end
 
   bottle do
+    sha256 "314d34ff359e1d6eb5d5935ac6e2778b47e360e6e13a6c3b98f99b7071e4c961" => :big_sur
+    sha256 "b29f128d789d1399cb06fc284981d690a039ddeaa709bb15ac5f93483e3609f4" => :arm64_big_sur
     sha256 "3e05167a37c42bfa01acf4be7055a52e3c2a03c990536ae5562b2c0aa4812e42" => :catalina
     sha256 "9edf36fd2ffb0a116e4e5f69cd00a04dd29eda04c1a3069b0e4da8950573c0a4" => :mojave
     sha256 "7043808e39862444e7aaae796137b30fadefb142dea291f9d8ce23228d635264" => :high_sierra

@@ -3,7 +3,7 @@ class Ldns < Formula
   homepage "https://nlnetlabs.nl/projects/ldns/"
   url "https://nlnetlabs.nl/downloads/ldns/ldns-1.7.1.tar.gz"
   sha256 "8ac84c16bdca60e710eea75782356f3ac3b55680d40e1530d7cea474ac208229"
-  revision 2
+  revision 3
 
   # https://nlnetlabs.nl/downloads/ldns/ since the first-party site has a
   # tendency to lead to an `execution expired` error.
@@ -14,14 +14,16 @@ class Ldns < Formula
 
   bottle do
     cellar :any
-    sha256 "0446a8f1f3bc55d5d618c5bb2137d45dd3784d69e575ebabacf3dddb0d61055a" => :catalina
-    sha256 "1df2448c33ca744971061cecc782c7fe464b449eb9852c8b6287a59b8f696938" => :mojave
-    sha256 "da38537015dd33fa5ee0b5a5239cfc57a83aa4806a59b8d2111f7a498595d40a" => :high_sierra
+    sha256 "998f245038aacbe7e2a953bd4ede86f0175c3c00ea71e3b9a14a134c1d2ca4cd" => :big_sur
+    sha256 "72df9927c731028f56fbbe9962c6effeec5f8581ede570ea22c2d1c702bd7b5a" => :arm64_big_sur
+    sha256 "9143a6b86f643e5d63cf00774619622abaf0f3ee7e7f071f4aab924f15e163ff" => :catalina
+    sha256 "51a0ab78e1788d5a13bc0e14d476a0f9d98b565915b04507df88c8b81c64963d" => :mojave
+    sha256 "86c7687436d1ddb2b41392ee6c5e8f235ffe478d7b7b0d912feaa7a89217e8d5" => :high_sierra
   end
 
   depends_on "swig" => :build
   depends_on "openssl@1.1"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
     args = %W[
@@ -30,16 +32,14 @@ class Ldns < Formula
       --with-examples
       --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
       --with-pyldns
-      PYTHON_SITE_PKG=#{lib}/python3.8/site-packages
+      PYTHON_SITE_PKG=#{lib}/python3.9/site-packages
       --disable-dane-verify
     ]
 
-    if MacOS.version == :mojave
-      # Fixes: ./contrib/python/ldns_wrapper.c:2746:10: fatal error: 'ldns.h' file not found
-      inreplace "contrib/python/ldns.i", "#include \"ldns.h\"", "#include <ldns/ldns.h>"
-    end
+    # Fixes: ./contrib/python/ldns_wrapper.c:2746:10: fatal error: 'ldns.h' file not found
+    inreplace "contrib/python/ldns.i", "#include \"ldns.h\"", "#include <ldns/ldns.h>"
 
-    ENV["PYTHON"] = Formula["python@3.8"].opt_bin/"python3"
+    ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
     system "./configure", *args
 
     inreplace "Makefile" do |s|

@@ -9,6 +9,8 @@ class Jsonlint < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "d70c05d6c48635034c0fa438f32c02d3b19277e22607d07f4781d3a394d27164" => :big_sur
+    sha256 "63854f372c497e44b69bb4791389f8e6cc0e551d9b100c3b47f43c08369ebdae" => :arm64_big_sur
     sha256 "9aca65ec76aea3e9cea0bbe2ac305574a143cf07b20a612d0c34533c9970b44b" => :catalina
     sha256 "bff395a213ccea80834bc638e5aaa7428dd09c9dbef56d728f07dba752935bbe" => :mojave
     sha256 "1dbe9eacf1dbff45c1dcd194fc72090791a8ed2b434e783c2783adc28e6f571b" => :high_sierra

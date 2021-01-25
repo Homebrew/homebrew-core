@@ -15,9 +15,14 @@ class Md < Formula
     sha256 "5faf5907b69c2a53c9bbbcfcb908d24c222181490b69116e09102212382be5ea" => :mavericks
   end
 
+  # https://github.com/Homebrew/homebrew-core/pull/66347#issuecomment-739548996
+  disable! date: "2020-12-08", because: :unmaintained
+
   def install
     cd "md" do
-      system ENV.cc, ENV.cflags, "-o", "md", "md.c"
+      # Xcode 12 made -Wimplicit-function-declaration an error by default so we need to
+      # disable that warning to successfully compile:
+      system ENV.cc, ENV.cflags, "-o", "md", "-Wno-implicit-function-declaration", "md.c"
       bin.install "md"
       man1.install "md.1"
     end

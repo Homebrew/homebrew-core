@@ -1,21 +1,35 @@
 class Gcc < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
-  url "https://ftp.gnu.org/gnu/gcc/gcc-10.2.0/gcc-10.2.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gcc/gcc-10.2.0/gcc-10.2.0.tar.xz"
-  sha256 "b8dd4368bb9c7f0b98188317ee0254dd8cc99d1e3a18d0ff146c855fe16c1d8c"
-  license "GPL-3.0"
+  if Hardware::CPU.arm?
+    # Branch from the Darwin maintainer of GCC with Apple Silicon support,
+    # located at https://github.com/iains/gcc-darwin-arm64 and
+    # backported with his help to gcc-10 branch. Too big for a patch.
+    url "https://github.com/fxcoudert/gcc/archive/gcc-10-arm-20201228.tar.gz"
+    sha256 "dd5377a13f0ee4645bce1c18ed7327ea4ad5f8bd5c6a2a24eb299c647d3d43f4"
+    version "10.2.0"
+  else
+    url "https://ftp.gnu.org/gnu/gcc/gcc-10.2.0/gcc-10.2.0.tar.xz"
+    mirror "https://ftpmirror.gnu.org/gcc/gcc-10.2.0/gcc-10.2.0.tar.xz"
+    sha256 "b8dd4368bb9c7f0b98188317ee0254dd8cc99d1e3a18d0ff146c855fe16c1d8c"
+  end
+  license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
+  revision 3
   head "https://gcc.gnu.org/git/gcc.git"
 
   livecheck do
-    url :stable
+    # Should be
+    # url :stable
+    # but that does not work with the ARM-specific branch above
+    url "https://ftp.gnu.org/gnu/gcc/gcc-10.2.0"
     regex(%r{href=.*?gcc[._-]v?(\d+(?:\.\d+)+)(?:/?["' >]|\.t)}i)
   end
 
   bottle do
-    sha256 "8dbccea194c20b1037b7e8180986e98a8ee3e37eaac12c7d223c89be3deaac6a" => :catalina
-    sha256 "79d2293ce912dc46af961f30927b31eb06844292927be497015496f79ac41557" => :mojave
-    sha256 "5ed870a39571614dc5d83be26d73a4164911f4356b80d9345258a4c1dc3f1b70" => :high_sierra
+    sha256 "f02c7193b10ea81529c0246bc196b725b1072e92d383e099d78c22956d29347e" => :big_sur
+    sha256 "b4b7c67dd8092a1c8f8da6c90bdc561507bd800d1f115746a10d2fd4bfdc6e28" => :arm64_big_sur
+    sha256 "83c9ae812879188b9b5e772092b1841a57a2c838927f43376b1f9e715d331a48" => :catalina
+    sha256 "fb30e8f0df703e30a0be874a5f3ec4567d67ad42337cb76451199dccdd2de530" => :mojave
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -34,6 +48,15 @@ class Gcc < Formula
 
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
+
+  if Hardware::CPU.intel?
+    # Patch for Big Sur, remove with GCC 10.3
+    # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=98805
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/6a83f36d/gcc/bigsur_2.patch"
+      sha256 "347a358b60518e1e0fe3c8e712f52bdac1241e44e6c7738549d969c24095f65b"
+    end
+  end
 
   def version_suffix
     if build.head?
@@ -54,9 +77,10 @@ class Gcc < Formula
     languages = %w[c c++ objc obj-c++ fortran]
 
     pkgversion = "Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip
+    cpu = Hardware::CPU.arm? ? "aarch64" : "x86_64"
 
     args = %W[
-      --build=x86_64-apple-darwin#{OS.kernel_version.major}
+      --build=#{cpu}-apple-darwin#{OS.kernel_version.major}
       --prefix=#{prefix}
       --libdir=#{lib}/gcc/#{version_suffix}
       --disable-nls
@@ -81,6 +105,10 @@ class Gcc < Formula
       args << "--with-native-system-header-dir=/usr/include"
       args << "--with-sysroot=#{sdk}"
     end
+
+    # Mojave uses the Catalina SDK which causes issues like
+    # https://github.com/Homebrew/homebrew-core/issues/46393
+    ENV["ac_cv_func_aligned_alloc"] = "no" if MacOS.version == :mojave
 
     # Avoid reference to sed shim
     args << "SED=/usr/bin/sed"
@@ -130,9 +158,13 @@ class Gcc < Formula
 
     (testpath/"hello-cc.cc").write <<~EOS
       #include <iostream>
+      struct exception { };
       int main()
       {
         std::cout << "Hello, world!" << std::endl;
+        try { throw exception{}; }
+          catch (exception) { }
+          catch (...) { }
         return 0;
       }
     EOS

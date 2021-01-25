@@ -16,6 +16,8 @@ class Codemod < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "66c432f6fc86bd65b2596215ac6e8a30bb813c70cf9585783a564c06e075a72f" => :big_sur
+    sha256 "cd163a10ae30dfc11ed64e45e746472360361c084339fb3c426fd97734cbf1c3" => :arm64_big_sur
     sha256 "e0a2e42e92636a4b0ccb54fdfa45ca5e73870315357d57c5c673d7710e3ffb7a" => :catalina
     sha256 "07b7c3807d776ca2991a321f32846a9613d0af356f69482f2653a5c30b7304df" => :mojave
     sha256 "b7b6b35729c1e0e990f4dc2d09c197d6c07cd8fbdacaa3d81decfe16e8856cb3" => :high_sierra

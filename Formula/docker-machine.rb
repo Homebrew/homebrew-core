@@ -9,10 +9,11 @@ class DockerMachine < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "99b50d9809a0aa881e01686e3356fbd17fa61e5a5e8cb937a2a9e9ff103be097" => :catalina
-    sha256 "cc56a9c37702ecaeea1a5034326d87fa145fbc4cb613d151756571b78ca8f1ab" => :mojave
-    sha256 "320ef0f8b7fba8e679c784f854155314c7bdcbc4e7d43fd11dbce6e0e3e0f85b" => :high_sierra
-    sha256 "23a2165e741ea1a9321476d3037a5d76bc24bd494ae0bd8b16f35e3248c0aa77" => :sierra
+    rebuild 1
+    sha256 "1f748f5d9d62d898d1f281573a366f33d6f2cc1916458499ac8a79fbc8166208" => :big_sur
+    sha256 "da044dcd33a56a30d48a65bcccfc481aeab60401dc67ba05a6f335a11baf97c8" => :arm64_big_sur
+    sha256 "99b99466af55891199daccd77e78e6006c193c00b8ffb1e624945c6f5a378119" => :catalina
+    sha256 "b01a09ab4be172d932acb5b8b8a203df5454117023b9454c617ba383a27e2195" => :mojave
   end
 
   depends_on "automake" => :build
@@ -20,6 +21,7 @@ class DockerMachine < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     (buildpath/"src/github.com/docker/machine").install buildpath.children
     cd "src/github.com/docker/machine" do
       system "make", "build"

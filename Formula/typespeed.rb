@@ -10,6 +10,8 @@ class Typespeed < Formula
   end
 
   bottle do
+    sha256 "a1624c4d927fda389aceec074f743e73bd10417059764d480141a88fab23bb82" => :big_sur
+    sha256 "bf2143006f2dbbb230b3c899a77fc98c1a056316fc957f195a5fb4b27c388947" => :arm64_big_sur
     sha256 "cff9da11f7441f1ff4db7cbfa57f0711ff0bbe08a80ee7067021c619bc01cb06" => :catalina
     sha256 "49c54c15fa8204ca5ae373f0a1995c01b7b6e24de0ab0af7d8081e9f3b229258" => :mojave
     sha256 "70fe987eeaabcf8e94996d56a478c1aac14781f2475337476ff2dc87543bb602" => :high_sierra

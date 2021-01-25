@@ -10,6 +10,8 @@ class Gptsync < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "7b7bf7603d6040dbb5b1982641e3a8f7bf70a7c96c5a8c476b57a344609b9705" => :big_sur
+    sha256 "ce578e36d0f50ee223a8578434563aa237ee4c98d951d8c818c21571258193a5" => :arm64_big_sur
     sha256 "e6761d20c0090477f2914576cbb97654774a5de9cae4b3846187120961450ed0" => :catalina
     sha256 "76d760477b55a2ac3ebe3d2fb472e70ccd84a2fa8cb265bae829669e639897f3" => :mojave
     sha256 "8d21fa7f491b5cfe7a2c809a99d753ff4511c5354c4761751ab9c5abebd585c6" => :high_sierra

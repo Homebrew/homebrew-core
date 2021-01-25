@@ -12,6 +12,8 @@ class Omniorb < Formula
 
   bottle do
     cellar :any
+    sha256 "3cd63557c0b968eda172bdb244dd888fa63ffdda15603139be47f1615fd9c2f9" => :big_sur
+    sha256 "b274a3754e87bbe47ea153406e7d0002722bf3a7fa5217ce1c29dd38a11ab610" => :arm64_big_sur
     sha256 "a467b416e7657794555b547ee7caf8f0395e67ecf7501b393d29c620598af535" => :catalina
     sha256 "cb9ddb09f1d53ac587cd9eb83e198757350d8d1432cfa8c3f091a3ab78f0c922" => :mojave
     sha256 "e7465503bce133c41d4f122107e22559a5e82785f0a3af7747da8ccc44975035" => :high_sierra

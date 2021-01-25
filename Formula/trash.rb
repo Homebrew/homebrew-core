@@ -9,6 +9,8 @@ class Trash < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "403ba52ce97d38535e1d127ca227afd4ea2d0e0c8b414118dbc5376c9ed8f094" => :big_sur
+    sha256 "11c0c85ec692ea6d4a125070f0a6ca576aff991608a6c9632b984cbf983e2481" => :arm64_big_sur
     sha256 "b452d67cdeeb52db0aaadd258bc3e214a5ea5ed37da698b45017b01457115ea6" => :catalina
     sha256 "d8ad5460b24a51a4a12b31ebf1a2887e9e86e029d061f6994c3c1caea7bf0551" => :mojave
     sha256 "0ef5ea924ba8d01398686657a839ad270796f3f10eee86d6522980d32038df9a" => :high_sierra

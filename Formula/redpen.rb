@@ -5,6 +5,12 @@ class Redpen < Formula
   sha256 "6c3dc4a6a45828f9cc833ca7253fdb036179036631248288251cb9ac4520c39d"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+    regex(%r{href=.*?/tag/(?:redpen[._-])?v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
@@ -21,7 +27,7 @@ class Redpen < Formula
   test do
     path = "#{libexec}/sample-doc/en/sampledoc-en.txt"
     output = "#{bin}/redpen -l 20 -c #{libexec}/conf/redpen-conf-en.xml #{path}"
-    match = /sampledoc-en.txt:1: ValidationError[SentenceLength]*/
+    match = "sampledoc-en.txt:1: ValidationError[SentenceLength]"
     assert_match match, shell_output(output).split("\n").find { |line| line.include?("sampledoc-en.txt") }
   end
 end

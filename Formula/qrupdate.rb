@@ -12,6 +12,8 @@ class Qrupdate < Formula
 
   bottle do
     cellar :any
+    sha256 "cc5d921131b7471c662a209f190100aa2918f2fef055c65f4cb9ba2e2c958c61" => :big_sur
+    sha256 "e26cc2899b7f69b43b9a57cea00ca70939a8c365ea061f5feeace93aaeb70aab" => :arm64_big_sur
     sha256 "2b2464b06d3f39c68826319d7cf6f860e7fb4a90377ab5a70609e87c9706ffba" => :catalina
     sha256 "f8979b51f613030bbafd0241c918457d26b4f7074ad4e43d50668d20b0ca87be" => :mojave
     sha256 "85065f6d6e3362e53fd66118e11a4727faad0cbf01e5c2e8985bee2382123295" => :high_sierra

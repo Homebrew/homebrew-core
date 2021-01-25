@@ -9,6 +9,8 @@ class Httping < Formula
 
   bottle do
     cellar :any
+    sha256 "b7d049b495d38844fcf2eb479a02c6472aef31d9b516536677a024634febf356" => :big_sur
+    sha256 "2061528a8b8a03b6d8276af007c617b8a4937e06c7b871dd729664f50f47eef2" => :arm64_big_sur
     sha256 "9432f93eec676aad685be06819da5649ec071f6542302d077ccf5d0623b9b567" => :catalina
     sha256 "2314efd3b919b759290b7ead8dea99c50b11860f7aadb8fd4f9c7e0e7cc92e5e" => :mojave
     sha256 "8df0f98d479c72a20ca2b353a06c9c1bf071cceed53774c737f41caf27238fc1" => :high_sierra

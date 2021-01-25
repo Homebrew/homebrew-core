@@ -1,8 +1,9 @@
 class Sword < Formula
   desc "Cross-platform tools to write Bible software"
   homepage "https://www.crosswire.org/sword/index.jsp"
-  url "https://www.crosswire.org/ftpmirror/pub/sword/source/v1.8/sword-1.8.1.tar.gz"
-  sha256 "ce9aa8f721a737f406115d35ff438bd07c829fce1605f0d6dcdabc4318bc5e93"
+  url "https://www.crosswire.org/ftpmirror/pub/sword/source/v1.9/sword-1.9.0.tar.gz"
+  sha256 "42409cf3de2faf1108523e2c5ac0745d21f9ed2a5c78ed878ee9dcc303426b8a"
+  license "GPL-2.0-only"
 
   livecheck do
     url "https://www.crosswire.org/ftpmirror/pub/sword/source/"
@@ -10,12 +11,15 @@ class Sword < Formula
   end
 
   bottle do
-    sha256 "3c4fd6972c16470479e43a43ef097a053ed6543b6e3d2cdfb1c15ff7416dbae1" => :catalina
-    sha256 "ab228fd2df3f45e696e50224872a2fd80d24fcebc92f2b6ba5ff6e36d8534bc6" => :mojave
-    sha256 "3279c77477c21d1636f573202df976bd37fbaca39ed7e3b310158dad4e961641" => :high_sierra
-    sha256 "794afe687eb7933fd3aeaee7e480224295614fc0138b8d89b7d9b81be55239a1" => :sierra
-    sha256 "032c83b3302b78c198d1e346258a1d09c542a1361e1b0f000f82306d8c82acb4" => :el_capitan
+    rebuild 1
+    sha256 "85fd915531e0d5afa3ca380be523b09dd6c7ef4085ac4c7e26fc09e81c945228" => :big_sur
+    sha256 "aa8af3684bf4475f2c4f193ce2eee82751525f99dfc718b49495ba58f1866662" => :arm64_big_sur
+    sha256 "65d2da4bfbc5517b4fba2d4da6a4b57ff2429126041c59ee83ad29886df71d70" => :catalina
+    sha256 "84420513bcd1215cfcee1737022551b86d80059a0dfb1de6fc82dcec050280a2" => :mojave
+    sha256 "42b2dfd8162cd7b96efeba4da340df7dafae5f581be6c6bbb47f37a07bd9f66a" => :high_sierra
   end
+
+  uses_from_macos "zlib"
 
   def install
     args = %W[

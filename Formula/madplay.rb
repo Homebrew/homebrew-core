@@ -10,6 +10,8 @@ class Madplay < Formula
   end
 
   bottle do
+    sha256 "09143a43e56380a76a9f2e6ebc11897da5dd4898011fa6805ab5fd125dcaba5b" => :big_sur
+    sha256 "1572c5cf1aa126ed1c9ba15eb77a41dab98a1aa708fc313eaf00211d89f507e0" => :arm64_big_sur
     sha256 "06320361fe8d3687b541149a2c26f78b9a251a813ef7ca1ecfe09e6dfd7ec1b9" => :catalina
     sha256 "04339d670f10b87819965e4bae0e5700840e97e1052313cc62dd5ae6d7e194ce" => :mojave
     sha256 "7ff11d9521cb9507f669753e8c862efa44f5673cc009578202c1ec7dcba379d1" => :high_sierra

@@ -7,6 +7,8 @@ class Libwandevent < Formula
 
   bottle do
     cellar :any
+    sha256 "651aea239dab48e29f473c5a181f9dad8420350672a99e063419974599e26674" => :big_sur
+    sha256 "57f916a1558f5b44462c12c98260ab27d0b4c5dd6b9df9502d9d8d19a480e437" => :arm64_big_sur
     sha256 "f175ecabb18921593ddd08bbd0b2aaa5e0a24c85d2964be230cd3a1f0ede22ee" => :catalina
     sha256 "1e1db4ade4de58ab9ca1f0545d91537b935b65e062d99737c288dd059a17da8e" => :mojave
     sha256 "7593e96a9e76e4b67fa3851a3491c8d7cbd458ad53ff65b3a34b64e2f697e75b" => :high_sierra

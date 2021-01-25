@@ -2,12 +2,13 @@ class Freeswitch < Formula
   desc "Telephony platform to route various communication protocols"
   homepage "https://freeswitch.org"
   license "MPL-1.1"
+  revision 3
   head "https://github.com/signalwire/freeswitch.git"
 
   stable do
     url "https://github.com/signalwire/freeswitch.git",
-      tag:      "v1.10.5",
-      revision: "25569c16311afb3fe04a445830a8ab5c88488a5e"
+        tag:      "v1.10.5",
+        revision: "25569c16311afb3fe04a445830a8ab5c88488a5e"
 
     # Fix find_if_index
     # see https://github.com/signalwire/freeswitch/issues/859 and https://github.com/signalwire/freeswitch/pull/863
@@ -43,9 +44,10 @@ class Freeswitch < Formula
   end
 
   bottle do
-    sha256 "85c5c540a2c0bb30aee43694b9efcde028d90d91ecab96712786cf775b247f35" => :catalina
-    sha256 "005e7a2c080620528a18b4e0fcc9795129aa7a81b9dcada736bb5b45c801e724" => :mojave
-    sha256 "43d943d176106efe1bbe3e1ff4bbdf7d129be9b27426f393cea19928d4a06698" => :high_sierra
+    sha256 "19e0a370f2fe60614b445320390d5ebe50394888656504b3f1e880ff25c86ba5" => :big_sur
+    sha256 "119079ed092cc07ff5cdedfd8006707720817f4be61a15b450f509a977e027d9" => :arm64_big_sur
+    sha256 "fa3a8be21c9e496242bdb03328bc00c082482e23fab48dad194b2c4fa73e5936" => :catalina
+    sha256 "a0be2b29eda5a4343b3dc7f244af901ddfa7e6f790da6a49d16ea4ac056c1cc9" => :mojave
   end
 
   depends_on "autoconf" => :build
@@ -64,6 +66,7 @@ class Freeswitch < Formula
   depends_on "openssl@1.1"
   depends_on "opus"
   depends_on "pcre"
+  depends_on "sofia-sip"
   depends_on "speex"
   depends_on "speexdsp"
   depends_on "sqlite"
@@ -71,10 +74,6 @@ class Freeswitch < Formula
 
   uses_from_macos "libedit"
   uses_from_macos "zlib"
-
-  on_linux do
-    depends_on "util-linux"
-  end
 
   # https://github.com/Homebrew/homebrew/issues/42865
 
@@ -136,25 +135,19 @@ class Freeswitch < Formula
   # There's no tags for now https://github.com/freeswitch/spandsp/issues/13
   resource "spandsp" do
     url "https://github.com/freeswitch/spandsp.git",
-      revision: "6351b1824a7634853bf963c0ec399e783e35d4d1"
-  end
-
-  # There's no tags for now https://github.com/freeswitch/sofia-sip/issues/24
-  resource "sofia-sip" do
-    url "https://github.com/freeswitch/sofia-sip.git",
-      revision: "f6f29b483e9c31ce8d3e87419ec3deea8679312d"
+        revision: "6351b1824a7634853bf963c0ec399e783e35d4d1"
   end
 
   resource "libks" do
     url "https://github.com/signalwire/libks.git",
-      tag:      "1.6.0",
-      revision: "637e0e3db192a6d73a248cf0e794a4b03424805b"
+        tag:      "1.6.0",
+        revision: "637e0e3db192a6d73a248cf0e794a4b03424805b"
   end
 
   resource "signalwire-c" do
     url "https://github.com/signalwire/signalwire-c.git",
-      tag:      "1.3.0",
-      revision: "e2f3abf59c800c6d39234e9f0a85fb15d1486d8d"
+        tag:      "1.3.0",
+        revision: "e2f3abf59c800c6d39234e9f0a85fb15d1486d8d"
   end
 
   def install
@@ -168,17 +161,6 @@ class Freeswitch < Formula
       ENV.deparallelize { system "make", "install" }
 
       ENV.append_path "PKG_CONFIG_PATH", "#{libexec}/spandsp/lib/pkgconfig"
-    end
-
-    resource("sofia-sip").stage do
-      system "./bootstrap.sh"
-      system "./configure", "--disable-debug",
-                            "--disable-dependency-tracking",
-                            "--disable-silent-rules",
-                            "--prefix=#{libexec}/sofia-sip"
-      system "make", "install"
-
-      ENV.append_path "PKG_CONFIG_PATH", "#{libexec}/sofia-sip/lib/pkgconfig"
     end
 
     resource("libks").stage do

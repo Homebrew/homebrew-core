@@ -6,6 +6,8 @@ class Exiftags < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "e6f10871b2577320dd9c219faa1e1b31fac8a311cde68810d233aaafa79a5a08" => :big_sur
+    sha256 "2229163e3493c0fae8cf83479f5c5258b926437b353038cd738d7f7d50fc20f9" => :arm64_big_sur
     sha256 "f4236ab5e0f9f3710e32ca5a6932f47d0b11c232c6f84bfc4ac4694fb26ac832" => :catalina
     sha256 "8287c22dcfeaaf6a28a4036ce26c4a1febfe8a3bc01a1d7320b667d56d0b2e43" => :mojave
     sha256 "1ba9c96bf8630f50faf8bb5045bace46c5c24962d439a496a6f606b7bc886a08" => :high_sierra

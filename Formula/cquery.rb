@@ -9,11 +9,14 @@ class Cquery < Formula
   head "https://github.com/cquery-project/cquery.git"
 
   bottle do
-    sha256 "8d2680e2397cbaa0a6c6cb2ffa00da5a10d3c2b89f5faeaa493c066417199e87" => :catalina
-    sha256 "e35aabf6a4b2b0ac21c59b6e6121aa3bc8cc623ca7fe1bd763dd6430d3339eae" => :mojave
-    sha256 "ee46fd2b279edc3b52df5ca9b84bdce404bb888f8a7d31e092b3fda33285a02b" => :high_sierra
-    sha256 "ac3ad5aada30ca31d70f36e6e3ba76d96aa0e235ccdd62259a086578fe182b44" => :sierra
+    rebuild 1
+    sha256 "92e25635f16f15c7c34222616b2c4f33ba5605e16c010fb3ee9be24a7c8adab9" => :big_sur
+    sha256 "fc7c73b7d9132c879399fc65a3556d9382d9617dd5e59bc10a51eaed228be5f8" => :catalina
+    sha256 "89a896183bd8e6635146263dc09c0f26464845f91637e5ca9557558aaa034139" => :mojave
+    sha256 "555804325cb45d5450c0d8b47096b71b8445af5370a9fc1e71acb1a6e86d3398" => :high_sierra
   end
+
+  deprecate! date: "2020-11-15", because: :repo_archived
 
   depends_on "cmake" => :build
   depends_on "llvm"

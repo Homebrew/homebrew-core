@@ -5,8 +5,8 @@ class PerconaToolkit < Formula
 
   desc "Command-line tools for MySQL, MariaDB and system tasks"
   homepage "https://www.percona.com/software/percona-toolkit/"
-  url "https://www.percona.com/downloads/percona-toolkit/3.2.1/source/tarball/percona-toolkit-3.2.1.tar.gz"
-  sha256 "92da0d3712533205f283515ff47ce68521fc2de20989c45b4c65a9743d0f7487"
+  url "https://www.percona.com/downloads/percona-toolkit/3.3.0/source/tarball/percona-toolkit-3.3.0.tar.gz"
+  sha256 "0a71e3bfa1eec7c9d8941080d2852d4d4354c2c1fe303f2f28f6352627549d16"
   license any_of: ["GPL-2.0-only", "Artistic-1.0-Perl"]
   head "lp:percona-toolkit", using: :bzr
 
@@ -17,9 +17,10 @@ class PerconaToolkit < Formula
 
   bottle do
     cellar :any
-    sha256 "9cb6acc2c62ea3d71fe9d5974fea8da69141226411a41cab50bd0e490e7fb6ca" => :catalina
-    sha256 "0437a080ee4992e95c9190328cca148cf713e471f0e47e525f591c5e98eca8fb" => :mojave
-    sha256 "3f8e07375c1bee4faca1cac8db893ba7e30b1fefc4f1712f61164d067535012b" => :high_sierra
+    sha256 "51840e9c331c1c8268cd2a7e0369a61077994597473fde314e0ebfa57f6ab1d8" => :big_sur
+    sha256 "f9a61f98a776a1e43d6019f7624ef1e989e1f7d02003ea50c1347cf8f1e051a9" => :arm64_big_sur
+    sha256 "83b295ee83a59f0bd55db724ee8b9525c62107fe2155cb834f12158d22867f32" => :catalina
+    sha256 "383bce5fcca7a6b1c3cb7263e149594ea5db49058e7a0fbfe5190e1edd5e97fa" => :mojave
   end
 
   depends_on "mysql-client"

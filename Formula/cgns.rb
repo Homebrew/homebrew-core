@@ -13,6 +13,8 @@ class Cgns < Formula
 
   bottle do
     cellar :any
+    sha256 "e2e5eb665f0f5c94c7782f0aed3708124705792ff5a7adf945a537369db6d724" => :big_sur
+    sha256 "abc3326bddbf58509b5ffb3834d68836ad803abf83f9958ae6a012870e7e9f85" => :arm64_big_sur
     sha256 "4371c695cad1aa0bccbaaf0deccb9a8f5ddf7271dcbbddf6307b8d0bc254cec5" => :catalina
     sha256 "d9904ca7c839a5d0421b99ba784e98fec047971de47efa5d3cc00725cd892e26" => :mojave
     sha256 "8bfeb33c22f79c998b31fea6aafc60aecf2edf18ea754799c67c012d90555ec9" => :high_sierra
@@ -26,10 +28,11 @@ class Cgns < Formula
   uses_from_macos "zlib"
 
   def install
-    args = std_cmake_args
-    args << "-DCGNS_ENABLE_64BIT=YES" if Hardware::CPU.is_64_bit?
-    args << "-DCGNS_ENABLE_FORTRAN=YES"
-    args << "-DCGNS_ENABLE_HDF5=YES"
+    args = std_cmake_args + %w[
+      -DCGNS_ENABLE_64BIT=YES
+      -DCGNS_ENABLE_FORTRAN=YES
+      -DCGNS_ENABLE_HDF5=YES
+    ]
 
     mkdir "build" do
       system "cmake", "..", *args

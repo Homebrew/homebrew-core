@@ -1,15 +1,21 @@
 class Picat < Formula
   desc "Simple, and yet powerful, logic-based multi-paradigm programming language"
   homepage "http://picat-lang.org/"
-  url "http://picat-lang.org/download/picat28_6_src.tar.gz"
-  version "2.8#6"
-  sha256 "9366a2b42123645dab4617d849fb456bdaa24a0931e13071c3574bb1332cf29c"
+  url "http://picat-lang.org/download/picat30_4_src.tar.gz"
+  version "3.0#4"
+  sha256 "125f1b4fc932a99833f5ea7d839ca9dc4c211fca02ea50b68022da5309b191e7"
+  license "MPL-2.0"
+
+  livecheck do
+    url "http://picat-lang.org/download.html"
+    regex(/>\s*?Released version v?(\d+(?:[.#]\d+)+)\s*?,/i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f42825e8a240e0dfccbf1bac492a60762acdee285ad51b164965d2b056296212" => :catalina
-    sha256 "7b8672d8377c157f4bda1121ba06c5b4dbdc0c7bd4625f4d44440a88999d2168" => :mojave
-    sha256 "e9ade38737cb631d139939e92033462caa728e9e9244ec99f4e36182349f6aa5" => :high_sierra
+    sha256 "73253b90dec9024d0c9c035488314f78af4fbc469528fe6c1056cc6d733847d3" => :big_sur
+    sha256 "4d90c10fb6dce3de3ac942f7e9c659ce88490b9414e041a6d8d205b950c8e058" => :catalina
+    sha256 "905dbeb4d7a5ae69043c64fcff70474053d6084d6148e253aee6f3018e3c5d74" => :mojave
   end
 
   def install

@@ -3,8 +3,8 @@ class Netpbm < Formula
   homepage "https://netpbm.sourceforge.io/"
   # Maintainers: Look at https://sourceforge.net/p/netpbm/code/HEAD/tree/
   # for stable versions and matching revisions.
-  url "https://svn.code.sf.net/p/netpbm/code/stable", revision: 3967
-  version "10.86.17"
+  url "https://svn.code.sf.net/p/netpbm/code/stable", revision: "3997"
+  version "10.86.18"
   license "GPL-3.0-or-later"
   version_scheme 1
   head "https://svn.code.sf.net/p/netpbm/code/trunk"
@@ -17,9 +17,10 @@ class Netpbm < Formula
 
   bottle do
     cellar :any
-    sha256 "50b44c9c75ca73b2b303b4c1706761d6856359712b4ed7dbfeb267c52f16828c" => :catalina
-    sha256 "143c5fc382df0e7cc34f5028b2cd394f9fbd79b78143666a1e6a336c178bc6f4" => :mojave
-    sha256 "6adaa802e331c0f92b36bdf7ce8c1df661f19b292869f1217317f092571c9c99" => :high_sierra
+    sha256 "f67c2c93ff2c6a3d95640f228f9f7b8b0865a93f4fd4870871016015db79331f" => :big_sur
+    sha256 "0b8a01fca6a878a893dc0d0259e83f1663e0d71ba83fbad26a955812c798e729" => :arm64_big_sur
+    sha256 "9b136982e2785817585826f084a3282cce0b1bd643ddf3af54bf42213fc9eb25" => :catalina
+    sha256 "4b4243c7384518eaee83aeff5e422a467395945300002496fda4d4f4dd8badc9" => :mojave
   end
 
   depends_on "jasper"
@@ -34,7 +35,7 @@ class Netpbm < Formula
   def install
     # Fix file not found errors for /usr/lib/system/libsystem_symptoms.dylib and
     # /usr/lib/system/libsystem_darwin.dylib on 10.11 and 10.12, respectively
-    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra || MacOS.version == :el_capitan
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version <= :sierra
 
     cp "config.mk.in", "config.mk"
 

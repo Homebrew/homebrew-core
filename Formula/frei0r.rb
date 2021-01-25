@@ -12,6 +12,8 @@ class Frei0r < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "cafe9dbba970e60d275480465cf7f87b7847063fb2113e7fd862947de0735865" => :big_sur
+    sha256 "284401af98f9f86f7f4aa8dd2a2cd7ccd22841decc2065d730b9811cc683cd3d" => :arm64_big_sur
     sha256 "5076041b5f3d76b94866ab2b97ad34523ee40cfa314e6f7d2bf460ce304de872" => :catalina
     sha256 "5e23b93a7ff4a2ee64c5a969b17bf6a52329e6da17c0612b46aa2ceec3fb5b39" => :mojave
     sha256 "a6a4648e1ff6263616f532a4648e1eb56e68d510d04e768becb2caf5ca961e3a" => :high_sierra

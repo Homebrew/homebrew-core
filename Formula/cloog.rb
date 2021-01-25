@@ -1,7 +1,7 @@
 class Cloog < Formula
   desc "Generate code for scanning Z-polyhedra"
-  homepage "https://www.bastoul.net/cloog/"
-  url "https://www.bastoul.net/cloog/pages/download/count.php3?url=./cloog-0.18.4.tar.gz"
+  homepage "http://www.bastoul.net/cloog/"
+  url "http://www.bastoul.net/cloog/pages/download/count.php3?url=./cloog-0.18.4.tar.gz"
   sha256 "325adf3710ce2229b7eeb9e84d3b539556d093ae860027185e7af8a8b00a750e"
   revision 3
 
@@ -12,11 +12,11 @@ class Cloog < Formula
 
   bottle do
     cellar :any
-    sha256 "4f21a763ea566aa97203b1823a659047c165df9b9d3144ed6df8e3038c054273" => :catalina
-    sha256 "f26e41c339aaf9d6207d9843f9e9a0c93d623d6cfb4e1b9d1f536afee85e25ea" => :mojave
-    sha256 "32b9d6ae3b69a1ac153d83997999add0a5836214c21d41fe18a0ef2dd44b3123" => :high_sierra
-    sha256 "f517f774f48f11a1fdcf7d0023bdeacbd919cb22085a539fba539fac80025826" => :sierra
-    sha256 "2e4ac62185b9291272f07381c19bba476eac505a40ff974aa8017b9ec4359b13" => :el_capitan
+    rebuild 1
+    sha256 "f7c327b7541e01820a0b70ac9877dae9263609de74480aad14568a505ee7af83" => :big_sur
+    sha256 "fd2c1ec09cd145694be31a83b63ce8d12a78475a9329337d17c54acf32a5bdab" => :arm64_big_sur
+    sha256 "7899742ca2ecd424f8354679f710d86329abf9935017dd0952950b485b0d9967" => :catalina
+    sha256 "604d9bd3eaab93d10f50d3dacf0c9c49b2b986b3a6379a95586fe4c4cbf26622" => :mojave
   end
 
   depends_on "pkg-config" => :build
@@ -49,7 +49,7 @@ class Cloog < Formula
   end
 
   test do
-    cloog_source = <<~EOS
+    (testpath/"test.cloog").write <<~EOS
       c
 
       0 2
@@ -65,7 +65,7 @@ class Cloog < Formula
       0
     EOS
 
-    output = pipe_output("#{bin}/cloog /dev/stdin", cloog_source)
-    assert_match %r{Generated from /dev/stdin by CLooG}, output
+    assert_match %r{Generated from #{testpath}/test.cloog by CLooG},
+                 shell_output("#{bin}/cloog #{testpath}/test.cloog")
   end
 end

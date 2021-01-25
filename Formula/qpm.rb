@@ -9,6 +9,7 @@ class Qpm < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "545f5e5f8e982649cf4977920de2c00b6da7c547ef694e7070b39e0a9408415a" => :big_sur
     sha256 "5d5edc32931995dfa82429a1d8708e700de70208f36767808a433c1e9bb2ffb2" => :catalina
     sha256 "f8208ec60e2af6e9d1da2caa0ad1b48b5b027955c2daa51860fa1606b8c5acef" => :mojave
     sha256 "8c9d0dde0b7a4292f8fa04337805755ac16ce1aab08710463323afec2f73d551" => :high_sierra

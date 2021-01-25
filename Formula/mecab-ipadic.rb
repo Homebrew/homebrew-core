@@ -16,6 +16,8 @@ class MecabIpadic < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "4fc2878d95314057c5d0f726cc1dacf2ce110c7e84b77806e958970f9b34ccc5" => :big_sur
+    sha256 "bdd2a69bbcbfe6e051278c94e4e19c6bfde63e2a3e525e2c57da0afb37ee5b6f" => :arm64_big_sur
     sha256 "90271975d35925136a14f2563e4b5201bed51b5c1fc27249d916676027c1016e" => :catalina
     sha256 "30967b4167d34f05c79f185d71a40198fff4067d0cce82aed59383548c898681" => :mojave
     sha256 "ef5cf167b05fd74457d5c31a46750450e8f80720ebc705766ee10df6ed41a861" => :high_sierra

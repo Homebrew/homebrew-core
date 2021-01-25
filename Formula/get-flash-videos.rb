@@ -7,14 +7,16 @@ class GetFlashVideos < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1a45571d40ed0c4e8b98142988156cdedafd82cfcb82108ee512cb59d34f6dcf" => :catalina
-    sha256 "ce0853c6ed07dfec3abce3ae4ca0cf073f5a8a38d530a227ffd966e7f1d946c4" => :mojave
-    sha256 "10e25788bbd00ffd0f0a5281c9c4c493c2957947ba4690cf92460c98aa72dc1b" => :high_sierra
-    sha256 "6c6e60aff2308881f4ef896b5a5c2dd1b05db9146d224be024793f042534dc6d" => :sierra
-    sha256 "0b7edca9b6518af848a6cb5f84bb34014cd017391279398ea9d796dc89ea7a57" => :el_capitan
+    rebuild 1
+    sha256 "2778b4877b9a5f717f247e73ce571db7f3215ca6a31e77dfaaebc4d7b0664bd7" => :big_sur
+    sha256 "79a6359023b8e477bc3a033747b817c57a476cf19938a1ae484ce2a52f2ce4ef" => :arm64_big_sur
+    sha256 "aac5558ccf7b7198eb48b71d7cdb9d07b93f4174926182a6e540678b0c4f9648" => :catalina
+    sha256 "f67cf7971842dbfaa8f8ecb24ba6692bd506688c4ff6b0e51cc05dd3d13f6d11" => :mojave
   end
 
   depends_on "rtmpdump"
+
+  uses_from_macos "perl"
 
   on_linux do
     resource "Module::Find" do

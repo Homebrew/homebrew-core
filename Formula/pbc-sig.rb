@@ -8,6 +8,8 @@ class PbcSig < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "9889f70fc5cf42a096c750b61008bf48a97bfece6179db5e7a631010749f1106" => :big_sur
+    sha256 "f99446bcb7e5930651fc63d4a6bea1b34b489e13ad7318a026d0be3ed6fe39f9" => :arm64_big_sur
     sha256 "47773fefdfeb3f7381046934974bbaf7f41a641c3d3f3af5802d07a7ea340ba6" => :catalina
     sha256 "134c203178bb93b406b4c5fb5aecf171db6473d558d0bf62cf9b1682b57448e9" => :mojave
     sha256 "79c31a3f1bcc2429648a2258974ccb1185cfe244d4fcbbfa2840c7393e7e058a" => :high_sierra

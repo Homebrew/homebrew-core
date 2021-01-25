@@ -8,6 +8,8 @@ class Envchain < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "0e3091b7e3202f68b9bca03aef6df8002048be8e7e6e77be736787e0c7393d7f" => :big_sur
+    sha256 "0a280127849e99bf3313f5d43b7bf1bf38cbffde964ca1c4e3968728b8a52cc8" => :arm64_big_sur
     sha256 "a8658954176e96b463565ea6b5c891b3635622c550ca32efb8ee2e3baec30062" => :catalina
     sha256 "3859bb68db413ee3f421351798082c456fbbb82896ef4ca2cdf439cc9d12fdbe" => :mojave
     sha256 "0d615620e4b69e41aef92971fc1aa9a586be4f75be7813ef73ace103dd182684" => :high_sierra

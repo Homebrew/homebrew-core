@@ -3,16 +3,22 @@ class Pacparser < Formula
   homepage "https://github.com/pacparser/pacparser"
   url "https://github.com/pacparser/pacparser/archive/1.3.7.tar.gz"
   sha256 "575c5d8096b4c842b2af852bbb8bcfde96170b28b49f33249dbe2057a8beea13"
-  license "LGPL-3.0"
+  license "LGPL-3.0-or-later"
   head "https://github.com/pacparser/pacparser.git"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "985bbf12ff200cd4f521eddbc17e084f1cb1fd8166853a52fd4b30228bdefd46" => :catalina
-    sha256 "5a4db686679c753a806fa2e2df5e93263f973f447f9357fcdadc071687c10071" => :mojave
-    sha256 "1bb0af844e0cfd58357987f2f9e6f82b0e72a13df961f13ad8b81b3e00a3dff2" => :high_sierra
-    sha256 "719e5eadacf71e3a2e863447609322c45f3be3a9d3ee63373c05a9a2ae7f31b8" => :sierra
+    rebuild 3
+    sha256 "55ce66921189d2ba41d3cf58f7548237442c5387372b8cc4bab891cf1ed7766f" => :big_sur
+    sha256 "1999482c32deaa8c6b9a38800b6dbc4f6d18076177f6a8a0dad49c21c4327781" => :arm64_big_sur
+    sha256 "ca13d2507c9c6616bc6c3604c19a7f6f1652bb3b3c1fed3168c4d832a10b0174" => :catalina
+    sha256 "3544e7aed8d310d3407997f46b8b51cbbc2b1d962f90535175baff72301e375e" => :mojave
+  end
+
+  # Fix build for MacOS 11.1
+  patch do
+    url "https://github.com/manugarg/pacparser/commit/28afea85c7578d033132f3817b62d3bb707cc3a3.patch?full_index=1"
+    sha256 "52fc5b276caf6e95a3ae4ac21e75c9751daaf429f344fdc6b62c85de4aa40d48"
   end
 
   def install

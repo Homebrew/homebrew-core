@@ -10,6 +10,8 @@ class Srecord < Formula
 
   bottle do
     cellar :any
+    sha256 "5c5129ae228ef644b5ed2a26516295feabd198aea270eab03c5c6d3e418980b1" => :big_sur
+    sha256 "2531dde4b69ae50e0cb15b498b2729862e64d00b98be831e581989d9e907f36a" => :arm64_big_sur
     sha256 "cc4e1e89835954876853f5f7bcccbfd172adbb5651c1f2790ea3da10e4347845" => :catalina
     sha256 "6b3b825b501d1ea1635d107fb62021dde713f6da375f53f1a1fdcb59070df63a" => :mojave
     sha256 "f6341ba9022e6cbc057c519fcdc7c7518247c850025777b80d2463341315d88c" => :high_sierra

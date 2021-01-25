@@ -1,20 +1,28 @@
 class XcbProto < Formula
   desc "X.Org: XML-XCB protocol descriptions for libxcb code generation"
   homepage "https://www.x.org/"
-  url "https://xcb.freedesktop.org/dist/xcb-proto-1.13.tar.bz2"
-  sha256 "7b98721e669be80284e9bbfeab02d2d0d54cd11172b72271e47a2fe875e2bde1"
+  url "https://xcb.freedesktop.org/dist/xcb-proto-1.14.tar.gz"
+  sha256 "1c3fa23d091fb5e4f1e9bf145a902161cec00d260fabf880a7a248b02ab27031"
   license "MIT"
   revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f1784c79ed426c069f6a63bc93cfa81bdbf2927c88f44f46bdbe7721095a545a" => :catalina
-    sha256 "632746e279433e8ec37e692bd9f90475d7a8cb16dbc743641677937e74974027" => :mojave
-    sha256 "428b789f3406ebfc2c4b1857cb8ca900853e2cc75d314588002484a2a8648d87" => :high_sierra
+    sha256 "3a06ab668310fdc796d8cb65b7f1629525c429c4ab557152dc4cd2f6986f6e71" => :big_sur
+    sha256 "b517e748dd151eae431d41c7f245a06df71a36f9be201e3b53560df5746bada6" => :arm64_big_sur
+    sha256 "ffa4de426e5779c26533a004ea07f4806af7b2c6c258cbb1099ef328f7a44658" => :catalina
+    sha256 "ea079de49278e1432c77933a08cbdccab4c0d5d5cccd681c09ea9384b9459a3a" => :mojave
   end
 
   depends_on "pkg-config" => [:build, :test]
   depends_on "python@3.9" => :build
+
+  # Fix for Python 3.9. Use math.gcd() for Python >= 3.5.
+  # fractions.gcd() has been deprecated since Python 3.5.
+  patch do
+    url "https://gitlab.freedesktop.org/xorg/proto/xcbproto/-/commit/426ae35bee1fa0fdb8b5120b1dcd20cee6e34512.patch"
+    sha256 "58c56b9713cf4a597d7e8c634f276c2b7c139a3b1d3f5f87afd5946f8397d329"
+  end
 
   def install
     args = %W[
@@ -31,6 +39,6 @@ class XcbProto < Formula
   end
 
   test do
-    assert_equal "#{share}/xcb", shell_output("pkg-config --variable=xcbincludedir xcb-proto").chomp
+    assert_match "#{share}/xcb", shell_output("pkg-config --variable=xcbincludedir xcb-proto").chomp
   end
 end

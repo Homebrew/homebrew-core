@@ -8,6 +8,8 @@ class Cli11 < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "75e9f1b8fe6e8aee9e6d554660cec5545b5440fa4e026bef51f597c497482282" => :big_sur
+    sha256 "bba2d7db631591a5c2d1c487842b9b26a33c87821008cb1f003d191f6069b486" => :arm64_big_sur
     sha256 "bd03843ddff7cee05b6734cca05ecf1452d5c67c1df67c88f0415aee4b0dc270" => :catalina
     sha256 "9960ada2b8c3f40fb2993c12a7b0a14cebecac6157844252ad5cdea8b7e6c59b" => :mojave
     sha256 "76c6f767bbcbcf11a05f9579447d94d2d86c0c9dbb2502f63dd05b4b54102fac" => :high_sierra

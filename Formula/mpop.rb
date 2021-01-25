@@ -1,14 +1,16 @@
 class Mpop < Formula
   desc "POP3 client"
   homepage "https://marlam.de/mpop/"
-  url "https://marlam.de/mpop/releases/mpop-1.4.10.tar.xz"
-  sha256 "9e9b6523f08df50a3d3eec75d94d4c0104ee016c0c913baaf8fbf178bf828388"
-  license "GPL-3.0"
+  url "https://marlam.de/mpop/releases/mpop-1.4.12.tar.xz"
+  sha256 "5f6355b52d9c360619623a40c66c1a5571e393b43fe58375c0de35429ac3480a"
+  license "GPL-3.0-or-later"
 
   bottle do
-    sha256 "4d62437fccd5d773e888126e465f1cea07fdcbdc7f0b5fb826267d78747cfa0c" => :catalina
-    sha256 "e2638049d1e7b182aa5ad981436660969d029ee3a7b2afe0cb3a3906817578f3" => :mojave
-    sha256 "0576fae054e001c3fd7954c5b013323aa0bb54d37c7c51b400cef87144d690a1" => :high_sierra
+    rebuild 1
+    sha256 "6e1d0e59df73534ec28952b1a00fc490335959c5da636306ba3f2224f1f5d995" => :big_sur
+    sha256 "3aaad5f552e6c7b1dc2826e17fde83b873f63d540607a83edf8f0d9466dd4be3" => :arm64_big_sur
+    sha256 "8fa53695d0f74cb8575a6eb1b3582ef2e06814c1540c8c3ad20be5f9667f617e" => :catalina
+    sha256 "8c30103713ed7538025b297aaf50fd072dfdfe3fe803ee0712f8d06dddb094f3" => :mojave
   end
 
   depends_on "pkg-config" => :build

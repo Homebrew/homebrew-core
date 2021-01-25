@@ -12,6 +12,8 @@ class Jed < Formula
 
   bottle do
     rebuild 1
+    sha256 "9ed592a6977c9df053eb31b380d31d32af3d3963c005e4feadb5402208193bf8" => :big_sur
+    sha256 "0705ef662941dc6f4ebd34eae2fc7c02f640d34ac7edbd53eb1d51384cb7c204" => :arm64_big_sur
     sha256 "1b349ce808e1a1a0d2ce8327ef3a68f3ea7678af0bef98c499bbb8d0db9c9a7f" => :catalina
     sha256 "74df74658f783e6de97ed841b1e2532ead3681c7816d55c52e56d4d5056050b9" => :mojave
     sha256 "b8e8f13a1936067960fd2040019d30fc3cedabba4f5c3c22712990f64e09c752" => :high_sierra

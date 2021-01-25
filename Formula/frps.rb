@@ -2,15 +2,16 @@ class Frps < Formula
   desc "Server app of fast reverse proxy to expose a local server to the internet"
   homepage "https://github.com/fatedier/frp"
   url "https://github.com/fatedier/frp.git",
-      tag:      "v0.34.1",
-      revision: "e0c45a1aca2bf8e2a081d4a40bbbe2585c4134be"
+      tag:      "v0.35.1",
+      revision: "3bf1eb85659ee49aff28dfb70e537b1f54b84365"
   license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0de4a4cc134b9535db22b4aa786870cf6726d74be9cdb8773beb905d6f5041c7" => :catalina
-    sha256 "34ac69200c86d9bfa36208ac31a28d3bbacffabd582714e2bf5217073bf67fc7" => :mojave
-    sha256 "2cef0bdfbf14951aa6600fd5280b4476c8d88abae2e17dcc2342f4defa7615d2" => :high_sierra
+    sha256 "dae1eded5cefc7233d05a52703bfc5ef9c70a2023980960a1514665bfdfd7e10" => :big_sur
+    sha256 "bf36d3f6f1e1c871f2df1f8abbc5d5ef0f7e8247752fbe6ff377fd5918dd2272" => :arm64_big_sur
+    sha256 "59cf1fb891b1126a981bbf01ee2be2a9e960cc588503d6df5c1d1420b3ac3614" => :catalina
+    sha256 "22451bb38ca33a41d6a8afa493faa6b9f8a74c50685a9d0c661f662621263401" => :mojave
   end
 
   depends_on "go" => :build
@@ -63,6 +64,6 @@ class Frps < Formula
     sleep 3
 
     output = read.gets
-    assert_match "frps tcp listen on", output
+    assert_match "frps uses command line arguments for config", output
   end
 end

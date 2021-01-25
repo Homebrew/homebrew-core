@@ -5,8 +5,15 @@ class Sshtrix < Formula
   sha256 "30d1d69c1cac92836e74b8f7d0dc9d839665b4994201306c72e9929bee32e2e0"
   license "GPL-3.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?sshtrix[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
+    sha256 "b3962b5211858eb4f6e1478665bfbb578c1f9d1c393237b841f9261aab4cdbf9" => :big_sur
+    sha256 "bb7eefcc513933225daa50cac41e6216d890910f5bec5f0003c20e9205082608" => :arm64_big_sur
     sha256 "e115c5a6f3378af5a0ab4297673bb7b659dd20054ab91d818b083ce13951e7da" => :catalina
     sha256 "a54f2c867dd6539824cc69888975d3cd2041b4b922183262d29fcdf655391cfa" => :mojave
     sha256 "dd567f106a7fe8a7a6f9e2474b284109e1dbcb14ed847163d1f65f4d69467f93" => :high_sierra

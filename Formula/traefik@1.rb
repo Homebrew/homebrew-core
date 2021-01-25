@@ -1,20 +1,20 @@
 class TraefikAT1 < Formula
   desc "Modern reverse proxy (v1.7)"
   homepage "https://traefik.io/"
-  url "https://github.com/containous/traefik/releases/download/v1.7.26/traefik-v1.7.26.src.tar.gz"
-  sha256 "37334deb0dcd0c393e3ce003334b497d173a5f84cb412a21f19fbbd61211a0ef"
+  url "https://github.com/traefik/traefik/releases/download/v1.7.28/traefik-v1.7.28.src.tar.gz"
+  sha256 "1baa2ca726c4eac71931284229b867a7f15cecb41c3ce8df3619502880ab6719"
   license "MIT"
 
   livecheck do
-    url "https://github.com/containous/traefik.git"
+    url "https://github.com/traefik/traefik.git"
     regex(/^v?(1(?:\.\d+)+)$/i)
   end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "dc50cb5af800c8f062e330e3b103bce1a2d0a78c6fdbd73d742c7197252c151b" => :catalina
-    sha256 "3ac187701cefeba894c3440bb9353e4e85cf716ef38cacfe35f3b5e474c52362" => :mojave
-    sha256 "89c846b73437bef8360f1acd1cdd5aceb9f8bc160d6400ac77331ac8452169b7" => :high_sierra
+    sha256 "2ebc160c9500db7fe90b9f3312a8d43bcdac819a16a4c1e641702b61c3e948a6" => :big_sur
+    sha256 "4225edf0cb5466dd6031cb8bf149c764f8614c0fc97aa799c8271e373268a3f5" => :catalina
+    sha256 "a014d6c20348aab5eaf4a775906bf7b450d89edb16373328840d4f3a3d9e80cb" => :mojave
   end
 
   keg_only :versioned_formula
@@ -26,9 +26,9 @@ class TraefikAT1 < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/containous/traefik").install buildpath.children
+    (buildpath/"src/github.com/traefik/traefik").install buildpath.children
 
-    cd "src/github.com/containous/traefik" do
+    cd "src/github.com/traefik/traefik" do
       cd "webui" do
         system "yarn", "upgrade"
         system "yarn", "install"

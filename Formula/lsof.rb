@@ -1,16 +1,17 @@
 class Lsof < Formula
   desc "Utility to list open files"
   homepage "https://people.freebsd.org/~abe/"
-  url "https://github.com/lsof-org/lsof/archive/4.93.2.tar.gz"
-  sha256 "3df912bd966fc24dc73ddea3e36a61d79270b21b085936a4caabca56e5b486a2"
+  url "https://github.com/lsof-org/lsof/archive/4.94.0.tar.gz"
+  sha256 "a9865eeb581c3abaac7426962ddb112ecfd86a5ae93086eb4581ce100f8fa8f4"
   license "Zlib"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b50a86c814c6bbc1d1f716cb39b254ad628c55a6850588f907c1792b5dc6fa3f" => :catalina
-    sha256 "3532e9650fc5b836d5584cd8733f83218229d170859bf2c85e62b4abad08d356" => :mojave
-    sha256 "8ebe4f68ada3d1c1984bbfb660437984f5fc9d61c93b3da8024bfd0d797a2172" => :high_sierra
-    sha256 "e07f28fd45b1eae5231393b45360920da4ad4386a83ccb6a256fc7ea26509f59" => :sierra
+    sha256 "7dbab0c2a35d97381ed52fa32e1507c0fe83bc405fc40c4d00c79e12c79cffe4" => :big_sur
+    sha256 "3202f83509eefa73603b865ea4aca0433bbbf69d30f43d229a5ee256d1977424" => :arm64_big_sur
+    sha256 "58d2ee9a7484541a7280f5a139f2d0454b494f54bca3b9f10273e036d8071bde" => :catalina
+    sha256 "9eb185a83e641bd8bd90fab3a8cde572b23ebb1ce269a8832fb85a66c5037318" => :mojave
+    sha256 "268fe15ecc8d9e4dd4f2f45737c921e54a5aa999f15ab6b724b9bd34deeef8d1" => :high_sierra
   end
 
   keg_only :provided_by_macos

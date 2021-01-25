@@ -3,10 +3,9 @@ class Rbtools < Formula
 
   desc "CLI and API for working with code and document reviews on Review Board"
   homepage "https://www.reviewboard.org/downloads/rbtools/"
-  url "https://files.pythonhosted.org/packages/04/98/10d5f67470c48e000cf9c95fb748f6a302eb01c0cb006d3ec37ff2f1e7c1/RBTools-1.0.3.tar.gz"
-  sha256 "ff4cea3ad7b2d1b1666b811021cf5047f1fbe9417428fb5133a40ede81e3e83c"
+  url "https://files.pythonhosted.org/packages/10/1f/bd60d2fd57b626b3ed44daabb6392ee8e1a9d9cb35fc637d9056c4b9d318/RBTools-2.0.tar.gz"
+  sha256 "be1bc05e07cc1d2a12382a999855fcdb77f4043f6a8eb802dded1ea698196845"
   license "MIT"
-  revision 1
   head "https://github.com/reviewboard/rbtools.git"
 
   livecheck do
@@ -15,31 +14,32 @@ class Rbtools < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0b12f736ad37628d1fb9c87c909985696a73518c9f7ff5377f48be9310ca399e" => :catalina
-    sha256 "654a068175e2e29facbef092127b5848f3a4464fe1f2077cc08e0be1f3d93e5f" => :mojave
-    sha256 "8982afb981edc037655be37cceaebd5a352f29b05e6385d8b67ce678f832c5bf" => :high_sierra
+    sha256 "e133d75d705c8d4ce84ced1ecbd790d9364f9e2fadbed907e3800b8cf0a37742" => :big_sur
+    sha256 "ca6d136337a4d895e9d333aa65ab9ae70cf218950a2e236f26c466ba1d926a21" => :arm64_big_sur
+    sha256 "0f188ab6170680509af56eb3c35acc9caa58362189336f58b33488f096f5b372" => :catalina
+    sha256 "13551bbfc8f9307821306832b2f7858b95c6c8bd77c90a6eeafefe66d0f0f2a7" => :mojave
   end
 
   depends_on "python@3.9"
 
   resource "colorama" do
-    url "https://files.pythonhosted.org/packages/76/53/e785891dce0e2f2b9f4b4ff5bc6062a53332ed28833c7afede841f46a5db/colorama-0.4.1.tar.gz"
-    sha256 "05eed71e2e327246ad6b38c540c4a3117230b19679b875190486ddd2d721422d"
+    url "https://files.pythonhosted.org/packages/1f/bb/5d3246097ab77fa083a61bd8d3d527b7ae063c7d8e8671b1cf8c4ec10cbe/colorama-0.4.4.tar.gz"
+    sha256 "5941b2b48a20143d2267e95b1c2a7603ce057ee39fd88e7329b0c292aa16869b"
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
-    sha256 "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
+    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
+    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
   end
 
   resource "texttable" do
-    url "https://files.pythonhosted.org/packages/04/c6/7d2514d76fefba65bfe2fa4e1082c3adea9edef5a149a3027b8f2d5ee0eb/texttable-1.6.1.tar.gz"
-    sha256 "2b60a5304ccfbeac80ffae7350d7c2f5d7a24e9aab5036d0f82489746419d9b2"
+    url "https://files.pythonhosted.org/packages/f5/be/716342325d6d6e05608e3a10e15f192f3723e454a25ce14bc9b9d1332772/texttable-1.6.3.tar.gz"
+    sha256 "ce0faf21aa77d806bbff22b107cc22cce68dc9438f97a2df32c93e9afa4ce436"
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/d0/0a/50a145091ce0c02db89d0342a59327c1ddeee206ef2991f09158d4e52406/tqdm-4.32.2.tar.gz"
-    sha256 "25d4c0ea02a305a688e7e9c2cdc8f862f989ef2a4701ab28ee963295f5b109ab"
+    url "https://files.pythonhosted.org/packages/3a/76/467422c5a0157c92a8b8e1ffe14411443682e2951e6f6dde3748e47b31ba/tqdm-4.54.0.tar.gz"
+    sha256 "5c0d04e06ccc0da1bd3fa5ae4550effcce42fcad947b4a6cafa77bdc9b09ff22"
   end
 
   def install

@@ -3,8 +3,9 @@ class Povray < Formula
   homepage "https://www.povray.org/"
   url "https://github.com/POV-Ray/povray/archive/v3.7.0.8.tar.gz"
   sha256 "53d11ebd2972fc452af168a00eb83aefb61387662c10784e81b63e44aa575de4"
-  license "AGPL-3.0"
+  license "AGPL-3.0-or-later"
   revision 1
+  head "https://github.com/POV-Ray/povray.git"
 
   livecheck do
     url :stable
@@ -12,12 +13,11 @@ class Povray < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 "a882f103b0ad016cbafa13cc1fd028046b337590feff3e6188bb574f1e328488" => :catalina
-    sha256 "eae4cf975215cdfdeadb665c53061c6ed2b4f9fa95121e7145222409b0e44c56" => :mojave
-    sha256 "4472bb00380eb26d3045dd5e67effa4f75934936263129009f9a80bbf5290633" => :high_sierra
-    sha256 "f21cb29c30c8367aa14f6a4485bf03377f23e30b2e7178be466d12bb84be26a9" => :sierra
-    sha256 "f2f0bf20fbe2d5b1ce91ecdf4eca52e4a544323910febae396d8b9fb1c0044ec" => :el_capitan
+    rebuild 2
+    sha256 "11ca4524b9607133f05ec4a1bfc5068814c8f24c816457a15762068e0e53e108" => :big_sur
+    sha256 "aa9bdecce6009e4bcf4c59c2d81c3b56aa0caa942e162dbe96e7440e9ee9b86e" => :arm64_big_sur
+    sha256 "73110c4da834819acf4887efc1051cd0928e77cbaf773c76b891a92e28a68ac8" => :catalina
+    sha256 "02725cdedd6abd1239284729cdf3fac874f81d302b1d23f3016c69724a24bde4" => :mojave
   end
 
   depends_on "autoconf" => :build
@@ -55,6 +55,14 @@ class Povray < Formula
     end
 
     system "./configure", *args
+
+    # The VERSION file in the root of the package is read by the autoconf bits.
+    # However, on a non-case-sensitive filesystem this breaks "#include <version>"
+    # deep inside the boost libraries.  See https://github.com/POV-Ray/povray/issues/403
+    rm "VERSION"
+    rm "unix/VERSION"
+    rm "libraries/tiff/VERSION"
+
     system "make", "install"
   end
 

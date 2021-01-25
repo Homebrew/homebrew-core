@@ -3,8 +3,8 @@ require "language/node"
 class WriteGood < Formula
   desc "Naive linter for English prose"
   homepage "https://github.com/btford/write-good"
-  url "https://registry.npmjs.org/write-good/-/write-good-1.0.3.tgz"
-  sha256 "0c3e857846696947ae253bf776a46d4f0192636d667a8131adeae97bd9ad14e2"
+  url "https://registry.npmjs.org/write-good/-/write-good-1.0.4.tgz"
+  sha256 "c9de39a23d60d99e22878b1e7a847b03888f848d04c4691f50e894aea9d54c5f"
   license "MIT"
 
   livecheck do
@@ -13,9 +13,10 @@ class WriteGood < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "791ef8443c90d7b981052a43d2b6d2feca79764bb28ce566532d81a022bba264" => :catalina
-    sha256 "b90b997569378259acbff13420edd45ad717e28a09e1bca30c224ba9851fa7a9" => :mojave
-    sha256 "c9a25be0717ec2ed3d53768a212acc48d0a2d3ded2e21f15f51e9d8373764f9e" => :high_sierra
+    sha256 "37567d2c4ae6274cb8c02ce524d52bb30e09fb88013d558e76b74c67a9196bfb" => :big_sur
+    sha256 "785f60e72a7fb8b15d1d839515df63f46f04487ebd5594cfa22bf39226096942" => :arm64_big_sur
+    sha256 "93462e20926597984079f3d4d31a2228bce4ccfa31b646174344e5fa134505bb" => :catalina
+    sha256 "66b39cc376254efd0a62240deb6212416c002d75643188f76c51fc586940899b" => :mojave
   end
 
   depends_on "node"

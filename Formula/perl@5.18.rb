@@ -12,6 +12,8 @@ class PerlAT518 < Formula
   end
 
   bottle do
+    sha256 "6a0597d8cea75db2fecaf1e807777b2f55b3fcdad4721630bc1e5c062a9ec8a0" => :big_sur
+    sha256 "6c250f7fbbb0cbc997ad0068b88802f5d097f3b3a635d5c64d7267c3ab39340f" => :arm64_big_sur
     sha256 "45b388773570fd4ef892caa7a0bb0312fd05dfcb3f73245a03eed16bf9187cc9" => :catalina
     sha256 "3e80537039afd47db55b42a09f34c2b1e6fc2a24581c16d09d76b5ad85997ed6" => :mojave
     sha256 "4ebffdb24ede27bf2fb4f844c87f4adc962942d399c6762b3c6cf90b929fa50a" => :high_sierra

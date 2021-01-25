@@ -8,6 +8,8 @@ class ImessageRuby < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "f04a68762e8c942003c8b0c2b1470e51d9de5f2f6e5827abd4b660b392bcf3ce" => :big_sur
+    sha256 "cb42cee42f6011f5a9d7489b35750f2fb2edca3cf1f77fb224de3befc80615bb" => :arm64_big_sur
     sha256 "64987077d2b09f6c2fc5f88161514d1ce988d44baa5b622a41192cad72982b3b" => :catalina
     sha256 "ae557de18880f38b34b4e47046b6c1d72d135167c10a1250479c575b3a6747fb" => :mojave
     sha256 "e287b21ce1694d5ec9c5376fb142232b2df72fb907b12cb5b0ff22bd2fc04ab2" => :high_sierra

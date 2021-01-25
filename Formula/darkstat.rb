@@ -7,6 +7,8 @@ class Darkstat < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "384197a3882c62ebb9f346743561c6e747f9504e681e02ba57c4942439f6e459" => :big_sur
+    sha256 "f118133e9435512691870171effd65220c2340328860a7b22ae32ad1ba3c369e" => :arm64_big_sur
     sha256 "381e67870ea4f9f980421aa6f51580eedf98a916a09de042022744de1905798e" => :catalina
     sha256 "edef4012fbd6b7626fbbf324ae92c34afcaba39f09a8ac7c7e80a3e25cef71c7" => :mojave
     sha256 "70eae96655d9872851ea02e44709155a6a9df509210fd2b49b0b72de334248f3" => :high_sierra

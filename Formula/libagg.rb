@@ -18,6 +18,8 @@ class Libagg < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "9b05190639d2c1419046cbedd1f6c16e65f5ee1c03f807a8157b774a4177ca01" => :big_sur
+    sha256 "b44f75e0bbf8725910b93bf65d18cd86966d825a993d92c4995a59bba5955fd3" => :arm64_big_sur
     sha256 "1ef56d71cf0fc0f5780395069105c7151f02a2264f2469ca3ae824c6366f45a6" => :catalina
     sha256 "97e0bd763cda63b61cefba2e46048275dda4d03cdaed251be5ebd0b7369b8e38" => :mojave
     sha256 "de1daeb1b324b1797f46ff6e6799498019de9256b4e09a128cf686e2572f6f60" => :high_sierra

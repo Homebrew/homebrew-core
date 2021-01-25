@@ -5,8 +5,16 @@ class Osi < Formula
   sha256 "984a5886825e2da9bf44d8a665f4b92812f0700e451c12baf9883eaa2315fad5"
   license "EPL-1.0"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+    regex(%r{href=.*?/tag/(?:releases%2F)?v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
+    sha256 "ca309667b17ad26cb79ba1305f096bf3163d1858658030ef21ae3cf23a3495f3" => :big_sur
+    sha256 "3f71fca3511681f252f956752dbbe314d216de7a0ff40c7c56505ac6292d91a5" => :arm64_big_sur
     sha256 "448319c96791abd303e976711176d74260d575b528c5c1229e1439fb85c295b9" => :catalina
     sha256 "a21200a175b4d0a2208be0e34fb2dd64965133be04b30db7150cf55fe46093e4" => :mojave
     sha256 "4fb8d7a49968da18a979df560dde2c8cae711c37ad722af8a0c20c3a7980134d" => :high_sierra

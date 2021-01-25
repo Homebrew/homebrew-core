@@ -12,6 +12,8 @@ class Ifstat < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "e78cdbeab6d2b938879ae80e9a611ea2042cf2806f9d2447b6117518d545083b" => :big_sur
+    sha256 "b10871840559de217d7a096eccc52f9f4115be20d03eee1c17c97e60e331ac0d" => :arm64_big_sur
     sha256 "bc3d531dc3b4f6ff78a4acac901a9e6afc21a7994d7cbc3403839a5ae68b68b3" => :catalina
     sha256 "cd3e855e0608177b9aebf545faeb17a4bad84e093a8ed6a84193b9583a94dc92" => :mojave
     sha256 "8e385a8fdf00266e63bd7a3af17cdcf07da3cb86a08bd3431cfa3b4cc88bb7a5" => :high_sierra

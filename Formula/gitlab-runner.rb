@@ -2,8 +2,8 @@ class GitlabRunner < Formula
   desc "Official GitLab CI runner"
   homepage "https://gitlab.com/gitlab-org/gitlab-runner"
   url "https://gitlab.com/gitlab-org/gitlab-runner.git",
-      tag:      "v13.5.0",
-      revision: "ece8634382223b250b259534ed398d2c125b9911"
+      tag:      "v13.8.0",
+      revision: "775dd39d7476642c4dbc3655b375acf93a3556bb"
   license "MIT"
   head "https://gitlab.com/gitlab-org/gitlab-runner.git"
 
@@ -14,9 +14,10 @@ class GitlabRunner < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8b884156876862b842d72b14cd1d31ba06d5d99d9f7add60b393dcef175ad56f" => :catalina
-    sha256 "b44fed098410031f72580821815ce1fccc7431c7e79f206b12d1d569dff40b5f" => :mojave
-    sha256 "a5cdfbd8b0283294e01ed3a763c2c8e87eec9416973176ffb1aed429397b8eb1" => :high_sierra
+    sha256 "4b4babe8c296895c0a5608b5e7bc1202e3cbf21eb53e921638e315d32475cc18" => :big_sur
+    sha256 "c576eb3eb089d47a3c4d876c553b3112fd294337b63c163d902ad07a88eb47fc" => :arm64_big_sur
+    sha256 "2212629ccdfbad4277c3b4fd1306f4bbc6a3b6753ff9daa49535d0ed74cb285d" => :catalina
+    sha256 "01d055c7b65926732753be4b8def59ad9fa926316ef3c7bd72807a5f44452d11" => :mojave
   end
 
   depends_on "go" => :build
@@ -27,15 +28,12 @@ class GitlabRunner < Formula
 
     cd dir do
       proj = "gitlab.com/gitlab-org/gitlab-runner"
-      commit = Utils.safe_popen_read("git", "rev-parse", "--short=8", "HEAD").chomp
-      branch = "#{version.major}-#{version.minor}-stable"
-      built = Time.new.strftime("%Y-%m-%dT%H:%M:%S%:z")
       system "go", "build", "-ldflags", <<~EOS
         -X #{proj}/common.NAME=gitlab-runner
         -X #{proj}/common.VERSION=#{version}
-        -X #{proj}/common.REVISION=#{commit}
-        -X #{proj}/common.BRANCH=#{branch}
-        -X #{proj}/common.BUILT=#{built}
+        -X #{proj}/common.REVISION=#{Utils.git_short_head(length: 8)}
+        -X #{proj}/common.BRANCH=#{version.major}-#{version.minor}-stable
+        -X #{proj}/common.BUILT=#{Time.new.strftime("%Y-%m-%dT%H:%M:%S%:z")}
       EOS
 
       bin.install "gitlab-runner"

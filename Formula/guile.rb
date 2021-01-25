@@ -1,19 +1,20 @@
 class Guile < Formula
   desc "GNU Ubiquitous Intelligent Language for Extensions"
   homepage "https://www.gnu.org/software/guile/"
-  url "https://ftp.gnu.org/gnu/guile/guile-3.0.4.tar.xz"
-  mirror "https://ftpmirror.gnu.org/guile/guile-3.0.4.tar.xz"
-  sha256 "6b7947dc2e3d115983846a268b8f5753c12fd5547e42fbf2b97d75a3b79f0d31"
+  url "https://ftp.gnu.org/gnu/guile/guile-3.0.5.tar.xz"
+  mirror "https://ftpmirror.gnu.org/guile/guile-3.0.5.tar.xz"
+  sha256 "2d76fb023d2366126a5fac04704f9bd843846b80cccba6da5d752318b03350f1"
+  license "LGPL-3.0-or-later"
 
   livecheck do
     url :stable
   end
 
   bottle do
-    rebuild 1
-    sha256 "82d5ae8de3a1c8bf11e35b53487d6dbd14536376d04b9939df052f2eac66f0f0" => :catalina
-    sha256 "ed3f5ae6d9331860184d93c8e4d3e230c4b1558a330a9a23042115aef17c7ed5" => :mojave
-    sha256 "1e02fde47f568f75a58911b9c14ba60169c77ed09bdddb9038a4b89adc153b9d" => :high_sierra
+    sha256 "ce8a02da2f7a50ee2df21ace1dac3b8335855907ec31224cea3ea5f89d82c463" => :big_sur
+    sha256 "ce524aaa55b2a6200e4ba4a05b3d40e726eef82750767bbdebf2243c9c766ee9" => :arm64_big_sur
+    sha256 "18a97a127b757c021f8f3b7257306cac30efd055d1bde8cee88874d62b72d8b0" => :catalina
+    sha256 "1775232d131525bf77530ab194a4688e1a14804669267ef22b6d78ab3e088b70" => :mojave
   end
 
   head do
@@ -34,23 +35,24 @@ class Guile < Formula
   depends_on "pkg-config" # guile-config is a wrapper around pkg-config.
   depends_on "readline"
 
-  on_linux do
-    depends_on "gperf"
-  end
+  uses_from_macos "gperf"
 
   def install
-    # Work around Xcode 11 clang bug
-    # https://bitbucket.org/multicoreware/x265/issues/514/wrong-code-generated-on-macos-1015
-    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
-
     # Avoid superenv shim
     inreplace "meta/guile-config.in", "@PKG_CONFIG@", Formula["pkg-config"].opt_bin/"pkg-config"
 
     system "./autogen.sh" unless build.stable?
+
+    # Disable JIT on Apple Silicon, as it is not yet supported
+    # https://debbugs.gnu.org/cgi/bugreport.cgi?bug=44505
+    extra_args = []
+    extra_args << "--enable-jit=no" if Hardware::CPU.arm?
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--with-libreadline-prefix=#{Formula["readline"].opt_prefix}",
-                          "--with-libgmp-prefix=#{Formula["gmp"].opt_prefix}"
+                          "--with-libgmp-prefix=#{Formula["gmp"].opt_prefix}",
+                          *extra_args
     system "make", "install"
 
     # A really messed up workaround required on macOS --mkhl

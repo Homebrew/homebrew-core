@@ -11,6 +11,8 @@ class Tivodecode < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "aeec3ab80bd78902f47343a699f3ebd4566b2d3fd9ce8076550bd705caf69486" => :big_sur
+    sha256 "5171d7774e6eed485e7b3d57e3dd2b9bc0e935f97dd7890109ccdb3c4975ab62" => :arm64_big_sur
     sha256 "153d8b8e152ccf3c87041ff40739a80952da5ad06c572d7febb9b222b16069e1" => :catalina
     sha256 "efa83924ac8d8e07e539c6d9b3aa5d5d7440fd34bccc1da793ead1224eabdbbf" => :mojave
     sha256 "0016f711d79454b154708804c574633c48e472b9a81c257730e5cf4aa00dd220" => :high_sierra

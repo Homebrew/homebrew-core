@@ -3,16 +3,17 @@ class MpsYoutube < Formula
 
   desc "Terminal based YouTube player and downloader"
   homepage "https://github.com/mps-youtube/mps-youtube"
-  url "https://github.com/mps-youtube/mps-youtube/archive/v0.2.8.tar.gz"
-  sha256 "d5f2c4bc1f57f0566242c4a0a721a5ceaa6d6d407f9d6dd29009a714a0abec74"
-  license "GPL-3.0"
+  url "https://files.pythonhosted.org/packages/b1/8e/5156416119545e3f5ba16ec0fdbb2c7d0b57fad9e19ee8554856cd4a41ad/mps-youtube-0.2.8.tar.gz"
+  sha256 "59ce3944626fbd1a041e1e1b15714bbd138ebc71ceb89e32ea9470d8152af083"
+  license "GPL-3.0-or-later"
   revision 11
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "18d91d027af3797a33a1dce5cd5677045539a1c9664fd5d1e70b000f3baa0298" => :catalina
-    sha256 "51c856bc1f5cdfe4b71c8315277d17fdfb3202afcc20c0816a1c884b14b10fde" => :mojave
-    sha256 "812e64456b7e8cce5ede6fb043c904d78d6b16c8d92c8d33f620b7b85ac10984" => :high_sierra
+    rebuild 2
+    sha256 "2dd08756b9e62a90560e745bc04c143746d814083d4718e8b54907f7afd13403" => :big_sur
+    sha256 "4e9a341a4d730d6b3ded045d3db8fc3bed53c181c380cb412c8ca87af512cb49" => :catalina
+    sha256 "7447cf6a16ec67bcfd0c11ede83ff5c2b91f4c8aebb12cd125f3c242473933e0" => :mojave
   end
 
   depends_on "mplayer"
@@ -41,7 +42,7 @@ class MpsYoutube < Formula
   def caveats
     <<~EOS
       Install the optional mpv app with Homebrew Cask:
-        brew cask install mpv
+        brew install --cask mpv
     EOS
   end
 

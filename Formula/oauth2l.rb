@@ -8,6 +8,8 @@ class Oauth2l < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "178ad09db5c5cea0075981a832cd143da1ccea0f5224f3c9bf518b5549fb367f" => :big_sur
+    sha256 "af0eb0cf2c933afb45eda9aee0b19cd972e16db5b5a5843595397a68348a044c" => :arm64_big_sur
     sha256 "4dedbbebe5996581e6a6c41500abded4f96b0d888e7b68e64584b846d196967e" => :catalina
     sha256 "3cdb4abb44ae3fa046446c28a54225ab46efa736a6cc5dcab80d7156c8f78348" => :mojave
     sha256 "d52fe266287cba01a822204ae32770cff65a244011a69f5306d9d38071c6385a" => :high_sierra

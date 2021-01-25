@@ -6,6 +6,8 @@ class GuileAT2 < Formula
   sha256 "cdf776ea5f29430b1258209630555beea6d2be5481f9da4d64986b077ff37504"
 
   bottle do
+    sha256 "35072ce02c8db7b27f6890da7244e63ecb6e37d510b8c8794be27b46b2d57cb5" => :big_sur
+    sha256 "b281df6321e291747d5d847ac8c61f74f4de2777c031ca597b4f5440459f5207" => :arm64_big_sur
     sha256 "2821f055df7815abc7467a42f1bd90a09672261a9aad4ce994111a59a2ce6dbe" => :catalina
     sha256 "78e5fd69581a54b8d7c701e1fc03d96660b80a2699d7dad701cdd2865a5f2442" => :mojave
     sha256 "2832668210b0ef94ae0596c7e27aca846f76453719df6a9103e34af9e885d031" => :high_sierra
@@ -13,7 +15,7 @@ class GuileAT2 < Formula
 
   keg_only :versioned_formula
 
-  deprecate! because: :versioned_formula
+  deprecate! date: "2020-04-07", because: :versioned_formula
 
   depends_on "gnu-sed" => :build
   depends_on "bdw-gc"
@@ -25,10 +27,6 @@ class GuileAT2 < Formula
   depends_on "readline"
 
   def install
-    # Work around Xcode 11 clang bug
-    # https://bitbucket.org/multicoreware/x265/issues/514/wrong-code-generated-on-macos-1015
-    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
-
     # Avoid superenv shim
     inreplace "meta/guile-config.in", "@PKG_CONFIG@", Formula["pkg-config"].opt_bin/"pkg-config"
 

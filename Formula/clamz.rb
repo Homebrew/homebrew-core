@@ -7,6 +7,8 @@ class Clamz < Formula
 
   bottle do
     cellar :any
+    sha256 "d7f6f8dc57d5498a54cd78356bc3097aa713a9000e876a6d3aaa12a10540d9d4" => :big_sur
+    sha256 "865348260858f74e779a47308f521ad54168b7a5d521313993a5f7f28fa53f44" => :arm64_big_sur
     sha256 "6dc5a22ec8b190b91bc3e825a23063f6096f447ed24cabf6d5bcb19da8ef58f3" => :catalina
     sha256 "031520225192a8498bc21a4e69c539ea0811ed2773b7085ecf1e10b502f648de" => :mojave
     sha256 "0a0d293bb616f176c756c402b9d5d7528e42caa1767374d45b721b5a2e82094d" => :high_sierra

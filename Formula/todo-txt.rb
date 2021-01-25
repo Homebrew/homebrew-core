@@ -6,6 +6,11 @@ class TodoTxt < Formula
   license "GPL-3.0-only"
   head "https://github.com/todotxt/todo.txt-cli.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle :unneeded
 
   def install

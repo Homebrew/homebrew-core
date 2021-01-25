@@ -13,6 +13,8 @@ class Libsmi < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "5c3ea572911edc5c6beb54b78e34d840dc458d6b0b5f465298fd0fe673f117be" => :big_sur
+    sha256 "608287866cf55d742ebe601ff14e984f39a3e7b11374d461b4dc3e5a41854ca6" => :arm64_big_sur
     sha256 "1a25b44883bb95940e789ec6395dfa796ec44fd4e0d9ae1ee81a4119fe70ac14" => :catalina
     sha256 "507d7f52bd7be5c1cc3170831de43e3ebd5a4312b6eda5d795d7519437016246" => :mojave
     sha256 "25a31cf7557ddfc1174a932b904d6c96bda4f3c733caf8258edbdef376e99544" => :high_sierra

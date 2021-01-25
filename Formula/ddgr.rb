@@ -10,6 +10,8 @@ class Ddgr < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "a4d85046d345c5bd1dbb2a5368cef631ac4eef8dfbf3f365019d90da7f31c54a" => :big_sur
+    sha256 "514088d8485c7943c2c4a34654147bc357d0cd1b797cc80b455ec0212ae7d226" => :arm64_big_sur
     sha256 "2e072910ed4e40203156efec17ffd926142f1dcbe452ee975f7bda67bf658e67" => :catalina
     sha256 "e790e6a0175047496f3b81e1226e4e55a1047c9b070dd18ffcd6825d17e840dd" => :mojave
     sha256 "57266892ebb4fe452b375f06ad756426eecbe7f144e4c6b79673cfce289d34fc" => :high_sierra

@@ -12,6 +12,8 @@ class Dvdauthor < Formula
 
   bottle do
     cellar :any
+    sha256 "0972f90ce00dee3e7449342d73ea5568fa887b887f7f6d112e91171c5193c134" => :big_sur
+    sha256 "2c79f1849a77ee711bfba59c1b44ba6dbe0aeb55e6987612067722781cea6850" => :arm64_big_sur
     sha256 "669b5fe5348ceb668f9ff55c4942c240f585eb5167e2dfbe1142442fcf7b776b" => :catalina
     sha256 "3e4e46c56905c289d31d167e75ee3b033a197fc0dda4b6b56dec752ac9773c51" => :mojave
     sha256 "55cee6a535eec67fc4f1ea65c2283d69c420d32933d9bcd6106168796ba1af9a" => :high_sierra

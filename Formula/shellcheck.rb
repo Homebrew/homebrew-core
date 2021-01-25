@@ -9,6 +9,7 @@ class Shellcheck < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "c7bd19ca5bc623c8a958c4cb56b77ab89e652c20a1a66dfbbc0c5d8832b60ada" => :big_sur
     sha256 "0cd635d2172d5e6617be8cdfb2723b6aa6feb2aa22e36cb3172d8b6fa012f4a0" => :catalina
     sha256 "37201a49c0d7a5be49c5d97d4f6f8f5fcfef7d700b4694f74648a1addcd6783d" => :mojave
     sha256 "1b20aeaba4d5e2e3df5cbe27636d655b6f877ee05a41d25fe1e0b3f9d00afa81" => :high_sierra

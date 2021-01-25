@@ -13,6 +13,8 @@ class Gnutls < Formula
   end
 
   bottle do
+    sha256 "6f523e8ce74c567d17a4a5b69794e897074a016b895a5d8ef7122ac006b770fc" => :big_sur
+    sha256 "c17d19750e8de06d56d80c49c7e31fb7f334f345bcb1aa2489827f575c82cdbd" => :arm64_big_sur
     sha256 "513407ec28ac63623dbc05ac6880d59cf7c082827687dfda7d0f065232151878" => :catalina
     sha256 "cd25205fbf27599b4186f8549324a50f045fa680b8c02a98230dcf910dff0941" => :mojave
     sha256 "5a1c108c598159c9d3dc203bed684cf70ca5dae5ee875166b35420fd2415a61e" => :high_sierra
@@ -35,6 +37,10 @@ class Gnutls < Formula
   end
 
   def install
+    # Fix build with Xcode 12
+    # https://gitlab.com/gnutls/gnutls/-/issues/1116
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
+
     args = %W[
       --disable-dependency-tracking
       --disable-silent-rules
@@ -48,9 +54,6 @@ class Gnutls < Formula
       --disable-heartbeat-support
       --with-p11-kit
     ]
-
-    # Work around a gnulib issue with macOS Catalina
-    args << "gl_cv_func_ftello_works=yes"
 
     system "./configure", *args
     # Adding LDFLAGS= to allow the build on Catalina 10.15.4

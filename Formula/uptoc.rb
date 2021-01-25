@@ -8,18 +8,20 @@ class Uptoc < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6133ca9ca353edec73753c155c22bfc2757eecf8ae735e178f604fdb6e06a313" => :catalina
-    sha256 "01ebd4051546e2834975cd9ca921695a5deed06407ef4009e3b6e0c59dffc5ea" => :mojave
-    sha256 "8067fc0ce3bc47e786ad0476c477c34cda3dfdf1a10228aae699ee5afd9f3d10" => :high_sierra
+    rebuild 1
+    sha256 "40353c235e30210ab737684f85d6c444b580192eccbf50d84fbae0fa8a64c27b" => :big_sur
+    sha256 "7e6500f982ce6d54888461d97c8bad6dda039d065e883a60047ca549d9e06329" => :arm64_big_sur
+    sha256 "7a2f3982a14ad4176b17832e87dfb2a41fd10d87e0e35ade341b8baa17d3b7ab" => :catalina
+    sha256 "bd9cc58bd67f536070d5c34cd10733ba9744cfffc8aa3ef74b2ab6d558c32c2c" => :mojave
   end
 
   depends_on "go" => :build
 
   def install
     system "go", "build", "-ldflags",
-             "-s -w -X main.release=#{version} -X main.commit=#{stable.specs[:revision]} -X main.repo=#{stable.url}",
-             *std_go_args,
-             "./cmd"
+      "-s -w -X main.release=#{version} -X main.commit=#{Utils.git_head} -X main.repo=#{stable.url}",
+      *std_go_args,
+      "./cmd"
   end
 
   test do

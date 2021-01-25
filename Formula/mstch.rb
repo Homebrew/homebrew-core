@@ -7,6 +7,8 @@ class Mstch < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "2b80c88614296f677d11337638b4ca0757831795a6a580bc715f04aae43b4b0c" => :big_sur
+    sha256 "7c6d8cd225a7a23cb8e4635304797bccaa68248d23db9ab43ed6964547715a9e" => :arm64_big_sur
     sha256 "cd7adf5ad11d8958ecf32613bc1b5ecd6c166eea4576175e02ef265b1cf800ee" => :catalina
     sha256 "c01c3c4afec3f7c29c4f26f93cce9516c4de3d9e070fd2b11c7419a04352d532" => :mojave
     sha256 "c7ff132ee06fc7abf10d5cc4d9acc5b48eee1f6c7ce1136d31998b12ee3e5631" => :high_sierra

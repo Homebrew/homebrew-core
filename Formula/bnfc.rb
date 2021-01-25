@@ -1,16 +1,16 @@
 class Bnfc < Formula
   desc "BNF Converter"
   homepage "https://bnfc.digitalgrammars.com/"
-  url "https://github.com/BNFC/bnfc/archive/v2.8.4.tar.gz"
-  sha256 "69a9cdd602bd7c96f5bc622645f88c8cb54231c7bad52974470dd0937df43f68"
-  license "GPL-2.0"
+  url "https://github.com/BNFC/bnfc/archive/v2.9.0.tar.gz"
+  sha256 "677715b204a047a986656ab76cc850488cfabdb9eb6e3f37663b55d708207238"
+  license "BSD-3-Clause"
   head "https://github.com/BNFC/bnfc.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c7b3510e24ff12639c19089bacfacbf64352e9f91401fe72b9c7c5842dd9063d" => :catalina
-    sha256 "0c306bbd71021879d87d0db3195196250e44296b8643f2a8c824c63fbd8a4a9a" => :mojave
-    sha256 "28e29f258ab9da7626b351a106b3423bee9a13fa813ff37fe94c67efb432b180" => :high_sierra
+    sha256 "2a2afc650c8c46d1f5ccde4600a4ea9d6f3de37abfae7165e6b2a4fc7755125a" => :big_sur
+    sha256 "3736f6616615c973d2a1cc356fb1aac47e639976408368254232c4149c25a54e" => :catalina
+    sha256 "626c0f644bc2fbcaed3439ea01438368df9d86ce68af37328c4f27b975507ce2" => :mojave
   end
 
   depends_on "cabal-install" => [:build, :test]
@@ -22,16 +22,12 @@ class Bnfc < Formula
   uses_from_macos "bison" => :test
   uses_from_macos "flex" => :test
 
-  on_linux do
-    depends_on "make" => [:build, :test]
-  end
-
   def install
     cd "source" do
       system "cabal", "v2-update"
       system "cabal", "v2-install", *std_cabal_v2_args
-      doc.install "changelog"
-      doc.install "src/BNF.cf" => "BNF.cf"
+      doc.install "CHANGELOG.md"
+      doc.install "src/BNFC.cf" => "BNFC.cf"
     end
     cd "docs" do
       system "make", "text", "man", "SPHINXBUILD=#{Formula["sphinx-doc"].bin/"sphinx-build"}"

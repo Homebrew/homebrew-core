@@ -3,7 +3,7 @@ class Gom < Formula
   homepage "https://wiki.gnome.org/Projects/Gom"
   url "https://download.gnome.org/sources/gom/0.4/gom-0.4.tar.xz"
   sha256 "68d08006aaa3b58169ce7cf1839498f45686fba8115f09acecb89d77e1018a9d"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -11,22 +11,24 @@ class Gom < Formula
 
   bottle do
     cellar :any
-    sha256 "2d41e90512e737bfd112ba64278fda9c0dbaf1ab7dbd00732ed6ebb644da31e0" => :catalina
-    sha256 "619f71c318e02d8c33e4d827aedfaad09d6f349d92408bb9a40097dba99eb65e" => :mojave
-    sha256 "7566dd0ded406861960ebd556ce0d7f7e6e48eac4e72ab88aa9934d554ad638b" => :high_sierra
+    sha256 "b8c298e1d442d15dd630bfe6b1edfeb11b77326b730237ffc4c6b3c607c48192" => :big_sur
+    sha256 "ff2ac0dfef03bd08c7f03f13595af2e1476c396163e57066726c92e06cbe4fba" => :arm64_big_sur
+    sha256 "c86f525462ffd97cb6bd469b5a26d1db56281d725916d5eb524f31a4750b1892" => :catalina
+    sha256 "afda0dc772004cee3b8148719a078f6ac2871480260f310a5d06e367dcd68412" => :mojave
+    sha256 "cccd9551ffced0a1648ff2f420eb3e5666ff102b4c81d96806cd7d25068ef7d7" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
   depends_on "gdk-pixbuf"
   depends_on "gettext"
   depends_on "glib"
 
   def install
-    pyver = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
+    pyver = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
 
     mkdir "build" do
       system "meson", *std_meson_args, "-Dpygobject-override-dir=#{lib}/python#{pyver}/site-packages", ".."
@@ -57,8 +59,10 @@ class Gom < Formula
       -lglib-2.0
       -lgobject-2.0
       -lgom-1.0
-      -lintl
     ]
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

@@ -9,7 +9,6 @@ class GitUtils < Formula
 
   conflicts_with "git-extras",
     because: "both install a `git-pull-request` script"
-
   conflicts_with "willgit",
     because: "both install a `git-rank-contributors` script"
 

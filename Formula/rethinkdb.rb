@@ -1,8 +1,8 @@
 class Rethinkdb < Formula
   desc "Open-source database for the realtime web"
   homepage "https://rethinkdb.com/"
-  url "https://download.rethinkdb.com/repository/raw/dist/rethinkdb-2.4.0.tgz"
-  sha256 "bfb0708710595c6762f42e25613adec692cf568201cd61da74c254f49fa9ee4c"
+  url "https://download.rethinkdb.com/repository/raw/dist/rethinkdb-2.4.1.tgz"
+  sha256 "5f1786c94797a0f8973597796e22545849dc214805cf1962ef76969e0b7d495b"
   license "Apache-2.0"
   head "https://github.com/rethinkdb/rethinkdb.git", branch: "next"
 
@@ -13,9 +13,9 @@ class Rethinkdb < Formula
 
   bottle do
     cellar :any
-    sha256 "1c2ef66f6bf7d2efdf55b377032955905186c74a0dacf1306665671931e1159c" => :catalina
-    sha256 "5db706fb3f48f378771f5076d167e3d3dc5441b328e3b194e7337fe7bd7dde97" => :mojave
-    sha256 "7d37fba07988bc8adc4ef0dece038adf443b02d868fdf22d018360fb8958383b" => :high_sierra
+    sha256 "bb4dc60cb80b346f5c095af46c195c6d54cc927531f690889c2d5256f55a63b4" => :big_sur
+    sha256 "31fa08475118f77ecd8785bac8b59c1f5732171a5c0c8ec44087fbbb559cb95b" => :catalina
+    sha256 "3aff9d5aff3f0bc1318f8b53e04d2b688560fcf4911f64d6c963d38f78a88316" => :mojave
   end
 
   depends_on "boost" => :build
@@ -26,13 +26,18 @@ class Rethinkdb < Formula
 
   uses_from_macos "curl"
 
-  def install
-    args = ["--prefix=#{prefix}"]
-    args += ["--allow-fetch"] if build.head?
+  # patch submitted to upstream, https://github.com/rethinkdb/rethinkdb/pull/6934
+  # remove in next release
+  patch do
+    url "https://github.com/chenrui333/rethinkdb/commit/d7d22b4.patch?full_index=1"
+    sha256 "45d387c3360cf6265e27485c273c37224b2ef0000ebd4fdd361dcecc4d2e9791"
+  end
 
+  def install
     # rethinkdb requires that protobuf be linked against libc++
     # but brew's protobuf is sometimes linked against libstdc++
-    args += ["--fetch", "protobuf"]
+    args = %W[--prefix=#{prefix} --fetch protobuf]
+    args << "--allow-fetch" if build.head?
 
     system "./configure", *args
     system "make"

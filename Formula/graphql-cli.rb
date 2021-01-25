@@ -12,6 +12,8 @@ class GraphqlCli < Formula
   end
 
   bottle do
+    sha256 "02d60908557d5dedf63fffe66a51f5829807abd910b5460a2ae44d7b8d208142" => :big_sur
+    sha256 "2da205bbd5c76588be334a84b52dacfac9062045d605ed3f8298b7cb7b9b84a7" => :arm64_big_sur
     sha256 "5060d007d13a695709ff9afaa16a1492d8645e17ab78ec2b14650e0c7a305e55" => :catalina
     sha256 "212bf2d20997a930838775736ca468dc25cbd3c3978c0189f8a435873a029286" => :mojave
     sha256 "d8f266f129027b1fe731c12264f7b8679c271ecdb6418cef72dba0a730e99771" => :high_sierra

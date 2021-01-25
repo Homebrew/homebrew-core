@@ -6,8 +6,8 @@ class GitFlow < Formula
   stable do
     # Use the tag instead of the tarball to get submodules
     url "https://github.com/nvie/gitflow.git",
-      tag:      "0.4.1",
-      revision: "1ffb6b1091f05466d3cd27f2da9c532a38586ed5"
+        tag:      "0.4.1",
+        revision: "1ffb6b1091f05466d3cd27f2da9c532a38586ed5"
 
     resource "completion" do
       url "https://github.com/bobthecow/git-flow-completion/archive/0.4.2.2.tar.gz"
@@ -17,6 +17,8 @@ class GitFlow < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "46009ab147b52d74bbda2a0b4d97374f0e515a5157db4ff803f6270ded7fde48" => :big_sur
+    sha256 "7da4f3bb9c8cf3678057b79f03c056b1848aea64d16d4be68621a14352ca5477" => :arm64_big_sur
     sha256 "8ea12cd7e2666fb6fdfaffaeb3a0437037a40cde559a835fc9de038f36a424dc" => :catalina
     sha256 "ab455769b6b8122e1d345f56d799fe43445bbbeba6265892715167388c737af9" => :mojave
     sha256 "ce4b64f4d13f4a5a8e05c9087627b42cd328c8accc8349c4ca256238d1d3fecc" => :high_sierra

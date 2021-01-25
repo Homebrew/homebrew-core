@@ -4,13 +4,14 @@ class GitSeries < Formula
   url "https://github.com/git-series/git-series/archive/0.9.1.tar.gz"
   sha256 "c0362e19d3fa168a7cb0e260fcdecfe070853b163c9f2dfd2ad8213289bc7e5f"
   license "MIT"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "29b2137b70b357be519ea871f44be18286547f1fd1e86ac9d2c0b5ba2f046fc2" => :catalina
-    sha256 "9a30242b1878ddca0dcbb05aae2fade5bbef945563c4a8c64912263e3c31cf5f" => :mojave
-    sha256 "7e57cc878bd7619f8585e5577ec25c51372af77d4189d2c43b520402b3b33447" => :high_sierra
+    sha256 "2193cb415148a398304ae5cde86bd8f672c62fef1028ad78057d66fa3ca0fd36" => :big_sur
+    sha256 "ccf1c1e9a18629fe874987409d79f84da6e171fe802a6918147c3198b0047cce" => :arm64_big_sur
+    sha256 "e273c21ef68060e010e42bc805bf1a2e5baf9a8e7ecec6338490175857713168" => :catalina
+    sha256 "31c32b8df3a5a2c70c54786a0c222ce4fdeccace4cb3a5bf50f3a27d9f46167d" => :mojave
   end
 
   depends_on "cmake" => :build

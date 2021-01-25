@@ -6,6 +6,8 @@ class Pacman4console < Formula
   license "GPL-2.0"
 
   bottle do
+    sha256 "299dbf7613b12c270c398dc9aa3255eb5f987331c4a1ace1f1ef811bb6070514" => :big_sur
+    sha256 "b9f6328a3b683121a3ef8cfb48d6db7c6a25ba07f73a006430298ca7fc5bf658" => :arm64_big_sur
     sha256 "6fdf8244cec5bb8ab55eefb1be9dc8f034c31ddbb3b39b21cd83f535e4e1a500" => :catalina
     sha256 "ea3959a6317d2a3cfdb317622dafa97be5763b13509e06c7c0199eda4e349d33" => :mojave
     sha256 "8b75a7198742924ea2e7545c4ed98dac3d28dcdc9469ff097666b0249a8ff2f7" => :high_sierra

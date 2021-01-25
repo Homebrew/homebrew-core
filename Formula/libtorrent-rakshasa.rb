@@ -5,8 +5,15 @@ class LibtorrentRakshasa < Formula
   sha256 "0f6c2e7ffd3a1723ab47fdac785ec40f85c0a5b5a42c1d002272205b988be722"
   license "GPL-2.0"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any
+    sha256 "1d2275d886729ab6076582c7b399df2e0748f8a50b31f88a3a2f871ca097985d" => :big_sur
+    sha256 "5ddf92897806c7897987f4d86803db65f4fbb1ae0dadf91422971b4d58bda2f4" => :arm64_big_sur
     sha256 "207e33009028a8721a89c91139fe78fea1cd9fb8a05862286264dfc53548886a" => :catalina
     sha256 "94afd9fcef673d4e3945c13085df931e12c1bf2422bf6a2ad2c6848634c2fa65" => :mojave
     sha256 "135df02ce3bb98b05d9f849b8014087e8acaefcc24b1547ff9b1740bbd74492a" => :high_sierra

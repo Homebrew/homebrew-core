@@ -1,9 +1,9 @@
 class Gcore < Formula
   desc "Produce a snapshot (core dump) of a running process"
-  homepage "https://osxbook.com/book/bonus/chapter8/core/"
-  url "https://osxbook.com/book/bonus/chapter8/core/download/gcore-1.3.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/gcore-1.3.tar.gz"
+  homepage "https://web.archive.org/web/20200103164014/https://osxbook.com/book/bonus/chapter8/core/"
+  url "https://dl.bintray.com/homebrew/mirror/gcore-1.3.tar.gz"
   sha256 "6b58095c80189bb5848a4178f282102024bbd7b985f9543021a3bf1c1a36aa2a"
+  license "APSL-2.0"
   revision 1
 
   bottle do
@@ -17,6 +17,8 @@ class Gcore < Formula
   end
 
   keg_only :provided_by_macos
+
+  disable! date: "2020-12-11", because: :unmaintained
 
   def install
     system "make"

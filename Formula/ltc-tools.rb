@@ -8,6 +8,7 @@ class LtcTools < Formula
 
   bottle do
     cellar :any
+    sha256 "b31fe1140d71357035fd130e73c286d8892cda1103fccd96971205bd860cd9a7" => :big_sur
     sha256 "bcd064f64a21f101f6599646306ba65c40ce7ec44fd7b6e2d8f29b4fefeebcc9" => :catalina
     sha256 "ae65212fa593ee7015eb7bfa63b4e7e7691e56a7db0fc1a82a311aef184aae55" => :mojave
     sha256 "15da8efd84adb9d9eb9c7b4450c75e326679b20bed258c8e7011fc6eb2cc9b20" => :high_sierra

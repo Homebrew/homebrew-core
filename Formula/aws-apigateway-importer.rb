@@ -16,8 +16,10 @@ class AwsApigatewayImporter < Formula
     sha256 "bbe12dac66d033674840eace741bcf5c3549e7317ab9ca6fa9f349418a6c9861" => :yosemite
   end
 
+  deprecate! date: "2020-11-12", because: :repo_archived
+
   depends_on "maven" => :build
-  depends_on java: "1.8"
+  depends_on "openjdk@8"
 
   # Pin aws-sdk-java-core for JSONObject compatibility
   patch do

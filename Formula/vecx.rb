@@ -8,6 +8,8 @@ class Vecx < Formula
 
   bottle do
     cellar :any
+    sha256 "6bfe8b690323619720d3448f5efef663787b0f4c8ad8296fb94f6ee3ecf5ff43" => :big_sur
+    sha256 "e1d6a1b7d28c46a7c0f2ec2eb26e5f15ba9816d0fb6e921a0f53af16f7088b84" => :arm64_big_sur
     sha256 "8213a8cfb2f96374046f9952241ab34b2be01c4f2dd2988f39aa0b07e948ff60" => :catalina
     sha256 "8e55a474a2d775bf3cbd0d7801b6d23aa3cf759d1aa48268542fee67cc6ab322" => :mojave
     sha256 "2a2b5d63a8be0bcf51a9b4eee05b0751fd3757b5576e515931a55ad6f729a465" => :high_sierra

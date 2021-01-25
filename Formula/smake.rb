@@ -9,6 +9,8 @@ class Smake < Formula
   end
 
   bottle do
+    sha256 "91320cb3802a9b395c25e93efc7162ebdf59514ec70fe82a7476b045120d7adc" => :big_sur
+    sha256 "43034c1f8106c8f34f94e6ffbfc143521f1688929227b28a0c2c35d15a36e1a2" => :arm64_big_sur
     sha256 "c09f4bc9cdcaa26dddc33ec021083885ed7d9236b2af2c87713446ad1a0cb538" => :catalina
     sha256 "6dd776264c5583a982b9a8270956c84274387719aeae7b057d7c581ebc438c70" => :mojave
     sha256 "5b1860ab709b7a27201f781f31a34ccf6db6da600ef60741fd918a95c3beedb7" => :high_sierra

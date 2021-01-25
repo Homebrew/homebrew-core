@@ -8,6 +8,8 @@ class Multitail < Formula
 
   bottle do
     cellar :any
+    sha256 "bcba02065b68527b6e4826a42e8577d380b862c02c747a7de81b1aa40ef59dca" => :big_sur
+    sha256 "931b37ad30df49390ef2e7c2d191821a735202d38b9fbb85f5ab9b00ed248eea" => :arm64_big_sur
     sha256 "6d0d74b45d02adc52fa6a5f666484c62941457da3cb10e50d65f5d772cc59c02" => :catalina
     sha256 "933801e9ec5999742cfcea6cc59580f69fc966ad82858326c2a90f68868de60f" => :mojave
     sha256 "57526de43035b0d5d2520d54b252d29c20a4efb146c019ac044ad5067be5351a" => :high_sierra

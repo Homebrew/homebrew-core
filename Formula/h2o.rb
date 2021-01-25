@@ -7,6 +7,8 @@ class H2o < Formula
   revision 1
 
   bottle do
+    sha256 "00497d41695d9abaec982136824eb52b31aafc0727005f172ccf7510c41f0e65" => :big_sur
+    sha256 "68375aeb216194e9731a44b1d794279e98c29f6280d4595e3ed0e5f2f40bdad0" => :arm64_big_sur
     sha256 "2a76dbab7292c0244c32e6a350f0c39dfb4d9b066de8510f2d8f3a9905c05f54" => :catalina
     sha256 "4f8f5c326d24dcfc95faf48849ae89721f1e19a407968cfa67efbc99dba33f76" => :mojave
     sha256 "80eac6a05ba27ce57142ad1a9211495fa3b044433623438b6319109e2852eb55" => :high_sierra

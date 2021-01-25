@@ -1,26 +1,32 @@
 class Clingo < Formula
   desc "ASP system to ground and solve logic programs"
   homepage "https://potassco.org/"
-  url "https://github.com/potassco/clingo/archive/v5.4.0.tar.gz"
-  sha256 "e2de331ee0a6d254193aab5995338a621372517adcf91568092be8ac511c18f3"
+  url "https://github.com/potassco/clingo/archive/v5.4.1.tar.gz"
+  sha256 "ac6606388abfe2482167ce8fd4eb0737ef6abeeb35a9d3ac3016c6f715bfee02"
   license "MIT"
-  revision 1
 
   livecheck do
-    url "https://github.com/potassco/clingo/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
-    sha256 "d22f05f1666d6e1c24b92e98b6cec9c44dafc53943555092f79de4625fb0bd9d" => :catalina
-    sha256 "68f3b4714a71193844fd338a4a426e469015db3f3ac11dd42c82080c5a182553" => :mojave
-    sha256 "ace56673b60a0576b584efb515b795354e7b0c2421c82e55a025dc08cba03980" => :high_sierra
+    sha256 "6f4b60fa6d911b4740a30b6ccfa4d4014afb3b854027353ec59ad6e93e706ef4" => :big_sur
+    sha256 "b32ff9822ef258cf9eb034e7777ab748a57ae0c41d8dff7eddf1631dfb1acf6b" => :arm64_big_sur
+    sha256 "a009c8c0bfd4a47c515d94ad7d779a906e1ca8a69a99b5361d44314b750920ef" => :catalina
+    sha256 "c13ee502b4f99f4f8b9164a020262fdac0d557eb1527f932b798886efbacd012" => :mojave
+  end
+
+  head do
+    url "https://github.com/potassco/clingo.git"
+    depends_on "bison" => :build
+    depends_on "re2c" => :build
   end
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "lua"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   # This formula replaced the clasp & gringo formulae.
   # https://github.com/Homebrew/homebrew-core/pull/20281
@@ -30,24 +36,19 @@ class Clingo < Formula
   link_overwrite "bin/lpconvert"
   link_overwrite "bin/reify"
 
-  # Patch adds Python 3.8 compatibility
-  patch do
-    url "https://github.com/potassco/clingo/commit/13a896b6a762e48c2396e3dc9f2e794020f4e6e8.patch?full_index=1"
-    sha256 "f2840bc4ab5159c253c5390c845f0d003f5fef813f49ddca27dbd5245f535e79"
-  end
-
   def install
     system "cmake", ".", "-DCLINGO_BUILD_WITH_PYTHON=ON",
                          "-DCLINGO_BUILD_PY_SHARED=ON",
                          "-DPYCLINGO_USE_INSTALL_PREFIX=ON",
+                         "-DPYCLINGO_USER_INSTALL=OFF",
                          "-DCLINGO_BUILD_WITH_LUA=ON",
-                         "-DPYTHON_EXECUTABLE=#{Formula["python@3.8"].opt_bin}/python3",
+                         "-DPython_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3",
                          "-DPYCLINGO_DYNAMIC_LOOKUP=OFF",
                          *std_cmake_args
     system "make", "install"
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/clingo --version")
+    assert_match "clingo version", shell_output("#{bin}/clingo --version")
   end
 end

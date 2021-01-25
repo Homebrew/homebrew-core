@@ -3,6 +3,7 @@ class Dcmtk < Formula
   homepage "https://dicom.offis.de/dcmtk.php.en"
   url "https://dicom.offis.de/download/dcmtk/dcmtk365/dcmtk-3.6.5.tar.gz"
   sha256 "a05178665f21896dbb0974106dba1ad144975414abd760b4cf8f5cc979f9beb9"
+  revision 1
   head "https://git.dcmtk.org/dcmtk.git"
 
   livecheck do
@@ -11,9 +12,10 @@ class Dcmtk < Formula
   end
 
   bottle do
-    sha256 "5b49e8b8d34cd1472f5091fc4d6e4b4a05133ac3cd85f6f428aef6c1013234b0" => :catalina
-    sha256 "3d149b4aa7f6d76df7ddda09d845c4c43a0aa0617800b9ea25602183e213f5b0" => :mojave
-    sha256 "70ba2b42c6a522f2da68ac47834f240db316afd12b388edb4bc7c1f586a18f2c" => :high_sierra
+    sha256 "a52a1b60a406463246b8eb194e25589c88dfa982a936560bf6948be569448833" => :big_sur
+    sha256 "a86027494ff074de767cef1a7bf31639e50f153d4a2ec5297bb9560bb3e48ef6" => :catalina
+    sha256 "2bbb1bf5d51c7e12c2db901a632862b9429ef2b146f973feda5212fb1391ac33" => :mojave
+    sha256 "352137e82f70183e543b6d532dcf67c7fa95ea67b63421ad4fc9c0a0f19ba484" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -25,7 +27,9 @@ class Dcmtk < Formula
 
   def install
     mkdir "build" do
-      system "cmake", *std_cmake_args, ".."
+      system "cmake", "-DBUILD_SHARED_LIBS=OFF", *std_cmake_args, ".."
+      system "make", "install"
+      system "cmake", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args, ".."
       system "make", "install"
     end
   end

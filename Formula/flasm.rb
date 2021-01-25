@@ -16,6 +16,8 @@ class Flasm < Formula
     sha256 "73568b00e6ecdde3baa228ef27e2c43a4879cb15bfd3d0ca036510a5d2dcbd3a" => :mavericks
   end
 
+  disable! date: "2020-12-08", because: :unmaintained
+
   def install
     system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}"
     bin.install "flasm"

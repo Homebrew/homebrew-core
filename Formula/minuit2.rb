@@ -7,6 +7,8 @@ class Minuit2 < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "92436bedd07967e01f4b230599680a6fc8220c43d6ee377aca4e7d824aa4eae6" => :big_sur
+    sha256 "28baba24aef52eff45f8411d04bbdfa795dcbd9cc4c9d9c71f9eb71213b60ddd" => :arm64_big_sur
     sha256 "94d14435083239aeca25cc36037c4c1445d7327c9e28f216dfdbcb3be16525ec" => :catalina
     sha256 "19ea9f2a3b94afe2902e02a71281d85268c5e63c46c9df822d9ac138211f6cc5" => :mojave
     sha256 "61b38bc01bf0744908bfda8e610ca39f7f07b4e2d6ecd1239cb0de82521ae375" => :high_sierra

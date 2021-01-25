@@ -1,15 +1,25 @@
 class UtilLinux < Formula
   desc "Collection of Linux utilities"
   homepage "https://github.com/karelzak/util-linux"
-  url "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.36/util-linux-2.36.tar.xz"
-  sha256 "9e4b1c67eb13b9b67feb32ae1dc0d50e08ce9e5d82e1cccd0ee771ad2fa9e0b1"
-  license "GPL-2.0"
+  url "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.36/util-linux-2.36.1.tar.xz"
+  sha256 "09fac242172cd8ec27f0739d8d192402c69417617091d8c6e974841568f37eed"
+  license all_of: [
+    "BSD-3-Clause",
+    "BSD-4-Clause-UC",
+    "GPL-2.0-only",
+    "GPL-2.0-or-later",
+    "GPL-3.0-or-later",
+    "LGPL-2.1-or-later",
+    :public_domain,
+  ]
 
   bottle do
     cellar :any
-    sha256 "b2b01c8554fdc4071e16bbe74c2956bdeb748b1a62eef4e6314aad005d7227c7" => :catalina
-    sha256 "55bcb266293b3780e934b4cabf6885247fdd2d40bf7a27715142b263de3256d4" => :mojave
-    sha256 "c464328c920e63e017ef642aefed04ad9d34c755064e9ce41d6362b1d119f74a" => :high_sierra
+    rebuild 2
+    sha256 "fc3327a2f46d034d163710b29b6b04fb44cabcb31102a2b099d9dbd73e302bce" => :big_sur
+    sha256 "91a76aecae9e1fcdbd44614439c6eb379dcaf1c2e388403eb33d698b986cc587" => :arm64_big_sur
+    sha256 "01b6c26311161daafc8cf521d994810397810dd35881b0c0bd6bea3a2f0487c8" => :catalina
+    sha256 "81c514e31f486717eb9466b81c4f499558f7b8c5cc80b178228abe1b6e52e27d" => :mojave
   end
 
   keg_only "macOS provides the uuid.h header"
@@ -36,10 +46,11 @@ class UtilLinux < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
-                          "--disable-ipcs",  # does not build on macOS
-                          "--disable-ipcrm", # does not build on macOS
-                          "--disable-wall",  # already comes with macOS
-                          "--enable-libuuid" # conflicts with ossp-uuid
+                          "--disable-ipcs",     # does not build on macOS
+                          "--disable-ipcrm",    # does not build on macOS
+                          "--disable-libmount", # does not build on macOS
+                          "--disable-wall",     # already comes with macOS
+                          "--enable-libuuid"    # conflicts with ossp-uuid
 
     system "make", "install"
 
@@ -80,12 +91,14 @@ class UtilLinux < Formula
       wall wdctl
       zramctl
     ]
-    <<~EOS
-      The following tools are not supported under macOS, and are therefore not included:
-      #{Formatter.wrap(Formatter.columns(linux_only_bins), 80)}
-      The following tools are already shipped by macOS, and are therefore not included:
-      #{Formatter.wrap(Formatter.columns(system_bins), 80)}
-    EOS
+    on_macos do
+      <<~EOS
+        The following tools are not supported for macOS, and are therefore not included:
+        #{Formatter.columns(linux_only_bins)}
+        The following tools are shipped by macOS, and are therefore not included:
+        #{Formatter.columns(system_bins)}
+      EOS
+    end
   end
 
   test do
@@ -98,7 +111,7 @@ class UtilLinux < Formula
       sum.insert 0, ((stat.mode & (2 ** index)).zero? ? "-" : flag)
     end
 
-    out = shell_output("#{bin}/namei -lx /usr").split("\n").last.split(" ")
+    out = shell_output("#{bin}/namei -lx /usr").split("\n").last.split
     assert_equal ["d#{perms}", owner, group, "usr"], out
   end
 end

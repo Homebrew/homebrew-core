@@ -9,13 +9,14 @@ class Fleetctl < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2295f49fce4dee23617fec26c19e026ffe3e63c3feb575243a6def944872bb1d" => :catalina
-    sha256 "52a1f69af15831025db6aa79b37781e5e225062807ab8d2dc22c3cbf06812c49" => :mojave
-    sha256 "01ae897f69a8d74b22c52faeb300380299b2c369eb39c0778eee6fb0602e5309" => :high_sierra
-    sha256 "217f22406b9a249f6101b40605b020766547b00bb24e8c005cbdecc099251a80" => :sierra
-    sha256 "a51e7c700bb0074445e0a0ccea938592841a49f9c858051f6ec97170e30eccd0" => :el_capitan
-    sha256 "09492b0c1dc6af381bb22bec46b51c585db9068cda51f290dc5d2c46d91d6c48" => :yosemite
+    rebuild 1
+    sha256 "db133bc31ff2a813dfaf6b5faa7d41c892dd91803f5612540a09b58c7c81d783" => :big_sur
+    sha256 "69f1d75544203e04ea3fba75c639ebbdfa564f0cbdea53f62bfb2f8f253bdf60" => :catalina
+    sha256 "a8fa7b4e9479073b568a5e1325d7d56708e28cbc921df09698cc671dc939b258" => :mojave
+    sha256 "578bc15de6d87d53165ff70805388b41388f01d10a7c5d809fafd46c4d9040aa" => :high_sierra
   end
+
+  deprecate! date: "2020-11-15", because: :repo_archived
 
   depends_on "go" => :build
 

@@ -7,6 +7,8 @@ class Bibclean < Formula
   license "GPL-2.0"
 
   bottle do
+    sha256 "4b273f7061767e8e2a4776863f2da581ab726212ee1ae9b4d512a6bc228a6d7a" => :big_sur
+    sha256 "1ca564c71ae986472ba45f55cee1dc9c2070513a908b5f3931d4cbd82ed1cd45" => :arm64_big_sur
     sha256 "15dbbabace79aafd93546976d8a899a393c6489d7951ce2bd2bb148a45f262a3" => :catalina
     sha256 "82a7919c9d5054012b54d53eacf5a9c0785105071c4c65c83bc2ff428642b3e5" => :mojave
     sha256 "9a2beadc688b6b12a22359890a6a85f20f3c79af561b5d4268e86069b806f585" => :high_sierra

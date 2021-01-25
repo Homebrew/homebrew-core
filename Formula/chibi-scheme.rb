@@ -12,6 +12,8 @@ class ChibiScheme < Formula
   end
 
   bottle do
+    sha256 "4f474285e01e463347b461187271229e345c0a3771642f4dd39b22008be9583e" => :big_sur
+    sha256 "72147f8c2e1d1c000e691fe2d02bef8ba00443f5f5d411abff7415363ca7ce7e" => :arm64_big_sur
     sha256 "75122fe5413f7f206e9fcc717307d3603041a39a93b895c4b89a02845ac4c683" => :catalina
     sha256 "0ce202e52817dbed3e87e5911a74ad7f85e6f081b45deba0427d5d09b1dcb6ae" => :mojave
     sha256 "c3dac9e5642a0d725ae1d77e0a9139e829b24c7c34e8e85eb58e506d7ba2e240" => :high_sierra

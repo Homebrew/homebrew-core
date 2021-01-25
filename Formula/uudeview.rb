@@ -8,6 +8,8 @@ class Uudeview < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "94426299f928e2c7985194d2a3f436112b2ca580945eacc82ad5047c619c2417" => :big_sur
+    sha256 "93a098dc40d16b9785888c20c8d1707a62fe471938c99ea8074df042548cfed7" => :arm64_big_sur
     sha256 "9b5990b5b763e90614bd2d074e670c20e834541d60082a4e78f90d67a65da5c3" => :catalina
     sha256 "2869df0b09975172227dc83be6d667b3d0f8e4f2cf0f6d9ec0cd3fdca02727f4" => :mojave
     sha256 "7bb4c57755efed1b4208d234a0017d785757da04ca8f8e43c92980f3fe16b85c" => :high_sierra

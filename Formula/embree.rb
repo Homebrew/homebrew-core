@@ -8,6 +8,7 @@ class Embree < Formula
 
   bottle do
     cellar :any
+    sha256 "a7d59835dda29e4659392ed9d4fed84d61c03b22eaf77492467c491d575c417b" => :big_sur
     sha256 "003fdcefa1da6372c782345e295b2188686adb6f7ccadee2f00d15a58b41ef85" => :catalina
     sha256 "6f347831ed4b4dfa51b88af83c71d9a6c1f7b62775a033a672b1461029f84842" => :mojave
     sha256 "766356663e8c1970c121c68faec10c8fd2323fbb128c392927a24c3961e20c5f" => :high_sierra

@@ -11,18 +11,17 @@ class Libcddb < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "7f1c41ce153e0550edac0073eeaf3a82d430fdd6b8e1c6d766459f81905b5b1e" => :catalina
-    sha256 "4a54605d856a52362d5b3a76a20872c72df138dca4b19595ffbdd6bc44e210be" => :mojave
-    sha256 "fcb848ca3b114f197ca52850d56a63b298fad61b9ee968496ddc450d969c3078" => :high_sierra
+    rebuild 2
+    sha256 "e19fbf67a440482346f40076ceae29a8b72590ef1376e6c5454d9f7814984e3b" => :big_sur
+    sha256 "5c01ee6149ed61a23ad7d8a2c09250fedf3b605638552fe82057cf77b0ac61f1" => :arm64_big_sur
+    sha256 "ca3cb9caeed526ef59a167293871d7b739c2ee6271571225dd1640f4af101140" => :catalina
+    sha256 "534e9e7afc756a552c414b224d86ffa84c9966bbccf3a7d781a6b55a482e9bdf" => :mojave
   end
 
   depends_on "pkg-config" => :build
   depends_on "libcdio"
 
   def install
-    ENV.delete("SDKROOT") if MacOS.version == :yosemite && MacOS::Xcode.version >= "7.0"
-
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"

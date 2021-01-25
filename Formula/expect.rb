@@ -10,12 +10,10 @@ class Expect < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 "f7c101cd2eec5832de103e3535e876de15b53a96a301d4848990ab8af992f3a6" => :catalina
-    sha256 "668b4fb12eed5bbf783e8b4ec52dad24b88f38af5577ba1e45ed9947e50e50ef" => :mojave
-    sha256 "a0c6ffe797dc0bbe512b628819acee67a7a9b00573b6433fe0672285d41a9df1" => :high_sierra
-    sha256 "fc9ad781caaf8d45f47a87d4303645faa2e600852c73fd5432f0be2e588e95f2" => :sierra
-    sha256 "4fcb163b1b1e7e209b632c43ba03106ca1c4e4d6a745260b813d28a803581e58" => :el_capitan
+    rebuild 2
+    sha256 "cbdcb67794f77d6de69084d2f89da417ebdc02eb679e362cc1c2be1dd607806f" => :big_sur
+    sha256 "1a859db0c9e4cdc49a3c2a318aa61a9c716114df8a08884c68be517e08b75af9" => :catalina
+    sha256 "838aaa69a38886e750f07b4fc3f3e9d3b27bb135b7b25ae69e212dcb4ad2c978" => :mojave
   end
 
   # Autotools are introduced here to regenerate configure script. Remove
@@ -37,6 +35,11 @@ class Expect < Formula
 
     ENV.prepend "CFLAGS",
       "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework/Versions/8.5/Headers/tcl-private"
+
+    # Temporarily workaround build issues with building 5.45.4 using Xcode 12.
+    # Upstream bug (with more complicated fix) is here:
+    #   https://core.tcl-lang.org/expect/tktview/0d5b33c00e5b4bbedb835498b0360d7115e832a0
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
 
     # Regenerate configure script. Remove after patch applied in newer
     # releases.

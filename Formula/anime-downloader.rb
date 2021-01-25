@@ -3,8 +3,8 @@ class AnimeDownloader < Formula
 
   desc "Download your favourite anime"
   homepage "https://github.com/vn-ki/anime-downloader"
-  url "https://files.pythonhosted.org/packages/75/ca/1a312247353743ce30d0e9d7a2482b2e41946fa1757ba5db91ab0755a8b5/anime-downloader-4.6.6.tar.gz"
-  sha256 "d0b69f104c0759405669338b19a17f8f4086c99944b3e1e51ad6ae6623c4a29a"
+  url "https://files.pythonhosted.org/packages/4f/be/34909ae8d7f322f777475db916b4b5eecec2a20b09a1b07e410f2c6b2c45/anime-downloader-5.0.5.tar.gz"
+  sha256 "2e204fbeb4631e71b94f8c7a952640309f4f154ab41063aeef8754ef339f74bd"
   license "Unlicense"
   head "https://github.com/vn-ki/anime-downloader.git"
 
@@ -14,14 +14,15 @@ class AnimeDownloader < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9b06603b48c10cf1fad5f9987d713720986cf7750583ab61ef8cba0ad0d2e87a" => :catalina
-    sha256 "552e13b784999316320d2cdfe26386fc8ffd0493ddcfa4b8120fe009c55172d9" => :mojave
-    sha256 "887d0894db7d4010f1d479ce7d30dbcc1193fb49b5d3e5ee059188227216997f" => :high_sierra
+    sha256 "37a58c59d9ecf285050795d6581d2dcb0e0861d8b998e34260701a8200a824b7" => :big_sur
+    sha256 "7315ffb54c95ce9010915a5775226b932d6ce8a044551e94d37fd5851249dbbb" => :arm64_big_sur
+    sha256 "57273993dbef082d5898202a4e8cda6ead8dd2666da5105cdf296a784c3623a1" => :catalina
+    sha256 "48b168bbd5eb0fce4a0978eb2b39032b7aa32b7967574c43e82bc3f8e24f6991" => :mojave
   end
 
   depends_on "aria2"
   depends_on "node"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "beautifulsoup4" do
     url "https://files.pythonhosted.org/packages/6b/c3/d31704ae558dcca862e4ee8e8388f357af6c9d9acb0cad4ba0fbbd350d9a/beautifulsoup4-4.9.3.tar.gz"
@@ -29,8 +30,8 @@ class AnimeDownloader < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/40/a7/ded59fa294b85ca206082306bba75469a38ea1c7d44ea7e1d64f5443d67a/certifi-2020.6.20.tar.gz"
-    sha256 "5930595817496dd21bb8dc35dad090f1c2cd0adfaf21204bf6732ca5d8ee34d3"
+    url "https://files.pythonhosted.org/packages/06/a9/cd1fd8ee13f73a4d4f491ee219deeeae20afefa914dfb4c130cfc9dc397a/certifi-2020.12.5.tar.gz"
+    sha256 "1a4995114262bffbc2413b159f2a1a480c969de6e6eb13ee966d470af86af59c"
   end
 
   resource "cfscrape" do
@@ -39,8 +40,8 @@ class AnimeDownloader < Formula
   end
 
   resource "chardet" do
-    url "https://files.pythonhosted.org/packages/fc/bb/a5768c230f9ddb03acc9ef3f0d4a3cf93462473795d18e9535498c8f929d/chardet-3.0.4.tar.gz"
-    sha256 "84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae"
+    url "https://files.pythonhosted.org/packages/ee/2d/9cdc2b527e127b4c9db64b86647d567985940ac3698eeabc7ffaccb4ea61/chardet-4.0.0.tar.gz"
+    sha256 "0d6f53a15db4120f2b08c94f11e7d93d2c911ee118b6b30a04ec3ee8310179fa"
   end
 
   resource "click" do
@@ -49,8 +50,8 @@ class AnimeDownloader < Formula
   end
 
   resource "coloredlogs" do
-    url "https://files.pythonhosted.org/packages/84/1b/1ecdd371fa68839cfbda15cc671d0f6c92d2c42688df995a9bf6e36f3511/coloredlogs-14.0.tar.gz"
-    sha256 "a1fab193d2053aa6c0a97608c4342d031f1f93a3d1218432c59322441d31a505"
+    url "https://files.pythonhosted.org/packages/ce/ef/bfca8e38c1802896f67045a0c9ea0e44fc308b182dbec214b9c2dd54429a/coloredlogs-15.0.tar.gz"
+    sha256 "5e78691e2673a8e294499e1832bb13efcfb44a86b92e18109fa18951093218ab"
   end
 
   resource "fuzzywuzzy" do
@@ -59,8 +60,8 @@ class AnimeDownloader < Formula
   end
 
   resource "humanfriendly" do
-    url "https://files.pythonhosted.org/packages/6c/19/8e3b4c6fa7cca4788817db398c05274d98ecc6a35e0eaad2846fde90c863/humanfriendly-8.2.tar.gz"
-    sha256 "bf52ec91244819c780341a3438d5d7b09f431d3f113a475147ac9b7b167a3d12"
+    url "https://files.pythonhosted.org/packages/31/0e/a2e882aaaa0a378aa6643f4bbb571399aede7dbb5402d3a1ee27a201f5f3/humanfriendly-9.1.tar.gz"
+    sha256 "066562956639ab21ff2676d1fda0b5987e985c534fc76700a19bd54bcb81121d"
   end
 
   resource "idna" do
@@ -69,8 +70,8 @@ class AnimeDownloader < Formula
   end
 
   resource "pycryptodome" do
-    url "https://files.pythonhosted.org/packages/4c/2b/eddbfc56076fae8deccca274a5c70a9eb1e0b334da0a33f894a420d0fe93/pycryptodome-3.9.8.tar.gz"
-    sha256 "0e24171cf01021bc5dc17d6a9d4f33a048f09d62cc3f62541e95ef104588bda4"
+    url "https://files.pythonhosted.org/packages/c4/3a/5bca2cb1648b171afd6b7d29a11c6bca8b305bb75b7e2d78a0f5c61ff95e/pycryptodome-3.9.9.tar.gz"
+    sha256 "910e202a557e1131b1c1b3f17a63914d57aac55cf9fb9b51644962841c3995c4"
   end
 
   resource "pySmartDL" do
@@ -79,8 +80,8 @@ class AnimeDownloader < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/da/67/672b422d9daf07365259958912ba533a0ecab839d4084c487a5fe9a5405f/requests-2.24.0.tar.gz"
-    sha256 "b3559a131db72c33ee969480840fff4bb6dd111de7dd27c8ee1f820f4f00231b"
+    url "https://files.pythonhosted.org/packages/6b/47/c14abc08432ab22dc18b9892252efaf005ab44066de871e72a38d6af464b/requests-2.25.1.tar.gz"
+    sha256 "27973dd4a904a4f13b263a19c866c13b92a39ed1c964655f025f3f8d3d75b804"
   end
 
   resource "requests-cache" do
@@ -89,8 +90,8 @@ class AnimeDownloader < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/3e/db/5ba900920642414333bdc3cb397075381d63eafc7e75c2373bbc560a9fa1/soupsieve-2.0.1.tar.gz"
-    sha256 "a59dc181727e95d25f781f0eb4fd1825ff45590ec8ff49eadfd7f1a537cc0232"
+    url "https://files.pythonhosted.org/packages/58/5d/445e21e92345848305eecf473338e9ec7ed8905b99ea78415042060127fc/soupsieve-2.1.tar.gz"
+    sha256 "6dc52924dc0bc710a5d16794e6b3480b2c7c08b07729505feab2b2c16661ff6e"
   end
 
   resource "tabulate" do
@@ -99,8 +100,8 @@ class AnimeDownloader < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/81/f4/87467aeb3afc4a6056e1fe86626d259ab97e1213b1dfec14c7cb5f538bf0/urllib3-1.25.10.tar.gz"
-    sha256 "91056c15fa70756691db97756772bb1eb9678fa585d9184f24534b100dc60f4a"
+    url "https://files.pythonhosted.org/packages/29/e6/d1a1d78c439cad688757b70f26c50a53332167c364edb0134cadd280e234/urllib3-1.26.2.tar.gz"
+    sha256 "19188f96923873c92ccb987120ec4acaa12f0461fa9ce5d3d0772bc965a39e08"
   end
 
   def install

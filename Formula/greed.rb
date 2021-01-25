@@ -9,6 +9,8 @@ class Greed < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "15791321c59787d6e5b633efb195e0b7edf8c92976d5c6991e12a920a9f46a00" => :big_sur
+    sha256 "197eaf64e266d04b451278067451a05271ee348e04c860c360212f22e0a22cd2" => :arm64_big_sur
     sha256 "64d0028754d683a8bbe1de0bb1a7319dcf6d8020c6d3624e58df5b5be3bf4e42" => :catalina
     sha256 "9cba951e4fd73d29a1e4899a4f2a7d5f0158f6f5b6d02bb75837c7296530e65c" => :mojave
     sha256 "9685dcc52ad08b19964cfb61f4fd0d9e28ec0d42cde2f112da4e9be1e1d15b5b" => :high_sierra

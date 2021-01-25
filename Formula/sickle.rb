@@ -7,6 +7,8 @@ class Sickle < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "49cf432d5190d21d61d741d5d10c44e42d0fe5e40222f8af9dec1b35ff916029" => :big_sur
+    sha256 "26c645faa585ff21ef7eee6c62ac906df4bef93dcceb3647168a7c89bcb7ed48" => :arm64_big_sur
     sha256 "f33fa7f23d66b928b117a8c3ccfd54a30dc5a798ed6444350be47ced2bebc49e" => :catalina
     sha256 "dc6b4eea0f8da0b1611e12197157c9985c931567d466e3a47f89250a8180b879" => :mojave
     sha256 "3aeaaa4393148876cc55cc9defbe82ae0fe0dabea18e418413b2aa8cff23dd0b" => :high_sierra

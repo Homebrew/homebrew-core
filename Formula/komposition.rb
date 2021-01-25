@@ -4,7 +4,7 @@ class Komposition < Formula
   url "https://github.com/owickstrom/komposition/archive/v0.2.0.tar.gz"
   sha256 "cedb41c68866f8d6a87579f566909fcd32697b03f66c0e2a700a94b6a9263b88"
   license "MPL-2.0"
-  revision 3
+  revision 5
   head "https://github.com/owickstrom/komposition.git"
 
   bottle do
@@ -13,6 +13,8 @@ class Komposition < Formula
     sha256 "e78904afced48a6365ec5cec4b9e97ecccf4bf81401c5576a0c3b21fa1078264" => :mojave
     sha256 "137747b62de4e68164bceccd009beb65606ae6ba2c94fbe9a72b0eee50ae0961" => :high_sierra
   end
+
+  disable! date: "2020-10-25", because: :does_not_build
 
   depends_on "cabal-install" => :build
   depends_on "ghc@8.8" => :build

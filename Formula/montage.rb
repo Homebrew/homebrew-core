@@ -6,6 +6,7 @@ class Montage < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "304f02cffd94ee9e118026fda40db0f27d4ae25c2d42c74e45b3426d11f1ed3d" => :big_sur
     sha256 "0335521dd15d7debbfb5db21efbf5f751c571d406fd91aeaa9996226cca63d33" => :catalina
     sha256 "ee1b94e776a2ad68ea41b1edb6a3fb549c43bb373f3f7b9fb3709e4e4fbbb4e8" => :mojave
     sha256 "3a8fab4097bd0dd0524a5a482065284d35ea0fdd946fb1f5d5ea1e103f5d4443" => :high_sierra

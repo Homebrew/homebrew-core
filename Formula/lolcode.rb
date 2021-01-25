@@ -10,6 +10,8 @@ class Lolcode < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "0fe2dd80ac746019da7ebba97a43f010c54ac64fcdff6d87dffffd1e06b43dd3" => :big_sur
+    sha256 "3da1a3ea810fb481b1a6e3e62f81fa5a24ce593b2f69630d6b523a63449531c8" => :arm64_big_sur
     sha256 "546e86a771457249146ea07ff5669f0e19bd26b3d3e3818ed33925497ae6cfda" => :catalina
     sha256 "766522d1d3730e62d1a05e54962b0493db19d62a3cd7ce66328861630508c4ee" => :mojave
     sha256 "e6cb7d51d26fe4b54f41a14bf183216bb9ca87a6d0b8db25ebf55e64227ac5aa" => :high_sierra

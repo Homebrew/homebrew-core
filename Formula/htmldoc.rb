@@ -1,15 +1,17 @@
 class Htmldoc < Formula
   desc "Convert HTML to PDF or PostScript"
   homepage "https://www.msweet.org/htmldoc/"
-  url "https://github.com/michaelrsweet/htmldoc/archive/v1.9.10.tar.gz"
-  sha256 "c987451a22b62ee97680bb84e9731055a99eea87e654d437725e7c263756d3c3"
+  url "https://github.com/michaelrsweet/htmldoc/archive/v1.9.11.tar.gz"
+  sha256 "eaa994270dc05ab52d57ed738128370ba783989e97687801fe3c12f445af0d05"
   license "GPL-2.0-only"
   head "https://github.com/michaelrsweet/htmldoc.git"
 
   bottle do
-    sha256 "40fde97e24aec401f49b7428cc8849f5147f7f59276f4f2908ee87cdf235155d" => :catalina
-    sha256 "c5634ea6546a2ec88f4c2a16084be6a45d512aac294daec1d25b15f10ce7a942" => :mojave
-    sha256 "b4450990fe8964fcdcbb95dc5dde28789e226b928bde992dfb2817f238561ac4" => :high_sierra
+    rebuild 1
+    sha256 "a2ad4b8f476286d77cbf3c4c05f39bf0ef7d472b308fa8b11814cee4c090c224" => :big_sur
+    sha256 "7c02353667f8f762f0607c05d8387b0f77e848fac1d8f903533ed40a25667436" => :arm64_big_sur
+    sha256 "f2dd1888010a9d29664f1ecac8ac3892b2aa95edeaf7b27f7dd48900ce45e824" => :catalina
+    sha256 "b80236d31f3d87fbeba9908617f9868b8c0f998de5f72184684e60f7fe1ccef6" => :mojave
   end
 
   depends_on "jpeg"

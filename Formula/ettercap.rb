@@ -8,6 +8,7 @@ class Ettercap < Formula
 
   bottle do
     rebuild 1
+    sha256 "471e0a6f6fb68103bc56ccf90b873cd86c235c34e88972828b6ba69dd2fd9f44" => :big_sur
     sha256 "e52f75a8579926652f5c53ef77db1eeab39f0ff388ad77fbbe70a17a52554c2b" => :catalina
     sha256 "c49b5293922b69715b05c1bc1374cec3cfe72a63750ab0fb08d559683d253afc" => :mojave
     sha256 "3ab1aa27eef60cb9099bdd95ca330c0fd63dad10c169c968672bb44d97ae32e1" => :high_sierra

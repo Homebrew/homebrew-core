@@ -1,8 +1,8 @@
 class Unbound < Formula
   desc "Validating, recursive, caching DNS resolver"
   homepage "https://www.unbound.net"
-  url "https://nlnetlabs.nl/downloads/unbound/unbound-1.12.0.tar.gz"
-  sha256 "5b9253a97812f24419bf2e6b3ad28c69287261cf8c8fa79e3e9f6d3bf7ef5835"
+  url "https://nlnetlabs.nl/downloads/unbound/unbound-1.13.0.tar.gz"
+  sha256 "a954043a95b0326ca4037e50dace1f3a207a0a19e9a4a22f4c6718fc623db2a1"
   license "BSD-3-Clause"
   head "https://github.com/NLnetLabs/unbound.git"
 
@@ -15,12 +15,14 @@ class Unbound < Formula
   end
 
   bottle do
-    sha256 "c5c89b6f51314d30ed291f08f195f6733bc756a2244b024cc4a08971137b2442" => :catalina
-    sha256 "7a72e66c935707fef194772e9a747a28629a6b4ae1a32a500e6b842893afecd5" => :mojave
-    sha256 "457f5cefd1951bbdcf58ebce0ba27cc135ad0e639d06d054ff346263899b64b5" => :high_sierra
+    sha256 "cef5d9843ecaabaa0a4cb9b89e04bc3d370ce143e4ff2e0f6711aa6572b1ad3a" => :big_sur
+    sha256 "2db4e311e44be817d3639b59ef14abdf53aa990bff95f2c6f445c47b704370de" => :arm64_big_sur
+    sha256 "132e7387adde0939a0f50d125ef5b6bdfa0186bae6dd9628668e9813813f4a9a" => :catalina
+    sha256 "a1941e3c48de236e9310547620b1fdf71ec5c07ff8cb6dadc9e9433d02dfa1a7" => :mojave
   end
 
   depends_on "libevent"
+  depends_on "nghttp2"
   depends_on "openssl@1.1"
 
   uses_from_macos "expat"
@@ -33,6 +35,7 @@ class Unbound < Formula
       --enable-tfo-client
       --enable-tfo-server
       --with-libevent=#{Formula["libevent"].opt_prefix}
+      --with-libnghttp2=#{Formula["nghttp2"].opt_prefix}
       --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
     ]
 

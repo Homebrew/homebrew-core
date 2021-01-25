@@ -7,6 +7,8 @@ class Freealut < Formula
 
   bottle do
     cellar :any
+    sha256 "16375ee0d022401f8d83ea01540d088ffc90e5661c10370b4157e13c617061fb" => :big_sur
+    sha256 "3cdedc8bdb746d9b619372b514e021eb40f51a83f01db883167d55322cb5286a" => :arm64_big_sur
     sha256 "7b37a28c1edf58222ec10227bfbc0129cdd0afe66167c232fc62527bf89333c3" => :catalina
     sha256 "e7a2418c016c5636386fd3a2aa1af8b611beefd4aed0d7eb22b152b654a5cc4d" => :mojave
     sha256 "90bb9d9a0c0eb6ded2dd5f5c6fb566a2fd3835c32cab71d3c53efcfd82b7059e" => :high_sierra

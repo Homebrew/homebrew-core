@@ -6,10 +6,6 @@ class Curlftpfs < Formula
   revision 1
   head ":pserver:anonymous:@curlftpfs.cvs.sourceforge.net:/cvsroot/curlftpfs", using: :cvs
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     cellar :any
     sha256 "2d3fea0aecd1856a956cedcf8ab992f217bd730371c6eb80900158c69f138aa8" => :catalina
@@ -23,8 +19,16 @@ class Curlftpfs < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
-  depends_on :osxfuse
   depends_on :x11
+
+  on_macos do
+    deprecate! date: "2020-11-10", because: "requires FUSE"
+    depends_on :osxfuse
+  end
+
+  on_linux do
+    depends_on "libfuse"
+  end
 
   def install
     ENV.append "CPPFLAGS", "-D__off_t=off_t"

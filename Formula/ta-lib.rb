@@ -11,6 +11,8 @@ class TaLib < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "363867dbdc2b177b4efd51265df3c9154547d6aa9056ab78d83bfc9776aebb01" => :big_sur
+    sha256 "c251da6ef6b483906eaa894dd86c19da3200acca00d6fab5f45522ff4b2681f1" => :arm64_big_sur
     sha256 "da70ac36643d428f0e4742c5bed21a674a9a5585765c764cf11e6e53a9086041" => :catalina
     sha256 "db4ba23b6c0a235b2478416040a2321e305fe2f57810e87d6b5400addc0c3eea" => :mojave
     sha256 "5d53fe57d49e5c60b8ea81e633e502e73569e191f16fa36aabb39085ffe2581a" => :high_sierra

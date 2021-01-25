@@ -6,6 +6,7 @@ class Pympress < Formula
   url "https://files.pythonhosted.org/packages/92/80/c63ad7748e877dfeb5d7d756c1bdd4c2657e5a857814b4d6edf96d44678c/pympress-1.5.3.tar.gz"
   sha256 "d8c10c286d1de2210c19a3e752542b61c8bcc592c48553f7c7043e943a87d05d"
   license "GPL-2.0"
+  revision 2
   head "https://github.com/Cimbali/pympress.git"
 
   livecheck do
@@ -14,9 +15,9 @@ class Pympress < Formula
 
   bottle do
     cellar :any
-    sha256 "0882199094438644ae2af8e60ea55f02272990cca88b4ae0cbcfbabc9a68465b" => :catalina
-    sha256 "7594889ecb2cf373356f01c1eb4e56573ba26bd50fd5ed0de5ece83d75f1adca" => :mojave
-    sha256 "e6634bc9a8213054574d6be0814ef0b8faf6209e20aafb721753418a718f68af" => :high_sierra
+    sha256 "0dace778ed9f1ac2939f6b4c1305a629c4fc256d8768b9658196e90f0819e84e" => :big_sur
+    sha256 "d730fa081be30bd9dd49fa5f08cf8aa39ac31842fbb8b86423c1bc28db8b616c" => :catalina
+    sha256 "88b035ea21bd93571a1920bd94c1bc293ee68ffbc63237dbe8f9da0958323bae" => :mojave
   end
 
   depends_on "gobject-introspection"
@@ -24,7 +25,7 @@ class Pympress < Formula
   depends_on "libyaml"
   depends_on "poppler"
   depends_on "pygobject3"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "argh" do
     url "https://files.pythonhosted.org/packages/e3/75/1183b5d1663a66aebb2c184e0398724b624cecd4f4b679cb6e25de97ed15/argh-0.26.2.tar.gz"

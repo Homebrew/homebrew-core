@@ -10,6 +10,8 @@ class OpenJtalk < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "b68172f2ccf166ea5e1b46c1908714386cfb24dcafa374a1ab172faa4844cc9a" => :big_sur
+    sha256 "c0e84db4a3e1d2a336eb2da7f1060845f35ac1db68be727e524dcbfdb2f785ad" => :arm64_big_sur
     sha256 "0a251febe3197994355ab780ce02aa45264c7d148b0f1b0dfd1a80a7f7aa9937" => :catalina
     sha256 "bed36f972fe3dc3d5f286eff5c1b1605a1bcfae6cc755b7b2aee57fc497f7913" => :mojave
     sha256 "cd50656bb81db4528b82b844c773440d6cdfec63e545a64002a473da05a7eb18" => :high_sierra

@@ -12,6 +12,8 @@ class DfuProgrammer < Formula
 
   bottle do
     cellar :any
+    sha256 "ca50d1de0427ea337387bec0d5f277ef01337624543b02ed93e842e4d96acc17" => :big_sur
+    sha256 "8bfdfd329dcd8f8590c02bd7ba062f21def25d6009dc7a546956406d921a9181" => :arm64_big_sur
     sha256 "5ff077a2c2198fc345e429246a560ca4a13fea2a9dbb9a0feb6fe4cbdfa46a4a" => :catalina
     sha256 "4435f464f3627e068fa8840ac39ec262a7d678f209292d40a2c797daddbe66e4" => :mojave
     sha256 "2ff7d2fae3995303e8b73625f5de14beaf74d3150fb1024c7bc75ca24e3a56a9" => :high_sierra

@@ -1,16 +1,16 @@
 class Autodiff < Formula
   desc "Automatic differentiation made easier for C++"
   homepage "https://autodiff.github.io"
-  url "https://github.com/autodiff/autodiff/archive/v0.5.11.tar.gz"
-  sha256 "d6c5a7ea5459c98bfd2b6fd34a883b78ef1372e3e35ae07cd40fdf7c4a5c7576"
+  url "https://github.com/autodiff/autodiff/archive/v0.5.13.tar.gz"
+  sha256 "a73dc571bcaad6b44f74865fed51af375f5a877db44321b5568d94a4358b77a1"
   license "MIT"
   head "https://github.com/autodiff/autodiff.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "df9683ce241dbc7cca5798251423c81e1e10cc94e7af390a0e0e3361cdfbb26a" => :catalina
-    sha256 "79753e9e6b3cce24eca76e99d59ce56c330b209d940f7873df87963a1a66302f" => :mojave
-    sha256 "ed369921225b6e64e86351a7870500946fa6385990658daae9a1c9a9985342ce" => :high_sierra
+    sha256 "09304dc3957c4d50a207bf31a7e734d0df28529e0e40226e140790f4fba94fde" => :big_sur
+    sha256 "59be27e76fd3845fb5f5592f8fcf610d767aea655eb00be72c2fd345604bc6db" => :catalina
+    sha256 "f7403731e18af4a75045afa8444af6d2e01c96df0fa2ea0305b59d9b389519cf" => :mojave
   end
 
   depends_on "cmake" => :build

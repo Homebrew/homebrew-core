@@ -6,14 +6,16 @@ class Neovim < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 "ade03fcf189ccd82e8b4627499113aed67a753b0e3ffa9662c15d7037f6ed617" => :catalina
-    sha256 "e68135735b24df7e1318bb71c4fef6461884b2c7a166d756b4a21bd787a329a2" => :mojave
-    sha256 "77773fc6e8ad7fd726e881850712f3995feef94548bfd6081599c5b682eb4411" => :high_sierra
+    rebuild 1
+    sha256 "83957460b7c664b65f7339c6e37a6b468274ca747ba8f8746616c4cebf97caa9" => :big_sur
+    sha256 "736260e14d50d9a42562fb0fe2215d5154a9cef3e3227469a961d030b45358fd" => :catalina
+    sha256 "9f8a7cb52a0060c524d4d4f96b2590d034257cc4f255a8f05dfbf464bef29cf1" => :mojave
+    sha256 "7286d497b92cf31f5839af325a1fc7760fb3006fa4a0dad7e547ab9c966cb491" => :high_sierra
   end
 
   head do
     url "https://github.com/neovim/neovim.git"
-    depends_on "utf8proc"
+    depends_on "tree-sitter"
   end
 
   depends_on "cmake" => :build
@@ -26,6 +28,13 @@ class Neovim < Formula
   depends_on "luajit"
   depends_on "msgpack"
   depends_on "unibilium"
+
+  uses_from_macos "gperf" => :build
+  uses_from_macos "unzip" => :build
+
+  on_linux do
+    depends_on "libnsl"
+  end
 
   # Keep resources updated according to:
   # https://github.com/neovim/neovim/blob/v#{version}/third-party/CMakeLists.txt
@@ -64,10 +73,11 @@ class Neovim < Formula
     ENV.prepend_path "LUA_CPATH", "#{buildpath}/deps-build/lib/lua/5.1/?.so"
     lua_path = "--lua-dir=#{Formula["luajit"].opt_prefix}"
 
-    cmake_compiler_args = %w[
-      -DCMAKE_C_COMPILER=/usr/bin/clang
-      -DCMAKE_CXX_COMPILER=/usr/bin/clang++
-    ]
+    cmake_compiler_args = []
+    on_macos do
+      cmake_compiler_args << "-DCMAKE_C_COMPILER=/usr/bin/clang"
+      cmake_compiler_args << "-DCMAKE_CXX_COMPILER=/usr/bin/clang++"
+    end
 
     cd "deps-build" do
       %w[

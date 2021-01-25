@@ -1,12 +1,14 @@
 class Align < Formula
   desc "Text column alignment filter"
-  homepage "https://www.cs.indiana.edu/~kinzler/align/"
+  homepage "https://legacy.cs.indiana.edu/~kinzler/align/"
   url "https://www.cs.indiana.edu/~kinzler/align/align-1.7.5.tgz"
   sha256 "cc692fb9dee0cc288757e708fc1a3b6b56ca1210ca181053a371cb11746969dd"
   license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "984c0d271dd402ede064d9e584f82533fc9f0a8f5f7ca9339d952fbdd7d1f3d6" => :big_sur
+    sha256 "8181265610c0cb43adfc0bdcf0ca4ba3ee28debd69c6e7c08d2459b1c21f4cbd" => :arm64_big_sur
     sha256 "cca0be9634d92fe10b845b98f26ee953f59482e0436806484a907f487e76d093" => :catalina
     sha256 "b8de67536085ba47ddeaed3b8567645beaf5e84ab0b7ab958cf7b6cc358e10dc" => :mojave
     sha256 "4b0b70a5909b7d6d2fa78fcb4e36acb20295202adbdbd6bf5754530f7e055199" => :high_sierra

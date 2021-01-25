@@ -1,15 +1,17 @@
 class Rswift < Formula
   desc "Get strong typed, autocompleted resources like images, fonts and segues"
   homepage "https://github.com/mac-cain13/R.swift"
-  url "https://github.com/mac-cain13/R.swift/releases/download/v5.2.2/rswift-v5.2.2-source.tar.gz"
-  sha256 "b27c51e9c69adcc61ed2f8a476fa5f2d97be5996d4f1e59a0e1b754a58980e26"
+  url "https://github.com/mac-cain13/R.swift/releases/download/v5.3.1/rswift-v5.3.1-source.tar.gz"
+  sha256 "5e9283474cb21bddf1f75f7a4615610900f9db0c396919f8130bac3b7475fa67"
   license "MIT"
   head "https://github.com/mac-cain13/R.swift.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1da952f52f531fcc1cb86888ce59c97547636855a4e2d23d147591ed9de0ec49" => :catalina
-    sha256 "a344a394d9edece2c4737eec24ed2ed087719e0b95dfd269aae80b6b90040b44" => :mojave
+    sha256 "795ba1b73f962b695dadce31ea8c4a133e1640cb47a3d66e3f1610e120e8d6f0" => :big_sur
+    sha256 "0336661379cd6634bc68e0d863932724247416c24abd44fa5ad0eff10cbce234" => :arm64_big_sur
+    sha256 "171e1c4edafbafc0eb0435c237bfb5ede731e76b537d3282e995f5c3fb6b30ad" => :catalina
+    sha256 "607dcfb0fb765913d682438997b09ce512c0a5e9c8ae53ae957f4b5997ccd47e" => :mojave
   end
 
   depends_on xcode: "10.2"

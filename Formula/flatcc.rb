@@ -8,6 +8,8 @@ class Flatcc < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ccc4f35c551b04bbca5e4b57b1ffb71941b9105a99a1dac2092a56d1e0f2034c" => :big_sur
+    sha256 "3a3729b2b5856179197d13c36f684f08e4f4537a2dc6f7e77e49bbd826c86323" => :arm64_big_sur
     sha256 "f1f1cd7532305f48b008fb1f3687d9369a88f184902a8992fd77789410841b4e" => :catalina
     sha256 "74651142d2c732bfbe671d78cdcf3357189c9b3d3cb7078bf9e882ad9ca6b053" => :mojave
     sha256 "9e37511cd8069fb56ff15e72f0184d1908f9d4948ebd57d2b430c760cac60aa6" => :high_sierra

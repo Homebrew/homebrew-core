@@ -11,6 +11,8 @@ class Augeas < Formula
   end
 
   bottle do
+    sha256 "339c6898b7b3fd115fc3cc3c9a0cdb3eb6a1eab3f492e5f2de6513d7c6171c0e" => :big_sur
+    sha256 "a470a4b47f5072f27cf308fac97ff3b9cdd30f88aa4a950fbc73a4527ec9c6ba" => :arm64_big_sur
     sha256 "00a45b8b446df0a95c2c45cbe608410df2d7be7787247f4b3a8fc1c2c19b41b6" => :catalina
     sha256 "9a561491e3574dfe2cfe7da2a618c12d02218f88f760de46722d9b603e4f27ba" => :mojave
     sha256 "0e1477f692cf67442dfcaf7c20a24733838df072ec867f59322070a7eaf3f925" => :high_sierra

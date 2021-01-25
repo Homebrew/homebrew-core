@@ -6,6 +6,8 @@ class Liboping < Formula
   license "LGPL-2.1"
 
   bottle do
+    sha256 "0edb72c3d81dbc8869b28d27f063372f7eed0ac4318624fe94e4ac5be7d2337a" => :big_sur
+    sha256 "a8ea63333bfc0a7ec880d0c5727316ff622ff2f4854efc93bd9bc082080f9365" => :arm64_big_sur
     sha256 "997e8eb17c7878cbd0c34bd6532b76ef804899751a58b3b434656d1b9ced07d9" => :catalina
     sha256 "7b0258598b329b83ce9fd0cf18be77aa027226c8391a013cb3699faeeb1fd71f" => :mojave
     sha256 "accffc91ab24ccba1214727abadb59c497f403e3bcad1dfe8ff0377d32e05ebc" => :high_sierra

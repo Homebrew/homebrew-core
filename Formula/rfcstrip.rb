@@ -20,7 +20,7 @@ class Rfcstrip < Formula
     resource("rfc1149").stage do
       stripped = shell_output("#{bin}/rfcstrip rfc1149.txt")
       assert !stripped.match(/\[Page \d+\]/) # RFC page numbering
-      assert !stripped.include?("\f") # form feed a.k.a. Control-L
+      assert stripped.exclude?("\f") # form feed a.k.a. Control-L
     end
   end
 end

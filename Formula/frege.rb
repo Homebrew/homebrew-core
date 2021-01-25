@@ -7,7 +7,8 @@ class Frege < Formula
   revision 3
 
   livecheck do
-    url "https://github.com/Frege/frege/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(/href=.*?frege[._-]?(\d+(?:\.\d+)+)\.jar/i)
   end
 

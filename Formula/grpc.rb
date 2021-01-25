@@ -2,24 +2,23 @@ class Grpc < Formula
   desc "Next generation open source RPC library and framework"
   homepage "https://grpc.io/"
   url "https://github.com/grpc/grpc.git",
-    tag:      "v1.32.0",
-    revision: "414bb8322de2411eee1f4e841ff29d887bec7884",
-    shallow:  false
+      tag:      "v1.33.2",
+      revision: "ee5b762f33a42170144834f5ab7efda9d76c480b",
+      shallow:  false
   license "Apache-2.0"
-  revision 1
+  revision 3
   head "https://github.com/grpc/grpc.git"
 
   livecheck do
-    url "https://github.com/grpc/grpc/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "0588400a642f91dc3a04a51af045f20f47babc301f87ba8ffa5c7493c2e618a7" => :catalina
-    sha256 "69135cd3114f1ea57d34be778a992c0e56e9d01253d8f48966e6f5cd51ccf6d3" => :mojave
-    sha256 "47ccc49dab77f9844283f1edd05a82a4ae64b8f86fd8943b6580ee9fe4abf915" => :high_sierra
+    sha256 "58661a605453a4c4e9b354b83f4a4bafd60c959264f47c517d0a34d3e8ccb69a" => :big_sur
+    sha256 "6e6f844c74329e4716772ca2980a3d71852acf06a34b04c166c3784474268b8a" => :catalina
+    sha256 "3bd3f893f80ea7e9682012655b7a07e7c4510897ed69bd2ae468a61fcf076b9b" => :mojave
   end
 
   depends_on "autoconf" => :build
@@ -33,10 +32,14 @@ class Grpc < Formula
   depends_on "protobuf"
   depends_on "re2"
 
+  uses_from_macos "zlib"
+
   def install
     mkdir "cmake/build" do
       args = %w[
         ../..
+        -DCMAKE_CXX_STANDARD=17
+        -DCMAKE_CXX_STANDARD_REQUIRED=TRUE
         -DBUILD_SHARED_LIBS=ON
         -DgRPC_BUILD_TESTS=OFF
         -DgRPC_INSTALL=ON
@@ -62,7 +65,7 @@ class Grpc < Formula
       system "cmake", *args
       system "make", "grpc_cli"
       bin.install "grpc_cli"
-      lib.install Dir["libgrpc++_test_config*.dylib"]
+      lib.install Dir["libgrpc++_test_config*.{dylib,so}*"]
     end
   end
 
@@ -77,5 +80,7 @@ class Grpc < Formula
     EOS
     system ENV.cc, "test.cpp", "-I#{include}", "-L#{lib}", "-lgrpc", "-o", "test"
     system "./test"
+    output = shell_output("grpc_cli ls localhost:#{free_port} 2>&1", 1)
+    assert_match "Received an error when querying services endpoint.", output
   end
 end

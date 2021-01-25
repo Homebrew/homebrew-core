@@ -1,15 +1,16 @@
 class Bombadillo < Formula
   desc "Non-web browser, designed for a growing list of protocols"
   homepage "https://bombadillo.colorfield.space/"
-  url "https://tildegit.org/sloum/bombadillo/archive/2.3.1.tar.gz"
-  sha256 "e8076493e924bd5860d3e17884b0675ea514eea75e7b4e96da1c79ab9805731f"
-  license "GPL-3.0"
+  url "https://tildegit.org/sloum/bombadillo/archive/2.3.3.tar.gz"
+  sha256 "2d4ec15cac6d3324f13a4039cca86fecf3141503f556a6fa48bdbafb86325f1c"
+  license "GPL-3.0-or-later"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e28036e78119313b05947c16b65c5d512a97b96c1a096470c2c38877bd396954" => :catalina
-    sha256 "dc47ed396c8a8c988d82b0a87f5c5c368d604f535ae5cc932ad941c22376073f" => :mojave
-    sha256 "e45a0bec0801f7719539f0ccda6ce7cfc76dccd346d6a09bb65a04f2c2238cd9" => :high_sierra
+    sha256 "c03e55627ed6afed8053bd7b008a7097acc3cabe631c72aa37779c1a1bed4671" => :big_sur
+    sha256 "e357ed7326ddf882e90730882661cd701d2b44cd878c46a60a3902276100f9be" => :arm64_big_sur
+    sha256 "3de46b1bf2270bbc62922a26cd95e5096f8ff145538e2a648309d1e09a5c9ff9" => :catalina
+    sha256 "2aa718cebff527b3ecac75022b1c9ecf602cf5f516ca09dac2a2c67df22a435c" => :mojave
   end
 
   depends_on "go" => :build
@@ -20,10 +21,11 @@ class Bombadillo < Formula
 
   test do
     require "pty"
+    require "io/console"
 
-    cmd = bin/"bombadillo gopher://bombadillo.colorfield.space"
-    config = testpath/".config"
-    r, w, pid = PTY.spawn("stty rows 80 cols 43 && XDG_CONFIG_HOME=#{config} #{cmd}")
+    cmd = "#{bin}/bombadillo gopher://bombadillo.colorfield.space"
+    r, w, pid = PTY.spawn({ "XDG_CONFIG_HOME" => testpath/".config" }, cmd)
+    r.winsize = [80, 43]
     sleep 1
     w.write "q"
     assert_match /Bombadillo is a non-web browser/, r.read

@@ -16,6 +16,8 @@ class Dnsrend < Formula
     sha256 "d9f91e7344b0457ec4d0ab29c95a91bf91c4c8d3ee8432b4159b1818785c043f" => :mavericks
   end
 
+  disable! date: "2020-12-08", because: :unmaintained
+
   resource "Net::Pcap" do
     url "https://cpan.metacpan.org/authors/id/S/SA/SAPER/Net-Pcap-0.17.tar.gz"
     sha256 "aaee41ebea17924abdc2d683ec940b3e6b0dc1e5e344178395f57774746a5452"

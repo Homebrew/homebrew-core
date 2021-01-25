@@ -3,16 +3,21 @@ class RstLint < Formula
 
   desc "ReStructuredText linter"
   homepage "https://github.com/twolfson/restructuredtext-lint"
-  url "https://github.com/twolfson/restructuredtext-lint/archive/1.3.1.tar.gz"
-  sha256 "469fcc0dae4f511da5a28f5d0f9b5d0f477dabca4a44cd8c84e20b8a99791b89"
+  url "https://files.pythonhosted.org/packages/45/69/5e43d0e8c2ca903aaa2def7f755b97a3aedc5793630abbd004f2afc3b295/restructuredtext_lint-1.3.2.tar.gz"
+  sha256 "d3b10a1fe2ecac537e51ae6d151b223b78de9fafdd50e5eb6b08c243df173c80"
   license "Unlicense"
-  revision 1
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bd41571f9b9392ddba89b20f41d4ca1b2e2c62d2a0430983ad5e8e00341da8d0" => :catalina
-    sha256 "585d2d891b0f107d0b6d961de6689a4004aa49646ce2894464c7627039e1598c" => :mojave
-    sha256 "b22e716ab45eec53f86e360efec814d3e882aa9a29cd938dd814d29a87eb9cd8" => :high_sierra
+    rebuild 2
+    sha256 "297a26765ed29b28f2ec1e6cf28e8fafed936a2c255f0e690b412b08714bb3a0" => :big_sur
+    sha256 "f156a31ad65e1a3e56b7f45b1da4eb511ac5d3a371cfc8a3cbf4989aafae0f45" => :arm64_big_sur
+    sha256 "4b462c6a7aad71c3c30db75f957616d8130c371ce0b4e0578ff3d3558d7a4127" => :catalina
+    sha256 "d4b15aa742bb6c4131abca592f5de3ad7095cdc41353c66ef605abb2f4e4d71c" => :mojave
   end
 
   depends_on "python@3.9"

@@ -3,21 +3,20 @@ class Libav < Formula
   homepage "https://libav.org/"
   url "https://libav.org/releases/libav-12.3.tar.xz"
   sha256 "6893cdbd7bc4b62f5d8fd6593c8e0a62babb53e323fbc7124db3658d04ab443b"
-  license "GPL-2.0"
-  revision 4
+  license "GPL-2.0-or-later"
+  revision 8
   head "https://git.libav.org/libav.git"
-
-  livecheck do
-    url "https://libav.org/releases/"
-    regex(/href=.*?libav[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
 
   bottle do
     cellar :any
-    sha256 "c3ea574e97fceb61b05289b0e501d122ca1df7333b6ae888cef493ee43fa2f26" => :catalina
-    sha256 "1aadfef9b75e102360d0ab1cca31e27310f67d5e045fe0114337d97c81826d48" => :mojave
-    sha256 "da5b0479598b5da057b95edd1833dd5f8138c6ffb1a491dc834075a21593cd4f" => :high_sierra
+    sha256 "0bd97c8c39f11b5b29d5c271a28eb4ea4a40b4062a4331f8d97f738c9a82fb05" => :big_sur
+    sha256 "0654bef05e6d8a3fa7fbeb6e9be5a02abe411ebbb3eec69c7a2e1f4b309cb6f5" => :arm64_big_sur
+    sha256 "fcfafef0bb5eeee417c1d69d8ddb1fe0d7a8f8fe70edf39b8499a0df841f6905" => :catalina
+    sha256 "f71b7acc7dd972d60176b7d6c9bfe247181867d98ff991d771dcff54a6beace5" => :mojave
   end
+
+  # See: https://lists.libav.org/pipermail/libav-devel/2020-April/086589.html
+  deprecate! date: "2019-04-16", because: :unmaintained
 
   depends_on "pkg-config" => :build
   # manpages won't be built without texi2html
@@ -35,6 +34,13 @@ class Libav < Formula
   depends_on "theora"
   depends_on "x264"
   depends_on "xvid"
+
+  # Cherry-picked hunk from https://github.com/libav/libav/commit/fe7bc1f16abaefe66d8a20f734ca3eb8a4ce4d43
+  # (second hunk in above commit conflicts with released source)
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/e07f287/libav/remove_unconditional_X11_probe.patch"
+    sha256 "093364c5cb0d79fb80566b5b466e6e8877d01c70e32b6f8ad624205005caba26"
+  end
 
   # https://bugzilla.libav.org/show_bug.cgi?id=1033
   patch do
@@ -81,6 +87,9 @@ class Libav < Formula
       --enable-vda
       --enable-version3
       --enable-libtheora
+      --disable-libxcb
+      --disable-vaapi
+      --disable-vdpau
     ]
 
     system "./configure", *args

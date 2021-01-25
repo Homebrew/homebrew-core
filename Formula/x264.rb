@@ -1,14 +1,15 @@
 class X264 < Formula
   desc "H.264/AVC encoder"
   homepage "https://www.videolan.org/developers/x264.html"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
+  revision 1
   head "https://code.videolan.org/videolan/x264.git"
 
   stable do
     # the latest commit on the stable branch
     url "https://code.videolan.org/videolan/x264.git",
-        revision: "cde9a93319bea766a92e306d69059c76de970190"
-    version "r3011"
+        revision: "4121277b40a667665d4eea1726aefdc55d12d110"
+    version "r3027"
   end
 
   # There's no guarantee that the versions we find on the `release-macos` index
@@ -21,10 +22,11 @@ class X264 < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "ba7da48fdd2dc85d18cf8ab11563bc9bfc04493a65a9909c5f70c84433ce5a7c" => :catalina
-    sha256 "309008e3a647544faf6fd640ab8d91a30082b1d100126b8afbea3912ba32ffa3" => :mojave
-    sha256 "5e03addc818d8631053aea74bf121de8aa885991646082a1dd2dd0cc57b00ef3" => :high_sierra
+    sha256 "ae4f4d320db6d3c52c118da312de4118870c0d60228c085f87cf75b88b63c5fe" => :big_sur
+    sha256 "7d52ee2a419ad50d0c1ba7fa5e8f7d85791a98319d891a5fd78c98be4cf72fe5" => :arm64_big_sur
+    sha256 "60b2b82a877d14c5c02f28e0d51ae90b89d4a141fa3c4efcc3fed6926d41033a" => :catalina
+    sha256 "25c5033625c3de8f4f2e4de5b9d2e3f954e42ec9ec04104f49d6d4c255f65286" => :mojave
+    sha256 "7a7dbe31d8afd48909c01294cc165b60fcaa20ca3df245617151b13f38d7c626" => :high_sierra
   end
 
   depends_on "nasm" => :build
@@ -36,19 +38,7 @@ class X264 < Formula
     fails_with :clang
   end
 
-  # update config.* and configure: add Apple Silicon support.
-  # upstream PR https://code.videolan.org/videolan/x264/-/merge_requests/35
-  # Can be removed once it gets merged into stable branch
-  patch do
-    url "https://code.videolan.org/videolan/x264/-/commit/eb95c2965299ba5b8598e2388d71b02e23c9fba7.diff?full_index=1"
-    sha256 "7cdc60cffa8f3004837ba0c63c8422fbadaf96ccedb41e505607ead2691d49b9"
-  end
-
   def install
-    # Work around Xcode 11 clang bug
-    # https://bitbucket.org/multicoreware/x265/issues/514/wrong-code-generated-on-macos-1015
-    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
-
     args = %W[
       --prefix=#{prefix}
       --disable-lsmash
@@ -64,6 +54,7 @@ class X264 < Formula
   end
 
   test do
+    assert_match version.to_s.delete("r"), shell_output("#{bin}/x264 --version").lines.first
     (testpath/"test.c").write <<~EOS
       #include <stdint.h>
       #include <x264.h>

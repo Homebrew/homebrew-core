@@ -12,6 +12,8 @@ class Lame < Formula
 
   bottle do
     cellar :any
+    sha256 "6ceaf88479ce365df8c29140359984ad8debcc44898b99424b39d729e923279b" => :big_sur
+    sha256 "2ff2c6ad3cfd26e1ba53230631e2f04734a4638c344cce50ff0b8fc36b45c403" => :arm64_big_sur
     sha256 "02b6a2cbf9b902225308bc90c8314699761cbdcd13628271579f5345d8160af2" => :catalina
     sha256 "737751faa513a68ac2499bb5cc607bc366e15dab8ff3bff5443567a455af5c3f" => :mojave
     sha256 "9e65c67b83efa5a686aea0506dc44935cd2af2d4fe55fe38dc19610a0ccd80dd" => :high_sierra

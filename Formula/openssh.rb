@@ -6,6 +6,7 @@ class Openssh < Formula
   version "8.4p1"
   sha256 "5a01d22e407eb1c05ba8a8f7c654d388a13e9f226e4ed33bd38748dafa1d2b24"
   license "SSH-OpenSSH"
+  revision 2
 
   livecheck do
     url "https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/"
@@ -13,9 +14,10 @@ class Openssh < Formula
   end
 
   bottle do
-    sha256 "6d9d26c2d1db3dfbf06355043a588a463d2b510c67a69ac66369ea2d26f6e3ff" => :catalina
-    sha256 "d28a6031f82a943a63427716d4b2018d06320a19950120977f615285334387f6" => :mojave
-    sha256 "634ee3baf5ba765b5b0d2bb0c517524a48fe251a5dd11612421c4056c17756c8" => :high_sierra
+    sha256 "291bda7c89dd8086c24a920f3a0ce0d03719f76d8aeecabfc1b6cac44e5a973e" => :big_sur
+    sha256 "138d45d469062c9b9622b9a962770041921b80fb88f291ec9c778c6409076238" => :arm64_big_sur
+    sha256 "0eaaea9198eb264ce6c3ac5ddbba1fcfeceafa000f039317d5e746f4408088b5" => :catalina
+    sha256 "eac0ab69709477e02dd8f86142f531a9ced2a34737fd92d6b7d796152b85fcbe" => :mojave
   end
 
   # Please don't resubmit the keychain patch option. It will never be accepted.

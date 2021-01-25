@@ -8,6 +8,8 @@ class Webfs < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "186343dd3f7bc14c248a9a52796f7afd63e430bdfaa71d570abb6142e7632b34" => :big_sur
+    sha256 "1801afbf473ab499ddba5015432c87eed8f1316c921e181cf978dfae1c19a656" => :arm64_big_sur
     sha256 "192b771c2cf819773c9581bcdc83dacb9954c241ab41837ff844f736a53d5a1e" => :catalina
     sha256 "f561f9dac64cd43165eefd01619d54042507a4f9a1d572c621e17229b63ec045" => :mojave
     sha256 "52608c9f1bd5d7e7fceec24bff51ca67e0739b1c83ae2676c6ca161fdfaaa4d7" => :high_sierra

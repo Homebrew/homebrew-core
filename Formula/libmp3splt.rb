@@ -14,6 +14,8 @@ class Libmp3splt < Formula
   end
 
   bottle do
+    sha256 "55d3fdb8d59c595093e53b18d1d07f43ae80a41aa73ec228e9984fc919884faf" => :big_sur
+    sha256 "fcda51b514df7925e6503cda320f8a98b03a588b99cd89612b1ef466eb608f89" => :arm64_big_sur
     sha256 "8070118d4ad4175f51c60081fcc01193b494c8f5e96ed7cf82364f73d68754e3" => :catalina
     sha256 "d929bb92be95a49b808d087be5e88100bc23c423100da1afd86422cf0ed3d6cb" => :mojave
     sha256 "71eb2ec5137acc03b95dbfdfadbb88c6bade2cb1548cce2655876971e346707a" => :high_sierra

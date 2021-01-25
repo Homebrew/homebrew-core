@@ -1,6 +1,6 @@
 class Serialosc < Formula
   desc "Opensound control server for monome devices"
-  homepage "https://monome.org/docs/osc/"
+  homepage "https://github.com/monome/docs/blob/gh-pages/serialosc/osc.md"
   url "https://github.com/monome/serialosc.git",
       tag:      "v1.4.1",
       revision: "4fec6f11276dd302faf9ca8e0a8e126f273cf954"
@@ -9,10 +9,11 @@ class Serialosc < Formula
 
   bottle do
     cellar :any
-    sha256 "694f87c372351b614a376a40f816018030241114063aab1a7a051958016dd435" => :catalina
-    sha256 "e0bf57d0c476bba84d0fd54ef092ebcc0077a163f9313a659ea3401502de43ad" => :high_sierra
-    sha256 "708a6230d77c734f5bb5c7f6f09d76cc02f345aa9ff82b392ed48e76236c06e1" => :sierra
-    sha256 "538a58e048362ab6561a3ba60a4bce9a262ec6245c2bdbf2c3b07a21c8f725cc" => :el_capitan
+    rebuild 1
+    sha256 "a67757d6de9663c606ae5baad6c98b1e05270f6ebc7dce5ee856cebd9359523e" => :big_sur
+    sha256 "34c28ed9daba6253e5683b1843d4232991be7194b9121684c1e22e45f4f29fa6" => :arm64_big_sur
+    sha256 "652e246d1df70f602f497f545c7ef8d69bf7fcbd98fc0af43da944c983f72a32" => :catalina
+    sha256 "88d5711e7c26674071d8f5b659c44bc5112edf2b0033b42dc04dba302a418ce5" => :mojave
   end
 
   depends_on "confuse"

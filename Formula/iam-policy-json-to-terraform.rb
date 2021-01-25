@@ -1,34 +1,24 @@
 class IamPolicyJsonToTerraform < Formula
   desc "Convert a JSON IAM Policy into terraform"
   homepage "https://github.com/flosell/iam-policy-json-to-terraform"
-  url "https://github.com/flosell/iam-policy-json-to-terraform/archive/1.5.0.tar.gz"
-  sha256 "9d58642d3f532c4334dc63f45e44ff9cae254360f977bca925f20033338fadcb"
+  url "https://github.com/flosell/iam-policy-json-to-terraform/archive/1.6.0.tar.gz"
+  sha256 "714b8aead9bf5a88989a62eb520163565c890f37ee13783a3ae549bb0b8cdead"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/flosell/iam-policy-json-to-terraform.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d5aa3dea843226e508c13bd46c418d7d76e928d631863002054a0bd05b139a73" => :catalina
-    sha256 "b7d80897886195d53da78f483318c12c5873483faaf73bf42dc91dfe1d7ddfbc" => :mojave
-    sha256 "1ad4ad756d400206cc8583a53dc57e50139b45865118d13594c5cc4acef7ff75" => :high_sierra
+    sha256 "e4316885451a287ef712e0838c680b55cc1267d04d77609f4f320b1728257ebf" => :big_sur
+    sha256 "d1114f74f71e918ec5aa63a06ceedc1d190757c6427a8711623b6e428abbdfc8" => :arm64_big_sur
+    sha256 "86e9ee53bdcda8143b96d78acc61c55f759d098039e1304b38f92293f99d8878" => :catalina
+    sha256 "cbb79fcd24013f6850f12bf1dc31ffaac3c47cba3386ee1f40dbcc55073a8170" => :mojave
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GOOS"] = "darwin"
-
-    dir = buildpath/"src/github.com/flosell/iam-policy-json-to-terraform"
-    dir.install buildpath.children
-    cd "src/github.com/flosell/iam-policy-json-to-terraform" do
-      # system "go", "build", "-o", "iam-policy-json-to-terraform", "*.go"
-      system "make", "iam-policy-json-to-terraform_darwin"
-      mv "iam-policy-json-to-terraform_darwin", "iam-policy-json-to-terraform"
-      bin.install "iam-policy-json-to-terraform"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args, "-ldflags", "-s -w"
   end
 
   test do

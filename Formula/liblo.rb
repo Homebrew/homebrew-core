@@ -11,6 +11,8 @@ class Liblo < Formula
 
   bottle do
     cellar :any
+    sha256 "19eef0619f05faa15a7d5368973dcd3e5ed2e44291b56cc6ff72825fe8879845" => :big_sur
+    sha256 "95b358e3f04623998f6c2d734599ec7e63b3c389f9d6e0cc9fc6311850929f55" => :arm64_big_sur
     sha256 "aac4280d5e147a6baab53c252bbf7cda296fe5bdeceb26d7aa60acb10ecc5444" => :catalina
     sha256 "3310110ec91fb412b8d5c727bda03454aebec087d78ebada20bb53ad9582088e" => :mojave
     sha256 "034eaec236ee4df490d16db9998ec7a4d88223d929b333c8b08ade641bc74bcb" => :high_sierra

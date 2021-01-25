@@ -4,6 +4,7 @@ class Ddd < Formula
   url "https://ftp.gnu.org/gnu/ddd/ddd-3.3.12.tar.gz"
   mirror "https://ftpmirror.gnu.org/ddd/ddd-3.3.12.tar.gz"
   sha256 "3ad6cd67d7f4b1d6b2d38537261564a0d26aaed077bf25c51efc1474d0e8b65c"
+  license all_of: ["GPL-3.0-only", "GFDL-1.1-or-later"]
   revision 1
 
   livecheck do
@@ -11,23 +12,24 @@ class Ddd < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 "a2d1ceeadc2055223cea7c3e3776393dfc01bd0f2946ed82dda8226fe11ccb29" => :catalina
-    sha256 "41917b105d1329eaa9421fe314e449fca4c9b9f27b5c4a2ad10d0dbb746a8cea" => :mojave
-    sha256 "381ae07c96a67534b05a03ca72741d99aa3437a01c0fef603336ea218c470df9" => :high_sierra
-    sha256 "af12e95b5b4326906236559a40f6715e896d164d5c18d9448384e0e22d089abf" => :sierra
-    sha256 "68864faf1967b400bc5df5809ab9ee03a0d632f3736071131dd5469be715c58f" => :el_capitan
+    rebuild 2
+    sha256 "498ceb2dc933d2c85e7407f077d187c6cd799ba2f539694087134d038bb211d9" => :big_sur
+    sha256 "df163eb838675a73c69913af1e1526a5c20e5cbeafa58836112ce4ae642a705a" => :catalina
+    sha256 "ef4ae2c46be3ad1aee12c52ca34d7606c3aa056250792a61c03af4581fe8e568" => :mojave
+    sha256 "9fc9c568178424aeb25d6721c4faffb99a8bd7ef967ea0ae4e3464b65651d0b8" => :high_sierra
   end
 
+  depends_on "gdb" => :test
+  depends_on "libice"
+  depends_on "libsm"
+  depends_on "libx11"
+  depends_on "libxau"
+  depends_on "libxaw"
+  depends_on "libxext"
+  depends_on "libxp"
+  depends_on "libxpm"
+  depends_on "libxt"
   depends_on "openmotif"
-  depends_on :x11
-
-  # Needed for OSX 10.9 DP6 build failure:
-  # https://savannah.gnu.org/patch/?8178
-  patch :p0 do
-    url "https://savannah.gnu.org/patch/download.php?file_id=29114"
-    sha256 "aaacae79ce27446ead3483123abef0f8222ebc13fd61627bfadad96016248af6"
-  end
 
   # https://savannah.gnu.org/bugs/?41997
   patch do
@@ -40,6 +42,13 @@ class Ddd < Formula
   patch :p0 do
     url "https://raw.githubusercontent.com/macports/macports-ports/a71fa9f4/devel/ddd/files/patch-unknown-type-name-a_class.diff"
     sha256 "c187a024825144f186f0cf9cd175f3e972bb84590e62079793d0182cb15ca183"
+  end
+
+  # Patch to fix compilation with Xt 1.2.0
+  # https://savannah.gnu.org/patch/?9992
+  patch do
+    url "https://savannah.gnu.org/patch/download.php?file_id=50229"
+    sha256 "140a1493ab640710738abf67838e63fbb8328590d1d3ab0212e7ca1f378a9ee7"
   end
 
   def install
@@ -63,5 +72,6 @@ class Ddd < Formula
     output = shell_output("#{bin}/ddd --version")
     output.force_encoding("ASCII-8BIT") if output.respond_to?(:force_encoding)
     assert_match version.to_s, output
+    assert_match testpath.to_s, shell_output("printf pwd\\\\nquit | #{bin}/ddd --gdb --nw true 2>&1")
   end
 end

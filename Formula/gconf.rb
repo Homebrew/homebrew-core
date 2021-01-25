@@ -5,10 +5,6 @@ class Gconf < Formula
   sha256 "1912b91803ab09a5eed34d364bf09fe3a2a9c96751fde03a4e0cfa51a04d784c"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 "4c434b1dd944001776c5aae9924d0e3724a8682114924f8847aad30d990deccd" => :mojave
     sha256 "e8a40df67c6816854cdfa9530e4c3b437907f5f92c32e8292f239d957dc1c0c8" => :high_sierra
@@ -17,6 +13,8 @@ class Gconf < Formula
     sha256 "85f809fb483b3c78b283d3e7b681b133d106d991717d361c0bdd9596a81178ea" => :yosemite
     sha256 "91bbb172f214d7fc407f20eef91a6d4dcf0140da4e91d99f4e0c2fd1e902815d" => :mavericks
   end
+
+  disable! date: "2020-12-08", because: :unmaintained
 
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build

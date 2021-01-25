@@ -7,6 +7,8 @@ class Glui < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "e0e6490b5f5044282ef8769a9702597667dfc5bfc72331790deeac6997116d6d" => :big_sur
+    sha256 "2436b9df6b4d25bcd4734c5257ad4388fe4b9591396f155e6dd7d716093d8836" => :arm64_big_sur
     sha256 "a9e404e892ccdf44f28504a433b598a08533290486189bc4a707b3e333dd3950" => :catalina
     sha256 "24c323dbaa5f6f1b01fbf8f837c379ef503d323a448d2bb3d673c31ced622f0d" => :mojave
     sha256 "7cd9b9d6bffa3b6b6ff806c4041f495d5a7ef40296cb50097db25d17eb616265" => :high_sierra

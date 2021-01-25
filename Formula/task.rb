@@ -1,25 +1,29 @@
 class Task < Formula
   desc "Feature-rich console based todo list manager"
   homepage "https://taskwarrior.org/"
-  url "https://taskwarrior.org/download/task-2.5.1.tar.gz"
-  sha256 "d87bcee58106eb8a79b850e9abc153d98b79e00d50eade0d63917154984f2a15"
+  url "https://github.com/GothenburgBitFactory/taskwarrior/releases/download/v2.5.3/task-2.5.3.tar.gz"
+  sha256 "7243d75e0911d9e2c9119ad94a61a87f041e4053e197f7280c42410aa1ee963b"
   license "MIT"
   head "https://github.com/GothenburgBitFactory/taskwarrior.git", branch: "2.6.0", shallow: false
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256 "24c80011867aa34766864a4bbac071493fb45c93bd3e08b3e9979b3ba4780fa2" => :catalina
-    sha256 "bba98b6bdfb3f79f1434229d8ade4b0622119320353da0eb8fec39809d66947d" => :mojave
-    sha256 "6a651be957b736bef14633efedef011a81c49ee37178eae4d8ef863549d7c584" => :high_sierra
-    sha256 "d1cb582ab9ee211ec154690634b5988f8058ead31000c74d5cdfa949d319d0ed" => :sierra
-    sha256 "07aa2c19ae6d7a9a46b286bfc48fa970aa9a9e0237e034bbaab354dcfc4f6848" => :el_capitan
-    sha256 "113fc7ce057c51ea14021006a4106c25d29e361e4b70113e33fb7a83e57ee8d1" => :yosemite
-    sha256 "7888e42210edb6691ff57d056585536abd318d62b43a898bb98e286373519164" => :mavericks
+    sha256 "13cbe306b15eda0b1a2edd707f3c1e2a18759bfa2613a4a5909f5945c7ac367c" => :big_sur
+    sha256 "188f5f1a5dda2cff99e1adf0be22980f5cfa72b3dbffdbef8d9648e65ce23641" => :arm64_big_sur
+    sha256 "6b15062cfa4e67ba49cd6bcb88a1be453e49b86f4ab680acb171fe98e01e256b" => :catalina
+    sha256 "8ea578cb22e2a379478111ca18c735482c264a46d3733a866cfc959ce344c4f4" => :mojave
   end
 
   depends_on "cmake" => :build
   depends_on "gnutls"
 
   on_linux do
+    depends_on "linux-headers"
+    depends_on "readline"
     depends_on "util-linux"
   end
 

@@ -6,6 +6,7 @@ class Urweb < Formula
   revision 2
 
   bottle do
+    sha256 "651f89a41cbaf3b06d775d56d6da32b50d36a2850985e762819f89e6701c36e6" => :big_sur
     sha256 "ea2ccdf37715d601fb22b301e9646d8a56bd408b88c8f83e2feda08d3695712c" => :catalina
     sha256 "edfad2dea9f27c87d7a68396f50cbbf6d345edf6059abf555ad6c7d2d0bc2177" => :mojave
     sha256 "ccc6d329298c6d3f3f4ba7e67b8be51017b7f95dad00de35d63fe49c670f1ee2" => :high_sierra

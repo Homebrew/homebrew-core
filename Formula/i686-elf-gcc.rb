@@ -11,6 +11,7 @@ class I686ElfGcc < Formula
   end
 
   bottle do
+    sha256 "774bb133598e76c19daa758e533132d632e6b541a4f6c348bc1428b573bb5c58" => :big_sur
     sha256 "8e258af70b398807c115631de8a1dc8c6ebdb3be870fe26410c14e91a7659a58" => :catalina
     sha256 "4c14d4308435c164f92de628f8e1b97a63692fb0b3ff083c083a64fed1c72870" => :mojave
     sha256 "c8d9a65d529d5c9219b451dfd724c7df0275df5f9c6138eb3db173b783c07372" => :high_sierra

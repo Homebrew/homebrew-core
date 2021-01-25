@@ -3,7 +3,7 @@ class Gtksourceview < Formula
   homepage "https://projects.gnome.org/gtksourceview/"
   url "https://download.gnome.org/sources/gtksourceview/2.10/gtksourceview-2.10.5.tar.gz"
   sha256 "f5c3dda83d69c8746da78c1434585169dd8de1eecf2a6bcdda0d9925bf857c97"
-  revision 4
+  revision 6
 
   livecheck do
     url :stable
@@ -11,11 +11,10 @@ class Gtksourceview < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 "c17eddcfc4490429a25b8c2ebd5dd32ac430e8bb26230698910bde85d2b48af6" => :catalina
-    sha256 "240b0c4807eb0920d9e349898f637d1070eaff855a06ae8389e2894d359c3096" => :mojave
-    sha256 "ac6289f22ae87186413936732cba3aaaf9b8d15ff4b71c574bf6c874bb6d1df4" => :high_sierra
-    sha256 "eb5679608c0d4b848640218761d6978a7b1a914721b31e648d92ed8b5968bf85" => :sierra
+    sha256 "146b08e9b6c084de86ed9de2783f50b4c564826f102b0d917579ffa19b60ab94" => :big_sur
+    sha256 "3622986240ea216f4a404ea7e40d2099d94bc0f175bdb0ac0d8b242c29d81514" => :arm64_big_sur
+    sha256 "633745bd26dcc7d96f3c102002a2cdfb1cb45ff2762a5c2c814d2af787b6a5c5" => :catalina
+    sha256 "e4acd9c34e98b342eac330a7c7393b1199441474be6e3d7523c6b173e609febe" => :mojave
   end
 
   depends_on "intltool" => :build

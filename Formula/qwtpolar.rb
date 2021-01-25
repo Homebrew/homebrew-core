@@ -11,6 +11,7 @@ class Qwtpolar < Formula
 
   bottle do
     rebuild 1
+    sha256 "634cd7925ec1cd45dee256c4e274592714caa44c25d0aeea554b309a90141299" => :big_sur
     sha256 "29e8dcae83fabafd75613c3299482b3d126ade4837b6c312d882994726fe3667" => :catalina
     sha256 "29e8dcae83fabafd75613c3299482b3d126ade4837b6c312d882994726fe3667" => :mojave
     sha256 "5bd97a27b353a338b97b1e5f33f1c95b568dacc9e49f9d56a1e085bf554264bb" => :high_sierra

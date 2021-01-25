@@ -3,7 +3,7 @@ class Nzbget < Formula
   homepage "https://nzbget.net/"
   url "https://github.com/nzbget/nzbget/releases/download/v21.0/nzbget-21.0-src.tar.gz"
   sha256 "65a5d58eb8f301e62cf086b72212cbf91de72316ffc19182ae45119ddd058d53"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   revision 1
   head "https://github.com/nzbget/nzbget.git", branch: "develop"
 
@@ -13,10 +13,10 @@ class Nzbget < Formula
   end
 
   bottle do
-    sha256 "d44d1a8dbd26f5cdb307c08f3294bd381ca79d51c48f51df98ae10a19272397e" => :catalina
-    sha256 "1d69e26d929d2a1be4824ea8c2134d543033462302bc5527269d5ca7b1b2c575" => :mojave
-    sha256 "862bd9889d1590b8e3f600419f2bbf84f1ea7582ed55c58eccc024382d6db245" => :high_sierra
-    sha256 "2e174f6c4df74ef3cd5decca500963db0c99d71553da624693ec4e9d085a0a56" => :sierra
+    rebuild 1
+    sha256 "0e6628877593d52315c0390d9c92dfef1673806ff99eb4bb76ab7c0ceb9ef13f" => :big_sur
+    sha256 "ecf6a149b5f521f683f5d2fda434b5dc74191a5bae5e0c0f0879c4c6fbe60510" => :catalina
+    sha256 "c61cd9afc8d82e05e1a755552de7f056147023fc1569c51567b9b3f1739c9979" => :mojave
   end
 
   depends_on "pkg-config" => :build
@@ -61,12 +61,23 @@ class Nzbget < Formula
       <dict>
         <key>Label</key>
         <string>#{plist_name}</string>
+        <key>EnvironmentVariables</key>
+        <dict>
+          <key>PATH</key>
+          <string>#{HOMEBREW_PREFIX}/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+        </dict>
         <key>ProgramArguments</key>
         <array>
           <string>#{opt_bin}/nzbget</string>
+          <string>-c</string>
+          <string>#{HOMEBREW_PREFIX}/etc/nzbget.conf</string>
           <string>-s</string>
           <string>-o</string>
           <string>OutputMode=Log</string>
+          <string>-o</string>
+          <string>ConfigTemplate=#{HOMEBREW_PREFIX}/opt/nzbget/share/nzbget/nzbget.conf</string>
+          <string>-o</string>
+          <string>WebDir=#{HOMEBREW_PREFIX}/opt/nzbget/share/nzbget/webui</string>
         </array>
         <key>RunAtLoad</key>
         <true/>

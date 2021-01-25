@@ -8,6 +8,8 @@ class JsonTable < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "56d0c75307c1bfff97077e37070ee7a0532b09614226e5716e7d6a5ad2e2b113" => :big_sur
+    sha256 "23e482349f2641ceb4b17f3c05bba8dcbef599a2d3b7eba981dbcce14989e157" => :arm64_big_sur
     sha256 "61d89ff5426049b2f0fbb237862ec1227cd36c8f00ce81f9a382e8b7d1c2792a" => :catalina
     sha256 "49f7c1f8e757456f63d5e8b9cb7ef0f2b1cdb22303b2ae799595305cb7e65c5b" => :mojave
     sha256 "2afef9b965070bcde986759dbd03cfd8fe3e77aec5a12158fb4aa189626ab977" => :high_sierra

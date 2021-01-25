@@ -11,6 +11,8 @@ class Sipcalc < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "7ecd4de1c66d06136e36ec83e076b253212294f0407bf049e1bdf7746505c2ab" => :big_sur
+    sha256 "9eb0d11f79f4a89148dcfba3ff714cad9c345276ce5ca0e8e937782cbc0d0e1d" => :arm64_big_sur
     sha256 "4b211b4978bd165adb71435e19f19f146ee84f905555c3bce2d4652375067d3d" => :catalina
     sha256 "50bc96758ca5ecdb86fb29ca39bf07f6c4e44192310481436afccc191c6f2cd2" => :mojave
     sha256 "9cff165f5e2b98d0c7d4729d4d6309b679cae7d161996242c666053d37134640" => :high_sierra

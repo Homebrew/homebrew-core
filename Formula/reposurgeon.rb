@@ -2,16 +2,17 @@ class Reposurgeon < Formula
   desc "Edit version-control repository history"
   homepage "http://www.catb.org/esr/reposurgeon/"
   url "https://gitlab.com/esr/reposurgeon.git",
-    tag:      "4.19",
-    revision: "f9902cb938911b674f69da4c085eb4a4bebf9cf4"
+      tag:      "4.21",
+      revision: "4412cb406172786f9983a3f94a60deded2181831"
   license "BSD-2-Clause"
   head "https://gitlab.com/esr/reposurgeon.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "54257b991eca3725c03ed737d38158f2c9406b29fe035ed43a59dda6ac0400d2" => :catalina
-    sha256 "045b3d231e384da1ac603b3f7f4d0b96b86bccfb208e93148aa56fee0d7baffa" => :mojave
-    sha256 "b1025a09b10689b8562959ed6e6e37c77d04765285ba64fde51bbf385e15ff29" => :high_sierra
+    sha256 "5217ed6bdd4c3d325136b99e8ae2dfa29fe4ef51db98c6ef137437a4bf950512" => :big_sur
+    sha256 "28136d0965dbdc82293114f1a15f77e98263b4513d440bdb819307e4c8c9742f" => :arm64_big_sur
+    sha256 "7ca53ec30c1131eadd40988a29c021c00205d88bf93dcf5d21f836414909cfc0" => :catalina
+    sha256 "ebab05fa08478c10feff4cf4e8a8b69e1e02293444eeb6d07cc37980933877ce" => :mojave
   end
 
   depends_on "asciidoctor" => :build

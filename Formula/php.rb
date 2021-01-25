@@ -2,10 +2,11 @@ class Php < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-7.4.11.tar.xz"
-  mirror "https://fossies.org/linux/www/php-7.4.11.tar.xz"
-  sha256 "5d31675a9b9c21b5bd03389418218c30b26558246870caba8eb54f5856e2d6ce"
+  url "https://www.php.net/distributions/php-8.0.1.tar.xz"
+  mirror "https://fossies.org/linux/www/php-8.0.1.tar.xz"
+  sha256 "208b3330af881b44a6a8c6858d569c72db78dab97810332978cc65206b0ec2dc"
   license "PHP-3.01"
+  revision 1
 
   livecheck do
     url "https://www.php.net/releases/feed.php"
@@ -13,9 +14,10 @@ class Php < Formula
   end
 
   bottle do
-    sha256 "494b05d2febe3bee62d4a8005be46a393f2543698f5b4f03d91d1973465f718a" => :catalina
-    sha256 "65d655c96ef35ef6f40209b0b1773226da890cb8cb900a1641f6a1206e18b8b4" => :mojave
-    sha256 "907959a1d23ddada77d2e201ff4e18d594017478aa3415ca075486ebf9d46046" => :high_sierra
+    sha256 "bd676e1cd3af8fe9db8668d9449abab0451ee901d6d77ff613eaec1e0dbe866e" => :big_sur
+    sha256 "ee47f0fe24f240ad10bddd12acf144a04bb0e551d55275ae497fc1fc6fdf49c9" => :arm64_big_sur
+    sha256 "747269ecdcbaeb40db9cd8da39ae284eac49a52a4a8090b265d6d19d5067fa04" => :catalina
+    sha256 "b287bc7f712a5ef204a246484b8f6e5b759da409e0c5c0580bb9a699e96f99c2" => :mojave
   end
 
   head do
@@ -32,7 +34,7 @@ class Php < Formula
   depends_on "argon2"
   depends_on "aspell"
   depends_on "autoconf"
-  depends_on "curl-openssl"
+  depends_on "curl"
   depends_on "freetds"
   depends_on "gd"
   depends_on "gettext"
@@ -96,7 +98,7 @@ class Php < Formula
     # Prevent system pear config from inhibiting pear install
     (config_path/"pear.conf").delete if (config_path/"pear.conf").exist?
 
-    # Prevent homebrew from harcoding path to sed shim in phpize script
+    # Prevent homebrew from hardcoding path to sed shim in phpize script
     ENV["lt_cv_path_SED"] = "sed"
 
     # system pkg-config missing
@@ -281,7 +283,7 @@ class Php < Formula
   def caveats
     <<~EOS
       To enable PHP in Apache add the following to httpd.conf and restart Apache:
-          LoadModule php7_module #{opt_lib}/httpd/modules/libphp7.so
+          LoadModule php_module #{opt_lib}/httpd/modules/libphp.so
 
           <FilesMatch \\.php$>
               SetHandler application/x-httpd-php
@@ -359,16 +361,10 @@ class Php < Formula
         DirectoryIndex index.php
       EOS
 
-      php_module = if head?
-        "LoadModule php_module #{lib}/httpd/modules/libphp.so"
-      else
-        "LoadModule php7_module #{lib}/httpd/modules/libphp7.so"
-      end
-
       (testpath/"httpd.conf").write <<~EOS
         #{main_config}
         LoadModule mpm_prefork_module lib/httpd/modules/mod_mpm_prefork.so
-        #{php_module}
+        LoadModule php_module #{lib}/httpd/modules/libphp.so
         <FilesMatch \\.(php|phar)$>
           SetHandler application/x-httpd-php
         </FilesMatch>

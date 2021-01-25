@@ -1,13 +1,13 @@
 class Metabase < Formula
   desc "Business intelligence report server"
   homepage "https://www.metabase.com/"
-  url "https://downloads.metabase.com/v0.36.7/metabase.jar"
-  sha256 "b213cb06b42cd2456bd955ff9c490a8206e7629211cc033043a54dc3946b57a8"
+  url "https://downloads.metabase.com/v0.37.7/metabase.jar"
+  sha256 "0286c2dcc6e4632aa804492828467c9477cfa466c2f7f99d511867999d3b31c9"
   license "AGPL-3.0-only"
 
   livecheck do
-    url "https://github.com/metabase/metabase/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :head
+    strategy :github_latest
   end
 
   head do

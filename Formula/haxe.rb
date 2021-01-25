@@ -2,20 +2,21 @@ class Haxe < Formula
   desc "Multi-platform programming language"
   homepage "https://haxe.org/"
   url "https://github.com/HaxeFoundation/haxe.git",
-      tag:      "4.1.4",
-      revision: "7d0faa039ffe5e618587e2417323b59044282177"
+      tag:      "4.1.5",
+      revision: "5e33a78aad9a6733f4aa3a4b99f7c14555523a36"
+  license all_of: ["GPL-2.0-or-later", "MIT"]
   head "https://github.com/HaxeFoundation/haxe.git", branch: "development"
 
   livecheck do
-    url "https://github.com/HaxeFoundation/haxe/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
     cellar :any
-    sha256 "4d198b6fe5ad9addbaadd2aba3a43e4f0a356cfd632e389af76c83a8eb1246a6" => :catalina
-    sha256 "077d47ef86c0c3ccdc5f4c7c92b5485e76727afc3096d19bf149125e60ad5ce3" => :mojave
-    sha256 "3c8e7a07d745f290ef54154a05b730440cb319ec84319e6117e59936510b3234" => :high_sierra
+    sha256 "e7699cc68fbab0efc9562cf045c36a2acebbeb63e5b109bec7723f98448ea2ff" => :big_sur
+    sha256 "4e8990bb2d2f2556272d8cbc2ee6966a6f6c4308fe47e5d89aeca3d32d46f24c" => :catalina
+    sha256 "203944b02f84bc182342c6831ec81ba27a0c71c8fba56849a2c2adc6a1ad8f4c" => :mojave
   end
 
   depends_on "cmake" => :build
@@ -27,11 +28,30 @@ class Haxe < Formula
   depends_on "pcre"
 
   uses_from_macos "m4" => :build
+  uses_from_macos "perl" => :build
   uses_from_macos "unzip" => :build
+
+  resource "String::ShellQuote" do
+    url "https://cpan.metacpan.org/authors/id/R/RO/ROSCH/String-ShellQuote-1.04.tar.gz"
+    sha256 "e606365038ce20d646d255c805effdd32f86475f18d43ca75455b00e4d86dd35"
+  end
+
+  resource "IPC::System::Simple" do
+    url "https://cpan.metacpan.org/authors/id/J/JK/JKEENAN/IPC-System-Simple-1.30.tar.gz"
+    sha256 "22e6f5222b505ee513058fdca35ab7a1eab80539b98e5ca4a923a70a8ae9ba9e"
+  end
 
   def install
     # Build requires targets to be built in specific order
     ENV.deparallelize
+
+    ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
+    resources.each do |r|
+      r.stage do
+        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+        system "make", "install"
+      end
+    end
 
     Dir.mktmpdir("opamroot") do |opamroot|
       ENV["OPAMROOT"] = opamroot

@@ -13,6 +13,8 @@ class Bc < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "f58adf16d7319035728503b47da1a9fddf3fce78e7f2efa69e6650cc0a8346a8" => :big_sur
+    sha256 "3e0fa32e2d65a4c0e0eca3d555e4c5dfa80b0a620610deae294c80a50131f514" => :arm64_big_sur
     sha256 "9fdbf6f45737082f911073b3c291399487bc3a3cfd1285e0da389436064c438f" => :catalina
     sha256 "78372f9830096b6d63fa7278e141924869a9aaee250b2ac1135594e67ba76c09" => :mojave
     sha256 "0baf2e31191d80258636186bf9adcdf6b3f554f213d36cb3054213f736e52bf1" => :high_sierra

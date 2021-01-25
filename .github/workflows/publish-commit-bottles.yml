@@ -30,6 +30,30 @@ jobs:
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
 
+      # Workaround until the `cache` action uses the changes from
+      # https://github.com/actions/toolkit/pull/580.
+      - name: Unlink workspace
+        run: |
+          mv "${GITHUB_WORKSPACE}" "${GITHUB_WORKSPACE}-link"
+          mkdir "${GITHUB_WORKSPACE}"
+
+      - name: Cache gems
+        uses: actions/cache@v2
+        with:
+          path: ${{steps.set-up-homebrew.outputs.gems-path}}
+          key: ${{runner.os}}-rubygems-v2-${{steps.set-up-homebrew.outputs.gems-hash}}
+          restore-keys: ${{runner.os}}-rubygems-v2-
+
+      # Workaround until the `cache` action uses the changes from
+      # https://github.com/actions/toolkit/pull/580.
+      - name: Re-link workspace
+        run: |
+          rmdir "${GITHUB_WORKSPACE}"
+          mv "${GITHUB_WORKSPACE}-link" "${GITHUB_WORKSPACE}"
+
+      - name: Install gems
+        run: brew install-bundler-gems
+
       - name: Configure Git user
         uses: Homebrew/actions/git-user-config@master
 
@@ -38,7 +62,7 @@ jobs:
           HOMEBREW_GITHUB_API_TOKEN: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
           HOMEBREW_BINTRAY_USER: brewtestbot
           HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
-        run: brew pr-pull --debug ${{github.event.inputs.args}} ${{github.event.inputs.pull_request}}
+        run: brew pr-pull --debug --workflows=tests.yml,wheezy_tests.yml,tests-linux.yml --ignore-missing-artifacts=wheezy_tests.yml,tests-linux.yml ${{github.event.inputs.args}} ${{github.event.inputs.pull_request}}
 
       - name: Push commits
         uses: Homebrew/actions/git-try-push@master
@@ -62,3 +86,10 @@ jobs:
           token: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
           pr: ${{github.event.inputs.pull_request}}
           message: 'bottle publish failed'
+
+      # Workaround until the `cache` action uses the changes from
+      # https://github.com/actions/toolkit/pull/580.
+      - name: Unlink workspace
+        run: |
+          rm "${GITHUB_WORKSPACE}"
+          mkdir "${GITHUB_WORKSPACE}"

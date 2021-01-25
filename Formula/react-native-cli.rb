@@ -13,6 +13,8 @@ class ReactNativeCli < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "7a02c0e2569f9906069d980a6b0d8c0ca3174407a2588c00e8d428ff9c29aa32" => :big_sur
+    sha256 "393b87d95115e28c0fc2d56cf5ea0fb9d9f45d6a8d61a33b6805f1bfc24cc565" => :arm64_big_sur
     sha256 "45feb7f98d12b2ee28b6e5f658e070f60a43571d4d8fab679cb513ac957ca7bd" => :catalina
     sha256 "8e6e253c7801cc276f89f2988245866080c1409602c5903dbb2984b1a645746b" => :mojave
     sha256 "387e6f8c0e9f20b4ae2007185d394ff73cc3392085a6a05045b669512780c55e" => :high_sierra

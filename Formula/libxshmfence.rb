@@ -7,6 +7,8 @@ class Libxshmfence < Formula
 
   bottle do
     cellar :any
+    sha256 "89043d871005cac00e19ea895e9a30046296d0bd14edc0cd879328e53b3750a0" => :big_sur
+    sha256 "2651a6db4ef81559e17f4bb1e4ab5bbe246f54ec3cdce1f69ff9032f36789c36" => :arm64_big_sur
     sha256 "b6edc10c83f07c28fdece7c98b9be2e7c85518b0357311874c5bd5cca1217922" => :catalina
     sha256 "9ba60796d9101ebe5fe01d5fcbbc7f685fa8619fc0ba51004b0fd68488af47c4" => :mojave
     sha256 "ed7509cbecb38ec5fb75ae80de12248c8d25b931cbaff12f94f3566d05b77238" => :high_sierra

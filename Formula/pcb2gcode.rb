@@ -3,24 +3,32 @@ class Pcb2gcode < Formula
   homepage "https://github.com/pcb2gcode/pcb2gcode"
   url "https://github.com/pcb2gcode/pcb2gcode/archive/v2.1.0.tar.gz"
   sha256 "ee546f0e002e83434862c7a5a2171a2276038d239909a09adb36e148e7d7319a"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/pcb2gcode/pcb2gcode.git"
 
   bottle do
     cellar :any
-    sha256 "f061b44896db47c40e3ff5d58434aa701c7ba974b22a82f82b0206338181a200" => :catalina
-    sha256 "dae5016ae6634dda64d1ddc9ead1cd1dba55d8ef23f74dd2b9e848248bfdfee6" => :mojave
-    sha256 "bc556eccf6a7eb74ffaf14ce4396c5d311f8961cc035638692193009dda195f5" => :high_sierra
+    sha256 "ebeae69a3b6c8ce423c361efbf21914582de1953dd1435829249d1179dc8d59c" => :big_sur
+    sha256 "25c1b52ff023dd2137810355ba205d3be3e065ccf90851b2f49329f665ff54a5" => :catalina
+    sha256 "cc6d2180685fa076d25a24db6ccd39b7346f28ad52f90a1d72cc3d22bfe840df" => :mojave
   end
 
   # Release 2.0.0 doesn't include an autoreconfed tarball
+  # glibmm, gtkmm and librsvg are used only in unittests,
+  # and are therefore not needed at runtime.
+  depends_on "atkmm" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "cairomm@1.14" => :build
+  depends_on "glibmm" => :build
+  depends_on "gtkmm" => :build
+  depends_on "librsvg" => :build
+  depends_on "libsigc++@2" => :build
   depends_on "libtool" => :build
+  depends_on "pangomm" => :build
   depends_on "pkg-config" => :build
   depends_on "gerbv"
-  depends_on "gtkmm"
-  depends_on "librsvg"
 
   # Upstream maintainer claims that the geometry library from boost >= 1.67
   # is severely broken. Remove the vendoring once fixed.

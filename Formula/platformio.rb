@@ -3,10 +3,9 @@ class Platformio < Formula
 
   desc "Professional collaborative platform for embedded development"
   homepage "https://platformio.org/"
-  url "https://files.pythonhosted.org/packages/38/6e/81a76ed61366ae04c2090ddac25e43c503f216912d582e81279e724ed0ff/platformio-5.0.1.tar.gz"
-  sha256 "0251dd03d31c7ec89d30e5da582b7cad0f4332d9ec20648b672f26c623f885fc"
+  url "https://files.pythonhosted.org/packages/ac/75/cf0307f4c2220b5c1c6d2b3af5d60637fb41e8c0aad882e09f59526192c6/platformio-5.0.4.tar.gz"
+  sha256 "5c19eee89ca957aa3ecd4f7357dae3c4ff902992f375fa620926eb6442a6c6a2"
   license "Apache-2.0"
-  revision 1
 
   livecheck do
     url :stable
@@ -14,26 +13,27 @@ class Platformio < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f11ebd6927a2da5db49180feb06b51c1c213ad8f9f49af2e76bdefcb72c2ca02" => :catalina
-    sha256 "c36c480af3b740bb9f07272c239348b9c85a783d9fd8711501a2bbedf9667adb" => :mojave
-    sha256 "ae0de680dbfe04b4fc56060faa0d9b4c8d4eed66b7a7bef846b745008c43b1e8" => :high_sierra
+    sha256 "be9a755f7272e6498ac57fca04a272c4e13f8f77a739ca0ab42c5c0237f7c9ab" => :big_sur
+    sha256 "59f3a58f9af0cb531260b2ec951e3210bfe5c35c6c3808c6ef23a85d1212ea09" => :arm64_big_sur
+    sha256 "950ebc5d6c6bcb4b6be961a1985415932a495412c7ea91b42ee27e3aff05a027" => :catalina
+    sha256 "e04794654c4f1cf7743113f3cf4edc207b1d53b272fe74821d16181d2e412c57" => :mojave
   end
 
   depends_on "python@3.9"
 
   resource "bottle" do
-    url "https://files.pythonhosted.org/packages/d9/4f/57887a07944140dae0d039d8bc270c249fc7fc4a00744effd73ae2cde0a9/bottle-0.12.18.tar.gz"
-    sha256 "0819b74b145a7def225c0e83b16a4d5711fde751cd92bae467a69efce720f69e"
+    url "https://files.pythonhosted.org/packages/ea/80/3d2dca1562ffa1929017c74635b4cb3645a352588de89e90d0bb53af3317/bottle-0.12.19.tar.gz"
+    sha256 "a9d73ffcbc6a1345ca2d7949638db46349f5b2b77dac65d6494d45c23628da2c"
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/40/a7/ded59fa294b85ca206082306bba75469a38ea1c7d44ea7e1d64f5443d67a/certifi-2020.6.20.tar.gz"
-    sha256 "5930595817496dd21bb8dc35dad090f1c2cd0adfaf21204bf6732ca5d8ee34d3"
+    url "https://files.pythonhosted.org/packages/06/a9/cd1fd8ee13f73a4d4f491ee219deeeae20afefa914dfb4c130cfc9dc397a/certifi-2020.12.5.tar.gz"
+    sha256 "1a4995114262bffbc2413b159f2a1a480c969de6e6eb13ee966d470af86af59c"
   end
 
   resource "chardet" do
-    url "https://files.pythonhosted.org/packages/fc/bb/a5768c230f9ddb03acc9ef3f0d4a3cf93462473795d18e9535498c8f929d/chardet-3.0.4.tar.gz"
-    sha256 "84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae"
+    url "https://files.pythonhosted.org/packages/ee/2d/9cdc2b527e127b4c9db64b86647d567985940ac3698eeabc7ffaccb4ea61/chardet-4.0.0.tar.gz"
+    sha256 "0d6f53a15db4120f2b08c94f11e7d93d2c911ee118b6b30a04ec3ee8310179fa"
   end
 
   resource "click" do
@@ -42,8 +42,8 @@ class Platformio < Formula
   end
 
   resource "colorama" do
-    url "https://files.pythonhosted.org/packages/82/75/f2a4c0c94c85e2693c229142eb448840fba0f9230111faa889d1f541d12d/colorama-0.4.3.tar.gz"
-    sha256 "e96da0d330793e2cb9485e9ddfd918d456036c7149416295932478192f4436a1"
+    url "https://files.pythonhosted.org/packages/1f/bb/5d3246097ab77fa083a61bd8d3d527b7ae063c7d8e8671b1cf8c4ec10cbe/colorama-0.4.4.tar.gz"
+    sha256 "5941b2b48a20143d2267e95b1c2a7603ce057ee39fd88e7329b0c292aa16869b"
   end
 
   resource "idna" do
@@ -52,23 +52,23 @@ class Platformio < Formula
   end
 
   resource "marshmallow" do
-    url "https://files.pythonhosted.org/packages/d5/d5/ac33622e14ce7eba02d21bc06bfea3e512ddb408517f3360f1f2692a3929/marshmallow-3.7.1.tar.gz"
-    sha256 "a2a5eefb4b75a3b43f05be1cca0b6686adf56af7465c3ca629e5ad8d1e1fe13d"
+    url "https://files.pythonhosted.org/packages/9b/3a/9f586ba2932b17d89c11373f28d7350a09bf87a6274ef29a37605c996c1e/marshmallow-3.10.0.tar.gz"
+    sha256 "4ab2fdb7f36eb61c3665da67a7ce281c8900db08d72ba6bf0e695828253581f7"
   end
 
   resource "pyelftools" do
-    url "https://files.pythonhosted.org/packages/9e/0f/82583ae6638a23e416cb3f15e3e3c07af51725fe51a4eaf91ede265f4af9/pyelftools-0.26.tar.gz"
-    sha256 "86ac6cee19f6c945e8dedf78c6ee74f1112bd14da5a658d8c9d4103aed5756a2"
+    url "https://files.pythonhosted.org/packages/6b/b5/f7022f2d950327ba970ec85fb8f85c79244031092c129b6f34ab17514ae0/pyelftools-0.27.tar.gz"
+    sha256 "cde854e662774c5457d688ca41615f6594187ba7067af101232df889a6b7a66b"
   end
 
   resource "pyserial" do
-    url "https://files.pythonhosted.org/packages/cc/74/11b04703ec416717b247d789103277269d567db575d2fd88f25d9767fe3d/pyserial-3.4.tar.gz"
-    sha256 "6e2d401fdee0eab996cf734e67773a0143b932772ca8b42451440cfed942c627"
+    url "https://files.pythonhosted.org/packages/1e/7d/ae3f0a63f41e4d2f6cb66a5b57197850f919f59e558159a4dd3a818f5082/pyserial-3.5.tar.gz"
+    sha256 "3c77e014170dfffbd816e6ffc205e9842efb10be9f58ec16d3e8675b4925cddb"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/da/67/672b422d9daf07365259958912ba533a0ecab839d4084c487a5fe9a5405f/requests-2.24.0.tar.gz"
-    sha256 "b3559a131db72c33ee969480840fff4bb6dd111de7dd27c8ee1f820f4f00231b"
+    url "https://files.pythonhosted.org/packages/6b/47/c14abc08432ab22dc18b9892252efaf005ab44066de871e72a38d6af464b/requests-2.25.1.tar.gz"
+    sha256 "27973dd4a904a4f13b263a19c866c13b92a39ed1c964655f025f3f8d3d75b804"
   end
 
   resource "semantic-version" do
@@ -82,8 +82,8 @@ class Platformio < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/81/f4/87467aeb3afc4a6056e1fe86626d259ab97e1213b1dfec14c7cb5f538bf0/urllib3-1.25.10.tar.gz"
-    sha256 "91056c15fa70756691db97756772bb1eb9678fa585d9184f24534b100dc60f4a"
+    url "https://files.pythonhosted.org/packages/29/e6/d1a1d78c439cad688757b70f26c50a53332167c364edb0134cadd280e234/urllib3-1.26.2.tar.gz"
+    sha256 "19188f96923873c92ccb987120ec4acaa12f0461fa9ce5d3d0772bc965a39e08"
   end
 
   def install

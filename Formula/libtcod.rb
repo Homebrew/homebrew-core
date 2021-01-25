@@ -8,9 +8,11 @@ class Libtcod < Formula
 
   bottle do
     cellar :any
-    sha256 "43fbc8c1bce1fd6449708062819110313390f5ec35d33b972caca174adf63ecb" => :catalina
-    sha256 "e76bbc1cbaeb412f1fc2650e75098bf1f4883ffbb1d94b0c362aa01242f370a7" => :mojave
-    sha256 "5aabc34c7e623f0b5bb8dce24f6c673b5e288c3956fed7880b2b75a0eff2130d" => :high_sierra
+    rebuild 1
+    sha256 "464855bc6a479110433503a085c22f0bd8c2389875334595f9e525528982c1c3" => :big_sur
+    sha256 "2307306cad3fe74920216768953f8b2ba6721a49d1738870f7b2ccbab8a2691e" => :arm64_big_sur
+    sha256 "0ac1dde6fa975c1504880848ba2ec66dd0d044c5cfeccb92d3afe4f6ebb8231a" => :catalina
+    sha256 "e076b9fe253e60fc065493cab467d30c4db178d9364e410a3c7cf71293df7cf0" => :mojave
   end
 
   depends_on "autoconf" => :build
@@ -18,7 +20,6 @@ class Libtcod < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "python@3.9" => :build
-  depends_on :macos # Due to Python 2
   depends_on "sdl2"
 
   def install

@@ -1,22 +1,23 @@
 class Osqp < Formula
   desc "Operator splitting QP solver"
   homepage "https://osqp.org/"
-  url "https://github.com/oxfordcontrol/osqp/archive/v0.6.0.tar.gz"
-  sha256 "6e00d11d1f88c1e32a4419324b7539b89e8f9cbb1c50afe69f375347c989ba2b"
+  url "https://github.com/oxfordcontrol/osqp/archive/v0.6.2.tar.gz"
+  sha256 "d973c33c3164caa381ed7387375347a46f7522523350a4e51989479b9d3b59c7"
   license "Apache-2.0"
 
   bottle do
     cellar :any
-    sha256 "50feea323216bf8cc5d8dda92264a9354d547b5076d4c3b37b75792d0ac14c3f" => :catalina
-    sha256 "99a2f2810fc34c0241c0bc4a7bc31704a5b1ccc8201d112735e75cda14bb4bca" => :mojave
-    sha256 "2f50e046d34b7556891c7351aeab94347d1404b4ac1dcb041c413c4fb42bf16d" => :high_sierra
+    sha256 "875d53798462ef836a86415604f94d903ef6b6974732292aaf6bed3d37f69e5f" => :big_sur
+    sha256 "e632fa361ed8e194da854c8caff4b015482015fda56af0bd6f0ca76bbadecc74" => :arm64_big_sur
+    sha256 "2f78c81c56d6f153e55f6e6ce4524eec62cf806b7834ef48337d08aefb2643ec" => :catalina
+    sha256 "2f15d564ee6028766215aa931f0ee0c65af87da9fe4697662354a6b9c53e1a30" => :mojave
   end
 
   depends_on "cmake" => [:build, :test]
 
   resource "qdldl" do
-    url "https://github.com/oxfordcontrol/qdldl/archive/v0.1.3.tar.gz"
-    sha256 "a2c3a7d0c6a48b2fab7400fa8ca72a34fb1e3a19964b281c73564178f97afe54"
+    url "https://github.com/oxfordcontrol/qdldl/archive/v0.1.5.tar.gz"
+    sha256 "2868b0e61b7424174e9adef3cb87478329f8ab2075211ef28fe477f29e0e5c99"
   end
 
   def install

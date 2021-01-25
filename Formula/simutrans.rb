@@ -14,6 +14,8 @@ class Simutrans < Formula
 
   bottle do
     cellar :any
+    sha256 "6684c3e916b6566a770f7239b5df397a2216ed0522a0df7e96a204a6e49164a0" => :big_sur
+    sha256 "ea6599b33bd87ece631672772db23a583fb7ca3bbd2a99c0364add9302196e9d" => :arm64_big_sur
     sha256 "50aa64655688d3768238ac9878307d252fbaafd5c8dd6af3bfaa5f9874b53a97" => :catalina
     sha256 "3dbf340c91f3e97998b2b0b9e2c064c21a2e9fc656d73ccb25e558175350ada6" => :mojave
     sha256 "fea3c9fde01b95445d1eb02749f8ed3621e9e5a59f70c5a2f962e9360696a797" => :high_sierra

@@ -1,8 +1,8 @@
 class Mafft < Formula
   desc "Multiple alignments with fast Fourier transforms"
   homepage "https://mafft.cbrc.jp/alignment/software/"
-  url "https://mafft.cbrc.jp/alignment/software/mafft-7.471-with-extensions-src.tgz"
-  sha256 "2c4993e9ebdaf4dcc6ea2b0daf30f58cbbe98fdba3e2cfcb46145bb2c62e94ef"
+  url "https://mafft.cbrc.jp/alignment/software/mafft-7.475-with-extensions-src.tgz"
+  sha256 "bb6973ae089ea18cfbd3861a5b9d2c8b7e1543a1fdc78ac2d7cd8dbe3443f319"
 
   # The regex below is intended to avoid releases with trailing "Experimental"
   # text after the link for the archive.
@@ -13,9 +13,10 @@ class Mafft < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "47030809ef8372782fbf5770b2b95057f31bcbf81ead53cb06cb09e2ecbd2f87" => :catalina
-    sha256 "f7820f8386beaa0b0bfcfccc75bea1563d3b5947e32a0aba5051edb621491026" => :mojave
-    sha256 "a194f9f065024b846417688c2da31c22c058598880c4fb8ef5369e10299ecf2f" => :high_sierra
+    sha256 "cce002802d3d258caceaa2a20ecbdef0a75d14344f2aa7aa89aff5313a079c3e" => :big_sur
+    sha256 "73d173849a883c98a41b7fd0820dbca549a13668e84c7e3e9f046cd5eec0c877" => :arm64_big_sur
+    sha256 "798be41afbf9531ec0589c935a43e910cca42d66b25eb931d914324a1bfb1ea4" => :catalina
+    sha256 "5f791516aeaff07e97ebd9966d7321f13436f99a6a232618e2ee2aface522377" => :mojave
   end
 
   def install

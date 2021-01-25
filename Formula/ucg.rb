@@ -9,6 +9,7 @@ class Ucg < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "ea472cd9d4ecff1791a8df22e8207387957cad4af9b367698887772b98f434ff" => :big_sur
     sha256 "2e18cfd35ea53d5326a69f3d21cf32c2e850cd864735e3e45cd645d85e350ec7" => :catalina
     sha256 "2b073d5a0ee4cb2fe71822ce27c014b00974298cfc656f1fe0279f58bde398f9" => :mojave
     sha256 "3642e741bc9ffd1cf1982bfc2c373e0ed54a417c08ac46f43e4cf8a09a0a1a8a" => :high_sierra

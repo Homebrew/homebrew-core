@@ -7,6 +7,8 @@ class Slurm < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "b0ac2178976e42aafd42e37833725b82ad775d8ac170d91f1ee88e6df556c8cf" => :big_sur
+    sha256 "0568e6cdfc383e2ad89668439afbae2a0f9bf7f7061e3b721dc16cb4fbecc77a" => :arm64_big_sur
     sha256 "7c177b599a6612e1b6e7f68dfe44dc7f23b71788548eab184b33d03d5a5d8da8" => :catalina
     sha256 "1877e60b9696aca27dce408c18113108ae08611914a120c9fc52a59db9eec99a" => :mojave
     sha256 "97f41cff81bbc7ee1d0f9599e7b697d97834343a7a867497b5920246f836a327" => :high_sierra

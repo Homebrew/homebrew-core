@@ -1,25 +1,30 @@
 class Distcc < Formula
   desc "Distributed compiler client and server"
   homepage "https://github.com/distcc/distcc/"
-  url "https://github.com/distcc/distcc/releases/download/v3.3.3/distcc-3.3.3.tar.gz"
-  sha256 "bead25471d5a53ecfdf8f065a6fe48901c14d5008956c318c700e56bc87bf0bc"
-  license "GPL-2.0"
-  revision 2
+  url "https://github.com/distcc/distcc/releases/download/v3.3.5/distcc-3.3.5.tar.gz"
+  sha256 "6a20c0896d546c507dbf608660d22f5da606509f52d2e97f6c47ca9b8c1cc405"
+  license "GPL-2.0-or-later"
   head "https://github.com/distcc/distcc.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 "3a6363381e34f80e4c589ae8029cac12f60fa317db23c1d1ef4a0419a88b562d" => :catalina
-    sha256 "b1dd27aba40dd04de69f094f07d6a474045d83cc09c7972ab07c6ad77e750109" => :mojave
-    sha256 "feff6f640a0b3154242e6f0a1567cd0a93b523f033fddd1ac5702bc47f0ea805" => :high_sierra
+    sha256 "b62f0b905384b156b5834f3df6c1d5af48e664a877073a13e0fe61c08e066a19" => :big_sur
+    sha256 "4cf6517529e644492aec155d68cb5d847b79a3371beb7ca6f007c852902951a1" => :arm64_big_sur
+    sha256 "385e370489a3334d46ccc67a809f1e52acd458c86793895002d4eb648147c5f2" => :catalina
+    sha256 "f156ea68069cfacf4292940e8adb399b463f27753e64bf3ea175a2889e12a0b0" => :mojave
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "libiberty" do
-    url "https://deb.debian.org/debian/pool/main/libi/libiberty/libiberty_20200409.orig.tar.xz"
-    sha256 "1807b6d4c70040d71d5c93abdbcb2c05c9ad4f64ed1802583d1107fcdfc2c722"
+    url "https://ftp.debian.org/debian/pool/main/libi/libiberty/libiberty_20201110.orig.tar.xz"
+    sha256 "91e14f26da5bd65e3e74c036e7b7775aec17204fde62aea4b12b686eff2e3911"
   end
 
   def install

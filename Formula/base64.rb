@@ -11,6 +11,8 @@ class Base64 < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "4c9e32d24df53a042aec56518070159c224216e16346f7f567a4261521609efd" => :big_sur
+    sha256 "ddaa699165e82146b4f3b476d05cff364a9530d1c389d43573b8f59a2a2e7d5a" => :arm64_big_sur
     sha256 "f883e1602433f3a921fd1892747d76cf4548f75ac2e572be9eb0cfe0ced7290c" => :catalina
     sha256 "790e40a7ee037b0b99cc63d2085b121893ba80dfb43465c380568e7bacf3f83a" => :mojave
     sha256 "c3a8113c031b07426e6eda7da7604db9308999f456eeca5f3f2d5c8d85ba3a0d" => :high_sierra

@@ -10,6 +10,7 @@ class Riff < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c9311c903c7ea70a426435993d2756bb8d75a4d230db6be486f7a7d141a73427" => :big_sur
     sha256 "cb64974514f8c764d7479cce8f92cd0a2cbc940e96300b823c684f4752d5b734" => :catalina
     sha256 "dd08e62ae58c92239ea1c321b7a3eda01b83912660f2769291cb0443fd128f9d" => :mojave
     sha256 "06f5da9420de8bf9aac4a16f93effeb2e3ceb83fedc44a5d1c375a2a6f9f52a4" => :high_sierra

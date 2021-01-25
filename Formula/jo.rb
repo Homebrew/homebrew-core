@@ -7,6 +7,8 @@ class Jo < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "e7e0509c877e132429eb5cd71b4150c3ea573c9604e92b4bb31c2de4508eb182" => :big_sur
+    sha256 "ef0996d00e1c8859a597d160af04803aeb7eacc2b8f417f0494979bb9e3de753" => :arm64_big_sur
     sha256 "15bee62d31331c60c1768949ca11916d242fbe96aafcdc7a66a8359c0f4a9c3c" => :catalina
     sha256 "6741c18bb9a9519e325ac4b30989cdd0c735107ee34772097d3d8fde103880eb" => :mojave
     sha256 "bd19a24ded348995844cf428f74729dc91b3c23a9f144ca1b117108c3d3b5401" => :high_sierra

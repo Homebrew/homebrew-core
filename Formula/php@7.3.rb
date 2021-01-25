@@ -2,15 +2,16 @@ class PhpAT73 < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-7.3.23.tar.xz"
-  mirror "https://fossies.org/linux/www/php-7.3.23.tar.xz"
-  sha256 "2bdd36176f318f451fb3942bf1e935aabb3c2786cac41a9080f084ad6390e034"
+  url "https://www.php.net/distributions/php-7.3.26.tar.xz"
+  mirror "https://fossies.org/linux/www/php-7.3.26.tar.xz"
+  sha256 "d93052f4cb2882090b6a37fd1e0c764be1605a2461152b7f6b8f04fa48875208"
   license "PHP-3.01"
+  revision 1
 
   bottle do
-    sha256 "3bc9673e3f240fa3ad2351ab0a645bde05a6681187d967985149aeae6e42e3c7" => :catalina
-    sha256 "f41cacf733ec64dd801196f377f89d544b22943a5eea7c0379a2d51f0a3c0b7f" => :mojave
-    sha256 "cdebfd637f6260359df06e5357c8966ec8e474037001f22ff7698ac6410b83b0" => :high_sierra
+    sha256 "06671f8f745ffb772680f3c682114ba442137252b63be1269e106ec2aca37184" => :big_sur
+    sha256 "ead08def2ae05dfc8524fd7e47e3a09ff08762b41a4d61577a031b55e11e6914" => :catalina
+    sha256 "ba28f17495fdb6a853578a759dfc50255588f9eb6d75f0f1f350e812dc558202" => :mojave
   end
 
   keg_only :versioned_formula
@@ -25,7 +26,7 @@ class PhpAT73 < Formula
   depends_on "argon2"
   depends_on "aspell"
   depends_on "autoconf"
-  depends_on "curl-openssl"
+  depends_on "curl"
   depends_on "freetds"
   depends_on "freetype"
   depends_on "gettext"
@@ -49,13 +50,6 @@ class PhpAT73 < Formula
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
   uses_from_macos "zlib"
-
-  # Fix build issues with Xcode 12.
-  # see https://bugs.php.net/bug.php?id=80171
-  patch do
-    url "https://github.com/php/php-src/commit/aa405b7da270595d349d0596ad31305a41d4b1c0.patch?full_index=1"
-    sha256 "4c51e35fd936a7f3f5613c72e6395b9afa8f569061c00849683e09e8fe986a0f"
-  end
 
   # PHP build system incorrectly links system libraries
   # see https://github.com/php/php-src/pull/3472
@@ -101,7 +95,7 @@ class PhpAT73 < Formula
     # Prevent system pear config from inhibiting pear install
     (config_path/"pear.conf").delete if (config_path/"pear.conf").exist?
 
-    # Prevent homebrew from harcoding path to sed shim in phpize script
+    # Prevent homebrew from hardcoding path to sed shim in phpize script
     ENV["lt_cv_path_SED"] = "sed"
 
     # Each extension that is built on Mojave needs a direct reference to the
@@ -141,7 +135,7 @@ class PhpAT73 < Formula
       --enable-zip
       --with-apxs2=#{Formula["httpd"].opt_bin}/apxs
       --with-bz2#{headers_path}
-      --with-curl=#{Formula["curl-openssl"].opt_prefix}
+      --with-curl=#{Formula["curl"].opt_prefix}
       --with-fpm-user=_www
       --with-fpm-group=_www
       --with-freetype-dir=#{Formula["freetype"].opt_prefix}

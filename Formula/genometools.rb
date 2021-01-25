@@ -5,20 +5,26 @@ class Genometools < Formula
   url "https://github.com/genometools/genometools/archive/v1.6.1.tar.gz"
   sha256 "528ca143a7f1d42af8614d60ea1e5518012913a23526d82e434f0dad2e2d863f"
   license "ISC"
-  revision 1
+  revision 2
   head "https://github.com/genometools/genometools.git"
 
   bottle do
     cellar :any
-    sha256 "2c49e8ae31d2e3d26e90c174bb4fb1e8e007f36bd9b9508220ff321ca3520d05" => :catalina
-    sha256 "c6509a3719aaa5e946f2e395c1ddcbe73c36ca8e1e965edb76136b00a3565c71" => :mojave
-    sha256 "89448e5e80e60f6d62ad7cc30892ae6d67fbc7af83e8ee7ce71e232884fe6721" => :high_sierra
+    sha256 "5a78346ddcbc387c855086ddd5dc3572b03c08b37364025e99e8e3d13ef62746" => :big_sur
+    sha256 "24dfec7e6f01320e9138d4f9a33bcff280238912e7394eeae02342bf2242f01c" => :arm64_big_sur
+    sha256 "707d87995a1fd3153e9020630b8645f35b387ec0610950dcbcc61da8afb172e0" => :catalina
+    sha256 "f2d6eba092bf144f8184ce648af3e75a2097359eda4efa7c9eabf314a30d00d1" => :mojave
+    sha256 "5606993111552191b2e9215b06665bf0043c9851a6dd60c9927a32c94d0b2d4b" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "pango"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
+
+  on_linux do
+    depends_on "libpthread-stubs" => :build
+  end
 
   conflicts_with "libslax", because: "both install `bin/gt`"
 
@@ -39,6 +45,6 @@ class Genometools < Formula
 
   test do
     system "#{bin}/gt", "-test"
-    system Formula["python@3.8"].opt_bin/"python3", "-c", "import gt"
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "import gt"
   end
 end

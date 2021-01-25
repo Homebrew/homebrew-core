@@ -8,6 +8,8 @@ class Packmol < Formula
   head "https://github.com/mcubeg/packmol.git"
 
   bottle do
+    sha256 "891b4a635649b6a18cc9f4743ff3c4580dd38deaa6e5b1c17435f0154a528e9b" => :big_sur
+    sha256 "9715f53e8c9622194f19b3c38278841a0ae9f7f5d85bbc7d0cb9a487f062cded" => :arm64_big_sur
     sha256 "2de3ad79e6630d32fe68ac901ab113ba8ae3370e1976909390bcf4eb76a9a1d9" => :catalina
     sha256 "2db13531577dfafcaa3d654a714e0c44503049b968ae3f6622baf3d53933afec" => :mojave
     sha256 "ccdde7eab41ce8847bc3fcabdb482c68ea3f39c029abe0c146ec9ea370c97bfe" => :high_sierra

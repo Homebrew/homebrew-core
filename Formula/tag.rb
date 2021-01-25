@@ -9,6 +9,8 @@ class Tag < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "a63e067af22cda164f890108f610bfecd4bc3b2759fd1dd473dac59d1654a156" => :big_sur
+    sha256 "68b99acc16647610b02c286aae5b302c7c2128164817d9eb197d2d5f9f51ca72" => :arm64_big_sur
     sha256 "e1572ae47d558d60983f7c1cbe9ae42a5c7f2dcb950762ab6c721e81351f5657" => :catalina
     sha256 "ee5dbe68476b6ae900b92486f3dc3c7a9755296c1fee54a75cd64c7d6af66763" => :mojave
     sha256 "5801c9fac7b1a4bad52f02fd8a09b64050ebc52515bd96115153c7049bd4619f" => :high_sierra

@@ -6,6 +6,8 @@ class Zzuf < Formula
   license "WTFPL"
 
   bottle do
+    sha256 "284b235c4c744d7be86fbe6175a8d67a743a429c8021437182a31e6184105437" => :big_sur
+    sha256 "7ff801dd276cdd8f830d07d01c97a83207ed8ac77c6023ff21b29a2ec536637b" => :arm64_big_sur
     sha256 "809edd89cf9bd285a0f5496500627aca8b4b4cec071bfd747eb7ae3918526ae6" => :catalina
     sha256 "43c9049f2ff8d13a585009b43923579c087e0797a8d0258fc891be14f3ce6ce9" => :mojave
     sha256 "f13b52915de3bf08ed663b02df0f8b4d8f78d3a623c523a4d5f3c085ae6bafcf" => :high_sierra

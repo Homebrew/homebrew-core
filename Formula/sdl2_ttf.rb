@@ -13,6 +13,8 @@ class Sdl2Ttf < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "f69eb853fb10f18eb9791c024ec12bad7cc95e65322934dddc35de4eff3019b9" => :big_sur
+    sha256 "e1eebedabe4c9625e852feeb68abdfac5c2f55767d70d81e708f74f84dc41e8c" => :arm64_big_sur
     sha256 "413959be382ea92bd59af9a29e5909d40db69c571447e2f0dec821cbff612d80" => :catalina
     sha256 "74582129be8cfea5e556efa95411f9fc2eebf111c7b4f9affc80a7e05fa19cd9" => :mojave
     sha256 "1867ff73485eaa12fc00def01be8e388443ac6c226065218bb435558fdb8bb22" => :high_sierra

@@ -5,7 +5,7 @@ class Libxml2 < Formula
   mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/libxml2/libxml2-2.9.10.tar.gz"
   sha256 "aafee193ffb8fe0c82d4afef6ef91972cbaf5feea100edc2f262750611b4be1f"
   license "MIT"
-  revision 1
+  revision 2
 
   livecheck do
     url "http://xmlsoft.org/sources"
@@ -14,9 +14,11 @@ class Libxml2 < Formula
 
   bottle do
     cellar :any
-    sha256 "bab6280370d9e7171d34e79ed1c1caa9b0b772ef7a1568f448a654255a505d5e" => :catalina
-    sha256 "7185d4c64a25e546eaf525134210bfb21edffb0bfa93c122e4696ab3788cfbf3" => :mojave
-    sha256 "bff3e730b9531c1b5088d49633a740eb27938961dc762b7de344e06d85ea20ee" => :high_sierra
+    sha256 "0170a16da823ce77d1aad7db927b23a1adb12285a174f36a918275d7952eaaae" => :big_sur
+    sha256 "c2e1bb939465a54e70ac4a6a8c333d00bc01a3738037f77cfd2227e47053ff47" => :arm64_big_sur
+    sha256 "2983d5a448504389888720bf951713114ed7f010d96cde9289fdc5c4b539d303" => :catalina
+    sha256 "7bcd780db5693475c7711eefbbcf703507865e06483e7338ab61027ec375c4bc" => :mojave
+    sha256 "34d84eaef7f80632a6547903d640be06c6d92b9ca2b815b64b74943b4cf73e63" => :high_sierra
   end
 
   head do
@@ -30,7 +32,7 @@ class Libxml2 < Formula
 
   keg_only :provided_by_macos
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "readline"
 
   uses_from_macos "zlib"
@@ -46,12 +48,28 @@ class Libxml2 < Formula
 
   # Resolves CVE-2018-8048, CVE-2018-3740, CVE-2018-3741
   # Upstream hasn't patched this bug, but Nokogiri distributes
-  # libxml2 with this patch to fixe this issue
+  # libxml2 with this patch to fix this issue
   # https://bugzilla.gnome.org/show_bug.cgi?id=769760
   # https://github.com/sparklemotion/nokogiri/pull/1746
   patch do
     url "https://raw.githubusercontent.com/sparklemotion/nokogiri/38721829c1df30e93bdfbc88095cc36838e497f3/patches/libxml2/0001-Revert-Do-not-URI-escape-in-server-side-includes.patch"
     sha256 "c755e6e17c02584bfbfc8889ffc652384b010c0bd71879d7ff121ca60a218fcd"
+  end
+
+  # Fix compatibility with Python 3.9
+  # https://gitlab.gnome.org/GNOME/libxml2/-/issues/149
+  patch do
+    url "https://gitlab.gnome.org/nwellnhof/libxml2/-/commit/e4fb36841800038c289997432ca547c9bfef9db1.patch"
+    sha256 "c3fa874b78d76b8de8afbbca9f83dc94e9a0da285eaf6ee1f6976ed4cd41e367"
+  end
+
+  def sdk_include
+    on_macos do
+      return MacOS.sdk_path/"usr/include"
+    end
+    on_linux do
+      return HOMEBREW_PREFIX/"include"
+    end
   end
 
   def install
@@ -67,8 +85,8 @@ class Libxml2 < Formula
     cd "python" do
       # We need to insert our include dir first
       inreplace "setup.py", "includes_dir = [",
-                            "includes_dir = ['#{include}', '#{MacOS.sdk_path}/usr/include',"
-      system Formula["python@3.8"].opt_bin/"python3", "setup.py", "install", "--prefix=#{prefix}"
+                            "includes_dir = ['#{include}', '#{sdk_include}',"
+      system Formula["python@3.9"].opt_bin/"python3", "setup.py", "install", "--prefix=#{prefix}"
     end
   end
 
@@ -85,13 +103,13 @@ class Libxml2 < Formula
         return 0;
       }
     EOS
-    args = shell_output("#{bin}/xml2-config --cflags --libs").split
-    args += %w[test.c -o test]
+    args = %w[test.c -o test]
+    args += shell_output("#{bin}/xml2-config --cflags --libs").split
     system ENV.cc, *args
     system "./test"
 
-    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
+    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     ENV.prepend_path "PYTHONPATH", lib/"python#{xy}/site-packages"
-    system Formula["python@3.8"].opt_bin/"python3", "-c", "import libxml2"
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "import libxml2"
   end
 end

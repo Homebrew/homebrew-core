@@ -8,6 +8,8 @@ class Digitemp < Formula
 
   bottle do
     cellar :any
+    sha256 "dfcce60792d55b3d715c7cadb3179193ce943edb291913423c34456b53a1ac37" => :big_sur
+    sha256 "d63a759441dd683b447bc9db45786b1bce2f662d67a340d81048b8a25daa021f" => :arm64_big_sur
     sha256 "6d79bfded73a02e6c84d90c5437226567389212bf07d0b15b355465db645c6ec" => :catalina
     sha256 "54fbf374d90a378d49b86174f4c00e0a56a1cee599d040a740469d7ad7b3a991" => :mojave
     sha256 "a91be4056f24f4bef0c19c8a3693d48e0f7d391494e7db1be416ab1eb833daa2" => :high_sierra

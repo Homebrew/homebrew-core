@@ -7,6 +7,8 @@ class StyleCheck < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ad0fe7316475b3384c68b37f288a76e9e20933fe382dd28c3e93944ecb3cf52d" => :big_sur
+    sha256 "225c5a3dd8f66d7b42f60d165aa7190e252f4432bf0c41cfed8216746bbbbfef" => :arm64_big_sur
     sha256 "5f652a7db0691978cb42a5be5d0e293e671c2953364b64b75a0ba663b581051c" => :catalina
     sha256 "6427d438896bf32d45e0f71aa3d81817e59ac39ffc23cc6fc0ef1a29fb413491" => :mojave
     sha256 "3fdd513cff0a9f298357e5e918532bc2c236cbb6bf4c981a77270c69b49b9f08" => :high_sierra

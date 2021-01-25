@@ -1,8 +1,8 @@
 class Gnuplot < Formula
   desc "Command-driven, interactive function plotting"
   homepage "http://www.gnuplot.info/"
-  url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.4.0/gnuplot-5.4.0.tar.gz"
-  sha256 "eb4082f03a399fd1e9e2b380cf7a4f785e77023d8dcc7e17570c1b5570a49c47"
+  url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.4.1/gnuplot-5.4.1.tar.gz"
+  sha256 "6b690485567eaeb938c26936e5e0681cf70c856d273cc2c45fabf64d8bc6590e"
   license "gnuplot"
   revision 1
 
@@ -11,9 +11,11 @@ class Gnuplot < Formula
   end
 
   bottle do
-    sha256 "07e87a593917fbb66d6eef8efe30ee04531bde21c5d4a45775bae98b5314b42d" => :catalina
-    sha256 "221b581e96e34f346ef8de648e8e4ddadf66250ec1b1d5d9a894d12846c11f0a" => :mojave
-    sha256 "43bd44cae7f514c857f548f671c6b600b31e077c2aa783d1b63d5295c467a2ad" => :high_sierra
+    rebuild 1
+    sha256 "9a9db26ab2b8537521d4ff508d4797c8535434ddd34748ab4044867d8eef65a0" => :big_sur
+    sha256 "72a503fc93c60629c22d4f286d45365037d792d76c2f7ff8a76e6469641b0cc7" => :arm64_big_sur
+    sha256 "1de9920502210ab56fbedc9bf4025ab8f0c88d164f022a1e767863f64b6e9954" => :catalina
+    sha256 "19ed248f7d406ade2e6fd1faa28069878cd5b2a0b73911d735289478faaab8c3" => :mojave
   end
 
   head do
@@ -45,6 +47,7 @@ class Gnuplot < Formula
       --disable-wxwidgets
       --with-qt
       --without-x
+      --without-latex
     ]
 
     system "./prepare" if build.head?

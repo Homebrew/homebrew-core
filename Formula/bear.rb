@@ -6,21 +6,24 @@ class Bear < Formula
   url "https://github.com/rizsotto/Bear/archive/2.4.4.tar.gz"
   sha256 "5e95c9fe24714bcb98b858f0f0437aff76ad96b1d998940c0684c3a9d3920e82"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/rizsotto/Bear.git"
 
   bottle do
     cellar :any
-    sha256 "afa96da76034b3e1a89da1238efa1078f0a4d0ee508a7b2928a1917848223c29" => :catalina
-    sha256 "5371f81233e1805fede6e16414e14b51e2b95d86751be84b839838f860b66a9c" => :mojave
-    sha256 "34bef61a47160710ac0ff55896dd34f21476c86b01f18304337264f9dba3d798" => :high_sierra
+    sha256 "9862a97801676dcc319cbc7a41c5a8bc25dcf1605699c151ddaa31a152b73763" => :big_sur
+    sha256 "5461a907f535dc454ee4e02b720542ca7e6557ba2356919d6bcded0b619cb230" => :arm64_big_sur
+    sha256 "84cf802302f75a97d460d81b34388f1b426739251a0a1ef693798974de8b20bb" => :catalina
+    sha256 "cf53da69c793f2eebdfe625ffd6776d4f3a7a36a440eeb027ec75bc27865acad" => :mojave
+    sha256 "9e0070f18b84c96e10c0305c016e75129d51b9d480424b12563a1979b2a7e297" => :high_sierra
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
     args = std_cmake_args + %W[
-      -DPYTHON_EXECUTABLE=#{Formula["python@3.8"].opt_bin}/python3
+      -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
     ]
     system "cmake", ".", *args
     system "make", "install"

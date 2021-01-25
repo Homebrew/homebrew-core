@@ -1,9 +1,16 @@
 class Less < Formula
   desc "Pager program similar to more"
   homepage "http://www.greenwoodsoftware.com/less/index.html"
-  url "http://www.greenwoodsoftware.com/less/less-551.tar.gz"
-  sha256 "ff165275859381a63f19135a8f1f6c5a194d53ec3187f94121ecd8ef0795fe3d"
   license "GPL-3.0-or-later"
+
+  stable do
+    url "http://www.greenwoodsoftware.com/less/less-563.tar.gz"
+    sha256 "ce5b6d2b9fc4442d7a07c93ab128d2dff2ce09a1d4f2d055b95cf28dd0dc9a9a"
+
+    # Fix build with Xcode 12 as it no longer allows implicit function declarations
+    # See https://github.com/gwsw/less/issues/91
+    patch :DATA
+  end
 
   livecheck do
     url :homepage
@@ -12,16 +19,24 @@ class Less < Formula
 
   bottle do
     cellar :any
-    sha256 "a76b3f1fb43e1e0ab566a70eca5430afa744d6d87430b55e9a5b98160834c8b9" => :catalina
-    sha256 "2ee3f16d15855ab88ad87067085c0f2dd58c90c5b91ae51499ae0548a24693b2" => :mojave
-    sha256 "46cd5ba33b6a1d00cfa3993712ea617bce5b6c9908b016a72413f370eda714be" => :high_sierra
+    rebuild 2
+    sha256 "431d227c11a0d52bb4d4392244615933d9f04265f36faedc93f5406226d38076" => :big_sur
+    sha256 "c7bc35b8debbb322fc3bdd644ba526eeec3ab8d5f982c76442995a763c77c739" => :arm64_big_sur
+    sha256 "491fc7dc78848cd91c85c4a6a1ff5457166c0ad83dda9f05145489c2aa2828eb" => :catalina
+    sha256 "d03e895349d8503cea9c8da326015298bf64d80796ab9ee62138a4a072e4559f" => :mojave
   end
 
+  head do
+    url "https://github.com/gwsw/less.git"
+    depends_on "autoconf" => :build
+    uses_from_macos "perl" => :build
+  end
+
+  depends_on "ncurses"
   depends_on "pcre"
 
-  uses_from_macos "ncurses"
-
   def install
+    system "make", "-f", "Makefile.aut", "dist" if build.head?
     system "./configure", "--prefix=#{prefix}", "--with-regex=pcre"
     system "make", "install"
   end
@@ -30,3 +45,21 @@ class Less < Formula
     system "#{bin}/lesskey", "-V"
   end
 end
+__END__
+diff --git a/configure b/configure
+index 0ce6db1..eac7ca0 100755
+--- a/configure
++++ b/configure
+@@ -4104,11 +4104,11 @@ if test "x$TERMLIBS" = x; then
+     TERMLIBS="-lncurses"
+     SAVE_LIBS=$LIBS
+     LIBS="$LIBS $TERMLIBS"
+     cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+ /* end confdefs.h.  */
+-
++#include <termcap.h>
+ int
+ main ()
+ {
+ tgetent(0,0); tgetflag(0); tgetnum(0); tgetstr(0,0);
+   ;

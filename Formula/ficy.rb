@@ -3,17 +3,21 @@ class Ficy < Formula
   homepage "https://www.thregr.org/~wavexx/software/fIcy/"
   url "https://www.thregr.org/~wavexx/software/fIcy/releases/fIcy-1.0.21.tar.gz"
   sha256 "8564b16d3a52fa6dc286b02bfcc19e4acdc148c30f1750ca144e2ea47c84fd81"
-  license "LGPL-2.1"
-  head "https://github.com/wavexx/fIcy.git"
+  license "LGPL-2.1-only"
+  head "https://gitlab.com/wavexx/fIcy.git"
+
+  livecheck do
+    url :homepage
+    regex(%r{href=.*?releases/fIcy[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "eae06b7876eea9fcaa55315522e96b3346cdd4316fd4c329a200fd681d382efd" => :catalina
-    sha256 "fe5ec58f592b05a79f1a1f867ceedf29b342c10659bb9167cef924ddc9260d72" => :mojave
-    sha256 "a47243a3eddfb8b8aa8ddb337de2ec09b80385bcdf6922a858a50d4a5d79cc47" => :high_sierra
-    sha256 "c8e04a4eb2cf74a46ed02c14c18bb13b06dcdc8703f5913744e904492efe64d8" => :sierra
-    sha256 "b3230fe854623e9ef87868b028a7c3cdfa7b08cdd749def59312cbc47c510bec" => :el_capitan
-    sha256 "ba35c8e07903b74a37daf9131f26a578320f79252aa95e9ca7a5921065cd2a51" => :yosemite
+    rebuild 1
+    sha256 "eb6228a79e94bd6a6d37ec647da5b0ca1863ba03992d93bed90071858d0be55e" => :big_sur
+    sha256 "586d692ab7b64ad5805d51280e78ef997bf0ad2ebd1db2ed57ddc05b126f950b" => :arm64_big_sur
+    sha256 "9974dd8c30bcfe482222a8e6f4040c6c5ccb21c7ef6b893dbbf3033f7e5a85ab" => :catalina
+    sha256 "01d1a72a131cb19375bc8a068a59759d3207a60c84a4772cd8d52641ae1f8b8e" => :mojave
   end
 
   def install

@@ -12,6 +12,8 @@ class Ophcrack < Formula
 
   bottle do
     cellar :any
+    sha256 "d8a76360167fc2fa268916d26cb250b2f5d398c9cd21f6ae6470b145697b83d6" => :big_sur
+    sha256 "fdc3b1275b2e59028aa2edc99bda3fb93f6ad139f9e5a34aa3e4382b5dc6208e" => :arm64_big_sur
     sha256 "47361d9c18591930ce871fa3c7ab36eaa43003a8a5339238648787cdd748d962" => :catalina
     sha256 "0bdbfbee37e693edff5fc8f71c52f1fb12d6dd07c1e64aa1a20401df0789853a" => :mojave
     sha256 "a1061331c1e9b4a726c818005a3d795ba8c73b29ecd78a3828b5e5eafac18107" => :high_sierra

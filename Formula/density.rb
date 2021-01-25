@@ -7,6 +7,8 @@ class Density < Formula
 
   bottle do
     cellar :any
+    sha256 "c262dbf150942de16d4054010d40622491eeba19c7f273d64a5675de9bf50024" => :big_sur
+    sha256 "1a4efa81a981da64d95dd3c323e0e7ee8fd78c80f7bbcc103e301772e2efb1d7" => :arm64_big_sur
     sha256 "1d7dee6e22957cd5d755b11628e9a64d2233ef4abcb27e6aea15cbc9313b057e" => :catalina
     sha256 "a123e229e87c6acb5e38292e35671f71e49d0cd0afbb1a315d941a49ab3ec8e4" => :mojave
     sha256 "798b64ce99c516e735c76aea05944869124634488c82af5ba3f2930f60d83de3" => :high_sierra

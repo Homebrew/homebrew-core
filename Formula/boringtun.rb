@@ -8,6 +8,7 @@ class Boringtun < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "0de06cdb03839450dbe101b3f1042820f82aee7eda323039be0f48a0b2baf3e9" => :big_sur
     sha256 "dd119327645c4905c39a4b0e6f65472690d619e127088e62573b5a0c454cbb01" => :catalina
     sha256 "c871b547c950e928ee065ce5dbe1442a41d65213b840654bb9e6922b7dedae0f" => :mojave
     sha256 "7e6fc1a3b6458d9df1b0c15ee53d14f0ea04e85494f306034fd8531d2ff4277c" => :high_sierra

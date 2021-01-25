@@ -1,17 +1,16 @@
 class Bitcoin < Formula
   desc "Decentralized, peer to peer payment network"
   homepage "https://bitcoin.org/"
-  url "https://bitcoin.org/bin/bitcoin-core-0.20.1/bitcoin-0.20.1.tar.gz"
-  sha256 "4bbd62fd6acfa5e9864ebf37a24a04bc2dcfe3e3222f056056288d854c53b978"
+  url "https://bitcoin.org/bin/bitcoin-core-0.21.0/bitcoin-0.21.0.tar.gz"
+  sha256 "1a91202c62ee49fb64d57a52b8d6d01cd392fffcbef257b573800f9289655f37"
   license "MIT"
-  revision 1
   head "https://github.com/bitcoin/bitcoin.git"
 
   bottle do
     cellar :any
-    sha256 "adfe0983a4c57e70c5d084206f779d42d31b6cd4fe3e81205d81330da01c1cfe" => :catalina
-    sha256 "f887ce011df22dbe1c001ee42fb6f0adddf22736fc12ea83b5d373bbd5a90e43" => :mojave
-    sha256 "b6b4763357bcbadbd9439c0d39132d43306a7b9b08c61c90afbe11c6cb2b3ff1" => :high_sierra
+    sha256 "f9235205e7c1befe37fa1663c5f25a9dfe03198ff9db8e439d116109fb12948c" => :big_sur
+    sha256 "1908a1b6dc0f0ded7091db58cfe74d7540f36636c1599b71a2016c50f71ab7fe" => :catalina
+    sha256 "05343622704d9ca898949fc46973a7a1e7b911530e5de13d6c5d0a51777671f2" => :mojave
   end
 
   depends_on "autoconf" => :build

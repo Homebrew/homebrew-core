@@ -8,6 +8,8 @@ class Precomp < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "98d1f2f0987f9317b372895c3af39358585a461023e286baf2ebc67d118cf3be" => :big_sur
+    sha256 "527a77954282f384fd4bd01ec67750d73ee5fc0d989cee4be22ba688a461a90f" => :arm64_big_sur
     sha256 "9ac9f156315ae463a1e378bdd9ed06d5f36437ccff4505740dfa10ee914b5adf" => :catalina
     sha256 "7488435759867b2bb152cdd3ea78d2358659b34ff838e2cb97b54bd3a322147b" => :mojave
     sha256 "92824cc03c547d276436e1bdf55e905d402f77eeccf61f25a720d4315e5bd4cf" => :high_sierra

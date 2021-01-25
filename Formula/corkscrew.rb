@@ -12,6 +12,8 @@ class Corkscrew < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "af93a7005479f2004b385e484c633f42577d7cd99272d5e7ec4c17e3d0239a7b" => :big_sur
+    sha256 "7882ab8fa538eb9eee596f56fa6f65c14f1f3e467a822ce7a39ea197d2fe08a5" => :arm64_big_sur
     sha256 "83db433b1d34ad662d310504a476bcd5848955b0cc78087203b8e25164e4c8a8" => :catalina
     sha256 "c9a878e744506cee8a10b370ec59a2ebfb43b0a84c73ff02b67ba24f68c17938" => :mojave
     sha256 "53e2a491ecc6b1446ed3dcf1fc9a8c44ca9735acd9d0626e7806dc80b5285e79" => :high_sierra

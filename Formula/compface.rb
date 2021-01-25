@@ -8,6 +8,8 @@ class Compface < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "47627a5cff1cda824fd58ae597453a14e22fa66355ff0ee1032b462159e2173b" => :big_sur
+    sha256 "830980257b29d4636b176c027dd06d5b3f764caf5c80019462ff0433206bd948" => :arm64_big_sur
     sha256 "1d05066e7342782014477a515bdb108bc4eb279cba1b8a5623ebc371c5165c16" => :catalina
     sha256 "10d7c5d38196576ac2d21278ead512819c9e393fa8caf81d75a70d7b09c7aaa8" => :mojave
     sha256 "15f3ed9a165fa2f4966fde4de5b8b1c62d583425e0c3d9961b26348f6355bfcc" => :high_sierra

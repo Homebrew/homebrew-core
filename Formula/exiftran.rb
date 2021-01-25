@@ -12,6 +12,8 @@ class Exiftran < Formula
 
   bottle do
     cellar :any
+    sha256 "9938f56d95feeef58aebf691798d3da5c730bc34f7d1b36306315c2a5e60c4f8" => :big_sur
+    sha256 "c156611ffc675a4c47a0d7ef649927deddba30fccd033220613a8a9e849ef351" => :arm64_big_sur
     sha256 "155e492e4c82c7e06be60966dcf343832e456bbc47cd1293ec1805dd3e47e42c" => :high_sierra
     sha256 "11c7c1d5a5e5a16b7cfd9cf8004cb1fd3f141974462df036ce09539083eb3d60" => :sierra
     sha256 "8ad9b01ec63c6ebb4488dada2d973b47756ed839fe96b083a9b49ec85c0eeb12" => :el_capitan

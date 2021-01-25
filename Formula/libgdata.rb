@@ -10,6 +10,8 @@ class Libgdata < Formula
   end
 
   bottle do
+    sha256 "acf37716c065ba69fc22c35236bfc7ebdb7b01623e20ce82ec03306c2684b925" => :big_sur
+    sha256 "e31807a39d967829c44e6fb94a2d3efba07e3e6fc8ae80747e18b435f46ed15f" => :arm64_big_sur
     sha256 "c93f83c348b673c9768be22ae9e1119d5eb86ff94bd28e95976c2dca47f5defe" => :catalina
     sha256 "e84e22686408f68d77b239d0cdc476f33e677f8aa66405ba4506513e31eafe2c" => :mojave
     sha256 "0320d28747a36cf8451eff40a16bc25c9735e287888177c2c1f1ec93a835cf56" => :high_sierra

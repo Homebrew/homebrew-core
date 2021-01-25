@@ -8,6 +8,7 @@ class Mercury < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "2b02e97a19000e9c576fdd5c48b29300e210b9464fff7a0b7b68879555b9723b" => :big_sur
     sha256 "ede7304ce96165ca6382118eacb3997e0732b875db721640002d203db9e66346" => :catalina
     sha256 "ac95cc73104a5621d7a561ae9957561206541633bff5adaf22ed36e21517add1" => :mojave
     sha256 "60240308ebcc05ca33a4d40a787745cd4f60b445c9d94302505253bfd4697f6f" => :high_sierra

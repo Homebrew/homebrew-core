@@ -2,12 +2,13 @@ class DockerMachineDriverVmware < Formula
   desc "VMware Fusion & Workstation docker-machine driver"
   homepage "https://www.vmware.com/products/personal-desktop-virtualization.html"
   url "https://github.com/machine-drivers/docker-machine-driver-vmware.git",
-    tag:      "v0.1.1",
-    revision: "cd992887ede19ae63e030c63dda5593f19ed569c"
+      tag:      "v0.1.1",
+      revision: "cd992887ede19ae63e030c63dda5593f19ed569c"
   license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "06e7a06267df68d8200ff678cd9aeb4b214e839f6e8a59dad4617c8cf1d23696" => :big_sur
     sha256 "d73c0be19fba7a7166c65202133b18c63367b5758d04ec19e23d3fd9406a8a7a" => :catalina
     sha256 "df81e5c14ec3961d53f6490a165a17b8ceda29beba747ee659b57d82a9468e26" => :mojave
     sha256 "e65553889741f8c077de12706314e9f95805d673b186d1d545617515d7ab4a03" => :high_sierra

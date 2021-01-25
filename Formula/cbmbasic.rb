@@ -12,6 +12,8 @@ class Cbmbasic < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "29f1eb35e6acf1bf907d2c89c0f5938507718b290cdeef92dfcee473b00f8fe5" => :big_sur
+    sha256 "b693c2b8fbfe49736bdc0ae4bce13d96295da75a6683e593c021c9335f6c57fd" => :arm64_big_sur
     sha256 "f4e101b38bb21ff46ce301f2c9a0f59f567df9a3265c4906969f1e4426160d9c" => :catalina
     sha256 "c922c6bd9691307444d7c28ebe9d09299aa43efc7987e30f23bad572f990c81d" => :mojave
     sha256 "99490e603e86319b7c4307657bf58511dacb801dddb30ed7c4269feaa19eb6bc" => :high_sierra

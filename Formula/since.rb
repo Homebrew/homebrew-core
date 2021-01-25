@@ -7,6 +7,8 @@ class Since < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "60c3738e71c6455fa5a7445a21a79695d4644a34de06cbc05743a52c4f5b40f8" => :big_sur
+    sha256 "95b9b96522d9cdb0ac317550daf1c9ee102d1a4df7736cd2072d896adf05fc04" => :arm64_big_sur
     sha256 "20b3f4888282ed47021562eb24efe9c37ef3a652ad64164460a5f368260e75d8" => :catalina
     sha256 "6c0290f3500966bb4155352bf277ae127eb341796729dfcc2b9ca968df20b9c4" => :mojave
     sha256 "a5b4f42858c41ad5d60850a3a01b8658fb4e58d2473fe2d36938f4ab66eb05c6" => :high_sierra

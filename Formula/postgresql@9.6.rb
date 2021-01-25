@@ -1,23 +1,28 @@
 class PostgresqlAT96 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v9.6.19/postgresql-9.6.19.tar.bz2"
-  sha256 "61f93a94ccddbe0b2d1afaf03f04ba605d8af5b774ff9b830e5adeb50ab55cb0"
+  url "https://ftp.postgresql.org/pub/source/v9.6.20/postgresql-9.6.20.tar.bz2"
+  sha256 "3d08cba409d45ab62d42b24431a0d55e7537bcd1db2d979f5f2eefe34d487bb6"
   license "PostgreSQL"
 
   livecheck do
-    url "https://www.postgresql.org/docs/9.6/static/release.html"
-    regex(/Release v?(\d+(?:\.\d+)+)/i)
+    url "https://ftp.postgresql.org/pub/source/"
+    regex(%r{href=["']?v?(9\.6(?:\.\d+)*)/?["' >]}i)
   end
 
   bottle do
-    sha256 "81b3a3ac4e549641e48fe4f291b32266603858cff2ceb6242f2725deb20bdd9a" => :catalina
-    sha256 "b515085fd803628a5979a34402fa7296e95c437bc5805ec08acd69b43ac11c6a" => :mojave
-    sha256 "59593120c3bce07fa0c130eda3f1b0aef1cc2ed254b822fd9ed416d7469a8da2" => :high_sierra
+    sha256 "1d2e78a45b69aa887935849a2b2a663825ef1e78e6eb8df2692f1642d51fb073" => :big_sur
+    sha256 "3ffef993065857ae631e04efa4a1e6c2b998940acf11dabd15622924c8be8a8d" => :arm64_big_sur
+    sha256 "1406b0e42667227867dc5cdb4ecf316387b7ade1789837969f8aa2295afe22b4" => :catalina
+    sha256 "e0d93fe31b16a638b34c4e381e4d631f3cba32abbc9728f447e2960a829d235d" => :mojave
   end
 
   keg_only :versioned_formula
 
+  # https://www.postgresql.org/support/versioning/
+  deprecate! date: "2021-11-11", because: :unsupported
+
+  depends_on arch: :x86_64
   depends_on "openssl@1.1"
   depends_on "readline"
 
@@ -85,8 +90,20 @@ class PostgresqlAT96 < Formula
     return if ENV["CI"]
 
     (var/"log").mkpath
-    (var/name).mkpath
-    system "#{bin}/initdb", "#{var}/#{name}" unless File.exist? "#{var}/#{name}/PG_VERSION"
+    postgresql_datadir.mkpath
+    system "#{bin}/initdb", postgresql_datadir unless pg_version_exists?
+  end
+
+  def postgresql_datadir
+    var/name
+  end
+
+  def postgresql_log_path
+    var/"log/#{name}.log"
+  end
+
+  def pg_version_exists?
+    (postgresql_datadir/"PG_VERSION").exist?
   end
 
   def caveats
@@ -95,17 +112,8 @@ class PostgresqlAT96 < Formula
       you may need to remove the previous version first. See:
         https://github.com/Homebrew/legacy-homebrew/issues/2510
 
-      To migrate existing data from a previous major version (pre-9.0) of PostgreSQL, see:
-        https://www.postgresql.org/docs/9.6/static/upgrading.html
-
-      To migrate existing data from a previous minor version (9.0-9.5) of PostgreSQL, see:
-        https://www.postgresql.org/docs/9.6/static/pgupgrade.html
-
-        You will need your previous PostgreSQL installation from brew to perform `pg_upgrade`.
-          Do not run `brew cleanup postgresql@9.6` until you have performed the migration.
-
       This formula has created a default database cluster with:
-        initdb #{var}/postgres
+        initdb #{postgresql_datadir}
       For more details, read:
         https://www.postgresql.org/docs/#{version.major}/app-initdb.html
     EOS
@@ -127,14 +135,14 @@ class PostgresqlAT96 < Formula
         <array>
           <string>#{opt_bin}/postgres</string>
           <string>-D</string>
-          <string>#{var}/#{name}</string>
+          <string>#{postgresql_datadir}</string>
         </array>
         <key>RunAtLoad</key>
         <true/>
         <key>WorkingDirectory</key>
         <string>#{HOMEBREW_PREFIX}</string>
         <key>StandardErrorPath</key>
-        <string>#{var}/log/#{name}.log</string>
+        <string>#{postgresql_log_path}</string>
       </dict>
       </plist>
     EOS

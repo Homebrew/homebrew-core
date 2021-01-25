@@ -11,6 +11,8 @@ class CmuPocketsphinx < Formula
   end
 
   bottle do
+    sha256 "25ce90366420de438c34e8f037f1da3c7ded680375fcc69127cdec7695f84fed" => :big_sur
+    sha256 "4c3fc6b03df2530653a4ff38b270e9a37dd968748b38a011cae6500ab38d8084" => :arm64_big_sur
     sha256 "f2fc23a67634f26befdd128d21e886d7b3789484a14d498a40949e0e100d8afa" => :catalina
     sha256 "cc655d82bfce35b2976e4dd0867fceb02b233363e7e101c62b09e60e2be9f8bb" => :mojave
     sha256 "628d162751962337c769090867c3f9921d10b09f704f8f208b63abbefef205eb" => :high_sierra

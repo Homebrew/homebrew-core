@@ -6,6 +6,8 @@ class MoonBuggy < Formula
   license "GPL-3.0"
 
   bottle do
+    sha256 "f4b3e7e9c36f357c628328b247bbe187467f16dde745acfd7ff2f668c22c379e" => :big_sur
+    sha256 "c7c5841b86bbd9271fb84c33e12babaf31e670dad45b2f65618e052dfbfae7ae" => :arm64_big_sur
     sha256 "65bae44959589316ec4762947051a3f737ea8545d0b93e696d0c251ef38285dc" => :catalina
     sha256 "d7baa37058fd1e08a0a9028a912288bde8c0699b50f7632ce792d19d52c9fa73" => :mojave
     sha256 "54948d0646240382661b765ab2253258946fb10b2974587d719b24a771172d91" => :high_sierra

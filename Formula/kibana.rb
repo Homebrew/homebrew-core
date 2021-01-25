@@ -1,31 +1,39 @@
 class Kibana < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
+  # NOTE: Do not bump version to one with a non-open-source license
   url "https://github.com/elastic/kibana.git",
-      tag:      "v7.8.1",
-      revision: "5db9c677ea993ff3df503df03d03f5657fcea42e"
+      tag:      "v7.10.2",
+      revision: "a0b793698735eb1d0ab1038f8e5d7a951524e929"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/elastic/kibana.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ab4ebbdabe531a35369b61b5770d0b7a0028a21ec8cdd1dfc7070041c1fa358e" => :catalina
-    sha256 "660bcf7f4f2d5aa6488e8c54bb1cee3e5a106a11fd5f3ecfc0d5af6d34cfe2b7" => :mojave
-    sha256 "7e55dec07c62cf50140ca1bb47ba07a3ae72f2d2c0d85445d09ba0ce51fe18cb" => :high_sierra
+    sha256 "c218ab10fca2ebdddd11ab27326d0a6d0530a7f26bc2adc26d1751e4326b0198" => :big_sur
+    sha256 "c1ee01e41c34677dba144152142808d469db2855658fdd3e4fcafbae77a10774" => :catalina
+    sha256 "fb818924d852b07ab0417e8ff52899400b98f25bd24714f77a8c472224269690" => :mojave
   end
+
+  # elasticsearch will be relicensed before v7.11.
+  # https://www.elastic.co/blog/licensing-change
+  deprecate! date: "2021-01-14", because: "is switching to an incompatible license"
 
   depends_on "python@3.9" => :build
   depends_on "yarn" => :build
   depends_on "node@10"
 
   def install
+    inreplace "package.json", /"node": "10\.\d+\.\d+"/, %Q("node": "#{Formula["node@10"].version}")
+
+    # prepare project after checkout
+    system "yarn", "kbn", "bootstrap"
+
+    # build open source only
+    system "node", "scripts/build", "--oss", "--release", "--skip-os-packages", "--skip-archives"
+
     # remove non open source files
     rm_rf "x-pack"
-
-    inreplace "package.json", /"node": "10\.\d+\.\d+"/, %Q("node": "#{Formula["node@10"].version}")
-    system "yarn", "kbn", "bootstrap"
-    system "node", "scripts/build", "--oss", "--release", "--skip-os-packages", "--skip-archives"
 
     prefix.install Dir
       .glob("build/oss/kibana-#{version}-darwin-x86_64/**")

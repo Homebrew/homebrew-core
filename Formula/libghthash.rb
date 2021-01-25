@@ -7,6 +7,8 @@ class Libghthash < Formula
 
   bottle do
     cellar :any
+    sha256 "eb1611b48ba1ca6ba97e992f1c18972e375eb2bb2d41cab1b652fb84d11f8aa1" => :big_sur
+    sha256 "3fb2c3c6419f8114001399f87e711972fcb666cbfcf1f8c5017fc69d5c7cfb4f" => :arm64_big_sur
     sha256 "746863cafe6d156513a4ba1c1a456f6d89014dad87ca825390162d8ea58a665a" => :catalina
     sha256 "b6092f29d1b937b03313780a88f91f224cbbc73a564fca0a0810d036ea20b63d" => :mojave
     sha256 "f9f17a73ef48e31f809d884ce1a419fe4568b167bb962cdf07c4197688572d59" => :high_sierra

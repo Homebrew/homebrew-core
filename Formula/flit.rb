@@ -11,6 +11,8 @@ class Flit < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "eaacd91b91e1089335658abacee98049ca9a989fd5e7675120cd8afdfdc7a58e" => :big_sur
+    sha256 "a7e555f96d24aab2d9d562ddb0448367f27b2826762d28606277fa6c5c524b1f" => :arm64_big_sur
     sha256 "7921be487e39c42ddfda4e2c002ddd435df5f1032adf3df6c67bed61a74715d5" => :catalina
     sha256 "f14593656cf3c2b33728b1526239b617ab37d90dcfb36313c47a6f55d58dece4" => :mojave
     sha256 "eaf79f5145f08ff3fecb53b53dd4b061c3bf62910c702f5b5d433ebfebcf70ea" => :high_sierra

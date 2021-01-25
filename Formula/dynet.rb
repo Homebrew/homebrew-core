@@ -1,16 +1,17 @@
 class Dynet < Formula
   desc "Dynamic Neural Network Toolkit"
   homepage "https://github.com/clab/dynet"
-  url "https://github.com/clab/dynet/archive/2.1.tar.gz"
-  sha256 "72d5c2a0c7dece6b91426f02993f640297f6c5f7de1907d4eb587796e97022bc"
+  url "https://github.com/clab/dynet/archive/2.1.2.tar.gz"
+  sha256 "014505dc3da2001db54f4b8f3a7a6e7a1bb9f33a18b6081b2a4044e082dab9c8"
   license "Apache-2.0"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "500a9235a348147fb8aa6b07f9618e9ae45d1a88c42504facc384f50cf0d1943" => :catalina
-    sha256 "40496e31ece215e6f1faffc56eb8d674195f0f946cc100222d1d4a9762fd59c6" => :mojave
-    sha256 "6d1bc8d99dfaff753f6bbea2d3da485de1c7494eec8b7eba85a9ea376eccfbcd" => :high_sierra
+    sha256 "8bd7104e80fd7166539f40cf30f4c67ac643f096920582ec6702f81b06ff6910" => :big_sur
+    sha256 "812e42a82c70b8c049582c897d8d6d645c7892cb29fe742bc4c857f6d915cb44" => :arm64_big_sur
+    sha256 "d699aaf34e601dca84a10d735a822954de02b2139757699da77df2632d9ae95c" => :catalina
+    sha256 "edc5ba7539f3c224b091ae08b2f23ae667f6851ebbc10515e410fbe2efb2aec4" => :mojave
+    sha256 "a8b5c58b84c07911937f5b2c633e38e884f860ac97fc45881bfa817f6045c467" => :high_sierra
   end
 
   depends_on "cmake" => :build

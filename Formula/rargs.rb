@@ -7,6 +7,8 @@ class Rargs < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "7162affe2bbca5025e60c46ccfd9c9f9882383972ebbc5e550d6e4aa12041bd2" => :big_sur
+    sha256 "3c71f1e62276add0bbd57cf43b004a30344374aa1b598185a366f20fb00bae55" => :arm64_big_sur
     sha256 "37d5a3c2a5608eb4a10df0814a1334b88602a7200fdf99db60113f7aea598489" => :catalina
     sha256 "1c24f60f8b91301cd167b0040e2c9ec7895fe818eeb21f13d40fca94e6f4f08b" => :mojave
     sha256 "9cea3ec1abc342281b94649496e0d28275eead691238a2d03e47c2621afc9801" => :high_sierra

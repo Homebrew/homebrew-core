@@ -8,6 +8,8 @@ class Qjson < Formula
 
   bottle do
     cellar :any
+    sha256 "00af1b725eb93d0c9bba5bf78842a612981d9e30d8ac44c168db579eed019df5" => :big_sur
+    sha256 "c1801c1ef5510834f151d8fb998153c6b1c3e66cb169f007884e8086ba5b62d4" => :arm64_big_sur
     sha256 "909c5b1e45b05d7bba5c67e116c8b9c1a734f6df155e7792e8fe0fd7a2fd4c84" => :catalina
     sha256 "02abebab98b79dd60197c0e2d5f7a468e96cb738e5c2065a3664db0bf59cf59e" => :mojave
     sha256 "1bd2a1a0fcabf72acedd8a7c9d68bae090d31cc6a673515461ce487f15b88772" => :high_sierra

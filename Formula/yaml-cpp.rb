@@ -8,6 +8,8 @@ class YamlCpp < Formula
 
   bottle do
     cellar :any
+    sha256 "a4cd13489c2e397883162dad15f3a08adb434601ba2dd84d124c141f64f719fc" => :big_sur
+    sha256 "3ef6d98fb044cfbb307037287e6c14914f28afc725c964998f894cd8b619ac15" => :arm64_big_sur
     sha256 "7cb356c020e5e1f2a32d5b2721516b9079cc4518556a0344fd498df6abe04731" => :catalina
     sha256 "ab76f2d444f7948c73f102588d079e4a3a0c758974f42cec1bffa31e80ca7bff" => :mojave
     sha256 "824351b703802346eeb47a3a0acdbf438327cc1cb77ef4a342493a938574c6d6" => :high_sierra

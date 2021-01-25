@@ -8,6 +8,8 @@ class Cheapglk < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9b3b09b201d58788157377de21147fc1dab74635912c3592626e9575905d9061" => :big_sur
+    sha256 "73f43be61554255b8b1bb6f2e185b567eca2c868f0c65ddf8a53020fddd8e35a" => :arm64_big_sur
     sha256 "91d3c4e89b0750585d52206bf25054eb2db72af798e0d4e1c33021177b92ae13" => :catalina
     sha256 "d57b00a86e3d1c76f43d8f034c1dfe77d23da3d34637449040fdedd21f6a4a63" => :mojave
     sha256 "47c6f59d902a306b30c6255f65fd7626e32d5c39800fd80daeada852e95994f2" => :high_sierra

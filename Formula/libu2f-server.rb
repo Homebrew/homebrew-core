@@ -13,6 +13,8 @@ class Libu2fServer < Formula
 
   bottle do
     cellar :any
+    sha256 "fa0d80a1f6345e7b7323a837ba5acb031f4728eb674c48a590ae1c3b0a6c3a01" => :big_sur
+    sha256 "f1746f86987f50d9ffaf415b51420dba4dab8e64d620c99d63c6c9aed39d524b" => :arm64_big_sur
     sha256 "3a5038a64a9820c04a4ad1067ebcf8076936474cc5c18a0d93f7c986adcf0169" => :catalina
     sha256 "a1d26284fa87629ecf5bf965433cd6eeba9eb151e064e22a47ca42a115d5e15c" => :mojave
     sha256 "03e06751297ad4aab253d7b1f742fd5c2ad8d79b35836eb132c3c82c20b485e6" => :high_sierra

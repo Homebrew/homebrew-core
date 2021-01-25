@@ -7,6 +7,8 @@ class Libwebm < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "37c6bf256f4a45d3765d671c3a923875adfccd49d8c038ca1e07c6ba181341ac" => :big_sur
+    sha256 "1eb4f710924f50df98fc45e1f51305698daf70336198bdc74f551f2ea8e7edfa" => :arm64_big_sur
     sha256 "548a7393b909a559e08fbd6a0783ada345e0ef08b59f9b44588cc99d4420a040" => :catalina
     sha256 "4238e3823e0e467e06492563d7f8c7603751419568ba621b6f644ad4ee5a30e6" => :mojave
     sha256 "0df7605cdc3aff926c0ffbcf5d72cf12933781083890eeeacc10df82b317b7c2" => :high_sierra

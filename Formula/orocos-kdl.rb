@@ -7,6 +7,8 @@ class OrocosKdl < Formula
 
   bottle do
     cellar :any
+    sha256 "11f44349bb30654acb195b84796e5b9492e5fa7539c1c8aababf98eaea239cf2" => :big_sur
+    sha256 "a935a1f650fdff2a93909d71bca9cf37a907c626ab08f18f5479323fb32b46bf" => :arm64_big_sur
     sha256 "e65054479e7b34fd559f72f4485a5e34b57b457325bb8487576309ddad7a26fa" => :catalina
     sha256 "3d88fc55d86c9d1194ed3896bf1524405997e601ae75acbd37b176f882f07868" => :mojave
     sha256 "32e9cd3e10a20c046a45122557dda364352619c59acffca07f8c858cdcff9765" => :high_sierra

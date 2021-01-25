@@ -3,7 +3,7 @@ class Xmlto < Formula
   homepage "https://pagure.io/xmlto/"
   url "https://releases.pagure.org/xmlto/xmlto-0.0.28.tar.bz2"
   sha256 "1130df3a7957eb9f6f0d29e4aa1c75732a7dfb6d639be013859b5c7ec5421276"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://releases.pagure.org/xmlto/?C=M&O=D"
@@ -12,13 +12,12 @@ class Xmlto < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "0343fee2df7057a42c9b401757e5c192f1e90e7c4a8b2c14c5df155a7e4346c9" => :catalina
-    sha256 "95e53e70ba98917fc455d3e602d7e610f9d3df41564714eef77eb9c7ad858972" => :mojave
-    sha256 "924329e251704206fb5fecafbe78d0445e014d401f5184ea3b5f2f9c6ae8adc6" => :high_sierra
-    sha256 "e6c35d8216b36e13a890d839296f51989d58fbf6e35666ee161dcae6f1e5fcd3" => :sierra
-    sha256 "7b12ea43ff42eb5acdf91a1b2390af62cb95abd80e0a651581653c3d2b470b60" => :el_capitan
-    sha256 "b0042227a7b6f00c5e4f7eb0e9b0ce6959ff401035d0914a8be60d685929c4a4" => :yosemite
+    rebuild 2
+    sha256 "95502b71000319da58971ea17c0dab0f326d20ce4c09d074fe4c7fe89c66d002" => :big_sur
+    sha256 "bec2a4a7797f07fc73a636a40e85cb0504da4c5e34328456c28e78c84ce95324" => :arm64_big_sur
+    sha256 "d2c21b9b398191e21dcf6e7ac53e4dd46fb59d29173e4d8443ac296101cce58f" => :catalina
+    sha256 "8fca3be2271ae8e7fb646b011969ba4030f7421118a4ea6b11eca1ac0fe6979b" => :mojave
+    sha256 "1214da1d14a8f01d8b8d0ead6606207ff5a29fb7ab104d6af47e57fbca4ffcc7" => :high_sierra
   end
 
   depends_on "docbook"
@@ -36,6 +35,8 @@ class Xmlto < Formula
   def install
     # GNU getopt is keg-only, so point configure to it
     ENV["GETOPT"] = Formula["gnu-getopt"].opt_bin/"getopt"
+    # Prevent reference to Homebrew shim
+    ENV["SED"] = "/usr/bin/sed"
     # Find our docbook catalog
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 

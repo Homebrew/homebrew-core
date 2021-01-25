@@ -7,6 +7,8 @@ class Picocom < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "dceb5709b27aaf4aeba18ef67cafba36bc03c07a1c0bac079e96c2632526764b" => :big_sur
+    sha256 "040c02cc9b9add2716825840b6f993681995c0596da95c15d7aa1f9c993bdc06" => :arm64_big_sur
     sha256 "87d54fb026172496e7d2c370e9935e53ece5069351ba3bffc8062b4935ecedc3" => :catalina
     sha256 "e087cd6b60814a9b0638d6bdcc3a79e154b40f5013a0247878c1f1ab35c8d077" => :mojave
     sha256 "7fec5e767653710fa87d0be9d97735550af70aeb32fdcba1c7c0159e9078ee1a" => :high_sierra

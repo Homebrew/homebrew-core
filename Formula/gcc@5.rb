@@ -4,7 +4,7 @@ class GccAT5 < Formula
   url "https://ftp.gnu.org/gnu/gcc/gcc-5.5.0/gcc-5.5.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/gcc/gcc-5.5.0/gcc-5.5.0.tar.xz"
   sha256 "530cea139d82fe542b358961130c69cfde8b3d14556370b65823d2f91f0ced87"
-  revision 5
+  revision 6
 
   livecheck do
     url :stable
@@ -12,7 +12,7 @@ class GccAT5 < Formula
   end
 
   bottle do
-    sha256 "01a2818d89c25b22bdf8b6c597186cf986f4d2c2175741a98967ec933e5e7907" => :high_sierra
+    sha256 "dcc9059b725fd7c87842287bbedf60a28745417652d42a300dcd944e15986f36" => :high_sierra
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -25,6 +25,7 @@ class GccAT5 < Formula
   depends_on maximum_macos: [:high_sierra, :build]
 
   depends_on "gmp"
+  depends_on "isl@0.18"
   depends_on "libmpc"
   depends_on "mpfr"
 
@@ -32,12 +33,6 @@ class GccAT5 < Formula
 
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
-
-  resource "isl" do
-    url "https://gcc.gnu.org/pub/gcc/infrastructure/isl-0.18.tar.bz2"
-    mirror "https://mirrorservice.org/sites/distfiles.macports.org/isl/isl-0.18.tar.bz2"
-    sha256 "6b8b0fd7f81d0a957beb3679c81bbb34ccc7568d5682844d8924424a0dadcb1b"
-  end
 
   # Fix build with Xcode 9
   # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=82091
@@ -72,15 +67,6 @@ class GccAT5 < Formula
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete "LD"
 
-    resource("isl").stage do
-      system "./configure", "--disable-dependency-tracking",
-                            "--disable-silent-rules",
-                            "--prefix=#{libexec}",
-                            "--with-gmp=system",
-                            "--with-gmp-prefix=#{Formula["gmp"].opt_prefix}"
-      system "make", "install"
-    end
-
     # C, C++, ObjC and Fortran compilers are always built
     languages = %w[c c++ fortran objc obj-c++]
 
@@ -101,7 +87,7 @@ class GccAT5 < Formula
       "--with-gmp=#{Formula["gmp"].opt_prefix}",
       "--with-mpfr=#{Formula["mpfr"].opt_prefix}",
       "--with-mpc=#{Formula["libmpc"].opt_prefix}",
-      "--with-isl=#{libexec}",
+      "--with-isl=#{Formula["isl@0.18"].opt_prefix}",
       "--with-system-zlib",
       "--enable-libstdcxx-time=yes",
       "--enable-stage1-checking",

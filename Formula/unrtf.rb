@@ -12,6 +12,8 @@ class Unrtf < Formula
   end
 
   bottle do
+    sha256 "198691cb483c4ae73b4c676d289bee8040937afe2881e07afbfb7b9f1e99a760" => :big_sur
+    sha256 "7a091ab8d8e5a67f2821d1436300d6c41c9f15ead01a83ade9d38fc9cc2494b6" => :arm64_big_sur
     sha256 "90361817069fa7149b201a0caf5e65abd872d10f8fdda154ff450511debf1d99" => :catalina
     sha256 "b038c53ba7341cc9365db6cf9d46c6f7c3feba843643168e24a12856a29a6dbb" => :mojave
     sha256 "9abc63bdeae500637c8e1d6d31c72be013d0f2cf8ad8e3f1cb6e3babe5b6d94a" => :high_sierra

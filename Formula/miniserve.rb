@@ -1,17 +1,16 @@
 class Miniserve < Formula
   desc "High performance static file server"
   homepage "https://github.com/svenstaro/miniserve"
-  # Bumpable only when it doesn't use features only available in Rust Nightly.
-  # Check for resolution of https://github.com/svenstaro/miniserve/issues/291.
-  url "https://github.com/svenstaro/miniserve/archive/v0.3.0.tar.gz"
-  sha256 "80ee5d661730ddad14671f961b560467f3b3a9f0544b9b11dec65098eb4a1f7e"
+  url "https://github.com/svenstaro/miniserve/archive/v0.10.4.tar.gz"
+  sha256 "03b8549258deb17759d69ad73047429f8420e3eab7588af086caf14e47c96332"
   license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e8955f888b8c0828d741d5541a2ae6567704d78db99600d59b3d9a02dc571089" => :mojave
-    sha256 "8711ae0bb727abd3ed3ad8d1335275d26fbc473f19bacfbad76b10b5a0bf4efc" => :high_sierra
-    sha256 "a00b82cfce9fecd067b62ec3135a0e9cc59d3133f97ed3c0e7b815e4921c32d0" => :sierra
+    sha256 "b2f273329cfbbdee52d5846095079228e9a467928e05a43e2c15dffb9b46b0db" => :big_sur
+    sha256 "b28e6374c318343d0118d62c780e3bfb51bc48044792f6ab85642deeba031b41" => :arm64_big_sur
+    sha256 "379b4a5bbe9bf62605f5b34b4373e523136316caa6df0879ba27bbc30a512ce6" => :catalina
+    sha256 "0b3ea752c7a77684ec37b9b30f2000e52b0e978ed8a0b2aaacc4ad927a614eef" => :mojave
   end
 
   depends_on "rust" => :build

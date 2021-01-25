@@ -1,12 +1,15 @@
 class AppEngineJava < Formula
   desc "Google App Engine for Java"
   homepage "https://cloud.google.com/appengine/docs/java/"
-  url "https://storage.googleapis.com/appengine-sdks/featured/appengine-java-sdk-1.9.72.zip"
-  sha256 "66af92c909c0403730aba7c4b9fbdc6d7ceb0f5310e7c2f1a653622dfa76c6fb"
+  url "https://storage.googleapis.com/appengine-sdks/featured/appengine-java-sdk-1.9.83.zip"
+  sha256 "1d585a36303c14f4fa44790bba97d5d8b75a889ad48ffce8187333488511e43e"
 
   bottle :unneeded
 
-  depends_on java: "1.8"
+  # https://cloud.google.com/appengine/docs/standard/java/sdk-gcloud-migration
+  deprecate! date: "2019-07-30", because: :deprecated_upstream
+
+  depends_on "openjdk@8"
 
   def install
     rm Dir["bin/*.cmd"]
@@ -16,7 +19,7 @@ class AppEngineJava < Formula
       bin.install libexec/"bin/#{f}"
     end
 
-    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
+    bin.env_script_all_files(libexec/"bin", JAVA_HOME: Formula["openjdk@8"].opt_prefix)
   end
 
   test do

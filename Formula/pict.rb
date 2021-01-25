@@ -7,6 +7,8 @@ class Pict < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "6fd0d56a35c640dc6731062aec132549be6bbcf1cf5fae9b089b22c07df2082a" => :big_sur
+    sha256 "a6094b78fd5c2e77ad655567d713503dee99c00e8ee4c2ef7ff38ce0bf361337" => :arm64_big_sur
     sha256 "0310bc54de6de7c0901d59c6177129b4d1b989e839eb7ced09b01f41398b8355" => :catalina
     sha256 "ee531627e5fa6a0e8ba68aeb1e7bc5c420fb307bedccbc5b8aa248b73291a665" => :mojave
     sha256 "f6ebf8ee9bb2ff705de0f9975cc96a4284a127b093ece87b44643d83f5b636de" => :high_sierra

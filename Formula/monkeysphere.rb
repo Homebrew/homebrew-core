@@ -1,9 +1,9 @@
 class Monkeysphere < Formula
   desc "Use the OpenPGP web of trust to verify ssh connections"
-  homepage "https://web.monkeysphere.info/"
+  homepage "http://web.monkeysphere.info/"
   url "https://deb.debian.org/debian/pool/main/m/monkeysphere/monkeysphere_0.44.orig.tar.gz"
   sha256 "6ac6979fa1a4a0332cbea39e408b9f981452d092ff2b14ed3549be94918707aa"
-  revision 1
+  revision 3
   head "git://git.monkeysphere.info/monkeysphere"
 
   livecheck do
@@ -13,10 +13,10 @@ class Monkeysphere < Formula
 
   bottle do
     cellar :any
-    sha256 "b81913712d547ed0cafbb84478af579142a7409a8c15a2349c8e0eadba5693eb" => :catalina
-    sha256 "d5c8badc7a3296cd5150f3520a0abf61aa4a683a43d121961b412ff619aaa4d1" => :mojave
-    sha256 "5928a7723f50b5ce5c505571570a6bb82823f6faf0133ab2f9b0f2757a9b68fc" => :high_sierra
-    sha256 "f1bbf185764cd974016f73e4a6d037cec60a83b57c3a3314797aa8aa60edf1bb" => :sierra
+    sha256 "1c72800477183baed866d396e2ed0fa238a20b3de8767fdf33a78beafcb369d8" => :big_sur
+    sha256 "fdb224329c7d66b8770ff35746c94b8af3af96ad690e4cc24f384fd011ee0c3e" => :arm64_big_sur
+    sha256 "1b6e0f281b0885de4151708205d92f3f8f237f8a4c5b966960bf01cc1196bb57" => :catalina
+    sha256 "150dfcce34b75ba5e9e96ef6956ba0a6291088dd45ca1a1ebbf4b9d917291f34" => :mojave
   end
 
   depends_on "gnu-sed" => :build
@@ -25,6 +25,8 @@ class Monkeysphere < Formula
   depends_on "libgcrypt"
   depends_on "libgpg-error"
   depends_on "openssl@1.1"
+
+  uses_from_macos "perl"
 
   resource "Crypt::OpenSSL::Bignum" do
     url "https://cpan.metacpan.org/authors/id/K/KM/KMX/Crypt-OpenSSL-Bignum-0.09.tar.gz"

@@ -11,6 +11,8 @@ class Xorriso < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "2ed8bc669d65635fc5d3c0f91eab9ca3d34dff6319844bbdb5332e4c2923dd64" => :big_sur
+    sha256 "95c4fa76a9120ce3a9eabb732442c6854077ab83ef4c6fc8698a322fcaefa5e5" => :arm64_big_sur
     sha256 "ba9353c38b3109630b543faf56f9f8431ec225db32e5f446495528879fcdc361" => :catalina
     sha256 "e85cf1dfeb93797ef41680738cbde8fdf02aecb8040681742c2c89c82659c871" => :mojave
     sha256 "341b85b60e1762c6ffca661940ce5e1958b1f2aab89f49da0865466ad1badc5a" => :high_sierra

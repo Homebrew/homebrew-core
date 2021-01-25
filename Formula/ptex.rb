@@ -13,6 +13,7 @@ class Ptex < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "4997e628df7475b72cc39127975c65354d89558d0a44f9e63315ddd4195858bd" => :big_sur
     sha256 "309b9d77d69b2797d9161c8bf93d13fbc48db114b4e308674bf208006ad4c571" => :catalina
     sha256 "2c55851c7d65d7953fedeed3ca738b9ab80c0ef61a7239633d485fbde53fdb92" => :mojave
     sha256 "599291e5ea9a7972828818ac1e940ecbaca107f1ef36af556bf9de4c141fa5a8" => :high_sierra

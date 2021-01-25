@@ -12,7 +12,8 @@ class Flash < Formula
   end
 
   test do
-    system "hdiutil", "create", "-size", "128k", "test.dmg"
+    cp test_fixtures("test.dmg.gz"), "test.dmg.gz"
+    system "gunzip", "test.dmg"
     output = shell_output("echo foo | #{bin}/flash --device /dev/disk42 test.dmg", 1)
     assert_match "Please answer yes or no.", output
   end

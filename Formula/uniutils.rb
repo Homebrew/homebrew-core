@@ -7,6 +7,8 @@ class Uniutils < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "df42759537263cec13ae2662eac1de96d0692b34e146eff756dbb52b79c7c5d7" => :big_sur
+    sha256 "8cb5a86b69e6efe758a353744ac48a0ec1777f3b1ed814848906d6365ad7ba81" => :arm64_big_sur
     sha256 "c2991a6dc15937fd36591ef3a56134d9474b544a3d0f9407a9555adebf3a53e7" => :catalina
     sha256 "2ea235c47ef4ede643ccb1adaccbc376b0cbe39bbdeb3d5623bcbea210cd7519" => :mojave
     sha256 "6717501e797865b956ded03f433b9353e033328727bcdd6263b1f3721c8ef30d" => :high_sierra

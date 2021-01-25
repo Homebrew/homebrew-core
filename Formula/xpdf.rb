@@ -1,7 +1,7 @@
 class Xpdf < Formula
   desc "PDF viewer"
   homepage "https://www.xpdfreader.com/"
-  url "https://xpdfreader-dl.s3.amazonaws.com/xpdf-4.02.tar.gz"
+  url "https://dl.xpdfreader.com/xpdf-4.02.tar.gz"
   sha256 "52d51dc943b9614b8da66e8662b3031a3c82dc25bfc792eac6b438aa36d549a4"
   license "GPL-2.0"
 
@@ -12,9 +12,11 @@ class Xpdf < Formula
 
   bottle do
     cellar :any
-    sha256 "ed4f85ea9e8246acb38d96b12013b66a8dfb21346a7de192fd7904c91c0a4898" => :catalina
-    sha256 "703b0341d6887119375ab0ba7c3d6accfbb25cfcc5e459009c6cb09977e2005d" => :mojave
-    sha256 "29808204a425d8896f855bb9f7e2e09a365a0fe577d6f522fed0a3e2f866695b" => :high_sierra
+    rebuild 1
+    sha256 "df33213e9a7d6d3f330d96b7402c3c1bb7afb4e3665ee71bd9835b3366ae3be2" => :big_sur
+    sha256 "968cef17a786a39bf3d99a5bf9398ad58ed913bcc2588271eb23ef6d01e18c41" => :arm64_big_sur
+    sha256 "f08da8bc25d97b0ca2f7b3ca6a69f57dcc32df15d74c23c01c1e4f13977320dc" => :catalina
+    sha256 "c21f4b4cde0cf16509e1550d2b0a6c55b07eeb8be83614fcd62978fcb1757e29" => :mojave
   end
 
   depends_on "cmake" => :build

@@ -10,6 +10,7 @@ class Star < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "b35d569dd3653c0ea0d626206d2101e7de401f39c2e046e5c4553e3701fabb25" => :big_sur
     sha256 "d97f6a6df5eaf3360e7b4c17a475e5417ce268815c01dfcbc94709377a47f6eb" => :catalina
     sha256 "8d1e4d304f4ac9c281f3b445f31a1268271eebba6a58f098b4f9339be51218b9" => :mojave
     sha256 "9f4a24f592647071a2ead26c2dba4d86cb664f71cdf4d280037a94748c92ec0c" => :high_sierra

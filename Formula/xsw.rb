@@ -6,6 +6,8 @@ class Xsw < Formula
   license "GPL-3.0"
 
   bottle do
+    sha256 "ca902b972fa913fc6c0f8e906c86986702d91e4383ceb5b017aae143d681121b" => :big_sur
+    sha256 "88ea32bb62da06d34a0f53679f4b2eae886527dcbd2a20d316b9950c516e88cf" => :arm64_big_sur
     sha256 "76084ad086c4635e308c84ed975d5249e8338207614b1b48f27c014611d913e6" => :catalina
     sha256 "ea85521cec4aed7642dd1c5c4e1d44532292064c4ea1ca4d3bfd4a779484b428" => :mojave
     sha256 "09e57751cad18711cdc71cf47442366fda1bdb0adf6d156605c0ad2cc49be4fd" => :high_sierra

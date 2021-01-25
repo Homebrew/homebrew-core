@@ -3,15 +3,16 @@ class Circleci < Formula
   homepage "https://circleci.com/docs/2.0/local-cli/"
   # Updates should be pushed no more frequently than once per week.
   url "https://github.com/CircleCI-Public/circleci-cli.git",
-      tag:      "v0.1.11146",
-      revision: "275febaff705bc4e095a594c221bd00ef553398d"
+      tag:      "v0.1.11924",
+      revision: "e7b4dae27424b280dfd2f7ad25926336029ee726"
   license "MIT"
+  head "https://github.com/CircleCI-Public/circleci-cli.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "dd266d36f152cbae371c2e4244628da4c60ac17162d3e976af7dbd69a2b27fa4" => :catalina
-    sha256 "ab085af4aa396b479484630719c34a2e5c73b672d0eccfe54864757e751e747b" => :mojave
-    sha256 "4ff9dd35bdace6ba895e7e8a5e9d4c5e0d981fac6ea3b3b1650b222aa1df538c" => :high_sierra
+    sha256 "8b67ae822d819bfe6df14f79336df3b012b6a73a016f5589675691638d25890d" => :big_sur
+    sha256 "2dddf9b1f991f4d532121c0cc75051aad9193de3c2bb6901870503904f40c835" => :catalina
+    sha256 "b1116a19a84adc0c7eb31d802c998d26c3b4a12a0c70877df0ffeda9ca8a42b1" => :mojave
   end
 
   depends_on "go" => :build
@@ -23,12 +24,11 @@ class Circleci < Formula
     dir.install buildpath.children
 
     cd dir do
-      commit = Utils.safe_popen_read("git", "rev-parse", "--short", "HEAD").chomp
       ldflags = %W[
         -s -w
         -X github.com/CircleCI-Public/circleci-cli/version.packageManager=homebrew
         -X github.com/CircleCI-Public/circleci-cli/version.Version=#{version}
-        -X github.com/CircleCI-Public/circleci-cli/version.Commit=#{commit}
+        -X github.com/CircleCI-Public/circleci-cli/version.Commit=#{Utils.git_short_head}
       ]
       system "make", "pack"
       system "go", "build", "-ldflags", ldflags.join(" "),

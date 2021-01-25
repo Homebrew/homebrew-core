@@ -7,6 +7,7 @@ class Pprint < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "dfe96940a991860fa6b0c3fc1aab207deeea8abe0c3fdf550b062f31a0f2f942" => :big_sur
     sha256 "3106733d3d77033431baf9eac61d8cf4b293f48584858ba058d711a045512530" => :catalina
     sha256 "8d6d70f63ecea106323bdd852c1c896f32bf9895c3164680b594c0f8a30c1561" => :mojave
     sha256 "8d6d70f63ecea106323bdd852c1c896f32bf9895c3164680b594c0f8a30c1561" => :high_sierra

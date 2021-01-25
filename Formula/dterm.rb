@@ -12,6 +12,8 @@ class Dterm < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "2766f4a9410153b28253e43695ba07aaf1886fb63747837b609aa81a2f46e5d5" => :big_sur
+    sha256 "c7da6c39a5a9edb1ed37346d39e2ebc40f64733f1607ae6290c4c3ab063e3b00" => :arm64_big_sur
     sha256 "0ee11ec243e1d9038a5f8d0ef86a00e5bf07af59be0497e8b8b677bf032bdc2b" => :catalina
     sha256 "d6d5d49c0e4da6bc6273bb8cffc0717daea8cad68346c34d9beedcbe0e5b24a3" => :mojave
     sha256 "85085f6142348852c9a5efee30a697fa6b31d9162807a256aee5100e50ff99ea" => :high_sierra

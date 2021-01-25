@@ -8,6 +8,8 @@ class Libswiftnav < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "8bddbc65a77417b3f103725275dfa0e6cc93bc26c5fa977cae35da6c97c572e3" => :big_sur
+    sha256 "d808e68204d6361e2d4325b8e6d2e15bf168064ce3ec6ea5fc99174368955995" => :arm64_big_sur
     sha256 "dfffba32c3e0d570170a33fe713b9899a08fbffeeccf14c3cb36138972a3b52a" => :catalina
     sha256 "e8ab824fddb8ffcb2aea530d7124c9c7debd4592dce3b0f0e649d4d63bea587b" => :mojave
     sha256 "528d7e5e52b8ff8cdcb9be22a884d8e8b49e08f9ef90d0b99362526e7117e9ee" => :high_sierra

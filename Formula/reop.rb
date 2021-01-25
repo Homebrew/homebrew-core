@@ -7,6 +7,8 @@ class Reop < Formula
 
   bottle do
     cellar :any
+    sha256 "125c56793715854faa4c1785f48e119a364ea3fb3239ea7edc4d885b6071099f" => :big_sur
+    sha256 "2f19ce5ab996a6d2cf7e5152160f0f0298e3c19eed633a9c52c0d548b2be0017" => :arm64_big_sur
     sha256 "9a871be9b2fa42aa2d9e5035712733c4b764c4eb7497958389018f0451a16cd6" => :catalina
     sha256 "ef7c8dc250f93b18a84fc4b22006f1b5c59b34bf5d3fd3caa07da03184a0cf61" => :mojave
     sha256 "e0f5cdb5c8b3af4919afa8b442eba703dec9ef9f5b7a25cbe56440e6c646d3b2" => :high_sierra

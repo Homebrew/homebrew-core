@@ -72,11 +72,7 @@ class Fakeroot < Formula
   end
 
   test do
-    if MacOS.version <= :yosemite
-      assert_equal "root", shell_output("#{bin}/fakeroot whoami").strip
-    else
-      assert_match version.to_s, shell_output("#{bin}/fakeroot -v")
-    end
+    assert_match version.to_s, shell_output("#{bin}/fakeroot -v")
   end
 end
 

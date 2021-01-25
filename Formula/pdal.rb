@@ -4,12 +4,14 @@ class Pdal < Formula
   url "https://github.com/PDAL/PDAL/releases/download/2.2.0/PDAL-2.2.0-src.tar.gz"
   sha256 "421e94beafbfda6db642e61199bc4605eade5cab5d2e54585e08f4b27438e568"
   license "BSD-3-Clause"
+  revision 2
   head "https://github.com/PDAL/PDAL.git"
 
   bottle do
-    sha256 "107880f44e9d7c5d96f4724adf6060776cba1fce684334844b0add011f8de887" => :catalina
-    sha256 "7a65c661b61494c38838df4c7843f44cec465750dbaf93a845c8e51f868ef07a" => :mojave
-    sha256 "586954f437ffcfb37f83d9d131b66efbcaf44fbb1b79d359e10f4b89924d4ef9" => :high_sierra
+    sha256 "ab6cfe4dd4892db1c461ed336a361afafe1ab396ad48d6b62738517e44a8a3af" => :big_sur
+    sha256 "282f7fa863a01ec05807e3e262ff90357e2c7003ee472a752ef1d21ba7f33aa7" => :arm64_big_sur
+    sha256 "4d2cdd582fff619e8224292422b70de75381b95bdd7dd03af535769bbda0d061" => :catalina
+    sha256 "7f7191678e93323c1763c8eefb710f365d0a289633385acc5e69e146db29687f" => :mojave
   end
 
   depends_on "cmake" => :build

@@ -11,6 +11,8 @@ class Udis86 < Formula
 
   bottle do
     cellar :any
+    sha256 "8d2407363a0ba95163d3689f83e7b1fce331c61a9fecbc6e6c0476af9435f347" => :big_sur
+    sha256 "2784b5cdecb76514ce3a56f1343e851915cf1f9e5453a9db9eb54a42436903be" => :arm64_big_sur
     sha256 "28f761b215237ed656359cce94fd4787be86a50057dc064589f6bbedbcf2fe06" => :catalina
     sha256 "b510a8349883e86135cf030953df54b671cf668a1e3e5020fc059a0f6f92a52d" => :mojave
     sha256 "cefad0043918886a862a040adf2450699c00cbef3fd561bbc8867e2328b16ac8" => :high_sierra

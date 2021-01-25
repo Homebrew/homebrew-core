@@ -7,6 +7,8 @@ class Uptimed < Formula
 
   bottle do
     cellar :any
+    sha256 "fc45435953f14fc7a182884dfa4e2672213c71675c9e73fb6a3799a140e66caa" => :big_sur
+    sha256 "8efbddfdb0eef471f4d0f50a55cf791d422d918d1a4f10b68e8383f7408caa08" => :arm64_big_sur
     sha256 "1e20c4955ff14a05da57be77e08e163e164e41995411c21aeaa5a5bf3919fb7c" => :catalina
     sha256 "d5d96957debd223a243d71dc0d9858d19179c94841f6640822b1db841c0bfd48" => :mojave
     sha256 "8585595184bf697772b292e123f63c97513e242c7d04194c9e1990d60fcef571" => :high_sierra

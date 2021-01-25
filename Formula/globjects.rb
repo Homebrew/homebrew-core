@@ -8,6 +8,8 @@ class Globjects < Formula
 
   bottle do
     cellar :any
+    sha256 "7a47a09787bf617fa6616f2cd88567b12b5d5c5d0a29225688908ed8c8b2c88d" => :big_sur
+    sha256 "97b76d2b662c4f123604d312b442d2b59d606a3cc1e3e4f10cbe2dd3cc8b6f62" => :arm64_big_sur
     sha256 "8093cb17f6c1ba5ce345d3a89f0a2330cbdbb88100ad241be0dd8611a6ad52d9" => :catalina
     sha256 "9bbf36b86602a7b0c7bf66bb911e200e4f7b94f05c304afb261781edebf119ce" => :mojave
     sha256 "baae740c033bc384454f81c0abba246f935765ec7decf408777d318d60cbe565" => :high_sierra

@@ -7,6 +7,8 @@ class ScIm < Formula
   head "https://github.com/andmarti1424/sc-im.git", branch: "freeze"
 
   bottle do
+    sha256 "d419452946bad457347ca8c59b3d53a90f3976af74d1e652de8e1ad4d0982f9a" => :big_sur
+    sha256 "f7ad6c86caf94bf75c40da5422ac4eeaef52e7c5b6065f32981dec2c54bef5c9" => :arm64_big_sur
     sha256 "24cb0ad706b03a9933cdb24dba862b38a3fcb59f96f9942227d8f9f79ff93ea5" => :catalina
     sha256 "67180ab11eedd56f8eaffb0d2f12a90ca9636bbd93ff693914450be8248702ce" => :mojave
     sha256 "275a0a9dbd1a1271119e36b2767a54587aae57a65ee92278e701e0e1236a192c" => :high_sierra

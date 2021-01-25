@@ -2,12 +2,11 @@ class Httpie < Formula
   include Language::Python::Virtualenv
 
   desc "User-friendly cURL replacement (command-line HTTP client)"
-  homepage "https://httpie.org/"
-  url "https://files.pythonhosted.org/packages/37/6c/0d050f49e3b2bac589367d0c3aee9c078e23c6914b0210ffc0117218bdaf/httpie-2.2.0.tar.gz"
-  sha256 "31ac28088ee6a0b6f3ba7a53379000c4d1910c1708c9ff768f84b111c14405a0"
+  homepage "https://httpie.io/"
+  url "https://files.pythonhosted.org/packages/b4/d4/712645808103f2d15c281b9eacd184c88754ef7e9a322d9a30ba343fd341/httpie-2.3.0.tar.gz"
+  sha256 "d540571991d07329d217c31bf1ff95fd217957da2aa2def09bcfa0c0fca0cf96"
   license "BSD-3-Clause"
-  revision 1
-  head "https://github.com/jakubroztocil/httpie.git"
+  head "https://github.com/httpie/httpie.git"
 
   livecheck do
     url :stable
@@ -15,16 +14,19 @@ class Httpie < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6956f918eabb4070d81f28f26d995056246179276d322d1929610f89733740f0" => :catalina
-    sha256 "772cd022ca55198ac20e90b510bbcd3e6d9adbeff81b6bf17d5063c1c2454b6c" => :mojave
-    sha256 "f792c4ee6183335d70e3c57d28326df0479e9de55b2ab0696d50aac051183b02" => :high_sierra
+    rebuild 1
+    sha256 "bdffeff349595ed3c528ed791d568e308b0877246b49e05e867143ba3415a70f" => :big_sur
+    sha256 "a01ce8767f6ea88eb8e7894347ba64eb29294053a8ee91eed44dfaf0ab5e7ea2" => :arm64_big_sur
+    sha256 "ba0627d70f0ee49c64677f5554881ebd56371f47d45196b6564680089ce69152" => :catalina
+    sha256 "0b87901e88bdcf53c55c5138677087b4621c5aaf1fca67b53b730d5a2fd5a40a" => :mojave
+    sha256 "87e7348b6fb40fd8e4f7597937952469601962189e62d321b8cb4fa421e035ef" => :high_sierra
   end
 
   depends_on "python@3.9"
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/6e/4d/4d2fe93a35dfba417311a4ff627489a947b01dc0cc377a3673c00cf7e4b2/Pygments-2.6.1.tar.gz"
-    sha256 "647344a061c249a3b74e230c739f434d7ea4d8b1d5f3721bc0f3558049b38f44"
+    url "https://files.pythonhosted.org/packages/5d/0e/ff13c055b014d634ed17e9e9345a312c28ec6a06448ba6d6ccfa77c3b5e8/Pygments-2.7.2.tar.gz"
+    sha256 "381985fcc551eb9d37c52088a32914e00517e57f4a21609f48141ba08e193fa0"
   end
 
   resource "requests" do
@@ -32,19 +34,24 @@ class Httpie < Formula
     sha256 "b3559a131db72c33ee969480840fff4bb6dd111de7dd27c8ee1f820f4f00231b"
   end
 
+  resource "requests-toolbelt" do
+    url "https://files.pythonhosted.org/packages/28/30/7bf7e5071081f761766d46820e52f4b16c8a08fef02d2eb4682ca7534310/requests-toolbelt-0.9.1.tar.gz"
+    sha256 "968089d4584ad4ad7c171454f0a5c6dac23971e9472521ea3b6d49d610aa6fc0"
+  end
+
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/b4/19/53433f37a31543364c8676f30b291d128cdf4cd5b31b755b7890f8e89ac8/certifi-2020.4.5.2.tar.gz"
-    sha256 "5ad7e9a056d25ffa5082862e36f119f7f7cec6457fa07ee2f8c339814b80c9b1"
+    url "https://files.pythonhosted.org/packages/40/a7/ded59fa294b85ca206082306bba75469a38ea1c7d44ea7e1d64f5443d67a/certifi-2020.6.20.tar.gz"
+    sha256 "5930595817496dd21bb8dc35dad090f1c2cd0adfaf21204bf6732ca5d8ee34d3"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/05/8c/40cd6949373e23081b3ea20d5594ae523e681b6f472e600fbc95ed046a36/urllib3-1.25.9.tar.gz"
-    sha256 "3018294ebefce6572a474f0604c2021e33b3fd8006ecd11d62107a5d2a963527"
+    url "https://files.pythonhosted.org/packages/76/d9/bbbafc76b18da706451fa91bc2ebe21c0daf8868ef3c30b869ac7cb7f01d/urllib3-1.25.11.tar.gz"
+    sha256 "8d7eaa5a82a1cac232164990f04874c594c9453ec55eef02eab885aa02fc17a2"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/cb/19/57503b5de719ee45e83472f339f617b0c01ad75cba44aba1e4c97c2b0abd/idna-2.9.tar.gz"
-    sha256 "7588d1c14ae4c77d74036e8c22ff447b26d0fde8f007354fd48a7814db15b7cb"
+    url "https://files.pythonhosted.org/packages/ea/b7/e0e3c1c467636186c39925827be42f16fee389dc404ac29e930e9136be70/idna-2.10.tar.gz"
+    sha256 "b307872f855b18632ce0c21c5e45be78c0ea7ae4c15c828c20788b26921eb3f6"
   end
 
   resource "chardet" do
@@ -62,7 +69,7 @@ class Httpie < Formula
   end
 
   test do
-    raw_url = "https://raw.githubusercontent.com/Homebrew/homebrew-core/master/Formula/httpie.rb"
+    raw_url = "https://raw.githubusercontent.com/Homebrew/homebrew-core/HEAD/Formula/httpie.rb"
     assert_match "PYTHONPATH", shell_output("#{bin}/http --ignore-stdin #{raw_url}")
   end
 end

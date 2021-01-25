@@ -1,15 +1,17 @@
 class Latexindent < Formula
   desc "Add indentation to LaTeX files"
   homepage "https://ctan.org/pkg/latexindent"
-  url "https://github.com/cmhughes/latexindent.pl/archive/V3.8.2.tar.gz"
-  sha256 "a134e27d56b7daee2bea37563424f996fc559bc8019e92213261b25cdb84a688"
-  license "GPL-3.0"
+  url "https://github.com/cmhughes/latexindent.pl/archive/V3.8.3.tar.gz"
+  sha256 "34ad26e69257f5a9dd475e16417a8c16b590ccf17e98a4b05f6316f65df621cd"
+  license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f1fda32a3d8d74e5f6c39bc946bd47c554a293a13ed2c44fbc1c4c3498dd5128" => :catalina
-    sha256 "f8e5d09a084bb0f2b6d79363978963b9be3d3a5c0213208d579eba641fb1be30" => :mojave
-    sha256 "938feab923be39cef8430038b8db9e86f86b37955f812b64a6d8743ce4f63ad9" => :high_sierra
+    sha256 "78f0e4bc0d5963fa6dcad8ac5486ab9a34c2da4bfd9cffabd16337385ce1824f" => :big_sur
+    sha256 "990afa8cf06b7d7d6e4564af13d4f8054873e03ca320c9da7b75efef7769aa86" => :arm64_big_sur
+    sha256 "80bc255ec4660c8cec1f8af2ec9f30d6b810af189a168dab4c61128430cf25e0" => :catalina
+    sha256 "13bb96a8f2256a72a53c0f6338300dace9853b0cb0b97c2892b9e3a81b8cc5ee" => :mojave
   end
 
   depends_on "perl"
@@ -50,8 +52,8 @@ class Latexindent < Formula
   end
 
   resource "File::HomeDir" do
-    url "https://cpan.metacpan.org/authors/id/R/RE/REHSACK/File-HomeDir-1.004.tar.gz"
-    sha256 "45f67e2bb5e60a7970d080e8f02079732e5a8dfc0c7c3cbdb29abfb3f9f791ad"
+    url "https://cpan.metacpan.org/authors/id/R/RE/REHSACK/File-HomeDir-1.006.tar.gz"
+    sha256 "593737c62df0f6dab5d4122e0b4476417945bb6262c33eedc009665ef1548852"
   end
 
   resource "File::Which" do
@@ -60,13 +62,13 @@ class Latexindent < Formula
   end
 
   resource "Log::Dispatch" do
-    url "https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Log-Dispatch-2.69.tar.gz"
-    sha256 "58624c0a0c4c620873efb7ce2f11dde55fa2e24c22be2551f548ff3624585277"
+    url "https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Log-Dispatch-2.70.tar.gz"
+    sha256 "a3d91cc52467d3a3c6683103f3df4472d71e405a45f553289448713ac4293f21"
   end
 
   resource "Log::Log4perl" do
-    url "https://cpan.metacpan.org/authors/id/M/MS/MSCHILLI/Log-Log4perl-1.49.tar.gz"
-    sha256 "b739187f519146cb6bebcfc427c64b1f4138b35c5f4c96f46a21ed4a43872e16"
+    url "https://cpan.metacpan.org/authors/id/E/ET/ETJ/Log-Log4perl-1.53.tar.gz"
+    sha256 "8fbfb48d016eec7344a539f3ad70870b4ac4638e49666bfa70d10f6ffd4ac38e"
   end
 
   resource "MIME::Charset" do
@@ -100,8 +102,8 @@ class Latexindent < Formula
   end
 
   resource "Package::Stash" do
-    url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/Package-Stash-0.38.tar.gz"
-    sha256 "c58ee8844df2dda38e3bf66fdf443439aaefaef1a33940edf2055f0afd223a7f"
+    url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/Package-Stash-0.39.tar.gz"
+    sha256 "9165f555112e080493ce0e9129de0886da30b2593fb353a2abd1c76b2d2621b5"
   end
 
   resource "Package::Stash::XS" do
@@ -140,8 +142,8 @@ class Latexindent < Formula
   end
 
   resource "Test::Fatal" do
-    url "https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Test-Fatal-0.014.tar.gz"
-    sha256 "bcdcef5c7b2790a187ebca810b0a08221a63256062cfab3c3b98685d91d1cbb0"
+    url "https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Test-Fatal-0.016.tar.gz"
+    sha256 "7283d430f2ba2030b8cd979ae3039d3f1b2ec3dde1a11ca6ae09f992a66f788f"
   end
 
   resource "Try::Tiny" do
@@ -160,8 +162,8 @@ class Latexindent < Formula
   end
 
   resource "XString" do
-    url "https://cpan.metacpan.org/authors/id/A/AT/ATOOMIC/XString-0.002.tar.gz"
-    sha256 "260e252f7367228c9b4e43ef50c0becb04c4781de660577b3086cc106c0028c0"
+    url "https://cpan.metacpan.org/authors/id/A/AT/ATOOMIC/XString-0.005.tar.gz"
+    sha256 "f247f55c19aee6ba4a1ae73c0804259452e02ea85a9be07f8acf700a5138f884"
   end
 
   resource "YAML::Tiny" do

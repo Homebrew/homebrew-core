@@ -2,16 +2,16 @@ class Heartbeat < Formula
   desc "Lightweight Shipper for Uptime Monitoring"
   homepage "https://www.elastic.co/beats/heartbeat"
   url "https://github.com/elastic/beats.git",
-      tag:      "v7.9.2",
-      revision: "2ab907f5ccecf9fd82fe37105082e89fd871f684"
+      tag:      "v7.10.2",
+      revision: "aacf9ecd9c494aa0908f61fbca82c906b16562a8"
   license "Apache-2.0"
   head "https://github.com/elastic/beats.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "508c92814f0d4a95f5382749054853f6367be8ef2e9ada98f242fc62988f547a" => :catalina
-    sha256 "091d7e0165b22bf36bf8f7250073b7b8da607f834912d9b27ae0b35285f8bbbb" => :mojave
-    sha256 "83112b1b55aad54e0669666e20215b189e71d76ad125a9f01e852498abc32286" => :high_sierra
+    sha256 "62ae8169293cb892d457f7336cb2fae8f7fc5688190c99a1fa235ef6eb170495" => :big_sur
+    sha256 "6bb13ad64d9e8bf318776d8c569104b80e1a0b0618b80c7761438c5823b290c3" => :catalina
+    sha256 "c4616f19c93d9833b7f862b661fa7c0c4f1708c81efed6ab161a00a68d5e4a09" => :mojave
   end
 
   depends_on "go" => :build
@@ -20,13 +20,6 @@ class Heartbeat < Formula
   resource "virtualenv" do
     url "https://files.pythonhosted.org/packages/b1/72/2d70c5a1de409ceb3a27ff2ec007ecdd5cc52239e7c74990e32af57affe9/virtualenv-15.2.0.tar.gz"
     sha256 "1d7e241b431e7afce47e77f8843a276f652699d1fa4f93b9d8ce0076fd7b0b54"
-  end
-
-  # Update MarkupSafe to 1.1.1, remove with next release
-  # https://github.com/elastic/beats/pull/20105
-  patch do
-    url "https://github.com/elastic/beats/commit/5a6ca609259956ff5dd8e4ec80b73e6c96ff54b2.patch?full_index=1"
-    sha256 "b362f8921611297a0879110efcb88a04cf660d120ad81cd078356d502ba4c2ce"
   end
 
   def install
@@ -56,7 +49,6 @@ class Heartbeat < Formula
 
       (etc/"heartbeat").install Dir["heartbeat.*", "fields.yml"]
       (libexec/"bin").install "heartbeat"
-      prefix.install "_meta/kibana.generated"
     end
 
     prefix.install_metafiles buildpath/"src/github.com/elastic/beats"

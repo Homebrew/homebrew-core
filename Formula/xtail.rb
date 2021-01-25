@@ -15,6 +15,8 @@ class Xtail < Formula
     sha256 "939117402a33f5037aa7e49f5228e0d0b852e0e39e85d81357b8955864bd26eb" => :mavericks
   end
 
+  disable! date: "2020-12-08", because: :unmaintained
+
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",

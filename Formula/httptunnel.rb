@@ -4,24 +4,24 @@ class Httptunnel < Formula
   url "https://ftp.gnu.org/gnu/httptunnel/httptunnel-3.3.tar.gz"
   mirror "https://ftpmirror.gnu.org/httptunnel/httptunnel-3.3.tar.gz"
   sha256 "142f82b204876c2aa90f19193c7ff78d90bb4c2cba99dfd4ef625864aed1c556"
-  license "GPL-2.0"
-
-  livecheck do
-    url :stable
-  end
+  license "GPL-2.0-only"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "992853ebe7a48e07cf6e129d68cab49aab670ce4231a4a984ded21ece64247c0" => :catalina
-    sha256 "b6072c89e94ba53852f28c25ec85e6bdb24e7ebbce7eee35b418c9d609e68670" => :mojave
-    sha256 "6012d5967ab7263658ce1da99ee7bbdd051e37243b922b0702f4279ed047c014" => :high_sierra
-    sha256 "64b548d12c4e3012cb9d8d9f5171e0fc47e594c13f4d4ae35c5f97be1582b263" => :sierra
-    sha256 "b328d4e1f1e2638764d3ac2ed32a4f4e06935e4e9ef83af281936df4ab805aa5" => :el_capitan
-    sha256 "54fbed6b247d143f05c50c2202b5ff447f90504553431e7a143f6178893f148c" => :yosemite
-    sha256 "dcec84a118e1e7246d29ccc12397b7aa0134e1a2a952aa83af7b4ba6745318ac" => :mavericks
+    rebuild 1
+    sha256 "ba3194a2dd8fc577851681cbb058cd2f37b2568697c0bd8117c73e66841d6aa8" => :big_sur
+    sha256 "20312eef433095612b34d5e73a3ae27d3198d3a559dddddc6a316844da8cf2c2" => :catalina
+    sha256 "cd8ea90f49b98d3cbe213bfd750eb0a095d06a19a4705a9e7e08b153571c27a9" => :mojave
   end
 
+  disable! date: "2020-12-08", because: :unmaintained
+
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+
   def install
+    # The ./configure file inside the tarball is too old to work with Xcode 12, regenerate:
+    system "autoreconf", "--verbose", "--install", "--force"
     system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
     system "make", "install"
   end

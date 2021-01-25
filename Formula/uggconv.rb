@@ -1,11 +1,13 @@
 class Uggconv < Formula
-  desc "Universal Game Genie code convertor"
+  desc "Universal Game Genie code converter"
   homepage "https://wyrmcorp.com/software/uggconv/index.shtml"
   url "https://wyrmcorp.com/software/uggconv/uggconv-1.0.tar.gz"
   sha256 "9a215429bc692b38d88d11f38ec40f43713576193558cd8ca6c239541b1dd7b8"
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "820cca76f8c5618ba401a343644cffae2ece5526e0295dc29d0dd0f5f524789a" => :big_sur
+    sha256 "002cd504e9385234ab9b1b4595709ffccb2fda5d49c377add9c27eb422c04ed3" => :arm64_big_sur
     sha256 "c1fc237ad27120a1804b37d765a47833d67bcd38cfa67be07aed808739021146" => :catalina
     sha256 "71b4a6ad5be4b5dbefe2c64dc17b6bcff00eedcf72070f4a22273ff1f0a392cd" => :mojave
     sha256 "ed41635e3235d763c9dcad68db2e390821af5a62ec6709fca8b9c5e9b5d0b995" => :high_sierra

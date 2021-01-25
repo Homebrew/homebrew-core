@@ -4,6 +4,7 @@ class Mikutter < Formula
   url "https://mikutter.hachune.net/bin/mikutter-4.1.1.tar.gz"
   sha256 "4cce3a4770a0d9a2691d21e3379fe616797e583a47273d69d1ec44f48b98836d"
   license "MIT"
+  revision 2
   head "git://mikutter.hachune.net/mikutter.git", branch: "develop"
 
   livecheck do
@@ -13,15 +14,16 @@ class Mikutter < Formula
 
   bottle do
     cellar :any
-    sha256 "78bdaee50e892b26f88fa078435a7363971d22d5059b7b03ad4d98ba3e336b9a" => :catalina
-    sha256 "5e9faa3e6f38d9e77fd2eb4ffa8e342e2338e1bc41a954a6f3f6f5dc3fbd4c30" => :mojave
-    sha256 "8c9a8c31deae892a3d4a02e265aef0693aed749fb86a91788009fd586df2e68e" => :high_sierra
+    sha256 "28bbc7b323d3ecdaf288c71e469192475ecd331518568af06d62035e7f4c1577" => :big_sur
+    sha256 "1a3ad524040a6b2f1a9328f231c51f49689731b419650c211a816d144baa3232" => :arm64_big_sur
+    sha256 "81343393fd8217ae7ce465bc06965b7ecaf218fc8cab32f58fa5f29973c10ff3" => :catalina
+    sha256 "b7c86be22b9559edc1ef689bb4d4470dda8083c90e7218165b67b009418411e5" => :mojave
   end
 
   depends_on "gobject-introspection"
   depends_on "gtk+"
   depends_on "libidn"
-  depends_on "ruby"
+  depends_on "ruby@2.7"
 
   uses_from_macos "xz"
 
@@ -225,14 +227,14 @@ class Mikutter < Formula
     (lib/"mikutter").install "plugin"
     libexec.install Dir["*"]
 
-    ruby_series = Formula["ruby"].any_installed_version.major_minor
+    ruby_series = Formula["ruby@2.7"].any_installed_version.major_minor
     env = {
       DISABLE_BUNDLER_SETUP: "1",
       GEM_HOME:              HOMEBREW_PREFIX/"lib/mikutter/vendor/ruby/#{ruby_series}.0",
       GTK_PATH:              HOMEBREW_PREFIX/"lib/gtk-2.0",
     }
 
-    (bin/"mikutter").write_env_script Formula["ruby"].opt_bin/"ruby", "#{libexec}/mikutter.rb", env
+    (bin/"mikutter").write_env_script Formula["ruby@2.7"].opt_bin/"ruby", "#{libexec}/mikutter.rb", env
     pkgshare.install_symlink libexec/"core/skin"
 
     # enable other formulae to install plugins

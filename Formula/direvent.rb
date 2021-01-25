@@ -12,6 +12,8 @@ class Direvent < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "546c0a2add166633414dfc859731b0db475ffab1cd936ef7549e2694e6d2380f" => :big_sur
+    sha256 "bd7a995c95981503fc5a216a1d3f1b2cfdb958526eafca3e3b1dba96440cf35e" => :arm64_big_sur
     sha256 "5aa186d6c50f9865450430bd7641c2be32380ab3eaa3f67e8fe4803cd2139b8d" => :catalina
     sha256 "0e9d14d7340a3031305913d1a506f17ebedfaae4b6da0c340d23f754de3fc4c7" => :mojave
     sha256 "b1893330b8cd3c41bfcfb1a5a919bf887febf17b9e5067d428d31169c8218295" => :high_sierra

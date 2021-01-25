@@ -12,6 +12,8 @@ class GnuBarcode < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8db9cd7477dfce32af8a9451c792683d97ef0ab81d7929881ac59a6fab9d88aa" => :big_sur
+    sha256 "8e621e1e142ab7c323b6bc133b4b3c373df050986e4282814f07a8ca1928d83c" => :arm64_big_sur
     sha256 "237ba00c7acb6a0343b17cae529d6a854ae321a03136d0f2882b010f4107230c" => :catalina
     sha256 "a24619af860a3658774fdcb5b5439ed751e1284b724e2f5dc8bb0c35736f879a" => :mojave
     sha256 "bd55ad14c9e7411d952d9243b6c4c7aa84162afe34ed1e3c3d9e9a368d2d6485" => :high_sierra

@@ -1,15 +1,16 @@
 class So < Formula
   desc "Terminal interface for StackOverflow"
   homepage "https://github.com/samtay/so"
-  url "https://github.com/samtay/so/archive/v0.4.2.tar.gz"
-  sha256 "402d3a07283375d92892802544481a417f9d017b5e80733183ccbce3a810ef84"
+  url "https://github.com/samtay/so/archive/v0.4.3.tar.gz"
+  sha256 "ea2aaacda8073bbfd0b22cbb978c18562fb2a82987f48803cf3d566f58fb37aa"
   license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5bf7f63a206b7ab5b64f102d493db409a3fb068a76326aa0eaa68582ea779638" => :catalina
-    sha256 "13beb97e318c3655cf2a6ecb537f776c5973a7a944c14c212455a359b419b872" => :mojave
-    sha256 "cfc2bf938aacca1db66b6a072dca9cc9f346e21a9ae1a7534d3e1124810e0c2b" => :high_sierra
+    sha256 "2c871ccb23c125efc71cd7fbd422a5c53ee0b66154a91fe28a2fb2a39f38c4c8" => :big_sur
+    sha256 "a1239eda940abb6aedef2fb2148e70ddad9ccf30e733ea1db043a1f3e35377ba" => :arm64_big_sur
+    sha256 "826d559e0fe079bbec1c8a43cbde4bd44a4d54d2d36d8a0c19e6ff43544d30b0" => :catalina
+    sha256 "061e084d661c9b1eddca4329492935a3ec1a1f3880399d7a21c63b58c8763be6" => :mojave
   end
 
   depends_on "rust" => :build

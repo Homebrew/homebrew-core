@@ -8,6 +8,8 @@ class Libfishsound < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "a1ae8b29698509de3de412402ce463cf32a08573348526dc42020731fdaff314" => :big_sur
+    sha256 "3ec17aed1c22c99831e01e1938bf9b240439f45c130422dd90e06ccd8a57cd74" => :arm64_big_sur
     sha256 "5599c6eaed21c2f66ebb8209ca8e436fd306214de6d9db6ccf21bd9c2710e1b7" => :catalina
     sha256 "f232242d49e8c2ae954e282e879e4a4a86b80d3e46364d74247af92efd613d96" => :mojave
     sha256 "726c79b6e3ce5d71e9cf1d6b556a6daed33b5e8bd7269e2219b1474549dac17d" => :high_sierra

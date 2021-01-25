@@ -11,6 +11,8 @@ class ExactImage < Formula
   end
 
   bottle do
+    sha256 "9b3619df825bd01981c7a7b6fd1b6f88346d7d0fbbb7f9ed8fc30f9fef41cab0" => :big_sur
+    sha256 "47aa8c7861a759d66f553bc8960ba09c14a3b5acf86e2c0f22779379716cac5f" => :arm64_big_sur
     sha256 "78a802b0edd2c27640aa2e6be381c146a7fa05bd6dd584ace90b1dfa0e426291" => :catalina
     sha256 "942bfd38bf5fd52613c936077eee5d5f71530325c7337e9db84e44e0b6c643a0" => :mojave
     sha256 "b182c3fa086d336ee9e6688bb341ea3df8ace70cac451fb757e88ba15c925365" => :high_sierra

@@ -13,6 +13,8 @@ class Libpng < Formula
 
   bottle do
     cellar :any
+    sha256 "a8f1c35f9f004c4f7878c30027e35a9fb9551782df963f88deebd3dc29d94d51" => :big_sur
+    sha256 "766a7136ee626b411fb63da0c7e5bc1e848afb6e224622f25ea305b2d1a4a0f1" => :arm64_big_sur
     sha256 "c8e74da602c21f978cd7ee3d489979b4fc6681e71f678a1d99012943ee3a909f" => :catalina
     sha256 "53bbd14cc27c86c16605e256e7646a1b5656c253abca084958c5d80a2961cb01" => :mojave
     sha256 "bbdd94bdd5954bc50c096391486e67265dce5631efb913dcffe4469806a242b6" => :high_sierra

@@ -19,9 +19,8 @@ class Ndenv < Formula
     end
 
     if build.head?
-      git_revision = `git rev-parse --short HEAD`.chomp
       inreplace "libexec/rbenv---version", /^(version=)"([^"]+)"/, \
-          %Q(\\1"\\2-g#{git_revision}")
+          %Q(\\1"\\2-g#{Utils.git_short_head}")
     end
 
     prefix.install "bin", "completions", "libexec"

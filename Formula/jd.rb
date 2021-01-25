@@ -1,28 +1,23 @@
 class Jd < Formula
   desc "JSON diff and patch"
   homepage "https://github.com/josephburnett/jd"
-  url "https://github.com/josephburnett/jd/archive/v1.1.tar.gz"
-  sha256 "5192f471658ef1af38060ccd74d767bc7f1b60ba8de04335a6cccb88a1d28e20"
+  url "https://github.com/josephburnett/jd/archive/v1.2.0.tar.gz"
+  sha256 "044a1c459b5255cce83bbfc0e8bc73ea227cf9c1c904fc3dada46f640136cbc5"
   license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e096231d88fa92e9215345a34de8b5dceb5e3217a22681107f81b935b9090619" => :catalina
-    sha256 "0a33823d7919a0218e895685903d718bc3013e13710166797cfa332895c6a4e1" => :mojave
-    sha256 "fed5e72e199dd94ef0f34b506f689de867ac8f938641a9738e99dc8f4c27cbe6" => :high_sierra
+    rebuild 1
+    sha256 "838e83415f9a81d03dbde62ddc086233979d5b52b279c0a1edbc6ef754099a4d" => :big_sur
+    sha256 "dcc2f40817719ab6db214cf102ef282e7d5bd24fdb55b3a0f3e242bea28c3e9a" => :arm64_big_sur
+    sha256 "ed5e5d307438bf853693618019f776d6907ae948fd06ae1f7317b6d886645895" => :catalina
+    sha256 "d58d2bdb2a3a7f81f4ee78ac8dec5b71a1f0c2b6b89e83be8a921a74a263ac2d" => :mojave
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/github.com/josephburnett/jd"
-    dir.install buildpath.children
-
-    cd dir do
-      system "go", "build", "-o", bin/"jd"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args, "-ldflags", "-s -w"
   end
 
   test do

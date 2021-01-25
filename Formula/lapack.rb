@@ -8,6 +8,8 @@ class Lapack < Formula
   head "https://github.com/Reference-LAPACK/lapack.git"
 
   bottle do
+    sha256 "4545eca9af03f52eb2080a3e45017d877b1832a9096c5c023886bd8aa1116bec" => :big_sur
+    sha256 "7b84850a2c6dd2c589630c1c61157594c05689b516e1e072d1e0ad62e0df40e2" => :arm64_big_sur
     sha256 "be00d33447ab0bb47a05f89517640c984cafb7723fd6fff9749de773c304f2df" => :catalina
     sha256 "ad84de82af78dc5ee4b305c76a79a3fc18420beeac2be72d1c262936d5a9110e" => :mojave
     sha256 "fd360d9073e8a483e88a0bca6c8dc96a8159488fa3a6009bb8cbe03747f20f4f" => :high_sierra

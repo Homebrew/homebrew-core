@@ -6,6 +6,8 @@ class DesktopFileUtils < Formula
   license "GPL-2.0"
 
   bottle do
+    sha256 "de9ed12a55ebff6b2d321c91908219d3d0b7802080ad462774eb1179ec7435b1" => :big_sur
+    sha256 "c1bdcafb26625cd695365e41b4d3bb225d42c6075aa799c86b98e367a7d8ce9f" => :arm64_big_sur
     sha256 "fba87a1749b744c74510df1a49ed7627615ab10a2398922eac1389f4e35a5cb8" => :catalina
     sha256 "2e6548daf5b3fd3f038205986130d39390fd4b22955ed07ad06f6378d5e6e5f2" => :mojave
     sha256 "12e7bfe0f9a579f826f7c74f5a67d41ed4dee469f1cf0f3b4be89ef9e884996e" => :high_sierra

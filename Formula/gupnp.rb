@@ -6,6 +6,7 @@ class Gupnp < Formula
   url "https://download.gnome.org/sources/gupnp/1.2/gupnp-1.2.4.tar.xz"
   sha256 "f7a0307ea51f5e44d1b832f493dd9045444a3a4e211ef85dfd9aa5dd6eaea7d1"
   license "LGPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -13,9 +14,11 @@ class Gupnp < Formula
 
   bottle do
     cellar :any
-    sha256 "054503ec95766bbf5ef2fa8b15415898b2386d0659417cade2d615cf635235b3" => :catalina
-    sha256 "7cb92f536e1c498df40267f173322451c4afa631ed364c0d99d7eade7bc73756" => :mojave
-    sha256 "a691fa65b88e39d8b09b87f68890436d0848fbf6f0ab2423fc417b9e46a0fff8" => :high_sierra
+    sha256 "40c8a74e84cbf2826c098c04e888989166cbe27a9f387754c69b046b3761e6e9" => :big_sur
+    sha256 "42df277f75efd31c355901035cf70f440078d5ef973fe3998ea9e0e53f6ffb61" => :arm64_big_sur
+    sha256 "0cb0e21dccf7a4cd8105303569e1f11409f46be63893eea7523d59eeff5b2398" => :catalina
+    sha256 "24070ef84b5cad5ed79d0349b4f1bb41a1097aa20f0c401ab80b1c5646bdd153" => :mojave
+    sha256 "0f0c2eb53f1182cb2b81ae49ba947d87c4ce1d0f3028c8aa5df2c0dc120e3ee8" => :high_sierra
   end
 
   depends_on "docbook-xsl" => :build
@@ -27,7 +30,7 @@ class Gupnp < Formula
   depends_on "glib"
   depends_on "gssdp"
   depends_on "libsoup"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
     mkdir "build" do

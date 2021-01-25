@@ -1,9 +1,9 @@
 class Pdnsrec < Formula
   desc "Non-authoritative/recursing DNS server"
   homepage "https://www.powerdns.com/recursor.html"
-  url "https://downloads.powerdns.com/releases/pdns-recursor-4.3.3.tar.bz2"
-  sha256 "0bbc481d10806233579712a1e4d5f5ee27ca9860e10aa6e1ec317f032bea1508"
-  license "GPL-2.0"
+  url "https://downloads.powerdns.com/releases/pdns-recursor-4.4.2.tar.bz2"
+  sha256 "b0b97f49848a1758b64bc0b99a596c1583ea525477193f3c01905f5163a4f5cf"
+  license "GPL-2.0-only"
 
   livecheck do
     url "https://downloads.powerdns.com/releases/"
@@ -11,14 +11,14 @@ class Pdnsrec < Formula
   end
 
   bottle do
-    sha256 "7959929b5bc6059799909b9af6d222c2aba4744a8f78e344697dceb26fc3c485" => :catalina
-    sha256 "24fe989bb5960ce4bb0900d3e29d4ebcaa68475e5953ca8173c55ebc8c2ce92e" => :mojave
-    sha256 "4c197184d1d5ea6ca9d42994c971dca3f0d6e691811695c787c8794c659c6cb8" => :high_sierra
+    sha256 "09aedfb6fae88ddc911022c9f2d8166e3746d401a9d54fe3742bc117831beff1" => :big_sur
+    sha256 "a6aa0796a7d756013f091d557864091220ca773ee298c609b344a7288408dcf7" => :arm64_big_sur
+    sha256 "5d78e21c1882b3bdf96317c7044a8f247f0601f33ba9dcb074be05ac9d9c7475" => :catalina
+    sha256 "1ebddc007e37972ec7703a6c422dcc81991fd721c32a3ae07d4117ba34faf6a6" => :mojave
   end
 
   depends_on "pkg-config" => :build
   depends_on "boost"
-  depends_on "gcc" if DevelopmentTools.clang_build_version == 600
   depends_on "lua"
   depends_on "openssl@1.1"
 

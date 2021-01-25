@@ -7,11 +7,10 @@ class Nvi < Formula
 
   bottle do
     cellar :any
-    sha256 "433ad12463c8b8f36f78295307d75b9886799b9dd924e2e483667c302a7a8b47" => :catalina
-    sha256 "b5ccb501038dfbb0e14241a2f5efe0c731e05ca0adc2690a473178252f5c0313" => :mojave
-    sha256 "dcaa5dd43e6edfc5c8188761cc8aad6b80a06abc7382b8ceac4d92498354b5c4" => :high_sierra
-    sha256 "1327ea05ec82ec05e9ec7b00b95ac3f7329b198a613385042a0814265b393f13" => :sierra
-    sha256 "e188b0a9fa040c6a11f7ed6338d28d96428e11cfa019aaa1d0aa69e0f2b87bc3" => :el_capitan
+    rebuild 1
+    sha256 "91d13cdd8ff35675b7d54a7cc29a2406a9fcc183e03484ee1a0cd781bca160b9" => :big_sur
+    sha256 "755290657397d76ae23d23636a6d9469447bcbc3dead65ec2859a8f9b7071f88" => :catalina
+    sha256 "03eb1d6e82bb75219ce378e47956fc3b50ef2096e715eec42e37bcf14cde8cd7" => :mojave
   end
 
   depends_on "xz" => :build # Homebrew bug. Shouldn't need declaring explicitly.
@@ -51,9 +50,13 @@ class Nvi < Formula
 
   def install
     cd "dist" do
+      # Xcode 12 needs the "-Wno-implicit-function-declaration" to compile successfully
+      # The usual trick of setting $CFLAGS in the environment doesn't work for this
+      # configure file though, but specifying an explicit CC setting does
       system "./configure", "--prefix=#{prefix}",
                             "--program-prefix=n",
-                            "--disable-dependency-tracking"
+                            "--disable-dependency-tracking",
+                            "CC=" + ENV.cc + " -Wno-implicit-function-declaration"
       system "make"
       ENV.deparallelize
       system "make", "install"

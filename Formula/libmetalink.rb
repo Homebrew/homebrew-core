@@ -12,6 +12,8 @@ class Libmetalink < Formula
 
   bottle do
     cellar :any
+    sha256 "ec4a4a8f898432cccfa2198c0e877daf2d80c2ab5bc92a7a9134a3dd75529a87" => :big_sur
+    sha256 "a5eec14410ca7f2ea831d91c273d6372bc851f930944d207f07f35245b077a91" => :arm64_big_sur
     sha256 "a18e6199b4d775a32693aa38b80551d547eb1de58c5d7c788f706276ce296d5e" => :catalina
     sha256 "461d42fab1dd15b7df8144ef814a3b589c5be9177728b522ea73e6c52bec660f" => :mojave
     sha256 "037c9d82da0a2c77031515cc8618b28552c526e559b3d9cebb0f054cd66204e3" => :high_sierra

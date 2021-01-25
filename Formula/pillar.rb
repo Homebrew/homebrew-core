@@ -4,23 +4,22 @@ class Pillar < Formula
   url "https://github.com/comeara/pillar/archive/v2.3.0.tar.gz"
   sha256 "f1bb1f2913b10529263b5cf738dd171b14aff70e97a3c9f654c6fb49c91ef16f"
   license "MIT"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "7f179f5550fbff69f3b7357d1a4edc15dfc7b16a76a9e7dd23df7f3ae4031593" => :catalina
-    sha256 "f75ff57f647c404dbc95a7dc00330a5c9304d380437b7fd370795a1651fc3f7a" => :mojave
-    sha256 "821dac9ddc56019fb7542a7ea77b33e6d3985a483a7f4d52482081389864d276" => :high_sierra
-    sha256 "c84c1441dace68a35a68d280a3880ac4a62721480652474241b8d6a6b175742a" => :sierra
-    sha256 "1f2264e263268d479e04a584003127c833eec237a3514c607f7d8090de48084c" => :el_capitan
+    sha256 "4edab61108a48ddf41f90c46872bbced08a6fb600ed84b8faa2a270be2d4eea4" => :big_sur
+    sha256 "8aac25711310b56913c1838c9d6b4ef72af78ade7b20ca0f5b8519805854e285" => :catalina
+    sha256 "935f68b739a2d86174a045032b5606fffb8c1fa4f7ef74fd0aabc6608dfe068a" => :mojave
+    sha256 "74bd2dde375b70f3a6ad14c7c55bc511d372998d4901daebd627f0ca5200c6bd" => :high_sierra
   end
 
   depends_on "sbt" => :build
-  depends_on java: "1.8"
+  depends_on "openjdk@8"
 
   def install
     inreplace "src/main/bash/pillar" do |s|
-      s.gsub! "$JAVA ", "`/usr/libexec/java_home --version 1.8`/bin/java "
+      s.gsub! "$JAVA ", "#{Formula["openjdk@8"].bin}/java "
       s.gsub! "${PILLAR_ROOT}/lib/pillar.jar", "#{libexec}/pillar-assembly-#{version}.jar"
       s.gsub! "${PILLAR_ROOT}/conf", "#{etc}/pillar-log4j.properties"
     end

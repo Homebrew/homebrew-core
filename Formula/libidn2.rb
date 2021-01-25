@@ -12,6 +12,8 @@ class Libidn2 < Formula
   end
 
   bottle do
+    sha256 "65523d89d65893a402f9f2641793314d5c18f5ba115400ef6ad372b8c177ebd9" => :big_sur
+    sha256 "eb8e6de157329d032c3d3343b15b75896c4bb3aa8bec3fd11055757ddb467827" => :arm64_big_sur
     sha256 "0908585cca518a83f101b2edc0417a26a4b4fc8b76e393c6f6672de6e595c914" => :catalina
     sha256 "d56e7ff347b0a4c2c433cd44564dfef74c9f1b237ef913307e152314677e1360" => :mojave
     sha256 "4530dd74cbd31c49b0f499eda0f9ea29ec7ff6ae00f9aff3974247365d1fb21e" => :high_sierra

@@ -13,11 +13,6 @@ class Ntfs3g < Formula
     end
   end
 
-  livecheck do
-    url :head
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
-  end
-
   bottle do
     cellar :any
     rebuild 1
@@ -27,8 +22,7 @@ class Ntfs3g < Formula
   end
 
   head do
-    url "https://git.code.sf.net/p/ntfs-3g/ntfs-3g.git",
-        branch: "edge"
+    url "https://git.code.sf.net/p/ntfs-3g/ntfs-3g.git", branch: "edge"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -39,7 +33,15 @@ class Ntfs3g < Formula
   depends_on "pkg-config" => :build
   depends_on "coreutils" => :test
   depends_on "gettext"
-  depends_on :osxfuse
+
+  on_macos do
+    deprecate! date: "2020-11-10", because: "requires FUSE"
+    depends_on :osxfuse
+  end
+
+  on_linux do
+    depends_on "libfuse"
+  end
 
   def install
     ENV.append "LDFLAGS", "-lintl"
@@ -80,6 +82,7 @@ class Ntfs3g < Formula
           -o volname="${VOLUME_NAME}" \\
           -o local \\
           -o negative_vncache \\
+          -o auto_xattr \\
           -o auto_cache \\
           -o noatime \\
           -o windows_names \\

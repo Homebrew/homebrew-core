@@ -8,6 +8,8 @@ class Xsd < Formula
 
   bottle do
     cellar :any
+    sha256 "9ce5a5f4190d2db8665260ac89c115888dd986e6f59fb81f03ef0eee97dc3d04" => :big_sur
+    sha256 "d2849a3cc67e9e3ad119bc2de7b4f9f278d44619e770f87ba90978a01cf3222c" => :arm64_big_sur
     sha256 "8de0a3cfd410a3b2640a557e009b751f67c6f2416e38e42aa3a6634e73941847" => :catalina
     sha256 "cb064aa81b48f1777f14888e4c6df4ae3782159f5a315944df49882bce06b231" => :mojave
     sha256 "25dfd3dbcbe7f6f442bf6d45adaa849b5fbc4e7360ca4d9084bb1910252f992d" => :high_sierra

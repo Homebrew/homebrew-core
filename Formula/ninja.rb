@@ -1,42 +1,30 @@
 class Ninja < Formula
   desc "Small build system for use with gyp or CMake"
   homepage "https://ninja-build.org/"
-  url "https://github.com/ninja-build/ninja/archive/v1.10.1.tar.gz"
-  sha256 "a6b6f7ac360d4aabd54e299cc1d8fa7b234cd81b9401693da21221c62569a23e"
+  url "https://github.com/ninja-build/ninja/archive/v1.10.2.tar.gz"
+  sha256 "ce35865411f0490368a8fc383f29071de6690cbadc27704734978221f25e2bed"
   license "Apache-2.0"
-  revision 2
   head "https://github.com/ninja-build/ninja.git"
 
   livecheck do
-    url "https://github.com/ninja-build/ninja/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
-    sha256 "63c39e6268dc84add9ec7322a8d030546054892a89cd0df362ae8b71d9fe3dd1" => :catalina
-    sha256 "1522e6c7e3cf3e9d6c8c4bb19c118f20def7d10f681a5af466486e5f8f50d388" => :mojave
-    sha256 "48ae1960e86fc500b4f4c6d90ec79d82dece00ae7e26936a12cc539b2f707e37" => :high_sierra
+    sha256 "e5e8174fb4bce324cfb42226d46ce1433f34866f0c06ce930a3bbdb40cadd395" => :big_sur
+    sha256 "8be5a50d0bfe6bae6f920def1273bc0da888a5eef7304303888b1a5929bd517e" => :arm64_big_sur
+    sha256 "5eb553057f7595f0c607b100ac263ab5834a057b11e8aca512555f5129f6d544" => :catalina
+    sha256 "8d7775944ef67e3f8884bff5ea0013a80c4811be8c268fdd9b37cc377eb9ec1b" => :mojave
   end
 
-  depends_on "cmake" => :build
-  depends_on "python@3.8"
-
-  # from https://github.com/ninja-build/ninja/pull/1836, remove in next release
-  patch do
-    url "https://github.com/ninja-build/ninja/commit/2f3e5275e2ea67cb634488957adbb997c2ff685f.patch?full_index=1"
-    sha256 "77e96405d6f2d4dbeee07b07186b5963257573fd470894a1ed78e5e6a288e5eb"
-  end
+  depends_on "python@3.9"
 
   def install
-    inreplace "CMakeLists.txt", 'NINJA_PYTHON="python"', "NINJA_PYTHON=\"#{Formula["python@3.8"].opt_bin}/python3\""
+    py = Formula["python@3.9"].opt_bin/"python3"
+    system py, "./configure.py", "--bootstrap", "--verbose", "--with-python=#{py}"
 
-    system "cmake", "-Bbuild-cmake", "-H.", *std_cmake_args
-    system "cmake", "--build", "build-cmake"
-
-    # Quickly test the build
-    system "./build-cmake/ninja_test"
-
-    bin.install "build-cmake/ninja"
+    bin.install "ninja"
     bash_completion.install "misc/bash-completion" => "ninja-completion.sh"
     zsh_completion.install "misc/zsh-completion" => "_ninja"
   end

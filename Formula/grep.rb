@@ -1,9 +1,9 @@
 class Grep < Formula
   desc "GNU grep, egrep and fgrep"
   homepage "https://www.gnu.org/software/grep/"
-  url "https://ftp.gnu.org/gnu/grep/grep-3.5.tar.xz"
-  mirror "https://ftpmirror.gnu.org/grep/grep-3.5.tar.xz"
-  sha256 "b82ac77707c2ab945520c8404c9fa9f890f7791a62cf2103cf6238acad87a44a"
+  url "https://ftp.gnu.org/gnu/grep/grep-3.6.tar.xz"
+  mirror "https://ftpmirror.gnu.org/grep/grep-3.6.tar.xz"
+  sha256 "667e15e8afe189e93f9f21a7cd3a7b3f776202f417330b248c2ad4f997d9373e"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -12,9 +12,11 @@ class Grep < Formula
 
   bottle do
     cellar :any
-    sha256 "9d3347c001171d788a12d0113de23d347722a0587ae27540aa01afb32d95aa3a" => :catalina
-    sha256 "6c8b53ccc62d1dc82c07f4758909d74be944f2f2770fd3a147660a70a78b95e7" => :mojave
-    sha256 "62f85b85c25c50ac0899a16fc83945f4361db6e4c8beae0e44d4a9f748291622" => :high_sierra
+    sha256 "6ee2dac30a5250d7d218b6520392b4cb8e7a806149f900e11637e556e6a9237a" => :big_sur
+    sha256 "a48ab26324b25a6033372f26490b09e7e0569f76a4b7f85bdd0aa9a3fc996537" => :arm64_big_sur
+    sha256 "78c2b965ced34a99ac47d3058a3971b9696a6157215c82edd16562d6ec6fc689" => :catalina
+    sha256 "80a62eaefb57437bcb3aeb1d8489b9bf062ec77184624249da27afc578be1315" => :mojave
+    sha256 "ae3cfbe66d6391edd32153f9b02e3da1286482dd196a18da017903a0bd4e7cf7" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -28,16 +30,20 @@ class Grep < Formula
       --infodir=#{info}
       --mandir=#{man}
       --with-packager=Homebrew
-      --program-prefix=g
     ]
 
+    on_macos do
+      args << "--program-prefix=g"
+    end
     system "./configure", *args
     system "make"
     system "make", "install"
 
-    %w[grep egrep fgrep].each do |prog|
-      (libexec/"gnubin").install_symlink bin/"g#{prog}" => prog
-      (libexec/"gnuman/man1").install_symlink man1/"g#{prog}.1" => "#{prog}.1"
+    on_macos do
+      %w[grep egrep fgrep].each do |prog|
+        (libexec/"gnubin").install_symlink bin/"g#{prog}" => prog
+        (libexec/"gnuman/man1").install_symlink man1/"g#{prog}.1" => "#{prog}.1"
+      end
     end
 
     libexec.install_symlink "gnuman" => "man"
@@ -56,10 +62,17 @@ class Grep < Formula
     text_file = testpath/"file.txt"
     text_file.write "This line should be matched"
 
-    grepped = shell_output("#{bin}/ggrep match #{text_file}")
-    assert_match "should be matched", grepped
+    on_macos do
+      grepped = shell_output("#{bin}/ggrep match #{text_file}")
+      assert_match "should be matched", grepped
 
-    grepped = shell_output("#{opt_libexec}/gnubin/grep match #{text_file}")
-    assert_match "should be matched", grepped
+      grepped = shell_output("#{opt_libexec}/gnubin/grep match #{text_file}")
+      assert_match "should be matched", grepped
+    end
+
+    on_linux do
+      grepped = shell_output("#{bin}/grep match #{text_file}")
+      assert_match "should be matched", grepped
+    end
   end
 end

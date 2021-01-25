@@ -17,10 +17,18 @@ class Squashfuse < Formula
   depends_on "pkg-config" => :build
   depends_on "lz4"
   depends_on "lzo"
-  depends_on :osxfuse
   depends_on "squashfs"
   depends_on "xz"
   depends_on "zstd"
+
+  on_macos do
+    deprecate! date: "2020-11-10", because: "requires FUSE"
+    depends_on :osxfuse
+  end
+
+  on_linux do
+    depends_on "libfuse"
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking",
@@ -29,7 +37,7 @@ class Squashfuse < Formula
     system "make", "install"
   end
 
-  # Unfortunately, making/testing a squash mount requires sudo priviledges, so
+  # Unfortunately, making/testing a squash mount requires sudo privileges, so
   # just test that squashfuse execs for now.
   test do
     output = shell_output("#{bin}/squashfuse --version 2>&1", 254)

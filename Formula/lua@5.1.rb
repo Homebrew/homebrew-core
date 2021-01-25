@@ -10,12 +10,16 @@ class LuaAT51 < Formula
 
   bottle do
     cellar :any
+    sha256 "0d00a4c74d8e5fd3cd36621d318d2c1031a16c5701d2ae669223a2ca8a1a576d" => :big_sur
+    sha256 "cde11765109e69c6484206f4b2a63081b535253f32233471343f03b52505a89b" => :arm64_big_sur
     sha256 "bbc328f48c0cf137907ccabe206f75cc7ade66cf76cafe82ced3a5f885c73da8" => :catalina
     sha256 "4578b515c3e1a255f766d7fa542e632007ac2de8282e207b92192d0bb9bafd11" => :mojave
     sha256 "d374b94b3e4b9af93cb5c04086f4a9836c06953b4b1941c68a92986ba57356b1" => :high_sierra
     sha256 "67ce3661b56fe8dd0daf6f94b7da31a9516b00ae85d9bbe9eabd7ed2e1dbb324" => :sierra
     sha256 "e43d1c75fe4462c5dca2d95ebee9b0e4897c872f03c4331d5898a06a408cbcb3" => :el_capitan
   end
+
+  deprecate! date: "2012-02-17", because: :unsupported
 
   # Be sure to build a dylib, or else runtime modules will pull in another static copy of liblua = crashy
   # See: https://github.com/Homebrew/homebrew/pull/5043
@@ -49,7 +53,7 @@ class LuaAT51 < Formula
     (lib/"pkgconfig").install "etc/lua.pc"
 
     # Renaming from Lua to Lua51.
-    # Note that the naming must be both lua-version & lua.version.
+    # NOTE: The naming must be both lua-version & lua.version.
     # Software can't find the libraries without supporting both the
     # hyphen and full stop.
     mv bin/"lua", bin/"lua-5.1"

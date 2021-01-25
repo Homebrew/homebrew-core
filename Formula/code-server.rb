@@ -1,8 +1,8 @@
 class CodeServer < Formula
   desc "Access VS Code through the browser"
   homepage "https://github.com/cdr/code-server"
-  url "https://registry.npmjs.org/code-server/-/code-server-3.6.0.tgz"
-  sha256 "21bb3801d0c5f510d147fd30c2136e5f29cc1365ea7ddd9b9ecd578bd6302839"
+  url "https://registry.npmjs.org/code-server/-/code-server-3.8.0.tgz"
+  sha256 "a58fef2c00cf1ea77697b0782ef646d9985ad12b93b3542926579d7a54475760"
   license "MIT"
 
   livecheck do
@@ -11,12 +11,13 @@ class CodeServer < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "05ecc38e633a7da62943a68ef0daf1b385bd7596a81a8d199cd2d099eba55956" => :catalina
-    sha256 "451f3a58a7d4fe6f7dfb2cfda0485e4df7edfe0dffd8423c185a448bbc061a8f" => :mojave
-    sha256 "396c4ee64b8337c597587463b22e72e2d5b16ac0bb942d02878b9d5655afd002" => :high_sierra
+    sha256 "cd02322669466b42aa8eaf4d155769827e570ae0ac34dff6e6fdabef849cd4d1" => :big_sur
+    sha256 "57429bcc0b2cd010d525b01b6a9a7d56709865b552b229a6853fe436c867f535" => :arm64_big_sur
+    sha256 "d2fc4b1ca7e5fc63f32e0dda793df134dd9d2a65988179b572958296b6e8c22a" => :catalina
+    sha256 "f0c8eb7d63c46e380bd31c35206cccf7f9827fed255170f13c89fc731f3c042b" => :mojave
   end
 
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
   depends_on "yarn" => :build
   depends_on "node"
 
@@ -70,8 +71,9 @@ class CodeServer < Formula
   end
 
   test do
+    # See https://github.com/cdr/code-server/blob/master/ci/build/test-standalone-release.sh
     system bin/"code-server", "--extensions-dir=.", "--install-extension", "ms-python.python"
-    assert_equal "ms-python.python\n",
+    assert_match "ms-python.python",
       shell_output("#{bin/"code-server"} --extensions-dir=. --list-extensions")
   end
 end

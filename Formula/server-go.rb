@@ -2,15 +2,21 @@ class ServerGo < Formula
   desc "Server for OpenIoTHub"
   homepage "https://github.com/OpenIoTHub/server-go"
   url "https://github.com/OpenIoTHub/server-go.git",
-      tag:      "v1.1.59",
-      revision: "53d0a8d6fbf982a20651d0c420eca3b1f1e95523"
+      tag:      "v1.1.60",
+      revision: "37a40ab1f0ec73b2653db0b22d4e5434c3ef4dfc"
   license "MIT"
+
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a8f9eb48ac79a628aa71ca08caeb8577a85e47b81e81968475aa5b318c536b42" => :catalina
-    sha256 "58996b6453268397e81337f7feb94b346297ba14cf1db24c23b0f05d0c19e420" => :mojave
-    sha256 "8e49eb94a30c9f97b53a6201a165e7f07e1904f4ad9e933c4bc9e613e7c6ff75" => :high_sierra
+    rebuild 1
+    sha256 "245e34c15996fc118f65443e0297ad2979b942e23ec119278ad13edfb1c7f153" => :big_sur
+    sha256 "aace618c432faf119e713c4f497b091b48ea6ce32866346ee6c9bca9cda58fc3" => :catalina
+    sha256 "bd7c2c6f5f20da4bc5d3c3a738412d8b9b4c861629ecba3bff2f7887b89d661b" => :mojave
   end
 
   depends_on "go" => :build
@@ -18,8 +24,7 @@ class ServerGo < Formula
   def install
     (etc/"server-go").mkpath
     system "go", "build", "-mod=vendor", "-ldflags",
-             "-s -w -X main.version=#{version} -X main.commit=#{stable.specs[:revision]} -X main.builtBy=homebrew",
-             *std_go_args
+      "-s -w -X main.version=#{version} -X main.commit=#{Utils.git_head} -X main.builtBy=homebrew", *std_go_args
     etc.install "server-go.yaml" => "server-go/server-go.yaml"
   end
 

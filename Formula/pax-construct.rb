@@ -18,6 +18,7 @@ class PaxConstruct < Formula
   end
 
   test do
+    ENV.prepend_path "PATH", Formula["maven"].opt_bin
     system bin/"pax-create-project", "-g", "Homebrew", "-a", "testing",
                "-v", "alpha-1"
     assert_predicate testpath/"testing/pom.xml", :exist?

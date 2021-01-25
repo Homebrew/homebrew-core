@@ -12,6 +12,8 @@ class Ipbt < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "136112dbee67f57c38adf83a55913fff16c4444d7c849b80be5c463f5e2efc76" => :big_sur
+    sha256 "e9b51c4509c77561acb5e1d2d90dd0b0e0e64b13c15bc3238e508995eb6c782a" => :arm64_big_sur
     sha256 "367536bc0020cd8b4313936070ec9539bcfe56de061a40b6bfc4aa0533d82a5a" => :catalina
     sha256 "e68f7a1286319ca19382bef65cbf2d80fd1f15bc46dc623cbe9b8f73b5d9d848" => :mojave
     sha256 "9ae5d95807ead91cb2bd746fb2f3d4fee82cb39dba42f67bdea9eede792b7261" => :high_sierra

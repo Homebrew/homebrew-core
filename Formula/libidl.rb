@@ -11,6 +11,8 @@ class Libidl < Formula
 
   bottle do
     cellar :any
+    sha256 "320ddc04b68934e51f31fc33223c11097d712869a83242ca6669d05ca112ede9" => :big_sur
+    sha256 "8b4d33f25fe4a01c6924b42d64072cbf42ca133552e67d47c46412ca2e848867" => :arm64_big_sur
     sha256 "fc384a7b4357147c85196b681bd1a96a70e2a7e194c38b6e8afbef5bafc21efb" => :catalina
     sha256 "6221a3b0ea37b55c26bc1f83c84ce3e027a8925b92d63055a51fe3a7d6bdff19" => :mojave
     sha256 "9b07bec68567266f1bc065b05afdb9b034c0c70548145d7cdd963b5958c8da30" => :high_sierra

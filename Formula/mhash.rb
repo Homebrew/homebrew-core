@@ -11,6 +11,8 @@ class Mhash < Formula
 
   bottle do
     cellar :any
+    sha256 "4553e5e48c17e06ad3290dd6ceabb6c9fee21be5b70194c03dd03d7bda873209" => :big_sur
+    sha256 "4f7da0cd859fc828d90946d6c6b80d80a60a85ffe4f82f9dd299ff1b8ba1bb54" => :arm64_big_sur
     sha256 "d7d0a96656fbae5b279223d120bfe456c775a0c751090049bcf3ffffb2231761" => :catalina
     sha256 "b4ee65a9ee33f5e19e085c477ec1634e2aa1626331eb2465484713759b264163" => :mojave
     sha256 "82f39af8037f070fafcad0280b151dc58e1b5b8c3ea1fb75f4ee372256d3ad2b" => :high_sierra

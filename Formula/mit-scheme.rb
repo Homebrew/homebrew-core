@@ -13,6 +13,7 @@ class MitScheme < Formula
   end
 
   bottle do
+    sha256 "ae2167a7a177e9731350e5f7d91679dc29856fd1b504653c5e54c5e3d2266393" => :big_sur
     sha256 "5ae123ef4a76b34e2b927873991a823b0ab68a5518d1543f1e76bf9d3c36e589" => :catalina
     sha256 "7f74120df838cc2f4542c73f20b7f3e3473f23a775d249e2b8170e6acfd43ed1" => :mojave
     sha256 "cf0d2bf18da0dd0454f53f125bcb4d85632619cd8a79f3dd30ddb16a19c0d470" => :high_sierra
@@ -34,7 +35,7 @@ class MitScheme < Formula
     # with the error "the object ..., passed as the second argument to apply, is
     # not the correct type." Only Haswell and above appear to be impacted.
     # Reported 23rd Apr 2016: https://savannah.gnu.org/bugs/index.php?47767
-    # Note that `unless build.bottle?` avoids overriding --bottle-arch=[...].
+    # NOTE: `unless build.bottle?` avoids overriding --bottle-arch=[...].
     ENV["HOMEBREW_OPTFLAGS"] = "-march=#{Hardware.oldest_cpu}" unless build.bottle?
 
     resource("bootstrap").stage do

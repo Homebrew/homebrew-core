@@ -8,6 +8,8 @@ class SfPwgen < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "bcf403285094f1c803d9f8884aff19225ea5d7ab45329d6efc232f468e43b4c2" => :big_sur
+    sha256 "0f425de9f8e3e82e24a4c10143e54006c96e6063a19fb64643ec0b3ce279cdaa" => :arm64_big_sur
     sha256 "0fc934513e71330c48333b6e0698b39013d1b2aee57f93124c0c1bff2236475e" => :catalina
     sha256 "50e87a417ac3d9b5be7318c7e2983db1a1f90759fab02a898f9cd257b15ac6e2" => :mojave
     sha256 "2ebd137c58bd8d20a50251e159b6074e65009a265aa351cf6eb0afd39d59edc1" => :high_sierra

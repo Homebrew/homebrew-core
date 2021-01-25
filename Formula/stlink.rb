@@ -8,6 +8,8 @@ class Stlink < Formula
 
   bottle do
     cellar :any
+    sha256 "28876d237d5ae87630ad88a78c5541687f78a97465c89cf3f9eac64afcc38dc6" => :big_sur
+    sha256 "2318b55d4ebb80eac4b09f76ea89806b33d2662a00a5a7c5a942458a9fb97d5e" => :arm64_big_sur
     sha256 "e24c7913e29b627142d892c8dacfcbb077cea4a8abdb021d2b6624cd7ce61865" => :catalina
     sha256 "85fa59905d566f85a1f7b4dc86a2f770181550ac7402907c326b050f09053272" => :mojave
     sha256 "ca0da39790dc0a876555f19cbf227a05490c126a8f071e971118bdbbd2147787" => :high_sierra

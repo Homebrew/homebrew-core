@@ -7,23 +7,17 @@ class Slackcat < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "31ab32e1c07a54dd6e06900a990f2e4b82295273155f25332596c17671d33b9f" => :catalina
-    sha256 "b8fb7acbcb922af01da7e97b7c3ef303dcda92762996d2ad9a12ffec1bfea608" => :mojave
-    sha256 "4a5566659aedb0453c68c468c65521b53d0602113a940b50afab759488b4997c" => :high_sierra
-    sha256 "80ed662db0f0e057a2346e25244b52fd3019fdb6f1af1e809b03392a82d0dcd9" => :sierra
+    rebuild 1
+    sha256 "d23ba4edd9c5a4009eab83933837add4ed2623016d5380d32509ba2a88ade346" => :big_sur
+    sha256 "f9a013fef9bfc12b384cee438b7d6fed60eda90b5d047b2cd574661ae7ee6b73" => :arm64_big_sur
+    sha256 "c2aeed6d82c38d56f4f1875db98543d06b225568c0c619d63ebac1885092b033" => :catalina
+    sha256 "10da5931d1023b2c34b82c96bbd059edacf8986f7d47dcbc60097ecbf765e429" => :mojave
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    src = buildpath/"src/github.com/vektorlab/slackcat"
-    src.install buildpath.children
-    src.cd do
-      system "go", "build", "-o", bin/"slackcat", "-ldflags", "-X main.version=#{version}"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args, "-ldflags", "-s -w -X main.version=#{version}"
   end
 
   test do

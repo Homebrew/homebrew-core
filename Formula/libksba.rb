@@ -1,8 +1,8 @@
 class Libksba < Formula
   desc "X.509 and CMS library"
   homepage "https://www.gnupg.org/related_software/libksba/"
-  url "https://gnupg.org/ftp/gcrypt/libksba/libksba-1.4.0.tar.bz2"
-  sha256 "bfe6a8e91ff0f54d8a329514db406667000cb207238eded49b599761bfca41b6"
+  url "https://gnupg.org/ftp/gcrypt/libksba/libksba-1.5.0.tar.bz2"
+  sha256 "ae4af129216b2d7fdea0b5bf2a788cd458a79c983bb09a43f4d525cc87aba0ba"
   license "GPL-2.0"
 
   livecheck do
@@ -12,9 +12,10 @@ class Libksba < Formula
 
   bottle do
     cellar :any
-    sha256 "14b9bc72288c2fc4061ea49261427aa9e00738a383433302ff86ae18095b2f4a" => :catalina
-    sha256 "153e805e508005ebd9c8eca39b4027f35cddcc123583a421664746dda51ddbc9" => :mojave
-    sha256 "ed07783410f48fe767e96ad596b570ccd0d849715af99b84f99918428953a9a5" => :high_sierra
+    sha256 "688def210a738526e8cebfe8e556c9bfe4b164887c5918463c37d91b3f694945" => :big_sur
+    sha256 "077fb787593058667da21e25d5beca46ced441193c325c936036d466ad60cd6e" => :arm64_big_sur
+    sha256 "9a305a28ce4d1635c142ea8e02ce5e6ef17007901223fbdbe3572f06398490f3" => :catalina
+    sha256 "a309359bb9d744de1065e91feefdd06f520a6e72a8d266bc256d59fbe23b70d5" => :mojave
   end
 
   depends_on "libgpg-error"

@@ -1,8 +1,8 @@
 class SwaggerCodegenAT2 < Formula
   desc "Generate clients, server stubs, and docs from an OpenAPI spec"
   homepage "https://swagger.io/swagger-codegen/"
-  url "https://github.com/swagger-api/swagger-codegen/archive/v2.4.16.tar.gz"
-  sha256 "0b786ad905a512d78374c784acd1874320764adcdcab046d2f7389a2de3663c6"
+  url "https://github.com/swagger-api/swagger-codegen/archive/v2.4.18.tar.gz"
+  sha256 "dbda71ef9cf24de72056c5eb55ca3ad93ec9631ed2d136124f11b6b555e73d48"
   license "Apache-2.0"
 
   livecheck do
@@ -12,15 +12,15 @@ class SwaggerCodegenAT2 < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "909d4667c2b8c5f735beff4404c8ebc5584af15928ac8cdee821635ee2d552a3" => :catalina
-    sha256 "c395e124b836c0d57d0b749fd8ebf73036225d9722e7d1f71bff0e033ba74a3e" => :mojave
-    sha256 "bc0304846c907c859e147a4a57b0fa9ffe5f31bfd2d11f5039bec14150071afa" => :high_sierra
+    sha256 "f40d93973e1307433c76b8708bce2d0a4d7f72a33f9abb0710d591ebb88a16c4" => :big_sur
+    sha256 "4ae64b61b26aed2224c479413671658e218c32570c3f3cfef8622768f66cf3df" => :catalina
+    sha256 "4aec15628c6d6652aa8d34bf9dfe6e9ebec4708ef5dd06b5ebb3a9db93848bff" => :mojave
   end
 
   keg_only :versioned_formula
 
   depends_on "maven" => :build
-  depends_on java: "1.8"
+  depends_on "openjdk@8"
 
   def install
     ENV["JAVA_HOME"] = Language::Java.java_home("1.8")

@@ -3,24 +3,31 @@ class Cookiecutter < Formula
 
   desc "Utility that creates projects from templates"
   homepage "https://github.com/cookiecutter/cookiecutter"
-  url "https://github.com/cookiecutter/cookiecutter/archive/1.7.2.tar.gz"
-  sha256 "32d176621bbbe76f11012e015930d2382f0fbe803362091e79a5dddbf5612abc"
+  url "https://files.pythonhosted.org/packages/f2/6d/eb4edcf99c3dd17b6d931c5b0b19e093a7147400840f3d8985901c27029f/cookiecutter-1.7.2.tar.gz"
+  sha256 "efb6b2d4780feda8908a873e38f0e61778c23f6a2ea58215723bcceb5b515dac"
   license "BSD-3-Clause"
   revision 1
   head "https://github.com/cookiecutter/cookiecutter.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
-    sha256 "e766079db982bb0f5fc5dc9c6d5c9f95d8b4f2bd1d186ee2f7f3a5c33e88aae3" => :catalina
-    sha256 "8abb80935cd4c22813adee5a114142c7cc0ffdd9c3e98ac9b87f55a8fbdda77f" => :mojave
-    sha256 "2e54c9c71d301a212f3147d7afcca25edcc9dc7f386ccecff6eb0eeaa8629fc8" => :high_sierra
+    rebuild 1
+    sha256 "537ae9adf49033ba8d198c6c6d576f706a04cceee65508613599df73a6cedd8c" => :big_sur
+    sha256 "00f5f08f0d7035700476c2287a43535e5a30b4453f08a7fd7a0ae116392c90b9" => :arm64_big_sur
+    sha256 "5f4969e9554cc3edddf18d453563d37b0d87c4fae669fdd6f1fd5e39c97c6042" => :catalina
+    sha256 "c2f705ced2b86ec483e360e75ada219586d55f609dd955383b49e9336d03fb05" => :mojave
+    sha256 "989dfb954a7f5fb56dc7383554709a68c3fe89c8a938d16b3d97a26d722aae55" => :high_sierra
   end
 
   depends_on "python@3.9"
 
   resource "arrow" do
-    url "https://files.pythonhosted.org/packages/17/d0/8a69308a5cf4f07c53dca744402606610ec910dda1a9cdc94b3fc4a0c3a5/arrow-0.15.5.tar.gz"
-    sha256 "5390e464e2c5f76971b60ffa7ee29c598c7501a294bc9f5e6dadcb251a5d027b"
+    url "https://files.pythonhosted.org/packages/ec/74/1cf2d9912921cebdba3fa954949206c8aa159c9cc803b88140fb227f8a0e/arrow-0.17.0.tar.gz"
+    sha256 "ff08d10cda1d36c68657d6ad20d74fbea493d980f8b2d45344e00d6ed2bf6ed4"
   end
 
   resource "binaryornot" do
@@ -29,8 +36,8 @@ class Cookiecutter < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/b8/e2/a3a86a67c3fc8249ed305fc7b7d290ebe5e4d46ad45573884761ef4dea7b/certifi-2020.4.5.1.tar.gz"
-    sha256 "51fcb31174be6e6664c5f69e3e1691a2d72a1a12e90f872cbdb1567eb47b6519"
+    url "https://files.pythonhosted.org/packages/e6/de/879cf857ae6f890dfa23c3d6239814c5471936b618c8fb0c8732ad5da885/certifi-2020.11.8.tar.gz"
+    sha256 "f05def092c44fbf25834a51509ef6e631dc19765ab8a57b4e7ab85531f0a9cf4"
   end
 
   resource "chardet" do
@@ -39,13 +46,13 @@ class Cookiecutter < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/4e/ab/5d6bc3b697154018ef196f5b17d958fac3854e2efbc39ea07a284d4a6a9b/click-7.1.1.tar.gz"
-    sha256 "8a18b4ea89d8820c5d0c7da8a64b2c324b4dabb695804dbfea19b9be9d88c0cc"
+    url "https://files.pythonhosted.org/packages/27/6f/be940c8b1f1d69daceeb0032fee6c34d7bd70e3e649ccac0951500b4720e/click-7.1.2.tar.gz"
+    sha256 "d2b5255c7c6349bc1bd1e59e08cd12acbbd63ce649f2588755783aa94dfb6b1a"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/cb/19/57503b5de719ee45e83472f339f617b0c01ad75cba44aba1e4c97c2b0abd/idna-2.9.tar.gz"
-    sha256 "7588d1c14ae4c77d74036e8c22ff447b26d0fde8f007354fd48a7814db15b7cb"
+    url "https://files.pythonhosted.org/packages/ea/b7/e0e3c1c467636186c39925827be42f16fee389dc404ac29e930e9136be70/idna-2.10.tar.gz"
+    sha256 "b307872f855b18632ce0c21c5e45be78c0ea7ae4c15c828c20788b26921eb3f6"
   end
 
   resource "Jinja2" do
@@ -74,18 +81,18 @@ class Cookiecutter < Formula
   end
 
   resource "python-slugify" do
-    url "https://files.pythonhosted.org/packages/92/5f/7b84a0bba8a0fdd50c046f8b57dcf179dc16237ad33446079b7c484de04c/python-slugify-4.0.0.tar.gz"
-    sha256 "a8fc3433821140e8f409a9831d13ae5deccd0b033d4744d94b31fea141bdd84c"
+    url "https://files.pythonhosted.org/packages/9f/42/e336f96a8b6007428df772d0d159b8eee9b2f1811593a4931150660402c0/python-slugify-4.0.1.tar.gz"
+    sha256 "69a517766e00c1268e5bbfc0d010a0a8508de0b18d30ad5a1ff357f8ae724270"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/f5/4f/280162d4bd4d8aad241a21aecff7a6e46891b905a4341e7ab549ebaf7915/requests-2.23.0.tar.gz"
-    sha256 "b3f43d496c6daba4493e7c431722aeb7dbc6288f52a6e04e7b6023b0247817e6"
+    url "https://files.pythonhosted.org/packages/9f/14/4a6542a078773957aa83101336375c9597e6fe5889d20abda9c38f9f3ff2/requests-2.25.0.tar.gz"
+    sha256 "7f1a0b932f4a60a1a65caa4263921bb7d9ee911957e0ae4a23a6dd08185ad5f8"
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/21/9f/b251f7f8a76dec1d6651be194dfba8fb8d7781d10ab3987190de8391d08e/six-1.14.0.tar.gz"
-    sha256 "236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a"
+    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
+    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
   end
 
   resource "text-unidecode" do
@@ -94,8 +101,8 @@ class Cookiecutter < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/05/8c/40cd6949373e23081b3ea20d5594ae523e681b6f472e600fbc95ed046a36/urllib3-1.25.9.tar.gz"
-    sha256 "3018294ebefce6572a474f0604c2021e33b3fd8006ecd11d62107a5d2a963527"
+    url "https://files.pythonhosted.org/packages/29/e6/d1a1d78c439cad688757b70f26c50a53332167c364edb0134cadd280e234/urllib3-1.26.2.tar.gz"
+    sha256 "19188f96923873c92ccb987120ec4acaa12f0461fa9ce5d3d0772bc965a39e08"
   end
 
   def install

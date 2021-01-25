@@ -2,8 +2,7 @@ class Id3lib < Formula
   desc "ID3 tag manipulation"
   homepage "https://id3lib.sourceforge.io/"
   revision 1
-  head ":pserver:anonymous:@id3lib.cvs.sourceforge.net:/cvsroot/id3lib",
-    using: :cvs, module: "id3lib-devel"
+  head ":pserver:anonymous:@id3lib.cvs.sourceforge.net:/cvsroot/id3lib", using: :cvs, module: "id3lib-devel"
 
   stable do
     url "https://downloads.sourceforge.net/project/id3lib/id3lib/3.8.3/id3lib-3.8.3.tar.gz"
@@ -26,6 +25,8 @@ class Id3lib < Formula
 
   bottle do
     cellar :any
+    sha256 "18f0b568466493ca322662357962fecfe1774844ad140be1c2d23443c2845ff3" => :big_sur
+    sha256 "7511c1df301e89112972d2b8aa0cc3711f4be7276317f345a26e64ae2a31143b" => :arm64_big_sur
     sha256 "914ff24e2ca015f81b5c58fbd39f1a059c10ecbca87d09cf7e77285435bd158e" => :catalina
     sha256 "fa00373e74d0b57967108dd48b652bf6750c742db31ab72ff9b7c8c777ba181e" => :mojave
     sha256 "33c419dd2789c20e5e71b96185e41b2c81b2056d84b0e1a5cea0835e58dfb572" => :high_sierra

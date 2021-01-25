@@ -12,6 +12,8 @@ class Epic5 < Formula
   end
 
   bottle do
+    sha256 "a605174db456c66cd490bd10ef1c0b0f7ae4c9d1a21462757a072429cdebcd13" => :big_sur
+    sha256 "c2510a819fc48e5b9020247d44e4acd10cc5acbb04bd8b9b6c74a86130b42edb" => :arm64_big_sur
     sha256 "c9aceac94f6264f34f915b36cd0787a636fea6487ecd1795530800b98861160a" => :catalina
     sha256 "41bc8ef329eec3234db4b238933e4d1048ca27519ad0464683a79a8038c8e646" => :mojave
     sha256 "e7a0f24c252fe24ad8d0425da98026fde6dbc0187bd94b6584e562d36ea92573" => :high_sierra

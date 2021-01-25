@@ -1,10 +1,9 @@
 class Mkvtoolnix < Formula
   desc "Matroska media files manipulation tools"
   homepage "https://mkvtoolnix.download/"
-  url "https://mkvtoolnix.download/sources/mkvtoolnix-51.0.0.tar.xz"
-  sha256 "c17aa010a13c943b1347c5a20f7f6e05337a7d90317f525345813bcbcdcf4c70"
+  url "https://mkvtoolnix.download/sources/mkvtoolnix-52.0.0.tar.xz"
+  sha256 "ba48b036f9cd30dcbc98835bc938e316d1d8c8e0c57270e8b49469172954c797"
   license "GPL-2.0-or-later"
-  revision 1
 
   livecheck do
     url "https://mkvtoolnix.download/sources/"
@@ -13,8 +12,10 @@ class Mkvtoolnix < Formula
 
   bottle do
     cellar :any
-    sha256 "218b3a0dbdf6cb257267bcc30d54d432be04960ba637f3c6a3e75124e9cf0fc6" => :catalina
-    sha256 "9e565ae6098d46b9b32be9ec971bd7eca1975213561c71616d9add327a0ab5b1" => :mojave
+    sha256 "300f1694601120d50f06fc0a47cb630d3453803ada9f202ac0dc9252761358c1" => :big_sur
+    sha256 "e17ce87ec0e18d02c2954573b905b83626ef93a28def3d45fd4fe2821effdbd0" => :arm64_big_sur
+    sha256 "6ed48528c522a746919bf8e45e05cf39638bc680875caff3b1ac91ae8ff3a81e" => :catalina
+    sha256 "a54d7fa351997df702d31d3b5bafecd640bda963efe36b6b7a9d417ef1cd0f71" => :mojave
   end
 
   head do
@@ -26,7 +27,6 @@ class Mkvtoolnix < Formula
 
   depends_on "docbook-xsl" => :build
   depends_on "pkg-config" => :build
-  depends_on "pugixml" => :build
   depends_on "boost"
   depends_on "flac"
   depends_on "fmt"
@@ -38,6 +38,7 @@ class Mkvtoolnix < Formula
   depends_on "libvorbis"
   depends_on macos: :mojave # C++17
   depends_on "pcre2"
+  depends_on "pugixml"
 
   uses_from_macos "libxslt" => :build
   uses_from_macos "ruby" => :build

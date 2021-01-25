@@ -7,6 +7,8 @@ class Gifsicle < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "cb3eefd1feccd5bda0979aa5ccf1cc1198b599654a43d33328912733c6644f91" => :big_sur
+    sha256 "4196ed90bad0a312f4b899359d05f7f2dc454bd51ac3bd428598a9e9a9436b0a" => :arm64_big_sur
     sha256 "5c39ab6736846e30082db190167bc498e78d03e523f642057eadc29f854c71b1" => :catalina
     sha256 "52be1cd49246909777199147dcbbeb6f490580558615138ae063b6149cfbe53c" => :mojave
     sha256 "a7cfb607906023c5bdb56a49f8a75ce0b3e2c76a971266bb530d04ed29be74f9" => :high_sierra

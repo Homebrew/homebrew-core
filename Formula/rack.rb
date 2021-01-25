@@ -10,6 +10,7 @@ class Rack < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 2
+    sha256 "8f5f2eac4a06a9295875d213a31505f9b8e66e96b16814176582e3fd5a0a223e" => :big_sur
     sha256 "8cf224e3f734308bef6c0ef3cd9aa3a63aa4fdedd9ee626e2ee91099affc83c2" => :catalina
     sha256 "a50004c910fc4cbb34404fabf20bfcab87dcf6d7ce510a96c72fecbdc8d458cc" => :mojave
     sha256 "5e33e2bc51e9cf346ed59eabbef5849a170619be2a7b034b19d71a1a25a72fcb" => :high_sierra

@@ -3,8 +3,8 @@ class Dxpy < Formula
 
   desc "DNAnexus toolkit utilities and platform API bindings for Python"
   homepage "https://github.com/dnanexus/dx-toolkit"
-  url "https://files.pythonhosted.org/packages/8a/81/2acbcc7506c77462fdc3769cd5d4d467d91f48b10983f798408f10e2d54b/dxpy-0.302.1.tar.gz"
-  sha256 "07cc621dd4810a679772dfd16d90b3798d388700e69555881f5c1cdbfd0d3b27"
+  url "https://files.pythonhosted.org/packages/0b/12/dd25573aad2a135734ae0722c90ff42018c83a50e6d9fe374b3fabf866f8/dxpy-0.306.0.tar.gz"
+  sha256 "0269a5c5ea2dd027228b73ead9b9887582266f2a95b5823fda39ee2bf8bc9dad"
   license "Apache-2.0"
 
   livecheck do
@@ -13,9 +13,10 @@ class Dxpy < Formula
 
   bottle do
     cellar :any
-    sha256 "c9fd5d1f39c75655223dc8bc03e051cd1bf6da808cc2f827aa3ef17f68767918" => :catalina
-    sha256 "50d2e7caf684cad1c5b892a00ba589d949369332e0e32e3538acad585b76fa13" => :mojave
-    sha256 "24b6fac401db9e5bc7941a57bb5d6c6a37b12b164776c1e57da3443f35438ece" => :high_sierra
+    sha256 "97255014546e168d92bab519ea8f23f37797e44868a3e8cdf274c3a72ffb1fd7" => :big_sur
+    sha256 "a512802cea63b09dd1885fcde0b0b25db28cc947af24aa1c612a9967a2a85648" => :arm64_big_sur
+    sha256 "d4375f789126fd9ed28a908a54b6e3afa326080cd765594899009736df8893e7" => :catalina
+    sha256 "af66f042bb37d595a669fde2322ca509e597c26e4b36e0fed220377b1d09b85b" => :mojave
   end
 
   depends_on "python@3.9"
@@ -30,23 +31,18 @@ class Dxpy < Formula
   end
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/45/bd/98dfd56ea8f6b2b7dd89bea8b067a55a6dbaec7b4cc28186cbafe2e1d24e/argcomplete-1.12.1.tar.gz"
-    sha256 "849c2444c35bb2175aea74100ca5f644c29bf716429399c0f2203bb5d9a8e4e6"
-  end
-
-  resource "beautifulsoup4" do
-    url "https://files.pythonhosted.org/packages/26/79/ef9a8bcbec5abc4c618a80737b44b56f1cb393b40238574078c5002b97ce/beautifulsoup4-4.4.1.tar.gz"
-    sha256 "87d4013d0625d4789a4f56b8d79a04d5ce6db1152bb65f1d39744f7709a366b4"
+    url "https://files.pythonhosted.org/packages/cb/53/d2e3d11726367351b00c8f078a96dacb7f57aef2aca0d3b6c437afc56b55/argcomplete-1.12.2.tar.gz"
+    sha256 "de0e1282330940d52ea92a80fea2e4b9e0da1932aaa570f84d268939d1897b04"
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/40/a7/ded59fa294b85ca206082306bba75469a38ea1c7d44ea7e1d64f5443d67a/certifi-2020.6.20.tar.gz"
-    sha256 "5930595817496dd21bb8dc35dad090f1c2cd0adfaf21204bf6732ca5d8ee34d3"
+    url "https://files.pythonhosted.org/packages/06/a9/cd1fd8ee13f73a4d4f491ee219deeeae20afefa914dfb4c130cfc9dc397a/certifi-2020.12.5.tar.gz"
+    sha256 "1a4995114262bffbc2413b159f2a1a480c969de6e6eb13ee966d470af86af59c"
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/cb/ae/380e33d621ae301770358eb11a896a34c34f30db188847a561e8e39ee866/cffi-1.14.3.tar.gz"
-    sha256 "f92f789e4f9241cd262ad7a555ca2c648a98178a953af117ef7fad46aa1d5591"
+    url "https://files.pythonhosted.org/packages/66/6a/98e023b3d11537a5521902ac6b50db470c826c682be6a8c661549cb7717a/cffi-1.14.4.tar.gz"
+    sha256 "1a465cbe98a7fd391d47dce4b8f7e5b921e6cd805ef421d04f5f66ba8f06086c"
   end
 
   resource "chardet" do
@@ -67,8 +63,8 @@ class Dxpy < Formula
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/aa/3e/d18f2c04cf2b528e18515999b0c8e698c136db78f62df34eee89cee205f1/psutil-5.7.2.tar.gz"
-    sha256 "90990af1c3c67195c44c9a889184f84f5b2320dce3ee3acbd054e3ba0b4a7beb"
+    url "https://files.pythonhosted.org/packages/e1/b0/7276de53321c12981717490516b7e612364f2cb372ee8901bd4a66a000d7/psutil-5.8.0.tar.gz"
+    sha256 "0c9ccb99ab76025f2f0bbecf341d4656e9c1351db8cc8a03ccd62e318ab4b5c6"
   end
 
   resource "pycparser" do
@@ -79,11 +75,6 @@ class Dxpy < Formula
   resource "python-dateutil" do
     url "https://files.pythonhosted.org/packages/be/ed/5bbc91f03fa4c839c4c7360375da77f9659af5f7086b7a7bdda65771c8e0/python-dateutil-2.8.1.tar.gz"
     sha256 "73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c"
-  end
-
-  resource "python-magic" do
-    url "https://files.pythonhosted.org/packages/21/57/57c47169c651534014a9852ec690fc0893bab2f67e24d6dab3c945522e7d/python-magic-0.4.6.tar.gz"
-    sha256 "903d3d3c676e2b1244892954e2bbbe27871a633385a9bfe81f1a81a7032df2fe"
   end
 
   resource "requests" do
@@ -97,8 +88,8 @@ class Dxpy < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/81/f4/87467aeb3afc4a6056e1fe86626d259ab97e1213b1dfec14c7cb5f538bf0/urllib3-1.25.10.tar.gz"
-    sha256 "91056c15fa70756691db97756772bb1eb9678fa585d9184f24534b100dc60f4a"
+    url "https://files.pythonhosted.org/packages/76/d9/bbbafc76b18da706451fa91bc2ebe21c0daf8868ef3c30b869ac7cb7f01d/urllib3-1.25.11.tar.gz"
+    sha256 "8d7eaa5a82a1cac232164990f04874c594c9453ec55eef02eab885aa02fc17a2"
   end
 
   resource "websocket_client" do

@@ -6,6 +6,7 @@ class Parrot < Formula
 
   stable do
     url "http://ftp.parrot.org/releases/supported/8.1.0/parrot-8.1.0.tar.bz2"
+    mirror "https://ftp.osuosl.org/pub/parrot/releases/supported/8.1.0/parrot-8.1.0.tar.bz2"
     sha256 "caf356acab64f4ea50595a846808e81d0be8ada8267afbbeb66ddb3c93cb81d3"
 
     # remove at 8.2.0, already in HEAD
@@ -22,6 +23,8 @@ class Parrot < Formula
   end
 
   bottle do
+    sha256 "6953bdfac9ada389705bb8368d2223bb2e22640802a6e643446e018c16024e06" => :big_sur
+    sha256 "d8a39b997791e6fc739322075c52ae288072b787d5f3f401b1040a6548649f63" => :arm64_big_sur
     sha256 "5ffc3252e0454d3d69689e8fa260011079d5684d568f5bb4a5d7d3f60368414f" => :catalina
     sha256 "91a463baca8872dbd12183a61326c78c8ac0e05a01bd1a0421578cb0f6e58427" => :mojave
     sha256 "c3ce1d1fe24e6f5172629cd092cc03db16b957649865af052ee6a72d75fa10e6" => :high_sierra

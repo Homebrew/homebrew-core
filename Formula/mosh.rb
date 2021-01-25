@@ -2,7 +2,7 @@ class Mosh < Formula
   desc "Remote terminal application"
   homepage "https://mosh.org"
   license "GPL-3.0"
-  revision 12
+  revision 14
 
   stable do
     url "https://mosh.org/mosh-1.3.2.tar.gz"
@@ -17,9 +17,10 @@ class Mosh < Formula
 
   bottle do
     cellar :any
-    sha256 "80aa0652a09eacf7e786012d1db2382d7423d476b44c536c1a7a3312b4a5e45a" => :catalina
-    sha256 "6d1567ab1ff2159a5bd346ed8b51bca5fd82506279b930bb10079dc1ea79f860" => :mojave
-    sha256 "e82a65883dc605e100b159ccd55ffee43c14eb65086a02b8cceba67f1b524066" => :high_sierra
+    sha256 "1bf08f5d050d35a8b8e12d8767e6cbd7cf8e42902773a07f0d77c33cdec80ecc" => :big_sur
+    sha256 "f57678679b33783bc9eb6e163f1bdd52d3507610a95ab2adf3130b49b037da93" => :arm64_big_sur
+    sha256 "bcd06e5e53910cdbe91f303791762bb48acf09a0b34e30510fd332a03d4170fe" => :catalina
+    sha256 "e4686d0217150775f8d3f45707dc1a660714432b11b284a45946960fa34f2d6d" => :mojave
   end
 
   head do
@@ -35,6 +36,7 @@ class Mosh < Formula
   depends_on "protobuf"
 
   uses_from_macos "ncurses"
+  uses_from_macos "zlib"
 
   def install
     ENV.cxx11

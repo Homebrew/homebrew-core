@@ -2,17 +2,22 @@ class SyncGateway < Formula
   desc "Make Couchbase Server a replication endpoint for Couchbase Lite"
   homepage "https://docs.couchbase.com/sync-gateway/current/index.html"
   url "https://github.com/couchbase/sync_gateway.git",
-      tag:      "2.7.3",
-      revision: "33d352f97798e45360155b63c022e8a39485134e"
+      tag:      "2.8.0",
+      revision: "e2e7d4286f84e3d101e2ea0d9ee868c66e6243f1"
   license "Apache-2.0"
   revision 1
   head "https://github.com/couchbase/sync_gateway.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     cellar :any_skip_relocation
-    sha256 "e7b1ece8809d746f12ae636fb2f2d037b9662369300d854244003d6cc5203cd3" => :catalina
-    sha256 "39387719b674ef49aee24b68bfdbcd7a0f5389687897c278533fde3f09d713a9" => :mojave
-    sha256 "b68cd8739bfad054aa90a57214dd0accaafc3a03f55cfe67da6a8f0ce0f862d5" => :high_sierra
+    sha256 "1eb668b81243fb12bcbbbacae732a90a03afca24977b00e8ad25b3eab36c564d" => :big_sur
+    sha256 "c433c7310d089ff0399ba66e3f35aca60a5663f207d9b23e95069f0d5dd6e397" => :catalina
+    sha256 "f352f303e22c12d87faa8e5748bce4b33fa831a88b30fb744a4f7e011296fa8b" => :mojave
   end
 
   depends_on "gnupg" => :build
@@ -28,13 +33,12 @@ class SyncGateway < Formula
     (buildpath/"build").install_symlink repo_cache
     cp Dir["*.sh"], "build"
 
-    git_commit = `git rev-parse HEAD`.chomp
     manifest = buildpath/"new-manifest.xml"
     manifest.write Utils.safe_popen_read "python", "rewrite-manifest.sh",
                                          "--manifest-url",
                                          "file://#{buildpath}/manifest/default.xml",
                                          "--project-name", "sync_gateway",
-                                         "--set-revision", git_commit
+                                         "--set-revision", Utils.git_head
     cd "build" do
       mkdir "godeps"
       system "repo", "init", "-u", stable.url, "-m", "manifest/default.xml"

@@ -5,10 +5,6 @@ class Mboxgrep < Formula
   sha256 "78d375a05c3520fad4bca88509d4da0dbe9fba31f36790bd20880e212acd99d7"
   license "GPL-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     cellar :any
     sha256 "abf21ae4b879f4a3e4c9c9b3d6640d4a104bb6d640c9f485bfecd261d217ca40" => :catalina
@@ -19,6 +15,8 @@ class Mboxgrep < Formula
     sha256 "08cbb574005db6e34cc191ae4f46670ca35af252e4e6bbc2041a92e32397bc49" => :yosemite
     sha256 "bb5cefa83e2fb8b37dac858f3119aedb338b29e0eb2715cbff08b4644689ad86" => :mavericks
   end
+
+  disable! date: "2020-12-08", because: :unmaintained
 
   depends_on "pcre"
 

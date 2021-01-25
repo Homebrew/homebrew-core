@@ -3,27 +3,26 @@ class RobotFramework < Formula
 
   desc "Open source test framework for acceptance testing"
   homepage "https://robotframework.org/"
-  url "https://github.com/robotframework/robotframework/archive/v3.2.2.tar.gz"
-  sha256 "6b2bddcecb5d1c6198999e38aeaf4c0366542a5e7b5bd788c6a3a36b055d5ea2"
+  url "https://files.pythonhosted.org/packages/48/d3/b657f083893dfa1d88d94feb5bfdca66ba6f2861f46e3bd58a0ac1af286a/robotframework-3.2.2.zip"
+  sha256 "a0786a916d0572bd9d6afe26e95c6021e3df5dcafa0ece6b302e36366e58c24e"
   license "Apache-2.0"
-  revision 1
+  revision 3
   head "https://github.com/robotframework/robotframework.git"
 
   livecheck do
-    url :head
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    url :stable
   end
 
   bottle do
     cellar :any
-    sha256 "a503c2658071bf333557928bc35ddf4f7ee2b6c83b0fbc894990d084dc0b3b79" => :catalina
-    sha256 "91d269cae3227f25424d703791f655e85c7862d7deb7187740f38bc7417bb352" => :mojave
-    sha256 "cbb701dbc690b5e0ef53a6a66b913eaaaf797af9f8463d01a4fc341ee09918e3" => :high_sierra
+    sha256 "de8036161c9ea308ab4022f699dab41ab5e4a3fc0f05816a9a75c9d37ba4bd94" => :big_sur
+    sha256 "aa67bce52b6c4a04919d3ad4a0e99f8875ca054f9d7cd3c2699dab998205b1ae" => :arm64_big_sur
+    sha256 "5c0e80ea9815eb3703cb31ff6e60cb096efd2d48dc4f0d8e6712b0d03e2946d9" => :catalina
+    sha256 "8552582ce7a5388ce61502c09561947a6667cadf02ad9cf6390abcb02f54e3a6" => :mojave
   end
 
   depends_on "openssl@1.1"
   depends_on "python@3.9"
-  depends_on :x11
 
   resource "bcrypt" do
     url "https://files.pythonhosted.org/packages/fa/aa/025a3ab62469b5167bc397837c9ffc486c42a97ef12ceaa6699d8f5a5416/bcrypt-3.1.7.tar.gz"
@@ -31,8 +30,8 @@ class RobotFramework < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/05/54/3324b0c46340c31b909fcec598696aaec7ddc8c18a63f2db352562d3354c/cffi-1.14.0.tar.gz"
-    sha256 "2d384f4a127a15ba701207f7639d94106693b6cd64173d6c8988e2c25f3ac2b6"
+    url "https://files.pythonhosted.org/packages/66/6a/98e023b3d11537a5521902ac6b50db470c826c682be6a8c661549cb7717a/cffi-1.14.4.tar.gz"
+    sha256 "1a465cbe98a7fd391d47dce4b8f7e5b921e6cd805ef421d04f5f66ba8f06086c"
   end
 
   resource "cryptography" do

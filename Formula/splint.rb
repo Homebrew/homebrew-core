@@ -8,6 +8,8 @@ class Splint < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "bbe9dd0df4449df4259f44c16dc1505e6cdde38c0e7b7cc275d17ae974c8a3b2" => :big_sur
+    sha256 "229d18ade0e3dfc1c9ed796732a57bb385de5dfd8c15d3b265c4ef42cfd5f765" => :arm64_big_sur
     sha256 "98cc2bfccef60b21ec014ff35e71cc91a85e77435b4e429090e2767d0696bef8" => :catalina
     sha256 "abe5a5d75a01fa272839dbc219a5fde2c76c7c7593e7dd365c152e4cb02a2c59" => :mojave
     sha256 "b95c7e4981cb11c23b686dbb01dcc01c1317909371b5d21ba0aa155e47569eec" => :high_sierra

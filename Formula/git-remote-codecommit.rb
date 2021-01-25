@@ -3,17 +3,23 @@ class GitRemoteCodecommit < Formula
 
   desc "Git Remote Helper to interact with AWS CodeCommit"
   homepage "https://github.com/aws/git-remote-codecommit"
-  url "https://github.com/aws/git-remote-codecommit/archive/1.15.1.tar.gz"
-  sha256 "23bcc0715c72217f8dcd5841aecce537c360138016baa6b1ed9a2873af546e0b"
+  url "https://files.pythonhosted.org/packages/1f/82/7c22f218a7fd3177def489febc9b8c262a3b2bcb6785d05e15d435ddcab8/git-remote-codecommit-1.15.1.tar.gz"
+  sha256 "cd99d44a94f9adf8c5f15110d830f62af5fe644030fecc0df68cbda4880a5214"
   license "Apache-2.0"
   revision 1
   head "https://github.com/aws/git-remote-codecommit.git"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     cellar :any_skip_relocation
-    sha256 "67424681bf8ead286d446d946c818027049cbec4c4ddf618644cf1d10b8b24f7" => :catalina
-    sha256 "b98901e24f879198646f624346d0e04ae92d92eddad8857e5d9aa0f97d4294ae" => :mojave
-    sha256 "842cc8e9642a4c5e5875d33b962005a0e0aef7915624216f9b517c9561515b50" => :high_sierra
+    rebuild 1
+    sha256 "aee7f65ffcaa551a185eb59d6917972265d3c9508c15f52c725e2ceefa6f9c04" => :big_sur
+    sha256 "691f3751dfa60d1ead71976570b5b06a76fb6546e0f0cd000e146512c332ce69" => :arm64_big_sur
+    sha256 "60e9845d4b0b0cf980e05903b93c19a320a78a530547b1730a3a740c658d2c67" => :catalina
+    sha256 "841203b77fc24bc7ed3f426de14421ef19d4062c3eaacf8493c624057b3b0352" => :mojave
   end
 
   depends_on "python@3.9"

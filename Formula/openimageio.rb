@@ -1,22 +1,21 @@
 class Openimageio < Formula
   desc "Library for reading, processing and writing images"
   homepage "https://openimageio.org/"
-  url "https://github.com/OpenImageIO/oiio/archive/Release-2.1.18.1.tar.gz"
-  version "2.1.18"
-  sha256 "e2cf54f5b28e18fc88e76e1703f2e39bf144c88378334527e4a1246974659a85"
+  url "https://github.com/OpenImageIO/oiio/archive/Release-2.2.10.1.tar.gz"
+  sha256 "625f4ad666f9aa133039c0ae6ade8fc5dab835fadac988cbe65f824463d614dc"
   license "BSD-3-Clause"
-  revision 2
   head "https://github.com/OpenImageIO/oiio.git"
 
   livecheck do
-    url "https://github.com/OpenImageIO/oiio/releases/latest"
-    regex(%r{href=.*?/tag/Release[._-]v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
+    regex(%r{href=.*?/tag/(?:Release[._-])?v?(\d+(?:\.\d+)+)["' >]}i)
   end
 
   bottle do
-    sha256 "b87c53b6b94b2719645b71923f0a1b5060984a87b274d7755eeb296baf744123" => :catalina
-    sha256 "8bc462b3b5d5ad9644077caf6e16d4fbf79c8ec751777a1cf09e74d6c43f70e1" => :mojave
-    sha256 "8159240c1db16424898e8fe9dbcff7f9c48b5065c278a18f304a0aea5a2b48e1" => :high_sierra
+    sha256 "dbf0227c735a171d07aba6af381bb93671f61c79d6976163ffad13e0ce51e6eb" => :big_sur
+    sha256 "2ec25e439836298b38c6f8107c788c877af223dfd02d76e39d9c18f814735ff7" => :catalina
+    sha256 "bfe208f44fca47f8ed2d591f2752d7bd815c88084d6905cbb2ffdbbfd9cac909" => :mojave
   end
 
   depends_on "cmake" => :build
@@ -34,8 +33,17 @@ class Openimageio < Formula
   depends_on "libtiff"
   depends_on "opencolorio"
   depends_on "openexr"
-  depends_on "python@3.8"
+  depends_on "pybind11"
+  depends_on "python@3.9"
   depends_on "webp"
+
+  # Patch to remove explicit Python framework linkage:
+  # https://github.com/OpenImageIO/oiio/pull/2807
+  # Remove at version bump
+  patch do
+    url "https://github.com/OpenImageIO/oiio/commit/5ed9d270222d18c1a789e08cea543c8cb50e1030.patch?full_index=1"
+    sha256 "1fba4ce7bc33efcd1184a5aef87e76591008c0b1d823f9b82f51eae78802a591"
+  end
 
   def install
     args = std_cmake_args + %w[
@@ -51,25 +59,15 @@ class Openimageio < Formula
       -DUSE_QT=OFF
     ]
 
-    # CMake picks up the system's python shared library, even if we have a brewed one.
-    py3ver = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
-    py3prefix = Formula["python@3.8"].opt_frameworks/"Python.framework/Versions/#{py3ver}"
+    # CMake picks up the system's python dylib, even if we have a brewed one.
+    py3ver = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    py3prefix = Formula["python@3.9"].opt_frameworks/"Python.framework/Versions/#{py3ver}"
 
     ENV["PYTHONPATH"] = lib/"python#{py3ver}/site-packages"
 
     args << "-DPYTHON_EXECUTABLE=#{py3prefix}/bin/python3"
     args << "-DPYTHON_LIBRARY=#{py3prefix}/lib/#{shared_library("libpython#{py3ver}")}"
     args << "-DPYTHON_INCLUDE_DIR=#{py3prefix}/include/python#{py3ver}"
-
-    # CMake picks up boost-python instead of boost-python3
-    args << "-DBOOST_ROOT=#{Formula["boost"].opt_prefix}"
-    boost_lib = Formula["boost-python3"].opt_lib
-    py3ver_without_dots = py3ver.to_s.delete(".")
-    args << "-DBoost_PYTHON_LIBRARIES=#{boost_lib}/#{shared_library("libboost_python#{py3ver_without_dots}-mt")}"
-
-    # This is strange, but must be set to make the hack above work
-    args << "-DBoost_PYTHON_LIBRARY_DEBUG=''"
-    args << "-DBoost_PYTHON_LIBRARY_RELEASE=''"
 
     mkdir "build" do
       system "cmake", "..", *args
@@ -87,6 +85,6 @@ class Openimageio < Formula
       import OpenImageIO
       print(OpenImageIO.VERSION_STRING)
     EOS
-    assert_match version.to_s, pipe_output(Formula["python@3.8"].opt_bin/"python3", output, 0)
+    assert_match version.major_minor_patch.to_s, pipe_output(Formula["python@3.9"].opt_bin/"python3", output, 0)
   end
 end

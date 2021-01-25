@@ -1,10 +1,10 @@
 class Syncthing < Formula
   desc "Open source continuous file synchronization application"
   homepage "https://syncthing.net/"
-  url "https://github.com/syncthing/syncthing/archive/v1.10.0.tar.gz"
-  sha256 "9baacd5383e36696d5ecf467536659c5e4beb12caf2126da29a92bd423277a46"
+  url "https://github.com/syncthing/syncthing/archive/v1.12.1.tar.gz"
+  sha256 "5751365374e03c32f731aeb1d07f7df0984eca30e14878d636b91cd35f0db1c3"
   license "MPL-2.0"
-  head "https://github.com/syncthing/syncthing.git"
+  head "https://github.com/syncthing/syncthing.git", branch: "main"
 
   livecheck do
     url :head
@@ -13,15 +13,16 @@ class Syncthing < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "586b4b37d9300aa93ff433c4ebcd18d29863cf466962802fdf2ec31b9a72f76c" => :catalina
-    sha256 "5ea876c0c49923cc75b31ff0a4598cb0876597d5ca8335bb8d0bdb562d7168a3" => :mojave
-    sha256 "5433ef70f0ac9709aeeffc88a7ab1730113c0ae4fed5fdaf17121b7ab24e1b9e" => :high_sierra
+    sha256 "78be6ce00fa75ba6200d79edcaa8a348c72dea403f9e09f6ba3b3a8418fa7d1c" => :big_sur
+    sha256 "c927c7724cc45631a36dd771c08b05a6ffddbfe363e8278d0280c9ae418fe994" => :catalina
+    sha256 "68942c0186ceb0223bf95d9ce5ac472305550e6ec3fe3f5a45d248171f210e27" => :mojave
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "run", "build.go", "--version", "v#{version}", "--no-upgrade", "tar"
+    build_version = build.head? ? "v0.0.0-#{version}" : "v#{version}"
+    system "go", "run", "build.go", "--version", build_version, "--no-upgrade", "tar"
     bin.install "syncthing"
 
     man1.install Dir["man/*.1"]
@@ -64,7 +65,8 @@ class Syncthing < Formula
   end
 
   test do
-    assert_match "syncthing v#{version} ", shell_output("#{bin}/syncthing --version")
+    build_version = build.head? ? "v0.0.0-#{version}" : "v#{version}"
+    assert_match "syncthing #{build_version} ", shell_output("#{bin}/syncthing --version")
     system bin/"syncthing", "-generate", "./"
   end
 end

@@ -9,10 +9,13 @@ class BoostPython < Formula
 
   bottle do
     cellar :any
-    sha256 "2bfdf94233748ade31906e2d97fd2f6f486b11aa4216eaa7b95184857f8eb2e0" => :catalina
-    sha256 "322e42a7162fdb8007d2fd43301de78bd6d8d2f322524a6b63c5c8f48253a672" => :mojave
-    sha256 "7300cdd1653d195336215d7c2374377e575f770b8b37ac6722abf41b65a86c46" => :high_sierra
+    rebuild 1
+    sha256 "773bf09629cf60599cb4118827d40b81ef792efbe24796ac5a756e4c173ba889" => :big_sur
+    sha256 "6fb5b45ffb117fa0a996a24f6ccf8041685ebbe65b8a5cea26d92028eeff09e4" => :catalina
+    sha256 "f17e33b10753adb4d49cd1d9daf46ba28552953e53069025b84393cb5db89223" => :mojave
   end
+
+  deprecate! date: "2020-01-01", because: "uses Python 2, which is no longer supported"
 
   depends_on "boost"
   depends_on :macos # Due to Python 2
@@ -72,8 +75,8 @@ class BoostPython < Formula
     EOS
 
     pyprefix = `python-config --prefix`.chomp
-    pyincludes = Utils.popen_read("python-config", "--includes").chomp.split(" ")
-    pylib = Utils.popen_read("python-config", "--ldflags").chomp.split(" ")
+    pyincludes = Utils.popen_read("python-config", "--includes").chomp.split
+    pylib = Utils.popen_read("python-config", "--ldflags").chomp.split
 
     system ENV.cxx, "-shared", "hello.cpp", "-L#{lib}", "-lboost_python27",
                     "-o", "hello.so", "-I#{pyprefix}/include/python2.7",

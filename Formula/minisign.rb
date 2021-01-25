@@ -7,12 +7,15 @@ class Minisign < Formula
 
   bottle do
     cellar :any
-    sha256 "ff5a04ebf89d246f641855d36290a38810d18308dbc37377e15e0ae008137685" => :catalina
-    sha256 "25fc3bf106e6df3ad1e32d074faa895ebe22611b3af25df32efd399d88f1a094" => :mojave
-    sha256 "6bcd186e46f2cb55b9c07e6c4562caa2b3c16c5cd10c67c4294356a592e5c01b" => :high_sierra
+    rebuild 1
+    sha256 "9c86c4043d4ebadd47e6ba606b80dcf0611f302dd11d6f8f56b9c4c1f1d3bfe9" => :big_sur
+    sha256 "5e915e427db3117320aff459d67438ac7bf94cf3e37291ca02a1d6b83f2fa827" => :arm64_big_sur
+    sha256 "42a044324786df52bcb3334eb3c07b3c3ac65414af72c17c73ccb0fb081507ab" => :catalina
+    sha256 "fc5d9762d710f500978ac0d09b0fbf6fcf3745c4b018313fe9d3ae5679e1f37e" => :mojave
   end
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "libsodium"
 
   def install

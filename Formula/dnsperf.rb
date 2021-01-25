@@ -1,8 +1,8 @@
 class Dnsperf < Formula
   desc "Measure DNS performance by simulating network conditions"
   homepage "https://www.dns-oarc.net/tools/dnsperf"
-  url "https://www.dns-oarc.net/files/dnsperf/dnsperf-2.3.4.tar.gz"
-  sha256 "adcb3ad28ad46ef9ff4a218c67bd5ea9a9dde556b9a277059a1f390ce0f86581"
+  url "https://www.dns-oarc.net/files/dnsperf/dnsperf-2.4.0.tar.gz"
+  sha256 "25aedca36f5ae15b5b68019741e736579963bdfc9b94235f623cb2deb4ac49c1"
   license "Apache-2.0"
 
   livecheck do
@@ -12,9 +12,10 @@ class Dnsperf < Formula
 
   bottle do
     cellar :any
-    sha256 "29ce167d9cac25446abbab3948a4de2b66bead70576bca24f13bda51c1d79de4" => :catalina
-    sha256 "4cc4b444f46fe98328a3d07c70672b6e963b7b530a10515a02a1f40eab1b2d42" => :mojave
-    sha256 "d2bad43d4858579143f5f01aab16ca5fe8a528b3fe81051ee212ebefc7e4a057" => :high_sierra
+    sha256 "cae2449d62f2b16f38c0fcef4616c7c21d3fdcbeb4675af9a2a2ba4a84c05d91" => :big_sur
+    sha256 "b91cc6c7f9444ba48bad014bdd7c02521fb2f967dad69168c2297f3e45539111" => :arm64_big_sur
+    sha256 "e32893da68dd62e5b22482082724a04999ec02a18830530a9491bf0ef15c3b39" => :catalina
+    sha256 "53cfbe6fa7f93a22cf0bdd6aa5cfe91bb7d3639ff72c809d27d4fd08c8e06d12" => :mojave
   end
 
   depends_on "pkg-config" => :build

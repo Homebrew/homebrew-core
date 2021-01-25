@@ -8,22 +8,25 @@ class Cig < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 2
-    sha256 "bb93970229fc7a62a6ca4b0c446ad36f135d2160aa0dce04fa5afbdc072291d3" => :catalina
-    sha256 "6ae38e73bed4326d85c7f31498b0a5715d877c7a2e32aad9987ba7726efe240e" => :mojave
-    sha256 "9215f225d4b314d1047f6bb4e5c909b82b456d2005fffed8c637ca2d63641791" => :high_sierra
-    sha256 "5d4eb1f34f8b185513d59dc9072f1a95555dd222f0f7a0526c89983e1643fef6" => :sierra
+    rebuild 3
+    sha256 "c41c70e517158f1a31bb4b29a6fa01b12570001353b8800d55aadd4ddc99080e" => :big_sur
+    sha256 "2d4f345393a0553e40003b46523a07e2bb0162bba0309ca9c0d322f606e73b76" => :arm64_big_sur
+    sha256 "3ccce3238efd259041dbb0f0427d5ac06cc4dfafdfbfd336ddd0023e02e9dd7d" => :catalina
+    sha256 "9cf50d9418885990bed7e23b0c2987918d63bef3e7f3e27589c521b6b73160bf" => :mojave
   end
 
   depends_on "go" => :build
-  depends_on "godep" => :build
+
+  # Patch to remove godep dependency.
+  # Remove when the following PR is merged into release:
+  # https://github.com/stevenjack/cig/pull/44
+  patch do
+    url "https://github.com/stevenjack/cig/compare/2d834ee..f0e78f0.patch?full_index"
+    sha256 "3aa14ecfa057ec6aba08d6be3ea0015d9df550b4ede1c3d4eb76bdc441a59a47"
+  end
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/stevenjack").mkpath
-    ln_s buildpath, "src/github.com/stevenjack/cig"
-    system "godep", "restore"
-    system "go", "build", "-o", bin/"cig"
+    system "go", "build", *std_go_args
   end
 
   test do

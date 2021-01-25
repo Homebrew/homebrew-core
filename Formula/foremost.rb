@@ -3,6 +3,7 @@ class Foremost < Formula
   homepage "https://foremost.sourceforge.io/"
   url "https://foremost.sourceforge.io/pkg/foremost-1.5.7.tar.gz"
   sha256 "502054ef212e3d90b292e99c7f7ac91f89f024720cd5a7e7680c3d1901ef5f34"
+  license :public_domain
 
   livecheck do
     url "http://foremost.sourceforge.net/"
@@ -12,17 +13,18 @@ class Foremost < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 2
-    sha256 "3ce88077de06f1f58980822adeed92ca6db4b32bad5ed24aa3912dc8f0a1a47f" => :catalina
-    sha256 "2255dbe5608916e081e46f1d332fcfc9b47265630827a472c4166daa061ea373" => :mojave
-    sha256 "4411ec156c431a8715ba5d74f101c8f4e54793001424729dde2e305abf570558" => :high_sierra
+    rebuild 3
+    sha256 "c8f1ad7327f5cc999d9c54486bfcf2a1c6ab4ff3e76b455b3ba79f930befba14" => :big_sur
+    sha256 "eaa53c5ccfead5cbb2e83d5b2fe176e55e5b7f1968b8badb07e8ada47aaea79b" => :arm64_big_sur
+    sha256 "9ccac7b43068a6c89c5b48b33af7bfac09ab7e69fb36b1376e79646c6a01f049" => :catalina
+    sha256 "a552aed53b1ca671b4c23e0dd61ce2e82ea09a0c2798615a6a44860475aeaea7" => :mojave
   end
 
   def install
     inreplace "Makefile" do |s|
       s.gsub! "/usr/", "#{prefix}/"
       s.change_make_var! "RAW_CC", ENV.cc
-      s.change_make_var! "RAW_FLAGS", ENV.cflags
+      s.gsub! /^RAW_FLAGS =/, "RAW_FLAGS = #{ENV.cflags}"
     end
 
     system "make", "mac"

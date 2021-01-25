@@ -9,6 +9,8 @@ class Glulxe < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c91f5b0f903a0f4d94949e38aa9eecb5ec9102ad84ea498d890fd630a507334e" => :big_sur
+    sha256 "5d7b38cab2ce276b1757967e7f63a0fa20ab9ed0ba8e9deb18865e403862d144" => :arm64_big_sur
     sha256 "8f14cd2b19deb64a78d25bda3426d27b0fa25708daf39f7ccd9721daca81b8f1" => :catalina
     sha256 "cfff5a59e704d30bd2cd75955245c286183b301dc93bd63c8ba9e7e2d00c356f" => :mojave
     sha256 "229ef4b0b9e61f0e1ecf0b632ccd5fee08df494a97203820368e669a91f4028d" => :high_sierra

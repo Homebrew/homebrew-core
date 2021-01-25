@@ -7,6 +7,8 @@ class RandomizeLines < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "05b5f772ee8d86ef341e30e91194b0a4b0cdbe5d3e16c8e319ed5e74a901e806" => :big_sur
+    sha256 "c107eea0fba80096a370db46e622320bdb9ea825b837280e46ad236b3a37bbd4" => :arm64_big_sur
     sha256 "ff6262e5a351158ca8a2b25b577a892fc4cf2b7f9a2330e9fec595970c81674d" => :catalina
     sha256 "58709789bd3fae27aaa79f0c5149fc613128bb01e50e3a5b5dbdc61fe2f1b8bf" => :mojave
     sha256 "2d539a346c5a41f2b20773d8373e61f91a5d7e5b72b6d6dde7bd7c99dae64b6e" => :high_sierra

@@ -1,15 +1,16 @@
 class Bingrep < Formula
   desc "Greps through binaries from various OSs and architectures"
   homepage "https://github.com/m4b/bingrep"
-  url "https://github.com/m4b/bingrep/archive/v0.8.2.tar.gz"
-  sha256 "5647d78166a2d768b98ae03bd40427f2263b28b81213882d42f638c5b96619e2"
+  url "https://github.com/m4b/bingrep/archive/v0.8.5.tar.gz"
+  sha256 "082119e776009b8cb2293b90b49386bfedf2fccaef95130c1f1e3454f6e74e55"
   license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "38cb293ea71d8d11e422838e378cb67b09334590ed501e45b9a0f6da7d70f3ac" => :catalina
-    sha256 "cef323546a1e6978ca5a67f9f18333819e318bbe136d9ba210c1fbd89f4af82f" => :mojave
-    sha256 "d63ae62eff912723629b9d991fb77771f700ee306cf3b3cc40a934e3f2f13dd1" => :high_sierra
+    sha256 "a4024e1291282371002c7af0a35fcb55e929300b0b60a4b2f97dfd0755af396e" => :big_sur
+    sha256 "68702daacc07c6c76ac3f1588a8bf6714af26ee054acdbb01308a2382d53b3a9" => :arm64_big_sur
+    sha256 "bf59cab5aa3c7710fe2910aac21433ff8c10c4101b44df3669783d588178633f" => :catalina
+    sha256 "3fde029ce5bc7b15c715543091868082ffcdd8f1be4d661061b8256c0289dcba" => :mojave
   end
 
   depends_on "rust" => :build

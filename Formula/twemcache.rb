@@ -9,6 +9,8 @@ class Twemcache < Formula
 
   bottle do
     cellar :any
+    sha256 "125878f0cdb71a5ac116ddcdfc139fd43d8ca2415e450c78bb25ff20cf65132e" => :big_sur
+    sha256 "9fc117b9ed7036aa0a69fb94ee4c66e768f663bfd41cf4e626839f003ed5b9cd" => :arm64_big_sur
     sha256 "64238f0d8c99fad48b6d3f780f2e42557caa316e807a3a411fbeab3a649fc0c3" => :catalina
     sha256 "2c7fd2ce03cc16859264882f478137de35ece42a26ad9b10f23d668ddc1883d4" => :mojave
     sha256 "9cc173642f9e53b723321a3013f2327b8a712c528c53ac5bd9fd2b9420244fcb" => :high_sierra

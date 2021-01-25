@@ -6,18 +6,14 @@ class Ocamlsdl < Formula
   license "LGPL-2.1-or-later"
   revision 13
 
-  livecheck do
-    url :stable
-  end
-
-  disable! because: :unmaintained
-
   bottle do
     cellar :any
     sha256 "8ccd0c9f59b9fad6fe084e57e726cd20d0f26497e71e4be94ff7f603512cbef8" => :catalina
     sha256 "6cd21f03d8a557368499d9cd61233dab4bab11fcd99c312036d58d660598c539" => :mojave
     sha256 "6ae2abcf123aef7ce6cc2c5aad0d912bc459fdd9e7e2abfa99135d672767ddb7" => :high_sierra
   end
+
+  disable! date: "2020-09-21", because: :unmaintained
 
   depends_on "ocaml"
   depends_on "sdl"

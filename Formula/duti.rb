@@ -14,6 +14,8 @@ class Duti < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "d2e0ccdd5be1c9f272787bc96ed419df33ef4199b47bb8a0762af596d3fc442b" => :big_sur
+    sha256 "f7ba0f6fd9de2bd9f853883027edcb480b7cf12c7a2076aa87226efc239d5578" => :arm64_big_sur
     sha256 "5fe04375afd229149721ce8a0cd66fe7a372fa5a5dce11084616d2a979aa47fe" => :catalina
     sha256 "ffb23db168b014703e505ef2d76d7bc431efd5d4d1244833d9b2ddf5723133a6" => :mojave
     sha256 "e495d02894655b516f79fa10671f5d768cae04c5b73c1aa077f8b0c573584cbf" => :high_sierra

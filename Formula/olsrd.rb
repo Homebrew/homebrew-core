@@ -14,6 +14,8 @@ class Olsrd < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "52333a59755987095e315f745c70d2187513099c2aff7692d8bf4711a44354d9" => :big_sur
+    sha256 "d962f1a213860c614fafd91b494c4c06700c2d960645ff18bc410a071ba90250" => :arm64_big_sur
     sha256 "95e531e19da3a6e11bf48851691e411d3fb27acf7dc18ccf5bed5c32aa3df4ff" => :catalina
     sha256 "5ba1b0c584a2efe1d518be4032432818fca8bbccd3078e23ef7bbb3a9359a73e" => :mojave
     sha256 "70402085753c70fb12f3e0f249bf109ac77e0a22d7be890ac6484d7ffce8501f" => :high_sierra

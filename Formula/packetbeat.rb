@@ -2,16 +2,16 @@ class Packetbeat < Formula
   desc "Lightweight Shipper for Network Data"
   homepage "https://www.elastic.co/products/beats/packetbeat"
   url "https://github.com/elastic/beats.git",
-    tag:      "v7.9.2",
-    revision: "2ab907f5ccecf9fd82fe37105082e89fd871f684"
+      tag:      "v7.10.2",
+      revision: "aacf9ecd9c494aa0908f61fbca82c906b16562a8"
   license "Apache-2.0"
   head "https://github.com/elastic/beats.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1c6a9026941bfb70096b982cd5581ec527bf34dceed82bc3a3071b7d131a9609" => :catalina
-    sha256 "8503ab78139082d6aff6e9cc482bb234aeb1fc632857d347ba95e3164c4cab4d" => :mojave
-    sha256 "ec9876f7c3bcc43b3d47961538a86d7366cb802f8bba07676b668c0058ef33df" => :high_sierra
+    sha256 "8bd73d32bee241d6f4f43be3eb69c1c0e06ee50ce5d5a5a2d2282330ca9316c4" => :big_sur
+    sha256 "c2bc84e64b6d9a7af55b33b0fa7acdd9f866ad5f61af51bbf7bc90c598bf1b63" => :catalina
+    sha256 "b53b4d74d544f5a20b2c750e74d7d64da875c8d75a3bd7a0f1b336e2c1240dc4" => :mojave
   end
 
   depends_on "go" => :build
@@ -20,13 +20,6 @@ class Packetbeat < Formula
   resource "virtualenv" do
     url "https://files.pythonhosted.org/packages/b1/72/2d70c5a1de409ceb3a27ff2ec007ecdd5cc52239e7c74990e32af57affe9/virtualenv-15.2.0.tar.gz"
     sha256 "1d7e241b431e7afce47e77f8843a276f652699d1fa4f93b9d8ce0076fd7b0b54"
-  end
-
-  # Update MarkupSafe to 1.1.1, remove with next release
-  # https://github.com/elastic/beats/pull/20105
-  patch do
-    url "https://github.com/elastic/beats/commit/5a6ca609259956ff5dd8e4ec80b73e6c96ff54b2.patch?full_index=1"
-    sha256 "b362f8921611297a0879110efcb88a04cf660d120ad81cd078356d502ba4c2ce"
   end
 
   def install

@@ -8,6 +8,8 @@ class Nylon < Formula
 
   bottle do
     cellar :any
+    sha256 "dffadaeddcde173302400dfc71686048edf9944a3543ac578ce634d9f283870d" => :big_sur
+    sha256 "26d58c80e5db471ca253930300316cfc77dd1b53fae4ebd38502a48e69d4af8a" => :arm64_big_sur
     sha256 "6138b062f2a435928485795e2b3bdef81983a87137d4bf73029838f19c1210f5" => :catalina
     sha256 "cb2cbfbd8df94b8581a116807075daf9fadbe9b9c5cfa537ea30dfa76537dd5c" => :mojave
     sha256 "3df9b3197c8dc9a227221027047c8de77ddb6ad9ce2edd14544c2d6e4923b660" => :high_sierra

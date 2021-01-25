@@ -1,10 +1,10 @@
 class Gstreamer < Formula
   desc "Development framework for multimedia applications"
   homepage "https://gstreamer.freedesktop.org/"
-  url "https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.18.0.tar.xz"
-  sha256 "0ff09245b06c0aeb5d9a156edcab088a7e8213a0bf9c84a1ff0318f9c00c7805"
+  url "https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.18.3.tar.xz"
+  sha256 "0c2e09e18f2df69a99b5cb3bd53c597b3cc2e35cf6c98043bb86a66f3d312100"
   license "LGPL-2.0-or-later"
-  head "https://anongit.freedesktop.org/git/gstreamer/gstreamer.git"
+  head "https://gitlab.freedesktop.org/gstreamer/gstreamer.git"
 
   livecheck do
     url "https://gstreamer.freedesktop.org/src/gstreamer/"
@@ -12,9 +12,10 @@ class Gstreamer < Formula
   end
 
   bottle do
-    sha256 "fd5b91344d38ca11881e63c4b48c1b5b7311565996393eec83889c81266eb3f3" => :catalina
-    sha256 "b1a07ee418585ce3e6e2b8fe5e64d35e570685d815c427b268fd3bed0bc28993" => :mojave
-    sha256 "ca851a4698d294bdedbb97eda9012e5bff78d19c54b3ac0d2b1340e796ec9d41" => :high_sierra
+    sha256 "f5ddbdbbee54212f4a7ea77df78f7444591416290de476b1241955d258b1da19" => :big_sur
+    sha256 "760ba2b158b164beb570455fdca6540957ccbde2b2eab5a37ed430ae63ec1150" => :arm64_big_sur
+    sha256 "bc7d7022010b0208963c624b9310814b3be2c87fea16f567091a4517c771bfda" => :catalina
+    sha256 "b073cef5157e71dc3c7ff1ada4296dd64ac1e81ec2b94a5095e7135f9c1333f5" => :mojave
   end
 
   depends_on "bison" => :build
@@ -26,13 +27,6 @@ class Gstreamer < Formula
   depends_on "glib"
 
   uses_from_macos "flex" => :build
-
-  # Patch submitted upstream at
-  # https://gitlab.freedesktop.org/gstreamer/gstreamer/-/merge_requests/620
-  patch do
-    url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/commit/40c994cddee41954053f80dde40f56107ddfcfd4.patch"
-    sha256 "ff275d2709b257f592ca03b1f4eb63324a27e5637e6a4f6e9d97dc2727051bb5"
-  end
 
   def install
     # Ban trying to chown to root.

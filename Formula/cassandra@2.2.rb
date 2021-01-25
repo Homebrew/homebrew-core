@@ -1,22 +1,23 @@
 class CassandraAT22 < Formula
   desc "Eventually consistent, distributed key-value db"
   homepage "https://cassandra.apache.org"
-  url "https://www.apache.org/dyn/closer.lua?path=cassandra/2.2.17/apache-cassandra-2.2.17-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/cassandra/2.2.17/apache-cassandra-2.2.17-bin.tar.gz"
-  sha256 "85bd0e19e0b7a83394968ebbadfebf2a595f71741d7f93fb5c063b8ed4841b0b"
+  url "https://www.apache.org/dyn/closer.lua?path=cassandra/2.2.19/apache-cassandra-2.2.19-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/cassandra/2.2.19/apache-cassandra-2.2.19-bin.tar.gz"
+  sha256 "5496c0254a66b6d50bde7999d1bab9129b0406b71ad3318558f4d7dbfbed0ab9"
   license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "831471b06c1c1ca6b694badca02bf2a3e57798945083a8cc4c03842258f23594" => :catalina
-    sha256 "bdf3b77d8a62333ee58d5135552453df4e78051005ebc152255fc8eccb5a4283" => :mojave
-    sha256 "4d88dab4c355c49b3e0977241a02fb74cd2ca4623b0baa1864e3a0379d3396ea" => :high_sierra
+    sha256 "5974043dab4a42016e29a066ec3350be4dd797129b63c3ef5e5037e316b015d8" => :big_sur
+    sha256 "3e083c6e07585547684fa42039189bebe5b5c2f03044f21f984477a2286a6eeb" => :catalina
+    sha256 "95c54bb74536958101d4c7c8d659a68d65495c12ea454d98216f782ec58f9e9d" => :mojave
   end
 
   keg_only :versioned_formula
 
   depends_on "cython" => :build
   depends_on :macos # Due to Python 2 (does not support Python 3)
+  depends_on "openjdk@8"
 
   # Only >=Yosemite has new enough setuptools for successful compile of the below deps.
   # Python 2 needs setuptools < 45.0.0 (https://github.com/pypa/setuptools/issues/2094)
@@ -82,6 +83,9 @@ class CassandraAT22 < Formula
       # Storage path
       s.gsub! "cassandra_storagedir\=\"$CASSANDRA_HOME/data\"",
               "cassandra_storagedir\=\"#{var}/lib/cassandra\""
+
+      s.gsub! "#JAVA_HOME=/usr/local/jdk6",
+              "JAVA_HOME=#{Language::Java.overridable_java_home_env("1.8")[:JAVA_HOME]}"
     end
 
     rm Dir["bin/*.bat", "bin/*.ps1"]

@@ -13,6 +13,8 @@ class Tcpflow < Formula
 
   bottle do
     cellar :any
+    sha256 "adc2978737bdd9f205a3108818521906bf6d5bd8a57d8a4a6dd1e7855bf6eb06" => :big_sur
+    sha256 "478038c100cf6ffc2ef287bab32f37fa3413da393e4a1293a22ab3b9dd1a8251" => :arm64_big_sur
     sha256 "ee9e12b090ff836bf8bd39024f7c8d075e03357bb7c4eca504838e118d06fd6d" => :catalina
     sha256 "ae7eb58e5d805e61b4fc79165574796bf59d2172977579b8716c2ea95631aa42" => :mojave
     sha256 "3b29b20c24395a16a17236a89a5b4ff1121ae2227af79717517b02825a4a7dd7" => :high_sierra

@@ -1,15 +1,16 @@
 class Sonobuoy < Formula
   desc "Kubernetes component that generates reports on cluster conformance"
   homepage "https://github.com/vmware-tanzu/sonobuoy"
-  url "https://github.com/vmware-tanzu/sonobuoy/archive/v0.19.0.tar.gz"
-  sha256 "973d80c1682e52e69c19104cc0080deccdf1ed800823fef4ad98bba3374cd8a2"
+  url "https://github.com/vmware-tanzu/sonobuoy/archive/v0.20.0.tar.gz"
+  sha256 "e64f6026087277d22f1cdc52cb7ff8bfb19ca3671ea6f882c2c1327675b07b9d"
   license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9dcf27cc22316867f46203d9c5a01fbd9c91c971765cefd636624a6291d590cb" => :catalina
-    sha256 "fdded1d50d8ef5d5410c17094b4718950b02f120e7542fbeee663e130f9c6138" => :mojave
-    sha256 "cb90822ab35edb6a86a437100736a559f872c176930dd7ead6bbbd39bbcc7724" => :high_sierra
+    sha256 "d7f3e8d91d907888ebe0585f29b01c64f25cc829f55e3aa0a896d9ef60177a70" => :big_sur
+    sha256 "d4ae3e3c577c3753e15b75cf0af1deb822c441df381d3d1d923a9337684d62a9" => :arm64_big_sur
+    sha256 "cf34ec271d9a63ea979c379cfb3c30828d4b53ebc3d691d4b7798ca83c7fb87d" => :catalina
+    sha256 "d59cd7e3d92970fb71818826c9a93d3ced9ce9179493d33914df125bbbaa78b0" => :mojave
   end
 
   depends_on "go" => :build

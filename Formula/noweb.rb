@@ -9,6 +9,8 @@ class Noweb < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 2
+    sha256 "3d78bc1dfb0c7d4175744b013ea9aeafb6992824ec079d7218960512e551e8c4" => :big_sur
+    sha256 "58c550c2b55a37c6377eada0ffd5d3db747ebf46ddeef1f9803534ce58ea6c59" => :arm64_big_sur
     sha256 "b52d3febc8494ae943db6f99e0734b61333f95d67994b6b609d4c5129d52f788" => :catalina
     sha256 "17439b95ee2d05eacf81c621aa76645e5bfd9a3c5b5ad61ffd98e1438bb69264" => :mojave
     sha256 "f3ca23f070a74c5e499232667ef64e73d68943d13f6344e70b74426feccca524" => :high_sierra

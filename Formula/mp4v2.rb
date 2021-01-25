@@ -4,14 +4,11 @@ class Mp4v2 < Formula
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/mp4v2/mp4v2-2.0.0.tar.bz2"
   sha256 "0319b9a60b667cf10ee0ec7505eb7bdc0a2e21ca7a93db96ec5bd758e3428338"
 
-  livecheck do
-    url "https://www.googleapis.com/download/storage/v1/b/google-code-archive/o/v2%2Fcode.google.com%2Fmp4v2%2Fdownloads-page-1.json?&alt=media"
-    regex(/mp4v2[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     cellar :any
     rebuild 1
+    sha256 "8a15f36160b80d4bf578a0a61f09e6f80b7fa4f0b15443ce1682346e9fed0a65" => :big_sur
+    sha256 "b5c86440ce97fa8500c4d474c8cc8eb17a48bd3db3724f6ce0a6a3dc6a38cfa3" => :arm64_big_sur
     sha256 "bf2838fe1bf196c40546bfb7a5800bce710aaf55305a05b719d07d9de2e5b24e" => :catalina
     sha256 "bd4c8e435216cbfc4ed60030e1cd4135156643f8befa1477061c1e59292394bb" => :mojave
     sha256 "359eecfb160a0d31975961933b50c7ba512891aedd053e3e9153edba1da364c3" => :high_sierra

@@ -10,6 +10,8 @@ class ProofGeneral < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 3
+    sha256 "4fbcb27cb3b5bbdc7fba3cf07ca70953ab66cdd7749c85b06097d272cc31a630" => :big_sur
+    sha256 "89bdd53f3c8afd028343bbb03ce2311cdeeab93924b96817b1b408117adc60fd" => :arm64_big_sur
     sha256 "ccc115760830d046c9e53277a571f451eb251c9b10c09589c627f146f4a9a4dd" => :catalina
     sha256 "ccc115760830d046c9e53277a571f451eb251c9b10c09589c627f146f4a9a4dd" => :mojave
     sha256 "ccc115760830d046c9e53277a571f451eb251c9b10c09589c627f146f4a9a4dd" => :high_sierra

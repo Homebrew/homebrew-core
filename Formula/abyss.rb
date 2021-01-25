@@ -5,8 +5,15 @@ class Abyss < Formula
   sha256 "38e886f455074c76b32dd549e94cc345f46cb1d33ab11ad3e8e1f5214fc65521"
   license all_of: ["GPL-3.0-only", "LGPL-2.1-or-later", "MIT", "BSD-3-Clause"]
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     cellar :any
+    sha256 "9fe0e2f711647eda6cfc6f4dc8ff0259f6fa96534fa1bfa9f895cfc2b62830b6" => :big_sur
+    sha256 "4f653f5b026d1ed8c2b0ced4f47a13bf13cbef542ca1c14d9ef4a9ac2feca90b" => :arm64_big_sur
     sha256 "521a584ab5f11e69de3b4b2362bdcf89cf3b541b32694c30eec6e71d334c8232" => :catalina
     sha256 "8c473ad4f6d9c3b786069c1d933d1ee8e72fb117f1ddbef65b0696163cf34292" => :mojave
     sha256 "7fbea49ff3c1cdf2867ceac467be40d16a37cf104ef7fcd478faf0cfdd726eea" => :high_sierra

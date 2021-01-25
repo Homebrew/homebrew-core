@@ -3,18 +3,22 @@ class MesalibGlw < Formula
   homepage "https://www.mesa3d.org"
   url "https://mesa.freedesktop.org/archive/glw/glw-8.0.0.tar.bz2"
   sha256 "2da1d06e825f073dcbad264aec7b45c649100e5bcde688ac3035b34c8dbc8597"
+  license :cannot_represent
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "53d9e0afd006865c0030300392ec85eb24f55ce2457e6a44c3b83582a1227649" => :catalina
-    sha256 "2792091234f355f3649eb59dafbcff48abda8cc68ffd78e87ca69621b3d6bf61" => :mojave
-    sha256 "56a6531c8cc2bdb9dced7a17c0875b13cc774f591d5b4ea64e16fa17b09d8d72" => :high_sierra
-    sha256 "c0f19ff9584a9450f0f06bfc6013e1ff7e8cefd520c9d4f0fba1cf3c1b5ce7fc" => :sierra
-    sha256 "340b10f7e65eea02edd9853ff14e5458107c1fb3af99f9bf84b8913e3d96918e" => :el_capitan
+    sha256 "9580a442aa0843b284317be696caa8742165a1574d20e8398c9fadbdfc426dc6" => :big_sur
+    sha256 "fed357436c36aa832c46cad896d75a9b3f0015658732af9cad3a18b19769ea72" => :arm64_big_sur
+    sha256 "1a1690918045f775ea6d71216a5b674b5762556aeaf0285e70533150aa7f14b6" => :catalina
+    sha256 "39c625451d18574ed9b9fcd6383c3a3e3b0ac7633f85d28df97a3594ea02e37a" => :mojave
+    sha256 "fdd89421a230f4b3ea4c2b73cae82cd37d3b44bc61afd5b9e7274dc23491dc8b" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
-  depends_on :x11
+  depends_on "libx11"
+  depends_on "libxt"
+  depends_on "mesa"
 
   def install
     system "./configure", "--disable-debug",

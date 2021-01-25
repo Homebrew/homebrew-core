@@ -10,6 +10,8 @@ class Grsync < Formula
   end
 
   bottle do
+    sha256 "e5a84736533563fda92cc9173a70b6fed4dd450f75b6280734d069a6e1609139" => :big_sur
+    sha256 "55955b7e18bcb06ad62fa0bca9102901b15b47ae9ea5f69324b987db553cb929" => :arm64_big_sur
     sha256 "07f40176b0bfb08d3b461fceb2d4e18f249354ef60a57dd550c11c31d26fee6a" => :catalina
     sha256 "b0bf1fe191950905e46c81953e93a72c6c6c185c146b1a79d09e388348e1c5f1" => :mojave
     sha256 "741b7306a6373fc2d86a416a2def2a06c1fd25ab6b30585755faa8326c497c2b" => :high_sierra

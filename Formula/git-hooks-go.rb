@@ -1,16 +1,17 @@
 class GitHooksGo < Formula
   desc "Git hooks manager"
   homepage "https://git-hooks.github.io/git-hooks"
-  url "https://github.com/git-hooks/git-hooks/archive/v1.3.0.tar.gz"
-  sha256 "518eadf3229d9db16d603290634af8ae66461ec021edf646e8bca49deee81850"
+  url "https://github.com/git-hooks/git-hooks/archive/v1.3.1.tar.gz"
+  sha256 "c37cedf52b3ea267b7d3de67dde31adad4d2a22a7780950d6ca2da64a8b0341b"
   license "MIT"
   head "https://github.com/git-hooks/git-hooks.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "367a0e8d166a30749447132c88d5bf1c43fc8ab7c4316c91a990c13d4e887c32" => :catalina
-    sha256 "b61330cf67d4b8a572bb2f7a22434a00bb74d85bb93254ff6a60e8d3c8f12877" => :mojave
-    sha256 "95786772c28deeaaa6c979f93174e1f49bd6dd8370e8927861f6b950dd5b3910" => :high_sierra
+    sha256 "bb65c1d92db2e31b8d3d2447e3c4642a1865658f9d8075a381439ca311b2ddde" => :big_sur
+    sha256 "0162bfccf604080a5c520a02bf84cb006390935f8cc59c0ef4c1f7f08d071cbd" => :arm64_big_sur
+    sha256 "c297503f6623a3c258c84a887225f3690433a16e97492f7071cc0c3ebee0d073" => :catalina
+    sha256 "c5323401f5a7f37a895c9b7b579f10e75fccf0f83ba9fa4bfba4782cebeedbb1" => :mojave
   end
 
   depends_on "go" => :build

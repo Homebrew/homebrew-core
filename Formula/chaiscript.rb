@@ -8,6 +8,7 @@ class Chaiscript < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "60056d2144073414ba1ad75e67b2ced0280a0596e5b7eea36d4475d5109f5c5b" => :big_sur
     sha256 "d8f971e8ca36046cb2ddfa59c4a39091bce3cb1178f2be35d4f5a7a98ec2c932" => :catalina
     sha256 "37f73c985ecbb3d1050f73c5020080fd6b8632780b3cacdc635c6198d9afd7d8" => :mojave
     sha256 "905850906c705182fe0c3011314d52b852585121f91c91a03ad20cc1b4a1a830" => :high_sierra
@@ -16,7 +17,6 @@ class Chaiscript < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on macos: :el_capitan # needs thread-local storage
 
   def install
     system "cmake", ".", *std_cmake_args

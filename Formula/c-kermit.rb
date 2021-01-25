@@ -13,6 +13,8 @@ class CKermit < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "8f78db34bdbe18b861392eb2ef15aa8d1cf7f869f6bbcaadcb4633bef72965b6" => :big_sur
+    sha256 "d955b3b42d7645769fddf390632af6f113969c349f72677cd1581a86f8b82892" => :arm64_big_sur
     sha256 "fea40d461340389165bcaf8ce5fa074d703baef9a44252d25b3a0f96c29660cf" => :catalina
     sha256 "3021e5f091b9bd56f3b5b1f289552ba83b1d6c10b229fac9aaeb8bbbecdc6f6e" => :mojave
     sha256 "b6eae07c8d3365501f4e13af80b54ded073a2b1fc09fa885a445c7f52d96d589" => :high_sierra

@@ -6,6 +6,8 @@ class Rfcmarkup < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "da2c561d3972fb09274af264976e07f2eead91603cdfc1084787e8d238a2e05e" => :big_sur
+    sha256 "7e74ed6e344dd26f4bb0674b13bf65b9333c29ac7f3552627578b98eb97be599" => :arm64_big_sur
     sha256 "044f47bac55957d49b3665d92e0e33b1bc18a42a9cd465f214b6c08b6838495d" => :catalina
     sha256 "5b39b970ed7615eda4fda38cc597f45b605491e12be8196b2cbe9dacec5e7520" => :mojave
     sha256 "2b9456d420623b967415fdbaf84c9499c852b65a901aed0c4a8e74d286c3af57" => :high_sierra

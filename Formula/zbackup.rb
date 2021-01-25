@@ -3,13 +3,14 @@ class Zbackup < Formula
   homepage "http://zbackup.org"
   url "https://github.com/zbackup/zbackup/archive/1.4.4.tar.gz"
   sha256 "efccccd2a045da91576c591968374379da1dc4ca2e3dec4d3f8f12628fa29a85"
-  revision 15
+  revision 16
 
   bottle do
     cellar :any
-    sha256 "e0be4d9e98c46c1053c28abdb80e3ebfa3226879df87f3f9e2c1153a93c90e49" => :catalina
-    sha256 "66e322817ff57fe5f7414dfd210a7132a99d7e52d2afe6a4ac37aa838802ae17" => :mojave
-    sha256 "b2d1f390339dae2da9e279fe9a3c44d6a88272b152f1863b45383312d7ad6cf0" => :high_sierra
+    sha256 "8463384c48b1fc5d96166d15b2e9a29ac42a0d27cb7c82a4076686b7f94a812f" => :big_sur
+    sha256 "dbbf40f7f4edf658918a7beaa2c0a6c77c010b7dd18f230bb0a584a8fadfb0fd" => :arm64_big_sur
+    sha256 "8fd3d32ae8d088580aad9508af9e2a6cf6460b798bbf8a80ee1f9274ad164915" => :catalina
+    sha256 "1601c36693ddea9f1c5426a6f9f772d1e9b09a1a8750b307ac68eb5727525692" => :mojave
   end
 
   depends_on "cmake" => :build
@@ -17,6 +18,8 @@ class Zbackup < Formula
   depends_on "openssl@1.1"
   depends_on "protobuf"
   depends_on "xz" # get liblzma compression algorithm library from XZutils
+
+  uses_from_macos "zlib"
 
   # These fixes are upstream and can be removed in version 1.5+
   patch do

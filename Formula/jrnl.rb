@@ -3,9 +3,9 @@ class Jrnl < Formula
 
   desc "Command-line note taker"
   homepage "https://jrnl.sh/"
-  url "https://files.pythonhosted.org/packages/be/56/20e494eb2a7be914f05c43048ed1e42bc3eb34515319aa1a72e5fabb7d98/jrnl-2.4.5.tar.gz"
-  sha256 "a5f069efcaa3f5d95cc7712178b3f92915f67eed4034e5f257cc063c6b0e74d9"
-  license "GPL-3.0"
+  url "https://files.pythonhosted.org/packages/42/03/23da43bd2d7e3bfb9492ed27815dbbb7ece978bf440ac31df734d5480412/jrnl-2.7.tar.gz"
+  sha256 "7eacdee43675cc2b9ac091e5a843ccbd334d83d8802c7097bd71d0f2b0d3ba58"
+  license "GPL-3.0-only"
 
   livecheck do
     url :stable
@@ -13,13 +13,13 @@ class Jrnl < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "25696f955444e6c514615da197af5703d1b232bcb24116f9b702b228f8dfb131" => :catalina
-    sha256 "38ccd7172143f13e66a38eb305c9f827748b5149d4f290924988de958c4eab61" => :mojave
-    sha256 "1c05607e857fa8d9f04732a76df2f76cfc1396f70425dbb2a572aa5c10e492ff" => :high_sierra
+    sha256 "4e448410c5aaeb2956c40164885b44acbf490654b167e070d71994f801686846" => :big_sur
+    sha256 "61c9d11c1bb47b070876ca61df5f0b0fa15fb67ca5b818cacb47bd2dd6c6869f" => :arm64_big_sur
+    sha256 "98e893542a7b48585a5a1a6a5fd01f6d13e43043142c8e195d3e712f64d00647" => :catalina
+    sha256 "c216cd7f0bc5d2fc62aa327aa7ea474cc2e7c2c313ab722994201c0f7a997775" => :mojave
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "expect" => :test
 
@@ -33,33 +33,28 @@ class Jrnl < Formula
   end
 
   resource "asteval" do
-    url "https://files.pythonhosted.org/packages/e4/3b/8aaee90977588fa3e88d7a495af306d6f4a1c1c01c8f0fe0de1fc43d0908/asteval-0.9.18.tar.gz"
-    sha256 "5d64e18b8a72c2c7ae8f9b70d1f80b68bbcaa98c1c0d7047c35489d03209bc86"
+    url "https://files.pythonhosted.org/packages/4f/d5/ce490afa6f6ab1bb97ffd66a80bfb032d22407fc215d60b21ca174e25c51/asteval-0.9.21.tar.gz"
+    sha256 "ee14ba2211cda1c76114e3e7b552cdd57e940309203d5f4106e6d6f2c2346a2e"
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/54/1d/15eae71ab444bd88a1d69f19592dcf32b9e3166ecf427dd9243ef0d3b7bc/cffi-1.14.1.tar.gz"
-    sha256 "b2a2b0d276a136146e012154baefaea2758ef1f56ae9f4e01c612b0831e0bd2f"
+    url "https://files.pythonhosted.org/packages/66/6a/98e023b3d11537a5521902ac6b50db470c826c682be6a8c661549cb7717a/cffi-1.14.4.tar.gz"
+    sha256 "1a465cbe98a7fd391d47dce4b8f7e5b921e6cd805ef421d04f5f66ba8f06086c"
   end
 
   resource "colorama" do
-    url "https://files.pythonhosted.org/packages/82/75/f2a4c0c94c85e2693c229142eb448840fba0f9230111faa889d1f541d12d/colorama-0.4.3.tar.gz"
-    sha256 "e96da0d330793e2cb9485e9ddfd918d456036c7149416295932478192f4436a1"
+    url "https://files.pythonhosted.org/packages/1f/bb/5d3246097ab77fa083a61bd8d3d527b7ae063c7d8e8671b1cf8c4ec10cbe/colorama-0.4.4.tar.gz"
+    sha256 "5941b2b48a20143d2267e95b1c2a7603ce057ee39fd88e7329b0c292aa16869b"
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/56/3b/78c6816918fdf2405d62c98e48589112669f36711e50158a0c15d804c30d/cryptography-2.9.2.tar.gz"
-    sha256 "a0c30272fb4ddda5f5ffc1089d7405b7a71b0b0f51993cb4e5dbb4590b2fc229"
+    url "https://files.pythonhosted.org/packages/b7/82/f7a4ddc1af185936c1e4fa000942ffa8fb2d98cff26b75afa7b3c63391c4/cryptography-3.3.1.tar.gz"
+    sha256 "7e177e4bea2de937a584b13645cab32f25e3d96fc0bc4a4cf99c27dc77682be6"
   end
 
   resource "keyring" do
-    url "https://files.pythonhosted.org/packages/a6/52/eb8a0e13b54ec9240c7dd68fcd0951c52f62033d438af372831af770f7cc/keyring-21.2.1.tar.gz"
-    sha256 "c53e0e5ccde3ad34284a40ce7976b5b3a3d6de70344c3f8ee44364cc340976ec"
-  end
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/55/fd/fc1aca9cf51ed2f2c11748fa797370027babd82f87829c7a8e6dbe720145/packaging-20.4.tar.gz"
-    sha256 "4357f74f47b9c12db93624a82154e9b120fa8293699949152b22065d556079f8"
+    url "https://files.pythonhosted.org/packages/19/c7/e1a9c556745518c9c3d46613c10a968757b16e29341ec8e0815fd07e0f93/keyring-21.8.0.tar.gz"
+    sha256 "1746d3ac913d449a090caf11e9e4af00e26c3f7f7e81027872192b2398b98675"
   end
 
   resource "parsedatetime" do
@@ -67,19 +62,9 @@ class Jrnl < Formula
     sha256 "4cb368fbb18a0b7231f4d76119165451c8d2e35951455dfee97c62a87b04d455"
   end
 
-  resource "passlib" do
-    url "https://files.pythonhosted.org/packages/6d/6b/4bfca0c13506535289b58f9c9761d20f56ed89439bfe6b8e07416ce58ee1/passlib-1.7.2.tar.gz"
-    sha256 "8d666cef936198bc2ab47ee9b0410c94adf2ba798e5a84bf220be079ae7ab6a8"
-  end
-
   resource "pycparser" do
     url "https://files.pythonhosted.org/packages/0f/86/e19659527668d70be91d0369aeaa055b4eb396b0f387a4f92293a20035bd/pycparser-2.20.tar.gz"
     sha256 "2d475327684562c3a96cc71adf7dc8c4f0565175cf86b6d7a404ff4c771f15f0"
-  end
-
-  resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/c1/47/dfc9c342c9842bbe0036c7f763d2d6686bcf5eb1808ba3e170afdb282210/pyparsing-2.4.7.tar.gz"
-    sha256 "c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"
   end
 
   resource "python-dateutil" do
@@ -88,18 +73,18 @@ class Jrnl < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/f4/f6/94fee50f4d54f58637d4b9987a1b862aeb6cd969e73623e02c5c00755577/pytz-2020.1.tar.gz"
-    sha256 "c35965d010ce31b23eeb663ed3cc8c906275d6be1a34393a1d73a41febf4a048"
+    url "https://files.pythonhosted.org/packages/70/44/404ec10dca553032900a65bcded8b8280cf7c64cc3b723324e2181bf93c9/pytz-2020.5.tar.gz"
+    sha256 "180befebb1927b16f6b57101720075a984c019ac16b1b7575673bea42c6c3da5"
   end
 
   resource "pyxdg" do
-    url "https://files.pythonhosted.org/packages/47/6e/311d5f22e2b76381719b5d0c6e9dc39cd33999adae67db71d7279a6d70f4/pyxdg-0.26.tar.gz"
-    sha256 "fe2928d3f532ed32b39c32a482b54136fe766d19936afc96c8f00645f9da1a06"
+    url "https://files.pythonhosted.org/packages/6f/2e/2251b5ae2f003d865beef79c8fcd517e907ed6a69f58c32403cec3eba9b2/pyxdg-0.27.tar.gz"
+    sha256 "80bd93aae5ed82435f20462ea0208fb198d8eec262e831ee06ce9ddb6b91c5a5"
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/64/c2/b80047c7ac2478f9501676c988a5411ed5572f35d1beff9cae07d321512c/PyYAML-5.3.1.tar.gz"
-    sha256 "b8eac752c5e14d3eca0e6dd9199cd627518cb5ec06add0de9d32baeee6fe645d"
+    url "https://files.pythonhosted.org/packages/a0/a4/d63f2d7597e1a4b55aa3b4d6c5b029991d3b824b5bd331af8d4ab1ed687d/PyYAML-5.4.1.tar.gz"
+    sha256 "607774cbba28732bfa802b54baa7484215f530991055bb562efbed5b2f20a45e"
   end
 
   resource "six" do

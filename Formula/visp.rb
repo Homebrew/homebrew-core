@@ -3,7 +3,7 @@ class Visp < Formula
   homepage "https://visp.inria.fr/"
   url "https://gforge.inria.fr/frs/download.php/latestfile/475/visp-3.3.0.tar.gz"
   sha256 "f2ed11f8fee52c89487e6e24ba6a31fa604b326e08fb0f561a22c877ebdb640d"
-  revision 10
+  revision 11
 
   livecheck do
     url "https://visp.inria.fr/download/"
@@ -11,9 +11,8 @@ class Visp < Formula
   end
 
   bottle do
-    sha256 "928fb42332e4da6954d643ad3a003e1d309c53ea94821f8e75434ae899aac06e" => :catalina
-    sha256 "b9819cad207fbfc0a200422ae0c7f5e57f52ab138243f55b96629e771bd8d813" => :mojave
-    sha256 "8cf7ccba0cc069a589d8a21492267625724bbab209ea517c3f0e43cbc76ebb6d" => :high_sierra
+    sha256 "bbc1c7b0022d1c99d9d144f73a82024d6af8eee0763a794fbc5ce0da98ac6308" => :catalina
+    sha256 "a6c1d3468de47a6725bea5933e1fddbb616fb5736af372a158a1d10aba992101" => :mojave
   end
 
   depends_on "cmake" => :build
@@ -117,7 +116,7 @@ index dd5cabf..23ed382 100644
 --- a/modules/vision/src/key-point/vpKeyPoint.cpp
 +++ b/modules/vision/src/key-point/vpKeyPoint.cpp
 @@ -2269,7 +2269,7 @@ void vpKeyPoint::initDetector(const std::string &detectorName)
- 
+
    if (detectorNameTmp == "SIFT") {
  #ifdef VISP_HAVE_OPENCV_XFEATURES2D
 -    cv::Ptr<cv::FeatureDetector> siftDetector = cv::xfeatures2d::SIFT::create();

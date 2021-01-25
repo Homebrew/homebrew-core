@@ -6,6 +6,7 @@ class GimmeAwsCreds < Formula
   url "https://files.pythonhosted.org/packages/3f/45/7914db3590585b3cc82f3e91c5ff26de4d0542bd24a22a054aa066d34b95/gimme%20aws%20creds-2.3.5.tar.gz"
   sha256 "8e40c49dbbb08ae99618576ffb163f5928a3b05001e869cef63b995d7eb60767"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -13,9 +14,10 @@ class GimmeAwsCreds < Formula
 
   bottle do
     cellar :any
-    sha256 "05fab637d72486194770241723b14f80b28cfd73c9b420d17890aa3b0c6fd109" => :catalina
-    sha256 "ed8da06b863380e0a6a212b5767c909da78a7c521cdcbe8f1f4722c33a4eceb3" => :mojave
-    sha256 "c4d28fba876061ece196d8b9e8eede53d5887701833b860ba7ae249fc4acd236" => :high_sierra
+    sha256 "7d85cf718164805994d15fbf28459f7a3a4217ddac7273f72b739a7d4716fe92" => :big_sur
+    sha256 "19457fe5cf9ac9b6e02d3fbc16bd5bc2f27dbb48d4ac013d6fd84f14cb372ca8" => :arm64_big_sur
+    sha256 "e5d20df1622fc3d9e71afaab90953693635cff0a178a3ee7fb1ab8e10d421373" => :catalina
+    sha256 "47e3dc09b4a4c6208f89592d324ba9e26089e81fa104986444989e850ca4daef" => :mojave
   end
 
   depends_on "python@3.9"
@@ -47,8 +49,8 @@ class GimmeAwsCreds < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/cb/ae/380e33d621ae301770358eb11a896a34c34f30db188847a561e8e39ee866/cffi-1.14.3.tar.gz"
-    sha256 "f92f789e4f9241cd262ad7a555ca2c648a98178a953af117ef7fad46aa1d5591"
+    url "https://files.pythonhosted.org/packages/66/6a/98e023b3d11537a5521902ac6b50db470c826c682be6a8c661549cb7717a/cffi-1.14.4.tar.gz"
+    sha256 "1a465cbe98a7fd391d47dce4b8f7e5b921e6cd805ef421d04f5f66ba8f06086c"
   end
 
   resource "chardet" do

@@ -7,13 +7,11 @@ class Cabocha < Formula
   sha256 "9db896d7f9d83fc3ae34908b788ae514ae19531eb89052e25f061232f6165992"
 
   bottle do
-    sha256 "70e045edcdf30456dfcf96777f0f8fa68807d638ec90995b076c4ce47730e5ff" => :catalina
-    sha256 "7142730e5fa6dd1203d6f34168f85d7704050cf620891a9d0db4f9eefc49370a" => :mojave
-    sha256 "beafa5ccf84633bed67d405f22ac8e570d2dc2fe0e10fccf8c11076639c672ae" => :high_sierra
-    sha256 "27bd41bab80ab64fb32e5bc8b568864b874f0dec16817d38c37abd3c7582c694" => :sierra
-    sha256 "bf3ed6bc9333b43919264913c40a86997a7601a83abf6dcfa1dfe14745b3fc7c" => :el_capitan
-    sha256 "fe97decdca655899faffd6356bb8ddbb52d4949222690835374c3aeb9a65cdb2" => :yosemite
-    sha256 "794df46e362f3146b2bab17ba132978609954b0ba0a51ffa4d6d4e8845548764" => :mavericks
+    rebuild 1
+    sha256 "1dd5c1474946aaab675326323c8f7e3d101687b50d5542464558f54a8c477cc8" => :big_sur
+    sha256 "6db92d4bc14b2b1045601758c9ad2d528fda7ce0029316a2b296c63c4953c54d" => :arm64_big_sur
+    sha256 "0cf6edea1fa69790984c762aaff33bcea3d6cf5206e06cf489c53e8644cbc9a4" => :catalina
+    sha256 "34825bb06bd8cbdb2fe082471044168cccdafc7414eac37eb6550f8a12e0dbe2" => :mojave
   end
 
   depends_on "crf++"

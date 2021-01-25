@@ -13,6 +13,8 @@ class Atool < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 2
+    sha256 "b9492434916b077c29cfadeb04d853748db63bd54e9f4869f4efb03bcc3f00de" => :big_sur
+    sha256 "8a498806923cebdf510cefbd1dc5e1dd8e88b8e50e317e3531dccb08d808d09f" => :arm64_big_sur
     sha256 "78769c7244232e9ba4b403f0dae560e61bc69d08d76936e9797c3f9b18b778f3" => :catalina
     sha256 "afc78205d3558294d008a801f7b06e8fcc94509a34bb0832f914575c196d6f8d" => :mojave
     sha256 "0f28ddbd664675c6b3fe440f6cfba6ac8cc6fc1f97141979bbce485080a759f4" => :high_sierra

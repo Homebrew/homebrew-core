@@ -3,8 +3,7 @@ class Rainbarf < Formula
   homepage "https://github.com/creaktive/rainbarf"
   url "https://github.com/creaktive/rainbarf/archive/v1.4.tar.gz"
   sha256 "066579c0805616075c49c705d1431fb4b7c94a08ef2b27dd8846bd3569a188a4"
-  # license ["Artistic-1.0", "GPL-1.0"] - pending https://github.com/Homebrew/brew/pull/7953
-  license "Artistic-1.0"
+  license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
   head "https://github.com/creaktive/rainbarf.git"
 
   bottle :unneeded

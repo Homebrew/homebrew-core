@@ -1,8 +1,9 @@
 class Dwdiff < Formula
   desc "Diff that operates at the word level"
   homepage "https://os.ghalkes.nl/dwdiff.html"
-  url "https://os.ghalkes.nl/dist/dwdiff-2.1.3.tar.bz2"
-  sha256 "211ddbfaa2e6fcc85d5c88b5141c62a22a13ed0fecffc22fe6dded07e4cf2382"
+  url "https://os.ghalkes.nl/dist/dwdiff-2.1.4.tar.bz2"
+  sha256 "df16fec44dcb467d65a4246a43628f93741996c1773e930b90c6dde22dd58e0a"
+  license "GPL-3.0-only"
 
   livecheck do
     url "https://os.ghalkes.nl/dist/"
@@ -10,9 +11,10 @@ class Dwdiff < Formula
   end
 
   bottle do
-    sha256 "d46e1fc2de0e1f8cf9b1a807f8ec52e7c68ca1a12f9dad1be38cde7b925a206a" => :catalina
-    sha256 "4b154cbac63ac35e11b0d16a4e6a4b59c514c1ed795c4efe63a084d06f718e4b" => :mojave
-    sha256 "0e607121b31851d64aab5e82110ebfec5e052130b0002fad11234f25029b4db3" => :high_sierra
+    sha256 "da01b804a7337d212eaa81bd24f03d84acad1c7a0dec29ba1963cc9e2210263a" => :big_sur
+    sha256 "76860b0aea804eda3d1f9aa8f35b5b5cffe9c5dfae3abdfde268f03c8522b6a7" => :arm64_big_sur
+    sha256 "53b5c3a5a6f4bf8eca91bbfc6428b821697800abae53f27c4cae781bd7388db3" => :catalina
+    sha256 "e81958863d5893f914895fe4fe4e8662af9246986bfad79a37656e2874c5f30a" => :mojave
   end
 
   depends_on "pkg-config" => :build

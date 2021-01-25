@@ -7,8 +7,15 @@ class Rtags < Formula
   license "GPL-3.0"
   head "https://github.com/Andersbakken/rtags.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     cellar :any
+    sha256 "8412892ed1cfce17e4575a7bad34fd208fcc80d44b263460bb75c2d8d9346f3c" => :big_sur
+    sha256 "7db38c61d8d0df69ed9dfa3934ca55480b2b84bea813b6be9fed3d74c11b00be" => :arm64_big_sur
     sha256 "332ba278034061d8789e8bcfc2d06120c122f0912de030524ee44d73089bdda6" => :catalina
     sha256 "a9b3b3f280643e151a9d98438ae1bef2bf77eda3a3412d07c1781d60b6e13a25" => :mojave
     sha256 "b1f34a462f2473d7059b8db4d78ff85f3bc18e5df25e2d597ce95052d15da132" => :high_sierra
@@ -24,11 +31,6 @@ class Rtags < Formula
     ENV.append("LDFLAGS", "-lc++abi")
 
     args = std_cmake_args << "-DRTAGS_NO_BUILD_CLANG=ON"
-
-    if MacOS.version == "10.11" && MacOS::Xcode.version >= "8.0"
-      args << "-DHAVE_CLOCK_MONOTONIC_RAW:INTERNAL=0"
-      args << "-DHAVE_CLOCK_MONOTONIC:INTERNAL=0"
-    end
 
     mkdir "build" do
       system "cmake", "..", *args

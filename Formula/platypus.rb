@@ -8,6 +8,8 @@ class Platypus < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c774fbe0c5fdf4c13999f818a90709e5fa40af5ccd9b2479b2fdb393f61c08d0" => :big_sur
+    sha256 "f88009d8eb146080f0982ca92183e1a519958a92d299f40144e4a0cf67f2a560" => :arm64_big_sur
     sha256 "8e1b66ba6d450ba4cef3ccd2192d58c08f1401a443a44338c80a917f7607341e" => :catalina
     sha256 "a08defbfae9f265bc7473c639b060fb8fa0dd1b6923746a1cf86756112347250" => :mojave
     sha256 "df48127dd7e77c37b7ed73247c74f3bb3d37d0e239590d848f91f8af5f98f628" => :high_sierra
@@ -41,7 +43,7 @@ class Platypus < Formula
         https://sveinbjorn.org/platypus
 
       Alternatively, install with Homebrew Cask:
-        brew cask install platypus
+        brew install --cask platypus
     EOS
   end
 

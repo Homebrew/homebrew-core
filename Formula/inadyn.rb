@@ -6,6 +6,8 @@ class Inadyn < Formula
   license "GPL-2.0"
 
   bottle do
+    sha256 "674155428be4adb0f0dd91fd8175f9e2edd6d7a548f78d4e917e248be80fbdc0" => :big_sur
+    sha256 "9b9e63b6e5cd159642349930fb423cb48385049ff4606895bb82962130dafaab" => :arm64_big_sur
     sha256 "15adb75ac20d48ad952fce27a06f8b8ce8728d5084b9e1b3632215aa7ed2fc64" => :catalina
     sha256 "0100708fe3e5bd57607af7168ba0a02e30d01a79e8af60f86be20717377b5153" => :mojave
     sha256 "892f0bb649feb54f000aa9b5c22a812aeff22b1530f5e54a8783896b88d9ced3" => :high_sierra

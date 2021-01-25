@@ -12,6 +12,7 @@ class Termshare < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "8fdfd431495e9ec1131134560723d80db8b95f72d3ba47725294914c96f3490b" => :big_sur
     sha256 "4dd298c36b89e861cbcbc96746c8174c034ee8fbe1878973e8cee862659fa65a" => :catalina
     sha256 "bb86a376d3ec20e2ccfe1359f90f394b515dedd9d2015a8e0e753704ffbefbdf" => :mojave
     sha256 "9f20373c2b495c9308ed1b798d1d928e06318cbe996093b97e0126b038e76085" => :high_sierra

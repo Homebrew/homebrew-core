@@ -4,9 +4,16 @@ class Libcanberra < Formula
   url "http://0pointer.de/lennart/projects/libcanberra/libcanberra-0.30.tar.xz"
   sha256 "c2b671e67e0c288a69fc33dc1b6f1b534d07882c2aceed37004bf48c601afa72"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?libcanberra[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     rebuild 1
+    sha256 "37f03c26282f804ee5d3c1ae6335c53b494cc89418c017ea3ff3e7c1025dcd12" => :big_sur
+    sha256 "2183cecb64492002ff553ea1e4cc74be23921dec369d86c37c0950b8cdfa2fcd" => :arm64_big_sur
     sha256 "34ff83c6dc8af0afc1f1988ebde1ccb4c17d4604fa6d36567daedef43da3047d" => :catalina
     sha256 "3d32a254ac069ef41b785f6950e3eea625de6faaf99d2402236b451f8c765b05" => :mojave
     sha256 "561aa9aba4e6b5f191b74d3dd1c96de9951e3dc5b696d93abaeaa301aa117bae" => :high_sierra

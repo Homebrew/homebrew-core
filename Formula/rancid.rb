@@ -7,6 +7,8 @@ class Rancid < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "3c22c8b4feebcaf1b03f4feb919c352d2b449aab6341b1fe81164fa771240826" => :big_sur
+    sha256 "b815068fba2453ad568c0406b1f8bd1b1dfe6c69891ac1301a57b01934141132" => :arm64_big_sur
     sha256 "6840b7e2cb719007f53317491e8fe88a56820c121d52ff2bda4403bbcd0ea151" => :catalina
     sha256 "28b5457df20fc95e94e12925073469ba25d31924e622bfca882721fc2852dba7" => :mojave
     sha256 "3f2863b14389c488ace412c10ac68fc82dd01d6d26457c356f58d7de7c7d2d0a" => :high_sierra

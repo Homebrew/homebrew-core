@@ -7,6 +7,8 @@ class Libdmtx < Formula
 
   bottle do
     cellar :any
+    sha256 "4f64097111d22436cd27a92ff5f5e3e7e5c620c3f7756de4d41dcf4766a6f9bb" => :big_sur
+    sha256 "1968ce1608f0ad9e8fc7e845f5ed894ca0c7decdb555aa68fec8d35340345984" => :arm64_big_sur
     sha256 "b4e2a70da91f992862a3609e5e79b9aedc648c97e374b75e701d95eef88b8133" => :catalina
     sha256 "4631cea68d83f274390ff023591256a92fb108b685c0528448a43a48d583c09b" => :mojave
     sha256 "eb892feb7d29f9291a0edc2be6c34b4584614103d4af9d1c62eb54370decd8e1" => :high_sierra

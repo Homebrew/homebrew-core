@@ -6,6 +6,7 @@ class Iperf < Formula
 
   livecheck do
     url :stable
+    regex(%r{url=.*?/iperf[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
   bottle do

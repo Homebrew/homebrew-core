@@ -12,6 +12,8 @@ class TinyFugue < Formula
   end
 
   bottle do
+    sha256 "c7e39f8d3cf009ff749208b5b2efa718a802a2ca82368273b1076a0607a10e76" => :big_sur
+    sha256 "de2a1d16b807c1cede3b8f574a1dbaa5a8bda47b4c65307b33b975b9eec665f7" => :arm64_big_sur
     sha256 "d10777dd98ae76a048caed1179f7a65f8ee59256dcb94cfcd89ac1da0e135209" => :catalina
     sha256 "ea162f2b1644a44d95a2847ec34133661008fff66306e3eda790a25f253f2165" => :mojave
     sha256 "b1ddefa5c2a52f3399f5a90c0586d65e5e7ccc9940715cbe682a1a30e8dc6e76" => :high_sierra

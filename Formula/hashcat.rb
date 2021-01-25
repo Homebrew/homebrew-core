@@ -11,6 +11,8 @@ class Hashcat < Formula
   head "https://github.com/hashcat/hashcat.git"
 
   bottle do
+    sha256 "b0d2f4ed9f9d8450f1d79285869b69909d2a08f9393ec2d8b39cb05dcefb52b9" => :big_sur
+    sha256 "0b7ed83aa1cad6c2b763dee4495d2f56cf5d045dfc8df730a81c4ec35cd453a0" => :arm64_big_sur
     sha256 "dd7e0ba6e2441b0517b55ef243efc8f8be3dfd1550b83033e264057a677e8fa2" => :catalina
     sha256 "ad145c3ffb0ffb779dbdde3e0c1c0329b2b45d491e76ba0b92c48c02028e51c1" => :mojave
     sha256 "2e1cbf12a3f5ed5fceb622e5f773d102edfaff06a847df925456e92dd6ca91ba" => :high_sierra

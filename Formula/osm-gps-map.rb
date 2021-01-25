@@ -7,6 +7,8 @@ class OsmGpsMap < Formula
   revision 5
 
   bottle do
+    sha256 "1f7e957d457ba285d3cfe1ed7993455a5283f48941ba3a6de0c1add17a5b61f7" => :big_sur
+    sha256 "26630bf508c2b9bcacde4c4e40d9c3b393103d044dd0d15f34e3a34931e85d40" => :arm64_big_sur
     sha256 "cbaa9aca7464061d5eb6bb92c24df2a643e065156d67d3615c18c7581e839eda" => :catalina
     sha256 "da1513dbd5379a9176ab65fcd908892332cbc441757aaa4bdd9c7acd8b35c953" => :mojave
     sha256 "25403998f03d0079d5bfecd396f58b5f3ba8277b3af6f76e506c33f0f09a4cad" => :high_sierra

@@ -8,12 +8,14 @@ class Glm < Formula
   head "https://github.com/g-truc/glm.git"
 
   livecheck do
-    url "https://github.com/g-truc/glm/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "0533418aa7813363241f157a547604acc2c097790a6ddaff2967ede127e8225b" => :big_sur
+    sha256 "4835a0d6b85dd518d3b47830bbae5f45521f4588bd02d3f690f792a6960b9492" => :arm64_big_sur
     sha256 "9b661be1f704c2e946dbd4d4f96d58ae82427824ef88d7dd9f0f0cfc3fae2233" => :catalina
     sha256 "7210910c6f106de4c22874f3977b1457cea3db6bb03269ea6831ffae861bb80e" => :mojave
     sha256 "ea41bb7f8f195c22d6f7834c57684412d752e2c72ff795b9056dd90aaebf9d84" => :high_sierra

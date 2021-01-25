@@ -7,6 +7,8 @@ class Bastet < Formula
 
   bottle do
     rebuild 1
+    sha256 "fe79a047ab3449c63ca5890adbfc2c9b703bf6069ebe851cc4af1db8546b3f2b" => :big_sur
+    sha256 "048b7752909e1c445b8367ee87002df7511d5d1520fa0f2c39103f60a7c7c3d8" => :arm64_big_sur
     sha256 "0dfeabb0071431e426ac18b366ff5d065067075e7d3f4572e55a281e6702e215" => :catalina
     sha256 "d1315f05616c060c8b5e83a9ae494f2ffecd2f78d53ef554192bb0e12ef451ef" => :mojave
     sha256 "188658452934d4ef5d48d6837fb0c6bf3e3875488e0c1da8dcf62ca37c1ee998" => :high_sierra

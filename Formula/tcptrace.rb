@@ -17,6 +17,7 @@ class Tcptrace < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "64787cc311c9da8d2090af5732efbe42f74c6dc5037b2b7ecb7055485603f20d" => :big_sur
     sha256 "a1a61bd690da912afedd38f62eac7d5a1724c1ce68c68e7bcd8576e3fb86d956" => :catalina
     sha256 "b927868b2addc93b296fb8f31b08147014e9a81a356d4f18b0d4134db40081de" => :mojave
     sha256 "39916506fcd6385aee6375813128a126a84f947623594011f6c2c9df1b6dc8b2" => :high_sierra

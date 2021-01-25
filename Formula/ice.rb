@@ -6,12 +6,13 @@ class Ice < Formula
   license "GPL-2.0"
 
   livecheck do
-    url "https://github.com/zeroc-ice/ice/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
     cellar :any
+    sha256 "2b1fb05867bdbc31844aa82742923e39bc03da19c95aeab06ef465abbcbf0041" => :big_sur
     sha256 "ed026c50e889b8eab856b8310d9b57a5a09487775b85e0fd3a745c3703234aa3" => :catalina
     sha256 "d8ddc0c493286e78174f61eb8feb7af105c6c4b33580435f6df4515aefa56b0a" => :mojave
     sha256 "d80dfe41a72184cfb820940e926acd8204d5338327b0ff1007fe77e7662a8164" => :high_sierra

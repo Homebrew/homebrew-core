@@ -1,10 +1,10 @@
 class Libsigsegv < Formula
   desc "Library for handling page faults in user mode"
   homepage "https://www.gnu.org/software/libsigsegv/"
-  url "https://ftp.gnu.org/gnu/libsigsegv/libsigsegv-2.12.tar.gz"
-  mirror "https://ftpmirror.gnu.org/libsigsegv/libsigsegv-2.12.tar.gz"
-  sha256 "3ae1af359eebaa4ffc5896a1aee3568c052c99879316a1ab57f8fe1789c390b6"
-  license "GPL-2.0"
+  url "https://ftp.gnu.org/gnu/libsigsegv/libsigsegv-2.13.tar.gz"
+  mirror "https://ftpmirror.gnu.org/libsigsegv/libsigsegv-2.13.tar.gz"
+  sha256 "be78ee4176b05f7c75ff03298d84874db90f4b6c9d5503f0da1226b3a3c48119"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :stable
@@ -12,14 +12,22 @@ class Libsigsegv < Formula
 
   bottle do
     cellar :any
-    sha256 "aae3e97886b24afb8daf0bafdf9dc02c5fa3d18392611cf68dfd88b663deb87b" => :catalina
-    sha256 "3b92bc3dfb8000bfac2b9ebdef436acdf0047d1c98b3ed250f0a332d84ba869a" => :mojave
-    sha256 "5fea960fc3cc9f168749e36e37efbf53f3030d4a3fc2f2602f182d3dcafd5a17" => :high_sierra
-    sha256 "158f90f84a050e266c23299745b7553321c304649e9f88afcf34d73ef08f95a1" => :sierra
-    sha256 "b9808096e671482dffd3c4b7ea330d8fc58027bee92c6a774b953fefc1606eb1" => :el_capitan
+    sha256 "9bd929ab1b6a2c35bdde0306a2a4c30498a47659ae0877bc89a7b74f67d93425" => :big_sur
+    sha256 "709a1a801698a0e0862be0f71d9b15ed8af9b6777956ae2caf0795d418956ce4" => :arm64_big_sur
+    sha256 "0d7f731afff70661df049267de9fe2c34b74d3918a7a7695fbfd1deef664aa68" => :catalina
+    sha256 "95525c7e620743555e44175496c21c57a8cc39b8ca2670bf0fd690cc42a2977c" => :mojave
+  end
+
+  head do
+    url "https://git.savannah.gnu.org/git/libsigsegv.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
   end
 
   def install
+    system "./gitsub.sh", "pull" if build.head?
+    system "./autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--enable-shared"

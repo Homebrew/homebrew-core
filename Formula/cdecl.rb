@@ -6,6 +6,8 @@ class Cdecl < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ac04af015afd9bc8d756f4220c53d484de0fba6f0c8a0976f99b63e2bdfccf3e" => :big_sur
+    sha256 "6ffb24daa6ca1e12ddfbc0cf77ef3461dfdc7eec3ba8149e0f5dbacabeefce2b" => :arm64_big_sur
     sha256 "bba9953b96f037148b23ecf85030ed505bf1e6712f21099d494084c26cd52f1c" => :catalina
     sha256 "beed8e3f4c2de0b75bd12bd65e6d9ce4a7cb626fac5cd8c5e20426d2b9325840" => :mojave
     sha256 "a2469d514723e35850b252b97d3bf90f9311c276455b218383d276ccb0c88ee4" => :high_sierra

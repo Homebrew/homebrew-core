@@ -8,6 +8,8 @@ class Pdnsd < Formula
 
   bottle do
     rebuild 2
+    sha256 "1ab46d6a13884a67fe91ecb554c53c8fc5fda4f2d453016cdd1242f8c362e9d5" => :big_sur
+    sha256 "2a39399ddd344c3d38b4052ca914dc99eebd452a9cf323518504c19671e7b2f6" => :arm64_big_sur
     sha256 "125b690bbac734558cd9a4510c1336e2a92c3fd4748ba2ed216af9a5041c5d60" => :catalina
     sha256 "822ab7ede7c626ab8cb0c5e7340f3896cdef7cc112c8d9843e55d601f5847297" => :mojave
     sha256 "be218973e8fe1d807e7d9ec2762cab2a9968ce302fb46fb89974a686c1afcc43" => :high_sierra

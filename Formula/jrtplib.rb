@@ -10,6 +10,8 @@ class Jrtplib < Formula
 
   bottle do
     cellar :any
+    sha256 "c025524ef889d74cc261768b9e12f8d3ffe57802adef254e2a01850db983e269" => :big_sur
+    sha256 "b00a6b5d09b1eb5d8e6a72e548cff53f2834b4b07d235f3cb4ee346b9d4a0dbc" => :arm64_big_sur
     sha256 "05fc5e0747f7d5f725f9dda22cf39d414e8ee751829d14e9c32fa12279834cfc" => :catalina
     sha256 "1b48b36e9011b4aa675f1d581e900c64bcad93ba15fc86d1e27db09ed2c75ce9" => :mojave
     sha256 "420016bd3f9981189dc8bf69dc7520da8d9cbde848147dde495792c1a5a984fa" => :high_sierra

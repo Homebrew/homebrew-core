@@ -5,6 +5,11 @@ class KaitaiStructCompiler < Formula
   sha256 "3038243334fb65bbb264f33b82986facfe1fbad2de1978766899855b40212215"
   license "GPL-3.0-or-later"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?kaitai-struct-compiler[._-]v?(\d+(?:\.\d+)+)\.zip/i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"

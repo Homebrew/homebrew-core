@@ -1,16 +1,23 @@
 class Slrn < Formula
   desc "Powerful console-based newsreader"
-  homepage "https://slrn.sourceforge.io/"
+  homepage "https://slrn.info/"
   url "https://jedsoft.org/releases/slrn/slrn-1.0.3a.tar.bz2"
   sha256 "3ba8a4d549201640f2b82d53fb1bec1250f908052a7983f0061c983c634c2dac"
+  license "GPL-2.0-or-later"
   revision 1
   head "git://git.jedsoft.org/git/slrn.git"
 
+  livecheck do
+    url "https://jedsoft.org/releases/slrn/"
+    regex(/href=.*?slrn[._-]v?(\d+(?:\.\d+)+(?:[a-z]?\d*)?)\.t/i)
+  end
+
   bottle do
-    sha256 "de190a3f3793acd7d8e50dc82231e7ad94535621bc4c37a34efcc1907c295296" => :catalina
-    sha256 "9dcfea5ecabef7b65a480fec81ab5b1dcc7a67d45bb8fab0d35821684ab56d0e" => :mojave
-    sha256 "417197dcbd30a8330f2a3a1e5171b2f3c2ed7869cca8d2fb302108ae391f4072" => :high_sierra
-    sha256 "dac0b018eb8f1d53b69ae27ca121510806f0eb9bbdcdbdd119295bd022a8faaf" => :sierra
+    rebuild 1
+    sha256 "1e3a47c2adbd775237d1b34cba86c82a14096d792a922887f76f6eadb0964513" => :big_sur
+    sha256 "b714ac9c245119ba08001c7729f77093491457c54f17b2d1d09184f690ffa288" => :arm64_big_sur
+    sha256 "5440f5353ec5ae3f3a2cdd3ed43b931bd41db738ee4b993b0ec3b41618f7406f" => :catalina
+    sha256 "35550c096c81454ae0756d0831fa8a6dd2db9857db591b72f8cf96aeb4e4fac3" => :mojave
   end
 
   depends_on "openssl@1.1"
@@ -20,6 +27,10 @@ class Slrn < Formula
     bin.mkpath
     man1.mkpath
     mkdir_p "#{var}/spool/news/slrnpull"
+
+    # Work around configure issues with Xcode 12.  Hopefully this will not be
+    # needed after next slrn release.
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
 
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",

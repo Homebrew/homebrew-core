@@ -5,17 +5,17 @@ class Subversion < Formula
   mirror "https://archive.apache.org/dist/subversion/subversion-1.14.0.tar.bz2"
   sha256 "6ba8e218f9f97a83a799e58a3c6da1221d034b18d9d8cbbcb6ec52ab11722102"
   license "Apache-2.0"
-  revision 2
+  revision 7
 
   livecheck do
     url :stable
   end
 
   bottle do
-    rebuild 1
-    sha256 "84dfd162eaa16691be6605ae5b2aa30ede25483c2a3da54bf05ff0f6b5767864" => :catalina
-    sha256 "0f84bf07d4a1949129d1be29e3e2d991f4fbec4c38acfd4757918fe9eafbcf6c" => :mojave
-    sha256 "cc20920a8095c8ba91f722f6d3fc5dc392fa075afdcc2d5055df677e8260312a" => :high_sierra
+    sha256 "0c9c96e6d321a1e6d523d0783a315529e8f169c230017209d85f9afe6aa37693" => :big_sur
+    sha256 "cbf0d587edf228480d7ff2f94bb850d96d30e2f03ed47fae7fed6e3efa2bfd43" => :arm64_big_sur
+    sha256 "074d4f24adf5242be5a23996db6abcc7a2a4b25ae0faf6fbe52d5fcd71d7405a" => :catalina
+    sha256 "c4d00745a6ef81fe3e856da71e3cc3600108f32a9f4912bcaaca743f591c8da3" => :mojave
   end
 
   head do
@@ -26,25 +26,26 @@ class Subversion < Formula
     depends_on "gettext" => :build
   end
 
-  depends_on "openjdk" => :build
+  # Do not build java bindings on ARM as openjdk is not available
+  depends_on "openjdk" => :build if Hardware::CPU.intel?
   depends_on "pkg-config" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
   depends_on "scons" => :build # For Serf
   depends_on "swig" => :build
   depends_on "apr"
   depends_on "apr-util"
 
   # build against Homebrew versions of
-  # gettext, lz4, perl, sqlite and utf8proc for consistency
+  # gettext, lz4, sqlite and utf8proc for consistency
   depends_on "gettext"
   depends_on "lz4"
   depends_on "openssl@1.1" # For Serf
-  depends_on "perl"
   depends_on "sqlite"
   depends_on "utf8proc"
 
   uses_from_macos "expat"
   uses_from_macos "krb5"
+  uses_from_macos "perl"
   uses_from_macos "ruby"
   uses_from_macos "zlib"
 
@@ -102,7 +103,6 @@ class Subversion < Formula
       --with-apr-util=#{Formula["apr-util"].opt_prefix}
       --with-apr=#{Formula["apr"].opt_prefix}
       --with-apxs=no
-      --with-jdk=#{Formula["openjdk"].opt_prefix}
       --with-ruby-sitedir=#{lib}/ruby
       --with-py3c=#{py3c_prefix}
       --with-serf=#{serf_prefix}
@@ -112,11 +112,13 @@ class Subversion < Formula
       --without-apache-libexecdir
       --without-berkeley-db
       --without-gpg-agent
-      --enable-javahl
       --without-jikes
-      PYTHON=#{Formula["python@3.8"].opt_bin}/python3
+      PYTHON=#{Formula["python@3.9"].opt_bin}/python3
       RUBY=/usr/bin/ruby
     ]
+
+    # Do not build java bindings on ARM as openjdk is not available
+    args << "--with-jdk=#{Formula["openjdk"].opt_prefix}" << "--enable-javahl" if Hardware::CPU.intel?
 
     inreplace "Makefile.in",
               "toolsdir = @bindir@/svn-tools",
@@ -125,7 +127,7 @@ class Subversion < Formula
     system "./autogen.sh" if build.head?
     system "./configure", *args
     system "make"
-    system "make", "install"
+    ENV.deparallelize { system "make", "install" }
     bash_completion.install "tools/client-side/bash_completion" => "subversion"
 
     system "make", "tools"
@@ -133,31 +135,42 @@ class Subversion < Formula
 
     system "make", "swig-py"
     system "make", "install-swig-py"
-    (lib/"python3.8/site-packages").install_symlink Dir["#{lib}/svn-python/*"]
+    (lib/"python3.9/site-packages").install_symlink Dir["#{lib}/svn-python/*"]
 
-    # Java and Perl support don't build correctly in parallel:
-    # https://github.com/Homebrew/homebrew/issues/20415
-    ENV.deparallelize
-    system "make", "javahl"
-    system "make", "install-javahl"
+    if Hardware::CPU.intel?
+      # Java and Perl support don't build correctly in parallel:
+      # https://github.com/Homebrew/homebrew/issues/20415
+      ENV.deparallelize
+      system "make", "javahl"
+      system "make", "install-javahl"
 
-    archlib = Utils.safe_popen_read("perl", "-MConfig", "-e", "print $Config{archlib}")
-    perl_core = Pathname.new(archlib)/"CORE"
-    onoe "'#{perl_core}' does not exist" unless perl_core.exist?
+      perl_archlib = Utils.safe_popen_read("perl", "-MConfig", "-e", "print $Config{archlib}")
+      perl_core = Pathname.new(perl_archlib)/"CORE"
+      perl_extern_h = perl_core/"EXTERN.h"
 
-    inreplace "Makefile" do |s|
-      s.change_make_var! "SWIG_PL_INCLUDES",
-        "$(SWIG_INCLUDES) -arch x86_64 -g -pipe -fno-common " \
-        "-DPERL_DARWIN -fno-strict-aliasing -I#{HOMEBREW_PREFIX}/include -I#{perl_core}"
+      unless perl_extern_h.exist?
+        # No EXTERN.h, maybe it's system perl
+        perl_version = Utils.safe_popen_read("perl", "--version")[/v(\d+\.\d+)(?:\.\d+)?/, 1]
+        perl_core = MacOS.sdk_path/"System/Library/Perl"/perl_version/"darwin-thread-multi-2level/CORE"
+        perl_extern_h = perl_core/"EXTERN.h"
+      end
+
+      onoe "'#{perl_extern_h}' does not exist" unless perl_extern_h.exist?
+
+      inreplace "Makefile" do |s|
+        s.change_make_var! "SWIG_PL_INCLUDES",
+          "$(SWIG_INCLUDES) -arch x86_64 -g -pipe -fno-common " \
+          "-DPERL_DARWIN -fno-strict-aliasing -I#{HOMEBREW_PREFIX}/include -I#{perl_core}"
+      end
+      system "make", "swig-pl"
+      system "make", "install-swig-pl"
+
+      # This is only created when building against system Perl, but it isn't
+      # purged by Homebrew's post-install cleaner because that doesn't check
+      # "Library" directories. It is however pointless to keep around as it
+      # only contains the perllocal.pod installation file.
+      rm_rf prefix/"Library/Perl"
     end
-    system "make", "swig-pl"
-    system "make", "install-swig-pl"
-
-    # This is only created when building against system Perl, but it isn't
-    # purged by Homebrew's post-install cleaner because that doesn't check
-    # "Library" directories. It is however pointless to keep around as it
-    # only contains the perllocal.pod installation file.
-    rm_rf prefix/"Library/Perl"
   end
 
   def caveats
@@ -177,7 +190,12 @@ class Subversion < Formula
   test do
     system "#{bin}/svnadmin", "create", "test"
     system "#{bin}/svnadmin", "verify", "test"
-    system "perl", "-e", "use SVN::Client; new SVN::Client()"
+
+    if Hardware::CPU.intel?
+      perl_version = Utils.safe_popen_read("/usr/bin/perl", "--version")[/v(\d+\.\d+(?:\.\d+)?)/, 1]
+      ENV["PERL5LIB"] = "#{lib}/perl5/site_perl/#{perl_version}/darwin-thread-multi-2level"
+      system "/usr/bin/perl", "-e", "use SVN::Client; new SVN::Client()"
+    end
   end
 end
 

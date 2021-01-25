@@ -3,16 +3,21 @@ class Buku < Formula
 
   desc "Powerful command-line bookmark manager"
   homepage "https://github.com/jarun/buku"
-  url "https://github.com/jarun/buku/archive/v4.4.tar.gz"
-  sha256 "c7d755569117ceb85fdda734dcca657e01f6d5252d7d3b9f757faeedfdcac741"
-  license "GPL-3.0"
-  revision 1
+  url "https://files.pythonhosted.org/packages/d5/af/90b27f5e932ae7bf7ccdc86f0619a8726cd61233258faac51caafe7116b8/buku-4.5.tar.gz"
+  sha256 "b148fd335fe532b46616587f5d7a5c338202b99ae71ae777a44591a1bc8063ae"
+  license "GPL-3.0-or-later"
+  head "https://github.com/jarun/buku.git"
+
+  livecheck do
+    url :stable
+  end
 
   bottle do
     cellar :any
-    sha256 "044b82a3e27d301b94f09289e4b3aee1e8447149eeb64c9d3db2ff8102f62cf6" => :catalina
-    sha256 "9e0087d9d5c7e5aab848658d68b8ae81965094e8f26778c335c483e9ec00c0d9" => :mojave
-    sha256 "4712518906a802e6aeb2dea503b3c6654062ec8bd1052a000dc3986e540b558f" => :high_sierra
+    sha256 "ac5450196f6df19e734b6072aa9b6fd315520ffd87de0e58bfc3bd88523a73c9" => :big_sur
+    sha256 "754323aacff4caa8fe20fab1aca7f33131375493ca7d906aa909be037dae723b" => :arm64_big_sur
+    sha256 "4989cb77e5bc410ad664f5e8904b7815916d334bbfa807992a42dd617f01731e" => :catalina
+    sha256 "ada22914af378002d0815a8c09cc13ed6068a62c3f8742156753b2cd2be84c22" => :mojave
   end
 
   depends_on "openssl@1.1"
@@ -26,28 +31,28 @@ class Buku < Formula
   end
 
   resource "beautifulsoup4" do
-    url "https://files.pythonhosted.org/packages/c6/62/8a2bef01214eeaa5a4489eca7104e152968729512ee33cb5fbbc37a896b7/beautifulsoup4-4.9.1.tar.gz"
-    sha256 "73cc4d115b96f79c7d77c1c7f7a0a8d4c57860d1041df407dd1aae7f07a77fd7"
+    url "https://files.pythonhosted.org/packages/6b/c3/d31704ae558dcca862e4ee8e8388f357af6c9d9acb0cad4ba0fbbd350d9a/beautifulsoup4-4.9.3.tar.gz"
+    sha256 "84729e322ad1d5b4d25f805bfa05b902dd96450f43842c4e99067d5e1369eb25"
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/b4/19/53433f37a31543364c8676f30b291d128cdf4cd5b31b755b7890f8e89ac8/certifi-2020.4.5.2.tar.gz"
-    sha256 "5ad7e9a056d25ffa5082862e36f119f7f7cec6457fa07ee2f8c339814b80c9b1"
+    url "https://files.pythonhosted.org/packages/06/a9/cd1fd8ee13f73a4d4f491ee219deeeae20afefa914dfb4c130cfc9dc397a/certifi-2020.12.5.tar.gz"
+    sha256 "1a4995114262bffbc2413b159f2a1a480c969de6e6eb13ee966d470af86af59c"
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/05/54/3324b0c46340c31b909fcec598696aaec7ddc8c18a63f2db352562d3354c/cffi-1.14.0.tar.gz"
-    sha256 "2d384f4a127a15ba701207f7639d94106693b6cd64173d6c8988e2c25f3ac2b6"
+    url "https://files.pythonhosted.org/packages/66/6a/98e023b3d11537a5521902ac6b50db470c826c682be6a8c661549cb7717a/cffi-1.14.4.tar.gz"
+    sha256 "1a465cbe98a7fd391d47dce4b8f7e5b921e6cd805ef421d04f5f66ba8f06086c"
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/56/3b/78c6816918fdf2405d62c98e48589112669f36711e50158a0c15d804c30d/cryptography-2.9.2.tar.gz"
-    sha256 "a0c30272fb4ddda5f5ffc1089d7405b7a71b0b0f51993cb4e5dbb4590b2fc229"
+    url "https://files.pythonhosted.org/packages/b7/82/f7a4ddc1af185936c1e4fa000942ffa8fb2d98cff26b75afa7b3c63391c4/cryptography-3.3.1.tar.gz"
+    sha256 "7e177e4bea2de937a584b13645cab32f25e3d96fc0bc4a4cf99c27dc77682be6"
   end
 
   resource "html5lib" do
-    url "https://files.pythonhosted.org/packages/85/3e/cf449cf1b5004e87510b9368e7a5f1acd8831c2d6691edd3c62a0823f98f/html5lib-1.0.1.tar.gz"
-    sha256 "66cb0dcfdbbc4f9c3ba1a63fdb511ffdbd4f513b2b6d81b80cd26ce6b3fb3736"
+    url "https://files.pythonhosted.org/packages/ac/b6/b55c3f49042f1df3dcd422b7f224f939892ee94f22abcf503a9b7339eaf2/html5lib-1.1.tar.gz"
+    sha256 "b2e5b40261e20f354d198eae92afc10d750afb487ed5e50f9c4eaf07c184146f"
   end
 
   resource "pycparser" do
@@ -61,13 +66,13 @@ class Buku < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/3e/db/5ba900920642414333bdc3cb397075381d63eafc7e75c2373bbc560a9fa1/soupsieve-2.0.1.tar.gz"
-    sha256 "a59dc181727e95d25f781f0eb4fd1825ff45590ec8ff49eadfd7f1a537cc0232"
+    url "https://files.pythonhosted.org/packages/58/5d/445e21e92345848305eecf473338e9ec7ed8905b99ea78415042060127fc/soupsieve-2.1.tar.gz"
+    sha256 "6dc52924dc0bc710a5d16794e6b3480b2c7c08b07729505feab2b2c16661ff6e"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/05/8c/40cd6949373e23081b3ea20d5594ae523e681b6f472e600fbc95ed046a36/urllib3-1.25.9.tar.gz"
-    sha256 "3018294ebefce6572a474f0604c2021e33b3fd8006ecd11d62107a5d2a963527"
+    url "https://files.pythonhosted.org/packages/29/e6/d1a1d78c439cad688757b70f26c50a53332167c364edb0134cadd280e234/urllib3-1.26.2.tar.gz"
+    sha256 "19188f96923873c92ccb987120ec4acaa12f0461fa9ce5d3d0772bc965a39e08"
   end
 
   resource "webencodings" do

@@ -1,12 +1,14 @@
 class Rc < Formula
   desc "Implementation of the AT&T Plan 9 shell"
   homepage "http://doc.cat-v.org/plan_9/4th_edition/papers/rc"
-  url "http://static.tobold.org/rc/rc-1.7.4.tar.gz"
+  url "https://web.archive.org/web/20200227085442/static.tobold.org/rc/rc-1.7.4.tar.gz"
   mirror "https://src.fedoraproject.org/repo/extras/rc/rc-1.7.4.tar.gz/f99732d7a8be3f15f81e99c3af46dc95/rc-1.7.4.tar.gz"
   sha256 "5ed26334dd0c1a616248b15ad7c90ca678ae3066fa02c5ddd0e6936f9af9bfd8"
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "0e2ce85a1d122543d504138da5f09b88890ea175311572024b4e627bda9b3c65" => :big_sur
+    sha256 "18c672af9e2e5d2e88ca29d57aec584aaa57daac97b9ac330d9f8164beb9ecce" => :arm64_big_sur
     sha256 "ab871610d857058773a87f70ad995a5e02fdeb1e6fe3d699e2051892ce60af84" => :catalina
     sha256 "f14ceeb0e4315379e2052e39a24fafb529f841428b1a64e3009cfd62769b9e4a" => :mojave
     sha256 "c2ee55c504be78889adc7d0cba962528f995bf222dc77ce5a6b930210851294e" => :high_sierra

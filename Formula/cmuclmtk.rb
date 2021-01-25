@@ -14,6 +14,8 @@ class Cmuclmtk < Formula
 
   bottle do
     cellar :any
+    sha256 "e126c9d5de2e1f4e23d4fea7e8ac51c6fc2d4328a968c907879f4ea86524fbbc" => :big_sur
+    sha256 "d3069c3fbd0f41bdb0b3435b7b388f9e6051639421658663185bde9a449185b8" => :arm64_big_sur
     sha256 "fb552e12a3c59e2ca6a9dd89e9ec229e5b815edef28093c3902fc4ee54b52207" => :catalina
     sha256 "5c71a1746a8ca516dc5d11858a7d0d85341cafeea31797b926eba3a9ed83d9ea" => :mojave
     sha256 "85a6d2a8fcad4e2b6e7d9d22ec74dd5e5f463dabc5b2f01373d3a48178b2ce6e" => :high_sierra

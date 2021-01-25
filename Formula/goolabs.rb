@@ -13,6 +13,8 @@ class Goolabs < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "529b86998aa6ab3fe97ddef439a2c4959047fa2a44ff552b3cd115c962cbb1b7" => :big_sur
+    sha256 "df1ef2c9f6b3c72ab941aa3445575ecaf95aae6bfa1dd3e1ad96bd468f5d6f52" => :arm64_big_sur
     sha256 "cce23cbee7e9db39636fc2fdc023fc24a2790867f3979fff2f2ece8a0580f690" => :catalina
     sha256 "7ec468710694a97546f137e9ebc5e26b124646ea4a0bbe3f1c44b6a4203389e0" => :mojave
     sha256 "0c2057e24ee158933764e90ed0dff1a4e2e0f43871329658791c53fef270d185" => :high_sierra

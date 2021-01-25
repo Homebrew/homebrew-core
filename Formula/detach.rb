@@ -5,8 +5,15 @@ class Detach < Formula
   sha256 "b2070e708d4fe3a84197e2a68f25e477dba3c2d8b1f9ce568f70fc8b8e8a30f0"
   license "MIT"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?detach[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
+    sha256 "9db6ee661710f178b17fc1096596ee74b07b257e233da7fb45cb9280cbeb24a1" => :big_sur
+    sha256 "934338f4dbae7773162dfa2a6b83d3c72a0740747bd4494509a9d5ee20bf37b5" => :arm64_big_sur
     sha256 "dbd06a1dcb4592035dff0b4df0cc3259c2dbb444acdb1553ab2a2d4edf3fff57" => :catalina
     sha256 "4aa3f65488ee7fb05d156d92f5f76a29d2cebe2034b226665e219978e228f1db" => :mojave
     sha256 "3367f32cb05a37e05e9ab18e4e1f2664137f7d03073fc2d9ec4aba0d62a6f431" => :high_sierra

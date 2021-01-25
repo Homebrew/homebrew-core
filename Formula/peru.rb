@@ -3,10 +3,9 @@ class Peru < Formula
 
   desc "Dependency retriever for version control and archives"
   homepage "https://github.com/buildinspace/peru"
-  url "https://files.pythonhosted.org/packages/14/ef/9226d6a47f34afacb241b3d8acf25e5cd958a17f7bdb9f24d3b284aa59e0/peru-1.2.0.tar.gz"
-  sha256 "5bcf70b49fd5a6b089a23d49d93fd6deb05bde560219704de53ae5e48cb49acb"
+  url "https://files.pythonhosted.org/packages/03/28/34c9ddb39e1e50db34b07a73af423978641b84f66ea437f6c40b03e5d5a5/peru-1.2.1.tar.gz"
+  sha256 "4d2f30c71343ae2692f403b465b04a97c110d4126a3fa59cb42b25243cb24064"
   license "MIT"
-  revision 2
 
   livecheck do
     url :stable
@@ -14,9 +13,10 @@ class Peru < Formula
 
   bottle do
     cellar :any
-    sha256 "505d7ab6f8c65dd5414a67e88b1a30ca0a1dbab35415b4c48aea8ab99616362f" => :catalina
-    sha256 "31f7ea3a66e854e6dddfa1127b3d208f6a04406cb0aa6e4b94a034c63c7bd2db" => :mojave
-    sha256 "c4eb15429ad2c832220b2ac782745e06bfc29dd8c6a7a3bce15b9291246793ac" => :high_sierra
+    sha256 "b8d5f0915d0f6b7a0ce49ffc61a0503b809ac6c074d2057d2f1396ea0788de67" => :big_sur
+    sha256 "171980304c1aa1545f2397ecc9adcedd3f84b533974265d243a88ba2ccd36de0" => :arm64_big_sur
+    sha256 "927f2ddcf69404fde76a587d8797eb6937d206b6f79ee05615bf55788f82dd6c" => :catalina
+    sha256 "8d48227b9184a9f0f623a799a91179e1f24e456507b802c5e620594f7104e940" => :mojave
   end
 
   depends_on "libyaml"

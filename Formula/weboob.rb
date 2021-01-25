@@ -6,7 +6,7 @@ class Weboob < Formula
   url "https://git.weboob.org/weboob/weboob/uploads/7b91875f693b60e93c5976daa051034b/weboob-2.0.tar.gz"
   mirror "https://files.pythonhosted.org/packages/88/c1/b3423348d8e2a557c7e0d53b5977cf1a382703c7b4d1397876836184b493/weboob-2.0.tar.gz"
   sha256 "fc8be1f77ad3a53285cef8b20a8b747960c163fad729c56838043d8ddcdfc9b0"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://git.weboob.org/weboob/weboob.git"
@@ -15,9 +15,10 @@ class Weboob < Formula
 
   bottle do
     cellar :any
-    sha256 "a4347ac13e479dc024e4fdb27f7403a8b4651aca064401b808d03caa3c76bbe1" => :catalina
-    sha256 "01d9798fee2890b412c663d5a75564299ff1c96b0d62afdd588dc5998c52f418" => :mojave
-    sha256 "2069c0ae93e3e2d8a3b06980640b27fb5169f6e19380ac2c1cbe96bc54d95549" => :high_sierra
+    sha256 "f93a67cf06b5a6bbee8952d754eed9986e89500c063a26b4292965ee695a38cf" => :big_sur
+    sha256 "4ddf7725a486af9624afd111d46b27bc9d5b955b9a030eb5b690155a346cd59d" => :arm64_big_sur
+    sha256 "ddb0fd5eab263d8810da48397e1239e4cd3ba9bbc44a0d5e72f7e1dc8b4612af" => :catalina
+    sha256 "287f4c1f145a1a2e9d9bdef25a71496963e5b88ade3706180de013c2735d8a65" => :mojave
   end
 
   depends_on "freetype"
@@ -27,18 +28,18 @@ class Weboob < Formula
   depends_on "python@3.9"
 
   resource "Babel" do
-    url "https://files.pythonhosted.org/packages/34/18/8706cfa5b2c73f5a549fdc0ef2e24db71812a2685959cff31cbdfc010136/Babel-2.8.0.tar.gz"
-    sha256 "1aac2ae2d0d8ea368fa90906567f5c08463d98ade155c0c4bfedd6a0f7160e38"
+    url "https://files.pythonhosted.org/packages/41/1b/5ed6e564b9ca54318df20ebe5d642ab25da4118df3c178247b8c4b26fa13/Babel-2.9.0.tar.gz"
+    sha256 "da031ab54472314f210b0adcff1588ee5d1d1d0ba4dbd07b94dba82bde791e05"
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/b8/e2/a3a86a67c3fc8249ed305fc7b7d290ebe5e4d46ad45573884761ef4dea7b/certifi-2020.4.5.1.tar.gz"
-    sha256 "51fcb31174be6e6664c5f69e3e1691a2d72a1a12e90f872cbdb1567eb47b6519"
+    url "https://files.pythonhosted.org/packages/06/a9/cd1fd8ee13f73a4d4f491ee219deeeae20afefa914dfb4c130cfc9dc397a/certifi-2020.12.5.tar.gz"
+    sha256 "1a4995114262bffbc2413b159f2a1a480c969de6e6eb13ee966d470af86af59c"
   end
 
   resource "chardet" do
-    url "https://files.pythonhosted.org/packages/fc/bb/a5768c230f9ddb03acc9ef3f0d4a3cf93462473795d18e9535498c8f929d/chardet-3.0.4.tar.gz"
-    sha256 "84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae"
+    url "https://files.pythonhosted.org/packages/ee/2d/9cdc2b527e127b4c9db64b86647d567985940ac3698eeabc7ffaccb4ea61/chardet-4.0.0.tar.gz"
+    sha256 "0d6f53a15db4120f2b08c94f11e7d93d2c911ee118b6b30a04ec3ee8310179fa"
   end
 
   resource "cssselect" do
@@ -52,18 +53,18 @@ class Weboob < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/cb/19/57503b5de719ee45e83472f339f617b0c01ad75cba44aba1e4c97c2b0abd/idna-2.9.tar.gz"
-    sha256 "7588d1c14ae4c77d74036e8c22ff447b26d0fde8f007354fd48a7814db15b7cb"
+    url "https://files.pythonhosted.org/packages/ea/b7/e0e3c1c467636186c39925827be42f16fee389dc404ac29e930e9136be70/idna-2.10.tar.gz"
+    sha256 "b307872f855b18632ce0c21c5e45be78c0ea7ae4c15c828c20788b26921eb3f6"
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/39/2b/0a66d5436f237aff76b91e68b4d8c041d145ad0a2cdeefe2c42f76ba2857/lxml-4.5.0.tar.gz"
-    sha256 "8620ce80f50d023d414183bf90cc2576c2837b88e00bea3f33ad2630133bbb60"
+    url "https://files.pythonhosted.org/packages/db/f7/43fecb94d66959c1e23aa53d6161231dca0e93ec500224cf31b3c4073e37/lxml-4.6.2.tar.gz"
+    sha256 "cd11c7e8d21af997ee8079037fff88f16fda188a9776eb4b81c7e4c9c0a7d7fc"
   end
 
   resource "Pillow" do
-    url "https://files.pythonhosted.org/packages/ce/ef/e793f6ffe245c960c42492d0bb50f8d14e2ba223f1922a5c3c81569cec44/Pillow-7.1.2.tar.gz"
-    sha256 "a0b49960110bc6ff5fead46013bcb8825d101026d466f3a4de3476defe0fb0dd"
+    url "https://files.pythonhosted.org/packages/73/59/3192bb3bc554ccbd678bdb32993928cb566dccf32f65dac65ac7e89eb311/Pillow-8.1.0.tar.gz"
+    sha256 "887668e792b7edbfb1d3c9d8b5d8c859269a0f0eba4dda562adb95500f60dbba"
   end
 
   resource "python-dateutil" do
@@ -72,8 +73,8 @@ class Weboob < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/f4/f6/94fee50f4d54f58637d4b9987a1b862aeb6cd969e73623e02c5c00755577/pytz-2020.1.tar.gz"
-    sha256 "c35965d010ce31b23eeb663ed3cc8c906275d6be1a34393a1d73a41febf4a048"
+    url "https://files.pythonhosted.org/packages/70/44/404ec10dca553032900a65bcded8b8280cf7c64cc3b723324e2181bf93c9/pytz-2020.5.tar.gz"
+    sha256 "180befebb1927b16f6b57101720075a984c019ac16b1b7575673bea42c6c3da5"
   end
 
   resource "PyYAML" do
@@ -82,23 +83,23 @@ class Weboob < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/f5/4f/280162d4bd4d8aad241a21aecff7a6e46891b905a4341e7ab549ebaf7915/requests-2.23.0.tar.gz"
-    sha256 "b3f43d496c6daba4493e7c431722aeb7dbc6288f52a6e04e7b6023b0247817e6"
+    url "https://files.pythonhosted.org/packages/6b/47/c14abc08432ab22dc18b9892252efaf005ab44066de871e72a38d6af464b/requests-2.25.1.tar.gz"
+    sha256 "27973dd4a904a4f13b263a19c866c13b92a39ed1c964655f025f3f8d3d75b804"
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/21/9f/b251f7f8a76dec1d6651be194dfba8fb8d7781d10ab3987190de8391d08e/six-1.14.0.tar.gz"
-    sha256 "236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a"
+    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
+    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
   end
 
   resource "Unidecode" do
-    url "https://files.pythonhosted.org/packages/b1/d6/7e2a98e98c43cf11406de6097e2656d31559f788e9210326ce6544bd7d40/Unidecode-1.1.1.tar.gz"
-    sha256 "2b6aab710c2a1647e928e36d69c21e76b453cd455f4e2621000e54b2a9b8cce8"
+    url "https://files.pythonhosted.org/packages/45/dd/544c34ddf9ab0ead3746110ad6fbdac26ca5f4a1666db22dc8aaf447d0c9/Unidecode-1.1.2.tar.gz"
+    sha256 "a039f89014245e0cad8858976293e23501accc9ff5a7bdbc739a14a2b7b85cdc"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/05/8c/40cd6949373e23081b3ea20d5594ae523e681b6f472e600fbc95ed046a36/urllib3-1.25.9.tar.gz"
-    sha256 "3018294ebefce6572a474f0604c2021e33b3fd8006ecd11d62107a5d2a963527"
+    url "https://files.pythonhosted.org/packages/29/e6/d1a1d78c439cad688757b70f26c50a53332167c364edb0134cadd280e234/urllib3-1.26.2.tar.gz"
+    sha256 "19188f96923873c92ccb987120ec4acaa12f0461fa9ce5d3d0772bc965a39e08"
   end
 
   def install
@@ -122,6 +123,11 @@ class Weboob < Formula
         ENV.append "CFLAGS", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers"
       end
       venv.pip_install Pathname.pwd
+
+      xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+      site_packages = "lib/python#{xy}/site-packages"
+      pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
+      (prefix/site_packages/"homebrew-weboob.pth").write pth_contents
     end
 
     # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
@@ -138,5 +144,6 @@ class Weboob < Formula
 
   test do
     system bin/"weboob-config", "modules"
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "import weboob"
   end
 end

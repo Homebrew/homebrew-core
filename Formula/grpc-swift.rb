@@ -4,13 +4,15 @@ class GrpcSwift < Formula
   url "https://github.com/grpc/grpc-swift/archive/0.11.0.tar.gz"
   sha256 "82e0a3d8fe2b9ee813b918e1a674f5a7c6dc024abe08109a347b686db6e57432"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/grpc/grpc-swift.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c4b65a7ca86cce5a51c4d361f242f3223db64ada30295215636abe6c5e2e6682" => :catalina
-    sha256 "44d0cea0079f5b8ead3ae00b5ffe0268424c1b9c894d3f84f9b56e9295cfc4d6" => :mojave
-    sha256 "01f53ec401f366d2eedc15b6bf24221443cf3e4728e25891fa87cd89d389efb2" => :high_sierra
+    sha256 "a0be8359b1b6052cc554f3a9b672162eed4ab6e7e20928c424c0916d110e286f" => :big_sur
+    sha256 "e739583a67354478a9f950375763d41080698e74aeee0d0195773ac7ca383096" => :arm64_big_sur
+    sha256 "5a13e8a2f8e6111ceb163fd1aac8810a278f32317ebffb3563d5860a9a510db2" => :catalina
+    sha256 "0311e7d2eb0f1c5569fd51732dd7e9e917423bcad57e651d4d8a5c468168a55a" => :mojave
   end
 
   depends_on xcode: ["10.0", :build]

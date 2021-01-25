@@ -14,6 +14,7 @@ class Coccinelle < Formula
 
   bottle do
     cellar :any
+    sha256 "b05ace46f798c6abdd47fd764b52575d119b67c65b64a7257fff378fd6ca73ca" => :big_sur
     sha256 "cc2f0b1ff9f45f48c91f136b1b88ac6c7d2e34b475d77d1c0e418f1a47e691b2" => :catalina
     sha256 "6dd3d84d54e00d9d7ce4b27f1693d266120221bd98c99d7988a58c802c26fab3" => :mojave
     sha256 "c50aae7af14976966f3d3232ac89b4b2fb45753765e07377a39daf9aaeb22960" => :high_sierra

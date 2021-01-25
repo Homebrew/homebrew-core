@@ -1,15 +1,21 @@
 class Ospray < Formula
   desc "Ray-tracing-based rendering engine for high-fidelity visualization"
   homepage "https://www.ospray.org/"
-  url "https://github.com/ospray/ospray/archive/v2.2.0.tar.gz"
-  sha256 "7078cc7c7a6e709589f8cb15a150947bb1b93f00d08f8a2ef3f5e368d57a3797"
+  url "https://github.com/ospray/ospray/archive/v2.4.0.tar.gz"
+  sha256 "5eaf7409b08147cbeaf087dbf4b3887c15ffeeaa9cfd16dae3ee85504d9014c2"
   license "Apache-2.0"
   head "https://github.com/ospray/ospray.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     cellar :any
-    sha256 "f6b816e4ce29195586af8305a27bcb49f366bf08cc761ee85deb8eb69165f897" => :catalina
-    sha256 "044aa16b8c07c9188a242d12f1ca809844bfaf2606777427dfd761d611135642" => :mojave
+    sha256 "ac654983632917fb62802c62096b397dc7c9408b0c0367d3ae8d09ce63b64704" => :big_sur
+    sha256 "6bcf5f7e81d8a79c6224061fb144b2219af0ffba26578af6e2abbc31fbc7165d" => :catalina
+    sha256 "be56b0fe9a42a9c99e7ec57b152e58ed67f2a6ab81bcaa546bfbb84262d34984" => :mojave
   end
 
   depends_on "cmake" => :build
@@ -19,13 +25,13 @@ class Ospray < Formula
   depends_on "tbb"
 
   resource "rkcommon" do
-    url "https://github.com/ospray/rkcommon/archive/v1.4.2.tar.gz"
-    sha256 "2d1c0046cf583d3040fc9bb3b8ddcb1a2262d3f48aebd0973e6bd6cabb487f9e"
+    url "https://github.com/ospray/rkcommon/archive/v1.5.1.tar.gz"
+    sha256 "27dc42796aaa4ea4a6322f14ad64a46e83f42724c20c0f7b61d069ac91310295"
   end
 
   resource "openvkl" do
-    url "https://github.com/openvkl/openvkl/archive/v0.10.0.tar.gz"
-    sha256 "b75caabd5e0211e8c29dd9bd04a74c9ed30a1a72413c486206144c25fd31afff"
+    url "https://github.com/openvkl/openvkl/archive/v0.11.0.tar.gz"
+    sha256 "2854f270b34d310b9a9d47deb00cc6897038707fac75b427dbf81602ee1b2136"
   end
 
   def install

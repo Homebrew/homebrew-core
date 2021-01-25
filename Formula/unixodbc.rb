@@ -11,6 +11,8 @@ class Unixodbc < Formula
   end
 
   bottle do
+    sha256 "1b7672ec7e627941ab8e36dbe98516be3cc5861d77861dabdddf00a76aed135b" => :big_sur
+    sha256 "112790241d32af0dedc7173711c714eae35ddac6f6aee9d5a7bc979063956990" => :arm64_big_sur
     sha256 "b312633496b3b92a61751508d0c35b7053a1cf202aedae79d2609cf6dfdede27" => :catalina
     sha256 "f52d9ff5a13e7e78560cead35ca4a3d17e4582e791319c6c15d47ac8ac6f63d4" => :mojave
     sha256 "f7bbaf85f41df090d7ea6c8103543ec2890164ef43c4c2bdb7cef13c0993585d" => :high_sierra

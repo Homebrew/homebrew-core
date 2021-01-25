@@ -3,11 +3,9 @@ class Pyinstaller < Formula
 
   desc "Bundle a Python application and all its dependencies"
   homepage "https://www.pyinstaller.org"
-  url "https://files.pythonhosted.org/packages/82/96/21ba3619647bac2b34b4996b2dbbea8e74a703767ce24192899d9153c058/pyinstaller-4.0.tar.gz"
-  sha256 "970beb07115761d5e4ec317c1351b712fd90ae7f23994db914c633281f99bab0"
-  license "GPL-2.0"
-  revision 1
-
+  url "https://files.pythonhosted.org/packages/b4/83/9f6ff034650abe9778c9a4f86bcead63f89a62acf02b1b47fc2bfc6bf8dd/pyinstaller-4.2.tar.gz"
+  sha256 "f5c0eeb2aa663cce9a5404292c0195011fa500a6501c873a466b2e8cad3c950c"
+  license "GPL-2.0-or-later"
   head "https://github.com/pyinstaller/pyinstaller.git", branch: "develop"
 
   livecheck do
@@ -16,9 +14,10 @@ class Pyinstaller < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "993cd7304cd2a5572b807c1b52cf33a0972c59529713f62ab73540221d9a1e51" => :catalina
-    sha256 "bebf11059880ac90633f42e74c2805b01ce460a01c08cb5617b09ca2096a6cd0" => :mojave
-    sha256 "8458ed3230b6421e88293f41174f6fb83d97bb5dd59716767cba17c82ffaa0b8" => :high_sierra
+    sha256 "eb1d6148599f36a8f35132c182dc2062af62bd3c3792b562d06ac3a1e9092db9" => :big_sur
+    sha256 "75711c89dfaca5a231e9532dad47a1f16b3b64f27ea191da2db806a777a19bc4" => :arm64_big_sur
+    sha256 "6dc9e1630ec207b522f3ff7339ed941f4463ccc6cd67e2a69ef4922b3ff6c1e5" => :catalina
+    sha256 "194caf5c538bf6116de70b5cd80dd1ffa0ed82c4c1f6e0c92cd40154e65bf7ad" => :mojave
   end
 
   depends_on "python@3.9"
@@ -34,8 +33,8 @@ class Pyinstaller < Formula
   end
 
   resource "pyinstaller-hooks-contrib" do
-    url "https://files.pythonhosted.org/packages/43/75/0b6c3736535f2aa36d86aff693a85fb72af48a93253ee464b4c975f5b6de/pyinstaller-hooks-contrib-2020.7.tar.gz"
-    sha256 "74936d044f319cd7a9dca322b46a818fcb6e2af1c67af62e8a6a3121eb2863d2"
+    url "https://files.pythonhosted.org/packages/ad/ac/25bd5c6f192280182403e75e62abc5f8113cf3f287c828987ce62fd4b07f/pyinstaller-hooks-contrib-2020.11.tar.gz"
+    sha256 "fc3290a2ca337d1d58c579c223201360bfe74caed6454eaf5a2550b77dbda45c"
   end
 
   def install

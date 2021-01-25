@@ -1,9 +1,10 @@
 class Ruby < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/2.7/ruby-2.7.2.tar.xz"
-  sha256 "1b95ab193cc8f5b5e59d2686cb3d5dcf1ddf2a86cb6950e0b4bdaae5040ec0d6"
+  url "https://cache.ruby-lang.org/pub/ruby/3.0/ruby-3.0.0.tar.xz"
+  sha256 "68bfaeef027b6ccd0032504a68ae69721a70e97d921ff328c0c8836c798f6cb1"
   license "Ruby"
+  revision 1
 
   livecheck do
     url "https://www.ruby-lang.org/en/downloads/"
@@ -11,9 +12,11 @@ class Ruby < Formula
   end
 
   bottle do
-    sha256 "c5c8fef5a6068f0657558662aaf83abd21d4d456f2bf5f5152d932dae09ab3fd" => :catalina
-    sha256 "0c46013234250f1bea09127fa33899a51bbae47109dc9eb3ac6f883ab394e43f" => :mojave
-    sha256 "ea7555713b598bb8c21a1af1554658c65ca8e9368f663a44540343122008afc3" => :high_sierra
+    rebuild 1
+    sha256 "60f0b39ab2714afc942145c00684fae27c6388cafdb59fd9c8f1dca97fcfc773" => :big_sur
+    sha256 "501ba0c0968ccebdc18cb781820e401764243b536c30821909dcd5049b5a73d2" => :arm64_big_sur
+    sha256 "b869f4edd6b14d7c54e8994d77b5d92f935ca67c746babbda910471de21ac6aa" => :catalina
+    sha256 "efdb21d54bd759a1862140d61ab83b49221aa02fc9e1891972053da7edfb855b" => :mojave
   end
 
   head do
@@ -28,14 +31,15 @@ class Ruby < Formula
   depends_on "openssl@1.1"
   depends_on "readline"
 
+  uses_from_macos "libffi"
   uses_from_macos "zlib"
 
   # Should be updated only when Ruby is updated (if an update is available).
   # The exception is Rubygem security fixes, which mandate updating this
   # formula & the versioned equivalents and bumping the revisions.
   resource "rubygems" do
-    url "https://rubygems.org/rubygems/rubygems-3.1.4.tgz"
-    sha256 "d8030019d86d60469d3f4f48b7cfcd724b184157ac2881a5bec4394d9cd93f7d"
+    url "https://rubygems.org/rubygems/rubygems-3.2.3.tgz"
+    sha256 "a15dd7cd471a5fee2b6a36cf855ac2952a64d46629cd628b1a52c57bcebf52df"
   end
 
   def api_version
@@ -62,10 +66,12 @@ class Ruby < Formula
       --with-opt-dir=#{paths.join(":")}
       --without-gmp
     ]
-    args << "--disable-dtrace" unless MacOS::CLT.installed?
+    on_macos do
+      args << "--disable-dtrace" unless MacOS::CLT.installed?
+    end
 
     # Correct MJIT_CC to not use superenv shim
-    args << "MJIT_CC=/usr/bin/clang"
+    args << "MJIT_CC=/usr/bin/#{DevelopmentTools.default_compiler}"
 
     system "./configure", *args
 

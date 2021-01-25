@@ -11,6 +11,8 @@ class Gqlplus < Formula
 
   bottle do
     cellar :any
+    sha256 "6b4b7972c9c29e749bb0546aa83f756e967aca10793ff70de9bb1711536d929a" => :big_sur
+    sha256 "e93b52a5967e87f0ccc282ad897c4d64b42e0bcf4e41f7ece17186f1fd36bcd6" => :arm64_big_sur
     sha256 "2ffb1031a83fe666dc574d17d72b08781dd08e48f1dba88c5c67550472f819df" => :catalina
     sha256 "014190ba5c0c8e5bc88b0d434f6a05d4c26ab0b6e40b96d6fa00f37f02ee078a" => :mojave
     sha256 "324544d5383507812e0cc14a6e085697661944588ee1fe56477c67e2bc1c009d" => :high_sierra

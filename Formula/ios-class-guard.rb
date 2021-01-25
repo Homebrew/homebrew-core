@@ -6,8 +6,22 @@ class IosClassGuard < Formula
   license "GPL-2.0"
   head "https://github.com/Polidea/ios-class-guard.git"
 
+  # The latest version tags in the Git repository are `0.8` (2015-10-14) and
+  # `0.6` (2014-08-20) but versions before these are like `3.5` (2013-11-16),
+  # `3.4` (2012-11-19), `3.3.4` (2011-09-03), etc. The older releases like `3.5`
+  # are wrongly treated as newer but the GitHub repository doesn't mark a
+  # "latest" release, so we can only work around this by restricting matching
+  # to 0.x releases for now. If the major version reaches 1.x in the
+  # future, this check will also need to be updated.
+  livecheck do
+    url :stable
+    regex(/^v?(0(?:\.\d+)+)$/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
+    sha256 "159991d0922d6ea71dceb5f97c3024659f70c48fb91c0222186e8c108885db54" => :big_sur
+    sha256 "80da4446b7d4838b965d12546d9b10ad777c24c2026248e6d49c415aad3f9771" => :arm64_big_sur
     sha256 "807b425c949e9a25331abd13967721d6f58d3a1674fcc8175744e713e81ee5d3" => :catalina
     sha256 "480f0437e5217cb8a47fcc0e9ffb6ffc62e4f81a79d5df9529320edeed479217" => :mojave
     sha256 "1962e7dde167e41141680b1347318396c0878fb8eeae55ec9f09460fcee33142" => :high_sierra

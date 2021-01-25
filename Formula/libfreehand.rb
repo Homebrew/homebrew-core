@@ -12,6 +12,8 @@ class Libfreehand < Formula
 
   bottle do
     cellar :any
+    sha256 "736e40282e91275e85e6586f9601bebf05a7111e484776a3a1cf8df1e266b329" => :big_sur
+    sha256 "1cd27b1d82fe6261a9def131e7a09143b35fe7547cbf539b720fc9d8bdc257b6" => :arm64_big_sur
     sha256 "337aeb3f1454487fc132f9d67e3662dc6c3f0ba40a38a9a9c58d9f0b9bfc1955" => :catalina
     sha256 "b2e7566024327688b13ce6ba4a2bc93108d61d46923b0e6f59a6bc577ccc4eb9" => :mojave
     sha256 "fed031e8bfce818f39ea578792a3ed1f1b74c9f86192f37b372e1c4fc493bc90" => :high_sierra

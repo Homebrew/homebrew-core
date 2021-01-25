@@ -10,12 +10,11 @@ class Hspell < Formula
   end
 
   bottle do
-    sha256 "95b64e844560f948bdd487f1aa8a36fa6b54af18a278be1793b2f34614e08736" => :catalina
-    sha256 "92fac64ac02e38e225184831bda82521c4136d480660d52f599c6a92f6647860" => :mojave
-    sha256 "62cf9605edbaf21775ddc788367d78260d79058fba8c90674620d1ee59c9b273" => :high_sierra
-    sha256 "50be9b91b5158ce882207622b6a2581185f67a5c999c8f1105d522d800344a37" => :sierra
-    sha256 "f9648fc0bbf530759a8cd7057ebed5310c3b293c5cd2c1e284aef28f55e44ba7" => :el_capitan
-    sha256 "6ccb57a3f549935b58b3aaa56b0a49b5a7fc41692594d2e4a0d718a5be30fa84" => :yosemite
+    rebuild 1
+    sha256 "426c87d91350f33392c862296b5d1b0081bc953adae5c04a9769ebb2a626213f" => :big_sur
+    sha256 "421fdc3ab5d0ebde258ce7bdb235d2b50144966a27a74cbbe5c607dff0984c7f" => :arm64_big_sur
+    sha256 "a0406d5a4d5adefa40b5e820510a9b7f461fcea6a61112103c112775fff49ae8" => :catalina
+    sha256 "32e8037e9d494241b975c7558635456991285d53c9bbc89005cd6c86744f30e3" => :mojave
   end
 
   depends_on "autoconf" => :build
@@ -29,6 +28,9 @@ class Hspell < Formula
 
   def install
     ENV.deparallelize
+
+    # The build scripts rely on "." being in @INC which was disabled by default in perl 5.26
+    ENV["PERL_USE_UNSAFE_INC"] = "1"
 
     # autoconf needs to pick up on the patched configure.in and create a new ./configure
     # script

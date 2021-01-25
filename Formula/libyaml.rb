@@ -6,12 +6,14 @@ class Libyaml < Formula
   license "MIT"
 
   livecheck do
-    url "https://github.com/yaml/libyaml/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
     cellar :any
+    sha256 "83547fba540a38c30705a59a2e746952c68857212e823c6ee97c186e088f75cd" => :big_sur
+    sha256 "fe1082f3475a144261b41e2c3e0728b9331911b1cbfadfbc1f3d70d454709154" => :arm64_big_sur
     sha256 "56d3549b342cffb181e3eb05356697bbb362b9733c73e0eeff9b637ecf92cd23" => :catalina
     sha256 "a04988b3868cfadf7bcaff6b753b59388cbea70b38f2fa41a25229150d073696" => :mojave
     sha256 "d3e22ad09c3d6872c5f7ee7c7f1146c9f14c178ff4c3a3488a20bf584bc854d5" => :high_sierra

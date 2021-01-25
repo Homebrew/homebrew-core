@@ -8,6 +8,8 @@ class Cheops < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ab84f53943ac8bae4739c5a14913ff9ecf3fec74271d20f056189d215c46e481" => :big_sur
+    sha256 "cfc230c6ec9f5369e775cf965cfd15838da419a0a214d390960a249fa0e7582c" => :arm64_big_sur
     sha256 "df2ae1cf5f9b1b9ec0dc161da4d20fe4b24a5155c87e2c2466cbc26db9fce951" => :catalina
     sha256 "27251202d9707a3b1687094971a644aa5d34c163bb62bea0eec85373b58922c0" => :mojave
     sha256 "a7028a380957e407304abae6f3f8d056c6363681e91792e19bbf1cde19aa44cf" => :high_sierra

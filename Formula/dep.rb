@@ -9,11 +9,13 @@ class Dep < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "326ba98bcef16dc8823dd9fe76657e6ff0088a0669c0f857a05dd51867220bb7" => :catalina
-    sha256 "33200b5422fac00416ac44c7c28ad5aa627b845cd4d9aeb7002f7d41304deab0" => :mojave
-    sha256 "29cfe5b8c29bfbb09a93087dfbd30a9894ed596d3a4219072f022a001d2975cd" => :high_sierra
-    sha256 "ef9a0a978cbf2d4e537d21c4ff7b89a75b66228697b0aa348daa2284bc7362a9" => :sierra
+    rebuild 1
+    sha256 "5bd49a3da392e08bef0ae821a534bd699c4c3f6d116d90b53007477fbad6a374" => :big_sur
+    sha256 "be9871f4e01aa179f9f3b32931838f21c5e64d33840ac36c8b601adeebb5e95b" => :catalina
+    sha256 "a86103fd9d7349cde0906850b1adaaa4e9b6c787cb11b0a791127c9af16ede8a" => :mojave
   end
+
+  deprecate! date: "2020-11-25", because: :repo_archived
 
   depends_on "go"
 

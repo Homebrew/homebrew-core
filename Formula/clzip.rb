@@ -12,6 +12,8 @@ class Clzip < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "07f5030dd16ca3aaa2eeca40eb0320c75ab7144962c071cac2e6db4354e009ed" => :big_sur
+    sha256 "4d8f40d897f2ed119e304bf3835f0721d4e843c6818f41755f91bde7491837fd" => :arm64_big_sur
     sha256 "ae164ce5fd5a020988dc4e177a25cf19f924b282e561cdabf57577c88940ac2b" => :catalina
     sha256 "654a41ff519d4109d38f17c3fb321f130e60c9d72d137674f2dde9ef5cf129be" => :mojave
     sha256 "2a3bf6819a2fdbef49fa7bf1e1cea7ef6c6d090bf8fa787fe7b2a582b2631045" => :high_sierra

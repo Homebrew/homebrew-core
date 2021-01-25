@@ -12,6 +12,8 @@ class Chordii < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "d7c6ea34e2f65484ebc2d74c2f658f09ef78e2893bb6ee7f7674f1c72f8d8f98" => :big_sur
+    sha256 "048b6fde3228875e2f6e9267c71eb6228b3b0382ce638f9b2e29199ec3cf7aa2" => :arm64_big_sur
     sha256 "ed1f635a737973af4b9f4f784757cdf0ddbb3f946cb285917c171392a9b59d4a" => :catalina
     sha256 "def6b665fba55dfb8fa30269966e059b0a827f62a2338f73ea89c47a42fa7de7" => :mojave
     sha256 "1901080a06bb4728ec9858e4e548f68e044534b9d65dee1996f0590b56abc1a9" => :high_sierra

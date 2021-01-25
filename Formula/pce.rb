@@ -8,6 +8,8 @@ class Pce < Formula
 
   bottle do
     cellar :any
+    sha256 "554c878d6f17167377d677797c295ec5cb65d8e8e5af0ebe320972a42d037c89" => :big_sur
+    sha256 "c65bf1ca8a8b83b77fd383807fd783696ce9167b1c54b7a03452b6954cfc7733" => :arm64_big_sur
     sha256 "de9b733199b55e9cf2cdd0d73643c3ea199d132320600adf81428d08ebfba8af" => :catalina
     sha256 "8c0364c490a9b01875ab9c05c7bc5a6cba190e27d941c72bbbb3e17af71ab88a" => :mojave
     sha256 "6c67f811c813423d7380894d6de77aeeeba20d9f18fd36a71653c23b97c433f6" => :high_sierra

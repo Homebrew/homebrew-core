@@ -11,6 +11,8 @@ class Libquvi < Formula
   end
 
   bottle do
+    sha256 "bcabb1b6f7812088c7dce8c919e1200ebc8f726ada4e5dadbf813ae20ec35835" => :big_sur
+    sha256 "167718e2a3981fdbfa9b34cddc3c94ed4e0c80f4cbe82749535cd7b7c644d9a5" => :arm64_big_sur
     sha256 "6f98f88d5f98ef09c1aee13b24e89be731c79170b3bce5af1617a5309eade725" => :catalina
     sha256 "4916926b6bc9b2180ec1cf06bb24bc76eb9d342c748b4e36ddc65ffad1933cbd" => :mojave
     sha256 "bb5a4201afd814e87ee496b8cefbcf126f0245d7b3c600039e71e7b355115bf7" => :high_sierra

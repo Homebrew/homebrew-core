@@ -3,7 +3,7 @@ class Libelf < Formula
   homepage "https://web.archive.org/web/20181111033959/www.mr511.de/software/english.html"
   url "https://dl.bintray.com/homebrew/mirror/libelf-0.8.13.tar.gz" # using this url since original source is offline ( https://github.com/Homebrew/homebrew-core/pull/54887 )
   sha256 "591a9b4ec81c1f2042a97aa60564e0cb79d041c52faa7416acb38bc95bd2c76d"
-  license "LGPL-2.0"
+  license "LGPL-2.0-or-later"
   revision 1
 
   # The formula uses archive.org for the homepage and a mirrored version of the
@@ -18,6 +18,7 @@ class Libelf < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8b69f55ccec2aa1bfa85bef3fe071077fe281e2bc63dc33cc4344a1cc02e1e26" => :big_sur
     sha256 "b7635245b64cc7d857c92191c40877cba96871d07f4749f620bc96c63cd2635e" => :catalina
     sha256 "7cb626407ee7d61546f2493da91ecc63996d6180949b96b84793e075bd130f2d" => :mojave
     sha256 "e11504a15c64cd7fca3248ca7ed14eead25a5d63d8bbd9a8e00f076c56602295" => :high_sierra
@@ -27,7 +28,12 @@ class Libelf < Formula
     sha256 "eded3b774d412e533f37bc6d5dc133859141653ce953a0d4cbf4a950dda633f6" => :mavericks
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+
   def install
+    system "autoreconf", "-fvi"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
