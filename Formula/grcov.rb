@@ -21,11 +21,12 @@ class Grcov < Formula
       RUSTDOCFLAGS:      "-Cpanic=abort",
     }
     system "cargo", "new", "hello_world", "--bin"
-    Dir.chdir(testpath/"hello_world")
-    with_env(env) do
-      system "cargo", "test"
+    cd testpath/"hello_world" do
+      with_env(env) do
+        system "cargo", "test"
+      end
+      system bin/"grcov", ".", "-t", "html"
+      assert_predicate testpath/"hello_world/html/index.html", :exist?
     end
-    system bin/"grcov", ".", "-t", "html"
-    assert_predicate testpath/"hello_world/html/index.html", :exist?
   end
 end
