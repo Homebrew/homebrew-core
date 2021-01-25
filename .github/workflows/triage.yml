@@ -27,6 +27,10 @@ jobs:
                     "status": "added",
                     "path": "Formula/.+"
                 }, {
+                    "label": "CI-force-arm",
+                    "status": "added",
+                    "path": "Formula/.+"
+                }, {
                     "label": "marked for removal/rejection",
                     "status": "removed",
                     "path": "Formula/.+"
