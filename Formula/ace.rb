@@ -1,8 +1,8 @@
 class Ace < Formula
   desc "ADAPTIVE Communication Environment: OO network programming in C++"
   homepage "https://www.dre.vanderbilt.edu/~schmidt/ACE.html"
-  url "https://github.com/DOCGroup/ACE_TAO/releases/download/ACE%2BTAO-6_5_12/ACE-6.5.12.tar.bz2"
-  sha256 "ccd94fa45df1e8bb1c901d02c0a64c1626497e5eeda2f057fcf0a1578dae2148"
+  url "https://github.com/DOCGroup/ACE_TAO/releases/download/ACE%2BTAO-7_0_0/ACE-7.0.0.tar.bz2"
+  sha256 "18067a5a546b56428a4c6ad6572e7da1201886b59cbe390cba2ddaf245053007"
   license "DOC"
 
   livecheck do
@@ -19,17 +19,12 @@ class Ace < Formula
     sha256 "40e6474093ba8816d8693a6979e121138edd3b4f3619da51ca1ab8c0e9a3f9ae" => :mojave
   end
 
-  # Fix issues with detection of newer OS/X versions; makefiles 6.5.12 are OK with
-  # new versions in the form "10.X" but not "11.X":
-  patch :DATA
-
   def install
     ln_sf "config-macosx.h", "ace/config.h"
     ln_sf "platform_macosx.GNU", "include/makeinclude/platform_macros.GNU"
-    copy "include/makeinclude/platform_macosx_mojave.GNU", "include/makeinclude/platform_macosx_catalina.GNU"
-    copy "include/makeinclude/platform_macosx_catalina.GNU", "include/makeinclude/platform_macosx_bigsur.GNU"
 
     # Set up the environment the way ACE expects during build.
+    ENV.cxx11
     ENV["ACE_ROOT"] = buildpath
     ENV["DYLD_LIBRARY_PATH"] = "#{buildpath}/lib"
 
@@ -53,40 +48,3 @@ class Ace < Formula
     system "./test_callback"
   end
 end
-
-__END__
---- ACE_wrappers/include/makeinclude/platform_macosx.GNU.ORIG	2020-12-21 06:28:12.000000000 +0000
-+++ ACE_wrappers/include/makeinclude/platform_macosx.GNU	2020-12-21 06:36:17.000000000 +0000
-@@ -20,19 +20,25 @@
- MACOS_CODENAME_VER_10_12  := sierra
- MACOS_CODENAME_VER_10_13  := highsierra
- MACOS_CODENAME_VER_10_14  := mojave
--MACOS_CODENAME_VER_latest := mojave
--
--MACOS_CODENAME = $(MACOS_CODENAME_VER_$(MACOS_MAJOR_VERSION)_$(MACOS_MINOR_VERSION))
-+MACOS_CODENAME_VER_10_15  := catalina
-+MACOS_CODENAME_VER_11     := bigsur
-+MACOS_CODENAME_VER_latest := bigsur
- 
- ifeq ($(MACOS_MAJOR_VERSION),10)
--  ifeq ($(shell test $(MACOS_MINOR_VERSION) -gt 14; echo $$?),0)
--    ## if the detected version is greater than the latest know version,
--    ## just use the latest known version
--    MACOS_CODENAME = $(MACOS_CODENAME_VER_latest)
-+  MACOS_CODENAME = $(MACOS_CODENAME_VER_$(MACOS_MAJOR_VERSION)_$(MACOS_MINOR_VERSION))
-+  ifeq ($(shell test $(MACOS_MINOR_VERSION) -gt 15; echo $$?),0)
-+    ## Unsupported minor version
-+    $(error Unsupported MacOS version $(MACOS_RELEASE_VERSION))
-   else ifeq ($(shell test $(MACOS_MINOR_VERSION) -lt 2; echo $$?),0)
-     ## Unsupported minor version
-     $(error Unsupported MacOS version $(MACOS_RELEASE_VERSION))
-   endif
-+else ifeq ($(shell test $(MACOS_MAJOR_VERSION) -gt 11; echo $$?),0)
-+  ## if the detected version is greater than the latest know version,
-+  ## just use the latest known version
-+  MACOS_CODENAME = $(MACOS_CODENAME_VER_latest)
-+else ifeq ($(shell test $(MACOS_MAJOR_VERSION) -gt 10; echo $$?),0)
-+  MACOS_CODENAME = $(MACOS_CODENAME_VER_$(MACOS_MAJOR_VERSION))
- else
-   ## Unsupported major version
-   $(error Unsupported MacOS version $(MACOS_RELEASE_VERSION))
