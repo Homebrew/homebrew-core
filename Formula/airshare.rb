@@ -138,10 +138,11 @@ class Airshare < Formula
 
   test do
     port = free_port
-    _, _, wait_thr = Open3.popen2 bin/"airshare", "-p", port.to_s, "homebrew-demo", "-t", "Hello Homebrew!"
+    fork do
+      exec bin/"airshare", "-p", port.to_s, "homebrew-demo", "-t", "Hello Homebrew!"
+    end
     sleep 5
-    output = shell_output("#{bin}/airshare -p #{port} homebrew-demo")
-    assert_equal "Received: Hello Homebrew!\n", output.lines.last
-    Process.kill("TERM", wait_thr.pid)
+    output = shell_output("curl -s http://localhost:#{port}/text")
+    assert_equal "Hello Homebrew!", output.lines.first
   end
 end
