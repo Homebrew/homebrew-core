@@ -31,6 +31,6 @@ class Masscan < Formula
   end
 
   test do
-    assert_match "ports =", shell_output("#{bin}/masscan --echo | head -n 6 | tail -n 1")
+    assert_match "ports =", shell_output("#{bin}/masscan --echo")
   end
 end
