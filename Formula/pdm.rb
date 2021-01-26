@@ -3,8 +3,8 @@ class Pdm < Formula
 
   desc "Modern Python package manager with PEP 582 support"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/c2/86/1780344215357113758904bde0c95afd72c3b24ec275840af1cac70baf24/pdm-1.2.0.tar.gz"
-  sha256 "33ec1e28bc789b96bbdb15090676f1032659842972d724f183a045c10bb25259"
+  url "https://files.pythonhosted.org/packages/43/0a/9631f6430b495d42bf490cd44cff4a642fe141545595d7300d733be38b8c/pdm-1.2.0.post1.tar.gz"
+  sha256 "159df7a208b28c35324ed5ecca08e038a36473da72cfac0c14dc85165636083c"
   license "MIT"
   head "https://github.com/frostming/pdm.git"
 
@@ -63,8 +63,8 @@ class Pdm < Formula
   end
 
   resource "pdm-pep517" do
-    url "https://files.pythonhosted.org/packages/9a/0a/f7f580befcf533968f7713e77d3b5c974cff1020c1a6671952424e18a632/pdm-pep517-0.5.2.tar.gz"
-    sha256 "1256a369e5ee372368f03054e5f6c4d981a5b6f7a5c3fba442491b222dd1ef5c"
+    url "https://files.pythonhosted.org/packages/b4/1b/9bc753a9782bd0dd25cc5fce4329affa5444911d6c4ccf9990f4f0d0fe15/pdm-pep517-0.5.4.tar.gz"
+    sha256 "4933f06b9664f7540c9518fcca30ac4c530b507af49e4a5e9ce0d8c0d0bee6f1"
   end
 
   resource "pep517" do
