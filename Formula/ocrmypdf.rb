@@ -3,8 +3,8 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://github.com/jbarlow83/OCRmyPDF"
-  url "https://files.pythonhosted.org/packages/34/80/4870be0fbe33b56275c81cfddbb8e791887693cc1f524a5972769779a2ab/ocrmypdf-11.5.0.tar.gz"
-  sha256 "2d44db667688d3bd84b785f47943c46851100bae777e06f02674ea16079f0e5e"
+  url "https://files.pythonhosted.org/packages/a5/a5/559cf92a68e0ffc76bc393fbc20b699c476f4d90e68f1cd38c4784943d49/ocrmypdf-11.6.0.tar.gz"
+  sha256 "a54634d017a2f44aa2115b0b6ae5aa41a7cec018f5c53d16ad3abec1e70b3db7"
   license "MPL-2.0"
 
   livecheck do
@@ -78,8 +78,8 @@ class Ocrmypdf < Formula
   end
 
   resource "pikepdf" do
-    url "https://files.pythonhosted.org/packages/c7/f9/4a6b7a4e6b411cf091680ffd529a3e08062e4ff51ffecd7038c5d55d99d0/pikepdf-2.3.0.tar.gz"
-    sha256 "e0e48e841ea984c67a88b4fab05a8ce9e6f2a2dd03c503f7ed9bebf70370f5f3"
+    url "https://files.pythonhosted.org/packages/16/4d/068b2045e394a040ccbacd55aaa2327bd44e1a668f9ca51e5660298c83ce/pikepdf-2.4.0.tar.gz"
+    sha256 "f288b719e513c9e557e885c47b101736c24ca63f87addc444994a67b65d24535"
   end
 
   resource "Pillow" do
@@ -98,8 +98,8 @@ class Ocrmypdf < Formula
   end
 
   resource "reportlab" do
-    url "https://files.pythonhosted.org/packages/87/42/770d5815606aebb808344c9d90f96f95474b7d87047fba68fc282639db2c/reportlab-3.5.59.tar.gz"
-    sha256 "a755cca2dcf023130b03bb671670301a992157d5c3151d838c0b68ef89894536"
+    url "https://files.pythonhosted.org/packages/21/be/29ee64f367c4eb3812e6b737148caa4c67ba09b61a73a9331fa6e0add9b0/reportlab-3.5.60.tar.gz"
+    sha256 "2fd3305a75502d11942a9629cf6af96660a508f19adc4abaac5549909d1db1b3"
   end
 
   resource "six" do
@@ -113,8 +113,8 @@ class Ocrmypdf < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/b6/d1/39a24ca38121a29c6ba4a85fb6cbe4429448a6d1e02944625933367a872f/tqdm-4.55.2.tar.gz"
-    sha256 "86ca00c4942c3b3dc7ed31bae44cd2db38ef85ca05a7920f6a6c52ad7fcac904"
+    url "https://files.pythonhosted.org/packages/69/50/9f29874d835945b845812799edc732ba30c41e9d20431f9f69c8ffb9c670/tqdm-4.56.0.tar.gz"
+    sha256 "fe3d08dd00a526850568d542ff9de9bbc2a09a791da3c334f3213d8d0bbbca65"
   end
 
   def install
