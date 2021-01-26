@@ -3,7 +3,7 @@ class Masscan < Formula
   homepage "https://github.com/robertdavidgraham/masscan/"
   url "https://github.com/robertdavidgraham/masscan/archive/1.3.1.tar.gz"
   sha256 "44c303eff8274c689d306b5f21b8b15acf6bf2b2980a2c01698a94ebae2bc166"
-  license "AGPL-3.0"
+  license "AGPL-3.0-only"
   head "https://github.com/robertdavidgraham/masscan.git"
 
   livecheck do
