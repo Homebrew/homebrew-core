@@ -4,7 +4,7 @@ class Aalib < Formula
   url "https://downloads.sourceforge.net/project/aa-project/aa-lib/1.4rc5/aalib-1.4rc5.tar.gz"
   sha256 "fbddda9230cf6ee2a4f5706b4b11e2190ae45f5eda1f0409dc4f99b35e0a70ee"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   # The latest version in the formula is a release candidate, so we have to
   # allow matching of unstable versions.
@@ -33,7 +33,6 @@ class Aalib < Formula
   end
 
   def install
-    ENV.ncurses_define
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
