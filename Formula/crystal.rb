@@ -41,10 +41,16 @@ class Crystal < Formula
   depends_on "gmp" # std uses it but it's not linked
   depends_on "libevent"
   depends_on "libyaml"
-  depends_on "llvm@9"
   depends_on "openssl@1.1" # std uses it but it's not linked
   depends_on "pcre"
   depends_on "pkg-config" # @[Link] will use pkg-config if available
+
+  # compatibility with llvm is currently experimental
+  if Hardware::CPU.arm?
+    depends_on "llvm"
+  else
+    depends_on "llvm@9"
+  end
 
   # Crystal uses an extended version of bdw-gc to handle multi-threading
   resource "bdw-gc" do
