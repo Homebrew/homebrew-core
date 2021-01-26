@@ -20,6 +20,10 @@ class Sourcery < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/sourcery --version").chomp
+    (testpath/"a.swift").write "class A {}"
+    (testpath/"a.stencil").write "{% for type in types.all %}{{ type.name }}{% endfor %}"
+    system "#{bin}/sourcery", "--disableCache", "--sources", "#{testpath}/a.swift", "--templates",
+      "#{testpath}/a.stencil", "--output", "#{testpath}/b.swift"
+    assert_match "A", (testpath/"b.swift").read.chomp
   end
 end
