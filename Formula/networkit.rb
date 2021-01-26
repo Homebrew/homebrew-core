@@ -23,11 +23,14 @@ class Networkit < Formula
   depends_on "python@3.9"
   depends_on "scipy"
 
-  def install
-    # fix tlx path reference
-    inreplace "setup.py", "\"-DCMAKE_BUILD_TYPE=Release\"",
-                          "\"-DCMAKE_BUILD_TYPE=Release\", \"-DNETWORKIT_EXT_TLX=#{Formula["tlx"].opt_prefix}\""
+  # setup.py: add --external-tlx option
+  # https://github.com/networkit/networkit/pull/666
+  patch do
+    url "https://github.com/networkit/networkit/commit/dbe93306402e6ffee78bf45df5efc9cf2ac991a7.patch?full_index=1"
+    sha256 "7b50df48972f5490ede25e101d04e7ec4b1c4f8ededfdaee94c17fedf917d572"
+  end
 
+  def install
     xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     rpath_addons = Formula["libnetworkit"].opt_lib
 
@@ -35,6 +38,7 @@ class Networkit < Formula
     ENV.append_path "PYTHONPATH", Formula["cython"].opt_libexec/"lib/python#{xy}/site-packages"
     system Formula["python@3.9"].opt_bin/"python3", "setup.py", "build_ext",
           "--networkit-external-core",
+          "--external-tlx=#{Formula["tlx"].opt_prefix}",
           "--rpath=@loader_path;#{rpath_addons}"
     system Formula["python@3.9"].opt_bin/"python3", "setup.py", "install",
            "--single-version-externally-managed",
