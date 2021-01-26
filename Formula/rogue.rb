@@ -21,7 +21,8 @@ class Rogue < Formula
   end
 
   def install
-    ENV.ncurses_define
+    # Fix main.c:241:11: error: incomplete definition of type 'struct _win_st'
+    ENV.append "CPPFLAGS", "-DNCURSES_OPAQUE=0"
 
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
