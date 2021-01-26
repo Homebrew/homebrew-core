@@ -15,10 +15,8 @@ class Sourcery < Formula
   depends_on xcode: "12.0"
 
   def install
-    system "swift", "build", "--disable-sandbox", "-c", "release", "-Xswiftc",
-                             "-target", "-Xswiftc", "x86_64-apple-macosx10.11"
+    system "swift", "build", "--disable-sandbox", "-c", "release"
     bin.install ".build/release/sourcery"
-    lib.install Dir[".build/release/*.dylib"]
   end
 
   test do
