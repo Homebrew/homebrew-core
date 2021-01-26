@@ -18,6 +18,7 @@ class Coturn < Formula
     sha256 "e9601d4fca70c049a01145aee4f09aac8efad87d73de706dd3ea580f6be7e875" => :mojave
   end
 
+  depends_on "pkg-config" => :build
   depends_on "hiredis"
   depends_on "libevent"
   depends_on "libpq"
