@@ -4,7 +4,7 @@ class ArmLinuxGnueabihfBinutils < Formula
   url "https://ftp.gnu.org/gnu/binutils/binutils-2.36.tar.xz"
   mirror "https://ftpmirror.gnu.org/binutils/binutils-2.36.tar.xz"
   sha256 "5788292cc5bbcca0848545af05986f6b17058b105be59e99ba7d0f9eb5336fb8"
-  license "GPL-2.0"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url :stable
