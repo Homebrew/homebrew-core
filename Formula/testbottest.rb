@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Testbottest < Formula
   desc "Minimal C program and Makefile used for testing Homebrew"
   homepage "https://github.com/Homebrew/brew"
@@ -8,13 +6,9 @@ class Testbottest < Formula
   license "BSD-2-Clause"
   head "https://github.com/Homebrew/homebrew-test-bot.git"
 
-  depends_on xcode: ["10.2", :optional]
-
   fails_with gcc: "6"
 
   def install
-    odie "whoops, shouldn't be using java!" if build.with?("xcode")
-
     system "make", "install", "PREFIX=#{prefix}"
   end
 
