@@ -1,9 +1,9 @@
 class Ice < Formula
   desc "Comprehensive RPC framework"
   homepage "https://zeroc.com"
-  url "https://github.com/zeroc-ice/ice/archive/v3.7.4.tar.gz"
-  sha256 "57f200bd2916799bce12960e579d9f9e5b6a9801addaf93d97bb4ce15c760a44"
-  license "GPL-2.0"
+  url "https://github.com/zeroc-ice/ice/archive/v3.7.5.tar.gz"
+  sha256 "36bf45591a95e6ee7216153d45d8eca05ff00c1da35608f0c400e6ddc8049da9"
+  license "GPL-2.0-only"
 
   livecheck do
     url :stable
@@ -22,8 +22,6 @@ class Ice < Formula
   depends_on "mcpp"
 
   def install
-    ENV.O2 # Os causes performance issues
-
     args = [
       "prefix=#{prefix}",
       "V=1",
