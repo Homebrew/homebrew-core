@@ -25,6 +25,7 @@ class Ice < Formula
     args = [
       "prefix=#{prefix}",
       "V=1",
+      "USR_DIR_INSTALL=yes", # ensure slice and man files are installed to share
       "MCPP_HOME=#{Formula["mcpp"].opt_prefix}",
       "LMDB_HOME=#{Formula["lmdb"].opt_prefix}",
       "CONFIGS=shared cpp11-shared xcodesdk cpp11-xcodesdk",
