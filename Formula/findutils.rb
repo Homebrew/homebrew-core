@@ -29,11 +29,19 @@ class Findutils < Formula
     # https://lists.gnu.org/archive/html/bug-tar/2015-10/msg00017.html
     ENV["gl_cv_func_getcwd_abort_bug"] = "no" if MacOS.version == :el_capitan
 
+    # Workaround for build failures in 4.8.0
+    # https://lists.gnu.org/archive/html/bug-findutils/2021-01/msg00050.html
+    # https://lists.gnu.org/archive/html/bug-findutils/2021-01/msg00051.html
+    ENV.append "CFLAGS", "-D__nonnull\\(params\\)="
+
     args = %W[
       --prefix=#{prefix}
       --localstatedir=#{var}/locate
       --disable-dependency-tracking
       --disable-debug
+      --disable-nls
+      --with-packager=Homebrew
+      --with-packager-bug-reports=#{tap.issues_url}
     ]
 
     on_macos do
