@@ -1,8 +1,8 @@
 class DockerComposeCompletion < Formula
   desc "Completion script for docker-compose"
   homepage "https://docs.docker.com/compose/completion/"
-  url "https://github.com/docker/compose/archive/1.28.0.tar.gz"
-  sha256 "cd6deb23cf93c426fccf223f88cd0b81a251e6f7e3dbf6e16b98228c61b88192"
+  url "https://github.com/docker/compose/archive/1.28.2.tar.gz"
+  sha256 "f2c4fb33fc4368b4ad4452f2de82d8a37d08e46f9bf45aa3c0cacdbd7846f69e"
   license "Apache-2.0"
   head "https://github.com/docker/compose.git"
 
