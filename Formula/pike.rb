@@ -1,12 +1,11 @@
 class Pike < Formula
   desc "Dynamic programming language"
   homepage "https://pike.lysator.liu.se/"
-  url "https://pike.lysator.liu.se/pub/pike/latest-stable/Pike-v8.0.702.tar.gz"
+  url "https://pike.lysator.liu.se/pub/pike/latest-stable/Pike-v8.0.1116.tar.gz"
+  mirror "http://deb.debian.org/debian/pool/main/p/pike8.0/pike8.0_8.0.1116.orig.tar.gz"
   # Homepage has an expired SSL cert as of 16/12/2020, so we add a Debian mirror
-  mirror "http://deb.debian.org/debian/pool/main/p/pike8.0/pike8.0_8.0.702.orig.tar.gz"
-  sha256 "c47aad2e4f2c501c0eeea5f32a50385b46bda444f922a387a5c7754302f12a16"
+  sha256 "5020063c755bb182177750221013b199198a7f1eb8ff26c1fb879d375c755891"
   license any_of: ["GPL-2.0-only", "LGPL-2.1-only", "MPL-1.1"]
-  revision 4
 
   livecheck do
     url "https://pike.lysator.liu.se/download/pub/pike/latest-stable/"
