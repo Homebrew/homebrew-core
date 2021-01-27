@@ -5,6 +5,11 @@ class ArgyllCms < Formula
   sha256 "be378ca836b17b8684db05e9feaab138d711835ef00a04a76ac0ceacd386a3e3"
   license "AGPL-3.0"
 
+  livecheck do
+    url "https://www.argyllcms.com/downloadsrc.html"
+    regex(/href=.*?Argyll[._-]v?(\d+(?:\.\d+)+)[._-]src\.zip/i)
+  end
+
   bottle do
     cellar :any
     sha256 "242a8a56d37402e681d630d1df0702088df5555e367afb65469679aa96ee9f29" => :catalina
