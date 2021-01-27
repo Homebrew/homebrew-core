@@ -3,8 +3,8 @@ class DockerCompose < Formula
 
   desc "Isolated development environments using Docker"
   homepage "https://docs.docker.com/compose/"
-  url "https://files.pythonhosted.org/packages/94/48/6f99865c4f652839145e7d5f6ed384b53455bc3ece18fb8f20d0bef8723f/docker-compose-1.28.0.tar.gz"
-  sha256 "947888fe9377b48c260d59b6511ba205655c6beb45a4b70fbce28f753aacf75a"
+  url "https://files.pythonhosted.org/packages/9f/44/67b2c982a86a164ee540886d9efd08a131eea09844e9c05ce8a965052273/docker-compose-1.28.2.tar.gz"
+  sha256 "2f148b590414915d029dad7551f4cdf0b03a774dc9baa674480217236d260cc1"
   license "Apache-2.0"
   head "https://github.com/docker/compose.git"
 
@@ -116,8 +116,8 @@ class DockerCompose < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/b5/fd/15638de2da0a5aa91c095718444624aa565f766fc178249ca6faa372f71a/PyYAML-5.4.tar.gz"
-    sha256 "3c49e39ac034fd64fd576d63bb4db53cda89b362768a67f07749d55f128ac18a"
+    url "https://files.pythonhosted.org/packages/a0/a4/d63f2d7597e1a4b55aa3b4d6c5b029991d3b824b5bd331af8d4ab1ed687d/PyYAML-5.4.1.tar.gz"
+    sha256 "607774cbba28732bfa802b54baa7484215f530991055bb562efbed5b2f20a45e"
   end
 
   resource "requests" do
@@ -136,8 +136,8 @@ class DockerCompose < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/29/e6/d1a1d78c439cad688757b70f26c50a53332167c364edb0134cadd280e234/urllib3-1.26.2.tar.gz"
-    sha256 "19188f96923873c92ccb987120ec4acaa12f0461fa9ce5d3d0772bc965a39e08"
+    url "https://files.pythonhosted.org/packages/d7/8d/7ee68c6b48e1ec8d41198f694ecdc15f7596356f2ff8e6b1420300cf5db3/urllib3-1.26.3.tar.gz"
+    sha256 "de3eedaad74a2683334e282005cd8d7f22f4d55fa690a2a1020a416cb0a47e73"
   end
 
   resource "websocket_client" do
