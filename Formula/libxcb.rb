@@ -1,6 +1,6 @@
 class Python3Requirement < Requirement
   fatal true
-  satisfy { which "python3" }
+  satisfy(build_env: false) { which "python3" }
   def message
     <<~EOS
       An existing Python 3 installation is required in order to avoid cyclic
