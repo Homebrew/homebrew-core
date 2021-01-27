@@ -21,7 +21,7 @@ class Quazip < Formula
 
   def install
     system "cmake", "-DQUAZIP_DIR_NAME=", ".", *std_cmake_args
-    system "cmake", "--build", "."
+    system "make", "CPATH="
     system "cmake", "--build", ".", "--target", "install"
   end
 
