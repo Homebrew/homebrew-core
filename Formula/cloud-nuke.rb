@@ -17,7 +17,7 @@ class CloudNuke < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-ldflags", "-X main.VERSION=v#{version}", *std_go_args
+    system "go", "build", "-ldflags", "-s -w -X main.VERSION=v#{version}", *std_go_args
   end
 
   def caveats
