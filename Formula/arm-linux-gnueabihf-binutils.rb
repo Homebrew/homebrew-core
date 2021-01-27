@@ -32,7 +32,9 @@ class ArmLinuxGnueabihfBinutils < Formula
                           "--target=arm-linux-gnueabihf",
                           "--enable-gold=yes",
                           "--enable-ld=yes",
-                          "--enable-interwork"
+                          "--enable-interwork",
+                          "--with-system-zlib",
+                          "--disable-nls"
     system "make"
     system "make", "install"
   end
