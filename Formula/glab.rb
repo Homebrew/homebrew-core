@@ -1,8 +1,8 @@
 class Glab < Formula
   desc "Open-source GitLab command-line tool"
   homepage "https://glab.readthedocs.io/"
-  url "https://github.com/profclems/glab/archive/v1.13.1.tar.gz"
-  sha256 "17372332ce8f2b5d4ec61272ba600a23cf74416440d8056fb4aa4f00a47d0bd6"
+  url "https://github.com/profclems/glab/archive/v1.14.0.tar.gz"
+  sha256 "6b7fdebd7b896793841103a4b8e871c109f00783e6232b2f23c80d1dfb43363b"
   license "MIT"
   head "https://github.com/profclems/glab.git"
 
