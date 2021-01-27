@@ -1,8 +1,8 @@
 class Nsd < Formula
   desc "Name server daemon"
   homepage "https://www.nlnetlabs.nl/projects/nsd/"
-  url "https://www.nlnetlabs.nl/downloads/nsd/nsd-4.3.4.tar.gz"
-  sha256 "3be834a97151a7ba8185e46bc37ff12c2f25f399755ae8a2d0e3711801528b50"
+  url "https://www.nlnetlabs.nl/downloads/nsd/nsd-4.3.5.tar.gz"
+  sha256 "7da2b43e30b3d7f307722c608f719bfb169f0d985c764a34fa0669dc33484472"
   license "BSD-3-Clause"
 
   # We check the GitHub repo tags instead of
