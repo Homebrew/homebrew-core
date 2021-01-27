@@ -4,8 +4,8 @@ class Checkov < Formula
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
   # checkov should only be updated every 15 releases on multiples of 15
-  url "https://files.pythonhosted.org/packages/05/ec/36e2d4a30dd37ecfdda1a3210af2133467e53a3fea0940b4d1ad276e821a/checkov-1.0.705.tar.gz"
-  sha256 "0bdf8a54e89d96fc15d4ccaded8cf6c77b23eb17ec8e5b21f6ac75cb343b5745"
+  url "https://files.pythonhosted.org/packages/71/be/9a310e94123dbc81a19fce130cd09712e7e0d2856f972ea9e72f10916fb7/checkov-1.0.720.tar.gz"
+  sha256 "e1acfae84b4b9530ea66c357e51b2e584ea6253db468773ea30c8d571ea1cccd"
   license "Apache-2.0"
 
   bottle do
@@ -24,13 +24,13 @@ class Checkov < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/86/1d/597aca0170904c593f115f8e7849884e802d07e9f2f1f9944e87cc989934/boto3-1.16.56.tar.gz"
-    sha256 "47151ed571c316458f4931cd2422995ba0c9f6818c5df7d75f49fc845208e42e"
+    url "https://files.pythonhosted.org/packages/34/19/1be08abab2ceda573cbad247cf4474a6ae53c518829181d0fe9c9e64ba40/boto3-1.16.61.tar.gz"
+    sha256 "38f503f0502aba4251dff4d19057c31a7b9dd0f54333df5521f8931ee4c65e26"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/15/d9/283513a699a15546b273b9848def711bcc90f8d7f86765f04cc6ea5cd6e2/botocore-1.19.56.tar.gz"
-    sha256 "01496e4c2c06aab79689f2c345a0e2cceb5fe1da7858a7e7df189bcf97703223"
+    url "https://files.pythonhosted.org/packages/1c/cd/772b9dd430d172a58c4f64c7a6823ad7aa37b3489f3120139a87e11622d9/botocore-1.19.61.tar.gz"
+    sha256 "3245c9e996143bcfdea73d105145ca733fcd7d5afe744a8760612fc449c3f810"
   end
 
   resource "certifi" do
@@ -105,8 +105,8 @@ class Checkov < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/64/c2/b80047c7ac2478f9501676c988a5411ed5572f35d1beff9cae07d321512c/PyYAML-5.3.1.tar.gz"
-    sha256 "b8eac752c5e14d3eca0e6dd9199cd627518cb5ec06add0de9d32baeee6fe645d"
+    url "https://files.pythonhosted.org/packages/a0/a4/d63f2d7597e1a4b55aa3b4d6c5b029991d3b824b5bd331af8d4ab1ed687d/PyYAML-5.4.1.tar.gz"
+    sha256 "607774cbba28732bfa802b54baa7484215f530991055bb562efbed5b2f20a45e"
   end
 
   resource "requests" do
@@ -130,8 +130,8 @@ class Checkov < Formula
   end
 
   resource "smmap" do
-    url "https://files.pythonhosted.org/packages/75/fb/2f594e5364f9c986b2c89eb662fc6067292cb3df2b88ae31c939b9138bb9/smmap-3.0.4.tar.gz"
-    sha256 "9c98bbd1f9786d22f14b3d4126894d56befb835ec90cef151af566c7e19b5d24"
+    url "https://files.pythonhosted.org/packages/2b/6f/d48bbed5aa971943759f4ede3f12dca40aa7faa44f22bad483de86780508/smmap-3.0.5.tar.gz"
+    sha256 "84c2751ef3072d4f6b2785ec7ee40244c6f45eb934d9e543e2c51f1bd3d54c50"
   end
 
   resource "tabulate" do
@@ -155,8 +155,8 @@ class Checkov < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/29/e6/d1a1d78c439cad688757b70f26c50a53332167c364edb0134cadd280e234/urllib3-1.26.2.tar.gz"
-    sha256 "19188f96923873c92ccb987120ec4acaa12f0461fa9ce5d3d0772bc965a39e08"
+    url "https://files.pythonhosted.org/packages/d7/8d/7ee68c6b48e1ec8d41198f694ecdc15f7596356f2ff8e6b1420300cf5db3/urllib3-1.26.3.tar.gz"
+    sha256 "de3eedaad74a2683334e282005cd8d7f22f4d55fa690a2a1020a416cb0a47e73"
   end
 
   def install
