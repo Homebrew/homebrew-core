@@ -20,7 +20,7 @@ class Qxmpp < Formula
   def install
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
-      system "make", "CPATH=", "--target", "install"
+      system "make", "CPATH="
     end
   end
 
