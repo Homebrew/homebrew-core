@@ -5,6 +5,7 @@ class Wireshark < Formula
   mirror "https://1.na.dl.wireshark.org/src/wireshark-3.4.2.tar.xz"
   sha256 "de9868729e426a469baabd8d444240d84fa5445020e92c842dd19afd0d47a4c4"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://gitlab.com/wireshark/wireshark.git"
 
   livecheck do
@@ -26,7 +27,7 @@ class Wireshark < Formula
   depends_on "libmaxminddb"
   depends_on "libsmi"
   depends_on "libssh"
-  depends_on "lua@5.1"
+  depends_on "lua"
   depends_on "nghttp2"
 
   uses_from_macos "bison" => :build
@@ -40,8 +41,8 @@ class Wireshark < Formula
       -DBUILD_wireshark_gtk=OFF
       -DENABLE_PORTAUDIO=OFF
       -DENABLE_LUA=ON
-      -DLUA_INCLUDE_DIR=#{Formula["lua@5.1"].opt_include}/lua-5.1
-      -DLUA_LIBRARY=#{Formula["lua@5.1"].opt_lib}/liblua5.1.dylib
+      -DLUA_INCLUDE_DIR=#{Formula["lua"].opt_include}/lua
+      -DLUA_LIBRARY=#{Formula["lua"].opt_lib}/liblua.dylib
       -DCARES_INCLUDE_DIR=#{Formula["c-ares"].opt_include}
       -DGCRYPT_INCLUDE_DIR=#{Formula["libgcrypt"].opt_include}
       -DGNUTLS_INCLUDE_DIR=#{Formula["gnutls"].opt_include}
