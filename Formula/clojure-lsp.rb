@@ -18,7 +18,7 @@ class ClojureLsp < Formula
 
   depends_on "leiningen" => :build
   # The Java Runtime version only recognizes class file versions up to 52.0
-  depends_on "openjdk@8"
+  depends_on "openjdk@11"
 
   def install
     system "lein", "uberjar"
