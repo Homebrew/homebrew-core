@@ -2,11 +2,12 @@ class Go < Formula
   desc "Open source programming language to build simple/reliable/efficient software"
   homepage "https://golang.org"
   license "BSD-3-Clause"
+  revision 1
 
   stable do
     if Hardware::CPU.arm?
-      url "https://golang.org/dl/go1.16beta1.src.tar.gz"
-      sha256 "48e032c8cf71af4dc8119a29ee829c4fbd5265e32fd012564d4a70bb207695c1"
+      url "https://golang.org/dl/go1.16rc1.src.tar.gz"
+      sha256 "6a33569f9d0d21db31614086cc2a4f0fbc683b41c1c53fb512a1341ce5763ff5"
       version "1.15.7"
     else
       url "https://golang.org/dl/go1.15.7.src.tar.gz"
@@ -91,8 +92,8 @@ class Go < Formula
 
     if Hardware::CPU.arm?
       s += <<~EOS
-        This is a beta version of the Go compiler for Apple Silicon
-        (Go 1.16beta1).
+        This is a release candidate version of the Go compiler for Apple Silicon
+        (Go 1.16rc1).
       EOS
     end
 
