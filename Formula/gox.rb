@@ -29,13 +29,7 @@ class Gox < Formula
   end
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/mitchellh/gox").install buildpath.children
-    (buildpath/"src/github.com/mitchellh/iochan").install resource("iochan")
-    cd "src/github.com/mitchellh/gox" do
-      system "go", "build", "-o", bin/"gox"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args
   end
 
   test do
