@@ -13,7 +13,7 @@ class KymaCli < Formula
     sha256 "46d9dd3817ecb02b8f4e4dd60623af408c6b599c87fecee570291e3b62b93e71" => :mojave
   end
 
-  depends_on "go" => :build
+  depends_on "go@1.14" => :build
 
   def install
     ldflags = %W[
