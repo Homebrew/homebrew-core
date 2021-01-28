@@ -24,6 +24,6 @@ class Cherrytree < Formula
   end
 
   test do
-    system "#{bin}/program", "--version"
+    system "#{bin}/cherrytree", "--version"
   end
 end
