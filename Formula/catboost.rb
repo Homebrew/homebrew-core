@@ -10,6 +10,11 @@ class Catboost < Formula
     strategy :github_latest
   end
 
+  resource "yandex" do
+    url "https://storage.mds.yandex.net/get-devtools-opensource/471749/1903567586"
+    sha256 "cb97bd28c8205c18bf9426b9457616e2fd05121562c72dcbba1ee7eca53a5034"
+  end
+
   def install
     cd "#{buildpath}/catboost/app" do
       ENV["YA_CACHE_DIR"] = "./.ya"
