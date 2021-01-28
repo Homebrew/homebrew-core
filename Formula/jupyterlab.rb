@@ -3,8 +3,8 @@ class Jupyterlab < Formula
 
   desc "Interactive environments for writing and running code"
   homepage "https://jupyter.org/"
-  url "https://files.pythonhosted.org/packages/5c/6a/5374b23cd4bfea0dc4c1e156ec3ef6602ba41ac5d9814533397882f27dd3/jupyterlab-3.0.5.tar.gz"
-  sha256 "ea75d43d9a054e9192b78ae1eefa72270818d1d787ec21f19db1a92d5cc8db35"
+  url "https://files.pythonhosted.org/packages/1a/97/3642b44c9b095d792a57e25f751f29f26757f5892bf5a4bf7bf58664ebdd/jupyterlab-3.0.6.tar.gz"
+  sha256 "50a5344b7aee8ee420947698061ee26163a351f16409925c6d6ed9dc13fa9a48"
   license "BSD-3-Clause"
 
   livecheck do
@@ -62,8 +62,8 @@ class Jupyterlab < Formula
   end
 
   resource "bleach" do
-    url "https://files.pythonhosted.org/packages/04/2c/8e256291cfeaefb72d1dafc888b1ad447e754d8062520b41f1d3ffa7e139/bleach-3.2.1.tar.gz"
-    sha256 "52b5919b81842b1854196eaae5ca29679a2f2e378905c346d3ca8227c2c66080"
+    url "https://files.pythonhosted.org/packages/8a/6a/42dbe21f1d8b14836c84482faa71789930420b9d68935b129d67e042153c/bleach-3.2.3.tar.gz"
+    sha256 "c6ad42174219b64848e2e2cd434e44f56cd24a93a9b4f8bc52cfed55a1cd5aad"
   end
 
   resource "cffi" do
@@ -147,8 +147,8 @@ class Jupyterlab < Formula
   end
 
   resource "jupyterlab-server" do
-    url "https://files.pythonhosted.org/packages/b4/02/792f4b2d957235eb6667384d8879a597c7b934020505429df74f06c6edcd/jupyterlab_server-2.1.2.tar.gz"
-    sha256 "a71ebeb89eb2ab49eca41768f9840bb6896c264203ea755990313d4dfa610a74"
+    url "https://files.pythonhosted.org/packages/43/9b/960e97a2d5fbf61c289afcd5493ad8dd3d3dce07e490167479b31ed061f4/jupyterlab_server-2.1.3.tar.gz"
+    sha256 "2af96b04bacf49a17bd2abdd461a219ab62724c39aea2d39ba95ded4be9a171a"
   end
 
   resource "MarkupSafe" do
@@ -182,8 +182,8 @@ class Jupyterlab < Formula
   end
 
   resource "nest-asyncio" do
-    url "https://files.pythonhosted.org/packages/a7/e0/6125c2b7e64ce7c55a45f5b1dffe97bc5643945139374a80963c7b1308e6/nest_asyncio-1.4.3.tar.gz"
-    sha256 "eaa09ef1353ebefae19162ad423eef7a12166bcc63866f8bff8f3635353cd9fa"
+    url "https://files.pythonhosted.org/packages/ad/82/2fdf6a92eed4ddf5e9d9a735d019af1ef3a56f084d9549972b2527a43a48/nest_asyncio-1.5.1.tar.gz"
+    sha256 "afc5a1c515210a23c461932765691ad39e8eba6551c055ac8d5546e69250d0aa"
   end
 
   resource "notebook" do
@@ -222,8 +222,8 @@ class Jupyterlab < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/4f/18/77e8da1f8342f561c7fccb5701398200bd7c9b1227ee15ad370086bc71d8/prompt_toolkit-3.0.10.tar.gz"
-    sha256 "b8b3d0bde65da350290c46a8f54f336b3cbf5464a4ac11239668d986852e79d5"
+    url "https://files.pythonhosted.org/packages/b1/46/4eb242362c43cf033b4ec4d7205612c46c9f904a8984cdfdb64d35476175/prompt_toolkit-3.0.14.tar.gz"
+    sha256 "7e966747c18ececaec785699626b771c1ba8344c8d31759a1915d6b12fad6525"
   end
 
   resource "ptyprocess" do
@@ -262,8 +262,8 @@ class Jupyterlab < Formula
   end
 
   resource "pyzmq" do
-    url "https://files.pythonhosted.org/packages/4c/c5/22744ce59129b11195337d86b0025e9ba9609dea5cf24f45f0017f7237d0/pyzmq-21.0.0.tar.gz"
-    sha256 "95a85f29d1248da85e8bc09b1a22a659644b606dcae74d663eab9cafd1a4905f"
+    url "https://files.pythonhosted.org/packages/c0/f6/a5d9550a7938bdd6af54186b784dd20d52e8b2357f632345243e585c58b1/pyzmq-22.0.0.tar.gz"
+    sha256 "10b86bd04343b1de89ee03ec0bbaac646291de1a6c873228bb9ed22b4d8b32a2"
   end
 
   resource "requests" do
