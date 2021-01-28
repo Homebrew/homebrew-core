@@ -3,6 +3,7 @@ class Zyre < Formula
   homepage "https://github.com/zeromq/zyre"
   url "https://github.com/zeromq/zyre/releases/download/v2.0.1/zyre-2.0.1.tar.gz"
   sha256 "0ba43fcdf70fa1f35b068843a90fdf50b34d65a9be7f2c193924a87a4031a98c"
+  license "MPL-2.0"
 
   bottle do
     cellar :any
