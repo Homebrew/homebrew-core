@@ -5,7 +5,7 @@ class CharmTools < Formula
   homepage "https://github.com/juju/charm-tools"
   url "https://files.pythonhosted.org/packages/c4/30/2b225ebfcfb32038d70d4ad01580d19bf6bd500060d181dde6d99731c31f/charm-tools-2.8.1.tar.gz"
   sha256 "fb7d45634fbc2e73bb32f775d3d2b2022e24a91eeb55a02607d680688ccce3e1"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url :stable
