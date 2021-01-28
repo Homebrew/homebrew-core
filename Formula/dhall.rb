@@ -27,6 +27,6 @@ class Dhall < Formula
   test do
     assert_match "{=}", pipe_output("#{bin}/dhall format", "{ = }", 0)
     assert_match "8", pipe_output("#{bin}/dhall normalize", "(\\(x : Natural) -> x + 3) 5", 0)
-    assert_match "∀(x : Natural) → Natural", pipe_output("#{bin}/dhall type", "\\(x: Natural) -> x + 3", 0)
+    assert_match "(x : Natural) -> Natural", pipe_output("#{bin}/dhall type", "\\(x: Natural) -> x + 3", 0)
   end
 end
