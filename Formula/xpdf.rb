@@ -1,8 +1,8 @@
 class Xpdf < Formula
   desc "PDF viewer"
   homepage "https://www.xpdfreader.com/"
-  url "https://dl.xpdfreader.com/xpdf-4.02.tar.gz"
-  sha256 "52d51dc943b9614b8da66e8662b3031a3c82dc25bfc792eac6b438aa36d549a4"
+  url "https://dl.xpdfreader.com/xpdf-4.03.tar.gz"
+  sha256 "0fe4274374c330feaadcebb7bd7700cb91203e153b26aa95952f02bf130be846"
   license "GPL-2.0"
 
   livecheck do
