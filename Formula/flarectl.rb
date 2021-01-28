@@ -17,8 +17,7 @@ class Flarectl < Formula
   depends_on "go" => :build
 
   def install
-    cd "cmd/flarectl"
-    system "go", "build", *std_go_args, "-ldflags", "-s -w", "./..."
+    system "go", "build", *std_go_args, "-ldflags", "-s -w", "./cmd/flarectl"
   end
 
   test do
