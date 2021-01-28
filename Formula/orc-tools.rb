@@ -5,6 +5,11 @@ class OrcTools < Formula
   sha256 "ade496bf92a2a52f6008e18e1431d770801a93c74dfa0f863cb66b7e9f06b44e"
   license "Apache-2.0"
 
+  livecheck do
+    url "https://search.maven.org/remotecontent?filepath=org/apache/orc/orc-tools/"
+    regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
