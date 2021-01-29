@@ -128,6 +128,12 @@ class CloudformationCli < Formula
     sha256 "c8a85b28d377cc7737e46e2d9f2b4f44ee3c0e1deac6bf46ddefc7187d30797a"
   end
 
+  # only doing this because junit-xml source is not available in PyPI for v1.9
+  resource "junit-xml" do
+    url "https://github.com/kyrus/python-junit-xml.git",
+        revision: "4bd08a272f059998cedf9b7779f944d49eba13a6"
+  end
+
   resource "MarkupSafe" do
     url "https://files.pythonhosted.org/packages/b9/2e/64db92e53b86efccfaea71321f597fa2e1b2bd3853d8ce658568f7a13094/MarkupSafe-1.1.1.tar.gz"
     sha256 "29872e92839765e546828bb7754a68c418d927cd064fd4708fab9fe9c8bb116b"
