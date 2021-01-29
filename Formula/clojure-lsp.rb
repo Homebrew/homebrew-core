@@ -38,6 +38,8 @@ class ClojureLsp < Formula
 
       {"jsonrpc":"2.0","method":"initialize","params":{},"id":1}
     EOF
+    print "stdout.gets: "
+    print stdout.gets("\n")
     assert_match "Content-Length", stdout.gets("\n")
     Process.kill "SIGKILL", pid
   end
