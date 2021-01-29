@@ -16,6 +16,12 @@ class Flarectl < Formula
 
   depends_on "go" => :build
 
+  # remove in next release
+  patch do
+    url "https://github.com/chenrui333/cloudflare-go/commit/5c74c62.patch?full_index=1"
+    sha256 "428c3504205af52b90a4d16e07ba7069e71ac2546787f9b6218ccb4784975b09"
+  end
+
   def install
     system "go", "build", *std_go_args, "-ldflags", "-s -w", "./cmd/flarectl"
   end
