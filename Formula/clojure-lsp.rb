@@ -1,6 +1,6 @@
 class ClojureLsp < Formula
   desc "Language Server (LSP) for Clojure"
-  homepage "https://github.com/snoe/clojure-lsp"
+  homepage "https://github.com/clojure-lsp/clojure-lsp"
   # Switch to use git tag/revision as needed by `lein-git-version`
   url "https://github.com/snoe/clojure-lsp.git",
       tag:      "release-20201207T142850",
