@@ -3,11 +3,10 @@ class ClojureLsp < Formula
   homepage "https://github.com/snoe/clojure-lsp"
   # Switch to use git tag/revision as needed by `lein-git-version`
   url "https://github.com/snoe/clojure-lsp.git",
-      tag:      "2021.01.28-03.03.16",
-      revision: "fe50704d5e14009d4eeeb5a88a451d0ef4474838"
-  version "2021.01.28-03.03.16"
+      tag:      "release-20201207T142850",
+      revision: "ab32504073688d507b53e47c354733cd6603bc88"
+  version "20201207T142850"
   license "MIT"
-  version_scheme 1
   head "https://github.com/snoe/clojure-lsp.git"
 
   bottle do
@@ -29,15 +28,15 @@ class ClojureLsp < Formula
   end
 
   test do
-    input =
-      "Content-Length: 152\r\n" \
-      "\r\n" \
-      "{\"jsonrpc\":\"2.0\",\"id\":0,\"method\":\"initialize\",\"params\":{\"" \
-      "processId\":88075,\"rootUri\":null,\"capabilities\":{},\"trace\":\"ver" \
-      "bose\",\"workspaceFolders\":null}}\r\n"
+    require "Open3"
 
-    output = "Content-Length:"
-
-    assert_match output, pipe_output("#{bin}/clojure-lsp", input, 0)
+    stdin, stdout, _, wait_thr = Open3.popen3("#{bin}/clojure-lsp")
+    pid = wait_thr.pid
+    stdin.write <<~EOF
+      Content-Length: 58
+      {"jsonrpc":"2.0","method":"initialize","params":{},"id":1}
+    EOF
+    assert_match "Content-Length", stdout.gets("\n")
+    Process.kill "SIGKILL", pid
   end
 end
