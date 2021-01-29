@@ -26,12 +26,6 @@ class Librsvg < Formula
   depends_on "pango"
 
   def install
-    on_macos do
-      # Can be removed with librsvg 2.50.3
-      # https://gitlab.gnome.org/GNOME/librsvg/issues/545#note_753842
-      ENV.append "LDFLAGS", "-lobjc"
-    end
-
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
