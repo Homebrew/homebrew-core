@@ -29,16 +29,15 @@ class ClojureLsp < Formula
   end
 
   test do
-    require "open3"
+    input =
+      "Content-Length: 152\r\n" \
+      "\r\n" \
+      "{\"jsonrpc\":\"2.0\",\"id\":0,\"method\":\"initialize\",\"params\":{\"" \
+      "processId\":88075,\"rootUri\":null,\"capabilities\":{},\"trace\":\"ver" \
+      "bose\",\"workspaceFolders\":null}}\r\n"
 
-    begin
-      stdin, stdout, _, wait_thr = Open3.popen3("#{bin}/clojure-lsp")
-      pid = wait_thr.pid
-      stdin.write <<~EOF
-        Content-Length: 103
-        {"jsonrpc": "2.0", "id": 0, "method": "initialize", "params": { "rootUri": null, "capabilities": {}}}
-      EOF
-      assert_match "Content-Length:", stdout.gets("\n")
-    end
+    output = "Content-Length:"
+
+    assert_match output, pipe_output("#{bin}/clojure-lsp", input, 0)
   end
 end
