@@ -31,7 +31,7 @@ class ClojureLsp < Formula
   test do
     require "Open3"
 
-    stdin, stdout, _, wait_thr = Open3.popen3("#{bin}/clojure-lsp --version")
+    _, stdout, _, wait_thr = Open3.popen3("#{bin}/clojure-lsp --version")
     pid = wait_thr.pid
     assert_match "clojure-lsp", stdout.gets("\n")
     Process.kill "SIGKILL", pid
