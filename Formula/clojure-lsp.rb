@@ -6,8 +6,8 @@ class ClojureLsp < Formula
       tag:      "2021.01.28-03.03.16",
       revision: "fe50704d5e14009d4eeeb5a88a451d0ef4474838"
   version "2021.01.28-03.03.16"
-  version_scheme 1
   license "MIT"
+  version_scheme 1
   head "https://github.com/snoe/clojure-lsp.git"
 
   bottle do
