@@ -1,8 +1,8 @@
 class Libgcrypt < Formula
   desc "Cryptographic library based on the code from GnuPG"
   homepage "https://gnupg.org/related_software/libgcrypt/"
-  url "https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.9.0.tar.bz2"
-  sha256 "4d9ccaa5f99db59ebcb64d73f62825b05ce8a6b7f86d19178559ef84de1381cb"
+  url "https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.9.1.tar.bz2"
+  sha256 "c5a67a8b9b2bd370fb415ed1ee31c7172e5683076493cf4a3678a0fbdf0265d9"
   license "GPL-2.0-only"
 
   livecheck do
@@ -20,9 +20,8 @@ class Libgcrypt < Formula
 
   depends_on "libgpg-error"
 
-  # Upstream patches to fix basic test failing
-  # https://lists.gnupg.org/pipermail/gcrypt-devel/2021-January/005040.html
-  # https://lists.gnupg.org/pipermail/gcrypt-devel/2021-January/005039.html
+  # Fix --disable-asm build on Intel. https://dev.gnupg.org/T5277
+  # Reverts https://dev.gnupg.org/rC8d404a629167d67ed56e45de3e65d1e0b7cdeb24
   patch :DATA
 
   def install
@@ -55,26 +54,45 @@ class Libgcrypt < Formula
 end
 
 __END__
-diff --git a/cipher/kdf.c b/cipher/kdf.c
-index 3d707bd..93c2c9f 100644
---- a/cipher/kdf.c
-+++ b/cipher/kdf.c
-@@ -342,7 +342,7 @@ check_one (int algo, int hash_algo,
- static gpg_err_code_t
- selftest_pbkdf2 (int extended, selftest_report_func_t report)
- {
--  static struct {
-+  static const struct {
-     const char *desc;
-     const char *p;   /* Passphrase.  */
-     size_t plen;     /* Length of P. */
-@@ -452,7 +452,8 @@ selftest_pbkdf2 (int extended, selftest_report_func_t report)
-       "\x34\x8c\x89\xdb\xcb\xd3\x2b\x2f\x32\xd8\x14\xb8\x11\x6e\x84\xcf"
-       "\x2b\x17\x34\x7e\xbc\x18\x00\x18\x1c\x4e\x2a\x1f\xb8\xdd\x53\xe1"
-       "\xc6\x35\x51\x8c\x7d\xac\x47\xe9"
--    }
-+    },
-+    { NULL }
-   };
-   const char *what;
-   const char *errtxt;
+diff --git a/src/g10lib.h b/src/g10lib.h
+index 243997e..1987265 100644
+--- a/src/g10lib.h
++++ b/src/g10lib.h
+@@ -217,7 +217,6 @@ char **_gcry_strtokenize (const char *string, const char *delim);
+ 
+ 
+ /*-- src/hwfeatures.c --*/
+-#if defined(HAVE_CPU_ARCH_X86)
+ 
+ #define HWF_PADLOCK_RNG         (1 << 0)
+ #define HWF_PADLOCK_AES         (1 << 1)
+@@ -238,29 +237,21 @@ char **_gcry_strtokenize (const char *string, const char *delim);
+ #define HWF_INTEL_RDTSC         (1 << 15)
+ #define HWF_INTEL_SHAEXT        (1 << 16)
+ 
+-#elif defined(HAVE_CPU_ARCH_ARM)
+-
+ #define HWF_ARM_NEON            (1 << 0)
+ #define HWF_ARM_AES             (1 << 1)
+ #define HWF_ARM_SHA1            (1 << 2)
+ #define HWF_ARM_SHA2            (1 << 3)
+ #define HWF_ARM_PMULL           (1 << 4)
+ 
+-#elif defined(HAVE_CPU_ARCH_PPC)
+-
+ #define HWF_PPC_VCRYPTO         (1 << 0)
+ #define HWF_PPC_ARCH_3_00       (1 << 1)
+ #define HWF_PPC_ARCH_2_07       (1 << 2)
+ 
+-#elif defined(HAVE_CPU_ARCH_S390X)
+-
+ #define HWF_S390X_MSA           (1 << 0)
+ #define HWF_S390X_MSA_4         (1 << 1)
+ #define HWF_S390X_MSA_8         (1 << 2)
+ #define HWF_S390X_VX            (1 << 3)
+ 
+-#endif
+-
+ gpg_err_code_t _gcry_disable_hw_feature (const char *name);
+ void _gcry_detect_hw_features (void);
+ unsigned int _gcry_get_hw_features (void);
