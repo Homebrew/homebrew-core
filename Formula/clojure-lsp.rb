@@ -34,7 +34,7 @@ class ClojureLsp < Formula
     pid = wait_thr.pid
     stdin.write <<~EOF
       Content-Length: 58
-    
+      
       {"jsonrpc":"2.0","method":"initialize","params":{},"id":1}
     EOF
     assert_match "Content-Length", stdout.gets("\n")
