@@ -3,7 +3,7 @@ class Qwtpolar < Formula
   homepage "https://qwtpolar.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/qwtpolar/qwtpolar/1.1.1/qwtpolar-1.1.1.tar.bz2"
   sha256 "6168baa9dbc8d527ae1ebf2631313291a1d545da268a05f4caa52ceadbe8b295"
-  revision 3
+  revision 4
 
   bottle do
     rebuild 1
@@ -46,6 +46,7 @@ class Qwtpolar < Formula
   end
 
   test do
+    ENV.delete "CPATH"
     cp_r pkgshare.children, testpath
     qwtpolar_framework = lib/"qwtpolar.framework"
     qwt_framework = Formula["qwt"].opt_lib/"qwt.framework"
