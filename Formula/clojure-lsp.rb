@@ -39,8 +39,5 @@ class ClojureLsp < Formula
         {"jsonrpc": "2.0", "id": 0, "method": "initialize", "params": { "rootUri": null, "capabilities": {}}}
       EOF
       assert_match "Content-Length:", stdout.gets("\n")
-    ensure
-      Process.kill "SIGKILL", pid
-    end
   end
 end
