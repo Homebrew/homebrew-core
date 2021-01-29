@@ -21,7 +21,7 @@ class Mongoose < Formula
     # No Makefile but is an expectation upstream of binary creation
     # https://github.com/cesanta/mongoose/issues/326
     cd "examples/http-server" do
-      system "make", "mongoose_mac"
+      system "make", "mongoose_mac", "PROG=mongoose_mac"
       bin.install "mongoose_mac" => "mongoose"
     end
 
