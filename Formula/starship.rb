@@ -1,8 +1,8 @@
 class Starship < Formula
   desc "Cross-shell prompt for astronauts"
   homepage "https://starship.rs"
-  url "https://github.com/starship/starship/archive/v0.48.0.tar.gz"
-  sha256 "23e729ace48ec0bf6d8eff5f99003351463841f3b28fe453faceb62e6f99bae6"
+  url "https://github.com/starship/starship/archive/v0.49.0.tar.gz"
+  sha256 "07e69e69ff09f0e15656da9258fdf14f54c97567d47e6e9e1218c9fec89b1ddf"
   license "ISC"
   head "https://github.com/starship/starship.git"
 
