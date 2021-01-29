@@ -1,8 +1,8 @@
 class Proxytunnel < Formula
   desc "Create TCP tunnels through HTTPS proxies"
   homepage "https://github.com/proxytunnel/proxytunnel"
-  url "https://github.com/proxytunnel/proxytunnel/archive/v1.10.20200907.tar.gz"
-  sha256 "b8740375c4f0f635fd22b197389d4268daeb70829648e15050fd4db2b41ef898"
+  url "https://github.com/proxytunnel/proxytunnel/archive/v1.10.20210128.tar.gz"
+  sha256 "8253e19dd5e27a34a2c236e3e4739b7edba556110717af962b7412b461a6c2fa"
   license "GPL-2.0-or-later"
 
   bottle do
