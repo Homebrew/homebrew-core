@@ -34,7 +34,7 @@ class ClojureLsp < Formula
     stdin, stdout, _, wait_thr = Open3.popen3("#{bin}/clojure-lsp")
     pid = wait_thr.pid
     stdin.write <<~EOF
-      Content-Length: 58
+      Content-Length: 59
 
       {"jsonrpc":"2.0","method":"initialize","params":{},"id":1}
     EOF
