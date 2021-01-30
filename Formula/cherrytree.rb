@@ -41,11 +41,15 @@ class Cherrytree < Formula
           <rich_text link="webs https://brew.sh/">homebrew</rich_text>
         </node>
         <node name="code" unique_id="2" prog_lang="python3" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1611952391" ts_lastsave="1611952667">
-          <rich_text>print("hello world")</rich_text>
+          <rich_text>print('hello world')</rich_text>
         </node>
       </cherrytree>
     EOS
     system "#{bin}/cherrytree", testpath/"homebrew.ctd", "--export_to_txt_dir", testpath, "--export_single_file"
     assert_predicate testpath/"homebrew.ctd.txt", :exist?
+    assert_match "rich text", (testpath/"homebrew.ctd.txt").read
+    assert_match "this is a simple command line test for homebrew", (testpath/"homebrew.ctd.txt").read
+    assert_match "code", (testpath/"homebrew.ctd.txt").read
+    assert_match "print('hello world')", (testpath/"homebrew.ctd.txt").read
   end
 end
