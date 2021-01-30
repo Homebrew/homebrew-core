@@ -23,6 +23,7 @@ class Dgraph < Formula
   end
 
   depends_on "go" => :build
+  depends_on "jemalloc"
 
   def install
     ENV["GOBIN"] = bin
