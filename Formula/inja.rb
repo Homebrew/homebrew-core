@@ -17,13 +17,6 @@ class Inja < Formula
   depends_on "cmake" => :build
   depends_on "nlohmann-json"
 
-  # fix `nlohman_json` installation issue
-  # remove in next release
-  patch do
-    url "https://github.com/pantor/inja/commit/a57b745.patch?full_index=1"
-    sha256 "69a744a66ac6343204e99f1bdd82ef251472bca9b4f72e16db632740157aebe5"
-  end
-
   def install
     system "cmake", ".", "-DBUILD_TESTING=OFF",
                          "-DBUILD_BENCHMARK=OFF",
