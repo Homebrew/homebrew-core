@@ -5,6 +5,11 @@ class Robodoc < Formula
   sha256 "3d826424a3957502caacf39951f7805f1d72bb374c0533de7ca1036f306afdc7"
   license "GPL-3.0"
 
+  livecheck do
+    url "https://rfsber.home.xs4all.nl/Robo/archives/"
+    regex(/href=.*?robodoc[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 "e51ea8add4cb4076e6416eb35d4edeaf3564df4553c77a4d3cc6a8844b233207" => :big_sur
