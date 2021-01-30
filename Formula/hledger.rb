@@ -1,8 +1,8 @@
 class Hledger < Formula
   desc "Easy plain text accounting with command-line, terminal and web UIs"
   homepage "https://hledger.org/"
-  url "https://hackage.haskell.org/package/hledger-1.20.3/hledger-1.20.3.tar.gz"
-  sha256 "a9638c12d1eb7325af057d225d77411d60b0f144d907012617b44ec5ee2dc4f3"
+  url "https://hackage.haskell.org/package/hledger-1.20.4/hledger-1.20.4.tar.gz"
+  sha256 "25e155fcee541e9c5a295dc5002b03f184049b80485b18901d9d660a26814dbb"
   license "GPL-3.0-or-later"
 
   # A new version is sometimes present on Hackage before it's officially
