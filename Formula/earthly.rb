@@ -6,6 +6,11 @@ class Earthly < Formula
   license "MPL-2.0"
   head "https://github.com/earthly/earthly.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "25a294e32cf94e1e118d8682963d95562aee33c0d9aac221d4c8f8c6e9aba2f6" => :big_sur
