@@ -27,7 +27,7 @@ class Dgraph < Formula
 
   def install
     ENV["GOBIN"] = bin
-    system "make", "oss_install"
+    system "make", "HAS_JEMALLOC=jemalloc", "oss_install"
   end
 
   test do
