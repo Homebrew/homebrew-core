@@ -1,8 +1,8 @@
 class E2fsprogs < Formula
   desc "Utilities for the ext2, ext3, and ext4 file systems"
   homepage "https://e2fsprogs.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/e2fsprogs/e2fsprogs/v1.45.6/e2fsprogs-1.45.6.tar.gz"
-  sha256 "5f64ac50a2b60b8e67c5b382bb137dec39344017103caffc3a61554424f2d693"
+  url "https://downloads.sourceforge.net/project/e2fsprogs/e2fsprogs/v1.46.0/e2fsprogs-1.46.0.tar.gz"
+  sha256 "388195cbfd7733061b8c87454caec29ebf4c6892312e1a145ee58eb268abea92"
   # This package, the EXT2 filesystem utilities, are made available under
   # the GNU Public License version 2, with the exception of the lib/ext2fs
   # and lib/e2p libraries, which are made available under the GNU Library
