@@ -1,8 +1,8 @@
 class Gd < Formula
   desc "Graphics library to dynamically manipulate images"
   homepage "https://libgd.github.io/"
-  url "https://github.com/libgd/libgd/releases/download/gd-2.3.0/libgd-2.3.0.tar.xz"
-  sha256 "ecd9155b9a417fb3f837f29e5966323796de247789163761dd72dbf83bfcac58"
+  url "https://github.com/libgd/libgd/releases/download/gd-2.3.1/libgd-2.3.1.tar.xz"
+  sha256 "9767917d9f818faec4ddd763fe4a4ad9f6322c3d25da290ab2ea3e2ce4b52a7b"
   license :cannot_represent
 
   bottle do
