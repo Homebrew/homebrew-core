@@ -3,13 +3,13 @@ class E2fsprogs < Formula
   homepage "https://e2fsprogs.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/e2fsprogs/e2fsprogs/v1.46.0/e2fsprogs-1.46.0.tar.gz"
   sha256 "388195cbfd7733061b8c87454caec29ebf4c6892312e1a145ee58eb268abea92"
-  # This package, the EXT2 filesystem utilities, are made available under
-  # the GNU Public License version 2, with the exception of the lib/ext2fs
-  # and lib/e2p libraries, which are made available under the GNU Library
-  # General Public License Version 2, the lib/uuid library which is made
-  # available under a BSD-style license and the lib/et and lib/ss
-  # libraries which are made available under an MIT-style license.
-  license "GPL-2.0"
+  license all_of: [
+    "GPL-2.0-or-later",
+    "LGPL-2.0-or-later", # lib/ex2fs
+    "LGPL-2.0-only",     # lib/e2p
+    "BSD-3-Clause",      # lib/uuid
+    "MIT",               # lib/et, lib/ss
+  ]
   head "https://git.kernel.org/pub/scm/fs/ext2/e2fsprogs.git"
 
   livecheck do
