@@ -5,8 +5,8 @@ class Tfenv < Formula
   head "https://github.com/tfutils/tfenv.git"
 
   stable do
-    url "https://github.com/tfutils/tfenv/archive/v2.0.0.tar.gz"
-    sha256 "de3dcf13768cb078e94d68ca85071b8d6e44104394336d952255ca558b854b0b"
+    url "https://github.com/tfutils/tfenv/archive/v2.1.0.tar.gz"
+    sha256 "f8f1e14e1d5064c47ddbb041e31ce15ac0a849e620541598db09efff575b3c9b"
 
     # fix bash 3.x compatibility
     # removed in the next release
