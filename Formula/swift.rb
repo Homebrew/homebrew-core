@@ -23,38 +23,38 @@ class Swift < Formula
 
   # Has strict requirements on the minimum version of Xcode
   # https://github.com/apple/swift/tree/swift-#{version}-RELEASE#system-requirements
-  depends_on xcode: ["11.2", :build]
+  depends_on xcode: ["12.0", :build]
 
   uses_from_macos "icu4c"
 
   resource "llvm-project" do
-    url "https://github.com/apple/llvm-project/archive/swift-5.2.5-RELEASE.tar.gz"
-    sha256 "f3e6bf2657edf7c290befdfc9d534ed776c0f344c0df373ccecc60ab2c928a51"
+    url "https://github.com/apple/llvm-project/archive/swift-5.3.3-RELEASE.tar.gz"
+    sha256 "fe3fb21653263c3dd4b9e02794169445f5460751b155a4c7277a37145ce057f3"
   end
 
   resource "cmark" do
-    url "https://github.com/apple/swift-cmark/archive/swift-5.2.5-RELEASE.tar.gz"
-    sha256 "71ef5641ebbb60ddd609320bdbf4d378cdcd89941b6f17f658ee5be40c98a232"
+    url "https://github.com/apple/swift-cmark/archive/swift-5.3.3-RELEASE.tar.gz"
+    sha256 "24316b173df877c02ea6f3a080b2bf69e8b644a301d3510e9c13fa1059b279e9"
   end
 
   resource "llbuild" do
-    url "https://github.com/apple/swift-llbuild/archive/swift-5.2.5-RELEASE.tar.gz"
-    sha256 "07db561275697634f4790d9cd7d817272ffa37ebd7a69e0abc5de51bcdb4efb7"
+    url "https://github.com/apple/swift-llbuild/archive/swift-5.3.3-RELEASE.tar.gz"
+    sha256 "560a6f12292de156be23a22ea0932f95e300443ad1d422e03a7dacb689e74e78"
   end
 
   resource "swiftpm" do
-    url "https://github.com/apple/swift-package-manager/archive/swift-5.2.5-RELEASE.tar.gz"
-    sha256 "f7197556bf299f4fc7b88e63fed78797fd85f94bf590f34e3de845ad5e62afbe"
+    url "https://github.com/apple/swift-package-manager/archive/swift-5.3.3-RELEASE.tar.gz"
+    sha256 "ad79ddfff3c0bdafa28594206f02ac22956a0e98067fd3fc546c355b9e571c5a"
   end
 
   resource "indexstore-db" do
-    url "https://github.com/apple/indexstore-db/archive/swift-5.2.5-RELEASE.tar.gz"
-    sha256 "cefe69f9b63869acee0564d38d8eb98f449647db9c8df7cd1c59538f506e7f1e"
+    url "https://github.com/apple/indexstore-db/archive/swift-5.3.3-RELEASE.tar.gz"
+    sha256 "79ce1a357965767f0d87af7eb9206ade480c9597c987b874e3c924127b6e509a"
   end
 
   resource "sourcekit-lsp" do
-    url "https://github.com/apple/sourcekit-lsp/archive/swift-5.2.5-RELEASE.tar.gz"
-    sha256 "2cb2dffc585a068cefa3bf33d873394f3bccddf8e5e7269889d6960f387ddcfc"
+    url "https://github.com/apple/sourcekit-lsp/archive/swift-5.3.3-RELEASE.tar.gz"
+    sha256 "b6e07c1dfb295bd80b25dce6a9b457b0db0fe507e1da3818070ac1a5ffa785e8"
   end
 
   def install
