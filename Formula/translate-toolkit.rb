@@ -18,19 +18,14 @@ class TranslateToolkit < Formula
 
   depends_on "python@3.9"
 
-  resource "argparse" do
-    url "https://files.pythonhosted.org/packages/18/dd/e617cfc3f6210ae183374cd9f6a26b20514bbb5a792af97949c5aacddf0f/argparse-1.4.0.tar.gz"
-    sha256 "62b089a55be1d8949cd2bc7e0df0bddb9e028faefc8c32038cc84862aefdd6e4"
-  end
-
   resource "lxml" do
     url "https://files.pythonhosted.org/packages/db/f7/43fecb94d66959c1e23aa53d6161231dca0e93ec500224cf31b3c4073e37/lxml-4.6.2.tar.gz"
     sha256 "cd11c7e8d21af997ee8079037fff88f16fda188a9776eb4b81c7e4c9c0a7d7fc"
   end
 
-  resource "Python-Levenshtein" do
-    url "https://files.pythonhosted.org/packages/42/a9/d1785c85ebf9b7dfacd08938dd028209c34a0ea3b1bcdb895208bd40a67d/python-Levenshtein-0.12.0.tar.gz"
-    sha256 "033a11de5e3d19ea25c9302d11224e1a1898fe5abd23c61c7c360c25195e3eb1"
+  resource "python-Levenshtein" do
+    url "https://files.pythonhosted.org/packages/6b/ca/1a9d7115f233d929d4f25a4021795cd97cc89eeb82723ea98dd44390a530/python-Levenshtein-0.12.1.tar.gz"
+    sha256 "554e273a88060d177e7b3c1e6ea9158dde11563bfae8f7f661f73f47e5ff0911"
   end
 
   resource "six" do
