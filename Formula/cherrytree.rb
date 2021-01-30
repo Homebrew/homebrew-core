@@ -15,6 +15,7 @@ class Cherrytree < Formula
   depends_on "libxml++"
   depends_on "spdlog"
   depends_on "uchardet"
+
   uses_from_macos "curl"
 
   def install
