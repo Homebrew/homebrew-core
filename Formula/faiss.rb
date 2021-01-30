@@ -18,19 +18,20 @@ class Faiss < Formula
     sha256 "03b95260a4fdd6cceaa69bb4e7168939aadf2b608f998079f7511aec6171f2d1" => :high_sierra
   end
 
+  depends_on "cmake" => :build
   depends_on "libomp"
-
-  on_linux do
-    depends_on "openblas"
-  end
+  depends_on "openblas"
 
   def install
-    system "./configure", "--without-cuda",
-                          "--prefix=#{prefix}",
-                          "ac_cv_prog_cxx_openmp=-Xpreprocessor -fopenmp",
-                          "LIBS=-lomp"
-    system "make"
-    system "make", "install"
+    args = *std_cmake_args + %w[
+      -DFAISS_ENABLE_GPU=OFF
+      -DFAISS_ENABLE_PYTHON=OFF
+    ]
+    system "cmake", "-B", "build", ".", *args
+    cd "build" do
+      system "make"
+      system "make", "install"
+    end
     pkgshare.install "demos"
   end
 
