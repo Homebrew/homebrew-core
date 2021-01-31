@@ -22,7 +22,11 @@ class Dosfstools < Formula
   depends_on "gettext" => :build
   depends_on "pkg-config" => :build
 
-  patch :DATA
+  # remove in next release
+  patch do
+    url "https://github.com/chenrui333/dosfstools/commit/8a917ed.patch?full_index=1"
+    sha256 "73019e3f7852158bfe47a0105eb605b4df4a10ca50befc02adf50aed11bd4445"
+  end
 
   def install
     system "autoreconf", "-fiv"
@@ -39,36 +43,3 @@ class Dosfstools < Formula
     system "#{sbin}/fsck.fat", "-v", "test.bin"
   end
 end
-
-__END__
-$ git diff
-diff --git a/src/blkdev/blkdev.c b/src/blkdev/blkdev.c
-index d97a4b3..b6bf441 100644
---- a/src/blkdev/blkdev.c
-+++ b/src/blkdev/blkdev.c
-@@ -7,7 +7,9 @@
- #include <sys/types.h>
- #include <sys/stat.h>
- #include <sys/ioctl.h>
--#include <sys/sysmacros.h>
-+#ifdef HAVE_SYS_SYSMACROS_H
-+# include <sys/sysmacros.h>
-+#endif
- #include <unistd.h>
- #include <stdint.h>
- #include <stdio.h>
-diff --git a/src/device_info.c b/src/device_info.c
-index 21c438f..85843f5 100644
---- a/src/device_info.c
-+++ b/src/device_info.c
-@@ -24,7 +24,9 @@
- #include <sys/types.h>
- #include <sys/stat.h>
- #include <sys/ioctl.h>
--#include <sys/sysmacros.h>
-+#ifdef HAVE_SYS_SYSMACROS_H
-+# include <sys/sysmacros.h>
-+#endif
-
- #ifdef HAVE_LINUX_LOOP_H
- #include <linux/loop.h>
