@@ -13,6 +13,8 @@ class Cpl < Formula
     sha256 "7a810f03ee554b573832fd30285a2fad70be6b9ad6b0e9936300130396f151cd" => :high_sierra
   end
 
+  depends_on "pkg-config" => :build
+
   depends_on "cfitsio"
   depends_on "fftw"
   depends_on "wcslib"
