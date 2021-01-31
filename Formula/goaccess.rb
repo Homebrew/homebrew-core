@@ -6,6 +6,11 @@ class Goaccess < Formula
   license "MIT"
   head "https://github.com/allinurl/goaccess.git"
 
+  livecheck do
+    url "https://goaccess.io/download"
+    regex(/href=.*?goaccess[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "52b359d311d28cb204d7a7cb3ab57e2290749884561a3969aa0905d70a6be533" => :big_sur
     sha256 "86ac282b906c3e61ba7c9992d1078f7cd4ded1f6fd9873067b1b2d537e53a18e" => :arm64_big_sur
