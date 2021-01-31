@@ -23,8 +23,9 @@ class Dosfstools < Formula
   depends_on "pkg-config" => :build
 
   # remove in next release
+  # https://github.com/dosfstools/dosfstools/pull/158
   patch do
-    url "https://github.com/chenrui333/dosfstools/commit/8a917ed.patch?full_index=1"
+    url "https://github.com/dosfstools/dosfstools/commit/8a917ed2afb2dd2a165a93812b6f52b9060eec5f.patch?full_index=1"
     sha256 "73019e3f7852158bfe47a0105eb605b4df4a10ca50befc02adf50aed11bd4445"
   end
 
