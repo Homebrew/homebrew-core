@@ -1,8 +1,8 @@
 class Mkvalidator < Formula
   desc "Tool to verify Matroska and WebM files for spec conformance"
   homepage "https://www.matroska.org/downloads/mkvalidator.html"
-  url "https://downloads.sourceforge.net/project/matroska/mkvalidator/mkvalidator-0.5.2.tar.bz2"
-  sha256 "2e2a91062f6bf6034e8049646897095b5fc7a1639787d5fe0fcef1f1215d873b"
+  url "https://downloads.sourceforge.net/project/matroska/mkvalidator/mkvalidator-0.6.0.tar.bz2"
+  sha256 "f9eaa2138fade7103e6df999425291d2947c5355294239874041471e3aa243f0"
 
   livecheck do
     url :stable
