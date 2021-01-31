@@ -4,6 +4,7 @@ class Xorriso < Formula
   url "https://ftp.gnu.org/gnu/xorriso/xorriso-1.5.4.tar.gz"
   mirror "https://ftpmirror.gnu.org/xorriso/xorriso-1.5.4.tar.gz"
   sha256 "3ac155f0ca53e8dbeefacc7f32205a98f4f27d2d348de39ee0183ba8a4c9e392"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :stable
