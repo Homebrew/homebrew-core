@@ -1,9 +1,9 @@
 class Xorriso < Formula
   desc "ISO9660+RR manipulation tool"
   homepage "https://www.gnu.org/software/xorriso/"
-  url "https://ftp.gnu.org/gnu/xorriso/xorriso-1.5.2.tar.gz"
-  mirror "https://ftpmirror.gnu.org/xorriso/xorriso-1.5.2.tar.gz"
-  sha256 "3b69f5c93ae7c40c5bbe4a847fa3963f5efc9c565551622f77121c5792fc17e7"
+  url "https://ftp.gnu.org/gnu/xorriso/xorriso-1.5.4.tar.gz"
+  mirror "https://ftpmirror.gnu.org/xorriso/xorriso-1.5.4.tar.gz"
+  sha256 "3ac155f0ca53e8dbeefacc7f32205a98f4f27d2d348de39ee0183ba8a4c9e392"
 
   livecheck do
     url :stable
