@@ -4,6 +4,7 @@ class Gambit < Formula
   url "https://github.com/gambitproject/gambit/archive/v16.0.1.tar.gz"
   sha256 "56bb86fd17575827919194e275320a5dd498708fd8bb3b20845243d492c10fef"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any, catalina:    "c1bf628cb87dbed50a0bd5299b3921545a001999af7a061343caf6aa75784cf5"
