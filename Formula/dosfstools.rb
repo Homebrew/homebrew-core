@@ -22,17 +22,53 @@ class Dosfstools < Formula
   depends_on "gettext" => :build
   depends_on "pkg-config" => :build
 
+  patch :DATA
+
   def install
-    system "autoreconf", "-f", "-i"
-    system "./configure", "--prefix=#{prefix}", "--without-udev",
+    system "autoreconf", "-fiv"
+    system "./configure", "--prefix=#{prefix}",
+                          "--without-udev",
                           "--enable-compat-symlinks"
     system "make", "install"
   end
 
   test do
     system "dd", "if=/dev/zero", "of=test.bin", "bs=512", "count=1024"
-    system "#{sbin}/mkfs.fat", "test.bin", "-n HOMEBREW", "-v"
+    system "#{sbin}/mkfs.fat", "test.bin", "-n", "HOMEBREW", "-v"
     system "#{sbin}/fatlabel", "test.bin"
     system "#{sbin}/fsck.fat", "-v", "test.bin"
   end
 end
+
+__END__
+$ git diff
+diff --git a/src/blkdev/blkdev.c b/src/blkdev/blkdev.c
+index d97a4b3..b6bf441 100644
+--- a/src/blkdev/blkdev.c
++++ b/src/blkdev/blkdev.c
+@@ -7,7 +7,9 @@
+ #include <sys/types.h>
+ #include <sys/stat.h>
+ #include <sys/ioctl.h>
+-#include <sys/sysmacros.h>
++#ifdef HAVE_SYS_SYSMACROS_H
++# include <sys/sysmacros.h>
++#endif
+ #include <unistd.h>
+ #include <stdint.h>
+ #include <stdio.h>
+diff --git a/src/device_info.c b/src/device_info.c
+index 21c438f..85843f5 100644
+--- a/src/device_info.c
++++ b/src/device_info.c
+@@ -24,7 +24,9 @@
+ #include <sys/types.h>
+ #include <sys/stat.h>
+ #include <sys/ioctl.h>
+-#include <sys/sysmacros.h>
++#ifdef HAVE_SYS_SYSMACROS_H
++# include <sys/sysmacros.h>
++#endif
+
+ #ifdef HAVE_LINUX_LOOP_H
+ #include <linux/loop.h>
