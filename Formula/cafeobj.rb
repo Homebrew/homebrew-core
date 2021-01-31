@@ -3,7 +3,7 @@ class Cafeobj < Formula
   homepage "https://cafeobj.org/"
   url "https://cafeobj.org/files/1.6.0/cafeobj-1.6.0.tar.gz"
   sha256 "ab97d3cf22d8556524c86540cbb11d4e2eb1ba38cb0198eb068a4493b745d560"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "724109123713a037126847a07fe06e4fa134d3e28aff72ae72de7f8f4fa77576" => :big_sur
