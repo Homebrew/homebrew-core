@@ -1,9 +1,9 @@
 class Re2 < Formula
   desc "Alternative to backtracking PCRE-style regular expression engines"
   homepage "https://github.com/google/re2"
-  url "https://github.com/google/re2/archive/2020-11-01.tar.gz"
-  version "20201101"
-  sha256 "8903cc66c9d34c72e2bc91722288ebc7e3ec37787ecfef44d204b2d6281954d7"
+  url "https://github.com/google/re2/archive/2021-02-01.tar.gz"
+  version "20210201"
+  sha256 "d3e15031ced791b39f11964816ca2d4213f25d3b67fbbe82972c7b7666c456ba"
   license "BSD-3-Clause"
   head "https://github.com/google/re2.git"
 
