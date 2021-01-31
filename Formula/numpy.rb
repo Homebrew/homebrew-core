@@ -1,8 +1,8 @@
 class Numpy < Formula
   desc "Package for scientific computing with Python"
   homepage "https://www.numpy.org/"
-  url "https://files.pythonhosted.org/packages/51/60/3f0fe5b7675a461d96b9d6729beecd3532565743278a9c3fe6dd09697fa7/numpy-1.19.5.zip"
-  sha256 "a76f502430dd98d7546e1ea2250a7360c065a5fdea52b2dffe8ae7180909b6f4"
+  url "https://files.pythonhosted.org/packages/c3/97/fd507e48f8c7cab73a9f002e52e15983b5636b4ac6cf69b83ae240324b44/numpy-1.20.0.zip"
+  sha256 "3d8233c03f116d068d5365fed4477f2947c7229582dad81e5953088989294cec"
   license "BSD-3-Clause"
   head "https://github.com/numpy/numpy.git"
 
@@ -22,13 +22,6 @@ class Numpy < Formula
   depends_on "gcc" => :build # for gfortran
   depends_on "openblas"
   depends_on "python@3.9"
-
-  # Upstream fix for Apple Silicon, remove in next version
-  # https://github.com/numpy/numpy/pull/17906
-  patch do
-    url "https://github.com/numpy/numpy/commit/1ccb4c6d.patch?full_index=1"
-    sha256 "7777fa6691d4f5a8332538b634d4327313e9cf244bb2bbc25c64acfb64c92602"
-  end
 
   def install
     openblas = Formula["openblas"].opt_prefix
