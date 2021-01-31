@@ -31,6 +31,13 @@ class Gpredict < Formula
 
   uses_from_macos "curl"
 
+  # remove in next release
+  # https://github.com/csete/gpredict/pull/251
+  patch do
+    url "https://github.com/chenrui333/gpredict/commit/feaa751.patch?full_index=1"
+    sha256 "a6327e05efd30b7312fc73a9d88957a8846be3aa94eab9cfc4814745335d3de4"
+  end
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
