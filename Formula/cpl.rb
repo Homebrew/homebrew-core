@@ -27,6 +27,8 @@ class Cpl < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
                           "--with-cfitsio=#{Formula["cfitsio"].prefix}",
+                          "--with-cfitsiolib=#{Formula["cfitsio"].opt_lib}",
+                          "--with-cfitsioinc=#{Formula["cfitsio"].opt_include}",
                           "--with-fftw=#{Formula["fftw"].prefix}",
                           "--with-wcslib=#{Formula["wcslib"].prefix}"
     system "make", "install"
