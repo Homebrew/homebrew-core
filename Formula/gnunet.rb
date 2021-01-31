@@ -5,6 +5,7 @@ class Gnunet < Formula
   mirror "https://ftpmirror.gnu.org/gnunet/gnunet-0.13.3.tar.gz"
   sha256 "318e06c4134d1a8ce3b4385d82b11316eaaeb9a4dbc5d4b646453dfc53199296"
   license "AGPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
