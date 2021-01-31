@@ -18,15 +18,19 @@ class Mkclean < Formula
     sha256 "a5db5b2309de19ea395efaafcf828c253e38133464faca623545a221f2b0ba52" => :el_capitan
   end
 
+  depends_on "cmake" => :build
+
   def install
-    system "./mkclean/configure"
-    system "make", "mkclean"
-    bindir = `corec/tools/coremake/system_output.sh`.chomp
-    bin.install Dir["release/#{bindir}/mk*"]
+    system "cmake", ".", *std_cmake_args
+    system "make", "-C", "mkclean"
+    bin.install "mkclean/mkclean"
   end
 
   test do
     output = shell_output("#{bin}/mkclean --version 2>&1", 255)
     assert_match version.to_s, output
+
+    output = shell_output("#{bin}/mkclean --keep-cues brew 2>&1", 254)
+    assert_match "Could not open file \"brew\" for reading", output
   end
 end
