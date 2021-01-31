@@ -6,6 +6,11 @@ class Svg2png < Formula
   license "LGPL-2.1"
   revision 1
 
+  livecheck do
+    url "https://cairographics.org/snapshots/"
+    regex(/href=.*?svg2png[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "91ea80e51edffa9ff0f1b75637eb2eb89ebda2ab9b8fcfd94242d113dd6fff99" => :big_sur
