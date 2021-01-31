@@ -30,10 +30,6 @@ class NetlifyCli < Formula
   end
 
   test do
-    (testpath/"test.exp").write <<~EOS
-      spawn #{bin}/netlify login
-      expect "Opening"
-    EOS
-    assert_match "Logging in", shell_output("expect -f test.exp")
+    assert_match "Not logged in.", shell_output("#{bin}/netlify status")
   end
 end
