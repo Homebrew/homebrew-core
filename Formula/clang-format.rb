@@ -14,16 +14,6 @@ class ClangFormat < Formula
       url "https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.1/clang-11.0.1.src.tar.xz"
       sha256 "73f572c2eefc5a155e01bcd84815751d722a4d3925f53c144acfb93eeb274b4d"
     end
-
-    resource "libcxx" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.1/libcxx-11.0.1.src.tar.xz"
-      sha256 "9fd5f669621ffea88a2b93e3d99f3a958b5defb954f71bf754709b63275f5e3d"
-    end
-
-    resource "libcxxabi" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.1/libcxxabi-11.0.1.src.tar.xz"
-      sha256 "4a697056a5c08621a8380dcaf3836525835aa76b3008d9e8f27abf9270bf683f"
-    end
   end
 
   livecheck do
@@ -50,12 +40,8 @@ class ClangFormat < Formula
 
   def install
     if build.head?
-      ln_s buildpath/"libcxx", buildpath/"llvm/projects/libcxx"
-      ln_s buildpath/"libcxxabi", buildpath/"llvm/tools/libcxxabi"
       ln_s buildpath/"clang", buildpath/"llvm/tools/clang"
     else
-      (buildpath/"projects/libcxx").install resource("libcxx")
-      (buildpath/"projects/libcxxabi").install resource("libcxxabi")
       (buildpath/"tools/clang").install resource("clang")
     end
 
@@ -63,9 +49,7 @@ class ClangFormat < Formula
 
     mkdir llvmpath/"build" do
       args = std_cmake_args
-      args << "-DLLVM_ENABLE_LIBCXX=ON"
-      args << "-DLLVM_EXTERNAL_PROJECTS=\"clang;libcxx;libcxxabi\""
-      args << "-DLLVM_EXTERNAL_LIBCXX_SOURCE_DIR=\"#{buildpath/"projects/libcxx"}\""
+      args << "-DLLVM_EXTERNAL_PROJECTS=\"clang\""
       args << ".."
       system "cmake", "-G", "Ninja", *args
       system "ninja", "clang-format"
