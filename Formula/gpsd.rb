@@ -21,6 +21,7 @@ class Gpsd < Formula
   end
 
   depends_on "asciidoctor" => :build
+  depends_on "docbook" => :build
   depends_on "python@3.9" => :build
   depends_on "scons" => :build
   depends_on "xmlto" => :build
