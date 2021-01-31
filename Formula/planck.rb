@@ -22,6 +22,7 @@ class Planck < Formula
   depends_on "libzip"
 
   def install
+    ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
     system "./script/build-sandbox"
     bin.install "planck-c/build/planck"
     bin.install "planck-sh/plk"
