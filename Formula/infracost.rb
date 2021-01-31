@@ -1,8 +1,8 @@
 class Infracost < Formula
   desc "Cost estimates for Terraform"
   homepage "https://www.infracost.io/docs/"
-  url "https://github.com/infracost/infracost/archive/v0.7.15.tar.gz"
-  sha256 "e6df4fedda4fcd0abc0feadcfe3e1309794ba758dbe5baa7dc3de6c96e8acff0"
+  url "https://github.com/infracost/infracost/archive/v0.7.16.tar.gz"
+  sha256 "c7ddd1b21d6a4a3ac613c8e530128624dc30fe5945efcf773054976a3316d1a4"
   license "Apache-2.0"
   head "https://github.com/infracost/infracost.git"
 
