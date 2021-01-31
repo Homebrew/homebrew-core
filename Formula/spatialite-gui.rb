@@ -6,6 +6,11 @@ class SpatialiteGui < Formula
   license "GPL-3.0"
   revision 6
 
+  livecheck do
+    url "https://www.gaia-gis.it/gaia-sins/spatialite-gui-sources/"
+    regex(/href=.*?spatialite[._-]gui[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "3656d32601beec4051e857d755da2d83ebd136382ee32bda4492b04ee4eb7b42" => :big_sur
