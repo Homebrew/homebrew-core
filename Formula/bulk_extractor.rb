@@ -6,6 +6,11 @@ class BulkExtractor < Formula
   license "MIT"
   revision 3
 
+  livecheck do
+    url "https://digitalcorpora.org/downloads/bulk_extractor/"
+    regex(/href=.*?bulk_extractor[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "4207941ab88e766e1a0fd55031585c52cea1c27ac528b7db1496a714fbeda5c4" => :big_sur
     sha256 "6acada1995761f484993f407f33014260f8c16596381172b405fe84eef206e06" => :catalina
