@@ -1,8 +1,8 @@
 class Sbcl < Formula
   desc "Steel Bank Common Lisp system"
   homepage "http://www.sbcl.org/"
-  url "https://downloads.sourceforge.net/project/sbcl/sbcl/2.0.11/sbcl-2.0.11-source.tar.bz2"
-  sha256 "87d2aa53cef092119a1c8b2f3de48d209375a674c3b60e08596838013bd7971d"
+  url "https://downloads.sourceforge.net/project/sbcl/sbcl/2.1.1/sbcl-2.1.1-source.tar.bz2"
+  sha256 "a9ad892ea038b7155a60c1144801084fab3b2b8cbb0c5bde7e1f42a6b4318a97"
   license all_of: [:public_domain, "MIT", "Xerox", "BSD-3-Clause"]
 
   livecheck do
@@ -27,8 +27,8 @@ class Sbcl < Formula
       sha256 "057d3a1c033fb53deee994c0135110636a04f92d2f88919679864214f77d0452"
     end
     on_linux do
-      url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.3.3/sbcl-1.3.3-x86-64-linux-binary.tar.bz2"
-      sha256 "e8b1730c42e4a702f9b4437d9842e91cb680b7246f88118c7443d7753e61da65"
+      url "https://downloads.sourceforge.net/project/sbcl/sbcl/2.1.1/sbcl-2.1.1-x86-64-linux-binary.tar.bz2"
+      sha256 "d7935c116af2ecd7485eae54d29491964b1f3ed97068f3127bd8871e120611a4"
     end
   end
 
