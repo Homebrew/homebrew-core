@@ -1,8 +1,8 @@
 class Mkclean < Formula
   desc "Optimizes Matroska and WebM files"
   homepage "https://www.matroska.org/downloads/mkclean.html"
-  url "https://downloads.sourceforge.net/project/matroska/mkclean/mkclean-0.8.10.tar.bz2"
-  sha256 "96773e72903b00d73e68ba9d5f19744a91ed46d27acd511a10eb23533589777d"
+  url "https://downloads.sourceforge.net/project/matroska/mkclean/mkclean-0.9.0.tar.bz2"
+  sha256 "2f5cdcab0e09b65f9fef8949a55ef00ee3dd700e4b4050e245d442347d7cc3db"
 
   livecheck do
     url :stable
