@@ -48,12 +48,6 @@ class SpiceGtk < Formula
   depends_on "spice-protocol"
   depends_on "usbredir"
 
-  # Upstream patch: https://gitlab.freedesktop.org/spice/spice-gtk/issues/88
-  patch do
-    url "https://gitlab.freedesktop.org/spice/spice-gtk/commit/3c9b37bfc7c88969dfe16b8bfd874745e0fceb8a.patch"
-    sha256 "893878f2682d663cce38b9769f08e68fd7d60d650f4974728f380847d87dcbc1"
-  end
-
   def install
     mkdir "build" do
       system "meson", *std_meson_args, ".."
