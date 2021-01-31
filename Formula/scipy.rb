@@ -4,6 +4,7 @@ class Scipy < Formula
   url "https://files.pythonhosted.org/packages/16/48/ff7026d26dfd92520f00b109333e22c05a235f0c9115a5a2d7679cdf39ef/scipy-1.6.0.tar.gz"
   sha256 "cb6dc9f82dfd95f6b9032a8d7ea70efeeb15d5b5fd6ed4e8537bb3c673580566"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/scipy/scipy.git"
 
   livecheck do
@@ -31,6 +32,10 @@ class Scipy < Formula
     # Fix for current GCC on Big Sur, which does not like 11 as version value
     # (reported at https://github.com/iains/gcc-darwin-arm64/issues/31#issuecomment-750343944)
     ENV["MACOSX_DEPLOYMENT_TARGET"] = "11.0" if MacOS.version == :big_sur
+
+    # Temporary workaround for a bug in gfortran on Apple Silicon
+    # (reported at https://github.com/iains/gcc-darwin-arm64/issues/32)
+    ENV.append "CFLAGS", "-falign-functions=8" if Hardware::CPU.arm?
 
     openblas = Formula["openblas"].opt_prefix
     ENV["ATLAS"] = "None" # avoid linking against Accelerate.framework
@@ -63,5 +68,7 @@ class Scipy < Formula
 
   test do
     system Formula["python@3.9"].opt_bin/"python3", "-c", "import scipy"
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "import scipy.stats"
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "import scipy.integrate"
   end
 end
