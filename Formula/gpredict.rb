@@ -33,10 +33,7 @@ class Gpredict < Formula
 
   # remove in next release
   # https://github.com/csete/gpredict/pull/251
-  patch do
-    url "https://github.com/chenrui333/gpredict/commit/feaa751.patch?full_index=1"
-    sha256 "a6327e05efd30b7312fc73a9d88957a8846be3aa94eab9cfc4814745335d3de4"
-  end
+  patch :DATA
 
   def install
     system "./configure", "--disable-dependency-tracking",
@@ -48,3 +45,79 @@ class Gpredict < Formula
     assert_match "real-time", shell_output("#{bin}/gpredict -h")
   end
 end
+
+__END__
+diff --git a/configure b/configure
+index 1533336..bf772e7 100755
+--- a/configure
++++ b/configure
+@@ -12773,11 +12773,11 @@ else
+ fi
+
+ # check for goocanvas (depends on gtk and glib)
+-if pkg-config --atleast-version=2.0 goocanvas-2.0; then
+-    CFLAGS="$CFLAGS `pkg-config --cflags goocanvas-2.0`"
+-    LIBS="$LIBS `pkg-config --libs goocanvas-2.0`"
++if pkg-config --atleast-version=3.0 goocanvas-3.0; then
++    CFLAGS="$CFLAGS `pkg-config --cflags goocanvas-3.0`"
++    LIBS="$LIBS `pkg-config --libs goocanvas-3.0`"
+ else
+-    as_fn_error $? "Gpredict requires libgoocanvas-2.0-dev" "$LINENO" 5
++    as_fn_error $? "Gpredict requires libgoocanvas-3.0-dev" "$LINENO" 5
+ fi
+
+ # check for libgps (optional)
+@@ -13553,7 +13553,7 @@ GIO_V=`pkg-config --modversion gio-2.0`
+ GTHR_V=`pkg-config --modversion gthread-2.0`
+ GDK_V=`pkg-config --modversion gdk-3.0`
+ GTK_V=`pkg-config --modversion gtk+-3.0`
+-GOOC_V=`pkg-config --modversion goocanvas-2.0`
++GOOC_V=`pkg-config --modversion goocanvas-3.0`
+ CURL_V=`pkg-config --modversion libcurl`
+ if test "$havelibgps" = true ; then
+    GPS_V=`pkg-config --modversion libgps`
+@@ -15915,4 +15915,3 @@ if test "$havelibgps" = true ; then
+ fi
+ # echo Enable coverage.... : $enable_coverage
+ # echo
+-
+diff --git a/configure.ac b/configure.ac
+index e3fe564..5df1ecb 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -45,11 +45,11 @@ else
+ fi
+
+ # check for goocanvas (depends on gtk and glib)
+-if pkg-config --atleast-version=2.0 goocanvas-2.0; then
+-    CFLAGS="$CFLAGS `pkg-config --cflags goocanvas-2.0`"
+-    LIBS="$LIBS `pkg-config --libs goocanvas-2.0`"
++if pkg-config --atleast-version=3.0 goocanvas-3.0; then
++    CFLAGS="$CFLAGS `pkg-config --cflags goocanvas-3.0`"
++    LIBS="$LIBS `pkg-config --libs goocanvas-3.0`"
+ else
+-    AC_MSG_ERROR(Gpredict requires libgoocanvas-2.0-dev)
++    AC_MSG_ERROR(Gpredict requires libgoocanvas-3.0-dev)
+ fi
+
+ # check for libgps (optional)
+@@ -93,12 +93,12 @@ GIO_V=`pkg-config --modversion gio-2.0`
+ GTHR_V=`pkg-config --modversion gthread-2.0`
+ GDK_V=`pkg-config --modversion gdk-3.0`
+ GTK_V=`pkg-config --modversion gtk+-3.0`
+-GOOC_V=`pkg-config --modversion goocanvas-2.0`
++GOOC_V=`pkg-config --modversion goocanvas-3.0`
+ CURL_V=`pkg-config --modversion libcurl`
+ if test "$havelibgps" = true ; then
+    GPS_V=`pkg-config --modversion libgps`
+ fi
+-
++
+
+ AC_SUBST(CFLAGS)
+ AC_SUBST(LDFLAGS)
+@@ -138,4 +138,3 @@ if test "$havelibgps" = true ; then
+ fi
+ # echo Enable coverage.... : $enable_coverage
+ # echo
+-
