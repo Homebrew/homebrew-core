@@ -3,7 +3,7 @@ class Rlwrap < Formula
   homepage "https://github.com/hanslub42/rlwrap"
   url "https://github.com/hanslub42/rlwrap/archive/0.44.tar.gz"
   sha256 "b1504d32a906d5ee6fa08139c35ab1f6a9237da6f7d0663d0b6f31cd0b1236dc"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   head "https://github.com/hanslub42/rlwrap.git"
 
   livecheck do
