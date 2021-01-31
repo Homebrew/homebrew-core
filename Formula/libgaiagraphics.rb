@@ -5,6 +5,11 @@ class Libgaiagraphics < Formula
   sha256 "ccab293319eef1e77d18c41ba75bc0b6328d0fc3c045bb1d1c4f9d403676ca1c"
   revision 7
 
+  livecheck do
+    url "https://www.gaia-gis.it/gaia-sins/gaiagraphics-sources/"
+    regex(/href=.*?libgaiagraphics[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "71019ebb245fbf75794ffc377be75d4a9731a7cc842a458d630ef7fb9d824741" => :big_sur
