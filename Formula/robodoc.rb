@@ -3,7 +3,7 @@ class Robodoc < Formula
   homepage "https://rfsber.home.xs4all.nl/Robo/index.html"
   url "https://rfsber.home.xs4all.nl/Robo/archives/robodoc-4.99.44.tar.bz2"
   sha256 "3721c3be9668a1503454618ed807ae0fba5068b15bc0ea63846787d7e9e78c0f"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url "https://rfsber.home.xs4all.nl/Robo/archives/"
