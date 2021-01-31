@@ -3,6 +3,8 @@ class Byteman < Formula
   homepage "https://byteman.jboss.org/"
   url "https://downloads.jboss.org/byteman/4.0.12/byteman-download-4.0.12-bin.zip"
   sha256 "7aebafd6877058a1406e725be4246bcafd8efd78fa583b7192e847cb5d6b27a5"
+  license "LGPL-2.1-or-later"
+  head "https://github.com/bytemanproject/byteman"
 
   bottle :unneeded
 
@@ -48,15 +50,10 @@ class Byteman < Formula
       DO traceln("Exiting main")
       ENDRULE
     EOS
-    # Compile example
-    system "javac", "src/main/java/BytemanHello.java"
-    # Expected successful output when Byteman runs example
-    expected = <<~EOS
-      Entering main
-      Hello, Brew!
-      Exiting main
-    EOS
+
+    system "#{Formula["openjdk"].bin}/javac", "src/main/java/BytemanHello.java"
+
     actual = shell_output("#{bin}/bmjava -l brew.btm -cp src/main/java BytemanHello")
-    assert_equal(expected, actual)
+    assert_match("Hello, Brew!", actual)
   end
 end
