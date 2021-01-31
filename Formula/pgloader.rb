@@ -4,7 +4,7 @@ class Pgloader < Formula
   url "https://github.com/dimitri/pgloader/releases/download/v3.6.2/pgloader-bundle-3.6.2.tgz"
   sha256 "e35b8c2d3f28f3c497f7e0508281772705940b7ae789fa91f77c86c0afe116cb"
   license "PostgreSQL"
-  revision 2
+  revision 3
   head "https://github.com/dimitri/pgloader.git"
 
   bottle do
