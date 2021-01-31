@@ -2,14 +2,13 @@ class X264 < Formula
   desc "H.264/AVC encoder"
   homepage "https://www.videolan.org/developers/x264.html"
   license "GPL-2.0-only"
-  revision 1
   head "https://code.videolan.org/videolan/x264.git"
 
   stable do
     # the latest commit on the stable branch
     url "https://code.videolan.org/videolan/x264.git",
-        revision: "4121277b40a667665d4eea1726aefdc55d12d110"
-    version "r3027"
+        revision: "59c06095de90db362b959a4975d8cc6f1566dbdb"
+    version "r3043"
   end
 
   # There's no guarantee that the versions we find on the `release-macos` index
