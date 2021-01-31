@@ -29,10 +29,6 @@ class Aide < Formula
   uses_from_macos "curl"
 
   def install
-    # fix `fatal error: 'error.h' file not found`
-    # remove in next release
-    inreplace "include/aide.h", "#include \"error.h\"", ""
-
     # use sdk's strnstr instead
     ENV.append_to_cflags "-DHAVE_STRNSTR"
 
