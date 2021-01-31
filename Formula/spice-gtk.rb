@@ -1,9 +1,8 @@
 class SpiceGtk < Formula
   desc "GTK client/libraries for SPICE"
   homepage "https://www.spice-space.org"
-  url "https://www.spice-space.org/download/gtk/spice-gtk-0.37.tar.bz2"
-  sha256 "1f28b706472ad391cda79a93fd7b4c7a03e84b88fc46ddb35dddbe323c923bb7"
-  revision 4
+  url "https://www.spice-space.org/download/gtk/spice-gtk-0.39.tar.xz"
+  sha256 "23acbee197eaaec9bce6e6bfd885bd8f79708332639243ff04833020865713cd"
 
   livecheck do
     url "https://www.spice-space.org/download/gtk/"
