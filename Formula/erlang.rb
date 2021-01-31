@@ -5,6 +5,7 @@ class Erlang < Formula
   url "https://github.com/erlang/otp/archive/OTP-23.2.3.tar.gz"
   sha256 "3160912856ba734bd9c17075e72f469b9d4b913f3ab9652ee7e0fb406f0f0f2c"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/erlang/otp.git"
 
   livecheck do
