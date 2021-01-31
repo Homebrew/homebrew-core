@@ -28,17 +28,18 @@ class Simutrans < Formula
   depends_on "libpng"
   depends_on "sdl2"
 
+  uses_from_macos "curl"
+  uses_from_macos "unzip"
+
   resource "pak64" do
     url "https://downloads.sourceforge.net/project/simutrans/pak64/122-0/simupak64-122-0.zip"
     sha256 "ce2ebf0e4e0c8df5defa10be114683f65559d5a994d1ff6c96bdece7ed984b74"
   end
 
-  resource "text" do
-    url "https://simutrans-germany.com/translator/data/tab/language_pack-Base+texts.zip"
-    sha256 "a2078e40a96afbdaff4e192fd8cdfcb5b9c367f1b135e926335023abd9280152"
-  end
-
   def install
+    # These translations are dynamically generated.
+    system "./get_lang_files.sh"
+
     args = %w[
       BACKEND=sdl2
       MULTI_THREAD=1
@@ -64,7 +65,6 @@ class Simutrans < Formula
     bin.install "nettools/nettool"
 
     libexec.install resource("pak64")
-    (libexec/"text").install resource("text")
   end
 
   test do
