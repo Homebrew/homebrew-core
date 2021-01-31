@@ -76,13 +76,6 @@ class MitScheme < Formula
     system "./configure", "--prefix=#{prefix}", "--mandir=#{man}", "--without-x"
     system "make"
     system "make", "install"
-    # Copy over runtime.com from the original bootstrap
-    # binaries to avoid shims
-    %w[
-      mit-scheme-x86-64/runtime.com
-    ].each do |f|
-      cp buildpath/"staging/lib/#{f}", lib/f
-    end
   end
 
   test do
