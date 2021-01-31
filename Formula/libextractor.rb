@@ -4,7 +4,7 @@ class Libextractor < Formula
   url "https://ftp.gnu.org/gnu/libextractor/libextractor-1.11.tar.gz"
   mirror "https://ftpmirror.gnu.org/libextractor/libextractor-1.11.tar.gz"
   sha256 "16f633ab8746a38547c4a1da3f4591192b0825ad83c4336f0575b85843d8bd8f"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url :stable
