@@ -21,9 +21,27 @@ class Gpsd < Formula
   end
 
   depends_on "asciidoctor" => :build
+  depends_on "python@3.9" => :build
   depends_on "scons" => :build
+  depends_on "xmlto" => :build
+
+  uses_from_macos "ncurses"
+
+  resource "gps" do
+    url "https://files.pythonhosted.org/packages/35/73/958b3163573839d7f83cc84199ac1ce7068c3c39dca548fdfa5d37b93392/gps-3.19.tar.gz"
+    sha256 "9e1d2280e4944ddb46cf19772b2768848db91bf8363ad8a72b7996b1c6dd560a"
+  end
+
+  # patch to skip-validation for xmlto doc generation
+  patch :DATA
 
   def install
+    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
+
+    resource("gps").stage do
+      system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(libexec)
+    end
+
     system "scons", "chrpath=False", "python=False", "strip=False", "prefix=#{prefix}/"
     system "scons", "install"
   end
@@ -73,3 +91,18 @@ class Gpsd < Formula
     assert_match version.to_s, shell_output("#{sbin}/gpsd -V")
   end
 end
+
+__END__
+diff --git a/SConscript b/SConscript
+index d0b0908..8430b63 100644
+--- a/SConscript
++++ b/SConscript
+@@ -1420,7 +1420,7 @@ if not cleaning and not helping:
+             htmlbuilder = build % docbook_html_uri
+             manbuilder = build % docbook_man_uri
+         elif WhereIs("xmlto"):
+-            xmlto = "xmlto -o `dirname $TARGET` %s $SOURCE"
++            xmlto = "xmlto --skip-validation -o `dirname $TARGET` %s $SOURCE"
+             htmlbuilder = xmlto % "html-nochunks"
+             manbuilder = xmlto % "man"
+         else:
