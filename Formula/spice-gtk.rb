@@ -17,9 +17,8 @@ class SpiceGtk < Formula
     sha256 "32a55dcaa4902143f4fda24ca035ee3f1be41267d862e46bc3f7ba7a7181d026" => :high_sierra
   end
 
-  depends_on "autoconf" => :build
-  depends_on "autogen" => :build
-  depends_on "automake" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "gobject-introspection" => :build
   depends_on "intltool" => :build
   depends_on "libtool" => :build
@@ -56,22 +55,11 @@ class SpiceGtk < Formula
   end
 
   def install
-    args = %W[
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --enable-introspection
-      --enable-gstvideo
-      --enable-gstaudio
-      --enable-gstreamer=1.0
-      --enable-vala
-      --with-coroutine=gthread
-      --with-gtk=3.0
-      --with-lz4
-      --prefix=#{prefix}
-    ]
-    system "autoreconf"
-    system "./configure", *args
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args, ".."
+      system "ninja"
+      system "ninja", "install"
+    end
   end
 
   test do
