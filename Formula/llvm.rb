@@ -40,7 +40,7 @@ class Llvm < Formula
     # Regression in LLDB by D89156 on MacOS, fixed by D95683.
     # https://reviews.llvm.org/D95683
     patch do
-      url "https://reviews.llvm.org/file/data/ud3rpyci65brpi32praa/PHID-FILE-cdiialsygwx24dl7twob/D95683.diff"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/698a42e95e2c982c1d11f1b7d3293ba3aac677ee/llvm/lldb.patch"
       sha256 "b0dd8153370de8333dc57f950976bc87413c0b053bd30d9b8b10540094923b88"
     end
   end
