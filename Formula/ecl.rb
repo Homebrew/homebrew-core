@@ -27,7 +27,10 @@ class Ecl < Formula
     system "./configure", "--prefix=#{prefix}",
                           "--enable-threads=yes",
                           "--enable-boehm=system",
-                          "--enable-gmp=system"
+                          "--enable-gmp=system",
+                          "--with-gmp-prefix=#{Formula["gmp"].opt_prefix}",
+                          "--with-libffi-prefix=#{Formula["libffi"].opt_prefix}",
+                          "--with-libgc-prefix=#{Formula["bdw-gc"].opt_prefix}"
     system "make"
     system "make", "install"
   end
