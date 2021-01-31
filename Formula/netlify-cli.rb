@@ -31,5 +31,6 @@ class NetlifyCli < Formula
 
   test do
     assert_match "Not logged in.", shell_output("#{bin}/netlify status")
+    assert_match "Netlify API Methods", shell_output("#{bin}/netlify api --list 2>&1")
   end
 end
