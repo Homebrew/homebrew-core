@@ -36,8 +36,8 @@ class Lanraragi < Formula
   end
 
   resource "IO::Socket::SSL" do
-    url "https://cpan.metacpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.066.tar.gz"
-    sha256 "0d47064781a545304d5dcea5dfcee3acc2e95a32e1b4884d80505cde8ee6ebcd"
+    url "https://cpan.metacpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.069.tar.gz"
+    sha256 "d83c2cae5e8a22ab49c9f2d964726625e9efe56490d756a48a7b149a3d6e278d"
   end
 
   resource "libarchive-headers" do
