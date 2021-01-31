@@ -17,11 +17,11 @@ class SpiceGtk < Formula
     sha256 "32a55dcaa4902143f4fda24ca035ee3f1be41267d862e46bc3f7ba7a7181d026" => :high_sierra
   end
 
-  depends_on "meson" => :build
-  depends_on "ninja" => :build
   depends_on "gobject-introspection" => :build
   depends_on "intltool" => :build
   depends_on "libtool" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
 
