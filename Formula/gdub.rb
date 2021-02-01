@@ -7,6 +7,10 @@ class Gdub < Formula
 
   bottle :unneeded
 
+  # "This project is obsolete. Please use 'gng' instead.":
+  # https://github.com/gdubw/gng
+  deprecate! date: "2021-01-05", because: :repo_archived
+
   def install
     bin.install "bin/gw"
   end
