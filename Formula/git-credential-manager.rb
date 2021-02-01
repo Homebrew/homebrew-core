@@ -8,6 +8,10 @@ class GitCredentialManager < Formula
 
   bottle :unneeded
 
+  # "This project has been superceded by Git Credential Manager Core":
+  # https://github.com/microsoft/Git-Credential-Manager-Core
+  deprecate! date: "2020-10-01", because: :repo_archived
+
   depends_on "openjdk"
 
   def install
