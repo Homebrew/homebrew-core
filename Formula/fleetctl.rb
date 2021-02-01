@@ -16,7 +16,9 @@ class Fleetctl < Formula
     sha256 "578bc15de6d87d53165ff70805388b41388f01d10a7c5d809fafd46c4d9040aa" => :high_sierra
   end
 
-  deprecate! date: "2020-11-15", because: :repo_archived
+  # "CoreOS recommends Kubernetes for all clustering needs":
+  # https://coreos.com/blog/migrating-from-fleet-to-kubernetes.html
+  deprecate! date: "2020-04-15", because: :repo_archived
 
   depends_on "go" => :build
 
