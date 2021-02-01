@@ -1,4 +1,5 @@
 require "language/node"
+
 class Json5 < Formula
   desc "JSON enhanced with usability features"
   homepage "https://json5.org/"
