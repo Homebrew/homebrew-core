@@ -14,6 +14,9 @@ class C14Cli < Formula
     sha256 "6b3262c0d209f01dd93a491c541ee7f9fedca9f6ff03203487394e0e4f5cdecf" => :high_sierra
   end
 
+  # "C14 Classic has been discontinued"
+  deprecate! date: "2020-12-01", because: :repo_archived
+
   depends_on "go" => :build
 
   def install
