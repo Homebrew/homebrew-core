@@ -8,6 +8,8 @@ class Minimesos < Formula
 
   bottle :unneeded
 
+  deprecate! date: "2018-06-22", because: :repo_archived
+
   def install
     bin.install "bin/minimesos"
   end
