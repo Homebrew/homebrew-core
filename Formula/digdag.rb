@@ -3,6 +3,7 @@ class Digdag < Formula
   homepage "https://www.digdag.io/"
   url "https://dl.digdag.io/digdag-0.10.0.jar"
   sha256 "0a3aed836d8af1a47ed53dda63c02ce3ecfec6b564d55b556a18b122dec7f3d7"
+  license "Apache-2.0"
 
   livecheck do
     url "https://github.com/treasure-data/digdag.git"
