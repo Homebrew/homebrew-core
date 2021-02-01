@@ -15,6 +15,8 @@ class FbiServefiles < Formula
     sha256 "d8d8d483abd92d016d8d1a7f0e4535c51233c83914f1c61d1223b72d750f1b8a" => :high_sierra
   end
 
+  deprecate! date: "2020-11-12", because: :repo_archived
+
   depends_on "python@3.9"
 
   def install
