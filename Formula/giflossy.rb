@@ -3,7 +3,7 @@ class Giflossy < Formula
   homepage "https://pornel.net/lossygif"
   url "https://github.com/kornelski/giflossy/archive/1.91.tar.gz"
   sha256 "b97f6aadf163ff5dd96ad1695738ad3d5aa7f1658baed8665c42882f11d9ab22"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
   head "https://github.com/kornelski/giflossy.git"
 
   bottle do
@@ -15,7 +15,9 @@ class Giflossy < Formula
     sha256 "02eeb9a6b44178fdf1df803346dceedda853c7245cd51a1a6166290a73fb51f4" => :mojave
   end
 
-  deprecate! date: "2020-11-27", because: :repo_archived
+  # "This project has now been officially merged upstream into Gifsicle, so
+  # please use that": https://github.com/kohler/gifsicle
+  deprecate! date: "2019-05-27", because: :repo_archived
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
