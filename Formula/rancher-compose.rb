@@ -15,6 +15,8 @@ class RancherCompose < Formula
     sha256 "23291133a0a775210ae1244ae594931ce04fab8e7c0a37ba90431d61d869317b" => :yosemite
   end
 
+  deprecate! date: "2020-10-18", because: :repo_archived
+
   depends_on "go" => :build
 
   def install
