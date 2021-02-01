@@ -17,7 +17,7 @@ class Termtosvg < Formula
     sha256 "26a80230af97da8f083d5e3004cb3a000e4cd16e33ce4e733400a9d9d0ade42a" => :high_sierra
   end
 
-  deprecate! date: "2020-10-08", because: :repo_archived
+  deprecate! date: "2020-06-16", because: :repo_archived
 
   depends_on "python@3.9"
 
