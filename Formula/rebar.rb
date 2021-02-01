@@ -15,7 +15,9 @@ class Rebar < Formula
     sha256 "265cfa8851de8a55ff46346167f8670df48d8a731c427d51fe0da16cf2ee8b78" => :mojave
   end
 
-  deprecate! date: "2020-11-24", because: :repo_archived
+  # Deprecated upstream on 2016-04-13 in favor of rebar3:
+  # https://github.com/erlang/rebar3
+  deprecate! date: "2019-03-22", because: :repo_archived
 
   depends_on "erlang"
 
