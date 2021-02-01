@@ -14,6 +14,10 @@ class Cosi < Formula
     sha256 "00663999a04ee29f52e334022cc828d7ebe89a442f1e713afb2167112f4ebf75" => :high_sierra
   end
 
+  # Deprecated in favor of the Cothority `blcosi` package.
+  # See: https://github.com/dedis/cothority/tree/master/cosi
+  deprecate! date: "2018-03-01", because: :deprecated_upstream
+
   depends_on "go" => :build
 
   go_resource "github.com/BurntSushi/toml" do
