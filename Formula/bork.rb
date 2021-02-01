@@ -8,6 +8,8 @@ class Bork < Formula
 
   bottle :unneeded
 
+  deprecate! date: "2018-09-11", because: :repo_archived
+
   def install
     prefix.install %w[bin docs lib test types]
   end
