@@ -6,7 +6,7 @@ class Zinc < Formula
 
   bottle :unneeded
 
-  deprecate! date: "2020-08-17", because: :repo_archived
+  deprecate! date: "2018-06-10", because: :repo_archived
 
   def install
     rm_f Dir["bin/ng/{linux,win}*"]
