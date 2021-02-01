@@ -16,7 +16,9 @@ class PdfRedactTools < Formula
     sha256 "e89303de13975510234c078756470ac529050a93a4e4a7592b94ef5971cea049" => :mojave
   end
 
-  deprecate! date: "2020-11-20", because: :unmaintained
+  # "This project is no longer maintained. A much better tool is dangerzone:
+  # https://dangerzone.rocks"
+  deprecate! date: "2020-05-05", because: :repo_archived
 
   depends_on "exiftool"
   depends_on "ghostscript"
