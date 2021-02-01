@@ -19,6 +19,12 @@ class Norm < Formula
     sha256 "1e15bbbef4758e0179672d456c2ad2b2087927a3796adc4a18e2338f300bc3e6"
   end
 
+  # patch the build, remove in next release
+  patch do
+    url "https://github.com/USNavalResearchLaboratory/norm/commit/213adb3.patch?full_index=1"
+    sha256 "c2c44ea65aba0b2367c70a2ca929ac7796ec0745aa3eda9edfc893e302c49261"
+  end
+
   def install
     (buildpath/"protolib").install resource("protolib")
 
