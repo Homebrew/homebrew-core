@@ -16,6 +16,10 @@ class Beansdb < Formula
     sha256 "e3c0bfa02e012ef1b0935fe13be8286dce080e8898b6519f5bf8c886ea77b9bc" => :yosemite
   end
 
+  # Deprecated upstream in favor of `gobeansdb`:
+  # https://github.com/douban/gobeansdb
+  deprecate! date: "2018-06-11", because: :repo_archived
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
 
