@@ -15,7 +15,7 @@ class Rpg < Formula
     sha256 "f1c7e5d997a1f0ceb1cca6b1067408912ff8e14522fb411530649f0689f9d042" => :high_sierra
   end
 
-  deprecate! date: "2020-11-11", because: :repo_archived
+  deprecate! date: "2017-11-08", because: :repo_archived
 
   def install
     system "./configure", "--prefix=#{prefix}"
