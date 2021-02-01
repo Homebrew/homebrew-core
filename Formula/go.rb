@@ -2,23 +2,15 @@ class Go < Formula
   desc "Open source programming language to build simple/reliable/efficient software"
   homepage "https://golang.org"
   license "BSD-3-Clause"
-  revision 1
 
   stable do
-    if Hardware::CPU.arm?
-      url "https://golang.org/dl/go1.16rc1.src.tar.gz"
-      sha256 "6a33569f9d0d21db31614086cc2a4f0fbc683b41c1c53fb512a1341ce5763ff5"
-      version "1.15.7"
-    else
-      url "https://golang.org/dl/go1.15.7.src.tar.gz"
-      mirror "https://fossies.org/linux/misc/go1.15.7.src.tar.gz"
-      sha256 "8631b3aafd8ecb9244ec2ffb8a2a8b4983cf4ad15572b9801f7c5b167c1a2abc"
-    end
+    url "https://golang.org/dl/go1.16rc1.src.tar.gz"
+    sha256 "6a33569f9d0d21db31614086cc2a4f0fbc683b41c1c53fb512a1341ce5763ff5"
 
-    go_version = version.major_minor
     resource "gotools" do
-      url "https://go.googlesource.com/tools.git",
-          branch: "release-branch.go#{go_version}"
+      # url "https://go.googlesource.com/tools.git",
+      #     branch: "release-branch.go#{version.major_minor}"
+      url "https://go.googlesource.com/tools.git"
     end
   end
 
@@ -85,19 +77,6 @@ class Go < Formula
       (libexec/"bin").install "godoc"
     end
     bin.install_symlink libexec/"bin/godoc"
-  end
-
-  def caveats
-    s = ""
-
-    if Hardware::CPU.arm?
-      s += <<~EOS
-        This is a release candidate version of the Go compiler for Apple Silicon
-        (Go 1.16rc1).
-      EOS
-    end
-
-    s
   end
 
   test do
