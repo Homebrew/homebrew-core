@@ -41,8 +41,14 @@ class Wimlib < Formula
   test do
     # make a directory containing a dummy 1M file
     mkdir("foo")
-    system "dd", "if=/dev/random", "of=foo/bar", "bs=1m", "count=1"
-
+    size = nil
+    on_macos do
+      size = "1m"
+    end
+    on_linux do
+      size = "1M"
+    end
+    system "dd", "if=/dev/random", "of=foo/bar", "bs=#{size}", "count=1"
     # capture an image
     ENV.append "WIMLIB_IMAGEX_USE_UTF8", "1"
     system "#{bin}/wimcapture", "foo", "bar.wim"
