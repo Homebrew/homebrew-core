@@ -1,8 +1,8 @@
 class Ecl < Formula
   desc "Embeddable Common Lisp"
   homepage "https://common-lisp.net/project/ecl/"
-  url "https://common-lisp.net/project/ecl/static/files/release/ecl-20.4.24.tgz"
-  sha256 "670838edf258a936b522fdb620da336de7e575aa0d27e34841727252726d0f07"
+  url "https://common-lisp.net/project/ecl/static/files/release/ecl-21.2.1.tgz"
+  sha256 "b15a75dcf84b8f62e68720ccab1393f9611c078fcd3afdd639a1086cad010900"
   license "LGPL-2.1-or-later"
   head "https://gitlab.com/embeddable-common-lisp/ecl.git", branch: "develop"
 
@@ -20,10 +20,6 @@ class Ecl < Formula
 
   def install
     ENV.deparallelize
-    # Work around configure issues with Xcode 12
-    # https://gitlab.com/embeddable-common-lisp/ecl/-/merge_requests/231
-    # Remove once the commit is released
-    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
 
     system "./configure", "--prefix=#{prefix}",
                           "--enable-threads=yes",
