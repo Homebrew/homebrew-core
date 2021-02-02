@@ -19,6 +19,7 @@ class Rack < Formula
   depends_on "go" => :build
 
   def install
+    ENV["GO111MODULE"] = "auto"
     ENV["GOPATH"] = buildpath
     ENV["TRAVIS_TAG"] = version
 
