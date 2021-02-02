@@ -18,6 +18,7 @@ class Ksync < Formula
   depends_on "go" => :build
 
   def install
+    ENV["GO111MODULE"] = "auto"
     project = "github.com/ksync/ksync"
     ldflags = %W[
       -w
