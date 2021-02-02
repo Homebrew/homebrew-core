@@ -20,6 +20,7 @@ class CollectorSidecar < Formula
   depends_on "filebeat"
 
   def install
+    ENV["GO111MODULE"] = "auto"
     ENV["GOPATH"] = buildpath
     ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
     (buildpath/"src/github.com/Graylog2/collector-sidecar").install buildpath.children
