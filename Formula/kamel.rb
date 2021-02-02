@@ -24,6 +24,7 @@ class Kamel < Formula
   depends_on "openjdk@11" => :build
 
   def install
+    ENV["GO111MODULE"] = "auto"
     ENV["JAVA_HOME"] = Language::Java.java_home("11")
     system "make"
     bin.install "kamel"
