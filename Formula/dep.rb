@@ -23,12 +23,20 @@ class Dep < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+
+    platform = nil
+    on_macos do
+      platform = "darwin"
+    end
+    on_linux do
+      platform = "linux"
+    end
     (buildpath/"src/github.com/golang/dep").install buildpath.children
     cd "src/github.com/golang/dep" do
-      ENV["DEP_BUILD_PLATFORMS"] = "darwin"
+      ENV["DEP_BUILD_PLATFORMS"] = platform
       ENV["DEP_BUILD_ARCHS"] = "amd64"
       system "hack/build-all.bash"
-      bin.install "release/dep-darwin-amd64" => "dep"
+      bin.install "release/dep-#{platform}-amd64" => "dep"
       prefix.install_metafiles
     end
   end
