@@ -30,6 +30,7 @@ class TerraformInventory < Formula
   end
 
   def install
+    ENV["GO111MODULE"] = "auto"
     ENV["GOPATH"] = buildpath
 
     mkdir_p buildpath/"src/github.com/adammck/"
