@@ -17,6 +17,7 @@ class Cwlogs < Formula
   depends_on "govendor" => :build
 
   def install
+    ENV["GO111MODULE"] = "auto"
     ENV["GOPATH"] = buildpath
     ENV["CGO_ENABLED"] = "0"
 
