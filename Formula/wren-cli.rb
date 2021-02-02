@@ -15,7 +15,12 @@ class WrenCli < Formula
   end
 
   def install
-    system "make", "-C", "projects/make.mac"
+    on_macos do
+      system "make", "-C", "projects/make.mac"
+    end
+    on_linux do
+      system "make", "-C", "projects/make"
+    end
     bin.install "bin/wren_cli"
     pkgshare.install "example"
   end
