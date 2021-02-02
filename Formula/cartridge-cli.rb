@@ -17,6 +17,7 @@ class CartridgeCli < Formula
   depends_on "mage" => :build
 
   def install
+    ENV["GO111MODULE"] = "auto"
     system "mage", "build"
     bin.install "cartridge"
     system bin/"cartridge", "gen", "completion"
