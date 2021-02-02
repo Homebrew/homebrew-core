@@ -3,8 +3,8 @@ class Commitizen < Formula
 
   desc "Defines a standard way of committing rules and communicating it"
   homepage "https://commitizen-tools.github.io/commitizen/"
-  url "https://files.pythonhosted.org/packages/a1/14/3ad1772b81f1e2f7c91ac99987c0ac72a50ebe2a06967cf9a3eea81dd0d0/commitizen-2.14.0.tar.gz"
-  sha256 "afc68d9d61c8338beeb6145a8276e97a342a16f4f721c8ff654403043240cec0"
+  url "https://files.pythonhosted.org/packages/f0/bc/673ed0b345882511dde1bc43e8f2b95e0b5ff74fa11dc3e1461ef5dba9d5/commitizen-2.14.1.tar.gz"
+  sha256 "4202804e098a84443c3c0c0955a92e617110d263e37e6800f9916cf6af20fa20"
   license "MIT"
   head "https://github.com/commitizen-tools/commitizen.git"
 
@@ -38,8 +38,8 @@ class Commitizen < Formula
   end
 
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/64/a7/45e11eebf2f15bf987c3bc11d37dcc838d9dc81250e67e4c5968f6008b6c/Jinja2-2.11.2.tar.gz"
-    sha256 "89aab215427ef59c34ad58735269eb58b1a5808103067f7bb9d5836c651b3bb0"
+    url "https://files.pythonhosted.org/packages/4f/e7/65300e6b32e69768ded990494809106f87da1d436418d5f1367ed3966fd7/Jinja2-2.11.3.tar.gz"
+    sha256 "a6d58433de0ae800347cab1fa3043cebbabe8baa9d29e668f1c768cb87a333c6"
   end
 
   resource "MarkupSafe" do
@@ -48,13 +48,13 @@ class Commitizen < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d7/c5/e81b9fb8033fe78a2355ea7b1774338e1dca2c9cbd2ee140211a9e6291ab/packaging-20.8.tar.gz"
-    sha256 "78598185a7008a470d64526a8059de9aaa449238f280fc9eb6b13ba6c4109093"
+    url "https://files.pythonhosted.org/packages/86/3c/bcd09ec5df7123abcf695009221a52f90438d877a2f1499453c6938f5728/packaging-20.9.tar.gz"
+    sha256 "5b327ac1320dc863dca72f4514ecc086f31186744b84a230374cc1fd776feae5"
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/d3/66/c9cd6b943bce914b5d5abd129224a0c889fcd7927d3fbcf6b50d0f1fb9d7/prompt_toolkit-3.0.11.tar.gz"
-    sha256 "dc83e6368b0edd9ceabe17a055f2e22f6ed95b9aa39dbd59d0b4f3585bdfe9ed"
+    url "https://files.pythonhosted.org/packages/b1/46/4eb242362c43cf033b4ec4d7205612c46c9f904a8984cdfdb64d35476175/prompt_toolkit-3.0.14.tar.gz"
+    sha256 "7e966747c18ececaec785699626b771c1ba8344c8d31759a1915d6b12fad6525"
   end
 
   resource "pyparsing" do
@@ -63,8 +63,8 @@ class Commitizen < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/b5/fd/15638de2da0a5aa91c095718444624aa565f766fc178249ca6faa372f71a/PyYAML-5.4.tar.gz"
-    sha256 "3c49e39ac034fd64fd576d63bb4db53cda89b362768a67f07749d55f128ac18a"
+    url "https://files.pythonhosted.org/packages/a0/a4/d63f2d7597e1a4b55aa3b4d6c5b029991d3b824b5bd331af8d4ab1ed687d/PyYAML-5.4.1.tar.gz"
+    sha256 "607774cbba28732bfa802b54baa7484215f530991055bb562efbed5b2f20a45e"
   end
 
   resource "questionary" do
