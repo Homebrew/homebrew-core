@@ -18,6 +18,7 @@ class Qpm < Formula
   depends_on "go" => :build
 
   def install
+    ENV["GO111MODULE"] = "auto"
     ENV["GOPATH"] = buildpath
     (buildpath/"src").mkpath
     ln_s buildpath, "src/qpm.io"
