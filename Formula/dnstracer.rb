@@ -5,6 +5,15 @@ class Dnstracer < Formula
   mirror "https://deb.debian.org/debian/pool/main/d/dnstracer/dnstracer_1.9.orig.tar.gz"
   sha256 "2ebc08af9693ba2d9fa0628416f2d8319ca1627e41d64553875d605b352afe9c"
 
+  # It's necessary to check the `/unix/general.php` page, instead of
+  # `/download/`, until a real 1.10 version exists. The file name for version
+  # 1.1 on the `/download/` page is given as 1.10 and this is erroneously
+  # treated as newer than 1.9.
+  livecheck do
+    url "https://www.mavetju.org/unix/general.php"
+    regex(/href=.*?dnstracer[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "c6e0d89127fbc47d2b30cd7d2918279f858a79d87b2e32e63cccfcc4f92f3495" => :big_sur
