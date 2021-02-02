@@ -20,6 +20,7 @@ class Uru < Formula
   depends_on "go" => :build
 
   def install
+    ENV["GO111MODULE"] = "auto"
     ENV["GOPATH"] = buildpath
     (buildpath/"src/bitbucket.org/jonforums/uru").install Dir["*"]
     system "go", "build", "-ldflags", "-s", "bitbucket.org/jonforums/uru/cmd/uru"
