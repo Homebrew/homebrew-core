@@ -20,7 +20,6 @@ class Flank < Formula
   end
 
   test do
-    ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
     (testpath/"flank.yml").write <<~EOS
       gcloud:
         device:
