@@ -282,6 +282,7 @@ class CharmTools < Formula
   end
 
   def install
+    ENV["GO111MODULE"] = "auto"
     virtualenv_install_with_resources
   end
 
