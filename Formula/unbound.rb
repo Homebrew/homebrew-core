@@ -39,7 +39,12 @@ class Unbound < Formula
       --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
     ]
 
-    args << "--with-libexpat=#{MacOS.sdk_path}/usr" if MacOS.sdk_path_if_needed
+    on_macos do
+      args << "--with-libexpat=#{MacOS.sdk_path}/usr" if MacOS.sdk_path_if_needed
+    end
+    on_linux do
+      args << "--with-libexpat=#{Formula["expat"].opt_prefix}"
+    end
     system "./configure", *args
 
     inreplace "doc/example.conf", 'username: "unbound"', 'username: "@@HOMEBREW-UNBOUND-USER@@"'
