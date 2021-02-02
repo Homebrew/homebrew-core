@@ -18,6 +18,7 @@ class Kedge < Formula
   depends_on "go" => :build
 
   def install
+    ENV["GO111MODULE"] = "auto"
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/kedgeproject").mkpath
     ln_s buildpath, buildpath/"src/github.com/kedgeproject/kedge"
