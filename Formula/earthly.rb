@@ -1,9 +1,9 @@
 class Earthly < Formula
-  desc "Build automation tool for the post-container era"
+  desc "Build automation tool for the container era"
   homepage "https://earthly.dev/"
   url "https://github.com/earthly/earthly/archive/v0.5.0.tar.gz"
   sha256 "4cbaa040f76ebcfc3954596a0ce5f23fcafbc0c61f8e3c16e2a8ff6ed358bead"
-  license "MPL-2.0"
+  license "BUSL-1.1"
   head "https://github.com/earthly/earthly.git"
 
   livecheck do
