@@ -17,6 +17,7 @@ class Pgweb < Formula
   depends_on "go-bindata" => :build
 
   def install
+    ENV["GO111MODULE"] = "auto"
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/sosedoff/pgweb").install buildpath.children
 
