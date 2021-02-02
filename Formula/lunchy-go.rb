@@ -18,6 +18,7 @@ class LunchyGo < Formula
   conflicts_with "lunchy", because: "both install a `lunchy` binary"
 
   def install
+    ENV["GO111MODULE"] = "auto"
     system "go", "build", *std_go_args
     bin.install bin/"lunchy-go" => "lunchy"
   end
