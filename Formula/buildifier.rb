@@ -17,6 +17,7 @@ class Buildifier < Formula
   depends_on "bazelisk" => :build
 
   def install
+    ENV["GO111MODULE"] = "auto"
     system "bazelisk", "build", "--config=release", "buildifier:buildifier"
     bin.install "bazel-bin/buildifier/darwin_amd64_stripped/buildifier"
   end
