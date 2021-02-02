@@ -25,6 +25,7 @@ class TraefikAT1 < Formula
   depends_on "yarn" => :build
 
   def install
+    ENV["GO111MODULE"] = "auto"
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/traefik/traefik").install buildpath.children
 
