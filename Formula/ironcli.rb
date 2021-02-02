@@ -18,6 +18,7 @@ class Ironcli < Formula
   depends_on "go" => :build
 
   def install
+    ENV["GO111MODULE"] = "auto"
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/iron-io/ironcli").install buildpath.children
     cd "src/github.com/iron-io/ironcli" do
