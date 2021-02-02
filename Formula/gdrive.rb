@@ -19,6 +19,7 @@ class Gdrive < Formula
   depends_on "go" => :build
 
   def install
+    ENV["GO111MODULE"] = "auto"
     ENV["GOPATH"] = buildpath
 
     dir = buildpath/"src/github.com/prasmussen/gdrive"
