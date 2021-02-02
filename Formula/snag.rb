@@ -21,6 +21,7 @@ class Snag < Formula
   depends_on "go" => :build
 
   def install
+    ENV["GO111MODULE"] = "auto"
     ENV["GOPATH"] = buildpath
 
     (buildpath/"src/github.com/Tonkpils/").mkpath
