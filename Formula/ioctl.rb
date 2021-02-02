@@ -15,6 +15,7 @@ class Ioctl < Formula
   depends_on "go" => :build
 
   def install
+    ENV["GO111MODULE"] = "auto"
     system "make", "ioctl"
     bin.install "bin/ioctl"
   end
