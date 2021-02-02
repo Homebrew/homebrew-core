@@ -17,6 +17,7 @@ class Stout < Formula
   depends_on "go" => :build
 
   def install
+    ENV["GO111MODULE"] = "auto"
     ENV["GOPATH"] = buildpath
 
     # Compatibility with newer Go.
