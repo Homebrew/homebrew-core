@@ -21,6 +21,7 @@ class Pup < Formula
   depends_on "gox" => :build
 
   def install
+    ENV["GO111MODULE"] = "auto"
     ENV["GOPATH"] = buildpath
     dir = buildpath/"src/github.com/ericchiang/pup"
     dir.install buildpath.children
