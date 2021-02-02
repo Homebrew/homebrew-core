@@ -20,6 +20,7 @@ class Leaps < Formula
   depends_on "go" => :build
 
   def install
+    ENV["GO111MODULE"] = "auto"
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/jeffail/leaps").install buildpath.children
     cd "src/github.com/jeffail/leaps" do
