@@ -5,6 +5,11 @@ class Mlpack < Formula
   sha256 "9e5c4af5c276c86a0dcc553289f6fe7b1b340d61c1e59844b53da0debedbb171"
   license all_of: ["BSD-3-Clause", "MPL-2.0", "BSL-1.0", "MIT"]
 
+  livecheck do
+    url "https://mlpack.org/files/"
+    regex(/href=.*?mlpack[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     cellar :any
     sha256 "55819c54944eabc313874577f91e448decc0e28edb029f66417a900b7f9aba78" => :big_sur
