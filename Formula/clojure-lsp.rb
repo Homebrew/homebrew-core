@@ -2,7 +2,7 @@ class ClojureLsp < Formula
   desc "Language Server (LSP) for Clojure"
   homepage "https://github.com/clojure-lsp/clojure-lsp"
   # Switch to use git tag/revision as needed by `lein-git-version`
-  url "https://github.com/clojure-lsp/clojure-lsp.git",
+  url "https://github.com/clojure-lsp/clojure-lsp/releases/download/2021.02.02-14.02.23/clojure-lsp",
       tag:      "2021.02.02-14.02.23",
       revision: "fb7548b0b43c3e4e266a0f10418dcfa54402de97"
   version "2021.02.02-14.02.23"
