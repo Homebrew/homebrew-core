@@ -5,6 +5,11 @@ class Jumanpp < Formula
   sha256 "01fa519cb1b66c9cccc9778900a4048b69b718e190a17e054453ad14c842e690"
   license "Apache-2.0"
 
+  livecheck do
+    url "https://lotus.kuee.kyoto-u.ac.jp/nl-resource/jumanpp/"
+    regex(/href=.*?jumanpp[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 "9c97f442fdad1ae3ab776ef16de98876db768134d50235e9ea683579fa8a85b7" => :big_sur
     sha256 "4b2c208b0954536aa3f2b838a525e2542a547a192a03951c0f8a7f69c082a60d" => :catalina
