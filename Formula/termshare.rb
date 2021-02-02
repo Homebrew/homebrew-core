@@ -45,6 +45,7 @@ class Termshare < Formula
   end
 
   def install
+    ENV["GO111MODULE"] = "auto"
     ENV["GOPATH"] = buildpath
     path = buildpath/"src/github.com/progrium/termshare"
     path.install Dir["*"]
