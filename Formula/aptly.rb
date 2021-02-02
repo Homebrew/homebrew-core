@@ -18,6 +18,7 @@ class Aptly < Formula
   depends_on "go" => :build
 
   def install
+    ENV["GO111MODULE"] = "auto"
     ENV["GOPATH"] = buildpath
     ENV["GOBIN"] = bin
     (buildpath/"src/github.com/aptly-dev/aptly").install buildpath.children
