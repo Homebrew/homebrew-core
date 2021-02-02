@@ -16,6 +16,7 @@ class Rke < Formula
   depends_on "go" => :build
 
   def install
+    ENV["GO111MODULE"] = "auto"
     system "go", "build", "-ldflags",
             "-w -X main.VERSION=v#{version}",
             "-o", bin/"rke"
