@@ -26,6 +26,7 @@ class SyncGateway < Formula
   depends_on "python@3.9"
 
   def install
+    ENV["GO111MODULE"] = "auto"
     # Cache the vendored Go dependencies gathered by depot_tools' `repo` command
     repo_cache = buildpath/"repo_cache/#{name}/.repo"
     repo_cache.mkpath
