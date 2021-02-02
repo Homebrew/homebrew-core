@@ -1,11 +1,10 @@
 class Cassandra < Formula
   desc "Eventually consistent, distributed key-value store"
   homepage "https://cassandra.apache.org"
-  url "https://www.apache.org/dyn/closer.lua?path=cassandra/3.11.9/apache-cassandra-3.11.9-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/cassandra/3.11.9/apache-cassandra-3.11.9-bin.tar.gz"
-  sha256 "0c90cf369e86cef10c53be2d0196ba4019150f2a84653a291547821f18536ab2"
+  url "https://www.apache.org/dyn/closer.lua?path=cassandra/3.11.10/apache-cassandra-3.11.10-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/cassandra/3.11.10/apache-cassandra-3.11.10-bin.tar.gz"
+  sha256 "bbe772956c841158e3228c3b6c8fc38cece6bceeface695473c59c0573039bf1"
   license "Apache-2.0"
-  revision 1
 
   livecheck do
     url :stable
@@ -97,7 +96,7 @@ class Cassandra < Formula
 
     # This breaks on `brew uninstall cassandra && brew install cassandra`
     # https://github.com/Homebrew/homebrew/pull/38309
-    (etc/"cassandra").install Dir["conf/*"]
+    pkgetc.install Dir["conf/*"]
 
     libexec.install Dir["*.txt", "{bin,interface,javadoc,pylib,lib/licenses}"]
     libexec.install Dir["lib/*.jar"]
