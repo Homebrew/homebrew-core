@@ -17,6 +17,7 @@ class Jp < Formula
   depends_on "go" => :build
 
   def install
+    ENV["GO111MODULE"] = "auto"
     ENV["GOPATH"] = buildpath
     build_root = buildpath/"src/github.com/sgreben/jp"
     build_root.install Dir["*"]
