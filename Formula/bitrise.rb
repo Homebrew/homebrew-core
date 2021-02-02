@@ -14,6 +14,7 @@ class Bitrise < Formula
   depends_on "go" => :build
 
   def install
+    ENV["GO111MODULE"] = "auto"
     ENV["GOPATH"] = buildpath
 
     # Install bitrise
