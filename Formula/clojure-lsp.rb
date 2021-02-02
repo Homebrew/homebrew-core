@@ -20,10 +20,7 @@ class ClojureLsp < Formula
   depends_on "openjdk@11"
 
   def install
-    system "lein", "uberjar"
-    jar = Dir["target/clojure-lsp-*-standalone.jar"][0]
-    libexec.install jar
-    bin.write_jar_script libexec/File.basename(jar), "clojure-lsp"
+    chmod 0755, "clojure-lsp"
   end
 
   test do
