@@ -18,6 +18,7 @@ class DockerCredentialHelper < Formula
   depends_on "go" => :build
 
   def install
+    ENV["GO111MODULE"] = "auto"
     ENV["GOPATH"] = buildpath
     dir = buildpath/"src/github.com/docker/docker-credential-helpers"
     dir.install buildpath.children - [buildpath/".brew_home"]
