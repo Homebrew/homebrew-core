@@ -17,6 +17,7 @@ class Ahoy < Formula
   depends_on "go" => :build
 
   def install
+    ENV["GO111MODULE"] = "auto"
     ENV["GOPATH"] = buildpath
     bin_path = buildpath/"src/github.com/ahoy-cli/ahoy"
     bin_path.install Dir["*"]
