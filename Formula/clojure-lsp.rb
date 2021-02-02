@@ -20,7 +20,7 @@ class ClojureLsp < Formula
   depends_on "openjdk@11"
 
   def install
-    chmod 0755, "clojure-lsp"
+    bin.install "clojure-lsp"
   end
 
   test do
