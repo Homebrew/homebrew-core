@@ -20,6 +20,7 @@ class Docker2aci < Formula
   depends_on "go" => :build
 
   def install
+    ENV["GO111MODULE"] = "auto"
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/appc").mkpath
     ln_s buildpath, buildpath/"src/github.com/appc/docker2aci"
