@@ -23,7 +23,12 @@ class Dockerize < Formula
     ENV.append_path "PATH", buildpath/"bin"
     cd "src/github.com/jwilder/dockerize" do
       system "make", "dist"
-      bin.install "dist/darwin/amd64/dockerize"
+      on_macos do
+        bin.install "dist/darwin/amd64/dockerize"
+      end
+      on_linux do
+        bin.install "dist/linux/amd64/dockerize"
+      end
     end
   end
 
