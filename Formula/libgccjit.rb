@@ -58,7 +58,7 @@ class Libgccjit < Formula
       --with-isl=#{Formula["isl"].opt_prefix}
       --with-system-zlib
       --with-pkgversion=#{pkgversion}
-      --with-bugurl=https://github.com/Homebrew/homebrew-core/issues
+      --with-bugurl=#{tap.issues_url}
     ]
 
     # Xcode 10 dropped 32-bit support
