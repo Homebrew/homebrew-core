@@ -28,6 +28,9 @@ class Xmake < Formula
   end
 
   test do
+    on_linux do
+      ENV["XMAKE_ROOT"] = "y" if ENV["CI"]
+    end
     system bin/"xmake", "create", "test"
     cd "test" do
       system bin/"xmake"
