@@ -18,6 +18,7 @@ class Cql < Formula
   depends_on "go" => :build
 
   def install
+    ENV["GO111MODULE"] = "auto"
     ENV["GOPATH"] = buildpath
     ENV["CQLVERSION"] = "v#{version}"
     ENV["CGO_ENABLED"] = "1"
