@@ -28,6 +28,7 @@ class Gdm < Formula
   end
 
   def install
+    ENV["GO111MODULE"] = "auto"
     ENV["GOPATH"] = buildpath
     mkdir_p buildpath/"src/github.com/sparrc"
     ln_sf buildpath, buildpath/"src/github.com/sparrc/gdm"
