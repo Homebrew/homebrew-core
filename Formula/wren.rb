@@ -21,7 +21,12 @@ class Wren < Formula
   end
 
   def install
-    system "make", "-C", "projects/make.mac"
+    on_macos do
+      system "make", "-C", "projects/make.mac"
+    end
+    on_linux do
+      system "make", "-C", "projects/make"
+    end
     lib.install Dir["lib/*"]
     include.install Dir["src/include/*"]
     pkgshare.install "example"
