@@ -21,6 +21,7 @@ class Dockviz < Formula
   depends_on "govendor" => :build
 
   def install
+    ENV["GO111MODULE"] = "auto"
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/justone/dockviz").install buildpath.children
     cd "src/github.com/justone/dockviz" do
