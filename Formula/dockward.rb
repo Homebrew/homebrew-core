@@ -52,6 +52,7 @@ class Dockward < Formula
   end
 
   def install
+    ENV["GO111MODULE"] = "auto"
     ENV["GOBIN"] = bin
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/abiosoft").mkpath
