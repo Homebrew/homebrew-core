@@ -7,6 +7,7 @@ class ClojureLsp < Formula
       revision: "fb7548b0b43c3e4e266a0f10418dcfa54402de97"
   version "2021.02.02-14.02.23"
   license "MIT"
+  version_scheme 1
   head "https://github.com/snoe/clojure-lsp.git"
 
   bottle do
@@ -18,7 +19,7 @@ class ClojureLsp < Formula
 
   depends_on "leiningen" => :build
   # The Java Runtime version only recognizes class file versions up to 52.0
-  depends_on "openjdk@8"
+  depends_on "openjdk@11"
 
   def install
     system "lein", "uberjar"
