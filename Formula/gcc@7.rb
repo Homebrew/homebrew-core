@@ -64,7 +64,7 @@ class GccAT7 < Formula
       "--with-system-zlib",
       "--enable-checking=release",
       "--with-pkgversion=Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip,
-      "--with-bugurl=https://github.com/Homebrew/homebrew-core/issues",
+      "--with-bugurl=#{tap.issues_url}",
       "--disable-nls",
     ]
 
