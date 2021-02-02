@@ -21,6 +21,7 @@ class ApacheBrooklynCli < Formula
   depends_on "go" => :build
 
   def install
+    ENV["GO111MODULE"] = "auto"
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/apache/brooklyn-client").install "cli"
     cd "src/github.com/apache/brooklyn-client/cli" do
