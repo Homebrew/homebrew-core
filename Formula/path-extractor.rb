@@ -20,6 +20,7 @@ class PathExtractor < Formula
   depends_on "go" => :build
 
   def install
+    ENV["GO111MODULE"] = "auto"
     ENV["GOBIN"] = bin
     ENV["GOPATH"] = buildpath
     ENV["GOHOME"] = buildpath
