@@ -36,6 +36,7 @@ class SpaceinvadersGo < Formula
   end
 
   def install
+    ENV["GO111MODULE"] = "auto"
     # This builds with Go.
     ENV["GOPATH"] = buildpath
     sipath = buildpath/"src/github.com/asib/spaceinvaders"
