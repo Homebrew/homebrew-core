@@ -18,6 +18,7 @@ class Ship < Formula
   depends_on "yarn" => :build
 
   def install
+    ENV["GO111MODULE"] = "auto"
     # Needed for `go-bindata-assetfs`, it is downloaded at build time via `go get`
     ENV["GOBIN"] = buildpath/"bin"
     ENV.prepend_path "PATH", ENV["GOBIN"]
