@@ -7,15 +7,8 @@ class ClojureLsp < Formula
   license "MIT"
   version_scheme 1
   head "https://github.com/snoe/clojure-lsp.git"
+  bottle :unneeded
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "a647293f345eead229f83e2707fb2c542958c9b4e33fb0bf4e63c7217548d392" => :big_sur
-    sha256 "079f2087995cd399f1c99dddc5f1d6d92e55af2facf67b427fb633a80faba842" => :catalina
-    sha256 "fc1b26dc8f000fc728c26bbedff9f9ab0d6f2071ef17eeb4a0f71c9626184cc7" => :mojave
-  end
-
-  depends_on "leiningen" => :build
   # The Java Runtime version only recognizes class file versions up to 52.0
   depends_on "openjdk@11"
 
