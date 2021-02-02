@@ -66,6 +66,7 @@ class Cosi < Formula
   end
 
   def install
+    ENV["GO111MODULE"] = "auto"
     mkdir_p buildpath/"src/github.com/dedis"
     ln_s buildpath, buildpath/"src/github.com/dedis/cosi"
 
