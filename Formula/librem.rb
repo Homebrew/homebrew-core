@@ -26,6 +26,7 @@ class Librem < Formula
 
   test do
     (testpath/"test.c").write <<~EOS
+      #include <stdint.h>
       #include <re/re.h>
       #include <rem/rem.h>
       int main() {
