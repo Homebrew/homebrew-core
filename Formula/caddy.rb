@@ -21,6 +21,7 @@ class Caddy < Formula
   end
 
   def install
+    ENV["GO111MODULE"] = "auto"
     revision = build.head? ? version.commit : "v#{version}"
 
     resource("xcaddy").stage do
