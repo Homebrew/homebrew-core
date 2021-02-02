@@ -18,6 +18,7 @@ class Buildozer < Formula
   depends_on "bazelisk" => :build
 
   def install
+    ENV["GO111MODULE"] = "auto"
     system "bazelisk", "build", "--config=release", "buildozer:buildozer"
     bin.install "bazel-bin/buildozer/darwin_amd64_stripped/buildozer"
   end
