@@ -38,6 +38,7 @@ class Wego < Formula
   end
 
   def install
+    ENV["GO111MODULE"] = "auto"
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/schachmat").mkpath
     ln_sf buildpath, buildpath/"src/github.com/schachmat/wego"
