@@ -19,6 +19,7 @@ class FlintChecker < Formula
   depends_on "go" => :build
 
   def install
+    ENV["GO111MODULE"] = "auto"
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/pengwynn").mkpath
     ln_sf buildpath, buildpath/"src/github.com/pengwynn/flint"
