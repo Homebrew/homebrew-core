@@ -7,8 +7,8 @@ class Syncthing < Formula
   head "https://github.com/syncthing/syncthing.git", branch: "main"
 
   livecheck do
-    url :head
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
