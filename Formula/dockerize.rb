@@ -16,6 +16,7 @@ class Dockerize < Formula
   depends_on "go" => :build
 
   def install
+    ENV["GO111MODULE"] = "auto"
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/jwilder/dockerize").install buildpath.children
     ENV.append_path "PATH", buildpath/"bin"
