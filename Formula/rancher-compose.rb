@@ -20,6 +20,7 @@ class RancherCompose < Formula
   depends_on "go" => :build
 
   def install
+    ENV["GO111MODULE"] = "auto"
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/rancher/rancher-compose").install Dir["*"]
     system "go", "build", "-ldflags",
