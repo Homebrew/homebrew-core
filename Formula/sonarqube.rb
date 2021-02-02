@@ -4,6 +4,7 @@ class Sonarqube < Formula
   url "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.6.1.40680.zip"
   sha256 "e16a4208658c485247f06f9b79c2d3b060e86751b35e95adef9f881754ce3e1d"
   license "LGPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url "https://binaries.sonarsource.com/Distribution/sonarqube/"
@@ -12,7 +13,7 @@ class Sonarqube < Formula
 
   bottle :unneeded
 
-  depends_on "openjdk"
+  depends_on "openjdk@11"
 
   conflicts_with "sonarqube-lts", because: "both install the same binaries"
 
@@ -23,7 +24,7 @@ class Sonarqube < Formula
     libexec.install Dir["*"]
 
     (bin/"sonar").write_env_script libexec/"bin/macosx-universal-64/sonar.sh",
-      JAVA_HOME: Formula["openjdk"].opt_prefix
+      Language::Java.overridable_java_home_env("11")
   end
 
   plist_options manual: "sonar console"
