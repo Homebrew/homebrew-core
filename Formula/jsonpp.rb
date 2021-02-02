@@ -19,6 +19,7 @@ class Jsonpp < Formula
   depends_on "go" => :build
 
   def install
+    ENV["GO111MODULE"] = "auto"
     system "go", "build", "-o", bin/"jsonpp"
   end
 
