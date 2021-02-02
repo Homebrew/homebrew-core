@@ -3,8 +3,8 @@ require "language/node"
 class Emscripten < Formula
   desc "LLVM bytecode to JavaScript compiler"
   homepage "https://emscripten.org/"
-  url "https://github.com/emscripten-core/emscripten/archive/2.0.12.tar.gz"
-  sha256 "d9419c9ea6df4c9582a3a09fdeafec16f5f3c64866f6faf86989ea1ef99f54ea"
+  url "https://github.com/emscripten-core/emscripten/archive/2.0.13.tar.gz"
+  sha256 "0e71d83300741c665026e3528d4c33e0e40af5874838b5ad76fd0a3c96fd786b"
   # Emscripten is available under 2 licenses, the MIT license and the
   # University of Illinois/NCSA Open Source License.
   license all_of: [
