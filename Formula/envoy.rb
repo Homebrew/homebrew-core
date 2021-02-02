@@ -22,6 +22,7 @@ class Envoy < Formula
   depends_on "ninja" => :build
 
   def install
+    ENV["GO111MODULE"] = "auto"
     args = %w[
       --curses=no
       --show_task_finish
