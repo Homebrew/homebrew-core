@@ -7,6 +7,7 @@ class Qt6 < Formula
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
+  depends_on "pkg-config" => :build
   depends_on xcode: :build
 
   depends_on "assimp"
@@ -21,7 +22,6 @@ class Qt6 < Formula
   depends_on "libproxy"
   depends_on "llvm"
   depends_on "pcre2"
-  depends_on "pkg-config"
   depends_on "python@3.9"
   depends_on "zstd"
 
