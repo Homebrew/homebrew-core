@@ -13,6 +13,8 @@ class Predictionio < Formula
 
   bottle :unneeded
 
+  deprecate! date: "2020-09-01", because: :unmaintained
+
   depends_on "apache-spark"
   depends_on "elasticsearch@6"
   depends_on "hadoop"
