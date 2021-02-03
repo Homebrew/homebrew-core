@@ -1,9 +1,9 @@
 class Logtalk < Formula
   desc "Declarative object-oriented logic programming language"
   homepage "https://logtalk.org/"
-  url "https://github.com/LogtalkDotOrg/logtalk3/archive/lgt3430stable.tar.gz"
-  version "3.43.0"
-  sha256 "7e38652183d022abe7f41014037c9d334a445f8294e72426068c1d62170a0ac5"
+  url "https://github.com/LogtalkDotOrg/logtalk3/archive/lgt3440stable.tar.gz"
+  version "3.44.0"
+  sha256 "429088a4fea3fae3832946f12bdff5e24a1d99a55f07b1669ea99b54096a93fa"
   license "Apache-2.0"
 
   livecheck do
