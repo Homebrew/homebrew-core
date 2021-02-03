@@ -1,14 +1,13 @@
 class SpatialiteGui < Formula
   desc "GUI tool supporting SpatiaLite"
   homepage "https://www.gaia-gis.it/fossil/spatialite_gui/index"
-  url "https://www.gaia-gis.it/gaia-sins/spatialite-gui-sources/spatialite_gui-1.7.1.tar.gz"
-  sha256 "cb9cb1ede7f83a5fc5f52c83437e556ab9cb54d6ace3c545d31b317fd36f05e4"
-  license "GPL-3.0"
-  revision 7
+  url "https://www.gaia-gis.it/gaia-sins/spatialite-gui-sources/spatialite_gui-2.1.0-beta1.tar.gz"
+  sha256 "ba48d96df18cebc3ff23f69797207ae1582cce62f4596b69bae300ca3c23db33"
+  license "GPL-3.0-only"
 
   livecheck do
     url "https://www.gaia-gis.it/gaia-sins/spatialite-gui-sources/"
-    regex(/href=.*?spatialite[._-]gui[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    regex(/href=.*?spatialite[._-]gui[._-]v?(\d+(?:\.\d+)+(-beta\d)*)\.t/i)
   end
 
   bottle do
@@ -28,11 +27,6 @@ class SpatialiteGui < Formula
   depends_on "sqlite"
   depends_on "wxmac"
 
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/spatialite-gui/1.7.1.patch"
-    sha256 "37f71f3cb2b0b9649eb85a51296187b0adf2972c5a1d3ee0daf3082e2c35025e"
-  end
-
   def install
     # Link flags for sqlite don't seem to get passed to make, which
     # causes builds to fatally error out on linking.
@@ -45,9 +39,6 @@ class SpatialiteGui < Formula
     # https://www.gaia-gis.it/fossil/spatialite_gui/tktview?name=8349866db6
     ENV.append_to_cflags "-DACCEPT_USE_OF_DEPRECATED_PROJ_API_H"
 
-    # Add aui library; reported upstream multiple times:
-    # https://groups.google.com/forum/#!searchin/spatialite-users/aui/spatialite-users/wnkjK9pde2E/hVCpcndUP_wJ
-    inreplace "configure", "WX_LIBS=\"$(wx-config --libs)\"", "WX_LIBS=\"$(wx-config --libs std,aui)\""
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
