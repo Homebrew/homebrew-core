@@ -25,8 +25,13 @@ class MitScheme < Formula
   depends_on "openssl@1.1"
 
   resource "bootstrap" do
-    url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/11.1/mit-scheme-11.1-x86-64.tar.gz"
-    sha256 "92bcb77788d982a6522119ea0a51935b680b9ada88f99c21bcb9d843d6b384cd"
+    if Hardware::CPU.intel?
+      url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/11.1/mit-scheme-11.1-x86-64.tar.gz"
+      sha256 "92bcb77788d982a6522119ea0a51935b680b9ada88f99c21bcb9d843d6b384cd"
+    else
+      url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/11.1/mit-scheme-11.1-aarch64le.tar.gz"
+      sha256 "1c2c648404702f28af3958dadef1527de7073da7a28e52eab863adac8972968e"
+    end
   end
 
   def install
