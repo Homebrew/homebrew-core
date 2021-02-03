@@ -8,7 +8,7 @@ class QtUnixodbc < Formula
   depends_on "cmake" => :build
   depends_on "ninja" => :build
 
-  depends_on "qt@6"
+  depends_on "qt6"
   depends_on "unixodbc"
 
   conflicts_with "qt-iodbc",
