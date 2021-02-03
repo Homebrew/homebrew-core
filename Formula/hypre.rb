@@ -7,7 +7,7 @@ class Hypre < Formula
   head "https://github.com/hypre-space/hypre.git"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
