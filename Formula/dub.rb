@@ -8,7 +8,7 @@ class Dub < Formula
   head "https://github.com/dlang/dub.git"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
