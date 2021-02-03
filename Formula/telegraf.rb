@@ -7,7 +7,7 @@ class Telegraf < Formula
   head "https://github.com/influxdata/telegraf.git"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
