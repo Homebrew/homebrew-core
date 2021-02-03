@@ -9,7 +9,7 @@ class AzureCli < Formula
   head "https://github.com/Azure/azure-cli.git"
 
   livecheck do
-    url :head
+    url :stable
     strategy :github_latest
     regex(%r{href=.*?/tag/azure-cli[._-]v?(\d+(?:\.\d+)+)["' >]}i)
   end
