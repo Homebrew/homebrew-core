@@ -6,7 +6,7 @@ class Binwalk < Formula
   url "https://github.com/ReFirmLabs/binwalk/archive/v2.2.0.tar.gz"
   sha256 "f5495f0e4c5575023d593f7c087c367675df6aeb7f4d9a2966e49763924daa27"
   license "MIT"
-  revision 2
+  revision 3
   head "https://github.com/ReFirmLabs/binwalk.git"
 
   bottle do
@@ -22,7 +22,7 @@ class Binwalk < Formula
   depends_on "freetype"
   depends_on "libpng"
   depends_on "p7zip"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "ssdeep"
   depends_on "xz"
 
@@ -34,6 +34,11 @@ class Binwalk < Formula
   resource "Cycler" do
     url "https://files.pythonhosted.org/packages/c2/4b/137dea450d6e1e3d474e1d873cd1d4f7d3beed7e0dc973b06e8e10d32488/cycler-0.10.0.tar.gz"
     sha256 "cd7b2d1018258d7247a71425e9f26463dfb444d411c39569972f4ce586b0c9d8"
+  end
+
+  resource "wheel" do
+    url "https://files.pythonhosted.org/packages/ed/46/e298a50dde405e1c202e316fa6a3015ff9288423661d7ea5e8f22f589071/wheel-0.36.2.tar.gz"
+    sha256 "e11eefd162658ea59a60a0f6c7d493a7190ea4b9a85e335b33489d9f17e0245e"
   end
 
   resource "kiwisolver" do
