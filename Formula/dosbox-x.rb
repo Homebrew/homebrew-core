@@ -8,7 +8,7 @@ class DosboxX < Formula
   head "https://github.com/joncampbell123/dosbox-x.git"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^dosbox-x[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
