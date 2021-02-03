@@ -11,7 +11,7 @@ class Ipfs < Formula
   head "https://github.com/ipfs/go-ipfs.git"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
