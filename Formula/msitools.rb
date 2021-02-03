@@ -5,8 +5,11 @@ class Msitools < Formula
   sha256 "0cc4d2e0d108fa6f2b4085b9a97dd5bc6d9fcadecdd933f2094f86bafdbe85fe"
   license "LGPL-2.1-or-later"
 
+  # msitools doesn't seem to use the GNOME version scheme, so we have to
+  # loosen the default `Gnome` strategy regex to match the latest version.
   livecheck do
     url :stable
+    regex(/msitools[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
