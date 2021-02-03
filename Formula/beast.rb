@@ -8,7 +8,7 @@ class Beast < Formula
   head "https://github.com/beast-dev/beast-mcmc.git"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
