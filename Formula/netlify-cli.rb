@@ -6,6 +6,7 @@ class NetlifyCli < Formula
   url "https://registry.npmjs.org/netlify-cli/-/netlify-cli-3.4.5.tgz"
   sha256 "2d68e05c20e311aa61202ab06d85af482b3c325c6bc763581f116584ecf575e4"
   license "MIT"
+  revision 1
   head "https://github.com/netlify/cli.git"
 
   livecheck do
