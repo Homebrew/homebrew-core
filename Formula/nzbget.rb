@@ -8,7 +8,7 @@ class Nzbget < Formula
   head "https://github.com/nzbget/nzbget.git", branch: "develop"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
