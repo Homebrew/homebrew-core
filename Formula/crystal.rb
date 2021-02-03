@@ -14,7 +14,7 @@ class Crystal < Formula
   end
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
