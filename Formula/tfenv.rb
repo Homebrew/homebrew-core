@@ -7,7 +7,7 @@ class Tfenv < Formula
   head "https://github.com/tfutils/tfenv.git"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
