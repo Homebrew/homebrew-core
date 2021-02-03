@@ -7,7 +7,7 @@ class Librdkafka < Formula
   head "https://github.com/edenhill/librdkafka.git"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
