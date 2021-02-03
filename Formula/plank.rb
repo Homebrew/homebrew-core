@@ -7,7 +7,7 @@ class Plank < Formula
   head "https://github.com/pinterest/plank.git"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
