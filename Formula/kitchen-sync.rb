@@ -7,7 +7,7 @@ class KitchenSync < Formula
   head "https://github.com/willbryant/kitchen_sync.git"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
