@@ -4,6 +4,7 @@ class SonarqubeLts < Formula
   url "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-7.9.5.zip"
   sha256 "c7f182c4fc19e8ab5aac1ff5a0107044bde00205ec5f57fad47a5fe967509411"
   license "LGPL-3.0-or-later"
+  revision 1
 
   # The regex below should only match the LTS release archive on the Sonarqube
   # downloads page. This is necessary because the usual index page for releases
@@ -15,7 +16,7 @@ class SonarqubeLts < Formula
 
   bottle :unneeded
 
-  depends_on "openjdk"
+  depends_on "openjdk@11"
 
   conflicts_with "sonarqube", because: "both install the same binaries"
 
@@ -26,7 +27,7 @@ class SonarqubeLts < Formula
     libexec.install Dir["*"]
 
     (bin/"sonar").write_env_script libexec/"bin/macosx-universal-64/sonar.sh",
-      JAVA_HOME: Formula["openjdk"].opt_prefix
+      Language::Java.overridable_java_home_env("11")
   end
 
   plist_options manual: "sonar console"
