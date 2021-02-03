@@ -7,7 +7,7 @@ class Nomad < Formula
   head "https://github.com/hashicorp/nomad.git"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
