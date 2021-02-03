@@ -8,7 +8,7 @@ class Ledger < Formula
   head "https://github.com/ledger/ledger.git"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
