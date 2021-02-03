@@ -38,7 +38,7 @@ class Osqp < Formula
     rm_rf include/"qdldl"
     rm_rf lib/"cmake/qdldl"
     rm lib/"libqdldl.a"
-    rm lib/"libqdldl.dylib"
+    rm lib/shared_library("libqdldl")
   end
 
   test do
