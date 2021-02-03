@@ -1,10 +1,20 @@
 class BdwGc < Formula
   desc "Garbage collector for C and C++"
   homepage "https://www.hboehm.info/gc/"
-  url "https://github.com/ivmai/bdwgc/releases/download/v8.0.4/gc-8.0.4.tar.gz"
-  sha256 "436a0ddc67b1ac0b0405b61a9675bca9e075c8156f4debd1d06f3a56c7cd289d"
   license "MIT"
-  revision 1
+  revision 2
+
+  stable do
+    url "https://github.com/ivmai/bdwgc/releases/download/v8.0.4/gc-8.0.4.tar.gz"
+    sha256 "436a0ddc67b1ac0b0405b61a9675bca9e075c8156f4debd1d06f3a56c7cd289d"
+
+    # Extension to handle multithreading
+    # https://github.com/ivmai/bdwgc/pull/277
+    patch do
+      url "https://github.com/ivmai/bdwgc/commit/5668de71107022a316ee967162bc16c10754b9ce.patch?full_index=1"
+      sha256 "5c42d4b37cf4997bb6af3f9b00f5513644e1287c322607dc980a1955a09246e3"
+    end
+  end
 
   bottle do
     cellar :any
@@ -31,7 +41,8 @@ class BdwGc < Formula
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--enable-cplusplus",
-                          "--enable-static"
+                          "--enable-static",
+                          "--enable-large-config"
     system "make"
     system "make", "check"
     system "make", "install"
