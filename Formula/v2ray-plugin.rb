@@ -7,7 +7,7 @@ class V2rayPlugin < Formula
   head "https://github.com/shadowsocks/v2ray-plugin.git"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
