@@ -32,8 +32,10 @@ class PerlAT518 < Formula
       -Duseshrplib
       -Duselargefiles
       -Dusethreads
-      -Dsed=/usr/bin/sed
     ]
+    on_macos do
+      args << "-Dsed=/usr/bin/sed"
+    end
 
     system "./Configure", *args
     system "make"
