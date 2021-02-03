@@ -7,7 +7,7 @@ class Htop < Formula
   head "https://github.com/htop-dev/htop.git"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
