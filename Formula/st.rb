@@ -8,7 +8,7 @@ class St < Formula
   head "https://github.com/nferraz/st.git"
 
   livecheck do
-    url :head
+    url :stable
     strategy :github_latest
   end
 
