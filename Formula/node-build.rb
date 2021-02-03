@@ -7,7 +7,7 @@ class NodeBuild < Formula
   head "https://github.com/nodenv/node-build.git"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
