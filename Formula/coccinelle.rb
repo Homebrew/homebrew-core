@@ -8,7 +8,7 @@ class Coccinelle < Formula
   head "https://github.com/coccinelle/coccinelle.git"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
