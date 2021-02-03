@@ -7,7 +7,7 @@ class PdftkJava < Formula
   head "https://gitlab.com/pdftk-java/pdftk.git"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
