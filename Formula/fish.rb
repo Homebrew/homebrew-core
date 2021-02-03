@@ -43,8 +43,10 @@ class Fish < Formula
       -Dextra_functionsdir=#{HOMEBREW_PREFIX}/share/fish/vendor_functions.d
       -Dextra_completionsdir=#{HOMEBREW_PREFIX}/share/fish/vendor_completions.d
       -Dextra_confdir=#{HOMEBREW_PREFIX}/share/fish/vendor_conf.d
-      -DSED=/usr/bin/sed
     ]
+    on_macos do
+      args << "-DSED=/usr/bin/sed"
+    end
     system "cmake", ".", *std_cmake_args, *args
     system "make", "install"
   end
