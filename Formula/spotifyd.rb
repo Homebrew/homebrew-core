@@ -7,7 +7,7 @@ class Spotifyd < Formula
   head "https://github.com/Spotifyd/spotifyd.git"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
