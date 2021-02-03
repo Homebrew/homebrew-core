@@ -99,7 +99,7 @@ class Qt6 < Formula
   end
 
   test do
-    assert_equal HOMEBREW_PREFIX, shell_output("qmake -query QT_INSTALL_PREFIX").strip
+    assert_equal HOMEBREW_PREFIX.to_s, shell_output("qmake -query QT_INSTALL_PREFIX").strip
 
     (testpath/"CMakeLists.txt").write <<~EOS
       cmake_minimum_required(VERSION 3.16.0)
