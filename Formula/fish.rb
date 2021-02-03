@@ -6,7 +6,7 @@ class Fish < Formula
   license "GPL-2.0"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
