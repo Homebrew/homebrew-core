@@ -6,7 +6,7 @@ class Dps8m < Formula
   head "https://gitlab.com/dps8m/dps8m.git"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^R?(\d+(?:\.\d+)+)$/i)
   end
 
