@@ -23,9 +23,13 @@ class SpatialiteGui < Formula
   depends_on "geos"
   depends_on "libgaiagraphics"
   depends_on "libspatialite"
+  depends_on "lz4"
+  depends_on "openjpeg"
   depends_on "proj"
   depends_on "sqlite"
+  depends_on "webp"
   depends_on "wxmac"
+  depends_on "zstd"
 
   def install
     # Link flags for sqlite don't seem to get passed to make, which
@@ -35,11 +39,7 @@ class SpatialiteGui < Formula
     ENV.prepend "LDFLAGS", "-L#{sqlite.opt_lib} -lsqlite3"
     ENV.prepend "CFLAGS", "-I#{sqlite.opt_include}"
 
-    # Use Proj 6.0.0 compatibility headers
-    # https://www.gaia-gis.it/fossil/spatialite_gui/tktview?name=8349866db6
-    ENV.append_to_cflags "-DACCEPT_USE_OF_DEPRECATED_PROJ_API_H"
-
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}", "--disable-xlsxwriter"
     system "make", "install"
   end
 end

@@ -31,6 +31,7 @@ class Wxmac < Formula
     args = [
       "--prefix=#{prefix}",
       "--enable-clipboard",
+      "--enable-compat28",
       "--enable-controls",
       "--enable-dataviewctrl",
       "--enable-display",
