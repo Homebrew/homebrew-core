@@ -8,7 +8,7 @@ class ZeroInstall < Formula
   head "https://github.com/0install/0install.git"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
