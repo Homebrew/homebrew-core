@@ -8,7 +8,7 @@ class Duti < Formula
   head "https://github.com/moretension/duti.git"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^duti[._-]v?(\d+(?:[.-]\d+)+)$/i)
   end
 
