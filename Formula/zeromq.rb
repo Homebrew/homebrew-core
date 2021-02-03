@@ -6,7 +6,7 @@ class Zeromq < Formula
   license "LGPL-3.0-or-later" => { with: "LGPL-3.0-linking-exception" }
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
