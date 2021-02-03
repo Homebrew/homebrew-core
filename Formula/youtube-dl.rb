@@ -3,8 +3,8 @@ class YoutubeDl < Formula
 
   desc "Download YouTube videos from the command-line"
   homepage "https://youtube-dl.org/"
-  url "https://files.pythonhosted.org/packages/1d/51/c636290f112d12569659054971cde83b5f1886318dbfe26167434e5fd46d/youtube_dl-2021.1.24.1.tar.gz"
-  sha256 "d0dc8abd6e89f81171c66d2ffc073eaabf9d5fc6de94e244da36f92a75cc52d7"
+  url "https://files.pythonhosted.org/packages/67/2b/c16c06e8929013a1e0d8962fd5baf29c3ddddd31a5246750c4967630906b/youtube_dl-2021.2.4.tar.gz"
+  sha256 "16a5e57a24e56bd3557b57bc8c438efa23a13aeff7ce7a04941c5e307f8148bb"
   license "Unlicense"
 
   bottle do
