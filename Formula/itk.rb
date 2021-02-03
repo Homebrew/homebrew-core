@@ -7,7 +7,7 @@ class Itk < Formula
   head "https://github.com/InsightSoftwareConsortium/ITK.git"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
