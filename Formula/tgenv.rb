@@ -7,7 +7,7 @@ class Tgenv < Formula
   head "https://github.com/cunymatthieu/tgenv.git"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
