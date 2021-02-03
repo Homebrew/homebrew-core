@@ -8,7 +8,7 @@ class JsonC < Formula
   head "https://github.com/json-c/json-c.git"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^json-c[._-](\d+(?:\.\d+)+)(?:[._-]\d{6,8})?$/i)
   end
 
