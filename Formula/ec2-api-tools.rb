@@ -11,6 +11,11 @@ class Ec2ApiTools < Formula
 
   bottle :unneeded
 
+  # Deprecated upstream somewhere between 2017-12-24 and 2018-09-09 here:
+  # https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Welcome.html
+  # The current version (1.7.5.1) is from 2015-09-08.
+  deprecate! date: "2020-02-03", because: :deprecated_upstream
+
   depends_on "openjdk"
 
   def install
