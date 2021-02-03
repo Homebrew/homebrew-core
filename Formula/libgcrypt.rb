@@ -11,10 +11,10 @@ class Libgcrypt < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur: "702bf84a3cbeda128a0464af1c6bab4f6a6259912438e4695f141dbf42d602df"
     sha256 cellar: :any, arm64_big_sur: "7849af82fef5359891b5422fd91bd2d91c348885b948d05a9979997d9c7b0e91"
-    sha256 cellar: :any, catalina: "1da2db400fcf05296ada3218a18370f1a704301d68b664c583306fd755047c0a"
-    sha256 cellar: :any, mojave: "efe02ce4db5308f3973ae8ed25b87741420e083cc8d325dc40ffac51e3cb185e"
+    sha256 cellar: :any, big_sur:       "702bf84a3cbeda128a0464af1c6bab4f6a6259912438e4695f141dbf42d602df"
+    sha256 cellar: :any, catalina:      "1da2db400fcf05296ada3218a18370f1a704301d68b664c583306fd755047c0a"
+    sha256 cellar: :any, mojave:        "efe02ce4db5308f3973ae8ed25b87741420e083cc8d325dc40ffac51e3cb185e"
   end
 
   depends_on "libgpg-error"

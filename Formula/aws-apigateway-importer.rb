@@ -7,13 +7,12 @@ class AwsApigatewayImporter < Formula
   revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "3a837a89af7bfd9454b2e12924323e82ab6cb6ab09f4088e47b672a6a79aedd2" => :catalina
-    sha256 "03baa4d6f79772591dcd0ac5db5a148fbe79633b7ab66de104cd244141fbb0d0" => :mojave
-    sha256 "3e194aa8c79d1609040430c5d2e804b69df9ffd4cfd0c0501cdecce249591f83" => :high_sierra
-    sha256 "65d77c58ac90e7767f93896c9ec95a478dc1388316bcdafb4c06ed10db089caf" => :sierra
-    sha256 "bbe12dac66d033674840eace741bcf5c3549e7317ab9ca6fa9f349418a6c9861" => :el_capitan
-    sha256 "bbe12dac66d033674840eace741bcf5c3549e7317ab9ca6fa9f349418a6c9861" => :yosemite
+    sha256 cellar: :any_skip_relocation, catalina:    "3a837a89af7bfd9454b2e12924323e82ab6cb6ab09f4088e47b672a6a79aedd2"
+    sha256 cellar: :any_skip_relocation, mojave:      "03baa4d6f79772591dcd0ac5db5a148fbe79633b7ab66de104cd244141fbb0d0"
+    sha256 cellar: :any_skip_relocation, high_sierra: "3e194aa8c79d1609040430c5d2e804b69df9ffd4cfd0c0501cdecce249591f83"
+    sha256 cellar: :any_skip_relocation, sierra:      "65d77c58ac90e7767f93896c9ec95a478dc1388316bcdafb4c06ed10db089caf"
+    sha256 cellar: :any_skip_relocation, el_capitan:  "bbe12dac66d033674840eace741bcf5c3549e7317ab9ca6fa9f349418a6c9861"
+    sha256 cellar: :any_skip_relocation, yosemite:    "bbe12dac66d033674840eace741bcf5c3549e7317ab9ca6fa9f349418a6c9861"
   end
 
   deprecate! date: "2020-11-12", because: :repo_archived

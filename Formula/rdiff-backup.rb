@@ -7,11 +7,10 @@ class RdiffBackup < Formula
   revision 1
 
   bottle do
-    cellar :any
-    sha256 "da5cbef995206de251e217fbfb1a0594d3222c26c20c003df78a8aad6e855b8f" => :big_sur
-    sha256 "1597986cbff907a671f1449f59b0f456344e27b9104f7139d40f001b67d27477" => :catalina
-    sha256 "875e5fcc8ae219dc64d5c2f3e435313f69fd4d0ea595d01ff3ae70fe5873b547" => :mojave
-    sha256 "215f96cb06d3e4c64dd52081fb22cfa6658ab25bd3fd76b52a128c70b5c93838" => :high_sierra
+    sha256 cellar: :any, big_sur:     "da5cbef995206de251e217fbfb1a0594d3222c26c20c003df78a8aad6e855b8f"
+    sha256 cellar: :any, catalina:    "1597986cbff907a671f1449f59b0f456344e27b9104f7139d40f001b67d27477"
+    sha256 cellar: :any, mojave:      "875e5fcc8ae219dc64d5c2f3e435313f69fd4d0ea595d01ff3ae70fe5873b547"
+    sha256 cellar: :any, high_sierra: "215f96cb06d3e4c64dd52081fb22cfa6658ab25bd3fd76b52a128c70b5c93838"
   end
 
   depends_on "librsync"

@@ -13,11 +13,10 @@ class Duplicity < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "f7dbf94b4d5f45eb4011ff6f79ae9b3a78a12e2c188bdc502740be0adafe76aa" => :big_sur
-    sha256 "5c408cc5c3319ab6750aee8e97164557482b5ad1dd5572872f8f59cba6836076" => :arm64_big_sur
-    sha256 "6cdc61da8c7599e9d1fa9ec155f00efa7b1603e14053e8bcfb300f4f41d267e0" => :catalina
-    sha256 "eb1e2c9d0bc90bc9db0526b16b6a2404c1e4033f6f6adf3074dbcaf7dae1109b" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "5c408cc5c3319ab6750aee8e97164557482b5ad1dd5572872f8f59cba6836076"
+    sha256 cellar: :any, big_sur:       "f7dbf94b4d5f45eb4011ff6f79ae9b3a78a12e2c188bdc502740be0adafe76aa"
+    sha256 cellar: :any, catalina:      "6cdc61da8c7599e9d1fa9ec155f00efa7b1603e14053e8bcfb300f4f41d267e0"
+    sha256 cellar: :any, mojave:        "eb1e2c9d0bc90bc9db0526b16b6a2404c1e4033f6f6adf3074dbcaf7dae1109b"
   end
 
   depends_on "gnupg"

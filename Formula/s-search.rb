@@ -9,12 +9,11 @@ class SSearch < Formula
   head "https://github.com/zquestz/s.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "477cae54c3f7a8914298f8a06b890b0ecf62be4fa8281691ac5c636880968706" => :big_sur
-    sha256 "cd7352e1c4092774fdd4cbff61bd107e6447ea00e96ec94431dcbc1be7bbade5" => :catalina
-    sha256 "04281fb66e28cf23c3ea1cd23ec6286432191fde31ac8c7b6c9c13bc6b365b0a" => :mojave
-    sha256 "4a0c5595943e8b7b4892ff3caf4d03b29533405a411268a77e0a51272a3d7823" => :high_sierra
-    sha256 "b9d547b1bcc45516396ed8398b624ac83a1c4ade7bf13f130b1b063b9aec1590" => :sierra
+    sha256 cellar: :any_skip_relocation, big_sur:     "477cae54c3f7a8914298f8a06b890b0ecf62be4fa8281691ac5c636880968706"
+    sha256 cellar: :any_skip_relocation, catalina:    "cd7352e1c4092774fdd4cbff61bd107e6447ea00e96ec94431dcbc1be7bbade5"
+    sha256 cellar: :any_skip_relocation, mojave:      "04281fb66e28cf23c3ea1cd23ec6286432191fde31ac8c7b6c9c13bc6b365b0a"
+    sha256 cellar: :any_skip_relocation, high_sierra: "4a0c5595943e8b7b4892ff3caf4d03b29533405a411268a77e0a51272a3d7823"
+    sha256 cellar: :any_skip_relocation, sierra:      "b9d547b1bcc45516396ed8398b624ac83a1c4ade7bf13f130b1b063b9aec1590"
   end
 
   depends_on "go" => :build

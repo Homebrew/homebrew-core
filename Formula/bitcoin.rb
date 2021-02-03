@@ -7,10 +7,9 @@ class Bitcoin < Formula
   head "https://github.com/bitcoin/bitcoin.git"
 
   bottle do
-    cellar :any
-    sha256 "f9235205e7c1befe37fa1663c5f25a9dfe03198ff9db8e439d116109fb12948c" => :big_sur
-    sha256 "1908a1b6dc0f0ded7091db58cfe74d7540f36636c1599b71a2016c50f71ab7fe" => :catalina
-    sha256 "05343622704d9ca898949fc46973a7a1e7b911530e5de13d6c5d0a51777671f2" => :mojave
+    sha256 cellar: :any, big_sur:  "f9235205e7c1befe37fa1663c5f25a9dfe03198ff9db8e439d116109fb12948c"
+    sha256 cellar: :any, catalina: "1908a1b6dc0f0ded7091db58cfe74d7540f36636c1599b71a2016c50f71ab7fe"
+    sha256 cellar: :any, mojave:   "05343622704d9ca898949fc46973a7a1e7b911530e5de13d6c5d0a51777671f2"
   end
 
   depends_on "autoconf" => :build

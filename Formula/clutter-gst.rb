@@ -11,12 +11,12 @@ class ClutterGst < Formula
 
   bottle do
     rebuild 1
-    sha256 "e9d8f94e727561a95238da6366eb59589e9342edc8fd0a0eb6af86ce91aa9ef4" => :big_sur
-    sha256 "bd23c3da4a8e9c35bb93bb043967defead1d749e15d912006f48b51cd1e467d4" => :arm64_big_sur
-    sha256 "9e5e48bdf08599d63be7a75eabac3221ce4b1799fcf51d857d37336345393c16" => :catalina
-    sha256 "3c4dcfd6b9b95d1f0a96e33d23060225c322224e21e4501c8e2b5a6ef32a9ebe" => :mojave
-    sha256 "b60c1d84cf2f4e9cf931d10ce759d4b21f08a7a2288dd81cbab78854d3a767a2" => :high_sierra
-    sha256 "fb997fb8ac4fcafd52690d64c12dfcd7776630ce717521c7cc0ce7d44ae3b8f7" => :sierra
+    sha256 arm64_big_sur: "bd23c3da4a8e9c35bb93bb043967defead1d749e15d912006f48b51cd1e467d4"
+    sha256 big_sur:       "e9d8f94e727561a95238da6366eb59589e9342edc8fd0a0eb6af86ce91aa9ef4"
+    sha256 catalina:      "9e5e48bdf08599d63be7a75eabac3221ce4b1799fcf51d857d37336345393c16"
+    sha256 mojave:        "3c4dcfd6b9b95d1f0a96e33d23060225c322224e21e4501c8e2b5a6ef32a9ebe"
+    sha256 high_sierra:   "b60c1d84cf2f4e9cf931d10ce759d4b21f08a7a2288dd81cbab78854d3a767a2"
+    sha256 sierra:        "fb997fb8ac4fcafd52690d64c12dfcd7776630ce717521c7cc0ce7d44ae3b8f7"
   end
 
   depends_on "gobject-introspection" => :build

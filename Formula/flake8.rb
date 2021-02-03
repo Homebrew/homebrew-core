@@ -14,12 +14,11 @@ class Flake8 < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "1897e2a2000df43795e4a1b1de0fecb1e0141e0abce4c0b8df3c6ebad065f8c0" => :big_sur
-    sha256 "919c2b7426270504f2cad10d6652336476d3cea402880c5de2653cf2ec21587b" => :arm64_big_sur
-    sha256 "136faaf5ecc55423194ac71a9eba7b1b03e694b0f7d4552c7c3d02cc3a7b1377" => :catalina
-    sha256 "77329693f9aaf1267a46c1fad72ccb976ccf9995767c256cf89458d36e27f663" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "919c2b7426270504f2cad10d6652336476d3cea402880c5de2653cf2ec21587b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1897e2a2000df43795e4a1b1de0fecb1e0141e0abce4c0b8df3c6ebad065f8c0"
+    sha256 cellar: :any_skip_relocation, catalina:      "136faaf5ecc55423194ac71a9eba7b1b03e694b0f7d4552c7c3d02cc3a7b1377"
+    sha256 cellar: :any_skip_relocation, mojave:        "77329693f9aaf1267a46c1fad72ccb976ccf9995767c256cf89458d36e27f663"
   end
 
   depends_on "python@3.9"

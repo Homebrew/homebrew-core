@@ -7,10 +7,10 @@ class Neovim < Formula
 
   bottle do
     rebuild 1
-    sha256 "83957460b7c664b65f7339c6e37a6b468274ca747ba8f8746616c4cebf97caa9" => :big_sur
-    sha256 "736260e14d50d9a42562fb0fe2215d5154a9cef3e3227469a961d030b45358fd" => :catalina
-    sha256 "9f8a7cb52a0060c524d4d4f96b2590d034257cc4f255a8f05dfbf464bef29cf1" => :mojave
-    sha256 "7286d497b92cf31f5839af325a1fc7760fb3006fa4a0dad7e547ab9c966cb491" => :high_sierra
+    sha256 big_sur:     "83957460b7c664b65f7339c6e37a6b468274ca747ba8f8746616c4cebf97caa9"
+    sha256 catalina:    "736260e14d50d9a42562fb0fe2215d5154a9cef3e3227469a961d030b45358fd"
+    sha256 mojave:      "9f8a7cb52a0060c524d4d4f96b2590d034257cc4f255a8f05dfbf464bef29cf1"
+    sha256 high_sierra: "7286d497b92cf31f5839af325a1fc7760fb3006fa4a0dad7e547ab9c966cb491"
   end
 
   head do

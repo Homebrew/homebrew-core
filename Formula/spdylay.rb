@@ -7,11 +7,10 @@ class Spdylay < Formula
   revision 3
 
   bottle do
-    cellar :any
-    sha256 "5607031eb5776de5b4a68e8c50f312771cae89e8b2266df60718b2e07e35d070" => :catalina
-    sha256 "9906d0abfcd17c86df23c18b1ed112de0266ccbc7a50c24f741f78bffa552540" => :mojave
-    sha256 "c89edde9d9229dbe524d28b661265349af72a2dac0b85f066751d4716effe1ab" => :high_sierra
-    sha256 "2f24051eb854a2345e88a1e023aa76fa6c2cb7522ec0fd7644af15694b456f27" => :sierra
+    sha256 cellar: :any, catalina:    "5607031eb5776de5b4a68e8c50f312771cae89e8b2266df60718b2e07e35d070"
+    sha256 cellar: :any, mojave:      "9906d0abfcd17c86df23c18b1ed112de0266ccbc7a50c24f741f78bffa552540"
+    sha256 cellar: :any, high_sierra: "c89edde9d9229dbe524d28b661265349af72a2dac0b85f066751d4716effe1ab"
+    sha256 cellar: :any, sierra:      "2f24051eb854a2345e88a1e023aa76fa6c2cb7522ec0fd7644af15694b456f27"
   end
 
   # The SPDY protocol itself is deprecated and most websites no longer support it

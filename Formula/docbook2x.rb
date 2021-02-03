@@ -10,16 +10,15 @@ class Docbook2x < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "9a9d1f18cb66569bdebd729119d64719a8e4990ceab99a10a395d61eea3217ae" => :big_sur
-    sha256 "88732999a070c6a9f609c5740fcdf7ed6c014be05555a9aea867e1a69b71aeec" => :arm64_big_sur
-    sha256 "a7562a999301c0879be6f39bd031bb886e68ca56c8aca08b1977eaf1e2927496" => :catalina
-    sha256 "2009056af30fb2a08a751e055fbdec14d49b4bc51da34cb63737b22b4b4d7784" => :mojave
-    sha256 "81734088203909fc5db96462d14116596058910cd1b7ab67389a7bf93c9bae63" => :high_sierra
-    sha256 "a1110d4bd90cecf9ce8edacc27a3edc84dfcd4db7ab50b67269af0eb6a9bb00a" => :sierra
-    sha256 "acfdd1c80cb523b213dea0125819b1b6fc783d6d740cc8fc0047f44756b57889" => :el_capitan
-    sha256 "e3efe4afe190e126174c6e3bec0a9feb4ad37ddd0ecaef778b1e8df8a60e8717" => :yosemite
-    sha256 "4b4750b139d7a262735e33ee0e314c7a589b6ada2d72e336aabaf334789a411d" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "88732999a070c6a9f609c5740fcdf7ed6c014be05555a9aea867e1a69b71aeec"
+    sha256 cellar: :any_skip_relocation, big_sur:       "9a9d1f18cb66569bdebd729119d64719a8e4990ceab99a10a395d61eea3217ae"
+    sha256 cellar: :any_skip_relocation, catalina:      "a7562a999301c0879be6f39bd031bb886e68ca56c8aca08b1977eaf1e2927496"
+    sha256 cellar: :any_skip_relocation, mojave:        "2009056af30fb2a08a751e055fbdec14d49b4bc51da34cb63737b22b4b4d7784"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "81734088203909fc5db96462d14116596058910cd1b7ab67389a7bf93c9bae63"
+    sha256 cellar: :any_skip_relocation, sierra:        "a1110d4bd90cecf9ce8edacc27a3edc84dfcd4db7ab50b67269af0eb6a9bb00a"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "acfdd1c80cb523b213dea0125819b1b6fc783d6d740cc8fc0047f44756b57889"
+    sha256 cellar: :any_skip_relocation, yosemite:      "e3efe4afe190e126174c6e3bec0a9feb4ad37ddd0ecaef778b1e8df8a60e8717"
+    sha256 cellar: :any_skip_relocation, mavericks:     "4b4750b139d7a262735e33ee0e314c7a589b6ada2d72e336aabaf334789a411d"
   end
 
   depends_on "docbook"

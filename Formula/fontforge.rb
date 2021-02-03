@@ -5,9 +5,9 @@ class Fontforge < Formula
   sha256 "68bcba8f602819eddc29cd356ee13fafbad7a80d19b652d354c6791343476c78"
 
   bottle do
-    sha256 "fdadc5e603cec702c46ce7d7cf71bc39ea8b61c1d7e41baaa6347af596ea8d75" => :big_sur
-    sha256 "fa057842c812785b9fc515f8e52d50d5c05a18f1647474469edd34587e18e8c9" => :catalina
-    sha256 "e3e59082b1b97574d9ed2ebb644a38df2d94e31e37a61a01726f578c49beef7a" => :mojave
+    sha256 big_sur:  "fdadc5e603cec702c46ce7d7cf71bc39ea8b61c1d7e41baaa6347af596ea8d75"
+    sha256 catalina: "fa057842c812785b9fc515f8e52d50d5c05a18f1647474469edd34587e18e8c9"
+    sha256 mojave:   "e3e59082b1b97574d9ed2ebb644a38df2d94e31e37a61a01726f578c49beef7a"
   end
 
   depends_on "cmake" => :build

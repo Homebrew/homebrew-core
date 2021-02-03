@@ -12,11 +12,10 @@ class Dnsviz < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "d4f4e549c3184c0e7bf1ab1639e096b5eb53e2ee4f00a2015c84cc2991eb80f6" => :big_sur
-    sha256 "a7198e45539b7bbee521cb2433670269c98cce7e47f8d511503323cdfe8c110e" => :arm64_big_sur
-    sha256 "ef016731870649b2f385f19e3f2750fe7a3ec1597232943f6c30539e2a80daec" => :catalina
-    sha256 "7cba6ba3c4ed08f3dbb8d992077dac4b73cff72a61d6020aa45ccd7c6c0a3c2a" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "a7198e45539b7bbee521cb2433670269c98cce7e47f8d511503323cdfe8c110e"
+    sha256 cellar: :any, big_sur:       "d4f4e549c3184c0e7bf1ab1639e096b5eb53e2ee4f00a2015c84cc2991eb80f6"
+    sha256 cellar: :any, catalina:      "ef016731870649b2f385f19e3f2750fe7a3ec1597232943f6c30539e2a80daec"
+    sha256 cellar: :any, mojave:        "7cba6ba3c4ed08f3dbb8d992077dac4b73cff72a61d6020aa45ccd7c6c0a3c2a"
   end
 
   depends_on "pkg-config" => :build

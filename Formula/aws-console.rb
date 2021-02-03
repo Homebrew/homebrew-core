@@ -6,11 +6,10 @@ class AwsConsole < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "0558c07748aa61fada24326aa0e8f06a5699f66cf1b47be9606e7a042a2e36fe" => :big_sur
-    sha256 "14a391d0c3305d0de61ccdf4b4744d4f9d1beaf825e29742c8fa3c0fa95b18b9" => :arm64_big_sur
-    sha256 "2aa67b0cb10ae529bd38baa85813a66f8463d9b13c0e9848c604aeae213ec0a5" => :catalina
-    sha256 "7c4b25aff982c5e21dd8e0f10fbdd5107a936c0466de4c68e13ee6f23d9d4e31" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "14a391d0c3305d0de61ccdf4b4744d4f9d1beaf825e29742c8fa3c0fa95b18b9"
+    sha256 cellar: :any_skip_relocation, big_sur:       "0558c07748aa61fada24326aa0e8f06a5699f66cf1b47be9606e7a042a2e36fe"
+    sha256 cellar: :any_skip_relocation, catalina:      "2aa67b0cb10ae529bd38baa85813a66f8463d9b13c0e9848c604aeae213ec0a5"
+    sha256 cellar: :any_skip_relocation, mojave:        "7c4b25aff982c5e21dd8e0f10fbdd5107a936c0466de4c68e13ee6f23d9d4e31"
   end
 
   depends_on "go" => :build

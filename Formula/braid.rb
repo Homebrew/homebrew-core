@@ -7,12 +7,11 @@ class Braid < Formula
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 2
-    sha256 "0383392403f7924a8bbd09c08dfc0b28e4c147b98a21a66b63bf9a16ffca49f1" => :big_sur
-    sha256 "680fa799b8d8b2f7f77574f7a62e489096cb174d77728a1b88f4a84e94b77d47" => :arm64_big_sur
-    sha256 "1bbb75422a511aec7e439e350d4d428ed900ad9b78a3979d691430836c92a62a" => :catalina
-    sha256 "5e62988e4e3c52890e699afc017e62e24d42ff49560d6c41e425c2649096d28b" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "680fa799b8d8b2f7f77574f7a62e489096cb174d77728a1b88f4a84e94b77d47"
+    sha256 cellar: :any_skip_relocation, big_sur:       "0383392403f7924a8bbd09c08dfc0b28e4c147b98a21a66b63bf9a16ffca49f1"
+    sha256 cellar: :any_skip_relocation, catalina:      "1bbb75422a511aec7e439e350d4d428ed900ad9b78a3979d691430836c92a62a"
+    sha256 cellar: :any_skip_relocation, mojave:        "5e62988e4e3c52890e699afc017e62e24d42ff49560d6c41e425c2649096d28b"
   end
 
   depends_on "ruby" if MacOS.version <= :sierra

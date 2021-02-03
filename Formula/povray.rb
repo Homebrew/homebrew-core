@@ -14,10 +14,10 @@ class Povray < Formula
 
   bottle do
     rebuild 2
-    sha256 "11ca4524b9607133f05ec4a1bfc5068814c8f24c816457a15762068e0e53e108" => :big_sur
-    sha256 "aa9bdecce6009e4bcf4c59c2d81c3b56aa0caa942e162dbe96e7440e9ee9b86e" => :arm64_big_sur
-    sha256 "73110c4da834819acf4887efc1051cd0928e77cbaf773c76b891a92e28a68ac8" => :catalina
-    sha256 "02725cdedd6abd1239284729cdf3fac874f81d302b1d23f3016c69724a24bde4" => :mojave
+    sha256 arm64_big_sur: "aa9bdecce6009e4bcf4c59c2d81c3b56aa0caa942e162dbe96e7440e9ee9b86e"
+    sha256 big_sur:       "11ca4524b9607133f05ec4a1bfc5068814c8f24c816457a15762068e0e53e108"
+    sha256 catalina:      "73110c4da834819acf4887efc1051cd0928e77cbaf773c76b891a92e28a68ac8"
+    sha256 mojave:        "02725cdedd6abd1239284729cdf3fac874f81d302b1d23f3016c69724a24bde4"
   end
 
   depends_on "autoconf" => :build

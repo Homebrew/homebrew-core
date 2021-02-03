@@ -11,10 +11,10 @@ class Prefixsuffix < Formula
   end
 
   bottle do
-    sha256 big_sur: "4300af03702b1873b307890bfb3bf9e08da08e43c401c958a2dcf796d56a34e8"
     sha256 arm64_big_sur: "03a102fc5cbf319029a6b536b60caf5db40396b25e1d6de1eda1baf297cb0d81"
-    sha256 catalina: "8384f85dfc725d9a754030a2f94320124845b3d63968a2a3348a918afd096415"
-    sha256 mojave: "3e25c1930c085b61c073b5015895db250ec1113b3102384ebf84c1f8d0a65731"
+    sha256 big_sur:       "4300af03702b1873b307890bfb3bf9e08da08e43c401c958a2dcf796d56a34e8"
+    sha256 catalina:      "8384f85dfc725d9a754030a2f94320124845b3d63968a2a3348a918afd096415"
+    sha256 mojave:        "3e25c1930c085b61c073b5015895db250ec1113b3102384ebf84c1f8d0a65731"
   end
 
   depends_on "intltool" => :build

@@ -10,12 +10,11 @@ class Apachetop < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "23a71292dbcbdee0619bab39a416257fc0226c4ca5c942e23d373c13c0c237c1" => :big_sur
-    sha256 "b3795c0b43fb378f2293b0f267468fc57e15dd34410786b35dc37bf9fbd075c5" => :arm64_big_sur
-    sha256 "da48ab193d519f9a3ce1f90d1f6b4f4b9adee43a6a57435329d7a04e2a27e154" => :catalina
-    sha256 "a71dffc1d92dad7331f5e935395a20bb3ba953889f5083e92bcd7e4388a71ab5" => :mojave
-    sha256 "1bab24050249ddcf4f69b48b6568cf8e0464722d1a91cf3c1b6a21da0fdf4462" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "b3795c0b43fb378f2293b0f267468fc57e15dd34410786b35dc37bf9fbd075c5"
+    sha256 cellar: :any, big_sur:       "23a71292dbcbdee0619bab39a416257fc0226c4ca5c942e23d373c13c0c237c1"
+    sha256 cellar: :any, catalina:      "da48ab193d519f9a3ce1f90d1f6b4f4b9adee43a6a57435329d7a04e2a27e154"
+    sha256 cellar: :any, mojave:        "a71dffc1d92dad7331f5e935395a20bb3ba953889f5083e92bcd7e4388a71ab5"
+    sha256 cellar: :any, high_sierra:   "1bab24050249ddcf4f69b48b6568cf8e0464722d1a91cf3c1b6a21da0fdf4462"
   end
 
   depends_on "autoconf" => :build

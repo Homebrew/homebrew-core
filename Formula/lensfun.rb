@@ -12,11 +12,11 @@ class Lensfun < Formula
   end
 
   bottle do
-    sha256 "10c8d68811e3d286d340b8cdea0fff28380d719402f25e85ddc280e9d0a4b1fd" => :big_sur
-    sha256 "d88e64dba59fb70ca04c45029ba2908d9d731dd94b835cbf88f488dd66c8c96c" => :arm64_big_sur
-    sha256 "1e83aa5f7ebcb3d3952a384244adfacbf82b2954637cd3df02337f52de1d7b67" => :catalina
-    sha256 "d0d64a98f863a5001667095eba97f55500a87610e00955c0edb95f70300e21c1" => :mojave
-    sha256 "0050ca39268f8201a1c28169da62380385ba5e77954142404465e6b3cba909d7" => :high_sierra
+    sha256 arm64_big_sur: "d88e64dba59fb70ca04c45029ba2908d9d731dd94b835cbf88f488dd66c8c96c"
+    sha256 big_sur:       "10c8d68811e3d286d340b8cdea0fff28380d719402f25e85ddc280e9d0a4b1fd"
+    sha256 catalina:      "1e83aa5f7ebcb3d3952a384244adfacbf82b2954637cd3df02337f52de1d7b67"
+    sha256 mojave:        "d0d64a98f863a5001667095eba97f55500a87610e00955c0edb95f70300e21c1"
+    sha256 high_sierra:   "0050ca39268f8201a1c28169da62380385ba5e77954142404465e6b3cba909d7"
   end
 
   depends_on "cmake" => :build

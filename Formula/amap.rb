@@ -13,11 +13,10 @@ class Amap < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "48480e1e415d4003efdfac48d4f5ae75c2dbfa1d53d9e742ca400cffa04dc231" => :catalina
-    sha256 "ede3ed735b1041b7bb99595ffdbb49e392dbb84065383e32c0e270f8bea22da4" => :mojave
-    sha256 "6266dd3178e2ed39f7a48e6c9fc19fbb073f4e7d71686d5ef3ce0ee660ccb982" => :high_sierra
-    sha256 "1361e89caf2590146c5872907f90ad67ac9b99d2198320691e9f6df0cfdbe16c" => :sierra
+    sha256 cellar: :any, catalina:    "48480e1e415d4003efdfac48d4f5ae75c2dbfa1d53d9e742ca400cffa04dc231"
+    sha256 cellar: :any, mojave:      "ede3ed735b1041b7bb99595ffdbb49e392dbb84065383e32c0e270f8bea22da4"
+    sha256 cellar: :any, high_sierra: "6266dd3178e2ed39f7a48e6c9fc19fbb073f4e7d71686d5ef3ce0ee660ccb982"
+    sha256 cellar: :any, sierra:      "1361e89caf2590146c5872907f90ad67ac9b99d2198320691e9f6df0cfdbe16c"
   end
 
   disable! date: "2020-11-12", because: :unmaintained

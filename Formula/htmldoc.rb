@@ -8,10 +8,10 @@ class Htmldoc < Formula
 
   bottle do
     rebuild 1
-    sha256 "a2ad4b8f476286d77cbf3c4c05f39bf0ef7d472b308fa8b11814cee4c090c224" => :big_sur
-    sha256 "7c02353667f8f762f0607c05d8387b0f77e848fac1d8f903533ed40a25667436" => :arm64_big_sur
-    sha256 "f2dd1888010a9d29664f1ecac8ac3892b2aa95edeaf7b27f7dd48900ce45e824" => :catalina
-    sha256 "b80236d31f3d87fbeba9908617f9868b8c0f998de5f72184684e60f7fe1ccef6" => :mojave
+    sha256 arm64_big_sur: "7c02353667f8f762f0607c05d8387b0f77e848fac1d8f903533ed40a25667436"
+    sha256 big_sur:       "a2ad4b8f476286d77cbf3c4c05f39bf0ef7d472b308fa8b11814cee4c090c224"
+    sha256 catalina:      "f2dd1888010a9d29664f1ecac8ac3892b2aa95edeaf7b27f7dd48900ce45e824"
+    sha256 mojave:        "b80236d31f3d87fbeba9908617f9868b8c0f998de5f72184684e60f7fe1ccef6"
   end
 
   depends_on "jpeg"

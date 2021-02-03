@@ -14,10 +14,10 @@ class Slrn < Formula
 
   bottle do
     rebuild 1
-    sha256 "1e3a47c2adbd775237d1b34cba86c82a14096d792a922887f76f6eadb0964513" => :big_sur
-    sha256 "b714ac9c245119ba08001c7729f77093491457c54f17b2d1d09184f690ffa288" => :arm64_big_sur
-    sha256 "5440f5353ec5ae3f3a2cdd3ed43b931bd41db738ee4b993b0ec3b41618f7406f" => :catalina
-    sha256 "35550c096c81454ae0756d0831fa8a6dd2db9857db591b72f8cf96aeb4e4fac3" => :mojave
+    sha256 arm64_big_sur: "b714ac9c245119ba08001c7729f77093491457c54f17b2d1d09184f690ffa288"
+    sha256 big_sur:       "1e3a47c2adbd775237d1b34cba86c82a14096d792a922887f76f6eadb0964513"
+    sha256 catalina:      "5440f5353ec5ae3f3a2cdd3ed43b931bd41db738ee4b993b0ec3b41618f7406f"
+    sha256 mojave:        "35550c096c81454ae0756d0831fa8a6dd2db9857db591b72f8cf96aeb4e4fac3"
   end
 
   depends_on "openssl@1.1"

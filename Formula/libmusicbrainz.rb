@@ -6,16 +6,15 @@ class Libmusicbrainz < Formula
   license "LGPL-2.1"
 
   bottle do
-    cellar :any
-    sha256 "a03a79657821636633079121735346d0b50ac66ab13e7a0da695b4f8e8499464" => :big_sur
-    sha256 "cd8eb4a4a2aaf1d9328c3b84439f16996b5e586d1069edcb28d4dcf8c994a30e" => :arm64_big_sur
-    sha256 "3ff30e82e933e84fdaacc2a0d8c568678adfabb0b7771667cbcaf07132f59a14" => :catalina
-    sha256 "420d6867aa3d20d9148d4546a154e7059467cc4ca8d861dfb173c9ea35f10dab" => :mojave
-    sha256 "99b598b941ac0ce3747d8821943a1e730f3673b721421d9c0428b70259e789c0" => :high_sierra
-    sha256 "8fe055e1f987e23a569f915082031e172a5c3d0aef6f86de78ce9c8258f53cd2" => :sierra
-    sha256 "6a63410ca9eae84b263d7165d05701801f4e05de26a9e95a7396f95a602cedd7" => :el_capitan
-    sha256 "0851c7889df9dc2971b60fe9fd8ad891afd8d5dae08877393e2f69e3cc33f589" => :yosemite
-    sha256 "44fa04315d5bbda3e6b9e6ce20a6140c93d535d8c58e8816c574a7e6d4b90429" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "cd8eb4a4a2aaf1d9328c3b84439f16996b5e586d1069edcb28d4dcf8c994a30e"
+    sha256 cellar: :any, big_sur:       "a03a79657821636633079121735346d0b50ac66ab13e7a0da695b4f8e8499464"
+    sha256 cellar: :any, catalina:      "3ff30e82e933e84fdaacc2a0d8c568678adfabb0b7771667cbcaf07132f59a14"
+    sha256 cellar: :any, mojave:        "420d6867aa3d20d9148d4546a154e7059467cc4ca8d861dfb173c9ea35f10dab"
+    sha256 cellar: :any, high_sierra:   "99b598b941ac0ce3747d8821943a1e730f3673b721421d9c0428b70259e789c0"
+    sha256 cellar: :any, sierra:        "8fe055e1f987e23a569f915082031e172a5c3d0aef6f86de78ce9c8258f53cd2"
+    sha256 cellar: :any, el_capitan:    "6a63410ca9eae84b263d7165d05701801f4e05de26a9e95a7396f95a602cedd7"
+    sha256 cellar: :any, yosemite:      "0851c7889df9dc2971b60fe9fd8ad891afd8d5dae08877393e2f69e3cc33f589"
+    sha256 cellar: :any, mavericks:     "44fa04315d5bbda3e6b9e6ce20a6140c93d535d8c58e8816c574a7e6d4b90429"
   end
 
   depends_on "cmake" => :build

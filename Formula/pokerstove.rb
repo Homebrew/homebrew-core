@@ -6,11 +6,10 @@ class Pokerstove < Formula
   license "BSD-3-Clause"
 
   bottle do
-    cellar :any
-    sha256 "db03f71aebe4fd46061765ae3659629ee42a5166f2dbb8b225f53b5baf7fbe62" => :catalina
-    sha256 "60f469d6ec2b39eac5d801c7968f56b21ddd0464ebc074964f6dacb4cd151b74" => :mojave
-    sha256 "49b7d8bcd4c54b42dbd311f94dcfb71ff04d3a1e273ecda213baaa562ad9b02b" => :high_sierra
-    sha256 "c78b16c6cfd9981df7ba66dd367f3b25181350d317e0ec00704a3b837383a8e8" => :sierra
+    sha256 cellar: :any, catalina:    "db03f71aebe4fd46061765ae3659629ee42a5166f2dbb8b225f53b5baf7fbe62"
+    sha256 cellar: :any, mojave:      "60f469d6ec2b39eac5d801c7968f56b21ddd0464ebc074964f6dacb4cd151b74"
+    sha256 cellar: :any, high_sierra: "49b7d8bcd4c54b42dbd311f94dcfb71ff04d3a1e273ecda213baaa562ad9b02b"
+    sha256 cellar: :any, sierra:      "c78b16c6cfd9981df7ba66dd367f3b25181350d317e0ec00704a3b837383a8e8"
   end
 
   depends_on "cmake" => :build

@@ -11,10 +11,10 @@ class GnomeAutoar < Formula
   end
 
   bottle do
-    sha256 "2bdebb42be1484a3a5decffd2f562581caf03547b607f0ef55b814d35941371c" => :big_sur
-    sha256 "45e92ccba5ee5e11686ca8882b19923e9c9c40fa587e5336f2939ce1a2cdcf3b" => :arm64_big_sur
-    sha256 "0870f71b2ae98836272892f740e3a92a9adceb8f1a1b0a9f1df1b9cc5b1a0899" => :catalina
-    sha256 "fc7946a447ce73a5ca5ea122805bc47fe41eb751d8f6a28d1db6ff2756503dfb" => :mojave
+    sha256 arm64_big_sur: "45e92ccba5ee5e11686ca8882b19923e9c9c40fa587e5336f2939ce1a2cdcf3b"
+    sha256 big_sur:       "2bdebb42be1484a3a5decffd2f562581caf03547b607f0ef55b814d35941371c"
+    sha256 catalina:      "0870f71b2ae98836272892f740e3a92a9adceb8f1a1b0a9f1df1b9cc5b1a0899"
+    sha256 mojave:        "fc7946a447ce73a5ca5ea122805bc47fe41eb751d8f6a28d1db6ff2756503dfb"
   end
 
   depends_on "pkg-config" => :build

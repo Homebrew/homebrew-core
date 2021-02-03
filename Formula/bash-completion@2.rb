@@ -11,12 +11,11 @@ class BashCompletionAT2 < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "27ccf1267d18fcd3e6018ec80363d003d07f750182bdef61150371532100bfc9" => :big_sur
-    sha256 "336f04248a6da8c65291ef74c35430f843ae10b5c29d092ab463803fa14b2014" => :arm64_big_sur
-    sha256 "3fe7e4021769be9a92eac055496e6189996c3527270db1dfdd4b0eb8cd7b4192" => :catalina
-    sha256 "3fe7e4021769be9a92eac055496e6189996c3527270db1dfdd4b0eb8cd7b4192" => :mojave
-    sha256 "3fe7e4021769be9a92eac055496e6189996c3527270db1dfdd4b0eb8cd7b4192" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "336f04248a6da8c65291ef74c35430f843ae10b5c29d092ab463803fa14b2014"
+    sha256 cellar: :any_skip_relocation, big_sur:       "27ccf1267d18fcd3e6018ec80363d003d07f750182bdef61150371532100bfc9"
+    sha256 cellar: :any_skip_relocation, catalina:      "3fe7e4021769be9a92eac055496e6189996c3527270db1dfdd4b0eb8cd7b4192"
+    sha256 cellar: :any_skip_relocation, mojave:        "3fe7e4021769be9a92eac055496e6189996c3527270db1dfdd4b0eb8cd7b4192"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "3fe7e4021769be9a92eac055496e6189996c3527270db1dfdd4b0eb8cd7b4192"
   end
 
   head do

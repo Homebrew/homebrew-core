@@ -13,11 +13,10 @@ class St < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "b852dedd2a66d7f03314cf510cf9d94e55c3437a7d23ac0bf7b1742b2d635dda" => :big_sur
-    sha256 "b20ec315e5d16adc7acdfbcdcfffd91859a39bcfc5e76e9a152da3dac178c4d3" => :arm64_big_sur
-    sha256 "47e88ee3a995fb7f0dc9a5900a378c254c5be13ebfeee44474be9649992d4a5f" => :catalina
-    sha256 "a405a6128674652c728e7af64d751388b6ecea693d780efc2ebcfa62ec8e0f6a" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b20ec315e5d16adc7acdfbcdcfffd91859a39bcfc5e76e9a152da3dac178c4d3"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b852dedd2a66d7f03314cf510cf9d94e55c3437a7d23ac0bf7b1742b2d635dda"
+    sha256 cellar: :any_skip_relocation, catalina:      "47e88ee3a995fb7f0dc9a5900a378c254c5be13ebfeee44474be9649992d4a5f"
+    sha256 cellar: :any_skip_relocation, mojave:        "a405a6128674652c728e7af64d751388b6ecea693d780efc2ebcfa62ec8e0f6a"
   end
 
   def install

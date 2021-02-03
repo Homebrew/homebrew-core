@@ -10,12 +10,11 @@ class WakatimeCli < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "3435709410408bacf076594f87fffe654048e4e7aabe124f7f6bb37bbf3943e9" => :big_sur
-    sha256 "062307ba64d4afeda4bdae8c912a9c69d5e28078f7e4169aafb0c14c355cd297" => :arm64_big_sur
-    sha256 "1573e0dd92f96002d51d388bb75f4ea06946dacf8c2e46c2408513c0a13c9feb" => :catalina
-    sha256 "84e365ad5241e4c17926bb32730cbf0d2d9de798551e137fe568a3934e7d733f" => :mojave
-    sha256 "9c4ddbce30fc3b94deb970c30527a80534e4389810524cfc58b634fc0863fc0c" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "062307ba64d4afeda4bdae8c912a9c69d5e28078f7e4169aafb0c14c355cd297"
+    sha256 cellar: :any_skip_relocation, big_sur:       "3435709410408bacf076594f87fffe654048e4e7aabe124f7f6bb37bbf3943e9"
+    sha256 cellar: :any_skip_relocation, catalina:      "1573e0dd92f96002d51d388bb75f4ea06946dacf8c2e46c2408513c0a13c9feb"
+    sha256 cellar: :any_skip_relocation, mojave:        "84e365ad5241e4c17926bb32730cbf0d2d9de798551e137fe568a3934e7d733f"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "9c4ddbce30fc3b94deb970c30527a80534e4389810524cfc58b634fc0863fc0c"
   end
 
   depends_on "python@3.9"

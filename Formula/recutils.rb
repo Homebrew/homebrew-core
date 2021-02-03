@@ -11,13 +11,12 @@ class Recutils < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "20ea3e2b014d2300a75f02b3c2beaf4c888c37214df878c5dccbad9255f65de4" => :big_sur
-    sha256 "0ce93377375f551690f93d4cd68d2042f72354596dcae615ee632e8794bd7744" => :arm64_big_sur
-    sha256 "a55cbe91cc2c264fe53e5e6425c1f3bb0c090f097f16098fdce766807a38ea6d" => :catalina
-    sha256 "1503a69c0ed988355b959c47b2c8a5e5a4f451d41027f5a06cdf5de19f7d171f" => :mojave
-    sha256 "c2ca0221b7e7091c11840a000f02b130325a188aeb03b100947562aa8d9ce3ef" => :high_sierra
-    sha256 "694cfda88a56f30c66d71080b8a1a4763a17789e0ea54b37c778ba84107f6430" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "0ce93377375f551690f93d4cd68d2042f72354596dcae615ee632e8794bd7744"
+    sha256 cellar: :any, big_sur:       "20ea3e2b014d2300a75f02b3c2beaf4c888c37214df878c5dccbad9255f65de4"
+    sha256 cellar: :any, catalina:      "a55cbe91cc2c264fe53e5e6425c1f3bb0c090f097f16098fdce766807a38ea6d"
+    sha256 cellar: :any, mojave:        "1503a69c0ed988355b959c47b2c8a5e5a4f451d41027f5a06cdf5de19f7d171f"
+    sha256 cellar: :any, high_sierra:   "c2ca0221b7e7091c11840a000f02b130325a188aeb03b100947562aa8d9ce3ef"
+    sha256 cellar: :any, sierra:        "694cfda88a56f30c66d71080b8a1a4763a17789e0ea54b37c778ba84107f6430"
   end
 
   def install

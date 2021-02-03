@@ -7,12 +7,11 @@ class LibbitcoinConsensus < Formula
   revision 1
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "57d876817c6af49a0f396fd62e42ff8ded2631b9ff73ad1651418be092e758fa" => :big_sur
-    sha256 "2295fa9610ecc2ea704ecf362ccfdf356491a633b161931b96ef0bc64ed9e77b" => :arm64_big_sur
-    sha256 "4cc94dd5243acf68c4b7e0a2a8071a407fc00ff7ad2f8c2b3ff688d07cd1b362" => :catalina
-    sha256 "72719cd5ad88afff167530b1b55df7ce28e7920bf0daab69758e87d00804006a" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "2295fa9610ecc2ea704ecf362ccfdf356491a633b161931b96ef0bc64ed9e77b"
+    sha256 cellar: :any, big_sur:       "57d876817c6af49a0f396fd62e42ff8ded2631b9ff73ad1651418be092e758fa"
+    sha256 cellar: :any, catalina:      "4cc94dd5243acf68c4b7e0a2a8071a407fc00ff7ad2f8c2b3ff688d07cd1b362"
+    sha256 cellar: :any, mojave:        "72719cd5ad88afff167530b1b55df7ce28e7920bf0daab69758e87d00804006a"
   end
 
   depends_on "autoconf" => :build

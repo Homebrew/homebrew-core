@@ -7,11 +7,10 @@ class Sdns < Formula
   head "https://github.com/semihalev/sdns.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "82ae1e7bea85f50fcf84de51fb0fb790faf88d0cefaf8532f587047e8fe842a5" => :big_sur
-    sha256 "21793de02e83d10ac51abae2ba85addcbac395b39ee37fc41ca8847974eec92b" => :arm64_big_sur
-    sha256 "b1dd23b40afd486a0343af0b6e2b738d5c4a19869484e01de28889e7abc6ae5b" => :catalina
-    sha256 "aa9dd1a91d45ddcc4574ca51084f6d57885541d6e495230e2870e60bf1d2395a" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "21793de02e83d10ac51abae2ba85addcbac395b39ee37fc41ca8847974eec92b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "82ae1e7bea85f50fcf84de51fb0fb790faf88d0cefaf8532f587047e8fe842a5"
+    sha256 cellar: :any_skip_relocation, catalina:      "b1dd23b40afd486a0343af0b6e2b738d5c4a19869484e01de28889e7abc6ae5b"
+    sha256 cellar: :any_skip_relocation, mojave:        "aa9dd1a91d45ddcc4574ca51084f6d57885541d6e495230e2870e60bf1d2395a"
   end
 
   depends_on "go" => :build

@@ -13,13 +13,12 @@ class Httpie < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "bdffeff349595ed3c528ed791d568e308b0877246b49e05e867143ba3415a70f" => :big_sur
-    sha256 "a01ce8767f6ea88eb8e7894347ba64eb29294053a8ee91eed44dfaf0ab5e7ea2" => :arm64_big_sur
-    sha256 "ba0627d70f0ee49c64677f5554881ebd56371f47d45196b6564680089ce69152" => :catalina
-    sha256 "0b87901e88bdcf53c55c5138677087b4621c5aaf1fca67b53b730d5a2fd5a40a" => :mojave
-    sha256 "87e7348b6fb40fd8e4f7597937952469601962189e62d321b8cb4fa421e035ef" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a01ce8767f6ea88eb8e7894347ba64eb29294053a8ee91eed44dfaf0ab5e7ea2"
+    sha256 cellar: :any_skip_relocation, big_sur:       "bdffeff349595ed3c528ed791d568e308b0877246b49e05e867143ba3415a70f"
+    sha256 cellar: :any_skip_relocation, catalina:      "ba0627d70f0ee49c64677f5554881ebd56371f47d45196b6564680089ce69152"
+    sha256 cellar: :any_skip_relocation, mojave:        "0b87901e88bdcf53c55c5138677087b4621c5aaf1fca67b53b730d5a2fd5a40a"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "87e7348b6fb40fd8e4f7597937952469601962189e62d321b8cb4fa421e035ef"
   end
 
   depends_on "python@3.9"

@@ -10,11 +10,10 @@ class LibxmlxxAT4 < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "fdbaba1cc15f335517a1cc504b89502870a41914bf1cb30b158becf3011d1ea3" => :big_sur
-    sha256 "915b575a6d1d6c1cebf6399d94434fc448b2900a4b87260875a120f45deaa79d" => :arm64_big_sur
-    sha256 "df3ff271d16a9f73bfab2039c3d8f33af73ae1c0cba4f5f936bfca3e4058b2a6" => :catalina
-    sha256 "80e6dc79069c4e90b3c5c23e7a18dc580938e88b742c7ba0dcb67ffb538aa6aa" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "915b575a6d1d6c1cebf6399d94434fc448b2900a4b87260875a120f45deaa79d"
+    sha256 cellar: :any, big_sur:       "fdbaba1cc15f335517a1cc504b89502870a41914bf1cb30b158becf3011d1ea3"
+    sha256 cellar: :any, catalina:      "df3ff271d16a9f73bfab2039c3d8f33af73ae1c0cba4f5f936bfca3e4058b2a6"
+    sha256 cellar: :any, mojave:        "80e6dc79069c4e90b3c5c23e7a18dc580938e88b742c7ba0dcb67ffb538aa6aa"
   end
 
   depends_on "meson" => :build

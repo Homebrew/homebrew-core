@@ -7,10 +7,9 @@ class Ocamlsdl < Formula
   revision 13
 
   bottle do
-    cellar :any
-    sha256 "8ccd0c9f59b9fad6fe084e57e726cd20d0f26497e71e4be94ff7f603512cbef8" => :catalina
-    sha256 "6cd21f03d8a557368499d9cd61233dab4bab11fcd99c312036d58d660598c539" => :mojave
-    sha256 "6ae2abcf123aef7ce6cc2c5aad0d912bc459fdd9e7e2abfa99135d672767ddb7" => :high_sierra
+    sha256 cellar: :any, catalina:    "8ccd0c9f59b9fad6fe084e57e726cd20d0f26497e71e4be94ff7f603512cbef8"
+    sha256 cellar: :any, mojave:      "6cd21f03d8a557368499d9cd61233dab4bab11fcd99c312036d58d660598c539"
+    sha256 cellar: :any, high_sierra: "6ae2abcf123aef7ce6cc2c5aad0d912bc459fdd9e7e2abfa99135d672767ddb7"
   end
 
   disable! date: "2020-09-21", because: :unmaintained

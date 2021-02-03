@@ -6,11 +6,10 @@ class Clash < Formula
   license "GPL-3.0-only"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "40f8034354d00d49bce0e0ef1ccbac80d6c2fda24585c089866e5731764765bd" => :big_sur
-    sha256 "f07acbfbd535be24b60b4955b7240f1a8043eda02106c8653ef39751c3cc663b" => :arm64_big_sur
-    sha256 "c7bccc2222aa2ab4c139b23d515555eeefc161c5466881ca30ebf080d960cf41" => :catalina
-    sha256 "487294f97464d95b55aabd6162186b7df590de1af471f7a8036836b7ba630687" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f07acbfbd535be24b60b4955b7240f1a8043eda02106c8653ef39751c3cc663b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "40f8034354d00d49bce0e0ef1ccbac80d6c2fda24585c089866e5731764765bd"
+    sha256 cellar: :any_skip_relocation, catalina:      "c7bccc2222aa2ab4c139b23d515555eeefc161c5466881ca30ebf080d960cf41"
+    sha256 cellar: :any_skip_relocation, mojave:        "487294f97464d95b55aabd6162186b7df590de1af471f7a8036836b7ba630687"
   end
 
   depends_on "go" => :build

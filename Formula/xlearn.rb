@@ -6,12 +6,11 @@ class Xlearn < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "a28e91b107a782fe4bfa9894ba647a36ed7669f25978bc0cec1ce25627d19b6d" => :big_sur
-    sha256 "4edeafacfb2f12dabd7fa08bb60d62186912c6e000a496fd5bf31523ecaa3557" => :catalina
-    sha256 "e5f597c563cf3ed1ca7e4ebdc733740b976710730f4388c3e4829552713b966d" => :mojave
-    sha256 "738b94f1c782c6bce8fe042bb80b48ade32b909297a0c55bc34004f60b449463" => :high_sierra
+    sha256 cellar: :any, big_sur:     "a28e91b107a782fe4bfa9894ba647a36ed7669f25978bc0cec1ce25627d19b6d"
+    sha256 cellar: :any, catalina:    "4edeafacfb2f12dabd7fa08bb60d62186912c6e000a496fd5bf31523ecaa3557"
+    sha256 cellar: :any, mojave:      "e5f597c563cf3ed1ca7e4ebdc733740b976710730f4388c3e4829552713b966d"
+    sha256 cellar: :any, high_sierra: "738b94f1c782c6bce8fe042bb80b48ade32b909297a0c55bc34004f60b449463"
   end
 
   depends_on "cmake" => :build

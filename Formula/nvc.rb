@@ -7,9 +7,9 @@ class Nvc < Formula
   revision 1
 
   bottle do
-    sha256 "7ba6e4a374fa45ac6727a3a94b68ec1e317989999aeace6e16e2d2374f1adef9" => :catalina
-    sha256 "f7096c9a1f5430b7540a5384c21548e3d58937a571b894362d00326400ec52cb" => :mojave
-    sha256 "9235685aba9cdb880d6d76336fa94e918762bbd5e7de2c150a5ab4d887ec2b74" => :high_sierra
+    sha256 catalina:    "7ba6e4a374fa45ac6727a3a94b68ec1e317989999aeace6e16e2d2374f1adef9"
+    sha256 mojave:      "f7096c9a1f5430b7540a5384c21548e3d58937a571b894362d00326400ec52cb"
+    sha256 high_sierra: "9235685aba9cdb880d6d76336fa94e918762bbd5e7de2c150a5ab4d887ec2b74"
   end
 
   head do

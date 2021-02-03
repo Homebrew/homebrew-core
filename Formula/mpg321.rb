@@ -10,15 +10,15 @@ class Mpg321 < Formula
   end
 
   bottle do
-    sha256 "f21a4649c7437144d8228ce229acf7dcd36541c8475ddc9e065bf62d7f501b35" => :big_sur
-    sha256 "0cde599f9f7a975ff76faddcdd85606f62445c2493e201db737916fd03ec907f" => :arm64_big_sur
-    sha256 "fdea1076a22b6af12c33b02e9eb040fceb11d39ed2eaa7307574bf5331d8f8dc" => :catalina
-    sha256 "d587b58200397ad4e8f7fa8c861e01c2c5e344d89a235e78d22fb7bd5ddf04f2" => :mojave
-    sha256 "6a8f8f58c8bf02f99e8206a231fce4e9f2bd7333b888581dd1838246983d139f" => :high_sierra
-    sha256 "a69f242f57e4211f96fa56f10573777204d5ed7d61cd7b35a04e0bbd33b9064e" => :sierra
-    sha256 "6c8921b0703d2952b6038ce7097957c3c2bfe9b59c2d41b5caddc268e96b245d" => :el_capitan
-    sha256 "48b9ac480d966fc344c4867f3dcef7cd59be1440b11fe7d8280d51134a881f78" => :yosemite
-    sha256 "bf86f590672fdb27f6fc92c706db1bfcb2ca0a1e35129c5435821640a11a422f" => :mavericks
+    sha256 arm64_big_sur: "0cde599f9f7a975ff76faddcdd85606f62445c2493e201db737916fd03ec907f"
+    sha256 big_sur:       "f21a4649c7437144d8228ce229acf7dcd36541c8475ddc9e065bf62d7f501b35"
+    sha256 catalina:      "fdea1076a22b6af12c33b02e9eb040fceb11d39ed2eaa7307574bf5331d8f8dc"
+    sha256 mojave:        "d587b58200397ad4e8f7fa8c861e01c2c5e344d89a235e78d22fb7bd5ddf04f2"
+    sha256 high_sierra:   "6a8f8f58c8bf02f99e8206a231fce4e9f2bd7333b888581dd1838246983d139f"
+    sha256 sierra:        "a69f242f57e4211f96fa56f10573777204d5ed7d61cd7b35a04e0bbd33b9064e"
+    sha256 el_capitan:    "6c8921b0703d2952b6038ce7097957c3c2bfe9b59c2d41b5caddc268e96b245d"
+    sha256 yosemite:      "48b9ac480d966fc344c4867f3dcef7cd59be1440b11fe7d8280d51134a881f78"
+    sha256 mavericks:     "bf86f590672fdb27f6fc92c706db1bfcb2ca0a1e35129c5435821640a11a422f"
   end
 
   depends_on "libao"

@@ -21,12 +21,11 @@ class ArxLibertatis < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "2a9e06b2b91e1133389728b2ad0c81f23d95a266a451144fb8639953b5a96cd3" => :big_sur
-    sha256 "204111aff418fd39e00ab1fcb961f2c7d5a7580223ecdbac4011b7c1f3122f03" => :arm64_big_sur
-    sha256 "b93ffc0870dffd0bab99117814e3c094fc019c2315bdd8fc35f687c1009dd661" => :catalina
-    sha256 "39fc49249e5a82bd067c05bcd056b454a90ace91f364b3c33534901827247b2c" => :mojave
-    sha256 "2fe2043845655c6f3e75be1dc7213826fd142f806fd7b59006fdef940584e92a" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "204111aff418fd39e00ab1fcb961f2c7d5a7580223ecdbac4011b7c1f3122f03"
+    sha256 cellar: :any, big_sur:       "2a9e06b2b91e1133389728b2ad0c81f23d95a266a451144fb8639953b5a96cd3"
+    sha256 cellar: :any, catalina:      "b93ffc0870dffd0bab99117814e3c094fc019c2315bdd8fc35f687c1009dd661"
+    sha256 cellar: :any, mojave:        "39fc49249e5a82bd067c05bcd056b454a90ace91f364b3c33534901827247b2c"
+    sha256 cellar: :any, high_sierra:   "2fe2043845655c6f3e75be1dc7213826fd142f806fd7b59006fdef940584e92a"
   end
 
   head do

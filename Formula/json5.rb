@@ -8,10 +8,10 @@ class Json5 < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur: "fed591c879ba5765efe81a0faf4c4cbd44e9c41b984307d0b72317933c0dadb5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "38b3d5fd1167020fbb15e2778ce5614fbcd1417cd8d4fb0131de2fdacdb49582"
-    sha256 cellar: :any_skip_relocation, catalina: "09e87f239bbc187dba2e2fe5f865f078a7210827983835a625524d3d800dcf18"
-    sha256 cellar: :any_skip_relocation, mojave: "e2dc5ac648d7c114a8f6945ed986db3b88be6383afefe2f54c87a1d8deace6be"
+    sha256 cellar: :any_skip_relocation, big_sur:       "fed591c879ba5765efe81a0faf4c4cbd44e9c41b984307d0b72317933c0dadb5"
+    sha256 cellar: :any_skip_relocation, catalina:      "09e87f239bbc187dba2e2fe5f865f078a7210827983835a625524d3d800dcf18"
+    sha256 cellar: :any_skip_relocation, mojave:        "e2dc5ac648d7c114a8f6945ed986db3b88be6383afefe2f54c87a1d8deace6be"
   end
 
   depends_on "node"

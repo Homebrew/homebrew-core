@@ -12,11 +12,10 @@ class Plzip < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "6c79b456b6b1ea19d12efe0a1087f4b36092787a94cedacdfeb1186294e1f72b" => :big_sur
-    sha256 "9d197045d0de19677e6ce0079afb3cfb94e54360aa2c00cda3bf5a74031e6b40" => :arm64_big_sur
-    sha256 "9f278923d8c1d12bebbfa37b52816b85b8f4cc49e67ef7dc37de7ff1af9ea4ab" => :catalina
-    sha256 "fe9addff91b4833212aa8107a92f1775af9cc7d5d96de1466917c3f0a51ee912" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9d197045d0de19677e6ce0079afb3cfb94e54360aa2c00cda3bf5a74031e6b40"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6c79b456b6b1ea19d12efe0a1087f4b36092787a94cedacdfeb1186294e1f72b"
+    sha256 cellar: :any_skip_relocation, catalina:      "9f278923d8c1d12bebbfa37b52816b85b8f4cc49e67ef7dc37de7ff1af9ea4ab"
+    sha256 cellar: :any_skip_relocation, mojave:        "fe9addff91b4833212aa8107a92f1775af9cc7d5d96de1466917c3f0a51ee912"
   end
 
   depends_on "lzlib"

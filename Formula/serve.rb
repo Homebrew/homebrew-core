@@ -7,12 +7,11 @@ class Serve < Formula
   head "https://github.com/syntaqx/serve.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "b56e69171f148421442997d819297a608316565d3664d04b771f1c7b67f8c4fa" => :big_sur
-    sha256 "99f115fe9c19d946db2604146c1bc1f1b85b5d2bb840951f0d105e031e4b0f0d" => :arm64_big_sur
-    sha256 "b6358efb493acb673bf7513a252f9f48e9ebb2c6a7824208d89ae631cfad9439" => :catalina
-    sha256 "9521fba08dd7bcfd843464b3c12a4f841007f28052104072768e052c194de6aa" => :mojave
-    sha256 "0735a5f8002970bc5d1cb1ca68681713de9dfcffc7eeb30bcdcb7fc33bc58551" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "99f115fe9c19d946db2604146c1bc1f1b85b5d2bb840951f0d105e031e4b0f0d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b56e69171f148421442997d819297a608316565d3664d04b771f1c7b67f8c4fa"
+    sha256 cellar: :any_skip_relocation, catalina:      "b6358efb493acb673bf7513a252f9f48e9ebb2c6a7824208d89ae631cfad9439"
+    sha256 cellar: :any_skip_relocation, mojave:        "9521fba08dd7bcfd843464b3c12a4f841007f28052104072768e052c194de6aa"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "0735a5f8002970bc5d1cb1ca68681713de9dfcffc7eeb30bcdcb7fc33bc58551"
   end
 
   depends_on "go" => :build

@@ -13,11 +13,10 @@ class Pwntools < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "88ac68df8de83aec0e440738bceb421600e9b700e4d4c66456d6f2e28461c599" => :big_sur
-    sha256 "6d994b83aaf329588038fd9ce866ee390da3caeeca0e6dee92c95d6b37db9555" => :arm64_big_sur
-    sha256 "8af48c6e5fb5001b5ef4946e3c711f64ef1405a4f4648dc6739028edb8a5f9c6" => :catalina
-    sha256 "b614d1c4ea0ba3f1131295563f164917447e6bd25ae7a0fc993fb2a2b59ae5f0" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "6d994b83aaf329588038fd9ce866ee390da3caeeca0e6dee92c95d6b37db9555"
+    sha256 cellar: :any, big_sur:       "88ac68df8de83aec0e440738bceb421600e9b700e4d4c66456d6f2e28461c599"
+    sha256 cellar: :any, catalina:      "8af48c6e5fb5001b5ef4946e3c711f64ef1405a4f4648dc6739028edb8a5f9c6"
+    sha256 cellar: :any, mojave:        "b614d1c4ea0ba3f1131295563f164917447e6bd25ae7a0fc993fb2a2b59ae5f0"
   end
 
   depends_on "openssl@1.1"

@@ -11,13 +11,12 @@ class Bzip2 < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "e3809e379c13b3af3e18e3533f54e7bdee1c630cfce6143816be859321afa020" => :big_sur
-    sha256 "34bcbd41ffc141ea961a31b2109637a18628768a4af1856b9ecb3f80fed587b7" => :arm64_big_sur
-    sha256 "78421d5891328cb96cce8ff6a6c20ce5930a4a74fd1b24b05ef02cd92117c5fd" => :catalina
-    sha256 "313e48f4528c1d8042a9cd4c77bd69047dedd7eda2bd350650a902e1ff549a38" => :mojave
-    sha256 "a3eedbcb61a66d3a1286685db878e19c1de90605626d1d988705f66a5aa66673" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "34bcbd41ffc141ea961a31b2109637a18628768a4af1856b9ecb3f80fed587b7"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e3809e379c13b3af3e18e3533f54e7bdee1c630cfce6143816be859321afa020"
+    sha256 cellar: :any_skip_relocation, catalina:      "78421d5891328cb96cce8ff6a6c20ce5930a4a74fd1b24b05ef02cd92117c5fd"
+    sha256 cellar: :any_skip_relocation, mojave:        "313e48f4528c1d8042a9cd4c77bd69047dedd7eda2bd350650a902e1ff549a38"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "a3eedbcb61a66d3a1286685db878e19c1de90605626d1d988705f66a5aa66673"
   end
 
   keg_only :provided_by_macos

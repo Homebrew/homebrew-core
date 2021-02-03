@@ -24,11 +24,11 @@ class Watchman < Formula
   end
 
   bottle do
-    sha256 "f03c91e17cd7595f98106ee4a27f28433ecc2fd6dde8cc1b7e279bd60b730051" => :big_sur
-    sha256 "4a44a39cfd719b34d146043aa5afcc6ac304ebbd2ff4ff0fb2e37e22871f38ac" => :arm64_big_sur
-    sha256 "30ed7115aa2a2534f5255508915f827c2e6f3100fcd7842415db64e31eabac30" => :catalina
-    sha256 "135eb0a8f098417a8e4d67bf8d732a19bad1932eee085497877e93982e91074f" => :mojave
-    sha256 "e872c3aae64c3b78197de9f12e272bebd5d20c316a120916f59a5f1cd2fac039" => :high_sierra
+    sha256 arm64_big_sur: "4a44a39cfd719b34d146043aa5afcc6ac304ebbd2ff4ff0fb2e37e22871f38ac"
+    sha256 big_sur:       "f03c91e17cd7595f98106ee4a27f28433ecc2fd6dde8cc1b7e279bd60b730051"
+    sha256 catalina:      "30ed7115aa2a2534f5255508915f827c2e6f3100fcd7842415db64e31eabac30"
+    sha256 mojave:        "135eb0a8f098417a8e4d67bf8d732a19bad1932eee085497877e93982e91074f"
+    sha256 high_sierra:   "e872c3aae64c3b78197de9f12e272bebd5d20c316a120916f59a5f1cd2fac039"
   end
 
   depends_on "autoconf" => :build

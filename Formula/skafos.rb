@@ -7,10 +7,9 @@ class Skafos < Formula
   revision 2
 
   bottle do
-    cellar :any
-    sha256 "2f1a06251a8e92a986afbefbfc380dd50c237bf0a59546ebcb89ee4f31b73e3a" => :catalina
-    sha256 "c487b351e95ab98ef03e4184020bda27b1cdc8353cfb505a54e75036731cfe0e" => :mojave
-    sha256 "57dc00bd0e8bfc96998c690cbd77a7c4c6486d50655603bfdf65771e340ee6b6" => :high_sierra
+    sha256 cellar: :any, catalina:    "2f1a06251a8e92a986afbefbfc380dd50c237bf0a59546ebcb89ee4f31b73e3a"
+    sha256 cellar: :any, mojave:      "c487b351e95ab98ef03e4184020bda27b1cdc8353cfb505a54e75036731cfe0e"
+    sha256 cellar: :any, high_sierra: "57dc00bd0e8bfc96998c690cbd77a7c4c6486d50655603bfdf65771e340ee6b6"
   end
 
   deprecate! date: "2020-12-16", because: :repo_archived

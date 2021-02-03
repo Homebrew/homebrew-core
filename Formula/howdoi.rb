@@ -12,11 +12,10 @@ class Howdoi < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "8f837e7757eac0892fdedff2b62f38b9041e7f909a69f8fd1f5bd1733787242a" => :big_sur
-    sha256 "f1b8ca3639300a3c50d2bc6bb6e19b214b154dfd340b0db345a8d5491a35c4c3" => :arm64_big_sur
-    sha256 "d02d5c3fb64b4c21e76272d002e5075cd80885e25e825c1c8c1928936313279f" => :catalina
-    sha256 "6f5f4e2360a4fcef158ffbf5f19756e2085d089eeb3226f985ee79cc8e938449" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f1b8ca3639300a3c50d2bc6bb6e19b214b154dfd340b0db345a8d5491a35c4c3"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8f837e7757eac0892fdedff2b62f38b9041e7f909a69f8fd1f5bd1733787242a"
+    sha256 cellar: :any_skip_relocation, catalina:      "d02d5c3fb64b4c21e76272d002e5075cd80885e25e825c1c8c1928936313279f"
+    sha256 cellar: :any_skip_relocation, mojave:        "6f5f4e2360a4fcef158ffbf5f19756e2085d089eeb3226f985ee79cc8e938449"
   end
 
   depends_on "python@3.9"

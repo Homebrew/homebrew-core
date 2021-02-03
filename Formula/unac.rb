@@ -6,16 +6,15 @@ class Unac < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    cellar :any
-    sha256 "434a30fa5bd969126e166925e6509885bb45e12977f4690c08b2b4fbcfb20dd4" => :big_sur
-    sha256 "5d58477a342637a20d39e60b0164846f14e8f2aac2d1fc01e162e8eefef63af7" => :arm64_big_sur
-    sha256 "c065103ee8b1c39a665dcca68787edadc6a60620e627912a721b3d5732ff0152" => :catalina
-    sha256 "29753f2d4ea3f9a56f9a3d8fdca4c4fe47044ff1bc986d9ecc06d5f376197da6" => :mojave
-    sha256 "eade4a2fba6e5828dccd3779b5e6681ca2558dbde421639624f089be835c55e8" => :high_sierra
-    sha256 "b97f2799eafd917f8fe1cc47c39634bc91a19ca452ce11ec8fd5edf37ea1dba3" => :sierra
-    sha256 "6c9d63dde182a55e237e63cfa4ab625164ce275e343fd88003483227bd7439bc" => :el_capitan
-    sha256 "0db9b14eae2c3db5d2d268deb4a3369557a13d35dd216f4ea50aa0776eb56fb3" => :yosemite
-    sha256 "1fd7af2c4ef86426dc63f80a14076a37ebabced46a572caf1b0e9fe760ab64c1" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "5d58477a342637a20d39e60b0164846f14e8f2aac2d1fc01e162e8eefef63af7"
+    sha256 cellar: :any, big_sur:       "434a30fa5bd969126e166925e6509885bb45e12977f4690c08b2b4fbcfb20dd4"
+    sha256 cellar: :any, catalina:      "c065103ee8b1c39a665dcca68787edadc6a60620e627912a721b3d5732ff0152"
+    sha256 cellar: :any, mojave:        "29753f2d4ea3f9a56f9a3d8fdca4c4fe47044ff1bc986d9ecc06d5f376197da6"
+    sha256 cellar: :any, high_sierra:   "eade4a2fba6e5828dccd3779b5e6681ca2558dbde421639624f089be835c55e8"
+    sha256 cellar: :any, sierra:        "b97f2799eafd917f8fe1cc47c39634bc91a19ca452ce11ec8fd5edf37ea1dba3"
+    sha256 cellar: :any, el_capitan:    "6c9d63dde182a55e237e63cfa4ab625164ce275e343fd88003483227bd7439bc"
+    sha256 cellar: :any, yosemite:      "0db9b14eae2c3db5d2d268deb4a3369557a13d35dd216f4ea50aa0776eb56fb3"
+    sha256 cellar: :any, mavericks:     "1fd7af2c4ef86426dc63f80a14076a37ebabced46a572caf1b0e9fe760ab64c1"
   end
 
   depends_on "autoconf" => :build

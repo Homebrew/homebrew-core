@@ -7,11 +7,10 @@ class DotenvLinter < Formula
   head "https://github.com/dotenv-linter/dotenv-linter.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "851044d08dcdaa0d16d0fd1cc0743b7539ef464b7c708137a065f78e9b6d5727" => :big_sur
-    sha256 "394d505159a7fa57862d7231e2aad10ce33836f54dbfbc2010c1d57d5172eb27" => :arm64_big_sur
-    sha256 "7e21af0a9acb92e757a0d0b1b086548c91ea8ef10cce7487797f9bc2c66825ba" => :catalina
-    sha256 "d9cd2cfa877f183617e0154482350605934e6a4fbbddff0c002299fbb079d87b" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "394d505159a7fa57862d7231e2aad10ce33836f54dbfbc2010c1d57d5172eb27"
+    sha256 cellar: :any_skip_relocation, big_sur:       "851044d08dcdaa0d16d0fd1cc0743b7539ef464b7c708137a065f78e9b6d5727"
+    sha256 cellar: :any_skip_relocation, catalina:      "7e21af0a9acb92e757a0d0b1b086548c91ea8ef10cce7487797f9bc2c66825ba"
+    sha256 cellar: :any_skip_relocation, mojave:        "d9cd2cfa877f183617e0154482350605934e6a4fbbddff0c002299fbb079d87b"
   end
 
   depends_on "rust" => :build

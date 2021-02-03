@@ -12,12 +12,11 @@ class Pipenv < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "58c0ee0415d06fc54e2411ca16257185512e677060f209c4b3cbd00d0c42f0d6" => :big_sur
-    sha256 "b78375585379d8b156b5cfd886c644cd088a0fc32d5ba567a12f610d1abdd0be" => :arm64_big_sur
-    sha256 "23aac8a0694ad16b9185f0f25c3cb3c4b7c0e3841d6a99515253b8e582a01243" => :catalina
-    sha256 "d0bc55ec7c8cd72b022202023de6c5573528bdf8f7a0665d826e8edb30fc6b48" => :mojave
-    sha256 "2abc2c4af6e6bbc6aa6c1af5993ad35e56e823d0b8867ec21164a0c824dd10f2" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b78375585379d8b156b5cfd886c644cd088a0fc32d5ba567a12f610d1abdd0be"
+    sha256 cellar: :any_skip_relocation, big_sur:       "58c0ee0415d06fc54e2411ca16257185512e677060f209c4b3cbd00d0c42f0d6"
+    sha256 cellar: :any_skip_relocation, catalina:      "23aac8a0694ad16b9185f0f25c3cb3c4b7c0e3841d6a99515253b8e582a01243"
+    sha256 cellar: :any_skip_relocation, mojave:        "d0bc55ec7c8cd72b022202023de6c5573528bdf8f7a0665d826e8edb30fc6b48"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "2abc2c4af6e6bbc6aa6c1af5993ad35e56e823d0b8867ec21164a0c824dd10f2"
   end
 
   depends_on "python@3.9"

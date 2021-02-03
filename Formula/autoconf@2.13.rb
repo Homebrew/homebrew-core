@@ -7,13 +7,12 @@ class AutoconfAT213 < Formula
   license "GPL-2.0"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "5d538d7301ae68a526aca1848ed4bab6fed48ee6b9375766b26d38fa2825a1c0" => :big_sur
-    sha256 "075de1fe7d7cdf38d3ca84a4436a8f9839adc333e3eb42ccc21c15d77cf01fb8" => :arm64_big_sur
-    sha256 "d3b4d6e06ae6749fc60fa437f1f5c2ae85a91f6979ca897e08b854f920c222a0" => :catalina
-    sha256 "5257ef101823cbf8d20693e27bf4505aec149c7d588459fedc2791a7906eb444" => :mojave
-    sha256 "5257ef101823cbf8d20693e27bf4505aec149c7d588459fedc2791a7906eb444" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "075de1fe7d7cdf38d3ca84a4436a8f9839adc333e3eb42ccc21c15d77cf01fb8"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5d538d7301ae68a526aca1848ed4bab6fed48ee6b9375766b26d38fa2825a1c0"
+    sha256 cellar: :any_skip_relocation, catalina:      "d3b4d6e06ae6749fc60fa437f1f5c2ae85a91f6979ca897e08b854f920c222a0"
+    sha256 cellar: :any_skip_relocation, mojave:        "5257ef101823cbf8d20693e27bf4505aec149c7d588459fedc2791a7906eb444"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "5257ef101823cbf8d20693e27bf4505aec149c7d588459fedc2791a7906eb444"
   end
 
   def install

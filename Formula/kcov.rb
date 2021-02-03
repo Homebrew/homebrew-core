@@ -15,12 +15,11 @@ class Kcov < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "e8181653c02129bd63fd438d3e5965cd25d5408ebe7c6699da2ab86b9a9f4340" => :big_sur
-    sha256 "32aab6003ab8ca0cf45e55415ae5b78e6fc59f5e02fa1d84397df1be17261230" => :arm64_big_sur
-    sha256 "becb863fd482145cd67dab0b25df128b5deba598fa89a217cd6ff63ba79edbc5" => :catalina
-    sha256 "dd72670ef6f9abd9b44bf70b8fcb64faffe1ba4edfd4704c70de395d3594dc89" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "32aab6003ab8ca0cf45e55415ae5b78e6fc59f5e02fa1d84397df1be17261230"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e8181653c02129bd63fd438d3e5965cd25d5408ebe7c6699da2ab86b9a9f4340"
+    sha256 cellar: :any_skip_relocation, catalina:      "becb863fd482145cd67dab0b25df128b5deba598fa89a217cd6ff63ba79edbc5"
+    sha256 cellar: :any_skip_relocation, mojave:        "dd72670ef6f9abd9b44bf70b8fcb64faffe1ba4edfd4704c70de395d3594dc89"
   end
 
   depends_on "cmake" => :build

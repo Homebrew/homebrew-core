@@ -8,13 +8,12 @@ class EchoprintCodegen < Formula
   head "https://github.com/echonest/echoprint-codegen.git"
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "1c621c7cbf6b05aefa9d022bf8e59afe30a2890af8789f0b06ce693998f8b605" => :catalina
-    sha256 "3bc7594efc0e206f367e80a7168962e97d6b4b38b3bbaa3425dd9e2c65450b93" => :mojave
-    sha256 "d23aa4f269c7c0f526363243a437b54bdc7331735a0e20b3846a6ebddf7d23a0" => :high_sierra
-    sha256 "1c071bc8bcbb1a74f0930c07f2d11058d86b8d2f576b262eaaa7a79af0a5dfd3" => :sierra
-    sha256 "06f93b8c6bb025d833ff7757048ea0680b240e3cdd6a51f4dd2fb4e6aad3f7dd" => :el_capitan
+    sha256 cellar: :any, catalina:    "1c621c7cbf6b05aefa9d022bf8e59afe30a2890af8789f0b06ce693998f8b605"
+    sha256 cellar: :any, mojave:      "3bc7594efc0e206f367e80a7168962e97d6b4b38b3bbaa3425dd9e2c65450b93"
+    sha256 cellar: :any, high_sierra: "d23aa4f269c7c0f526363243a437b54bdc7331735a0e20b3846a6ebddf7d23a0"
+    sha256 cellar: :any, sierra:      "1c071bc8bcbb1a74f0930c07f2d11058d86b8d2f576b262eaaa7a79af0a5dfd3"
+    sha256 cellar: :any, el_capitan:  "06f93b8c6bb025d833ff7757048ea0680b240e3cdd6a51f4dd2fb4e6aad3f7dd"
   end
 
   depends_on "boost"

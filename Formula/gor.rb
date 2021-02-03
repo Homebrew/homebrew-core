@@ -13,12 +13,11 @@ class Gor < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "b02c8cacea6257c1faf97f6c3a686f09fc1519e54cbd80713b19c95b9c03ced2" => :big_sur
-    sha256 "c5cb3c8f00af6a0ef7a8d1c24c4de59563c85bc51bb8a9f878ad4c283aa1954b" => :arm64_big_sur
-    sha256 "0a2c7715c47fa3fb9ba70494b1bf20a4216cabb09d909702f86d810a07c58f17" => :catalina
-    sha256 "347fab444ceaee3d2dae0f23cedcd924267bbbba95a099ad5602ba3051fd5c1f" => :mojave
-    sha256 "0e07f5bf90d57b9bd1b0ccb961e6ee240fd8346a923c45d075b66cd7c4714a63" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c5cb3c8f00af6a0ef7a8d1c24c4de59563c85bc51bb8a9f878ad4c283aa1954b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b02c8cacea6257c1faf97f6c3a686f09fc1519e54cbd80713b19c95b9c03ced2"
+    sha256 cellar: :any_skip_relocation, catalina:      "0a2c7715c47fa3fb9ba70494b1bf20a4216cabb09d909702f86d810a07c58f17"
+    sha256 cellar: :any_skip_relocation, mojave:        "347fab444ceaee3d2dae0f23cedcd924267bbbba95a099ad5602ba3051fd5c1f"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "0e07f5bf90d57b9bd1b0ccb961e6ee240fd8346a923c45d075b66cd7c4714a63"
   end
 
   depends_on "go" => :build

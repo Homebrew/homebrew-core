@@ -6,16 +6,15 @@ class LibxdgBasedir < Formula
   license "MIT"
 
   bottle do
-    cellar :any
-    sha256 "3f6d2cac0e17098e540c5da2be7a2893895c1c4b72506198e1bb2877feec8861" => :big_sur
-    sha256 "c1dfda867b69189c34e5a48f3c089f23d623cce8436fa68299d90715bee42b7f" => :arm64_big_sur
-    sha256 "3d1776b30c96451960647fe4dbac15af5c6c2d85907731a54eeaf6456915a8a2" => :catalina
-    sha256 "d737fa3c4f67f250dd7443702868bc4204cff2d05bc7bf0efe54e7efe64655fa" => :mojave
-    sha256 "f5b940765c84d65ecd0baddcc03eab2bc612a090db48e6309b411f13e7a3c714" => :high_sierra
-    sha256 "00953ec922b6ebac6e27b1f8e1139fcc1cc5b9f8312dc8d0ebe69778c884c1b7" => :sierra
-    sha256 "30b3e34a46470f11d90ca01aebd2b2d1fbaa6cc8a05c1bcec7067d40fdec75d1" => :el_capitan
-    sha256 "7e165b0e949f559789981a5c0e0fd68bbf478943a0c9b03ad3778cecb0219691" => :yosemite
-    sha256 "5c7bfadf4ca8b26c077eea7480df5a4ca3634b5823860a06ce2756050acbe84a" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "c1dfda867b69189c34e5a48f3c089f23d623cce8436fa68299d90715bee42b7f"
+    sha256 cellar: :any, big_sur:       "3f6d2cac0e17098e540c5da2be7a2893895c1c4b72506198e1bb2877feec8861"
+    sha256 cellar: :any, catalina:      "3d1776b30c96451960647fe4dbac15af5c6c2d85907731a54eeaf6456915a8a2"
+    sha256 cellar: :any, mojave:        "d737fa3c4f67f250dd7443702868bc4204cff2d05bc7bf0efe54e7efe64655fa"
+    sha256 cellar: :any, high_sierra:   "f5b940765c84d65ecd0baddcc03eab2bc612a090db48e6309b411f13e7a3c714"
+    sha256 cellar: :any, sierra:        "00953ec922b6ebac6e27b1f8e1139fcc1cc5b9f8312dc8d0ebe69778c884c1b7"
+    sha256 cellar: :any, el_capitan:    "30b3e34a46470f11d90ca01aebd2b2d1fbaa6cc8a05c1bcec7067d40fdec75d1"
+    sha256 cellar: :any, yosemite:      "7e165b0e949f559789981a5c0e0fd68bbf478943a0c9b03ad3778cecb0219691"
+    sha256 cellar: :any, mavericks:     "5c7bfadf4ca8b26c077eea7480df5a4ca3634b5823860a06ce2756050acbe84a"
   end
 
   depends_on "autoconf" => :build

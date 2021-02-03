@@ -12,15 +12,14 @@ class Squirrel < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "d234067f8f8ae8d02c69c903bd71cfb714d7b732b37bae6e527ceb9ccc1b9dc4" => :big_sur
-    sha256 "3eb8546645662f5803fdc10228ea5d8b0fdcb01023ba1e1dfc7213f15b986e2c" => :arm64_big_sur
-    sha256 "036b6172b0a11dde45cc6e28613a0db3a2aa1a7a44f220d1bd963a1903533a56" => :catalina
-    sha256 "3080041c6bda4ffb009faea5924917586204cb004f9a01ac434ff86e0cdb1cd1" => :mojave
-    sha256 "c57b21bbdcac5cbaf3d7319d64f08c150d16592138bdf1027e7032f579e10091" => :high_sierra
-    sha256 "f4d3e6db56838a29cd7247f0933de64bb35a6dac581a9ade879205cbfc9d93f7" => :sierra
-    sha256 "0b6dab6fc2a9a9a9d68d8310977041bd20a492cfe91a6daef07638b0cea55aad" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3eb8546645662f5803fdc10228ea5d8b0fdcb01023ba1e1dfc7213f15b986e2c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d234067f8f8ae8d02c69c903bd71cfb714d7b732b37bae6e527ceb9ccc1b9dc4"
+    sha256 cellar: :any_skip_relocation, catalina:      "036b6172b0a11dde45cc6e28613a0db3a2aa1a7a44f220d1bd963a1903533a56"
+    sha256 cellar: :any_skip_relocation, mojave:        "3080041c6bda4ffb009faea5924917586204cb004f9a01ac434ff86e0cdb1cd1"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "c57b21bbdcac5cbaf3d7319d64f08c150d16592138bdf1027e7032f579e10091"
+    sha256 cellar: :any_skip_relocation, sierra:        "f4d3e6db56838a29cd7247f0933de64bb35a6dac581a9ade879205cbfc9d93f7"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "0b6dab6fc2a9a9a9d68d8310977041bd20a492cfe91a6daef07638b0cea55aad"
   end
 
   # Upstream patch to fix compilation with Xcode 9

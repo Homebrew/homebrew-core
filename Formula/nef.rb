@@ -6,10 +6,9 @@ class Nef < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "11c4a5eb869ab0e94f430c3ff4104064e0ec3b371ed4e0d6c8673ac9f18915ee" => :big_sur
-    sha256 "b5b6f8469fa1102d9e6493f179a51506aacd9aa4c475717a7f4bdeb8faffea0f" => :arm64_big_sur
-    sha256 "fae01b5b21abe8205e3e42101804f3c6c16bb04d1c14841846766579ce2885d5" => :catalina
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b5b6f8469fa1102d9e6493f179a51506aacd9aa4c475717a7f4bdeb8faffea0f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "11c4a5eb869ab0e94f430c3ff4104064e0ec3b371ed4e0d6c8673ac9f18915ee"
+    sha256 cellar: :any_skip_relocation, catalina:      "fae01b5b21abe8205e3e42101804f3c6c16bb04d1c14841846766579ce2885d5"
   end
 
   depends_on xcode: "11.4"

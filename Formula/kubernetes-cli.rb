@@ -13,10 +13,9 @@ class KubernetesCli < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "58049cbdcae1b674d62aa1ad4cb5d9b667ac01080574c0fe5c9e126f8fde1eb6" => :big_sur
-    sha256 "a01f3291281baa941148b50d733278059c13db4da4e0480019fd841eeb441322" => :catalina
-    sha256 "22d9642cbe12a6284e4285e395f3d6e7c7fa477600dc8d31d00d6da88beee33f" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur:  "58049cbdcae1b674d62aa1ad4cb5d9b667ac01080574c0fe5c9e126f8fde1eb6"
+    sha256 cellar: :any_skip_relocation, catalina: "a01f3291281baa941148b50d733278059c13db4da4e0480019fd841eeb441322"
+    sha256 cellar: :any_skip_relocation, mojave:   "22d9642cbe12a6284e4285e395f3d6e7c7fa477600dc8d31d00d6da88beee33f"
   end
 
   depends_on "go" => :build

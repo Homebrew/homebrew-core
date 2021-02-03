@@ -6,14 +6,13 @@ class Clblas < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any
-    sha256 "e68a3ce1669b5f88aa5ca31e57ccb687f99601d35f3fcf7470de8e38d53671c9" => :big_sur
-    sha256 "97d7206bae700bdba2b4f1c6570d7e772ab5ade56d82af61d98d75eebe764f72" => :catalina
-    sha256 "de18e1f78894ad83aa80a1d2a6d21973d61507be13a657055bd19b1f11b80c0b" => :mojave
-    sha256 "47e08f87365e11a57d2ffc2fb81a3cfcd8bd784c438c1e08e1fe4116fc774553" => :high_sierra
-    sha256 "22a6cc8252ed5d431ccea7d51631f57bcee3876be7f65a0ac0fbaabfe09a9484" => :sierra
-    sha256 "e18aa93ecbd78f5f70607653a1e1c48f73952aeef1a568e2205362368c40ba4c" => :el_capitan
-    sha256 "ac0d50729480e60afd56862a49f92408cb0ed61967ba91fcdc9e024e06f39917" => :yosemite
+    sha256 cellar: :any, big_sur:     "e68a3ce1669b5f88aa5ca31e57ccb687f99601d35f3fcf7470de8e38d53671c9"
+    sha256 cellar: :any, catalina:    "97d7206bae700bdba2b4f1c6570d7e772ab5ade56d82af61d98d75eebe764f72"
+    sha256 cellar: :any, mojave:      "de18e1f78894ad83aa80a1d2a6d21973d61507be13a657055bd19b1f11b80c0b"
+    sha256 cellar: :any, high_sierra: "47e08f87365e11a57d2ffc2fb81a3cfcd8bd784c438c1e08e1fe4116fc774553"
+    sha256 cellar: :any, sierra:      "22a6cc8252ed5d431ccea7d51631f57bcee3876be7f65a0ac0fbaabfe09a9484"
+    sha256 cellar: :any, el_capitan:  "e18aa93ecbd78f5f70607653a1e1c48f73952aeef1a568e2205362368c40ba4c"
+    sha256 cellar: :any, yosemite:    "ac0d50729480e60afd56862a49f92408cb0ed61967ba91fcdc9e024e06f39917"
   end
 
   depends_on "boost" => :build

@@ -6,12 +6,11 @@ class Libxres < Formula
   license "MIT"
 
   bottle do
-    cellar :any
-    sha256 "fcb9ac04422ee9752674c1fe7cad12cf079b299b0bbd7492866c1cd51223455d" => :big_sur
-    sha256 "10d33ad166cc2ce0992e7837eea0ffeee0e68541b83a449985c4f23456962331" => :arm64_big_sur
-    sha256 "9284047f0480984d64b23e375e7aea8fe986e92cf511aac09cd6966221a2e7a7" => :catalina
-    sha256 "1e5bda4d9cd50b6d45252949946e03758e0e05bdd4bf0e3d4e4724a43cd9aa55" => :mojave
-    sha256 "bfec4cc0604f69d40a032f4ec36d231be3bac9eca44bcfcf4fb18ecd23023fbc" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "10d33ad166cc2ce0992e7837eea0ffeee0e68541b83a449985c4f23456962331"
+    sha256 cellar: :any, big_sur:       "fcb9ac04422ee9752674c1fe7cad12cf079b299b0bbd7492866c1cd51223455d"
+    sha256 cellar: :any, catalina:      "9284047f0480984d64b23e375e7aea8fe986e92cf511aac09cd6966221a2e7a7"
+    sha256 cellar: :any, mojave:        "1e5bda4d9cd50b6d45252949946e03758e0e05bdd4bf0e3d4e4724a43cd9aa55"
+    sha256 cellar: :any, high_sierra:   "bfec4cc0604f69d40a032f4ec36d231be3bac9eca44bcfcf4fb18ecd23023fbc"
   end
 
   depends_on "pkg-config" => :build

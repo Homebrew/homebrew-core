@@ -14,12 +14,11 @@ class ShallowBackup < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 2
-    sha256 "e1ad3d711a2c18d700033fc80c16f21ebf40a1a0ba40d41352fe5c3e13339a5a" => :big_sur
-    sha256 "54e0db13cd94663dc668a6a219d4eb82146ee203b7734362c25e9d73f3f2b33e" => :arm64_big_sur
-    sha256 "180c2239489893d858f7a12d729d07c47d0eed52bb77b0fc31dedba920697672" => :catalina
-    sha256 "84fe6770d371202f7f6bda5e55b7dc1d54744faa38a25ed498d36eab4ef8be5f" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "54e0db13cd94663dc668a6a219d4eb82146ee203b7734362c25e9d73f3f2b33e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e1ad3d711a2c18d700033fc80c16f21ebf40a1a0ba40d41352fe5c3e13339a5a"
+    sha256 cellar: :any_skip_relocation, catalina:      "180c2239489893d858f7a12d729d07c47d0eed52bb77b0fc31dedba920697672"
+    sha256 cellar: :any_skip_relocation, mojave:        "84fe6770d371202f7f6bda5e55b7dc1d54744faa38a25ed498d36eab4ef8be5f"
   end
 
   depends_on "python@3.9"

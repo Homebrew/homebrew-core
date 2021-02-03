@@ -6,16 +6,15 @@ class Grepcidr < Formula
   license "GPL-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "1aee569b691f9aee204924d4059b55b5d28be63394350b9ed5993d42a131c081" => :big_sur
-    sha256 "d2a44c09499df8266ce513c939722e15a3b8365cb9802a1311450d470ad01b0e" => :arm64_big_sur
-    sha256 "29222220edfad5ce8db2a197f1e0a3fe1d703a62338c5dc8d28ed8ce47afe987" => :catalina
-    sha256 "195665f1f4647ec6ee1f43830cd21079413fc8c1df4dce5e869891d402791488" => :mojave
-    sha256 "7266be7b9262d50ab08d63529cf9858764573784ab63918010454ec2d76363b6" => :high_sierra
-    sha256 "12dfa49026bffb77ed1c4a08e9b60b56859eb183bbf791754d0b1d476ba6d795" => :sierra
-    sha256 "31ccf6792cab3c5022530ef4576ea53e6dedd4855b939d11212fea0d7fa294dc" => :el_capitan
-    sha256 "d0024b81610b4a698de415aef87958e2a61f74a9f1f2b7acf875f2f3d50ecc05" => :yosemite
-    sha256 "c4ed3ba91b4acd41f51850b143ea9826275b221fc8f041098dfe5f5a429a0289" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d2a44c09499df8266ce513c939722e15a3b8365cb9802a1311450d470ad01b0e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1aee569b691f9aee204924d4059b55b5d28be63394350b9ed5993d42a131c081"
+    sha256 cellar: :any_skip_relocation, catalina:      "29222220edfad5ce8db2a197f1e0a3fe1d703a62338c5dc8d28ed8ce47afe987"
+    sha256 cellar: :any_skip_relocation, mojave:        "195665f1f4647ec6ee1f43830cd21079413fc8c1df4dce5e869891d402791488"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "7266be7b9262d50ab08d63529cf9858764573784ab63918010454ec2d76363b6"
+    sha256 cellar: :any_skip_relocation, sierra:        "12dfa49026bffb77ed1c4a08e9b60b56859eb183bbf791754d0b1d476ba6d795"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "31ccf6792cab3c5022530ef4576ea53e6dedd4855b939d11212fea0d7fa294dc"
+    sha256 cellar: :any_skip_relocation, yosemite:      "d0024b81610b4a698de415aef87958e2a61f74a9f1f2b7acf875f2f3d50ecc05"
+    sha256 cellar: :any_skip_relocation, mavericks:     "c4ed3ba91b4acd41f51850b143ea9826275b221fc8f041098dfe5f5a429a0289"
   end
 
   def install

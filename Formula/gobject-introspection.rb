@@ -13,11 +13,11 @@ class GobjectIntrospection < Formula
   end
 
   bottle do
-    sha256 "e5894b5eec0b33c9d00d0b7b1159cdfe6a2947fcf9ac9ade5ff621f2df7932df" => :big_sur
-    sha256 "2d82497ba4828a88c50e4842a2f78849843b31dc12263591f3e1ce578a61c199" => :arm64_big_sur
-    sha256 "3e85468a3324cb560775e024c6fd52212af73994898b381faff9aad5baa2fdb6" => :catalina
-    sha256 "1d42d9c900dab307aefddffe723140ec2dfa25201426b4426c76cca28a4c46fa" => :mojave
-    sha256 "e22482d7c20cefd6c020eb7bb3406a9da8e159a128a700fa9d13983c3da426e7" => :high_sierra
+    sha256 arm64_big_sur: "2d82497ba4828a88c50e4842a2f78849843b31dc12263591f3e1ce578a61c199"
+    sha256 big_sur:       "e5894b5eec0b33c9d00d0b7b1159cdfe6a2947fcf9ac9ade5ff621f2df7932df"
+    sha256 catalina:      "3e85468a3324cb560775e024c6fd52212af73994898b381faff9aad5baa2fdb6"
+    sha256 mojave:        "1d42d9c900dab307aefddffe723140ec2dfa25201426b4426c76cca28a4c46fa"
+    sha256 high_sierra:   "e22482d7c20cefd6c020eb7bb3406a9da8e159a128a700fa9d13983c3da426e7"
   end
 
   depends_on "bison" => :build

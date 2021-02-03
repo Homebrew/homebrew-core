@@ -7,10 +7,9 @@ class Ifuse < Formula
   head "https://cgit.sukimashita.com/ifuse.git"
 
   bottle do
-    cellar :any
-    sha256 "cdce9fc5dbaf44641743b4a77434d340ae11cb8ed98f17b1a86a5653d2b6e1a2" => :catalina
-    sha256 "e14e4f8e0f73324dc662b47f091261f682eddc73961e3d71a07bfeb62826a1f8" => :mojave
-    sha256 "ff5577f28749cf18671eecd953e96f0c52a06dccf827dcf08e2d64f894dfdd5e" => :high_sierra
+    sha256 cellar: :any, catalina:    "cdce9fc5dbaf44641743b4a77434d340ae11cb8ed98f17b1a86a5653d2b6e1a2"
+    sha256 cellar: :any, mojave:      "e14e4f8e0f73324dc662b47f091261f682eddc73961e3d71a07bfeb62826a1f8"
+    sha256 cellar: :any, high_sierra: "ff5577f28749cf18671eecd953e96f0c52a06dccf827dcf08e2d64f894dfdd5e"
   end
 
   depends_on "autoconf" => :build

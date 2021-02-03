@@ -11,11 +11,10 @@ class Latex2html < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "6872bf6979572c46b6440b7e3a54caa49661fb98348b4eb3be91022f133dede7" => :big_sur
-    sha256 "0b92290fc7fb156b76df56ee8992b272fca29ccbe1ec50e7637df550939fcf0d" => :arm64_big_sur
-    sha256 "fed2600e8edb14f29596c2b89720a1e21d19ae27c0c39bdf565c2320b147f553" => :catalina
-    sha256 "02ffab1491227b84d0accbf77265ae229ac104f5a3b62a51c8c69371d7f976d5" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0b92290fc7fb156b76df56ee8992b272fca29ccbe1ec50e7637df550939fcf0d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6872bf6979572c46b6440b7e3a54caa49661fb98348b4eb3be91022f133dede7"
+    sha256 cellar: :any_skip_relocation, catalina:      "fed2600e8edb14f29596c2b89720a1e21d19ae27c0c39bdf565c2320b147f553"
+    sha256 cellar: :any_skip_relocation, mojave:        "02ffab1491227b84d0accbf77265ae229ac104f5a3b62a51c8c69371d7f976d5"
   end
 
   depends_on "ghostscript"

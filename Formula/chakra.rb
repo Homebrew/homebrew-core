@@ -6,10 +6,9 @@ class Chakra < Formula
   license "MIT"
 
   bottle do
-    cellar :any
-    sha256 "54835c87297a98ea9edb65a60d47b82f6e67b5207d1297e04bf23a41a9eea597" => :big_sur
-    sha256 "594b400cd30d5ee359237573099b6243d0f76d46045878de712b7b15572a222d" => :catalina
-    sha256 "8597fc787f82f99e48303c40bec65cd41c31347be6c8da8478eabb723e3f1a37" => :mojave
+    sha256 cellar: :any, big_sur:  "54835c87297a98ea9edb65a60d47b82f6e67b5207d1297e04bf23a41a9eea597"
+    sha256 cellar: :any, catalina: "594b400cd30d5ee359237573099b6243d0f76d46045878de712b7b15572a222d"
+    sha256 cellar: :any, mojave:   "8597fc787f82f99e48303c40bec65cd41c31347be6c8da8478eabb723e3f1a37"
   end
 
   depends_on "cmake" => :build

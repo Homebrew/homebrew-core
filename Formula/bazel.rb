@@ -6,11 +6,10 @@ class Bazel < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "f8d9221e1fac2cc9b732ecaeffe8e5d83e2cd7bb4083006697d1828891e5777c" => :big_sur
-    sha256 "03d9bae72a88eb463ca7fc05edd799d2b33193982a31368e5ea347bbdbfe4468" => :arm64_big_sur
-    sha256 "5f98dfeab044d1178e7466334c3d5a90338bd1d2907a9f9797f0fc6ba6ed4490" => :catalina
-    sha256 "6d62c70b69b6275216a182a5dc5fa10c8c73e5876367557e8a9f01465b48f649" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "03d9bae72a88eb463ca7fc05edd799d2b33193982a31368e5ea347bbdbfe4468"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f8d9221e1fac2cc9b732ecaeffe8e5d83e2cd7bb4083006697d1828891e5777c"
+    sha256 cellar: :any_skip_relocation, catalina:      "5f98dfeab044d1178e7466334c3d5a90338bd1d2907a9f9797f0fc6ba6ed4490"
+    sha256 cellar: :any_skip_relocation, mojave:        "6d62c70b69b6275216a182a5dc5fa10c8c73e5876367557e8a9f01465b48f649"
   end
 
   depends_on "python@3.9" => :build

@@ -7,12 +7,11 @@ class Zrepl < Formula
   head "https://github.com/zrepl/zrepl.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "04ba02a1867bf19002e289edbf40423a3eb1a95fea05ae813b1cff5fc71d3873" => :big_sur
-    sha256 "5b7ea253b2d72f513eeae44b390feed827cb09bed8dfe2df97500e0d269017d8" => :arm64_big_sur
-    sha256 "1314da8c7c65f89c93a17ca3dab945e0132e61a1e5cc2ec83f3e844bb1a475fc" => :catalina
-    sha256 "d4c76f92429aea1e62be4e187f263c478b60ab47bbd739d4c97f97fd3d852dab" => :mojave
-    sha256 "bf399e30a67a4cab316128ef33b9e1349bb51a32a0c6befeecb79ef2837c22b5" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5b7ea253b2d72f513eeae44b390feed827cb09bed8dfe2df97500e0d269017d8"
+    sha256 cellar: :any_skip_relocation, big_sur:       "04ba02a1867bf19002e289edbf40423a3eb1a95fea05ae813b1cff5fc71d3873"
+    sha256 cellar: :any_skip_relocation, catalina:      "1314da8c7c65f89c93a17ca3dab945e0132e61a1e5cc2ec83f3e844bb1a475fc"
+    sha256 cellar: :any_skip_relocation, mojave:        "d4c76f92429aea1e62be4e187f263c478b60ab47bbd739d4c97f97fd3d852dab"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "bf399e30a67a4cab316128ef33b9e1349bb51a32a0c6befeecb79ef2837c22b5"
   end
 
   depends_on "go" => :build

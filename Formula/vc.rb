@@ -6,11 +6,10 @@ class Vc < Formula
   license "BSD-3-Clause"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "528735327505bd30c949c2028ee60fd9fd7858162f4c1ceab2418ba2d40f4b06" => :big_sur
-    sha256 "839b965a6be7efa1b509c0a8d353a04fbcc618c3af9463efd74277252f5fa302" => :arm64_big_sur
-    sha256 "fc96abd9aab0fdd88d84cf0d56129b44d02fff3481078e332e4c3859661e66e6" => :catalina
-    sha256 "01f676787da9756b8a2b9ba58041596002d9c1ae5c4fac683db8d4d8af6f0a8b" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "839b965a6be7efa1b509c0a8d353a04fbcc618c3af9463efd74277252f5fa302"
+    sha256 cellar: :any_skip_relocation, big_sur:       "528735327505bd30c949c2028ee60fd9fd7858162f4c1ceab2418ba2d40f4b06"
+    sha256 cellar: :any_skip_relocation, catalina:      "fc96abd9aab0fdd88d84cf0d56129b44d02fff3481078e332e4c3859661e66e6"
+    sha256 cellar: :any_skip_relocation, mojave:        "01f676787da9756b8a2b9ba58041596002d9c1ae5c4fac683db8d4d8af6f0a8b"
   end
 
   depends_on "cmake" => :build

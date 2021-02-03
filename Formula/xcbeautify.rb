@@ -8,10 +8,9 @@ class Xcbeautify < Formula
   head "https://github.com/thii/xcbeautify.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "1b95942893695e6ea3d30c17064939161f6e573243cc92035e930b4e1a39deef" => :big_sur
-    sha256 "07f7226da16337b9947871edf3e6112e042d9371872eea692877cd83e3f4e18c" => :arm64_big_sur
-    sha256 "5b053728e2ee73f3542cf2b7178af1a5d309970f5374fd1342da93e6dfcb57af" => :catalina
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "07f7226da16337b9947871edf3e6112e042d9371872eea692877cd83e3f4e18c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1b95942893695e6ea3d30c17064939161f6e573243cc92035e930b4e1a39deef"
+    sha256 cellar: :any_skip_relocation, catalina:      "5b053728e2ee73f3542cf2b7178af1a5d309970f5374fd1342da93e6dfcb57af"
   end
 
   depends_on xcode: ["11.4", :build]

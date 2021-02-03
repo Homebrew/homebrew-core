@@ -7,16 +7,15 @@ class Libantlr3c < Formula
   revision 1
 
   bottle do
-    cellar :any
-    sha256 "3e442dfcc1083a693b77995703d2a2bb5100d13dfbae8cf174816fd112e90cb5" => :big_sur
-    sha256 "0ba9d61434c3b1a05ef0ff9bb86e1e6d238c91723383204daeb5115976b05b02" => :arm64_big_sur
-    sha256 "53bc5810ecd6cc4be26da750839d53981ebba6ad931e13005661e599cfd69501" => :catalina
-    sha256 "c4df9f53203a7e21abc1fb22bf74256017f646e9177606c7da6c222db16dd3cb" => :mojave
-    sha256 "2de7942e4bc89830c0d92bfda55e60a4ad82723430bcc7477abb5d1b1ade7f86" => :high_sierra
-    sha256 "a5e779c431e16bdaab829c774468ce11f8e7ea359412800e294433b011704541" => :sierra
-    sha256 "fea1cde8ae732cdbbffa6a6d329239b1da067d2b69424d53178e60309748c403" => :el_capitan
-    sha256 "8026d876b20980138c076cb4008f358deb858204b6399c436cf45e93594274e7" => :yosemite
-    sha256 "010c3866a3c183b10dec76f845ce826a26a5a384074f8c56f41abeb9e4aa6e77" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "0ba9d61434c3b1a05ef0ff9bb86e1e6d238c91723383204daeb5115976b05b02"
+    sha256 cellar: :any, big_sur:       "3e442dfcc1083a693b77995703d2a2bb5100d13dfbae8cf174816fd112e90cb5"
+    sha256 cellar: :any, catalina:      "53bc5810ecd6cc4be26da750839d53981ebba6ad931e13005661e599cfd69501"
+    sha256 cellar: :any, mojave:        "c4df9f53203a7e21abc1fb22bf74256017f646e9177606c7da6c222db16dd3cb"
+    sha256 cellar: :any, high_sierra:   "2de7942e4bc89830c0d92bfda55e60a4ad82723430bcc7477abb5d1b1ade7f86"
+    sha256 cellar: :any, sierra:        "a5e779c431e16bdaab829c774468ce11f8e7ea359412800e294433b011704541"
+    sha256 cellar: :any, el_capitan:    "fea1cde8ae732cdbbffa6a6d329239b1da067d2b69424d53178e60309748c403"
+    sha256 cellar: :any, yosemite:      "8026d876b20980138c076cb4008f358deb858204b6399c436cf45e93594274e7"
+    sha256 cellar: :any, mavericks:     "010c3866a3c183b10dec76f845ce826a26a5a384074f8c56f41abeb9e4aa6e77"
   end
 
   def install

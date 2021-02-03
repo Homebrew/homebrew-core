@@ -6,10 +6,9 @@ class MagicEnum < Formula
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "02d5aca1f1f02b8a7623289189fbebbe349db98f551b80afdf31371f37499472" => :big_sur
-    sha256 "c9861f04884832a1b13f27ccc7eef8d96ad10d7b3637acbb077b7ff72e91e804" => :catalina
-    sha256 "e858d99e9766b58afee79c9eabfed3145dd89afc06e786de4db87582878fefca" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur:  "02d5aca1f1f02b8a7623289189fbebbe349db98f551b80afdf31371f37499472"
+    sha256 cellar: :any_skip_relocation, catalina: "c9861f04884832a1b13f27ccc7eef8d96ad10d7b3637acbb077b7ff72e91e804"
+    sha256 cellar: :any_skip_relocation, mojave:   "e858d99e9766b58afee79c9eabfed3145dd89afc06e786de4db87582878fefca"
   end
 
   depends_on "cmake" => :build

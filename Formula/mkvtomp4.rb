@@ -14,12 +14,11 @@ class Mkvtomp4 < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 2
-    sha256 "7122210c51f74465371eb6a92b3d1dd80a27f68f08335dce119b3aeffb9c00cc" => :big_sur
-    sha256 "76e2587009f31923054390bd434b37f0fbf898088a79832b00a5ea6331066ae6" => :arm64_big_sur
-    sha256 "a4c3cdb9f62d23b6f66827f9fa646c377d60f9d0e5b3dad81eb6c5a67d2798ac" => :catalina
-    sha256 "d7ba96f07d2a82d2c5e2d5cce1b80836abdebe0a990f238c763c06aec305ad0a" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "76e2587009f31923054390bd434b37f0fbf898088a79832b00a5ea6331066ae6"
+    sha256 cellar: :any_skip_relocation, big_sur:       "7122210c51f74465371eb6a92b3d1dd80a27f68f08335dce119b3aeffb9c00cc"
+    sha256 cellar: :any_skip_relocation, catalina:      "a4c3cdb9f62d23b6f66827f9fa646c377d60f9d0e5b3dad81eb6c5a67d2798ac"
+    sha256 cellar: :any_skip_relocation, mojave:        "d7ba96f07d2a82d2c5e2d5cce1b80836abdebe0a990f238c763c06aec305ad0a"
   end
 
   depends_on "ffmpeg"

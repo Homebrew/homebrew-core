@@ -16,11 +16,11 @@ class Libcapn < Formula
   end
 
   bottle do
-    sha256 "e355824f9490a5bb90964a7b5bf4b69735ebe72560bf112e2f083111ca31550e" => :big_sur
-    sha256 "b87f88777484a94bcbd142d107b9b29317962ab9ff318857c90c01ade15c6f45" => :arm64_big_sur
-    sha256 "67b634beae31705b6664702473cb42a686c50d84f4d0ec530bbe4e360c292dba" => :catalina
-    sha256 "3b4b1f331e7e79c6a99826c5ffd385df3f199a7d72c897e9fd31150be26303cb" => :mojave
-    sha256 "a3cd6c452f96c9914f41fe22c1c0b5518c282569dffcebe7d6f38783ce2fb4d1" => :high_sierra
+    sha256 arm64_big_sur: "b87f88777484a94bcbd142d107b9b29317962ab9ff318857c90c01ade15c6f45"
+    sha256 big_sur:       "e355824f9490a5bb90964a7b5bf4b69735ebe72560bf112e2f083111ca31550e"
+    sha256 catalina:      "67b634beae31705b6664702473cb42a686c50d84f4d0ec530bbe4e360c292dba"
+    sha256 mojave:        "3b4b1f331e7e79c6a99826c5ffd385df3f199a7d72c897e9fd31150be26303cb"
+    sha256 high_sierra:   "a3cd6c452f96c9914f41fe22c1c0b5518c282569dffcebe7d6f38783ce2fb4d1"
   end
 
   depends_on "cmake" => :build

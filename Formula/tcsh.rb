@@ -11,10 +11,10 @@ class Tcsh < Formula
   end
 
   bottle do
-    sha256 "e572fcc4259db31e54c25ccf22d736637cfce0801f038691b86d5d68847d6603" => :big_sur
-    sha256 "4984599cbefc72104b17434f89aa257e0b2de09605a53ac66e9d07e4804b344d" => :arm64_big_sur
-    sha256 "2feecc5bd032b40e4673125431957d89a37a54aac8d4e0b5849fd9fa33aa7bfa" => :catalina
-    sha256 "1a278f9965f6b362035623cf793afee82e0039277f61f06f32499f7bdf0ec0ad" => :mojave
+    sha256 arm64_big_sur: "4984599cbefc72104b17434f89aa257e0b2de09605a53ac66e9d07e4804b344d"
+    sha256 big_sur:       "e572fcc4259db31e54c25ccf22d736637cfce0801f038691b86d5d68847d6603"
+    sha256 catalina:      "2feecc5bd032b40e4673125431957d89a37a54aac8d4e0b5849fd9fa33aa7bfa"
+    sha256 mojave:        "1a278f9965f6b362035623cf793afee82e0039277f61f06f32499f7bdf0ec0ad"
   end
 
   uses_from_macos "ncurses"

@@ -11,13 +11,12 @@ class Libiconv < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "9253ae6551eb63499fb292b4a65d054c918b93dab8beff0bc12f3290f77bd15c" => :big_sur
-    sha256 "5d7976b37516995241432ab9c4cb14a0eba03f2e8af5b7bb110147ce045c9e1f" => :arm64_big_sur
-    sha256 "24d81638fcd7416a56c3dbdac7e2265d7b0476b17a71b631045425380122e6b1" => :catalina
-    sha256 "7638dd8e2d511a2ce14c6c420762ce7fdbae6a34158e25015c3ffd88de2dd19b" => :mojave
-    sha256 "0f7f5728be3b7fc082a62df5e38cf1f1f9dc540e95f0c3479788cc2e2dee7294" => :high_sierra
-    sha256 "2c40a7b0486b9394f5f4cb6304179527421b68c965c49d961cf2703205da93e1" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "5d7976b37516995241432ab9c4cb14a0eba03f2e8af5b7bb110147ce045c9e1f"
+    sha256 cellar: :any, big_sur:       "9253ae6551eb63499fb292b4a65d054c918b93dab8beff0bc12f3290f77bd15c"
+    sha256 cellar: :any, catalina:      "24d81638fcd7416a56c3dbdac7e2265d7b0476b17a71b631045425380122e6b1"
+    sha256 cellar: :any, mojave:        "7638dd8e2d511a2ce14c6c420762ce7fdbae6a34158e25015c3ffd88de2dd19b"
+    sha256 cellar: :any, high_sierra:   "0f7f5728be3b7fc082a62df5e38cf1f1f9dc540e95f0c3479788cc2e2dee7294"
+    sha256 cellar: :any, sierra:        "2c40a7b0486b9394f5f4cb6304179527421b68c965c49d961cf2703205da93e1"
   end
 
   keg_only :provided_by_macos

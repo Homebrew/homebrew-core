@@ -9,11 +9,10 @@ class Chronograf < Formula
   head "https://github.com/influxdata/chronograf.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "9c3ca12cf1f5694468d1b38f5306467e5720feab4e6d99f3c9fd4f26a623bea3" => :big_sur
-    sha256 "8688a32e5306ca3f821e58d5c751a2ba3d79ea17d0b5c69a5548989097b9024b" => :arm64_big_sur
-    sha256 "0dc8c14ac9fe9d682d7459a69f4208e36471e2f7f791b3719c872294b068ad4e" => :catalina
-    sha256 "23e175b2e6c9d10af4e8a67e2bb53eee074facf82299336a9d5869731d161e44" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8688a32e5306ca3f821e58d5c751a2ba3d79ea17d0b5c69a5548989097b9024b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "9c3ca12cf1f5694468d1b38f5306467e5720feab4e6d99f3c9fd4f26a623bea3"
+    sha256 cellar: :any_skip_relocation, catalina:      "0dc8c14ac9fe9d682d7459a69f4208e36471e2f7f791b3719c872294b068ad4e"
+    sha256 cellar: :any_skip_relocation, mojave:        "23e175b2e6c9d10af4e8a67e2bb53eee074facf82299336a9d5869731d161e44"
   end
 
   depends_on "go" => :build

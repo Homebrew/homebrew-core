@@ -11,11 +11,10 @@ class Luit < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "15a8a5131d2751a372eb1304cff89af4a0437255de8b35221611021cb810d6b9" => :big_sur
-    sha256 "95869407113a13608e1c8063775f3a43d5c4f43d68a32179d2b0b7e6b4ef24d5" => :arm64_big_sur
-    sha256 "a26f38e63953d9107400fc4ba2bf66216041aaa76cffb69dfc975c03327b2850" => :catalina
-    sha256 "6e8560fb5defe523bce78f14e02a1dc46388c1b39755cb1ae6eedc9d6ea24738" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "95869407113a13608e1c8063775f3a43d5c4f43d68a32179d2b0b7e6b4ef24d5"
+    sha256 cellar: :any_skip_relocation, big_sur:       "15a8a5131d2751a372eb1304cff89af4a0437255de8b35221611021cb810d6b9"
+    sha256 cellar: :any_skip_relocation, catalina:      "a26f38e63953d9107400fc4ba2bf66216041aaa76cffb69dfc975c03327b2850"
+    sha256 cellar: :any_skip_relocation, mojave:        "6e8560fb5defe523bce78f14e02a1dc46388c1b39755cb1ae6eedc9d6ea24738"
   end
 
   def install

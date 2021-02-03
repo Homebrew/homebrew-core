@@ -13,11 +13,10 @@ class Shyaml < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "bdfdbc881e2ef1cc0ae52ad5cafae3715bdfaf76a1ac905a6e3aa3a7fc1736a2" => :big_sur
-    sha256 "ff1ab13915b1148905c77a4bac3ff65db4bc496d3b2fcdf031f30678f781c9f1" => :arm64_big_sur
-    sha256 "c95f616993a2fd70d3ed9fbb7556b582ef2aca26fbda97b36898bcfb9efbcee1" => :catalina
-    sha256 "1f157591a67c0165af8492b3cb1b6049a7e151b0770aaed4c176c15fe3050f68" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "ff1ab13915b1148905c77a4bac3ff65db4bc496d3b2fcdf031f30678f781c9f1"
+    sha256 cellar: :any, big_sur:       "bdfdbc881e2ef1cc0ae52ad5cafae3715bdfaf76a1ac905a6e3aa3a7fc1736a2"
+    sha256 cellar: :any, catalina:      "c95f616993a2fd70d3ed9fbb7556b582ef2aca26fbda97b36898bcfb9efbcee1"
+    sha256 cellar: :any, mojave:        "1f157591a67c0165af8492b3cb1b6049a7e151b0770aaed4c176c15fe3050f68"
   end
 
   depends_on "libyaml"

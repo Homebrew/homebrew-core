@@ -12,13 +12,12 @@ class Asciiquarium < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "9bf092861aad33c28e8f753d79032eb9af48521508dbee0a5ec6dc3646e6cc89" => :catalina
-    sha256 "7c9263400bd1045b998e5f48d34d79fa4df0e27daf5f9c49afb1ed283a39f537" => :mojave
-    sha256 "10d2a74f8e447c87fa477de74aa692a1d0043ab508e9a924126e0a3d55ffe5a7" => :high_sierra
-    sha256 "890b0e69b0261ff61b0d0666f2b3e0f579c1f63556c77c2d8d24bc1ef3f4e241" => :sierra
-    sha256 "9120f02b70c63672af2752de536aeaeac5ef57bc2b3a388afe1ab9e12d40a59b" => :el_capitan
-    sha256 "6b20abf264f40c7123e40f0f34cfc11f0c12a03b1a74a324e3f3a7ae75e94f3f" => :yosemite
+    sha256 cellar: :any_skip_relocation, catalina:    "9bf092861aad33c28e8f753d79032eb9af48521508dbee0a5ec6dc3646e6cc89"
+    sha256 cellar: :any_skip_relocation, mojave:      "7c9263400bd1045b998e5f48d34d79fa4df0e27daf5f9c49afb1ed283a39f537"
+    sha256 cellar: :any_skip_relocation, high_sierra: "10d2a74f8e447c87fa477de74aa692a1d0043ab508e9a924126e0a3d55ffe5a7"
+    sha256 cellar: :any_skip_relocation, sierra:      "890b0e69b0261ff61b0d0666f2b3e0f579c1f63556c77c2d8d24bc1ef3f4e241"
+    sha256 cellar: :any_skip_relocation, el_capitan:  "9120f02b70c63672af2752de536aeaeac5ef57bc2b3a388afe1ab9e12d40a59b"
+    sha256 cellar: :any_skip_relocation, yosemite:    "6b20abf264f40c7123e40f0f34cfc11f0c12a03b1a74a324e3f3a7ae75e94f3f"
   end
 
   uses_from_macos "perl"

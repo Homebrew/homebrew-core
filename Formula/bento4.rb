@@ -11,12 +11,11 @@ class Bento4 < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "d08015d67e5e8ae84f6fc0e7fe51055cb1e2aa5834f31903573466cca45a6c97" => :big_sur
-    sha256 "fe8e42701b024238775a67bdbdcb25c212f2a083f1584cddc3cb7de6abba7814" => :arm64_big_sur
-    sha256 "2efea32fecade412d22f6fd935b8cce2c551827b89525cabed6d6a4a2de75c31" => :catalina
-    sha256 "3263f0b113098ea8e9657b57b6bb6de2eba407239ca45b49c46004c1f2731e71" => :mojave
-    sha256 "5a4aeeb90a41317022137325da9ca78acb8223a3af1ac019e135cbdb7972a251" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "fe8e42701b024238775a67bdbdcb25c212f2a083f1584cddc3cb7de6abba7814"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d08015d67e5e8ae84f6fc0e7fe51055cb1e2aa5834f31903573466cca45a6c97"
+    sha256 cellar: :any_skip_relocation, catalina:      "2efea32fecade412d22f6fd935b8cce2c551827b89525cabed6d6a4a2de75c31"
+    sha256 cellar: :any_skip_relocation, mojave:        "3263f0b113098ea8e9657b57b6bb6de2eba407239ca45b49c46004c1f2731e71"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "5a4aeeb90a41317022137325da9ca78acb8223a3af1ac019e135cbdb7972a251"
   end
 
   depends_on xcode: :build

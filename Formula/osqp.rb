@@ -6,11 +6,10 @@ class Osqp < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any
-    sha256 "875d53798462ef836a86415604f94d903ef6b6974732292aaf6bed3d37f69e5f" => :big_sur
-    sha256 "e632fa361ed8e194da854c8caff4b015482015fda56af0bd6f0ca76bbadecc74" => :arm64_big_sur
-    sha256 "2f78c81c56d6f153e55f6e6ce4524eec62cf806b7834ef48337d08aefb2643ec" => :catalina
-    sha256 "2f15d564ee6028766215aa931f0ee0c65af87da9fe4697662354a6b9c53e1a30" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "e632fa361ed8e194da854c8caff4b015482015fda56af0bd6f0ca76bbadecc74"
+    sha256 cellar: :any, big_sur:       "875d53798462ef836a86415604f94d903ef6b6974732292aaf6bed3d37f69e5f"
+    sha256 cellar: :any, catalina:      "2f78c81c56d6f153e55f6e6ce4524eec62cf806b7834ef48337d08aefb2643ec"
+    sha256 cellar: :any, mojave:        "2f15d564ee6028766215aa931f0ee0c65af87da9fe4697662354a6b9c53e1a30"
   end
 
   depends_on "cmake" => [:build, :test]

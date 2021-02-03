@@ -5,16 +5,15 @@ class Cdparanoia < Formula
   sha256 "005db45ef4ee017f5c32ec124f913a0546e77014266c6a1c50df902a55fe64df"
 
   bottle do
-    cellar :any
-    sha256 "2b7649f89581be2a35b246e4aab15e936573d3920f794ae5187e23b796874dbf" => :big_sur
-    sha256 "79d03f652937117697ae235b7bbb8558be9cb86edc42c330316204a288d5cb59" => :arm64_big_sur
-    sha256 "9a2def6e4aa8db0e7f35392dd73e2bbaf86a52ddc5cb6ff80e1fcf6f34f6133e" => :catalina
-    sha256 "68b478e2d9e8f7121040f99551a45cab8dd8cd91d94e8690ea17103d884daeaf" => :mojave
-    sha256 "8b8b1eeb36773ce01ef09232e2e7270fc759aedd1814218cbd8eb9f668a4bf73" => :high_sierra
-    sha256 "709190d769f7b8c61d19867ae2faf902a2f84dec6f0d5506bd71c56a99e4a67a" => :sierra
-    sha256 "135250473fe692dc976ecbf7324676fa8cef3cdb48a091287bb183c31548fed9" => :el_capitan
-    sha256 "3cd7bbd1a4a0a7992287b255cf0d6409bdb5f4a3fed245b0fd2296e535e9f2de" => :yosemite
-    sha256 "14ec797a041edffe73fef897853a833e5588278c03511f27499e55efb68c848d" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "79d03f652937117697ae235b7bbb8558be9cb86edc42c330316204a288d5cb59"
+    sha256 cellar: :any, big_sur:       "2b7649f89581be2a35b246e4aab15e936573d3920f794ae5187e23b796874dbf"
+    sha256 cellar: :any, catalina:      "9a2def6e4aa8db0e7f35392dd73e2bbaf86a52ddc5cb6ff80e1fcf6f34f6133e"
+    sha256 cellar: :any, mojave:        "68b478e2d9e8f7121040f99551a45cab8dd8cd91d94e8690ea17103d884daeaf"
+    sha256 cellar: :any, high_sierra:   "8b8b1eeb36773ce01ef09232e2e7270fc759aedd1814218cbd8eb9f668a4bf73"
+    sha256 cellar: :any, sierra:        "709190d769f7b8c61d19867ae2faf902a2f84dec6f0d5506bd71c56a99e4a67a"
+    sha256 cellar: :any, el_capitan:    "135250473fe692dc976ecbf7324676fa8cef3cdb48a091287bb183c31548fed9"
+    sha256 cellar: :any, yosemite:      "3cd7bbd1a4a0a7992287b255cf0d6409bdb5f4a3fed245b0fd2296e535e9f2de"
+    sha256 cellar: :any, mavericks:     "14ec797a041edffe73fef897853a833e5588278c03511f27499e55efb68c848d"
   end
 
   depends_on "autoconf" => :build

@@ -7,11 +7,10 @@ class Box2d < Formula
   head "https://github.com/erincatto/Box2D.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "bec33552a3bf184fd75f6adbb193b15595c7729dd7f457c833b7826c6253c28d" => :big_sur
-    sha256 "5c6508a2d661409273a28ac5f0495d7d7c506b5d1bc7ceeb9ab90298db225178" => :catalina
-    sha256 "51709abf7cf22ce487b7fb543c2760add5f6935459b00163567448f47ab6d86c" => :mojave
-    sha256 "0312b876dd91ae896fc127fa6afe21736b7dd1d55569389a6cfc20af90f83cd6" => :high_sierra
+    sha256 cellar: :any_skip_relocation, big_sur:     "bec33552a3bf184fd75f6adbb193b15595c7729dd7f457c833b7826c6253c28d"
+    sha256 cellar: :any_skip_relocation, catalina:    "5c6508a2d661409273a28ac5f0495d7d7c506b5d1bc7ceeb9ab90298db225178"
+    sha256 cellar: :any_skip_relocation, mojave:      "51709abf7cf22ce487b7fb543c2760add5f6935459b00163567448f47ab6d86c"
+    sha256 cellar: :any_skip_relocation, high_sierra: "0312b876dd91ae896fc127fa6afe21736b7dd1d55569389a6cfc20af90f83cd6"
   end
 
   depends_on "cmake" => :build

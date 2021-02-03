@@ -12,12 +12,12 @@ class Avrdude < Formula
   end
 
   bottle do
-    sha256 "80bd53f8b78f172aaea62b9a58f6febfc4ac4b510969511ab0f3e06da9adb1bb" => :big_sur
-    sha256 "d3f4c82170fa37bacd6e1bc3276ba27e7a8ed2ea781b101b7899e7602393a15b" => :catalina
-    sha256 "65fe6de6f540eb1c6ad94d35c847f8a5921cc9059ff044d1bc78f68cc8b8334b" => :mojave
-    sha256 "b0cb94b5c4f01fcc870f286bca293218c98fda23d76397db8a831272f7087038" => :high_sierra
-    sha256 "e8e26af5565cd897867d4e6e71e66e6e946e1e21eb4e27d3cd49f199f088fc5d" => :sierra
-    sha256 "c953526dc893a9b162a109d074edf8bb71d7049c63990282edc994c63de90c44" => :el_capitan
+    sha256 big_sur:     "80bd53f8b78f172aaea62b9a58f6febfc4ac4b510969511ab0f3e06da9adb1bb"
+    sha256 catalina:    "d3f4c82170fa37bacd6e1bc3276ba27e7a8ed2ea781b101b7899e7602393a15b"
+    sha256 mojave:      "65fe6de6f540eb1c6ad94d35c847f8a5921cc9059ff044d1bc78f68cc8b8334b"
+    sha256 high_sierra: "b0cb94b5c4f01fcc870f286bca293218c98fda23d76397db8a831272f7087038"
+    sha256 sierra:      "e8e26af5565cd897867d4e6e71e66e6e946e1e21eb4e27d3cd49f199f088fc5d"
+    sha256 el_capitan:  "c953526dc893a9b162a109d074edf8bb71d7049c63990282edc994c63de90c44"
   end
 
   head do

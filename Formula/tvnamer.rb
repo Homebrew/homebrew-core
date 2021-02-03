@@ -11,12 +11,11 @@ class Tvnamer < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "674f3f3c5f24d10c83f5957d2cd2ce770414b9c81ff510d3dd601842f20da49f" => :big_sur
-    sha256 "5e3ed5763c208937587562b4b2804b34428de1d82807699b2015f47688e30db9" => :arm64_big_sur
-    sha256 "d86e732ccefcc0d6b28bd4b960a8df4c1567323d3d6ac7c55cd0ca083d587e77" => :catalina
-    sha256 "585336b2d74c41d9518523c8c4d81c5d76e8ba7cdf4a31708ee49335d040489e" => :mojave
-    sha256 "fd478da8975c529671577e3a3282646be2ca688430b97844827f870911f3fc6d" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5e3ed5763c208937587562b4b2804b34428de1d82807699b2015f47688e30db9"
+    sha256 cellar: :any_skip_relocation, big_sur:       "674f3f3c5f24d10c83f5957d2cd2ce770414b9c81ff510d3dd601842f20da49f"
+    sha256 cellar: :any_skip_relocation, catalina:      "d86e732ccefcc0d6b28bd4b960a8df4c1567323d3d6ac7c55cd0ca083d587e77"
+    sha256 cellar: :any_skip_relocation, mojave:        "585336b2d74c41d9518523c8c4d81c5d76e8ba7cdf4a31708ee49335d040489e"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "fd478da8975c529671577e3a3282646be2ca688430b97844827f870911f3fc6d"
   end
 
   depends_on "python@3.9"

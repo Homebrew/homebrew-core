@@ -6,12 +6,11 @@ class Sgrep < Formula
   sha256 "d5b16478e3ab44735e24283d2d895d2c9c80139c95228df3bdb2ac446395faf9"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "fedcff86ec032617015882c5729298bbe1f1fcbda14cdde6167b00ae2af586b8" => :big_sur
-    sha256 "29e528a52ae36131ded52bb08d9cf9b12b1455fbc715f7b7bbd3b97f637862e5" => :catalina
-    sha256 "bfb1f484dd474727fec463b1b90ffe7250f5c82e0e65bec96903e38f6e0a8e48" => :mojave
-    sha256 "a243589e79a4cde4f7bba21ec618e3c323c049589707bde6e2c20c4bf1014464" => :high_sierra
+    sha256 cellar: :any_skip_relocation, big_sur:     "fedcff86ec032617015882c5729298bbe1f1fcbda14cdde6167b00ae2af586b8"
+    sha256 cellar: :any_skip_relocation, catalina:    "29e528a52ae36131ded52bb08d9cf9b12b1455fbc715f7b7bbd3b97f637862e5"
+    sha256 cellar: :any_skip_relocation, mojave:      "bfb1f484dd474727fec463b1b90ffe7250f5c82e0e65bec96903e38f6e0a8e48"
+    sha256 cellar: :any_skip_relocation, high_sierra: "a243589e79a4cde4f7bba21ec618e3c323c049589707bde6e2c20c4bf1014464"
   end
 
   uses_from_macos "m4"

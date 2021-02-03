@@ -11,10 +11,10 @@ class StoneSoup < Formula
   end
 
   bottle do
-    sha256 "0023d33f5c5205df2d97ed298dc40155d90db29f986bf58825e1f8c33a4f5375" => :big_sur
-    sha256 "0985f51f3dec4da7085b6b8c4c28ad650f0abfcca0ff93b2f30b15b8bb408cba" => :arm64_big_sur
-    sha256 "b1f22b829dd8fd185559988b5f77519b388b9bb928ee4c8ab43b904898d3e07c" => :catalina
-    sha256 "73e93b52661b35d99cde73d7b9ce3ed655cd4da4389b2bed582f2c791745b9ed" => :mojave
+    sha256 arm64_big_sur: "0985f51f3dec4da7085b6b8c4c28ad650f0abfcca0ff93b2f30b15b8bb408cba"
+    sha256 big_sur:       "0023d33f5c5205df2d97ed298dc40155d90db29f986bf58825e1f8c33a4f5375"
+    sha256 catalina:      "b1f22b829dd8fd185559988b5f77519b388b9bb928ee4c8ab43b904898d3e07c"
+    sha256 mojave:        "73e93b52661b35d99cde73d7b9ce3ed655cd4da4389b2bed582f2c791745b9ed"
   end
 
   depends_on "pkg-config" => :build

@@ -13,11 +13,10 @@ class Z3 < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "2b644db19e5e4b40ab46040c845141cf484ed7a61a4405e26a2e7ee849e7fc8e" => :big_sur
-    sha256 "05119bd5f8a125823a9809ec6cc5bed54b426a7778832f3022b91edbde24b2d6" => :arm64_big_sur
-    sha256 "97099b1c125112e2a7b783dc7a568e34e1b43b8bce16fc6bb5697c7fd69da514" => :catalina
-    sha256 "c16751c07a66eb9aaeaa0d2aa1b59182ac3ee37dfcd475286260637d69260e42" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "05119bd5f8a125823a9809ec6cc5bed54b426a7778832f3022b91edbde24b2d6"
+    sha256 cellar: :any, big_sur:       "2b644db19e5e4b40ab46040c845141cf484ed7a61a4405e26a2e7ee849e7fc8e"
+    sha256 cellar: :any, catalina:      "97099b1c125112e2a7b783dc7a568e34e1b43b8bce16fc6bb5697c7fd69da514"
+    sha256 cellar: :any, mojave:        "c16751c07a66eb9aaeaa0d2aa1b59182ac3ee37dfcd475286260637d69260e42"
   end
 
   # Has Python bindings but are supplementary to the main library

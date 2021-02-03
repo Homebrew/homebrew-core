@@ -7,12 +7,11 @@ class Libfreefare < Formula
   revision 3
 
   bottle do
-    cellar :any
-    sha256 "bcc9bf9b7c9ee53de79b4784264c0923587b48933d2a6c1f57730fd359f8646d" => :big_sur
-    sha256 "c66fe7ad412745ebd9c10784f9ef7de563a5c1ef7582a72915ad7b50324a65c5" => :arm64_big_sur
-    sha256 "5019ddb58b52c0ef766c331273c73ca4a374e87d5288d7357cd7e965150b43c4" => :catalina
-    sha256 "a039acfcd35d2763313e47dd0175474975ffdecba60f6c6af714f7b0f0630144" => :mojave
-    sha256 "5ae1a6b59880a6ae25ce53cfe9727be4cdf5a9cd5fe28c06f7bbc0e3d1342939" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "c66fe7ad412745ebd9c10784f9ef7de563a5c1ef7582a72915ad7b50324a65c5"
+    sha256 cellar: :any, big_sur:       "bcc9bf9b7c9ee53de79b4784264c0923587b48933d2a6c1f57730fd359f8646d"
+    sha256 cellar: :any, catalina:      "5019ddb58b52c0ef766c331273c73ca4a374e87d5288d7357cd7e965150b43c4"
+    sha256 cellar: :any, mojave:        "a039acfcd35d2763313e47dd0175474975ffdecba60f6c6af714f7b0f0630144"
+    sha256 cellar: :any, high_sierra:   "5ae1a6b59880a6ae25ce53cfe9727be4cdf5a9cd5fe28c06f7bbc0e3d1342939"
   end
 
   depends_on "pkg-config" => :build

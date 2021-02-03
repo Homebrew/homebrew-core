@@ -7,10 +7,10 @@ class Cc65 < Formula
   head "https://github.com/cc65/cc65.git"
 
   bottle do
-    sha256 "d0010fe7f4b58daea95dd57f4116668bd2bedfbd5392e73412162292034d456d" => :big_sur
-    sha256 "47405e34cd591b17d9ed65842f25ac7c6d9f61e98f21b9c403596257d7e23dae" => :arm64_big_sur
-    sha256 "a773d68d33b81899ebe7c10d294c0d6e2c2eab9063206f787b1e8c5b8e36f437" => :catalina
-    sha256 "bd750ae3470b736a6b7260723ead51d6e871edc8d8607f53b670f03c84932a00" => :mojave
+    sha256 arm64_big_sur: "47405e34cd591b17d9ed65842f25ac7c6d9f61e98f21b9c403596257d7e23dae"
+    sha256 big_sur:       "d0010fe7f4b58daea95dd57f4116668bd2bedfbd5392e73412162292034d456d"
+    sha256 catalina:      "a773d68d33b81899ebe7c10d294c0d6e2c2eab9063206f787b1e8c5b8e36f437"
+    sha256 mojave:        "bd750ae3470b736a6b7260723ead51d6e871edc8d8607f53b670f03c84932a00"
   end
 
   conflicts_with "grc", because: "both install `grc` binaries"

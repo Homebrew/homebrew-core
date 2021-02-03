@@ -10,10 +10,9 @@ class ClojureLsp < Formula
   head "https://github.com/snoe/clojure-lsp.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "a647293f345eead229f83e2707fb2c542958c9b4e33fb0bf4e63c7217548d392" => :big_sur
-    sha256 "079f2087995cd399f1c99dddc5f1d6d92e55af2facf67b427fb633a80faba842" => :catalina
-    sha256 "fc1b26dc8f000fc728c26bbedff9f9ab0d6f2071ef17eeb4a0f71c9626184cc7" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur:  "a647293f345eead229f83e2707fb2c542958c9b4e33fb0bf4e63c7217548d392"
+    sha256 cellar: :any_skip_relocation, catalina: "079f2087995cd399f1c99dddc5f1d6d92e55af2facf67b427fb633a80faba842"
+    sha256 cellar: :any_skip_relocation, mojave:   "fc1b26dc8f000fc728c26bbedff9f9ab0d6f2071ef17eeb4a0f71c9626184cc7"
   end
 
   depends_on "leiningen" => :build

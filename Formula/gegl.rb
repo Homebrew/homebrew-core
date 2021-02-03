@@ -12,10 +12,10 @@ class Gegl < Formula
   end
 
   bottle do
-    sha256 "859bd53d054e26fcfa4dd3aa9a66a7d6c5227df0e86c4c4b7ee4f2941b04b13c" => :big_sur
-    sha256 "4bac67fd6373cdfa8b8d733146b66ec8d8250133468bef537188486c8f6a29d4" => :arm64_big_sur
-    sha256 "e9e37ccb4f1704c03acad379e62c33fb022edb93340d34f75c07e965b5396f39" => :catalina
-    sha256 "eb0a0d104a4654a73ab1a4c109afbe4f2b4c10f340d9df7b54e5f175446df455" => :mojave
+    sha256 arm64_big_sur: "4bac67fd6373cdfa8b8d733146b66ec8d8250133468bef537188486c8f6a29d4"
+    sha256 big_sur:       "859bd53d054e26fcfa4dd3aa9a66a7d6c5227df0e86c4c4b7ee4f2941b04b13c"
+    sha256 catalina:      "e9e37ccb4f1704c03acad379e62c33fb022edb93340d34f75c07e965b5396f39"
+    sha256 mojave:        "eb0a0d104a4654a73ab1a4c109afbe4f2b4c10f340d9df7b54e5f175446df455"
   end
 
   depends_on "glib" => :build

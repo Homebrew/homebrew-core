@@ -5,15 +5,14 @@ class Vmdktool < Formula
   sha256 "981eb43d3db172144f2344886040424ef525e15c85f84023a7502b238aa7b89c"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "9f3f1adccbe9d28c54b0009c00866636ab7872914ff6587ccf206f15cb08ac68" => :big_sur
-    sha256 "2a19ea885fcf69d6929cb155489aab52543b1b1f456eedf9f49f3f6eebf51ec9" => :arm64_big_sur
-    sha256 "2d4faffbb4ae8f2aba0822834278e532c08fad14e8b07ef534415e1535e3c369" => :catalina
-    sha256 "13ed1b70d5c6d7f7411df7736940bf9fcd220fa92b229b79558e648cbdc0a641" => :mojave
-    sha256 "276a35d178515782c7a741a2ebd45c6b47aee0d7ecfd725c386f589e69336fdc" => :high_sierra
-    sha256 "3fa294be9d6e9e6b56435526520262aaa86f5909cc10b9ccf9d9670ae3ac0e3c" => :sierra
-    sha256 "8604a90f9ad0f3b04767c021a4d24dacdcabd788767df56a45e3913231d4336e" => :el_capitan
-    sha256 "f19ae3ac92ae4400c7139771f3a5ec07d32bf2e3ed49bfa7add445f8a680ef0c" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2a19ea885fcf69d6929cb155489aab52543b1b1f456eedf9f49f3f6eebf51ec9"
+    sha256 cellar: :any_skip_relocation, big_sur:       "9f3f1adccbe9d28c54b0009c00866636ab7872914ff6587ccf206f15cb08ac68"
+    sha256 cellar: :any_skip_relocation, catalina:      "2d4faffbb4ae8f2aba0822834278e532c08fad14e8b07ef534415e1535e3c369"
+    sha256 cellar: :any_skip_relocation, mojave:        "13ed1b70d5c6d7f7411df7736940bf9fcd220fa92b229b79558e648cbdc0a641"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "276a35d178515782c7a741a2ebd45c6b47aee0d7ecfd725c386f589e69336fdc"
+    sha256 cellar: :any_skip_relocation, sierra:        "3fa294be9d6e9e6b56435526520262aaa86f5909cc10b9ccf9d9670ae3ac0e3c"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "8604a90f9ad0f3b04767c021a4d24dacdcabd788767df56a45e3913231d4336e"
+    sha256 cellar: :any_skip_relocation, yosemite:      "f19ae3ac92ae4400c7139771f3a5ec07d32bf2e3ed49bfa7add445f8a680ef0c"
   end
 
   def install

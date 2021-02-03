@@ -7,11 +7,10 @@ class C14Cli < Formula
   head "https://github.com/scaleway/c14-cli.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ad34da8ecf1f0563fb208247b904bc64c11ff98c681dc87744ea32e9093b5d19" => :big_sur
-    sha256 "137f585fd6aef342e9ac97ce6ffe819d30641727e7f9d621fa6d0124afeb46f5" => :catalina
-    sha256 "245dc470e7883100e9b8d3dd229a5fbf2e0960993c7432be11e31ba7ef887f71" => :mojave
-    sha256 "6b3262c0d209f01dd93a491c541ee7f9fedca9f6ff03203487394e0e4f5cdecf" => :high_sierra
+    sha256 cellar: :any_skip_relocation, big_sur:     "ad34da8ecf1f0563fb208247b904bc64c11ff98c681dc87744ea32e9093b5d19"
+    sha256 cellar: :any_skip_relocation, catalina:    "137f585fd6aef342e9ac97ce6ffe819d30641727e7f9d621fa6d0124afeb46f5"
+    sha256 cellar: :any_skip_relocation, mojave:      "245dc470e7883100e9b8d3dd229a5fbf2e0960993c7432be11e31ba7ef887f71"
+    sha256 cellar: :any_skip_relocation, high_sierra: "6b3262c0d209f01dd93a491c541ee7f9fedca9f6ff03203487394e0e4f5cdecf"
   end
 
   # "C14 Classic has been discontinued"

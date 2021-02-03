@@ -12,12 +12,11 @@ class Babeld < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "a7bb20a1f278ab2acc151622894d0e96ee81e9a9a0e53c1ecc9565f5906ed172" => :big_sur
-    sha256 "6a56133eedc55610cbd65c8862584e2a109702e6f6c3619c58bcc99a41c99da1" => :arm64_big_sur
-    sha256 "1e311a15868154bf204fe2d9d19ed1db24c830fcf9cfaa32cf1255d7ed35b108" => :catalina
-    sha256 "1ddbacdd3433b008c2ad86e582ab2376cf0bab93b7939bb9f47d6e1e1fd06ad3" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6a56133eedc55610cbd65c8862584e2a109702e6f6c3619c58bcc99a41c99da1"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a7bb20a1f278ab2acc151622894d0e96ee81e9a9a0e53c1ecc9565f5906ed172"
+    sha256 cellar: :any_skip_relocation, catalina:      "1e311a15868154bf204fe2d9d19ed1db24c830fcf9cfaa32cf1255d7ed35b108"
+    sha256 cellar: :any_skip_relocation, mojave:        "1ddbacdd3433b008c2ad86e582ab2376cf0bab93b7939bb9f47d6e1e1fd06ad3"
   end
 
   def install

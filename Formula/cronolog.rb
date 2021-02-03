@@ -7,17 +7,16 @@ class Cronolog < Formula
   license "GPL-2.0"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "b20a3d3f835199043f5420a386baefbf2b3ce1afbe78499e313c5e2de1684f52" => :big_sur
-    sha256 "105b3e20c9a2c742c71e3c0367c451b37acc11945f05597e72a4c6ce98b9e82c" => :arm64_big_sur
-    sha256 "b1a14dc1d1d5b30969523a75ef785e81a46f1961851adae8cc63c828b89b03a9" => :catalina
-    sha256 "c99140b690aae4c8e28b53ba787ed5aef53d3fbc867186aca47cab021068db40" => :mojave
-    sha256 "47a40bdccb74cb45e3df9e73306162ecc7206c26760521c6a9d8760872769b6b" => :high_sierra
-    sha256 "66ad5bfa0080775875d2b72cc2bbd66bc8ee8de7ca1d482217414ba5b805f977" => :sierra
-    sha256 "964df15660a5c0ec25bedec56aeb128ae93794a8ad721c1c600e377df9be1c2d" => :el_capitan
-    sha256 "f3f485105f7466422a507bafef3acfd741f18b8ab26438c267d10dbf4701282e" => :yosemite
-    sha256 "288bcd1671de08659b7d2f67141aa5178d797870597837c569dccfaae460afd8" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "105b3e20c9a2c742c71e3c0367c451b37acc11945f05597e72a4c6ce98b9e82c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b20a3d3f835199043f5420a386baefbf2b3ce1afbe78499e313c5e2de1684f52"
+    sha256 cellar: :any_skip_relocation, catalina:      "b1a14dc1d1d5b30969523a75ef785e81a46f1961851adae8cc63c828b89b03a9"
+    sha256 cellar: :any_skip_relocation, mojave:        "c99140b690aae4c8e28b53ba787ed5aef53d3fbc867186aca47cab021068db40"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "47a40bdccb74cb45e3df9e73306162ecc7206c26760521c6a9d8760872769b6b"
+    sha256 cellar: :any_skip_relocation, sierra:        "66ad5bfa0080775875d2b72cc2bbd66bc8ee8de7ca1d482217414ba5b805f977"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "964df15660a5c0ec25bedec56aeb128ae93794a8ad721c1c600e377df9be1c2d"
+    sha256 cellar: :any_skip_relocation, yosemite:      "f3f485105f7466422a507bafef3acfd741f18b8ab26438c267d10dbf4701282e"
+    sha256 cellar: :any_skip_relocation, mavericks:     "288bcd1671de08659b7d2f67141aa5178d797870597837c569dccfaae460afd8"
   end
 
   def install

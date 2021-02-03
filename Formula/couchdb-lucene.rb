@@ -7,10 +7,9 @@ class CouchdbLucene < Formula
   revision 2
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "8c75a95f3c1909e99602f51ed4c55fc2eb495910d8772b9b693347c633141715" => :big_sur
-    sha256 "5888b91cbf5c0fe4744ee9f1cf0ca204f9dd89e125a06fc928375b1d2770ae87" => :catalina
-    sha256 "d7e8191c66bc938d7c8e15c10c13612be41ef601f5f6ab78b9ef5275c04bf89d" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur:  "8c75a95f3c1909e99602f51ed4c55fc2eb495910d8772b9b693347c633141715"
+    sha256 cellar: :any_skip_relocation, catalina: "5888b91cbf5c0fe4744ee9f1cf0ca204f9dd89e125a06fc928375b1d2770ae87"
+    sha256 cellar: :any_skip_relocation, mojave:   "d7e8191c66bc938d7c8e15c10c13612be41ef601f5f6ab78b9ef5275c04bf89d"
   end
 
   depends_on "maven" => :build

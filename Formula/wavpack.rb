@@ -6,11 +6,10 @@ class Wavpack < Formula
   license "BSD-3-Clause"
 
   bottle do
-    cellar :any
-    sha256 "711535e6329af607e974ee9e3e957fd82b056af39e95a78226bd9e8f9a0025dd" => :big_sur
-    sha256 "3e51f2f593fffc58cd550236d6a9711900841d388d6ac7833c09f272270d5156" => :arm64_big_sur
-    sha256 "29360357a18df2827e8acb41fdd874495b62f431deb230c96b8d5dcca5f6d316" => :catalina
-    sha256 "89815dc5f1b4af0d647d2b1d3ad484ddce39208958bb315793240aa7be0c4565" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "3e51f2f593fffc58cd550236d6a9711900841d388d6ac7833c09f272270d5156"
+    sha256 cellar: :any, big_sur:       "711535e6329af607e974ee9e3e957fd82b056af39e95a78226bd9e8f9a0025dd"
+    sha256 cellar: :any, catalina:      "29360357a18df2827e8acb41fdd874495b62f431deb230c96b8d5dcca5f6d316"
+    sha256 cellar: :any, mojave:        "89815dc5f1b4af0d647d2b1d3ad484ddce39208958bb315793240aa7be0c4565"
   end
 
   head do

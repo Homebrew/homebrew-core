@@ -12,11 +12,10 @@ class Jc < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "a25ee1525851783426dd349304fc17c4ba253ea94afe2491b998ebfc48a8af57" => :big_sur
-    sha256 "2dd7f9b8ebf3e1bd248c70d5c37536edaa211066f87149b9b334998c8319d10b" => :arm64_big_sur
-    sha256 "c64f06e2c16d01d2ec7c8cada2594af5c14893413affe2ee054eef60efc59141" => :catalina
-    sha256 "14421f56a7db47dc027a0b65ce5bfd468fcf822a5eb2f7f8775069809f965526" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2dd7f9b8ebf3e1bd248c70d5c37536edaa211066f87149b9b334998c8319d10b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a25ee1525851783426dd349304fc17c4ba253ea94afe2491b998ebfc48a8af57"
+    sha256 cellar: :any_skip_relocation, catalina:      "c64f06e2c16d01d2ec7c8cada2594af5c14893413affe2ee054eef60efc59141"
+    sha256 cellar: :any_skip_relocation, mojave:        "14421f56a7db47dc027a0b65ce5bfd468fcf822a5eb2f7f8775069809f965526"
   end
 
   depends_on "python@3.9"

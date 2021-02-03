@@ -6,16 +6,15 @@ class Rzip < Formula
   license "GPL-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "544443eda6593899f3358c6e7f5bce878ff590f357151b587b3c83785745492e" => :big_sur
-    sha256 "16c1e072a6f596e4bda1fb3bd99a743cdb1ef6c0ec552f1ea33224f24fb28047" => :arm64_big_sur
-    sha256 "0d08b087dcaf10a5604aba687c8b59c116d4374bb4a9ded7aec3108d3f005b1b" => :catalina
-    sha256 "aa81be3378f5e5410013d08bddf9c4f9c605d639b7a1e53f37bc7cf7264aae82" => :mojave
-    sha256 "fec6b24d1b5d0555a7cdd732846cfc6357d4fca1b3ff59a3c5fa27e3bc2f4d9e" => :high_sierra
-    sha256 "89a5e7ab518070df7c3f5091a18a412b72910b58a191222e915b1ed9db6ba570" => :sierra
-    sha256 "4eedb0ca975a72a4591d1e386d1ae01a546fb8401ea4f0b05c0fa71809e159db" => :el_capitan
-    sha256 "170150a7704b270df0a1cce7f1cfde689e245f9a9f628b5f0415df5ceae89e19" => :yosemite
-    sha256 "f86aa1c100b7144b04c43a06b475e11f18d88982ed0d5ea90b1da0c3cc813720" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "16c1e072a6f596e4bda1fb3bd99a743cdb1ef6c0ec552f1ea33224f24fb28047"
+    sha256 cellar: :any_skip_relocation, big_sur:       "544443eda6593899f3358c6e7f5bce878ff590f357151b587b3c83785745492e"
+    sha256 cellar: :any_skip_relocation, catalina:      "0d08b087dcaf10a5604aba687c8b59c116d4374bb4a9ded7aec3108d3f005b1b"
+    sha256 cellar: :any_skip_relocation, mojave:        "aa81be3378f5e5410013d08bddf9c4f9c605d639b7a1e53f37bc7cf7264aae82"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "fec6b24d1b5d0555a7cdd732846cfc6357d4fca1b3ff59a3c5fa27e3bc2f4d9e"
+    sha256 cellar: :any_skip_relocation, sierra:        "89a5e7ab518070df7c3f5091a18a412b72910b58a191222e915b1ed9db6ba570"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "4eedb0ca975a72a4591d1e386d1ae01a546fb8401ea4f0b05c0fa71809e159db"
+    sha256 cellar: :any_skip_relocation, yosemite:      "170150a7704b270df0a1cce7f1cfde689e245f9a9f628b5f0415df5ceae89e19"
+    sha256 cellar: :any_skip_relocation, mavericks:     "f86aa1c100b7144b04c43a06b475e11f18d88982ed0d5ea90b1da0c3cc813720"
   end
 
   def install

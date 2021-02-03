@@ -7,11 +7,10 @@ class Lazygit < Formula
   revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "3b26ef0593a1255e23213d53a3eb04686e9b788b2984076bc87ba91fa89d0542" => :big_sur
-    sha256 "d986e49449817c6820eefc699ae063a53e12afa8fce9c6898533669bbd2bd843" => :arm64_big_sur
-    sha256 "fd59e8da5b076eafab4d02059e9d62685f47c8ffd2b041b88b215bc1813fd50e" => :catalina
-    sha256 "95987d404639543c6174033c8f76a0d43549ffddbddba46759816d5c668d638c" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d986e49449817c6820eefc699ae063a53e12afa8fce9c6898533669bbd2bd843"
+    sha256 cellar: :any_skip_relocation, big_sur:       "3b26ef0593a1255e23213d53a3eb04686e9b788b2984076bc87ba91fa89d0542"
+    sha256 cellar: :any_skip_relocation, catalina:      "fd59e8da5b076eafab4d02059e9d62685f47c8ffd2b041b88b215bc1813fd50e"
+    sha256 cellar: :any_skip_relocation, mojave:        "95987d404639543c6174033c8f76a0d43549ffddbddba46759816d5c668d638c"
   end
 
   depends_on "go" => :build

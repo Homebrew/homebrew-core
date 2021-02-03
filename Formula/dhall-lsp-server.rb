@@ -11,9 +11,9 @@ class DhallLspServer < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur: "7c9f9d9f40fdca93c74c702d4d0ec4562dba40b108c23a199dbc421b8a0c7010"
+    sha256 cellar: :any_skip_relocation, big_sur:  "7c9f9d9f40fdca93c74c702d4d0ec4562dba40b108c23a199dbc421b8a0c7010"
     sha256 cellar: :any_skip_relocation, catalina: "796f9f64bca695133ac77808829b3061d440a8f553d088aebcf43722faa97d61"
-    sha256 cellar: :any_skip_relocation, mojave: "2315da10f4c2901f23639342719cedff401c42de3c5c07fed0030ecc6675443d"
+    sha256 cellar: :any_skip_relocation, mojave:   "2315da10f4c2901f23639342719cedff401c42de3c5c07fed0030ecc6675443d"
   end
 
   depends_on "cabal-install" => :build

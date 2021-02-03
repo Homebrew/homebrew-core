@@ -6,16 +6,15 @@ class Vip < Formula
   sha256 "171278e8bd43abdbd3a4c35addda27a0d3c74fc784dbe60e4783d317ac249d11"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "3d8eaddf844f683c6eab2db5a4b3d2c2d4267df78a9abc4605c834f8f3543fa8" => :big_sur
-    sha256 "bc8d6d8704f33dfa59feb3b0784a731e2c8b23d79bccdcfcb0999b462b1f04f7" => :arm64_big_sur
-    sha256 "d49d0ecf58de93d03369024f165aae99210c2b72cffe4aadff7a2299236d7420" => :catalina
-    sha256 "da936f8d9a839a1235962c772ae957563c13f089d5953df7c1ba64b694cb0687" => :mojave
-    sha256 "5622623485848fc1e4238404c3491f056f4220c6a80fbe9342ec89cd34b15bcb" => :high_sierra
-    sha256 "12eec6f5294a94f2fb09c54f218470aab2fb7bad58570e8a82c789d8ba5e9639" => :sierra
-    sha256 "1bf2041f43bcea1e8c503119a9b34f8849b751da767ec5b5094fd5fa8fe5f297" => :el_capitan
-    sha256 "8e60ec9a240192f872f5d730ca93c9bc9e73d4644e685173554ff786b634ef7c" => :yosemite
-    sha256 "96ae6a94171da559b1762970dc99b1c458ccd68c061d40248879d16bb6df8511" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "bc8d6d8704f33dfa59feb3b0784a731e2c8b23d79bccdcfcb0999b462b1f04f7"
+    sha256 cellar: :any_skip_relocation, big_sur:       "3d8eaddf844f683c6eab2db5a4b3d2c2d4267df78a9abc4605c834f8f3543fa8"
+    sha256 cellar: :any_skip_relocation, catalina:      "d49d0ecf58de93d03369024f165aae99210c2b72cffe4aadff7a2299236d7420"
+    sha256 cellar: :any_skip_relocation, mojave:        "da936f8d9a839a1235962c772ae957563c13f089d5953df7c1ba64b694cb0687"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "5622623485848fc1e4238404c3491f056f4220c6a80fbe9342ec89cd34b15bcb"
+    sha256 cellar: :any_skip_relocation, sierra:        "12eec6f5294a94f2fb09c54f218470aab2fb7bad58570e8a82c789d8ba5e9639"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "1bf2041f43bcea1e8c503119a9b34f8849b751da767ec5b5094fd5fa8fe5f297"
+    sha256 cellar: :any_skip_relocation, yosemite:      "8e60ec9a240192f872f5d730ca93c9bc9e73d4644e685173554ff786b634ef7c"
+    sha256 cellar: :any_skip_relocation, mavericks:     "96ae6a94171da559b1762970dc99b1c458ccd68c061d40248879d16bb6df8511"
   end
 
   resource "man" do

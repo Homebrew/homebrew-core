@@ -12,10 +12,10 @@ class Nmh < Formula
 
   bottle do
     rebuild 1
-    sha256 "7dcce1935d412880d7484d77230a8446fc917dbc6bd8288df51e92c0a1a8106c" => :big_sur
-    sha256 "8424c60947db61aa2902836e12ac551c49c0783f3ab74746a57beff8f8361026" => :arm64_big_sur
-    sha256 "891c5b5a3353772b1f450968c6a5aa25f22131cf567a32891694161af64e513e" => :catalina
-    sha256 "404bb9d70fbae0d224bc8c4e1e29c1e3f950df5ffac8e4f9a2805bb9d4a9c9f3" => :mojave
+    sha256 arm64_big_sur: "8424c60947db61aa2902836e12ac551c49c0783f3ab74746a57beff8f8361026"
+    sha256 big_sur:       "7dcce1935d412880d7484d77230a8446fc917dbc6bd8288df51e92c0a1a8106c"
+    sha256 catalina:      "891c5b5a3353772b1f450968c6a5aa25f22131cf567a32891694161af64e513e"
+    sha256 mojave:        "404bb9d70fbae0d224bc8c4e1e29c1e3f950df5ffac8e4f9a2805bb9d4a9c9f3"
   end
 
   head do

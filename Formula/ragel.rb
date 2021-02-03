@@ -11,15 +11,14 @@ class Ragel < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "712245a75110f6628e7c07130d2905577f1a533bf760692e0f4b3071df20cc40" => :big_sur
-    sha256 "858ef57e50114e0406d7afc3beb7c06462bc1b5ce2155948af84af0c41d739f1" => :arm64_big_sur
-    sha256 "a402204e97c35c6a9487d2b0707e27766d9b39c9c2116d49e9c561e1d0bd54b7" => :catalina
-    sha256 "b9b1428abb19b6e6d8de2bccc58a059b75d7c08b38b73956bb40e764a9d0390f" => :mojave
-    sha256 "8dc6d7e1a3617cd31d9738c5ae595fd57ddb157266c1970646a7d5fbba85a6ae" => :high_sierra
-    sha256 "69d6d65c2ef3da7b829e3391fd17b1ef088b92c2baf64979707033e2a7dd8c01" => :sierra
-    sha256 "f4ea3a8c0476fd82000223fae69170ac9f266cd36334bd60d9d6cf4fab3273c1" => :el_capitan
-    sha256 "dd8469ac3e08d5d8a257ce7fc7de05de398e8521abff83eceea0741099685b38" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "858ef57e50114e0406d7afc3beb7c06462bc1b5ce2155948af84af0c41d739f1"
+    sha256 cellar: :any_skip_relocation, big_sur:       "712245a75110f6628e7c07130d2905577f1a533bf760692e0f4b3071df20cc40"
+    sha256 cellar: :any_skip_relocation, catalina:      "a402204e97c35c6a9487d2b0707e27766d9b39c9c2116d49e9c561e1d0bd54b7"
+    sha256 cellar: :any_skip_relocation, mojave:        "b9b1428abb19b6e6d8de2bccc58a059b75d7c08b38b73956bb40e764a9d0390f"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "8dc6d7e1a3617cd31d9738c5ae595fd57ddb157266c1970646a7d5fbba85a6ae"
+    sha256 cellar: :any_skip_relocation, sierra:        "69d6d65c2ef3da7b829e3391fd17b1ef088b92c2baf64979707033e2a7dd8c01"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "f4ea3a8c0476fd82000223fae69170ac9f266cd36334bd60d9d6cf4fab3273c1"
+    sha256 cellar: :any_skip_relocation, yosemite:      "dd8469ac3e08d5d8a257ce7fc7de05de398e8521abff83eceea0741099685b38"
   end
 
   resource "pdf" do

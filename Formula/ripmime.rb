@@ -6,16 +6,15 @@ class Ripmime < Formula
   license "BSD-3-Clause"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "151baef43758c5fa5166b3b6dba2d3340e8f117c5d2e67dc9ee86a366143ab54" => :big_sur
-    sha256 "eb13e6706e28ff4a6fe8f976934c31baa1ab1d0709ec26ff9474ba38c3cea286" => :arm64_big_sur
-    sha256 "bbdb33bd7b2a1c5a2073b6cbd0c3916caa99d5de809f4915e138f523cb752026" => :catalina
-    sha256 "976c8c7c1374fce9c9b4493f7c144c0e78db68223e1e7b53adaabc0978795ef1" => :mojave
-    sha256 "915cd6326fe857e0608d25c9b6e2f4fab06734df23d0ad938184c1b791981345" => :high_sierra
-    sha256 "09a2b60d927bbc236998e29ea50969ce95ab4470d74cd7a40a54f9f4ec24252b" => :sierra
-    sha256 "1151fa0bb8a10779979cec95c7039832eb81b7126f808ba9c89ccb73cf658814" => :el_capitan
-    sha256 "6ef2fdabe468bc42be725020ef23cc924d1572c7446648e38dbd6de3f1399a38" => :yosemite
-    sha256 "741b45ca155022fb6b540dd1cc0882f5f29330b6909e37fd5115e84705d9d6bb" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "eb13e6706e28ff4a6fe8f976934c31baa1ab1d0709ec26ff9474ba38c3cea286"
+    sha256 cellar: :any_skip_relocation, big_sur:       "151baef43758c5fa5166b3b6dba2d3340e8f117c5d2e67dc9ee86a366143ab54"
+    sha256 cellar: :any_skip_relocation, catalina:      "bbdb33bd7b2a1c5a2073b6cbd0c3916caa99d5de809f4915e138f523cb752026"
+    sha256 cellar: :any_skip_relocation, mojave:        "976c8c7c1374fce9c9b4493f7c144c0e78db68223e1e7b53adaabc0978795ef1"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "915cd6326fe857e0608d25c9b6e2f4fab06734df23d0ad938184c1b791981345"
+    sha256 cellar: :any_skip_relocation, sierra:        "09a2b60d927bbc236998e29ea50969ce95ab4470d74cd7a40a54f9f4ec24252b"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "1151fa0bb8a10779979cec95c7039832eb81b7126f808ba9c89ccb73cf658814"
+    sha256 cellar: :any_skip_relocation, yosemite:      "6ef2fdabe468bc42be725020ef23cc924d1572c7446648e38dbd6de3f1399a38"
+    sha256 cellar: :any_skip_relocation, mavericks:     "741b45ca155022fb6b540dd1cc0882f5f29330b6909e37fd5115e84705d9d6bb"
   end
 
   def install

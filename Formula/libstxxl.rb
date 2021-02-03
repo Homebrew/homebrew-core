@@ -9,12 +9,11 @@ class Libstxxl < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "c3f8dceb4e0a1716a2c193daf4b5eeb4ae3e8e96224bdc78ae8f74c2a3059152" => :big_sur
-    sha256 "8454123ffed231405d684ed18c2ef1a0ab1bd118d74614748a5b5df23d8bb5fe" => :arm64_big_sur
-    sha256 "b4d5ef6b70735617973eb1f45214b11e3e6baec242bc6aa5ba9ed4da1834f6ad" => :catalina
-    sha256 "9b179722c61ea55b352c9196ae38d6915a3625096117088d43f854bee4eb6a39" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8454123ffed231405d684ed18c2ef1a0ab1bd118d74614748a5b5df23d8bb5fe"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c3f8dceb4e0a1716a2c193daf4b5eeb4ae3e8e96224bdc78ae8f74c2a3059152"
+    sha256 cellar: :any_skip_relocation, catalina:      "b4d5ef6b70735617973eb1f45214b11e3e6baec242bc6aa5ba9ed4da1834f6ad"
+    sha256 cellar: :any_skip_relocation, mojave:        "9b179722c61ea55b352c9196ae38d6915a3625096117088d43f854bee4eb6a39"
   end
 
   depends_on "cmake" => :build

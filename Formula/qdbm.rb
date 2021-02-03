@@ -6,17 +6,16 @@ class Qdbm < Formula
   license "LGPL-2.1"
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "7257a9e22ee3661fc2213d5ff60148b44e5e217781a3af807405c239020b3c6a" => :big_sur
-    sha256 "5b0f851a602c8cb4f0fab49204037f7a6d28bc311a30559c7f08c37c36b66add" => :arm64_big_sur
-    sha256 "0a0ba32270742fbd821ba60bbc6452e6b6b6a476d72e719bdb33fdf535e316f0" => :catalina
-    sha256 "4861035c21a7fcd02efca60c922d06a45f3078eaffa374784a533932f9efa806" => :mojave
-    sha256 "4ec4e60b16efb21fd7835c182fcf5d8f43c4af4329dd8afb07b4900bc1b17f60" => :high_sierra
-    sha256 "547ecf82252706d276c8359448b7f4e738264999028b06cd3738af34ba58276c" => :sierra
-    sha256 "6fd80b953a53cdf048bf686d2ac3620deda19a022a10a1e7cbd7aea073bf9b6a" => :el_capitan
-    sha256 "4784d30c880c089dcef588c7d91d537269404a4917c9b2b1ef8b5123a727cee1" => :yosemite
-    sha256 "bf5c5c1a087e22f9f06d29e2e139e55f6866ac1826ef725733d108ace6cf4d67" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "5b0f851a602c8cb4f0fab49204037f7a6d28bc311a30559c7f08c37c36b66add"
+    sha256 cellar: :any, big_sur:       "7257a9e22ee3661fc2213d5ff60148b44e5e217781a3af807405c239020b3c6a"
+    sha256 cellar: :any, catalina:      "0a0ba32270742fbd821ba60bbc6452e6b6b6a476d72e719bdb33fdf535e316f0"
+    sha256 cellar: :any, mojave:        "4861035c21a7fcd02efca60c922d06a45f3078eaffa374784a533932f9efa806"
+    sha256 cellar: :any, high_sierra:   "4ec4e60b16efb21fd7835c182fcf5d8f43c4af4329dd8afb07b4900bc1b17f60"
+    sha256 cellar: :any, sierra:        "547ecf82252706d276c8359448b7f4e738264999028b06cd3738af34ba58276c"
+    sha256 cellar: :any, el_capitan:    "6fd80b953a53cdf048bf686d2ac3620deda19a022a10a1e7cbd7aea073bf9b6a"
+    sha256 cellar: :any, yosemite:      "4784d30c880c089dcef588c7d91d537269404a4917c9b2b1ef8b5123a727cee1"
+    sha256 cellar: :any, mavericks:     "bf5c5c1a087e22f9f06d29e2e139e55f6866ac1826ef725733d108ace6cf4d67"
   end
 
   def install

@@ -6,12 +6,11 @@ class ChooseRust < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "1098dc1fd81d357db4f73afe62997df638c4bf7b6e78dcbda8af89081fc5acda" => :big_sur
-    sha256 "a9298f1cf7c37858a53411a839bcb244357f744d9d1989db84d425d9687da0fa" => :arm64_big_sur
-    sha256 "761e6a2bf7d2455352a09ddb67efa9dcd192555267706bdf1575a1f662a63c4c" => :catalina
-    sha256 "56897b4f0bce51d9c2dbd9f397fcac4dc9aeffbbd25b40bbd335b7cf33405831" => :mojave
-    sha256 "e54e01d106f23c59df123d0ca5bdc7c51bdbab46dd33f6314af6fb6c811eb4ca" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a9298f1cf7c37858a53411a839bcb244357f744d9d1989db84d425d9687da0fa"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1098dc1fd81d357db4f73afe62997df638c4bf7b6e78dcbda8af89081fc5acda"
+    sha256 cellar: :any_skip_relocation, catalina:      "761e6a2bf7d2455352a09ddb67efa9dcd192555267706bdf1575a1f662a63c4c"
+    sha256 cellar: :any_skip_relocation, mojave:        "56897b4f0bce51d9c2dbd9f397fcac4dc9aeffbbd25b40bbd335b7cf33405831"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "e54e01d106f23c59df123d0ca5bdc7c51bdbab46dd33f6314af6fb6c811eb4ca"
   end
 
   depends_on "rust" => :build

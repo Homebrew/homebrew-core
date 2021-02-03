@@ -6,11 +6,10 @@ class Vsh < Formula
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "a6adcf670bd110cc5a31dde92b63f971a45ba6ea226a97394dc41c78177c3e37" => :big_sur
-    sha256 "66801dbbaf9dd30bfcc8924de726443b16eebc55c13f2a02f438b8dfb8f46eb4" => :arm64_big_sur
-    sha256 "88da4d7e536488b80e76a019158b8e1344e9efc9dc26e7c3ae891f2537e533ce" => :catalina
-    sha256 "115a71008dab242d2e7332cbf8e2fcd084db03b8df4e8c54023f27e004a636cb" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "66801dbbaf9dd30bfcc8924de726443b16eebc55c13f2a02f438b8dfb8f46eb4"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a6adcf670bd110cc5a31dde92b63f971a45ba6ea226a97394dc41c78177c3e37"
+    sha256 cellar: :any_skip_relocation, catalina:      "88da4d7e536488b80e76a019158b8e1344e9efc9dc26e7c3ae891f2537e533ce"
+    sha256 cellar: :any_skip_relocation, mojave:        "115a71008dab242d2e7332cbf8e2fcd084db03b8df4e8c54023f27e004a636cb"
   end
 
   depends_on "go" => :build

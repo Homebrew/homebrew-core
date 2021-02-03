@@ -12,12 +12,11 @@ class Pcre < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "a67dd6141e117f849bbb7d3bde92ffb6485921939c1d64e39a3f7fd0dac3f523" => :big_sur
-    sha256 "e70ba0f6ae7f9ef638f4564d6b75b8d1e9db9f427057e9029e1686471e9174c6" => :arm64_big_sur
-    sha256 "f8ac266e04f984fa55091a43f0fdc39a40d57c2489d289a186c88ccedaba7eeb" => :catalina
-    sha256 "ed9b483538da7bc6559d2e63dd36659736fab9510681661d970d707a18731de4" => :mojave
-    sha256 "aeea1351e1439847d00c3cee54bd28639493e686f809568cf42fea7bb28da2a5" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "e70ba0f6ae7f9ef638f4564d6b75b8d1e9db9f427057e9029e1686471e9174c6"
+    sha256 cellar: :any, big_sur:       "a67dd6141e117f849bbb7d3bde92ffb6485921939c1d64e39a3f7fd0dac3f523"
+    sha256 cellar: :any, catalina:      "f8ac266e04f984fa55091a43f0fdc39a40d57c2489d289a186c88ccedaba7eeb"
+    sha256 cellar: :any, mojave:        "ed9b483538da7bc6559d2e63dd36659736fab9510681661d970d707a18731de4"
+    sha256 cellar: :any, high_sierra:   "aeea1351e1439847d00c3cee54bd28639493e686f809568cf42fea7bb28da2a5"
   end
 
   head do

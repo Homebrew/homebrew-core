@@ -6,13 +6,12 @@ class Massren < Formula
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "cf6353befeba9f9244942cc577e808c9bc8b57bc9ee50410aeb1b8fb9848f80d" => :big_sur
-    sha256 "501c6c8684475cb9c83e57917be164e86aeba079fe7ac4523be108b10f2ef545" => :catalina
-    sha256 "b342e2efbfe3400787138da378787ec54e9c3bfc1930dfae203f4baa378e4535" => :mojave
-    sha256 "99afbeedc3d8ab1e3cf8ca525ac22f1b02efefbfd75b145b342f773cea639be6" => :high_sierra
-    sha256 "14874a768ef7f34aa638cdbd62aa32d2b07fc5c0e6668c86f6f080f172f0fe45" => :sierra
-    sha256 "ea67caccb6dacdbed8979f3dc243e224ff1900928dedf1ea8800f5256f3456b2" => :el_capitan
+    sha256 cellar: :any_skip_relocation, big_sur:     "cf6353befeba9f9244942cc577e808c9bc8b57bc9ee50410aeb1b8fb9848f80d"
+    sha256 cellar: :any_skip_relocation, catalina:    "501c6c8684475cb9c83e57917be164e86aeba079fe7ac4523be108b10f2ef545"
+    sha256 cellar: :any_skip_relocation, mojave:      "b342e2efbfe3400787138da378787ec54e9c3bfc1930dfae203f4baa378e4535"
+    sha256 cellar: :any_skip_relocation, high_sierra: "99afbeedc3d8ab1e3cf8ca525ac22f1b02efefbfd75b145b342f773cea639be6"
+    sha256 cellar: :any_skip_relocation, sierra:      "14874a768ef7f34aa638cdbd62aa32d2b07fc5c0e6668c86f6f080f172f0fe45"
+    sha256 cellar: :any_skip_relocation, el_capitan:  "ea67caccb6dacdbed8979f3dc243e224ff1900928dedf1ea8800f5256f3456b2"
   end
 
   depends_on "go" => :build

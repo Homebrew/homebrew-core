@@ -11,14 +11,13 @@ class Lame < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "6ceaf88479ce365df8c29140359984ad8debcc44898b99424b39d729e923279b" => :big_sur
-    sha256 "2ff2c6ad3cfd26e1ba53230631e2f04734a4638c344cce50ff0b8fc36b45c403" => :arm64_big_sur
-    sha256 "02b6a2cbf9b902225308bc90c8314699761cbdcd13628271579f5345d8160af2" => :catalina
-    sha256 "737751faa513a68ac2499bb5cc607bc366e15dab8ff3bff5443567a455af5c3f" => :mojave
-    sha256 "9e65c67b83efa5a686aea0506dc44935cd2af2d4fe55fe38dc19610a0ccd80dd" => :high_sierra
-    sha256 "c2d7bce53be2efb5d19d99ea00fbe69613885cce46009e8ab6099f8d5925c3ba" => :sierra
-    sha256 "73c4d677b4e5357dc5baf30c96ac5f33cf7902e9c77869834b7cd9d17f3415bc" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "2ff2c6ad3cfd26e1ba53230631e2f04734a4638c344cce50ff0b8fc36b45c403"
+    sha256 cellar: :any, big_sur:       "6ceaf88479ce365df8c29140359984ad8debcc44898b99424b39d729e923279b"
+    sha256 cellar: :any, catalina:      "02b6a2cbf9b902225308bc90c8314699761cbdcd13628271579f5345d8160af2"
+    sha256 cellar: :any, mojave:        "737751faa513a68ac2499bb5cc607bc366e15dab8ff3bff5443567a455af5c3f"
+    sha256 cellar: :any, high_sierra:   "9e65c67b83efa5a686aea0506dc44935cd2af2d4fe55fe38dc19610a0ccd80dd"
+    sha256 cellar: :any, sierra:        "c2d7bce53be2efb5d19d99ea00fbe69613885cce46009e8ab6099f8d5925c3ba"
+    sha256 cellar: :any, el_capitan:    "73c4d677b4e5357dc5baf30c96ac5f33cf7902e9c77869834b7cd9d17f3415bc"
   end
 
   uses_from_macos "ncurses"

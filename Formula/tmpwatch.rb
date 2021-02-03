@@ -6,12 +6,11 @@ class Tmpwatch < Formula
   license "GPL-2.0-only"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 2
-    sha256 "990ba2839f3c2ddf69e280e976463969d3274410f1a84a90e00a6a9b0f5cef35" => :big_sur
-    sha256 "b5f38895989ced860baaac4a22ed677b6adc7e3eaf07ecea5e65325b3a090071" => :arm64_big_sur
-    sha256 "acd49e52b73f82c2cab4a77f46e99e0f69f856dc43cbf03f775ab58b44e78d6b" => :catalina
-    sha256 "800714b1d0f11a8fc52b070046aa3a5aaf99883f9320d9a233ffabf801ae2996" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b5f38895989ced860baaac4a22ed677b6adc7e3eaf07ecea5e65325b3a090071"
+    sha256 cellar: :any_skip_relocation, big_sur:       "990ba2839f3c2ddf69e280e976463969d3274410f1a84a90e00a6a9b0f5cef35"
+    sha256 cellar: :any_skip_relocation, catalina:      "acd49e52b73f82c2cab4a77f46e99e0f69f856dc43cbf03f775ab58b44e78d6b"
+    sha256 cellar: :any_skip_relocation, mojave:        "800714b1d0f11a8fc52b070046aa3a5aaf99883f9320d9a233ffabf801ae2996"
   end
 
   def install

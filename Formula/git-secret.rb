@@ -10,11 +10,10 @@ class GitSecret < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "798cb8d91b23ac5ad8f8c4b2b74ddb2b531b4f6e3302d846f99f673b46558889" => :big_sur
-    sha256 "ec659e8eeebebff9eede384309558a94117185e9274699225da85762df656552" => :arm64_big_sur
-    sha256 "5680327a70bdc617206c09148e3c7107b10c1069fb31ef705369399c5ce09f8c" => :catalina
-    sha256 "39e2b5c3a4310bd28780e90d36f9a1efeff8f7397364306747416c3cef8faeba" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ec659e8eeebebff9eede384309558a94117185e9274699225da85762df656552"
+    sha256 cellar: :any_skip_relocation, big_sur:       "798cb8d91b23ac5ad8f8c4b2b74ddb2b531b4f6e3302d846f99f673b46558889"
+    sha256 cellar: :any_skip_relocation, catalina:      "5680327a70bdc617206c09148e3c7107b10c1069fb31ef705369399c5ce09f8c"
+    sha256 cellar: :any_skip_relocation, mojave:        "39e2b5c3a4310bd28780e90d36f9a1efeff8f7397364306747416c3cef8faeba"
   end
 
   depends_on "gawk"

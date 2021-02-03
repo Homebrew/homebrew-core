@@ -11,13 +11,12 @@ class Stunnel < Formula
   end
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "df0539084eff628b24a2d41e69356e919cb764516d7bf4602f037f75a2617bf8" => :big_sur
-    sha256 "cfa8419f3a73ae10fbe7dec1b2d0235e4e0e458724adcc61322429c8b37ba69b" => :arm64_big_sur
-    sha256 "878eba096ca3019a14b911d5c4e98850ebd8e5339e9d6921fc9c641c5251405e" => :catalina
-    sha256 "365dd14775cdcf6b7a4b9a92b9f2cfc9e2ab59534e250f30654e9d7a8c187015" => :mojave
-    sha256 "e9f7507a85fb3b2951f770fd9a784a48a90a02263733d870142e23bf2334f706" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "cfa8419f3a73ae10fbe7dec1b2d0235e4e0e458724adcc61322429c8b37ba69b"
+    sha256 cellar: :any, big_sur:       "df0539084eff628b24a2d41e69356e919cb764516d7bf4602f037f75a2617bf8"
+    sha256 cellar: :any, catalina:      "878eba096ca3019a14b911d5c4e98850ebd8e5339e9d6921fc9c641c5251405e"
+    sha256 cellar: :any, mojave:        "365dd14775cdcf6b7a4b9a92b9f2cfc9e2ab59534e250f30654e9d7a8c187015"
+    sha256 cellar: :any, high_sierra:   "e9f7507a85fb3b2951f770fd9a784a48a90a02263733d870142e23bf2334f706"
   end
 
   depends_on "openssl@1.1"

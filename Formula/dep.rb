@@ -8,11 +8,10 @@ class Dep < Formula
   head "https://github.com/golang/dep.git"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "5bd49a3da392e08bef0ae821a534bd699c4c3f6d116d90b53007477fbad6a374" => :big_sur
-    sha256 "be9871f4e01aa179f9f3b32931838f21c5e64d33840ac36c8b601adeebb5e95b" => :catalina
-    sha256 "a86103fd9d7349cde0906850b1adaaa4e9b6c787cb11b0a791127c9af16ede8a" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur:  "5bd49a3da392e08bef0ae821a534bd699c4c3f6d116d90b53007477fbad6a374"
+    sha256 cellar: :any_skip_relocation, catalina: "be9871f4e01aa179f9f3b32931838f21c5e64d33840ac36c8b601adeebb5e95b"
+    sha256 cellar: :any_skip_relocation, mojave:   "a86103fd9d7349cde0906850b1adaaa4e9b6c787cb11b0a791127c9af16ede8a"
   end
 
   deprecate! date: "2020-11-25", because: :repo_archived

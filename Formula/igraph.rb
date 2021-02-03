@@ -7,11 +7,10 @@ class Igraph < Formula
   revision 1
 
   bottle do
-    cellar :any
-    sha256 "df32f814a2a0ab2a4385709941e986fd397f49314845d2f46a0a738eb1ff074e" => :big_sur
-    sha256 "c47315766863332a294eb63c135d674142f66faf6176b28f35c0572be3237bcc" => :arm64_big_sur
-    sha256 "fd1f5b91421abd8f0daffeb8f6f5399add7703a574eae94d001b6692a717faf8" => :catalina
-    sha256 "a1b5b395940614336af1155290e4eed9f964e58138ed9e515950d64d9d34ef3c" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "c47315766863332a294eb63c135d674142f66faf6176b28f35c0572be3237bcc"
+    sha256 cellar: :any, big_sur:       "df32f814a2a0ab2a4385709941e986fd397f49314845d2f46a0a738eb1ff074e"
+    sha256 cellar: :any, catalina:      "fd1f5b91421abd8f0daffeb8f6f5399add7703a574eae94d001b6692a717faf8"
+    sha256 cellar: :any, mojave:        "a1b5b395940614336af1155290e4eed9f964e58138ed9e515950d64d9d34ef3c"
   end
 
   depends_on "glpk"

@@ -11,10 +11,10 @@ class Guile < Formula
   end
 
   bottle do
-    sha256 "ce8a02da2f7a50ee2df21ace1dac3b8335855907ec31224cea3ea5f89d82c463" => :big_sur
-    sha256 "ce524aaa55b2a6200e4ba4a05b3d40e726eef82750767bbdebf2243c9c766ee9" => :arm64_big_sur
-    sha256 "18a97a127b757c021f8f3b7257306cac30efd055d1bde8cee88874d62b72d8b0" => :catalina
-    sha256 "1775232d131525bf77530ab194a4688e1a14804669267ef22b6d78ab3e088b70" => :mojave
+    sha256 arm64_big_sur: "ce524aaa55b2a6200e4ba4a05b3d40e726eef82750767bbdebf2243c9c766ee9"
+    sha256 big_sur:       "ce8a02da2f7a50ee2df21ace1dac3b8335855907ec31224cea3ea5f89d82c463"
+    sha256 catalina:      "18a97a127b757c021f8f3b7257306cac30efd055d1bde8cee88874d62b72d8b0"
+    sha256 mojave:        "1775232d131525bf77530ab194a4688e1a14804669267ef22b6d78ab3e088b70"
   end
 
   head do

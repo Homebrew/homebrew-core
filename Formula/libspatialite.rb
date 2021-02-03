@@ -13,11 +13,10 @@ class Libspatialite < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "18444b8c0c78ed66b7dd84e50bbf24b67b0d955c2f1fd8716bbe77b41353a7bf" => :big_sur
-    sha256 "ba20ea1010d62219b45458ad9768f963ff0684497834d00a81a398c3ed6e1dbb" => :arm64_big_sur
-    sha256 "e4a083ce451aa9bad3ca209a042c32f946a9ed3964d498790c6d141ac9d70aab" => :catalina
-    sha256 "3c8bedbf668ba7627e00dfb7dc4b16eab35681fec2d0a06275d40f5091e278a2" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "ba20ea1010d62219b45458ad9768f963ff0684497834d00a81a398c3ed6e1dbb"
+    sha256 cellar: :any, big_sur:       "18444b8c0c78ed66b7dd84e50bbf24b67b0d955c2f1fd8716bbe77b41353a7bf"
+    sha256 cellar: :any, catalina:      "e4a083ce451aa9bad3ca209a042c32f946a9ed3964d498790c6d141ac9d70aab"
+    sha256 cellar: :any, mojave:        "3c8bedbf668ba7627e00dfb7dc4b16eab35681fec2d0a06275d40f5091e278a2"
   end
 
   head do

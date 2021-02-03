@@ -11,9 +11,9 @@ class Dnsdist < Formula
   end
 
   bottle do
-    sha256 "85f26051fea25986ed2510c18ab9dcc29178c7a6acc4cdd01aa2fc3bf086c88a" => :big_sur
-    sha256 "61ec7c2d3aa37965c54474ba50f739658679d2dac84e46854e0ca6fbdf9b0058" => :catalina
-    sha256 "821cb52f93b00d1f596e40a9d905f2d7a01fbd26e44bbf48299b5123ed5bc7d6" => :mojave
+    sha256 big_sur:  "85f26051fea25986ed2510c18ab9dcc29178c7a6acc4cdd01aa2fc3bf086c88a"
+    sha256 catalina: "61ec7c2d3aa37965c54474ba50f739658679d2dac84e46854e0ca6fbdf9b0058"
+    sha256 mojave:   "821cb52f93b00d1f596e40a9d905f2d7a01fbd26e44bbf48299b5123ed5bc7d6"
   end
 
   depends_on "boost" => :build

@@ -11,12 +11,11 @@ class Rtptools < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 2
-    sha256 "a9f1e8f18d40ba8b435f619de132a5fbc00e0ef84d5a1e10378700e0f3ce417b" => :big_sur
-    sha256 "a760c9b142e55aba7732406eeb2603c49b9b7514e02bd01bc245d0661772bf20" => :arm64_big_sur
-    sha256 "59fa4c8c53c3430c6bb47b82c752eef710f692ad3fb1bd3ab82c108524aabe00" => :catalina
-    sha256 "eb8412186a92c44426b2f4c4bef7adcffb308afd4bb036a2dd9d1a0d184b504e" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a760c9b142e55aba7732406eeb2603c49b9b7514e02bd01bc245d0661772bf20"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a9f1e8f18d40ba8b435f619de132a5fbc00e0ef84d5a1e10378700e0f3ce417b"
+    sha256 cellar: :any_skip_relocation, catalina:      "59fa4c8c53c3430c6bb47b82c752eef710f692ad3fb1bd3ab82c108524aabe00"
+    sha256 cellar: :any_skip_relocation, mojave:        "eb8412186a92c44426b2f4c4bef7adcffb308afd4bb036a2dd9d1a0d184b504e"
   end
 
   depends_on "autoconf" => :build

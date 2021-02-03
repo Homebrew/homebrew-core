@@ -13,12 +13,11 @@ class HttpServer < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "b4c7352df68e5821c56ac58a44f73272a5196f51c12d5ef73b7e34a90749c889" => :big_sur
-    sha256 "f1bbe9f7419b215d86dfb4a144e6250a3ab18f54a54dbc641c821be8b1cc43c2" => :arm64_big_sur
-    sha256 "11f0b3f7fc0975e2eb7c911fe1555c13527f75ea5468215e6d6340e11bf36f33" => :catalina
-    sha256 "fcc2086b4000cc47077413c116c09ee4b60fe9b064f7d95ff7c19c966a181d4f" => :mojave
-    sha256 "1b3f5212bc710e5ae053bbd9fb3bd279d763ad03e6c550425ab95534e309a9ef" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f1bbe9f7419b215d86dfb4a144e6250a3ab18f54a54dbc641c821be8b1cc43c2"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b4c7352df68e5821c56ac58a44f73272a5196f51c12d5ef73b7e34a90749c889"
+    sha256 cellar: :any_skip_relocation, catalina:      "11f0b3f7fc0975e2eb7c911fe1555c13527f75ea5468215e6d6340e11bf36f33"
+    sha256 cellar: :any_skip_relocation, mojave:        "fcc2086b4000cc47077413c116c09ee4b60fe9b064f7d95ff7c19c966a181d4f"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "1b3f5212bc710e5ae053bbd9fb3bd279d763ad03e6c550425ab95534e309a9ef"
   end
 
   depends_on "node"

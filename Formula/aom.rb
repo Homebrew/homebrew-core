@@ -8,10 +8,10 @@ class Aom < Formula
   revision 1
 
   bottle do
-    sha256 big_sur: "630f7667afa820f812e6db647a35daed6a0c178234e9d021f327e77209d291f6"
     sha256 arm64_big_sur: "40ff3aca3a017ec17da8b1e259d6d73279eb05d04d88d34da67363187a9a7706"
-    sha256 catalina: "0ff8bc71b78e7dab72a5f51d877c4566e8933308e282e4225fb30d9858d71a3d"
-    sha256 mojave: "d53d69ac2b2a129d20322b3c994d3e3491bc669deb08d46c253f43ec8b5e145a"
+    sha256 big_sur:       "630f7667afa820f812e6db647a35daed6a0c178234e9d021f327e77209d291f6"
+    sha256 catalina:      "0ff8bc71b78e7dab72a5f51d877c4566e8933308e282e4225fb30d9858d71a3d"
+    sha256 mojave:        "d53d69ac2b2a129d20322b3c994d3e3491bc669deb08d46c253f43ec8b5e145a"
   end
 
   depends_on "cmake" => :build

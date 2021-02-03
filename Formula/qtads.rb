@@ -39,15 +39,14 @@ class Qtads < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "0b7ca6977cd90d44364cbea43a729e80c4c4dcd95427968cde38e1bf1971befc" => :big_sur
-    sha256 "860d00c579b90f13dcae925920c472b5a0d4119200a131449c4fe9e86beb9c7c" => :arm64_big_sur
-    sha256 "ddc00587ac0d9f3ebcd6f0bac9e8a4207f9ae930a6646e4f3ce60d186abdc832" => :catalina
-    sha256 "3158fb6eb3d97f548c908983348e221ee190835bda5ce70704747117ecf7611d" => :mojave
-    sha256 "ef218d294d01133003c6e52fc32f9482726d6f237b3b5b90add019960ffe9eb2" => :high_sierra
-    sha256 "51fff5c39b8c234bb72b9a3865f7a067fb2dab902316c7943261ba66ed98ab19" => :sierra
-    sha256 "fe8ab65019c324c13c9024291b3e6288aff3ec28049a0cf321da421b4c28f0f6" => :el_capitan
-    sha256 "e2383ed761b051e337ed2a4a4162655cb9eaa19ed8ab0666e8a7d1efa236b9b2" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "860d00c579b90f13dcae925920c472b5a0d4119200a131449c4fe9e86beb9c7c"
+    sha256 cellar: :any, big_sur:       "0b7ca6977cd90d44364cbea43a729e80c4c4dcd95427968cde38e1bf1971befc"
+    sha256 cellar: :any, catalina:      "ddc00587ac0d9f3ebcd6f0bac9e8a4207f9ae930a6646e4f3ce60d186abdc832"
+    sha256 cellar: :any, mojave:        "3158fb6eb3d97f548c908983348e221ee190835bda5ce70704747117ecf7611d"
+    sha256 cellar: :any, high_sierra:   "ef218d294d01133003c6e52fc32f9482726d6f237b3b5b90add019960ffe9eb2"
+    sha256 cellar: :any, sierra:        "51fff5c39b8c234bb72b9a3865f7a067fb2dab902316c7943261ba66ed98ab19"
+    sha256 cellar: :any, el_capitan:    "fe8ab65019c324c13c9024291b3e6288aff3ec28049a0cf321da421b4c28f0f6"
+    sha256 cellar: :any, yosemite:      "e2383ed761b051e337ed2a4a4162655cb9eaa19ed8ab0666e8a7d1efa236b9b2"
   end
 
   depends_on "pkg-config" => :build

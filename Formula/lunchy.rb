@@ -7,12 +7,11 @@ class Lunchy < Formula
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "e82b712e4491089fd895dc09fa16de8df0f7eb1f522d33a7144c2574ca084782" => :big_sur
-    sha256 "a82bfb8e963c2436508383b23c58857836e3125694b941e1fc0ed715b3939e7d" => :arm64_big_sur
-    sha256 "ee66090fe1ddcb8204521e47ce805cc4e51708a0033d6916a36f4beba333b1e8" => :catalina
-    sha256 "663eb72d186a577ab10af9ad50d2ac3748901206f329071e8e0aed432e73759f" => :mojave
-    sha256 "71f804d56f0ff8a37209dfc427400885833fffc2d6139cf40a99e91151099900" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a82bfb8e963c2436508383b23c58857836e3125694b941e1fc0ed715b3939e7d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e82b712e4491089fd895dc09fa16de8df0f7eb1f522d33a7144c2574ca084782"
+    sha256 cellar: :any_skip_relocation, catalina:      "ee66090fe1ddcb8204521e47ce805cc4e51708a0033d6916a36f4beba333b1e8"
+    sha256 cellar: :any_skip_relocation, mojave:        "663eb72d186a577ab10af9ad50d2ac3748901206f329071e8e0aed432e73759f"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "71f804d56f0ff8a37209dfc427400885833fffc2d6139cf40a99e91151099900"
   end
 
   uses_from_macos "ruby"

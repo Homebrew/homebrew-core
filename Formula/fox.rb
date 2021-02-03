@@ -12,12 +12,11 @@ class Fox < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "f7988beb83a1343a270ba6107f8693550fb4b6f92632600849eb11f203bfa2fc" => :big_sur
-    sha256 "9e595940c212b8efb8588736216000490c8e8f4eff89b96be34aa92702538f1f" => :arm64_big_sur
-    sha256 "e9f946383a4fc88a230622abd2c38386053f20c35eb632bf62ea8e06e43be7ab" => :catalina
-    sha256 "7017807cda0f8aa8e43338d4556ec842db95626984f7a9eaef4b926a9dff7310" => :mojave
-    sha256 "3705392848b062aa09d8be70c0f99b0331eeeceaea685389d684644e86f7fe22" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "9e595940c212b8efb8588736216000490c8e8f4eff89b96be34aa92702538f1f"
+    sha256 cellar: :any, big_sur:       "f7988beb83a1343a270ba6107f8693550fb4b6f92632600849eb11f203bfa2fc"
+    sha256 cellar: :any, catalina:      "e9f946383a4fc88a230622abd2c38386053f20c35eb632bf62ea8e06e43be7ab"
+    sha256 cellar: :any, mojave:        "7017807cda0f8aa8e43338d4556ec842db95626984f7a9eaef4b926a9dff7310"
+    sha256 cellar: :any, high_sierra:   "3705392848b062aa09d8be70c0f99b0331eeeceaea685389d684644e86f7fe22"
   end
 
   depends_on "fontconfig"

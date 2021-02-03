@@ -12,10 +12,9 @@ class Languagetool < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "6e0b47919b400614b541ced972d8513f81bdacad7bce2077cd3ca8d72c2026c6" => :big_sur
-    sha256 "247283b436a70bb8b5b3ecf43becaa3b986d260ff68d602417ed39e441befe5e" => :catalina
-    sha256 "c25896d28e5b4484317fb881478a67122cb847e53dd3f78b99e66790a5d54790" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur:  "6e0b47919b400614b541ced972d8513f81bdacad7bce2077cd3ca8d72c2026c6"
+    sha256 cellar: :any_skip_relocation, catalina: "247283b436a70bb8b5b3ecf43becaa3b986d260ff68d602417ed39e441befe5e"
+    sha256 cellar: :any_skip_relocation, mojave:   "c25896d28e5b4484317fb881478a67122cb847e53dd3f78b99e66790a5d54790"
   end
 
   depends_on "maven" => :build

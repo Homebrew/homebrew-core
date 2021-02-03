@@ -12,12 +12,12 @@ class Ircii < Formula
   end
 
   bottle do
-    sha256 "5fa9235fe1b9f86202dabe7b7a62a0e5fc0007e7f211d50ce04c5574dba30af0" => :big_sur
-    sha256 "a2cd8fdd4ad9a08296a510e61772422d95ef1e047405c79d613a4e46ce4e68e3" => :arm64_big_sur
-    sha256 "fea5e21aa100bda1104f1d4947376e9af68be118caf89d8b9468b51cbd2059b4" => :catalina
-    sha256 "95424df7e321088386df0d493fdc9a29c0f1955201ce0ce6ba9640a6c9678a9e" => :mojave
-    sha256 "ff375e444386f89ee0ae5f3aa3b6f38bfaa8818c3cd2db8065669f8a0f7d0165" => :high_sierra
-    sha256 "d0739ce549eb581ca3bb13de8c3aa164657235814e3c1edb2a050fde5dbf24f2" => :sierra
+    sha256 arm64_big_sur: "a2cd8fdd4ad9a08296a510e61772422d95ef1e047405c79d613a4e46ce4e68e3"
+    sha256 big_sur:       "5fa9235fe1b9f86202dabe7b7a62a0e5fc0007e7f211d50ce04c5574dba30af0"
+    sha256 catalina:      "fea5e21aa100bda1104f1d4947376e9af68be118caf89d8b9468b51cbd2059b4"
+    sha256 mojave:        "95424df7e321088386df0d493fdc9a29c0f1955201ce0ce6ba9640a6c9678a9e"
+    sha256 high_sierra:   "ff375e444386f89ee0ae5f3aa3b6f38bfaa8818c3cd2db8065669f8a0f7d0165"
+    sha256 sierra:        "d0739ce549eb581ca3bb13de8c3aa164657235814e3c1edb2a050fde5dbf24f2"
   end
 
   depends_on "openssl@1.1"

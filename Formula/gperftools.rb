@@ -12,10 +12,9 @@ class Gperftools < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "2a1dbba19d4457f12fca0f37c107b65a3e04315c2b04cedade26a110a4bccf71" => :big_sur
-    sha256 "8d2e97b68f27e722336896358c6d4d29dd4eaca935f48c52983d779638edd2d2" => :catalina
-    sha256 "7a1d5e130ca76a6f2ba0f6743754a7ebf1ceda443cbc820588f3062d4ed9a64f" => :mojave
+    sha256 cellar: :any, big_sur:  "2a1dbba19d4457f12fca0f37c107b65a3e04315c2b04cedade26a110a4bccf71"
+    sha256 cellar: :any, catalina: "8d2e97b68f27e722336896358c6d4d29dd4eaca935f48c52983d779638edd2d2"
+    sha256 cellar: :any, mojave:   "7a1d5e130ca76a6f2ba0f6743754a7ebf1ceda443cbc820588f3062d4ed9a64f"
   end
 
   head do

@@ -7,12 +7,11 @@ class Tmuxinator < Formula
   head "https://github.com/tmuxinator/tmuxinator.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c57d9e47b03552d52d480ad94123e9530db0e81c9e660bb516795dbf107eaf09" => :big_sur
-    sha256 "afc36c0b2e025de0cc5ca6849de580f380405b6cfb1bcec099d95664da4e5ffd" => :arm64_big_sur
-    sha256 "afce6d81dd916ad941dc78336f249330279970d3dbcf40c41a4153ed17189bd1" => :catalina
-    sha256 "651de3698fd15d6088e7c60d75c2c0d5fe07304f015585b618e9b6db2db1295a" => :mojave
-    sha256 "59ae8d30dd41a1404d0da34d94efa6cf2146efe7a1c1cc69e72745770324f66c" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "afc36c0b2e025de0cc5ca6849de580f380405b6cfb1bcec099d95664da4e5ffd"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c57d9e47b03552d52d480ad94123e9530db0e81c9e660bb516795dbf107eaf09"
+    sha256 cellar: :any_skip_relocation, catalina:      "afce6d81dd916ad941dc78336f249330279970d3dbcf40c41a4153ed17189bd1"
+    sha256 cellar: :any_skip_relocation, mojave:        "651de3698fd15d6088e7c60d75c2c0d5fe07304f015585b618e9b6db2db1295a"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "59ae8d30dd41a1404d0da34d94efa6cf2146efe7a1c1cc69e72745770324f66c"
   end
 
   depends_on "ruby"

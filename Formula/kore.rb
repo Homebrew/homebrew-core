@@ -12,10 +12,10 @@ class Kore < Formula
   end
 
   bottle do
-    sha256 "b9ee5f484ac7eb75b1282afee33da589de37ce1787b15eea441e63526996e47c" => :big_sur
-    sha256 "27b9278bca42a66ef991c721a6e9d4910c72eb5fd4fec1530cebb20444f65d6a" => :arm64_big_sur
-    sha256 "1c361e384d9d76c042624f56a0e847f12e9db63a5e0fd49016827bcbdb71eb95" => :catalina
-    sha256 "111923e46a1a868241cea5eeed3477ef6de321684308168c8ffac582620ba95a" => :mojave
+    sha256 arm64_big_sur: "27b9278bca42a66ef991c721a6e9d4910c72eb5fd4fec1530cebb20444f65d6a"
+    sha256 big_sur:       "b9ee5f484ac7eb75b1282afee33da589de37ce1787b15eea441e63526996e47c"
+    sha256 catalina:      "1c361e384d9d76c042624f56a0e847f12e9db63a5e0fd49016827bcbdb71eb95"
+    sha256 mojave:        "111923e46a1a868241cea5eeed3477ef6de321684308168c8ffac582620ba95a"
   end
 
   depends_on macos: :sierra # needs clock_gettime

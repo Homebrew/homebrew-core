@@ -19,11 +19,10 @@ class Mame < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "a4a2c392a16ddf14ab1890c56a51a5c99f33438bd0af9396ff3b51cf5b65e6f0" => :big_sur
-    sha256 "e691df3aecfbe3bd954bb67e9f77274a3294781d4c4b8b0db5c867fc1f5e88a3" => :arm64_big_sur
-    sha256 "60bdbeb0fe470d57fbfbce0ec579b7c6a399506445137d8fdced4bb961d6e3af" => :catalina
-    sha256 "997ec943f87a8026bcd7df415aaf48bfc56b5a9668093f9398e1f48dea4c165b" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "e691df3aecfbe3bd954bb67e9f77274a3294781d4c4b8b0db5c867fc1f5e88a3"
+    sha256 cellar: :any, big_sur:       "a4a2c392a16ddf14ab1890c56a51a5c99f33438bd0af9396ff3b51cf5b65e6f0"
+    sha256 cellar: :any, catalina:      "60bdbeb0fe470d57fbfbce0ec579b7c6a399506445137d8fdced4bb961d6e3af"
+    sha256 cellar: :any, mojave:        "997ec943f87a8026bcd7df415aaf48bfc56b5a9668093f9398e1f48dea4c165b"
   end
 
   depends_on "glm" => :build

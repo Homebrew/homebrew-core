@@ -6,11 +6,10 @@ class LpSolve < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    cellar :any
-    sha256 "53e611f8df08011c71022b51b9cab75469e9799f4de457b769f407741ef5fe8c" => :big_sur
-    sha256 "9a798c3fc6356bdbae35a8b3134ae5a51a7610c325cdf9f8ee4a3b41b7c1fcb0" => :arm64_big_sur
-    sha256 "0275d7331a6b593f84cc59a0f6a79e83be9362404b0b837aac78ce1cbe604ad7" => :catalina
-    sha256 "e52d1c29dede6d743305aafd18ac7c6d6ba350d8e6fe32dae3af086bdec59ea5" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "9a798c3fc6356bdbae35a8b3134ae5a51a7610c325cdf9f8ee4a3b41b7c1fcb0"
+    sha256 cellar: :any, big_sur:       "53e611f8df08011c71022b51b9cab75469e9799f4de457b769f407741ef5fe8c"
+    sha256 cellar: :any, catalina:      "0275d7331a6b593f84cc59a0f6a79e83be9362404b0b837aac78ce1cbe604ad7"
+    sha256 cellar: :any, mojave:        "e52d1c29dede6d743305aafd18ac7c6d6ba350d8e6fe32dae3af086bdec59ea5"
   end
 
   def install

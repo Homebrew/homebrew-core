@@ -6,12 +6,11 @@ class Nebula < Formula
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "53f7fede666f8aac491e27c6e3118c61fa32cc0ac0bbc5f114a81e492049b8f4" => :big_sur
-    sha256 "6101a001b38d3d6379abbfc06e986dc01e14ecf31ba5e3218a8d7ce8f6e267c0" => :arm64_big_sur
-    sha256 "7ffeb1007dd970546c484ac5f2a3f7cc8f8e4c91624d8bbc9ed22dcca5cce478" => :catalina
-    sha256 "41f78ae9272360e99b8cc89931f8a26ac5a189cfa653679a06b78a0fd4adedd6" => :mojave
-    sha256 "bcf0c677c2a13a1e937625bf73b1e437dc3d1ae520a6a96cc798721cd18769f9" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6101a001b38d3d6379abbfc06e986dc01e14ecf31ba5e3218a8d7ce8f6e267c0"
+    sha256 cellar: :any_skip_relocation, big_sur:       "53f7fede666f8aac491e27c6e3118c61fa32cc0ac0bbc5f114a81e492049b8f4"
+    sha256 cellar: :any_skip_relocation, catalina:      "7ffeb1007dd970546c484ac5f2a3f7cc8f8e4c91624d8bbc9ed22dcca5cce478"
+    sha256 cellar: :any_skip_relocation, mojave:        "41f78ae9272360e99b8cc89931f8a26ac5a189cfa653679a06b78a0fd4adedd6"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "bcf0c677c2a13a1e937625bf73b1e437dc3d1ae520a6a96cc798721cd18769f9"
   end
 
   depends_on "go" => :build

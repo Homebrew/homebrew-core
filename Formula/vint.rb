@@ -13,13 +13,12 @@ class Vint < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "8d38f90dd2dae38afef80e3b0f4b62fd90e6fe3f55bf00d1006df70e96769523" => :big_sur
-    sha256 "a65f86843dc5833129a0dc1b62d32d816e956171634304ea96263b4b30f96642" => :arm64_big_sur
-    sha256 "8848e8f89f352b4bbcfb875438c09e4dbae683bc1a5044b30d254ee1700ec0e3" => :catalina
-    sha256 "8e4f3863fcdd29a7c727e4117dbb8731606c97ad25bf5a80ddbad65d96a43dd7" => :mojave
-    sha256 "4719b1fd512613b97246d52968fe3a7dfe6d45b7c9749bad87bd22bf4841fc0d" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a65f86843dc5833129a0dc1b62d32d816e956171634304ea96263b4b30f96642"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8d38f90dd2dae38afef80e3b0f4b62fd90e6fe3f55bf00d1006df70e96769523"
+    sha256 cellar: :any_skip_relocation, catalina:      "8848e8f89f352b4bbcfb875438c09e4dbae683bc1a5044b30d254ee1700ec0e3"
+    sha256 cellar: :any_skip_relocation, mojave:        "8e4f3863fcdd29a7c727e4117dbb8731606c97ad25bf5a80ddbad65d96a43dd7"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "4719b1fd512613b97246d52968fe3a7dfe6d45b7c9749bad87bd22bf4841fc0d"
   end
 
   depends_on "python@3.9"

@@ -6,11 +6,10 @@ class Ncmpcpp < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    cellar :any
-    sha256 "3a9cfd01fa8d3dd506cdf4ecec054f629462b5a83d40241efd4ff899ef8035c1" => :big_sur
-    sha256 "3eb2acf03fdab347f1464bc47c4154322e80c4c25815547db63ae370ff564e3a" => :arm64_big_sur
-    sha256 "02db63c070d06fa87ccd591ca2bbdf9fd96250d1e007515ec578bcf1b6bdfbcc" => :catalina
-    sha256 "92f7fa5ac43a80aa482544eadefa39a4bb97985ec39962ca9e45e893f0f6900e" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "3eb2acf03fdab347f1464bc47c4154322e80c4c25815547db63ae370ff564e3a"
+    sha256 cellar: :any, big_sur:       "3a9cfd01fa8d3dd506cdf4ecec054f629462b5a83d40241efd4ff899ef8035c1"
+    sha256 cellar: :any, catalina:      "02db63c070d06fa87ccd591ca2bbdf9fd96250d1e007515ec578bcf1b6bdfbcc"
+    sha256 cellar: :any, mojave:        "92f7fa5ac43a80aa482544eadefa39a4bb97985ec39962ca9e45e893f0f6900e"
   end
 
   head do

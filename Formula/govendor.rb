@@ -7,11 +7,10 @@ class Govendor < Formula
   head "https://github.com/kardianos/govendor.git"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 2
-    sha256 "479d963acb5e5d0446e223291e301581b55390c80b0e5263ad2a216b0a3acffa" => :big_sur
-    sha256 "85a344d1c8a2488bd4303b2b2bb4deb4d902bb88e2004160588b4c863d664fd0" => :catalina
-    sha256 "28492791ec9b8c58e472a7276c9b86450112ef642e2aa10d025eb623e0921f40" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur:  "479d963acb5e5d0446e223291e301581b55390c80b0e5263ad2a216b0a3acffa"
+    sha256 cellar: :any_skip_relocation, catalina: "85a344d1c8a2488bd4303b2b2bb4deb4d902bb88e2004160588b4c863d664fd0"
+    sha256 cellar: :any_skip_relocation, mojave:   "28492791ec9b8c58e472a7276c9b86450112ef642e2aa10d025eb623e0921f40"
   end
 
   deprecate! date: "2020-03-02", because: :repo_archived

@@ -11,13 +11,12 @@ class Sloccount < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "edbc1a2e53d527f8230fedce1dafb95d2be651ef0817ea0c9c3c0abc417a0317" => :big_sur
-    sha256 "73dc2aea90c8e3e1b98e8577e1e4a65758c814d200e3ec49bc4d0fcdc52fc49f" => :arm64_big_sur
-    sha256 "11a3ecc7f2a5bbc0f2bb4836e03c799049b3bada8438220dcd827ca37fd2a200" => :catalina
-    sha256 "b9a52de5de2a1be5fd606412ab8db8a55279da49d79f9812d59294a587aaa7c4" => :mojave
-    sha256 "04a4c12a83cb655a8f2f69178905af19e2786927ef7a4e9d0020e870ce35fcbd" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "73dc2aea90c8e3e1b98e8577e1e4a65758c814d200e3ec49bc4d0fcdc52fc49f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "edbc1a2e53d527f8230fedce1dafb95d2be651ef0817ea0c9c3c0abc417a0317"
+    sha256 cellar: :any_skip_relocation, catalina:      "11a3ecc7f2a5bbc0f2bb4836e03c799049b3bada8438220dcd827ca37fd2a200"
+    sha256 cellar: :any_skip_relocation, mojave:        "b9a52de5de2a1be5fd606412ab8db8a55279da49d79f9812d59294a587aaa7c4"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "04a4c12a83cb655a8f2f69178905af19e2786927ef7a4e9d0020e870ce35fcbd"
   end
 
   uses_from_macos "flex" => :build

@@ -7,12 +7,11 @@ class Cig < Formula
   head "https://github.com/stevenjack/cig.git"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 3
-    sha256 "c41c70e517158f1a31bb4b29a6fa01b12570001353b8800d55aadd4ddc99080e" => :big_sur
-    sha256 "2d4f345393a0553e40003b46523a07e2bb0162bba0309ca9c0d322f606e73b76" => :arm64_big_sur
-    sha256 "3ccce3238efd259041dbb0f0427d5ac06cc4dfafdfbfd336ddd0023e02e9dd7d" => :catalina
-    sha256 "9cf50d9418885990bed7e23b0c2987918d63bef3e7f3e27589c521b6b73160bf" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2d4f345393a0553e40003b46523a07e2bb0162bba0309ca9c0d322f606e73b76"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c41c70e517158f1a31bb4b29a6fa01b12570001353b8800d55aadd4ddc99080e"
+    sha256 cellar: :any_skip_relocation, catalina:      "3ccce3238efd259041dbb0f0427d5ac06cc4dfafdfbfd336ddd0023e02e9dd7d"
+    sha256 cellar: :any_skip_relocation, mojave:        "9cf50d9418885990bed7e23b0c2987918d63bef3e7f3e27589c521b6b73160bf"
   end
 
   depends_on "go" => :build

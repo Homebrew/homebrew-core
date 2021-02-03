@@ -11,11 +11,10 @@ class Lv2 < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "757cd306cc72fb5517d4b2226eaa8addc9e8ca807fa576d025d921a8b25a3382" => :big_sur
-    sha256 "37eebb5f3d7e92a4339be7fdf5f63a5493e36ad1ef71369aa9d9ecc8b3d41ef7" => :arm64_big_sur
-    sha256 "3fc9a00fcb361d6d87e101733497abad39e33b299774229bc484af15a59d2e55" => :catalina
-    sha256 "0897d136c566648ff5acf40760ff064bdeda779c4afc6a31f02741a08083c5f8" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "37eebb5f3d7e92a4339be7fdf5f63a5493e36ad1ef71369aa9d9ecc8b3d41ef7"
+    sha256 cellar: :any_skip_relocation, big_sur:       "757cd306cc72fb5517d4b2226eaa8addc9e8ca807fa576d025d921a8b25a3382"
+    sha256 cellar: :any_skip_relocation, catalina:      "3fc9a00fcb361d6d87e101733497abad39e33b299774229bc484af15a59d2e55"
+    sha256 cellar: :any_skip_relocation, mojave:        "0897d136c566648ff5acf40760ff064bdeda779c4afc6a31f02741a08083c5f8"
   end
 
   depends_on :macos # Due to Python 2

@@ -15,11 +15,10 @@ class Snapcraft < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "7a237740c0b541c44fbb68558875043823ecd5c2626d0407020cbd519d55d8fe" => :big_sur
-    sha256 "41d4fc2c561ca44f95718042d084c2f4aa3cf50e6db6fc8cf781c2b6be58290b" => :arm64_big_sur
-    sha256 "8537fbbd83c21c8769c766f85a9327852242a0302dfbb982670ccaa5c5b664c9" => :catalina
-    sha256 "3e87c18435182ab3db5b2fa15d3007651f2e39be37211b7a37085f48555b691e" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "41d4fc2c561ca44f95718042d084c2f4aa3cf50e6db6fc8cf781c2b6be58290b"
+    sha256 cellar: :any, big_sur:       "7a237740c0b541c44fbb68558875043823ecd5c2626d0407020cbd519d55d8fe"
+    sha256 cellar: :any, catalina:      "8537fbbd83c21c8769c766f85a9327852242a0302dfbb982670ccaa5c5b664c9"
+    sha256 cellar: :any, mojave:        "3e87c18435182ab3db5b2fa15d3007651f2e39be37211b7a37085f48555b691e"
   end
 
   depends_on "libsodium"

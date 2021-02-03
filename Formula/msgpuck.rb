@@ -7,14 +7,13 @@ class Msgpuck < Formula
   head "https://github.com/rtsisyk/msgpuck.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c0137f8e139ada6b1c98315f7e9982a44131b133a48aa7959d64015880d7f430" => :big_sur
-    sha256 "d52c18b8fef8cbd5b59f41e014a2c85610787084714a4086c26152cd6cc59a6b" => :arm64_big_sur
-    sha256 "01dbdca0333694d379bd7b209d52d8dd8e48f5416d9df441d43cdb29c2751738" => :catalina
-    sha256 "0fedf815d4ba46d10e5fe7910cbcc06f1ea2906e40a4ef994ffd3aa04289c423" => :mojave
-    sha256 "50197e08a5b55fbe804109ad01dfa815a6dde2b11b688d89a58154fed2d8d54f" => :high_sierra
-    sha256 "6f4011d177bf2e42f94f853bc93283ada6c48df8fdb7269135def453e65e598d" => :sierra
-    sha256 "b0accfedd2582109acec3297878bb943360282520a31b0d1c16c4ec1aa70a362" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d52c18b8fef8cbd5b59f41e014a2c85610787084714a4086c26152cd6cc59a6b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c0137f8e139ada6b1c98315f7e9982a44131b133a48aa7959d64015880d7f430"
+    sha256 cellar: :any_skip_relocation, catalina:      "01dbdca0333694d379bd7b209d52d8dd8e48f5416d9df441d43cdb29c2751738"
+    sha256 cellar: :any_skip_relocation, mojave:        "0fedf815d4ba46d10e5fe7910cbcc06f1ea2906e40a4ef994ffd3aa04289c423"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "50197e08a5b55fbe804109ad01dfa815a6dde2b11b688d89a58154fed2d8d54f"
+    sha256 cellar: :any_skip_relocation, sierra:        "6f4011d177bf2e42f94f853bc93283ada6c48df8fdb7269135def453e65e598d"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "b0accfedd2582109acec3297878bb943360282520a31b0d1c16c4ec1aa70a362"
   end
 
   depends_on "cmake" => :build

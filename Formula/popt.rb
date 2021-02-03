@@ -16,12 +16,11 @@ class Popt < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "460da044609e1821375dd248e5bb1a317a0f5e3f0431c4ab19532b2cfa6d7e7a" => :big_sur
-    sha256 "3ebf58493631c204386f60a189af7cc4127240644a0ce4713dd4af4374e45823" => :arm64_big_sur
-    sha256 "a5cbf26e1779c73865c7785adc163117465d321338aa6970dd4980cff4a2ec91" => :catalina
-    sha256 "5d602602f195811a3ea8c29ce4540cca6e1f36890a08b5a262facf3f74a85cf1" => :mojave
-    sha256 "554ba881a515b18e53d1abd7f67a544af42d811ea14283e75b13ae5fc2056024" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "3ebf58493631c204386f60a189af7cc4127240644a0ce4713dd4af4374e45823"
+    sha256 cellar: :any, big_sur:       "460da044609e1821375dd248e5bb1a317a0f5e3f0431c4ab19532b2cfa6d7e7a"
+    sha256 cellar: :any, catalina:      "a5cbf26e1779c73865c7785adc163117465d321338aa6970dd4980cff4a2ec91"
+    sha256 cellar: :any, mojave:        "5d602602f195811a3ea8c29ce4540cca6e1f36890a08b5a262facf3f74a85cf1"
+    sha256 cellar: :any, high_sierra:   "554ba881a515b18e53d1abd7f67a544af42d811ea14283e75b13ae5fc2056024"
   end
 
   def install

@@ -11,10 +11,10 @@ class LibgpgError < Formula
   end
 
   bottle do
-    sha256 "bc5c5321fa98d6f4dbab215f0e90d9babdcc9c9c801c7ebea9a4423364a13cb7" => :big_sur
-    sha256 "089a2faf07b8eb31c995e7dab97b9e8d5d2fdc77dac8d239ffb391ca4eaf6761" => :arm64_big_sur
-    sha256 "33969246a46d4cb42c2401c64038cc48601e5fcd41ae21c14d9775c4955fd825" => :catalina
-    sha256 "9efc83a76395081c43b5619b4cca8deb794187a7e54cf28e3e7f106aad5093ae" => :mojave
+    sha256 arm64_big_sur: "089a2faf07b8eb31c995e7dab97b9e8d5d2fdc77dac8d239ffb391ca4eaf6761"
+    sha256 big_sur:       "bc5c5321fa98d6f4dbab215f0e90d9babdcc9c9c801c7ebea9a4423364a13cb7"
+    sha256 catalina:      "33969246a46d4cb42c2401c64038cc48601e5fcd41ae21c14d9775c4955fd825"
+    sha256 mojave:        "9efc83a76395081c43b5619b4cca8deb794187a7e54cf28e3e7f106aad5093ae"
   end
 
   def install

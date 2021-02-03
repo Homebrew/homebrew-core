@@ -6,11 +6,10 @@ class CstoreFdw < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "bf5bff9fcedd614bb641d3ac2bfe1c0c5d226cffd4bdccdc4ea011cfe307000b" => :catalina
-    sha256 "d2758c2643cebe884e575a44e8f36defb68519326898dccc5dd13e2046235ea5" => :mojave
-    sha256 "c7eb62b441f09798e91098a082b8835184c98292822cf5606a3bc83d0627559e" => :high_sierra
+    sha256 cellar: :any, catalina:    "bf5bff9fcedd614bb641d3ac2bfe1c0c5d226cffd4bdccdc4ea011cfe307000b"
+    sha256 cellar: :any, mojave:      "d2758c2643cebe884e575a44e8f36defb68519326898dccc5dd13e2046235ea5"
+    sha256 cellar: :any, high_sierra: "c7eb62b441f09798e91098a082b8835184c98292822cf5606a3bc83d0627559e"
   end
 
   depends_on "postgresql"

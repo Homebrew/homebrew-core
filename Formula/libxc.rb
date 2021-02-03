@@ -7,12 +7,11 @@ class Libxc < Formula
   revision 1
 
   bottle do
-    cellar :any
-    sha256 "2aaa3faf0271abb1b3c6b6ea33c7e8c5d7a89ced2717531da71729ea2e77fd24" => :big_sur
-    sha256 "418bb8ff673392e6d4a74a3563dac777162e3b8b99c1c780ea9c9ab642057f76" => :arm64_big_sur
-    sha256 "77bb1192676ef031b3254e36f443b48163c2e6926afc959feaa84b4952a5b642" => :catalina
-    sha256 "069042e1d8511e2025e289cb3daec98728304df3a7521aced7103581686d74c8" => :mojave
-    sha256 "e84708fbaa5746ef8d25b57d34a5127501096ffacaa448b17d5b87ad4e81ae0b" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "418bb8ff673392e6d4a74a3563dac777162e3b8b99c1c780ea9c9ab642057f76"
+    sha256 cellar: :any, big_sur:       "2aaa3faf0271abb1b3c6b6ea33c7e8c5d7a89ced2717531da71729ea2e77fd24"
+    sha256 cellar: :any, catalina:      "77bb1192676ef031b3254e36f443b48163c2e6926afc959feaa84b4952a5b642"
+    sha256 cellar: :any, mojave:        "069042e1d8511e2025e289cb3daec98728304df3a7521aced7103581686d74c8"
+    sha256 cellar: :any, high_sierra:   "e84708fbaa5746ef8d25b57d34a5127501096ffacaa448b17d5b87ad4e81ae0b"
   end
 
   depends_on "autoconf" => :build

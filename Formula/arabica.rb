@@ -18,12 +18,11 @@ class Arabica < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "c1a63f10d7451ba663ad8d974a69d83091be30730ca962a2fbd0e36b95ab16d2" => :big_sur
-    sha256 "6875acb418a0c10026c5356fe927a7c91a1825d8b314599ee1a64a309f30ed77" => :arm64_big_sur
-    sha256 "4fbf676c46941de213b095ab74f0b4973e5984c2bbaa7679757b0db4b369480a" => :catalina
-    sha256 "acc299016dbd644658880e9fa29af6d3f0b9f8e226b16ccd3fcaea8dae23febf" => :mojave
-    sha256 "62920d4f26c2da71c6abf60c90c1322457e340df8142d7133a9ee1f7c2b46745" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "6875acb418a0c10026c5356fe927a7c91a1825d8b314599ee1a64a309f30ed77"
+    sha256 cellar: :any, big_sur:       "c1a63f10d7451ba663ad8d974a69d83091be30730ca962a2fbd0e36b95ab16d2"
+    sha256 cellar: :any, catalina:      "4fbf676c46941de213b095ab74f0b4973e5984c2bbaa7679757b0db4b369480a"
+    sha256 cellar: :any, mojave:        "acc299016dbd644658880e9fa29af6d3f0b9f8e226b16ccd3fcaea8dae23febf"
+    sha256 cellar: :any, high_sierra:   "62920d4f26c2da71c6abf60c90c1322457e340df8142d7133a9ee1f7c2b46745"
   end
 
   depends_on "autoconf" => :build

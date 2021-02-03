@@ -29,11 +29,11 @@ class Emacs < Formula
   end
 
   bottle do
-    sha256 "054fd70aa5e4c6bf44b5f37d965e49f415abaf7a94566ad1ac89780256537bee" => :big_sur
-    sha256 "023b96fbdb0ebcb6b43173bed52fe6d67068b76994d0d4f2843cbdbe794005a8" => :arm64_big_sur
-    sha256 "6586559b5aa8c51ce6cc7738abe4796ef7e803ab3389dc2e30eda7bb5e46b85d" => :catalina
-    sha256 "6704d9430ac4b602a5dc7046f845d8b93d00cb509fc70244403f14af6c97bc3b" => :mojave
-    sha256 "a4808d9f5433bcc9512ae4c62dba04b7954a1c0ee47e01b34ba5a401f227f375" => :high_sierra
+    sha256 arm64_big_sur: "023b96fbdb0ebcb6b43173bed52fe6d67068b76994d0d4f2843cbdbe794005a8"
+    sha256 big_sur:       "054fd70aa5e4c6bf44b5f37d965e49f415abaf7a94566ad1ac89780256537bee"
+    sha256 catalina:      "6586559b5aa8c51ce6cc7738abe4796ef7e803ab3389dc2e30eda7bb5e46b85d"
+    sha256 mojave:        "6704d9430ac4b602a5dc7046f845d8b93d00cb509fc70244403f14af6c97bc3b"
+    sha256 high_sierra:   "a4808d9f5433bcc9512ae4c62dba04b7954a1c0ee47e01b34ba5a401f227f375"
   end
 
   head do

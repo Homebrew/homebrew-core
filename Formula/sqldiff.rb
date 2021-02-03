@@ -12,11 +12,10 @@ class Sqldiff < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ae802d2735142bad1b231ae31a4bfd5bfe8a78a9ac7bfbe68afdc9f2a08880ed" => :big_sur
-    sha256 "f9c6846623d6f94989c17fd33131393d2bc7a8fb336e5598eb326e94b956b584" => :arm64_big_sur
-    sha256 "28f56212edcb23f49f8f1d86b1f1b434f7a5b3b03f9d8eba5ba19085ad67c991" => :catalina
-    sha256 "6ddccf007a69ef3b632906e5eaca40686de76e819a816d26b2feca69926627a3" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f9c6846623d6f94989c17fd33131393d2bc7a8fb336e5598eb326e94b956b584"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ae802d2735142bad1b231ae31a4bfd5bfe8a78a9ac7bfbe68afdc9f2a08880ed"
+    sha256 cellar: :any_skip_relocation, catalina:      "28f56212edcb23f49f8f1d86b1f1b434f7a5b3b03f9d8eba5ba19085ad67c991"
+    sha256 cellar: :any_skip_relocation, mojave:        "6ddccf007a69ef3b632906e5eaca40686de76e819a816d26b2feca69926627a3"
   end
 
   uses_from_macos "tcl-tk" => :build

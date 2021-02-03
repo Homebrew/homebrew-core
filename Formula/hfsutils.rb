@@ -8,12 +8,11 @@ class Hfsutils < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "133b4b04a161486e76ca06ed4e78086a83ce7ed238b10b879f78a93d66d9dc68" => :big_sur
-    sha256 "107acc6f2b286756c2d74d4973eb367071d53ed4271aabfcdde504818f2458ed" => :arm64_big_sur
-    sha256 "5a0e074c5fdcfb43508e049941dd5d7384a7f4843c8d0fe3df325880a45823fd" => :catalina
-    sha256 "f32eb0e176bc5f5939a12599f0dbc808631a7680e21b5f820cc096e00fcec46e" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "107acc6f2b286756c2d74d4973eb367071d53ed4271aabfcdde504818f2458ed"
+    sha256 cellar: :any_skip_relocation, big_sur:       "133b4b04a161486e76ca06ed4e78086a83ce7ed238b10b879f78a93d66d9dc68"
+    sha256 cellar: :any_skip_relocation, catalina:      "5a0e074c5fdcfb43508e049941dd5d7384a7f4843c8d0fe3df325880a45823fd"
+    sha256 cellar: :any_skip_relocation, mojave:        "f32eb0e176bc5f5939a12599f0dbc808631a7680e21b5f820cc096e00fcec46e"
   end
 
   def install

@@ -10,16 +10,15 @@ class Mp3wrap < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "fb2198208b5da896231a815235652c3342ed305a858950c9fb10bc7e296d1e34" => :big_sur
-    sha256 "9ee84cc1015ba99900a71896d7055b3fcf305828dc6a8430da552b0fee18a01b" => :arm64_big_sur
-    sha256 "fa93ce86b2a055521e166325b4219773f04c6886075bd77932dcb6dff436ddce" => :catalina
-    sha256 "ef3c37644b60e3644b2763a999ab189ceffe59d0506617db2d23cb3f3b430056" => :mojave
-    sha256 "3c85e837e2dbcfcbbccb0b074ebfa9283c13d2453b206c246bc4d77600328dfb" => :high_sierra
-    sha256 "0471701ab4f6b59423503b7c250376ba597a9f28d9962f6f9b35a107d58411ab" => :sierra
-    sha256 "c65886799c1397eec33f48ef73774ad6a509fec44a18dec4a50c8755736f040a" => :el_capitan
-    sha256 "50e1b97fa8423acc0c3980c7171544cf248b049d31cb1c6d3ba1214c293bc2eb" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9ee84cc1015ba99900a71896d7055b3fcf305828dc6a8430da552b0fee18a01b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "fb2198208b5da896231a815235652c3342ed305a858950c9fb10bc7e296d1e34"
+    sha256 cellar: :any_skip_relocation, catalina:      "fa93ce86b2a055521e166325b4219773f04c6886075bd77932dcb6dff436ddce"
+    sha256 cellar: :any_skip_relocation, mojave:        "ef3c37644b60e3644b2763a999ab189ceffe59d0506617db2d23cb3f3b430056"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "3c85e837e2dbcfcbbccb0b074ebfa9283c13d2453b206c246bc4d77600328dfb"
+    sha256 cellar: :any_skip_relocation, sierra:        "0471701ab4f6b59423503b7c250376ba597a9f28d9962f6f9b35a107d58411ab"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "c65886799c1397eec33f48ef73774ad6a509fec44a18dec4a50c8755736f040a"
+    sha256 cellar: :any_skip_relocation, mavericks:     "50e1b97fa8423acc0c3980c7171544cf248b049d31cb1c6d3ba1214c293bc2eb"
   end
 
   def install

@@ -6,12 +6,11 @@ class Gearman < Formula
   license "BSD-3-Clause"
 
   bottle do
-    cellar :any
-    sha256 "1a700a2938db5507f0f2b81c58988d563c5ad41eeb892bc31f1f4c918a882930" => :big_sur
-    sha256 "6e3d3504ff3a5d4fb152ec03975aacea300cfca0875c8370c6dcb7bbcbc9ccda" => :arm64_big_sur
-    sha256 "3a1a4bc57288dea7905134d9290c88a04273f7cc6361646694324e3bc9eb42d3" => :catalina
-    sha256 "582d1de464569352536501e2aa832a9bc540220eae335b682411ecadffbfe198" => :mojave
-    sha256 "8664f5b9c91ef99190cb70000758aa3d50f68afcad01d2e8cac234adf6a5424c" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "6e3d3504ff3a5d4fb152ec03975aacea300cfca0875c8370c6dcb7bbcbc9ccda"
+    sha256 cellar: :any, big_sur:       "1a700a2938db5507f0f2b81c58988d563c5ad41eeb892bc31f1f4c918a882930"
+    sha256 cellar: :any, catalina:      "3a1a4bc57288dea7905134d9290c88a04273f7cc6361646694324e3bc9eb42d3"
+    sha256 cellar: :any, mojave:        "582d1de464569352536501e2aa832a9bc540220eae335b682411ecadffbfe198"
+    sha256 cellar: :any, high_sierra:   "8664f5b9c91ef99190cb70000758aa3d50f68afcad01d2e8cac234adf6a5424c"
   end
 
   depends_on "pkg-config" => :build

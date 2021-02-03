@@ -7,10 +7,9 @@ class Feedgnuplot < Formula
   license "GPL-3.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "7d394a581a614dcc5130eac02310e58f994067b94a8dbd413c983157e3d37cc2" => :catalina
-    sha256 "76988d6017ae6c60402ef6eb02046e4a73fbc67e64ac8f55442a661dd1689832" => :mojave
-    sha256 "55c59a68946e0979048dc4ef95f8746053d4b9e8c5f0d1709f781a69708051a8" => :high_sierra
+    sha256 cellar: :any_skip_relocation, catalina:    "7d394a581a614dcc5130eac02310e58f994067b94a8dbd413c983157e3d37cc2"
+    sha256 cellar: :any_skip_relocation, mojave:      "76988d6017ae6c60402ef6eb02046e4a73fbc67e64ac8f55442a661dd1689832"
+    sha256 cellar: :any_skip_relocation, high_sierra: "55c59a68946e0979048dc4ef95f8746053d4b9e8c5f0d1709f781a69708051a8"
   end
 
   depends_on "gnuplot"

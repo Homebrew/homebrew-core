@@ -7,12 +7,11 @@ class EasyRsa < Formula
   head "https://github.com/OpenVPN/easy-rsa.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "5124cc17f73f7467de387d62658658d29907e43e9e50fd25dac4f1c5ec55915b" => :big_sur
-    sha256 "f9267df5fe6f53503330444514b391a5e35892a3f5f3e381b1016f9402d1d7fc" => :arm64_big_sur
-    sha256 "f8fb06de036f9b9d1b5483054b967c8b0ba61f7617f40c7b2d8443c87b3b54a9" => :catalina
-    sha256 "a9e8dd8d94adc330b85d60b74380987bd680103c2b4cac61d407eca7b272174b" => :mojave
-    sha256 "0e814810990e326f9b20a416d684a05261c6e4b68cd9d092a09898fe50077fa0" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f9267df5fe6f53503330444514b391a5e35892a3f5f3e381b1016f9402d1d7fc"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5124cc17f73f7467de387d62658658d29907e43e9e50fd25dac4f1c5ec55915b"
+    sha256 cellar: :any_skip_relocation, catalina:      "f8fb06de036f9b9d1b5483054b967c8b0ba61f7617f40c7b2d8443c87b3b54a9"
+    sha256 cellar: :any_skip_relocation, mojave:        "a9e8dd8d94adc330b85d60b74380987bd680103c2b4cac61d407eca7b272174b"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "0e814810990e326f9b20a416d684a05261c6e4b68cd9d092a09898fe50077fa0"
   end
 
   depends_on "openssl@1.1"

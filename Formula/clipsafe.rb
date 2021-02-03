@@ -6,13 +6,12 @@ class Clipsafe < Formula
   revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "1a8a00c232a748d9b45271239043f5d155666acfdcb79670efc816e26c740221" => :catalina
-    sha256 "c3c42621d02672ee0cabd443b871760320c1b82ba61b48bca61076acab10d097" => :mojave
-    sha256 "211d670b61c6a68650736df3deb3ae783c320491ba3205e035cc28c014fca705" => :high_sierra
-    sha256 "7c894e55e215fffa121aef718dbf7fa0f2c71531cf7970ae8d27f4b5eb939877" => :sierra
-    sha256 "ffd255c6ff1bd4c403bc4040f1751eef61b4ae341c33b226bf9a696b2836b02e" => :el_capitan
-    sha256 "01dbb7b4cf71ae2b174cfec45cdf4a69e211a5154bc6541fb19e1b5aa20f8389" => :yosemite
+    sha256 cellar: :any_skip_relocation, catalina:    "1a8a00c232a748d9b45271239043f5d155666acfdcb79670efc816e26c740221"
+    sha256 cellar: :any_skip_relocation, mojave:      "c3c42621d02672ee0cabd443b871760320c1b82ba61b48bca61076acab10d097"
+    sha256 cellar: :any_skip_relocation, high_sierra: "211d670b61c6a68650736df3deb3ae783c320491ba3205e035cc28c014fca705"
+    sha256 cellar: :any_skip_relocation, sierra:      "7c894e55e215fffa121aef718dbf7fa0f2c71531cf7970ae8d27f4b5eb939877"
+    sha256 cellar: :any_skip_relocation, el_capitan:  "ffd255c6ff1bd4c403bc4040f1751eef61b4ae341c33b226bf9a696b2836b02e"
+    sha256 cellar: :any_skip_relocation, yosemite:    "01dbb7b4cf71ae2b174cfec45cdf4a69e211a5154bc6541fb19e1b5aa20f8389"
   end
 
   resource "Crypt::Twofish" do

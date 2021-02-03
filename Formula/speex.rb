@@ -11,15 +11,14 @@ class Speex < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "4eab5b7d16f9a249b65156765cfdf1fca13d59f9bdd599c266f075f740b0ff81" => :big_sur
-    sha256 "6fa6fadc24bf645344850be769b61adcefffa425c7cc456e127d35a4bb1b7b17" => :arm64_big_sur
-    sha256 "0f83411cb7338f92a588672d127c902e0b45d1f7276befa2206bc870208d5bb0" => :catalina
-    sha256 "ed212ec09c4a1a2c789e5c2a7a2679b56c75bcf252a52fe28d6615499d21534f" => :mojave
-    sha256 "525970161e7c1629b242c91d889201ca368814945695efd5b441d58b5b5dcc75" => :high_sierra
-    sha256 "5aa61761fb5426de78297fdc83579515dda1a880f47c925cb3405b7175079b92" => :sierra
-    sha256 "056781a4d7c5fe9a05f30160c059352bda0a4f8a759820df7dde7233aa08cba5" => :el_capitan
-    sha256 "a0b3c91782b8242508adac3ebc0cd86688e75b043ea0d84f4ef7ac9940f8a21b" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "6fa6fadc24bf645344850be769b61adcefffa425c7cc456e127d35a4bb1b7b17"
+    sha256 cellar: :any, big_sur:       "4eab5b7d16f9a249b65156765cfdf1fca13d59f9bdd599c266f075f740b0ff81"
+    sha256 cellar: :any, catalina:      "0f83411cb7338f92a588672d127c902e0b45d1f7276befa2206bc870208d5bb0"
+    sha256 cellar: :any, mojave:        "ed212ec09c4a1a2c789e5c2a7a2679b56c75bcf252a52fe28d6615499d21534f"
+    sha256 cellar: :any, high_sierra:   "525970161e7c1629b242c91d889201ca368814945695efd5b441d58b5b5dcc75"
+    sha256 cellar: :any, sierra:        "5aa61761fb5426de78297fdc83579515dda1a880f47c925cb3405b7175079b92"
+    sha256 cellar: :any, el_capitan:    "056781a4d7c5fe9a05f30160c059352bda0a4f8a759820df7dde7233aa08cba5"
+    sha256 cellar: :any, yosemite:      "a0b3c91782b8242508adac3ebc0cd86688e75b043ea0d84f4ef7ac9940f8a21b"
   end
 
   depends_on "pkg-config" => :build

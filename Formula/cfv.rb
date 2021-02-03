@@ -10,17 +10,16 @@ class Cfv < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "8ce1654aa4805deb6a80b9ec470306b879b79d5e25e151df1e4c78e498c0e214" => :big_sur
-    sha256 "09dd4b6432d6cac583e1ac82d2d65c10f2d3549f4d7a1017dbcce07ae6123238" => :arm64_big_sur
-    sha256 "cd4fac08aac6490ade28d8b370e006c720bab5df939caadb92b25af278a4384a" => :catalina
-    sha256 "251348813c0a811e6ac298432967d19e42bfa73bbc3217eaa0b63bec4b78d98d" => :mojave
-    sha256 "7452ead7901f4f4ab2683cd391af82f856eba1a57c11d07c038ca18507535dac" => :high_sierra
-    sha256 "449f4b10a0371005f04bffa6271364824a83fbb68cb15208168c19457b987b6e" => :sierra
-    sha256 "49b83783b5737a364504fdd9fd09672134e0103c7bb8152741d67fca455fde04" => :el_capitan
-    sha256 "df85f8ee2901bb0b3033a3158d04848bb2fbc455f8af12d7d6eb6869c1471ed9" => :yosemite
-    sha256 "f251efc545293925f29093f8574495ebbbfe1cbad2a285a7a531e357310e3d1f" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "09dd4b6432d6cac583e1ac82d2d65c10f2d3549f4d7a1017dbcce07ae6123238"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8ce1654aa4805deb6a80b9ec470306b879b79d5e25e151df1e4c78e498c0e214"
+    sha256 cellar: :any_skip_relocation, catalina:      "cd4fac08aac6490ade28d8b370e006c720bab5df939caadb92b25af278a4384a"
+    sha256 cellar: :any_skip_relocation, mojave:        "251348813c0a811e6ac298432967d19e42bfa73bbc3217eaa0b63bec4b78d98d"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "7452ead7901f4f4ab2683cd391af82f856eba1a57c11d07c038ca18507535dac"
+    sha256 cellar: :any_skip_relocation, sierra:        "449f4b10a0371005f04bffa6271364824a83fbb68cb15208168c19457b987b6e"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "49b83783b5737a364504fdd9fd09672134e0103c7bb8152741d67fca455fde04"
+    sha256 cellar: :any_skip_relocation, yosemite:      "df85f8ee2901bb0b3033a3158d04848bb2fbc455f8af12d7d6eb6869c1471ed9"
+    sha256 cellar: :any_skip_relocation, mavericks:     "f251efc545293925f29093f8574495ebbbfe1cbad2a285a7a531e357310e3d1f"
   end
 
   def install

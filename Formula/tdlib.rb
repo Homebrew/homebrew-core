@@ -7,11 +7,10 @@ class Tdlib < Formula
   head "https://github.com/tdlib/td.git"
 
   bottle do
-    cellar :any
-    sha256 "79dc39f41a2ad6d8272887c0564f043e9c362b1073ba2ceeb338f50e717c97dc" => :big_sur
-    sha256 "15d07ea3abe99c9c65e1e74fa43aa6c2be758e84dc5f8657ef68fc47d8540a36" => :arm64_big_sur
-    sha256 "fc606ff0b78fd6ad52f0449dfd1380e646b4de63ff36756546838b783a088ca2" => :catalina
-    sha256 "007b08aced0aa457830daaade4299c979ee97db6b420bdfe5d0e6bdd416925c6" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "15d07ea3abe99c9c65e1e74fa43aa6c2be758e84dc5f8657ef68fc47d8540a36"
+    sha256 cellar: :any, big_sur:       "79dc39f41a2ad6d8272887c0564f043e9c362b1073ba2ceeb338f50e717c97dc"
+    sha256 cellar: :any, catalina:      "fc606ff0b78fd6ad52f0449dfd1380e646b4de63ff36756546838b783a088ca2"
+    sha256 cellar: :any, mojave:        "007b08aced0aa457830daaade4299c979ee97db6b420bdfe5d0e6bdd416925c6"
   end
 
   depends_on "cmake" => :build

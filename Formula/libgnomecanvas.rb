@@ -10,11 +10,10 @@ class Libgnomecanvas < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "e2ae279ca7759e74bf93ed0577838d7e80fef134ad5f76c671263d023bca3dd1" => :big_sur
-    sha256 "ed9d17d2b7100e9c5ef536c547119eb78e8658bc273f958e673d47383290c3d7" => :arm64_big_sur
-    sha256 "816cd9bf11520fba1126073191c236f2355c45a137905ba978f16a506960fef0" => :catalina
-    sha256 "bedab86245aa4185fc9c009496ec2d0fc0d1ea53074493db08afc81bdf424a60" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "ed9d17d2b7100e9c5ef536c547119eb78e8658bc273f958e673d47383290c3d7"
+    sha256 cellar: :any, big_sur:       "e2ae279ca7759e74bf93ed0577838d7e80fef134ad5f76c671263d023bca3dd1"
+    sha256 cellar: :any, catalina:      "816cd9bf11520fba1126073191c236f2355c45a137905ba978f16a506960fef0"
+    sha256 cellar: :any, mojave:        "bedab86245aa4185fc9c009496ec2d0fc0d1ea53074493db08afc81bdf424a60"
   end
 
   depends_on "intltool" => :build

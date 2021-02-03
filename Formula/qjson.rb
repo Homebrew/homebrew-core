@@ -7,15 +7,14 @@ class Qjson < Formula
   revision 1
 
   bottle do
-    cellar :any
-    sha256 "00af1b725eb93d0c9bba5bf78842a612981d9e30d8ac44c168db579eed019df5" => :big_sur
-    sha256 "c1801c1ef5510834f151d8fb998153c6b1c3e66cb169f007884e8086ba5b62d4" => :arm64_big_sur
-    sha256 "909c5b1e45b05d7bba5c67e116c8b9c1a734f6df155e7792e8fe0fd7a2fd4c84" => :catalina
-    sha256 "02abebab98b79dd60197c0e2d5f7a468e96cb738e5c2065a3664db0bf59cf59e" => :mojave
-    sha256 "1bd2a1a0fcabf72acedd8a7c9d68bae090d31cc6a673515461ce487f15b88772" => :high_sierra
-    sha256 "bd50e784f99285df8e70448f041c67fe1f8c79f5d6b17f130a2e3a11bc19227d" => :sierra
-    sha256 "befe6eeb2426c2f698dd54999398fa569d91246d239aef3e877680902a20f945" => :el_capitan
-    sha256 "f17d608977669101c13d3f57136d8d8121a0f87e26a0d7a55ee5a21659294355" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "c1801c1ef5510834f151d8fb998153c6b1c3e66cb169f007884e8086ba5b62d4"
+    sha256 cellar: :any, big_sur:       "00af1b725eb93d0c9bba5bf78842a612981d9e30d8ac44c168db579eed019df5"
+    sha256 cellar: :any, catalina:      "909c5b1e45b05d7bba5c67e116c8b9c1a734f6df155e7792e8fe0fd7a2fd4c84"
+    sha256 cellar: :any, mojave:        "02abebab98b79dd60197c0e2d5f7a468e96cb738e5c2065a3664db0bf59cf59e"
+    sha256 cellar: :any, high_sierra:   "1bd2a1a0fcabf72acedd8a7c9d68bae090d31cc6a673515461ce487f15b88772"
+    sha256 cellar: :any, sierra:        "bd50e784f99285df8e70448f041c67fe1f8c79f5d6b17f130a2e3a11bc19227d"
+    sha256 cellar: :any, el_capitan:    "befe6eeb2426c2f698dd54999398fa569d91246d239aef3e877680902a20f945"
+    sha256 cellar: :any, yosemite:      "f17d608977669101c13d3f57136d8d8121a0f87e26a0d7a55ee5a21659294355"
   end
 
   depends_on "cmake" => :build

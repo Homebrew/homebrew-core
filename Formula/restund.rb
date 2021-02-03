@@ -11,11 +11,11 @@ class Restund < Formula
 
   bottle do
     rebuild 1
-    sha256 "389b79ebc0bd2352f739496d27e8d684db16a4a371ff24c511dc0b2a6059e5ec" => :big_sur
-    sha256 "904de3a9379dac2c1215b992e1aff7cfd42e09f288e5b88df1969c9ba1675050" => :catalina
-    sha256 "7ec584f71cc4b6f54f30c1dfcae29e11f110b8f26506e1154e5646ce326923b1" => :mojave
-    sha256 "2d5b243b9971a38fdc00c1d2d332e7875aa17f74ea4d1f083eeacbfaa38d004f" => :high_sierra
-    sha256 "ea2c7e202307b9a48ed65020570d5ce3236b556757263cb16c35143baa92ca79" => :sierra
+    sha256 big_sur:     "389b79ebc0bd2352f739496d27e8d684db16a4a371ff24c511dc0b2a6059e5ec"
+    sha256 catalina:    "904de3a9379dac2c1215b992e1aff7cfd42e09f288e5b88df1969c9ba1675050"
+    sha256 mojave:      "7ec584f71cc4b6f54f30c1dfcae29e11f110b8f26506e1154e5646ce326923b1"
+    sha256 high_sierra: "2d5b243b9971a38fdc00c1d2d332e7875aa17f74ea4d1f083eeacbfaa38d004f"
+    sha256 sierra:      "ea2c7e202307b9a48ed65020570d5ce3236b556757263cb16c35143baa92ca79"
   end
 
   depends_on "libre"

@@ -13,11 +13,11 @@ class Gnutls < Formula
   end
 
   bottle do
-    sha256 "6f523e8ce74c567d17a4a5b69794e897074a016b895a5d8ef7122ac006b770fc" => :big_sur
-    sha256 "c17d19750e8de06d56d80c49c7e31fb7f334f345bcb1aa2489827f575c82cdbd" => :arm64_big_sur
-    sha256 "513407ec28ac63623dbc05ac6880d59cf7c082827687dfda7d0f065232151878" => :catalina
-    sha256 "cd25205fbf27599b4186f8549324a50f045fa680b8c02a98230dcf910dff0941" => :mojave
-    sha256 "5a1c108c598159c9d3dc203bed684cf70ca5dae5ee875166b35420fd2415a61e" => :high_sierra
+    sha256 arm64_big_sur: "c17d19750e8de06d56d80c49c7e31fb7f334f345bcb1aa2489827f575c82cdbd"
+    sha256 big_sur:       "6f523e8ce74c567d17a4a5b69794e897074a016b895a5d8ef7122ac006b770fc"
+    sha256 catalina:      "513407ec28ac63623dbc05ac6880d59cf7c082827687dfda7d0f065232151878"
+    sha256 mojave:        "cd25205fbf27599b4186f8549324a50f045fa680b8c02a98230dcf910dff0941"
+    sha256 high_sierra:   "5a1c108c598159c9d3dc203bed684cf70ca5dae5ee875166b35420fd2415a61e"
   end
 
   depends_on "autoconf" => :build

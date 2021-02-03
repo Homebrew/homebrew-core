@@ -7,11 +7,10 @@ class Cpm < Formula
   head "https://github.com/skaji/cpm.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "00c937cca67b30b62f57f395a3b2b65023ce0fc22ecc6898e5632a21a8c3cffd" => :big_sur
-    sha256 "6ae4ce127f80c7c1f72a651c5ae37531726e431b69c41f90e4f2c90b56765ac0" => :arm64_big_sur
-    sha256 "c1c3eb60b9a990d9534f28d44990449b674e6c03544fcf2f3daeb3dde4ab700f" => :catalina
-    sha256 "c04b9529d213461432fb0028c66587f3890d1044376f260b0466f48357b7c2d7" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6ae4ce127f80c7c1f72a651c5ae37531726e431b69c41f90e4f2c90b56765ac0"
+    sha256 cellar: :any_skip_relocation, big_sur:       "00c937cca67b30b62f57f395a3b2b65023ce0fc22ecc6898e5632a21a8c3cffd"
+    sha256 cellar: :any_skip_relocation, catalina:      "c1c3eb60b9a990d9534f28d44990449b674e6c03544fcf2f3daeb3dde4ab700f"
+    sha256 cellar: :any_skip_relocation, mojave:        "c04b9529d213461432fb0028c66587f3890d1044376f260b0466f48357b7c2d7"
   end
 
   depends_on "perl"

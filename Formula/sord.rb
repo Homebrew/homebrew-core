@@ -11,11 +11,10 @@ class Sord < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "30fed8a7b4747de9ed632640e1b2aa326e0c5bb71030d0924b934d820fe87ef5" => :big_sur
-    sha256 "ec9d443ac5fc598d0718dd33a9c19fc8f2d2f38975512ce79acabd2d5e509fd7" => :arm64_big_sur
-    sha256 "e0ca8e8fd6e2ba8ccec9cb75c8bb2f1d1fe09ba8ebce886f78eed4c87343ab93" => :catalina
-    sha256 "2d69dca2635bf0808ce19d65e6a795d1591b5f197b2cc703fa9fa084d81d6c2f" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "ec9d443ac5fc598d0718dd33a9c19fc8f2d2f38975512ce79acabd2d5e509fd7"
+    sha256 cellar: :any, big_sur:       "30fed8a7b4747de9ed632640e1b2aa326e0c5bb71030d0924b934d820fe87ef5"
+    sha256 cellar: :any, catalina:      "e0ca8e8fd6e2ba8ccec9cb75c8bb2f1d1fe09ba8ebce886f78eed4c87343ab93"
+    sha256 cellar: :any, mojave:        "2d69dca2635bf0808ce19d65e6a795d1591b5f197b2cc703fa9fa084d81d6c2f"
   end
 
   depends_on "pkg-config" => :build

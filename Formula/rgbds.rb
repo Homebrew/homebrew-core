@@ -12,11 +12,10 @@ class Rgbds < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "6c4d8fece0d52778f3d939832bfcb46f3e339248228ed166f7e604339c1b2833" => :big_sur
-    sha256 "683197419321366aa097980b0c982698fca0082c72ddafc09f0679404c322e9d" => :arm64_big_sur
-    sha256 "4ffdbfb56810ee5ab1d54c647fe5a232954b78b024b2ecbcc3ff009f48d38f8e" => :catalina
-    sha256 "a61753b345b81f0378916971fdf7629744556fe6d3c04c85afdec27669641e48" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "683197419321366aa097980b0c982698fca0082c72ddafc09f0679404c322e9d"
+    sha256 cellar: :any, big_sur:       "6c4d8fece0d52778f3d939832bfcb46f3e339248228ed166f7e604339c1b2833"
+    sha256 cellar: :any, catalina:      "4ffdbfb56810ee5ab1d54c647fe5a232954b78b024b2ecbcc3ff009f48d38f8e"
+    sha256 cellar: :any, mojave:        "a61753b345b81f0378916971fdf7629744556fe6d3c04c85afdec27669641e48"
   end
 
   depends_on "pkg-config" => :build

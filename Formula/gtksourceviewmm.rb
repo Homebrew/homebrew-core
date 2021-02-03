@@ -12,10 +12,10 @@ class Gtksourceviewmm < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur: "cb0781be44de07c6b920d97337eeca3650d9ffc03d99cb0ac0e9da7cf2769b0c"
     sha256 cellar: :any, arm64_big_sur: "2b73a79e4c0df491e43dcc3def52858679c0d0ff699c3bb8a003014a7940408b"
-    sha256 cellar: :any, catalina: "d6bd00f9f409660e55085ad15802c9e9b1f5f85d8600a729da0c81e3e79cd9d2"
-    sha256 cellar: :any, mojave: "5c11aa110b1c22269ddc3a2ad31752c02b6522c8310db0367dd7f112b62e0b1f"
+    sha256 cellar: :any, big_sur:       "cb0781be44de07c6b920d97337eeca3650d9ffc03d99cb0ac0e9da7cf2769b0c"
+    sha256 cellar: :any, catalina:      "d6bd00f9f409660e55085ad15802c9e9b1f5f85d8600a729da0c81e3e79cd9d2"
+    sha256 cellar: :any, mojave:        "5c11aa110b1c22269ddc3a2ad31752c02b6522c8310db0367dd7f112b62e0b1f"
   end
 
   depends_on "pkg-config" => [:build, :test]

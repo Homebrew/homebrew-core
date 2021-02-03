@@ -7,11 +7,10 @@ class ContainerStructureTest < Formula
   head "https://github.com/GoogleContainerTools/container-structure-test.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "fe1c78a41314a909b9251ac55e09a109dcfff01315bde3d515dd2344038183df" => :big_sur
-    sha256 "91fcb7cb88abaa849aa25cbf4a6f1d4d7115fd214f80f16e4a0cdb8e38c04e23" => :arm64_big_sur
-    sha256 "62fe8a2e6ee7931c9755dcede739cc54f27173362e1767c675f2fa244dbebf42" => :catalina
-    sha256 "11d19adb68076f69c4fc9a27bdfd858cdb9260406e5ec72b15f04b08d795650c" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "91fcb7cb88abaa849aa25cbf4a6f1d4d7115fd214f80f16e4a0cdb8e38c04e23"
+    sha256 cellar: :any_skip_relocation, big_sur:       "fe1c78a41314a909b9251ac55e09a109dcfff01315bde3d515dd2344038183df"
+    sha256 cellar: :any_skip_relocation, catalina:      "62fe8a2e6ee7931c9755dcede739cc54f27173362e1767c675f2fa244dbebf42"
+    sha256 cellar: :any_skip_relocation, mojave:        "11d19adb68076f69c4fc9a27bdfd858cdb9260406e5ec72b15f04b08d795650c"
   end
 
   depends_on "go" => :build

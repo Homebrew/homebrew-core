@@ -17,10 +17,10 @@ class MinioMc < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur: "b5e9140519d8c3b99950a316ecb63b2c8baf543c7e45f58b8e39d3826db934b0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "9883502b95ddc9a825e1431489b881e19baecb3f8f3988e6c392b99f3a1d0e08"
-    sha256 cellar: :any_skip_relocation, catalina: "0ee86f4cc0af50d35aa2bea0b9168edd0a0982d273ee551a1b6b8384fcbd83e4"
-    sha256 cellar: :any_skip_relocation, mojave: "8672bfde6d1f4ea6c8d98bb3dd44c268bd0f8eafd221804da89f63dacdb892ae"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b5e9140519d8c3b99950a316ecb63b2c8baf543c7e45f58b8e39d3826db934b0"
+    sha256 cellar: :any_skip_relocation, catalina:      "0ee86f4cc0af50d35aa2bea0b9168edd0a0982d273ee551a1b6b8384fcbd83e4"
+    sha256 cellar: :any_skip_relocation, mojave:        "8672bfde6d1f4ea6c8d98bb3dd44c268bd0f8eafd221804da89f63dacdb892ae"
   end
 
   depends_on "go" => :build

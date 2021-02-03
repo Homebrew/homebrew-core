@@ -6,16 +6,15 @@ class Hoedown < Formula
   license "ISC"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "8878fa04ace3327364bb0d18113bbb56006f169d7f169bc41d03986e1bfe6270" => :big_sur
-    sha256 "748004674d9036262032eda6a9b574137cff8a01178977c45d735adba7160587" => :arm64_big_sur
-    sha256 "578d2db4436012569cd56a47cca8967e106cd83474ed80f52dd7deeda6b1a134" => :catalina
-    sha256 "4028b7bb88b6da75f735c58f3497d354dda4bc7ce33288a0ae71932878991c5b" => :mojave
-    sha256 "1be6101d978f2df1749712dd39d3fc8b9c7cc014c2402eab5060e8656f6b22cf" => :high_sierra
-    sha256 "f940a418b3ca712a91e8b782d61618a2b1cf2c662a98f636e4df1318fbb9f508" => :sierra
-    sha256 "7076f6f7c091919a3619a5a5655270d79dab42fdb6d7dfdc3f1324318ca4ec6d" => :el_capitan
-    sha256 "fc37aa79feca395a49b3e15348d8156721ba1713dfb740622c57a696d1ec5e58" => :yosemite
-    sha256 "9940929bd2ede20f973f29fdac888c6b664188bf29e9a1f7c8eba0eeb42e6206" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "748004674d9036262032eda6a9b574137cff8a01178977c45d735adba7160587"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8878fa04ace3327364bb0d18113bbb56006f169d7f169bc41d03986e1bfe6270"
+    sha256 cellar: :any_skip_relocation, catalina:      "578d2db4436012569cd56a47cca8967e106cd83474ed80f52dd7deeda6b1a134"
+    sha256 cellar: :any_skip_relocation, mojave:        "4028b7bb88b6da75f735c58f3497d354dda4bc7ce33288a0ae71932878991c5b"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "1be6101d978f2df1749712dd39d3fc8b9c7cc014c2402eab5060e8656f6b22cf"
+    sha256 cellar: :any_skip_relocation, sierra:        "f940a418b3ca712a91e8b782d61618a2b1cf2c662a98f636e4df1318fbb9f508"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "7076f6f7c091919a3619a5a5655270d79dab42fdb6d7dfdc3f1324318ca4ec6d"
+    sha256 cellar: :any_skip_relocation, yosemite:      "fc37aa79feca395a49b3e15348d8156721ba1713dfb740622c57a696d1ec5e58"
+    sha256 cellar: :any_skip_relocation, mavericks:     "9940929bd2ede20f973f29fdac888c6b664188bf29e9a1f7c8eba0eeb42e6206"
   end
 
   def install

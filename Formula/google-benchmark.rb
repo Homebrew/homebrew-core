@@ -7,12 +7,11 @@ class GoogleBenchmark < Formula
   head "https://github.com/google/benchmark.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "1d488749c931d730a0d074c01b288c579c89083c9f49760e8ce451acf84ea0c7" => :big_sur
-    sha256 "b1be7c8171680b473a0b4175be006e5c524d76ed165305f347b3b7de8dd3846f" => :arm64_big_sur
-    sha256 "432e4f98bad2a73d0f47279714d5028dfad2283f939eb745794b47272bf90f2e" => :catalina
-    sha256 "e303f9f7f9ce196aa338a18767605162d27612514cd134e7b143be0b85ffe66c" => :mojave
-    sha256 "8275a82eeb23188a166f67ace983ee9968f247840d20fb0119a5f1c0f5067c7a" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b1be7c8171680b473a0b4175be006e5c524d76ed165305f347b3b7de8dd3846f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1d488749c931d730a0d074c01b288c579c89083c9f49760e8ce451acf84ea0c7"
+    sha256 cellar: :any_skip_relocation, catalina:      "432e4f98bad2a73d0f47279714d5028dfad2283f939eb745794b47272bf90f2e"
+    sha256 cellar: :any_skip_relocation, mojave:        "e303f9f7f9ce196aa338a18767605162d27612514cd134e7b143be0b85ffe66c"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "8275a82eeb23188a166f67ace983ee9968f247840d20fb0119a5f1c0f5067c7a"
   end
 
   depends_on "cmake" => :build

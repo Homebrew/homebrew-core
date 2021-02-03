@@ -11,9 +11,9 @@ class Expect < Formula
 
   bottle do
     rebuild 2
-    sha256 "cbdcb67794f77d6de69084d2f89da417ebdc02eb679e362cc1c2be1dd607806f" => :big_sur
-    sha256 "1a859db0c9e4cdc49a3c2a318aa61a9c716114df8a08884c68be517e08b75af9" => :catalina
-    sha256 "838aaa69a38886e750f07b4fc3f3e9d3b27bb135b7b25ae69e212dcb4ad2c978" => :mojave
+    sha256 big_sur:  "cbdcb67794f77d6de69084d2f89da417ebdc02eb679e362cc1c2be1dd607806f"
+    sha256 catalina: "1a859db0c9e4cdc49a3c2a318aa61a9c716114df8a08884c68be517e08b75af9"
+    sha256 mojave:   "838aaa69a38886e750f07b4fc3f3e9d3b27bb135b7b25ae69e212dcb4ad2c978"
   end
 
   # Autotools are introduced here to regenerate configure script. Remove

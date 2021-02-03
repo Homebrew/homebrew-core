@@ -11,10 +11,10 @@ class Ngt < Formula
   end
 
   bottle do
-    sha256 "abb91b335f7adc31fe0406e29f5dee6c485c966fed3f24abaadf2f0f110d6fbe" => :big_sur
-    sha256 "2904b34765e80cab35c4ba6eced566acebd6ccc785dc0b02cda507d1fce44256" => :arm64_big_sur
-    sha256 "5bb09741c501f1dfec11e46652022c929de3d79d7a268fa52f90e3d2dbde41a4" => :catalina
-    sha256 "b00f6760adccd430822d17e27b8fd3202ff332a5a8bb93734e5e0b8ebcc01958" => :mojave
+    sha256 arm64_big_sur: "2904b34765e80cab35c4ba6eced566acebd6ccc785dc0b02cda507d1fce44256"
+    sha256 big_sur:       "abb91b335f7adc31fe0406e29f5dee6c485c966fed3f24abaadf2f0f110d6fbe"
+    sha256 catalina:      "5bb09741c501f1dfec11e46652022c929de3d79d7a268fa52f90e3d2dbde41a4"
+    sha256 mojave:        "b00f6760adccd430822d17e27b8fd3202ff332a5a8bb93734e5e0b8ebcc01958"
   end
 
   depends_on "cmake" => :build

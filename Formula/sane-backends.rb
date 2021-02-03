@@ -12,11 +12,11 @@ class SaneBackends < Formula
   end
 
   bottle do
-    sha256 "a489f51d1f8513292a3c5139e937f9bca35f85019035d3e5ae275fe3b3dcd990" => :big_sur
-    sha256 "98d7eca159d5105a6bfa6dfd027830a16381347c22f92e75ab93a814380ff81b" => :arm64_big_sur
-    sha256 "7b263e24809b81b27db7d43c4ce92e6c09c003055e3da0874b7d7282fb3a35c8" => :catalina
-    sha256 "2bd03a03d1807d5d0e56695d567b1598696dc0e8e29ada67517665043854865b" => :mojave
-    sha256 "3b54db3fec1723a2cbd5705cd1d9344791ff4942cb2a51d62e5c166f8cca9a9a" => :high_sierra
+    sha256 arm64_big_sur: "98d7eca159d5105a6bfa6dfd027830a16381347c22f92e75ab93a814380ff81b"
+    sha256 big_sur:       "a489f51d1f8513292a3c5139e937f9bca35f85019035d3e5ae275fe3b3dcd990"
+    sha256 catalina:      "7b263e24809b81b27db7d43c4ce92e6c09c003055e3da0874b7d7282fb3a35c8"
+    sha256 mojave:        "2bd03a03d1807d5d0e56695d567b1598696dc0e8e29ada67517665043854865b"
+    sha256 high_sierra:   "3b54db3fec1723a2cbd5705cd1d9344791ff4942cb2a51d62e5c166f8cca9a9a"
   end
 
   depends_on "pkg-config" => :build

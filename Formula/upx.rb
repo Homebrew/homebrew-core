@@ -6,10 +6,9 @@ class Upx < Formula
   head "https://github.com/upx/upx.git", branch: "devel"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "1089a067bec1387bfa8080565f95601493291933b83a510057ba6f1e7fd06d91" => :catalina
-    sha256 "20ab82b69b19ac0886bd202459b652d85f7bc5c288009dd7caf09017be940d37" => :mojave
-    sha256 "4773fc3b7ccb35aad163549a7c5b37813dea9e5c2f1cdfd67a00e7da36691b69" => :high_sierra
+    sha256 cellar: :any_skip_relocation, catalina:    "1089a067bec1387bfa8080565f95601493291933b83a510057ba6f1e7fd06d91"
+    sha256 cellar: :any_skip_relocation, mojave:      "20ab82b69b19ac0886bd202459b652d85f7bc5c288009dd7caf09017be940d37"
+    sha256 cellar: :any_skip_relocation, high_sierra: "4773fc3b7ccb35aad163549a7c5b37813dea9e5c2f1cdfd67a00e7da36691b69"
   end
 
   depends_on "ucl" => :build

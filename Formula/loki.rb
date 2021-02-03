@@ -6,11 +6,10 @@ class Loki < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c260accbef2a86c2b07bdcb0a9d301c90e4a777a5ce0a38972d13639c6ee0211" => :big_sur
-    sha256 "270a38d251958d692f764a245aabd1e48dce3d0ef9f2fec662703c35e66352b7" => :arm64_big_sur
-    sha256 "c30784090d993d8fa11e1b7572f7c9bf3bfcca66f14cb90a14e042bbb64cfb07" => :catalina
-    sha256 "06264507ae31286df620a0119f24dfc1394735d54d4dcee448ac751b9e7d0d83" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "270a38d251958d692f764a245aabd1e48dce3d0ef9f2fec662703c35e66352b7"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c260accbef2a86c2b07bdcb0a9d301c90e4a777a5ce0a38972d13639c6ee0211"
+    sha256 cellar: :any_skip_relocation, catalina:      "c30784090d993d8fa11e1b7572f7c9bf3bfcca66f14cb90a14e042bbb64cfb07"
+    sha256 cellar: :any_skip_relocation, mojave:        "06264507ae31286df620a0119f24dfc1394735d54d4dcee448ac751b9e7d0d83"
   end
 
   depends_on "go" => :build

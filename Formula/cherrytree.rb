@@ -6,10 +6,10 @@ class Cherrytree < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 big_sur: "8aa0bfea8c3ab007a1e1c4ab3c630e1401d5cbd8495704e7d46b735617ddea6a"
     sha256 arm64_big_sur: "a6eb90be4cceb143782258067f97c32b4711aa05e54393e01f0432a2c6d55a42"
-    sha256 catalina: "a57359a66ac690a5396dd94298b530d25479a417fcce50ff9ac3d5663a255246"
-    sha256 mojave: "0fe1ae41be30491106f3356761562072bd06390cccc6ac747b6924a41e57dfb1"
+    sha256 big_sur:       "8aa0bfea8c3ab007a1e1c4ab3c630e1401d5cbd8495704e7d46b735617ddea6a"
+    sha256 catalina:      "a57359a66ac690a5396dd94298b530d25479a417fcce50ff9ac3d5663a255246"
+    sha256 mojave:        "0fe1ae41be30491106f3356761562072bd06390cccc6ac747b6924a41e57dfb1"
   end
 
   depends_on "cmake" => :build

@@ -7,11 +7,10 @@ class Ktmpl < Formula
   head "https://github.com/jimmycuadra/ktmpl.git"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 2
-    sha256 "f6c8b5ae8a73efae24f8cce662e6abe53deff77a9a0f01e4f3ba174e074461b4" => :big_sur
-    sha256 "922eb19c9c044634957bf1d9404b2319ae47b5998666ba30b7282728aaf7d3d0" => :catalina
-    sha256 "9573af681da2ecc9f8299ea83553b6c5728c1cf6f21d6495fa8d118610a3467c" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur:  "f6c8b5ae8a73efae24f8cce662e6abe53deff77a9a0f01e4f3ba174e074461b4"
+    sha256 cellar: :any_skip_relocation, catalina: "922eb19c9c044634957bf1d9404b2319ae47b5998666ba30b7282728aaf7d3d0"
+    sha256 cellar: :any_skip_relocation, mojave:   "9573af681da2ecc9f8299ea83553b6c5728c1cf6f21d6495fa8d118610a3467c"
   end
 
   depends_on "rust" => :build

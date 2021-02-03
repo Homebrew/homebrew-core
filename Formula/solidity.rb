@@ -11,11 +11,10 @@ class Solidity < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "96da61f3369a801b5339981dca3b3fb2d85c659de760a85d6ad4e830f0f13f7a" => :big_sur
-    sha256 "5aec17d05049a752a8f4dae6fe72c92e451c4da260e11f5fe4d56d2a12a5e1cf" => :arm64_big_sur
-    sha256 "12298e172ca65370faf7c73b735a4f3b93911808dea765830bd6345ebc4a55d8" => :catalina
-    sha256 "3ad5b0dfd289dd809b1d5637220c943dc809f682690685bd5811a56662412525" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5aec17d05049a752a8f4dae6fe72c92e451c4da260e11f5fe4d56d2a12a5e1cf"
+    sha256 cellar: :any_skip_relocation, big_sur:       "96da61f3369a801b5339981dca3b3fb2d85c659de760a85d6ad4e830f0f13f7a"
+    sha256 cellar: :any_skip_relocation, catalina:      "12298e172ca65370faf7c73b735a4f3b93911808dea765830bd6345ebc4a55d8"
+    sha256 cellar: :any_skip_relocation, mojave:        "3ad5b0dfd289dd809b1d5637220c943dc809f682690685bd5811a56662412525"
   end
 
   depends_on "cmake" => :build

@@ -10,12 +10,12 @@ class Takt < Formula
   end
 
   bottle do
-    sha256 "fd9dec43c0d9d5634d3bf23f8c6112090429d279243c5c0acd4dbfff8025fdbc" => :big_sur
-    sha256 "910a1325ce07065c113c1efd53e8295a10b8db613ef6fa1e5bfda1abc8fa922d" => :arm64_big_sur
-    sha256 "b5f6d5891f4955b26be88358c37199d9f9b1ebd66eaaa519ccbcfddbfa615780" => :catalina
-    sha256 "c45509b2d6828c514a0397f9c57284f7c4efcca766deddc762ef69cac715d3df" => :mojave
-    sha256 "d90177e40185259de89cc259c5cfde419f65161c52571dfeccb18fe52ffeab8f" => :high_sierra
-    sha256 "d0fd3808c9d7266cd16de123c0f8cc434d594b63b6e2d7d67425f155f1c9d582" => :sierra
+    sha256 arm64_big_sur: "910a1325ce07065c113c1efd53e8295a10b8db613ef6fa1e5bfda1abc8fa922d"
+    sha256 big_sur:       "fd9dec43c0d9d5634d3bf23f8c6112090429d279243c5c0acd4dbfff8025fdbc"
+    sha256 catalina:      "b5f6d5891f4955b26be88358c37199d9f9b1ebd66eaaa519ccbcfddbfa615780"
+    sha256 mojave:        "c45509b2d6828c514a0397f9c57284f7c4efcca766deddc762ef69cac715d3df"
+    sha256 high_sierra:   "d90177e40185259de89cc259c5cfde419f65161c52571dfeccb18fe52ffeab8f"
+    sha256 sierra:        "d0fd3808c9d7266cd16de123c0f8cc434d594b63b6e2d7d67425f155f1c9d582"
   end
 
   depends_on "readline"

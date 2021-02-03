@@ -11,15 +11,14 @@ class Lrzip < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "e50e5a1b093feeec8ee1fb9bb3c4664cc80ceae210253ed2ec5b1a677dd2aa57" => :big_sur
-    sha256 "7c23d8dcd60ab17f416775f444e70641305718f3f3966f87b63b204584221b91" => :arm64_big_sur
-    sha256 "15f270984b1591a12a87dc8698edb9be86df691f8081f204307a6176325a2b96" => :catalina
-    sha256 "c4fd1cfc9b09ab7f175bd056865c8712f9e6310c918cd03cfdf6e30f283c8761" => :mojave
-    sha256 "97797937ad456c0658fe24399dc757f30771e971647395fe1fefaa227f615fea" => :high_sierra
-    sha256 "b0c60e0773da9cf70d3164f362b3b527a7a87acd10b632291055d58ca2da7cfc" => :sierra
-    sha256 "c0ea3854495bd5d98f040f1a6b5a08e01857436aac25ead3f7a3fb44841f738a" => :el_capitan
-    sha256 "345d0f65ddc44faab696c5e5bfabf6a6d408435858f49cfd630ee74e61f0c97c" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "7c23d8dcd60ab17f416775f444e70641305718f3f3966f87b63b204584221b91"
+    sha256 cellar: :any, big_sur:       "e50e5a1b093feeec8ee1fb9bb3c4664cc80ceae210253ed2ec5b1a677dd2aa57"
+    sha256 cellar: :any, catalina:      "15f270984b1591a12a87dc8698edb9be86df691f8081f204307a6176325a2b96"
+    sha256 cellar: :any, mojave:        "c4fd1cfc9b09ab7f175bd056865c8712f9e6310c918cd03cfdf6e30f283c8761"
+    sha256 cellar: :any, high_sierra:   "97797937ad456c0658fe24399dc757f30771e971647395fe1fefaa227f615fea"
+    sha256 cellar: :any, sierra:        "b0c60e0773da9cf70d3164f362b3b527a7a87acd10b632291055d58ca2da7cfc"
+    sha256 cellar: :any, el_capitan:    "c0ea3854495bd5d98f040f1a6b5a08e01857436aac25ead3f7a3fb44841f738a"
+    sha256 cellar: :any, yosemite:      "345d0f65ddc44faab696c5e5bfabf6a6d408435858f49cfd630ee74e61f0c97c"
   end
 
   depends_on "pkg-config" => :build

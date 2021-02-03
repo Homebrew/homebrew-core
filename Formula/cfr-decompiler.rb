@@ -13,12 +13,11 @@ class CfrDecompiler < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "c57a78cf07cfa022d923fdd3ae4a3121009745e27aef50ff44a64a3144732552" => :big_sur
-    sha256 "0fdf9bba0c9eab8903844218862ae65cbbae69f97b35f36024877d3d087702a5" => :arm64_big_sur
-    sha256 "15268d8c8cb85a283c6f122331cdfbbf380c097e8c0faeea53b92970569d95e1" => :catalina
-    sha256 "735f265fa827e2989a77f35781ca0f5ebae56c076c39a0368d41025d3a28edb5" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0fdf9bba0c9eab8903844218862ae65cbbae69f97b35f36024877d3d087702a5"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c57a78cf07cfa022d923fdd3ae4a3121009745e27aef50ff44a64a3144732552"
+    sha256 cellar: :any_skip_relocation, catalina:      "15268d8c8cb85a283c6f122331cdfbbf380c097e8c0faeea53b92970569d95e1"
+    sha256 cellar: :any_skip_relocation, mojave:        "735f265fa827e2989a77f35781ca0f5ebae56c076c39a0368d41025d3a28edb5"
   end
 
   depends_on "maven" => :build

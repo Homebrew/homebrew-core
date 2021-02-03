@@ -6,11 +6,10 @@ class RofsFiltered < Formula
   license "GPL-2.0"
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "250c65163e46fc9eaaab11b27562c70775f2481cfe9f649ab151f8da3616ff08" => :catalina
-    sha256 "6f220b4a193928a97dc8442cadf6d161224a1ddac098d496c8cf9a20fb7cd02a" => :mojave
-    sha256 "74277c4f4cc2c60534cda38627450176f356da5bb7120334fd667eaa261fea7b" => :high_sierra
+    sha256 cellar: :any, catalina:    "250c65163e46fc9eaaab11b27562c70775f2481cfe9f649ab151f8da3616ff08"
+    sha256 cellar: :any, mojave:      "6f220b4a193928a97dc8442cadf6d161224a1ddac098d496c8cf9a20fb7cd02a"
+    sha256 cellar: :any, high_sierra: "74277c4f4cc2c60534cda38627450176f356da5bb7120334fd667eaa261fea7b"
   end
 
   depends_on "cmake" => :build

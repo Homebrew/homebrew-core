@@ -6,12 +6,11 @@ class Bitwise < Formula
   license "GPL-3.0"
 
   bottle do
-    cellar :any
-    sha256 "cfa1a51366d29d7b81e0521c74afbdb5636b1ceb64e3cef8156f40eb58776d74" => :big_sur
-    sha256 "c62df0d484c67a94b8e889cf3d551a90bb3b2884df44b8e250c2995893fca88e" => :arm64_big_sur
-    sha256 "d7d90a1402b7b87e1989b2504e6c55ea5bea27282f4bf909b6248aac2d5263cd" => :catalina
-    sha256 "95674ac94d09b5502765956cc94b5f1a9687f22f145e2757bd708f7f7613f913" => :mojave
-    sha256 "e5e76e2ec3f762a6c79b52552fb5513bc891e55831aa75806f61b75834369d6d" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "c62df0d484c67a94b8e889cf3d551a90bb3b2884df44b8e250c2995893fca88e"
+    sha256 cellar: :any, big_sur:       "cfa1a51366d29d7b81e0521c74afbdb5636b1ceb64e3cef8156f40eb58776d74"
+    sha256 cellar: :any, catalina:      "d7d90a1402b7b87e1989b2504e6c55ea5bea27282f4bf909b6248aac2d5263cd"
+    sha256 cellar: :any, mojave:        "95674ac94d09b5502765956cc94b5f1a9687f22f145e2757bd708f7f7613f913"
+    sha256 cellar: :any, high_sierra:   "e5e76e2ec3f762a6c79b52552fb5513bc891e55831aa75806f61b75834369d6d"
   end
 
   depends_on "autoconf" => :build

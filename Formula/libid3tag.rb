@@ -11,12 +11,11 @@ class Libid3tag < Formula
   end
 
   bottle do
-    cellar :any
     rebuild 2
-    sha256 "ef38d5804e95cf7f2096c9e8ec31e568170c6e238e43e7ddc3df914ded26f07b" => :big_sur
-    sha256 "cd7f36377060c5d16d3ee4d4ef5696ef47be82f4f0807172eef36f589cfad246" => :arm64_big_sur
-    sha256 "93b071dac99b3d85dac56e59af42e28d5de959bed9fd37a9a2178c02c8b20f17" => :catalina
-    sha256 "1186600473728830dbb65189d11912e2abf42dac5fcbf7ee38629784cc83b310" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "cd7f36377060c5d16d3ee4d4ef5696ef47be82f4f0807172eef36f589cfad246"
+    sha256 cellar: :any, big_sur:       "ef38d5804e95cf7f2096c9e8ec31e568170c6e238e43e7ddc3df914ded26f07b"
+    sha256 cellar: :any, catalina:      "93b071dac99b3d85dac56e59af42e28d5de959bed9fd37a9a2178c02c8b20f17"
+    sha256 cellar: :any, mojave:        "1186600473728830dbb65189d11912e2abf42dac5fcbf7ee38629784cc83b310"
   end
 
   depends_on "autoconf" => :build

@@ -7,11 +7,10 @@ class Saltwater < Formula
   head "https://github.com/jyn514/saltwater.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "3ce720ef4e471ca3cf3b0f3bc9dbb4cf8988eeae18d1d9620de5dc3f779132cb" => :big_sur
-    sha256 "750182bb83130c00ce6a9ea828261aed154c5c9914a1965172575be861985088" => :catalina
-    sha256 "3474f55537373be89128ac84c91a86f52cc10ac8a01934f784ae9ff07797ba43" => :mojave
-    sha256 "da2e7d1937a9e47c96329261c76a3cc3ec445b0826b92115d3c48ab6885ca8a1" => :high_sierra
+    sha256 cellar: :any_skip_relocation, big_sur:     "3ce720ef4e471ca3cf3b0f3bc9dbb4cf8988eeae18d1d9620de5dc3f779132cb"
+    sha256 cellar: :any_skip_relocation, catalina:    "750182bb83130c00ce6a9ea828261aed154c5c9914a1965172575be861985088"
+    sha256 cellar: :any_skip_relocation, mojave:      "3474f55537373be89128ac84c91a86f52cc10ac8a01934f784ae9ff07797ba43"
+    sha256 cellar: :any_skip_relocation, high_sierra: "da2e7d1937a9e47c96329261c76a3cc3ec445b0826b92115d3c48ab6885ca8a1"
   end
 
   depends_on "rust" => :build

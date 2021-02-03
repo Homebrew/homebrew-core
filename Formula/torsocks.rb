@@ -8,10 +8,10 @@ class Torsocks < Formula
 
   bottle do
     rebuild 1
-    sha256 "2e7d1f1ed60e53086456447d408f577a8ee8d10c73ea8e01b94f7fdbaf6cd141" => :big_sur
-    sha256 "3882e64c21d610b6e0fdb6e3bceb41a4ae9494849ced24901f0b50946b34a296" => :arm64_big_sur
-    sha256 "0fe4e287d086c2249645781e187dd12e45526ab6ed45b32051aac2ddb840dc92" => :catalina
-    sha256 "8f07df71ce2b8eee8ade8ac9c4de7c5e59acebb880b369dd3bd2d5caf5a93e8e" => :mojave
+    sha256 arm64_big_sur: "3882e64c21d610b6e0fdb6e3bceb41a4ae9494849ced24901f0b50946b34a296"
+    sha256 big_sur:       "2e7d1f1ed60e53086456447d408f577a8ee8d10c73ea8e01b94f7fdbaf6cd141"
+    sha256 catalina:      "0fe4e287d086c2249645781e187dd12e45526ab6ed45b32051aac2ddb840dc92"
+    sha256 mojave:        "8f07df71ce2b8eee8ade8ac9c4de7c5e59acebb880b369dd3bd2d5caf5a93e8e"
   end
 
   depends_on "autoconf" => :build

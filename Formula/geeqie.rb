@@ -11,9 +11,9 @@ class Geeqie < Formula
   end
 
   bottle do
-    sha256 "2aa83988145308caaa7bdd49b0fabfff7e2b7805c988f4cb5a782696355d53e7" => :big_sur
-    sha256 "6cd0177bb8e510ce20c440f21491e390e0f4339cb0461bc24fa2e0cadda17a99" => :catalina
-    sha256 "de5e6de4c8b6098193cff623e96f0fbbd9204705bff0accfc1c354cfd8cc95e5" => :mojave
+    sha256 big_sur:  "2aa83988145308caaa7bdd49b0fabfff7e2b7805c988f4cb5a782696355d53e7"
+    sha256 catalina: "6cd0177bb8e510ce20c440f21491e390e0f4339cb0461bc24fa2e0cadda17a99"
+    sha256 mojave:   "de5e6de4c8b6098193cff623e96f0fbbd9204705bff0accfc1c354cfd8cc95e5"
   end
 
   depends_on "autoconf" => :build

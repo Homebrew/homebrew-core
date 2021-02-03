@@ -6,13 +6,12 @@ class CoreosCt < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "a1b57820f00633b3e3af5d7cbee4accb970e8fee0e092fce3901801f3c84ce1e" => :big_sur
-    sha256 "db582062a1743b1f01a0a90012e8a66d73b2518d88b4fb897afe9709565f6a95" => :catalina
-    sha256 "883c46865e141d74fa7f0815fc51d3f9ea3145019f28dcec402fc457d3f67e27" => :mojave
-    sha256 "5acd28f4e5dd0c74938cc7e7e10c5501badbab1d05316537a9afa173ff64f44e" => :high_sierra
-    sha256 "8f09ba9875fe34e55de7fd25514493f41276d5c5e9f3cd37e00288fb6d44323e" => :sierra
-    sha256 "9a48da5217b7e4b57e56702ee884fbc3067ccd895c2144cf7b02571cbcb80b42" => :el_capitan
+    sha256 cellar: :any_skip_relocation, big_sur:     "a1b57820f00633b3e3af5d7cbee4accb970e8fee0e092fce3901801f3c84ce1e"
+    sha256 cellar: :any_skip_relocation, catalina:    "db582062a1743b1f01a0a90012e8a66d73b2518d88b4fb897afe9709565f6a95"
+    sha256 cellar: :any_skip_relocation, mojave:      "883c46865e141d74fa7f0815fc51d3f9ea3145019f28dcec402fc457d3f67e27"
+    sha256 cellar: :any_skip_relocation, high_sierra: "5acd28f4e5dd0c74938cc7e7e10c5501badbab1d05316537a9afa173ff64f44e"
+    sha256 cellar: :any_skip_relocation, sierra:      "8f09ba9875fe34e55de7fd25514493f41276d5c5e9f3cd37e00288fb6d44323e"
+    sha256 cellar: :any_skip_relocation, el_capitan:  "9a48da5217b7e4b57e56702ee884fbc3067ccd895c2144cf7b02571cbcb80b42"
   end
 
   deprecate! date: "2020-11-10", because: :repo_archived

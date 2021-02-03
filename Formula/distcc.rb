@@ -12,10 +12,10 @@ class Distcc < Formula
   end
 
   bottle do
-    sha256 "b62f0b905384b156b5834f3df6c1d5af48e664a877073a13e0fe61c08e066a19" => :big_sur
-    sha256 "4cf6517529e644492aec155d68cb5d847b79a3371beb7ca6f007c852902951a1" => :arm64_big_sur
-    sha256 "385e370489a3334d46ccc67a809f1e52acd458c86793895002d4eb648147c5f2" => :catalina
-    sha256 "f156ea68069cfacf4292940e8adb399b463f27753e64bf3ea175a2889e12a0b0" => :mojave
+    sha256 arm64_big_sur: "4cf6517529e644492aec155d68cb5d847b79a3371beb7ca6f007c852902951a1"
+    sha256 big_sur:       "b62f0b905384b156b5834f3df6c1d5af48e664a877073a13e0fe61c08e066a19"
+    sha256 catalina:      "385e370489a3334d46ccc67a809f1e52acd458c86793895002d4eb648147c5f2"
+    sha256 mojave:        "f156ea68069cfacf4292940e8adb399b463f27753e64bf3ea175a2889e12a0b0"
   end
 
   depends_on "autoconf" => :build

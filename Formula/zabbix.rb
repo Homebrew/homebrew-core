@@ -16,10 +16,10 @@ class Zabbix < Formula
   end
 
   bottle do
-    sha256 "1d87ce6d547b21c7700577a35cea2564a09a1fc777738e0eae8b447bc6fa25ca" => :big_sur
-    sha256 "06e0c80759269bf5b3012744f5941303d2f3dd6ffcd2f0869293455b82145f57" => :arm64_big_sur
-    sha256 "192b4cb43357824e0967f73f707d3cf33bdb830b48e2dc22dd7161cd831fa607" => :catalina
-    sha256 "e9af4d5e670a2f6116ed53d3927853b4b197feb72329bb1c165f74237e9a88ca" => :mojave
+    sha256 arm64_big_sur: "06e0c80759269bf5b3012744f5941303d2f3dd6ffcd2f0869293455b82145f57"
+    sha256 big_sur:       "1d87ce6d547b21c7700577a35cea2564a09a1fc777738e0eae8b447bc6fa25ca"
+    sha256 catalina:      "192b4cb43357824e0967f73f707d3cf33bdb830b48e2dc22dd7161cd831fa607"
+    sha256 mojave:        "e9af4d5e670a2f6116ed53d3927853b4b197feb72329bb1c165f74237e9a88ca"
   end
 
   depends_on "openssl@1.1"

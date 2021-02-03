@@ -12,10 +12,9 @@ class Voldemort < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "dfd48d6516ae04989d577dc18fe490a678c2fccc562d62f9832e2dcc0449a191" => :big_sur
-    sha256 "f0b69b617d5a983452c62ad06b316a3faf7ae088528afc492a660d370c120e2f" => :catalina
-    sha256 "c9b88175b71d839d1afe3d4a3407f982f14f31194065f87bbaff8dbc33198e0b" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur:  "dfd48d6516ae04989d577dc18fe490a678c2fccc562d62f9832e2dcc0449a191"
+    sha256 cellar: :any_skip_relocation, catalina: "f0b69b617d5a983452c62ad06b316a3faf7ae088528afc492a660d370c120e2f"
+    sha256 cellar: :any_skip_relocation, mojave:   "c9b88175b71d839d1afe3d4a3407f982f14f31194065f87bbaff8dbc33198e0b"
   end
 
   depends_on "gradle" => :build

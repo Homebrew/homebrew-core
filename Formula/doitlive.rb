@@ -14,12 +14,11 @@ class Doitlive < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "a5f6cb32662a07f6610df737c92935c8f94547edf61550ebc653046cd217c65b" => :big_sur
-    sha256 "9f345a5cb4cbdc15aead62eb339617c77cfe572f0b49de0fcc8602fa96f7c321" => :arm64_big_sur
-    sha256 "645c4c69758416768b1f853fba5d9e742c28985d8c1297aff866dcd05a84cce6" => :catalina
-    sha256 "114d1d58d047ae404eb0a9280e11598359117b7cc832a993e2b4fd2a024a55e1" => :mojave
-    sha256 "d17d744e85a69fbe1dccd0433b208aa554e9791866969a1fff484780150e24c6" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9f345a5cb4cbdc15aead62eb339617c77cfe572f0b49de0fcc8602fa96f7c321"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a5f6cb32662a07f6610df737c92935c8f94547edf61550ebc653046cd217c65b"
+    sha256 cellar: :any_skip_relocation, catalina:      "645c4c69758416768b1f853fba5d9e742c28985d8c1297aff866dcd05a84cce6"
+    sha256 cellar: :any_skip_relocation, mojave:        "114d1d58d047ae404eb0a9280e11598359117b7cc832a993e2b4fd2a024a55e1"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "d17d744e85a69fbe1dccd0433b208aa554e9791866969a1fff484780150e24c6"
   end
 
   depends_on "python@3.9"

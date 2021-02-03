@@ -6,11 +6,10 @@ class Helib < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any
-    sha256 "be618fac7a91399ea6639c6854d79409d03b602c81252d20fd3c58ad8783af60" => :big_sur
-    sha256 "9ce026c3f27f43a2a83add1321b376fd5a5f058f3c727487b974e6a52ed4219f" => :arm64_big_sur
-    sha256 "f1d09887bf3f3ec3d99d69f3b88bade395061e0663252fc688cee9ed7ec0a583" => :catalina
-    sha256 "0bbf1b2dbe1998ae2d9c27b14bc73ab81fc90c2b910320adb3ec416b92603fc0" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "9ce026c3f27f43a2a83add1321b376fd5a5f058f3c727487b974e6a52ed4219f"
+    sha256 cellar: :any, big_sur:       "be618fac7a91399ea6639c6854d79409d03b602c81252d20fd3c58ad8783af60"
+    sha256 cellar: :any, catalina:      "f1d09887bf3f3ec3d99d69f3b88bade395061e0663252fc688cee9ed7ec0a583"
+    sha256 cellar: :any, mojave:        "0bbf1b2dbe1998ae2d9c27b14bc73ab81fc90c2b910320adb3ec416b92603fc0"
   end
 
   depends_on "cmake" => :build

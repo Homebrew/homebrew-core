@@ -6,11 +6,10 @@ class Mdbtools < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    cellar :any
-    sha256 "6a653b4fc6a4c990a1ea0f08085875010a1560fffcf100eafe0d81de52778464" => :big_sur
-    sha256 "51482d465b9bf4315b80f9b4b31423dbf1349b24f29358fdf0e6ea9a87a12b0b" => :arm64_big_sur
-    sha256 "04bb52a1f30aed9209498ea4fdbdf1b575a290f931632a2b37d1e6433b43f7b7" => :catalina
-    sha256 "d2d9d42dee37437e5e9c6c701efd38b13456d59ebb1fb2fbebbcba8af7ff32c6" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "51482d465b9bf4315b80f9b4b31423dbf1349b24f29358fdf0e6ea9a87a12b0b"
+    sha256 cellar: :any, big_sur:       "6a653b4fc6a4c990a1ea0f08085875010a1560fffcf100eafe0d81de52778464"
+    sha256 cellar: :any, catalina:      "04bb52a1f30aed9209498ea4fdbdf1b575a290f931632a2b37d1e6433b43f7b7"
+    sha256 cellar: :any, mojave:        "d2d9d42dee37437e5e9c6c701efd38b13456d59ebb1fb2fbebbcba8af7ff32c6"
   end
 
   depends_on "autoconf" => :build

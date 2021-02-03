@@ -8,10 +8,9 @@ class Etcd < Formula
   head "https://github.com/etcd-io/etcd.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "29c692910e379b6af425ee6ed38e8d035514308f0862f11ed9a6f880fde75ed0" => :big_sur
-    sha256 "bfac22e324e0e5c59cb9cbb28addc53d0064b963d9ab7f017f6b5d0bd23e2e75" => :catalina
-    sha256 "f6ea66701e4bcdb70fb70b333802ef22f0ba570dfedd83871d75a6132f1fbefd" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur:  "29c692910e379b6af425ee6ed38e8d035514308f0862f11ed9a6f880fde75ed0"
+    sha256 cellar: :any_skip_relocation, catalina: "bfac22e324e0e5c59cb9cbb28addc53d0064b963d9ab7f017f6b5d0bd23e2e75"
+    sha256 cellar: :any_skip_relocation, mojave:   "f6ea66701e4bcdb70fb70b333802ef22f0ba570dfedd83871d75a6132f1fbefd"
   end
 
   depends_on "go" => :build

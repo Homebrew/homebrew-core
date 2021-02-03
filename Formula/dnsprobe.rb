@@ -7,11 +7,10 @@ class Dnsprobe < Formula
   head "https://github.com/projectdiscovery/dnsprobe.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "740bcb0256a1da0e2d89d8a61e82e30eaecef7ac9766ab69b48cc2d5b678858e" => :arm64_big_sur
-    sha256 "e2980ba58e116e7c9029c9255451dd97b65da09a885373afe86c9e860d493650" => :catalina
-    sha256 "3cf8604d9869f22c722dfa8f0742f12124ba84a160579f0e7964ff7e697631f0" => :mojave
-    sha256 "f6c2b6edb0f8c482488b325400f1d712687a369c8b8fd7fb9e0d0cba1def2273" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "740bcb0256a1da0e2d89d8a61e82e30eaecef7ac9766ab69b48cc2d5b678858e"
+    sha256 cellar: :any_skip_relocation, catalina:      "e2980ba58e116e7c9029c9255451dd97b65da09a885373afe86c9e860d493650"
+    sha256 cellar: :any_skip_relocation, mojave:        "3cf8604d9869f22c722dfa8f0742f12124ba84a160579f0e7964ff7e697631f0"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "f6c2b6edb0f8c482488b325400f1d712687a369c8b8fd7fb9e0d0cba1def2273"
   end
 
   # repo derecated in favor of `projectdiscovery/dnsx`

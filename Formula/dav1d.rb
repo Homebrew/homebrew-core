@@ -6,11 +6,10 @@ class Dav1d < Formula
   license "BSD-2-Clause"
 
   bottle do
-    cellar :any
-    sha256 "19b36dac5e316943575c177e8b48dce7a19dffc62e82b295c1850def41a7f91f" => :big_sur
-    sha256 "5d7706832799921efd814f3f56f8a77a1004e254ea75c97a0c993c0a2577136a" => :arm64_big_sur
-    sha256 "3dfee035e136d79127501d4a22c169ab4b0a832a5300591a0145c075220bac91" => :catalina
-    sha256 "5a3f58f18e7314616a9d8f8b8de4675674f451fda032fd9e6dc07a8ce37c4b43" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "5d7706832799921efd814f3f56f8a77a1004e254ea75c97a0c993c0a2577136a"
+    sha256 cellar: :any, big_sur:       "19b36dac5e316943575c177e8b48dce7a19dffc62e82b295c1850def41a7f91f"
+    sha256 cellar: :any, catalina:      "3dfee035e136d79127501d4a22c169ab4b0a832a5300591a0145c075220bac91"
+    sha256 cellar: :any, mojave:        "5a3f58f18e7314616a9d8f8b8de4675674f451fda032fd9e6dc07a8ce37c4b43"
   end
 
   depends_on "meson" => :build

@@ -7,13 +7,13 @@ class BisonAT27 < Formula
   revision 1
 
   bottle do
-    sha256 "01d3b84f13676a4da576df0d7f8f9fafcc7ea734b895a5d3947b1e055d9db330" => :big_sur
-    sha256 "a8889d09761ad553f7b7061947a1715e88a658ce7f4d3755b7d8d00f25a53f1a" => :arm64_big_sur
-    sha256 "b9af668b0da3e89f4a2d7b7e4d42009965780d1f7cd1541df85f758c2b7af55a" => :catalina
-    sha256 "125fdf2eb737cdb8a3e795234f8e1fb5ec477f8590c534f7895497a6af82e04b" => :mojave
-    sha256 "ee0e758aa798809aaa3e94f1e3659c9d33497a577c25cfc03ecfe18c25862837" => :high_sierra
-    sha256 "7f1f717becaf0a818b154d3706b88f6c61a102b4f909e030005aaa5433abc34e" => :sierra
-    sha256 "3b49ff1a76807438bfb6805e513d372fba8d49c0259fe4f28e1587d47e42bf5c" => :el_capitan
+    sha256 arm64_big_sur: "a8889d09761ad553f7b7061947a1715e88a658ce7f4d3755b7d8d00f25a53f1a"
+    sha256 big_sur:       "01d3b84f13676a4da576df0d7f8f9fafcc7ea734b895a5d3947b1e055d9db330"
+    sha256 catalina:      "b9af668b0da3e89f4a2d7b7e4d42009965780d1f7cd1541df85f758c2b7af55a"
+    sha256 mojave:        "125fdf2eb737cdb8a3e795234f8e1fb5ec477f8590c534f7895497a6af82e04b"
+    sha256 high_sierra:   "ee0e758aa798809aaa3e94f1e3659c9d33497a577c25cfc03ecfe18c25862837"
+    sha256 sierra:        "7f1f717becaf0a818b154d3706b88f6c61a102b4f909e030005aaa5433abc34e"
+    sha256 el_capitan:    "3b49ff1a76807438bfb6805e513d372fba8d49c0259fe4f28e1587d47e42bf5c"
   end
 
   keg_only :versioned_formula

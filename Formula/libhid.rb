@@ -11,17 +11,16 @@ class Libhid < Formula
   end
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "33539f7a9be0592c28fc6b4c7d1866603cf115441fcf72db5ca67f99149b63c4" => :big_sur
-    sha256 "01170cf4863c640d89c02c1c8d10759aa9ab7b16a0ab88bccdefdf10c5174620" => :arm64_big_sur
-    sha256 "049d5c106ab738e55af18878f19cc0510d78bbda54f0c5626e3ccb725e415c68" => :catalina
-    sha256 "7457dc1791e661356e54059fb7b49f9629f2814694057bb38c6ad6698b3c4556" => :mojave
-    sha256 "b2949cef974f368856304506aecea44d3daca81b2d8c798bc141ef376723eded" => :high_sierra
-    sha256 "b92f274a981788b3092927223099f4f3220877417c766ec8e8bd63171e9a9849" => :sierra
-    sha256 "a22388fc2ac89d99ed04449c590b035308a81c8f1a2e80ee68ca64a7e10ced7e" => :el_capitan
-    sha256 "4920ff4278cbc288fc8c84ef9b3137d99010ba047d6f072b9a6eccf07588721a" => :yosemite
-    sha256 "cda30ad7a75c6a9b156806f398d39afd8288dd7c94c6d06685f8168125906cae" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "01170cf4863c640d89c02c1c8d10759aa9ab7b16a0ab88bccdefdf10c5174620"
+    sha256 cellar: :any, big_sur:       "33539f7a9be0592c28fc6b4c7d1866603cf115441fcf72db5ca67f99149b63c4"
+    sha256 cellar: :any, catalina:      "049d5c106ab738e55af18878f19cc0510d78bbda54f0c5626e3ccb725e415c68"
+    sha256 cellar: :any, mojave:        "7457dc1791e661356e54059fb7b49f9629f2814694057bb38c6ad6698b3c4556"
+    sha256 cellar: :any, high_sierra:   "b2949cef974f368856304506aecea44d3daca81b2d8c798bc141ef376723eded"
+    sha256 cellar: :any, sierra:        "b92f274a981788b3092927223099f4f3220877417c766ec8e8bd63171e9a9849"
+    sha256 cellar: :any, el_capitan:    "a22388fc2ac89d99ed04449c590b035308a81c8f1a2e80ee68ca64a7e10ced7e"
+    sha256 cellar: :any, yosemite:      "4920ff4278cbc288fc8c84ef9b3137d99010ba047d6f072b9a6eccf07588721a"
+    sha256 cellar: :any, mavericks:     "cda30ad7a75c6a9b156806f398d39afd8288dd7c94c6d06685f8168125906cae"
   end
 
   depends_on "libusb"

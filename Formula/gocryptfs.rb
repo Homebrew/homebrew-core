@@ -6,10 +6,9 @@ class Gocryptfs < Formula
   license "MIT"
 
   bottle do
-    cellar :any
-    sha256 "adf2a34cc99f353992e790c856971e9128d55caf5c51a2ae0a50ff5506e63c1c" => :catalina
-    sha256 "3e4cd09514efbd074f41f6636f0df0b01708856446c1da1d6cfe766cd8cae121" => :mojave
-    sha256 "a7e6b3d28c3e3cd78ff4be78adc8d2feeb8061c7459d2c8e6f04e61f0029bb51" => :high_sierra
+    sha256 cellar: :any, catalina:    "adf2a34cc99f353992e790c856971e9128d55caf5c51a2ae0a50ff5506e63c1c"
+    sha256 cellar: :any, mojave:      "3e4cd09514efbd074f41f6636f0df0b01708856446c1da1d6cfe766cd8cae121"
+    sha256 cellar: :any, high_sierra: "a7e6b3d28c3e3cd78ff4be78adc8d2feeb8061c7459d2c8e6f04e61f0029bb51"
   end
 
   depends_on "go" => :build

@@ -11,10 +11,10 @@ class Gedit < Formula
   end
 
   bottle do
-    sha256 "21b705058ca192bd2e0d8ef85efa3d6161d893286d9b0696307f4bcbee0d8458" => :big_sur
-    sha256 "7e2ee800477f0616c684e787b666b70153bd89ea686db852e07d6ece2ddd7ee6" => :arm64_big_sur
-    sha256 "9fa220812eb73ae117aa410e438311ea6bb9f7477ba757dd9d5f706c8e65319d" => :catalina
-    sha256 "5b23b365f2b2a0308a3e28c82ee103d07bd2766559ed3a95c4d2101ae37336bf" => :mojave
+    sha256 arm64_big_sur: "7e2ee800477f0616c684e787b666b70153bd89ea686db852e07d6ece2ddd7ee6"
+    sha256 big_sur:       "21b705058ca192bd2e0d8ef85efa3d6161d893286d9b0696307f4bcbee0d8458"
+    sha256 catalina:      "9fa220812eb73ae117aa410e438311ea6bb9f7477ba757dd9d5f706c8e65319d"
+    sha256 mojave:        "5b23b365f2b2a0308a3e28c82ee103d07bd2766559ed3a95c4d2101ae37336bf"
   end
 
   depends_on "itstool" => :build

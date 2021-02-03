@@ -11,11 +11,10 @@ class Antlr4CppRuntime < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "cc6ef2185004324fd875f69d36246b5f725af58df2111610944dfb0ec6676eb0" => :big_sur
-    sha256 "f0f0ff88d204270184f93bf00884d36e85c5ffe544422a70a618b344f0ac60ab" => :arm64_big_sur
-    sha256 "9715854b6b78ee74ddd122e4a0e8945da5aa7b9eb7aa60bfe5bfb0e9cd0cd1b8" => :catalina
-    sha256 "508dd4e8960a31421f8727aa9b3ae39157a88ad8dcf45e98c9359539964e7bcc" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "f0f0ff88d204270184f93bf00884d36e85c5ffe544422a70a618b344f0ac60ab"
+    sha256 cellar: :any, big_sur:       "cc6ef2185004324fd875f69d36246b5f725af58df2111610944dfb0ec6676eb0"
+    sha256 cellar: :any, catalina:      "9715854b6b78ee74ddd122e4a0e8945da5aa7b9eb7aa60bfe5bfb0e9cd0cd1b8"
+    sha256 cellar: :any, mojave:        "508dd4e8960a31421f8727aa9b3ae39157a88ad8dcf45e98c9359539964e7bcc"
   end
 
   depends_on "cmake" => :build

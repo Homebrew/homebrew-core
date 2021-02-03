@@ -11,13 +11,12 @@ class Xmlto < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 2
-    sha256 "95502b71000319da58971ea17c0dab0f326d20ce4c09d074fe4c7fe89c66d002" => :big_sur
-    sha256 "bec2a4a7797f07fc73a636a40e85cb0504da4c5e34328456c28e78c84ce95324" => :arm64_big_sur
-    sha256 "d2c21b9b398191e21dcf6e7ac53e4dd46fb59d29173e4d8443ac296101cce58f" => :catalina
-    sha256 "8fca3be2271ae8e7fb646b011969ba4030f7421118a4ea6b11eca1ac0fe6979b" => :mojave
-    sha256 "1214da1d14a8f01d8b8d0ead6606207ff5a29fb7ab104d6af47e57fbca4ffcc7" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "bec2a4a7797f07fc73a636a40e85cb0504da4c5e34328456c28e78c84ce95324"
+    sha256 cellar: :any_skip_relocation, big_sur:       "95502b71000319da58971ea17c0dab0f326d20ce4c09d074fe4c7fe89c66d002"
+    sha256 cellar: :any_skip_relocation, catalina:      "d2c21b9b398191e21dcf6e7ac53e4dd46fb59d29173e4d8443ac296101cce58f"
+    sha256 cellar: :any_skip_relocation, mojave:        "8fca3be2271ae8e7fb646b011969ba4030f7421118a4ea6b11eca1ac0fe6979b"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "1214da1d14a8f01d8b8d0ead6606207ff5a29fb7ab104d6af47e57fbca4ffcc7"
   end
 
   depends_on "docbook"

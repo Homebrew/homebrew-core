@@ -7,16 +7,15 @@ class Lhasa < Formula
   head "https://github.com/fragglet/lhasa.git"
 
   bottle do
-    cellar :any
-    sha256 "7e1f12414e857455d57b3f943d50d921a189e817e264b14a9a0467e661e8cfc2" => :big_sur
-    sha256 "90f888591f8bbbbc49b3616dfc43287474a510517cc1222488ac8a707f9968b8" => :arm64_big_sur
-    sha256 "066d1b549b96700d8b7509e1f90b1564ddc66fc3b1dd18247b450c9990124f36" => :catalina
-    sha256 "9b7b3503673097759714a75dc5ebc5a4c4e1184c88a80fa036bb39b2d896f0d8" => :mojave
-    sha256 "36f6530ca2f2908bed047741ce52e41f4ec0d0d726bdd8ecb664958da821b527" => :high_sierra
-    sha256 "d0abfc9315cfeff37781861e8c7ba2d3eb34003684560ee22a5dfb2acc4dfd5a" => :sierra
-    sha256 "0d407f1058853c656a4aef717c1e72ff57472e0622fb344a5ef57c4c9ad8c3ee" => :el_capitan
-    sha256 "afd0b2c24f4e4103c6ab8e918a972fda1b614890fc527bf314cc253e199013ee" => :yosemite
-    sha256 "eecde92149160d0ec03d5b2f88408d67a4bc03b415ed4a78ff12474f6aa965f4" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "90f888591f8bbbbc49b3616dfc43287474a510517cc1222488ac8a707f9968b8"
+    sha256 cellar: :any, big_sur:       "7e1f12414e857455d57b3f943d50d921a189e817e264b14a9a0467e661e8cfc2"
+    sha256 cellar: :any, catalina:      "066d1b549b96700d8b7509e1f90b1564ddc66fc3b1dd18247b450c9990124f36"
+    sha256 cellar: :any, mojave:        "9b7b3503673097759714a75dc5ebc5a4c4e1184c88a80fa036bb39b2d896f0d8"
+    sha256 cellar: :any, high_sierra:   "36f6530ca2f2908bed047741ce52e41f4ec0d0d726bdd8ecb664958da821b527"
+    sha256 cellar: :any, sierra:        "d0abfc9315cfeff37781861e8c7ba2d3eb34003684560ee22a5dfb2acc4dfd5a"
+    sha256 cellar: :any, el_capitan:    "0d407f1058853c656a4aef717c1e72ff57472e0622fb344a5ef57c4c9ad8c3ee"
+    sha256 cellar: :any, yosemite:      "afd0b2c24f4e4103c6ab8e918a972fda1b614890fc527bf314cc253e199013ee"
+    sha256 cellar: :any, mavericks:     "eecde92149160d0ec03d5b2f88408d67a4bc03b415ed4a78ff12474f6aa965f4"
   end
 
   depends_on "autoconf" => :build

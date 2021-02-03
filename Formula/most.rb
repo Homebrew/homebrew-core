@@ -11,13 +11,12 @@ class Most < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "dc824da94e802ecb474eaccd9f3d89b37288846250dfeded7d065ccc43cd208d" => :big_sur
-    sha256 "fd73f2437d47c7c7eeee75514321666ed2a8d72f996a67b46e6822dc73a32155" => :arm64_big_sur
-    sha256 "2971d721787d978c1855827c1f2cb6143ee0d1efabdfe1caa50bda981865a24d" => :catalina
-    sha256 "aa9766e4fa0be084108b370c639060b7a27e5ff8eb90c649cbc643160659932f" => :mojave
-    sha256 "192ccb3fe86ae7766bd1aadb8e92d8bc7a28cb666fffe52d0750c6c2a4450657" => :high_sierra
-    sha256 "9a9d74a50ade82af787d47e5f6514df01a47b5159dc1521d93c470ce8554743e" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "fd73f2437d47c7c7eeee75514321666ed2a8d72f996a67b46e6822dc73a32155"
+    sha256 cellar: :any, big_sur:       "dc824da94e802ecb474eaccd9f3d89b37288846250dfeded7d065ccc43cd208d"
+    sha256 cellar: :any, catalina:      "2971d721787d978c1855827c1f2cb6143ee0d1efabdfe1caa50bda981865a24d"
+    sha256 cellar: :any, mojave:        "aa9766e4fa0be084108b370c639060b7a27e5ff8eb90c649cbc643160659932f"
+    sha256 cellar: :any, high_sierra:   "192ccb3fe86ae7766bd1aadb8e92d8bc7a28cb666fffe52d0750c6c2a4450657"
+    sha256 cellar: :any, sierra:        "9a9d74a50ade82af787d47e5f6514df01a47b5159dc1521d93c470ce8554743e"
   end
 
   depends_on "s-lang"

@@ -13,11 +13,10 @@ class Kamel < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "5c7d830dca2368d17098a2566dc51f302105bedca5c31a5163c3effb8fdcb8bb" => :big_sur
-    sha256 "09309c3959ff88f0f8757dfda6f867a1dd7a34d39df6a4dd993a87f3f17a5608" => :arm64_big_sur
-    sha256 "6c26b781979d7aa4270d382f8b7644fe7fb4f64d3439637945c60ce2a9eddbe6" => :catalina
-    sha256 "2764ee91d35712ebf2930df31e3254ccb0c31b60f42288e5963bf2f79729ddb3" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "09309c3959ff88f0f8757dfda6f867a1dd7a34d39df6a4dd993a87f3f17a5608"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5c7d830dca2368d17098a2566dc51f302105bedca5c31a5163c3effb8fdcb8bb"
+    sha256 cellar: :any_skip_relocation, catalina:      "6c26b781979d7aa4270d382f8b7644fe7fb4f64d3439637945c60ce2a9eddbe6"
+    sha256 cellar: :any_skip_relocation, mojave:        "2764ee91d35712ebf2930df31e3254ccb0c31b60f42288e5963bf2f79729ddb3"
   end
 
   depends_on "go" => :build

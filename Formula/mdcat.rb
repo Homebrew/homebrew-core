@@ -6,11 +6,10 @@ class Mdcat < Formula
   license "MPL-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "cd7462ead62dca44da914a890c0e16e4bc2e334b9973d99b47c77c8d23722a76" => :big_sur
-    sha256 "874f6ef6565821c7ebccfaf032c0616e64c667214779f07fdb489f43c8499c73" => :arm64_big_sur
-    sha256 "26cc236d7acf8ee17d2b9cf6b3e7f1ffa47c86d4b1abc40e1acd5ad418bc1c01" => :catalina
-    sha256 "9aca864d6a18421d4daba029d9e8568c0bc1e8a3a3b51013c62b53237b4ba156" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "874f6ef6565821c7ebccfaf032c0616e64c667214779f07fdb489f43c8499c73"
+    sha256 cellar: :any_skip_relocation, big_sur:       "cd7462ead62dca44da914a890c0e16e4bc2e334b9973d99b47c77c8d23722a76"
+    sha256 cellar: :any_skip_relocation, catalina:      "26cc236d7acf8ee17d2b9cf6b3e7f1ffa47c86d4b1abc40e1acd5ad418bc1c01"
+    sha256 cellar: :any_skip_relocation, mojave:        "9aca864d6a18421d4daba029d9e8568c0bc1e8a3a3b51013c62b53237b4ba156"
   end
 
   depends_on "cmake" => :build

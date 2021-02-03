@@ -12,10 +12,10 @@ class X265 < Formula
   end
 
   bottle do
-    sha256 "8db84444f732498e1f1e3f8564b3091360ebb277a9c7f5d0bd457893a194f5a6" => :big_sur
-    sha256 "89918f59466d00820cd7e978c89b405959d082f108db2382bd76fe2bdedcfc5c" => :arm64_big_sur
-    sha256 "c7be7296406476bf93e13580eab209646680bafaa5fb46d31cf491ef3e3f0a25" => :catalina
-    sha256 "d6bce1ae70ea86a7203a42ab807e1a2334550a9b4af5ca7ebb9a0e89139c8444" => :mojave
+    sha256 arm64_big_sur: "89918f59466d00820cd7e978c89b405959d082f108db2382bd76fe2bdedcfc5c"
+    sha256 big_sur:       "8db84444f732498e1f1e3f8564b3091360ebb277a9c7f5d0bd457893a194f5a6"
+    sha256 catalina:      "c7be7296406476bf93e13580eab209646680bafaa5fb46d31cf491ef3e3f0a25"
+    sha256 mojave:        "d6bce1ae70ea86a7203a42ab807e1a2334550a9b4af5ca7ebb9a0e89139c8444"
   end
 
   depends_on "cmake" => :build

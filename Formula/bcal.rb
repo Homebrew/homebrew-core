@@ -11,12 +11,11 @@ class Bcal < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "6ed62225e47369c6789c74c058aecbd83cc69056f81229d66995c33f8d8db34c" => :big_sur
-    sha256 "4463ecf7df9456c39cd335f13be9ed5383b06abcc79304c8b5e8919adb79b005" => :arm64_big_sur
-    sha256 "68c94f34b56865694b7229d0211f8c8c97c3ec809a260cf0c8764524cb76b8fa" => :catalina
-    sha256 "d6e4bac5e11d3eb1815d370fc3a8890906833104c8e3b8c9865376bf36f1e90e" => :mojave
-    sha256 "4c32b10db17857b3e7c553e3accf24e0cc6fefc54361ede1790c6e46c72fbaf1" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4463ecf7df9456c39cd335f13be9ed5383b06abcc79304c8b5e8919adb79b005"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6ed62225e47369c6789c74c058aecbd83cc69056f81229d66995c33f8d8db34c"
+    sha256 cellar: :any_skip_relocation, catalina:      "68c94f34b56865694b7229d0211f8c8c97c3ec809a260cf0c8764524cb76b8fa"
+    sha256 cellar: :any_skip_relocation, mojave:        "d6e4bac5e11d3eb1815d370fc3a8890906833104c8e3b8c9865376bf36f1e90e"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "4c32b10db17857b3e7c553e3accf24e0cc6fefc54361ede1790c6e46c72fbaf1"
   end
 
   def install

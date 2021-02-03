@@ -8,11 +8,10 @@ class Dash < Formula
   head "https://git.kernel.org/pub/scm/utils/dash/dash.git"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "e8e05221792dc3acb2cdc5e394162872882656d381effca6a6be91a0afa79eb2" => :big_sur
-    sha256 "3621cea063b99b70a27bd515a39c87b55d4f036293c74de5b56912b7294bd543" => :catalina
-    sha256 "2084534c9a3fe3bfae86eaf4a01dca8eff1ad9645bb63f8ee422f327fa1b7b7b" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur:  "e8e05221792dc3acb2cdc5e394162872882656d381effca6a6be91a0afa79eb2"
+    sha256 cellar: :any_skip_relocation, catalina: "3621cea063b99b70a27bd515a39c87b55d4f036293c74de5b56912b7294bd543"
+    sha256 cellar: :any_skip_relocation, mojave:   "2084534c9a3fe3bfae86eaf4a01dca8eff1ad9645bb63f8ee422f327fa1b7b7b"
   end
 
   depends_on "autoconf" => :build

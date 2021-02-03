@@ -10,16 +10,15 @@ class Xml2 < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "c6e91ba5879e8891be5aca28eba77249f18c8860d2d387447da0ca13efbe066c" => :big_sur
-    sha256 "23f1ef27cd811f9b846f80775e4f0981998a7cad1230b0f98261ba42dc85c325" => :arm64_big_sur
-    sha256 "832aa209cf47c4f18ad512f7eca2acf76aa047522b3a417466722203203bd71e" => :catalina
-    sha256 "63b136beee1c47726c6756f3c57bf55fcff4e660cd280d090aa35640138465b6" => :mojave
-    sha256 "548421fe00487faa136c700e4d18f48b6bc349956044e2aa0f65667c3856883d" => :high_sierra
-    sha256 "d8d4bb9ceb9d97b648d3fd3cffb1e2fad2e4d82aa6aa3397c22f53fe5468ac56" => :sierra
-    sha256 "85e939873edbb3dd1b072437992a0c404534a5084cccd6f9f76d99b09ddda695" => :el_capitan
-    sha256 "3883d5997021b3a5bd57d8830906cb9b370da0f6e1927b6c7e9dcd6740e05c5c" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "23f1ef27cd811f9b846f80775e4f0981998a7cad1230b0f98261ba42dc85c325"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c6e91ba5879e8891be5aca28eba77249f18c8860d2d387447da0ca13efbe066c"
+    sha256 cellar: :any_skip_relocation, catalina:      "832aa209cf47c4f18ad512f7eca2acf76aa047522b3a417466722203203bd71e"
+    sha256 cellar: :any_skip_relocation, mojave:        "63b136beee1c47726c6756f3c57bf55fcff4e660cd280d090aa35640138465b6"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "548421fe00487faa136c700e4d18f48b6bc349956044e2aa0f65667c3856883d"
+    sha256 cellar: :any_skip_relocation, sierra:        "d8d4bb9ceb9d97b648d3fd3cffb1e2fad2e4d82aa6aa3397c22f53fe5468ac56"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "85e939873edbb3dd1b072437992a0c404534a5084cccd6f9f76d99b09ddda695"
+    sha256 cellar: :any_skip_relocation, yosemite:      "3883d5997021b3a5bd57d8830906cb9b370da0f6e1927b6c7e9dcd6740e05c5c"
   end
 
   depends_on "pkg-config" => :build

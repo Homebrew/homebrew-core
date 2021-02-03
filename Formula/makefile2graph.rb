@@ -7,16 +7,15 @@ class Makefile2graph < Formula
   head "https://github.com/lindenb/makefile2graph.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c8278a8691b682c5499295a79b73e18e18e87c879384b7d44dbcc0f70178ee58" => :big_sur
-    sha256 "fbd6818dca98ad31cba381f503da9757dc4aebc6f450e8eb22b24d5bc2c04841" => :arm64_big_sur
-    sha256 "af7dba0cbb045f067076706310b30c52eddbd6732e60d16017ccbfadd4bc866d" => :catalina
-    sha256 "5b5cb69a698628af41b3de70146580bbcb2e88a8b6d87d7fe9b4f58a2f2fdfb2" => :mojave
-    sha256 "51231ed0ef44fd31a10f4ea0a7500570181332786ddd5a8a9a886958ad1b1408" => :high_sierra
-    sha256 "274ee025c45df9757d608249d64105b9314c8e59fc52a81ad6906f807498b67c" => :sierra
-    sha256 "ed1939b1b0fd106f3e328e310a887cf454b81481f78fdf57ce75c0480a922d7d" => :el_capitan
-    sha256 "37aebae489e0f341f80417ec711e5c2817f5b8097c3493dcc11bc754bdd1b1cf" => :yosemite
-    sha256 "0de3d4a2492797c3259798493e287ac2403f02254c6cfcf74948a16bcc4bcd0d" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "fbd6818dca98ad31cba381f503da9757dc4aebc6f450e8eb22b24d5bc2c04841"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c8278a8691b682c5499295a79b73e18e18e87c879384b7d44dbcc0f70178ee58"
+    sha256 cellar: :any_skip_relocation, catalina:      "af7dba0cbb045f067076706310b30c52eddbd6732e60d16017ccbfadd4bc866d"
+    sha256 cellar: :any_skip_relocation, mojave:        "5b5cb69a698628af41b3de70146580bbcb2e88a8b6d87d7fe9b4f58a2f2fdfb2"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "51231ed0ef44fd31a10f4ea0a7500570181332786ddd5a8a9a886958ad1b1408"
+    sha256 cellar: :any_skip_relocation, sierra:        "274ee025c45df9757d608249d64105b9314c8e59fc52a81ad6906f807498b67c"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "ed1939b1b0fd106f3e328e310a887cf454b81481f78fdf57ce75c0480a922d7d"
+    sha256 cellar: :any_skip_relocation, yosemite:      "37aebae489e0f341f80417ec711e5c2817f5b8097c3493dcc11bc754bdd1b1cf"
+    sha256 cellar: :any_skip_relocation, mavericks:     "0de3d4a2492797c3259798493e287ac2403f02254c6cfcf74948a16bcc4bcd0d"
   end
 
   depends_on "graphviz"

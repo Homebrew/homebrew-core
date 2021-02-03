@@ -6,14 +6,13 @@ class Ired < Formula
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "383839a113477cfad0b9197aa5e1e5c07ca5248057da840617354552ea35e6dc" => :big_sur
-    sha256 "8c5fc028d62ce70b95c2f4ae6e9ec78c88b1083d7244263e5cae2734f9f1f682" => :arm64_big_sur
-    sha256 "e74475e811c38aa46bf3e7e69e0a264a2d30c08cfcbd801433e03c14944b8366" => :catalina
-    sha256 "7821d818af4c7d28b4cbf26c627685b77f18a1004369d4a57bee2582620008b7" => :mojave
-    sha256 "f6af714455a74c02769c9726855a92832e43c37c79a0c589a0c7744beac8956c" => :high_sierra
-    sha256 "5d10dfac87e4a4ca589a9fa76e8f9aff62625ef6358b6ab29360e79fe4a6dc35" => :sierra
-    sha256 "4fc558225913b629b144661385841e63ebb167beb9900475fadb0c0e886b4997" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8c5fc028d62ce70b95c2f4ae6e9ec78c88b1083d7244263e5cae2734f9f1f682"
+    sha256 cellar: :any_skip_relocation, big_sur:       "383839a113477cfad0b9197aa5e1e5c07ca5248057da840617354552ea35e6dc"
+    sha256 cellar: :any_skip_relocation, catalina:      "e74475e811c38aa46bf3e7e69e0a264a2d30c08cfcbd801433e03c14944b8366"
+    sha256 cellar: :any_skip_relocation, mojave:        "7821d818af4c7d28b4cbf26c627685b77f18a1004369d4a57bee2582620008b7"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "f6af714455a74c02769c9726855a92832e43c37c79a0c589a0c7744beac8956c"
+    sha256 cellar: :any_skip_relocation, sierra:        "5d10dfac87e4a4ca589a9fa76e8f9aff62625ef6358b6ab29360e79fe4a6dc35"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "4fc558225913b629b144661385841e63ebb167beb9900475fadb0c0e886b4997"
   end
 
   def install

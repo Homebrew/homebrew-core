@@ -12,13 +12,13 @@ class Opencbm < Formula
   end
 
   bottle do
-    sha256 "2c6f695b90e4b6dec2954d4cab254abe8563998311634ced199641a9b8c65aca" => :big_sur
-    sha256 "badee8af25b105994dbae61bc458d97cece5d627cc801d131d5f9575dcd2a7d7" => :arm64_big_sur
-    sha256 "0fcf92ca18ebde6b9d431dfd1ab8667ca93ee59c53f85e818eed9f0b8ba78306" => :catalina
-    sha256 "489ae793f9f226c93667cf67f23d7eac1cde97d4ed33549bbe9731fcc824eb2a" => :mojave
-    sha256 "d9555da83fc70f801663f13cfc4ed34241feec72d29125fb12a2105fce414210" => :high_sierra
-    sha256 "6ff076233d442f7f15e22595623cf46c38cf1024997240bd48db1e4bb01c44c2" => :sierra
-    sha256 "6ba3fc869e59f002f6ae897cbb34b4ece023c11371c3d611453b330714b65cba" => :el_capitan
+    sha256 arm64_big_sur: "badee8af25b105994dbae61bc458d97cece5d627cc801d131d5f9575dcd2a7d7"
+    sha256 big_sur:       "2c6f695b90e4b6dec2954d4cab254abe8563998311634ced199641a9b8c65aca"
+    sha256 catalina:      "0fcf92ca18ebde6b9d431dfd1ab8667ca93ee59c53f85e818eed9f0b8ba78306"
+    sha256 mojave:        "489ae793f9f226c93667cf67f23d7eac1cde97d4ed33549bbe9731fcc824eb2a"
+    sha256 high_sierra:   "d9555da83fc70f801663f13cfc4ed34241feec72d29125fb12a2105fce414210"
+    sha256 sierra:        "6ff076233d442f7f15e22595623cf46c38cf1024997240bd48db1e4bb01c44c2"
+    sha256 el_capitan:    "6ba3fc869e59f002f6ae897cbb34b4ece023c11371c3d611453b330714b65cba"
   end
 
   # cc65 is only used to build binary blobs included with the programs; it's

@@ -7,10 +7,10 @@ class GhcAT86 < Formula
   revision 2
 
   bottle do
-    sha256 "d8cc7eb020495417a2674bb0b4129720fef30fd9c5688713501dd5ca6c1dea0f" => :big_sur
-    sha256 "af21e24b89361083a6cd5a27268e0470cdbf2e8616d1d95355df603f58f4e30d" => :catalina
-    sha256 "ccbe2725d127cc1ddd2142294fd62981d6cd7ab110f56b1faa2560c28276b822" => :mojave
-    sha256 "67a54e9d669e51b8018d064b771d31079421b777b03077dc7f02949ecdf8b0c0" => :high_sierra
+    sha256 big_sur:     "d8cc7eb020495417a2674bb0b4129720fef30fd9c5688713501dd5ca6c1dea0f"
+    sha256 catalina:    "af21e24b89361083a6cd5a27268e0470cdbf2e8616d1d95355df603f58f4e30d"
+    sha256 mojave:      "ccbe2725d127cc1ddd2142294fd62981d6cd7ab110f56b1faa2560c28276b822"
+    sha256 high_sierra: "67a54e9d669e51b8018d064b771d31079421b777b03077dc7f02949ecdf8b0c0"
   end
 
   keg_only :versioned_formula

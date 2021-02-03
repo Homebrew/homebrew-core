@@ -6,15 +6,14 @@ class Vstr < Formula
   license "LGPL-2.1"
 
   bottle do
-    cellar :any
-    sha256 "cc1c69c834bde35ed9e0df8178e8e65d9ba5703fbf2cf896290aed6a7433c4b3" => :big_sur
-    sha256 "adbf13e88473af357032472ac09af1230667c5010089089a3c223819ef74c7f6" => :catalina
-    sha256 "8927c49aa4daba57ffab9a9ea332504346467cf22c137af3e1a16b859318a0f5" => :mojave
-    sha256 "af6d9cc097c4eb9c1719496b2e29593763b5b17b279ef4c234d681cfe4174b37" => :high_sierra
-    sha256 "07e2b05d9908a847c72950532d3ed12771c856365c8747c8c5917da9a5ea4413" => :sierra
-    sha256 "d2d5b14e9ac589c782307e058e06815ad2408bbcf418ac721d3fac3be8b832a7" => :el_capitan
-    sha256 "0d4176307ea18472c9da9a765bcb033e6256ae361d2e32b758b205a56dd7e38a" => :yosemite
-    sha256 "5fc509c660fc38b3484a093ce0894ee2e9c3ea3cccc43222071c4d8139975d8d" => :mavericks
+    sha256 cellar: :any, big_sur:     "cc1c69c834bde35ed9e0df8178e8e65d9ba5703fbf2cf896290aed6a7433c4b3"
+    sha256 cellar: :any, catalina:    "adbf13e88473af357032472ac09af1230667c5010089089a3c223819ef74c7f6"
+    sha256 cellar: :any, mojave:      "8927c49aa4daba57ffab9a9ea332504346467cf22c137af3e1a16b859318a0f5"
+    sha256 cellar: :any, high_sierra: "af6d9cc097c4eb9c1719496b2e29593763b5b17b279ef4c234d681cfe4174b37"
+    sha256 cellar: :any, sierra:      "07e2b05d9908a847c72950532d3ed12771c856365c8747c8c5917da9a5ea4413"
+    sha256 cellar: :any, el_capitan:  "d2d5b14e9ac589c782307e058e06815ad2408bbcf418ac721d3fac3be8b832a7"
+    sha256 cellar: :any, yosemite:    "0d4176307ea18472c9da9a765bcb033e6256ae361d2e32b758b205a56dd7e38a"
+    sha256 cellar: :any, mavericks:   "5fc509c660fc38b3484a093ce0894ee2e9c3ea3cccc43222071c4d8139975d8d"
   end
 
   depends_on "pkg-config" => :build

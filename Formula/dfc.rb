@@ -9,10 +9,10 @@ class Dfc < Formula
 
   bottle do
     rebuild 1
-    sha256 "a89714cadb5ca91708c9f0c0f37266726517418e0ee592003c1cff38cc7599b1" => :big_sur
-    sha256 "6f2d7350e0c7e1c905718b6dcf282367bc846bbd51538a9a525f681dda03be61" => :arm64_big_sur
-    sha256 "cefa6f0f5e96a815ebbee4d4618dc927f88052f4137d52c31d21688fac211aa8" => :catalina
-    sha256 "93406a46f6e08d861ddbc5ea7f4ce910629f33090c39eeb827f05444d61fe466" => :mojave
+    sha256 arm64_big_sur: "6f2d7350e0c7e1c905718b6dcf282367bc846bbd51538a9a525f681dda03be61"
+    sha256 big_sur:       "a89714cadb5ca91708c9f0c0f37266726517418e0ee592003c1cff38cc7599b1"
+    sha256 catalina:      "cefa6f0f5e96a815ebbee4d4618dc927f88052f4137d52c31d21688fac211aa8"
+    sha256 mojave:        "93406a46f6e08d861ddbc5ea7f4ce910629f33090c39eeb827f05444d61fe466"
   end
 
   depends_on "cmake" => :build

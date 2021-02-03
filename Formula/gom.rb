@@ -10,12 +10,11 @@ class Gom < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "b8c298e1d442d15dd630bfe6b1edfeb11b77326b730237ffc4c6b3c607c48192" => :big_sur
-    sha256 "ff2ac0dfef03bd08c7f03f13595af2e1476c396163e57066726c92e06cbe4fba" => :arm64_big_sur
-    sha256 "c86f525462ffd97cb6bd469b5a26d1db56281d725916d5eb524f31a4750b1892" => :catalina
-    sha256 "afda0dc772004cee3b8148719a078f6ac2871480260f310a5d06e367dcd68412" => :mojave
-    sha256 "cccd9551ffced0a1648ff2f420eb3e5666ff102b4c81d96806cd7d25068ef7d7" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "ff2ac0dfef03bd08c7f03f13595af2e1476c396163e57066726c92e06cbe4fba"
+    sha256 cellar: :any, big_sur:       "b8c298e1d442d15dd630bfe6b1edfeb11b77326b730237ffc4c6b3c607c48192"
+    sha256 cellar: :any, catalina:      "c86f525462ffd97cb6bd469b5a26d1db56281d725916d5eb524f31a4750b1892"
+    sha256 cellar: :any, mojave:        "afda0dc772004cee3b8148719a078f6ac2871480260f310a5d06e367dcd68412"
+    sha256 cellar: :any, high_sierra:   "cccd9551ffced0a1648ff2f420eb3e5666ff102b4c81d96806cd7d25068ef7d7"
   end
 
   depends_on "gobject-introspection" => :build

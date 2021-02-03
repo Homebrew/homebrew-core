@@ -11,15 +11,14 @@ class Ascii < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ae1f4bca216200b2633f93da6d99c991f15755a130bd1cbc680377c251555d32" => :big_sur
-    sha256 "961354b48b260c83374340b6f50bb440977edc81ffa6cb11293bd6265f94dd3e" => :arm64_big_sur
-    sha256 "2c106e2d3ce3534f09a5ce147f6fc0778e884d06f15e7c272ee99ccabaf947bd" => :catalina
-    sha256 "d5f4c8fe4ad1467c1708e49268a42f0d201f8c18ed912cf3de330bdf1f219cc1" => :mojave
-    sha256 "858e5bd8f55367349f936f47346a7d4dc2afed7c8f3d9fca16c42071f537f644" => :high_sierra
-    sha256 "52fb2a78a1409f4f6db0b59589f773c4427c87a84a7fee1809e5f0a4d50e4d65" => :sierra
-    sha256 "bbb5f365f96e42dfaa8af31f21daa8809b0a628451599fab7bc7509ceeb0d14f" => :el_capitan
-    sha256 "ab520ebbe64a946a0ac0466537a0e207e49cd85979e41582ab542dcaef9db3ff" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "961354b48b260c83374340b6f50bb440977edc81ffa6cb11293bd6265f94dd3e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ae1f4bca216200b2633f93da6d99c991f15755a130bd1cbc680377c251555d32"
+    sha256 cellar: :any_skip_relocation, catalina:      "2c106e2d3ce3534f09a5ce147f6fc0778e884d06f15e7c272ee99ccabaf947bd"
+    sha256 cellar: :any_skip_relocation, mojave:        "d5f4c8fe4ad1467c1708e49268a42f0d201f8c18ed912cf3de330bdf1f219cc1"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "858e5bd8f55367349f936f47346a7d4dc2afed7c8f3d9fca16c42071f537f644"
+    sha256 cellar: :any_skip_relocation, sierra:        "52fb2a78a1409f4f6db0b59589f773c4427c87a84a7fee1809e5f0a4d50e4d65"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "bbb5f365f96e42dfaa8af31f21daa8809b0a628451599fab7bc7509ceeb0d14f"
+    sha256 cellar: :any_skip_relocation, yosemite:      "ab520ebbe64a946a0ac0466537a0e207e49cd85979e41582ab542dcaef9db3ff"
   end
 
   head do

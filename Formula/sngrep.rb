@@ -6,10 +6,10 @@ class Sngrep < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 "9f4802e1906e6177e83aff155174187fafdac32401d38c22af472035801c01c2" => :big_sur
-    sha256 "18b64ed24e66e3030fd8cf53ac64293d657093bfede0ccb7929621efe5edd146" => :arm64_big_sur
-    sha256 "489e6591c8008cbec241633ef0697c609aef20b02b9d97e7249c35d88af15d70" => :catalina
-    sha256 "d645f96ed390b34ce5e4fe9b01a687722b4046db196c0933546a7bb7a964d55a" => :mojave
+    sha256 arm64_big_sur: "18b64ed24e66e3030fd8cf53ac64293d657093bfede0ccb7929621efe5edd146"
+    sha256 big_sur:       "9f4802e1906e6177e83aff155174187fafdac32401d38c22af472035801c01c2"
+    sha256 catalina:      "489e6591c8008cbec241633ef0697c609aef20b02b9d97e7249c35d88af15d70"
+    sha256 mojave:        "d645f96ed390b34ce5e4fe9b01a687722b4046db196c0933546a7bb7a964d55a"
   end
 
   depends_on "autoconf" => :build

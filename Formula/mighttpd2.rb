@@ -11,11 +11,10 @@ class Mighttpd2 < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "f4825cfc94adb7f0d47ca4dcaa3b924726845eef22dafa8a9603c6efe8a3e24d" => :big_sur
-    sha256 "bcea435a9feba47df19b64d9fac972a1df8f580647204b07a73b2ade2e14c479" => :catalina
-    sha256 "68e563757fb405de41a4312c03f7b72da99586430ea8f0aff98fdab48213635f" => :mojave
-    sha256 "7b033c6ce128310465134a09bae1ef3df9cb630db732167a06028c1a5773576e" => :high_sierra
+    sha256 cellar: :any_skip_relocation, big_sur:     "f4825cfc94adb7f0d47ca4dcaa3b924726845eef22dafa8a9603c6efe8a3e24d"
+    sha256 cellar: :any_skip_relocation, catalina:    "bcea435a9feba47df19b64d9fac972a1df8f580647204b07a73b2ade2e14c479"
+    sha256 cellar: :any_skip_relocation, mojave:      "68e563757fb405de41a4312c03f7b72da99586430ea8f0aff98fdab48213635f"
+    sha256 cellar: :any_skip_relocation, high_sierra: "7b033c6ce128310465134a09bae1ef3df9cb630db732167a06028c1a5773576e"
   end
 
   depends_on "cabal-install" => :build

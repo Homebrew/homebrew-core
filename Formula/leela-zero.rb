@@ -8,13 +8,12 @@ class LeelaZero < Formula
   license "GPL-3.0"
 
   bottle do
-    cellar :any
-    sha256 "52c68240dc4e64a1e36879d2e57a704f3c1848444ab0d030c9dfefac37428876" => :big_sur
-    sha256 "634e2390b96220baa749c3dc08aefc7e668e164e5dde76a373ae59d6409ebcb7" => :arm64_big_sur
-    sha256 "b9764e2ebdade7c55ffb44f29f3c546be8003348ecca7b6ea0e93969cdce9032" => :catalina
-    sha256 "6e95d7ef2f671bc404fcafd426b47cf3c4c9a9f2ab577772c03a1cf721a20444" => :mojave
-    sha256 "ddb11b34f4a1e210e52ad13c4e789b2f0958278fe3cadfc94dc22afcce59bfa4" => :high_sierra
-    sha256 "decf1639a96bb4fd9a198f74f7c20413cde1109d913769f0a32cc2a6c9527778" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "634e2390b96220baa749c3dc08aefc7e668e164e5dde76a373ae59d6409ebcb7"
+    sha256 cellar: :any, big_sur:       "52c68240dc4e64a1e36879d2e57a704f3c1848444ab0d030c9dfefac37428876"
+    sha256 cellar: :any, catalina:      "b9764e2ebdade7c55ffb44f29f3c546be8003348ecca7b6ea0e93969cdce9032"
+    sha256 cellar: :any, mojave:        "6e95d7ef2f671bc404fcafd426b47cf3c4c9a9f2ab577772c03a1cf721a20444"
+    sha256 cellar: :any, high_sierra:   "ddb11b34f4a1e210e52ad13c4e789b2f0958278fe3cadfc94dc22afcce59bfa4"
+    sha256 cellar: :any, sierra:        "decf1639a96bb4fd9a198f74f7c20413cde1109d913769f0a32cc2a6c9527778"
   end
 
   depends_on "cmake" => :build

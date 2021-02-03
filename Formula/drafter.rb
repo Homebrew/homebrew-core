@@ -7,12 +7,11 @@ class Drafter < Formula
   head "https://github.com/apiaryio/drafter.git"
 
   bottle do
-    cellar :any
-    sha256 "74fcc290a59528b6be28739c6e4e9fac9660051430c74910f006cb000271a235" => :big_sur
-    sha256 "e87c12f12a181902f5013f06c3ca34608c68de6216d90f3c2fa568d4f8a35a5e" => :arm64_big_sur
-    sha256 "29fa18ff148f6ebf454ed383181384bfb9aff1520e64072dfb386445bf8e52a3" => :catalina
-    sha256 "2a56e75e39f7b46eba355ae6163b645e161c4e458a4f127c37a948377143ac3e" => :mojave
-    sha256 "125fb907888693fd3d638a79d185483f44112f5bb64f098626aa17f00b25513d" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "e87c12f12a181902f5013f06c3ca34608c68de6216d90f3c2fa568d4f8a35a5e"
+    sha256 cellar: :any, big_sur:       "74fcc290a59528b6be28739c6e4e9fac9660051430c74910f006cb000271a235"
+    sha256 cellar: :any, catalina:      "29fa18ff148f6ebf454ed383181384bfb9aff1520e64072dfb386445bf8e52a3"
+    sha256 cellar: :any, mojave:        "2a56e75e39f7b46eba355ae6163b645e161c4e458a4f127c37a948377143ac3e"
+    sha256 cellar: :any, high_sierra:   "125fb907888693fd3d638a79d185483f44112f5bb64f098626aa17f00b25513d"
   end
 
   depends_on "cmake" => :build

@@ -6,11 +6,10 @@ class Pdftilecut < Formula
   license "BSD-3-Clause"
 
   bottle do
-    cellar :any
-    sha256 "e9cd816b6b435a80e0860b9a3d4e62aea35e85bbb6df82ba9308c4b8c10245d1" => :big_sur
-    sha256 "a36f6efee23fc0af788bdef8017bcfee5b0fa25031541a499508f4942d743083" => :arm64_big_sur
-    sha256 "015c4f2b9481772318dabbf7f8cb5aa0640e46781d7cd7ef5cfc9f33b91afb79" => :catalina
-    sha256 "59229d726c29240bd14240e9011bfc1ec731ffcef8e52373c5a720649e6cacb7" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "a36f6efee23fc0af788bdef8017bcfee5b0fa25031541a499508f4942d743083"
+    sha256 cellar: :any, big_sur:       "e9cd816b6b435a80e0860b9a3d4e62aea35e85bbb6df82ba9308c4b8c10245d1"
+    sha256 cellar: :any, catalina:      "015c4f2b9481772318dabbf7f8cb5aa0640e46781d7cd7ef5cfc9f33b91afb79"
+    sha256 cellar: :any, mojave:        "59229d726c29240bd14240e9011bfc1ec731ffcef8e52373c5a720649e6cacb7"
   end
 
   depends_on "go" => :build

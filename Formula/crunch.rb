@@ -10,17 +10,16 @@ class Crunch < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "9cd9d5ae5afb6b6223e720b99d30990f1884cd8ed4e0b5654a9ab2d72cc4d132" => :big_sur
-    sha256 "dfc7c5b56963d28a58c64a2a28d0c19b61dfce141b83c9facaad0d8d606949b2" => :arm64_big_sur
-    sha256 "67570938790b20aaabcb31c8ac86d4356702b87ce2ae8ea01d19553f531397a6" => :catalina
-    sha256 "ad3bd04ba230c46df88ab4ab7a74efa3182cd65b804b65a28a327f74700641e8" => :mojave
-    sha256 "c59cb398b0ed4f28e8d56c49709991f5ea61b61bad4d672f1a481730948cdeb0" => :high_sierra
-    sha256 "737d46b90aaa933abe03e111ece79e3f6a0ecb372cc1903b9dba3a33208111b9" => :sierra
-    sha256 "84c0c275e63cc5c27fd468587f67ae5f1ab31a3923fe2eda27b4e33477356844" => :el_capitan
-    sha256 "406d94f00713b83bbf41b36453605a5f85f154f88aec9b3ae23e7646ddcc03c1" => :yosemite
-    sha256 "379e5d6a2a8a9baaa9b337f3e702e25ccca6025fd8b49e2685031e67d8ce8666" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "dfc7c5b56963d28a58c64a2a28d0c19b61dfce141b83c9facaad0d8d606949b2"
+    sha256 cellar: :any_skip_relocation, big_sur:       "9cd9d5ae5afb6b6223e720b99d30990f1884cd8ed4e0b5654a9ab2d72cc4d132"
+    sha256 cellar: :any_skip_relocation, catalina:      "67570938790b20aaabcb31c8ac86d4356702b87ce2ae8ea01d19553f531397a6"
+    sha256 cellar: :any_skip_relocation, mojave:        "ad3bd04ba230c46df88ab4ab7a74efa3182cd65b804b65a28a327f74700641e8"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "c59cb398b0ed4f28e8d56c49709991f5ea61b61bad4d672f1a481730948cdeb0"
+    sha256 cellar: :any_skip_relocation, sierra:        "737d46b90aaa933abe03e111ece79e3f6a0ecb372cc1903b9dba3a33208111b9"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "84c0c275e63cc5c27fd468587f67ae5f1ab31a3923fe2eda27b4e33477356844"
+    sha256 cellar: :any_skip_relocation, yosemite:      "406d94f00713b83bbf41b36453605a5f85f154f88aec9b3ae23e7646ddcc03c1"
+    sha256 cellar: :any_skip_relocation, mavericks:     "379e5d6a2a8a9baaa9b337f3e702e25ccca6025fd8b49e2685031e67d8ce8666"
   end
 
   def install

@@ -6,11 +6,10 @@ class Wasm3 < Formula
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "296862636f23bda386da3d469e6bd22e79959203d8960e457777e7ea88952978" => :big_sur
-    sha256 "a89be08c7ff241a0a624161b333d9d08c3ebd4539fb4499d2fa96bb5a5c5e31d" => :arm64_big_sur
-    sha256 "94625f80433b1af43daba906cc715d78891e202f92d323fae9164efbc2fa76ed" => :catalina
-    sha256 "e7aac098bda9f38e0f10778b82bcd0b08e88f7834d9a0e511dc6d4f7536ae74d" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a89be08c7ff241a0a624161b333d9d08c3ebd4539fb4499d2fa96bb5a5c5e31d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "296862636f23bda386da3d469e6bd22e79959203d8960e457777e7ea88952978"
+    sha256 cellar: :any_skip_relocation, catalina:      "94625f80433b1af43daba906cc715d78891e202f92d323fae9164efbc2fa76ed"
+    sha256 cellar: :any_skip_relocation, mojave:        "e7aac098bda9f38e0f10778b82bcd0b08e88f7834d9a0e511dc6d4f7536ae74d"
   end
 
   depends_on "cmake" => :build

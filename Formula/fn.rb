@@ -6,11 +6,10 @@ class Fn < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "e493bdbe2d7f61000f4d92602789fd47850eb2c5f27be805888202880e81699b" => :big_sur
-    sha256 "8d6ce96f1b90a20005b7676a71e9cca0219b9b10eb0141962b7862a16c90bf33" => :arm64_big_sur
-    sha256 "deca08e83d8ff598ca73c0ef3fcf396f6ad20ec936c10bd0e2032595a0106d55" => :catalina
-    sha256 "0bf5ce388e4c03334fec85b0b9733d9b270d38c8650223b591805c4bb3950b84" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8d6ce96f1b90a20005b7676a71e9cca0219b9b10eb0141962b7862a16c90bf33"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e493bdbe2d7f61000f4d92602789fd47850eb2c5f27be805888202880e81699b"
+    sha256 cellar: :any_skip_relocation, catalina:      "deca08e83d8ff598ca73c0ef3fcf396f6ad20ec936c10bd0e2032595a0106d55"
+    sha256 cellar: :any_skip_relocation, mojave:        "0bf5ce388e4c03334fec85b0b9733d9b270d38c8650223b591805c4bb3950b84"
   end
 
   depends_on "go" => :build

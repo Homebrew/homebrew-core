@@ -17,11 +17,10 @@ class Puzzles < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "40e28c1005919ab7dcbb215f5d51abbca00297816e0a4b170f4e0410d17cb713" => :big_sur
-    sha256 "9b1eca473055fc6962f69daa3cb7367262e9dadf2a01e3223e1a2e7aff956b38" => :arm64_big_sur
-    sha256 "ecdd353296ae643d50a67f5abbdac3d878ab3bc4fcb044b7a9d38b39ac281f43" => :catalina
-    sha256 "aaf4ab9bb3026b8749235052b2f82eb7fb3f4eb8ad4ff418ebe35256f0421d99" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9b1eca473055fc6962f69daa3cb7367262e9dadf2a01e3223e1a2e7aff956b38"
+    sha256 cellar: :any_skip_relocation, big_sur:       "40e28c1005919ab7dcbb215f5d51abbca00297816e0a4b170f4e0410d17cb713"
+    sha256 cellar: :any_skip_relocation, catalina:      "ecdd353296ae643d50a67f5abbdac3d878ab3bc4fcb044b7a9d38b39ac281f43"
+    sha256 cellar: :any_skip_relocation, mojave:        "aaf4ab9bb3026b8749235052b2f82eb7fb3f4eb8ad4ff418ebe35256f0421d99"
   end
 
   depends_on "halibut"

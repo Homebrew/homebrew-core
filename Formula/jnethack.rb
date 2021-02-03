@@ -17,11 +17,11 @@ class Jnethack < Formula
   end
 
   bottle do
-    sha256 "9f9ffb883c96a2341c2ea098c941035f39ac428413bf0dd93c29d0a1192dce1e" => :big_sur
-    sha256 "799f0a8342d6a2d05932365d09634e64abaaea6fc1ee6e7f834c7c49bda72d9d" => :arm64_big_sur
-    sha256 "059b8ffd6b13d6335e746b70ac59706b632982eff307a2c9d66c1e4114bab994" => :catalina
-    sha256 "6f985e89658c5c5e4443a2fa88dafef23bbad24c01ea9dbc29661eb3b1028133" => :mojave
-    sha256 "34845f6e7a2773374e778043b0ca456f23aeff7f1fd72389a551a6bbe160d871" => :high_sierra
+    sha256 arm64_big_sur: "799f0a8342d6a2d05932365d09634e64abaaea6fc1ee6e7f834c7c49bda72d9d"
+    sha256 big_sur:       "9f9ffb883c96a2341c2ea098c941035f39ac428413bf0dd93c29d0a1192dce1e"
+    sha256 catalina:      "059b8ffd6b13d6335e746b70ac59706b632982eff307a2c9d66c1e4114bab994"
+    sha256 mojave:        "6f985e89658c5c5e4443a2fa88dafef23bbad24c01ea9dbc29661eb3b1028133"
+    sha256 high_sierra:   "34845f6e7a2773374e778043b0ca456f23aeff7f1fd72389a551a6bbe160d871"
   end
 
   depends_on "nkf" => :build

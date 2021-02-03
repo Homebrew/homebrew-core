@@ -13,11 +13,10 @@ class Prettier < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "cc0490eacc3a11e2f4b20ee9e56d85df64c7f95cee6811539b73e21b94417561" => :big_sur
-    sha256 "d9b64844714a25d33344ae68af32131f6c0eaa883bb02072d868d047de98b36a" => :arm64_big_sur
-    sha256 "6f6364f7a63a4eab3f1cc1fd51a7fd3c3c62fb0a17c1ffd5d583b294cc435558" => :catalina
-    sha256 "617d2fdfe6caf2cb7fb83621e6e7da49dd477a8d9672305d1ccd4a0aa9100338" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d9b64844714a25d33344ae68af32131f6c0eaa883bb02072d868d047de98b36a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "cc0490eacc3a11e2f4b20ee9e56d85df64c7f95cee6811539b73e21b94417561"
+    sha256 cellar: :any_skip_relocation, catalina:      "6f6364f7a63a4eab3f1cc1fd51a7fd3c3c62fb0a17c1ffd5d583b294cc435558"
+    sha256 cellar: :any_skip_relocation, mojave:        "617d2fdfe6caf2cb7fb83621e6e7da49dd477a8d9672305d1ccd4a0aa9100338"
   end
 
   depends_on "node"

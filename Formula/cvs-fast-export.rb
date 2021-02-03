@@ -11,11 +11,10 @@ class CvsFastExport < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "7ee763f03cb997d6717bad92d53983324e4bb89be855aedb37af0ef38cec8180" => :big_sur
-    sha256 "e6faed55a91a59f97af42d5bb102d3438aab4509e5c7fd4e5d28f238012de2f5" => :catalina
-    sha256 "b2b8f37662e652697231b8efb9fe6cb4927513f849d4853b54fbe90220d55d77" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur:  "7ee763f03cb997d6717bad92d53983324e4bb89be855aedb37af0ef38cec8180"
+    sha256 cellar: :any_skip_relocation, catalina: "e6faed55a91a59f97af42d5bb102d3438aab4509e5c7fd4e5d28f238012de2f5"
+    sha256 cellar: :any_skip_relocation, mojave:   "b2b8f37662e652697231b8efb9fe6cb4927513f849d4853b54fbe90220d55d77"
   end
 
   head do

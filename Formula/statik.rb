@@ -14,11 +14,10 @@ class Statik < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "4e57a49a51d642f6bf6aa16ec861e0d598099243b2f8adffd1bacc1c99f1c5e1" => :big_sur
-    sha256 "d8ccb5efc25d0435ccf7c543d86991a83622845d04426eb1823e7e670ac9dbcd" => :arm64_big_sur
-    sha256 "6ead20ec4625d2155252c892c47342571dcd390d630c38be2c73cf89b68c98ca" => :catalina
-    sha256 "5579aa466a747a15839a89b48c875b7afc6d225ff9af028a62ccc9eacee115c7" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "d8ccb5efc25d0435ccf7c543d86991a83622845d04426eb1823e7e670ac9dbcd"
+    sha256 cellar: :any, big_sur:       "4e57a49a51d642f6bf6aa16ec861e0d598099243b2f8adffd1bacc1c99f1c5e1"
+    sha256 cellar: :any, catalina:      "6ead20ec4625d2155252c892c47342571dcd390d630c38be2c73cf89b68c98ca"
+    sha256 cellar: :any, mojave:        "5579aa466a747a15839a89b48c875b7afc6d225ff9af028a62ccc9eacee115c7"
   end
 
   depends_on "libpq"

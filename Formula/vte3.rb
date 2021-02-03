@@ -10,10 +10,10 @@ class Vte3 < Formula
   end
 
   bottle do
-    sha256 "4c9b4f83588414498702a755ed85adf8f82336e96904d53360430ed625f63b0f" => :big_sur
-    sha256 "e4dffc796de1262ba9e996770f1077ae04f57c9f3309ade7acdd7d98e3e90e27" => :arm64_big_sur
-    sha256 "0bee470e969ca07f5d19e6fd644fbf35b72a73c919c197b67e75d6fa1b24d569" => :catalina
-    sha256 "f5e60ee9050f2139f97f6a75d9571fd65c9e60ab4421277bed993a4741069da6" => :mojave
+    sha256 arm64_big_sur: "e4dffc796de1262ba9e996770f1077ae04f57c9f3309ade7acdd7d98e3e90e27"
+    sha256 big_sur:       "4c9b4f83588414498702a755ed85adf8f82336e96904d53360430ed625f63b0f"
+    sha256 catalina:      "0bee470e969ca07f5d19e6fd644fbf35b72a73c919c197b67e75d6fa1b24d569"
+    sha256 mojave:        "f5e60ee9050f2139f97f6a75d9571fd65c9e60ab4421277bed993a4741069da6"
   end
 
   depends_on "gobject-introspection" => :build

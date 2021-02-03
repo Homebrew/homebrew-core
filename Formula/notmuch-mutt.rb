@@ -12,11 +12,10 @@ class NotmuchMutt < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "a52c995dbe47709f3255c201a170036097fb7d97abb2be895da431a203e83158" => :big_sur
-    sha256 "c493d6777556ba34075f6df48cfa0fe540a3b74f9640ec8205cc171d3f3de5a7" => :arm64_big_sur
-    sha256 "13105777242c90e0c612f2042f472c08acaafaf85a9bdf78a5726730c9f605a6" => :catalina
-    sha256 "edb9c664706a7a139df2ad602b97a8cf67bb57751997cbcb5f940495754a7c9c" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "c493d6777556ba34075f6df48cfa0fe540a3b74f9640ec8205cc171d3f3de5a7"
+    sha256 cellar: :any, big_sur:       "a52c995dbe47709f3255c201a170036097fb7d97abb2be895da431a203e83158"
+    sha256 cellar: :any, catalina:      "13105777242c90e0c612f2042f472c08acaafaf85a9bdf78a5726730c9f605a6"
+    sha256 cellar: :any, mojave:        "edb9c664706a7a139df2ad602b97a8cf67bb57751997cbcb5f940495754a7c9c"
   end
 
   depends_on "notmuch"

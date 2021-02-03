@@ -11,12 +11,11 @@ class Rpcgen < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "8168bcd5de6cb890aae1bd5deb67f732c193f6729606632d7ece185c10dd3b75" => :big_sur
-    sha256 "9e4b76a3f59923370fd526a8d0d7c2d045e24c0fd3bc8a90520a75a0600b2b42" => :arm64_big_sur
-    sha256 "4d9702a8541f7db461c81f761bd446167473d0b7ad9590370fbbd9cb775442d4" => :catalina
-    sha256 "6bc4a8c391b448681db323c894b07a57a22a8e4d67015f0b9be7f1cff876d23a" => :mojave
-    sha256 "2a4a7cf95e773ee5a2721cc90832031c6d5bb6dffefd575233acccca0d446631" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9e4b76a3f59923370fd526a8d0d7c2d045e24c0fd3bc8a90520a75a0600b2b42"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8168bcd5de6cb890aae1bd5deb67f732c193f6729606632d7ece185c10dd3b75"
+    sha256 cellar: :any_skip_relocation, catalina:      "4d9702a8541f7db461c81f761bd446167473d0b7ad9590370fbbd9cb775442d4"
+    sha256 cellar: :any_skip_relocation, mojave:        "6bc4a8c391b448681db323c894b07a57a22a8e4d67015f0b9be7f1cff876d23a"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "2a4a7cf95e773ee5a2721cc90832031c6d5bb6dffefd575233acccca0d446631"
   end
 
   keg_only :provided_by_macos

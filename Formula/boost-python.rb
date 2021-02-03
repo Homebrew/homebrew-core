@@ -8,11 +8,10 @@ class BoostPython < Formula
   head "https://github.com/boostorg/boost.git"
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "773bf09629cf60599cb4118827d40b81ef792efbe24796ac5a756e4c173ba889" => :big_sur
-    sha256 "6fb5b45ffb117fa0a996a24f6ccf8041685ebbe65b8a5cea26d92028eeff09e4" => :catalina
-    sha256 "f17e33b10753adb4d49cd1d9daf46ba28552953e53069025b84393cb5db89223" => :mojave
+    sha256 cellar: :any, big_sur:  "773bf09629cf60599cb4118827d40b81ef792efbe24796ac5a756e4c173ba889"
+    sha256 cellar: :any, catalina: "6fb5b45ffb117fa0a996a24f6ccf8041685ebbe65b8a5cea26d92028eeff09e4"
+    sha256 cellar: :any, mojave:   "f17e33b10753adb4d49cd1d9daf46ba28552953e53069025b84393cb5db89223"
   end
 
   deprecate! date: "2020-01-01", because: "uses Python 2, which is no longer supported"

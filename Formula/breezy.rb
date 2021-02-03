@@ -13,12 +13,11 @@ class Breezy < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "573375e163fbfa507e6fbd20e52559b30ca1c97ba8ef2f45eecc3b4ae8b4bb0d" => :big_sur
-    sha256 "3b56b4e6ac7ad2470781467392aa0018754fc03e4f84bfee2d93a00e64c33afe" => :arm64_big_sur
-    sha256 "1a5f132188241df2ada428e97f0dc09712b9bbf803dc4ea974e07b38f9ddc247" => :catalina
-    sha256 "ef7f756a7ff7beb049bde8f7a9e41eba5cc2f331c7efdb9d8b5d8ff419836384" => :mojave
-    sha256 "d818d00021c542d21438b4014f5e9461378144de16d2525c52868d5d2998922c" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3b56b4e6ac7ad2470781467392aa0018754fc03e4f84bfee2d93a00e64c33afe"
+    sha256 cellar: :any_skip_relocation, big_sur:       "573375e163fbfa507e6fbd20e52559b30ca1c97ba8ef2f45eecc3b4ae8b4bb0d"
+    sha256 cellar: :any_skip_relocation, catalina:      "1a5f132188241df2ada428e97f0dc09712b9bbf803dc4ea974e07b38f9ddc247"
+    sha256 cellar: :any_skip_relocation, mojave:        "ef7f756a7ff7beb049bde8f7a9e41eba5cc2f331c7efdb9d8b5d8ff419836384"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "d818d00021c542d21438b4014f5e9461378144de16d2525c52868d5d2998922c"
   end
 
   depends_on "cython" => :build

@@ -7,10 +7,10 @@ class Oauth2Proxy < Formula
   head "https://github.com/oauth2-proxy/oauth2-proxy.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur: "62bcd19893e69fb1cd08c5b96fbf8a7016df9140174bd6cd4ee9753148c9924b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "93cd99c708c46f79fc0430ff7e948cc41c96921b3192a4335988cb6b1e60e4dc"
-    sha256 cellar: :any_skip_relocation, catalina: "6fa120604d86000ac9407f29c8f242512917d0f4c15253d6f8fa0635ae9b4aaf"
-    sha256 cellar: :any_skip_relocation, mojave: "c14d9582a6180b04cc2f2a60c39b7b563d67b5b5f595c915ca215b6ee581bd1c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "62bcd19893e69fb1cd08c5b96fbf8a7016df9140174bd6cd4ee9753148c9924b"
+    sha256 cellar: :any_skip_relocation, catalina:      "6fa120604d86000ac9407f29c8f242512917d0f4c15253d6f8fa0635ae9b4aaf"
+    sha256 cellar: :any_skip_relocation, mojave:        "c14d9582a6180b04cc2f2a60c39b7b563d67b5b5f595c915ca215b6ee581bd1c"
   end
 
   depends_on "go" => :build

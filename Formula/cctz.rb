@@ -6,12 +6,11 @@ class Cctz < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any
-    sha256 "b0796719cf068ae526435e86922477820dedd3afd5a9044fd099fe3ff6c90765" => :big_sur
-    sha256 "4895638a03396673d972613bed298d7288d369fe91aca165ddcf9b0357aade18" => :arm64_big_sur
-    sha256 "3a73ab9d2f67020d95657e8c5b32a26d7eb81987cee2eace2b9d26eab2621bbb" => :catalina
-    sha256 "439ce8e6d464aa64aadd117e3effba68379883c3013de4944dda1def4127ff7d" => :mojave
-    sha256 "2d61f3555630f98a572971867d5da46212712eb30a18bb6545f9067369865c33" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "4895638a03396673d972613bed298d7288d369fe91aca165ddcf9b0357aade18"
+    sha256 cellar: :any, big_sur:       "b0796719cf068ae526435e86922477820dedd3afd5a9044fd099fe3ff6c90765"
+    sha256 cellar: :any, catalina:      "3a73ab9d2f67020d95657e8c5b32a26d7eb81987cee2eace2b9d26eab2621bbb"
+    sha256 cellar: :any, mojave:        "439ce8e6d464aa64aadd117e3effba68379883c3013de4944dda1def4127ff7d"
+    sha256 cellar: :any, high_sierra:   "2d61f3555630f98a572971867d5da46212712eb30a18bb6545f9067369865c33"
   end
 
   depends_on "cmake" => :build

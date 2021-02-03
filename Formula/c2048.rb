@@ -8,15 +8,14 @@ class C2048 < Formula
   head "https://github.com/mevdschee/2048.c.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "abe17673a8930d93f04d97f5e209621b83968e28a075578e9b1f42c07464145d" => :big_sur
-    sha256 "89bc7f84063b8621271115ee8f9c84c836ae1e57a72db5533b11d8247d57e043" => :arm64_big_sur
-    sha256 "727165d714b210f559b5f5450d6608bed0e7bfbf87c7a7cd5994259b65865411" => :catalina
-    sha256 "dd0cc60f407ccb43f471d7123b9a09fa0b2161ee083638a432ee25795a96ca8f" => :mojave
-    sha256 "e5f553baf87fc7ac9f0fa4471d3e9be29328df167700181d9663f61293436888" => :high_sierra
-    sha256 "d2f33783cf7cd2ac69eaed113d940aca31e02e5863fcdb40e200e3fe9a4d0623" => :sierra
-    sha256 "8f9e75196f87718be0c572f731cecba0c8cd4e8dc35f8b3027392cd6e1c45f5d" => :el_capitan
-    sha256 "c06bde9e58788a1a4f16b6d0ace89be02cf07f86211e0c78af5fdaa7d70a3614" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "89bc7f84063b8621271115ee8f9c84c836ae1e57a72db5533b11d8247d57e043"
+    sha256 cellar: :any_skip_relocation, big_sur:       "abe17673a8930d93f04d97f5e209621b83968e28a075578e9b1f42c07464145d"
+    sha256 cellar: :any_skip_relocation, catalina:      "727165d714b210f559b5f5450d6608bed0e7bfbf87c7a7cd5994259b65865411"
+    sha256 cellar: :any_skip_relocation, mojave:        "dd0cc60f407ccb43f471d7123b9a09fa0b2161ee083638a432ee25795a96ca8f"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "e5f553baf87fc7ac9f0fa4471d3e9be29328df167700181d9663f61293436888"
+    sha256 cellar: :any_skip_relocation, sierra:        "d2f33783cf7cd2ac69eaed113d940aca31e02e5863fcdb40e200e3fe9a4d0623"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "8f9e75196f87718be0c572f731cecba0c8cd4e8dc35f8b3027392cd6e1c45f5d"
+    sha256 cellar: :any_skip_relocation, yosemite:      "c06bde9e58788a1a4f16b6d0ace89be02cf07f86211e0c78af5fdaa7d70a3614"
   end
 
   def install

@@ -11,12 +11,11 @@ class Rcs < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "88ee0070ccfd3c5172b97c342c197c00a8643d8ca832477b7f0fe994bb204a56" => :big_sur
-    sha256 "94c2394da4a1f2a0fc57c82952526c1bf89d8ec977db1c9235e0e1167bad4ff2" => :arm64_big_sur
-    sha256 "a16720713ee2f30c3f126ca4716b4df5e1e5e68c24d31fd93ea312c2900d2b4f" => :catalina
-    sha256 "fddb77e2b68d2f0f4f8264d7c44127cb0bd407a275e4123f5096f89be4734fa7" => :mojave
-    sha256 "f429e435048ad65275519c990aa4c2c437fd3b5d682865c057fe7f001e93946f" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "94c2394da4a1f2a0fc57c82952526c1bf89d8ec977db1c9235e0e1167bad4ff2"
+    sha256 cellar: :any_skip_relocation, big_sur:       "88ee0070ccfd3c5172b97c342c197c00a8643d8ca832477b7f0fe994bb204a56"
+    sha256 cellar: :any_skip_relocation, catalina:      "a16720713ee2f30c3f126ca4716b4df5e1e5e68c24d31fd93ea312c2900d2b4f"
+    sha256 cellar: :any_skip_relocation, mojave:        "fddb77e2b68d2f0f4f8264d7c44127cb0bd407a275e4123f5096f89be4734fa7"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "f429e435048ad65275519c990aa4c2c437fd3b5d682865c057fe7f001e93946f"
   end
 
   def install

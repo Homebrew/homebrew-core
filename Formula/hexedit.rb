@@ -7,12 +7,11 @@ class Hexedit < Formula
   head "https://github.com/pixel/hexedit.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "1c7110e508b3df9cc7b2db354003b96cfed9d8a1fe1449b7df3dd9fde7fb6629" => :big_sur
-    sha256 "aa0a6863d00bbfb757bb8f4a98404b4654658034def4e7464de03e1b1fc74151" => :arm64_big_sur
-    sha256 "b292c19f7f562a6d062f834395f4add815855ae4c9bfb9192a967af7c135da06" => :catalina
-    sha256 "17eb067bc169a802ebdfe9a4af927cb70f2b2230337a78ee4ef00dc5cef1c7ba" => :mojave
-    sha256 "cd9b838e99eafc11ab15415f46073e549273b6f461e37adb9e6eaead2e93021d" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "aa0a6863d00bbfb757bb8f4a98404b4654658034def4e7464de03e1b1fc74151"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1c7110e508b3df9cc7b2db354003b96cfed9d8a1fe1449b7df3dd9fde7fb6629"
+    sha256 cellar: :any_skip_relocation, catalina:      "b292c19f7f562a6d062f834395f4add815855ae4c9bfb9192a967af7c135da06"
+    sha256 cellar: :any_skip_relocation, mojave:        "17eb067bc169a802ebdfe9a4af927cb70f2b2230337a78ee4ef00dc5cef1c7ba"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "cd9b838e99eafc11ab15415f46073e549273b6f461e37adb9e6eaead2e93021d"
   end
 
   depends_on "autoconf" => :build

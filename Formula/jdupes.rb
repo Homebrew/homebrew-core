@@ -11,11 +11,10 @@ class Jdupes < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "bf871f37dcb362d686dd45943fe9c99450f1c63a87cd5609b9c3a87f70c3fc84" => :big_sur
-    sha256 "514a2dc2113a9ee6018bb9341064fb10437808ccab19028cf7d5b36131b4d31b" => :arm64_big_sur
-    sha256 "e45323a13531cfbe654f20187dfc34439979748e9f19c8b31c3adf8fc500e289" => :catalina
-    sha256 "3480a8d00c48aebfe2372034f5da4a9864a4a58afdda59ecd24420459726f6fc" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "514a2dc2113a9ee6018bb9341064fb10437808ccab19028cf7d5b36131b4d31b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "bf871f37dcb362d686dd45943fe9c99450f1c63a87cd5609b9c3a87f70c3fc84"
+    sha256 cellar: :any_skip_relocation, catalina:      "e45323a13531cfbe654f20187dfc34439979748e9f19c8b31c3adf8fc500e289"
+    sha256 cellar: :any_skip_relocation, mojave:        "3480a8d00c48aebfe2372034f5da4a9864a4a58afdda59ecd24420459726f6fc"
   end
 
   def install

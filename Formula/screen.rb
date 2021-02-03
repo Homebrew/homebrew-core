@@ -21,11 +21,11 @@ class Screen < Formula
   end
 
   bottle do
-    sha256 "6a4935174331a3d96eb0fb5e05af4a095d188565f5f87d7e6dbf6a8478490644" => :big_sur
-    sha256 "8ba1521db91bbc7fe1852d22c56b1de1c14e93fd8d4510b627948b211ee90f77" => :arm64_big_sur
-    sha256 "f3787a0e1c889106ab14d89c4f1bed001716ce1eb79e44e56b20e71b7448e172" => :catalina
-    sha256 "30dfe7b1bc6c74d64be57224852e50ebd5d4c6d4939872eaceac5f06d9935208" => :mojave
-    sha256 "1e63b4fd4ae798111980a7d9ed47c3fcb867cbad2c4253164b55722efc65d53e" => :high_sierra
+    sha256 arm64_big_sur: "8ba1521db91bbc7fe1852d22c56b1de1c14e93fd8d4510b627948b211ee90f77"
+    sha256 big_sur:       "6a4935174331a3d96eb0fb5e05af4a095d188565f5f87d7e6dbf6a8478490644"
+    sha256 catalina:      "f3787a0e1c889106ab14d89c4f1bed001716ce1eb79e44e56b20e71b7448e172"
+    sha256 mojave:        "30dfe7b1bc6c74d64be57224852e50ebd5d4c6d4939872eaceac5f06d9935208"
+    sha256 high_sierra:   "1e63b4fd4ae798111980a7d9ed47c3fcb867cbad2c4253164b55722efc65d53e"
   end
 
   head do

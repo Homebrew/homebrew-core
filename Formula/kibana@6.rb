@@ -7,11 +7,10 @@ class KibanaAT6 < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c6851cd00abc11d5bf62fd244e601e9b9071443c545e3713077ec0cccfd8fc59" => :big_sur
-    sha256 "d13d9e35a2d55f1e316a16a6dc7662a0be783b11e0707f445902da1a6084a207" => :catalina
-    sha256 "726bc34894f26bc18d9b1b9d756febefb03d76ef598445c406f18840554f6198" => :mojave
-    sha256 "4bd89cc139a35c58402dabeaab5dcbccf02e6bd269122b454723941449984f9e" => :high_sierra
+    sha256 cellar: :any_skip_relocation, big_sur:     "c6851cd00abc11d5bf62fd244e601e9b9071443c545e3713077ec0cccfd8fc59"
+    sha256 cellar: :any_skip_relocation, catalina:    "d13d9e35a2d55f1e316a16a6dc7662a0be783b11e0707f445902da1a6084a207"
+    sha256 cellar: :any_skip_relocation, mojave:      "726bc34894f26bc18d9b1b9d756febefb03d76ef598445c406f18840554f6198"
+    sha256 cellar: :any_skip_relocation, high_sierra: "4bd89cc139a35c58402dabeaab5dcbccf02e6bd269122b454723941449984f9e"
   end
 
   keg_only :versioned_formula

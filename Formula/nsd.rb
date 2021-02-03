@@ -14,10 +14,10 @@ class Nsd < Formula
   end
 
   bottle do
-    sha256 "3f7f34e3f1ad35123efbc45e0f5453d18d931a54b32357c3461b015fc76474dd" => :big_sur
-    sha256 "8747dcfda2d586a4884351199cfc427aefacd3f17b9a95ddd92cb78296d5ac6e" => :arm64_big_sur
-    sha256 "c7bf16604821f3604d9308c289f4c408f0711cbec714f0f62aa6ea6b0485bd96" => :catalina
-    sha256 "056cb5f3bd860c59493827c7336e320b931353dae9fe0650113f1ca497f9c32e" => :mojave
+    sha256 arm64_big_sur: "8747dcfda2d586a4884351199cfc427aefacd3f17b9a95ddd92cb78296d5ac6e"
+    sha256 big_sur:       "3f7f34e3f1ad35123efbc45e0f5453d18d931a54b32357c3461b015fc76474dd"
+    sha256 catalina:      "c7bf16604821f3604d9308c289f4c408f0711cbec714f0f62aa6ea6b0485bd96"
+    sha256 mojave:        "056cb5f3bd860c59493827c7336e320b931353dae9fe0650113f1ca497f9c32e"
   end
 
   depends_on "libevent"

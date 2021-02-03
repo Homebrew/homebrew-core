@@ -7,11 +7,10 @@ class Indicators < Formula
   head "https://github.com/p-ranav/indicators.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "e28a931aa3e3214dd163a00769f36e9a24a9eb4e6fbff71ec0afcf19698a7691" => :big_sur
-    sha256 "03391b82e5e3990b57abd63397645728c20fc574a2a6b2d59622fe501b5a2ef5" => :arm64_big_sur
-    sha256 "fadf29d80558d33ced6d4a2bb5777685849feaeab3343dc27aebc580c9a01a94" => :catalina
-    sha256 "7c456f073e1634a70e558b8c05534cba357f2415f793fd16a1a020c75e012ef0" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "03391b82e5e3990b57abd63397645728c20fc574a2a6b2d59622fe501b5a2ef5"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e28a931aa3e3214dd163a00769f36e9a24a9eb4e6fbff71ec0afcf19698a7691"
+    sha256 cellar: :any_skip_relocation, catalina:      "fadf29d80558d33ced6d4a2bb5777685849feaeab3343dc27aebc580c9a01a94"
+    sha256 cellar: :any_skip_relocation, mojave:        "7c456f073e1634a70e558b8c05534cba357f2415f793fd16a1a020c75e012ef0"
   end
 
   depends_on "cmake" => :build

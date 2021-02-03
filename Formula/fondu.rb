@@ -5,15 +5,14 @@ class Fondu < Formula
   sha256 "22bb535d670ebc1766b602d804bebe7e84f907c219734e6a955fcbd414ce5794"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "3c8abb65351f0b4d1399234918154035f62ddcceed533f95a286fac1d1e91a87" => :catalina
-    sha256 "475674b5832a56db833ddf7fd01a4c16ff848dfc43dcca726ddfca86d42afdec" => :mojave
-    sha256 "00619e7b8f11378041a50cfcb557bebdfb542fbd7f1d5eda85d756537b9c34d9" => :high_sierra
-    sha256 "a4e10488264a8c28c06aa2f517e1937b3375462b4c44dcfb2ed50a8742298821" => :sierra
-    sha256 "c4fadd6744370dc946b7dde1ec8329335146257ad60b829f9f4024912859d7db" => :el_capitan
-    sha256 "dfeddb29a48dcf4db6aaf8170b54137fb329e216a4f83f47ddf262a984ab469e" => :yosemite
-    sha256 "cc8bb3c5213b0b792929fa1658077da60717993f0dbdaa56c0fe6004930309f4" => :mavericks
+    sha256 cellar: :any_skip_relocation, catalina:    "3c8abb65351f0b4d1399234918154035f62ddcceed533f95a286fac1d1e91a87"
+    sha256 cellar: :any_skip_relocation, mojave:      "475674b5832a56db833ddf7fd01a4c16ff848dfc43dcca726ddfca86d42afdec"
+    sha256 cellar: :any_skip_relocation, high_sierra: "00619e7b8f11378041a50cfcb557bebdfb542fbd7f1d5eda85d756537b9c34d9"
+    sha256 cellar: :any_skip_relocation, sierra:      "a4e10488264a8c28c06aa2f517e1937b3375462b4c44dcfb2ed50a8742298821"
+    sha256 cellar: :any_skip_relocation, el_capitan:  "c4fadd6744370dc946b7dde1ec8329335146257ad60b829f9f4024912859d7db"
+    sha256 cellar: :any_skip_relocation, yosemite:    "dfeddb29a48dcf4db6aaf8170b54137fb329e216a4f83f47ddf262a984ab469e"
+    sha256 cellar: :any_skip_relocation, mavericks:   "cc8bb3c5213b0b792929fa1658077da60717993f0dbdaa56c0fe6004930309f4"
   end
 
   disable! date: "2020-12-08", because: :unmaintained

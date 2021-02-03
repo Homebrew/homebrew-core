@@ -6,11 +6,10 @@ class Minipro < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    cellar :any
-    sha256 "e4b9881a816f2edc4361c95b1fc3fc583a23c7c4b402598f750958dfd5354367" => :big_sur
-    sha256 "dbde068c2d684536d1015f7fbbf0de358c8fef018fb1a0101736698ce35dd1da" => :arm64_big_sur
-    sha256 "669b628ec5ebd155f7f3d9128c29445f81805fe368ae080e39abf46e5610c592" => :catalina
-    sha256 "65a9fbfcacac226dd5d0dfae7ca08dd2bb41340f9d7a02bcb224469ea280c0c7" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "dbde068c2d684536d1015f7fbbf0de358c8fef018fb1a0101736698ce35dd1da"
+    sha256 cellar: :any, big_sur:       "e4b9881a816f2edc4361c95b1fc3fc583a23c7c4b402598f750958dfd5354367"
+    sha256 cellar: :any, catalina:      "669b628ec5ebd155f7f3d9128c29445f81805fe368ae080e39abf46e5610c592"
+    sha256 cellar: :any, mojave:        "65a9fbfcacac226dd5d0dfae7ca08dd2bb41340f9d7a02bcb224469ea280c0c7"
   end
 
   depends_on "pkg-config" => :build

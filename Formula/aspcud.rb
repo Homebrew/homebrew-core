@@ -6,10 +6,10 @@ class Aspcud < Formula
   license "MIT"
 
   bottle do
-    sha256 "c934a46742cb4d96d62a3e15dd9e0ada641672f405b1a96edc3f71dac2c87036" => :big_sur
-    sha256 "c984eb4cfd2892c3cca7df260064546275a82fa02c01996ee65ecdf8973f27cb" => :arm64_big_sur
-    sha256 "3b19a6ee9f466789d05533e5614ae6daf9cf4abc4e2f6347ad401ea7d4d1040a" => :catalina
-    sha256 "b5d0df64bc57c7f929b00f04617f9b1260e7c3715abe68b98559c8b693070add" => :mojave
+    sha256 arm64_big_sur: "c984eb4cfd2892c3cca7df260064546275a82fa02c01996ee65ecdf8973f27cb"
+    sha256 big_sur:       "c934a46742cb4d96d62a3e15dd9e0ada641672f405b1a96edc3f71dac2c87036"
+    sha256 catalina:      "3b19a6ee9f466789d05533e5614ae6daf9cf4abc4e2f6347ad401ea7d4d1040a"
+    sha256 mojave:        "b5d0df64bc57c7f929b00f04617f9b1260e7c3715abe68b98559c8b693070add"
   end
 
   depends_on "boost" => :build

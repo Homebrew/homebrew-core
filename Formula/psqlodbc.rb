@@ -10,11 +10,10 @@ class Psqlodbc < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "dc00104df170c4a7d76b5a6ee00e721f8bdbff6b7d5d06c2002d60c883de5c75" => :big_sur
-    sha256 "fc5b844285d44f184e3c8e15f6837dd72c8633f884903c467534d59aa82dadbe" => :arm64_big_sur
-    sha256 "3a8dbc9d7c56020a5d775fb8275599cdcea33456546f371cdabf9822e0778669" => :catalina
-    sha256 "b2278560b6a308742d65a4b956736c6c597ceb8d94f757a7d178623b5711328b" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "fc5b844285d44f184e3c8e15f6837dd72c8633f884903c467534d59aa82dadbe"
+    sha256 cellar: :any, big_sur:       "dc00104df170c4a7d76b5a6ee00e721f8bdbff6b7d5d06c2002d60c883de5c75"
+    sha256 cellar: :any, catalina:      "3a8dbc9d7c56020a5d775fb8275599cdcea33456546f371cdabf9822e0778669"
+    sha256 cellar: :any, mojave:        "b2278560b6a308742d65a4b956736c6c597ceb8d94f757a7d178623b5711328b"
   end
 
   head do

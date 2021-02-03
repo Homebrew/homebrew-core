@@ -14,11 +14,10 @@ class YoutubeDlc < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 3
-    sha256 "d5b0155e1929150e4a35fc02513fc105d25e03fe778edd6db94302d9c50dcdd3" => :big_sur
-    sha256 "d18e35ee7120d9d76932338981585f68f42ff16ef91268d02ef58de4fb9f5c42" => :catalina
-    sha256 "044a2108153ef9ce3e4e5e7b3e6602c5789ab6f4449511050dbdc4a805e6077e" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur:  "d5b0155e1929150e4a35fc02513fc105d25e03fe778edd6db94302d9c50dcdd3"
+    sha256 cellar: :any_skip_relocation, catalina: "d18e35ee7120d9d76932338981585f68f42ff16ef91268d02ef58de4fb9f5c42"
+    sha256 cellar: :any_skip_relocation, mojave:   "044a2108153ef9ce3e4e5e7b3e6602c5789ab6f4449511050dbdc4a805e6077e"
   end
 
   depends_on "pandoc" => :build

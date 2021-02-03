@@ -12,13 +12,12 @@ class Pwsafe < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "69517fc542457fad58bbebe4e2f60c8316de47f5e50ac546370dc40afc62c5e6" => :big_sur
-    sha256 "a275c6ed6882cc4d69656ce9b779be2ac3cec24a53e2e6a32668f78681a99ec3" => :arm64_big_sur
-    sha256 "5f952aa85147c86d2f77f9054fe228484820388c3b1e92c39c12432a15ca0f54" => :catalina
-    sha256 "94c4b9684c2709c7cbd168609db33271ede431f1f72c348bb508e65a07bf8faa" => :mojave
-    sha256 "5d5a277678e752596a342712e46dd2e1ce015d6897ad7f74437509a39f47b5ce" => :high_sierra
-    sha256 "e5fd7f0c41f73c0bdf2f455b7ad659d27931afc1e78536e11a0553be0e8cade1" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "a275c6ed6882cc4d69656ce9b779be2ac3cec24a53e2e6a32668f78681a99ec3"
+    sha256 cellar: :any, big_sur:       "69517fc542457fad58bbebe4e2f60c8316de47f5e50ac546370dc40afc62c5e6"
+    sha256 cellar: :any, catalina:      "5f952aa85147c86d2f77f9054fe228484820388c3b1e92c39c12432a15ca0f54"
+    sha256 cellar: :any, mojave:        "94c4b9684c2709c7cbd168609db33271ede431f1f72c348bb508e65a07bf8faa"
+    sha256 cellar: :any, high_sierra:   "5d5a277678e752596a342712e46dd2e1ce015d6897ad7f74437509a39f47b5ce"
+    sha256 cellar: :any, sierra:        "e5fd7f0c41f73c0bdf2f455b7ad659d27931afc1e78536e11a0553be0e8cade1"
   end
 
   depends_on "openssl@1.1"

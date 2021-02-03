@@ -10,12 +10,11 @@ class SofiaSip < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "4f581160ed9d9e1c478aca087b53483b493fd747afd480ad18fa2bc6ce5931b2" => :big_sur
-    sha256 "e7b5462066dbb0bce9d0e6d16e709fc3adaf99f3624d136d5c929a8d6d5b68ba" => :arm64_big_sur
-    sha256 "ab14de67ceb92a79d8095b94d3e76680765185088773fe4c5b014574ef32a892" => :catalina
-    sha256 "5f9a402b196aa592405fb10ddca2bd8f3736d62cfd8f2709d52fb18d9402af8f" => :mojave
-    sha256 "7729020836b875104c6044afd0a72cf8755619978216430d89a585cf9783c8b0" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "e7b5462066dbb0bce9d0e6d16e709fc3adaf99f3624d136d5c929a8d6d5b68ba"
+    sha256 cellar: :any, big_sur:       "4f581160ed9d9e1c478aca087b53483b493fd747afd480ad18fa2bc6ce5931b2"
+    sha256 cellar: :any, catalina:      "ab14de67ceb92a79d8095b94d3e76680765185088773fe4c5b014574ef32a892"
+    sha256 cellar: :any, mojave:        "5f9a402b196aa592405fb10ddca2bd8f3736d62cfd8f2709d52fb18d9402af8f"
+    sha256 cellar: :any, high_sierra:   "7729020836b875104c6044afd0a72cf8755619978216430d89a585cf9783c8b0"
   end
 
   depends_on "autoconf" => :build

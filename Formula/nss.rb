@@ -11,11 +11,10 @@ class Nss < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "8056292df9295e56731a0b05a6d9d6a81aba4ce42ade6b0d396e5f5bb8d4cfad" => :big_sur
-    sha256 "fb2e0ca15986a088d7c745b4bb79a775bdc790a713e5fad4caf705fad4e3799d" => :arm64_big_sur
-    sha256 "9397434fec5b5f91b80cab57feca33f70c0c7cad087da3bbd0f826bcadd7d5cc" => :catalina
-    sha256 "56deeaaa1e946638c40eefd416c303a08c0dd01eb2fe234713c148c65a7c01e1" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "fb2e0ca15986a088d7c745b4bb79a775bdc790a713e5fad4caf705fad4e3799d"
+    sha256 cellar: :any, big_sur:       "8056292df9295e56731a0b05a6d9d6a81aba4ce42ade6b0d396e5f5bb8d4cfad"
+    sha256 cellar: :any, catalina:      "9397434fec5b5f91b80cab57feca33f70c0c7cad087da3bbd0f826bcadd7d5cc"
+    sha256 cellar: :any, mojave:        "56deeaaa1e946638c40eefd416c303a08c0dd01eb2fe234713c148c65a7c01e1"
   end
 
   depends_on "nspr"

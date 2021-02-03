@@ -12,10 +12,10 @@ class Masscan < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur: "8d21dd16d333a573d7146d13c31dea07df5c72fcfe137af338e6f7722b393dbe"
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b99bf991011be4ee7d76fe43aa000159f0665b888a0cbc7c4d528d102a3daa67"
-    sha256 cellar: :any_skip_relocation, catalina: "a77ea3fd36501d9a0d0398e585f1d30fd64163ca378e6af9660601a10e1ddce3"
-    sha256 cellar: :any_skip_relocation, mojave: "19def74a8381541e80c530a5f0599bc92f067ac3e211ecc173afbbb0aee72752"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8d21dd16d333a573d7146d13c31dea07df5c72fcfe137af338e6f7722b393dbe"
+    sha256 cellar: :any_skip_relocation, catalina:      "a77ea3fd36501d9a0d0398e585f1d30fd64163ca378e6af9660601a10e1ddce3"
+    sha256 cellar: :any_skip_relocation, mojave:        "19def74a8381541e80c530a5f0599bc92f067ac3e211ecc173afbbb0aee72752"
   end
 
   def install

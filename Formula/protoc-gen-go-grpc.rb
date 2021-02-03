@@ -11,11 +11,10 @@ class ProtocGenGoGrpc < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "550862edce2e052702a1366ae8ce5845c2acb675f4a4641cf73f827cb3d10266" => :big_sur
-    sha256 "c47542375b001e0898ddd340396d2f8fbb07dbdec508f88c6c250b3dc8fde162" => :arm64_big_sur
-    sha256 "da0adc9a5ddea5cf165ef323fa1920d7dabf57d907dc588051bad0c73e027cf3" => :catalina
-    sha256 "f6425e837c199ee3569ac6c8e59714dcc96ffc1578e02ded11ec9a28cbc29136" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c47542375b001e0898ddd340396d2f8fbb07dbdec508f88c6c250b3dc8fde162"
+    sha256 cellar: :any_skip_relocation, big_sur:       "550862edce2e052702a1366ae8ce5845c2acb675f4a4641cf73f827cb3d10266"
+    sha256 cellar: :any_skip_relocation, catalina:      "da0adc9a5ddea5cf165ef323fa1920d7dabf57d907dc588051bad0c73e027cf3"
+    sha256 cellar: :any_skip_relocation, mojave:        "f6425e837c199ee3569ac6c8e59714dcc96ffc1578e02ded11ec9a28cbc29136"
   end
 
   depends_on "go" => :build

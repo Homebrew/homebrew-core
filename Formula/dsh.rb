@@ -11,13 +11,13 @@ class Dsh < Formula
   end
 
   bottle do
-    sha256 "8179e3e553da0ac7b40a6b69c0cd47283ce7ab80f399e0f84b57210fa8b6784b" => :big_sur
-    sha256 "5e691ea82431b5921a5ce57f26e0219c0f5c38decd4249c3fb49beed4f284c4b" => :arm64_big_sur
-    sha256 "e978724605a216f2e3ffc5df3ba12bb53e3150aa63b7d18779723e563a35f867" => :mojave
-    sha256 "5d553941319eae8d839a53063057fff05b359eb13e53da2d7313c3d41fae88b0" => :high_sierra
-    sha256 "9d694a476e5d74d7c3edbf284628e3f68c96c5a30c91b7fd3c624630805636ea" => :sierra
-    sha256 "0b6a147235228473634c424e5e12671b6e9a4609ce6b732dd5ca9f56f335add5" => :el_capitan
-    sha256 "fba83e836f8fa0ddca0a9c35f5f8781aabb0a3c7dfadc8eb6cd69ca1e2930cd0" => :yosemite
+    sha256 arm64_big_sur: "5e691ea82431b5921a5ce57f26e0219c0f5c38decd4249c3fb49beed4f284c4b"
+    sha256 big_sur:       "8179e3e553da0ac7b40a6b69c0cd47283ce7ab80f399e0f84b57210fa8b6784b"
+    sha256 mojave:        "e978724605a216f2e3ffc5df3ba12bb53e3150aa63b7d18779723e563a35f867"
+    sha256 high_sierra:   "5d553941319eae8d839a53063057fff05b359eb13e53da2d7313c3d41fae88b0"
+    sha256 sierra:        "9d694a476e5d74d7c3edbf284628e3f68c96c5a30c91b7fd3c624630805636ea"
+    sha256 el_capitan:    "0b6a147235228473634c424e5e12671b6e9a4609ce6b732dd5ca9f56f335add5"
+    sha256 yosemite:      "fba83e836f8fa0ddca0a9c35f5f8781aabb0a3c7dfadc8eb6cd69ca1e2930cd0"
   end
 
   depends_on "libdshconfig"

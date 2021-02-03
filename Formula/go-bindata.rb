@@ -7,11 +7,10 @@ class GoBindata < Formula
   revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "189c89dc1cc88cc5da16f0d9d9bcf21cc8e13ff7623db34e59c8bca73a1ead34" => :big_sur
-    sha256 "a01ea5516d7864ae98529fc766cbefc5ebdbca00331f534fc43b084a214fc967" => :arm64_big_sur
-    sha256 "43ea329d2cf2f21b1f0829d0e651755cdc89c313729304219376796a0332bd55" => :catalina
-    sha256 "5f8643d57a4de7d2925dd66b0949dfd634fdba6313f85d171ec34ebc69ededbf" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a01ea5516d7864ae98529fc766cbefc5ebdbca00331f534fc43b084a214fc967"
+    sha256 cellar: :any_skip_relocation, big_sur:       "189c89dc1cc88cc5da16f0d9d9bcf21cc8e13ff7623db34e59c8bca73a1ead34"
+    sha256 cellar: :any_skip_relocation, catalina:      "43ea329d2cf2f21b1f0829d0e651755cdc89c313729304219376796a0332bd55"
+    sha256 cellar: :any_skip_relocation, mojave:        "5f8643d57a4de7d2925dd66b0949dfd634fdba6313f85d171ec34ebc69ededbf"
   end
 
   depends_on "go"

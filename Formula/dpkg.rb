@@ -15,9 +15,9 @@ class Dpkg < Formula
   end
 
   bottle do
-    sha256 "98559763f10864c5abc70a89c611c02fa96388096d273fbb70082a74dd5dcea5" => :big_sur
-    sha256 "ed00b85c2d82dbe87ceb6c61d1af774544186d7d46a6b4229c234ce53984fcc4" => :catalina
-    sha256 "0ba7f0d1822ecd02c8f334cbe9c43fb9ebc0df6ee701641fcb0155ad7b093559" => :mojave
+    sha256 big_sur:  "98559763f10864c5abc70a89c611c02fa96388096d273fbb70082a74dd5dcea5"
+    sha256 catalina: "ed00b85c2d82dbe87ceb6c61d1af774544186d7d46a6b4229c234ce53984fcc4"
+    sha256 mojave:   "0ba7f0d1822ecd02c8f334cbe9c43fb9ebc0df6ee701641fcb0155ad7b093559"
   end
 
   depends_on "pkg-config" => :build

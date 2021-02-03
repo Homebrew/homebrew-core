@@ -13,12 +13,11 @@ class Xxh < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "4befe7495d9545c742ffa02ec74391ca18ae98ad2e33c325d1d5fa1e78934498" => :big_sur
-    sha256 "0754a6da98349c722996e01826f2a241a2e4f6018d598681cb09e5eb63556616" => :arm64_big_sur
-    sha256 "7fde18469744ddf9ac4d92cbf864dd5aa4019b5e58ed796cb5d23a11c8d6e0b8" => :catalina
-    sha256 "3b122613ebc9631201b902b99b26810c02c2b51084e70242c2fce6b55c7b8fd3" => :mojave
-    sha256 "a01521553c7ee0f9c143e9c58f95233d9b0d497fbc08ccef90c11c0a60412a10" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0754a6da98349c722996e01826f2a241a2e4f6018d598681cb09e5eb63556616"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4befe7495d9545c742ffa02ec74391ca18ae98ad2e33c325d1d5fa1e78934498"
+    sha256 cellar: :any_skip_relocation, catalina:      "7fde18469744ddf9ac4d92cbf864dd5aa4019b5e58ed796cb5d23a11c8d6e0b8"
+    sha256 cellar: :any_skip_relocation, mojave:        "3b122613ebc9631201b902b99b26810c02c2b51084e70242c2fce6b55c7b8fd3"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "a01521553c7ee0f9c143e9c58f95233d9b0d497fbc08ccef90c11c0a60412a10"
   end
 
   depends_on "python@3.9"

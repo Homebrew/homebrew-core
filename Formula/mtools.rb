@@ -11,10 +11,9 @@ class Mtools < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "e79ddc6fe5d42ee6254d92868da71fefc84b3c65130ee84304f9cc73ae119b4f" => :big_sur
-    sha256 "c03be273031ac22f8d407cbd903ba2913c81f058ad72d23f392289d3c7f9d7f6" => :catalina
-    sha256 "7d5f50dd790784f12c447570d9f905646cb92cfb7ce88bc0dea32386e26ed6a3" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur:  "e79ddc6fe5d42ee6254d92868da71fefc84b3c65130ee84304f9cc73ae119b4f"
+    sha256 cellar: :any_skip_relocation, catalina: "c03be273031ac22f8d407cbd903ba2913c81f058ad72d23f392289d3c7f9d7f6"
+    sha256 cellar: :any_skip_relocation, mojave:   "7d5f50dd790784f12c447570d9f905646cb92cfb7ce88bc0dea32386e26ed6a3"
   end
 
   conflicts_with "multimarkdown", because: "both install `mmd` binaries"

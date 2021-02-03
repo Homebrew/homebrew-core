@@ -6,12 +6,11 @@ class CreateDmg < Formula
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "579aa12677f4d4772436afbf22e730bd0be8a8045597995c9aadd94a8f0a77d1" => :big_sur
-    sha256 "862e35170855882f5aef6be695f4e3134b71889529f68e85af6a7c9b4278fff8" => :arm64_big_sur
-    sha256 "42ba5df600cee3cc0c2ea3da594e2c09b710e93345f36941bf11cbece30464be" => :catalina
-    sha256 "42ba5df600cee3cc0c2ea3da594e2c09b710e93345f36941bf11cbece30464be" => :mojave
-    sha256 "42ba5df600cee3cc0c2ea3da594e2c09b710e93345f36941bf11cbece30464be" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "862e35170855882f5aef6be695f4e3134b71889529f68e85af6a7c9b4278fff8"
+    sha256 cellar: :any_skip_relocation, big_sur:       "579aa12677f4d4772436afbf22e730bd0be8a8045597995c9aadd94a8f0a77d1"
+    sha256 cellar: :any_skip_relocation, catalina:      "42ba5df600cee3cc0c2ea3da594e2c09b710e93345f36941bf11cbece30464be"
+    sha256 cellar: :any_skip_relocation, mojave:        "42ba5df600cee3cc0c2ea3da594e2c09b710e93345f36941bf11cbece30464be"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "42ba5df600cee3cc0c2ea3da594e2c09b710e93345f36941bf11cbece30464be"
   end
 
   def install

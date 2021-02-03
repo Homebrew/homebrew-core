@@ -6,11 +6,11 @@ class Sparse < Formula
   head "https://git.kernel.org/pub/scm/devel/sparse/sparse.git"
 
   bottle do
-    sha256 "da170eea78ffe877b82b853f04ed4bd7487029c288c482f13cf798b70a1560c0" => :big_sur
-    sha256 "7ba6578a0d29486b5839541706bcf448dd2babb0a1132c2956e2ce92ba3f0657" => :arm64_big_sur
-    sha256 "1fb15ba5444a7c67d9f45215fc02e948583c28d8078546b3e0f766df50a1a859" => :catalina
-    sha256 "ac0ade8d4c0f98cadcca728fdd3c0694e3d3a4432c57edf0725542a91d750128" => :mojave
-    sha256 "7dcabb27270d98a6ad13d6b2c6b8c1bf3f0a9fa001a9737db841f1cd604dbeec" => :high_sierra
+    sha256 arm64_big_sur: "7ba6578a0d29486b5839541706bcf448dd2babb0a1132c2956e2ce92ba3f0657"
+    sha256 big_sur:       "da170eea78ffe877b82b853f04ed4bd7487029c288c482f13cf798b70a1560c0"
+    sha256 catalina:      "1fb15ba5444a7c67d9f45215fc02e948583c28d8078546b3e0f766df50a1a859"
+    sha256 mojave:        "ac0ade8d4c0f98cadcca728fdd3c0694e3d3a4432c57edf0725542a91d750128"
+    sha256 high_sierra:   "7dcabb27270d98a6ad13d6b2c6b8c1bf3f0a9fa001a9737db841f1cd604dbeec"
   end
 
   depends_on "gcc" if DevelopmentTools.clang_build_version < 1100

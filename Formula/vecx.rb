@@ -7,15 +7,14 @@ class Vecx < Formula
   head "https://github.com/jhawthorn/vecx.git"
 
   bottle do
-    cellar :any
-    sha256 "6bfe8b690323619720d3448f5efef663787b0f4c8ad8296fb94f6ee3ecf5ff43" => :big_sur
-    sha256 "e1d6a1b7d28c46a7c0f2ec2eb26e5f15ba9816d0fb6e921a0f53af16f7088b84" => :arm64_big_sur
-    sha256 "8213a8cfb2f96374046f9952241ab34b2be01c4f2dd2988f39aa0b07e948ff60" => :catalina
-    sha256 "8e55a474a2d775bf3cbd0d7801b6d23aa3cf759d1aa48268542fee67cc6ab322" => :mojave
-    sha256 "2a2b5d63a8be0bcf51a9b4eee05b0751fd3757b5576e515931a55ad6f729a465" => :high_sierra
-    sha256 "9417cc9e5938dc117b4ab7ab41518a2b28e366cae15cdf1192af15e6237a35e6" => :sierra
-    sha256 "48d404ad79ecd0ac870ca0b3390a6465e7ed2755d58eaf130ec93a4e874e5f34" => :el_capitan
-    sha256 "65e4cd91159f3772ec9e688d93bb1c1dd823e9c397b5163a62b1499909a2b74b" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "e1d6a1b7d28c46a7c0f2ec2eb26e5f15ba9816d0fb6e921a0f53af16f7088b84"
+    sha256 cellar: :any, big_sur:       "6bfe8b690323619720d3448f5efef663787b0f4c8ad8296fb94f6ee3ecf5ff43"
+    sha256 cellar: :any, catalina:      "8213a8cfb2f96374046f9952241ab34b2be01c4f2dd2988f39aa0b07e948ff60"
+    sha256 cellar: :any, mojave:        "8e55a474a2d775bf3cbd0d7801b6d23aa3cf759d1aa48268542fee67cc6ab322"
+    sha256 cellar: :any, high_sierra:   "2a2b5d63a8be0bcf51a9b4eee05b0751fd3757b5576e515931a55ad6f729a465"
+    sha256 cellar: :any, sierra:        "9417cc9e5938dc117b4ab7ab41518a2b28e366cae15cdf1192af15e6237a35e6"
+    sha256 cellar: :any, el_capitan:    "48d404ad79ecd0ac870ca0b3390a6465e7ed2755d58eaf130ec93a4e874e5f34"
+    sha256 cellar: :any, yosemite:      "65e4cd91159f3772ec9e688d93bb1c1dd823e9c397b5163a62b1499909a2b74b"
   end
 
   depends_on "sdl"

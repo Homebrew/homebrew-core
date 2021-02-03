@@ -6,13 +6,12 @@ class Libopusenc < Formula
   license "BSD-3-Clause"
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "48157970f8bebbd7ad54d099531397cb3d81797e7715ed5523865d7d1b19df8b" => :big_sur
-    sha256 "f8d28846ea6d21358ef7768f94241a0f94327d4edcdd5223be2da96c2f0d6841" => :arm64_big_sur
-    sha256 "593106e48c86436fd1908c79f1ef54f206bb37f0983ccb3901190cebe6e78cea" => :catalina
-    sha256 "96a05dd8d0071fb38ed14f4f5b64af576baee3719a16fc8fc331ddfa1a4d65ec" => :mojave
-    sha256 "e5cfb0433abe565b11351f9d6ec3fb44852a8aeb99ef8f6710ee9d899eb97ab3" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "f8d28846ea6d21358ef7768f94241a0f94327d4edcdd5223be2da96c2f0d6841"
+    sha256 cellar: :any, big_sur:       "48157970f8bebbd7ad54d099531397cb3d81797e7715ed5523865d7d1b19df8b"
+    sha256 cellar: :any, catalina:      "593106e48c86436fd1908c79f1ef54f206bb37f0983ccb3901190cebe6e78cea"
+    sha256 cellar: :any, mojave:        "96a05dd8d0071fb38ed14f4f5b64af576baee3719a16fc8fc331ddfa1a4d65ec"
+    sha256 cellar: :any, high_sierra:   "e5cfb0433abe565b11351f9d6ec3fb44852a8aeb99ef8f6710ee9d899eb97ab3"
   end
 
   head do

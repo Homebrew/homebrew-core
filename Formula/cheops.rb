@@ -7,15 +7,14 @@ class Cheops < Formula
   license "GPL-3.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ab84f53943ac8bae4739c5a14913ff9ecf3fec74271d20f056189d215c46e481" => :big_sur
-    sha256 "cfc230c6ec9f5369e775cf965cfd15838da419a0a214d390960a249fa0e7582c" => :arm64_big_sur
-    sha256 "df2ae1cf5f9b1b9ec0dc161da4d20fe4b24a5155c87e2c2466cbc26db9fce951" => :catalina
-    sha256 "27251202d9707a3b1687094971a644aa5d34c163bb62bea0eec85373b58922c0" => :mojave
-    sha256 "a7028a380957e407304abae6f3f8d056c6363681e91792e19bbf1cde19aa44cf" => :high_sierra
-    sha256 "f6087558b906474548d121bf3e745a7291dbc307d0c9ef16b3b6edd92d9dc830" => :sierra
-    sha256 "3ed8f3d4920c6c44b4d25f16402564db5639acb1e3f104329f244cd52051a9f6" => :el_capitan
-    sha256 "de719231c43b1494c0a77fe0ef97868399bd67e3c3386fecfd6564f26f4acbdf" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "cfc230c6ec9f5369e775cf965cfd15838da419a0a214d390960a249fa0e7582c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ab84f53943ac8bae4739c5a14913ff9ecf3fec74271d20f056189d215c46e481"
+    sha256 cellar: :any_skip_relocation, catalina:      "df2ae1cf5f9b1b9ec0dc161da4d20fe4b24a5155c87e2c2466cbc26db9fce951"
+    sha256 cellar: :any_skip_relocation, mojave:        "27251202d9707a3b1687094971a644aa5d34c163bb62bea0eec85373b58922c0"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "a7028a380957e407304abae6f3f8d056c6363681e91792e19bbf1cde19aa44cf"
+    sha256 cellar: :any_skip_relocation, sierra:        "f6087558b906474548d121bf3e745a7291dbc307d0c9ef16b3b6edd92d9dc830"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "3ed8f3d4920c6c44b4d25f16402564db5639acb1e3f104329f244cd52051a9f6"
+    sha256 cellar: :any_skip_relocation, yosemite:      "de719231c43b1494c0a77fe0ef97868399bd67e3c3386fecfd6564f26f4acbdf"
   end
 
   def install

@@ -42,12 +42,12 @@ class Moc < Formula
   end
 
   bottle do
-    sha256 "4910b2a48422741e1002b79d2bb985fc470da2e4322d31b862f994709376525a" => :big_sur
-    sha256 "c2fce2f2fdc2d5eb7efddf393de7dc3d75ca4e387d84ae10029120eb5e2a4e53" => :catalina
-    sha256 "b15db412cd58492ce684fd50a6bec93e18cc42f5543bfd7f45fd6e5636c56291" => :mojave
-    sha256 "8a570805d563e3ee3d4c374eb5a8e5d649b7364286e738f9d8bef864663073e1" => :high_sierra
-    sha256 "fe941dffd41e1485f85b3d9bb28a1a30cccfe27d3cac438cc5b71fb347122003" => :sierra
-    sha256 "9e39666cb49b6fd60c16b1b4535d0b39363fcc655e6495cc17d74923df13ff27" => :el_capitan
+    sha256 big_sur:     "4910b2a48422741e1002b79d2bb985fc470da2e4322d31b862f994709376525a"
+    sha256 catalina:    "c2fce2f2fdc2d5eb7efddf393de7dc3d75ca4e387d84ae10029120eb5e2a4e53"
+    sha256 mojave:      "b15db412cd58492ce684fd50a6bec93e18cc42f5543bfd7f45fd6e5636c56291"
+    sha256 high_sierra: "8a570805d563e3ee3d4c374eb5a8e5d649b7364286e738f9d8bef864663073e1"
+    sha256 sierra:      "fe941dffd41e1485f85b3d9bb28a1a30cccfe27d3cac438cc5b71fb347122003"
+    sha256 el_capitan:  "9e39666cb49b6fd60c16b1b4535d0b39363fcc655e6495cc17d74923df13ff27"
   end
 
   head do

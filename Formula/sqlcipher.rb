@@ -7,11 +7,10 @@ class Sqlcipher < Formula
   head "https://github.com/sqlcipher/sqlcipher.git"
 
   bottle do
-    cellar :any
-    sha256 "cac60b27489ae08e4be4fffcb80c66208cc628889ce89295802983581a39febc" => :big_sur
-    sha256 "9e9d5ee53f8a6f0d81981e91ef66052afd72d58eb50331ddf199dd74d8f339b6" => :arm64_big_sur
-    sha256 "b6e926a4630f8b4547e5d71f5195bdde461ef08e54b9ae90a45644b11543cd9d" => :catalina
-    sha256 "8d216a324ade956c2ec9b4dc94a676b27342e590c948b1c80ba49d602c885ccb" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "9e9d5ee53f8a6f0d81981e91ef66052afd72d58eb50331ddf199dd74d8f339b6"
+    sha256 cellar: :any, big_sur:       "cac60b27489ae08e4be4fffcb80c66208cc628889ce89295802983581a39febc"
+    sha256 cellar: :any, catalina:      "b6e926a4630f8b4547e5d71f5195bdde461ef08e54b9ae90a45644b11543cd9d"
+    sha256 cellar: :any, mojave:        "8d216a324ade956c2ec9b4dc94a676b27342e590c948b1c80ba49d602c885ccb"
   end
 
   depends_on "openssl@1.1"

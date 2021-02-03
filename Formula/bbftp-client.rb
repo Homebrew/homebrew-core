@@ -12,12 +12,11 @@ class BbftpClient < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "f30650734e1829a0c399153c78088ccd987f28ede25b8eb13ecde6b138d55076" => :big_sur
-    sha256 "bd7a47c27111d4dc064a7009f919a3283360738329dcfde7eb6522ee280e78fd" => :arm64_big_sur
-    sha256 "6d5bed31d69a0ff2f38f2642176cb3c3a4da34c4ea2740567d2698ca62519b7d" => :catalina
-    sha256 "bdb7c899dab18816b4cc1d573291ba4691f365c9ed1c9951e73f9225810a8557" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "bd7a47c27111d4dc064a7009f919a3283360738329dcfde7eb6522ee280e78fd"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f30650734e1829a0c399153c78088ccd987f28ede25b8eb13ecde6b138d55076"
+    sha256 cellar: :any_skip_relocation, catalina:      "6d5bed31d69a0ff2f38f2642176cb3c3a4da34c4ea2740567d2698ca62519b7d"
+    sha256 cellar: :any_skip_relocation, mojave:        "bdb7c899dab18816b4cc1d573291ba4691f365c9ed1c9951e73f9225810a8557"
   end
 
   def install

@@ -11,12 +11,11 @@ class Libstfl < Formula
   end
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "9e57ebd3ab126b784b46969fa3c2baf49b4351183274d23f3075370e50735d48" => :big_sur
-    sha256 "f38715316e6a6a3df8b25e6cd97c742ac2168d608ecdb2bcd7773e3e69117802" => :arm64_big_sur
-    sha256 "ab1e06a1a46305fbcaadca0e490dd6584f149e704f1475e9d5243acebeaff7e1" => :catalina
-    sha256 "0164c390d3ccad76079fe8b5af6e8cec440036e4e97dd91c5a1c86848832c0ab" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "f38715316e6a6a3df8b25e6cd97c742ac2168d608ecdb2bcd7773e3e69117802"
+    sha256 cellar: :any, big_sur:       "9e57ebd3ab126b784b46969fa3c2baf49b4351183274d23f3075370e50735d48"
+    sha256 cellar: :any, catalina:      "ab1e06a1a46305fbcaadca0e490dd6584f149e704f1475e9d5243acebeaff7e1"
+    sha256 cellar: :any, mojave:        "0164c390d3ccad76079fe8b5af6e8cec440036e4e97dd91c5a1c86848832c0ab"
   end
 
   depends_on "swig" => :build

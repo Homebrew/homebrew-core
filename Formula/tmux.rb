@@ -13,12 +13,11 @@ class Tmux < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "6f9b667c08719ca7a164c571740d510236d55c922058b1d71fb38f66163a394e" => :big_sur
-    sha256 "b24cedca1ea1e8e343e5faf6acb509e3df2b3d91b6dcb2934b2c697d8d5b6b07" => :arm64_big_sur
-    sha256 "e1148f3043ef1e77e942bc654e6b3867f40401b0ba93e6d44a460467c51e0a3b" => :catalina
-    sha256 "3ba85f3524acbf5e1fb04135fa9b7f2bbdd5d3c8ed94189685be50ca19722bbe" => :mojave
-    sha256 "ec5fcbdc337221efdbf3f21121fb087b998dd7d3bf6dd5bb72e352d9c9463a57" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "b24cedca1ea1e8e343e5faf6acb509e3df2b3d91b6dcb2934b2c697d8d5b6b07"
+    sha256 cellar: :any, big_sur:       "6f9b667c08719ca7a164c571740d510236d55c922058b1d71fb38f66163a394e"
+    sha256 cellar: :any, catalina:      "e1148f3043ef1e77e942bc654e6b3867f40401b0ba93e6d44a460467c51e0a3b"
+    sha256 cellar: :any, mojave:        "3ba85f3524acbf5e1fb04135fa9b7f2bbdd5d3c8ed94189685be50ca19722bbe"
+    sha256 cellar: :any, high_sierra:   "ec5fcbdc337221efdbf3f21121fb087b998dd7d3bf6dd5bb72e352d9c9463a57"
   end
 
   head do

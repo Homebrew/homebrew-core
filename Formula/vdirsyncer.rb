@@ -15,12 +15,11 @@ class Vdirsyncer < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "f1ede11a17630f2ea0da1ec356015fa454b62d9e5eebf17ad38e89021c6cc739" => :big_sur
-    sha256 "a516d7f9f4a99067fe1908faf3cd09849ad0164bfb56a05e11b249c10b13123e" => :arm64_big_sur
-    sha256 "d87dd5b19a013e2099aa915c02caea1bf5ba5bce1ed9fdb1c599900da98f1574" => :catalina
-    sha256 "999dcfe149cd6cb2a072006159ce83e680e2da30431d28b380a0dd3549b59d98" => :mojave
-    sha256 "b48980fb7b1f225d07e847ab50b2a6c6e6bdca56386f902982163d7cfb11f6e7" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a516d7f9f4a99067fe1908faf3cd09849ad0164bfb56a05e11b249c10b13123e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f1ede11a17630f2ea0da1ec356015fa454b62d9e5eebf17ad38e89021c6cc739"
+    sha256 cellar: :any_skip_relocation, catalina:      "d87dd5b19a013e2099aa915c02caea1bf5ba5bce1ed9fdb1c599900da98f1574"
+    sha256 cellar: :any_skip_relocation, mojave:        "999dcfe149cd6cb2a072006159ce83e680e2da30431d28b380a0dd3549b59d98"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "b48980fb7b1f225d07e847ab50b2a6c6e6bdca56386f902982163d7cfb11f6e7"
   end
 
   depends_on "python@3.9"

@@ -12,10 +12,10 @@ class Terrahub < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur: "637b0c5d0b5bb4842335e447baa3d9cb75e50435c402669e69411b2c927a750f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "8fb1ab5d692f7c6eb00c58882edfe883ed1b7bc130fcbacef2c59a2b05939054"
-    sha256 cellar: :any_skip_relocation, catalina: "35e7d2255110ab2aa7e3cd1d15237d3caa245f7f9103da07a1102d92d54c1730"
-    sha256 cellar: :any_skip_relocation, mojave: "65cc91be46785198944a1c383672c2cf1b200c261f9130dbc58910cb760a023e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "637b0c5d0b5bb4842335e447baa3d9cb75e50435c402669e69411b2c927a750f"
+    sha256 cellar: :any_skip_relocation, catalina:      "35e7d2255110ab2aa7e3cd1d15237d3caa245f7f9103da07a1102d92d54c1730"
+    sha256 cellar: :any_skip_relocation, mojave:        "65cc91be46785198944a1c383672c2cf1b200c261f9130dbc58910cb760a023e"
   end
 
   depends_on "node"

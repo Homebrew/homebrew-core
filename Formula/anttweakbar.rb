@@ -10,17 +10,16 @@ class Anttweakbar < Formula
   end
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "438ba46ecc4b5f2d77b58281c4ae004c7e255710240f0b498322c55acae08618" => :big_sur
-    sha256 "b4a716baa513d973f69724c84783e1a9644a1b5f2ca04640d9fd71da4c397fca" => :arm64_big_sur
-    sha256 "38b3f17cf22401dd83d9f2ea375b14b31fbd011e0e2b6cbb8b5be894ac49db0b" => :catalina
-    sha256 "2e68286a46381829f51a5bb91eb03bcdc876b79445c86672395517b4f3322652" => :mojave
-    sha256 "393b87de789337afebed9196404af46fa660fea3b476d874d77b48bb35c8079b" => :high_sierra
-    sha256 "af510970b310b01ee52528e816cdd53e2d4a4e2cfc76e426b1710f758bc99d20" => :sierra
-    sha256 "417278abe012967efcf22b0276527187f6472dd5fd4d271b1ea32604816d46c9" => :el_capitan
-    sha256 "a2e29104a5ef51621faaebd72ccc39bd5fe7bd6e977af74a358c5cc83c65c2c2" => :yosemite
-    sha256 "d1298b92cf6a7498c3b357adf6e696d0b24374e758853783fa228a8af5eecddc" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "b4a716baa513d973f69724c84783e1a9644a1b5f2ca04640d9fd71da4c397fca"
+    sha256 cellar: :any, big_sur:       "438ba46ecc4b5f2d77b58281c4ae004c7e255710240f0b498322c55acae08618"
+    sha256 cellar: :any, catalina:      "38b3f17cf22401dd83d9f2ea375b14b31fbd011e0e2b6cbb8b5be894ac49db0b"
+    sha256 cellar: :any, mojave:        "2e68286a46381829f51a5bb91eb03bcdc876b79445c86672395517b4f3322652"
+    sha256 cellar: :any, high_sierra:   "393b87de789337afebed9196404af46fa660fea3b476d874d77b48bb35c8079b"
+    sha256 cellar: :any, sierra:        "af510970b310b01ee52528e816cdd53e2d4a4e2cfc76e426b1710f758bc99d20"
+    sha256 cellar: :any, el_capitan:    "417278abe012967efcf22b0276527187f6472dd5fd4d271b1ea32604816d46c9"
+    sha256 cellar: :any, yosemite:      "a2e29104a5ef51621faaebd72ccc39bd5fe7bd6e977af74a358c5cc83c65c2c2"
+    sha256 cellar: :any, mavericks:     "d1298b92cf6a7498c3b357adf6e696d0b24374e758853783fa228a8af5eecddc"
   end
 
   # See:

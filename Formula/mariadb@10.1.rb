@@ -7,9 +7,9 @@ class MariadbAT101 < Formula
 
   bottle do
     rebuild 1
-    sha256 "589a7ef3e92f6dc2d4c5e5db501286a839b747a37b454bdd81231a4ed7531a43" => :big_sur
-    sha256 "fcc29400068999b2b5126af489d88dcc4af98169b9132d6aeb99876247b1a412" => :catalina
-    sha256 "f568cbdbc7a6f86d08251456e6eb4d22e16c065a68865ce83b7c2c1f0d2b61f6" => :mojave
+    sha256 big_sur:  "589a7ef3e92f6dc2d4c5e5db501286a839b747a37b454bdd81231a4ed7531a43"
+    sha256 catalina: "fcc29400068999b2b5126af489d88dcc4af98169b9132d6aeb99876247b1a412"
+    sha256 mojave:   "f568cbdbc7a6f86d08251456e6eb4d22e16c065a68865ce83b7c2c1f0d2b61f6"
   end
 
   keg_only :versioned_formula

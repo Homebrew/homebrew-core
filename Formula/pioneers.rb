@@ -9,11 +9,11 @@ class Pioneers < Formula
   end
 
   bottle do
-    sha256 "b9297939922709fc05a78ee98b24091678bf4e434bea4abfc14b089fde6e9728" => :big_sur
-    sha256 "ef6e9c03dcc0c5d86ae0b08805352937c74d4ccaadbe4ac9aead56b5f7e0c7bb" => :arm64_big_sur
-    sha256 "c2462078e412d1e2b60108f317550690b28675da5a248de69856a558fa4e07d4" => :catalina
-    sha256 "47ca43b992b0590f90758d9eef7894361c510dce5279a602decdf8ec019086f4" => :mojave
-    sha256 "fdd30d2f45b5b1f701b2f358c09a79ce04cea9793383f959811141617f3a4fc0" => :high_sierra
+    sha256 arm64_big_sur: "ef6e9c03dcc0c5d86ae0b08805352937c74d4ccaadbe4ac9aead56b5f7e0c7bb"
+    sha256 big_sur:       "b9297939922709fc05a78ee98b24091678bf4e434bea4abfc14b089fde6e9728"
+    sha256 catalina:      "c2462078e412d1e2b60108f317550690b28675da5a248de69856a558fa4e07d4"
+    sha256 mojave:        "47ca43b992b0590f90758d9eef7894361c510dce5279a602decdf8ec019086f4"
+    sha256 high_sierra:   "fdd30d2f45b5b1f701b2f358c09a79ce04cea9793383f959811141617f3a4fc0"
   end
 
   depends_on "intltool" => :build

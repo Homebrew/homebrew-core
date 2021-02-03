@@ -7,11 +7,10 @@ class Monero < Formula
   license "BSD-3-Clause"
 
   bottle do
-    cellar :any
-    sha256 "f570a6d028b202aea254373ca9f59f84e8d1851f4ed6488b8519bdc44aa67144" => :big_sur
-    sha256 "926d66ff23fb78d43351a0424d57a6f21056886f13a459e4109fb3d132f29c5b" => :arm64_big_sur
-    sha256 "d2bb3901c3d636ba60930a3b4df68f410532467d48ec675b720f02b132bbd790" => :catalina
-    sha256 "8a3528d234f2f729fbbeb537489dddb35090a891f6d988074fc02fdd7fd3fae9" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "926d66ff23fb78d43351a0424d57a6f21056886f13a459e4109fb3d132f29c5b"
+    sha256 cellar: :any, big_sur:       "f570a6d028b202aea254373ca9f59f84e8d1851f4ed6488b8519bdc44aa67144"
+    sha256 cellar: :any, catalina:      "d2bb3901c3d636ba60930a3b4df68f410532467d48ec675b720f02b132bbd790"
+    sha256 cellar: :any, mojave:        "8a3528d234f2f729fbbeb537489dddb35090a891f6d988074fc02fdd7fd3fae9"
   end
 
   depends_on "cmake" => :build

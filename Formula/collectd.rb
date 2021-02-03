@@ -6,11 +6,11 @@ class Collectd < Formula
   license "MIT"
 
   bottle do
-    sha256 "e4de278042d172443ddee7f7260ef14022a9e9632b8c4d212c27f76ef1eb184c" => :big_sur
-    sha256 "ae24e993f2be3d7618d2e7fa44862e7874c5b6d10a9891ae26767ec050f36f43" => :arm64_big_sur
-    sha256 "ea61777a4d32690b2a1ddd53081f0888f7c83066cc9e0e5482f604e61c981fd9" => :catalina
-    sha256 "9efc5c99db4239be93afbad141938c697cc36c1442e117d92960a5265cfc57cf" => :mojave
-    sha256 "850edf925fa233181c03c7157cf6c89fca53906f930c511febd283358242f688" => :high_sierra
+    sha256 arm64_big_sur: "ae24e993f2be3d7618d2e7fa44862e7874c5b6d10a9891ae26767ec050f36f43"
+    sha256 big_sur:       "e4de278042d172443ddee7f7260ef14022a9e9632b8c4d212c27f76ef1eb184c"
+    sha256 catalina:      "ea61777a4d32690b2a1ddd53081f0888f7c83066cc9e0e5482f604e61c981fd9"
+    sha256 mojave:        "9efc5c99db4239be93afbad141938c697cc36c1442e117d92960a5265cfc57cf"
+    sha256 high_sierra:   "850edf925fa233181c03c7157cf6c89fca53906f930c511febd283358242f688"
   end
 
   head do

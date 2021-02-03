@@ -8,11 +8,10 @@ class Pianobar < Formula
   head "https://github.com/PromyLOPh/pianobar.git"
 
   bottle do
-    cellar :any
-    sha256 "e5db53d507cc120c3cd14d3cdf8ffe4c9084625262ebc493fd96f6202563d8c2" => :big_sur
-    sha256 "67d05332f2f15473c2a26d58ecc2d944cbc395be299bd0607fb73606f16469d3" => :arm64_big_sur
-    sha256 "7076f3d2b4415436821a42bbfebede61dd8a14525d6b0fecce540f9ee25b2bc3" => :catalina
-    sha256 "80ac5640ff018ca9a32c0739730e365eaf3c92b6a7f03848591e144b66c71361" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "67d05332f2f15473c2a26d58ecc2d944cbc395be299bd0607fb73606f16469d3"
+    sha256 cellar: :any, big_sur:       "e5db53d507cc120c3cd14d3cdf8ffe4c9084625262ebc493fd96f6202563d8c2"
+    sha256 cellar: :any, catalina:      "7076f3d2b4415436821a42bbfebede61dd8a14525d6b0fecce540f9ee25b2bc3"
+    sha256 cellar: :any, mojave:        "80ac5640ff018ca9a32c0739730e365eaf3c92b6a7f03848591e144b66c71361"
   end
 
   depends_on "pkg-config" => :build

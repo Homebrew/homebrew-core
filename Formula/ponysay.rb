@@ -17,12 +17,11 @@ class Ponysay < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "6a50e86cb011bd455d76f6478f230a543759fd622132914ac35c2423f63f410f" => :big_sur
-    sha256 "60e7b68ff8b1547be4ed7410414a6cf3c707c105aea0ca82d8bac49a6a7bd476" => :arm64_big_sur
-    sha256 "8c53b69ff726780b68fa8d644a13325bf46b80ae13eb198804f0eb7aa601a893" => :catalina
-    sha256 "d91ddb61651ee73e49f565095257cf8226d66585d8032783fe208ee359448912" => :mojave
-    sha256 "ba848b6de300211972228d752805e4d4bed7ba44af9356e0f56fc6bdd9f23f79" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "60e7b68ff8b1547be4ed7410414a6cf3c707c105aea0ca82d8bac49a6a7bd476"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6a50e86cb011bd455d76f6478f230a543759fd622132914ac35c2423f63f410f"
+    sha256 cellar: :any_skip_relocation, catalina:      "8c53b69ff726780b68fa8d644a13325bf46b80ae13eb198804f0eb7aa601a893"
+    sha256 cellar: :any_skip_relocation, mojave:        "d91ddb61651ee73e49f565095257cf8226d66585d8032783fe208ee359448912"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "ba848b6de300211972228d752805e4d4bed7ba44af9356e0f56fc6bdd9f23f79"
   end
 
   depends_on "gzip" => :build

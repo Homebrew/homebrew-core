@@ -11,12 +11,11 @@ class Pv < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "9a0c1c557a100dfb114c8fb3566c97f8d91c436fcc6f9f36a733f462945e4f95" => :big_sur
-    sha256 "9fa320894a6ae215794b2952ea60165dcfb63bdf3dda557a1998daaf5304df6b" => :arm64_big_sur
-    sha256 "9bb586c4dab67989e7fa800e7c764d1d4ee153db8ad7a5ed3563270ca93a7497" => :catalina
-    sha256 "1877dffe8804fac2fe6f77582100e2b5ea3fbb7a305c1cfd025e251ede08c98e" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9fa320894a6ae215794b2952ea60165dcfb63bdf3dda557a1998daaf5304df6b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "9a0c1c557a100dfb114c8fb3566c97f8d91c436fcc6f9f36a733f462945e4f95"
+    sha256 cellar: :any_skip_relocation, catalina:      "9bb586c4dab67989e7fa800e7c764d1d4ee153db8ad7a5ed3563270ca93a7497"
+    sha256 cellar: :any_skip_relocation, mojave:        "1877dffe8804fac2fe6f77582100e2b5ea3fbb7a305c1cfd025e251ede08c98e"
   end
 
   # Patch for macOS 11 on Apple Silicon support. Emailed to the maintainer in January 2021.

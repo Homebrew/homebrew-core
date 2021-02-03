@@ -5,17 +5,16 @@ class Aggregate < Formula
   sha256 "166503005cd8722c730e530cc90652ddfa198a25624914c65dffc3eb87ba5482"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "ab6914ea220f96d957eb322596ddc34fb72e8beedaed0bc21ee5dbfb2d0c64ca" => :big_sur
-    sha256 "429949518b51d72ff7e05ebe6b0ae77a11d7aa593bcec67e0edd6477fe273a8d" => :arm64_big_sur
-    sha256 "3e22a340761b031b33e9f4a48f39edd98c18f7ea7c77abd02d95f816e7fe7245" => :catalina
-    sha256 "231a7cce3160591eff39c8f70a9324dd0329a6a21355d49747c74308527cc946" => :mojave
-    sha256 "6dc7626282f519003e1d559ac42a983f4a571494ac04e5b61858fdf16d1ca924" => :high_sierra
-    sha256 "ebe7aa16c7cf36684463292995c60fdde12cdac889de551d8f85b89e6b77416c" => :sierra
-    sha256 "87507a739f2bd5ba57ccd23b34f2b7c41d68a897c128231dbbc32ba23b869ed5" => :el_capitan
-    sha256 "813ccd28b00f94e1574079f7f6816858e32c5d8f9a964b783307d25c7e449d2b" => :yosemite
-    sha256 "169598a0d41382215ba51ed0c377c98857804e82fb1658414dd04ee94ddbb993" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "429949518b51d72ff7e05ebe6b0ae77a11d7aa593bcec67e0edd6477fe273a8d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ab6914ea220f96d957eb322596ddc34fb72e8beedaed0bc21ee5dbfb2d0c64ca"
+    sha256 cellar: :any_skip_relocation, catalina:      "3e22a340761b031b33e9f4a48f39edd98c18f7ea7c77abd02d95f816e7fe7245"
+    sha256 cellar: :any_skip_relocation, mojave:        "231a7cce3160591eff39c8f70a9324dd0329a6a21355d49747c74308527cc946"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "6dc7626282f519003e1d559ac42a983f4a571494ac04e5b61858fdf16d1ca924"
+    sha256 cellar: :any_skip_relocation, sierra:        "ebe7aa16c7cf36684463292995c60fdde12cdac889de551d8f85b89e6b77416c"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "87507a739f2bd5ba57ccd23b34f2b7c41d68a897c128231dbbc32ba23b869ed5"
+    sha256 cellar: :any_skip_relocation, yosemite:      "813ccd28b00f94e1574079f7f6816858e32c5d8f9a964b783307d25c7e449d2b"
+    sha256 cellar: :any_skip_relocation, mavericks:     "169598a0d41382215ba51ed0c377c98857804e82fb1658414dd04ee94ddbb993"
   end
 
   conflicts_with "crush-tools", because: "both install an `aggregate` binary"

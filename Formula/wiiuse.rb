@@ -6,12 +6,11 @@ class Wiiuse < Formula
   license "GPL-3.0"
 
   bottle do
-    cellar :any
-    sha256 "3bba847f421a4b946c07adc4dbbf0862e46e6fdf9c8e779e07fa6afd1364394a" => :big_sur
-    sha256 "10407776ee12bc410143a63ced0de46badb10b4f9bb4af8fdadeb2501bac8f38" => :arm64_big_sur
-    sha256 "0a7689f0a9a9ad3fcfe44b35b3467f48c6065345ef8396c178fe0c3fcc22c7ff" => :catalina
-    sha256 "2cd562e7ccdfa82c47a464b4a501925398ce8381e3489db0d7e773e8e2040002" => :mojave
-    sha256 "40f7508add9a2974c76bd91d9e8fbe62bd2500ae4433de06af5711d340297b96" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "10407776ee12bc410143a63ced0de46badb10b4f9bb4af8fdadeb2501bac8f38"
+    sha256 cellar: :any, big_sur:       "3bba847f421a4b946c07adc4dbbf0862e46e6fdf9c8e779e07fa6afd1364394a"
+    sha256 cellar: :any, catalina:      "0a7689f0a9a9ad3fcfe44b35b3467f48c6065345ef8396c178fe0c3fcc22c7ff"
+    sha256 cellar: :any, mojave:        "2cd562e7ccdfa82c47a464b4a501925398ce8381e3489db0d7e773e8e2040002"
+    sha256 cellar: :any, high_sierra:   "40f7508add9a2974c76bd91d9e8fbe62bd2500ae4433de06af5711d340297b96"
   end
 
   depends_on "cmake" => :build

@@ -6,12 +6,11 @@ class Reprepro < Formula
   revision 2
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "9f87049de8d9c70a38429e5fc56173cf41e598621a6de661fdc1465bf28b8819" => :big_sur
-    sha256 "37ecc6897dce6d44e6a0b5965f3a7cc622a8e506d31482ade2a4f4f211c90a0b" => :arm64_big_sur
-    sha256 "ce81080f227223229a9cc85126c5189d7bb8a0b12f928e5a1b71c48a0f0e4f88" => :catalina
-    sha256 "4c69c6b440e77633069009ec48bb72739402052e4b4fff03504ab09bfcb88a56" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "37ecc6897dce6d44e6a0b5965f3a7cc622a8e506d31482ade2a4f4f211c90a0b"
+    sha256 cellar: :any, big_sur:       "9f87049de8d9c70a38429e5fc56173cf41e598621a6de661fdc1465bf28b8819"
+    sha256 cellar: :any, catalina:      "ce81080f227223229a9cc85126c5189d7bb8a0b12f928e5a1b71c48a0f0e4f88"
+    sha256 cellar: :any, mojave:        "4c69c6b440e77633069009ec48bb72739402052e4b4fff03504ab09bfcb88a56"
   end
 
   depends_on "berkeley-db@4"

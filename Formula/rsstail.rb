@@ -12,13 +12,12 @@ class Rsstail < Formula
   end
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "be1e378b0c375b4087bf57bcb1c97d94eddb25fccf55587a732ff6cd5f1fdc72" => :big_sur
-    sha256 "6316d9202a28175cb6e2f8451402db38f9d11a581145459ce6e10a49a2096e1c" => :arm64_big_sur
-    sha256 "253a99c8187e0dc6fb29049273f08dd4b199c0de1e9171c4a0829f21aaf5c90f" => :catalina
-    sha256 "b6f2a222c1bc903a5d0179331398ced65980798d694d186bd52e0b54239d9dfd" => :mojave
-    sha256 "29b1cd5b6cbfbd66d250586450e2e24e5706da80b03aa1b54834bd0c01e73202" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "6316d9202a28175cb6e2f8451402db38f9d11a581145459ce6e10a49a2096e1c"
+    sha256 cellar: :any, big_sur:       "be1e378b0c375b4087bf57bcb1c97d94eddb25fccf55587a732ff6cd5f1fdc72"
+    sha256 cellar: :any, catalina:      "253a99c8187e0dc6fb29049273f08dd4b199c0de1e9171c4a0829f21aaf5c90f"
+    sha256 cellar: :any, mojave:        "b6f2a222c1bc903a5d0179331398ced65980798d694d186bd52e0b54239d9dfd"
+    sha256 cellar: :any, high_sierra:   "29b1cd5b6cbfbd66d250586450e2e24e5706da80b03aa1b54834bd0c01e73202"
   end
 
   depends_on "libmrss"

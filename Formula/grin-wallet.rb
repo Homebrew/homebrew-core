@@ -6,10 +6,9 @@ class GrinWallet < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "a0dfda70b5c6cf1ed883e5af6b61c01aea7ddf18f6f22038aab71e06b5b9801a" => :big_sur
-    sha256 "4b43f745f1b82d9390cdaf4055c9d65e6bea850fe9ad7ebd2818789c33c45dbc" => :catalina
-    sha256 "3ce2c42866c3d02c527fac13c2393af01eabb9c9591ef25d5503aca073863f50" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur:  "a0dfda70b5c6cf1ed883e5af6b61c01aea7ddf18f6f22038aab71e06b5b9801a"
+    sha256 cellar: :any_skip_relocation, catalina: "4b43f745f1b82d9390cdaf4055c9d65e6bea850fe9ad7ebd2818789c33c45dbc"
+    sha256 cellar: :any_skip_relocation, mojave:   "3ce2c42866c3d02c527fac13c2393af01eabb9c9591ef25d5503aca073863f50"
   end
 
   depends_on "llvm" => :build # for libclang

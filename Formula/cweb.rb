@@ -6,10 +6,10 @@ class Cweb < Formula
   sha256 "efbd6fbeca9b3e75629b69e9565ac6a0e4067f55bda6a0a3b7b6f9449d9ed81f"
 
   bottle do
-    sha256 "2ee6617cf9da76e1e7cafbd49ed6e53fee15339c82df053eab55a398fb96f50b" => :big_sur
-    sha256 "9a1237298f33f69283f923525eb5668911226d48043024bbbd44d337ad1bcdbe" => :arm64_big_sur
-    sha256 "e100640669a1d066177514aae1c813f7c18b530c4cae5744d0431d850933648c" => :catalina
-    sha256 "410376faad622cd11745ca94c877135c1b4837ccdc8c7cab43bf12b4b849a3b9" => :mojave
+    sha256 arm64_big_sur: "9a1237298f33f69283f923525eb5668911226d48043024bbbd44d337ad1bcdbe"
+    sha256 big_sur:       "2ee6617cf9da76e1e7cafbd49ed6e53fee15339c82df053eab55a398fb96f50b"
+    sha256 catalina:      "e100640669a1d066177514aae1c813f7c18b530c4cae5744d0431d850933648c"
+    sha256 mojave:        "410376faad622cd11745ca94c877135c1b4837ccdc8c7cab43bf12b4b849a3b9"
   end
 
   def install

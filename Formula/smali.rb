@@ -7,11 +7,10 @@ class Smali < Formula
   revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c795c4245df42dd3bf881fa5b9e034e55186efb517cf5a72c6fc7c603283bc89" => :big_sur
-    sha256 "2a17c236e4dea10abb4cfc8383abd72204dfa925e72ab10bf6aaaa02875af266" => :catalina
-    sha256 "39f6422066f4b61496c4ce287f37a7ee1069926eea698a6dbd15a131e14a7616" => :mojave
-    sha256 "7b90641feb3ce88a706bee6c8b5ca3a231f4d3c2ce138d7fabe5d470574d77f3" => :high_sierra
+    sha256 cellar: :any_skip_relocation, big_sur:     "c795c4245df42dd3bf881fa5b9e034e55186efb517cf5a72c6fc7c603283bc89"
+    sha256 cellar: :any_skip_relocation, catalina:    "2a17c236e4dea10abb4cfc8383abd72204dfa925e72ab10bf6aaaa02875af266"
+    sha256 cellar: :any_skip_relocation, mojave:      "39f6422066f4b61496c4ce287f37a7ee1069926eea698a6dbd15a131e14a7616"
+    sha256 cellar: :any_skip_relocation, high_sierra: "7b90641feb3ce88a706bee6c8b5ca3a231f4d3c2ce138d7fabe5d470574d77f3"
   end
 
   depends_on "gradle" => :build

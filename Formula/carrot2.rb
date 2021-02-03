@@ -7,10 +7,9 @@ class Carrot2 < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "e3c921aca1359a03cf59c4c86398bb60d40bfda7016d724a3bdaf142f217ce1c" => :big_sur
-    sha256 "2bc7f90be9567d859e9536d567bd3337a8c7947cd064f4bf8a7e675f3e0e672a" => :catalina
-    sha256 "575a9813da9b3211549e0a9a9b77d080a979c7dc4387809ba9b7184aeb22eb47" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur:  "e3c921aca1359a03cf59c4c86398bb60d40bfda7016d724a3bdaf142f217ce1c"
+    sha256 cellar: :any_skip_relocation, catalina: "2bc7f90be9567d859e9536d567bd3337a8c7947cd064f4bf8a7e675f3e0e672a"
+    sha256 cellar: :any_skip_relocation, mojave:   "575a9813da9b3211549e0a9a9b77d080a979c7dc4387809ba9b7184aeb22eb47"
   end
 
   depends_on "gradle" => :build

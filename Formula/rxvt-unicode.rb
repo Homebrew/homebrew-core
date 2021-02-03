@@ -7,11 +7,11 @@ class RxvtUnicode < Formula
   revision 4
 
   bottle do
-    sha256 "db278d2c19f2b837f1fa44dfa4a72bac3ed8c8359a13732fb7db854ba1c6b450" => :big_sur
-    sha256 "13dca2d2c2ca7e160e54a6d839b48fb259b4ae719803c0374c186904f3f9ac0e" => :arm64_big_sur
-    sha256 "ed894bfefa87992845b652fc3ccf0104b1b4743e2dbdd1f2b7146c73433c165f" => :catalina
-    sha256 "6c9e5a04bf611a3e4b342f2554a32db25ef105f5795183bf22512922a1e57a59" => :mojave
-    sha256 "e54074cfd9c978a71847abe7af73d5d3c174fc85b4b1a60f254dd831ff5b5714" => :high_sierra
+    sha256 arm64_big_sur: "13dca2d2c2ca7e160e54a6d839b48fb259b4ae719803c0374c186904f3f9ac0e"
+    sha256 big_sur:       "db278d2c19f2b837f1fa44dfa4a72bac3ed8c8359a13732fb7db854ba1c6b450"
+    sha256 catalina:      "ed894bfefa87992845b652fc3ccf0104b1b4743e2dbdd1f2b7146c73433c165f"
+    sha256 mojave:        "6c9e5a04bf611a3e4b342f2554a32db25ef105f5795183bf22512922a1e57a59"
+    sha256 high_sierra:   "e54074cfd9c978a71847abe7af73d5d3c174fc85b4b1a60f254dd831ff5b5714"
   end
 
   depends_on "pkg-config" => :build

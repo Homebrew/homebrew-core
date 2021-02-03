@@ -7,12 +7,11 @@ class Hunspell < Formula
   revision 2
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "20b0f5dc7973a4cca3a8c3ea5778938d169bde2d183210f64526df8bca9512f7" => :big_sur
-    sha256 "8d48ffd83009503b5a2c1b968ddd930e80f41731e02576d6dfea2f53fc50d97c" => :arm64_big_sur
-    sha256 "d5144178eba9ff325c297a5a0ae05f1caa9b1d567803250d5dbd86876e0718a3" => :catalina
-    sha256 "eaabf6b66c21a94a7f6810287ff84e83fdef0ed6d3db635c8ad2c810d9f84d46" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "8d48ffd83009503b5a2c1b968ddd930e80f41731e02576d6dfea2f53fc50d97c"
+    sha256 cellar: :any, big_sur:       "20b0f5dc7973a4cca3a8c3ea5778938d169bde2d183210f64526df8bca9512f7"
+    sha256 cellar: :any, catalina:      "d5144178eba9ff325c297a5a0ae05f1caa9b1d567803250d5dbd86876e0718a3"
+    sha256 cellar: :any, mojave:        "eaabf6b66c21a94a7f6810287ff84e83fdef0ed6d3db635c8ad2c810d9f84d46"
   end
 
   depends_on "autoconf" => :build

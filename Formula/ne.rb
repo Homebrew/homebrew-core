@@ -7,11 +7,11 @@ class Ne < Formula
   head "https://github.com/vigna/ne.git"
 
   bottle do
-    sha256 "572fe9b1df4408e507da588758bf578a7a68862195b07745d66561f9e9e22c22" => :big_sur
-    sha256 "f55b397819fba5710764a23e751e0b1615164b759e1c83fe92f526dab9064dab" => :arm64_big_sur
-    sha256 "9c247087abcddef37c90d601611a7473b871d411340b4af1e72660fa60e829e2" => :catalina
-    sha256 "f7eb99d6a26252a621d18ec846920df9319b33c78053771bae8e39eb1997333f" => :mojave
-    sha256 "5de11e9bf7bd2cc2d703a61ba43f154fcf93534a76d195627902061cdf70b6bc" => :high_sierra
+    sha256 arm64_big_sur: "f55b397819fba5710764a23e751e0b1615164b759e1c83fe92f526dab9064dab"
+    sha256 big_sur:       "572fe9b1df4408e507da588758bf578a7a68862195b07745d66561f9e9e22c22"
+    sha256 catalina:      "9c247087abcddef37c90d601611a7473b871d411340b4af1e72660fa60e829e2"
+    sha256 mojave:        "f7eb99d6a26252a621d18ec846920df9319b33c78053771bae8e39eb1997333f"
+    sha256 high_sierra:   "5de11e9bf7bd2cc2d703a61ba43f154fcf93534a76d195627902061cdf70b6bc"
   end
 
   depends_on "texinfo" => :build

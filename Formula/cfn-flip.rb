@@ -8,12 +8,11 @@ class CfnFlip < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "6e839991d90501ef68afcec82bd4445dcf24242b33a31bd5ebf3004799e81512" => :big_sur
-    sha256 "c697eb2c6521e79bbdf5a834866914b9316383789a8ac885d7f1439b2c2774d2" => :arm64_big_sur
-    sha256 "e0f813ad41397d94b167cbcae814862abf436cd46b0996f83da0dae5e3d6d717" => :catalina
-    sha256 "d22cab76b33a3b6b836aa723242befc46fb8028fe282af1d4ccee64e4a21165a" => :mojave
-    sha256 "29ecc4856f9b64362498cf82765cef635f7b12f6b8570a19f5c223ca007a4e0c" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c697eb2c6521e79bbdf5a834866914b9316383789a8ac885d7f1439b2c2774d2"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6e839991d90501ef68afcec82bd4445dcf24242b33a31bd5ebf3004799e81512"
+    sha256 cellar: :any_skip_relocation, catalina:      "e0f813ad41397d94b167cbcae814862abf436cd46b0996f83da0dae5e3d6d717"
+    sha256 cellar: :any_skip_relocation, mojave:        "d22cab76b33a3b6b836aa723242befc46fb8028fe282af1d4ccee64e4a21165a"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "29ecc4856f9b64362498cf82765cef635f7b12f6b8570a19f5c223ca007a4e0c"
   end
 
   depends_on "python@3.9"

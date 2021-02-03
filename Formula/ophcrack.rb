@@ -11,13 +11,12 @@ class Ophcrack < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "d8a76360167fc2fa268916d26cb250b2f5d398c9cd21f6ae6470b145697b83d6" => :big_sur
-    sha256 "fdc3b1275b2e59028aa2edc99bda3fb93f6ad139f9e5a34aa3e4382b5dc6208e" => :arm64_big_sur
-    sha256 "47361d9c18591930ce871fa3c7ab36eaa43003a8a5339238648787cdd748d962" => :catalina
-    sha256 "0bdbfbee37e693edff5fc8f71c52f1fb12d6dd07c1e64aa1a20401df0789853a" => :mojave
-    sha256 "a1061331c1e9b4a726c818005a3d795ba8c73b29ecd78a3828b5e5eafac18107" => :high_sierra
-    sha256 "6229ee0c1e44192fa0d513b7e72e5c72e7fbd29b5ad7f61cd5c5824d76d49105" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "fdc3b1275b2e59028aa2edc99bda3fb93f6ad139f9e5a34aa3e4382b5dc6208e"
+    sha256 cellar: :any, big_sur:       "d8a76360167fc2fa268916d26cb250b2f5d398c9cd21f6ae6470b145697b83d6"
+    sha256 cellar: :any, catalina:      "47361d9c18591930ce871fa3c7ab36eaa43003a8a5339238648787cdd748d962"
+    sha256 cellar: :any, mojave:        "0bdbfbee37e693edff5fc8f71c52f1fb12d6dd07c1e64aa1a20401df0789853a"
+    sha256 cellar: :any, high_sierra:   "a1061331c1e9b4a726c818005a3d795ba8c73b29ecd78a3828b5e5eafac18107"
+    sha256 cellar: :any, sierra:        "6229ee0c1e44192fa0d513b7e72e5c72e7fbd29b5ad7f61cd5c5824d76d49105"
   end
 
   depends_on "openssl@1.1"

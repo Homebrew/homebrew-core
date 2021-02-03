@@ -8,14 +8,13 @@ class Dirt < Formula
   head "https://github.com/tidalcycles/Dirt.git"
 
   bottle do
-    cellar :any
-    sha256 "ac69059e87e5682411a7442619985d95d79ee67af88366bcea28cc89e35ef46a" => :big_sur
-    sha256 "2e9cf5a28852453f9ec5394bb2218fe3366e2cc6ef133e2dda847fbfa71ee968" => :catalina
-    sha256 "f90972cf61d77071fec9ab429f8a88a03738699b7e223b30c8655d5c64fede74" => :mojave
-    sha256 "b889891f8186b244161241e9c81d20afad20c31bd592fbf6860658334f314d39" => :high_sierra
-    sha256 "63847bffb4de9fa0cf57a1aea8a6bc1d713b8b0a1243ada27e6dd9d4aa21ccc1" => :sierra
-    sha256 "96b6e1e120bb8be5a051cdca4534d569afe5cae61abdcaf808cdef7af94042af" => :el_capitan
-    sha256 "ae94ee15ddb686a63120bea12e2991a5357711fcfcf0ed5c09f7aa6e2d6c3a4f" => :yosemite
+    sha256 cellar: :any, big_sur:     "ac69059e87e5682411a7442619985d95d79ee67af88366bcea28cc89e35ef46a"
+    sha256 cellar: :any, catalina:    "2e9cf5a28852453f9ec5394bb2218fe3366e2cc6ef133e2dda847fbfa71ee968"
+    sha256 cellar: :any, mojave:      "f90972cf61d77071fec9ab429f8a88a03738699b7e223b30c8655d5c64fede74"
+    sha256 cellar: :any, high_sierra: "b889891f8186b244161241e9c81d20afad20c31bd592fbf6860658334f314d39"
+    sha256 cellar: :any, sierra:      "63847bffb4de9fa0cf57a1aea8a6bc1d713b8b0a1243ada27e6dd9d4aa21ccc1"
+    sha256 cellar: :any, el_capitan:  "96b6e1e120bb8be5a051cdca4534d569afe5cae61abdcaf808cdef7af94042af"
+    sha256 cellar: :any, yosemite:    "ae94ee15ddb686a63120bea12e2991a5357711fcfcf0ed5c09f7aa6e2d6c3a4f"
   end
 
   depends_on "jack"

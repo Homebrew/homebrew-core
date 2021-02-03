@@ -12,12 +12,11 @@ class Ficy < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "eb6228a79e94bd6a6d37ec647da5b0ca1863ba03992d93bed90071858d0be55e" => :big_sur
-    sha256 "586d692ab7b64ad5805d51280e78ef997bf0ad2ebd1db2ed57ddc05b126f950b" => :arm64_big_sur
-    sha256 "9974dd8c30bcfe482222a8e6f4040c6c5ccb21c7ef6b893dbbf3033f7e5a85ab" => :catalina
-    sha256 "01d1a72a131cb19375bc8a068a59759d3207a60c84a4772cd8d52641ae1f8b8e" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "586d692ab7b64ad5805d51280e78ef997bf0ad2ebd1db2ed57ddc05b126f950b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "eb6228a79e94bd6a6d37ec647da5b0ca1863ba03992d93bed90071858d0be55e"
+    sha256 cellar: :any_skip_relocation, catalina:      "9974dd8c30bcfe482222a8e6f4040c6c5ccb21c7ef6b893dbbf3033f7e5a85ab"
+    sha256 cellar: :any_skip_relocation, mojave:        "01d1a72a131cb19375bc8a068a59759d3207a60c84a4772cd8d52641ae1f8b8e"
   end
 
   def install

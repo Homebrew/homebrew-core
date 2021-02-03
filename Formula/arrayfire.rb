@@ -6,10 +6,9 @@ class Arrayfire < Formula
   license "BSD-3-Clause"
 
   bottle do
-    cellar :any
-    sha256 "9869e0f31434835932fb93a6036b4d0bea62630b4392f076fafedda977ed5f8a" => :big_sur
-    sha256 "509d9c63cc8f3300f4cd026bcc09645474d17d0bfe0bc9d9ca7241996f1a6e6d" => :catalina
-    sha256 "da0132f5c4acb4d8e4b74a8f442175430ffc080a6a4ad8e0c3612a0bf92d1749" => :mojave
+    sha256 cellar: :any, big_sur:  "9869e0f31434835932fb93a6036b4d0bea62630b4392f076fafedda977ed5f8a"
+    sha256 cellar: :any, catalina: "509d9c63cc8f3300f4cd026bcc09645474d17d0bfe0bc9d9ca7241996f1a6e6d"
+    sha256 cellar: :any, mojave:   "da0132f5c4acb4d8e4b74a8f442175430ffc080a6a4ad8e0c3612a0bf92d1749"
   end
 
   depends_on "boost" => :build

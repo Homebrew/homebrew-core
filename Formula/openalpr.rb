@@ -6,9 +6,9 @@ class Openalpr < Formula
   license "AGPL-3.0-or-later"
 
   bottle do
-    sha256 "8cf1530f286a3223c92ff60f13f377f6a1016b1bca53dd85b91b7f2c273aa6e7" => :big_sur
-    sha256 "82858b6fa8b3882e8e7a890fd256420b2aa0dff86ad79071b26f256cb7823b26" => :catalina
-    sha256 "4cbe016b79dbe619488e08f3be8d89b573fb4307437efc837fe8be16172f4625" => :mojave
+    sha256 big_sur:  "8cf1530f286a3223c92ff60f13f377f6a1016b1bca53dd85b91b7f2c273aa6e7"
+    sha256 catalina: "82858b6fa8b3882e8e7a890fd256420b2aa0dff86ad79071b26f256cb7823b26"
+    sha256 mojave:   "4cbe016b79dbe619488e08f3be8d89b573fb4307437efc837fe8be16172f4625"
   end
 
   depends_on "cmake" => :build

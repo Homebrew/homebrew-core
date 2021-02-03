@@ -9,11 +9,10 @@ class Bpython < Formula
   head "https://github.com/bpython/bpython.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "24d61894796f80e46465356b2a45a85861789a430019efd07952c108018eaba4" => :big_sur
-    sha256 "f576b76fa2209abfa8b0923f378318199af89ddfb4915150243d1d7e73543ac0" => :arm64_big_sur
-    sha256 "cd96e71e3eaf910f6d70dd78a02ccd21048302a16eaaf2fbfedb15712d469752" => :catalina
-    sha256 "cbf4b82ab3f8f26ac6c7363a411aa3b692b9f2464a390e634dc5b4f61f2da0b7" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f576b76fa2209abfa8b0923f378318199af89ddfb4915150243d1d7e73543ac0"
+    sha256 cellar: :any_skip_relocation, big_sur:       "24d61894796f80e46465356b2a45a85861789a430019efd07952c108018eaba4"
+    sha256 cellar: :any_skip_relocation, catalina:      "cd96e71e3eaf910f6d70dd78a02ccd21048302a16eaaf2fbfedb15712d469752"
+    sha256 cellar: :any_skip_relocation, mojave:        "cbf4b82ab3f8f26ac6c7363a411aa3b692b9f2464a390e634dc5b4f61f2da0b7"
   end
 
   depends_on "python@3.9"

@@ -10,11 +10,10 @@ class Gptfdisk < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "a3e4b6f68aba2aca20a6a197613e662af80a84a71765f7cdc9760ea495d00a86" => :big_sur
-    sha256 "dfe0b4cbc0e2cb2118fb2fbbbcd3ad1d42ff9fad8c7ad785c7a27bfd8cc48c5f" => :arm64_big_sur
-    sha256 "b3fc1b140c2a2c4b713460483134620b61066d351a4bdd5a1adc5dfe9c53f1be" => :catalina
-    sha256 "9d8b7f91e699513e4c6c42d4b8e56548f93d76d0e30da1d09b8f9725d49d0f15" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "dfe0b4cbc0e2cb2118fb2fbbbcd3ad1d42ff9fad8c7ad785c7a27bfd8cc48c5f"
+    sha256 cellar: :any, big_sur:       "a3e4b6f68aba2aca20a6a197613e662af80a84a71765f7cdc9760ea495d00a86"
+    sha256 cellar: :any, catalina:      "b3fc1b140c2a2c4b713460483134620b61066d351a4bdd5a1adc5dfe9c53f1be"
+    sha256 cellar: :any, mojave:        "9d8b7f91e699513e4c6c42d4b8e56548f93d76d0e30da1d09b8f9725d49d0f15"
   end
 
   depends_on "popt"

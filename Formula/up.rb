@@ -6,12 +6,11 @@ class Up < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "48e91e5ef814e94a40749a9765a17eea031cc3e7b20edf4161187d454a1291da" => :big_sur
-    sha256 "f3452e5a6d248a93e947fb5500bd7c5aad22fe77ad791b07c9fc7fe645b47170" => :arm64_big_sur
-    sha256 "1389b7f7a0c33f8563bacc20c09ba7781440a9fdd0b42a357a944e64dc65e3dc" => :catalina
-    sha256 "e9a517e8c51a5da04f070628b327a24344b8a7d093bee13cb1efa8ed6a8a944f" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f3452e5a6d248a93e947fb5500bd7c5aad22fe77ad791b07c9fc7fe645b47170"
+    sha256 cellar: :any_skip_relocation, big_sur:       "48e91e5ef814e94a40749a9765a17eea031cc3e7b20edf4161187d454a1291da"
+    sha256 cellar: :any_skip_relocation, catalina:      "1389b7f7a0c33f8563bacc20c09ba7781440a9fdd0b42a357a944e64dc65e3dc"
+    sha256 cellar: :any_skip_relocation, mojave:        "e9a517e8c51a5da04f070628b327a24344b8a7d093bee13cb1efa8ed6a8a944f"
   end
 
   depends_on "go" => :build

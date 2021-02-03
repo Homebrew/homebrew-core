@@ -12,9 +12,9 @@ class Allureofthestars < Formula
   end
 
   bottle do
-    sha256 "d82455c81cf0a631109ea16ae197fbce21ba141a7d4af065e38f67bf9d03438c" => :big_sur
-    sha256 "542feabc974e7b3506e46312dbe3aaaae6f03474708c969520c661edaf0da088" => :catalina
-    sha256 "adfd9f24390bac8ea4d661bbdde89c2d96187f6ad6e1045c4ed495e1ec6db275" => :mojave
+    sha256 big_sur:  "d82455c81cf0a631109ea16ae197fbce21ba141a7d4af065e38f67bf9d03438c"
+    sha256 catalina: "542feabc974e7b3506e46312dbe3aaaae6f03474708c969520c661edaf0da088"
+    sha256 mojave:   "adfd9f24390bac8ea4d661bbdde89c2d96187f6ad6e1045c4ed495e1ec6db275"
   end
 
   depends_on "cabal-install" => :build

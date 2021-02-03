@@ -7,11 +7,10 @@ class Curlpp < Formula
   revision 1
 
   bottle do
-    cellar :any
-    sha256 "1629615065defd61af8480c484f801e47e35c268defee303929003f7170d30ee" => :big_sur
-    sha256 "f727b823c94be8f12ab6ba0eb8ac326b19ac823f3313b9ff0a8ab43c1a21a4ec" => :arm64_big_sur
-    sha256 "d3ca609dae4e9f2038c6cd39ce0123fc8eb70bc235519079d526d529cedf0878" => :catalina
-    sha256 "206a7c8881489554e00c1a365b58a7c39922e5d66fca19b3f7296eb7472ef220" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "f727b823c94be8f12ab6ba0eb8ac326b19ac823f3313b9ff0a8ab43c1a21a4ec"
+    sha256 cellar: :any, big_sur:       "1629615065defd61af8480c484f801e47e35c268defee303929003f7170d30ee"
+    sha256 cellar: :any, catalina:      "d3ca609dae4e9f2038c6cd39ce0123fc8eb70bc235519079d526d529cedf0878"
+    sha256 cellar: :any, mojave:        "206a7c8881489554e00c1a365b58a7c39922e5d66fca19b3f7296eb7472ef220"
   end
 
   depends_on "cmake" => :build

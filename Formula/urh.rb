@@ -11,11 +11,10 @@ class Urh < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "6115bada2ad182024453d7d29ea4df3e6761204a9aa5f4b598209344a7b73f48" => :big_sur
-    sha256 "f59be551336b3d01b468da371a51dc654a6833dcaf39c1f62dc3dd4e85b00aba" => :arm64_big_sur
-    sha256 "1f5710ff1c1c511793a55c7439162ba2869b58597c6336f4b0b0c2dc2d742f89" => :catalina
-    sha256 "048a777039cd82536d42b16a526171de0ddc982654f69008dfa33e282038c694" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "f59be551336b3d01b468da371a51dc654a6833dcaf39c1f62dc3dd4e85b00aba"
+    sha256 cellar: :any, big_sur:       "6115bada2ad182024453d7d29ea4df3e6761204a9aa5f4b598209344a7b73f48"
+    sha256 cellar: :any, catalina:      "1f5710ff1c1c511793a55c7439162ba2869b58597c6336f4b0b0c2dc2d742f89"
+    sha256 cellar: :any, mojave:        "048a777039cd82536d42b16a526171de0ddc982654f69008dfa33e282038c694"
   end
 
   depends_on "pkg-config" => :build

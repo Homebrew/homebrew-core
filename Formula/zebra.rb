@@ -11,11 +11,11 @@ class Zebra < Formula
   end
 
   bottle do
-    sha256 "3521e4cde145c7ebd38c406d4a0c3a75d8f9154fe8a91ee63c62765befefb5d7" => :big_sur
-    sha256 "68e15eda361139139937655b494e3726b1c9236480ff3ab6e37c8e120b0f2c5f" => :arm64_big_sur
-    sha256 "b78b4ca52c9274c42692d190beb13c9b3709b8cb610831ee04bae42bf1ef4c04" => :catalina
-    sha256 "0c4967b8025621b5c3bc343329a2f01e07292163df9151c1432c70886dc81500" => :mojave
-    sha256 "a7f24384ddd17dda271a6c44a9f2db5f91ba3ee50944fbccc156ca9cd6387b3e" => :high_sierra
+    sha256 arm64_big_sur: "68e15eda361139139937655b494e3726b1c9236480ff3ab6e37c8e120b0f2c5f"
+    sha256 big_sur:       "3521e4cde145c7ebd38c406d4a0c3a75d8f9154fe8a91ee63c62765befefb5d7"
+    sha256 catalina:      "b78b4ca52c9274c42692d190beb13c9b3709b8cb610831ee04bae42bf1ef4c04"
+    sha256 mojave:        "0c4967b8025621b5c3bc343329a2f01e07292163df9151c1432c70886dc81500"
+    sha256 high_sierra:   "a7f24384ddd17dda271a6c44a9f2db5f91ba3ee50944fbccc156ca9cd6387b3e"
   end
 
   depends_on "icu4c"

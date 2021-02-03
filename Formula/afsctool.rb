@@ -8,14 +8,13 @@ class Afsctool < Formula
   revision 2
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 2
-    sha256 "e7d401a4f723f58ad588e5b2fb5b19c6d76e7faed0385d0b3eef59d1f933e1ee" => :big_sur
-    sha256 "01af9a80d59e870a48adcbf1eb0cba0a3dd0a4013df397114c4c0f21f16e3916" => :arm64_big_sur
-    sha256 "f418e15be4bafdcb1a85e14c3148c8d4af1b300bd6ed3e4a30eca3725459ac48" => :catalina
-    sha256 "15c264a828ed98a42cc5ac68869c16b8306f73effe108e50bb1f731574311c51" => :mojave
-    sha256 "72e92414d524b82ec1d8381ad50f55bd330f1109a5e10bca4235300fee557caf" => :high_sierra
-    sha256 "96437b04a2974c215979550d3d70b4c8e3f609e76954ca41059c6f246da452ee" => :sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "01af9a80d59e870a48adcbf1eb0cba0a3dd0a4013df397114c4c0f21f16e3916"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e7d401a4f723f58ad588e5b2fb5b19c6d76e7faed0385d0b3eef59d1f933e1ee"
+    sha256 cellar: :any_skip_relocation, catalina:      "f418e15be4bafdcb1a85e14c3148c8d4af1b300bd6ed3e4a30eca3725459ac48"
+    sha256 cellar: :any_skip_relocation, mojave:        "15c264a828ed98a42cc5ac68869c16b8306f73effe108e50bb1f731574311c51"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "72e92414d524b82ec1d8381ad50f55bd330f1109a5e10bca4235300fee557caf"
+    sha256 cellar: :any_skip_relocation, sierra:        "96437b04a2974c215979550d3d70b4c8e3f609e76954ca41059c6f246da452ee"
   end
 
   # Fixes Sierra "Unable to compress" issue; reported upstream on 24 July 2017

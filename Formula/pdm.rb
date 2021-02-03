@@ -13,11 +13,10 @@ class Pdm < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "e7105237fad081ab87c65f97a8184b7d86b4c6a05df4856d1988d504568f407d" => :big_sur
-    sha256 "a221439d7ff09e734b181ce9e16e378d856df5f5981637c2783a1d5b7c129e60" => :arm64_big_sur
-    sha256 "56568138f3f5f980f2ef7d01920ed39515432565605f6bc5286920d299816110" => :catalina
-    sha256 "d6a4272b317a6d5db94bddea6505956b0fe0d9f802a023a8c64718fef64956ca" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a221439d7ff09e734b181ce9e16e378d856df5f5981637c2783a1d5b7c129e60"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e7105237fad081ab87c65f97a8184b7d86b4c6a05df4856d1988d504568f407d"
+    sha256 cellar: :any_skip_relocation, catalina:      "56568138f3f5f980f2ef7d01920ed39515432565605f6bc5286920d299816110"
+    sha256 cellar: :any_skip_relocation, mojave:        "d6a4272b317a6d5db94bddea6505956b0fe0d9f802a023a8c64718fef64956ca"
   end
 
   depends_on "python@3.9"

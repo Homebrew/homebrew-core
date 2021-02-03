@@ -5,17 +5,16 @@ class Libkml < Formula
   sha256 "fae9085e4cd9f0d4ae0d0626be7acf4ad5cbb37991b9d886df29daf72df37cbc"
 
   bottle do
-    cellar :any
     rebuild 2
-    sha256 "a0694686c535fa33f6222e11dde9858881e6a5eaa12c6b11c5ef310a32635087" => :big_sur
-    sha256 "589b147706bc4aec04f96039cb2e61e80d85bcbedf0e919ebcca29fe09d81e26" => :arm64_big_sur
-    sha256 "2b73d6ea2eacd6e11229a0a9747444c28a455bb24943108b0351f689d17eb3d9" => :catalina
-    sha256 "c79c73e048728d0497b7f91c0e174bd97e27f65ff471e00324483a3557b6a13f" => :mojave
-    sha256 "31d567e2e0d87794adea3507cb34ace0483309de7ba5b32fc98bc1ca59a461c5" => :high_sierra
-    sha256 "860294d677de2f8a4c18e4d750d59aeafa2b38801b12eb76b5e951a23a8ec108" => :sierra
-    sha256 "57b9693cdf9a6abaeeea9648cd84a81d17ba0f056bd8d8e8442e68d97dbc7828" => :el_capitan
-    sha256 "a3cdfca3ed0acbc93949683a8bb2862c36ec8bf06f20b9fe3752ac624667f455" => :yosemite
-    sha256 "22c4df9a8f64f8c6ec300cfb268994d739ff41e80db44ca3a72358fc4b70bc05" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "589b147706bc4aec04f96039cb2e61e80d85bcbedf0e919ebcca29fe09d81e26"
+    sha256 cellar: :any, big_sur:       "a0694686c535fa33f6222e11dde9858881e6a5eaa12c6b11c5ef310a32635087"
+    sha256 cellar: :any, catalina:      "2b73d6ea2eacd6e11229a0a9747444c28a455bb24943108b0351f689d17eb3d9"
+    sha256 cellar: :any, mojave:        "c79c73e048728d0497b7f91c0e174bd97e27f65ff471e00324483a3557b6a13f"
+    sha256 cellar: :any, high_sierra:   "31d567e2e0d87794adea3507cb34ace0483309de7ba5b32fc98bc1ca59a461c5"
+    sha256 cellar: :any, sierra:        "860294d677de2f8a4c18e4d750d59aeafa2b38801b12eb76b5e951a23a8ec108"
+    sha256 cellar: :any, el_capitan:    "57b9693cdf9a6abaeeea9648cd84a81d17ba0f056bd8d8e8442e68d97dbc7828"
+    sha256 cellar: :any, yosemite:      "a3cdfca3ed0acbc93949683a8bb2862c36ec8bf06f20b9fe3752ac624667f455"
+    sha256 cellar: :any, mavericks:     "22c4df9a8f64f8c6ec300cfb268994d739ff41e80db44ca3a72358fc4b70bc05"
   end
 
   # Fix compilation with clang and gcc 4.7+

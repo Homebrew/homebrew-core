@@ -12,12 +12,11 @@ class Zint < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "3535dd6204bc2331673113f38ee7c213a8708a4958cbfca4bfe1cb074dd8eb2a" => :big_sur
-    sha256 "047bb0ba1a7045832292a37e10e0fa68324081260e969928a5f4162ffc425f27" => :arm64_big_sur
-    sha256 "27a13b9022616484c612860ec1ac80146f765de23c32a52cf7f6f7a516727672" => :catalina
-    sha256 "398f6493010f6b4778fe5ce80b559b745f53de2dcbd0c331f844431274a1d1ac" => :mojave
-    sha256 "7142283083b90b3d185672f98fc987292337b8cb50cfb4e76cb61394df05781a" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "047bb0ba1a7045832292a37e10e0fa68324081260e969928a5f4162ffc425f27"
+    sha256 cellar: :any, big_sur:       "3535dd6204bc2331673113f38ee7c213a8708a4958cbfca4bfe1cb074dd8eb2a"
+    sha256 cellar: :any, catalina:      "27a13b9022616484c612860ec1ac80146f765de23c32a52cf7f6f7a516727672"
+    sha256 cellar: :any, mojave:        "398f6493010f6b4778fe5ce80b559b745f53de2dcbd0c331f844431274a1d1ac"
+    sha256 cellar: :any, high_sierra:   "7142283083b90b3d185672f98fc987292337b8cb50cfb4e76cb61394df05781a"
   end
 
   depends_on "cmake" => :build

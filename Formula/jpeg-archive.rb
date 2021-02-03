@@ -7,11 +7,10 @@ class JpegArchive < Formula
   revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "41ac0d9c5bd290d77e7e5548a2257c6455f9f87265b06b5dc4e02ac7836dfc22" => :big_sur
-    sha256 "222d7258f63f000794693bc5912c88ce42d0a33473a8acbbc585821655c9b8dd" => :catalina
-    sha256 "2df1b3a007b7553addc977582d0c38d5007892f9e8a866a4fc9cda9b8f3b2af2" => :mojave
-    sha256 "6f873847a8c7ad6420fe7700219ae13be39d12075c92921b364cb059ed5bf552" => :high_sierra
+    sha256 cellar: :any_skip_relocation, big_sur:     "41ac0d9c5bd290d77e7e5548a2257c6455f9f87265b06b5dc4e02ac7836dfc22"
+    sha256 cellar: :any_skip_relocation, catalina:    "222d7258f63f000794693bc5912c88ce42d0a33473a8acbbc585821655c9b8dd"
+    sha256 cellar: :any_skip_relocation, mojave:      "2df1b3a007b7553addc977582d0c38d5007892f9e8a866a4fc9cda9b8f3b2af2"
+    sha256 cellar: :any_skip_relocation, high_sierra: "6f873847a8c7ad6420fe7700219ae13be39d12075c92921b364cb059ed5bf552"
   end
 
   depends_on "mozjpeg"

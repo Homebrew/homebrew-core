@@ -10,12 +10,12 @@ class Libquicktime < Formula
   end
 
   bottle do
-    sha256 "4a9a12712bedaa0ca62394a26ae842f64b4ef86108fca99c2e1712c6a7e7d9c4" => :big_sur
-    sha256 "7d24ece79d6792b731695618cbc2535d5e374b0cb427cb72df1a1526e04b2974" => :arm64_big_sur
-    sha256 "33d7a1146846e30e48e637ddd64f3e7541728df03becf8175e798a8fd3eb3bab" => :catalina
-    sha256 "56165e3b70f7e444bca93369b3fa4602eefb1aa4b9624ed1ecbaa4741eb7c245" => :mojave
-    sha256 "df1b207f23b3edc587629a0fd700a446d4f8210e6a7de3bbfd3d5c122cef16f7" => :high_sierra
-    sha256 "1770ac237a79cb0d9ae918e4bcd6d92bcca6a6695823f7a3fde6dde7d3077acb" => :sierra
+    sha256 arm64_big_sur: "7d24ece79d6792b731695618cbc2535d5e374b0cb427cb72df1a1526e04b2974"
+    sha256 big_sur:       "4a9a12712bedaa0ca62394a26ae842f64b4ef86108fca99c2e1712c6a7e7d9c4"
+    sha256 catalina:      "33d7a1146846e30e48e637ddd64f3e7541728df03becf8175e798a8fd3eb3bab"
+    sha256 mojave:        "56165e3b70f7e444bca93369b3fa4602eefb1aa4b9624ed1ecbaa4741eb7c245"
+    sha256 high_sierra:   "df1b207f23b3edc587629a0fd700a446d4f8210e6a7de3bbfd3d5c122cef16f7"
+    sha256 sierra:        "1770ac237a79cb0d9ae918e4bcd6d92bcca6a6695823f7a3fde6dde7d3077acb"
   end
 
   depends_on "pkg-config" => :build

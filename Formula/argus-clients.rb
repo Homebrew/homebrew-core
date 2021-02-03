@@ -6,13 +6,12 @@ class ArgusClients < Formula
   revision 4
 
   bottle do
-    cellar :any
-    sha256 "8f1f7bfced13b9a62c6455be898a72e545f60d6f3c42a7ca9809bb8723ca4042" => :big_sur
-    sha256 "399217b0dc94900b41013e73be7ac85cccf52d9046d42d960f0461d07657739c" => :arm64_big_sur
-    sha256 "579d10c6b410d1fe18fb653c6413a30ea04f8826f441094bcb944244e9dfdfd5" => :catalina
-    sha256 "ed00932e81d23c0a2cb872190088994a190967f4bbe8dc08e9f04212e6ede2e0" => :mojave
-    sha256 "3c231bbc8dccff67f8eadb490bb128bbf063e9200993d53d0306e1730ea0bc5e" => :high_sierra
-    sha256 "edfae9718df8bd3d4fe6225cca8170513638b1581234fffa8deaa5f9e228593d" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "399217b0dc94900b41013e73be7ac85cccf52d9046d42d960f0461d07657739c"
+    sha256 cellar: :any, big_sur:       "8f1f7bfced13b9a62c6455be898a72e545f60d6f3c42a7ca9809bb8723ca4042"
+    sha256 cellar: :any, catalina:      "579d10c6b410d1fe18fb653c6413a30ea04f8826f441094bcb944244e9dfdfd5"
+    sha256 cellar: :any, mojave:        "ed00932e81d23c0a2cb872190088994a190967f4bbe8dc08e9f04212e6ede2e0"
+    sha256 cellar: :any, high_sierra:   "3c231bbc8dccff67f8eadb490bb128bbf063e9200993d53d0306e1730ea0bc5e"
+    sha256 cellar: :any, sierra:        "edfae9718df8bd3d4fe6225cca8170513638b1581234fffa8deaa5f9e228593d"
   end
 
   depends_on "geoip"

@@ -14,11 +14,10 @@ class Credstash < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "014126c51fdc447aaf9cd276bcf1e5db3e7f47de375d7df6b5c987e707406fba" => :big_sur
-    sha256 "0158907bb9ea77ca4df22484d8f5706707e395963cedb88c2e8e9269b697c8fb" => :arm64_big_sur
-    sha256 "37f16c3f6d9c37adb3c4923005da62eb0bf76521e1650d414132b2b186cd3768" => :catalina
-    sha256 "59f8ed1c377249d7732b65bc9b20f17ca440d18ce019a0334d47db8c2cc36d49" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "0158907bb9ea77ca4df22484d8f5706707e395963cedb88c2e8e9269b697c8fb"
+    sha256 cellar: :any, big_sur:       "014126c51fdc447aaf9cd276bcf1e5db3e7f47de375d7df6b5c987e707406fba"
+    sha256 cellar: :any, catalina:      "37f16c3f6d9c37adb3c4923005da62eb0bf76521e1650d414132b2b186cd3768"
+    sha256 cellar: :any, mojave:        "59f8ed1c377249d7732b65bc9b20f17ca440d18ce019a0334d47db8c2cc36d49"
   end
 
   depends_on "openssl@1.1"

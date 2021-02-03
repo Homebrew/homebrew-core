@@ -12,11 +12,10 @@ class Redis < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "ecd20074b450f501345d7533abc51e8f47f28f27a5c8b7c698fe4d80aeb8126c" => :big_sur
-    sha256 "0ae80e0e8a0a13d663a1d9e1c74bb17df56deb4b2edd5397b363ec4f6a32e43c" => :arm64_big_sur
-    sha256 "92bc496f208cdbcbf5b9251d0e32bca775d19e800b5d19948c54c3f8d03f0c9b" => :catalina
-    sha256 "2c577a2692701929cc90f0bd2fd050e47705d8693086e1050b4b69ec95315ed1" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "0ae80e0e8a0a13d663a1d9e1c74bb17df56deb4b2edd5397b363ec4f6a32e43c"
+    sha256 cellar: :any, big_sur:       "ecd20074b450f501345d7533abc51e8f47f28f27a5c8b7c698fe4d80aeb8126c"
+    sha256 cellar: :any, catalina:      "92bc496f208cdbcbf5b9251d0e32bca775d19e800b5d19948c54c3f8d03f0c9b"
+    sha256 cellar: :any, mojave:        "2c577a2692701929cc90f0bd2fd050e47705d8693086e1050b4b69ec95315ed1"
   end
 
   depends_on "openssl@1.1"

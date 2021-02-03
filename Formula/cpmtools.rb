@@ -6,10 +6,10 @@ class Cpmtools < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 "72ac1f5c8c685e8a8e9e10ce3ba100883473f9578994752d0bcaab1bb987d27f" => :big_sur
-    sha256 "15e7282d0aaab6c0fdcba963da488dc134a3a91cdf386f975531ad6cb412eb4d" => :arm64_big_sur
-    sha256 "d685ce1a2f98dbab825d3b7c7584303214682f55fbd4222740a314ee9225d3e5" => :catalina
-    sha256 "189b7777108827592800a7b8182357721a5314d2dae1559ec0d3663d5072870b" => :mojave
+    sha256 arm64_big_sur: "15e7282d0aaab6c0fdcba963da488dc134a3a91cdf386f975531ad6cb412eb4d"
+    sha256 big_sur:       "72ac1f5c8c685e8a8e9e10ce3ba100883473f9578994752d0bcaab1bb987d27f"
+    sha256 catalina:      "d685ce1a2f98dbab825d3b7c7584303214682f55fbd4222740a314ee9225d3e5"
+    sha256 mojave:        "189b7777108827592800a7b8182357721a5314d2dae1559ec0d3663d5072870b"
   end
 
   depends_on "autoconf" => :build

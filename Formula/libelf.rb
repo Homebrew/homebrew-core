@@ -17,15 +17,14 @@ class Libelf < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "8b69f55ccec2aa1bfa85bef3fe071077fe281e2bc63dc33cc4344a1cc02e1e26" => :big_sur
-    sha256 "b7635245b64cc7d857c92191c40877cba96871d07f4749f620bc96c63cd2635e" => :catalina
-    sha256 "7cb626407ee7d61546f2493da91ecc63996d6180949b96b84793e075bd130f2d" => :mojave
-    sha256 "e11504a15c64cd7fca3248ca7ed14eead25a5d63d8bbd9a8e00f076c56602295" => :high_sierra
-    sha256 "a771e35555810a4910304e3ca5967ea3e4f8cbe45576e5b2dc6b80cd9c1f0f13" => :sierra
-    sha256 "a06b058c7e401942f442f573b63aa2cdd548b45d38b02b7af92393c67093f56e" => :el_capitan
-    sha256 "3b4ea9ab20228d9e912f80a330b6d6d093f9bb65a712208c83cd49bdcc4fc9ea" => :yosemite
-    sha256 "eded3b774d412e533f37bc6d5dc133859141653ce953a0d4cbf4a950dda633f6" => :mavericks
+    sha256 cellar: :any_skip_relocation, big_sur:     "8b69f55ccec2aa1bfa85bef3fe071077fe281e2bc63dc33cc4344a1cc02e1e26"
+    sha256 cellar: :any_skip_relocation, catalina:    "b7635245b64cc7d857c92191c40877cba96871d07f4749f620bc96c63cd2635e"
+    sha256 cellar: :any_skip_relocation, mojave:      "7cb626407ee7d61546f2493da91ecc63996d6180949b96b84793e075bd130f2d"
+    sha256 cellar: :any_skip_relocation, high_sierra: "e11504a15c64cd7fca3248ca7ed14eead25a5d63d8bbd9a8e00f076c56602295"
+    sha256 cellar: :any_skip_relocation, sierra:      "a771e35555810a4910304e3ca5967ea3e4f8cbe45576e5b2dc6b80cd9c1f0f13"
+    sha256 cellar: :any_skip_relocation, el_capitan:  "a06b058c7e401942f442f573b63aa2cdd548b45d38b02b7af92393c67093f56e"
+    sha256 cellar: :any_skip_relocation, yosemite:    "3b4ea9ab20228d9e912f80a330b6d6d093f9bb65a712208c83cd49bdcc4fc9ea"
+    sha256 cellar: :any_skip_relocation, mavericks:   "eded3b774d412e533f37bc6d5dc133859141653ce953a0d4cbf4a950dda633f6"
   end
 
   depends_on "autoconf" => :build

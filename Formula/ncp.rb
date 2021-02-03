@@ -6,13 +6,12 @@ class Ncp < Formula
   head ":pserver:cvs:@cvs.fefe.de:/cvs", using: :cvs
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "26d9db0b0da97a1556e5b20afd08c82be35fd7f8530ab63110d83fb1ba542ac2" => :catalina
-    sha256 "345fcd7aaa3fbe0352a0109c986389db0cec91b4603829b4f36998ad866e5aca" => :mojave
-    sha256 "2c56e482f1608eeb3925f4db0b1ef782fb1644d2a7318e522a4a3c7ba7efcdd4" => :high_sierra
-    sha256 "d261de84549f890b4a3ca4c9f9d72ec25dd5a66c77fbccf6c29577c49a3c0866" => :sierra
-    sha256 "08f17ef57ee62eb3ca90c7c033fba68edc2822d93689ddabdcaa49913c98f369" => :el_capitan
+    sha256 cellar: :any_skip_relocation, catalina:    "26d9db0b0da97a1556e5b20afd08c82be35fd7f8530ab63110d83fb1ba542ac2"
+    sha256 cellar: :any_skip_relocation, mojave:      "345fcd7aaa3fbe0352a0109c986389db0cec91b4603829b4f36998ad866e5aca"
+    sha256 cellar: :any_skip_relocation, high_sierra: "2c56e482f1608eeb3925f4db0b1ef782fb1644d2a7318e522a4a3c7ba7efcdd4"
+    sha256 cellar: :any_skip_relocation, sierra:      "d261de84549f890b4a3ca4c9f9d72ec25dd5a66c77fbccf6c29577c49a3c0866"
+    sha256 cellar: :any_skip_relocation, el_capitan:  "08f17ef57ee62eb3ca90c7c033fba68edc2822d93689ddabdcaa49913c98f369"
   end
 
   depends_on "libowfat"

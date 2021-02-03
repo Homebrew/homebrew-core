@@ -12,16 +12,15 @@ class Cmockery2 < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "9c468c19fff8a8bfaaa8603629b116cf5ec3913e42d126d349c0c8087cd7ee7c" => :big_sur
-    sha256 "68744e2b1c76021e1ab34568873fcac417629d253cd0213e0040c674aab4928e" => :arm64_big_sur
-    sha256 "dc794b321aa10ede37917259ba4491dc59271826f2921c5b652b1d67e744b961" => :catalina
-    sha256 "a36cbb449fcca235226fcfa94439f2370f22d3d6f1986c710c1e640959f8a271" => :mojave
-    sha256 "3651caa0ed8c5e2ec5dc0fe8932a53e20c2af28d3887161d1cdfe9c46fb9f220" => :high_sierra
-    sha256 "661b4a8751a4dbe7e52b19cd9452d8b7dd61c929d73da27ac4fca5623a0dff6c" => :sierra
-    sha256 "61b64aeaf89d205742bbb254148502cd2df83bcf05d20377bdce8637f275bee5" => :el_capitan
-    sha256 "ea94ba8420bd5bc01412b52ce9c03b392b933f279d1bce7a8ff8f7502bc83f88" => :yosemite
-    sha256 "ce0cc1a3151655d4bb970ca92c87c5ebb5ed660c3c445e763edc4b835ca7e9a6" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "68744e2b1c76021e1ab34568873fcac417629d253cd0213e0040c674aab4928e"
+    sha256 cellar: :any, big_sur:       "9c468c19fff8a8bfaaa8603629b116cf5ec3913e42d126d349c0c8087cd7ee7c"
+    sha256 cellar: :any, catalina:      "dc794b321aa10ede37917259ba4491dc59271826f2921c5b652b1d67e744b961"
+    sha256 cellar: :any, mojave:        "a36cbb449fcca235226fcfa94439f2370f22d3d6f1986c710c1e640959f8a271"
+    sha256 cellar: :any, high_sierra:   "3651caa0ed8c5e2ec5dc0fe8932a53e20c2af28d3887161d1cdfe9c46fb9f220"
+    sha256 cellar: :any, sierra:        "661b4a8751a4dbe7e52b19cd9452d8b7dd61c929d73da27ac4fca5623a0dff6c"
+    sha256 cellar: :any, el_capitan:    "61b64aeaf89d205742bbb254148502cd2df83bcf05d20377bdce8637f275bee5"
+    sha256 cellar: :any, yosemite:      "ea94ba8420bd5bc01412b52ce9c03b392b933f279d1bce7a8ff8f7502bc83f88"
+    sha256 cellar: :any, mavericks:     "ce0cc1a3151655d4bb970ca92c87c5ebb5ed660c3c445e763edc4b835ca7e9a6"
   end
 
   depends_on "autoconf" => :build

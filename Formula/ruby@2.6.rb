@@ -8,10 +8,10 @@ class RubyAT26 < Formula
 
   bottle do
     rebuild 1
-    sha256 "90a02e7c3985c005348fb1b750c22dce1ebbbd1a8854f3250da9956308c0c65f" => :big_sur
-    sha256 "a96708875a8876b485f3363013325280b7bc430b2476f1a96eec868a576c3767" => :arm64_big_sur
-    sha256 "9a4c70bb351c889e3b529be56eeb5699331f6de5bd0564e1baf14c94af37f523" => :catalina
-    sha256 "30328442ad700d940208b1423bab0a0cdc84aaa02501de820ca6d7903fee09a3" => :mojave
+    sha256 arm64_big_sur: "a96708875a8876b485f3363013325280b7bc430b2476f1a96eec868a576c3767"
+    sha256 big_sur:       "90a02e7c3985c005348fb1b750c22dce1ebbbd1a8854f3250da9956308c0c65f"
+    sha256 catalina:      "9a4c70bb351c889e3b529be56eeb5699331f6de5bd0564e1baf14c94af37f523"
+    sha256 mojave:        "30328442ad700d940208b1423bab0a0cdc84aaa02501de820ca6d7903fee09a3"
   end
 
   keg_only :versioned_formula

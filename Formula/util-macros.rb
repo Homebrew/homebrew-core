@@ -6,11 +6,10 @@ class UtilMacros < Formula
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "75380fbb4f54df33cc028ca19b05b7350fc0ee864dbe6e4ee6a4fa9cdec19ad9" => :big_sur
-    sha256 "c264994ad25a15c84c92929eaf5dd8ca14c10938f58be3161f58ffcebbb3eb07" => :arm64_big_sur
-    sha256 "3aebaa717cf69676ff38b74538a34b3ab96e6344a2303da8f12f420a66b73719" => :catalina
-    sha256 "17d679f4c969c41701b1dcb897957f5772555453aff321eacff94bf91cf19e56" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c264994ad25a15c84c92929eaf5dd8ca14c10938f58be3161f58ffcebbb3eb07"
+    sha256 cellar: :any_skip_relocation, big_sur:       "75380fbb4f54df33cc028ca19b05b7350fc0ee864dbe6e4ee6a4fa9cdec19ad9"
+    sha256 cellar: :any_skip_relocation, catalina:      "3aebaa717cf69676ff38b74538a34b3ab96e6344a2303da8f12f420a66b73719"
+    sha256 cellar: :any_skip_relocation, mojave:        "17d679f4c969c41701b1dcb897957f5772555453aff321eacff94bf91cf19e56"
   end
 
   depends_on "pkg-config" => :test

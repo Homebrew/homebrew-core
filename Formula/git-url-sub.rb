@@ -7,16 +7,15 @@ class GitUrlSub < Formula
   head "https://github.com/gosuri/git-url-sub.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "826dfdc4c81aa33b3962bec4280c0e0167b74f98103b028c49cff97383c06ef5" => :big_sur
-    sha256 "8975feb6b79a015095edec52863982710396e64089ad4f3ff5ad8e0258c5d86b" => :arm64_big_sur
-    sha256 "e35658a190c074ad5bb88578e34c91f8751b24ea297cf5b2eac9729c8eb9e814" => :catalina
-    sha256 "f8f1a14a4d3cbc359b741111b56f5c47d252946784501e934fbdc5f82cbd2ed8" => :mojave
-    sha256 "4eca101481773e802431bc9fc264f5f2db309595d0faf0c02886a559c31baa91" => :high_sierra
-    sha256 "2fcf47332e070caed126fef2be0a1108a23e18a9d1ba80b6059b45a417af1b31" => :sierra
-    sha256 "cf954ff293abbcaf8816c8142b5762ebe7601107f76530f6bab0edea71e2d609" => :el_capitan
-    sha256 "2edfbc5f15001b1c4c08b26251a845533473a79bc2f387d3fd1d74751080cd1b" => :yosemite
-    sha256 "ce9c28238d1904b9d2c97da10fd7a6be0b1ceafde423311078dfac0bbe8a82dc" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8975feb6b79a015095edec52863982710396e64089ad4f3ff5ad8e0258c5d86b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "826dfdc4c81aa33b3962bec4280c0e0167b74f98103b028c49cff97383c06ef5"
+    sha256 cellar: :any_skip_relocation, catalina:      "e35658a190c074ad5bb88578e34c91f8751b24ea297cf5b2eac9729c8eb9e814"
+    sha256 cellar: :any_skip_relocation, mojave:        "f8f1a14a4d3cbc359b741111b56f5c47d252946784501e934fbdc5f82cbd2ed8"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "4eca101481773e802431bc9fc264f5f2db309595d0faf0c02886a559c31baa91"
+    sha256 cellar: :any_skip_relocation, sierra:        "2fcf47332e070caed126fef2be0a1108a23e18a9d1ba80b6059b45a417af1b31"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "cf954ff293abbcaf8816c8142b5762ebe7601107f76530f6bab0edea71e2d609"
+    sha256 cellar: :any_skip_relocation, yosemite:      "2edfbc5f15001b1c4c08b26251a845533473a79bc2f387d3fd1d74751080cd1b"
+    sha256 cellar: :any_skip_relocation, mavericks:     "ce9c28238d1904b9d2c97da10fd7a6be0b1ceafde423311078dfac0bbe8a82dc"
   end
 
   def install

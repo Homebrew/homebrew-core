@@ -10,13 +10,12 @@ class Ttfautohint < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "6901a298ff9d9316c844dd856a6ee587b5d9fee3f8b60a3d0ac569c2cea1bed9" => :big_sur
-    sha256 "eff19e3d880697bc17c8094b8d0b5d3f8371817d1fb62ca752065d8e2e102c4e" => :arm64_big_sur
-    sha256 "542ada8a8e7deaa7fc3f14f2fec704b2570bec6baa07396a37ac7b6d280cfab6" => :catalina
-    sha256 "04ca530843887602e80fde17d24f4ed8e19d1248bd71c81c925c161770dbdf56" => :mojave
-    sha256 "a6573ae816a7555d62308759c2d64f9fb955ba056d856d904a522996ba0a0c83" => :high_sierra
-    sha256 "d45d8d85d3ffa162326ea8e2f63778f4fe583c41bc316c15c5a63b3625beb0ff" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "eff19e3d880697bc17c8094b8d0b5d3f8371817d1fb62ca752065d8e2e102c4e"
+    sha256 cellar: :any, big_sur:       "6901a298ff9d9316c844dd856a6ee587b5d9fee3f8b60a3d0ac569c2cea1bed9"
+    sha256 cellar: :any, catalina:      "542ada8a8e7deaa7fc3f14f2fec704b2570bec6baa07396a37ac7b6d280cfab6"
+    sha256 cellar: :any, mojave:        "04ca530843887602e80fde17d24f4ed8e19d1248bd71c81c925c161770dbdf56"
+    sha256 cellar: :any, high_sierra:   "a6573ae816a7555d62308759c2d64f9fb955ba056d856d904a522996ba0a0c83"
+    sha256 cellar: :any, sierra:        "d45d8d85d3ffa162326ea8e2f63778f4fe583c41bc316c15c5a63b3625beb0ff"
   end
 
   head do

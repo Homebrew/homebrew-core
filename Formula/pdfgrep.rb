@@ -7,11 +7,10 @@ class Pdfgrep < Formula
   revision 1
 
   bottle do
-    cellar :any
-    sha256 "b7260612ff09a200376d68241d4cb99a396b2be3fcc5820dd3600e1acb067c16" => :big_sur
-    sha256 "94f4fd04704afb89692d9b9a187e2d2e01e17ef272c0852be55e8db64227021f" => :arm64_big_sur
-    sha256 "0b1ba715232cf515e73c09a988fb3fed2e645ef478645dda96bcc19a86d7f1ef" => :catalina
-    sha256 "a34785b9b7b1cffd728cf48efe6ce7281fed47db331f0bea36fc8fd016ac8fa2" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "94f4fd04704afb89692d9b9a187e2d2e01e17ef272c0852be55e8db64227021f"
+    sha256 cellar: :any, big_sur:       "b7260612ff09a200376d68241d4cb99a396b2be3fcc5820dd3600e1acb067c16"
+    sha256 cellar: :any, catalina:      "0b1ba715232cf515e73c09a988fb3fed2e645ef478645dda96bcc19a86d7f1ef"
+    sha256 cellar: :any, mojave:        "a34785b9b7b1cffd728cf48efe6ce7281fed47db331f0bea36fc8fd016ac8fa2"
   end
 
   head do

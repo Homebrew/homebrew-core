@@ -9,11 +9,10 @@ class Psftools < Formula
   version_scheme 1
 
   bottle do
-    cellar :any
-    sha256 "42056401c680e3a2372f2b16c78936b6e06c1cb3f8125f1a7c0fff8d23372de9" => :big_sur
-    sha256 "474daee5c218ce90013ce498fa84dc5486bfdd1ff736535a87bd618fa72f3da9" => :arm64_big_sur
-    sha256 "ac3cc35325cd2b565044a9e864bbf4b3c2e34a39f46b267ae3fc753d63857a83" => :catalina
-    sha256 "8e53985d7a48b4f927d94ac27339ba7d293181b90fe33d05f22c71ff1e48c126" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "474daee5c218ce90013ce498fa84dc5486bfdd1ff736535a87bd618fa72f3da9"
+    sha256 cellar: :any, big_sur:       "42056401c680e3a2372f2b16c78936b6e06c1cb3f8125f1a7c0fff8d23372de9"
+    sha256 cellar: :any, catalina:      "ac3cc35325cd2b565044a9e864bbf4b3c2e34a39f46b267ae3fc753d63857a83"
+    sha256 cellar: :any, mojave:        "8e53985d7a48b4f927d94ac27339ba7d293181b90fe33d05f22c71ff1e48c126"
   end
 
   depends_on "autoconf" => :build

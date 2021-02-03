@@ -7,11 +7,10 @@ class Stormlib < Formula
   head "https://github.com/ladislav-zezula/StormLib.git"
 
   bottle do
-    cellar :any
-    sha256 "12177d76e3bac8c67baba52c812a855642e780624d7a75f1e826b10811de35b4" => :big_sur
-    sha256 "16d13a201008b0f6c145e80d28ced76f29af97dfcfce05d1bc2dac84ac0dba33" => :arm64_big_sur
-    sha256 "686a27d3793a4a80858f442d1feda9d5880e21e687c152067136b4bb27c6fa50" => :catalina
-    sha256 "0270b8a31bf89afd8a81a0b8e36f3a967e196f024a3900fdf24ef5ab1b26a422" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "16d13a201008b0f6c145e80d28ced76f29af97dfcfce05d1bc2dac84ac0dba33"
+    sha256 cellar: :any, big_sur:       "12177d76e3bac8c67baba52c812a855642e780624d7a75f1e826b10811de35b4"
+    sha256 cellar: :any, catalina:      "686a27d3793a4a80858f442d1feda9d5880e21e687c152067136b4bb27c6fa50"
+    sha256 cellar: :any, mojave:        "0270b8a31bf89afd8a81a0b8e36f3a967e196f024a3900fdf24ef5ab1b26a422"
   end
 
   depends_on "cmake" => :build

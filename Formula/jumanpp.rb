@@ -11,13 +11,13 @@ class Jumanpp < Formula
   end
 
   bottle do
-    sha256 "9c97f442fdad1ae3ab776ef16de98876db768134d50235e9ea683579fa8a85b7" => :big_sur
-    sha256 "4b2c208b0954536aa3f2b838a525e2542a547a192a03951c0f8a7f69c082a60d" => :catalina
-    sha256 "248e639859582dcf3613eb4eaf491e5ada0ed527e89595d6ba110219e8f8ab28" => :mojave
-    sha256 "87555f0efa065cd86d3344c8304972567d4b8a84ef1c0e53acb09afabbd1fa9e" => :high_sierra
-    sha256 "afddd3445d86fa1969611b413d0ae460fdaa7b106cdf5edf6ce0bf9d14689a49" => :sierra
-    sha256 "4b4dd5ca55ba7d380a9a6bc7dda462c3825aa8650e9dc6b131e53fadbf64dc63" => :el_capitan
-    sha256 "d53d25e49f4bd8cddd2657ee09eeaec56844996b10445c15561be1a12977a888" => :yosemite
+    sha256 big_sur:     "9c97f442fdad1ae3ab776ef16de98876db768134d50235e9ea683579fa8a85b7"
+    sha256 catalina:    "4b2c208b0954536aa3f2b838a525e2542a547a192a03951c0f8a7f69c082a60d"
+    sha256 mojave:      "248e639859582dcf3613eb4eaf491e5ada0ed527e89595d6ba110219e8f8ab28"
+    sha256 high_sierra: "87555f0efa065cd86d3344c8304972567d4b8a84ef1c0e53acb09afabbd1fa9e"
+    sha256 sierra:      "afddd3445d86fa1969611b413d0ae460fdaa7b106cdf5edf6ce0bf9d14689a49"
+    sha256 el_capitan:  "4b4dd5ca55ba7d380a9a6bc7dda462c3825aa8650e9dc6b131e53fadbf64dc63"
+    sha256 yosemite:    "d53d25e49f4bd8cddd2657ee09eeaec56844996b10445c15561be1a12977a888"
   end
 
   depends_on "boost-build" => :build

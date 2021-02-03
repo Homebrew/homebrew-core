@@ -8,9 +8,9 @@ class Buildapp < Formula
   head "https://github.com/xach/buildapp.git"
 
   bottle do
-    sha256 "55bb441ef8f0eed0e698f246541dcf874bbe652de2897d9deb89a2999c2c239b" => :big_sur
-    sha256 "631fa946cd687d3cc593fa43e489c96814de75fc6b98adebf11258d1f2043bd5" => :catalina
-    sha256 "607c7238095cd1da76f2439679ed77ec4467649febfbbf99a24aefe0f23616b9" => :mojave
+    sha256 big_sur:  "55bb441ef8f0eed0e698f246541dcf874bbe652de2897d9deb89a2999c2c239b"
+    sha256 catalina: "631fa946cd687d3cc593fa43e489c96814de75fc6b98adebf11258d1f2043bd5"
+    sha256 mojave:   "607c7238095cd1da76f2439679ed77ec4467649febfbbf99a24aefe0f23616b9"
   end
 
   depends_on "sbcl"

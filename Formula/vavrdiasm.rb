@@ -6,14 +6,13 @@ class Vavrdiasm < Formula
   license "GPL-3.0-only"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "eada6923268ecfe690323de3bafddda5d177cac56ba0f30cf426d015b5b9e538" => :catalina
-    sha256 "5b0c0f8ae850c12118808020420ed94d9c7b221f1bb64ec81fe5553b089424e4" => :mojave
-    sha256 "14295cb0db6aa3259a2b1e2c8ba020fee253804135aea259695ac00bdd906764" => :high_sierra
-    sha256 "c04a9755b9f2e15fa512fdb08d28b95b8cf0304287f3a7930975b4ad75417fcf" => :sierra
-    sha256 "0671b1062a86e8d596a9f404fd843cb37d6d2d1bb28ebb2b8a8f6cbdd763c97c" => :el_capitan
-    sha256 "ce57062586ca9cb91290141376f1da1f5de3c6efb6fe4687585a3e64cc29c014" => :yosemite
-    sha256 "f881c5a6d94581c4fc9efb13118c84c40700f13d130302f6ee4cb16968d1f6b0" => :mavericks
+    sha256 cellar: :any_skip_relocation, catalina:    "eada6923268ecfe690323de3bafddda5d177cac56ba0f30cf426d015b5b9e538"
+    sha256 cellar: :any_skip_relocation, mojave:      "5b0c0f8ae850c12118808020420ed94d9c7b221f1bb64ec81fe5553b089424e4"
+    sha256 cellar: :any_skip_relocation, high_sierra: "14295cb0db6aa3259a2b1e2c8ba020fee253804135aea259695ac00bdd906764"
+    sha256 cellar: :any_skip_relocation, sierra:      "c04a9755b9f2e15fa512fdb08d28b95b8cf0304287f3a7930975b4ad75417fcf"
+    sha256 cellar: :any_skip_relocation, el_capitan:  "0671b1062a86e8d596a9f404fd843cb37d6d2d1bb28ebb2b8a8f6cbdd763c97c"
+    sha256 cellar: :any_skip_relocation, yosemite:    "ce57062586ca9cb91290141376f1da1f5de3c6efb6fe4687585a3e64cc29c014"
+    sha256 cellar: :any_skip_relocation, mavericks:   "f881c5a6d94581c4fc9efb13118c84c40700f13d130302f6ee4cb16968d1f6b0"
   end
 
   disable! date: "2020-09-17", because: :unmaintained

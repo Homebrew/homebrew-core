@@ -6,12 +6,11 @@ class CollectorSidecar < Formula
   license "GPL-3.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "97d315acbbfc684f6adfbb6f4061875fb8e2ada7adb75e04c3cb5e8295b63e5d" => :big_sur
-    sha256 "a246ba4b742f4813ea11488b1b958806d0852af192381b686326d28339651014" => :catalina
-    sha256 "c5df7e3fe89d27da283cba2d44c8d9bfd4edd686167b8d4acf0c6f0387154fef" => :mojave
-    sha256 "267c985605ca057bff286bc111fc6ac84dfc0d4bb391da19c044ddef381c7a74" => :high_sierra
-    sha256 "6e09f805d30b96d2650a6541fddbda8a55d6ef74d7de7e96c642df5d2cd7d18b" => :sierra
+    sha256 cellar: :any_skip_relocation, big_sur:     "97d315acbbfc684f6adfbb6f4061875fb8e2ada7adb75e04c3cb5e8295b63e5d"
+    sha256 cellar: :any_skip_relocation, catalina:    "a246ba4b742f4813ea11488b1b958806d0852af192381b686326d28339651014"
+    sha256 cellar: :any_skip_relocation, mojave:      "c5df7e3fe89d27da283cba2d44c8d9bfd4edd686167b8d4acf0c6f0387154fef"
+    sha256 cellar: :any_skip_relocation, high_sierra: "267c985605ca057bff286bc111fc6ac84dfc0d4bb391da19c044ddef381c7a74"
+    sha256 cellar: :any_skip_relocation, sierra:      "6e09f805d30b96d2650a6541fddbda8a55d6ef74d7de7e96c642df5d2cd7d18b"
   end
 
   depends_on "glide" => :build

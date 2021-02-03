@@ -6,10 +6,9 @@ class Hyperscan < Formula
   license "BSD-3-Clause"
 
   bottle do
-    cellar :any
-    sha256 "1e75b4699ac1040d24cbe81ddae60149be7179e09f450840bdcbe5fd0e4582dc" => :big_sur
-    sha256 "2c5afe9775aad01d1bfb577cb80218bdf241c48d5b567ad85fe6bba68241c8d3" => :catalina
-    sha256 "0564db4adcb7022d1691f482d12fdf3a2c0ea71079a749c90f2233340aebb98e" => :mojave
+    sha256 cellar: :any, big_sur:  "1e75b4699ac1040d24cbe81ddae60149be7179e09f450840bdcbe5fd0e4582dc"
+    sha256 cellar: :any, catalina: "2c5afe9775aad01d1bfb577cb80218bdf241c48d5b567ad85fe6bba68241c8d3"
+    sha256 cellar: :any, mojave:   "0564db4adcb7022d1691f482d12fdf3a2c0ea71079a749c90f2233340aebb98e"
   end
 
   depends_on "boost" => :build

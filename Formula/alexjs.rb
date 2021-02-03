@@ -8,12 +8,11 @@ class Alexjs < Formula
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "1102acddac4146addf4d4b59ac66bf5d5d57b2badabfe9038c286ab5660c63f6" => :big_sur
-    sha256 "1869fa035c9ce8179295d3cd697c8abfbc72a5fefc81d12ce0c047bf4db64eae" => :arm64_big_sur
-    sha256 "e37814ad3315475e5484cc5c334089213a023ea443ccb2207702b8667f3e1a0e" => :catalina
-    sha256 "7c2d9fedf79264bd59e73b7f062512e03afdd1e6a66152c233996471636549f1" => :mojave
-    sha256 "462578faccc1fd6ba5df072a50c90c28522067e6cbba84a3b6a6dfa29c7a2eaf" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1869fa035c9ce8179295d3cd697c8abfbc72a5fefc81d12ce0c047bf4db64eae"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1102acddac4146addf4d4b59ac66bf5d5d57b2badabfe9038c286ab5660c63f6"
+    sha256 cellar: :any_skip_relocation, catalina:      "e37814ad3315475e5484cc5c334089213a023ea443ccb2207702b8667f3e1a0e"
+    sha256 cellar: :any_skip_relocation, mojave:        "7c2d9fedf79264bd59e73b7f062512e03afdd1e6a66152c233996471636549f1"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "462578faccc1fd6ba5df072a50c90c28522067e6cbba84a3b6a6dfa29c7a2eaf"
   end
 
   depends_on "node"

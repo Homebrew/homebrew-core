@@ -14,12 +14,11 @@ class Scour < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "a38cf4f698ba7237dc73aa677713794e8883d7c8618960ef70b951240a0c8dea" => :big_sur
-    sha256 "4530f553f087c0f15ce5119f60efd33d39ef42105678874bc2316ab4f5910fe4" => :arm64_big_sur
-    sha256 "b2877da612f4182fe695b2bb925d9af530aae2927c0a02cb2a4a37cde04df5d1" => :catalina
-    sha256 "d5c972cf38a4e907d47f6cd2c1b0c5a89d87483e8a7c78bd45465fcb9b5bfc23" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4530f553f087c0f15ce5119f60efd33d39ef42105678874bc2316ab4f5910fe4"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a38cf4f698ba7237dc73aa677713794e8883d7c8618960ef70b951240a0c8dea"
+    sha256 cellar: :any_skip_relocation, catalina:      "b2877da612f4182fe695b2bb925d9af530aae2927c0a02cb2a4a37cde04df5d1"
+    sha256 cellar: :any_skip_relocation, mojave:        "d5c972cf38a4e907d47f6cd2c1b0c5a89d87483e8a7c78bd45465fcb9b5bfc23"
   end
 
   depends_on "python@3.9"

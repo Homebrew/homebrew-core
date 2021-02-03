@@ -12,11 +12,10 @@ class Qscintilla2 < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "3fb749e627e819fab00681faf62d46f2cf796e646ad4a0bc312322e6472c1919" => :big_sur
-    sha256 "9550210145964f8fc695cc754be7cc49a1021cb745e8220f27303c6092694a92" => :arm64_big_sur
-    sha256 "2190099d2eea41edb52044c085e22dfe7febb504e0ac2a98665e559488cc96a2" => :catalina
-    sha256 "b33ca58c5d08b150054ee0d4d0b4a5cee2e3a796791efe439ddee26ee8b82281" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "9550210145964f8fc695cc754be7cc49a1021cb745e8220f27303c6092694a92"
+    sha256 cellar: :any, big_sur:       "3fb749e627e819fab00681faf62d46f2cf796e646ad4a0bc312322e6472c1919"
+    sha256 cellar: :any, catalina:      "2190099d2eea41edb52044c085e22dfe7febb504e0ac2a98665e559488cc96a2"
+    sha256 cellar: :any, mojave:        "b33ca58c5d08b150054ee0d4d0b4a5cee2e3a796791efe439ddee26ee8b82281"
   end
 
   depends_on "pyqt"

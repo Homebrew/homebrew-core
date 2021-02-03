@@ -7,10 +7,9 @@ class Yeti < Formula
   head "https://github.com/mth/yeti.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "4c352083ddfbf202777d4f8d52895ac2bcb556fd5cc2fc1f820a48bb773b823f" => :catalina
-    sha256 "9dffa6798409e7d40acf301547dc8508547331922eaa1b7365a0b04e020ae90f" => :mojave
-    sha256 "1c49573337d0ca872a060038e3c7e5496d02b025e442c062314d98a786ab708a" => :high_sierra
+    sha256 cellar: :any_skip_relocation, catalina:    "4c352083ddfbf202777d4f8d52895ac2bcb556fd5cc2fc1f820a48bb773b823f"
+    sha256 cellar: :any_skip_relocation, mojave:      "9dffa6798409e7d40acf301547dc8508547331922eaa1b7365a0b04e020ae90f"
+    sha256 cellar: :any_skip_relocation, high_sierra: "1c49573337d0ca872a060038e3c7e5496d02b025e442c062314d98a786ab708a"
   end
 
   deprecate! date: "2020-11-13", because: :does_not_build

@@ -11,10 +11,10 @@ class Numpy < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur: "c895ef9d14059a356a2dfae2ba5767c80b57c2d0870d3e49b237fd1fe74ed8bc"
     sha256 cellar: :any, arm64_big_sur: "d653b20e1e60d22b4329777ff588cd243dc6a0c7322f4750598392b982701da5"
-    sha256 cellar: :any, catalina: "1bcde495293cded6f3cb0842659e4b29da1f3a7b91fe4d33f9dc5e48477b2cbe"
-    sha256 cellar: :any, mojave: "8bfdca09abae9fb6d8a133f4b7ce2342e177ed4f50aab0cd6a78c32de1876038"
+    sha256 cellar: :any, big_sur:       "c895ef9d14059a356a2dfae2ba5767c80b57c2d0870d3e49b237fd1fe74ed8bc"
+    sha256 cellar: :any, catalina:      "1bcde495293cded6f3cb0842659e4b29da1f3a7b91fe4d33f9dc5e48477b2cbe"
+    sha256 cellar: :any, mojave:        "8bfdca09abae9fb6d8a133f4b7ce2342e177ed4f50aab0cd6a78c32de1876038"
   end
 
   depends_on "cython" => :build

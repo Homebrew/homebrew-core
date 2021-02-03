@@ -13,9 +13,9 @@ class Coq < Formula
 
   bottle do
     rebuild 1
-    sha256 "7dd6076443266eac49ec08a6dfa21e87bc5ca4078c9f437a5332f1608850feca" => :big_sur
-    sha256 "efa50a3b7b3e835905f814c8de3a8ec05348f5039387ec0ec615c034e92b985e" => :catalina
-    sha256 "201e0b61e6a02145c3afa3083cdf7b05fe270306317eedeaa35a27e8d8470445" => :mojave
+    sha256 big_sur:  "7dd6076443266eac49ec08a6dfa21e87bc5ca4078c9f437a5332f1608850feca"
+    sha256 catalina: "efa50a3b7b3e835905f814c8de3a8ec05348f5039387ec0ec615c034e92b985e"
+    sha256 mojave:   "201e0b61e6a02145c3afa3083cdf7b05fe270306317eedeaa35a27e8d8470445"
   end
 
   depends_on "ocaml-findlib" => :build

@@ -14,12 +14,11 @@ class GitRevise < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 2
-    sha256 "ba6785e053fa42ad4c59008fff7c72b251e4f4ec106f81fd542603d708bb1ff4" => :big_sur
-    sha256 "b4be5a6878b064979ad4ac52cdad2a4d98b344809bde0ead1a7e91370fdc2ed6" => :arm64_big_sur
-    sha256 "4ecd0d9a33b6d44e4eaa58947893060e01dad9d7e1b67603db6af4cc4a870f43" => :catalina
-    sha256 "2936f4b4f42ffe81269c28181e79ff04631748e2cb3a0d164aadcfd196b9d228" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b4be5a6878b064979ad4ac52cdad2a4d98b344809bde0ead1a7e91370fdc2ed6"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ba6785e053fa42ad4c59008fff7c72b251e4f4ec106f81fd542603d708bb1ff4"
+    sha256 cellar: :any_skip_relocation, catalina:      "4ecd0d9a33b6d44e4eaa58947893060e01dad9d7e1b67603db6af4cc4a870f43"
+    sha256 cellar: :any_skip_relocation, mojave:        "2936f4b4f42ffe81269c28181e79ff04631748e2cb3a0d164aadcfd196b9d228"
   end
 
   depends_on "python@3.9"

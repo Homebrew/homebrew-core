@@ -6,12 +6,11 @@ class DarkskyWeather < Formula
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "af8fc6e9a4a4ed68bd19daabdce01d846f4e8d88028bccca8c9bec090cf53e29" => :big_sur
-    sha256 "d21740455ddc5db0a56e33e5f96dd7248d46b680414f5cff834faf3fb670b618" => :arm64_big_sur
-    sha256 "736015c107e06e6251e4007ebc838addfe37ad6fa32683c05fb89be3d1b800f6" => :catalina
-    sha256 "a38cef91ca53c2d452353cf3a15198b9946b67e7b601627b5e414359d23fa559" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d21740455ddc5db0a56e33e5f96dd7248d46b680414f5cff834faf3fb670b618"
+    sha256 cellar: :any_skip_relocation, big_sur:       "af8fc6e9a4a4ed68bd19daabdce01d846f4e8d88028bccca8c9bec090cf53e29"
+    sha256 cellar: :any_skip_relocation, catalina:      "736015c107e06e6251e4007ebc838addfe37ad6fa32683c05fb89be3d1b800f6"
+    sha256 cellar: :any_skip_relocation, mojave:        "a38cef91ca53c2d452353cf3a15198b9946b67e7b601627b5e414359d23fa559"
   end
 
   depends_on "go" => :build

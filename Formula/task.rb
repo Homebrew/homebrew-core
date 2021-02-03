@@ -12,10 +12,10 @@ class Task < Formula
   end
 
   bottle do
-    sha256 "13cbe306b15eda0b1a2edd707f3c1e2a18759bfa2613a4a5909f5945c7ac367c" => :big_sur
-    sha256 "188f5f1a5dda2cff99e1adf0be22980f5cfa72b3dbffdbef8d9648e65ce23641" => :arm64_big_sur
-    sha256 "6b15062cfa4e67ba49cd6bcb88a1be453e49b86f4ab680acb171fe98e01e256b" => :catalina
-    sha256 "8ea578cb22e2a379478111ca18c735482c264a46d3733a866cfc959ce344c4f4" => :mojave
+    sha256 arm64_big_sur: "188f5f1a5dda2cff99e1adf0be22980f5cfa72b3dbffdbef8d9648e65ce23641"
+    sha256 big_sur:       "13cbe306b15eda0b1a2edd707f3c1e2a18759bfa2613a4a5909f5945c7ac367c"
+    sha256 catalina:      "6b15062cfa4e67ba49cd6bcb88a1be453e49b86f4ab680acb171fe98e01e256b"
+    sha256 mojave:        "8ea578cb22e2a379478111ca18c735482c264a46d3733a866cfc959ce344c4f4"
   end
 
   depends_on "cmake" => :build

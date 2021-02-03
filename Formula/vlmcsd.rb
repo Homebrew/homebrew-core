@@ -13,12 +13,11 @@ class Vlmcsd < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "db9dac6f35e4d788365c03ba7163b011b1739e3db5f484b22d4351439e878f0f" => :big_sur
-    sha256 "14b28cda0a196fbb180ad8369632d45c36da857ac7515818209b696aa58bb57f" => :arm64_big_sur
-    sha256 "ec02827a4a07215d0b3b5a4d06a8a0f811ddac4ab78a877a3248edc3021593b5" => :catalina
-    sha256 "7ba71a7fb0a00bf5f654f324d00e93f431d25c40455dd0bcda19edc23b8de945" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "14b28cda0a196fbb180ad8369632d45c36da857ac7515818209b696aa58bb57f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "db9dac6f35e4d788365c03ba7163b011b1739e3db5f484b22d4351439e878f0f"
+    sha256 cellar: :any_skip_relocation, catalina:      "ec02827a4a07215d0b3b5a4d06a8a0f811ddac4ab78a877a3248edc3021593b5"
+    sha256 cellar: :any_skip_relocation, mojave:        "7ba71a7fb0a00bf5f654f324d00e93f431d25c40455dd0bcda19edc23b8de945"
   end
 
   uses_from_macos "llvm" => :build

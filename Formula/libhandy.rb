@@ -7,10 +7,10 @@ class Libhandy < Formula
 
   bottle do
     rebuild 1
-    sha256 "345f63e90c49fe053004aa1c021f64870a32ce5f4135216a79ffb73316507ac4" => :big_sur
-    sha256 "0e681a1a839b0f6f0fc1225b1de04ff42dd4df7348f909a4988e7361ecfe7696" => :arm64_big_sur
-    sha256 "2a66bed54e09fe13040e883ee14c71e1525b07ff8877e4464373c92d724609bd" => :catalina
-    sha256 "830f6473abcf0fd5465e0306d47a69442d3a8b6ec5c5db80c279395bf7b01038" => :mojave
+    sha256 arm64_big_sur: "0e681a1a839b0f6f0fc1225b1de04ff42dd4df7348f909a4988e7361ecfe7696"
+    sha256 big_sur:       "345f63e90c49fe053004aa1c021f64870a32ce5f4135216a79ffb73316507ac4"
+    sha256 catalina:      "2a66bed54e09fe13040e883ee14c71e1525b07ff8877e4464373c92d724609bd"
+    sha256 mojave:        "830f6473abcf0fd5465e0306d47a69442d3a8b6ec5c5db80c279395bf7b01038"
   end
 
   # NOTE: The glade catalog is disabled due to a bug that has been fixed but

@@ -7,12 +7,11 @@ class Blitz < Formula
   head "https://github.com/blitzpp/blitz.git"
 
   bottle do
-    cellar :any
-    sha256 "eaf888ad2387b3aabccdc8ba82104b942dfa91b058b335449a7bdeb26213ce7d" => :big_sur
-    sha256 "0b04264665a05ca8b018a1f9b8e7452297d675b5bb5b50f49af2dd5176de462e" => :arm64_big_sur
-    sha256 "2bfa3e5a52f0f51e9e02c84f10f804093b7080c158b3376f330dd51c0f9e3d23" => :catalina
-    sha256 "a06052c039592fe7b41face9c72d715ba0602456a9df07a40a472d3ceba02c00" => :mojave
-    sha256 "79901f790ea3583942a72ababfba3dc6569169f228b0428c047da52f1f99c02d" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "0b04264665a05ca8b018a1f9b8e7452297d675b5bb5b50f49af2dd5176de462e"
+    sha256 cellar: :any, big_sur:       "eaf888ad2387b3aabccdc8ba82104b942dfa91b058b335449a7bdeb26213ce7d"
+    sha256 cellar: :any, catalina:      "2bfa3e5a52f0f51e9e02c84f10f804093b7080c158b3376f330dd51c0f9e3d23"
+    sha256 cellar: :any, mojave:        "a06052c039592fe7b41face9c72d715ba0602456a9df07a40a472d3ceba02c00"
+    sha256 cellar: :any, high_sierra:   "79901f790ea3583942a72ababfba3dc6569169f228b0428c047da52f1f99c02d"
   end
 
   depends_on "cmake" => :build

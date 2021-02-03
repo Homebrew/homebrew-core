@@ -7,12 +7,11 @@ class DockerCredentialHelper < Formula
   head "https://github.com/docker/docker-credential-helpers.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "eacf170b769cf42b4ca6f916a66436abf6b2860d56c1086542503f25819353da" => :big_sur
-    sha256 "6b29ba43b81fd4cbd72defa6c9ed49d730b520555b2d5dd16e35c4da2835896d" => :catalina
-    sha256 "a4553f6ca40dd3c012a0ddc910b7ceb4b819ee89d1366613c9205f356f5a2a69" => :mojave
-    sha256 "71b6622a61da363350ca6065c5683a7a157b4ec404c8e11f66752ac2f0e09063" => :high_sierra
-    sha256 "3810d91647e6385bb9d57da3c800d1107603551285a94643f0d530bb63821a2d" => :sierra
+    sha256 cellar: :any_skip_relocation, big_sur:     "eacf170b769cf42b4ca6f916a66436abf6b2860d56c1086542503f25819353da"
+    sha256 cellar: :any_skip_relocation, catalina:    "6b29ba43b81fd4cbd72defa6c9ed49d730b520555b2d5dd16e35c4da2835896d"
+    sha256 cellar: :any_skip_relocation, mojave:      "a4553f6ca40dd3c012a0ddc910b7ceb4b819ee89d1366613c9205f356f5a2a69"
+    sha256 cellar: :any_skip_relocation, high_sierra: "71b6622a61da363350ca6065c5683a7a157b4ec404c8e11f66752ac2f0e09063"
+    sha256 cellar: :any_skip_relocation, sierra:      "3810d91647e6385bb9d57da3c800d1107603551285a94643f0d530bb63821a2d"
   end
 
   depends_on "go" => :build

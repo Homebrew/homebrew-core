@@ -6,16 +6,15 @@ class Clamz < Formula
   revision 1
 
   bottle do
-    cellar :any
-    sha256 "d7f6f8dc57d5498a54cd78356bc3097aa713a9000e876a6d3aaa12a10540d9d4" => :big_sur
-    sha256 "865348260858f74e779a47308f521ad54168b7a5d521313993a5f7f28fa53f44" => :arm64_big_sur
-    sha256 "6dc5a22ec8b190b91bc3e825a23063f6096f447ed24cabf6d5bcb19da8ef58f3" => :catalina
-    sha256 "031520225192a8498bc21a4e69c539ea0811ed2773b7085ecf1e10b502f648de" => :mojave
-    sha256 "0a0d293bb616f176c756c402b9d5d7528e42caa1767374d45b721b5a2e82094d" => :high_sierra
-    sha256 "fd35e22d601781e32cf9c5264f351c989d732d0a516617e3431522fef55bde61" => :sierra
-    sha256 "b960106e00e01e4dd8ff259feab6e0a1e399d373aa79d2b5d622f2ccf6f1e41b" => :el_capitan
-    sha256 "e0ba09e61f28b4d224f20b0922277b849bff48ce8c7738e8d22fe1a514d56fe2" => :yosemite
-    sha256 "70f9f355c7f53a6201b5e175dbc6db9b1f8b275327250a1e70e06d5c139c2a53" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "865348260858f74e779a47308f521ad54168b7a5d521313993a5f7f28fa53f44"
+    sha256 cellar: :any, big_sur:       "d7f6f8dc57d5498a54cd78356bc3097aa713a9000e876a6d3aaa12a10540d9d4"
+    sha256 cellar: :any, catalina:      "6dc5a22ec8b190b91bc3e825a23063f6096f447ed24cabf6d5bcb19da8ef58f3"
+    sha256 cellar: :any, mojave:        "031520225192a8498bc21a4e69c539ea0811ed2773b7085ecf1e10b502f648de"
+    sha256 cellar: :any, high_sierra:   "0a0d293bb616f176c756c402b9d5d7528e42caa1767374d45b721b5a2e82094d"
+    sha256 cellar: :any, sierra:        "fd35e22d601781e32cf9c5264f351c989d732d0a516617e3431522fef55bde61"
+    sha256 cellar: :any, el_capitan:    "b960106e00e01e4dd8ff259feab6e0a1e399d373aa79d2b5d622f2ccf6f1e41b"
+    sha256 cellar: :any, yosemite:      "e0ba09e61f28b4d224f20b0922277b849bff48ce8c7738e8d22fe1a514d56fe2"
+    sha256 cellar: :any, mavericks:     "70f9f355c7f53a6201b5e175dbc6db9b1f8b275327250a1e70e06d5c139c2a53"
   end
 
   depends_on "pkg-config" => :build

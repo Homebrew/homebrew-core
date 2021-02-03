@@ -11,12 +11,11 @@ class Libtrng < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "8eff7623b750819d2bc64e993601623805898bc279b0790841485e4c089735cb" => :big_sur
-    sha256 "fbf1971402ee149d4a60e6dec96a2c44ca500871848e0a5bd4974ce4f8b11369" => :arm64_big_sur
-    sha256 "b0e5af117a32d265de30662de4d7ef61e412853f262949e86ac1ff91dfd69875" => :catalina
-    sha256 "4b753374a4fb6305e417ea5d89237f6e62b47b8c9e2c034c76e26475184de48c" => :mojave
-    sha256 "4f269f561d5b8b692189e90cba163578ad68b2fa83a84660d8da4d367c4a2e93" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "fbf1971402ee149d4a60e6dec96a2c44ca500871848e0a5bd4974ce4f8b11369"
+    sha256 cellar: :any, big_sur:       "8eff7623b750819d2bc64e993601623805898bc279b0790841485e4c089735cb"
+    sha256 cellar: :any, catalina:      "b0e5af117a32d265de30662de4d7ef61e412853f262949e86ac1ff91dfd69875"
+    sha256 cellar: :any, mojave:        "4b753374a4fb6305e417ea5d89237f6e62b47b8c9e2c034c76e26475184de48c"
+    sha256 cellar: :any, high_sierra:   "4f269f561d5b8b692189e90cba163578ad68b2fa83a84660d8da4d367c4a2e93"
   end
 
   depends_on "cmake" => :build

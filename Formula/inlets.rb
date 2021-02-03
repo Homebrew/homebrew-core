@@ -13,10 +13,10 @@ class Inlets < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur: "4c89bedf66827ec3d8247a195a997de7bd7df075ae78cc74c1af408b4a6c3d49"
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "7e8c975df59151c14040f9188c727667309c93025f92ea9ef2caac82515af64a"
-    sha256 cellar: :any_skip_relocation, catalina: "2a0d9aa35bd843b2ed9773cee4b7b05c02b21cbcb78b085bb1c73363dc8a8ec4"
-    sha256 cellar: :any_skip_relocation, mojave: "b1c8a139e4d6f18c666d7f6380bfad18ea3d8836c6aa394c5026e1e872840225"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4c89bedf66827ec3d8247a195a997de7bd7df075ae78cc74c1af408b4a6c3d49"
+    sha256 cellar: :any_skip_relocation, catalina:      "2a0d9aa35bd843b2ed9773cee4b7b05c02b21cbcb78b085bb1c73363dc8a8ec4"
+    sha256 cellar: :any_skip_relocation, mojave:        "b1c8a139e4d6f18c666d7f6380bfad18ea3d8836c6aa394c5026e1e872840225"
   end
 
   depends_on "go" => :build

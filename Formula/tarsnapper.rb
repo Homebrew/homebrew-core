@@ -8,12 +8,11 @@ class Tarsnapper < Formula
   license "BSD-2-Clause"
 
   bottle do
-    cellar :any
-    sha256 "bc6193b16d969dd37047b726cf50a243ec08f2f015b85bda59acfd9ec18c9451" => :big_sur
-    sha256 "507902249b2fe7c3f13b11ce669e12ed78253276e5c37f748922455126dff5cd" => :arm64_big_sur
-    sha256 "fce1d4069e55c05f40ec638e27e4b064ae5ed72854b8ddd13268d6baf735cd95" => :catalina
-    sha256 "aba5962a85058b3468e224b15d0c8f294ba4472f1b29c5d1072c64fc6c6a104b" => :mojave
-    sha256 "810a32cba365609ed7d28dd52d2f68aaded70deccde209849db5be49a3662e68" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "507902249b2fe7c3f13b11ce669e12ed78253276e5c37f748922455126dff5cd"
+    sha256 cellar: :any, big_sur:       "bc6193b16d969dd37047b726cf50a243ec08f2f015b85bda59acfd9ec18c9451"
+    sha256 cellar: :any, catalina:      "fce1d4069e55c05f40ec638e27e4b064ae5ed72854b8ddd13268d6baf735cd95"
+    sha256 cellar: :any, mojave:        "aba5962a85058b3468e224b15d0c8f294ba4472f1b29c5d1072c64fc6c6a104b"
+    sha256 cellar: :any, high_sierra:   "810a32cba365609ed7d28dd52d2f68aaded70deccde209849db5be49a3662e68"
   end
 
   depends_on "libyaml"

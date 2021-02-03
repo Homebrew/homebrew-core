@@ -12,12 +12,11 @@ class Jbig2dec < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "44aa9639d58ac2e176c37538c3fe652e077bcbf82264b756b4ba9db041e9273c" => :big_sur
-    sha256 "696d6862655e2919c4a6b1455923c2c26b3b9da7968aa2a6f6c0b544d10556f0" => :arm64_big_sur
-    sha256 "7e70d2b2472b4116d1f98b7518f124067dbfa8e4d3d73b552af38440e7770bdd" => :catalina
-    sha256 "d02d163a886d1f3a9e1af50418ed2f19f66981b44a58f3228b3580f585929ee4" => :mojave
-    sha256 "8ec515805d2fab8f4db3b27afba0363428f341bb16fbda7d2708ef44fffc5285" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "696d6862655e2919c4a6b1455923c2c26b3b9da7968aa2a6f6c0b544d10556f0"
+    sha256 cellar: :any, big_sur:       "44aa9639d58ac2e176c37538c3fe652e077bcbf82264b756b4ba9db041e9273c"
+    sha256 cellar: :any, catalina:      "7e70d2b2472b4116d1f98b7518f124067dbfa8e4d3d73b552af38440e7770bdd"
+    sha256 cellar: :any, mojave:        "d02d163a886d1f3a9e1af50418ed2f19f66981b44a58f3228b3580f585929ee4"
+    sha256 cellar: :any, high_sierra:   "8ec515805d2fab8f4db3b27afba0363428f341bb16fbda7d2708ef44fffc5285"
   end
 
   depends_on "autoconf" => :build

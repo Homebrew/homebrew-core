@@ -13,11 +13,10 @@ class Ott < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "b1b1f04443bb7645a23898cb98a1308ebbf3033b2d9054e027ed59b722d6850b" => :big_sur
-    sha256 "22f441ac37e494c9b667838b43e87f820dcf2fe090c4794db7eb0cc3cbd514a6" => :catalina
-    sha256 "7f4274253521ef41f38b674247906a6f9567dce515c80a5150111a1da0dc5caf" => :mojave
-    sha256 "a59bb92116efa3e1b7c13da59a95dd7ad7a2618c6efc4b09d74a59001478bde5" => :high_sierra
+    sha256 cellar: :any_skip_relocation, big_sur:     "b1b1f04443bb7645a23898cb98a1308ebbf3033b2d9054e027ed59b722d6850b"
+    sha256 cellar: :any_skip_relocation, catalina:    "22f441ac37e494c9b667838b43e87f820dcf2fe090c4794db7eb0cc3cbd514a6"
+    sha256 cellar: :any_skip_relocation, mojave:      "7f4274253521ef41f38b674247906a6f9567dce515c80a5150111a1da0dc5caf"
+    sha256 cellar: :any_skip_relocation, high_sierra: "a59bb92116efa3e1b7c13da59a95dd7ad7a2618c6efc4b09d74a59001478bde5"
   end
 
   depends_on "ocaml" => :build

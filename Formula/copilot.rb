@@ -10,11 +10,10 @@ class Copilot < Formula
   head "https://github.com/aws/copilot-cli.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "128866c9e4a1dce2ac3d49f87dc026bbddefa9f9ee260fa5a39b208a90ebf4fb" => :big_sur
-    sha256 "664cf1610f1ac05932f66f3913deb9a843d5bf88a9a64f92994b64e358035f80" => :arm64_big_sur
-    sha256 "6cf8a375a9f0bf5b9bf8edb25f0a3f30b02fa6731820e4fa3ece2cccb9114150" => :catalina
-    sha256 "70d65858a244d54eda5e2860ef2183f82c154346258cccac9416859ba56214cf" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "664cf1610f1ac05932f66f3913deb9a843d5bf88a9a64f92994b64e358035f80"
+    sha256 cellar: :any_skip_relocation, big_sur:       "128866c9e4a1dce2ac3d49f87dc026bbddefa9f9ee260fa5a39b208a90ebf4fb"
+    sha256 cellar: :any_skip_relocation, catalina:      "6cf8a375a9f0bf5b9bf8edb25f0a3f30b02fa6731820e4fa3ece2cccb9114150"
+    sha256 cellar: :any_skip_relocation, mojave:        "70d65858a244d54eda5e2860ef2183f82c154346258cccac9416859ba56214cf"
   end
 
   depends_on "go" => :build

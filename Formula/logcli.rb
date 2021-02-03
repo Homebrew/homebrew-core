@@ -6,11 +6,10 @@ class Logcli < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c00781eb4b3e730f5adbc1761e3ef026200b7ef7009c052c2e745af71006c817" => :big_sur
-    sha256 "08ac07823aeb4f80e1f634fdf344603d6450c8433f37cf0f646021839c5114f8" => :arm64_big_sur
-    sha256 "4e1718a506115656753253f0795a22378ee3d0fa691e1fdd38334f6c1604d304" => :catalina
-    sha256 "16c60bb03516466f2933aaac781a2a951120250caf03dd99fa27b2b214c03cc0" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "08ac07823aeb4f80e1f634fdf344603d6450c8433f37cf0f646021839c5114f8"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c00781eb4b3e730f5adbc1761e3ef026200b7ef7009c052c2e745af71006c817"
+    sha256 cellar: :any_skip_relocation, catalina:      "4e1718a506115656753253f0795a22378ee3d0fa691e1fdd38334f6c1604d304"
+    sha256 cellar: :any_skip_relocation, mojave:        "16c60bb03516466f2933aaac781a2a951120250caf03dd99fa27b2b214c03cc0"
   end
 
   depends_on "go" => :build

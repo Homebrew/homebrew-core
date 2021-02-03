@@ -8,11 +8,10 @@ class Ykdl < Formula
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "39f6e7ed8a11ec0a6eab3cb3e3236d261aa2490fc9e5697c75ecfc37ae33bead" => :big_sur
-    sha256 "b5b6fcdfe59c2296f42ae8f2f0a634bba9d952a3d7af4b411a2fc8a238cc112c" => :arm64_big_sur
-    sha256 "797ce1b9f6002a6153019355f957013c078fbe3a36a709293b32a717ff78c30d" => :catalina
-    sha256 "163c3593145fc6f85b00be215f20c5393219147af348c4c90dc34c942e5966f4" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b5b6fcdfe59c2296f42ae8f2f0a634bba9d952a3d7af4b411a2fc8a238cc112c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "39f6e7ed8a11ec0a6eab3cb3e3236d261aa2490fc9e5697c75ecfc37ae33bead"
+    sha256 cellar: :any_skip_relocation, catalina:      "797ce1b9f6002a6153019355f957013c078fbe3a36a709293b32a717ff78c30d"
+    sha256 cellar: :any_skip_relocation, mojave:        "163c3593145fc6f85b00be215f20c5393219147af348c4c90dc34c942e5966f4"
   end
 
   depends_on "python@3.9"

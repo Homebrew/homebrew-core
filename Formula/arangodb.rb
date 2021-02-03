@@ -8,9 +8,9 @@ class Arangodb < Formula
   head "https://github.com/arangodb/arangodb.git", branch: "devel"
 
   bottle do
-    sha256 "135d6152a7c4a3ba7ec9e7d96f3808d448ed961faf83ab6ae994f07a3717b1b4" => :big_sur
-    sha256 "73aff6b8ab99cae8b62e3f5d6986f8886fce0b14864eba91440fe4b73fe832f4" => :catalina
-    sha256 "d3454eefc88b685a469284dc3135a87d2d530431e962def0a7da93cc5b1a5f9c" => :mojave
+    sha256 big_sur:  "135d6152a7c4a3ba7ec9e7d96f3808d448ed961faf83ab6ae994f07a3717b1b4"
+    sha256 catalina: "73aff6b8ab99cae8b62e3f5d6986f8886fce0b14864eba91440fe4b73fe832f4"
+    sha256 mojave:   "d3454eefc88b685a469284dc3135a87d2d530431e962def0a7da93cc5b1a5f9c"
   end
 
   depends_on "ccache" => :build

@@ -7,11 +7,10 @@ class Tendermint < Formula
   head "https://github.com/tendermint/tendermint.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "bfdc2737846402eb2fce2b13252729a3f016091d21d1bae4188d8ab0b03d5d4b" => :big_sur
-    sha256 "a4c507303fffdcb6f18788c366df6b50ebbe375406a8aff6cdfa7d2e9adf11ac" => :arm64_big_sur
-    sha256 "e72e990d6bea4a2e3db90dd36ab4a63fa96db7999a9c499c85f585873df48c1d" => :catalina
-    sha256 "c52b8e5797f97833d2dc4017f10bb64c53bce45a098518b34099e4b3800c03f5" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a4c507303fffdcb6f18788c366df6b50ebbe375406a8aff6cdfa7d2e9adf11ac"
+    sha256 cellar: :any_skip_relocation, big_sur:       "bfdc2737846402eb2fce2b13252729a3f016091d21d1bae4188d8ab0b03d5d4b"
+    sha256 cellar: :any_skip_relocation, catalina:      "e72e990d6bea4a2e3db90dd36ab4a63fa96db7999a9c499c85f585873df48c1d"
+    sha256 cellar: :any_skip_relocation, mojave:        "c52b8e5797f97833d2dc4017f10bb64c53bce45a098518b34099e4b3800c03f5"
   end
 
   depends_on "go" => :build

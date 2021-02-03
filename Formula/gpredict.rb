@@ -12,12 +12,12 @@ class Gpredict < Formula
   end
 
   bottle do
-    sha256 "eccf4afd811d590ed5c930840933905bd5b1ea9bdf42e32e52cf4926d0c1eb05" => :big_sur
-    sha256 "2c367d6266bd0af3583827c588ab864c26043444ad6b6379821c1b93e5093352" => :arm64_big_sur
-    sha256 "99fff9473dcc5eaa0c58cf0b2bf04f4240e1598aada45565e4dbbf050d2ac7dc" => :catalina
-    sha256 "952941a2ecdb5f75805888dfd020acce48c4f1b29a9c2e3ec8742d35fcd9c829" => :mojave
-    sha256 "189249444c490bc7984506a3d041de1d057fff671ff774871f549f6b32efa042" => :high_sierra
-    sha256 "9a0a4b0e63b3b1f84830f508d60ee3fc5b5fd0b9a5731241873168baa88209cf" => :sierra
+    sha256 arm64_big_sur: "2c367d6266bd0af3583827c588ab864c26043444ad6b6379821c1b93e5093352"
+    sha256 big_sur:       "eccf4afd811d590ed5c930840933905bd5b1ea9bdf42e32e52cf4926d0c1eb05"
+    sha256 catalina:      "99fff9473dcc5eaa0c58cf0b2bf04f4240e1598aada45565e4dbbf050d2ac7dc"
+    sha256 mojave:        "952941a2ecdb5f75805888dfd020acce48c4f1b29a9c2e3ec8742d35fcd9c829"
+    sha256 high_sierra:   "189249444c490bc7984506a3d041de1d057fff671ff774871f549f6b32efa042"
+    sha256 sierra:        "9a0a4b0e63b3b1f84830f508d60ee3fc5b5fd0b9a5731241873168baa88209cf"
   end
 
   depends_on "intltool" => :build

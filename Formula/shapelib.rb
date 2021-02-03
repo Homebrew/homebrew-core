@@ -10,12 +10,11 @@ class Shapelib < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "dfae7491c46ca8ed8b587dd6dfa885b4ec6db8520095b1f1ae44becd28ca76d2" => :big_sur
-    sha256 "9800e87eaeeca3eca0d59c3bca555c0211df96f021735251964981ac2b16bd90" => :catalina
-    sha256 "90f9b9b0ccadf93be027e515be356d0b92f4dfb33979f11df9fc7570c3249d0e" => :mojave
-    sha256 "f1242aaf566b272f69331d16441171b12d0b4cef8396b56e0a8246fe7618ca68" => :high_sierra
-    sha256 "0add799fff38395de6300f1b18102270bd269b5dc37714e7cac1873849b2ced7" => :sierra
+    sha256 cellar: :any, big_sur:     "dfae7491c46ca8ed8b587dd6dfa885b4ec6db8520095b1f1ae44becd28ca76d2"
+    sha256 cellar: :any, catalina:    "9800e87eaeeca3eca0d59c3bca555c0211df96f021735251964981ac2b16bd90"
+    sha256 cellar: :any, mojave:      "90f9b9b0ccadf93be027e515be356d0b92f4dfb33979f11df9fc7570c3249d0e"
+    sha256 cellar: :any, high_sierra: "f1242aaf566b272f69331d16441171b12d0b4cef8396b56e0a8246fe7618ca68"
+    sha256 cellar: :any, sierra:      "0add799fff38395de6300f1b18102270bd269b5dc37714e7cac1873849b2ced7"
   end
 
   depends_on "cmake" => :build

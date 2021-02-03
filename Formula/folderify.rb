@@ -14,12 +14,11 @@ class Folderify < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 2
-    sha256 "de4134789053813c8779bdbf1f0a4561fc1334c976028ae11f9f2fe1bd77a8d5" => :big_sur
-    sha256 "1b56e80d1b6eabac87521806039b4cf15c625f35f63d0a8c636a1e82025ca53d" => :arm64_big_sur
-    sha256 "388a1cdd813fd6be004e6b19caf157e51fd66546353e8d7d5a991dd9479f5647" => :catalina
-    sha256 "e945cc2979f3f0517ab567db78d311aeb3bfb3df6062916612b583c39df9033d" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1b56e80d1b6eabac87521806039b4cf15c625f35f63d0a8c636a1e82025ca53d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "de4134789053813c8779bdbf1f0a4561fc1334c976028ae11f9f2fe1bd77a8d5"
+    sha256 cellar: :any_skip_relocation, catalina:      "388a1cdd813fd6be004e6b19caf157e51fd66546353e8d7d5a991dd9479f5647"
+    sha256 cellar: :any_skip_relocation, mojave:        "e945cc2979f3f0517ab567db78d311aeb3bfb3df6062916612b583c39df9033d"
   end
 
   depends_on "imagemagick"

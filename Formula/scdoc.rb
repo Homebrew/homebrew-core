@@ -6,11 +6,10 @@ class Scdoc < Formula
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "81dd4cefe0f4df18d14726d318b5dbcf8b42085041834e5da8852f6ec02e8b73" => :big_sur
-    sha256 "2aac49cd42efd595338cb631a42ffa7f418c46a144eb15398d60c38bee6644df" => :arm64_big_sur
-    sha256 "ea37af44324b83e8368af5965ef5cb198ef1a4b4dbabcd81e0da9297366a245b" => :catalina
-    sha256 "9ad77b02592b8be119ceafd2286a24c383a537a3b1e169b91aba049e82d41dee" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2aac49cd42efd595338cb631a42ffa7f418c46a144eb15398d60c38bee6644df"
+    sha256 cellar: :any_skip_relocation, big_sur:       "81dd4cefe0f4df18d14726d318b5dbcf8b42085041834e5da8852f6ec02e8b73"
+    sha256 cellar: :any_skip_relocation, catalina:      "ea37af44324b83e8368af5965ef5cb198ef1a4b4dbabcd81e0da9297366a245b"
+    sha256 cellar: :any_skip_relocation, mojave:        "9ad77b02592b8be119ceafd2286a24c383a537a3b1e169b91aba049e82d41dee"
   end
 
   def install

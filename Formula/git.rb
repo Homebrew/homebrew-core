@@ -13,10 +13,10 @@ class Git < Formula
   end
 
   bottle do
-    sha256 "bd4dd57a4740df3c596377954d45fcf2b08db83f7d8853f5361db1d158a6bdb8" => :big_sur
-    sha256 "7e0f30621e1a5be89bf604eacdca8de9a79bd16c273a1d6f4dd39c6f806d4b98" => :arm64_big_sur
-    sha256 "091c6e512e9dd5c3373f75a9b495dbe42f9852d93dab4c72d3fb2c8e01738953" => :catalina
-    sha256 "bd96accac4e05c8799b062772ab943a10e9ff25784f2828c5c25b2debd3d2f13" => :mojave
+    sha256 arm64_big_sur: "7e0f30621e1a5be89bf604eacdca8de9a79bd16c273a1d6f4dd39c6f806d4b98"
+    sha256 big_sur:       "bd4dd57a4740df3c596377954d45fcf2b08db83f7d8853f5361db1d158a6bdb8"
+    sha256 catalina:      "091c6e512e9dd5c3373f75a9b495dbe42f9852d93dab4c72d3fb2c8e01738953"
+    sha256 mojave:        "bd96accac4e05c8799b062772ab943a10e9ff25784f2828c5c25b2debd3d2f13"
   end
 
   depends_on "gettext"

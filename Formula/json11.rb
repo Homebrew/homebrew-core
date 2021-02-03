@@ -6,12 +6,11 @@ class Json11 < Formula
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "35c418041e5f90e2f6486b6ae047fc72166356082618940a319f85ac4939aa8b" => :big_sur
-    sha256 "9b05e1c86fa167507521019951abafe352ab7ec786c9227d7816d860e5b370d8" => :arm64_big_sur
-    sha256 "cbdc55d054d0ba3060a8709b5b98c5c4c0601e7483b4ca2a62aab8a9fc630428" => :catalina
-    sha256 "e0229fc7e70a26fdd945e3cf666e2608f73d186b20fcc2555d19466e78771d54" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9b05e1c86fa167507521019951abafe352ab7ec786c9227d7816d860e5b370d8"
+    sha256 cellar: :any_skip_relocation, big_sur:       "35c418041e5f90e2f6486b6ae047fc72166356082618940a319f85ac4939aa8b"
+    sha256 cellar: :any_skip_relocation, catalina:      "cbdc55d054d0ba3060a8709b5b98c5c4c0601e7483b4ca2a62aab8a9fc630428"
+    sha256 cellar: :any_skip_relocation, mojave:        "e0229fc7e70a26fdd945e3cf666e2608f73d186b20fcc2555d19466e78771d54"
   end
 
   deprecate! date: "2020-03-25", because: :repo_archived

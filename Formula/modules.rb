@@ -10,9 +10,9 @@ class Modules < Formula
   end
 
   bottle do
-    sha256 "b3327bf218e44bfd3b26c02ffcdd87accc74975e8133bdc8902ce8cb1f24b06b" => :big_sur
-    sha256 "673d73d75d4d693610580f9037ae2522701b5cb418d8a79289988dbaa3229e79" => :catalina
-    sha256 "219a6de0edbd5a629af151f5cb67889088cba2610a0b93c6eab74c3c9e70afa7" => :mojave
+    sha256 big_sur:  "b3327bf218e44bfd3b26c02ffcdd87accc74975e8133bdc8902ce8cb1f24b06b"
+    sha256 catalina: "673d73d75d4d693610580f9037ae2522701b5cb418d8a79289988dbaa3229e79"
+    sha256 mojave:   "219a6de0edbd5a629af151f5cb67889088cba2610a0b93c6eab74c3c9e70afa7"
   end
 
   def install

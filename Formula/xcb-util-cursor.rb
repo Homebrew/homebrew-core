@@ -6,11 +6,10 @@ class XcbUtilCursor < Formula
   license "X11"
 
   bottle do
-    cellar :any
-    sha256 "b9b3844d3e15c8c500ce203cc958a5b7ccc1967679b16b205f9256252776b206" => :big_sur
-    sha256 "6fc14a705728b1de306bd923af2f36c103dc03da004b6074c5319af1ed8745a1" => :arm64_big_sur
-    sha256 "7ed2fb722987ea7c6028969752d1b82df9db956bfeffbd05dfaa5689814a9b77" => :catalina
-    sha256 "a2eea37585cc157739f19d770f3d921fb5eaf708bd74b0c7c2fb878e90761e8e" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "6fc14a705728b1de306bd923af2f36c103dc03da004b6074c5319af1ed8745a1"
+    sha256 cellar: :any, big_sur:       "b9b3844d3e15c8c500ce203cc958a5b7ccc1967679b16b205f9256252776b206"
+    sha256 cellar: :any, catalina:      "7ed2fb722987ea7c6028969752d1b82df9db956bfeffbd05dfaa5689814a9b77"
+    sha256 cellar: :any, mojave:        "a2eea37585cc157739f19d770f3d921fb5eaf708bd74b0c7c2fb878e90761e8e"
   end
 
   head do

@@ -11,13 +11,12 @@ class DejaGnu < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "5bad10e6433487c43ec72f99cee16123953b6834ab714302474b5135b99a9ed5" => :big_sur
-    sha256 "5c8699cac95a51707a687e2a43de55517c9c19a49cdb34ea70a6ce869ee4ba4e" => :arm64_big_sur
-    sha256 "894df4a4de1df0698f3539db58615fa63bcee77f723eba6efd8d1700ce0bb827" => :catalina
-    sha256 "eea1adea3a1c062fd6ba0e85fefebe9f9036736a9d3a3744cec79123390270f3" => :mojave
-    sha256 "eea1adea3a1c062fd6ba0e85fefebe9f9036736a9d3a3744cec79123390270f3" => :high_sierra
-    sha256 "5c1100eaf8ae4f28b1c4311241ddff8e0d195d0d241e106051bc60490d28d0e5" => :sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5c8699cac95a51707a687e2a43de55517c9c19a49cdb34ea70a6ce869ee4ba4e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5bad10e6433487c43ec72f99cee16123953b6834ab714302474b5135b99a9ed5"
+    sha256 cellar: :any_skip_relocation, catalina:      "894df4a4de1df0698f3539db58615fa63bcee77f723eba6efd8d1700ce0bb827"
+    sha256 cellar: :any_skip_relocation, mojave:        "eea1adea3a1c062fd6ba0e85fefebe9f9036736a9d3a3744cec79123390270f3"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "eea1adea3a1c062fd6ba0e85fefebe9f9036736a9d3a3744cec79123390270f3"
+    sha256 cellar: :any_skip_relocation, sierra:        "5c1100eaf8ae4f28b1c4311241ddff8e0d195d0d241e106051bc60490d28d0e5"
   end
 
   head do

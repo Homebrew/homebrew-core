@@ -7,11 +7,11 @@ class ArpScan < Formula
   head "https://github.com/royhills/arp-scan.git"
 
   bottle do
-    sha256 "f3fe2b4b1f70e09f79aaf43b2044068ce5431135a7d7e78ab5022202bfb48ab4" => :big_sur
-    sha256 "bab165d30f8039bba63d086234d0c57c64152fe73d586081dfaa7eec177fcefd" => :arm64_big_sur
-    sha256 "763b615392ea20ab1900bbc4a21fb0a9a978bbf50d3bbd8d5ff490437defc6f8" => :catalina
-    sha256 "178196ab4312319611ad02c8e086e56fec2217981f9d91d9e7df8cddfeacda4e" => :mojave
-    sha256 "f72f46496eecff4c1a86dbdbf3a295e195310827ef50cdc0b007bd7b6311495d" => :high_sierra
+    sha256 arm64_big_sur: "bab165d30f8039bba63d086234d0c57c64152fe73d586081dfaa7eec177fcefd"
+    sha256 big_sur:       "f3fe2b4b1f70e09f79aaf43b2044068ce5431135a7d7e78ab5022202bfb48ab4"
+    sha256 catalina:      "763b615392ea20ab1900bbc4a21fb0a9a978bbf50d3bbd8d5ff490437defc6f8"
+    sha256 mojave:        "178196ab4312319611ad02c8e086e56fec2217981f9d91d9e7df8cddfeacda4e"
+    sha256 high_sierra:   "f72f46496eecff4c1a86dbdbf3a295e195310827ef50cdc0b007bd7b6311495d"
   end
 
   depends_on "autoconf" => :build

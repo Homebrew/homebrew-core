@@ -6,11 +6,10 @@ class Libphonenumber < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any
-    sha256 "dd83f808788ee05a84a704c297c050ef70eb85b1649ceada403b75300c9a5123" => :big_sur
-    sha256 "8e94ade3f7fa698e29d900b8dc8516bd6b9814db7ca469674a461399ee0b1fb5" => :arm64_big_sur
-    sha256 "45b3b221d8a87c96c367d4d207fb9b31c286877ae56639a73a35c8f2fac071f5" => :catalina
-    sha256 "6df01ba3cc06bdf3b21e54a4fb7466e40cb2d3bf84e11bbb83eac4732c2f0caa" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "8e94ade3f7fa698e29d900b8dc8516bd6b9814db7ca469674a461399ee0b1fb5"
+    sha256 cellar: :any, big_sur:       "dd83f808788ee05a84a704c297c050ef70eb85b1649ceada403b75300c9a5123"
+    sha256 cellar: :any, catalina:      "45b3b221d8a87c96c367d4d207fb9b31c286877ae56639a73a35c8f2fac071f5"
+    sha256 cellar: :any, mojave:        "6df01ba3cc06bdf3b21e54a4fb7466e40cb2d3bf84e11bbb83eac4732c2f0caa"
   end
 
   depends_on "cmake" => :build

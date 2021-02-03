@@ -12,12 +12,11 @@ class Honcho < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "7cfd5e890b357ad7bb3a96687d1ec9bc97aff24d7aadf2b6df21e34e3901c78d" => :big_sur
-    sha256 "45d84a15c2312ed91f5abe9ac993184bea7deb4a08ef3e51ba6271b268eee1f0" => :arm64_big_sur
-    sha256 "3f509a6f7aced41359a42d1f1318693ccf5cbbe46fa46dbf0bae1059069ca53e" => :catalina
-    sha256 "f1f61f29fb6a6ce01843e7a484ae3e36e94b049d7f2da9ca1b2711887de046ce" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "45d84a15c2312ed91f5abe9ac993184bea7deb4a08ef3e51ba6271b268eee1f0"
+    sha256 cellar: :any_skip_relocation, big_sur:       "7cfd5e890b357ad7bb3a96687d1ec9bc97aff24d7aadf2b6df21e34e3901c78d"
+    sha256 cellar: :any_skip_relocation, catalina:      "3f509a6f7aced41359a42d1f1318693ccf5cbbe46fa46dbf0bae1059069ca53e"
+    sha256 cellar: :any_skip_relocation, mojave:        "f1f61f29fb6a6ce01843e7a484ae3e36e94b049d7f2da9ca1b2711887de046ce"
   end
 
   depends_on "python@3.9"

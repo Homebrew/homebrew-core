@@ -7,12 +7,12 @@ class Fourstore < Formula
   revision 1
 
   bottle do
-    sha256 "5b3bb657725c208e1b2692ca91b8964d4a26590f1da418d5ea24621994c7245c" => :big_sur
-    sha256 "53cd222505740f7e67439b25598c301b08e8cbe0a66f5d6f1ad31a470ca1d9a1" => :arm64_big_sur
-    sha256 "e8414af069796d108f66d9676366de2cb6f82d4dbb694a7cbc8ede58e5c646ff" => :catalina
-    sha256 "9743086b58984f5b97820b6c591edcbf551f60ae49c9f655c577f7ca50e3de23" => :mojave
-    sha256 "abfb1051513308bda54e9e7a6c3e62dad74feafa46e6b739fb33405efb0153e4" => :high_sierra
-    sha256 "7a89fcec9a355a501880289ab072d95219e760aad3102f9332a2e7310346155f" => :sierra
+    sha256 arm64_big_sur: "53cd222505740f7e67439b25598c301b08e8cbe0a66f5d6f1ad31a470ca1d9a1"
+    sha256 big_sur:       "5b3bb657725c208e1b2692ca91b8964d4a26590f1da418d5ea24621994c7245c"
+    sha256 catalina:      "e8414af069796d108f66d9676366de2cb6f82d4dbb694a7cbc8ede58e5c646ff"
+    sha256 mojave:        "9743086b58984f5b97820b6c591edcbf551f60ae49c9f655c577f7ca50e3de23"
+    sha256 high_sierra:   "abfb1051513308bda54e9e7a6c3e62dad74feafa46e6b739fb33405efb0153e4"
+    sha256 sierra:        "7a89fcec9a355a501880289ab072d95219e760aad3102f9332a2e7310346155f"
   end
 
   depends_on "autoconf" => :build

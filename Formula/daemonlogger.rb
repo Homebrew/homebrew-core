@@ -9,17 +9,16 @@ class Daemonlogger < Formula
   end
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "37a025cbb7898243913ad07bb094b2195e27587b5458d465fea790d30f13af67" => :big_sur
-    sha256 "cebaf67384c1d536a827bd4da514b70f2342315cfc013fa3e0e9fd0c658c22a4" => :arm64_big_sur
-    sha256 "8f2af84c9d476a7bd11e30185794bf107a92ae32f92b84f38f5a629f368ad6c2" => :catalina
-    sha256 "1cac9c8c17cd804206440d35ec88f49e8162ec102a4e561aa103f528b6d49382" => :mojave
-    sha256 "04242956845e71d839b050dd765829a217268486eb625a481a3fae85bd577f0d" => :high_sierra
-    sha256 "c3ac14ab04174e06129fc0a51d31ad992f3d11f362ecb1cf3803092b6c68b146" => :sierra
-    sha256 "582aa8e07f269bdfa00b1f66157c06339b62285d94f6b8ffa6a472eac063e5e5" => :el_capitan
-    sha256 "3497b590f03a70d322452abd71a1121d9a952d05a82af875c1dc11e5ae0324d6" => :yosemite
-    sha256 "c178b1f5f29b361308cc64944472604067282c56eeb29131674e89be30dacc78" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "cebaf67384c1d536a827bd4da514b70f2342315cfc013fa3e0e9fd0c658c22a4"
+    sha256 cellar: :any, big_sur:       "37a025cbb7898243913ad07bb094b2195e27587b5458d465fea790d30f13af67"
+    sha256 cellar: :any, catalina:      "8f2af84c9d476a7bd11e30185794bf107a92ae32f92b84f38f5a629f368ad6c2"
+    sha256 cellar: :any, mojave:        "1cac9c8c17cd804206440d35ec88f49e8162ec102a4e561aa103f528b6d49382"
+    sha256 cellar: :any, high_sierra:   "04242956845e71d839b050dd765829a217268486eb625a481a3fae85bd577f0d"
+    sha256 cellar: :any, sierra:        "c3ac14ab04174e06129fc0a51d31ad992f3d11f362ecb1cf3803092b6c68b146"
+    sha256 cellar: :any, el_capitan:    "582aa8e07f269bdfa00b1f66157c06339b62285d94f6b8ffa6a472eac063e5e5"
+    sha256 cellar: :any, yosemite:      "3497b590f03a70d322452abd71a1121d9a952d05a82af875c1dc11e5ae0324d6"
+    sha256 cellar: :any, mavericks:     "c178b1f5f29b361308cc64944472604067282c56eeb29131674e89be30dacc78"
   end
 
   depends_on "libdnet"

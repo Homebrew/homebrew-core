@@ -13,11 +13,10 @@ class YouGet < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "6264f3509de8eed9b86952c9e29ad83c701f829af203e6cf15ce7fe5a783309c" => :big_sur
-    sha256 "2238c1f593a3d1e05642f550d5fd8b95bc871efc8fbbf8ca84c62b7838c8fb9f" => :arm64_big_sur
-    sha256 "0ac325b9b2db370b23fd3c402cae58ae94c4df8ab590612af316c35c2ffb9f2c" => :catalina
-    sha256 "42900e74c53614573349195e1761f60e7e9fa696de56ee79acc17d148c4de93f" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2238c1f593a3d1e05642f550d5fd8b95bc871efc8fbbf8ca84c62b7838c8fb9f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6264f3509de8eed9b86952c9e29ad83c701f829af203e6cf15ce7fe5a783309c"
+    sha256 cellar: :any_skip_relocation, catalina:      "0ac325b9b2db370b23fd3c402cae58ae94c4df8ab590612af316c35c2ffb9f2c"
+    sha256 cellar: :any_skip_relocation, mojave:        "42900e74c53614573349195e1761f60e7e9fa696de56ee79acc17d148c4de93f"
   end
 
   depends_on "python@3.9"

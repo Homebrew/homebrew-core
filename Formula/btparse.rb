@@ -6,13 +6,12 @@ class Btparse < Formula
   license "GPL-2.0"
 
   bottle do
-    cellar :any
-    sha256 "6080f2a4c252d49a4b265807ce77c290bd881b5339b7b2c19c5efc8a7f40b871" => :big_sur
-    sha256 "d69e49048e5366097bd7fe06b5ab9e40e3e97602896c613706559ab2c7aa4295" => :arm64_big_sur
-    sha256 "6ce6b4e17c2559540007f3e15e38ee5f4eff1cc5dd6782e87089abf824a94e90" => :catalina
-    sha256 "d69b814282b1205eb311f2b8f1f2d0077e2adeef72c2a010084eec34ffef7b71" => :mojave
-    sha256 "92fe826bfbaed8583343dbae8d2cf51d6161658e8ecd44a4bf7a308ab1f06d61" => :high_sierra
-    sha256 "b31041f88e5253fd880d38190b4828f8c9cee34f141352d5c3b70b33e18d824f" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "d69e49048e5366097bd7fe06b5ab9e40e3e97602896c613706559ab2c7aa4295"
+    sha256 cellar: :any, big_sur:       "6080f2a4c252d49a4b265807ce77c290bd881b5339b7b2c19c5efc8a7f40b871"
+    sha256 cellar: :any, catalina:      "6ce6b4e17c2559540007f3e15e38ee5f4eff1cc5dd6782e87089abf824a94e90"
+    sha256 cellar: :any, mojave:        "d69b814282b1205eb311f2b8f1f2d0077e2adeef72c2a010084eec34ffef7b71"
+    sha256 cellar: :any, high_sierra:   "92fe826bfbaed8583343dbae8d2cf51d6161658e8ecd44a4bf7a308ab1f06d61"
+    sha256 cellar: :any, sierra:        "b31041f88e5253fd880d38190b4828f8c9cee34f141352d5c3b70b33e18d824f"
   end
 
   def install

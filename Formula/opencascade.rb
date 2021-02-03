@@ -14,10 +14,10 @@ class Opencascade < Formula
 
   bottle do
     rebuild 1
-    sha256 "51fd6769b4b4e75062fe5a6486dfe17166471519e1ea8bcb71d5b1f1756d28af" => :big_sur
-    sha256 "ca21853b2cb26e34cf5c3aa6b755689327e023c0b04e4a6d9ff4466a94d8b48e" => :arm64_big_sur
-    sha256 "fb7225acbf5c42a431a30667f5f7e227bf1f68fa1583ea987f0b3caf946c4cab" => :catalina
-    sha256 "1155bf50f284adb9ea20ffa2429a896505f2b7cdec1fe9a24654fb3b94a1f2e8" => :mojave
+    sha256 arm64_big_sur: "ca21853b2cb26e34cf5c3aa6b755689327e023c0b04e4a6d9ff4466a94d8b48e"
+    sha256 big_sur:       "51fd6769b4b4e75062fe5a6486dfe17166471519e1ea8bcb71d5b1f1756d28af"
+    sha256 catalina:      "fb7225acbf5c42a431a30667f5f7e227bf1f68fa1583ea987f0b3caf946c4cab"
+    sha256 mojave:        "1155bf50f284adb9ea20ffa2429a896505f2b7cdec1fe9a24654fb3b94a1f2e8"
   end
 
   depends_on "cmake" => :build

@@ -7,12 +7,11 @@ class NumUtils < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "50236cf7c8b791ba5663085c16837419d9bdc9452d64ba2f81936094f9f53592" => :big_sur
-    sha256 "1dd2bf76cfa7fe7266662d3ffa199ef21478dce933958dba08d51adddcee7a13" => :arm64_big_sur
-    sha256 "b8aac296053a3fd6811ffdf85cb6f133174e4df5bd47318c02ad1f7298366fd6" => :catalina
-    sha256 "476a96d60faaf281b704e6a137a0b4e03bd708e51f07ae97940f7efdba693ebb" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1dd2bf76cfa7fe7266662d3ffa199ef21478dce933958dba08d51adddcee7a13"
+    sha256 cellar: :any_skip_relocation, big_sur:       "50236cf7c8b791ba5663085c16837419d9bdc9452d64ba2f81936094f9f53592"
+    sha256 cellar: :any_skip_relocation, catalina:      "b8aac296053a3fd6811ffdf85cb6f133174e4df5bd47318c02ad1f7298366fd6"
+    sha256 cellar: :any_skip_relocation, mojave:        "476a96d60faaf281b704e6a137a0b4e03bd708e51f07ae97940f7efdba693ebb"
   end
 
   conflicts_with "normalize", because: "both install `normalize` binaries"

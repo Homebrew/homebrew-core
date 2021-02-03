@@ -6,11 +6,10 @@ class Gmailctl < Formula
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "e72f9006fd0c10ef79ecd4c2f875d1ee984d6ee40a6a717894b29cae9d3324fb" => :big_sur
-    sha256 "ca176f471c5358025d9fcdc158a732e9e64232e5c2f7aaab53efbbb846920e57" => :arm64_big_sur
-    sha256 "e191cdefb1f75f799f610aeaadd454c27d3aa90527d3bbf69ee804ca5c94dfa8" => :catalina
-    sha256 "57d9dc005423a078971fd79d5c2382c07f17b4536a445d571cef47d025d28ffb" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ca176f471c5358025d9fcdc158a732e9e64232e5c2f7aaab53efbbb846920e57"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e72f9006fd0c10ef79ecd4c2f875d1ee984d6ee40a6a717894b29cae9d3324fb"
+    sha256 cellar: :any_skip_relocation, catalina:      "e191cdefb1f75f799f610aeaadd454c27d3aa90527d3bbf69ee804ca5c94dfa8"
+    sha256 cellar: :any_skip_relocation, mojave:        "57d9dc005423a078971fd79d5c2382c07f17b4536a445d571cef47d025d28ffb"
   end
 
   depends_on "go" => :build

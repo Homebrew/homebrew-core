@@ -13,10 +13,10 @@ class Pcb < Formula
   end
 
   bottle do
-    sha256 "04cf9052dcb362c237c6f0b6d08a6c552379a3ee02313c342c2878bb59c87495" => :big_sur
-    sha256 "2b9c6d5652265df79bbfabd9c44d536eda042ca96477d2f3a73dfb75e74c97eb" => :arm64_big_sur
-    sha256 "5b2b7bf29ad42bcecc53dbb0cee9b4801f64205db7f6a89277f9ee6fed5db050" => :catalina
-    sha256 "2312c4e25ecb5197ce93bf288b898efa5918b1f8084921ded604503c84ed2d33" => :mojave
+    sha256 arm64_big_sur: "2b9c6d5652265df79bbfabd9c44d536eda042ca96477d2f3a73dfb75e74c97eb"
+    sha256 big_sur:       "04cf9052dcb362c237c6f0b6d08a6c552379a3ee02313c342c2878bb59c87495"
+    sha256 catalina:      "5b2b7bf29ad42bcecc53dbb0cee9b4801f64205db7f6a89277f9ee6fed5db050"
+    sha256 mojave:        "2312c4e25ecb5197ce93bf288b898efa5918b1f8084921ded604503c84ed2d33"
   end
 
   head do

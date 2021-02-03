@@ -13,11 +13,11 @@ class Libbladerf < Formula
   end
 
   bottle do
-    sha256 "53852b1fb3d6fcebfacc6778666f5da33e016324a81b413854ff07717ff99174" => :big_sur
-    sha256 "69f5a01be75ac5237cf278c76449f3a09ba60a1d284412a82040b4687b4b3244" => :arm64_big_sur
-    sha256 "a60bfb3c0e350ec8fc1774b902bb8e151581f11a6669d067cb94da417e266bc3" => :catalina
-    sha256 "47cc541e8c1e2061cb842595f08cd9adc65194378bf1303d876e79e6c5a93b85" => :mojave
-    sha256 "f276e5ce4058bd486edaff6b97f61bddea9f44b5f88f35997a90c100da8f70d1" => :high_sierra
+    sha256 arm64_big_sur: "69f5a01be75ac5237cf278c76449f3a09ba60a1d284412a82040b4687b4b3244"
+    sha256 big_sur:       "53852b1fb3d6fcebfacc6778666f5da33e016324a81b413854ff07717ff99174"
+    sha256 catalina:      "a60bfb3c0e350ec8fc1774b902bb8e151581f11a6669d067cb94da417e266bc3"
+    sha256 mojave:        "47cc541e8c1e2061cb842595f08cd9adc65194378bf1303d876e79e6c5a93b85"
+    sha256 high_sierra:   "f276e5ce4058bd486edaff6b97f61bddea9f44b5f88f35997a90c100da8f70d1"
   end
 
   depends_on "cmake" => :build

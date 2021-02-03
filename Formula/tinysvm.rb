@@ -6,16 +6,15 @@ class Tinysvm < Formula
   license "LGPL-2.1"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2ead575e862216b468d3f55c0b20789405f25e03667838da0fadeb0bd3931d37" => :big_sur
-    sha256 "0bc765f1a83890ba72ab3ddd3b7c43d947b4f8e2aaac19807e7703c6ee58158b" => :arm64_big_sur
-    sha256 "5bbed1c1f653d0fde6a8e82740a18f8f0e4c95f6d06c7c14dd8dbd4ed096c758" => :catalina
-    sha256 "56f1afa09c931eb7e8dfaf46f1a814c1df306e4c20269ef78fddfbdf85a7251a" => :mojave
-    sha256 "62f0920fdf8f5b7f29cebacc1add1396daef668c67e3d10644d9d35d1b49afc5" => :high_sierra
-    sha256 "a6ad14c984b337bee83372ac6a29ffe7c0491180a302cfcd8f53b1a3ee6816e1" => :sierra
-    sha256 "2b84b75043ba1d97172e2756e3da870a8ec8e074167ab5402e7a4e1b4c923864" => :el_capitan
-    sha256 "ea90446332244176d4ec3bc4ff0c6175810c3a39d942f225bb55c0fb6252858d" => :yosemite
-    sha256 "c3464518eb4a82d123939aca024c328d885c3f14e74df31b4deed9588bb495b1" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0bc765f1a83890ba72ab3ddd3b7c43d947b4f8e2aaac19807e7703c6ee58158b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "2ead575e862216b468d3f55c0b20789405f25e03667838da0fadeb0bd3931d37"
+    sha256 cellar: :any_skip_relocation, catalina:      "5bbed1c1f653d0fde6a8e82740a18f8f0e4c95f6d06c7c14dd8dbd4ed096c758"
+    sha256 cellar: :any_skip_relocation, mojave:        "56f1afa09c931eb7e8dfaf46f1a814c1df306e4c20269ef78fddfbdf85a7251a"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "62f0920fdf8f5b7f29cebacc1add1396daef668c67e3d10644d9d35d1b49afc5"
+    sha256 cellar: :any_skip_relocation, sierra:        "a6ad14c984b337bee83372ac6a29ffe7c0491180a302cfcd8f53b1a3ee6816e1"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "2b84b75043ba1d97172e2756e3da870a8ec8e074167ab5402e7a4e1b4c923864"
+    sha256 cellar: :any_skip_relocation, yosemite:      "ea90446332244176d4ec3bc4ff0c6175810c3a39d942f225bb55c0fb6252858d"
+    sha256 cellar: :any_skip_relocation, mavericks:     "c3464518eb4a82d123939aca024c328d885c3f14e74df31b4deed9588bb495b1"
   end
 
   # Use correct compilation flag, via MacPorts.

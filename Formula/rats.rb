@@ -6,15 +6,15 @@ class Rats < Formula
   license "GPL-2.0"
 
   bottle do
-    sha256 "d71b401eb933729bd6d4b8f6cfdae7bbeb7f81de55b91f8d0aadcbb619c1fcce" => :big_sur
-    sha256 "bfe1ae23fc4335ffdc160f80613e519c810b259b48ddef7de9d0d227625a3407" => :arm64_big_sur
-    sha256 "bf5da3e9088abba09350b4a812691a3f76b00bfce1c74947fb7c016d88eb89f9" => :catalina
-    sha256 "77244d885c0f203d64bd4054105310a797a9b44333bf4ef1f7b7cec63b0a163f" => :mojave
-    sha256 "6ae19bc72cfea62b56b83931f95a70f27ce9a13617026292861a272e22269135" => :high_sierra
-    sha256 "5f2a74a60c30a825ad036f390e3830346be4fe3299a28a81e25630d54defd119" => :sierra
-    sha256 "224ae02df998c8fc296bf3905fbc369a787fc55f5ef295d63f1b3c44bfee7a5d" => :el_capitan
-    sha256 "7c26f10919e103d7e57c232e0e07840ad309fd04878831c04829d70506767157" => :yosemite
-    sha256 "ab9d3469ecf24da07c80691cea41aa0266e85061ad3ddfec6cf65a0bd7c85acf" => :mavericks
+    sha256 arm64_big_sur: "bfe1ae23fc4335ffdc160f80613e519c810b259b48ddef7de9d0d227625a3407"
+    sha256 big_sur:       "d71b401eb933729bd6d4b8f6cfdae7bbeb7f81de55b91f8d0aadcbb619c1fcce"
+    sha256 catalina:      "bf5da3e9088abba09350b4a812691a3f76b00bfce1c74947fb7c016d88eb89f9"
+    sha256 mojave:        "77244d885c0f203d64bd4054105310a797a9b44333bf4ef1f7b7cec63b0a163f"
+    sha256 high_sierra:   "6ae19bc72cfea62b56b83931f95a70f27ce9a13617026292861a272e22269135"
+    sha256 sierra:        "5f2a74a60c30a825ad036f390e3830346be4fe3299a28a81e25630d54defd119"
+    sha256 el_capitan:    "224ae02df998c8fc296bf3905fbc369a787fc55f5ef295d63f1b3c44bfee7a5d"
+    sha256 yosemite:      "7c26f10919e103d7e57c232e0e07840ad309fd04878831c04829d70506767157"
+    sha256 mavericks:     "ab9d3469ecf24da07c80691cea41aa0266e85061ad3ddfec6cf65a0bd7c85acf"
   end
 
   def install

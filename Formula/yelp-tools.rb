@@ -11,12 +11,11 @@ class YelpTools < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "9ecac26d055284b58e3b6220a719d20e3e0e5d4fd6c091bb649945b76df6ca69" => :big_sur
-    sha256 "287755e74068f82a9dd94e60e6ae8fc0a3d38f04c2df3ee44d8f427d403d89bc" => :arm64_big_sur
-    sha256 "c4dde1e77132df114dfd4b19faeae2b8604a3557ac97a0f2caf47954fcfc0def" => :catalina
-    sha256 "4eec970808d0b15187fc1bfb976999b52ae0f13b6ae004f7ca9d65d15e6b07a8" => :mojave
-    sha256 "906e221bce54f03db236aee3738c047e3d836a4f124aa3460b9d224a9d0c547b" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "287755e74068f82a9dd94e60e6ae8fc0a3d38f04c2df3ee44d8f427d403d89bc"
+    sha256 cellar: :any_skip_relocation, big_sur:       "9ecac26d055284b58e3b6220a719d20e3e0e5d4fd6c091bb649945b76df6ca69"
+    sha256 cellar: :any_skip_relocation, catalina:      "c4dde1e77132df114dfd4b19faeae2b8604a3557ac97a0f2caf47954fcfc0def"
+    sha256 cellar: :any_skip_relocation, mojave:        "4eec970808d0b15187fc1bfb976999b52ae0f13b6ae004f7ca9d65d15e6b07a8"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "906e221bce54f03db236aee3738c047e3d836a4f124aa3460b9d224a9d0c547b"
   end
 
   depends_on "gettext" => :build

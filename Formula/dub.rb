@@ -13,10 +13,9 @@ class Dub < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "3b754d2403322152227cc45a1525321f64c940143bde42220595dcee4d32361f" => :big_sur
-    sha256 "b71a9aa0abd4e9f25391ab6e25be4357c5a70801c4c2e86332bfc909c5253568" => :catalina
-    sha256 "acdd545896e27976e2178ea9bf12dba7d39e2118ba04dc762a444f639b51ce81" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur:  "3b754d2403322152227cc45a1525321f64c940143bde42220595dcee4d32361f"
+    sha256 cellar: :any_skip_relocation, catalina: "b71a9aa0abd4e9f25391ab6e25be4357c5a70801c4c2e86332bfc909c5253568"
+    sha256 cellar: :any_skip_relocation, mojave:   "acdd545896e27976e2178ea9bf12dba7d39e2118ba04dc762a444f639b51ce81"
   end
 
   depends_on "dmd" => :build

@@ -10,10 +10,9 @@ class Volatility < Formula
   head "https://github.com/volatilityfoundation/volatility.git"
 
   bottle do
-    cellar :any
-    sha256 "f41ce1f3f70a5bb1eab7efac3d74ace7dad7bdf581bcb16b7a09d34e27e38d50" => :catalina
-    sha256 "5bcfa94349a26dc291af274bcf3427851ed2654e36781d05e3774018ee8f7781" => :mojave
-    sha256 "0d156b81c472080d117d567167d7a6d294376bab6d3c4751b4ca343a25fefa3d" => :high_sierra
+    sha256 cellar: :any, catalina:    "f41ce1f3f70a5bb1eab7efac3d74ace7dad7bdf581bcb16b7a09d34e27e38d50"
+    sha256 cellar: :any, mojave:      "5bcfa94349a26dc291af274bcf3427851ed2654e36781d05e3774018ee8f7781"
+    sha256 cellar: :any, high_sierra: "0d156b81c472080d117d567167d7a6d294376bab6d3c4751b4ca343a25fefa3d"
   end
 
   depends_on "freetype"

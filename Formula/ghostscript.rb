@@ -12,10 +12,10 @@ class Ghostscript < Formula
   end
 
   bottle do
-    sha256 "41a0d8e27c5760e29514fc659147c1d79bc57bc5a119b2ea267200889ce3b930" => :big_sur
-    sha256 "e1a01add6b5692ebfd462591db21dd029d081529fbe4df0c22af94945cea75cc" => :arm64_big_sur
-    sha256 "cf523782d68ba11a936318c387118390277eb2edc3baeee21c7875cfea9857ad" => :catalina
-    sha256 "c0186d93036a506e70d6632c5c0e48b4f61613fb670f266509cde735e261710e" => :mojave
+    sha256 arm64_big_sur: "e1a01add6b5692ebfd462591db21dd029d081529fbe4df0c22af94945cea75cc"
+    sha256 big_sur:       "41a0d8e27c5760e29514fc659147c1d79bc57bc5a119b2ea267200889ce3b930"
+    sha256 catalina:      "cf523782d68ba11a936318c387118390277eb2edc3baeee21c7875cfea9857ad"
+    sha256 mojave:        "c0186d93036a506e70d6632c5c0e48b4f61613fb670f266509cde735e261710e"
   end
 
   head do

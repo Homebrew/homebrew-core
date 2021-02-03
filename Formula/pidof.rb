@@ -11,16 +11,15 @@ class Pidof < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 2
-    sha256 "c3a5a73563d4ca6e329d293423f19639e98151ec72505fb926b00eab067cac55" => :big_sur
-    sha256 "a7d1943e3d14377270554f16198f105b0e00cc9d53da79c7d22bc7974b711a23" => :arm64_big_sur
-    sha256 "634f42559aaa0582a6700c268737ba7cb7ec3bdadf2f3aa37c5a846604759459" => :catalina
-    sha256 "1a88c923954c4511fb64fe6cbfb27f5248c39d1676053c671ab71c652a377a2f" => :mojave
-    sha256 "fd5f89cf3a9685142e08a23980d9438e961096d74ee508a96ccbaecb55da6e1a" => :high_sierra
-    sha256 "6991d110a73724959f84edc398647e3cac5a029645daedef5f263ae51218130d" => :sierra
-    sha256 "d02c826db5564d7750c0e309a771b164f7764250507955d0b87d09837c3c2ba6" => :el_capitan
-    sha256 "54ffe0be6ef278aa45cacb856687df925bab1c117d1ab4c1a8f81ae835fb293e" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a7d1943e3d14377270554f16198f105b0e00cc9d53da79c7d22bc7974b711a23"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c3a5a73563d4ca6e329d293423f19639e98151ec72505fb926b00eab067cac55"
+    sha256 cellar: :any_skip_relocation, catalina:      "634f42559aaa0582a6700c268737ba7cb7ec3bdadf2f3aa37c5a846604759459"
+    sha256 cellar: :any_skip_relocation, mojave:        "1a88c923954c4511fb64fe6cbfb27f5248c39d1676053c671ab71c652a377a2f"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "fd5f89cf3a9685142e08a23980d9438e961096d74ee508a96ccbaecb55da6e1a"
+    sha256 cellar: :any_skip_relocation, sierra:        "6991d110a73724959f84edc398647e3cac5a029645daedef5f263ae51218130d"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "d02c826db5564d7750c0e309a771b164f7764250507955d0b87d09837c3c2ba6"
+    sha256 cellar: :any_skip_relocation, mavericks:     "54ffe0be6ef278aa45cacb856687df925bab1c117d1ab4c1a8f81ae835fb293e"
   end
 
   def install

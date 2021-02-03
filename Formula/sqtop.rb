@@ -7,16 +7,15 @@ class Sqtop < Formula
   license "GPL-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "236b80d46f0cbc8aedc14b6771b4b58cff6e445eb2e8a115ae14917b307fbab2" => :big_sur
-    sha256 "e4d9ab76457599f2fe20875e9900c1d1f330ba7b35d4383e99042b66b264de3e" => :arm64_big_sur
-    sha256 "653be227eb16e647b90f0f034543a490476e3ceaa0e9c165b1963b916b4a9703" => :catalina
-    sha256 "27786a7ca63d00ecb47e9f1e3e844a077d38048871cec3c03308831716338dc1" => :mojave
-    sha256 "fe9a704fdf7f24dadba6b4f7cc20f8f07d93c19450701e01b408ea2f7574ec63" => :high_sierra
-    sha256 "30f51d2886adf914eef22af21dfac92f544c59c88b6e7961972eb6702e48d0c0" => :sierra
-    sha256 "6d838378cae0971561da60dff1e887bf03b60d1a0ff198a5d468654ef790d9e9" => :el_capitan
-    sha256 "29291fedaa06b7b680e44e1b82f643f7ddffc67435312b7c2f3654df0728cb8b" => :yosemite
-    sha256 "f1ab5347b698d2e1221a5111fec52022159afc898e5ad7a5318becb23cd35543" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e4d9ab76457599f2fe20875e9900c1d1f330ba7b35d4383e99042b66b264de3e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "236b80d46f0cbc8aedc14b6771b4b58cff6e445eb2e8a115ae14917b307fbab2"
+    sha256 cellar: :any_skip_relocation, catalina:      "653be227eb16e647b90f0f034543a490476e3ceaa0e9c165b1963b916b4a9703"
+    sha256 cellar: :any_skip_relocation, mojave:        "27786a7ca63d00ecb47e9f1e3e844a077d38048871cec3c03308831716338dc1"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "fe9a704fdf7f24dadba6b4f7cc20f8f07d93c19450701e01b408ea2f7574ec63"
+    sha256 cellar: :any_skip_relocation, sierra:        "30f51d2886adf914eef22af21dfac92f544c59c88b6e7961972eb6702e48d0c0"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "6d838378cae0971561da60dff1e887bf03b60d1a0ff198a5d468654ef790d9e9"
+    sha256 cellar: :any_skip_relocation, yosemite:      "29291fedaa06b7b680e44e1b82f643f7ddffc67435312b7c2f3654df0728cb8b"
+    sha256 cellar: :any_skip_relocation, mavericks:     "f1ab5347b698d2e1221a5111fec52022159afc898e5ad7a5318becb23cd35543"
   end
 
   def install

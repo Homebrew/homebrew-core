@@ -18,12 +18,11 @@ class Less < Formula
   end
 
   bottle do
-    cellar :any
     rebuild 2
-    sha256 "431d227c11a0d52bb4d4392244615933d9f04265f36faedc93f5406226d38076" => :big_sur
-    sha256 "c7bc35b8debbb322fc3bdd644ba526eeec3ab8d5f982c76442995a763c77c739" => :arm64_big_sur
-    sha256 "491fc7dc78848cd91c85c4a6a1ff5457166c0ad83dda9f05145489c2aa2828eb" => :catalina
-    sha256 "d03e895349d8503cea9c8da326015298bf64d80796ab9ee62138a4a072e4559f" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "c7bc35b8debbb322fc3bdd644ba526eeec3ab8d5f982c76442995a763c77c739"
+    sha256 cellar: :any, big_sur:       "431d227c11a0d52bb4d4392244615933d9f04265f36faedc93f5406226d38076"
+    sha256 cellar: :any, catalina:      "491fc7dc78848cd91c85c4a6a1ff5457166c0ad83dda9f05145489c2aa2828eb"
+    sha256 cellar: :any, mojave:        "d03e895349d8503cea9c8da326015298bf64d80796ab9ee62138a4a072e4559f"
   end
 
   head do

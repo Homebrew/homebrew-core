@@ -6,12 +6,11 @@ class Czmq < Formula
   license "MPL-2.0"
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "b457eb58a8684ba745af98d60a4207aef695bb33531206f2f7c0287523cd9a2a" => :big_sur
-    sha256 "f8b5ef84a357ca7fbd03d2a0a5fc5f5714cf28dc5321479f0dc715c348df75c9" => :arm64_big_sur
-    sha256 "c20bd8fd5e9c223824b1b50e829fb6c1ff1096951b20379f5f070b300d7e67d8" => :catalina
-    sha256 "e64d0f79d6a05b5648695e3d06331bb34e8b85ae5920f429f3b44b7eee23cf5e" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "f8b5ef84a357ca7fbd03d2a0a5fc5f5714cf28dc5321479f0dc715c348df75c9"
+    sha256 cellar: :any, big_sur:       "b457eb58a8684ba745af98d60a4207aef695bb33531206f2f7c0287523cd9a2a"
+    sha256 cellar: :any, catalina:      "c20bd8fd5e9c223824b1b50e829fb6c1ff1096951b20379f5f070b300d7e67d8"
+    sha256 cellar: :any, mojave:        "e64d0f79d6a05b5648695e3d06331bb34e8b85ae5920f429f3b44b7eee23cf5e"
   end
 
   head do

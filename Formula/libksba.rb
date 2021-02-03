@@ -11,11 +11,10 @@ class Libksba < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "688def210a738526e8cebfe8e556c9bfe4b164887c5918463c37d91b3f694945" => :big_sur
-    sha256 "077fb787593058667da21e25d5beca46ced441193c325c936036d466ad60cd6e" => :arm64_big_sur
-    sha256 "9a305a28ce4d1635c142ea8e02ce5e6ef17007901223fbdbe3572f06398490f3" => :catalina
-    sha256 "a309359bb9d744de1065e91feefdd06f520a6e72a8d266bc256d59fbe23b70d5" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "077fb787593058667da21e25d5beca46ced441193c325c936036d466ad60cd6e"
+    sha256 cellar: :any, big_sur:       "688def210a738526e8cebfe8e556c9bfe4b164887c5918463c37d91b3f694945"
+    sha256 cellar: :any, catalina:      "9a305a28ce4d1635c142ea8e02ce5e6ef17007901223fbdbe3572f06398490f3"
+    sha256 cellar: :any, mojave:        "a309359bb9d744de1065e91feefdd06f520a6e72a8d266bc256d59fbe23b70d5"
   end
 
   depends_on "libgpg-error"

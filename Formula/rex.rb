@@ -5,10 +5,9 @@ class Rex < Formula
   sha256 "73269e5ddad0b88f1cf269173a9eff2f2addff230c303112fda5f43e269c49c5"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "de0ca43e439023982668c5563f41340a82d3ae8c45159b457749c1ab0f15d3c5" => :catalina
-    sha256 "24da3a602c3b434d0069244f546ed33f14e8bd3bbee1f7a99b91ca97a48b0c37" => :mojave
-    sha256 "dc0b2bb90327f2fc716eb95655366fd7a3ac36d7880f25a69777c9976260d508" => :high_sierra
+    sha256 cellar: :any_skip_relocation, catalina:    "de0ca43e439023982668c5563f41340a82d3ae8c45159b457749c1ab0f15d3c5"
+    sha256 cellar: :any_skip_relocation, mojave:      "24da3a602c3b434d0069244f546ed33f14e8bd3bbee1f7a99b91ca97a48b0c37"
+    sha256 cellar: :any_skip_relocation, high_sierra: "dc0b2bb90327f2fc716eb95655366fd7a3ac36d7880f25a69777c9976260d508"
   end
 
   uses_from_macos "perl"

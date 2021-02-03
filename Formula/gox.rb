@@ -7,11 +7,10 @@ class Gox < Formula
   head "https://github.com/mitchellh/gox.git"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "ee0ae4811c2bd84db661328bda7ff64e3560aae5bea9b9447dc75f0c4528ea03" => :big_sur
-    sha256 "0faf261981e71df491ffe35d995aeefe1660bf73c204206ad88668981882e88e" => :catalina
-    sha256 "96cf3f477de802c91e532a362cfaab221854f8683414b0abecbbe1e4b66c6b56" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur:  "ee0ae4811c2bd84db661328bda7ff64e3560aae5bea9b9447dc75f0c4528ea03"
+    sha256 cellar: :any_skip_relocation, catalina: "0faf261981e71df491ffe35d995aeefe1660bf73c204206ad88668981882e88e"
+    sha256 cellar: :any_skip_relocation, mojave:   "96cf3f477de802c91e532a362cfaab221854f8683414b0abecbbe1e4b66c6b56"
   end
 
   depends_on "go"

@@ -13,10 +13,9 @@ class Bzt < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2914b239cc029c12f7242f5c36651d338810ba6e545e5fb2341946da28463be0" => :big_sur
-    sha256 "87ca5630f029a90be43ba9f1f00fe2fc945ea7d0e5179028f7fbaf987a1665f5" => :catalina
-    sha256 "bc97cf26a459d6492a916e677822c7d6c70044c404b99c357f83920086249d4b" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur:  "2914b239cc029c12f7242f5c36651d338810ba6e545e5fb2341946da28463be0"
+    sha256 cellar: :any_skip_relocation, catalina: "87ca5630f029a90be43ba9f1f00fe2fc945ea7d0e5179028f7fbaf987a1665f5"
+    sha256 cellar: :any_skip_relocation, mojave:   "bc97cf26a459d6492a916e677822c7d6c70044c404b99c357f83920086249d4b"
   end
 
   # can only run with python 3.7 due to this issue, https://github.com/simonpercivall/astunparse/issues/43

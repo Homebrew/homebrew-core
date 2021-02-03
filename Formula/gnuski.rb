@@ -9,15 +9,14 @@ class Gnuski < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "6ae8c77ab5fed3e5f85be1c411cc631099d219bd49ddb3a35f527da27894b880" => :big_sur
-    sha256 "d82abb34deac302a464e7c664a3dcf0726f1d0f8ee03586b195e3449a2c83d43" => :arm64_big_sur
-    sha256 "7c58085b5ceb98168c728003d484e08410c837bde9b044ed5a5fa6f26796d9ab" => :catalina
-    sha256 "4fe7b21e4b40ee72c7825c1e0330a958694b98529121385b78b7af9aff229d6d" => :mojave
-    sha256 "6f15bd497951ea784e84b2ec888be83343ad1ad96eb6bab9ba343bff31246700" => :high_sierra
-    sha256 "3874907a4ad715492c026d969ec3265dcd5f71424dde07a83aa1c21a1e36fa38" => :sierra
-    sha256 "ce14d8ee8b8d58c710b93adb2f4cedfb9d78fb64746f38daee4ea38aa977ae43" => :el_capitan
-    sha256 "3163ed8b9f1487e0f5f5a42006e0edfbfdb3a4dbea9b917c0aa692db282ec13b" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d82abb34deac302a464e7c664a3dcf0726f1d0f8ee03586b195e3449a2c83d43"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6ae8c77ab5fed3e5f85be1c411cc631099d219bd49ddb3a35f527da27894b880"
+    sha256 cellar: :any_skip_relocation, catalina:      "7c58085b5ceb98168c728003d484e08410c837bde9b044ed5a5fa6f26796d9ab"
+    sha256 cellar: :any_skip_relocation, mojave:        "4fe7b21e4b40ee72c7825c1e0330a958694b98529121385b78b7af9aff229d6d"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "6f15bd497951ea784e84b2ec888be83343ad1ad96eb6bab9ba343bff31246700"
+    sha256 cellar: :any_skip_relocation, sierra:        "3874907a4ad715492c026d969ec3265dcd5f71424dde07a83aa1c21a1e36fa38"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "ce14d8ee8b8d58c710b93adb2f4cedfb9d78fb64746f38daee4ea38aa977ae43"
+    sha256 cellar: :any_skip_relocation, yosemite:      "3163ed8b9f1487e0f5f5a42006e0edfbfdb3a4dbea9b917c0aa692db282ec13b"
   end
 
   def install

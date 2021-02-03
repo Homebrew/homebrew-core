@@ -12,11 +12,10 @@ class SphinxDoc < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "cbdf28903101f4aa172f06b2cc1c0d08ed56011a294a5cc4386488852de53405" => :big_sur
-    sha256 "e08f34bbdbed5857dfc962ae6e04e50bfc1bcb13963de9f046fcf0dffa4979e5" => :arm64_big_sur
-    sha256 "d4c8f97001c58cab8fb015a9156829bc049a35ba5e5d86eeafb8d068c4502f8e" => :catalina
-    sha256 "c39c79343b10c3a8d41ef24d42b6c834e4319fe765ef792ee403ce6803fbc192" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e08f34bbdbed5857dfc962ae6e04e50bfc1bcb13963de9f046fcf0dffa4979e5"
+    sha256 cellar: :any_skip_relocation, big_sur:       "cbdf28903101f4aa172f06b2cc1c0d08ed56011a294a5cc4386488852de53405"
+    sha256 cellar: :any_skip_relocation, catalina:      "d4c8f97001c58cab8fb015a9156829bc049a35ba5e5d86eeafb8d068c4502f8e"
+    sha256 cellar: :any_skip_relocation, mojave:        "c39c79343b10c3a8d41ef24d42b6c834e4319fe765ef792ee403ce6803fbc192"
   end
 
   keg_only <<~EOS

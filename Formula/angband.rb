@@ -7,11 +7,11 @@ class Angband < Formula
   head "https://github.com/angband/angband.git"
 
   bottle do
-    sha256 "ed5e9c7b858074dbb7bea12199e8a326cd61e0335fb268e0d88894609995c88d" => :big_sur
-    sha256 "156672377070d2d66c338e5ebc9e6a3ea0afd544a1da97f9ef35cdd2b0a859cc" => :arm64_big_sur
-    sha256 "b59aedacab5c3588719bfc1ebc17b936ffe5105ed8e7edd19caccc340a81271f" => :catalina
-    sha256 "96f6f2e31023c69aba44c4ccc40acf652d5a76bbd1b9cd6a7ebead33a0a2161e" => :mojave
-    sha256 "95463908fbefe4988a9ab3dcc031cd1c7d6767ed6557d1baca813446e5ca6b9c" => :high_sierra
+    sha256 arm64_big_sur: "156672377070d2d66c338e5ebc9e6a3ea0afd544a1da97f9ef35cdd2b0a859cc"
+    sha256 big_sur:       "ed5e9c7b858074dbb7bea12199e8a326cd61e0335fb268e0d88894609995c88d"
+    sha256 catalina:      "b59aedacab5c3588719bfc1ebc17b936ffe5105ed8e7edd19caccc340a81271f"
+    sha256 mojave:        "96f6f2e31023c69aba44c4ccc40acf652d5a76bbd1b9cd6a7ebead33a0a2161e"
+    sha256 high_sierra:   "95463908fbefe4988a9ab3dcc031cd1c7d6767ed6557d1baca813446e5ca6b9c"
   end
 
   depends_on "autoconf" => :build

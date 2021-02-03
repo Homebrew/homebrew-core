@@ -7,11 +7,10 @@ class Gosec < Formula
   head "https://github.com/securego/gosec.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "5f18ea227cfcaa1dbce64ee3442fc73fd216e2c257a4f7ea68eef08d201b28b7" => :big_sur
-    sha256 "6cdad6416afab7b8957194675cb475bbd3752116dca71644e2bf454b4712c342" => :arm64_big_sur
-    sha256 "ece08231a00e65991ef7ee0dee8b89fb94bd8bb0fe46f3bc62cda1ecb8a6671a" => :catalina
-    sha256 "b98b577330645df9104cbf2c7d88c0c38fbc75ddbc68b19bd8874d832eb09beb" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6cdad6416afab7b8957194675cb475bbd3752116dca71644e2bf454b4712c342"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5f18ea227cfcaa1dbce64ee3442fc73fd216e2c257a4f7ea68eef08d201b28b7"
+    sha256 cellar: :any_skip_relocation, catalina:      "ece08231a00e65991ef7ee0dee8b89fb94bd8bb0fe46f3bc62cda1ecb8a6671a"
+    sha256 cellar: :any_skip_relocation, mojave:        "b98b577330645df9104cbf2c7d88c0c38fbc75ddbc68b19bd8874d832eb09beb"
   end
 
   depends_on "go"

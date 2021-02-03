@@ -7,10 +7,9 @@ class Cgrep < Formula
   head "https://github.com/awgn/cgrep.git"
 
   bottle do
-    cellar :any
-    sha256 "4047191dea7a4ed298ec2b30bd9cd1a50b4a06f6cc6ab8c595a02df722c4cfa5" => :big_sur
-    sha256 "917b7ccec03d60ae5fcd80da9544cd294db6d188ae7b14a894a39a51dd5459e1" => :catalina
-    sha256 "0a3945e411e44e59e77e423caf8e445a6dbe06fef7724abb12612ae888707280" => :mojave
+    sha256 cellar: :any, big_sur:  "4047191dea7a4ed298ec2b30bd9cd1a50b4a06f6cc6ab8c595a02df722c4cfa5"
+    sha256 cellar: :any, catalina: "917b7ccec03d60ae5fcd80da9544cd294db6d188ae7b14a894a39a51dd5459e1"
+    sha256 cellar: :any, mojave:   "0a3945e411e44e59e77e423caf8e445a6dbe06fef7724abb12612ae888707280"
   end
 
   depends_on "cabal-install" => :build

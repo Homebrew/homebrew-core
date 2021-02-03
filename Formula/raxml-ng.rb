@@ -11,11 +11,10 @@ class RaxmlNg < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "0e6a2372feba1e4db0627fa823d65bb31e83f8da4debf1a0a7a7c47e5283a04d" => :big_sur
-    sha256 "4d7397bf30c609cb53ca946d398d14fadb6e7ade0bfd4b427fb0fd0a6385df95" => :catalina
-    sha256 "2851487308922e7bad8c5c9364cdd81318d2982cd76458b55eeeee8c50e5f693" => :mojave
-    sha256 "0da342f7d906f920117cecdacd93368fcedc88ca6e8b362ebc34697e8d489f2a" => :high_sierra
+    sha256 cellar: :any, big_sur:     "0e6a2372feba1e4db0627fa823d65bb31e83f8da4debf1a0a7a7c47e5283a04d"
+    sha256 cellar: :any, catalina:    "4d7397bf30c609cb53ca946d398d14fadb6e7ade0bfd4b427fb0fd0a6385df95"
+    sha256 cellar: :any, mojave:      "2851487308922e7bad8c5c9364cdd81318d2982cd76458b55eeeee8c50e5f693"
+    sha256 cellar: :any, high_sierra: "0da342f7d906f920117cecdacd93368fcedc88ca6e8b362ebc34697e8d489f2a"
   end
 
   depends_on "autoconf" => :build

@@ -11,12 +11,11 @@ class Cloog < Formula
   end
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "f7c327b7541e01820a0b70ac9877dae9263609de74480aad14568a505ee7af83" => :big_sur
-    sha256 "fd2c1ec09cd145694be31a83b63ce8d12a78475a9329337d17c54acf32a5bdab" => :arm64_big_sur
-    sha256 "7899742ca2ecd424f8354679f710d86329abf9935017dd0952950b485b0d9967" => :catalina
-    sha256 "604d9bd3eaab93d10f50d3dacf0c9c49b2b986b3a6379a95586fe4c4cbf26622" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "fd2c1ec09cd145694be31a83b63ce8d12a78475a9329337d17c54acf32a5bdab"
+    sha256 cellar: :any, big_sur:       "f7c327b7541e01820a0b70ac9877dae9263609de74480aad14568a505ee7af83"
+    sha256 cellar: :any, catalina:      "7899742ca2ecd424f8354679f710d86329abf9935017dd0952950b485b0d9967"
+    sha256 cellar: :any, mojave:        "604d9bd3eaab93d10f50d3dacf0c9c49b2b986b3a6379a95586fe4c4cbf26622"
   end
 
   depends_on "pkg-config" => :build

@@ -6,14 +6,13 @@ class Daemonize < Formula
   license "BSD-3-Clause"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "a9dc01cd71295518a9477676bee344b3f3f25d5725777635c0c708d8dc7fdde0" => :big_sur
-    sha256 "49b53c082bc201f7dcfe760c727b7f748ce6306fcdbf656d1609384dc75e52fc" => :arm64_big_sur
-    sha256 "a5c898ee425aecfb5c3d41e75da436ebbd44ad2fa343fa85b60573bd4fd8c7a7" => :catalina
-    sha256 "45a895642c3be14e888b66607c2a4567408657111686437a431a730358b2feea" => :mojave
-    sha256 "bc501e9e4ba9fd11390fa9749a7b9a38a70353edaf75499bd969c45921d06bfe" => :high_sierra
-    sha256 "d4d5109292158ef32eb73a37b9b6a037dcae620e234be945410ea927322bb998" => :sierra
-    sha256 "5e05991cf0462e4fe32dd70354d2520a378831d2b1c0fc2cf0b4fbca8dc85489" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "49b53c082bc201f7dcfe760c727b7f748ce6306fcdbf656d1609384dc75e52fc"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a9dc01cd71295518a9477676bee344b3f3f25d5725777635c0c708d8dc7fdde0"
+    sha256 cellar: :any_skip_relocation, catalina:      "a5c898ee425aecfb5c3d41e75da436ebbd44ad2fa343fa85b60573bd4fd8c7a7"
+    sha256 cellar: :any_skip_relocation, mojave:        "45a895642c3be14e888b66607c2a4567408657111686437a431a730358b2feea"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "bc501e9e4ba9fd11390fa9749a7b9a38a70353edaf75499bd969c45921d06bfe"
+    sha256 cellar: :any_skip_relocation, sierra:        "d4d5109292158ef32eb73a37b9b6a037dcae620e234be945410ea927322bb998"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "5e05991cf0462e4fe32dd70354d2520a378831d2b1c0fc2cf0b4fbca8dc85489"
   end
 
   def install

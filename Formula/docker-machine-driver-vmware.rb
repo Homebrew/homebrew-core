@@ -7,12 +7,11 @@ class DockerMachineDriverVmware < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "06e7a06267df68d8200ff678cd9aeb4b214e839f6e8a59dad4617c8cf1d23696" => :big_sur
-    sha256 "d73c0be19fba7a7166c65202133b18c63367b5758d04ec19e23d3fd9406a8a7a" => :catalina
-    sha256 "df81e5c14ec3961d53f6490a165a17b8ceda29beba747ee659b57d82a9468e26" => :mojave
-    sha256 "e65553889741f8c077de12706314e9f95805d673b186d1d545617515d7ab4a03" => :high_sierra
-    sha256 "4901f8daf5bc087b0b4bb64a2798696604e618b8d11433b6fa851dd90fd1b77f" => :sierra
+    sha256 cellar: :any_skip_relocation, big_sur:     "06e7a06267df68d8200ff678cd9aeb4b214e839f6e8a59dad4617c8cf1d23696"
+    sha256 cellar: :any_skip_relocation, catalina:    "d73c0be19fba7a7166c65202133b18c63367b5758d04ec19e23d3fd9406a8a7a"
+    sha256 cellar: :any_skip_relocation, mojave:      "df81e5c14ec3961d53f6490a165a17b8ceda29beba747ee659b57d82a9468e26"
+    sha256 cellar: :any_skip_relocation, high_sierra: "e65553889741f8c077de12706314e9f95805d673b186d1d545617515d7ab4a03"
+    sha256 cellar: :any_skip_relocation, sierra:      "4901f8daf5bc087b0b4bb64a2798696604e618b8d11433b6fa851dd90fd1b77f"
   end
 
   depends_on "go" => :build

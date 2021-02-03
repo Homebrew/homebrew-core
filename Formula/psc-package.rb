@@ -7,10 +7,9 @@ class PscPackage < Formula
   revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "f5baac6c49a67991b2ed0f2a2ba34898317e9cfd6864e8b446fb159f80ae04ec" => :catalina
-    sha256 "e6cd795e5eade3414e2149f4fe4d529468293b122659ed5bd8b2b4df716c77cf" => :mojave
-    sha256 "0b0411dfd516bac15b2e99cba163dbc3c77742eae9e09038ac85ef1793ce767c" => :high_sierra
+    sha256 cellar: :any_skip_relocation, catalina:    "f5baac6c49a67991b2ed0f2a2ba34898317e9cfd6864e8b446fb159f80ae04ec"
+    sha256 cellar: :any_skip_relocation, mojave:      "e6cd795e5eade3414e2149f4fe4d529468293b122659ed5bd8b2b4df716c77cf"
+    sha256 cellar: :any_skip_relocation, high_sierra: "0b0411dfd516bac15b2e99cba163dbc3c77742eae9e09038ac85ef1793ce767c"
   end
 
   depends_on "cabal-install" => :build

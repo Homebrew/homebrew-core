@@ -11,12 +11,11 @@ class Libhttpseverywhere < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "459d83997d7d69966ddee1e7a94e8583b4de8570ee1a796273a64a3d7845b8cd" => :big_sur
-    sha256 "006bf3748d65067509e5b2e6d506f3b0a9a52c5eaab54780850b70b7f82ff249" => :arm64_big_sur
-    sha256 "c8cc1d294949af9676e54f9a32c4dbe782dfc5d103f92bbee68acd2ccb5ff728" => :catalina
-    sha256 "2835c48e21e0a96730893f96319736e55d29d8b224fcc0915e319bcbc3b521c2" => :mojave
-    sha256 "9c7c9397a0ebe56b82ffa6d8daeb9e645e94d14ed4fd25aedbe313c603e0b9b5" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "006bf3748d65067509e5b2e6d506f3b0a9a52c5eaab54780850b70b7f82ff249"
+    sha256 cellar: :any, big_sur:       "459d83997d7d69966ddee1e7a94e8583b4de8570ee1a796273a64a3d7845b8cd"
+    sha256 cellar: :any, catalina:      "c8cc1d294949af9676e54f9a32c4dbe782dfc5d103f92bbee68acd2ccb5ff728"
+    sha256 cellar: :any, mojave:        "2835c48e21e0a96730893f96319736e55d29d8b224fcc0915e319bcbc3b521c2"
+    sha256 cellar: :any, high_sierra:   "9c7c9397a0ebe56b82ffa6d8daeb9e645e94d14ed4fd25aedbe313c603e0b9b5"
   end
 
   depends_on "gobject-introspection" => :build

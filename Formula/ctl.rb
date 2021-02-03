@@ -7,11 +7,11 @@ class Ctl < Formula
   revision 5
 
   bottle do
-    sha256 "3c08d14f9641ece8b5bff55783df5905f349974470452d4002c171d794265f65" => :big_sur
-    sha256 "e0279cf65e4c8dc7d574ef2e6e15e79e3d8632829cf7ba41535802d4d9d5d399" => :arm64_big_sur
-    sha256 "e44cbdbb013b350d22ff4cafeeb2a8e93dd164dc36bb6e181fb5cf086a8345c1" => :catalina
-    sha256 "6c88c03a0826a11e7267bf056e15362d4824cea2291b16af6db172d21f3654ce" => :mojave
-    sha256 "61b7606c62fb60aa86d887084e1cb0aa194ff5c64cb9726208ee364f870d7b43" => :high_sierra
+    sha256 arm64_big_sur: "e0279cf65e4c8dc7d574ef2e6e15e79e3d8632829cf7ba41535802d4d9d5d399"
+    sha256 big_sur:       "3c08d14f9641ece8b5bff55783df5905f349974470452d4002c171d794265f65"
+    sha256 catalina:      "e44cbdbb013b350d22ff4cafeeb2a8e93dd164dc36bb6e181fb5cf086a8345c1"
+    sha256 mojave:        "6c88c03a0826a11e7267bf056e15362d4824cea2291b16af6db172d21f3654ce"
+    sha256 high_sierra:   "61b7606c62fb60aa86d887084e1cb0aa194ff5c64cb9726208ee364f870d7b43"
   end
 
   depends_on "cmake" => :build

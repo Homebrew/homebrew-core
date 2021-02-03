@@ -9,11 +9,10 @@ class Bandit < Formula
   head "https://github.com/PyCQA/bandit.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "5932b6d2df12cb8f1143cca2a81a7c34233e1cf55d3a609398454f234be617b2" => :big_sur
-    sha256 "d2349695a19c779eaa47e3d79d80f2a762701722df47f268fe9bdd424ac64535" => :arm64_big_sur
-    sha256 "1b4c66854a3bad10e011d81c6568a9ac5c7194275b7e62e28003af7fd2fadd09" => :catalina
-    sha256 "abe9b77aca9be261aeb1c6f3c9539edbcb0c67509a36d45e7f0e565c796374bb" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d2349695a19c779eaa47e3d79d80f2a762701722df47f268fe9bdd424ac64535"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5932b6d2df12cb8f1143cca2a81a7c34233e1cf55d3a609398454f234be617b2"
+    sha256 cellar: :any_skip_relocation, catalina:      "1b4c66854a3bad10e011d81c6568a9ac5c7194275b7e62e28003af7fd2fadd09"
+    sha256 cellar: :any_skip_relocation, mojave:        "abe9b77aca9be261aeb1c6f3c9539edbcb0c67509a36d45e7f0e565c796374bb"
   end
 
   depends_on "python@3.9"

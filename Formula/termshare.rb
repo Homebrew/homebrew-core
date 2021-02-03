@@ -10,16 +10,15 @@ class Termshare < Formula
   head "https://github.com/progrium/termshare.git"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "8fdfd431495e9ec1131134560723d80db8b95f72d3ba47725294914c96f3490b" => :big_sur
-    sha256 "4dd298c36b89e861cbcbc96746c8174c034ee8fbe1878973e8cee862659fa65a" => :catalina
-    sha256 "bb86a376d3ec20e2ccfe1359f90f394b515dedd9d2015a8e0e753704ffbefbdf" => :mojave
-    sha256 "9f20373c2b495c9308ed1b798d1d928e06318cbe996093b97e0126b038e76085" => :high_sierra
-    sha256 "5d883c6747f478ab161ca648923a7397a782f437bb59d660df6a252b21f62e99" => :sierra
-    sha256 "c540732aab70ec29b60459c19bb4ee55c0584b3a63476473219a115d2ec380af" => :el_capitan
-    sha256 "c3b9c2784b02536ce97a2a3b3a205314e7ada8e727ac60b54577d933a04aa808" => :yosemite
-    sha256 "aa9131a7eae6efe7e7d3bac1e73711f7bfe52f1dd246389bdbb137c70c815310" => :mavericks
+    sha256 cellar: :any_skip_relocation, big_sur:     "8fdfd431495e9ec1131134560723d80db8b95f72d3ba47725294914c96f3490b"
+    sha256 cellar: :any_skip_relocation, catalina:    "4dd298c36b89e861cbcbc96746c8174c034ee8fbe1878973e8cee862659fa65a"
+    sha256 cellar: :any_skip_relocation, mojave:      "bb86a376d3ec20e2ccfe1359f90f394b515dedd9d2015a8e0e753704ffbefbdf"
+    sha256 cellar: :any_skip_relocation, high_sierra: "9f20373c2b495c9308ed1b798d1d928e06318cbe996093b97e0126b038e76085"
+    sha256 cellar: :any_skip_relocation, sierra:      "5d883c6747f478ab161ca648923a7397a782f437bb59d660df6a252b21f62e99"
+    sha256 cellar: :any_skip_relocation, el_capitan:  "c540732aab70ec29b60459c19bb4ee55c0584b3a63476473219a115d2ec380af"
+    sha256 cellar: :any_skip_relocation, yosemite:    "c3b9c2784b02536ce97a2a3b3a205314e7ada8e727ac60b54577d933a04aa808"
+    sha256 cellar: :any_skip_relocation, mavericks:   "aa9131a7eae6efe7e7d3bac1e73711f7bfe52f1dd246389bdbb137c70c815310"
   end
 
   depends_on "go" => :build

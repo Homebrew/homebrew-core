@@ -6,11 +6,10 @@ class Fwup < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any
-    sha256 "5f66239fb94a6b04ffbf6e74d2f3a6ebd083625faa78b96ee8c671fd33919e94" => :big_sur
-    sha256 "24af6cc94eb8d03ab198e93d451a56933751f550a822d5b4dba69d62fa989d12" => :arm64_big_sur
-    sha256 "c7f3841b362480d6b900147a0155948fa079728e10709f695409e122fcbec4de" => :catalina
-    sha256 "a7a157b8950cd5929e1c525012835880f6f9cc7e1e626ac33a0f49938b6a957f" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "24af6cc94eb8d03ab198e93d451a56933751f550a822d5b4dba69d62fa989d12"
+    sha256 cellar: :any, big_sur:       "5f66239fb94a6b04ffbf6e74d2f3a6ebd083625faa78b96ee8c671fd33919e94"
+    sha256 cellar: :any, catalina:      "c7f3841b362480d6b900147a0155948fa079728e10709f695409e122fcbec4de"
+    sha256 cellar: :any, mojave:        "a7a157b8950cd5929e1c525012835880f6f9cc7e1e626ac33a0f49938b6a957f"
   end
 
   depends_on "pkg-config" => :build

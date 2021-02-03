@@ -10,15 +10,14 @@ class Wput < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2a5d49be96808777f249d96b6f86e2e0e0e301be0e929ba1eaea99cf79cacf42" => :big_sur
-    sha256 "77703d5dfb1bde183ccc207ee5e3f14b1a677acc697806a2b16f00c56cc0595e" => :catalina
-    sha256 "563c5204880172786cbbfc75dafa818e670ac5d1a67fdbe8bea1dd2588587eab" => :mojave
-    sha256 "e01d35805cd00e8f4d9ba1ab989104d66dc4150648a2288f5f49eea5c17b5025" => :high_sierra
-    sha256 "0a8c4296a3e14d8b420f65464293b000dd1bd2e33a802c92e1812f0c267d3f0f" => :sierra
-    sha256 "8e4eeb941d98dc0313b87682b7ae659bbceac59426cf0483c2ae2676cf5b924b" => :el_capitan
-    sha256 "97bc045a03ddd01106304530a453a47693fbd5f3419090310c91a187e1d23931" => :yosemite
-    sha256 "3e9c649d134fff0d79d23a2eb575e440354e938b0f261c5fed53efe9d6f3f8c9" => :mavericks
+    sha256 cellar: :any_skip_relocation, big_sur:     "2a5d49be96808777f249d96b6f86e2e0e0e301be0e929ba1eaea99cf79cacf42"
+    sha256 cellar: :any_skip_relocation, catalina:    "77703d5dfb1bde183ccc207ee5e3f14b1a677acc697806a2b16f00c56cc0595e"
+    sha256 cellar: :any_skip_relocation, mojave:      "563c5204880172786cbbfc75dafa818e670ac5d1a67fdbe8bea1dd2588587eab"
+    sha256 cellar: :any_skip_relocation, high_sierra: "e01d35805cd00e8f4d9ba1ab989104d66dc4150648a2288f5f49eea5c17b5025"
+    sha256 cellar: :any_skip_relocation, sierra:      "0a8c4296a3e14d8b420f65464293b000dd1bd2e33a802c92e1812f0c267d3f0f"
+    sha256 cellar: :any_skip_relocation, el_capitan:  "8e4eeb941d98dc0313b87682b7ae659bbceac59426cf0483c2ae2676cf5b924b"
+    sha256 cellar: :any_skip_relocation, yosemite:    "97bc045a03ddd01106304530a453a47693fbd5f3419090310c91a187e1d23931"
+    sha256 cellar: :any_skip_relocation, mavericks:   "3e9c649d134fff0d79d23a2eb575e440354e938b0f261c5fed53efe9d6f3f8c9"
   end
 
   # The patch is to skip inclusion of malloc.h only on OSX. Upstream:

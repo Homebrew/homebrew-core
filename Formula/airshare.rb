@@ -13,11 +13,10 @@ class Airshare < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "39e35bc89e09e6c7b106712658d222bb85640adb528d7dac368b9a728be17438" => :arm64_big_sur
-    sha256 "cecb1498d53e6df78f346438b5d529e1c025b870a5f7875afe71252deacfcd96" => :catalina
-    sha256 "e4d1b234885a01532858807ef6a4d0f90f674b170467787cce956b017bd03d67" => :mojave
-    sha256 "faecb7b21748d1ffe0c4b3a56ba50ee8c0a27aa82efde69cabe1e5d52d951455" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "39e35bc89e09e6c7b106712658d222bb85640adb528d7dac368b9a728be17438"
+    sha256 cellar: :any_skip_relocation, catalina:      "cecb1498d53e6df78f346438b5d529e1c025b870a5f7875afe71252deacfcd96"
+    sha256 cellar: :any_skip_relocation, mojave:        "e4d1b234885a01532858807ef6a4d0f90f674b170467787cce956b017bd03d67"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "faecb7b21748d1ffe0c4b3a56ba50ee8c0a27aa82efde69cabe1e5d52d951455"
   end
 
   depends_on "python@3.9"

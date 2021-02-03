@@ -12,11 +12,10 @@ class MarkdownlintCli < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "64694b55b90f8d406f4eb1d622de12a887b87307f324e3cc6ce6c0e96092aaf3" => :big_sur
-    sha256 "b32c7699f2129d7728a4ab63846d1611becfc4cc4f01e3c2f752d7da209c1f19" => :arm64_big_sur
-    sha256 "a5e680650b4a1f8b1cbb56cda18bd8853c5a9dde962a018b4ccdd682c1b0847c" => :catalina
-    sha256 "61a7787aad97d225fad9e8258f4535fefdc75e8bc38e7a621e6aa1f2606633ea" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b32c7699f2129d7728a4ab63846d1611becfc4cc4f01e3c2f752d7da209c1f19"
+    sha256 cellar: :any_skip_relocation, big_sur:       "64694b55b90f8d406f4eb1d622de12a887b87307f324e3cc6ce6c0e96092aaf3"
+    sha256 cellar: :any_skip_relocation, catalina:      "a5e680650b4a1f8b1cbb56cda18bd8853c5a9dde962a018b4ccdd682c1b0847c"
+    sha256 cellar: :any_skip_relocation, mojave:        "61a7787aad97d225fad9e8258f4535fefdc75e8bc38e7a621e6aa1f2606633ea"
   end
 
   depends_on "node"

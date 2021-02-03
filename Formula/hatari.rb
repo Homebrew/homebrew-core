@@ -12,11 +12,10 @@ class Hatari < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "485738be593ab647a5543878cf748d4602f9123b053fef63672f31a271009700" => :big_sur
-    sha256 "8606d3d0c17b73205030593e2b2a3cd0ea1a87fbcb7998b2d84bba14e67957f1" => :arm64_big_sur
-    sha256 "9137d6022e24772be5ef1af60ecd2fc9441a690cea63cd9509b3c9619a88d303" => :catalina
-    sha256 "c88fc0f38bb911d3d7ef419a176118bfa3de9f3e9db4b1ab8c3d1644fe75c039" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "8606d3d0c17b73205030593e2b2a3cd0ea1a87fbcb7998b2d84bba14e67957f1"
+    sha256 cellar: :any, big_sur:       "485738be593ab647a5543878cf748d4602f9123b053fef63672f31a271009700"
+    sha256 cellar: :any, catalina:      "9137d6022e24772be5ef1af60ecd2fc9441a690cea63cd9509b3c9619a88d303"
+    sha256 cellar: :any, mojave:        "c88fc0f38bb911d3d7ef419a176118bfa3de9f3e9db4b1ab8c3d1644fe75c039"
   end
 
   depends_on "cmake" => :build

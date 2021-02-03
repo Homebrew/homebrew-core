@@ -12,11 +12,10 @@ class Lemon < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "d93678613765dacef1f52234e82bcd1dd60f9acd55000d44a9cff8f571572b5b" => :big_sur
-    sha256 "33b7865addc98907551329c54d597a648495a8a737402870b6835dc83ffa5e98" => :arm64_big_sur
-    sha256 "d6bb8a9909be8ce608481df23023b89c618b6c61508bde8d70df26d2ab781df2" => :catalina
-    sha256 "8f834c886dcf821b8381bb40a085a8730368e78680a4d40a34d81badf31cd5ba" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "33b7865addc98907551329c54d597a648495a8a737402870b6835dc83ffa5e98"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d93678613765dacef1f52234e82bcd1dd60f9acd55000d44a9cff8f571572b5b"
+    sha256 cellar: :any_skip_relocation, catalina:      "d6bb8a9909be8ce608481df23023b89c618b6c61508bde8d70df26d2ab781df2"
+    sha256 cellar: :any_skip_relocation, mojave:        "8f834c886dcf821b8381bb40a085a8730368e78680a4d40a34d81badf31cd5ba"
   end
 
   def install

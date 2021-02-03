@@ -7,11 +7,11 @@ class Imake < Formula
   revision 3
 
   bottle do
-    sha256 "c382f4319ca3b0138c5d20bfeea095d76ca9c972e166550b58f259f03a5d267c" => :big_sur
-    sha256 "7eafaa82ad84b47d8f4bd76bdca5ccfa065f622ea31b1d2c05fb316af8f60015" => :arm64_big_sur
-    sha256 "fadd526555076cbe59ef74e14456c732a084230e3bf23a78df259f222b11b4fc" => :catalina
-    sha256 "211e42f25de025770eae0cf3b5ca2c5f03821a809009e0111115f808cd498ab1" => :mojave
-    sha256 "582ea346c5d5caaa38795e2221172358b584e22cfe25ec48cacf78467272b257" => :high_sierra
+    sha256 arm64_big_sur: "7eafaa82ad84b47d8f4bd76bdca5ccfa065f622ea31b1d2c05fb316af8f60015"
+    sha256 big_sur:       "c382f4319ca3b0138c5d20bfeea095d76ca9c972e166550b58f259f03a5d267c"
+    sha256 catalina:      "fadd526555076cbe59ef74e14456c732a084230e3bf23a78df259f222b11b4fc"
+    sha256 mojave:        "211e42f25de025770eae0cf3b5ca2c5f03821a809009e0111115f808cd498ab1"
+    sha256 high_sierra:   "582ea346c5d5caaa38795e2221172358b584e22cfe25ec48cacf78467272b257"
   end
 
   depends_on "pkg-config" => :build

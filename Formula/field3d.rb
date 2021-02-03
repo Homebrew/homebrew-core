@@ -6,12 +6,11 @@ class Field3d < Formula
   license "BSD-3-Clause"
 
   bottle do
-    cellar :any
-    sha256 "df54705ee4664f08b7f50c2eb176b8b5ad356ee8a773321c11aa73a6e1de0b7d" => :big_sur
-    sha256 "7e00e38654398cd4cfe284517790e5fd6cc354ecaba6264aa0ff4952ade5727e" => :arm64_big_sur
-    sha256 "62cd1be576caec00c1d4369e08d226a94f88056588b3b34047e137a012ac6eda" => :catalina
-    sha256 "3c295ee04d92a9a1e0a87e6af3cf8dc53fcb7679b9518ba18d21c5667a17d458" => :mojave
-    sha256 "e71612d2b6260538c6a283c1d68e5cfe4fa86325feab85d885e28ea4ddb1aed9" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "7e00e38654398cd4cfe284517790e5fd6cc354ecaba6264aa0ff4952ade5727e"
+    sha256 cellar: :any, big_sur:       "df54705ee4664f08b7f50c2eb176b8b5ad356ee8a773321c11aa73a6e1de0b7d"
+    sha256 cellar: :any, catalina:      "62cd1be576caec00c1d4369e08d226a94f88056588b3b34047e137a012ac6eda"
+    sha256 cellar: :any, mojave:        "3c295ee04d92a9a1e0a87e6af3cf8dc53fcb7679b9518ba18d21c5667a17d458"
+    sha256 cellar: :any, high_sierra:   "e71612d2b6260538c6a283c1d68e5cfe4fa86325feab85d885e28ea4ddb1aed9"
   end
 
   depends_on "cmake" => :build

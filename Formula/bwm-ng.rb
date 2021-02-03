@@ -7,11 +7,10 @@ class BwmNg < Formula
   head "https://github.com/vgropp/bwm-ng.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "174c1fe863ea893c778909824972bebf6691c399076db4ca638dc2cee3b8c065" => :big_sur
-    sha256 "5f572a2c3cba92b810273eec515a00b0dc406319efd33934a571e97a2f48fb9c" => :arm64_big_sur
-    sha256 "8ece99c9c9349e80ac741aa8beafc3ea77ae62035279ed5da0c79d201d762882" => :catalina
-    sha256 "34ce809be16ab1eef9106643f22ff223a8da78a6c8336bd86e14dd41dccbec09" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5f572a2c3cba92b810273eec515a00b0dc406319efd33934a571e97a2f48fb9c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "174c1fe863ea893c778909824972bebf6691c399076db4ca638dc2cee3b8c065"
+    sha256 cellar: :any_skip_relocation, catalina:      "8ece99c9c9349e80ac741aa8beafc3ea77ae62035279ed5da0c79d201d762882"
+    sha256 cellar: :any_skip_relocation, mojave:        "34ce809be16ab1eef9106643f22ff223a8da78a6c8336bd86e14dd41dccbec09"
   end
 
   depends_on "autoconf" => :build

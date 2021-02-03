@@ -13,10 +13,10 @@ class Yamllint < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur: "2586c661c4e1e06056653bb0d62da23d631c84ddfad11e08cc34dbe76a5b2bac"
     sha256 cellar: :any, arm64_big_sur: "fe78135e634a2658a12f40e4889be14af79d8843404d145c54495d719275e9d7"
-    sha256 cellar: :any, catalina: "526747beb092f4b3026a8b4615a9f6a4e858fe352cf917b99d1dd16159390870"
-    sha256 cellar: :any, mojave: "c25d4d11756aff320022e4f292ebd32fef55841ee13e1d8bde4b7fe88ab54f6c"
+    sha256 cellar: :any, big_sur:       "2586c661c4e1e06056653bb0d62da23d631c84ddfad11e08cc34dbe76a5b2bac"
+    sha256 cellar: :any, catalina:      "526747beb092f4b3026a8b4615a9f6a4e858fe352cf917b99d1dd16159390870"
+    sha256 cellar: :any, mojave:        "c25d4d11756aff320022e4f292ebd32fef55841ee13e1d8bde4b7fe88ab54f6c"
   end
 
   depends_on "libyaml"

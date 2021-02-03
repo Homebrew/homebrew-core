@@ -8,11 +8,10 @@ class Libssh < Formula
   head "https://git.libssh.org/projects/libssh.git"
 
   bottle do
-    cellar :any
-    sha256 "ba9752b774a055a0df12b12cb76c8faed66b13de0f8ebbb8d415dae9f21a899d" => :big_sur
-    sha256 "a51771f2d0aad1f496cece28cd55bf8e9577e68acc57e3c8b2fe2e5c16b82917" => :arm64_big_sur
-    sha256 "85e25fa108135c48e655b4d26fb716430bea5795e13a7e61011d34c3f75be2dd" => :catalina
-    sha256 "d5ae563dad7c55f63a2509838a98df08643b13c07e1febd9ddeddf79ecfe043a" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "a51771f2d0aad1f496cece28cd55bf8e9577e68acc57e3c8b2fe2e5c16b82917"
+    sha256 cellar: :any, big_sur:       "ba9752b774a055a0df12b12cb76c8faed66b13de0f8ebbb8d415dae9f21a899d"
+    sha256 cellar: :any, catalina:      "85e25fa108135c48e655b4d26fb716430bea5795e13a7e61011d34c3f75be2dd"
+    sha256 cellar: :any, mojave:        "d5ae563dad7c55f63a2509838a98df08643b13c07e1febd9ddeddf79ecfe043a"
   end
 
   depends_on "cmake" => :build

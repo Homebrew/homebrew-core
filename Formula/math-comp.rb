@@ -8,10 +8,9 @@ class MathComp < Formula
   head "https://github.com/math-comp/math-comp.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "574f7ac4d0fa6500933d64af993125aae5a72cf0b2122f1a0068899015c079f7" => :big_sur
-    sha256 "df1c6f6e3143eb1c6d638526b7b61881cbf158b465ee0fca1a4ceceb8e4fa7ad" => :catalina
-    sha256 "c41a2cb454c539430c5f154a0ebac436bfa370e9b8090049bda57eea8bb8ea87" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur:  "574f7ac4d0fa6500933d64af993125aae5a72cf0b2122f1a0068899015c079f7"
+    sha256 cellar: :any_skip_relocation, catalina: "df1c6f6e3143eb1c6d638526b7b61881cbf158b465ee0fca1a4ceceb8e4fa7ad"
+    sha256 cellar: :any_skip_relocation, mojave:   "c41a2cb454c539430c5f154a0ebac436bfa370e9b8090049bda57eea8bb8ea87"
   end
 
   depends_on "ocaml" => :build

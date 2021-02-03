@@ -12,10 +12,10 @@ class Gtkmm < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur: "d38edddb1e41fead71b2758b3f73e98745d4437e7be367be7ceb02d461524cb3"
     sha256 cellar: :any, arm64_big_sur: "d0ed84fa9b225419e612a9b230914a7ffc89edb7911d8c9c93259c4b22ae7d42"
-    sha256 cellar: :any, catalina: "36bb5da441b53edde4c238f3db1cf9c6ac4c7d6cbf615dc6f8ab6a9aaf75c6be"
-    sha256 cellar: :any, mojave: "23182625b2ad79dac53a931d009b4e4621fbd75682c598e54d58ea8bfebb73f1"
+    sha256 cellar: :any, big_sur:       "d38edddb1e41fead71b2758b3f73e98745d4437e7be367be7ceb02d461524cb3"
+    sha256 cellar: :any, catalina:      "36bb5da441b53edde4c238f3db1cf9c6ac4c7d6cbf615dc6f8ab6a9aaf75c6be"
+    sha256 cellar: :any, mojave:        "23182625b2ad79dac53a931d009b4e4621fbd75682c598e54d58ea8bfebb73f1"
   end
 
   depends_on "pkg-config" => :build

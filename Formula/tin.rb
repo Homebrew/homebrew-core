@@ -12,10 +12,10 @@ class Tin < Formula
 
   bottle do
     rebuild 1
-    sha256 "1c9c260926726183ef975425c557afbd9be80a2cab7eb2258d63945716153980" => :big_sur
-    sha256 "051423dd86f4bf45e3584e8aadd838e46bcc006c7322e7471b1158f4c156c84a" => :arm64_big_sur
-    sha256 "b3e2e78b8e6d0db0d04cb036454deb8bc718fb1c7cd489924ffcc548eacdeec4" => :catalina
-    sha256 "1170864e0be31fee55f0a49993e5d40908eafe0c8ed47eee2087236ad17ab988" => :mojave
+    sha256 arm64_big_sur: "051423dd86f4bf45e3584e8aadd838e46bcc006c7322e7471b1158f4c156c84a"
+    sha256 big_sur:       "1c9c260926726183ef975425c557afbd9be80a2cab7eb2258d63945716153980"
+    sha256 catalina:      "b3e2e78b8e6d0db0d04cb036454deb8bc718fb1c7cd489924ffcc548eacdeec4"
+    sha256 mojave:        "1170864e0be31fee55f0a49993e5d40908eafe0c8ed47eee2087236ad17ab988"
   end
 
   depends_on "gettext"

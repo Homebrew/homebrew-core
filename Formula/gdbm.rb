@@ -12,12 +12,11 @@ class Gdbm < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "36b492f1b0910367dd394cbdcffe1606f64ab41ec6701210becfb591a8557dee" => :big_sur
-    sha256 "801b2bf95118871ee206de507131325613a1aa59ab7809032bb456f1b5f01a89" => :arm64_big_sur
-    sha256 "f7b5ab7363961fa6defcb66b4ffdf5365264fcb97d35bc413e754f173a3b1912" => :catalina
-    sha256 "0f65874bcd50d31aaf8b2e6c8ef414cb65a8d8b9eb6d1fa4ef179c6e0a94983c" => :mojave
-    sha256 "4a644af2fcc2781c3a161209deff7b62d760058bc1bac7c4f91a5ce5738f0798" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "801b2bf95118871ee206de507131325613a1aa59ab7809032bb456f1b5f01a89"
+    sha256 cellar: :any, big_sur:       "36b492f1b0910367dd394cbdcffe1606f64ab41ec6701210becfb591a8557dee"
+    sha256 cellar: :any, catalina:      "f7b5ab7363961fa6defcb66b4ffdf5365264fcb97d35bc413e754f173a3b1912"
+    sha256 cellar: :any, mojave:        "0f65874bcd50d31aaf8b2e6c8ef414cb65a8d8b9eb6d1fa4ef179c6e0a94983c"
+    sha256 cellar: :any, high_sierra:   "4a644af2fcc2781c3a161209deff7b62d760058bc1bac7c4f91a5ce5738f0798"
   end
 
   # --enable-libgdbm-compat for dbm.h / gdbm-ndbm.h compatibility:

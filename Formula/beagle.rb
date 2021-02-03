@@ -12,11 +12,10 @@ class Beagle < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "1ad3ce2956827daace31c7d2606c8149afdcf305f8e3688c8cfe5b0da429d3ad" => :big_sur
-    sha256 "de8fe667e01d1e204c669980753cf9ef84b4d2406ab52c0882d6d9108d2dc7eb" => :catalina
-    sha256 "fe9ae7aaa01df98d34b5cbd7dce8abd9ac840f2bb54797851b42a056ee258e01" => :mojave
-    sha256 "d2a42acc06fa4bf26c25b4d63a96c0d6bf46f7b1a21bacf91ef70fbff58e77b4" => :high_sierra
+    sha256 cellar: :any, big_sur:     "1ad3ce2956827daace31c7d2606c8149afdcf305f8e3688c8cfe5b0da429d3ad"
+    sha256 cellar: :any, catalina:    "de8fe667e01d1e204c669980753cf9ef84b4d2406ab52c0882d6d9108d2dc7eb"
+    sha256 cellar: :any, mojave:      "fe9ae7aaa01df98d34b5cbd7dce8abd9ac840f2bb54797851b42a056ee258e01"
+    sha256 cellar: :any, high_sierra: "d2a42acc06fa4bf26c25b4d63a96c0d6bf46f7b1a21bacf91ef70fbff58e77b4"
   end
 
   depends_on "autoconf" => :build

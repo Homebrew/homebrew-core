@@ -13,12 +13,11 @@ class Fobis < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "627133905b51d5436b9eb6a8e75080d847a6ea7c36886aa7f81e053fd89970d3" => :big_sur
-    sha256 "bfa1e5a5e7276be1292321294c418e9f1bac7a964f46d227a2d81fc3ad1b984e" => :arm64_big_sur
-    sha256 "0a1685a770c843092bdcd918de2439bc9ed16e75b49e61e93148386b42d326d1" => :catalina
-    sha256 "6b517fdd37dbbdfce2e3ca628afd4f92ef688c18939e78c2b0487dbc1ac7da5e" => :mojave
-    sha256 "81a5206bdd09bf9b630a9ef4793015283891d88b1790dc8638e759679d892522" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "bfa1e5a5e7276be1292321294c418e9f1bac7a964f46d227a2d81fc3ad1b984e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "627133905b51d5436b9eb6a8e75080d847a6ea7c36886aa7f81e053fd89970d3"
+    sha256 cellar: :any_skip_relocation, catalina:      "0a1685a770c843092bdcd918de2439bc9ed16e75b49e61e93148386b42d326d1"
+    sha256 cellar: :any_skip_relocation, mojave:        "6b517fdd37dbbdfce2e3ca628afd4f92ef688c18939e78c2b0487dbc1ac7da5e"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "81a5206bdd09bf9b630a9ef4793015283891d88b1790dc8638e759679d892522"
   end
 
   depends_on "gcc" # for gfortran

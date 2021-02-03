@@ -12,12 +12,11 @@ class AmplMp < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "512e10d2061408b42b14b9834bdb4f4ad85f859c578ebab99efda98d3f6f4957" => :big_sur
-    sha256 "5a666c8f40e7d66e6c065e21abada4c2fbfc5917fed422beb6c14b357e0e41b2" => :arm64_big_sur
-    sha256 "c111c501330b3ff8e3bde1a7e679f162bea1038df07de96810ea5cbe34775740" => :catalina
-    sha256 "bf329d7a40c3a21cb745d9d86bc0cf4add18397aedd6b36eb8e27feab822f1e3" => :mojave
-    sha256 "835aea5e86e3780681cb38ebe0f0dcd522ed21f80ed4711ad10e66b6c0814d03" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "5a666c8f40e7d66e6c065e21abada4c2fbfc5917fed422beb6c14b357e0e41b2"
+    sha256 cellar: :any, big_sur:       "512e10d2061408b42b14b9834bdb4f4ad85f859c578ebab99efda98d3f6f4957"
+    sha256 cellar: :any, catalina:      "c111c501330b3ff8e3bde1a7e679f162bea1038df07de96810ea5cbe34775740"
+    sha256 cellar: :any, mojave:        "bf329d7a40c3a21cb745d9d86bc0cf4add18397aedd6b36eb8e27feab822f1e3"
+    sha256 cellar: :any, high_sierra:   "835aea5e86e3780681cb38ebe0f0dcd522ed21f80ed4711ad10e66b6c0814d03"
   end
 
   depends_on "cmake" => :build

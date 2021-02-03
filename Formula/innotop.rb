@@ -8,11 +8,10 @@ class Innotop < Formula
   head "https://github.com/innotop/innotop.git"
 
   bottle do
-    cellar :any
-    sha256 "8b8d3b6840f59625a668ee3da9bf335ef6be785386d8b7fbb2ad3c07c1220c78" => :big_sur
-    sha256 "dcfabcbe448f15fe82dfeac2c9378fa7c9cc38bd69120453a0dff464a0672547" => :arm64_big_sur
-    sha256 "26eb012deedfd145e01f71a2cb44ee2cc2782968585f8a9846e2e891359d31cc" => :catalina
-    sha256 "cb4497e2e54831dbc98836a234a3ab627a16257a4025b5ced74bc417ae1d014a" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "dcfabcbe448f15fe82dfeac2c9378fa7c9cc38bd69120453a0dff464a0672547"
+    sha256 cellar: :any, big_sur:       "8b8d3b6840f59625a668ee3da9bf335ef6be785386d8b7fbb2ad3c07c1220c78"
+    sha256 cellar: :any, catalina:      "26eb012deedfd145e01f71a2cb44ee2cc2782968585f8a9846e2e891359d31cc"
+    sha256 cellar: :any, mojave:        "cb4497e2e54831dbc98836a234a3ab627a16257a4025b5ced74bc417ae1d014a"
   end
 
   depends_on "mysql-client"

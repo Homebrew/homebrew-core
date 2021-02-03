@@ -11,15 +11,14 @@ class Gcal < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c3ecf3ac091f690a0962ba9dbc1f83c2147ce8929499fcb6c24f54b3ac750476" => :big_sur
-    sha256 "1fc45b8d1ab6ce7bf8b771d7745eaa1dacd95f9782966b25e8296bc8639b9e67" => :arm64_big_sur
-    sha256 "4bb8c5727fb336106016d1158796e0a127fc82eb630ec9e2bccb6d70327aa531" => :catalina
-    sha256 "39c897bb2106251109af642741220e8b92e19c52be37ef928258eb1a2f6230ff" => :mojave
-    sha256 "0a1e3ab27fcc8d08d78452074137dcdf281068c41a732a64222e9b5ed235e8fb" => :high_sierra
-    sha256 "f120585bc8538eb1ab7c71ec240b150472cbf7b42e7fc6a3f008c15104d81e7c" => :sierra
-    sha256 "c94d7232ff507f387fad5ba5fb0d09b1548e695cf7e1da284846a5ee828f2d03" => :el_capitan
-    sha256 "b50b10e57eea6d6fa84c35769401b0da3bde02bade28e137bc1263d492c60c3f" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1fc45b8d1ab6ce7bf8b771d7745eaa1dacd95f9782966b25e8296bc8639b9e67"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c3ecf3ac091f690a0962ba9dbc1f83c2147ce8929499fcb6c24f54b3ac750476"
+    sha256 cellar: :any_skip_relocation, catalina:      "4bb8c5727fb336106016d1158796e0a127fc82eb630ec9e2bccb6d70327aa531"
+    sha256 cellar: :any_skip_relocation, mojave:        "39c897bb2106251109af642741220e8b92e19c52be37ef928258eb1a2f6230ff"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "0a1e3ab27fcc8d08d78452074137dcdf281068c41a732a64222e9b5ed235e8fb"
+    sha256 cellar: :any_skip_relocation, sierra:        "f120585bc8538eb1ab7c71ec240b150472cbf7b42e7fc6a3f008c15104d81e7c"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "c94d7232ff507f387fad5ba5fb0d09b1548e695cf7e1da284846a5ee828f2d03"
+    sha256 cellar: :any_skip_relocation, yosemite:      "b50b10e57eea6d6fa84c35769401b0da3bde02bade28e137bc1263d492c60c3f"
   end
 
   def install

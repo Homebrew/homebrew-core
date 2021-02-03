@@ -12,11 +12,10 @@ class AnycableGo < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "4fad3cde32a0582f7c67e5b1c1cf042b26440550adbea601b8e47a8391628763" => :big_sur
-    sha256 "ee40011c6d573f3f567adeec8098428d602580fec188af1191027380b0017989" => :arm64_big_sur
-    sha256 "c9524a91cef04b327a268ed84a95bde54adaf82b82527bb3e086382c81fc6798" => :catalina
-    sha256 "3ca5d2a4a546fda4da5e840ef21f80494bcc0fd1df3890040cb63fcfc59911eb" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ee40011c6d573f3f567adeec8098428d602580fec188af1191027380b0017989"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4fad3cde32a0582f7c67e5b1c1cf042b26440550adbea601b8e47a8391628763"
+    sha256 cellar: :any_skip_relocation, catalina:      "c9524a91cef04b327a268ed84a95bde54adaf82b82527bb3e086382c81fc6798"
+    sha256 cellar: :any_skip_relocation, mojave:        "3ca5d2a4a546fda4da5e840ef21f80494bcc0fd1df3890040cb63fcfc59911eb"
   end
 
   depends_on "go" => :build

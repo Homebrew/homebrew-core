@@ -15,11 +15,11 @@ class Softhsm < Formula
 
   bottle do
     rebuild 1
-    sha256 "08a0d7a61d2b8d4f12253d3e5404ce43456fbb864dc9fb88999132f96a15c267" => :big_sur
-    sha256 "878fda1e9a3ab2de52ecc4244044971ad3e38909e080f77cb7973a5f797359c8" => :arm64_big_sur
-    sha256 "6da111cdadbcf0127882e2bec5b3844454fd9b4e00a08d1fa49aa2f389b7062c" => :catalina
-    sha256 "b7abd86dfec3d10f5e5cde00f2bcd5e0e19e2d9674c50a431db1195c4655dfec" => :mojave
-    sha256 "73c40f26209dbf29280c16aefdfb492c749d8e14e4cbf83dc2a5b566c22f6bc9" => :high_sierra
+    sha256 arm64_big_sur: "878fda1e9a3ab2de52ecc4244044971ad3e38909e080f77cb7973a5f797359c8"
+    sha256 big_sur:       "08a0d7a61d2b8d4f12253d3e5404ce43456fbb864dc9fb88999132f96a15c267"
+    sha256 catalina:      "6da111cdadbcf0127882e2bec5b3844454fd9b4e00a08d1fa49aa2f389b7062c"
+    sha256 mojave:        "b7abd86dfec3d10f5e5cde00f2bcd5e0e19e2d9674c50a431db1195c4655dfec"
+    sha256 high_sierra:   "73c40f26209dbf29280c16aefdfb492c749d8e14e4cbf83dc2a5b566c22f6bc9"
   end
 
   head do

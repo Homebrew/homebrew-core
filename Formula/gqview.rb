@@ -13,12 +13,12 @@ class Gqview < Formula
   end
 
   bottle do
-    sha256 "34819384f6dd734a0000543eed0865a48ad9b218d9bbd0662b64cf2edc4cd3c4" => :big_sur
-    sha256 "9b80b415172fc45373bcb1c68b03b3c0c26e6181e3c5ff4e353c7b685fbf6524" => :arm64_big_sur
-    sha256 "e8e56389d265444d10d7859b63736370c2b88b98d4f8b4254bdecf2f3b7c8ab4" => :catalina
-    sha256 "dc9cc0efc66c0e2156efeba84201c54711288e96868367bde264dbfaff14236f" => :mojave
-    sha256 "faeb25a25899fc5d18b2097574c3975648aaab4b8a55545e5ba6579335c2f587" => :high_sierra
-    sha256 "b0e983e36c58634a2ae893003567dac0737c012811c1dcb64f0def22fc11f604" => :sierra
+    sha256 arm64_big_sur: "9b80b415172fc45373bcb1c68b03b3c0c26e6181e3c5ff4e353c7b685fbf6524"
+    sha256 big_sur:       "34819384f6dd734a0000543eed0865a48ad9b218d9bbd0662b64cf2edc4cd3c4"
+    sha256 catalina:      "e8e56389d265444d10d7859b63736370c2b88b98d4f8b4254bdecf2f3b7c8ab4"
+    sha256 mojave:        "dc9cc0efc66c0e2156efeba84201c54711288e96868367bde264dbfaff14236f"
+    sha256 high_sierra:   "faeb25a25899fc5d18b2097574c3975648aaab4b8a55545e5ba6579335c2f587"
+    sha256 sierra:        "b0e983e36c58634a2ae893003567dac0737c012811c1dcb64f0def22fc11f604"
   end
 
   depends_on "pkg-config" => :build

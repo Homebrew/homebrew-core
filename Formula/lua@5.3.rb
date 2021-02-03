@@ -11,12 +11,11 @@ class LuaAT53 < Formula
   end
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "3fec7275812f0646dc113da036b77ab09af80421ae5ab2d90f8a122b5b225f1e" => :big_sur
-    sha256 "b354cab4cfe5a1e608752bc53c1887b9319078a1033305a7452f693edfc3e7f9" => :arm64_big_sur
-    sha256 "1ba7031cba6c4b703e6ac2729ceb8bb23fb9ce12915888bcf395c9ebbfbb95b5" => :catalina
-    sha256 "180e59018eb294a00e41b426071ffbca0d3dc522569217064472e39aed359c0e" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "b354cab4cfe5a1e608752bc53c1887b9319078a1033305a7452f693edfc3e7f9"
+    sha256 cellar: :any, big_sur:       "3fec7275812f0646dc113da036b77ab09af80421ae5ab2d90f8a122b5b225f1e"
+    sha256 cellar: :any, catalina:      "1ba7031cba6c4b703e6ac2729ceb8bb23fb9ce12915888bcf395c9ebbfbb95b5"
+    sha256 cellar: :any, mojave:        "180e59018eb294a00e41b426071ffbca0d3dc522569217064472e39aed359c0e"
   end
 
   keg_only :versioned_formula

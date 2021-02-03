@@ -7,11 +7,10 @@ class Oq < Formula
   revision 1
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "8f7b2ca6c5024482c86818f0ce340c055f6e57929bd56f53a2b2449f92f5adf1" => :big_sur
-    sha256 "13b8ad8c3bea0891d91f8d0a97c42f8ed921d38b0d08431e82971607d03e01ac" => :catalina
-    sha256 "82c345a8dc7d05c137dc7b9a81509ef86c6e94a3072e3cdf37c281a6c48fe5ad" => :mojave
+    sha256 cellar: :any, big_sur:  "8f7b2ca6c5024482c86818f0ce340c055f6e57929bd56f53a2b2449f92f5adf1"
+    sha256 cellar: :any, catalina: "13b8ad8c3bea0891d91f8d0a97c42f8ed921d38b0d08431e82971607d03e01ac"
+    sha256 cellar: :any, mojave:   "82c345a8dc7d05c137dc7b9a81509ef86c6e94a3072e3cdf37c281a6c48fe5ad"
   end
 
   depends_on "crystal" => :build

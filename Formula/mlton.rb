@@ -12,10 +12,9 @@ class Mlton < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "17689a4038de312508541279c5d6f8be7fc695af642e9691810d67b65c68289c" => :big_sur
-    sha256 "5b874e9fc91c7c868faccb85daf65bbe2553eb31c2a4d499d839c60a22dd7b5c" => :catalina
-    sha256 "099192143e94c33e015832650e9a445458df745ce65a6702e1ddf328cf60c8e0" => :mojave
+    sha256 cellar: :any, big_sur:  "17689a4038de312508541279c5d6f8be7fc695af642e9691810d67b65c68289c"
+    sha256 cellar: :any, catalina: "5b874e9fc91c7c868faccb85daf65bbe2553eb31c2a4d499d839c60a22dd7b5c"
+    sha256 cellar: :any, mojave:   "099192143e94c33e015832650e9a445458df745ce65a6702e1ddf328cf60c8e0"
   end
 
   depends_on "autoconf" => :build

@@ -6,11 +6,10 @@ class Dshb < Formula
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "f909f0128ee08e47f8cfdc25af26ba648c537cc07348a8b401871bcd23735fae" => :mojave
-    sha256 "486fe71444a4a07f3e7a20a0deab2e4029a927514ae70f563ff89b72db44a263" => :high_sierra
-    sha256 "486fe71444a4a07f3e7a20a0deab2e4029a927514ae70f563ff89b72db44a263" => :sierra
-    sha256 "e0aa0f64ac02e9244fc59773a966d1ac5755dc4a4c91c0dbcd92633c4330f14b" => :el_capitan
+    sha256 cellar: :any_skip_relocation, mojave:      "f909f0128ee08e47f8cfdc25af26ba648c537cc07348a8b401871bcd23735fae"
+    sha256 cellar: :any_skip_relocation, high_sierra: "486fe71444a4a07f3e7a20a0deab2e4029a927514ae70f563ff89b72db44a263"
+    sha256 cellar: :any_skip_relocation, sierra:      "486fe71444a4a07f3e7a20a0deab2e4029a927514ae70f563ff89b72db44a263"
+    sha256 cellar: :any_skip_relocation, el_capitan:  "e0aa0f64ac02e9244fc59773a966d1ac5755dc4a4c91c0dbcd92633c4330f14b"
   end
 
   disable! date: "2020-12-08", because: :unmaintained

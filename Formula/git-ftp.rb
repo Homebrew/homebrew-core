@@ -7,11 +7,10 @@ class GitFtp < Formula
   head "https://github.com/git-ftp/git-ftp.git", branch: "develop"
 
   bottle do
-    cellar :any
-    sha256 "2e3d8573c71ae26fdac0d0d8952e625b5a14d90118a6a413604eac8c3a6f6eb6" => :big_sur
-    sha256 "0a61ca11e69370dfecfd3c82d6d03aeec377bf9db660658403556ea71b84bae0" => :catalina
-    sha256 "f878c4015697794bb8b2c3f034a167b750d3871c0d320d903536128f01880ca2" => :mojave
-    sha256 "63c8b94fd89eb635d8c2056efdf933de45dca7fdb04793b620750f8b338fbb88" => :high_sierra
+    sha256 cellar: :any, big_sur:     "2e3d8573c71ae26fdac0d0d8952e625b5a14d90118a6a413604eac8c3a6f6eb6"
+    sha256 cellar: :any, catalina:    "0a61ca11e69370dfecfd3c82d6d03aeec377bf9db660658403556ea71b84bae0"
+    sha256 cellar: :any, mojave:      "f878c4015697794bb8b2c3f034a167b750d3871c0d320d903536128f01880ca2"
+    sha256 cellar: :any, high_sierra: "63c8b94fd89eb635d8c2056efdf933de45dca7fdb04793b620750f8b338fbb88"
   end
 
   depends_on "pandoc" => :build

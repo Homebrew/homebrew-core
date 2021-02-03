@@ -6,12 +6,11 @@ class Whatmask < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "55789adc6a9326b814965c6c0fcf41f912638f2e7d55d4167cbe404ec1a6938d" => :big_sur
-    sha256 "a5bf6f569bef04d197a6eb0c097450e65dcb5082b65ecc82201e15eb873ae755" => :arm64_big_sur
-    sha256 "89a44972f8d27003b4c91f04a294f0be9a0d00628fb8db21faf46a55a0720cb2" => :catalina
-    sha256 "a3a5a8887d1c7d43f83bf99c2f81f8900af0d83091978f5aac28447d0f093785" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a5bf6f569bef04d197a6eb0c097450e65dcb5082b65ecc82201e15eb873ae755"
+    sha256 cellar: :any_skip_relocation, big_sur:       "55789adc6a9326b814965c6c0fcf41f912638f2e7d55d4167cbe404ec1a6938d"
+    sha256 cellar: :any_skip_relocation, catalina:      "89a44972f8d27003b4c91f04a294f0be9a0d00628fb8db21faf46a55a0720cb2"
+    sha256 cellar: :any_skip_relocation, mojave:        "a3a5a8887d1c7d43f83bf99c2f81f8900af0d83091978f5aac28447d0f093785"
   end
 
   depends_on "autoconf" => :build

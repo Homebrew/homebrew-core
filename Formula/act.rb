@@ -6,11 +6,10 @@ class Act < Formula
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "073ec3c987e044b3f730a5e451884c74390f0521c25e3d887a4fcaa511608175" => :big_sur
-    sha256 "d2bd2042f26d5a8be7454c8e5f2ab636691f02d99aad91ecafa6b1f1018ba631" => :arm64_big_sur
-    sha256 "7cbf53abcecbf19075fdf1199998c61a0c6c3fd8dadf40e6a1295fc866169ebe" => :catalina
-    sha256 "39ab75db53d6260817eb8c2169d40fdf77b681f5c42470a21cd341f3b7eb929f" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d2bd2042f26d5a8be7454c8e5f2ab636691f02d99aad91ecafa6b1f1018ba631"
+    sha256 cellar: :any_skip_relocation, big_sur:       "073ec3c987e044b3f730a5e451884c74390f0521c25e3d887a4fcaa511608175"
+    sha256 cellar: :any_skip_relocation, catalina:      "7cbf53abcecbf19075fdf1199998c61a0c6c3fd8dadf40e6a1295fc866169ebe"
+    sha256 cellar: :any_skip_relocation, mojave:        "39ab75db53d6260817eb8c2169d40fdf77b681f5c42470a21cd341f3b7eb929f"
   end
 
   depends_on "go" => :build

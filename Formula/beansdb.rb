@@ -7,13 +7,12 @@ class Beansdb < Formula
   head "https://github.com/douban/beansdb.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "9838cb03ef9bdaa895e5ceddeb32be9d3895d8f2d055394cce822e6c44262ee7" => :catalina
-    sha256 "895c915b759be757dede0375aaf5abaf05a0f5f981d869c6c61367645fd2a564" => :mojave
-    sha256 "a8afd6d03a43a317c306f1de555edc6f804ddb4798ab88d93d9cfb3705887d8f" => :high_sierra
-    sha256 "0c93cb38fd445baab2c301b3cb76ce0b6c7af9d3e879113d4c78bf761756bc08" => :sierra
-    sha256 "5bb5311949ba21cde40848d1c1f58cf3317d8e8d604d3d0590dab2e9953a5ece" => :el_capitan
-    sha256 "e3c0bfa02e012ef1b0935fe13be8286dce080e8898b6519f5bf8c886ea77b9bc" => :yosemite
+    sha256 cellar: :any_skip_relocation, catalina:    "9838cb03ef9bdaa895e5ceddeb32be9d3895d8f2d055394cce822e6c44262ee7"
+    sha256 cellar: :any_skip_relocation, mojave:      "895c915b759be757dede0375aaf5abaf05a0f5f981d869c6c61367645fd2a564"
+    sha256 cellar: :any_skip_relocation, high_sierra: "a8afd6d03a43a317c306f1de555edc6f804ddb4798ab88d93d9cfb3705887d8f"
+    sha256 cellar: :any_skip_relocation, sierra:      "0c93cb38fd445baab2c301b3cb76ce0b6c7af9d3e879113d4c78bf761756bc08"
+    sha256 cellar: :any_skip_relocation, el_capitan:  "5bb5311949ba21cde40848d1c1f58cf3317d8e8d604d3d0590dab2e9953a5ece"
+    sha256 cellar: :any_skip_relocation, yosemite:    "e3c0bfa02e012ef1b0935fe13be8286dce080e8898b6519f5bf8c886ea77b9bc"
   end
 
   # Deprecated upstream in favor of `gobeansdb`:

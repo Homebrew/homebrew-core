@@ -6,15 +6,14 @@ class Voroxx < Formula
   revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "36e9ac6de84545992490e09c1ff6202988bafc4e99a164907338d3117bcefe3c" => :big_sur
-    sha256 "fe957e10239223b1027bb38058a9b6275af5b11bef45ec2c92ad6e718c48df87" => :arm64_big_sur
-    sha256 "d3e73665fab068af530be8c745fbe03498a3d2060110264e99e17935f0980581" => :catalina
-    sha256 "cd60116a442b685c8275ba23f64fd453b01b517247d0a7c969d3b4fe5a7ae706" => :mojave
-    sha256 "72c8a07d26abe320651fb74425c67baecd8044e23f2951d86704c8dba88f3871" => :high_sierra
-    sha256 "9d522e672d8f551439c18b536e0ca2d0dc94a6036722eba12bbaba37d2aa3428" => :sierra
-    sha256 "b10e4cccc62a7fff1a34c6f80174e2f62cb12dfcaf2782b2c81cc567f0928943" => :el_capitan
-    sha256 "d7ce06fd7ebd51a8a592c2409f80eae0bbc6a5fc0d906ffa324534c805249af1" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "fe957e10239223b1027bb38058a9b6275af5b11bef45ec2c92ad6e718c48df87"
+    sha256 cellar: :any_skip_relocation, big_sur:       "36e9ac6de84545992490e09c1ff6202988bafc4e99a164907338d3117bcefe3c"
+    sha256 cellar: :any_skip_relocation, catalina:      "d3e73665fab068af530be8c745fbe03498a3d2060110264e99e17935f0980581"
+    sha256 cellar: :any_skip_relocation, mojave:        "cd60116a442b685c8275ba23f64fd453b01b517247d0a7c969d3b4fe5a7ae706"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "72c8a07d26abe320651fb74425c67baecd8044e23f2951d86704c8dba88f3871"
+    sha256 cellar: :any_skip_relocation, sierra:        "9d522e672d8f551439c18b536e0ca2d0dc94a6036722eba12bbaba37d2aa3428"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "b10e4cccc62a7fff1a34c6f80174e2f62cb12dfcaf2782b2c81cc567f0928943"
+    sha256 cellar: :any_skip_relocation, yosemite:      "d7ce06fd7ebd51a8a592c2409f80eae0bbc6a5fc0d906ffa324534c805249af1"
   end
 
   def install

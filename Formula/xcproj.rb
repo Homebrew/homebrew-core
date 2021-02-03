@@ -6,15 +6,14 @@ class Xcproj < Formula
   head "https://github.com/0xced/xcproj.git", branch: "develop"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "e153fbfaf308d9fa35f228a0ad5ab4f1fbbbac9f7040eb0fc1ace90ba9541b7c" => :big_sur
-    sha256 "a3a9073db30a288af4d7fd2aa2adbc91f93ea6bc8cc9e7e85e0cf4d12dac3716" => :arm64_big_sur
-    sha256 "46aa93499933dd1599eb4d38ba2e5b8587092c08f8acb691b29a1ccee6a80b17" => :catalina
-    sha256 "7efa30f2f581bbcc0962605710b1125965b6b8d13ca8e5fab8517adfe1c9334d" => :mojave
-    sha256 "d34b031444c1122392afb789036d3197a0d333ae11447c819509f1f31de30c9f" => :high_sierra
-    sha256 "f21fe7b203fbee383f502d66ac8471c7798d74dae7d4ad4491e933fcd1de22d5" => :sierra
-    sha256 "c7a6b18a500b28fbd9cba8939423b7a9c480be98e09883ef90e4b605023b451f" => :el_capitan
-    sha256 "8e20d277d1927c425544654cd8613765460f0b9bbbb8133b0ac04ebdff5d6f0e" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a3a9073db30a288af4d7fd2aa2adbc91f93ea6bc8cc9e7e85e0cf4d12dac3716"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e153fbfaf308d9fa35f228a0ad5ab4f1fbbbac9f7040eb0fc1ace90ba9541b7c"
+    sha256 cellar: :any_skip_relocation, catalina:      "46aa93499933dd1599eb4d38ba2e5b8587092c08f8acb691b29a1ccee6a80b17"
+    sha256 cellar: :any_skip_relocation, mojave:        "7efa30f2f581bbcc0962605710b1125965b6b8d13ca8e5fab8517adfe1c9334d"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "d34b031444c1122392afb789036d3197a0d333ae11447c819509f1f31de30c9f"
+    sha256 cellar: :any_skip_relocation, sierra:        "f21fe7b203fbee383f502d66ac8471c7798d74dae7d4ad4491e933fcd1de22d5"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "c7a6b18a500b28fbd9cba8939423b7a9c480be98e09883ef90e4b605023b451f"
+    sha256 cellar: :any_skip_relocation, yosemite:      "8e20d277d1927c425544654cd8613765460f0b9bbbb8133b0ac04ebdff5d6f0e"
   end
 
   depends_on :macos

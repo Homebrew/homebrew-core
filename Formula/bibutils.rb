@@ -11,12 +11,11 @@ class Bibutils < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2c80f9ec43e7cc9eef54326523a45b908a791fea211bb3304659cd4032c8f006" => :big_sur
-    sha256 "c9d3274c2d4d3a340f0c7032d5d2b47e9e4e25327ea00082f260cca3eb76aa95" => :arm64_big_sur
-    sha256 "eeb586f94730c9030e089a45e4360c5cb3171c6e41ba738744fe4e5a30e31cb7" => :catalina
-    sha256 "f420f3882e82a0bf4441c804ed065b5272ce1e5d03812392534d91b29814cd13" => :mojave
-    sha256 "4fb4ed2978195afedc30fff98661e2663120bd956633845b7e41967dd7a28621" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c9d3274c2d4d3a340f0c7032d5d2b47e9e4e25327ea00082f260cca3eb76aa95"
+    sha256 cellar: :any_skip_relocation, big_sur:       "2c80f9ec43e7cc9eef54326523a45b908a791fea211bb3304659cd4032c8f006"
+    sha256 cellar: :any_skip_relocation, catalina:      "eeb586f94730c9030e089a45e4360c5cb3171c6e41ba738744fe4e5a30e31cb7"
+    sha256 cellar: :any_skip_relocation, mojave:        "f420f3882e82a0bf4441c804ed065b5272ce1e5d03812392534d91b29814cd13"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "4fb4ed2978195afedc30fff98661e2663120bd956633845b7e41967dd7a28621"
   end
 
   def install

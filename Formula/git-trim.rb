@@ -6,11 +6,10 @@ class GitTrim < Formula
   license "MIT"
 
   bottle do
-    cellar :any
-    sha256 "5c52fe8dd74e83a4a7048ae8a4f42661c2738718ea40ebede07ecf83771ba5ff" => :big_sur
-    sha256 "387724382d30ce0ac900da57f737d0f3ba91a57e29242e8b790f4ade97bf7179" => :catalina
-    sha256 "090af1343e6b5938c97127d0c7a63fe49804269c0dc0c98c19ed160798b34bec" => :mojave
-    sha256 "23beea483f50121bdf7b545e0345ec5d192ee362fcf3402f999905c3ebcd8188" => :high_sierra
+    sha256 cellar: :any, big_sur:     "5c52fe8dd74e83a4a7048ae8a4f42661c2738718ea40ebede07ecf83771ba5ff"
+    sha256 cellar: :any, catalina:    "387724382d30ce0ac900da57f737d0f3ba91a57e29242e8b790f4ade97bf7179"
+    sha256 cellar: :any, mojave:      "090af1343e6b5938c97127d0c7a63fe49804269c0dc0c98c19ed160798b34bec"
+    sha256 cellar: :any, high_sierra: "23beea483f50121bdf7b545e0345ec5d192ee362fcf3402f999905c3ebcd8188"
   end
 
   depends_on "rust" => :build

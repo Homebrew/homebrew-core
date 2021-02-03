@@ -8,11 +8,10 @@ class Libav < Formula
   head "https://git.libav.org/libav.git"
 
   bottle do
-    cellar :any
-    sha256 "0bd97c8c39f11b5b29d5c271a28eb4ea4a40b4062a4331f8d97f738c9a82fb05" => :big_sur
-    sha256 "0654bef05e6d8a3fa7fbeb6e9be5a02abe411ebbb3eec69c7a2e1f4b309cb6f5" => :arm64_big_sur
-    sha256 "fcfafef0bb5eeee417c1d69d8ddb1fe0d7a8f8fe70edf39b8499a0df841f6905" => :catalina
-    sha256 "f71b7acc7dd972d60176b7d6c9bfe247181867d98ff991d771dcff54a6beace5" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "0654bef05e6d8a3fa7fbeb6e9be5a02abe411ebbb3eec69c7a2e1f4b309cb6f5"
+    sha256 cellar: :any, big_sur:       "0bd97c8c39f11b5b29d5c271a28eb4ea4a40b4062a4331f8d97f738c9a82fb05"
+    sha256 cellar: :any, catalina:      "fcfafef0bb5eeee417c1d69d8ddb1fe0d7a8f8fe70edf39b8499a0df841f6905"
+    sha256 cellar: :any, mojave:        "f71b7acc7dd972d60176b7d6c9bfe247181867d98ff991d771dcff54a6beace5"
   end
 
   # See: https://lists.libav.org/pipermail/libav-devel/2020-April/086589.html

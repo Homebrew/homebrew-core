@@ -6,12 +6,11 @@ class Libass < Formula
   license "ISC"
 
   bottle do
-    cellar :any
-    sha256 "e95df755d6236cb7a56140c4bc12faad1d87023d23412b9f245bbda60073bf00" => :big_sur
-    sha256 "7b5bbe38be42f70ee92bc06d2dc69680717c8f3bf33c3442f4cdd6bc328eb605" => :arm64_big_sur
-    sha256 "427b18a8c9c8c5331553c0e814bf4e4c6f965cc53715d89a0ad3ba66b8e231c4" => :catalina
-    sha256 "64f2a67f35510fe088f3e6e18075d5e08e93081d958fcee6b65ee29ab3b730ad" => :mojave
-    sha256 "881db49f437027abdae60f4c849097b720216bcfa197589aea373b5f3451f9ef" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "7b5bbe38be42f70ee92bc06d2dc69680717c8f3bf33c3442f4cdd6bc328eb605"
+    sha256 cellar: :any, big_sur:       "e95df755d6236cb7a56140c4bc12faad1d87023d23412b9f245bbda60073bf00"
+    sha256 cellar: :any, catalina:      "427b18a8c9c8c5331553c0e814bf4e4c6f965cc53715d89a0ad3ba66b8e231c4"
+    sha256 cellar: :any, mojave:        "64f2a67f35510fe088f3e6e18075d5e08e93081d958fcee6b65ee29ab3b730ad"
+    sha256 cellar: :any, high_sierra:   "881db49f437027abdae60f4c849097b720216bcfa197589aea373b5f3451f9ef"
   end
 
   head do

@@ -7,14 +7,13 @@ class GitSh < Formula
   head "https://github.com/rtomayko/git-sh.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "d25516fc861d600cf11c600f0a43b08b0217c87cbc7b391809e4df0051c1153b" => :catalina
-    sha256 "379e7d57000e9eda710d764516e3c4a98e3aafb71020e15faafe3e20e12a82d3" => :mojave
-    sha256 "69491a98476b0e745107e6be3623d678e0dcdf33dda7f76d541ba773881e74cd" => :high_sierra
-    sha256 "d371fba61367507f5e88818eb1f0630e388d198c37faa957ce410d97675a7f5d" => :sierra
-    sha256 "e30e7836919a5d79712e3fd51a118279b412c44da909053b9b185eb48963323f" => :el_capitan
-    sha256 "cdbc6fc62300722f613f314e2859422edcf938c6807a3039bcf476e02fbe222c" => :yosemite
-    sha256 "1b9aa141f32145516db62304dda799611e1fc35ec57275ee75bf566325a6bfa5" => :mavericks
+    sha256 cellar: :any_skip_relocation, catalina:    "d25516fc861d600cf11c600f0a43b08b0217c87cbc7b391809e4df0051c1153b"
+    sha256 cellar: :any_skip_relocation, mojave:      "379e7d57000e9eda710d764516e3c4a98e3aafb71020e15faafe3e20e12a82d3"
+    sha256 cellar: :any_skip_relocation, high_sierra: "69491a98476b0e745107e6be3623d678e0dcdf33dda7f76d541ba773881e74cd"
+    sha256 cellar: :any_skip_relocation, sierra:      "d371fba61367507f5e88818eb1f0630e388d198c37faa957ce410d97675a7f5d"
+    sha256 cellar: :any_skip_relocation, el_capitan:  "e30e7836919a5d79712e3fd51a118279b412c44da909053b9b185eb48963323f"
+    sha256 cellar: :any_skip_relocation, yosemite:    "cdbc6fc62300722f613f314e2859422edcf938c6807a3039bcf476e02fbe222c"
+    sha256 cellar: :any_skip_relocation, mavericks:   "1b9aa141f32145516db62304dda799611e1fc35ec57275ee75bf566325a6bfa5"
   end
 
   disable! date: "2020-12-08", because: :unmaintained

@@ -13,11 +13,10 @@ class Pygments < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ba143cb212e8a0e5065d46784c113d120b620dfc03bf01de940aea49c024b18f" => :big_sur
-    sha256 "a03ce270d1a5bc2b1b0b59b07939f041a433873fb89c3cb48df1d89ef9df8443" => :arm64_big_sur
-    sha256 "9725becf19d65286936b2a260b4c9da4edc17240d7f91b896993393b227f08fd" => :catalina
-    sha256 "60e2749b874ba3bf69c7034d2ecbe00b340f2eae14a5ca5c9362e3f1ea1695ab" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a03ce270d1a5bc2b1b0b59b07939f041a433873fb89c3cb48df1d89ef9df8443"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ba143cb212e8a0e5065d46784c113d120b620dfc03bf01de940aea49c024b18f"
+    sha256 cellar: :any_skip_relocation, catalina:      "9725becf19d65286936b2a260b4c9da4edc17240d7f91b896993393b227f08fd"
+    sha256 cellar: :any_skip_relocation, mojave:        "60e2749b874ba3bf69c7034d2ecbe00b340f2eae14a5ca5c9362e3f1ea1695ab"
   end
 
   depends_on "python@3.9"

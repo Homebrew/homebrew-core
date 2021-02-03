@@ -7,10 +7,10 @@ class Numcpp < Formula
   head "https://github.com/dpilger26/NumCpp.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur: "8f553497c1071941948df03b492c1545b0e7c78993ef7319880e11860da7744e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "dc65d6ab452da76bc43ea0bc472adfcc6e34c868e907c6bb7b1c07d6e4c0ae9d"
-    sha256 cellar: :any_skip_relocation, catalina: "f87c93639d7fa92051882b55f0878d3bd6ca4ec0d7fced6432bef13280869271"
-    sha256 cellar: :any_skip_relocation, mojave: "c93e65a45a86781f6f7f3d86b80e616ac57c2f79e1ecff27b97dfe549d63c5f7"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8f553497c1071941948df03b492c1545b0e7c78993ef7319880e11860da7744e"
+    sha256 cellar: :any_skip_relocation, catalina:      "f87c93639d7fa92051882b55f0878d3bd6ca4ec0d7fced6432bef13280869271"
+    sha256 cellar: :any_skip_relocation, mojave:        "c93e65a45a86781f6f7f3d86b80e616ac57c2f79e1ecff27b97dfe549d63c5f7"
   end
 
   depends_on "cmake" => :build

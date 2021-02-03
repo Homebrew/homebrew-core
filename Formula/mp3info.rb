@@ -11,15 +11,14 @@ class Mp3info < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "f5e52d02125f49b9c5afc960a565f7f5a774ced3f88fabd07d2723e741369d82" => :big_sur
-    sha256 "ebb88262f3ba1eb8196c8821769298b4aa29bb4c5d0733fc8dcd47092cfafdd5" => :arm64_big_sur
-    sha256 "4f70eb02805d1fe2a93dc169b9baf2a3d1c685ded71094241189c93599ba6662" => :catalina
-    sha256 "74e04cc5b66e44632a9f3187f2360eba1f1f13ea153f7c6e4e0b4e466f58f084" => :mojave
-    sha256 "9b966553a2ed76afb888577cad6ae8f359cde30e445bb0742a87ff2c5d5dfa85" => :high_sierra
-    sha256 "dd9e2ab142307a9587ca28f8ca574cf3115f380f2692f1eb1e38e24d4e5a1008" => :sierra
-    sha256 "30c85d8b2afd6e6ad03e473de3bd83ef9c6c607b979570798cfc778ad887b902" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ebb88262f3ba1eb8196c8821769298b4aa29bb4c5d0733fc8dcd47092cfafdd5"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f5e52d02125f49b9c5afc960a565f7f5a774ced3f88fabd07d2723e741369d82"
+    sha256 cellar: :any_skip_relocation, catalina:      "4f70eb02805d1fe2a93dc169b9baf2a3d1c685ded71094241189c93599ba6662"
+    sha256 cellar: :any_skip_relocation, mojave:        "74e04cc5b66e44632a9f3187f2360eba1f1f13ea153f7c6e4e0b4e466f58f084"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "9b966553a2ed76afb888577cad6ae8f359cde30e445bb0742a87ff2c5d5dfa85"
+    sha256 cellar: :any_skip_relocation, sierra:        "dd9e2ab142307a9587ca28f8ca574cf3115f380f2692f1eb1e38e24d4e5a1008"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "30c85d8b2afd6e6ad03e473de3bd83ef9c6c607b979570798cfc778ad887b902"
   end
 
   patch :p0 do

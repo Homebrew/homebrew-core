@@ -13,11 +13,10 @@ class Ykman < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "bdefdcfbdd17e876b92ee3405b79b094955ae2b597d1839ecbf3ef1e2cb48936" => :big_sur
-    sha256 "0fc39d2fd810b8f6eb193e7f7e8104a9e8e3227c6262e15d60cbea7e1a862162" => :arm64_big_sur
-    sha256 "d58e6fa495a5e5cd405cb651bdcdcc783c179b3817a0469ab19c88b3f0153c29" => :catalina
-    sha256 "bd8606fe932c56e86dbfe1ee4c920626e807bdc3e06e2f4a579ce32d39d14c6c" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "0fc39d2fd810b8f6eb193e7f7e8104a9e8e3227c6262e15d60cbea7e1a862162"
+    sha256 cellar: :any, big_sur:       "bdefdcfbdd17e876b92ee3405b79b094955ae2b597d1839ecbf3ef1e2cb48936"
+    sha256 cellar: :any, catalina:      "d58e6fa495a5e5cd405cb651bdcdcc783c179b3817a0469ab19c88b3f0153c29"
+    sha256 cellar: :any, mojave:        "bd8606fe932c56e86dbfe1ee4c920626e807bdc3e06e2f4a579ce32d39d14c6c"
   end
 
   depends_on "swig" => :build

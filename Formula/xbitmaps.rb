@@ -6,12 +6,11 @@ class Xbitmaps < Formula
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "956bf2491fe98f2a798c8f871e0db64af5a2b749829798f23de023a09d33e313" => :big_sur
-    sha256 "1cc01271ed45504647146e223b2e9311feff791fcc36f3f4fde6823ae0248917" => :arm64_big_sur
-    sha256 "1f2ba4ed5d9c1347ae66b5721a0fc91fd63332a1602b6e6fd0899491e5e33bb9" => :catalina
-    sha256 "012d091ea559b0d3fae3449d1f18b2ea05beb3ac2363b3bd67d5b27bc3b4567e" => :mojave
-    sha256 "2f3a3dbeeca8256a15c7902b5028791706cc999d9d7e1e080a940aa68c0622b9" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1cc01271ed45504647146e223b2e9311feff791fcc36f3f4fde6823ae0248917"
+    sha256 cellar: :any_skip_relocation, big_sur:       "956bf2491fe98f2a798c8f871e0db64af5a2b749829798f23de023a09d33e313"
+    sha256 cellar: :any_skip_relocation, catalina:      "1f2ba4ed5d9c1347ae66b5721a0fc91fd63332a1602b6e6fd0899491e5e33bb9"
+    sha256 cellar: :any_skip_relocation, mojave:        "012d091ea559b0d3fae3449d1f18b2ea05beb3ac2363b3bd67d5b27bc3b4567e"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "2f3a3dbeeca8256a15c7902b5028791706cc999d9d7e1e080a940aa68c0622b9"
   end
 
   depends_on "pkg-config" => :build

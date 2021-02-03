@@ -14,11 +14,10 @@ class PgTop < Formula
   end
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "770ec08d04f5f88d91f99855fb5ac13466734b7b396a0bf499387a02490cc8b8" => :big_sur
-    sha256 "00231ec96d368d18286b69104979b2d35307f02e2f5acf54293f97b7619803ff" => :catalina
-    sha256 "1110da076403c8f3030421ce4fbb5acb51d61c71102564aa00db9611d08b50c8" => :mojave
+    sha256 cellar: :any, big_sur:  "770ec08d04f5f88d91f99855fb5ac13466734b7b396a0bf499387a02490cc8b8"
+    sha256 cellar: :any, catalina: "00231ec96d368d18286b69104979b2d35307f02e2f5acf54293f97b7619803ff"
+    sha256 cellar: :any, mojave:   "1110da076403c8f3030421ce4fbb5acb51d61c71102564aa00db9611d08b50c8"
   end
 
   depends_on "postgresql"

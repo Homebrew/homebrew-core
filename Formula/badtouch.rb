@@ -6,11 +6,10 @@ class Badtouch < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "31133f02d762c17de4ab1d60a27874a6c4f33cf4a677257e1b446872315b3195" => :big_sur
-    sha256 "b3e471e7e4e1192a6a24328ca48eeb23214743aca9c9296cec9aebeb248db263" => :arm64_big_sur
-    sha256 "df8dc24dfe3aa1ceabdd61fe783fb7edd8aa8de8ab558d98002e330eaf37ee50" => :catalina
-    sha256 "5459ee6e2d462ebc1c7ea33f3139bbe9a482859876a9f163cf61e80fae9c12d6" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b3e471e7e4e1192a6a24328ca48eeb23214743aca9c9296cec9aebeb248db263"
+    sha256 cellar: :any_skip_relocation, big_sur:       "31133f02d762c17de4ab1d60a27874a6c4f33cf4a677257e1b446872315b3195"
+    sha256 cellar: :any_skip_relocation, catalina:      "df8dc24dfe3aa1ceabdd61fe783fb7edd8aa8de8ab558d98002e330eaf37ee50"
+    sha256 cellar: :any_skip_relocation, mojave:        "5459ee6e2d462ebc1c7ea33f3139bbe9a482859876a9f163cf61e80fae9c12d6"
   end
 
   depends_on "rust" => :build

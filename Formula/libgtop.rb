@@ -11,10 +11,10 @@ class Libgtop < Formula
 
   bottle do
     rebuild 2
-    sha256 "e749a43ebcc150fba221570873bb6df8765eedd1719ad7080dbbb84b809b477d" => :big_sur
-    sha256 "1b03ee2aee7281a673eff7004f5141e4077e0dfbd2e1ce31a9590fb1f3fc221c" => :arm64_big_sur
-    sha256 "9946efd963f1911a13a57d684d9b441ce804777711cfb88fc48fdcf55e6ba620" => :catalina
-    sha256 "9a219f60e6ad45d0c4c01e3477789ea27a54595fdc16751f3b964d4cfb56fc3a" => :mojave
+    sha256 arm64_big_sur: "1b03ee2aee7281a673eff7004f5141e4077e0dfbd2e1ce31a9590fb1f3fc221c"
+    sha256 big_sur:       "e749a43ebcc150fba221570873bb6df8765eedd1719ad7080dbbb84b809b477d"
+    sha256 catalina:      "9946efd963f1911a13a57d684d9b441ce804777711cfb88fc48fdcf55e6ba620"
+    sha256 mojave:        "9a219f60e6ad45d0c4c01e3477789ea27a54595fdc16751f3b964d4cfb56fc3a"
   end
 
   depends_on "gobject-introspection" => :build

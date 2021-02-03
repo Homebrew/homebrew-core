@@ -7,16 +7,15 @@ class GitMultipush < Formula
   head "https://github.com/gavinbeatty/git-multipush.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "981bdfe608288a854656563e178db2cdb9e9a9db30381203e0f67bfd38d29e16" => :big_sur
-    sha256 "7f02c0c3d5c5fd2e7ecb84b057ab23bf5452839b479a5ec47e1e374589efdb38" => :arm64_big_sur
-    sha256 "b9de9b128791d8c416076ed738016ffe534ce85bacddf297ab9ce13954dcaff6" => :catalina
-    sha256 "8f4c2e7a1aee0db75154c4b21aee1a4bd398a9b889f119e7b86a06b1533b9304" => :mojave
-    sha256 "edd99d5ec177bccf061f7424aa595a5515fa5728aec649594f42964cec1f371e" => :high_sierra
-    sha256 "81d0a4bc4808ab5a31b043640c2ec861cbe6a5fead1a76eda0ffa7bff8ae6158" => :sierra
-    sha256 "dab6c9480077541aff39c6ba5b27a91bbc557faedd713178e9f6e8ea7daa5371" => :el_capitan
-    sha256 "83355d6549e7cf7d4a9d037cc44895487bb97019e5b810b42266af458302ce7d" => :yosemite
-    sha256 "cc6bb7672b79860ae50c06633c28913b5fadb25e2815c5b3e432d4039746f16c" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7f02c0c3d5c5fd2e7ecb84b057ab23bf5452839b479a5ec47e1e374589efdb38"
+    sha256 cellar: :any_skip_relocation, big_sur:       "981bdfe608288a854656563e178db2cdb9e9a9db30381203e0f67bfd38d29e16"
+    sha256 cellar: :any_skip_relocation, catalina:      "b9de9b128791d8c416076ed738016ffe534ce85bacddf297ab9ce13954dcaff6"
+    sha256 cellar: :any_skip_relocation, mojave:        "8f4c2e7a1aee0db75154c4b21aee1a4bd398a9b889f119e7b86a06b1533b9304"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "edd99d5ec177bccf061f7424aa595a5515fa5728aec649594f42964cec1f371e"
+    sha256 cellar: :any_skip_relocation, sierra:        "81d0a4bc4808ab5a31b043640c2ec861cbe6a5fead1a76eda0ffa7bff8ae6158"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "dab6c9480077541aff39c6ba5b27a91bbc557faedd713178e9f6e8ea7daa5371"
+    sha256 cellar: :any_skip_relocation, yosemite:      "83355d6549e7cf7d4a9d037cc44895487bb97019e5b810b42266af458302ce7d"
+    sha256 cellar: :any_skip_relocation, mavericks:     "cc6bb7672b79860ae50c06633c28913b5fadb25e2815c5b3e432d4039746f16c"
   end
 
   depends_on "asciidoc" => :build

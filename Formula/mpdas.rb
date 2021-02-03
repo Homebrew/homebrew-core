@@ -7,13 +7,13 @@ class Mpdas < Formula
   head "https://github.com/hrkfdn/mpdas.git"
 
   bottle do
-    sha256 "91ac2d2c0a96b2a91becbf3f6d3f34f01031ed507efce5e5a6eca0d3cdabc41c" => :big_sur
-    sha256 "88b82424c0013b5c0261fe9f08aea489466a33b59321878f19b924325e25bdf9" => :arm64_big_sur
-    sha256 "db93645db3fef2737193f310b8261a435ad79c426e186c6127017b37cc81ef66" => :catalina
-    sha256 "448514d6ac177e771f61bcd178550e317560cf3d5d73bfd240c3278d8d3f5193" => :mojave
-    sha256 "ae319b22981a8cc5ed9a0e0212f2ecdbd7660bcd32182334865a01ac69c2832f" => :high_sierra
-    sha256 "06fe51aaa95bfd3000f1f9e562709d266ecbf1880d2b96779ff0c9b9d82dea20" => :sierra
-    sha256 "c9261f50d1d71969474203f6431d7902198c3524d828ed6f690733094444a914" => :el_capitan
+    sha256 arm64_big_sur: "88b82424c0013b5c0261fe9f08aea489466a33b59321878f19b924325e25bdf9"
+    sha256 big_sur:       "91ac2d2c0a96b2a91becbf3f6d3f34f01031ed507efce5e5a6eca0d3cdabc41c"
+    sha256 catalina:      "db93645db3fef2737193f310b8261a435ad79c426e186c6127017b37cc81ef66"
+    sha256 mojave:        "448514d6ac177e771f61bcd178550e317560cf3d5d73bfd240c3278d8d3f5193"
+    sha256 high_sierra:   "ae319b22981a8cc5ed9a0e0212f2ecdbd7660bcd32182334865a01ac69c2832f"
+    sha256 sierra:        "06fe51aaa95bfd3000f1f9e562709d266ecbf1880d2b96779ff0c9b9d82dea20"
+    sha256 el_capitan:    "c9261f50d1d71969474203f6431d7902198c3524d828ed6f690733094444a914"
   end
 
   depends_on "pkg-config" => :build

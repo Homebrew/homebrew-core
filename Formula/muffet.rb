@@ -7,11 +7,10 @@ class Muffet < Formula
   head "https://github.com/raviqqe/muffet.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "69140cc1b455447e3d854ddf1f72bf111f16b1172bb6c6b252eb91bfd33ba9dc" => :big_sur
-    sha256 "a4bc44ac5a226e09826145e99e3ff61ab2a131f7f47c6d9ac0538c36d23ff860" => :arm64_big_sur
-    sha256 "81e67b81c6f1ee2eb044713f4731fd52675c8680b50e9f7bbf8c88a6c759f50a" => :catalina
-    sha256 "8dd42b1d41d88aae4737aba6ad652449a3750e19b3ee633ebfe279289cd015a8" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a4bc44ac5a226e09826145e99e3ff61ab2a131f7f47c6d9ac0538c36d23ff860"
+    sha256 cellar: :any_skip_relocation, big_sur:       "69140cc1b455447e3d854ddf1f72bf111f16b1172bb6c6b252eb91bfd33ba9dc"
+    sha256 cellar: :any_skip_relocation, catalina:      "81e67b81c6f1ee2eb044713f4731fd52675c8680b50e9f7bbf8c88a6c759f50a"
+    sha256 cellar: :any_skip_relocation, mojave:        "8dd42b1d41d88aae4737aba6ad652449a3750e19b3ee633ebfe279289cd015a8"
   end
 
   depends_on "go" => :build

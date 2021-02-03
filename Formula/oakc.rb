@@ -12,11 +12,10 @@ class Oakc < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "5eb1751a2156b8fce16bbc88f23f36748bc74422276aab43a8272e71d0d92a34" => :big_sur
-    sha256 "ec93c176be096570af4019c9f3a4d2817431dc42811ccfd53ff45baf21df477a" => :arm64_big_sur
-    sha256 "6b79624346a62c0e249e801857fd301f3ce0a72b9557da2dc5e4a56cab12d345" => :catalina
-    sha256 "80c5b0d77def05e95b5b786a5dc1a16e757fcf772a32b1ee5976fc09583f3312" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ec93c176be096570af4019c9f3a4d2817431dc42811ccfd53ff45baf21df477a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5eb1751a2156b8fce16bbc88f23f36748bc74422276aab43a8272e71d0d92a34"
+    sha256 cellar: :any_skip_relocation, catalina:      "6b79624346a62c0e249e801857fd301f3ce0a72b9557da2dc5e4a56cab12d345"
+    sha256 cellar: :any_skip_relocation, mojave:        "80c5b0d77def05e95b5b786a5dc1a16e757fcf772a32b1ee5976fc09583f3312"
   end
 
   depends_on "rust" => :build

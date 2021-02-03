@@ -7,12 +7,12 @@ class Flex < Formula
   revision 1
 
   bottle do
-    sha256 "0efd85122905dd05c8feb197492a72fcd0435270366c89dbe347fcbbe5d66ac1" => :big_sur
-    sha256 "5067cf61a1b9e5fba26590a01f0a1464c7fefa5450c3d3c673acb237b45a9c3c" => :arm64_big_sur
-    sha256 "902e2701bb4d8130fe3177211dda84b6ebc6a520467874a52bcd7ff043b949cc" => :catalina
-    sha256 "2051ed8f0de322732b111f2cc82069e82f6dfd4d839e6d098bbebcd7f92220e6" => :mojave
-    sha256 "9c224c27a3d40a53b6f778a6b825f8b4f14654080b144e50f1bec9cc608c757d" => :high_sierra
-    sha256 "a958106ee0895b21c7577478b847ecdbc601ce6a723543c5da455bfe0eee5f8f" => :sierra
+    sha256 arm64_big_sur: "5067cf61a1b9e5fba26590a01f0a1464c7fefa5450c3d3c673acb237b45a9c3c"
+    sha256 big_sur:       "0efd85122905dd05c8feb197492a72fcd0435270366c89dbe347fcbbe5d66ac1"
+    sha256 catalina:      "902e2701bb4d8130fe3177211dda84b6ebc6a520467874a52bcd7ff043b949cc"
+    sha256 mojave:        "2051ed8f0de322732b111f2cc82069e82f6dfd4d839e6d098bbebcd7f92220e6"
+    sha256 high_sierra:   "9c224c27a3d40a53b6f778a6b825f8b4f14654080b144e50f1bec9cc608c757d"
+    sha256 sierra:        "a958106ee0895b21c7577478b847ecdbc601ce6a723543c5da455bfe0eee5f8f"
   end
 
   head do

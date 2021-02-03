@@ -7,11 +7,10 @@ class MonoLibgdiplus < Formula
   revision 1
 
   bottle do
-    cellar :any
-    sha256 "251d2f8b3f0aefe6678a1e34288cdcdc160410dc4b3b555d08cf58d01f9c37a0" => :big_sur
-    sha256 "1ffc07c204c2dfb3caad9695283676bb2793da4f95889d09fa2a976c2699720b" => :arm64_big_sur
-    sha256 "d72a67f877199f82b096a47a19b071414581fed3160f62942dcbe21804fb29b7" => :catalina
-    sha256 "c865c0d6aac91e8293d951a1c7d278bc8d64cba7babab1dc60f9fc198b6649fd" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "1ffc07c204c2dfb3caad9695283676bb2793da4f95889d09fa2a976c2699720b"
+    sha256 cellar: :any, big_sur:       "251d2f8b3f0aefe6678a1e34288cdcdc160410dc4b3b555d08cf58d01f9c37a0"
+    sha256 cellar: :any, catalina:      "d72a67f877199f82b096a47a19b071414581fed3160f62942dcbe21804fb29b7"
+    sha256 cellar: :any, mojave:        "c865c0d6aac91e8293d951a1c7d278bc8d64cba7babab1dc60f9fc198b6649fd"
   end
 
   depends_on "autoconf" => :build

@@ -7,14 +7,13 @@ class Pex < Formula
   revision 3
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "02aca9cefc6e949f6a4f2854c70f31cc63fa1c88fb01e2f2e3108a3b608e0552" => :big_sur
-    sha256 "2affe95fc76da2a2f6d289f2fb93a4ac16ace824fd1835d756d0664bc8e9ca25" => :arm64_big_sur
-    sha256 "d266cf66e50d44748ed83ba2a20ffa0bd0530f637d98a85e3ab1b6eb11794319" => :catalina
-    sha256 "427b8a701474aa879f8728ec463d3f20aad7c67f7b0ce330245015ec2830806a" => :mojave
-    sha256 "ed1429f15df1e663735f27b1c7660e289953494b84a84bdd919a7eb077576a72" => :high_sierra
-    sha256 "ed1429f15df1e663735f27b1c7660e289953494b84a84bdd919a7eb077576a72" => :sierra
-    sha256 "ed1429f15df1e663735f27b1c7660e289953494b84a84bdd919a7eb077576a72" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2affe95fc76da2a2f6d289f2fb93a4ac16ace824fd1835d756d0664bc8e9ca25"
+    sha256 cellar: :any_skip_relocation, big_sur:       "02aca9cefc6e949f6a4f2854c70f31cc63fa1c88fb01e2f2e3108a3b608e0552"
+    sha256 cellar: :any_skip_relocation, catalina:      "d266cf66e50d44748ed83ba2a20ffa0bd0530f637d98a85e3ab1b6eb11794319"
+    sha256 cellar: :any_skip_relocation, mojave:        "427b8a701474aa879f8728ec463d3f20aad7c67f7b0ce330245015ec2830806a"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "ed1429f15df1e663735f27b1c7660e289953494b84a84bdd919a7eb077576a72"
+    sha256 cellar: :any_skip_relocation, sierra:        "ed1429f15df1e663735f27b1c7660e289953494b84a84bdd919a7eb077576a72"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "ed1429f15df1e663735f27b1c7660e289953494b84a84bdd919a7eb077576a72"
   end
 
   depends_on "postgresql"

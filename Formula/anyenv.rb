@@ -6,12 +6,11 @@ class Anyenv < Formula
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "e81a1695047a8db888363ae4e81c54e2c62aa0da217f8d34bbb22a7fd5da6d11" => :big_sur
-    sha256 "dcd5240a828a78c1e6df3e4cb9c4fcff5ce1c1d7b5699aff350eba25ca28ab15" => :arm64_big_sur
-    sha256 "d07da85e43b8fca089c90ca923593f4d96732f5b05f6a20026f0d219d68bba3b" => :catalina
-    sha256 "d07da85e43b8fca089c90ca923593f4d96732f5b05f6a20026f0d219d68bba3b" => :mojave
-    sha256 "d07da85e43b8fca089c90ca923593f4d96732f5b05f6a20026f0d219d68bba3b" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "dcd5240a828a78c1e6df3e4cb9c4fcff5ce1c1d7b5699aff350eba25ca28ab15"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e81a1695047a8db888363ae4e81c54e2c62aa0da217f8d34bbb22a7fd5da6d11"
+    sha256 cellar: :any_skip_relocation, catalina:      "d07da85e43b8fca089c90ca923593f4d96732f5b05f6a20026f0d219d68bba3b"
+    sha256 cellar: :any_skip_relocation, mojave:        "d07da85e43b8fca089c90ca923593f4d96732f5b05f6a20026f0d219d68bba3b"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "d07da85e43b8fca089c90ca923593f4d96732f5b05f6a20026f0d219d68bba3b"
   end
 
   def install

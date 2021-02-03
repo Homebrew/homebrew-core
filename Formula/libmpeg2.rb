@@ -6,12 +6,11 @@ class Libmpeg2 < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    cellar :any
     rebuild 2
-    sha256 "9f2cfd80d47e975333747fdea41d336071282ae359e9a345835a70611467bd43" => :big_sur
-    sha256 "e2f1a24fdb40a15928f35ae84326fab5b8d1293ca2b378aee8e45aab9bb5766c" => :arm64_big_sur
-    sha256 "9a8c812495f38eb0d46bff246c632c5dfd97413b2bc949defd9c5d318b9da439" => :catalina
-    sha256 "81161223100cfa38704d3194519be5651f4fcb47765b7e99f1d53ce05e433142" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "e2f1a24fdb40a15928f35ae84326fab5b8d1293ca2b378aee8e45aab9bb5766c"
+    sha256 cellar: :any, big_sur:       "9f2cfd80d47e975333747fdea41d336071282ae359e9a345835a70611467bd43"
+    sha256 cellar: :any, catalina:      "9a8c812495f38eb0d46bff246c632c5dfd97413b2bc949defd9c5d318b9da439"
+    sha256 cellar: :any, mojave:        "81161223100cfa38704d3194519be5651f4fcb47765b7e99f1d53ce05e433142"
   end
 
   depends_on "autoconf" => :build

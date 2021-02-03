@@ -6,13 +6,12 @@ class Rawgl < Formula
   head "https://github.com/cyxx/rawgl.git"
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "28776c3c1a68e88c5c1418514b745ee71a21d1cb891d26d2c94e2690992e68df" => :big_sur
-    sha256 "a54f081334f411e85e8a6eb1c2e6869175d0dd6e5a75df00208e52e6cdbe7151" => :arm64_big_sur
-    sha256 "96bd31a9298e14d5b4db183c8833d6e1e6bb10344193f49e1681a13cecc0c276" => :catalina
-    sha256 "59d92a845f19239386ea16af01ae174ab61bedeade38b55e492895b55656f576" => :mojave
-    sha256 "fb7f71cbce3b517ba8946cea53611c7577a2f1b1618a5f27dd0b67f23e278a25" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "a54f081334f411e85e8a6eb1c2e6869175d0dd6e5a75df00208e52e6cdbe7151"
+    sha256 cellar: :any, big_sur:       "28776c3c1a68e88c5c1418514b745ee71a21d1cb891d26d2c94e2690992e68df"
+    sha256 cellar: :any, catalina:      "96bd31a9298e14d5b4db183c8833d6e1e6bb10344193f49e1681a13cecc0c276"
+    sha256 cellar: :any, mojave:        "59d92a845f19239386ea16af01ae174ab61bedeade38b55e492895b55656f576"
+    sha256 cellar: :any, high_sierra:   "fb7f71cbce3b517ba8946cea53611c7577a2f1b1618a5f27dd0b67f23e278a25"
   end
 
   depends_on "sdl2"

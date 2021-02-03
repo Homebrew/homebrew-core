@@ -6,10 +6,9 @@ class Bettercap < Formula
   license "GPL-3.0-only"
 
   bottle do
-    cellar :any
-    sha256 "6de77638b77e9b826cd2085147a5c312156d578f3376f2e0cc3397be9a48e7bd" => :big_sur
-    sha256 "8e7ccb9e8da1c79916eec5b77c2c55141bd13943d022ffee7cdbf13ee1e9640f" => :catalina
-    sha256 "4b59d7b9b41bcd5ee77ca8dc5ecb00c4ba158910dc30c2083c5e4dee6b994e1d" => :mojave
+    sha256 cellar: :any, big_sur:  "6de77638b77e9b826cd2085147a5c312156d578f3376f2e0cc3397be9a48e7bd"
+    sha256 cellar: :any, catalina: "8e7ccb9e8da1c79916eec5b77c2c55141bd13943d022ffee7cdbf13ee1e9640f"
+    sha256 cellar: :any, mojave:   "4b59d7b9b41bcd5ee77ca8dc5ecb00c4ba158910dc30c2083c5e4dee6b994e1d"
   end
 
   depends_on "dep" => :build

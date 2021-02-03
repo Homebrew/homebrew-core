@@ -7,10 +7,9 @@ class Elasticsearch < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "e199fbcb913252e2f60134de2dfff98bff9ae3f1a28f30f3f44c8b0174e189fb" => :big_sur
-    sha256 "6bb47c36590116e78d14b1d3bdce0aa091867f5a30007018b9fcac14ca0c3d8b" => :catalina
-    sha256 "dbc33bf97783ffae45b4438219a8e4586b82f9939d7c9cdb2398bace6f8ade8b" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur:  "e199fbcb913252e2f60134de2dfff98bff9ae3f1a28f30f3f44c8b0174e189fb"
+    sha256 cellar: :any_skip_relocation, catalina: "6bb47c36590116e78d14b1d3bdce0aa091867f5a30007018b9fcac14ca0c3d8b"
+    sha256 cellar: :any_skip_relocation, mojave:   "dbc33bf97783ffae45b4438219a8e4586b82f9939d7c9cdb2398bace6f8ade8b"
   end
 
   # elasticsearch will be relicensed before v7.11.

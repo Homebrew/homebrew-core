@@ -7,10 +7,10 @@ class Vis < Formula
   head "https://github.com/martanne/vis.git"
 
   bottle do
-    sha256 "4aeb0308a6d979940de003d4c2013c5c5b85eecf600b5f44351f5dae5bdfa99d" => :big_sur
-    sha256 "38e336f42ba65ee1cc621b885d364b0568fe8522ddf0ad370425b4409bc41f81" => :arm64_big_sur
-    sha256 "801a96b4aa47cbe0196af84017177d9e3bde18561a75bcf3e7bee970c491973a" => :catalina
-    sha256 "4abbde51b5cf5b4451678d2d4a6d8c1279c64cac44970b3715416beffb726b0f" => :mojave
+    sha256 arm64_big_sur: "38e336f42ba65ee1cc621b885d364b0568fe8522ddf0ad370425b4409bc41f81"
+    sha256 big_sur:       "4aeb0308a6d979940de003d4c2013c5c5b85eecf600b5f44351f5dae5bdfa99d"
+    sha256 catalina:      "801a96b4aa47cbe0196af84017177d9e3bde18561a75bcf3e7bee970c491973a"
+    sha256 mojave:        "4abbde51b5cf5b4451678d2d4a6d8c1279c64cac44970b3715416beffb726b0f"
   end
 
   depends_on "luarocks" => :build

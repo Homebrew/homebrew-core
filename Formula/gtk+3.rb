@@ -11,10 +11,10 @@ class Gtkx3 < Formula
   end
 
   bottle do
-    sha256 "37eb8aa72b11ef7efbb4e70f3cd0b1881a925c41c223e662cc106739f022fe07" => :big_sur
-    sha256 "c08c5a7c58a052a0b5105a2b667a4a5404b52d43c1c0ec741dc83e83673471ff" => :arm64_big_sur
-    sha256 "844d9b4a4c8fc50c29fa4a9464e6a0ae8f22299e7162dfa18a6b048e6aaa1b9a" => :catalina
-    sha256 "798c425db2e840d23c95298fb44cadbd5b1d944240a3ccd0ae369386b3120ca9" => :mojave
+    sha256 arm64_big_sur: "c08c5a7c58a052a0b5105a2b667a4a5404b52d43c1c0ec741dc83e83673471ff"
+    sha256 big_sur:       "37eb8aa72b11ef7efbb4e70f3cd0b1881a925c41c223e662cc106739f022fe07"
+    sha256 catalina:      "844d9b4a4c8fc50c29fa4a9464e6a0ae8f22299e7162dfa18a6b048e6aaa1b9a"
+    sha256 mojave:        "798c425db2e840d23c95298fb44cadbd5b1d944240a3ccd0ae369386b3120ca9"
   end
 
   depends_on "docbook" => :build

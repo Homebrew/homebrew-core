@@ -11,17 +11,16 @@ class Aldo < Formula
   end
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "b6e5c413c1ca391cd040cadd7d2c153e7552ce43677da0d0f1aab1467e92bb3b" => :big_sur
-    sha256 "a0944cbf0df1cccd63c1d18cf758826e8b7621c188b60603153b717ba9d2edbf" => :arm64_big_sur
-    sha256 "2a574bfd1a76ef4733d941234df142dfc87b05cefefaf58d0617113d7af85999" => :catalina
-    sha256 "4c510b7da186be5d55c990d97265952de8fad51079ad2fa18058b8a57d8eeebb" => :mojave
-    sha256 "d30e5e60defc2e2d2110cf52a60898d94ae3331a679f1c228e0d598421a594d9" => :high_sierra
-    sha256 "ad5216c04fce4d1f4da63af2fa4d298a3414073db186991ec4389a942799ddd1" => :sierra
-    sha256 "0691c4b9b7ae5b6f104c5b5205f731d4348563b8a9a8c3631395f619ce00aabf" => :el_capitan
-    sha256 "f5d55cefcfc65033f50bf2aedb30298db1540a8dd5f5c028feb3b4b1c7e5610b" => :yosemite
-    sha256 "fea59d120862f6a04da3993dde1b2f6db60183fc6d7f90f77bb622efdf8a16ac" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "a0944cbf0df1cccd63c1d18cf758826e8b7621c188b60603153b717ba9d2edbf"
+    sha256 cellar: :any, big_sur:       "b6e5c413c1ca391cd040cadd7d2c153e7552ce43677da0d0f1aab1467e92bb3b"
+    sha256 cellar: :any, catalina:      "2a574bfd1a76ef4733d941234df142dfc87b05cefefaf58d0617113d7af85999"
+    sha256 cellar: :any, mojave:        "4c510b7da186be5d55c990d97265952de8fad51079ad2fa18058b8a57d8eeebb"
+    sha256 cellar: :any, high_sierra:   "d30e5e60defc2e2d2110cf52a60898d94ae3331a679f1c228e0d598421a594d9"
+    sha256 cellar: :any, sierra:        "ad5216c04fce4d1f4da63af2fa4d298a3414073db186991ec4389a942799ddd1"
+    sha256 cellar: :any, el_capitan:    "0691c4b9b7ae5b6f104c5b5205f731d4348563b8a9a8c3631395f619ce00aabf"
+    sha256 cellar: :any, yosemite:      "f5d55cefcfc65033f50bf2aedb30298db1540a8dd5f5c028feb3b4b1c7e5610b"
+    sha256 cellar: :any, mavericks:     "fea59d120862f6a04da3993dde1b2f6db60183fc6d7f90f77bb622efdf8a16ac"
   end
 
   depends_on "libao"

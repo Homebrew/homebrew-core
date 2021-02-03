@@ -7,11 +7,10 @@ class Sdb < Formula
   head "https://github.com/radare/sdb.git"
 
   bottle do
-    cellar :any
-    sha256 "610fa3110bb3625590bc8a3a931e68ead2ea2a6ff58badfd5bc2ad8f8b229088" => :big_sur
-    sha256 "5052052465c70657aaa11553748cff312e713ab0731ebbe7912de36a55d94f59" => :arm64_big_sur
-    sha256 "c99fda005b37af0cae08040da70bfb9868d600197fc306953b64f0dac9311c0a" => :catalina
-    sha256 "cd34be961f33a8c5f617f37da20280b73906e57542c6e9764ff5d984936d40e0" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "5052052465c70657aaa11553748cff312e713ab0731ebbe7912de36a55d94f59"
+    sha256 cellar: :any, big_sur:       "610fa3110bb3625590bc8a3a931e68ead2ea2a6ff58badfd5bc2ad8f8b229088"
+    sha256 cellar: :any, catalina:      "c99fda005b37af0cae08040da70bfb9868d600197fc306953b64f0dac9311c0a"
+    sha256 cellar: :any, mojave:        "cd34be961f33a8c5f617f37da20280b73906e57542c6e9764ff5d984936d40e0"
   end
 
   depends_on "pkg-config" => :build

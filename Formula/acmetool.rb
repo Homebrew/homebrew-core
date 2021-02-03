@@ -8,12 +8,11 @@ class Acmetool < Formula
   revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "5f80a75c9eb23177bb4dba1321ec84cee4ebd7a639fb7945c490f85502adfd18" => :big_sur
-    sha256 "aa25f92bd3b37f0413f0d372d789c3bc4f611ec04b03a666ed9beb1aea9b2bc4" => :arm64_big_sur
-    sha256 "91cc3e92638a60e46cc4f003330acea39eb78fe66e5a813e86b96a2b2d43e1e1" => :catalina
-    sha256 "150d06d622b88104ac60f6eaf914e9c250cc42916e61c94378e1bea58da406bf" => :mojave
-    sha256 "60e99c7778fae7fff51852ade8fb55d679eef47198eb891d59f07a4ccb3e171f" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "aa25f92bd3b37f0413f0d372d789c3bc4f611ec04b03a666ed9beb1aea9b2bc4"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5f80a75c9eb23177bb4dba1321ec84cee4ebd7a639fb7945c490f85502adfd18"
+    sha256 cellar: :any_skip_relocation, catalina:      "91cc3e92638a60e46cc4f003330acea39eb78fe66e5a813e86b96a2b2d43e1e1"
+    sha256 cellar: :any_skip_relocation, mojave:        "150d06d622b88104ac60f6eaf914e9c250cc42916e61c94378e1bea58da406bf"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "60e99c7778fae7fff51852ade8fb55d679eef47198eb891d59f07a4ccb3e171f"
   end
 
   # See: https://community.letsencrypt.org/t/end-of-life-plan-for-acmev1/88430

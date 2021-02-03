@@ -7,12 +7,11 @@ class Curseofwar < Formula
   head "https://github.com/a-nikolaev/curseofwar.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ee70d95dcc146e21ceb5921f9fc6d5c77874af2571b69d0850eec729dc1cc0a4" => :big_sur
-    sha256 "ebc08cc6d912fdb3df613a397b1ac467e910a280fc2a4955971d53bb7555045b" => :arm64_big_sur
-    sha256 "ddd5726a8951c2ec18c9f26bbed80d2d22baeef02eb6e1f313d4591f0db7064b" => :catalina
-    sha256 "5847323530aec077f4a17d4c4eb78ee0f90499940dbce3608aba6d4f39e3719e" => :mojave
-    sha256 "b2a0646e145b7ef8f502b6f544d106c05c90974c0f8972285a5dfa753305eece" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ebc08cc6d912fdb3df613a397b1ac467e910a280fc2a4955971d53bb7555045b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ee70d95dcc146e21ceb5921f9fc6d5c77874af2571b69d0850eec729dc1cc0a4"
+    sha256 cellar: :any_skip_relocation, catalina:      "ddd5726a8951c2ec18c9f26bbed80d2d22baeef02eb6e1f313d4591f0db7064b"
+    sha256 cellar: :any_skip_relocation, mojave:        "5847323530aec077f4a17d4c4eb78ee0f90499940dbce3608aba6d4f39e3719e"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "b2a0646e145b7ef8f502b6f544d106c05c90974c0f8972285a5dfa753305eece"
   end
 
   def install

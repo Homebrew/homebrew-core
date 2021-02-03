@@ -13,13 +13,12 @@ class Ocproxy < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "c215e90cdcbcd59674c111bd2bbdf157ad554247c65025560c6688677d25be53" => :big_sur
-    sha256 "d598c7b18b39b70d0bff1cc24b044a7351f8161ada44ef860649bc658323734a" => :arm64_big_sur
-    sha256 "53016c9f83444b015e71e2f1678b1aab1e7914f42a8c5d8de1ab581fca130ef8" => :catalina
-    sha256 "786f0c42a3d282b78d8dc2fa18c36e46707451f4ac848e9af7dd82ab31b40f6d" => :mojave
-    sha256 "0cd70ac67ebd419b869ad4dd70c6cd1217248c8e7b7a57d3a7c8e15c7d2f7dfc" => :high_sierra
-    sha256 "8e33eae007c082ec9b6787210096a4e20992151a7b2c5f345941f68c478ae0e2" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "d598c7b18b39b70d0bff1cc24b044a7351f8161ada44ef860649bc658323734a"
+    sha256 cellar: :any, big_sur:       "c215e90cdcbcd59674c111bd2bbdf157ad554247c65025560c6688677d25be53"
+    sha256 cellar: :any, catalina:      "53016c9f83444b015e71e2f1678b1aab1e7914f42a8c5d8de1ab581fca130ef8"
+    sha256 cellar: :any, mojave:        "786f0c42a3d282b78d8dc2fa18c36e46707451f4ac848e9af7dd82ab31b40f6d"
+    sha256 cellar: :any, high_sierra:   "0cd70ac67ebd419b869ad4dd70c6cd1217248c8e7b7a57d3a7c8e15c7d2f7dfc"
+    sha256 cellar: :any, sierra:        "8e33eae007c082ec9b6787210096a4e20992151a7b2c5f345941f68c478ae0e2"
   end
 
   depends_on "autoconf" => :build

@@ -10,15 +10,14 @@ class Metis < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "bca0197271b673ba235c37334494b47250c9732e9a0164d8ee79948fc3cd4308" => :big_sur
-    sha256 "ea93856908a2c1c60023dd2f849339d479b20ab4ae6d51623f9496f64993ca20" => :arm64_big_sur
-    sha256 "b410b124973bf31beb58806d4050b8dda1fb3dca679fc3443514025200fd4a37" => :catalina
-    sha256 "f3cdcf0cc5af4ddd27a4550d4a73cffcb34058fe34604b09d453610460d24465" => :mojave
-    sha256 "88b6965d941a87044150238387971c4bb94ed2ffca327affccaf311d666a2b4b" => :high_sierra
-    sha256 "9c8deed80ece8c24e7ebccbce8410557b27afe711d3f59fccb7d781254d0cc34" => :sierra
-    sha256 "54f75262475744bc6ad3ba66ac801e03c18bbac00a9bcf0ca9d05853f2022498" => :el_capitan
-    sha256 "b33c2fc2c8a1cdb9f48faf41201bdc6384090b8dbd6ed3eecd05264eb6431c0b" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "ea93856908a2c1c60023dd2f849339d479b20ab4ae6d51623f9496f64993ca20"
+    sha256 cellar: :any, big_sur:       "bca0197271b673ba235c37334494b47250c9732e9a0164d8ee79948fc3cd4308"
+    sha256 cellar: :any, catalina:      "b410b124973bf31beb58806d4050b8dda1fb3dca679fc3443514025200fd4a37"
+    sha256 cellar: :any, mojave:        "f3cdcf0cc5af4ddd27a4550d4a73cffcb34058fe34604b09d453610460d24465"
+    sha256 cellar: :any, high_sierra:   "88b6965d941a87044150238387971c4bb94ed2ffca327affccaf311d666a2b4b"
+    sha256 cellar: :any, sierra:        "9c8deed80ece8c24e7ebccbce8410557b27afe711d3f59fccb7d781254d0cc34"
+    sha256 cellar: :any, el_capitan:    "54f75262475744bc6ad3ba66ac801e03c18bbac00a9bcf0ca9d05853f2022498"
+    sha256 cellar: :any, yosemite:      "b33c2fc2c8a1cdb9f48faf41201bdc6384090b8dbd6ed3eecd05264eb6431c0b"
   end
 
   depends_on "cmake" => :build

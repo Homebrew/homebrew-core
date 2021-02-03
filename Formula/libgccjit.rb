@@ -16,9 +16,9 @@ class Libgccjit < Formula
 
   bottle do
     rebuild 1
-    sha256 "84b3e7df022c08bd70d96a3897ef0391e48b8e796c49f6600e3b82b65e1120e6" => :big_sur
-    sha256 "014c277de860ab4862ef33a056c559d62693a06f1667ca0b267349ec8f58ddf0" => :catalina
-    sha256 "3b40caf5f7bb340467374f4f020028d1450226436a72290db55ed5eb5a3bfb3b" => :mojave
+    sha256 big_sur:  "84b3e7df022c08bd70d96a3897ef0391e48b8e796c49f6600e3b82b65e1120e6"
+    sha256 catalina: "014c277de860ab4862ef33a056c559d62693a06f1667ca0b267349ec8f58ddf0"
+    sha256 mojave:   "3b40caf5f7bb340467374f4f020028d1450226436a72290db55ed5eb5a3bfb3b"
   end
 
   # The bottles are built on systems with the CLT installed, and do not work

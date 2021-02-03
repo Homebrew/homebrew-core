@@ -7,12 +7,11 @@ class Libtins < Formula
   head "https://github.com/mfontanini/libtins.git"
 
   bottle do
-    cellar :any
-    sha256 "fbde141533f922dd195e69f432fef3d8fc3fa3234de841ae832e1513427ca528" => :big_sur
-    sha256 "67015c4202420ae239e94a7c1df5be67af65f5a717a965f581202557df639e04" => :arm64_big_sur
-    sha256 "698edf1fd2794c4bf81e1debcddadf1fcad906f98cde53c7240705578ec3a584" => :catalina
-    sha256 "0cc57b006a581a0da50ef3b365f1cbd292e9ae054a552751cc7af3d93860ebce" => :mojave
-    sha256 "0a15741675e5c3f65f98fd89a25f0a1167294b95ba596620b63a45ad71dedea8" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "67015c4202420ae239e94a7c1df5be67af65f5a717a965f581202557df639e04"
+    sha256 cellar: :any, big_sur:       "fbde141533f922dd195e69f432fef3d8fc3fa3234de841ae832e1513427ca528"
+    sha256 cellar: :any, catalina:      "698edf1fd2794c4bf81e1debcddadf1fcad906f98cde53c7240705578ec3a584"
+    sha256 cellar: :any, mojave:        "0cc57b006a581a0da50ef3b365f1cbd292e9ae054a552751cc7af3d93860ebce"
+    sha256 cellar: :any, high_sierra:   "0a15741675e5c3f65f98fd89a25f0a1167294b95ba596620b63a45ad71dedea8"
   end
 
   depends_on "cmake" => :build

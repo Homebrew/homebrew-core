@@ -8,10 +8,10 @@ class Dbdeployer < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, big_sur: "97314b16d996ab7c3cc15141f2e3266c8327f1fe23874c954f5f50e0ddcb412b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d990f9abd61b62940623df7242b6eae3504f7b2857acc27fc0054445f600c2d6"
-    sha256 cellar: :any_skip_relocation, catalina: "94a7026951d1acb7cf85d970a83a76737445f1789441b6e1ab1c802496e23525"
-    sha256 cellar: :any_skip_relocation, mojave: "a5ac29de3d908479368e4cbb56370cdfbc23d468289c09b86380e21e00f82663"
+    sha256 cellar: :any_skip_relocation, big_sur:       "97314b16d996ab7c3cc15141f2e3266c8327f1fe23874c954f5f50e0ddcb412b"
+    sha256 cellar: :any_skip_relocation, catalina:      "94a7026951d1acb7cf85d970a83a76737445f1789441b6e1ab1c802496e23525"
+    sha256 cellar: :any_skip_relocation, mojave:        "a5ac29de3d908479368e4cbb56370cdfbc23d468289c09b86380e21e00f82663"
   end
 
   depends_on "go" => :build

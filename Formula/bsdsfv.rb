@@ -9,16 +9,15 @@ class Bsdsfv < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "3fe4cd9e74eb5d55bf3ecc10a675600ade3b4f0d56b94d2bcfd9d71e91cae302" => :big_sur
-    sha256 "1f2a24ab528de05007b43da3e52628380f4bf6acf8d0d9d2d52cd3defd0c429c" => :arm64_big_sur
-    sha256 "3abfd33001c44edc6b03905559f8565f923001aa1ccc3a3247ebd073d226ccaa" => :catalina
-    sha256 "e500396c1a26993727df9ccc8d878e0a4fbc353326206dffcbd18b9fc8071247" => :mojave
-    sha256 "28bee35fbc8c0be9e1182287c58340898d29d9ba0f910109974af6efcb5cd61f" => :high_sierra
-    sha256 "38b9d278b430e250b384c5ba2baf3e74dfe0771c5ceea45686022ecb01616ee2" => :sierra
-    sha256 "404ec03e044a019a487adfab90012a29a6655fe67b907d9b4e9a46d4f6c57a9b" => :el_capitan
-    sha256 "fd15cb46a9499bcd1182e8fe4a6ae1de9fb77ced85186601ef6c6579a22d9c51" => :yosemite
-    sha256 "7d0590952682b7baf619122a2942dacbf7ed455263c49b0314a85be7d51b1dc1" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1f2a24ab528de05007b43da3e52628380f4bf6acf8d0d9d2d52cd3defd0c429c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "3fe4cd9e74eb5d55bf3ecc10a675600ade3b4f0d56b94d2bcfd9d71e91cae302"
+    sha256 cellar: :any_skip_relocation, catalina:      "3abfd33001c44edc6b03905559f8565f923001aa1ccc3a3247ebd073d226ccaa"
+    sha256 cellar: :any_skip_relocation, mojave:        "e500396c1a26993727df9ccc8d878e0a4fbc353326206dffcbd18b9fc8071247"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "28bee35fbc8c0be9e1182287c58340898d29d9ba0f910109974af6efcb5cd61f"
+    sha256 cellar: :any_skip_relocation, sierra:        "38b9d278b430e250b384c5ba2baf3e74dfe0771c5ceea45686022ecb01616ee2"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "404ec03e044a019a487adfab90012a29a6655fe67b907d9b4e9a46d4f6c57a9b"
+    sha256 cellar: :any_skip_relocation, yosemite:      "fd15cb46a9499bcd1182e8fe4a6ae1de9fb77ced85186601ef6c6579a22d9c51"
+    sha256 cellar: :any_skip_relocation, mavericks:     "7d0590952682b7baf619122a2942dacbf7ed455263c49b0314a85be7d51b1dc1"
   end
 
   # bug report:

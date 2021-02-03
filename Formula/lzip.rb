@@ -11,11 +11,10 @@ class Lzip < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "dd3e7b00a64e6de1f1cbb0446c2a3c0dac5033dd9b2de5f52fe56d7375c0d339" => :big_sur
-    sha256 "78014ac2f6011ba98beeabd7aa79e37b6ee78a5e9c72b7bf7594005bfcc7f082" => :arm64_big_sur
-    sha256 "91a7214e357c949e0a06736e6a73eb667c0c487efaeebeb4df6fae99ee660575" => :catalina
-    sha256 "7c4d9d33bda8dd4043a48903d9348e683c1c64c1b0ab39b1680fcaadb952896f" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "78014ac2f6011ba98beeabd7aa79e37b6ee78a5e9c72b7bf7594005bfcc7f082"
+    sha256 cellar: :any_skip_relocation, big_sur:       "dd3e7b00a64e6de1f1cbb0446c2a3c0dac5033dd9b2de5f52fe56d7375c0d339"
+    sha256 cellar: :any_skip_relocation, catalina:      "91a7214e357c949e0a06736e6a73eb667c0c487efaeebeb4df6fae99ee660575"
+    sha256 cellar: :any_skip_relocation, mojave:        "7c4d9d33bda8dd4043a48903d9348e683c1c64c1b0ab39b1680fcaadb952896f"
   end
 
   def install

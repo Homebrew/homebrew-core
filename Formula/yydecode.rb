@@ -10,15 +10,14 @@ class Yydecode < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "4700a77bb5b4bbce8b34f92662661cf13f9560c1637256fd8dc9581ec7caf077" => :big_sur
-    sha256 "83fcf98a8fbf68bf2ce8c5847b53730856f65f8139bda8506a912e4650020e8d" => :arm64_big_sur
-    sha256 "206152a71458e053c332c7ca52f6db716b146e993c08384afb98e56a43c043b6" => :catalina
-    sha256 "18d815befe31bcdeaac8edff43cb878f53c34a608fa946c13a14143139bf887a" => :mojave
-    sha256 "e2e7285f1f2b18b4b99800602d15932dba435f6480c5776e5b57b734727f652f" => :high_sierra
-    sha256 "91dc4fe34931d45fcebaead39ce505116322c7866e786cf86a7065f9e57b42ac" => :sierra
-    sha256 "07aa31cabc4f2533df3b5670beed1ba99e3e7dcc3ffb3cf55fff56866e7bf11e" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "83fcf98a8fbf68bf2ce8c5847b53730856f65f8139bda8506a912e4650020e8d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4700a77bb5b4bbce8b34f92662661cf13f9560c1637256fd8dc9581ec7caf077"
+    sha256 cellar: :any_skip_relocation, catalina:      "206152a71458e053c332c7ca52f6db716b146e993c08384afb98e56a43c043b6"
+    sha256 cellar: :any_skip_relocation, mojave:        "18d815befe31bcdeaac8edff43cb878f53c34a608fa946c13a14143139bf887a"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "e2e7285f1f2b18b4b99800602d15932dba435f6480c5776e5b57b734727f652f"
+    sha256 cellar: :any_skip_relocation, sierra:        "91dc4fe34931d45fcebaead39ce505116322c7866e786cf86a7065f9e57b42ac"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "07aa31cabc4f2533df3b5670beed1ba99e3e7dcc3ffb3cf55fff56866e7bf11e"
   end
 
   def install

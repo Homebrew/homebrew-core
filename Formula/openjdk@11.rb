@@ -6,12 +6,11 @@ class OpenjdkAT11 < Formula
   license "GPL-2.0-only"
 
   bottle do
-    cellar :any
-    sha256 "610ed0bd964812cdce0f6e1a4b8c06fd867861c72be7ebff9f674362ba48b7b9" => :big_sur
-    sha256 "0257d7e29927678e60372f6d34153f9efb9e28d0d9eac7d80cddac131c6129a9" => :arm64_big_sur
-    sha256 "c640eade77c3ad69fef4d66872bbccc2e8782fcd5beee84ecb6c5b7dbb28081b" => :catalina
-    sha256 "facf3c10d2f0183c5f55c2e7aad5bc9ad28da3979712a7fee342bb00b5dbdd5a" => :mojave
-    sha256 "4e92d71376b9e07198245e434ba86c8caa95521f6dcec8454c726cec5a16c0d1" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "0257d7e29927678e60372f6d34153f9efb9e28d0d9eac7d80cddac131c6129a9"
+    sha256 cellar: :any, big_sur:       "610ed0bd964812cdce0f6e1a4b8c06fd867861c72be7ebff9f674362ba48b7b9"
+    sha256 cellar: :any, catalina:      "c640eade77c3ad69fef4d66872bbccc2e8782fcd5beee84ecb6c5b7dbb28081b"
+    sha256 cellar: :any, mojave:        "facf3c10d2f0183c5f55c2e7aad5bc9ad28da3979712a7fee342bb00b5dbdd5a"
+    sha256 cellar: :any, high_sierra:   "4e92d71376b9e07198245e434ba86c8caa95521f6dcec8454c726cec5a16c0d1"
   end
 
   keg_only :versioned_formula

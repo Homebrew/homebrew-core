@@ -7,10 +7,9 @@ class Awsweeper < Formula
   head "https://github.com/jckuester/awsweeper.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "0d73492221e06ae265d9e81fc3583dbf286f386beb7a711f0283822e9ba8759f" => :big_sur
-    sha256 "04820fc239d4bd2f470e5bba636969ca8487bdf9ef73208d470a08a733e8bf02" => :catalina
-    sha256 "6bf1b5e08c686bf2e75f1054385ad598fbefe3ea8048c3d3c9e82193683f097a" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur:  "0d73492221e06ae265d9e81fc3583dbf286f386beb7a711f0283822e9ba8759f"
+    sha256 cellar: :any_skip_relocation, catalina: "04820fc239d4bd2f470e5bba636969ca8487bdf9ef73208d470a08a733e8bf02"
+    sha256 cellar: :any_skip_relocation, mojave:   "6bf1b5e08c686bf2e75f1054385ad598fbefe3ea8048c3d3c9e82193683f097a"
   end
 
   depends_on "go" => :build

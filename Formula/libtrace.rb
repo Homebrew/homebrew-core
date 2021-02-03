@@ -11,12 +11,11 @@ class Libtrace < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "7f0ac81acc44dc40358023b349d3d7fc6a9b973270a250561d6f7d797d6d14f5" => :big_sur
-    sha256 "32c9993b534ff20808cac15d19c009fc3af56d6bb8828babf43e9d4b64bc61e0" => :arm64_big_sur
-    sha256 "3bb611b3ca108fa85d4945111e2da2843be58b96090b6d54ffc3143db0353992" => :catalina
-    sha256 "1657d836b2cf3c5571b7b8606d448f977307b7b922f0abe58598d5b867633459" => :mojave
-    sha256 "7332a34eae708cfa8b297a71affc48e88044258bf11602a17824745c452da435" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "32c9993b534ff20808cac15d19c009fc3af56d6bb8828babf43e9d4b64bc61e0"
+    sha256 cellar: :any, big_sur:       "7f0ac81acc44dc40358023b349d3d7fc6a9b973270a250561d6f7d797d6d14f5"
+    sha256 cellar: :any, catalina:      "3bb611b3ca108fa85d4945111e2da2843be58b96090b6d54ffc3143db0353992"
+    sha256 cellar: :any, mojave:        "1657d836b2cf3c5571b7b8606d448f977307b7b922f0abe58598d5b867633459"
+    sha256 cellar: :any, high_sierra:   "7332a34eae708cfa8b297a71affc48e88044258bf11602a17824745c452da435"
   end
 
   depends_on "openssl@1.1"

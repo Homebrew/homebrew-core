@@ -8,9 +8,9 @@ class Idris < Formula
 
   bottle do
     rebuild 1
-    sha256 "cbae5a36e3912cbefc10acc8f6295bf313b8532bbe6eb2a53b2427d68772952e" => :big_sur
-    sha256 "df17f5104195ea42a489ef6392a3c4ad5f94de7442f38352cdbef31d4abc3799" => :catalina
-    sha256 "ba0945d4c86053b525067f4f1fa8781d72903b4f40522edd7b0e15fd62e7ba4a" => :mojave
+    sha256 big_sur:  "cbae5a36e3912cbefc10acc8f6295bf313b8532bbe6eb2a53b2427d68772952e"
+    sha256 catalina: "df17f5104195ea42a489ef6392a3c4ad5f94de7442f38352cdbef31d4abc3799"
+    sha256 mojave:   "ba0945d4c86053b525067f4f1fa8781d72903b4f40522edd7b0e15fd62e7ba4a"
   end
 
   depends_on "cabal-install" => :build

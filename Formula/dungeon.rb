@@ -6,10 +6,9 @@ class Dungeon < Formula
   revision 1
 
   bottle do
-    cellar :any
-    sha256 "86edc8b6eeb85a1353d82543859f1e9ac70f8f602dd6cb7d7607741f8a23d74b" => :catalina
-    sha256 "7f797732836ef54d4ae987eeecdc12a195eb9f00dd6f145728a2ab9ce819f520" => :mojave
-    sha256 "9ebda679eabb0f65ba172887d2f271c897abd4faeb2b8f0863b024bea4112865" => :high_sierra
+    sha256 cellar: :any, catalina:    "86edc8b6eeb85a1353d82543859f1e9ac70f8f602dd6cb7d7607741f8a23d74b"
+    sha256 cellar: :any, mojave:      "7f797732836ef54d4ae987eeecdc12a195eb9f00dd6f145728a2ab9ce819f520"
+    sha256 cellar: :any, high_sierra: "9ebda679eabb0f65ba172887d2f271c897abd4faeb2b8f0863b024bea4112865"
   end
 
   depends_on "gcc" # for gfortran

@@ -8,11 +8,10 @@ class Bpytop < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "a50aaf97067280960a462596625be6af01098e6e23850aa546e29490f222c2a5" => :big_sur
-    sha256 "86e301b52ef369a02e5beaf9e726a0da377f29759395485b52718a168a90ee14" => :arm64_big_sur
-    sha256 "040c3f76fc5dc9df03b44eff4053d8edb74908447ea7081c06d0a913a9b600c8" => :catalina
-    sha256 "0cfe29295f282bc25e4ce89139da7302ba33f981600af39e4da512af3da6f455" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "86e301b52ef369a02e5beaf9e726a0da377f29759395485b52718a168a90ee14"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a50aaf97067280960a462596625be6af01098e6e23850aa546e29490f222c2a5"
+    sha256 cellar: :any_skip_relocation, catalina:      "040c3f76fc5dc9df03b44eff4053d8edb74908447ea7081c06d0a913a9b600c8"
+    sha256 cellar: :any_skip_relocation, mojave:        "0cfe29295f282bc25e4ce89139da7302ba33f981600af39e4da512af3da6f455"
   end
 
   depends_on "python@3.9"

@@ -11,11 +11,10 @@ class Jmeter < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c0e2b8904f50831defb9c2cc948f6fc6591324d0e14db6e996cc5d0ba4c15867" => :big_sur
-    sha256 "511f09fb39543951f61dfd1ec75cefc91d86d181e4fcc016408bff5cffc8e860" => :arm64_big_sur
-    sha256 "d7aba96b31d80733d0e1cb760411465fd5d27780579c66f8218186c8bd412149" => :catalina
-    sha256 "9d97d4aaae18b7001f0aba7db65f703e54c7fc90704fef283c3bacd5323b9735" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "511f09fb39543951f61dfd1ec75cefc91d86d181e4fcc016408bff5cffc8e860"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c0e2b8904f50831defb9c2cc948f6fc6591324d0e14db6e996cc5d0ba4c15867"
+    sha256 cellar: :any_skip_relocation, catalina:      "d7aba96b31d80733d0e1cb760411465fd5d27780579c66f8218186c8bd412149"
+    sha256 cellar: :any_skip_relocation, mojave:        "9d97d4aaae18b7001f0aba7db65f703e54c7fc90704fef283c3bacd5323b9735"
   end
 
   depends_on "openjdk"

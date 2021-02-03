@@ -8,12 +8,11 @@ class Dwm < Formula
   head "https://git.suckless.org/dwm", using: :git
 
   bottle do
-    cellar :any
-    sha256 "afd787afd9c6ea4cc81c100f324d2b8aa4c65c2a06e43ca87d54135425b347cf" => :big_sur
-    sha256 "7fd3a01a1f29927ca94c2c5ea32b4ee0c9f31d9ea39adc04e76ab40517663149" => :arm64_big_sur
-    sha256 "d872be09d1f5c11c9fb4d34002cc5f4622fbc259691800e1742354573b9effb0" => :catalina
-    sha256 "e4ec85368754c0594847dad5272770a36e69876ed433fdd390d73a7d05c43263" => :mojave
-    sha256 "b22ec01678edc39f1b82837087bb69ac311bce937eb10cb096fc8b1002f97701" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "7fd3a01a1f29927ca94c2c5ea32b4ee0c9f31d9ea39adc04e76ab40517663149"
+    sha256 cellar: :any, big_sur:       "afd787afd9c6ea4cc81c100f324d2b8aa4c65c2a06e43ca87d54135425b347cf"
+    sha256 cellar: :any, catalina:      "d872be09d1f5c11c9fb4d34002cc5f4622fbc259691800e1742354573b9effb0"
+    sha256 cellar: :any, mojave:        "e4ec85368754c0594847dad5272770a36e69876ed433fdd390d73a7d05c43263"
+    sha256 cellar: :any, high_sierra:   "b22ec01678edc39f1b82837087bb69ac311bce937eb10cb096fc8b1002f97701"
   end
 
   depends_on "dmenu"

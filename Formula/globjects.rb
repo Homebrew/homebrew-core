@@ -7,13 +7,12 @@ class Globjects < Formula
   head "https://github.com/cginternals/globjects.git"
 
   bottle do
-    cellar :any
-    sha256 "7a47a09787bf617fa6616f2cd88567b12b5d5c5d0a29225688908ed8c8b2c88d" => :big_sur
-    sha256 "97b76d2b662c4f123604d312b442d2b59d606a3cc1e3e4f10cbe2dd3cc8b6f62" => :arm64_big_sur
-    sha256 "8093cb17f6c1ba5ce345d3a89f0a2330cbdbb88100ad241be0dd8611a6ad52d9" => :catalina
-    sha256 "9bbf36b86602a7b0c7bf66bb911e200e4f7b94f05c304afb261781edebf119ce" => :mojave
-    sha256 "baae740c033bc384454f81c0abba246f935765ec7decf408777d318d60cbe565" => :high_sierra
-    sha256 "dacabb07360fa768e54e9436f071a6ac2a56d0fc9da0d72b491fb8a645f48c33" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "97b76d2b662c4f123604d312b442d2b59d606a3cc1e3e4f10cbe2dd3cc8b6f62"
+    sha256 cellar: :any, big_sur:       "7a47a09787bf617fa6616f2cd88567b12b5d5c5d0a29225688908ed8c8b2c88d"
+    sha256 cellar: :any, catalina:      "8093cb17f6c1ba5ce345d3a89f0a2330cbdbb88100ad241be0dd8611a6ad52d9"
+    sha256 cellar: :any, mojave:        "9bbf36b86602a7b0c7bf66bb911e200e4f7b94f05c304afb261781edebf119ce"
+    sha256 cellar: :any, high_sierra:   "baae740c033bc384454f81c0abba246f935765ec7decf408777d318d60cbe565"
+    sha256 cellar: :any, sierra:        "dacabb07360fa768e54e9436f071a6ac2a56d0fc9da0d72b491fb8a645f48c33"
   end
 
   depends_on "cmake" => :build

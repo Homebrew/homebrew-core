@@ -11,10 +11,9 @@ class Dwarfutils < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "4b7bb9ec7ab16bc1f7621484fb36af441cb9fd9e749cda79996915cf7bc22372" => :big_sur
-    sha256 "5e63608b1a3ac55a066255d09d57d07105c7adcecbcddfe65fb45738f4480460" => :catalina
-    sha256 "a511dac8825fed2348399e8390170b53e7232b19247f42f59c5bd67ae24af5b4" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur:  "4b7bb9ec7ab16bc1f7621484fb36af441cb9fd9e749cda79996915cf7bc22372"
+    sha256 cellar: :any_skip_relocation, catalina: "5e63608b1a3ac55a066255d09d57d07105c7adcecbcddfe65fb45738f4480460"
+    sha256 cellar: :any_skip_relocation, mojave:   "a511dac8825fed2348399e8390170b53e7232b19247f42f59c5bd67ae24af5b4"
   end
 
   depends_on "libelf" => :build

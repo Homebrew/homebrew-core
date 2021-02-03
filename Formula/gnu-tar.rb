@@ -11,11 +11,10 @@ class GnuTar < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "14c85bf6742a4055f0a6d3444993af7866d4963cd264eb2f2419bfe07cafda74" => :big_sur
-    sha256 "992da32921e3033679cc2323a34f21e0c847661aedf0d8c59e04c2d6a47fed45" => :arm64_big_sur
-    sha256 "f99e9b8b33b9fd07a04bf6661cbc3e56267f2b682f2ffd12d3775c7838795381" => :catalina
-    sha256 "0320a427ff60c2665ee85898f45a96df4e0824d7ef0d985a8434d6fd4c1e0c74" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "992da32921e3033679cc2323a34f21e0c847661aedf0d8c59e04c2d6a47fed45"
+    sha256 cellar: :any_skip_relocation, big_sur:       "14c85bf6742a4055f0a6d3444993af7866d4963cd264eb2f2419bfe07cafda74"
+    sha256 cellar: :any_skip_relocation, catalina:      "f99e9b8b33b9fd07a04bf6661cbc3e56267f2b682f2ffd12d3775c7838795381"
+    sha256 cellar: :any_skip_relocation, mojave:        "0320a427ff60c2665ee85898f45a96df4e0824d7ef0d985a8434d6fd4c1e0c74"
   end
 
   head do

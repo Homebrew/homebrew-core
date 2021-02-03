@@ -12,10 +12,10 @@ class MidnightCommander < Formula
   end
 
   bottle do
-    sha256 "2035ff99bbb38fe1f12f4cf5c311b453c89d295a988ff570a5c4cab2834a4232" => :big_sur
-    sha256 "e0dcbb747b0ed2e44c42ac024a42ac657da5b8d3898d1caa6d1bc029cbca13cb" => :arm64_big_sur
-    sha256 "9de49345aabc060d430d444b0b94b7e00593253ac1f21a3718c483303621abdf" => :catalina
-    sha256 "959dfb0d8538524172c68cb394046fb4c3be78803e8307a759bdc564ff86b783" => :mojave
+    sha256 arm64_big_sur: "e0dcbb747b0ed2e44c42ac024a42ac657da5b8d3898d1caa6d1bc029cbca13cb"
+    sha256 big_sur:       "2035ff99bbb38fe1f12f4cf5c311b453c89d295a988ff570a5c4cab2834a4232"
+    sha256 catalina:      "9de49345aabc060d430d444b0b94b7e00593253ac1f21a3718c483303621abdf"
+    sha256 mojave:        "959dfb0d8538524172c68cb394046fb4c3be78803e8307a759bdc564ff86b783"
   end
 
   head do

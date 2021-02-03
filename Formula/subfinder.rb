@@ -7,12 +7,11 @@ class Subfinder < Formula
   head "https://github.com/projectdiscovery/subfinder.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "1844b137c9daf184b4891134f8b895b20be66c71afaa978a6b649e2d35fec74e" => :big_sur
-    sha256 "0593069a404934438b9a012fa7534a15ce1f0701a115d5b4a48cceeb1643e02a" => :arm64_big_sur
-    sha256 "e0605119e8efcf7a6ea237665fae5b5bda1715b9844921b3fc0bcd9d67af5013" => :catalina
-    sha256 "61061910e7fbaf2223c06791704c021adc8df0dd96643803decfc55be305f8e4" => :mojave
-    sha256 "46398f2facb9cf9c2143d0841f5c9293aa98c63667e2470ffd999ade3cc8af0d" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0593069a404934438b9a012fa7534a15ce1f0701a115d5b4a48cceeb1643e02a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1844b137c9daf184b4891134f8b895b20be66c71afaa978a6b649e2d35fec74e"
+    sha256 cellar: :any_skip_relocation, catalina:      "e0605119e8efcf7a6ea237665fae5b5bda1715b9844921b3fc0bcd9d67af5013"
+    sha256 cellar: :any_skip_relocation, mojave:        "61061910e7fbaf2223c06791704c021adc8df0dd96643803decfc55be305f8e4"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "46398f2facb9cf9c2143d0841f5c9293aa98c63667e2470ffd999ade3cc8af0d"
   end
 
   depends_on "go" => :build

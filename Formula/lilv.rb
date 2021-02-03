@@ -11,11 +11,10 @@ class Lilv < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "0bd83420cebc6262ce2c99f52dc4a0e1b292eb4fb1a5342eede0a0de42042f9d" => :big_sur
-    sha256 "7d5c20eca54b3c37a221850a1dee80db09936951a68b809ac273b818520742e5" => :arm64_big_sur
-    sha256 "209a76fdfb98e2ed7c4fb0c61a30f74f6d20d733bdfa4119f3508a4b4e7b2670" => :catalina
-    sha256 "59935741b27150d9c72f5c0d436c4d2df1e932d4edb3f6f75d3ab68b50ec42ca" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "7d5c20eca54b3c37a221850a1dee80db09936951a68b809ac273b818520742e5"
+    sha256 cellar: :any, big_sur:       "0bd83420cebc6262ce2c99f52dc4a0e1b292eb4fb1a5342eede0a0de42042f9d"
+    sha256 cellar: :any, catalina:      "209a76fdfb98e2ed7c4fb0c61a30f74f6d20d733bdfa4119f3508a4b4e7b2670"
+    sha256 cellar: :any, mojave:        "59935741b27150d9c72f5c0d436c4d2df1e932d4edb3f6f75d3ab68b50ec42ca"
   end
 
   depends_on "pkg-config" => :build

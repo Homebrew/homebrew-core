@@ -7,11 +7,10 @@ class Staticcheck < Formula
   head "https://github.com/dominikh/go-tools.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "a515f5fc81be1069541c86a0dbb0c10ce406d5f63420e25d6736eea2d970f011" => :big_sur
-    sha256 "6b7c908b171158a2e7bd736d903cf349542d504197a753c9967be8fcb42400e4" => :arm64_big_sur
-    sha256 "c207bf44becf6d82ad8fed9eff75db5a14a106df080fb90eb8ed6e1b7a0c0375" => :catalina
-    sha256 "2e7d67e9a2aba779e109c18b0aac9729438033ae3666e332b83f2a9c5c84f3fe" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6b7c908b171158a2e7bd736d903cf349542d504197a753c9967be8fcb42400e4"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a515f5fc81be1069541c86a0dbb0c10ce406d5f63420e25d6736eea2d970f011"
+    sha256 cellar: :any_skip_relocation, catalina:      "c207bf44becf6d82ad8fed9eff75db5a14a106df080fb90eb8ed6e1b7a0c0375"
+    sha256 cellar: :any_skip_relocation, mojave:        "2e7d67e9a2aba779e109c18b0aac9729438033ae3666e332b83f2a9c5c84f3fe"
   end
 
   depends_on "go"

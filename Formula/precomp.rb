@@ -7,13 +7,12 @@ class Precomp < Formula
   head "https://github.com/schnaader/precomp-cpp.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "98d1f2f0987f9317b372895c3af39358585a461023e286baf2ebc67d118cf3be" => :big_sur
-    sha256 "527a77954282f384fd4bd01ec67750d73ee5fc0d989cee4be22ba688a461a90f" => :arm64_big_sur
-    sha256 "9ac9f156315ae463a1e378bdd9ed06d5f36437ccff4505740dfa10ee914b5adf" => :catalina
-    sha256 "7488435759867b2bb152cdd3ea78d2358659b34ff838e2cb97b54bd3a322147b" => :mojave
-    sha256 "92824cc03c547d276436e1bdf55e905d402f77eeccf61f25a720d4315e5bd4cf" => :high_sierra
-    sha256 "5d852d83cf57987a521471b74e450a65473ed20e32bb14e83b5d99e969e37458" => :sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "527a77954282f384fd4bd01ec67750d73ee5fc0d989cee4be22ba688a461a90f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "98d1f2f0987f9317b372895c3af39358585a461023e286baf2ebc67d118cf3be"
+    sha256 cellar: :any_skip_relocation, catalina:      "9ac9f156315ae463a1e378bdd9ed06d5f36437ccff4505740dfa10ee914b5adf"
+    sha256 cellar: :any_skip_relocation, mojave:        "7488435759867b2bb152cdd3ea78d2358659b34ff838e2cb97b54bd3a322147b"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "92824cc03c547d276436e1bdf55e905d402f77eeccf61f25a720d4315e5bd4cf"
+    sha256 cellar: :any_skip_relocation, sierra:        "5d852d83cf57987a521471b74e450a65473ed20e32bb14e83b5d99e969e37458"
   end
 
   depends_on "cmake" => :build

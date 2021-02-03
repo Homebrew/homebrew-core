@@ -12,11 +12,10 @@ class Tcpdump < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "2cb0b061f9e2dbe9d36ab328fbec36e0c948d7db076ae03e11046d4c78ed0ea3" => :big_sur
-    sha256 "603922412e7184c2f97aa7ab3757caad78105157ff486cd1fcd1fdc7b70c81ad" => :arm64_big_sur
-    sha256 "f39b833288b92843f5e8aabb519a7bf4368476297abfbc718b7438d7cdb9f190" => :catalina
-    sha256 "91d13cf3a6c5bf4eb37c04ab5efb30e006316c7e0a91e4d657ca9589d22a45e0" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "603922412e7184c2f97aa7ab3757caad78105157ff486cd1fcd1fdc7b70c81ad"
+    sha256 cellar: :any, big_sur:       "2cb0b061f9e2dbe9d36ab328fbec36e0c948d7db076ae03e11046d4c78ed0ea3"
+    sha256 cellar: :any, catalina:      "f39b833288b92843f5e8aabb519a7bf4368476297abfbc718b7438d7cdb9f190"
+    sha256 cellar: :any, mojave:        "91d13cf3a6c5bf4eb37c04ab5efb30e006316c7e0a91e4d657ca9589d22a45e0"
   end
 
   depends_on "libpcap"

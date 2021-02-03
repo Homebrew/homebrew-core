@@ -7,11 +7,10 @@ class Samurai < Formula
   head "https://github.com/michaelforney/samurai.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "5e3819fa6eb240e781c236528297422575c6c2ae9aa4e38e6ddc7dbac0e25339" => :big_sur
-    sha256 "04ca3c9aada344360216791324e673db86948a3eaa2e82a541cb1fd28647b1bf" => :arm64_big_sur
-    sha256 "35e183246e80cfe5a6f9b11b12cd2e0c3a754da15b8fb7550b5716de9e219e8d" => :catalina
-    sha256 "ef652224d51e64d4e83f921a3870cd9cb4d7dbc315156cb68dd01d30d2d34414" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "04ca3c9aada344360216791324e673db86948a3eaa2e82a541cb1fd28647b1bf"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5e3819fa6eb240e781c236528297422575c6c2ae9aa4e38e6ddc7dbac0e25339"
+    sha256 cellar: :any_skip_relocation, catalina:      "35e183246e80cfe5a6f9b11b12cd2e0c3a754da15b8fb7550b5716de9e219e8d"
+    sha256 cellar: :any_skip_relocation, mojave:        "ef652224d51e64d4e83f921a3870cd9cb4d7dbc315156cb68dd01d30d2d34414"
   end
 
   def install

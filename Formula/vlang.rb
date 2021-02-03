@@ -12,11 +12,10 @@ class Vlang < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "9be25862e7c69582ef1c8ee312e10e76988e5247439657f704078f56a5f6abc3" => :big_sur
-    sha256 "c6d2d50296fdad67fb6ea868b8b530e8979db42575679fc8ffd1a1757f530147" => :arm64_big_sur
-    sha256 "d4e2bde9c42995a3c348f1ede4a78fa579a22b601144cc0b8adeb009d310c1b7" => :catalina
-    sha256 "0fe9d3b759400cee1a53c10f1a913a541d2f2f151822ff82454e953796c931cf" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c6d2d50296fdad67fb6ea868b8b530e8979db42575679fc8ffd1a1757f530147"
+    sha256 cellar: :any_skip_relocation, big_sur:       "9be25862e7c69582ef1c8ee312e10e76988e5247439657f704078f56a5f6abc3"
+    sha256 cellar: :any_skip_relocation, catalina:      "d4e2bde9c42995a3c348f1ede4a78fa579a22b601144cc0b8adeb009d310c1b7"
+    sha256 cellar: :any_skip_relocation, mojave:        "0fe9d3b759400cee1a53c10f1a913a541d2f2f151822ff82454e953796c931cf"
   end
 
   resource "vc" do

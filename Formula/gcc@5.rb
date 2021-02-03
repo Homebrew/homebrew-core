@@ -12,7 +12,7 @@ class GccAT5 < Formula
   end
 
   bottle do
-    sha256 "dcc9059b725fd7c87842287bbedf60a28745417652d42a300dcd944e15986f36" => :high_sierra
+    sha256 high_sierra: "dcc9059b725fd7c87842287bbedf60a28745417652d42a300dcd944e15986f36"
   end
 
   # The bottles are built on systems with the CLT installed, and do not work

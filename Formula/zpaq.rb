@@ -8,11 +8,10 @@ class Zpaq < Formula
   head "https://github.com/zpaq/zpaq.git"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "2a840dbf456e81e691300d615db206c1c046fe99746db13e41f972d6707c6a72" => :big_sur
-    sha256 "5ac8de4997136cd5496e5480ce72421881da11cf0548cacbd2ed62b7e85dc0e5" => :catalina
-    sha256 "572127bcc5ca3efba20c4f61c385dbf48873a241efd9349e0759d0ca14afb79d" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur:  "2a840dbf456e81e691300d615db206c1c046fe99746db13e41f972d6707c6a72"
+    sha256 cellar: :any_skip_relocation, catalina: "5ac8de4997136cd5496e5480ce72421881da11cf0548cacbd2ed62b7e85dc0e5"
+    sha256 cellar: :any_skip_relocation, mojave:   "572127bcc5ca3efba20c4f61c385dbf48873a241efd9349e0759d0ca14afb79d"
   end
 
   resource "test" do

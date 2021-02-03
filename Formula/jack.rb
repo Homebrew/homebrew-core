@@ -11,9 +11,9 @@ class Jack < Formula
   end
 
   bottle do
-    sha256 "8700de5add46350491add58d820108aabb5ab18545a4fab4fa20b2f05287e9ef" => :big_sur
-    sha256 "0c30bbc478e9305530f69fee884640dee62e5613c997dca8c99e736d8c943899" => :catalina
-    sha256 "dc531389d6a167fc2caa078f480272f8048bbf5d85ff4f46c299a42456661360" => :mojave
+    sha256 big_sur:  "8700de5add46350491add58d820108aabb5ab18545a4fab4fa20b2f05287e9ef"
+    sha256 catalina: "0c30bbc478e9305530f69fee884640dee62e5613c997dca8c99e736d8c943899"
+    sha256 mojave:   "dc531389d6a167fc2caa078f480272f8048bbf5d85ff4f46c299a42456661360"
   end
 
   depends_on "autoconf" => :build

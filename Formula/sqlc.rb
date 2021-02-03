@@ -7,12 +7,11 @@ class Sqlc < Formula
   head "https://github.com/kyleconroy/sqlc.git"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "67ec941540b1c125e991d493eb418cddadda8a0c4cebd6b7f4ac9e32947b1fea" => :big_sur
-    sha256 "0e3aefdd8b650ac9e29021a2ab29188902a1d3296eaa63f7150c22da26474de1" => :arm64_big_sur
-    sha256 "5463145e573a3c4e79fb4b8a5ba22432962bf28e8f4594ca8914dfa18ba62b56" => :catalina
-    sha256 "8ecd01378e5828f38cc5a2082a2a3e5e586a68d7046e3ef0008687a2fd7fc095" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0e3aefdd8b650ac9e29021a2ab29188902a1d3296eaa63f7150c22da26474de1"
+    sha256 cellar: :any_skip_relocation, big_sur:       "67ec941540b1c125e991d493eb418cddadda8a0c4cebd6b7f4ac9e32947b1fea"
+    sha256 cellar: :any_skip_relocation, catalina:      "5463145e573a3c4e79fb4b8a5ba22432962bf28e8f4594ca8914dfa18ba62b56"
+    sha256 cellar: :any_skip_relocation, mojave:        "8ecd01378e5828f38cc5a2082a2a3e5e586a68d7046e3ef0008687a2fd7fc095"
   end
 
   depends_on "go" => :build

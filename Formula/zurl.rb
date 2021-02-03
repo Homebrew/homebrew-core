@@ -7,12 +7,11 @@ class Zurl < Formula
   revision 2
 
   bottle do
-    cellar :any
-    sha256 "d98fc6a62901e0d4bf2dfd73ea491bb5edf65b5075b2783eb37cd4555b15514a" => :big_sur
-    sha256 "2a1b3d58c7788be71b497f056d11a899a01718f903548a8460cb3986db47c4a8" => :arm64_big_sur
-    sha256 "17c084231724231503046a4d1b0de95c8cedceade6b2c4dd589ab259fc34518a" => :catalina
-    sha256 "aac838332c5f0288bf435680564418739ddbcd72e8b1b0309e9df12ad914a60c" => :mojave
-    sha256 "268dc7ab197c9ba0937f4254375e9e144449896d7110c6b2d75a80e6f2b85021" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "2a1b3d58c7788be71b497f056d11a899a01718f903548a8460cb3986db47c4a8"
+    sha256 cellar: :any, big_sur:       "d98fc6a62901e0d4bf2dfd73ea491bb5edf65b5075b2783eb37cd4555b15514a"
+    sha256 cellar: :any, catalina:      "17c084231724231503046a4d1b0de95c8cedceade6b2c4dd589ab259fc34518a"
+    sha256 cellar: :any, mojave:        "aac838332c5f0288bf435680564418739ddbcd72e8b1b0309e9df12ad914a60c"
+    sha256 cellar: :any, high_sierra:   "268dc7ab197c9ba0937f4254375e9e144449896d7110c6b2d75a80e6f2b85021"
   end
 
   depends_on "pkg-config" => :build

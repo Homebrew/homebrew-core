@@ -8,10 +8,10 @@ class Openvdb < Formula
 
   bottle do
     rebuild 1
-    sha256 "aca9749f30518e713372752d61852505516171b6d3c99aa1b44dcc8ada9574c3" => :big_sur
-    sha256 "97007153e3a295731c12e7c2bae5e60a8c4e98ec76651c5337023d7a524ad288" => :arm64_big_sur
-    sha256 "f84f5645fe791485c6e41a59dfc602dc55fe84d233ac7c458646d41b8652ea52" => :catalina
-    sha256 "fb01a2bbe0e6e2876815a8fdd70aee0b1868983cfeccb5482c291cd76a2596ab" => :mojave
+    sha256 arm64_big_sur: "97007153e3a295731c12e7c2bae5e60a8c4e98ec76651c5337023d7a524ad288"
+    sha256 big_sur:       "aca9749f30518e713372752d61852505516171b6d3c99aa1b44dcc8ada9574c3"
+    sha256 catalina:      "f84f5645fe791485c6e41a59dfc602dc55fe84d233ac7c458646d41b8652ea52"
+    sha256 mojave:        "fb01a2bbe0e6e2876815a8fdd70aee0b1868983cfeccb5482c291cd76a2596ab"
   end
 
   depends_on "cmake" => :build

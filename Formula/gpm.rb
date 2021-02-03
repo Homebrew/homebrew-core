@@ -7,15 +7,14 @@ class Gpm < Formula
   revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "50e9ac019049016b8d3e220ef38e3d8bba8f184b1797a5efa967a19ca088361b" => :big_sur
-    sha256 "f5c138e505b9e96ca109152ab5e5aa6871d9e9b200b7c603ca4d1c210be30838" => :catalina
-    sha256 "d13ab2f5674bb5797801ca42fc50ff05ecfc9f674d09a406e8affcce2baf4111" => :mojave
-    sha256 "cac9f1ce7bb82555763015539417c9e709ca27d414c24f100ed045b593573cee" => :high_sierra
-    sha256 "816976b12502697adb886dfbee31bbc2cfcbe2cff1302927f8da6cef4e4b08cf" => :sierra
-    sha256 "ba26a6b34e92b4333d636ae3d9e54d726f6bd3bbabdabbfbdd9c3fec569e10fe" => :el_capitan
-    sha256 "0ed200c92c086eebf306065403c6a18db6e55e6d2764904cbd53f442f3043179" => :yosemite
-    sha256 "87cf43901daa271a5d27fbea5e6f103c15e287318152f02f0ef14bd77d51cb63" => :mavericks
+    sha256 cellar: :any_skip_relocation, big_sur:     "50e9ac019049016b8d3e220ef38e3d8bba8f184b1797a5efa967a19ca088361b"
+    sha256 cellar: :any_skip_relocation, catalina:    "f5c138e505b9e96ca109152ab5e5aa6871d9e9b200b7c603ca4d1c210be30838"
+    sha256 cellar: :any_skip_relocation, mojave:      "d13ab2f5674bb5797801ca42fc50ff05ecfc9f674d09a406e8affcce2baf4111"
+    sha256 cellar: :any_skip_relocation, high_sierra: "cac9f1ce7bb82555763015539417c9e709ca27d414c24f100ed045b593573cee"
+    sha256 cellar: :any_skip_relocation, sierra:      "816976b12502697adb886dfbee31bbc2cfcbe2cff1302927f8da6cef4e4b08cf"
+    sha256 cellar: :any_skip_relocation, el_capitan:  "ba26a6b34e92b4333d636ae3d9e54d726f6bd3bbabdabbfbdd9c3fec569e10fe"
+    sha256 cellar: :any_skip_relocation, yosemite:    "0ed200c92c086eebf306065403c6a18db6e55e6d2764904cbd53f442f3043179"
+    sha256 cellar: :any_skip_relocation, mavericks:   "87cf43901daa271a5d27fbea5e6f103c15e287318152f02f0ef14bd77d51cb63"
   end
 
   depends_on "go"

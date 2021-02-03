@@ -13,11 +13,10 @@ class GitCal < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "1d191bdf9da21ef2dbe3eeb3909fbf738df652931b5ee9876b9868b429644899" => :big_sur
-    sha256 "d2100e367528b52d5bf60d1e85687908e154fc8f831ef7bd29862b3bc899395c" => :arm64_big_sur
-    sha256 "ee5e258bbc598978be1d2e3e3220c28b7ef1ff4d7e5a34bdcc852107f68b5f67" => :catalina
-    sha256 "80bbebc06dc4f05e6aa34324276650f303a714efe857e72f67861d7cf9194451" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d2100e367528b52d5bf60d1e85687908e154fc8f831ef7bd29862b3bc899395c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1d191bdf9da21ef2dbe3eeb3909fbf738df652931b5ee9876b9868b429644899"
+    sha256 cellar: :any_skip_relocation, catalina:      "ee5e258bbc598978be1d2e3e3220c28b7ef1ff4d7e5a34bdcc852107f68b5f67"
+    sha256 cellar: :any_skip_relocation, mojave:        "80bbebc06dc4f05e6aa34324276650f303a714efe857e72f67861d7cf9194451"
   end
 
   def install

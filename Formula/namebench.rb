@@ -6,16 +6,15 @@ class Namebench < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "072034ec4c593736c7a77e9de48f8d149794b2e3f6b000efb20e58b6bb3e7ddb" => :big_sur
-    sha256 "d599439f8524ed8a398ac60452bac1d333da837d8727ae9b84fc5f67f3d12dfa" => :arm64_big_sur
-    sha256 "c958cb3841f9462efd7e2199cad803262dcb3b0b6ab766af53681910090e95e2" => :catalina
-    sha256 "35225323dc77dc1954cd19b1aa0476e4ebab47e91dbabbfc7e169b5b500b0eba" => :mojave
-    sha256 "4c2312daef0aae052b7e65bdb4b20cdcf1bfa601e5f8a484a7f846be1096bcb1" => :high_sierra
-    sha256 "ae766151284842185ceecf1622a82cf55c949994729536015a42eea38f62309c" => :sierra
-    sha256 "3333ef2615f6fbf294cede389d8545487474779a52c18108feb83a4697530cdc" => :el_capitan
-    sha256 "8d400aed171038f248e9d91718fb42625fc1f278df538b34259f26918b245f66" => :yosemite
-    sha256 "ac3d993b71305c18b47fa671ecb4c5875b80fd7ea87a6fff0f123c3c2cfdcb43" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d599439f8524ed8a398ac60452bac1d333da837d8727ae9b84fc5f67f3d12dfa"
+    sha256 cellar: :any_skip_relocation, big_sur:       "072034ec4c593736c7a77e9de48f8d149794b2e3f6b000efb20e58b6bb3e7ddb"
+    sha256 cellar: :any_skip_relocation, catalina:      "c958cb3841f9462efd7e2199cad803262dcb3b0b6ab766af53681910090e95e2"
+    sha256 cellar: :any_skip_relocation, mojave:        "35225323dc77dc1954cd19b1aa0476e4ebab47e91dbabbfc7e169b5b500b0eba"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "4c2312daef0aae052b7e65bdb4b20cdcf1bfa601e5f8a484a7f846be1096bcb1"
+    sha256 cellar: :any_skip_relocation, sierra:        "ae766151284842185ceecf1622a82cf55c949994729536015a42eea38f62309c"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "3333ef2615f6fbf294cede389d8545487474779a52c18108feb83a4697530cdc"
+    sha256 cellar: :any_skip_relocation, yosemite:      "8d400aed171038f248e9d91718fb42625fc1f278df538b34259f26918b245f66"
+    sha256 cellar: :any_skip_relocation, mavericks:     "ac3d993b71305c18b47fa671ecb4c5875b80fd7ea87a6fff0f123c3c2cfdcb43"
   end
 
   def install

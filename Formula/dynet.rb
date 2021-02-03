@@ -6,12 +6,11 @@ class Dynet < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any
-    sha256 "8bd7104e80fd7166539f40cf30f4c67ac643f096920582ec6702f81b06ff6910" => :big_sur
-    sha256 "812e42a82c70b8c049582c897d8d6d645c7892cb29fe742bc4c857f6d915cb44" => :arm64_big_sur
-    sha256 "d699aaf34e601dca84a10d735a822954de02b2139757699da77df2632d9ae95c" => :catalina
-    sha256 "edc5ba7539f3c224b091ae08b2f23ae667f6851ebbc10515e410fbe2efb2aec4" => :mojave
-    sha256 "a8b5c58b84c07911937f5b2c633e38e884f860ac97fc45881bfa817f6045c467" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "812e42a82c70b8c049582c897d8d6d645c7892cb29fe742bc4c857f6d915cb44"
+    sha256 cellar: :any, big_sur:       "8bd7104e80fd7166539f40cf30f4c67ac643f096920582ec6702f81b06ff6910"
+    sha256 cellar: :any, catalina:      "d699aaf34e601dca84a10d735a822954de02b2139757699da77df2632d9ae95c"
+    sha256 cellar: :any, mojave:        "edc5ba7539f3c224b091ae08b2f23ae667f6851ebbc10515e410fbe2efb2aec4"
+    sha256 cellar: :any, high_sierra:   "a8b5c58b84c07911937f5b2c633e38e884f860ac97fc45881bfa817f6045c467"
   end
 
   depends_on "cmake" => :build

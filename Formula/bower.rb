@@ -14,11 +14,10 @@ class Bower < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "7086bda09e7699d4feb9c105723fa332e5a97d0af7dbaba799394f95cda46a62" => :big_sur
-    sha256 "32480f78d1238505be4d7031e9d39d51a7167fc4ff24b762afeaa6f712915481" => :arm64_big_sur
-    sha256 "bc9d7b039ab0f4542330d662ea1af873f1d0313e7216ba5aa179ef6065e1eed0" => :catalina
-    sha256 "aa51c9ec9aa6d785ff9973d81d9ece85decf852f3812fe82534f48a9c2f8dc23" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "32480f78d1238505be4d7031e9d39d51a7167fc4ff24b762afeaa6f712915481"
+    sha256 cellar: :any_skip_relocation, big_sur:       "7086bda09e7699d4feb9c105723fa332e5a97d0af7dbaba799394f95cda46a62"
+    sha256 cellar: :any_skip_relocation, catalina:      "bc9d7b039ab0f4542330d662ea1af873f1d0313e7216ba5aa179ef6065e1eed0"
+    sha256 cellar: :any_skip_relocation, mojave:        "aa51c9ec9aa6d785ff9973d81d9ece85decf852f3812fe82534f48a9c2f8dc23"
   end
 
   depends_on "node"

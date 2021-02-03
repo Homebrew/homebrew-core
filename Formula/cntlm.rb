@@ -12,11 +12,11 @@ class Cntlm < Formula
 
   bottle do
     rebuild 2
-    sha256 "fccbf3803f9aff9aa6b0bb9b8f0e17c28b80e1b85ef0d712082744bdd417eda9" => :big_sur
-    sha256 "edfcd9088709ea81afc22ec95e7fc9e3c2707dfbcf25582955af0d6288dc4d11" => :arm64_big_sur
-    sha256 "7239fa52155edd2040ed7bff62b954351bb5e96fd226b4f0e1f7e956c64223d7" => :catalina
-    sha256 "79b1221fa60196d7670bb3cbcd6bab63490ba780222e7faf84404a57ac52d6ba" => :mojave
-    sha256 "9a1bafd1930ba3ade9b8df892d9fd28a0c414750ee728a791886dd9c999d0173" => :high_sierra
+    sha256 arm64_big_sur: "edfcd9088709ea81afc22ec95e7fc9e3c2707dfbcf25582955af0d6288dc4d11"
+    sha256 big_sur:       "fccbf3803f9aff9aa6b0bb9b8f0e17c28b80e1b85ef0d712082744bdd417eda9"
+    sha256 catalina:      "7239fa52155edd2040ed7bff62b954351bb5e96fd226b4f0e1f7e956c64223d7"
+    sha256 mojave:        "79b1221fa60196d7670bb3cbcd6bab63490ba780222e7faf84404a57ac52d6ba"
+    sha256 high_sierra:   "9a1bafd1930ba3ade9b8df892d9fd28a0c414750ee728a791886dd9c999d0173"
   end
 
   def install

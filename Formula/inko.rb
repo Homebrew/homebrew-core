@@ -7,12 +7,11 @@ class Inko < Formula
   head "https://gitlab.com/inko-lang/inko.git"
 
   bottle do
-    cellar :any
     rebuild 2
-    sha256 "0541ff8865a88d0b293ed4a088245c9da57fb4535be08cdb141404bff07cacae" => :big_sur
-    sha256 "43926844caecb8ef58e68dbe731136c148bae98f4895fb1a0f749a2e0393a13a" => :arm64_big_sur
-    sha256 "fe5852c91f891f3866d009793086ca265155b76874c9623cf233b5927962b667" => :catalina
-    sha256 "6412cea3a6d18324476c2d3b2020f87e86959944048bd423c73fb1f46a959647" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "43926844caecb8ef58e68dbe731136c148bae98f4895fb1a0f749a2e0393a13a"
+    sha256 cellar: :any, big_sur:       "0541ff8865a88d0b293ed4a088245c9da57fb4535be08cdb141404bff07cacae"
+    sha256 cellar: :any, catalina:      "fe5852c91f891f3866d009793086ca265155b76874c9623cf233b5927962b667"
+    sha256 cellar: :any, mojave:        "6412cea3a6d18324476c2d3b2020f87e86959944048bd423c73fb1f46a959647"
   end
 
   depends_on "coreutils" => :build

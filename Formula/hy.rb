@@ -12,11 +12,10 @@ class Hy < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "b3a8611e5647203bc52944ae8c3a7fb1c105e1dda9d65a6641fef45edfc1f48c" => :big_sur
-    sha256 "98b24099b57bdb1322de0e0a20885853a3cc6ddeeb21b833293c3372a600f005" => :arm64_big_sur
-    sha256 "b8f9062329e87549cc63f63712e0a5790d9722905fd15765d82f997296f49c58" => :catalina
-    sha256 "30734f23d8c216671a4eb3b8595288354e8f00f31da0da76f9022595c3daf496" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "98b24099b57bdb1322de0e0a20885853a3cc6ddeeb21b833293c3372a600f005"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b3a8611e5647203bc52944ae8c3a7fb1c105e1dda9d65a6641fef45edfc1f48c"
+    sha256 cellar: :any_skip_relocation, catalina:      "b8f9062329e87549cc63f63712e0a5790d9722905fd15765d82f997296f49c58"
+    sha256 cellar: :any_skip_relocation, mojave:        "30734f23d8c216671a4eb3b8595288354e8f00f31da0da76f9022595c3daf496"
   end
 
   depends_on "python@3.9"

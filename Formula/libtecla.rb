@@ -5,15 +5,14 @@ class Libtecla < Formula
   sha256 "f2757cc55040859fcf8f59a0b7b26e0184a22bece44ed9568a4534a478c1ee1a"
 
   bottle do
-    cellar :any
-    sha256 "d0f28c06cf9d2d1669298104439c4e194d21df65fc17e9b95e9dec0383aa7fef" => :big_sur
-    sha256 "a6bbfa1cee4b62a03186d6fa1a153fceb2b3b9ae5cdf63411d6432c6251c753b" => :catalina
-    sha256 "d39e8711f7a9a5a11433c7c92a2113a97f8846796f93fa7bca1281e06db2e3fe" => :mojave
-    sha256 "dffae78362e21bf324ed651a2b80ff924b1bbec60916159863e66c7171072a9c" => :high_sierra
-    sha256 "21cd696f6e79ae6401dd19f832ac24263f016a62c2d15ec31e25d515bbea5983" => :sierra
-    sha256 "3ceb3942ea4ae1434dcc0aea00fa58b6f16787bc1a0067e9497ad4cb050f771a" => :el_capitan
-    sha256 "836d6100343197540f079ea7f6b9e5641fd8efc4e331d3492f8be4cd41ced6e9" => :yosemite
-    sha256 "d7f9b95bbe7540504751d42589e8500a77d15dc3e6b2f7fe501ed872172f1129" => :mavericks
+    sha256 cellar: :any, big_sur:     "d0f28c06cf9d2d1669298104439c4e194d21df65fc17e9b95e9dec0383aa7fef"
+    sha256 cellar: :any, catalina:    "a6bbfa1cee4b62a03186d6fa1a153fceb2b3b9ae5cdf63411d6432c6251c753b"
+    sha256 cellar: :any, mojave:      "d39e8711f7a9a5a11433c7c92a2113a97f8846796f93fa7bca1281e06db2e3fe"
+    sha256 cellar: :any, high_sierra: "dffae78362e21bf324ed651a2b80ff924b1bbec60916159863e66c7171072a9c"
+    sha256 cellar: :any, sierra:      "21cd696f6e79ae6401dd19f832ac24263f016a62c2d15ec31e25d515bbea5983"
+    sha256 cellar: :any, el_capitan:  "3ceb3942ea4ae1434dcc0aea00fa58b6f16787bc1a0067e9497ad4cb050f771a"
+    sha256 cellar: :any, yosemite:    "836d6100343197540f079ea7f6b9e5641fd8efc4e331d3492f8be4cd41ced6e9"
+    sha256 cellar: :any, mavericks:   "d7f9b95bbe7540504751d42589e8500a77d15dc3e6b2f7fe501ed872172f1129"
   end
 
   uses_from_macos "ncurses"

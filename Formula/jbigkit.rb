@@ -8,16 +8,15 @@ class Jbigkit < Formula
   head "https://www.cl.cam.ac.uk/~mgk25/git/jbigkit", using: :git
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "568ea0a6734dc1da5d50b5261f43753f7cf1089fae9c786e7859a8ec22562144" => :big_sur
-    sha256 "cda73dea9c469f1ad380c7fe90b75dfe22d1dcc9ba51593ba59493656cf76c94" => :arm64_big_sur
-    sha256 "16936e06d59fe44d40a3829bc60fec43cb7ca23d54b5fdf9510aca78df648460" => :catalina
-    sha256 "887d4f100ed2264220232720a7732a969ee97df32a1c87f03897952920b6019a" => :mojave
-    sha256 "c8a003d12559b6f506fbd912c3b68163f7ab6022fd53e069bfbd55c813f52df5" => :high_sierra
-    sha256 "831dd1ec7e8013ddc6c23641a21292eae26f397e8b61d95382a6240f18fc5602" => :sierra
-    sha256 "bdec08cd92dd59183b698c6bbd9072881fdfce64b4ecb6182e405e0f2ad26c00" => :el_capitan
-    sha256 "764396342e87b84253aa06f5046f90c778cacca998ce970900cb2fdf1cfdc3fa" => :yosemite
-    sha256 "0ce925915b984307d2e679622138143c5cc5baf832b0a16003fa1e6111a5df9f" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "cda73dea9c469f1ad380c7fe90b75dfe22d1dcc9ba51593ba59493656cf76c94"
+    sha256 cellar: :any_skip_relocation, big_sur:       "568ea0a6734dc1da5d50b5261f43753f7cf1089fae9c786e7859a8ec22562144"
+    sha256 cellar: :any_skip_relocation, catalina:      "16936e06d59fe44d40a3829bc60fec43cb7ca23d54b5fdf9510aca78df648460"
+    sha256 cellar: :any_skip_relocation, mojave:        "887d4f100ed2264220232720a7732a969ee97df32a1c87f03897952920b6019a"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "c8a003d12559b6f506fbd912c3b68163f7ab6022fd53e069bfbd55c813f52df5"
+    sha256 cellar: :any_skip_relocation, sierra:        "831dd1ec7e8013ddc6c23641a21292eae26f397e8b61d95382a6240f18fc5602"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "bdec08cd92dd59183b698c6bbd9072881fdfce64b4ecb6182e405e0f2ad26c00"
+    sha256 cellar: :any_skip_relocation, yosemite:      "764396342e87b84253aa06f5046f90c778cacca998ce970900cb2fdf1cfdc3fa"
+    sha256 cellar: :any_skip_relocation, mavericks:     "0ce925915b984307d2e679622138143c5cc5baf832b0a16003fa1e6111a5df9f"
   end
 
   conflicts_with "netpbm", because: "both install `pbm.5` and `pgm.5` files"

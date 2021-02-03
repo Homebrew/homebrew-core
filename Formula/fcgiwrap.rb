@@ -6,15 +6,14 @@ class Fcgiwrap < Formula
   license "MIT"
 
   bottle do
-    cellar :any
-    sha256 "bd98b43c74955117affa9b619376f09eae18890dea9b4bdb3ea81b70c44024ac" => :big_sur
-    sha256 "b7f23b86cfdfcf813fadf2e7a3c228fa70476bae53c5617f20d810e07c7c355b" => :arm64_big_sur
-    sha256 "c871c0641217165e88fcdde225c8058a62d043083e434fe3b371c0b7d58ea45f" => :mojave
-    sha256 "92140b4ed813b4a718ec9ed035b664fe744a6ae860a4b533ed7425b014e25f22" => :high_sierra
-    sha256 "ed81f5b0cec39f7138a877cea2a0e397007d3271393805af53739b837537bd0f" => :sierra
-    sha256 "c0a70c3cc726788dfac52d8b23c79c1a4ef31a8c7e1418ac335cfe182b94f05d" => :el_capitan
-    sha256 "ea03eeafcd71e07c2e608bc974a00cf642b253de24eb7bd587155c89db2fffad" => :yosemite
-    sha256 "15a4dc62dba901bdc25f8d898674069b8cad09b3d2c00458900f31c143305a4e" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "b7f23b86cfdfcf813fadf2e7a3c228fa70476bae53c5617f20d810e07c7c355b"
+    sha256 cellar: :any, big_sur:       "bd98b43c74955117affa9b619376f09eae18890dea9b4bdb3ea81b70c44024ac"
+    sha256 cellar: :any, mojave:        "c871c0641217165e88fcdde225c8058a62d043083e434fe3b371c0b7d58ea45f"
+    sha256 cellar: :any, high_sierra:   "92140b4ed813b4a718ec9ed035b664fe744a6ae860a4b533ed7425b014e25f22"
+    sha256 cellar: :any, sierra:        "ed81f5b0cec39f7138a877cea2a0e397007d3271393805af53739b837537bd0f"
+    sha256 cellar: :any, el_capitan:    "c0a70c3cc726788dfac52d8b23c79c1a4ef31a8c7e1418ac335cfe182b94f05d"
+    sha256 cellar: :any, yosemite:      "ea03eeafcd71e07c2e608bc974a00cf642b253de24eb7bd587155c89db2fffad"
+    sha256 cellar: :any, mavericks:     "15a4dc62dba901bdc25f8d898674069b8cad09b3d2c00458900f31c143305a4e"
   end
 
   depends_on "autoconf" => :build

@@ -8,11 +8,10 @@ class DockerMachineDriverXhyve < Formula
   head "https://github.com/machine-drivers/docker-machine-driver-xhyve.git"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "5c0cf9c40831d43e094ec493d9c4598019f7c9a9b3daabce0369777fa17f77aa" => :catalina
-    sha256 "b7e9879c8c5c734da5bd83ae00496dc26dcf8133e354662e7b6a8846bfbfc989" => :mojave
-    sha256 "282868271a1e504ca8643bb6507eb2f99f8f8703d64050886e00175182b35668" => :high_sierra
+    sha256 cellar: :any_skip_relocation, catalina:    "5c0cf9c40831d43e094ec493d9c4598019f7c9a9b3daabce0369777fa17f77aa"
+    sha256 cellar: :any_skip_relocation, mojave:      "b7e9879c8c5c734da5bd83ae00496dc26dcf8133e354662e7b6a8846bfbfc989"
+    sha256 cellar: :any_skip_relocation, high_sierra: "282868271a1e504ca8643bb6507eb2f99f8f8703d64050886e00175182b35668"
   end
 
   # xhyve is no longer used by Docker, replaced by hyperkit

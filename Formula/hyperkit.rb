@@ -6,10 +6,9 @@ class Hyperkit < Formula
   license "BSD-2-Clause"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "26a203b17733ff5166d8c31069e3ecd5af15c74448a51d8b682689cb07e911e8" => :catalina
-    sha256 "f662bb10b9bab8a2f3b8e92f51b2fae3f1d8d24310732cc77a164e63d7eaa5d2" => :mojave
-    sha256 "f057fe7b3856421d0fdf1df3d9981e0729ee77c27ed3d4cb918e9523f7d5d9be" => :high_sierra
+    sha256 cellar: :any_skip_relocation, catalina:    "26a203b17733ff5166d8c31069e3ecd5af15c74448a51d8b682689cb07e911e8"
+    sha256 cellar: :any_skip_relocation, mojave:      "f662bb10b9bab8a2f3b8e92f51b2fae3f1d8d24310732cc77a164e63d7eaa5d2"
+    sha256 cellar: :any_skip_relocation, high_sierra: "f057fe7b3856421d0fdf1df3d9981e0729ee77c27ed3d4cb918e9523f7d5d9be"
   end
 
   depends_on "aspcud" => :build

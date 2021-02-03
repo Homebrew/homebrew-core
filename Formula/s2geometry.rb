@@ -12,10 +12,9 @@ class S2geometry < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "68903a12c6383cbfef68c89a82c224aa5f51fc7fb03cd416b67f395aa134c218" => :big_sur
-    sha256 "be6efced1d7d6339598aa104619fafb57b8f3b8f87837882369a17511a1d4800" => :catalina
-    sha256 "bb270713b3f271b75d992cd0bc76e594163c319104e9aac8ac58605dd7e31135" => :mojave
+    sha256 cellar: :any, big_sur:  "68903a12c6383cbfef68c89a82c224aa5f51fc7fb03cd416b67f395aa134c218"
+    sha256 cellar: :any, catalina: "be6efced1d7d6339598aa104619fafb57b8f3b8f87837882369a17511a1d4800"
+    sha256 cellar: :any, mojave:   "bb270713b3f271b75d992cd0bc76e594163c319104e9aac8ac58605dd7e31135"
   end
 
   depends_on "cmake" => :build

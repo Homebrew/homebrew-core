@@ -16,10 +16,10 @@ class Cadaver < Formula
 
   bottle do
     rebuild 1
-    sha256 "240a41ea5b71aa144bea0fdb28b6233130d5368e8a221171eaa7bee24f5075a6" => :big_sur
-    sha256 "859215276f7fda671ceee3b7908772d84fccd12873e6bb6cac0f90c50982cbcc" => :arm64_big_sur
-    sha256 "da94dea10afd90e1d0e41f24d4319ea006bf909381de2c2379c3144374c3feff" => :catalina
-    sha256 "a232491b47135718f6cf65d00954099d92a43f5fcc6b01838a676faa77f2ed13" => :mojave
+    sha256 arm64_big_sur: "859215276f7fda671ceee3b7908772d84fccd12873e6bb6cac0f90c50982cbcc"
+    sha256 big_sur:       "240a41ea5b71aa144bea0fdb28b6233130d5368e8a221171eaa7bee24f5075a6"
+    sha256 catalina:      "da94dea10afd90e1d0e41f24d4319ea006bf909381de2c2379c3144374c3feff"
+    sha256 mojave:        "a232491b47135718f6cf65d00954099d92a43f5fcc6b01838a676faa77f2ed13"
   end
 
   depends_on "pkg-config" => :build

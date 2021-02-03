@@ -10,11 +10,11 @@ class Libsoup < Formula
   end
 
   bottle do
-    sha256 "b135c1b3cf8a49f15afdb9d7c354b9175de2561c20a3e4ef8b91a8234f81fbe3" => :big_sur
-    sha256 "4ba31ecd333f8be6a5cb4eed23715fce9b478d79345bf51b88e172a2db0fb496" => :arm64_big_sur
-    sha256 "b7f09cfabd4ef0210d181e54e74f2cff33518df0c81bc9e27764454e54cb6243" => :catalina
-    sha256 "14a5f08043cacb9f68a9f5d48e0175397c81184621fbcbec871aa764241509a6" => :mojave
-    sha256 "78a481740fc494934fdbafbd25f8c7141f57cd61d1ff713682fe3a5a4b91b840" => :high_sierra
+    sha256 arm64_big_sur: "4ba31ecd333f8be6a5cb4eed23715fce9b478d79345bf51b88e172a2db0fb496"
+    sha256 big_sur:       "b135c1b3cf8a49f15afdb9d7c354b9175de2561c20a3e4ef8b91a8234f81fbe3"
+    sha256 catalina:      "b7f09cfabd4ef0210d181e54e74f2cff33518df0c81bc9e27764454e54cb6243"
+    sha256 mojave:        "14a5f08043cacb9f68a9f5d48e0175397c81184621fbcbec871aa764241509a6"
+    sha256 high_sierra:   "78a481740fc494934fdbafbd25f8c7141f57cd61d1ff713682fe3a5a4b91b840"
   end
 
   depends_on "gobject-introspection" => :build

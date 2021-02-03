@@ -9,16 +9,15 @@ class Dumb < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "8ea105e8d30bae67ddb21a9e7eaba69cd2f372c41dd11d05f80756ec9d3fffee" => :big_sur
-    sha256 "d907efc07aefb58f43bca29a17b58957eb071c73e6aef3abd91e59687e5a78ed" => :arm64_big_sur
-    sha256 "dbb9dbb86ec1c5ff1bc9da976fe3ec481888b4c3cd5cd8b10b6c803b83d934f2" => :catalina
-    sha256 "e2956b48f246b68f98a5b39e81e371bd544d78b7bb0e97f5282cfc27e9b307cd" => :mojave
-    sha256 "674db2be479a742057619122759da52683c74b724b3e318f2fc71a4fa6bd7287" => :high_sierra
-    sha256 "04219fcc6bf6cd174cb5c2ddde4bfdbff266ed665e543c9948911e731d682dc9" => :sierra
-    sha256 "d2352df11bee735e963b887609578ec1b3acf0e07748385f472a6add0e1cd2b6" => :el_capitan
-    sha256 "317ac8139d8efb03022bb4f9a76ad61f2358570680563924d13229c52b282dff" => :yosemite
-    sha256 "ee41051ed609807bfb8ce774fa614869db6bdd0fe9a307f6f2cb89f99e9db78e" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d907efc07aefb58f43bca29a17b58957eb071c73e6aef3abd91e59687e5a78ed"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8ea105e8d30bae67ddb21a9e7eaba69cd2f372c41dd11d05f80756ec9d3fffee"
+    sha256 cellar: :any_skip_relocation, catalina:      "dbb9dbb86ec1c5ff1bc9da976fe3ec481888b4c3cd5cd8b10b6c803b83d934f2"
+    sha256 cellar: :any_skip_relocation, mojave:        "e2956b48f246b68f98a5b39e81e371bd544d78b7bb0e97f5282cfc27e9b307cd"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "674db2be479a742057619122759da52683c74b724b3e318f2fc71a4fa6bd7287"
+    sha256 cellar: :any_skip_relocation, sierra:        "04219fcc6bf6cd174cb5c2ddde4bfdbff266ed665e543c9948911e731d682dc9"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "d2352df11bee735e963b887609578ec1b3acf0e07748385f472a6add0e1cd2b6"
+    sha256 cellar: :any_skip_relocation, yosemite:      "317ac8139d8efb03022bb4f9a76ad61f2358570680563924d13229c52b282dff"
+    sha256 cellar: :any_skip_relocation, mavericks:     "ee41051ed609807bfb8ce774fa614869db6bdd0fe9a307f6f2cb89f99e9db78e"
   end
 
   def install

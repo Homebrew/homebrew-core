@@ -13,10 +13,10 @@ class Vsftpd < Formula
 
   bottle do
     rebuild 3
-    sha256 "40acdd9e273725a5338036bc7cb79af8c1978a9d18eefab2b735591b0bf5176d" => :big_sur
-    sha256 "b4db372cd088914a87f7c103eaed341550041af0d76e491a6d92b835f61285b6" => :arm64_big_sur
-    sha256 "48478d6f73d9fa182c6597de7f195ab659879dbb301a70aa5e306d496331aebd" => :catalina
-    sha256 "156a4b41142d78d359c2a6c17b9aa3cca5a00e56fe01c2188dcc224735c0fdeb" => :mojave
+    sha256 arm64_big_sur: "b4db372cd088914a87f7c103eaed341550041af0d76e491a6d92b835f61285b6"
+    sha256 big_sur:       "40acdd9e273725a5338036bc7cb79af8c1978a9d18eefab2b735591b0bf5176d"
+    sha256 catalina:      "48478d6f73d9fa182c6597de7f195ab659879dbb301a70aa5e306d496331aebd"
+    sha256 mojave:        "156a4b41142d78d359c2a6c17b9aa3cca5a00e56fe01c2188dcc224735c0fdeb"
   end
 
   uses_from_macos "perl" => :build

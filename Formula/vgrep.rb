@@ -11,11 +11,10 @@ class Vgrep < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ba0b220e0e1e204c54685f83bf0b2e8bf6922b95c0833c68b6fa116c857f6281" => :big_sur
-    sha256 "d7347207e722a5edac6595fce5baa9f64a1bcd10d310d25c62517e88c0c125fb" => :arm64_big_sur
-    sha256 "c7ef6771646891c23fff3120f0a8b3075abaeb13540e57a89ee81d46ae4f2e81" => :catalina
-    sha256 "a4d5cc61d723389a58dd952b1d9caad009948983c11899e8d8adb79418e814ee" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d7347207e722a5edac6595fce5baa9f64a1bcd10d310d25c62517e88c0c125fb"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ba0b220e0e1e204c54685f83bf0b2e8bf6922b95c0833c68b6fa116c857f6281"
+    sha256 cellar: :any_skip_relocation, catalina:      "c7ef6771646891c23fff3120f0a8b3075abaeb13540e57a89ee81d46ae4f2e81"
+    sha256 cellar: :any_skip_relocation, mojave:        "a4d5cc61d723389a58dd952b1d9caad009948983c11899e8d8adb79418e814ee"
   end
 
   depends_on "go" => :build

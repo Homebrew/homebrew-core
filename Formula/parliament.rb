@@ -9,11 +9,10 @@ class Parliament < Formula
   head "https://github.com/duo-labs/parliament.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c1d1332ba7011cc681f59ee95fe6af042b2baf9b26a12e6acd967312708c78ee" => :big_sur
-    sha256 "9f70cf3b6423e91652f08b3698aab86e20f0a9d0e6cd652f736374eb4b1d0127" => :arm64_big_sur
-    sha256 "8055e860ac18dc826c696a9a8f81360f9aef83f5118cadb4ab25139aae9f87f9" => :catalina
-    sha256 "fa8639a7909372ac5aa3c4a7131af57cea5589f99443a0a0f819f5789b383876" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9f70cf3b6423e91652f08b3698aab86e20f0a9d0e6cd652f736374eb4b1d0127"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c1d1332ba7011cc681f59ee95fe6af042b2baf9b26a12e6acd967312708c78ee"
+    sha256 cellar: :any_skip_relocation, catalina:      "8055e860ac18dc826c696a9a8f81360f9aef83f5118cadb4ab25139aae9f87f9"
+    sha256 cellar: :any_skip_relocation, mojave:        "fa8639a7909372ac5aa3c4a7131af57cea5589f99443a0a0f819f5789b383876"
   end
 
   depends_on "python@3.9"

@@ -9,10 +9,9 @@ class Inform6 < Formula
   head "https://gitlab.com/DavidGriffith/inform6unix.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "961725b635b0a0bec6c5ee2de80485cc2ae54c6704692095bf73afb45d4934a0" => :catalina
-    sha256 "be06ad010ef37eb03a5ec804cd6547087772350ccc1c03d6854cd4bebd8a5b9d" => :mojave
-    sha256 "087ee415674833ac532a1fe70c30d8d84015d91e1eeab76273707e7754ef8be4" => :high_sierra
+    sha256 cellar: :any_skip_relocation, catalina:    "961725b635b0a0bec6c5ee2de80485cc2ae54c6704692095bf73afb45d4934a0"
+    sha256 cellar: :any_skip_relocation, mojave:      "be06ad010ef37eb03a5ec804cd6547087772350ccc1c03d6854cd4bebd8a5b9d"
+    sha256 cellar: :any_skip_relocation, high_sierra: "087ee415674833ac532a1fe70c30d8d84015d91e1eeab76273707e7754ef8be4"
   end
 
   resource "Adventureland.inf" do

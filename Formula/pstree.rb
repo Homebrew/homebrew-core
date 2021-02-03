@@ -18,17 +18,16 @@ class Pstree < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 2
-    sha256 "9e3f51c55862f554dfc3e3d70ffb435f6999c5b5592625ef4562633d7ffaed82" => :big_sur
-    sha256 "871eebe7b12c62d1086c8f1b0b8802d7a50d2080646e6c64b9b95fd1e3e6f8fc" => :arm64_big_sur
-    sha256 "af4d6c7d6bffd6e12d3cb31ceb6bdd5292b66405ddd1be3a48870373829219a7" => :catalina
-    sha256 "27b643077e6fa2e233945f505b024f3e725ed8b930bdd89a9df73817197acbea" => :mojave
-    sha256 "426d5701e835bc1f9313c3b7cd630aa0f2b279ad5f95406bd73f50d174e8eaf1" => :high_sierra
-    sha256 "063d2498a346002265c44bf9ad237ae47fd9923a10dd529575640d7d63bef2fa" => :sierra
-    sha256 "624458274db8e826c170121061ad25547c5a245788c8108bd2bf0af4a3678dea" => :el_capitan
-    sha256 "127b605bf4b20cbddf63f875bd15f78ad5fc31eaebb57d9ce2051a3b856a8bd5" => :yosemite
-    sha256 "2334d959beae2171fe10f6781a060eab40d57b841aa1905ead0b0936fb4145ef" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "871eebe7b12c62d1086c8f1b0b8802d7a50d2080646e6c64b9b95fd1e3e6f8fc"
+    sha256 cellar: :any_skip_relocation, big_sur:       "9e3f51c55862f554dfc3e3d70ffb435f6999c5b5592625ef4562633d7ffaed82"
+    sha256 cellar: :any_skip_relocation, catalina:      "af4d6c7d6bffd6e12d3cb31ceb6bdd5292b66405ddd1be3a48870373829219a7"
+    sha256 cellar: :any_skip_relocation, mojave:        "27b643077e6fa2e233945f505b024f3e725ed8b930bdd89a9df73817197acbea"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "426d5701e835bc1f9313c3b7cd630aa0f2b279ad5f95406bd73f50d174e8eaf1"
+    sha256 cellar: :any_skip_relocation, sierra:        "063d2498a346002265c44bf9ad237ae47fd9923a10dd529575640d7d63bef2fa"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "624458274db8e826c170121061ad25547c5a245788c8108bd2bf0af4a3678dea"
+    sha256 cellar: :any_skip_relocation, yosemite:      "127b605bf4b20cbddf63f875bd15f78ad5fc31eaebb57d9ce2051a3b856a8bd5"
+    sha256 cellar: :any_skip_relocation, mavericks:     "2334d959beae2171fe10f6781a060eab40d57b841aa1905ead0b0936fb4145ef"
   end
 
   def install

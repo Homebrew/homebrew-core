@@ -10,12 +10,11 @@ class Bumpversion < Formula
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 2
-    sha256 "9fefa3665413e3241a1c796d8363abf903c9c157177dba7277f5dc8d9532a327" => :big_sur
-    sha256 "1d69dd65cfe24eae5ab087a4d8907f1e7ac8437911d31c34b5881700fc5ce69e" => :arm64_big_sur
-    sha256 "a56efe7440a9495e9b4f2d6ef82a2f56e088db459aa680c3ab5368b1b47c17db" => :catalina
-    sha256 "18141d47aa00efccaa7e0de803a190abe09549d485e82db5f7af57a40b79aa3f" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1d69dd65cfe24eae5ab087a4d8907f1e7ac8437911d31c34b5881700fc5ce69e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "9fefa3665413e3241a1c796d8363abf903c9c157177dba7277f5dc8d9532a327"
+    sha256 cellar: :any_skip_relocation, catalina:      "a56efe7440a9495e9b4f2d6ef82a2f56e088db459aa680c3ab5368b1b47c17db"
+    sha256 cellar: :any_skip_relocation, mojave:        "18141d47aa00efccaa7e0de803a190abe09549d485e82db5f7af57a40b79aa3f"
   end
 
   depends_on "python@3.9"

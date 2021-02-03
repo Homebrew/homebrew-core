@@ -11,11 +11,10 @@ class Tclap < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "1805257b4ea89658de13fa55b18386c5c342b0d53095ac425cbf326ceec35640" => :big_sur
-    sha256 "7759ca2808c4112bc4feaaca64f6dd93762554ac87dd2f7af531508535a70237" => :arm64_big_sur
-    sha256 "2d096686e490335890260c02e10b5fcc914372d43c6d9d6201186c367376dfe1" => :catalina
-    sha256 "e7ae47f1e056dd98bb0e60f8a827c2d895b9ab3ab71bb9b4f1cf9778408b4055" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7759ca2808c4112bc4feaaca64f6dd93762554ac87dd2f7af531508535a70237"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1805257b4ea89658de13fa55b18386c5c342b0d53095ac425cbf326ceec35640"
+    sha256 cellar: :any_skip_relocation, catalina:      "2d096686e490335890260c02e10b5fcc914372d43c6d9d6201186c367376dfe1"
+    sha256 cellar: :any_skip_relocation, mojave:        "e7ae47f1e056dd98bb0e60f8a827c2d895b9ab3ab71bb9b4f1cf9778408b4055"
   end
 
   def install

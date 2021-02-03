@@ -7,10 +7,9 @@ class Nailgun < Formula
   head "https://github.com/facebook/nailgun.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "9e4e7836ebcef4beb89f43ba07ff7e1fffb0765b8843cda5338eca8b34bafed3" => :catalina
-    sha256 "4cbbab0f095c5f5890ae326e7b88b82b4eefa877afe91a63fa161ea82999ee5d" => :mojave
-    sha256 "7f5d7051e631b174fd1d7d0c0aea2b957d3b4946e2176828ec687baddaaa4e04" => :high_sierra
+    sha256 cellar: :any_skip_relocation, catalina:    "9e4e7836ebcef4beb89f43ba07ff7e1fffb0765b8843cda5338eca8b34bafed3"
+    sha256 cellar: :any_skip_relocation, mojave:      "4cbbab0f095c5f5890ae326e7b88b82b4eefa877afe91a63fa161ea82999ee5d"
+    sha256 cellar: :any_skip_relocation, high_sierra: "7f5d7051e631b174fd1d7d0c0aea2b957d3b4946e2176828ec687baddaaa4e04"
   end
 
   deprecate! date: "2020-11-13", because: :does_not_build

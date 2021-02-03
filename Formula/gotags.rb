@@ -7,12 +7,11 @@ class Gotags < Formula
   head "https://github.com/jstemmer/gotags.git"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "fc346e7abc09f27730ca2face102e704855a4e105310b27d0dc25b465e8fb453" => :big_sur
-    sha256 "c1b5430e2c3544fc021bc9bbc35c33a1f2c4482a30dbbc8d4977c1f0ee5638a1" => :catalina
-    sha256 "4413278c3b7f4d8783b9009a986dc91a2a5d3749430105a4297f2cec960a5344" => :mojave
-    sha256 "095f81ef736207a6806af1613a7ab5a0ba3837b4f94f85260aa1bceba3535fea" => :high_sierra
+    sha256 cellar: :any_skip_relocation, big_sur:     "fc346e7abc09f27730ca2face102e704855a4e105310b27d0dc25b465e8fb453"
+    sha256 cellar: :any_skip_relocation, catalina:    "c1b5430e2c3544fc021bc9bbc35c33a1f2c4482a30dbbc8d4977c1f0ee5638a1"
+    sha256 cellar: :any_skip_relocation, mojave:      "4413278c3b7f4d8783b9009a986dc91a2a5d3749430105a4297f2cec960a5344"
+    sha256 cellar: :any_skip_relocation, high_sierra: "095f81ef736207a6806af1613a7ab5a0ba3837b4f94f85260aa1bceba3535fea"
   end
 
   depends_on "go" => :build

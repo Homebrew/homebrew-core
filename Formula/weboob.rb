@@ -14,11 +14,10 @@ class Weboob < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "f93a67cf06b5a6bbee8952d754eed9986e89500c063a26b4292965ee695a38cf" => :big_sur
-    sha256 "4ddf7725a486af9624afd111d46b27bc9d5b955b9a030eb5b690155a346cd59d" => :arm64_big_sur
-    sha256 "ddb0fd5eab263d8810da48397e1239e4cd3ba9bbc44a0d5e72f7e1dc8b4612af" => :catalina
-    sha256 "287f4c1f145a1a2e9d9bdef25a71496963e5b88ade3706180de013c2735d8a65" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "4ddf7725a486af9624afd111d46b27bc9d5b955b9a030eb5b690155a346cd59d"
+    sha256 cellar: :any, big_sur:       "f93a67cf06b5a6bbee8952d754eed9986e89500c063a26b4292965ee695a38cf"
+    sha256 cellar: :any, catalina:      "ddb0fd5eab263d8810da48397e1239e4cd3ba9bbc44a0d5e72f7e1dc8b4612af"
+    sha256 cellar: :any, mojave:        "287f4c1f145a1a2e9d9bdef25a71496963e5b88ade3706180de013c2735d8a65"
   end
 
   depends_on "freetype"

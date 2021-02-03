@@ -7,10 +7,9 @@ class Chromaprint < Formula
   revision 6
 
   bottle do
-    cellar :any
-    sha256 "9112d72906e765de84dee2414ec9b21761c7ed4fc357c54e715ed70041add089" => :big_sur
-    sha256 "955a4681c1937d04e0e7608bc2514c4829b906c43bccf382b8451ad8624a2a77" => :catalina
-    sha256 "1e6727215e5c9e04823b2edb8625ebeec16be87a4b32d7636b35448d2e2ee4d6" => :mojave
+    sha256 cellar: :any, big_sur:  "9112d72906e765de84dee2414ec9b21761c7ed4fc357c54e715ed70041add089"
+    sha256 cellar: :any, catalina: "955a4681c1937d04e0e7608bc2514c4829b906c43bccf382b8451ad8624a2a77"
+    sha256 cellar: :any, mojave:   "1e6727215e5c9e04823b2edb8625ebeec16be87a4b32d7636b35448d2e2ee4d6"
   end
 
   depends_on "cmake" => :build

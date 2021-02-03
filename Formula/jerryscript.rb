@@ -7,11 +7,10 @@ class Jerryscript < Formula
   head "https://github.com/jerryscript-project/jerryscript.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "b7884dc63baf21ca21f882e25f93397f0478dba8e0c4728a7efc7bfb198673ff" => :big_sur
-    sha256 "cf6ac8f80cc4c6b10bd27113e49727d31cd6f8237e55362bd5fc6cb10fdfa9b8" => :arm64_big_sur
-    sha256 "e6e1907eb1af3d6aab2f3447a0aa2e6c709ebb040d6198fefa7c12a1e256b8bd" => :catalina
-    sha256 "c091f4246186278785265a7c378f2cd37db337d4c9419afc8348bcdd4d74e8ab" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "cf6ac8f80cc4c6b10bd27113e49727d31cd6f8237e55362bd5fc6cb10fdfa9b8"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b7884dc63baf21ca21f882e25f93397f0478dba8e0c4728a7efc7bfb198673ff"
+    sha256 cellar: :any_skip_relocation, catalina:      "e6e1907eb1af3d6aab2f3447a0aa2e6c709ebb040d6198fefa7c12a1e256b8bd"
+    sha256 cellar: :any_skip_relocation, mojave:        "c091f4246186278785265a7c378f2cd37db337d4c9419afc8348bcdd4d74e8ab"
   end
 
   depends_on "cmake" => :build

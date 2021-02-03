@@ -8,12 +8,11 @@ class Mage < Formula
   head "https://github.com/magefile/mage.git"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "a3707826deeb07ceb26ba6c14a532fad9cdbb865931d248675aa468c16a4c2a9" => :big_sur
-    sha256 "acf15da6b6d2df49eac61aea939b1f2c59917b5ee99ad4f400dc2d9e08e006d2" => :arm64_big_sur
-    sha256 "e5abfae7ded7be5c6cb847a9237ff850620cf01a5d5ec086f8777ece37f12bc9" => :catalina
-    sha256 "b116c4a96c95e42a0359976929f20ebe7ebfb8dfcb4f69b911948431da1f89ec" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "acf15da6b6d2df49eac61aea939b1f2c59917b5ee99ad4f400dc2d9e08e006d2"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a3707826deeb07ceb26ba6c14a532fad9cdbb865931d248675aa468c16a4c2a9"
+    sha256 cellar: :any_skip_relocation, catalina:      "e5abfae7ded7be5c6cb847a9237ff850620cf01a5d5ec086f8777ece37f12bc9"
+    sha256 cellar: :any_skip_relocation, mojave:        "b116c4a96c95e42a0359976929f20ebe7ebfb8dfcb4f69b911948431da1f89ec"
   end
 
   depends_on "go"

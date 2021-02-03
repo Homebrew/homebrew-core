@@ -11,10 +11,9 @@ class Quex < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "f3d39a7468e8c529ce1c0d6ab5b2d028f50771304993e9f2e996490f846c4b6c" => :catalina
-    sha256 "f3d39a7468e8c529ce1c0d6ab5b2d028f50771304993e9f2e996490f846c4b6c" => :mojave
-    sha256 "f3d39a7468e8c529ce1c0d6ab5b2d028f50771304993e9f2e996490f846c4b6c" => :high_sierra
+    sha256 cellar: :any_skip_relocation, catalina:    "f3d39a7468e8c529ce1c0d6ab5b2d028f50771304993e9f2e996490f846c4b6c"
+    sha256 cellar: :any_skip_relocation, mojave:      "f3d39a7468e8c529ce1c0d6ab5b2d028f50771304993e9f2e996490f846c4b6c"
+    sha256 cellar: :any_skip_relocation, high_sierra: "f3d39a7468e8c529ce1c0d6ab5b2d028f50771304993e9f2e996490f846c4b6c"
   end
 
   depends_on :macos # Due to Python 2 (Migration to Python 3 has started)

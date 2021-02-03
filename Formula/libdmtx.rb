@@ -6,14 +6,13 @@ class Libdmtx < Formula
   license "BSD-2-Clause"
 
   bottle do
-    cellar :any
-    sha256 "4f64097111d22436cd27a92ff5f5e3e7e5c620c3f7756de4d41dcf4766a6f9bb" => :big_sur
-    sha256 "1968ce1608f0ad9e8fc7e845f5ed894ca0c7decdb555aa68fec8d35340345984" => :arm64_big_sur
-    sha256 "b4e2a70da91f992862a3609e5e79b9aedc648c97e374b75e701d95eef88b8133" => :catalina
-    sha256 "4631cea68d83f274390ff023591256a92fb108b685c0528448a43a48d583c09b" => :mojave
-    sha256 "eb892feb7d29f9291a0edc2be6c34b4584614103d4af9d1c62eb54370decd8e1" => :high_sierra
-    sha256 "c93913cd5aff29278c538957fd6890d990f760abaff1b14cea6f6f171194b706" => :sierra
-    sha256 "ebcd82bf4d9da2a71bd066722ce6750d6cf064b1c8f477ba9aca47987acd330c" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "1968ce1608f0ad9e8fc7e845f5ed894ca0c7decdb555aa68fec8d35340345984"
+    sha256 cellar: :any, big_sur:       "4f64097111d22436cd27a92ff5f5e3e7e5c620c3f7756de4d41dcf4766a6f9bb"
+    sha256 cellar: :any, catalina:      "b4e2a70da91f992862a3609e5e79b9aedc648c97e374b75e701d95eef88b8133"
+    sha256 cellar: :any, mojave:        "4631cea68d83f274390ff023591256a92fb108b685c0528448a43a48d583c09b"
+    sha256 cellar: :any, high_sierra:   "eb892feb7d29f9291a0edc2be6c34b4584614103d4af9d1c62eb54370decd8e1"
+    sha256 cellar: :any, sierra:        "c93913cd5aff29278c538957fd6890d990f760abaff1b14cea6f6f171194b706"
+    sha256 cellar: :any, el_capitan:    "ebcd82bf4d9da2a71bd066722ce6750d6cf064b1c8f477ba9aca47987acd330c"
   end
 
   depends_on "autoconf" => :build

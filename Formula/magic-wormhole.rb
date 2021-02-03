@@ -13,11 +13,10 @@ class MagicWormhole < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "c4d03ce4d4d5484a33b15aac98e878b1a5d656ef6bb7761defc63f9b8af49c99" => :big_sur
-    sha256 "0f81451cefc2ee9350fe6723d8d90647a09d794e3a70da938a0aa37e0d9b45bf" => :arm64_big_sur
-    sha256 "30739403f4ae594957b0d9559acafa1eabe5056df88c10e3d4647f08f7c3bb98" => :catalina
-    sha256 "a953310e7f21176292aa8faef36bc4da7b75b4a3fd76f9a76af8e89c2db58282" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "0f81451cefc2ee9350fe6723d8d90647a09d794e3a70da938a0aa37e0d9b45bf"
+    sha256 cellar: :any, big_sur:       "c4d03ce4d4d5484a33b15aac98e878b1a5d656ef6bb7761defc63f9b8af49c99"
+    sha256 cellar: :any, catalina:      "30739403f4ae594957b0d9559acafa1eabe5056df88c10e3d4647f08f7c3bb98"
+    sha256 cellar: :any, mojave:        "a953310e7f21176292aa8faef36bc4da7b75b4a3fd76f9a76af8e89c2db58282"
   end
 
   depends_on "libsodium"

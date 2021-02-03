@@ -7,11 +7,10 @@ class Opa < Formula
   head "https://github.com/open-policy-agent/opa.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "08b65a777358d937bb66947fc72ed8bd121c061f2540957e9458076e1595a227" => :big_sur
-    sha256 "807ae148ee96fbd2410c423ff7c090f166c87f0185b8e4c68f26d6ed3c1e8670" => :arm64_big_sur
-    sha256 "489fc53b198027f9b4bb154e6a4f386693e4f6b3dd35858e189f708394cbf20e" => :catalina
-    sha256 "8235efc789d25061e449d7c915ac09e4a03f6584e14a846a6bf9a8814cc69a53" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "807ae148ee96fbd2410c423ff7c090f166c87f0185b8e4c68f26d6ed3c1e8670"
+    sha256 cellar: :any_skip_relocation, big_sur:       "08b65a777358d937bb66947fc72ed8bd121c061f2540957e9458076e1595a227"
+    sha256 cellar: :any_skip_relocation, catalina:      "489fc53b198027f9b4bb154e6a4f386693e4f6b3dd35858e189f708394cbf20e"
+    sha256 cellar: :any_skip_relocation, mojave:        "8235efc789d25061e449d7c915ac09e4a03f6584e14a846a6bf9a8814cc69a53"
   end
 
   depends_on "go" => :build

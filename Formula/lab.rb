@@ -7,11 +7,10 @@ class Lab < Formula
   head "https://github.com/zaquestion/lab.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "151c2058f572bd93f607ea16e5c2f54bd5d927a9cb9634cfd8c3b8cd1a9079e7" => :big_sur
-    sha256 "4a809eacd2ba1ce4bb3e8b944c8e1f18ea9b11195b6abe5cee86b7df4ecbb252" => :arm64_big_sur
-    sha256 "4ab9f56d7969ef005cb72613a8bcbef6765eacff3bf5c808c5c4d4dc56138e0f" => :catalina
-    sha256 "b8c28ac2a824aeacec68b184568c8189ffe2576e0edd93ed2f3ff0908309b64b" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4a809eacd2ba1ce4bb3e8b944c8e1f18ea9b11195b6abe5cee86b7df4ecbb252"
+    sha256 cellar: :any_skip_relocation, big_sur:       "151c2058f572bd93f607ea16e5c2f54bd5d927a9cb9634cfd8c3b8cd1a9079e7"
+    sha256 cellar: :any_skip_relocation, catalina:      "4ab9f56d7969ef005cb72613a8bcbef6765eacff3bf5c808c5c4d4dc56138e0f"
+    sha256 cellar: :any_skip_relocation, mojave:        "b8c28ac2a824aeacec68b184568c8189ffe2576e0edd93ed2f3ff0908309b64b"
   end
 
   depends_on "go" => :build

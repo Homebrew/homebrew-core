@@ -7,11 +7,10 @@ class Croc < Formula
   head "https://github.com/schollz/croc.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "588e7145c3caf280ecfe6e7b26984ef5d31712ddb6a4075982ca6fd312859f4a" => :big_sur
-    sha256 "b0c1812fd63196e06522818e617794904daee174c71a188818ec41df2ba01e79" => :arm64_big_sur
-    sha256 "9d5744a2a3626605a2bf76b3b7fa484e65c9975fbd312d8ab3e925f10b8fb1f1" => :catalina
-    sha256 "2cf7cd085941ac02b0426d36637ff163b4858418d37e79b88e59fcf55e5a5380" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b0c1812fd63196e06522818e617794904daee174c71a188818ec41df2ba01e79"
+    sha256 cellar: :any_skip_relocation, big_sur:       "588e7145c3caf280ecfe6e7b26984ef5d31712ddb6a4075982ca6fd312859f4a"
+    sha256 cellar: :any_skip_relocation, catalina:      "9d5744a2a3626605a2bf76b3b7fa484e65c9975fbd312d8ab3e925f10b8fb1f1"
+    sha256 cellar: :any_skip_relocation, mojave:        "2cf7cd085941ac02b0426d36637ff163b4858418d37e79b88e59fcf55e5a5380"
   end
 
   depends_on "go" => :build

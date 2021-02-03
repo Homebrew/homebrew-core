@@ -14,12 +14,11 @@ class Rinetd < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "3b5b6e687790fd0d6167cf42ce89baeb895acb4a66b1bf8451cfe5e46bb45e0a" => :big_sur
-    sha256 "d5e98fb2a9a9d85a92e5efb8dfed1e64f38a97c2c0e0de7c86cca30e1ad6ba70" => :arm64_big_sur
-    sha256 "530373c4f2c88c0ddf3463733fba78776d22f7640d952db496104147d55d2275" => :catalina
-    sha256 "bdac7c623c5c49367b11a16dea5661f99fd5130fbea10973cc15842a1284d1b1" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d5e98fb2a9a9d85a92e5efb8dfed1e64f38a97c2c0e0de7c86cca30e1ad6ba70"
+    sha256 cellar: :any_skip_relocation, big_sur:       "3b5b6e687790fd0d6167cf42ce89baeb895acb4a66b1bf8451cfe5e46bb45e0a"
+    sha256 cellar: :any_skip_relocation, catalina:      "530373c4f2c88c0ddf3463733fba78776d22f7640d952db496104147d55d2275"
+    sha256 cellar: :any_skip_relocation, mojave:        "bdac7c623c5c49367b11a16dea5661f99fd5130fbea10973cc15842a1284d1b1"
   end
 
   def install

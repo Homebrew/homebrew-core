@@ -16,11 +16,10 @@ class Cproto < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "08f390dd44633ad2e1ca5018496adb855e8786d3584f69ff2283e05cc00214b2" => :big_sur
-    sha256 "0175783f96e502a01fc60f8931e5c803875d1f04ac39be006cbc695535375722" => :arm64_big_sur
-    sha256 "0359e4506a282356c97f5973ebadb1bef2fa9fe87aca8e3f073922a8ce40b3f8" => :catalina
-    sha256 "92d8a89a3921677c7aadf9c74555de8365357e1844705d08c24905c989c2f9b3" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0175783f96e502a01fc60f8931e5c803875d1f04ac39be006cbc695535375722"
+    sha256 cellar: :any_skip_relocation, big_sur:       "08f390dd44633ad2e1ca5018496adb855e8786d3584f69ff2283e05cc00214b2"
+    sha256 cellar: :any_skip_relocation, catalina:      "0359e4506a282356c97f5973ebadb1bef2fa9fe87aca8e3f073922a8ce40b3f8"
+    sha256 cellar: :any_skip_relocation, mojave:        "92d8a89a3921677c7aadf9c74555de8365357e1844705d08c24905c989c2f9b3"
   end
 
   def install

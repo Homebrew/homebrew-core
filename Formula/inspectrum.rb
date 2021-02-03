@@ -7,11 +7,10 @@ class Inspectrum < Formula
   head "https://github.com/miek/inspectrum.git"
 
   bottle do
-    cellar :any
-    sha256 "b2ccb3e2e45373c9aa03388d0ae6c90c15cc3261fb4c014d98f509861e8afab4" => :big_sur
-    sha256 "f7eae4a492478910e123b6515657bf7db836044a3b976634a89f697cb9cabcfb" => :arm64_big_sur
-    sha256 "637f4276c9515232a3784b162fd21d3de9fcfd53cef12010e7cd7b3aba78f1c6" => :catalina
-    sha256 "86cc47bb1267acc1e202cbd6eb5845750225bbb0d7a5dc3ae5058a58d7be6765" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "f7eae4a492478910e123b6515657bf7db836044a3b976634a89f697cb9cabcfb"
+    sha256 cellar: :any, big_sur:       "b2ccb3e2e45373c9aa03388d0ae6c90c15cc3261fb4c014d98f509861e8afab4"
+    sha256 cellar: :any, catalina:      "637f4276c9515232a3784b162fd21d3de9fcfd53cef12010e7cd7b3aba78f1c6"
+    sha256 cellar: :any, mojave:        "86cc47bb1267acc1e202cbd6eb5845750225bbb0d7a5dc3ae5058a58d7be6765"
   end
 
   depends_on "cmake" => :build

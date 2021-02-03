@@ -12,12 +12,11 @@ class Rubberband < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "f5b7d05107fadeca115e0ab09130178ede93fb6f0e18c7b392bdd77e3587b966" => :big_sur
-    sha256 "b7436d1a91b540cc384f15f3c4416f229635c5412b5939ae0037ceb8158bf451" => :arm64_big_sur
-    sha256 "4598d98fb8994cd6545f5858a38beae10b43968317b53ec0916542d95355f27c" => :catalina
-    sha256 "487182397781621580ecb07f51d301d84b46c6f2f8458880cb8213044f5181cb" => :mojave
-    sha256 "15082ba72d1f88258739752b4f4a8094d5f931fac1d69aa64d8bf25ecb21648d" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "b7436d1a91b540cc384f15f3c4416f229635c5412b5939ae0037ceb8158bf451"
+    sha256 cellar: :any, big_sur:       "f5b7d05107fadeca115e0ab09130178ede93fb6f0e18c7b392bdd77e3587b966"
+    sha256 cellar: :any, catalina:      "4598d98fb8994cd6545f5858a38beae10b43968317b53ec0916542d95355f27c"
+    sha256 cellar: :any, mojave:        "487182397781621580ecb07f51d301d84b46c6f2f8458880cb8213044f5181cb"
+    sha256 cellar: :any, high_sierra:   "15082ba72d1f88258739752b4f4a8094d5f931fac1d69aa64d8bf25ecb21648d"
   end
 
   depends_on "pkg-config" => :build

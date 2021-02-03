@@ -10,14 +10,13 @@ class Winexe < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "4706b05f203ecaf3a56fc453d3c6588fd151d9ce4b8be0f6973725f70379dad3" => :catalina
-    sha256 "43444e53e90a4f739a533e4a865952369874d9386460205e501631fa2b3ad2bb" => :mojave
-    sha256 "765ad670de08f86b8c9b11ec43493148d1368e6c3ffa5e65d1bca898480996c2" => :high_sierra
-    sha256 "e9594f927f9ef58608951175c0bd118b82cf7b25d5b829453195b66f45c2cbc1" => :sierra
-    sha256 "58080b3729c9b261a65c7db2072ec867176bfd6a802c23f9b343feb44592789a" => :el_capitan
-    sha256 "fa7654ed5641e517a658fe8852a9ee5459acca047518c433d989f1aef69a7a6d" => :yosemite
-    sha256 "32261fefc9c9fd32e91ddb0776d6e43dcdda32b958f9382a8d784972ba09eb3e" => :mavericks
+    sha256 cellar: :any_skip_relocation, catalina:    "4706b05f203ecaf3a56fc453d3c6588fd151d9ce4b8be0f6973725f70379dad3"
+    sha256 cellar: :any_skip_relocation, mojave:      "43444e53e90a4f739a533e4a865952369874d9386460205e501631fa2b3ad2bb"
+    sha256 cellar: :any_skip_relocation, high_sierra: "765ad670de08f86b8c9b11ec43493148d1368e6c3ffa5e65d1bca898480996c2"
+    sha256 cellar: :any_skip_relocation, sierra:      "e9594f927f9ef58608951175c0bd118b82cf7b25d5b829453195b66f45c2cbc1"
+    sha256 cellar: :any_skip_relocation, el_capitan:  "58080b3729c9b261a65c7db2072ec867176bfd6a802c23f9b343feb44592789a"
+    sha256 cellar: :any_skip_relocation, yosemite:    "fa7654ed5641e517a658fe8852a9ee5459acca047518c433d989f1aef69a7a6d"
+    sha256 cellar: :any_skip_relocation, mavericks:   "32261fefc9c9fd32e91ddb0776d6e43dcdda32b958f9382a8d784972ba09eb3e"
   end
 
   depends_on "autoconf" => :build

@@ -7,12 +7,11 @@ class Periscope < Formula
   license "GPL-3.0-only"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "9824c9c61ed092523c30284612f1ddfa9c0725cd6c13c854340f47a4fa0ff6d3" => :big_sur
-    sha256 "8cfadad385f69d292c7fa21e74962839f802c4f715fdf90c3bd2a8b588c0ce91" => :arm64_big_sur
-    sha256 "9b11b76bc3d4a06f735e88293a5c2263dbea9c4ed6d023bd6b1d88c6ba73a5f6" => :catalina
-    sha256 "b86dff9739ead37c41f5a40f6641c1795d515517d99d134ad900bf47b383b453" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8cfadad385f69d292c7fa21e74962839f802c4f715fdf90c3bd2a8b588c0ce91"
+    sha256 cellar: :any_skip_relocation, big_sur:       "9824c9c61ed092523c30284612f1ddfa9c0725cd6c13c854340f47a4fa0ff6d3"
+    sha256 cellar: :any_skip_relocation, catalina:      "9b11b76bc3d4a06f735e88293a5c2263dbea9c4ed6d023bd6b1d88c6ba73a5f6"
+    sha256 cellar: :any_skip_relocation, mojave:        "b86dff9739ead37c41f5a40f6641c1795d515517d99d134ad900bf47b383b453"
   end
 
   depends_on "go" => :build

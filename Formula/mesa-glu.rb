@@ -11,12 +11,11 @@ class MesaGlu < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "24874c910bd660366bdc961cf94cfc96a32b372993cffc02e6de5cfb2f14fe05" => :big_sur
-    sha256 "00b310b416ecb09febaca37fb246881c561ebea6dbe8676e7c46df7f76527261" => :arm64_big_sur
-    sha256 "977fc1911d5d0334c56b9d287de0ee2f716fc23b5fde21404415bf89ce46cfce" => :catalina
-    sha256 "ddfad217be6c1f0ea8f22d17348d901ad999365a01f824ab6f51a911eee654e1" => :mojave
-    sha256 "598992b552b004eb5e06460a3c84de6ff39f6d7a7112be2819f99280d33f3fa9" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "00b310b416ecb09febaca37fb246881c561ebea6dbe8676e7c46df7f76527261"
+    sha256 cellar: :any, big_sur:       "24874c910bd660366bdc961cf94cfc96a32b372993cffc02e6de5cfb2f14fe05"
+    sha256 cellar: :any, catalina:      "977fc1911d5d0334c56b9d287de0ee2f716fc23b5fde21404415bf89ce46cfce"
+    sha256 cellar: :any, mojave:        "ddfad217be6c1f0ea8f22d17348d901ad999365a01f824ab6f51a911eee654e1"
+    sha256 cellar: :any, high_sierra:   "598992b552b004eb5e06460a3c84de6ff39f6d7a7112be2819f99280d33f3fa9"
   end
 
   head do

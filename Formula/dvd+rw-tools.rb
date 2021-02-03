@@ -6,16 +6,15 @@ class DvdxrwTools < Formula
   license "GPL-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c3d9ab88096123bd36acbad9f27cc21c07fd881f00ac45b49605f18de03262b1" => :big_sur
-    sha256 "11ec6e949911cca76b2c3a940e362aff334523a7018dfd3bdcd232acb7b741d1" => :arm64_big_sur
-    sha256 "18c7e40586199af43cad7bfc604c0e01c90e095a387b425a4e4b74a453423ffe" => :catalina
-    sha256 "7d79f2f23e9fb680435005d4491e02d3beb4cbbf2d8abc338b4efe33b7d17988" => :mojave
-    sha256 "acf8d9a92ff74fdbfc409dc42980be607c4dd263aca89444713972a055d5967a" => :high_sierra
-    sha256 "932e3879247dd1587f35d99c7132c302ddeaf3b5efad9effb05f5b086a55541a" => :sierra
-    sha256 "01bae78a5187a47ea770a9cb9c0cabdbafb60485e333a563240a6ea74d6718b0" => :el_capitan
-    sha256 "13fa5b14889c82bd2ff44d4da2ba8049603bdfc6026196440fe33102939faa06" => :yosemite
-    sha256 "834a3e5e1276e77a9dd5182d60b55484599bd5d705e6bb0d89a8db5720b7e197" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "11ec6e949911cca76b2c3a940e362aff334523a7018dfd3bdcd232acb7b741d1"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c3d9ab88096123bd36acbad9f27cc21c07fd881f00ac45b49605f18de03262b1"
+    sha256 cellar: :any_skip_relocation, catalina:      "18c7e40586199af43cad7bfc604c0e01c90e095a387b425a4e4b74a453423ffe"
+    sha256 cellar: :any_skip_relocation, mojave:        "7d79f2f23e9fb680435005d4491e02d3beb4cbbf2d8abc338b4efe33b7d17988"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "acf8d9a92ff74fdbfc409dc42980be607c4dd263aca89444713972a055d5967a"
+    sha256 cellar: :any_skip_relocation, sierra:        "932e3879247dd1587f35d99c7132c302ddeaf3b5efad9effb05f5b086a55541a"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "01bae78a5187a47ea770a9cb9c0cabdbafb60485e333a563240a6ea74d6718b0"
+    sha256 cellar: :any_skip_relocation, yosemite:      "13fa5b14889c82bd2ff44d4da2ba8049603bdfc6026196440fe33102939faa06"
+    sha256 cellar: :any_skip_relocation, mavericks:     "834a3e5e1276e77a9dd5182d60b55484599bd5d705e6bb0d89a8db5720b7e197"
   end
 
   # Respect $PREFIX

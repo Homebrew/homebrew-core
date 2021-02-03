@@ -6,15 +6,15 @@ class Reaver < Formula
   license "GPL-2.0"
 
   bottle do
-    sha256 "0cd13169a7c0f7603fab7ec7ac55e8896ffd5518c4e790a59183e894291a5cab" => :big_sur
-    sha256 "c4ba873b94ad8d7f968474660417e7af8ea607f9b42d3971533f84377a56a3d2" => :arm64_big_sur
-    sha256 "73539f97836b5df80e030e429eb7f209dec3067c14b1bfd6753bcf7796c1f541" => :catalina
-    sha256 "386ed8ae2562ae032f0d622d52d7302be2e99bbe671f1ca5ba3acb88b86f6417" => :mojave
-    sha256 "c2c6d45abc45f5639b74da0bdb294a5ee83548f548642f6b61d764d05801352e" => :high_sierra
-    sha256 "e7fc0f43b7a306d5fe2baaf4b41e9ce445db12e2e74d41904b3de5d2c372741d" => :sierra
-    sha256 "d9adddf27928b284492cc87b565d2748490c1017b0b463bc15223c935f63bb6c" => :el_capitan
-    sha256 "4fbf7b0225730d7a37bfb71bec7b99f78f0b0946df7bcb3e5f274795692e1b3f" => :yosemite
-    sha256 "036092600e415ebba4bc372cff4b7645783e9285c1af56990b0f064db61a0ca4" => :mavericks
+    sha256 arm64_big_sur: "c4ba873b94ad8d7f968474660417e7af8ea607f9b42d3971533f84377a56a3d2"
+    sha256 big_sur:       "0cd13169a7c0f7603fab7ec7ac55e8896ffd5518c4e790a59183e894291a5cab"
+    sha256 catalina:      "73539f97836b5df80e030e429eb7f209dec3067c14b1bfd6753bcf7796c1f541"
+    sha256 mojave:        "386ed8ae2562ae032f0d622d52d7302be2e99bbe671f1ca5ba3acb88b86f6417"
+    sha256 high_sierra:   "c2c6d45abc45f5639b74da0bdb294a5ee83548f548642f6b61d764d05801352e"
+    sha256 sierra:        "e7fc0f43b7a306d5fe2baaf4b41e9ce445db12e2e74d41904b3de5d2c372741d"
+    sha256 el_capitan:    "d9adddf27928b284492cc87b565d2748490c1017b0b463bc15223c935f63bb6c"
+    sha256 yosemite:      "4fbf7b0225730d7a37bfb71bec7b99f78f0b0946df7bcb3e5f274795692e1b3f"
+    sha256 mavericks:     "036092600e415ebba4bc372cff4b7645783e9285c1af56990b0f064db61a0ca4"
   end
 
   # Adds general support for macOS in reaver:

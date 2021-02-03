@@ -10,11 +10,11 @@ class EasyTag < Formula
   end
 
   bottle do
-    sha256 "0f5db8b133620eeea75819572f9bb644ad42c0608ca72a1e0972fa87e791eab8" => :big_sur
-    sha256 "d710681540b59898e8eb6560a5970ba0862d726f47b4ea2f2deda97d199ca619" => :arm64_big_sur
-    sha256 "cf6e6683991f2aaf8072b3ff0ab1c645ecf189ca009787ed179022d65d8111e4" => :catalina
-    sha256 "bc97c0feed958d5af987bf691e669e4e358d06f072568e5c68eb746a852a7bdb" => :mojave
-    sha256 "7e95b30ce2c317eb3ced35ae007d3396e4f3e0dfada0a88914695341ecd03c83" => :high_sierra
+    sha256 arm64_big_sur: "d710681540b59898e8eb6560a5970ba0862d726f47b4ea2f2deda97d199ca619"
+    sha256 big_sur:       "0f5db8b133620eeea75819572f9bb644ad42c0608ca72a1e0972fa87e791eab8"
+    sha256 catalina:      "cf6e6683991f2aaf8072b3ff0ab1c645ecf189ca009787ed179022d65d8111e4"
+    sha256 mojave:        "bc97c0feed958d5af987bf691e669e4e358d06f072568e5c68eb746a852a7bdb"
+    sha256 high_sierra:   "7e95b30ce2c317eb3ced35ae007d3396e4f3e0dfada0a88914695341ecd03c83"
   end
 
   depends_on "intltool" => :build

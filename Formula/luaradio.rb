@@ -8,11 +8,10 @@ class Luaradio < Formula
   head "https://github.com/vsergeev/luaradio.git"
 
   bottle do
-    cellar :any
-    sha256 "055327aacdb7cfb4ff1b2f3173d74a4e722912c83c40b20471d7ca1a6a69de52" => :big_sur
-    sha256 "a603c19d3aa76490299c95ced28c7b522c8b3e4580878bd77381b1dd8a15dad8" => :arm64_big_sur
-    sha256 "c0af371bf5dd9240c43a72cabd5bd49bb0782f2d86333d4aa342d896e3ff0f75" => :catalina
-    sha256 "266f5c368e4f6a50bb2097bf682ac9e975018da4733592691e92a24c466fe6d9" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "a603c19d3aa76490299c95ced28c7b522c8b3e4580878bd77381b1dd8a15dad8"
+    sha256 cellar: :any, big_sur:       "055327aacdb7cfb4ff1b2f3173d74a4e722912c83c40b20471d7ca1a6a69de52"
+    sha256 cellar: :any, catalina:      "c0af371bf5dd9240c43a72cabd5bd49bb0782f2d86333d4aa342d896e3ff0f75"
+    sha256 cellar: :any, mojave:        "266f5c368e4f6a50bb2097bf682ac9e975018da4733592691e92a24c466fe6d9"
   end
 
   depends_on "pkg-config" => :build

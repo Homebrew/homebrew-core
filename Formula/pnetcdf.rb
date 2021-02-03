@@ -6,9 +6,9 @@ class Pnetcdf < Formula
   license "NetCDF"
 
   bottle do
-    sha256 "85211030d47c598d6ff4de8af6c063194d82cfd030c3799ffe61d0ea775fee91" => :big_sur
-    sha256 "850305bbe69b1ada59f7cc8628d12471819e720dbd41f873d269ff12ff7a9f86" => :catalina
-    sha256 "7313cd18dde083b4cb5bee094a43e1138ab70f97f33e762c8d97d64d916143eb" => :mojave
+    sha256 big_sur:  "85211030d47c598d6ff4de8af6c063194d82cfd030c3799ffe61d0ea775fee91"
+    sha256 catalina: "850305bbe69b1ada59f7cc8628d12471819e720dbd41f873d269ff12ff7a9f86"
+    sha256 mojave:   "7313cd18dde083b4cb5bee094a43e1138ab70f97f33e762c8d97d64d916143eb"
   end
 
   depends_on "gcc"

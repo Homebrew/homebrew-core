@@ -5,17 +5,16 @@ class Mp4v2 < Formula
   sha256 "0319b9a60b667cf10ee0ec7505eb7bdc0a2e21ca7a93db96ec5bd758e3428338"
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "8a15f36160b80d4bf578a0a61f09e6f80b7fa4f0b15443ce1682346e9fed0a65" => :big_sur
-    sha256 "b5c86440ce97fa8500c4d474c8cc8eb17a48bd3db3724f6ce0a6a3dc6a38cfa3" => :arm64_big_sur
-    sha256 "bf2838fe1bf196c40546bfb7a5800bce710aaf55305a05b719d07d9de2e5b24e" => :catalina
-    sha256 "bd4c8e435216cbfc4ed60030e1cd4135156643f8befa1477061c1e59292394bb" => :mojave
-    sha256 "359eecfb160a0d31975961933b50c7ba512891aedd053e3e9153edba1da364c3" => :high_sierra
-    sha256 "6cab2b32c845f6d54cdb8d64c558126cec39c27fb77a92f204bb8abda1c0ccfa" => :sierra
-    sha256 "52d299e61126db288d73a3e6e8b40c3eff25af1c7498c4a74787dce2dda02e9a" => :el_capitan
-    sha256 "14ca4b71690959d461d41b4338be70005de4553566996677f973094c1a56c3fb" => :yosemite
-    sha256 "bb51275338ca5b157b303fb9d024922c9b73ddcac69973ba2fe9d880ad6dc914" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "b5c86440ce97fa8500c4d474c8cc8eb17a48bd3db3724f6ce0a6a3dc6a38cfa3"
+    sha256 cellar: :any, big_sur:       "8a15f36160b80d4bf578a0a61f09e6f80b7fa4f0b15443ce1682346e9fed0a65"
+    sha256 cellar: :any, catalina:      "bf2838fe1bf196c40546bfb7a5800bce710aaf55305a05b719d07d9de2e5b24e"
+    sha256 cellar: :any, mojave:        "bd4c8e435216cbfc4ed60030e1cd4135156643f8befa1477061c1e59292394bb"
+    sha256 cellar: :any, high_sierra:   "359eecfb160a0d31975961933b50c7ba512891aedd053e3e9153edba1da364c3"
+    sha256 cellar: :any, sierra:        "6cab2b32c845f6d54cdb8d64c558126cec39c27fb77a92f204bb8abda1c0ccfa"
+    sha256 cellar: :any, el_capitan:    "52d299e61126db288d73a3e6e8b40c3eff25af1c7498c4a74787dce2dda02e9a"
+    sha256 cellar: :any, yosemite:      "14ca4b71690959d461d41b4338be70005de4553566996677f973094c1a56c3fb"
+    sha256 cellar: :any, mavericks:     "bb51275338ca5b157b303fb9d024922c9b73ddcac69973ba2fe9d880ad6dc914"
   end
 
   conflicts_with "bento4",

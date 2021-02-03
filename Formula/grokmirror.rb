@@ -9,10 +9,10 @@ class Grokmirror < Formula
   head "https://github.com/mricon/grokmirror.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur: "86875cccac48e84bc75a27ca094b6a7420fda040e241cf893428846bbcae0b2d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d4654c8d2d3d39a5a5546dd479ac9bfb27b81040e94c48a55895e29ed03266d6"
-    sha256 cellar: :any_skip_relocation, catalina: "5729fc9cee3efdfab160b00a95e974181840429cb10f8995045068534c5d479f"
-    sha256 cellar: :any_skip_relocation, mojave: "8e404c23e6ef9393c9750b5845209f5a29f018d720755a97dab5b1e877ffd437"
+    sha256 cellar: :any_skip_relocation, big_sur:       "86875cccac48e84bc75a27ca094b6a7420fda040e241cf893428846bbcae0b2d"
+    sha256 cellar: :any_skip_relocation, catalina:      "5729fc9cee3efdfab160b00a95e974181840429cb10f8995045068534c5d479f"
+    sha256 cellar: :any_skip_relocation, mojave:        "8e404c23e6ef9393c9750b5845209f5a29f018d720755a97dab5b1e877ffd437"
   end
 
   depends_on "python@3.9"

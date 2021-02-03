@@ -11,12 +11,11 @@ class Libgnt < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "5f793a61de68c97843ff17f339c287d24a32f1562f21d524e181d2b730604b49" => :big_sur
-    sha256 "bddb1f3389bb8c76b175d2fd5df1418d0ae5f91f153034b42a0b3794c2a445ee" => :arm64_big_sur
-    sha256 "0ddf1b6ebd64e3989ee3e2c1482d3f852a3f44f6c196586d1d9c4e839927087a" => :catalina
-    sha256 "3d0291b16678836908fddc885fa613512e6f3ffbb2d11241a5320dfd48086822" => :mojave
-    sha256 "0b710c423d8895b711d3f658fa6abdffe2b351c2256a429f49363eece64b8928" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "bddb1f3389bb8c76b175d2fd5df1418d0ae5f91f153034b42a0b3794c2a445ee"
+    sha256 cellar: :any, big_sur:       "5f793a61de68c97843ff17f339c287d24a32f1562f21d524e181d2b730604b49"
+    sha256 cellar: :any, catalina:      "0ddf1b6ebd64e3989ee3e2c1482d3f852a3f44f6c196586d1d9c4e839927087a"
+    sha256 cellar: :any, mojave:        "3d0291b16678836908fddc885fa613512e6f3ffbb2d11241a5320dfd48086822"
+    sha256 cellar: :any, high_sierra:   "0b710c423d8895b711d3f658fa6abdffe2b351c2256a429f49363eece64b8928"
   end
 
   depends_on "gtk-doc" => :build

@@ -6,16 +6,15 @@ class Mstch < Formula
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2b80c88614296f677d11337638b4ca0757831795a6a580bc715f04aae43b4b0c" => :big_sur
-    sha256 "7c6d8cd225a7a23cb8e4635304797bccaa68248d23db9ab43ed6964547715a9e" => :arm64_big_sur
-    sha256 "cd7adf5ad11d8958ecf32613bc1b5ecd6c166eea4576175e02ef265b1cf800ee" => :catalina
-    sha256 "c01c3c4afec3f7c29c4f26f93cce9516c4de3d9e070fd2b11c7419a04352d532" => :mojave
-    sha256 "c7ff132ee06fc7abf10d5cc4d9acc5b48eee1f6c7ce1136d31998b12ee3e5631" => :high_sierra
-    sha256 "95a01f3a3a5dc6619d44a7e3df98b1f886ddac249d2a84f17a49d7edcebca2be" => :sierra
-    sha256 "0869a4b14d4b9130852d5556d27e945c20239385d3bd30497c32833352fea1e3" => :el_capitan
-    sha256 "1f727fc24497894247b60ee22a3a6d7139156c0efd69f30d7144fd0d4fbb4a75" => :yosemite
-    sha256 "8cf2369310ef49911455a4071066464f261e78060732539ea7deeb4c4858ce29" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7c6d8cd225a7a23cb8e4635304797bccaa68248d23db9ab43ed6964547715a9e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "2b80c88614296f677d11337638b4ca0757831795a6a580bc715f04aae43b4b0c"
+    sha256 cellar: :any_skip_relocation, catalina:      "cd7adf5ad11d8958ecf32613bc1b5ecd6c166eea4576175e02ef265b1cf800ee"
+    sha256 cellar: :any_skip_relocation, mojave:        "c01c3c4afec3f7c29c4f26f93cce9516c4de3d9e070fd2b11c7419a04352d532"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "c7ff132ee06fc7abf10d5cc4d9acc5b48eee1f6c7ce1136d31998b12ee3e5631"
+    sha256 cellar: :any_skip_relocation, sierra:        "95a01f3a3a5dc6619d44a7e3df98b1f886ddac249d2a84f17a49d7edcebca2be"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "0869a4b14d4b9130852d5556d27e945c20239385d3bd30497c32833352fea1e3"
+    sha256 cellar: :any_skip_relocation, yosemite:      "1f727fc24497894247b60ee22a3a6d7139156c0efd69f30d7144fd0d4fbb4a75"
+    sha256 cellar: :any_skip_relocation, mavericks:     "8cf2369310ef49911455a4071066464f261e78060732539ea7deeb4c4858ce29"
   end
 
   depends_on "cmake" => :build

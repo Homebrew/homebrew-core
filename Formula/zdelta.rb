@@ -6,14 +6,13 @@ class Zdelta < Formula
   head "https://github.com/snej/zdelta.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c7d235578c62851ad7639ced736eb94ce833e9afb172fe65a37869bac1a80da4" => :catalina
-    sha256 "d98c1b4f7a6b63238bacd06d0a5640e7f0d07838bb4b3e15ac7dc9d699a5835a" => :mojave
-    sha256 "12c977074ebb388cb671b3a996cacda4c5c47fbf96100f73ffddcbf83976824d" => :high_sierra
-    sha256 "49b891fbf6b6f93796cb3080dcbefc1d873000e84d74a4bf2dd851b625e6a698" => :sierra
-    sha256 "3a186612374b9b2aca2e56f5dd68049c0b1ef952e4cb0b07263faf2ea62f136a" => :el_capitan
-    sha256 "2ade2838217be1b9f6bc55be6bf05fa5046ae09a42d17b714b9f2a73f934c993" => :yosemite
-    sha256 "86f93c2e260d321d3bf30b34c2313d2cec5bc6d23bfb5a86cf99ab6b5f64f157" => :mavericks
+    sha256 cellar: :any_skip_relocation, catalina:    "c7d235578c62851ad7639ced736eb94ce833e9afb172fe65a37869bac1a80da4"
+    sha256 cellar: :any_skip_relocation, mojave:      "d98c1b4f7a6b63238bacd06d0a5640e7f0d07838bb4b3e15ac7dc9d699a5835a"
+    sha256 cellar: :any_skip_relocation, high_sierra: "12c977074ebb388cb671b3a996cacda4c5c47fbf96100f73ffddcbf83976824d"
+    sha256 cellar: :any_skip_relocation, sierra:      "49b891fbf6b6f93796cb3080dcbefc1d873000e84d74a4bf2dd851b625e6a698"
+    sha256 cellar: :any_skip_relocation, el_capitan:  "3a186612374b9b2aca2e56f5dd68049c0b1ef952e4cb0b07263faf2ea62f136a"
+    sha256 cellar: :any_skip_relocation, yosemite:    "2ade2838217be1b9f6bc55be6bf05fa5046ae09a42d17b714b9f2a73f934c993"
+    sha256 cellar: :any_skip_relocation, mavericks:   "86f93c2e260d321d3bf30b34c2313d2cec5bc6d23bfb5a86cf99ab6b5f64f157"
   end
 
   disable! date: "2020-12-08", because: :unmaintained

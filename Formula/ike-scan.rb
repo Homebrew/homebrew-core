@@ -10,10 +10,10 @@ class IkeScan < Formula
 
   bottle do
     rebuild 1
-    sha256 "9f721c4e99f22ccbf204f54c78a6b4ff7bef621dc4590673240b5a31dab268ef" => :big_sur
-    sha256 "80591b7e93871241c3a15afa6c7be4df8df8f2c8fb1b6cc1a54be3a3c93645b3" => :arm64_big_sur
-    sha256 "a06543751eec6b9d198c3826ea62743a0ee12a4479bf28efb41209a0edea19be" => :catalina
-    sha256 "acc102b6014ee8216274afb3a0b10460c71f0059a7aeca732dfad848c7dd2846" => :mojave
+    sha256 arm64_big_sur: "80591b7e93871241c3a15afa6c7be4df8df8f2c8fb1b6cc1a54be3a3c93645b3"
+    sha256 big_sur:       "9f721c4e99f22ccbf204f54c78a6b4ff7bef621dc4590673240b5a31dab268ef"
+    sha256 catalina:      "a06543751eec6b9d198c3826ea62743a0ee12a4479bf28efb41209a0edea19be"
+    sha256 mojave:        "acc102b6014ee8216274afb3a0b10460c71f0059a7aeca732dfad848c7dd2846"
   end
 
   depends_on "autoconf" => :build

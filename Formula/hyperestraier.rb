@@ -6,15 +6,14 @@ class Hyperestraier < Formula
   license "LGPL-2.1"
 
   bottle do
-    cellar :any
-    sha256 "98338e8f67c7cba1df436607f09415415e39a38f695805ddd94720326eae9212" => :big_sur
-    sha256 "0304cb2db3ed4e35c12ccaac0251ea19f7fd4c0f2a5b9f3ffad0f201f7f4357c" => :catalina
-    sha256 "4275d3ad552f225c5b686532d6cc2703481284fa73eaf3c5b35bc5551dc95761" => :mojave
-    sha256 "f0eeb8e60dc0639fdbf5c15fc22c954a627b5136525021706876972b5bfdd816" => :high_sierra
-    sha256 "c6018d888e9a4f03546f1727d9ec7b6d7eb6a87fc4f6755667bdafa71929aca7" => :sierra
-    sha256 "c90ef2d3ccac1af3247726697be33748ec53df85a98af4611b6dbfc9a8dca0c7" => :el_capitan
-    sha256 "d18c19a9d691e2bd209cc05006b608776066352d297865238cc7262a527a82bd" => :yosemite
-    sha256 "b52c716897730a939ba7763492b7b1080a70c918b07571f4a4e296aea42f42ee" => :mavericks
+    sha256 cellar: :any, big_sur:     "98338e8f67c7cba1df436607f09415415e39a38f695805ddd94720326eae9212"
+    sha256 cellar: :any, catalina:    "0304cb2db3ed4e35c12ccaac0251ea19f7fd4c0f2a5b9f3ffad0f201f7f4357c"
+    sha256 cellar: :any, mojave:      "4275d3ad552f225c5b686532d6cc2703481284fa73eaf3c5b35bc5551dc95761"
+    sha256 cellar: :any, high_sierra: "f0eeb8e60dc0639fdbf5c15fc22c954a627b5136525021706876972b5bfdd816"
+    sha256 cellar: :any, sierra:      "c6018d888e9a4f03546f1727d9ec7b6d7eb6a87fc4f6755667bdafa71929aca7"
+    sha256 cellar: :any, el_capitan:  "c90ef2d3ccac1af3247726697be33748ec53df85a98af4611b6dbfc9a8dca0c7"
+    sha256 cellar: :any, yosemite:    "d18c19a9d691e2bd209cc05006b608776066352d297865238cc7262a527a82bd"
+    sha256 cellar: :any, mavericks:   "b52c716897730a939ba7763492b7b1080a70c918b07571f4a4e296aea42f42ee"
   end
 
   depends_on "qdbm"

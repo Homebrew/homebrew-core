@@ -6,14 +6,13 @@ class Libdvdcss < Formula
   license "GPL-2.0"
 
   bottle do
-    cellar :any
-    sha256 "9a8db2ea63440ad177206f94fef24af0649b6449a10f61e50987f357ed708bdf" => :big_sur
-    sha256 "70921a36dabb28674da535508ab2434bec4843c08c1fb2597cfe532b2bd652f4" => :arm64_big_sur
-    sha256 "352a2c343c04e65ee38fe154c797a29cc9cca509212e2296e9cd54e3e824ce29" => :catalina
-    sha256 "645422cdd6facba8137146fd12df0538b27432a72bc79c5ca8c2667ab9fc70bc" => :mojave
-    sha256 "4029db91ed7536435bd29db6b67f55509be13e70b6170337edec72daad8992c4" => :high_sierra
-    sha256 "907d51957c4674ddeb27b458dcf5f1f4b382219bda893fc8908147acc1c2b1ea" => :sierra
-    sha256 "0aaed21ecd3c8d3b4a9997300a599de5a541689ab200a6ffce52167b2ce5b664" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "70921a36dabb28674da535508ab2434bec4843c08c1fb2597cfe532b2bd652f4"
+    sha256 cellar: :any, big_sur:       "9a8db2ea63440ad177206f94fef24af0649b6449a10f61e50987f357ed708bdf"
+    sha256 cellar: :any, catalina:      "352a2c343c04e65ee38fe154c797a29cc9cca509212e2296e9cd54e3e824ce29"
+    sha256 cellar: :any, mojave:        "645422cdd6facba8137146fd12df0538b27432a72bc79c5ca8c2667ab9fc70bc"
+    sha256 cellar: :any, high_sierra:   "4029db91ed7536435bd29db6b67f55509be13e70b6170337edec72daad8992c4"
+    sha256 cellar: :any, sierra:        "907d51957c4674ddeb27b458dcf5f1f4b382219bda893fc8908147acc1c2b1ea"
+    sha256 cellar: :any, el_capitan:    "0aaed21ecd3c8d3b4a9997300a599de5a541689ab200a6ffce52167b2ce5b664"
   end
 
   head do

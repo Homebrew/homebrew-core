@@ -12,12 +12,11 @@ class Sslscan < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "8a6811420a6588ac904c1ff1681d9abb17c29d2e717139b442b97289ee6a4be8" => :big_sur
-    sha256 "5f1b1b7d5b79a2ef5bb2a66ad317d202e9880b35a29850efb2b2ce864c53ca9b" => :arm64_big_sur
-    sha256 "dfae88a5af610e1ea5707fdd76b48b4c67f0ffbce46721399d97168ffaf29e91" => :catalina
-    sha256 "8556ca9cab96ef319a398374cb761169846d53963097772477605084b2b09e0b" => :mojave
-    sha256 "7ad72d0cffb03636e6cd67f2bdebf481a731481a1f274d2e472ff4950c1d53f0" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "5f1b1b7d5b79a2ef5bb2a66ad317d202e9880b35a29850efb2b2ce864c53ca9b"
+    sha256 cellar: :any, big_sur:       "8a6811420a6588ac904c1ff1681d9abb17c29d2e717139b442b97289ee6a4be8"
+    sha256 cellar: :any, catalina:      "dfae88a5af610e1ea5707fdd76b48b4c67f0ffbce46721399d97168ffaf29e91"
+    sha256 cellar: :any, mojave:        "8556ca9cab96ef319a398374cb761169846d53963097772477605084b2b09e0b"
+    sha256 cellar: :any, high_sierra:   "7ad72d0cffb03636e6cd67f2bdebf481a731481a1f274d2e472ff4950c1d53f0"
   end
 
   depends_on "openssl@1.1"

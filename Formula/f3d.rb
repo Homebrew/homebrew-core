@@ -6,11 +6,10 @@ class F3d < Formula
   license "BSD-3-Clause"
 
   bottle do
-    cellar :any
-    sha256 "0bac4019ea861ad37466e7bfbd3c5ce7cc497af88b84bc3b281a1e65c90ec570" => :big_sur
-    sha256 "bb7240f16fcb91501863f5c0d47d602d79a51573b2ec640d99548598f78a25ee" => :arm64_big_sur
-    sha256 "084b51e428b310c22349769db16e2d55ec467ce6711251536f63e33ef469c6eb" => :catalina
-    sha256 "4bf7e46f38dcecc2ce4d6d4e6ef1f7d0418cd3b6578f3f0d44d9b6708f858669" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "bb7240f16fcb91501863f5c0d47d602d79a51573b2ec640d99548598f78a25ee"
+    sha256 cellar: :any, big_sur:       "0bac4019ea861ad37466e7bfbd3c5ce7cc497af88b84bc3b281a1e65c90ec570"
+    sha256 cellar: :any, catalina:      "084b51e428b310c22349769db16e2d55ec467ce6711251536f63e33ef469c6eb"
+    sha256 cellar: :any, mojave:        "4bf7e46f38dcecc2ce4d6d4e6ef1f7d0418cd3b6578f3f0d44d9b6708f858669"
   end
 
   depends_on "cmake" => :build

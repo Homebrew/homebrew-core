@@ -12,11 +12,10 @@ class Ethereum < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "236e8976bd37896135951f14345d2c431aa30c35c06a8f564ee0d1890dde6e36" => :big_sur
-    sha256 "cb6c2c4ef5992fcd944887052099d846e865b29486152f3eaaaeae7b64a97770" => :arm64_big_sur
-    sha256 "c94e46a6bea15393eb22e15bd4bbbb63cb08db493989b2008aa16c5b9106d3f1" => :catalina
-    sha256 "0f1a9478c1873537097fa246ed25956d606df2b91939bf2d98102a95fcca2b96" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "cb6c2c4ef5992fcd944887052099d846e865b29486152f3eaaaeae7b64a97770"
+    sha256 cellar: :any_skip_relocation, big_sur:       "236e8976bd37896135951f14345d2c431aa30c35c06a8f564ee0d1890dde6e36"
+    sha256 cellar: :any_skip_relocation, catalina:      "c94e46a6bea15393eb22e15bd4bbbb63cb08db493989b2008aa16c5b9106d3f1"
+    sha256 cellar: :any_skip_relocation, mojave:        "0f1a9478c1873537097fa246ed25956d606df2b91939bf2d98102a95fcca2b96"
   end
 
   depends_on "go" => :build

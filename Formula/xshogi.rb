@@ -12,12 +12,11 @@ class Xshogi < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "998ba1de10cc68bfa3c111576e0ea9bc09cab9a8cc308590e3d0914482b62178" => :big_sur
-    sha256 "fc650945fdedff5236f9cd3ca7e04732e67e3c46a7c3ca1e592be1dfe16c69c3" => :arm64_big_sur
-    sha256 "32cdfaceb15bbd7ebc4e2a8d26ca31c0008ce2ed1ef90f6f5309d7157ab722f6" => :catalina
-    sha256 "378503de599c2f121c06902aa2235a059b9e47963a80b1f29f7eb4b37b950479" => :mojave
-    sha256 "a52ad3a749214e18e02807f479b428f909d87c556cbeeb015dbf1b7b27d1fcb5" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "fc650945fdedff5236f9cd3ca7e04732e67e3c46a7c3ca1e592be1dfe16c69c3"
+    sha256 cellar: :any, big_sur:       "998ba1de10cc68bfa3c111576e0ea9bc09cab9a8cc308590e3d0914482b62178"
+    sha256 cellar: :any, catalina:      "32cdfaceb15bbd7ebc4e2a8d26ca31c0008ce2ed1ef90f6f5309d7157ab722f6"
+    sha256 cellar: :any, mojave:        "378503de599c2f121c06902aa2235a059b9e47963a80b1f29f7eb4b37b950479"
+    sha256 cellar: :any, high_sierra:   "a52ad3a749214e18e02807f479b428f909d87c556cbeeb015dbf1b7b27d1fcb5"
   end
 
   depends_on "gnu-shogi"

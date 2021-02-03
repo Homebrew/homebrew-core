@@ -9,11 +9,10 @@ class Esptool < Formula
   revision 1
 
   bottle do
-    cellar :any
-    sha256 "e3c17a512c81223bae4c55166a8fc874a66ea48a5da20815ec1657811f22c42d" => :big_sur
-    sha256 "2fb146758042785524015dbe58968da27d78ad916068ea19fad51e91fa29e760" => :arm64_big_sur
-    sha256 "408f012ae8967304352d8820df10a9af55a3025e0a1cbf8939cb73d4c93bc2f2" => :catalina
-    sha256 "8c65d474b25e28d3774b46fff5db3480fd36b33fa23fa0edfed50e06cc0a33cd" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "2fb146758042785524015dbe58968da27d78ad916068ea19fad51e91fa29e760"
+    sha256 cellar: :any, big_sur:       "e3c17a512c81223bae4c55166a8fc874a66ea48a5da20815ec1657811f22c42d"
+    sha256 cellar: :any, catalina:      "408f012ae8967304352d8820df10a9af55a3025e0a1cbf8939cb73d4c93bc2f2"
+    sha256 cellar: :any, mojave:        "8c65d474b25e28d3774b46fff5db3480fd36b33fa23fa0edfed50e06cc0a33cd"
   end
 
   depends_on "python@3.9"

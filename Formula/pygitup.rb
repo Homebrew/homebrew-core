@@ -12,11 +12,10 @@ class Pygitup < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "241451119588df0aedbcf3bfb4084a930a22644629ec2544554f17723cb40110" => :big_sur
-    sha256 "7e4a7970074265fa7855716aa4c4313ddcf91bf6a0dc76969dcac37e3b8e54af" => :arm64_big_sur
-    sha256 "24d563dbed328cc4a3267b547e0f7d29d198a6ee17f246c7d5d3b5d0ac7378a3" => :catalina
-    sha256 "99ea13e47193752b83c7ac7751d1ab44cc1c2b549c2b4662ce54cf9ac6fe4255" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7e4a7970074265fa7855716aa4c4313ddcf91bf6a0dc76969dcac37e3b8e54af"
+    sha256 cellar: :any_skip_relocation, big_sur:       "241451119588df0aedbcf3bfb4084a930a22644629ec2544554f17723cb40110"
+    sha256 cellar: :any_skip_relocation, catalina:      "24d563dbed328cc4a3267b547e0f7d29d198a6ee17f246c7d5d3b5d0ac7378a3"
+    sha256 cellar: :any_skip_relocation, mojave:        "99ea13e47193752b83c7ac7751d1ab44cc1c2b549c2b4662ce54cf9ac6fe4255"
   end
 
   depends_on "python@3.9"

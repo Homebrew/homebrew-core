@@ -6,12 +6,11 @@ class Minisign < Formula
   license "ISC"
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "9c86c4043d4ebadd47e6ba606b80dcf0611f302dd11d6f8f56b9c4c1f1d3bfe9" => :big_sur
-    sha256 "5e915e427db3117320aff459d67438ac7bf94cf3e37291ca02a1d6b83f2fa827" => :arm64_big_sur
-    sha256 "42a044324786df52bcb3334eb3c07b3c3ac65414af72c17c73ccb0fb081507ab" => :catalina
-    sha256 "fc5d9762d710f500978ac0d09b0fbf6fcf3745c4b018313fe9d3ae5679e1f37e" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "5e915e427db3117320aff459d67438ac7bf94cf3e37291ca02a1d6b83f2fa827"
+    sha256 cellar: :any, big_sur:       "9c86c4043d4ebadd47e6ba606b80dcf0611f302dd11d6f8f56b9c4c1f1d3bfe9"
+    sha256 cellar: :any, catalina:      "42a044324786df52bcb3334eb3c07b3c3ac65414af72c17c73ccb0fb081507ab"
+    sha256 cellar: :any, mojave:        "fc5d9762d710f500978ac0d09b0fbf6fcf3745c4b018313fe9d3ae5679e1f37e"
   end
 
   depends_on "cmake" => :build

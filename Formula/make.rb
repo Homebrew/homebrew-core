@@ -12,11 +12,11 @@ class Make < Formula
 
   bottle do
     rebuild 1
-    sha256 "2019ba646e4471d42e09c28a0992c59dd82e292bf8275b0b3bfcce3220ef9c1b" => :big_sur
-    sha256 "eab3fbc3688aecec0fe90b8d0fe3cb7beb84ed773ba0411fc2f855c66deaf882" => :arm64_big_sur
-    sha256 "39fc5ebff5ff708c2e3eea597b9f2eb79b910a122d30c3ac9bb93ebe313f030c" => :catalina
-    sha256 "0c0a08eef68bcd78b0345f5f57a6efffcc7be877bcb3b803f39ac8916b882477" => :mojave
-    sha256 "429177235322c3209e1657bea36364cd84222075b636939f6ed93a1cd04aeb21" => :high_sierra
+    sha256 arm64_big_sur: "eab3fbc3688aecec0fe90b8d0fe3cb7beb84ed773ba0411fc2f855c66deaf882"
+    sha256 big_sur:       "2019ba646e4471d42e09c28a0992c59dd82e292bf8275b0b3bfcce3220ef9c1b"
+    sha256 catalina:      "39fc5ebff5ff708c2e3eea597b9f2eb79b910a122d30c3ac9bb93ebe313f030c"
+    sha256 mojave:        "0c0a08eef68bcd78b0345f5f57a6efffcc7be877bcb3b803f39ac8916b882477"
+    sha256 high_sierra:   "429177235322c3209e1657bea36364cd84222075b636939f6ed93a1cd04aeb21"
   end
 
   conflicts_with "remake", because: "both install texinfo files for make"

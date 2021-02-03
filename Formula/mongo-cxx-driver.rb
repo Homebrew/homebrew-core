@@ -7,10 +7,9 @@ class MongoCxxDriver < Formula
   head "https://github.com/mongodb/mongo-cxx-driver.git"
 
   bottle do
-    cellar :any
-    sha256 "e68f3e5c87021c8537656445b3641966eb1b03b36870d7d63795f75692b443a9" => :big_sur
-    sha256 "c914c8eb18e5b84f6e1051abfd565db1824523b487463ed4c3b670014009a323" => :catalina
-    sha256 "d257deef2474d068c1b7757aa9b2e7c1bb6259e15292c8b48e96487118a1c86a" => :mojave
+    sha256 cellar: :any, big_sur:  "e68f3e5c87021c8537656445b3641966eb1b03b36870d7d63795f75692b443a9"
+    sha256 cellar: :any, catalina: "c914c8eb18e5b84f6e1051abfd565db1824523b487463ed4c3b670014009a323"
+    sha256 cellar: :any, mojave:   "d257deef2474d068c1b7757aa9b2e7c1bb6259e15292c8b48e96487118a1c86a"
   end
 
   depends_on "cmake" => :build

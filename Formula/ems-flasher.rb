@@ -6,15 +6,14 @@ class EmsFlasher < Formula
   license "MIT"
 
   bottle do
-    cellar :any
-    sha256 "7265467864beba18015da5596e84e8cc969fe1860601036b342f12913043200f" => :big_sur
-    sha256 "f9b941615f6337e331ab3382c659eafb4548af8a5c8977d042c1a4b4ed5549b1" => :arm64_big_sur
-    sha256 "708f7bfd2d48d73df85cb8a90f183197e1ebcd3da3be013eedd2bf236d0eaddb" => :catalina
-    sha256 "f14a792cca1e617dec44e6f11ec413aabbb027097f833ec3a70389bf02da37a5" => :mojave
-    sha256 "188c1755cfe1e45fbfb7350e7fc9d546668438d3d0647c044a681eeef868d85e" => :high_sierra
-    sha256 "51ac3640147a25c8cf9f1177c2f3c430fa3c6a95d75022544eea825b14934593" => :sierra
-    sha256 "2be0a155a5442879c3cfa7a804e125be814bb3d1b5c002326a33e0b84ce6024b" => :el_capitan
-    sha256 "3f978e8b96d4c1f0464ce2d4af86ff5bac6cb60810e1b8d81ce4fe55bb2abb63" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "f9b941615f6337e331ab3382c659eafb4548af8a5c8977d042c1a4b4ed5549b1"
+    sha256 cellar: :any, big_sur:       "7265467864beba18015da5596e84e8cc969fe1860601036b342f12913043200f"
+    sha256 cellar: :any, catalina:      "708f7bfd2d48d73df85cb8a90f183197e1ebcd3da3be013eedd2bf236d0eaddb"
+    sha256 cellar: :any, mojave:        "f14a792cca1e617dec44e6f11ec413aabbb027097f833ec3a70389bf02da37a5"
+    sha256 cellar: :any, high_sierra:   "188c1755cfe1e45fbfb7350e7fc9d546668438d3d0647c044a681eeef868d85e"
+    sha256 cellar: :any, sierra:        "51ac3640147a25c8cf9f1177c2f3c430fa3c6a95d75022544eea825b14934593"
+    sha256 cellar: :any, el_capitan:    "2be0a155a5442879c3cfa7a804e125be814bb3d1b5c002326a33e0b84ce6024b"
+    sha256 cellar: :any, yosemite:      "3f978e8b96d4c1f0464ce2d4af86ff5bac6cb60810e1b8d81ce4fe55bb2abb63"
   end
 
   head do

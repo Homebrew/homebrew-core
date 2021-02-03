@@ -8,10 +8,9 @@ class Metricbeat < Formula
   head "https://github.com/elastic/beats.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "076239e92064f1390b7f580b85aaa3d7bc2c9fcbd34dc46f181189b951c3cdea" => :big_sur
-    sha256 "f80425f7af026144f6ff896f958ea2003c59cf9cda42fb411a377d14849f2c0a" => :catalina
-    sha256 "834bb390f652838f4054522a87cc7a6b584027d124fad9448adffaf18d33831e" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur:  "076239e92064f1390b7f580b85aaa3d7bc2c9fcbd34dc46f181189b951c3cdea"
+    sha256 cellar: :any_skip_relocation, catalina: "f80425f7af026144f6ff896f958ea2003c59cf9cda42fb411a377d14849f2c0a"
+    sha256 cellar: :any_skip_relocation, mojave:   "834bb390f652838f4054522a87cc7a6b584027d124fad9448adffaf18d33831e"
   end
 
   depends_on "go" => :build

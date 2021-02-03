@@ -7,12 +7,11 @@ class Pcrexx < Formula
   license "LGPL-2.1-only"
 
   bottle do
-    cellar :any
     rebuild 2
-    sha256 "0b05be19479fa7181d354dfafc905f874a17c3135170bedfc324fe0873e113c4" => :big_sur
-    sha256 "1232e288cacfd0124da243208e1584caf1925be4dcdcc7b94b96585fb50bfabf" => :arm64_big_sur
-    sha256 "15b001d9d01f073cb76772112bc6b3ebac92a3337b19c6dee4eb54d39fe9b6f6" => :catalina
-    sha256 "fdaf9cab000ba7b2f7787acd98e53aa3cade6e6536c0c0ec32a010ecade2cb53" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "1232e288cacfd0124da243208e1584caf1925be4dcdcc7b94b96585fb50bfabf"
+    sha256 cellar: :any, big_sur:       "0b05be19479fa7181d354dfafc905f874a17c3135170bedfc324fe0873e113c4"
+    sha256 cellar: :any, catalina:      "15b001d9d01f073cb76772112bc6b3ebac92a3337b19c6dee4eb54d39fe9b6f6"
+    sha256 cellar: :any, mojave:        "fdaf9cab000ba7b2f7787acd98e53aa3cade6e6536c0c0ec32a010ecade2cb53"
   end
 
   depends_on "autoconf" => :build

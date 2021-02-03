@@ -8,10 +8,10 @@ class Ncrack < Formula
 
   bottle do
     rebuild 1
-    sha256 "025bbf5951382b56c8a6a16b558eed06e13eccc3885eff0080e4c32907176a08" => :big_sur
-    sha256 "b684949d21ace4bb1f67030b74e5daeb3db83601e4a2e4221e24fabcca0b489a" => :arm64_big_sur
-    sha256 "4cde5b8ed210e4b5f2ef644507d4838b367012f3159f649ebe81a375fed66029" => :catalina
-    sha256 "907bcfd20459589aa0e7ae766897d38613338e9c1f57244d2610bf8a1b3b1e59" => :mojave
+    sha256 arm64_big_sur: "b684949d21ace4bb1f67030b74e5daeb3db83601e4a2e4221e24fabcca0b489a"
+    sha256 big_sur:       "025bbf5951382b56c8a6a16b558eed06e13eccc3885eff0080e4c32907176a08"
+    sha256 catalina:      "4cde5b8ed210e4b5f2ef644507d4838b367012f3159f649ebe81a375fed66029"
+    sha256 mojave:        "907bcfd20459589aa0e7ae766897d38613338e9c1f57244d2610bf8a1b3b1e59"
   end
 
   depends_on "openssl@1.1"

@@ -8,15 +8,14 @@ class Trafshow < Formula
   revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "a2a1419d6adb4663c41ae2f2d0eaaa750f0815caa34e9165a572c65d117173d3" => :big_sur
-    sha256 "99d67c50de491e45032798b67f2b2ce424ff2b5031e453ac1bdcb1807f1af702" => :arm64_big_sur
-    sha256 "f976f69242af3e7c14acd6cc99f0f6b14c31f15793a090a9fa1b562662efbf2d" => :catalina
-    sha256 "27f0fa0ce96139f6958efdd964b3ef4741d39a05f86ce33567eb622c55b10717" => :mojave
-    sha256 "d7d2f4fc92f234fd9fda9ec65a03b37aaf43d40203682ee3821526bb18f1ad13" => :high_sierra
-    sha256 "c6324418840429d76f53035ae9e013190b8190f75f9fc1eaa8100bc9e7df27f8" => :sierra
-    sha256 "c6bd1f502ddbcc756a400958f1f79da193c5784b7cd71361e1e6742412ae442c" => :el_capitan
-    sha256 "fd7be4933f9be5a4a3ebaf0e31086e0f5566608305dd88779f0b0790fdc75c05" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "99d67c50de491e45032798b67f2b2ce424ff2b5031e453ac1bdcb1807f1af702"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a2a1419d6adb4663c41ae2f2d0eaaa750f0815caa34e9165a572c65d117173d3"
+    sha256 cellar: :any_skip_relocation, catalina:      "f976f69242af3e7c14acd6cc99f0f6b14c31f15793a090a9fa1b562662efbf2d"
+    sha256 cellar: :any_skip_relocation, mojave:        "27f0fa0ce96139f6958efdd964b3ef4741d39a05f86ce33567eb622c55b10717"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "d7d2f4fc92f234fd9fda9ec65a03b37aaf43d40203682ee3821526bb18f1ad13"
+    sha256 cellar: :any_skip_relocation, sierra:        "c6324418840429d76f53035ae9e013190b8190f75f9fc1eaa8100bc9e7df27f8"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "c6bd1f502ddbcc756a400958f1f79da193c5784b7cd71361e1e6742412ae442c"
+    sha256 cellar: :any_skip_relocation, yosemite:      "fd7be4933f9be5a4a3ebaf0e31086e0f5566608305dd88779f0b0790fdc75c05"
   end
 
   depends_on "libtool" => :build

@@ -7,14 +7,13 @@ class Bam < Formula
   head "https://github.com/matricks/bam.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "0bd9f6ad25f64fc5282dd4facfea787bbca5855eb855c12eebb12cb60d82261b" => :big_sur
-    sha256 "6c0a42f9cf83eabac04cd67c5441590f3fea48f7dd9aacd1a7fef524b4a40cf9" => :arm64_big_sur
-    sha256 "de24826592ac3d7a97f2ea0372d6a002e67e39bc1f10dc5d2e54563f84953690" => :catalina
-    sha256 "195777b4263d8e5d84e91123ab1c47a362a5d92aa2c5c1cf7ac5c45b7728eb1d" => :mojave
-    sha256 "59aebec505aba51189ccedb1872affd1c48ca84598caa591c2e0c955817e7cd7" => :high_sierra
-    sha256 "f237da39dd743732f3cfa0a5029b3cce4b332fb08e4326183eece8fd50dcf789" => :sierra
-    sha256 "4ded8f152aa05211053796e77b9b7a9e5671b9d5871c374a85ee74e6b9cb8e50" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6c0a42f9cf83eabac04cd67c5441590f3fea48f7dd9aacd1a7fef524b4a40cf9"
+    sha256 cellar: :any_skip_relocation, big_sur:       "0bd9f6ad25f64fc5282dd4facfea787bbca5855eb855c12eebb12cb60d82261b"
+    sha256 cellar: :any_skip_relocation, catalina:      "de24826592ac3d7a97f2ea0372d6a002e67e39bc1f10dc5d2e54563f84953690"
+    sha256 cellar: :any_skip_relocation, mojave:        "195777b4263d8e5d84e91123ab1c47a362a5d92aa2c5c1cf7ac5c45b7728eb1d"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "59aebec505aba51189ccedb1872affd1c48ca84598caa591c2e0c955817e7cd7"
+    sha256 cellar: :any_skip_relocation, sierra:        "f237da39dd743732f3cfa0a5029b3cce4b332fb08e4326183eece8fd50dcf789"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "4ded8f152aa05211053796e77b9b7a9e5671b9d5871c374a85ee74e6b9cb8e50"
   end
 
   def install

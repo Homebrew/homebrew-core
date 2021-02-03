@@ -6,9 +6,9 @@ class Nest < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 "7d8a027b82bb889b0fbb4ebb9764d55b136aa1378129a801ccda28f362656833" => :big_sur
-    sha256 "6a7ef1003d86dd0767bc181820beaafb8a1c062e1fc0dd8d44b3c53c313f4740" => :catalina
-    sha256 "de90974238ea1e5435da633c834c39f927f969271b45b3b00ed315cb6797e013" => :mojave
+    sha256 big_sur:  "7d8a027b82bb889b0fbb4ebb9764d55b136aa1378129a801ccda28f362656833"
+    sha256 catalina: "6a7ef1003d86dd0767bc181820beaafb8a1c062e1fc0dd8d44b3c53c313f4740"
+    sha256 mojave:   "de90974238ea1e5435da633c834c39f927f969271b45b3b00ed315cb6797e013"
   end
 
   depends_on "cmake" => :build

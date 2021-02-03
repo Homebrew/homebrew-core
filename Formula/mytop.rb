@@ -11,12 +11,11 @@ class Mytop < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "ea2f5229c929cb23466f75964d1bf294130381b27efd55cf2ce91cb248c43732" => :big_sur
-    sha256 "1b5b8d90532a1d9712a2f0212374975af97603ccdcf7e452bc13178aedfce966" => :arm64_big_sur
-    sha256 "69930f7d5c68b0d6ce75c89820732f269d3b3c6651358875b0db58ae1ead38f0" => :catalina
-    sha256 "ac13ecf239ff9d4bb1d39ad584c46ac9a5c95f3b96b3991bf9108280b30c0a19" => :mojave
-    sha256 "2862de7630947648898e1ef348a8357fdd25622310c9af03450c40ea33fc925c" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "1b5b8d90532a1d9712a2f0212374975af97603ccdcf7e452bc13178aedfce966"
+    sha256 cellar: :any, big_sur:       "ea2f5229c929cb23466f75964d1bf294130381b27efd55cf2ce91cb248c43732"
+    sha256 cellar: :any, catalina:      "69930f7d5c68b0d6ce75c89820732f269d3b3c6651358875b0db58ae1ead38f0"
+    sha256 cellar: :any, mojave:        "ac13ecf239ff9d4bb1d39ad584c46ac9a5c95f3b96b3991bf9108280b30c0a19"
+    sha256 cellar: :any, high_sierra:   "2862de7630947648898e1ef348a8357fdd25622310c9af03450c40ea33fc925c"
   end
 
   depends_on "mysql-client"

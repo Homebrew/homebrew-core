@@ -7,12 +7,11 @@ class Pacparser < Formula
   head "https://github.com/pacparser/pacparser.git"
 
   bottle do
-    cellar :any
     rebuild 3
-    sha256 "55ce66921189d2ba41d3cf58f7548237442c5387372b8cc4bab891cf1ed7766f" => :big_sur
-    sha256 "1999482c32deaa8c6b9a38800b6dbc4f6d18076177f6a8a0dad49c21c4327781" => :arm64_big_sur
-    sha256 "ca13d2507c9c6616bc6c3604c19a7f6f1652bb3b3c1fed3168c4d832a10b0174" => :catalina
-    sha256 "3544e7aed8d310d3407997f46b8b51cbbc2b1d962f90535175baff72301e375e" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "1999482c32deaa8c6b9a38800b6dbc4f6d18076177f6a8a0dad49c21c4327781"
+    sha256 cellar: :any, big_sur:       "55ce66921189d2ba41d3cf58f7548237442c5387372b8cc4bab891cf1ed7766f"
+    sha256 cellar: :any, catalina:      "ca13d2507c9c6616bc6c3604c19a7f6f1652bb3b3c1fed3168c4d832a10b0174"
+    sha256 cellar: :any, mojave:        "3544e7aed8d310d3407997f46b8b51cbbc2b1d962f90535175baff72301e375e"
   end
 
   # Fix build for MacOS 11.1

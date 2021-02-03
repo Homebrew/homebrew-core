@@ -10,15 +10,14 @@ class Sha1dc < Formula
   head "https://github.com/cr-marcstevens/sha1collisiondetection.git"
 
   bottle do
-    cellar :any
-    sha256 "9f927c95f5b3838ba7c269a3376f52d5bc9ddea216f6cbf6d07e667fa6c1a829" => :big_sur
-    sha256 "392a2173a9bf9a53f40edb2ef6c77a9d34ee567c9d18f405288b7b83e7fdc87b" => :arm64_big_sur
-    sha256 "ed78939b30e385c3adeac725b9f2865d60b8c0e15e1ec75d1b6c90855dc14206" => :catalina
-    sha256 "1c12564c84282e1ddbac545864bd695527dca9026411725e4a4604eaed81ec8b" => :mojave
-    sha256 "a489f11b91a88486274717eace83368f6b072b134ddc62001157b1fae9873dab" => :high_sierra
-    sha256 "9eba4b19247672b715376e2086689e7418235d850a158636d2ba3deb46851933" => :sierra
-    sha256 "32d59c039a26d232b35f3c1877ca8c78ba0a303866adefee002c017359b03267" => :el_capitan
-    sha256 "939388a0fe029d8cba8080a778269322489c55f787301947c82fb30cf8433b08" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "392a2173a9bf9a53f40edb2ef6c77a9d34ee567c9d18f405288b7b83e7fdc87b"
+    sha256 cellar: :any, big_sur:       "9f927c95f5b3838ba7c269a3376f52d5bc9ddea216f6cbf6d07e667fa6c1a829"
+    sha256 cellar: :any, catalina:      "ed78939b30e385c3adeac725b9f2865d60b8c0e15e1ec75d1b6c90855dc14206"
+    sha256 cellar: :any, mojave:        "1c12564c84282e1ddbac545864bd695527dca9026411725e4a4604eaed81ec8b"
+    sha256 cellar: :any, high_sierra:   "a489f11b91a88486274717eace83368f6b072b134ddc62001157b1fae9873dab"
+    sha256 cellar: :any, sierra:        "9eba4b19247672b715376e2086689e7418235d850a158636d2ba3deb46851933"
+    sha256 cellar: :any, el_capitan:    "32d59c039a26d232b35f3c1877ca8c78ba0a303866adefee002c017359b03267"
+    sha256 cellar: :any, yosemite:      "939388a0fe029d8cba8080a778269322489c55f787301947c82fb30cf8433b08"
   end
 
   depends_on "coreutils" => :build # GNU install

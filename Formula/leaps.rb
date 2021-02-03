@@ -7,13 +7,12 @@ class Leaps < Formula
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "b5f0bd311313d4cf0fbb32a178349a4052381e16b45009ad63ad2d29ae2e2188" => :big_sur
-    sha256 "5cecda6732be6b32d1184038a5e1ad008c438053eabed0880c2f2ad194c4fefb" => :catalina
-    sha256 "9e40e4b5b75c73411f6ab74bea028f72f25f8b788eadf032f0f5cfed03baefae" => :mojave
-    sha256 "37343e978d4035fa9b2881c038748ec4704bf8a57308c59e64592dd404166e36" => :high_sierra
-    sha256 "d269ec8f0e492e2a9c7804ca2cc6d9211a9be7c3dfbb0daaab19c5b14bef5b24" => :sierra
-    sha256 "e36259af15ec8cf6546b1f7d99a105efb9a30c198f549a67964417e31892fe97" => :el_capitan
+    sha256 cellar: :any_skip_relocation, big_sur:     "b5f0bd311313d4cf0fbb32a178349a4052381e16b45009ad63ad2d29ae2e2188"
+    sha256 cellar: :any_skip_relocation, catalina:    "5cecda6732be6b32d1184038a5e1ad008c438053eabed0880c2f2ad194c4fefb"
+    sha256 cellar: :any_skip_relocation, mojave:      "9e40e4b5b75c73411f6ab74bea028f72f25f8b788eadf032f0f5cfed03baefae"
+    sha256 cellar: :any_skip_relocation, high_sierra: "37343e978d4035fa9b2881c038748ec4704bf8a57308c59e64592dd404166e36"
+    sha256 cellar: :any_skip_relocation, sierra:      "d269ec8f0e492e2a9c7804ca2cc6d9211a9be7c3dfbb0daaab19c5b14bef5b24"
+    sha256 cellar: :any_skip_relocation, el_capitan:  "e36259af15ec8cf6546b1f7d99a105efb9a30c198f549a67964417e31892fe97"
   end
 
   depends_on "dep" => :build

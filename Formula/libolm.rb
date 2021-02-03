@@ -7,10 +7,10 @@ class Libolm < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any, big_sur: "9d964030f0a1920373121784c9cc6ac41ee5941019b8eff7dd77923dd1573128"
     sha256 cellar: :any, arm64_big_sur: "dbb54bdf65d2e73e09d55bfd240fa2e8caf86fafd5c35cc75f06b07d2d6eeddf"
-    sha256 cellar: :any, catalina: "aa31087429ce7f4382dc14996c7b820eb8d03530f9c0f2f06221df53ba32f79b"
-    sha256 cellar: :any, mojave: "b2530289c9735b329e9e9985467075e779bf57cc8e9be9a25868df4dd767a54c"
+    sha256 cellar: :any, big_sur:       "9d964030f0a1920373121784c9cc6ac41ee5941019b8eff7dd77923dd1573128"
+    sha256 cellar: :any, catalina:      "aa31087429ce7f4382dc14996c7b820eb8d03530f9c0f2f06221df53ba32f79b"
+    sha256 cellar: :any, mojave:        "b2530289c9735b329e9e9985467075e779bf57cc8e9be9a25868df4dd767a54c"
   end
 
   depends_on "cmake" => :build

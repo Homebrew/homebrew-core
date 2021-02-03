@@ -6,14 +6,13 @@ class V8AT315 < Formula
   revision 1
 
   bottle do
-    cellar :any
-    sha256 "8d1b84feddb4827106ad10d573f41fc6f4c1ddf6cbc65d78d8e168d7ab541e07" => :big_sur
-    sha256 "588e9a3b61c54705d918bc783e1aa2efa1fd31626ca20181c7fe3c38d0d50ca5" => :catalina
-    sha256 "38ef56c652ac4f91ec1ddac61b8719ffba4c949103a6636e15aa1cd768e2d14d" => :mojave
-    sha256 "42c0c3b3f4dc7153023e14aef59c623f10c78ffe8f2d7a43ab984f2810a694dd" => :high_sierra
-    sha256 "4b845ce6a7fdc4110518dfbf48ab721d7f48b9e64f78e6d1cc199078ac9d874b" => :sierra
-    sha256 "9c191175be793dba50999f5ac1894f26b9eb39ca231f0618d5954833e5db8945" => :el_capitan
-    sha256 "f3b4dddabc17df3d84c3e1bbd894fa33a60e221a150eb7ede77d64daaef1088b" => :yosemite
+    sha256 cellar: :any, big_sur:     "8d1b84feddb4827106ad10d573f41fc6f4c1ddf6cbc65d78d8e168d7ab541e07"
+    sha256 cellar: :any, catalina:    "588e9a3b61c54705d918bc783e1aa2efa1fd31626ca20181c7fe3c38d0d50ca5"
+    sha256 cellar: :any, mojave:      "38ef56c652ac4f91ec1ddac61b8719ffba4c949103a6636e15aa1cd768e2d14d"
+    sha256 cellar: :any, high_sierra: "42c0c3b3f4dc7153023e14aef59c623f10c78ffe8f2d7a43ab984f2810a694dd"
+    sha256 cellar: :any, sierra:      "4b845ce6a7fdc4110518dfbf48ab721d7f48b9e64f78e6d1cc199078ac9d874b"
+    sha256 cellar: :any, el_capitan:  "9c191175be793dba50999f5ac1894f26b9eb39ca231f0618d5954833e5db8945"
+    sha256 cellar: :any, yosemite:    "f3b4dddabc17df3d84c3e1bbd894fa33a60e221a150eb7ede77d64daaef1088b"
   end
 
   keg_only :versioned_formula

@@ -7,13 +7,12 @@ class C10t < Formula
   revision 1
 
   bottle do
-    cellar :any
-    sha256 "15eb238ecc210202a0aa3034005b3da3637f4d5b5a7c9e6904b151d47ece6d47" => :big_sur
-    sha256 "f6c5c0fb2e066bc4c505d61eb9db21034a89223e5a9e47c3c2a08b17f5a431ed" => :arm64_big_sur
-    sha256 "50bb289bc77fc39bd7fa248be991069cfa63419c8ad74329d3684a965469084d" => :catalina
-    sha256 "1bdc623e16b1854d4865ce29e7fb6e0724262ea2b998111c6ab908b5dbd5af17" => :mojave
-    sha256 "ad850802e7b161e55c19bcb89d2af5a10a536574bf25a1c45a2693299d6182d2" => :high_sierra
-    sha256 "fbfab463dd8a2af17bb3b8d07d448d8411f9393d98b1b35f6862a7dc92da7c82" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "f6c5c0fb2e066bc4c505d61eb9db21034a89223e5a9e47c3c2a08b17f5a431ed"
+    sha256 cellar: :any, big_sur:       "15eb238ecc210202a0aa3034005b3da3637f4d5b5a7c9e6904b151d47ece6d47"
+    sha256 cellar: :any, catalina:      "50bb289bc77fc39bd7fa248be991069cfa63419c8ad74329d3684a965469084d"
+    sha256 cellar: :any, mojave:        "1bdc623e16b1854d4865ce29e7fb6e0724262ea2b998111c6ab908b5dbd5af17"
+    sha256 cellar: :any, high_sierra:   "ad850802e7b161e55c19bcb89d2af5a10a536574bf25a1c45a2693299d6182d2"
+    sha256 cellar: :any, sierra:        "fbfab463dd8a2af17bb3b8d07d448d8411f9393d98b1b35f6862a7dc92da7c82"
   end
 
   depends_on "cmake" => :build

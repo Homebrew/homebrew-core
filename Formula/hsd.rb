@@ -13,9 +13,9 @@ class Hsd < Formula
   end
 
   bottle do
-    sha256 "33e844aa1841d7492c1b34d9de70242c26ce94ae5c90cc4b82cd319ae73be9e2" => :big_sur
-    sha256 "5ea75133f88879508221fea5c747b14d4839f4d0892187bec8441f28d347ca1a" => :catalina
-    sha256 "8ad56895ec82c5a673c230c18e3b8def53014cef39cbd6f428292d1405b17da5" => :mojave
+    sha256 big_sur:  "33e844aa1841d7492c1b34d9de70242c26ce94ae5c90cc4b82cd319ae73be9e2"
+    sha256 catalina: "5ea75133f88879508221fea5c747b14d4839f4d0892187bec8441f28d347ca1a"
+    sha256 mojave:   "8ad56895ec82c5a673c230c18e3b8def53014cef39cbd6f428292d1405b17da5"
   end
 
   depends_on "python@3.9" => :build

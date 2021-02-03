@@ -6,14 +6,13 @@ class Ssdeep < Formula
   license "GPL-2.0"
 
   bottle do
-    cellar :any
-    sha256 "07e5950c12637cccbba297963ea3cb11ee93e9e71185ae13d3a3e5a61d3ed2a3" => :big_sur
-    sha256 "ee64c7c583f39962316b19684461489bf1c23ec97d910987430905f8c0b3e26c" => :arm64_big_sur
-    sha256 "f497e16679d8c9a4e04bc3e2458b5d02f5d2899b1be522df2cfcac88fbd5a672" => :catalina
-    sha256 "89e84b13c5e104f7b03a2cf3e9d679a3af57c6432f3c9daa313f9b1caa4cdfb0" => :mojave
-    sha256 "1c8a9a487676961755daf5688ec478a5925f3a0dfe36faeb7027878600ef2384" => :high_sierra
-    sha256 "84677545f87098d9c5d74719044c56616a8788f1320c9258794807dac2343328" => :sierra
-    sha256 "c07f5558ed32f7de17f349cbc62e56cf277d3d30c83fa7844bdf41000729dcba" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "ee64c7c583f39962316b19684461489bf1c23ec97d910987430905f8c0b3e26c"
+    sha256 cellar: :any, big_sur:       "07e5950c12637cccbba297963ea3cb11ee93e9e71185ae13d3a3e5a61d3ed2a3"
+    sha256 cellar: :any, catalina:      "f497e16679d8c9a4e04bc3e2458b5d02f5d2899b1be522df2cfcac88fbd5a672"
+    sha256 cellar: :any, mojave:        "89e84b13c5e104f7b03a2cf3e9d679a3af57c6432f3c9daa313f9b1caa4cdfb0"
+    sha256 cellar: :any, high_sierra:   "1c8a9a487676961755daf5688ec478a5925f3a0dfe36faeb7027878600ef2384"
+    sha256 cellar: :any, sierra:        "84677545f87098d9c5d74719044c56616a8788f1320c9258794807dac2343328"
+    sha256 cellar: :any, el_capitan:    "c07f5558ed32f7de17f349cbc62e56cf277d3d30c83fa7844bdf41000729dcba"
   end
 
   def install

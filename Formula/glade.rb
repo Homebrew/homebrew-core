@@ -10,10 +10,10 @@ class Glade < Formula
   end
 
   bottle do
-    sha256 "0fb77b21e6176c6690410a76d843f4582c1ef833e54ce5efa620bfce514e7af7" => :big_sur
-    sha256 "2a55e22c571d0d158c1b66bf18c35c44aeaed0694d139f13c48f5a6642b4785b" => :arm64_big_sur
-    sha256 "e5c239c3d05350ff8a8710ce6beecf7fd22461336e77d55febb338b6a1456a61" => :catalina
-    sha256 "0b641d56f385a798fafe8fe424191de83207dea5b0edcf9d06c8b8b03ad0c68f" => :mojave
+    sha256 arm64_big_sur: "2a55e22c571d0d158c1b66bf18c35c44aeaed0694d139f13c48f5a6642b4785b"
+    sha256 big_sur:       "0fb77b21e6176c6690410a76d843f4582c1ef833e54ce5efa620bfce514e7af7"
+    sha256 catalina:      "e5c239c3d05350ff8a8710ce6beecf7fd22461336e77d55febb338b6a1456a61"
+    sha256 mojave:        "0b641d56f385a798fafe8fe424191de83207dea5b0edcf9d06c8b8b03ad0c68f"
   end
 
   depends_on "docbook-xsl" => :build

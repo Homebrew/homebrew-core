@@ -7,10 +7,10 @@ class Libqalculate < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 "203f33a641f7943496759835c6fcb820c310967633329bfed900383caaac719a" => :big_sur
-    sha256 "87c5462cdae038d172ce29042676d59cd283f07f13211488bde48b90e2eae8eb" => :arm64_big_sur
-    sha256 "446758665a4de9b0e60be08cec6e30ea6da6310633d4bf678c9982425e81a4f6" => :catalina
-    sha256 "c75a186bf5077108bea3a3165757742f220547a5311544af7d700b7f802a851e" => :mojave
+    sha256 arm64_big_sur: "87c5462cdae038d172ce29042676d59cd283f07f13211488bde48b90e2eae8eb"
+    sha256 big_sur:       "203f33a641f7943496759835c6fcb820c310967633329bfed900383caaac719a"
+    sha256 catalina:      "446758665a4de9b0e60be08cec6e30ea6da6310633d4bf678c9982425e81a4f6"
+    sha256 mojave:        "c75a186bf5077108bea3a3165757742f220547a5311544af7d700b7f802a851e"
   end
 
   depends_on "intltool" => :build

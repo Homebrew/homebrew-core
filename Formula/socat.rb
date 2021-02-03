@@ -11,11 +11,10 @@ class Socat < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "2249d3b3852d95fc683e27292e26967b0e3a13d60e59a99181445f941a343a32" => :big_sur
-    sha256 "1d355658a55eb44cb6ffe1fa8dc140883359467080e13be0d4237cf181c05dc0" => :arm64_big_sur
-    sha256 "f2a0d0d0bca542cb0f4b700d42dc244e82b8da9be2d5aff8d98b8a7fef77c9fe" => :catalina
-    sha256 "531f3ea55671c8d01165c3a314b24cef873c51442a1729fe2e9ce14ff908aebb" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "1d355658a55eb44cb6ffe1fa8dc140883359467080e13be0d4237cf181c05dc0"
+    sha256 cellar: :any, big_sur:       "2249d3b3852d95fc683e27292e26967b0e3a13d60e59a99181445f941a343a32"
+    sha256 cellar: :any, catalina:      "f2a0d0d0bca542cb0f4b700d42dc244e82b8da9be2d5aff8d98b8a7fef77c9fe"
+    sha256 cellar: :any, mojave:        "531f3ea55671c8d01165c3a314b24cef873c51442a1729fe2e9ce14ff908aebb"
   end
 
   depends_on "openssl@1.1"

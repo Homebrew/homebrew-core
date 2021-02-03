@@ -8,12 +8,11 @@ class Slowhttptest < Formula
   head "https://github.com/shekyan/slowhttptest.git"
 
   bottle do
-    cellar :any
-    sha256 "8414f5f6736cdaac257f0c96ecf0a72526c80595b7e966d26a0c99aaba25a8dc" => :big_sur
-    sha256 "cc98e77420edf6c9304650871991d7df7f89dd99381a63f021bdef192d9b1e37" => :arm64_big_sur
-    sha256 "7cd865ac1b118d8ef7bdf0b540f56140ff4254e7a38d2b22d520c9bd1158df5d" => :catalina
-    sha256 "f4da64ee55ba56ffaff0d383954d0e13577326dbca30b431d5d89775dcfb396e" => :mojave
-    sha256 "3ffeaec203cd16a00aeb0bf239dfe5b32087e35a74dd5c6917bd3e7a2a09848f" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "cc98e77420edf6c9304650871991d7df7f89dd99381a63f021bdef192d9b1e37"
+    sha256 cellar: :any, big_sur:       "8414f5f6736cdaac257f0c96ecf0a72526c80595b7e966d26a0c99aaba25a8dc"
+    sha256 cellar: :any, catalina:      "7cd865ac1b118d8ef7bdf0b540f56140ff4254e7a38d2b22d520c9bd1158df5d"
+    sha256 cellar: :any, mojave:        "f4da64ee55ba56ffaff0d383954d0e13577326dbca30b431d5d89775dcfb396e"
+    sha256 cellar: :any, high_sierra:   "3ffeaec203cd16a00aeb0bf239dfe5b32087e35a74dd5c6917bd3e7a2a09848f"
   end
 
   # Remove these in next version

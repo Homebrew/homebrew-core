@@ -12,10 +12,10 @@ class Opencv < Formula
   end
 
   bottle do
-    sha256 "09d965708d97b2252846ad28fbd6a87720efdfd887c0e14fb89a8627ebc74d90" => :big_sur
-    sha256 "9aecef9793ab1e4f97a2303c3d7e8110eae2218811243dafd1a6c9a542ba32ad" => :arm64_big_sur
-    sha256 "c551de54ea263f94421a42bea6824196abc713fa454d0b8a841818466263e080" => :catalina
-    sha256 "6b73888dbf72ce08f35eba87abd2d988986315b9e9aeaf8270793636e3bacbf3" => :mojave
+    sha256 arm64_big_sur: "9aecef9793ab1e4f97a2303c3d7e8110eae2218811243dafd1a6c9a542ba32ad"
+    sha256 big_sur:       "09d965708d97b2252846ad28fbd6a87720efdfd887c0e14fb89a8627ebc74d90"
+    sha256 catalina:      "c551de54ea263f94421a42bea6824196abc713fa454d0b8a841818466263e080"
+    sha256 mojave:        "6b73888dbf72ce08f35eba87abd2d988986315b9e9aeaf8270793636e3bacbf3"
   end
 
   depends_on "cmake" => :build

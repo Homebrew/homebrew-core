@@ -11,11 +11,11 @@ class Tor < Formula
   end
 
   bottle do
-    sha256 "345a31685faa4b551c32ea7265191ef71db9dc90ab41af189535b831b6877f47" => :big_sur
-    sha256 "652dd8e0b2154d100747672e64eb45b2a7ffd9c9117b1f17a29df537d15f1f28" => :arm64_big_sur
-    sha256 "a6f0a222f1ce3670521392887eea1b491f4cefa8031e1cea7e2e33dea93d715b" => :catalina
-    sha256 "cc4678fc4cdf9a93cb5dc7f10a02df0e1bd950becd2b944afad59b7d64bbad3b" => :mojave
-    sha256 "52937701615bbe2ec97bdccd6dcd287a095f20128fc574fff1bfe04d775dac4a" => :high_sierra
+    sha256 arm64_big_sur: "652dd8e0b2154d100747672e64eb45b2a7ffd9c9117b1f17a29df537d15f1f28"
+    sha256 big_sur:       "345a31685faa4b551c32ea7265191ef71db9dc90ab41af189535b831b6877f47"
+    sha256 catalina:      "a6f0a222f1ce3670521392887eea1b491f4cefa8031e1cea7e2e33dea93d715b"
+    sha256 mojave:        "cc4678fc4cdf9a93cb5dc7f10a02df0e1bd950becd2b944afad59b7d64bbad3b"
+    sha256 high_sierra:   "52937701615bbe2ec97bdccd6dcd287a095f20128fc574fff1bfe04d775dac4a"
   end
 
   depends_on "pkg-config" => :build

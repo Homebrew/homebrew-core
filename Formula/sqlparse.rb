@@ -12,12 +12,11 @@ class Sqlparse < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "223cb7df4d5a5024e7006b8584edf6c98ab4d7715c1a5e78cc87d9c989d254bb" => :big_sur
-    sha256 "23a704c78e708e33de4370e6a8bdff580be8cf707ac0d7708905c0618f6c4d4c" => :arm64_big_sur
-    sha256 "474e731b38baa47c6db75bf1ca957e6814148dd166941c70967836eeb3be844e" => :catalina
-    sha256 "fe9331f9ef485b2b110cf72fb36a9344d5744efb79b4652b4f8e37c1c43facc6" => :mojave
-    sha256 "743a16f18f46d93b073e9dcf01164c1347314fbbbced824d86906a345324e29a" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "23a704c78e708e33de4370e6a8bdff580be8cf707ac0d7708905c0618f6c4d4c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "223cb7df4d5a5024e7006b8584edf6c98ab4d7715c1a5e78cc87d9c989d254bb"
+    sha256 cellar: :any_skip_relocation, catalina:      "474e731b38baa47c6db75bf1ca957e6814148dd166941c70967836eeb3be844e"
+    sha256 cellar: :any_skip_relocation, mojave:        "fe9331f9ef485b2b110cf72fb36a9344d5744efb79b4652b4f8e37c1c43facc6"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "743a16f18f46d93b073e9dcf01164c1347314fbbbced824d86906a345324e29a"
   end
 
   depends_on "python@3.9"

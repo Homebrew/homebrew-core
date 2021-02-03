@@ -12,10 +12,10 @@ class Tox < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur: "e5d3d2e186e58393d31e3acb1d0d720b73b1f0d49b0c6da59bb231b74d15e3fd"
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "04ce6bbb34ad555c73489eb022aa27e1778d97579f71cd63bc1e058d666514a0"
-    sha256 cellar: :any_skip_relocation, catalina: "3d7f4d9df9b88b2533a1e531d0ba0088d8a647c0ee925d963b09fcb0f3b5b9e6"
-    sha256 cellar: :any_skip_relocation, mojave: "4c4e6369beb45a1606921cb8806e8b3e017eb04f4dc11b111bd0182bcf72648c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e5d3d2e186e58393d31e3acb1d0d720b73b1f0d49b0c6da59bb231b74d15e3fd"
+    sha256 cellar: :any_skip_relocation, catalina:      "3d7f4d9df9b88b2533a1e531d0ba0088d8a647c0ee925d963b09fcb0f3b5b9e6"
+    sha256 cellar: :any_skip_relocation, mojave:        "4c4e6369beb45a1606921cb8806e8b3e017eb04f4dc11b111bd0182bcf72648c"
   end
 
   depends_on "python@3.9"

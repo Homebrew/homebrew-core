@@ -7,13 +7,12 @@ class Servus < Formula
   license "LGPL-3.0"
 
   bottle do
-    cellar :any
-    sha256 "4e2b2042868af63bf0d39f10821afdd04d37da37ad8ba4da41dff0a73fae7787" => :big_sur
-    sha256 "5a2c8cbe46fc1a9e8d2aa14036c2cc775f438cae77adaa8918d5a6cb9378c2e7" => :arm64_big_sur
-    sha256 "e0629cca8bee46595c540c2240ed1cc599c5f676527a21f951bfc89a0335c54e" => :catalina
-    sha256 "65921c797c3a2bf7953cf692dee5852de3fd6c2b2466268221a9dfcb7eab960e" => :mojave
-    sha256 "763042d70e605154698d686554d26f6bab46f30200df8a8c3af9c40faeffca64" => :high_sierra
-    sha256 "bcfa24ee0545c044c32391ac72d54a5151de64170c777409163c0688cd9bf671" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "5a2c8cbe46fc1a9e8d2aa14036c2cc775f438cae77adaa8918d5a6cb9378c2e7"
+    sha256 cellar: :any, big_sur:       "4e2b2042868af63bf0d39f10821afdd04d37da37ad8ba4da41dff0a73fae7787"
+    sha256 cellar: :any, catalina:      "e0629cca8bee46595c540c2240ed1cc599c5f676527a21f951bfc89a0335c54e"
+    sha256 cellar: :any, mojave:        "65921c797c3a2bf7953cf692dee5852de3fd6c2b2466268221a9dfcb7eab960e"
+    sha256 cellar: :any, high_sierra:   "763042d70e605154698d686554d26f6bab46f30200df8a8c3af9c40faeffca64"
+    sha256 cellar: :any, sierra:        "bcfa24ee0545c044c32391ac72d54a5151de64170c777409163c0688cd9bf671"
   end
 
   depends_on "cmake" => :build

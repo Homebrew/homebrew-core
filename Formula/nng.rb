@@ -11,9 +11,9 @@ class Nng < Formula
   end
 
   bottle do
-    sha256 "108518e716f6e752b93e30dd54f597f303e2b87b65399460e4d954e12254c8a8" => :catalina
-    sha256 "9ba28b38c5529f14e36c0de4231152431c3de02c8fd375f09375bceeaddd6088" => :mojave
-    sha256 "ddacb6bb51d546a4d3a5d45b01cf25588a9a7d644fdb5747e99179278e115459" => :high_sierra
+    sha256 catalina:    "108518e716f6e752b93e30dd54f597f303e2b87b65399460e4d954e12254c8a8"
+    sha256 mojave:      "9ba28b38c5529f14e36c0de4231152431c3de02c8fd375f09375bceeaddd6088"
+    sha256 high_sierra: "ddacb6bb51d546a4d3a5d45b01cf25588a9a7d644fdb5747e99179278e115459"
   end
 
   depends_on "asciidoctor" => :build

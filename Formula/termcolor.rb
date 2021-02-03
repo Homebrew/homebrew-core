@@ -6,12 +6,11 @@ class Termcolor < Formula
   license "BSD-3-Clause"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "def1f0c727fa7494adaaae105c6567ff1a01cf86a06713ba38272a2c99a2542c" => :big_sur
-    sha256 "5db4ac397b8826be095a0fcd81d01460ddbb1340fb401f1958df5deaa46c4779" => :arm64_big_sur
-    sha256 "bf8dbd74a3f8661b2dcc5968698dc6d0797d32ad4022744fca1c3c2ac1e7b863" => :catalina
-    sha256 "bf8dbd74a3f8661b2dcc5968698dc6d0797d32ad4022744fca1c3c2ac1e7b863" => :mojave
-    sha256 "bf8dbd74a3f8661b2dcc5968698dc6d0797d32ad4022744fca1c3c2ac1e7b863" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5db4ac397b8826be095a0fcd81d01460ddbb1340fb401f1958df5deaa46c4779"
+    sha256 cellar: :any_skip_relocation, big_sur:       "def1f0c727fa7494adaaae105c6567ff1a01cf86a06713ba38272a2c99a2542c"
+    sha256 cellar: :any_skip_relocation, catalina:      "bf8dbd74a3f8661b2dcc5968698dc6d0797d32ad4022744fca1c3c2ac1e7b863"
+    sha256 cellar: :any_skip_relocation, mojave:        "bf8dbd74a3f8661b2dcc5968698dc6d0797d32ad4022744fca1c3c2ac1e7b863"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "bf8dbd74a3f8661b2dcc5968698dc6d0797d32ad4022744fca1c3c2ac1e7b863"
   end
 
   depends_on "cmake" => :build

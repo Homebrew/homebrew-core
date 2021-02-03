@@ -6,11 +6,10 @@ class Bombadillo < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c03e55627ed6afed8053bd7b008a7097acc3cabe631c72aa37779c1a1bed4671" => :big_sur
-    sha256 "e357ed7326ddf882e90730882661cd701d2b44cd878c46a60a3902276100f9be" => :arm64_big_sur
-    sha256 "3de46b1bf2270bbc62922a26cd95e5096f8ff145538e2a648309d1e09a5c9ff9" => :catalina
-    sha256 "2aa718cebff527b3ecac75022b1c9ecf602cf5f516ca09dac2a2c67df22a435c" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e357ed7326ddf882e90730882661cd701d2b44cd878c46a60a3902276100f9be"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c03e55627ed6afed8053bd7b008a7097acc3cabe631c72aa37779c1a1bed4671"
+    sha256 cellar: :any_skip_relocation, catalina:      "3de46b1bf2270bbc62922a26cd95e5096f8ff145538e2a648309d1e09a5c9ff9"
+    sha256 cellar: :any_skip_relocation, mojave:        "2aa718cebff527b3ecac75022b1c9ecf602cf5f516ca09dac2a2c67df22a435c"
   end
 
   depends_on "go" => :build

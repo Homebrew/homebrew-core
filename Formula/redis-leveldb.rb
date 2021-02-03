@@ -7,14 +7,13 @@ class RedisLeveldb < Formula
   head "https://github.com/KDr2/redis-leveldb.git"
 
   bottle do
-    cellar :any
-    sha256 "ca866ff83813a3d7a06626608016aba38a40bd1e813f04079dd2221f5740336b" => :big_sur
-    sha256 "d1c4da1f1f3e3afec9ec5d345743f9d49e85615fa3ffde619bad13e479ce670a" => :catalina
-    sha256 "f2345f0e55d37343c3c7e2fb4c43e517d429db2bb284430d3db1222675b8b520" => :mojave
-    sha256 "9efe9023206565f3d5557202465fa99440262aef2298894c1f738dba0a39ad10" => :high_sierra
-    sha256 "c8cdcf2f80de6eda4f86e9a7c6726ef1a2e046378a28b72b52deb180a15d1916" => :sierra
-    sha256 "5373414613caf193828f782883f835858a8c999943a542e9ec3ff735a918bb63" => :el_capitan
-    sha256 "4cf802ff434be42c86043c45f539cfdb0f137cfd37df4815560e3495da5f9d1b" => :yosemite
+    sha256 cellar: :any, big_sur:     "ca866ff83813a3d7a06626608016aba38a40bd1e813f04079dd2221f5740336b"
+    sha256 cellar: :any, catalina:    "d1c4da1f1f3e3afec9ec5d345743f9d49e85615fa3ffde619bad13e479ce670a"
+    sha256 cellar: :any, mojave:      "f2345f0e55d37343c3c7e2fb4c43e517d429db2bb284430d3db1222675b8b520"
+    sha256 cellar: :any, high_sierra: "9efe9023206565f3d5557202465fa99440262aef2298894c1f738dba0a39ad10"
+    sha256 cellar: :any, sierra:      "c8cdcf2f80de6eda4f86e9a7c6726ef1a2e046378a28b72b52deb180a15d1916"
+    sha256 cellar: :any, el_capitan:  "5373414613caf193828f782883f835858a8c999943a542e9ec3ff735a918bb63"
+    sha256 cellar: :any, yosemite:    "4cf802ff434be42c86043c45f539cfdb0f137cfd37df4815560e3495da5f9d1b"
   end
 
   depends_on "gmp"

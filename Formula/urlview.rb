@@ -15,12 +15,11 @@ class Urlview < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "20e13c05f4e090cf897ae74480a5bbc2cafb47a7ba7c6b3a569c6bca14b1d0ea" => :big_sur
-    sha256 "65a48245adafa4bfaaa8e7a08c371d9a15e39dc3672f33c5de2a97809a2222a7" => :arm64_big_sur
-    sha256 "1a29faf6b64714501b62a1ad36d33bbb133fc23515dfaa352c36b47b47ed8669" => :catalina
-    sha256 "4949121abe0237bf3322701201873aa20a0c23746107b79bc696d6d728200b90" => :mojave
-    sha256 "abe2ea4e7d7f07e606837852d3e46c72c56fd4018a703e72f0945d87ccba19a4" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "65a48245adafa4bfaaa8e7a08c371d9a15e39dc3672f33c5de2a97809a2222a7"
+    sha256 cellar: :any_skip_relocation, big_sur:       "20e13c05f4e090cf897ae74480a5bbc2cafb47a7ba7c6b3a569c6bca14b1d0ea"
+    sha256 cellar: :any_skip_relocation, catalina:      "1a29faf6b64714501b62a1ad36d33bbb133fc23515dfaa352c36b47b47ed8669"
+    sha256 cellar: :any_skip_relocation, mojave:        "4949121abe0237bf3322701201873aa20a0c23746107b79bc696d6d728200b90"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "abe2ea4e7d7f07e606837852d3e46c72c56fd4018a703e72f0945d87ccba19a4"
   end
 
   patch do

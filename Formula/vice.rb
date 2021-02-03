@@ -13,9 +13,9 @@ class Vice < Formula
   end
 
   bottle do
-    sha256 "c07d71cebd01929ae44bb80611d761c10c5f8ae53b2ac8e855d2a77bb9ce2270" => :big_sur
-    sha256 "32421c80ed1f4fd835143587ec1d666941aadaefa2ea5facd2bbd2355cc078c4" => :catalina
-    sha256 "04964db736a6895edf14f3e0d1cd8dce585c18b56dd123f6376bb2743a1d9953" => :mojave
+    sha256 big_sur:  "c07d71cebd01929ae44bb80611d761c10c5f8ae53b2ac8e855d2a77bb9ce2270"
+    sha256 catalina: "32421c80ed1f4fd835143587ec1d666941aadaefa2ea5facd2bbd2355cc078c4"
+    sha256 mojave:   "04964db736a6895edf14f3e0d1cd8dce585c18b56dd123f6376bb2743a1d9953"
   end
 
   depends_on "autoconf" => :build

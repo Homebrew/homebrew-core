@@ -12,12 +12,11 @@ class Chkrootkit < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "63febac78a6eceecb7b3875b05810363448ddb25aa781b0d3ee30f32068696b9" => :big_sur
-    sha256 "63b5d12ee1f886330021355cf5e735d35a41614f1b90ce417b59168763479034" => :arm64_big_sur
-    sha256 "db64fdae3055ce77b6771ef8b67362d68c11ef099373b71490204b135e4d84c3" => :catalina
-    sha256 "6eb199dd0a6e307e5dc8ead5bc7b4981ac8697ebb3e8bd1ec3c34390b1cbcbd5" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "63b5d12ee1f886330021355cf5e735d35a41614f1b90ce417b59168763479034"
+    sha256 cellar: :any_skip_relocation, big_sur:       "63febac78a6eceecb7b3875b05810363448ddb25aa781b0d3ee30f32068696b9"
+    sha256 cellar: :any_skip_relocation, catalina:      "db64fdae3055ce77b6771ef8b67362d68c11ef099373b71490204b135e4d84c3"
+    sha256 cellar: :any_skip_relocation, mojave:        "6eb199dd0a6e307e5dc8ead5bc7b4981ac8697ebb3e8bd1ec3c34390b1cbcbd5"
   end
 
   def install

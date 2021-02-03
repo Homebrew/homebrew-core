@@ -6,12 +6,11 @@ class Pdfcpu < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "081c5cfc66ac6e82bdaa4b6046d568fa10ddfee6d47cc856a5008916c431afb3" => :big_sur
-    sha256 "8dcbe1329da171b75344c74bcb4a66748e53bdf3f258ae248b141ed184b69083" => :arm64_big_sur
-    sha256 "401e9a0ea88ebf9bdaf06012458bce98676018cdb43855c1c60c322c3fe112c8" => :catalina
-    sha256 "b2d4eeaf342b8aabc26b98c2e88b3d127880fed48c80e41bd4f106f6c9f61d43" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8dcbe1329da171b75344c74bcb4a66748e53bdf3f258ae248b141ed184b69083"
+    sha256 cellar: :any_skip_relocation, big_sur:       "081c5cfc66ac6e82bdaa4b6046d568fa10ddfee6d47cc856a5008916c431afb3"
+    sha256 cellar: :any_skip_relocation, catalina:      "401e9a0ea88ebf9bdaf06012458bce98676018cdb43855c1c60c322c3fe112c8"
+    sha256 cellar: :any_skip_relocation, mojave:        "b2d4eeaf342b8aabc26b98c2e88b3d127880fed48c80e41bd4f106f6c9f61d43"
   end
 
   depends_on "go" => :build

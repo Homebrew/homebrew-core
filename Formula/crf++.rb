@@ -17,12 +17,11 @@ class Crfxx < Formula
   end
 
   bottle do
-    cellar :any
     rebuild 3
-    sha256 "fcf0862271c392bc7b69a4e02a74dd9bd85615b6be0273009e7611bb78298f61" => :big_sur
-    sha256 "763da462b53ce92f9feae23750b038b96e79b121b7bdfa4c0d1c99701c3345d4" => :arm64_big_sur
-    sha256 "6706e1cb8b242ed58885402da7b41cd1552f206407fc18c200907f3c64a7b9c5" => :catalina
-    sha256 "814479e15702bd1ef9afba98ff5030bbf7cd90810f2561863d1b9085a230ee8f" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "763da462b53ce92f9feae23750b038b96e79b121b7bdfa4c0d1c99701c3345d4"
+    sha256 cellar: :any, big_sur:       "fcf0862271c392bc7b69a4e02a74dd9bd85615b6be0273009e7611bb78298f61"
+    sha256 cellar: :any, catalina:      "6706e1cb8b242ed58885402da7b41cd1552f206407fc18c200907f3c64a7b9c5"
+    sha256 cellar: :any, mojave:        "814479e15702bd1ef9afba98ff5030bbf7cd90810f2561863d1b9085a230ee8f"
   end
 
   def install

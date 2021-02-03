@@ -13,10 +13,10 @@ class Ruby < Formula
 
   bottle do
     rebuild 1
-    sha256 "60f0b39ab2714afc942145c00684fae27c6388cafdb59fd9c8f1dca97fcfc773" => :big_sur
-    sha256 "501ba0c0968ccebdc18cb781820e401764243b536c30821909dcd5049b5a73d2" => :arm64_big_sur
-    sha256 "b869f4edd6b14d7c54e8994d77b5d92f935ca67c746babbda910471de21ac6aa" => :catalina
-    sha256 "efdb21d54bd759a1862140d61ab83b49221aa02fc9e1891972053da7edfb855b" => :mojave
+    sha256 arm64_big_sur: "501ba0c0968ccebdc18cb781820e401764243b536c30821909dcd5049b5a73d2"
+    sha256 big_sur:       "60f0b39ab2714afc942145c00684fae27c6388cafdb59fd9c8f1dca97fcfc773"
+    sha256 catalina:      "b869f4edd6b14d7c54e8994d77b5d92f935ca67c746babbda910471de21ac6aa"
+    sha256 mojave:        "efdb21d54bd759a1862140d61ab83b49221aa02fc9e1891972053da7edfb855b"
   end
 
   head do

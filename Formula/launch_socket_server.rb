@@ -7,11 +7,10 @@ class LaunchSocketServer < Formula
   head "https://github.com/mistydemeo/launch_socket_server.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "0d490a674d736272ea67f2289d5eb715b5aa48acf5e289a6a8e8327cd4cbc4a4" => :big_sur
-    sha256 "ff86499103ad1d9d33cdc039e24f065aa08405bda980c9e242c46ed157bc33ff" => :catalina
-    sha256 "823d84eddeb72fdabeccdc189bc19269485bfeb23d0a57824cdbf95c92a6ccb8" => :mojave
-    sha256 "ef58f2afc33d6454282d1e1b92e4d16269885464707ae58079c29514f4cadc60" => :high_sierra
+    sha256 cellar: :any_skip_relocation, big_sur:     "0d490a674d736272ea67f2289d5eb715b5aa48acf5e289a6a8e8327cd4cbc4a4"
+    sha256 cellar: :any_skip_relocation, catalina:    "ff86499103ad1d9d33cdc039e24f065aa08405bda980c9e242c46ed157bc33ff"
+    sha256 cellar: :any_skip_relocation, mojave:      "823d84eddeb72fdabeccdc189bc19269485bfeb23d0a57824cdbf95c92a6ccb8"
+    sha256 cellar: :any_skip_relocation, high_sierra: "ef58f2afc33d6454282d1e1b92e4d16269885464707ae58079c29514f4cadc60"
   end
 
   depends_on "go" => :build

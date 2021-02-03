@@ -8,13 +8,13 @@ class LincityNg < Formula
   head "https://github.com/lincity-ng/lincity-ng.git"
 
   bottle do
-    sha256 "80aa367de27c34242873f9c61279f68eb04f5897f7611d93feb1d2b88ba1e2a3" => :big_sur
-    sha256 "4ea8b0d4afe937e6ffdd5ff7c92fd84fdfb23c35f5dd8a0bdcb015f79a7ba5b7" => :catalina
-    sha256 "5909e4a6c9cfe47aafd4fb4c5dd26016cbe096945faa485d377fe2c423b3caca" => :mojave
-    sha256 "bdfe153ca219084bf621c031612c8b86b02911e64d6fa154422812aee7de8d76" => :high_sierra
-    sha256 "cae5f270842c10affb29d6f9c592a96913d9ca630c49d22afa03cba6d3a6121c" => :sierra
-    sha256 "b9f326c678a9317f141ad13749cb4075ab42144855254d344de15bc22c4020e5" => :el_capitan
-    sha256 "6eae33edda53f256caa2fde01d334bc19b2c9810c8cf8e039ad1094c71619691" => :yosemite
+    sha256 big_sur:     "80aa367de27c34242873f9c61279f68eb04f5897f7611d93feb1d2b88ba1e2a3"
+    sha256 catalina:    "4ea8b0d4afe937e6ffdd5ff7c92fd84fdfb23c35f5dd8a0bdcb015f79a7ba5b7"
+    sha256 mojave:      "5909e4a6c9cfe47aafd4fb4c5dd26016cbe096945faa485d377fe2c423b3caca"
+    sha256 high_sierra: "bdfe153ca219084bf621c031612c8b86b02911e64d6fa154422812aee7de8d76"
+    sha256 sierra:      "cae5f270842c10affb29d6f9c592a96913d9ca630c49d22afa03cba6d3a6121c"
+    sha256 el_capitan:  "b9f326c678a9317f141ad13749cb4075ab42144855254d344de15bc22c4020e5"
+    sha256 yosemite:    "6eae33edda53f256caa2fde01d334bc19b2c9810c8cf8e039ad1094c71619691"
   end
 
   depends_on "autoconf" => :build

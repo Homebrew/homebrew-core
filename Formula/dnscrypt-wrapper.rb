@@ -8,12 +8,11 @@ class DnscryptWrapper < Formula
   head "https://github.com/Cofyc/dnscrypt-wrapper.git"
 
   bottle do
-    cellar :any
-    sha256 "6a4ce514c0ec1c41cf197b6201cba95ded39f0e7018755ec1bf42824aa8675d6" => :big_sur
-    sha256 "ea344feb10cc87d14e8b30cd3fcbbabed2b55f5c76014fcdc18aff49cb9fc5cd" => :catalina
-    sha256 "129be9e2c08af0351401437f09a950f0d4050e99cce47da220561a3153d5334d" => :mojave
-    sha256 "226bbce3fbcc39a1619bfd77451c6e0cf0d0054b61696acc2617e4f30580e69b" => :high_sierra
-    sha256 "92da097e90b1cd593efb8d0d1a16c24dd016aa93933a3036be671b5596c6af0d" => :sierra
+    sha256 cellar: :any, big_sur:     "6a4ce514c0ec1c41cf197b6201cba95ded39f0e7018755ec1bf42824aa8675d6"
+    sha256 cellar: :any, catalina:    "ea344feb10cc87d14e8b30cd3fcbbabed2b55f5c76014fcdc18aff49cb9fc5cd"
+    sha256 cellar: :any, mojave:      "129be9e2c08af0351401437f09a950f0d4050e99cce47da220561a3153d5334d"
+    sha256 cellar: :any, high_sierra: "226bbce3fbcc39a1619bfd77451c6e0cf0d0054b61696acc2617e4f30580e69b"
+    sha256 cellar: :any, sierra:      "92da097e90b1cd593efb8d0d1a16c24dd016aa93933a3036be671b5596c6af0d"
   end
 
   depends_on "autoconf" => :build

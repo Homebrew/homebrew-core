@@ -6,12 +6,11 @@ class Lsof < Formula
   license "Zlib"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "7dbab0c2a35d97381ed52fa32e1507c0fe83bc405fc40c4d00c79e12c79cffe4" => :big_sur
-    sha256 "3202f83509eefa73603b865ea4aca0433bbbf69d30f43d229a5ee256d1977424" => :arm64_big_sur
-    sha256 "58d2ee9a7484541a7280f5a139f2d0454b494f54bca3b9f10273e036d8071bde" => :catalina
-    sha256 "9eb185a83e641bd8bd90fab3a8cde572b23ebb1ce269a8832fb85a66c5037318" => :mojave
-    sha256 "268fe15ecc8d9e4dd4f2f45737c921e54a5aa999f15ab6b724b9bd34deeef8d1" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3202f83509eefa73603b865ea4aca0433bbbf69d30f43d229a5ee256d1977424"
+    sha256 cellar: :any_skip_relocation, big_sur:       "7dbab0c2a35d97381ed52fa32e1507c0fe83bc405fc40c4d00c79e12c79cffe4"
+    sha256 cellar: :any_skip_relocation, catalina:      "58d2ee9a7484541a7280f5a139f2d0454b494f54bca3b9f10273e036d8071bde"
+    sha256 cellar: :any_skip_relocation, mojave:        "9eb185a83e641bd8bd90fab3a8cde572b23ebb1ce269a8832fb85a66c5037318"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "268fe15ecc8d9e4dd4f2f45737c921e54a5aa999f15ab6b724b9bd34deeef8d1"
   end
 
   keg_only :provided_by_macos

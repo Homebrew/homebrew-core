@@ -11,10 +11,10 @@ class SstpClient < Formula
   end
 
   bottle do
-    sha256 "82b2a0b491752d77b6d47a0a4fc1cffe0656e0a04a5e49f2a6802f9b302378c0" => :big_sur
-    sha256 "a67f8784f0a716ed85a181bd5010b9f5ca700f0f44a107dcaf78560ba349e876" => :arm64_big_sur
-    sha256 "014b4af9e8f774591bb335fc49b2f010bf54cade6149dc0367cabee0a604f5f9" => :catalina
-    sha256 "060f97c76ca3086fc58ab20be2dad388a1299e4731f4571bca9d807f168d788e" => :mojave
+    sha256 arm64_big_sur: "a67f8784f0a716ed85a181bd5010b9f5ca700f0f44a107dcaf78560ba349e876"
+    sha256 big_sur:       "82b2a0b491752d77b6d47a0a4fc1cffe0656e0a04a5e49f2a6802f9b302378c0"
+    sha256 catalina:      "014b4af9e8f774591bb335fc49b2f010bf54cade6149dc0367cabee0a604f5f9"
+    sha256 mojave:        "060f97c76ca3086fc58ab20be2dad388a1299e4731f4571bca9d807f168d788e"
   end
 
   depends_on "pkg-config" => :build

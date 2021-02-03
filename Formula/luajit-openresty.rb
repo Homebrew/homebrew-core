@@ -8,11 +8,10 @@ class LuajitOpenresty < Formula
   head "https://github.com/openresty/luajit2.git", branch: "v2.1-agentzh"
 
   bottle do
-    cellar :any
-    sha256 "969786cd904fce0a2ec3cdeba2348603d767fff7b8a954194228ff05e151518d" => :big_sur
-    sha256 "d9700884c04219e458886ba68abdfc980a5ba40cdc073edb2ac70e63a4283e26" => :arm64_big_sur
-    sha256 "f6c7e24c8ba0faaeb9b831851c50175c942acccb2c916127e409214edd5bbf7d" => :catalina
-    sha256 "3efbb3a071c3ec6a2a9bdb9aa3724a1c8f36634e8377a27751b89d1c26e40fe8" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "d9700884c04219e458886ba68abdfc980a5ba40cdc073edb2ac70e63a4283e26"
+    sha256 cellar: :any, big_sur:       "969786cd904fce0a2ec3cdeba2348603d767fff7b8a954194228ff05e151518d"
+    sha256 cellar: :any, catalina:      "f6c7e24c8ba0faaeb9b831851c50175c942acccb2c916127e409214edd5bbf7d"
+    sha256 cellar: :any, mojave:        "3efbb3a071c3ec6a2a9bdb9aa3724a1c8f36634e8377a27751b89d1c26e40fe8"
   end
 
   keg_only "it conflicts with the LuaJIT formula"

@@ -12,10 +12,9 @@ class Cdktf < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2c0c649ff73fa68eea32584e0cbac50f86a5ca920c0493ed0146cf642b06a7d4" => :big_sur
-    sha256 "c84e60b9eded34da028aeb2aeed72931602b42020fa91df0d2d30b6717ff5e83" => :catalina
-    sha256 "3b6243b546cc8a34c8bbee4bb5df75ef2c098f455fad44f247ede3d8ff8c330d" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur:  "2c0c649ff73fa68eea32584e0cbac50f86a5ca920c0493ed0146cf642b06a7d4"
+    sha256 cellar: :any_skip_relocation, catalina: "c84e60b9eded34da028aeb2aeed72931602b42020fa91df0d2d30b6717ff5e83"
+    sha256 cellar: :any_skip_relocation, mojave:   "3b6243b546cc8a34c8bbee4bb5df75ef2c098f455fad44f247ede3d8ff8c330d"
   end
 
   depends_on "node"

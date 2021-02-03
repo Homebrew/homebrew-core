@@ -12,10 +12,10 @@ class Libwebsockets < Formula
   end
 
   bottle do
-    sha256 "df63df86c111e9167d3a418f957ccab9ba1ce2d640d6824be2ab88dc4de00205" => :big_sur
-    sha256 "b9982b4bee7467522f5aa17ad1679378a7051a1b17196bb2f1efec44a1e89364" => :arm64_big_sur
-    sha256 "52c228ffcf9c7cfcdc9f11474bdf644118b2f887209d13d5855d98a773331cab" => :catalina
-    sha256 "6e1470908d767ad72e1a3cb7d9291a6f43906a46329b6b677f40f4932be06df4" => :mojave
+    sha256 arm64_big_sur: "b9982b4bee7467522f5aa17ad1679378a7051a1b17196bb2f1efec44a1e89364"
+    sha256 big_sur:       "df63df86c111e9167d3a418f957ccab9ba1ce2d640d6824be2ab88dc4de00205"
+    sha256 catalina:      "52c228ffcf9c7cfcdc9f11474bdf644118b2f887209d13d5855d98a773331cab"
+    sha256 mojave:        "6e1470908d767ad72e1a3cb7d9291a6f43906a46329b6b677f40f4932be06df4"
   end
 
   depends_on "cmake" => :build

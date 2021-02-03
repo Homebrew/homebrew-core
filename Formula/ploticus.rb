@@ -10,15 +10,15 @@ class Ploticus < Formula
   end
 
   bottle do
-    sha256 "8b86736a916ccd6455e8fa3fa79234abae9e9c55e963a696d9c393ec97818aeb" => :big_sur
-    sha256 "3b0d37697feadd571e84831579e10d1e0e3180833794e8784a2e8a7b5205e7c6" => :arm64_big_sur
-    sha256 "5b23a77e8f83f384d8b3da9af8d1bd89832099a5dec99f1711a72f50a4d682fe" => :catalina
-    sha256 "b9ba4732a13508d6aba81b81c31a71ca65543fbcda431d57263f28255072087f" => :mojave
-    sha256 "bfdaab8cdaf7c0c97e02caea8fa79e76e7ac85704d21591ced4a59914b4c5c26" => :high_sierra
-    sha256 "06456d2606a86782cd75ee63f67e738e7ce33271902d3f4e7807d2061c0a5f4a" => :sierra
-    sha256 "088f4ba0eea75ed4b401f94331b70dd64e23f02fa0d95731fbaccf6904c8cea5" => :el_capitan
-    sha256 "b15be72d80abf16b348c625945de811bf1fb411b1cb329adc701bc04cfb41dd8" => :yosemite
-    sha256 "c2b4982907f4a9de66973cf55729fed03f17c42704593d6dbcce955ce53cd9bb" => :mavericks
+    sha256 arm64_big_sur: "3b0d37697feadd571e84831579e10d1e0e3180833794e8784a2e8a7b5205e7c6"
+    sha256 big_sur:       "8b86736a916ccd6455e8fa3fa79234abae9e9c55e963a696d9c393ec97818aeb"
+    sha256 catalina:      "5b23a77e8f83f384d8b3da9af8d1bd89832099a5dec99f1711a72f50a4d682fe"
+    sha256 mojave:        "b9ba4732a13508d6aba81b81c31a71ca65543fbcda431d57263f28255072087f"
+    sha256 high_sierra:   "bfdaab8cdaf7c0c97e02caea8fa79e76e7ac85704d21591ced4a59914b4c5c26"
+    sha256 sierra:        "06456d2606a86782cd75ee63f67e738e7ce33271902d3f4e7807d2061c0a5f4a"
+    sha256 el_capitan:    "088f4ba0eea75ed4b401f94331b70dd64e23f02fa0d95731fbaccf6904c8cea5"
+    sha256 yosemite:      "b15be72d80abf16b348c625945de811bf1fb411b1cb329adc701bc04cfb41dd8"
+    sha256 mavericks:     "c2b4982907f4a9de66973cf55729fed03f17c42704593d6dbcce955ce53cd9bb"
   end
 
   depends_on "libpng"

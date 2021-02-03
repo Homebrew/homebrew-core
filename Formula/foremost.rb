@@ -12,12 +12,11 @@ class Foremost < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 3
-    sha256 "c8f1ad7327f5cc999d9c54486bfcf2a1c6ab4ff3e76b455b3ba79f930befba14" => :big_sur
-    sha256 "eaa53c5ccfead5cbb2e83d5b2fe176e55e5b7f1968b8badb07e8ada47aaea79b" => :arm64_big_sur
-    sha256 "9ccac7b43068a6c89c5b48b33af7bfac09ab7e69fb36b1376e79646c6a01f049" => :catalina
-    sha256 "a552aed53b1ca671b4c23e0dd61ce2e82ea09a0c2798615a6a44860475aeaea7" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "eaa53c5ccfead5cbb2e83d5b2fe176e55e5b7f1968b8badb07e8ada47aaea79b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c8f1ad7327f5cc999d9c54486bfcf2a1c6ab4ff3e76b455b3ba79f930befba14"
+    sha256 cellar: :any_skip_relocation, catalina:      "9ccac7b43068a6c89c5b48b33af7bfac09ab7e69fb36b1376e79646c6a01f049"
+    sha256 cellar: :any_skip_relocation, mojave:        "a552aed53b1ca671b4c23e0dd61ce2e82ea09a0c2798615a6a44860475aeaea7"
   end
 
   def install

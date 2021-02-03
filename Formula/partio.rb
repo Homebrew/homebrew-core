@@ -7,10 +7,9 @@ class Partio < Formula
   revision 1
 
   bottle do
-    cellar :any
-    sha256 "276da2b191f9f6e3505231f97c1bec04beb57516876ad6a29b58f4ce7c39b5a8" => :big_sur
-    sha256 "72063f3cbd49f67e851bf483808f4c08d9052a84c127cf60c73d5f7527459a16" => :catalina
-    sha256 "8f70ed6cbfa1bb929a2a10ddcfa0a1cb527eca76abf02bb7d5b723edf981b612" => :mojave
+    sha256 cellar: :any, big_sur:  "276da2b191f9f6e3505231f97c1bec04beb57516876ad6a29b58f4ce7c39b5a8"
+    sha256 cellar: :any, catalina: "72063f3cbd49f67e851bf483808f4c08d9052a84c127cf60c73d5f7527459a16"
+    sha256 cellar: :any, mojave:   "8f70ed6cbfa1bb929a2a10ddcfa0a1cb527eca76abf02bb7d5b723edf981b612"
   end
 
   depends_on "cmake" => :build

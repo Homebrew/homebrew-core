@@ -11,14 +11,13 @@ class Mupen64plus < Formula
   end
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "5a9a16e37b0274e5c21b44f9b076f5b0b6140ff8017041f2cfb1c33963acfb9c" => :big_sur
-    sha256 "999b60faedf8eb2299f854991995c44b81898de85a73ca0568902e5b63641e42" => :catalina
-    sha256 "c88a4d9a47cdcc6b995615d5fd4b061a7046ec72fac75560d79998b7abf60b78" => :mojave
-    sha256 "4dc531259b558fe987eecd74d87afb70284d36ec4e0c3008de751b820f83e64b" => :high_sierra
-    sha256 "28006559bb0cc624432b1a8b0a7dfd08e9a5a3d59d7dbaf5cde64ac29dc747d1" => :sierra
-    sha256 "6d9d9900813b21abc89149ded185d4b74147a85c1a350d54511ee535acde171c" => :el_capitan
+    sha256 cellar: :any, big_sur:     "5a9a16e37b0274e5c21b44f9b076f5b0b6140ff8017041f2cfb1c33963acfb9c"
+    sha256 cellar: :any, catalina:    "999b60faedf8eb2299f854991995c44b81898de85a73ca0568902e5b63641e42"
+    sha256 cellar: :any, mojave:      "c88a4d9a47cdcc6b995615d5fd4b061a7046ec72fac75560d79998b7abf60b78"
+    sha256 cellar: :any, high_sierra: "4dc531259b558fe987eecd74d87afb70284d36ec4e0c3008de751b820f83e64b"
+    sha256 cellar: :any, sierra:      "28006559bb0cc624432b1a8b0a7dfd08e9a5a3d59d7dbaf5cde64ac29dc747d1"
+    sha256 cellar: :any, el_capitan:  "6d9d9900813b21abc89149ded185d4b74147a85c1a350d54511ee535acde171c"
   end
 
   depends_on "pkg-config" => :build

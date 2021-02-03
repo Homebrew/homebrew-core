@@ -12,10 +12,10 @@ class WebtorrentCli < Formula
   end
 
   bottle do
-    sha256 "3dd729e08d336c0beabb3a61334fdf730727abb79c1ee36d9459d7237fc27ce1" => :big_sur
-    sha256 "1917b69a1707715ba84f5996a6aeb0657396fa519e9f4779a7c9d0286f258dc3" => :arm64_big_sur
-    sha256 "224cc9e37aff1c57337f28354eb9a0e56271740d1a1c7b58da4b00a432bc0dfe" => :catalina
-    sha256 "c2d991caef7824c847786f66bfc7127caa0db131dd114b472858921110355d0c" => :mojave
+    sha256 arm64_big_sur: "1917b69a1707715ba84f5996a6aeb0657396fa519e9f4779a7c9d0286f258dc3"
+    sha256 big_sur:       "3dd729e08d336c0beabb3a61334fdf730727abb79c1ee36d9459d7237fc27ce1"
+    sha256 catalina:      "224cc9e37aff1c57337f28354eb9a0e56271740d1a1c7b58da4b00a432bc0dfe"
+    sha256 mojave:        "c2d991caef7824c847786f66bfc7127caa0db131dd114b472858921110355d0c"
   end
 
   depends_on "node"

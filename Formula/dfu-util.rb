@@ -10,11 +10,10 @@ class DfuUtil < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "1e960a2b57fd6fa0fbfe5a9bb7aa0e35e24664ee65d686eb8fbef724152bc0d0" => :big_sur
-    sha256 "387d614558287e0b5b7f6911d30f0f362d37771f21e7ee11f678859c0447ecea" => :arm64_big_sur
-    sha256 "3baa1c97498ad73a60b12c1d1ffa192a9b57946be6ced7ab826f3e1135113a74" => :catalina
-    sha256 "6bc199867512701a02e09aeea49adfefb5d38f413e8401b35025a827fbcc4036" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "387d614558287e0b5b7f6911d30f0f362d37771f21e7ee11f678859c0447ecea"
+    sha256 cellar: :any, big_sur:       "1e960a2b57fd6fa0fbfe5a9bb7aa0e35e24664ee65d686eb8fbef724152bc0d0"
+    sha256 cellar: :any, catalina:      "3baa1c97498ad73a60b12c1d1ffa192a9b57946be6ced7ab826f3e1135113a74"
+    sha256 cellar: :any, mojave:        "6bc199867512701a02e09aeea49adfefb5d38f413e8401b35025a827fbcc4036"
   end
 
   head do

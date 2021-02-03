@@ -12,12 +12,11 @@ class Never < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c861febee970af49c7a0f6003f8cabedda1b6f09d262c6f10c184103f68df306" => :big_sur
-    sha256 "f54d3641b651b918ece0a629b57f6ad111766b28ab9da6ce240dbaa4eafed776" => :arm64_big_sur
-    sha256 "27edab01757524441aafd95606dd1bea9d75e3e59e45b5ddbed4887eb15f0e60" => :catalina
-    sha256 "5daef4a51095d73edd0e2a4b4fbf3b26abb3f038c0da41aa9cba4d77d7c1fd4b" => :mojave
-    sha256 "a4aae9a3453fd5b3a0014e071c9ccb5be132a442d9d5ae54e810289a21b4215d" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f54d3641b651b918ece0a629b57f6ad111766b28ab9da6ce240dbaa4eafed776"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c861febee970af49c7a0f6003f8cabedda1b6f09d262c6f10c184103f68df306"
+    sha256 cellar: :any_skip_relocation, catalina:      "27edab01757524441aafd95606dd1bea9d75e3e59e45b5ddbed4887eb15f0e60"
+    sha256 cellar: :any_skip_relocation, mojave:        "5daef4a51095d73edd0e2a4b4fbf3b26abb3f038c0da41aa9cba4d77d7c1fd4b"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "a4aae9a3453fd5b3a0014e071c9ccb5be132a442d9d5ae54e810289a21b4215d"
   end
 
   depends_on "cmake" => :build

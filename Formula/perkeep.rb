@@ -17,11 +17,10 @@ class Perkeep < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "893d6cfc23b18401987de13cb5630bb259f9d3d4d0de56ebaa7d2f3f7e93333a" => :big_sur
-    sha256 "9df8643ff9e18a35f5c36e7ad3f894ac9c1ca6ec005964d0d7d67e7f1df34c4a" => :arm64_big_sur
-    sha256 "c676479c6b5f7e5bbee45c7b0d31b26c05915195c2ab7b61156ac46257b14cb6" => :catalina
-    sha256 "e05528f7efbb84fa9bbb39a68f3d0bb48073806a204eba8d0f70a52871ed83fc" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9df8643ff9e18a35f5c36e7ad3f894ac9c1ca6ec005964d0d7d67e7f1df34c4a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "893d6cfc23b18401987de13cb5630bb259f9d3d4d0de56ebaa7d2f3f7e93333a"
+    sha256 cellar: :any_skip_relocation, catalina:      "c676479c6b5f7e5bbee45c7b0d31b26c05915195c2ab7b61156ac46257b14cb6"
+    sha256 cellar: :any_skip_relocation, mojave:        "e05528f7efbb84fa9bbb39a68f3d0bb48073806a204eba8d0f70a52871ed83fc"
   end
 
   depends_on "go" => :build

@@ -11,10 +11,10 @@ class Hspell < Formula
 
   bottle do
     rebuild 1
-    sha256 "426c87d91350f33392c862296b5d1b0081bc953adae5c04a9769ebb2a626213f" => :big_sur
-    sha256 "421fdc3ab5d0ebde258ce7bdb235d2b50144966a27a74cbbe5c607dff0984c7f" => :arm64_big_sur
-    sha256 "a0406d5a4d5adefa40b5e820510a9b7f461fcea6a61112103c112775fff49ae8" => :catalina
-    sha256 "32e8037e9d494241b975c7558635456991285d53c9bbc89005cd6c86744f30e3" => :mojave
+    sha256 arm64_big_sur: "421fdc3ab5d0ebde258ce7bdb235d2b50144966a27a74cbbe5c607dff0984c7f"
+    sha256 big_sur:       "426c87d91350f33392c862296b5d1b0081bc953adae5c04a9769ebb2a626213f"
+    sha256 catalina:      "a0406d5a4d5adefa40b5e820510a9b7f461fcea6a61112103c112775fff49ae8"
+    sha256 mojave:        "32e8037e9d494241b975c7558635456991285d53c9bbc89005cd6c86744f30e3"
   end
 
   depends_on "autoconf" => :build

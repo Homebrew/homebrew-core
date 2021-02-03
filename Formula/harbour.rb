@@ -18,12 +18,11 @@ class Harbour < Formula
   end
 
   bottle do
-    cellar :any
     rebuild 2
-    sha256 "a782b441606f27f4c2b4708faa78b980b675c5e1e4b8a3d9ab4f2df7f6df8b0a" => :catalina
-    sha256 "38063770c90226c48e9d73c6789a015141ac0db6478d075fe18f5d8718e2472d" => :mojave
-    sha256 "efcb46128115bea60eab289f581c4bed82fa846af095055feee116cbf90ed9ac" => :high_sierra
-    sha256 "ddf71a29c41a874b1d6e787d07f8f66d284ac2bbc24c7a77c1dedfe8d243c76a" => :sierra
+    sha256 cellar: :any, catalina:    "a782b441606f27f4c2b4708faa78b980b675c5e1e4b8a3d9ab4f2df7f6df8b0a"
+    sha256 cellar: :any, mojave:      "38063770c90226c48e9d73c6789a015141ac0db6478d075fe18f5d8718e2472d"
+    sha256 cellar: :any, high_sierra: "efcb46128115bea60eab289f581c4bed82fa846af095055feee116cbf90ed9ac"
+    sha256 cellar: :any, sierra:      "ddf71a29c41a874b1d6e787d07f8f66d284ac2bbc24c7a77c1dedfe8d243c76a"
   end
 
   depends_on "pcre"

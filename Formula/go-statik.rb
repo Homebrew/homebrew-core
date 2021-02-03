@@ -6,12 +6,11 @@ class GoStatik < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "0f05d7b15227e1bdf7be3876d90135232083ae1789c08d32641777b9291ef8a7" => :big_sur
-    sha256 "5960b8ab88990df3e2a3ef0578da24b674d72c620466af263fdad6b479133fe9" => :arm64_big_sur
-    sha256 "d6d3e13adce186f49cf35be7be414baec7cfa02e8d884e0a97ec9f15108f4cb4" => :catalina
-    sha256 "93f27ec30935befbde2afab7ac3382a2e576b8a51024db2dd8a911860fb5b10f" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5960b8ab88990df3e2a3ef0578da24b674d72c620466af263fdad6b479133fe9"
+    sha256 cellar: :any_skip_relocation, big_sur:       "0f05d7b15227e1bdf7be3876d90135232083ae1789c08d32641777b9291ef8a7"
+    sha256 cellar: :any_skip_relocation, catalina:      "d6d3e13adce186f49cf35be7be414baec7cfa02e8d884e0a97ec9f15108f4cb4"
+    sha256 cellar: :any_skip_relocation, mojave:        "93f27ec30935befbde2afab7ac3382a2e576b8a51024db2dd8a911860fb5b10f"
   end
 
   depends_on "go" => :build

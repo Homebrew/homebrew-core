@@ -6,12 +6,11 @@ class Mpir < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    cellar :any
     rebuild 2
-    sha256 "2364f0bb79cf8a0ef739f077eaacc7228fd89d39d18d0b9f1e135a2577472684" => :big_sur
-    sha256 "dcfb7c5e0b679f0d3cc14ec76fa3a565f8b521ba19a2d6212e6f39b27f220a6c" => :arm64_big_sur
-    sha256 "884e9e0b62c809c531c55d6da43fbebadd5428976afbf95d2dc8968599e6e013" => :catalina
-    sha256 "1b930468cbd16840c9c689b8b24c91ce45a136b7512ccd06b6c13a14cd5405e2" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "dcfb7c5e0b679f0d3cc14ec76fa3a565f8b521ba19a2d6212e6f39b27f220a6c"
+    sha256 cellar: :any, big_sur:       "2364f0bb79cf8a0ef739f077eaacc7228fd89d39d18d0b9f1e135a2577472684"
+    sha256 cellar: :any, catalina:      "884e9e0b62c809c531c55d6da43fbebadd5428976afbf95d2dc8968599e6e013"
+    sha256 cellar: :any, mojave:        "1b930468cbd16840c9c689b8b24c91ce45a136b7512ccd06b6c13a14cd5405e2"
   end
 
   depends_on "autoconf" => :build

@@ -6,12 +6,11 @@ class BerkeleyDbAT4 < Formula
   license "Sleepycat"
 
   bottle do
-    cellar :any
     rebuild 2
-    sha256 "8a95577ecc798d7dd61b100d282c3b667eb278b3d719a41331db2cc57e0843c1" => :big_sur
-    sha256 "4cc3d7123506a695892eb450c704ae6a2f26fd865dcab7bb9290431c5ed4add5" => :arm64_big_sur
-    sha256 "3ef8ec895927523c7a7c2c8c18af534ed00abd9b0d35664a3464595906adcee4" => :catalina
-    sha256 "06af286b14463aec20a0bc9560a6c4081fb392325a8bb8403dd7f02ac4076711" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "4cc3d7123506a695892eb450c704ae6a2f26fd865dcab7bb9290431c5ed4add5"
+    sha256 cellar: :any, big_sur:       "8a95577ecc798d7dd61b100d282c3b667eb278b3d719a41331db2cc57e0843c1"
+    sha256 cellar: :any, catalina:      "3ef8ec895927523c7a7c2c8c18af534ed00abd9b0d35664a3464595906adcee4"
+    sha256 cellar: :any, mojave:        "06af286b14463aec20a0bc9560a6c4081fb392325a8bb8403dd7f02ac4076711"
   end
 
   keg_only :versioned_formula

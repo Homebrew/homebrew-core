@@ -10,13 +10,12 @@ class Contacts < Formula
   license "GPL-2.0-only"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "02f0086162efb3e8473f846252a6c4813e85a1bbf57a38e3420f20946eafa60f" => :catalina
-    sha256 "ad45d22cee04997d286b7e07f19328cd59dcb3a335a6a93e5ed24a8b995080f1" => :mojave
-    sha256 "27b7b256aa6f034b245c6cc1e6c7def038bbf183e73f94db942a220aa876ef0d" => :high_sierra
-    sha256 "21bf2ec23b9f096ed09acd44dbd7c2cc59891c01a821a6695e58d69c54647c0e" => :sierra
-    sha256 "7f6c6817310dacf83041d2017e8841b49e26df0d09039692576b6fe0fed52ecc" => :el_capitan
-    sha256 "9a9c89e40f9ccf4ec45cf63414eaf31266dfc9b71dc96d8c02f7ab2b38e8f346" => :mavericks
+    sha256 cellar: :any_skip_relocation, catalina:    "02f0086162efb3e8473f846252a6c4813e85a1bbf57a38e3420f20946eafa60f"
+    sha256 cellar: :any_skip_relocation, mojave:      "ad45d22cee04997d286b7e07f19328cd59dcb3a335a6a93e5ed24a8b995080f1"
+    sha256 cellar: :any_skip_relocation, high_sierra: "27b7b256aa6f034b245c6cc1e6c7def038bbf183e73f94db942a220aa876ef0d"
+    sha256 cellar: :any_skip_relocation, sierra:      "21bf2ec23b9f096ed09acd44dbd7c2cc59891c01a821a6695e58d69c54647c0e"
+    sha256 cellar: :any_skip_relocation, el_capitan:  "7f6c6817310dacf83041d2017e8841b49e26df0d09039692576b6fe0fed52ecc"
+    sha256 cellar: :any_skip_relocation, mavericks:   "9a9c89e40f9ccf4ec45cf63414eaf31266dfc9b71dc96d8c02f7ab2b38e8f346"
   end
 
   disable! date: "2020-12-08", because: :unmaintained

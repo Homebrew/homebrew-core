@@ -7,10 +7,10 @@ class Cmus < Formula
   head "https://github.com/cmus/cmus.git"
 
   bottle do
-    sha256 "39c4a5d3220e312651d65e83987f9deb6671a15229a268c050edbfe43ea259b2" => :big_sur
-    sha256 "ecccaccd592e7f937d93e0baf6c839d022bfd0142fb4c1ba1fb737bc5320cb8d" => :arm64_big_sur
-    sha256 "b08d0e0bde83d0dd8bffdbb68e93c0a56675460ac5c7d89c0f734c8e9ef75cca" => :catalina
-    sha256 "068793d374ba393662864da1a542a1bf036508bbd02ee9ac17249694ec93f5d2" => :mojave
+    sha256 arm64_big_sur: "ecccaccd592e7f937d93e0baf6c839d022bfd0142fb4c1ba1fb737bc5320cb8d"
+    sha256 big_sur:       "39c4a5d3220e312651d65e83987f9deb6671a15229a268c050edbfe43ea259b2"
+    sha256 catalina:      "b08d0e0bde83d0dd8bffdbb68e93c0a56675460ac5c7d89c0f734c8e9ef75cca"
+    sha256 mojave:        "068793d374ba393662864da1a542a1bf036508bbd02ee9ac17249694ec93f5d2"
   end
 
   depends_on "pkg-config" => :build

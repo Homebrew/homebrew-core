@@ -6,11 +6,10 @@ class So < Formula
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2c871ccb23c125efc71cd7fbd422a5c53ee0b66154a91fe28a2fb2a39f38c4c8" => :big_sur
-    sha256 "a1239eda940abb6aedef2fb2148e70ddad9ccf30e733ea1db043a1f3e35377ba" => :arm64_big_sur
-    sha256 "826d559e0fe079bbec1c8a43cbde4bd44a4d54d2d36d8a0c19e6ff43544d30b0" => :catalina
-    sha256 "061e084d661c9b1eddca4329492935a3ec1a1f3880399d7a21c63b58c8763be6" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a1239eda940abb6aedef2fb2148e70ddad9ccf30e733ea1db043a1f3e35377ba"
+    sha256 cellar: :any_skip_relocation, big_sur:       "2c871ccb23c125efc71cd7fbd422a5c53ee0b66154a91fe28a2fb2a39f38c4c8"
+    sha256 cellar: :any_skip_relocation, catalina:      "826d559e0fe079bbec1c8a43cbde4bd44a4d54d2d36d8a0c19e6ff43544d30b0"
+    sha256 cellar: :any_skip_relocation, mojave:        "061e084d661c9b1eddca4329492935a3ec1a1f3880399d7a21c63b58c8763be6"
   end
 
   depends_on "rust" => :build

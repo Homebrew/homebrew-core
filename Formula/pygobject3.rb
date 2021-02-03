@@ -11,12 +11,11 @@ class Pygobject3 < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "d9eb35a72a4970c2c6c537b7b8938f9147390a2cd4027d33bb119417c5693aa1" => :big_sur
-    sha256 "7b65e09a52672b0b31ebeb73308d25adae46baf3d0a7d544da0c3a50617d90c4" => :arm64_big_sur
-    sha256 "e4e592579b949b2b7df8cbd3b3956d3ee285054a4c1e3ecfbc9647a4e9bcf24e" => :catalina
-    sha256 "6c7132a187cc3cd7885d980b449022ca20d458e1657007000e471234f0504bed" => :mojave
-    sha256 "6f26840f9ae7c64ce17121d9ae60690447eb58269099fc96ed488308c755c8ac" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "7b65e09a52672b0b31ebeb73308d25adae46baf3d0a7d544da0c3a50617d90c4"
+    sha256 cellar: :any, big_sur:       "d9eb35a72a4970c2c6c537b7b8938f9147390a2cd4027d33bb119417c5693aa1"
+    sha256 cellar: :any, catalina:      "e4e592579b949b2b7df8cbd3b3956d3ee285054a4c1e3ecfbc9647a4e9bcf24e"
+    sha256 cellar: :any, mojave:        "6c7132a187cc3cd7885d980b449022ca20d458e1657007000e471234f0504bed"
+    sha256 cellar: :any, high_sierra:   "6f26840f9ae7c64ce17121d9ae60690447eb58269099fc96ed488308c755c8ac"
   end
 
   depends_on "meson" => :build

@@ -8,10 +8,9 @@ class Corectl < Formula
   head "https://github.com/TheNewNormal/corectl.git", branch: "golang"
 
   bottle do
-    cellar :any
-    sha256 "b3d030cf97c738ef427b24cd492a7b746b738be84f234f5904eedbff14661570" => :mojave
-    sha256 "74527235d27b207a4b4331f16cfbb4f5b72b1dac36f9c9a4470626c32e882d5f" => :high_sierra
-    sha256 "89e963f61102d26d5fe756b06f50aa73bf9f827f81f92cefa2da6c195b7865da" => :sierra
+    sha256 cellar: :any, mojave:      "b3d030cf97c738ef427b24cd492a7b746b738be84f234f5904eedbff14661570"
+    sha256 cellar: :any, high_sierra: "74527235d27b207a4b4331f16cfbb4f5b72b1dac36f9c9a4470626c32e882d5f"
+    sha256 cellar: :any, sierra:      "89e963f61102d26d5fe756b06f50aa73bf9f827f81f92cefa2da6c195b7865da"
   end
 
   deprecate! date: "2020-11-14", because: :unmaintained

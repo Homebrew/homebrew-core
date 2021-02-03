@@ -8,11 +8,10 @@ class Fceux < Formula
   head "https://github.com/TASVideos/fceux.git"
 
   bottle do
-    cellar :any
-    sha256 "ebc63da5d126fd47a5df151fabb90a711b4da9859465d42bd8654c55ade77c62" => :big_sur
-    sha256 "a369411e4073f2c00f531efce9a9106905f79278db34e9631deb86c6a3f2b884" => :arm64_big_sur
-    sha256 "cfec571f34128f228777843a9089a6c48f0799a2c0d873b65f5ebfde2357a849" => :catalina
-    sha256 "ea023c53472bdb9ed928f31bdd9e149c28376b45e9f419c799efc77f70b76110" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "a369411e4073f2c00f531efce9a9106905f79278db34e9631deb86c6a3f2b884"
+    sha256 cellar: :any, big_sur:       "ebc63da5d126fd47a5df151fabb90a711b4da9859465d42bd8654c55ade77c62"
+    sha256 cellar: :any, catalina:      "cfec571f34128f228777843a9089a6c48f0799a2c0d873b65f5ebfde2357a849"
+    sha256 cellar: :any, mojave:        "ea023c53472bdb9ed928f31bdd9e149c28376b45e9f419c799efc77f70b76110"
   end
 
   depends_on "cmake" => :build

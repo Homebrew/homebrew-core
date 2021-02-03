@@ -7,11 +7,10 @@ class Counterfeiter < Formula
   head "https://github.com/maxbrunsfeld/counterfeiter.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "7c5bad9e7f55695e1cfdd2eed013d16ca3b5cf6853a6834a0ba7b1de294afeab" => :big_sur
-    sha256 "79e5bf8e174902a8db25c31f379a29b7a59ca1007c75f0e32a1a2a66df5d14f7" => :arm64_big_sur
-    sha256 "c8d8b1fedc2205d8ee93b686df168d8045eea70494cd27cb93ba308d305a9ccd" => :catalina
-    sha256 "b6cbfda0d1461c9afaf3f00bf8fe215ffcf7d3a1732b2dd829747740d2ba69c5" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "79e5bf8e174902a8db25c31f379a29b7a59ca1007c75f0e32a1a2a66df5d14f7"
+    sha256 cellar: :any_skip_relocation, big_sur:       "7c5bad9e7f55695e1cfdd2eed013d16ca3b5cf6853a6834a0ba7b1de294afeab"
+    sha256 cellar: :any_skip_relocation, catalina:      "c8d8b1fedc2205d8ee93b686df168d8045eea70494cd27cb93ba308d305a9ccd"
+    sha256 cellar: :any_skip_relocation, mojave:        "b6cbfda0d1461c9afaf3f00bf8fe215ffcf7d3a1732b2dd829747740d2ba69c5"
   end
 
   depends_on "go"

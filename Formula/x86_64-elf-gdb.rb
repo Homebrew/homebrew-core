@@ -12,11 +12,11 @@ class X8664ElfGdb < Formula
   end
 
   bottle do
-    sha256 "d9c893cd48502f675e5ccfbf139c70dc811683ff8427ee12053af00d63800d4b" => :big_sur
-    sha256 "922a0ed485b4ff144fcf876db7c50465e1a60566b9ea1ee25b57bd356f159a59" => :arm64_big_sur
-    sha256 "fc5398cdb8a918f3e0153c3467074145e69112fd42866c3dc8fee5a66869e8da" => :catalina
-    sha256 "7f6d20cc6f1d7f23834614f2f159d8438732e31bb3375c380d64e8dd010232c1" => :mojave
-    sha256 "bc725f791779a9400ab2b11d485ebba7e71aced9e6cef3365db614dbb273205c" => :high_sierra
+    sha256 arm64_big_sur: "922a0ed485b4ff144fcf876db7c50465e1a60566b9ea1ee25b57bd356f159a59"
+    sha256 big_sur:       "d9c893cd48502f675e5ccfbf139c70dc811683ff8427ee12053af00d63800d4b"
+    sha256 catalina:      "fc5398cdb8a918f3e0153c3467074145e69112fd42866c3dc8fee5a66869e8da"
+    sha256 mojave:        "7f6d20cc6f1d7f23834614f2f159d8438732e31bb3375c380d64e8dd010232c1"
+    sha256 high_sierra:   "bc725f791779a9400ab2b11d485ebba7e71aced9e6cef3365db614dbb273205c"
   end
 
   depends_on "python@3.9"

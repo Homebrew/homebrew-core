@@ -6,10 +6,10 @@ class Vale < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur: "2392a04b032d4405ffa4db3abae9f72253d49f8b12a66dcb5c5a960ae5e4fb60"
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "44ce5d217119a6d62792bb5e0b50654f128dce259e95f67680f0a617f3d1c436"
-    sha256 cellar: :any_skip_relocation, catalina: "7ddfb6f000d0b7f1b2f3ab2fed8ad0809bbe72845eb68d93828b1668057f2841"
-    sha256 cellar: :any_skip_relocation, mojave: "432767548946854640f80fe77fa0fe4751994163d4b32133df0a80a11b447609"
+    sha256 cellar: :any_skip_relocation, big_sur:       "2392a04b032d4405ffa4db3abae9f72253d49f8b12a66dcb5c5a960ae5e4fb60"
+    sha256 cellar: :any_skip_relocation, catalina:      "7ddfb6f000d0b7f1b2f3ab2fed8ad0809bbe72845eb68d93828b1668057f2841"
+    sha256 cellar: :any_skip_relocation, mojave:        "432767548946854640f80fe77fa0fe4751994163d4b32133df0a80a11b447609"
   end
 
   depends_on "go" => :build

@@ -12,10 +12,10 @@ class Krb5 < Formula
 
   bottle do
     rebuild 1
-    sha256 "a72fae06ddd1d796a6c1ab55a9c8bc15e8e051c67e72412dbc86cea9bcd04c62" => :big_sur
-    sha256 "1ef5fefe3b5811f6588e0182b4594caa831282bc55a2787d83c9df9f666b221e" => :arm64_big_sur
-    sha256 "67f67b210947e2bd62d974b2494f1192f169fae35605f38f7b2f0a9a73eb0633" => :catalina
-    sha256 "3d09843ed22dfe2ce8c193eb3c6183eee9c278e06f179773930a8017d649d312" => :mojave
+    sha256 arm64_big_sur: "1ef5fefe3b5811f6588e0182b4594caa831282bc55a2787d83c9df9f666b221e"
+    sha256 big_sur:       "a72fae06ddd1d796a6c1ab55a9c8bc15e8e051c67e72412dbc86cea9bcd04c62"
+    sha256 catalina:      "67f67b210947e2bd62d974b2494f1192f169fae35605f38f7b2f0a9a73eb0633"
+    sha256 mojave:        "3d09843ed22dfe2ce8c193eb3c6183eee9c278e06f179773930a8017d649d312"
   end
 
   keg_only :provided_by_macos

@@ -8,11 +8,10 @@ class Doxygen < Formula
   head "https://github.com/doxygen/doxygen.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "b8e1ea1bb601d8cc7cd7cf66b67a544e9e5534c2793cee5ac90bef5d076ad1e5" => :big_sur
-    sha256 "2b5b2de93ac8703785860bfaf3e14f3268a07dc29bac9def13172785bcac7c5f" => :arm64_big_sur
-    sha256 "10e13f7bf6977bee6487366b3fc1dc55b4c191d5d505cb816997838504b3e0a4" => :catalina
-    sha256 "0422adc9bfa6e1558cdcca24f8f4266f0927cf4c10fe3e245fe8e3017a7717b5" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2b5b2de93ac8703785860bfaf3e14f3268a07dc29bac9def13172785bcac7c5f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b8e1ea1bb601d8cc7cd7cf66b67a544e9e5534c2793cee5ac90bef5d076ad1e5"
+    sha256 cellar: :any_skip_relocation, catalina:      "10e13f7bf6977bee6487366b3fc1dc55b4c191d5d505cb816997838504b3e0a4"
+    sha256 cellar: :any_skip_relocation, mojave:        "0422adc9bfa6e1558cdcca24f8f4266f0927cf4c10fe3e245fe8e3017a7717b5"
   end
 
   depends_on "bison" => :build

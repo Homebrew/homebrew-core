@@ -11,11 +11,10 @@ class GstRtspServer < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "897354f53384202684bce2bf34017b25cb47cdb5cb59ce8ba74ad8804efe96c4" => :big_sur
-    sha256 "ef58d908e4c349d21b9fc01986c09d1915b3f00c36e48d05d23637048a13b841" => :arm64_big_sur
-    sha256 "36ff2dc19e36d15d80f65b0c49e4a99c2145bc241bba2057542cb686c71b7ab6" => :catalina
-    sha256 "39c1d8288fc58c0c56e364381fa9d2f9e7632a73fa40d5440268a69a252c7f34" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "ef58d908e4c349d21b9fc01986c09d1915b3f00c36e48d05d23637048a13b841"
+    sha256 cellar: :any, big_sur:       "897354f53384202684bce2bf34017b25cb47cdb5cb59ce8ba74ad8804efe96c4"
+    sha256 cellar: :any, catalina:      "36ff2dc19e36d15d80f65b0c49e4a99c2145bc241bba2057542cb686c71b7ab6"
+    sha256 cellar: :any, mojave:        "39c1d8288fc58c0c56e364381fa9d2f9e7632a73fa40d5440268a69a252c7f34"
   end
 
   depends_on "gobject-introspection" => :build

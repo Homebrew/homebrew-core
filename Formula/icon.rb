@@ -11,11 +11,10 @@ class Icon < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "14023318a41cfb25dc16580def3078398493ed67a6c17bcf4fef748ef8bf2779" => :big_sur
-    sha256 "1d414ead849c9d0c8f20fdbba672c2ffc0cc32d3522cb8bf3aa0dc20324ac875" => :arm64_big_sur
-    sha256 "fc52931ec8205d4bce4a9d7b2d8d8a12bcca9c55ac3e0fa8a1c1e5550f193ccc" => :catalina
-    sha256 "7375228280ad4b34aa3e703da54e6af031c78c644636f1e1e45f0b776b4f5b18" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1d414ead849c9d0c8f20fdbba672c2ffc0cc32d3522cb8bf3aa0dc20324ac875"
+    sha256 cellar: :any_skip_relocation, big_sur:       "14023318a41cfb25dc16580def3078398493ed67a6c17bcf4fef748ef8bf2779"
+    sha256 cellar: :any_skip_relocation, catalina:      "fc52931ec8205d4bce4a9d7b2d8d8a12bcca9c55ac3e0fa8a1c1e5550f193ccc"
+    sha256 cellar: :any_skip_relocation, mojave:        "7375228280ad4b34aa3e703da54e6af031c78c644636f1e1e45f0b776b4f5b18"
   end
 
   def install

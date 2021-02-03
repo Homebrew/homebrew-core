@@ -8,12 +8,11 @@ class Mpdviz < Formula
   license "MIT"
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "3be0538c899cc10de1c50b27e6540e2e87ce5017c86ba1d0adeed563876072d9" => :big_sur
-    sha256 "f65d98aebf9bee4de6dce79983fe91b20f95d731be71999021639bdd7c8c14e9" => :catalina
-    sha256 "dcc5deb65626637f6a4182f96e1ccd441a462c55657e134d2277a70be8246278" => :mojave
-    sha256 "1f1b0b01dcfd1c37b7820ae93a9775abcd5b1abcdb8a5a4038d348e517b3c87a" => :high_sierra
+    sha256 cellar: :any, big_sur:     "3be0538c899cc10de1c50b27e6540e2e87ce5017c86ba1d0adeed563876072d9"
+    sha256 cellar: :any, catalina:    "f65d98aebf9bee4de6dce79983fe91b20f95d731be71999021639bdd7c8c14e9"
+    sha256 cellar: :any, mojave:      "dcc5deb65626637f6a4182f96e1ccd441a462c55657e134d2277a70be8246278"
+    sha256 cellar: :any, high_sierra: "1f1b0b01dcfd1c37b7820ae93a9775abcd5b1abcdb8a5a4038d348e517b3c87a"
   end
 
   depends_on "go" => :build

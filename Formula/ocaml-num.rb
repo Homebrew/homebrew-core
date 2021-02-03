@@ -6,10 +6,9 @@ class OcamlNum < Formula
   license "LGPL-2.1"
 
   bottle do
-    cellar :any
-    sha256 "88c24c066deb255c20828f2032bbecf933a34acacb9fae21c99ba9ecd84f4449" => :big_sur
-    sha256 "54316af07e7b15e62d3ceadf03d71b9e1d1f8e15a0fc47bf832f7cf63de37168" => :catalina
-    sha256 "f2b4af09509f397488df55e809f90addde660c04322691cddf89de5e3934a35e" => :mojave
+    sha256 cellar: :any, big_sur:  "88c24c066deb255c20828f2032bbecf933a34acacb9fae21c99ba9ecd84f4449"
+    sha256 cellar: :any, catalina: "54316af07e7b15e62d3ceadf03d71b9e1d1f8e15a0fc47bf832f7cf63de37168"
+    sha256 cellar: :any, mojave:   "f2b4af09509f397488df55e809f90addde660c04322691cddf89de5e3934a35e"
   end
 
   depends_on "ocaml-findlib" => :build

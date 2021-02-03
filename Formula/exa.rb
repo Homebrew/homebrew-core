@@ -13,11 +13,10 @@ class Exa < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2ea88382cf3e9906bc27cd37f3f57c953cce9fcd686d958824ccb27093c5c8da" => :big_sur
-    sha256 "b5fc2d5300cbd6ab2d3c113ce011c6ac187e8e774f3d3e4d1f1592b109206d39" => :arm64_big_sur
-    sha256 "979193384c57b8858b592d1200468cb6584ffa7df7833d6777eb8637e0ecfc97" => :catalina
-    sha256 "af7d2f089dc99cab221dbc57c33c443e112a843911d561588621e60378f56a46" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b5fc2d5300cbd6ab2d3c113ce011c6ac187e8e774f3d3e4d1f1592b109206d39"
+    sha256 cellar: :any_skip_relocation, big_sur:       "2ea88382cf3e9906bc27cd37f3f57c953cce9fcd686d958824ccb27093c5c8da"
+    sha256 cellar: :any_skip_relocation, catalina:      "979193384c57b8858b592d1200468cb6584ffa7df7833d6777eb8637e0ecfc97"
+    sha256 cellar: :any_skip_relocation, mojave:        "af7d2f089dc99cab221dbc57c33c443e112a843911d561588621e60378f56a46"
   end
 
   head do

@@ -12,10 +12,9 @@ class Autorest < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "20f220b18efa91377e8523af98f72243c95a21c16a8da32ee963730a52ca5752" => :big_sur
-    sha256 "687e9a00a44802f4859ff54e5670ef8e40dc64c40678b9c637014d542e0a467a" => :catalina
-    sha256 "cb69d4fa61cf72ee01a718c3322f8dc82fbf3d3682a4d06d5712af0180207f61" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur:  "20f220b18efa91377e8523af98f72243c95a21c16a8da32ee963730a52ca5752"
+    sha256 cellar: :any_skip_relocation, catalina: "687e9a00a44802f4859ff54e5670ef8e40dc64c40678b9c637014d542e0a467a"
+    sha256 cellar: :any_skip_relocation, mojave:   "cb69d4fa61cf72ee01a718c3322f8dc82fbf3d3682a4d06d5712af0180207f61"
   end
 
   depends_on "node"

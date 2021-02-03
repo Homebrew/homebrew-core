@@ -10,12 +10,11 @@ class Whatmp3 < Formula
   head "https://github.com/RecursiveForest/whatmp3.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "68a5f39de733c7d95679ac3e9c91e9edd543eb9450592a517b2491dd7089641b" => :big_sur
-    sha256 "2508dc07fce36d65efad6e315157faf498789a43e0d8f9eb595ea8122250d6bb" => :arm64_big_sur
-    sha256 "d449a8bb1339bbc02f27b930a08c21f2acfdbbb49f45dd43ea4015054607244f" => :catalina
-    sha256 "73e35194bc0eed4cab900ae2436ca67283bddc942d73a77f84e3aa02cf2e518a" => :mojave
-    sha256 "87e78b789996ff11ea55d9224896d581d0aff8a6ad10e14e456588903cf592cb" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2508dc07fce36d65efad6e315157faf498789a43e0d8f9eb595ea8122250d6bb"
+    sha256 cellar: :any_skip_relocation, big_sur:       "68a5f39de733c7d95679ac3e9c91e9edd543eb9450592a517b2491dd7089641b"
+    sha256 cellar: :any_skip_relocation, catalina:      "d449a8bb1339bbc02f27b930a08c21f2acfdbbb49f45dd43ea4015054607244f"
+    sha256 cellar: :any_skip_relocation, mojave:        "73e35194bc0eed4cab900ae2436ca67283bddc942d73a77f84e3aa02cf2e518a"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "87e78b789996ff11ea55d9224896d581d0aff8a6ad10e14e456588903cf592cb"
   end
 
   depends_on "flac"

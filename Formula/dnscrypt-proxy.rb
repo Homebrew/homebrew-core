@@ -12,11 +12,10 @@ class DnscryptProxy < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "9a58ee4594cc5daa6f82bba96abb581fcad384f6704b11c9c79e17607ad6ca04" => :big_sur
-    sha256 "16c605c0d6830d94931709cac625d8d7085a56bb68336b79c84bf8bbd95ff99e" => :arm64_big_sur
-    sha256 "8e32c49eb1a77f48be69ab8acfa172d1573761e96d0136bc847df6c84f7d8166" => :catalina
-    sha256 "e8c973c0eb72df8b7cb0850c5a7d1d7ced8d811247fc497a631cee612d46e9d0" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "16c605c0d6830d94931709cac625d8d7085a56bb68336b79c84bf8bbd95ff99e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "9a58ee4594cc5daa6f82bba96abb581fcad384f6704b11c9c79e17607ad6ca04"
+    sha256 cellar: :any_skip_relocation, catalina:      "8e32c49eb1a77f48be69ab8acfa172d1573761e96d0136bc847df6c84f7d8166"
+    sha256 cellar: :any_skip_relocation, mojave:        "e8c973c0eb72df8b7cb0850c5a7d1d7ced8d811247fc497a631cee612d46e9d0"
   end
 
   depends_on "go" => :build

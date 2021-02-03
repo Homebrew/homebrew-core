@@ -7,12 +7,11 @@ class Liblwgeom < Formula
   head "https://git.osgeo.org/gitea/postgis/postgis.git"
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "e28a391dfb1ccf34656e8169d5eda63bb96c7693508429f7c22b47add8a8bd47" => :big_sur
-    sha256 "4f8f0403e973d5e2eafb1b3d49deae54a3cb95a80dc42c50f1f28edcc73da0d8" => :arm64_big_sur
-    sha256 "cd5a31ea1b30721f36fcd64285b3150667c4cf30a148ffafa88d4e5c81456f45" => :catalina
-    sha256 "79247efadb38c42e631ceeb750a8379fd68a2a5c720ec265f8f11502764be46b" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "4f8f0403e973d5e2eafb1b3d49deae54a3cb95a80dc42c50f1f28edcc73da0d8"
+    sha256 cellar: :any, big_sur:       "e28a391dfb1ccf34656e8169d5eda63bb96c7693508429f7c22b47add8a8bd47"
+    sha256 cellar: :any, catalina:      "cd5a31ea1b30721f36fcd64285b3150667c4cf30a148ffafa88d4e5c81456f45"
+    sha256 cellar: :any, mojave:        "79247efadb38c42e631ceeb750a8379fd68a2a5c720ec265f8f11502764be46b"
   end
 
   keg_only "conflicts with PostGIS, which also installs liblwgeom.dylib"

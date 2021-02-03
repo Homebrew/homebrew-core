@@ -11,12 +11,11 @@ class Uftp < Formula
   end
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "8bb1c997a162785aae612d640fb4e9a69c22af980b38d82484b899041c024f1b" => :big_sur
-    sha256 "b38ccf77d80d8b662c86abd4c11b3c94e6a1a166b011392f16261289ebb1d923" => :arm64_big_sur
-    sha256 "9a5f0d2a7fd5887a164733d78a5d57ded16f398284d58b258ca7221f3e5287e6" => :catalina
-    sha256 "7193614091b37c59942a9d0cdf0cca676083b83062cc3db48c15a097734cc1d3" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "b38ccf77d80d8b662c86abd4c11b3c94e6a1a166b011392f16261289ebb1d923"
+    sha256 cellar: :any, big_sur:       "8bb1c997a162785aae612d640fb4e9a69c22af980b38d82484b899041c024f1b"
+    sha256 cellar: :any, catalina:      "9a5f0d2a7fd5887a164733d78a5d57ded16f398284d58b258ca7221f3e5287e6"
+    sha256 cellar: :any, mojave:        "7193614091b37c59942a9d0cdf0cca676083b83062cc3db48c15a097734cc1d3"
   end
 
   depends_on "openssl@1.1"

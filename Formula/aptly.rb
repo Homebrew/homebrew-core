@@ -8,11 +8,10 @@ class Aptly < Formula
   head "https://github.com/aptly-dev/aptly.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "3ddf3032efd340ae06b8038917c4493facd1e4e9a64244b092d2d00f0904ae1d" => :big_sur
-    sha256 "d14f3a2e0589a69b545078f4408a7ff804f727769f9ac0f66b0e08cbed96a7de" => :catalina
-    sha256 "4a164a193db58e11d6e7b18f7e911a8d7a96e8b40201160b822d8ade95181f65" => :mojave
-    sha256 "53301cc0bf47b4eeadf784856ee71bc72c9be5db62ad0462ded0f843aed49b42" => :high_sierra
+    sha256 cellar: :any_skip_relocation, big_sur:     "3ddf3032efd340ae06b8038917c4493facd1e4e9a64244b092d2d00f0904ae1d"
+    sha256 cellar: :any_skip_relocation, catalina:    "d14f3a2e0589a69b545078f4408a7ff804f727769f9ac0f66b0e08cbed96a7de"
+    sha256 cellar: :any_skip_relocation, mojave:      "4a164a193db58e11d6e7b18f7e911a8d7a96e8b40201160b822d8ade95181f65"
+    sha256 cellar: :any_skip_relocation, high_sierra: "53301cc0bf47b4eeadf784856ee71bc72c9be5db62ad0462ded0f843aed49b42"
   end
 
   depends_on "go" => :build

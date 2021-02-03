@@ -13,9 +13,9 @@ class Appledoc < Formula
 
   bottle do
     rebuild 3
-    sha256 "a44c317d4c80798c24e3c9b72b622dd037e3c73f47c21e8fce200958322e14f6" => :big_sur
-    sha256 "d4808573e4dd15de060e90374e77e43b1df1926cad45bec5331381d7dff1d1f3" => :catalina
-    sha256 "a2530c73cfaa02a2a40be2b823d8c2115ce5fe8d0a59c765829aad55bf3e7c33" => :mojave
+    sha256 big_sur:  "a44c317d4c80798c24e3c9b72b622dd037e3c73f47c21e8fce200958322e14f6"
+    sha256 catalina: "d4808573e4dd15de060e90374e77e43b1df1926cad45bec5331381d7dff1d1f3"
+    sha256 mojave:   "a2530c73cfaa02a2a40be2b823d8c2115ce5fe8d0a59c765829aad55bf3e7c33"
   end
 
   # Includes prebuild Library/*.a files (Intel-only)

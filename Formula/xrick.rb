@@ -8,9 +8,9 @@ class Xrick < Formula
 
   bottle do
     rebuild 1
-    sha256 "301f75c04e2c98c81b58868d7357e817b7dec1bc8a29747b27f088a10c1863ec" => :big_sur
-    sha256 "b391e62a9cf0a3537ec68c03d215370d875a70a90fb7a8cb48cac8cc7281e2c2" => :catalina
-    sha256 "cf85542617f6e39a8fec0239a57d1bc1707f50289e5c91bee89e84664603f43c" => :mojave
+    sha256 big_sur:  "301f75c04e2c98c81b58868d7357e817b7dec1bc8a29747b27f088a10c1863ec"
+    sha256 catalina: "b391e62a9cf0a3537ec68c03d215370d875a70a90fb7a8cb48cac8cc7281e2c2"
+    sha256 mojave:   "cf85542617f6e39a8fec0239a57d1bc1707f50289e5c91bee89e84664603f43c"
   end
 
   depends_on "sdl"

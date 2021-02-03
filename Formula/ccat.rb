@@ -6,15 +6,14 @@ class Ccat < Formula
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "56555b8a3744a0af29b6bddcab2587457bb8622f78484b38fbbaceab88ea3f5b" => :big_sur
-    sha256 "aec38270a3b41a57fe6d05df08eea67042f2b65a2a5de30b2452afefd81a6d9d" => :catalina
-    sha256 "0170dc610f0561cd562a2614f5bb0139cad5d37133a4181318a0edc08b3182c9" => :mojave
-    sha256 "895c26dc74369ef72990fd79447e654f5266dda9c662d3bed2926caab7180678" => :high_sierra
-    sha256 "aab86cfae41d1f4f9c93ad3a1680f21a5a0e9fad61190101582235174e4e214c" => :sierra
-    sha256 "10eb7df98a05c968f006bbda2c6f690bd7d5053e4bb6d2c9c4a043616648a23b" => :el_capitan
-    sha256 "063b4cab434b5d16e8884aad6eb7d18068c33f9ec884fabf5ada3ad821428897" => :yosemite
-    sha256 "04342b5be5ffffaa696799b006b592cad530b0fcd510514ad9c72bc70c5865ba" => :mavericks
+    sha256 cellar: :any_skip_relocation, big_sur:     "56555b8a3744a0af29b6bddcab2587457bb8622f78484b38fbbaceab88ea3f5b"
+    sha256 cellar: :any_skip_relocation, catalina:    "aec38270a3b41a57fe6d05df08eea67042f2b65a2a5de30b2452afefd81a6d9d"
+    sha256 cellar: :any_skip_relocation, mojave:      "0170dc610f0561cd562a2614f5bb0139cad5d37133a4181318a0edc08b3182c9"
+    sha256 cellar: :any_skip_relocation, high_sierra: "895c26dc74369ef72990fd79447e654f5266dda9c662d3bed2926caab7180678"
+    sha256 cellar: :any_skip_relocation, sierra:      "aab86cfae41d1f4f9c93ad3a1680f21a5a0e9fad61190101582235174e4e214c"
+    sha256 cellar: :any_skip_relocation, el_capitan:  "10eb7df98a05c968f006bbda2c6f690bd7d5053e4bb6d2c9c4a043616648a23b"
+    sha256 cellar: :any_skip_relocation, yosemite:    "063b4cab434b5d16e8884aad6eb7d18068c33f9ec884fabf5ada3ad821428897"
+    sha256 cellar: :any_skip_relocation, mavericks:   "04342b5be5ffffaa696799b006b592cad530b0fcd510514ad9c72bc70c5865ba"
   end
 
   depends_on "go" => :build

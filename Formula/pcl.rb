@@ -9,10 +9,10 @@ class Pcl < Formula
 
   bottle do
     rebuild 2
-    sha256 "28d8084197443d83e2c645397f1ac02424a23a796d43c83818fc776504c5ff7e" => :big_sur
-    sha256 "1c063e5e8337be6c1f6f5ae157d667c35975f71f6fae04a442b8e744d3107d32" => :arm64_big_sur
-    sha256 "6fd5dffa364e69965ddc84b2567a9b5652c88f2fb9014f6a3bbc1d8fb612f089" => :catalina
-    sha256 "53a69083aa676db47ad798d9d519f6c7db2fd85e6eed02c463add06a7c0485ea" => :mojave
+    sha256 arm64_big_sur: "1c063e5e8337be6c1f6f5ae157d667c35975f71f6fae04a442b8e744d3107d32"
+    sha256 big_sur:       "28d8084197443d83e2c645397f1ac02424a23a796d43c83818fc776504c5ff7e"
+    sha256 catalina:      "6fd5dffa364e69965ddc84b2567a9b5652c88f2fb9014f6a3bbc1d8fb612f089"
+    sha256 mojave:        "53a69083aa676db47ad798d9d519f6c7db2fd85e6eed02c463add06a7c0485ea"
   end
 
   depends_on "cmake" => [:build, :test]

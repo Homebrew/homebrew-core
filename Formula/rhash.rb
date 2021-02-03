@@ -11,10 +11,10 @@ class Rhash < Formula
   end
 
   bottle do
-    sha256 "6f7648fc30e68060747fb9be6480be57c7b30680e429b619f34ead13b9cc80d6" => :big_sur
-    sha256 "8eb637a12522739222253513a13aa3fafdc9ab586987f5648290349543017aca" => :arm64_big_sur
-    sha256 "108986af36d715a05223344f3f338c04b0ce5aa6d6cf0c26776be015adaef36a" => :catalina
-    sha256 "87ac3199498088f7d465dafefc6f014e10b4692ed3997895bbf1eb288dce8cdd" => :mojave
+    sha256 arm64_big_sur: "8eb637a12522739222253513a13aa3fafdc9ab586987f5648290349543017aca"
+    sha256 big_sur:       "6f7648fc30e68060747fb9be6480be57c7b30680e429b619f34ead13b9cc80d6"
+    sha256 catalina:      "108986af36d715a05223344f3f338c04b0ce5aa6d6cf0c26776be015adaef36a"
+    sha256 mojave:        "87ac3199498088f7d465dafefc6f014e10b4692ed3997895bbf1eb288dce8cdd"
   end
 
   def install

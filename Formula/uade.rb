@@ -11,15 +11,15 @@ class Uade < Formula
     patch :DATA
   end
   bottle do
-    sha256 "f3df21df8b0f5533248f1a23323c24ce9933b1500bb8b15f26bb430385d05f95" => :big_sur
-    sha256 "44ebe9c6fddd5da6043eccad2c2cca7a55862d4b020b348ab579b88125e43938" => :arm64_big_sur
-    sha256 "10471b0c0ebb1fc05ed2cec2268aac9727110312b5e2ab20202bdbf9ce98a198" => :catalina
-    sha256 "c3fec98e439e93b609a93b3041a0e09be74426652b5dd78f15c543afeeb4216d" => :mojave
-    sha256 "226dc1fbb9535b64f19e04310db19fb9a760024fc0b0c73e3c68cf7c72e508d9" => :high_sierra
-    sha256 "432a5f95b33416c9bfc29ef4d81ea6d4fab2a568c71c00a9bda034985ed1276b" => :sierra
-    sha256 "59ddaa5a6d841f436a5d297330ff62b613e446785ad17666c8fb4157d3a7c8db" => :el_capitan
-    sha256 "454945f35580b0b2bc8f0c7ddeecfae091634f54ee3a367eb14acce7251e5779" => :yosemite
-    sha256 "807b7f5cb5a83348c778003d781d715cec73d37da537e0b11b8138c93aad4938" => :mavericks
+    sha256 arm64_big_sur: "44ebe9c6fddd5da6043eccad2c2cca7a55862d4b020b348ab579b88125e43938"
+    sha256 big_sur:       "f3df21df8b0f5533248f1a23323c24ce9933b1500bb8b15f26bb430385d05f95"
+    sha256 catalina:      "10471b0c0ebb1fc05ed2cec2268aac9727110312b5e2ab20202bdbf9ce98a198"
+    sha256 mojave:        "c3fec98e439e93b609a93b3041a0e09be74426652b5dd78f15c543afeeb4216d"
+    sha256 high_sierra:   "226dc1fbb9535b64f19e04310db19fb9a760024fc0b0c73e3c68cf7c72e508d9"
+    sha256 sierra:        "432a5f95b33416c9bfc29ef4d81ea6d4fab2a568c71c00a9bda034985ed1276b"
+    sha256 el_capitan:    "59ddaa5a6d841f436a5d297330ff62b613e446785ad17666c8fb4157d3a7c8db"
+    sha256 yosemite:      "454945f35580b0b2bc8f0c7ddeecfae091634f54ee3a367eb14acce7251e5779"
+    sha256 mavericks:     "807b7f5cb5a83348c778003d781d715cec73d37da537e0b11b8138c93aad4938"
   end
 
   depends_on "pkg-config" => :build

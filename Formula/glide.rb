@@ -7,12 +7,11 @@ class Glide < Formula
   head "https://github.com/Masterminds/glide.git"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "33a39604d9007bf46e92a0a9131a59c15162dce6ace8b498a91110bc7d316f43" => :big_sur
-    sha256 "77ff52f69bde39ac4ba11eec08cc4c7ef5fab166ab801f513486d0a62e448ead" => :arm64_big_sur
-    sha256 "014fc42198c07253f844ea7b20b1a9378b08cfb445e548b307c6fb131bd44565" => :catalina
-    sha256 "7f4be1018eba40d85aca555364a09f97a18d8e09c71e6bb42e6ca1a2c0866865" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "77ff52f69bde39ac4ba11eec08cc4c7ef5fab166ab801f513486d0a62e448ead"
+    sha256 cellar: :any_skip_relocation, big_sur:       "33a39604d9007bf46e92a0a9131a59c15162dce6ace8b498a91110bc7d316f43"
+    sha256 cellar: :any_skip_relocation, catalina:      "014fc42198c07253f844ea7b20b1a9378b08cfb445e548b307c6fb131bd44565"
+    sha256 cellar: :any_skip_relocation, mojave:        "7f4be1018eba40d85aca555364a09f97a18d8e09c71e6bb42e6ca1a2c0866865"
   end
 
   # See: https://github.com/Masterminds/glide/commit/c64b14592409a83052f7735a01d203ff1bab0983

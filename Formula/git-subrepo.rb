@@ -12,11 +12,10 @@ class GitSubrepo < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "dc532b9259999534520c4695392ccb28d5762ab9b9ecfd37d0457be6029b4ce1" => :big_sur
-    sha256 "b129526636d9f095133421f59317abf144c77ad5aeb54f964fd6eab4aa2937af" => :arm64_big_sur
-    sha256 "0e1c83339ad6f73952c8d4ae0c82b4cb0181d421d0a527a5e0a31f7cd3c3ac90" => :catalina
-    sha256 "5465f88825a9a2361f0459d8e2dfb65a4e533c2106b2f8a644f295702085b711" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b129526636d9f095133421f59317abf144c77ad5aeb54f964fd6eab4aa2937af"
+    sha256 cellar: :any_skip_relocation, big_sur:       "dc532b9259999534520c4695392ccb28d5762ab9b9ecfd37d0457be6029b4ce1"
+    sha256 cellar: :any_skip_relocation, catalina:      "0e1c83339ad6f73952c8d4ae0c82b4cb0181d421d0a527a5e0a31f7cd3c3ac90"
+    sha256 cellar: :any_skip_relocation, mojave:        "5465f88825a9a2361f0459d8e2dfb65a4e533c2106b2f8a644f295702085b711"
   end
 
   depends_on "bash"

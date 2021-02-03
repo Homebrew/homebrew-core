@@ -11,10 +11,9 @@ class Fakeroot < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "c72ae187158b6cce73311fee527ba8bf8d2f0e18340bd66eef57b50b3d45c275" => :catalina
-    sha256 "6c23e4c601af569c2de802cac685de5d18e6ebafcb53e6c53107aa3feb3d1527" => :mojave
-    sha256 "df9be392f3579464893be013744b5aa40a7e4e91e01155bd1547e4104d381640" => :high_sierra
+    sha256 cellar: :any, catalina:    "c72ae187158b6cce73311fee527ba8bf8d2f0e18340bd66eef57b50b3d45c275"
+    sha256 cellar: :any, mojave:      "6c23e4c601af569c2de802cac685de5d18e6ebafcb53e6c53107aa3feb3d1527"
+    sha256 cellar: :any, high_sierra: "df9be392f3579464893be013744b5aa40a7e4e91e01155bd1547e4104d381640"
   end
 
   # Compile is broken. https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=766649

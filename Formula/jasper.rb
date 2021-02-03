@@ -7,10 +7,10 @@ class Jasper < Formula
 
   bottle do
     rebuild 1
-    sha256 "4abe374404d02e789f7e368f09ee8b9f85ba0e248e622a24b52ae80d2a51b8b5" => :big_sur
-    sha256 "46ce4a32525d202961aef9c382598ddf24f0fb1d1c76e669d47fe2405d09cbe4" => :arm64_big_sur
-    sha256 "79c518b587275d3bfb440ee0ece95f143c2241c964ae5c1fb003340f0ff261eb" => :catalina
-    sha256 "27c44449772445bef1ad62ebc185f7d1dd7efac480f882a9d0ac398f4e4a74a0" => :mojave
+    sha256 arm64_big_sur: "46ce4a32525d202961aef9c382598ddf24f0fb1d1c76e669d47fe2405d09cbe4"
+    sha256 big_sur:       "4abe374404d02e789f7e368f09ee8b9f85ba0e248e622a24b52ae80d2a51b8b5"
+    sha256 catalina:      "79c518b587275d3bfb440ee0ece95f143c2241c964ae5c1fb003340f0ff261eb"
+    sha256 mojave:        "27c44449772445bef1ad62ebc185f7d1dd7efac480f882a9d0ac398f4e4a74a0"
   end
 
   depends_on "cmake" => :build

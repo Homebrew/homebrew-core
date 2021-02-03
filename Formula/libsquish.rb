@@ -10,14 +10,13 @@ class Libsquish < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "bfc3e9d3b6239828025e5a35707ac35a82722c9a1f66b13116990a3597f33943" => :big_sur
-    sha256 "a3f9fc5e20792dd4ced369a1be063a01c873afc399c8c73bb8800db1777ce6fb" => :catalina
-    sha256 "d3a42b4342fab6548ec4e2467a571631edf0891d1c4c51a6573b14afda5b0972" => :mojave
-    sha256 "734574ea8d63c2d52f291c1d3c96e18ee7fb6f404b5039245a31625fcb6277df" => :high_sierra
-    sha256 "ebfa2b4d94a71334548800ceb00803ed1ed1e91226f6892048f376d73ee7ef74" => :sierra
-    sha256 "4af6195448040889de7ada48fcb6fc6dd945e47f001a04807b70b4f5b3982663" => :el_capitan
-    sha256 "d887794fa29f03abcd3809db6ea74045d3b8d40d895cf5972d2eda3de86f3ada" => :yosemite
+    sha256 cellar: :any_skip_relocation, big_sur:     "bfc3e9d3b6239828025e5a35707ac35a82722c9a1f66b13116990a3597f33943"
+    sha256 cellar: :any_skip_relocation, catalina:    "a3f9fc5e20792dd4ced369a1be063a01c873afc399c8c73bb8800db1777ce6fb"
+    sha256 cellar: :any_skip_relocation, mojave:      "d3a42b4342fab6548ec4e2467a571631edf0891d1c4c51a6573b14afda5b0972"
+    sha256 cellar: :any_skip_relocation, high_sierra: "734574ea8d63c2d52f291c1d3c96e18ee7fb6f404b5039245a31625fcb6277df"
+    sha256 cellar: :any_skip_relocation, sierra:      "ebfa2b4d94a71334548800ceb00803ed1ed1e91226f6892048f376d73ee7ef74"
+    sha256 cellar: :any_skip_relocation, el_capitan:  "4af6195448040889de7ada48fcb6fc6dd945e47f001a04807b70b4f5b3982663"
+    sha256 cellar: :any_skip_relocation, yosemite:    "d887794fa29f03abcd3809db6ea74045d3b8d40d895cf5972d2eda3de86f3ada"
   end
 
   depends_on "cmake" => :build

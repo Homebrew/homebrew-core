@@ -11,11 +11,10 @@ class Cortex < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "b2b1578fbda810919635eb9c5e6cd26c9826d9b66811a2408f9459f4428e6c52" => :big_sur
-    sha256 "a15b4792c7334365dbda6493e87214b2a7b091c5f6342bdb175ca6e44688bb4c" => :arm64_big_sur
-    sha256 "b89466af24dab8ef0e913462515d6bd0a1673c11d8eb8b0e1712212c1cb25dc1" => :catalina
-    sha256 "f0cf729caf7dc1b9cd19e2f4ac12bc38961f36f76d2ddbfac4365912dd33d8c4" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a15b4792c7334365dbda6493e87214b2a7b091c5f6342bdb175ca6e44688bb4c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b2b1578fbda810919635eb9c5e6cd26c9826d9b66811a2408f9459f4428e6c52"
+    sha256 cellar: :any_skip_relocation, catalina:      "b89466af24dab8ef0e913462515d6bd0a1673c11d8eb8b0e1712212c1cb25dc1"
+    sha256 cellar: :any_skip_relocation, mojave:        "f0cf729caf7dc1b9cd19e2f4ac12bc38961f36f76d2ddbfac4365912dd33d8c4"
   end
 
   depends_on "go" => :build

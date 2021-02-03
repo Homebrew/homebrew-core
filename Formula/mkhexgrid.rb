@@ -6,15 +6,14 @@ class Mkhexgrid < Formula
   license "GPL-2.0"
 
   bottle do
-    cellar :any
-    sha256 "ea516f25e28f2f0dae0223de16f1d27abd08f658ee85fb8caab7c41f02f3932b" => :big_sur
-    sha256 "488eb3b7fa3023c4326755bd7bd3546b926d3e03e353063d700c3f15c41e59f1" => :arm64_big_sur
-    sha256 "0e358685212d241af28055f0a47392bf077575469426e5bc4e38352847451325" => :catalina
-    sha256 "dc24513041f3dc8ae8cd27abb07aeb028074a636b3a139dfa6e862eee73237f5" => :mojave
-    sha256 "66011c65d0a32036f58b67ae41ca6a61eb307bc92d958dec026f88e180cab972" => :high_sierra
-    sha256 "d2be4b1376fbeb90429433d0cae9b95b8b927701038156a7cb3d73a49620548f" => :sierra
-    sha256 "a87808f88a90308adfb14cf89b3bd89251580301f40ba18d08816de2df0be632" => :el_capitan
-    sha256 "ec463b01aecec2cc76cd6f91761867fa0efbdeddf60f09bc134f45822006889b" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "488eb3b7fa3023c4326755bd7bd3546b926d3e03e353063d700c3f15c41e59f1"
+    sha256 cellar: :any, big_sur:       "ea516f25e28f2f0dae0223de16f1d27abd08f658ee85fb8caab7c41f02f3932b"
+    sha256 cellar: :any, catalina:      "0e358685212d241af28055f0a47392bf077575469426e5bc4e38352847451325"
+    sha256 cellar: :any, mojave:        "dc24513041f3dc8ae8cd27abb07aeb028074a636b3a139dfa6e862eee73237f5"
+    sha256 cellar: :any, high_sierra:   "66011c65d0a32036f58b67ae41ca6a61eb307bc92d958dec026f88e180cab972"
+    sha256 cellar: :any, sierra:        "d2be4b1376fbeb90429433d0cae9b95b8b927701038156a7cb3d73a49620548f"
+    sha256 cellar: :any, el_capitan:    "a87808f88a90308adfb14cf89b3bd89251580301f40ba18d08816de2df0be632"
+    sha256 cellar: :any, yosemite:      "ec463b01aecec2cc76cd6f91761867fa0efbdeddf60f09bc134f45822006889b"
   end
 
   depends_on "boost"

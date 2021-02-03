@@ -11,16 +11,15 @@ class Clucene < Formula
   end
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "22366684958d7ee8fd5d0b07efe750a74347a4394dbc56ea80db1cf25db70c2f" => :big_sur
-    sha256 "c5b00eb94db40324fb66bc7f79737f3963ea5f0df6f7c07c39583fe95bfe0ae6" => :catalina
-    sha256 "1e19a680030d8c4863deb4d5a5bc40675c58df5c21e5e7217f2ed8fcbc624d21" => :mojave
-    sha256 "3986feb447660b2732e2983f54d22086b10da442cb2d7b6ceac45a91ad58f09b" => :high_sierra
-    sha256 "5d25768dc355533553e6c1605a1dc89985ddd26b4d17d10078c39d6b085c03fb" => :sierra
-    sha256 "5ee0c98072c18c75dd8c25fd309ccb49f033300d474367a8e325ec601c427f66" => :el_capitan
-    sha256 "182db4f73e058e9d28b77cbbd642c40ecc403fbf1d9dc8357387b2c54dba8d1e" => :yosemite
-    sha256 "f85cdb67e53bc6eb380ae1bd8e087b42faca7c65f665f9719209adfa8aaa7b31" => :mavericks
+    sha256 cellar: :any, big_sur:     "22366684958d7ee8fd5d0b07efe750a74347a4394dbc56ea80db1cf25db70c2f"
+    sha256 cellar: :any, catalina:    "c5b00eb94db40324fb66bc7f79737f3963ea5f0df6f7c07c39583fe95bfe0ae6"
+    sha256 cellar: :any, mojave:      "1e19a680030d8c4863deb4d5a5bc40675c58df5c21e5e7217f2ed8fcbc624d21"
+    sha256 cellar: :any, high_sierra: "3986feb447660b2732e2983f54d22086b10da442cb2d7b6ceac45a91ad58f09b"
+    sha256 cellar: :any, sierra:      "5d25768dc355533553e6c1605a1dc89985ddd26b4d17d10078c39d6b085c03fb"
+    sha256 cellar: :any, el_capitan:  "5ee0c98072c18c75dd8c25fd309ccb49f033300d474367a8e325ec601c427f66"
+    sha256 cellar: :any, yosemite:    "182db4f73e058e9d28b77cbbd642c40ecc403fbf1d9dc8357387b2c54dba8d1e"
+    sha256 cellar: :any, mavericks:   "f85cdb67e53bc6eb380ae1bd8e087b42faca7c65f665f9719209adfa8aaa7b31"
   end
 
   depends_on "cmake" => :build

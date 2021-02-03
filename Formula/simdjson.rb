@@ -7,10 +7,10 @@ class Simdjson < Formula
   head "https://github.com/simdjson/simdjson.git"
 
   bottle do
-    sha256 cellar: :any, big_sur: "54512855b5401c9195931c8aaee8af225efac53c776efc25584683e070a0eaa8"
     sha256 cellar: :any, arm64_big_sur: "57ea9f705070a10bd95ea9916153c50468a40d8802abda87ea55846f8cb13c05"
-    sha256 cellar: :any, catalina: "6bfe4056f1fafb715a290cb194b0daad8164ed5fee6c75f274bf4d62228b83c3"
-    sha256 cellar: :any, mojave: "ea39bdc1c8a07cd37e0fa04dd11f33705c96389b55f61de5a1e262ccb2a2abfd"
+    sha256 cellar: :any, big_sur:       "54512855b5401c9195931c8aaee8af225efac53c776efc25584683e070a0eaa8"
+    sha256 cellar: :any, catalina:      "6bfe4056f1fafb715a290cb194b0daad8164ed5fee6c75f274bf4d62228b83c3"
+    sha256 cellar: :any, mojave:        "ea39bdc1c8a07cd37e0fa04dd11f33705c96389b55f61de5a1e262ccb2a2abfd"
   end
 
   depends_on "cmake" => :build

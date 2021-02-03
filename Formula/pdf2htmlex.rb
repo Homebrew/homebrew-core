@@ -8,10 +8,10 @@ class Pdf2htmlex < Formula
   head "https://github.com/coolwanglu/pdf2htmlEX.git"
 
   bottle do
-    sha256 "8c29d3c811e6e6580644620a76848458db39181b996cc15e4df2589c8de40e27" => :arm64_big_sur
-    sha256 "76c5b16da33231ee6d269f95c5b9b3f0f06b9f5d5634e003d55e6ad5e123a387" => :catalina
-    sha256 "0cf6aa3cd87e96aab2fc58b618f8a9127edec88a624bd6cf2f5816fd575c0a50" => :mojave
-    sha256 "8a55a7cd0d373d223162ee92bc6f02c269b4f17fe987471ba3388ea257cf870f" => :high_sierra
+    sha256 arm64_big_sur: "8c29d3c811e6e6580644620a76848458db39181b996cc15e4df2589c8de40e27"
+    sha256 catalina:      "76c5b16da33231ee6d269f95c5b9b3f0f06b9f5d5634e003d55e6ad5e123a387"
+    sha256 mojave:        "0cf6aa3cd87e96aab2fc58b618f8a9127edec88a624bd6cf2f5816fd575c0a50"
+    sha256 high_sierra:   "8a55a7cd0d373d223162ee92bc6f02c269b4f17fe987471ba3388ea257cf870f"
   end
 
   deprecate! date: "2016-12-12", because: :repo_archived

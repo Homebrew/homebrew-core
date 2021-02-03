@@ -12,12 +12,12 @@ class OpenOcd < Formula
 
   bottle do
     rebuild 2
-    sha256 "3b90b2e58a0b0ba8d9c93909ae5735d5c0e19e6e7ba1af0339c78bc5ee8df452" => :big_sur
-    sha256 "b4695aad1ca7722c171bbf1df79c476d159289bd23fb895f1f440e606ab80cdd" => :arm64_big_sur
-    sha256 "73738a0c3bfffa98beea25c441d5eddfd743dc5c7c79418685519354975bb840" => :catalina
-    sha256 "491bec9acdc4e446a6515975041f21dec919ba330f88b5a69e8651ddd9c07468" => :mojave
-    sha256 "0258f4d658907060d890c978a4d122ac5501119c4d28bb272e4bf5bc59bd8852" => :high_sierra
-    sha256 "790605e83cc22ab4a455a382f7b6a434d44c19f82e0b8a0ee6a3bf28ac6f9f31" => :sierra
+    sha256 arm64_big_sur: "b4695aad1ca7722c171bbf1df79c476d159289bd23fb895f1f440e606ab80cdd"
+    sha256 big_sur:       "3b90b2e58a0b0ba8d9c93909ae5735d5c0e19e6e7ba1af0339c78bc5ee8df452"
+    sha256 catalina:      "73738a0c3bfffa98beea25c441d5eddfd743dc5c7c79418685519354975bb840"
+    sha256 mojave:        "491bec9acdc4e446a6515975041f21dec919ba330f88b5a69e8651ddd9c07468"
+    sha256 high_sierra:   "0258f4d658907060d890c978a4d122ac5501119c4d28bb272e4bf5bc59bd8852"
+    sha256 sierra:        "790605e83cc22ab4a455a382f7b6a434d44c19f82e0b8a0ee6a3bf28ac6f9f31"
   end
 
   head do

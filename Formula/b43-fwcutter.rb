@@ -12,12 +12,11 @@ class B43Fwcutter < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 2
-    sha256 "d71a9a74998af98e4593b5593ff415aa4e6f868a9fe7b7fa4814fd27a4b6652d" => :big_sur
-    sha256 "0c68725ddd4ab0d3467c8eab623682712e51d180e4517e1fa04518c0aac4c65a" => :arm64_big_sur
-    sha256 "65b60abba52b848bd47386245505719c4c2218429719cf008a6720a4fbcac36a" => :catalina
-    sha256 "244e2363a7eff64ea8708724a386796d8fbf6d49677519a4132a2296faa0c411" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0c68725ddd4ab0d3467c8eab623682712e51d180e4517e1fa04518c0aac4c65a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d71a9a74998af98e4593b5593ff415aa4e6f868a9fe7b7fa4814fd27a4b6652d"
+    sha256 cellar: :any_skip_relocation, catalina:      "65b60abba52b848bd47386245505719c4c2218429719cf008a6720a4fbcac36a"
+    sha256 cellar: :any_skip_relocation, mojave:        "244e2363a7eff64ea8708724a386796d8fbf6d49677519a4132a2296faa0c411"
   end
 
   def install

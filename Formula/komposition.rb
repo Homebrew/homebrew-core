@@ -8,10 +8,9 @@ class Komposition < Formula
   head "https://github.com/owickstrom/komposition.git"
 
   bottle do
-    cellar :any
-    sha256 "dc76316ff64beb2d4756ba554844a57d546a0bbe8a300ce1879a6cddcb72ebf8" => :catalina
-    sha256 "e78904afced48a6365ec5cec4b9e97ecccf4bf81401c5576a0c3b21fa1078264" => :mojave
-    sha256 "137747b62de4e68164bceccd009beb65606ae6ba2c94fbe9a72b0eee50ae0961" => :high_sierra
+    sha256 cellar: :any, catalina:    "dc76316ff64beb2d4756ba554844a57d546a0bbe8a300ce1879a6cddcb72ebf8"
+    sha256 cellar: :any, mojave:      "e78904afced48a6365ec5cec4b9e97ecccf4bf81401c5576a0c3b21fa1078264"
+    sha256 cellar: :any, high_sierra: "137747b62de4e68164bceccd009beb65606ae6ba2c94fbe9a72b0eee50ae0961"
   end
 
   disable! date: "2020-10-25", because: :does_not_build

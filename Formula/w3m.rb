@@ -24,10 +24,10 @@ class W3m < Formula
   end
 
   bottle do
-    sha256 "9865fb7a43e8732bb7d309502c3de3410d05aeb093ba8916462b5aab36563a5a" => :big_sur
-    sha256 "ca603325cc6d0904d5d709f6e9407b26fd22e3eeb3984d38e11c21d8f45e7b3a" => :arm64_big_sur
-    sha256 "5b752461983a608c684bae9efa13a0a5e37a456def0b368c8b0706b35fd480a3" => :catalina
-    sha256 "a77f9a7ceee4dbb2a7288ecfad9c903c489ce4a60ff10056cd735433986df901" => :mojave
+    sha256 arm64_big_sur: "ca603325cc6d0904d5d709f6e9407b26fd22e3eeb3984d38e11c21d8f45e7b3a"
+    sha256 big_sur:       "9865fb7a43e8732bb7d309502c3de3410d05aeb093ba8916462b5aab36563a5a"
+    sha256 catalina:      "5b752461983a608c684bae9efa13a0a5e37a456def0b368c8b0706b35fd480a3"
+    sha256 mojave:        "a77f9a7ceee4dbb2a7288ecfad9c903c489ce4a60ff10056cd735433986df901"
   end
 
   depends_on "pkg-config" => :build

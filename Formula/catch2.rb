@@ -6,11 +6,10 @@ class Catch2 < Formula
   license "BSL-1.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "d0edb0bd1f54ca94f52d83b34f01391d977f6e22d9b5edda6969b44f0acae3e2" => :big_sur
-    sha256 "cc9b4a14e2dba8b4f2271bd376ef08c11d3046f3168f33bac63255cd1c3c73e4" => :arm64_big_sur
-    sha256 "89905994724339d80de88e5fe043c59dda7fee37d608ed44d7c2d38233c44088" => :catalina
-    sha256 "137c7fd141b94d0c206f0265b3fffbad55cc89c3db52249bd0921a64094576e3" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "cc9b4a14e2dba8b4f2271bd376ef08c11d3046f3168f33bac63255cd1c3c73e4"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d0edb0bd1f54ca94f52d83b34f01391d977f6e22d9b5edda6969b44f0acae3e2"
+    sha256 cellar: :any_skip_relocation, catalina:      "89905994724339d80de88e5fe043c59dda7fee37d608ed44d7c2d38233c44088"
+    sha256 cellar: :any_skip_relocation, mojave:        "137c7fd141b94d0c206f0265b3fffbad55cc89c3db52249bd0921a64094576e3"
   end
 
   depends_on "cmake" => :build

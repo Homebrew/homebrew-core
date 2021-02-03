@@ -7,12 +7,11 @@ class Html2text < Formula
   head "https://github.com/grobian/html2text.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "f15e51b4bab96810d81f13f7a47cebdc0228e6367c9583918f1437275921d2d1" => :big_sur
-    sha256 "b8628bce5605c486669b45437ad499b2b3a51901fcb934a031f4dc16be46ce85" => :arm64_big_sur
-    sha256 "567d2c7e25a24c445ad54074e9ff3ee6edfce3fe7fe960966dcd49a488b2affb" => :catalina
-    sha256 "55a8fe864bc8e05e7e2fa0085e22adb251fdeeee3fd463e326224a3dff78c773" => :mojave
-    sha256 "b0c913f98f9169669395d57c28c45d7d6c1dc68c13fdb82ba52a04fefdb00bc5" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b8628bce5605c486669b45437ad499b2b3a51901fcb934a031f4dc16be46ce85"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f15e51b4bab96810d81f13f7a47cebdc0228e6367c9583918f1437275921d2d1"
+    sha256 cellar: :any_skip_relocation, catalina:      "567d2c7e25a24c445ad54074e9ff3ee6edfce3fe7fe960966dcd49a488b2affb"
+    sha256 cellar: :any_skip_relocation, mojave:        "55a8fe864bc8e05e7e2fa0085e22adb251fdeeee3fd463e326224a3dff78c773"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "b0c913f98f9169669395d57c28c45d7d6c1dc68c13fdb82ba52a04fefdb00bc5"
   end
 
   def install

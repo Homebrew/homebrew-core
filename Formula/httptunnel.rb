@@ -7,11 +7,10 @@ class Httptunnel < Formula
   license "GPL-2.0-only"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "ba3194a2dd8fc577851681cbb058cd2f37b2568697c0bd8117c73e66841d6aa8" => :big_sur
-    sha256 "20312eef433095612b34d5e73a3ae27d3198d3a559dddddc6a316844da8cf2c2" => :catalina
-    sha256 "cd8ea90f49b98d3cbe213bfd750eb0a095d06a19a4705a9e7e08b153571c27a9" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur:  "ba3194a2dd8fc577851681cbb058cd2f37b2568697c0bd8117c73e66841d6aa8"
+    sha256 cellar: :any_skip_relocation, catalina: "20312eef433095612b34d5e73a3ae27d3198d3a559dddddc6a316844da8cf2c2"
+    sha256 cellar: :any_skip_relocation, mojave:   "cd8ea90f49b98d3cbe213bfd750eb0a095d06a19a4705a9e7e08b153571c27a9"
   end
 
   disable! date: "2020-12-08", because: :unmaintained

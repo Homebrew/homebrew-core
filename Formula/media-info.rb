@@ -11,12 +11,11 @@ class MediaInfo < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "b46a602b99c9c288fc9877d2cc1b058126e89e216122fc74a038bd774476742d" => :big_sur
-    sha256 "112ef7ebfe369ee8d56c91beecbea805750f82a71c5bb3db858d80e9105219fc" => :arm64_big_sur
-    sha256 "1474fc89021c1bd0a097034aea8aef77678f02b8e22c5a5fdf0cb7d1f5685acb" => :catalina
-    sha256 "dec0e6371975e56bc28b50d02fc965e37424f920e8a7cf99fb173bb2d707d2be" => :mojave
-    sha256 "01f4906a106702475bb330c4e51560da1ef0a4da42fe0531289bdff6960104d5" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "112ef7ebfe369ee8d56c91beecbea805750f82a71c5bb3db858d80e9105219fc"
+    sha256 cellar: :any, big_sur:       "b46a602b99c9c288fc9877d2cc1b058126e89e216122fc74a038bd774476742d"
+    sha256 cellar: :any, catalina:      "1474fc89021c1bd0a097034aea8aef77678f02b8e22c5a5fdf0cb7d1f5685acb"
+    sha256 cellar: :any, mojave:        "dec0e6371975e56bc28b50d02fc965e37424f920e8a7cf99fb173bb2d707d2be"
+    sha256 cellar: :any, high_sierra:   "01f4906a106702475bb330c4e51560da1ef0a4da42fe0531289bdff6960104d5"
   end
 
   depends_on "pkg-config" => :build

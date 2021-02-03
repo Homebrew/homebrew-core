@@ -13,10 +13,10 @@ class Moarvm < Formula
 
   bottle do
     rebuild 1
-    sha256 "b585777c5b31b6d7865fcb389bc694ad86b48e1dc15b29e34bec61183f17004c" => :big_sur
-    sha256 "cce99fb71c2e3605bd3a05df6ca700b63d41c95ea410ac32d72dc726d94683e4" => :arm64_big_sur
-    sha256 "a93ea32a0ccf20cf05300ff1c06edc93de3679b3c70503e84a627c3ffdaba14e" => :catalina
-    sha256 "e3f3ed409f05c8d38046a3a0c18c35d2d1e89fdb8369420814f7de91ca6f3997" => :mojave
+    sha256 arm64_big_sur: "cce99fb71c2e3605bd3a05df6ca700b63d41c95ea410ac32d72dc726d94683e4"
+    sha256 big_sur:       "b585777c5b31b6d7865fcb389bc694ad86b48e1dc15b29e34bec61183f17004c"
+    sha256 catalina:      "a93ea32a0ccf20cf05300ff1c06edc93de3679b3c70503e84a627c3ffdaba14e"
+    sha256 mojave:        "e3f3ed409f05c8d38046a3a0c18c35d2d1e89fdb8369420814f7de91ca6f3997"
   end
 
   depends_on "libatomic_ops"

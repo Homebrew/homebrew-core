@@ -8,13 +8,12 @@ class Ubertooth < Formula
   head "https://github.com/greatscottgadgets/ubertooth.git"
 
   bottle do
-    cellar :any
-    sha256 "44519c8ea1f5f557404c950922e1c4303633df759676441fbc9620d72ab012ab" => :big_sur
-    sha256 "eb16cfaa4f585142771941fae3f80da25fd0f27c7552c140ab4b2fdc07009321" => :arm64_big_sur
-    sha256 "e08b1229ff32e200e5f6e7d562d83ce26e5dff0e50b4373f1add2a411854ebdf" => :catalina
-    sha256 "9e6dcaeeff6974606332371fc0ce861d679bc9d00471f4185a7531b320e581fb" => :mojave
-    sha256 "d3891c8cd1e395c8d7acd9f364d6d42d3bcb7d9d1ddd5adea9dfabc7f0aead69" => :high_sierra
-    sha256 "b4e68f3183b67bd99d276c0889e6c36ea6a1c99931446bec237d9bf7b4cc5d81" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "eb16cfaa4f585142771941fae3f80da25fd0f27c7552c140ab4b2fdc07009321"
+    sha256 cellar: :any, big_sur:       "44519c8ea1f5f557404c950922e1c4303633df759676441fbc9620d72ab012ab"
+    sha256 cellar: :any, catalina:      "e08b1229ff32e200e5f6e7d562d83ce26e5dff0e50b4373f1add2a411854ebdf"
+    sha256 cellar: :any, mojave:        "9e6dcaeeff6974606332371fc0ce861d679bc9d00471f4185a7531b320e581fb"
+    sha256 cellar: :any, high_sierra:   "d3891c8cd1e395c8d7acd9f364d6d42d3bcb7d9d1ddd5adea9dfabc7f0aead69"
+    sha256 cellar: :any, sierra:        "b4e68f3183b67bd99d276c0889e6c36ea6a1c99931446bec237d9bf7b4cc5d81"
   end
 
   depends_on "cmake" => :build

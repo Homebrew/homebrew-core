@@ -9,15 +9,14 @@ class Wego < Formula
   head "https://github.com/schachmat/wego.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ff772c99d0aebc8e471aa4785b7a429fda2c0af8ede5d43fb2ee1ba8c7617246" => :big_sur
-    sha256 "5ac6a153a25c0d68564d000f52642d0891fc85de2183732b9d7b171b5e629146" => :catalina
-    sha256 "436dbf3a2dd0f517635078c987d95985941be4aaae3efc65b5fb2e3562af87cd" => :mojave
-    sha256 "dc3714d72fde13770cec00100aa1ee843b944512c454e00ad131c822e868cedb" => :high_sierra
-    sha256 "504d831a34c22ec006a610f7af4d11000708570513e5391e2077d021ca6b3758" => :sierra
-    sha256 "ccdba75878ffe9b62b49265f6f4b375da80f44e6c5b7c5a40294501fda8903b1" => :el_capitan
-    sha256 "97e7c2edfa9b1a312a0f4f4bce9553b1c8e884409aca3f7acfed2dc99fcef05d" => :yosemite
-    sha256 "6bc11cdcd939b5361704f1575f297a152da2e3de79e94392c33cf5e22ec40715" => :mavericks
+    sha256 cellar: :any_skip_relocation, big_sur:     "ff772c99d0aebc8e471aa4785b7a429fda2c0af8ede5d43fb2ee1ba8c7617246"
+    sha256 cellar: :any_skip_relocation, catalina:    "5ac6a153a25c0d68564d000f52642d0891fc85de2183732b9d7b171b5e629146"
+    sha256 cellar: :any_skip_relocation, mojave:      "436dbf3a2dd0f517635078c987d95985941be4aaae3efc65b5fb2e3562af87cd"
+    sha256 cellar: :any_skip_relocation, high_sierra: "dc3714d72fde13770cec00100aa1ee843b944512c454e00ad131c822e868cedb"
+    sha256 cellar: :any_skip_relocation, sierra:      "504d831a34c22ec006a610f7af4d11000708570513e5391e2077d021ca6b3758"
+    sha256 cellar: :any_skip_relocation, el_capitan:  "ccdba75878ffe9b62b49265f6f4b375da80f44e6c5b7c5a40294501fda8903b1"
+    sha256 cellar: :any_skip_relocation, yosemite:    "97e7c2edfa9b1a312a0f4f4bce9553b1c8e884409aca3f7acfed2dc99fcef05d"
+    sha256 cellar: :any_skip_relocation, mavericks:   "6bc11cdcd939b5361704f1575f297a152da2e3de79e94392c33cf5e22ec40715"
   end
 
   depends_on "go" => :build

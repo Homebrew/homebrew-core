@@ -7,12 +7,11 @@ class Onednn < Formula
   head "https://github.com/oneapi-src/onednn.git"
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "8acd092ad84f8677785da0c5bb92e117b17f903a2702b66ee4572c93d5bb80a1" => :big_sur
-    sha256 "045f62a40883229b10146c715306d1412f6f0bc4828d45942dbba29f03bb3c12" => :arm64_big_sur
-    sha256 "669ffb542483c34cf208829b6fe5d8debc60d0e9def35394834676d4db42c4cd" => :catalina
-    sha256 "aa2922eb9ba741cde52d2b74f8787fdcec61e478b0d949cd6c8795fa3a2560e4" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "045f62a40883229b10146c715306d1412f6f0bc4828d45942dbba29f03bb3c12"
+    sha256 cellar: :any, big_sur:       "8acd092ad84f8677785da0c5bb92e117b17f903a2702b66ee4572c93d5bb80a1"
+    sha256 cellar: :any, catalina:      "669ffb542483c34cf208829b6fe5d8debc60d0e9def35394834676d4db42c4cd"
+    sha256 cellar: :any, mojave:        "aa2922eb9ba741cde52d2b74f8787fdcec61e478b0d949cd6c8795fa3a2560e4"
   end
 
   depends_on "cmake" => :build

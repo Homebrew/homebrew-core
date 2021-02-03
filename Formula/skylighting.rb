@@ -7,10 +7,9 @@ class Skylighting < Formula
   head "https://github.com/jgm/skylighting.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "34f08222d7e15af6bd91bfcd04ac8be60c5f67774339e1e18fd9487eaf74f92a" => :big_sur
-    sha256 "6010870086412a61abf05d67707b4563911c9c1fb0374c52069e2434632ae680" => :catalina
-    sha256 "067f75de5cfbfe7bd35a98b50624863ca202615a21f3ff2ca6b2f57543efc41a" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur:  "34f08222d7e15af6bd91bfcd04ac8be60c5f67774339e1e18fd9487eaf74f92a"
+    sha256 cellar: :any_skip_relocation, catalina: "6010870086412a61abf05d67707b4563911c9c1fb0374c52069e2434632ae680"
+    sha256 cellar: :any_skip_relocation, mojave:   "067f75de5cfbfe7bd35a98b50624863ca202615a21f3ff2ca6b2f57543efc41a"
   end
 
   depends_on "cabal-install" => :build

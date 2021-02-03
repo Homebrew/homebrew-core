@@ -7,10 +7,10 @@ class Kyua < Formula
   revision 2
 
   bottle do
-    sha256 "33c93cc065968275bdee21b772ada29ebe3776f7c1dacb297e6c3cb2804fcb20" => :big_sur
-    sha256 "0de5560c3fe849a4d1739c041b4b70a235929ac1323a9e7f1a1769c69ae6b363" => :arm64_big_sur
-    sha256 "5fba6da95b5e79c1fda0d118b0d67a4c74629a28e348ae4fab0dee1b770dccd4" => :catalina
-    sha256 "b0d437da5f3f873795d6157dcc545a3ca72fef19d5288369a95b58ba5c8f4cc5" => :mojave
+    sha256 arm64_big_sur: "0de5560c3fe849a4d1739c041b4b70a235929ac1323a9e7f1a1769c69ae6b363"
+    sha256 big_sur:       "33c93cc065968275bdee21b772ada29ebe3776f7c1dacb297e6c3cb2804fcb20"
+    sha256 catalina:      "5fba6da95b5e79c1fda0d118b0d67a4c74629a28e348ae4fab0dee1b770dccd4"
+    sha256 mojave:        "b0d437da5f3f873795d6157dcc545a3ca72fef19d5288369a95b58ba5c8f4cc5"
   end
 
   depends_on "pkg-config" => :build

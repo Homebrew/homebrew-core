@@ -6,16 +6,15 @@ class Daemon < Formula
   license "GPL-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2d16b2615f5df9838e2d75351fae720910beae254d62f0970b64cddedeb289b8" => :big_sur
-    sha256 "a634d876fc4382b34bfd5f3b564a62a251e3eb3b6d07ab03a9c27f25617c44f5" => :arm64_big_sur
-    sha256 "8cc2278936a35f9ae2c0952e4be5c9e06970386f3c9c5ae528b18c69902e9220" => :catalina
-    sha256 "0fd225e226dd07c3f51836f47bf9829dd095a46a13a5b78c3a0e9df3c5820683" => :mojave
-    sha256 "ca2b1016c1bbe48002f70b7beb86063943dadabcb670db9f90f1c259cb34d623" => :high_sierra
-    sha256 "bfc116e8f0853cdf5b4abc38b1f000c90708823bf49c5237f8ec453400a5d606" => :sierra
-    sha256 "ad4f8ad9e7deeb0039c6c603b0108fb6733abe425c49fa6344f762e26b49cf2d" => :el_capitan
-    sha256 "f48000af3631f28d47d01d3d89a1f03e7c4f7eac4a81ab7db9c38a1ce9ff66cd" => :yosemite
-    sha256 "09a420b59d2e5cbaf3073b2daf81d57d01c733b79a928bb58da6418de7f5bd3a" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a634d876fc4382b34bfd5f3b564a62a251e3eb3b6d07ab03a9c27f25617c44f5"
+    sha256 cellar: :any_skip_relocation, big_sur:       "2d16b2615f5df9838e2d75351fae720910beae254d62f0970b64cddedeb289b8"
+    sha256 cellar: :any_skip_relocation, catalina:      "8cc2278936a35f9ae2c0952e4be5c9e06970386f3c9c5ae528b18c69902e9220"
+    sha256 cellar: :any_skip_relocation, mojave:        "0fd225e226dd07c3f51836f47bf9829dd095a46a13a5b78c3a0e9df3c5820683"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "ca2b1016c1bbe48002f70b7beb86063943dadabcb670db9f90f1c259cb34d623"
+    sha256 cellar: :any_skip_relocation, sierra:        "bfc116e8f0853cdf5b4abc38b1f000c90708823bf49c5237f8ec453400a5d606"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "ad4f8ad9e7deeb0039c6c603b0108fb6733abe425c49fa6344f762e26b49cf2d"
+    sha256 cellar: :any_skip_relocation, yosemite:      "f48000af3631f28d47d01d3d89a1f03e7c4f7eac4a81ab7db9c38a1ce9ff66cd"
+    sha256 cellar: :any_skip_relocation, mavericks:     "09a420b59d2e5cbaf3073b2daf81d57d01c733b79a928bb58da6418de7f5bd3a"
   end
 
   # fixes for strlcpy/strlcat: https://trac.macports.org/ticket/42845

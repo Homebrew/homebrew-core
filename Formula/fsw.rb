@@ -6,17 +6,16 @@ class Fsw < Formula
   license "GPL-3.0"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 2
-    sha256 "5f9bbefcdf5b7c82abb30844c9680b9d99ab14aaac142372fc9b7e83d287d343" => :big_sur
-    sha256 "0713fafa231ce12c9eaa0e98b495402abe6ce46002140c5a6355fdd032ba69a8" => :arm64_big_sur
-    sha256 "749f3025e6383ae635a30302a3c61a191e57fbe88a7c74b3650749de7e9c8dad" => :catalina
-    sha256 "90779855faefd63a20e1e60406430bfec63d4ce766e253dae595f01acbebbf62" => :mojave
-    sha256 "d16086899f7ae88e0fd4eeaac5ede4e5749d688e9bb2385686f824f0a0e24677" => :high_sierra
-    sha256 "71b5da385bf9d59d33e6c331f23cab5676284d627129ee4f0352976b8ce13fe8" => :sierra
-    sha256 "3d02fa0e6e8a6f9518341fc3934e7b53e13ac42304b07b7088ce54384ed64371" => :el_capitan
-    sha256 "2a439435d39ddd9a8c1bb978ae7ebb25415fd7a3d0c7079e6a731ecbbf035f68" => :yosemite
-    sha256 "3d35dff82bb319e3d714fabf1638e3d9b5fa5760c04ae193ad45800507110e0d" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0713fafa231ce12c9eaa0e98b495402abe6ce46002140c5a6355fdd032ba69a8"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5f9bbefcdf5b7c82abb30844c9680b9d99ab14aaac142372fc9b7e83d287d343"
+    sha256 cellar: :any_skip_relocation, catalina:      "749f3025e6383ae635a30302a3c61a191e57fbe88a7c74b3650749de7e9c8dad"
+    sha256 cellar: :any_skip_relocation, mojave:        "90779855faefd63a20e1e60406430bfec63d4ce766e253dae595f01acbebbf62"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "d16086899f7ae88e0fd4eeaac5ede4e5749d688e9bb2385686f824f0a0e24677"
+    sha256 cellar: :any_skip_relocation, sierra:        "71b5da385bf9d59d33e6c331f23cab5676284d627129ee4f0352976b8ce13fe8"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "3d02fa0e6e8a6f9518341fc3934e7b53e13ac42304b07b7088ce54384ed64371"
+    sha256 cellar: :any_skip_relocation, yosemite:      "2a439435d39ddd9a8c1bb978ae7ebb25415fd7a3d0c7079e6a731ecbbf035f68"
+    sha256 cellar: :any_skip_relocation, mavericks:     "3d35dff82bb319e3d714fabf1638e3d9b5fa5760c04ae193ad45800507110e0d"
   end
 
   def install

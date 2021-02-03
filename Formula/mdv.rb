@@ -12,12 +12,11 @@ class Mdv < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "04e3e87af387732342c4674feeb11b493090eb6504d4c6797b57f41bbf9a90a8" => :big_sur
-    sha256 "81ef8f08570dbd4af753403e58d266fa2e4b440db92fb9b4506a92e9bd6de100" => :arm64_big_sur
-    sha256 "ba336eac38af86dd98d74dbba06226d13b0bc8af719e1e40a863f9f394da4de8" => :catalina
-    sha256 "ecb421e63e0278668ae2d570c8095186cb3e4695c5ba9891f20d16c2ba3c6e6c" => :mojave
-    sha256 "3b9847a65d7c9820148cd848687efdb598193cc76abb031c1f71841bad2ec60d" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "81ef8f08570dbd4af753403e58d266fa2e4b440db92fb9b4506a92e9bd6de100"
+    sha256 cellar: :any_skip_relocation, big_sur:       "04e3e87af387732342c4674feeb11b493090eb6504d4c6797b57f41bbf9a90a8"
+    sha256 cellar: :any_skip_relocation, catalina:      "ba336eac38af86dd98d74dbba06226d13b0bc8af719e1e40a863f9f394da4de8"
+    sha256 cellar: :any_skip_relocation, mojave:        "ecb421e63e0278668ae2d570c8095186cb3e4695c5ba9891f20d16c2ba3c6e6c"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "3b9847a65d7c9820148cd848687efdb598193cc76abb031c1f71841bad2ec60d"
   end
 
   depends_on "python@3.8"

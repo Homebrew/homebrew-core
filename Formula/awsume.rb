@@ -13,11 +13,10 @@ class Awsume < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "fa6d4309582c604ce00ba83e7e6b2f15d8dc91b280bc85ee235d7912e62b50fa" => :big_sur
-    sha256 "0060e3d76e2fabfdd8a037ff258d95c4df87cc297c180c45fe724fda1a470f5b" => :arm64_big_sur
-    sha256 "d40f48b8b4c7f3ed85cb5ce655946e3e8968ad785dccba47ba60e35745fc9a57" => :catalina
-    sha256 "c9c8f5a9a027e89eb52ca3c081a5f7afb86e464946f9a1f8c289cc054f9d60e8" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0060e3d76e2fabfdd8a037ff258d95c4df87cc297c180c45fe724fda1a470f5b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "fa6d4309582c604ce00ba83e7e6b2f15d8dc91b280bc85ee235d7912e62b50fa"
+    sha256 cellar: :any_skip_relocation, catalina:      "d40f48b8b4c7f3ed85cb5ce655946e3e8968ad785dccba47ba60e35745fc9a57"
+    sha256 cellar: :any_skip_relocation, mojave:        "c9c8f5a9a027e89eb52ca3c081a5f7afb86e464946f9a1f8c289cc054f9d60e8"
   end
 
   depends_on "openssl@1.1"

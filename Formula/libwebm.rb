@@ -6,16 +6,15 @@ class Libwebm < Formula
   license "BSD-3-Clause"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "37c6bf256f4a45d3765d671c3a923875adfccd49d8c038ca1e07c6ba181341ac" => :big_sur
-    sha256 "1eb4f710924f50df98fc45e1f51305698daf70336198bdc74f551f2ea8e7edfa" => :arm64_big_sur
-    sha256 "548a7393b909a559e08fbd6a0783ada345e0ef08b59f9b44588cc99d4420a040" => :catalina
-    sha256 "4238e3823e0e467e06492563d7f8c7603751419568ba621b6f644ad4ee5a30e6" => :mojave
-    sha256 "0df7605cdc3aff926c0ffbcf5d72cf12933781083890eeeacc10df82b317b7c2" => :high_sierra
-    sha256 "36f647efcc9d72881ad8998df30e3268ec0b69b81c872fc381e3d7126fa2da6e" => :sierra
-    sha256 "784418b8fc6006788c3a7c867cf675532fb7b86299ff9f8fb85d946c2e8cbc38" => :el_capitan
-    sha256 "c6c99d02e47ed6ec17821ab9386e49b40ffad45e30f58fdbae62395dc16def18" => :yosemite
-    sha256 "944eb5c9802b3f676e39e29b9eff89f2d5e1dcbeac1b2595f52b5df21369e561" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1eb4f710924f50df98fc45e1f51305698daf70336198bdc74f551f2ea8e7edfa"
+    sha256 cellar: :any_skip_relocation, big_sur:       "37c6bf256f4a45d3765d671c3a923875adfccd49d8c038ca1e07c6ba181341ac"
+    sha256 cellar: :any_skip_relocation, catalina:      "548a7393b909a559e08fbd6a0783ada345e0ef08b59f9b44588cc99d4420a040"
+    sha256 cellar: :any_skip_relocation, mojave:        "4238e3823e0e467e06492563d7f8c7603751419568ba621b6f644ad4ee5a30e6"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "0df7605cdc3aff926c0ffbcf5d72cf12933781083890eeeacc10df82b317b7c2"
+    sha256 cellar: :any_skip_relocation, sierra:        "36f647efcc9d72881ad8998df30e3268ec0b69b81c872fc381e3d7126fa2da6e"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "784418b8fc6006788c3a7c867cf675532fb7b86299ff9f8fb85d946c2e8cbc38"
+    sha256 cellar: :any_skip_relocation, yosemite:      "c6c99d02e47ed6ec17821ab9386e49b40ffad45e30f58fdbae62395dc16def18"
+    sha256 cellar: :any_skip_relocation, mavericks:     "944eb5c9802b3f676e39e29b9eff89f2d5e1dcbeac1b2595f52b5df21369e561"
   end
 
   depends_on "cmake" => :build

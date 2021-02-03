@@ -11,13 +11,13 @@ class Rtf2latex2e < Formula
   end
 
   bottle do
-    sha256 "c0348eb7e801057a74bedb8665b51ab62d9239ee7d6fff51d2c094ce092b6e6e" => :big_sur
-    sha256 "35639bec913a1d60de52ac3d15d633bc17878c06829a1e5338272bae0f2399cd" => :arm64_big_sur
-    sha256 "c7c3d46cf3f0b3a18dcb01aa9e1f2be4573f236e52f466d78eda4d659084e5bf" => :catalina
-    sha256 "bed54dc624378c20df3c352618645058a3ae3956d9cb5811af63836ffaa2dd10" => :mojave
-    sha256 "b31c9387003920d4c27cb846da71203d69711638ed284825861a12247eeabca9" => :high_sierra
-    sha256 "bbab54edbb07cbc3e16da33bdb0bd68258a330a3d1e2fceb175d1b753e6b81de" => :sierra
-    sha256 "0aa7144c74e8af3a935a87c2b9c822581c38566e24351a50ae601bbedca4aec3" => :el_capitan
+    sha256 arm64_big_sur: "35639bec913a1d60de52ac3d15d633bc17878c06829a1e5338272bae0f2399cd"
+    sha256 big_sur:       "c0348eb7e801057a74bedb8665b51ab62d9239ee7d6fff51d2c094ce092b6e6e"
+    sha256 catalina:      "c7c3d46cf3f0b3a18dcb01aa9e1f2be4573f236e52f466d78eda4d659084e5bf"
+    sha256 mojave:        "bed54dc624378c20df3c352618645058a3ae3956d9cb5811af63836ffaa2dd10"
+    sha256 high_sierra:   "b31c9387003920d4c27cb846da71203d69711638ed284825861a12247eeabca9"
+    sha256 sierra:        "bbab54edbb07cbc3e16da33bdb0bd68258a330a3d1e2fceb175d1b753e6b81de"
+    sha256 el_capitan:    "0aa7144c74e8af3a935a87c2b9c822581c38566e24351a50ae601bbedca4aec3"
   end
 
   def install

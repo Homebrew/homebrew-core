@@ -5,12 +5,11 @@ class Wdc < Formula
   sha256 "3c45341521da9c68328c5fa8909d838915e8a768e7652ff1bcc2fbbd46ab9f64"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c0d2e5d13ef2dca786d050eb726cdd240a8c7da8f56868f2a85aae67ee99ee8c" => :big_sur
-    sha256 "be11e8b817c20749111b09db86ff335c6c97bad37575f715e9a7e7ec7ca0335a" => :arm64_big_sur
-    sha256 "18365f76dafd05a312e9a7862f2fa747caa8c63e881469719a8ef45d07dce3c6" => :catalina
-    sha256 "fbcaccbaa2440ac38f9efa41a342eef4d883e522fa5df7d642aaa1563d38f28b" => :mojave
-    sha256 "92dcb68d02f64ff51446052bf5c41fa178cc48ade406a9533199461476f7c849" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "be11e8b817c20749111b09db86ff335c6c97bad37575f715e9a7e7ec7ca0335a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c0d2e5d13ef2dca786d050eb726cdd240a8c7da8f56868f2a85aae67ee99ee8c"
+    sha256 cellar: :any_skip_relocation, catalina:      "18365f76dafd05a312e9a7862f2fa747caa8c63e881469719a8ef45d07dce3c6"
+    sha256 cellar: :any_skip_relocation, mojave:        "fbcaccbaa2440ac38f9efa41a342eef4d883e522fa5df7d642aaa1563d38f28b"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "92dcb68d02f64ff51446052bf5c41fa178cc48ade406a9533199461476f7c849"
   end
 
   depends_on "cmake" => :build

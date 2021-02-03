@@ -12,11 +12,10 @@ class Openttd < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "406f8ff7bf25785ecb8dc062ceabc1ddf33ff8e24b745adb6c7886b17fb74e43" => :big_sur
-    sha256 "7958e9cf2b4ee62147a364893c4e2388f7a8e9ab95b2cd54fed6715da60c5be6" => :catalina
-    sha256 "e8a6fba720e5ec6ef08f5255fe47a86b271b7f3f45ea8e2a13fd3b277f6eb754" => :mojave
-    sha256 "853c329ff51f9ef5403b581911790ba6179bea0cb274b58fb08ac8af0b5aa361" => :high_sierra
+    sha256 cellar: :any, big_sur:     "406f8ff7bf25785ecb8dc062ceabc1ddf33ff8e24b745adb6c7886b17fb74e43"
+    sha256 cellar: :any, catalina:    "7958e9cf2b4ee62147a364893c4e2388f7a8e9ab95b2cd54fed6715da60c5be6"
+    sha256 cellar: :any, mojave:      "e8a6fba720e5ec6ef08f5255fe47a86b271b7f3f45ea8e2a13fd3b277f6eb754"
+    sha256 cellar: :any, high_sierra: "853c329ff51f9ef5403b581911790ba6179bea0cb274b58fb08ac8af0b5aa361"
   end
 
   depends_on "pkg-config" => :build

@@ -11,14 +11,13 @@ class Szip < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "1779ec8c3312993ef7e22679df6bbcd3adce9db28d3ad98adb54650c018ed294" => :big_sur
-    sha256 "8eaede9ea04a8c106c7f166f0922a1c3907a38b88867a2c51b48f060d51aaf6d" => :arm64_big_sur
-    sha256 "e27bbc3b0a5d55b33051cb6ca509836e617b6f96361a70a187a6c8d53f2b520b" => :catalina
-    sha256 "a6f7b3c066968d98311e0a1af58464562d586f0194f29d78d9ddbee59c96b833" => :mojave
-    sha256 "3b84fc3869965a5851cd13554ab46283a13adfa568ca7df1288728b2cfde0c4a" => :high_sierra
-    sha256 "c57296964a6ac43991c5f3a6b0b14e3deb99e14f3d1214427385dc4112e803af" => :sierra
-    sha256 "a4b1f903019aaa2e1d53e661aaf90f0e91937b3ad4b71126483feffb4c2d2e13" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "8eaede9ea04a8c106c7f166f0922a1c3907a38b88867a2c51b48f060d51aaf6d"
+    sha256 cellar: :any, big_sur:       "1779ec8c3312993ef7e22679df6bbcd3adce9db28d3ad98adb54650c018ed294"
+    sha256 cellar: :any, catalina:      "e27bbc3b0a5d55b33051cb6ca509836e617b6f96361a70a187a6c8d53f2b520b"
+    sha256 cellar: :any, mojave:        "a6f7b3c066968d98311e0a1af58464562d586f0194f29d78d9ddbee59c96b833"
+    sha256 cellar: :any, high_sierra:   "3b84fc3869965a5851cd13554ab46283a13adfa568ca7df1288728b2cfde0c4a"
+    sha256 cellar: :any, sierra:        "c57296964a6ac43991c5f3a6b0b14e3deb99e14f3d1214427385dc4112e803af"
+    sha256 cellar: :any, el_capitan:    "a4b1f903019aaa2e1d53e661aaf90f0e91937b3ad4b71126483feffb4c2d2e13"
   end
 
   def install

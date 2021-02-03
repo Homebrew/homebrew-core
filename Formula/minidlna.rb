@@ -10,11 +10,10 @@ class Minidlna < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "3934b6e9bea9c3f74be9b163909eff0a6f697bdcd36c0fb5b8ac46793b7e362b" => :big_sur
-    sha256 "e8123a9b2f7c100c538774cdb4114c0fdc44ea3a9a3a257e2f28db80a982c8ab" => :arm64_big_sur
-    sha256 "87538e0663825ec20c3d829db386fffeaf451df2f22f78845d92ff5dcad09a2e" => :catalina
-    sha256 "f1dd29bb2e954ed3b842ad591f8673419b37c1d151add4dd91c05350cde0e51a" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "e8123a9b2f7c100c538774cdb4114c0fdc44ea3a9a3a257e2f28db80a982c8ab"
+    sha256 cellar: :any, big_sur:       "3934b6e9bea9c3f74be9b163909eff0a6f697bdcd36c0fb5b8ac46793b7e362b"
+    sha256 cellar: :any, catalina:      "87538e0663825ec20c3d829db386fffeaf451df2f22f78845d92ff5dcad09a2e"
+    sha256 cellar: :any, mojave:        "f1dd29bb2e954ed3b842ad591f8673419b37c1d151add4dd91c05350cde0e51a"
   end
 
   head do

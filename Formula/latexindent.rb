@@ -7,11 +7,10 @@ class Latexindent < Formula
   revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "78f0e4bc0d5963fa6dcad8ac5486ab9a34c2da4bfd9cffabd16337385ce1824f" => :big_sur
-    sha256 "990afa8cf06b7d7d6e4564af13d4f8054873e03ca320c9da7b75efef7769aa86" => :arm64_big_sur
-    sha256 "80bc255ec4660c8cec1f8af2ec9f30d6b810af189a168dab4c61128430cf25e0" => :catalina
-    sha256 "13bb96a8f2256a72a53c0f6338300dace9853b0cb0b97c2892b9e3a81b8cc5ee" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "990afa8cf06b7d7d6e4564af13d4f8054873e03ca320c9da7b75efef7769aa86"
+    sha256 cellar: :any_skip_relocation, big_sur:       "78f0e4bc0d5963fa6dcad8ac5486ab9a34c2da4bfd9cffabd16337385ce1824f"
+    sha256 cellar: :any_skip_relocation, catalina:      "80bc255ec4660c8cec1f8af2ec9f30d6b810af189a168dab4c61128430cf25e0"
+    sha256 cellar: :any_skip_relocation, mojave:        "13bb96a8f2256a72a53c0f6338300dace9853b0cb0b97c2892b9e3a81b8cc5ee"
   end
 
   depends_on "perl"

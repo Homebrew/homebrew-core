@@ -31,14 +31,14 @@ class Nethacked < Formula
   end
 
   bottle do
-    sha256 "7ec798bfda16ed59639e13d8ec29a572f8ccb33be28f40eecbb1990ce7324454" => :big_sur
-    sha256 "6e72ef5f73856fce288298607152d9ffbd322d592b4d5f451739482e5d632aae" => :arm64_big_sur
-    sha256 "619034420b0ce7a657824a14c45af647132ac8263839b9a56fc0b64ff100aa64" => :catalina
-    sha256 "77cec385d3ab1ba8c9d4ef1234d25a42a7aff77c9db2158fad7820f677a67cc0" => :mojave
-    sha256 "4fe2af842c20dc95f4ae5bebcffed0b85da6a94a548b0d5f8115d1829c80e3cc" => :high_sierra
-    sha256 "d2c880eb02b32bc6a976b16502f400a94b395375b5cd59e731fb209580e3ceee" => :sierra
-    sha256 "dcbe9a404fb0215e35dc9d08e73595ba8dadad55e6ca898078a66ce04c9dc11b" => :el_capitan
-    sha256 "08b24568c94b14271e5d1b2880a0a78e6eea5cbbabfb9519347b5be1d2cc0893" => :yosemite
+    sha256 arm64_big_sur: "6e72ef5f73856fce288298607152d9ffbd322d592b4d5f451739482e5d632aae"
+    sha256 big_sur:       "7ec798bfda16ed59639e13d8ec29a572f8ccb33be28f40eecbb1990ce7324454"
+    sha256 catalina:      "619034420b0ce7a657824a14c45af647132ac8263839b9a56fc0b64ff100aa64"
+    sha256 mojave:        "77cec385d3ab1ba8c9d4ef1234d25a42a7aff77c9db2158fad7820f677a67cc0"
+    sha256 high_sierra:   "4fe2af842c20dc95f4ae5bebcffed0b85da6a94a548b0d5f8115d1829c80e3cc"
+    sha256 sierra:        "d2c880eb02b32bc6a976b16502f400a94b395375b5cd59e731fb209580e3ceee"
+    sha256 el_capitan:    "dcbe9a404fb0215e35dc9d08e73595ba8dadad55e6ca898078a66ce04c9dc11b"
+    sha256 yosemite:      "08b24568c94b14271e5d1b2880a0a78e6eea5cbbabfb9519347b5be1d2cc0893"
   end
 
   # Don't remove save folder

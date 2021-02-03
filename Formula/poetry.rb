@@ -12,12 +12,11 @@ class Poetry < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "5bed2df1069a4af8088e65aac9ed18ad6fb3887a2bf5c1681d40ab84ff3bf3ab" => :big_sur
-    sha256 "27c76026e47e0a8fc572fdaea9cde45b0dab4613bdf4d583b91c1561e640ee3f" => :arm64_big_sur
-    sha256 "8266e0c42f1da8180bc22fa150eb9a31b2d776d594ebbc6f9095c54f7beb0f51" => :catalina
-    sha256 "fcd488237a0e10f9d661f26bf22e69b90f179d380970b8aed333b73dc98c2608" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "27c76026e47e0a8fc572fdaea9cde45b0dab4613bdf4d583b91c1561e640ee3f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5bed2df1069a4af8088e65aac9ed18ad6fb3887a2bf5c1681d40ab84ff3bf3ab"
+    sha256 cellar: :any_skip_relocation, catalina:      "8266e0c42f1da8180bc22fa150eb9a31b2d776d594ebbc6f9095c54f7beb0f51"
+    sha256 cellar: :any_skip_relocation, mojave:        "fcd488237a0e10f9d661f26bf22e69b90f179d380970b8aed333b73dc98c2608"
   end
 
   depends_on "python@3.9"

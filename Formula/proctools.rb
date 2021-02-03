@@ -10,16 +10,15 @@ class Proctools < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "3a8ffd535edba47371a0617666b6eced7b0b13c4b27b4303b483d71f07de2e04" => :big_sur
-    sha256 "526b231a9b0d8e8d2a4155507bc77e2cc3dab60a6905c44c3371839b391e0b74" => :arm64_big_sur
-    sha256 "f0fe70530d22c270ac3d5a105f2dbbbb0dc6a664acd03f3ad7da3f86255fd548" => :catalina
-    sha256 "f7466405a3aab3cd7b00669ea685b1fe463a19bbdd7fef8b8c25f86595de2d34" => :mojave
-    sha256 "d41f76776e37f54cabf5d76ce2cb89d13052f1221a70b325245f600a7bd047ae" => :high_sierra
-    sha256 "8567dd0ffde620f8b1dd18e0529d670a235bcde6dac7b3f19d6528ecf843613a" => :sierra
-    sha256 "ed8136da9f7b607eec69d014b1c3f81b9ef3f004f38cc2904400861c0d6adab0" => :el_capitan
-    sha256 "a05e2adbc0ff0e11be133a81748fc123adc8b32002ff5efb49d141a354f92d70" => :yosemite
-    sha256 "812961a8a321441010a786c4de1b97c830181a013dae457b6b44c96ce799eb22" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "526b231a9b0d8e8d2a4155507bc77e2cc3dab60a6905c44c3371839b391e0b74"
+    sha256 cellar: :any_skip_relocation, big_sur:       "3a8ffd535edba47371a0617666b6eced7b0b13c4b27b4303b483d71f07de2e04"
+    sha256 cellar: :any_skip_relocation, catalina:      "f0fe70530d22c270ac3d5a105f2dbbbb0dc6a664acd03f3ad7da3f86255fd548"
+    sha256 cellar: :any_skip_relocation, mojave:        "f7466405a3aab3cd7b00669ea685b1fe463a19bbdd7fef8b8c25f86595de2d34"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "d41f76776e37f54cabf5d76ce2cb89d13052f1221a70b325245f600a7bd047ae"
+    sha256 cellar: :any_skip_relocation, sierra:        "8567dd0ffde620f8b1dd18e0529d670a235bcde6dac7b3f19d6528ecf843613a"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "ed8136da9f7b607eec69d014b1c3f81b9ef3f004f38cc2904400861c0d6adab0"
+    sha256 cellar: :any_skip_relocation, yosemite:      "a05e2adbc0ff0e11be133a81748fc123adc8b32002ff5efb49d141a354f92d70"
+    sha256 cellar: :any_skip_relocation, mavericks:     "812961a8a321441010a786c4de1b97c830181a013dae457b6b44c96ce799eb22"
   end
 
   depends_on "bsdmake" => :build

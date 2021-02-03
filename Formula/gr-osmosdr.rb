@@ -8,9 +8,9 @@ class GrOsmosdr < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 "54c41d6a6ad6ff508d1a9fb3fcebf1d245ecd50eded905b9ca51f26fb6f4d01a" => :big_sur
-    sha256 "781bf31b9c0ef7764dad1509148fadade96b1c8c43042951bf3e0b3ade05ae3e" => :catalina
-    sha256 "1316ec1150647972436f96a9d957b5c5b7889f6f962217b181e6185a939aa2e2" => :mojave
+    sha256 big_sur:  "54c41d6a6ad6ff508d1a9fb3fcebf1d245ecd50eded905b9ca51f26fb6f4d01a"
+    sha256 catalina: "781bf31b9c0ef7764dad1509148fadade96b1c8c43042951bf3e0b3ade05ae3e"
+    sha256 mojave:   "1316ec1150647972436f96a9d957b5c5b7889f6f962217b181e6185a939aa2e2"
   end
 
   # gr-osmosdr does not build with gnuradio 3.9+

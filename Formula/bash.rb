@@ -34,10 +34,10 @@ class Bash < Formula
   end
 
   bottle do
-    sha256 "1c7c13309368474e6f7b3afd9c6ba13b213b00caeb9b990e171cf5e097e8e5e1" => :big_sur
-    sha256 "253a8f71bb8ca1444fa5951caa3e4d0e6f51ca6cd6d7c9fc9f79f0c58dc3e693" => :arm64_big_sur
-    sha256 "2195ea39cf6607ec440addd6aed524c5a66719e998d74d5f9595f594f6593b21" => :catalina
-    sha256 "4a294caec86652221a9901b9d892723a84e60d05bc91155efcb661829b13a898" => :mojave
+    sha256 arm64_big_sur: "253a8f71bb8ca1444fa5951caa3e4d0e6f51ca6cd6d7c9fc9f79f0c58dc3e693"
+    sha256 big_sur:       "1c7c13309368474e6f7b3afd9c6ba13b213b00caeb9b990e171cf5e097e8e5e1"
+    sha256 catalina:      "2195ea39cf6607ec440addd6aed524c5a66719e998d74d5f9595f594f6593b21"
+    sha256 mojave:        "4a294caec86652221a9901b9d892723a84e60d05bc91155efcb661829b13a898"
   end
 
   def install

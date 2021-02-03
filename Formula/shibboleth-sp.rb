@@ -12,10 +12,10 @@ class ShibbolethSp < Formula
   end
 
   bottle do
-    sha256 "781bbb7e15b8bd627faebbbba9d0ab953f16b404bc5f038b3922ef9758a93a54" => :big_sur
-    sha256 "8692a9b1f2628e3d4f8357eec50025a3a77f719a3f7dc689447805792461e0e6" => :arm64_big_sur
-    sha256 "a1ef4ff3fee2e58592efa0c5ae94e3db23989ca840a4ea5243cba20443b0e756" => :catalina
-    sha256 "3b38d18397b68c481e8872fbd45a3771a45e5278c6f1c2e2540111c18404a865" => :mojave
+    sha256 arm64_big_sur: "8692a9b1f2628e3d4f8357eec50025a3a77f719a3f7dc689447805792461e0e6"
+    sha256 big_sur:       "781bbb7e15b8bd627faebbbba9d0ab953f16b404bc5f038b3922ef9758a93a54"
+    sha256 catalina:      "a1ef4ff3fee2e58592efa0c5ae94e3db23989ca840a4ea5243cba20443b0e756"
+    sha256 mojave:        "3b38d18397b68c481e8872fbd45a3771a45e5278c6f1c2e2540111c18404a865"
   end
 
   depends_on "apr" => :build

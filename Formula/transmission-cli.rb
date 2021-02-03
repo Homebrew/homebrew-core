@@ -12,11 +12,11 @@ class TransmissionCli < Formula
   end
 
   bottle do
-    sha256 "b0a5765570ae2796c9c5fd7ab2272bb0b6b4add34d85894c99bad77aa38e81da" => :big_sur
-    sha256 "bf01d43e836a7108c64716df7acdcbbf7b7734e5bb7f10af10e3f276e450b225" => :arm64_big_sur
-    sha256 "576f0f5017a86da149292b6da4fde251ad7a77bd9a88e82639ed4fc586cb08e7" => :catalina
-    sha256 "d56c90e32e206cdcf5ec8591fcb79de80c9b41483946c354fac4b9f09020c236" => :mojave
-    sha256 "d8ded603c8aae8b4eaf59c1c078dfdfb44b97191d4ce42439f6b02984ccf16b3" => :high_sierra
+    sha256 arm64_big_sur: "bf01d43e836a7108c64716df7acdcbbf7b7734e5bb7f10af10e3f276e450b225"
+    sha256 big_sur:       "b0a5765570ae2796c9c5fd7ab2272bb0b6b4add34d85894c99bad77aa38e81da"
+    sha256 catalina:      "576f0f5017a86da149292b6da4fde251ad7a77bd9a88e82639ed4fc586cb08e7"
+    sha256 mojave:        "d56c90e32e206cdcf5ec8591fcb79de80c9b41483946c354fac4b9f09020c236"
+    sha256 high_sierra:   "d8ded603c8aae8b4eaf59c1c078dfdfb44b97191d4ce42439f6b02984ccf16b3"
   end
 
   depends_on "pkg-config" => :build

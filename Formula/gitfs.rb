@@ -10,10 +10,9 @@ class Gitfs < Formula
   head "https://github.com/presslabs/gitfs.git"
 
   bottle do
-    cellar :any
-    sha256 "c8c83c94da3b5f1dc480eec0ede90bf678eee59a97bb54a64cf94555d9c57752" => :catalina
-    sha256 "189008579b9d28a9084536f62101051648b64a78cd6faf780b3f40041becc188" => :mojave
-    sha256 "218c5f19bcecb33e4f18c19cf0f56ce6d9628d4cfad9f095fbb1071af3cd79c2" => :high_sierra
+    sha256 cellar: :any, catalina:    "c8c83c94da3b5f1dc480eec0ede90bf678eee59a97bb54a64cf94555d9c57752"
+    sha256 cellar: :any, mojave:      "189008579b9d28a9084536f62101051648b64a78cd6faf780b3f40041becc188"
+    sha256 cellar: :any, high_sierra: "218c5f19bcecb33e4f18c19cf0f56ce6d9628d4cfad9f095fbb1071af3cd79c2"
   end
 
   depends_on "libgit2"

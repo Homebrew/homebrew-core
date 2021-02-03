@@ -18,12 +18,11 @@ class XcbProto < Formula
   revision 2
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "15460cb7e0d83e7c05e331a98ed4a82e2badb9c337009e8d5fa830d26be113ea" => :big_sur
-    sha256 "5c0d6040951956079df0f6c8e58b0ec759dab7b0aebdeacaa05189c1fe0775ee" => :arm64_big_sur
-    sha256 "9a4114ec613fb5d8ba41cc43dffb95059bbe7815e812d194ef7c6507281883f4" => :catalina
-    sha256 "432ed8c5ad796f9311c34f4bfd3290e42fc132bf0e106ed6e39462ff8d028ab1" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5c0d6040951956079df0f6c8e58b0ec759dab7b0aebdeacaa05189c1fe0775ee"
+    sha256 cellar: :any_skip_relocation, big_sur:       "15460cb7e0d83e7c05e331a98ed4a82e2badb9c337009e8d5fa830d26be113ea"
+    sha256 cellar: :any_skip_relocation, catalina:      "9a4114ec613fb5d8ba41cc43dffb95059bbe7815e812d194ef7c6507281883f4"
+    sha256 cellar: :any_skip_relocation, mojave:        "432ed8c5ad796f9311c34f4bfd3290e42fc132bf0e106ed6e39462ff8d028ab1"
   end
 
   depends_on "pkg-config" => [:build, :test]

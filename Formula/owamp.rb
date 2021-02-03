@@ -12,17 +12,16 @@ class Owamp < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "d9599177f43e538b1fea107a4395cbd466ee5991e8c1d7e8d510baf32878a32a" => :big_sur
-    sha256 "e3c656cab3adb4646e47897e27351fb92b97b9a7cd0810887567b5d1bb9a125a" => :arm64_big_sur
-    sha256 "a7bce114bb407f1663671ee68793b7751d512e0451cf9bbf35c1f36ad9b4c3f9" => :catalina
-    sha256 "22833b09d6faa093c2d186560cd22e328b9ab11efa8f9774543392e7dca127f2" => :mojave
-    sha256 "0ce1d8385c1cb2036acbccbcd92ed5778c8ec0aa8e4db5c06a9ea018621f58dc" => :high_sierra
-    sha256 "afdeaab138caa02c535fd9d2b847c5b5b24273beef19271fc60415de16d0681f" => :sierra
-    sha256 "6f86a33c176ba1394560b7707466c088930f13db102b7adc159e80e889fdc5cf" => :el_capitan
-    sha256 "fce4cc5bf0a9b5355779fb45637651f6a78bb8d3dd93bdc3ff2826b7866617fd" => :yosemite
-    sha256 "6c6b6f1f143b929b892c6556db3b06299835326a72c5180c482b2630e62dc543" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e3c656cab3adb4646e47897e27351fb92b97b9a7cd0810887567b5d1bb9a125a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d9599177f43e538b1fea107a4395cbd466ee5991e8c1d7e8d510baf32878a32a"
+    sha256 cellar: :any_skip_relocation, catalina:      "a7bce114bb407f1663671ee68793b7751d512e0451cf9bbf35c1f36ad9b4c3f9"
+    sha256 cellar: :any_skip_relocation, mojave:        "22833b09d6faa093c2d186560cd22e328b9ab11efa8f9774543392e7dca127f2"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "0ce1d8385c1cb2036acbccbcd92ed5778c8ec0aa8e4db5c06a9ea018621f58dc"
+    sha256 cellar: :any_skip_relocation, sierra:        "afdeaab138caa02c535fd9d2b847c5b5b24273beef19271fc60415de16d0681f"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "6f86a33c176ba1394560b7707466c088930f13db102b7adc159e80e889fdc5cf"
+    sha256 cellar: :any_skip_relocation, yosemite:      "fce4cc5bf0a9b5355779fb45637651f6a78bb8d3dd93bdc3ff2826b7866617fd"
+    sha256 cellar: :any_skip_relocation, mavericks:     "6c6b6f1f143b929b892c6556db3b06299835326a72c5180c482b2630e62dc543"
   end
 
   depends_on "i2util"

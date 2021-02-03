@@ -12,10 +12,10 @@ class Perl < Formula
   end
 
   bottle do
-    sha256 "846c28c0b3ae4d63fb82feef77832b37f198a5669f4fb58a9a4cd081aa9c1e27" => :big_sur
-    sha256 "94989cfa38487dfbea5d430da2e4e85734d79b6125020992a5009624628899f1" => :arm64_big_sur
-    sha256 "dce1838f66ce3929a58c1a68f351c98f7f2176b41d624e3cfc7bd8ec72d8cf90" => :catalina
-    sha256 "45de452aa689c422e320ea35fa040a9cc0c6640c2a3b1dff9cabff3f4f17b490" => :mojave
+    sha256 arm64_big_sur: "94989cfa38487dfbea5d430da2e4e85734d79b6125020992a5009624628899f1"
+    sha256 big_sur:       "846c28c0b3ae4d63fb82feef77832b37f198a5669f4fb58a9a4cd081aa9c1e27"
+    sha256 catalina:      "dce1838f66ce3929a58c1a68f351c98f7f2176b41d624e3cfc7bd8ec72d8cf90"
+    sha256 mojave:        "45de452aa689c422e320ea35fa040a9cc0c6640c2a3b1dff9cabff3f4f17b490"
   end
 
   uses_from_macos "expat"

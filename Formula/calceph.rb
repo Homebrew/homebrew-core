@@ -6,12 +6,11 @@ class Calceph < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    cellar :any
-    sha256 "f5aa0d2c90d1bf0fdd1b01e7d540a243552054274634cc429c0364fdcbafb44a" => :big_sur
-    sha256 "0466e27596cec26f2fcce66fe699f4366e8e2e3c020c9c69a86e3dfe5982c81c" => :arm64_big_sur
-    sha256 "2ce6fa8b2b26b317a0bb5896a7bbb8a492d85788f2f7eda43cac8cc2dde7a3a4" => :catalina
-    sha256 "6fe017217defc0a4746d5881f8ced6f2ae0af262f0fa6aef33c94721f45b1742" => :mojave
-    sha256 "8b2a7955298fe618abe12328de07a6c991a47d15805b27f11f2df2f0bf88de0d" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "0466e27596cec26f2fcce66fe699f4366e8e2e3c020c9c69a86e3dfe5982c81c"
+    sha256 cellar: :any, big_sur:       "f5aa0d2c90d1bf0fdd1b01e7d540a243552054274634cc429c0364fdcbafb44a"
+    sha256 cellar: :any, catalina:      "2ce6fa8b2b26b317a0bb5896a7bbb8a492d85788f2f7eda43cac8cc2dde7a3a4"
+    sha256 cellar: :any, mojave:        "6fe017217defc0a4746d5881f8ced6f2ae0af262f0fa6aef33c94721f45b1742"
+    sha256 cellar: :any, high_sierra:   "8b2a7955298fe618abe12328de07a6c991a47d15805b27f11f2df2f0bf88de0d"
   end
 
   depends_on "gcc" # for gfortran

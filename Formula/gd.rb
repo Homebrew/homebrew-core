@@ -6,10 +6,10 @@ class Gd < Formula
   license :cannot_represent
 
   bottle do
-    sha256 cellar: :any, big_sur: "ec599087d1cf61ab58ac3d7ddca812cc00cad0eaab80e16382d75ff9b77a28fe"
     sha256 cellar: :any, arm64_big_sur: "6f861db008780a40ea0682f5043a66cd72a076b9bb220f7fdd48655a0dc1ab53"
-    sha256 cellar: :any, catalina: "07806dd972f4f1763d738b3d5ed0d674e14bd3ccddfe53dbe9d64b40f627e453"
-    sha256 cellar: :any, mojave: "9caf104db0a1c87ca2b318e117cf7d182a89c44bfde0f7a8e9d36ceca7984554"
+    sha256 cellar: :any, big_sur:       "ec599087d1cf61ab58ac3d7ddca812cc00cad0eaab80e16382d75ff9b77a28fe"
+    sha256 cellar: :any, catalina:      "07806dd972f4f1763d738b3d5ed0d674e14bd3ccddfe53dbe9d64b40f627e453"
+    sha256 cellar: :any, mojave:        "9caf104db0a1c87ca2b318e117cf7d182a89c44bfde0f7a8e9d36ceca7984554"
   end
 
   head do

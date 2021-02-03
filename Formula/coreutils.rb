@@ -12,10 +12,10 @@ class Coreutils < Formula
 
   bottle do
     rebuild 2
-    sha256 "371ec57703b3646e0113331308b6e03617c2a7f91e15e113380b605455daba20" => :big_sur
-    sha256 "e7d88d2b7a91a57dfd37c2ea14752d1bb116f25694eab1161d6e8088f7db5921" => :arm64_big_sur
-    sha256 "7a97ad96dfbe6abbb5c94424518a077e040af8a77d1946ca960a5f33cd237551" => :catalina
-    sha256 "10fbad2e35846c7e835cb979b5beb9edf07f3a9742ddcc3c28d9abd5fe9ccb1b" => :mojave
+    sha256 arm64_big_sur: "e7d88d2b7a91a57dfd37c2ea14752d1bb116f25694eab1161d6e8088f7db5921"
+    sha256 big_sur:       "371ec57703b3646e0113331308b6e03617c2a7f91e15e113380b605455daba20"
+    sha256 catalina:      "7a97ad96dfbe6abbb5c94424518a077e040af8a77d1946ca960a5f33cd237551"
+    sha256 mojave:        "10fbad2e35846c7e835cb979b5beb9edf07f3a9742ddcc3c28d9abd5fe9ccb1b"
   end
 
   head do

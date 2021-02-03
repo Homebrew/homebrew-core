@@ -11,10 +11,10 @@ class Hbase < Formula
   end
 
   bottle do
-    sha256 "35270a7596f6252714837d937bd2ad5b9b7b3f00b50067b289d08f97f76e5846" => :big_sur
-    sha256 "1da9558690f3c73ec7621133f8479fc4434c0dcadde298c49751f0ae4ce00b2e" => :arm64_big_sur
-    sha256 "3b1d13d0dc1dd5ea220c15cf7de44bf9c4c38b023783cbc313a0e8ed0aa383bc" => :catalina
-    sha256 "b60c11f10ccd5c5730a6b099bdfccd8342067e7d2b0ccb45f81e775f4fce6382" => :mojave
+    sha256 arm64_big_sur: "1da9558690f3c73ec7621133f8479fc4434c0dcadde298c49751f0ae4ce00b2e"
+    sha256 big_sur:       "35270a7596f6252714837d937bd2ad5b9b7b3f00b50067b289d08f97f76e5846"
+    sha256 catalina:      "3b1d13d0dc1dd5ea220c15cf7de44bf9c4c38b023783cbc313a0e8ed0aa383bc"
+    sha256 mojave:        "b60c11f10ccd5c5730a6b099bdfccd8342067e7d2b0ccb45f81e775f4fce6382"
   end
 
   depends_on "ant" => :build

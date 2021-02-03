@@ -12,10 +12,9 @@ class Insect < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "30d7f0f2e26a504fafc8444b90e243680186c1d10c5ef05e505bb712a3d2d543" => :catalina
-    sha256 "b0d541a0e1a22cd63cd3a5ade24de85b9630e1b5d12154063c001d4d21fa81f4" => :mojave
-    sha256 "0604c43c2cb219d817eb9129ee501dff2f1d206c8da539eb062c88ba4ed6518d" => :high_sierra
+    sha256 cellar: :any_skip_relocation, catalina:    "30d7f0f2e26a504fafc8444b90e243680186c1d10c5ef05e505bb712a3d2d543"
+    sha256 cellar: :any_skip_relocation, mojave:      "b0d541a0e1a22cd63cd3a5ade24de85b9630e1b5d12154063c001d4d21fa81f4"
+    sha256 cellar: :any_skip_relocation, high_sierra: "0604c43c2cb219d817eb9129ee501dff2f1d206c8da539eb062c88ba4ed6518d"
   end
 
   depends_on "psc-package" => :build

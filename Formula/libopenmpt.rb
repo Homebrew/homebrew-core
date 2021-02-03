@@ -12,10 +12,10 @@ class Libopenmpt < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur: "9cff46a437ec6052a185659845f023d58e6ed0746b8795e302e2c19ede3ef495"
     sha256 cellar: :any, arm64_big_sur: "b41a555aca663ae452190910fd2c5fbee37588b864ad64ecea0471dbefd60690"
-    sha256 cellar: :any, catalina: "7aa35598ce904e38740c90f9c61b2c51b03868229502224e7d36cc680ea85851"
-    sha256 cellar: :any, mojave: "faf5143021862bc64b2be69a40407fa30e0a609fc4851ae3fcea056e9a72cddd"
+    sha256 cellar: :any, big_sur:       "9cff46a437ec6052a185659845f023d58e6ed0746b8795e302e2c19ede3ef495"
+    sha256 cellar: :any, catalina:      "7aa35598ce904e38740c90f9c61b2c51b03868229502224e7d36cc680ea85851"
+    sha256 cellar: :any, mojave:        "faf5143021862bc64b2be69a40407fa30e0a609fc4851ae3fcea056e9a72cddd"
   end
 
   depends_on "pkg-config" => :build

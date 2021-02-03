@@ -11,15 +11,15 @@ class CmuPocketsphinx < Formula
   end
 
   bottle do
-    sha256 "25ce90366420de438c34e8f037f1da3c7ded680375fcc69127cdec7695f84fed" => :big_sur
-    sha256 "4c3fc6b03df2530653a4ff38b270e9a37dd968748b38a011cae6500ab38d8084" => :arm64_big_sur
-    sha256 "f2fc23a67634f26befdd128d21e886d7b3789484a14d498a40949e0e100d8afa" => :catalina
-    sha256 "cc655d82bfce35b2976e4dd0867fceb02b233363e7e101c62b09e60e2be9f8bb" => :mojave
-    sha256 "628d162751962337c769090867c3f9921d10b09f704f8f208b63abbefef205eb" => :high_sierra
-    sha256 "12abc8b527906e7ed0d2f6f0a6b6cb5c00f548fe94fcce995bdc80f43b4cf17b" => :sierra
-    sha256 "2f1f4738dbcf7641a530b82c4dc6447ecadb5f9b60cd2484c33c379efb5c46e5" => :el_capitan
-    sha256 "dea4e6a8e131f68c94a6b9fb783a0445476354a90629001d5007fe3b4e5247bd" => :yosemite
-    sha256 "9d49cd11915d906db23021eeaed8bed1ee5e565eaad03a1a96cbb03448ae6867" => :mavericks
+    sha256 arm64_big_sur: "4c3fc6b03df2530653a4ff38b270e9a37dd968748b38a011cae6500ab38d8084"
+    sha256 big_sur:       "25ce90366420de438c34e8f037f1da3c7ded680375fcc69127cdec7695f84fed"
+    sha256 catalina:      "f2fc23a67634f26befdd128d21e886d7b3789484a14d498a40949e0e100d8afa"
+    sha256 mojave:        "cc655d82bfce35b2976e4dd0867fceb02b233363e7e101c62b09e60e2be9f8bb"
+    sha256 high_sierra:   "628d162751962337c769090867c3f9921d10b09f704f8f208b63abbefef205eb"
+    sha256 sierra:        "12abc8b527906e7ed0d2f6f0a6b6cb5c00f548fe94fcce995bdc80f43b4cf17b"
+    sha256 el_capitan:    "2f1f4738dbcf7641a530b82c4dc6447ecadb5f9b60cd2484c33c379efb5c46e5"
+    sha256 yosemite:      "dea4e6a8e131f68c94a6b9fb783a0445476354a90629001d5007fe3b4e5247bd"
+    sha256 mavericks:     "9d49cd11915d906db23021eeaed8bed1ee5e565eaad03a1a96cbb03448ae6867"
   end
 
   head do

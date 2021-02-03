@@ -18,12 +18,11 @@ class Lha < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "bd78eb55cbce8091fd07d82ec486bfd67fc8079b2fe6385c8374b2e7c5171528" => :big_sur
-    sha256 "d328d1b1740353a2e04c6f79dc863f3fa2caca9380e76b3e48b4b72f5e1ad32b" => :arm64_big_sur
-    sha256 "429d3165a0f986e815f09ea3f6b2d93e1bd0feef01b6df6159a983e8118244a4" => :catalina
-    sha256 "12b5c79de56f71138c64d517ffc0091bc313f4cc0f174e10276b248b06e2fa0f" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d328d1b1740353a2e04c6f79dc863f3fa2caca9380e76b3e48b4b72f5e1ad32b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "bd78eb55cbce8091fd07d82ec486bfd67fc8079b2fe6385c8374b2e7c5171528"
+    sha256 cellar: :any_skip_relocation, catalina:      "429d3165a0f986e815f09ea3f6b2d93e1bd0feef01b6df6159a983e8118244a4"
+    sha256 cellar: :any_skip_relocation, mojave:        "12b5c79de56f71138c64d517ffc0091bc313f4cc0f174e10276b248b06e2fa0f"
   end
 
   head do

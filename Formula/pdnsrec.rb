@@ -11,10 +11,10 @@ class Pdnsrec < Formula
   end
 
   bottle do
-    sha256 "09aedfb6fae88ddc911022c9f2d8166e3746d401a9d54fe3742bc117831beff1" => :big_sur
-    sha256 "a6aa0796a7d756013f091d557864091220ca773ee298c609b344a7288408dcf7" => :arm64_big_sur
-    sha256 "5d78e21c1882b3bdf96317c7044a8f247f0601f33ba9dcb074be05ac9d9c7475" => :catalina
-    sha256 "1ebddc007e37972ec7703a6c422dcc81991fd721c32a3ae07d4117ba34faf6a6" => :mojave
+    sha256 arm64_big_sur: "a6aa0796a7d756013f091d557864091220ca773ee298c609b344a7288408dcf7"
+    sha256 big_sur:       "09aedfb6fae88ddc911022c9f2d8166e3746d401a9d54fe3742bc117831beff1"
+    sha256 catalina:      "5d78e21c1882b3bdf96317c7044a8f247f0601f33ba9dcb074be05ac9d9c7475"
+    sha256 mojave:        "1ebddc007e37972ec7703a6c422dcc81991fd721c32a3ae07d4117ba34faf6a6"
   end
 
   depends_on "pkg-config" => :build

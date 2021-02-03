@@ -12,9 +12,9 @@ class Mesos < Formula
   end
 
   bottle do
-    sha256 "9b16abfb73c36bfd2b8a8f7648968730afb3fb30066b8886ddfb1dc287122f5c" => :catalina
-    sha256 "6c9c8120d0e6057f0637290a1845855b06e8830d9695d5d11ccabfcbb494bcb5" => :mojave
-    sha256 "b8cad31bd364be2eef13f360f8b9315b4a00caac8308dd4f52f76e02b56dcb5e" => :high_sierra
+    sha256 catalina:    "9b16abfb73c36bfd2b8a8f7648968730afb3fb30066b8886ddfb1dc287122f5c"
+    sha256 mojave:      "6c9c8120d0e6057f0637290a1845855b06e8830d9695d5d11ccabfcbb494bcb5"
+    sha256 high_sierra: "b8cad31bd364be2eef13f360f8b9315b4a00caac8308dd4f52f76e02b56dcb5e"
   end
 
   depends_on "autoconf" => :build

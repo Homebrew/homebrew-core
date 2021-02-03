@@ -12,10 +12,10 @@ class OathToolkit < Formula
   end
 
   bottle do
-    sha256 "ed6ceb54edc0b0bea449a75c756b604c6204f6fd80c9e280ce57b1e3d7140ac7" => :big_sur
-    sha256 "3e54014feda461a1aa6f68f71570c8be14076aac4a6823345b76b10feba0cf94" => :arm64_big_sur
-    sha256 "04c85d25d9c1e8cac2164a4b538344f95181346fd3170e65e43173aca6770b6d" => :catalina
-    sha256 "136fc9c533486f31645fdd6594d96fc8f17487439248b78a8c42a868ce7aaacb" => :mojave
+    sha256 arm64_big_sur: "3e54014feda461a1aa6f68f71570c8be14076aac4a6823345b76b10feba0cf94"
+    sha256 big_sur:       "ed6ceb54edc0b0bea449a75c756b604c6204f6fd80c9e280ce57b1e3d7140ac7"
+    sha256 catalina:      "04c85d25d9c1e8cac2164a4b538344f95181346fd3170e65e43173aca6770b6d"
+    sha256 mojave:        "136fc9c533486f31645fdd6594d96fc8f17487439248b78a8c42a868ce7aaacb"
   end
 
   depends_on "pkg-config" => :build

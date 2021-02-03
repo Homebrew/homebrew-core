@@ -15,16 +15,15 @@ class MecabIpadic < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "4fc2878d95314057c5d0f726cc1dacf2ce110c7e84b77806e958970f9b34ccc5" => :big_sur
-    sha256 "bdd2a69bbcbfe6e051278c94e4e19c6bfde63e2a3e525e2c57da0afb37ee5b6f" => :arm64_big_sur
-    sha256 "90271975d35925136a14f2563e4b5201bed51b5c1fc27249d916676027c1016e" => :catalina
-    sha256 "30967b4167d34f05c79f185d71a40198fff4067d0cce82aed59383548c898681" => :mojave
-    sha256 "ef5cf167b05fd74457d5c31a46750450e8f80720ebc705766ee10df6ed41a861" => :high_sierra
-    sha256 "33f42c18d7347708a56d8846c0bde5c8291b7685ce06b342e96442bca35f6663" => :sierra
-    sha256 "9f0ae0a62141e3b28807349cb7a9560e36770acb869f4a4e7a54ea1a28ef8ba5" => :el_capitan
-    sha256 "55703c812de3e7cff503b9cd1eafa0656b3f17c4885165ce4d8e4d2b2356050e" => :yosemite
-    sha256 "0a9ea36b7cc03f73ae34f72e078b7e84ebe814cf8e1cfbea2d5f876c1893b1c5" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "bdd2a69bbcbfe6e051278c94e4e19c6bfde63e2a3e525e2c57da0afb37ee5b6f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4fc2878d95314057c5d0f726cc1dacf2ce110c7e84b77806e958970f9b34ccc5"
+    sha256 cellar: :any_skip_relocation, catalina:      "90271975d35925136a14f2563e4b5201bed51b5c1fc27249d916676027c1016e"
+    sha256 cellar: :any_skip_relocation, mojave:        "30967b4167d34f05c79f185d71a40198fff4067d0cce82aed59383548c898681"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "ef5cf167b05fd74457d5c31a46750450e8f80720ebc705766ee10df6ed41a861"
+    sha256 cellar: :any_skip_relocation, sierra:        "33f42c18d7347708a56d8846c0bde5c8291b7685ce06b342e96442bca35f6663"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "9f0ae0a62141e3b28807349cb7a9560e36770acb869f4a4e7a54ea1a28ef8ba5"
+    sha256 cellar: :any_skip_relocation, yosemite:      "55703c812de3e7cff503b9cd1eafa0656b3f17c4885165ce4d8e4d2b2356050e"
+    sha256 cellar: :any_skip_relocation, mavericks:     "0a9ea36b7cc03f73ae34f72e078b7e84ebe814cf8e1cfbea2d5f876c1893b1c5"
   end
 
   depends_on "mecab"

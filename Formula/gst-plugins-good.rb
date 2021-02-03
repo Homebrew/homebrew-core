@@ -12,10 +12,10 @@ class GstPluginsGood < Formula
   end
 
   bottle do
-    sha256 "8e6e4f2a960d3772584ed6434ce2f512fc7040ef608017edb25d80dc58fab855" => :big_sur
-    sha256 "03a82d9ee3a21e5729c6ae1261e12fcdf9b1d06ad03bc66ced81609afac58b22" => :arm64_big_sur
-    sha256 "7da8911e9d81565c88d2de579ba1ddec315f44f55c4047c4c81c1ea1f7a43cf2" => :catalina
-    sha256 "70c7c2bbac7a2daff507ad72edff60fa383f3b220f565bafd9b6769beaa065c1" => :mojave
+    sha256 arm64_big_sur: "03a82d9ee3a21e5729c6ae1261e12fcdf9b1d06ad03bc66ced81609afac58b22"
+    sha256 big_sur:       "8e6e4f2a960d3772584ed6434ce2f512fc7040ef608017edb25d80dc58fab855"
+    sha256 catalina:      "7da8911e9d81565c88d2de579ba1ddec315f44f55c4047c4c81c1ea1f7a43cf2"
+    sha256 mojave:        "70c7c2bbac7a2daff507ad72edff60fa383f3b220f565bafd9b6769beaa065c1"
   end
 
   depends_on "meson" => :build

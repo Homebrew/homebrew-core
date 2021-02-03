@@ -18,16 +18,15 @@ class Mkvdts2ac3 < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "d146252c7f8a7e75a78bdde799e88156851d16974ae35c2e54397c7c3dc93d7c" => :big_sur
-    sha256 "19928b2ef2664b358d7dca5fd53a9098c260eed4c61d37227097981e619af504" => :arm64_big_sur
-    sha256 "76873d06126eddea9f43414bbaa9b35d2aa50e9f17f3ab0a490d733c6cf71438" => :catalina
-    sha256 "932762d9435e3ddd0fff7a1ead1e0c906bc505517545f0c10f877cd61dd77365" => :mojave
-    sha256 "54e70bb92dfdfe615346d6ba815648b1714da8b08a2f361fa95d104f14cee367" => :high_sierra
-    sha256 "9a501348303556d867917f03c9c456216d1de39a19e5978472e2ef57f7d6731f" => :sierra
-    sha256 "d3eaf28d8c9718a73c2309eb8d9fc7c0a8db2ea6517324a80092ca02ac7842d4" => :el_capitan
-    sha256 "4b4c9bf979e7ecd9efa254a9e5fdfe13a5549a209958f86e1233b8cc87a38e4b" => :yosemite
-    sha256 "336cc7357b741d3e045a2c9a32f19f8daba41cfd3d00d2d3422d7b31c91ad538" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "19928b2ef2664b358d7dca5fd53a9098c260eed4c61d37227097981e619af504"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d146252c7f8a7e75a78bdde799e88156851d16974ae35c2e54397c7c3dc93d7c"
+    sha256 cellar: :any_skip_relocation, catalina:      "76873d06126eddea9f43414bbaa9b35d2aa50e9f17f3ab0a490d733c6cf71438"
+    sha256 cellar: :any_skip_relocation, mojave:        "932762d9435e3ddd0fff7a1ead1e0c906bc505517545f0c10f877cd61dd77365"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "54e70bb92dfdfe615346d6ba815648b1714da8b08a2f361fa95d104f14cee367"
+    sha256 cellar: :any_skip_relocation, sierra:        "9a501348303556d867917f03c9c456216d1de39a19e5978472e2ef57f7d6731f"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "d3eaf28d8c9718a73c2309eb8d9fc7c0a8db2ea6517324a80092ca02ac7842d4"
+    sha256 cellar: :any_skip_relocation, yosemite:      "4b4c9bf979e7ecd9efa254a9e5fdfe13a5549a209958f86e1233b8cc87a38e4b"
+    sha256 cellar: :any_skip_relocation, mavericks:     "336cc7357b741d3e045a2c9a32f19f8daba41cfd3d00d2d3422d7b31c91ad538"
   end
 
   depends_on "ffmpeg"

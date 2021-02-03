@@ -12,10 +12,10 @@ class Gnuplot < Formula
 
   bottle do
     rebuild 1
-    sha256 "9a9db26ab2b8537521d4ff508d4797c8535434ddd34748ab4044867d8eef65a0" => :big_sur
-    sha256 "72a503fc93c60629c22d4f286d45365037d792d76c2f7ff8a76e6469641b0cc7" => :arm64_big_sur
-    sha256 "1de9920502210ab56fbedc9bf4025ab8f0c88d164f022a1e767863f64b6e9954" => :catalina
-    sha256 "19ed248f7d406ade2e6fd1faa28069878cd5b2a0b73911d735289478faaab8c3" => :mojave
+    sha256 arm64_big_sur: "72a503fc93c60629c22d4f286d45365037d792d76c2f7ff8a76e6469641b0cc7"
+    sha256 big_sur:       "9a9db26ab2b8537521d4ff508d4797c8535434ddd34748ab4044867d8eef65a0"
+    sha256 catalina:      "1de9920502210ab56fbedc9bf4025ab8f0c88d164f022a1e767863f64b6e9954"
+    sha256 mojave:        "19ed248f7d406ade2e6fd1faa28069878cd5b2a0b73911d735289478faaab8c3"
   end
 
   head do

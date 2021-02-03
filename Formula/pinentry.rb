@@ -12,11 +12,10 @@ class Pinentry < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "b2fca70261e4f8a945628d62d8d673ee75df71bffa469616447928ab05eaa9bb" => :big_sur
-    sha256 "933ed357a058e743d86ad965ecd246e8a228cc9b9fb05e310eb19c552f587201" => :arm64_big_sur
-    sha256 "83a923d3334fa79364af9539de6126014209b8f50a313b7a085986d06fe80753" => :catalina
-    sha256 "92cf647e09770cda92dd77ef0814da6ea8b69a27710e73fc4bf601e0d9d8a8ce" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "933ed357a058e743d86ad965ecd246e8a228cc9b9fb05e310eb19c552f587201"
+    sha256 cellar: :any, big_sur:       "b2fca70261e4f8a945628d62d8d673ee75df71bffa469616447928ab05eaa9bb"
+    sha256 cellar: :any, catalina:      "83a923d3334fa79364af9539de6126014209b8f50a313b7a085986d06fe80753"
+    sha256 cellar: :any, mojave:        "92cf647e09770cda92dd77ef0814da6ea8b69a27710e73fc4bf601e0d9d8a8ce"
   end
 
   depends_on "pkg-config" => :build

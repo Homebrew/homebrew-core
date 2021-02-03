@@ -12,10 +12,10 @@ class Ninja < Formula
   end
 
   bottle do
-    sha256 "e5e8174fb4bce324cfb42226d46ce1433f34866f0c06ce930a3bbdb40cadd395" => :big_sur
-    sha256 "8be5a50d0bfe6bae6f920def1273bc0da888a5eef7304303888b1a5929bd517e" => :arm64_big_sur
-    sha256 "5eb553057f7595f0c607b100ac263ab5834a057b11e8aca512555f5129f6d544" => :catalina
-    sha256 "8d7775944ef67e3f8884bff5ea0013a80c4811be8c268fdd9b37cc377eb9ec1b" => :mojave
+    sha256 arm64_big_sur: "8be5a50d0bfe6bae6f920def1273bc0da888a5eef7304303888b1a5929bd517e"
+    sha256 big_sur:       "e5e8174fb4bce324cfb42226d46ce1433f34866f0c06ce930a3bbdb40cadd395"
+    sha256 catalina:      "5eb553057f7595f0c607b100ac263ab5834a057b11e8aca512555f5129f6d544"
+    sha256 mojave:        "8d7775944ef67e3f8884bff5ea0013a80c4811be8c268fdd9b37cc377eb9ec1b"
   end
 
   depends_on "python@3.9"

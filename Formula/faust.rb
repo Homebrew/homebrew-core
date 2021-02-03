@@ -6,11 +6,10 @@ class Faust < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    cellar :any
-    sha256 "6d80da1e64a967bbc9549653d1848dba6ffdd8b54d99e1ed1b507ecfbdf84136" => :big_sur
-    sha256 "180d720686402bbeb9ac2f18c1c3c0d66282a2443631ab1961ec0b6d2b1e459b" => :arm64_big_sur
-    sha256 "975ec4c8a2c10a975f998a94466734a5f3c08ceefb5c024d40d5d394a994754d" => :catalina
-    sha256 "35e5b689fcec1730122ac0871d4c13eb3b84842991cf9728180fd84f4a654cf5" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "180d720686402bbeb9ac2f18c1c3c0d66282a2443631ab1961ec0b6d2b1e459b"
+    sha256 cellar: :any, big_sur:       "6d80da1e64a967bbc9549653d1848dba6ffdd8b54d99e1ed1b507ecfbdf84136"
+    sha256 cellar: :any, catalina:      "975ec4c8a2c10a975f998a94466734a5f3c08ceefb5c024d40d5d394a994754d"
+    sha256 cellar: :any, mojave:        "35e5b689fcec1730122ac0871d4c13eb3b84842991cf9728180fd84f4a654cf5"
   end
 
   depends_on "cmake" => :build

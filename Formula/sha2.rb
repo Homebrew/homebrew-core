@@ -10,12 +10,11 @@ class Sha2 < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 4
-    sha256 "b7710c8b0af7a9c0c319b2e417a63d59e7978a6a7be560e172719a8e4a9b56dc" => :big_sur
-    sha256 "972453a919bb7c951a9e6bb2c8d27d27db09c85ba2f3c649c29e049f19930012" => :arm64_big_sur
-    sha256 "dbcf9483f299affb674b45e9a5d6e3dbb13cc5e18d22b7fbdc6a80c22b6e4c9b" => :catalina
-    sha256 "cc85a50ddee16d85b3e1412ad8ce420bddc4fb70af97152f3328e208030823a5" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "972453a919bb7c951a9e6bb2c8d27d27db09c85ba2f3c649c29e049f19930012"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b7710c8b0af7a9c0c319b2e417a63d59e7978a6a7be560e172719a8e4a9b56dc"
+    sha256 cellar: :any_skip_relocation, catalina:      "dbcf9483f299affb674b45e9a5d6e3dbb13cc5e18d22b7fbdc6a80c22b6e4c9b"
+    sha256 cellar: :any_skip_relocation, mojave:        "cc85a50ddee16d85b3e1412ad8ce420bddc4fb70af97152f3328e208030823a5"
   end
 
   def install

@@ -7,11 +7,10 @@ class Miller < Formula
   head "https://github.com/johnkerl/miller.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "5b19f1751ba3d39d94c371443583a2fd53b035e93c4ffdd8432e6c978ba43601" => :big_sur
-    sha256 "6549e28916d341df56a77990fdd06aa3120821447d12614e233b60b6019b4343" => :arm64_big_sur
-    sha256 "d806164692bbe7077e28e8deb819c24ab3e7ba0794ffa6073654e54d32538649" => :catalina
-    sha256 "bceb6b1ff93c9bb4b11a38af1ce4b4c06f3a572e06f0f8132a9b0799a1caa3e3" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6549e28916d341df56a77990fdd06aa3120821447d12614e233b60b6019b4343"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5b19f1751ba3d39d94c371443583a2fd53b035e93c4ffdd8432e6c978ba43601"
+    sha256 cellar: :any_skip_relocation, catalina:      "d806164692bbe7077e28e8deb819c24ab3e7ba0794ffa6073654e54d32538649"
+    sha256 cellar: :any_skip_relocation, mojave:        "bceb6b1ff93c9bb4b11a38af1ce4b4c06f3a572e06f0f8132a9b0799a1caa3e3"
   end
 
   depends_on "autoconf" => :build

@@ -11,14 +11,14 @@ class Myman < Formula
 
   bottle do
     rebuild 2
-    sha256 "651100d0ad19af5ef07a55c1bd0d728211d8810e9da024d9344f3ed5c024e46b" => :big_sur
-    sha256 "a38be300e040956aa8f9d997a715c91152868d5aeaadc6406330729523036828" => :arm64_big_sur
-    sha256 "90c5dee20ff2517495521e588b09678789462a8a63dc6a600da13a76cb5e86b0" => :catalina
-    sha256 "1ff1470d676dabb177f06c2683b67da5e70e39bbab28f7457762d4adda5cffb0" => :mojave
-    sha256 "b5f0af51ce1098ea35e48bc50f4097cbb9e647989decd6d7791476b062ef7582" => :high_sierra
-    sha256 "376c71ad2f5abcc0233b3873d70cc963e54ac0ca00a552eceb025ac09b931ff6" => :sierra
-    sha256 "d3b66de7eae03edecb2573524d94239bd013ffd57eeb1980411da12f6d2b2b98" => :el_capitan
-    sha256 "b318e0b227a3ad281afe95edc5a0cc7ab0b1d5e46b1699e6221eb201de869b48" => :yosemite
+    sha256 arm64_big_sur: "a38be300e040956aa8f9d997a715c91152868d5aeaadc6406330729523036828"
+    sha256 big_sur:       "651100d0ad19af5ef07a55c1bd0d728211d8810e9da024d9344f3ed5c024e46b"
+    sha256 catalina:      "90c5dee20ff2517495521e588b09678789462a8a63dc6a600da13a76cb5e86b0"
+    sha256 mojave:        "1ff1470d676dabb177f06c2683b67da5e70e39bbab28f7457762d4adda5cffb0"
+    sha256 high_sierra:   "b5f0af51ce1098ea35e48bc50f4097cbb9e647989decd6d7791476b062ef7582"
+    sha256 sierra:        "376c71ad2f5abcc0233b3873d70cc963e54ac0ca00a552eceb025ac09b931ff6"
+    sha256 el_capitan:    "d3b66de7eae03edecb2573524d94239bd013ffd57eeb1980411da12f6d2b2b98"
+    sha256 yosemite:      "b318e0b227a3ad281afe95edc5a0cc7ab0b1d5e46b1699e6221eb201de869b48"
   end
 
   depends_on "coreutils" => :build

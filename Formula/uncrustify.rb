@@ -7,12 +7,11 @@ class Uncrustify < Formula
   head "https://github.com/uncrustify/uncrustify.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ee6e6b6d193ed163cd8365382bc56dd621f5c8f6c3776f52e4b0b2aeb1b90329" => :big_sur
-    sha256 "327603c90e291b6f9f8c5bf837bfe4f22295cdf18dc397e012537eab2e7ca9b2" => :arm64_big_sur
-    sha256 "c22df6af4af60a023f95f2cdce327fffe740264e44382e5bcd97e6ea9245bdb7" => :catalina
-    sha256 "3340dd41ba1ad700ba8014225ac005c9a171d16b990ff275257f9c4f30097861" => :mojave
-    sha256 "2af96b34e949ec3034f0c66c90918ac69b6b3f312e32ce4c27b0dfe158bfef40" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "327603c90e291b6f9f8c5bf837bfe4f22295cdf18dc397e012537eab2e7ca9b2"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ee6e6b6d193ed163cd8365382bc56dd621f5c8f6c3776f52e4b0b2aeb1b90329"
+    sha256 cellar: :any_skip_relocation, catalina:      "c22df6af4af60a023f95f2cdce327fffe740264e44382e5bcd97e6ea9245bdb7"
+    sha256 cellar: :any_skip_relocation, mojave:        "3340dd41ba1ad700ba8014225ac005c9a171d16b990ff275257f9c4f30097861"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "2af96b34e949ec3034f0c66c90918ac69b6b3f312e32ce4c27b0dfe158bfef40"
   end
 
   depends_on "cmake" => :build

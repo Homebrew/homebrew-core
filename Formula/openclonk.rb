@@ -8,12 +8,11 @@ class Openclonk < Formula
   head "https://github.com/openclonk/openclonk.git"
 
   bottle do
-    cellar :any
-    sha256 "1f4cca43144a36b7d6eeb24d9d3cefc84b591fb20abc503ecca7e73fc26b07ca" => :big_sur
-    sha256 "ebd7f7efa0efc4c70b14071e98a5f2d314c16e5b6f28fe11257738619f0c813b" => :arm64_big_sur
-    sha256 "95f44dd3686157a5185f1452f46515160347cef55237aac391edfabbbeb0c5de" => :catalina
-    sha256 "688963d2df4cd964a51bed317cf656137d5e8d668b457a7cef89e8302ac02f49" => :mojave
-    sha256 "87779de2d3cfa0dc1880fa45226e3f434ecca4409565db5e8bf278c225487da1" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "ebd7f7efa0efc4c70b14071e98a5f2d314c16e5b6f28fe11257738619f0c813b"
+    sha256 cellar: :any, big_sur:       "1f4cca43144a36b7d6eeb24d9d3cefc84b591fb20abc503ecca7e73fc26b07ca"
+    sha256 cellar: :any, catalina:      "95f44dd3686157a5185f1452f46515160347cef55237aac391edfabbbeb0c5de"
+    sha256 cellar: :any, mojave:        "688963d2df4cd964a51bed317cf656137d5e8d668b457a7cef89e8302ac02f49"
+    sha256 cellar: :any, high_sierra:   "87779de2d3cfa0dc1880fa45226e3f434ecca4409565db5e8bf278c225487da1"
   end
 
   depends_on "cmake" => :build

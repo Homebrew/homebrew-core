@@ -9,9 +9,9 @@ class Makepkg < Formula
 
   bottle do
     rebuild 2
-    sha256 "fb89c76eb6c2a50b14d2380ad1440b37f96e86f39d5bd60378ab5ac85cd02b08" => :catalina
-    sha256 "b6606a63e0727072c1016ffa8b60db28de0de67d3b5d3f495aa8d0728b7325c9" => :mojave
-    sha256 "c8f2f6999669c56b5e40e2608ad1e0adfe2c8eb73f8cef959a229856d21da6ed" => :high_sierra
+    sha256 catalina:    "fb89c76eb6c2a50b14d2380ad1440b37f96e86f39d5bd60378ab5ac85cd02b08"
+    sha256 mojave:      "b6606a63e0727072c1016ffa8b60db28de0de67d3b5d3f495aa8d0728b7325c9"
+    sha256 high_sierra: "c8f2f6999669c56b5e40e2608ad1e0adfe2c8eb73f8cef959a229856d21da6ed"
   end
 
   depends_on "asciidoc" => :build

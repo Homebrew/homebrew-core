@@ -7,10 +7,9 @@ class Smlpkg < Formula
   head "https://github.com/diku-dk/smlpkg.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "a586b7393075b749b525aee9aedb42b42e8f961997764000b34cb95b1b3da4e9" => :catalina
-    sha256 "e2641ae3cb473051e55ae1163b72018028415195b4971a1254fe7cd1f57efb26" => :mojave
-    sha256 "27f4bec44d28a9903d720632f1a2ac71c0091a564a0e26c0e896fac4f2becf22" => :high_sierra
+    sha256 cellar: :any_skip_relocation, catalina:    "a586b7393075b749b525aee9aedb42b42e8f961997764000b34cb95b1b3da4e9"
+    sha256 cellar: :any_skip_relocation, mojave:      "e2641ae3cb473051e55ae1163b72018028415195b4971a1254fe7cd1f57efb26"
+    sha256 cellar: :any_skip_relocation, high_sierra: "27f4bec44d28a9903d720632f1a2ac71c0091a564a0e26c0e896fac4f2becf22"
   end
 
   disable! date: "2020-12-08", because: :unmaintained

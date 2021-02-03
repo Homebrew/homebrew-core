@@ -11,10 +11,10 @@ class Xplanet < Formula
   end
 
   bottle do
-    sha256 "48c24de21612e3a5cb19747db269ec15dc1a85a4e49c6e0c0c87b0bdf5b15d90" => :big_sur
-    sha256 "c8e659713aaa70e8fc00d48e15cf997648759afa7b6ff8e0979212348fd6cc8f" => :catalina
-    sha256 "9912c643de81e812f69e639e1fe1ee3ee45900d85ce23409adb0a394305b970b" => :mojave
-    sha256 "aec227666c4e6216b061e979c5aabd1343c9c6433e8f85868f0f12eff3c01b62" => :high_sierra
+    sha256 big_sur:     "48c24de21612e3a5cb19747db269ec15dc1a85a4e49c6e0c0c87b0bdf5b15d90"
+    sha256 catalina:    "c8e659713aaa70e8fc00d48e15cf997648759afa7b6ff8e0979212348fd6cc8f"
+    sha256 mojave:      "9912c643de81e812f69e639e1fe1ee3ee45900d85ce23409adb0a394305b970b"
+    sha256 high_sierra: "aec227666c4e6216b061e979c5aabd1343c9c6433e8f85868f0f12eff3c01b62"
   end
 
   depends_on "pkg-config" => :build

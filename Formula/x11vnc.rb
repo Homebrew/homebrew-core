@@ -6,13 +6,12 @@ class X11vnc < Formula
   license "GPL-2.0"
 
   bottle do
-    cellar :any
-    sha256 "50270ae1fd7681db301b3449748f46108d5eb93df535be7085ef6498f936555d" => :big_sur
-    sha256 "f066915a77e9635f0f1394566b2b825bcb0a02207e6393e3c0c5a62b7f8a03ae" => :arm64_big_sur
-    sha256 "66ddb190e2e2a183ba662d4c7ac2de508b6ebe3c3c827078a5eec5b550477e5e" => :catalina
-    sha256 "cd3d5d0047a8fb2e7b66ac94baf08c2da16aa8e135b8180acacce2d1bf366e58" => :mojave
-    sha256 "2660aa48f9545eef71c5a42f9985720629d0391eaef37155264ec4c71cf13b29" => :high_sierra
-    sha256 "4e974a6cbc6bd9c03e90ed2f991a40c4589489ccbd01bd20552bf0a66773f924" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "f066915a77e9635f0f1394566b2b825bcb0a02207e6393e3c0c5a62b7f8a03ae"
+    sha256 cellar: :any, big_sur:       "50270ae1fd7681db301b3449748f46108d5eb93df535be7085ef6498f936555d"
+    sha256 cellar: :any, catalina:      "66ddb190e2e2a183ba662d4c7ac2de508b6ebe3c3c827078a5eec5b550477e5e"
+    sha256 cellar: :any, mojave:        "cd3d5d0047a8fb2e7b66ac94baf08c2da16aa8e135b8180acacce2d1bf366e58"
+    sha256 cellar: :any, high_sierra:   "2660aa48f9545eef71c5a42f9985720629d0391eaef37155264ec4c71cf13b29"
+    sha256 cellar: :any, sierra:        "4e974a6cbc6bd9c03e90ed2f991a40c4589489ccbd01bd20552bf0a66773f924"
   end
 
   depends_on "autoconf" => :build

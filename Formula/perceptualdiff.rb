@@ -9,16 +9,15 @@ class Perceptualdiff < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "fdc7e444e4d48802ce4a7c671260ec1a51ebb100248d4cb90622ce3cb2dfce82" => :big_sur
-    sha256 "6260c155e96ef17bdaf4ba1032986371db4748e3de145c5354e936fd0f854875" => :arm64_big_sur
-    sha256 "9edad00fd4470f908e5f9e1eb8c96c364b94c504dab46d1f38a45036871a10a0" => :catalina
-    sha256 "1d3d02c27772801105fe9cf3e3ad697bcbeb4db9b260f134bd3e342344455481" => :mojave
-    sha256 "683d05fc64186ee518180b56345d446be90ff2c42666c80adb86bc185d20d283" => :high_sierra
-    sha256 "eb2da458eda1cebc7872b2621c96e5aa627d9711f8d31fb792cb092d92d060db" => :sierra
-    sha256 "d47d680df91ee88897f95123e6b9f972351a603a5f4921726b2877cc2e67924f" => :el_capitan
-    sha256 "7a1956479cc1176b7340f4614db1b556318513b6359a025dca942142956b65d9" => :yosemite
-    sha256 "99baa893fa0ceaa71fd8c4443a315c2d8e51c567f65a6917eaa5e4ab3952a900" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "6260c155e96ef17bdaf4ba1032986371db4748e3de145c5354e936fd0f854875"
+    sha256 cellar: :any, big_sur:       "fdc7e444e4d48802ce4a7c671260ec1a51ebb100248d4cb90622ce3cb2dfce82"
+    sha256 cellar: :any, catalina:      "9edad00fd4470f908e5f9e1eb8c96c364b94c504dab46d1f38a45036871a10a0"
+    sha256 cellar: :any, mojave:        "1d3d02c27772801105fe9cf3e3ad697bcbeb4db9b260f134bd3e342344455481"
+    sha256 cellar: :any, high_sierra:   "683d05fc64186ee518180b56345d446be90ff2c42666c80adb86bc185d20d283"
+    sha256 cellar: :any, sierra:        "eb2da458eda1cebc7872b2621c96e5aa627d9711f8d31fb792cb092d92d060db"
+    sha256 cellar: :any, el_capitan:    "d47d680df91ee88897f95123e6b9f972351a603a5f4921726b2877cc2e67924f"
+    sha256 cellar: :any, yosemite:      "7a1956479cc1176b7340f4614db1b556318513b6359a025dca942142956b65d9"
+    sha256 cellar: :any, mavericks:     "99baa893fa0ceaa71fd8c4443a315c2d8e51c567f65a6917eaa5e4ab3952a900"
   end
 
   depends_on "cmake" => :build

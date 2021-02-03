@@ -6,11 +6,10 @@ class Ship < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "87de3fe44a1b8d881b0cf6be5f74c6261dc8b38deb85e7edb48a0b1ac9d73805" => :big_sur
-    sha256 "17b2f10424c9728a9bbc19bef3af5d9fab3b350fa2aa2620fced62056065f651" => :arm64_big_sur
-    sha256 "7395a181b4bb2581d17a9a45fd054f5f1c15fe1a43a85f559316aea65e2da66e" => :catalina
-    sha256 "740a9cd2f1eef9bf09cb029827f5c4fabbc84dd14ee68babf065f85cceee0f12" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "17b2f10424c9728a9bbc19bef3af5d9fab3b350fa2aa2620fced62056065f651"
+    sha256 cellar: :any_skip_relocation, big_sur:       "87de3fe44a1b8d881b0cf6be5f74c6261dc8b38deb85e7edb48a0b1ac9d73805"
+    sha256 cellar: :any_skip_relocation, catalina:      "7395a181b4bb2581d17a9a45fd054f5f1c15fe1a43a85f559316aea65e2da66e"
+    sha256 cellar: :any_skip_relocation, mojave:        "740a9cd2f1eef9bf09cb029827f5c4fabbc84dd14ee68babf065f85cceee0f12"
   end
 
   depends_on "go" => :build

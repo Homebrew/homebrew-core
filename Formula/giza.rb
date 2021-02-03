@@ -6,11 +6,10 @@ class Giza < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    cellar :any
-    sha256 "7a485d9f66a4b57eadf001fe38219c52b95ddd097830a02cdc3356b2e435765d" => :big_sur
-    sha256 "4f8cdbde732c7a01b43daac9e9970911458af323b9ecf82e8f64264e1d04464c" => :arm64_big_sur
-    sha256 "4651e890ce15036cb2e8862a5c72d56201be4cfc345f7f66d95aa3fd452b6615" => :catalina
-    sha256 "3bfd5ff70ee646773ac6d799c3bd5865a9ab689833ca1f484a6402fa9443b105" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "4f8cdbde732c7a01b43daac9e9970911458af323b9ecf82e8f64264e1d04464c"
+    sha256 cellar: :any, big_sur:       "7a485d9f66a4b57eadf001fe38219c52b95ddd097830a02cdc3356b2e435765d"
+    sha256 cellar: :any, catalina:      "4651e890ce15036cb2e8862a5c72d56201be4cfc345f7f66d95aa3fd452b6615"
+    sha256 cellar: :any, mojave:        "3bfd5ff70ee646773ac6d799c3bd5865a9ab689833ca1f484a6402fa9443b105"
   end
 
   depends_on "pkg-config" => :build

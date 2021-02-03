@@ -5,13 +5,12 @@ class HardlinkOsx < Formula
   sha256 "5876554e6dafb6627a94670ac33e750a7efeb3a5fbde5ede3e145cdb5131d1ba"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "65636aa5d94437d15de5242711605a07fe6b3b3eebeb8753120555b2a0efe589" => :mojave
-    sha256 "5d1dca9220c4955c4e4a3b05a23f9c241f9ea73a27ac78d967efdaf29f4d9730" => :high_sierra
-    sha256 "01a3edbdac1385e04a3b0857e8073f0731ee26f6f71746a9c5347458aafc9623" => :sierra
-    sha256 "edf85db2b0586c410dd96f8ab50cf4cc0f34d1494b3b91a5ef0b00ae16fed3c0" => :el_capitan
-    sha256 "dcba3e0320ca63d1b958173aa9e2ac24074c5c1f94becaba07f0c92e721b941e" => :yosemite
-    sha256 "2ebdf76a67f7c63614d581963d92d79de15cf834b7e3857c139f474db71aab73" => :mavericks
+    sha256 cellar: :any_skip_relocation, mojave:      "65636aa5d94437d15de5242711605a07fe6b3b3eebeb8753120555b2a0efe589"
+    sha256 cellar: :any_skip_relocation, high_sierra: "5d1dca9220c4955c4e4a3b05a23f9c241f9ea73a27ac78d967efdaf29f4d9730"
+    sha256 cellar: :any_skip_relocation, sierra:      "01a3edbdac1385e04a3b0857e8073f0731ee26f6f71746a9c5347458aafc9623"
+    sha256 cellar: :any_skip_relocation, el_capitan:  "edf85db2b0586c410dd96f8ab50cf4cc0f34d1494b3b91a5ef0b00ae16fed3c0"
+    sha256 cellar: :any_skip_relocation, yosemite:    "dcba3e0320ca63d1b958173aa9e2ac24074c5c1f94becaba07f0c92e721b941e"
+    sha256 cellar: :any_skip_relocation, mavericks:   "2ebdf76a67f7c63614d581963d92d79de15cf834b7e3857c139f474db71aab73"
   end
 
   # https://github.com/selkhateeb/hardlink/issues/31

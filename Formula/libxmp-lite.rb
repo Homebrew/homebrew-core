@@ -10,15 +10,14 @@ class LibxmpLite < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "8fd127bc9b8ddefedf784c9387b9b901a70917b600ce5f4e4087d0abbba530d1" => :big_sur
-    sha256 "c0529347eb14021e29716dc96c5d275efa984fb5aa2394dd116547342878e6ed" => :arm64_big_sur
-    sha256 "a155be151ab2b536aae7aa7cb44999b8e1dc5a210b06af6f18265eb4037fd6ab" => :catalina
-    sha256 "d1956ebfe2812cededb97f6717925f21ca1a71dbd8b4211792369cb0a9f3c74f" => :mojave
-    sha256 "e0b20b3d4fcd64e4c90b9d704ee5621739bf633bdf8bd71bd1b2cb713a2b0284" => :high_sierra
-    sha256 "d1ed5c1803f622508c3e20bb9c48f9bc644d0d639574aaa298724dd0aa17262d" => :sierra
-    sha256 "a8fcd7a5ab446a221b7444b90191656175f6060a0730a703e4f862c4f49690f4" => :el_capitan
-    sha256 "448d0a4bcd651c44551a1d3785de1c0181cce1ee374cd7903a629cb200a3011d" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "c0529347eb14021e29716dc96c5d275efa984fb5aa2394dd116547342878e6ed"
+    sha256 cellar: :any, big_sur:       "8fd127bc9b8ddefedf784c9387b9b901a70917b600ce5f4e4087d0abbba530d1"
+    sha256 cellar: :any, catalina:      "a155be151ab2b536aae7aa7cb44999b8e1dc5a210b06af6f18265eb4037fd6ab"
+    sha256 cellar: :any, mojave:        "d1956ebfe2812cededb97f6717925f21ca1a71dbd8b4211792369cb0a9f3c74f"
+    sha256 cellar: :any, high_sierra:   "e0b20b3d4fcd64e4c90b9d704ee5621739bf633bdf8bd71bd1b2cb713a2b0284"
+    sha256 cellar: :any, sierra:        "d1ed5c1803f622508c3e20bb9c48f9bc644d0d639574aaa298724dd0aa17262d"
+    sha256 cellar: :any, el_capitan:    "a8fcd7a5ab446a221b7444b90191656175f6060a0730a703e4f862c4f49690f4"
+    sha256 cellar: :any, yosemite:      "448d0a4bcd651c44551a1d3785de1c0181cce1ee374cd7903a629cb200a3011d"
   end
 
   # Remove for > 4.4.1

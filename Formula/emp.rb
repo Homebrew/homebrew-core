@@ -6,13 +6,12 @@ class Emp < Formula
   license "BSD-2-Clause"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "fc362d246942141f91da093183c54a8ff679bf263f0a4326d5bed7f94cbc8f59" => :big_sur
-    sha256 "8c4bca6eca037bbef2b1a65d1974b43b36c81274e20597a76e87703ec477ee1a" => :catalina
-    sha256 "33eafe903efc393c0964ac05ab684508b98e72a4ee2f26272ee16eee159cd514" => :mojave
-    sha256 "d96c6b3f2ee49480ddc0dac10484284e7620dce5499482bdaf12c26f42f93a13" => :high_sierra
-    sha256 "2a45cd98d7345ff1872137576f97a028729ff4c0d62994d1ce6d573e3835e9db" => :sierra
-    sha256 "af64990b64d29f8383db471092279e9d039c7c81b6294099bb456890b6b5161b" => :el_capitan
+    sha256 cellar: :any_skip_relocation, big_sur:     "fc362d246942141f91da093183c54a8ff679bf263f0a4326d5bed7f94cbc8f59"
+    sha256 cellar: :any_skip_relocation, catalina:    "8c4bca6eca037bbef2b1a65d1974b43b36c81274e20597a76e87703ec477ee1a"
+    sha256 cellar: :any_skip_relocation, mojave:      "33eafe903efc393c0964ac05ab684508b98e72a4ee2f26272ee16eee159cd514"
+    sha256 cellar: :any_skip_relocation, high_sierra: "d96c6b3f2ee49480ddc0dac10484284e7620dce5499482bdaf12c26f42f93a13"
+    sha256 cellar: :any_skip_relocation, sierra:      "2a45cd98d7345ff1872137576f97a028729ff4c0d62994d1ce6d573e3835e9db"
+    sha256 cellar: :any_skip_relocation, el_capitan:  "af64990b64d29f8383db471092279e9d039c7c81b6294099bb456890b6b5161b"
   end
 
   depends_on "go" => :build

@@ -10,9 +10,9 @@ class PandocCrossref < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur: "5891c1b921930e25fc5a30e981b28cf4832dc39723563dad57dcc8db5f1bb0e8"
+    sha256 cellar: :any_skip_relocation, big_sur:  "5891c1b921930e25fc5a30e981b28cf4832dc39723563dad57dcc8db5f1bb0e8"
     sha256 cellar: :any_skip_relocation, catalina: "01c2b6e311a371ad320c4bce5b022a3e126b109e7dd33ee48b18fe713b8e1018"
-    sha256 cellar: :any_skip_relocation, mojave: "f5ccae410ddf413d74ff4e53add557b20df7749d423437bc91ec9068d4b8fef7"
+    sha256 cellar: :any_skip_relocation, mojave:   "f5ccae410ddf413d74ff4e53add557b20df7749d423437bc91ec9068d4b8fef7"
   end
 
   depends_on "cabal-install" => :build

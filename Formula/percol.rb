@@ -14,12 +14,11 @@ class Percol < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "a1d437af31e6c2c6b2fcb7fa5b6d7a81c1cc5014e647bf803618f1421d7b53c2" => :big_sur
-    sha256 "12ac8e4fb2d128105a336fb66f03e5c4b2138f3e2d0008f3caeb5b9361286d83" => :arm64_big_sur
-    sha256 "3ff2691bdcf6ec23e6a6714322591e95361e0d257672f85bbf0549dd9d3819e7" => :catalina
-    sha256 "5bb5d60ccdc9296979b17f056377fc73c9d970580654e342e89b0f7e2a23154c" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "12ac8e4fb2d128105a336fb66f03e5c4b2138f3e2d0008f3caeb5b9361286d83"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a1d437af31e6c2c6b2fcb7fa5b6d7a81c1cc5014e647bf803618f1421d7b53c2"
+    sha256 cellar: :any_skip_relocation, catalina:      "3ff2691bdcf6ec23e6a6714322591e95361e0d257672f85bbf0549dd9d3819e7"
+    sha256 cellar: :any_skip_relocation, mojave:        "5bb5d60ccdc9296979b17f056377fc73c9d970580654e342e89b0f7e2a23154c"
   end
 
   depends_on "python@3.9"

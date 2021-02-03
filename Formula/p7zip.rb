@@ -11,11 +11,10 @@ class P7zip < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "910811e37db23bbe76d169211d31d36156403f503654d04ed612d7863ea907f8" => :big_sur
-    sha256 "672dff61eba151f9c1117a1486ef2908dc0d834c355ca31f359ac56dafc75e3d" => :arm64_big_sur
-    sha256 "82e0e2a437f8f2e58e82d4823bfaeb479e89d325af3bd4300ab349a5b09fa132" => :catalina
-    sha256 "971a247c66fae4b54fdf169fdea79b79a85af6a8d6dc01a3119df014aa4316fe" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "672dff61eba151f9c1117a1486ef2908dc0d834c355ca31f359ac56dafc75e3d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "910811e37db23bbe76d169211d31d36156403f503654d04ed612d7863ea907f8"
+    sha256 cellar: :any_skip_relocation, catalina:      "82e0e2a437f8f2e58e82d4823bfaeb479e89d325af3bd4300ab349a5b09fa132"
+    sha256 cellar: :any_skip_relocation, mojave:        "971a247c66fae4b54fdf169fdea79b79a85af6a8d6dc01a3119df014aa4316fe"
   end
 
   # Fix security bugs and remove non-free RAR sources

@@ -13,11 +13,10 @@ class Todoman < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "67b32a6c50b1ebd68727c4cf02086fab7206300c82abd76e364b0f66d664267f" => :big_sur
-    sha256 "8c560182a558c8374186d2e8b9944209308362b17d5a0c358adc21fc3e6885e4" => :arm64_big_sur
-    sha256 "607fe3be782f120d990422e478cb380530d60de3890f54cb3a700d40c4ee6a54" => :catalina
-    sha256 "33524bd7330f99979230051bf8a8f6d4e173ab4dac6dc9dece6667582e1b28da" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8c560182a558c8374186d2e8b9944209308362b17d5a0c358adc21fc3e6885e4"
+    sha256 cellar: :any_skip_relocation, big_sur:       "67b32a6c50b1ebd68727c4cf02086fab7206300c82abd76e364b0f66d664267f"
+    sha256 cellar: :any_skip_relocation, catalina:      "607fe3be782f120d990422e478cb380530d60de3890f54cb3a700d40c4ee6a54"
+    sha256 cellar: :any_skip_relocation, mojave:        "33524bd7330f99979230051bf8a8f6d4e173ab4dac6dc9dece6667582e1b28da"
   end
 
   depends_on "python@3.9"

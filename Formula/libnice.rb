@@ -11,12 +11,11 @@ class Libnice < Formula
   end
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "af306d90fda80e3afe83851672ec34a679e55595431383b5ba246051fc827895" => :big_sur
-    sha256 "0c414fc1c0583fc19cbb8e604914315a4118da705ad5cd78a6472410cd8c0b5b" => :arm64_big_sur
-    sha256 "eafa60c41c7d017627859714e5a1028151376432e1c5802b95f65f81a191016d" => :catalina
-    sha256 "657ffb5240531a8dc9e918c2aec1c74fca62af994524e002d674ce9fbe52e4c1" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "0c414fc1c0583fc19cbb8e604914315a4118da705ad5cd78a6472410cd8c0b5b"
+    sha256 cellar: :any, big_sur:       "af306d90fda80e3afe83851672ec34a679e55595431383b5ba246051fc827895"
+    sha256 cellar: :any, catalina:      "eafa60c41c7d017627859714e5a1028151376432e1c5802b95f65f81a191016d"
+    sha256 cellar: :any, mojave:        "657ffb5240531a8dc9e918c2aec1c74fca62af994524e002d674ce9fbe52e4c1"
   end
 
   depends_on "meson" => :build

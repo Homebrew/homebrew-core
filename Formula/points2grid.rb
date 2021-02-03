@@ -7,10 +7,9 @@ class Points2grid < Formula
   revision 10
 
   bottle do
-    cellar :any
-    sha256 "02e7629e9842b057273e411b4b391befb3292ac1d5ade3265583abbe1e5cca63" => :big_sur
-    sha256 "258e0d77ef6437bc8e2a06a1ccd53aa8c1cf7dc8b3b6406b2eb06bc4d72679ac" => :catalina
-    sha256 "60bb2e63790d16f5b060f0ce6982f306d202c1b206e2220581c6b9cba53cce94" => :mojave
+    sha256 cellar: :any, big_sur:  "02e7629e9842b057273e411b4b391befb3292ac1d5ade3265583abbe1e5cca63"
+    sha256 cellar: :any, catalina: "258e0d77ef6437bc8e2a06a1ccd53aa8c1cf7dc8b3b6406b2eb06bc4d72679ac"
+    sha256 cellar: :any, mojave:   "60bb2e63790d16f5b060f0ce6982f306d202c1b206e2220581c6b9cba53cce94"
   end
 
   depends_on "cmake" => :build

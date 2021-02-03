@@ -14,12 +14,11 @@ class Wolfssl < Formula
   end
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "f13c349fb385458f97d803ef508be2e65b9503f2136c6e082bb84c33b573036b" => :big_sur
-    sha256 "29563b41dec13425249513e2a651370bc7795b96961e218c7f27699f76834219" => :arm64_big_sur
-    sha256 "7a5517bed7942b4877c9869eb352f13d473a3315b022a0c33393522fe478b341" => :catalina
-    sha256 "17fbc436533b6f449e661cecc23c4a0abeae870a2f1988e3d45323d69713eae7" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "29563b41dec13425249513e2a651370bc7795b96961e218c7f27699f76834219"
+    sha256 cellar: :any, big_sur:       "f13c349fb385458f97d803ef508be2e65b9503f2136c6e082bb84c33b573036b"
+    sha256 cellar: :any, catalina:      "7a5517bed7942b4877c9869eb352f13d473a3315b022a0c33393522fe478b341"
+    sha256 cellar: :any, mojave:        "17fbc436533b6f449e661cecc23c4a0abeae870a2f1988e3d45323d69713eae7"
   end
 
   depends_on "autoconf" => :build

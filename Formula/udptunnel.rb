@@ -9,12 +9,11 @@ class Udptunnel < Formula
   license "BSD-3-Clause"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "bfb564a4529a508338776cc02b0b4fcd63ceead924db45ef73f4c41c79f96908" => :big_sur
-    sha256 "1cd9168b47649ced46a6bc58b90d8bb9cf6031fe3f839101743ca5b6dda3efbf" => :arm64_big_sur
-    sha256 "de4e78f6f0ff861478dae683d1a6c09ae38e9a9e7ec8780a90a9b849df422089" => :catalina
-    sha256 "46dca7ebedab0825acffeafa11b6090676993a5b7b4a53591db51cc7b856e048" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1cd9168b47649ced46a6bc58b90d8bb9cf6031fe3f839101743ca5b6dda3efbf"
+    sha256 cellar: :any_skip_relocation, big_sur:       "bfb564a4529a508338776cc02b0b4fcd63ceead924db45ef73f4c41c79f96908"
+    sha256 cellar: :any_skip_relocation, catalina:      "de4e78f6f0ff861478dae683d1a6c09ae38e9a9e7ec8780a90a9b849df422089"
+    sha256 cellar: :any_skip_relocation, mojave:        "46dca7ebedab0825acffeafa11b6090676993a5b7b4a53591db51cc7b856e048"
   end
 
   depends_on "autoconf" => :build

@@ -6,16 +6,15 @@ class Cityhash < Formula
   license "MIT"
 
   bottle do
-    cellar :any
-    sha256 "8ef1413a8bdd03a86b054f673462e82cdea4230fb9a75f98ada2d996bdcd0893" => :big_sur
-    sha256 "e43f909c5fb775ca6c05675798d12343b1187820316716a844634e1a3419e21f" => :arm64_big_sur
-    sha256 "ddca5903f40b8ec22ca0a2da4f116a03dc45d0f383c508f4f0370cd5899b80c3" => :catalina
-    sha256 "4d7f25360b715d36177c70f06f7c21f39d38b6b8aa9f8a5befe80818baa3545f" => :mojave
-    sha256 "37e8244399c42c6f3bdb2fad91562607e96bc3380378d318ceecbc16ec8d52be" => :high_sierra
-    sha256 "62d8d1409dfe744d4de7a1727824b06c5a80b248433c2d8bd8a4efcd444346cb" => :sierra
-    sha256 "b09962ca43b3bb3321e1e57bf74a0936142ec5c94e198113ac3aa14e669e4d28" => :el_capitan
-    sha256 "2b155183e2422811593d91b415ac2e90a00b7d6972f284e54b3214940250935e" => :yosemite
-    sha256 "6c361a421b5f59c32c1098d4c29dd0c8f3048cf288c8880e954448926ed26184" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "e43f909c5fb775ca6c05675798d12343b1187820316716a844634e1a3419e21f"
+    sha256 cellar: :any, big_sur:       "8ef1413a8bdd03a86b054f673462e82cdea4230fb9a75f98ada2d996bdcd0893"
+    sha256 cellar: :any, catalina:      "ddca5903f40b8ec22ca0a2da4f116a03dc45d0f383c508f4f0370cd5899b80c3"
+    sha256 cellar: :any, mojave:        "4d7f25360b715d36177c70f06f7c21f39d38b6b8aa9f8a5befe80818baa3545f"
+    sha256 cellar: :any, high_sierra:   "37e8244399c42c6f3bdb2fad91562607e96bc3380378d318ceecbc16ec8d52be"
+    sha256 cellar: :any, sierra:        "62d8d1409dfe744d4de7a1727824b06c5a80b248433c2d8bd8a4efcd444346cb"
+    sha256 cellar: :any, el_capitan:    "b09962ca43b3bb3321e1e57bf74a0936142ec5c94e198113ac3aa14e669e4d28"
+    sha256 cellar: :any, yosemite:      "2b155183e2422811593d91b415ac2e90a00b7d6972f284e54b3214940250935e"
+    sha256 cellar: :any, mavericks:     "6c361a421b5f59c32c1098d4c29dd0c8f3048cf288c8880e954448926ed26184"
   end
 
   def install

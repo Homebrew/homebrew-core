@@ -5,12 +5,11 @@ class UrdfdomHeaders < Formula
   sha256 "76a68657c38e54bb45bddc4bd7d823a3b04edcd08064a56d8e7d46b9912035ac"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "45e38439bb14220663e856c3db0017987adfe1765c815344c38f404cf49849a6" => :big_sur
-    sha256 "9d1960994a18f178a7ff7b5f6a0b479bbd5abcba370fb72b816fd99ff044283c" => :arm64_big_sur
-    sha256 "c6840c3177042a718ae29bc8238e5ec20dbcde4f9269b3042f8eed1a2aa6292c" => :catalina
-    sha256 "c6840c3177042a718ae29bc8238e5ec20dbcde4f9269b3042f8eed1a2aa6292c" => :mojave
-    sha256 "c6840c3177042a718ae29bc8238e5ec20dbcde4f9269b3042f8eed1a2aa6292c" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9d1960994a18f178a7ff7b5f6a0b479bbd5abcba370fb72b816fd99ff044283c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "45e38439bb14220663e856c3db0017987adfe1765c815344c38f404cf49849a6"
+    sha256 cellar: :any_skip_relocation, catalina:      "c6840c3177042a718ae29bc8238e5ec20dbcde4f9269b3042f8eed1a2aa6292c"
+    sha256 cellar: :any_skip_relocation, mojave:        "c6840c3177042a718ae29bc8238e5ec20dbcde4f9269b3042f8eed1a2aa6292c"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "c6840c3177042a718ae29bc8238e5ec20dbcde4f9269b3042f8eed1a2aa6292c"
   end
 
   depends_on "cmake" => :build

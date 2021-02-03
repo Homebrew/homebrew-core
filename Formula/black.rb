@@ -14,12 +14,11 @@ class Black < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "18883925c2f6cc8c68bfdf38e8e84bd1ee6a2ef30c58b6d20a6783c9bb329028" => :big_sur
-    sha256 "20a10df231caf01bd71251d8dfb0d6332fe7d8d7197f0ff370be10f90791d946" => :arm64_big_sur
-    sha256 "22681c4a717a4126b010b1f768e9de8728af6374c0a4116a0761fc07260738fe" => :catalina
-    sha256 "850ea678dc880e1e91b70c4afc047f3ac783ece747f9f4964450ad6c5204f5b4" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "20a10df231caf01bd71251d8dfb0d6332fe7d8d7197f0ff370be10f90791d946"
+    sha256 cellar: :any_skip_relocation, big_sur:       "18883925c2f6cc8c68bfdf38e8e84bd1ee6a2ef30c58b6d20a6783c9bb329028"
+    sha256 cellar: :any_skip_relocation, catalina:      "22681c4a717a4126b010b1f768e9de8728af6374c0a4116a0761fc07260738fe"
+    sha256 cellar: :any_skip_relocation, mojave:        "850ea678dc880e1e91b70c4afc047f3ac783ece747f9f4964450ad6c5204f5b4"
   end
 
   depends_on "python@3.9"

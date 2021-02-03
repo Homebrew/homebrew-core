@@ -12,11 +12,11 @@ class Clamav < Formula
   end
 
   bottle do
-    sha256 "2d28fcabebc27f3c72a366c8ebce2ed82a86ac56ae4eafd152c251681666752b" => :big_sur
-    sha256 "f2620d623d65ebe6c2a10e6b6148b517e7424f4190393b0f8257ac3aeaf77d8d" => :arm64_big_sur
-    sha256 "223f07db86b0ed0e4e51db8d634111bb842dcc49c01df6dbe5dedcf46e786e44" => :catalina
-    sha256 "8155acb6f0bf2f1fd110612e8eda7ade7845f3fc3310332af6ae182660ab7692" => :mojave
-    sha256 "458d060d70d37beb01b924ada3be7474b25f4a4c8a2bfb33f6bfb0251ab19024" => :high_sierra
+    sha256 arm64_big_sur: "f2620d623d65ebe6c2a10e6b6148b517e7424f4190393b0f8257ac3aeaf77d8d"
+    sha256 big_sur:       "2d28fcabebc27f3c72a366c8ebce2ed82a86ac56ae4eafd152c251681666752b"
+    sha256 catalina:      "223f07db86b0ed0e4e51db8d634111bb842dcc49c01df6dbe5dedcf46e786e44"
+    sha256 mojave:        "8155acb6f0bf2f1fd110612e8eda7ade7845f3fc3310332af6ae182660ab7692"
+    sha256 high_sierra:   "458d060d70d37beb01b924ada3be7474b25f4a4c8a2bfb33f6bfb0251ab19024"
   end
 
   head do

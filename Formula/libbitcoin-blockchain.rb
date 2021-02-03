@@ -7,12 +7,11 @@ class LibbitcoinBlockchain < Formula
   revision 1
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "d68b78c0430f3610f43395bcf12633ab7fc037f3bc874b83fd456fa6a3cb38a6" => :big_sur
-    sha256 "b6c7eba40fc345969eda3c9c0aee34b4f2b460cece3e9c1110a9cc9d3ed4ad72" => :arm64_big_sur
-    sha256 "40ef8e8935d75f1c894852305b586fc922425467b6955813c2327d0ac901005f" => :catalina
-    sha256 "ce1a34b80aa5d9c404c27c2282bf1e654b48999e74e4facc4dff70bf8087a514" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "b6c7eba40fc345969eda3c9c0aee34b4f2b460cece3e9c1110a9cc9d3ed4ad72"
+    sha256 cellar: :any, big_sur:       "d68b78c0430f3610f43395bcf12633ab7fc037f3bc874b83fd456fa6a3cb38a6"
+    sha256 cellar: :any, catalina:      "40ef8e8935d75f1c894852305b586fc922425467b6955813c2327d0ac901005f"
+    sha256 cellar: :any, mojave:        "ce1a34b80aa5d9c404c27c2282bf1e654b48999e74e4facc4dff70bf8087a514"
   end
 
   depends_on "autoconf" => :build

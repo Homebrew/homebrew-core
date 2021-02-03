@@ -10,14 +10,13 @@ class Cppcms < Formula
   end
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "ebe54531c492cd6771e3eab7cfee4d4a858c5b13a91e061c9d5bb2cb75f310dc" => :big_sur
-    sha256 "a76448718798b05d84c1b9a54afa83c35afc924ed5bb5a8ad592d39cff90eaee" => :arm64_big_sur
-    sha256 "14a71b7ff0bbcbd0def75bd0a5e4552d5bfeccd24b7de17d38dcb676c37a71cf" => :catalina
-    sha256 "aa587cdc614e7450100ee7c9aef5259893db98db66b9aa3fce8bc928fe080de7" => :mojave
-    sha256 "3339592fd6caed70941abe444cf34c1621dd65878eea1acbd07e798d4bb5c9b4" => :high_sierra
-    sha256 "9f21d55044af09d3eced9664c2d570657f0b3221c9f3051a5311f6f197bd2a28" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "a76448718798b05d84c1b9a54afa83c35afc924ed5bb5a8ad592d39cff90eaee"
+    sha256 cellar: :any, big_sur:       "ebe54531c492cd6771e3eab7cfee4d4a858c5b13a91e061c9d5bb2cb75f310dc"
+    sha256 cellar: :any, catalina:      "14a71b7ff0bbcbd0def75bd0a5e4552d5bfeccd24b7de17d38dcb676c37a71cf"
+    sha256 cellar: :any, mojave:        "aa587cdc614e7450100ee7c9aef5259893db98db66b9aa3fce8bc928fe080de7"
+    sha256 cellar: :any, high_sierra:   "3339592fd6caed70941abe444cf34c1621dd65878eea1acbd07e798d4bb5c9b4"
+    sha256 cellar: :any, sierra:        "9f21d55044af09d3eced9664c2d570657f0b3221c9f3051a5311f6f197bd2a28"
   end
 
   depends_on "cmake" => :build

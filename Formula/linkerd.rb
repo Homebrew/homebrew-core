@@ -13,11 +13,10 @@ class Linkerd < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2aeadbfd6da81217224c9a1faa33ec2ac68607fed0004268bf9bbd3c9801b4c5" => :big_sur
-    sha256 "7da25e5cf3954bb918cb83d78754d198c8bdb110c95fad29732d3a01dbb285ba" => :arm64_big_sur
-    sha256 "6ce86e0761fa9590cfe729a65b0e19d80715ee0df1aeaa8b2eb06df7ba0b6dc1" => :catalina
-    sha256 "77bb58a6e8613b4ea16ebc43bb8ddf1b8e61427bf690c1c5de02370ddf00874d" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7da25e5cf3954bb918cb83d78754d198c8bdb110c95fad29732d3a01dbb285ba"
+    sha256 cellar: :any_skip_relocation, big_sur:       "2aeadbfd6da81217224c9a1faa33ec2ac68607fed0004268bf9bbd3c9801b4c5"
+    sha256 cellar: :any_skip_relocation, catalina:      "6ce86e0761fa9590cfe729a65b0e19d80715ee0df1aeaa8b2eb06df7ba0b6dc1"
+    sha256 cellar: :any_skip_relocation, mojave:        "77bb58a6e8613b4ea16ebc43bb8ddf1b8e61427bf690c1c5de02370ddf00874d"
   end
 
   depends_on "go" => :build

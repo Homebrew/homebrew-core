@@ -11,12 +11,12 @@ class Mandoc < Formula
   end
 
   bottle do
-    sha256 "62085d74ed9eb8c3765e3f187784b0e55842f0ad666de8f8e66463a2db09b791" => :big_sur
-    sha256 "1de7d1e05231afb26c450c435c75b1822b98416405930b4c505df07f9ff6a4c3" => :arm64_big_sur
-    sha256 "f408752db9b1ba4cc1fc8f47fdf41e1ade8abbcf243e947938efbbea550006b4" => :catalina
-    sha256 "78ffbf8bee7e5135ea303bb861f432288f2d48d403d7e932753b1ef962348917" => :mojave
-    sha256 "3236fdca9fe2cd8cca29d246d9252eaeea8ceeb7d8f5251574c2bc771a841647" => :high_sierra
-    sha256 "6176fcab59057d2188db3047849f96170bcb2133bfbe1f8c94845895d6a89bec" => :sierra
+    sha256 arm64_big_sur: "1de7d1e05231afb26c450c435c75b1822b98416405930b4c505df07f9ff6a4c3"
+    sha256 big_sur:       "62085d74ed9eb8c3765e3f187784b0e55842f0ad666de8f8e66463a2db09b791"
+    sha256 catalina:      "f408752db9b1ba4cc1fc8f47fdf41e1ade8abbcf243e947938efbbea550006b4"
+    sha256 mojave:        "78ffbf8bee7e5135ea303bb861f432288f2d48d403d7e932753b1ef962348917"
+    sha256 high_sierra:   "3236fdca9fe2cd8cca29d246d9252eaeea8ceeb7d8f5251574c2bc771a841647"
+    sha256 sierra:        "6176fcab59057d2188db3047849f96170bcb2133bfbe1f8c94845895d6a89bec"
   end
 
   uses_from_macos "zlib"

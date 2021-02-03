@@ -6,12 +6,11 @@ class Tealdeer < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "5f323f75b7d481e86187ac45f9931ad114e1a9d4e7035f04a368d690de77e9e0" => :big_sur
-    sha256 "4007bbd16184eea9bb652cfcec1b7456551400f85de61cf080a98046cf79c5dd" => :arm64_big_sur
-    sha256 "db4a2fc7dceef4f4f914aaf7b655741e960664b46c61ab2c163f015a74949533" => :catalina
-    sha256 "9ad3e3ea878b05fd2764cc8e534888b8bf810f88cc4d986de158ed6b33633b42" => :mojave
-    sha256 "80a29641c9b29a3cda69adf5afd2c36b27f84fb8f89a555dbf2a676dddf03b70" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4007bbd16184eea9bb652cfcec1b7456551400f85de61cf080a98046cf79c5dd"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5f323f75b7d481e86187ac45f9931ad114e1a9d4e7035f04a368d690de77e9e0"
+    sha256 cellar: :any_skip_relocation, catalina:      "db4a2fc7dceef4f4f914aaf7b655741e960664b46c61ab2c163f015a74949533"
+    sha256 cellar: :any_skip_relocation, mojave:        "9ad3e3ea878b05fd2764cc8e534888b8bf810f88cc4d986de158ed6b33633b42"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "80a29641c9b29a3cda69adf5afd2c36b27f84fb8f89a555dbf2a676dddf03b70"
   end
 
   depends_on "rust" => :build

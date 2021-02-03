@@ -5,15 +5,14 @@ class ZshNavigationTools < Formula
   sha256 "ee832b81ce678a247b998675111c66aa1873d72aa33c2593a65626296ca685fc"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "8a2b501900c37cc6844a700526ea564baf4585d368de2ad17ccd6679e222f317" => :big_sur
-    sha256 "a968a06b57fd74fb842f504c30d61e8c22aa57da9f84d8aca3159f1b5c2eb284" => :arm64_big_sur
-    sha256 "2ca507bf832d34b63b9bf4f60b76158ad0e8980622f78de8fd8e3f771d4df5d2" => :catalina
-    sha256 "292a200717412253b03f654162da7ce1c0994455c07fdf65fa348189a18217b5" => :mojave
-    sha256 "5122287e2fb30bde73acb7174e1310ea41ef049d201203bc559edf02555a2e33" => :high_sierra
-    sha256 "fca68610ba67c19d8516719d03ed5074a5611ba01941dcb135c87d6d561f3cb1" => :sierra
-    sha256 "fca68610ba67c19d8516719d03ed5074a5611ba01941dcb135c87d6d561f3cb1" => :el_capitan
-    sha256 "fca68610ba67c19d8516719d03ed5074a5611ba01941dcb135c87d6d561f3cb1" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a968a06b57fd74fb842f504c30d61e8c22aa57da9f84d8aca3159f1b5c2eb284"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8a2b501900c37cc6844a700526ea564baf4585d368de2ad17ccd6679e222f317"
+    sha256 cellar: :any_skip_relocation, catalina:      "2ca507bf832d34b63b9bf4f60b76158ad0e8980622f78de8fd8e3f771d4df5d2"
+    sha256 cellar: :any_skip_relocation, mojave:        "292a200717412253b03f654162da7ce1c0994455c07fdf65fa348189a18217b5"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "5122287e2fb30bde73acb7174e1310ea41ef049d201203bc559edf02555a2e33"
+    sha256 cellar: :any_skip_relocation, sierra:        "fca68610ba67c19d8516719d03ed5074a5611ba01941dcb135c87d6d561f3cb1"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "fca68610ba67c19d8516719d03ed5074a5611ba01941dcb135c87d6d561f3cb1"
+    sha256 cellar: :any_skip_relocation, yosemite:      "fca68610ba67c19d8516719d03ed5074a5611ba01941dcb135c87d6d561f3cb1"
   end
 
   def install

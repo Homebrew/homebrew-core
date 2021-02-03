@@ -11,10 +11,10 @@ class KdeKi18n < Formula
   head "https://invent.kde.org/frameworks/ki18n.git"
 
   bottle do
-    sha256 "4671e9c4e5636da7e899eae7307b0f043bc808fb0f54348ed29d0035f11fe98c" => :big_sur
-    sha256 "15e8597adb96ca15358c594628bb38d97b7575d8aca471433db2e9da926fdc7c" => :arm64_big_sur
-    sha256 "d74f6b746a6fed079b025ef74951553aaf3c8a79d78a68c6201b171627a16eca" => :catalina
-    sha256 "319da35caaa5cbec8ea98770e17e27113562f9bc0c72ed6485c6228d4919df66" => :mojave
+    sha256 arm64_big_sur: "15e8597adb96ca15358c594628bb38d97b7575d8aca471433db2e9da926fdc7c"
+    sha256 big_sur:       "4671e9c4e5636da7e899eae7307b0f043bc808fb0f54348ed29d0035f11fe98c"
+    sha256 catalina:      "d74f6b746a6fed079b025ef74951553aaf3c8a79d78a68c6201b171627a16eca"
+    sha256 mojave:        "319da35caaa5cbec8ea98770e17e27113562f9bc0c72ed6485c6228d4919df66"
   end
 
   depends_on "cmake" => [:build, :test]

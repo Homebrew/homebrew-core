@@ -11,11 +11,10 @@ class Getmail < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "e3481bec43a52377745e09fe62324f4daa35964f862150b23ba8044a6a85eeca" => :big_sur
-    sha256 "6c2efe9061839c88f5041cb06a8a9d5aeb8681f57d0f82d889725239b5b14ec6" => :arm64_big_sur
-    sha256 "a69c9ebda4863ac97ea2259b007d15a4024b7af75912fca0ef9f39cbe972ba8f" => :catalina
-    sha256 "c729f338af43aebe206c4b0cbddebd1d1619d94a8277e4f1dc43908fba631b8b" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6c2efe9061839c88f5041cb06a8a9d5aeb8681f57d0f82d889725239b5b14ec6"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e3481bec43a52377745e09fe62324f4daa35964f862150b23ba8044a6a85eeca"
+    sha256 cellar: :any_skip_relocation, catalina:      "a69c9ebda4863ac97ea2259b007d15a4024b7af75912fca0ef9f39cbe972ba8f"
+    sha256 cellar: :any_skip_relocation, mojave:        "c729f338af43aebe206c4b0cbddebd1d1619d94a8277e4f1dc43908fba631b8b"
   end
 
   def install

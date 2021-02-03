@@ -7,10 +7,9 @@ class Fabio < Formula
   head "https://github.com/fabiolb/fabio.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "8b1ea88c236dc4b04882f05377d5a9930e9e5e93c2092961bc68bd0d661daad5" => :big_sur
-    sha256 "60852a8b3a6c9dbdeb14e05f209351cc75d014ffad037bb0c2ee83ff0f84edbb" => :catalina
-    sha256 "d32c45abeb55519d51edc65c87c68e4bc7d117e8a0d8f8dfec5e667467e6174f" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur:  "8b1ea88c236dc4b04882f05377d5a9930e9e5e93c2092961bc68bd0d661daad5"
+    sha256 cellar: :any_skip_relocation, catalina: "60852a8b3a6c9dbdeb14e05f209351cc75d014ffad037bb0c2ee83ff0f84edbb"
+    sha256 cellar: :any_skip_relocation, mojave:   "d32c45abeb55519d51edc65c87c68e4bc7d117e8a0d8f8dfec5e667467e6174f"
   end
 
   depends_on "go" => :build

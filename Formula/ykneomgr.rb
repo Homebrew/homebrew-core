@@ -7,12 +7,11 @@ class Ykneomgr < Formula
   revision 2
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "d08813317ba58b25a12d90485c20e372922bde6bda948a4b4979eccb07374e5f" => :big_sur
-    sha256 "75e8cb3042d639b8271057b9d3e77c2786e66527a8c8602709dff4624b06d134" => :arm64_big_sur
-    sha256 "583b882ed5705cfbde73f815689c7fcf70aec84b42a8de606dd847f99afc93b7" => :catalina
-    sha256 "0fee721a06b166425760bdc5b65349f374ac6512ce09404cdc2c4d82f621022e" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "75e8cb3042d639b8271057b9d3e77c2786e66527a8c8602709dff4624b06d134"
+    sha256 cellar: :any, big_sur:       "d08813317ba58b25a12d90485c20e372922bde6bda948a4b4979eccb07374e5f"
+    sha256 cellar: :any, catalina:      "583b882ed5705cfbde73f815689c7fcf70aec84b42a8de606dd847f99afc93b7"
+    sha256 cellar: :any, mojave:        "0fee721a06b166425760bdc5b65349f374ac6512ce09404cdc2c4d82f621022e"
   end
 
   head do

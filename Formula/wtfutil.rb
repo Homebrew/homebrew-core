@@ -7,11 +7,10 @@ class Wtfutil < Formula
   license "MPL-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "d51620e6cf86db673ce46f663d332e113f06470b3ba276965ae779891b5c2437" => :big_sur
-    sha256 "4f4c122267e04735a6529555cc70d14d3161e941509c54f552a11f6210c2f510" => :arm64_big_sur
-    sha256 "7858804dd5d4555868d15c9fd83d150b980f611cff4731fc7ea004e505a44806" => :catalina
-    sha256 "f3dcb23b05d19acdcd2f1511a193ceab69e45e18beb2a3c88c242dc9922459ea" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4f4c122267e04735a6529555cc70d14d3161e941509c54f552a11f6210c2f510"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d51620e6cf86db673ce46f663d332e113f06470b3ba276965ae779891b5c2437"
+    sha256 cellar: :any_skip_relocation, catalina:      "7858804dd5d4555868d15c9fd83d150b980f611cff4731fc7ea004e505a44806"
+    sha256 cellar: :any_skip_relocation, mojave:        "f3dcb23b05d19acdcd2f1511a193ceab69e45e18beb2a3c88c242dc9922459ea"
   end
 
   depends_on "go" => :build

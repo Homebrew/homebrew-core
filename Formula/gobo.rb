@@ -9,11 +9,10 @@ class Gobo < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "1f302b672e67e600556c1d5e30751bb0ca1a47f19f8167bf7661b1fd9dc9e7d4" => :big_sur
-    sha256 "a7cd43939f9300895b1b9261ae14dfab076c9daca40f553d1b6b7b263e6b5b98" => :catalina
-    sha256 "a4177e9921a0ccb52b426aea6bd000b3492545f763549fa979d082693041b41c" => :mojave
-    sha256 "72337bad76bfb21be107f01d587c6f4f968e5f4e1b94343e936e7086e59d6308" => :high_sierra
+    sha256 cellar: :any_skip_relocation, big_sur:     "1f302b672e67e600556c1d5e30751bb0ca1a47f19f8167bf7661b1fd9dc9e7d4"
+    sha256 cellar: :any_skip_relocation, catalina:    "a7cd43939f9300895b1b9261ae14dfab076c9daca40f553d1b6b7b263e6b5b98"
+    sha256 cellar: :any_skip_relocation, mojave:      "a4177e9921a0ccb52b426aea6bd000b3492545f763549fa979d082693041b41c"
+    sha256 cellar: :any_skip_relocation, high_sierra: "72337bad76bfb21be107f01d587c6f4f968e5f4e1b94343e936e7086e59d6308"
   end
 
   depends_on "eiffelstudio" => :test

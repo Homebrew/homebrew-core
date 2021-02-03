@@ -11,10 +11,9 @@ class Fail2ban < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "dccbafae1bda5f12ef0ba27f74069fb179376e9a50adf0a597ff7d6d978c12f1" => :big_sur
-    sha256 "dc4e847cf92ddfbd7e70647f671de4e5f64a7752b7d9334455b528e0fc9318d9" => :catalina
-    sha256 "eb5646fd06a94a1638b44fc0afd4406bf88dc3bb4672ae68e264dc5455f10d05" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur:  "dccbafae1bda5f12ef0ba27f74069fb179376e9a50adf0a597ff7d6d978c12f1"
+    sha256 cellar: :any_skip_relocation, catalina: "dc4e847cf92ddfbd7e70647f671de4e5f64a7752b7d9334455b528e0fc9318d9"
+    sha256 cellar: :any_skip_relocation, mojave:   "eb5646fd06a94a1638b44fc0afd4406bf88dc3bb4672ae68e264dc5455f10d05"
   end
 
   depends_on "help2man" => :build

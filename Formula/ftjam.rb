@@ -13,15 +13,14 @@ class Ftjam < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "84e96d642732ab02748dad0b9129c8094348d030bdb414adcacfb6633cc2d958" => :big_sur
-    sha256 "4440e1baa7919c2a6b7190b31f12067c20d1a532249bd22f842d84a821c3f8a8" => :catalina
-    sha256 "039a1c54e4163cafd9e44b5efa4a3b9847a3375db5811b51db8557b5e92ba670" => :mojave
-    sha256 "a91c9e777574a9e50d2bd7f53b5f357c6bda8a9e0de522bbddcd59af4a52c5d8" => :high_sierra
-    sha256 "31e7d5357421066e2b58cab199a690691a8897e442e1472acdb3d0d829657670" => :sierra
-    sha256 "f94287203827dea6ac5031e695c217a48b1b69e939dcd68a489c8477b4100447" => :el_capitan
-    sha256 "95490ead99e537713d8c26d1c1bea72b31ea06153a405867ffe83c044593caa0" => :yosemite
-    sha256 "554e527a1e52be6ebd9f5f1fbae4e8f648f750a179936e329238dee32b32520a" => :mavericks
+    sha256 cellar: :any_skip_relocation, big_sur:     "84e96d642732ab02748dad0b9129c8094348d030bdb414adcacfb6633cc2d958"
+    sha256 cellar: :any_skip_relocation, catalina:    "4440e1baa7919c2a6b7190b31f12067c20d1a532249bd22f842d84a821c3f8a8"
+    sha256 cellar: :any_skip_relocation, mojave:      "039a1c54e4163cafd9e44b5efa4a3b9847a3375db5811b51db8557b5e92ba670"
+    sha256 cellar: :any_skip_relocation, high_sierra: "a91c9e777574a9e50d2bd7f53b5f357c6bda8a9e0de522bbddcd59af4a52c5d8"
+    sha256 cellar: :any_skip_relocation, sierra:      "31e7d5357421066e2b58cab199a690691a8897e442e1472acdb3d0d829657670"
+    sha256 cellar: :any_skip_relocation, el_capitan:  "f94287203827dea6ac5031e695c217a48b1b69e939dcd68a489c8477b4100447"
+    sha256 cellar: :any_skip_relocation, yosemite:    "95490ead99e537713d8c26d1c1bea72b31ea06153a405867ffe83c044593caa0"
+    sha256 cellar: :any_skip_relocation, mavericks:   "554e527a1e52be6ebd9f5f1fbae4e8f648f750a179936e329238dee32b32520a"
   end
 
   conflicts_with "jam", because: "both install a `jam` binary"

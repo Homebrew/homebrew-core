@@ -12,11 +12,10 @@ class Libtiff < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "31dc53e161b68394309dfe7743f9b7f37995b441d66b1637b9424696973b3d40" => :big_sur
-    sha256 "50c09c0a4328c2625147ea78376523e11510ef26e4286953465e922e12d7e045" => :arm64_big_sur
-    sha256 "208176ae2c5642eb0dff7c97d7b011d6b1d6317be4242db1e54bbb92609f758b" => :catalina
-    sha256 "706a61c81bd7a17f266f315339ff63e9bc965c962cd6d9a6a03167cd620d07a1" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "50c09c0a4328c2625147ea78376523e11510ef26e4286953465e922e12d7e045"
+    sha256 cellar: :any, big_sur:       "31dc53e161b68394309dfe7743f9b7f37995b441d66b1637b9424696973b3d40"
+    sha256 cellar: :any, catalina:      "208176ae2c5642eb0dff7c97d7b011d6b1d6317be4242db1e54bbb92609f758b"
+    sha256 cellar: :any, mojave:        "706a61c81bd7a17f266f315339ff63e9bc965c962cd6d9a6a03167cd620d07a1"
   end
 
   depends_on "jpeg"

@@ -8,10 +8,10 @@ class OpencvAT2 < Formula
 
   bottle do
     rebuild 1
-    sha256 "115b11655bf2cc24b77186531be0f5a001c87bebbba4b9eadfff6e9d9df4c5bb" => :big_sur
-    sha256 "b922e9b3ec3db807a32450bcbca07e300d63c6b4c3d5670fd7274e10cca597be" => :arm64_big_sur
-    sha256 "cec589da16fc90825ef984f9fe5439e3c76a51d95c56eceadccbe133974e3b68" => :catalina
-    sha256 "c1f177ad25d49a2d3fd626592201a151c3153bb3a3cd8d4d333a654afd2f5ec8" => :mojave
+    sha256 arm64_big_sur: "b922e9b3ec3db807a32450bcbca07e300d63c6b4c3d5670fd7274e10cca597be"
+    sha256 big_sur:       "115b11655bf2cc24b77186531be0f5a001c87bebbba4b9eadfff6e9d9df4c5bb"
+    sha256 catalina:      "cec589da16fc90825ef984f9fe5439e3c76a51d95c56eceadccbe133974e3b68"
+    sha256 mojave:        "c1f177ad25d49a2d3fd626592201a151c3153bb3a3cd8d4d333a654afd2f5ec8"
   end
 
   keg_only :versioned_formula

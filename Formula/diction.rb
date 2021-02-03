@@ -11,15 +11,15 @@ class Diction < Formula
   end
 
   bottle do
-    sha256 "cf3b827429c5513b3289ab9c0df46de743cf84c773102a2f01058c982721e4cc" => :big_sur
-    sha256 "88a87488f8e893dc86f30e8736cf9cbdc2459976da13d899cb91daf8abdfe23e" => :arm64_big_sur
-    sha256 "ff26ae017482eaef3a07b4c6522e65a84b2ec03b6afaffa20e0138a244edd5e2" => :catalina
-    sha256 "74ffc9abed7808557c799d089d4336da01d68c484e7b90dac797015d9656c8de" => :mojave
-    sha256 "194a52459b3bfd3e4f38f8e19ea9f4d371d2bf3b005d3e36b8aa5519c5afaf2d" => :high_sierra
-    sha256 "70dbde26567eb6b0093d897f9ceafb212eaf51d23028a925d39c0f53b803b5b9" => :sierra
-    sha256 "858b8312ef527a7745a02b3bf40cd483c0212216e3342ac7eaddbfe6045893dd" => :el_capitan
-    sha256 "ce2b0d6b0f7184596753de94a3cbd171f5236c947f47536d3bf5be806c8ef804" => :yosemite
-    sha256 "b993bef13629751dc5ac23a38e67ea8fdce3e75f0d96585dc71508543e099f0e" => :mavericks
+    sha256 arm64_big_sur: "88a87488f8e893dc86f30e8736cf9cbdc2459976da13d899cb91daf8abdfe23e"
+    sha256 big_sur:       "cf3b827429c5513b3289ab9c0df46de743cf84c773102a2f01058c982721e4cc"
+    sha256 catalina:      "ff26ae017482eaef3a07b4c6522e65a84b2ec03b6afaffa20e0138a244edd5e2"
+    sha256 mojave:        "74ffc9abed7808557c799d089d4336da01d68c484e7b90dac797015d9656c8de"
+    sha256 high_sierra:   "194a52459b3bfd3e4f38f8e19ea9f4d371d2bf3b005d3e36b8aa5519c5afaf2d"
+    sha256 sierra:        "70dbde26567eb6b0093d897f9ceafb212eaf51d23028a925d39c0f53b803b5b9"
+    sha256 el_capitan:    "858b8312ef527a7745a02b3bf40cd483c0212216e3342ac7eaddbfe6045893dd"
+    sha256 yosemite:      "ce2b0d6b0f7184596753de94a3cbd171f5236c947f47536d3bf5be806c8ef804"
+    sha256 mavericks:     "b993bef13629751dc5ac23a38e67ea8fdce3e75f0d96585dc71508543e099f0e"
   end
 
   def install

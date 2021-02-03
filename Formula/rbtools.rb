@@ -13,11 +13,10 @@ class Rbtools < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "e133d75d705c8d4ce84ced1ecbd790d9364f9e2fadbed907e3800b8cf0a37742" => :big_sur
-    sha256 "ca6d136337a4d895e9d333aa65ab9ae70cf218950a2e236f26c466ba1d926a21" => :arm64_big_sur
-    sha256 "0f188ab6170680509af56eb3c35acc9caa58362189336f58b33488f096f5b372" => :catalina
-    sha256 "13551bbfc8f9307821306832b2f7858b95c6c8bd77c90a6eeafefe66d0f0f2a7" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ca6d136337a4d895e9d333aa65ab9ae70cf218950a2e236f26c466ba1d926a21"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e133d75d705c8d4ce84ced1ecbd790d9364f9e2fadbed907e3800b8cf0a37742"
+    sha256 cellar: :any_skip_relocation, catalina:      "0f188ab6170680509af56eb3c35acc9caa58362189336f58b33488f096f5b372"
+    sha256 cellar: :any_skip_relocation, mojave:        "13551bbfc8f9307821306832b2f7858b95c6c8bd77c90a6eeafefe66d0f0f2a7"
   end
 
   depends_on "python@3.9"

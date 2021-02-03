@@ -7,13 +7,12 @@ class Platypus < Formula
   head "https://github.com/sveinbjornt/Platypus.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c774fbe0c5fdf4c13999f818a90709e5fa40af5ccd9b2479b2fdb393f61c08d0" => :big_sur
-    sha256 "f88009d8eb146080f0982ca92183e1a519958a92d299f40144e4a0cf67f2a560" => :arm64_big_sur
-    sha256 "8e1b66ba6d450ba4cef3ccd2192d58c08f1401a443a44338c80a917f7607341e" => :catalina
-    sha256 "a08defbfae9f265bc7473c639b060fb8fa0dd1b6923746a1cf86756112347250" => :mojave
-    sha256 "df48127dd7e77c37b7ed73247c74f3bb3d37d0e239590d848f91f8af5f98f628" => :high_sierra
-    sha256 "d46dd428161d8ed7febf5ea4109f9bcddfa65c75d4e67619781745587c6b6f55" => :sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f88009d8eb146080f0982ca92183e1a519958a92d299f40144e4a0cf67f2a560"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c774fbe0c5fdf4c13999f818a90709e5fa40af5ccd9b2479b2fdb393f61c08d0"
+    sha256 cellar: :any_skip_relocation, catalina:      "8e1b66ba6d450ba4cef3ccd2192d58c08f1401a443a44338c80a917f7607341e"
+    sha256 cellar: :any_skip_relocation, mojave:        "a08defbfae9f265bc7473c639b060fb8fa0dd1b6923746a1cf86756112347250"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "df48127dd7e77c37b7ed73247c74f3bb3d37d0e239590d848f91f8af5f98f628"
+    sha256 cellar: :any_skip_relocation, sierra:        "d46dd428161d8ed7febf5ea4109f9bcddfa65c75d4e67619781745587c6b6f55"
   end
 
   depends_on xcode: ["8.0", :build]

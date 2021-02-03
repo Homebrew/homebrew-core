@@ -12,12 +12,11 @@ class MupdfTools < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "a62ca2ae12f896d22a6fc609fadc96cf729e46206f9a1127f6f21e4846eaa2ba" => :big_sur
-    sha256 "d78a3ae676e2872d42aefa36563a2cacaa2ad04203d6b8d1c8257ccdebcea847" => :arm64_big_sur
-    sha256 "e985551872925ed4b66ce995c551fda59152c1e7f9cf2bdbd205ab749e867e17" => :catalina
-    sha256 "50f1628c7c396fdfd65eb5ce84541a5b9a695bc6fe003cc7abc732e212762bc3" => :mojave
-    sha256 "2a7a4799ca7e75e948331ce00f5799ae8cb6ae2f23e1143955b9d03d8eccbcd9" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d78a3ae676e2872d42aefa36563a2cacaa2ad04203d6b8d1c8257ccdebcea847"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a62ca2ae12f896d22a6fc609fadc96cf729e46206f9a1127f6f21e4846eaa2ba"
+    sha256 cellar: :any_skip_relocation, catalina:      "e985551872925ed4b66ce995c551fda59152c1e7f9cf2bdbd205ab749e867e17"
+    sha256 cellar: :any_skip_relocation, mojave:        "50f1628c7c396fdfd65eb5ce84541a5b9a695bc6fe003cc7abc732e212762bc3"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "2a7a4799ca7e75e948331ce00f5799ae8cb6ae2f23e1143955b9d03d8eccbcd9"
   end
 
   conflicts_with "mupdf",

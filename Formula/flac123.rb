@@ -10,16 +10,15 @@ class Flac123 < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "898d28a19dd90787cf49ecb1af955f7f65da13423f5bbfdc43a1fd0c6993c4d0" => :big_sur
-    sha256 "beb35321efa9b0d023ede66ba6e8df9e906da354d654088a48e147f9f5c5dd6a" => :arm64_big_sur
-    sha256 "e9d6f0e34bf00197859eb997f353123f67a75d644ed9a3dba400207a83a18d6b" => :catalina
-    sha256 "c1aa5158e16136453e09b384480a6aa4faaefc818c14243a0c4b5359cdab2fb4" => :mojave
-    sha256 "ac4ee518533f4b043fd380d0ed6e2077ec410c16acdf952b733df533a4750889" => :high_sierra
-    sha256 "f62d8e1f08e8cd5d952f02a35ebcdc921a1295035a2b66e843d80aacb8d9843e" => :sierra
-    sha256 "669b5ff8922496fe8abe8b020ef92118847539095a0d281f73b85e965be1f708" => :el_capitan
-    sha256 "3bc22230d8e4ed12c794a0784173e576d17cfae249bb87d4540680d3f0483957" => :yosemite
-    sha256 "afeeeebde3988d1028452606aaf22ba18379cf59743c4ac9abefac2f86234dd1" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "beb35321efa9b0d023ede66ba6e8df9e906da354d654088a48e147f9f5c5dd6a"
+    sha256 cellar: :any, big_sur:       "898d28a19dd90787cf49ecb1af955f7f65da13423f5bbfdc43a1fd0c6993c4d0"
+    sha256 cellar: :any, catalina:      "e9d6f0e34bf00197859eb997f353123f67a75d644ed9a3dba400207a83a18d6b"
+    sha256 cellar: :any, mojave:        "c1aa5158e16136453e09b384480a6aa4faaefc818c14243a0c4b5359cdab2fb4"
+    sha256 cellar: :any, high_sierra:   "ac4ee518533f4b043fd380d0ed6e2077ec410c16acdf952b733df533a4750889"
+    sha256 cellar: :any, sierra:        "f62d8e1f08e8cd5d952f02a35ebcdc921a1295035a2b66e843d80aacb8d9843e"
+    sha256 cellar: :any, el_capitan:    "669b5ff8922496fe8abe8b020ef92118847539095a0d281f73b85e965be1f708"
+    sha256 cellar: :any, yosemite:      "3bc22230d8e4ed12c794a0784173e576d17cfae249bb87d4540680d3f0483957"
+    sha256 cellar: :any, mavericks:     "afeeeebde3988d1028452606aaf22ba18379cf59743c4ac9abefac2f86234dd1"
   end
 
   depends_on "autoconf" => :build

@@ -11,11 +11,10 @@ class Sratom < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "8f20c286f07c722945a6bd3afd0b44ce62dbd0bb39777d90cbeea43b8e65df4d" => :big_sur
-    sha256 "922ad15a5f15bf4c54ef685106b70658dce53581ae0ce680e13bc870fc1eab85" => :arm64_big_sur
-    sha256 "1ef0da557a528c1b979b78624de2bd6ff6b23beca8918ca94dadc4e5faa7783f" => :catalina
-    sha256 "881192ccb8c3553de14975ab6175614170c3cba891760e82d58a1ad194b70269" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "922ad15a5f15bf4c54ef685106b70658dce53581ae0ce680e13bc870fc1eab85"
+    sha256 cellar: :any, big_sur:       "8f20c286f07c722945a6bd3afd0b44ce62dbd0bb39777d90cbeea43b8e65df4d"
+    sha256 cellar: :any, catalina:      "1ef0da557a528c1b979b78624de2bd6ff6b23beca8918ca94dadc4e5faa7783f"
+    sha256 cellar: :any, mojave:        "881192ccb8c3553de14975ab6175614170c3cba891760e82d58a1ad194b70269"
   end
 
   depends_on "pkg-config" => :build

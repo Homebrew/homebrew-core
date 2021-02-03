@@ -10,12 +10,11 @@ class EasyrpgPlayer < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "481bef5afabcabe0f34eea0586fe8134161bab387c87a32fcc3ca77e69063189" => :big_sur
-    sha256 "60df6f5b55d829c737c6f534a85db694ca4469586284cd22cab9d50613bda89f" => :arm64_big_sur
-    sha256 "e6b485bfe87e67da97b5bc34c828889286bbac4602db5e04efae54392c60a99b" => :catalina
-    sha256 "454cf0e4e8ad0721c52346d26d29b974e568fb0c3b9c12e60d1bc8f88ddc7bc1" => :mojave
-    sha256 "23f7a5cbe93058e968781d35b1a94df1e23ff84942b1afb5ada3e33dfd5b9ca6" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "60df6f5b55d829c737c6f534a85db694ca4469586284cd22cab9d50613bda89f"
+    sha256 cellar: :any, big_sur:       "481bef5afabcabe0f34eea0586fe8134161bab387c87a32fcc3ca77e69063189"
+    sha256 cellar: :any, catalina:      "e6b485bfe87e67da97b5bc34c828889286bbac4602db5e04efae54392c60a99b"
+    sha256 cellar: :any, mojave:        "454cf0e4e8ad0721c52346d26d29b974e568fb0c3b9c12e60d1bc8f88ddc7bc1"
+    sha256 cellar: :any, high_sierra:   "23f7a5cbe93058e968781d35b1a94df1e23ff84942b1afb5ada3e33dfd5b9ca6"
   end
 
   depends_on "pkg-config" => :build

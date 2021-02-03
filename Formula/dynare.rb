@@ -6,10 +6,9 @@ class Dynare < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    cellar :any
-    sha256 "df005aa6938aec51642ff692cc050d3a2308af6085521f62f471449281b1df8d" => :big_sur
-    sha256 "598afd559b451e375dd89e6e264986884edfe91ac1969ced8f50995896fc14a5" => :catalina
-    sha256 "ed6fe945966015107cc42967aaa6d7b64a7fb7b7230e4768154e0de8050065ca" => :mojave
+    sha256 cellar: :any, big_sur:  "df005aa6938aec51642ff692cc050d3a2308af6085521f62f471449281b1df8d"
+    sha256 cellar: :any, catalina: "598afd559b451e375dd89e6e264986884edfe91ac1969ced8f50995896fc14a5"
+    sha256 cellar: :any, mojave:   "ed6fe945966015107cc42967aaa6d7b64a7fb7b7230e4768154e0de8050065ca"
   end
 
   head do

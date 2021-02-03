@@ -10,12 +10,11 @@ class Libgee < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "cf79729c731beefa274a0c8dc88569a3e2a748ca28f660dde939768c4fdd03ae" => :big_sur
-    sha256 "36e8d14974ce46847a85901ef9ce5822ac44f92a2bf0d60fa1ad317657c2d02b" => :arm64_big_sur
-    sha256 "f05da401040a1fd6372ebb26550d13b3779309d7e393bb109b9c362e8fcb0a0b" => :catalina
-    sha256 "ea8b92ad2fc0f9c4191e83d3a4ace603dd99b2d95da665ac699f0805394595e3" => :mojave
-    sha256 "321db1d8698ebe090ee354090920a614d95fb65fa7a38fad01f15fbfc6d2ea53" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "36e8d14974ce46847a85901ef9ce5822ac44f92a2bf0d60fa1ad317657c2d02b"
+    sha256 cellar: :any, big_sur:       "cf79729c731beefa274a0c8dc88569a3e2a748ca28f660dde939768c4fdd03ae"
+    sha256 cellar: :any, catalina:      "f05da401040a1fd6372ebb26550d13b3779309d7e393bb109b9c362e8fcb0a0b"
+    sha256 cellar: :any, mojave:        "ea8b92ad2fc0f9c4191e83d3a4ace603dd99b2d95da665ac699f0805394595e3"
+    sha256 cellar: :any, high_sierra:   "321db1d8698ebe090ee354090920a614d95fb65fa7a38fad01f15fbfc6d2ea53"
   end
 
   depends_on "gobject-introspection" => :build

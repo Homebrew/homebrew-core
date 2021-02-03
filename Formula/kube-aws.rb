@@ -8,10 +8,9 @@ class KubeAws < Formula
   head "https://github.com/kubernetes-retired/kube-aws.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "1c5004445c0be8fd055ff78439bd3c0b413cd56247385c1453c5956fbe9503b1" => :catalina
-    sha256 "f05e8f3cfbe5f8c17f2cd6d3a854b7c329d7f922f03271bb36ca8497589ef7d4" => :mojave
-    sha256 "5172a4ad55d3977c81d405bc67d91a35ead719e24c555d5843529d2489323d79" => :high_sierra
+    sha256 cellar: :any_skip_relocation, catalina:    "1c5004445c0be8fd055ff78439bd3c0b413cd56247385c1453c5956fbe9503b1"
+    sha256 cellar: :any_skip_relocation, mojave:      "f05e8f3cfbe5f8c17f2cd6d3a854b7c329d7f922f03271bb36ca8497589ef7d4"
+    sha256 cellar: :any_skip_relocation, high_sierra: "5172a4ad55d3977c81d405bc67d91a35ead719e24c555d5843529d2489323d79"
   end
 
   # Fork can be found at: https://github.com/kube-aws/kube-aws

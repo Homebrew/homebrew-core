@@ -11,15 +11,14 @@ class Zip < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "60bcaddc206cf96c70d8c466bfd0e7aab64f082c8594016e9c26f5032ebebff3" => :big_sur
-    sha256 "a28e4c4c4a033c7ad60417a28a857bb9b85be17ef8e14a6eb5f0b2b7bc33c998" => :arm64_big_sur
-    sha256 "0c942307306bb96e68bb0aba70d253b37ed1e519a882ba778c42d8ac9fd230f9" => :catalina
-    sha256 "b76c061fa0a226fb5b484fc790582bb07e5138648738f35726fa278ab5e8a612" => :mojave
-    sha256 "d218e0b7d82c7864a1ead12186b5bc09b43c2aa3749651008ac8dbcf32ec0d7c" => :high_sierra
-    sha256 "be282c3dfde4da608ab090910b3fe3cbec914d435122854f17acc0f718cc3a15" => :sierra
-    sha256 "54ea09b9be1a8c8a20b94e7cadff551ed243f5762a0d8da79f1aaedc4c9492a9" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a28e4c4c4a033c7ad60417a28a857bb9b85be17ef8e14a6eb5f0b2b7bc33c998"
+    sha256 cellar: :any_skip_relocation, big_sur:       "60bcaddc206cf96c70d8c466bfd0e7aab64f082c8594016e9c26f5032ebebff3"
+    sha256 cellar: :any_skip_relocation, catalina:      "0c942307306bb96e68bb0aba70d253b37ed1e519a882ba778c42d8ac9fd230f9"
+    sha256 cellar: :any_skip_relocation, mojave:        "b76c061fa0a226fb5b484fc790582bb07e5138648738f35726fa278ab5e8a612"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "d218e0b7d82c7864a1ead12186b5bc09b43c2aa3749651008ac8dbcf32ec0d7c"
+    sha256 cellar: :any_skip_relocation, sierra:        "be282c3dfde4da608ab090910b3fe3cbec914d435122854f17acc0f718cc3a15"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "54ea09b9be1a8c8a20b94e7cadff551ed243f5762a0d8da79f1aaedc4c9492a9"
   end
 
   keg_only :provided_by_macos

@@ -11,10 +11,10 @@ class Plplot < Formula
 
   bottle do
     rebuild 1
-    sha256 "54b7f57eb347cd104a27d199b7a5bca36f01be5c0f5c837290c9efc19429d7bb" => :big_sur
-    sha256 "1f9f1b0eb13535a59cd938e43ad1b190e08bbe5ebab222673421d41fd442cedc" => :arm64_big_sur
-    sha256 "57046a10346c01ff487b1da3623ad21daf5452be29b2adfef0845db9e5f4a185" => :catalina
-    sha256 "e89a7f7b82e127c5980077b96423c1a40f534bca789818ef4fc95f0b67dee34a" => :mojave
+    sha256 arm64_big_sur: "1f9f1b0eb13535a59cd938e43ad1b190e08bbe5ebab222673421d41fd442cedc"
+    sha256 big_sur:       "54b7f57eb347cd104a27d199b7a5bca36f01be5c0f5c837290c9efc19429d7bb"
+    sha256 catalina:      "57046a10346c01ff487b1da3623ad21daf5452be29b2adfef0845db9e5f4a185"
+    sha256 mojave:        "e89a7f7b82e127c5980077b96423c1a40f534bca789818ef4fc95f0b67dee34a"
   end
 
   depends_on "cmake" => :build

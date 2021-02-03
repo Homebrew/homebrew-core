@@ -52,11 +52,10 @@ class Sdl < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "d97aac056338f24b09ff065d8a80c6f5e9b6e16aed93003764054f6703093ecd" => :big_sur
-    sha256 "c3fda7b3047ffff537ba6f2a5711fd03f50fa776546d7788f42a4df325944fcf" => :arm64_big_sur
-    sha256 "060c0297dd0af2e289196aa196341ece04f3ab4a3458d173e74f2a3865046a8f" => :catalina
-    sha256 "683450f850acbc501144207d237d28a9c3d0af86533065db7bf7b23ae2d1f6e5" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "c3fda7b3047ffff537ba6f2a5711fd03f50fa776546d7788f42a4df325944fcf"
+    sha256 cellar: :any, big_sur:       "d97aac056338f24b09ff065d8a80c6f5e9b6e16aed93003764054f6703093ecd"
+    sha256 cellar: :any, catalina:      "060c0297dd0af2e289196aa196341ece04f3ab4a3458d173e74f2a3865046a8f"
+    sha256 cellar: :any, mojave:        "683450f850acbc501144207d237d28a9c3d0af86533065db7bf7b23ae2d1f6e5"
   end
 
   head do

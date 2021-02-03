@@ -6,11 +6,11 @@ class Otf2 < Formula
   revision 2
 
   bottle do
-    sha256 "bb192fd9ff10ead28b7025a1aa426b7cba4149dac8de2a873efa28f6ca804dbc" => :big_sur
-    sha256 "8c8c0f0f92d88b2439cdcb808ba2318a3cd54b7c929a6743a473105fd177fe38" => :arm64_big_sur
-    sha256 "9bbb9997272253be31bcefb9b398b6d46725ff18bc6d5097c16e59fab6fece0f" => :catalina
-    sha256 "befb628ab3134837d2d6f442ac9b12da47d813adb5b13f8839c66993c0b0e6cf" => :mojave
-    sha256 "5866bf0afb7c3fb48e718d209019f1ac3574c221c862b2e35ea9ea907ed91008" => :high_sierra
+    sha256 arm64_big_sur: "8c8c0f0f92d88b2439cdcb808ba2318a3cd54b7c929a6743a473105fd177fe38"
+    sha256 big_sur:       "bb192fd9ff10ead28b7025a1aa426b7cba4149dac8de2a873efa28f6ca804dbc"
+    sha256 catalina:      "9bbb9997272253be31bcefb9b398b6d46725ff18bc6d5097c16e59fab6fece0f"
+    sha256 mojave:        "befb628ab3134837d2d6f442ac9b12da47d813adb5b13f8839c66993c0b0e6cf"
+    sha256 high_sierra:   "5866bf0afb7c3fb48e718d209019f1ac3574c221c862b2e35ea9ea907ed91008"
   end
 
   depends_on "sphinx-doc" => :build

@@ -8,10 +8,10 @@ class Blockhash < Formula
   head "https://github.com/commonsmachinery/blockhash.git"
 
   bottle do
-    sha256 cellar: :any, big_sur: "82866f4bac111fe2a8a5503c9bb3a04b5e5c1495ebad4355eef972c29ddcff43"
     sha256 cellar: :any, arm64_big_sur: "a21c816803c5e302a789f2616c67a1d8e49262257a771cb4d86b8f84d2962a2d"
-    sha256 cellar: :any, catalina: "4ee5b64b3f683ea5b2aef80dc699027d8ba0e2a3f164bbbbc02e80123c92ebf4"
-    sha256 cellar: :any, mojave: "45ae3e5d45b9e0b3766cfcc35a208de03dce5fe5ffe5abb42e508c9a776603e7"
+    sha256 cellar: :any, big_sur:       "82866f4bac111fe2a8a5503c9bb3a04b5e5c1495ebad4355eef972c29ddcff43"
+    sha256 cellar: :any, catalina:      "4ee5b64b3f683ea5b2aef80dc699027d8ba0e2a3f164bbbbc02e80123c92ebf4"
+    sha256 cellar: :any, mojave:        "45ae3e5d45b9e0b3766cfcc35a208de03dce5fe5ffe5abb42e508c9a776603e7"
   end
 
   depends_on "pkg-config" => :build

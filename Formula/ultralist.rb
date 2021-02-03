@@ -6,12 +6,11 @@ class Ultralist < Formula
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "b1c9c3e4f51dcec7c482a44e9111fdb3bf42081195d73df63c858c8c60a66eb0" => :big_sur
-    sha256 "8a2604f11a36ecf612bfd2912cd1b1a1345ea70995e884d156d935663150cbf9" => :arm64_big_sur
-    sha256 "529daa8fdf264f4f13f8f93d785095d4a803f94902772e25094415691bf7f83c" => :catalina
-    sha256 "5bf8a9d39b953f0c24c8a1b978fab945f667a5f4e48c0d2729162f948f3b9118" => :mojave
-    sha256 "eff4c2ac2bd4d1a4bfe6f0d2bcd92b4c572d17eaa047df909533d8f510f366a1" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8a2604f11a36ecf612bfd2912cd1b1a1345ea70995e884d156d935663150cbf9"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b1c9c3e4f51dcec7c482a44e9111fdb3bf42081195d73df63c858c8c60a66eb0"
+    sha256 cellar: :any_skip_relocation, catalina:      "529daa8fdf264f4f13f8f93d785095d4a803f94902772e25094415691bf7f83c"
+    sha256 cellar: :any_skip_relocation, mojave:        "5bf8a9d39b953f0c24c8a1b978fab945f667a5f4e48c0d2729162f948f3b9118"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "eff4c2ac2bd4d1a4bfe6f0d2bcd92b4c572d17eaa047df909533d8f510f366a1"
   end
 
   depends_on "go" => :build

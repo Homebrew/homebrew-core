@@ -7,11 +7,10 @@ class Yara < Formula
   head "https://github.com/VirusTotal/yara.git"
 
   bottle do
-    cellar :any
-    sha256 "a268e9cc51f3d002559f6fe64f1c9688a52a50b18d7e7a63d12669275449eccf" => :big_sur
-    sha256 "e63133e26d235dc2c24858dc740e2ccf8e7763fb865bfad359b9f8d3ac79e127" => :arm64_big_sur
-    sha256 "0b44eee1ec363ecb7fe7c7077f789a7a16b5351be8d42ecf35ab5b6deb4b1a0a" => :catalina
-    sha256 "1ce1bd2ea8631e1a40491c0897e939e45e64b670f18078dae8eea7c240964708" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "e63133e26d235dc2c24858dc740e2ccf8e7763fb865bfad359b9f8d3ac79e127"
+    sha256 cellar: :any, big_sur:       "a268e9cc51f3d002559f6fe64f1c9688a52a50b18d7e7a63d12669275449eccf"
+    sha256 cellar: :any, catalina:      "0b44eee1ec363ecb7fe7c7077f789a7a16b5351be8d42ecf35ab5b6deb4b1a0a"
+    sha256 cellar: :any, mojave:        "1ce1bd2ea8631e1a40491c0897e939e45e64b670f18078dae8eea7c240964708"
   end
 
   depends_on "autoconf" => :build

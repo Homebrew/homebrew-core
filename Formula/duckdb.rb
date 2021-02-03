@@ -7,10 +7,9 @@ class Duckdb < Formula
   license "MIT"
 
   bottle do
-    cellar :any
-    sha256 "f3cae9c32ad042433dd66119d71b2b344d41af36fa1ce1329fcf285d917605e5" => :big_sur
-    sha256 "a082aa7db3bf77040788cc6265f57cc0df1d62844de59cabc20460d9968a0941" => :catalina
-    sha256 "14910bb5cebfda1f37a44c76f0ec20d58eda17a02370a8baac926920ffd5485b" => :mojave
+    sha256 cellar: :any, big_sur:  "f3cae9c32ad042433dd66119d71b2b344d41af36fa1ce1329fcf285d917605e5"
+    sha256 cellar: :any, catalina: "a082aa7db3bf77040788cc6265f57cc0df1d62844de59cabc20460d9968a0941"
+    sha256 cellar: :any, mojave:   "14910bb5cebfda1f37a44c76f0ec20d58eda17a02370a8baac926920ffd5485b"
   end
 
   depends_on "cmake" => :build

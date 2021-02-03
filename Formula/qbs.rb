@@ -7,12 +7,11 @@ class Qbs < Formula
   head "git://code.qt.io/qbs/qbs.git"
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "ed7c3801e8d426d14aed345de7357bb0cca8534ef19814fd1a58df50610686ed" => :big_sur
-    sha256 "4c90362d1b923060f7415e8725f8f83168c6aa99b0beb37c3509f05b7cfc8f69" => :arm64_big_sur
-    sha256 "302c8a1593e648b6cc95a54ee3fa997dbb8f69a4473dd4117b6896e651a6a5c1" => :catalina
-    sha256 "9ebe2cac24aa15e5cfe8411e00286a8ee9fdfaa2de5851fa54036625deb775b4" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "4c90362d1b923060f7415e8725f8f83168c6aa99b0beb37c3509f05b7cfc8f69"
+    sha256 cellar: :any, big_sur:       "ed7c3801e8d426d14aed345de7357bb0cca8534ef19814fd1a58df50610686ed"
+    sha256 cellar: :any, catalina:      "302c8a1593e648b6cc95a54ee3fa997dbb8f69a4473dd4117b6896e651a6a5c1"
+    sha256 cellar: :any, mojave:        "9ebe2cac24aa15e5cfe8411e00286a8ee9fdfaa2de5851fa54036625deb775b4"
   end
 
   depends_on "qt"

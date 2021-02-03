@@ -7,11 +7,10 @@ class Mdbook < Formula
   head "https://github.com/rust-lang/mdBook.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "d62347bbbab1bae29ec8a810e87c75926284e725f2a3c09d90052e638f5a7a47" => :big_sur
-    sha256 "ac1f5fa9b9ba6c6926ae80d8579093314623ecc8fe59fcaf1568dbeccb5e2fda" => :arm64_big_sur
-    sha256 "fc41c2b2c6b68b3092711c6833a9d802574c23536c4ad66a6934bf3a2e5cf2e8" => :catalina
-    sha256 "c96044e3c99cd45164176758c457d5639d1a9155468c646a4b5d3c521bea70d9" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ac1f5fa9b9ba6c6926ae80d8579093314623ecc8fe59fcaf1568dbeccb5e2fda"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d62347bbbab1bae29ec8a810e87c75926284e725f2a3c09d90052e638f5a7a47"
+    sha256 cellar: :any_skip_relocation, catalina:      "fc41c2b2c6b68b3092711c6833a9d802574c23536c4ad66a6934bf3a2e5cf2e8"
+    sha256 cellar: :any_skip_relocation, mojave:        "c96044e3c99cd45164176758c457d5639d1a9155468c646a4b5d3c521bea70d9"
   end
 
   depends_on "rust" => :build

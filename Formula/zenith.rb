@@ -13,11 +13,10 @@ class Zenith < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "eeb7ca6be51f678aaad01f4025ad62faf0068f48a6b8ef1eb908cb37676861e8" => :big_sur
-    sha256 "7d883fde3bda035e36d3107923e96362cb5e538753ad4366ac8fa04137143cb2" => :arm64_big_sur
-    sha256 "929ff75d609fec1abe20a6fe0e1833949b0d1157821be5778c91b809a20d3193" => :catalina
-    sha256 "8e587b9ae59e970e0b3ee7a7e8f6076cdde1c002e81d61a2e373ca7bd8942443" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7d883fde3bda035e36d3107923e96362cb5e538753ad4366ac8fa04137143cb2"
+    sha256 cellar: :any_skip_relocation, big_sur:       "eeb7ca6be51f678aaad01f4025ad62faf0068f48a6b8ef1eb908cb37676861e8"
+    sha256 cellar: :any_skip_relocation, catalina:      "929ff75d609fec1abe20a6fe0e1833949b0d1157821be5778c91b809a20d3193"
+    sha256 cellar: :any_skip_relocation, mojave:        "8e587b9ae59e970e0b3ee7a7e8f6076cdde1c002e81d61a2e373ca7bd8942443"
   end
 
   depends_on "rust" => :build

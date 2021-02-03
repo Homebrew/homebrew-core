@@ -6,11 +6,10 @@ class Xidel < Formula
   license "GPL-3.0"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "885e1685c81a6abb9767a6e807894a98b5d296952e60fdad6341961ce4dc737e" => :mojave
-    sha256 "16eb3dc18004c0be8e384714ef543aa6dfe0b026e4ec0a7b6294dd499606bb12" => :high_sierra
-    sha256 "623ba6f72816f4d9cb2055539a023f36a620add9c77a61193fcaea88a08cedf5" => :sierra
+    sha256 cellar: :any_skip_relocation, mojave:      "885e1685c81a6abb9767a6e807894a98b5d296952e60fdad6341961ce4dc737e"
+    sha256 cellar: :any_skip_relocation, high_sierra: "16eb3dc18004c0be8e384714ef543aa6dfe0b026e4ec0a7b6294dd499606bb12"
+    sha256 cellar: :any_skip_relocation, sierra:      "623ba6f72816f4d9cb2055539a023f36a620add9c77a61193fcaea88a08cedf5"
   end
 
   disable! date: "2020-12-08", because: :unmaintained

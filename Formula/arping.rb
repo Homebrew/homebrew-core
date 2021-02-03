@@ -7,12 +7,11 @@ class Arping < Formula
   revision 1
 
   bottle do
-    cellar :any
-    sha256 "febbca65b44412fcb94a7a1125fe9bedd4e0792a2d1e928e7069eb32ce7945e8" => :big_sur
-    sha256 "e7dd0f484b0f78ab66261349291da03e832b5bf98d150ead3e30d060614d6955" => :arm64_big_sur
-    sha256 "24cb6f161d06e9f2bc38d819a7d724d3f0d337f322cbb6e5b685118829e6cd32" => :catalina
-    sha256 "19a737592d390d0bdf06e03c1a49e22a2d9860e065153e1b84bd325fcfa7640c" => :mojave
-    sha256 "5019bb51a8cf372fd070b0b2686a3bbb2b7c262e2d39c8cae83d0c384971a82c" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "e7dd0f484b0f78ab66261349291da03e832b5bf98d150ead3e30d060614d6955"
+    sha256 cellar: :any, big_sur:       "febbca65b44412fcb94a7a1125fe9bedd4e0792a2d1e928e7069eb32ce7945e8"
+    sha256 cellar: :any, catalina:      "24cb6f161d06e9f2bc38d819a7d724d3f0d337f322cbb6e5b685118829e6cd32"
+    sha256 cellar: :any, mojave:        "19a737592d390d0bdf06e03c1a49e22a2d9860e065153e1b84bd325fcfa7640c"
+    sha256 cellar: :any, high_sierra:   "5019bb51a8cf372fd070b0b2686a3bbb2b7c262e2d39c8cae83d0c384971a82c"
   end
 
   depends_on "autoconf" => :build

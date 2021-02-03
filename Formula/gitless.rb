@@ -9,11 +9,10 @@ class Gitless < Formula
   revision 7
 
   bottle do
-    cellar :any
-    sha256 "4c845e5cc5e9fafccda5ab5b2dfeb1e9cbbbe8f67ab9c2f72060c09a8d7743e4" => :big_sur
-    sha256 "8fe3da387f2212fe2618a07b2e1682e3bae08be20f105734e21079f0f3df7d79" => :arm64_big_sur
-    sha256 "1f52f84f5a9f9c9633e7fc9ef7ef8227431abd37ca6629f33986766b61470cc0" => :catalina
-    sha256 "50884b829598dab4558bc9f338b96b6ac18302c426ad6cfd440d2d721b1cb30a" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "8fe3da387f2212fe2618a07b2e1682e3bae08be20f105734e21079f0f3df7d79"
+    sha256 cellar: :any, big_sur:       "4c845e5cc5e9fafccda5ab5b2dfeb1e9cbbbe8f67ab9c2f72060c09a8d7743e4"
+    sha256 cellar: :any, catalina:      "1f52f84f5a9f9c9633e7fc9ef7ef8227431abd37ca6629f33986766b61470cc0"
+    sha256 cellar: :any, mojave:        "50884b829598dab4558bc9f338b96b6ac18302c426ad6cfd440d2d721b1cb30a"
   end
 
   depends_on "libgit2"

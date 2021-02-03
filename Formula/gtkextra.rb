@@ -10,11 +10,10 @@ class Gtkextra < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "3c35df2372587b0cc5bde265a9ff06774ec70651ac5aa103639dc41e669ae3b7" => :big_sur
-    sha256 "841d46dfdaee00be8a853e8069db2b8ca1fbbfcaf298360411b6f9c0a0706da6" => :arm64_big_sur
-    sha256 "17ba389425eea1e26e308f07b94a3f8637645e83a7b8314681f2285e09996d9b" => :catalina
-    sha256 "d154740567dfe6c084d3ba87d2afb32e9be63b370f85828e01cd5a3ec164d18f" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "841d46dfdaee00be8a853e8069db2b8ca1fbbfcaf298360411b6f9c0a0706da6"
+    sha256 cellar: :any, big_sur:       "3c35df2372587b0cc5bde265a9ff06774ec70651ac5aa103639dc41e669ae3b7"
+    sha256 cellar: :any, catalina:      "17ba389425eea1e26e308f07b94a3f8637645e83a7b8314681f2285e09996d9b"
+    sha256 cellar: :any, mojave:        "d154740567dfe6c084d3ba87d2afb32e9be63b370f85828e01cd5a3ec164d18f"
   end
 
   depends_on "pkg-config" => :build

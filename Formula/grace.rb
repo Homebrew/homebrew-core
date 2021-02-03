@@ -13,10 +13,10 @@ class Grace < Formula
 
   bottle do
     rebuild 1
-    sha256 "d5d91b7e7c89c18d466f01ce56c6935bbbcab420b392f942700b2432bc39d01d" => :big_sur
-    sha256 "ac76b67c8c85bc7ee8a1361334c2f70d6e74f45e5067eb4f0a688067e3667bc4" => :arm64_big_sur
-    sha256 "8bbfbfe5b8a205b29d21728d049f45d7acfbac1ca49dd2acc514321a9ce9f71a" => :catalina
-    sha256 "d5f408abf27cb7470e65dd34296e647141fdadf3d7b3255d512cc38f6c228d48" => :mojave
+    sha256 arm64_big_sur: "ac76b67c8c85bc7ee8a1361334c2f70d6e74f45e5067eb4f0a688067e3667bc4"
+    sha256 big_sur:       "d5d91b7e7c89c18d466f01ce56c6935bbbcab420b392f942700b2432bc39d01d"
+    sha256 catalina:      "8bbfbfe5b8a205b29d21728d049f45d7acfbac1ca49dd2acc514321a9ce9f71a"
+    sha256 mojave:        "d5f408abf27cb7470e65dd34296e647141fdadf3d7b3255d512cc38f6c228d48"
   end
 
   depends_on "fftw"

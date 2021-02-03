@@ -14,12 +14,11 @@ class GitRemoteCodecommit < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "aee7f65ffcaa551a185eb59d6917972265d3c9508c15f52c725e2ceefa6f9c04" => :big_sur
-    sha256 "691f3751dfa60d1ead71976570b5b06a76fb6546e0f0cd000e146512c332ce69" => :arm64_big_sur
-    sha256 "60e9845d4b0b0cf980e05903b93c19a320a78a530547b1730a3a740c658d2c67" => :catalina
-    sha256 "841203b77fc24bc7ed3f426de14421ef19d4062c3eaacf8493c624057b3b0352" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "691f3751dfa60d1ead71976570b5b06a76fb6546e0f0cd000e146512c332ce69"
+    sha256 cellar: :any_skip_relocation, big_sur:       "aee7f65ffcaa551a185eb59d6917972265d3c9508c15f52c725e2ceefa6f9c04"
+    sha256 cellar: :any_skip_relocation, catalina:      "60e9845d4b0b0cf980e05903b93c19a320a78a530547b1730a3a740c658d2c67"
+    sha256 cellar: :any_skip_relocation, mojave:        "841203b77fc24bc7ed3f426de14421ef19d4062c3eaacf8493c624057b3b0352"
   end
 
   depends_on "python@3.9"

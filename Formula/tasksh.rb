@@ -15,12 +15,11 @@ class Tasksh < Formula
   end
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "987789014e770fb3b4b1d4500321877c457ba2a1dde2fc9925762dfb0d7da541" => :big_sur
-    sha256 "590c43b791080cc6ca56cef896c9e75a8ca77915b061a1d0a711a0489e69ab63" => :arm64_big_sur
-    sha256 "68a13aa8ea81fd1fe7c2c5e9eadd3850fe21265b34c4cf2f1cf7e7ede3caeaee" => :catalina
-    sha256 "a2178acd290abac6dc8c024b48304c05660616639c7de1c7b35eb166ae8345dc" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "590c43b791080cc6ca56cef896c9e75a8ca77915b061a1d0a711a0489e69ab63"
+    sha256 cellar: :any, big_sur:       "987789014e770fb3b4b1d4500321877c457ba2a1dde2fc9925762dfb0d7da541"
+    sha256 cellar: :any, catalina:      "68a13aa8ea81fd1fe7c2c5e9eadd3850fe21265b34c4cf2f1cf7e7ede3caeaee"
+    sha256 cellar: :any, mojave:        "a2178acd290abac6dc8c024b48304c05660616639c7de1c7b35eb166ae8345dc"
   end
 
   depends_on "cmake" => :build

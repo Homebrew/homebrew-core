@@ -14,12 +14,11 @@ class S3cmd < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "e664b592e99416b945694ac030208b0ff12c41d9cfd7905dea7f9a5bc46d577d" => :big_sur
-    sha256 "e2625bb936c5d4b7965544f722e94acef3565a4844735eedd036b70b3d11ad80" => :arm64_big_sur
-    sha256 "140b574c93db1f67b40b7cf22e8468bbcb066ecbbfffb8cf649b31d268a82775" => :catalina
-    sha256 "c76760a661e4c9438bd2d0b7016430a99a934ac8e6705727b55bc868a466031d" => :mojave
-    sha256 "6c2188352b0662521ee7dac484183e0e0a65a1f802e282dad4d5287fa3c955e6" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e2625bb936c5d4b7965544f722e94acef3565a4844735eedd036b70b3d11ad80"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e664b592e99416b945694ac030208b0ff12c41d9cfd7905dea7f9a5bc46d577d"
+    sha256 cellar: :any_skip_relocation, catalina:      "140b574c93db1f67b40b7cf22e8468bbcb066ecbbfffb8cf649b31d268a82775"
+    sha256 cellar: :any_skip_relocation, mojave:        "c76760a661e4c9438bd2d0b7016430a99a934ac8e6705727b55bc868a466031d"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "6c2188352b0662521ee7dac484183e0e0a65a1f802e282dad4d5287fa3c955e6"
   end
 
   # s3cmd version 2.1.0 is not compatible with Python 3.9, know issues are:

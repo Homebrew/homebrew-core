@@ -8,10 +8,10 @@ class Cabocha < Formula
 
   bottle do
     rebuild 1
-    sha256 "1dd5c1474946aaab675326323c8f7e3d101687b50d5542464558f54a8c477cc8" => :big_sur
-    sha256 "6db92d4bc14b2b1045601758c9ad2d528fda7ce0029316a2b296c63c4953c54d" => :arm64_big_sur
-    sha256 "0cf6edea1fa69790984c762aaff33bcea3d6cf5206e06cf489c53e8644cbc9a4" => :catalina
-    sha256 "34825bb06bd8cbdb2fe082471044168cccdafc7414eac37eb6550f8a12e0dbe2" => :mojave
+    sha256 arm64_big_sur: "6db92d4bc14b2b1045601758c9ad2d528fda7ce0029316a2b296c63c4953c54d"
+    sha256 big_sur:       "1dd5c1474946aaab675326323c8f7e3d101687b50d5542464558f54a8c477cc8"
+    sha256 catalina:      "0cf6edea1fa69790984c762aaff33bcea3d6cf5206e06cf489c53e8644cbc9a4"
+    sha256 mojave:        "34825bb06bd8cbdb2fe082471044168cccdafc7414eac37eb6550f8a12e0dbe2"
   end
 
   depends_on "crf++"

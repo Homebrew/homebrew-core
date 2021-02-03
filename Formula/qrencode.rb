@@ -11,12 +11,11 @@ class Qrencode < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "1b3d2022412f9d5486550fb68250aee25bb358a04e2cccc7bb85c7d65b1885b0" => :big_sur
-    sha256 "aba117089d1c60fd2fa1d36fbfa06a0929b23d5bb6a7417d6f2dafb5dcc32c5b" => :arm64_big_sur
-    sha256 "326d2f182c7c8d9188be7adda5bd0ecb5922269f60f72ac265e404fa17fb310f" => :catalina
-    sha256 "a8ec712f32c4d8b09d4c098c37264ea41f0f382525c5b67e657248fdd9f1f53d" => :mojave
-    sha256 "a6d123b7f88941fe9959970d8b6ccfbc426c2ec405cfc731bc259f2b0f536171" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "aba117089d1c60fd2fa1d36fbfa06a0929b23d5bb6a7417d6f2dafb5dcc32c5b"
+    sha256 cellar: :any, big_sur:       "1b3d2022412f9d5486550fb68250aee25bb358a04e2cccc7bb85c7d65b1885b0"
+    sha256 cellar: :any, catalina:      "326d2f182c7c8d9188be7adda5bd0ecb5922269f60f72ac265e404fa17fb310f"
+    sha256 cellar: :any, mojave:        "a8ec712f32c4d8b09d4c098c37264ea41f0f382525c5b67e657248fdd9f1f53d"
+    sha256 cellar: :any, high_sierra:   "a6d123b7f88941fe9959970d8b6ccfbc426c2ec405cfc731bc259f2b0f536171"
   end
 
   head do

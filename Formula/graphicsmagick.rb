@@ -10,10 +10,10 @@ class Graphicsmagick < Formula
   end
 
   bottle do
-    sha256 "e8423e130f6dcdf83c501db944a341257e5b774cd007e1300f8b3cd3d32cafcb" => :big_sur
-    sha256 "baae9073b2475351eb1d53d23fa0c2fcf75a1611649b3be229a71b693881436e" => :arm64_big_sur
-    sha256 "a09639dfb381b06df090e595f6f1bc343c3619c9643de26c6cfea4073c9527cd" => :catalina
-    sha256 "40b04368925d79d6e6fbe76014e5db18c7378eda414beb1b41de9bb8db6a69a0" => :mojave
+    sha256 arm64_big_sur: "baae9073b2475351eb1d53d23fa0c2fcf75a1611649b3be229a71b693881436e"
+    sha256 big_sur:       "e8423e130f6dcdf83c501db944a341257e5b774cd007e1300f8b3cd3d32cafcb"
+    sha256 catalina:      "a09639dfb381b06df090e595f6f1bc343c3619c9643de26c6cfea4073c9527cd"
+    sha256 mojave:        "40b04368925d79d6e6fbe76014e5db18c7378eda414beb1b41de9bb8db6a69a0"
   end
 
   depends_on "pkg-config" => :build

@@ -5,14 +5,13 @@ class Md < Formula
   sha256 "e74d93496dd031ffea1ad8995686c1e9369a92de70c4c95a7f6e3d6ce2e7e434"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "919611448c8b0f207aa7c08ca3277b987623f7f17fe31a13c9bc0118f4c27f2b" => :catalina
-    sha256 "a4d92767a1393d4eb0bf029d449e81b7c56ddacec1a7de5235ac5435a9b880e9" => :mojave
-    sha256 "9ce0b54023eabc2b3aa46ee73ef3a36f1b0e5019b1d99cf822ae89c6840198a0" => :high_sierra
-    sha256 "b4187ef160dfbdefabaa05abb5bc044560ccf27410dc92be160760ec1142279d" => :sierra
-    sha256 "6d758b2227eec1332e56fac01eba034ace9df33c424cf8b96523d115342691ac" => :el_capitan
-    sha256 "979e6070affecebf0bcddb24075a3e059c5e4880da1666bb3dc96608f5d7148a" => :yosemite
-    sha256 "5faf5907b69c2a53c9bbbcfcb908d24c222181490b69116e09102212382be5ea" => :mavericks
+    sha256 cellar: :any_skip_relocation, catalina:    "919611448c8b0f207aa7c08ca3277b987623f7f17fe31a13c9bc0118f4c27f2b"
+    sha256 cellar: :any_skip_relocation, mojave:      "a4d92767a1393d4eb0bf029d449e81b7c56ddacec1a7de5235ac5435a9b880e9"
+    sha256 cellar: :any_skip_relocation, high_sierra: "9ce0b54023eabc2b3aa46ee73ef3a36f1b0e5019b1d99cf822ae89c6840198a0"
+    sha256 cellar: :any_skip_relocation, sierra:      "b4187ef160dfbdefabaa05abb5bc044560ccf27410dc92be160760ec1142279d"
+    sha256 cellar: :any_skip_relocation, el_capitan:  "6d758b2227eec1332e56fac01eba034ace9df33c424cf8b96523d115342691ac"
+    sha256 cellar: :any_skip_relocation, yosemite:    "979e6070affecebf0bcddb24075a3e059c5e4880da1666bb3dc96608f5d7148a"
+    sha256 cellar: :any_skip_relocation, mavericks:   "5faf5907b69c2a53c9bbbcfcb908d24c222181490b69116e09102212382be5ea"
   end
 
   # https://github.com/Homebrew/homebrew-core/pull/66347#issuecomment-739548996

@@ -7,11 +7,10 @@ class CargoEdit < Formula
   revision 1
 
   bottle do
-    cellar :any
-    sha256 "dda337a0b67c8e1b0be8a8718871e72363208f355b2204e1b91f0cb3fd746460" => :big_sur
-    sha256 "b06a55109f2992cd06372aebf167c351b106d9e0d7a1fe9b6bc18c1d21abff01" => :arm64_big_sur
-    sha256 "6998a3ce2b08aa612b3fa875f368d0fa8012404ef52480292c57d611d176de75" => :catalina
-    sha256 "db8fc1ad91e81679e46f49dddb9280b825b17b6ed9762f66a070af52ddee952a" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "b06a55109f2992cd06372aebf167c351b106d9e0d7a1fe9b6bc18c1d21abff01"
+    sha256 cellar: :any, big_sur:       "dda337a0b67c8e1b0be8a8718871e72363208f355b2204e1b91f0cb3fd746460"
+    sha256 cellar: :any, catalina:      "6998a3ce2b08aa612b3fa875f368d0fa8012404ef52480292c57d611d176de75"
+    sha256 cellar: :any, mojave:        "db8fc1ad91e81679e46f49dddb9280b825b17b6ed9762f66a070af52ddee952a"
   end
 
   depends_on "rust" => :build

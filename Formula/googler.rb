@@ -9,11 +9,10 @@ class Googler < Formula
   head "https://github.com/jarun/googler.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "cdb78a7ecc2656018a8ecaedf15230a9bb4e58eb5a9f405b99da297f1423f58d" => :big_sur
-    sha256 "34d74100c542d7674e393c1eeb0ddfc807d2e9e46c130777b16b85ed6a519551" => :arm64_big_sur
-    sha256 "27e27a67d1bca7dd2a05cc8dfb080c89c8871f92df951b95054068667902fa95" => :catalina
-    sha256 "49f64f0b333b9f65e18d6bc0ba5171e8e52a3df809f8e568207f343cd6823029" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "34d74100c542d7674e393c1eeb0ddfc807d2e9e46c130777b16b85ed6a519551"
+    sha256 cellar: :any_skip_relocation, big_sur:       "cdb78a7ecc2656018a8ecaedf15230a9bb4e58eb5a9f405b99da297f1423f58d"
+    sha256 cellar: :any_skip_relocation, catalina:      "27e27a67d1bca7dd2a05cc8dfb080c89c8871f92df951b95054068667902fa95"
+    sha256 cellar: :any_skip_relocation, mojave:        "49f64f0b333b9f65e18d6bc0ba5171e8e52a3df809f8e568207f343cd6823029"
   end
 
   depends_on "python@3.9"

@@ -8,11 +8,10 @@ class SimpleTiles < Formula
   head "https://github.com/propublica/simple-tiles.git"
 
   bottle do
-    cellar :any
-    sha256 "873d8f241263b0d5cc5e3d5b6cba535bdb953c8311703aae2e95406301ec5d10" => :big_sur
-    sha256 "14669b22f33782b72b0b2c8a0b37cbcbfe741d3923939eafe3546430d97e7683" => :arm64_big_sur
-    sha256 "8543798355cbb329814f4214639ff750690f496d75c3986c1756de28c2a6aace" => :catalina
-    sha256 "b2954855d7afd914fbac0bd06ed55b457c3d807285c24eb98f9641d88f7fa5ab" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "14669b22f33782b72b0b2c8a0b37cbcbfe741d3923939eafe3546430d97e7683"
+    sha256 cellar: :any, big_sur:       "873d8f241263b0d5cc5e3d5b6cba535bdb953c8311703aae2e95406301ec5d10"
+    sha256 cellar: :any, catalina:      "8543798355cbb329814f4214639ff750690f496d75c3986c1756de28c2a6aace"
+    sha256 cellar: :any, mojave:        "b2954855d7afd914fbac0bd06ed55b457c3d807285c24eb98f9641d88f7fa5ab"
   end
 
   depends_on "pkg-config" => :build

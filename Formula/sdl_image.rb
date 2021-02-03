@@ -12,15 +12,14 @@ class SdlImage < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "67495888095b02d6716cc51f5a522f2a872c29de418f19210ecd586d23684b81" => :big_sur
-    sha256 "9720413694ba49519d1d1c5213607dbdf177939ae0ee081c03ab2c1d478e2fe3" => :arm64_big_sur
-    sha256 "af782fa2905042005df213106578123c7fd1d6d3111af8bd16e1ec63e273bb8d" => :catalina
-    sha256 "eb27003d54259c16f08795435e2afc34086598e7f1d1f1ae4c2fe5a70a6bf57d" => :mojave
-    sha256 "eeb44401862df80a1d1f77dde4164b265d82993458325e753285566b56477695" => :high_sierra
-    sha256 "d74d6e853e78b65a7e7f266be6733bdb5839f956bcb19061b68a46c16e080a94" => :sierra
-    sha256 "4304e6b83a7afa176a0462e8ba20485bc098731a16bd375261f9f449a8f8f7d3" => :el_capitan
-    sha256 "3403edd53a6776bad8dc4390ef8204479f3af7c485e8a7a1f81f86f43b4a7b5c" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "9720413694ba49519d1d1c5213607dbdf177939ae0ee081c03ab2c1d478e2fe3"
+    sha256 cellar: :any, big_sur:       "67495888095b02d6716cc51f5a522f2a872c29de418f19210ecd586d23684b81"
+    sha256 cellar: :any, catalina:      "af782fa2905042005df213106578123c7fd1d6d3111af8bd16e1ec63e273bb8d"
+    sha256 cellar: :any, mojave:        "eb27003d54259c16f08795435e2afc34086598e7f1d1f1ae4c2fe5a70a6bf57d"
+    sha256 cellar: :any, high_sierra:   "eeb44401862df80a1d1f77dde4164b265d82993458325e753285566b56477695"
+    sha256 cellar: :any, sierra:        "d74d6e853e78b65a7e7f266be6733bdb5839f956bcb19061b68a46c16e080a94"
+    sha256 cellar: :any, el_capitan:    "4304e6b83a7afa176a0462e8ba20485bc098731a16bd375261f9f449a8f8f7d3"
+    sha256 cellar: :any, yosemite:      "3403edd53a6776bad8dc4390ef8204479f3af7c485e8a7a1f81f86f43b4a7b5c"
   end
 
   depends_on "pkg-config" => :build

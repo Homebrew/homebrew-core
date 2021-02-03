@@ -6,15 +6,14 @@ class Naga < Formula
   license "BSD-3-Clause"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "58d4a48fe33e676993449a2cdf332f74b6858681bc5519374d6e7a8842df9434" => :big_sur
-    sha256 "5598664fc7fd64d0f76d0291bbe79c209a65fd8142d6cbf7f7164531d538b9c5" => :arm64_big_sur
-    sha256 "4a397ca0cf60725415818826e47fbf20c4b9cad2bc754128ece0d50279b715fd" => :catalina
-    sha256 "0deef9e2936b7e5256c4f3e6f22c85389e3b8e53a586018854cbad3b983adc53" => :mojave
-    sha256 "324d31a0ae721075843ff5e326f35efcd1a03d784e92ef8419b954b40a55fae3" => :high_sierra
-    sha256 "8baa28b92a0d6970a857c859b11e4a1df878db5270f259bd3ccfe3b5f57f3303" => :sierra
-    sha256 "6ff3dd51d1cdeed9364c36c25d1c2794f973e2927077eaeb251fa0dbfc48a531" => :el_capitan
-    sha256 "fe303605603697993def097e9557a0dcec83d323a0b43d51fb1811108937da6c" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5598664fc7fd64d0f76d0291bbe79c209a65fd8142d6cbf7f7164531d538b9c5"
+    sha256 cellar: :any_skip_relocation, big_sur:       "58d4a48fe33e676993449a2cdf332f74b6858681bc5519374d6e7a8842df9434"
+    sha256 cellar: :any_skip_relocation, catalina:      "4a397ca0cf60725415818826e47fbf20c4b9cad2bc754128ece0d50279b715fd"
+    sha256 cellar: :any_skip_relocation, mojave:        "0deef9e2936b7e5256c4f3e6f22c85389e3b8e53a586018854cbad3b983adc53"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "324d31a0ae721075843ff5e326f35efcd1a03d784e92ef8419b954b40a55fae3"
+    sha256 cellar: :any_skip_relocation, sierra:        "8baa28b92a0d6970a857c859b11e4a1df878db5270f259bd3ccfe3b5f57f3303"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "6ff3dd51d1cdeed9364c36c25d1c2794f973e2927077eaeb251fa0dbfc48a531"
+    sha256 cellar: :any_skip_relocation, yosemite:      "fe303605603697993def097e9557a0dcec83d323a0b43d51fb1811108937da6c"
   end
 
   def install

@@ -12,11 +12,10 @@ class Qsoas < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "0792b9b5e0b57820e9bc0865815e2daef3de3a97a625f06080877bebcffd1d7f" => :catalina
-    sha256 "001b054635b8e50373f9e3cb2e0b377f558662697f096fdb388c2e3fa066d54d" => :mojave
-    sha256 "51791b6babc31ea8852e7e5c5c607cd961af8513ef35dd0a04a56766ed0f1200" => :high_sierra
-    sha256 "bbc71d9440e401a3bfd52f164b709c08c5d11300cdcef056728ca8dd08435d38" => :sierra
+    sha256 cellar: :any, catalina:    "0792b9b5e0b57820e9bc0865815e2daef3de3a97a625f06080877bebcffd1d7f"
+    sha256 cellar: :any, mojave:      "001b054635b8e50373f9e3cb2e0b377f558662697f096fdb388c2e3fa066d54d"
+    sha256 cellar: :any, high_sierra: "51791b6babc31ea8852e7e5c5c607cd961af8513ef35dd0a04a56766ed0f1200"
+    sha256 cellar: :any, sierra:      "bbc71d9440e401a3bfd52f164b709c08c5d11300cdcef056728ca8dd08435d38"
   end
 
   depends_on "gsl"

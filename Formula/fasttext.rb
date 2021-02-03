@@ -7,12 +7,11 @@ class Fasttext < Formula
   head "https://github.com/facebookresearch/fastText.git"
 
   bottle do
-    cellar :any
-    sha256 "3869650705430f8b682416be4e7c0a01c243a2f9517c6668027c6e9576f1e9c6" => :big_sur
-    sha256 "3bfb7e1ab42dde74ac0692d2016f718e173b9e9dee093e408dda8f4c22ef1a8a" => :arm64_big_sur
-    sha256 "ec085551ced1f55b863a65aa60ad8f31d796002702b7effaaaafbf1490df867f" => :catalina
-    sha256 "79f08167fb55b478829434be84d919c08c888563e0abbdeb66bc19cd3e82457f" => :mojave
-    sha256 "4602a32c2a373ed97de8fd36bf1e998299682d45e465af39026a32a3a06fe574" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "3bfb7e1ab42dde74ac0692d2016f718e173b9e9dee093e408dda8f4c22ef1a8a"
+    sha256 cellar: :any, big_sur:       "3869650705430f8b682416be4e7c0a01c243a2f9517c6668027c6e9576f1e9c6"
+    sha256 cellar: :any, catalina:      "ec085551ced1f55b863a65aa60ad8f31d796002702b7effaaaafbf1490df867f"
+    sha256 cellar: :any, mojave:        "79f08167fb55b478829434be84d919c08c888563e0abbdeb66bc19cd3e82457f"
+    sha256 cellar: :any, high_sierra:   "4602a32c2a373ed97de8fd36bf1e998299682d45e465af39026a32a3a06fe574"
   end
 
   depends_on "cmake" => :build

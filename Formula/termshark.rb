@@ -6,10 +6,9 @@ class Termshark < Formula
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c596db102b072f39e1e61c41ac2d09d616f65bc4e3b7a8ca6d0648c8a93f9808" => :big_sur
-    sha256 "0422a97e0be00df3518156332b95051687c24b53fbff5946f814fd5c6f96f5da" => :catalina
-    sha256 "f0c8ee7fdb686c2bfc788bc661d0e190af1146ebcc0960365369ad764e0ce4d2" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur:  "c596db102b072f39e1e61c41ac2d09d616f65bc4e3b7a8ca6d0648c8a93f9808"
+    sha256 cellar: :any_skip_relocation, catalina: "0422a97e0be00df3518156332b95051687c24b53fbff5946f814fd5c6f96f5da"
+    sha256 cellar: :any_skip_relocation, mojave:   "f0c8ee7fdb686c2bfc788bc661d0e190af1146ebcc0960365369ad764e0ce4d2"
   end
 
   depends_on "go" => :build

@@ -7,10 +7,9 @@ class Mat2 < Formula
   revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "0ff6f3cef76685da4a59ef493eac3c45798fb55ccbb21ccbd564d471ea2945e3" => :big_sur
-    sha256 "e18191fd01e8af033fdecdbb88b07767cd423356bce770ac872c2de4dc2278fb" => :catalina
-    sha256 "f6fa5bad2b6f642c82736041a7e83d722ec988d124110d310da96063b6db4d21" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur:  "0ff6f3cef76685da4a59ef493eac3c45798fb55ccbb21ccbd564d471ea2945e3"
+    sha256 cellar: :any_skip_relocation, catalina: "e18191fd01e8af033fdecdbb88b07767cd423356bce770ac872c2de4dc2278fb"
+    sha256 cellar: :any_skip_relocation, mojave:   "f6fa5bad2b6f642c82736041a7e83d722ec988d124110d310da96063b6db4d21"
   end
 
   depends_on "exiftool"

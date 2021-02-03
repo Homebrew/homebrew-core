@@ -12,12 +12,11 @@ class Liblinear < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "6afbe67a6cb651a0ac829b421c2a4e7f875b7eb41ceb7a8acfe24c8be2203114" => :big_sur
-    sha256 "3d10c6424ded069cf0642018690d5e87725ca7ad6ca0b762e00446c6d05718b9" => :arm64_big_sur
-    sha256 "b1ff692bb0430cc95e14ef736a8b1730afa826887648f91835869181922a2136" => :catalina
-    sha256 "9481d9d47bea60aff197812d668bb3fef9702e1922da016bc5c6d8bde7f32c08" => :mojave
-    sha256 "0ed1af625144027e73642a9b2eff35593a086692ef1abea5af6ab85ab3869abd" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "3d10c6424ded069cf0642018690d5e87725ca7ad6ca0b762e00446c6d05718b9"
+    sha256 cellar: :any, big_sur:       "6afbe67a6cb651a0ac829b421c2a4e7f875b7eb41ceb7a8acfe24c8be2203114"
+    sha256 cellar: :any, catalina:      "b1ff692bb0430cc95e14ef736a8b1730afa826887648f91835869181922a2136"
+    sha256 cellar: :any, mojave:        "9481d9d47bea60aff197812d668bb3fef9702e1922da016bc5c6d8bde7f32c08"
+    sha256 cellar: :any, high_sierra:   "0ed1af625144027e73642a9b2eff35593a086692ef1abea5af6ab85ab3869abd"
   end
 
   # Fix sonames

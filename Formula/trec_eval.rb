@@ -6,11 +6,10 @@ class TrecEval < Formula
   license :public_domain
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "909a8fa72d9da9dc50790dd31faf7ce80bfa13f6714fb39008ea4ef9ceefbff5" => :big_sur
-    sha256 "908cb93ceda4eb3561890ed39752d7ea5e2f41e5aced235445426bcc52958080" => :arm64_big_sur
-    sha256 "ea8723ce3d27bc893ec5255f8bb3235d03d442a58ef36586997b085626d752c7" => :catalina
-    sha256 "cecbd8490c8b889b72922ff9d6f6fdd5bed740e211217b4ac5c37b742b4e1b41" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "908cb93ceda4eb3561890ed39752d7ea5e2f41e5aced235445426bcc52958080"
+    sha256 cellar: :any_skip_relocation, big_sur:       "909a8fa72d9da9dc50790dd31faf7ce80bfa13f6714fb39008ea4ef9ceefbff5"
+    sha256 cellar: :any_skip_relocation, catalina:      "ea8723ce3d27bc893ec5255f8bb3235d03d442a58ef36586997b085626d752c7"
+    sha256 cellar: :any_skip_relocation, mojave:        "cecbd8490c8b889b72922ff9d6f6fdd5bed740e211217b4ac5c37b742b4e1b41"
   end
 
   def install

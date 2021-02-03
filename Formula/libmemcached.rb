@@ -10,13 +10,12 @@ class Libmemcached < Formula
   end
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "a478771c8936747ea8cbc56a2a7d38ed7db959de035b090710dadc30d187fc91" => :big_sur
-    sha256 "513613e8b8e42dc519ed5c1f4a4dea775007bc16bf2865e091b1a84d6408459a" => :arm64_big_sur
-    sha256 "24c7d9597b28d79f50f86777aa506b1955737d9e3298e1d79c3ad95b74fb66f8" => :catalina
-    sha256 "203121f43d48b8245a1bb963eded3d56aa44ec921176b9819004e62b12acdc48" => :mojave
-    sha256 "59032bd9e04061aaa7ffafdda12e66535f2e73da25571da0cede2dc21bc62f22" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "513613e8b8e42dc519ed5c1f4a4dea775007bc16bf2865e091b1a84d6408459a"
+    sha256 cellar: :any, big_sur:       "a478771c8936747ea8cbc56a2a7d38ed7db959de035b090710dadc30d187fc91"
+    sha256 cellar: :any, catalina:      "24c7d9597b28d79f50f86777aa506b1955737d9e3298e1d79c3ad95b74fb66f8"
+    sha256 cellar: :any, mojave:        "203121f43d48b8245a1bb963eded3d56aa44ec921176b9819004e62b12acdc48"
+    sha256 cellar: :any, high_sierra:   "59032bd9e04061aaa7ffafdda12e66535f2e73da25571da0cede2dc21bc62f22"
   end
 
   depends_on "memcached" => :test

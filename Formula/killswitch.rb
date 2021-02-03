@@ -6,12 +6,11 @@ class Killswitch < Formula
   license "BSD-3-Clause"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "8d3e4381fb6137e38fd394941e40f1c0fab743c7b4bfef3c2ecb43679b6ab03b" => :big_sur
-    sha256 "cf8c995419a923e0512fd5e2d54a88d46719e157f1f9592ec82289e97f3da876" => :arm64_big_sur
-    sha256 "3e00a8591a897509a48c65d76e529c6f4ef6fc910ebb762c8e5e7f54e2e03a43" => :catalina
-    sha256 "4cdbf573342205befe4e908ae318125be61850d2346c5ca649cdd867067eab63" => :mojave
-    sha256 "82a98dbef512e928dfcee02d0c7c50889856ce88740645ec1af0fcac7edfab12" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "cf8c995419a923e0512fd5e2d54a88d46719e157f1f9592ec82289e97f3da876"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8d3e4381fb6137e38fd394941e40f1c0fab743c7b4bfef3c2ecb43679b6ab03b"
+    sha256 cellar: :any_skip_relocation, catalina:      "3e00a8591a897509a48c65d76e529c6f4ef6fc910ebb762c8e5e7f54e2e03a43"
+    sha256 cellar: :any_skip_relocation, mojave:        "4cdbf573342205befe4e908ae318125be61850d2346c5ca649cdd867067eab63"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "82a98dbef512e928dfcee02d0c7c50889856ce88740645ec1af0fcac7edfab12"
   end
 
   depends_on "go" => :build

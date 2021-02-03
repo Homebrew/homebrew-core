@@ -14,10 +14,10 @@ class Glib < Formula
 
   bottle do
     rebuild 1
-    sha256 "f8851f19a2ce75914f0b38a3a0ad4d357f16824bfa10344a0cdf5d3e2d794ef5" => :big_sur
-    sha256 "d728d6ad6037c6405da8d96da87ee0cb5146421b7296818d63635d310714b94c" => :arm64_big_sur
-    sha256 "be6477600e402b953ad33d0c0e9096deda1575928cf0d551abd2d24c3486d51d" => :catalina
-    sha256 "be3e56e1dff6cacef711bab03407cc8e499e66664cca909448b17cd07cf5a90f" => :mojave
+    sha256 arm64_big_sur: "d728d6ad6037c6405da8d96da87ee0cb5146421b7296818d63635d310714b94c"
+    sha256 big_sur:       "f8851f19a2ce75914f0b38a3a0ad4d357f16824bfa10344a0cdf5d3e2d794ef5"
+    sha256 catalina:      "be6477600e402b953ad33d0c0e9096deda1575928cf0d551abd2d24c3486d51d"
+    sha256 mojave:        "be3e56e1dff6cacef711bab03407cc8e499e66664cca909448b17cd07cf5a90f"
   end
 
   depends_on "meson" => :build

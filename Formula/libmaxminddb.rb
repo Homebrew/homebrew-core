@@ -6,11 +6,10 @@ class Libmaxminddb < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any
-    sha256 "25c8c66165ee92126e2eec12376ddffba7d2a8eaa36e4aba840e7977c41285ff" => :big_sur
-    sha256 "1d9424cee10fcb1c266a934676245365323ae2d4f0216b2ebd083e2e83c2315a" => :arm64_big_sur
-    sha256 "e075cb109dc0a9d03f4e3e15d2d979f739fe3696bb62052e738ecb193086d923" => :catalina
-    sha256 "36ada94fa2c1300d49d89452c59bc75909d4da63f8bc4232179e071d443d7a75" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "1d9424cee10fcb1c266a934676245365323ae2d4f0216b2ebd083e2e83c2315a"
+    sha256 cellar: :any, big_sur:       "25c8c66165ee92126e2eec12376ddffba7d2a8eaa36e4aba840e7977c41285ff"
+    sha256 cellar: :any, catalina:      "e075cb109dc0a9d03f4e3e15d2d979f739fe3696bb62052e738ecb193086d923"
+    sha256 cellar: :any, mojave:        "36ada94fa2c1300d49d89452c59bc75909d4da63f8bc4232179e071d443d7a75"
   end
 
   head do

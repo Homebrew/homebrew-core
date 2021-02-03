@@ -14,12 +14,11 @@ class Khal < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "a53525bae76dc7fc1073ba0801fee8b97fe21c53799fe59c19c42749b2502891" => :big_sur
-    sha256 "517478833749c36bcec7765d545dee7e3fd3b7e1c2535668418342d1a5cfd6a4" => :arm64_big_sur
-    sha256 "5e0eb36b5672b395ecb9fde588508abe0aa71f4ba0baaadabb9f0c87656a6e3d" => :catalina
-    sha256 "653be55601acd8df88ef7f7d29bef839131102b294c8bf2e9d7799d946fa3ed5" => :mojave
-    sha256 "f32d1cffdcc120e86966284c8f51da5ad7839898f4c4fb55a1d2469bdfa6adbc" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "517478833749c36bcec7765d545dee7e3fd3b7e1c2535668418342d1a5cfd6a4"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a53525bae76dc7fc1073ba0801fee8b97fe21c53799fe59c19c42749b2502891"
+    sha256 cellar: :any_skip_relocation, catalina:      "5e0eb36b5672b395ecb9fde588508abe0aa71f4ba0baaadabb9f0c87656a6e3d"
+    sha256 cellar: :any_skip_relocation, mojave:        "653be55601acd8df88ef7f7d29bef839131102b294c8bf2e9d7799d946fa3ed5"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "f32d1cffdcc120e86966284c8f51da5ad7839898f4c4fb55a1d2469bdfa6adbc"
   end
 
   depends_on "python@3.9"

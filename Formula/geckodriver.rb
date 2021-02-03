@@ -34,11 +34,10 @@ class Geckodriver < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "5e3b3b2ea70199fbfb3dc656eab997e2d99cc298579fdf03097f11ab4d046161" => :big_sur
-    sha256 "22254633b2eb8926074a54c4304df503d44e52ba91192aa248143df17c91fd30" => :arm64_big_sur
-    sha256 "2831a5194598fa63d7c5db952c14e9a95371db0ebf0fb93c88e992181c64e36a" => :catalina
-    sha256 "c8b8c5e4de9f8e6746b1e6a565bea4438274d021fee94d0976f8ad46092e1955" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "22254633b2eb8926074a54c4304df503d44e52ba91192aa248143df17c91fd30"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5e3b3b2ea70199fbfb3dc656eab997e2d99cc298579fdf03097f11ab4d046161"
+    sha256 cellar: :any_skip_relocation, catalina:      "2831a5194598fa63d7c5db952c14e9a95371db0ebf0fb93c88e992181c64e36a"
+    sha256 cellar: :any_skip_relocation, mojave:        "c8b8c5e4de9f8e6746b1e6a565bea4438274d021fee94d0976f8ad46092e1955"
   end
 
   depends_on "rust" => :build

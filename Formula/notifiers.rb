@@ -12,12 +12,11 @@ class Notifiers < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "84d843b6371da8b6858acda7c03126d2def410e3a1745c60a9ee2ce027740eb7" => :big_sur
-    sha256 "4f096119adfb8ff779aa65d43189c91d2ffa4fe2b108d974cc75a78b777b273d" => :arm64_big_sur
-    sha256 "97f389f0f3bea37994deb5d1d8b1e4ef67fbdc2822ed73734f13f728d7bc86d3" => :catalina
-    sha256 "62bbd2a965c1feadc28ea3a1b6263f8781a42515f3bc8a23f796d1e8b11029a8" => :mojave
-    sha256 "e7cd27abdadb3f0f85c6e365cfaeb7dbe24ba1aeb7d161eff4ad9ac96f90702f" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4f096119adfb8ff779aa65d43189c91d2ffa4fe2b108d974cc75a78b777b273d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "84d843b6371da8b6858acda7c03126d2def410e3a1745c60a9ee2ce027740eb7"
+    sha256 cellar: :any_skip_relocation, catalina:      "97f389f0f3bea37994deb5d1d8b1e4ef67fbdc2822ed73734f13f728d7bc86d3"
+    sha256 cellar: :any_skip_relocation, mojave:        "62bbd2a965c1feadc28ea3a1b6263f8781a42515f3bc8a23f796d1e8b11029a8"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "e7cd27abdadb3f0f85c6e365cfaeb7dbe24ba1aeb7d161eff4ad9ac96f90702f"
   end
 
   depends_on "python@3.9"

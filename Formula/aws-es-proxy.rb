@@ -6,12 +6,11 @@ class AwsEsProxy < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c04f0887348bdf1fd322eae80681657ccb57beef3449b62c2e10092f4e1a0964" => :big_sur
-    sha256 "37e07ca5ebf1c86eb72d08cd90df85771c5ab8b496f269bcdc06a0bc526d15fc" => :arm64_big_sur
-    sha256 "4ea34f837d16948e94a2e612c9d257e553b37f60c305172ea8e34798347f2dbe" => :catalina
-    sha256 "cc4f13aa9d1aee4a1667a60e5a5a161ae78289fb9a587d12597c379e5c0a9b05" => :mojave
-    sha256 "a3804611f47815c7ba21ea108cb0e077fbfe59c2f52b85c1f778758babbb5a92" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "37e07ca5ebf1c86eb72d08cd90df85771c5ab8b496f269bcdc06a0bc526d15fc"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c04f0887348bdf1fd322eae80681657ccb57beef3449b62c2e10092f4e1a0964"
+    sha256 cellar: :any_skip_relocation, catalina:      "4ea34f837d16948e94a2e612c9d257e553b37f60c305172ea8e34798347f2dbe"
+    sha256 cellar: :any_skip_relocation, mojave:        "cc4f13aa9d1aee4a1667a60e5a5a161ae78289fb9a587d12597c379e5c0a9b05"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "a3804611f47815c7ba21ea108cb0e077fbfe59c2f52b85c1f778758babbb5a92"
   end
 
   depends_on "go" => :build

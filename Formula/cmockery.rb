@@ -6,16 +6,15 @@ class Cmockery < Formula
   license "BSD-3-Clause"
 
   bottle do
-    cellar :any
-    sha256 "cfecce020c743de6d0e72dbcc3d5a104024e69979c3b8fa085997b3a5ae17619" => :big_sur
-    sha256 "aa62f9303682b243044246c155e301361e9ea68a52b9ff66a83a6432aa7b1ddd" => :arm64_big_sur
-    sha256 "1df72472ccf182fc7de6a14b047affceba8e7c986110f883ef55701b93b19d0f" => :catalina
-    sha256 "d239e243454b5bac5d0bab915ff506199c97bd27bf188c0938911c5c091af020" => :mojave
-    sha256 "8ee7bb6453fae2cdfc129f6aad3ac9a8766a396ec7df9d38444f6b688697c3ea" => :high_sierra
-    sha256 "f3b1c3d5c96ea9e30dc008e557239e972a18e65b3dd1ee8a593a0eb6e11d7858" => :sierra
-    sha256 "6cc440503b2fce7def7d584aacf8e9142ad430de799b466f609f57fd9beb4ede" => :el_capitan
-    sha256 "a6ac86af8d5b7f5964a480cc91bfbdaf260c59eae2c4b79663ebab2dfdb7d062" => :yosemite
-    sha256 "673662bebae6bc4e43b60137ebad7141af0eeecffa41f4e7c61065b0f2262d25" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "aa62f9303682b243044246c155e301361e9ea68a52b9ff66a83a6432aa7b1ddd"
+    sha256 cellar: :any, big_sur:       "cfecce020c743de6d0e72dbcc3d5a104024e69979c3b8fa085997b3a5ae17619"
+    sha256 cellar: :any, catalina:      "1df72472ccf182fc7de6a14b047affceba8e7c986110f883ef55701b93b19d0f"
+    sha256 cellar: :any, mojave:        "d239e243454b5bac5d0bab915ff506199c97bd27bf188c0938911c5c091af020"
+    sha256 cellar: :any, high_sierra:   "8ee7bb6453fae2cdfc129f6aad3ac9a8766a396ec7df9d38444f6b688697c3ea"
+    sha256 cellar: :any, sierra:        "f3b1c3d5c96ea9e30dc008e557239e972a18e65b3dd1ee8a593a0eb6e11d7858"
+    sha256 cellar: :any, el_capitan:    "6cc440503b2fce7def7d584aacf8e9142ad430de799b466f609f57fd9beb4ede"
+    sha256 cellar: :any, yosemite:      "a6ac86af8d5b7f5964a480cc91bfbdaf260c59eae2c4b79663ebab2dfdb7d062"
+    sha256 cellar: :any, mavericks:     "673662bebae6bc4e43b60137ebad7141af0eeecffa41f4e7c61065b0f2262d25"
   end
 
   # This patch will be integrated upstream in 0.1.3, this is due to malloc.h being already in stdlib on OSX

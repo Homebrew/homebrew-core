@@ -6,10 +6,9 @@ class Liberasurecode < Formula
   license "BSD-2-Clause"
 
   bottle do
-    cellar :any
-    sha256 "0252ffca75211c217bee75061bb6a62dc2982334b66d95fbfcdc2e686480d1fb" => :catalina
-    sha256 "0073290d5c19d629b70f6e4be0677931f625e07e79d2dacea25b333f7d820933" => :mojave
-    sha256 "2f0bb8a2f295cff0ba42097db3f31103f2f10637faa66ba2028bc746934b58d0" => :high_sierra
+    sha256 cellar: :any, catalina:    "0252ffca75211c217bee75061bb6a62dc2982334b66d95fbfcdc2e686480d1fb"
+    sha256 cellar: :any, mojave:      "0073290d5c19d629b70f6e4be0677931f625e07e79d2dacea25b333f7d820933"
+    sha256 cellar: :any, high_sierra: "2f0bb8a2f295cff0ba42097db3f31103f2f10637faa66ba2028bc746934b58d0"
   end
 
   disable! date: "2020-12-08", because: "Depends on gf-complete which has been disabled"

@@ -7,12 +7,11 @@ class Libdrawtext < Formula
   head "https://github.com/jtsiomb/libdrawtext.git"
 
   bottle do
-    cellar :any
-    sha256 "30bb9dd29ed877e48308f66be15ef43b2816e9a38b346a2e04b280ab64e677c9" => :big_sur
-    sha256 "7383b095117bbcb658bb4563a709509bc01b4a3e747cf74c394fadb39a677300" => :arm64_big_sur
-    sha256 "e6aea4db0e3298e04dfbb215bcedcc4302d76965f82b4dfc921636dbc24ff939" => :catalina
-    sha256 "0c63e8d53c61bcda8452501c584b2f06919054f4e447fa9ce8c929b0bee50d24" => :mojave
-    sha256 "a4169631c0ac82995409931836ea16664618d37650337e994bfea7121a386791" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "7383b095117bbcb658bb4563a709509bc01b4a3e747cf74c394fadb39a677300"
+    sha256 cellar: :any, big_sur:       "30bb9dd29ed877e48308f66be15ef43b2816e9a38b346a2e04b280ab64e677c9"
+    sha256 cellar: :any, catalina:      "e6aea4db0e3298e04dfbb215bcedcc4302d76965f82b4dfc921636dbc24ff939"
+    sha256 cellar: :any, mojave:        "0c63e8d53c61bcda8452501c584b2f06919054f4e447fa9ce8c929b0bee50d24"
+    sha256 cellar: :any, high_sierra:   "a4169631c0ac82995409931836ea16664618d37650337e994bfea7121a386791"
   end
 
   depends_on "pkg-config" => :build

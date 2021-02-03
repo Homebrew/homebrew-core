@@ -7,11 +7,10 @@ class Binaryen < Formula
   head "https://github.com/WebAssembly/binaryen.git"
 
   bottle do
-    cellar :any
-    sha256 "8fe6b20a333b303d522bcd5cd917c9fe4bfa0fa4f74b7eca27deb08a004b673b" => :big_sur
-    sha256 "8223e06ab14ab31220ef1c8a394e9934230010ae71374ce42bb22aba318dbec5" => :arm64_big_sur
-    sha256 "7b7b7e2d950825ec573b307fd4012dc05d981071958a3bf638b53fe4ac00d9ee" => :catalina
-    sha256 "a09589993681168d076c3bfb62bf375585924e62f27f80deef20dcfedb306ce9" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "8223e06ab14ab31220ef1c8a394e9934230010ae71374ce42bb22aba318dbec5"
+    sha256 cellar: :any, big_sur:       "8fe6b20a333b303d522bcd5cd917c9fe4bfa0fa4f74b7eca27deb08a004b673b"
+    sha256 cellar: :any, catalina:      "7b7b7e2d950825ec573b307fd4012dc05d981071958a3bf638b53fe4ac00d9ee"
+    sha256 cellar: :any, mojave:        "a09589993681168d076c3bfb62bf375585924e62f27f80deef20dcfedb306ce9"
   end
 
   depends_on "cmake" => :build

@@ -7,10 +7,10 @@ class Goredo < Formula
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur: "b42f2b3a414bb8202c64e05dd3b10436e9e33f3875ed6cc7080ec1f90b11b48c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a0a9bb36dc434f6a73d7c1ddf172d773c1c6719c6e4eb8f2bb971d12386a1b84"
-    sha256 cellar: :any_skip_relocation, catalina: "c342bd2a9a27747e0eaae16ce4dda29ca430bd730011a1b0794d0a9734d46afe"
-    sha256 cellar: :any_skip_relocation, mojave: "06a24d2d67342fbfe8fcee8d4b912d678164bd3d7fb7bdd35b700cf46e2687aa"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b42f2b3a414bb8202c64e05dd3b10436e9e33f3875ed6cc7080ec1f90b11b48c"
+    sha256 cellar: :any_skip_relocation, catalina:      "c342bd2a9a27747e0eaae16ce4dda29ca430bd730011a1b0794d0a9734d46afe"
+    sha256 cellar: :any_skip_relocation, mojave:        "06a24d2d67342fbfe8fcee8d4b912d678164bd3d7fb7bdd35b700cf46e2687aa"
   end
 
   depends_on "go" => :build

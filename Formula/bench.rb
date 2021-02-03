@@ -21,11 +21,10 @@ class Bench < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c9ee5713f0c97785f37506da9e34f4cda353beaad06a5209fce27aeb93e3f770" => :big_sur
-    sha256 "b1eccbf77a04e4de1a59a0eed5c0f6e2d8b6b191736ee9ad4fdea9a173010651" => :catalina
-    sha256 "493de8888b6fe1745a887cda10a421448a08943496124b1cb49cc02453002638" => :mojave
-    sha256 "cd0e9ae0bc13d3db0330ae839689d9b2d129bc0bf0c1b7165033968a9e6a0f22" => :high_sierra
+    sha256 cellar: :any_skip_relocation, big_sur:     "c9ee5713f0c97785f37506da9e34f4cda353beaad06a5209fce27aeb93e3f770"
+    sha256 cellar: :any_skip_relocation, catalina:    "b1eccbf77a04e4de1a59a0eed5c0f6e2d8b6b191736ee9ad4fdea9a173010651"
+    sha256 cellar: :any_skip_relocation, mojave:      "493de8888b6fe1745a887cda10a421448a08943496124b1cb49cc02453002638"
+    sha256 cellar: :any_skip_relocation, high_sierra: "cd0e9ae0bc13d3db0330ae839689d9b2d129bc0bf0c1b7165033968a9e6a0f22"
   end
 
   depends_on "cabal-install" => :build

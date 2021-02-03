@@ -7,15 +7,14 @@ class Tsung < Formula
   head "https://github.com/processone/tsung.git"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "82f9c26269d705ce0757bb7b1f0485737b62bb6ab440c3a349a3910c2c929c31" => :big_sur
-    sha256 "8e48b00e815ae6bd028601423ce94a47d0ece9694fbb162808ff58f5d69e484f" => :arm64_big_sur
-    sha256 "5ba49316a6d401d171ddd27e366c9bfb1a73aaeced24b562a326dbe1bd1249ab" => :catalina
-    sha256 "bfd02c24483727832c624e5de2e289efec4eaf30b651be8da85696c1c896c091" => :mojave
-    sha256 "64dba403e11577b28f3a80114158b96d8c74f58d09a4d9930801674031d4a7d9" => :high_sierra
-    sha256 "e52abdb35507ceff03804d29a1ecf4e64d11e3345a9f095462cb653bba6cac6d" => :sierra
-    sha256 "11f06a010b1a56d7a751bf5379d7d053c1befdf41f73aabeb79330761566724d" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8e48b00e815ae6bd028601423ce94a47d0ece9694fbb162808ff58f5d69e484f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "82f9c26269d705ce0757bb7b1f0485737b62bb6ab440c3a349a3910c2c929c31"
+    sha256 cellar: :any_skip_relocation, catalina:      "5ba49316a6d401d171ddd27e366c9bfb1a73aaeced24b562a326dbe1bd1249ab"
+    sha256 cellar: :any_skip_relocation, mojave:        "bfd02c24483727832c624e5de2e289efec4eaf30b651be8da85696c1c896c091"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "64dba403e11577b28f3a80114158b96d8c74f58d09a4d9930801674031d4a7d9"
+    sha256 cellar: :any_skip_relocation, sierra:        "e52abdb35507ceff03804d29a1ecf4e64d11e3345a9f095462cb653bba6cac6d"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "11f06a010b1a56d7a751bf5379d7d053c1befdf41f73aabeb79330761566724d"
   end
 
   depends_on "erlang"

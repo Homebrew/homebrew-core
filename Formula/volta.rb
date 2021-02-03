@@ -12,10 +12,9 @@ class Volta < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "4e7951a24ade9e61114ec23e5920fdcb89df268722b827122b666f391c4e6038" => :big_sur
-    sha256 "a5c08ed458919dbf9c4468e667b8b1af83f0f0df422006fea5866fa0edeae526" => :catalina
-    sha256 "ba38fc76ebf6147ed51db93469ef0b880b6368ca72c4bb7e4acf1fcd2109e922" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur:  "4e7951a24ade9e61114ec23e5920fdcb89df268722b827122b666f391c4e6038"
+    sha256 cellar: :any_skip_relocation, catalina: "a5c08ed458919dbf9c4468e667b8b1af83f0f0df422006fea5866fa0edeae526"
+    sha256 cellar: :any_skip_relocation, mojave:   "ba38fc76ebf6147ed51db93469ef0b880b6368ca72c4bb7e4acf1fcd2109e922"
   end
 
   depends_on "rust" => :build

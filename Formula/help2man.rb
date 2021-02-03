@@ -11,11 +11,10 @@ class Help2man < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "ee60622e70903c293171ea78097544d796a5454b29e8c1494529aa537901e460" => :big_sur
-    sha256 "7bc46236d8916519b432020f2d51df5c6006c7000b67835ff7e1276c58ec208c" => :arm64_big_sur
-    sha256 "603b604aaf17770dd4f4a0f9b45c266848d8c005228c64773fdec2d94e3d45dd" => :catalina
-    sha256 "f57b3269934c79434b70ac7807ea364af47ae8a3b6096364c0615b2789d4a0a9" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "7bc46236d8916519b432020f2d51df5c6006c7000b67835ff7e1276c58ec208c"
+    sha256 cellar: :any, big_sur:       "ee60622e70903c293171ea78097544d796a5454b29e8c1494529aa537901e460"
+    sha256 cellar: :any, catalina:      "603b604aaf17770dd4f4a0f9b45c266848d8c005228c64773fdec2d94e3d45dd"
+    sha256 cellar: :any, mojave:        "f57b3269934c79434b70ac7807ea364af47ae8a3b6096364c0615b2789d4a0a9"
   end
 
   depends_on "gettext" if Hardware::CPU.intel?

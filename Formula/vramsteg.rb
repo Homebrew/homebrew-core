@@ -11,16 +11,15 @@ class Vramsteg < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "d004f9d2ef1b642f8128c368e57235f6d2580fd90d928da9996684430a6881ee" => :big_sur
-    sha256 "a7bc2f2c1ca7f14f5c6551f48907f9be12b623c5ebc16cd454afefe337760336" => :arm64_big_sur
-    sha256 "a6f6f99e3b12dca8a56919d1144b10e43a9059e7691d56dfdf8aab330e6febe8" => :catalina
-    sha256 "a868fba582ce440a14ae18d4be193209e7d25fd3291b568bea7f123e61aa044d" => :mojave
-    sha256 "0c9aff3582ad05a388cba8c43770ead295d921a8e419323a3c4115f09e609ba1" => :high_sierra
-    sha256 "7f65668b7bb036fb19e69bdc9cbc2ec48728bc8c1936253f6d5e8d74a113a3fd" => :sierra
-    sha256 "e4b3e2e66c2f772a38de529b884091a2ffa1f920af6604696129d21cc9e70b99" => :el_capitan
-    sha256 "9285766e0502b88c62d3d295402a41c46b8d9d2707a492bb5d70484b1080c212" => :yosemite
-    sha256 "f9ea5a2984d676db153d2128b1aa84a413edb93692e9c6be8147e5a856d42972" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a7bc2f2c1ca7f14f5c6551f48907f9be12b623c5ebc16cd454afefe337760336"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d004f9d2ef1b642f8128c368e57235f6d2580fd90d928da9996684430a6881ee"
+    sha256 cellar: :any_skip_relocation, catalina:      "a6f6f99e3b12dca8a56919d1144b10e43a9059e7691d56dfdf8aab330e6febe8"
+    sha256 cellar: :any_skip_relocation, mojave:        "a868fba582ce440a14ae18d4be193209e7d25fd3291b568bea7f123e61aa044d"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "0c9aff3582ad05a388cba8c43770ead295d921a8e419323a3c4115f09e609ba1"
+    sha256 cellar: :any_skip_relocation, sierra:        "7f65668b7bb036fb19e69bdc9cbc2ec48728bc8c1936253f6d5e8d74a113a3fd"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "e4b3e2e66c2f772a38de529b884091a2ffa1f920af6604696129d21cc9e70b99"
+    sha256 cellar: :any_skip_relocation, yosemite:      "9285766e0502b88c62d3d295402a41c46b8d9d2707a492bb5d70484b1080c212"
+    sha256 cellar: :any_skip_relocation, mavericks:     "f9ea5a2984d676db153d2128b1aa84a413edb93692e9c6be8147e5a856d42972"
   end
 
   depends_on "cmake" => :build

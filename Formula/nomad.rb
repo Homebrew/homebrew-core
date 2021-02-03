@@ -12,10 +12,10 @@ class Nomad < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur: "c265621b2f4df95b2cdf454e829601904d6043ff74f6df437a48d410d90049ef"
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "570033a01dead78bcdaa308f203f1df3a591900bbccddf5a3300114f41c24415"
-    sha256 cellar: :any_skip_relocation, catalina: "562b3e5a8ad77b2aa1669fadc756894d622a5c0132cf71be6c7655c969df43c0"
-    sha256 cellar: :any_skip_relocation, mojave: "2e2ab0cbed0a75e2c35064b67b0a3178bc95d2f029e115bee7f649e9afb6d82e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c265621b2f4df95b2cdf454e829601904d6043ff74f6df437a48d410d90049ef"
+    sha256 cellar: :any_skip_relocation, catalina:      "562b3e5a8ad77b2aa1669fadc756894d622a5c0132cf71be6c7655c969df43c0"
+    sha256 cellar: :any_skip_relocation, mojave:        "2e2ab0cbed0a75e2c35064b67b0a3178bc95d2f029e115bee7f649e9afb6d82e"
   end
 
   depends_on "go" => :build

@@ -8,13 +8,12 @@ class Libmowgli < Formula
   head "https://github.com/atheme/libmowgli-2.git"
 
   bottle do
-    cellar :any
-    sha256 "71b4314960c13147708edb90db5ea48f339dcdecd2e5bb0273f831066913ad84" => :big_sur
-    sha256 "fe4733bd50b52c347b5f4f4af0e0126454227646a0851a15b01bd4dc90637f50" => :arm64_big_sur
-    sha256 "02bbaff929fa3e3967ec4184ce36fcf71ece1dca9aeedad67ca3c9533495fa52" => :catalina
-    sha256 "68656add47085df19786c9d419d7dd2e880514f3a5fa63838362ef92807c3420" => :mojave
-    sha256 "061c1fc5a942024894205ee47a5ffc41fae5dde42ca6b744f66dad5d4a2e60fe" => :high_sierra
-    sha256 "a83b21ccd87a25d26122ab813afbd24ef6bc07e6c92b16db11813d4fab71a055" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "fe4733bd50b52c347b5f4f4af0e0126454227646a0851a15b01bd4dc90637f50"
+    sha256 cellar: :any, big_sur:       "71b4314960c13147708edb90db5ea48f339dcdecd2e5bb0273f831066913ad84"
+    sha256 cellar: :any, catalina:      "02bbaff929fa3e3967ec4184ce36fcf71ece1dca9aeedad67ca3c9533495fa52"
+    sha256 cellar: :any, mojave:        "68656add47085df19786c9d419d7dd2e880514f3a5fa63838362ef92807c3420"
+    sha256 cellar: :any, high_sierra:   "061c1fc5a942024894205ee47a5ffc41fae5dde42ca6b744f66dad5d4a2e60fe"
+    sha256 cellar: :any, sierra:        "a83b21ccd87a25d26122ab813afbd24ef6bc07e6c92b16db11813d4fab71a055"
   end
 
   depends_on "openssl@1.1"

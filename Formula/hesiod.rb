@@ -7,13 +7,12 @@ class Hesiod < Formula
   revision 1
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "8b396dffcf3d833f50169ee20ae3ae126775cb40430ee4d2d967ba459834815a" => :big_sur
-    sha256 "66f05bed0ecbd7328400f142a7864ec972fd3573d284375c222ff963a5ae7875" => :arm64_big_sur
-    sha256 "2e077b355ca0ed9f0bbadfc7b54ef681fc11f58c324ce19d3131fb61b99f15d2" => :catalina
-    sha256 "76748e285f22aed694c2933e4cd3a1469398ea254671755e6f89ad07e76b7f73" => :mojave
-    sha256 "de927a6526209db3673aa9e426d7e32f53b7a278798f07d6dc1c5069e816d09a" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "66f05bed0ecbd7328400f142a7864ec972fd3573d284375c222ff963a5ae7875"
+    sha256 cellar: :any, big_sur:       "8b396dffcf3d833f50169ee20ae3ae126775cb40430ee4d2d967ba459834815a"
+    sha256 cellar: :any, catalina:      "2e077b355ca0ed9f0bbadfc7b54ef681fc11f58c324ce19d3131fb61b99f15d2"
+    sha256 cellar: :any, mojave:        "76748e285f22aed694c2933e4cd3a1469398ea254671755e6f89ad07e76b7f73"
+    sha256 cellar: :any, high_sierra:   "de927a6526209db3673aa9e426d7e32f53b7a278798f07d6dc1c5069e816d09a"
   end
 
   depends_on "autoconf" => :build

@@ -11,12 +11,11 @@ class Libmpc < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "754667644cc287cd9691fd3215df260aa971562b5a7b6ca65e29b2e15ea1e656" => :big_sur
-    sha256 "6a93bd78c1b55f8b29e11fd1e9c68c6c305ffe74aa5b978ba93189b6d84d1451" => :arm64_big_sur
-    sha256 "8c037df4b551058d00351676dc2c5ec395bd69c88545fac9ccfd0749dadb8ee2" => :catalina
-    sha256 "c229b6def61f4acc41b4b159d93dbc63a5c77f87f61623c9f7c5399da440cc4f" => :mojave
-    sha256 "939f0ad01d809356e33bdc70a8a8483eb1b021fd5f3723d0e61a2698af00f01b" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "6a93bd78c1b55f8b29e11fd1e9c68c6c305ffe74aa5b978ba93189b6d84d1451"
+    sha256 cellar: :any, big_sur:       "754667644cc287cd9691fd3215df260aa971562b5a7b6ca65e29b2e15ea1e656"
+    sha256 cellar: :any, catalina:      "8c037df4b551058d00351676dc2c5ec395bd69c88545fac9ccfd0749dadb8ee2"
+    sha256 cellar: :any, mojave:        "c229b6def61f4acc41b4b159d93dbc63a5c77f87f61623c9f7c5399da440cc4f"
+    sha256 cellar: :any, high_sierra:   "939f0ad01d809356e33bdc70a8a8483eb1b021fd5f3723d0e61a2698af00f01b"
   end
 
   depends_on "gmp"

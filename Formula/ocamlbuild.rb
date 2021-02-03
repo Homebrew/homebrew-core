@@ -13,10 +13,10 @@ class Ocamlbuild < Formula
   end
 
   bottle do
-    sha256 "3daa705ce9d023a2679f609671d06de48e8dd1dd13ece8db46068802abbdd41f" => :big_sur
-    sha256 "8f6fc7e7413b24faa041b7651349a3128f9eadefae5c9aa0c50f0d1a56e010f6" => :catalina
-    sha256 "04fed811edb4dd3903f742ec6678643f9959e85c4fcb763972c8779dec059515" => :mojave
-    sha256 "e4cd0274f9657874e29add30545055af4ea8697d426ed95f799ddce63aef5cfe" => :high_sierra
+    sha256 big_sur:     "3daa705ce9d023a2679f609671d06de48e8dd1dd13ece8db46068802abbdd41f"
+    sha256 catalina:    "8f6fc7e7413b24faa041b7651349a3128f9eadefae5c9aa0c50f0d1a56e010f6"
+    sha256 mojave:      "04fed811edb4dd3903f742ec6678643f9959e85c4fcb763972c8779dec059515"
+    sha256 high_sierra: "e4cd0274f9657874e29add30545055af4ea8697d426ed95f799ddce63aef5cfe"
   end
 
   depends_on "ocaml"

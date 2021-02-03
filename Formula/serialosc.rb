@@ -8,12 +8,11 @@ class Serialosc < Formula
   head "https://github.com/monome/serialosc.git"
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "a67757d6de9663c606ae5baad6c98b1e05270f6ebc7dce5ee856cebd9359523e" => :big_sur
-    sha256 "34c28ed9daba6253e5683b1843d4232991be7194b9121684c1e22e45f4f29fa6" => :arm64_big_sur
-    sha256 "652e246d1df70f602f497f545c7ef8d69bf7fcbd98fc0af43da944c983f72a32" => :catalina
-    sha256 "88d5711e7c26674071d8f5b659c44bc5112edf2b0033b42dc04dba302a418ce5" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "34c28ed9daba6253e5683b1843d4232991be7194b9121684c1e22e45f4f29fa6"
+    sha256 cellar: :any, big_sur:       "a67757d6de9663c606ae5baad6c98b1e05270f6ebc7dce5ee856cebd9359523e"
+    sha256 cellar: :any, catalina:      "652e246d1df70f602f497f545c7ef8d69bf7fcbd98fc0af43da944c983f72a32"
+    sha256 cellar: :any, mojave:        "88d5711e7c26674071d8f5b659c44bc5112edf2b0033b42dc04dba302a418ce5"
   end
 
   depends_on "confuse"

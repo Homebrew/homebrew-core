@@ -6,14 +6,13 @@ class Pmdmini < Formula
   license "GPL-2.0"
 
   bottle do
-    cellar :any
-    sha256 "5778b030ba5ad8c7b850946f038729089893f5dd066d9d49fc23377da56a8bc3" => :big_sur
-    sha256 "bd89f1d1b34981a1d1c10e1917a4303c8ce2937eeb25ab297cb9ab4868d82146" => :arm64_big_sur
-    sha256 "cfbf667e152bede1fce92c8d358195a651e807595bc5e704d71ee80cfe65682b" => :catalina
-    sha256 "fe87429ee546fa0629d178c52476c4cc5696abac76b21abcd3e4977c7527bd22" => :mojave
-    sha256 "c3195012d5b5333e76c1a8a44b3f734575540deee884dfb6685e139e1038c138" => :high_sierra
-    sha256 "59b287650c6e40c20da8000f5e73b910f8096bd949e4432b4f11e70b1c779a5d" => :sierra
-    sha256 "72afd84c66fef9f142a1922fd0995a6a173b46c40d06715808345cc1c71b6702" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "bd89f1d1b34981a1d1c10e1917a4303c8ce2937eeb25ab297cb9ab4868d82146"
+    sha256 cellar: :any, big_sur:       "5778b030ba5ad8c7b850946f038729089893f5dd066d9d49fc23377da56a8bc3"
+    sha256 cellar: :any, catalina:      "cfbf667e152bede1fce92c8d358195a651e807595bc5e704d71ee80cfe65682b"
+    sha256 cellar: :any, mojave:        "fe87429ee546fa0629d178c52476c4cc5696abac76b21abcd3e4977c7527bd22"
+    sha256 cellar: :any, high_sierra:   "c3195012d5b5333e76c1a8a44b3f734575540deee884dfb6685e139e1038c138"
+    sha256 cellar: :any, sierra:        "59b287650c6e40c20da8000f5e73b910f8096bd949e4432b4f11e70b1c779a5d"
+    sha256 cellar: :any, el_capitan:    "72afd84c66fef9f142a1922fd0995a6a173b46c40d06715808345cc1c71b6702"
   end
 
   depends_on "sdl"

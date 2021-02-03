@@ -7,11 +7,10 @@ class Sshfs < Formula
   revision 2
 
   bottle do
-    cellar :any
-    sha256 "aceff3131dd0b098bdef8b5dda54d117b5dd5269ca146f7a5032ecde3c99b6d2" => :catalina
-    sha256 "5f69267c0f1f2489989e108919d66210e058423d0d1f1661812c0194b164619c" => :mojave
-    sha256 "58d222f37622b399352f16eaf823d3e564445d9e951629e965281ac31de5ef4a" => :high_sierra
-    sha256 "dc4a7f24c2cbebd7c35891200b043d737ba6586a28992708ef849ffedff7bb01" => :sierra
+    sha256 cellar: :any, catalina:    "aceff3131dd0b098bdef8b5dda54d117b5dd5269ca146f7a5032ecde3c99b6d2"
+    sha256 cellar: :any, mojave:      "5f69267c0f1f2489989e108919d66210e058423d0d1f1661812c0194b164619c"
+    sha256 cellar: :any, high_sierra: "58d222f37622b399352f16eaf823d3e564445d9e951629e965281ac31de5ef4a"
+    sha256 cellar: :any, sierra:      "dc4a7f24c2cbebd7c35891200b043d737ba6586a28992708ef849ffedff7bb01"
   end
 
   depends_on "autoconf" => :build

@@ -23,11 +23,10 @@ class Clisp < Formula
   end
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "05bfe89f749c669150e3c9d4589a18ac0e5ffe9d3c27cc3da67fa41ad20a9258" => :big_sur
-    sha256 "b6a273e26d27a1bd3c8654631f2cd6fe964f0b9fc83d11ddb74513243378217e" => :catalina
-    sha256 "ee265923cfb2f5943d513a98b4205b57df9317ebf36a0faa4f29f3ee0c3734c2" => :mojave
+    sha256 cellar: :any, big_sur:  "05bfe89f749c669150e3c9d4589a18ac0e5ffe9d3c27cc3da67fa41ad20a9258"
+    sha256 cellar: :any, catalina: "b6a273e26d27a1bd3c8654631f2cd6fe964f0b9fc83d11ddb74513243378217e"
+    sha256 cellar: :any, mojave:   "ee265923cfb2f5943d513a98b4205b57df9317ebf36a0faa4f29f3ee0c3734c2"
   end
 
   head do

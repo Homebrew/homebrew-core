@@ -12,11 +12,10 @@ class Apr < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "d9a9554a726ec60e124055a55747e6e7f4cff6310955d6340be340ac053ac097" => :big_sur
-    sha256 "d8adb33071a6a845ff928b6166377dea6de5b642b412042002386416354932b9" => :arm64_big_sur
-    sha256 "3f5c1fa8f17715291ce9f66cf4eb4f518ac1aa856c485f0157036459ad63792c" => :catalina
-    sha256 "4627416a5d9c651d2d4fbb7faa639d6f7a89c7c0558576eeac1f17a81a17f3bd" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "d8adb33071a6a845ff928b6166377dea6de5b642b412042002386416354932b9"
+    sha256 cellar: :any, big_sur:       "d9a9554a726ec60e124055a55747e6e7f4cff6310955d6340be340ac053ac097"
+    sha256 cellar: :any, catalina:      "3f5c1fa8f17715291ce9f66cf4eb4f518ac1aa856c485f0157036459ad63792c"
+    sha256 cellar: :any, mojave:        "4627416a5d9c651d2d4fbb7faa639d6f7a89c7c0558576eeac1f17a81a17f3bd"
   end
 
   keg_only :provided_by_macos, "Apple's CLT provides apr"

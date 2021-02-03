@@ -11,8 +11,8 @@ class Visp < Formula
   end
 
   bottle do
-    sha256 "bbc1c7b0022d1c99d9d144f73a82024d6af8eee0763a794fbc5ce0da98ac6308" => :catalina
-    sha256 "a6c1d3468de47a6725bea5933e1fddbb616fb5736af372a158a1d10aba992101" => :mojave
+    sha256 catalina: "bbc1c7b0022d1c99d9d144f73a82024d6af8eee0763a794fbc5ce0da98ac6308"
+    sha256 mojave:   "a6c1d3468de47a6725bea5933e1fddbb616fb5736af372a158a1d10aba992101"
   end
 
   depends_on "cmake" => :build

@@ -12,11 +12,10 @@ class Pugixml < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "450e11f4eafe21828d3987620406eb42695a60c15086b7741898d483bb05fa8d" => :big_sur
-    sha256 "72487f35e935099779ea88bbbf6dd205406710df262674e6295972edff2a9ac1" => :arm64_big_sur
-    sha256 "112dda2780766cf7403426252180cea172cd396f7b52aee42a690aa7539c933b" => :catalina
-    sha256 "60d558fea876933be7a5322267ca58c0850eb23ec05d71b3d2c3876793b01367" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "72487f35e935099779ea88bbbf6dd205406710df262674e6295972edff2a9ac1"
+    sha256 cellar: :any, big_sur:       "450e11f4eafe21828d3987620406eb42695a60c15086b7741898d483bb05fa8d"
+    sha256 cellar: :any, catalina:      "112dda2780766cf7403426252180cea172cd396f7b52aee42a690aa7539c933b"
+    sha256 cellar: :any, mojave:        "60d558fea876933be7a5322267ca58c0850eb23ec05d71b3d2c3876793b01367"
   end
 
   depends_on "cmake" => :build

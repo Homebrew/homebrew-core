@@ -12,14 +12,13 @@ class Svg2png < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "91ea80e51edffa9ff0f1b75637eb2eb89ebda2ab9b8fcfd94242d113dd6fff99" => :big_sur
-    sha256 "9669d135c08480905ca33b97507af5cbca2315243358f022ffa3bbe5731bfca8" => :catalina
-    sha256 "fd2d0727b1ae83f458c17625894d0bf824dd9c58605a81528efb4332c17051c0" => :mojave
-    sha256 "c0495d355b1ca05b777814eb2bed14fbae20075a9aa1dd72bfdcdd2efd117587" => :high_sierra
-    sha256 "d3d9556295a1bed19da91bbe741d3980638bade739e37bbb19d01f517a5e442c" => :sierra
-    sha256 "327bbf146aedf651d8af446ae94a736fb89652cd8a4a7d8d0b00b1f6ca3f7693" => :el_capitan
-    sha256 "8d6abbad01e2b307369b7feadf2b79232b9b1f248bf5f789aa8a3231caffedff" => :yosemite
+    sha256 cellar: :any, big_sur:     "91ea80e51edffa9ff0f1b75637eb2eb89ebda2ab9b8fcfd94242d113dd6fff99"
+    sha256 cellar: :any, catalina:    "9669d135c08480905ca33b97507af5cbca2315243358f022ffa3bbe5731bfca8"
+    sha256 cellar: :any, mojave:      "fd2d0727b1ae83f458c17625894d0bf824dd9c58605a81528efb4332c17051c0"
+    sha256 cellar: :any, high_sierra: "c0495d355b1ca05b777814eb2bed14fbae20075a9aa1dd72bfdcdd2efd117587"
+    sha256 cellar: :any, sierra:      "d3d9556295a1bed19da91bbe741d3980638bade739e37bbb19d01f517a5e442c"
+    sha256 cellar: :any, el_capitan:  "327bbf146aedf651d8af446ae94a736fb89652cd8a4a7d8d0b00b1f6ca3f7693"
+    sha256 cellar: :any, yosemite:    "8d6abbad01e2b307369b7feadf2b79232b9b1f248bf5f789aa8a3231caffedff"
   end
 
   depends_on "pkg-config" => :build

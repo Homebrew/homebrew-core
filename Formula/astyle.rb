@@ -12,12 +12,11 @@ class Astyle < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "a327f191b54d199962e6de529a18dd99a6ff5fea0afb30db813fd66da80ed358" => :big_sur
-    sha256 "f1cc43739c9ff8b7e21f03935eacbc29a0656d42d4b52e662ed0079751efe84f" => :arm64_big_sur
-    sha256 "bb1c58888bd7c8de8876e9a9aa27985d30e4c2a5c420ebaaf237fe3ee13c2900" => :catalina
-    sha256 "7df95dd20d813717a1de8d5696d93eaaa8977d713738c2c83c16b7ba0f4eb1c5" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f1cc43739c9ff8b7e21f03935eacbc29a0656d42d4b52e662ed0079751efe84f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a327f191b54d199962e6de529a18dd99a6ff5fea0afb30db813fd66da80ed358"
+    sha256 cellar: :any_skip_relocation, catalina:      "bb1c58888bd7c8de8876e9a9aa27985d30e4c2a5c420ebaaf237fe3ee13c2900"
+    sha256 cellar: :any_skip_relocation, mojave:        "7df95dd20d813717a1de8d5696d93eaaa8977d713738c2c83c16b7ba0f4eb1c5"
   end
 
   def install

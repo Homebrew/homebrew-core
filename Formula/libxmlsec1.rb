@@ -11,12 +11,11 @@ class Libxmlsec1 < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "af7411c43a003e9e77219c4b00857b0f99a75546426750ad0aff1e1e5b6cfa41" => :big_sur
-    sha256 "03549710a64505e61e3e185998a92df43b577bb494cce4ffab915301f149b19a" => :arm64_big_sur
-    sha256 "c802faa7f7b56c286aa82b9c5d2041b19513848c54cd8f8b2d55e62c810cd247" => :catalina
-    sha256 "cde9ec0c2240211d002b575f17028ff43284c6f47fbe26ecf9fa131aa94a373c" => :mojave
-    sha256 "bf6bdda2fb39e06e3db72e491fdb0327aab691b15cc8e47a1c5eb74828356d2b" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "03549710a64505e61e3e185998a92df43b577bb494cce4ffab915301f149b19a"
+    sha256 cellar: :any, big_sur:       "af7411c43a003e9e77219c4b00857b0f99a75546426750ad0aff1e1e5b6cfa41"
+    sha256 cellar: :any, catalina:      "c802faa7f7b56c286aa82b9c5d2041b19513848c54cd8f8b2d55e62c810cd247"
+    sha256 cellar: :any, mojave:        "cde9ec0c2240211d002b575f17028ff43284c6f47fbe26ecf9fa131aa94a373c"
+    sha256 cellar: :any, high_sierra:   "bf6bdda2fb39e06e3db72e491fdb0327aab691b15cc8e47a1c5eb74828356d2b"
   end
 
   depends_on "pkg-config" => :build

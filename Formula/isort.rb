@@ -13,11 +13,10 @@ class Isort < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "454f81b392904f6c3b051968349f2547be7cf142f63a34bf2771d65768c051dc" => :big_sur
-    sha256 "e9eff09e8303490635ecd70945590d7449b15f4978c1651711991dece289b4d3" => :arm64_big_sur
-    sha256 "0795695d5fd3d18e2b46a119acf132a66be387ad7515d5eb6f0686db4da28526" => :catalina
-    sha256 "4e2beae6fc40007208704b756f4abc60c11ef04ce7e164f128bb3f22d884cf97" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e9eff09e8303490635ecd70945590d7449b15f4978c1651711991dece289b4d3"
+    sha256 cellar: :any_skip_relocation, big_sur:       "454f81b392904f6c3b051968349f2547be7cf142f63a34bf2771d65768c051dc"
+    sha256 cellar: :any_skip_relocation, catalina:      "0795695d5fd3d18e2b46a119acf132a66be387ad7515d5eb6f0686db4da28526"
+    sha256 cellar: :any_skip_relocation, mojave:        "4e2beae6fc40007208704b756f4abc60c11ef04ce7e164f128bb3f22d884cf97"
   end
 
   depends_on "python@3.9"

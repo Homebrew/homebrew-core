@@ -11,11 +11,10 @@ class Libusb < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "74e0067e968ddbea31e070885ae86bc1db5c66fd157588e84576e653e62894c8" => :big_sur
-    sha256 "1c40f64450705461a5373c3d54257e646d39914d44bffaf9d957bbe063db2129" => :arm64_big_sur
-    sha256 "034ae259f17afb5894860cdb1786fd6d391359e8d221c0f765eceed6210b60df" => :catalina
-    sha256 "1318e1155192bdaf7d159562849ee8f73cb0f59b0cb77c142f8be99056ba9d9e" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "1c40f64450705461a5373c3d54257e646d39914d44bffaf9d957bbe063db2129"
+    sha256 cellar: :any, big_sur:       "74e0067e968ddbea31e070885ae86bc1db5c66fd157588e84576e653e62894c8"
+    sha256 cellar: :any, catalina:      "034ae259f17afb5894860cdb1786fd6d391359e8d221c0f765eceed6210b60df"
+    sha256 cellar: :any, mojave:        "1318e1155192bdaf7d159562849ee8f73cb0f59b0cb77c142f8be99056ba9d9e"
   end
 
   head do

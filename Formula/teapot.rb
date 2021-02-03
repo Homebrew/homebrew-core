@@ -6,17 +6,16 @@ class Teapot < Formula
   license "GPL-3.0"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "9e578ba5acd3f0ed9e1aa11011b6aafaa2d807d69c6849fcc0b96645b0c13ba8" => :big_sur
-    sha256 "ebe49b24ad7903b64f8cc19a560a58b5cb1e704bcf923a79275e0264607f3541" => :arm64_big_sur
-    sha256 "590fcacca0a46973b2ce6dd07e30d360e600aa86950af7d3a25d5d3f12512cc4" => :catalina
-    sha256 "29d1d772e73a64a1616dcbeb3d32e8839ec7642f809d604eef52ac7805405ba3" => :mojave
-    sha256 "f918044ee7953b5cc9be50487cc86bf57b4e217990551cc67c6f0c9c41f0ac0a" => :high_sierra
-    sha256 "f0dc057cdfa1aa5168898a22791ee72fd3e525fd750838e94147f8b3811c1b07" => :sierra
-    sha256 "84673e8886e1f24250116d8c423383d0babbc53e1cb669ba46b45a37a2344399" => :el_capitan
-    sha256 "0ffd7fa1ac31cc91c9c71d225d26970e23da5719d7505d4a1dcaf40617c44afb" => :yosemite
-    sha256 "24dd3dfcdc52f47f3247ae56931cc9864434118e8d097e64e72201fdaeb08391" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ebe49b24ad7903b64f8cc19a560a58b5cb1e704bcf923a79275e0264607f3541"
+    sha256 cellar: :any_skip_relocation, big_sur:       "9e578ba5acd3f0ed9e1aa11011b6aafaa2d807d69c6849fcc0b96645b0c13ba8"
+    sha256 cellar: :any_skip_relocation, catalina:      "590fcacca0a46973b2ce6dd07e30d360e600aa86950af7d3a25d5d3f12512cc4"
+    sha256 cellar: :any_skip_relocation, mojave:        "29d1d772e73a64a1616dcbeb3d32e8839ec7642f809d604eef52ac7805405ba3"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "f918044ee7953b5cc9be50487cc86bf57b4e217990551cc67c6f0c9c41f0ac0a"
+    sha256 cellar: :any_skip_relocation, sierra:        "f0dc057cdfa1aa5168898a22791ee72fd3e525fd750838e94147f8b3811c1b07"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "84673e8886e1f24250116d8c423383d0babbc53e1cb669ba46b45a37a2344399"
+    sha256 cellar: :any_skip_relocation, yosemite:      "0ffd7fa1ac31cc91c9c71d225d26970e23da5719d7505d4a1dcaf40617c44afb"
+    sha256 cellar: :any_skip_relocation, mavericks:     "24dd3dfcdc52f47f3247ae56931cc9864434118e8d097e64e72201fdaeb08391"
   end
 
   depends_on "cmake" => :build

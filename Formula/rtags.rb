@@ -13,12 +13,11 @@ class Rtags < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "8412892ed1cfce17e4575a7bad34fd208fcc80d44b263460bb75c2d8d9346f3c" => :big_sur
-    sha256 "7db38c61d8d0df69ed9dfa3934ca55480b2b84bea813b6be9fed3d74c11b00be" => :arm64_big_sur
-    sha256 "332ba278034061d8789e8bcfc2d06120c122f0912de030524ee44d73089bdda6" => :catalina
-    sha256 "a9b3b3f280643e151a9d98438ae1bef2bf77eda3a3412d07c1781d60b6e13a25" => :mojave
-    sha256 "b1f34a462f2473d7059b8db4d78ff85f3bc18e5df25e2d597ce95052d15da132" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "7db38c61d8d0df69ed9dfa3934ca55480b2b84bea813b6be9fed3d74c11b00be"
+    sha256 cellar: :any, big_sur:       "8412892ed1cfce17e4575a7bad34fd208fcc80d44b263460bb75c2d8d9346f3c"
+    sha256 cellar: :any, catalina:      "332ba278034061d8789e8bcfc2d06120c122f0912de030524ee44d73089bdda6"
+    sha256 cellar: :any, mojave:        "a9b3b3f280643e151a9d98438ae1bef2bf77eda3a3412d07c1781d60b6e13a25"
+    sha256 cellar: :any, high_sierra:   "b1f34a462f2473d7059b8db4d78ff85f3bc18e5df25e2d597ce95052d15da132"
   end
 
   depends_on "cmake" => :build

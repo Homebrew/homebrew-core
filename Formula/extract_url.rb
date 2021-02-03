@@ -6,15 +6,14 @@ class ExtractUrl < Formula
   license "BSD-2-Clause"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "1418a8148c3fbeb60fbb976b52b5fa59d3702ba5e69fe02179588ab3ba343001" => :big_sur
-    sha256 "950f85ce128891278f41aa0b2c7fcaf0cce890055be40741ed8cac6db35c0a73" => :arm64_big_sur
-    sha256 "f25df47b8114db594552372e4ee1f9bf7337ab14996429dda0981c93c74afcfe" => :catalina
-    sha256 "e8061e3ca6f23c1ae9a042960d05b8ff23887a684c6b37cc831f17fdab4936de" => :mojave
-    sha256 "2880b669c381e7c7a2420d71c673d68d988223dc63bad9f14b1c62495973f362" => :high_sierra
-    sha256 "57b556a225f6ec03cee7166c1b4cbd2eb1c0eb2bd7819865bd9ed39620b81b68" => :sierra
-    sha256 "96d599a0f724f6f09e261c8b0a1c8bbf69ce1b199d311527636f8a5d42f197c6" => :el_capitan
-    sha256 "d16fcc4c81a2ffb7f384f104396aae674bb8f6f08d336056ab858924d545f205" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "950f85ce128891278f41aa0b2c7fcaf0cce890055be40741ed8cac6db35c0a73"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1418a8148c3fbeb60fbb976b52b5fa59d3702ba5e69fe02179588ab3ba343001"
+    sha256 cellar: :any_skip_relocation, catalina:      "f25df47b8114db594552372e4ee1f9bf7337ab14996429dda0981c93c74afcfe"
+    sha256 cellar: :any_skip_relocation, mojave:        "e8061e3ca6f23c1ae9a042960d05b8ff23887a684c6b37cc831f17fdab4936de"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "2880b669c381e7c7a2420d71c673d68d988223dc63bad9f14b1c62495973f362"
+    sha256 cellar: :any_skip_relocation, sierra:        "57b556a225f6ec03cee7166c1b4cbd2eb1c0eb2bd7819865bd9ed39620b81b68"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "96d599a0f724f6f09e261c8b0a1c8bbf69ce1b199d311527636f8a5d42f197c6"
+    sha256 cellar: :any_skip_relocation, yosemite:      "d16fcc4c81a2ffb7f384f104396aae674bb8f6f08d336056ab858924d545f205"
   end
 
   uses_from_macos "perl"

@@ -7,12 +7,11 @@ class Terrahelp < Formula
   head "https://github.com/opencredo/terrahelp.git"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "58044fae3de9a59f2420d65923e6d2619b91d026e45a1a6629699b11f9afa5be" => :big_sur
-    sha256 "be14ceca5a50701b09d86ccf224def6bc98f9151847240068d3667c6e62a47a5" => :arm64_big_sur
-    sha256 "e8edbc804fa080128c6fdad4182eae24e3679c846bb03cfc7c71b56bba1e983a" => :catalina
-    sha256 "7ba4bc44de9efe372c14e80ecb0eeed2f6b634fb1e49fa66768db616200206b8" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "be14ceca5a50701b09d86ccf224def6bc98f9151847240068d3667c6e62a47a5"
+    sha256 cellar: :any_skip_relocation, big_sur:       "58044fae3de9a59f2420d65923e6d2619b91d026e45a1a6629699b11f9afa5be"
+    sha256 cellar: :any_skip_relocation, catalina:      "e8edbc804fa080128c6fdad4182eae24e3679c846bb03cfc7c71b56bba1e983a"
+    sha256 cellar: :any_skip_relocation, mojave:        "7ba4bc44de9efe372c14e80ecb0eeed2f6b634fb1e49fa66768db616200206b8"
   end
 
   depends_on "go" => :build

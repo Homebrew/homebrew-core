@@ -6,11 +6,10 @@ class Nvi < Formula
   revision 5
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "91d13cdd8ff35675b7d54a7cc29a2406a9fcc183e03484ee1a0cd781bca160b9" => :big_sur
-    sha256 "755290657397d76ae23d23636a6d9469447bcbc3dead65ec2859a8f9b7071f88" => :catalina
-    sha256 "03eb1d6e82bb75219ce378e47956fc3b50ef2096e715eec42e37bcf14cde8cd7" => :mojave
+    sha256 cellar: :any, big_sur:  "91d13cdd8ff35675b7d54a7cc29a2406a9fcc183e03484ee1a0cd781bca160b9"
+    sha256 cellar: :any, catalina: "755290657397d76ae23d23636a6d9469447bcbc3dead65ec2859a8f9b7071f88"
+    sha256 cellar: :any, mojave:   "03eb1d6e82bb75219ce378e47956fc3b50ef2096e715eec42e37bcf14cde8cd7"
   end
 
   depends_on "xz" => :build # Homebrew bug. Shouldn't need declaring explicitly.

@@ -13,10 +13,10 @@ class NetSnmp < Formula
 
   bottle do
     rebuild 2
-    sha256 "f76220e8e7bffba146b3886d46d61dca81e947d2d77937e8c756b1f6f242526d" => :big_sur
-    sha256 "546fe0a8e74e43d8e8ba6d5526a73096aa7e4e92b9f66d910b6146206753e556" => :arm64_big_sur
-    sha256 "04210e391fad9e36b9fe9945e4a8b6436263e64aaf24ac0069202c6581c8d624" => :catalina
-    sha256 "1ac45c38fa251f876c70073ef1757c0a3b7659fb8f2ce7f5ec41af2febb1cac9" => :mojave
+    sha256 arm64_big_sur: "546fe0a8e74e43d8e8ba6d5526a73096aa7e4e92b9f66d910b6146206753e556"
+    sha256 big_sur:       "f76220e8e7bffba146b3886d46d61dca81e947d2d77937e8c756b1f6f242526d"
+    sha256 catalina:      "04210e391fad9e36b9fe9945e4a8b6436263e64aaf24ac0069202c6581c8d624"
+    sha256 mojave:        "1ac45c38fa251f876c70073ef1757c0a3b7659fb8f2ce7f5ec41af2febb1cac9"
   end
 
   keg_only :provided_by_macos

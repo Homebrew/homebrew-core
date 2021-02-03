@@ -11,13 +11,12 @@ class Systemc < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "9deac1357ecb0652caa491858a81658cc0ff86317d50d4d511aced6dc62373b0" => :big_sur
-    sha256 "514a49408461d311e27def414b559298e514df9be6461408e691aa2ba44ff0d5" => :catalina
-    sha256 "ed266b79f596258da162637530a1830516ceee6fb4874add5eaa9a84b175cda4" => :mojave
-    sha256 "7d189564e4277390f8fa0c2e067f17dc31148e33af65c0998b6242405f761a18" => :high_sierra
-    sha256 "257ab0155a4e4f5d6dea22696f265d1a523efa24627487a5fad4ad70d43e7fd0" => :sierra
-    sha256 "8dbfcaef7cbca7116bacb300288520ed357768c148a612de2f9a3483266add87" => :el_capitan
+    sha256 cellar: :any, big_sur:     "9deac1357ecb0652caa491858a81658cc0ff86317d50d4d511aced6dc62373b0"
+    sha256 cellar: :any, catalina:    "514a49408461d311e27def414b559298e514df9be6461408e691aa2ba44ff0d5"
+    sha256 cellar: :any, mojave:      "ed266b79f596258da162637530a1830516ceee6fb4874add5eaa9a84b175cda4"
+    sha256 cellar: :any, high_sierra: "7d189564e4277390f8fa0c2e067f17dc31148e33af65c0998b6242405f761a18"
+    sha256 cellar: :any, sierra:      "257ab0155a4e4f5d6dea22696f265d1a523efa24627487a5fad4ad70d43e7fd0"
+    sha256 cellar: :any, el_capitan:  "8dbfcaef7cbca7116bacb300288520ed357768c148a612de2f9a3483266add87"
   end
 
   def install

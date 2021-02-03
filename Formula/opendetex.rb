@@ -6,11 +6,10 @@ class Opendetex < Formula
   license "BSD-3-Clause"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ce26ea02e5c47385374aba395951434319d5e48e6dbda94f7ffa25e4632b54a6" => :big_sur
-    sha256 "9416484618318a11e895667857e7d8b39598bc31c2c1d8fbdbb7914176345e5e" => :arm64_big_sur
-    sha256 "46db3f033cb646e360fcabc83eb6fabba87b858eb1cc3e32d4bad78e73816bc6" => :catalina
-    sha256 "92d55157d568aa004dd09342308f8e4be8dfb6a95f9719646c5d9792b677f7a2" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9416484618318a11e895667857e7d8b39598bc31c2c1d8fbdbb7914176345e5e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ce26ea02e5c47385374aba395951434319d5e48e6dbda94f7ffa25e4632b54a6"
+    sha256 cellar: :any_skip_relocation, catalina:      "46db3f033cb646e360fcabc83eb6fabba87b858eb1cc3e32d4bad78e73816bc6"
+    sha256 cellar: :any_skip_relocation, mojave:        "92d55157d568aa004dd09342308f8e4be8dfb6a95f9719646c5d9792b677f7a2"
   end
 
   uses_from_macos "flex" => :build

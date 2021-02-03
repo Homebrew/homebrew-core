@@ -6,12 +6,11 @@ class Dmagnetic < Formula
   license "BSD-2-Clause"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "ad041565df29641ea6fcc0d369d086bc37cdfd2a064dc2614ea8f6348862abb4" => :big_sur
-    sha256 "df40d5425f12e4446e6a705204eb0291a1359c39edeb75a469b7f5a6a90197df" => :arm64_big_sur
-    sha256 "cb486b657f277d01515a2996f31bc1afe08ccb7bbc28011a36adb7a2d2fb4f7f" => :catalina
-    sha256 "d605e1ed5f3a3b86413b7bc8101a2f3ac3aaa2df76be7ebd2423ad9e43cc7547" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "df40d5425f12e4446e6a705204eb0291a1359c39edeb75a469b7f5a6a90197df"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ad041565df29641ea6fcc0d369d086bc37cdfd2a064dc2614ea8f6348862abb4"
+    sha256 cellar: :any_skip_relocation, catalina:      "cb486b657f277d01515a2996f31bc1afe08ccb7bbc28011a36adb7a2d2fb4f7f"
+    sha256 cellar: :any_skip_relocation, mojave:        "d605e1ed5f3a3b86413b7bc8101a2f3ac3aaa2df76be7ebd2423ad9e43cc7547"
   end
 
   def install

@@ -6,10 +6,9 @@ class Menhir < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    cellar :any
-    sha256 "2489afadf591e3052f81fc9219911e4c6d466d4933ea2a9fd44032f571e1abe4" => :big_sur
-    sha256 "b5a6e90d021aa79d5b1b3f270bc4773b9fb06070c14ca1145b8ea04996ff7e8f" => :catalina
-    sha256 "4d932e5fd011872bdc738b62ea7972a3ca6352aa5b7f74b59c3a5a3f9d4bea3e" => :mojave
+    sha256 cellar: :any, big_sur:  "2489afadf591e3052f81fc9219911e4c6d466d4933ea2a9fd44032f571e1abe4"
+    sha256 cellar: :any, catalina: "b5a6e90d021aa79d5b1b3f270bc4773b9fb06070c14ca1145b8ea04996ff7e8f"
+    sha256 cellar: :any, mojave:   "4d932e5fd011872bdc738b62ea7972a3ca6352aa5b7f74b59c3a5a3f9d4bea3e"
   end
 
   depends_on "dune" => :build

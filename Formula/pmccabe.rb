@@ -5,17 +5,16 @@ class Pmccabe < Formula
   sha256 "e490fe7c9368fec3613326265dd44563dc47182d142f579a40eca0e5d20a7028"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "ad983fc804edcd046eb600ecaf10901ce1450490c4da869989aa973dae0415d5" => :big_sur
-    sha256 "4005a28868925656ae168641a19420ae289c20fc1abc18c0fcc2a1e8c1da852a" => :arm64_big_sur
-    sha256 "c9509bbb9d642f0245364a542f5b89dded2101968358d352e892564371f1ffd4" => :catalina
-    sha256 "660ae3ce966863082ba287ba9e52c0772c41e1d58571e02c3d898b71ac4682a5" => :mojave
-    sha256 "054dd89d0934715b169875d8d0bcce39db919550752eab9cadc083eab0e148cf" => :high_sierra
-    sha256 "220285c0f0ae07835785574504d1d7730fb2abc06ddacfb76e1fe73f999d2cc1" => :sierra
-    sha256 "d6189f6ae7341da933653c687adec0bb8952b14ed8a2883b19aec4db90b65eea" => :el_capitan
-    sha256 "cb369d2f04ce0fccdb22b2640f1f6e37fc056b6edda79767474040cb52f76936" => :yosemite
-    sha256 "d64603cace1f97227e6efc2c26f628fece4e49f762e1e6d0903400a579be0a0f" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4005a28868925656ae168641a19420ae289c20fc1abc18c0fcc2a1e8c1da852a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ad983fc804edcd046eb600ecaf10901ce1450490c4da869989aa973dae0415d5"
+    sha256 cellar: :any_skip_relocation, catalina:      "c9509bbb9d642f0245364a542f5b89dded2101968358d352e892564371f1ffd4"
+    sha256 cellar: :any_skip_relocation, mojave:        "660ae3ce966863082ba287ba9e52c0772c41e1d58571e02c3d898b71ac4682a5"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "054dd89d0934715b169875d8d0bcce39db919550752eab9cadc083eab0e148cf"
+    sha256 cellar: :any_skip_relocation, sierra:        "220285c0f0ae07835785574504d1d7730fb2abc06ddacfb76e1fe73f999d2cc1"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "d6189f6ae7341da933653c687adec0bb8952b14ed8a2883b19aec4db90b65eea"
+    sha256 cellar: :any_skip_relocation, yosemite:      "cb369d2f04ce0fccdb22b2640f1f6e37fc056b6edda79767474040cb52f76936"
+    sha256 cellar: :any_skip_relocation, mavericks:     "d64603cace1f97227e6efc2c26f628fece4e49f762e1e6d0903400a579be0a0f"
   end
 
   def install

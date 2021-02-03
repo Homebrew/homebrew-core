@@ -7,11 +7,10 @@ class Pachi < Formula
   head "https://github.com/pasky/pachi.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "d14dec70d5fedd0d7ba63b05f175b06b12c40e1da71d24da64712ce63858dae1" => :big_sur
-    sha256 "71f7bf11f6d68a8768468e4494cdc0785f484a5ccd7713cfc4327f049e79e80a" => :arm64_big_sur
-    sha256 "9a2adc64bf7dbfbaf9e3d9ff940d6c5bcb0e4040160ed62f57751ec87281132e" => :catalina
-    sha256 "c88f24dd1e7a267848eab540dc2b0961962825ab6e7088fc24b335159dacf31c" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "71f7bf11f6d68a8768468e4494cdc0785f484a5ccd7713cfc4327f049e79e80a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d14dec70d5fedd0d7ba63b05f175b06b12c40e1da71d24da64712ce63858dae1"
+    sha256 cellar: :any_skip_relocation, catalina:      "9a2adc64bf7dbfbaf9e3d9ff940d6c5bcb0e4040160ed62f57751ec87281132e"
+    sha256 cellar: :any_skip_relocation, mojave:        "c88f24dd1e7a267848eab540dc2b0961962825ab6e7088fc24b335159dacf31c"
   end
 
   resource "patterns" do

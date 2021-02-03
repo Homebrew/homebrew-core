@@ -6,11 +6,10 @@ class Xtensor < Formula
   license "BSD-3-Clause"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "e402b8dfd49888418be330bc6b504fab08cb6454852252c7894c6a017b14085c" => :big_sur
-    sha256 "74dae1f7b0caf3350e8ef37622e4925bbf12a8528d406025f6e7d94b52f5a330" => :arm64_big_sur
-    sha256 "d9fdeda4074c25c20069315de7217a29a4368aad236773b2b926af1bedce3767" => :catalina
-    sha256 "316c971431dee94a15c7305986bf368007ab557e124a0610dad265b43554e695" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "74dae1f7b0caf3350e8ef37622e4925bbf12a8528d406025f6e7d94b52f5a330"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e402b8dfd49888418be330bc6b504fab08cb6454852252c7894c6a017b14085c"
+    sha256 cellar: :any_skip_relocation, catalina:      "d9fdeda4074c25c20069315de7217a29a4368aad236773b2b926af1bedce3767"
+    sha256 cellar: :any_skip_relocation, mojave:        "316c971431dee94a15c7305986bf368007ab557e124a0610dad265b43554e695"
   end
 
   depends_on "cmake" => :build

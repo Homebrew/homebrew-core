@@ -11,16 +11,15 @@ class Aview < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "7a32c517ba508c6febe9605d4c9f4d8bde9200393cd8e4dd51adeb7c6e85fb6f" => :big_sur
-    sha256 "4616c937f328391a9ad212bbdd51818d97c629eeaa649ddcdf97e0332e7964bf" => :arm64_big_sur
-    sha256 "ad92a0e964ccbebe685edf9c595efd420475490d255caed072985cb128a8230b" => :catalina
-    sha256 "fe70cf7dbd1d2e1473da3818b96d3a94d811e93d52ecbb6ecfc1c1e1ccb8b12a" => :mojave
-    sha256 "4f5fa09318475fca46c584b52e5d5b845cd4d331df04744ca41d6789575b32ec" => :high_sierra
-    sha256 "95cbb14a2a5cb4d8d11d9ca3621e81705df77f47d85f89383913e3a02da56041" => :sierra
-    sha256 "cb20b8513b3b7d2977943d7ba14f2627892697e9a6b69c4366563786810ca95c" => :el_capitan
-    sha256 "886a6800deefcf7a1e377db57c9df0579b6f1fcb4b491a6262171411bce3517b" => :yosemite
-    sha256 "142a0b64e457e900e395f35d5112bd968e605fa6182bdc9ca77b923a5e5263f6" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4616c937f328391a9ad212bbdd51818d97c629eeaa649ddcdf97e0332e7964bf"
+    sha256 cellar: :any_skip_relocation, big_sur:       "7a32c517ba508c6febe9605d4c9f4d8bde9200393cd8e4dd51adeb7c6e85fb6f"
+    sha256 cellar: :any_skip_relocation, catalina:      "ad92a0e964ccbebe685edf9c595efd420475490d255caed072985cb128a8230b"
+    sha256 cellar: :any_skip_relocation, mojave:        "fe70cf7dbd1d2e1473da3818b96d3a94d811e93d52ecbb6ecfc1c1e1ccb8b12a"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "4f5fa09318475fca46c584b52e5d5b845cd4d331df04744ca41d6789575b32ec"
+    sha256 cellar: :any_skip_relocation, sierra:        "95cbb14a2a5cb4d8d11d9ca3621e81705df77f47d85f89383913e3a02da56041"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "cb20b8513b3b7d2977943d7ba14f2627892697e9a6b69c4366563786810ca95c"
+    sha256 cellar: :any_skip_relocation, yosemite:      "886a6800deefcf7a1e377db57c9df0579b6f1fcb4b491a6262171411bce3517b"
+    sha256 cellar: :any_skip_relocation, mavericks:     "142a0b64e457e900e395f35d5112bd968e605fa6182bdc9ca77b923a5e5263f6"
   end
 
   depends_on "aalib"

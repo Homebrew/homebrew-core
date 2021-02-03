@@ -12,11 +12,10 @@ class Etl < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "3e50fc4f2e8a00bdb55f276839b7bebfde795c6da8a170395baa932009f1891c" => :big_sur
-    sha256 "8918bb95db8660e8b30ac2d0d508fc35272e5dea1585bc1c057cfd0cfd4cceb2" => :arm64_big_sur
-    sha256 "36399b703008be7d253bbbd1313c22929982319d3e7e52dbeb92a1acbc554cb4" => :catalina
-    sha256 "3499623804687865757dec0f5df9ae2b8c70ed8d8c8c6cfa2e8bd6bf839b55db" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8918bb95db8660e8b30ac2d0d508fc35272e5dea1585bc1c057cfd0cfd4cceb2"
+    sha256 cellar: :any_skip_relocation, big_sur:       "3e50fc4f2e8a00bdb55f276839b7bebfde795c6da8a170395baa932009f1891c"
+    sha256 cellar: :any_skip_relocation, catalina:      "36399b703008be7d253bbbd1313c22929982319d3e7e52dbeb92a1acbc554cb4"
+    sha256 cellar: :any_skip_relocation, mojave:        "3499623804687865757dec0f5df9ae2b8c70ed8d8c8c6cfa2e8bd6bf839b55db"
   end
 
   def install

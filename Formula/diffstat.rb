@@ -11,11 +11,10 @@ class Diffstat < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "6deaecbddb668e6a0beeadf19f80bede5756279949b872bd15ec2bdae432ed77" => :big_sur
-    sha256 "4ca28eac2743d6dea9f9128b51ac0107d627f64cc421033538468930f291f3fc" => :arm64_big_sur
-    sha256 "9d8296df829318dce8e829eef894867a74d3f18d438de98309b0c3fe02e065cf" => :catalina
-    sha256 "5b035ed0d84aa480965b56e0a8db59ebbb947dee3379297a3f05f88dcd610d81" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4ca28eac2743d6dea9f9128b51ac0107d627f64cc421033538468930f291f3fc"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6deaecbddb668e6a0beeadf19f80bede5756279949b872bd15ec2bdae432ed77"
+    sha256 cellar: :any_skip_relocation, catalina:      "9d8296df829318dce8e829eef894867a74d3f18d438de98309b0c3fe02e065cf"
+    sha256 cellar: :any_skip_relocation, mojave:        "5b035ed0d84aa480965b56e0a8db59ebbb947dee3379297a3f05f88dcd610d81"
   end
 
   def install

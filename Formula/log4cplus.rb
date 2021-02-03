@@ -11,12 +11,11 @@ class Log4cplus < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "91234999a32082b8416a02706e87810a0a0d2c035206866ae2bb942a08e8c972" => :big_sur
-    sha256 "15eb4c99e4447aa90c58db59a31733a331de92cdd20af4b3cfbee985366fdaa8" => :arm64_big_sur
-    sha256 "1559e20cf8d6a6cbf66545ef391ab2979bbebd2cafdf4b71ab547d8daa472e01" => :catalina
-    sha256 "1b671e5605cdee4defa7f6e5693ddf1e6d902710e8fecdd541429a8444df5e15" => :mojave
-    sha256 "aaa4f419cf19b836d767066d505a7b4ca9addaa6392231b8f3dfd5ea2b103517" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "15eb4c99e4447aa90c58db59a31733a331de92cdd20af4b3cfbee985366fdaa8"
+    sha256 cellar: :any, big_sur:       "91234999a32082b8416a02706e87810a0a0d2c035206866ae2bb942a08e8c972"
+    sha256 cellar: :any, catalina:      "1559e20cf8d6a6cbf66545ef391ab2979bbebd2cafdf4b71ab547d8daa472e01"
+    sha256 cellar: :any, mojave:        "1b671e5605cdee4defa7f6e5693ddf1e6d902710e8fecdd541429a8444df5e15"
+    sha256 cellar: :any, high_sierra:   "aaa4f419cf19b836d767066d505a7b4ca9addaa6392231b8f3dfd5ea2b103517"
   end
 
   def install

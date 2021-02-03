@@ -12,12 +12,11 @@ class Oniguruma < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "505599ad17e21360a58a89db2133115b5aa109cdebd5d284bec2bc25cfee5062" => :big_sur
-    sha256 "dc2264a1fd09eb555ff2591d212af8e9cb5071ca529104dd17746af6306e79d0" => :arm64_big_sur
-    sha256 "e40a40789488ed0f0a98e5aec3336bfa04f87b7983e139524fbbc1b192ea71ac" => :catalina
-    sha256 "98d43005ae967cba150b66abfe0c76163f7072ecb80eb573612284a706d6e5c1" => :mojave
-    sha256 "737284ca190ac20d86a070bccf720194342f617e60690781eefae867230a2f58" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "dc2264a1fd09eb555ff2591d212af8e9cb5071ca529104dd17746af6306e79d0"
+    sha256 cellar: :any, big_sur:       "505599ad17e21360a58a89db2133115b5aa109cdebd5d284bec2bc25cfee5062"
+    sha256 cellar: :any, catalina:      "e40a40789488ed0f0a98e5aec3336bfa04f87b7983e139524fbbc1b192ea71ac"
+    sha256 cellar: :any, mojave:        "98d43005ae967cba150b66abfe0c76163f7072ecb80eb573612284a706d6e5c1"
+    sha256 cellar: :any, high_sierra:   "737284ca190ac20d86a070bccf720194342f617e60690781eefae867230a2f58"
   end
 
   depends_on "autoconf" => :build

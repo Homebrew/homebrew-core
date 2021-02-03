@@ -12,11 +12,10 @@ class FsUae < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "37e9318b578ea42dbfa769ecc23bfa7bf91a25417a6145db56d415fafece7dd2" => :big_sur
-    sha256 "ab0fdecdc3ee1e4ed70baf7a57bc46d92b85b684c97d680c9fbfab5b280a7da4" => :catalina
-    sha256 "223c490857dc42ec051f68531fbcc2ceffd142cd8f56b4b18a0d1c2134c6fb03" => :mojave
-    sha256 "61bfc89218feb2fb4ae2da82e68d4d81dcb40d7ce6003d0a5d39f675b6327f11" => :high_sierra
+    sha256 cellar: :any, big_sur:     "37e9318b578ea42dbfa769ecc23bfa7bf91a25417a6145db56d415fafece7dd2"
+    sha256 cellar: :any, catalina:    "ab0fdecdc3ee1e4ed70baf7a57bc46d92b85b684c97d680c9fbfab5b280a7da4"
+    sha256 cellar: :any, mojave:      "223c490857dc42ec051f68531fbcc2ceffd142cd8f56b4b18a0d1c2134c6fb03"
+    sha256 cellar: :any, high_sierra: "61bfc89218feb2fb4ae2da82e68d4d81dcb40d7ce6003d0a5d39f675b6327f11"
   end
 
   head do

@@ -6,11 +6,10 @@ class TerraformLandscape < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "1bcd487a444cb78b3afdd394442ae24c4c1fa1fad393d76451a64c33b539b10f" => :big_sur
-    sha256 "6bddaa5d9648cc10f137bbdbf0e05d10239f49dde7c6fed01c887e52b0ba5725" => :arm64_big_sur
-    sha256 "af2918fc17765a6cbabaa0aae039afe3c5aa00821581570901a89e0edc850285" => :catalina
-    sha256 "5afa045cd1b2974f6247f3a31ae1e0141e5e9091b4c81a2a4660d5d06c90ca20" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6bddaa5d9648cc10f137bbdbf0e05d10239f49dde7c6fed01c887e52b0ba5725"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1bcd487a444cb78b3afdd394442ae24c4c1fa1fad393d76451a64c33b539b10f"
+    sha256 cellar: :any_skip_relocation, catalina:      "af2918fc17765a6cbabaa0aae039afe3c5aa00821581570901a89e0edc850285"
+    sha256 cellar: :any_skip_relocation, mojave:        "5afa045cd1b2974f6247f3a31ae1e0141e5e9091b4c81a2a4660d5d06c90ca20"
   end
 
   depends_on "ruby"

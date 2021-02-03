@@ -7,13 +7,12 @@ class Fzy < Formula
   head "https://github.com/jhawthorn/fzy.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "31d5e7d85d6ca41615eb96700184659116d35b4fba2c8809b31a3bdefb348fe4" => :big_sur
-    sha256 "80cdff748840ffa3b7f85b79839b776ba8c24cd8d5e63d6dfa9c3e34cc97717a" => :arm64_big_sur
-    sha256 "d517947fe59a7b4c577245cc7f1e7124aa65dfb95ae67175e1ebf3d3d14ac35e" => :catalina
-    sha256 "2f7d67a61ad3cf284ec15d95e2f5eedaf1cf0ecb63ea2a8994df9733160b3a2b" => :mojave
-    sha256 "fb173da3b703940c9dd8c942ced0db3c068f544be59fb01ccfe835f566d13cef" => :high_sierra
-    sha256 "b478e2604e81faf0a2e7278afe2f811ff1739528f246fcf2556e05a81f1d3435" => :sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "80cdff748840ffa3b7f85b79839b776ba8c24cd8d5e63d6dfa9c3e34cc97717a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "31d5e7d85d6ca41615eb96700184659116d35b4fba2c8809b31a3bdefb348fe4"
+    sha256 cellar: :any_skip_relocation, catalina:      "d517947fe59a7b4c577245cc7f1e7124aa65dfb95ae67175e1ebf3d3d14ac35e"
+    sha256 cellar: :any_skip_relocation, mojave:        "2f7d67a61ad3cf284ec15d95e2f5eedaf1cf0ecb63ea2a8994df9733160b3a2b"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "fb173da3b703940c9dd8c942ced0db3c068f544be59fb01ccfe835f566d13cef"
+    sha256 cellar: :any_skip_relocation, sierra:        "b478e2604e81faf0a2e7278afe2f811ff1739528f246fcf2556e05a81f1d3435"
   end
 
   def install

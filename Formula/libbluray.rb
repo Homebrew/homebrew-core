@@ -11,12 +11,11 @@ class Libbluray < Formula
   end
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "ddc9740b0ec3c919e709f163b694c3c00ad36a5c6f7ed9db244e08c73d12f7a4" => :big_sur
-    sha256 "fecb563ca1eefe2b784bec27c64b8bbe65850a8b483d12cee8123b3f9ff940de" => :arm64_big_sur
-    sha256 "8d2dbe765f837608676970568fe081ba91c12af436c2812c2224e4a878692e86" => :catalina
-    sha256 "cad2684af7571e916f43c0945324a2024de313f49e67829434f61ee413e02bb7" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "fecb563ca1eefe2b784bec27c64b8bbe65850a8b483d12cee8123b3f9ff940de"
+    sha256 cellar: :any, big_sur:       "ddc9740b0ec3c919e709f163b694c3c00ad36a5c6f7ed9db244e08c73d12f7a4"
+    sha256 cellar: :any, catalina:      "8d2dbe765f837608676970568fe081ba91c12af436c2812c2224e4a878692e86"
+    sha256 cellar: :any, mojave:        "cad2684af7571e916f43c0945324a2024de313f49e67829434f61ee413e02bb7"
   end
 
   head do

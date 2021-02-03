@@ -5,13 +5,12 @@ class Tpp < Formula
   sha256 "68e3de94fbfb62bd91a6d635581bcf8671a306fffe615d00294d388ad91e1b5f"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "e2875a7547a670ff0b23af7c9c96db096c365d4ac57f4ec706d1d9453cef9076" => :catalina
-    sha256 "bd92be45cec9c61438618155e9d22fe58c03b0feedbd8272a214d20edf37f16a" => :mojave
-    sha256 "e132735b420b285a5ffd5f6946d93a2e67f8797e07f00d2bce40f8c7989ff65a" => :high_sierra
-    sha256 "8736306dac4a3d2a2ed8bb4dcd1c08c77fb9026b9cde5ad07791eb90eef2392f" => :sierra
-    sha256 "25e92e9f229433131cc82cf48a3cec90d19a28a08a56fadcc095b1ecf4df2304" => :el_capitan
+    sha256 cellar: :any_skip_relocation, catalina:    "e2875a7547a670ff0b23af7c9c96db096c365d4ac57f4ec706d1d9453cef9076"
+    sha256 cellar: :any_skip_relocation, mojave:      "bd92be45cec9c61438618155e9d22fe58c03b0feedbd8272a214d20edf37f16a"
+    sha256 cellar: :any_skip_relocation, high_sierra: "e132735b420b285a5ffd5f6946d93a2e67f8797e07f00d2bce40f8c7989ff65a"
+    sha256 cellar: :any_skip_relocation, sierra:      "8736306dac4a3d2a2ed8bb4dcd1c08c77fb9026b9cde5ad07791eb90eef2392f"
+    sha256 cellar: :any_skip_relocation, el_capitan:  "25e92e9f229433131cc82cf48a3cec90d19a28a08a56fadcc095b1ecf4df2304"
   end
 
   resource "ncurses-ruby" do

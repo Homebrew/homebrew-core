@@ -7,12 +7,11 @@ class Hqx < Formula
   license "LGPL-2.1"
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "c3eaf1733b78849670e6b6c94e387cbe055f62135cfb4f5f2a9a9bb5b8e3a3aa" => :big_sur
-    sha256 "85c3fd01d9455be7d4d7307056598d4079f1a40f31803184f0aaa0ec2a9fef5a" => :arm64_big_sur
-    sha256 "5451336478301f3e489b4a550f24c2051f707ed4819c26637d630bf128ee7501" => :catalina
-    sha256 "942372ef0cb87baf0b90f4ea932d4f1c9825765a8cf5e482c1b3df04b18c821d" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "85c3fd01d9455be7d4d7307056598d4079f1a40f31803184f0aaa0ec2a9fef5a"
+    sha256 cellar: :any, big_sur:       "c3eaf1733b78849670e6b6c94e387cbe055f62135cfb4f5f2a9a9bb5b8e3a3aa"
+    sha256 cellar: :any, catalina:      "5451336478301f3e489b4a550f24c2051f707ed4819c26637d630bf128ee7501"
+    sha256 cellar: :any, mojave:        "942372ef0cb87baf0b90f4ea932d4f1c9825765a8cf5e482c1b3df04b18c821d"
   end
 
   depends_on "autoconf" => :build

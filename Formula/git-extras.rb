@@ -7,12 +7,11 @@ class GitExtras < Formula
   head "https://github.com/tj/git-extras.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "1ed4aa34fdbb50977413ff1860227d7c66cc339f614ee65fe4b9bbdc82bc224e" => :big_sur
-    sha256 "a26aa6b1ef178b8c5c8a7fb61ec04e5e0b43fdfe9c253703273c2c3536935826" => :arm64_big_sur
-    sha256 "abb85334f41bfa73f650bc138caecf8a35cc0af8951628c97b09d68c30fbbe60" => :catalina
-    sha256 "afe41a9918fd0951a2e2b4badfbb6bca57ca2161d6ef82f452604e1f73154825" => :mojave
-    sha256 "ffc36aced07c7ca6a5e8ccb8b4dbfcdd50742efd780d9a1b668189813a3486cf" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a26aa6b1ef178b8c5c8a7fb61ec04e5e0b43fdfe9c253703273c2c3536935826"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1ed4aa34fdbb50977413ff1860227d7c66cc339f614ee65fe4b9bbdc82bc224e"
+    sha256 cellar: :any_skip_relocation, catalina:      "abb85334f41bfa73f650bc138caecf8a35cc0af8951628c97b09d68c30fbbe60"
+    sha256 cellar: :any_skip_relocation, mojave:        "afe41a9918fd0951a2e2b4badfbb6bca57ca2161d6ef82f452604e1f73154825"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "ffc36aced07c7ca6a5e8ccb8b4dbfcdd50742efd780d9a1b668189813a3486cf"
   end
 
   conflicts_with "git-utils",

@@ -7,11 +7,10 @@ class CeresSolver < Formula
   head "https://ceres-solver.googlesource.com/ceres-solver.git"
 
   bottle do
-    cellar :any
-    sha256 "d07b5cedb61f89df0ea50940be78e5bc7f85148b37621acecb0a92a839abb101" => :big_sur
-    sha256 "6a4b388e2ea9cf7b90477cc7ffa4b19214a93e015b10b75a395d961004dd7f67" => :arm64_big_sur
-    sha256 "899895707bdc81ab3f52e9cf3ac06ac9f39139fcb9d171c09181b13cc8510b83" => :catalina
-    sha256 "af829a0467fab9ec10f84b5277724dc977b23f57abf4caa5705199629b8bade9" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "6a4b388e2ea9cf7b90477cc7ffa4b19214a93e015b10b75a395d961004dd7f67"
+    sha256 cellar: :any, big_sur:       "d07b5cedb61f89df0ea50940be78e5bc7f85148b37621acecb0a92a839abb101"
+    sha256 cellar: :any, catalina:      "899895707bdc81ab3f52e9cf3ac06ac9f39139fcb9d171c09181b13cc8510b83"
+    sha256 cellar: :any, mojave:        "af829a0467fab9ec10f84b5277724dc977b23f57abf4caa5705199629b8bade9"
   end
 
   depends_on "cmake" => [:build, :test]

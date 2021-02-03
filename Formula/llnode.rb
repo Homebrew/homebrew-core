@@ -7,12 +7,11 @@ class Llnode < Formula
   revision 1
 
   bottle do
-    cellar :any
-    sha256 "a82631c8b56f17bea8cf3f8e5f5077607d59ac52c743058bd1d150ff5e61ad2e" => :big_sur
-    sha256 "59c65b8dc37b82052e1ffe3ce845b975c04f0fd5a0a96ce75cc4d9f906239243" => :arm64_big_sur
-    sha256 "560fa7f91b9efca4de97feffe3bec3ee218eca2786df2a2e473009ab520f855b" => :catalina
-    sha256 "23c5930b1c3a4d3d9be6c410dc745014544331af8394917ecd9a928064d7ff49" => :mojave
-    sha256 "33842b20f13a721a880810a50422bfbf25b8c20a12f5e4882453939e7203ff1d" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "59c65b8dc37b82052e1ffe3ce845b975c04f0fd5a0a96ce75cc4d9f906239243"
+    sha256 cellar: :any, big_sur:       "a82631c8b56f17bea8cf3f8e5f5077607d59ac52c743058bd1d150ff5e61ad2e"
+    sha256 cellar: :any, catalina:      "560fa7f91b9efca4de97feffe3bec3ee218eca2786df2a2e473009ab520f855b"
+    sha256 cellar: :any, mojave:        "23c5930b1c3a4d3d9be6c410dc745014544331af8394917ecd9a928064d7ff49"
+    sha256 cellar: :any, high_sierra:   "33842b20f13a721a880810a50422bfbf25b8c20a12f5e4882453939e7203ff1d"
   end
 
   depends_on "node" => :build

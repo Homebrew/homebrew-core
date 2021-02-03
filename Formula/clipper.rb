@@ -6,13 +6,12 @@ class Clipper < Formula
   license "BSD-2-Clause"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "3322412e9d0979650ad863bf42ba473c4eaabf06f48ef6d1053cf3fbc89dfc8a" => :big_sur
-    sha256 "a114dd1e41872b63ca5ced700ee503aa4eb87f0add568e3dc1ad9e10cca9459b" => :arm64_big_sur
-    sha256 "6e16549f9930f652364f727cf42ea04608d92f172e7916c85900c3b6feb98df0" => :catalina
-    sha256 "2216327dbb3a341f14db9d2da767749d00e460917bcf1098665948e24eeb2e8b" => :mojave
-    sha256 "a2230d8cb54b244b82ea5f5c47cebabe2f63a6b9dc1b98d47cd4a0fcd4eb743f" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a114dd1e41872b63ca5ced700ee503aa4eb87f0add568e3dc1ad9e10cca9459b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "3322412e9d0979650ad863bf42ba473c4eaabf06f48ef6d1053cf3fbc89dfc8a"
+    sha256 cellar: :any_skip_relocation, catalina:      "6e16549f9930f652364f727cf42ea04608d92f172e7916c85900c3b6feb98df0"
+    sha256 cellar: :any_skip_relocation, mojave:        "2216327dbb3a341f14db9d2da767749d00e460917bcf1098665948e24eeb2e8b"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "a2230d8cb54b244b82ea5f5c47cebabe2f63a6b9dc1b98d47cd4a0fcd4eb743f"
   end
 
   depends_on "go" => :build

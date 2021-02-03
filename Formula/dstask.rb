@@ -7,11 +7,10 @@ class Dstask < Formula
   head "https://github.com/naggie/dstask.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "9233f42a2b657925665a83231c00d832735789c79012efc7bd3a601a7aebbed6" => :big_sur
-    sha256 "49efae7064d804f07689b8baaa986964c3ffd64c1d0f787c7935ebb2c5f7e37b" => :arm64_big_sur
-    sha256 "189657a206ca8f04468f979514fc68d16d4aafe00e87f7d7222f78343c75e32a" => :catalina
-    sha256 "88a62635abf2495b5e2be777b4bedb22b3df04eb90c64373a768bf5ff49e5ba9" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "49efae7064d804f07689b8baaa986964c3ffd64c1d0f787c7935ebb2c5f7e37b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "9233f42a2b657925665a83231c00d832735789c79012efc7bd3a601a7aebbed6"
+    sha256 cellar: :any_skip_relocation, catalina:      "189657a206ca8f04468f979514fc68d16d4aafe00e87f7d7222f78343c75e32a"
+    sha256 cellar: :any_skip_relocation, mojave:        "88a62635abf2495b5e2be777b4bedb22b3df04eb90c64373a768bf5ff49e5ba9"
   end
 
   depends_on "go" => :build

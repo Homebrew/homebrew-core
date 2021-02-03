@@ -14,13 +14,12 @@ class Rtmpdump < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "b9e42bf8023a8634a741402f7f902bbd0083e663b2e0d36d3e70dec657f1dd07" => :big_sur
-    sha256 "67c47ecf95d2f4367685fb0ab04c913d55743e5bafccce721f665c6579f3b599" => :arm64_big_sur
-    sha256 "f39d714005d28ed61728832877433a68dd256796bc225bac68b505b2c1d97ef4" => :catalina
-    sha256 "97cf25d61d474c2115f6448940f924324d630b60776396398662b1368b4544da" => :mojave
-    sha256 "7e95dc18fc03a6c1f19385e1507448f23e2e570c9b3ad60bd3fbc05c65295fb8" => :high_sierra
-    sha256 "2118d007922d98ae71169be417106f594636e6ff979611b9e51dd2cf09c002b7" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "67c47ecf95d2f4367685fb0ab04c913d55743e5bafccce721f665c6579f3b599"
+    sha256 cellar: :any, big_sur:       "b9e42bf8023a8634a741402f7f902bbd0083e663b2e0d36d3e70dec657f1dd07"
+    sha256 cellar: :any, catalina:      "f39d714005d28ed61728832877433a68dd256796bc225bac68b505b2c1d97ef4"
+    sha256 cellar: :any, mojave:        "97cf25d61d474c2115f6448940f924324d630b60776396398662b1368b4544da"
+    sha256 cellar: :any, high_sierra:   "7e95dc18fc03a6c1f19385e1507448f23e2e570c9b3ad60bd3fbc05c65295fb8"
+    sha256 cellar: :any, sierra:        "2118d007922d98ae71169be417106f594636e6ff979611b9e51dd2cf09c002b7"
   end
 
   depends_on "openssl@1.1"

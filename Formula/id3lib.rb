@@ -24,16 +24,15 @@ class Id3lib < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "18f0b568466493ca322662357962fecfe1774844ad140be1c2d23443c2845ff3" => :big_sur
-    sha256 "7511c1df301e89112972d2b8aa0cc3711f4be7276317f345a26e64ae2a31143b" => :arm64_big_sur
-    sha256 "914ff24e2ca015f81b5c58fbd39f1a059c10ecbca87d09cf7e77285435bd158e" => :catalina
-    sha256 "fa00373e74d0b57967108dd48b652bf6750c742db31ab72ff9b7c8c777ba181e" => :mojave
-    sha256 "33c419dd2789c20e5e71b96185e41b2c81b2056d84b0e1a5cea0835e58dfb572" => :high_sierra
-    sha256 "1dddf1fac71acc4bd54cfcc6cdb80884129754d25f42efff5fbe6d5d38d99c0a" => :sierra
-    sha256 "266926f3fe3593bd04db9b9ff200676aaeb879d1f855e289cc41d2b40d72a16d" => :el_capitan
-    sha256 "6d255640321f499620cdac8c6645be5c74c6d67de9cf593506f5766b0adf9ddb" => :yosemite
-    sha256 "0eaeb0ed5fe1a86af5ffa34d4d5a96b91b97ccfc525fd471dc38a63d2585ad77" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "7511c1df301e89112972d2b8aa0cc3711f4be7276317f345a26e64ae2a31143b"
+    sha256 cellar: :any, big_sur:       "18f0b568466493ca322662357962fecfe1774844ad140be1c2d23443c2845ff3"
+    sha256 cellar: :any, catalina:      "914ff24e2ca015f81b5c58fbd39f1a059c10ecbca87d09cf7e77285435bd158e"
+    sha256 cellar: :any, mojave:        "fa00373e74d0b57967108dd48b652bf6750c742db31ab72ff9b7c8c777ba181e"
+    sha256 cellar: :any, high_sierra:   "33c419dd2789c20e5e71b96185e41b2c81b2056d84b0e1a5cea0835e58dfb572"
+    sha256 cellar: :any, sierra:        "1dddf1fac71acc4bd54cfcc6cdb80884129754d25f42efff5fbe6d5d38d99c0a"
+    sha256 cellar: :any, el_capitan:    "266926f3fe3593bd04db9b9ff200676aaeb879d1f855e289cc41d2b40d72a16d"
+    sha256 cellar: :any, yosemite:      "6d255640321f499620cdac8c6645be5c74c6d67de9cf593506f5766b0adf9ddb"
+    sha256 cellar: :any, mavericks:     "0eaeb0ed5fe1a86af5ffa34d4d5a96b91b97ccfc525fd471dc38a63d2585ad77"
   end
 
   depends_on "autoconf" => :build

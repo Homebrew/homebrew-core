@@ -15,10 +15,10 @@ class Audacious < Formula
 
   bottle do
     rebuild 1
-    sha256 "e881a43ee5969621e9ebdab13e086f3a07f98ea7d80e394ccad1b3f0dfbf91ba" => :big_sur
-    sha256 "4f4511d090781e94963a91f317481905c85a0780041a8d58c8f5ada36ecd9c90" => :arm64_big_sur
-    sha256 "c67d5df8448485c10ca6f7ac21ffee103458a4c5efded90dbcd342bc57aab140" => :catalina
-    sha256 "e854112485da922a5e993eaf78b9e448fed06b5f3a9cf3ef3953f77656d3f86f" => :mojave
+    sha256 arm64_big_sur: "4f4511d090781e94963a91f317481905c85a0780041a8d58c8f5ada36ecd9c90"
+    sha256 big_sur:       "e881a43ee5969621e9ebdab13e086f3a07f98ea7d80e394ccad1b3f0dfbf91ba"
+    sha256 catalina:      "c67d5df8448485c10ca6f7ac21ffee103458a4c5efded90dbcd342bc57aab140"
+    sha256 mojave:        "e854112485da922a5e993eaf78b9e448fed06b5f3a9cf3ef3953f77656d3f86f"
   end
 
   head do

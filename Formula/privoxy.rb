@@ -11,10 +11,10 @@ class Privoxy < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur: "22e5729f36297a65e826faec2f245eb4ffe2b7401e5f736a0bcc8522b1bc4791"
     sha256 cellar: :any, arm64_big_sur: "26375f4695b7de343616d8a4e74eaf62364fc5265f042b58e3d78506fa574d46"
-    sha256 cellar: :any, catalina: "d61dad8ae192fa981aeccf3eb8f10a832db93c34adaaca5f5d8f94d3f2a623d2"
-    sha256 cellar: :any, mojave: "9803ca1f6e13b3d0b7ae9070c84853b94e12da9491f4019e1ecd514bef844051"
+    sha256 cellar: :any, big_sur:       "22e5729f36297a65e826faec2f245eb4ffe2b7401e5f736a0bcc8522b1bc4791"
+    sha256 cellar: :any, catalina:      "d61dad8ae192fa981aeccf3eb8f10a832db93c34adaaca5f5d8f94d3f2a623d2"
+    sha256 cellar: :any, mojave:        "9803ca1f6e13b3d0b7ae9070c84853b94e12da9491f4019e1ecd514bef844051"
   end
 
   depends_on "autoconf" => :build

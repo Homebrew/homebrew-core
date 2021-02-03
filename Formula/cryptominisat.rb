@@ -13,9 +13,9 @@ class Cryptominisat < Formula
   end
 
   bottle do
-    sha256 "a44fd7c5ef4e744e5f2b09fb9ed007b08c5a3a77ce77f82a84c7c50a1fc3741a" => :big_sur
-    sha256 "2c6b3e384755e1696497a521e474a3260e4bfbd270a5008b0d4e967e3fa263dc" => :catalina
-    sha256 "8643301b4c05958d3c220f1c4f0a155ba2ae9877871598c9862b7479a1805e08" => :mojave
+    sha256 big_sur:  "a44fd7c5ef4e744e5f2b09fb9ed007b08c5a3a77ce77f82a84c7c50a1fc3741a"
+    sha256 catalina: "2c6b3e384755e1696497a521e474a3260e4bfbd270a5008b0d4e967e3fa263dc"
+    sha256 mojave:   "8643301b4c05958d3c220f1c4f0a155ba2ae9877871598c9862b7479a1805e08"
   end
 
   depends_on "cmake" => :build

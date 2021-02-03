@@ -13,13 +13,12 @@ class GtkDoc < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "a35e40c983e136158fc38ba12cb6fefff3158b8a558fd1593a8d60dd1eb2bd45" => :big_sur
-    sha256 "9693e712ef8fa2b8e9d3be7c30bc1a5e31616e3de51a6c3f8660f5f96c57cf70" => :arm64_big_sur
-    sha256 "8f016abd2862496357f6a926a55c3429187dc429ac746fa98b485b302761271b" => :catalina
-    sha256 "588cd9e3cb54d2f778c82bfb586573a3211cdc9d8a537ef61e7c96a9395ad688" => :mojave
-    sha256 "2e5f324a0c3e8aac532e8946fb00cc578d18184e8fb8d247329b7fbe252054b2" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9693e712ef8fa2b8e9d3be7c30bc1a5e31616e3de51a6c3f8660f5f96c57cf70"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a35e40c983e136158fc38ba12cb6fefff3158b8a558fd1593a8d60dd1eb2bd45"
+    sha256 cellar: :any_skip_relocation, catalina:      "8f016abd2862496357f6a926a55c3429187dc429ac746fa98b485b302761271b"
+    sha256 cellar: :any_skip_relocation, mojave:        "588cd9e3cb54d2f778c82bfb586573a3211cdc9d8a537ef61e7c96a9395ad688"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "2e5f324a0c3e8aac532e8946fb00cc578d18184e8fb8d247329b7fbe252054b2"
   end
 
   depends_on "itstool" => :build

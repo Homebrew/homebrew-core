@@ -8,15 +8,14 @@ class Epeg < Formula
   head "https://github.com/mattes/epeg.git"
 
   bottle do
-    cellar :any
-    sha256 "970d5c3edcbe3ab1896a2e61566ceea303d2d565cc7e2267f5dc474ab9299496" => :big_sur
-    sha256 "23d5cd2ef6cfda33341c0109ef84ec9aee615287b0a3826d9e4ad23d8637de3e" => :arm64_big_sur
-    sha256 "1ba1e2980210accf42548e0eac13ad41469bd282a273e2a1d177dbb16e39e140" => :catalina
-    sha256 "05651d71e9f7fbb8f65b4f15e8037392bde8062ec8419535eaf4d213cacea3de" => :mojave
-    sha256 "8ca494e4c2131e0b9c9e02199a26998f7f14e47cf00da9fbe7a5e75891d5fb94" => :high_sierra
-    sha256 "a7d1777cff7684385a5a7d9c524a26e6f6509c80a638fadc99b6db84b96b1636" => :sierra
-    sha256 "423a279278962dbc33e3e7ec0d7e9e81d497c7c69d7b4f24860630ae9c55b7a1" => :el_capitan
-    sha256 "82b3b35c9aae9cbcfe6502489d04ec44a478d058261e8456cba79f791da70a92" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "23d5cd2ef6cfda33341c0109ef84ec9aee615287b0a3826d9e4ad23d8637de3e"
+    sha256 cellar: :any, big_sur:       "970d5c3edcbe3ab1896a2e61566ceea303d2d565cc7e2267f5dc474ab9299496"
+    sha256 cellar: :any, catalina:      "1ba1e2980210accf42548e0eac13ad41469bd282a273e2a1d177dbb16e39e140"
+    sha256 cellar: :any, mojave:        "05651d71e9f7fbb8f65b4f15e8037392bde8062ec8419535eaf4d213cacea3de"
+    sha256 cellar: :any, high_sierra:   "8ca494e4c2131e0b9c9e02199a26998f7f14e47cf00da9fbe7a5e75891d5fb94"
+    sha256 cellar: :any, sierra:        "a7d1777cff7684385a5a7d9c524a26e6f6509c80a638fadc99b6db84b96b1636"
+    sha256 cellar: :any, el_capitan:    "423a279278962dbc33e3e7ec0d7e9e81d497c7c69d7b4f24860630ae9c55b7a1"
+    sha256 cellar: :any, yosemite:      "82b3b35c9aae9cbcfe6502489d04ec44a478d058261e8456cba79f791da70a92"
   end
 
   depends_on "autoconf" => :build

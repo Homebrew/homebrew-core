@@ -8,10 +8,9 @@ class Cmt < Formula
   head "https://github.com/smallhadroncollider/cmt.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2690f2f872ce08413832b0b6fd9e23b384fe7984f2a80e44285edd02d36cbaa5" => :catalina
-    sha256 "2f077c726546a39809f627d4d6bb24c0b172252eac7a65139fbcba9b9f1dd296" => :mojave
-    sha256 "cbfab965d0ca391ed029d21df3d8da1a21368263b549b65ecf200aa5209d7eba" => :high_sierra
+    sha256 cellar: :any_skip_relocation, catalina:    "2690f2f872ce08413832b0b6fd9e23b384fe7984f2a80e44285edd02d36cbaa5"
+    sha256 cellar: :any_skip_relocation, mojave:      "2f077c726546a39809f627d4d6bb24c0b172252eac7a65139fbcba9b9f1dd296"
+    sha256 cellar: :any_skip_relocation, high_sierra: "cbfab965d0ca391ed029d21df3d8da1a21368263b549b65ecf200aa5209d7eba"
   end
 
   depends_on "cabal-install" => :build

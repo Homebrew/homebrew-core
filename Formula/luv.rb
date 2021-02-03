@@ -7,11 +7,10 @@ class Luv < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any
-    sha256 "7c8d417a89cd453f5a10beedf86a79a48280289fea2992677c6cf299f62dff5c" => :big_sur
-    sha256 "f6206cb6d576a9d76340207c9bb0ea606fa436396e8e6f47c8f112cb5ff30b9a" => :arm64_big_sur
-    sha256 "8916140ae938a0094f5633e9d2822824f94463c70d8b9c7212b61d8813c48021" => :catalina
-    sha256 "5fad043a019896b644261362348caf757e256890c46fc4e268ad79710d45b57b" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "f6206cb6d576a9d76340207c9bb0ea606fa436396e8e6f47c8f112cb5ff30b9a"
+    sha256 cellar: :any, big_sur:       "7c8d417a89cd453f5a10beedf86a79a48280289fea2992677c6cf299f62dff5c"
+    sha256 cellar: :any, catalina:      "8916140ae938a0094f5633e9d2822824f94463c70d8b9c7212b61d8813c48021"
+    sha256 cellar: :any, mojave:        "5fad043a019896b644261362348caf757e256890c46fc4e268ad79710d45b57b"
   end
 
   depends_on "cmake" => :build

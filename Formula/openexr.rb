@@ -7,10 +7,10 @@ class Openexr < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 "eb633be8c992dbfa2bb4406cd397abfe16aad0bf75f252e02e8ff7d720a9f93c" => :big_sur
-    sha256 "f23f4e7523ae27fbc1885360cc99dc60b35cca395b6f8f46d45c1d7c275f0e90" => :arm64_big_sur
-    sha256 "8f146ff213eda72a32613ba36649a865848786c0e843fc6a39e58bdeafebcb31" => :catalina
-    sha256 "b9f0b513b60da938425fd93805835cfaaa916db9406687a7aa11112ec152a6f7" => :mojave
+    sha256 arm64_big_sur: "f23f4e7523ae27fbc1885360cc99dc60b35cca395b6f8f46d45c1d7c275f0e90"
+    sha256 big_sur:       "eb633be8c992dbfa2bb4406cd397abfe16aad0bf75f252e02e8ff7d720a9f93c"
+    sha256 catalina:      "8f146ff213eda72a32613ba36649a865848786c0e843fc6a39e58bdeafebcb31"
+    sha256 mojave:        "b9f0b513b60da938425fd93805835cfaaa916db9406687a7aa11112ec152a6f7"
   end
 
   depends_on "cmake" => :build

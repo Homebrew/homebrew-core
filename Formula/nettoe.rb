@@ -10,15 +10,14 @@ class Nettoe < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2387ff01457bbf7019cff906e9503de1b7cc718f055abd3eaa9523b847d951a5" => :big_sur
-    sha256 "a9f2e1b0a27c15f903c42fd54af41f52553d9027cde5aff110e7f8a895b934a8" => :arm64_big_sur
-    sha256 "59cab1291f69cb1c35a269d18343a3d07eaf55d6f0d178c9548afb282497fc50" => :catalina
-    sha256 "2d45bfae915cfc4425e45393a9868c4e586379c05e61f35aaf704cc54376c17c" => :mojave
-    sha256 "0349c1335e428d5f0b620043259908b5af60feed84d9dea911033e0d65704488" => :high_sierra
-    sha256 "49ad705043bdd9f1ab860d877d3ffba584bef5ddbd4c03f6fe43adc49b9c1e5d" => :sierra
-    sha256 "c8208683e4730233147e6c7153a469cdc1f477aacde0559937f0da93c8ad0345" => :el_capitan
-    sha256 "78038d253cd382f5f3a6b3b12c7776828c44c1572f0569bec862763aa5141c2a" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a9f2e1b0a27c15f903c42fd54af41f52553d9027cde5aff110e7f8a895b934a8"
+    sha256 cellar: :any_skip_relocation, big_sur:       "2387ff01457bbf7019cff906e9503de1b7cc718f055abd3eaa9523b847d951a5"
+    sha256 cellar: :any_skip_relocation, catalina:      "59cab1291f69cb1c35a269d18343a3d07eaf55d6f0d178c9548afb282497fc50"
+    sha256 cellar: :any_skip_relocation, mojave:        "2d45bfae915cfc4425e45393a9868c4e586379c05e61f35aaf704cc54376c17c"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "0349c1335e428d5f0b620043259908b5af60feed84d9dea911033e0d65704488"
+    sha256 cellar: :any_skip_relocation, sierra:        "49ad705043bdd9f1ab860d877d3ffba584bef5ddbd4c03f6fe43adc49b9c1e5d"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "c8208683e4730233147e6c7153a469cdc1f477aacde0559937f0da93c8ad0345"
+    sha256 cellar: :any_skip_relocation, yosemite:      "78038d253cd382f5f3a6b3b12c7776828c44c1572f0569bec862763aa5141c2a"
   end
 
   def install

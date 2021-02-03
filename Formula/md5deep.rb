@@ -7,15 +7,14 @@ class Md5deep < Formula
   head "https://github.com/jessek/hashdeep.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "9a5cb4b8ece68c480cc2c62f5c93a16087ffcb8d32c0b3fd0580b7d87cea8526" => :big_sur
-    sha256 "d97c8bf86272ad4201cb2050196185f420dc78579266dee86e7f1ac4a7f7eeb7" => :catalina
-    sha256 "48fe3167c6211f51af6d8c1e39062438a7385e1b136078fbc0215170842ecbbe" => :mojave
-    sha256 "5f5636f7731398f775d757cb4ae913762f725d4d7bd3060a2640c155207d7a2a" => :high_sierra
-    sha256 "4ee90230c25f9872541d3f895fbe010765dd2e5449e56a0987e3652f89014916" => :sierra
-    sha256 "986dad46d2945aac775eb625e41b0236f2413b3924244d5e9aba445994c38687" => :el_capitan
-    sha256 "227b8b8e4f4dd71972cd02062faefef90515b44ef5c3ce55f5c665cf679a26d1" => :yosemite
-    sha256 "1bacd45d420975ff8b90d633e361b54c7f6a14776a41f175313360d31fb03ba4" => :mavericks
+    sha256 cellar: :any_skip_relocation, big_sur:     "9a5cb4b8ece68c480cc2c62f5c93a16087ffcb8d32c0b3fd0580b7d87cea8526"
+    sha256 cellar: :any_skip_relocation, catalina:    "d97c8bf86272ad4201cb2050196185f420dc78579266dee86e7f1ac4a7f7eeb7"
+    sha256 cellar: :any_skip_relocation, mojave:      "48fe3167c6211f51af6d8c1e39062438a7385e1b136078fbc0215170842ecbbe"
+    sha256 cellar: :any_skip_relocation, high_sierra: "5f5636f7731398f775d757cb4ae913762f725d4d7bd3060a2640c155207d7a2a"
+    sha256 cellar: :any_skip_relocation, sierra:      "4ee90230c25f9872541d3f895fbe010765dd2e5449e56a0987e3652f89014916"
+    sha256 cellar: :any_skip_relocation, el_capitan:  "986dad46d2945aac775eb625e41b0236f2413b3924244d5e9aba445994c38687"
+    sha256 cellar: :any_skip_relocation, yosemite:    "227b8b8e4f4dd71972cd02062faefef90515b44ef5c3ce55f5c665cf679a26d1"
+    sha256 cellar: :any_skip_relocation, mavericks:   "1bacd45d420975ff8b90d633e361b54c7f6a14776a41f175313360d31fb03ba4"
   end
 
   depends_on "autoconf" => :build

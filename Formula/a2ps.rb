@@ -12,10 +12,10 @@ class A2ps < Formula
 
   bottle do
     rebuild 4
-    sha256 "e87da2b47386fc7e3c6f20b3ff90c4bbe37b9e0aaa884440ffa216492dbc150b" => :big_sur
-    sha256 "8ac02041dbec3966b6a695dfc4215b90b9e331ae6eb8c6698cbbfa0175154c9f" => :arm64_big_sur
-    sha256 "82e64b2008971430d160a3f564e32593e98fb55c43d7748c7deb9d6f546e1102" => :catalina
-    sha256 "8ca49b4797277f79e87e48ab4c6794601b64d1dde35b9eac556d4153b8237a51" => :mojave
+    sha256 arm64_big_sur: "8ac02041dbec3966b6a695dfc4215b90b9e331ae6eb8c6698cbbfa0175154c9f"
+    sha256 big_sur:       "e87da2b47386fc7e3c6f20b3ff90c4bbe37b9e0aaa884440ffa216492dbc150b"
+    sha256 catalina:      "82e64b2008971430d160a3f564e32593e98fb55c43d7748c7deb9d6f546e1102"
+    sha256 mojave:        "8ca49b4797277f79e87e48ab4c6794601b64d1dde35b9eac556d4153b8237a51"
   end
 
   pour_bottle? do

@@ -6,10 +6,10 @@ class Liblouis < Formula
   license all_of: ["GPL-3.0-or-later", "LGPL-2.1-or-later"]
 
   bottle do
-    sha256 "8c670c32218b3905855ae5c5c40186013f4ad5dea16a2207d3ae56e2ac91a352" => :big_sur
-    sha256 "d5e6cdaf72fe18b14d9e455551b94e3a722eec87c4c528435c5d6b407ae0775e" => :arm64_big_sur
-    sha256 "ca3b445707462217ea870829f457ca043de82ecb02f2b99302811f8b6831ee31" => :catalina
-    sha256 "0334ee43e9a3e443cdd8531a5923535618353cf2e798641bc200b20db6e8efd4" => :mojave
+    sha256 arm64_big_sur: "d5e6cdaf72fe18b14d9e455551b94e3a722eec87c4c528435c5d6b407ae0775e"
+    sha256 big_sur:       "8c670c32218b3905855ae5c5c40186013f4ad5dea16a2207d3ae56e2ac91a352"
+    sha256 catalina:      "ca3b445707462217ea870829f457ca043de82ecb02f2b99302811f8b6831ee31"
+    sha256 mojave:        "0334ee43e9a3e443cdd8531a5923535618353cf2e798641bc200b20db6e8efd4"
   end
 
   head do

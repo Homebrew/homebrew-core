@@ -7,13 +7,12 @@ class Openhmd < Formula
   head "https://github.com/OpenHMD/OpenHMD.git"
 
   bottle do
-    cellar :any
-    sha256 "875f651a4d9b710ce00e899928b2b9dab6f26cbfee670135566821e524d5337a" => :big_sur
-    sha256 "19e9b946bbefe306dc41aa803e5cb48aec3ab62bf334b8975e660f4a3644c0c7" => :arm64_big_sur
-    sha256 "351e8d9e6bfa22b63b035c0f9c0c7e37be52b9e4058c50d7b7ac321eca880e5b" => :catalina
-    sha256 "796c1a6f06715aa8a3304cca0083378d5fe2a1006b55da8727938922b5408c8d" => :mojave
-    sha256 "1c54727de5836916bca42065d0ed53f0a796d07ec6866408a69213c94b151092" => :high_sierra
-    sha256 "97f5dff1e77b6b615544ed6611aa6d8c3395e3c6dc759c4576084d87a4e976ad" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "19e9b946bbefe306dc41aa803e5cb48aec3ab62bf334b8975e660f4a3644c0c7"
+    sha256 cellar: :any, big_sur:       "875f651a4d9b710ce00e899928b2b9dab6f26cbfee670135566821e524d5337a"
+    sha256 cellar: :any, catalina:      "351e8d9e6bfa22b63b035c0f9c0c7e37be52b9e4058c50d7b7ac321eca880e5b"
+    sha256 cellar: :any, mojave:        "796c1a6f06715aa8a3304cca0083378d5fe2a1006b55da8727938922b5408c8d"
+    sha256 cellar: :any, high_sierra:   "1c54727de5836916bca42065d0ed53f0a796d07ec6866408a69213c94b151092"
+    sha256 cellar: :any, sierra:        "97f5dff1e77b6b615544ed6611aa6d8c3395e3c6dc759c4576084d87a4e976ad"
   end
 
   depends_on "autoconf" => :build

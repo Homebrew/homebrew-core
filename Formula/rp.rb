@@ -8,15 +8,14 @@ class Rp < Formula
   head "https://github.com/0vercl0k/rp.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "afe31e255f4d94101d0a11fd9625937c5f1846dd21fd4189304295cdb8bcf3e0" => :big_sur
-    sha256 "f173bd7e78a13f9fe20fbe70e3bda26e91a5aec77bd094a4d0b447afee0ff1b9" => :catalina
-    sha256 "9e7dee319426b8db92302fdd19ee37f3ea5b0b3b8ebb1865e29127aa340ec7b5" => :mojave
-    sha256 "40042ba7ad3506a62f79ed836480bf2d33a3ea171a19905a51db60c3a037cb0b" => :high_sierra
-    sha256 "93aea19e1b6c6511e309f87003f173485a36e2b870734b6162e0bc43ae5f2a70" => :sierra
-    sha256 "1ed1c49f3495c6da683908c34d17f345c5f3bde2a5112674bbd41f6a92da1ab2" => :el_capitan
-    sha256 "e85fa182a3b46f8a3cd5a6d3a27359d4981fb1cab0ca5c2d3a1a9c471af1a77c" => :yosemite
-    sha256 "398c2c7776b0da352930a13a9339cd66b4e74c773313eb347740cfd2ea8ccf24" => :mavericks
+    sha256 cellar: :any_skip_relocation, big_sur:     "afe31e255f4d94101d0a11fd9625937c5f1846dd21fd4189304295cdb8bcf3e0"
+    sha256 cellar: :any_skip_relocation, catalina:    "f173bd7e78a13f9fe20fbe70e3bda26e91a5aec77bd094a4d0b447afee0ff1b9"
+    sha256 cellar: :any_skip_relocation, mojave:      "9e7dee319426b8db92302fdd19ee37f3ea5b0b3b8ebb1865e29127aa340ec7b5"
+    sha256 cellar: :any_skip_relocation, high_sierra: "40042ba7ad3506a62f79ed836480bf2d33a3ea171a19905a51db60c3a037cb0b"
+    sha256 cellar: :any_skip_relocation, sierra:      "93aea19e1b6c6511e309f87003f173485a36e2b870734b6162e0bc43ae5f2a70"
+    sha256 cellar: :any_skip_relocation, el_capitan:  "1ed1c49f3495c6da683908c34d17f345c5f3bde2a5112674bbd41f6a92da1ab2"
+    sha256 cellar: :any_skip_relocation, yosemite:    "e85fa182a3b46f8a3cd5a6d3a27359d4981fb1cab0ca5c2d3a1a9c471af1a77c"
+    sha256 cellar: :any_skip_relocation, mavericks:   "398c2c7776b0da352930a13a9339cd66b4e74c773313eb347740cfd2ea8ccf24"
   end
 
   depends_on "cmake" => :build

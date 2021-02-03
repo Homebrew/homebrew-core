@@ -11,15 +11,14 @@ class Gperf < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "00685e086c83d1d93a856f35ae56106ac5c19cc4541174040d6d6d71e51bbe75" => :big_sur
-    sha256 "311e481114105723752e9b8d0f99dda4ad2bbbfd0cf9c75498384c2279d6b94a" => :arm64_big_sur
-    sha256 "fc18781c090c4b8b7bb7305a864eeb4e6f3f458d8daa2fff96da3bda061fa8bb" => :catalina
-    sha256 "85c9bd450b0a0d7453584c343fe6770c94f8f3941aaa6f95d735f1923209b6ed" => :mojave
-    sha256 "d71157cd1baddf951e91477b85b533ade99dfe97a5876bb993fe7f6e8336f780" => :high_sierra
-    sha256 "3cbaa18692ac53ce98a754d46e07e89d6dddca4bef3bbb312e762abf5a30093d" => :sierra
-    sha256 "27f661ef9546ff113279654e92c08bb8d8ab837f7dc8b308c1a2beeafdcebc76" => :el_capitan
-    sha256 "263440c302dddec69c2140e8df2e4c00a76b76137243e712e8e8756140e0eaf5" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "311e481114105723752e9b8d0f99dda4ad2bbbfd0cf9c75498384c2279d6b94a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "00685e086c83d1d93a856f35ae56106ac5c19cc4541174040d6d6d71e51bbe75"
+    sha256 cellar: :any_skip_relocation, catalina:      "fc18781c090c4b8b7bb7305a864eeb4e6f3f458d8daa2fff96da3bda061fa8bb"
+    sha256 cellar: :any_skip_relocation, mojave:        "85c9bd450b0a0d7453584c343fe6770c94f8f3941aaa6f95d735f1923209b6ed"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "d71157cd1baddf951e91477b85b533ade99dfe97a5876bb993fe7f6e8336f780"
+    sha256 cellar: :any_skip_relocation, sierra:        "3cbaa18692ac53ce98a754d46e07e89d6dddca4bef3bbb312e762abf5a30093d"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "27f661ef9546ff113279654e92c08bb8d8ab837f7dc8b308c1a2beeafdcebc76"
+    sha256 cellar: :any_skip_relocation, yosemite:      "263440c302dddec69c2140e8df2e4c00a76b76137243e712e8e8756140e0eaf5"
   end
 
   def install

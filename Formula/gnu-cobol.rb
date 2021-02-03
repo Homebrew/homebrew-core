@@ -12,10 +12,10 @@ class GnuCobol < Formula
 
   bottle do
     rebuild 1
-    sha256 "bc73094fd113c6dc58c3cc475c78c8ec4dac1d9459895ab8ba23ff8f1974df34" => :big_sur
-    sha256 "56a9a4dedd7cac8608aa2c570d6e3c77647cc5a15235413eef2fc5ff7f4c698e" => :arm64_big_sur
-    sha256 "ed671ad5c7cabc4992d399cdc02a5bdda5ead3d273d307dcff68eaa9204f3447" => :catalina
-    sha256 "d0c71a8b125011452f7e47411ba743021a6d0edeb477a267fc905abd81b1a561" => :mojave
+    sha256 arm64_big_sur: "56a9a4dedd7cac8608aa2c570d6e3c77647cc5a15235413eef2fc5ff7f4c698e"
+    sha256 big_sur:       "bc73094fd113c6dc58c3cc475c78c8ec4dac1d9459895ab8ba23ff8f1974df34"
+    sha256 catalina:      "ed671ad5c7cabc4992d399cdc02a5bdda5ead3d273d307dcff68eaa9204f3447"
+    sha256 mojave:        "d0c71a8b125011452f7e47411ba743021a6d0edeb477a267fc905abd81b1a561"
   end
 
   depends_on "berkeley-db"

@@ -6,12 +6,11 @@ class Hdt < Formula
   license "LGPL-2.1"
 
   bottle do
-    cellar :any
-    sha256 "614cded2abf67c909f7fd1a980b3093e8368bf0fc802adcd774716e9e301f4f9" => :big_sur
-    sha256 "934a8c000b23ee6a63cda409118c47737d4549a5f0fd260a1652ecfc6b49f1d2" => :arm64_big_sur
-    sha256 "66978658e51117e228dea28a0d4264cfe3ce9ed7e4536eb0726d8c1438d4fb59" => :catalina
-    sha256 "333a1baf863f372e94a40474a799fdd7e043bd691817ab5f7467983ce31a21cb" => :mojave
-    sha256 "709ea815a3a24e104b0bd873948d8cbaca317ed235098f1c042ab308f7c3cb6f" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "934a8c000b23ee6a63cda409118c47737d4549a5f0fd260a1652ecfc6b49f1d2"
+    sha256 cellar: :any, big_sur:       "614cded2abf67c909f7fd1a980b3093e8368bf0fc802adcd774716e9e301f4f9"
+    sha256 cellar: :any, catalina:      "66978658e51117e228dea28a0d4264cfe3ce9ed7e4536eb0726d8c1438d4fb59"
+    sha256 cellar: :any, mojave:        "333a1baf863f372e94a40474a799fdd7e043bd691817ab5f7467983ce31a21cb"
+    sha256 cellar: :any, high_sierra:   "709ea815a3a24e104b0bd873948d8cbaca317ed235098f1c042ab308f7c3cb6f"
   end
 
   depends_on "pkg-config" => :build

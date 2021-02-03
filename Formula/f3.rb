@@ -7,12 +7,11 @@ class F3 < Formula
   head "https://github.com/AltraMayor/f3.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ecef018e922b79da5bed5e91df0e8798c9240d527af23b6d5a78c65fed0f4e99" => :big_sur
-    sha256 "dd2510a756c154a088d7b1b10c532a1cd85f4699f52dabb09a340dca20a79d04" => :arm64_big_sur
-    sha256 "198f9b2d578a294fb61e2b9203cc1285c9c0a2fa6048fb1e34130f7d8a2039ff" => :catalina
-    sha256 "70d5966a5afb44fe91225d81f54adf80cd7b254ac9253423234d4c99d4a2435d" => :mojave
-    sha256 "55da39f3758797df44426b7744542b4322ddc84b20fc7a5664e2da672cef0d1a" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "dd2510a756c154a088d7b1b10c532a1cd85f4699f52dabb09a340dca20a79d04"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ecef018e922b79da5bed5e91df0e8798c9240d527af23b6d5a78c65fed0f4e99"
+    sha256 cellar: :any_skip_relocation, catalina:      "198f9b2d578a294fb61e2b9203cc1285c9c0a2fa6048fb1e34130f7d8a2039ff"
+    sha256 cellar: :any_skip_relocation, mojave:        "70d5966a5afb44fe91225d81f54adf80cd7b254ac9253423234d4c99d4a2435d"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "55da39f3758797df44426b7744542b4322ddc84b20fc7a5664e2da672cef0d1a"
   end
 
   depends_on "argp-standalone"

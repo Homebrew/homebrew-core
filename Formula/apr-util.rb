@@ -12,12 +12,12 @@ class AprUtil < Formula
   end
 
   bottle do
-    sha256 "34dd598e189eefff7e09be3ee92c17816353b02cd1eb7b333ea4c74cd6204ffd" => :big_sur
-    sha256 "29ffec15c99813b879d9410e2040044b02ee8e219492d065043b4bb65cf30741" => :arm64_big_sur
-    sha256 "425955a21c3fec8e78f365cd7fc4c6c4ec95d074f720a9b24e8237af90cc4dcc" => :catalina
-    sha256 "b3b8376d8f481164a34b891b926ab22acdc2903e77c4cfbc04c0ba6363ca7597" => :mojave
-    sha256 "20688bea4981567848393aeeb1964f2200847f63ee52eb8c68d8fff0e4dd8b45" => :high_sierra
-    sha256 "16e812e4be2247d8e8f4f8a68ba6765ceb5a98e22a08dda288eb99dff2e41ae0" => :sierra
+    sha256 arm64_big_sur: "29ffec15c99813b879d9410e2040044b02ee8e219492d065043b4bb65cf30741"
+    sha256 big_sur:       "34dd598e189eefff7e09be3ee92c17816353b02cd1eb7b333ea4c74cd6204ffd"
+    sha256 catalina:      "425955a21c3fec8e78f365cd7fc4c6c4ec95d074f720a9b24e8237af90cc4dcc"
+    sha256 mojave:        "b3b8376d8f481164a34b891b926ab22acdc2903e77c4cfbc04c0ba6363ca7597"
+    sha256 high_sierra:   "20688bea4981567848393aeeb1964f2200847f63ee52eb8c68d8fff0e4dd8b45"
+    sha256 sierra:        "16e812e4be2247d8e8f4f8a68ba6765ceb5a98e22a08dda288eb99dff2e41ae0"
   end
 
   keg_only :shadowed_by_macos, "Apple's CLT provides apr (but not apr-util)"

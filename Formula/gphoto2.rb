@@ -11,12 +11,11 @@ class Gphoto2 < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "f78b5393c2d68ce33d628f59222612882fe93738ecbeffe76c2de4abccc3c296" => :big_sur
-    sha256 "d268212bc96bdcd3df5f6cc289d7f62d9ad20ac0db6b2e5ca338c54b8e4b198f" => :arm64_big_sur
-    sha256 "c4c42c50ee8bddf1a6b930f0eed9165a9e45ef1fb92476616833726b002ab077" => :catalina
-    sha256 "3b0f309d8d21165b945bb2c22a29f55396cf345a3f9255bc143ab4020fae5442" => :mojave
-    sha256 "a5c57a8b09c87b31c07cd3dea6ca6c859486c55268aa9745df740b1ac52368b2" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "d268212bc96bdcd3df5f6cc289d7f62d9ad20ac0db6b2e5ca338c54b8e4b198f"
+    sha256 cellar: :any, big_sur:       "f78b5393c2d68ce33d628f59222612882fe93738ecbeffe76c2de4abccc3c296"
+    sha256 cellar: :any, catalina:      "c4c42c50ee8bddf1a6b930f0eed9165a9e45ef1fb92476616833726b002ab077"
+    sha256 cellar: :any, mojave:        "3b0f309d8d21165b945bb2c22a29f55396cf345a3f9255bc143ab4020fae5442"
+    sha256 cellar: :any, high_sierra:   "a5c57a8b09c87b31c07cd3dea6ca6c859486c55268aa9745df740b1ac52368b2"
   end
 
   depends_on "pkg-config" => :build

@@ -7,11 +7,10 @@ class PinentryMac < Formula
   head "https://github.com/GPGTools/pinentry.git", branch: "dev"
 
   bottle do
-    cellar :any
-    sha256 "bf4fab5722e014d64397d0cc9078a95779f7b2553f858af4444ca913c3ce979f" => :big_sur
-    sha256 "b33a7f22470f2fc0f81fa45259c0d338196d0a2c1a4dff3ee7e38cc002c16744" => :arm64_big_sur
-    sha256 "149e9ddc31176346b936fbec386c49d3fb322132d65d415854033203ba1db467" => :catalina
-    sha256 "90c757fe0590e14c8e2d13a6e11629eb1f6893696b720b849a19db09b3c932dd" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "b33a7f22470f2fc0f81fa45259c0d338196d0a2c1a4dff3ee7e38cc002c16744"
+    sha256 cellar: :any, big_sur:       "bf4fab5722e014d64397d0cc9078a95779f7b2553f858af4444ca913c3ce979f"
+    sha256 cellar: :any, catalina:      "149e9ddc31176346b936fbec386c49d3fb322132d65d415854033203ba1db467"
+    sha256 cellar: :any, mojave:        "90c757fe0590e14c8e2d13a6e11629eb1f6893696b720b849a19db09b3c932dd"
   end
 
   depends_on "autoconf" => :build

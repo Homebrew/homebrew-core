@@ -22,9 +22,9 @@ class Lammps < Formula
   end
 
   bottle do
-    sha256 "9bd87a2b72f291229de3d436f8fc7b0706ab5fc245587936943284287457d1c0" => :big_sur
-    sha256 "4cb389466954f5fdafc8a05a06eff9c8a17886b69e2ea6cc38c55cf3912980d0" => :catalina
-    sha256 "e1ef047d6c3155e5a8bb704a5f141beb7427194c61e6d16885610bdfd20ecf5c" => :mojave
+    sha256 big_sur:  "9bd87a2b72f291229de3d436f8fc7b0706ab5fc245587936943284287457d1c0"
+    sha256 catalina: "4cb389466954f5fdafc8a05a06eff9c8a17886b69e2ea6cc38c55cf3912980d0"
+    sha256 mojave:   "e1ef047d6c3155e5a8bb704a5f141beb7427194c61e6d16885610bdfd20ecf5c"
   end
 
   depends_on "pkg-config" => :build

@@ -12,10 +12,10 @@ class Opensc < Formula
   end
 
   bottle do
-    sha256 "4a6b8c4b43e331548c53ef20d35be15156ff7cef5d3e6a2400f1e5eeff14c02b" => :big_sur
-    sha256 "7c2200588b517d1c797a8307031f2ca20a3145547ff4cd5ed182fc5680671e5b" => :arm64_big_sur
-    sha256 "5ba13391a55bcd288e0ab35458503bea761213e3e5a4395ea0966e2d19deb03f" => :catalina
-    sha256 "89526a544b8fb886dbbf62710c30a6c52f339d48240ca72afe1f99098394ee11" => :mojave
+    sha256 arm64_big_sur: "7c2200588b517d1c797a8307031f2ca20a3145547ff4cd5ed182fc5680671e5b"
+    sha256 big_sur:       "4a6b8c4b43e331548c53ef20d35be15156ff7cef5d3e6a2400f1e5eeff14c02b"
+    sha256 catalina:      "5ba13391a55bcd288e0ab35458503bea761213e3e5a4395ea0966e2d19deb03f"
+    sha256 mojave:        "89526a544b8fb886dbbf62710c30a6c52f339d48240ca72afe1f99098394ee11"
   end
 
   depends_on "autoconf" => :build

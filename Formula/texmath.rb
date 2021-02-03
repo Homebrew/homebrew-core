@@ -10,10 +10,9 @@ class Texmath < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "f091dafb8c9967d2a47b85f45361e60eb7c85b88b8346d76cb2db8a757a1f776" => :big_sur
-    sha256 "2769946483f9d19111f011337b7a25f2cf46145ddc86990fe58c311194be0eb8" => :catalina
-    sha256 "a155b6bad3842722d5bdbe2fa22be5c10aa191ab44ebaa63000a921acef24b1f" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur:  "f091dafb8c9967d2a47b85f45361e60eb7c85b88b8346d76cb2db8a757a1f776"
+    sha256 cellar: :any_skip_relocation, catalina: "2769946483f9d19111f011337b7a25f2cf46145ddc86990fe58c311194be0eb8"
+    sha256 cellar: :any_skip_relocation, mojave:   "a155b6bad3842722d5bdbe2fa22be5c10aa191ab44ebaa63000a921acef24b1f"
   end
 
   depends_on "cabal-install" => :build

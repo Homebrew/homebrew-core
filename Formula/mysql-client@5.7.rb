@@ -5,10 +5,10 @@ class MysqlClientAT57 < Formula
   sha256 "9a8a04a2b0116ccff9a8d8aace07aaeaacf47329b701c5dfa9fa4351d3f1933b"
 
   bottle do
-    sha256 "61ca8bedda853898d6fca0036a520a39f514e33aca2ce691fa7e889b81790706" => :big_sur
-    sha256 "c5752cf67dff22a4e32b0c32651eb73d898adf04528a25d2a17e64ff2bc05374" => :arm64_big_sur
-    sha256 "effec4ea0f7867d42ea33ee16d6ea523e09f7ba9fe4e60fd9d55e6a6c577d2f8" => :catalina
-    sha256 "0991a1d5fcb24e23761f8ca17d4896b46054ac80aca88d4eca17b944fbb178f2" => :mojave
+    sha256 arm64_big_sur: "c5752cf67dff22a4e32b0c32651eb73d898adf04528a25d2a17e64ff2bc05374"
+    sha256 big_sur:       "61ca8bedda853898d6fca0036a520a39f514e33aca2ce691fa7e889b81790706"
+    sha256 catalina:      "effec4ea0f7867d42ea33ee16d6ea523e09f7ba9fe4e60fd9d55e6a6c577d2f8"
+    sha256 mojave:        "0991a1d5fcb24e23761f8ca17d4896b46054ac80aca88d4eca17b944fbb178f2"
   end
 
   keg_only :versioned_formula

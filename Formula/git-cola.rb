@@ -8,12 +8,11 @@ class GitCola < Formula
   head "https://github.com/git-cola/git-cola.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "d5e72dde0b6ea555a8daae7c873d58a5c97ddbf6ac499b41239f10dc3aff94a9" => :big_sur
-    sha256 "20b6f47d793bb85dff6f5b1a8b6df25c9184043657d1d18552a4d582e1f903a9" => :arm64_big_sur
-    sha256 "ef1c8b2bcaf9de6249a46bfc97ab24f048f5b9051c2d8290614fce3d5c8edfef" => :catalina
-    sha256 "18ff1bd2601835ab966f635680470031912913593d8a28cdeba9e92effcb7418" => :mojave
-    sha256 "64f4ec4531a6f96370748a586dfe81fe134ae24c0292f7429043e8eeb7ac64f3" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "20b6f47d793bb85dff6f5b1a8b6df25c9184043657d1d18552a4d582e1f903a9"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d5e72dde0b6ea555a8daae7c873d58a5c97ddbf6ac499b41239f10dc3aff94a9"
+    sha256 cellar: :any_skip_relocation, catalina:      "ef1c8b2bcaf9de6249a46bfc97ab24f048f5b9051c2d8290614fce3d5c8edfef"
+    sha256 cellar: :any_skip_relocation, mojave:        "18ff1bd2601835ab966f635680470031912913593d8a28cdeba9e92effcb7418"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "64f4ec4531a6f96370748a586dfe81fe134ae24c0292f7429043e8eeb7ac64f3"
   end
 
   depends_on "sphinx-doc" => :build

@@ -7,11 +7,11 @@ class Libfaketime < Formula
   head "https://github.com/wolfcw/libfaketime.git"
 
   bottle do
-    sha256 "06307e738273586bed9070b5f49801a59ac007a78f59a6224f26cc03d9c057f6" => :big_sur
-    sha256 "959cc7db2821e8d6595bb004f6147c81c1a9b541e8c24f72e995e97ca03b013e" => :catalina
-    sha256 "d377ea33f18d8338a134f9e9553e83e3bb591ee344884b8a49d9f72c11be0e52" => :mojave
-    sha256 "30325cd15f866fdcba8749c84a43b3e331e0481e5023dbdf2366a6dd118bd036" => :high_sierra
-    sha256 "0d6626a0ec194b26f82546ce84fefdcc212d6a7fb52989997257a141f0c113d0" => :sierra
+    sha256 big_sur:     "06307e738273586bed9070b5f49801a59ac007a78f59a6224f26cc03d9c057f6"
+    sha256 catalina:    "959cc7db2821e8d6595bb004f6147c81c1a9b541e8c24f72e995e97ca03b013e"
+    sha256 mojave:      "d377ea33f18d8338a134f9e9553e83e3bb591ee344884b8a49d9f72c11be0e52"
+    sha256 high_sierra: "30325cd15f866fdcba8749c84a43b3e331e0481e5023dbdf2366a6dd118bd036"
+    sha256 sierra:      "0d6626a0ec194b26f82546ce84fefdcc212d6a7fb52989997257a141f0c113d0"
   end
 
   # The `faketime` command needs GNU `gdate` not BSD `date`.

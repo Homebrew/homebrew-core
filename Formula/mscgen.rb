@@ -6,13 +6,12 @@ class Mscgen < Formula
   revision 3
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "662b9da17d8c911e9d24be48def9a222e7068386c0b482eca48248d127467e14" => :big_sur
-    sha256 "315656cf5f9d72907591b4c8a91e635e6aa9b2116cadefe9fdd76db4cff7ae87" => :catalina
-    sha256 "1f194eb67147772b362ae5446b2e369b35ee9ffa935c8e22d37cdb4c1364349b" => :mojave
-    sha256 "0f125ab1fbaf04c670f252f05358771f1663b3fc59857bcfd855bbb52e01f88b" => :high_sierra
-    sha256 "08345683137541d79b6422afd2e269b1ab8c195722e5e71cffa6298a3986d563" => :sierra
+    sha256 cellar: :any, big_sur:     "662b9da17d8c911e9d24be48def9a222e7068386c0b482eca48248d127467e14"
+    sha256 cellar: :any, catalina:    "315656cf5f9d72907591b4c8a91e635e6aa9b2116cadefe9fdd76db4cff7ae87"
+    sha256 cellar: :any, mojave:      "1f194eb67147772b362ae5446b2e369b35ee9ffa935c8e22d37cdb4c1364349b"
+    sha256 cellar: :any, high_sierra: "0f125ab1fbaf04c670f252f05358771f1663b3fc59857bcfd855bbb52e01f88b"
+    sha256 cellar: :any, sierra:      "08345683137541d79b6422afd2e269b1ab8c195722e5e71cffa6298a3986d563"
   end
 
   depends_on "pkg-config" => :build

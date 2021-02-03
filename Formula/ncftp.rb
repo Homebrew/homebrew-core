@@ -13,10 +13,10 @@ class Ncftp < Formula
 
   bottle do
     rebuild 1
-    sha256 "be10854d86393b58f542fbe778bf650c90a9635fbd14eff8149459838c4455c6" => :big_sur
-    sha256 "1fc3f5a43b5e4e23f2bac0046acaf8f746d5d07e0eb6cf60d593830fb3acbf13" => :arm64_big_sur
-    sha256 "c5759f94e328047e35a3f22c63ecf7bf7051edbc68432b3eb9db6c61d8f84bb2" => :catalina
-    sha256 "381492aa09e004859600ffc441ebd4dfe1c75685099debf5a7c283c15785a26c" => :mojave
+    sha256 arm64_big_sur: "1fc3f5a43b5e4e23f2bac0046acaf8f746d5d07e0eb6cf60d593830fb3acbf13"
+    sha256 big_sur:       "be10854d86393b58f542fbe778bf650c90a9635fbd14eff8149459838c4455c6"
+    sha256 catalina:      "c5759f94e328047e35a3f22c63ecf7bf7051edbc68432b3eb9db6c61d8f84bb2"
+    sha256 mojave:        "381492aa09e004859600ffc441ebd4dfe1c75685099debf5a7c283c15785a26c"
   end
 
   uses_from_macos "ncurses"

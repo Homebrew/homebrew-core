@@ -12,14 +12,13 @@ class Svg2pdf < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "358f4578b7a5fb09569411c4ac192314e2fa082aeb14cba604f2275ed888b72a" => :big_sur
-    sha256 "7dff42459bf1ab33b0938f062d42c1857cb8274d1935f356b4f7dec76aac865c" => :catalina
-    sha256 "ba3e83fc0bf7a58166f2c4449b0f0d4590b5902ac2072ece48b9ca5eed13429a" => :mojave
-    sha256 "7a1c4ac8748a9c9013d6d6e50bd04b024e092dd718c878a0b7bcde3d9ca51a97" => :high_sierra
-    sha256 "bba8555de1a81fb92de544d77dc62fbe03e005b1b371d16127472890b7697503" => :sierra
-    sha256 "28e18b196650002c5c40c8cd6e38ecf26d16a5525f7d9ff9e2e3fe6dbfb9e17a" => :el_capitan
-    sha256 "c8479dbc6d2eaea9a8fd6e5273d571e517cf260bd04468930aa24b185802bd8a" => :yosemite
+    sha256 cellar: :any, big_sur:     "358f4578b7a5fb09569411c4ac192314e2fa082aeb14cba604f2275ed888b72a"
+    sha256 cellar: :any, catalina:    "7dff42459bf1ab33b0938f062d42c1857cb8274d1935f356b4f7dec76aac865c"
+    sha256 cellar: :any, mojave:      "ba3e83fc0bf7a58166f2c4449b0f0d4590b5902ac2072ece48b9ca5eed13429a"
+    sha256 cellar: :any, high_sierra: "7a1c4ac8748a9c9013d6d6e50bd04b024e092dd718c878a0b7bcde3d9ca51a97"
+    sha256 cellar: :any, sierra:      "bba8555de1a81fb92de544d77dc62fbe03e005b1b371d16127472890b7697503"
+    sha256 cellar: :any, el_capitan:  "28e18b196650002c5c40c8cd6e38ecf26d16a5525f7d9ff9e2e3fe6dbfb9e17a"
+    sha256 cellar: :any, yosemite:    "c8479dbc6d2eaea9a8fd6e5273d571e517cf260bd04468930aa24b185802bd8a"
   end
 
   depends_on "pkg-config" => :build

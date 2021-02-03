@@ -10,14 +10,14 @@ class Avanor < Formula
   end
 
   bottle do
-    sha256 "fe8fbd3aed29fc9c50753000036d9c13b5e8732f687d71b061d954e83517d403" => :big_sur
-    sha256 "6c2ae364f9e7c7ce1f3876a4ce9acb53489e9a17221646f004895ccd239e4646" => :arm64_big_sur
-    sha256 "ecaf9be2ed4f7fac2f5cff16be121214bbbfd44477a5f3f5287ce26da94fed3e" => :catalina
-    sha256 "ca4aef9b5bceb8f3dddd89f58846f4d9cfbddf2f108a7e8e39d262e92ea9bac4" => :mojave
-    sha256 "d99615cac684c32894df532e78452b2542ba857ce69fa58d39e54bcc2fe4ca4a" => :high_sierra
-    sha256 "848e96ed26b258042b77a3c2139398b8e6f62722719263c082fb4c6655ffd4bc" => :sierra
-    sha256 "a66b436a645cafa77a5bd79d22f314ff2b9331526f5efeaf79d38346647cad66" => :el_capitan
-    sha256 "1c12fd7f45993d18b481d3317594083e4bb88f0eecf100d4b5dd4a927c866200" => :yosemite
+    sha256 arm64_big_sur: "6c2ae364f9e7c7ce1f3876a4ce9acb53489e9a17221646f004895ccd239e4646"
+    sha256 big_sur:       "fe8fbd3aed29fc9c50753000036d9c13b5e8732f687d71b061d954e83517d403"
+    sha256 catalina:      "ecaf9be2ed4f7fac2f5cff16be121214bbbfd44477a5f3f5287ce26da94fed3e"
+    sha256 mojave:        "ca4aef9b5bceb8f3dddd89f58846f4d9cfbddf2f108a7e8e39d262e92ea9bac4"
+    sha256 high_sierra:   "d99615cac684c32894df532e78452b2542ba857ce69fa58d39e54bcc2fe4ca4a"
+    sha256 sierra:        "848e96ed26b258042b77a3c2139398b8e6f62722719263c082fb4c6655ffd4bc"
+    sha256 el_capitan:    "a66b436a645cafa77a5bd79d22f314ff2b9331526f5efeaf79d38346647cad66"
+    sha256 yosemite:      "1c12fd7f45993d18b481d3317594083e4bb88f0eecf100d4b5dd4a927c866200"
   end
 
   # Upstream fix for clang: https://sourceforge.net/p/avanor/code/133/

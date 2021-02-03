@@ -7,11 +7,10 @@ class RedisAT40 < Formula
   revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "9fc3b7faf01a898eced32a7bdef0030d52198a0dbee5ce124d9578d0d5156021" => :big_sur
-    sha256 "a3da3a3af97a3ca5c36c2399defd06e6cbbd0b105980b2d626f224e384adc017" => :catalina
-    sha256 "3cbcec571f8c420f2f6daacbef87ed462229f31e4d189be36bee7795a25fc050" => :mojave
-    sha256 "e2c6a35a448d8a5bc23182d07a499e7005681d522131253d9087de9c091ba8f5" => :high_sierra
+    sha256 cellar: :any_skip_relocation, big_sur:     "9fc3b7faf01a898eced32a7bdef0030d52198a0dbee5ce124d9578d0d5156021"
+    sha256 cellar: :any_skip_relocation, catalina:    "a3da3a3af97a3ca5c36c2399defd06e6cbbd0b105980b2d626f224e384adc017"
+    sha256 cellar: :any_skip_relocation, mojave:      "3cbcec571f8c420f2f6daacbef87ed462229f31e4d189be36bee7795a25fc050"
+    sha256 cellar: :any_skip_relocation, high_sierra: "e2c6a35a448d8a5bc23182d07a499e7005681d522131253d9087de9c091ba8f5"
   end
 
   keg_only :versioned_formula

@@ -5,16 +5,15 @@ class Alac < Formula
   sha256 "7f8f978a5619e6dfa03dc140994fd7255008d788af848ba6acf9cfbaa3e4122f"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "8d6293bbacf08bada008f799f03c6ea3265dd48bd5c81d77d042e4a3bedcf84f" => :big_sur
-    sha256 "3d12d2c7b28c99fba529faea181dc91a04ea469e68607f9e3263c082dcb5cde4" => :arm64_big_sur
-    sha256 "0cb8439e4028ea823fb442559c12365bae08499a142ad46d0c89f010f9eb7e5d" => :catalina
-    sha256 "ffc34867982b3a942be2bfa1c9a561bc85270871b029c45a16fc11ffae899603" => :mojave
-    sha256 "17bffb09018ddf7d96258b99860d75fb9a203037a356cb0f2e4c6c4520cdc4c3" => :high_sierra
-    sha256 "3c833c71834ea65498c761d4fe444a26e97e107433de526ab55ad1fb0d36a2ba" => :sierra
-    sha256 "4cb85c125553c6c2a49576790c5be5e0b89096569131df3b8576f3499e65ef5a" => :el_capitan
-    sha256 "a3a54a254a147f3a1173870bdd2e9399043b3e506d8c04383f99cf3ce67a4fca" => :yosemite
-    sha256 "20cca431ce69d7eb2e5d894ebbfffdbc633eef2b3447be6d0afdb7c25cac8c0e" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3d12d2c7b28c99fba529faea181dc91a04ea469e68607f9e3263c082dcb5cde4"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8d6293bbacf08bada008f799f03c6ea3265dd48bd5c81d77d042e4a3bedcf84f"
+    sha256 cellar: :any_skip_relocation, catalina:      "0cb8439e4028ea823fb442559c12365bae08499a142ad46d0c89f010f9eb7e5d"
+    sha256 cellar: :any_skip_relocation, mojave:        "ffc34867982b3a942be2bfa1c9a561bc85270871b029c45a16fc11ffae899603"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "17bffb09018ddf7d96258b99860d75fb9a203037a356cb0f2e4c6c4520cdc4c3"
+    sha256 cellar: :any_skip_relocation, sierra:        "3c833c71834ea65498c761d4fe444a26e97e107433de526ab55ad1fb0d36a2ba"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "4cb85c125553c6c2a49576790c5be5e0b89096569131df3b8576f3499e65ef5a"
+    sha256 cellar: :any_skip_relocation, yosemite:      "a3a54a254a147f3a1173870bdd2e9399043b3e506d8c04383f99cf3ce67a4fca"
+    sha256 cellar: :any_skip_relocation, mavericks:     "20cca431ce69d7eb2e5d894ebbfffdbc633eef2b3447be6d0afdb7c25cac8c0e"
   end
 
   def install

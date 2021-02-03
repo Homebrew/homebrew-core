@@ -7,10 +7,9 @@ class ProtobufSwift < Formula
   revision 2
 
   bottle do
-    cellar :any
-    sha256 "25b96487d0f0d21de51d379e8d81e2dcc9eaf0252e779c9b340de0d089918f26" => :mojave
-    sha256 "33f57aa9d49598a5101de975b92507964493da967b7a3738e91a64dd8a663180" => :high_sierra
-    sha256 "42327634f717f0f9276d61af56df6a4595eea57f17d779f405703fdecae55bed" => :sierra
+    sha256 cellar: :any, mojave:      "25b96487d0f0d21de51d379e8d81e2dcc9eaf0252e779c9b340de0d089918f26"
+    sha256 cellar: :any, high_sierra: "33f57aa9d49598a5101de975b92507964493da967b7a3738e91a64dd8a663180"
+    sha256 cellar: :any, sierra:      "42327634f717f0f9276d61af56df6a4595eea57f17d779f405703fdecae55bed"
   end
 
   # https://github.com/Homebrew/homebrew-core/pull/54471#issuecomment-627430555

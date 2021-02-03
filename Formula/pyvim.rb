@@ -13,12 +13,11 @@ class Pyvim < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "868ee3749fceb49de0999143f39ba0514a5c719631df8dc7439097b3a0589884" => :big_sur
-    sha256 "4ec73945e19de8974e4ec0fa0b4c3e4ec636eb5e34bb6eb9302ed9766c34d60e" => :arm64_big_sur
-    sha256 "3ecf8e98474fabad21f04c32a9e746e608f4574a3041135093c9dfd4e333cd19" => :catalina
-    sha256 "08cb6c9665bb39e581cd28cd3aad2971c8100735d0361382b98a910344bec2ff" => :mojave
-    sha256 "28c123775817e3cf99d29ec4cb466efd46805731d29b46629a5b67e0a1dff690" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4ec73945e19de8974e4ec0fa0b4c3e4ec636eb5e34bb6eb9302ed9766c34d60e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "868ee3749fceb49de0999143f39ba0514a5c719631df8dc7439097b3a0589884"
+    sha256 cellar: :any_skip_relocation, catalina:      "3ecf8e98474fabad21f04c32a9e746e608f4574a3041135093c9dfd4e333cd19"
+    sha256 cellar: :any_skip_relocation, mojave:        "08cb6c9665bb39e581cd28cd3aad2971c8100735d0361382b98a910344bec2ff"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "28c123775817e3cf99d29ec4cb466efd46805731d29b46629a5b67e0a1dff690"
   end
 
   depends_on "python@3.9"

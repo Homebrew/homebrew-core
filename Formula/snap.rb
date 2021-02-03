@@ -12,12 +12,11 @@ class Snap < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "9cb1d7db5a7f7854fecedf029d130977238a0ed9a8a32a4454225712d3542878" => :big_sur
-    sha256 "736643f2e11f651d081b6515f04127c3bca06afb4b86734436d45534abead197" => :arm64_big_sur
-    sha256 "f60a56adf86fdc4c86b5d38b47f21c52e0459612c9ed7ae15905a4c838e51787" => :catalina
-    sha256 "febbdc8548096fb9d0159c8b7cbaa4281ba8b868625264b254aab3ce4d2b7924" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "736643f2e11f651d081b6515f04127c3bca06afb4b86734436d45534abead197"
+    sha256 cellar: :any_skip_relocation, big_sur:       "9cb1d7db5a7f7854fecedf029d130977238a0ed9a8a32a4454225712d3542878"
+    sha256 cellar: :any_skip_relocation, catalina:      "f60a56adf86fdc4c86b5d38b47f21c52e0459612c9ed7ae15905a4c838e51787"
+    sha256 cellar: :any_skip_relocation, mojave:        "febbdc8548096fb9d0159c8b7cbaa4281ba8b868625264b254aab3ce4d2b7924"
   end
 
   depends_on "go" => :build

@@ -12,12 +12,11 @@ class A52dec < Formula
   end
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "f5b95a6c1f7758e29cc04160d3635fce074c6c527cb3ac209877d8e4d1b4935c" => :big_sur
-    sha256 "a9a4752a7b6d4872abf06a725a44b94d1701e4621c0e4226002e371df53ff366" => :arm64_big_sur
-    sha256 "949600b627a44697bc12713538c5aed594fc8201694f5c453c8ca5f9f8cd335a" => :catalina
-    sha256 "a47f3248a481d224edcbec3e266793ff73f2e94bb607732df2166a0c6f442596" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "a9a4752a7b6d4872abf06a725a44b94d1701e4621c0e4226002e371df53ff366"
+    sha256 cellar: :any, big_sur:       "f5b95a6c1f7758e29cc04160d3635fce074c6c527cb3ac209877d8e4d1b4935c"
+    sha256 cellar: :any, catalina:      "949600b627a44697bc12713538c5aed594fc8201694f5c453c8ca5f9f8cd335a"
+    sha256 cellar: :any, mojave:        "a47f3248a481d224edcbec3e266793ff73f2e94bb607732df2166a0c6f442596"
   end
 
   def install

@@ -10,12 +10,11 @@ class Libdazzle < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "fa2282bdb8556341d8fdb814ced63d41a5936b7c2905c8e6f0f3e98c4d0b54da" => :big_sur
-    sha256 "ef5f9dca4635b3347a8fda8285b55bd63b274ed51e6df5320ed3d61780b3bbab" => :arm64_big_sur
-    sha256 "889b2107f7efceabc760c6e96f1a55c00765cf67a7d5d54a821f1d33e5b0db01" => :catalina
-    sha256 "53c268508a5ef7ff874bb1b52069c240f80f99fd26fd2074066556b6ce095a81" => :mojave
-    sha256 "837eb4ed3f32a9512d6d7efde4ef1ea858009ab7db9a5093285b41387a538e9d" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "ef5f9dca4635b3347a8fda8285b55bd63b274ed51e6df5320ed3d61780b3bbab"
+    sha256 cellar: :any, big_sur:       "fa2282bdb8556341d8fdb814ced63d41a5936b7c2905c8e6f0f3e98c4d0b54da"
+    sha256 cellar: :any, catalina:      "889b2107f7efceabc760c6e96f1a55c00765cf67a7d5d54a821f1d33e5b0db01"
+    sha256 cellar: :any, mojave:        "53c268508a5ef7ff874bb1b52069c240f80f99fd26fd2074066556b6ce095a81"
+    sha256 cellar: :any, high_sierra:   "837eb4ed3f32a9512d6d7efde4ef1ea858009ab7db9a5093285b41387a538e9d"
   end
 
   depends_on "gobject-introspection" => :build

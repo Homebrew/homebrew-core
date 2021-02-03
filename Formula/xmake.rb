@@ -8,10 +8,10 @@ class Xmake < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, big_sur: "1056810f311df733789d9bcdd6a8381019db4f620ef2ac0e684df45048123d6c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "7031171595fd4a98fadeff92ed6310e18f88220d9fb2852a170a0c952b7fea30"
-    sha256 cellar: :any_skip_relocation, catalina: "af687b62d4a9d802d91ce6793c1b186d31aef77baeea1bf873b2accae8205f0d"
-    sha256 cellar: :any_skip_relocation, mojave: "832eef81f79a01ed8af0cfe6a75ea5dc3ecff56edb60c42ea0991809ec80b49b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1056810f311df733789d9bcdd6a8381019db4f620ef2ac0e684df45048123d6c"
+    sha256 cellar: :any_skip_relocation, catalina:      "af687b62d4a9d802d91ce6793c1b186d31aef77baeea1bf873b2accae8205f0d"
+    sha256 cellar: :any_skip_relocation, mojave:        "832eef81f79a01ed8af0cfe6a75ea5dc3ecff56edb60c42ea0991809ec80b49b"
   end
 
   on_linux do

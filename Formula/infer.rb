@@ -13,11 +13,10 @@ class Infer < Formula
   end
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "1dc9c75c759611c8fe0efa8f63d7e55bbaa35d8dc2863f7a527069b11759f244" => :catalina
-    sha256 "74b2dddff2bea362066395e28a797078d33514774511cc64771d0f89eea2466d" => :mojave
-    sha256 "7630571f8e391ce0ba991ffe7a5d7b2b4a1029cda1d56497800d8ae0a260d4b6" => :high_sierra
+    sha256 cellar: :any, catalina:    "1dc9c75c759611c8fe0efa8f63d7e55bbaa35d8dc2863f7a527069b11759f244"
+    sha256 cellar: :any, mojave:      "74b2dddff2bea362066395e28a797078d33514774511cc64771d0f89eea2466d"
+    sha256 cellar: :any, high_sierra: "7630571f8e391ce0ba991ffe7a5d7b2b4a1029cda1d56497800d8ae0a260d4b6"
   end
 
   deprecate! date: "2020-11-13", because: :does_not_build

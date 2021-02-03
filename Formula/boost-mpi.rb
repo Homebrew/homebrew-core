@@ -9,10 +9,10 @@ class BoostMpi < Formula
 
   bottle do
     rebuild 1
-    sha256 "94e6a5f93cb4c9f225e8efdeee54aec07f8a440d515cb49f4ebbfa836154b09d" => :big_sur
-    sha256 "1e3acbc5248b962a5d82eb8edb1e3ffef905cc52106a28d46c46f2b68d24e293" => :arm64_big_sur
-    sha256 "4b9073178ad5d46e4770e58bf12323b725dd3053a1afa1d872202120ce1dcd28" => :catalina
-    sha256 "c44780bc2bc1ee6c58717f2c4c20f01a00c027f6c035ddeb7ac90e5eaf122dc8" => :mojave
+    sha256 arm64_big_sur: "1e3acbc5248b962a5d82eb8edb1e3ffef905cc52106a28d46c46f2b68d24e293"
+    sha256 big_sur:       "94e6a5f93cb4c9f225e8efdeee54aec07f8a440d515cb49f4ebbfa836154b09d"
+    sha256 catalina:      "4b9073178ad5d46e4770e58bf12323b725dd3053a1afa1d872202120ce1dcd28"
+    sha256 mojave:        "c44780bc2bc1ee6c58717f2c4c20f01a00c027f6c035ddeb7ac90e5eaf122dc8"
   end
 
   # Test with cmake to avoid issues like:

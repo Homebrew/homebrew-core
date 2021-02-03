@@ -7,10 +7,10 @@ class Flint < Formula
   head "https://github.com/wbhart/flint2.git", branch: "trunk"
 
   bottle do
-    sha256 "c49c7f2e195411a78c7e6d0b29dc2b532be8f501158d53b0c5f32bf270e20794" => :big_sur
-    sha256 "68bd7a3053ac5e8363ca0128fea147a9866ae9d6af31a0b2876cb29f9f5b96a3" => :arm64_big_sur
-    sha256 "09ed48e46ae65d153f1c0014dac7b83436280a7a236bd305b8e82c86762d7777" => :catalina
-    sha256 "f41f76595678bd2f16dc46ceeb1524c089b931f9f65fe6c826272ce703d36283" => :mojave
+    sha256 arm64_big_sur: "68bd7a3053ac5e8363ca0128fea147a9866ae9d6af31a0b2876cb29f9f5b96a3"
+    sha256 big_sur:       "c49c7f2e195411a78c7e6d0b29dc2b532be8f501158d53b0c5f32bf270e20794"
+    sha256 catalina:      "09ed48e46ae65d153f1c0014dac7b83436280a7a236bd305b8e82c86762d7777"
+    sha256 mojave:        "f41f76595678bd2f16dc46ceeb1524c089b931f9f65fe6c826272ce703d36283"
   end
 
   depends_on "gmp"

@@ -7,9 +7,9 @@ class Profanity < Formula
 
   bottle do
     rebuild 1
-    sha256 "c997a1e4dd8e64b5cef0a457b734831f84741b45d8d630aa81a89f231499bd42" => :big_sur
-    sha256 "aea5848ba083a0cabee58d7c8bf09220c193287d144321374207cd913d88d397" => :catalina
-    sha256 "c146f06dbe713c3e762e0c4ec9ca3c056b6fdb71d641e8905ce9a76ef90ce1eb" => :mojave
+    sha256 big_sur:  "c997a1e4dd8e64b5cef0a457b734831f84741b45d8d630aa81a89f231499bd42"
+    sha256 catalina: "aea5848ba083a0cabee58d7c8bf09220c193287d144321374207cd913d88d397"
+    sha256 mojave:   "c146f06dbe713c3e762e0c4ec9ca3c056b6fdb71d641e8905ce9a76ef90ce1eb"
   end
 
   head do

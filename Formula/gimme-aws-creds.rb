@@ -13,11 +13,10 @@ class GimmeAwsCreds < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "7d85cf718164805994d15fbf28459f7a3a4217ddac7273f72b739a7d4716fe92" => :big_sur
-    sha256 "19457fe5cf9ac9b6e02d3fbc16bd5bc2f27dbb48d4ac013d6fd84f14cb372ca8" => :arm64_big_sur
-    sha256 "e5d20df1622fc3d9e71afaab90953693635cff0a178a3ee7fb1ab8e10d421373" => :catalina
-    sha256 "47e3dc09b4a4c6208f89592d324ba9e26089e81fa104986444989e850ca4daef" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "19457fe5cf9ac9b6e02d3fbc16bd5bc2f27dbb48d4ac013d6fd84f14cb372ca8"
+    sha256 cellar: :any, big_sur:       "7d85cf718164805994d15fbf28459f7a3a4217ddac7273f72b739a7d4716fe92"
+    sha256 cellar: :any, catalina:      "e5d20df1622fc3d9e71afaab90953693635cff0a178a3ee7fb1ab8e10d421373"
+    sha256 cellar: :any, mojave:        "47e3dc09b4a4c6208f89592d324ba9e26089e81fa104986444989e850ca4daef"
   end
 
   depends_on "python@3.9"

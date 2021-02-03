@@ -13,10 +13,9 @@ class Creduce < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "d460655f84c09cc178e1d678bf0efc517dd10d1a0d8ad3d1c4688d94dac35bde" => :catalina
-    sha256 "4af71fc62c556bb79a9013e23769d307a70df3db07b8f96b51870be05791b238" => :mojave
-    sha256 "04a55dcc4bb5ff291e902317955fa5bb5de5c9aab603d917851cdbd1288bdb11" => :high_sierra
+    sha256 cellar: :any, catalina:    "d460655f84c09cc178e1d678bf0efc517dd10d1a0d8ad3d1c4688d94dac35bde"
+    sha256 cellar: :any, mojave:      "4af71fc62c556bb79a9013e23769d307a70df3db07b8f96b51870be05791b238"
+    sha256 cellar: :any, high_sierra: "04a55dcc4bb5ff291e902317955fa5bb5de5c9aab603d917851cdbd1288bdb11"
   end
 
   depends_on "astyle"

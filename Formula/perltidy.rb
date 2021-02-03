@@ -11,11 +11,10 @@ class Perltidy < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "b2faf9f6bad9fd3057e64235d9e21b3ccdc43142e32e82dc6bfa1ef87d1c49dd" => :big_sur
-    sha256 "54e4729027c5da8ce8cd34b6d85e4a148984fc6ab7525f8433a4d660e8001bc6" => :arm64_big_sur
-    sha256 "160dc31f00f4bdb67ee28102c8e44497d1d2ac2e364edd822e9ee7e4275a61cf" => :catalina
-    sha256 "c1a7f1eb5fccd061b53c88312e4573302d3ea0b7a443aa7addae078cc1e5251c" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "54e4729027c5da8ce8cd34b6d85e4a148984fc6ab7525f8433a4d660e8001bc6"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b2faf9f6bad9fd3057e64235d9e21b3ccdc43142e32e82dc6bfa1ef87d1c49dd"
+    sha256 cellar: :any_skip_relocation, catalina:      "160dc31f00f4bdb67ee28102c8e44497d1d2ac2e364edd822e9ee7e4275a61cf"
+    sha256 cellar: :any_skip_relocation, mojave:        "c1a7f1eb5fccd061b53c88312e4573302d3ea0b7a443aa7addae078cc1e5251c"
   end
 
   uses_from_macos "perl"

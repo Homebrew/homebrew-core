@@ -9,16 +9,15 @@ class Lolcode < Formula
   head "https://github.com/justinmeza/lolcode.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "0fe2dd80ac746019da7ebba97a43f010c54ac64fcdff6d87dffffd1e06b43dd3" => :big_sur
-    sha256 "3da1a3ea810fb481b1a6e3e62f81fa5a24ce593b2f69630d6b523a63449531c8" => :arm64_big_sur
-    sha256 "546e86a771457249146ea07ff5669f0e19bd26b3d3e3818ed33925497ae6cfda" => :catalina
-    sha256 "766522d1d3730e62d1a05e54962b0493db19d62a3cd7ce66328861630508c4ee" => :mojave
-    sha256 "e6cb7d51d26fe4b54f41a14bf183216bb9ca87a6d0b8db25ebf55e64227ac5aa" => :high_sierra
-    sha256 "47b268e8334d901868a6498738772b1c776fe34ab249befa702658489e53dff9" => :sierra
-    sha256 "74920cea828644c7ad0fe3b12ee5c9a4c06a46ec37c2826280327e37e30f5513" => :el_capitan
-    sha256 "571a57a0fa8b60aac62ce3a358c0b123efcd2af9ec4004c51194c549ad8dd3f1" => :yosemite
-    sha256 "9159a0b5f907f400f7e233c026579568dd2c6a98d952fde2759f84cb52101508" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3da1a3ea810fb481b1a6e3e62f81fa5a24ce593b2f69630d6b523a63449531c8"
+    sha256 cellar: :any_skip_relocation, big_sur:       "0fe2dd80ac746019da7ebba97a43f010c54ac64fcdff6d87dffffd1e06b43dd3"
+    sha256 cellar: :any_skip_relocation, catalina:      "546e86a771457249146ea07ff5669f0e19bd26b3d3e3818ed33925497ae6cfda"
+    sha256 cellar: :any_skip_relocation, mojave:        "766522d1d3730e62d1a05e54962b0493db19d62a3cd7ce66328861630508c4ee"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "e6cb7d51d26fe4b54f41a14bf183216bb9ca87a6d0b8db25ebf55e64227ac5aa"
+    sha256 cellar: :any_skip_relocation, sierra:        "47b268e8334d901868a6498738772b1c776fe34ab249befa702658489e53dff9"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "74920cea828644c7ad0fe3b12ee5c9a4c06a46ec37c2826280327e37e30f5513"
+    sha256 cellar: :any_skip_relocation, yosemite:      "571a57a0fa8b60aac62ce3a358c0b123efcd2af9ec4004c51194c549ad8dd3f1"
+    sha256 cellar: :any_skip_relocation, mavericks:     "9159a0b5f907f400f7e233c026579568dd2c6a98d952fde2759f84cb52101508"
   end
 
   depends_on "cmake" => :build

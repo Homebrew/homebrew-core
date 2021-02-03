@@ -7,10 +7,10 @@ class Ttyd < Formula
   head "https://github.com/tsl0922/ttyd.git"
 
   bottle do
-    sha256 "a02e04e5aa70943d5998c5e75c49a82037725d205560391c89987cfdfb397472" => :big_sur
-    sha256 "f7627069a2b82aa5a279fb5b3ac54ac4da377c1b26a70998d3ebd6822e0cf266" => :arm64_big_sur
-    sha256 "c915f944862f3db3e74444db19a8df4e0f045f826877b1a1abad8f366c57b1a9" => :catalina
-    sha256 "b3e8614d3b270121d85fae679016c68fe0f2c633d538dde1daa7887d1137cbeb" => :mojave
+    sha256 arm64_big_sur: "f7627069a2b82aa5a279fb5b3ac54ac4da377c1b26a70998d3ebd6822e0cf266"
+    sha256 big_sur:       "a02e04e5aa70943d5998c5e75c49a82037725d205560391c89987cfdfb397472"
+    sha256 catalina:      "c915f944862f3db3e74444db19a8df4e0f045f826877b1a1abad8f366c57b1a9"
+    sha256 mojave:        "b3e8614d3b270121d85fae679016c68fe0f2c633d538dde1daa7887d1137cbeb"
   end
 
   depends_on "cmake" => :build

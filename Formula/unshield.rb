@@ -8,12 +8,12 @@ class Unshield < Formula
   head "https://github.com/twogood/unshield.git"
 
   bottle do
-    sha256 "fe9c9710de87f7734c84e3454ba88a2c35b859fb8b8dfae56968c3c0bb4e76fc" => :big_sur
-    sha256 "d12579d6ed702bf8d4b9a37f45b6d9c527c88e60d648d935d93c969d0b6b78df" => :arm64_big_sur
-    sha256 "d64e0c93743d7d50858bd5c46c76b8fa79183b5ee4643361202f53378a88cc05" => :catalina
-    sha256 "ec5db176e7f9557645cfdb63062802d37a8e516f39f1e53037e37ed398992b3b" => :mojave
-    sha256 "c68a5391b55e5101979c69d174160564d88edc7263afa140fd69ce289c6662ed" => :high_sierra
-    sha256 "96cc0aa68d191d1bc98d09a48abaa44b58b4e979bfcec3b2abc384c30d56684d" => :sierra
+    sha256 arm64_big_sur: "d12579d6ed702bf8d4b9a37f45b6d9c527c88e60d648d935d93c969d0b6b78df"
+    sha256 big_sur:       "fe9c9710de87f7734c84e3454ba88a2c35b859fb8b8dfae56968c3c0bb4e76fc"
+    sha256 catalina:      "d64e0c93743d7d50858bd5c46c76b8fa79183b5ee4643361202f53378a88cc05"
+    sha256 mojave:        "ec5db176e7f9557645cfdb63062802d37a8e516f39f1e53037e37ed398992b3b"
+    sha256 high_sierra:   "c68a5391b55e5101979c69d174160564d88edc7263afa140fd69ce289c6662ed"
+    sha256 sierra:        "96cc0aa68d191d1bc98d09a48abaa44b58b4e979bfcec3b2abc384c30d56684d"
   end
 
   depends_on "cmake" => :build

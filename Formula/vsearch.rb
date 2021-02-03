@@ -6,11 +6,10 @@ class Vsearch < Formula
   license any_of: ["BSD-2-Clause", "GPL-3.0-or-later"]
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "6801f717e69fb4c30da5fa87c54bd2e19e05af88f7b08b8efbf0df0444a6ef15" => :big_sur
-    sha256 "4d94291e05b0e22797c10612563c129aa0095843459eeb98d2ff96292dcd9e28" => :arm64_big_sur
-    sha256 "907ea4fbfaae550577d4f9569e7602bc55668fc8a0f0594907f69ab2ce80b25f" => :catalina
-    sha256 "f0a8d4c30ce9921d29d574266c83bfd47ec4a0d8e7428790ca82a07b410f0deb" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4d94291e05b0e22797c10612563c129aa0095843459eeb98d2ff96292dcd9e28"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6801f717e69fb4c30da5fa87c54bd2e19e05af88f7b08b8efbf0df0444a6ef15"
+    sha256 cellar: :any_skip_relocation, catalina:      "907ea4fbfaae550577d4f9569e7602bc55668fc8a0f0594907f69ab2ce80b25f"
+    sha256 cellar: :any_skip_relocation, mojave:        "f0a8d4c30ce9921d29d574266c83bfd47ec4a0d8e7428790ca82a07b410f0deb"
   end
 
   depends_on "autoconf" => :build

@@ -11,13 +11,12 @@ class Opus < Formula
   end
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "cffbcfe03bf3d0e6a9b9b301dc0ea71974ab6f49e1ab66dd7895679367ecf156" => :big_sur
-    sha256 "e278b9182301daf80621269defffede5d134765b2c907cb921fff44d00ea9fe7" => :arm64_big_sur
-    sha256 "5cb191f66da0ef2b8d03985c79cb18a59506aaba8a01cc0b1a821c293e88d576" => :catalina
-    sha256 "21fa4c22a63bccc5e188dabb9c85af63a57d19582c4f616716bccb063e2befec" => :mojave
-    sha256 "8b45ac09baae56bdc2c7ee224d5a1ae68efb826a9aec2220e0b27e8ce633b8aa" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "e278b9182301daf80621269defffede5d134765b2c907cb921fff44d00ea9fe7"
+    sha256 cellar: :any, big_sur:       "cffbcfe03bf3d0e6a9b9b301dc0ea71974ab6f49e1ab66dd7895679367ecf156"
+    sha256 cellar: :any, catalina:      "5cb191f66da0ef2b8d03985c79cb18a59506aaba8a01cc0b1a821c293e88d576"
+    sha256 cellar: :any, mojave:        "21fa4c22a63bccc5e188dabb9c85af63a57d19582c4f616716bccb063e2befec"
+    sha256 cellar: :any, high_sierra:   "8b45ac09baae56bdc2c7ee224d5a1ae68efb826a9aec2220e0b27e8ce633b8aa"
   end
 
   head do

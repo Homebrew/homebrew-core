@@ -11,11 +11,10 @@ class TaskSpooler < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "0ee61ba4a007adce01bfe9d70b025770ba444b016a40271241db9a86f82ef505" => :big_sur
-    sha256 "acccbd91c0a28354e0e5cfa448b84e65b56cdc3183037608d88426ce42361b42" => :arm64_big_sur
-    sha256 "095b74d3cbad466cf63f40b1fb26face89ea2e9046d377fb8fc5e05eb9293012" => :catalina
-    sha256 "ced31018d86983a844fd5a4d0ba2f0b390ba78b4c9840c0f1a2f8cddfd4242b1" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "acccbd91c0a28354e0e5cfa448b84e65b56cdc3183037608d88426ce42361b42"
+    sha256 cellar: :any_skip_relocation, big_sur:       "0ee61ba4a007adce01bfe9d70b025770ba444b016a40271241db9a86f82ef505"
+    sha256 cellar: :any_skip_relocation, catalina:      "095b74d3cbad466cf63f40b1fb26face89ea2e9046d377fb8fc5e05eb9293012"
+    sha256 cellar: :any_skip_relocation, mojave:        "ced31018d86983a844fd5a4d0ba2f0b390ba78b4c9840c0f1a2f8cddfd4242b1"
   end
 
   conflicts_with "moreutils", because: "both install a `ts` executable"

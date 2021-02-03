@@ -11,9 +11,9 @@ class Ghc < Formula
   end
 
   bottle do
-    sha256 "5ed34f95506b09b1b722fbcbb2ab050854d1ade4dcc6c6b5a3220fd9f78a76f6" => :big_sur
-    sha256 "1259e7d41e9ba1c89f648e412d12c70f4472f96ba969741c116c157239699d9d" => :catalina
-    sha256 "eb32eeadb989c83317d8509764f8c3584df9c7f5c168d930e074f24630c94969" => :mojave
+    sha256 big_sur:  "5ed34f95506b09b1b722fbcbb2ab050854d1ade4dcc6c6b5a3220fd9f78a76f6"
+    sha256 catalina: "1259e7d41e9ba1c89f648e412d12c70f4472f96ba969741c116c157239699d9d"
+    sha256 mojave:   "eb32eeadb989c83317d8509764f8c3584df9c7f5c168d930e074f24630c94969"
   end
 
   depends_on "python@3.9" => :build

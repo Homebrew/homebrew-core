@@ -8,12 +8,11 @@ class JingTrang < Formula
   revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "fbfaf15a1309a394ba34f78a6fd28062e56c05d0f118061031cb84a1f0cd2695" => :big_sur
-    sha256 "0a3f51890fe283b8408e95ecad3b5a6b0d9708fc73b4b6427cb333d08d8b4464" => :arm64_big_sur
-    sha256 "1448a797ce37ead9d47b398a2c96af6da95acecf60532fd9edc302a1468308a3" => :catalina
-    sha256 "10424ca3b36b8219a58894bb23a29ce3abf67feb4a18e7f03a3daf2c328d459b" => :mojave
-    sha256 "7d7c7ba57430d123a9b53e8f4f9e7427d1ab2c1fb0b37149572cd4dc5eb1ddeb" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0a3f51890fe283b8408e95ecad3b5a6b0d9708fc73b4b6427cb333d08d8b4464"
+    sha256 cellar: :any_skip_relocation, big_sur:       "fbfaf15a1309a394ba34f78a6fd28062e56c05d0f118061031cb84a1f0cd2695"
+    sha256 cellar: :any_skip_relocation, catalina:      "1448a797ce37ead9d47b398a2c96af6da95acecf60532fd9edc302a1468308a3"
+    sha256 cellar: :any_skip_relocation, mojave:        "10424ca3b36b8219a58894bb23a29ce3abf67feb4a18e7f03a3daf2c328d459b"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "7d7c7ba57430d123a9b53e8f4f9e7427d1ab2c1fb0b37149572cd4dc5eb1ddeb"
   end
 
   depends_on "ant" => :build

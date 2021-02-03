@@ -14,11 +14,10 @@ class Supervisor < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "248bad901b7e19631fb4d228a8e921d0f52002bce4aa9349c60b9643ab668376" => :big_sur
-    sha256 "687ab3e1017d97838e1ae06bd4899d02b675e0be80baf61a37cd8e89f1f86061" => :arm64_big_sur
-    sha256 "67ef6d809ef2058a6276ef58e1f0d7f7f4608ab52ab79c3dcce52b6427629b77" => :catalina
-    sha256 "f65972b734ff88f1acc25967b1639ae847d6895f6af79a2330db99a3ccf5a1ed" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "687ab3e1017d97838e1ae06bd4899d02b675e0be80baf61a37cd8e89f1f86061"
+    sha256 cellar: :any_skip_relocation, big_sur:       "248bad901b7e19631fb4d228a8e921d0f52002bce4aa9349c60b9643ab668376"
+    sha256 cellar: :any_skip_relocation, catalina:      "67ef6d809ef2058a6276ef58e1f0d7f7f4608ab52ab79c3dcce52b6427629b77"
+    sha256 cellar: :any_skip_relocation, mojave:        "f65972b734ff88f1acc25967b1639ae847d6895f6af79a2330db99a3ccf5a1ed"
   end
 
   depends_on "python@3.9"

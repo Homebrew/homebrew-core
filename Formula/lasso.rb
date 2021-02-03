@@ -7,12 +7,11 @@ class Lasso < Formula
   revision 1
 
   bottle do
-    cellar :any
-    sha256 "83fa7671b9b8635dbf79c5db616d72c0f8d53ca543a508effd4bf628f46af26e" => :big_sur
-    sha256 "aef8a4d9b81790ff84aad53da1c7d9a582ac69db8d775d930a30444174e186dc" => :arm64_big_sur
-    sha256 "bc1f4dc6fccff1c5631d37b4539d2d9a657357445488ce892756feccf98f660b" => :catalina
-    sha256 "d4bfe838fe8fd0b32ff7e19a4601c85a3b98a49ed8e1f05dc796ed5adf89005b" => :mojave
-    sha256 "8256178a39f08386db515226b334a93f895cb8d96c043acfe1a8d420efbb668f" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "aef8a4d9b81790ff84aad53da1c7d9a582ac69db8d775d930a30444174e186dc"
+    sha256 cellar: :any, big_sur:       "83fa7671b9b8635dbf79c5db616d72c0f8d53ca543a508effd4bf628f46af26e"
+    sha256 cellar: :any, catalina:      "bc1f4dc6fccff1c5631d37b4539d2d9a657357445488ce892756feccf98f660b"
+    sha256 cellar: :any, mojave:        "d4bfe838fe8fd0b32ff7e19a4601c85a3b98a49ed8e1f05dc796ed5adf89005b"
+    sha256 cellar: :any, high_sierra:   "8256178a39f08386db515226b334a93f895cb8d96c043acfe1a8d420efbb668f"
   end
 
   depends_on "pkg-config" => :build

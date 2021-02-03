@@ -7,11 +7,10 @@ class Amp < Formula
   head "https://github.com/jmacdonald/amp.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "01ab2e28990824907fdeed4ac093f2f42a9719c21cbc0ebe655406b77a24b44e" => :big_sur
-    sha256 "6d91e4902ead60e50e7dd5b7faed62a4f41999433b321e2b48682d8e8f057f2c" => :catalina
-    sha256 "59f96770d9e4e166c6eabfb359ada98c41edece8b2fbb877b4e855977445aaa2" => :mojave
-    sha256 "96ed5e0a0ba3d05358c840ee0ca157d75ca5f4613fc0e152465806d9950bfa9e" => :high_sierra
+    sha256 cellar: :any_skip_relocation, big_sur:     "01ab2e28990824907fdeed4ac093f2f42a9719c21cbc0ebe655406b77a24b44e"
+    sha256 cellar: :any_skip_relocation, catalina:    "6d91e4902ead60e50e7dd5b7faed62a4f41999433b321e2b48682d8e8f057f2c"
+    sha256 cellar: :any_skip_relocation, mojave:      "59f96770d9e4e166c6eabfb359ada98c41edece8b2fbb877b4e855977445aaa2"
+    sha256 cellar: :any_skip_relocation, high_sierra: "96ed5e0a0ba3d05358c840ee0ca157d75ca5f4613fc0e152465806d9950bfa9e"
   end
 
   depends_on "cmake" => :build

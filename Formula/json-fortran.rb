@@ -7,11 +7,10 @@ class JsonFortran < Formula
   head "https://github.com/jacobwilliams/json-fortran.git"
 
   bottle do
-    cellar :any
-    sha256 "af1867b20867ccea69da9d21eeb7ec2649b76dbdffc092da138bbe23e4bb1801" => :big_sur
-    sha256 "7ac0a95d90734c8288c8cb423e3c4c6664e817993a7e426ca27c3806e3726c1a" => :arm64_big_sur
-    sha256 "d2d543adde373aa91e71598e3cde564ab0607ef2545a4d5873784c505e1b3dcd" => :catalina
-    sha256 "68883cd0e3b1ec90239ca124711ba48d4c50f284384248088038ac0545504218" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "7ac0a95d90734c8288c8cb423e3c4c6664e817993a7e426ca27c3806e3726c1a"
+    sha256 cellar: :any, big_sur:       "af1867b20867ccea69da9d21eeb7ec2649b76dbdffc092da138bbe23e4bb1801"
+    sha256 cellar: :any, catalina:      "d2d543adde373aa91e71598e3cde564ab0607ef2545a4d5873784c505e1b3dcd"
+    sha256 cellar: :any, mojave:        "68883cd0e3b1ec90239ca124711ba48d4c50f284384248088038ac0545504218"
   end
 
   depends_on "cmake" => :build

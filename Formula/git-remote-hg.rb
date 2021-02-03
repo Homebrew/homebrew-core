@@ -10,10 +10,9 @@ class GitRemoteHg < Formula
   head "https://github.com/felipec/git-remote-hg.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "efcac93a209213486fcf837f83b364b6325adefba09493551e3e6017e669aa9f" => :catalina
-    sha256 "3903ddefc5ed6142943aa33ba298ac51d054159f0c401bcde044934494202a19" => :mojave
-    sha256 "1380e5053a25462f27d9be329840b6dda55b08e01b70ed6c581f3c625c7b332d" => :high_sierra
+    sha256 cellar: :any_skip_relocation, catalina:    "efcac93a209213486fcf837f83b364b6325adefba09493551e3e6017e669aa9f"
+    sha256 cellar: :any_skip_relocation, mojave:      "3903ddefc5ed6142943aa33ba298ac51d054159f0c401bcde044934494202a19"
+    sha256 cellar: :any_skip_relocation, high_sierra: "1380e5053a25462f27d9be329840b6dda55b08e01b70ed6c581f3c625c7b332d"
   end
 
   depends_on "asciidoc" => :build

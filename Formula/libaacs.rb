@@ -6,12 +6,11 @@ class Libaacs < Formula
   license "LGPL-2.1"
 
   bottle do
-    cellar :any
-    sha256 "edf22602c987a889624eb8feb1ef3c13b8bbbb2397af0d4334379992c85b492b" => :big_sur
-    sha256 "dcbccde309919c3349987341fda3259e218549d5ec5c34c38c628ff6ada98bce" => :arm64_big_sur
-    sha256 "74f17ba980a3b1d763f09869541542716979e8fe8e6ee299a00a9d5fe68bbb5b" => :catalina
-    sha256 "97fbb158456e2b35633e387e239a5ccc5e90041a0bba15a139dbf32ea4de872b" => :mojave
-    sha256 "6ac467398d3fb886cee220bd7724f1341631b1ac31220e3ee504d687347a731f" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "dcbccde309919c3349987341fda3259e218549d5ec5c34c38c628ff6ada98bce"
+    sha256 cellar: :any, big_sur:       "edf22602c987a889624eb8feb1ef3c13b8bbbb2397af0d4334379992c85b492b"
+    sha256 cellar: :any, catalina:      "74f17ba980a3b1d763f09869541542716979e8fe8e6ee299a00a9d5fe68bbb5b"
+    sha256 cellar: :any, mojave:        "97fbb158456e2b35633e387e239a5ccc5e90041a0bba15a139dbf32ea4de872b"
+    sha256 cellar: :any, high_sierra:   "6ac467398d3fb886cee220bd7724f1341631b1ac31220e3ee504d687347a731f"
   end
 
   head do

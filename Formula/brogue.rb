@@ -10,12 +10,11 @@ class Brogue < Formula
   sha256 "a74ff18139564c597d047cfb167f74ab1963dd8608b6fb2e034e7635d6170444"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "ba18162358c18f1f9bf064d49b3fcd7371f00f3aa3b6da129d169106b068aef7" => :big_sur
-    sha256 "065e96899c94736b5072b2f3aeb20a6f559f4d734730ff6bbc9bdd9d0f6eba3b" => :arm64_big_sur
-    sha256 "2f5111318faeb8c710f6100706900f7c38e29f8cb90b06181ac5d95c784e8adf" => :catalina
-    sha256 "c2171ad8115933295cde771bbe71e144d1c142c30224ada41aecbf70dcf3d239" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "065e96899c94736b5072b2f3aeb20a6f559f4d734730ff6bbc9bdd9d0f6eba3b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ba18162358c18f1f9bf064d49b3fcd7371f00f3aa3b6da129d169106b068aef7"
+    sha256 cellar: :any_skip_relocation, catalina:      "2f5111318faeb8c710f6100706900f7c38e29f8cb90b06181ac5d95c784e8adf"
+    sha256 cellar: :any_skip_relocation, mojave:        "c2171ad8115933295cde771bbe71e144d1c142c30224ada41aecbf70dcf3d239"
   end
 
   uses_from_macos "ncurses"

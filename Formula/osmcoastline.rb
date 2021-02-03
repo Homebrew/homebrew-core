@@ -6,10 +6,9 @@ class Osmcoastline < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    cellar :any
-    sha256 "484435d2e38ed650ac0244a4de44a1ab857db1f25f2270fa2e4809fb8873d24a" => :big_sur
-    sha256 "c3777d42b345383e5a4949bc00b388d71a6b5e20695cc959bfd958d4b07885a1" => :catalina
-    sha256 "6830542a881dd0b7aedd8af1a9c9d62b882d4f4e3eff66929a31e5592e23ea8a" => :mojave
+    sha256 cellar: :any, big_sur:  "484435d2e38ed650ac0244a4de44a1ab857db1f25f2270fa2e4809fb8873d24a"
+    sha256 cellar: :any, catalina: "c3777d42b345383e5a4949bc00b388d71a6b5e20695cc959bfd958d4b07885a1"
+    sha256 cellar: :any, mojave:   "6830542a881dd0b7aedd8af1a9c9d62b882d4f4e3eff66929a31e5592e23ea8a"
   end
 
   depends_on "cmake" => :build

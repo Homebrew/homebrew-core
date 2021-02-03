@@ -13,10 +13,9 @@ class Mpich < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "3927047d7322310cef941a5e790c43b858a29716bea54d493bd1901b8d0bcb3d" => :catalina
-    sha256 "44511bb2ad213ccc7e47a505895cf6aa4dbdd1a7dbba468095a130e83ca7bff3" => :mojave
-    sha256 "0498e1ee125ed94a3822179663e552ecf29bdca1ae3837520284fadae3782cef" => :high_sierra
+    sha256 cellar: :any, catalina:    "3927047d7322310cef941a5e790c43b858a29716bea54d493bd1901b8d0bcb3d"
+    sha256 cellar: :any, mojave:      "44511bb2ad213ccc7e47a505895cf6aa4dbdd1a7dbba468095a130e83ca7bff3"
+    sha256 cellar: :any, high_sierra: "0498e1ee125ed94a3822179663e552ecf29bdca1ae3837520284fadae3782cef"
   end
 
   head do

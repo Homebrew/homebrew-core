@@ -10,10 +10,10 @@ class SimpleScan < Formula
   end
 
   bottle do
-    sha256 "4716cff5e9a7afdf63f20dc2603cbf0fd103a4df285ce5caf40dc64dad842c09" => :big_sur
-    sha256 "600fdb2b30c0b8749af1fd896142541c4e438d271f5ab0f5766a8b4269337c4d" => :arm64_big_sur
-    sha256 "03b95a0e68d590e76186741ff20e569c7d655153565ade06aee89f1f2cf140ae" => :catalina
-    sha256 "3ffe9a4c286b228958c210feb818c2b39fe36f1a587adf150005a36a49e002bf" => :mojave
+    sha256 arm64_big_sur: "600fdb2b30c0b8749af1fd896142541c4e438d271f5ab0f5766a8b4269337c4d"
+    sha256 big_sur:       "4716cff5e9a7afdf63f20dc2603cbf0fd103a4df285ce5caf40dc64dad842c09"
+    sha256 catalina:      "03b95a0e68d590e76186741ff20e569c7d655153565ade06aee89f1f2cf140ae"
+    sha256 mojave:        "3ffe9a4c286b228958c210feb818c2b39fe36f1a587adf150005a36a49e002bf"
   end
 
   depends_on "itstool" => :build

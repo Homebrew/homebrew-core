@@ -6,11 +6,10 @@ class Karn < Formula
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "bdcf0389352b56c208549750ec502a1bfc01c02c0466c981abfcace027cc479b" => :big_sur
-    sha256 "9fff2a71abf62d3eaedba7d095e3fcfd9fbaa17895dab15fabefc4cd2d5a8725" => :arm64_big_sur
-    sha256 "6f9d3e100d55f950b54ee3ada80008209a1f61aefe62ae7f171e9615554b2f93" => :catalina
-    sha256 "4d676e8bc136599f4ec3ef0d6cb604b003ced4a0537c190ea430d5b0ca8609cf" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9fff2a71abf62d3eaedba7d095e3fcfd9fbaa17895dab15fabefc4cd2d5a8725"
+    sha256 cellar: :any_skip_relocation, big_sur:       "bdcf0389352b56c208549750ec502a1bfc01c02c0466c981abfcace027cc479b"
+    sha256 cellar: :any_skip_relocation, catalina:      "6f9d3e100d55f950b54ee3ada80008209a1f61aefe62ae7f171e9615554b2f93"
+    sha256 cellar: :any_skip_relocation, mojave:        "4d676e8bc136599f4ec3ef0d6cb604b003ced4a0537c190ea430d5b0ca8609cf"
   end
 
   depends_on "go" => :build

@@ -11,12 +11,11 @@ class Makedepend < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "8be31010fad5fc4f86055643bfd592123dbd68ebb4780458dbc40004709504a8" => :big_sur
-    sha256 "be8d84dee070f1d7da53aa291443b056136e67906ff29368ba56366d00b5dfc2" => :arm64_big_sur
-    sha256 "afe76789b5f01ccfee8cc0d4ffa308015fb5d8791a1d7ce6b2dc1ee4bf2a020f" => :catalina
-    sha256 "a25fb9fd3ce11f6b98da2c53fad8f046174697087f5f34664999afb9df5f41de" => :mojave
-    sha256 "0f463e197923867ff9387b2ccd1461d4b410e89205bd3896ae98c5d52679c4c8" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "be8d84dee070f1d7da53aa291443b056136e67906ff29368ba56366d00b5dfc2"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8be31010fad5fc4f86055643bfd592123dbd68ebb4780458dbc40004709504a8"
+    sha256 cellar: :any_skip_relocation, catalina:      "afe76789b5f01ccfee8cc0d4ffa308015fb5d8791a1d7ce6b2dc1ee4bf2a020f"
+    sha256 cellar: :any_skip_relocation, mojave:        "a25fb9fd3ce11f6b98da2c53fad8f046174697087f5f34664999afb9df5f41de"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "0f463e197923867ff9387b2ccd1461d4b410e89205bd3896ae98c5d52679c4c8"
   end
 
   depends_on "pkg-config" => :build

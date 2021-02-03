@@ -8,12 +8,11 @@ class Gnirehtet < Formula
   head "https://github.com/Genymobile/gnirehtet.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c81db3a1b9c0c6ebbe81ebca2ffd111f97d6eda2cff2cb92955cc8c42abcce63" => :big_sur
-    sha256 "7fd56faf93c88c65df43599e0dda5c7d3044e6b1dee05ef535d6eff42b558684" => :arm64_big_sur
-    sha256 "6f65def77cc1708e7a1ae8e85dfe2cbede4717225e8a5c2f7a9f09c8271282f3" => :catalina
-    sha256 "7ebc9b16c6d6856be8604388d4ca2bfc9cc2c4ec02e255f1a462be681283c6e8" => :mojave
-    sha256 "a57d5039af819db991968751511a63874cd0c20d1d10fe106ef92e83b216eb38" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7fd56faf93c88c65df43599e0dda5c7d3044e6b1dee05ef535d6eff42b558684"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c81db3a1b9c0c6ebbe81ebca2ffd111f97d6eda2cff2cb92955cc8c42abcce63"
+    sha256 cellar: :any_skip_relocation, catalina:      "6f65def77cc1708e7a1ae8e85dfe2cbede4717225e8a5c2f7a9f09c8271282f3"
+    sha256 cellar: :any_skip_relocation, mojave:        "7ebc9b16c6d6856be8604388d4ca2bfc9cc2c4ec02e255f1a462be681283c6e8"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "a57d5039af819db991968751511a63874cd0c20d1d10fe106ef92e83b216eb38"
   end
 
   depends_on "rust" => :build

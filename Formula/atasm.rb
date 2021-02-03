@@ -7,12 +7,11 @@ class Atasm < Formula
   license "GPL-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "88e14d4779b2bd0437988d9525b5a5f7cca8ce76334bc89780a19acb539de225" => :big_sur
-    sha256 "5e039ac5553f6b2dc4e02871041ce1cc7fb4030f90d6601c381ff3060f9c8f2a" => :arm64_big_sur
-    sha256 "8f142806b05036e541ef3fec3009d481423f451cbcd99e6be68ae5095cfa205e" => :catalina
-    sha256 "7a2437b5a0adf8047fc75a20fb669d2d80b15d261eab0ec0ad5c7d74b9123a2b" => :mojave
-    sha256 "b9eb26201949590ab8fce80ee3feabe7f0be2f611e7c60b6b456c8d78480680c" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5e039ac5553f6b2dc4e02871041ce1cc7fb4030f90d6601c381ff3060f9c8f2a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "88e14d4779b2bd0437988d9525b5a5f7cca8ce76334bc89780a19acb539de225"
+    sha256 cellar: :any_skip_relocation, catalina:      "8f142806b05036e541ef3fec3009d481423f451cbcd99e6be68ae5095cfa205e"
+    sha256 cellar: :any_skip_relocation, mojave:        "7a2437b5a0adf8047fc75a20fb669d2d80b15d261eab0ec0ad5c7d74b9123a2b"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "b9eb26201949590ab8fce80ee3feabe7f0be2f611e7c60b6b456c8d78480680c"
   end
 
   uses_from_macos "zlib"

@@ -7,14 +7,13 @@ class GitIntegration < Formula
   head "https://github.com/johnkeeping/git-integration.git"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "404013683ac61ff782e7844fa971ba3a872d9462c64b82140bcc53fb7eaffad5" => :big_sur
-    sha256 "c9a9061562b7dc26dd939fc1b87c73de47ada2b464831c34487aee34de3a4d0e" => :arm64_big_sur
-    sha256 "fb8287c4f092454a224bcc948821610f64b790d14e8befe4db9f3d441e2caab3" => :catalina
-    sha256 "96f0e7501667f2951628535f307efe672aa51daeb8af2509e0f04d06eb22b0e6" => :mojave
-    sha256 "30757baa47338aaa0e43240237d1dfefc1b59e397b55f36d5b7176ca978d7698" => :high_sierra
-    sha256 "30757baa47338aaa0e43240237d1dfefc1b59e397b55f36d5b7176ca978d7698" => :sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c9a9061562b7dc26dd939fc1b87c73de47ada2b464831c34487aee34de3a4d0e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "404013683ac61ff782e7844fa971ba3a872d9462c64b82140bcc53fb7eaffad5"
+    sha256 cellar: :any_skip_relocation, catalina:      "fb8287c4f092454a224bcc948821610f64b790d14e8befe4db9f3d441e2caab3"
+    sha256 cellar: :any_skip_relocation, mojave:        "96f0e7501667f2951628535f307efe672aa51daeb8af2509e0f04d06eb22b0e6"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "30757baa47338aaa0e43240237d1dfefc1b59e397b55f36d5b7176ca978d7698"
+    sha256 cellar: :any_skip_relocation, sierra:        "30757baa47338aaa0e43240237d1dfefc1b59e397b55f36d5b7176ca978d7698"
   end
 
   def install

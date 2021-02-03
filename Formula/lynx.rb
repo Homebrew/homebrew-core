@@ -13,12 +13,12 @@ class Lynx < Formula
   end
 
   bottle do
-    sha256 "a3b88b08c22efa2c898573395a253e1ddcb3fb90888ef963c00f9e5b69cd1aa1" => :big_sur
-    sha256 "c79e9528464e79e45a7ece951ffaa5304e988f294234172ccb59b3cb9f0a2fec" => :arm64_big_sur
-    sha256 "b7b36f0697736fc1744026c18968bec4d5c1433356678e853d734406f9dc3612" => :catalina
-    sha256 "3b4c3a636d19106a2fea571889a4159fd49b82fbd2694c206d4851b15281fddd" => :mojave
-    sha256 "68eb083eff0962b83dc121e9194d430d4e9c2eb7d559cb998ba992da9b566479" => :high_sierra
-    sha256 "b8ee13323a4e8760f21a82da3b579d3373e282398ff7efe56c7ec8ae9cb0d064" => :sierra
+    sha256 arm64_big_sur: "c79e9528464e79e45a7ece951ffaa5304e988f294234172ccb59b3cb9f0a2fec"
+    sha256 big_sur:       "a3b88b08c22efa2c898573395a253e1ddcb3fb90888ef963c00f9e5b69cd1aa1"
+    sha256 catalina:      "b7b36f0697736fc1744026c18968bec4d5c1433356678e853d734406f9dc3612"
+    sha256 mojave:        "3b4c3a636d19106a2fea571889a4159fd49b82fbd2694c206d4851b15281fddd"
+    sha256 high_sierra:   "68eb083eff0962b83dc121e9194d430d4e9c2eb7d559cb998ba992da9b566479"
+    sha256 sierra:        "b8ee13323a4e8760f21a82da3b579d3373e282398ff7efe56c7ec8ae9cb0d064"
   end
 
   depends_on "openssl@1.1"

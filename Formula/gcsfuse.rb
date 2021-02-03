@@ -7,10 +7,9 @@ class Gcsfuse < Formula
   head "https://github.com/GoogleCloudPlatform/gcsfuse.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "59df52ee1b44a532d2ebe8c83d0c9d2d3706da8510c9daf0b53d46c3aa156664" => :catalina
-    sha256 "a97edf4dbfa9e41d2e9d4de092507c9d5199de2324b0d95f454c50893d977889" => :mojave
-    sha256 "e0f04b45a7fe6583e424fc81a7c34dace7b01e215739758930b6baab14d3d50c" => :high_sierra
+    sha256 cellar: :any_skip_relocation, catalina:    "59df52ee1b44a532d2ebe8c83d0c9d2d3706da8510c9daf0b53d46c3aa156664"
+    sha256 cellar: :any_skip_relocation, mojave:      "a97edf4dbfa9e41d2e9d4de092507c9d5199de2324b0d95f454c50893d977889"
+    sha256 cellar: :any_skip_relocation, high_sierra: "e0f04b45a7fe6583e424fc81a7c34dace7b01e215739758930b6baab14d3d50c"
   end
 
   depends_on "go" => :build

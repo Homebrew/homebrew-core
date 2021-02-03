@@ -9,11 +9,10 @@ class ProtocGenGrpcWeb < Formula
   revision 1
 
   bottle do
-    cellar :any
-    sha256 "0ad66a3cf6e5132dc51920722e2213f50ebc57c843d7120dd07636896ac09a03" => :big_sur
-    sha256 "ab78bbc2a63768bd68930eccdb773a18d77a456f84162f5d14260a67e4df333c" => :arm64_big_sur
-    sha256 "26bc7c5c83a68b2fdd4b031807b410bffc9ce03619a0b75e228ddbcd058c467e" => :catalina
-    sha256 "b8b91ccdca4ea4d0014ea5ef890391c1e3ec88d10f1abcfa04cb0fabd99733c9" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "ab78bbc2a63768bd68930eccdb773a18d77a456f84162f5d14260a67e4df333c"
+    sha256 cellar: :any, big_sur:       "0ad66a3cf6e5132dc51920722e2213f50ebc57c843d7120dd07636896ac09a03"
+    sha256 cellar: :any, catalina:      "26bc7c5c83a68b2fdd4b031807b410bffc9ce03619a0b75e228ddbcd058c467e"
+    sha256 cellar: :any, mojave:        "b8b91ccdca4ea4d0014ea5ef890391c1e3ec88d10f1abcfa04cb0fabd99733c9"
   end
 
   depends_on "cmake" => :build

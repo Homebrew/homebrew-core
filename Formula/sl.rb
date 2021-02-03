@@ -7,16 +7,15 @@ class Sl < Formula
   head "https://github.com/mtoyoda/sl.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "0300afadf35bb67efe622add3f7a928bf123dd855e37376e278052b4787e65d4" => :big_sur
-    sha256 "d8ab2f34483a0a595350f949b1a0a4386b3836ce624245365c7bce6664bb283a" => :arm64_big_sur
-    sha256 "31b8e67d984635b74aec3a5b47b6145789ed9c09d065751cac862eec1386502d" => :catalina
-    sha256 "e489648bcc7eff8f065855dcc891eb55f3793a5ff464d96726e313a1bc74d00f" => :mojave
-    sha256 "627b0b5f8027f876466d03038da7dd0d75804cccc3bbcf45f0fe9c91199be3c3" => :high_sierra
-    sha256 "afd30cb3a99d238a8ac52810834244d5f47fc2ff597db9ad61012bd2014395b9" => :sierra
-    sha256 "f186cb86f4d48929aa671434dbd6be0a861069608098a30dc952697bcca85972" => :el_capitan
-    sha256 "696104243a18e08279d461e66e6a696791e6c36b67df43e361ad6f6de1200440" => :yosemite
-    sha256 "c7d4432bfc169f7338eeb0c8300a975495b229d6e85bfff4fdd6bbd11eb8da17" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d8ab2f34483a0a595350f949b1a0a4386b3836ce624245365c7bce6664bb283a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "0300afadf35bb67efe622add3f7a928bf123dd855e37376e278052b4787e65d4"
+    sha256 cellar: :any_skip_relocation, catalina:      "31b8e67d984635b74aec3a5b47b6145789ed9c09d065751cac862eec1386502d"
+    sha256 cellar: :any_skip_relocation, mojave:        "e489648bcc7eff8f065855dcc891eb55f3793a5ff464d96726e313a1bc74d00f"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "627b0b5f8027f876466d03038da7dd0d75804cccc3bbcf45f0fe9c91199be3c3"
+    sha256 cellar: :any_skip_relocation, sierra:        "afd30cb3a99d238a8ac52810834244d5f47fc2ff597db9ad61012bd2014395b9"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "f186cb86f4d48929aa671434dbd6be0a861069608098a30dc952697bcca85972"
+    sha256 cellar: :any_skip_relocation, yosemite:      "696104243a18e08279d461e66e6a696791e6c36b67df43e361ad6f6de1200440"
+    sha256 cellar: :any_skip_relocation, mavericks:     "c7d4432bfc169f7338eeb0c8300a975495b229d6e85bfff4fdd6bbd11eb8da17"
   end
 
   uses_from_macos "ncurses"

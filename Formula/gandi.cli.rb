@@ -13,12 +13,11 @@ class GandiCli < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "759533fa634716deecb668eddf22df0e4f2afb23120733ab1726a2ca51e10903" => :big_sur
-    sha256 "7fd3804eb7e0e2a60c5b3a66fe7dae07d473b92981a0386a4f0249601a2f34b2" => :arm64_big_sur
-    sha256 "727a9e7a6b1097d103b93edd2c65675d246a46fe8dbda706e686dc9c6da30958" => :catalina
-    sha256 "edbce322c908304cd7cb672b8c5e6baaab8ada8f35e52f10ad5c6153fb57958c" => :mojave
-    sha256 "7adc68fbfb603f633d86c336220d743a5686bb0ab02e4b6f3ca37118c05c33be" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7fd3804eb7e0e2a60c5b3a66fe7dae07d473b92981a0386a4f0249601a2f34b2"
+    sha256 cellar: :any_skip_relocation, big_sur:       "759533fa634716deecb668eddf22df0e4f2afb23120733ab1726a2ca51e10903"
+    sha256 cellar: :any_skip_relocation, catalina:      "727a9e7a6b1097d103b93edd2c65675d246a46fe8dbda706e686dc9c6da30958"
+    sha256 cellar: :any_skip_relocation, mojave:        "edbce322c908304cd7cb672b8c5e6baaab8ada8f35e52f10ad5c6153fb57958c"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "7adc68fbfb603f633d86c336220d743a5686bb0ab02e4b6f3ca37118c05c33be"
   end
 
   depends_on "python@3.9"

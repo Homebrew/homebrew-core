@@ -10,10 +10,10 @@ class Gstreamermm < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur: "2b46f0bc113d6125e1823d24365a8c4c664576de16db5ad3ce2e2a0157b1f99a"
     sha256 cellar: :any, arm64_big_sur: "ccfdabeca639a0c10260c232dc8f4a24af5fc7b4b8c9e5befee65be29314dbb1"
-    sha256 cellar: :any, catalina: "f65023da1c10400540a04a1bb422f42342406d013e89a1344a04778283824eb8"
-    sha256 cellar: :any, mojave: "d5cbb27b618ded15a4b8dd132195307927a03358a88575e4934d7b0da0148e75"
+    sha256 cellar: :any, big_sur:       "2b46f0bc113d6125e1823d24365a8c4c664576de16db5ad3ce2e2a0157b1f99a"
+    sha256 cellar: :any, catalina:      "f65023da1c10400540a04a1bb422f42342406d013e89a1344a04778283824eb8"
+    sha256 cellar: :any, mojave:        "d5cbb27b618ded15a4b8dd132195307927a03358a88575e4934d7b0da0148e75"
   end
 
   depends_on "pkg-config" => :build

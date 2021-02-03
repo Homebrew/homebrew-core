@@ -9,15 +9,14 @@ class Ninvaders < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "f4b326a63fb608eee71916a19751837d8cc98167b32ffd11b4f0328fcce82a5c" => :big_sur
-    sha256 "641248bbd6c7f8895dd3c6f42ce68f047db05864354ef772b7c2490c9ddced5d" => :arm64_big_sur
-    sha256 "fc5a1eb5df34f13a6d63777b20ec5fea7a8a0351e8f9b8561e6ec95c42ced2c2" => :catalina
-    sha256 "4cb75493161c6153611c727bef8837c6c41fbd5db8872239d682cabadc7d2311" => :mojave
-    sha256 "75247d901255b6fba826ca60d909b5bb1c349c969b98f65275c898ca45b32b7c" => :high_sierra
-    sha256 "3de94522f9f6f5560e1e6f354470aef0c46de68792fd93bd2b044d45db8328c6" => :sierra
-    sha256 "b2d4f23349e2214d5a0c8b51218974b0f8b2704d333f1bca19ca4b4539e2b9f1" => :el_capitan
-    sha256 "fc7369a82b14fa5879d2e072ac7ceaa1b6b7bd6cabd163e6bea8adb3a5670b80" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "641248bbd6c7f8895dd3c6f42ce68f047db05864354ef772b7c2490c9ddced5d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f4b326a63fb608eee71916a19751837d8cc98167b32ffd11b4f0328fcce82a5c"
+    sha256 cellar: :any_skip_relocation, catalina:      "fc5a1eb5df34f13a6d63777b20ec5fea7a8a0351e8f9b8561e6ec95c42ced2c2"
+    sha256 cellar: :any_skip_relocation, mojave:        "4cb75493161c6153611c727bef8837c6c41fbd5db8872239d682cabadc7d2311"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "75247d901255b6fba826ca60d909b5bb1c349c969b98f65275c898ca45b32b7c"
+    sha256 cellar: :any_skip_relocation, sierra:        "3de94522f9f6f5560e1e6f354470aef0c46de68792fd93bd2b044d45db8328c6"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "b2d4f23349e2214d5a0c8b51218974b0f8b2704d333f1bca19ca4b4539e2b9f1"
+    sha256 cellar: :any_skip_relocation, yosemite:      "fc7369a82b14fa5879d2e072ac7ceaa1b6b7bd6cabd163e6bea8adb3a5670b80"
   end
 
   def install

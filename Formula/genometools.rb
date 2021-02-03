@@ -9,12 +9,11 @@ class Genometools < Formula
   head "https://github.com/genometools/genometools.git"
 
   bottle do
-    cellar :any
-    sha256 "5a78346ddcbc387c855086ddd5dc3572b03c08b37364025e99e8e3d13ef62746" => :big_sur
-    sha256 "24dfec7e6f01320e9138d4f9a33bcff280238912e7394eeae02342bf2242f01c" => :arm64_big_sur
-    sha256 "707d87995a1fd3153e9020630b8645f35b387ec0610950dcbcc61da8afb172e0" => :catalina
-    sha256 "f2d6eba092bf144f8184ce648af3e75a2097359eda4efa7c9eabf314a30d00d1" => :mojave
-    sha256 "5606993111552191b2e9215b06665bf0043c9851a6dd60c9927a32c94d0b2d4b" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "24dfec7e6f01320e9138d4f9a33bcff280238912e7394eeae02342bf2242f01c"
+    sha256 cellar: :any, big_sur:       "5a78346ddcbc387c855086ddd5dc3572b03c08b37364025e99e8e3d13ef62746"
+    sha256 cellar: :any, catalina:      "707d87995a1fd3153e9020630b8645f35b387ec0610950dcbcc61da8afb172e0"
+    sha256 cellar: :any, mojave:        "f2d6eba092bf144f8184ce648af3e75a2097359eda4efa7c9eabf314a30d00d1"
+    sha256 cellar: :any, high_sierra:   "5606993111552191b2e9215b06665bf0043c9851a6dd60c9927a32c94d0b2d4b"
   end
 
   depends_on "pkg-config" => :build

@@ -11,12 +11,12 @@ class Hercules < Formula
   end
 
   bottle do
-    sha256 "a499a1f1bcd830c4adcc099f791eef857f583e8d8603ced8087b179ea0dbf640" => :big_sur
-    sha256 "2ba0ca1b3ed54b5fa9e782cd1d8e225f58203e32b29b98af642932ed0fddbf1b" => :catalina
-    sha256 "893e8854c92794377f2fc0b6cd96ad7f7ffd3d153a0a1678c6227468067d3696" => :mojave
-    sha256 "f1feaf922ae9105c64ba207bc9e2d9b573ddcae8b6feaba501a6daf3068e9901" => :high_sierra
-    sha256 "a9ca5fff16a7aa506e2067d7bad9bbb8c54ede7af0e1102150f5d385a7097e9d" => :sierra
-    sha256 "cf3d8203cb207792e0c800aadc86ee78714795316e936870f5a4ceae53bfdacc" => :el_capitan
+    sha256 big_sur:     "a499a1f1bcd830c4adcc099f791eef857f583e8d8603ced8087b179ea0dbf640"
+    sha256 catalina:    "2ba0ca1b3ed54b5fa9e782cd1d8e225f58203e32b29b98af642932ed0fddbf1b"
+    sha256 mojave:      "893e8854c92794377f2fc0b6cd96ad7f7ffd3d153a0a1678c6227468067d3696"
+    sha256 high_sierra: "f1feaf922ae9105c64ba207bc9e2d9b573ddcae8b6feaba501a6daf3068e9901"
+    sha256 sierra:      "a9ca5fff16a7aa506e2067d7bad9bbb8c54ede7af0e1102150f5d385a7097e9d"
+    sha256 el_capitan:  "cf3d8203cb207792e0c800aadc86ee78714795316e936870f5a4ceae53bfdacc"
   end
 
   head do

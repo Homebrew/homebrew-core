@@ -24,10 +24,10 @@ class ClangFormat < Formula
 
   bottle do
     rebuild 2
-    sha256 cellar: :any_skip_relocation, big_sur: "a2a124fe20d721ad490731dad173da4c7a57d635792739680a45c40cecd48409"
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "bc823d2b0fe175abfecaf85f913035a4a27cec9054a2f094608f295f1a040069"
-    sha256 cellar: :any_skip_relocation, catalina: "c2a08aaf48ea39e832f9460c42c75b87f1296dc5c9360888a9eb297e3fd1ce28"
-    sha256 cellar: :any_skip_relocation, mojave: "37a27e538177b4d9b44eeb6d7749301eba4422763994189cc50f1e2c6cc21344"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a2a124fe20d721ad490731dad173da4c7a57d635792739680a45c40cecd48409"
+    sha256 cellar: :any_skip_relocation, catalina:      "c2a08aaf48ea39e832f9460c42c75b87f1296dc5c9360888a9eb297e3fd1ce28"
+    sha256 cellar: :any_skip_relocation, mojave:        "37a27e538177b4d9b44eeb6d7749301eba4422763994189cc50f1e2c6cc21344"
   end
 
   depends_on "cmake" => :build

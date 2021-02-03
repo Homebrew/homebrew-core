@@ -6,11 +6,10 @@ class Utf8cpp < Formula
   license "BSL-1.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "4a8248499ba22f0297020be8647f9a31601f288a67301618f2d53b1dd323c75a" => :big_sur
-    sha256 "1a2e11d78a9dc402debeddd7ece934e3474f5d14c13919b4ec1d7648bbc1a5dc" => :arm64_big_sur
-    sha256 "a0fa75e69c89763a208e702c4c9c60199596305db62666940a15cecd65de2a2e" => :catalina
-    sha256 "d90fa3e80a1b718889cc44d54a55790051bd919f3733ad124fdab15ea16ed9c6" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1a2e11d78a9dc402debeddd7ece934e3474f5d14c13919b4ec1d7648bbc1a5dc"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4a8248499ba22f0297020be8647f9a31601f288a67301618f2d53b1dd323c75a"
+    sha256 cellar: :any_skip_relocation, catalina:      "a0fa75e69c89763a208e702c4c9c60199596305db62666940a15cecd65de2a2e"
+    sha256 cellar: :any_skip_relocation, mojave:        "d90fa3e80a1b718889cc44d54a55790051bd919f3733ad124fdab15ea16ed9c6"
   end
 
   depends_on "cmake" => [:build, :test]

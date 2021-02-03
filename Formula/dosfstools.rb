@@ -7,10 +7,10 @@ class Dosfstools < Formula
   head "https://github.com/dosfstools/dosfstools.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur: "c4f450bef47449fa57d911e1c3610cd65bf8d7fd661e3efc8a0a44c7d45510f5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "3d8437b8921385c7675d2502c0c7b746f060e6b1656923e061173d568927f34d"
-    sha256 cellar: :any_skip_relocation, catalina: "df9afee3d6ec3da028a6fdd487b98800099f8aa248261c35ed2821e984b91a70"
-    sha256 cellar: :any_skip_relocation, mojave: "4d910d3f83352692379e5ead97f3c52ab845cc187a1d791f655ed02ef7b7b9e6"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c4f450bef47449fa57d911e1c3610cd65bf8d7fd661e3efc8a0a44c7d45510f5"
+    sha256 cellar: :any_skip_relocation, catalina:      "df9afee3d6ec3da028a6fdd487b98800099f8aa248261c35ed2821e984b91a70"
+    sha256 cellar: :any_skip_relocation, mojave:        "4d910d3f83352692379e5ead97f3c52ab845cc187a1d791f655ed02ef7b7b9e6"
   end
 
   depends_on "autoconf" => :build

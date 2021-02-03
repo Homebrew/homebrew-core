@@ -11,12 +11,11 @@ class Daemontools < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "2de015542410e14eb8e17bb9affc37f19fc81e7005e4bec60ecd64c13629b02a" => :big_sur
-    sha256 "4970abde6563bd8fa9cae9478b81d241ce0ad0c4d1504aa84269c55ccb45a499" => :arm64_big_sur
-    sha256 "0a39db96c9e2926beea8224ca844264d4ddec3b6561d5dfc019f3ecfd7cc86fe" => :catalina
-    sha256 "6516ee63288eab3eab3ee418ce070d711f483a5f6ebc147cb7039a9404bbaa0a" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4970abde6563bd8fa9cae9478b81d241ce0ad0c4d1504aa84269c55ccb45a499"
+    sha256 cellar: :any_skip_relocation, big_sur:       "2de015542410e14eb8e17bb9affc37f19fc81e7005e4bec60ecd64c13629b02a"
+    sha256 cellar: :any_skip_relocation, catalina:      "0a39db96c9e2926beea8224ca844264d4ddec3b6561d5dfc019f3ecfd7cc86fe"
+    sha256 cellar: :any_skip_relocation, mojave:        "6516ee63288eab3eab3ee418ce070d711f483a5f6ebc147cb7039a9404bbaa0a"
   end
 
   def install

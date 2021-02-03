@@ -10,10 +10,10 @@ class Ngspice < Formula
   end
 
   bottle do
-    sha256 big_sur: "6f8f86cccb6242f21a09359f1009344acadcd7d7726766327019e4e5a0ad5655"
     sha256 arm64_big_sur: "b7e6619a5f7f1b951b0464d4fa18cba7a5d933ec85eccbeb47c67cf22f817520"
-    sha256 catalina: "9dd5b4b1e8164e5b35729838237e68c61d44c94c3aa5209e2613e9ab659f3e0d"
-    sha256 mojave: "0003f68a5390917cd6e0c6b5179a22b02f6fccd0b1f4a359ad17cdd831c456ad"
+    sha256 big_sur:       "6f8f86cccb6242f21a09359f1009344acadcd7d7726766327019e4e5a0ad5655"
+    sha256 catalina:      "9dd5b4b1e8164e5b35729838237e68c61d44c94c3aa5209e2613e9ab659f3e0d"
+    sha256 mojave:        "0003f68a5390917cd6e0c6b5179a22b02f6fccd0b1f4a359ad17cdd831c456ad"
   end
 
   head do

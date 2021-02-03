@@ -9,11 +9,10 @@ class Tracebox < Formula
   head "https://github.com/tracebox/tracebox.git"
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "b972c4ea4a3c130bb45f8b9a97441ea3e9b7aae20de0c1c33d5e1a19596825c1" => :big_sur
-    sha256 "cf183ba6385036080157a7dc032453e4c28bde55a2ebf4830e8b990b3c83e1c8" => :catalina
-    sha256 "ba193e6a2a415a8fefd90890daaa21a19c3bdabeb14504699a558207affdc216" => :mojave
+    sha256 cellar: :any, big_sur:  "b972c4ea4a3c130bb45f8b9a97441ea3e9b7aae20de0c1c33d5e1a19596825c1"
+    sha256 cellar: :any, catalina: "cf183ba6385036080157a7dc032453e4c28bde55a2ebf4830e8b990b3c83e1c8"
+    sha256 cellar: :any, mojave:   "ba193e6a2a415a8fefd90890daaa21a19c3bdabeb14504699a558207affdc216"
   end
 
   depends_on "autoconf" => :build

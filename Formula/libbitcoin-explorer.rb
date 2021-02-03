@@ -8,10 +8,10 @@ class LibbitcoinExplorer < Formula
 
   bottle do
     rebuild 1
-    sha256 "24e7833731351a531a6f9c7e6a6ec0687498a138a5cfb3728ecb550ff60410e8" => :big_sur
-    sha256 "a866aa41b640d5ec17b2195b6e020e90ff387ed463ae2e70f2a03fd8bd072896" => :arm64_big_sur
-    sha256 "bdc450751d9191cef4f000156ed8c3b393948035c6b0cd86b598094eed722998" => :catalina
-    sha256 "14108b07fc37f335a97fde46ce97c0ea4778fa013bbdce547265f9065f372af9" => :mojave
+    sha256 arm64_big_sur: "a866aa41b640d5ec17b2195b6e020e90ff387ed463ae2e70f2a03fd8bd072896"
+    sha256 big_sur:       "24e7833731351a531a6f9c7e6a6ec0687498a138a5cfb3728ecb550ff60410e8"
+    sha256 catalina:      "bdc450751d9191cef4f000156ed8c3b393948035c6b0cd86b598094eed722998"
+    sha256 mojave:        "14108b07fc37f335a97fde46ce97c0ea4778fa013bbdce547265f9065f372af9"
   end
 
   depends_on "autoconf" => :build

@@ -6,12 +6,11 @@ class Jerasure < Formula
   revision 1
 
   bottle do
-    cellar :any
-    sha256 "9e653391281dc30c18579c7a6158744a025a9aab8861454bafe221ebfc652c0b" => :catalina
-    sha256 "1ae9b78eb70cf790c5a2e182508487746b3008ef9b0727b377cb3fd01faa8e29" => :mojave
-    sha256 "8e63bf431836395466d91ef947126a39c8193b274ab22156cf421d6958508607" => :high_sierra
-    sha256 "603646521f0255877f611df53e30ccbc071b07cba6e0f33025404332e9677ffa" => :sierra
-    sha256 "1db6ef4631512bf3b155d614588689b2bacc911178cedf828db8f810d9e18d43" => :el_capitan
+    sha256 cellar: :any, catalina:    "9e653391281dc30c18579c7a6158744a025a9aab8861454bafe221ebfc652c0b"
+    sha256 cellar: :any, mojave:      "1ae9b78eb70cf790c5a2e182508487746b3008ef9b0727b377cb3fd01faa8e29"
+    sha256 cellar: :any, high_sierra: "8e63bf431836395466d91ef947126a39c8193b274ab22156cf421d6958508607"
+    sha256 cellar: :any, sierra:      "603646521f0255877f611df53e30ccbc071b07cba6e0f33025404332e9677ffa"
+    sha256 cellar: :any, el_capitan:  "1db6ef4631512bf3b155d614588689b2bacc911178cedf828db8f810d9e18d43"
   end
 
   disable! date: "2020-12-08", because: "Depends on gf-complete which has been disabled"

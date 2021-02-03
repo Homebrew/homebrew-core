@@ -8,10 +8,10 @@ class Nqp < Formula
 
   bottle do
     rebuild 1
-    sha256 "da4c1fbeebe3c51d26ae4bff6362cc9acd1bc4bfa0a6f72ec11fc38a08bf887d" => :big_sur
-    sha256 "f4b25743bad14ec0cdd1a712f2fc0ceac16e9ffcf3f8122d1ea1aa5ec0c74308" => :arm64_big_sur
-    sha256 "24e1c860b5c9c1bb85a0d20a89788100d24b39408b016acca3fc6f66fc6c37ff" => :catalina
-    sha256 "e52cad208d6c1d12286ae32a11be4371a0d0ec1626b3480a7fc0fa34f1217df7" => :mojave
+    sha256 arm64_big_sur: "f4b25743bad14ec0cdd1a712f2fc0ceac16e9ffcf3f8122d1ea1aa5ec0c74308"
+    sha256 big_sur:       "da4c1fbeebe3c51d26ae4bff6362cc9acd1bc4bfa0a6f72ec11fc38a08bf887d"
+    sha256 catalina:      "24e1c860b5c9c1bb85a0d20a89788100d24b39408b016acca3fc6f66fc6c37ff"
+    sha256 mojave:        "e52cad208d6c1d12286ae32a11be4371a0d0ec1626b3480a7fc0fa34f1217df7"
   end
 
   depends_on "moarvm"

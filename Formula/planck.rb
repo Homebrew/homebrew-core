@@ -9,9 +9,9 @@ class Planck < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any, big_sur: "436bb7f0481e0a6a0edeaa1abd2687c349e6314bf6139a2b8ae4e9a73978ed8e"
+    sha256 cellar: :any, big_sur:  "436bb7f0481e0a6a0edeaa1abd2687c349e6314bf6139a2b8ae4e9a73978ed8e"
     sha256 cellar: :any, catalina: "2528a360ad99d9d5031ae53138523c691e5a5ccb93da15cc44d214a9ad0d2e3b"
-    sha256 cellar: :any, mojave: "b0d1fe14b9ab71a5a18601e8e21fe3b16dc96247b877ce6842bbc7c7cae93784"
+    sha256 cellar: :any, mojave:   "b0d1fe14b9ab71a5a18601e8e21fe3b16dc96247b877ce6842bbc7c7cae93784"
   end
 
   depends_on "clojure" => :build

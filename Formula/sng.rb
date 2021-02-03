@@ -12,10 +12,10 @@ class Sng < Formula
 
   bottle do
     rebuild 1
-    sha256 "f0e4ce732890622d796d3ab7d5c2d078f9ad327e5d64bdf9d7625b15d7a38281" => :big_sur
-    sha256 "441c39690c079231af81a27fce72a0f0ea7cf982c9e48e320160ccc7304486a0" => :arm64_big_sur
-    sha256 "070137e810c2ea02cdb3727ef7fc0da31065762ed6fee972a33d8690fc43e051" => :catalina
-    sha256 "de4c08894b82e37ff3fc07fd0ade38ede24bcf241757f0b6392ab2f4a5f87d67" => :mojave
+    sha256 arm64_big_sur: "441c39690c079231af81a27fce72a0f0ea7cf982c9e48e320160ccc7304486a0"
+    sha256 big_sur:       "f0e4ce732890622d796d3ab7d5c2d078f9ad327e5d64bdf9d7625b15d7a38281"
+    sha256 catalina:      "070137e810c2ea02cdb3727ef7fc0da31065762ed6fee972a33d8690fc43e051"
+    sha256 mojave:        "de4c08894b82e37ff3fc07fd0ade38ede24bcf241757f0b6392ab2f4a5f87d67"
   end
 
   depends_on "libpng"

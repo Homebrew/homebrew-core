@@ -6,11 +6,10 @@ class Geant4 < Formula
   sha256 "ecdadbf846807af8baa071f38104fb0dcc24847c8475cd8397302e2aefa8f66f"
 
   bottle do
-    cellar :any
-    sha256 "170f4a4a3c7c730371e324e7f8e067a855247c1e7ed58f6313be95a55448b7ce" => :big_sur
-    sha256 "ce3f0b6a5d075a00e48d38389348e2cc4c140bc88cccb9d44337b48aeb1cfb9e" => :catalina
-    sha256 "8bca28cae9c11797ae79e787c3fdfe17cf5b4a1ddb478b7731f36a25ea6f1a7b" => :mojave
-    sha256 "09736ea0f71a08b93566a3fb02a16c8bef148e5f79eba71fb8fdd0c5947fa001" => :high_sierra
+    sha256 cellar: :any, big_sur:     "170f4a4a3c7c730371e324e7f8e067a855247c1e7ed58f6313be95a55448b7ce"
+    sha256 cellar: :any, catalina:    "ce3f0b6a5d075a00e48d38389348e2cc4c140bc88cccb9d44337b48aeb1cfb9e"
+    sha256 cellar: :any, mojave:      "8bca28cae9c11797ae79e787c3fdfe17cf5b4a1ddb478b7731f36a25ea6f1a7b"
+    sha256 cellar: :any, high_sierra: "09736ea0f71a08b93566a3fb02a16c8bef148e5f79eba71fb8fdd0c5947fa001"
   end
 
   depends_on "cmake" => [:build, :test]

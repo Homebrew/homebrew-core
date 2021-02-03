@@ -6,10 +6,9 @@ class Grt < Formula
   license "MIT"
 
   bottle do
-    cellar :any
-    sha256 "35705ad1d151228e4e8c647cf16fc5b7578b4b777c54e94ebbcc8e19d26bd1f5" => :catalina
-    sha256 "830332fffbe52f7eb282eca343977fa27e4ae4978bc9f409df264cba5f37e38c" => :mojave
-    sha256 "d5a55b3a6b4ca75d3ef37ba47f43ed033215e0d9b5f5a26f738e484f3e428667" => :high_sierra
+    sha256 cellar: :any, catalina:    "35705ad1d151228e4e8c647cf16fc5b7578b4b777c54e94ebbcc8e19d26bd1f5"
+    sha256 cellar: :any, mojave:      "830332fffbe52f7eb282eca343977fa27e4ae4978bc9f409df264cba5f37e38c"
+    sha256 cellar: :any, high_sierra: "d5a55b3a6b4ca75d3ef37ba47f43ed033215e0d9b5f5a26f738e484f3e428667"
   end
 
   depends_on "cmake" => :build

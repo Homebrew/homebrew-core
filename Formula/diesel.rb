@@ -7,13 +7,12 @@ class Diesel < Formula
   head "https://github.com/diesel-rs/diesel.git"
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "82f26a0de3595ad68a20edf5ddc56328b38306d245e1dc750915ff9a6df92f01" => :big_sur
-    sha256 "03d1a2d6775baf9516d0ea0846893345411b4a78bc8482be1210bae928ac6fbd" => :arm64_big_sur
-    sha256 "a63b7299a7b32a4c6f581ce4aac9b264bb4b1fbd555268126f2db791606846f2" => :catalina
-    sha256 "ecff18f1ca293e846f0a1742311c89a146315a051531a3fff6ff27ddb14f9e95" => :mojave
-    sha256 "f63d5ac49ce152f424ce1d0072177857a0c9724156bdb5faad34f74af58e24e6" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "03d1a2d6775baf9516d0ea0846893345411b4a78bc8482be1210bae928ac6fbd"
+    sha256 cellar: :any, big_sur:       "82f26a0de3595ad68a20edf5ddc56328b38306d245e1dc750915ff9a6df92f01"
+    sha256 cellar: :any, catalina:      "a63b7299a7b32a4c6f581ce4aac9b264bb4b1fbd555268126f2db791606846f2"
+    sha256 cellar: :any, mojave:        "ecff18f1ca293e846f0a1742311c89a146315a051531a3fff6ff27ddb14f9e95"
+    sha256 cellar: :any, high_sierra:   "f63d5ac49ce152f424ce1d0072177857a0c9724156bdb5faad34f74af58e24e6"
   end
 
   depends_on "rust" => [:build, :test]

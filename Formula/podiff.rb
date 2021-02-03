@@ -11,11 +11,10 @@ class Podiff < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "cf8359a976f7bccc111f28c41d2b33fdd5ee3bb28077d25c79f3c5fedb5c7286" => :big_sur
-    sha256 "2502706ba85e9c2f373180fdeacced6d93c3495f7a73dbccb86a750d65a127ca" => :arm64_big_sur
-    sha256 "8178fa230e77c829fce5aed7fc48dd3727dea6a3247008094cfc0d8fb5209964" => :catalina
-    sha256 "421503a19273f2dc2149549229d6a51508f23c6b9151ed6046afdcef9a54bfce" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2502706ba85e9c2f373180fdeacced6d93c3495f7a73dbccb86a750d65a127ca"
+    sha256 cellar: :any_skip_relocation, big_sur:       "cf8359a976f7bccc111f28c41d2b33fdd5ee3bb28077d25c79f3c5fedb5c7286"
+    sha256 cellar: :any_skip_relocation, catalina:      "8178fa230e77c829fce5aed7fc48dd3727dea6a3247008094cfc0d8fb5209964"
+    sha256 cellar: :any_skip_relocation, mojave:        "421503a19273f2dc2149549229d6a51508f23c6b9151ed6046afdcef9a54bfce"
   end
 
   def install

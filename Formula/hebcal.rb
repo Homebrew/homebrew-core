@@ -6,11 +6,10 @@ class Hebcal < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ff567e2bcda1ae361e63e8a86ddf85199c6224894a57caedee078e1483fdc521" => :big_sur
-    sha256 "33af9a0346510a27b1e046bcd8d7d4e734216d578ad907a54ebb9ad6aae3ace9" => :arm64_big_sur
-    sha256 "21a0b493d2ce497baed5a0badb60a312f5e96afb8b2afbe1d8eecc584d885207" => :catalina
-    sha256 "dea0961f7ee0fe3420f4b3eed313016897a1c2aca43e4b50a0936ee2b9c6653e" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "33af9a0346510a27b1e046bcd8d7d4e734216d578ad907a54ebb9ad6aae3ace9"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ff567e2bcda1ae361e63e8a86ddf85199c6224894a57caedee078e1483fdc521"
+    sha256 cellar: :any_skip_relocation, catalina:      "21a0b493d2ce497baed5a0badb60a312f5e96afb8b2afbe1d8eecc584d885207"
+    sha256 cellar: :any_skip_relocation, mojave:        "dea0961f7ee0fe3420f4b3eed313016897a1c2aca43e4b50a0936ee2b9c6653e"
   end
 
   depends_on "autoconf" => :build

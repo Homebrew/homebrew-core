@@ -7,10 +7,10 @@ class Gostatic < Formula
   head "https://github.com/piranha/gostatic.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur: "a2773f06d4dc430bf5983f04dd3b70ed9b47835e1eb4de5e0f6a5b090151c4b4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "355771ae8c73f34c0f9a4c305bf235b82da246471502a15dfe7bc151c4688ead"
-    sha256 cellar: :any_skip_relocation, catalina: "194b3e611cf3edeac3fdb92fb29613a032e82c8cf890ffca41e1562108f1c8e3"
-    sha256 cellar: :any_skip_relocation, mojave: "4dc77286ca070bd2417e42e5e37882a0526b5451f14630fe8a1a0a1853a645be"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a2773f06d4dc430bf5983f04dd3b70ed9b47835e1eb4de5e0f6a5b090151c4b4"
+    sha256 cellar: :any_skip_relocation, catalina:      "194b3e611cf3edeac3fdb92fb29613a032e82c8cf890ffca41e1562108f1c8e3"
+    sha256 cellar: :any_skip_relocation, mojave:        "4dc77286ca070bd2417e42e5e37882a0526b5451f14630fe8a1a0a1853a645be"
   end
 
   depends_on "go" => :build

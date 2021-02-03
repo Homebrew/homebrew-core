@@ -11,12 +11,12 @@ class GnuApl < Formula
   end
 
   bottle do
-    sha256 "e8da710fdd9108e7fd6d11adf6b67f8e11bf6e7b027c09a6e334b1a68b258da0" => :big_sur
-    sha256 "d5c8031c3c878eadcc74fb5353e54ff8413c51a8c62bc89a51e21542a77bf3a6" => :arm64_big_sur
-    sha256 "2a7717b6b60567eade10b30f473771f563ebd6a009c91e0522eab6497516e892" => :catalina
-    sha256 "9df4d2bfcfda74e10451b132d0c274265bb1e550a9d7829402913d7798a83c46" => :mojave
-    sha256 "d1d035cef7cb23ecde90146a8eae564fbbeba3546228618dc250581d5611a4ab" => :high_sierra
-    sha256 "cbb8043b314e3141b2a9e6e3121b7c797ca68298374d9c50f6d07447e5ea7ca5" => :sierra
+    sha256 arm64_big_sur: "d5c8031c3c878eadcc74fb5353e54ff8413c51a8c62bc89a51e21542a77bf3a6"
+    sha256 big_sur:       "e8da710fdd9108e7fd6d11adf6b67f8e11bf6e7b027c09a6e334b1a68b258da0"
+    sha256 catalina:      "2a7717b6b60567eade10b30f473771f563ebd6a009c91e0522eab6497516e892"
+    sha256 mojave:        "9df4d2bfcfda74e10451b132d0c274265bb1e550a9d7829402913d7798a83c46"
+    sha256 high_sierra:   "d1d035cef7cb23ecde90146a8eae564fbbeba3546228618dc250581d5611a4ab"
+    sha256 sierra:        "cbb8043b314e3141b2a9e6e3121b7c797ca68298374d9c50f6d07447e5ea7ca5"
   end
 
   head do

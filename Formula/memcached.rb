@@ -12,11 +12,10 @@ class Memcached < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "147059ed93b823666bfd59911d7c2ccc51081b16a49ac72edf50efe7beedadc7" => :big_sur
-    sha256 "c18d3d914a52d960a1ad33be43e2ebc35faaf3aca9b2db0fb682989cb5c57693" => :arm64_big_sur
-    sha256 "b816ef4b112d8a01b0b6c1fbf05b2eb4577640e2712ad6c0ce0e87899e246d9a" => :catalina
-    sha256 "e307cfaa852e8fcda1210aadbfa07cb0331640ec7c930e03ac0cc2e98736d70d" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "c18d3d914a52d960a1ad33be43e2ebc35faaf3aca9b2db0fb682989cb5c57693"
+    sha256 cellar: :any, big_sur:       "147059ed93b823666bfd59911d7c2ccc51081b16a49ac72edf50efe7beedadc7"
+    sha256 cellar: :any, catalina:      "b816ef4b112d8a01b0b6c1fbf05b2eb4577640e2712ad6c0ce0e87899e246d9a"
+    sha256 cellar: :any, mojave:        "e307cfaa852e8fcda1210aadbfa07cb0331640ec7c930e03ac0cc2e98736d70d"
   end
 
   depends_on "libevent"

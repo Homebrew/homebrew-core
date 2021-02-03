@@ -9,12 +9,11 @@ class VpnSlice < Formula
   head "https://github.com/dlenski/vpn-slice.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2bacc575cf0dc79b3043dd1f58190795186e51a8e9012ae4758674fc7f97e83c" => :big_sur
-    sha256 "1752b81bf66c9254d6f99dcb3b78c8d8fe25066f7882bacb9d1f52ccc6bb4ad3" => :arm64_big_sur
-    sha256 "d1601cc5fd76d3711d61b6b41aa8e994769aec3125dc33054b62996964dd4053" => :catalina
-    sha256 "73903e40ef9d3ecf99f2434ac9000a6b7d1bb82dee8dc8fc200f476e54079723" => :mojave
-    sha256 "84053b291fe847bd0653866d05dcff1cb49219028673273660fd129e49c7ff6d" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1752b81bf66c9254d6f99dcb3b78c8d8fe25066f7882bacb9d1f52ccc6bb4ad3"
+    sha256 cellar: :any_skip_relocation, big_sur:       "2bacc575cf0dc79b3043dd1f58190795186e51a8e9012ae4758674fc7f97e83c"
+    sha256 cellar: :any_skip_relocation, catalina:      "d1601cc5fd76d3711d61b6b41aa8e994769aec3125dc33054b62996964dd4053"
+    sha256 cellar: :any_skip_relocation, mojave:        "73903e40ef9d3ecf99f2434ac9000a6b7d1bb82dee8dc8fc200f476e54079723"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "84053b291fe847bd0653866d05dcff1cb49219028673273660fd129e49c7ff6d"
   end
 
   depends_on "python@3.9"

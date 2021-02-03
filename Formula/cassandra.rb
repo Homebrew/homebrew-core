@@ -11,9 +11,9 @@ class Cassandra < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur: "4babefaee69d52f82b75f93fd15a037b3dc9c37e2f922392ff288547967eb094"
+    sha256 cellar: :any_skip_relocation, big_sur:  "4babefaee69d52f82b75f93fd15a037b3dc9c37e2f922392ff288547967eb094"
     sha256 cellar: :any_skip_relocation, catalina: "46bbd9bd4fe297537192cdaa12507943910f05479585286b9feb213a31740efb"
-    sha256 cellar: :any_skip_relocation, mojave: "8b19e737d3c564ee943d1ae27dc300f9ffe4d8f8f6c46f8958fd9fadc8ce16c4"
+    sha256 cellar: :any_skip_relocation, mojave:   "8b19e737d3c564ee943d1ae27dc300f9ffe4d8f8f6c46f8958fd9fadc8ce16c4"
   end
 
   depends_on "cython" => :build

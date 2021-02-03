@@ -6,11 +6,10 @@ class Rain < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "55f486e76dc98d428be0c746d8dff11e337911fb97236a09a41b9e25d6dfc0b7" => :big_sur
-    sha256 "12c9a02a0092ba5b911ca47a13073c3ac736c369aa3351352370f7a5308a79b5" => :arm64_big_sur
-    sha256 "f3ef06e12e92b1e196bdd77d9b1de8c9568494883ba1c6a24d3201151576920c" => :catalina
-    sha256 "f9ecd6ae894e0f4d8ce92c017fd17c7d6bc1346e9142c34b81bf4ac3b04d54fc" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "12c9a02a0092ba5b911ca47a13073c3ac736c369aa3351352370f7a5308a79b5"
+    sha256 cellar: :any_skip_relocation, big_sur:       "55f486e76dc98d428be0c746d8dff11e337911fb97236a09a41b9e25d6dfc0b7"
+    sha256 cellar: :any_skip_relocation, catalina:      "f3ef06e12e92b1e196bdd77d9b1de8c9568494883ba1c6a24d3201151576920c"
+    sha256 cellar: :any_skip_relocation, mojave:        "f9ecd6ae894e0f4d8ce92c017fd17c7d6bc1346e9142c34b81bf4ac3b04d54fc"
   end
 
   depends_on "go" => :build

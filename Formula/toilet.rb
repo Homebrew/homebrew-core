@@ -11,15 +11,15 @@ class Toilet < Formula
     regex(/href=.*?toilet[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
   bottle do
-    sha256 "6656e1a05049339433307a78ae8df879f45903c179642361e0ef24331e3e44c4" => :big_sur
-    sha256 "962eed08eba86fe1f35bdc00f6cf7d119639b93a305451f0283517c5b89df15a" => :arm64_big_sur
-    sha256 "816162aa8f967f14e6db8f9b48024ef5119c04955575299e02fe88b2b0158ac6" => :catalina
-    sha256 "27c9e1fe38ec012c5dd9199c8100d49c56e386c65c336a4fbcaaa25a9341cab2" => :mojave
-    sha256 "dda87a313d7398dd3157ca74d752b3d364647fc56c3238fb5bd320fcc904ebd5" => :high_sierra
-    sha256 "24008d251358aa73e7e597b203e360857fec5b88278e6ea6de08d4eef3865f80" => :sierra
-    sha256 "93822fde3d2e69f46143dcb9d8551e7e4301c7a470ae53b3fda8ec6cb44584dd" => :el_capitan
-    sha256 "7362333eea743740a9cdb064c5a74829e37b3f15645797622bb283b9cf3f3b1a" => :yosemite
-    sha256 "ef2c34f742b366f84d2aeeb6d83fb94d6bd443f210e56968fb8b2b5700eab759" => :mavericks
+    sha256 arm64_big_sur: "962eed08eba86fe1f35bdc00f6cf7d119639b93a305451f0283517c5b89df15a"
+    sha256 big_sur:       "6656e1a05049339433307a78ae8df879f45903c179642361e0ef24331e3e44c4"
+    sha256 catalina:      "816162aa8f967f14e6db8f9b48024ef5119c04955575299e02fe88b2b0158ac6"
+    sha256 mojave:        "27c9e1fe38ec012c5dd9199c8100d49c56e386c65c336a4fbcaaa25a9341cab2"
+    sha256 high_sierra:   "dda87a313d7398dd3157ca74d752b3d364647fc56c3238fb5bd320fcc904ebd5"
+    sha256 sierra:        "24008d251358aa73e7e597b203e360857fec5b88278e6ea6de08d4eef3865f80"
+    sha256 el_capitan:    "93822fde3d2e69f46143dcb9d8551e7e4301c7a470ae53b3fda8ec6cb44584dd"
+    sha256 yosemite:      "7362333eea743740a9cdb064c5a74829e37b3f15645797622bb283b9cf3f3b1a"
+    sha256 mavericks:     "ef2c34f742b366f84d2aeeb6d83fb94d6bd443f210e56968fb8b2b5700eab759"
   end
 
   head do

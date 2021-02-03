@@ -10,15 +10,14 @@ class Rkflashtool < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "f3e27586cacbbe32859c4e29b681913204e1a52bd5a5761697edc37d1cc2d88c" => :big_sur
-    sha256 "385d2324a9740b034fa99eabe5325cde073cf301dcfb343dee7cf44bda109cbd" => :arm64_big_sur
-    sha256 "19915af37cac5f04cea6d0aa71a533ce6fd2a9aa549820286736b526e4be80cc" => :catalina
-    sha256 "192628d1c348870f6ea1bc381aeb87023cc0bd19b2c198ea3c14b63e954db88e" => :mojave
-    sha256 "72e99558b94cd4e26a5aeb62209c99e03f8e91059fbfbe83bdfbd755fc83f54f" => :high_sierra
-    sha256 "cbeb2509bcd210026250c915a9909e8f056e9e2da1f599d7a611695c334f4966" => :sierra
-    sha256 "7a8b5c66395b179ce38845c36369b1a65c6eacc73fd29227809597257669af6d" => :el_capitan
-    sha256 "cf5c51c7aa18c9304ade585c82d9083421eafde114ef6ab22736a24f45530226" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "385d2324a9740b034fa99eabe5325cde073cf301dcfb343dee7cf44bda109cbd"
+    sha256 cellar: :any, big_sur:       "f3e27586cacbbe32859c4e29b681913204e1a52bd5a5761697edc37d1cc2d88c"
+    sha256 cellar: :any, catalina:      "19915af37cac5f04cea6d0aa71a533ce6fd2a9aa549820286736b526e4be80cc"
+    sha256 cellar: :any, mojave:        "192628d1c348870f6ea1bc381aeb87023cc0bd19b2c198ea3c14b63e954db88e"
+    sha256 cellar: :any, high_sierra:   "72e99558b94cd4e26a5aeb62209c99e03f8e91059fbfbe83bdfbd755fc83f54f"
+    sha256 cellar: :any, sierra:        "cbeb2509bcd210026250c915a9909e8f056e9e2da1f599d7a611695c334f4966"
+    sha256 cellar: :any, el_capitan:    "7a8b5c66395b179ce38845c36369b1a65c6eacc73fd29227809597257669af6d"
+    sha256 cellar: :any, yosemite:      "cf5c51c7aa18c9304ade585c82d9083421eafde114ef6ab22736a24f45530226"
   end
 
   depends_on "pkg-config" => :build

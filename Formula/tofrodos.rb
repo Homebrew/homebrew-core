@@ -6,16 +6,15 @@ class Tofrodos < Formula
   license "GPL-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "11f0293ead8b99af5173c84b0e80cb63b3aefbddc6b411ce222f841383e8a4d8" => :big_sur
-    sha256 "abd0c2470073c169d8fdbca2f0f65fe458da25456a8ace5758d394988d0f5ed7" => :arm64_big_sur
-    sha256 "da493ab6311aa1363533c8958c93ab919bee5ba26dbdcfa6f0a5978a6e512d9d" => :catalina
-    sha256 "07d0fcc1ef5c69866787c61fc3cabafe08f873c111c22974758f1c4beae41f99" => :mojave
-    sha256 "083975a39eaa51713f2eda153276ac95d8dfc1f038d25c4826be1ddcd540855b" => :high_sierra
-    sha256 "3d5363cda2170ce2fbcb7e03c84f715b62ead1e5646000dd06395f5677fd2269" => :sierra
-    sha256 "4a2b22ff08d0fb65c80be7359be2f04d12b70f4e6d490b96cb819ea69b3e3d88" => :el_capitan
-    sha256 "4a5427c6870c3d4822ef4da3ddd8d79c18b91e5b7f14edb4aa449a53da70114e" => :yosemite
-    sha256 "c9759ec570e6a284b250563b8d66076401641f40c1836e293f4eab82cc9fe4ff" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "abd0c2470073c169d8fdbca2f0f65fe458da25456a8ace5758d394988d0f5ed7"
+    sha256 cellar: :any_skip_relocation, big_sur:       "11f0293ead8b99af5173c84b0e80cb63b3aefbddc6b411ce222f841383e8a4d8"
+    sha256 cellar: :any_skip_relocation, catalina:      "da493ab6311aa1363533c8958c93ab919bee5ba26dbdcfa6f0a5978a6e512d9d"
+    sha256 cellar: :any_skip_relocation, mojave:        "07d0fcc1ef5c69866787c61fc3cabafe08f873c111c22974758f1c4beae41f99"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "083975a39eaa51713f2eda153276ac95d8dfc1f038d25c4826be1ddcd540855b"
+    sha256 cellar: :any_skip_relocation, sierra:        "3d5363cda2170ce2fbcb7e03c84f715b62ead1e5646000dd06395f5677fd2269"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "4a2b22ff08d0fb65c80be7359be2f04d12b70f4e6d490b96cb819ea69b3e3d88"
+    sha256 cellar: :any_skip_relocation, yosemite:      "4a5427c6870c3d4822ef4da3ddd8d79c18b91e5b7f14edb4aa449a53da70114e"
+    sha256 cellar: :any_skip_relocation, mavericks:     "c9759ec570e6a284b250563b8d66076401641f40c1836e293f4eab82cc9fe4ff"
   end
 
   def install

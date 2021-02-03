@@ -7,12 +7,11 @@ class Hiredis < Formula
   head "https://github.com/redis/hiredis.git"
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "b6938bbdfbc95f2fb3affb4bde281a7369b0b36cae2372f5a875edf2b67bc7f4" => :big_sur
-    sha256 "447cf4bd4a60d02edd7cf1795b22dae71206bef09e6232ac6fb7de11b7c5176d" => :arm64_big_sur
-    sha256 "e09527a6443e56cf0b813b7dba4d06fb483dbfb5989af127740593d04d8dd27d" => :catalina
-    sha256 "076e913a91757728f99f184b99dc5ad2367d963a7cc470fc699dcfda1dea1af9" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "447cf4bd4a60d02edd7cf1795b22dae71206bef09e6232ac6fb7de11b7c5176d"
+    sha256 cellar: :any, big_sur:       "b6938bbdfbc95f2fb3affb4bde281a7369b0b36cae2372f5a875edf2b67bc7f4"
+    sha256 cellar: :any, catalina:      "e09527a6443e56cf0b813b7dba4d06fb483dbfb5989af127740593d04d8dd27d"
+    sha256 cellar: :any, mojave:        "076e913a91757728f99f184b99dc5ad2367d963a7cc470fc699dcfda1dea1af9"
   end
 
   # remove in next release

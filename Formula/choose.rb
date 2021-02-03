@@ -8,12 +8,11 @@ class Choose < Formula
   head "https://github.com/geier/choose.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "108d84aff61c4374011202cab8203770cdee57c0445ad40735c1f41513140606" => :big_sur
-    sha256 "c8408b41107e7824596b3c28b2f63f98c910a7452ff676805a7ec5e77ba505bc" => :arm64_big_sur
-    sha256 "086ebca8f9bff4d065e788c9076bfe204b958f96b8da0cce142f3c890c38cb75" => :catalina
-    sha256 "bef5f7490cf4a45398bfdef4867163957675227e74bab1494ea0da56cda2cda6" => :mojave
-    sha256 "f860816e00292d161ed6f6617cef47c3297eb91e9231f3c125ce12b16ad7d220" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c8408b41107e7824596b3c28b2f63f98c910a7452ff676805a7ec5e77ba505bc"
+    sha256 cellar: :any_skip_relocation, big_sur:       "108d84aff61c4374011202cab8203770cdee57c0445ad40735c1f41513140606"
+    sha256 cellar: :any_skip_relocation, catalina:      "086ebca8f9bff4d065e788c9076bfe204b958f96b8da0cce142f3c890c38cb75"
+    sha256 cellar: :any_skip_relocation, mojave:        "bef5f7490cf4a45398bfdef4867163957675227e74bab1494ea0da56cda2cda6"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "f860816e00292d161ed6f6617cef47c3297eb91e9231f3c125ce12b16ad7d220"
   end
 
   depends_on "python@3.9"

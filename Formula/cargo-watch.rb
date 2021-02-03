@@ -7,12 +7,11 @@ class CargoWatch < Formula
   head "https://github.com/passcod/cargo-watch.git"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "f6e28b4b5ddd527bd9c14ab5361714c1ab126151bf30dc3a253f7d657d2013df" => :big_sur
-    sha256 "c108df77dabba1f731c31936a0c68dd75d46fd789073845a844a6c2d8a2e51ad" => :arm64_big_sur
-    sha256 "48f1ccc2ad40ecb371b3ff5873be8cc3bac97eb7a99bdf2a5f3dab51585f76ef" => :catalina
-    sha256 "7cf3bec869b3b44f1b76d1b97016760519fcdf966f7209b998f1330ce1836b70" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c108df77dabba1f731c31936a0c68dd75d46fd789073845a844a6c2d8a2e51ad"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f6e28b4b5ddd527bd9c14ab5361714c1ab126151bf30dc3a253f7d657d2013df"
+    sha256 cellar: :any_skip_relocation, catalina:      "48f1ccc2ad40ecb371b3ff5873be8cc3bac97eb7a99bdf2a5f3dab51585f76ef"
+    sha256 cellar: :any_skip_relocation, mojave:        "7cf3bec869b3b44f1b76d1b97016760519fcdf966f7209b998f1330ce1836b70"
   end
 
   depends_on "rust" => :build

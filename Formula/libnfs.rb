@@ -6,13 +6,12 @@ class Libnfs < Formula
   license "LGPL-2.1"
 
   bottle do
-    cellar :any
-    sha256 "9699bde5c013daa2950ec8ee012c4ced65bd9ea99005d0e0db2ee5336700742e" => :big_sur
-    sha256 "de91ee7dc3d0e20a1590b6b2d46e4ca46eb123969cf0d07513514bf2a993cc4c" => :arm64_big_sur
-    sha256 "d727464baa3bbd6111f7b791ae67da3573e47be5d7d613c314853e581743f941" => :catalina
-    sha256 "e51a653f469f19db8c24f009166b7c63a3d9e48ffd16e687d81e2fc0da52f632" => :mojave
-    sha256 "2c6199b4295a952c6c179811c9190c8741054011f23ed5a051528baf07b44509" => :high_sierra
-    sha256 "668a6d77334fd656ea8ca32c1bb36c9253fb95f1dc701607d722afa6af6aa737" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "de91ee7dc3d0e20a1590b6b2d46e4ca46eb123969cf0d07513514bf2a993cc4c"
+    sha256 cellar: :any, big_sur:       "9699bde5c013daa2950ec8ee012c4ced65bd9ea99005d0e0db2ee5336700742e"
+    sha256 cellar: :any, catalina:      "d727464baa3bbd6111f7b791ae67da3573e47be5d7d613c314853e581743f941"
+    sha256 cellar: :any, mojave:        "e51a653f469f19db8c24f009166b7c63a3d9e48ffd16e687d81e2fc0da52f632"
+    sha256 cellar: :any, high_sierra:   "2c6199b4295a952c6c179811c9190c8741054011f23ed5a051528baf07b44509"
+    sha256 cellar: :any, sierra:        "668a6d77334fd656ea8ca32c1bb36c9253fb95f1dc701607d722afa6af6aa737"
   end
 
   depends_on "autoconf" => :build

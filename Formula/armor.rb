@@ -7,13 +7,12 @@ class Armor < Formula
   head "https://github.com/labstack/armor.git"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "06a9bcd5cee3c858cb616f2165ca3dfb0b9e6d5f9811297a260f909791ade865" => :big_sur
-    sha256 "99f1b988d091e6175983074889c2695625a0bcd3ee3df94bfbea09851906848b" => :arm64_big_sur
-    sha256 "d0bbf39148c0dabb28f777b951492814a708dc64610106587b1315fcd6a08559" => :catalina
-    sha256 "538f2c340ec151aa7c22847a61d3c8e1d255d121a2b2a75fe2fe7d22f5067347" => :mojave
-    sha256 "8fc3b2ebb6d8bc978f6dd04c92e2a43573b052e51d69398deb4f5a2b04e0f87d" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "99f1b988d091e6175983074889c2695625a0bcd3ee3df94bfbea09851906848b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "06a9bcd5cee3c858cb616f2165ca3dfb0b9e6d5f9811297a260f909791ade865"
+    sha256 cellar: :any_skip_relocation, catalina:      "d0bbf39148c0dabb28f777b951492814a708dc64610106587b1315fcd6a08559"
+    sha256 cellar: :any_skip_relocation, mojave:        "538f2c340ec151aa7c22847a61d3c8e1d255d121a2b2a75fe2fe7d22f5067347"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "8fc3b2ebb6d8bc978f6dd04c92e2a43573b052e51d69398deb4f5a2b04e0f87d"
   end
 
   depends_on "go" => :build

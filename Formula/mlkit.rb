@@ -7,9 +7,9 @@ class Mlkit < Formula
   head "https://github.com/melsman/mlkit.git"
 
   bottle do
-    sha256 "52ac5d00915774111535053f287c05a63976c83ed7a5a900bbc263f030ea6900" => :mojave
-    sha256 "79694e15c915cb2c08b680b2b4404cfbbb6fff56e8f6b5f0196fcc485466d41b" => :high_sierra
-    sha256 "5df6b95fad69e10b31352824433251d3306a42c55c5e7164b0c47b986ea1009d" => :sierra
+    sha256 mojave:      "52ac5d00915774111535053f287c05a63976c83ed7a5a900bbc263f030ea6900"
+    sha256 high_sierra: "79694e15c915cb2c08b680b2b4404cfbbb6fff56e8f6b5f0196fcc485466d41b"
+    sha256 sierra:      "5df6b95fad69e10b31352824433251d3306a42c55c5e7164b0c47b986ea1009d"
   end
 
   disable! date: "2020-12-08", because: :unmaintained

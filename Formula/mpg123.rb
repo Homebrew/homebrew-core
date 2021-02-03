@@ -13,10 +13,10 @@ class Mpg123 < Formula
 
   bottle do
     rebuild 1
-    sha256 "2ebc5eab8199c9cc750504cde6f6fe739ba596f5129b59c79d51fb0d4d54b113" => :big_sur
-    sha256 "0bc1e129314c8f53f34ff804b6cb868ead8e223fe74e11fbef4ffcc969c2771e" => :arm64_big_sur
-    sha256 "0b9132c429c02b726597beeb217ce2f69ba63e1edf6bbff96652e080ba6f10a7" => :catalina
-    sha256 "5027b3751482e62a72c8a5514c728ae8ae1f4aaf34c46a9264a64fc11883c16b" => :mojave
+    sha256 arm64_big_sur: "0bc1e129314c8f53f34ff804b6cb868ead8e223fe74e11fbef4ffcc969c2771e"
+    sha256 big_sur:       "2ebc5eab8199c9cc750504cde6f6fe739ba596f5129b59c79d51fb0d4d54b113"
+    sha256 catalina:      "0b9132c429c02b726597beeb217ce2f69ba63e1edf6bbff96652e080ba6f10a7"
+    sha256 mojave:        "5027b3751482e62a72c8a5514c728ae8ae1f4aaf34c46a9264a64fc11883c16b"
   end
 
   def install

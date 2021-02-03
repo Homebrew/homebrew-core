@@ -19,16 +19,15 @@ class IosClassGuard < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "159991d0922d6ea71dceb5f97c3024659f70c48fb91c0222186e8c108885db54" => :big_sur
-    sha256 "80da4446b7d4838b965d12546d9b10ad777c24c2026248e6d49c415aad3f9771" => :arm64_big_sur
-    sha256 "807b425c949e9a25331abd13967721d6f58d3a1674fcc8175744e713e81ee5d3" => :catalina
-    sha256 "480f0437e5217cb8a47fcc0e9ffb6ffc62e4f81a79d5df9529320edeed479217" => :mojave
-    sha256 "1962e7dde167e41141680b1347318396c0878fb8eeae55ec9f09460fcee33142" => :high_sierra
-    sha256 "a7843a0767e916aa6be1509a984eb698bb54d125d06ad762fd25f4a3d6a55db1" => :sierra
-    sha256 "0bb9abaac82cbc4e66a12493548659197559a01a779db6ceda4cf6c4439ea0bb" => :el_capitan
-    sha256 "4cada6d32bb82fbd8ad2afa58b7041bd5da12dc5d9fceab6277eec97459a2d33" => :yosemite
-    sha256 "4eddde784c843628cb8bcb8c971142683c5a17373058f5bda62356b432dec00a" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "80da4446b7d4838b965d12546d9b10ad777c24c2026248e6d49c415aad3f9771"
+    sha256 cellar: :any_skip_relocation, big_sur:       "159991d0922d6ea71dceb5f97c3024659f70c48fb91c0222186e8c108885db54"
+    sha256 cellar: :any_skip_relocation, catalina:      "807b425c949e9a25331abd13967721d6f58d3a1674fcc8175744e713e81ee5d3"
+    sha256 cellar: :any_skip_relocation, mojave:        "480f0437e5217cb8a47fcc0e9ffb6ffc62e4f81a79d5df9529320edeed479217"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "1962e7dde167e41141680b1347318396c0878fb8eeae55ec9f09460fcee33142"
+    sha256 cellar: :any_skip_relocation, sierra:        "a7843a0767e916aa6be1509a984eb698bb54d125d06ad762fd25f4a3d6a55db1"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "0bb9abaac82cbc4e66a12493548659197559a01a779db6ceda4cf6c4439ea0bb"
+    sha256 cellar: :any_skip_relocation, yosemite:      "4cada6d32bb82fbd8ad2afa58b7041bd5da12dc5d9fceab6277eec97459a2d33"
+    sha256 cellar: :any_skip_relocation, mavericks:     "4eddde784c843628cb8bcb8c971142683c5a17373058f5bda62356b432dec00a"
   end
 
   depends_on xcode: :build

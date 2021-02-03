@@ -8,9 +8,9 @@ class Hashlink < Formula
   head "https://github.com/HaxeFoundation/hashlink.git"
 
   bottle do
-    sha256 "2854d13e66bfcc6cd612c3fc5144812a2b19e62201629054d36c0f9dc7943a44" => :big_sur
-    sha256 "859d700dd2fce986a79bc12f7d3d3ec175a554a12ed91d0d6b8d41515408ca00" => :catalina
-    sha256 "973181bf2e0bd06c4cdace139173a0c52e0aea5d91a3f47e54f5330aa41d25ca" => :mojave
+    sha256 big_sur:  "2854d13e66bfcc6cd612c3fc5144812a2b19e62201629054d36c0f9dc7943a44"
+    sha256 catalina: "859d700dd2fce986a79bc12f7d3d3ec175a554a12ed91d0d6b8d41515408ca00"
+    sha256 mojave:   "973181bf2e0bd06c4cdace139173a0c52e0aea5d91a3f47e54f5330aa41d25ca"
   end
 
   depends_on "haxe" => :test

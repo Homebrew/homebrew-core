@@ -13,10 +13,10 @@ class Babl < Formula
   end
 
   bottle do
-    sha256 "2cf2c6915f2d08e32469348694eca72ad8fb994d7c8aa8fff02f8cb5e46d4216" => :big_sur
-    sha256 "799c80b4b2e5cbefa44a2e8113d9a910a74f4d5a729e4792f1514dcd6bd77763" => :arm64_big_sur
-    sha256 "0529257e189f0f9db5b2def58ae19e3097b5845147b49e74f5baec9a39b18e11" => :catalina
-    sha256 "f28c8bd67641d91920281e7f7774ddf9c34fb97f341f689efab4858cb858c9ab" => :mojave
+    sha256 arm64_big_sur: "799c80b4b2e5cbefa44a2e8113d9a910a74f4d5a729e4792f1514dcd6bd77763"
+    sha256 big_sur:       "2cf2c6915f2d08e32469348694eca72ad8fb994d7c8aa8fff02f8cb5e46d4216"
+    sha256 catalina:      "0529257e189f0f9db5b2def58ae19e3097b5845147b49e74f5baec9a39b18e11"
+    sha256 mojave:        "f28c8bd67641d91920281e7f7774ddf9c34fb97f341f689efab4858cb858c9ab"
   end
 
   depends_on "glib" => :build # for gobject-introspection

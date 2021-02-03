@@ -10,15 +10,14 @@ class Xqilla < Formula
   end
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "ac66706739f52be905422e387435524387fdec6ca86243aad5b8be446182d59a" => :big_sur
-    sha256 "1b8493188f6fc779948193c1ae7cc803e85a4a18c32464c039448a27f830d9fe" => :arm64_big_sur
-    sha256 "3e01ca81220688c9680e3c23c0f7434f415e2b1e7b2e812f514a540eb51b50cd" => :catalina
-    sha256 "93ae09129c45ee7b1a4ecfe996c305791e06833c1e73b604b33282e5ea90248a" => :mojave
-    sha256 "38579e6ab1b6f6801ca5404cc79fcd972f395b9dd2e981672889b3eac5441c86" => :high_sierra
-    sha256 "0f1ef8f2aa1349b723062426a3e44fba2821bcf93316bacabf4c5e2948093bc4" => :sierra
-    sha256 "4326ec876d3e05647320c4ab55824c37531af997cc723f303fac4c4b40153753" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "1b8493188f6fc779948193c1ae7cc803e85a4a18c32464c039448a27f830d9fe"
+    sha256 cellar: :any, big_sur:       "ac66706739f52be905422e387435524387fdec6ca86243aad5b8be446182d59a"
+    sha256 cellar: :any, catalina:      "3e01ca81220688c9680e3c23c0f7434f415e2b1e7b2e812f514a540eb51b50cd"
+    sha256 cellar: :any, mojave:        "93ae09129c45ee7b1a4ecfe996c305791e06833c1e73b604b33282e5ea90248a"
+    sha256 cellar: :any, high_sierra:   "38579e6ab1b6f6801ca5404cc79fcd972f395b9dd2e981672889b3eac5441c86"
+    sha256 cellar: :any, sierra:        "0f1ef8f2aa1349b723062426a3e44fba2821bcf93316bacabf4c5e2948093bc4"
+    sha256 cellar: :any, el_capitan:    "4326ec876d3e05647320c4ab55824c37531af997cc723f303fac4c4b40153753"
   end
 
   depends_on "xerces-c"

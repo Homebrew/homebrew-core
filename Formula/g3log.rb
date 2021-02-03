@@ -6,11 +6,10 @@ class G3log < Formula
   license "Unlicense"
 
   bottle do
-    cellar :any
-    sha256 "5e24eda970bf16a1d737e0112ef7e86651c6cdd29b14b6dd4beec2faf9f9d292" => :big_sur
-    sha256 "d6ab9b85de4f0bc70d278210ac4a89c2780b4a271dc474fdd2a4ac16933a3d38" => :arm64_big_sur
-    sha256 "3325a5a22c63c02f6c3a7d9b35f533e579f369ff2871f7152d0ca4994bb049d3" => :catalina
-    sha256 "f44e98ef652573827da51288539acb1122af634b79f61f8ec2687b7b5184e971" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "d6ab9b85de4f0bc70d278210ac4a89c2780b4a271dc474fdd2a4ac16933a3d38"
+    sha256 cellar: :any, big_sur:       "5e24eda970bf16a1d737e0112ef7e86651c6cdd29b14b6dd4beec2faf9f9d292"
+    sha256 cellar: :any, catalina:      "3325a5a22c63c02f6c3a7d9b35f533e579f369ff2871f7152d0ca4994bb049d3"
+    sha256 cellar: :any, mojave:        "f44e98ef652573827da51288539acb1122af634b79f61f8ec2687b7b5184e971"
   end
 
   depends_on "cmake" => :build

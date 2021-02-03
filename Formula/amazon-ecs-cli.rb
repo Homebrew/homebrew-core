@@ -7,10 +7,9 @@ class AmazonEcsCli < Formula
   head "https://github.com/aws/amazon-ecs-cli.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "8187369aca2df5729df9a721097041d54858c9740c515f15fb05cd940a3a67f6" => :big_sur
-    sha256 "67f9ed0ea2931923798d0066b322c4fce84f868c45c5c78fbea985317c453256" => :catalina
-    sha256 "8531ed09d9fbdcae96adebe4057aa099556d961c355a1b0179b1c50957f40e91" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur:  "8187369aca2df5729df9a721097041d54858c9740c515f15fb05cd940a3a67f6"
+    sha256 cellar: :any_skip_relocation, catalina: "67f9ed0ea2931923798d0066b322c4fce84f868c45c5c78fbea985317c453256"
+    sha256 cellar: :any_skip_relocation, mojave:   "8531ed09d9fbdcae96adebe4057aa099556d961c355a1b0179b1c50957f40e91"
   end
 
   depends_on "go" => :build

@@ -12,16 +12,15 @@ class Cmigemo < Formula
     patch :DATA
   end
   bottle do
-    cellar :any
-    sha256 "a113cec93a42734d9751b9199f7aef92d77649d7921128f9f04d83260dd0effb" => :big_sur
-    sha256 "231afa328130c08c9ae6429cedbd5221633dca46fa478477f5ff441ec6c1ff8a" => :arm64_big_sur
-    sha256 "81ea6aecbf5b3dec1ebc423d3503bd134d79f4fbfbb91b291e90c1b5a9fef1a4" => :catalina
-    sha256 "28db47c1cedcff4dc6ee2d48bd07a147ae18f400e035e6a583d6b8e6cb36dfa1" => :mojave
-    sha256 "a56e9422e30145d388649e9c85bf814adb58688c2c5e374385f4260b8daa049a" => :high_sierra
-    sha256 "612544771bde1676044d35e8cb1f64134788580b76c59ced3b651e8996d46b51" => :sierra
-    sha256 "866dfa4f493c088c1b2eb3cff23ed04e33862f7bc5dcff0976ce5b7cb4835dd2" => :el_capitan
-    sha256 "4ab378bb5f5d2462a6043d9226aade8b87974b52a7fec8a24e3814f93ac936f6" => :yosemite
-    sha256 "f4b8738e34c2b8b7d8489c70a6e15e1634e9d2b0f20b2180be4dd6d43eca6c4a" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "231afa328130c08c9ae6429cedbd5221633dca46fa478477f5ff441ec6c1ff8a"
+    sha256 cellar: :any, big_sur:       "a113cec93a42734d9751b9199f7aef92d77649d7921128f9f04d83260dd0effb"
+    sha256 cellar: :any, catalina:      "81ea6aecbf5b3dec1ebc423d3503bd134d79f4fbfbb91b291e90c1b5a9fef1a4"
+    sha256 cellar: :any, mojave:        "28db47c1cedcff4dc6ee2d48bd07a147ae18f400e035e6a583d6b8e6cb36dfa1"
+    sha256 cellar: :any, high_sierra:   "a56e9422e30145d388649e9c85bf814adb58688c2c5e374385f4260b8daa049a"
+    sha256 cellar: :any, sierra:        "612544771bde1676044d35e8cb1f64134788580b76c59ced3b651e8996d46b51"
+    sha256 cellar: :any, el_capitan:    "866dfa4f493c088c1b2eb3cff23ed04e33862f7bc5dcff0976ce5b7cb4835dd2"
+    sha256 cellar: :any, yosemite:      "4ab378bb5f5d2462a6043d9226aade8b87974b52a7fec8a24e3814f93ac936f6"
+    sha256 cellar: :any, mavericks:     "f4b8738e34c2b8b7d8489c70a6e15e1634e9d2b0f20b2180be4dd6d43eca6c4a"
   end
 
   depends_on "nkf" => :build

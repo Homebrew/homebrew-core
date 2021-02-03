@@ -18,12 +18,11 @@ class Libxcb < Formula
   revision 1
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "990819c1dd57e74dc867ba37d1952fc0e7baa69273aa6a809ce5b4c18346eac4" => :big_sur
-    sha256 "5ffb8c3b6520d99063e973ae9f26110737757f57e4c63fb88d8462666d96d777" => :arm64_big_sur
-    sha256 "7f40d617b2092e9dc4fed78b032a1cde7658b813b26bcabb349770cd6c744208" => :catalina
-    sha256 "3a21a6aee4bda8851599df53ed9ebe6b282ff3264be763badcb7c3346d89c90a" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "5ffb8c3b6520d99063e973ae9f26110737757f57e4c63fb88d8462666d96d777"
+    sha256 cellar: :any, big_sur:       "990819c1dd57e74dc867ba37d1952fc0e7baa69273aa6a809ce5b4c18346eac4"
+    sha256 cellar: :any, catalina:      "7f40d617b2092e9dc4fed78b032a1cde7658b813b26bcabb349770cd6c744208"
+    sha256 cellar: :any, mojave:        "3a21a6aee4bda8851599df53ed9ebe6b282ff3264be763badcb7c3346d89c90a"
   end
 
   depends_on "pkg-config" => :build

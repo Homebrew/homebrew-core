@@ -7,11 +7,10 @@ class ProtobufC < Formula
   revision 3
 
   bottle do
-    cellar :any
-    sha256 "46ef6efc7d7309d8113f80d831cf865f28481faf251de50984dcca476dcf1fb4" => :big_sur
-    sha256 "56b5ae07f34ef446e3c126ab2c4a012e25419f70222ca4b6460c1845a9d2ad93" => :arm64_big_sur
-    sha256 "13aee041a8a45ef37fda07f93e8e968c3e0ec9673ef0bd03d8567659e9ef51a7" => :catalina
-    sha256 "443fbef1ad64772129c7f725e016a022046ea74c6db91056fbf19b48816e9cae" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "56b5ae07f34ef446e3c126ab2c4a012e25419f70222ca4b6460c1845a9d2ad93"
+    sha256 cellar: :any, big_sur:       "46ef6efc7d7309d8113f80d831cf865f28481faf251de50984dcca476dcf1fb4"
+    sha256 cellar: :any, catalina:      "13aee041a8a45ef37fda07f93e8e968c3e0ec9673ef0bd03d8567659e9ef51a7"
+    sha256 cellar: :any, mojave:        "443fbef1ad64772129c7f725e016a022046ea74c6db91056fbf19b48816e9cae"
   end
 
   depends_on "pkg-config" => :build

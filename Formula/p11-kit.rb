@@ -6,10 +6,10 @@ class P11Kit < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 "9474fe6483bbc394d9069f79528ecfe9ba1af00db4aca23c26857b6b66736d73" => :big_sur
-    sha256 "0cd22f169cd684116fdeb4e52cf551950d1a0c2cced55ee903bf694a0d9d6866" => :arm64_big_sur
-    sha256 "d02045826811eeb8475b535be7331c0770fdc930d1ac1be86796af81141e8592" => :catalina
-    sha256 "4d35cd8fd37b06687b5025354f3a579ab2e36e8ab8bd9bab75102eee14bd86f4" => :mojave
+    sha256 arm64_big_sur: "0cd22f169cd684116fdeb4e52cf551950d1a0c2cced55ee903bf694a0d9d6866"
+    sha256 big_sur:       "9474fe6483bbc394d9069f79528ecfe9ba1af00db4aca23c26857b6b66736d73"
+    sha256 catalina:      "d02045826811eeb8475b535be7331c0770fdc930d1ac1be86796af81141e8592"
+    sha256 mojave:        "4d35cd8fd37b06687b5025354f3a579ab2e36e8ab8bd9bab75102eee14bd86f4"
   end
 
   head do

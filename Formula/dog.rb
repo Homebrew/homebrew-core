@@ -7,11 +7,10 @@ class Dog < Formula
   head "https://github.com/ogham/dog.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "0666eb89b99b25ee0c5b2064f2a7a2781a325aded61691b707c6e93c512c652f" => :big_sur
-    sha256 "21f901c6abb536f0a7bc00d97df6e561aec1acff1759a96a5f69bd51eac1da98" => :catalina
-    sha256 "095b6dbb23b96504a6f0e0a292a7157c78e900825e92f4c140cc29643a294e29" => :mojave
-    sha256 "fef7ea4d925e230ba9e75cb051a888263c2bc10fcf26a96899cea2cc8891a302" => :high_sierra
+    sha256 cellar: :any_skip_relocation, big_sur:     "0666eb89b99b25ee0c5b2064f2a7a2781a325aded61691b707c6e93c512c652f"
+    sha256 cellar: :any_skip_relocation, catalina:    "21f901c6abb536f0a7bc00d97df6e561aec1acff1759a96a5f69bd51eac1da98"
+    sha256 cellar: :any_skip_relocation, mojave:      "095b6dbb23b96504a6f0e0a292a7157c78e900825e92f4c140cc29643a294e29"
+    sha256 cellar: :any_skip_relocation, high_sierra: "fef7ea4d925e230ba9e75cb051a888263c2bc10fcf26a96899cea2cc8891a302"
   end
 
   depends_on "just" => :build

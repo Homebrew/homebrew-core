@@ -7,14 +7,13 @@ class Librtlsdr < Formula
   head "https://git.osmocom.org/rtl-sdr", using: :git, shallow: false
 
   bottle do
-    cellar :any
-    sha256 "6bdf828e23854791779071bd32cd346d7cbc8d566738f63dd5c3185b91d11c73" => :big_sur
-    sha256 "7b8ccea097dd346fcaec28c4fd3545bbffe2bf0ddcd735fa2fd5dd6920c117a0" => :arm64_big_sur
-    sha256 "8d09d3c7765995caed6f1e8fa26087e345d178c630b1ef2057fb8c34cdcddd7d" => :catalina
-    sha256 "0e9b14804b722d9efc959940e40ebcef7bf716eb636f0bb0dc600770cb005531" => :mojave
-    sha256 "71f28a8abd8e9e0245a61f841fcebcb7a179d952be786199bf21fae0edd11f6c" => :high_sierra
-    sha256 "d1b83b24f32d4857205be289f7c632ee3bd77af802e3445d7565bb9ba9e4f3b1" => :sierra
-    sha256 "f5196572498f20ff0ea38d4e7ceed95aea1199a558f29dd6aac5cec9db65ce33" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "7b8ccea097dd346fcaec28c4fd3545bbffe2bf0ddcd735fa2fd5dd6920c117a0"
+    sha256 cellar: :any, big_sur:       "6bdf828e23854791779071bd32cd346d7cbc8d566738f63dd5c3185b91d11c73"
+    sha256 cellar: :any, catalina:      "8d09d3c7765995caed6f1e8fa26087e345d178c630b1ef2057fb8c34cdcddd7d"
+    sha256 cellar: :any, mojave:        "0e9b14804b722d9efc959940e40ebcef7bf716eb636f0bb0dc600770cb005531"
+    sha256 cellar: :any, high_sierra:   "71f28a8abd8e9e0245a61f841fcebcb7a179d952be786199bf21fae0edd11f6c"
+    sha256 cellar: :any, sierra:        "d1b83b24f32d4857205be289f7c632ee3bd77af802e3445d7565bb9ba9e4f3b1"
+    sha256 cellar: :any, el_capitan:    "f5196572498f20ff0ea38d4e7ceed95aea1199a558f29dd6aac5cec9db65ce33"
   end
 
   depends_on "cmake" => :build

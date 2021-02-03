@@ -7,16 +7,15 @@ class Bgrep < Formula
   head "https://github.com/tmbinc/bgrep.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "cbd5d550e042d764f0cc4c39e58cd40ae87430fb773aae7d77f3ca56d05c3325" => :big_sur
-    sha256 "2d5628a1b93a4ad2e770502b011140bc301051e1679ac5d59eadbd9b94944b1b" => :arm64_big_sur
-    sha256 "444a8dd0c2190e3a75574f8bee287895aee1d070d3e72e72fd7cda4c9cb77211" => :catalina
-    sha256 "8a3633a884feda24b875005550fddbd613987c89edc9418dd23783b4c2f7e8af" => :mojave
-    sha256 "c2357ea00756425fec65d8367e7b8653a4d6845b6aa044106b8952d8b8ead0ca" => :high_sierra
-    sha256 "eaed7c05fd07c77cd5aeb6f1232abcf5c9678b86fdaf7e7daf5049476acc690c" => :sierra
-    sha256 "29f0b2d7ab307eae228a03d4f42f677d9ff0884edc5c96771da36182cb592cd2" => :el_capitan
-    sha256 "af4dab94130c48930d064074da8492c5531842a348747b0dd39420db738f6ae9" => :yosemite
-    sha256 "b166d637dda09833c3b2c3396670347b087fef6366576303f87fb704b1d3eede" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2d5628a1b93a4ad2e770502b011140bc301051e1679ac5d59eadbd9b94944b1b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "cbd5d550e042d764f0cc4c39e58cd40ae87430fb773aae7d77f3ca56d05c3325"
+    sha256 cellar: :any_skip_relocation, catalina:      "444a8dd0c2190e3a75574f8bee287895aee1d070d3e72e72fd7cda4c9cb77211"
+    sha256 cellar: :any_skip_relocation, mojave:        "8a3633a884feda24b875005550fddbd613987c89edc9418dd23783b4c2f7e8af"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "c2357ea00756425fec65d8367e7b8653a4d6845b6aa044106b8952d8b8ead0ca"
+    sha256 cellar: :any_skip_relocation, sierra:        "eaed7c05fd07c77cd5aeb6f1232abcf5c9678b86fdaf7e7daf5049476acc690c"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "29f0b2d7ab307eae228a03d4f42f677d9ff0884edc5c96771da36182cb592cd2"
+    sha256 cellar: :any_skip_relocation, yosemite:      "af4dab94130c48930d064074da8492c5531842a348747b0dd39420db738f6ae9"
+    sha256 cellar: :any_skip_relocation, mavericks:     "b166d637dda09833c3b2c3396670347b087fef6366576303f87fb704b1d3eede"
   end
 
   def install

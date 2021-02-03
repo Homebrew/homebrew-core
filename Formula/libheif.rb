@@ -6,10 +6,10 @@ class Libheif < Formula
   license "LGPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any, big_sur: "daa9f993f1a04242f7786f141544fbb24a2c2d02e11f0253b6d72b6a8d6d3fe1"
     sha256 cellar: :any, arm64_big_sur: "6d4a4ac2d0947af84d7987c706fb6598bd87296b3c170bb9eb50270d2f2b3bed"
-    sha256 cellar: :any, catalina: "0b269433daa8aca16395d3ddc75fc8b63e15750c7c8a3af4a3769af09081f326"
-    sha256 cellar: :any, mojave: "3ae3d4575f77c80b65ba04db875293422530d98ec80a61a6076316958fab6688"
+    sha256 cellar: :any, big_sur:       "daa9f993f1a04242f7786f141544fbb24a2c2d02e11f0253b6d72b6a8d6d3fe1"
+    sha256 cellar: :any, catalina:      "0b269433daa8aca16395d3ddc75fc8b63e15750c7c8a3af4a3769af09081f326"
+    sha256 cellar: :any, mojave:        "3ae3d4575f77c80b65ba04db875293422530d98ec80a61a6076316958fab6688"
   end
 
   depends_on "pkg-config" => :build

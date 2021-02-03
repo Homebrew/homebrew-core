@@ -6,11 +6,10 @@ class Pybind11 < Formula
   license "BSD-3-Clause"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "6814212a1bfcd1dfcdfb1948844a779383af7d234f9abf4d0ee612881851258d" => :big_sur
-    sha256 "14da8f7bb353d43750a0a8d52186b8a244756fcd1d0c69375f75bb65d549c01a" => :arm64_big_sur
-    sha256 "af19160070703e3b77ba619488c0681e526c5ba0cbc09dc29fb76f64dc8ca516" => :catalina
-    sha256 "791c62f8620b29aba3210d3b8764f0edf85f89a7b886737e05ce6d9e94f452ed" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "14da8f7bb353d43750a0a8d52186b8a244756fcd1d0c69375f75bb65d549c01a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6814212a1bfcd1dfcdfb1948844a779383af7d234f9abf4d0ee612881851258d"
+    sha256 cellar: :any_skip_relocation, catalina:      "af19160070703e3b77ba619488c0681e526c5ba0cbc09dc29fb76f64dc8ca516"
+    sha256 cellar: :any_skip_relocation, mojave:        "791c62f8620b29aba3210d3b8764f0edf85f89a7b886737e05ce6d9e94f452ed"
   end
 
   depends_on "cmake" => :build
