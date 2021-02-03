@@ -8,7 +8,7 @@ class Logstash < Formula
   head "https://github.com/elastic/logstash.git"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
