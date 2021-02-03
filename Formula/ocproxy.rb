@@ -8,7 +8,7 @@ class Ocproxy < Formula
   head "https://github.com/cernekee/ocproxy.git"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d{1,3})+)$/i)
   end
 
