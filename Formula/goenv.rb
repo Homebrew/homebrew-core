@@ -8,7 +8,7 @@ class Goenv < Formula
   head "https://github.com/syndbg/goenv.git"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
