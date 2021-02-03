@@ -7,7 +7,7 @@ class Ibex < Formula
   head "https://github.com/ibex-team/ibex-lib.git"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^ibex[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
