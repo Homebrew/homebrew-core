@@ -36,7 +36,7 @@ class Terrascan < Formula
     EOS
 
     expected = <<~EOS
-      \tPolicies Validated  :	149
+      \tPolicies Validated  :	159
       \tViolated Policies   :	0
       \tLow                 :	0
       \tMedium              :	0
