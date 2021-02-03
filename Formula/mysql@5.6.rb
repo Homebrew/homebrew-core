@@ -5,11 +5,6 @@ class MysqlAT56 < Formula
   sha256 "262ccaf2930fca1f33787505dd125a7a04844f40d3421289a51974b5935d9abc"
   license "GPL-2.0-only"
 
-  livecheck do
-    url "https://dev.mysql.com/downloads/mysql/5.6.html?tpl=files&os=src&version=5.6"
-    regex(/href=.*?mysql[._-]v?(5\.6(?:\.\d+)*)\.t/i)
-  end
-
   bottle do
     sha256 "f11cd8885dc59020425bbdad88911471bc24de21810cbfbbcb6d9dd936473a85" => :big_sur
     sha256 "bbdc569f29b12fbcf5e877b15598b6adbbfa551df4ffdf8047832335b6dc829f" => :catalina
@@ -17,6 +12,8 @@ class MysqlAT56 < Formula
   end
 
   keg_only :versioned_formula
+
+  deprecate! date: "2021-02-01", because: :unsupported
 
   depends_on "cmake" => :build
   depends_on "openssl@1.1"
