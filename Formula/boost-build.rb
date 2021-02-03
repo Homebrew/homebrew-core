@@ -8,7 +8,7 @@ class BoostBuild < Formula
   head "https://github.com/boostorg/build.git"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^boost[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
