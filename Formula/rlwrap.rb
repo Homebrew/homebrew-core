@@ -7,7 +7,7 @@ class Rlwrap < Formula
   head "https://github.com/hanslub42/rlwrap.git"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
