@@ -7,7 +7,7 @@ class DnscryptProxy < Formula
   head "https://github.com/DNSCrypt/dnscrypt-proxy.git"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
