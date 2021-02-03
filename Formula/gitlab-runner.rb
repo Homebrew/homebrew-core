@@ -8,7 +8,7 @@ class GitlabRunner < Formula
   head "https://gitlab.com/gitlab-org/gitlab-runner.git"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
