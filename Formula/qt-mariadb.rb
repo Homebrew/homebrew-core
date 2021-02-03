@@ -1,8 +1,8 @@
 class QtMariadb < Formula
   desc "Qt SQL plugin for MariaDB"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.0/6.0.0/submodules/qtbase-everywhere-src-6.0.0.tar.xz"
-  sha256 "ae227180272d199cbb15318e3353716afada5c57fd5185b812ae26912c958656"
+  url "https://download.qt.io/official_releases/qt/6.0/6.0.1/submodules/qtbase-everywhere-src-6.0.1.tar.xz"
+  sha256 "8d2bc1829c1479e539f66c2f51a7e11c38a595c9e8b8e45a3b45f3cb41c6d6aa"
   license all_of: ["GPL-3.0-only", "LGPL-3.0-only"]
 
   depends_on "cmake" => :build
