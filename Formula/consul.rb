@@ -8,7 +8,7 @@ class Consul < Formula
   head "https://github.com/hashicorp/consul.git", shallow: false
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
