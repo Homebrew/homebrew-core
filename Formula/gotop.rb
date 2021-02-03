@@ -1,8 +1,8 @@
 class Gotop < Formula
   desc "Terminal based graphical activity monitor inspired by gtop and vtop"
   homepage "https://github.com/xxxserxxx/gotop"
-  url "https://github.com/xxxserxxx/gotop/archive/v4.1.0.tar.gz"
-  sha256 "e61375feb183cc2c73764aaac92e164ea77f073206f7dbbfd4997c0efd38bfc0"
+  url "https://github.com/xxxserxxx/gotop/archive/v4.1.1.tar.gz"
+  sha256 "314dcfc4b0faa0bb735e5fa84b2406492bf94f7948af43e2b9d2982d69d542ed"
   license "BSD-3-Clause"
 
   bottle do
