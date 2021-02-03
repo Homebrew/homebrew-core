@@ -7,7 +7,7 @@ class Tesseract < Formula
   head "https://github.com/tesseract-ocr/tesseract.git"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
