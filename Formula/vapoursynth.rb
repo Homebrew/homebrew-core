@@ -7,7 +7,7 @@ class Vapoursynth < Formula
   head "https://github.com/vapoursynth/vapoursynth.git"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^R(\d+(?:\.\d+)*?)$/i)
   end
 
