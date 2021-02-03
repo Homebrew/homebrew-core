@@ -3,7 +3,7 @@ class Asciiquarium < Formula
   homepage "https://robobunny.com/projects/asciiquarium/html/"
   url "https://robobunny.com/projects/asciiquarium/asciiquarium_1.1.tar.gz"
   sha256 "1b08c6613525e75e87546f4e8984ab3b33f1e922080268c749f1777d56c9d361"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   revision 1
 
   livecheck do
@@ -20,11 +20,12 @@ class Asciiquarium < Formula
     sha256 cellar: :any_skip_relocation, yosemite:    "6b20abf264f40c7123e40f0f34cfc11f0c12a03b1a74a324e3f3a7ae75e94f3f"
   end
 
-  uses_from_macos "perl"
+  depends_on "ncurses"
+  depends_on "perl"
 
   resource "Curses" do
-    url "https://cpan.metacpan.org/authors/id/G/GI/GIRAFFED/Curses-1.34.tar.gz"
-    sha256 "808e44d5946be265af5ff0b90f3d0802108e7d1b39b0fe68a4a446fe284d322b"
+    url "https://cpan.metacpan.org/authors/id/G/GI/GIRAFFED/Curses-1.37.tar.gz"
+    sha256 "74707ae3ad19b35bbefda2b1d6bd31f57b40cdac8ab872171c8714c88954db20"
   end
 
   resource "Term::Animation" do
@@ -46,7 +47,7 @@ class Asciiquarium < Formula
     # Disable dynamic selection of perl which may cause segfault when an
     # incompatible perl is picked up.
     # https://github.com/Homebrew/homebrew-core/issues/4936
-    inreplace "asciiquarium", "#!/usr/bin/env perl", "#!/usr/bin/perl"
+    inreplace "asciiquarium", "#!/usr/bin/env perl", "#!#{Formula["perl"].opt_bin/"perl"}"
 
     chmod 0755, "asciiquarium"
     bin.install "asciiquarium"
@@ -66,10 +67,14 @@ class Asciiquarium < Formula
 
     require "pty"
     ENV["TERM"] = "xterm"
-    PTY.spawn(bin/"asciiquarium") do |stdin, _stdout, pid|
-      sleep 0.1
+    PTY.spawn(bin/"asciiquarium") do |stdout, _stdin, pid|
+      sleep 0.5
       Process.kill "TERM", pid
-      output = stdin.read
+      output = begin
+        stdout.gets
+      rescue Errno::EIO
+        nil
+      end
       assert_match "\e[?10", output[0..4]
     end
   end
