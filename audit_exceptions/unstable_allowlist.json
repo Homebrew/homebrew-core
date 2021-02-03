@@ -8,7 +8,6 @@
   "premake": "4.4-beta",
   "pwnat": "0.3-beta",
   "recode": "3.7-beta",
-  "rust": "1.48.",
   "tcptraceroute": "1.5beta",
   "tiny-fugue": "5.0b",
   "vbindiff": "3.0_beta"
