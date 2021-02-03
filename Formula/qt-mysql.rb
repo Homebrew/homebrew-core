@@ -1,5 +1,5 @@
 class QtMysql < Formula
-  desc "Qt MySQL driver"
+  desc "Qt SQL plugin for MySQL"
   homepage "https://www.qt.io/"
   url "https://download.qt.io/archive/qt/6.0/6.0.1/submodules/qtbase-everywhere-src-6.0.1.tar.xz"
   sha256 "8d2bc1829c1479e539f66c2f51a7e11c38a595c9e8b8e45a3b45f3cb41c6d6aa"
