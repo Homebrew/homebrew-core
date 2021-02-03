@@ -7,7 +7,7 @@ class FreeradiusServer < Formula
   head "https://github.com/FreeRADIUS/freeradius-server.git"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^release[._-](\d+(?:[._]\d+)+)$/i)
   end
 
