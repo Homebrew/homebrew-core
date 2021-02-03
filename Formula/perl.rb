@@ -37,8 +37,10 @@ class Perl < Formula
       -Duseshrplib
       -Duselargefiles
       -Dusethreads
-      -Dsed=/usr/bin/sed
     ]
+    on_macos do
+      args << "-Dsed=/usr/bin/sed"
+    end
 
     args << "-Dusedevel" if build.head?
 
