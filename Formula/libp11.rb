@@ -6,7 +6,7 @@ class Libp11 < Formula
   license "LGPL-2.1-or-later"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^libp11[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
