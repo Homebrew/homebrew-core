@@ -7,7 +7,7 @@ class OsrmBackend < Formula
   head "https://github.com/Project-OSRM/osrm-backend.git"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
