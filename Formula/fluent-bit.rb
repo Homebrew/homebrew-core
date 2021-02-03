@@ -7,7 +7,7 @@ class FluentBit < Formula
   head "https://github.com/fluent/fluent-bit.git"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
