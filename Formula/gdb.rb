@@ -5,6 +5,7 @@ class Gdb < Formula
   mirror "https://ftpmirror.gnu.org/gdb/gdb-10.1.tar.xz"
   sha256 "f82f1eceeec14a3afa2de8d9b0d3c91d5a3820e23e0a01bbb70ef9f0276b62c0"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://sourceware.org/git/binutils-gdb.git"
 
   livecheck do
@@ -56,7 +57,7 @@ class Gdb < Formula
       system "make"
 
       # Don't install bfd or opcodes, as they are provided by binutils
-      system "make", "install-gdb"
+      system "make", "install-gdb", "maybe-install-gdbserver"
     end
   end
 
