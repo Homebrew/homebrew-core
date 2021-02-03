@@ -7,7 +7,7 @@ class Ncompress < Formula
   head "https://github.com/vapier/ncompress.git"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
