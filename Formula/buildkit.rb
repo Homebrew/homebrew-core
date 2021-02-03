@@ -8,7 +8,7 @@ class Buildkit < Formula
   head "https://github.com/moby/buildkit.git"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
