@@ -6,6 +6,7 @@ class Poetry < Formula
   url "https://files.pythonhosted.org/packages/94/89/92040eafbb76dcbb2b3ee185499b89281f712b34faa7673850778b0ddda4/poetry-1.1.4.tar.gz"
   sha256 "946a5a1173be607c7c5c593358a0fb0c0d6af4400c978929ecdb19c3a37b53a8"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -192,8 +193,10 @@ class Poetry < Formula
     ENV.prepend_create_path "PYTHONPATH", site_packages
     system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(libexec)
 
+    # We don't hardcode Homebrew Python here on purpose. See
+    # https://github.com/Homebrew/homebrew-core/issues/62910
     (bin/"poetry").write <<~PYTHON
-      #!#{Formula["python@3.9"].opt_bin/"python3"}
+      #!/usr/bin/env python3
       import sys
 
       sys.path.insert(0, "#{site_packages}")
