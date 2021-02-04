@@ -1,9 +1,10 @@
 class Osm2pgsql < Formula
   desc "OpenStreetMap data to PostgreSQL converter"
-  homepage "https://wiki.openstreetmap.org/wiki/Osm2pgsql"
+  homepage "https://osm2pgsql.org"
   url "https://github.com/openstreetmap/osm2pgsql/archive/1.4.1.tar.gz"
   sha256 "33c4817dceed99764b089ead0e8e2f67c4c6675e761772339b635800970e66e2"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/openstreetmap/osm2pgsql.git"
 
   bottle do
@@ -16,7 +17,7 @@ class Osm2pgsql < Formula
   depends_on "lua" => :build
   depends_on "boost"
   depends_on "geos"
-  depends_on "luajit"
+  depends_on "luajit-openresty"
   depends_on "postgresql"
   depends_on "proj"
 
