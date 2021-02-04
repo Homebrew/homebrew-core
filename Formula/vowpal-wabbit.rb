@@ -3,9 +3,8 @@ class VowpalWabbit < Formula
   homepage "https://github.com/VowpalWabbit/vowpal_wabbit"
   # pull from git tag to get submodules
   url "https://github.com/VowpalWabbit/vowpal_wabbit.git",
-      tag:      "8.8.1",
-      revision: "5ff219ec0ff28af5d35e452f5f18e6808993e08a"
-  revision 1
+      tag:      "8.9.1",
+      revision: "83e667d913531b7171b12669a895ec2f8989ea65"
   head "https://github.com/VowpalWabbit/vowpal_wabbit.git"
 
   bottle do
