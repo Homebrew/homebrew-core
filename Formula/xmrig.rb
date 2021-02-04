@@ -12,8 +12,8 @@ class Xmrig < Formula
   end
 
   bottle do
-    sha256 big_sur:       "f965e5da7b63cafcf268a16299bf10c50eacf356732d7ecdbd360924a81c9f47"
     sha256 arm64_big_sur: "66e99e58abc037ad83e04cd1e48624c5e482acdf4127c3ba42c40d4a4e1f523e"
+    sha256 big_sur:       "f965e5da7b63cafcf268a16299bf10c50eacf356732d7ecdbd360924a81c9f47"
     sha256 catalina:      "87c958b7178bce25fbd8f4c7d932817d9401f84622dd18d667b1d5a823744892"
     sha256 mojave:        "2ad4ed36ae89682a7f7191d66fd4fd3cdb4f85684757363c1a96561149b57328"
   end

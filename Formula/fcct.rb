@@ -12,8 +12,8 @@ class Fcct < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:       "ad3be57c5b5be44baebf9b65b58707dc6ae42d8ec88694ecf212ef48b1ec6f71"
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "168e14f5c7e7843342a66bd5073e198ee1f63c614b84803f9c9a83d6932b33c2"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ad3be57c5b5be44baebf9b65b58707dc6ae42d8ec88694ecf212ef48b1ec6f71"
     sha256 cellar: :any_skip_relocation, catalina:      "bfa9271ef810cdaa856fe7f77a1bedebda49156a62ffedbadac2a7b3dff762ee"
     sha256 cellar: :any_skip_relocation, mojave:        "01a0424af0d9e118de1f247fee0c9b0cde198364860c818b55259e9c8884ae5b"
   end

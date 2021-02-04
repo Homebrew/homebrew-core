@@ -12,8 +12,8 @@ class Mariadb < Formula
 
   bottle do
     rebuild 3
-    sha256 big_sur:       "802d047b15b594c3170d90e355f44a6585cd5cd255788ee4922b6e757b216bd0"
     sha256 arm64_big_sur: "1e168542dc43d8c2d88153ee7bfcbbac167de161599a257ef82e8c2ebc094fd5"
+    sha256 big_sur:       "802d047b15b594c3170d90e355f44a6585cd5cd255788ee4922b6e757b216bd0"
     sha256 catalina:      "abd58d85de7c08ed22f82331b09afe3f90bab796fc4bfe318a952826b7c1498e"
     sha256 mojave:        "a0c0f4cb430cf7b462be33c94f34e840f6d0510b1c78c50e596bb36bf0536761"
   end

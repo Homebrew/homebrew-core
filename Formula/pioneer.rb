@@ -7,8 +7,8 @@ class Pioneer < Formula
   head "https://github.com/pioneerspacesim/pioneer.git"
 
   bottle do
-    sha256 big_sur:       "8b59ff2ff180ccdd5485d063d8a46038bc7ae2fb77c70a9a6aec891aba40c7b7"
     sha256 arm64_big_sur: "a3151605aa2a2b4a8a5ac8266105d2293a7f06f594791fed4629340b8f819a71"
+    sha256 big_sur:       "8b59ff2ff180ccdd5485d063d8a46038bc7ae2fb77c70a9a6aec891aba40c7b7"
     sha256 catalina:      "abeb86c374fa69e433e548cd1189105206cfd3859a1dd06d0ea2b45a15092b9f"
     sha256 mojave:        "bd448dc95f9f104637263a4e9aea398177b502938a969b766db8229ddc89860a"
   end

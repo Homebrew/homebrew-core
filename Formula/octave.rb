@@ -12,8 +12,8 @@ class Octave < Formula
   end
 
   bottle do
-    sha256 big_sur:       "364eefc2bd38db495795f8815f234031b00dec5a9a1f45cd9e667d1641ececf8"
     sha256 arm64_big_sur: "0ffe32cfaeb313b49a4f6b1dd1663dbf313156682492c126cfa32bac542bcb1c"
+    sha256 big_sur:       "364eefc2bd38db495795f8815f234031b00dec5a9a1f45cd9e667d1641ececf8"
     sha256 catalina:      "01140e3fafbe5062e299f372959a7e59c7a49031097ab26a3a34bf582b7016a6"
     sha256 mojave:        "0cf560a9f9c32bd5f0155ca27c38047205bdc53009c0540017dac10c99f6ff4c"
   end

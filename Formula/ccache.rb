@@ -7,8 +7,8 @@ class Ccache < Formula
   head "https://github.com/ccache/ccache.git"
 
   bottle do
-    sha256 cellar: :any, big_sur:       "4323fd450d0e58cb7c4b76d5254e5a5b44d960d5216073dfeeda41e9baf298f3"
     sha256 cellar: :any, arm64_big_sur: "582e21a87c6025f4de138f2a5b47a14a0487f2e6deabf4dd54cfb0d34d27190b"
+    sha256 cellar: :any, big_sur:       "4323fd450d0e58cb7c4b76d5254e5a5b44d960d5216073dfeeda41e9baf298f3"
     sha256 cellar: :any, catalina:      "e84ad1c22e01e75f740c910f562935c2d00058aaf4e8bbd09050dfee18f45324"
     sha256 cellar: :any, mojave:        "143ee0131253764d489ba4ff6569ec565c50d50662d878065bdf44d290d23c2b"
   end

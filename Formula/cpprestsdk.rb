@@ -9,8 +9,8 @@ class Cpprestsdk < Formula
   head "https://github.com/Microsoft/cpprestsdk.git", branch: "development"
 
   bottle do
-    sha256 cellar: :any, big_sur:       "c65b7f42fed4091750be219a60774854de46903c74ef99def1b73f905bb0728f"
     sha256 cellar: :any, arm64_big_sur: "ac66587bc353b3358ff11606ca3952fa57f7dc57a5f59414ed8bfa62e90ff858"
+    sha256 cellar: :any, big_sur:       "c65b7f42fed4091750be219a60774854de46903c74ef99def1b73f905bb0728f"
     sha256 cellar: :any, catalina:      "f89613fba00d0feaa3e55508f3fb122dc8f4126b679e55c22fd228ed44d0c1c4"
     sha256 cellar: :any, mojave:        "6805fd31638651ef090d68e07cdea155d70b23365828cd1adbfd60fc132eedc3"
   end

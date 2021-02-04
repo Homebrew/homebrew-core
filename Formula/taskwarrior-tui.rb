@@ -12,8 +12,8 @@ class TaskwarriorTui < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:       "cdf2977545ecedbff3661d1995fac4df8acf60124ef8ab59af0ae39e101c28f5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f1ab1b590ef5216b40d9a905f4329d33b07d23d2a8726afbcd8fffed8872df30"
+    sha256 cellar: :any_skip_relocation, big_sur:       "cdf2977545ecedbff3661d1995fac4df8acf60124ef8ab59af0ae39e101c28f5"
     sha256 cellar: :any_skip_relocation, catalina:      "b9f7eeea5f8036e959d5bf2b1384c2a3b969c364cb61199ab9d16ece62bb8fe9"
     sha256 cellar: :any_skip_relocation, mojave:        "ede876bda28c9866c13af458b799523c16718fb7bb5a926da693e21bba9c8a5b"
   end

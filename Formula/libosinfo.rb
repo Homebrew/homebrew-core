@@ -11,8 +11,8 @@ class Libosinfo < Formula
   end
 
   bottle do
-    sha256 big_sur:       "c1eeea184883a96849938c8b71908bb8e5ebc4985c9b958f9671205a11199928"
     sha256 arm64_big_sur: "628d18923f168d2ed454a5a6c3aacc9408f2f009046cee2c84ac7a872b66e428"
+    sha256 big_sur:       "c1eeea184883a96849938c8b71908bb8e5ebc4985c9b958f9671205a11199928"
     sha256 catalina:      "c6423c62d06368ee03080aafaabefced7ddfd6c014c00ffddfab738e8aa76fad"
     sha256 mojave:        "a0ecd6371b9940ee2c73b818cbeb1df7a001c4a4dea0508df2e4e2e885412881"
   end

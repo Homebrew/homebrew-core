@@ -12,8 +12,8 @@ class Xterm < Formula
   end
 
   bottle do
-    sha256 big_sur:       "c60885eba8c6f0cf1197793dd0fb82ec3cfec9aa7e234e90920cf4cf3fe62b7b"
     sha256 arm64_big_sur: "feedc30fa7545317fcd21891a8107287d3141454266b316ae3316874e545a3de"
+    sha256 big_sur:       "c60885eba8c6f0cf1197793dd0fb82ec3cfec9aa7e234e90920cf4cf3fe62b7b"
     sha256 catalina:      "5d74ee6b4b620a1d7193686d1050c901f65219ecd0e36abcabdabd9c2959268f"
     sha256 mojave:        "ab6cf49a29e28028be468d0a1dc9bae2e832f9547b4d489aebe6eef5ede2ee60"
   end

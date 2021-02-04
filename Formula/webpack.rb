@@ -14,8 +14,8 @@ class Webpack < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:       "ca3629cd7080175278fe738d459f150c523070afff6052bdb984438ce4d941eb"
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "e35a4c01e13e0094e0ea5bd8e1e74b0fc59db45a1d24bbc13568c64d1e7ca3f1"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ca3629cd7080175278fe738d459f150c523070afff6052bdb984438ce4d941eb"
     sha256 cellar: :any_skip_relocation, catalina:      "104a2250436c654d98f254e6f160b6a1c0e0a8a577937e1f7390ae898b387bfb"
     sha256 cellar: :any_skip_relocation, mojave:        "782f669eea7503559cd60dcba9021412234d4cb9b4121761da3bdd757ca613a7"
   end

@@ -7,8 +7,8 @@ class Terrascan < Formula
   head "https://github.com/accurics/terrascan.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:       "430c828231b47110e56192e22359e52c0b2be9608b835750d6c2e8e7f9437e75"
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "22856f97720230a2db38399bca2ea948981abbcfab712cd92cc09107c042da74"
+    sha256 cellar: :any_skip_relocation, big_sur:       "430c828231b47110e56192e22359e52c0b2be9608b835750d6c2e8e7f9437e75"
     sha256 cellar: :any_skip_relocation, catalina:      "3f8196d147f1a96e019272098e369baa73fa0904a490a310454042eba9f01ac2"
     sha256 cellar: :any_skip_relocation, mojave:        "1687e46163119a6cb506a80591b905c5ebcf6b34a8a31294de1a977d190ac19f"
   end

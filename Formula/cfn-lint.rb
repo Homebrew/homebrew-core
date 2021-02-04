@@ -12,8 +12,8 @@ class CfnLint < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:       "743cd92fba908a174df74489cde1540ec07e55da5f8dbfc9a8bd8ac537bb30a2"
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a894ba98163e9a6d82facd05563bbba8a963b322a8a6a3aa349056ab2124c227"
+    sha256 cellar: :any_skip_relocation, big_sur:       "743cd92fba908a174df74489cde1540ec07e55da5f8dbfc9a8bd8ac537bb30a2"
     sha256 cellar: :any_skip_relocation, catalina:      "e2c6d44914b002be71f02299d987077d736d6053177e65d4c882f34463bc4012"
     sha256 cellar: :any_skip_relocation, mojave:        "74246247d136dab665f24cb086f4eebd990717d6527097096b2407bcf271cb53"
   end

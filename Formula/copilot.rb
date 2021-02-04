@@ -10,8 +10,8 @@ class Copilot < Formula
   head "https://github.com/aws/copilot-cli.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:       "c4e65bb0077dcf34dca1c7bbabdbc1b34b37660f89f3028321fa30ac13e5f94d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "78fa7a1243e788c42e47ee8a41bd6a657a78bbe6feec0351f4ac2cb45ccf2a32"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c4e65bb0077dcf34dca1c7bbabdbc1b34b37660f89f3028321fa30ac13e5f94d"
     sha256 cellar: :any_skip_relocation, catalina:      "0430526ab8a2bf8b3944971d1d69f986ca2e3c2c0881bacb18635b01573b17c1"
     sha256 cellar: :any_skip_relocation, mojave:        "d79031b40ca64ab97a9f885b3c9a81f7174f91f1e7896d3b304d3059994a1bc9"
   end

@@ -7,8 +7,8 @@ class Kubeaudit < Formula
   head "https://github.com/Shopify/kubeaudit.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:       "6b3dd8f651bf05d1dbf3a026e0882aed226e96e1fed043b625494c20f021fabf"
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "08f2c8540db0020a5f88a9b5d4fa2d3f53558766587b3f68891ee8d454e7e401"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6b3dd8f651bf05d1dbf3a026e0882aed226e96e1fed043b625494c20f021fabf"
     sha256 cellar: :any_skip_relocation, catalina:      "7aa43b94f9544018f5d5af233146e843f35deb9b76c6a01d8fe86ede1f13dcf1"
     sha256 cellar: :any_skip_relocation, mojave:        "dc93207e1808fad38e06a08b11a35fc9bf4dd381cacccc525ade4534ee44287e"
   end

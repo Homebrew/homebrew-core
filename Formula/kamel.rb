@@ -13,8 +13,8 @@ class Kamel < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:       "5e07672ad25869206e8d43c1959426411b6f1a410e44e4e2279271e07c542684"
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "c52e7f5e007e12e4c191db92ed779e7aded3e09a42284871a50c52fec108c311"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5e07672ad25869206e8d43c1959426411b6f1a410e44e4e2279271e07c542684"
     sha256 cellar: :any_skip_relocation, catalina:      "982c51e01f8e5bf9fb867c5107428ffe3ef000400c1d9cdc9c5710d50d4f194d"
     sha256 cellar: :any_skip_relocation, mojave:        "356cffa21363864841e10ef0073c6a6ce25d215a7cc728d246e0953c896dfebf"
   end

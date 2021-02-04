@@ -9,8 +9,8 @@ class Certbot < Formula
   head "https://github.com/certbot/certbot.git"
 
   bottle do
-    sha256 cellar: :any, big_sur:       "10d99154d4f477f963485fd1e346c652a6719a797ee4392f6d7ea6b17ded8e57"
     sha256 cellar: :any, arm64_big_sur: "57aff9376ffebee8dc496452fa160bcf5fa5b640dc9ac062a94da49262507027"
+    sha256 cellar: :any, big_sur:       "10d99154d4f477f963485fd1e346c652a6719a797ee4392f6d7ea6b17ded8e57"
     sha256 cellar: :any, catalina:      "32a50594c947ede27153dc4eb75653aa66a3ddae546a9d076c782e68b61a0758"
     sha256 cellar: :any, mojave:        "2e6f5d380da787a79c8c817eb3436a1000ba77885fa124075e980e8285a9a95e"
   end

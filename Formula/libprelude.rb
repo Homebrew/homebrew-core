@@ -6,8 +6,8 @@ class Libprelude < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 big_sur:       "6917b8d5d3ff58f90327fb818d920de6aea2b5ae78043f00368e3b927fd6ddcd"
     sha256 arm64_big_sur: "7b7bd68152744ba511e577cbba513e86155f0b9734ed54591a462482d94c5679"
+    sha256 big_sur:       "6917b8d5d3ff58f90327fb818d920de6aea2b5ae78043f00368e3b927fd6ddcd"
     sha256 catalina:      "6e8f95a1d163f021c7f6a7e09b92b9f695edd8de41e787dcbcafc87781380980"
     sha256 mojave:        "0bb4d2090cb2f2aa0acb868402232a725e1ad51ead0786988bf1628a94491dde"
   end

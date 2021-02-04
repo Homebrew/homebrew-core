@@ -8,8 +8,8 @@ class PhpAT74 < Formula
   license "PHP-3.01"
 
   bottle do
-    sha256 big_sur:       "11cbe697525464636f1e1ecc9de2900b341e8566a0b66239ab05d57271f85076"
     sha256 arm64_big_sur: "3120baa405c79acaae9622e4c99599d8fe09ccdbaeecb8965d131c9559c257f1"
+    sha256 big_sur:       "11cbe697525464636f1e1ecc9de2900b341e8566a0b66239ab05d57271f85076"
     sha256 catalina:      "09d8e3bd11eea8df1020621ba7e9d5e7d540a7042372879893a070ab09c3ca37"
     sha256 mojave:        "9e023ddc63e4269895fb520acc3b21e6619028a94e55706f52d3e998978e57ec"
   end

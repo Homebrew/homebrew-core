@@ -11,8 +11,8 @@ class Tor < Formula
   end
 
   bottle do
-    sha256 big_sur:       "a757e5ff16ae66933aa729fb2f022e62564dd4007daccda31e1d415fdf600e09"
     sha256 arm64_big_sur: "707a87a267fcb0a4186415a9eee85eee62509747a61a31530813146409602d00"
+    sha256 big_sur:       "a757e5ff16ae66933aa729fb2f022e62564dd4007daccda31e1d415fdf600e09"
     sha256 catalina:      "203af4c3f78c82d07e75775bf14c767ed7082d69ecd2126db5a8ebb6a48e51ee"
     sha256 mojave:        "14774e8f2e1ba72edf08d773e66ff7a819c9bde7fb9d6e6c1165d6570f0b8c88"
   end

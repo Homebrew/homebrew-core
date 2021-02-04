@@ -12,8 +12,8 @@ class PythonAT39 < Formula
   end
 
   bottle do
-    sha256 big_sur:       "621814095e93c2d8d996365513576604cfc58f17534c1f4ff303cd51028849ab"
     sha256 arm64_big_sur: "9603bfefbb5b29bbbdab37b7b7ce26e27c36f2ecdfcc6a8d1976764bd0508e80"
+    sha256 big_sur:       "621814095e93c2d8d996365513576604cfc58f17534c1f4ff303cd51028849ab"
     sha256 catalina:      "9025d2e4f3aa72b7a1c46c2729bb935a5d9f7a5d34f60c381c43a90e178d3b08"
     sha256 mojave:        "a6c7451d86298f8db98b71c0923a3c2694da1694a4ab51d5bee9c0601f25e200"
   end
