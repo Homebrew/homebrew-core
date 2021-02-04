@@ -30,14 +30,22 @@ class ClojureLsp < Formula
   test do
     require "Open3"
 
+    print "testing"
     stdin, stdout, _, wait_thr = Open3.popen3("#{bin}/clojure-lsp")
+    print "testing2"
     pid = wait_thr.pid
+    print "testing3"
     stdin.write <<~EOF
-      Content-Length: 58
+      Content-Length: 59
 
       {"jsonrpc":"2.0","method":"initialize","params":{},"id":1}
     EOF
-    assert_match "Content-Length", stdout.gets("\n")
+
+    print "testing4"
+    assert_match "Content-Length", stdout.gets
+    print "testing5"
     Process.kill "SIGKILL", pid
+    print "testing6"
   end
 end
+
