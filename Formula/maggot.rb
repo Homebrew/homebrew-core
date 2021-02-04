@@ -9,8 +9,7 @@ class Maggot < Formula
 
   depends_on "gtk+3"
   depends_on "msc-generator"
-  depends_on "pygobject3"
-  depends_on "python@3.9"
+  depends_on "pygobject3" # implicitly depends on the correct (brewed) python3 version
 
   def install
     venv = virtualenv_create libexec, "python3"
