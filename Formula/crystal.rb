@@ -2,7 +2,7 @@ class Crystal < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   stable do
     url "https://github.com/crystal-lang/crystal/archive/0.36.1.tar.gz"
@@ -58,6 +58,8 @@ class Crystal < Formula
   def install
     (buildpath/"boot").install resource("boot")
     ENV.append_path "PATH", "boot/bin"
+    ENV.append_path "CRYSTAL_LIBRARY_PATH", Formula["bdw-gc"].lib
+    ENV.append_path "CRYSTAL_LIBRARY_PATH", ENV["HOMEBREW_LIBRARY_PATHS"]
 
     # Build crystal
     crystal_build_opts = []
@@ -76,7 +78,6 @@ class Crystal < Formula
     #       building the formula. Otherwise this ad-hoc setup could be avoided.
     embedded_crystal_path=`"#{buildpath/".build/crystal"}" env CRYSTAL_PATH`.strip
     ENV["CRYSTAL_PATH"] = "#{embedded_crystal_path}:#{buildpath/"src"}"
-    ENV["CRYSTAL_LIBRARY_PATH"] = ENV["HOMEBREW_LIBRARY_PATHS"]
 
     # Install shards
     resource("shards").stage do
