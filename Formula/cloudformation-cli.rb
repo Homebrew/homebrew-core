@@ -3,8 +3,8 @@ class CloudformationCli < Formula
 
   desc "CloudFormation Provider Development Toolkit"
   homepage "https://github.com/aws-cloudformation/cloudformation-cli/"
-  url "https://files.pythonhosted.org/packages/5f/95/a251aeae2aa738ea1d37e8595883e221159e06c1f5d437f77ee9a91e7c2e/cloudformation-cli-0.2.2.tar.gz"
-  sha256 "82b32d1b025c9d6bc7c1e620f2cd50c4f73a0c058e1b20810c6cca618d230267"
+  url "https://files.pythonhosted.org/packages/46/fd/1b6e8301612c517d8a6f008372a2bf3beafbcf9c4a288164f8aa0dae42e2/cloudformation-cli-0.2.3.tar.gz"
+  sha256 "d767224057b95b523cba2e5bfa68ae30ebf957a99aa17f511d8dc8ac273c9914"
   license "Apache-2.0"
 
   livecheck do
@@ -28,18 +28,18 @@ class CloudformationCli < Formula
   end
 
   resource "aws-sam-translator" do
-    url "https://files.pythonhosted.org/packages/e1/78/c1b9a8c89aa1a21b07823c6363cc1eefd2c08fc193ba9ffddcc6e8fd0294/aws-sam-translator-1.33.0.tar.gz"
-    sha256 "9f3767614746a38300ee988ef70d6f862e71e59ea536252bbf9a319daaac1fff"
+    url "https://files.pythonhosted.org/packages/31/a2/39f328ee21b0d9017ef52c599bf462b6ed1003b6ba5376a3d43b3f6e6b2c/aws-sam-translator-1.34.0.tar.gz"
+    sha256 "857c62a03e3bb4a3f7074e867f52ced636dc06192c8216e00732122f21a206c2"
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/34/19/1be08abab2ceda573cbad247cf4474a6ae53c518829181d0fe9c9e64ba40/boto3-1.16.61.tar.gz"
-    sha256 "38f503f0502aba4251dff4d19057c31a7b9dd0f54333df5521f8931ee4c65e26"
+    url "https://files.pythonhosted.org/packages/0f/25/52f70ebf35b0ce7423df7aacbf111577e3d252bc3d9c2c60b46662a7ead9/boto3-1.17.1.tar.gz"
+    sha256 "58a440f4c96a1f2f076577c7085237854ba6db41a7c91e4a33fb30068f8d4692"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/1c/cd/772b9dd430d172a58c4f64c7a6823ad7aa37b3489f3120139a87e11622d9/botocore-1.19.61.tar.gz"
-    sha256 "3245c9e996143bcfdea73d105145ca733fcd7d5afe744a8760612fc449c3f810"
+    url "https://files.pythonhosted.org/packages/7f/3a/cff91113a66d556864682e7dd72bd2d9b0ff13e0f2204875a045fa91d826/botocore-1.20.1.tar.gz"
+    sha256 "9488ba35e2d4d17375f67b8fd300df5ec2f8317a2924032901009c999d563b59"
   end
 
   resource "certifi" do
@@ -48,8 +48,8 @@ class CloudformationCli < Formula
   end
 
   resource "cfn-lint" do
-    url "https://files.pythonhosted.org/packages/df/54/ff7f33dff0a7ed9829a0a59b1bfb06b31ef0b10c8e74f6210fa56a23e343/cfn-lint-0.44.5.tar.gz"
-    sha256 "6889c171eb2bbbe9e175149d8bada8ae627137748c42b04581e79469dc6b35e7"
+    url "https://files.pythonhosted.org/packages/36/8f/6a27bd34cfd9d7d69c2e39f767a21d3200001e983195d2e28d0896df9aa7/cfn-lint-0.44.6.tar.gz"
+    sha256 "dec1fd133c419e8e9ba56ac2906dd385ddd5fc6b76e1c28db276c078096fd75c"
   end
 
   resource "chardet" do
@@ -88,8 +88,8 @@ class CloudformationCli < Formula
   end
 
   resource "hypothesis" do
-    url "https://files.pythonhosted.org/packages/37/07/eb38c67ba359b306dfbc5d680ee267f343c6b705980444754465c9cb4b3a/hypothesis-6.0.4.tar.gz"
-    sha256 "f13662cfe7131cba67abbdb38e935ad4a3f4ad3b4aa4c7ed49df1cb15be94a67"
+    url "https://files.pythonhosted.org/packages/c1/2b/ab089c7d6f4b8e4b8a97d946b1295311ec9b9442d25522cbe9c81418b41f/hypothesis-6.1.1.tar.gz"
+    sha256 "47673d3c0cb87055f5b4d322d3d16a7556ae5962e9677aa98d6f5503ffd74f7a"
   end
 
   resource "idna" do
@@ -103,8 +103,8 @@ class CloudformationCli < Formula
   end
 
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/64/a7/45e11eebf2f15bf987c3bc11d37dcc838d9dc81250e67e4c5968f6008b6c/Jinja2-2.11.2.tar.gz"
-    sha256 "89aab215427ef59c34ad58735269eb58b1a5808103067f7bb9d5836c651b3bb0"
+    url "https://files.pythonhosted.org/packages/4f/e7/65300e6b32e69768ded990494809106f87da1d436418d5f1367ed3966fd7/Jinja2-2.11.3.tar.gz"
+    sha256 "a6d58433de0ae800347cab1fa3043cebbabe8baa9d29e668f1c768cb87a333c6"
   end
 
   resource "jmespath" do
@@ -149,8 +149,8 @@ class CloudformationCli < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d7/c5/e81b9fb8033fe78a2355ea7b1774338e1dca2c9cbd2ee140211a9e6291ab/packaging-20.8.tar.gz"
-    sha256 "78598185a7008a470d64526a8059de9aaa449238f280fc9eb6b13ba6c4109093"
+    url "https://files.pythonhosted.org/packages/86/3c/bcd09ec5df7123abcf695009221a52f90438d877a2f1499453c6938f5728/packaging-20.9.tar.gz"
+    sha256 "5b327ac1320dc863dca72f4514ecc086f31186744b84a230374cc1fd776feae5"
   end
 
   resource "pluggy" do
