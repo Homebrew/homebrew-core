@@ -75,8 +75,7 @@ class Audacious < Formula
         --disable-mpris2
         --enable-mac-media-keys
       ]
-      inreplace "src/glspectrum/gl-spectrum.cc", "#include <GL/", "#include <"
-      inreplace "src/qtglspectrum/gl-spectrum.cc", "#include <GL/", "#include <"
+
       ENV.prepend_path "PKG_CONFIG_PATH", "#{lib}/pkgconfig"
 
       system "./autogen.sh" if build.head?
