@@ -4,8 +4,8 @@ class Checkov < Formula
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
   # checkov should only be updated every 15 releases on multiples of 15
-  url "https://files.pythonhosted.org/packages/71/be/9a310e94123dbc81a19fce130cd09712e7e0d2856f972ea9e72f10916fb7/checkov-1.0.720.tar.gz"
-  sha256 "e1acfae84b4b9530ea66c357e51b2e584ea6253db468773ea30c8d571ea1cccd"
+  url "https://pypi.io/packages/source/c/checkov/checkov-1.0.759.tar.gz"
+  sha256 "cfe8f45d0362e6407acb3f5a485cab3efbc543476679989094845a277a4cbf00"
   license "Apache-2.0"
 
   bottle do
