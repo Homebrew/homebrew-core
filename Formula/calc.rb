@@ -1,10 +1,9 @@
 class Calc < Formula
   desc "Arbitrary precision calculator"
   homepage "http://www.isthe.com/chongo/tech/comp/calc/"
-  url "https://downloads.sourceforge.net/project/calc/calc/2.12.7.1/calc-2.12.7.1.tar.bz2"
-  sha256 "eb1dc5dd680019e30264109167e20539fe9ac869049d8b1639781a51d1dea84c"
+  url "https://downloads.sourceforge.net/project/calc/calc/2.12.7.6/calc-2.12.7.6.tar.bz2"
+  sha256 "3e0f27bd6f910f2d556fe5e0fb9b670f16445640fcd157101b26556b2abccec9"
   license "LGPL-2.1-or-later"
-  revision 1
 
   livecheck do
     url :stable
