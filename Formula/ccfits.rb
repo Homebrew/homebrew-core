@@ -16,10 +16,17 @@ class Ccfits < Formula
   depends_on "cfitsio"
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    args = %W[
+      --disable-debug
+      --disable-dependency-tracking
+      --disable-silent-rules
+      --prefix=#{prefix}
+    ]
+    on_linux do
+      # Remove references to brew's shims
+      args << "pfk_cxx_lib_path=/usr/bin/g++"
+    end
+    system "./configure", *args
     system "make"
     system "make", "install"
   end
