@@ -36,9 +36,10 @@ class ClojureLsp < Formula
     pid = wait_thr.pid
     print "testing3"
     stdin.write <<~EOF
-      Content-Length: 59
+      Content-Length: 59
 
-      {"jsonrpc":"2.0","method":"initialize","params":{},"id":1}
+      {"jsonrpc":"2.0","method":"initialize","params":{},"id":1}
+
     EOF
 
     print "testing4"
