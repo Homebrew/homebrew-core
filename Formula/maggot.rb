@@ -9,6 +9,7 @@ class Maggot < Formula
 
   depends_on "gtk+3"
   depends_on "msc-generator"
+  depends_on "pango"
   depends_on "pygobject3" # implicitly depends on the correct (brewed) python3 version
 
   def install
