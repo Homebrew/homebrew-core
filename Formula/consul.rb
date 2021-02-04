@@ -24,7 +24,13 @@ class Consul < Formula
   uses_from_macos "zip" => :build
 
   def install
-    ENV["XC_OS"] = "darwin"
+    # Specificy the OS, else all platforms will be built
+    on_macos do
+      ENV["XC_OS"] = "darwin"
+    end
+    on_linux do
+      ENV["XC_OS"] = "linux"
+    end
     ENV["XC_ARCH"] = "amd64"
     ENV["GOPATH"] = buildpath
     contents = Dir["{*,.git,.gitignore}"]
