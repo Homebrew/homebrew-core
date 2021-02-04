@@ -32,6 +32,7 @@ class Gox < Formula
 
   test do
     ENV["GOPATH"] = testpath
+    ENV["GO111MODULE"] = "auto"
     (testpath/"src/github.com/ericchiang/pup").install resource("pup")
     cd "src/github.com/ericchiang/pup" do
       output = shell_output("#{bin}/gox -arch amd64 -os darwin -os freebsd")
