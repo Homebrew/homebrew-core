@@ -1,8 +1,8 @@
 class Mosquitto < Formula
   desc "Message broker implementing the MQTT protocol"
   homepage "https://mosquitto.org/"
-  url "https://mosquitto.org/files/source/mosquitto-2.0.6.tar.gz"
-  sha256 "0b69a105bafd8524d11f0731fcdb2fbe1c94ad3ddd8f40ccfd97067c59ddd176"
+  url "https://mosquitto.org/files/source/mosquitto-2.0.7.tar.gz"
+  sha256 "a98054f0b8161588975ef24e1d467550d3935f4c16ccee63ecb623248a28356e"
   # dual-licensed under EPL-1.0 and EDL-1.0 (Eclipse Distribution License v1.0),
   # EDL-1.0 is not in the SPDX list
   license "EPL-1.0"
