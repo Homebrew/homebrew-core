@@ -2,17 +2,16 @@ class Go < Formula
   desc "Open source programming language to build simple/reliable/efficient software"
   homepage "https://golang.org"
   license "BSD-3-Clause"
-  revision 1
 
   stable do
     if Hardware::CPU.arm?
       url "https://golang.org/dl/go1.16rc1.src.tar.gz"
       sha256 "6a33569f9d0d21db31614086cc2a4f0fbc683b41c1c53fb512a1341ce5763ff5"
-      version "1.15.7"
+      version "1.15.8"
     else
-      url "https://golang.org/dl/go1.15.7.src.tar.gz"
-      mirror "https://fossies.org/linux/misc/go1.15.7.src.tar.gz"
-      sha256 "8631b3aafd8ecb9244ec2ffb8a2a8b4983cf4ad15572b9801f7c5b167c1a2abc"
+      url "https://golang.org/dl/go1.15.8.src.tar.gz"
+      mirror "https://fossies.org/linux/misc/go1.15.8.src.tar.gz"
+      sha256 "540c0ab7781084d124991321ed1458e479982de94454a98afab6acadf38497c2"
     end
 
     go_version = version.major_minor
