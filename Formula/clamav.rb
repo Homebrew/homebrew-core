@@ -1,9 +1,9 @@
 class Clamav < Formula
   desc "Anti-virus software"
   homepage "https://www.clamav.net/"
-  url "https://www.clamav.net/downloads/production/clamav-0.103.0.tar.gz"
-  mirror "https://fossies.org/linux/misc/clamav-0.103.0.tar.gz"
-  sha256 "32a9745277bfdda80e77ac9ca2f5990897418e9416880f3c31553ca673e80546"
+  url "https://www.clamav.net/downloads/production/clamav-0.103.1.tar.gz"
+  mirror "https://fossies.org/linux/misc/clamav-0.103.1.tar.gz"
+  sha256 "7308c47b89b268af3b9f36140528927a49ff3e633a9c9c0aac2712d81056e257"
   license "GPL-2.0-or-later"
 
   livecheck do
