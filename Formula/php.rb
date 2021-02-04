@@ -4,7 +4,7 @@ class Php < Formula
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
   url "https://www.php.net/distributions/php-8.0.2.tar.xz"
   mirror "https://fossies.org/linux/www/php-8.0.2.tar.xz"
-  sha256 "45401eae2cb1daae86353ac5784b2dfa92d521744fec9c908c1c8d4a016e58de"
+  sha256 "84dd6e36f48c3a71ff5dceba375c1f6b34b71d4fa9e06b720780127176468ccc"
   license "PHP-3.01"
 
   livecheck do
