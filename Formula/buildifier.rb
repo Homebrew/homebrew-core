@@ -16,6 +16,13 @@ class Buildifier < Formula
 
   depends_on "bazelisk" => :build
 
+  # fix `unknown argument: '-fdebug-compilation-dir'`
+  # remove in next release
+  patch do
+    url "https://github.com/bazelbuild/bazel/commit/58bb42a.patch?full_index=1"
+    sha256 "bdf51c5c22b8da9c69b84bcedb391bff17c32404709499f7c87f2b4ecc9cb196"
+  end
+
   def install
     system "bazelisk", "build", "--config=release", "buildifier:buildifier"
     bin.install "bazel-bin/buildifier/darwin_amd64_stripped/buildifier"
