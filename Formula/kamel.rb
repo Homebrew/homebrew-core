@@ -51,7 +51,7 @@ class Kamel < Formula
     assert_match "Error: run expects at least 1 argument, received 0", run_output
 
     run_none_output = shell_output("echo $(#{bin}/kamel run None.java 2>&1)")
-    assert_match "Error: cannot read sources: cannot read sources: Missing file or unsupported scheme in None.java", run_none_output
+    assert_match "cannot read sources: Missing file or unsupported scheme in None.java", run_none_output
 
     reset_output = shell_output("echo $(#{bin}/kamel reset 2>&1)")
     assert_match "Error: cannot get command client: invalid configuration", reset_output
