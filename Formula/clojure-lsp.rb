@@ -8,7 +8,7 @@ class ClojureLsp < Formula
   version "2021.02.04-02.08.58"
   license "MIT"
   version_scheme 1
-  head "https://github.com/clojure/clojure-lsp.git"
+  head "https://github.com/clojure-lsp/clojure-lsp.git"
 
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:  "a647293f345eead229f83e2707fb2c542958c9b4e33fb0bf4e63c7217548d392"
