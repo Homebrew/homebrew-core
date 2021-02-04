@@ -1,8 +1,8 @@
 class OsmiumTool < Formula
   desc "Libosmium-based command-line tool for processing OpenStreetMap data"
   homepage "https://osmcode.org/osmium-tool/"
-  url "https://github.com/osmcode/osmium-tool/archive/v1.13.0.tar.gz"
-  sha256 "5f955080d6f07a369570bd93eaa0cf9a9bbaa9536fc931ce7c1feed60a8bb413"
+  url "https://github.com/osmcode/osmium-tool/archive/v1.13.1.tar.gz"
+  sha256 "d6273e2614d390d8444b767018b7023bdac3538cbe094d2799eee50b6f08cd03"
   license "GPL-3.0"
 
   bottle do
