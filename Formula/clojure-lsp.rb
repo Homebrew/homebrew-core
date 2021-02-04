@@ -48,4 +48,3 @@ class ClojureLsp < Formula
     print "testing6"
   end
 end
-
