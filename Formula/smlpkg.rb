@@ -12,8 +12,6 @@ class Smlpkg < Formula
     sha256 cellar: :any_skip_relocation, high_sierra: "27f4bec44d28a9903d720632f1a2ac71c0091a564a0e26c0e896fac4f2becf22"
   end
 
-  disable! date: "2020-12-08", because: :unmaintained
-
   depends_on "mlkit"
 
   def install
