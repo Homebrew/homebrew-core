@@ -4,6 +4,7 @@ class UutilsCoreutils < Formula
   url "https://github.com/uutils/coreutils/archive/0.0.2.tar.gz"
   sha256 "bfa81e57aede1993582f77965f35b2c9b9018ed1ffc1a04116078141f576649a"
   license "MIT"
+  revision 1
   head "https://github.com/uutils/coreutils.git"
 
   bottle do
