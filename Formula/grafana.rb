@@ -1,8 +1,8 @@
 class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases"
   homepage "https://grafana.com"
-  url "https://github.com/grafana/grafana/archive/v7.3.7.tar.gz"
-  sha256 "bba6900c9bbc221264d79852081596c3c8250470a5165e0b4be51cea419b3007"
+  url "https://github.com/grafana/grafana/archive/v7.4.0.tar.gz"
+  sha256 "524138e0befc77b7ac474c7fe34fc7c54a568c07bf22058f315f15641f289d19"
   license "Apache-2.0"
   head "https://github.com/grafana/grafana.git"
 
@@ -29,7 +29,7 @@ class Grafana < Formula
 
     system "yarn", "install", "--ignore-engines"
 
-    system "node_modules/grunt-cli/bin/grunt", "build"
+    system "node_modules/webpack/bin/webpack.js", "--config", "scripts/webpack/webpack.prod.js"
 
     on_macos do
       bin.install Dir["bin/darwin-*/grafana-cli"]
