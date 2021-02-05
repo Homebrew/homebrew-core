@@ -3,8 +3,8 @@ class Xonsh < Formula
 
   desc "Python-powered, cross-platform, Unix-gazing shell language and command prompt"
   homepage "https://xon.sh/"
-  url "https://files.pythonhosted.org/packages/7f/3d/a29fe1f9dc61502a0cdee70e4bd4f97164106975209b6feaa2e064d241fc/xonsh-0.9.25.tar.gz"
-  sha256 "20af3480d6ac1b8a48f03288796b16a35f498f047e3472c300e4ef5a26f03d60"
+  url "https://files.pythonhosted.org/packages/06/e2/e610db811c1717c9dc0f38c1039a88b746ec5c0e0249f1712703f0dd04ca/xonsh-0.9.26.tar.gz"
+  sha256 "a7a4e4bdf1784e7c3e08a989538e85892481a46b0c79bac9c6cc6f7802858e01"
   license "BSD-2-Clause-Views"
   head "https://github.com/xonsh/xonsh.git"
 
