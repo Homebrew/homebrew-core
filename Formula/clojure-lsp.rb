@@ -30,13 +30,9 @@ class ClojureLsp < Formula
   test do
     require "Open3"
 
-    print "testing"
     system "file", "#{bin}/clojure-lsp"
-    stdin, _stdout, stderr, wait_thr = Open3.popen3("#{bin}/clojure-lsp")
-    print Dir.entries("#{bin}")
-    print "testing2"
+    stdin, stdout, stderr, wait_thr = Open3.popen3("#{bin}/clojure-lsp 2>&1")
     pid = wait_thr.pid
-    print "testing3"
     stdin.write <<~EOF
       Content-Length: 59
 
@@ -44,10 +40,8 @@ class ClojureLsp < Formula
 
     EOF
 
-    print "testing4"
-    assert_match "Content-Length", stderr.gets
-    print "testing5"
+    stdout.gets # will print java options
+    assert_match "Content-Length", stdout.gets
     Process.kill "SIGKILL", pid
-    print "testing6"
   end
 end
