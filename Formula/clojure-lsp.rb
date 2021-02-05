@@ -31,7 +31,7 @@ class ClojureLsp < Formula
     require "Open3"
 
     system "file", "#{bin}/clojure-lsp"
-    stdin, stdout, _stderr, wait_thr = Open3.popen3("#{bin}/clojure-lsp 2>&1")
+    stdin, stdout, _, wait_thr = Open3.popen3("#{bin}/clojure-lsp 2>/dev/null")
     pid = wait_thr.pid
     stdin.write <<~EOF
       Content-Length: 59
@@ -40,7 +40,6 @@ class ClojureLsp < Formula
 
     EOF
 
-    stdout.gets # will print java options
     assert_match "Content-Length", stdout.gets
     Process.kill "SIGKILL", pid
   end
