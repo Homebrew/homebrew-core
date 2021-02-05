@@ -31,7 +31,7 @@ class ClojureLsp < Formula
     require "Open3"
 
     system "file", "#{bin}/clojure-lsp"
-    stdin, stdout, stderr, wait_thr = Open3.popen3("#{bin}/clojure-lsp 2>&1")
+    stdin, stdout, _stderr, wait_thr = Open3.popen3("#{bin}/clojure-lsp 2>&1")
     pid = wait_thr.pid
     stdin.write <<~EOF
       Content-Length: 59
