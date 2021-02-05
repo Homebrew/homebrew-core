@@ -46,7 +46,6 @@ class QtAT6 < Formula
       -plugindir share/qt/plugins
       -qmldir share/qt/qml
       -docdir share/doc/qt
-      -translationdir share/qt/translations
       -examplesdir share/qt/examples
       -testsdir share/qt/tests
 
@@ -64,7 +63,8 @@ class QtAT6 < Formula
 
       -DCMAKE_OSX_DEPLOYMENT_TARGET=#{MacOS.version}
       -DINSTALL_MKSPECSDIR=share/qt/mkspecs
-      INSTALL_DESCRIPTIONSDIR=share/qt/modules
+      -DINSTALL_DESCRIPTIONSDIR=share/qt/modules
+      -DINSTALL_TRANSLATIONSDIR=share/qt/translations
 
       -DFEATURE_pkg_config=ON
     ]
