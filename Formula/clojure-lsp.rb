@@ -32,7 +32,7 @@ class ClojureLsp < Formula
 
     print "testing"
     system "file", "#{bin}/clojure-lsp"
-    stdin, stdout, _, wait_thr = Open3.popen3("#{bin}/clojure-lsp")
+    stdin, _stdout, strerr, wait_thr = Open3.popen3("#{bin}/clojure-lsp")
     print Dir.entries("#{bin}")
     print "testing2"
     pid = wait_thr.pid
@@ -45,7 +45,7 @@ class ClojureLsp < Formula
     EOF
 
     print "testing4"
-    assert_match "Content-Length", stdout.gets
+    assert_match "Content-Length", stderr.gets
     print "testing5"
     Process.kill "SIGKILL", pid
     print "testing6"
