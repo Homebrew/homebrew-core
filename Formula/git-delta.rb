@@ -1,8 +1,8 @@
 class GitDelta < Formula
   desc "Syntax-highlighting pager for git and diff output"
   homepage "https://github.com/dandavison/delta"
-  url "https://github.com/dandavison/delta/archive/0.5.1.tar.gz"
-  sha256 "dd59b747cd178184dff31c7e1707be41f8bc6b412c0c78e62b89aeca4c0f2e15"
+  url "https://github.com/dandavison/delta/archive/0.6.0.tar.gz"
+  sha256 "27259c3d305edee5f49a3a992e7d739cab400f478a675b7388fef85a2724217c"
   license "MIT"
   head "https://github.com/dandavison/delta.git"
 
