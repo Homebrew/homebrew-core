@@ -4,8 +4,8 @@ require "json"
 class Webpack < Formula
   desc "Bundler for JavaScript and friends"
   homepage "https://webpack.js.org/"
-  url "https://registry.npmjs.org/webpack/-/webpack-5.20.1.tgz"
-  sha256 "79a7d422df2d7f710f80c6abdba377fbac1a317f40c525a945475bc7883035be"
+  url "https://registry.npmjs.org/webpack/-/webpack-5.20.2.tgz"
+  sha256 "f914b27b02ba5b481ad9755793e99e54cb85f968ec7b5f125025173d655fdf2c"
   license "MIT"
   head "https://github.com/webpack/webpack.git"
 
