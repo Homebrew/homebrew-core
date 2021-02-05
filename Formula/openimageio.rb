@@ -38,7 +38,8 @@ class Openimageio < Formula
   depends_on "webp"
 
   def install
-    args = std_cmake_args + %w[
+    args = std_cmake_args + %W[
+      -DCMAKE_INSTALL_RPATH=#{rpath}
       -DCCACHE_FOUND=
       -DEMBEDPLUGINS=ON
       -DUSE_FIELD3D=OFF
@@ -71,7 +72,8 @@ class Openimageio < Formula
   end
 
   test do
-    test_image = test_fixtures("test.jpg")
+    test_image = "test.jpg"
+    cp test_fixtures(test_image), testpath
     assert_match "#{test_image} :    1 x    1, 3 channel, uint8 jpeg",
                  shell_output("#{bin}/oiiotool --info #{test_image} 2>&1")
 
