@@ -32,7 +32,7 @@ class ClojureLsp < Formula
 
     print "testing"
     system "file", "#{bin}/clojure-lsp"
-    stdin, _stdout, strerr, wait_thr = Open3.popen3("#{bin}/clojure-lsp")
+    stdin, _stdout, stderr, wait_thr = Open3.popen3("#{bin}/clojure-lsp")
     print Dir.entries("#{bin}")
     print "testing2"
     pid = wait_thr.pid
