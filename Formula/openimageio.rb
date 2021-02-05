@@ -38,7 +38,8 @@ class Openimageio < Formula
   depends_on "webp"
 
   def install
-    args = std_cmake_args + %w[
+    args = std_cmake_args + %W[
+      -DCMAKE_INSTALL_RPATH=#{lib}
       -DCCACHE_FOUND=
       -DEMBEDPLUGINS=ON
       -DUSE_FIELD3D=OFF
