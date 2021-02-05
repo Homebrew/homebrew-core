@@ -1,8 +1,8 @@
 class Duf < Formula
   desc "Disk Usage/Free Utility - a better 'df' alternative"
   homepage "https://github.com/muesli/duf"
-  url "https://github.com/muesli/duf/archive/v0.5.0.tar.gz"
-  sha256 "d8879fbf091cd6f6a3b95102fdeb7d21b7fc8200df1a9864b89d8e87057fc9c6"
+  url "https://github.com/muesli/duf/archive/v0.6.0.tar.gz"
+  sha256 "238ace11966ab3b1f99e5488a9f161ebc97aba7600a8f09884110d0572309491"
   license "MIT"
   head "https://github.com/muesli/duf.git"
 
