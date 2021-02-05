@@ -18,12 +18,6 @@ class VowpalWabbit < Formula
   depends_on "rapidjson" => :build
   depends_on "boost"
 
-  # Support using brewed rapidjson
-  patch do
-    url "https://github.com/VowpalWabbit/vowpal_wabbit/commit/9aea63874e70eee477b9b281ef12515f70f5d1bd.patch?full_index=1"
-    sha256 "e69037901f0027dbcd21204822875efb98c676805d383818483fbe7badc3d6b4"
-  end
-
   def install
     ENV.cxx11
     # The project provides a Makefile, but it is a basic wrapper around cmake
