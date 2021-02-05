@@ -21,6 +21,7 @@ class ClojureLsp < Formula
   depends_on "openjdk@11"
 
   def install
+    ENV["JAVA_HOME"] = Formula["openjdk@11"].opt_prefix
     system "lein", "uberjar"
     jar = Dir["target/clojure-lsp-*-standalone.jar"][0]
     libexec.install jar
@@ -29,8 +30,6 @@ class ClojureLsp < Formula
 
   test do
     require "Open3"
-
-    system "file", "#{bin}/clojure-lsp"
     stdin, stdout, _, wait_thr = Open3.popen3("#{bin}/clojure-lsp 2>/dev/null")
     pid = wait_thr.pid
     stdin.write <<~EOF
