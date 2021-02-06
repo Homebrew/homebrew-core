@@ -19,6 +19,8 @@ class Testdisk < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "752a686f8fa7717cbbdef064eefd80503eccdddfc587bd48fd24256e23332470"
   end
 
+  uses_from_macos "ncurses"
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
