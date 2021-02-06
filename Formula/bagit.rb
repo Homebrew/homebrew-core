@@ -12,6 +12,7 @@ class Bagit < Formula
 
   livecheck do
     url :stable
+    regex(%r{href=.*?/project/bagit/v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
   bottle do
