@@ -4,6 +4,7 @@ class Libical < Formula
   url "https://github.com/libical/libical/releases/download/v3.0.9/libical-3.0.9.tar.gz"
   sha256 "bd26d98b7fcb2eb0cd5461747bbb02024ebe38e293ca53a7dfdcb2505265a728"
   license any_of: ["LGPL-2.1-or-later", "MPL-2.0"]
+  revision 1
 
   bottle do
     sha256 cellar: :any, big_sur:  "e12adf682ea1f397351271c34de6ea2ef1d8d2b85f06fef6a6fa5e9c0639009e"
@@ -22,6 +23,7 @@ class Libical < Formula
     system "cmake", ".", "-DBDB_LIBRARY=BDB_LIBRARY-NOTFOUND",
                          "-DENABLE_GTK_DOC=OFF",
                          "-DSHARED_ONLY=ON",
+                         "-DCMAKE_INSTALL_RPATH=#{lib}",
                          *std_cmake_args
     system "make", "install"
   end
