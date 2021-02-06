@@ -9,8 +9,8 @@ class Kustomize < Formula
   head "https://github.com/kubernetes-sigs/kustomize.git"
 
   livecheck do
-    url :head
-    regex(%r{kustomize/v?(\d+(?:\.\d+)+)$}i)
+    url :stable
+    regex(%r{^kustomize/v?(\d+(?:\.\d+)+)$}i)
   end
 
   bottle do
