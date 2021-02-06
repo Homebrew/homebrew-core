@@ -5,10 +5,6 @@ class Ec2ApiTools < Formula
   sha256 "851abe30403ee1c86a3ebdddf5b4bffd7ef4b587110530feadf00954d9ae2f3a"
   revision 1
 
-  livecheck do
-    skip "No longer developed/maintained"
-  end
-
   bottle :unneeded
 
   # Deprecated upstream somewhere between 2017-12-24 and 2018-09-09 here:
