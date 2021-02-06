@@ -20,6 +20,8 @@ class Logstash < Formula
 
   depends_on "openjdk@8"
 
+  uses_from_macos "ruby" => :build
+
   def install
     # remove non open source files
     rm_rf "x-pack"
