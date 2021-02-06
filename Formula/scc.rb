@@ -20,9 +20,7 @@ class Scc < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/boyter/scc/").install Dir["*"]
-    system "go", "build", "-o", "#{bin}/scc", "-v", "github.com/boyter/scc/"
+    system "go", "build", *std_go_args
   end
 
   test do
