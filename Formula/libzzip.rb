@@ -4,6 +4,7 @@ class Libzzip < Formula
   url "https://github.com/gdraheim/zziplib/archive/v0.13.72.tar.gz"
   sha256 "93ef44bf1f1ea24fc66080426a469df82fa631d13ca3b2e4abaeab89538518dc"
   license "LGPL-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any, big_sur:  "da81c94d36933d34fa6b280165d2d2aa3c98521e846f8b62b615373d32fb0fa4"
@@ -17,7 +18,7 @@ class Libzzip < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DZZIPSDL=OFF"
+      system "cmake", "..", *std_cmake_args, "-DZZIPTEST=OFF", "-DZZIPSDL=OFF", "-DCMAKE_INSTALL_RPATH=#{lib}"
       system "make", "man"
       system "make", "install"
     end
