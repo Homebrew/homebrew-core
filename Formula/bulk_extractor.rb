@@ -1,13 +1,13 @@
 class BulkExtractor < Formula
   desc "Stream-based forensics tool"
   homepage "https://github.com/simsong/bulk_extractor/wiki"
-  url "https://digitalcorpora.org/downloads/bulk_extractor/bulk_extractor-1.5.5.tar.gz"
+  url "https://downloads.digitalcorpora.org/downloads/bulk_extractor/bulk_extractor-1.5.5.tar.gz"
   sha256 "297a57808c12b81b8e0d82222cf57245ad988804ab467eb0a70cf8669594e8ed"
   license "MIT"
   revision 3
 
   livecheck do
-    url "https://digitalcorpora.org/downloads/bulk_extractor/"
+    url "https://downloads.digitalcorpora.org/downloads/bulk_extractor/"
     regex(/href=.*?bulk_extractor[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
