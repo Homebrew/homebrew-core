@@ -7,8 +7,8 @@ class Dust < Formula
   head "https://github.com/bootandy/dust.git"
 
   livecheck do
-    url :head
-    regex(/v([\d.]+)/i)
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
