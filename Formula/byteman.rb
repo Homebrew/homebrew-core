@@ -6,6 +6,11 @@ class Byteman < Formula
   license "LGPL-2.1-or-later"
   head "https://github.com/bytemanproject/byteman"
 
+  livecheck do
+    url "https://byteman.jboss.org/downloads.html"
+    regex(/href=.*?byteman-download[._-]v?(\d+(?:\.\d+)+)-bin\.zip/i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
