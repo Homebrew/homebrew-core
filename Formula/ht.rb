@@ -20,6 +20,8 @@ class Ht < Formula
 
   uses_from_macos "ncurses"
 
+  conflicts_with "ht-rust", because: "both install `ht` binaries"
+
   def install
     # Fix compilation with Xcode 9
     # https://github.com/sebastianbiallas/ht/pull/18
