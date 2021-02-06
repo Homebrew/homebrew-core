@@ -7,6 +7,7 @@ class LibxmlxxAT4 < Formula
 
   livecheck do
     url :stable
+    regex(/libxml\+\+[._-]v?(4\.([0-8]\d*?)?[02468](?:\.\d+)*?)\.t/i)
   end
 
   bottle do
