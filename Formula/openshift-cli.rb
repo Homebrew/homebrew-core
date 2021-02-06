@@ -10,8 +10,8 @@ class OpenshiftCli < Formula
   head "https://github.com/openshift/oc.git", shallow: false
 
   livecheck do
-    url :head
-    regex(/^openshift-clients[._-](\d+(?:\.\d+)+)(?:[._-]p?\d+)*$/i)
+    url :stable
+    regex(/^openshift-clients[._-](\d+(?:\.\d+)+)(?:[._-]p?\d+)?$/i)
   end
 
   bottle do
