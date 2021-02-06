@@ -33,6 +33,8 @@ class Tcptraceroute < Formula
 
   depends_on "libnet"
 
+  uses_from_macos "libpcap"
+
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
