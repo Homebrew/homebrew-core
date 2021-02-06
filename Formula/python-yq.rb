@@ -1,10 +1,9 @@
 class PythonYq < Formula
   desc "Command-line YAML and XML processor that wraps jq"
   homepage "https://kislyuk.github.io/yq/"
-  url "https://files.pythonhosted.org/packages/50/4b/65a4e82636c21b8ffb96550191b463c6c56b99cc2db3c80f414ff2df5c75/yq-2.11.1.tar.gz"
-  sha256 "74f64e3784a34d8a18efd8addc83cf5ca3478a0a69517d70fd9158a3809f99e0"
+  url "https://files.pythonhosted.org/packages/29/54/d7adf40d30cd56fd5b0f0a6f9af0171f98157f0a318b696f9fcb4e842f51/yq-2.12.0.tar.gz"
+  sha256 "1d2ad403504d306b5258b86c698f9856d7ad58b7bb17a2b875691a6a7b8c4c20"
   license "Apache-2.0"
-  revision 1
 
   livecheck do
     url :stable
@@ -24,13 +23,18 @@ class PythonYq < Formula
   conflicts_with "yq", because: "both install `yq` executables"
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/45/bd/98dfd56ea8f6b2b7dd89bea8b067a55a6dbaec7b4cc28186cbafe2e1d24e/argcomplete-1.12.1.tar.gz"
-    sha256 "849c2444c35bb2175aea74100ca5f644c29bf716429399c0f2203bb5d9a8e4e6"
+    url "https://files.pythonhosted.org/packages/cb/53/d2e3d11726367351b00c8f078a96dacb7f57aef2aca0d3b6c437afc56b55/argcomplete-1.12.2.tar.gz"
+    sha256 "de0e1282330940d52ea92a80fea2e4b9e0da1932aaa570f84d268939d1897b04"
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/64/c2/b80047c7ac2478f9501676c988a5411ed5572f35d1beff9cae07d321512c/PyYAML-5.3.1.tar.gz"
-    sha256 "b8eac752c5e14d3eca0e6dd9199cd627518cb5ec06add0de9d32baeee6fe645d"
+    url "https://files.pythonhosted.org/packages/a0/a4/d63f2d7597e1a4b55aa3b4d6c5b029991d3b824b5bd331af8d4ab1ed687d/PyYAML-5.4.1.tar.gz"
+    sha256 "607774cbba28732bfa802b54baa7484215f530991055bb562efbed5b2f20a45e"
+  end
+
+  resource "toml" do
+    url "https://files.pythonhosted.org/packages/be/ba/1f744cdc819428fc6b5084ec34d9b30660f6f9daaf70eead706e3203ec3c/toml-0.10.2.tar.gz"
+    sha256 "b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"
   end
 
   resource "xmltodict" do
