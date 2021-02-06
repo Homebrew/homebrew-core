@@ -33,6 +33,8 @@ class Iftop < Formula
     depends_on "automake" => :build
   end
 
+  uses_from_macos "libpcap"
+
   def install
     system "./bootstrap" if build.head?
     system "./configure", "--disable-dependency-tracking",
