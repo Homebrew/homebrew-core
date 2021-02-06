@@ -26,7 +26,7 @@ class Openjdk < Formula
     sha256 cellar: :any, mojave:        "13c9bf7e3d1ccb71863249ed983fad3b19324b22557bf12247331a693504c235"
   end
 
-  keg_only "it shadows the macOS `java` wrapper"
+  keg_only :shadowed_by_macos
 
   depends_on "autoconf" => :build
   depends_on xcode: :build if Hardware::CPU.arm?
@@ -160,19 +160,21 @@ class Openjdk < Formula
   end
 
   def caveats
-    s = <<~EOS
-      For the system Java wrappers to find this JDK, symlink it with
-        sudo ln -sfn #{opt_libexec}/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
-    EOS
-
-    if Hardware::CPU.arm?
-      s += <<~EOS
-        This is a beta version of openjdk for Apple Silicon
-        (openjdk 16 preview).
+    on_macos do
+      s = <<~EOS
+        For the system Java wrappers to find this JDK, symlink it with
+          sudo ln -sfn #{opt_libexec}/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
       EOS
-    end
 
-    s
+      if Hardware::CPU.arm?
+        s += <<~EOS
+          This is a beta version of openjdk for Apple Silicon
+          (openjdk 16 preview).
+        EOS
+      end
+
+      s
+    end
   end
 
   test do
