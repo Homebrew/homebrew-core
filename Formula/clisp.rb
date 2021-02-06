@@ -38,7 +38,7 @@ class Clisp < Formula
 
   def install
     ENV.deparallelize # This build isn't parallel safe.
-    ENV.O0 # Any optimization breaks the build
+    ENV["HOMEBREW_OPTIMIZATION_LEVEL"] = "O0" # Any optimization breaks the build
 
     # Clisp requires to select word size explicitly this way,
     # set it in CFLAGS won't work.
