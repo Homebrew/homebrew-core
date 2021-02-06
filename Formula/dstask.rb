@@ -1,8 +1,8 @@
 class Dstask < Formula
   desc "Git-powered personal task tracker"
   homepage "https://github.com/naggie/dstask"
-  url "https://github.com/naggie/dstask/archive/v0.23.2.tar.gz"
-  sha256 "30665d3f0f1e268af6eff681e331557f56273bf6ac7491b489c50725b55ef293"
+  url "https://github.com/naggie/dstask/archive/v0.24.1.tar.gz"
+  sha256 "35d46ade97f7b68e2bfb719b8bdb0db65e4b66b97e368849ecdecab1d58ef3d0"
   license "MIT"
   head "https://github.com/naggie/dstask.git"
 
