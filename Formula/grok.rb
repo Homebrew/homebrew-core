@@ -8,8 +8,8 @@ class Grok < Formula
   head "https://github.com/jordansissel/grok.git"
 
   livecheck do
-    url :head
-    regex(/^v?(\d+\.\d{,3}(\.\d+)+)$/i)
+    url :stable
+    regex(/^v?(\d+\.\d{6,8}(\.\d+)*)$/i)
   end
 
   bottle do
