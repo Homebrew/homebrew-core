@@ -7,8 +7,8 @@ class Connect < Formula
   head "https://github.com/gotoh/ssh-connect.git"
 
   livecheck do
-    url :head
-    regex(/^(\d+(?:\.\d+)+)$/i)
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
