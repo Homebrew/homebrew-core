@@ -5,6 +5,11 @@ class Opensubdiv < Formula
   sha256 "7b22eb27d636ab0c1e03722c7a5a5bd4f11664ee65c9b48f341a6d0ce7f36745"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:[._]\d+)+)$/i)
+  end
+
   bottle do
     sha256 arm64_big_sur: "5ebfe202d77f6bd92933301787141552e45d3694ceef3187a2f3c7b23edbf9e8"
     sha256 big_sur:       "9c9da8838f7d8a088fae55beec22ff3e7b687994f2b14a37155fd5fafc66ad5a"
