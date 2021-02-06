@@ -27,6 +27,9 @@ class Deno < Formula
   end
 
   def install
+    # Overwrite Chromium minimum SDK version of 10.15
+    ENV["FORCE_MAC_SDK_MIN"] = MacOS.version if MacOS.version < :mojave
+
     # env args for building a release build with our clang, ninja and gn
     ENV["GN"] = buildpath/"gn/out/gn"
     ENV["NINJA"] = Formula["ninja"].opt_bin/"ninja"
