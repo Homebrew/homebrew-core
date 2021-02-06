@@ -7,8 +7,8 @@ class Oniguruma < Formula
   head "https://github.com/kkos/oniguruma.git"
 
   livecheck do
-    url :head
-    regex(/^v?(\d+(?:\.\d+)+(?:.(?:mark|rev)\d+)?)$/i)
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+(?:[._-](?:mark|rev)\d+)?)$/i)
   end
 
   bottle do
