@@ -1,8 +1,8 @@
 class Vsh < Formula
   desc "HashiCorp Vault interactive shell"
   homepage "https://github.com/fishi0x01/vsh"
-  url "https://github.com/fishi0x01/vsh/archive/v0.8.0.tar.gz"
-  sha256 "7eb6e2dcd758a38acfe12437e40d5f22a1f0cefa369dab9aeabd3417ae46ba12"
+  url "https://github.com/fishi0x01/vsh/archive/v0.9.0.tar.gz"
+  sha256 "58d739573e2b3db0bdd5664fe84f7dba432b03f18ddf6a3bb4ae97c4c9668ccd"
   license "MIT"
 
   bottle do
@@ -19,7 +19,7 @@ class Vsh < Formula
   end
 
   test do
-    version_output = shell_output("#{bin}/vsh -version")
+    version_output = shell_output("#{bin}/vsh --version")
     assert_match version.to_s, version_output
     error_output = shell_output("#{bin}/vsh -c ls 2>&1", 1)
     assert_match "Error initializing vault client | Is VAULT_ADDR properly set?", error_output
