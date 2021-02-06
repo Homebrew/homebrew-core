@@ -7,8 +7,8 @@ class CernNdiff < Formula
   head "https://github.com/MethodicalAcceleratorDesign/MAD-X.git"
 
   livecheck do
-    url :head
-    regex(/^(?:mad-?X.)?v?(\d+(?:[._]\d+)+)$/i)
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
