@@ -21,7 +21,6 @@ class Awk < Formula
     because: "both install an `awk` executable"
 
   def install
-    ENV.O3 # Docs recommend higher optimization
     ENV.deparallelize
     # the yacc command the makefile uses results in build failures:
     # /usr/bin/bison: missing operand after `awkgram.y'
