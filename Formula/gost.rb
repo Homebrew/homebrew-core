@@ -27,6 +27,6 @@ class Gost < Formula
       exec "#{bin}/gost -L #{bind_address}"
     end
     sleep 1
-    assert_match "200 OK", shell_output("curl -I -x #{bind_address} https://github.com")
+    assert_match "HTTP/2 200", shell_output("curl -I -x #{bind_address} https://github.com")
   end
 end
